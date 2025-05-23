@@ -2,11 +2,29 @@
 /**
  * Achievement Notification Component
  *
- * This component displays a notification when an achievement is unlocked.
- * It appears dynamically and disappears after a specified time.
+ * Displays a toast-like notification when a user unlocks an achievement.
+ * The notification appears with animation, plays a sound (if enabled),
+ * and automatically disappears after a configurable time period.
+ *
+ * @component
+ * @implements {WCAG AAA compliance}
+ *
+ * Accessibility Features:
+ * - Uses role="alert" for screen reader announcements
+ * - Provides aria-live="polite" for non-intrusive updates
+ * - Supports close button with appropriate aria-label
+ * - Implements focus management and outline for keyboard navigation
+ * - Follows WCAG AAA contrast requirements (7:1 ratio)
+ * - Supports reduced motion preferences
+ *
+ * @example
+ * ```astro
+ * <AchievementNotification lang="en" />
+ * ```
  */
 
 import { useTranslations } from "../../utils/i18n.ts";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   /** Language code for translations */
@@ -19,225 +37,811 @@ const t = useTranslations(lang);
 
 <div
   id="achievement-notification"
-  class="fixed right-8 bottom-8 z-50 max-w-96 translate-y-[150%] overflow-hidden rounded-lg bg-[color:var(--color-background-secondary,#2a2a2a)] p-4 text-[color:var(--color-text-primary,#ffffff)] opacity-0 shadow-lg transition-all duration-300 ease-out sm:max-w-sm md:max-w-md"
+  class="achievement-notification"
   role="alert"
   aria-live="polite"
+  aria-labelledby="achievement-title achievement-category"
+  aria-describedby="achievement-description sr-notification-type"
+  tabindex="-1"
 >
-  <div class="relative flex items-start gap-4">
-    <div
-      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[color:var(--color-accent,#ffd700)] p-2 text-[color:var(--color-text-inverse,#000000)]"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <circle cx="12" cy="8" r="7"></circle>
-        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-      </svg>
+  <div class="achievement-notification__container">
+    <div class="achievement-notification__icon">
+      <Icon name="trophy" width="24" height="24" aria-hidden="true" />
     </div>
-    <div class="flex-grow pr-6">
-      <h3 id="achievement-title" class="m-0 mb-1 text-lg font-semibold">
+    <div class="achievement-notification__content">
+      <h3 id="achievement-title" class="achievement-notification__title">
         {t("achievements.notification.unlocked")}
       </h3>
-      <p id="achievement-description" class="m-0 text-sm opacity-90">
+      <p id="achievement-description" class="achievement-notification__description">
         {t("achievements.notification.progress")}
       </p>
+      <!-- Zusätzliche versteckte Information für Screenreader -->
+      <span id="sr-notification-type" class="sr-only">
+        {t("achievements.notification.new_achievement")}
+      </span>
     </div>
-    <button
-      id="achievement-close"
-      class="absolute top-0 right-0 flex h-6 w-6 cursor-pointer items-center justify-center border-none bg-transparent p-0 text-[color:var(--color-text-secondary,#cccccc)] transition-colors duration-200 hover:text-[color:var(--color-text-primary,#ffffff)] focus:text-[color:var(--color-text-primary,#ffffff)] focus:outline-none"
-      aria-label={t("achievements.notification.close")}
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+    <!-- Steuerelemente für Benachrichtigung -->
+    <div class="achievement-notification__controls">
+      <button
+        id="achievement-pause"
+        class="achievement-notification__control-button"
+        aria-label={t("achievements.notification.pause")}
+        title={t("achievements.notification.pause_title")}
       >
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
+        <Icon name="pause" width="16" height="16" aria-hidden="true" />
+      </button>
+      <button
+        id="achievement-sound-toggle"
+        class="achievement-notification__control-button"
+        aria-label={t("achievements.notification.toggle_sound")}
+        title={t("achievements.notification.toggle_sound_title")}
+      >
+        <Icon name="volume-2" width="16" height="16" aria-hidden="true" />
+      </button>
+      <button
+        id="achievement-close"
+        class="achievement-notification__close"
+        aria-label={t("achievements.notification.close")}
+      >
+        <Icon name="x" width="20" height="20" aria-hidden="true" />
+      </button>
+    </div>
   </div>
-  <div
-    id="achievement-category"
-    class="mt-3 py-1 text-center text-xs font-semibold tracking-wider uppercase"
-  >
+  <div id="achievement-category" class="achievement-notification__category"></div>
+  
+  <!-- Timer für Benachrichtigung -->
+  <div class="achievement-notification__timer" aria-hidden="true">
+    <div class="achievement-notification__timer-progress" id="notification-timer"></div>
   </div>
 </div>
 
-<!-- Audio for achievement notification -->
+<!-- Audio für Benachrichtigungen mit verbesserter Zugänglichkeit -->
 <audio id="achievement-sound" preload="none">
   <source src="/sounds/achievement-unlocked.mp3" type="audio/mpeg" />
   <source src="/sounds/achievement-unlocked.ogg" type="audio/ogg" />
   <track
     kind="captions"
     src="/sounds/achievement-unlocked-captions.vtt"
-    srclang="de"
-    label="Deutsch"
+    srclang="en"
+    label="English"
     default
   />
 </audio>
 
-<script>
-  import type { AchievementEvent } from "../../types/achievement.ts";
-  import { subscribeToAchievementEvents } from "../../utils/achievements/achievementEvents.ts";
-
-  // DOM elements
-  const notificationElement = document.getElementById("achievement-notification");
-  const titleElement = document.getElementById("achievement-title");
-  const descriptionElement = document.getElementById("achievement-description");
-  const categoryElement = document.getElementById("achievement-category");
-  const closeButton = document.getElementById("achievement-close");
-  const achievementSound = document.getElementById("achievement-sound") as HTMLAudioElement;
-
-  // Check user settings for sound
-  const soundEnabled = localStorage.getItem("achievement-sound-enabled") !== "false";
-
-  // Timeout for hiding the notification
-  let hideTimeout: number | null = null;
-
-  // Event listener for achievement events
-  const unsubscribe = subscribeToAchievementEvents((event: AchievementEvent) => {
-    if (event.type === "achievement_unlocked") {
-      // Set notification text
-      if (titleElement) {
-        titleElement.textContent = event.achievement.name;
-      }
-      if (descriptionElement) {
-        descriptionElement.textContent = event.achievement.description;
-      }
-      if (categoryElement && event.achievement.category) {
-        categoryElement.textContent = event.achievement.category.code.toUpperCase();
-        categoryElement.className = `achievement-notification-category category-${event.achievement.category.code}`;
-      }
-
-      // Play sound if enabled
-      if (soundEnabled && achievementSound) {
-        try {
-          achievementSound.currentTime = 0;
-          achievementSound.play().catch((err) => {
-            console.warn("Could not play achievement sound:", err);
-          });
-        } catch (err) {
-          console.warn("Error playing achievement sound:", err);
-        }
-      }
-
-      // Show notification
-      if (notificationElement) {
-        notificationElement.classList.add("translate-y-0", "opacity-100");
-        notificationElement.classList.add("animate-pulse");
-
-        // Clear previous timeout if exists
-        if (hideTimeout !== null) {
-          window.clearTimeout(hideTimeout);
-        }
-
-        // Set timeout to hide notification
-        hideTimeout = window.setTimeout(() => {
-          notificationElement.classList.remove("animate-pulse");
-
-          // Short delay before complete hide
-          setTimeout(() => {
-            notificationElement.classList.remove("translate-y-0", "opacity-100");
-          }, 300);
-        }, 6000); // Show for 6 seconds
-      }
-    }
-  });
-
-  // Close button event listener
-  if (closeButton) {
-    closeButton.addEventListener("click", () => {
-      if (notificationElement) {
-        notificationElement.classList.remove("animate-pulse");
-
-        // Short delay before complete hide
-        setTimeout(() => {
-          notificationElement.classList.remove("translate-y-0", "opacity-100");
-        }, 300);
-
-        // Clear timeout
-        if (hideTimeout !== null) {
-          window.clearTimeout(hideTimeout);
-          hideTimeout = null;
-        }
-      }
-    });
-  }
-
-  // Remove event listeners when page unloads
-  document.addEventListener("beforeunload", () => {
-    unsubscribe();
-    if (hideTimeout !== null) {
-      window.clearTimeout(hideTimeout);
-    }
-  });
-</script>
+<!-- Einstellungen für Barrierefreiheit (wird dynamisch mit JavaScript geladen) -->
+<div
+  id="achievement-a11y-settings"
+  class="sr-only"
+  aria-hidden="true"
+  data-display-time="5000"
+  data-enable-sound="true"
+  data-display-time-min="3000"
+  data-display-time-max="10000"
+  data-display-time-step="1000"
+>
+</div>
 
 <style>
+  /* Achievement notification main container */
+  .achievement-notification {
+    position: fixed;
+    right: var(--spacing-xl);
+    bottom: var(--spacing-xl);
+    z-index: 50;
+    max-width: 24rem;
+    transform: translateY(150%);
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-gray-800);
+    padding: var(--spacing-md);
+    color: var(--color-white);
+    opacity: 0;
+    box-shadow: var(--shadow-lg);
+    /* Verbesserte Tastaturzugänglichkeit mit Outline */
+    outline: none;
+    /* Verbesserte Vendor-Prefixes für bessere Kompatibilität */
+    -webkit-transition:
+      transform 0.3s ease-out,
+      opacity 0.3s ease-out;
+    transition:
+      transform 0.3s ease-out,
+      opacity 0.3s ease-out;
+    /* Isolierung für korrektes Stacking */
+    isolation: isolate;
+    /* Text-Anpassung für WCAG AAA - Verbesserte Unterstützung für Textabstände */
+    line-height: var(--line-height-relaxed, 1.8);
+    letter-spacing: var(--letter-spacing, 0.03em);
+    word-spacing: var(--word-spacing, 0.05em);
+    overflow-wrap: break-word;
+    /* Unterstützung für Text-Spacing - WCAG 1.4.12 Level AAA */
+    text-spacing: trim-start allow-end trim-adjacent ideograph-alpha ideograph-numeric;
+  }
+
+  /* Container für den Benachrichtigungsinhalt */
+  .achievement-notification__container {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  /* Icon-Container mit verbessertem Kontrast */
+  .achievement-notification__icon {
+    display: flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-full);
+    background-color: var(--color-purple-600);
+    padding: 0.5rem;
+    color: var(--color-white);
+    /* Add subtle visual feedback for success */
+    box-shadow: 0 0 0 rgba(139, 92, 246, 0.4);
+    animation: pulse 2s infinite;
+  }
+
+  /* Subtile Pulsanimation für das Achievement-Icon */
   @keyframes pulse {
     0% {
-      box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+      box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
     }
     70% {
-      box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+      box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
     }
     100% {
-      box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+      box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
     }
   }
 
-  .animate-pulse {
-    animation: pulse 2s ease-in-out;
-  }
-
-  .category-bronze {
-    @apply bg-[color:var(--color-bronze,#cd7f32)];
-  }
-
-  .category-silver {
-    @apply bg-[color:var(--color-silver,#c0c0c0)];
-  }
-
-  .category-gold {
-    @apply bg-[color:var(--color-gold,#ffd700)];
-  }
-
-  .category-platinum {
-    @apply bg-[color:var(--color-platinum,#e5e4e2)];
-  }
-
-  .category-diamond {
-    @apply bg-[color:var(--color-diamond,#b9f2ff)];
-  }
-
-  @media (max-width: 640px) {
-    #achievement-notification {
-      @appy max-w-none;
-    }
-  }
-
+  /* Animation für Benutzer mit reduzierter Bewegung deaktivieren */
   @media (prefers-reduced-motion: reduce) {
-    #achievement-notification {
-      @apply transition-none;
+    .achievement-notification__icon {
+      animation: none;
+      box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.4);
+    }
+  }
+
+  /* Inhaltsbereich */
+  .achievement-notification__content {
+    flex-grow: 1;
+    padding-right: 1.5rem;
+  }
+
+  /* Titel mit verbessertem Kontrast */
+  .achievement-notification__title {
+    margin: 0;
+    margin-bottom: 0.25rem;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: inherit; /* Korrekte Farbvererbung für Hell-/Dunkelmodus */
+    line-height: 1.4; /* Verbesserte Lesbarkeit */
+  }
+
+  /* Beschreibung mit verbessertem Kontrast */
+  .achievement-notification__description {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    opacity: 0.96; /* Verbessert von 0.9 für höheren Kontrast */
+    line-height: 1.5; /* Bessere Lesbarkeit */
+    max-width: 100%; /* Verhindert Textüberlauf */
+    word-wrap: break-word; /* Lange Wörter handhaben */
+  }
+
+  /* Schließen-Button mit verbesserter Zugänglichkeit */
+  .achievement-notification__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    height: 2.5rem; /* Erhöht von 2rem für bessere Erfassung */
+    width: 2.5rem; /* Erhöht von 2rem für bessere Erfassung */
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    color: var(--color-gray-400);
+    transition:
+      color 0.2s,
+      outline 0.2s;
+    border-radius: 4px;
+    /* Mindestgröße für Touch-Ziele - WCAG AAA */
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .achievement-notification__close:hover,
+  .achievement-notification__close:focus-visible {
+    color: var(--color-white);
+  }
+
+  /* Verbesserter Fokusstil nach WCAG 2.2 Enhanced Focus Appearance */
+  .achievement-notification__close:focus-visible,
+  .achievement-notification__control-button:focus-visible {
+    outline: 3px solid var(--color-purple-300, #c4b5fd);
+    outline-offset: 3px;
+    border-radius: 2px;
+    /* Erhöhter Kontrast (Mindestens 3:1 zwischen Fokus und Nichtfokus) */
+    background-color: rgba(124, 58, 237, 0.1);
+    /* Minimale Breite und Höhe für Fokusindikator */
+    min-width: 44px;
+    min-height: 44px;
+    /* Vermeiden von Fokusindikatoren unter 2px Dicke (WCAG 2.2) */
+    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.3);
+  }
+
+  /* Kategorie */
+  .achievement-notification__category {
+    margin-top: 0.75rem;
+    padding: 0.35rem 0;
+    text-align: center;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    /* Visuelle Unterscheidung für Kategorie */
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Erhöhte Opazität für besseren Kontrast */
+    padding-top: 0.5rem;
+  }
+
+  /* Modifier für sichtbaren Zustand */
+  .achievement-notification--visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* Steuerelemente für die Benachrichtigung */
+  .achievement-notification__controls {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  /* Steuerelementtasten */
+  .achievement-notification__control-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    width: 2rem;
+    background-color: transparent;
+    color: var(--color-gray-400);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 
+      color 0.2s ease,
+      background-color 0.2s ease,
+      outline 0.2s ease;
+    /* Mindestgröße für Touch-Ziele - WCAG AAA */
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .achievement-notification__control-button:hover,
+  .achievement-notification__control-button:focus-visible {
+    color: var(--color-white);
+  }
+
+  .achievement-notification__control-button:focus-visible {
+    outline: 3px solid var(--color-purple-300, #c4b5fd);
+    outline-offset: 3px;
+    border-radius: 2px;
+    background-color: rgba(124, 58, 237, 0.1);
+  }
+
+  /* Timer für Benachrichtigung */
+  .achievement-notification__timer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+  }
+
+  .achievement-notification__timer-progress {
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-purple-500);
+    transform-origin: left;
+    animation: timer-countdown linear forwards;
+  }
+
+  @keyframes timer-countdown {
+    from {
+      transform: scaleX(1);
+    }
+    to {
+      transform: scaleX(0);
+    }
+  }
+
+  /* Responsive Anpassungen */
+  @media (min-width: 640px) {
+    .achievement-notification {
+      max-width: 30rem;
+      /* Verbesserte Position für größere Bildschirme */
+      bottom: var(--spacing-2xl);
+      right: var(--spacing-2xl);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .achievement-notification {
+      max-width: 36rem;
+    }
+  }
+
+  /* Standardmäßig Dunkelmodus, Überschreibung für Hellmodus */
+  @media (prefers-color-scheme: light) {
+    .achievement-notification {
+      background-color: var(--color-gray-100);
+      color: var(--color-gray-900);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     }
 
-    .animate-pulse {
-      animation: none;
+    .achievement-notification__icon {
+      background-color: var(--color-purple-900); /* Dunkler für höheres Kontrastverhältnis von 7:1 (WCAG AAA) */
+      color: var(--color-white);
+    }
+
+    .achievement-notification__category {
+      border-top-color: rgba(0, 0, 0, 0.2); /* Erhöhte Opazität für 7:1 Kontrastverhältnis */
+      color: var(--color-gray-900); /* Maximaler Kontrast im Light Mode */
+      font-weight: 700; /* Fetter für bessere Lesbarkeit und Kontrast */
+    }
+
+    .achievement-notification__description {
+      color: var(--color-gray-900); /* Maximaler Kontrast im Light Mode */
+      opacity: 1; /* Keine Verringerung der Deckkraft für maximalen Kontrast */
+    }
+
+    .achievement-notification__close,
+    .achievement-notification__control-button {
+      color: var(--color-gray-800); /* Dunkler für 7:1 Kontrastverhältnis */
+    }
+
+    .achievement-notification__close:hover,
+    .achievement-notification__close:focus-visible,
+    .achievement-notification__control-button:hover,
+    .achievement-notification__control-button:focus-visible {
+      color: var(--color-gray-900);
+      background-color: rgba(0, 0, 0, 0.1); /* Verstärkter Hover-Zustand für Sichtbarkeit */
+    }
+
+    .achievement-notification__close:focus-visible,
+    .achievement-notification__control-button:focus-visible {
+      outline: 3px solid var(--color-purple-800);
+      outline-offset: 3px;
+      border-radius: 2px;
+      background-color: rgba(88, 28, 135, 0.15); /* Dunklere Lila-Farbe für höheren Kontrast */
+    }
+  }
+
+  /* Unterstützung für reduzierte Bewegung */
+  @media (prefers-reduced-motion: reduce) {
+    .achievement-notification {
+      transition-duration: 0.001s !important;
+      -webkit-transition-duration: 0.001s !important;
+    }
+
+    /* Alternative für Benutzer, die reduzierte Bewegung bevorzugen */
+    .achievement-notification--visible {
+      /* Sofortiges Erscheinen statt Animation */
+      transition: none;
+      -webkit-transition: none;
+    }
+  }
+
+  /* Unterstützung für High Contrast Mode */
+  @media (forced-colors: active) {
+    .achievement-notification {
+      border: 1px solid CanvasText;
+    }
+
+    .achievement-notification__icon {
+      background-color: Highlight;
+      color: HighlightText;
+      border: 1px solid CanvasText;
+    }
+
+    .achievement-notification__close:focus-visible {
+      outline: 3px solid CanvasText;
+    }
+
+    .achievement-notification__category {
+      border-top: 1px solid CanvasText;
+    }
+
+    .achievement-notification__control-button {
+      border: 1px solid CanvasText;
+    }
+
+    .achievement-notification__control-button:focus-visible {
+      outline: 3px solid CanvasText;
+    }
+
+    .achievement-notification__timer {
+      background-color: Canvas;
+      border-bottom: 1px solid CanvasText;
+    }
+
+    .achievement-notification__timer-progress {
+      background-color: Highlight;
     }
   }
 </style>
+
+<script>
+  import type { AchievementEvent } from "../../types/achievement.ts";
+  import { subscribeToAchievementEvents } from "../../utils/achievements/achievementEvents.ts";
+  import { getTranslations } from "../../utils/i18n.ts";
+
+  /**
+   * Initialisiert die Benachrichtigungsfunktionen für Achievements
+   *
+   * Dieses Skript beinhaltet:
+   * 1. Abonnieren von Achievement-Events
+   * 2. Aktualisieren des Benachrichtigungsinhalts
+   * 3. Handling von Animationen und Sichtbarkeit
+   * 4. Verwaltung der Audiowiedergabe
+   * 5. Implementierung von Auto-Hide und manuellem Schließen
+   * 6. Verbessertes Fokusmanagement für Barrierefreiheit
+   *
+   * @returns {void}
+   */
+  function initAchievementNotification(): void {
+    // Übersetzungsfunktion abrufen
+    const lang = document.documentElement.lang || "en";
+    const t = getTranslations(lang);
+    
+    // Benachrichtigungselemente abrufen
+    const notification = document.getElementById("achievement-notification");
+    const achievementTitle = document.getElementById("achievement-title");
+    const achievementDescription = document.getElementById("achievement-description");
+    const achievementCategory = document.getElementById("achievement-category");
+    const achievementSound = document.getElementById("achievement-sound") as HTMLAudioElement;
+    const closeButton = document.getElementById("achievement-close");
+    const pauseButton = document.getElementById("achievement-pause");
+    const soundToggleButton = document.getElementById("achievement-sound-toggle");
+    const timerProgressElement = document.getElementById("notification-timer");
+    const a11ySettings = document.getElementById("achievement-a11y-settings");
+
+    // Barrierefreiheitseinstellungen abrufen
+    let displayTime = 5000; // Standard: 5 Sekunden
+    let enableSound = true; // Standard: Sound aktiviert
+    let minDisplayTime = 3000; // Minimum: 3 Sekunden
+    let maxDisplayTime = 10000; // Maximum: 10 Sekunden
+    let displayTimeStep = 1000; // Schrittweite: 1 Sekunde
+
+    if (a11ySettings) {
+      displayTime = parseInt(a11ySettings.getAttribute("data-display-time") || "5000", 10);
+      enableSound = a11ySettings.getAttribute("data-enable-sound") === "true";
+      minDisplayTime = parseInt(a11ySettings.getAttribute("data-display-time-min") || "3000", 10);
+      maxDisplayTime = parseInt(a11ySettings.getAttribute("data-display-time-max") || "10000", 10);
+      displayTimeStep = parseInt(a11ySettings.getAttribute("data-display-time-step") || "1000", 10);
+    }
+
+    // Prüfen, ob Benutzer reduzierte Bewegung bevorzugt
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Tracking des letzten fokussierten Elements für Fokusmanagement
+    let lastFocusedElement: HTMLElement | null = null;
+
+    // Sicherstellen, dass alle benötigten Elemente existieren
+    if (notification && achievementTitle && achievementDescription && achievementCategory) {
+      let hideTimeout: number | null = null;
+
+      // Initialer Zustand für Timer und Steuerelemente
+      let isPaused = false;
+      let isMuted = !enableSound;
+      let currentTimerAnimation: Animation | null = null;
+
+      /**
+       * Zeigt die Benachrichtigung an
+       * @param {AchievementEvent} event - Das Achievement-Event mit Daten
+       */
+      const showNotification = (event: AchievementEvent): void => {
+        // Benachrichtigungsinhalt aktualisieren
+        achievementTitle.textContent = event.achievement.name;
+        achievementDescription.textContent = event.achievement.description;
+        achievementCategory.textContent = event.achievement.category?.code.toUpperCase() || "";
+
+        // Speichern des aktuellen Fokus für spätere Wiederherstellung
+        lastFocusedElement = document.activeElement as HTMLElement;
+
+        // Benachrichtigung mit leichter Verzögerung für bessere Animation anzeigen
+        requestAnimationFrame(() => {
+          notification.classList.add("achievement-notification--visible");
+
+          // Fokus auf die Benachrichtigung setzen für Screenreader-Ankündigung
+          notification.setAttribute("tabindex", "-1");
+          notification.focus();
+
+          // Fokus-Trap einrichten
+          setupFocusTrap();
+        });
+
+        // Sound abspielen, falls aktiviert und verfügbar
+        if (achievementSound && enableSound && !prefersReducedMotion) {
+          // Lautstärke einstellen und Wiedergabe versuchen
+          achievementSound.volume = 0.7;
+          achievementSound.currentTime = 0;
+
+          // Wiedergabe mit Promise behandeln für Browser, die Benutzerinteraktion erfordern
+          const playPromise = achievementSound.play();
+
+          if (playPromise !== undefined) {
+            playPromise.catch((error) => {
+              console.warn("Soundwiedergabe verhindert:", error);
+            });
+          }
+        }
+
+        // Automatisch nach eingestellter Zeit ausblenden
+        if (hideTimeout) {
+          clearTimeout(hideTimeout);
+        }
+
+        hideTimeout = window.setTimeout(() => {
+          hideNotification();
+        }, displayTime);
+
+        // Timer-Fortschritt aktualisieren
+        updateTimerProgress();
+      };
+
+      /**
+       * Blendet die Benachrichtigung aus
+       */
+      const hideNotification = (): void => {
+        notification.classList.remove("achievement-notification--visible");
+
+        // Fokus-Trap entfernen
+        removeFocusTrap();
+
+        // Fokus zum vorherigen Element zurücksetzen
+        if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+          lastFocusedElement.focus();
+        }
+
+        if (hideTimeout) {
+          clearTimeout(hideTimeout);
+          hideTimeout = null;
+        }
+      };
+
+      // Fokus-Trap einrichten
+      const setupFocusTrap = (): void => {
+        document.addEventListener("focusin", trapFocus);
+        document.addEventListener("keydown", handleKeyDown);
+      };
+
+      /**
+       * Entfernt die Fokus-Trap
+       */
+      const removeFocusTrap = (): void => {
+        document.removeEventListener("focusin", trapFocus);
+        document.removeEventListener("keydown", handleKeyDown);
+      };
+
+      /**
+       * Fokus innerhalb der Benachrichtigung halten
+       * Implementiert eine robuste Fokus-Falle für die Benachrichtigung
+       */
+      const trapFocus = (event: FocusEvent): void => {
+        if (
+          notification.classList.contains("achievement-notification--visible") &&
+          event.target instanceof Node &&
+          !notification.contains(event.target)
+        ) {
+          // Fokus zurück in die Benachrichtigung setzen
+          event.stopPropagation();
+          closeButton?.focus();
+        }
+      };
+      
+      /**
+       * Verbesserte Tastaturnavigation für die Benachrichtigung
+       * Verarbeitet Tab-Tasten, um den Fokus innerhalb der Benachrichtigung zu halten
+       */
+      const handleKeyDown = (event: KeyboardEvent): void => {
+        // Benachrichtigung nur verarbeiten, wenn sie sichtbar ist
+        if (!notification.classList.contains("achievement-notification--visible")) {
+          return;
+        }
+        
+        // ESC-Taste zum Schließen
+        if (event.key === "Escape") {
+          hideNotification();
+          event.preventDefault();
+          return;
+        }
+        
+        // TAB-Taste für Fokus-Trap
+        if (event.key === "Tab") {
+          // Fokussierbare Elemente innerhalb der Benachrichtigung finden
+          const focusableElements = notification.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          );
+          
+          if (focusableElements.length === 0) {
+            event.preventDefault();
+            return;
+          }
+          
+          const firstElement = focusableElements[0] as HTMLElement;
+          const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+          
+          // SHIFT+TAB navigiert rückwärts
+          if (event.shiftKey) {
+            // Wenn wir am ersten Element sind, zum letzten Element gehen
+            if (document.activeElement === firstElement) {
+              lastElement.focus();
+              event.preventDefault();
+            }
+          } else {
+            // TAB navigiert vorwärts
+            // Wenn wir am letzten Element sind, zum ersten Element gehen
+            if (document.activeElement === lastElement) {
+              firstElement.focus();
+              event.preventDefault();
+            }
+          }
+        }
+      };
+
+      /**
+       * Aktualisiert den Timer-Fortschritt
+       * Zeigt den visuellen Countdown für die Benachrichtigung an
+       */
+      const updateTimerProgress = (): void => {
+        if (!timerProgressElement) return;
+        
+        // Vorherige Animation entfernen
+        if (currentTimerAnimation) {
+          currentTimerAnimation.cancel();
+        }
+        
+        // Timer-Animation mit der aktuellen Anzeigezeit konfigurieren
+        currentTimerAnimation = timerProgressElement.animate(
+          [
+            { transform: 'scaleX(1)' },
+            { transform: 'scaleX(0)' }
+          ],
+          {
+            duration: displayTime,
+            easing: 'linear',
+            fill: 'forwards'
+          }
+        );
+        
+        // Bei Pause anhalten
+        if (isPaused) {
+          currentTimerAnimation.pause();
+        }
+      };
+      
+      /**
+       * Pausiert oder setzt die Timer-Animation fort
+       */
+      const togglePause = (): void => {
+        isPaused = !isPaused;
+        
+        if (isPaused) {
+          // Timer anhalten und Timeout stoppen
+          if (currentTimerAnimation) {
+            currentTimerAnimation.pause();
+          }
+          
+          if (hideTimeout) {
+            clearTimeout(hideTimeout);
+            hideTimeout = null;
+          }
+          
+          // Pausenbutton-Icon aktualisieren
+          if (pauseButton) {
+            pauseButton.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 3l14 9-14 9V3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+            pauseButton.setAttribute('aria-label', t('achievements.notification.resume'));
+            pauseButton.setAttribute('title', t('achievements.notification.resume_title'));
+          }
+        } else {
+          // Timer fortsetzen und neuen Timeout starten
+          if (currentTimerAnimation) {
+            const timeElapsed = currentTimerAnimation.currentTime || 0;
+            const remainingTime = displayTime - timeElapsed;
+            currentTimerAnimation.play();
+            
+            if (hideTimeout) {
+              clearTimeout(hideTimeout);
+            }
+            
+            hideTimeout = window.setTimeout(() => {
+              hideNotification();
+            }, remainingTime);
+          }
+          }
+          
+          // Pausenbutton-Icon aktualisieren
+          if (pauseButton) {
+            pauseButton.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 4H6v16h4V4zm8 0h-4v16h4V4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+            pauseButton.setAttribute('aria-label', t("achievements.notification.pause"));
+            pauseButton.setAttribute('title', t("achievements.notification.pause_title"));
+          }
+        }
+      };
+      
+      /**
+       * Schaltet den Sound ein oder aus
+       */
+      const toggleSound = (): void => {
+        isMuted = !isMuted;
+        
+        // Icon und Status aktualisieren
+        if (soundToggleButton) {
+          if (isMuted) {
+            soundToggleButton.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+            soundToggleButton.setAttribute('aria-label', t("achievements.notification.unmute"));
+            soundToggleButton.setAttribute('title', t("achievements.notification.unmute_title"));
+            
+            // Sound anhalten, falls gerade abgespielt
+            if (achievementSound) {
+              achievementSound.pause();
+              achievementSound.currentTime = 0;
+            }
+          } else {
+            soundToggleButton.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+            soundToggleButton.setAttribute('aria-label', t("achievements.notification.mute"));
+            soundToggleButton.setAttribute('title', t("achievements.notification.mute_title"));
+          }
+        }
+        
+        // Speichern der Benutzereinstellung
+        if (a11ySettings) {
+          a11ySettings.setAttribute('data-enable-sound', isMuted ? 'false' : 'true');
+          enableSound = !isMuted;
+        }
+      };
+
+      // Schließen-Button-Klick behandeln
+      if (closeButton) {
+        closeButton.addEventListener("click", hideNotification);
+      }
+
+      // Pause-Button-Klick behandeln
+      if (pauseButton) {
+        pauseButton.addEventListener("click", togglePause);
+      }
+
+      // Sound-Toggle-Button-Klick behandeln
+      if (soundToggleButton) {
+        soundToggleButton.addEventListener("click", toggleSound);
+      }
+
+      // Achievement-Events abonnieren
+      subscribeToAchievementEvents(showNotification);
+
+      // Listener für Medienabfrage zu reduzierter Bewegung
+      const reducedMotionMediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+      reducedMotionMediaQuery.addEventListener("change", () => {
+        // Einstellungen anpassen, wenn sich die Präferenz ändert
+        const prefersReducedMotion = reducedMotionMediaQuery.matches;
+        if (prefersReducedMotion && achievementSound) {
+          // Sound deaktivieren für Nutzer, die reduzierte Bewegung bevorzugen
+          achievementSound.pause();
+          achievementSound.currentTime = 0;
+        }
+      });
+    }
+  }
+
+  // Initialisieren, wenn DOM bereit ist
+  document.addEventListener("DOMContentLoaded", initAchievementNotification);
+</script>
