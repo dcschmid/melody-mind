@@ -551,6 +551,15 @@ export default {
   "api.errors.unknown_error": "Erreur inconnue dans l'API des meilleurs scores",
   "api.errors.highscores_retrieval_message": "Erreur lors de la récupération des meilleurs scores",
 
+  "achievements.filter.reset": "Réinitialiser",
+  "achievements.filter.reset_aria": "Réinitialiser les filtres",
+  "achievements.filter.keyboard_shortcuts": "Raccourcis clavier",
+  "achievements.filter.available_shortcuts": "Raccourcis disponibles",
+  "achievements.filter.reset_filters": "Réinitialiser les filtres",
+  "achievements.filter.focus_status": "Focaliser le filtre de statut",
+  "achievements.filter.focus_category": "Focaliser le filtre de catégorie",
+  "achievements.filter.toggle_keyboard_help": "Afficher/masquer l'aide des raccourcis clavier",
+
   // Clés supplémentaires du jeu de chronologie
   "game.chronology.meta.description": "Jeu de Chronologie Musicale :",
   "game.meta.description.prefix": "Jouer",

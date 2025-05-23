@@ -548,6 +548,15 @@ export default {
   "game.chronology.touch.navigation": "Touchscreen-navigatie",
   "game.chronology.navigation.description":
     "Gebruik deze knoppen om het geselecteerde element te verplaatsen",
+  "achievements.filter.reset": "Reset",
+  "achievements.filter.reset_aria": "Filters resetten",
+  "achievements.filter.keyboard_shortcuts": "Toetsenbordsnelkoppelingen",
+  "achievements.filter.available_shortcuts": "Beschikbare snelkoppelingen",
+  "achievements.filter.reset_filters": "Filters resetten",
+  "achievements.filter.focus_status": "Focus op statusfilter",
+  "achievements.filter.focus_category": "Focus op categoriefilter",
+  "achievements.filter.toggle_keyboard_help": "Toetsenbordhelp tonen/verbergen",
+
   "game.chronology.move.up": "Omhoog verplaatsen",
   "game.chronology.move.down": "Omlaag verplaatsen",
   "game.time.extend": "Tijd verlengen",

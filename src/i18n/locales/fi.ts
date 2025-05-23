@@ -548,6 +548,15 @@ export default {
   "game.chronology.touch.navigation": "Kosketusnäytön navigointi",
   "game.chronology.navigation.description":
     "Käytä näitä painikkeita valitun elementin siirtämiseen",
+  "achievements.filter.reset": "Nollaa",
+  "achievements.filter.reset_aria": "Nollaa suodattimet",
+  "achievements.filter.keyboard_shortcuts": "Pikanäppäimet",
+  "achievements.filter.available_shortcuts": "Käytettävissä olevat pikanäppäimet",
+  "achievements.filter.reset_filters": "Nollaa suodattimet",
+  "achievements.filter.focus_status": "Kohdista tilasuodattimeen",
+  "achievements.filter.focus_category": "Kohdista kategoriasuodattimeen",
+  "achievements.filter.toggle_keyboard_help": "Näytä/piilota pikanäppäinohjeet",
+
   "game.chronology.move.up": "Siirrä ylös",
   "game.chronology.move.down": "Siirrä alas",
   "game.time.extend": "Pidennä aikaa",

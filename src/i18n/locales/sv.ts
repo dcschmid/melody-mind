@@ -520,6 +520,15 @@ export default {
   "api.errors.unknown_error": "Okänt fel i toppresultat-API",
   "api.errors.highscores_retrieval_message": "Fel vid hämtning av toppresultat",
 
+  "achievements.filter.reset": "Återställ",
+  "achievements.filter.reset_aria": "Återställ filter",
+  "achievements.filter.keyboard_shortcuts": "Tangentbordsgenvägar",
+  "achievements.filter.available_shortcuts": "Tillgängliga genvägar",
+  "achievements.filter.reset_filters": "Återställ filter",
+  "achievements.filter.focus_status": "Fokusera på statusfilter",
+  "achievements.filter.focus_category": "Fokusera på kategorifilter",
+  "achievements.filter.toggle_keyboard_help": "Visa/dölj tangentbordshjälp",
+
   // Ytterligare nycklar för Kronologispelet
   "game.chronology.meta.description": "Musikkronologispel:",
   "game.meta.description.prefix": "Spela",
