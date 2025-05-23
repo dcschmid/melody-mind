@@ -23,6 +23,7 @@
  * ```
  */
 import { getLangFromUrl, useTranslations } from "../../utils/i18n";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   /** Initial mode of the component: "login" or "register" */
@@ -41,11 +42,11 @@ const translations = {
 ---
 
 <!-- Main auth form container -->
-<div class="auth-form-container">
+<div class="auth-form__container">
   <!-- Error message display area -->
   <div
     id="formError"
-    class="mb-4 hidden rounded-md border border-red-700 bg-red-900/50 p-3 text-white"
+    class="auth-form__message auth-form__message--error"
     role="alert"
     aria-live="assertive"
   >
@@ -53,17 +54,17 @@ const translations = {
   <!-- Success message display area -->
   <div
     id="formSuccess"
-    class="mb-4 hidden rounded-md border border-green-700 bg-green-900/50 p-3 text-white"
+    class="auth-form__message auth-form__message--success"
     role="alert"
     aria-live="assertive"
   >
   </div>
 
   <!-- Tab navigation for switching between login and registration -->
-  <div class="auth-tabs mb-6">
+  <div class="auth-form__tabs">
     <button
       id="loginTab"
-      class={`auth-tab ${initialMode === "login" ? "active" : ""}`}
+      class={`auth-form__tab ${initialMode === "login" ? "auth-form__tab--active" : ""}`}
       aria-selected={initialMode === "login" ? "true" : "false"}
       role="tab"
       aria-controls="loginForm"
@@ -72,7 +73,7 @@ const translations = {
     </button>
     <button
       id="registerTab"
-      class={`auth-tab ${initialMode === "register" ? "active" : ""}`}
+      class={`auth-form__tab ${initialMode === "register" ? "auth-form__tab--active" : ""}`}
       aria-selected={initialMode === "register" ? "true" : "false"}
       role="tab"
       aria-controls="registerForm"
@@ -81,11 +82,11 @@ const translations = {
     </button>
   </div>
 
-  <div class="auth-forms-container">
+  <div class="auth-form__forms-container">
     <!-- Login Form -->
     <form
       id="loginForm"
-      class={`auth-form ${initialMode === "login" ? "active" : ""}`}
+      class={`auth-form__form ${initialMode === "login" ? "auth-form__form--active" : ""}`}
       novalidate
       aria-labelledby="loginFormHeading"
       role="tabpanel"
@@ -94,50 +95,47 @@ const translations = {
       <h2 id="loginFormHeading" class="sr-only">{t("auth.login.title")}</h2>
 
       <!-- Email field for login -->
-      <div class="mb-4">
-        <label for="loginEmail" class="mb-2 block text-sm font-medium">
+      <div class="auth-form__field">
+        <label for="loginEmail" class="auth-form__label">
           {t("auth.login.email")}
-          <span class="text-red-400" aria-hidden="true">*</span>
+          <span class="auth-form__required-mark" aria-hidden="true">*</span>
           <span class="sr-only">{t("auth.form.required")}</span>
         </label>
-        <div class="relative">
+        <div class="auth-form__input-wrapper">
           <input
             type="email"
             id="loginEmail"
             name="email"
             autocomplete="email"
             required
-            class="w-full rounded-md border border-zinc-700 bg-zinc-800 px-4 py-2 text-white focus:border-transparent focus:ring-2 focus:ring-purple-400 focus:outline-none"
+            class="auth-form__input"
             placeholder={t("auth.login.email.placeholder")}
             aria-required="true"
           />
-          <div id="loginEmailError" class="mt-1 hidden text-sm text-red-400"></div>
+          <div id="loginEmailError" class="auth-form__error-message"></div>
         </div>
       </div>
 
       <!-- Password field for login with reset link -->
-      <div class="mb-4">
-        <div class="mb-2 flex items-center justify-between">
-          <label for="loginPassword" class="block text-sm font-medium">
+      <div class="auth-form__field">
+        <div class="auth-form__label-group">
+          <label for="loginPassword" class="auth-form__label">
             {t("auth.login.password")}
-            <span class="text-red-400" aria-hidden="true">*</span>
+            <span class="auth-form__required-mark" aria-hidden="true">*</span>
             <span class="sr-only">{t("auth.form.required")}</span>
           </label>
-          <a
-            href={`/${String(lang)}/auth/reset-password`}
-            class="rounded-md px-2 py-1 text-sm text-purple-300 hover:text-purple-200 focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
-          >
+          <a href={`/${String(lang)}/auth/reset-password`} class="auth-form__forgot-password">
             {t("auth.login.forgot_password")}
           </a>
         </div>
-        <div class="relative">
+        <div class="auth-form__input-wrapper">
           <input
             type="password"
             id="loginPassword"
             name="password"
             autocomplete="current-password"
             required
-            class="w-full rounded-md border border-zinc-700 bg-zinc-800 px-4 py-2 text-white focus:border-transparent focus:ring-2 focus:ring-purple-400 focus:outline-none"
+            class="auth-form__input"
             placeholder={t("auth.login.password.placeholder")}
             aria-required="true"
           />
@@ -145,77 +143,26 @@ const translations = {
           <button
             type="button"
             id="toggleLoginPassword"
-            class="absolute inset-y-0 right-0 flex items-center rounded-md px-3 text-gray-400 hover:text-white focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
+            class="auth-form__toggle-password"
             aria-label={t("auth.accessibility.password_toggle")}
           >
-            <span class="show-password">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-5 w-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
-                ></path>
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
+            <span class="auth-form__icon auth-form__icon--show">
+              <Icon name="eye" class="auth-form__svg-icon" aria-hidden="true" />
             </span>
-            <span class="hide-password hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-5 w-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
-                ></path>
-              </svg>
+            <span class="auth-form__icon auth-form__icon--hide">
+              <Icon name="eye-slash" class="auth-form__svg-icon" aria-hidden="true" />
             </span>
           </button>
-          <div id="loginPasswordError" class="mt-1 hidden text-sm text-red-400"></div>
+          <div id="loginPasswordError" class="auth-form__error-message"></div>
         </div>
       </div>
 
       <!-- Login submit button with loading state -->
       <div>
-        <button
-          type="submit"
-          class="flex w-full justify-center rounded-md border border-transparent bg-purple-600 px-4 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-purple-700 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
-        >
+        <button type="submit" class="auth-form__submit-button">
           <span id="loginSubmitText">{t("auth.login.submit")}</span>
-          <span id="loginLoadingSpinner" class="hidden">
-            <svg
-              class="ml-2 h-4 w-4 animate-spin text-white"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                class="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                stroke-width="4"></circle>
-              <path
-                class="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-              ></path>
-            </svg>
+          <span id="loginLoadingSpinner" class="auth-form__spinner">
+            <Icon name="refresh" class="auth-form__spinner-icon icon-loader" aria-hidden="true" />
           </span>
         </button>
       </div>
@@ -224,7 +171,7 @@ const translations = {
     <!-- Registration Form -->
     <form
       id="registerForm"
-      class={`auth-form ${initialMode === "register" ? "active" : ""}`}
+      class={`auth-form__form ${initialMode === "register" ? "auth-form__form--active" : ""}`}
       novalidate
       aria-labelledby="registerFormHeading"
       role="tabpanel"
@@ -235,59 +182,59 @@ const translations = {
       </h2>
 
       <!-- Email field for registration -->
-      <div class="mb-4">
-        <label for="registerEmail" class="mb-2 block text-sm font-medium">
+      <div class="auth-form__field">
+        <label for="registerEmail" class="auth-form__label">
           {t("auth.register.email")}
-          <span class="text-red-400" aria-hidden="true">*</span>
+          <span class="auth-form__required-mark" aria-hidden="true">*</span>
           <span class="sr-only">{t("auth.form.required")}</span>
         </label>
-        <div class="relative">
+        <div class="auth-form__input-wrapper">
           <input
             type="email"
             id="registerEmail"
             name="email"
             autocomplete="email"
             required
-            class="w-full rounded-md border border-zinc-700 bg-zinc-800 px-4 py-2 text-white focus:border-transparent focus:ring-2 focus:ring-purple-400 focus:outline-none"
+            class="auth-form__input"
             placeholder={t("auth.register.email.placeholder")}
             aria-required="true"
           />
-          <div id="registerEmailError" class="mt-1 hidden text-sm text-red-400"></div>
+          <div id="registerEmailError" class="auth-form__error-message"></div>
         </div>
       </div>
 
       <!-- Username field (optional) -->
-      <div class="mb-4">
-        <label for="registerUsername" class="mb-2 block text-sm font-medium">
+      <div class="auth-form__field">
+        <label for="registerUsername" class="auth-form__label">
           {t("auth.register.username")}
         </label>
-        <div class="relative">
+        <div class="auth-form__input-wrapper">
           <input
             type="text"
             id="registerUsername"
             name="username"
             autocomplete="username"
-            class="w-full rounded-md border border-zinc-700 bg-zinc-800 px-4 py-2 text-white focus:border-transparent focus:ring-2 focus:ring-purple-400 focus:outline-none"
+            class="auth-form__input"
             placeholder={t("auth.register.username.placeholder")}
           />
         </div>
       </div>
 
       <!-- Password field for registration -->
-      <div class="mb-4">
-        <label for="registerPassword" class="mb-2 block text-sm font-medium">
+      <div class="auth-form__field">
+        <label for="registerPassword" class="auth-form__label">
           {t("auth.register.password")}
-          <span class="text-red-400" aria-hidden="true">*</span>
+          <span class="auth-form__required-mark" aria-hidden="true">*</span>
           <span class="sr-only">{t("auth.form.required")}</span>
         </label>
-        <div class="relative">
+        <div class="auth-form__input-wrapper">
           <input
             type="password"
             id="registerPassword"
             name="password"
             autocomplete="new-password"
             required
-            class="w-full rounded-md border border-zinc-700 bg-zinc-800 px-4 py-2 text-white focus:border-transparent focus:ring-2 focus:ring-purple-400 focus:outline-none"
+            class="auth-form__input"
             placeholder={t("auth.register.password.placeholder")}
             aria-required="true"
           />
@@ -295,65 +242,35 @@ const translations = {
           <button
             type="button"
             id="toggleRegisterPassword"
-            class="absolute inset-y-0 right-0 flex items-center rounded-md px-3 text-gray-400 hover:text-white focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
+            class="auth-form__toggle-password"
             aria-label={t("auth.accessibility.password_toggle")}
           >
-            <span class="show-password">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-5 w-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
-                ></path>
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
+            <span class="auth-form__icon auth-form__icon--show">
+              <Icon name="eye" class="auth-form__svg-icon" aria-hidden="true" />
             </span>
-            <span class="hide-password hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-5 w-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
-                ></path>
-              </svg>
+            <span class="auth-form__icon auth-form__icon--hide">
+              <Icon name="eye-slash" class="auth-form__svg-icon" aria-hidden="true" />
             </span>
           </button>
-          <div id="registerPasswordError" class="mt-1 hidden text-sm text-red-400"></div>
+          <div id="registerPasswordError" class="auth-form__error-message"></div>
         </div>
       </div>
 
       <!-- Password confirmation field -->
-      <div class="mb-4">
-        <label for="registerPasswordConfirm" class="mb-2 block text-sm font-medium">
+      <div class="auth-form__field">
+        <label for="registerPasswordConfirm" class="auth-form__label">
           {t("auth.register.password_confirm")}
-          <span class="text-red-400" aria-hidden="true">*</span>
+          <span class="auth-form__required-mark" aria-hidden="true">*</span>
           <span class="sr-only">{t("auth.form.required")}</span>
         </label>
-        <div class="relative">
+        <div class="auth-form__input-wrapper">
           <input
             type="password"
             id="registerPasswordConfirm"
             name="passwordConfirm"
             autocomplete="new-password"
             required
-            class="w-full rounded-md border border-zinc-700 bg-zinc-800 px-4 py-2 text-white focus:border-transparent focus:ring-2 focus:ring-purple-400 focus:outline-none"
+            class="auth-form__input"
             placeholder={t("auth.register.password_confirm.placeholder")}
             aria-required="true"
           />
@@ -361,124 +278,81 @@ const translations = {
           <button
             type="button"
             id="toggleRegisterPasswordConfirm"
-            class="absolute inset-y-0 right-0 flex items-center rounded-md px-3 text-gray-400 hover:text-white focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
+            class="auth-form__toggle-password"
             aria-label={t("auth.accessibility.password_toggle")}
           >
-            <span class="show-password">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-5 w-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
-                ></path>
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
+            <span class="auth-form__icon auth-form__icon--show">
+              <Icon name="eye" class="auth-form__svg-icon" aria-hidden="true" />
             </span>
-            <span class="hide-password hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-5 w-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
-                ></path>
-              </svg>
+            <span class="auth-form__icon auth-form__icon--hide">
+              <Icon name="eye-slash" class="auth-form__svg-icon" aria-hidden="true" />
             </span>
           </button>
-          <div id="registerPasswordConfirmError" class="mt-1 hidden text-sm text-red-400"></div>
+          <div id="registerPasswordConfirmError" class="auth-form__error-message"></div>
         </div>
       </div>
 
       <!-- Password requirements and strength indicator -->
-      <div class="mb-4">
+      <div class="auth-form__field">
         <button
           type="button"
           id="toggleRequirements"
-          class="flex items-center rounded-md px-2 py-1 text-sm text-purple-300 hover:text-purple-200 focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
+          class="auth-form__requirements-toggle"
           aria-expanded="false"
           aria-controls="passwordRequirements"
           aria-label={t("auth.accessibility.password_requirements")}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="mr-1 h-4 w-4"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-            ></path>
-          </svg>
+          <Icon name="information-circle" class="auth-form__requirements-icon" aria-hidden="true" />
           {t("auth.password.requirements")}
         </button>
 
-        <div
-          id="passwordRequirements"
-          class="mt-3 hidden rounded-md border border-zinc-700 bg-zinc-800 p-3"
-          aria-hidden="true"
-        >
-          <h3 class="mb-2 text-sm font-medium">
+        <div id="passwordRequirements" class="auth-form__requirements-panel" aria-hidden="true">
+          <h3 class="auth-form__requirements-heading">
             {t("auth.password.requirements")}
           </h3>
           <!-- Password requirement checklist -->
-          <ul class="ml-5 list-disc space-y-1 text-sm">
-            <li id="req-length" class="text-red-400">
+          <ul class="auth-form__requirements-list">
+            <li id="req-length" class="auth-form__requirement auth-form__requirement--invalid">
               {t("auth.password.min_length")}
             </li>
-            <li id="req-uppercase" class="text-red-400">
+            <li id="req-uppercase" class="auth-form__requirement auth-form__requirement--invalid">
               {t("auth.password.uppercase")}
             </li>
-            <li id="req-lowercase" class="text-red-400">
+            <li id="req-lowercase" class="auth-form__requirement auth-form__requirement--invalid">
               {t("auth.password.lowercase")}
             </li>
-            <li id="req-number" class="text-red-400">
+            <li id="req-number" class="auth-form__requirement auth-form__requirement--invalid">
               {t("auth.password.number")}
             </li>
-            <li id="req-special" class="text-red-400">
+            <li id="req-special" class="auth-form__requirement auth-form__requirement--invalid">
               {t("auth.password.special")}
             </li>
-            <li id="req-common" class="text-red-400">
+            <li id="req-common" class="auth-form__requirement auth-form__requirement--invalid">
               {t("auth.password.no_common")}
             </li>
-            <li id="req-repeats" class="text-red-400">
+            <li id="req-repeats" class="auth-form__requirement auth-form__requirement--invalid">
               {t("auth.password.no_repeats")}
             </li>
-            <li id="req-sequences" class="text-red-400">
+            <li id="req-sequences" class="auth-form__requirement auth-form__requirement--invalid">
               {t("auth.password.no_sequences")}
             </li>
-            <li id="req-match" class="text-red-400">
+            <li id="req-match" class="auth-form__requirement auth-form__requirement--invalid">
               {t("auth.password.match")}
             </li>
           </ul>
 
           <!-- Password strength meter -->
-          <div class="mt-3">
-            <p class="mb-1 text-sm">{t("auth.password.strength")}</p>
-            <div class="h-2.5 w-full rounded-full bg-zinc-700">
-              <div id="passwordStrength" class="h-2.5 rounded-full bg-red-500" style="width: 0%">
+          <div class="auth-form__strength-container">
+            <p class="auth-form__strength-label">{t("auth.password.strength")}</p>
+            <div class="auth-form__strength-meter">
+              <div
+                id="passwordStrength"
+                class="auth-form__strength-progress auth-form__strength-progress--weak"
+                style="width: 0%"
+              >
               </div>
             </div>
-            <p id="strengthText" class="mt-1 text-xs text-red-400">
+            <p id="strengthText" class="auth-form__strength-text auth-form__strength-text--weak">
               {t("auth.password.strength.weak")}
             </p>
           </div>
@@ -487,31 +361,10 @@ const translations = {
 
       <!-- Registration submit button with loading state -->
       <div>
-        <button
-          type="submit"
-          class="flex w-full justify-center rounded-md border border-transparent bg-purple-600 px-4 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-purple-700 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
-        >
+        <button type="submit" class="auth-form__submit-button">
           <span id="registerSubmitText">{t("auth.register.submit")}</span>
-          <span id="registerLoadingSpinner" class="hidden">
-            <svg
-              class="ml-2 h-4 w-4 animate-spin text-white"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                class="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                stroke-width="4"></circle>
-              <path
-                class="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-              ></path>
-            </svg>
+          <span id="registerLoadingSpinner" class="auth-form__spinner">
+            <Icon name="refresh" class="auth-form__spinner-icon icon-loader" aria-hidden="true" />
           </span>
         </button>
       </div>
@@ -519,7 +372,8 @@ const translations = {
   </div>
 </div>
 
-<script define:vars={{ translations }}>
+<script type="module" define:vars={{ translations }}>
+  // Script for form validation, password requirements checking, and form submission
   /**
    * List of common passwords (shortened)
    * Used to prevent users from setting easily guessable passwords
@@ -605,11 +459,12 @@ const translations = {
   /**
    * Displays an error message in the form error container
    * @param {string} message - The error message to display
+   * @returns {void}
    */
   function showError(message) {
     if (formError) {
       formError.textContent = message;
-      formError.classList.remove("hidden");
+      formError.style.display = "block";
     }
   }
 
@@ -631,25 +486,25 @@ const translations = {
   function switchTab(mode) {
     // Update tabs
     if (mode === "login") {
-      loginTab.classList.add("active");
-      registerTab.classList.remove("active");
+      loginTab.classList.add("auth-form__tab--active");
+      registerTab.classList.remove("auth-form__tab--active");
       loginTab.setAttribute("aria-selected", "true");
       registerTab.setAttribute("aria-selected", "false");
 
       // Update forms with animation
-      loginForm.classList.add("active");
-      registerForm.classList.remove("active");
+      loginForm.classList.add("auth-form__form--active");
+      registerForm.classList.remove("auth-form__form--active");
       loginForm.setAttribute("aria-hidden", "false");
       registerForm.setAttribute("aria-hidden", "true");
     } else {
-      loginTab.classList.remove("active");
-      registerTab.classList.add("active");
+      loginTab.classList.remove("auth-form__tab--active");
+      registerTab.classList.add("auth-form__tab--active");
       loginTab.setAttribute("aria-selected", "false");
       registerTab.setAttribute("aria-selected", "true");
 
       // Update forms with animation
-      loginForm.classList.remove("active");
-      registerForm.classList.add("active");
+      loginForm.classList.remove("auth-form__form--active");
+      registerForm.classList.add("auth-form__form--active");
       loginForm.setAttribute("aria-hidden", "true");
       registerForm.setAttribute("aria-hidden", "false");
     }
@@ -800,20 +655,39 @@ const translations = {
     const { errors } = validatePassword(password);
 
     // Update requirements in the UI
-    reqLength.className = errors.includes("min_length") ? "text-red-400" : "text-green-400";
-    reqUppercase.className = errors.includes("uppercase") ? "text-red-400" : "text-green-400";
-    reqLowercase.className = errors.includes("lowercase") ? "text-red-400" : "text-green-400";
-    reqNumber.className = errors.includes("number") ? "text-red-400" : "text-green-400";
-    reqSpecial.className = errors.includes("special") ? "text-red-400" : "text-green-400";
-    reqCommon.className = errors.includes("common") ? "text-red-400" : "text-green-400";
-    reqRepeats.className = errors.includes("repeats") ? "text-red-400" : "text-green-400";
-    reqSequences.className = errors.includes("sequences") ? "text-red-400" : "text-green-400";
+    reqLength.className = errors.includes("min_length")
+      ? "auth-form__requirement auth-form__requirement--invalid"
+      : "auth-form__requirement auth-form__requirement--valid";
+    reqUppercase.className = errors.includes("uppercase")
+      ? "auth-form__requirement auth-form__requirement--invalid"
+      : "auth-form__requirement auth-form__requirement--valid";
+    reqLowercase.className = errors.includes("lowercase")
+      ? "auth-form__requirement auth-form__requirement--invalid"
+      : "auth-form__requirement auth-form__requirement--valid";
+    reqNumber.className = errors.includes("number")
+      ? "auth-form__requirement auth-form__requirement--invalid"
+      : "auth-form__requirement auth-form__requirement--valid";
+    reqSpecial.className = errors.includes("special")
+      ? "auth-form__requirement auth-form__requirement--invalid"
+      : "auth-form__requirement auth-form__requirement--valid";
+    reqCommon.className = errors.includes("common")
+      ? "auth-form__requirement auth-form__requirement--invalid"
+      : "auth-form__requirement auth-form__requirement--valid";
+    reqRepeats.className = errors.includes("repeats")
+      ? "auth-form__requirement auth-form__requirement--invalid"
+      : "auth-form__requirement auth-form__requirement--valid";
+    reqSequences.className = errors.includes("sequences")
+      ? "auth-form__requirement auth-form__requirement--invalid"
+      : "auth-form__requirement auth-form__requirement--valid";
 
     // Check if passwords match
     if (password && passwordConfirm) {
-      reqMatch.className = password === passwordConfirm ? "text-green-400" : "text-red-400";
+      reqMatch.className =
+        password === passwordConfirm
+          ? "auth-form__requirement auth-form__requirement--valid"
+          : "auth-form__requirement auth-form__requirement--invalid";
     } else {
-      reqMatch.className = "text-red-400";
+      reqMatch.className = "auth-form__requirement auth-form__requirement--invalid";
     }
 
     // Calculate password strength
@@ -822,20 +696,24 @@ const translations = {
 
     // Update color and text based on strength
     if (strength < 30) {
-      passwordStrength.className = "bg-red-500 h-2.5 rounded-full";
-      strengthText.className = "text-xs mt-1 text-red-400";
+      passwordStrength.className =
+        "auth-form__strength-progress auth-form__strength-progress--weak";
+      strengthText.className = "auth-form__strength-text auth-form__strength-text--weak";
       strengthText.textContent = document.documentElement.lang === "de" ? "Schwach" : "Weak";
     } else if (strength < 60) {
-      passwordStrength.className = "bg-yellow-500 h-2.5 rounded-full";
-      strengthText.className = "text-xs mt-1 text-yellow-400";
+      passwordStrength.className =
+        "auth-form__strength-progress auth-form__strength-progress--medium";
+      strengthText.className = "auth-form__strength-text auth-form__strength-text--medium";
       strengthText.textContent = document.documentElement.lang === "de" ? "Mittel" : "Medium";
     } else if (strength < 80) {
-      passwordStrength.className = "bg-green-500 h-2.5 rounded-full";
-      strengthText.className = "text-xs mt-1 text-green-400";
+      passwordStrength.className =
+        "auth-form__strength-progress auth-form__strength-progress--strong";
+      strengthText.className = "auth-form__strength-text auth-form__strength-text--strong";
       strengthText.textContent = document.documentElement.lang === "de" ? "Stark" : "Strong";
     } else {
-      passwordStrength.className = "bg-blue-500 h-2.5 rounded-full";
-      strengthText.className = "text-xs mt-1 text-blue-400";
+      passwordStrength.className =
+        "auth-form__strength-progress auth-form__strength-progress--very-strong";
+      strengthText.className = "auth-form__strength-text auth-form__strength-text--very-strong";
       strengthText.textContent =
         document.documentElement.lang === "de" ? "Sehr stark" : "Very Strong";
     }
@@ -850,12 +728,12 @@ const translations = {
   toggleLoginPasswordButton.addEventListener("click", () => {
     if (loginPasswordInput.type === "password") {
       loginPasswordInput.type = "text";
-      toggleLoginPasswordButton.querySelector(".show-password")?.classList.add("hidden");
-      toggleLoginPasswordButton.querySelector(".hide-password")?.classList.remove("hidden");
+      toggleLoginPasswordButton.querySelector(".auth-form__icon--show")?.classList.add("hidden");
+      toggleLoginPasswordButton.querySelector(".auth-form__icon--hide")?.classList.remove("hidden");
     } else {
       loginPasswordInput.type = "password";
-      toggleLoginPasswordButton.querySelector(".show-password")?.classList.remove("hidden");
-      toggleLoginPasswordButton.querySelector(".hide-password")?.classList.add("hidden");
+      toggleLoginPasswordButton.querySelector(".auth-form__icon--show")?.classList.remove("hidden");
+      toggleLoginPasswordButton.querySelector(".auth-form__icon--hide")?.classList.add("hidden");
     }
     loginPasswordInput.focus();
   });
@@ -864,12 +742,16 @@ const translations = {
   toggleRegisterPasswordButton.addEventListener("click", () => {
     if (registerPasswordInput.type === "password") {
       registerPasswordInput.type = "text";
-      toggleRegisterPasswordButton.querySelector(".show-password")?.classList.add("hidden");
-      toggleRegisterPasswordButton.querySelector(".hide-password")?.classList.remove("hidden");
+      toggleRegisterPasswordButton.querySelector(".auth-form__icon--show")?.classList.add("hidden");
+      toggleRegisterPasswordButton
+        .querySelector(".auth-form__icon--hide")
+        ?.classList.remove("hidden");
     } else {
       registerPasswordInput.type = "password";
-      toggleRegisterPasswordButton.querySelector(".show-password")?.classList.remove("hidden");
-      toggleRegisterPasswordButton.querySelector(".hide-password")?.classList.add("hidden");
+      toggleRegisterPasswordButton
+        .querySelector(".auth-form__icon--show")
+        ?.classList.remove("hidden");
+      toggleRegisterPasswordButton.querySelector(".auth-form__icon--hide")?.classList.add("hidden");
     }
     registerPasswordInput.focus();
   });
@@ -877,16 +759,20 @@ const translations = {
   toggleRegisterPasswordConfirmButton.addEventListener("click", () => {
     if (registerPasswordConfirmInput.type === "password") {
       registerPasswordConfirmInput.type = "text";
-      toggleRegisterPasswordConfirmButton.querySelector(".show-password")?.classList.add("hidden");
       toggleRegisterPasswordConfirmButton
-        .querySelector(".hide-password")
+        .querySelector(".auth-form__icon--show")
+        ?.classList.add("hidden");
+      toggleRegisterPasswordConfirmButton
+        .querySelector(".auth-form__icon--hide")
         ?.classList.remove("hidden");
     } else {
       registerPasswordConfirmInput.type = "password";
       toggleRegisterPasswordConfirmButton
-        .querySelector(".show-password")
+        .querySelector(".auth-form__icon--show")
         ?.classList.remove("hidden");
-      toggleRegisterPasswordConfirmButton.querySelector(".hide-password")?.classList.add("hidden");
+      toggleRegisterPasswordConfirmButton
+        .querySelector(".auth-form__icon--hide")
+        ?.classList.add("hidden");
     }
     registerPasswordConfirmInput.focus();
   });
@@ -897,7 +783,13 @@ const translations = {
   toggleRequirementsButton.addEventListener("click", () => {
     const isExpanded = toggleRequirementsButton.getAttribute("aria-expanded") === "true";
     toggleRequirementsButton.setAttribute("aria-expanded", isExpanded ? "false" : "true");
-    passwordRequirements.classList.toggle("hidden");
+
+    if (isExpanded) {
+      passwordRequirements.style.display = "none";
+    } else {
+      passwordRequirements.style.display = "block";
+    }
+
     passwordRequirements.setAttribute("aria-hidden", isExpanded ? "true" : "false");
 
     if (!isExpanded) {
@@ -918,11 +810,11 @@ const translations = {
 
     // Reset error displays
     loginEmailError.textContent = "";
-    loginEmailError.classList.add("hidden");
+    loginEmailError.style.display = "none";
     loginPasswordError.textContent = "";
-    loginPasswordError.classList.add("hidden");
+    loginPasswordError.style.display = "none";
     formError.textContent = "";
-    formError.classList.add("hidden");
+    formError.style.display = "none";
 
     // Email validation
     if (!loginEmailInput.value) {
@@ -930,14 +822,14 @@ const translations = {
         document.documentElement.lang === "de"
           ? "E-Mail-Adresse ist erforderlich"
           : "Email address is required";
-      loginEmailError.classList.remove("hidden");
+      loginEmailError.style.display = "block";
       isValid = false;
     } else if (!validateEmail(loginEmailInput.value)) {
       loginEmailError.textContent =
         document.documentElement.lang === "de"
           ? "Ungültige E-Mail-Adresse"
           : "Invalid email address";
-      loginEmailError.classList.remove("hidden");
+      loginEmailError.style.display = "block";
       isValid = false;
     }
 
@@ -947,7 +839,7 @@ const translations = {
         document.documentElement.lang === "de"
           ? "Passwort ist erforderlich"
           : "Password is required";
-      loginPasswordError.classList.remove("hidden");
+      loginPasswordError.style.display = "block";
       isValid = false;
     }
 
@@ -958,7 +850,7 @@ const translations = {
     // Show loading state
     loginSubmitText.textContent =
       document.documentElement.lang === "de" ? "Wird geladen..." : "Loading...";
-    loginLoadingSpinner.classList.remove("hidden");
+    loginLoadingSpinner.style.display = "inline-block";
 
     try {
       // API call to log in with multilingual route
@@ -986,7 +878,7 @@ const translations = {
         // Successful login - update UI state first
         formSuccess.textContent =
           document.documentElement.lang === "de" ? "Anmeldung erfolgreich!" : "Login successful!";
-        formSuccess.classList.remove("hidden");
+        formSuccess.style.display = "block";
 
         // Set cookies and update UI state
         if (data.user) {
@@ -1041,19 +933,19 @@ const translations = {
           (document.documentElement.lang === "de"
             ? "Anmeldung fehlgeschlagen. Bitte überprüfe deine Eingaben."
             : "Login failed. Please check your credentials.");
-        formError.classList.remove("hidden");
+        formError.style.display = "block";
       }
-    } catch (error) {
+    } catch (err) {
       // Network errors or other issues
       formError.textContent =
         document.documentElement.lang === "de"
           ? "Ein Fehler ist aufgetreten. Bitte versuche es später erneut."
           : "An error occurred. Please try again later.";
-      formError.classList.remove("hidden");
+      formError.style.display = "block";
     } finally {
       // Reset loading state
       loginSubmitText.textContent = document.documentElement.lang === "de" ? "Anmelden" : "Log In";
-      loginLoadingSpinner.classList.add("hidden");
+      loginLoadingSpinner.style.display = "none";
     }
   });
 
@@ -1066,15 +958,15 @@ const translations = {
 
     // Reset error displays
     registerEmailError.textContent = "";
-    registerEmailError.classList.add("hidden");
+    registerEmailError.style.display = "none";
     registerPasswordError.textContent = "";
-    registerPasswordError.classList.add("hidden");
+    registerPasswordError.style.display = "none";
     registerPasswordConfirmError.textContent = "";
-    registerPasswordConfirmError.classList.add("hidden");
+    registerPasswordConfirmError.style.display = "none";
     formError.textContent = "";
-    formError.classList.add("hidden");
+    formError.style.display = "none";
     formSuccess.textContent = "";
-    formSuccess.classList.add("hidden");
+    formSuccess.style.display = "none";
 
     // Email validation
     if (!registerEmailInput.value) {
@@ -1082,14 +974,14 @@ const translations = {
         document.documentElement.lang === "de"
           ? "E-Mail-Adresse ist erforderlich"
           : "Email address is required";
-      registerEmailError.classList.remove("hidden");
+      registerEmailError.style.display = "block";
       isValid = false;
     } else if (!validateEmail(registerEmailInput.value)) {
       registerEmailError.textContent =
         document.documentElement.lang === "de"
           ? "Ungültige E-Mail-Adresse"
           : "Invalid email address";
-      registerEmailError.classList.remove("hidden");
+      registerEmailError.style.display = "block";
       isValid = false;
     }
 
@@ -1099,7 +991,7 @@ const translations = {
         document.documentElement.lang === "de"
           ? "Passwort ist erforderlich"
           : "Password is required";
-      registerPasswordError.classList.remove("hidden");
+      registerPasswordError.style.display = "block";
       isValid = false;
     } else {
       const { valid, errors } = validatePassword(registerPasswordInput.value);
@@ -1108,7 +1000,7 @@ const translations = {
           document.documentElement.lang === "de"
             ? "Das Passwort erfüllt nicht alle Anforderungen"
             : "Password does not meet all requirements";
-        registerPasswordError.classList.remove("hidden");
+        registerPasswordError.style.display = "block";
         isValid = false;
       }
     }
@@ -1119,14 +1011,14 @@ const translations = {
         document.documentElement.lang === "de"
           ? "Passwortbestätigung ist erforderlich"
           : "Password confirmation is required";
-      registerPasswordConfirmError.classList.remove("hidden");
+      registerPasswordConfirmError.style.display = "block";
       isValid = false;
     } else if (registerPasswordInput.value !== registerPasswordConfirmInput.value) {
       registerPasswordConfirmError.textContent =
         document.documentElement.lang === "de"
           ? "Die Passwörter stimmen nicht überein"
           : "Passwords do not match";
-      registerPasswordConfirmError.classList.remove("hidden");
+      registerPasswordConfirmError.style.display = "block";
       isValid = false;
     }
 
@@ -1137,7 +1029,7 @@ const translations = {
     // Show loading state
     registerSubmitText.textContent =
       document.documentElement.lang === "de" ? "Wird geladen..." : "Loading...";
-    registerLoadingSpinner.classList.remove("hidden");
+    registerLoadingSpinner.style.display = "inline-block";
 
     try {
       // API call to register with multilingual route
@@ -1169,7 +1061,7 @@ const translations = {
           (document.documentElement.lang === "de"
             ? "Registrierung erfolgreich! Bitte überprüfe dein E-Mail-Postfach, um deine E-Mail-Adresse zu bestätigen."
             : "Registration successful! Please check your email to verify your email address.");
-        formSuccess.classList.remove("hidden");
+        formSuccess.style.display = "block";
 
         // Reset form
         registerForm.reset();
@@ -1183,7 +1075,7 @@ const translations = {
           (document.documentElement.lang === "de"
             ? "Registrierung fehlgeschlagen. Bitte überprüfe deine Eingaben."
             : "Registration failed. Please check your inputs.");
-        formError.classList.remove("hidden");
+        formError.style.display = "block";
       }
     } catch (error) {
       // Network errors or other issues
@@ -1191,12 +1083,12 @@ const translations = {
         document.documentElement.lang === "de"
           ? "Ein Fehler ist aufgetreten. Bitte versuche es später erneut."
           : "An error occurred. Please try again later.";
-      formError.classList.remove("hidden");
+      formError.style.display = "block";
     } finally {
       // Reset loading state
       registerSubmitText.textContent =
         document.documentElement.lang === "de" ? "Registrieren" : "Register";
-      registerLoadingSpinner.classList.add("hidden");
+      registerLoadingSpinner.style.display = "none";
     }
   });
 
@@ -1271,98 +1163,550 @@ const translations = {
 </script>
 
 <style>
-  /* Enhanced contrast ratios for WCAG AAA */
-  .auth-form-container {
-    background-color: #27272a;
-    border-radius: 0.5rem;
-    padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    max-width: 100%;
+  /* Auth Form Container */
+  .auth-form__container {
     width: 100%;
+    max-width: 32rem; /* 512px */
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+    background-color: var(--color-background-card);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
   }
 
-  /* Tab styling */
-  .auth-tabs {
+  // Adjust the message display classes to be visible/hidden
+  .auth-form__message {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    display: none;
+  }
+
+  .auth-form__message--error {
+    border: 1px solid #b91c1c; /* red-700 */
+    background-color: rgba(127, 29, 29, 0.5); /* red-900/50 */
+    color: var(--color-white);
+  }
+
+  .auth-form__message--success {
+    border: 1px solid #15803d; /* green-700 */
+    background-color: rgba(20, 83, 45, 0.5); /* green-900/50 */
+    color: var(--color-white);
+  }
+
+  /* Tabs Navigation */
+  .auth-form__tabs {
     display: flex;
-    border-bottom: 2px solid #3f3f46;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--color-gray-700);
   }
 
-  .auth-tab {
+  .auth-form__tab {
     flex: 1;
-    padding: 0.75rem 1rem;
-    text-align: center;
-    font-weight: 500;
-    color: #a1a1aa;
+    padding: var(--spacing-md) var(--spacing-sm);
     background: transparent;
     border: none;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
-    transition: all 0.3s ease;
+    color: var(--color-gray-400);
+    font-size: var(--font-size-md);
+    font-weight: 500;
     cursor: pointer;
-  }
-
-  .auth-tab:hover {
-    color: #f0abfc;
-  }
-
-  .auth-tab.active {
-    color: #f0abfc;
-    border-bottom-color: #f0abfc;
-  }
-
-  /* Form container for animation */
-  .auth-forms-container {
+    transition:
+      color 0.3s,
+      border-color 0.3s;
     position: relative;
-    overflow: hidden;
   }
 
-  /* Form styling with animation */
-  .auth-form {
-    opacity: 0;
-    transform: translateX(20px);
-    position: absolute;
+  .auth-form__tab:hover {
+    color: var(--color-purple-300);
+  }
+
+  .auth-form__tab:focus-visible {
+    outline: 3px solid var(--color-purple-500);
+    outline-offset: 2px;
+    z-index: 1;
+  }
+
+  .auth-form__tab--active {
+    color: var(--color-purple-400);
+    border-bottom: 3px solid var(--color-purple-500);
+    margin-bottom: -1px;
+  }
+
+  /* Forms Container */
+  .auth-form__forms-container {
+    position: relative;
+  }
+
+  /* Form */
+  .auth-form__form {
+    display: none;
+  }
+
+  .auth-form__form--active {
+    display: block;
+  }
+
+  /* Form Fields */
+  .auth-form__field {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .auth-form__label-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .auth-form__label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+  }
+
+  .auth-form__required-mark {
+    color: #f87171; /* red-400 */
+    margin-left: var(--spacing-xs);
+  }
+
+  .auth-form__forgot-password {
+    color: var(--color-purple-300);
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    transition: color 0.3s;
+  }
+
+  .auth-form__forgot-password:hover {
+    color: var(--color-purple-200);
+  }
+
+  .auth-form__forgot-password:focus-visible {
+    outline: 3px solid var(--color-purple-500);
+    outline-offset: 2px;
+  }
+
+  /* Input Wrapper and Inputs */
+  .auth-form__input-wrapper {
+    position: relative;
+  }
+
+  .auth-form__input {
     width: 100%;
-    transition: all 0.3s ease-in-out;
-    pointer-events: none;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: 1px solid var(--color-gray-700);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-gray-800);
+    color: var(--color-white);
+    font-size: var(--font-size-md);
+    transition:
+      border-color 0.3s,
+      box-shadow 0.3s;
+    box-sizing: border-box;
   }
 
-  .auth-form.active {
-    opacity: 1;
-    transform: translateX(0);
-    position: relative;
-    pointer-events: all;
+  .auth-form__input:focus {
+    outline: none;
+    border-color: transparent;
+    box-shadow: 0 0 0 2px var(--color-purple-400);
   }
 
-  /* Reduced motion for users who prefer this */
-  :global(.reduced-motion) .auth-form {
-    transition: opacity 0.1s ease-in-out;
-    transform: none;
+  .auth-form__input::placeholder {
+    color: var(--color-gray-500);
   }
 
-  /* Enhanced focus styles for keyboard navigation */
-  input:focus,
-  button:focus {
-    outline: 3px solid #f0abfc;
-    outline-offset: 1px;
+  /* Error Messages */
+  .auth-form__error-message {
+    margin-top: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: #f87171; /* red-400 */
+    display: none;
   }
 
-  /* Error status styles */
-  input:invalid:not(:focus) {
-    border-color: #f87171;
+  /* Password Toggle Button */
+  .auth-form__toggle-password {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--spacing-md);
+    background: transparent;
+    border: none;
+    color: var(--color-gray-400);
+    cursor: pointer;
+    transition: color 0.3s;
+    border-radius: var(--border-radius-md);
   }
 
-  /* Responsive design */
-  @media (max-width: 640px) {
-    .auth-form-container {
-      padding: 1.5rem;
-    }
+  .auth-form__toggle-password:hover {
+    color: var(--color-white);
   }
 
-  /* Animation for loading spinner */
+  .auth-form__toggle-password:focus-visible {
+    outline: 3px solid var(--color-purple-500);
+    outline-offset: 2px;
+  }
+
+  /* Icons */
+  .auth-form__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .auth-form__icon--hide {
+    display: none;
+  }
+
+  .auth-form__svg-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+
+  /* Submit Button */
+  .auth-form__submit-button {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: var(--color-purple-600);
+    color: var(--color-white);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+      background-color 0.3s,
+      box-shadow 0.3s;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .auth-form__submit-button:hover {
+    background-color: var(--color-purple-700);
+  }
+
+  .auth-form__submit-button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-purple-500);
+  }
+
+  /* Spinner */
+  .auth-form__spinner {
+    display: none;
+  }
+
+  .auth-form__spinner-icon {
+    margin-left: var(--spacing-sm);
+    height: 1rem;
+    width: 1rem;
+    animation: spin 1s linear infinite;
+    color: var(--color-white);
+  }
+
   @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
     to {
       transform: rotate(360deg);
     }
   }
+
+  /* Responsive Design */
+  @media (min-width: 768px) {
+    .auth-form__container {
+      padding: var(--spacing-xl);
+    }
+
+    .auth-form__label,
+    .auth-form__forgot-password {
+      font-size: var(--font-size-md);
+    }
+
+    .auth-form__input {
+      padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    .auth-form__submit-button {
+      padding: var(--spacing-lg) var (--spacing-xl);
+    }
+  }
+
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .auth-form__submit-button,
+    .auth-form__tab,
+    .auth-form__input,
+    .auth-form__toggle-password,
+    .auth-form__forgot-password {
+      transition: none !important;
+    }
+
+    .auth-form__spinner-icon {
+      animation-duration: 0.001s !important;
+    }
+  }
+
+  /* Password Requirements Toggle */
+  .auth-form__requirements-toggle {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: transparent;
+    border: none;
+    border-radius: var(--border-radius-md);
+    color: var(--color-purple-300);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .auth-form__requirements-toggle:hover {
+    color: var(--color-purple-200);
+  }
+
+  .auth-form__requirements-toggle:focus-visible {
+    outline: 3px solid var(--color-purple-500);
+    outline-offset: 2px;
+  }
+
+  .auth-form__requirements-icon {
+    width: 1rem;
+    height: 1rem;
+    margin-right: var(--spacing-xs);
+  }
+
+  /* Password Requirements Panel */
+  .auth-form__requirements-panel {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-gray-700);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-gray-800);
+    display: none;
+  }
+
+  .auth-form__requirements-heading {
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+  }
+
+  /* Requirements List */
+  .auth-form__requirements-list {
+    margin-left: var(--spacing-xl);
+    list-style-type: disc;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .auth-form__requirement {
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+  }
+
+  .auth-form__requirement--invalid {
+    color: #f87171; /* red-400 */
+  }
+
+  .auth-form__requirement--valid {
+    color: #4ade80; /* green-400 */
+  }
+
+  /* Strength Meter */
+  .auth-form__strength-container {
+    margin-top: var (--spacing-md);
+  }
+
+  .auth-form__strength-label {
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+  }
+
+  .auth-form__strength-meter {
+    height: 0.625rem; /* 2.5/4 rem or 10px */
+    width: 100%;
+    border-radius: var(--border-radius-full);
+    background-color: var(--color-gray-700);
+  }
+
+  .auth-form__strength-progress {
+    height: 100%;
+    border-radius: var(--border-radius-full);
+    transition:
+      width 0.3s,
+      background-color 0.3s;
+  }
+
+  .auth-form__strength-progress--weak {
+    background-color: #ef4444; /* red-500 */
+  }
+
+  .auth-form__strength-progress--medium {
+    background-color: #eab308; /* yellow-500 */
+  }
+
+  .auth-form__strength-progress--strong {
+    background-color: #22c55e; /* green-500 */
+  }
+
+  .auth-form__strength-progress--very-strong {
+    background-color: #3b82f6; /* blue-500 */
+  }
+
+  .auth-form__strength-text {
+    margin-top: var(--spacing-xs);
+    font-size: var(--font-size-xs);
+  }
+
+  .auth-form__strength-text--weak {
+    color: #f87171; /* red-400 */
+  }
+
+  .auth-form__strength-text--medium {
+    color: #facc15; /* yellow-400 */
+  }
+
+  .auth-form__strength-text--strong {
+    color: #4ade80; /* green-400 */
+  }
+
+  .auth-form__strength-text--very-strong {
+    color: #60a5fa; /* blue-400 */
+  }
 </style>
+
+<script is:inline type="module">
+  // This script handles the password visibility toggling and tab switching UI interactions
+  document.addEventListener("DOMContentLoaded", () => {
+    // Get all toggle password buttons
+    const togglePasswordButtons = document.querySelectorAll('[id^="toggle"][id$="Password"]');
+
+    // Add event listeners to each toggle button
+    togglePasswordButtons.forEach((button) => {
+      const buttonId = button.id;
+      const passwordId = buttonId.replace("toggle", "").toLowerCase();
+      const passwordInput = document.getElementById(passwordId);
+
+      const showIcon = button.querySelector(".auth-form__icon--show");
+      const hideIcon = button.querySelector(".auth-form__icon--hide");
+
+      if (passwordInput && showIcon && hideIcon) {
+        button.addEventListener("click", () => {
+          // Toggle password visibility
+          const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+          passwordInput.setAttribute("type", type);
+
+          // Toggle icon visibility
+          if (showIcon instanceof HTMLElement) {
+            showIcon.style.display = type === "password" ? "flex" : "none";
+          }
+
+          if (hideIcon instanceof HTMLElement) {
+            hideIcon.style.display = type === "password" ? "none" : "flex";
+          }
+
+          // Focus the input after toggling visibility
+          passwordInput.focus();
+        });
+      }
+    });
+
+    // Password requirements toggle
+    const toggleRequirementsButton = document.getElementById("toggleRequirements");
+    const passwordRequirements = document.getElementById("passwordRequirements");
+
+    if (toggleRequirementsButton && passwordRequirements) {
+      toggleRequirementsButton.addEventListener("click", () => {
+        const isExpanded = toggleRequirementsButton.getAttribute("aria-expanded") === "true";
+        const newState = !isExpanded;
+
+        toggleRequirementsButton.setAttribute("aria-expanded", newState ? "true" : "false");
+        passwordRequirements.style.display = newState ? "block" : "none";
+        passwordRequirements.setAttribute("aria-hidden", newState ? "false" : "true");
+
+        // If we're expanding the requirements, update them
+        if (newState) {
+          // Call updatePasswordRequirements if it exists in the main script
+          if (typeof window.updatePasswordRequirements === "function") {
+            window.updatePasswordRequirements();
+          }
+        }
+      });
+    }
+
+    // Tab switching logic
+    const loginTab = document.getElementById("loginTab");
+    const registerTab = document.getElementById("registerTab");
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+    const formError = document.getElementById("formError");
+    const formSuccess = document.getElementById("formSuccess");
+
+    // Function to switch between login and register tabs
+    const switchTab = (mode) => {
+      if (!loginTab || !registerTab || !loginForm || !registerForm) {
+        return;
+      }
+
+      if (mode === "login") {
+        loginTab.setAttribute("aria-selected", "true");
+        loginTab.classList.add("auth-form__tab--active");
+        loginForm.classList.add("auth-form__form--active");
+        loginForm.setAttribute("aria-hidden", "false");
+
+        registerTab.setAttribute("aria-selected", "false");
+        registerTab.classList.remove("auth-form__tab--active");
+        registerForm.classList.remove("auth-form__form--active");
+        registerForm.setAttribute("aria-hidden", "true");
+      } else {
+        registerTab.setAttribute("aria-selected", "true");
+        registerTab.classList.add("auth-form__tab--active");
+        registerForm.classList.add("auth-form__form--active");
+        registerForm.setAttribute("aria-hidden", "false");
+
+        loginTab.setAttribute("aria-selected", "false");
+        loginTab.classList.remove("auth-form__tab--active");
+        loginForm.classList.remove("auth-form__form--active");
+        loginForm.setAttribute("aria-hidden", "true");
+      }
+
+      // Reset error and success messages
+      if (formError) {
+        formError.textContent = "";
+        formError.style.display = "none";
+      }
+
+      if (formSuccess) {
+        formSuccess.textContent = "";
+        formSuccess.style.display = "none";
+      }
+    };
+
+    // Add click event listeners for tab switching
+    if (loginTab && registerTab) {
+      loginTab.addEventListener("click", () => switchTab("login"));
+      registerTab.addEventListener("click", () => switchTab("register"));
+
+      // Keyboard accessibility for tabs
+      loginTab.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          switchTab("login");
+        }
+      });
+
+      registerTab.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          switchTab("register");
+        }
+      });
+    }
+  });
+</script>

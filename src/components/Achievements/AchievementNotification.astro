@@ -88,7 +88,7 @@ const t = useTranslations(lang);
     </div>
   </div>
   <div id="achievement-category" class="achievement-notification__category"></div>
-  
+
   <!-- Timer für Benachrichtigung -->
   <div class="achievement-notification__timer" aria-hidden="true">
     <div class="achievement-notification__timer-progress" id="notification-timer"></div>
@@ -314,7 +314,7 @@ const t = useTranslations(lang);
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: 
+    transition:
       color 0.2s ease,
       background-color 0.2s ease,
       outline 0.2s ease;
@@ -351,15 +351,16 @@ const t = useTranslations(lang);
     width: 100%;
     background-color: var(--color-purple-500);
     transform-origin: left;
-    animation: timer-countdown linear forwards;
+    transform: translateZ(0); /* Verbessert die GPU-Beschleunigung */
+    will-change: transform; /* Optimiert für Animation-Performance */
   }
 
   @keyframes timer-countdown {
     from {
-      transform: scaleX(1);
+      transform: translateX(0);
     }
     to {
-      transform: scaleX(0);
+      transform: translateX(-100%);
     }
   }
 
@@ -388,7 +389,9 @@ const t = useTranslations(lang);
     }
 
     .achievement-notification__icon {
-      background-color: var(--color-purple-900); /* Dunkler für höheres Kontrastverhältnis von 7:1 (WCAG AAA) */
+      background-color: var(
+        --color-purple-900
+      ); /* Dunkler für höheres Kontrastverhältnis von 7:1 (WCAG AAA) */
       color: var(--color-white);
     }
 
@@ -480,368 +483,29 @@ const t = useTranslations(lang);
 </style>
 
 <script>
-  import type { AchievementEvent } from "../../types/achievement.ts";
-  import { subscribeToAchievementEvents } from "../../utils/achievements/achievementEvents.ts";
-  import { getTranslations } from "../../utils/i18n.ts";
-
   /**
-   * Initialisiert die Benachrichtigungsfunktionen für Achievements
+   * Performance-optimized Achievement Notifications
    *
-   * Dieses Skript beinhaltet:
-   * 1. Abonnieren von Achievement-Events
-   * 2. Aktualisieren des Benachrichtigungsinhalts
-   * 3. Handling von Animationen und Sichtbarkeit
-   * 4. Verwaltung der Audiowiedergabe
-   * 5. Implementierung von Auto-Hide und manuellem Schließen
-   * 6. Verbessertes Fokusmanagement für Barrierefreiheit
+   * This script integrates the achievement notification system with the DOM.
+   * The core functionality is extracted to an external TypeScript module for
+   * better maintainability and performance optimizations.
    *
-   * @returns {void}
+   * Key optimizations include:
+   * - GPU acceleration using will-change and transform: translateZ(0)
+   * - Efficient SVG icon handling with DocumentFragments
+   * - Animation using translateX instead of scaleX for better performance
+   * - Proper cleanup of resources when no longer needed
+   * - Respect for user motion preferences
    */
-  function initAchievementNotification(): void {
-    // Übersetzungsfunktion abrufen
-    const lang = document.documentElement.lang || "en";
-    const t = getTranslations(lang);
-    
-    // Benachrichtigungselemente abrufen
-    const notification = document.getElementById("achievement-notification");
-    const achievementTitle = document.getElementById("achievement-title");
-    const achievementDescription = document.getElementById("achievement-description");
-    const achievementCategory = document.getElementById("achievement-category");
-    const achievementSound = document.getElementById("achievement-sound") as HTMLAudioElement;
-    const closeButton = document.getElementById("achievement-close");
-    const pauseButton = document.getElementById("achievement-pause");
-    const soundToggleButton = document.getElementById("achievement-sound-toggle");
-    const timerProgressElement = document.getElementById("notification-timer");
-    const a11ySettings = document.getElementById("achievement-a11y-settings");
+  import { setupAchievementNotificationSystem } from "../../utils/achievements/achievementNotification";
 
-    // Barrierefreiheitseinstellungen abrufen
-    let displayTime = 5000; // Standard: 5 Sekunden
-    let enableSound = true; // Standard: Sound aktiviert
-    let minDisplayTime = 3000; // Minimum: 3 Sekunden
-    let maxDisplayTime = 10000; // Maximum: 10 Sekunden
-    let displayTimeStep = 1000; // Schrittweite: 1 Sekunde
+  // Initialize notification system when document is ready
+  const cleanupFunction = setupAchievementNotificationSystem();
 
-    if (a11ySettings) {
-      displayTime = parseInt(a11ySettings.getAttribute("data-display-time") || "5000", 10);
-      enableSound = a11ySettings.getAttribute("data-enable-sound") === "true";
-      minDisplayTime = parseInt(a11ySettings.getAttribute("data-display-time-min") || "3000", 10);
-      maxDisplayTime = parseInt(a11ySettings.getAttribute("data-display-time-max") || "10000", 10);
-      displayTimeStep = parseInt(a11ySettings.getAttribute("data-display-time-step") || "1000", 10);
+  // Execute cleanup function when component is removed
+  document.addEventListener("beforeunload", () => {
+    if (typeof cleanupFunction === "function") {
+      cleanupFunction();
     }
-
-    // Prüfen, ob Benutzer reduzierte Bewegung bevorzugt
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    // Tracking des letzten fokussierten Elements für Fokusmanagement
-    let lastFocusedElement: HTMLElement | null = null;
-
-    // Sicherstellen, dass alle benötigten Elemente existieren
-    if (notification && achievementTitle && achievementDescription && achievementCategory) {
-      let hideTimeout: number | null = null;
-
-      // Initialer Zustand für Timer und Steuerelemente
-      let isPaused = false;
-      let isMuted = !enableSound;
-      let currentTimerAnimation: Animation | null = null;
-
-      /**
-       * Zeigt die Benachrichtigung an
-       * @param {AchievementEvent} event - Das Achievement-Event mit Daten
-       */
-      const showNotification = (event: AchievementEvent): void => {
-        // Benachrichtigungsinhalt aktualisieren
-        achievementTitle.textContent = event.achievement.name;
-        achievementDescription.textContent = event.achievement.description;
-        achievementCategory.textContent = event.achievement.category?.code.toUpperCase() || "";
-
-        // Speichern des aktuellen Fokus für spätere Wiederherstellung
-        lastFocusedElement = document.activeElement as HTMLElement;
-
-        // Benachrichtigung mit leichter Verzögerung für bessere Animation anzeigen
-        requestAnimationFrame(() => {
-          notification.classList.add("achievement-notification--visible");
-
-          // Fokus auf die Benachrichtigung setzen für Screenreader-Ankündigung
-          notification.setAttribute("tabindex", "-1");
-          notification.focus();
-
-          // Fokus-Trap einrichten
-          setupFocusTrap();
-        });
-
-        // Sound abspielen, falls aktiviert und verfügbar
-        if (achievementSound && enableSound && !prefersReducedMotion) {
-          // Lautstärke einstellen und Wiedergabe versuchen
-          achievementSound.volume = 0.7;
-          achievementSound.currentTime = 0;
-
-          // Wiedergabe mit Promise behandeln für Browser, die Benutzerinteraktion erfordern
-          const playPromise = achievementSound.play();
-
-          if (playPromise !== undefined) {
-            playPromise.catch((error) => {
-              console.warn("Soundwiedergabe verhindert:", error);
-            });
-          }
-        }
-
-        // Automatisch nach eingestellter Zeit ausblenden
-        if (hideTimeout) {
-          clearTimeout(hideTimeout);
-        }
-
-        hideTimeout = window.setTimeout(() => {
-          hideNotification();
-        }, displayTime);
-
-        // Timer-Fortschritt aktualisieren
-        updateTimerProgress();
-      };
-
-      /**
-       * Blendet die Benachrichtigung aus
-       */
-      const hideNotification = (): void => {
-        notification.classList.remove("achievement-notification--visible");
-
-        // Fokus-Trap entfernen
-        removeFocusTrap();
-
-        // Fokus zum vorherigen Element zurücksetzen
-        if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
-          lastFocusedElement.focus();
-        }
-
-        if (hideTimeout) {
-          clearTimeout(hideTimeout);
-          hideTimeout = null;
-        }
-      };
-
-      // Fokus-Trap einrichten
-      const setupFocusTrap = (): void => {
-        document.addEventListener("focusin", trapFocus);
-        document.addEventListener("keydown", handleKeyDown);
-      };
-
-      /**
-       * Entfernt die Fokus-Trap
-       */
-      const removeFocusTrap = (): void => {
-        document.removeEventListener("focusin", trapFocus);
-        document.removeEventListener("keydown", handleKeyDown);
-      };
-
-      /**
-       * Fokus innerhalb der Benachrichtigung halten
-       * Implementiert eine robuste Fokus-Falle für die Benachrichtigung
-       */
-      const trapFocus = (event: FocusEvent): void => {
-        if (
-          notification.classList.contains("achievement-notification--visible") &&
-          event.target instanceof Node &&
-          !notification.contains(event.target)
-        ) {
-          // Fokus zurück in die Benachrichtigung setzen
-          event.stopPropagation();
-          closeButton?.focus();
-        }
-      };
-      
-      /**
-       * Verbesserte Tastaturnavigation für die Benachrichtigung
-       * Verarbeitet Tab-Tasten, um den Fokus innerhalb der Benachrichtigung zu halten
-       */
-      const handleKeyDown = (event: KeyboardEvent): void => {
-        // Benachrichtigung nur verarbeiten, wenn sie sichtbar ist
-        if (!notification.classList.contains("achievement-notification--visible")) {
-          return;
-        }
-        
-        // ESC-Taste zum Schließen
-        if (event.key === "Escape") {
-          hideNotification();
-          event.preventDefault();
-          return;
-        }
-        
-        // TAB-Taste für Fokus-Trap
-        if (event.key === "Tab") {
-          // Fokussierbare Elemente innerhalb der Benachrichtigung finden
-          const focusableElements = notification.querySelectorAll(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-          );
-          
-          if (focusableElements.length === 0) {
-            event.preventDefault();
-            return;
-          }
-          
-          const firstElement = focusableElements[0] as HTMLElement;
-          const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
-          
-          // SHIFT+TAB navigiert rückwärts
-          if (event.shiftKey) {
-            // Wenn wir am ersten Element sind, zum letzten Element gehen
-            if (document.activeElement === firstElement) {
-              lastElement.focus();
-              event.preventDefault();
-            }
-          } else {
-            // TAB navigiert vorwärts
-            // Wenn wir am letzten Element sind, zum ersten Element gehen
-            if (document.activeElement === lastElement) {
-              firstElement.focus();
-              event.preventDefault();
-            }
-          }
-        }
-      };
-
-      /**
-       * Aktualisiert den Timer-Fortschritt
-       * Zeigt den visuellen Countdown für die Benachrichtigung an
-       */
-      const updateTimerProgress = (): void => {
-        if (!timerProgressElement) return;
-        
-        // Vorherige Animation entfernen
-        if (currentTimerAnimation) {
-          currentTimerAnimation.cancel();
-        }
-        
-        // Timer-Animation mit der aktuellen Anzeigezeit konfigurieren
-        currentTimerAnimation = timerProgressElement.animate(
-          [
-            { transform: 'scaleX(1)' },
-            { transform: 'scaleX(0)' }
-          ],
-          {
-            duration: displayTime,
-            easing: 'linear',
-            fill: 'forwards'
-          }
-        );
-        
-        // Bei Pause anhalten
-        if (isPaused) {
-          currentTimerAnimation.pause();
-        }
-      };
-      
-      /**
-       * Pausiert oder setzt die Timer-Animation fort
-       */
-      const togglePause = (): void => {
-        isPaused = !isPaused;
-        
-        if (isPaused) {
-          // Timer anhalten und Timeout stoppen
-          if (currentTimerAnimation) {
-            currentTimerAnimation.pause();
-          }
-          
-          if (hideTimeout) {
-            clearTimeout(hideTimeout);
-            hideTimeout = null;
-          }
-          
-          // Pausenbutton-Icon aktualisieren
-          if (pauseButton) {
-            pauseButton.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 3l14 9-14 9V3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
-            pauseButton.setAttribute('aria-label', t('achievements.notification.resume'));
-            pauseButton.setAttribute('title', t('achievements.notification.resume_title'));
-          }
-        } else {
-          // Timer fortsetzen und neuen Timeout starten
-          if (currentTimerAnimation) {
-            const timeElapsed = currentTimerAnimation.currentTime || 0;
-            const remainingTime = displayTime - timeElapsed;
-            currentTimerAnimation.play();
-            
-            if (hideTimeout) {
-              clearTimeout(hideTimeout);
-            }
-            
-            hideTimeout = window.setTimeout(() => {
-              hideNotification();
-            }, remainingTime);
-          }
-          }
-          
-          // Pausenbutton-Icon aktualisieren
-          if (pauseButton) {
-            pauseButton.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 4H6v16h4V4zm8 0h-4v16h4V4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
-            pauseButton.setAttribute('aria-label', t("achievements.notification.pause"));
-            pauseButton.setAttribute('title', t("achievements.notification.pause_title"));
-          }
-        }
-      };
-      
-      /**
-       * Schaltet den Sound ein oder aus
-       */
-      const toggleSound = (): void => {
-        isMuted = !isMuted;
-        
-        // Icon und Status aktualisieren
-        if (soundToggleButton) {
-          if (isMuted) {
-            soundToggleButton.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
-            soundToggleButton.setAttribute('aria-label', t("achievements.notification.unmute"));
-            soundToggleButton.setAttribute('title', t("achievements.notification.unmute_title"));
-            
-            // Sound anhalten, falls gerade abgespielt
-            if (achievementSound) {
-              achievementSound.pause();
-              achievementSound.currentTime = 0;
-            }
-          } else {
-            soundToggleButton.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
-            soundToggleButton.setAttribute('aria-label', t("achievements.notification.mute"));
-            soundToggleButton.setAttribute('title', t("achievements.notification.mute_title"));
-          }
-        }
-        
-        // Speichern der Benutzereinstellung
-        if (a11ySettings) {
-          a11ySettings.setAttribute('data-enable-sound', isMuted ? 'false' : 'true');
-          enableSound = !isMuted;
-        }
-      };
-
-      // Schließen-Button-Klick behandeln
-      if (closeButton) {
-        closeButton.addEventListener("click", hideNotification);
-      }
-
-      // Pause-Button-Klick behandeln
-      if (pauseButton) {
-        pauseButton.addEventListener("click", togglePause);
-      }
-
-      // Sound-Toggle-Button-Klick behandeln
-      if (soundToggleButton) {
-        soundToggleButton.addEventListener("click", toggleSound);
-      }
-
-      // Achievement-Events abonnieren
-      subscribeToAchievementEvents(showNotification);
-
-      // Listener für Medienabfrage zu reduzierter Bewegung
-      const reducedMotionMediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-      reducedMotionMediaQuery.addEventListener("change", () => {
-        // Einstellungen anpassen, wenn sich die Präferenz ändert
-        const prefersReducedMotion = reducedMotionMediaQuery.matches;
-        if (prefersReducedMotion && achievementSound) {
-          // Sound deaktivieren für Nutzer, die reduzierte Bewegung bevorzugen
-          achievementSound.pause();
-          achievementSound.currentTime = 0;
-        }
-      });
-    }
-  }
-
-  // Initialisieren, wenn DOM bereit ist
-  document.addEventListener("DOMContentLoaded", initAchievementNotification);
+  });
 </script>
