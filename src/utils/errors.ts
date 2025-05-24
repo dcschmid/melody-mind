@@ -1,21 +1,21 @@
 /**
  * Specialized error classes for MelodyMind application
- * 
+ *
  * Provides type-safe error handling patterns with typed error information
- * 
+ *
  * @since 1.0.0
  * @category Errors
  */
 
 /**
  * Base error class for all application errors
- * 
+ *
  * @category Errors
  */
 export class AppError extends Error {
   /**
    * Creates a new application error
-   * 
+   *
    * @param {string} message - Human-readable error message
    * @param {Object} [options] - Additional error options
    * @param {string} [options.code] - Error code for programmatic identification
@@ -30,7 +30,7 @@ export class AppError extends Error {
   ) {
     super(message);
     this.name = "AppError";
-    
+
     // Ensures proper prototype chain for instanceof checks
     // (Required for Error subclasses in TypeScript)
     Object.setPrototypeOf(this, AppError.prototype);
@@ -39,13 +39,13 @@ export class AppError extends Error {
 
 /**
  * Error class for authentication-related errors
- * 
+ *
  * @category Errors
  */
 export class AuthError extends AppError {
   /**
    * Creates a new authentication error
-   * 
+   *
    * @param {string} message - Human-readable error message
    * @param {number} statusCode - HTTP status code
    * @param {Object} [additionalInfo] - Additional error information
@@ -57,7 +57,7 @@ export class AuthError extends AppError {
   ) {
     super(message, { code: `AUTH_ERROR_${statusCode}` });
     this.name = "AuthError";
-    
+
     // Ensures proper prototype chain for instanceof checks
     Object.setPrototypeOf(this, AuthError.prototype);
   }
@@ -65,13 +65,13 @@ export class AuthError extends AppError {
 
 /**
  * Error class for API-related errors
- * 
+ *
  * @category Errors
  */
 export class ApiError extends AppError {
   /**
    * Creates a new API error
-   * 
+   *
    * @param {string} message - Human-readable error message
    * @param {number} statusCode - HTTP status code
    * @param {string} endpoint - API endpoint that triggered the error
@@ -83,7 +83,7 @@ export class ApiError extends AppError {
   ) {
     super(message, { code: `API_ERROR_${statusCode}` });
     this.name = "ApiError";
-    
+
     // Ensures proper prototype chain for instanceof checks
     Object.setPrototypeOf(this, ApiError.prototype);
   }
@@ -91,13 +91,13 @@ export class ApiError extends AppError {
 
 /**
  * Error class for database-related errors
- * 
+ *
  * @category Errors
  */
 export class DatabaseError extends AppError {
   /**
    * Creates a new database error
-   * 
+   *
    * @param {string} message - Human-readable error message
    * @param {string} [operation] - Database operation that failed
    * @param {unknown} [originalError] - Original error from database driver
@@ -109,7 +109,7 @@ export class DatabaseError extends AppError {
   ) {
     super(message, { code: "DATABASE_ERROR" });
     this.name = "DatabaseError";
-    
+
     // Ensures proper prototype chain for instanceof checks
     Object.setPrototypeOf(this, DatabaseError.prototype);
   }
@@ -117,13 +117,13 @@ export class DatabaseError extends AppError {
 
 /**
  * Error class for validation-related errors
- * 
+ *
  * @category Errors
  */
 export class ValidationError extends AppError {
   /**
    * Creates a new validation error
-   * 
+   *
    * @param {string} message - Human-readable error message
    * @param {Object} [validationErrors] - Validation errors by field
    */
@@ -133,7 +133,7 @@ export class ValidationError extends AppError {
   ) {
     super(message, { code: "VALIDATION_ERROR" });
     this.name = "ValidationError";
-    
+
     // Ensures proper prototype chain for instanceof checks
     Object.setPrototypeOf(this, ValidationError.prototype);
   }
@@ -141,13 +141,13 @@ export class ValidationError extends AppError {
 
 /**
  * Type guards for error checking
- * 
+ *
  * @category Type Guards
  */
 
 /**
  * Type guard for checking AppError instances
- * 
+ *
  * @param {unknown} error - Error to check
  * @returns {boolean} Whether the error is an AppError
  */
@@ -157,7 +157,7 @@ export function isAppError(error: unknown): error is AppError {
 
 /**
  * Type guard for checking AuthError instances
- * 
+ *
  * @param {unknown} error - Error to check
  * @returns {boolean} Whether the error is an AuthError
  */
@@ -167,7 +167,7 @@ export function isAuthError(error: unknown): error is AuthError {
 
 /**
  * Type guard for checking ApiError instances
- * 
+ *
  * @param {unknown} error - Error to check
  * @returns {boolean} Whether the error is an ApiError
  */
@@ -177,7 +177,7 @@ export function isApiError(error: unknown): error is ApiError {
 
 /**
  * Type guard for checking DatabaseError instances
- * 
+ *
  * @param {unknown} error - Error to check
  * @returns {boolean} Whether the error is a DatabaseError
  */
@@ -187,7 +187,7 @@ export function isDatabaseError(error: unknown): error is DatabaseError {
 
 /**
  * Type guard for checking ValidationError instances
- * 
+ *
  * @param {unknown} error - Error to check
  * @returns {boolean} Whether the error is a ValidationError
  */

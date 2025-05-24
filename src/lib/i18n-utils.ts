@@ -14,7 +14,7 @@ import type { TranslationKey, TranslationParams } from "../utils/typed-i18n";
  * Brand for language codes to distinguish them from regular strings
  */
 declare const enum LanguageCodeBrand {
-  Brand = 'LANGUAGE_CODE_BRAND'
+  Brand = "LANGUAGE_CODE_BRAND",
 }
 
 /**

@@ -1,0 +1,310 @@
+---
+/**
+ * AuthSubmitButton Component for MelodyMind Auth Forms
+ *
+ * A reusable submit button component with loading state and consistent styling
+ * for authentication forms. This eliminates duplication between login/register forms.
+ *
+ * Features:
+ * - Loading state with spinner animation
+ * - WCAG AAA compliant accessibility
+ * - Consistent styling with auth form design system
+ * - Proper ARIA attributes for screen readers
+ * - Automatic button state management
+ *
+ * @component
+ * @example
+ * ```astro
+ * <AuthSubmitButton
+ *   id="loginSubmit"
+ *   textId="loginSubmitText"
+ *   spinnerId="loginLoadingSpinner"
+ *   buttonText={t("auth.login.submit")}
+ * />
+ * ```
+ */
+import { Icon } from "astro-icon/components";
+
+export interface Props {
+  /** Unique identifier for the submit button */
+  id: string;
+  /** Unique identifier for the button text element */
+  textId: string;
+  /** Unique identifier for the loading spinner element */
+  spinnerId: string;
+  /** Text to display on the button */
+  buttonText: string;
+  /** Additional CSS classes */
+  class?: string;
+  /** Button type, defaults to submit */
+  type?: "submit" | "button";
+  /** Whether the button is disabled */
+  disabled?: boolean;
+}
+
+const {
+  id,
+  textId,
+  spinnerId,
+  buttonText,
+  class: className = "",
+  type = "submit",
+  disabled = false,
+} = Astro.props;
+---
+
+<button
+  {type}
+  {id}
+  class={`auth-form__submit-button ${className}`}
+  {disabled}
+  aria-describedby={`${textId} ${spinnerId}`}
+>
+  <span id={textId} class="auth-form__submit-text">{buttonText}</span>
+  <span id={spinnerId} class="auth-form__spinner" aria-hidden="true">
+    <Icon name="refresh" class="auth-form__spinner-icon icon-loader" aria-hidden="true" />
+  </span>
+</button>
+
+<script>
+  /**
+   * Auth Submit Button Functionality
+   *
+   * Handles loading state management and accessibility features for submit buttons.
+   * This script provides utilities for managing button states during form submission.
+   */
+
+  /**
+   * Sets the loading state of a submit button
+   * @param buttonId - The ID of the submit button
+   * @param isLoading - Whether the button should show loading state
+   * @param loadingText - Optional custom loading text
+   */
+  function setAuthButtonLoadingState(
+    buttonId: string,
+    isLoading: boolean,
+    loadingText?: string
+  ): void {
+    const button = document.getElementById(buttonId) as HTMLButtonElement;
+    if (!button) {
+      return;
+    }
+
+    const textElement = button.querySelector(".auth-form__submit-text") as HTMLElement;
+    const spinner = button.querySelector(".auth-form__spinner") as HTMLElement;
+
+    if (!textElement || !spinner) {
+      return;
+    }
+
+    if (isLoading) {
+      // Store original text for restoration
+      if (!button.dataset.originalText) {
+        button.dataset.originalText = textElement.textContent || "";
+      }
+
+      // Update button state
+      button.disabled = true;
+      button.setAttribute("aria-busy", "true");
+
+      // Update text
+      const lang = document.documentElement.lang || "en";
+      const defaultLoadingText = lang === "de" ? "Wird verarbeitet..." : "Processing...";
+      textElement.textContent = loadingText || defaultLoadingText;
+
+      // Show spinner
+      spinner.style.display = "inline-flex";
+      spinner.setAttribute("aria-hidden", "false");
+
+      // Update button classes
+      button.classList.add("auth-form__submit-button--loading");
+    } else {
+      // Restore original state
+      button.disabled = false;
+      button.removeAttribute("aria-busy");
+
+      // Restore original text
+      const originalText = button.dataset.originalText;
+      if (originalText) {
+        textElement.textContent = originalText;
+      }
+
+      // Hide spinner
+      spinner.style.display = "none";
+      spinner.setAttribute("aria-hidden", "true");
+
+      // Update button classes
+      button.classList.remove("auth-form__submit-button--loading");
+    }
+  }
+
+  /**
+   * Initialize all auth submit buttons with proper ARIA attributes
+   */
+  function initializeAuthSubmitButtons(): void {
+    const submitButtons = document.querySelectorAll(
+      ".auth-form__submit-button"
+    ) as NodeListOf<HTMLButtonElement>;
+
+    submitButtons.forEach((button) => {
+      // Ensure proper initial state
+      const spinner = button.querySelector(".auth-form__spinner") as HTMLElement;
+      if (spinner) {
+        spinner.style.display = "none";
+        spinner.setAttribute("aria-hidden", "true");
+      }
+
+      // Add focus management
+      button.addEventListener("focus", () => {
+        button.classList.add("auth-form__submit-button--focused");
+      });
+
+      button.addEventListener("blur", () => {
+        button.classList.remove("auth-form__submit-button--focused");
+      });
+    });
+  }
+
+  // Initialize on DOM content loaded
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeAuthSubmitButtons);
+  } else {
+    initializeAuthSubmitButtons();
+  }
+
+  // Expose utilities globally
+  (window as any).setAuthButtonLoadingState = setAuthButtonLoadingState;
+</script>
+
+<style>
+  /* Auth Submit Button Styles */
+  .auth-form__submit-button {
+    width: 100%;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background: linear-gradient(135deg, var(--color-purple-600), var(--color-pink-600));
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-lg);
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    transition: all 0.3s ease;
+    min-height: 3rem;
+  }
+
+  .auth-form__submit-button:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--color-purple-700), var(--color-pink-700));
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  }
+
+  .auth-form__submit-button:focus-visible {
+    outline: 3px solid var(--color-focus-outline);
+    outline-offset: 2px;
+  }
+
+  .auth-form__submit-button:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(139, 92, 246, 0.2);
+  }
+
+  .auth-form__submit-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .auth-form__submit-button--loading {
+    pointer-events: none;
+  }
+
+  .auth-form__submit-button--focused {
+    background: linear-gradient(135deg, var(--color-purple-700), var(--color-pink-700));
+  }
+
+  /* Button text styles */
+  .auth-form__submit-text {
+    font-weight: inherit;
+    color: inherit;
+  }
+
+  /* Loading spinner styles */
+  .auth-form__spinner {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin-left: var(--spacing-sm);
+  }
+
+  .auth-form__spinner-icon {
+    height: 1rem;
+    width: 1rem;
+    animation: spin 1s linear infinite;
+    color: var(--color-white);
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Responsive Design */
+  @media (min-width: 768px) {
+    .auth-form__submit-button {
+      padding: var(--spacing-lg) var(--spacing-xl);
+      font-size: var(--font-size-lg);
+      min-height: 3.5rem;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .auth-form__submit-button {
+      border: 2px solid var(--color-white);
+    }
+
+    .auth-form__submit-button:focus-visible {
+      outline-width: 4px;
+    }
+  }
+
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .auth-form__submit-button,
+    .auth-form__spinner-icon {
+      transition: none;
+      animation: none;
+    }
+
+    .auth-form__submit-button:hover:not(:disabled) {
+      transform: none;
+    }
+
+    .auth-form__spinner-icon {
+      animation-duration: 0.001s;
+    }
+  }
+
+  /* Touch devices optimization */
+  @media (hover: none) and (pointer: coarse) {
+    .auth-form__submit-button {
+      min-height: 44px; /* WCAG AAA minimum touch target */
+      padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    .auth-form__submit-button:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+</style>

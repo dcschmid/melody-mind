@@ -86,10 +86,7 @@ const sortedCategories = Object.entries(achievementsByCategory).sort(
         <div class="achievements__auth-required">
           <h2>{t("auth.required.title")}</h2>
           <p>{t("auth.required.description")}</p>
-          <a
-            href={`/${langString}/auth/login`}
-            class="achievements__login-button"
-          >
+          <a href={`/${langString}/auth/login`} class="achievements__login-button">
             {t("auth.login.submit")}
           </a>
         </div>
@@ -111,10 +108,13 @@ const sortedCategories = Object.entries(achievementsByCategory).sort(
 
           <div class="achievements__list">
             {sortedCategories.map(([categoryId, categoryAchievements]) => {
-              const categoryCode = (categoryAchievements as LocalizedAchievement[])[0]?.category?.code ?? "bronze";
+              const categoryCode =
+                (categoryAchievements as LocalizedAchievement[])[0]?.category?.code ?? "bronze";
               return (
                 <section class="achievements__category" data-category-id={categoryId}>
-                  <h2 class={`achievements__category-title achievements__category-title--${categoryCode}`}>
+                  <h2
+                    class={`achievements__category-title achievements__category-title--${categoryCode}`}
+                  >
                     {t(`achievements.category.${categoryCode}`)}
                   </h2>
                   <div class="achievements__grid">
