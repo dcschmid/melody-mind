@@ -127,34 +127,25 @@ const t = useTranslations(lang);
     position: fixed;
     right: var(--spacing-xl);
     bottom: var(--spacing-xl);
-    z-index: 50;
+    z-index: var(--z-index-notification);
     max-width: 24rem;
     transform: translateY(150%);
     overflow: hidden;
     border-radius: var(--border-radius-md);
-    background-color: var(--color-gray-800);
+    background-color: var(--color-notification-bg);
     padding: var(--spacing-md);
-    color: var(--color-white);
+    color: var(--color-notification-text);
     opacity: 0;
     box-shadow: var(--shadow-lg);
-    /* Verbesserte Tastaturzugänglichkeit mit Outline */
     outline: none;
-    /* Verbesserte Vendor-Prefixes für bessere Kompatibilität */
-    -webkit-transition:
-      transform 0.3s ease-out,
-      opacity 0.3s ease-out;
     transition:
-      transform 0.3s ease-out,
-      opacity 0.3s ease-out;
-    /* Isolierung für korrektes Stacking */
+      transform var(--transition-duration-300) var(--transition-timing-out),
+      opacity var(--transition-duration-300) var(--transition-timing-out);
     isolation: isolate;
-    /* Text-Anpassung für WCAG AAA - Verbesserte Unterstützung für Textabstände */
-    line-height: var(--line-height-relaxed, 1.8);
-    letter-spacing: var(--letter-spacing, 0.03em);
-    word-spacing: var(--word-spacing, 0.05em);
+    line-height: var(--line-height-relaxed);
+    letter-spacing: var(--letter-spacing-wide);
     overflow-wrap: break-word;
-    /* Unterstützung für Text-Spacing - WCAG 1.4.12 Level AAA */
-    text-spacing: trim-start allow-end trim-adjacent ideograph-alpha ideograph-numeric;
+    font-size: var(--font-size-base);
   }
 
   /* Container für den Benachrichtigungsinhalt */
@@ -162,7 +153,7 @@ const t = useTranslations(lang);
     position: relative;
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
+    gap: var(--spacing-md);
   }
 
   /* Icon-Container mit verbessertem Kontrast */
@@ -174,10 +165,9 @@ const t = useTranslations(lang);
     align-items: center;
     justify-content: center;
     border-radius: var(--border-radius-full);
-    background-color: var(--color-purple-600);
-    padding: 0.5rem;
-    color: var(--color-white);
-    /* Add subtle visual feedback for success */
+    background-color: var(--color-notification-icon-bg);
+    padding: var(--spacing-sm);
+    color: var(--color-notification-text);
     box-shadow: 0 0 0 rgba(139, 92, 246, 0.4);
     animation: pulse 2s infinite;
   }
@@ -202,31 +192,34 @@ const t = useTranslations(lang);
       box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.4);
     }
   }
+      box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.4);
+    }
+  }
 
   /* Inhaltsbereich */
   .achievement-notification__content {
     flex-grow: 1;
-    padding-right: 1.5rem;
+    padding-right: var(--spacing-lg);
   }
 
   /* Titel mit verbessertem Kontrast */
   .achievement-notification__title {
     margin: 0;
-    margin-bottom: 0.25rem;
+    margin-bottom: var(--spacing-xs);
     font-size: var(--font-size-lg);
     font-weight: 600;
-    color: inherit; /* Korrekte Farbvererbung für Hell-/Dunkelmodus */
-    line-height: 1.4; /* Verbesserte Lesbarkeit */
+    color: inherit;
+    line-height: var(--line-height-tight);
   }
 
   /* Beschreibung mit verbessertem Kontrast */
   .achievement-notification__description {
     margin: 0;
     font-size: var(--font-size-sm);
-    opacity: 0.96; /* Verbessert von 0.9 für höheren Kontrast */
-    line-height: 1.5; /* Bessere Lesbarkeit */
-    max-width: 100%; /* Verhindert Textüberlauf */
-    word-wrap: break-word; /* Lange Wörter handhaben */
+    opacity: 0.96;
+    line-height: var(--line-height-normal);
+    max-width: 100%;
+    word-wrap: break-word;
   }
 
   /* Schließen-Button mit verbesserter Zugänglichkeit */
@@ -235,56 +228,51 @@ const t = useTranslations(lang);
     top: 0;
     right: 0;
     display: flex;
-    height: 2.5rem; /* Erhöht von 2rem für bessere Erfassung */
-    width: 2.5rem; /* Erhöht von 2rem für bessere Erfassung */
+    height: 2.5rem;
+    width: 2.5rem;
     cursor: pointer;
     align-items: center;
     justify-content: center;
     border: none;
     background-color: transparent;
     padding: 0;
-    color: var(--color-gray-400);
+    color: var(--color-notification-controls);
     transition:
-      color 0.2s,
-      outline 0.2s;
-    border-radius: 4px;
-    /* Mindestgröße für Touch-Ziele - WCAG AAA */
+      color var(--transition-duration-200) var(--transition-timing-in-out),
+      outline var(--transition-duration-200) var(--transition-timing-in-out);
+    border-radius: var(--border-radius-sm);
     min-height: 44px;
     min-width: 44px;
   }
 
   .achievement-notification__close:hover,
   .achievement-notification__close:focus-visible {
-    color: var(--color-white);
+    color: var(--color-notification-text);
   }
 
   /* Verbesserter Fokusstil nach WCAG 2.2 Enhanced Focus Appearance */
   .achievement-notification__close:focus-visible,
   .achievement-notification__control-button:focus-visible {
-    outline: 3px solid var(--color-purple-300, #c4b5fd);
+    outline: var(--color-focus-outline);
     outline-offset: 3px;
-    border-radius: 2px;
-    /* Erhöhter Kontrast (Mindestens 3:1 zwischen Fokus und Nichtfokus) */
+    border-radius: var(--border-radius-sm);
     background-color: rgba(124, 58, 237, 0.1);
-    /* Minimale Breite und Höhe für Fokusindikator */
     min-width: 44px;
     min-height: 44px;
-    /* Vermeiden von Fokusindikatoren unter 2px Dicke (WCAG 2.2) */
     box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.3);
   }
 
   /* Kategorie */
   .achievement-notification__category {
-    margin-top: 0.75rem;
-    padding: 0.35rem 0;
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-xs) 0;
     text-align: center;
     font-size: var(--font-size-sm);
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    /* Visuelle Unterscheidung für Kategorie */
-    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Erhöhte Opazität für besseren Kontrast */
-    padding-top: 0.5rem;
+    letter-spacing: var(--letter-spacing-wider);
+    border-top: 1px solid var(--color-notification-border);
+    padding-top: var(--spacing-sm);
   }
 
   /* Modifier für sichtbaren Zustand */
@@ -299,7 +287,7 @@ const t = useTranslations(lang);
     top: 0;
     right: 0;
     display: flex;
-    gap: 0.25rem;
+    gap: var(--spacing-xs);
   }
 
   /* Steuerelementtasten */
@@ -310,28 +298,27 @@ const t = useTranslations(lang);
     height: 2rem;
     width: 2rem;
     background-color: transparent;
-    color: var(--color-gray-400);
+    color: var(--color-notification-controls);
     border: none;
-    border-radius: 4px;
+    border-radius: var(--border-radius-sm);
     cursor: pointer;
     transition:
-      color 0.2s ease,
-      background-color 0.2s ease,
-      outline 0.2s ease;
-    /* Mindestgröße für Touch-Ziele - WCAG AAA */
+      color var(--transition-duration-200) var(--transition-timing-in-out),
+      background-color var(--transition-duration-200) var(--transition-timing-in-out),
+      outline var(--transition-duration-200) var(--transition-timing-in-out);
     min-height: 44px;
     min-width: 44px;
   }
 
   .achievement-notification__control-button:hover,
   .achievement-notification__control-button:focus-visible {
-    color: var(--color-white);
+    color: var(--color-notification-text);
   }
 
   .achievement-notification__control-button:focus-visible {
-    outline: 3px solid var(--color-purple-300, #c4b5fd);
+    outline: var(--color-focus-outline);
     outline-offset: 3px;
-    border-radius: 2px;
+    border-radius: var(--border-radius-sm);
     background-color: rgba(124, 58, 237, 0.1);
   }
 
@@ -342,17 +329,17 @@ const t = useTranslations(lang);
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--color-notification-timer-bg);
     overflow: hidden;
   }
 
   .achievement-notification__timer-progress {
     height: 100%;
     width: 100%;
-    background-color: var(--color-purple-500);
+    background-color: var(--color-notification-timer-progress);
     transform-origin: left;
-    transform: translateZ(0); /* Verbessert die GPU-Beschleunigung */
-    will-change: transform; /* Optimiert für Animation-Performance */
+    transform: translateZ(0);
+    will-change: transform;
   }
 
   @keyframes timer-countdown {
@@ -368,7 +355,6 @@ const t = useTranslations(lang);
   @media (min-width: 640px) {
     .achievement-notification {
       max-width: 30rem;
-      /* Verbesserte Position für größere Bildschirme */
       bottom: var(--spacing-2xl);
       right: var(--spacing-2xl);
     }
@@ -383,63 +369,57 @@ const t = useTranslations(lang);
   /* Standardmäßig Dunkelmodus, Überschreibung für Hellmodus */
   @media (prefers-color-scheme: light) {
     .achievement-notification {
-      background-color: var(--color-gray-100);
-      color: var(--color-gray-900);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      background-color: var(--color-notification-bg-light);
+      color: var(--color-notification-text-light);
+      box-shadow: var(--shadow-xl);
     }
 
     .achievement-notification__icon {
-      background-color: var(
-        --color-purple-900
-      ); /* Dunkler für höheres Kontrastverhältnis von 7:1 (WCAG AAA) */
-      color: var(--color-white);
+      background-color: var(--color-notification-icon-bg-light);
+      color: var(--color-notification-text);
     }
 
     .achievement-notification__category {
-      border-top-color: rgba(0, 0, 0, 0.2); /* Erhöhte Opazität für 7:1 Kontrastverhältnis */
-      color: var(--color-gray-900); /* Maximaler Kontrast im Light Mode */
-      font-weight: 700; /* Fetter für bessere Lesbarkeit und Kontrast */
+      border-top-color: var(--color-notification-border-light);
+      color: var(--color-notification-text-light);
+      font-weight: 700;
     }
 
     .achievement-notification__description {
-      color: var(--color-gray-900); /* Maximaler Kontrast im Light Mode */
-      opacity: 1; /* Keine Verringerung der Deckkraft für maximalen Kontrast */
+      color: var(--color-notification-text-light);
+      opacity: 1;
     }
 
     .achievement-notification__close,
     .achievement-notification__control-button {
-      color: var(--color-gray-800); /* Dunkler für 7:1 Kontrastverhältnis */
+      color: var(--color-notification-controls-light);
     }
 
     .achievement-notification__close:hover,
     .achievement-notification__close:focus-visible,
     .achievement-notification__control-button:hover,
     .achievement-notification__control-button:focus-visible {
-      color: var(--color-gray-900);
-      background-color: rgba(0, 0, 0, 0.1); /* Verstärkter Hover-Zustand für Sichtbarkeit */
+      color: var(--color-notification-text-light);
+      background-color: rgba(0, 0, 0, 0.1);
     }
 
     .achievement-notification__close:focus-visible,
     .achievement-notification__control-button:focus-visible {
       outline: 3px solid var(--color-purple-800);
       outline-offset: 3px;
-      border-radius: 2px;
-      background-color: rgba(88, 28, 135, 0.15); /* Dunklere Lila-Farbe für höheren Kontrast */
+      border-radius: var(--border-radius-sm);
+      background-color: rgba(88, 28, 135, 0.15);
     }
   }
 
   /* Unterstützung für reduzierte Bewegung */
   @media (prefers-reduced-motion: reduce) {
     .achievement-notification {
-      transition-duration: 0.001s !important;
-      -webkit-transition-duration: 0.001s !important;
+      transition-duration: var(--transition-duration-75);
     }
 
-    /* Alternative für Benutzer, die reduzierte Bewegung bevorzugen */
     .achievement-notification--visible {
-      /* Sofortiges Erscheinen statt Animation */
       transition: none;
-      -webkit-transition: none;
     }
   }
 
