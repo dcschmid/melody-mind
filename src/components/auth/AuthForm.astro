@@ -372,8 +372,9 @@ const translations = {
   </div>
 </div>
 
-<script type="module" define:vars={{ translations }}>
-  // Script for form validation, password requirements checking, and form submission
+<script type="module" define:vars={{ translations }} is:inline>
+  // Combined script for form validation, password requirements checking, form submission and UI interactions
+
   /**
    * List of common passwords (shortened)
    * Used to prevent users from setting easily guessable passwords
@@ -1159,6 +1160,131 @@ const translations = {
           : "After successful login, you will be redirected back to this page.";
       document.body.appendChild(redirectAnnouncement);
     }
+
+    // === PASSWORD VISIBILITY TOGGLING AND UI INTERACTIONS ===
+
+    // Get all toggle password buttons
+    const togglePasswordButtons = document.querySelectorAll('[id^="toggle"][id$="Password"]');
+
+    // Add event listeners to each toggle button
+    togglePasswordButtons.forEach((button) => {
+      const buttonId = button.id;
+      const passwordId = buttonId.replace("toggle", "").toLowerCase();
+      const passwordInput = document.getElementById(passwordId);
+
+      const showIcon = button.querySelector(".auth-form__icon--show");
+      const hideIcon = button.querySelector(".auth-form__icon--hide");
+
+      if (passwordInput && showIcon && hideIcon) {
+        button.addEventListener("click", () => {
+          // Toggle password visibility
+          const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+          passwordInput.setAttribute("type", type);
+
+          // Toggle icon visibility
+          if (showIcon instanceof HTMLElement) {
+            showIcon.style.display = type === "password" ? "flex" : "none";
+          }
+
+          if (hideIcon instanceof HTMLElement) {
+            hideIcon.style.display = type === "password" ? "none" : "flex";
+          }
+
+          // Focus the input after toggling visibility
+          passwordInput.focus();
+        });
+      }
+    });
+
+    // Password requirements toggle
+    const toggleRequirementsButton = document.getElementById("toggleRequirements");
+    const passwordRequirements = document.getElementById("passwordRequirements");
+
+    if (toggleRequirementsButton && passwordRequirements) {
+      toggleRequirementsButton.addEventListener("click", () => {
+        const isExpanded = toggleRequirementsButton.getAttribute("aria-expanded") === "true";
+        const newState = !isExpanded;
+
+        toggleRequirementsButton.setAttribute("aria-expanded", newState ? "true" : "false");
+        passwordRequirements.style.display = newState ? "block" : "none";
+        passwordRequirements.setAttribute("aria-hidden", newState ? "false" : "true");
+
+        // If we're expanding the requirements, update them
+        if (newState) {
+          // Call updatePasswordRequirements if it exists
+          updatePasswordRequirements();
+        }
+      });
+    }
+
+    // Tab switching logic
+    const loginTab = document.getElementById("loginTab");
+    const registerTab = document.getElementById("registerTab");
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+    const formError = document.getElementById("formError");
+    const formSuccess = document.getElementById("formSuccess");
+
+    // Function to switch between login and register tabs
+    const switchTab = (mode) => {
+      if (!loginTab || !registerTab || !loginForm || !registerForm) {
+        return;
+      }
+
+      if (mode === "login") {
+        loginTab.setAttribute("aria-selected", "true");
+        loginTab.classList.add("auth-form__tab--active");
+        loginForm.classList.add("auth-form__form--active");
+        loginForm.setAttribute("aria-hidden", "false");
+
+        registerTab.setAttribute("aria-selected", "false");
+        registerTab.classList.remove("auth-form__tab--active");
+        registerForm.classList.remove("auth-form__form--active");
+        registerForm.setAttribute("aria-hidden", "true");
+      } else {
+        registerTab.setAttribute("aria-selected", "true");
+        registerTab.classList.add("auth-form__tab--active");
+        registerForm.classList.add("auth-form__form--active");
+        registerForm.setAttribute("aria-hidden", "false");
+
+        loginTab.setAttribute("aria-selected", "false");
+        loginTab.classList.remove("auth-form__tab--active");
+        loginForm.classList.remove("auth-form__form--active");
+        loginForm.setAttribute("aria-hidden", "true");
+      }
+
+      // Reset error and success messages
+      if (formError) {
+        formError.textContent = "";
+        formError.style.display = "none";
+      }
+
+      if (formSuccess) {
+        formSuccess.textContent = "";
+        formSuccess.style.display = "none";
+      }
+    };
+
+    // Add click event listeners for tab switching
+    if (loginTab && registerTab) {
+      loginTab.addEventListener("click", () => switchTab("login"));
+      registerTab.addEventListener("click", () => switchTab("register"));
+
+      // Keyboard accessibility for tabs
+      loginTab.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          switchTab("login");
+        }
+      });
+
+      registerTab.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          switchTab("register");
+        }
+      });
+    }
   });
 </script>
 
@@ -1581,133 +1707,3 @@ const translations = {
     color: var(--color-info);
   }
 </style>
-
-<script is:inline type="module">
-  // This script handles the password visibility toggling and tab switching UI interactions
-  document.addEventListener("DOMContentLoaded", () => {
-    // Get all toggle password buttons
-    const togglePasswordButtons = document.querySelectorAll('[id^="toggle"][id$="Password"]');
-
-    // Add event listeners to each toggle button
-    togglePasswordButtons.forEach((button) => {
-      const buttonId = button.id;
-      const passwordId = buttonId.replace("toggle", "").toLowerCase();
-      const passwordInput = document.getElementById(passwordId);
-
-      const showIcon = button.querySelector(".auth-form__icon--show");
-      const hideIcon = button.querySelector(".auth-form__icon--hide");
-
-      if (passwordInput && showIcon && hideIcon) {
-        button.addEventListener("click", () => {
-          // Toggle password visibility
-          const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
-          passwordInput.setAttribute("type", type);
-
-          // Toggle icon visibility
-          if (showIcon instanceof HTMLElement) {
-            showIcon.style.display = type === "password" ? "flex" : "none";
-          }
-
-          if (hideIcon instanceof HTMLElement) {
-            hideIcon.style.display = type === "password" ? "none" : "flex";
-          }
-
-          // Focus the input after toggling visibility
-          passwordInput.focus();
-        });
-      }
-    });
-
-    // Password requirements toggle
-    const toggleRequirementsButton = document.getElementById("toggleRequirements");
-    const passwordRequirements = document.getElementById("passwordRequirements");
-
-    if (toggleRequirementsButton && passwordRequirements) {
-      toggleRequirementsButton.addEventListener("click", () => {
-        const isExpanded = toggleRequirementsButton.getAttribute("aria-expanded") === "true";
-        const newState = !isExpanded;
-
-        toggleRequirementsButton.setAttribute("aria-expanded", newState ? "true" : "false");
-        passwordRequirements.style.display = newState ? "block" : "none";
-        passwordRequirements.setAttribute("aria-hidden", newState ? "false" : "true");
-
-        // If we're expanding the requirements, update them
-        if (newState) {
-          // Call updatePasswordRequirements if it exists in the main script
-          if (typeof window.updatePasswordRequirements === "function") {
-            window.updatePasswordRequirements();
-          }
-        }
-      });
-    }
-
-    // Tab switching logic
-    const loginTab = document.getElementById("loginTab");
-    const registerTab = document.getElementById("registerTab");
-    const loginForm = document.getElementById("loginForm");
-    const registerForm = document.getElementById("registerForm");
-    const formError = document.getElementById("formError");
-    const formSuccess = document.getElementById("formSuccess");
-
-    // Function to switch between login and register tabs
-    const switchTab = (mode) => {
-      if (!loginTab || !registerTab || !loginForm || !registerForm) {
-        return;
-      }
-
-      if (mode === "login") {
-        loginTab.setAttribute("aria-selected", "true");
-        loginTab.classList.add("auth-form__tab--active");
-        loginForm.classList.add("auth-form__form--active");
-        loginForm.setAttribute("aria-hidden", "false");
-
-        registerTab.setAttribute("aria-selected", "false");
-        registerTab.classList.remove("auth-form__tab--active");
-        registerForm.classList.remove("auth-form__form--active");
-        registerForm.setAttribute("aria-hidden", "true");
-      } else {
-        registerTab.setAttribute("aria-selected", "true");
-        registerTab.classList.add("auth-form__tab--active");
-        registerForm.classList.add("auth-form__form--active");
-        registerForm.setAttribute("aria-hidden", "false");
-
-        loginTab.setAttribute("aria-selected", "false");
-        loginTab.classList.remove("auth-form__tab--active");
-        loginForm.classList.remove("auth-form__form--active");
-        loginForm.setAttribute("aria-hidden", "true");
-      }
-
-      // Reset error and success messages
-      if (formError) {
-        formError.textContent = "";
-        formError.style.display = "none";
-      }
-
-      if (formSuccess) {
-        formSuccess.textContent = "";
-        formSuccess.style.display = "none";
-      }
-    };
-
-    // Add click event listeners for tab switching
-    if (loginTab && registerTab) {
-      loginTab.addEventListener("click", () => switchTab("login"));
-      registerTab.addEventListener("click", () => switchTab("register"));
-
-      // Keyboard accessibility for tabs
-      loginTab.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          switchTab("login");
-        }
-      });
-
-      registerTab.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          switchTab("register");
-        }
-      });
-    }
-  });
-</script>
