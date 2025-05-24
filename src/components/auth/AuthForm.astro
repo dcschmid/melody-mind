@@ -1183,14 +1183,14 @@ const translations = {
   }
 
   .auth-form__message--error {
-    border: 1px solid #b91c1c; /* red-700 */
-    background-color: rgba(127, 29, 29, 0.5); /* red-900/50 */
+    border: var(--form-border-width) solid var(--color-error-border);
+    background-color: var(--color-error-bg);
     color: var(--color-white);
   }
 
   .auth-form__message--success {
-    border: 1px solid #15803d; /* green-700 */
-    background-color: rgba(20, 83, 45, 0.5); /* green-900/50 */
+    border: var(--form-border-width) solid var(--color-success-border);
+    background-color: var(--color-success-bg);
     color: var(--color-white);
   }
 
@@ -1221,7 +1221,7 @@ const translations = {
   }
 
   .auth-form__tab:focus-visible {
-    outline: 3px solid var(--color-purple-500);
+    outline: var(--color-focus-outline);
     outline-offset: 2px;
     z-index: 1;
   }
@@ -1266,7 +1266,7 @@ const translations = {
   }
 
   .auth-form__required-mark {
-    color: #f87171; /* red-400 */
+    color: var(--color-error);
     margin-left: var(--spacing-xs);
   }
 
@@ -1284,7 +1284,7 @@ const translations = {
   }
 
   .auth-form__forgot-password:focus-visible {
-    outline: 3px solid var(--color-purple-500);
+    outline: var(--color-focus-outline);
     outline-offset: 2px;
   }
 
@@ -1295,12 +1295,13 @@ const translations = {
 
   .auth-form__input {
     width: 100%;
-    padding: var(--spacing-sm) var(--spacing-lg);
-    border: 1px solid var(--color-gray-700);
+    padding: var(--form-input-padding-y) var(--form-input-padding-x);
+    border: var(--form-border-width) solid var(--form-border-color);
     border-radius: var(--border-radius-md);
     background-color: var(--color-gray-800);
     color: var(--color-white);
     font-size: var(--font-size-md);
+    min-height: var(--form-input-height);
     transition:
       border-color 0.3s,
       box-shadow 0.3s;
@@ -1309,8 +1310,8 @@ const translations = {
 
   .auth-form__input:focus {
     outline: none;
-    border-color: transparent;
-    box-shadow: 0 0 0 2px var(--color-purple-400);
+    border-color: var(--form-border-color-focus);
+    box-shadow: var(--color-focus-ring);
   }
 
   .auth-form__input::placeholder {
@@ -1321,7 +1322,7 @@ const translations = {
   .auth-form__error-message {
     margin-top: var(--spacing-xs);
     font-size: var(--font-size-sm);
-    color: #f87171; /* red-400 */
+    color: var(--color-error);
     display: none;
   }
 
@@ -1347,7 +1348,7 @@ const translations = {
   }
 
   .auth-form__toggle-password:focus-visible {
-    outline: 3px solid var(--color-purple-500);
+    outline: var(--color-focus-outline);
     outline-offset: 2px;
   }
 
@@ -1393,7 +1394,7 @@ const translations = {
 
   .auth-form__submit-button:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px var(--color-purple-500);
+    box-shadow: var(--color-focus-ring);
   }
 
   /* Spinner */
@@ -1434,7 +1435,7 @@ const translations = {
     }
 
     .auth-form__submit-button {
-      padding: var(--spacing-lg) var (--spacing-xl);
+      padding: var(--spacing-lg) var(--spacing-xl);
     }
   }
 
@@ -1472,7 +1473,7 @@ const translations = {
   }
 
   .auth-form__requirements-toggle:focus-visible {
-    outline: 3px solid var(--color-purple-500);
+    outline: var(--color-focus-outline);
     outline-offset: 2px;
   }
 
@@ -1511,16 +1512,16 @@ const translations = {
   }
 
   .auth-form__requirement--invalid {
-    color: #f87171; /* red-400 */
+    color: var(--color-error);
   }
 
   .auth-form__requirement--valid {
-    color: #4ade80; /* green-400 */
+    color: var(--color-success);
   }
 
   /* Strength Meter */
   .auth-form__strength-container {
-    margin-top: var (--spacing-md);
+    margin-top: var(--spacing-md);
   }
 
   .auth-form__strength-label {
@@ -1544,19 +1545,19 @@ const translations = {
   }
 
   .auth-form__strength-progress--weak {
-    background-color: #ef4444; /* red-500 */
+    background-color: var(--color-strength-weak);
   }
 
   .auth-form__strength-progress--medium {
-    background-color: #eab308; /* yellow-500 */
+    background-color: var(--color-strength-medium);
   }
 
   .auth-form__strength-progress--strong {
-    background-color: #22c55e; /* green-500 */
+    background-color: var(--color-strength-strong);
   }
 
   .auth-form__strength-progress--very-strong {
-    background-color: #3b82f6; /* blue-500 */
+    background-color: var(--color-strength-very-strong);
   }
 
   .auth-form__strength-text {
@@ -1565,19 +1566,19 @@ const translations = {
   }
 
   .auth-form__strength-text--weak {
-    color: #f87171; /* red-400 */
+    color: var(--color-error);
   }
 
   .auth-form__strength-text--medium {
-    color: #facc15; /* yellow-400 */
+    color: var(--color-warning);
   }
 
   .auth-form__strength-text--strong {
-    color: #4ade80; /* green-400 */
+    color: var(--color-success);
   }
 
   .auth-form__strength-text--very-strong {
-    color: #60a5fa; /* blue-400 */
+    color: var(--color-info);
   }
 </style>
 
