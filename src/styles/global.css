@@ -53,23 +53,35 @@
 
   /* Additional gray shades for components */
   --color-gray-650: #52525b;
-  --color-gray-750: #3f3f46;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-800: #27272a;
+  --color-zinc-900: #18181b;
+  --color-sky-400: #38bdf8;
+
+  /* Authentication Form Colors */
+  --color-primary: var(--color-purple-600);
+  --color-primary-hover: var(--color-purple-700);
+  --color-text-primary: var(--color-white);
+  --color-text-secondary: var(--color-gray-400);
+  --color-text-body: var(--color-gray-200);
+  --color-border: var(--color-gray-700);
+  --color-background: var(--color-gray-900);
+  --color-background-card: var(--color-gray-800);
+
+  /* Form specific colors */
+  --color-error-background: rgba(127, 29, 29, 0.5);
+  --color-error-border: #b91c1c;
+  --color-error-text: #f87171;
+  --color-success-background: rgba(20, 83, 45, 0.5);
+  --color-success-border: #15803d;
+  --color-success-text: #4ade80;
 
   /* Functional Colors */
   --color-text-primary: var(--color-purple-600);
   --color-text-body: var(--color-gray-300);
   --color-background: var(--color-gray-900);
   --color-background-card: var(--color-gray-800);
-
-  /* Form specific colors */
-  --color-error: #f87171; /* red-400 */
-  --color-error-bg: rgba(127, 29, 29, 0.5); /* red-900/50 */
-  --color-error-border: #b91c1c; /* red-700 */
-  --color-success: #4ade80; /* green-400 */
-  --color-success-bg: rgba(20, 83, 45, 0.5); /* green-900/50 */
-  --color-success-border: #15803d; /* green-700 */
-  --color-warning: #facc15; /* yellow-400 */
-  --color-info: #60a5fa; /* blue-400 */
 
   /* Password strength colors */
   --color-strength-weak: #ef4444; /* red-500 */
@@ -120,6 +132,12 @@
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.25rem;
   --font-size-2xl: 1.5rem;
+
+  /* Font Weight Variables */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
   /* Line Height Variables */
   --line-height-none: 1;
