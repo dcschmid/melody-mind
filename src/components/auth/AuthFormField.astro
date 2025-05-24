@@ -1,0 +1,379 @@
+---
+/**
+ * AuthFormField Component for MelodyMind Auth Forms
+ *
+ * A reusable form field component that provides consistent styling and behavior
+ * for authentication forms. This eliminates duplication across input fields.
+ *
+ * Features:
+ * - Flexible input types (email, password, text)
+ * - Built-in label and error message handling
+ * - WCAG AAA compliant accessibility
+ * - Password visibility toggle integration
+ * - Consistent styling and validation states
+ * - Screen reader support
+ *
+ * @component
+ * @example
+ * ```astro
+ * <AuthFormField
+ *   id="loginEmail"
+ *   name="email"
+ *   type="email"
+ *   label={t("auth.login.email")}
+ *   placeholder={t("auth.login.email.placeholder")}
+ *   required={true}
+ *   autocomplete="email"
+ * />
+ * ```
+ */
+import PasswordToggleButton from "./PasswordToggleButton.astro";
+
+export interface Props {
+  /** Unique identifier for the input field */
+  id: string;
+  /** Name attribute for the input */
+  name: string;
+  /** Input type (email, password, text, etc.) */
+  type: string;
+  /** Label text for the input */
+  label: string;
+  /** Placeholder text */
+  placeholder?: string;
+  /** Whether the field is required */
+  required?: boolean;
+  /** Autocomplete attribute value */
+  autocomplete?: string;
+  /** Additional CSS classes */
+  class?: string;
+  /** Custom content to display after the label (e.g., forgot password link) */
+  labelSuffix?: string;
+  /** Whether to show password toggle (only for password type) */
+  showPasswordToggle?: boolean;
+  /** Accessible label for password toggle button */
+  passwordToggleLabel?: string;
+  /** Additional attributes to pass to the input */
+  inputAttributes?: Record<string, any>;
+}
+
+const {
+  id,
+  name,
+  type,
+  label,
+  placeholder,
+  required = false,
+  autocomplete,
+  class: className = "",
+  labelSuffix,
+  showPasswordToggle = type === "password",
+  passwordToggleLabel = "Toggle password visibility",
+  inputAttributes = {},
+} = Astro.props;
+
+const isPasswordType = type === "password";
+const errorId = `${id}Error`;
+const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
+---
+
+<div class={`auth-form__field ${className}`}>
+  <div class="auth-form__label-group">
+    <label for={id} class="auth-form__label">
+      {label}
+      {
+        required && (
+          <>
+            <span class="auth-form__required-mark" aria-hidden="true">
+              *
+            </span>
+            <span class="sr-only">Required</span>
+          </>
+        )
+      }
+    </label>
+    {labelSuffix && <div class="auth-form__label-suffix" set:html={labelSuffix} />}
+  </div>
+
+  <div class="auth-form__input-wrapper">
+    <input
+      {type}
+      {id}
+      {name}
+      class="auth-form__input"
+      {placeholder}
+      {required}
+      {autocomplete}
+      aria-required={required ? "true" : "false"}
+      aria-describedby={errorId}
+      {...inputAttributes}
+    />
+
+    {
+      isPasswordType && showPasswordToggle && (
+        <PasswordToggleButton id={toggleId} targetPasswordId={id} ariaLabel={passwordToggleLabel} />
+      )
+    }
+
+    <div id={errorId} class="auth-form__error-message" role="alert" aria-live="polite"></div>
+  </div>
+</div>
+
+<script>
+  /**
+   * Auth Form Field Functionality
+   *
+   * Handles form field interactions and validation state management.
+   * Provides utilities for showing/hiding error messages and managing field states.
+   */
+
+  /**
+   * Shows an error message for a specific form field
+   * @param fieldId - The ID of the form field
+   * @param message - The error message to display
+   */
+  function showFieldError(fieldId: string, message: string): void {
+    const errorElement = document.getElementById(`${fieldId}Error`);
+    const inputElement = document.getElementById(fieldId) as HTMLInputElement;
+
+    if (errorElement) {
+      errorElement.textContent = message;
+      errorElement.style.display = "block";
+      errorElement.setAttribute("aria-live", "assertive");
+    }
+
+    if (inputElement) {
+      inputElement.setAttribute("aria-invalid", "true");
+      inputElement.classList.add("auth-form__input--error");
+    }
+  }
+
+  /**
+   * Hides the error message for a specific form field
+   * @param fieldId - The ID of the form field
+   */
+  function hideFieldError(fieldId: string): void {
+    const errorElement = document.getElementById(`${fieldId}Error`);
+    const inputElement = document.getElementById(fieldId) as HTMLInputElement;
+
+    if (errorElement) {
+      errorElement.textContent = "";
+      errorElement.style.display = "none";
+      errorElement.setAttribute("aria-live", "polite");
+    }
+
+    if (inputElement) {
+      inputElement.removeAttribute("aria-invalid");
+      inputElement.classList.remove("auth-form__input--error");
+    }
+  }
+
+  /**
+   * Validates an email address format
+   * @param email - The email address to validate
+   * @returns True if email is valid, false otherwise
+   */
+  function validateEmailFormat(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  /**
+   * Initialize all auth form fields with proper event handlers
+   */
+  function initializeAuthFormFields(): void {
+    const formFields = document.querySelectorAll(
+      ".auth-form__input"
+    ) as NodeListOf<HTMLInputElement>;
+
+    formFields.forEach((input) => {
+      const fieldId = input.id;
+
+      // Clear error state when user starts typing
+      input.addEventListener("input", () => {
+        if (input.classList.contains("auth-form__input--error")) {
+          hideFieldError(fieldId);
+        }
+      });
+
+      // Add focus and blur styling
+      input.addEventListener("focus", () => {
+        input.classList.add("auth-form__input--focused");
+      });
+
+      input.addEventListener("blur", () => {
+        input.classList.remove("auth-form__input--focused");
+
+        // Basic validation on blur for email fields
+        if (input.type === "email" && input.value) {
+          if (!validateEmailFormat(input.value)) {
+            const lang = document.documentElement.lang || "en";
+            const errorMessage =
+              lang === "de"
+                ? "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+                : "Please enter a valid email address";
+            showFieldError(fieldId, errorMessage);
+          }
+        }
+      });
+    });
+  }
+
+  // Initialize on DOM content loaded
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeAuthFormFields);
+  } else {
+    initializeAuthFormFields();
+  }
+
+  // Expose utilities globally
+  (window as any).showFieldError = showFieldError;
+  (window as any).hideFieldError = hideFieldError;
+  (window as any).validateEmailFormat = validateEmailFormat;
+</script>
+
+<style>
+  /* Auth Form Field Styles */
+  .auth-form__field {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .auth-form__label-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .auth-form__label {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-gray-200);
+    line-height: 1.5;
+  }
+
+  .auth-form__required-mark {
+    color: var(--color-red-400);
+    margin-left: var(--spacing-xs);
+    font-weight: 600;
+  }
+
+  .auth-form__label-suffix {
+    font-size: var(--font-size-sm);
+  }
+
+  .auth-form__input-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .auth-form__input {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--color-gray-800);
+    border: 2px solid var(--color-gray-600);
+    border-radius: var(--border-radius-md);
+    color: var(--color-white);
+    font-size: var(--font-size-md);
+    line-height: 1.5;
+    transition: all 0.3s ease;
+    appearance: none;
+  }
+
+  .auth-form__input:focus {
+    outline: none;
+    border-color: var(--color-purple-500);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    background: var(--color-gray-750);
+  }
+
+  .auth-form__input:focus-visible {
+    outline: 3px solid var(--color-focus-outline);
+    outline-offset: 2px;
+  }
+
+  .auth-form__input--focused {
+    border-color: var(--color-purple-400);
+  }
+
+  .auth-form__input--error {
+    border-color: var(--color-red-500);
+    background: rgba(239, 68, 68, 0.05);
+  }
+
+  .auth-form__input--error:focus {
+    border-color: var(--color-red-400);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  }
+
+  .auth-form__input::placeholder {
+    color: var(--color-gray-400);
+    opacity: 1;
+  }
+
+  /* Error message styles */
+  .auth-form__error-message {
+    display: none;
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-red-400);
+    line-height: 1.4;
+  }
+
+  /* Screen reader only content */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Responsive Design */
+  @media (min-width: 768px) {
+    .auth-form__label {
+      font-size: var(--font-size-md);
+    }
+
+    .auth-form__input {
+      padding: var(--spacing-md) var(--spacing-lg);
+      font-size: var(--font-size-md);
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .auth-form__input {
+      border-width: 3px;
+    }
+
+    .auth-form__input:focus-visible {
+      outline-width: 4px;
+    }
+
+    .auth-form__required-mark {
+      font-weight: 800;
+    }
+  }
+
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .auth-form__input {
+      transition: none;
+    }
+  }
+
+  /* Touch devices optimization */
+  @media (hover: none) and (pointer: coarse) {
+    .auth-form__input {
+      min-height: 44px; /* WCAG AAA minimum touch target */
+      padding: var(--spacing-md) var(--spacing-lg);
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
+  }
+</style>

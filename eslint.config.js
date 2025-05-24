@@ -1,10 +1,10 @@
-import eslintPluginAstro from "eslint-plugin-astro";
 import eslint from "@eslint/js";
-import tseslint from "typescript-eslint";
+import eslintPluginAstro from "eslint-plugin-astro";
 import importPlugin from "eslint-plugin-import";
 import jsdocPlugin from "eslint-plugin-jsdoc";
-import promisePlugin from "eslint-plugin-promise";
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
+import promisePlugin from "eslint-plugin-promise";
+import tseslint from "typescript-eslint";
 
 export default [
   eslint.configs.recommended,
@@ -204,6 +204,23 @@ export default [
       "jsx-a11y/role-has-required-aria-props": "error",
       "jsx-a11y/role-supports-aria-props": "error",
       "jsx-a11y/tabindex-no-positive": "error",
+    },
+  },
+
+  // Spezielle Konfiguration für Astro-Dateien
+  {
+    files: ["**/*.astro"],
+    rules: {
+      // Deaktiviere TypeScript return type Anforderung für Astro inline scripts
+      "@typescript-eslint/explicit-function-return-type": "off",
+      // Erlaube unbenutzte Variablen in catch blocks (häufig in error handling)
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^(err|error)$",
+        },
+      ],
     },
   },
 
