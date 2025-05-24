@@ -39,6 +39,7 @@
 -     console.error("Unknown error:", error);
 - }
 - } \*/ export class AchievementApiError extends Error { /\*\*
+
   - Creates a new AchievementApiError instance
   -
   - @param {string} message - Error message describing what went wrong
@@ -47,12 +48,12 @@
     constructor( message: string, public readonly statusCode: number = 500, public readonly userId?:
     UserId ) { super(message); this.name = "AchievementApiError";
 
+        // Maintains proper stack trace for where our error was thrown (only available on V8)
+        if (Error.captureStackTrace) {
+          Error.captureStackTrace(this, AchievementApiError);
+        }
 
-      // Maintains proper stack trace for where our error was thrown (only available on V8)
-      if (Error.captureStackTrace) {
-        Error.captureStackTrace(this, AchievementApiError);
-      }
-  } }
+    } }
 
 /\*\*
 
