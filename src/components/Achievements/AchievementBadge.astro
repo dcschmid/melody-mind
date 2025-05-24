@@ -50,39 +50,27 @@ const fallbackLabel = t("achievements.badge.fallback_text");
 
 <!-- 5. Component styles with CSS -->
 <style>
-  /* CSS Custom Properties */
   .achievement-badge {
-    /* Layout variables */
-    --badge-size: 1.5rem;
-    --badge-padding: 0.125rem;
-    --badge-position-offset: -0.25rem;
-    --badge-min-width: 1.5rem;
-
-    /* Animation variables */
-    --badge-transition-duration: 0.3s;
-    --badge-transition-timing: ease-out;
-    --badge-reduced-motion-duration: 0.001s;
-
-    /* Styling */
+    /* Use global CSS variables from global.css */
     position: absolute;
     inset-block-start: var(--badge-position-offset); /* logical property */
     inset-inline-end: var(--badge-position-offset); /* logical property */
     display: flex;
     height: var(--badge-size);
     width: var(--badge-size);
-    padding: var(--badge-padding);
+    padding: var(--spacing-xs);
     align-items: center;
     justify-content: center;
     border-radius: var(--border-radius-full);
-    background-color: var(--color-pink-700, #be185d);
+    background-color: var(--color-pink-700);
     color: var(--color-white);
     font-size: var(--font-size-sm);
     font-weight: 700;
     opacity: 0;
     transform: scale(0);
     transition-property: opacity, transform;
-    transition-duration: var(--badge-transition-duration);
-    transition-timing-function: var(--badge-transition-timing);
+    transition-duration: var(--transition-duration-normal);
+    transition-timing-function: var(--transition-timing-ease);
     pointer-events: none;
     text-align: center;
     min-width: var(--badge-min-width);
@@ -105,15 +93,15 @@ const fallbackLabel = t("achievements.badge.fallback_text");
   /* Light mode adjustment with enhanced contrast */
   @media (prefers-color-scheme: light) {
     .achievement-badge {
-      background-color: var(--color-pink-800, #9d174d);
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5);
+      background-color: var(--color-pink-800);
+      box-shadow: var(--shadow-sm);
     }
   }
 
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     .achievement-badge {
-      transition-duration: var(--badge-reduced-motion-duration);
+      transition-duration: var(--reduced-motion-duration);
       transform: scale(1);
     }
   }
@@ -131,6 +119,7 @@ const fallbackLabel = t("achievements.badge.fallback_text");
       border: 2px solid CanvasText;
       background-color: Highlight;
       color: HighlightText;
+      forced-color-adjust: none;
     }
   }
 </style>
