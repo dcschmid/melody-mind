@@ -80,6 +80,9 @@ export default {
   "auth.email_verification.success": "Email verified successfully",
   "auth.email_verification.error": "Email verification failed",
   "auth.email_verification.login": "Back to Login",
+  "auth.email_verification.loading_label": "Email verification in progress",
+  "auth.email_verification.success_icon_label": "Email verification successful",
+  "auth.email_verification.error_icon_label": "Email verification failed",
 
   // Password Validation
   "auth.password.requirements": "Password requirements:",

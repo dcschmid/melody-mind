@@ -85,6 +85,9 @@ export default {
   "auth.email_verification.success": "Correo electrónico verificado con éxito",
   "auth.email_verification.error": "Error en la verificación del correo electrónico",
   "auth.email_verification.login": "Volver a iniciar sesión",
+  "auth.email_verification.loading_label": "Verificación de correo electrónico en progreso",
+  "auth.email_verification.success_icon_label": "Verificación de correo electrónico exitosa",
+  "auth.email_verification.error_icon_label": "Error en la verificación del correo electrónico",
 
   // Validación de contraseña
   "auth.password.requirements": "Requisitos de la contraseña:",
@@ -579,4 +582,41 @@ export default {
   "game.time.extend.again": "Extender nuevamente",
   "game.time.extended": "Tiempo extendido por 5 segundos",
   "game.time.before.end": "Extender antes del fin del juego",
+
+  // Missing translations
+  "auth.password_reset.description":
+    "Introduce tu email para recibir un enlace de restablecimiento de contraseña",
+  "auth.password_reset.success": "Se ha enviado un enlace de restablecimiento a tu email",
+  "auth.email_verification.description":
+    "Verifica tu dirección de email para tu cuenta de Melody Mind.",
+  "auth.email_verification.message":
+    "Hemos enviado un enlace de verificación a tu dirección de email",
+  "auth.service.invalid_credentials":
+    "Credenciales inválidas. Por favor verifica tu email y contraseña.",
+  "auth.service.too_many_attempts":
+    "Demasiados intentos de inicio de sesión. Por favor espera un momento e intenta de nuevo.",
+  "game.categories.empty.text":
+    "Desafortunadamente, no se encontraron categorías. Por favor intenta de nuevo más tarde.",
+  "knowledge.play.description":
+    "¡Pon a prueba tu conocimiento de este género musical en nuestro quiz interactivo!",
+  "podcast.no.results":
+    "No se encontraron podcasts que coincidan. Intenta con un término de búsqueda diferente.",
+  "podcast.language.availability":
+    "Nuestros podcasts están disponibles exclusivamente en alemán e inglés.",
+  "index.welcome.footnote":
+    "Preparado por amantes de la música para amantes de la música. ¡Disfruta!",
+  "playlist.no.results":
+    "No se encontraron listas de reproducción que coincidan. Intenta con un término de búsqueda diferente.",
+  "game.chronology.description":
+    "Ordena estos álbumes por su año de lanzamiento (el más antiguo primero)",
+  "knowledge.no.results.help": "Intenta con diferentes términos de búsqueda o reinicia la búsqueda",
+  "highscores.description":
+    "Ver las mejores puntuaciones en diferentes modos de juego y categorías",
+  "errors.achievements.check": "Error al verificar logros. Por favor intenta de nuevo más tarde",
+  "errors.achievements.fetch": "Error al obtener logros. Por favor intenta de nuevo más tarde",
+  "errors.achievements.update": "Error al actualizar logros. Por favor intenta de nuevo más tarde",
+  "errors.achievements.unlock": "Error al desbloquear logro. Por favor intenta de nuevo más tarde",
+  "errors.gameResult.validation.invalidCorrectAnswers":
+    "Las respuestas correctas deben ser un número",
+  "achievements.filter.reset": "Restablecer",
 };

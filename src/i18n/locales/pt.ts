@@ -82,6 +82,9 @@ export default {
   "auth.email_verification.success": "Email verificado com sucesso",
   "auth.email_verification.error": "Falha na verificação do email",
   "auth.email_verification.login": "Voltar para o Login",
+  "auth.email_verification.loading_label": "Verificação de email em andamento",
+  "auth.email_verification.success_icon_label": "Verificação de email bem-sucedida",
+  "auth.email_verification.error_icon_label": "Falha na verificação do email",
 
   // Validação de Senha
   "auth.password.requirements": "Requisitos da senha:",
@@ -573,4 +576,29 @@ export default {
   "game.time.extend.again": "Estender novamente",
   "game.time.extended": "Tempo estendido por 5 segundos",
   "game.time.before.end": "Estender antes do fim do jogo",
+
+  // Missing translations
+  "auth.password_reset.description":
+    "Digite seu email para receber um link de redefinição de senha",
+  "auth.email_verification.description":
+    "Verifique seu endereço de email para sua conta Melody Mind.",
+  "auth.service.account_locked": "Sua conta foi bloqueada. Entre em contato com o suporte",
+  "auth.service.too_many_attempts":
+    "Muitas tentativas de login. Aguarde um momento e tente novamente.",
+  "game.categories.empty.text":
+    "Infelizmente, nenhuma categoria foi encontrada. Tente novamente mais tarde.",
+  "knowledge.play.description":
+    "Teste seu conhecimento deste gênero musical em nosso quiz interativo!",
+  "podcast.no.results":
+    "Nenhum podcast correspondente encontrado. Tente um termo de busca diferente.",
+  "podcast.language.availability":
+    "Nossos podcasts estão disponíveis exclusivamente em alemão e inglês.",
+  "playlist.no.results":
+    "Nenhuma playlist correspondente encontrada. Tente um termo de busca diferente.",
+  "game.chronology.description":
+    "Organize estes álbuns por seu ano de lançamento (mais antigo primeiro)",
+  "highscores.description": "Veja as melhores pontuações em diferentes modos de jogo e categorias",
+  "errors.achievements.check": "Erro ao verificar conquistas. Tente novamente mais tarde",
+  "errors.achievements.update": "Erro ao atualizar conquistas. Tente novamente mais tarde",
+  "errors.achievements.unlock": "Erro ao desbloquear conquista. Tente novamente mais tarde",
 };

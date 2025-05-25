@@ -82,6 +82,9 @@ export default {
   "auth.email_verification.success": "Email verificata con successo",
   "auth.email_verification.error": "Verifica email fallita",
   "auth.email_verification.login": "Torna ad Accedi",
+  "auth.email_verification.loading_label": "Verifica email in corso",
+  "auth.email_verification.success_icon_label": "Verifica email riuscita",
+  "auth.email_verification.error_icon_label": "Verifica email fallita",
 
   // Validazione password
   "auth.password.requirements": "Requisiti password:",
@@ -571,4 +574,30 @@ export default {
   "game.time.extend.again": "Estendi di nuovo",
   "game.time.extended": "Tempo esteso di 5 secondi",
   "game.time.before.end": "Estendi prima della fine del gioco",
+
+  // Missing translations
+  "auth.password_reset.description":
+    "Inserisci la tua email per ricevere un link di reset della password",
+  "auth.email_verification.description":
+    "Verifica il tuo indirizzo email per il tuo account Melody Mind.",
+  "knowledge.play.description":
+    "Metti alla prova la tua conoscenza di questo genere musicale nel nostro quiz interattivo!",
+  "podcast.no.results":
+    "Nessun podcast corrispondente trovato. Prova un termine di ricerca diverso.",
+  "podcast.language.availability":
+    "I nostri podcast sono disponibili esclusivamente in tedesco e inglese.",
+  "playlist.no.results":
+    "Nessuna playlist corrispondente trovata. Prova un termine di ricerca diverso.",
+  "game.chronology.description": "Ordina questi album per anno di uscita (il più vecchio prima)",
+  "knowledge.search.description": "Gli articoli vengono filtrati automaticamente mentre digiti",
+  "profile.description":
+    "Gestisci le tue informazioni personali e visualizza le tue statistiche di gioco",
+  "highscores.description":
+    "Visualizza i punteggi migliori in diverse modalità di gioco e categorie",
+  "errors.achievements.check": "Errore nel controllo dei risultati. Riprova più tardi",
+  "errors.gameResult.validation.invalidCorrectAnswers":
+    "Le risposte corrette devono essere un numero",
+  "achievements.filter.reset": "Reimposta",
+  "game.chronology.navigation.description":
+    "Usa questi pulsanti per spostare l'elemento selezionato",
 };

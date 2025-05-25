@@ -81,6 +81,9 @@ export default {
   "auth.email_verification.success": "E-mail succesvol geverifieerd",
   "auth.email_verification.error": "E-mailverificatie mislukt",
   "auth.email_verification.login": "Terug naar Inloggen",
+  "auth.email_verification.loading_label": "E-mailverificatie bezig",
+  "auth.email_verification.success_icon_label": "E-mailverificatie succesvol",
+  "auth.email_verification.error_icon_label": "E-mailverificatie mislukt",
 
   // Wachtwoordvalidatie
   "auth.password.requirements": "Wachtwoordvereisten:",
@@ -566,4 +569,20 @@ export default {
   "game.time.extend.again": "Opnieuw verlengen",
   "game.time.extended": "Tijd verlengd met 5 seconden",
   "game.time.before.end": "Verlengen voor einde spel",
+
+  // Missing translations
+  "auth.password_reset.description": "Voer je email in om een wachtwoord reset link te ontvangen",
+  "auth.service.invalid_credentials": "Ongeldige inloggegevens. Controleer je email en wachtwoord.",
+  "game.categories.empty.text":
+    "Helaas werden er geen categorieën gevonden. Probeer het later opnieuw.",
+  "podcast.language.availability":
+    "Onze podcasts zijn exclusief beschikbaar in het Duits en Engels.",
+  "index.welcome.footnote": "Bereid door muziekliefhebbers voor muziekliefhebbers. Geniet ervan!",
+  "playlist.no.results":
+    "Geen overeenkomende afspeellijsten gevonden. Probeer een andere zoekterm.",
+  "common.accessibility.main_content": "Hoofdinhoudsgebied",
+  "errors.achievements.unlock":
+    "Fout bij het ontgrendelen van prestatie. Probeer het later opnieuw",
+  "game.chronology.navigation.description":
+    "Gebruik deze knoppen om het geselecteerde element te verplaatsen",
 };

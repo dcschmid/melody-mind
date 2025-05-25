@@ -82,6 +82,9 @@ export default {
   "auth.email_verification.success": "Sähköposti vahvistettu onnistuneesti",
   "auth.email_verification.error": "Sähköpostin vahvistus epäonnistui",
   "auth.email_verification.login": "Takaisin Kirjaudu sisään -näkymään",
+  "auth.email_verification.loading_label": "Sähköpostin vahvistus käynnissä",
+  "auth.email_verification.success_icon_label": "Sähköpostin vahvistus onnistui",
+  "auth.email_verification.error_icon_label": "Sähköpostin vahvistus epäonnistui",
 
   // Salasanan validointi
   "auth.password.requirements": "Salasanavaatimukset:",
@@ -566,4 +569,21 @@ export default {
   "game.time.extend.again": "Pidennä uudelleen",
   "game.time.extended": "Aikaa pidennetty 5 sekunnilla",
   "game.time.before.end": "Pidennä ennen pelin loppua",
+
+  // Missing translations
+  "auth.password_reset.description":
+    "Syötä sähköpostiosoitteesi saadaksesi salasanan palautuslinkki",
+  "auth.email_verification.description": "Vahvista sähköpostiosoitteesi Melody Mind -tilillesi.",
+  "auth.service.invalid_credentials":
+    "Virheelliset kirjautumistiedot. Tarkista sähköpostiosoitteesi ja salasanasi.",
+  "auth.service.too_many_attempts":
+    "Liian monta kirjautumisyritystä. Odota hetki ja yritä uudelleen.",
+  "game.categories.empty.text":
+    "Valitettavasti kategorioita ei löytynyt. Yritä myöhemmin uudelleen.",
+  "knowledge.play.description":
+    "Testaa tietämystäsi tästä musiikkigenrestä interaktiivisessa tietokilpailussamme!",
+  "podcast.language.availability": "Podcastimme ovat saatavilla vain saksan ja englannin kielellä.",
+  "common.accessibility.main_content": "Pääsisältöalue",
+  "game.chronology.navigation.description":
+    "Käytä näitä painikkeita valitun elementin siirtämiseen",
 };

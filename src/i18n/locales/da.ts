@@ -81,6 +81,9 @@ export default {
   "auth.email_verification.success": "E-mail bekræftet succesfuldt",
   "auth.email_verification.error": "E-mailbekræftelse mislykkedes",
   "auth.email_verification.login": "Tilbage til Login",
+  "auth.email_verification.loading_label": "E-mailbekræftelse i gang",
+  "auth.email_verification.success_icon_label": "E-mailbekræftelse lykkedes",
+  "auth.email_verification.error_icon_label": "E-mailbekræftelse mislykkedes",
 
   // Adgangskodevalidering
   "auth.password.requirements": "Adgangskodekrav:",
@@ -561,4 +564,12 @@ export default {
 
   "game.time.extended": "Tid forlænget med 5 sekunder",
   "game.time.before.end": "Forlæng før spilslut",
+
+  // Missing translations
+  "auth.password_reset.description":
+    "Indtast din e-mail for at modtage et link til nulstilling af adgangskode",
+  "auth.service.invalid_credentials":
+    "Ugyldige loginoplysninger. Tjek venligst din e-mail og adgangskode.",
+  "game.categories.empty.text": "Desværre blev der ikke fundet nogen kategorier. Prøv igen senere.",
+  "achievements.filter.reset": "Nulstil",
 };
