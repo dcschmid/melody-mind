@@ -91,6 +91,14 @@ export default {
 
   // Passwortvalidierung
   "auth.password.requirements": "Passwortanforderungen:",
+  "auth.password.requirements.status": "{{met}} von {{total}} Anforderungen erfüllt",
+  "auth.password.requirements.help":
+    "Ihr Passwort muss alle unten aufgeführten Anforderungen für die Sicherheit erfüllen",
+  "auth.password.requirements.checklist": "Passwortanforderungen-Checkliste",
+  "auth.password.requirements.met": "Anforderung erfüllt",
+  "auth.password.requirements.not_met": "Anforderung nicht erfüllt",
+  "auth.password.requirements.keyboard_navigation":
+    "Verwenden Sie die Pfeiltasten zur Navigation, Escape zum Beenden",
   "auth.password.min_length": "Passwort muss mindestens 8 Zeichen lang sein",
   "auth.password.uppercase": "Passwort muss mindestens einen Großbuchstaben enthalten",
   "auth.password.lowercase": "Passwort muss mindestens einen Kleinbuchstaben enthalten",
@@ -104,7 +112,8 @@ export default {
   "auth.password.strength.weak": "Schwach",
   "auth.password.strength.medium": "Mittel",
   "auth.password.strength.strong": "Stark",
-  "auth.password.strength.very_strong": "Sehr stark",
+  "auth.password.strength.good": "Gut",
+  "auth.password.strength.description": "Passwortsicherheitsstufen-Indikator",
 
   // Formularvalidierung
   "auth.form.required": "Dieses Feld ist erforderlich",
@@ -584,44 +593,4 @@ export default {
   "game.time.extend.again": "Erneut verlängern",
   "game.time.extended": "Zeit um 5 Sekunden verlängert",
   "game.time.before.end": "Vor Spielende verlängern",
-
-  // Fehlende Übersetzungen hinzugefügt
-  "auth.login.description":
-    "Melde dich bei Melody Mind an, um deine musikalische Reise fortzusetzen.",
-  "auth.password_reset.error_message":
-    "Ein Fehler ist aufgetreten. Bitte versuche es später erneut.",
-  "auth.password_reset.description":
-    "Gib deine E-Mail-Adresse ein, um einen Link zum Zurücksetzen des Passworts zu erhalten",
-  "auth.email_verification.description":
-    "Verifiziere deine E-Mail-Adresse für dein Melody Mind Konto.",
-  "auth.email_verification.message":
-    "Wir haben einen Bestätigungslink an deine E-Mail-Adresse gesendet",
-  "auth.service.invalid_credentials":
-    "Ungültige Anmeldedaten. Bitte überprüfe deine E-Mail und dein Passwort.",
-  "auth.service.too_many_attempts":
-    "Zu viele Anmeldeversuche. Bitte warte einen Moment und versuche es erneut.",
-  "game.categories.empty.text":
-    "Leider wurden keine Kategorien gefunden. Bitte versuche es später erneut.",
-  "knowledge.play.description":
-    "Teste dein Wissen über dieses Musikgenre in unserem interaktiven Quiz!",
-  "podcast.no.results": "Keine passenden Podcasts gefunden. Versuche einen anderen Suchbegriff.",
-  "podcast.auth.description": "Aktiviere die Authentifizierung und greife auf das Dashboard zu.",
-  "podcast.language.availability":
-    "Unsere Podcasts sind ausschließlich auf Deutsch und Englisch verfügbar.",
-  "playlist.no.results": "Keine passenden Playlists gefunden. Versuche einen anderen Suchbegriff.",
-  "profile.description":
-    "Verwalte deine persönlichen Informationen und sieh dir deine Spielstatistiken an",
-  "highscores.description": "Betrachte die Top-Scores in verschiedenen Spielmodi und Kategorien",
-  "achievements.description":
-    "Entdecke und schalte Errungenschaften frei, um deinen Fortschritt zu verfolgen",
-  "errors.achievements.check":
-    "Fehler beim Überprüfen der Errungenschaften. Bitte versuche es später erneut",
-  "errors.achievements.fetch":
-    "Fehler beim Abrufen der Errungenschaften. Bitte versuche es später erneut",
-  "errors.achievements.update":
-    "Fehler beim Aktualisieren der Errungenschaften. Bitte versuche es später erneut",
-  "errors.achievements.unlock":
-    "Fehler beim Freischalten der Errungenschaft. Bitte versuche es später erneut",
-  "game.chronology.navigation.description":
-    "Verwende diese Schaltflächen, um das ausgewählte Element zu verschieben",
 };

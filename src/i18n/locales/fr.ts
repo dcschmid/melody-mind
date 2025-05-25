@@ -88,7 +88,16 @@ export default {
   "auth.email_verification.error_icon_label": "Échec de la vérification de l'e-mail",
 
   // Validation du mot de passe
+  // Validation du mot de passe
   "auth.password.requirements": "Exigences du mot de passe :",
+  "auth.password.requirements.status": "{{met}} sur {{total}} exigences satisfaites",
+  "auth.password.requirements.help":
+    "Votre mot de passe doit satisfaire toutes les exigences listées ci-dessous pour la sécurité",
+  "auth.password.requirements.checklist": "Liste de vérification des exigences du mot de passe",
+  "auth.password.requirements.met": "Exigence satisfaite",
+  "auth.password.requirements.not_met": "Exigence non satisfaite",
+  "auth.password.requirements.keyboard_navigation":
+    "Utilisez les flèches pour naviguer dans les exigences, Échap pour quitter",
   "auth.password.min_length": "Le mot de passe doit comporter au moins 8 caractères",
   "auth.password.uppercase": "Le mot de passe doit contenir au moins une lettre majuscule",
   "auth.password.lowercase": "Le mot de passe doit contenir au moins une lettre minuscule",
@@ -102,6 +111,8 @@ export default {
   "auth.password.strength.weak": "Faible",
   "auth.password.strength.medium": "Moyen",
   "auth.password.strength.strong": "Fort",
+  "auth.password.strength.good": "Bon",
+  "auth.password.strength.description": "Indicateur de niveau de sécurité du mot de passe",
   "auth.password.strength.very_strong": "Très fort",
 
   // Validation du formulaire
@@ -585,49 +596,4 @@ export default {
   "game.time.extend.again": "Prolonger à nouveau",
   "game.time.extended": "Temps prolongé de 5 secondes",
   "game.time.before.end": "Prolonger avant la fin du jeu",
-
-  // Missing translations
-  "auth.password_reset.description":
-    "Entrez votre email pour recevoir un lien de réinitialisation de mot de passe",
-  "auth.email_verification.description":
-    "Vérifiez votre adresse email pour votre compte Melody Mind.",
-  "auth.email_verification.message":
-    "Nous avons envoyé un lien de vérification à votre adresse email",
-  "auth.service.invalid_credentials":
-    "Identifiants invalides. Veuillez vérifier votre email et mot de passe.",
-  "auth.service.too_many_attempts":
-    "Trop de tentatives de connexion. Veuillez attendre un moment et réessayer.",
-  "game.categories.empty.text":
-    "Malheureusement, aucune catégorie n'a été trouvée. Veuillez réessayer plus tard.",
-  "knowledge.play.description":
-    "Testez vos connaissances de ce genre musical dans notre quiz interactif !",
-  "podcast.language.availability":
-    "Nos podcasts sont exclusivement disponibles en allemand et en anglais.",
-  "playlist.no.results":
-    "Aucune playlist correspondante trouvée. Essayez un terme de recherche différent.",
-  "game.chronology.description":
-    "Classez ces albums par leur année de sortie (le plus ancien en premier)",
-  "knowledge.search.description":
-    "Les articles sont automatiquement filtrés au fur et à mesure que vous tapez",
-  "knowledge.no.results.help":
-    "Essayez différents termes de recherche ou réinitialisez la recherche",
-  "highscores.description": "Voir les meilleurs scores dans différents modes de jeu et catégories",
-  "errors.achievements.check":
-    "Erreur lors de la vérification des succès. Veuillez réessayer plus tard",
-  "errors.achievements.fetch":
-    "Erreur lors de la récupération des succès. Veuillez réessayer plus tard",
-  "errors.achievements.update":
-    "Erreur lors de la mise à jour des succès. Veuillez réessayer plus tard",
-  "errors.achievements.unlock": "Erreur lors du déblocage du succès. Veuillez réessayer plus tard",
-  "auth.log.reset_execution_error": "Erreur d'exécution de réinitialisation du mot de passe :",
-  "errors.gameResult.validation.invalidCorrectAnswers":
-    "Les réponses correctes doivent être un nombre",
-  "errors.gameResult.log.dailyActivity":
-    "Erreur lors de la mise à jour de l'activité quotidienne :",
-  "api.errors.database_error":
-    "Erreur de base de données dans l'API des meilleurs scores : {message}",
-  "api.errors.highscores_retrieval":
-    "Erreur lors de la récupération des meilleurs scores : {message}",
-  "game.chronology.navigation.description":
-    "Utilisez ces boutons pour déplacer l'élément sélectionné",
 };

@@ -88,6 +88,14 @@ export default {
 
   // Validação de Senha
   "auth.password.requirements": "Requisitos da senha:",
+  "auth.password.requirements.status": "{{met}} de {{total}} requisitos atendidos",
+  "auth.password.requirements.help":
+    "Sua senha deve atender a todos os requisitos listados abaixo para segurança",
+  "auth.password.requirements.checklist": "Lista de verificação de requisitos da senha",
+  "auth.password.requirements.met": "Requisito atendido",
+  "auth.password.requirements.not_met": "Requisito não atendido",
+  "auth.password.requirements.keyboard_navigation":
+    "Use as setas para navegar pelos requisitos, Escape para sair",
   "auth.password.min_length": "A senha deve ter pelo menos 8 caracteres",
   "auth.password.uppercase": "A senha deve conter pelo menos uma letra maiúscula",
   "auth.password.lowercase": "A senha deve conter pelo menos uma letra minúscula",
@@ -101,6 +109,8 @@ export default {
   "auth.password.strength.weak": "Fraca",
   "auth.password.strength.medium": "Média",
   "auth.password.strength.strong": "Forte",
+  "auth.password.strength.good": "Boa",
+  "auth.password.strength.description": "Indicador de nível de segurança da senha",
   "auth.password.strength.very_strong": "Muito Forte",
 
   // Validação de Formulário
@@ -576,29 +586,4 @@ export default {
   "game.time.extend.again": "Estender novamente",
   "game.time.extended": "Tempo estendido por 5 segundos",
   "game.time.before.end": "Estender antes do fim do jogo",
-
-  // Missing translations
-  "auth.password_reset.description":
-    "Digite seu email para receber um link de redefinição de senha",
-  "auth.email_verification.description":
-    "Verifique seu endereço de email para sua conta Melody Mind.",
-  "auth.service.account_locked": "Sua conta foi bloqueada. Entre em contato com o suporte",
-  "auth.service.too_many_attempts":
-    "Muitas tentativas de login. Aguarde um momento e tente novamente.",
-  "game.categories.empty.text":
-    "Infelizmente, nenhuma categoria foi encontrada. Tente novamente mais tarde.",
-  "knowledge.play.description":
-    "Teste seu conhecimento deste gênero musical em nosso quiz interativo!",
-  "podcast.no.results":
-    "Nenhum podcast correspondente encontrado. Tente um termo de busca diferente.",
-  "podcast.language.availability":
-    "Nossos podcasts estão disponíveis exclusivamente em alemão e inglês.",
-  "playlist.no.results":
-    "Nenhuma playlist correspondente encontrada. Tente um termo de busca diferente.",
-  "game.chronology.description":
-    "Organize estes álbuns por seu ano de lançamento (mais antigo primeiro)",
-  "highscores.description": "Veja as melhores pontuações em diferentes modos de jogo e categorias",
-  "errors.achievements.check": "Erro ao verificar conquistas. Tente novamente mais tarde",
-  "errors.achievements.update": "Erro ao atualizar conquistas. Tente novamente mais tarde",
-  "errors.achievements.unlock": "Erro ao desbloquear conquista. Tente novamente mais tarde",
 };
