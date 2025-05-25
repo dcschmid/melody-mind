@@ -81,6 +81,9 @@ export default {
   "auth.email_verification.success": "E-post verifierad",
   "auth.email_verification.error": "E-postverifiering misslyckades",
   "auth.email_verification.login": "Tillbaka till Logga in",
+  "auth.email_verification.loading_label": "E-postverifiering pågår",
+  "auth.email_verification.success_icon_label": "E-postverifiering lyckades",
+  "auth.email_verification.error_icon_label": "E-postverifiering misslyckades",
 
   // Lösenordsvalidering
   "auth.password.requirements": "Lösenordskrav:",
@@ -551,4 +554,19 @@ export default {
   "game.time.extend.again": "Förläng igen",
   "game.time.extended": "Tid förlängd med 5 sekunder",
   "game.time.before.end": "Förläng före spelets slut",
+
+  // Missing translations
+  "auth.password_reset.description":
+    "Ange din e-post för att få en länk för lösenordsåterställning",
+  "auth.service.invalid_credentials":
+    "Ogiltiga inloggningsuppgifter. Kontrollera din e-post och lösenord.",
+  "common.accessibility.main_content": "Huvudinnehållsområde",
+  "knowledge.search.no.articles": "Inga artiklar hittades",
+  "knowledge.search.one.article": "1 artikel hittad",
+  "knowledge.search.all.articles": "Alla {count} artiklar visas",
+  "knowledge.search.count.articles": "{count} av {total} artiklar hittades",
+  "knowledge.search.showing.all": "Visar alla {total} artiklar.",
+  "knowledge.reset.search.button": "Återställ sökning",
+  "game.chronology.navigation.description":
+    "Använd dessa knappar för att flytta det valda elementet",
 };

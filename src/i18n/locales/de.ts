@@ -85,6 +85,9 @@ export default {
   "auth.email_verification.success": "E-Mail erfolgreich verifiziert",
   "auth.email_verification.error": "Fehler bei der E-Mail-Verifizierung",
   "auth.email_verification.login": "Zurück zur Anmeldung",
+  "auth.email_verification.loading_label": "E-Mail-Verifizierung läuft",
+  "auth.email_verification.success_icon_label": "E-Mail-Verifizierung erfolgreich",
+  "auth.email_verification.error_icon_label": "E-Mail-Verifizierung fehlgeschlagen",
 
   // Passwortvalidierung
   "auth.password.requirements": "Passwortanforderungen:",
@@ -581,4 +584,44 @@ export default {
   "game.time.extend.again": "Erneut verlängern",
   "game.time.extended": "Zeit um 5 Sekunden verlängert",
   "game.time.before.end": "Vor Spielende verlängern",
+
+  // Fehlende Übersetzungen hinzugefügt
+  "auth.login.description":
+    "Melde dich bei Melody Mind an, um deine musikalische Reise fortzusetzen.",
+  "auth.password_reset.error_message":
+    "Ein Fehler ist aufgetreten. Bitte versuche es später erneut.",
+  "auth.password_reset.description":
+    "Gib deine E-Mail-Adresse ein, um einen Link zum Zurücksetzen des Passworts zu erhalten",
+  "auth.email_verification.description":
+    "Verifiziere deine E-Mail-Adresse für dein Melody Mind Konto.",
+  "auth.email_verification.message":
+    "Wir haben einen Bestätigungslink an deine E-Mail-Adresse gesendet",
+  "auth.service.invalid_credentials":
+    "Ungültige Anmeldedaten. Bitte überprüfe deine E-Mail und dein Passwort.",
+  "auth.service.too_many_attempts":
+    "Zu viele Anmeldeversuche. Bitte warte einen Moment und versuche es erneut.",
+  "game.categories.empty.text":
+    "Leider wurden keine Kategorien gefunden. Bitte versuche es später erneut.",
+  "knowledge.play.description":
+    "Teste dein Wissen über dieses Musikgenre in unserem interaktiven Quiz!",
+  "podcast.no.results": "Keine passenden Podcasts gefunden. Versuche einen anderen Suchbegriff.",
+  "podcast.auth.description": "Aktiviere die Authentifizierung und greife auf das Dashboard zu.",
+  "podcast.language.availability":
+    "Unsere Podcasts sind ausschließlich auf Deutsch und Englisch verfügbar.",
+  "playlist.no.results": "Keine passenden Playlists gefunden. Versuche einen anderen Suchbegriff.",
+  "profile.description":
+    "Verwalte deine persönlichen Informationen und sieh dir deine Spielstatistiken an",
+  "highscores.description": "Betrachte die Top-Scores in verschiedenen Spielmodi und Kategorien",
+  "achievements.description":
+    "Entdecke und schalte Errungenschaften frei, um deinen Fortschritt zu verfolgen",
+  "errors.achievements.check":
+    "Fehler beim Überprüfen der Errungenschaften. Bitte versuche es später erneut",
+  "errors.achievements.fetch":
+    "Fehler beim Abrufen der Errungenschaften. Bitte versuche es später erneut",
+  "errors.achievements.update":
+    "Fehler beim Aktualisieren der Errungenschaften. Bitte versuche es später erneut",
+  "errors.achievements.unlock":
+    "Fehler beim Freischalten der Errungenschaft. Bitte versuche es später erneut",
+  "game.chronology.navigation.description":
+    "Verwende diese Schaltflächen, um das ausgewählte Element zu verschieben",
 };

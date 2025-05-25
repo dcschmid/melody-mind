@@ -52,6 +52,11 @@
   --color-yellow-400: #facc15;
   --color-yellow-500: #eab308;
 
+  /* Additional colors for error states */
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444;
+  --color-red-900: #7f1d1d;
+
   /* Additional gray shades for components */
   --color-gray-650: #52525b;
   --color-zinc-300: #d4d4d8;
@@ -209,6 +214,26 @@
   --transition-timing-in: cubic-bezier(0.4, 0, 1, 1);
   --transition-timing-out: cubic-bezier(0, 0, 0.2, 1);
   --transition-timing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-timing-ease: ease;
+
+  /* Email verification specific variables */
+  --email-verification-icon-size: 4rem;
+  --email-verification-icon-size-sm: 3rem;
+  --email-verification-spinner-size: 3rem;
+  --email-verification-button-min-height: 3rem;
+
+  /* ======================================
+   * AUTHENTICATION & FORM VARIABLES
+   * ====================================== */
+
+  /* Auth-specific shadow variables for consistency */
+  --shadow-auth-button-hover: 0 8px 25px -8px rgba(139, 92, 246, 0.6);
+  --shadow-auth-button-active: 0 2px 4px -1px rgba(139, 92, 246, 0.3);
+
+  /* Component size variables */
+  --component-icon-size-lg: 4rem;
+  --component-spinner-size: 2rem;
+  --component-button-min-height: 3rem;
 }
 
 /* Dark mode is default, light mode overrides */
