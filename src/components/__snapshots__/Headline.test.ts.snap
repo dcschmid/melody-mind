@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Headline Component > Snapshot Tests > matches snapshot for basic headline 1`] = `"<h1 class="headline" data-astro-cid-odmoivsz="true">Basic Headline</h1>"`;
+
+exports[`Headline Component > Snapshot Tests > matches snapshot for different heading levels > headline-h1 1`] = `"<h1 class="headline" data-astro-cid-odmoivsz="true">Level h1 Headline</h1>"`;
+
+exports[`Headline Component > Snapshot Tests > matches snapshot for different heading levels > headline-h2 1`] = `"<h2 class="headline" data-astro-cid-odmoivsz="true">Level h2 Headline</h2>"`;
+
+exports[`Headline Component > Snapshot Tests > matches snapshot for different heading levels > headline-h3 1`] = `"<h3 class="headline" data-astro-cid-odmoivsz="true">Level h3 Headline</h3>"`;
+
+exports[`Headline Component > Snapshot Tests > matches snapshot for different heading levels > headline-h4 1`] = `"<h4 class="headline" data-astro-cid-odmoivsz="true">Level h4 Headline</h4>"`;
+
+exports[`Headline Component > Snapshot Tests > matches snapshot for different heading levels > headline-h5 1`] = `"<h5 class="headline" data-astro-cid-odmoivsz="true">Level h5 Headline</h5>"`;
+
+exports[`Headline Component > Snapshot Tests > matches snapshot for different heading levels > headline-h6 1`] = `"<h6 class="headline" data-astro-cid-odmoivsz="true">Level h6 Headline</h6>"`;
+
+exports[`Headline Component > Snapshot Tests > matches snapshot for empty content 1`] = `"<h1 class="headline" data-astro-cid-odmoivsz="true"></h1>"`;
+
+exports[`Headline Component > Snapshot Tests > matches snapshot for headline with all props 1`] = `"<h2 id="complete-headline" aria-label="Complete headline description" tabindex="-1" class="headline headline--large custom-class headline--focusable" data-astro-cid-odmoivsz="true">Complete Headline</h2>"`;
+
+exports[`Headline Component > Snapshot Tests > matches snapshot for slot content 1`] = `"<h1 class="headline" data-astro-cid-odmoivsz="true">Slot content headline</h1>"`;
