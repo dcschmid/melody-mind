@@ -102,6 +102,7 @@ export default {
   // Formulärvalidering
   "auth.form.required": "Detta fält är obligatoriskt",
   "auth.form.email_invalid": "Ange en giltig e-postadress",
+  "auth.form.password_min_length": "Lösenordet måste vara minst 6 tecken långt",
   "auth.form.min_length": "Detta fält måste vara minst {length} tecken långt",
   "auth.form.max_length": "Detta fält får inte överstiga {length} tecken",
   "auth.form.invalid": "Detta fält är ogiltigt",
@@ -110,6 +111,8 @@ export default {
   "auth.accessibility.loading": "Laddar, vänta",
   "auth.accessibility.error": "Fel: {message}",
   "auth.accessibility.required_field": "Obligatoriskt fält",
+  "auth.accessibility.field_error": "har ett fel",
+  "auth.accessibility.error_resolved": "fel löst",
   "auth.accessibility.password_toggle": "Visa/dölj lösenord",
   "auth.accessibility.password_requirements": "Visa/dölj lösenordskrav",
   "auth.accessibility.form": "Inloggningsformulär",

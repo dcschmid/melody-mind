@@ -103,6 +103,7 @@ export default {
   // Validazione modulo
   "auth.form.required": "Questo campo è obbligatorio",
   "auth.form.email_invalid": "Inserisci un indirizzo email valido",
+  "auth.form.password_min_length": "La password deve essere lunga almeno 6 caratteri",
   "auth.form.min_length": "Questo campo deve essere lungo almeno {length} caratteri",
   "auth.form.max_length": "Questo campo non deve superare i {length} caratteri",
   "auth.form.invalid": "Questo campo non è valido",
@@ -111,6 +112,8 @@ export default {
   "auth.accessibility.loading": "Caricamento, attendere prego",
   "auth.accessibility.error": "Errore: {message}",
   "auth.accessibility.required_field": "Campo obbligatorio",
+  "auth.accessibility.field_error": "ha un errore",
+  "auth.accessibility.error_resolved": "errore risolto",
   "auth.accessibility.password_toggle": "Mostra/nascondi password",
   "auth.accessibility.password_requirements": "Mostra/nascondi requisiti password",
   "auth.accessibility.form": "Modulo di accesso",

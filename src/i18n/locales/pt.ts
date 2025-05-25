@@ -103,6 +103,7 @@ export default {
   // Validação de Formulário
   "auth.form.required": "Este campo é obrigatório",
   "auth.form.email_invalid": "Por favor, insira um endereço de email válido",
+  "auth.form.password_min_length": "A senha deve ter pelo menos 6 caracteres",
   "auth.form.min_length": "Este campo deve ter pelo menos {length} caracteres",
   "auth.form.max_length": "Este campo não deve exceder {length} caracteres",
   "auth.form.invalid": "Este campo é inválido",
@@ -111,6 +112,8 @@ export default {
   "auth.accessibility.loading": "Carregando, por favor aguarde",
   "auth.accessibility.error": "Erro: {message}",
   "auth.accessibility.required_field": "Campo obrigatório",
+  "auth.accessibility.field_error": "tem um erro",
+  "auth.accessibility.error_resolved": "erro resolvido",
   "auth.accessibility.password_toggle": "Mostrar/ocultar senha",
   "auth.accessibility.password_requirements": "Mostrar/ocultar requisitos da senha",
   "auth.accessibility.form": "Formulário de login",

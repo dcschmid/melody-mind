@@ -102,6 +102,7 @@ export default {
   // Formularvalidering
   "auth.form.required": "Dette felt er påkrævet",
   "auth.form.email_invalid": "Indtast venligst en gyldig e-mailadresse",
+  "auth.form.password_min_length": "Adgangskoden skal være mindst 6 tegn lang",
   "auth.form.min_length": "Dette felt skal være mindst {length} tegn langt",
   "auth.form.max_length": "Dette felt må ikke overstige {length} tegn",
   "auth.form.invalid": "Dette felt er ugyldigt",
@@ -110,6 +111,8 @@ export default {
   "auth.accessibility.loading": "Indlæser, vent venligst",
   "auth.accessibility.error": "Fejl: {message}",
   "auth.accessibility.required_field": "Påkrævet felt",
+  "auth.accessibility.field_error": "har en fejl",
+  "auth.accessibility.error_resolved": "fejl løst",
   "auth.accessibility.password_toggle": "Vis/skjul adgangskode",
   "auth.accessibility.password_requirements": "Vis/skjul adgangskodekrav",
   "auth.accessibility.form": "Loginformular",

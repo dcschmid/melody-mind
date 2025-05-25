@@ -102,6 +102,7 @@ export default {
   // Formuliervalidatie
   "auth.form.required": "Dit veld is vereist",
   "auth.form.email_invalid": "Voer een geldig e-mailadres in",
+  "auth.form.password_min_length": "Wachtwoord moet minimaal 6 tekens lang zijn",
   "auth.form.min_length": "Dit veld moet minimaal {length} tekens lang zijn",
   "auth.form.max_length": "Dit veld mag niet langer zijn dan {length} tekens",
   "auth.form.invalid": "Dit veld is ongeldig",
@@ -110,6 +111,8 @@ export default {
   "auth.accessibility.loading": "Laden, even geduld",
   "auth.accessibility.error": "Fout: {message}",
   "auth.accessibility.required_field": "Verplicht veld",
+  "auth.accessibility.field_error": "heeft een fout",
+  "auth.accessibility.error_resolved": "fout opgelost",
   "auth.accessibility.password_toggle": "Wachtwoord weergeven/verbergen",
   "auth.accessibility.password_requirements": "Wachtwoordvereisten weergeven/verbergen",
   "auth.accessibility.form": "Inlogformulier",

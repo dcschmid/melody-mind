@@ -31,6 +31,7 @@
   --color-pink-800: #9d174d;
   --color-pink-900: #831843;
 
+  --color-gray-50: #f9fafb;
   --color-gray-100: #f3f4f6;
   --color-gray-200: #e5e7eb;
   --color-gray-300: #d1d5db;
@@ -84,7 +85,6 @@
   --color-background-card: var(--color-gray-800);
 
   /* Password strength colors */
-  --color-strength-weak: #ef4444; /* red-500 */
   --color-strength-medium: #eab308; /* yellow-500 */
   --color-strength-strong: #22c55e; /* green-500 */
   --color-strength-very-strong: #3b82f6; /* blue-500 */
@@ -129,9 +129,18 @@
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
+  --font-size-md: 1rem; /* alias for base */
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.25rem;
   --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  /* Additional colors for form validation and errors */
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444;
+  --color-red-900: #7f1d1d;
+  --color-gray-750: #2d3748; /* between gray-700 and gray-800 */
 
   /* Font Weight Variables */
   --font-weight-normal: 400;
