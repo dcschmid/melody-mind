@@ -103,6 +103,7 @@ export default {
   // Lomakkeen validointi
   "auth.form.required": "Tämä kenttä vaaditaan",
   "auth.form.email_invalid": "Anna kelvollinen sähköpostiosoite",
+  "auth.form.password_min_length": "Salasanan on oltava vähintään 6 merkkiä pitkä",
   "auth.form.min_length": "Tämän kentän on oltava vähintään {length} merkkiä pitkä",
   "auth.form.max_length": "Tämä kenttä ei saa ylittää {length} merkkiä",
   "auth.form.invalid": "Tämä kenttä on virheellinen",
@@ -111,6 +112,8 @@ export default {
   "auth.accessibility.loading": "Ladataan, odota",
   "auth.accessibility.error": "Virhe: {message}",
   "auth.accessibility.required_field": "Pakollinen kenttä",
+  "auth.accessibility.field_error": "sisältää virheen",
+  "auth.accessibility.error_resolved": "virhe korjattu",
   "auth.accessibility.password_toggle": "Näytä/piilota salasana",
   "auth.accessibility.password_requirements": "Näytä/piilota salasanavaatimukset",
   "auth.accessibility.form": "Kirjautumislomake",

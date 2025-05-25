@@ -101,6 +101,7 @@ export default {
   // Form Validation
   "auth.form.required": "This field is required",
   "auth.form.email_invalid": "Please enter a valid email address",
+  "auth.form.password_min_length": "Password must be at least 6 characters long",
   "auth.form.min_length": "This field must be at least {length} characters long",
   "auth.form.max_length": "This field must not exceed {length} characters",
   "auth.form.invalid": "This field is invalid",
@@ -109,6 +110,8 @@ export default {
   "auth.accessibility.loading": "Loading, please wait",
   "auth.accessibility.error": "Error: {message}",
   "auth.accessibility.required_field": "Required field",
+  "auth.accessibility.field_error": "has an error",
+  "auth.accessibility.error_resolved": "error resolved",
   "auth.accessibility.password_toggle": "Show/hide password",
   "auth.accessibility.password_requirements": "Show/hide password requirements",
   "auth.accessibility.form": "Login form",

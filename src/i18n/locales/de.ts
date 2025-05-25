@@ -106,6 +106,7 @@ export default {
   // Formularvalidierung
   "auth.form.required": "Dieses Feld ist erforderlich",
   "auth.form.email_invalid": "Bitte gib eine gültige E-Mail-Adresse ein",
+  "auth.form.password_min_length": "Passwort muss mindestens 6 Zeichen lang sein",
   "auth.form.min_length": "Dieses Feld muss mindestens {length} Zeichen lang sein",
   "auth.form.max_length": "Dieses Feld darf nicht länger als {length} Zeichen sein",
   "auth.form.invalid": "Dieses Feld ist ungültig",
@@ -114,6 +115,8 @@ export default {
   "auth.accessibility.loading": "Wird geladen, bitte warten",
   "auth.accessibility.error": "Fehler: {message}",
   "auth.accessibility.required_field": "Pflichtfeld",
+  "auth.accessibility.field_error": "hat einen Fehler",
+  "auth.accessibility.error_resolved": "Fehler behoben",
   "auth.accessibility.password_toggle": "Passwort anzeigen/verbergen",
   "auth.accessibility.password_requirements": "Passwortanforderungen anzeigen/verbergen",
   "auth.accessibility.form": "Anmeldeformular",

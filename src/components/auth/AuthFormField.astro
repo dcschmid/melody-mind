@@ -28,6 +28,19 @@
  * ```
  */
 import PasswordToggleButton from "./PasswordToggleButton.astro";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+
+// Get current language and translations for client-side scripts
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Prepare translations for client-side validation
+const clientTranslations = {
+  "auth.form.email_invalid": t("auth.form.email_invalid"),
+  "auth.form.password_min_length": t("auth.form.password_min_length"),
+  "auth.accessibility.field_error": t("auth.accessibility.field_error"),
+  "auth.accessibility.error_resolved": t("auth.accessibility.error_resolved"),
+};
 
 export interface Props {
   /** Unique identifier for the input field */
@@ -35,7 +48,7 @@ export interface Props {
   /** Name attribute for the input */
   name: string;
   /** Input type (email, password, text, etc.) */
-  type: string;
+  type: "email" | "password" | "text" | "tel" | "url" | "search" | "number";
   /** Label text for the input */
   label: string;
   /** Placeholder text */
@@ -53,7 +66,7 @@ export interface Props {
   /** Accessible label for password toggle button */
   passwordToggleLabel?: string;
   /** Additional attributes to pass to the input */
-  inputAttributes?: Record<string, any>;
+  inputAttributes?: Record<string, string | number | boolean>;
 }
 
 const {
@@ -76,14 +89,14 @@ const errorId = `${id}Error`;
 const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
 ---
 
-<div class={`auth-form__field ${className}`}>
-  <div class="auth-form__label-group">
-    <label for={id} class="auth-form__label">
+<div class={`auth-form-field ${className}`}>
+  <div class="auth-form-field__label-group">
+    <label for={id} class="auth-form-field__label">
       {label}
       {
         required && (
           <>
-            <span class="auth-form__required-mark" aria-hidden="true">
+            <span class="auth-form-field__required-mark" aria-hidden="true">
               *
             </span>
             <span class="sr-only">Required</span>
@@ -91,15 +104,15 @@ const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
         )
       }
     </label>
-    {labelSuffix && <div class="auth-form__label-suffix" set:html={labelSuffix} />}
+    {labelSuffix && <div class="auth-form-field__label-suffix" set:html={labelSuffix} />}
   </div>
 
-  <div class="auth-form__input-wrapper">
+  <div class="auth-form-field__input-wrapper">
     <input
       {type}
       {id}
       {name}
-      class="auth-form__input"
+      class="auth-form-field__input"
       {placeholder}
       {required}
       {autocomplete}
@@ -114,11 +127,33 @@ const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
       )
     }
 
-    <div id={errorId} class="auth-form__error-message" role="alert" aria-live="polite"></div>
+    <div id={errorId} class="auth-form-field__error-message" role="alert" aria-live="polite"></div>
   </div>
 </div>
 
-<script>
+<!-- Progressive Enhancement: NoScript fallback for error states -->
+<noscript>
+  <style>
+    .auth-form-field__input--error {
+      border-color: var(--color-red-500) !important;
+      background: var(--color-error-background) !important;
+    }
+
+    .auth-form-field__error-message[data-error] {
+      display: block !important;
+      color: var(--color-error-text) !important;
+    }
+  </style>
+</noscript>
+
+<!-- Setup client-side translations for validation messages -->
+<script type="module" define:vars={{ translations: clientTranslations }}>
+  // Make translations available to the client-side validation
+  window.authTranslations = translations;
+</script>
+
+<script type="module">
+  /* eslint-disable @typescript-eslint/explicit-function-return-type */
   /**
    * Auth Form Field Functionality
    *
@@ -127,13 +162,57 @@ const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
    */
 
   /**
-   * Shows an error message for a specific form field
-   * @param fieldId - The ID of the form field
-   * @param message - The error message to display
+   * Enhanced Accessibility Announcer for better screen reader support
    */
-  function showFieldError(fieldId: string, message: string): void {
+  class AccessibilityAnnouncer {
+    constructor() {
+      if (AccessibilityAnnouncer.instance) {
+        return AccessibilityAnnouncer.instance;
+      }
+
+      this.politeAnnouncer = this.createAnnouncer("polite");
+      this.assertiveAnnouncer = this.createAnnouncer("assertive");
+      AccessibilityAnnouncer.instance = this;
+    }
+
+    static getInstance() {
+      if (!AccessibilityAnnouncer.instance) {
+        AccessibilityAnnouncer.instance = new AccessibilityAnnouncer();
+      }
+      return AccessibilityAnnouncer.instance;
+    }
+
+    announcePolite(message) {
+      this.announce(this.politeAnnouncer, message);
+    }
+
+    announceAssertive(message) {
+      this.announce(this.assertiveAnnouncer, message);
+    }
+
+    announce(announcer, message) {
+      announcer.textContent = "";
+      setTimeout(() => {
+        announcer.textContent = message;
+      }, 100);
+    }
+
+    createAnnouncer(priority) {
+      const announcer = document.createElement("div");
+      announcer.setAttribute("aria-live", priority);
+      announcer.setAttribute("aria-atomic", "true");
+      announcer.className = "sr-only";
+      document.body.appendChild(announcer);
+      return announcer;
+    }
+  }
+
+  /**
+   * Shows an error message for a specific form field with enhanced accessibility
+   */
+  function showFieldError(fieldId, message) {
     const errorElement = document.getElementById(`${fieldId}Error`);
-    const inputElement = document.getElementById(fieldId) as HTMLInputElement;
+    const inputElement = document.getElementById(fieldId);
 
     if (errorElement) {
       errorElement.textContent = message;
@@ -143,17 +222,38 @@ const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
 
     if (inputElement) {
       inputElement.setAttribute("aria-invalid", "true");
-      inputElement.classList.add("auth-form__input--error");
+      inputElement.classList.add("auth-form-field__input--error");
+
+      // Enhanced focus management for error states
+      setTimeout(() => {
+        if (document.activeElement !== inputElement) {
+          inputElement.focus();
+          inputElement.setAttribute("aria-describedby", `${fieldId}Error`);
+        }
+      }, 100);
+
+      // Announce error with enhanced announcer
+      try {
+        const announcer = AccessibilityAnnouncer.getInstance();
+        const fieldLabel =
+          inputElement.closest(".auth-form-field")?.querySelector(".auth-form-field__label")
+            ?.textContent || "Field";
+        const errorAnnouncement =
+          window.authTranslations?.["auth.accessibility.field_error"] || "has an error";
+        announcer.announceAssertive(`${fieldLabel} ${errorAnnouncement}: ${message}`);
+      } catch {
+        // Fallback to simple aria-live if AccessibilityAnnouncer fails
+        console.warn("AccessibilityAnnouncer failed, using fallback");
+      }
     }
   }
 
   /**
    * Hides the error message for a specific form field
-   * @param fieldId - The ID of the form field
    */
-  function hideFieldError(fieldId: string): void {
+  function hideFieldError(fieldId) {
     const errorElement = document.getElementById(`${fieldId}Error`);
-    const inputElement = document.getElementById(fieldId) as HTMLInputElement;
+    const inputElement = document.getElementById(fieldId);
 
     if (errorElement) {
       errorElement.textContent = "";
@@ -163,59 +263,137 @@ const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
 
     if (inputElement) {
       inputElement.removeAttribute("aria-invalid");
-      inputElement.classList.remove("auth-form__input--error");
+      inputElement.classList.remove("auth-form-field__input--error");
+
+      // Announce successful correction
+      try {
+        const announcer = AccessibilityAnnouncer.getInstance();
+        const fieldLabel =
+          inputElement.closest(".auth-form-field")?.querySelector(".auth-form-field__label")
+            ?.textContent || "Field";
+        const resolvedAnnouncement =
+          window.authTranslations?.["auth.accessibility.error_resolved"] || "error resolved";
+        announcer.announcePolite(`${fieldLabel} ${resolvedAnnouncement}`);
+      } catch {
+        // Silent fail for announcements on error clearing
+      }
     }
   }
 
   /**
-   * Validates an email address format
-   * @param email - The email address to validate
-   * @returns True if email is valid, false otherwise
+   * Validates an email address format using modern regex pattern
    */
-  function validateEmailFormat(email: string): boolean {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+  function validateEmailFormat(email) {
+    // More comprehensive email validation pattern
+    const emailRegex =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    return email.length <= 320 && emailRegex.test(email);
   }
 
   /**
-   * Initialize all auth form fields with proper event handlers
+   * Enhanced form validation with immediate feedback
    */
-  function initializeAuthFormFields(): void {
-    const formFields = document.querySelectorAll(
-      ".auth-form__input"
-    ) as NodeListOf<HTMLInputElement>;
+  function performImmediateValidation(input) {
+    const fieldId = input.id;
+    const value = input.value.trim();
+
+    // Email validation
+    if (input.type === "email" && value) {
+      if (!validateEmailFormat(value)) {
+        showFieldError(
+          fieldId,
+          window.authTranslations?.["auth.form.email_invalid"] ||
+            "Please enter a valid email address"
+        );
+        return false;
+      }
+    }
+
+    // Password validation
+    if (input.type === "password" && value.length > 0 && value.length < 6) {
+      showFieldError(
+        fieldId,
+        window.authTranslations?.["auth.form.password_min_length"] ||
+          "Password must be at least 6 characters long"
+      );
+      return false;
+    }
+
+    // Clear any existing errors if validation passes
+    hideFieldError(fieldId);
+    return true;
+  }
+
+  /**
+   * Initialize all auth form fields with enhanced event handlers
+   */
+  function initializeAuthFormFields() {
+    const formFields = document.querySelectorAll(".auth-form-field__input");
+    const eventHandlers = new Map();
 
     formFields.forEach((input) => {
       const fieldId = input.id;
 
-      // Clear error state when user starts typing
-      input.addEventListener("input", () => {
-        if (input.classList.contains("auth-form__input--error")) {
+      // Enhanced input handler with immediate validation
+      const inputHandler = () => {
+        if (input.classList.contains("auth-form-field__input--error")) {
           hideFieldError(fieldId);
         }
-      });
 
-      // Add focus and blur styling
-      input.addEventListener("focus", () => {
-        input.classList.add("auth-form__input--focused");
-      });
-
-      input.addEventListener("blur", () => {
-        input.classList.remove("auth-form__input--focused");
-
-        // Basic validation on blur for email fields
-        if (input.type === "email" && input.value) {
-          if (!validateEmailFormat(input.value)) {
-            const lang = document.documentElement.lang || "en";
-            const errorMessage =
-              lang === "de"
-                ? "Bitte geben Sie eine gültige E-Mail-Adresse ein"
-                : "Please enter a valid email address";
-            showFieldError(fieldId, errorMessage);
+        // Provide immediate feedback for certain field types
+        if (input.type === "email" && input.value.length > 0) {
+          const isValid = validateEmailFormat(input.value.trim());
+          if (!isValid && input.value.includes("@")) {
+            // Only show error if user has typed '@' (suggesting they're trying to complete email)
+            setTimeout(() => performImmediateValidation(input), 500);
           }
         }
+      };
+
+      const focusHandler = () => {
+        input.classList.add("auth-form-field__input--focused");
+
+        // Announce field requirements on focus for screen readers
+        const announcer = AccessibilityAnnouncer.getInstance();
+        if (input.type === "email") {
+          const emailMessage =
+            window.authTranslations?.["auth.form.email_invalid"] || "Enter a valid email address";
+          announcer.announcePolite(emailMessage);
+        } else if (input.type === "password") {
+          const passwordMessage =
+            window.authTranslations?.["auth.form.password_min_length"] ||
+            "Password must be at least 6 characters long";
+          announcer.announcePolite(passwordMessage);
+        }
+      };
+
+      const blurHandler = () => {
+        input.classList.remove("auth-form-field__input--focused");
+        performImmediateValidation(input);
+      };
+
+      // Add enhanced event listeners
+      input.addEventListener("input", inputHandler, { passive: true });
+      input.addEventListener("focus", focusHandler, { passive: true });
+      input.addEventListener("blur", blurHandler);
+
+      // Store handlers for potential cleanup
+      eventHandlers.set(input, {
+        input: inputHandler,
+        focus: focusHandler,
+        blur: blurHandler,
       });
     });
+
+    // Cleanup function for SPA scenarios
+    window.cleanupAuthFormFields = () => {
+      eventHandlers.forEach((handlers, input) => {
+        input.removeEventListener("input", handlers.input);
+        input.removeEventListener("focus", handlers.focus);
+        input.removeEventListener("blur", handlers.blur);
+      });
+      eventHandlers.clear();
+    };
   }
 
   // Initialize on DOM content loaded
@@ -225,122 +403,160 @@ const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
     initializeAuthFormFields();
   }
 
-  // Expose utilities globally
-  (window as any).showFieldError = showFieldError;
-  (window as any).hideFieldError = hideFieldError;
-  (window as any).validateEmailFormat = validateEmailFormat;
+  // Expose utilities globally for external use
+  window.showFieldError = showFieldError;
+  window.hideFieldError = hideFieldError;
+  window.validateEmailFormat = validateEmailFormat;
 </script>
 
 <style>
-  /* Auth Form Field Styles */
-  .auth-form__field {
+  /**
+   * Auth Form Field Component Styles
+   * Uses BEM methodology and CSS variables from global.css
+   * WCAG AAA compliant with enhanced accessibility features
+   */
+
+  /* Block: auth-form-field */
+  .auth-form-field {
     margin-bottom: var(--spacing-lg);
+    contain: layout style; /* Performance optimization with CSS containment */
   }
 
-  .auth-form__label-group {
+  /* Element: label-group */
+  .auth-form-field__label-group {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: var(--spacing-sm);
   }
 
-  .auth-form__label {
+  /* Element: label */
+  .auth-form-field__label {
     display: block;
     font-size: var(--font-size-sm);
-    font-weight: 500;
-    color: var(--color-gray-200);
-    line-height: 1.5;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-gray-100);
+    line-height: var(--line-height-normal);
   }
 
-  .auth-form__required-mark {
+  /* Element: required-mark */
+  .auth-form-field__required-mark {
     color: var(--color-red-400);
     margin-left: var(--spacing-xs);
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
   }
 
-  .auth-form__label-suffix {
+  /* Element: label-suffix */
+  .auth-form-field__label-suffix {
     font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
   }
 
-  .auth-form__input-wrapper {
+  /* Element: input-wrapper */
+  .auth-form-field__input-wrapper {
     position: relative;
     display: flex;
     flex-direction: column;
   }
 
-  .auth-form__input {
+  /* Element: input */
+  .auth-form-field__input {
     width: 100%;
     padding: var(--spacing-md) var(--spacing-lg);
-    background: var(--color-gray-800);
-    border: 2px solid var(--color-gray-600);
+    background-color: var(--color-background-card);
+    border: 2px solid var(--color-border);
     border-radius: var(--border-radius-md);
-    color: var(--color-white);
+    color: var(--color-text-primary);
     font-size: var(--font-size-md);
-    line-height: 1.5;
-    transition: all 0.3s ease;
+    line-height: var(--line-height-normal);
+    transition:
+      border-color var(--transition-duration-300) var(--transition-timing-in-out),
+      background-color var(--transition-duration-300) var(--transition-timing-in-out),
+      box-shadow var(--transition-duration-300) var(--transition-timing-in-out);
     appearance: none;
   }
 
-  .auth-form__input:focus {
+  /* Modifier: input focus state */
+  .auth-form-field__input:focus {
     outline: none;
-    border-color: var(--color-purple-500);
+    border-color: var(--color-primary);
     box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
-    background: var(--color-gray-750);
+    background-color: var(--color-gray-750);
   }
 
-  .auth-form__input:focus-visible {
-    outline: 3px solid var(--color-focus-outline);
+  /* Enhanced Focus Indicators for Better Accessibility */
+  .auth-form-field__input:focus-visible {
+    outline: 4px solid var(--color-yellow-400);
     outline-offset: 2px;
+    border-color: var(--color-primary);
+    box-shadow:
+      0 0 0 2px var(--color-primary),
+      0 0 0 6px rgba(255, 255, 0, 0.3);
   }
 
-  .auth-form__input--focused {
+  /* High contrast mode enhanced focus */
+  @media (prefers-contrast: high) {
+    .auth-form-field__input:focus-visible {
+      outline-width: 5px;
+      outline-color: var(--color-yellow-400);
+      box-shadow:
+        0 0 0 3px var(--color-primary),
+        0 0 0 8px rgba(255, 255, 0, 0.5);
+    }
+  }
+
+  /* Modifier: focused state */
+  .auth-form-field__input--focused {
     border-color: var(--color-purple-400);
   }
 
-  .auth-form__input--error {
+  /* Modifier: error state */
+  .auth-form-field__input--error {
     border-color: var(--color-red-500);
-    background: rgba(239, 68, 68, 0.05);
+    background-color: var(--color-error-background);
+    animation: error-shake var(--transition-duration-300) ease-in-out;
   }
 
-  .auth-form__input--error:focus {
+  @keyframes error-shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    75% {
+      transform: translateX(5px);
+    }
+  }
+
+  .auth-form-field__input--error:focus {
     border-color: var(--color-red-400);
     box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
   }
 
-  .auth-form__input::placeholder {
-    color: var(--color-gray-400);
+  /* Input placeholder styles */
+  .auth-form-field__input::placeholder {
+    color: var(--color-text-secondary);
     opacity: 1;
   }
 
-  /* Error message styles */
-  .auth-form__error-message {
+  /* Element: error-message */
+  .auth-form-field__error-message {
     display: none;
     margin-top: var(--spacing-sm);
     font-size: var(--font-size-sm);
-    color: var(--color-red-400);
-    line-height: 1.4;
-  }
-
-  /* Screen reader only content */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+    color: var(--color-error-text);
+    line-height: var(--line-height-snug);
   }
 
   /* Responsive Design */
   @media (min-width: 768px) {
-    .auth-form__label {
+    .auth-form-field__label {
       font-size: var(--font-size-md);
     }
 
-    .auth-form__input {
+    .auth-form-field__input {
       padding: var(--spacing-md) var(--spacing-lg);
       font-size: var(--font-size-md);
     }
@@ -348,32 +564,108 @@ const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
 
   /* High contrast mode support */
   @media (prefers-contrast: high) {
-    .auth-form__input {
+    .auth-form-field__input {
       border-width: 3px;
+      border-color: var(--color-white);
     }
 
-    .auth-form__input:focus-visible {
-      outline-width: 4px;
+    .auth-form-field__input:focus {
+      border-color: var(--color-yellow-400);
     }
 
-    .auth-form__required-mark {
-      font-weight: 800;
+    .auth-form-field__required-mark {
+      font-weight: var(--font-weight-bold);
+    }
+
+    .auth-form-field__error-message {
+      background-color: var(--color-red-900);
+      border: 2px solid var(--color-red-400);
+      padding: var(--spacing-sm);
+      border-radius: var(--border-radius-sm);
+    }
+  }
+
+  /* Ultra-high contrast mode for extreme conditions */
+  @media (prefers-contrast: more) {
+    .auth-form-field__input {
+      border-width: 4px;
+      border-color: var(--color-white);
+      background-color: var(--color-black);
+    }
+
+    .auth-form-field__input:focus {
+      border-color: var(--color-yellow-400);
+      background-color: var(--color-gray-900);
+    }
+
+    .auth-form-field__input--error {
+      border-color: var(--color-red-400);
+      background-color: var(--color-error-background);
+    }
+
+    .auth-form-field__error-message {
+      background-color: var(--color-red-900);
+      border: 3px solid var(--color-red-400);
+      padding: var(--spacing-md);
+      color: var(--color-white);
+    }
+
+    .auth-form-field__label {
+      color: var(--color-white);
+      font-weight: var(--font-weight-semibold);
     }
   }
 
   /* Reduced Motion Support */
   @media (prefers-reduced-motion: reduce) {
-    .auth-form__input {
+    .auth-form-field__input {
       transition: none;
+    }
+
+    @keyframes error-shake {
+      0%,
+      100% {
+        transform: none;
+      }
     }
   }
 
   /* Touch devices optimization */
   @media (hover: none) and (pointer: coarse) {
-    .auth-form__input {
-      min-height: 44px; /* WCAG AAA minimum touch target */
+    .auth-form-field__input {
+      min-height: 48px; /* Increased from 44px for better usability */
       padding: var(--spacing-md) var(--spacing-lg);
       font-size: 16px; /* Prevents zoom on iOS */
+      touch-action: manipulation; /* Improves touch performance */
+    }
+  }
+
+  /* Dark mode specific overrides (if needed) */
+  @media (prefers-color-scheme: dark) {
+    .auth-form-field__label {
+      color: var(--color-gray-100);
+    }
+
+    .auth-form-field__input {
+      background-color: var(--color-background-card);
+      color: var(--color-text-primary);
+    }
+  }
+
+  /* Light mode overrides */
+  @media (prefers-color-scheme: light) {
+    .auth-form-field__label {
+      color: var(--color-gray-800);
+    }
+
+    .auth-form-field__input {
+      background-color: var(--color-white);
+      color: var(--color-gray-900);
+      border-color: var(--color-gray-300);
+    }
+
+    .auth-form-field__input:focus {
+      background-color: var(--color-gray-50);
     }
   }
 </style>
