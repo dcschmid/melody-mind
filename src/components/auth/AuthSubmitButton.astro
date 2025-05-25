@@ -59,6 +59,7 @@ const {
   class={`auth-form__submit-button ${className}`}
   {disabled}
   aria-describedby={`${textId} ${spinnerId}`}
+  aria-live="polite"
 >
   <span id={textId} class="auth-form__submit-text">{buttonText}</span>
   <span id={spinnerId} class="auth-form__spinner" aria-hidden="true">
@@ -66,206 +67,422 @@ const {
   </span>
 </button>
 
-<script>
+<script type="module">
   /**
    * Auth Submit Button Functionality
    *
    * Handles loading state management and accessibility features for submit buttons.
-   * This script provides utilities for managing button states during form submission.
+   * Optimized for performance with intersection observer and minimal DOM manipulation.
    */
 
   /**
-   * Sets the loading state of a submit button
-   * @param buttonId - The ID of the submit button
-   * @param isLoading - Whether the button should show loading state
-   * @param loadingText - Optional custom loading text
+   * Cache for button elements to avoid repeated queries
+   * Limited size to prevent memory leaks
    */
-  function setAuthButtonLoadingState(
-    buttonId: string,
-    isLoading: boolean,
-    loadingText?: string
-  ): void {
-    const button = document.getElementById(buttonId) as HTMLButtonElement;
-    if (!button) {
-      return;
-    }
+  const MAX_CACHE_SIZE = 50;
+  const buttonCache = new Map();
 
-    const textElement = button.querySelector(".auth-form__submit-text") as HTMLElement;
-    const spinner = button.querySelector(".auth-form__spinner") as HTMLElement;
-
-    if (!textElement || !spinner) {
-      return;
-    }
-
-    if (isLoading) {
-      // Store original text for restoration
-      if (!button.dataset.originalText) {
-        button.dataset.originalText = textElement.textContent || "";
-      }
-
-      // Update button state
-      button.disabled = true;
-      button.setAttribute("aria-busy", "true");
-
-      // Update text
-      const lang = document.documentElement.lang || "en";
-      const defaultLoadingText = lang === "de" ? "Wird verarbeitet..." : "Processing...";
-      textElement.textContent = loadingText || defaultLoadingText;
-
-      // Show spinner
-      spinner.style.display = "inline-flex";
-      spinner.setAttribute("aria-hidden", "false");
-
-      // Update button classes
-      button.classList.add("auth-form__submit-button--loading");
-    } else {
-      // Restore original state
-      button.disabled = false;
-      button.removeAttribute("aria-busy");
-
-      // Restore original text
-      const originalText = button.dataset.originalText;
-      if (originalText) {
-        textElement.textContent = originalText;
-      }
-
-      // Hide spinner
-      spinner.style.display = "none";
-      spinner.setAttribute("aria-hidden", "true");
-
-      // Update button classes
-      button.classList.remove("auth-form__submit-button--loading");
+  /**
+   * Manages cache size to prevent memory leaks
+   */
+  function manageCache() {
+    if (buttonCache.size >= MAX_CACHE_SIZE) {
+      // Remove oldest entries (FIFO)
+      const oldestKey = buttonCache.keys().next().value;
+      buttonCache.delete(oldestKey);
     }
   }
 
   /**
-   * Initialize all auth submit buttons with proper ARIA attributes
+   * Enhanced error recovery for missing DOM elements
    */
-  function initializeAuthSubmitButtons(): void {
-    const submitButtons = document.querySelectorAll(
-      ".auth-form__submit-button"
-    ) as NodeListOf<HTMLButtonElement>;
+  function recoverMissingElements(buttonId, button) {
+    try {
+      // Attempt to find or create missing elements
+      let textElement = button.querySelector(".auth-form__submit-text");
+      let spinner = button.querySelector(".auth-form__spinner");
 
-    submitButtons.forEach((button) => {
-      // Ensure proper initial state
-      const spinner = button.querySelector(".auth-form__spinner") as HTMLElement;
-      if (spinner) {
-        spinner.style.display = "none";
-        spinner.setAttribute("aria-hidden", "true");
+      if (!textElement) {
+        // Create missing text element
+        textElement = document.createElement("span");
+        textElement.className = "auth-form__submit-text";
+        textElement.textContent = button.textContent || "Submit";
+        button.textContent = "";
+        button.appendChild(textElement);
+        console.warn(`Created missing text element for button "${buttonId}"`);
       }
 
-      // Add focus management
-      button.addEventListener("focus", () => {
-        button.classList.add("auth-form__submit-button--focused");
-      });
+      if (!spinner) {
+        // Create missing spinner element
+        spinner = document.createElement("span");
+        spinner.className = "auth-form__spinner";
+        spinner.setAttribute("aria-hidden", "true");
+        spinner.style.display = "none";
+        spinner.innerHTML =
+          '<svg class="auth-form__spinner-icon icon-loader" aria-hidden="true" viewBox="0 0 24 24"><path d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z"/></svg>';
+        button.appendChild(spinner);
+        console.warn(`Created missing spinner element for button "${buttonId}"`);
+      }
 
-      button.addEventListener("blur", () => {
+      return { textElement, spinner };
+    } catch (error) {
+      console.error(`Failed to recover missing elements for button "${buttonId}":`, error);
+      return null;
+    }
+  }
+
+  /**
+   * Gets and caches button elements with enhanced error handling and memory management
+   */
+  function getButtonElements(buttonId) {
+    // Check cache first
+    if (buttonCache.has(buttonId)) {
+      const cached = buttonCache.get(buttonId);
+      // Validate cached elements are still in DOM
+      if (
+        cached.button.isConnected &&
+        cached.textElement.isConnected &&
+        cached.spinner.isConnected
+      ) {
+        return cached;
+      } else {
+        // Remove stale cache entry
+        buttonCache.delete(buttonId);
+        console.warn(`Removed stale cache entry for button "${buttonId}"`);
+      }
+    }
+
+    try {
+      const button = document.getElementById(buttonId);
+      if (!button) {
+        console.warn(`Button with ID "${buttonId}" not found`);
+        return null;
+      }
+
+      let textElement = button.querySelector(".auth-form__submit-text");
+      let spinner = button.querySelector(".auth-form__spinner");
+
+      // Enhanced error recovery
+      if (!textElement || !spinner) {
+        console.warn(`Required elements missing in button "${buttonId}", attempting recovery...`);
+        const recovered = recoverMissingElements(buttonId, button);
+        if (!recovered) {
+          return null;
+        }
+        textElement = recovered.textElement;
+        spinner = recovered.spinner;
+      }
+
+      const elements = { button, textElement, spinner };
+
+      // Manage cache size before adding new entry
+      manageCache();
+      buttonCache.set(buttonId, elements);
+
+      return elements;
+    } catch (error) {
+      console.error(`Error getting button elements for "${buttonId}":`, error);
+      return null;
+    }
+  }
+
+  /**
+   * Sets the loading state of a submit button with enhanced error handling and optimized performance
+   */
+  function setAuthButtonLoadingState(buttonId, isLoading, loadingText) {
+    const elements = getButtonElements(buttonId);
+    if (!elements) {
+      console.warn(`Cannot set loading state for button "${buttonId}" - elements not available`);
+      return;
+    }
+
+    const { button, textElement, spinner } = elements;
+
+    try {
+      if (isLoading) {
+        // Store original text for restoration
+        if (!button.dataset.originalText) {
+          button.dataset.originalText = textElement.textContent || "";
+        }
+
+        // Batch DOM updates for better performance
+        requestAnimationFrame(() => {
+          try {
+            // Update button state
+            button.disabled = true;
+            button.setAttribute("aria-busy", "true");
+
+            // Update text with internationalization support
+            const lang = document.documentElement.lang || "en";
+            const defaultLoadingText = lang === "de" ? "Wird verarbeitet..." : "Processing...";
+            const finalLoadingText = loadingText || defaultLoadingText;
+
+            // Preserve accessible name during loading for screen readers
+            const originalText = button.dataset.originalText;
+            button.setAttribute("aria-label", `${originalText} - ${finalLoadingText}`);
+
+            textElement.textContent = finalLoadingText;
+
+            // Show spinner with proper accessibility
+            spinner.style.display = "inline-flex";
+            spinner.setAttribute("aria-hidden", "false");
+
+            // Update button classes for styling
+            button.classList.add("auth-form__submit-button--loading");
+          } catch (error) {
+            console.error(`Error setting loading state for button "${buttonId}":`, error);
+          }
+        });
+      } else {
+        // Batch DOM updates for restoration
+        requestAnimationFrame(() => {
+          try {
+            // Restore original state
+            button.disabled = false;
+            button.removeAttribute("aria-busy");
+            button.removeAttribute("aria-label");
+
+            // Restore original text
+            const originalText = button.dataset.originalText;
+            if (originalText) {
+              textElement.textContent = originalText;
+            }
+
+            // Hide spinner
+            spinner.style.display = "none";
+            spinner.setAttribute("aria-hidden", "true");
+
+            // Update button classes
+            button.classList.remove("auth-form__submit-button--loading");
+          } catch (error) {
+            console.error(`Error restoring button state for "${buttonId}":`, error);
+          }
+        });
+      }
+    } catch (error) {
+      console.error(`Critical error in setAuthButtonLoadingState for "${buttonId}":`, error);
+    }
+  }
+
+  /**
+   * Setup individual button with optimized event handlers
+   */
+  function setupButton(button) {
+    // Ensure proper initial state
+    const spinner = button.querySelector(".auth-form__spinner");
+    if (spinner) {
+      spinner.style.display = "none";
+      spinner.setAttribute("aria-hidden", "true");
+    }
+
+    // Optimized focus management with passive listeners
+    button.addEventListener(
+      "focus",
+      () => {
+        button.classList.add("auth-form__submit-button--focused");
+      },
+      { passive: true }
+    );
+
+    button.addEventListener(
+      "blur",
+      () => {
         button.classList.remove("auth-form__submit-button--focused");
-      });
+      },
+      { passive: true }
+    );
+  }
+
+  /**
+   * Optimized initialization with intersection observer
+   * Only initializes buttons when they become visible
+   */
+  function initializeAuthSubmitButtons() {
+    const submitButtons = document.querySelectorAll(".auth-form__submit-button");
+
+    // Use Intersection Observer for performance on large pages
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setupButton(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "50px" }
+    );
+
+    submitButtons.forEach((button) => {
+      // Immediate setup for above-the-fold buttons
+      const rect = button.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        setupButton(button);
+      } else {
+        observer.observe(button);
+      }
     });
   }
 
-  // Initialize on DOM content loaded
+  // Initialize efficiently based on document state
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeAuthSubmitButtons);
+    document.addEventListener("DOMContentLoaded", initializeAuthSubmitButtons, { once: true });
   } else {
     initializeAuthSubmitButtons();
   }
 
-  // Expose utilities globally
-  (window as any).setAuthButtonLoadingState = setAuthButtonLoadingState;
+  // Store utility for access from parent forms
+  const buttonUtilities = {
+    setLoadingState: setAuthButtonLoadingState,
+    initialize: initializeAuthSubmitButtons,
+  };
+
+  // Expose utilities for form integration
+  if (typeof window !== "undefined") {
+    window.__authButtonUtils = buttonUtilities;
+  }
 </script>
 
 <style>
-  /* Auth Submit Button Styles */
+  /* ======================================
+   * AUTH SUBMIT BUTTON COMPONENT STYLES
+   * ====================================== */
+
+  /* AUTH SUBMIT BUTTON - Using global CSS variables */
   .auth-form__submit-button {
+    /* Layout and positioning */
     width: 100%;
-    padding: var(--spacing-lg) var(--spacing-xl);
-    background: linear-gradient(135deg, var(--color-purple-600), var(--color-pink-600));
-    color: var(--color-white);
-    border: none;
-    border-radius: var(--border-radius-lg);
-    font-size: var(--font-size-md);
-    font-weight: 600;
-    cursor: pointer;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-sm);
-    transition: all 0.3s ease;
     min-height: 3rem;
+    gap: var(--spacing-sm);
+
+    /* Spacing */
+    padding: var(--spacing-md) var(--spacing-lg);
+
+    /* Visual styling using global CSS variables */
+    background: linear-gradient(135deg, var(--color-purple-600), var(--color-pink-500));
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-xl);
+    box-shadow: none;
+
+    /* Typography using global font variables */
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: max(0.12em, var(--letter-spacing-wide, 0));
+    line-height: max(1.5, var(--line-height-normal, 1.5));
+    word-spacing: max(0.16em, var(--user-word-spacing, 0));
+
+    /* Interaction */
+    cursor: pointer;
+    transition: all var(--transition-duration-300) var(--transition-timing-in-out);
+
+    /* Performance optimization - prevent layout shifts */
+    contain: layout style;
   }
 
+  /* Interactive states - using global variables */
   .auth-form__submit-button:hover:not(:disabled) {
-    background: linear-gradient(135deg, var(--color-purple-700), var(--color-pink-700));
+    background: linear-gradient(135deg, var(--color-purple-700), var(--color-pink-600));
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+    box-shadow: var(--shadow-auth-button-hover);
   }
 
   .auth-form__submit-button:focus-visible {
-    outline: 3px solid var(--color-focus-outline);
+    outline: var(--outline-width-medium) solid var(--color-purple-400);
     outline-offset: 2px;
   }
 
   .auth-form__submit-button:active:not(:disabled) {
     transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(139, 92, 246, 0.2);
+    box-shadow: var(--shadow-auth-button-active);
   }
 
+  /* Disabled state with optimized opacity */
   .auth-form__submit-button:disabled {
     opacity: 0.7;
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
+    /* Prevent interaction during disabled state */
+    pointer-events: none;
   }
 
+  /* Button modifiers */
   .auth-form__submit-button--loading {
     pointer-events: none;
   }
 
   .auth-form__submit-button--focused {
-    background: linear-gradient(135deg, var(--color-purple-700), var(--color-pink-700));
+    background: linear-gradient(135deg, var(--color-purple-700), var(--color-pink-600));
   }
 
-  /* Button text styles */
+  /* Button text element */
   .auth-form__submit-text {
     font-weight: inherit;
     color: inherit;
+    /* Prevent text selection during interactions */
+    user-select: none;
   }
 
-  /* Loading spinner styles */
+  /* Loading spinner container - optimized for performance */
   .auth-form__spinner {
     display: none;
     align-items: center;
     justify-content: center;
     margin-left: var(--spacing-sm);
+    /* GPU acceleration for smooth animations */
+    will-change: auto;
   }
 
+  /* Spinner icon animation - optimized for 60fps */
   .auth-form__spinner-icon {
     height: 1rem;
     width: 1rem;
-    animation: spin 1s linear infinite;
     color: var(--color-white);
+    /* Use transform for better performance */
+    animation: spin 1s linear infinite;
+    /* Force GPU acceleration */
+    transform: translateZ(0);
   }
 
+  /* Optimized spinner animation */
   @keyframes spin {
-    from {
-      transform: rotate(0deg);
+    0% {
+      transform: translateZ(0) rotate(0deg);
     }
-    to {
-      transform: rotate(360deg);
+    100% {
+      transform: translateZ(0) rotate(360deg);
     }
   }
 
-  /* Responsive Design */
+  /* ======================================
+   * RESPONSIVE DESIGN - MOBILE FIRST
+   * ====================================== */
+
   @media (min-width: 768px) {
     .auth-form__submit-button {
-      padding: var(--spacing-lg) var(--spacing-xl);
+      padding: var(--spacing-md) var(--spacing-lg);
       font-size: var(--font-size-lg);
       min-height: 3.5rem;
     }
   }
+
+  /* Enhanced zoom support for 400% magnification (WCAG 2.2 AAA) */
+  @supports (zoom: 4) {
+    .auth-form__submit-button {
+      font-size: max(var(--font-size-base), 16px);
+      min-height: max(3rem, 44px);
+      padding: max(var(--spacing-md), 0.75rem) max(var(--spacing-lg), 1rem);
+    }
+  }
+
+  /* ======================================
+   * ACCESSIBILITY ENHANCEMENTS - WCAG AAA
+   * ====================================== */
 
   /* High contrast mode support */
   @media (prefers-contrast: high) {
@@ -274,11 +491,12 @@ const {
     }
 
     .auth-form__submit-button:focus-visible {
-      outline-width: 4px;
+      outline-width: var(--outline-width-thick);
+      outline-color: var(--color-white);
     }
   }
 
-  /* Reduced Motion Support */
+  /* Reduced motion support for accessibility and performance */
   @media (prefers-reduced-motion: reduce) {
     .auth-form__submit-button,
     .auth-form__spinner-icon {
@@ -290,21 +508,40 @@ const {
       transform: none;
     }
 
+    /* Still provide visual feedback with reduced motion */
     .auth-form__spinner-icon {
-      animation-duration: 0.001s;
+      animation-duration: 2s;
     }
   }
 
-  /* Touch devices optimization */
+  /* Touch device optimization for better accessibility */
   @media (hover: none) and (pointer: coarse) {
     .auth-form__submit-button {
-      min-height: 44px; /* WCAG AAA minimum touch target */
-      padding: var(--spacing-md) var(--spacing-lg);
+      /* WCAG AAA minimum touch target size */
+      min-height: 44px;
+      padding: 0.75rem 1rem;
     }
 
+    /* Remove hover effects on touch devices */
     .auth-form__submit-button:hover {
       transform: none;
       box-shadow: none;
+      background: linear-gradient(135deg, var(--color-purple-600), var(--color-pink-500));
+    }
+  }
+
+  /* Dark theme optimization */
+  @media (prefers-color-scheme: dark) {
+    .auth-form__submit-button {
+      background: linear-gradient(135deg, var(--color-purple-500), var(--color-pink-400));
+    }
+
+    .auth-form__submit-button:hover:not(:disabled) {
+      background: linear-gradient(135deg, var(--color-purple-400), var(--color-pink-300));
+    }
+
+    .auth-form__submit-button--focused {
+      background: linear-gradient(135deg, var(--color-purple-400), var(--color-pink-300));
     }
   }
 </style>
