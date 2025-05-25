@@ -23,6 +23,22 @@ export default {
   "auth.register.submit": "Registrer",
   "auth.form.submit": "Indsend",
   "auth.form.loading": "Behandler...",
+
+  // Session management
+  "auth.session.timeout.title": "Session udløber",
+  "auth.session.timeout.message":
+    "Din session udløber om 2 minutter. Klik hvor som helst for at forlænge den.",
+  "auth.session.timeout.extend": "Forlæng session",
+  "auth.session.timeout.close": "Luk",
+
+  // Accessibility
+  "auth.accessibility.requirement.met": "Krav opfyldt",
+  "auth.accessibility.requirement.unmet": "Krav ikke opfyldt",
+  "auth.accessibility.password.visible": "Adgangskode er nu synlig",
+  "auth.accessibility.password.hidden": "Adgangskode er nu skjult",
+  "auth.accessibility.requirements.expanded": "Adgangskodekrav udvidet",
+  "auth.accessibility.requirements.collapsed": "Adgangskodekrav sammenfoldet",
+
   "auth.tabs.login": "Login",
   "auth.tabs.register": "Registrer",
   "auth.validation.processing": "Validerer input...",
@@ -58,6 +74,8 @@ export default {
   "auth.register.error": "Registrering mislykkedes",
 
   "auth.password_reset.title": "Nulstil adgangskode",
+  "auth.password_reset.description":
+    "Indtast din e-mailadresse for at modtage et link til nulstilling af adgangskode",
   "auth.password_reset.description":
     "Indtast din e-mail for at modtage et link til nulstilling af adgangskoden",
   "auth.password_reset.submit": "Send nulstillingslink",

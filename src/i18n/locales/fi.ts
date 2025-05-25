@@ -23,6 +23,22 @@ export default {
   "auth.register.submit": "Rekisteröidy",
   "auth.form.submit": "Lähetä",
   "auth.form.loading": "Käsitellään...",
+
+  // Session management
+  "auth.session.timeout.title": "Istunto päättyy",
+  "auth.session.timeout.message":
+    "Istuntosi päättyy 2 minuutissa. Klikkaa mihin tahansa jatkaaksesi sitä.",
+  "auth.session.timeout.extend": "Jatka istuntoa",
+  "auth.session.timeout.close": "Sulje",
+
+  // Accessibility
+  "auth.accessibility.requirement.met": "Vaatimus täyttynyt",
+  "auth.accessibility.requirement.unmet": "Vaatimus ei täyttynyt",
+  "auth.accessibility.password.visible": "Salasana on nyt näkyvissä",
+  "auth.accessibility.password.hidden": "Salasana on nyt piilossa",
+  "auth.accessibility.requirements.expanded": "Salasanavaatimukset laajennettu",
+  "auth.accessibility.requirements.collapsed": "Salasanavaatimukset tiivistetty",
+
   "auth.tabs.login": "Kirjaudu sisään",
   "auth.tabs.register": "Rekisteröidy",
   "auth.validation.processing": "Tarkistetaan syötteitä...",
@@ -88,6 +104,14 @@ export default {
 
   // Salasanan validointi
   "auth.password.requirements": "Salasanavaatimukset:",
+  "auth.password.requirements.status": "{{met}} / {{total}} vaatimusta täytetty",
+  "auth.password.requirements.help":
+    "Salasanasi tulee täyttää kaikki alla luetellut vaatimukset turvallisuuden vuoksi",
+  "auth.password.requirements.checklist": "Salasanavaatimusten tarkistuslista",
+  "auth.password.requirements.met": "Vaatimus täytetty",
+  "auth.password.requirements.not_met": "Vaatimus ei täytetty",
+  "auth.password.requirements.keyboard_navigation":
+    "Käytä nuolinäppäimiä vaatimusten välillä siirtymiseen, Escape poistuaksesi",
   "auth.password.min_length": "Salasanan on oltava vähintään 8 merkkiä pitkä",
   "auth.password.uppercase": "Salasanan on sisällettävä vähintään yksi iso kirjain",
   "auth.password.lowercase": "Salasanan on sisällettävä vähintään yksi pieni kirjain",

@@ -45,6 +45,21 @@ export default {
   "auth.password_reset.complete_error":
     "Error al restablecer la contraseña. Por favor, comprueba tus datos o solicita un nuevo enlace de restablecimiento.",
 
+  // Session management
+  "auth.session.timeout.title": "Sesión expirando",
+  "auth.session.timeout.message":
+    "Tu sesión expirará en 2 minutos. Haz clic en cualquier lugar para extenderla.",
+  "auth.session.timeout.extend": "Extender sesión",
+  "auth.session.timeout.close": "Cerrar",
+
+  // Accessibility
+  "auth.accessibility.requirement.met": "Requisito cumplido",
+  "auth.accessibility.requirement.unmet": "Requisito no cumplido",
+  "auth.accessibility.password.visible": "La contraseña ahora es visible",
+  "auth.accessibility.password.hidden": "La contraseña ahora está oculta",
+  "auth.accessibility.requirements.expanded": "Requisitos de contraseña expandidos",
+  "auth.accessibility.requirements.collapsed": "Requisitos de contraseña colapsados",
+
   "auth.register.name": "Nombre completo",
   "auth.register.email": "Dirección de correo electrónico",
   "auth.register.email.placeholder": "Tu dirección de correo electrónico",

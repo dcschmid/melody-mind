@@ -23,6 +23,22 @@ export default {
   "auth.register.submit": "Registreren",
   "auth.form.submit": "Verzenden",
   "auth.form.loading": "Verwerken...",
+
+  // Session management
+  "auth.session.timeout.title": "Sessie verloopt",
+  "auth.session.timeout.message":
+    "Je sessie verloopt over 2 minuten. Klik ergens om deze te verlengen.",
+  "auth.session.timeout.extend": "Sessie verlengen",
+  "auth.session.timeout.close": "Sluiten",
+
+  // Accessibility
+  "auth.accessibility.requirement.met": "Vereiste voldaan",
+  "auth.accessibility.requirement.unmet": "Vereiste niet voldaan",
+  "auth.accessibility.password.visible": "Wachtwoord is nu zichtbaar",
+  "auth.accessibility.password.hidden": "Wachtwoord is nu verborgen",
+  "auth.accessibility.requirements.expanded": "Wachtwoordvereisten uitgebreid",
+  "auth.accessibility.requirements.collapsed": "Wachtwoordvereisten ingeklapt",
+
   "auth.tabs.login": "Inloggen",
   "auth.tabs.register": "Registreren",
   "auth.validation.processing": "Invoer valideren...",
@@ -58,6 +74,8 @@ export default {
   "auth.register.error": "Registratie mislukt",
 
   "auth.password_reset.title": "Wachtwoord opnieuw instellen",
+  "auth.password_reset.description":
+    "Voer uw e-mailadres in om een link voor het opnieuw instellen van uw wachtwoord te ontvangen",
   "auth.password_reset.description":
     "Voer uw e-mailadres in om een link voor het opnieuw instellen van uw wachtwoord te ontvangen",
   "auth.password_reset.submit": "Resetlink verzenden",

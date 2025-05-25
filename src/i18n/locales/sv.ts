@@ -23,6 +23,22 @@ export default {
   "auth.register.submit": "Registrera",
   "auth.form.submit": "Skicka",
   "auth.form.loading": "Bearbetar...",
+
+  // Session management
+  "auth.session.timeout.title": "Session upphör",
+  "auth.session.timeout.message":
+    "Din session upphör om 2 minuter. Klicka var som helst för att förlänga den.",
+  "auth.session.timeout.extend": "Förläng session",
+  "auth.session.timeout.close": "Stäng",
+
+  // Accessibility
+  "auth.accessibility.requirement.met": "Krav uppfyllt",
+  "auth.accessibility.requirement.unmet": "Krav inte uppfyllt",
+  "auth.accessibility.password.visible": "Lösenord är nu synligt",
+  "auth.accessibility.password.hidden": "Lösenord är nu dolt",
+  "auth.accessibility.requirements.expanded": "Lösenordskrav utökade",
+  "auth.accessibility.requirements.collapsed": "Lösenordskrav kollapsade",
+
   "auth.tabs.login": "Logga in",
   "auth.tabs.register": "Registrera",
   "auth.validation.processing": "Validerar indata...",
@@ -58,6 +74,8 @@ export default {
   "auth.register.error": "Registrering misslyckades",
 
   "auth.password_reset.title": "Återställ lösenord",
+  "auth.password_reset.description":
+    "Ange din e-postadress för att få en länk för återställning av lösenord",
   "auth.password_reset.description":
     "Ange din e-postadress för att få en länk för återställning av lösenord",
   "auth.password_reset.submit": "Skicka återställningslänk",

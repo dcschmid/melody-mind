@@ -46,6 +46,27 @@ export default {
   "auth.password_reset.complete_error":
     "Passwort-Reset fehlgeschlagen. Bitte überprüfe deine Eingaben oder fordere einen neuen Reset-Link an.",
 
+  // Session timeout messages
+  "auth.session.timeout.title": "Sitzung läuft ab",
+  "auth.session.timeout.message":
+    "Ihre Sitzung läuft in 2 Minuten ab. Klicken Sie auf eine beliebige Stelle, um sie zu verlängern.",
+  "auth.session.timeout.extend": "Sitzung verlängern",
+  "auth.session.timeout.close": "Schließen",
+
+  // Accessibility status messages
+  "auth.accessibility.requirement.met": "Anforderung erfüllt",
+  "auth.accessibility.requirement.unmet": "Anforderung nicht erfüllt",
+  "auth.accessibility.password.visible": "Passwort ist jetzt sichtbar",
+  "auth.accessibility.password.hidden": "Passwort ist jetzt versteckt",
+  "auth.accessibility.requirements.expanded": "Passwort-Anforderungen erweitert",
+  "auth.accessibility.requirements.collapsed": "Passwort-Anforderungen eingeklappt",
+
+  // Password strength levels
+  "auth.password.strength.weak": "Schwach",
+  "auth.password.strength.medium": "Mittel",
+  "auth.password.strength.strong": "Stark",
+  "auth.password.strength.very_strong": "Sehr stark",
+
   "auth.register.name": "Vollständiger Name",
   "auth.register.email": "E-Mail-Adresse",
   "auth.register.email.placeholder": "Deine E-Mail-Adresse",
