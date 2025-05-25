@@ -1,27 +1,38 @@
 ---
 /**
- * AuthForm Component for MelodyMind
+ * AuthForm Component
  *
- * This component combines login and registration forms into a single component
- * with animated transitions between modes. It is fully responsive and
- * optimized according to WCAG AAA standards.
+ * A comprehensive authentication form component that provides both login and registration
+ * functionality with tab-based navigation. Includes proper accessibility support,
+ * internationalization, and form validation according to MelodyMind standards.
  *
  * Features:
- * - Tab-based switching between login and registration
- * - Client-side form validation using modular components
- * - Password strength meter
- * - Password visibility toggle
- * - Comprehensive password requirements checking
- * - Responsive design for all screen sizes
- * - WCAG AAA compliant accessibility
- * - Reduced motion support
- * - Modular component architecture
+ * - Tab-based navigation between login and registration forms
+ * - Real-time form validation with accessibility announcements
+ * - Password strength requirements with visual indicators
+ * - Reduced motion support for accessibility compliance
+ * - Full internationalization support for all MelodyMind languages
+ * - WCAG AAA compliant with proper ARIA attributes and focus management
+ * - Error handling with user-friendly messages and live regions
+ * - Responsive design optimized for all screen sizes
+ * - High contrast mode support for enhanced visibility
+ *
+ * @example Basic usage
+ * ```astro
+ * <!-- Default login mode -->
+ * <AuthForm />
+ * ```
+ *
+ * @example Start with registration form
+ * ```astro
+ * <AuthForm initialMode="register" />
+ * ```
  *
  * @component
- * @example
- * ```astro
- * <AuthForm initialMode="login" />
- * ```
+ * @accessibility Meets WCAG AAA standards with proper focus management, screen reader support,
+ *               keyboard navigation, and live regions for dynamic content updates.
+ * @i18n Fully internationalized with support for all MelodyMind languages
+ * @responsive Mobile-first responsive design with container queries
  */
 import { getLangFromUrl, useTranslations } from "../../utils/i18n";
 import AuthFormField from "./AuthFormField.astro";
@@ -29,7 +40,13 @@ import AuthSubmitButton from "./AuthSubmitButton.astro";
 import PasswordRequirementsPanel from "./PasswordRequirementsPanel.astro";
 
 interface Props {
-  /** Initial mode of the component: "login" or "register" */
+  /**
+   * Initial mode of the authentication form component.
+   * Controls which form tab is active when the component first renders.
+   *
+   * @default "login"
+   * @example "login" | "register"
+   */
   initialMode?: "login" | "register";
 }
 
@@ -209,7 +226,21 @@ const t = useTranslations(lang);
   import { useTranslations } from "../../utils/i18n";
 
   /**
-   * Initialize the auth form when DOM is loaded
+   * Initialize the authentication form when DOM is loaded.
+   *
+   * This function sets up all the necessary event listeners, accessibility features,
+   * and form validation for both login and registration forms. It also handles
+   * reduced motion preferences and internationalization setup.
+   *
+   * Features initialized:
+   * - Reduced motion detection and support
+   * - Form validation with real-time feedback
+   * - Tab navigation with keyboard support
+   * - Form submission handlers
+   * - Translation setup for error messages
+   *
+   * @accessibility Adds reduced motion support and proper keyboard navigation
+   * @i18n Sets up translations for error messages and form feedback
    */
   function setupAuthForm(): void {
     // Add reduced motion support
