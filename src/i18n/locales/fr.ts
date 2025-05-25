@@ -44,6 +44,21 @@ export default {
   "auth.password_reset.complete_error":
     "Échec de la réinitialisation du mot de passe. Veuillez vérifier vos entrées ou demander un nouveau lien de réinitialisation.",
 
+  // Session management
+  "auth.session.timeout.title": "Session expirant",
+  "auth.session.timeout.message":
+    "Votre session expirera dans 2 minutes. Cliquez n'importe où pour l'étendre.",
+  "auth.session.timeout.extend": "Étendre la session",
+  "auth.session.timeout.close": "Fermer",
+
+  // Accessibility
+  "auth.accessibility.requirement.met": "Exigence satisfaite",
+  "auth.accessibility.requirement.unmet": "Exigence non satisfaite",
+  "auth.accessibility.password.visible": "Le mot de passe est maintenant visible",
+  "auth.accessibility.password.hidden": "Le mot de passe est maintenant masqué",
+  "auth.accessibility.requirements.expanded": "Exigences du mot de passe étendues",
+  "auth.accessibility.requirements.collapsed": "Exigences du mot de passe repliées",
+
   "auth.register.name": "Nom complet",
   "auth.register.email": "Adresse e-mail",
   "auth.register.email.placeholder": "Votre adresse e-mail",

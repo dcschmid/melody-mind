@@ -44,6 +44,27 @@ export default {
   "auth.password_reset.complete_error":
     "Password reset failed. Please check your inputs or request a new reset link.",
 
+  // Session timeout messages
+  "auth.session.timeout.title": "Session Expiring",
+  "auth.session.timeout.message":
+    "Your session will expire in 2 minutes. Click anywhere to extend it.",
+  "auth.session.timeout.extend": "Extend Session",
+  "auth.session.timeout.close": "Close",
+
+  // Accessibility status messages
+  "auth.accessibility.requirement.met": "Requirement met",
+  "auth.accessibility.requirement.unmet": "Requirement not met",
+  "auth.accessibility.password.visible": "Password is now visible",
+  "auth.accessibility.password.hidden": "Password is now hidden",
+  "auth.accessibility.requirements.expanded": "Password requirements expanded",
+  "auth.accessibility.requirements.collapsed": "Password requirements collapsed",
+
+  // Password strength levels
+  "auth.password.strength.weak": "Weak",
+  "auth.password.strength.medium": "Medium",
+  "auth.password.strength.strong": "Strong",
+  "auth.password.strength.very_strong": "Very Strong",
+
   "auth.register.name": "Full Name",
   "auth.register.email": "Email Address",
   "auth.register.email.placeholder": "Your email address",

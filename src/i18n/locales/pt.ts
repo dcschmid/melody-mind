@@ -44,6 +44,21 @@ export default {
   "auth.password_reset.complete_error":
     "Falha na redefinição da senha. Por favor, verifique suas entradas ou solicite um novo link de redefinição.",
 
+  // Session management
+  "auth.session.timeout.title": "Sessão expirando",
+  "auth.session.timeout.message":
+    "Sua sessão expirará em 2 minutos. Clique em qualquer lugar para estendê-la.",
+  "auth.session.timeout.extend": "Estender sessão",
+  "auth.session.timeout.close": "Fechar",
+
+  // Accessibility
+  "auth.accessibility.requirement.met": "Requisito atendido",
+  "auth.accessibility.requirement.unmet": "Requisito não atendido",
+  "auth.accessibility.password.visible": "A senha agora está visível",
+  "auth.accessibility.password.hidden": "A senha agora está oculta",
+  "auth.accessibility.requirements.expanded": "Requisitos de senha expandidos",
+  "auth.accessibility.requirements.collapsed": "Requisitos de senha recolhidos",
+
   "auth.register.name": "Nome Completo",
   "auth.register.email": "Endereço de Email",
   "auth.register.email.placeholder": "Seu endereço de email",

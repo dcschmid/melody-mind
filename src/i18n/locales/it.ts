@@ -44,6 +44,21 @@ export default {
   "auth.password_reset.complete_error":
     "Reimpostazione della password fallita. Controlla i tuoi dati o richiedi un nuovo link di reimpostazione.",
 
+  // Session management
+  "auth.session.timeout.title": "Sessione in scadenza",
+  "auth.session.timeout.message":
+    "La tua sessione scadrà tra 2 minuti. Clicca ovunque per estenderla.",
+  "auth.session.timeout.extend": "Estendi sessione",
+  "auth.session.timeout.close": "Chiudi",
+
+  // Accessibility
+  "auth.accessibility.requirement.met": "Requisito soddisfatto",
+  "auth.accessibility.requirement.unmet": "Requisito non soddisfatto",
+  "auth.accessibility.password.visible": "La password è ora visibile",
+  "auth.accessibility.password.hidden": "La password è ora nascosta",
+  "auth.accessibility.requirements.expanded": "Requisiti password espansi",
+  "auth.accessibility.requirements.collapsed": "Requisiti password ridotti",
+
   "auth.register.name": "Nome completo",
   "auth.register.email": "Indirizzo email",
   "auth.register.email.placeholder": "Il tuo indirizzo email",
