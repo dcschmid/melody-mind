@@ -86,7 +86,16 @@ export default {
   "auth.email_verification.error_icon_label": "E-mailverificatie mislukt",
 
   // Wachtwoordvalidatie
+  // Wachtwoordvalidatie
   "auth.password.requirements": "Wachtwoordvereisten:",
+  "auth.password.requirements.status": "{{met}} van {{total}} vereisten voldaan",
+  "auth.password.requirements.help":
+    "Uw wachtwoord moet voldoen aan alle onderstaande vereisten voor beveiliging",
+  "auth.password.requirements.checklist": "Checklist wachtwoordvereisten",
+  "auth.password.requirements.met": "Vereiste voldaan",
+  "auth.password.requirements.not_met": "Vereiste niet voldaan",
+  "auth.password.requirements.keyboard_navigation":
+    "Gebruik pijltjestoetsen om door vereisten te navigeren, Escape om te verlaten",
   "auth.password.min_length": "Wachtwoord moet minimaal 8 tekens lang zijn",
   "auth.password.uppercase": "Wachtwoord moet minimaal één hoofdletter bevatten",
   "auth.password.lowercase": "Wachtwoord moet minimaal één kleine letter bevatten",
@@ -100,6 +109,8 @@ export default {
   "auth.password.strength.weak": "Zwak",
   "auth.password.strength.medium": "Gemiddeld",
   "auth.password.strength.strong": "Sterk",
+  "auth.password.strength.good": "Goed",
+  "auth.password.strength.description": "Indicator voor wachtwoordbeveiligingsniveau",
   "auth.password.strength.very_strong": "Zeer sterk",
 
   // Formuliervalidatie
@@ -570,19 +581,5 @@ export default {
   "game.time.extended": "Tijd verlengd met 5 seconden",
   "game.time.before.end": "Verlengen voor einde spel",
 
-  // Missing translations
-  "auth.password_reset.description": "Voer je email in om een wachtwoord reset link te ontvangen",
-  "auth.service.invalid_credentials": "Ongeldige inloggegevens. Controleer je email en wachtwoord.",
-  "game.categories.empty.text":
-    "Helaas werden er geen categorieën gevonden. Probeer het later opnieuw.",
-  "podcast.language.availability":
-    "Onze podcasts zijn exclusief beschikbaar in het Duits en Engels.",
-  "index.welcome.footnote": "Bereid door muziekliefhebbers voor muziekliefhebbers. Geniet ervan!",
-  "playlist.no.results":
-    "Geen overeenkomende afspeellijsten gevonden. Probeer een andere zoekterm.",
   "common.accessibility.main_content": "Hoofdinhoudsgebied",
-  "errors.achievements.unlock":
-    "Fout bij het ontgrendelen van prestatie. Probeer het later opnieuw",
-  "game.chronology.navigation.description":
-    "Gebruik deze knoppen om het geselecteerde element te verplaatsen",
 };

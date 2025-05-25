@@ -555,11 +555,6 @@ export default {
   "game.time.extended": "Tid förlängd med 5 sekunder",
   "game.time.before.end": "Förläng före spelets slut",
 
-  // Missing translations
-  "auth.password_reset.description":
-    "Ange din e-post för att få en länk för lösenordsåterställning",
-  "auth.service.invalid_credentials":
-    "Ogiltiga inloggningsuppgifter. Kontrollera din e-post och lösenord.",
   "common.accessibility.main_content": "Huvudinnehållsområde",
   "knowledge.search.no.articles": "Inga artiklar hittades",
   "knowledge.search.one.article": "1 artikel hittad",
@@ -567,6 +562,20 @@ export default {
   "knowledge.search.count.articles": "{count} av {total} artiklar hittades",
   "knowledge.search.showing.all": "Visar alla {total} artiklar.",
   "knowledge.reset.search.button": "Återställ sökning",
-  "game.chronology.navigation.description":
-    "Använd dessa knappar för att flytta det valda elementet",
+
+  // Password Requirements Panel - Missing Keys
+  "auth.password.requirements.status": "{{met}} av {{total}} krav uppfyllda",
+  "auth.password.requirements.help":
+    "Ditt lösenord måste uppfylla följande krav för att vara säkert:",
+  "auth.password.requirements.checklist": "Checklista för lösenordskrav",
+  "auth.password.requirements.met": "Krav uppfyllt",
+  "auth.password.requirements.not_met": "Krav ej uppfyllt",
+  "auth.password.requirements.keyboard_navigation":
+    "Använd Tab och Enter för att navigera och aktivera",
+  "auth.password.strength.good": "Bra",
+  "auth.password.strength.description": "Indikator för lösenordssäkerhetsnivå",
+
+  // Missing translations
+
+  // Missing translations added automatically
 };

@@ -91,6 +91,14 @@ export default {
 
   // Validación de contraseña
   "auth.password.requirements": "Requisitos de la contraseña:",
+  "auth.password.requirements.status": "{{met}} de {{total}} requisitos cumplidos",
+  "auth.password.requirements.help":
+    "Su contraseña debe cumplir todos los requisitos listados a continuación para la seguridad",
+  "auth.password.requirements.checklist": "Lista de verificación de requisitos de contraseña",
+  "auth.password.requirements.met": "Requisito cumplido",
+  "auth.password.requirements.not_met": "Requisito no cumplido",
+  "auth.password.requirements.keyboard_navigation":
+    "Use las teclas de flecha para navegar por los requisitos, Escape para salir",
   "auth.password.min_length": "La contraseña debe tener al menos 8 caracteres",
   "auth.password.uppercase": "La contraseña debe contener al menos una letra mayúscula",
   "auth.password.lowercase": "La contraseña debe contener al menos una letra minúscula",
@@ -104,6 +112,8 @@ export default {
   "auth.password.strength.weak": "Débil",
   "auth.password.strength.medium": "Media",
   "auth.password.strength.strong": "Fuerte",
+  "auth.password.strength.good": "Buena",
+  "auth.password.strength.description": "Indicador de nivel de seguridad de la contraseña",
   "auth.password.strength.very_strong": "Muy fuerte",
 
   // Validación de formularios
@@ -583,40 +593,5 @@ export default {
   "game.time.extended": "Tiempo extendido por 5 segundos",
   "game.time.before.end": "Extender antes del fin del juego",
 
-  // Missing translations
-  "auth.password_reset.description":
-    "Introduce tu email para recibir un enlace de restablecimiento de contraseña",
-  "auth.password_reset.success": "Se ha enviado un enlace de restablecimiento a tu email",
-  "auth.email_verification.description":
-    "Verifica tu dirección de email para tu cuenta de Melody Mind.",
-  "auth.email_verification.message":
-    "Hemos enviado un enlace de verificación a tu dirección de email",
-  "auth.service.invalid_credentials":
-    "Credenciales inválidas. Por favor verifica tu email y contraseña.",
-  "auth.service.too_many_attempts":
-    "Demasiados intentos de inicio de sesión. Por favor espera un momento e intenta de nuevo.",
-  "game.categories.empty.text":
-    "Desafortunadamente, no se encontraron categorías. Por favor intenta de nuevo más tarde.",
-  "knowledge.play.description":
-    "¡Pon a prueba tu conocimiento de este género musical en nuestro quiz interactivo!",
-  "podcast.no.results":
-    "No se encontraron podcasts que coincidan. Intenta con un término de búsqueda diferente.",
-  "podcast.language.availability":
-    "Nuestros podcasts están disponibles exclusivamente en alemán e inglés.",
-  "index.welcome.footnote":
-    "Preparado por amantes de la música para amantes de la música. ¡Disfruta!",
-  "playlist.no.results":
-    "No se encontraron listas de reproducción que coincidan. Intenta con un término de búsqueda diferente.",
-  "game.chronology.description":
-    "Ordena estos álbumes por su año de lanzamiento (el más antiguo primero)",
-  "knowledge.no.results.help": "Intenta con diferentes términos de búsqueda o reinicia la búsqueda",
-  "highscores.description":
-    "Ver las mejores puntuaciones en diferentes modos de juego y categorías",
-  "errors.achievements.check": "Error al verificar logros. Por favor intenta de nuevo más tarde",
-  "errors.achievements.fetch": "Error al obtener logros. Por favor intenta de nuevo más tarde",
-  "errors.achievements.update": "Error al actualizar logros. Por favor intenta de nuevo más tarde",
-  "errors.achievements.unlock": "Error al desbloquear logro. Por favor intenta de nuevo más tarde",
-  "errors.gameResult.validation.invalidCorrectAnswers":
-    "Las respuestas correctas deben ser un número",
   "achievements.filter.reset": "Restablecer",
 };

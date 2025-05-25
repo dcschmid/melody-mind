@@ -570,20 +570,17 @@ export default {
   "game.time.extended": "Aikaa pidennetty 5 sekunnilla",
   "game.time.before.end": "Pidennä ennen pelin loppua",
 
-  // Missing translations
-  "auth.password_reset.description":
-    "Syötä sähköpostiosoitteesi saadaksesi salasanan palautuslinkki",
-  "auth.email_verification.description": "Vahvista sähköpostiosoitteesi Melody Mind -tilillesi.",
-  "auth.service.invalid_credentials":
-    "Virheelliset kirjautumistiedot. Tarkista sähköpostiosoitteesi ja salasanasi.",
-  "auth.service.too_many_attempts":
-    "Liian monta kirjautumisyritystä. Odota hetki ja yritä uudelleen.",
-  "game.categories.empty.text":
-    "Valitettavasti kategorioita ei löytynyt. Yritä myöhemmin uudelleen.",
-  "knowledge.play.description":
-    "Testaa tietämystäsi tästä musiikkigenrestä interaktiivisessa tietokilpailussamme!",
-  "podcast.language.availability": "Podcastimme ovat saatavilla vain saksan ja englannin kielellä.",
+  // Password Requirements Panel
+  "auth.password.requirements.status": "{{met}} / {{total}} vaatimusta täytetty",
+  "auth.password.requirements.help":
+    "Salasanasi tulee täyttää seuraavat vaatimukset ollakseen turvallinen:",
+  "auth.password.requirements.checklist": "Salasanavaatimusten tarkistuslista",
+  "auth.password.requirements.met": "Vaatimus täytetty",
+  "auth.password.requirements.not_met": "Vaatimus ei täytetty",
+  "auth.password.requirements.keyboard_navigation":
+    "Käytä Tab ja Enter -näppäimiä navigointiin ja aktivointiin",
+  "auth.password.strength.good": "Hyvä",
+  "auth.password.strength.description": "Salasanan turvallisuustason ilmaisin",
+
   "common.accessibility.main_content": "Pääsisältöalue",
-  "game.chronology.navigation.description":
-    "Käytä näitä painikkeita valitun elementin siirtämiseen",
 };

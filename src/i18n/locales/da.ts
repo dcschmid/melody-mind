@@ -565,11 +565,15 @@ export default {
   "game.time.extended": "Tid forlænget med 5 sekunder",
   "game.time.before.end": "Forlæng før spilslut",
 
-  // Missing translations
-  "auth.password_reset.description":
-    "Indtast din e-mail for at modtage et link til nulstilling af adgangskode",
-  "auth.service.invalid_credentials":
-    "Ugyldige loginoplysninger. Tjek venligst din e-mail og adgangskode.",
-  "game.categories.empty.text": "Desværre blev der ikke fundet nogen kategorier. Prøv igen senere.",
+  // Password Requirements Panel
+  "auth.password.requirements.status": "{{met}} af {{total}} krav opfyldt",
+  "auth.password.requirements.help": "Dit kodeord skal opfylde følgende krav for at være sikkert:",
+  "auth.password.requirements.checklist": "Checkliste for kodeordskrav",
+  "auth.password.requirements.met": "Krav opfyldt",
+  "auth.password.requirements.not_met": "Krav ikke opfyldt",
+  "auth.password.requirements.keyboard_navigation": "Brug Tab og Enter til at navigere og aktivere",
+  "auth.password.strength.good": "God",
+  "auth.password.strength.description": "Indikator for kodeordssikkerhedsniveau",
+
   "achievements.filter.reset": "Nulstil",
 };
