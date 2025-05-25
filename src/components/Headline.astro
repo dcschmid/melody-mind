@@ -25,33 +25,92 @@ interface Props {
   ariaLabel?: string;
 }
 
-const {
-  title,
-  level = "h1",
-  className = "text-2xl md:text-4xl",
-  id,
-  focusable = false,
-  ariaLabel,
-} = Astro.props;
+const { title, level = "h1", className = "", id, focusable = false, ariaLabel } = Astro.props;
 
 // Dynamic heading tag based on level prop
 const Tag = level;
 
 /**
- * Compute contrast-compliant text color
- * Sky-500 has been verified to meet WCAG AAA 7:1 contrast ratio
- * against the dark background of MelodyMind
+ * BEM-style CSS classes for headline component
+ * Follows WCAG AAA accessibility standards
  */
-const headlineClasses = `${className} font-bold tracking-wide mb-6 text-balance text-sky-500 break-words`;
+const baseClasses = "headline";
+const headlineClasses = `${baseClasses} ${className}`.trim();
 
 // Focusable attributes for accessibility when needed (skip navigation)
 const focusableAttrs = focusable
   ? {
       tabindex: "-1",
-      class: `${headlineClasses} focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 focus:ring-offset-zinc-900`,
+      class: `${headlineClasses} headline--focusable`,
     }
   : { class: headlineClasses };
 ---
+
+<style>
+  /* ======================================
+   * HEADLINE COMPONENT - BEM STYLE
+   * ====================================== */
+
+  .headline {
+    /* Base headline styles with WCAG AAA compliance */
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.025em;
+    margin-bottom: 1.5rem;
+    color: var(--color-sky-500, #0ea5e9);
+    text-wrap: balance;
+    word-break: break-words;
+
+    /* Responsive typography */
+    @media (min-width: 768px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  /* Focusable modifier for accessibility */
+  .headline--focusable {
+    /* Focus styles for skip navigation and screen readers */
+    &:focus {
+      outline: none;
+      box-shadow:
+        0 0 0 2px var(--color-sky-500, #0ea5e9),
+        0 0 0 4px var(--color-zinc-900, #18181b);
+    }
+  }
+
+  /* Size modifiers */
+  .headline--small {
+    font-size: 1.25rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .headline--large {
+    font-size: 2.5rem;
+
+    @media (min-width: 768px) {
+      font-size: 3rem;
+    }
+  }
+
+  /* Level-specific adjustments for semantic hierarchy */
+  .headline h2 {
+    margin-bottom: 1.25rem;
+  }
+
+  .headline h3 {
+    margin-bottom: 1rem;
+  }
+
+  .headline h4,
+  .headline h5,
+  .headline h6 {
+    margin-bottom: 0.75rem;
+  }
+</style>
 
 <Tag {id} aria-label={ariaLabel} {...focusableAttrs}>
   {title || <slot />}

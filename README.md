@@ -48,6 +48,37 @@ game offers a thrilling experience with multiple categories and rounds.
 - Astro DB: For managing game data, user profiles, and leaderboards.
 - HTML5 & CSS3: For designing the user interface and styling the game.
 - JSON: For managing question data and game configurations.
+- Vitest: For unit and integration testing with TypeScript support.
+
+## 🧪 Testing
+
+This project uses [Vitest](https://vitest.dev/) for testing. Vitest is a fast unit test framework
+powered by Vite with native ESM and TypeScript support.
+
+### Running Tests
+
+```bash
+# Run all tests once
+yarn test:run
+
+# Run tests in watch mode
+yarn test
+
+# Run tests with UI interface
+yarn test:ui
+
+# Run tests with coverage report
+yarn test:coverage
+```
+
+### Test Structure
+
+- Unit tests are located next to the source files (e.g., `utils/memoize.test.ts`)
+- Integration tests are in `src/tests/integration/`
+- Test configuration is in `vitest.config.ts`
+- Global test setup is in `src/tests/setup.ts`
+
+For detailed testing guidelines, see [docs/testing-setup.md](docs/testing-setup.md).
 
 ## 🎯 Tips for Success:
 
