@@ -506,6 +506,7 @@ export default {
   "achievements.unlocked_at": "Desbloqueado el {date}",
   "achievements.points": "Puntos: {points}",
   "achievements.rarity": "Rareza: {percentage}%",
+  "achievements.rarity.tooltip": "Muestra lo raro que es este logro: porcentajes más bajos significan que es más raro",
   "achievements.notification.unlocked": "¡Logro desbloqueado!",
   "achievements.notification.progress": "¡Progreso del logro actualizado!",
   "achievements.notification.close": "Cerrar notificación de logro",

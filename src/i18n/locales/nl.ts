@@ -497,6 +497,7 @@ export default {
   "achievements.unlocked_at": "Ontgrendeld op {date}",
   "achievements.points": "Punten: {points}",
   "achievements.rarity": "Zeldzaamheid: {percentage}%",
+  "achievements.rarity.tooltip": "Toont hoe zeldzaam deze achievement is - lagere percentages betekenen dat het zeldzamer is",
   "achievements.notification.unlocked": "Prestatie ontgrendeld!",
   "achievements.notification.progress": "Prestatievoortgang bijgewerkt!",
   "achievements.notification.close": "Sluit prestatie melding",

@@ -501,6 +501,7 @@ export default {
   "achievements.unlocked_at": "Desbloqueado em {date}",
   "achievements.points": "Pontos: {points}",
   "achievements.rarity": "Raridade: {percentage}%",
+  "achievements.rarity.tooltip": "Mostra o quão raro é este achievement - percentagens mais baixas significam que é mais raro",
   "achievements.notification.unlocked": "Conquista desbloqueada!",
   "achievements.notification.progress": "Progresso da conquista atualizado!",
   "achievements.notification.close": "Fechar notificação de conquista",
