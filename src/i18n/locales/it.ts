@@ -527,6 +527,8 @@ export default {
   "achievements.badge.new": "Nuovo achievement sbloccato",
   "achievements.badge.new_with_count": "{count} nuovi achievement sbloccati",
   "achievements.badge.fallback_text": "Notifica achievement",
+  "achievements.badge.context_description": "Badge di notifica achievement. Mostra il numero di nuovi achievement sbloccati nell'area di navigazione.",
+  "achievements.badge.keyboard_instructions": "Premi Invio o Spazio per vedere la tua pagina degli achievement.",
 
   // Messaggi di errore API
   "errors.auth.unauthorized": "Devi essere loggato per accedere a questa funzionalità",
@@ -600,4 +602,12 @@ export default {
   "game.time.extend.again": "Estendi di nuovo",
   "game.time.extended": "Tempo esteso di 5 secondi",
   "game.time.before.end": "Estendi prima della fine del gioco",
+
+  // Messaggi di sistema del layout
+  "layout.error.system": "Si è verificato un errore di sistema. Si prega di aggiornare la pagina.",
+  "layout.error.tracking": "Errore tracciato:",
+  "layout.error.tracking.failed": "Tracciamento errori fallito:",
+  "layout.accessibility.motion.reduced": "Modalità movimento ridotto abilitata per l'accessibilità",
+  "layout.accessibility.theme.dark": "Tema scuro attivato per contrasto ottimale e accessibilità",
+  "layout.analytics.init.failed": "Inizializzazione analytics fallita:",
 };

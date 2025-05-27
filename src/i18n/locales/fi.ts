@@ -104,14 +104,6 @@ export default {
 
   // Salasanan validointi
   "auth.password.requirements": "Salasanavaatimukset:",
-  "auth.password.requirements.status": "{{met}} / {{total}} vaatimusta täytetty",
-  "auth.password.requirements.help":
-    "Salasanasi tulee täyttää kaikki alla luetellut vaatimukset turvallisuuden vuoksi",
-  "auth.password.requirements.checklist": "Salasanavaatimusten tarkistuslista",
-  "auth.password.requirements.met": "Vaatimus täytetty",
-  "auth.password.requirements.not_met": "Vaatimus ei täytetty",
-  "auth.password.requirements.keyboard_navigation":
-    "Käytä nuolinäppäimiä vaatimusten välillä siirtymiseen, Escape poistuaksesi",
   "auth.password.min_length": "Salasanan on oltava vähintään 8 merkkiä pitkä",
   "auth.password.uppercase": "Salasanan on sisällettävä vähintään yksi iso kirjain",
   "auth.password.lowercase": "Salasanan on sisällettävä vähintään yksi pieni kirjain",
@@ -520,6 +512,8 @@ export default {
   "achievements.badge.new": "Uusi saavutus avattu",
   "achievements.badge.new_with_count": "{count} uutta saavutusta avattu",
   "achievements.badge.fallback_text": "Saavutusilmoitus",
+  "achievements.badge.context_description": "Saavutusilmoituksen merkki. Näyttää uusien avattujen saavutusten määrän navigointialueella.",
+  "achievements.badge.keyboard_instructions": "Paina Enter tai välilyönti nähdäksesi saavutussivusi.",
   "achievements.notification.close": "Sulje saavutusilmoitus",
 
   // API-virheilmoitukset
@@ -605,6 +599,14 @@ export default {
     "Käytä Tab ja Enter -näppäimiä navigointiin ja aktivointiin",
   "auth.password.strength.good": "Hyvä",
   "auth.password.strength.description": "Salasanan turvallisuustason ilmaisin",
+
+  // Layout system messages
+  "layout.error.system": "Järjestelmävirhe tapahtui. Päivitä sivu.",
+  "layout.error.tracking": "Virheidenseuranta käytössä",
+  "layout.error.tracking.failed": "Virheidenseurannan alustus epäonnistui:",
+  "layout.accessibility.motion.reduced": "Rajoitettu liike -tila käytössä saavutettavuuden vuoksi",
+  "layout.accessibility.theme.dark": "Tumma teema aktivoitu optimaalista kontrastia ja saavutettavuutta varten",
+  "layout.analytics.init.failed": "Analytiikan alustus epäonnistui:",
 
   "common.accessibility.main_content": "Pääsisältöalue",
 };

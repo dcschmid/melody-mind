@@ -530,6 +530,8 @@ export default {
   "achievements.badge.new": "Nouveau succès déverrouillé",
   "achievements.badge.new_with_count": "{count} nouveaux succès déverrouillés",
   "achievements.badge.fallback_text": "Notification de succès",
+  "achievements.badge.context_description": "Badge de notification de succès. Affiche le nombre de nouveaux succès déverrouillés dans la zone de navigation.",
+  "achievements.badge.keyboard_instructions": "Appuyez sur Entrée ou Espace pour voir votre page de succès.",
 
   // Messages d'erreur API
   "errors.auth.unauthorized": "Vous devez être connecté pour accéder à cette fonctionnalité",
@@ -611,4 +613,12 @@ export default {
   "game.time.extend.again": "Prolonger à nouveau",
   "game.time.extended": "Temps prolongé de 5 secondes",
   "game.time.before.end": "Prolonger avant la fin du jeu",
+
+  // Messages système de layout
+  "layout.error.system": "Une erreur système s'est produite. Veuillez actualiser la page.",
+  "layout.error.tracking": "Erreur suivie :",
+  "layout.error.tracking.failed": "Le suivi des erreurs a échoué :",
+  "layout.accessibility.motion.reduced": "Mode de mouvement réduit activé pour l'accessibilité",
+  "layout.accessibility.theme.dark": "Thème sombre activé pour un contraste optimal et l'accessibilité",
+  "layout.analytics.init.failed": "Échec de l'initialisation des analytiques :",
 };

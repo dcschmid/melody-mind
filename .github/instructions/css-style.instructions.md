@@ -10,11 +10,13 @@ Context7 optimizations and the latest standards.
 ## General Guidelines
 
 - Use pure CSS for all styling requirements
+- **ALWAYS use CSS custom properties (root variables) from `/src/styles/global.css`** - Never hardcode colors, spacing, or other design tokens
+- **ALWAYS perform code deduplication** - Check for existing similar CSS patterns before creating new ones
 - Organize CSS with logical sections and components
 - Use the BEM methodology (Block-Element-Modifier) for class names
-- Apply a consistent color scheme (purple, pink, dark background)
+- Apply a consistent color scheme using predefined CSS variables (--color-primary-*, --color-secondary-*, etc.)
 - Implement component-based organization for better maintainability
-- Support both light and dark themes with sufficient contrast
+- Support both light and dark themes with sufficient contrast using semantic color variables
 
 ## Responsive Design
 
@@ -40,15 +42,31 @@ Context7 optimizations and the latest standards.
 - Ensure touchpoints are at least 44x44px for mobile accessibility
 - Avoid deep nesting
 
-## Modern CSS Features
+## CSS Variables and Design System
 
-- Use CSS custom properties for maintaining design tokens
-- Leverage CSS Grid for two-dimensional layouts
-- Utilize Flexbox for one-dimensional layouts
-- Implement container queries for component-specific responsive behavior
-- Apply CSS logical properties for better internationalization support
-- Use modern selectors like `:is()` and `:where()` to reduce specificity
-- Implement CSS subgrid for nested grid alignment
+- **MANDATORY: Use CSS custom properties from global.css** - Never hardcode design values
+- **Available root variables include:**
+  - **Colors**: `--color-primary-*`, `--color-secondary-*`, `--color-neutral-*` (50-950 scale)
+  - **Semantic colors**: `--bg-primary`, `--bg-secondary`, `--text-primary`, `--text-secondary`, `--border-primary`, etc.
+  - **Interactive colors**: `--interactive-primary`, `--interactive-primary-hover`, `--interactive-primary-active`
+  - **Component colors**: `--btn-primary-bg`, `--card-bg`, `--form-bg`, etc.
+  - **Spacing**: `--space-xs` (4px) to `--space-3xl` (64px)
+  - **Typography**: `--text-xs` (12px) to `--text-4xl` (36px), `--font-normal` to `--font-bold`
+  - **Border radius**: `--radius-sm` (6px) to `--radius-full` (9999px)
+  - **Shadows**: `--shadow-sm` to `--shadow-xl`
+  - **Transitions**: `--transition-fast`, `--transition-normal`, `--transition-slow`
+  - **Z-index**: `--z-dropdown` to `--z-notification`
+  - **Focus system**: `--focus-ring`, `--focus-outline`
+- **Example usage**: `color: var(--text-primary);` instead of `color: #ffffff;`
+
+## Code Deduplication Requirements
+
+- **ALWAYS check for existing CSS patterns** before creating new styles
+- **Reuse existing component classes** from the global design system
+- **Extract common patterns** into utility classes when used multiple times
+- **Use existing layout utilities** like `.container`, `.grid-responsive`
+- **Follow established naming conventions** to prevent style conflicts
+- **Consolidate similar selectors** using CSS grouping and `:is()` pseudo-class
 
 ## CSS Structure
 
@@ -61,6 +79,55 @@ Context7 optimizations and the latest standards.
 - Use comments to document complex sections
 
 ## Example of Typical Implementation
+
+```html
+<!-- Preferred: BEM structured CSS classes with root variables -->
+<div class="component">
+  <h2 class="component__title">Component Title</h2>
+  <p class="component__text">
+    Component text with <span class="component__text--highlighted">highlighted</span> part.
+  </p>
+</div>
+
+<!-- With corresponding CSS using root variables -->
+<style>
+  .component {
+    margin-bottom: var(--space-lg);
+    padding: var(--space-md);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: box-shadow var(--transition-normal);
+  }
+
+  .component:hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .component__title {
+    margin-bottom: var(--space-md);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+  }
+
+  .component__text {
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary);
+  }
+
+  .component__text--highlighted {
+    padding: var(--space-xs) var(--space-sm);
+    background-color: var(--interactive-primary);
+    color: var(--btn-primary-text);
+    border-radius: var(--radius-sm);
+  }
+
+  /* Dark/light mode automatically handled by semantic variables */
+</style>
+```
 
 ```html
 <!-- Preferred: BEM structured CSS classes -->

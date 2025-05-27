@@ -537,16 +537,19 @@ const { question, timeLimit } = Astro.props;
 
 ## CSS Styling Best Practices
 
+- **MANDATORY: Use CSS custom properties from `/src/styles/global.css`** - Never hardcode colors, spacing, or design tokens
+- **ALWAYS perform code deduplication** - Check for existing CSS patterns and reuse them
 - Use component-scoped CSS with the `<style>` tag in Astro components
 - Create clear, semantic class names that describe the purpose of the element
-- Use CSS variables for theming and consistent values across components
-- Implement responsive design with media queries
+- **Use root variables**: `var(--text-primary)`, `var(--space-md)`, `var(--radius-sm)`, etc.
+- Implement responsive design with media queries and predefined breakpoints
 - Use the `:global()` selector for styling elements that are passed via slots
 - Create a consistent design system with reusable CSS properties
-- Implement dark mode with a global `.dark` class and appropriate selectors
+- Implement dark mode with semantic color variables (automatic light/dark switching)
 - Use CSS Grid and Flexbox for layout rather than complex positioning
-- Implement CSS transitions for smooth state changes
-- Follow a consistent naming convention for CSS classes
+- Implement CSS transitions using predefined transition variables: `var(--transition-normal)`
+- Follow a consistent naming convention for CSS classes (BEM methodology)
+- **Reuse existing utility classes** like `.container`, `.grid-responsive`, `.sr-only`
 
 Example:
 

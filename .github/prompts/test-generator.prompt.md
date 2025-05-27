@@ -13,7 +13,7 @@ documentation.
 If no specific details are provided, ask for:
 
 - The file/component to test (provide the file path)
-- The type of test needed (unit, component, accessibility, integration, e2e)
+- The type of test needed (unit, component, accessibility, integration)
 - Specific functionality to test (if any)
 - Any edge cases or special requirements
 

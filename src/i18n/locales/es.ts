@@ -532,6 +532,8 @@ export default {
   "achievements.badge.new": "¡Nuevo logro desbloqueado!",
   "achievements.badge.new_with_count": "{count} nuevos logros desbloqueados",
   "achievements.badge.fallback_text": "Notificación de logro",
+  "achievements.badge.context_description": "Badge de notificación de logro. Muestra el número de nuevos logros desbloqueados en el área de navegación.",
+  "achievements.badge.keyboard_instructions": "Presiona Enter o Espacio para ver tu página de logros.",
 
   // Mensajes de error de API
   "errors.auth.unauthorized": "Debes iniciar sesión para acceder a esta función",
@@ -609,4 +611,12 @@ export default {
   "game.time.before.end": "Extender antes del fin del juego",
 
   "achievements.filter.reset": "Restablecer",
+
+  // Mensajes del sistema de layout
+  "layout.error.system": "Se produjo un error del sistema. Por favor, actualice la página.",
+  "layout.error.tracking": "Error rastreado:",
+  "layout.error.tracking.failed": "Seguimiento de errores fallido:",
+  "layout.accessibility.motion.reduced": "Modo de movimiento reducido habilitado para accesibilidad",
+  "layout.accessibility.theme.dark": "Tema oscuro activado para contraste óptimo y accesibilidad",
+  "layout.analytics.init.failed": "Falló la inicialización de analíticas:",
 };

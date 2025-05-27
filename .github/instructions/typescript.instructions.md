@@ -9,12 +9,15 @@ These instructions apply to all TypeScript and JavaScript files in the MelodyMin
 ## General Guidelines
 
 - Use TypeScript for all new files
+- **ALWAYS check for existing utility functions before creating new ones** - Avoid code duplication
+- **ALWAYS reuse existing types and interfaces** from `/src/types/` directory
 - Leverage ES6+ features and idiomatic patterns
 - Add comprehensive JSDoc comments to all functions and components
 - Use descriptive and meaningful variable and function names
 - Implement proper error handling with contextual information
 - Follow consistent code formatting with Prettier
 - Use strict TypeScript compiler options
+- **Check existing utility files**: `/src/utils/game/`, `/src/utils/i18n.ts`, `/src/utils/seo.ts` before creating similar functionality
 
 **Example:**
 

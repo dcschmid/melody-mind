@@ -522,6 +522,8 @@ export default {
   "achievements.badge.new": "New achievement unlocked",
   "achievements.badge.new_with_count": "{count} new achievements unlocked",
   "achievements.badge.fallback_text": "Achievement notification",
+  "achievements.badge.context_description": "Achievement notification badge. Shows count of new unlocked achievements in the navigation area.",
+  "achievements.badge.keyboard_instructions": "Press Enter or Space to view your achievements page.",
 
   // API Error Messages
   "errors.auth.unauthorized": "You must be logged in to access this feature",
@@ -594,4 +596,12 @@ export default {
   "game.time.extend.again": "Extend again",
   "game.time.extended": "Time extended by 5 seconds",
   "game.time.before.end": "Extend before game end",
+
+  // Layout system messages
+  "layout.error.system": "System error occurred. Please refresh the page.",
+  "layout.error.tracking": "Error tracked:",
+  "layout.error.tracking.failed": "Error tracking failed:",
+  "layout.accessibility.motion.reduced": "Reduced motion mode enabled for accessibility",
+  "layout.accessibility.theme.dark": "Dark theme activated for optimal contrast and accessibility",
+  "layout.analytics.init.failed": "Analytics initialization failed:",
 };

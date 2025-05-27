@@ -527,6 +527,8 @@ export default {
   "achievements.badge.new": "Nova conquista desbloqueada",
   "achievements.badge.new_with_count": "{count} novas conquistas desbloqueadas",
   "achievements.badge.fallback_text": "Notificação de conquista",
+  "achievements.badge.context_description": "Badge de notificação de conquista. Mostra o número de novas conquistas desbloqueadas na área de navegação.",
+  "achievements.badge.keyboard_instructions": "Pressione Enter ou Espaço para ver sua página de conquistas.",
 
   // Mensagens de erro da API
   "errors.auth.unauthorized": "Você precisa estar logado para acessar este recurso",
@@ -601,4 +603,12 @@ export default {
   "game.time.extend.again": "Estender novamente",
   "game.time.extended": "Tempo estendido por 5 segundos",
   "game.time.before.end": "Estender antes do fim do jogo",
+
+  // Mensagens do sistema de layout
+  "layout.error.system": "Ocorreu um erro do sistema. Por favor, atualize a página.",
+  "layout.error.tracking": "Erro rastreado:",
+  "layout.error.tracking.failed": "Rastreamento de erro falhou:",
+  "layout.accessibility.motion.reduced": "Modo de movimento reduzido habilitado para acessibilidade",
+  "layout.accessibility.theme.dark": "Tema escuro ativado para contraste ideal e acessibilidade",
+  "layout.analytics.init.failed": "Falha na inicialização de analytics:",
 };
