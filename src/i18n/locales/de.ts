@@ -511,6 +511,8 @@ export default {
   "achievements.unlocked_at": "Freigeschaltet am {date}",
   "achievements.points": "Punkte: {points}",
   "achievements.rarity": "Seltenheit: {percentage}%",
+  "achievements.rarity.tooltip":
+    "Zeigt an, wie selten dieses Achievement ist - niedrigere Prozentwerte bedeuten, dass es seltener ist",
   "achievements.notification.unlocked": "Achievement freigeschaltet!",
   "achievements.notification.progress": "Achievement-Fortschritt aktualisiert!",
   "achievements.notification.close": "Achievement-Benachrichtigung schließen",
@@ -537,8 +539,10 @@ export default {
   "achievements.badge.new": "Neue Errungenschaft freigeschaltet",
   "achievements.badge.new_with_count": "{count} neue Errungenschaften freigeschaltet",
   "achievements.badge.fallback_text": "Achievement-Benachrichtigung",
-  "achievements.badge.context_description": "Achievement-Benachrichtigungsabzeichen. Zeigt die Anzahl neuer freigeschalteter Errungenschaften im Navigationsbereich an.",
-  "achievements.badge.keyboard_instructions": "Drücken Sie Enter oder Leertaste, um Ihre Errungenschaften-Seite zu besuchen.",
+  "achievements.badge.context_description":
+    "Achievement-Benachrichtigungsabzeichen. Zeigt die Anzahl neuer freigeschalteter Errungenschaften im Navigationsbereich an.",
+  "achievements.badge.keyboard_instructions":
+    "Drücken Sie Enter oder Leertaste, um Ihre Errungenschaften-Seite zu besuchen.",
 
   // API-Fehlermeldungen
   "errors.auth.unauthorized": "Du musst angemeldet sein, um auf diese Funktion zuzugreifen",
@@ -622,6 +626,7 @@ export default {
   "layout.error.tracking": "Fehler verfolgt:",
   "layout.error.tracking.failed": "Fehlerverfolgung fehlgeschlagen:",
   "layout.accessibility.motion.reduced": "Reduzierte Bewegungen für Barrierefreiheit aktiviert",
-  "layout.accessibility.theme.dark": "Dunkles Theme für optimalen Kontrast und Barrierefreiheit aktiviert",
+  "layout.accessibility.theme.dark":
+    "Dunkles Theme für optimalen Kontrast und Barrierefreiheit aktiviert",
   "layout.analytics.init.failed": "Analytics-Initialisierung fehlgeschlagen:",
 };

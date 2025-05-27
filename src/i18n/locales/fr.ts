@@ -504,6 +504,7 @@ export default {
   "achievements.unlocked_at": "Déverrouillé le {date}",
   "achievements.points": "Points : {points}",
   "achievements.rarity": "Rareté : {percentage}%",
+  "achievements.rarity.tooltip": "Indique la rareté de ce succès - des pourcentages plus faibles signifient qu'il est plus rare",
   "achievements.notification.unlocked": "Succès déverrouillé !",
   "achievements.notification.progress": "Progression du succès mise à jour !",
   "achievements.notification.close": "Fermer la notification de succès",

@@ -496,6 +496,8 @@ export default {
   "achievements.unlocked_at": "Unlocked on {date}",
   "achievements.points": "Points: {points}",
   "achievements.rarity": "Rarity: {percentage}%",
+  "achievements.rarity.tooltip":
+    "Shows how rare this achievement is - lower percentages mean it's rarer",
   "achievements.notification.unlocked": "Achievement unlocked!",
   "achievements.notification.progress": "Achievement progress updated!",
   "achievements.notification.close": "Close achievement notification",
@@ -522,8 +524,10 @@ export default {
   "achievements.badge.new": "New achievement unlocked",
   "achievements.badge.new_with_count": "{count} new achievements unlocked",
   "achievements.badge.fallback_text": "Achievement notification",
-  "achievements.badge.context_description": "Achievement notification badge. Shows count of new unlocked achievements in the navigation area.",
-  "achievements.badge.keyboard_instructions": "Press Enter or Space to view your achievements page.",
+  "achievements.badge.context_description":
+    "Achievement notification badge. Shows count of new unlocked achievements in the navigation area.",
+  "achievements.badge.keyboard_instructions":
+    "Press Enter or Space to view your achievements page.",
 
   // API Error Messages
   "errors.auth.unauthorized": "You must be logged in to access this feature",

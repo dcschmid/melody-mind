@@ -487,6 +487,7 @@ export default {
   "achievements.unlocked_at": "Avattu {date}",
   "achievements.points": "Pisteet: {points}",
   "achievements.rarity": "Harvinaisuus: {percentage}%",
+  "achievements.rarity.tooltip": "Näyttää kuinka harvinainen tämä saavutus on - matalammat prosentit tarkoittavat, että se on harvinaisempi",
   "achievements.notification.unlocked": "Saavutus avattu!",
   "achievements.notification.progress": "Saavutuksen edistyminen päivitetty!",
   "achievements.filter.title": "Suodata Saavutuksia",

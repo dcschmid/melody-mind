@@ -484,6 +484,7 @@ export default {
   "achievements.unlocked_at": "Låst op den {date}",
   "achievements.points": "Point: {points}",
   "achievements.rarity": "Sjældenhed: {percentage}%",
+  "achievements.rarity.tooltip": "Viser hvor sjælden denne præstation er - lavere procenter betyder, at den er sjældnere",
   "achievements.notification.unlocked": "Præstation låst op!",
   "achievements.notification.progress": "Præstationsfremskridt opdateret!",
   "achievements.notification.close": "Luk præstationsmeddelelse",

@@ -472,6 +472,7 @@ export default {
   "achievements.unlocked_at": "Upplåst den {date}",
   "achievements.points": "Poäng: {points}",
   "achievements.rarity": "Sällsynthet: {percentage}%",
+  "achievements.rarity.tooltip": "Visar hur sällsynt denna prestation är - lägre procentsatser betyder att den är mer sällsynt",
   "achievements.notification.unlocked": "Prestation upplåst!",
   "achievements.notification.progress": "Prestationsframsteg uppdaterat!",
   "achievements.notification.close": "Stäng prestationsavisering",
