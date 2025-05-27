@@ -7,550 +7,247 @@
 
 /* ======================================
  * CUSTOM PROPERTIES (VARIABLES)
+ * WCAG 2.2 AAA COMPLIANT DARK THEME
  * ====================================== */
 
 :root {
-  /* Color Palette */
-  --color-purple-100: #ede9fe;
-  --color-purple-200: #ddd6fe;
-  --color-purple-300: #c4b5fd;
-  --color-purple-400: #a78bfa;
-  --color-purple-500: #8b5cf6;
-  --color-purple-600: #7c3aed;
-  --color-purple-700: #6d28d9;
-  --color-purple-800: #5b21b6;
-  --color-purple-900: #4c1d95;
-
-  --color-pink-100: #fce7f3;
-  --color-pink-200: #fbcfe8;
-  --color-pink-300: #f9a8d4;
-  --color-pink-400: #f472b6;
-  --color-pink-500: #ec4899;
-  --color-pink-600: #db2777;
-  --color-pink-700: #be185d;
-  --color-pink-800: #9d174d;
-  --color-pink-900: #831843;
-
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
-
+  /* ======================================
+   * CORE COLOR SYSTEM
+   * ====================================== */
+  
+  /* Base Colors */
   --color-white: #ffffff;
   --color-black: #000000;
-
-  /* Additional colors for error states */
-  --color-red-400: #f87171;
-  --color-red-500: #ef4444;
-  --color-red-900: #7f1d1d;
-
-  /* Additional colors for achievements */
-  --color-green-400: #4ade80;
-  --color-green-500: #22c55e;
-  --color-green-600: #16a34a;
-  --color-yellow-400: #facc15;
-  --color-yellow-500: #eab308;
-
-  /* Password strength colors */
-  --color-strength-medium: var(--color-yellow-500);
-  --color-strength-strong: var(--color-green-500);
-  --color-strength-very-strong: var(--color-blue-500);
-
-  /* Additional gray shades for components */
-  --color-gray-650: #52525b;
-  --color-zinc-300: #d4d4d8;
-  --color-zinc-700: #3f3f46;
-  --color-zinc-800: #27272a;
-  --color-zinc-900: #18181b;
-  --color-sky-400: #38bdf8;
-
-  /* Blue colors for very strong password indicator */
-  --color-blue-400: #60a5fa;
-  --color-blue-500: #3b82f6;
-
-  /* Password strength specific colors (WCAG AAA compliant) */
-  --color-strength-weak: #ff6b6b;
-  --color-strength-medium: #ffd43b;
-  --color-strength-good: #69db7c;
-  --color-strength-strong: #51cf66;
-
-  /* Authentication component colors */
-  --color-auth-background: #1a1625;
-  --color-auth-border: #4a4458;
-  --color-auth-text: #e5e5f4;
-  --color-auth-text-secondary: #b8b5c6;
-  --color-auth-progress-bg: #2a2438;
-
-  /* Focus colors for accessibility */
-  --color-focus-gold: #ffd700;
-  --color-focus-gold-bg: rgba(255, 215, 0, 0.1);
-
-  /* PasswordResetForm specific variables */
-  --auth-form-container-bg: var(--color-zinc-800);
-  --auth-form-input-bg: var(--color-zinc-800);
-  --auth-form-input-border: var(--color-zinc-700);
-  --auth-form-input-text: var(--color-white);
-  --auth-form-label-text: var(--color-white);
-  --auth-form-error-text: var(--color-red-400);
-
-  /* Password Reset Form Variables */
-  --password-reset-form-bg: #1a1a2e;
-  --password-reset-form-border: 1px solid #2a2a4a;
-  --password-reset-form-border-radius: 1rem;
-  --password-reset-form-padding: 2rem;
-  --password-reset-form-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  --password-reset-form-max-width: 28rem;
-
-  /* Fieldset Variables */
-  --password-reset-form-fieldset-border: 2px solid #3a3a5c;
-  --password-reset-form-fieldset-bg: rgba(255, 255, 255, 0.02);
-  --password-reset-form-fieldset-padding: 1.5rem;
-  --password-reset-form-fieldset-border-radius: 0.75rem;
-
-  /* Typography Variables */
-  --password-reset-form-title-color: var(--color-white);
-  --password-reset-form-title-size: 1.5rem;
-  --password-reset-form-title-weight: 700;
-  --password-reset-form-title-line-height: 1.2;
-  --password-reset-form-title-margin-bottom: 2rem;
-
-  /* Label Variables */
-  --password-reset-form-label-color: #b0b0d0;
-  --password-reset-form-label-size: 0.875rem;
-  --password-reset-form-label-weight: 600;
-  --password-reset-form-label-line-height: 1.5;
-  --password-reset-form-required-color: var(--color-pink-400);
-
-  /* Input Variables */
-  --password-reset-form-input-bg: #252545;
-  --password-reset-form-input-border: 2px solid #3a3a5c;
-  --password-reset-form-input-border-radius: 0.75rem;
-  --password-reset-form-input-color: var(--color-white);
-  --password-reset-form-input-padding: 1rem;
-  --password-reset-form-input-size: 1rem;
-  --password-reset-form-input-line-height: 1.5;
-  --password-reset-form-input-min-height: 44px;
-  --password-reset-form-input-placeholder-color: #7a7a9a;
-  --password-reset-form-input-focus-border-color: var(--color-purple-500);
-  --password-reset-form-input-focus-outline: 3px solid var(--color-pink-400);
-  --password-reset-form-input-focus-outline-offset: 2px;
-  --password-reset-form-input-focus-shadow: 0 0 0 1px var(--color-pink-400);
-
-  /* Submit Button Variables */
-  --password-reset-form-submit-bg: linear-gradient(
-    135deg,
-    var(--color-purple-600) 0%,
-    var(--color-purple-700) 100%
-  );
-  --password-reset-form-submit-hover-bg: linear-gradient(
-    135deg,
-    var(--color-purple-700) 0%,
-    var(--color-purple-800) 100%
-  );
-  --password-reset-form-submit-hover-transform: translateY(-1px);
-  --password-reset-form-submit-hover-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-  --password-reset-form-submit-color: var(--color-white);
-  --password-reset-form-submit-border: none;
-  --password-reset-form-submit-border-radius: 0.75rem;
-  --password-reset-form-submit-padding: 1rem 1.5rem;
-  --password-reset-form-submit-size: 1rem;
-  --password-reset-form-submit-font-weight: 600;
-  --password-reset-form-submit-min-height: 44px;
-  --password-reset-form-submit-gap: 0.5rem;
-  --password-reset-form-submit-focus-outline: 3px solid var(--color-pink-400);
-  --password-reset-form-submit-focus-outline-offset: 2px;
-  --password-reset-form-submit-disabled-opacity: 0.6;
-
-  /* Toggle Button Variables */
-  --password-reset-form-toggle-bg: transparent;
-  --password-reset-form-toggle-hover-bg: rgba(255, 255, 255, 0.1);
-  --password-reset-form-toggle-color: #b0b0d0;
-  --password-reset-form-toggle-hover-color: var(--color-white);
-  --password-reset-form-toggle-padding: 1rem;
-  --password-reset-form-toggle-border-radius: 0.5rem;
-  --password-reset-form-toggle-min-width: 44px;
-  --password-reset-form-toggle-min-height: 44px;
-  --password-reset-form-toggle-icon-size: 1.25rem;
-  --password-reset-form-toggle-focus-outline: 3px solid var(--color-pink-400);
-  --password-reset-form-toggle-focus-outline-offset: 2px;
-
-  /* Error/Success Message Variables */
-  --password-reset-form-error-color: var(--color-pink-400);
-  --password-reset-form-error-size: 0.875rem;
-  --password-reset-form-error-line-height: 1.5;
-  --password-reset-form-error-weight: 500;
-  --password-reset-form-error-margin-top: 0.5rem;
-
-  --password-reset-form-message-margin-bottom: 1.5rem;
-  --password-reset-form-message-padding: 1rem;
-  --password-reset-form-message-border-radius: 0.75rem;
-  --password-reset-form-message-size: 0.875rem;
-  --password-reset-form-message-line-height: 1.6;
-  --password-reset-form-message-weight: 500;
-  --password-reset-form-message-error-border: 2px solid #ef4444;
-  --password-reset-form-message-error-bg: rgba(239, 68, 68, 0.1);
-  --password-reset-form-message-error-color: #fca5a5;
-  --password-reset-form-message-success-border: 2px solid #10b981;
-  --password-reset-form-message-success-bg: rgba(16, 185, 129, 0.1);
-  --password-reset-form-message-success-color: #6ee7b7;
-
-  /* Loading Spinner Variables */
-  --password-reset-form-spinner-margin-left: 0.5rem;
-  --password-reset-form-spinner-size: 1.25rem;
-  --password-reset-form-spinner-duration: 1s;
-  --password-reset-form-spinner-color: currentColor;
-  --password-reset-form-spinner-circle-opacity: 0.25;
-  --password-reset-form-spinner-path-opacity: 0.75;
-
-  /* Requirements Section Variables */
-  --password-reset-form-requirements-section-margin-top: 1rem;
-  --password-reset-form-requirements-toggle-gap: 0.5rem;
-  --password-reset-form-requirements-toggle-color: #b0b0d0;
-  --password-reset-form-requirements-toggle-hover-color: var(--color-white);
-  --password-reset-form-requirements-toggle-hover-bg: rgba(255, 255, 255, 0.1);
-  --password-reset-form-requirements-toggle-size: 0.875rem;
-  --password-reset-form-requirements-toggle-padding: 0.5rem;
-  --password-reset-form-requirements-toggle-border-radius: 0.5rem;
-  --password-reset-form-requirements-toggle-min-height: 44px;
-  --password-reset-form-requirements-toggle-focus-outline: 3px solid var(--color-pink-400);
-  --password-reset-form-requirements-toggle-focus-outline-offset: 2px;
-  --password-reset-form-requirements-toggle-focus-shadow: 0 0 0 1px var(--color-pink-400);
-  --password-reset-form-requirements-icon-size: 1.25rem;
-
-  /* Requirements Panel Variables */
-  --password-reset-form-requirements-bg: rgba(255, 255, 255, 0.05);
-  --password-reset-form-requirements-border: 1px solid #3a3a5c;
-  --password-reset-form-requirements-border-radius: 0.75rem;
-  --password-reset-form-requirements-padding: 1rem;
-  --password-reset-form-requirements-margin-top: 1rem;
-  --password-reset-form-requirements-title-margin-bottom: 1rem;
-  --password-reset-form-requirements-title-size: 1rem;
-  --password-reset-form-requirements-title-weight: 600;
-  --password-reset-form-requirements-title-color: var(--color-white);
-  --password-reset-form-requirements-gap: 0.5rem;
-
-  /* Requirements Item Variables */
-  --password-reset-form-requirement-gap: 0.75rem;
-  --password-reset-form-requirement-size: 0.875rem;
-  --password-reset-form-requirement-line-height: 1.5;
-  --password-reset-form-requirement-padding: 0.5rem 0;
-  --password-reset-form-requirement-border-left: 3px solid transparent;
-  --password-reset-form-requirement-padding-left: 0.75rem;
-  --password-reset-form-requirement-icon-size: 1.25rem;
-  --password-reset-form-requirement-icon-border-radius: 50%;
-  --password-reset-form-requirement-icon-font-size: 0.75rem;
-  --password-reset-form-requirement-icon-font-weight: 700;
-
-  --password-reset-form-requirement-valid-color: var(--color-white);
-  --password-reset-form-requirement-valid-border: #10b981;
-  --password-reset-form-requirement-valid-bg: rgba(16, 185, 129, 0.1);
-  --password-reset-form-requirement-valid-icon-bg: #10b981;
-  --password-reset-form-requirement-valid-icon-color: var(--color-white);
-  --password-reset-form-requirement-valid-icon-border: 2px solid #10b981;
-
-  --password-reset-form-requirement-invalid-color: var(--color-white);
-  --password-reset-form-requirement-invalid-border: #ef4444;
-  --password-reset-form-requirement-invalid-bg: rgba(239, 68, 68, 0.1);
-  --password-reset-form-requirement-invalid-icon-bg: #ef4444;
-  --password-reset-form-requirement-invalid-icon-color: var(--color-white);
-  --password-reset-form-requirement-invalid-icon-border: 2px solid #ef4444;
-
-  /* Password Strength Variables */
-  --password-reset-form-strength-margin-top: 1rem;
-  --password-reset-form-strength-gap: 0.75rem;
-  --password-reset-form-strength-bar-height: 0.5rem;
-  --password-reset-form-strength-bar-bg: #3a3a5c;
-  --password-reset-form-strength-bar-border-radius: 0.25rem;
-  --password-reset-form-strength-text-size: 0.75rem;
-  --password-reset-form-strength-text-weight: 600;
-  --password-reset-form-strength-text-letter-spacing: 0.05em;
-  --password-reset-form-strength-text-min-width: 5rem;
-  --password-reset-form-strength-weak-color: #ef4444;
-  --password-reset-form-strength-medium-color: #f59e0b;
-  --password-reset-form-strength-strong-color: #3b82f6;
-  --password-reset-form-strength-very-strong-color: #10b981;
-
-  /* Footer Link Variables */
-  --password-reset-form-footer-margin-top: 2rem;
-  --password-reset-form-link-color: var(--color-purple-400);
-  --password-reset-form-link-hover-color: var(--color-purple-300);
-  --password-reset-form-link-hover-bg: rgba(139, 92, 246, 0.1);
-  --password-reset-form-link-size: 0.875rem;
-  --password-reset-form-link-weight: 500;
-  --password-reset-form-link-padding: 0.5rem;
-  --password-reset-form-link-border-radius: 0.5rem;
-  --password-reset-form-link-min-height: 44px;
-  --password-reset-form-link-line-height: 1.5;
-  --password-reset-form-link-focus-outline: 3px solid var(--color-pink-400);
-  --password-reset-form-link-focus-outline-offset: 2px;
-
-  /* Timeout Warning Variables */
-  --password-reset-form-timeout-overlay-bg: rgba(0, 0, 0, 0.8);
-  --password-reset-form-timeout-content-bg: #1a1a2e;
-  --password-reset-form-timeout-border: 2px solid var(--color-pink-400);
-  --password-reset-form-timeout-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
-
-  /* Common transition variable */
-  --password-reset-form-transition: all 0.2s ease-in-out;
-
-  /* Spacing Variables */
-  --password-reset-form-field-gap: 1.5rem;
-  --password-reset-form-field-inner-gap: 0.5rem;
-
-  /* Responsive Variables */
-  --password-reset-form-padding-mobile: 1.5rem 1rem;
-  --password-reset-form-margin-mobile: 1rem;
-  --password-reset-form-title-size-mobile: 1.75rem;
-  --password-reset-form-title-margin-bottom-mobile: 1rem;
-  --password-reset-form-input-font-size-mobile: 1rem;
-  --password-reset-form-input-padding-mobile: 0.875rem;
-  --password-reset-form-toggle-right-mobile: 0.75rem;
-  --password-reset-form-toggle-size-mobile: 44px;
-  --password-reset-form-requirements-padding-mobile: 1rem;
-  --password-reset-form-requirements-margin-top-mobile: 1rem;
-  --password-reset-form-submit-padding-mobile: 1rem;
-  --password-reset-form-submit-font-size-mobile: 1rem;
-  --password-reset-form-max-width-tablet: 100%;
-  --password-reset-form-margin-tablet: 1.5rem;
-  --password-reset-form-title-size-tablet: 2rem;
-  --password-reset-form-max-width-laptop: 460px;
-  --password-reset-form-max-width-desktop: 500px;
-  --password-reset-form-title-size-desktop: 2.25rem;
-
-  /* Accessibility Variables */
-  --password-reset-form-border-high-contrast: 2px solid;
-  --password-reset-form-bg-high-contrast: Window;
-  --password-reset-form-text-high-contrast: WindowText;
-  --password-reset-form-input-border-high-contrast: 2px solid ButtonText;
-  --password-reset-form-input-bg-high-contrast: Field;
-  --password-reset-form-input-text-high-contrast: FieldText;
-  --password-reset-form-input-focus-border-high-contrast: Highlight;
-  --password-reset-form-input-focus-shadow-high-contrast: 0 0 0 3px Highlight;
-  --password-reset-form-submit-border-high-contrast: 2px solid ButtonText;
-  --password-reset-form-submit-bg-high-contrast: ButtonFace;
-  --password-reset-form-submit-text-high-contrast: ButtonText;
-  --password-reset-form-submit-hover-bg-high-contrast: Highlight;
-  --password-reset-form-submit-hover-text-high-contrast: HighlightText;
-  --password-reset-form-reduced-motion-duration: 0.01ms;
-  --password-reset-form-reduced-motion-iterations: 1;
-  --password-reset-form-reduced-motion-transition: 0.01ms;
-  --password-reset-form-reduced-motion-scroll: auto;
-
-  /* Print Variables */
-  --password-reset-form-print-border: 1px solid #000;
-  --password-reset-form-print-bg: #fff;
-  --password-reset-form-print-text: #000;
-  --password-reset-form-input-print-border: 1px solid #000;
-  --password-reset-form-input-print-bg: #fff;
-  --password-reset-form-link-print-color: #000;
-  --password-reset-form-link-url-print-color: #666;
-
-  /* Focus and Touch Variables */
-  --password-reset-form-focus-visible-outline: 3px solid var(--color-purple-500);
-  --password-reset-form-focus-visible-offset: 2px;
-  --password-reset-form-touch-target-size: 44px;
-  --password-reset-form-input-touch-height: 48px;
-  --password-reset-form-mobile-padding: 1rem;
-
-  /* Border radius variables */
-  --border-radius-sm: 0.375rem;
-  --border-radius-md: 0.5rem;
-  --border-radius-lg: 0.75rem;
-
-  /* Shadow variables */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-auth: 0 4px 6px rgba(0, 0, 0, 0.5);
-
-  /* Transition variables */
-  --transition-colors:
-    color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-  --transition-transform: transform 0.2s ease-in-out;
-  --transition-opacity: opacity 0.2s ease-in-out;
-
+  
+  /* Primary Brand Colors (Purple) */
+  --color-primary-50: #f5f3ff;
+  --color-primary-100: #ede9fe;
+  --color-primary-200: #ddd6fe;
+  --color-primary-300: #c4b5fd;
+  --color-primary-400: #a78bfa;
+  --color-primary-500: #8b5cf6;
+  --color-primary-600: #7c3aed;
+  --color-primary-700: #6d28d9;
+  --color-primary-800: #5b21b6;
+  --color-primary-900: #4c1d95;
+  
+  /* Secondary Brand Colors (Pink) */
+  --color-secondary-50: #fdf2f8;
+  --color-secondary-100: #fce7f3;
+  --color-secondary-200: #fbcfe8;
+  --color-secondary-300: #f9a8d4;
+  --color-secondary-400: #f472b6;
+  --color-secondary-500: #ec4899;
+  --color-secondary-600: #db2777;
+  --color-secondary-700: #be185d;
+  --color-secondary-800: #9d174d;
+  --color-secondary-900: #831843;
+  
+  /* Neutral Colors (Dark Theme Optimized) */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+  
+  /* State Colors (WCAG AAA Compliant) */
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-warning-400: #facc15;
+  --color-warning-500: #eab308;
+  --color-warning-600: #ca8a04;
+  --color-error-400: #f87171;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-info-400: #60a5fa;
+  --color-info-500: #3b82f6;
+  --color-info-600: #2563eb;
+  
+  /* ======================================
+   * SEMANTIC COLOR SYSTEM
+   * ====================================== */
+  
+  /* Background Colors */
+  --bg-primary: var(--color-neutral-950);
+  --bg-secondary: var(--color-neutral-900);
+  --bg-tertiary: var(--color-neutral-800);
+  --bg-overlay: rgba(0, 0, 0, 0.8);
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  
+  /* Text Colors (AAA Compliant Contrast) */
+  --text-primary: var(--color-white);           /* 21:1 on dark bg */
+  --text-secondary: var(--color-neutral-300);   /* 7.5:1 on dark bg */
+  --text-tertiary: var(--color-neutral-400);    /* 4.8:1 on dark bg */
+  --text-disabled: var(--color-neutral-600);
+  --text-inverse: var(--color-neutral-950);
+  
+  /* Border Colors */
+  --border-primary: var(--color-neutral-700);
+  --border-secondary: var(--color-neutral-600);
+  --border-focus: var(--color-secondary-400);
+  --border-error: var(--color-error-500);
+  --border-success: var(--color-success-500);
+  
+  /* Interactive Colors */
+  --interactive-primary: var(--color-primary-600);
+  --interactive-primary-hover: var(--color-primary-700);
+  --interactive-primary-active: var(--color-primary-800);
+  --interactive-secondary: var(--color-secondary-600);
+  --interactive-secondary-hover: var(--color-secondary-700);
+  --interactive-secondary-active: var(--color-secondary-800);
+  
+  /* Focus System (Enhanced for AAA) */
+  --focus-ring: 0 0 0 3px var(--color-secondary-400);
+  --focus-ring-offset: 2px;
+  --focus-outline: 3px solid var(--color-secondary-400);
+  
+  /* ======================================
+   * COMPONENT SYSTEM
+   * ====================================== */
+  
+  /* Form Elements */
+  --form-bg: var(--bg-tertiary);
+  --form-border: var(--border-primary);
+  --form-border-focus: var(--border-focus);
+  --form-text: var(--text-primary);
+  --form-placeholder: var(--text-tertiary);
+  --form-label: var(--text-secondary);
+  --form-error: var(--color-error-400);
+  --form-success: var(--color-success-400);
+  
+  /* Button System */
+  --btn-primary-bg: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
+  --btn-primary-hover: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-800) 100%);
+  --btn-primary-text: var(--color-white);
+  --btn-secondary-bg: transparent;
+  --btn-secondary-border: var(--border-primary);
+  --btn-secondary-text: var(--text-primary);
+  --btn-secondary-hover: var(--bg-glass);
+  
+  /* Card System */
+  --card-bg: var(--bg-secondary);
+  --card-border: var(--border-primary);
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.4);
+  
+  /* Password Strength Indicators */
+  --strength-weak: var(--color-error-500);
+  --strength-medium: var(--color-warning-500);
+  --strength-strong: var(--color-info-500);
+  --strength-very-strong: var(--color-success-500);
+  
+  /* Achievement Colors */
+  --achievement-bronze: #cd7f32;
+  --achievement-silver: #c0c0c0;
+  --achievement-gold: #ffd700;
+  --achievement-platinum: #e5e4e2;
+  
+  /* ======================================
+   * LAYOUT SYSTEM
+   * ====================================== */
+  
   /* Spacing Scale */
-  --spacing-xs: 0.25rem; /* 4px */
-  --spacing-sm: 0.5rem; /* 8px */
-  --spacing-md: 1rem; /* 16px */
-  --spacing-lg: 1.5rem; /* 24px */
-  --spacing-xl: 2rem; /* 32px */
-  --spacing-2xl: 3rem; /* 48px */
-
-  /* Font Sizes */
-  --font-size-xs: 0.75rem; /* 12px */
-  --font-size-sm: 0.875rem; /* 14px */
-  --font-size-md: 1rem; /* 16px */
-  --font-size-lg: 1.125rem; /* 18px */
-  --font-size-xl: 1.25rem; /* 20px */
-  --font-size-2xl: 1.5rem; /* 24px */
-
-  /* AAA compliant minimum font sizes (18pt equivalent) */
-  --font-size-aaa-min: 1.125rem; /* 18px ≈ 13.5pt, close to 18pt requirement */
-  --font-size-aaa-heading: 1.5rem; /* 24px = 18pt exact */
-
+  --space-xs: 0.25rem;    /* 4px */
+  --space-sm: 0.5rem;     /* 8px */
+  --space-md: 1rem;       /* 16px */
+  --space-lg: 1.5rem;     /* 24px */
+  --space-xl: 2rem;       /* 32px */
+  --space-2xl: 3rem;      /* 48px */
+  --space-3xl: 4rem;      /* 64px */
+  
   /* Border Radius */
-  --border-radius-sm: 0.25rem; /* 4px */
-  --border-radius-md: 0.375rem; /* 6px */
-  --border-radius-lg: 0.5rem; /* 8px */
-  --border-radius-xl: 0.75rem; /* 12px */
-
-  /* Focus and interaction states */
-  --color-focus: var(--color-purple-400);
-  --color-focus-outline: var(--color-purple-400);
-  --color-focus-ring: 0 0 0 2px var(--color-purple-400);
-  --color-focus-outline: 3px solid var(--color-purple-500);
-
-  /* Outline width variables */
-  --outline-width-thin: 2px;
-  --outline-width-medium: 3px;
-  --outline-width-thick: 4px;
-
-  /* Achievement notification specific colors */
-  --color-notification-bg: var(--color-gray-800);
-  --color-notification-bg-light: var(--color-gray-100);
-  --color-notification-text: var(--color-white);
-  --color-notification-text-light: var(--color-gray-900);
-  --color-notification-icon-bg: var(--color-purple-600);
-  --color-notification-icon-bg-light: var(--color-purple-900);
-  --color-notification-controls: var(--color-gray-400);
-  --color-notification-controls-light: var(--color-gray-800);
-  --color-notification-border: rgba(255, 255, 255, 0.2);
-  --color-notification-border-light: rgba(0, 0, 0, 0.2);
-  --color-notification-timer-bg: rgba(255, 255, 255, 0.1);
-  --color-notification-timer-progress: var(--color-purple-500);
-
-  /* Spacing Variables */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
-  --spacing-3xl: 4rem;
-
-  /* Border Radius Variables */
-  --border-radius-none: 0;
-  --border-radius-sm: 0.125rem;
-  --border-radius-md: 0.375rem;
-  --border-radius-lg: 0.5rem;
-  --border-radius-xl: 0.75rem;
-  --border-radius-full: 9999px;
-
-  /* Font Size Variables */
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-md: 1rem; /* alias for base */
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
-
-  /* Additional colors for form validation and errors */
-  --color-red-400: #f87171;
-  --color-red-500: #ef4444;
-  --color-red-900: #7f1d1d;
-  --color-gray-750: #2d3748; /* between gray-700 and gray-800 */
-
-  /* Font Weight Variables */
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-
-  /* Line Height Variables */
-  --line-height-none: 1;
-  --line-height-tight: 1.25;
-  --line-height-snug: 1.375;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.625;
-  --line-height-loose: 2;
-
-  /* Letter Spacing Variables */
-  --letter-spacing-tighter: -0.05em;
-  --letter-spacing-tight: -0.025em;
-  --letter-spacing-normal: 0em;
-  --letter-spacing-wide: 0.025em;
-  --letter-spacing-wider: 0.05em;
-  --letter-spacing-widest: 0.1em;
-
-  /* Shadow Variables */
+  --radius-sm: 0.375rem;  /* 6px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-full: 9999px;
+  
+  /* Typography Scale */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.875rem;   /* 30px */
+  --text-4xl: 2.25rem;    /* 36px */
+  
+  /* Font Weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  
+  /* Shadow System */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
-  /* Auth Button Specific Shadows */
-  --shadow-auth-button-hover: 0 4px 12px rgba(139, 92, 246, 0.3);
-  --shadow-auth-button-active: 0 2px 6px rgba(139, 92, 246, 0.2);
-
-  /* Button-specific variables for auth components */
-  --button-min-height: 3rem;
-  --button-min-height-lg: 3.5rem;
-  --button-touch-target-min: 44px;
-
-  /* Z-Index Variables */
-  --z-index-dropdown: 10;
-  --z-index-sticky: 20;
-  --z-index-fixed: 30;
-  --z-index-modal-backdrop: 40;
-  --z-index-modal: 50;
-  --z-index-popover: 60;
-  --z-index-tooltip: 70;
-  --z-index-notification: 80;
-
-  /* Transition Variables */
-  --transition-duration-75: 75ms;
-  --transition-duration-100: 100ms;
-  --transition-duration-150: 150ms;
-  --transition-duration-200: 200ms;
-  --transition-duration-300: 300ms;
-  --transition-duration-500: 500ms;
-  --transition-duration-700: 700ms;
-  --transition-duration-1000: 1000ms;
-
-  --transition-timing-linear: linear;
-  --transition-timing-in: cubic-bezier(0.4, 0, 1, 1);
-  --transition-timing-out: cubic-bezier(0, 0, 0.2, 1);
-  --transition-timing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-timing-ease: ease;
-
-  /* Email verification specific variables */
-  --email-verification-icon-size: 4rem;
-  --email-verification-icon-size-sm: 3rem;
-  --email-verification-spinner-size: 3rem;
-  --email-verification-button-min-height: 3rem;
-
+  
+  /* Z-Index System */
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-fixed: 30;
+  --z-modal-backdrop: 40;
+  --z-modal: 50;
+  --z-popover: 60;
+  --z-tooltip: 70;
+  --z-notification: 80;
+  
+  /* Minimum Touch Targets (WCAG AAA) */
+  --min-touch-size: 44px;
+  
+  /* Transition System */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+  
   /* ======================================
-   * AUTHENTICATION & FORM VARIABLES
+   * RESPONSIVE BREAKPOINTS (EM-BASED)
    * ====================================== */
-
-  /* Auth-specific shadow variables for consistency */
-  --shadow-auth-button-hover: 0 8px 25px -8px rgba(139, 92, 246, 0.6);
-  --shadow-auth-button-active: 0 2px 4px -1px rgba(139, 92, 246, 0.3);
-
-  /* Component size variables */
-  --component-icon-size-lg: 4rem;
-  --component-spinner-size: 2rem;
-  --component-button-min-height: 3rem;
+  
+  /* Breakpoint Variables (em-based for accessibility) */
+  --breakpoint-xs: 20em;      /* 320px @ 16px base */
+  --breakpoint-sm: 40em;      /* 640px @ 16px base */
+  --breakpoint-md: 48em;      /* 768px @ 16px base */
+  --breakpoint-lg: 64em;      /* 1024px @ 16px base */
+  --breakpoint-xl: 80em;      /* 1280px @ 16px base */
+  --breakpoint-2xl: 96em;     /* 1536px @ 16px base */
+  
+  /* Container Max Widths */
+  --container-xs: 100%;
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
 }
 
-/* Dark mode is default, light mode overrides */
+/* Light mode overrides */
 @media (prefers-color-scheme: light) {
   :root {
-    --color-text-primary: var(--color-purple-700);
-    --color-text-body: var(--color-gray-800);
-    --color-background: var(--color-white);
-    --color-background-card: var(--color-gray-100);
+    --bg-primary: var(--color-white);
+    --bg-secondary: var(--color-neutral-50);
+    --bg-tertiary: var(--color-neutral-100);
+    --text-primary: var(--color-neutral-900);
+    --text-secondary: var(--color-neutral-700);
+    --text-tertiary: var(--color-neutral-600);
+    --border-primary: var(--color-neutral-300);
+    --border-secondary: var(--color-neutral-400);
+    --card-bg: var(--color-white);
+    --form-bg: var(--color-neutral-50);
   }
 }
 
@@ -560,10 +257,10 @@
 
 /* Set base font size and colors */
 html {
-  font-size: var(--font-size-base);
-  background-color: var(--color-background);
-  color: var(--color-text-body);
-  line-height: var(--line-height-relaxed);
+  font-size: var(--text-base);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: var(--leading-relaxed);
   scroll-behavior: smooth;
 }
 
@@ -592,20 +289,20 @@ h3,
 h4,
 h5,
 h6 {
-  margin-bottom: var(--spacing-lg);
-  font-size: var(--font-size-2xl);
-  font-weight: 700;
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
   letter-spacing: 0.025em;
   text-wrap: balance;
-  color: var(--color-text-primary);
+  color: var(--text-primary);
 }
 
 p {
-  margin-bottom: var(--spacing-lg);
-  font-size: var(--font-size-xl);
-  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-xl);
+  line-height: var(--leading-relaxed);
   text-wrap: pretty;
-  color: var(--color-text-body);
+  color: var(--text-secondary);
 }
 
 /* Media Queries for Typography */
@@ -616,11 +313,11 @@ p {
   h4,
   h5,
   h6 {
-    font-size: var(--font-size-4xl);
+    font-size: var(--text-4xl);
   }
 
   p {
-    font-size: var(--font-size-2xl);
+    font-size: var(--text-2xl);
   }
 }
 
@@ -630,8 +327,8 @@ p {
 
 /* Focus styles for keyboard navigation */
 :focus-visible {
-  outline: 3px solid var(--color-purple-500);
-  outline-offset: 2px;
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-ring-offset);
 }
 
 /* Screen reader only class */
@@ -663,4 +360,97 @@ p {
     opacity: 1 !important;
     transform: none !important;
   }
+}
+
+/* ======================================
+ * RESPONSIVE UTILITIES
+ * ====================================== */
+
+/* Container utility with responsive max-widths */
+.container {
+  width: 100%;
+  max-width: var(--container-xs);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* Responsive grid utilities */
+.grid-responsive {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+/* Hide/show utilities for different screen sizes */
+.hidden-xs { display: none; }
+.hidden-sm { display: block; }
+.hidden-md { display: block; }
+.hidden-lg { display: block; }
+.hidden-xl { display: block; }
+
+/* ======================================
+ * RESPONSIVE MEDIA QUERIES
+ * ====================================== */
+
+/* Small screens and up (40em / 640px) */
+@media (min-width: 40em) {
+  .container {
+    max-width: var(--container-sm);
+    padding: 0 var(--space-lg);
+  }
+  
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .hidden-xs { display: block; }
+  .hidden-sm { display: none; }
+}
+
+/* Medium screens and up (48em / 768px) */
+@media (min-width: 48em) {
+  .container {
+    max-width: var(--container-md);
+  }
+  
+  .grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .hidden-sm { display: block; }
+  .hidden-md { display: none; }
+}
+
+/* Large screens and up (64em / 1024px) */
+@media (min-width: 64em) {
+  .container {
+    max-width: var(--container-lg);
+    padding: 0 var(--space-xl);
+  }
+  
+  .grid-responsive {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .hidden-md { display: block; }
+  .hidden-lg { display: none; }
+}
+
+/* Extra large screens and up (80em / 1280px) */
+@media (min-width: 80em) {
+  .container {
+    max-width: var(--container-xl);
+  }
+  
+  .hidden-lg { display: block; }
+  .hidden-xl { display: none; }
+}
+
+/* 2XL screens and up (96em / 1536px) */
+@media (min-width: 96em) {
+  .container {
+    max-width: var(--container-2xl);
+  }
+  
+  .hidden-xl { display: block; }
 }

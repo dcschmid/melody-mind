@@ -76,8 +76,6 @@ export default {
   "auth.password_reset.title": "Återställ lösenord",
   "auth.password_reset.description":
     "Ange din e-postadress för att få en länk för återställning av lösenord",
-  "auth.password_reset.description":
-    "Ange din e-postadress för att få en länk för återställning av lösenord",
   "auth.password_reset.submit": "Skicka återställningslänk",
   "auth.password_reset.email": "E-postadress",
   "auth.password_reset.email.placeholder": "Din registrerade e-postadress",
@@ -500,6 +498,8 @@ export default {
   "achievements.badge.new": "Ny prestation upplåst",
   "achievements.badge.new_with_count": "{count} nya prestationer upplåsta",
   "achievements.badge.fallback_text": "Prestationsavisering",
+  "achievements.badge.context_description": "Prestationsmeddelande-märke. Visar antal nya upplåsta prestationer i navigationsområdet.",
+  "achievements.badge.keyboard_instructions": "Tryck Enter eller mellanslag för att visa din prestationssida.",
 
   // API felmeddelanden
   "errors.auth.unauthorized": "Du måste vara inloggad för att få tillgång till denna funktion",
@@ -593,7 +593,11 @@ export default {
   "auth.password.strength.good": "Bra",
   "auth.password.strength.description": "Indikator för lösenordssäkerhetsnivå",
 
-  // Missing translations
-
-  // Missing translations added automatically
+  // Layout systemmeddelanden
+  "layout.error.system": "Systemfel uppstod. Vänligen uppdatera sidan.",
+  "layout.error.tracking": "Fel spårat:",
+  "layout.error.tracking.failed": "Felspårning misslyckades:",
+  "layout.accessibility.motion.reduced": "Reducerat rörelseläge aktiverat för tillgänglighet",
+  "layout.accessibility.theme.dark": "Mörkt tema aktiverat för optimal kontrast och tillgänglighet",
+  "layout.analytics.init.failed": "Analytics-initialisering misslyckades:",
 };

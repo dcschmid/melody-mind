@@ -537,6 +537,8 @@ export default {
   "achievements.badge.new": "Neue Errungenschaft freigeschaltet",
   "achievements.badge.new_with_count": "{count} neue Errungenschaften freigeschaltet",
   "achievements.badge.fallback_text": "Achievement-Benachrichtigung",
+  "achievements.badge.context_description": "Achievement-Benachrichtigungsabzeichen. Zeigt die Anzahl neuer freigeschalteter Errungenschaften im Navigationsbereich an.",
+  "achievements.badge.keyboard_instructions": "Drücken Sie Enter oder Leertaste, um Ihre Errungenschaften-Seite zu besuchen.",
 
   // API-Fehlermeldungen
   "errors.auth.unauthorized": "Du musst angemeldet sein, um auf diese Funktion zuzugreifen",
@@ -614,4 +616,12 @@ export default {
   "game.time.extend.again": "Erneut verlängern",
   "game.time.extended": "Zeit um 5 Sekunden verlängert",
   "game.time.before.end": "Vor Spielende verlängern",
+
+  // Layout System-Nachrichten
+  "layout.error.system": "Systemfehler aufgetreten. Bitte laden Sie die Seite neu.",
+  "layout.error.tracking": "Fehler verfolgt:",
+  "layout.error.tracking.failed": "Fehlerverfolgung fehlgeschlagen:",
+  "layout.accessibility.motion.reduced": "Reduzierte Bewegungen für Barrierefreiheit aktiviert",
+  "layout.accessibility.theme.dark": "Dunkles Theme für optimalen Kontrast und Barrierefreiheit aktiviert",
+  "layout.analytics.init.failed": "Analytics-Initialisierung fehlgeschlagen:",
 };

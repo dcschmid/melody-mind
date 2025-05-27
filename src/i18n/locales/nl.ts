@@ -76,8 +76,6 @@ export default {
   "auth.password_reset.title": "Wachtwoord opnieuw instellen",
   "auth.password_reset.description":
     "Voer uw e-mailadres in om een link voor het opnieuw instellen van uw wachtwoord te ontvangen",
-  "auth.password_reset.description":
-    "Voer uw e-mailadres in om een link voor het opnieuw instellen van uw wachtwoord te ontvangen",
   "auth.password_reset.submit": "Resetlink verzenden",
   "auth.password_reset.email": "E-mailadres",
   "auth.password_reset.email.placeholder": "Uw geregistreerde e-mailadres",
@@ -525,6 +523,8 @@ export default {
   "achievements.badge.new": "Nieuwe prestatie ontgrendeld",
   "achievements.badge.new_with_count": "{count} nieuwe prestaties ontgrendeld",
   "achievements.badge.fallback_text": "Prestatie melding",
+  "achievements.badge.context_description": "Prestatie melding badge. Toont het aantal nieuwe ontgrendelde prestaties in het navigatiegebied.",
+  "achievements.badge.keyboard_instructions": "Druk op Enter of Spatie om je prestatiepagina te bekijken.",
 
   // API foutmeldingen
   "errors.auth.unauthorized": "Je moet ingelogd zijn om toegang te krijgen tot deze functie",
@@ -600,4 +600,12 @@ export default {
   "game.time.before.end": "Verlengen voor einde spel",
 
   "common.accessibility.main_content": "Hoofdinhoudsgebied",
+
+  // Layout systeemberichten
+  "layout.error.system": "Systeemfout opgetreden. Ververs de pagina.",
+  "layout.error.tracking": "Fout gevolgd:",
+  "layout.error.tracking.failed": "Foutvolging mislukt:",
+  "layout.accessibility.motion.reduced": "Gereduceerde bewegingsmodus ingeschakeld voor toegankelijkheid",
+  "layout.accessibility.theme.dark": "Donker thema geactiveerd voor optimaal contrast en toegankelijkheid",
+  "layout.analytics.init.failed": "Analytics initialisatie mislukt:",
 };

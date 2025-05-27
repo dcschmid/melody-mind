@@ -76,8 +76,6 @@ export default {
   "auth.password_reset.title": "Nulstil adgangskode",
   "auth.password_reset.description":
     "Indtast din e-mailadresse for at modtage et link til nulstilling af adgangskode",
-  "auth.password_reset.description":
-    "Indtast din e-mail for at modtage et link til nulstilling af adgangskoden",
   "auth.password_reset.submit": "Send nulstillingslink",
   "auth.password_reset.email": "E-mailadresse",
   "auth.password_reset.email.placeholder": "Din registrerede e-mailadresse",
@@ -512,6 +510,8 @@ export default {
   "achievements.badge.new": "Ny præstation låst op",
   "achievements.badge.new_with_count": "{count} nye præstationer låst op",
   "achievements.badge.fallback_text": "Præstationsmeddelelse",
+  "achievements.badge.context_description": "Præstationsmeddelelse-badge. Viser antal nye låste præstationer i navigationsområdet.",
+  "achievements.badge.keyboard_instructions": "Tryk Enter eller mellemrum for at se din præstationsside.",
 
   // API fejlmeddelelser
   "errors.auth.unauthorized": "Du skal være logget ind for at få adgang til denne funktion",
@@ -594,4 +594,12 @@ export default {
   "auth.password.strength.description": "Indikator for kodeordssikkerhedsniveau",
 
   "achievements.filter.reset": "Nulstil",
+
+  // Layout systemmeddelelser
+  "layout.error.system": "Systemfejl opstod. Opdater venligst siden.",
+  "layout.error.tracking": "Fejl sporet:",
+  "layout.error.tracking.failed": "Fejlsporing mislykkedes:",
+  "layout.accessibility.motion.reduced": "Reduceret bevægelse tilstand aktiveret for tilgængelighed",
+  "layout.accessibility.theme.dark": "Mørkt tema aktiveret for optimal kontrast og tilgængelighed",
+  "layout.analytics.init.failed": "Analytics initialisering mislykkedes:",
 };
