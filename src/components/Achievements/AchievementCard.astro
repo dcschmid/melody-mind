@@ -2,13 +2,42 @@
 /**
  * Achievement Card Component
  *
- * Displays a single achievement with its status, progress, and metadata.
- * Optimized for performance and accessibility, following WCAG AAA standards.
+ * A comprehensive UI component for displaying individual achievements with their status,
+ * progress, and metadata. Optimized for performance, accessibility (WCAG AAA compliance),
+ * and internationalization while following MelodyMind's design standards.
+ *
+ * Features:
+ * - WCAG AAA compliant accessibility with screen reader support
+ * - Keyboard navigation (Enter/Space activation)
+ * - Progress visualization with animated bars
+ * - Multiple achievement states (locked, in-progress, unlocked)
+ * - Internationalization support for multiple languages
+ * - Custom event dispatching for achievement selection
+ * - Responsive design with mobile-first approach
+ * - Performance optimized with lazy image loading
  *
  * @component
  * @example
  * ```astro
- * <AchievementCard achievement={achievementData} lang="en" />
+ * <AchievementCard
+ *   achievement={localizedAchievement}
+ *   lang="en"
+ * />
+ * ```
+ *
+ * @example
+ * ```astro
+ * // In-progress achievement example
+ * const achievement = {
+ *   id: "music-master",
+ *   code: "MUSIC_MASTER",
+ *   name: "Music Master",
+ *   description: "Play 100 games",
+ *   status: "in-progress",
+ *   progressPercentage: 65,
+ *   category: { code: "gold", points: 500 }
+ * };
+ * <AchievementCard achievement={achievement} lang="de" />
  * ```
  */
 
@@ -16,25 +45,26 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import { useTranslations } from "@utils/i18n";
 import type { LocalizedAchievement } from "../../types/achievement";
+import Headline from "../Headline.astro";
+import Paragraph from "../Paragraph.astro";
 
 interface Props {
-  /** The achievement to be displayed */
+  /** The achievement object containing all display data */
   achievement: LocalizedAchievement;
-  /** Language code for translations */
+  /** Language code for internationalization (e.g., "en", "de") */
   lang: string;
 }
 
 const { achievement, lang } = Astro.props;
 const t = useTranslations(lang);
 
-// Destructure values for better performance
-const { progressPercentage, status, name, description, category, rarityPercentage, iconPath } =
-  achievement;
+// Destructure values for better performance and readability
+const { progressPercentage, status, name, description, category, iconPath } = achievement;
 
-// Create class name based on status using CSS variables
+// Create status-specific class name following BEM methodology
 const statusClass = `achievement-card--${status}`;
 
-// Create status text for screen readers
+// Generate accessible status text for screen readers
 const statusText =
   status === "unlocked"
     ? t("achievements.status.unlocked")
@@ -42,8 +72,6 @@ const statusText =
       ? t("achievements.status.in_progress", { percent: progressPercentage })
       : t("achievements.status.locked");
 
-// Calculate rarity percentage with proper formatting
-const formattedRarity = rarityPercentage.toFixed(2);
 const pointsValue = category?.points ?? 0;
 ---
 
@@ -85,21 +113,16 @@ const pointsValue = category?.points ?? 0;
   </div>
 
   <div class="achievement-card__content">
-    <h3 class="achievement-card__title">
+    <Headline level="h3" className="achievement-card__title">
       {name}
       <span class="achievement-card__status sr-only">{statusText}</span>
-    </h3>
+    </Headline>
 
-    <p class="achievement-card__description">
-      {description}
-    </p>
+    <Paragraph className="achievement-card__description" {description} textSize="" />
 
     <div class="achievement-card__meta">
       <span class="achievement-card__points">
         {t("achievements.points", { points: pointsValue })}
-      </span>
-      <span class="achievement-card__rarity" title={t("achievements.rarity.tooltip")}>
-        {t("achievements.rarity", { percentage: formattedRarity })}
       </span>
     </div>
 
@@ -120,53 +143,60 @@ const pointsValue = category?.points ?? 0;
   </div>
 </div>
 
-<script is:inline>
-  // Achievement card keyboard and click interaction
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  (function () {
-    const cards = document.querySelectorAll('.achievement-card[role="button"]');
+<script>
+  // Modern achievement card interaction with improved performance
+  document.addEventListener("DOMContentLoaded", (): void => {
+    // Use event delegation for better performance
+    const handleCardInteraction = (event: Event): void => {
+      const target = event.target as HTMLElement;
+      const card = target.closest('.achievement-card[role="button"]') as HTMLElement;
 
-    cards.forEach(function (card) {
-      // Keyboard navigation
-      card.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
+      if (!card) {
+        return;
+      }
+
+      if (event.type === "keydown") {
+        const keyEvent = event as KeyboardEvent;
+        if (keyEvent.key === "Enter" || keyEvent.key === " ") {
+          keyEvent.preventDefault();
           card.click();
         }
-      });
-
-      // Click handler for custom events
-      if (!card.hasAttribute("data-click-handled")) {
-        card.setAttribute("data-click-handled", "true");
-        card.addEventListener("click", function () {
-          const event = new CustomEvent("achievement:select", {
-            bubbles: true,
-            detail: {
-              category: card.getAttribute("data-category"),
-              status: card.getAttribute("data-status"),
-            },
-          });
-          card.dispatchEvent(event);
-        });
+        return;
       }
-    });
-  })();
+
+      if (event.type === "click") {
+        const customEvent = new CustomEvent("achievement:select", {
+          bubbles: true,
+          detail: {
+            category: card.dataset.category,
+            status: card.dataset.status,
+          },
+        });
+        card.dispatchEvent(customEvent);
+      }
+    };
+
+    // Add event listeners with delegation
+    document.addEventListener("keydown", handleCardInteraction);
+    document.addEventListener("click", handleCardInteraction);
+  });
 </script>
 
 <style>
   /**
- * ACHIEVEMENT CARD COMPONENT STYLES
- * ===================================
- * 
- * Uses global CSS variables from global.css for consistency
- * Follows BEM methodology and WCAG AAA accessibility standards
- */
-
-  /* Component-specific variables */
-  .achievement-card {
-    --icon-size: 64px;
-    --badge-size: 24px;
-  }
+   * MODERN ACHIEVEMENT CARD COMPONENT STYLES
+   * =========================================
+   * 
+   * Modernized with CSS custom properties, container queries, and improved performance.
+   * Follows BEM methodology and WCAG AAA accessibility standards.
+   * 
+   * Features:
+   * - Container queries for responsive design
+   * - Modern CSS color functions (light-dark, oklch)
+   * - Logical properties for better internationalization
+   * - Optimized animations and transitions
+   * - No rarity display (removed as requested)
+   */
 
   /* Achievement Card Container */
   .achievement-card {
@@ -180,8 +210,9 @@ const pointsValue = category?.points ?? 0;
     box-shadow: var(--card-shadow);
     transition: var(--transition-normal);
     cursor: pointer;
-    min-height: var(--min-touch-size);
+    min-block-size: var(--min-touch-size);
     overflow: hidden;
+    container-type: inline-size;
   }
 
   .achievement-card:hover {
@@ -206,8 +237,8 @@ const pointsValue = category?.points ?? 0;
   }
 
   .achievement-card__icon {
-    width: var(--icon-size);
-    height: var(--icon-size);
+    width: var(--space-3xl);
+    height: var(--space-3xl);
     border-radius: var(--radius-md);
     object-fit: cover;
     transition: var(--transition-normal);
@@ -217,8 +248,8 @@ const pointsValue = category?.points ?? 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--icon-size);
-    height: var(--icon-size);
+    width: var(--space-3xl);
+    height: var(--space-3xl);
     background: var(--bg-tertiary);
     border: 1px solid var(--border-primary);
     border-radius: var(--radius-md);
@@ -233,8 +264,8 @@ const pointsValue = category?.points ?? 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--badge-size);
-    height: var(--badge-size);
+    width: var(--text-lg);
+    height: var(--text-lg);
     background: var(--achievement-gold);
     border: 1px solid var(--bg-primary);
     border-radius: var(--radius-full);
@@ -250,12 +281,14 @@ const pointsValue = category?.points ?? 0;
     gap: var(--space-sm);
   }
 
-  .achievement-card__title {
-    margin: 0;
-    font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
-    color: var(--text-primary);
-    line-height: var(--leading-tight);
+  /* Override Headline component styles for Achievement Card context */
+  .achievement-card__title.headline {
+    margin: 0 !important;
+    font-size: var(--text-lg) !important;
+    font-weight: var(--font-semibold) !important;
+    color: var(--text-primary) !important;
+    line-height: var(--leading-tight) !important;
+    margin-bottom: 0 !important;
   }
 
   .achievement-card__status {
@@ -263,18 +296,20 @@ const pointsValue = category?.points ?? 0;
     color: var(--text-secondary);
   }
 
+  /* Override Paragraph component styles for Achievement Card context */
   .achievement-card__description {
-    margin: 0;
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
-    line-height: var(--leading-normal);
+    margin: 0 !important;
+    font-size: var(--text-sm) !important;
+    color: var(--text-secondary) !important;
+    line-height: var(--leading-normal) !important;
+    margin-bottom: 0 !important;
+    text-align: left !important;
   }
 
   .achievement-card__meta {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    gap: var(--space-sm);
     margin-top: var(--space-sm);
   }
 
@@ -288,12 +323,6 @@ const pointsValue = category?.points ?? 0;
     font-size: var(--text-xs);
     font-weight: var(--font-medium);
     color: var(--text-primary);
-  }
-
-  .achievement-card__rarity {
-    font-size: var(--text-xs);
-    color: var(--text-tertiary);
-    font-weight: var(--font-medium);
   }
 
   /* Progress Bar Container */
@@ -319,13 +348,12 @@ const pointsValue = category?.points ?? 0;
     border-radius: var(--radius-sm);
   }
 
-  /* Status-specific styling */
+  /* Status-specific styling with modern CSS */
   .achievement-card--unlocked {
     border-color: var(--color-success-500);
-    background: linear-gradient(
-      135deg,
-      var(--card-bg) 0%,
-      color-mix(in srgb, var(--color-success-500) 5%, transparent) 100%
+    background: light-dark(
+      color-mix(in srgb, var(--color-success-500) 3%, var(--card-bg)),
+      color-mix(in srgb, var(--color-success-500) 8%, var(--card-bg))
     );
   }
 
@@ -340,10 +368,9 @@ const pointsValue = category?.points ?? 0;
 
   .achievement-card--in-progress {
     border-color: var(--color-info-500);
-    background: linear-gradient(
-      135deg,
-      var(--card-bg) 0%,
-      color-mix(in srgb, var(--color-info-500) 5%, transparent) 100%
+    background: light-dark(
+      color-mix(in srgb, var(--color-info-500) 3%, var(--card-bg)),
+      color-mix(in srgb, var(--color-info-500) 8%, var(--card-bg))
     );
   }
 
@@ -373,19 +400,19 @@ const pointsValue = category?.points ?? 0;
     background: var(--color-neutral-600);
   }
 
-  /* Hover states for different statuses */
+  /* Hover states with modern CSS and improved performance */
   .achievement-card--unlocked:hover {
     border-color: var(--color-success-400);
     box-shadow:
       var(--shadow-xl),
-      0 0 40px color-mix(in srgb, var(--color-success-500) 20%, transparent);
+      0 0 var(--space-2xl) oklch(from var(--color-success-500) l c h / 0.2);
   }
 
   .achievement-card--in-progress:hover {
     border-color: var(--color-info-400);
     box-shadow:
       var(--shadow-xl),
-      0 0 40px color-mix(in srgb, var(--color-info-500) 20%, transparent);
+      0 0 var(--space-2xl) oklch(from var(--color-info-500) l c h / 0.2);
   }
 
   .achievement-card--locked:hover {
@@ -393,21 +420,27 @@ const pointsValue = category?.points ?? 0;
     transform: none;
   }
 
-  /* Screen reader only text */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
+  /* Modern responsive design with container queries */
+  @container (min-width: 300px) {
+    .achievement-card {
+      padding: var(--space-xl);
+    }
+
+    .achievement-card__title {
+      font-size: var(--text-xl);
+    }
+
+    .achievement-card__description {
+      font-size: var(--text-base);
+    }
+
+    .achievement-card__meta {
+      margin-top: var(--space-lg);
+    }
   }
 
-  /* Responsive adjustments */
-  @media (min-width: var(--breakpoint-md)) {
+  /* Fallback for browsers without container query support */
+  @media (min-width: 48em) {
     .achievement-card {
       padding: var(--space-xl);
     }
