@@ -77,12 +77,13 @@ const pointsValue = category?.points ?? 0;
 
 <div
   class={`achievement-card ${statusClass}`}
-  data-testid="achievement-card"
+  data-testid={`achievement-card-${achievement.id}`}
   data-category={category?.code}
   data-status={status}
   role="button"
   tabindex="0"
   aria-label={`${name}: ${statusText}`}
+  aria-describedby={`achievement-${achievement.id}-description achievement-${achievement.id}-points`}
 >
   <div class="achievement-card__header">
     {
@@ -113,15 +114,27 @@ const pointsValue = category?.points ?? 0;
   </div>
 
   <div class="achievement-card__content">
-    <Headline level="h3" className="achievement-card__title">
+    <Headline
+      level="h3"
+      className="achievement-card__title"
+      focusable={false}
+      ariaLabel={`${name}: ${statusText}`}
+    >
       {name}
       <span class="achievement-card__status sr-only">{statusText}</span>
     </Headline>
 
-    <Paragraph className="achievement-card__description" {description} textSize="" />
+    <Paragraph
+      {description}
+      textSize="lg"
+      className="achievement-card__description"
+      enhancedSpacing={true}
+      ariaLive="polite"
+      id={`achievement-${achievement.id}-description`}
+    />
 
     <div class="achievement-card__meta">
-      <span class="achievement-card__points">
+      <span class="achievement-card__points" id={`achievement-${achievement.id}-points`}>
         {t("achievements.points", { points: pointsValue })}
       </span>
     </div>
@@ -129,6 +142,7 @@ const pointsValue = category?.points ?? 0;
     <div
       class="achievement-card__progress-container"
       aria-label={t("achievements.progress", { progress: progressPercentage })}
+      aria-describedby={`achievement-${achievement.id}-description`}
     >
       <div
         class="achievement-card__progress-bar"
@@ -136,6 +150,7 @@ const pointsValue = category?.points ?? 0;
         aria-valuenow={progressPercentage}
         aria-valuemin="0"
         aria-valuemax="100"
+        aria-label={t("achievements.progressBar", { name, progress: progressPercentage })}
         style={`width: ${progressPercentage}%`}
       >
       </div>
@@ -144,10 +159,20 @@ const pointsValue = category?.points ?? 0;
 </div>
 
 <script>
-  // Modern achievement card interaction with improved performance
-  document.addEventListener("DOMContentLoaded", (): void => {
-    // Use event delegation for better performance
-    const handleCardInteraction = (event: Event): void => {
+  // Modern achievement card interaction with improved performance and accessibility
+  class AchievementCardController {
+    constructor() {
+      this.handleCardInteraction = this.handleCardInteraction.bind(this);
+      this.init();
+    }
+
+    init(): void {
+      // Use passive listeners for better performance
+      document.addEventListener("click", this.handleCardInteraction, { passive: false });
+      document.addEventListener("keydown", this.handleCardInteraction, { passive: false });
+    }
+
+    handleCardInteraction(event: Event): void {
       const target = event.target as HTMLElement;
       const card = target.closest('.achievement-card[role="button"]') as HTMLElement;
 
@@ -159,27 +184,37 @@ const pointsValue = category?.points ?? 0;
         const keyEvent = event as KeyboardEvent;
         if (keyEvent.key === "Enter" || keyEvent.key === " ") {
           keyEvent.preventDefault();
-          card.click();
+          this.triggerCardSelection(card);
         }
         return;
       }
 
       if (event.type === "click") {
-        const customEvent = new CustomEvent("achievement:select", {
-          bubbles: true,
-          detail: {
-            category: card.dataset.category,
-            status: card.dataset.status,
-          },
-        });
-        card.dispatchEvent(customEvent);
+        this.triggerCardSelection(card);
       }
-    };
+    }
 
-    // Add event listeners with delegation
-    document.addEventListener("keydown", handleCardInteraction);
-    document.addEventListener("click", handleCardInteraction);
-  });
+    private triggerCardSelection(card: HTMLElement): void {
+      // Enhanced custom event with more context
+      const customEvent = new CustomEvent("achievement:select", {
+        bubbles: true,
+        detail: {
+          achievementId: card.dataset.testid?.replace("achievement-card", ""),
+          category: card.dataset.category,
+          status: card.dataset.status,
+          timestamp: Date.now(),
+        },
+      });
+      card.dispatchEvent(customEvent);
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => new AchievementCardController());
+  } else {
+    new AchievementCardController();
+  }
 </script>
 
 <style>
@@ -296,14 +331,8 @@ const pointsValue = category?.points ?? 0;
     color: var(--text-secondary);
   }
 
-  /* Override Paragraph component styles for Achievement Card context */
   .achievement-card__description {
-    margin: 0 !important;
-    font-size: var(--text-sm) !important;
-    color: var(--text-secondary) !important;
-    line-height: var(--leading-normal) !important;
-    margin-bottom: 0 !important;
-    text-align: left !important;
+    margin-bottom: var(--space-sm);
   }
 
   .achievement-card__meta {
@@ -392,8 +421,8 @@ const pointsValue = category?.points ?? 0;
     color: var(--text-tertiary);
   }
 
-  .achievement-card--locked .achievement-card__description {
-    color: var(--text-disabled);
+  .achievement-card--locked .achievement-card__description.paragraph {
+    color: var(--text-disabled) !important;
   }
 
   .achievement-card--locked .achievement-card__progress-bar {
@@ -430,10 +459,6 @@ const pointsValue = category?.points ?? 0;
       font-size: var(--text-xl);
     }
 
-    .achievement-card__description {
-      font-size: var(--text-base);
-    }
-
     .achievement-card__meta {
       margin-top: var(--space-lg);
     }
@@ -447,10 +472,6 @@ const pointsValue = category?.points ?? 0;
 
     .achievement-card__title {
       font-size: var(--text-xl);
-    }
-
-    .achievement-card__description {
-      font-size: var(--text-base);
     }
 
     .achievement-card__meta {
