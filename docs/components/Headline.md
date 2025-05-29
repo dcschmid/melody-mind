@@ -3,33 +3,41 @@
 ## Overview
 
 The Headline component is a versatile and accessible heading component that supports different
-heading levels, custom styling, and proper semantic hierarchy. It provides the foundation for all
-headings throughout the MelodyMind application while maintaining consistent typography and
-accessibility standards.
+heading levels (h1-h6), custom styling, and proper semantic hierarchy. It follows WCAG AAA
+accessibility standards and performance best practices for the MelodyMind project.
 
-![Headline Component](../../public/docs/headline-component.png)
+![Headline Component Example](../../public/docs/headline-component.png)
 
 ## Features
 
-- **Semantic HTML**: Dynamic heading levels (h1-h6) for proper document structure
-- **Accessibility Focused**: WCAG AAA compliant with proper focus management
-- **Skip Navigation**: Programmatically focusable for screen reader navigation
-- **Responsive Typography**: Adaptive sizing across different screen sizes
-- **Flexible Content**: Supports both prop-based and slot-based content
-- **Custom Styling**: Extensible with additional CSS classes
-- **Text Wrapping**: Intelligent text wrapping with `text-wrap: balance`
-- **Screen Reader Support**: Enhanced with ARIA labels and semantic markup
+- **Semantic HTML**: Proper heading hierarchy with h1-h6 support
+- **WCAG AAA Compliance**: Meets highest accessibility standards
+- **Responsive Typography**: Optimized for all screen sizes
+- **Interactive States**: Supports clickable headlines with proper focus management
+- **Skip Navigation**: Built-in support for skip-to-content functionality
+- **Multiple Variants**: Different sizes and styling options
+- **High Contrast Support**: Works with system accessibility preferences
+- **Reduced Motion Support**: Respects user motion preferences
+- **Enhanced Text Spacing**: Supports WCAG 2.2 text spacing requirements
+- **Gradient Text Support**: Primary variant with animated gradient effects
 
 ## Properties
 
-| Property    | Type                                           | Required | Description                                              | Default     |
-| ----------- | ---------------------------------------------- | -------- | -------------------------------------------------------- | ----------- |
-| `title`     | `string`                                       | No       | Text content of the heading (alternative to slots)       | `undefined` |
-| `level`     | `"h1" \| "h2" \| "h3" \| "h4" \| "h5" \| "h6"` | No       | HTML heading level for semantic hierarchy                | `"h1"`      |
-| `className` | `string`                                       | No       | Additional CSS classes for customization                 | `""`        |
-| `id`        | `string`                                       | No       | Optional ID for direct linking and document structure    | `undefined` |
-| `focusable` | `boolean`                                      | No       | Makes heading programmatically focusable (tabindex="-1") | `false`     |
-| `ariaLabel` | `string`                                       | No       | Optional ARIA label for improved screen reader context   | `undefined` |
+| Property        | Type                                                  | Required | Description                                           | Default  |
+| --------------- | ----------------------------------------------------- | -------- | ----------------------------------------------------- | -------- |
+| title           | string                                                | No       | Text content of the heading (can use slot instead)    | -        |
+| level           | "h1" \| "h2" \| "h3" \| "h4" \| "h5" \| "h6"          | No       | HTML heading level for proper document hierarchy      | "h1"     |
+| className       | string                                                | No       | Additional CSS classes to apply                       | ""       |
+| id              | string                                                | No       | Optional ID for direct linking and document structure | -        |
+| focusable       | boolean                                               | No       | Makes heading programmatically focusable              | false    |
+| ariaLabel       | string                                                | No       | Optional ARIA label for improved screen reader        | -        |
+| ariaDescribedBy | string                                                | No       | ARIA describedby for additional context               | -        |
+| wrapper         | "section" \| "header" \| "article" \| "div" \| "none" | No       | Semantic wrapper element                              | "none"   |
+| variant         | "small" \| "medium" \| "large" \| "primary"           | No       | Size variant for consistent typography scale          | "medium" |
+| textAlign       | "left" \| "center" \| "right"                         | No       | Text alignment option                                 | "left"   |
+| skipTarget      | boolean                                               | No       | Indicates this heading is a skip navigation target    | false    |
+| interactive     | boolean                                               | No       | Makes the heading clickable with button semantics     | false    |
+| onClick         | string                                                | No       | Click handler for interactive headlines               | -        |
 
 ## Usage Examples
 
@@ -40,14 +48,280 @@ accessibility standards.
 import Headline from "../components/Headline.astro";
 ---
 
-<!-- Simple heading with default h1 level -->
-<Headline title="Welcome to MelodyMind" />
+<Headline level="h1" title="Welcome to MelodyMind" />
+```
 
-<!-- Using slots for more flexibility -->
-<Headline level="h2">
-  Choose Your <em>Music Category</em>
+### With Slot Content
+
+```astro
+---
+import Headline from "../components/Headline.astro";
+---
+
+<Headline level="h2" variant="primary">
+  Your <em>Musical</em> Journey Starts Here
 </Headline>
 ```
+
+### Interactive Headline
+
+```astro
+---
+import Headline from "../components/Headline.astro";
+---
+
+<Headline
+  level="h2"
+  title="Start Game"
+  interactive={true}
+  focusable={true}
+  onClick="startNewGame()"
+  variant="primary"
+/>
+```
+
+### Skip Navigation Target
+
+```astro
+---
+import Headline from "../components/Headline.astro";
+---
+
+<Headline level="h1" id="main-content" title="Main Content" skipTarget={true} wrapper="header" />
+```
+
+### Different Variants
+
+```astro
+---
+import Headline from "../components/Headline.astro";
+---
+
+<!-- Small variant -->
+<Headline level="h3" variant="small" title="Game Statistics" />
+
+<!-- Medium variant (default) -->
+<Headline level="h2" variant="medium" title="Choose Category" />
+
+<!-- Large variant -->
+<Headline level="h1" variant="large" title="MelodyMind Trivia" />
+
+<!-- Primary variant with gradient -->
+<Headline level="h1" variant="primary" title="Welcome Player!" />
+```
+
+### Advanced Accessibility Features
+
+```astro
+---
+import Headline from "../components/Headline.astro";
+---
+
+<!-- Full accessibility example -->
+<Headline
+  level="h2"
+  id="quiz-section"
+  title="Music Quiz Section"
+  ariaLabel="Interactive music quiz with 20 questions"
+  ariaDescribedBy="quiz-description"
+  focusable={true}
+  skipTarget={true}
+  wrapper="section"
+/>
+```
+
+## Variants
+
+### Size Variants
+
+- **Small**: Responsive typography from 18px to 32px
+- **Medium**: Default size, responsive from 24px to 36px
+- **Large**: Large headings, responsive from 30px to 45px
+- **Primary**: Special variant with gradient styling and animations
+
+### Accessibility Features
+
+- **Focus Management**: Programmatic focus support with `-1` tabindex
+- **Skip Navigation**: Built-in target highlighting for skip links
+- **Screen Reader**: Proper ARIA labeling and semantic structure
+- **High Contrast**: Adapts to system contrast preferences
+- **Reduced Motion**: Disables animations for motion-sensitive users
+
+## Styling
+
+The component uses CSS custom properties from the global design system:
+
+### Typography Variables Used
+
+```css
+/* Font sizes */
+--text-lg, --text-xl, --text-2xl, --text-3xl, --text-4xl
+
+/* Font weights */
+--font-medium, --font-semibold, --font-bold
+
+/* Line heights */
+--leading-tight, --leading-normal
+
+/* Letter spacing */
+--letter-spacing-base, --letter-spacing-enhanced
+```
+
+### Color Variables Used
+
+```css
+/* Text colors */
+--text-primary
+
+/* Interactive colors */
+--interactive-primary
+
+/* Focus styles */
+--focus-outline, --focus-ring, --focus-bg-overlay
+
+/* Gradient colors */
+--color-primary-500, --color-secondary-500
+```
+
+### Spacing Variables Used
+
+```css
+--space-xs, --space-sm, --space-md, --space-lg, --space-xl
+```
+
+## Accessibility
+
+### WCAG AAA Compliance
+
+- **Color Contrast**: Maintains 7:1 ratio for normal text, 4.5:1 for large text
+- **Focus Indicators**: Clear, 3px outline with sufficient contrast
+- **Keyboard Navigation**: Full keyboard accessibility with proper focus management
+- **Screen Readers**: Semantic HTML with proper ARIA attributes
+- **Text Spacing**: Supports enhanced text spacing up to 200% letter spacing
+- **Touch Targets**: Minimum 44×44px touch targets for interactive elements
+
+### Implementation Notes
+
+#### Performance Optimizations
+
+- Uses CSS custom properties for consistent theming
+- Implements efficient CSS animations with `will-change`
+- Supports CSS `contain` for better rendering performance
+- Uses `text-wrap: balance` for improved typography
+
+#### Browser Support
+
+- Modern browsers with CSS Grid and custom properties support
+- Graceful fallbacks for `background-clip: text`
+- High contrast mode support
+- Forced colors mode compatibility
+
+#### Responsive Behavior
+
+The component uses mobile-first responsive design:
+
+```css
+/* Base: Mobile (320px+) */
+font-size: var(--text-2xl);
+
+/* Tablet (768px+) */
+@media (min-width: var(--breakpoint-md)) {
+  font-size: var(--text-3xl);
+}
+
+/* Desktop (1024px+) */
+@media (min-width: var(--breakpoint-lg)) {
+  font-size: var(--text-4xl);
+}
+```
+
+## Advanced Usage
+
+### With TypeScript Interface
+
+```typescript
+// Component props with full typing
+interface HeadlineProps {
+  title?: string;
+  level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  variant?: "small" | "medium" | "large" | "primary";
+  interactive?: boolean;
+  skipTarget?: boolean;
+  // ... other props
+}
+```
+
+### Integration with Game Components
+
+```astro
+---
+import Headline from "../components/Headline.astro";
+import ScoreDisplay from "../components/Game/ScoreDisplay.astro";
+---
+
+<section class="game-header">
+  <Headline level="h1" variant="primary" title="MelodyMind Quiz" id="game-title" wrapper="header" />
+
+  <ScoreDisplay currentScore={score} />
+</section>
+```
+
+## Related Components
+
+- [Navigation](./Navigation.md) - Main site navigation with skip links
+- [Modal](./Modal.md) - Modal dialogs with proper heading hierarchy
+- [GameCard](./GameCard.md) - Game cards with headline elements
+- [ScoreDisplay](./ScoreDisplay.md) - Score components with heading structure
+
+## Testing
+
+### Accessibility Testing
+
+```bash
+# Run accessibility tests
+npm run test:a11y
+
+# Test with screen readers
+npm run test:screenreader
+
+# Validate heading hierarchy
+npm run test:headings
+```
+
+### Manual Testing Checklist
+
+- [ ] Proper heading hierarchy (h1 → h2 → h3, etc.)
+- [ ] Keyboard navigation works correctly
+- [ ] Focus indicators are visible and high contrast
+- [ ] Screen reader announces content properly
+- [ ] Skip navigation targets work correctly
+- [ ] Reduced motion preferences are respected
+- [ ] High contrast mode displays correctly
+
+## Changelog
+
+### v3.2.0 - Latest
+
+- Added enhanced text spacing support (WCAG 2.2)
+- Improved gradient fallbacks for better browser support
+- Added forced colors mode compatibility
+- Enhanced focus management for interactive headlines
+- Added wrapper element support for semantic structure
+
+### v3.1.0
+
+- Added skip navigation target functionality
+- Improved responsive typography scaling
+- Enhanced ARIA attribute support
+- Added interactive headline functionality
+
+### v3.0.0
+
+- Complete rewrite with WCAG AAA compliance
+- Added variant system for consistent typography
+- Implemented CSS custom properties integration
+- Enhanced focus management and keyboard navigation
+- Added comprehensive TypeScript prop definitions
 
 ### Semantic Document Structure
 

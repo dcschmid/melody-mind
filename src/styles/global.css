@@ -14,11 +14,11 @@
   /* ======================================
    * CORE COLOR SYSTEM
    * ====================================== */
-  
+
   /* Base Colors */
   --color-white: #ffffff;
   --color-black: #000000;
-  
+
   /* Primary Brand Colors (Purple) */
   --color-primary-50: #f5f3ff;
   --color-primary-100: #ede9fe;
@@ -30,7 +30,7 @@
   --color-primary-700: #6d28d9;
   --color-primary-800: #5b21b6;
   --color-primary-900: #4c1d95;
-  
+
   /* Secondary Brand Colors (Pink) */
   --color-secondary-50: #fdf2f8;
   --color-secondary-100: #fce7f3;
@@ -42,7 +42,7 @@
   --color-secondary-700: #be185d;
   --color-secondary-800: #9d174d;
   --color-secondary-900: #831843;
-  
+
   /* Neutral Colors (Dark Theme Optimized) */
   --color-neutral-50: #fafafa;
   --color-neutral-100: #f5f5f5;
@@ -55,7 +55,7 @@
   --color-neutral-800: #262626;
   --color-neutral-900: #171717;
   --color-neutral-950: #0a0a0a;
-  
+
   /* State Colors (WCAG AAA Compliant) */
   --color-success-400: #4ade80;
   --color-success-500: #22c55e;
@@ -69,32 +69,32 @@
   --color-info-400: #60a5fa;
   --color-info-500: #3b82f6;
   --color-info-600: #2563eb;
-  
+
   /* ======================================
    * SEMANTIC COLOR SYSTEM
    * ====================================== */
-  
+
   /* Background Colors */
   --bg-primary: var(--color-neutral-950);
   --bg-secondary: var(--color-neutral-900);
   --bg-tertiary: var(--color-neutral-800);
   --bg-overlay: rgba(0, 0, 0, 0.8);
   --bg-glass: rgba(255, 255, 255, 0.05);
-  
+
   /* Text Colors (AAA Compliant Contrast) */
-  --text-primary: var(--color-white);           /* 21:1 on dark bg */
-  --text-secondary: var(--color-neutral-300);   /* 7.5:1 on dark bg */
-  --text-tertiary: var(--color-neutral-400);    /* 4.8:1 on dark bg */
+  --text-primary: var(--color-white); /* 21:1 on dark bg */
+  --text-secondary: var(--color-neutral-300); /* 7.5:1 on dark bg */
+  --text-tertiary: var(--color-neutral-400); /* 4.8:1 on dark bg */
   --text-disabled: var(--color-neutral-600);
   --text-inverse: var(--color-neutral-950);
-  
+
   /* Border Colors */
   --border-primary: var(--color-neutral-700);
   --border-secondary: var(--color-neutral-600);
   --border-focus: var(--color-secondary-400);
   --border-error: var(--color-error-500);
   --border-success: var(--color-success-500);
-  
+
   /* Interactive Colors */
   --interactive-primary: var(--color-primary-600);
   --interactive-primary-hover: var(--color-primary-700);
@@ -102,16 +102,22 @@
   --interactive-secondary: var(--color-secondary-600);
   --interactive-secondary-hover: var(--color-secondary-700);
   --interactive-secondary-active: var(--color-secondary-800);
-  
+
   /* Focus System (Enhanced for AAA) */
   --focus-ring: 0 0 0 3px var(--color-secondary-400);
   --focus-ring-offset: 2px;
   --focus-outline: 3px solid var(--color-secondary-400);
-  
+  --focus-bg-overlay: rgba(
+    139,
+    92,
+    246,
+    0.1
+  ); /* Primary color with opacity for focus backgrounds */
+
   /* ======================================
    * COMPONENT SYSTEM
    * ====================================== */
-  
+
   /* Form Elements */
   --form-bg: var(--bg-tertiary);
   --form-border: var(--border-primary);
@@ -121,81 +127,111 @@
   --form-label: var(--text-secondary);
   --form-error: var(--color-error-400);
   --form-success: var(--color-success-400);
-  
+
   /* Button System */
-  --btn-primary-bg: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
-  --btn-primary-hover: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-800) 100%);
+  --btn-primary-bg: linear-gradient(
+    135deg,
+    var(--color-primary-600) 0%,
+    var(--color-primary-700) 100%
+  );
+  --btn-primary-hover: linear-gradient(
+    135deg,
+    var(--color-primary-700) 0%,
+    var(--color-primary-800) 100%
+  );
   --btn-primary-text: var(--color-white);
   --btn-secondary-bg: transparent;
   --btn-secondary-border: var(--border-primary);
   --btn-secondary-text: var(--text-primary);
   --btn-secondary-hover: var(--bg-glass);
-  
+
   /* Card System */
   --card-bg: var(--bg-secondary);
   --card-border: var(--border-primary);
   --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   --card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.4);
-  
+
   /* Password Strength Indicators */
   --strength-weak: var(--color-error-500);
   --strength-medium: var(--color-warning-500);
   --strength-strong: var(--color-info-500);
   --strength-very-strong: var(--color-success-500);
-  
+
   /* Achievement Colors */
   --achievement-bronze: #cd7f32;
   --achievement-silver: #c0c0c0;
   --achievement-gold: #ffd700;
   --achievement-platinum: #e5e4e2;
-  
+
+  /* Visual Effects and Filters */
+  --opacity-disabled: 0.7;
+  --opacity-low: 0.6;
+  --opacity-medium: 0.8;
+  --filter-grayscale-full: 1;
+  --filter-grayscale-half: 0.5;
+  --filter-brightness-high: 1.1;
+  --filter-saturate-high: 1.2;
+
+  /* Gradient System */
+  --gradient-angle: 90deg;
+  --gradient-start: 0%;
+  --gradient-end: 100%;
+
+  /* Color Mixing Values */
+  --color-mix-light: 3%;
+  --color-mix-dark: 8%;
+
+  /* Border System */
+  --border-width-thin: 1px;
+  --border-width-thick: 2px;
+
   /* ======================================
    * LAYOUT SYSTEM
    * ====================================== */
-  
+
   /* Spacing Scale */
-  --space-xs: 0.25rem;    /* 4px */
-  --space-sm: 0.5rem;     /* 8px */
-  --space-md: 1rem;       /* 16px */
-  --space-lg: 1.5rem;     /* 24px */
-  --space-xl: 2rem;       /* 32px */
-  --space-2xl: 3rem;      /* 48px */
-  --space-3xl: 4rem;      /* 64px */
-  
+  --space-xs: 0.25rem; /* 4px */
+  --space-sm: 0.5rem; /* 8px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: 1.5rem; /* 24px */
+  --space-xl: 2rem; /* 32px */
+  --space-2xl: 3rem; /* 48px */
+  --space-3xl: 4rem; /* 64px */
+
   /* Border Radius */
-  --radius-sm: 0.375rem;  /* 6px */
-  --radius-md: 0.5rem;    /* 8px */
-  --radius-lg: 0.75rem;   /* 12px */
-  --radius-xl: 1rem;      /* 16px */
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.75rem; /* 12px */
+  --radius-xl: 1rem; /* 16px */
   --radius-full: 9999px;
-  
+
   /* Typography Scale */
-  --text-xs: 0.75rem;     /* 12px */
-  --text-sm: 0.875rem;    /* 14px */
-  --text-base: 1rem;      /* 16px */
-  --text-lg: 1.125rem;    /* 18px */
-  --text-xl: 1.25rem;     /* 20px */
-  --text-2xl: 1.5rem;     /* 24px */
-  --text-3xl: 1.875rem;   /* 30px */
-  --text-4xl: 2.25rem;    /* 36px */
-  
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+
   /* Font Weights */
   --font-normal: 400;
   --font-medium: 500;
   --font-semibold: 600;
   --font-bold: 700;
-  
+
   /* Line Heights */
   --leading-tight: 1.25;
   --leading-normal: 1.5;
   --leading-relaxed: 1.625;
-  
+
   /* Shadow System */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  
+
   /* Z-Index System */
   --z-dropdown: 10;
   --z-sticky: 20;
@@ -205,27 +241,36 @@
   --z-popover: 60;
   --z-tooltip: 70;
   --z-notification: 80;
-  
+
   /* Minimum Touch Targets (WCAG AAA) */
   --min-touch-size: 44px;
-  
+
   /* Transition System */
   --transition-fast: 150ms ease-in-out;
   --transition-normal: 250ms ease-in-out;
   --transition-slow: 350ms ease-in-out;
-  
+  --animation-gradient: 3s ease-in-out infinite; /* Gradient animation duration */
+
+  /* Typography Enhancement Values (WCAG 2.2 AAA) */
+  --letter-spacing-base: 0.025em;
+  --letter-spacing-enhanced: 0.12em; /* 2x letter spacing for accessibility */
+  --word-spacing-enhanced: 0.16em; /* Enhanced word spacing for readability */
+  --line-height-enhanced: 1.5; /* 1.5x line height for accessibility */
+  --text-decoration-thickness: 2px; /* Standard text decoration thickness */
+  --text-underline-offset: 0.2em; /* Standard underline offset */
+
   /* ======================================
    * RESPONSIVE BREAKPOINTS (EM-BASED)
    * ====================================== */
-  
+
   /* Breakpoint Variables (em-based for accessibility) */
-  --breakpoint-xs: 20em;      /* 320px @ 16px base */
-  --breakpoint-sm: 40em;      /* 640px @ 16px base */
-  --breakpoint-md: 48em;      /* 768px @ 16px base */
-  --breakpoint-lg: 64em;      /* 1024px @ 16px base */
-  --breakpoint-xl: 80em;      /* 1280px @ 16px base */
-  --breakpoint-2xl: 96em;     /* 1536px @ 16px base */
-  
+  --breakpoint-xs: 20em; /* 320px @ 16px base */
+  --breakpoint-sm: 40em; /* 640px @ 16px base */
+  --breakpoint-md: 48em; /* 768px @ 16px base */
+  --breakpoint-lg: 64em; /* 1024px @ 16px base */
+  --breakpoint-xl: 80em; /* 1280px @ 16px base */
+  --breakpoint-2xl: 96em; /* 1536px @ 16px base */
+
   /* Container Max Widths */
   --container-xs: 100%;
   --container-sm: 640px;
@@ -292,7 +337,7 @@ h6 {
   margin-bottom: var(--space-lg);
   font-size: var(--text-2xl);
   font-weight: var(--font-bold);
-  letter-spacing: 0.025em;
+  letter-spacing: var(--letter-spacing-base);
   text-wrap: balance;
   color: var(--text-primary);
 }
@@ -382,11 +427,21 @@ p {
 }
 
 /* Hide/show utilities for different screen sizes */
-.hidden-xs { display: none; }
-.hidden-sm { display: block; }
-.hidden-md { display: block; }
-.hidden-lg { display: block; }
-.hidden-xl { display: block; }
+.hidden-xs {
+  display: none;
+}
+.hidden-sm {
+  display: block;
+}
+.hidden-md {
+  display: block;
+}
+.hidden-lg {
+  display: block;
+}
+.hidden-xl {
+  display: block;
+}
 
 /* ======================================
  * RESPONSIVE MEDIA QUERIES
@@ -398,13 +453,17 @@ p {
     max-width: var(--container-sm);
     padding: 0 var(--space-lg);
   }
-  
+
   .grid-responsive {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  .hidden-xs { display: block; }
-  .hidden-sm { display: none; }
+
+  .hidden-xs {
+    display: block;
+  }
+  .hidden-sm {
+    display: none;
+  }
 }
 
 /* Medium screens and up (48em / 768px) */
@@ -412,13 +471,17 @@ p {
   .container {
     max-width: var(--container-md);
   }
-  
+
   .grid-responsive {
     grid-template-columns: repeat(3, 1fr);
   }
-  
-  .hidden-sm { display: block; }
-  .hidden-md { display: none; }
+
+  .hidden-sm {
+    display: block;
+  }
+  .hidden-md {
+    display: none;
+  }
 }
 
 /* Large screens and up (64em / 1024px) */
@@ -427,13 +490,17 @@ p {
     max-width: var(--container-lg);
     padding: 0 var(--space-xl);
   }
-  
+
   .grid-responsive {
     grid-template-columns: repeat(4, 1fr);
   }
-  
-  .hidden-md { display: block; }
-  .hidden-lg { display: none; }
+
+  .hidden-md {
+    display: block;
+  }
+  .hidden-lg {
+    display: none;
+  }
 }
 
 /* Extra large screens and up (80em / 1280px) */
@@ -441,9 +508,13 @@ p {
   .container {
     max-width: var(--container-xl);
   }
-  
-  .hidden-lg { display: block; }
-  .hidden-xl { display: none; }
+
+  .hidden-lg {
+    display: block;
+  }
+  .hidden-xl {
+    display: none;
+  }
 }
 
 /* 2XL screens and up (96em / 1536px) */
@@ -451,6 +522,8 @@ p {
   .container {
     max-width: var(--container-2xl);
   }
-  
-  .hidden-xl { display: block; }
+
+  .hidden-xl {
+    display: block;
+  }
 }

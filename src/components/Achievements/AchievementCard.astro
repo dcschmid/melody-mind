@@ -47,6 +47,7 @@ import { useTranslations } from "@utils/i18n";
 import type { LocalizedAchievement } from "../../types/achievement";
 import Headline from "../Headline.astro";
 import Paragraph from "../Paragraph.astro";
+import SkipLink from "../Shared/SkipLink.astro";
 
 interface Props {
   /** The achievement object containing all display data */
@@ -73,90 +74,119 @@ const statusText =
       : t("achievements.status.locked");
 
 const pointsValue = category?.points ?? 0;
+
+// Error handling for missing icons
+if (!iconPath && !category?.iconPath) {
+  console.warn(`No icon available for achievement ${achievement.id}`);
+}
+
+// ARIA state management for expanded/current state
+const ariaExpanded = status === "unlocked" ? "true" : "false";
+const ariaCurrent = status === "unlocked" ? "true" : undefined;
 ---
 
-<div
-  class={`achievement-card ${statusClass}`}
-  data-testid={`achievement-card-${achievement.id}`}
-  data-category={category?.code}
-  data-status={status}
-  role="button"
-  tabindex="0"
-  aria-label={`${name}: ${statusText}`}
-  aria-describedby={`achievement-${achievement.id}-description achievement-${achievement.id}-points`}
->
-  <div class="achievement-card__header">
-    {
-      iconPath ? (
-        <Image
-          src={iconPath}
-          alt=""
-          width={64}
-          height={64}
-          loading="lazy"
-          class="achievement-card__icon"
-          format="webp"
-          aria-hidden="true"
-        />
-      ) : (
-        <div class="achievement-card__icon-placeholder">
-          <Icon name="trophy" width="32" height="32" aria-hidden="true" />
+<section aria-labelledby={`achievement-${achievement.id}-title`}>
+  <SkipLink targetId="next-achievement" />
+
+  <div
+    class={`achievement-card ${statusClass}`}
+    data-testid={`achievement-card-${achievement.id}`}
+    data-category={category?.code}
+    data-status={status}
+    role="button"
+    tabindex="0"
+    aria-label={`${name}: ${statusText}`}
+    aria-describedby={`achievement-${achievement.id}-description achievement-${achievement.id}-points achievement-tooltip-${achievement.id}`}
+    aria-expanded={ariaExpanded}
+    aria-current={ariaCurrent}
+  >
+    <div class="achievement-card__header">
+      {
+        iconPath ? (
+          <Image
+            src={iconPath}
+            alt=""
+            width={64}
+            height={64}
+            loading="lazy"
+            class="achievement-card__icon"
+            format="webp"
+            aria-hidden="true"
+          />
+        ) : (
+          <div class="achievement-card__icon-placeholder">
+            <Icon name="trophy" width="32" height="32" aria-hidden="true" />
+          </div>
+        )
+      }
+      {
+        status === "unlocked" && (
+          <div class="achievement-card__badge" aria-hidden="true">
+            <Icon name="check-circle" width="16" height="16" />
+          </div>
+        )
+      }
+    </div>
+
+    <div class="achievement-card__content">
+      <Headline
+        level="h3"
+        variant="medium"
+        id={`achievement-${achievement.id}-title`}
+        ariaLabel={`${name}: ${statusText}`}
+        textAlign="center"
+      >
+        {name}
+        <span class="achievement-card__status sr-only">{statusText}</span>
+      </Headline>
+
+      <Paragraph
+        {description}
+        textSize="lg"
+        enhancedSpacing={false}
+        ariaLive="polite"
+        id={`achievement-${achievement.id}-description`}
+      />
+
+      <div class="achievement-card__meta">
+        <span class="achievement-card__points" id={`achievement-${achievement.id}-points`}>
+          {t("achievements.points", { points: pointsValue })}
+        </span>
+      </div>
+
+      <div
+        class="achievement-card__progress-container"
+        aria-label={t("achievements.progress", { progress: progressPercentage })}
+        aria-describedby={`achievement-${achievement.id}-description`}
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <div
+          class="achievement-card__progress-bar"
+          role="progressbar"
+          aria-valuenow={progressPercentage}
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-label={t("achievements.progressBar", { name, progress: progressPercentage })}
+          style={`width: ${progressPercentage}%`}
+        >
         </div>
-      )
-    }
-    {
-      status === "unlocked" && (
-        <div class="achievement-card__badge" aria-hidden="true">
-          <Icon name="check-circle" width="16" height="16" />
-        </div>
-      )
-    }
-  </div>
+      </div>
 
-  <div class="achievement-card__content">
-    <Headline
-      level="h3"
-      className="achievement-card__title"
-      focusable={false}
-      ariaLabel={`${name}: ${statusText}`}
-    >
-      {name}
-      <span class="achievement-card__status sr-only">{statusText}</span>
-    </Headline>
-
-    <Paragraph
-      {description}
-      textSize="lg"
-      className="achievement-card__description"
-      enhancedSpacing={true}
-      ariaLive="polite"
-      id={`achievement-${achievement.id}-description`}
-    />
-
-    <div class="achievement-card__meta">
-      <span class="achievement-card__points" id={`achievement-${achievement.id}-points`}>
-        {t("achievements.points", { points: pointsValue })}
+      <!-- Enhanced tooltip for additional context -->
+      <span role="tooltip" id={`achievement-tooltip-${achievement.id}`} class="sr-only">
+        {
+          t("achievements.detailedDescription", {
+            name,
+            status: statusText,
+            progress: progressPercentage,
+            points: pointsValue,
+          })
+        }
       </span>
     </div>
-
-    <div
-      class="achievement-card__progress-container"
-      aria-label={t("achievements.progress", { progress: progressPercentage })}
-      aria-describedby={`achievement-${achievement.id}-description`}
-    >
-      <div
-        class="achievement-card__progress-bar"
-        role="progressbar"
-        aria-valuenow={progressPercentage}
-        aria-valuemin="0"
-        aria-valuemax="100"
-        aria-label={t("achievements.progressBar", { name, progress: progressPercentage })}
-        style={`width: ${progressPercentage}%`}
-      >
-      </div>
-    </div>
   </div>
-</div>
+</section>
 
 <script>
   // Modern achievement card interaction with improved performance and accessibility
@@ -195,17 +225,41 @@ const pointsValue = category?.points ?? 0;
     }
 
     private triggerCardSelection(card: HTMLElement): void {
-      // Enhanced custom event with more context
-      const customEvent = new CustomEvent("achievement:select", {
-        bubbles: true,
-        detail: {
-          achievementId: card.dataset.testid?.replace("achievement-card", ""),
-          category: card.dataset.category,
-          status: card.dataset.status,
-          timestamp: Date.now(),
-        },
-      });
-      card.dispatchEvent(customEvent);
+      try {
+        // Enhanced custom event with more context
+        const customEvent = new CustomEvent("achievement:select", {
+          bubbles: true,
+          detail: {
+            achievementId: card.dataset.testid?.replace("achievement-card-", ""),
+            category: card.dataset.category,
+            status: card.dataset.status,
+            timestamp: Date.now(),
+          },
+        });
+
+        // Validate the card has required data
+        if (!card.dataset.testid) {
+          console.warn("Achievement card missing required data-testid attribute");
+        }
+
+        card.dispatchEvent(customEvent);
+
+        // Update ARIA expanded state for screen readers
+        const expanded = card.getAttribute("aria-expanded") === "true";
+        card.setAttribute("aria-expanded", (!expanded).toString());
+      } catch (error) {
+        console.error("Error handling achievement card selection:", error);
+      }
+    }
+
+    private handleImageError(event: Event): void {
+      const img = event.target as HTMLImageElement;
+      const placeholder = img.parentElement?.querySelector(".achievement-card__icon-placeholder");
+      if (placeholder) {
+        img.style.display = "none";
+        (placeholder as HTMLElement).style.display = "flex";
+      }
+      console.warn(`Failed to load achievement icon: ${img.src}`);
     }
   }
 
@@ -316,16 +370,6 @@ const pointsValue = category?.points ?? 0;
     gap: var(--space-sm);
   }
 
-  /* Override Headline component styles for Achievement Card context */
-  .achievement-card__title.headline {
-    margin: 0 !important;
-    font-size: var(--text-lg) !important;
-    font-weight: var(--font-semibold) !important;
-    color: var(--text-primary) !important;
-    line-height: var(--leading-tight) !important;
-    margin-bottom: 0 !important;
-  }
-
   .achievement-card__status {
     font-weight: var(--font-normal);
     color: var(--text-secondary);
@@ -369,9 +413,9 @@ const pointsValue = category?.points ?? 0;
   .achievement-card__progress-bar {
     height: 100%;
     background: linear-gradient(
-      90deg,
-      var(--color-primary-600) 0%,
-      var(--color-secondary-600) 100%
+      var(--gradient-angle),
+      var(--color-primary-600) var(--gradient-start),
+      var(--color-secondary-600) var(--gradient-end)
     );
     transition: width var(--transition-normal);
     border-radius: var(--radius-sm);
@@ -381,14 +425,14 @@ const pointsValue = category?.points ?? 0;
   .achievement-card--unlocked {
     border-color: var(--color-success-500);
     background: light-dark(
-      color-mix(in srgb, var(--color-success-500) 3%, var(--card-bg)),
-      color-mix(in srgb, var(--color-success-500) 8%, var(--card-bg))
+      color-mix(in srgb, var(--color-success-500) var(--color-mix-light), var(--card-bg)),
+      color-mix(in srgb, var(--color-success-500) var(--color-mix-dark), var(--card-bg))
     );
   }
 
   .achievement-card--unlocked .achievement-card__icon,
   .achievement-card--unlocked .achievement-card__icon-placeholder {
-    filter: brightness(1.1) saturate(1.2);
+    filter: brightness(var(--filter-brightness-high)) saturate(var(--filter-saturate-high));
   }
 
   .achievement-card--unlocked .achievement-card__progress-bar {
@@ -398,23 +442,27 @@ const pointsValue = category?.points ?? 0;
   .achievement-card--in-progress {
     border-color: var(--color-info-500);
     background: light-dark(
-      color-mix(in srgb, var(--color-info-500) 3%, var(--card-bg)),
-      color-mix(in srgb, var(--color-info-500) 8%, var(--card-bg))
+      color-mix(in srgb, var(--color-info-500) var(--color-mix-light), var(--card-bg)),
+      color-mix(in srgb, var(--color-info-500) var(--color-mix-dark), var(--card-bg))
     );
   }
 
   .achievement-card--in-progress .achievement-card__progress-bar {
-    background: linear-gradient(90deg, var(--color-info-500) 0%, var(--color-primary-600) 100%);
+    background: linear-gradient(
+      var(--gradient-angle),
+      var(--color-info-500) var(--gradient-start),
+      var(--color-primary-600) var(--gradient-end)
+    );
   }
 
   .achievement-card--locked {
-    opacity: 0.7;
-    filter: grayscale(0.5);
+    opacity: var(--opacity-disabled);
+    filter: grayscale(var(--filter-grayscale-half));
   }
 
   .achievement-card--locked .achievement-card__icon,
   .achievement-card--locked .achievement-card__icon-placeholder {
-    filter: grayscale(1) opacity(0.6);
+    filter: grayscale(var(--filter-grayscale-full)) opacity(var(--opacity-low));
   }
 
   .achievement-card--locked .achievement-card__title {
@@ -445,27 +493,13 @@ const pointsValue = category?.points ?? 0;
   }
 
   .achievement-card--locked:hover {
-    opacity: 0.8;
+    opacity: var(--opacity-medium);
     transform: none;
   }
 
-  /* Modern responsive design with container queries */
-  @container (min-width: 300px) {
-    .achievement-card {
-      padding: var(--space-xl);
-    }
-
-    .achievement-card__title {
-      font-size: var(--text-xl);
-    }
-
-    .achievement-card__meta {
-      margin-top: var(--space-lg);
-    }
-  }
-
-  /* Fallback for browsers without container query support */
-  @media (min-width: 48em) {
+  /* Modern responsive design with container queries and fallback */
+  @container (min-width: var(--breakpoint-sm)),
+  (min-width: var(--breakpoint-md)) {
     .achievement-card {
       padding: var(--space-xl);
     }
@@ -496,7 +530,7 @@ const pointsValue = category?.points ?? 0;
   /* High contrast mode support */
   @media (prefers-contrast: high) {
     .achievement-card {
-      border-width: 2px;
+      border-width: var(--border-width-thick);
     }
 
     .achievement-card--unlocked {
@@ -508,7 +542,7 @@ const pointsValue = category?.points ?? 0;
     }
 
     .achievement-card__badge {
-      border-width: 2px;
+      border-width: var(--border-width-thick);
     }
   }
 </style>
