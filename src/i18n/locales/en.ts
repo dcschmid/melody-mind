@@ -125,12 +125,8 @@ export default {
   "auth.password.no_sequences": "Password must not contain simple sequences",
   "auth.password.match": "Passwords must match",
   "auth.password.strength": "Password strength",
-  "auth.password.strength.weak": "Weak",
-  "auth.password.strength.medium": "Medium",
-  "auth.password.strength.strong": "Strong",
   "auth.password.strength.good": "Good",
   "auth.password.strength.description": "Password security level indicator",
-  "auth.password.strength.very_strong": "Very Strong",
 
   // Form Validation
   "auth.form.required": "This field is required",
@@ -581,6 +577,21 @@ export default {
   "achievements.filter.focus_status": "Focus status filter",
   "achievements.filter.focus_category": "Focus category filter",
   "achievements.filter.toggle_keyboard_help": "Toggle keyboard help",
+
+  // Achievements Filter Screenreader Announcements
+  "achievements.filter.announcement.changed": "Filter changed: {filterType} to {filterValue}",
+  "achievements.filter.announcement.no_results": "No achievements match the current filters",
+  "achievements.filter.announcement.results":
+    "{visibleCards} achievement{cardPlural} found in {visibleSections} categor{sectionPlural}",
+  "achievements.filter.announcement.reset": "All filters have been reset",
+
+  // Achievements Filter Count Display
+  "achievements.filter.count.all": "All ({count} visible)",
+  "achievements.filter.count.category_all": "All Categories ({count} visible)",
+  "achievements.filter.count.generic": "{value} ({count} visible)",
+
+  // Achievement Filter Reset Button
+  achievementFilterReset: "Reset all achievement filters",
 
   // Additional Chronology Game Keys
   "game.chronology.meta.description": "Music Chronology Game:",

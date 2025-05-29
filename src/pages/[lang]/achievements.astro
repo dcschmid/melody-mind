@@ -267,11 +267,30 @@ const sortedCategories = Object.entries(achievementsByCategory).sort(
     color: var(--color-gray-200);
   }
 
-  /* Achievement grid */
+  /* Achievement grid - Optimized for filtering without gaps */
   .achievements__grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
+
+    /* Grid optimization for filtered elements */
+    grid-auto-flow: row;
+    align-items: start;
+    justify-items: stretch;
+
+    /* Ensure smooth transitions when filtering */
+    transition: grid-template-columns var(--transition-normal);
+  }
+
+  /* Utility class for empty grids */
+  .achievements__grid:empty {
+    display: none;
+  }
+
+  /* Ensure achievement cards maintain proper sizing */
+  .achievements__grid > * {
+    min-width: 0; /* Prevent grid overflow */
+    width: 100%;
   }
 
   /* Summary section */
@@ -316,7 +335,7 @@ const sortedCategories = Object.entries(achievementsByCategory).sort(
     color: var(--color-pink-300);
   }
 
-  /* Responsive adjustments */
+  /* Responsive adjustments with auto-fit grid for gap-free filtering */
   @media (min-width: 768px) {
     .achievements {
       padding: var(--spacing-lg) var(--spacing-md);
@@ -327,7 +346,7 @@ const sortedCategories = Object.entries(achievementsByCategory).sort(
     }
 
     .achievements__grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
     }
 
     .achievements__stat {
@@ -337,7 +356,15 @@ const sortedCategories = Object.entries(achievementsByCategory).sort(
 
   @media (min-width: 1024px) {
     .achievements__grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      max-width: none;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .achievements__grid {
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      gap: var(--spacing-xl);
     }
   }
 

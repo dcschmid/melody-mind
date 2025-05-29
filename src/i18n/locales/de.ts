@@ -130,9 +130,6 @@ export default {
   "auth.password.no_sequences": "Passwort darf keine einfachen Sequenzen enthalten",
   "auth.password.match": "Passwörter müssen übereinstimmen",
   "auth.password.strength": "Passwortstärke",
-  "auth.password.strength.weak": "Schwach",
-  "auth.password.strength.medium": "Mittel",
-  "auth.password.strength.strong": "Stark",
   "auth.password.strength.good": "Gut",
   "auth.password.strength.description": "Passwortsicherheitsstufen-Indikator",
 
@@ -600,6 +597,22 @@ export default {
   "achievements.filter.focus_status": "Status-Filter fokussieren",
   "achievements.filter.focus_category": "Kategorie-Filter fokussieren",
   "achievements.filter.toggle_keyboard_help": "Tastenkürzel-Hilfe ein-/ausblenden",
+
+  // Achievements Filter Screenreader Announcements
+  "achievements.filter.announcement.changed": "Filter geändert: {filterType} auf {filterValue}",
+  "achievements.filter.announcement.no_results":
+    "Keine Achievements entsprechen den aktuellen Filtern",
+  "achievements.filter.announcement.results":
+    "{visibleCards} Achievement{cardPlural} in {visibleSections} Kategorie{sectionPlural} gefunden",
+  "achievements.filter.announcement.reset": "Alle Filter wurden zurückgesetzt",
+
+  // Achievements Filter Count Display
+  "achievements.filter.count.all": "Alle ({count} sichtbar)",
+  "achievements.filter.count.category_all": "Alle Kategorien ({count} sichtbar)",
+  "achievements.filter.count.generic": "{value} ({count} sichtbar)",
+
+  // Achievement Filter Reset Button
+  achievementFilterReset: "Alle Achievement-Filter zurücksetzen",
 
   // Zusätzliche Chronologie-Spiel-Schlüssel
   "game.chronology.meta.description": "Musik-Chronologie Spiel:",

@@ -487,7 +487,8 @@ export default {
   "achievements.unlocked_at": "Avattu {date}",
   "achievements.points": "Pisteet: {points}",
   "achievements.rarity": "Harvinaisuus: {percentage}%",
-  "achievements.rarity.tooltip": "Näyttää kuinka harvinainen tämä saavutus on - matalammat prosentit tarkoittavat, että se on harvinaisempi",
+  "achievements.rarity.tooltip":
+    "Näyttää kuinka harvinainen tämä saavutus on - matalammat prosentit tarkoittavat, että se on harvinaisempi",
   "achievements.notification.unlocked": "Saavutus avattu!",
   "achievements.notification.progress": "Saavutuksen edistyminen päivitetty!",
   "achievements.filter.title": "Suodata Saavutuksia",
@@ -513,8 +514,10 @@ export default {
   "achievements.badge.new": "Uusi saavutus avattu",
   "achievements.badge.new_with_count": "{count} uutta saavutusta avattu",
   "achievements.badge.fallback_text": "Saavutusilmoitus",
-  "achievements.badge.context_description": "Saavutusilmoituksen merkki. Näyttää uusien avattujen saavutusten määrän navigointialueella.",
-  "achievements.badge.keyboard_instructions": "Paina Enter tai välilyönti nähdäksesi saavutussivusi.",
+  "achievements.badge.context_description":
+    "Saavutusilmoituksen merkki. Näyttää uusien avattujen saavutusten määrän navigointialueella.",
+  "achievements.badge.keyboard_instructions":
+    "Paina Enter tai välilyönti nähdäksesi saavutussivusi.",
   "achievements.notification.close": "Sulje saavutusilmoitus",
 
   // API-virheilmoitukset
@@ -582,6 +585,22 @@ export default {
   "achievements.filter.focus_category": "Kohdista kategoriasuodattimeen",
   "achievements.filter.toggle_keyboard_help": "Näytä/piilota pikanäppäinohjeet",
 
+  // Laskurin näyttö suodattimille
+  "achievements.filter.count.all": "Kaikki ({count} näkyvissä)",
+  "achievements.filter.count.category_all": "Kaikki Kategoriat ({count} näkyvissä)",
+  "achievements.filter.count.generic": "{value} ({count} näkyvissä)",
+
+  // Achievement Filter Reset Button
+  achievementFilterReset: "Nollaa kaikki saavutus suodattimet",
+
+  // Ruudunlukijan kuulutukset - saavutussuodattimet
+  "achievements.filter.announcement.changed":
+    "Suodatin muutettu: {filterType} arvoon {filterValue}",
+  "achievements.filter.announcement.no_results": "Mikään saavutus ei vastaa nykyisiä suodattimia",
+  "achievements.filter.announcement.results":
+    "{visibleCards} saavutus{cardPlural} löydetty {visibleSections} kategoria{sectionPlural}",
+  "achievements.filter.announcement.reset": "Kaikki suodattimet on nollattu",
+
   "game.chronology.move.up": "Siirrä ylös",
   "game.chronology.move.down": "Siirrä alas",
   "game.time.extend": "Pidennä aikaa",
@@ -606,7 +625,8 @@ export default {
   "layout.error.tracking": "Virheidenseuranta käytössä",
   "layout.error.tracking.failed": "Virheidenseurannan alustus epäonnistui:",
   "layout.accessibility.motion.reduced": "Rajoitettu liike -tila käytössä saavutettavuuden vuoksi",
-  "layout.accessibility.theme.dark": "Tumma teema aktivoitu optimaalista kontrastia ja saavutettavuutta varten",
+  "layout.accessibility.theme.dark":
+    "Tumma teema aktivoitu optimaalista kontrastia ja saavutettavuutta varten",
   "layout.analytics.init.failed": "Analytiikan alustus epäonnistui:",
 
   "common.accessibility.main_content": "Pääsisältöalue",
