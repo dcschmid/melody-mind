@@ -502,6 +502,12 @@ export default {
   "achievements.notification.unlocked": "Prestatie ontgrendeld!",
   "achievements.notification.progress": "Prestatievoortgang bijgewerkt!",
   "achievements.notification.close": "Sluit prestatie melding",
+  "achievements.notification.new_achievement": "Nieuwe prestatie melding",
+  "achievements.notification.pause": "Pauzeer melding timer",
+  "achievements.notification.pause_title": "Pauzeer het automatisch wegvallen van deze melding",
+  "achievements.notification.toggle_sound": "Schakel melding geluid",
+  "achievements.notification.toggle_sound_title":
+    "Schakel geluid voor prestatie meldingen in of uit",
   "achievements.filter.title": "Filter Prestaties",
   "achievements.filter.status": "Status",
   "achievements.filter.category": "Categorie",

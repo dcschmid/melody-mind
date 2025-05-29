@@ -519,6 +519,12 @@ export default {
   "achievements.badge.keyboard_instructions":
     "Paina Enter tai välilyönti nähdäksesi saavutussivusi.",
   "achievements.notification.close": "Sulje saavutusilmoitus",
+  "achievements.notification.new_achievement": "Uusi saavutusilmoitus",
+  "achievements.notification.pause": "Keskeytä ilmoitusajastin",
+  "achievements.notification.pause_title": "Keskeytä tämän ilmoituksen automaattinen sulkeminen",
+  "achievements.notification.toggle_sound": "Vaihda ilmoitusääni",
+  "achievements.notification.toggle_sound_title":
+    "Ota käyttöön tai poista käytöstä ääni saavutusilmoituksille",
 
   // API-virheilmoitukset
   "errors.auth.unauthorized": "Sinun on kirjauduttava sisään käyttääksesi tätä toimintoa",

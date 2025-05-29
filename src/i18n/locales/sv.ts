@@ -477,6 +477,12 @@ export default {
   "achievements.notification.unlocked": "Prestation upplåst!",
   "achievements.notification.progress": "Prestationsframsteg uppdaterat!",
   "achievements.notification.close": "Stäng prestationsavisering",
+  "achievements.notification.new_achievement": "Ny prestationsavisering",
+  "achievements.notification.pause": "Pausa aviseringtimer",
+  "achievements.notification.pause_title": "Pausa den automatiska avstängningen av denna avisering",
+  "achievements.notification.toggle_sound": "Växla aviseringsljud",
+  "achievements.notification.toggle_sound_title":
+    "Aktivera eller inaktivera ljud för prestationsaviseringar",
   "achievements.filter.title": "Filtrera Prestationer",
   "achievements.filter.status": "Status",
   "achievements.filter.category": "Kategori",

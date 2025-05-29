@@ -506,6 +506,12 @@ export default {
   "achievements.notification.unlocked": "Conquista desbloqueada!",
   "achievements.notification.progress": "Progresso da conquista atualizado!",
   "achievements.notification.close": "Fechar notificação de conquista",
+  "achievements.notification.new_achievement": "Notificação de nova conquista",
+  "achievements.notification.pause": "Pausar timer de notificação",
+  "achievements.notification.pause_title": "Pausar o descarte automático desta notificação",
+  "achievements.notification.toggle_sound": "Alternar som da notificação",
+  "achievements.notification.toggle_sound_title":
+    "Ativar ou desativar som para notificações de conquistas",
   "achievements.filter.title": "Filtrar Conquistas",
   "achievements.filter.status": "Status",
   "achievements.filter.category": "Categoria",
