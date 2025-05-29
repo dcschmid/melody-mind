@@ -501,7 +501,8 @@ export default {
   "achievements.unlocked_at": "Desbloqueado em {date}",
   "achievements.points": "Pontos: {points}",
   "achievements.rarity": "Raridade: {percentage}%",
-  "achievements.rarity.tooltip": "Mostra o quão raro é este achievement - percentagens mais baixas significam que é mais raro",
+  "achievements.rarity.tooltip":
+    "Mostra o quão raro é este achievement - percentagens mais baixas significam que é mais raro",
   "achievements.notification.unlocked": "Conquista desbloqueada!",
   "achievements.notification.progress": "Progresso da conquista atualizado!",
   "achievements.notification.close": "Fechar notificação de conquista",
@@ -528,8 +529,10 @@ export default {
   "achievements.badge.new": "Nova conquista desbloqueada",
   "achievements.badge.new_with_count": "{count} novas conquistas desbloqueadas",
   "achievements.badge.fallback_text": "Notificação de conquista",
-  "achievements.badge.context_description": "Badge de notificação de conquista. Mostra o número de novas conquistas desbloqueadas na área de navegação.",
-  "achievements.badge.keyboard_instructions": "Pressione Enter ou Espaço para ver sua página de conquistas.",
+  "achievements.badge.context_description":
+    "Badge de notificação de conquista. Mostra o número de novas conquistas desbloqueadas na área de navegação.",
+  "achievements.badge.keyboard_instructions":
+    "Pressione Enter ou Espaço para ver sua página de conquistas.",
 
   // Mensagens de erro da API
   "errors.auth.unauthorized": "Você precisa estar logado para acessar este recurso",
@@ -591,6 +594,21 @@ export default {
   "achievements.filter.focus_category": "Focar no filtro de categoria",
   "achievements.filter.toggle_keyboard_help": "Mostrar/ocultar ajuda do teclado",
 
+  // Contadores de exibição de filtros
+  "achievements.filter.count.all": "Todos ({count} visível)",
+  "achievements.filter.count.category_all": "Todas as Categorias ({count} visível)",
+  "achievements.filter.count.generic": "{value} ({count} visível)",
+
+  // Achievement Filter Reset Button
+  achievementFilterReset: "Redefinir todos os filtros de conquistas",
+
+  // Anúncios para leitores de tela - filtros de conquistas
+  "achievements.filter.announcement.changed": "Filtro alterado: {filterType} para {filterValue}",
+  "achievements.filter.announcement.no_results": "Nenhuma conquista corresponde aos filtros atuais",
+  "achievements.filter.announcement.results":
+    "{visibleCards} conquista{cardPlural} encontrada{cardPlural} em {visibleSections} categoria{sectionPlural}",
+  "achievements.filter.announcement.reset": "Todos os filtros foram redefinidos",
+
   "accessibility.skip.to.game": "Pular para o jogo",
   "game.info.badges": "Informações do jogo",
   "game.difficulty.label": "Nível de dificuldade",
@@ -609,7 +627,8 @@ export default {
   "layout.error.system": "Ocorreu um erro do sistema. Por favor, atualize a página.",
   "layout.error.tracking": "Erro rastreado:",
   "layout.error.tracking.failed": "Rastreamento de erro falhou:",
-  "layout.accessibility.motion.reduced": "Modo de movimento reduzido habilitado para acessibilidade",
+  "layout.accessibility.motion.reduced":
+    "Modo de movimento reduzido habilitado para acessibilidade",
   "layout.accessibility.theme.dark": "Tema escuro ativado para contraste ideal e acessibilidade",
   "layout.analytics.init.failed": "Falha na inicialização de analytics:",
 };

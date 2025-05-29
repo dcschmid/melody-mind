@@ -497,7 +497,8 @@ export default {
   "achievements.unlocked_at": "Ontgrendeld op {date}",
   "achievements.points": "Punten: {points}",
   "achievements.rarity": "Zeldzaamheid: {percentage}%",
-  "achievements.rarity.tooltip": "Toont hoe zeldzaam deze achievement is - lagere percentages betekenen dat het zeldzamer is",
+  "achievements.rarity.tooltip":
+    "Toont hoe zeldzaam deze achievement is - lagere percentages betekenen dat het zeldzamer is",
   "achievements.notification.unlocked": "Prestatie ontgrendeld!",
   "achievements.notification.progress": "Prestatievoortgang bijgewerkt!",
   "achievements.notification.close": "Sluit prestatie melding",
@@ -524,8 +525,10 @@ export default {
   "achievements.badge.new": "Nieuwe prestatie ontgrendeld",
   "achievements.badge.new_with_count": "{count} nieuwe prestaties ontgrendeld",
   "achievements.badge.fallback_text": "Prestatie melding",
-  "achievements.badge.context_description": "Prestatie melding badge. Toont het aantal nieuwe ontgrendelde prestaties in het navigatiegebied.",
-  "achievements.badge.keyboard_instructions": "Druk op Enter of Spatie om je prestatiepagina te bekijken.",
+  "achievements.badge.context_description":
+    "Prestatie melding badge. Toont het aantal nieuwe ontgrendelde prestaties in het navigatiegebied.",
+  "achievements.badge.keyboard_instructions":
+    "Druk op Enter of Spatie om je prestatiepagina te bekijken.",
 
   // API foutmeldingen
   "errors.auth.unauthorized": "Je moet ingelogd zijn om toegang te krijgen tot deze functie",
@@ -593,6 +596,22 @@ export default {
   "achievements.filter.focus_category": "Focus op categoriefilter",
   "achievements.filter.toggle_keyboard_help": "Toetsenbordhelp tonen/verbergen",
 
+  // Teller weergave voor filters
+  "achievements.filter.count.all": "Alle ({count} zichtbaar)",
+  "achievements.filter.count.category_all": "Alle Categorieën ({count} zichtbaar)",
+  "achievements.filter.count.generic": "{value} ({count} zichtbaar)",
+
+  // Achievement Filter Reset Button
+  achievementFilterReset: "Reset alle prestatie filters",
+
+  // Aankondigingen voor schermlezer - prestatiefilters
+  "achievements.filter.announcement.changed": "Filter gewijzigd: {filterType} naar {filterValue}",
+  "achievements.filter.announcement.no_results":
+    "Geen prestaties komen overeen met de huidige filters",
+  "achievements.filter.announcement.results":
+    "{visibleCards} prestatie{cardPlural} gevonden in {visibleSections} categorie{sectionPlural}",
+  "achievements.filter.announcement.reset": "Alle filters zijn gereset",
+
   "game.chronology.move.up": "Omhoog verplaatsen",
   "game.chronology.move.down": "Omlaag verplaatsen",
   "game.time.extend": "Tijd verlengen",
@@ -606,7 +625,9 @@ export default {
   "layout.error.system": "Systeemfout opgetreden. Ververs de pagina.",
   "layout.error.tracking": "Fout gevolgd:",
   "layout.error.tracking.failed": "Foutvolging mislukt:",
-  "layout.accessibility.motion.reduced": "Gereduceerde bewegingsmodus ingeschakeld voor toegankelijkheid",
-  "layout.accessibility.theme.dark": "Donker thema geactiveerd voor optimaal contrast en toegankelijkheid",
+  "layout.accessibility.motion.reduced":
+    "Gereduceerde bewegingsmodus ingeschakeld voor toegankelijkheid",
+  "layout.accessibility.theme.dark":
+    "Donker thema geactiveerd voor optimaal contrast en toegankelijkheid",
   "layout.analytics.init.failed": "Analytics initialisatie mislukt:",
 };

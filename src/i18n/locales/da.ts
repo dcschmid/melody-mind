@@ -484,7 +484,8 @@ export default {
   "achievements.unlocked_at": "Låst op den {date}",
   "achievements.points": "Point: {points}",
   "achievements.rarity": "Sjældenhed: {percentage}%",
-  "achievements.rarity.tooltip": "Viser hvor sjælden denne præstation er - lavere procenter betyder, at den er sjældnere",
+  "achievements.rarity.tooltip":
+    "Viser hvor sjælden denne præstation er - lavere procenter betyder, at den er sjældnere",
   "achievements.notification.unlocked": "Præstation låst op!",
   "achievements.notification.progress": "Præstationsfremskridt opdateret!",
   "achievements.notification.close": "Luk præstationsmeddelelse",
@@ -511,8 +512,10 @@ export default {
   "achievements.badge.new": "Ny præstation låst op",
   "achievements.badge.new_with_count": "{count} nye præstationer låst op",
   "achievements.badge.fallback_text": "Præstationsmeddelelse",
-  "achievements.badge.context_description": "Præstationsmeddelelse-badge. Viser antal nye låste præstationer i navigationsområdet.",
-  "achievements.badge.keyboard_instructions": "Tryk Enter eller mellemrum for at se din præstationsside.",
+  "achievements.badge.context_description":
+    "Præstationsmeddelelse-badge. Viser antal nye låste præstationer i navigationsområdet.",
+  "achievements.badge.keyboard_instructions":
+    "Tryk Enter eller mellemrum for at se din præstationsside.",
 
   // API fejlmeddelelser
   "errors.auth.unauthorized": "Du skal være logget ind for at få adgang til denne funktion",
@@ -581,6 +584,21 @@ export default {
   "achievements.filter.focus_category": "Fokuser på kategorifilter",
   "achievements.filter.toggle_keyboard_help": "Vis/skjul tastaturhjælp",
 
+  // Tæller display til filtre
+  "achievements.filter.count.all": "Alle ({count} synlige)",
+  "achievements.filter.count.category_all": "Alle Kategorier ({count} synlige)",
+  "achievements.filter.count.generic": "{value} ({count} synlige)",
+
+  // Achievement Filter Reset Button
+  achievementFilterReset: "Nulstil alle præstation filtre",
+
+  // Meddelelser til skærmlæsere - præstationsfiltre
+  "achievements.filter.announcement.changed": "Filter ændret: {filterType} til {filterValue}",
+  "achievements.filter.announcement.no_results": "Ingen præstationer matcher de nuværende filtre",
+  "achievements.filter.announcement.results":
+    "{visibleCards} præstation{cardPlural} fundet i {visibleSections} kategori{sectionPlural}",
+  "achievements.filter.announcement.reset": "Alle filtre er blevet nulstillet",
+
   "game.time.extended": "Tid forlænget med 5 sekunder",
   "game.time.before.end": "Forlæng før spilslut",
 
@@ -600,7 +618,8 @@ export default {
   "layout.error.system": "Systemfejl opstod. Opdater venligst siden.",
   "layout.error.tracking": "Fejl sporet:",
   "layout.error.tracking.failed": "Fejlsporing mislykkedes:",
-  "layout.accessibility.motion.reduced": "Reduceret bevægelse tilstand aktiveret for tilgængelighed",
+  "layout.accessibility.motion.reduced":
+    "Reduceret bevægelse tilstand aktiveret for tilgængelighed",
   "layout.accessibility.theme.dark": "Mørkt tema aktiveret for optimal kontrast og tilgængelighed",
   "layout.analytics.init.failed": "Analytics initialisering mislykkedes:",
 };

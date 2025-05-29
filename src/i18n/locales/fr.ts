@@ -504,7 +504,8 @@ export default {
   "achievements.unlocked_at": "Déverrouillé le {date}",
   "achievements.points": "Points : {points}",
   "achievements.rarity": "Rareté : {percentage}%",
-  "achievements.rarity.tooltip": "Indique la rareté de ce succès - des pourcentages plus faibles signifient qu'il est plus rare",
+  "achievements.rarity.tooltip":
+    "Indique la rareté de ce succès - des pourcentages plus faibles signifient qu'il est plus rare",
   "achievements.notification.unlocked": "Succès déverrouillé !",
   "achievements.notification.progress": "Progression du succès mise à jour !",
   "achievements.notification.close": "Fermer la notification de succès",
@@ -531,8 +532,10 @@ export default {
   "achievements.badge.new": "Nouveau succès déverrouillé",
   "achievements.badge.new_with_count": "{count} nouveaux succès déverrouillés",
   "achievements.badge.fallback_text": "Notification de succès",
-  "achievements.badge.context_description": "Badge de notification de succès. Affiche le nombre de nouveaux succès déverrouillés dans la zone de navigation.",
-  "achievements.badge.keyboard_instructions": "Appuyez sur Entrée ou Espace pour voir votre page de succès.",
+  "achievements.badge.context_description":
+    "Badge de notification de succès. Affiche le nombre de nouveaux succès déverrouillés dans la zone de navigation.",
+  "achievements.badge.keyboard_instructions":
+    "Appuyez sur Entrée ou Espace pour voir votre page de succès.",
 
   // Messages d'erreur API
   "errors.auth.unauthorized": "Vous devez être connecté pour accéder à cette fonctionnalité",
@@ -595,7 +598,23 @@ export default {
   "achievements.filter.focus_category": "Focaliser le filtre de catégorie",
   "achievements.filter.toggle_keyboard_help": "Afficher/masquer l'aide des raccourcis clavier",
 
-  // Clés supplémentaires du jeu de chronologie
+  // Annonces pour lecteurs d'écran - filtres d'achievements
+  "achievements.filter.announcement.changed": "Filtre modifié : {filterType} à {filterValue}",
+  "achievements.filter.announcement.no_results":
+    "Aucun achievement ne correspond aux filtres actuels",
+  "achievements.filter.announcement.results":
+    "{visibleCards} achievement{cardPlural} trouvé{cardPlural} dans {visibleSections} catégorie{sectionPlural}",
+  "achievements.filter.announcement.reset": "Tous les filtres ont été réinitialisés",
+
+  // Achievements Filter Count Display
+  "achievements.filter.count.all": "Tous ({count} visibles)",
+  "achievements.filter.count.category_all": "Toutes les catégories ({count} visibles)",
+  "achievements.filter.count.generic": "{value} ({count} visibles)",
+
+  // Achievement Filter Reset Button
+  achievementFilterReset: "Réinitialiser tous les filtres de succès",
+
+  // Additional Chronology Game Keys
   "game.chronology.meta.description": "Jeu de Chronologie Musicale :",
   "game.meta.description.prefix": "Jouer",
   "game.meta.description.suffix": "en niveau de difficulté",
@@ -620,6 +639,7 @@ export default {
   "layout.error.tracking": "Erreur suivie :",
   "layout.error.tracking.failed": "Le suivi des erreurs a échoué :",
   "layout.accessibility.motion.reduced": "Mode de mouvement réduit activé pour l'accessibilité",
-  "layout.accessibility.theme.dark": "Thème sombre activé pour un contraste optimal et l'accessibilité",
+  "layout.accessibility.theme.dark":
+    "Thème sombre activé pour un contraste optimal et l'accessibilité",
   "layout.analytics.init.failed": "Échec de l'initialisation des analytiques :",
 };

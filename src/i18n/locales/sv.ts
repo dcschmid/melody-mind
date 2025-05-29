@@ -472,7 +472,8 @@ export default {
   "achievements.unlocked_at": "Upplåst den {date}",
   "achievements.points": "Poäng: {points}",
   "achievements.rarity": "Sällsynthet: {percentage}%",
-  "achievements.rarity.tooltip": "Visar hur sällsynt denna prestation är - lägre procentsatser betyder att den är mer sällsynt",
+  "achievements.rarity.tooltip":
+    "Visar hur sällsynt denna prestation är - lägre procentsatser betyder att den är mer sällsynt",
   "achievements.notification.unlocked": "Prestation upplåst!",
   "achievements.notification.progress": "Prestationsframsteg uppdaterat!",
   "achievements.notification.close": "Stäng prestationsavisering",
@@ -499,8 +500,10 @@ export default {
   "achievements.badge.new": "Ny prestation upplåst",
   "achievements.badge.new_with_count": "{count} nya prestationer upplåsta",
   "achievements.badge.fallback_text": "Prestationsavisering",
-  "achievements.badge.context_description": "Prestationsmeddelande-märke. Visar antal nya upplåsta prestationer i navigationsområdet.",
-  "achievements.badge.keyboard_instructions": "Tryck Enter eller mellanslag för att visa din prestationssida.",
+  "achievements.badge.context_description":
+    "Prestationsmeddelande-märke. Visar antal nya upplåsta prestationer i navigationsområdet.",
+  "achievements.badge.keyboard_instructions":
+    "Tryck Enter eller mellanslag för att visa din prestationssida.",
 
   // API felmeddelanden
   "errors.auth.unauthorized": "Du måste vara inloggad för att få tillgång till denna funktion",
@@ -553,6 +556,21 @@ export default {
   "achievements.filter.focus_status": "Fokusera på statusfilter",
   "achievements.filter.focus_category": "Fokusera på kategorifilter",
   "achievements.filter.toggle_keyboard_help": "Visa/dölj tangentbordshjälp",
+
+  // Räkningsvisning för filter
+  "achievements.filter.count.all": "Alla ({count} synliga)",
+  "achievements.filter.count.category_all": "Alla Kategorier ({count} synliga)",
+  "achievements.filter.count.generic": "{value} ({count} synliga)",
+
+  // Achievement Filter Reset Button
+  achievementFilterReset: "Återställ alla prestation filter",
+
+  // Skärmläsarmeddelanden - prestationsfilter
+  "achievements.filter.announcement.changed": "Filter ändrat: {filterType} till {filterValue}",
+  "achievements.filter.announcement.no_results": "Inga prestationer matchar de aktuella filtren",
+  "achievements.filter.announcement.results":
+    "{visibleCards} prestation{cardPlural} hittad{cardPlural} i {visibleSections} kategori{sectionPlural}",
+  "achievements.filter.announcement.reset": "Alla filter har återställts",
 
   // Ytterligare nycklar för Kronologispelet
   "game.chronology.meta.description": "Musikkronologispel:",
