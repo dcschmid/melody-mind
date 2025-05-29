@@ -111,7 +111,7 @@ const clientTranslations = {
 // 1. External library imports
 import { When } from "@astropub/flow";
 
-// 2. Font imports with display=swap for performance optimization  
+// 2. Font imports with display=swap for performance optimization
 import "@fontsource/source-sans-pro/400.css";
 import "@fontsource/source-sans-pro/700.css";
 import "@fontsource/source-sans-pro/900.css";
@@ -233,19 +233,19 @@ interface Props {
    * @properties creator, album, musician strings for detailed music metadata
    */
   ogMusic?: {
-    /** 
+    /**
      * Music creator/artist name for OpenGraph music metadata
      * @type {string}
      * @example "The Beatles"
      */
     creator?: string;
-    /** 
+    /**
      * Album name for music content OpenGraph metadata
      * @type {string}
      * @example "Abbey Road"
      */
     album?: string;
-    /** 
+    /**
      * Musician name for music content OpenGraph metadata
      * @type {string}
      * @example "Paul McCartney"
@@ -298,7 +298,7 @@ const fontPreloads = [
     crossorigin: "anonymous",
   },
   {
-    href: "/fonts/source-sans-pro-latin-700-normal.woff2", 
+    href: "/fonts/source-sans-pro-latin-700-normal.woff2",
     as: "font" as const,
     type: "font/woff2",
     crossorigin: "anonymous",
@@ -328,14 +328,16 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     <!-- Resource hints for performance -->
     {dnsPrefetch.map((resource) => <link rel="dns-prefetch" href={resource.href} />)}
 
-    {preloadedResources.map((resource) => (
-      <link
-        rel="preload"
-        href={resource.href}
-        as={resource.as}
-        crossorigin={resource.crossorigin}
-      />
-    ))}
+    {
+      preloadedResources.map((resource) => (
+        <link
+          rel="preload"
+          href={resource.href}
+          as={resource.as}
+          crossorigin={resource.crossorigin}
+        />
+      ))
+    }
 
     <!-- Font preloading for critical fonts -->
     {
@@ -376,10 +378,10 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 
         a::after {
           content: " (" attr(href) ")";
-          font-size: 0.9em;
+          font-size: var(--text-sm);
           color: var(--color-neutral-700);
         }
-        
+
         /* Sicherstellen, dass der Kontrast beim Drucken stimmt */
         * {
           background-color: var(--color-white) !important;
@@ -422,14 +424,14 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
         --layout-max-width: var(--container-xl);
         --layout-padding-small: var(--space-md);
         --layout-padding-large: var(--space-xl);
-        
+
         /* WCAG AAA touch target compliance following accessibility standards */
         --layout-min-touch-target: var(--min-touch-size);
-        
+
         /* Focus management for enhanced keyboard navigation accessibility */
         --layout-focus-outline: var(--focus-outline);
         --layout-focus-offset: var(--focus-ring-offset);
-        
+
         /* Modern CSS features for enhanced performance and maintainability */
         container-type: inline-size;
         container-name: layout;
@@ -463,27 +465,27 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
         width: 100%;
         max-width: var(--layout-max-width);
         flex-direction: column;
-        
+
         /* WCAG AAA compliant background and text colors */
         background-color: var(--bg-primary);
         color: var(--text-primary);
-        
+
         /* Responsive padding using global spacing tokens */
         padding: var(--layout-padding-small);
-        
+
         /* Enhanced typography for better readability */
         font-size: var(--text-lg);
         line-height: var(--leading-relaxed);
-        letter-spacing: 0.025em;
+        letter-spacing: var(--letter-spacing-base);
         text-wrap: wrap;
-        
+
         /* Font rendering optimization */
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
 
       /* Responsive layout adjustments using em-based breakpoints */
-      @media (min-width: 48em) {
+      @media (min-width: var(--breakpoint-md)) {
         .layout__body {
           padding: var(--layout-padding-large);
         }
@@ -502,17 +504,17 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
         top: var(--layout-padding-small);
         right: var(--layout-padding-small);
         z-index: var(--z-fixed);
-        
+
         /* WCAG AAA minimum touch target size */
         min-height: var(--layout-min-touch-target);
         min-width: var(--layout-min-touch-target);
-        
+
         /* Ensure proper spacing for touch targets */
         margin: var(--space-xs);
       }
 
       /* Responsive positioning for larger screens */
-      @media (min-width: 40em) {
+      @media (min-width: var(--breakpoint-sm)) {
         .layout__coins {
           top: var(--layout-padding-large);
           right: var(--layout-padding-large);
@@ -524,13 +526,13 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
         margin: 0 auto;
         max-width: 100%;
         flex-grow: 1;
-        
+
         /* Content spacing for optimal reading experience */
         padding-left: 0;
         padding-right: 0;
         padding-top: var(--layout-padding-large);
         padding-bottom: var(--layout-padding-large);
-        
+
         /* Enhanced typography for content readability */
         font-size: var(--text-lg);
         line-height: var(--leading-relaxed);
@@ -548,12 +550,12 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
         .layout__body {
           background-color: var(--color-black);
           color: var(--color-white);
-          border: 2px solid var(--color-white);
+          border: var(--border-width-thick) solid var(--color-white);
         }
-        
+
         .layout__header,
         .layout__main {
-          border: 1px solid var(--color-white);
+          border: var(--border-width-thin) solid var(--color-white);
           padding: var(--space-md);
         }
       }
@@ -563,19 +565,19 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
         .layout__body {
           background-color: Canvas;
           color: CanvasText;
-          border: 1px solid ButtonText;
+          border: var(--border-width-thin) solid ButtonText;
         }
-        
+
         .layout__header,
         .layout__main {
-          border: 1px solid ButtonText;
+          border: var(--border-width-thin) solid ButtonText;
           background-color: Field;
           color: FieldText;
         }
-        
+
         .layout__coins {
           background-color: ButtonFace;
-          border: 1px solid ButtonText;
+          border: var(--border-width-thin) solid ButtonText;
         }
       }
 
@@ -634,15 +636,19 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
        */
       const handleLayoutError = (error, context) => {
         console.error(`Layout Error in ${context}:`, error);
-        
+
         // Notify screen readers of critical errors
         const statusElement = document.getElementById("a11y-status");
         if (statusElement) {
           statusElement.textContent = clientTranslations.systemError;
         }
-        
+
         // Optional: Send error to monitoring service
-        if (typeof window["fathom"] === "object" && window["fathom"] && typeof window["fathom"]["trackPageview"] === "function") {
+        if (
+          typeof window["fathom"] === "object" &&
+          window["fathom"] &&
+          typeof window["fathom"]["trackPageview"] === "function"
+        ) {
           try {
             // Track error events for monitoring (non-blocking)
             console.warn(`${clientTranslations.errorTracking}: ${context}`);
@@ -701,7 +707,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
           document.body.dataset.theme = "dark";
           document.documentElement.classList.add("dark");
           document.documentElement.classList.remove("light");
-          
+
           // Notify screen readers about theme changes for accessibility
           const statusElement = document.getElementById("a11y-status");
           if (statusElement) {
@@ -718,7 +724,11 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       const initializeAnalytics = () => {
         try {
           // Initialize analytics only if available and user hasn't opted out
-          if (typeof window["fathom"] === "object" && window["fathom"] && typeof window["fathom"]["trackPageview"] === "function") {
+          if (
+            typeof window["fathom"] === "object" &&
+            window["fathom"] &&
+            typeof window["fathom"]["trackPageview"] === "function"
+          ) {
             window["fathom"]["trackPageview"]({
               url: window.location.href,
               referrer: document.referrer || undefined,
