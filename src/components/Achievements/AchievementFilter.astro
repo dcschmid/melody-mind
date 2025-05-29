@@ -6,6 +6,7 @@
  */
 
 import { useTranslations } from "../../utils/i18n.ts";
+import Headline from "../Headline.astro";
 
 interface Props {
   /** Language code for translations */
@@ -47,7 +48,13 @@ const categoryOptions = [
   data-count-category-all={t("achievements.filter.count.category_all")}
   data-count-generic={t("achievements.filter.count.generic")}
 >
-  <h2 class="achievement-filter__title" id="filter-heading">{t("achievements.filter.title")}</h2>
+  <Headline
+    level="h2"
+    id="filter-heading"
+    title={t("achievements.filter.title")}
+    variant="medium"
+    className="achievement-filter__title"
+  />
 
   <div class="achievement-filter__container">
     <div class="achievement-filter__field">
@@ -108,9 +115,12 @@ const categoryOptions = [
     aria-labelledby="keyboard-help-toggle"
     hidden
   >
-    <h3 class="achievement-filter__shortcuts-title">
-      {t("achievements.filter.available_shortcuts")}
-    </h3>
+    <Headline
+      level="h3"
+      title={t("achievements.filter.available_shortcuts")}
+      variant="small"
+      className="achievement-filter__shortcuts-title"
+    />
     <dl class="achievement-filter__shortcuts-list">
       <div class="achievement-filter__shortcut-item">
         <dt class="achievement-filter__shortcut-key"><kbd>Alt</kbd> + <kbd>R</kbd></dt>
@@ -216,9 +226,7 @@ const categoryOptions = [
    * Consolidated typography styles for all text elements
    * ============================================================================ */
 
-  .achievement-filter__title,
   .achievement-filter__label,
-  .achievement-filter__shortcuts-title,
   .achievement-filter__count {
     color: var(--text-primary);
     letter-spacing: var(--letter-spacing-base);
@@ -227,26 +235,12 @@ const categoryOptions = [
   }
 
   /* Text hierarchy using semantic size scale */
-  .achievement-filter__title {
-    font-size: var(--text-xl);
-    font-weight: var(--font-bold);
-    line-height: var(--leading-tight);
-    margin-bottom: var(--space-lg);
-  }
-
   .achievement-filter__label {
     font-size: var(--text-lg);
     font-weight: var(--font-medium);
     line-height: var(--leading-normal);
     margin-bottom: var(--space-xs);
     display: block;
-  }
-
-  .achievement-filter__shortcuts-title {
-    font-size: var(--text-lg);
-    font-weight: var(--font-bold);
-    line-height: var(--leading-tight);
-    margin-bottom: var(--space-md);
   }
 
   .achievement-filter__count {
@@ -318,13 +312,13 @@ const categoryOptions = [
     width: 100%;
     min-width: var(--min-touch-size);
 
-    /* Custom dropdown arrow using semantic colors - FULLY OPTIMIZED: Using CSS filter for dynamic color */
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+    /* Custom dropdown arrow using semantic colors - FULLY OPTIMIZED: Using CSS variables for dynamic color and spacing */
+    background-image: var(--icon-dropdown-arrow);
     filter: opacity(var(--opacity-medium)) brightness(var(--filter-brightness-high));
     background-position: right var(--space-md) center;
     background-repeat: no-repeat;
     background-size: 1.5em 1.5em;
-    padding-right: calc(var(--space-lg) + 2rem);
+    padding-right: var(--select-padding-right);
   }
 
   .achievement-filter__select:focus {
@@ -345,7 +339,7 @@ const categoryOptions = [
     border: none;
     color: var(--btn-primary-text);
     cursor: pointer;
-    padding: var(--space-md) var(--space-xl);
+    padding: var(--button-padding-standard);
     min-width: var(--min-touch-size);
 
     /* Enhanced interaction with transform using CSS variables */
@@ -370,7 +364,7 @@ const categoryOptions = [
     border: var(--border-width-thick) solid var(--btn-secondary-border);
     color: var(--btn-secondary-text);
     cursor: pointer;
-    padding: var(--space-md) var(--space-xl);
+    padding: var(--button-padding-standard);
     min-width: var(--min-touch-size);
   }
 
@@ -488,7 +482,7 @@ const categoryOptions = [
    * Enhanced responsive grid behavior 
    * Automatically adapts to screen size and available content
    */
-  @media (min-width: 48em) {
+  @media (min-width: var(--breakpoint-md)) {
     /* Tablet and up: Allow up to 2 columns */
     .achievements__grid {
       grid-template-columns: repeat(auto-fit, minmax(min(320px, 45%), 1fr));
@@ -496,7 +490,7 @@ const categoryOptions = [
     }
   }
 
-  @media (min-width: 64em) {
+  @media (min-width: var(--breakpoint-lg)) {
     /* Desktop: Allow up to 3 columns */
     .achievements__grid {
       grid-template-columns: repeat(auto-fit, minmax(min(280px, 30%), 1fr));
@@ -504,11 +498,11 @@ const categoryOptions = [
     }
   }
 
-  @media (min-width: 80em) {
+  @media (min-width: var(--breakpoint-xl)) {
     /* Large desktop: Allow optimal spacing */
     .achievements__grid {
       grid-template-columns: repeat(auto-fit, minmax(min(320px, 28%), 1fr));
-      gap: calc(var(--space-xl) + var(--space-sm));
+      gap: var(--enhanced-gap-mobile);
     }
   }
 
@@ -548,7 +542,7 @@ const categoryOptions = [
    */
   .achievements__grid:has(.filtered-hidden) {
     /* Subtle highlight when filtering is active */
-    filter: brightness(var(--filter-brightness-high)) saturate(var(--filter-saturate-medium));
+    filter: var(--filter-enhanced-visibility);
   }
 
   /*
@@ -571,8 +565,7 @@ const categoryOptions = [
    * RESPONSIVE DESIGN (Using breakpoint variables)
    * ============================================================================ */
   /* Responsive design optimized with filter effects for better visual hierarchy */
-  @media (min-width: 48em) {
-    /* var(--breakpoint-md) equivalent - 768px */
+  @media (min-width: var(--breakpoint-md)) {
     .achievement-filter__container {
       grid-template-columns: 1fr 1fr;
       gap: var(--space-xl); /* Increased gap for better breathing space */
@@ -587,13 +580,13 @@ const categoryOptions = [
   }
 
   /* Mobile optimization with enhanced touch accessibility and visual effects */
-  @media (max-width: 47.9375em) {
+  @media (max-width: calc(var(--breakpoint-md) - 0.0625em)) {
     /* Below md breakpoint - using semantic spacing variables */
     .achievement-filter {
       padding: var(--space-md);
       margin-bottom: var(--space-lg);
       /* Enhanced visual hierarchy for mobile using filter effects */
-      filter: saturate(var(--filter-saturate-high)) brightness(var(--filter-brightness-high));
+      filter: var(--filter-enhanced-mobile);
     }
 
     .achievement-filter__actions {
@@ -606,10 +599,10 @@ const categoryOptions = [
     .achievement-filter__help-button {
       width: 100%;
       text-align: center;
-      min-height: calc(
-        var(--min-touch-size) + var(--space-sm)
-      ); /* Enhanced touch target for mobile */
-      padding: var(--space-lg) var(--space-xl); /* Increased padding for better touch accessibility */
+      min-height: var(--enhanced-touch-target); /* Enhanced touch target for mobile */
+      padding: var(
+        --button-padding-enhanced
+      ); /* Increased padding for better touch accessibility */
     }
   }
 
@@ -626,16 +619,16 @@ const categoryOptions = [
     }
 
     .achievement-filter__select {
-      border-width: calc(
-        var(--border-width-thick) + 1px
+      border-width: var(
+        --enhanced-border-thickness
       ); /* Enhanced border using calc with CSS variables */
-      filter: contrast(1.5) brightness(var(--filter-brightness-high)); /* Better visibility in high contrast */
+      filter: var(--filter-high-contrast-select); /* Better visibility in high contrast */
     }
 
     .achievement-filter__reset,
     .achievement-filter__help-button {
-      border-width: calc(var(--border-width-thick) + 1px); /* Consistent enhanced borders */
-      filter: contrast(1.2) saturate(var(--filter-saturate-high)); /* Improved button visibility */
+      border-width: var(--enhanced-border-thickness); /* Consistent enhanced borders */
+      filter: var(--filter-high-contrast-button); /* Improved button visibility */
     }
   }
 
@@ -655,13 +648,12 @@ const categoryOptions = [
     .achievement-filter__help-button:hover {
       transform: none;
       /* Provide alternative visual feedback without motion */
-      filter: brightness(var(--filter-brightness-high)) saturate(var(--filter-saturate-high));
+      filter: var(--filter-enhanced-visibility);
     }
   }
 
   /* Enhanced text spacing support (WCAG 2.2) - OPTIMIZED: Using more CSS variables */
   @supports (letter-spacing: var(--letter-spacing-enhanced)) {
-    .enhanced-text-spacing .achievement-filter__title,
     .enhanced-text-spacing .achievement-filter__label,
     .enhanced-text-spacing .achievement-filter__select {
       letter-spacing: var(--letter-spacing-enhanced);
@@ -670,7 +662,6 @@ const categoryOptions = [
     }
 
     /* Additional enhanced spacing for better readability */
-    .enhanced-text-spacing .achievement-filter__shortcuts-title,
     .enhanced-text-spacing .achievement-filter__shortcut-description {
       letter-spacing: var(--letter-spacing-enhanced);
       word-spacing: var(--word-spacing-enhanced);
@@ -709,41 +700,40 @@ const categoryOptions = [
    * ============================================================================ */
   @media print {
     .achievement-filter {
-      background-color: var(--color-white);
-      border: var(--border-width-thin) solid var(--color-black);
+      background-color: var(--print-bg);
+      border: var(--print-border);
       box-shadow: none;
-      color: var(--color-black);
+      color: var(--print-text);
       page-break-inside: avoid;
       /* Enhanced print optimization using filter variables */
       filter: contrast(1.2) brightness(var(--filter-brightness-high));
     }
 
-    .achievement-filter__title,
     .achievement-filter__label {
-      color: var(--color-black);
+      color: var(--print-text);
       /* Enhanced text rendering for print */
       text-rendering: optimizeLegibility;
       -webkit-print-color-adjust: exact; /* Preserve text styling in print */
     }
 
     .achievement-filter__select {
-      background-color: var(--color-white);
-      border: var(--border-width-thin) solid var(--color-black);
-      color: var(--color-black);
+      background-color: var(--print-bg);
+      border: var(--print-border);
+      color: var(--print-text);
       /* Remove custom background image for print */
       background-image: none;
     }
 
     .achievement-filter__reset,
     .achievement-filter__help-button {
-      background-color: var(--color-white);
-      border: var(--border-width-thin) solid var(--color-black);
-      color: var(--color-black);
+      background-color: var(--print-bg);
+      border: var(--print-border);
+      color: var(--print-text);
     }
 
     .achievement-filter__keyboard-shortcuts {
-      background-color: var(--color-white);
-      border: var(--border-width-thin) solid var(--color-black);
+      background-color: var(--print-bg);
+      border: var(--print-border);
     }
   }
 </style>
