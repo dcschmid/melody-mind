@@ -170,7 +170,9 @@
   --filter-grayscale-full: 1;
   --filter-grayscale-half: 0.5;
   --filter-brightness-high: 1.1;
+  --filter-brightness-medium: 1.05;
   --filter-saturate-high: 1.2;
+  --filter-saturate-medium: 1.1;
 
   /* Gradient System */
   --gradient-angle: 90deg;
@@ -258,6 +260,35 @@
   --line-height-enhanced: 1.5; /* 1.5x line height for accessibility */
   --text-decoration-thickness: 2px; /* Standard text decoration thickness */
   --text-underline-offset: 0.2em; /* Standard underline offset */
+
+  /* Enhanced Touch Targets and Spacing Calculations */
+  --enhanced-touch-target: calc(var(--min-touch-size) + var(--space-sm)); /* 52px enhanced touch */
+  --enhanced-border-thickness: calc(var(--border-width-thick) + 1px); /* 3px enhanced border */
+  --enhanced-gap-mobile: calc(var(--space-xl) + var(--space-sm)); /* 40px enhanced gap */
+  --button-padding-standard: var(--space-md) var(--space-xl); /* Standard button padding */
+  --button-padding-enhanced: var(--space-lg) var(--space-xl); /* Enhanced button padding */
+  --select-padding-right: calc(var(--space-lg) + 2rem); /* Select dropdown arrow spacing */
+
+  /* Common Filter Combinations */
+  --filter-enhanced-mobile: saturate(var(--filter-saturate-high))
+    brightness(var(--filter-brightness-high));
+  --filter-enhanced-visibility: brightness(var(--filter-brightness-high))
+    saturate(var(--filter-saturate-medium));
+  --filter-high-contrast-select: contrast(1.5) brightness(var(--filter-brightness-high));
+  --filter-high-contrast-button: contrast(1.2) saturate(var(--filter-saturate-high));
+
+  /* Enhanced SVG Icons (URL-encoded for CSS) */
+  --icon-dropdown-arrow: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+
+  /* Common Layout Combinations */
+  --flex-column-stretch: flex-direction: column;
+  align-items: stretch;
+  --grid-auto-fit-responsive: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+
+  /* Print-Safe Colors */
+  --print-bg: var(--color-white);
+  --print-text: var(--color-black);
+  --print-border: var(--border-width-thin) solid var(--color-black);
 
   /* ======================================
    * RESPONSIVE BREAKPOINTS (EM-BASED)
