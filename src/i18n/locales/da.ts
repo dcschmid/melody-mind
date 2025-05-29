@@ -489,6 +489,12 @@ export default {
   "achievements.notification.unlocked": "Præstation låst op!",
   "achievements.notification.progress": "Præstationsfremskridt opdateret!",
   "achievements.notification.close": "Luk præstationsmeddelelse",
+  "achievements.notification.new_achievement": "Ny præstationsmeddelelse",
+  "achievements.notification.pause": "Pause meddelelsetimer",
+  "achievements.notification.pause_title": "Pause den automatiske lukning af denne meddelelse",
+  "achievements.notification.toggle_sound": "Skift meddelelselyd",
+  "achievements.notification.toggle_sound_title":
+    "Aktiver eller deaktiver lyd for præstationsmeddelelser",
   "achievements.filter.title": "Filtrer Præstationer",
   "achievements.filter.status": "Status",
   "achievements.filter.category": "Kategori",

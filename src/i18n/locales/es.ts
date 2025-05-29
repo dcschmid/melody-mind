@@ -511,6 +511,12 @@ export default {
   "achievements.notification.unlocked": "¡Logro desbloqueado!",
   "achievements.notification.progress": "¡Progreso del logro actualizado!",
   "achievements.notification.close": "Cerrar notificación de logro",
+  "achievements.notification.new_achievement": "Notificación de nuevo logro",
+  "achievements.notification.pause": "Pausar temporizador de notificación",
+  "achievements.notification.pause_title": "Pausar el cierre automático de esta notificación",
+  "achievements.notification.toggle_sound": "Alternar sonido de notificación",
+  "achievements.notification.toggle_sound_title":
+    "Activar o desactivar sonido para notificaciones de logros",
   "achievements.filter.title": "Filtrar Logros",
   "achievements.filter.status": "Estado",
   "achievements.filter.category": "Categoría",

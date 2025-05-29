@@ -509,6 +509,13 @@ export default {
   "achievements.notification.unlocked": "Succès déverrouillé !",
   "achievements.notification.progress": "Progression du succès mise à jour !",
   "achievements.notification.close": "Fermer la notification de succès",
+  "achievements.notification.new_achievement": "Notification de nouveau succès",
+  "achievements.notification.pause": "Mettre en pause le minuteur de notification",
+  "achievements.notification.pause_title":
+    "Mettre en pause le rejet automatique de cette notification",
+  "achievements.notification.toggle_sound": "Activer/désactiver le son de notification",
+  "achievements.notification.toggle_sound_title":
+    "Activer ou désactiver le son pour les notifications de succès",
   "achievements.filter.title": "Filtrer les Succès",
   "achievements.filter.status": "Statut",
   "achievements.filter.category": "Catégorie",

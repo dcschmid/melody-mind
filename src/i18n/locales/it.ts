@@ -460,6 +460,18 @@ export default {
   "notification.challenge_received": "Hai ricevuto una sfida!",
   "notification.tournament_started": "Il torneo è iniziato!",
 
+  // Notifiche specifiche per i risultati
+  "achievements.notification.unlocked": "Risultato sbloccato!",
+  "achievements.notification.progress": "Progresso del risultato aggiornato!",
+  "achievements.notification.close": "Chiudi notifica risultato",
+  "achievements.notification.new_achievement": "Notifica nuovo risultato",
+  "achievements.notification.pause": "Pausa timer notifica",
+  "achievements.notification.pause_title":
+    "Metti in pausa il dismiss automatico di questa notifica",
+  "achievements.notification.toggle_sound": "Attiva/disattiva suono notifica",
+  "achievements.notification.toggle_sound_title":
+    "Abilita o disabilita il suono per le notifiche dei risultati",
+
   // Social features
   "social.friends": "Amici",
   "social.add_friend": "Aggiungi amico",

@@ -497,6 +497,12 @@ export default {
   "achievements.notification.unlocked": "Achievement unlocked!",
   "achievements.notification.progress": "Achievement progress updated!",
   "achievements.notification.close": "Close achievement notification",
+  "achievements.notification.new_achievement": "New achievement notification",
+  "achievements.notification.pause": "Pause notification timer",
+  "achievements.notification.pause_title": "Pause the automatic dismissal of this notification",
+  "achievements.notification.toggle_sound": "Toggle notification sound",
+  "achievements.notification.toggle_sound_title":
+    "Enable or disable sound for achievement notifications",
   "achievements.filter.title": "Filter Achievements",
   "achievements.filter.status": "Status",
   "achievements.filter.category": "Category",

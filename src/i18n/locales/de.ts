@@ -513,6 +513,13 @@ export default {
   "achievements.notification.unlocked": "Achievement freigeschaltet!",
   "achievements.notification.progress": "Achievement-Fortschritt aktualisiert!",
   "achievements.notification.close": "Achievement-Benachrichtigung schließen",
+  "achievements.notification.new_achievement": "Neue Achievement-Benachrichtigung",
+  "achievements.notification.pause": "Benachrichtigungstimer pausieren",
+  "achievements.notification.pause_title":
+    "Das automatische Ausblenden dieser Benachrichtigung pausieren",
+  "achievements.notification.toggle_sound": "Benachrichtigungston umschalten",
+  "achievements.notification.toggle_sound_title":
+    "Ton für Achievement-Benachrichtigungen aktivieren oder deaktivieren",
   "achievements.filter.title": "Achievements filtern",
   "achievements.filter.status": "Status",
   "achievements.filter.category": "Kategorie",
