@@ -563,12 +563,12 @@ const t = useTranslations(String(lang));
       touch-action: manipulation;
 
       /* Add spacing around touch targets */
-      margin: 8px; /* Ensures 8px spacing around touch targets */
+      margin: var(--space-sm); /* Ensures adequate spacing around touch targets */
     }
 
     /* Ensure adequate spacing between interactive elements */
     .email-verification__icon {
-      margin-block-end: 16px; /* Increased spacing for touch devices */
+      margin-block-end: var(--space-lg); /* Increased spacing for touch devices */
     }
   }
 

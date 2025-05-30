@@ -60,6 +60,13 @@ export default {
   "auth.accessibility.password.hidden": "Passwort ist jetzt versteckt",
   "auth.accessibility.requirements.expanded": "Passwort-Anforderungen erweitert",
   "auth.accessibility.requirements.collapsed": "Passwort-Anforderungen eingeklappt",
+  "auth.accessibility.login_form_active": "Anmeldeformular ist jetzt aktiv",
+  "auth.accessibility.register_form_active": "Registrierungsformular ist jetzt aktiv",
+  "auth.accessibility.error_message_dismissed": "Fehlermeldung ausgeblendet",
+  "auth.accessibility.success_message_dismissed": "Erfolgsmeldung ausgeblendet",
+
+  // Form Initialization
+  "auth.form.init_error": "Fehler beim Initialisieren der Authentifizierungsformular-Elemente",
 
   // Password strength levels
   "auth.password.strength.weak": "Schwach",
@@ -151,6 +158,21 @@ export default {
   "auth.accessibility.password_requirements": "Passwortanforderungen anzeigen/verbergen",
   "auth.accessibility.form": "Anmeldeformular",
   "auth.accessibility.close_modal": "Fenster schließen",
+
+  // Formular-Fortschrittsanzeigen
+  "auth.form.progress.title": "Formular-Vervollständigungsfortschritt",
+  "auth.form.progress.completed": "vervollständigt",
+  "auth.form.progress.remaining": "verbleibend",
+  "auth.form.progress.required": "erforderlich",
+  "auth.form.progress.optional": "optional",
+  "auth.form.progress.login_status":
+    "Anmeldeformular: {completed} von {total} Feldern vervollständigt",
+  "auth.form.progress.register_status":
+    "Registrierungsformular: {completed} von {total} Feldern vervollständigt",
+  "auth.form.progress.field_completed": "Feld vervollständigt: {field}",
+  "auth.form.progress.field_cleared": "Feld geleert: {field}",
+  "auth.form.progress.all_required_completed": "Alle erforderlichen Felder vervollständigt",
+  "auth.form.progress.missing_required": "{count} erforderliche(s) Feld(er) verbleibend",
 
   // API-Fehlermeldungen
   "auth.api.network_error": "Netzwerkfehler. Bitte überprüfe deine Verbindung",

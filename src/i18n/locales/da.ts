@@ -38,6 +38,10 @@ export default {
   "auth.accessibility.password.hidden": "Adgangskode er nu skjult",
   "auth.accessibility.requirements.expanded": "Adgangskodekrav udvidet",
   "auth.accessibility.requirements.collapsed": "Adgangskodekrav sammenfoldet",
+  "auth.accessibility.login_form_active": "Login-formularen er nu aktiv",
+  "auth.accessibility.register_form_active": "Registreringsformularen er nu aktiv",
+  "auth.accessibility.error_message_dismissed": "Fejlbesked afvist",
+  "auth.accessibility.success_message_dismissed": "Successbesked afvist",
 
   "auth.tabs.login": "Login",
   "auth.tabs.register": "Registrer",
@@ -52,6 +56,7 @@ export default {
   "auth.form.password_requirements": "Adgangskoden opfylder ikke alle krav",
   "auth.form.password_confirm_required": "Bekræftelse af adgangskode er påkrævet",
   "auth.form.passwords_not_match": "Adgangskoderne stemmer ikke overens",
+  "auth.form.init_error": "Kunne ikke initialisere formularelementer",
   "auth.password_reset.success_message":
     "Hvis der findes en konto med denne e-mailadresse, er der sendt en e-mail med instruktioner til nulstilling af adgangskode.",
   "auth.password_reset.error_message": "Der opstod en fejl. Prøv venligst igen senere.",

@@ -58,6 +58,8 @@ export default {
   "auth.accessibility.password.hidden": "Password is now hidden",
   "auth.accessibility.requirements.expanded": "Password requirements expanded",
   "auth.accessibility.requirements.collapsed": "Password requirements collapsed",
+  "auth.accessibility.login_form_active": "Login form is now active",
+  "auth.accessibility.register_form_active": "Registration form is now active",
 
   // Password strength levels
   "auth.password.strength.weak": "Weak",
@@ -146,6 +148,25 @@ export default {
   "auth.accessibility.password_requirements": "Show/hide password requirements",
   "auth.accessibility.form": "Login form",
   "auth.accessibility.close_modal": "Close window",
+  "auth.accessibility.error_message_dismissed": "Error message dismissed",
+  "auth.accessibility.success_message_dismissed": "Success message dismissed",
+
+  // Form Initialization
+  "auth.form.init_error": "Failed to initialize auth form elements",
+
+  // Form Progress Indicators
+  "auth.form.progress.title": "Form completion progress",
+  "auth.form.progress.completed": "completed",
+  "auth.form.progress.remaining": "remaining",
+  "auth.form.progress.required": "required",
+  "auth.form.progress.optional": "optional",
+  "auth.form.progress.login_status": "Login form: {completed} of {total} fields completed",
+  "auth.form.progress.register_status":
+    "Registration form: {completed} of {total} fields completed",
+  "auth.form.progress.field_completed": "Field completed: {field}",
+  "auth.form.progress.field_cleared": "Field cleared: {field}",
+  "auth.form.progress.all_required_completed": "All required fields completed",
+  "auth.form.progress.missing_required": "{count} required field(s) remaining",
 
   // API Error Messages
   "auth.api.network_error": "Network error. Please check your connection",

@@ -36,6 +36,7 @@ export default {
   "auth.form.password_requirements": "La password non soddisfa tutti i requisiti",
   "auth.form.password_confirm_required": "La conferma della password è obbligatoria",
   "auth.form.passwords_not_match": "Le password non corrispondono",
+  "auth.form.init_error": "Impossibile inizializzare gli elementi del modulo di autenticazione",
   "auth.password_reset.success_message":
     "Se esiste un account con questo indirizzo email, è stata inviata un'email con le istruzioni per reimpostare la password.",
   "auth.password_reset.error_message": "Si è verificato un errore. Riprova più tardi.",
@@ -49,6 +50,19 @@ export default {
   "auth.session.timeout.message":
     "La tua sessione scadrà tra 2 minuti. Clicca ovunque per estenderla.",
   "auth.session.timeout.extend": "Estendi sessione",
+  "auth.session.timeout.close": "Chiudi",
+
+  // Accessibility status messages
+  "auth.accessibility.requirement.met": "Requisito soddisfatto",
+  "auth.accessibility.requirement.unmet": "Requisito non soddisfatto",
+  "auth.accessibility.password.visible": "La password è ora visibile",
+  "auth.accessibility.password.hidden": "La password è ora nascosta",
+  "auth.accessibility.requirements.expanded": "Requisiti della password espansi",
+  "auth.accessibility.requirements.collapsed": "Requisiti della password compressi",
+  "auth.accessibility.login_form_active": "Il modulo di accesso è ora attivo",
+  "auth.accessibility.register_form_active": "Il modulo di registrazione è ora attivo",
+  "auth.accessibility.error_message_dismissed": "Messaggio di errore chiuso",
+  "auth.accessibility.success_message_dismissed": "Messaggio di successo chiuso",
 
   // Password requirements
   "auth.password.requirements.title": "Requisiti della password:",
