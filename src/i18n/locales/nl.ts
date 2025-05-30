@@ -38,6 +38,10 @@ export default {
   "auth.accessibility.password.hidden": "Wachtwoord is nu verborgen",
   "auth.accessibility.requirements.expanded": "Wachtwoordvereisten uitgebreid",
   "auth.accessibility.requirements.collapsed": "Wachtwoordvereisten ingeklapt",
+  "auth.accessibility.login_form_active": "Het inlogformulier is nu actief",
+  "auth.accessibility.register_form_active": "Het registratieformulier is nu actief",
+  "auth.accessibility.error_message_dismissed": "Foutmelding weggenomen",
+  "auth.accessibility.success_message_dismissed": "Succesbericht weggenomen",
 
   "auth.tabs.login": "Inloggen",
   "auth.tabs.register": "Registreren",
@@ -52,6 +56,7 @@ export default {
   "auth.form.password_requirements": "Wachtwoord voldoet niet aan alle vereisten",
   "auth.form.password_confirm_required": "Wachtwoordbevestiging is vereist",
   "auth.form.passwords_not_match": "Wachtwoorden komen niet overeen",
+  "auth.form.init_error": "Formulierelementen konden niet worden geïnitialiseerd",
   "auth.password_reset.success_message":
     "Als er een account bestaat met dit e-mailadres, is er een e-mail met instructies voor het opnieuw instellen van het wachtwoord verzonden.",
   "auth.password_reset.error_message": "Er is een fout opgetreden. Probeer het later opnieuw.",

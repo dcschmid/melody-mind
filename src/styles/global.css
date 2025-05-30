@@ -80,13 +80,25 @@
   --bg-tertiary: var(--color-neutral-800);
   --bg-error: var(--color-error-950); /* Error state background */
 
+  /* Enhanced AAA Background Colors (7:1 contrast) */
+  --bg-error-aaa: var(--color-error-950); /* Enhanced error background for 7:1 ratio */
+  --bg-success-aaa: var(--color-success-900); /* Enhanced success background for 7:1 ratio */
+  --bg-success-subtle: var(--color-success-950); /* Subtle success background */
+  --bg-warning-aaa: var(--color-warning-900); /* Enhanced warning background for 7:1 ratio */
+
   /* Text Colors - WCAG AAA Compliant (7:1 ratio) */
   --text-primary: var(--color-neutral-50); /* 18.7:1 on dark bg */
   --text-secondary: var(--color-neutral-300); /* 7.5:1 on dark bg */
   --text-tertiary: var(--color-neutral-400); /* 4.8:1 on dark bg */
+  --text-muted: var(--color-neutral-500); /* Muted text for optional indicators */
   --text-disabled: var(--color-neutral-600);
   --text-inverse: var(--color-neutral-950);
   --text-error: var(--color-error-200); /* Error state text */
+
+  /* Enhanced AAA Text Colors (7:1 contrast) */
+  --text-error-aaa: var(--color-error-50); /* Enhanced error text for 7:1 ratio */
+  --text-success-aaa: var(--color-success-50); /* Enhanced success text for 7:1 ratio */
+  --text-warning-aaa: var(--color-warning-50); /* Enhanced warning text for 7:1 ratio */
 
   /* Border Colors */
   --border-primary: var(--color-neutral-700);
@@ -113,6 +125,11 @@
     246,
     0.1
   ); /* Primary color with opacity for focus backgrounds */
+
+  /* Enhanced Focus Appearance (WCAG 2.2) - 4.5:1 contrast requirement */
+  --focus-enhanced-shadow: 0 0 0 1px var(--color-white), 0 0 0 4px var(--color-secondary-400);
+  --focus-enhanced-outline-dark: 3px solid var(--color-secondary-300); /* Higher contrast for dark backgrounds */
+  --focus-enhanced-outline-light: 3px solid var(--color-secondary-600); /* Higher contrast for light backgrounds */
 
   /* ======================================
    * COMPONENT SYSTEM
@@ -201,6 +218,7 @@
    * ====================================== */
 
   /* Spacing Scale */
+  --space-micro: 0.0625rem; /* 1px - for micro-movements like hover effects */
   --space-xs: 0.25rem; /* 4px */
   --space-sm: 0.5rem; /* 8px */
   --space-md: 1rem; /* 16px */
@@ -270,6 +288,12 @@
   --text-decoration-thickness: 2px; /* Standard text decoration thickness */
   --text-underline-offset: 0.2em; /* Standard underline offset */
 
+  /* Enhanced Text Spacing Support (WCAG 2.2) */
+  --text-spacing-letter-2x: 0.12em; /* Double letter spacing */
+  --text-spacing-word-enhanced: 0.16em; /* Enhanced word spacing */
+  --text-spacing-line-1-5x: 1.5; /* 1.5x line height */
+  --text-spacing-paragraph-2x: 2em; /* Double paragraph spacing */
+
   /* Enhanced Border System */
   --enhanced-border-thickness: calc(var(--border-width-thick) + 1px); /* 3px enhanced border */
 
@@ -327,6 +351,10 @@
   --container-2xl: 1536px;
 
   /* Component Width System */
+  --form-container-max-width: 28rem; /* 448px - Optimal width for auth forms */
+  --container-query-lg: 25rem; /* 400px - Container query breakpoint for auth forms */
+  --container-query-md: 20rem; /* 320px - Container query breakpoint for smaller forms */
+  --container-query-sm: 16rem; /* 256px - Container query breakpoint for micro forms */
   --stat-width-sm: 120px;
   --stat-width-md: 150px;
   --grid-min-width-sm: 280px;
@@ -578,5 +606,184 @@ p {
 
   .hidden-xl {
     display: block;
+  }
+}
+
+/* ======================================
+ * SESSION TIMEOUT WARNING STYLES
+ * ====================================== */
+
+/* Session timeout warning modal for WCAG 2.2 AAA compliance */
+.session-timeout-warning {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-modal);
+  display: none;
+  background: transparent;
+  pointer-events: none;
+}
+
+.session-timeout-warning--visible {
+  display: block;
+  pointer-events: all;
+}
+
+.session-timeout-warning__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+}
+
+.session-timeout-warning__content {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  max-width: 500px;
+  width: 100%;
+  box-shadow: var(--shadow-xl);
+  border: var(--border-width-thick) solid var(--border-primary);
+}
+
+.session-timeout-warning__title {
+  margin: 0 0 var(--space-md) 0;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-error-aaa);
+}
+
+.session-timeout-warning__message {
+  margin: 0 0 var(--space-lg) 0;
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text-primary);
+}
+
+.session-timeout-warning__actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.session-timeout-warning__btn {
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  border: var(--border-width-thick) solid transparent;
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-height: var(--min-touch-size);
+  min-width: var(--min-touch-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.session-timeout-warning__btn--primary {
+  background-color: var(--interactive-primary);
+  color: var(--color-white);
+  border-color: var(--interactive-primary);
+}
+
+.session-timeout-warning__btn--primary:hover {
+  background-color: var(--interactive-primary-hover);
+  border-color: var(--interactive-primary-hover);
+}
+
+.session-timeout-warning__btn--primary:focus {
+  outline: var(--focus-enhanced-outline-dark);
+  outline-offset: var(--focus-ring-offset);
+  box-shadow: var(--focus-enhanced-shadow);
+}
+
+.session-timeout-warning__btn--secondary {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  border-color: var(--border-primary);
+}
+
+.session-timeout-warning__btn--secondary:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.session-timeout-warning__btn--secondary:focus {
+  outline: var(--focus-enhanced-outline-dark);
+  outline-offset: var(--focus-ring-offset);
+  box-shadow: var(--focus-enhanced-shadow);
+}
+
+/* Responsive design for session timeout warning */
+@media (max-width: 40em) {
+  .session-timeout-warning__content {
+    padding: var(--space-lg);
+    margin: var(--space-md);
+  }
+
+  .session-timeout-warning__actions {
+    flex-direction: column;
+  }
+
+  .session-timeout-warning__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .session-timeout-warning__content {
+    border: var(--border-width-enhanced) solid var(--border-primary);
+  }
+
+  .session-timeout-warning__btn {
+    border-width: var(--border-width-enhanced);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .session-timeout-warning__btn {
+    transition: none;
+  }
+}
+
+/* ======================================
+ * ENHANCED TEXT SPACING SUPPORT
+ * ====================================== */
+
+/* Enhanced text spacing class for WCAG 2.2 compliance */
+.enhanced-text-spacing * {
+  letter-spacing: var(--text-spacing-letter-2x) !important;
+  word-spacing: var(--text-spacing-word-enhanced) !important;
+  line-height: var(--text-spacing-line-1-5x) !important;
+}
+
+.enhanced-text-spacing p {
+  margin-bottom: var(--text-spacing-paragraph-2x) !important;
+}
+
+/* Enhanced spacing support for mobile devices */
+@media (max-width: 48em) {
+  .enhanced-text-spacing-mobile * {
+    letter-spacing: var(--text-spacing-letter-2x) !important;
+    word-spacing: var(--text-spacing-word-enhanced) !important;
+    line-height: var(--text-spacing-line-1-5x) !important;
+  }
+
+  .enhanced-text-spacing-mobile p {
+    margin-bottom: var(--text-spacing-paragraph-2x) !important;
   }
 }

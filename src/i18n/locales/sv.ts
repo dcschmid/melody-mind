@@ -38,6 +38,10 @@ export default {
   "auth.accessibility.password.hidden": "Lösenord är nu dolt",
   "auth.accessibility.requirements.expanded": "Lösenordskrav utökade",
   "auth.accessibility.requirements.collapsed": "Lösenordskrav kollapsade",
+  "auth.accessibility.login_form_active": "Inloggningsformuläret är nu aktivt",
+  "auth.accessibility.register_form_active": "Registreringsformuläret är nu aktivt",
+  "auth.accessibility.error_message_dismissed": "Felmeddelande ignorerat",
+  "auth.accessibility.success_message_dismissed": "Framgångsmeddelande ignorerat",
 
   "auth.tabs.login": "Logga in",
   "auth.tabs.register": "Registrera",
@@ -52,6 +56,8 @@ export default {
   "auth.form.password_requirements": "Lösenordet uppfyller inte alla krav",
   "auth.form.password_confirm_required": "Lösenordsbekräftelse krävs",
   "auth.form.passwords_not_match": "Lösenorden matchar inte",
+  "auth.form.init_error": "Misslyckades med att initialisera formulärelement",
+
   "auth.password_reset.success_message":
     "Om ett konto finns med denna e-postadress har ett e-postmeddelande med instruktioner för lösenordsåterställning skickats.",
   "auth.password_reset.error_message": "Ett fel uppstod. Försök igen senare.",

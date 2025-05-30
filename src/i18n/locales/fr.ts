@@ -58,6 +58,8 @@ export default {
   "auth.accessibility.password.hidden": "Le mot de passe est maintenant masqué",
   "auth.accessibility.requirements.expanded": "Exigences du mot de passe étendues",
   "auth.accessibility.requirements.collapsed": "Exigences du mot de passe repliées",
+  "auth.accessibility.login_form_active": "Le formulaire de connexion est maintenant actif",
+  "auth.accessibility.register_form_active": "Le formulaire d'inscription est maintenant actif",
 
   "auth.register.name": "Nom complet",
   "auth.register.email": "Adresse e-mail",
@@ -148,6 +150,11 @@ export default {
   "auth.accessibility.password_requirements": "Afficher/masquer les exigences du mot de passe",
   "auth.accessibility.form": "Formulaire de connexion",
   "auth.accessibility.close_modal": "Fermer la fenêtre",
+  "auth.accessibility.error_message_dismissed": "Message d'erreur fermé",
+  "auth.accessibility.success_message_dismissed": "Message de succès fermé",
+
+  // Initialisation du formulaire
+  "auth.form.init_error": "Échec de l'initialisation des éléments du formulaire d'authentification",
 
   // Messages d'erreur de l'API
   "auth.api.network_error": "Erreur réseau. Veuillez vérifier votre connexion",

@@ -59,6 +59,13 @@ export default {
   "auth.accessibility.password.hidden": "La contraseña ahora está oculta",
   "auth.accessibility.requirements.expanded": "Requisitos de contraseña expandidos",
   "auth.accessibility.requirements.collapsed": "Requisitos de contraseña colapsados",
+  "auth.accessibility.login_form_active": "El formulario de inicio de sesión está ahora activo",
+  "auth.accessibility.register_form_active": "El formulario de registro está ahora activo",
+  "auth.accessibility.error_message_dismissed": "Mensaje de error desechado",
+  "auth.accessibility.success_message_dismissed": "Mensaje de éxito desechado",
+
+  // Inicialización del formulario
+  "auth.form.init_error": "Error al inicializar los elementos del formulario de autenticación",
 
   "auth.register.name": "Nombre completo",
   "auth.register.email": "Dirección de correo electrónico",

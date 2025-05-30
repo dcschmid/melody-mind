@@ -38,6 +38,10 @@ export default {
   "auth.accessibility.password.hidden": "Salasana on nyt piilossa",
   "auth.accessibility.requirements.expanded": "Salasanavaatimukset laajennettu",
   "auth.accessibility.requirements.collapsed": "Salasanavaatimukset tiivistetty",
+  "auth.accessibility.login_form_active": "Kirjautumislomake on nyt aktiivinen",
+  "auth.accessibility.register_form_active": "Rekisteröitymislomake on nyt aktiivinen",
+  "auth.accessibility.error_message_dismissed": "Virheilmoitus hylätty",
+  "auth.accessibility.success_message_dismissed": "Onnistumisilmoitus hylätty",
 
   "auth.tabs.login": "Kirjaudu sisään",
   "auth.tabs.register": "Rekisteröidy",
@@ -52,6 +56,7 @@ export default {
   "auth.form.password_requirements": "Salasana ei täytä kaikkia vaatimuksia",
   "auth.form.password_confirm_required": "Salasanan vahvistus vaaditaan",
   "auth.form.passwords_not_match": "Salasanat eivät täsmää",
+  "auth.form.init_error": "Lomakeelementtien alustaminen epäonnistui",
   "auth.password_reset.success_message":
     "Jos tällä sähköpostiosoitteella on tili, salasanan nollausohjeet on lähetetty sähköpostitse.",
   "auth.password_reset.error_message": "Tapahtui virhe. Yritä myöhemmin uudelleen.",
@@ -166,7 +171,7 @@ export default {
   "difficulty.medium": "Keskivaikea",
   "difficulty.hard": "Vaikea",
   "game.select":
-    "Tutustu musiikin kiehtovaan maailmaan ja testaa tietosi interaktiivisissa musiikkivisoissamme. Valitse suosikkigenresi ja aloita melodinen matkasi!",
+    "Tutustu musiikin kiehtovaan maailmaan ja testaa tietosi interaktiivisissa musiikillista visoissamme. Valitse suosikkigenresi ja aloita melodinen matkasi!",
   "game.welcome": "Tervetuloa Melody Mindiin",
   "game.genre.list": "Genren valinta",
   "game.search.label": "Etsi genreä",

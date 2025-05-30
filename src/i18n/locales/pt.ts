@@ -36,6 +36,7 @@ export default {
   "auth.form.password_requirements": "A senha não atende a todos os requisitos",
   "auth.form.password_confirm_required": "A confirmação da senha é obrigatória",
   "auth.form.passwords_not_match": "As senhas não coincidem",
+  "auth.form.init_error": "Falha ao inicializar elementos do formulário de autenticação",
   "auth.password_reset.success_message":
     "Se existir uma conta com este endereço de email, um email com instruções de redefinição de senha foi enviado.",
   "auth.password_reset.error_message": "Ocorreu um erro. Por favor, tente novamente mais tarde.",
@@ -58,6 +59,10 @@ export default {
   "auth.accessibility.password.hidden": "A senha agora está oculta",
   "auth.accessibility.requirements.expanded": "Requisitos de senha expandidos",
   "auth.accessibility.requirements.collapsed": "Requisitos de senha recolhidos",
+  "auth.accessibility.login_form_active": "O formulário de login está agora ativo",
+  "auth.accessibility.register_form_active": "O formulário de registro está agora ativo",
+  "auth.accessibility.error_message_dismissed": "Mensagem de erro dispensada",
+  "auth.accessibility.success_message_dismissed": "Mensagem de sucesso dispensada",
 
   "auth.register.name": "Nome Completo",
   "auth.register.email": "Endereço de Email",
