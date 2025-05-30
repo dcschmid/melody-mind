@@ -548,6 +548,17 @@ export default {
   "achievements.badge.keyboard_instructions":
     "Drücken Sie Enter oder Leertaste, um Ihre Errungenschaften-Seite zu besuchen.",
 
+  // Achievement-Zusammenfassung und Statistiken
+  "achievements.summary.title": "Errungenschaften-Zusammenfassung",
+  "achievements.summary.total": "Gesamt",
+  "achievements.summary.unlocked": "Freigeschaltet",
+  "achievements.summary.progress": "Fortschritt",
+  "achievements.summary.total-aria": "Gesamte Errungenschaften: {count}",
+  "achievements.summary.unlocked-aria": "Freigeschaltete Errungenschaften: {count}",
+  "achievements.summary.progress-aria": "Fortschritt: {percent} Prozent abgeschlossen",
+  "achievements.categories": "Errungenschaften-Kategorien",
+  "achievements.category.count": "Enthält {count} Errungenschaften",
+
   // API-Fehlermeldungen
   "errors.auth.unauthorized": "Du musst angemeldet sein, um auf diese Funktion zuzugreifen",
   "errors.invalidRequest": "Ungültige Anfrage: {error}",

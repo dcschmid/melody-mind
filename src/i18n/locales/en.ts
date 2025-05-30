@@ -531,6 +531,17 @@ export default {
   "achievements.badge.keyboard_instructions":
     "Press Enter or Space to view your achievements page.",
 
+  // Achievement summary and statistics
+  "achievements.summary.title": "Achievement Summary",
+  "achievements.summary.total": "Total",
+  "achievements.summary.unlocked": "Unlocked",
+  "achievements.summary.progress": "Progress",
+  "achievements.summary.total-aria": "Total achievements: {count}",
+  "achievements.summary.unlocked-aria": "Unlocked achievements: {count}",
+  "achievements.summary.progress-aria": "Progress: {percent} percent complete",
+  "achievements.categories": "Achievement Categories",
+  "achievements.category.count": "Contains {count} achievements",
+
   // API Error Messages
   "errors.auth.unauthorized": "You must be logged in to access this feature",
   "errors.invalidRequest": "Invalid request: {error}",
