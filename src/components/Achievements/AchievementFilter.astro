@@ -209,16 +209,45 @@ const categoryOptions = [
     outline-offset: var(--focus-ring-offset);
   }
 
-  /* Shared hover interactions with transform */
+  /* ============================================================================
+   * SHARED TRANSFORM AND ANIMATION PATTERNS (DRY Optimization)
+   * Consolidated all transform and animation patterns for consistency
+   * ============================================================================ */
+
+  /* Shared hover transform pattern using CSS variables */
   .achievement-filter__reset:hover,
   .achievement-filter__help-button:hover {
-    transform: translateY(-1px);
+    transform: translateY(calc(-1 * var(--space-xs)));
     box-shadow: var(--shadow-md);
   }
 
+  /* Shared active transform pattern */
   .achievement-filter__reset:active,
   .achievement-filter__help-button:active {
     transform: translateY(0);
+  }
+
+  /* Shared scale animations using CSS variables */
+  @keyframes cardEnter {
+    from {
+      opacity: 0;
+      transform: translateY(var(--space-lg)) scale(var(--scale-hover));
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes cardLeave {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(calc(-1 * var(--space-sm))) scale(var(--scale-hover));
+    }
   }
 
   /* ============================================================================
@@ -312,12 +341,12 @@ const categoryOptions = [
     width: 100%;
     min-width: var(--min-touch-size);
 
-    /* Custom dropdown arrow using semantic colors - FULLY OPTIMIZED: Using CSS variables for dynamic color and spacing */
+    /* Custom dropdown arrow using semantic colors and CSS variables */
     background-image: var(--icon-dropdown-arrow);
     filter: opacity(var(--opacity-medium)) brightness(var(--filter-brightness-high));
     background-position: right var(--space-md) center;
     background-repeat: no-repeat;
-    background-size: 1.5em 1.5em;
+    background-size: var(--space-lg) var(--space-lg);
     padding-right: var(--select-padding-right);
   }
 
@@ -342,7 +371,7 @@ const categoryOptions = [
     padding: var(--button-padding-standard);
     min-width: var(--min-touch-size);
 
-    /* Enhanced interaction with transform using CSS variables */
+    /* Enhanced interaction transitions using CSS variables */
     transition:
       background var(--transition-normal),
       transform var(--transition-fast),
@@ -351,7 +380,7 @@ const categoryOptions = [
 
   .achievement-filter__reset:hover {
     background: var(--btn-primary-hover);
-    transform: translateY(-1px);
+    transform: translateY(calc(-1 * var(--space-xs)));
     box-shadow: var(--shadow-md);
   }
 
@@ -433,49 +462,82 @@ const categoryOptions = [
   }
 
   /* ============================================================================
-   * ACCESSIBILITY UTILITIES
-   * ============================================================================ */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  /* ============================================================================
-   * FILTER UTILITIES - Pure CSS gap-free grid layout optimization
+   * FILTER UTILITIES - Gap-free grid layout optimization
    * ============================================================================ */
 
-  /* Class for elements hidden by filtering */
+  /* 
+   * OPTIMIZED: Complete removal from layout flow instead of display: none
+   * This prevents grid gaps by removing filtered items from the layout entirely
+   */
   .filtered-hidden {
-    display: none !important;
+    /* Remove from layout flow completely - no gaps! */
+    position: absolute !important;
+    left: -10000px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+
+    /* Accessibility: Hidden from screen readers */
     visibility: hidden;
     opacity: 0;
+    pointer-events: none;
   }
 
   /* 
-   * Pure CSS Grid Layout Optimization
-   * Uses CSS Grid's auto-fit to automatically eliminate gaps without JavaScript
+   * Enhanced CSS Grid Layout - Auto-collapse for filtered content
+   * Uses CSS Grid's auto-fit with optimized minmax for seamless filtering
    */
   .achievements__grid {
     /* Base responsive grid with automatic gap elimination */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-sm), 100%), 1fr));
     gap: var(--space-lg);
     width: 100%;
 
-    /* Smooth transitions for layout changes */
-    transition: gap var(--transition-normal);
-
-    /* CSS Grid will automatically adjust columns when items are hidden */
-    grid-auto-flow: row;
+    /* OPTIMIZATION: Only visible children participate in grid layout */
+    grid-auto-flow: row dense; /* Dense packing eliminates gaps */
     align-items: start;
     justify-items: stretch;
+
+    /* Smooth transitions for layout changes */
+    transition:
+      grid-template-columns var(--transition-normal),
+      gap var(--transition-normal);
+
+    /* Performance: Contain layout changes for better rendering */
+    contain: layout style;
+  }
+
+  /* 
+   * CRITICAL: Target only visible achievement cards to prevent gaps
+   * This ensures filtered cards don't interfere with grid layout
+   */
+  .achievements__grid > *:not(.filtered-hidden) {
+    /* Only visible items participate in grid flow */
+    position: relative;
+    display: block;
+  }
+
+  /* 
+   * Auto-hide empty category sections when all achievements are filtered
+   * Uses modern CSS :has() selector with fallback
+   */
+  .achievements__category:has(.achievements__grid:empty),
+  .achievements__category:has(.achievements__grid > *:not(.filtered-hidden):empty) {
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Fallback for browsers without :has() support */
+  @supports not selector(:has(*)) {
+    /* JavaScript will handle section hiding in applyFilters() method */
+    .achievements__category.all-filtered {
+      display: none;
+    }
   }
 
   /* 
@@ -485,7 +547,7 @@ const categoryOptions = [
   @media (min-width: var(--breakpoint-md)) {
     /* Tablet and up: Allow up to 2 columns */
     .achievements__grid {
-      grid-template-columns: repeat(auto-fit, minmax(min(320px, 45%), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-md), 45%), 1fr));
       gap: var(--space-xl);
     }
   }
@@ -493,7 +555,7 @@ const categoryOptions = [
   @media (min-width: var(--breakpoint-lg)) {
     /* Desktop: Allow up to 3 columns */
     .achievements__grid {
-      grid-template-columns: repeat(auto-fit, minmax(min(280px, 30%), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-sm), 30%), 1fr));
       gap: var(--space-xl);
     }
   }
@@ -501,7 +563,7 @@ const categoryOptions = [
   @media (min-width: var(--breakpoint-xl)) {
     /* Large desktop: Allow optimal spacing */
     .achievements__grid {
-      grid-template-columns: repeat(auto-fit, minmax(min(320px, 28%), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-md), 28%), 1fr));
       gap: var(--enhanced-gap-mobile);
     }
   }
@@ -546,19 +608,53 @@ const categoryOptions = [
   }
 
   /*
-   * Improved accessibility for filtered content
-   * Ensures screen readers handle hidden content correctly
+   * Animation for smooth insertion/removal of achievement cards
+   * Provides smooth transitions when cards are added or removed from DOM
    */
-  .filtered-hidden {
-    /* Enhanced hiding that works across all browsers */
-    position: absolute !important;
-    left: -10000px !important;
-    width: 1px !important;
-    height: 1px !important;
-    overflow: hidden !important;
-    clip: rect(1px, 1px, 1px, 1px) !important;
-    clip-path: inset(50%) !important;
-    white-space: nowrap !important;
+  .achievement-card-entering {
+    animation: cardEnter var(--transition-slow) ease-out forwards;
+  }
+
+  .achievement-card-leaving {
+    animation: cardLeave var(--transition-normal) ease-in forwards;
+  }
+
+  @keyframes cardEnter {
+    from {
+      opacity: 0;
+      transform: translateY(var(--space-lg)) scale(var(--scale-hover));
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes cardLeave {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(calc(-1 * var(--space-sm))) scale(var(--scale-hover));
+    }
+  }
+
+  /*
+   * Section animations for empty state
+   */
+  .achievements__category {
+    transition: all var(--transition-slow) ease-out;
+  }
+
+  .achievements__category.section-empty {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--space-lg)));
+    margin: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
   }
 
   /* ============================================================================
@@ -580,7 +676,7 @@ const categoryOptions = [
   }
 
   /* Mobile optimization with enhanced touch accessibility and visual effects */
-  @media (max-width: calc(var(--breakpoint-md) - 0.0625em)) {
+  @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
     /* Below md breakpoint - using semantic spacing variables */
     .achievement-filter {
       padding: var(--space-md);
@@ -619,15 +715,13 @@ const categoryOptions = [
     }
 
     .achievement-filter__select {
-      border-width: var(
-        --enhanced-border-thickness
-      ); /* Enhanced border using calc with CSS variables */
+      border-width: var(--border-width-enhanced);
       filter: var(--filter-high-contrast-select); /* Better visibility in high contrast */
     }
 
     .achievement-filter__reset,
     .achievement-filter__help-button {
-      border-width: var(--enhanced-border-thickness); /* Consistent enhanced borders */
+      border-width: var(--border-width-enhanced); /* Consistent enhanced borders */
       filter: var(--filter-high-contrast-button); /* Improved button visibility */
     }
   }
@@ -696,7 +790,7 @@ const categoryOptions = [
   }
 
   /* ============================================================================
-   * PRINT STYLES - WCAG AAA Print Accessibility - OPTIMIZED: Using more semantic variables
+   * PRINT STYLES - WCAG AAA Print Accessibility (Fully Optimized with CSS Variables)
    * ============================================================================ */
   @media print {
     .achievement-filter {
@@ -705,23 +799,22 @@ const categoryOptions = [
       box-shadow: none;
       color: var(--print-text);
       page-break-inside: avoid;
-      /* Enhanced print optimization using filter variables */
-      filter: contrast(1.2) brightness(var(--filter-brightness-high));
+      /* Enhanced print optimization using CSS variables */
+      filter: contrast(var(--filter-contrast)) brightness(var(--filter-brightness-high));
     }
 
     .achievement-filter__label {
       color: var(--print-text);
       /* Enhanced text rendering for print */
       text-rendering: optimizeLegibility;
-      -webkit-print-color-adjust: exact; /* Preserve text styling in print */
+      -webkit-print-color-adjust: exact;
     }
 
     .achievement-filter__select {
       background-color: var(--print-bg);
       border: var(--print-border);
       color: var(--print-text);
-      /* Remove custom background image for print */
-      background-image: none;
+      padding: var(--space-sm) var(--space-md);
     }
 
     .achievement-filter__reset,
@@ -729,11 +822,26 @@ const categoryOptions = [
       background-color: var(--print-bg);
       border: var(--print-border);
       color: var(--print-text);
+      box-shadow: none;
+      padding: var(--space-sm) var(--space-md);
     }
 
     .achievement-filter__keyboard-shortcuts {
       background-color: var(--print-bg);
       border: var(--print-border);
+      color: var(--print-text);
+      margin-top: var(--space-md);
+      padding: var(--space-md);
+    }
+
+    .achievement-filter__shortcut-key {
+      color: var(--print-text);
+      font-weight: var(--font-bold);
+    }
+
+    .achievement-filter__shortcut-description {
+      color: var(--print-text);
+      font-size: var(--text-sm);
     }
   }
 </style>
@@ -759,6 +867,10 @@ const categoryOptions = [
     private statusCount: HTMLElement | null = null;
     private categoryCount: HTMLElement | null = null;
     private currentVisibleCount: number = 0;
+    private originalCards: Map<
+      string,
+      Array<{ element: HTMLElement; status: string; category: string }>
+    > = new Map();
 
     // Übersetzungen für Screen Reader Announcements
     private translations: {
@@ -781,6 +893,7 @@ const categoryOptions = [
 
     constructor() {
       this.initializeElements();
+      this.initializeOriginalCards();
       this.bindEvents();
       this.setupKeyboardShortcuts();
 
@@ -811,6 +924,47 @@ const categoryOptions = [
           countGeneric: filterContainer.dataset.countGeneric || "",
         };
       }
+    }
+
+    /**
+     * Initialize and store original cards from all sections
+     * This method captures the initial state of all achievement cards
+     */
+    private initializeOriginalCards(): void {
+      const achievementSections = document.querySelectorAll(".achievements__category");
+
+      achievementSections.forEach((section: Element) => {
+        const sectionElement = section as HTMLElement;
+        const grid = section.querySelector(".achievements__grid");
+
+        if (!grid) {
+          return;
+        }
+
+        // Create a unique identifier for this section
+        const sectionId =
+          sectionElement.dataset.sectionId ||
+          sectionElement.querySelector("h2, h3")?.textContent?.trim() ||
+          section.classList[0] ||
+          `section-${Array.from(achievementSections).indexOf(section)}`;
+
+        // Store section ID for later reference
+        sectionElement.dataset.sectionId = sectionId;
+
+        // Capture all cards in this section
+        const cards = Array.from(grid.querySelectorAll('[data-testid^="achievement-card-"]')).map(
+          (card) => {
+            const cardElement = card as HTMLElement;
+            return {
+              element: cardElement.cloneNode(true) as HTMLElement,
+              status: cardElement.dataset.status || "",
+              category: cardElement.dataset.category || "",
+            };
+          }
+        );
+
+        this.originalCards.set(sectionId, cards);
+      });
     }
 
     private bindEvents(): void {
@@ -868,8 +1022,8 @@ const categoryOptions = [
 
     /**
      * Applies filters to achievement cards in the DOM
-     * This method filters achievement cards based on status and category
-     * Uses optimized CSS classes for gap-free grid layout
+     * Uses DOM manipulation to completely remove/add elements for gap-free layout
+     * This approach eliminates layout issues by working with actual DOM structure
      */
     private applyFilters(): void {
       const statusFilter = this.statusSelect?.value || "all";
@@ -883,44 +1037,56 @@ const categoryOptions = [
 
       achievementSections.forEach((section: Element) => {
         const sectionElement = section as HTMLElement;
-        const cardsInSection = section.querySelectorAll('[data-testid^="achievement-card-"]');
+        const grid = section.querySelector(".achievements__grid");
+
+        if (!grid) {
+          return;
+        }
+
+        // Get all cards (both visible and hidden)
+        const allCards = this.getAllCardsInSection(section);
         let visibleCardsInSection = 0;
 
-        cardsInSection.forEach((card: Element) => {
-          const cardElement = card as HTMLElement;
-          const cardStatus = cardElement.dataset.status || "";
-          const cardCategory = cardElement.dataset.category || "";
+        // Clear the grid
+        grid.innerHTML = "";
 
-          // Check if card matches status filter
+        // Filter and re-add cards that match the criteria
+        allCards.forEach((cardData) => {
+          const { element: cardElement, status: cardStatus, category: cardCategory } = cardData;
+
+          // Check if card matches filters
           const statusMatch = statusFilter === "all" || cardStatus === statusFilter;
-
-          // Check if card matches category filter
           const categoryMatch = categoryFilter === "all" || cardCategory === categoryFilter;
 
-          // Show/hide card based on filter criteria
-          // Use CSS class toggle for better grid behavior
           if (statusMatch && categoryMatch) {
-            cardElement.style.display = "";
-            cardElement.classList.remove("filtered-hidden");
+            // Add card back to grid with enter animation
+            cardElement.classList.add("achievement-card-entering");
             cardElement.setAttribute("aria-hidden", "false");
+            cardElement.removeAttribute("tabindex");
+
+            grid.appendChild(cardElement);
             visibleCards++;
             visibleCardsInSection++;
-          } else {
-            cardElement.style.display = "none";
-            cardElement.classList.add("filtered-hidden");
-            cardElement.setAttribute("aria-hidden", "true");
+
+            // Remove animation class after animation completes using CSS variable
+            setTimeout(
+              () => {
+                cardElement.classList.remove("achievement-card-entering");
+              },
+              parseInt(
+                getComputedStyle(document.documentElement).getPropertyValue("--timeout-animation")
+              ) || 300
+            );
           }
         });
 
         // Show/hide section based on whether it has visible cards
         if (visibleCardsInSection > 0) {
-          sectionElement.style.display = "";
-          sectionElement.classList.remove("filtered-hidden");
+          sectionElement.classList.remove("section-empty");
           sectionElement.setAttribute("aria-hidden", "false");
           visibleSections++;
         } else {
-          sectionElement.style.display = "none";
-          sectionElement.classList.add("filtered-hidden");
+          sectionElement.classList.add("section-empty");
           sectionElement.setAttribute("aria-hidden", "true");
         }
       });
@@ -930,6 +1096,38 @@ const categoryOptions = [
 
       // Store the current filter state for count updates
       this.currentVisibleCount = visibleCards;
+    }
+
+    /**
+     * Gets all cards in a section, including currently hidden ones
+     * Stores them in memory for filtering operations
+     */
+    private getAllCardsInSection(
+      section: Element
+    ): Array<{ element: HTMLElement; status: string; category: string }> {
+      const grid = section.querySelector(".achievements__grid");
+      if (!grid) {
+        return [];
+      }
+
+      // If we haven't stored the original cards for this section, do it now
+      const sectionId = (section as HTMLElement).dataset.sectionId || section.classList[0];
+
+      if (!this.originalCards.has(sectionId)) {
+        const cards = Array.from(grid.querySelectorAll('[data-testid^="achievement-card-"]')).map(
+          (card) => {
+            const cardElement = card as HTMLElement;
+            return {
+              element: cardElement.cloneNode(true) as HTMLElement,
+              status: cardElement.dataset.status || "",
+              category: cardElement.dataset.category || "",
+            };
+          }
+        );
+        this.originalCards.set(sectionId, cards);
+      }
+
+      return this.originalCards.get(sectionId) || [];
     }
 
     /**
@@ -956,11 +1154,16 @@ const categoryOptions = [
         this.announcements.textContent = message;
 
         // Clear announcement after 3 seconds
-        setTimeout(() => {
-          if (this.announcements) {
-            this.announcements.textContent = "";
-          }
-        }, 3000);
+        setTimeout(
+          () => {
+            if (this.announcements) {
+              this.announcements.textContent = "";
+            }
+          },
+          parseInt(
+            getComputedStyle(document.documentElement).getPropertyValue("--timeout-announcement")
+          ) || 3000
+        );
       }
     }
 
@@ -1054,11 +1257,16 @@ const categoryOptions = [
         this.announcements.textContent = message;
 
         // Clear announcement after 3 seconds
-        setTimeout(() => {
-          if (this.announcements) {
-            this.announcements.textContent = "";
-          }
-        }, 3000);
+        setTimeout(
+          () => {
+            if (this.announcements) {
+              this.announcements.textContent = "";
+            }
+          },
+          parseInt(
+            getComputedStyle(document.documentElement).getPropertyValue("--timeout-announcement")
+          ) || 3000
+        );
       }
     }
 
@@ -1066,11 +1274,16 @@ const categoryOptions = [
       if (this.announcements && this.translations.reset) {
         this.announcements.textContent = this.translations.reset;
 
-        setTimeout(() => {
-          if (this.announcements) {
-            this.announcements.textContent = "";
-          }
-        }, 3000);
+        setTimeout(
+          () => {
+            if (this.announcements) {
+              this.announcements.textContent = "";
+            }
+          },
+          parseInt(
+            getComputedStyle(document.documentElement).getPropertyValue("--timeout-announcement")
+          ) || 3000
+        );
       }
     }
 

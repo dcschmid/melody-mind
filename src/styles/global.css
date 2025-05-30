@@ -78,15 +78,15 @@
   --bg-primary: var(--color-neutral-950);
   --bg-secondary: var(--color-neutral-900);
   --bg-tertiary: var(--color-neutral-800);
-  --bg-overlay: rgba(0, 0, 0, 0.8);
-  --bg-glass: rgba(255, 255, 255, 0.05);
+  --bg-error: var(--color-error-950); /* Error state background */
 
-  /* Text Colors (AAA Compliant Contrast) */
-  --text-primary: var(--color-white); /* 21:1 on dark bg */
+  /* Text Colors - WCAG AAA Compliant (7:1 ratio) */
+  --text-primary: var(--color-neutral-50); /* 18.7:1 on dark bg */
   --text-secondary: var(--color-neutral-300); /* 7.5:1 on dark bg */
   --text-tertiary: var(--color-neutral-400); /* 4.8:1 on dark bg */
   --text-disabled: var(--color-neutral-600);
   --text-inverse: var(--color-neutral-950);
+  --text-error: var(--color-error-200); /* Error state text */
 
   /* Border Colors */
   --border-primary: var(--color-neutral-700);
@@ -186,6 +186,15 @@
   /* Border System */
   --border-width-thin: 1px;
   --border-width-thick: 2px;
+  --border-width-enhanced: 3px;
+
+  /* Breakpoint Utilities */
+  --breakpoint-offset: 0.0625em; /* 1px offset for max-width calculations */
+
+  /* Transform and Animation Scales */
+  --scale-hover: 0.95;
+  --scale-active: 0.98;
+  --scale-focus: 1.02;
 
   /* ======================================
    * LAYOUT SYSTEM
@@ -261,9 +270,15 @@
   --text-decoration-thickness: 2px; /* Standard text decoration thickness */
   --text-underline-offset: 0.2em; /* Standard underline offset */
 
-  /* Enhanced Touch Targets and Spacing Calculations */
-  --enhanced-touch-target: calc(var(--min-touch-size) + var(--space-sm)); /* 52px enhanced touch */
+  /* Enhanced Border System */
   --enhanced-border-thickness: calc(var(--border-width-thick) + 1px); /* 3px enhanced border */
+
+  /* Component State Timeouts */
+  --timeout-animation: 300ms;
+  --timeout-announcement: 3000ms;
+
+  /* Enhanced Filter Effects */
+  --filter-contrast: 1.2;
   --enhanced-gap-mobile: calc(var(--space-xl) + var(--space-sm)); /* 40px enhanced gap */
   --button-padding-standard: var(--space-md) var(--space-xl); /* Standard button padding */
   --button-padding-enhanced: var(--space-lg) var(--space-xl); /* Enhanced button padding */
@@ -281,8 +296,9 @@
   --icon-dropdown-arrow: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
 
   /* Common Layout Combinations */
-  --flex-column-stretch: flex-direction: column;
-  align-items: stretch;
+  --flex-direction-column: column;
+  --align-items-stretch: stretch;
+  --align-items-center: center;
   --grid-auto-fit-responsive: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
 
   /* Print-Safe Colors */
@@ -309,6 +325,12 @@
   --container-lg: 1024px;
   --container-xl: 1280px;
   --container-2xl: 1536px;
+
+  /* Component Width System */
+  --stat-width-sm: 120px;
+  --stat-width-md: 150px;
+  --grid-min-width-sm: 280px;
+  --grid-min-width-md: 300px;
 }
 
 /* Light mode overrides */

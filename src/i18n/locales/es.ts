@@ -545,6 +545,17 @@ export default {
   "achievements.badge.keyboard_instructions":
     "Presiona Enter o Espacio para ver tu página de logros.",
 
+  // Resumen y estadísticas de logros
+  "achievements.summary.title": "Resumen de Logros",
+  "achievements.summary.total": "Total",
+  "achievements.summary.unlocked": "Desbloqueados",
+  "achievements.summary.progress": "Progreso",
+  "achievements.summary.total-aria": "Total de logros: {count}",
+  "achievements.summary.unlocked-aria": "Logros desbloqueados: {count}",
+  "achievements.summary.progress-aria": "Progreso: {percent} por ciento completado",
+  "achievements.categories": "Categorías de Logros",
+  "achievements.category.count": "Contiene {count} logros",
+
   // Mensajes de error de API
   "errors.auth.unauthorized": "Debes iniciar sesión para acceder a esta función",
   "errors.invalidRequest": "Solicitud inválida: {error}",
