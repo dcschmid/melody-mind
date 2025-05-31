@@ -635,6 +635,9 @@ export default {
   "auth.password.requirements.not_met": "Krav ej uppfyllt",
   "auth.password.requirements.keyboard_navigation":
     "Använd Tab och Enter för att navigera och aktivera",
+  "auth.password.requirements.position": "{{current}} av {{total}}",
+  "auth.password.requirements.progress":
+    "{{met}} av {{total}} krav uppfyllda. {{percentage}}% klart.",
   "auth.password.strength.good": "Bra",
   "auth.password.strength.description": "Indikator för lösenordssäkerhetsnivå",
 

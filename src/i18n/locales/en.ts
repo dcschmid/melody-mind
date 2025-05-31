@@ -120,6 +120,9 @@ export default {
   "auth.password.requirements.not_met": "Requirement not met",
   "auth.password.requirements.keyboard_navigation":
     "Use arrow keys to navigate requirements, Escape to exit",
+  "auth.password.requirements.position": "{{current}} of {{total}}",
+  "auth.password.requirements.progress":
+    "{{met}} of {{total}} requirements met. {{percentage}}% complete.",
   "auth.password.min_length": "Password must be at least 8 characters long",
   "auth.password.uppercase": "Password must contain at least one uppercase letter",
   "auth.password.lowercase": "Password must contain at least one lowercase letter",

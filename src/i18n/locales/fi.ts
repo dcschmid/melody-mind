@@ -641,6 +641,9 @@ export default {
   "auth.password.requirements.not_met": "Vaatimus ei täytetty",
   "auth.password.requirements.keyboard_navigation":
     "Käytä Tab ja Enter -näppäimiä navigointiin ja aktivointiin",
+  "auth.password.requirements.position": "{{current}} / {{total}}",
+  "auth.password.requirements.progress":
+    "{{met}} / {{total}} vaatimusta täytetty. {{percentage}}% valmis.",
   "auth.password.strength.good": "Hyvä",
   "auth.password.strength.description": "Salasanan turvallisuustason ilmaisin",
 

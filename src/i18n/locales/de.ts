@@ -132,6 +132,9 @@ export default {
   "auth.password.requirements.not_met": "Anforderung nicht erfüllt",
   "auth.password.requirements.keyboard_navigation":
     "Verwenden Sie die Pfeiltasten zur Navigation, Escape zum Beenden",
+  "auth.password.requirements.position": "{{current}} von {{total}}",
+  "auth.password.requirements.progress":
+    "{{met}} von {{total}} Anforderungen erfüllt. {{percentage}}% abgeschlossen.",
   "auth.password.min_length": "Passwort muss mindestens 8 Zeichen lang sein",
   "auth.password.uppercase": "Passwort muss mindestens einen Großbuchstaben enthalten",
   "auth.password.lowercase": "Passwort muss mindestens einen Kleinbuchstaben enthalten",

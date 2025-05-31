@@ -634,6 +634,9 @@ export default {
   "auth.password.requirements.met": "Krav opfyldt",
   "auth.password.requirements.not_met": "Krav ikke opfyldt",
   "auth.password.requirements.keyboard_navigation": "Brug Tab og Enter til at navigere og aktivere",
+  "auth.password.requirements.position": "{{current}} af {{total}}",
+  "auth.password.requirements.progress":
+    "{{met}} af {{total}} krav opfyldt. {{percentage}}% færdig.",
   "auth.password.strength.good": "God",
   "auth.password.strength.description": "Indikator for kodeordssikkerhedsniveau",
 
