@@ -153,6 +153,7 @@ export default {
   "auth.accessibility.close_modal": "Close window",
   "auth.accessibility.error_message_dismissed": "Error message dismissed",
   "auth.accessibility.success_message_dismissed": "Success message dismissed",
+  "auth.accessibility.button_focus_instruction": "Button: {buttonText}. Press Enter to submit",
 
   // Form Initialization
   "auth.form.init_error": "Failed to initialize auth form elements",

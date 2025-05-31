@@ -155,6 +155,8 @@ export default {
   "auth.accessibility.password_requirements": "Wachtwoordvereisten weergeven/verbergen",
   "auth.accessibility.form": "Inlogformulier",
   "auth.accessibility.close_modal": "Venster sluiten",
+  "auth.accessibility.button_focus_instruction":
+    "Knop: {buttonText}. Druk op Enter om te verzenden",
 
   // API-foutmeldingen
   "auth.api.network_error": "Netwerkfout. Controleer uw verbinding",

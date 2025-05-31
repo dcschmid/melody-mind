@@ -155,6 +155,8 @@ export default {
   "auth.accessibility.close_modal": "Fermer la fenêtre",
   "auth.accessibility.error_message_dismissed": "Message d'erreur fermé",
   "auth.accessibility.success_message_dismissed": "Message de succès fermé",
+  "auth.accessibility.button_focus_instruction":
+    "Bouton : {buttonText}. Appuyez sur Entrée pour soumettre",
 
   // Initialisation du formulaire
   "auth.form.init_error": "Échec de l'initialisation des éléments du formulaire d'authentification",
