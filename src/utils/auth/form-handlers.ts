@@ -6,6 +6,8 @@
  */
 
 import { validatePassword, validatePasswordMatch } from "../../lib/auth/password-validation";
+// Import centralized validation utilities (MANDATORY: Code Deduplication)
+import { validateEmail } from "../password-validation";
 
 /**
  * Form submission result
@@ -271,13 +273,4 @@ export function validateRegistrationForm(formData: {
   return { isValid, errors };
 }
 
-/**
- * Email validation helper function
- *
- * @param email - The email to validate
- * @returns Whether the email is valid
- */
-function validateEmail(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
+// End of file - removed duplicate validateEmail function (using centralized validation)

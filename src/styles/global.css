@@ -85,6 +85,7 @@
   --bg-success-aaa: var(--color-success-900); /* Enhanced success background for 7:1 ratio */
   --bg-success-subtle: var(--color-success-950); /* Subtle success background */
   --bg-warning-aaa: var(--color-warning-900); /* Enhanced warning background for 7:1 ratio */
+  --bg-help-info: var(--color-info-950); /* Help text background for accessibility */
 
   /* Text Colors - WCAG AAA Compliant (7:1 ratio) */
   --text-primary: var(--color-neutral-50); /* 18.7:1 on dark bg */
@@ -106,6 +107,7 @@
   --border-focus: var(--color-secondary-400);
   --border-error: var(--color-error-500);
   --border-success: var(--color-success-500);
+  --border-help-info: var(--color-info-600); /* Help text border for accessibility */
 
   /* Interactive Colors */
   --interactive-primary: var(--color-primary-600);
