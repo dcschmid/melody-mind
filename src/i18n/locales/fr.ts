@@ -118,6 +118,9 @@ export default {
   "auth.password.requirements.not_met": "Exigence non satisfaite",
   "auth.password.requirements.keyboard_navigation":
     "Utilisez les flèches pour naviguer dans les exigences, Échap pour quitter",
+  "auth.password.requirements.position": "{{current}} sur {{total}}",
+  "auth.password.requirements.progress":
+    "{{met}} sur {{total}} exigences remplies. {{percentage}}% terminé.",
   "auth.password.min_length": "Le mot de passe doit comporter au moins 8 caractères",
   "auth.password.uppercase": "Le mot de passe doit contenir au moins une lettre majuscule",
   "auth.password.lowercase": "Le mot de passe doit contenir au moins une lettre minuscule",

@@ -75,6 +75,9 @@ export default {
   "auth.password.requirements.lowercase": "Almeno una lettera minuscola",
   "auth.password.requirements.number": "Almeno un numero",
   "auth.password.requirements.special": "Almeno un carattere speciale",
+  "auth.password.requirements.position": "{{current}} di {{total}}",
+  "auth.password.requirements.progress":
+    "{{met}} di {{total}} requisiti soddisfatti. {{percentage}}% completato.",
 
   // Componenti di navigazione
   "nav.home": "Home",

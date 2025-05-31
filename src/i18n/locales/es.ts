@@ -124,6 +124,9 @@ export default {
   "auth.password.requirements.not_met": "Requisito no cumplido",
   "auth.password.requirements.keyboard_navigation":
     "Use las teclas de flecha para navegar por los requisitos, Escape para salir",
+  "auth.password.requirements.position": "{{current}} de {{total}}",
+  "auth.password.requirements.progress":
+    "{{met}} de {{total}} requisitos cumplidos. {{percentage}}% completado.",
   "auth.password.min_length": "La contraseña debe tener al menos 8 caracteres",
   "auth.password.uppercase": "La contraseña debe contener al menos una letra mayúscula",
   "auth.password.lowercase": "La contraseña debe contener al menos una letra minúscula",

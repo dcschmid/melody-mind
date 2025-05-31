@@ -120,6 +120,9 @@ export default {
   "auth.password.requirements.not_met": "Vereiste niet voldaan",
   "auth.password.requirements.keyboard_navigation":
     "Gebruik pijltjestoetsen om door vereisten te navigeren, Escape om te verlaten",
+  "auth.password.requirements.position": "{{current}} van {{total}}",
+  "auth.password.requirements.progress":
+    "{{met}} van {{total}} vereisten voldaan. {{percentage}}% voltooid.",
   "auth.password.min_length": "Wachtwoord moet minimaal 8 tekens lang zijn",
   "auth.password.uppercase": "Wachtwoord moet minimaal één hoofdletter bevatten",
   "auth.password.lowercase": "Wachtwoord moet minimaal één kleine letter bevatten",
