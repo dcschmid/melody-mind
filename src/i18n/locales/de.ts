@@ -62,6 +62,8 @@ export default {
   "auth.accessibility.requirements.collapsed": "Passwort-Anforderungen eingeklappt",
   "auth.accessibility.login_form_active": "Anmeldeformular ist jetzt aktiv",
   "auth.accessibility.register_form_active": "Registrierungsformular ist jetzt aktiv",
+  "auth.accessibility.button_focus_instruction":
+    "Schaltfläche: {buttonText}. Drücken Sie die Eingabetaste zum Absenden",
 
   // Skip-Links
   "auth.skip_to_verification": "Zum E-Mail-Verifizierungsinhalt springen",

@@ -63,6 +63,7 @@ export default {
   "auth.accessibility.register_form_active": "Il modulo di registrazione è ora attivo",
   "auth.accessibility.error_message_dismissed": "Messaggio di errore chiuso",
   "auth.accessibility.success_message_dismissed": "Messaggio di successo chiuso",
+  "auth.accessibility.button_focus_instruction": "Pulsante: {buttonText}. Premi Invio per inviare",
 
   // Collegamenti di salto
   "auth.skip_to_verification": "Vai al contenuto di verifica email",

@@ -362,10 +362,66 @@ const {
         const buttonText = button.querySelector(".auth-form__submit-text")?.textContent;
         if (buttonText) {
           const lang = document.documentElement.lang || "en";
-          const announcement =
-            lang === "de"
-              ? `Schaltfläche: ${buttonText}. Drücken Sie die Eingabetaste zum Absenden`
-              : `Button: ${buttonText}. Press Enter to submit`;
+
+          // Get the translation function for the current language
+          const getTranslation = (key: string, params?: Record<string, string>): string => {
+            // This is a simplified client-side translation - in a real implementation,
+            // you might want to pass translations from the server or use a client-side i18n library
+            const translations: Record<string, Record<string, string>> = {
+              en: {
+                "auth.accessibility.button_focus_instruction":
+                  "Button: {buttonText}. Press Enter to submit",
+              },
+              de: {
+                "auth.accessibility.button_focus_instruction":
+                  "Schaltfläche: {buttonText}. Drücken Sie die Eingabetaste zum Absenden",
+              },
+              es: {
+                "auth.accessibility.button_focus_instruction":
+                  "Botón: {buttonText}. Presiona Enter para enviar",
+              },
+              fr: {
+                "auth.accessibility.button_focus_instruction":
+                  "Bouton : {buttonText}. Appuyez sur Entrée pour soumettre",
+              },
+              it: {
+                "auth.accessibility.button_focus_instruction":
+                  "Pulsante: {buttonText}. Premi Invio per inviare",
+              },
+              pt: {
+                "auth.accessibility.button_focus_instruction":
+                  "Botão: {buttonText}. Pressione Enter para enviar",
+              },
+              da: {
+                "auth.accessibility.button_focus_instruction":
+                  "Knap: {buttonText}. Tryk på Enter for at indsende",
+              },
+              nl: {
+                "auth.accessibility.button_focus_instruction":
+                  "Knop: {buttonText}. Druk op Enter om te verzenden",
+              },
+              sv: {
+                "auth.accessibility.button_focus_instruction":
+                  "Knapp: {buttonText}. Tryck på Enter för att skicka",
+              },
+              fi: {
+                "auth.accessibility.button_focus_instruction":
+                  "Painike: {buttonText}. Paina Enter lähettääksesi",
+              },
+            };
+
+            let text = translations[lang]?.[key] || translations["en"]?.[key] || key;
+            if (params) {
+              Object.entries(params).forEach(([k, v]) => {
+                text = text.replace(new RegExp(`{${k}}`, "g"), v);
+              });
+            }
+            return text;
+          };
+
+          const announcement = getTranslation("auth.accessibility.button_focus_instruction", {
+            buttonText,
+          });
 
           // Use optimized delay timing
           setTimeout(() => announceToScreenReader(announcement), 300);

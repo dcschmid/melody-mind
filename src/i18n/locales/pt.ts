@@ -154,6 +154,7 @@ export default {
   "auth.accessibility.password_requirements": "Mostrar/ocultar requisitos da senha",
   "auth.accessibility.form": "Formulário de login",
   "auth.accessibility.close_modal": "Fechar janela",
+  "auth.accessibility.button_focus_instruction": "Botão: {buttonText}. Pressione Enter para enviar",
 
   // Mensagens de Erro da API
   "auth.api.network_error": "Erro de rede. Por favor, verifique sua conexão",

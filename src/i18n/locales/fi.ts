@@ -145,6 +145,7 @@ export default {
   "auth.accessibility.password_requirements": "Näytä/piilota salasanavaatimukset",
   "auth.accessibility.form": "Kirjautumislomake",
   "auth.accessibility.close_modal": "Sulje ikkuna",
+  "auth.accessibility.button_focus_instruction": "Painike: {buttonText}. Paina Enter lähettääksesi",
 
   // API-virheilmoitukset
   "auth.api.network_error": "Verkkovirhe. Tarkista yhteytesi",

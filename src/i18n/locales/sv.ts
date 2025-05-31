@@ -145,6 +145,8 @@ export default {
   "auth.accessibility.password_requirements": "Visa/dölj lösenordskrav",
   "auth.accessibility.form": "Inloggningsformulär",
   "auth.accessibility.close_modal": "Stäng fönster",
+  "auth.accessibility.button_focus_instruction":
+    "Knapp: {buttonText}. Tryck på Enter för att skicka",
 
   // API-felmeddelanden
   "auth.api.network_error": "Nätverksfel. Kontrollera din anslutning",

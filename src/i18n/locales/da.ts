@@ -144,6 +144,8 @@ export default {
   "auth.accessibility.password_requirements": "Vis/skjul adgangskodekrav",
   "auth.accessibility.form": "Loginformular",
   "auth.accessibility.close_modal": "Luk vindue",
+  "auth.accessibility.button_focus_instruction":
+    "Knap: {buttonText}. Tryk på Enter for at indsende",
 
   // API-fejlmeddelelser
   "auth.api.network_error": "Netværksfejl. Tjek venligst din forbindelse",
