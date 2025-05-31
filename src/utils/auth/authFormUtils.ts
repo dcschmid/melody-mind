@@ -3,6 +3,9 @@
  * Extracted from AuthForm.astro to enable proper TypeScript support
  */
 
+// Import centralized validation utilities (MANDATORY: Code Deduplication)
+import { validateEmail as centralValidateEmail } from "../password-validation";
+
 export interface AuthFormTranslations {
   invalidCredentials: string;
   tooManyAttempts: string;
@@ -26,13 +29,12 @@ export function showError(message: string): void {
 }
 
 /**
- * Email validation function - matches the one from AuthFormField
+ * Email validation function - uses centralized validation utility
  * @param email - The email address to validate
  * @returns True if email is valid, false otherwise
  */
 export function validateEmail(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
+  return centralValidateEmail(email);
 }
 
 /**

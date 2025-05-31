@@ -517,4 +517,14 @@ export default {
   "tutorial.next": "Avanti",
   "tutorial.skip": "Salta tutorial",
   "tutorial.finish": "Termina tutorial",
+
+  // Validazione moduli di autenticazione
+  "auth.form.required": "Questo campo è obbligatorio",
+  "auth.form.email_invalid": "Inserisci un indirizzo email valido",
+  "auth.form.password_min_length": "La password deve essere lunga almeno 6 caratteri",
+
+  // Accessibilità per autenticazione
+  "auth.accessibility.field_error": "ha un errore",
+  "auth.accessibility.error_resolved": "errore risolto",
+  "auth.accessibility.password_toggle": "Mostra/nascondi password",
 } as const;
