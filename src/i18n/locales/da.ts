@@ -43,6 +43,9 @@ export default {
   "auth.accessibility.error_message_dismissed": "Fejlbesked afvist",
   "auth.accessibility.success_message_dismissed": "Successbesked afvist",
 
+  // Spring-links
+  "auth.skip_to_verification": "Spring til e-mailverifikationsindhold",
+
   "auth.tabs.login": "Login",
   "auth.tabs.register": "Registrer",
   "auth.validation.processing": "Validerer input...",

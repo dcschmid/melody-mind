@@ -43,6 +43,9 @@ export default {
   "auth.accessibility.error_message_dismissed": "Felmeddelande ignorerat",
   "auth.accessibility.success_message_dismissed": "Framgångsmeddelande ignorerat",
 
+  // Skip links
+  "auth.skip_to_verification": "Hoppa till e-postverifieringsinnehåll",
+
   "auth.tabs.login": "Logga in",
   "auth.tabs.register": "Registrera",
   "auth.validation.processing": "Validerar indata...",
