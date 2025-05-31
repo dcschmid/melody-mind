@@ -43,6 +43,9 @@ export default {
   "auth.accessibility.error_message_dismissed": "Foutmelding weggenomen",
   "auth.accessibility.success_message_dismissed": "Succesbericht weggenomen",
 
+  // Skip links
+  "auth.skip_to_verification": "Ga naar e-mailverificatie-inhoud",
+
   "auth.tabs.login": "Inloggen",
   "auth.tabs.register": "Registreren",
   "auth.validation.processing": "Invoer valideren...",

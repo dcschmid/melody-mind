@@ -61,6 +61,9 @@ export default {
   "auth.accessibility.login_form_active": "Le formulaire de connexion est maintenant actif",
   "auth.accessibility.register_form_active": "Le formulaire d'inscription est maintenant actif",
 
+  // Liens de saut
+  "auth.skip_to_verification": "Aller au contenu de vérification d'email",
+
   "auth.register.name": "Nom complet",
   "auth.register.email": "Adresse e-mail",
   "auth.register.email.placeholder": "Votre adresse e-mail",

@@ -64,6 +64,9 @@ export default {
   "auth.accessibility.error_message_dismissed": "Mensaje de error desechado",
   "auth.accessibility.success_message_dismissed": "Mensaje de éxito desechado",
 
+  // Enlaces de salto
+  "auth.skip_to_verification": "Saltar al contenido de verificación de correo electrónico",
+
   // Inicialización del formulario
   "auth.form.init_error": "Error al inicializar los elementos del formulario de autenticación",
 

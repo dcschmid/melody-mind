@@ -61,6 +61,9 @@ export default {
   "auth.accessibility.login_form_active": "Login form is now active",
   "auth.accessibility.register_form_active": "Registration form is now active",
 
+  // Skip links
+  "auth.skip_to_verification": "Skip to email verification content",
+
   // Password strength levels
   "auth.password.strength.weak": "Weak",
   "auth.password.strength.medium": "Medium",

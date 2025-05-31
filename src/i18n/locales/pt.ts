@@ -64,6 +64,9 @@ export default {
   "auth.accessibility.error_message_dismissed": "Mensagem de erro dispensada",
   "auth.accessibility.success_message_dismissed": "Mensagem de sucesso dispensada",
 
+  // Links de pulo
+  "auth.skip_to_verification": "Pular para o conteúdo de verificação de email",
+
   "auth.register.name": "Nome Completo",
   "auth.register.email": "Endereço de Email",
   "auth.register.email.placeholder": "Seu endereço de email",

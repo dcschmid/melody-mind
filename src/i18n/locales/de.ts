@@ -62,6 +62,9 @@ export default {
   "auth.accessibility.requirements.collapsed": "Passwort-Anforderungen eingeklappt",
   "auth.accessibility.login_form_active": "Anmeldeformular ist jetzt aktiv",
   "auth.accessibility.register_form_active": "Registrierungsformular ist jetzt aktiv",
+
+  // Skip-Links
+  "auth.skip_to_verification": "Zum E-Mail-Verifizierungsinhalt springen",
   "auth.accessibility.error_message_dismissed": "Fehlermeldung ausgeblendet",
   "auth.accessibility.success_message_dismissed": "Erfolgsmeldung ausgeblendet",
 

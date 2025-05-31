@@ -64,6 +64,9 @@ export default {
   "auth.accessibility.error_message_dismissed": "Messaggio di errore chiuso",
   "auth.accessibility.success_message_dismissed": "Messaggio di successo chiuso",
 
+  // Collegamenti di salto
+  "auth.skip_to_verification": "Vai al contenuto di verifica email",
+
   // Password requirements
   "auth.password.requirements.title": "Requisiti della password:",
   "auth.password.requirements.length": "Almeno 8 caratteri",

@@ -43,6 +43,9 @@ export default {
   "auth.accessibility.error_message_dismissed": "Virheilmoitus hylätty",
   "auth.accessibility.success_message_dismissed": "Onnistumisilmoitus hylätty",
 
+  // Skip links
+  "auth.skip_to_verification": "Siirry sähköpostin vahvistussisältöön",
+
   "auth.tabs.login": "Kirjaudu sisään",
   "auth.tabs.register": "Rekisteröidy",
   "auth.validation.processing": "Tarkistetaan syötteitä...",
