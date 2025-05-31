@@ -252,6 +252,30 @@
   --font-semibold: 600;
   --font-bold: 700;
 
+  /* Line Heights - WCAG 2.2 AAA Enhanced Spacing */
+  --leading-tight: 1.3;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.8;
+
+  /* Letter and Word Spacing - WCAG 2.2 AAA Enhanced Spacing */
+  --letter-spacing-enhanced: 0.025em;
+  --word-spacing-enhanced: 0.16em;
+
+  /* ======================================
+   * INTERACTION SYSTEM
+   * ====================================== */
+
+  /* Touch Targets - WCAG AAA Compliance */
+  --touch-target-min: 44px;
+  --touch-target-enhanced: 48px;
+
+  /* Transition System */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+  --font-semibold: 600;
+  --font-bold: 700;
+
   /* Line Heights */
   --leading-tight: 1.25;
   --leading-normal: 1.5;
