@@ -40,6 +40,8 @@ export default {
   "auth.accessibility.requirements.collapsed": "Salasanavaatimukset tiivistetty",
   "auth.accessibility.login_form_active": "Kirjautumislomake on nyt aktiivinen",
   "auth.accessibility.register_form_active": "Rekisteröitymislomake on nyt aktiivinen",
+  "auth.accessibility.focus_trapped":
+    "Kohdistus on nyt vangittu tähän dialogiin. Käytä Tab-näppäintä navigointiin ja Escape-näppäintä sulkemiseen.",
   "auth.accessibility.error_message_dismissed": "Virheilmoitus hylätty",
   "auth.accessibility.success_message_dismissed": "Onnistumisilmoitus hylätty",
 

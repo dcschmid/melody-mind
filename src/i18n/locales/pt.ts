@@ -61,6 +61,8 @@ export default {
   "auth.accessibility.requirements.collapsed": "Requisitos de senha recolhidos",
   "auth.accessibility.login_form_active": "O formulário de login está agora ativo",
   "auth.accessibility.register_form_active": "O formulário de registro está agora ativo",
+  "auth.accessibility.focus_trapped":
+    "O foco está agora capturado dentro desta caixa de diálogo. Use Tab para navegar e Escape para fechar.",
   "auth.accessibility.error_message_dismissed": "Mensagem de erro dispensada",
   "auth.accessibility.success_message_dismissed": "Mensagem de sucesso dispensada",
 

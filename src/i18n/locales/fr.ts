@@ -60,6 +60,8 @@ export default {
   "auth.accessibility.requirements.collapsed": "Exigences du mot de passe repliées",
   "auth.accessibility.login_form_active": "Le formulaire de connexion est maintenant actif",
   "auth.accessibility.register_form_active": "Le formulaire d'inscription est maintenant actif",
+  "auth.accessibility.focus_trapped":
+    "Le focus est maintenant piégé dans ce dialogue. Utilisez Tab pour naviguer et Escape pour fermer.",
 
   // Liens de saut
   "auth.skip_to_verification": "Aller au contenu de vérification d'email",

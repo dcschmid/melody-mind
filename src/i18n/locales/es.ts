@@ -59,6 +59,8 @@ export default {
   "auth.accessibility.password.hidden": "La contraseña ahora está oculta",
   "auth.accessibility.requirements.expanded": "Requisitos de contraseña expandidos",
   "auth.accessibility.requirements.collapsed": "Requisitos de contraseña colapsados",
+  "auth.accessibility.focus_trapped":
+    "El foco ahora está atrapado dentro de este diálogo. Use Tab para navegar y Escape para cerrar.",
   "auth.accessibility.login_form_active": "El formulario de inicio de sesión está ahora activo",
   "auth.accessibility.register_form_active": "El formulario de registro está ahora activo",
   "auth.accessibility.error_message_dismissed": "Mensaje de error desechado",

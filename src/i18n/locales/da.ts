@@ -40,6 +40,8 @@ export default {
   "auth.accessibility.requirements.collapsed": "Adgangskodekrav sammenfoldet",
   "auth.accessibility.login_form_active": "Login-formularen er nu aktiv",
   "auth.accessibility.register_form_active": "Registreringsformularen er nu aktiv",
+  "auth.accessibility.focus_trapped":
+    "Fokus er nu fanget inden for denne dialog. Brug Tab til at navigere og Escape til at lukke.",
   "auth.accessibility.error_message_dismissed": "Fejlbesked afvist",
   "auth.accessibility.success_message_dismissed": "Successbesked afvist",
 

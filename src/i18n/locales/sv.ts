@@ -40,6 +40,8 @@ export default {
   "auth.accessibility.requirements.collapsed": "Lösenordskrav kollapsade",
   "auth.accessibility.login_form_active": "Inloggningsformuläret är nu aktivt",
   "auth.accessibility.register_form_active": "Registreringsformuläret är nu aktivt",
+  "auth.accessibility.focus_trapped":
+    "Fokus är nu fångat inom denna dialog. Använd Tab för att navigera och Escape för att stänga.",
   "auth.accessibility.error_message_dismissed": "Felmeddelande ignorerat",
   "auth.accessibility.success_message_dismissed": "Framgångsmeddelande ignorerat",
 
