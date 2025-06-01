@@ -56,6 +56,12 @@ export default {
   "auth.accessibility.requirement.unmet": "Requirement not met",
   "auth.accessibility.password.visible": "Password is now visible",
   "auth.accessibility.password.hidden": "Password is now hidden",
+  "auth.accessibility.password.visible_status":
+    "Password is now visible. Remember to hide it when finished for security.",
+  "auth.accessibility.password.hidden_status": "Password is now hidden for security.",
+  "auth.accessibility.password_toggle_empty": "Enter a password first before toggling visibility.",
+  "auth.accessibility.password_toggle_help":
+    "Toggle to show or hide password characters. Use carefully in public spaces for security.",
   "auth.accessibility.requirements.expanded": "Password requirements expanded",
   "auth.accessibility.requirements.collapsed": "Password requirements collapsed",
   "auth.accessibility.focus_trapped":

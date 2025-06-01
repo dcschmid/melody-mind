@@ -57,6 +57,13 @@ export default {
   "auth.accessibility.requirement.unmet": "Requisito no cumplido",
   "auth.accessibility.password.visible": "La contraseña ahora es visible",
   "auth.accessibility.password.hidden": "La contraseña ahora está oculta",
+  "auth.accessibility.password.visible_status":
+    "La contraseña ahora es visible. Recuerda ocultarla cuando termines por seguridad.",
+  "auth.accessibility.password.hidden_status": "La contraseña ahora está oculta por seguridad.",
+  "auth.accessibility.password_toggle_empty":
+    "Ingresa una contraseña primero antes de alternar la visibilidad.",
+  "auth.accessibility.password_toggle_help":
+    "Alternar para mostrar u ocultar caracteres de contraseña. Usar con cuidado en espacios públicos por seguridad.",
   "auth.accessibility.requirements.expanded": "Requisitos de contraseña expandidos",
   "auth.accessibility.requirements.collapsed": "Requisitos de contraseña colapsados",
   "auth.accessibility.focus_trapped":

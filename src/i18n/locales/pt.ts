@@ -57,6 +57,13 @@ export default {
   "auth.accessibility.requirement.unmet": "Requisito não atendido",
   "auth.accessibility.password.visible": "A senha agora está visível",
   "auth.accessibility.password.hidden": "A senha agora está oculta",
+  "auth.accessibility.password.visible_status":
+    "A senha agora está visível. Lembre-se de ocultá-la quando terminar por segurança.",
+  "auth.accessibility.password.hidden_status": "A senha agora está oculta por segurança.",
+  "auth.accessibility.password_toggle_empty":
+    "Digite uma senha primeiro antes de alternar a visibilidade.",
+  "auth.accessibility.password_toggle_help":
+    "Alternar para mostrar ou ocultar caracteres da senha. Use com cuidado em espaços públicos por segurança.",
   "auth.accessibility.requirements.expanded": "Requisitos de senha expandidos",
   "auth.accessibility.requirements.collapsed": "Requisitos de senha recolhidos",
   "auth.accessibility.login_form_active": "O formulário de login está agora ativo",
@@ -145,25 +152,32 @@ export default {
   "auth.form.required": "Este campo é obrigatório",
   "auth.form.email_invalid": "Por favor, insira um endereço de email válido",
   "auth.form.password_min_length": "A senha deve ter pelo menos 6 caracteres",
-    "auth.form.email_invalid_format": "Por favor, insira um endereço de email válido no formato: usuario@exemplo.pt",
+  "auth.form.email_invalid_format":
+    "Por favor, insira um endereço de email válido no formato: usuario@exemplo.pt",
   "auth.form.password_length_error": "A senha deve ter pelo menos 8 caracteres",
   "auth.form.password_uppercase_error": "A senha deve conter pelo menos uma letra maiúscula (A-Z)",
   "auth.form.password_lowercase_error": "A senha deve conter pelo menos uma letra minúscula (a-z)",
   "auth.form.password_number_error": "A senha deve conter pelo menos um número (0-9)",
-  "auth.form.password_special_error": "A senha deve conter pelo menos um caractere especial (!@#$%^&*)",
+  "auth.form.password_special_error":
+    "A senha deve conter pelo menos um caractere especial (!@#$%^&*)",
   "auth.form.password_common_error": "Por favor, escolha uma senha menos comum",
-  "auth.form.password_repeats_error": "A senha não pode conter mais de 2 caracteres idênticos consecutivos",
-  "auth.form.password_sequences_error": "A senha não pode conter sequências comuns como '123' ou 'abc'",
+  "auth.form.password_repeats_error":
+    "A senha não pode conter mais de 2 caracteres idênticos consecutivos",
+  "auth.form.password_sequences_error":
+    "A senha não pode conter sequências comuns como '123' ou 'abc'",
   "auth.form.instructions.title": "Como preencher este formulário",
   "auth.form.instructions.request.step1": "Digite seu endereço de email no campo abaixo",
-  "auth.form.instructions.request.step2": "Clique em 'Enviar link de redefinição' para receber instruções de redefinição de senha",
-  "auth.form.instructions.request.step3": "Verifique seu email para o link de redefinição e siga as instruções",
+  "auth.form.instructions.request.step2":
+    "Clique em 'Enviar link de redefinição' para receber instruções de redefinição de senha",
+  "auth.form.instructions.request.step3":
+    "Verifique seu email para o link de redefinição e siga as instruções",
   "auth.form.instructions.confirm.step1": "Crie uma senha forte que atenda a todos os requisitos",
   "auth.form.instructions.confirm.step2": "Confirme sua senha digitando-a novamente",
   "auth.form.instructions.confirm.step3": "Clique em 'Redefinir senha' para completar o processo",
   "auth.form.help.password_button": "Obter ajuda para criar uma senha forte",
   "auth.form.help.password_title": "Dicas de criação de senha",
-  "auth.form.help.password_suggestions": "Tente usar uma combinação de palavras, números e símbolos. Evite senhas comuns como 'senha123'.",
+  "auth.form.help.password_suggestions":
+    "Tente usar uma combinação de palavras, números e símbolos. Evite senhas comuns como 'senha123'.",
   "auth.form.help.tip1": "Use uma mistura de letras maiúsculas e minúsculas",
   "auth.form.help.tip2": "Inclua números e caracteres especiais",
   "auth.form.help.tip3": "Evite palavras comuns e sequências",

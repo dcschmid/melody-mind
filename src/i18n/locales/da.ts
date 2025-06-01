@@ -36,6 +36,13 @@ export default {
   "auth.accessibility.requirement.unmet": "Krav ikke opfyldt",
   "auth.accessibility.password.visible": "Adgangskode er nu synlig",
   "auth.accessibility.password.hidden": "Adgangskode er nu skjult",
+  "auth.accessibility.password.visible_status":
+    "Adgangskode er nu synlig. Husk at skjule den, når du er færdig af sikkerhedshensyn.",
+  "auth.accessibility.password.hidden_status": "Adgangskode er nu skjult af sikkerhedshensyn.",
+  "auth.accessibility.password_toggle_empty":
+    "Indtast først en adgangskode, før du skifter synlighed.",
+  "auth.accessibility.password_toggle_help":
+    "Skift for at vise eller skjule adgangskode-tegn. Brug forsigtigt på offentlige steder af sikkerhedshensyn.",
   "auth.accessibility.requirements.expanded": "Adgangskodekrav udvidet",
   "auth.accessibility.requirements.collapsed": "Adgangskodekrav sammenfoldet",
   "auth.accessibility.login_form_active": "Login-formularen er nu aktiv",
@@ -132,25 +139,32 @@ export default {
   "auth.form.required": "Dette felt er påkrævet",
   "auth.form.email_invalid": "Indtast venligst en gyldig e-mailadresse",
   "auth.form.password_min_length": "Adgangskoden skal være mindst 6 tegn lang",
-    "auth.form.email_invalid_format": "Indtast venligst en gyldig emailadresse i formatet: bruger@eksempel.dk",
+  "auth.form.email_invalid_format":
+    "Indtast venligst en gyldig emailadresse i formatet: bruger@eksempel.dk",
   "auth.form.password_length_error": "Adgangskoden skal være mindst 8 tegn lang",
   "auth.form.password_uppercase_error": "Adgangskoden skal indeholde mindst ét stort bogstav (A-Z)",
   "auth.form.password_lowercase_error": "Adgangskoden skal indeholde mindst ét lille bogstav (a-z)",
   "auth.form.password_number_error": "Adgangskoden skal indeholde mindst ét tal (0-9)",
-  "auth.form.password_special_error": "Adgangskoden skal indeholde mindst ét specialtegn (!@#$%^&*)",
+  "auth.form.password_special_error":
+    "Adgangskoden skal indeholde mindst ét specialtegn (!@#$%^&*)",
   "auth.form.password_common_error": "Vælg venligst en mindre almindelig adgangskode",
-  "auth.form.password_repeats_error": "Adgangskoden må ikke indeholde mere end 2 identiske tegn i træk",
-  "auth.form.password_sequences_error": "Adgangskoden må ikke indeholde almindelige sekvenser som '123' eller 'abc'",
+  "auth.form.password_repeats_error":
+    "Adgangskoden må ikke indeholde mere end 2 identiske tegn i træk",
+  "auth.form.password_sequences_error":
+    "Adgangskoden må ikke indeholde almindelige sekvenser som '123' eller 'abc'",
   "auth.form.instructions.title": "Sådan udfylder du denne formular",
   "auth.form.instructions.request.step1": "Indtast din emailadresse i feltet nedenfor",
-  "auth.form.instructions.request.step2": "Klik på 'Send nulstillingslink' for at modtage instruktioner til nulstilling af adgangskode",
-  "auth.form.instructions.request.step3": "Tjek din email for nulstillingslinket og følg instruktionerne",
+  "auth.form.instructions.request.step2":
+    "Klik på 'Send nulstillingslink' for at modtage instruktioner til nulstilling af adgangskode",
+  "auth.form.instructions.request.step3":
+    "Tjek din email for nulstillingslinket og følg instruktionerne",
   "auth.form.instructions.confirm.step1": "Opret en stærk adgangskode der opfylder alle krav",
   "auth.form.instructions.confirm.step2": "Bekræft din adgangskode ved at skrive den igen",
   "auth.form.instructions.confirm.step3": "Klik på 'Nulstil adgangskode' for at fuldføre processen",
   "auth.form.help.password_button": "Få hjælp til at oprette en stærk adgangskode",
   "auth.form.help.password_title": "Tips til oprettelse af adgangskode",
-  "auth.form.help.password_suggestions": "Prøv at bruge en kombination af ord, tal og symboler. Undgå almindelige adgangskoder som 'adgangskode123'.",
+  "auth.form.help.password_suggestions":
+    "Prøv at bruge en kombination af ord, tal og symboler. Undgå almindelige adgangskoder som 'adgangskode123'.",
   "auth.form.help.tip1": "Brug en blanding af store og små bogstaver",
   "auth.form.help.tip2": "Inkluder tal og specialtegn",
   "auth.form.help.tip3": "Undgå almindelige ord og sekvenser",

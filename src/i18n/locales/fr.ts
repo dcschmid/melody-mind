@@ -56,6 +56,14 @@ export default {
   "auth.accessibility.requirement.unmet": "Exigence non satisfaite",
   "auth.accessibility.password.visible": "Le mot de passe est maintenant visible",
   "auth.accessibility.password.hidden": "Le mot de passe est maintenant masqué",
+  "auth.accessibility.password.visible_status":
+    "Le mot de passe est maintenant visible. N'oubliez pas de le masquer une fois terminé pour la sécurité.",
+  "auth.accessibility.password.hidden_status":
+    "Le mot de passe est maintenant masqué pour la sécurité.",
+  "auth.accessibility.password_toggle_empty":
+    "Entrez d'abord un mot de passe avant de basculer la visibilité.",
+  "auth.accessibility.password_toggle_help":
+    "Basculer pour afficher ou masquer les caractères du mot de passe. Utiliser avec prudence dans les espaces publics pour la sécurité.",
   "auth.accessibility.requirements.expanded": "Exigences du mot de passe étendues",
   "auth.accessibility.requirements.collapsed": "Exigences du mot de passe repliées",
   "auth.accessibility.login_form_active": "Le formulaire de connexion est maintenant actif",
