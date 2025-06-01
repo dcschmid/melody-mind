@@ -40,6 +40,8 @@ export default {
   "auth.accessibility.requirements.collapsed": "Wachtwoordvereisten ingeklapt",
   "auth.accessibility.login_form_active": "Het inlogformulier is nu actief",
   "auth.accessibility.register_form_active": "Het registratieformulier is nu actief",
+  "auth.accessibility.focus_trapped":
+    "Focus is nu gevangen binnen dit dialoogvenster. Gebruik Tab om te navigeren en Escape om te sluiten.",
   "auth.accessibility.error_message_dismissed": "Foutmelding weggenomen",
   "auth.accessibility.success_message_dismissed": "Succesbericht weggenomen",
 

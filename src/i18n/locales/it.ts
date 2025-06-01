@@ -61,6 +61,8 @@ export default {
   "auth.accessibility.requirements.collapsed": "Requisiti della password compressi",
   "auth.accessibility.login_form_active": "Il modulo di accesso è ora attivo",
   "auth.accessibility.register_form_active": "Il modulo di registrazione è ora attivo",
+  "auth.accessibility.focus_trapped":
+    "Il focus è ora intrappolato in questa finestra di dialogo. Usa Tab per navigare ed Escape per chiudere.",
   "auth.accessibility.error_message_dismissed": "Messaggio di errore chiuso",
   "auth.accessibility.success_message_dismissed": "Messaggio di successo chiuso",
   "auth.accessibility.button_focus_instruction": "Pulsante: {buttonText}. Premi Invio per inviare",

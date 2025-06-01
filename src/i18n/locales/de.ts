@@ -60,6 +60,8 @@ export default {
   "auth.accessibility.password.hidden": "Passwort ist jetzt versteckt",
   "auth.accessibility.requirements.expanded": "Passwort-Anforderungen erweitert",
   "auth.accessibility.requirements.collapsed": "Passwort-Anforderungen eingeklappt",
+  "auth.accessibility.focus_trapped":
+    "Fokus ist jetzt in diesem Dialog gefangen. Verwenden Sie Tab zum Navigieren und Escape zum Schließen.",
   "auth.accessibility.login_form_active": "Anmeldeformular ist jetzt aktiv",
   "auth.accessibility.register_form_active": "Registrierungsformular ist jetzt aktiv",
   "auth.accessibility.button_focus_instruction":
