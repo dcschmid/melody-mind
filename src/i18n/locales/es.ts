@@ -149,6 +149,8 @@ export default {
   // Validación de formularios
   "auth.form.required": "Este campo es obligatorio",
   "auth.form.email_invalid": "Por favor, introduce una dirección de correo electrónico válida",
+  "auth.form.email_invalid_format":
+    "Por favor, introduce una dirección de correo electrónico válida en el formato: usuario@ejemplo.es",
   "auth.form.password_min_length": "La contraseña debe tener al menos 6 caracteres",
   "auth.form.min_length": "Este campo debe tener al menos {length} caracteres",
   "auth.form.max_length": "Este campo no debe exceder los {length} caracteres",

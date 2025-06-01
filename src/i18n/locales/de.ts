@@ -153,10 +153,50 @@ export default {
   // Formularvalidierung
   "auth.form.required": "Dieses Feld ist erforderlich",
   "auth.form.email_invalid": "Bitte gib eine gültige E-Mail-Adresse ein",
+  "auth.form.email_invalid_format":
+    "Bitte gib eine gültige E-Mail-Adresse im Format ein: benutzer@beispiel.de",
   "auth.form.password_min_length": "Passwort muss mindestens 6 Zeichen lang sein",
   "auth.form.min_length": "Dieses Feld muss mindestens {length} Zeichen lang sein",
   "auth.form.max_length": "Dieses Feld darf nicht länger als {length} Zeichen sein",
   "auth.form.invalid": "Dieses Feld ist ungültig",
+
+  // Erweiterte Passwort-Validierungsfehler
+  "auth.form.password_length_error": "Passwort muss mindestens 8 Zeichen lang sein",
+  "auth.form.password_uppercase_error":
+    "Passwort muss mindestens einen Großbuchstaben enthalten (A-Z)",
+  "auth.form.password_lowercase_error":
+    "Passwort muss mindestens einen Kleinbuchstaben enthalten (a-z)",
+  "auth.form.password_number_error": "Passwort muss mindestens eine Zahl enthalten (0-9)",
+  "auth.form.password_special_error":
+    "Passwort muss mindestens ein Sonderzeichen enthalten (!@#$%^&*)",
+  "auth.form.password_common_error": "Bitte wähle ein weniger häufiges Passwort",
+  "auth.form.password_repeats_error":
+    "Passwort darf nicht mehr als 2 aufeinanderfolgende identische Zeichen enthalten",
+  "auth.form.password_sequences_error":
+    "Passwort darf keine häufigen Sequenzen wie '123' oder 'abc' enthalten",
+
+  // Formular-Anweisungen
+  "auth.form.instructions.title": "So füllst du dieses Formular aus",
+  "auth.form.instructions.request.step1": "Gib deine E-Mail-Adresse in das Feld unten ein",
+  "auth.form.instructions.request.step2":
+    "Klicke auf 'Reset-Link senden', um Anweisungen zum Zurücksetzen des Passworts zu erhalten",
+  "auth.form.instructions.request.step3":
+    "Überprüfe deine E-Mails auf den Reset-Link und folge den Anweisungen",
+  "auth.form.instructions.confirm.step1":
+    "Erstelle ein starkes Passwort, das alle Anforderungen erfüllt",
+  "auth.form.instructions.confirm.step2": "Bestätige dein Passwort, indem du es erneut eingibst",
+  "auth.form.instructions.confirm.step3":
+    "Klicke auf 'Passwort zurücksetzen', um den Vorgang abzuschließen",
+
+  // Passwort-Hilfe-System
+  "auth.form.help.password_button": "Hilfe beim Erstellen eines starken Passworts erhalten",
+  "auth.form.help.password_title": "Tipps zur Passwort-Erstellung",
+  "auth.form.help.password_suggestions":
+    "Verwende eine Kombination aus Wörtern, Zahlen und Symbolen. Vermeide häufige Passwörter wie 'passwort123'.",
+  "auth.form.help.tip1": "Verwende eine Mischung aus Groß- und Kleinbuchstaben",
+  "auth.form.help.tip2": "Füge Zahlen und Sonderzeichen hinzu",
+  "auth.form.help.tip3": "Vermeide häufige Wörter und Sequenzen",
+  "auth.form.help.tip4": "Erwäge die Verwendung einer Passphrase",
 
   // Zugänglichkeit
   "auth.accessibility.loading": "Wird geladen, bitte warten",

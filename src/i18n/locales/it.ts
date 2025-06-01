@@ -530,10 +530,44 @@ export default {
   // Validazione moduli di autenticazione
   "auth.form.required": "Questo campo è obbligatorio",
   "auth.form.email_invalid": "Inserisci un indirizzo email valido",
+  "auth.form.email_invalid_format":
+    "Inserisci un indirizzo email valido nel formato: utente@esempio.it",
   "auth.form.password_min_length": "La password deve essere lunga almeno 6 caratteri",
 
-  // Accessibilità per autenticazione
-  "auth.accessibility.field_error": "ha un errore",
-  "auth.accessibility.error_resolved": "errore risolto",
-  "auth.accessibility.password_toggle": "Mostra/nascondi password",
+  // Errori di validazione password estesi
+  "auth.form.password_length_error": "La password deve essere lunga almeno 8 caratteri",
+  "auth.form.password_uppercase_error":
+    "La password deve contenere almeno una lettera maiuscola (A-Z)",
+  "auth.form.password_lowercase_error":
+    "La password deve contenere almeno una lettera minuscola (a-z)",
+  "auth.form.password_number_error": "La password deve contenere almeno un numero (0-9)",
+  "auth.form.password_special_error":
+    "La password deve contenere almeno un carattere speciale (!@#$%^&*)",
+  "auth.form.password_common_error": "Scegli una password meno comune",
+  "auth.form.password_repeats_error":
+    "La password non può contenere più di 2 caratteri identici consecutivi",
+  "auth.form.password_sequences_error":
+    "La password non può contenere sequenze comuni come '123' o 'abc'",
+
+  // Istruzioni modulo
+  "auth.form.instructions.title": "Come completare questo modulo",
+  "auth.form.instructions.request.step1": "Inserisci il tuo indirizzo email nel campo sottostante",
+  "auth.form.instructions.request.step2":
+    "Clicca su 'Invia link di reset' per ricevere le istruzioni per il reset della password",
+  "auth.form.instructions.request.step3":
+    "Controlla la tua email per il link di reset e segui le istruzioni",
+  "auth.form.instructions.confirm.step1": "Crea una password forte che soddisfi tutti i requisiti",
+  "auth.form.instructions.confirm.step2": "Conferma la tua password digitandola di nuovo",
+  "auth.form.instructions.confirm.step3":
+    "Clicca su 'Reimposta password' per completare il processo",
+
+  // Sistema di aiuto password
+  "auth.form.help.password_button": "Ottieni aiuto per creare una password forte",
+  "auth.form.help.password_title": "Consigli per la creazione di password",
+  "auth.form.help.password_suggestions":
+    "Prova a usare una combinazione di parole, numeri e simboli. Evita password comuni come 'password123'.",
+  "auth.form.help.tip1": "Usa un mix di lettere maiuscole e minuscole",
+  "auth.form.help.tip2": "Includi numeri e caratteri speciali",
+  "auth.form.help.tip3": "Evita parole comuni e sequenze",
+  "auth.form.help.tip4": "Considera l'uso di una passphrase",
 } as const;
