@@ -36,6 +36,12 @@ export default {
   "auth.accessibility.requirement.unmet": "Krav inte uppfyllt",
   "auth.accessibility.password.visible": "Lösenord är nu synligt",
   "auth.accessibility.password.hidden": "Lösenord är nu dolt",
+  "auth.accessibility.password.visible_status":
+    "Lösenord är nu synligt. Kom ihåg att dölja det när du är klar av säkerhetsskäl.",
+  "auth.accessibility.password.hidden_status": "Lösenord är nu dolt av säkerhetsskäl.",
+  "auth.accessibility.password_toggle_empty": "Ange ett lösenord först innan du växlar synlighet.",
+  "auth.accessibility.password_toggle_help":
+    "Växla för att visa eller dölja lösenordstecken. Använd försiktigt på offentliga platser av säkerhetsskäl.",
   "auth.accessibility.requirements.expanded": "Lösenordskrav utökade",
   "auth.accessibility.requirements.collapsed": "Lösenordskrav kollapsade",
   "auth.accessibility.login_form_active": "Inloggningsformuläret är nu aktivt",
@@ -133,25 +139,32 @@ export default {
   "auth.form.required": "Detta fält är obligatoriskt",
   "auth.form.email_invalid": "Ange en giltig e-postadress",
   "auth.form.password_min_length": "Lösenordet måste vara minst 6 tecken långt",
-    "auth.form.email_invalid_format": "Ange en giltig e-postadress i formatet: användare@exempel.se",
+  "auth.form.email_invalid_format": "Ange en giltig e-postadress i formatet: användare@exempel.se",
   "auth.form.password_length_error": "Lösenordet måste vara minst 8 tecken långt",
   "auth.form.password_uppercase_error": "Lösenordet måste innehålla minst en versal (A-Z)",
   "auth.form.password_lowercase_error": "Lösenordet måste innehålla minst en gemen (a-z)",
   "auth.form.password_number_error": "Lösenordet måste innehålla minst en siffra (0-9)",
-  "auth.form.password_special_error": "Lösenordet måste innehålla minst ett specialtecken (!@#$%^&*)",
+  "auth.form.password_special_error":
+    "Lösenordet måste innehålla minst ett specialtecken (!@#$%^&*)",
   "auth.form.password_common_error": "Välj ett mindre vanligt lösenord",
-  "auth.form.password_repeats_error": "Lösenordet får inte innehålla mer än 2 identiska tecken i följd",
-  "auth.form.password_sequences_error": "Lösenordet får inte innehålla vanliga sekvenser som '123' eller 'abc'",
+  "auth.form.password_repeats_error":
+    "Lösenordet får inte innehålla mer än 2 identiska tecken i följd",
+  "auth.form.password_sequences_error":
+    "Lösenordet får inte innehålla vanliga sekvenser som '123' eller 'abc'",
   "auth.form.instructions.title": "Hur man fyller i detta formulär",
   "auth.form.instructions.request.step1": "Ange din e-postadress i fältet nedan",
-  "auth.form.instructions.request.step2": "Klicka på 'Skicka återställningslänk' för att få instruktioner för lösenordsåterställning",
-  "auth.form.instructions.request.step3": "Kontrollera din e-post för återställningslänken och följ instruktionerna",
+  "auth.form.instructions.request.step2":
+    "Klicka på 'Skicka återställningslänk' för att få instruktioner för lösenordsåterställning",
+  "auth.form.instructions.request.step3":
+    "Kontrollera din e-post för återställningslänken och följ instruktionerna",
   "auth.form.instructions.confirm.step1": "Skapa ett starkt lösenord som uppfyller alla krav",
   "auth.form.instructions.confirm.step2": "Bekräfta ditt lösenord genom att skriva det igen",
-  "auth.form.instructions.confirm.step3": "Klicka på 'Återställ lösenord' för att slutföra processen",
+  "auth.form.instructions.confirm.step3":
+    "Klicka på 'Återställ lösenord' för att slutföra processen",
   "auth.form.help.password_button": "Få hjälp med att skapa ett starkt lösenord",
   "auth.form.help.password_title": "Tips för lösenordsskapande",
-  "auth.form.help.password_suggestions": "Försök använda en kombination av ord, siffror och symboler. Undvik vanliga lösenord som 'lösenord123'.",
+  "auth.form.help.password_suggestions":
+    "Försök använda en kombination av ord, siffror och symboler. Undvik vanliga lösenord som 'lösenord123'.",
   "auth.form.help.tip1": "Använd en blandning av versaler och gemener",
   "auth.form.help.tip2": "Inkludera siffror och specialtecken",
   "auth.form.help.tip3": "Undvik vanliga ord och sekvenser",

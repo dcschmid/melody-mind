@@ -57,6 +57,13 @@ export default {
   "auth.accessibility.requirement.unmet": "Requisito non soddisfatto",
   "auth.accessibility.password.visible": "La password è ora visibile",
   "auth.accessibility.password.hidden": "La password è ora nascosta",
+  "auth.accessibility.password.visible_status":
+    "La password è ora visibile. Ricorda di nasconderla quando finisci per sicurezza.",
+  "auth.accessibility.password.hidden_status": "La password è ora nascosta per sicurezza.",
+  "auth.accessibility.password_toggle_empty":
+    "Inserisci prima una password prima di attivare la visibilità.",
+  "auth.accessibility.password_toggle_help":
+    "Attiva per mostrare o nascondere i caratteri della password. Usare con attenzione negli spazi pubblici per sicurezza.",
   "auth.accessibility.requirements.expanded": "Requisiti della password espansi",
   "auth.accessibility.requirements.collapsed": "Requisiti della password compressi",
   "auth.accessibility.login_form_active": "Il modulo di accesso è ora attivo",

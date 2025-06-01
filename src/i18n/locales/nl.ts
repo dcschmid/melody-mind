@@ -36,6 +36,13 @@ export default {
   "auth.accessibility.requirement.unmet": "Vereiste niet voldaan",
   "auth.accessibility.password.visible": "Wachtwoord is nu zichtbaar",
   "auth.accessibility.password.hidden": "Wachtwoord is nu verborgen",
+  "auth.accessibility.password.visible_status":
+    "Wachtwoord is nu zichtbaar. Vergeet niet het te verbergen wanneer je klaar bent voor de veiligheid.",
+  "auth.accessibility.password.hidden_status": "Wachtwoord is nu verborgen voor de veiligheid.",
+  "auth.accessibility.password_toggle_empty":
+    "Voer eerst een wachtwoord in voordat je de zichtbaarheid wisselt.",
+  "auth.accessibility.password_toggle_help":
+    "Wissel om wachtwoordtekens te tonen of verbergen. Gebruik voorzichtig in openbare ruimtes voor de veiligheid.",
   "auth.accessibility.requirements.expanded": "Wachtwoordvereisten uitgebreid",
   "auth.accessibility.requirements.collapsed": "Wachtwoordvereisten ingeklapt",
   "auth.accessibility.login_form_active": "Het inlogformulier is nu actief",
@@ -146,25 +153,33 @@ export default {
   "auth.form.required": "Dit veld is vereist",
   "auth.form.email_invalid": "Voer een geldig e-mailadres in",
   "auth.form.password_min_length": "Wachtwoord moet minimaal 6 tekens lang zijn",
-    "auth.form.email_invalid_format": "Voer een geldig e-mailadres in het formaat in: gebruiker@voorbeeld.nl",
+  "auth.form.email_invalid_format":
+    "Voer een geldig e-mailadres in het formaat in: gebruiker@voorbeeld.nl",
   "auth.form.password_length_error": "Wachtwoord moet minstens 8 tekens lang zijn",
   "auth.form.password_uppercase_error": "Wachtwoord moet minstens één hoofdletter bevatten (A-Z)",
   "auth.form.password_lowercase_error": "Wachtwoord moet minstens één kleine letter bevatten (a-z)",
   "auth.form.password_number_error": "Wachtwoord moet minstens één cijfer bevatten (0-9)",
-  "auth.form.password_special_error": "Wachtwoord moet minstens één speciaal teken bevatten (!@#$%^&*)",
+  "auth.form.password_special_error":
+    "Wachtwoord moet minstens één speciaal teken bevatten (!@#$%^&*)",
   "auth.form.password_common_error": "Kies een minder gangbaar wachtwoord",
-  "auth.form.password_repeats_error": "Wachtwoord mag niet meer dan 2 opeenvolgende identieke tekens bevatten",
-  "auth.form.password_sequences_error": "Wachtwoord mag geen gangbare reeksen bevatten zoals '123' of 'abc'",
+  "auth.form.password_repeats_error":
+    "Wachtwoord mag niet meer dan 2 opeenvolgende identieke tekens bevatten",
+  "auth.form.password_sequences_error":
+    "Wachtwoord mag geen gangbare reeksen bevatten zoals '123' of 'abc'",
   "auth.form.instructions.title": "Hoe dit formulier in te vullen",
   "auth.form.instructions.request.step1": "Voer je e-mailadres in het onderstaande veld in",
-  "auth.form.instructions.request.step2": "Klik op 'Verstuur reset-link' om wachtwoord reset instructies te ontvangen",
-  "auth.form.instructions.request.step3": "Controleer je e-mail voor de reset-link en volg de instructies",
+  "auth.form.instructions.request.step2":
+    "Klik op 'Verstuur reset-link' om wachtwoord reset instructies te ontvangen",
+  "auth.form.instructions.request.step3":
+    "Controleer je e-mail voor de reset-link en volg de instructies",
   "auth.form.instructions.confirm.step1": "Maak een sterk wachtwoord dat aan alle eisen voldoet",
   "auth.form.instructions.confirm.step2": "Bevestig je wachtwoord door het opnieuw in te typen",
-  "auth.form.instructions.confirm.step3": "Klik op 'Wachtwoord resetten' om het proces te voltooien",
+  "auth.form.instructions.confirm.step3":
+    "Klik op 'Wachtwoord resetten' om het proces te voltooien",
   "auth.form.help.password_button": "Krijg hulp bij het maken van een sterk wachtwoord",
   "auth.form.help.password_title": "Tips voor wachtwoord aanmaken",
-  "auth.form.help.password_suggestions": "Probeer een combinatie van woorden, cijfers en symbolen te gebruiken. Vermijd gangbare wachtwoorden zoals 'wachtwoord123'.",
+  "auth.form.help.password_suggestions":
+    "Probeer een combinatie van woorden, cijfers en symbolen te gebruiken. Vermijd gangbare wachtwoorden zoals 'wachtwoord123'.",
   "auth.form.help.tip1": "Gebruik een mix van hoofdletters en kleine letters",
   "auth.form.help.tip2": "Voeg cijfers en speciale tekens toe",
   "auth.form.help.tip3": "Vermijd gangbare woorden en reeksen",

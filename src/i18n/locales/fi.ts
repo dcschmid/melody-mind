@@ -36,6 +36,12 @@ export default {
   "auth.accessibility.requirement.unmet": "Vaatimus ei täyttynyt",
   "auth.accessibility.password.visible": "Salasana on nyt näkyvissä",
   "auth.accessibility.password.hidden": "Salasana on nyt piilossa",
+  "auth.accessibility.password.visible_status":
+    "Salasana on nyt näkyvissä. Muista piilottaa se turvallisuussyistä, kun olet valmis.",
+  "auth.accessibility.password.hidden_status": "Salasana on nyt piilossa turvallisuussyistä.",
+  "auth.accessibility.password_toggle_empty": "Syötä salasana ensin ennen näkyvyyden vaihtamista.",
+  "auth.accessibility.password_toggle_help":
+    "Vaihda salasanan merkkien näyttämistä tai piilottamista. Käytä varovasti julkisissa tiloissa turvallisuussyistä.",
   "auth.accessibility.requirements.expanded": "Salasanavaatimukset laajennettu",
   "auth.accessibility.requirements.collapsed": "Salasanavaatimukset tiivistetty",
   "auth.accessibility.login_form_active": "Kirjautumislomake on nyt aktiivinen",
@@ -133,25 +139,32 @@ export default {
   "auth.form.required": "Tämä kenttä vaaditaan",
   "auth.form.email_invalid": "Anna kelvollinen sähköpostiosoite",
   "auth.form.password_min_length": "Salasanan on oltava vähintään 6 merkkiä pitkä",
-    "auth.form.email_invalid_format": "Anna kelvollinen sähköpostiosoite muodossa: käyttäjä@esimerkki.fi",
+  "auth.form.email_invalid_format":
+    "Anna kelvollinen sähköpostiosoite muodossa: käyttäjä@esimerkki.fi",
   "auth.form.password_length_error": "Salasanan on oltava vähintään 8 merkkiä pitkä",
   "auth.form.password_uppercase_error": "Salasanassa on oltava vähintään yksi iso kirjain (A-Z)",
   "auth.form.password_lowercase_error": "Salasanassa on oltava vähintään yksi pieni kirjain (a-z)",
   "auth.form.password_number_error": "Salasanassa on oltava vähintään yksi numero (0-9)",
-  "auth.form.password_special_error": "Salasanassa on oltava vähintään yksi erikoismerkki (!@#$%^&*)",
+  "auth.form.password_special_error":
+    "Salasanassa on oltava vähintään yksi erikoismerkki (!@#$%^&*)",
   "auth.form.password_common_error": "Valitse vähemmän yleinen salasana",
-  "auth.form.password_repeats_error": "Salasana ei saa sisältää yli 2 peräkkäistä identtistä merkkiä",
-  "auth.form.password_sequences_error": "Salasana ei saa sisältää yleisiä sarjoja kuten '123' tai 'abc'",
+  "auth.form.password_repeats_error":
+    "Salasana ei saa sisältää yli 2 peräkkäistä identtistä merkkiä",
+  "auth.form.password_sequences_error":
+    "Salasana ei saa sisältää yleisiä sarjoja kuten '123' tai 'abc'",
   "auth.form.instructions.title": "Kuinka täyttää tämä lomake",
   "auth.form.instructions.request.step1": "Anna sähköpostiosoitteesi alla olevaan kenttään",
-  "auth.form.instructions.request.step2": "Napsauta 'Lähetä palautuslinkkiä' saadaksesi salasanan palautusohjeet",
-  "auth.form.instructions.request.step3": "Tarkista sähköpostisi palautuslinkin varalta ja seuraa ohjeita",
+  "auth.form.instructions.request.step2":
+    "Napsauta 'Lähetä palautuslinkkiä' saadaksesi salasanan palautusohjeet",
+  "auth.form.instructions.request.step3":
+    "Tarkista sähköpostisi palautuslinkin varalta ja seuraa ohjeita",
   "auth.form.instructions.confirm.step1": "Luo vahva salasana, joka täyttää kaikki vaatimukset",
   "auth.form.instructions.confirm.step2": "Vahvista salasanasi kirjoittamalla se uudelleen",
   "auth.form.instructions.confirm.step3": "Napsauta 'Nollaa salasana' viimeistelläksesi prosessin",
   "auth.form.help.password_button": "Hanki apua vahvan salasanan luomiseen",
   "auth.form.help.password_title": "Salasanan luomisvinkkejä",
-  "auth.form.help.password_suggestions": "Kokeile sanojen, numeroiden ja symbolien yhdistelmää. Vältä yleisiä salasanoja kuten 'salasana123'.",
+  "auth.form.help.password_suggestions":
+    "Kokeile sanojen, numeroiden ja symbolien yhdistelmää. Vältä yleisiä salasanoja kuten 'salasana123'.",
   "auth.form.help.tip1": "Käytä sekoitusta isoja ja pieniä kirjaimia",
   "auth.form.help.tip2": "Sisällytä numeroita ja erikoismerkkejä",
   "auth.form.help.tip3": "Vältä yleisiä sanoja ja sarjoja",
