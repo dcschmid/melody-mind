@@ -143,10 +143,52 @@ export default {
   // Validation du formulaire
   "auth.form.required": "Ce champ est requis",
   "auth.form.email_invalid": "Veuillez entrer une adresse e-mail valide",
+  "auth.form.email_invalid_format":
+    "Veuillez entrer une adresse e-mail valide au format : utilisateur@exemple.fr",
   "auth.form.password_min_length": "Le mot de passe doit comporter au moins 6 caractères",
   "auth.form.min_length": "Ce champ doit comporter au moins {length} caractères",
   "auth.form.max_length": "Ce champ ne doit pas dépasser {length} caractères",
   "auth.form.invalid": "Ce champ est invalide",
+
+  // Erreurs de validation de mot de passe étendues
+  "auth.form.password_length_error": "Le mot de passe doit comporter au moins 8 caractères",
+  "auth.form.password_uppercase_error":
+    "Le mot de passe doit contenir au moins une lettre majuscule (A-Z)",
+  "auth.form.password_lowercase_error":
+    "Le mot de passe doit contenir au moins une lettre minuscule (a-z)",
+  "auth.form.password_number_error": "Le mot de passe doit contenir au moins un chiffre (0-9)",
+  "auth.form.password_special_error":
+    "Le mot de passe doit contenir au moins un caractère spécial (!@#$%^&*)",
+  "auth.form.password_common_error": "Veuillez choisir un mot de passe moins courant",
+  "auth.form.password_repeats_error":
+    "Le mot de passe ne peut pas contenir plus de 2 caractères identiques consécutifs",
+  "auth.form.password_sequences_error":
+    "Le mot de passe ne peut pas contenir des séquences courantes comme '123' ou 'abc'",
+
+  // Instructions de formulaire
+  "auth.form.instructions.title": "Comment remplir ce formulaire",
+  "auth.form.instructions.request.step1": "Entrez votre adresse e-mail dans le champ ci-dessous",
+  "auth.form.instructions.request.step2":
+    "Cliquez sur 'Envoyer le lien de réinitialisation' pour recevoir les instructions de réinitialisation du mot de passe",
+  "auth.form.instructions.request.step3":
+    "Vérifiez votre e-mail pour le lien de réinitialisation et suivez les instructions",
+  "auth.form.instructions.confirm.step1":
+    "Créez un mot de passe fort qui répond à toutes les exigences",
+  "auth.form.instructions.confirm.step2": "Confirmez votre mot de passe en le tapant à nouveau",
+  "auth.form.instructions.confirm.step3":
+    "Cliquez sur 'Réinitialiser le mot de passe' pour terminer le processus",
+
+  // Système d'aide pour mot de passe
+  "auth.form.help.password_button": "Obtenir de l'aide pour créer un mot de passe fort",
+  "auth.form.help.password_title": "Conseils pour la création de mot de passe",
+  "auth.form.help.password_suggestions":
+    "Essayez d'utiliser une combinaison de mots, de chiffres et de symboles. Évitez les mots de passe courants comme 'motdepasse123'.",
+  "auth.form.help.tip1": "Utilisez un mélange de lettres majuscules et minuscules",
+  "auth.form.help.tip2": "Incluez des chiffres et des caractères spéciaux",
+  "auth.form.help.tip3": "Évitez les mots courants et les séquences",
+  "auth.form.help.tip4": "Considérez l'utilisation d'une phrase de passe",
+
+  "auth.form.min_length": "Ce champ doit comporter au moins {length} caractères",
 
   // Accessibilité
   "auth.accessibility.loading": "Chargement, veuillez patienter",

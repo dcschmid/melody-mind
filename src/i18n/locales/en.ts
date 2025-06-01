@@ -141,10 +141,46 @@ export default {
   // Form Validation
   "auth.form.required": "This field is required",
   "auth.form.email_invalid": "Please enter a valid email address",
+  "auth.form.email_invalid_format":
+    "Please enter a valid email address in the format: user@example.com",
   "auth.form.password_min_length": "Password must be at least 6 characters long",
   "auth.form.min_length": "This field must be at least {length} characters long",
   "auth.form.max_length": "This field must not exceed {length} characters",
   "auth.form.invalid": "This field is invalid",
+
+  // Enhanced Password Validation Errors
+  "auth.form.password_length_error": "Password must be at least 8 characters long",
+  "auth.form.password_uppercase_error": "Password must contain at least one uppercase letter (A-Z)",
+  "auth.form.password_lowercase_error": "Password must contain at least one lowercase letter (a-z)",
+  "auth.form.password_number_error": "Password must contain at least one number (0-9)",
+  "auth.form.password_special_error":
+    "Password must contain at least one special character (!@#$%^&*)",
+  "auth.form.password_common_error": "Please choose a less common password",
+  "auth.form.password_repeats_error":
+    "Password cannot contain more than 2 consecutive identical characters",
+  "auth.form.password_sequences_error":
+    "Password cannot contain common sequences like '123' or 'abc'",
+
+  // Form Instructions
+  "auth.form.instructions.title": "How to complete this form",
+  "auth.form.instructions.request.step1": "Enter your email address in the field below",
+  "auth.form.instructions.request.step2":
+    "Click 'Send Reset Link' to receive password reset instructions",
+  "auth.form.instructions.request.step3":
+    "Check your email for the reset link and follow the instructions",
+  "auth.form.instructions.confirm.step1": "Create a strong password that meets all requirements",
+  "auth.form.instructions.confirm.step2": "Confirm your password by typing it again",
+  "auth.form.instructions.confirm.step3": "Click 'Reset Password' to complete the process",
+
+  // Password Help System
+  "auth.form.help.password_button": "Get help with creating a strong password",
+  "auth.form.help.password_title": "Password Creation Tips",
+  "auth.form.help.password_suggestions":
+    "Try using a combination of words, numbers, and symbols. Avoid common passwords like 'password123'.",
+  "auth.form.help.tip1": "Use a mix of uppercase and lowercase letters",
+  "auth.form.help.tip2": "Include numbers and special characters",
+  "auth.form.help.tip3": "Avoid common words and sequences",
+  "auth.form.help.tip4": "Consider using a passphrase",
 
   // Accessibility
   "auth.accessibility.loading": "Loading, please wait",
