@@ -432,7 +432,9 @@ export default {
   "game.chronology.description": "Ordna dessa album efter deras utgivningsår (äldsta först)",
   "game.chronology.area.label": "Kronologispelområde",
   "game.chronology.result": "Resultat",
-  "game.chronology.correct": "Korrekt",
+  "game.chronology.correct": "Korrekt! 🎉",
+  "game.chronology.incorrect": "Fel! 😔",
+  "game.chronology.correct_order": "Rätt ordning:",
   "game.chronology.wrong": "Borde vara på position {position}",
   "game.chronology.score": "Poäng: {score} poäng",
   "game.chronology.details": "{correct} av {total} album placerade korrekt",
@@ -702,10 +704,27 @@ export default {
 
   "nav.openNewWindow": "Öppnas i nytt fönster",
 
+  // ChronologyFeedbackOverlay specific keys
+  "game.chronology.correct_order_description":
+    "Lista som visar den korrekta kronologiska ordningen av händelserna",
+  "session.timeout.warning": "Din session löper ut om {0} sekunder.",
+  "session.timeout.extend": "Förläng session",
+  "session.timeout.continue": "Fortsätt",
+  "session.extended": "Session förlängd framgångsrikt",
+
   "nav.menu.opened": "Menyn är öppnad",
   "nav.menu.closed": "Menyn är stängd",
   "nav.menu.moved_to_first": "Flyttat till första menyalternativ",
   "nav.menu.moved_to_last": "Flyttat till sista menyalternativ",
   "nav.menu.focused_on": "Fokuserat på menyalternativ:",
   "nav.menu.long_press_detected": "Långt tryck upptäckt på menyalternativ",
+
+  // General
+  "general.close": "Stäng",
+
+  // Session timeout
+  "session.timeout.warning": "Din session upphör om {0} sekunder",
+  "session.timeout.extend": "Förläng session",
+  "session.timeout.continue": "Fortsätt",
+  "session.extended": "Session förlängd framgångsrikt",
 };

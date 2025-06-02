@@ -470,7 +470,9 @@ export default {
   "game.chronology.description": "Arrange these albums by their release year (oldest first)",
   "game.chronology.area.label": "Chronology Game Area",
   "game.chronology.result": "Result",
-  "game.chronology.correct": "Correct",
+  "game.chronology.correct": "Correct! 🎉",
+  "game.chronology.incorrect": "Incorrect! 😔",
+  "game.chronology.correct_order": "Correct order:",
   "game.chronology.wrong": "Should be at position {position}",
   "game.chronology.score": "Score: {score} points",
   "game.chronology.details": "{correct} of {total} albums placed correctly",
@@ -714,6 +716,15 @@ export default {
   "game.time.extend.again": "Extend again",
   "game.time.extended": "Time extended by 5 seconds",
   "game.time.before.end": "Extend before game end",
+
+  // ChronologyFeedbackOverlay specific keys
+  "game.chronology.correct_order_description":
+    "List showing the correct chronological order of the events",
+  "session.timeout.warning": "Your session will expire in {0} seconds.",
+  "session.timeout.extend": "Extend session",
+  "session.timeout.continue": "Continue",
+  "session.extended": "Session extended successfully",
+  "general.close": "Close",
 
   // Layout system messages
   "layout.error.system": "System error occurred. Please refresh the page.",

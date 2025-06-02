@@ -199,7 +199,7 @@ console.warn(
       {t("game.chronology.title")}
     </Headline>
 
-    <Paragraph id="chronology-description" align="center" textSize="text-base" className="mb-6">
+    <Paragraph id="chronology-description" align="center" textSize="base" className="mb-6">
       {t("game.chronology.description")}
     </Paragraph>
 
@@ -288,6 +288,16 @@ console.warn(
   import { Difficulty } from "@utils/game/jokerUtils";
   import { getLangFromUrl, useTranslations } from "@utils/i18n";
   import { QueueManager } from "@utils/queue/queueManager";
+
+  /**
+   * Interface for feedback event detail sent to ChronologyFeedbackOverlay
+   * Used to trigger the feedback overlay with appropriate data
+   */
+  interface FeedbackEventDetail {
+    isCorrect: boolean; // Whether the answer was completely correct
+    isLastRound: boolean; // Whether this is the final round
+    correctOrder?: string[]; // Array of correct song/album names in order
+  }
 
   /**
    * Interface for chronology question structure
@@ -1347,11 +1357,54 @@ console.warn(
     /**
      * Displays the results of the chronology evaluation to the user
      * Highlights correct/incorrect items and shows detailed score information
+     * Dispatches feedback event to trigger the ChronologyFeedbackOverlay
      *
      * @param {ChronologyResult} result - The evaluation result to display
      */
     private showResultAndUpdateUI(result: ChronologyResult): void {
+      // Show results inline first
       this.showResults(result, []);
+
+      // Dispatch event to trigger the feedback overlay
+      this.dispatchFeedbackEvent(result);
+    }
+
+    /**
+     * Dispatches the showChronologyFeedback event to trigger the feedback overlay
+     * Maps ChronologyResult data to FeedbackEventDetail interface
+     *
+     * @param {ChronologyResult} result - The evaluation result from the chronology answer
+     */
+    private dispatchFeedbackEvent(result: ChronologyResult): void {
+      if (!this.currentQuestion) {
+        return;
+      }
+
+      // Determine if the answer was completely correct
+      const isCorrect = result.correctItems === result.totalItems;
+
+      // Check if this is the last round
+      const isLastRound = this.roundIndex >= this.totalRounds - 1;
+
+      // Get the correct order as an array of song/album names
+      const correctOrder = this.currentQuestion.correctOrder.map((id) => {
+        const item = this.currentQuestion!.items.find((i) => i.id === id);
+        return item ? item.title : `Item ${id}`;
+      });
+
+      // Create the event detail with proper typing
+      const eventDetail: FeedbackEventDetail = {
+        isCorrect,
+        isLastRound,
+        correctOrder,
+      };
+
+      // Dispatch the event to trigger the feedback overlay
+      window.dispatchEvent(
+        new CustomEvent("showChronologyFeedback", {
+          detail: eventDetail,
+        })
+      );
     }
 
     /**

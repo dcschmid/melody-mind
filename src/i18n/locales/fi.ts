@@ -434,7 +434,9 @@ export default {
   "game.chronology.description": "Järjestä nämä albumit julkaisuvuoden mukaan (vanhin ensin)",
   "game.chronology.area.label": "Kronologiapelialue",
   "game.chronology.result": "Tulos",
-  "game.chronology.correct": "Oikein",
+  "game.chronology.correct": "Oikein! 🎉",
+  "game.chronology.incorrect": "Väärin! 😔",
+  "game.chronology.correct_order": "Oikea järjestys:",
   "game.chronology.wrong": "Pitäisi olla paikassa {position}",
   "game.chronology.score": "Pisteet: {score} pistettä",
   "game.chronology.details": "{correct} / {total} albumia sijoitettu oikein",
@@ -713,10 +715,27 @@ export default {
 
   "nav.openNewWindow": "Avautuu uudessa ikkunassa",
 
+  // ChronologyFeedbackOverlay specific keys
+  "game.chronology.correct_order_description":
+    "Lista, joka näyttää tapahtumien oikean kronologisen järjestyksen",
+  "session.timeout.warning": "Istuntosi päättyy {0} sekunnissa.",
+  "session.timeout.extend": "Pidennä istuntoa",
+  "session.timeout.continue": "Jatka",
+  "session.extended": "Istunto pidennetty onnistuneesti",
+
   "nav.menu.opened": "Valikko on avattu",
   "nav.menu.closed": "Valikko on suljettu",
   "nav.menu.moved_to_first": "Siirretty ensimmäiseen valikkovaihtoehtoon",
   "nav.menu.moved_to_last": "Siirretty viimeiseen valikkovaihtoehtoon",
   "nav.menu.focused_on": "Keskitytty valikkovaihtoehtoon:",
   "nav.menu.long_press_detected": "Pitkä painallus havaittu valikkovaihtoehdossa",
+
+  // General
+  "general.close": "Sulje",
+
+  // Session timeout
+  "session.timeout.warning": "Istuntosi päättyy {0} sekunnissa",
+  "session.timeout.extend": "Jatka istuntoa",
+  "session.timeout.continue": "Jatka",
+  "session.extended": "Istunto jatkettu onnistuneesti",
 };

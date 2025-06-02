@@ -297,6 +297,11 @@
   --z-tooltip: 70;
   --z-notification: 80;
 
+  /* Backdrop Overlay System */
+  --backdrop-overlay-light: rgba(0, 0, 0, 0.7); /* Navigation menus, lighter overlays */
+  --backdrop-overlay-medium: rgba(0, 0, 0, 0.8); /* Modal dialogs, feedback overlays */
+  --backdrop-overlay-dark: rgba(0, 0, 0, 0.9); /* Full-screen overlays, game states */
+
   /* Minimum Touch Targets (WCAG AAA) */
   --min-touch-size: 44px;
 

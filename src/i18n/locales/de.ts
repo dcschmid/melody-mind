@@ -53,6 +53,12 @@ export default {
   "auth.session.timeout.extend": "Sitzung verlängern",
   "auth.session.timeout.close": "Schließen",
 
+  // Session timeout warning (additional)
+  "session.timeout.warning": "Ihre Sitzung läuft in {0} Sekunden ab.",
+  "session.timeout.extend": "Sitzung verlängern",
+  "session.timeout.continue": "Weiter",
+  "session.extended": "Sitzung erfolgreich verlängert",
+
   // Accessibility status messages
   "auth.accessibility.requirement.met": "Anforderung erfüllt",
   "auth.accessibility.requirement.unmet": "Anforderung nicht erfüllt",
@@ -491,7 +497,9 @@ export default {
   "game.chronology.description": "Ordne diese Alben nach ihrem Erscheinungsjahr (ältestes zuerst)",
   "game.chronology.area.label": "Chronologie-Spielbereich",
   "game.chronology.result": "Ergebnis",
-  "game.chronology.correct": "Korrekt",
+  "game.chronology.correct": "Richtig! 🎉",
+  "game.chronology.incorrect": "Leider falsch 😔",
+  "game.chronology.correct_order": "Korrekte Reihenfolge:",
   "game.chronology.wrong": "Sollte an Position {position} sein",
   "game.chronology.score": "Ergebnis: {score} Punkte",
   "game.chronology.details": "{correct} von {total} Alben korrekt platziert",
@@ -745,6 +753,15 @@ export default {
   "game.time.extend.again": "Erneut verlängern",
   "game.time.extended": "Zeit um 5 Sekunden verlängert",
   "game.time.before.end": "Vor Spielende verlängern",
+
+  // ChronologyFeedbackOverlay specific keys
+  "game.chronology.correct_order_description":
+    "Liste zeigt die korrekte chronologische Reihenfolge der Ereignisse",
+  "session.timeout.warning": "Ihre Sitzung läuft in {0} Sekunden ab.",
+  "session.timeout.extend": "Sitzung verlängern",
+  "session.timeout.continue": "Weiter",
+  "session.extended": "Sitzung erfolgreich verlängert",
+  "general.close": "Schließen",
 
   // Layout System-Nachrichten
   "layout.error.system": "Systemfehler aufgetreten. Bitte laden Sie die Seite neu.",
