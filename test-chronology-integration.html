@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chronology Feedback Integration Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #1a1a1a;
+        color: #fff;
+      }
+      .test-section {
+        background: #2a2a2a;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+        border: 1px solid #444;
+      }
+      .log {
+        background: #000;
+        color: #0f0;
+        padding: 10px;
+        border-radius: 4px;
+        margin: 10px 0;
+        font-family: monospace;
+        white-space: pre-wrap;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      button {
+        background: #6b46c1;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 5px;
+      }
+      button:hover {
+        background: #553c9a;
+      }
+      .status {
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 4px;
+      }
+      .status.success {
+        background: #065f46;
+        border: 1px solid #10b981;
+      }
+      .status.error {
+        background: #7f1d1d;
+        border: 1px solid #ef4444;
+      }
+      .status.info {
+        background: #1e3a8a;
+        border: 1px solid #3b82f6;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Chronology Feedback Overlay Integration Test</h1>
+
+    <div class="test-section">
+      <h2>Event Listener Test</h2>
+      <p>
+        This test checks if the showChronologyFeedback event can be dispatched and received
+        correctly.
+      </p>
+
+      <button onclick="testCorrectAnswer()">Test Correct Answer (Not Last Round)</button>
+      <button onclick="testIncorrectAnswer()">Test Incorrect Answer (Not Last Round)</button>
+      <button onclick="testLastRound()">Test Last Round</button>
+      <button onclick="clearLog()">Clear Log</button>
+
+      <div class="log" id="eventLog">Waiting for events...</div>
+    </div>
+
+    <div class="test-section">
+      <h2>Integration Instructions</h2>
+      <div class="status info">
+        <strong>How to Test:</strong>
+        <ol>
+          <li>Open the MelodyMind chronology game in another tab</li>
+          <li>Navigate to any chronology category and difficulty</li>
+          <li>Submit an answer to trigger the feedback event</li>
+          <li>Check if the ChronologyFeedbackOverlay appears correctly</li>
+          <li>Verify the overlay shows the correct feedback and proper order</li>
+        </ol>
+      </div>
+
+      <div class="status success">
+        <strong>Expected Behavior:</strong>
+        <ul>
+          <li>Feedback overlay should appear after submitting answers</li>
+          <li>Overlay should show "Correct!" or "Incorrect!" message</li>
+          <li>For incorrect answers, the correct order should be displayed</li>
+          <li>Continue button should advance to next round</li>
+          <li>Last round should show "End Game" button instead</li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      // Add event listener for the showChronologyFeedback event
+      window.addEventListener("showChronologyFeedback", function (event) {
+        const detail = event.detail;
+        const timestamp = new Date().toLocaleTimeString();
+
+        const logMessage = `[${timestamp}] showChronologyFeedback Event Received:
+  - isCorrect: ${detail.isCorrect}
+  - isLastRound: ${detail.isLastRound}
+  - correctOrder: ${detail.correctOrder ? JSON.stringify(detail.correctOrder) : "undefined"}
+`;
+
+        logEvent(logMessage);
+      });
+
+      // Add listeners for the response events
+      window.addEventListener("chronologyContinue", function () {
+        const timestamp = new Date().toLocaleTimeString();
+        logEvent(`[${timestamp}] chronologyContinue Event Received`);
+      });
+
+      window.addEventListener("chronologyEnd", function () {
+        const timestamp = new Date().toLocaleTimeString();
+        logEvent(`[${timestamp}] chronologyEnd Event Received`);
+      });
+
+      function logEvent(message) {
+        const log = document.getElementById("eventLog");
+        if (log.textContent === "Waiting for events...") {
+          log.textContent = "";
+        }
+        log.textContent += message + "\n";
+        log.scrollTop = log.scrollHeight;
+      }
+
+      function testCorrectAnswer() {
+        const eventDetail = {
+          isCorrect: true,
+          isLastRound: false,
+          correctOrder: ["Song A (1990)", "Song B (1995)", "Song C (2000)"],
+        };
+
+        window.dispatchEvent(
+          new CustomEvent("showChronologyFeedback", {
+            detail: eventDetail,
+          })
+        );
+
+        logEvent("Test: Dispatched correct answer event");
+      }
+
+      function testIncorrectAnswer() {
+        const eventDetail = {
+          isCorrect: false,
+          isLastRound: false,
+          correctOrder: ["Album X (1985)", "Album Y (1992)", "Album Z (1998)"],
+        };
+
+        window.dispatchEvent(
+          new CustomEvent("showChronologyFeedback", {
+            detail: eventDetail,
+          })
+        );
+
+        logEvent("Test: Dispatched incorrect answer event");
+      }
+
+      function testLastRound() {
+        const eventDetail = {
+          isCorrect: true,
+          isLastRound: true,
+          correctOrder: ["Final Song A (1980)", "Final Song B (1990)"],
+        };
+
+        window.dispatchEvent(
+          new CustomEvent("showChronologyFeedback", {
+            detail: eventDetail,
+          })
+        );
+
+        logEvent("Test: Dispatched last round event");
+      }
+
+      function clearLog() {
+        document.getElementById("eventLog").textContent = "Waiting for events...";
+      }
+
+      // Log when page loads
+      window.addEventListener("load", function () {
+        logEvent("Event listener test page loaded successfully");
+      });
+    </script>
+  </body>
+</html>

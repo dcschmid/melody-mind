@@ -121,6 +121,27 @@ export default {
   "game.joker.fifty_fifty.remaining": "50:50 ({remaining} rimanenti)",
   "game.joker.fifty_fifty.used": "50:50 utilizzato",
   "game.joker.fifty_fifty.description": "Elimina due risposte sbagliate",
+
+  // Game Chronology
+  "game.chronology.title": "Cronologia Musicale",
+  "game.chronology.description":
+    "Ordina questi album per anno di uscita (dal più vecchio al più recente)",
+  "game.chronology.area.label": "Area di Gioco Cronologia",
+  "game.chronology.result": "Risultato",
+  "game.chronology.correct": "Corretto! 🎉",
+  "game.chronology.incorrect": "Sbagliato! 😔",
+  "game.chronology.correct_order": "Ordine corretto:",
+  "game.chronology.wrong": "Dovrebbe essere alla posizione {position}",
+  "game.chronology.score": "Punteggio: {score} punti",
+  "game.chronology.details": "{correct} su {total} album posizionati correttamente",
+  "game.chronology.year": "Anno: {year}",
+  "game.chronology.drag.help": "Usa i tasti freccia ↑/↓ o trascina per ordinare",
+  "game.chronology.up": "Su",
+  "game.chronology.down": "Giù",
+  "game.chronology.position": "Posizione",
+  "game.chronology.start": "Inizio",
+  "game.chronology.end": "Fine",
+
   "game.session.title": "Sessione di gioco attiva",
   "game.session.question_progress": "Domanda {current} di {total}",
   "game.session.current_score": "Punteggio attuale: {score}",
@@ -620,4 +641,16 @@ export default {
   "nav.menu.moved_to_last": "Spostato all'ultimo elemento del menu",
   "nav.menu.focused_on": "Focalizzato su",
   "nav.menu.long_press_detected": "Pressione lunga rilevata su",
+
+  // ChronologyFeedbackOverlay specific keys
+  "game.chronology.correct_order_description":
+    "Elenco che mostra l'ordine cronologico corretto degli eventi",
+
+  // General
+  "general.close": "Chiudi",
+
+  "session.timeout.warning": "La tua sessione scadrà tra {0} secondi.",
+  "session.timeout.extend": "Prolunga sessione",
+  "session.timeout.continue": "Continua",
+  "session.extended": "Sessione prolungata con successo",
 } as const;

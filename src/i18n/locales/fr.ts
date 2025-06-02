@@ -472,7 +472,9 @@ export default {
     "Classez ces albums par leur année de sortie (le plus ancien en premier)",
   "game.chronology.area.label": "Zone de Jeu de Chronologie",
   "game.chronology.result": "Résultat",
-  "game.chronology.correct": "Correct",
+  "game.chronology.correct": "Correct ! 🎉",
+  "game.chronology.incorrect": "Incorrect ! 😔",
+  "game.chronology.correct_order": "Ordre correct :",
   "game.chronology.wrong": "Devrait être à la position {position}",
   "game.chronology.score": "Score : {score} points",
   "game.chronology.details": "{correct} sur {total} albums placés correctement",
@@ -729,6 +731,14 @@ export default {
   "game.time.extended": "Temps prolongé de 5 secondes",
   "game.time.before.end": "Prolonger avant la fin du jeu",
 
+  // ChronologyFeedbackOverlay specific keys
+  "game.chronology.correct_order_description":
+    "Liste affichant l'ordre chronologique correct des événements",
+  "session.timeout.warning": "Votre session expirera dans {0} secondes.",
+  "session.timeout.extend": "Prolonger la session",
+  "session.timeout.continue": "Continuer",
+  "session.extended": "Session prolongée avec succès",
+
   // Messages système de layout
   "layout.error.system": "Une erreur système s'est produite. Veuillez actualiser la page.",
   "layout.error.tracking": "Erreur suivie :",
@@ -744,4 +754,13 @@ export default {
   "achievements.nav.aria": "Réalisations",
 
   "nav.openNewWindow": "S'ouvre dans une nouvelle fenêtre",
+
+  // General
+  "general.close": "Fermer",
+
+  // Session timeout
+  "session.timeout.warning": "Votre session expirera dans {0} secondes",
+  "session.timeout.extend": "Prolonger la session",
+  "session.timeout.continue": "Continuer",
+  "session.extended": "Session prolongée avec succès",
 };

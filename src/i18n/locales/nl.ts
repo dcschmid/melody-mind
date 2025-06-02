@@ -451,7 +451,9 @@ export default {
   "game.chronology.description": "Rangschik deze albums op hun releasejaar (oudste eerst)",
   "game.chronology.area.label": "Chronologiespelgebied",
   "game.chronology.result": "Resultaat",
-  "game.chronology.correct": "Correct",
+  "game.chronology.correct": "Correct! 🎉",
+  "game.chronology.incorrect": "Onjuist! 😔",
+  "game.chronology.correct_order": "Juiste volgorde:",
   "game.chronology.wrong": "Moet op positie {position} zijn",
   "game.chronology.score": "Score: {score} punten",
   "game.chronology.details": "{correct} van de {total} albums correct geplaatst",
@@ -713,10 +715,21 @@ export default {
 
   "nav.openNewWindow": "Opent in nieuw venster",
 
+  // ChronologyFeedbackOverlay specific keys
+  "game.chronology.correct_order_description":
+    "Lijst die de juiste chronologische volgorde van de gebeurtenissen toont",
+  "session.timeout.warning": "Uw sessie verloopt over {0} seconden.",
+  "session.timeout.extend": "Sessie verlengen",
+  "session.timeout.continue": "Doorgaan",
+  "session.extended": "Sessie succesvol verlengd",
+
   "nav.menu.opened": "geopend",
   "nav.menu.closed": "gesloten",
   "nav.menu.moved_to_first": "Verplaatst naar eerste menu-item",
   "nav.menu.moved_to_last": "Verplaatst naar laatste menu-item",
   "nav.menu.focused_on": "Gefocust op",
   "nav.menu.long_press_detected": "Lange druk gedetecteerd op",
+
+  // General
+  "general.close": "Sluiten",
 };

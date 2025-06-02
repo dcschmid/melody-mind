@@ -451,7 +451,9 @@ export default {
     "Organize estes álbuns por ano de lançamento (o mais antigo primeiro)",
   "game.chronology.area.label": "Área do Jogo de Cronologia",
   "game.chronology.result": "Resultado",
-  "game.chronology.correct": "Correto",
+  "game.chronology.correct": "Correto! 🎉",
+  "game.chronology.incorrect": "Incorreto! 😔",
+  "game.chronology.correct_order": "Ordem correta:",
   "game.chronology.wrong": "Deveria estar na posição {position}",
   "game.chronology.score": "Pontuação: {score} pontos",
   "game.chronology.details": "{correct} de {total} álbuns colocados corretamente",
@@ -718,4 +720,16 @@ export default {
   "nav.menu.moved_to_last": "Movido para o último item do menu",
   "nav.menu.focused_on": "Focado em",
   "nav.menu.long_press_detected": "Pressão longa detectada em",
+
+  // ChronologyFeedbackOverlay specific keys
+  "game.chronology.correct_order_description":
+    "Lista mostrando a ordem cronológica correta dos eventos",
+
+  // General
+  "general.close": "Fechar",
+
+  "session.timeout.warning": "Sua sessão expirará em {0} segundos.",
+  "session.timeout.extend": "Estender sessão",
+  "session.timeout.continue": "Continuar",
+  "session.extended": "Sessão estendida com sucesso",
 };

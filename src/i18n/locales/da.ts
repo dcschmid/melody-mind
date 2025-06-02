@@ -433,7 +433,9 @@ export default {
   "game.chronology.description": "Arranger disse album efter deres udgivelsesår (ældste først)",
   "game.chronology.area.label": "Kronologispilområde",
   "game.chronology.result": "Resultat",
-  "game.chronology.correct": "Korrekt",
+  "game.chronology.correct": "Korrekt! 🎉",
+  "game.chronology.incorrect": "Forkert! 😔",
+  "game.chronology.correct_order": "Korrekt rækkefølge:",
   "game.chronology.wrong": "Skulle være på position {position}",
   "game.chronology.score": "Score: {score} point",
   "game.chronology.details": "{correct} ud af {total} album placeret korrekt",
@@ -704,10 +706,27 @@ export default {
 
   "nav.openNewWindow": "Åbner i nyt vindue",
 
+  // ChronologyFeedbackOverlay specific keys
+  "game.chronology.correct_order_description":
+    "Liste der viser den korrekte kronologiske rækkefølge af begivenhederne",
+  "session.timeout.warning": "Din session udløber om {0} sekunder.",
+  "session.timeout.extend": "Forlæng session",
+  "session.timeout.continue": "Fortsæt",
+  "session.extended": "Session forlænget med succes",
+
   "nav.menu.opened": "åbnet",
   "nav.menu.closed": "lukket",
   "nav.menu.moved_to_first": "Flyttet til første menupunkt",
   "nav.menu.moved_to_last": "Flyttet til sidste menupunkt",
   "nav.menu.focused_on": "Fokuseret på",
   "nav.menu.long_press_detected": "Langt tryk registreret på",
+
+  // General
+  "general.close": "Luk",
+
+  // Session timeout
+  "session.timeout.warning": "Din session udløber om {0} sekunder",
+  "session.timeout.extend": "Forlæng session",
+  "session.timeout.continue": "Fortsæt",
+  "session.extended": "Session forlænget succesfuldt",
 };
