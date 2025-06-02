@@ -281,6 +281,12 @@ export default {
   "category.image.alt": "Cover-Bild",
   "nav.menu.open": "Menü öffnen",
   "nav.menu.close": "Menü schließen",
+  "nav.menu.opened": "geöffnet",
+  "nav.menu.closed": "geschlossen",
+  "nav.menu.moved_to_first": "Zum ersten Menüelement gewechselt",
+  "nav.menu.moved_to_last": "Zum letzten Menüelement gewechselt",
+  "nav.menu.focused_on": "Fokussiert auf",
+  "nav.menu.long_press_detected": "Langes Drücken erkannt bei",
   "nav.menu.home": "Startseite",
   "nav.menu.rules": "Spielregeln",
   "nav.menu.highscores": "Bestenliste",
@@ -748,4 +754,11 @@ export default {
   "layout.accessibility.theme.dark":
     "Dunkles Theme für optimalen Kontrast und Barrierefreiheit aktiviert",
   "layout.analytics.init.failed": "Analytics-Initialisierung fehlgeschlagen:",
+
+  // Navigation
+  "nav.ariaLabel": "Hauptnavigation",
+
+  "achievements.nav.aria": "Erfolge",
+
+  "nav.openNewWindow": "Öffnet in neuem Fenster",
 };

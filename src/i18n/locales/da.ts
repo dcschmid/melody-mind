@@ -500,6 +500,7 @@ export default {
   "profile.recent.game.date": "Dato",
   "profile.nav.aria": "Navigation til brugerprofil",
   "profile.nav.link": "Gå til profil",
+  "achievements.nav.aria": "Navigation til præstationer",
   "achievements.nav.link": "Gå til præstationer",
 
   // Highscores-side
@@ -697,4 +698,16 @@ export default {
     "Reduceret bevægelse tilstand aktiveret for tilgængelighed",
   "layout.accessibility.theme.dark": "Mørkt tema aktiveret for optimal kontrast og tilgængelighed",
   "layout.analytics.init.failed": "Analytics initialisering mislykkedes:",
+
+  // Navigation
+  "nav.ariaLabel": "Hovednavigation",
+
+  "nav.openNewWindow": "Åbner i nyt vindue",
+
+  "nav.menu.opened": "åbnet",
+  "nav.menu.closed": "lukket",
+  "nav.menu.moved_to_first": "Flyttet til første menupunkt",
+  "nav.menu.moved_to_last": "Flyttet til sidste menupunkt",
+  "nav.menu.focused_on": "Fokuseret på",
+  "nav.menu.long_press_detected": "Langt tryk registreret på",
 };

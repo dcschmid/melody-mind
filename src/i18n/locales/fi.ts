@@ -705,4 +705,18 @@ export default {
   "layout.analytics.init.failed": "Analytiikan alustus epäonnistui:",
 
   "common.accessibility.main_content": "Pääsisältöalue",
+
+  // Navigation
+  "nav.ariaLabel": "Päänavigointi",
+
+  "achievements.nav.aria": "Navigointi saavutuksiin",
+
+  "nav.openNewWindow": "Avautuu uudessa ikkunassa",
+
+  "nav.menu.opened": "Valikko on avattu",
+  "nav.menu.closed": "Valikko on suljettu",
+  "nav.menu.moved_to_first": "Siirretty ensimmäiseen valikkovaihtoehtoon",
+  "nav.menu.moved_to_last": "Siirretty viimeiseen valikkovaihtoehtoon",
+  "nav.menu.focused_on": "Keskitytty valikkovaihtoehtoon:",
+  "nav.menu.long_press_detected": "Pitkä painallus havaittu valikkovaihtoehdossa",
 };

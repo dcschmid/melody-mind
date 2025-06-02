@@ -517,6 +517,7 @@ export default {
   "profile.recent.game.date": "Datum",
   "profile.nav.aria": "Navigatie naar gebruikersprofiel",
   "profile.nav.link": "Ga naar profiel",
+  "achievements.nav.aria": "Navigatie naar prestaties",
   "achievements.nav.link": "Ga naar prestaties",
 
   // Highscorespagina
@@ -706,4 +707,16 @@ export default {
   "layout.accessibility.theme.dark":
     "Donker thema geactiveerd voor optimaal contrast en toegankelijkheid",
   "layout.analytics.init.failed": "Analytics initialisatie mislukt:",
+
+  // Navigation
+  "nav.ariaLabel": "Hoofdnavigatie",
+
+  "nav.openNewWindow": "Opent in nieuw venster",
+
+  "nav.menu.opened": "geopend",
+  "nav.menu.closed": "gesloten",
+  "nav.menu.moved_to_first": "Verplaatst naar eerste menu-item",
+  "nav.menu.moved_to_last": "Verplaatst naar laatste menu-item",
+  "nav.menu.focused_on": "Gefocust op",
+  "nav.menu.long_press_detected": "Lange druk gedetecteerd op",
 };
