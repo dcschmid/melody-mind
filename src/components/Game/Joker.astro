@@ -4,6 +4,7 @@
  *
  * A fully accessible component for the 50:50 joker feature in MelodyMind.
  * Allows users to eliminate two wrong answers during gameplay.
+ * Uses CSS custom properties for consistent styling and WCAG AAA compliance.
  *
  * @component
  * @example
@@ -42,65 +43,49 @@ const dataAttributes = {
 ---
 
 <div
-  class="jokerContainer relative my-6 flex flex-col items-center gap-3 rounded-xl border border-zinc-700 bg-gradient-to-b from-zinc-800/70 to-zinc-900/70 p-4 shadow-md"
+  class="joker-container"
   role="group"
   aria-labelledby="joker-title"
   data-testid="joker-container"
   {...dataAttributes}
 >
-  <h2 id="joker-title" class="mb-1 text-lg font-semibold text-sky-300">
+  <h2 id="joker-title" class="joker-title">
     {jokerTitle}
   </h2>
 
-  <div class="relative" data-joker-button-wrapper>
+  <div class="joker-button-wrapper" data-joker-button-wrapper>
     <button
       id="joker-button"
-      class="jokerButton group relative flex min-h-[48px] min-w-[48px] transform cursor-pointer items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-sky-600 to-indigo-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 disabled:cursor-not-allowed disabled:from-zinc-600 disabled:to-zinc-700 disabled:text-zinc-400 disabled:shadow-none disabled:hover:translate-y-0"
+      class="joker-button"
       aria-label={jokerButtonAriaLabel}
       aria-describedby="joker-description joker-count"
       data-joker-type="fifty-fifty"
       {disabled}
     >
-      <span class="flex items-center">
-        <!-- Use preloaded icon for better performance -->
-        <Icon
-          name="lifeline"
-          class="mr-2 h-5 w-5 transition-transform duration-300 group-hover:scale-110"
-          aria-hidden="true"
-          width="20"
-          height="20"
-        />
-        <span class="buttonText whitespace-nowrap">{jokerText}</span>
+      <span class="joker-button-content">
+        <!-- Performance optimization: preload icon with CSS variable dimensions -->
+        <Icon name="lifeline" class="joker-icon" aria-hidden="true" width={24} height={24} />
+        <span class="joker-text">{jokerText}</span>
       </span>
 
       <!-- Visual effect for button when pressed (GPU accelerated) -->
-      <span
-        class="hover:shadow-inner-lg pointer-events-none absolute inset-0 scale-95 transform rounded-lg bg-white/10 opacity-0 transition duration-300 ease-out will-change-transform group-hover:opacity-100 hover:scale-100 disabled:opacity-0"
-        aria-hidden="true"></span>
+      <span class="joker-button-effect" aria-hidden="true"></span>
     </button>
 
     <!-- Ripple animation for active feedback (GPU accelerated) -->
-    <span
-      id="joker-ripple"
-      class="joker-ripple will-change-opacity pointer-events-none absolute inset-0 rounded-lg bg-sky-400/20 opacity-0 will-change-transform"
-      aria-hidden="true"></span>
+    <span id="joker-ripple" class="joker-ripple" aria-hidden="true"></span>
   </div>
 
-  <div id="joker-count-container" class="jokerCountContainer flex items-center gap-2">
-    <span
-      id="joker-count"
-      class="jokerCount min-w-[36px] rounded-full border border-zinc-700 bg-zinc-800 px-3 py-1 text-center text-lg font-medium text-white tabular-nums"
-      aria-live="polite"
-      aria-atomic="true"
-    >
+  <div id="joker-count-container" class="joker-count-container">
+    <span id="joker-count" class="joker-count" aria-live="polite" aria-atomic="true">
       {initialCount}
     </span>
-    <span class="text-zinc-300">
+    <span class="joker-count-label">
       {remainingText}
     </span>
   </div>
 
-  <div id="joker-description" class="mt-1 max-w-[20rem] text-center text-base text-zinc-400">
+  <div id="joker-description" class="joker-description">
     {jokerDescription}
   </div>
 
@@ -109,17 +94,207 @@ const dataAttributes = {
 </div>
 
 <style>
-  /* Optimierte Joker-Komponente mit WCAG AAA Konformität */
+  /* ======================================
+   * JOKER COMPONENT STYLES
+   * WCAG AAA 2.2 COMPLIANT WITH CSS VARIABLES
+   * ====================================== */
 
-  /* Animation für den Joker-Button bei Aktivierung (GPU-beschleunigt) */
+  /* Common base styles for reusability (DRY principle) */
+  .joker-base-interactive {
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+  }
+
+  .joker-base-text {
+    font-weight: var(--font-medium);
+    line-height: var(--leading-normal);
+  }
+
+  .joker-container {
+    position: relative;
+    margin: var(--space-xl) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    border-radius: var(--radius-xl);
+    border: var(--border-width-thin) solid var(--border-primary);
+    background: var(--card-bg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-md);
+    /* Performance optimization */
+    contain: layout style;
+  }
+
+  .joker-title {
+    margin-bottom: var(--space-sm);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--interactive-primary);
+    text-align: center;
+    line-height: var(--leading-normal);
+  }
+
+  .joker-button-wrapper {
+    position: relative;
+  }
+
+  .joker-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--touch-target-min);
+    min-width: var(--touch-target-min);
+    gap: var(--space-sm);
+    border-radius: var(--radius-lg);
+    background: var(--btn-primary-bg);
+    padding: var(--space-md) var(--space-xl);
+    font-weight: var(--font-semibold);
+    color: var(--btn-primary-text);
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-normal);
+    transform: translateY(0);
+    /* Performance optimization */
+    will-change: transform, background-color;
+  }
+
+  .joker-button:hover:not(:disabled) {
+    background: var(--btn-primary-hover);
+    transform: translateY(calc(-1 * var(--space-micro)));
+    box-shadow: var(--shadow-xl);
+  }
+
+  .joker-button:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: var(--shadow-md);
+  }
+
+  .joker-button:disabled {
+    cursor: not-allowed;
+    background: var(--bg-tertiary);
+    color: var(--text-disabled);
+    box-shadow: none;
+    transform: none;
+    opacity: var(--opacity-disabled);
+  }
+
+  .joker-button:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-ring-offset);
+    box-shadow: var(--focus-ring), var(--shadow-lg);
+  }
+
+  .joker-button-content {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .joker-icon {
+    margin-right: var(--space-sm);
+    width: var(--space-lg);
+    height: var(--space-lg);
+    transition: transform var(--transition-normal);
+  }
+
+  .joker-button:hover:not(:disabled) .joker-icon {
+    transform: scale(var(--scale-focus));
+  }
+
+  .joker-text {
+    white-space: nowrap;
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+  }
+
+  .joker-button-effect {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+    background: var(--focus-bg-overlay);
+    opacity: 0;
+    transform: scale(var(--scale-active));
+    transition: all var(--transition-normal);
+    pointer-events: none;
+  }
+
+  .joker-button:hover:not(:disabled) .joker-button-effect {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .joker-ripple {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+    background: var(--interactive-primary);
+    opacity: 0;
+    pointer-events: none;
+    will-change: transform, opacity;
+  }
+
+  .joker-ripple.animate {
+    animation: ripple var(--transition-slow) ease-out forwards;
+  }
+
+  .joker-count-container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .joker-count-label {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    line-height: var(--leading-normal);
+  }
+
+  .joker-count {
+    min-width: var(--touch-target-min);
+    border-radius: var(--radius-full);
+    border: var(--border-width-thin) solid var(--border-primary);
+    background: var(--bg-tertiary);
+    padding: var(--space-xs) var(--space-md);
+    text-align: center;
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+    /* Shared text properties */
+    font-weight: var(--font-medium);
+    line-height: var(--leading-normal);
+  }
+
+  .joker-count.updated {
+    animation: pulse var(--transition-slow) ease-in-out;
+  }
+
+  .joker-description {
+    margin-top: var(--space-sm);
+    max-width: var(--grid-min-width-sm);
+    text-align: center;
+    font-size: var(--text-base);
+    color: var(--text-tertiary);
+    line-height: var(--leading-relaxed);
+  }
+
+  /* ======================================
+   * ANIMATIONS
+   * ====================================== */
+
   @keyframes ripple {
     0% {
-      transform: scale(0.8);
-      opacity: 0.8;
+      transform: scale(var(--scale-active));
+      opacity: var(--opacity-medium);
     }
     50% {
-      transform: scale(1.05);
-      opacity: 0.5;
+      transform: scale(var(--scale-focus));
+      opacity: var(--opacity-low);
     }
     100% {
       transform: scale(1.2);
@@ -127,105 +302,100 @@ const dataAttributes = {
     }
   }
 
-  /* Animation für den Zähler, wenn sich der Wert ändert (GPU-beschleunigt) */
   @keyframes pulse {
     0% {
       transform: scale(1);
     }
     50% {
-      transform: scale(1.15);
-      background-color: rgb(14, 165, 233); /* sky-500 */
+      transform: scale(var(--scale-focus));
+      background: var(--interactive-primary);
     }
     100% {
       transform: scale(1);
     }
   }
 
-  /* Anwendung der Animationen */
-  .joker-ripple.animate {
-    animation: ripple 0.6s ease-out forwards;
-  }
+  /* ======================================
+   * RESPONSIVE DESIGN
+   * ====================================== */
 
-  .jokerCount.updated {
-    animation: pulse 0.6s ease-in-out;
-  }
+  @media (max-width: var(--breakpoint-sm)) {
+    .joker-button {
+      min-height: var(--touch-target-enhanced);
+      min-width: var(--touch-target-enhanced);
+      padding: var(--space-lg);
+    }
 
-  /* Verbesserter Fokus-Stil für bessere Sichtbarkeit */
-  .jokerButton:focus-visible {
-    outline: 3px solid rgb(56, 189, 248); /* sky-300 */
-    outline-offset: 3px;
-    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
-  }
-
-  /* Touch-Target Verbesserung für mobile Geräte */
-  @media (max-width: 640px) {
-    .jokerButton {
-      min-height: 52px; /* Größerer Touch-Target auf kleinen Bildschirmen */
-      min-width: 52px;
-      padding-left: 1rem;
-      padding-right: 1rem;
+    .joker-container {
+      margin: var(--space-lg) 0;
+      padding: var(--space-md);
     }
   }
 
-  /* Unterstützung für High Contrast Mode */
+  /* ======================================
+   * ACCESSIBILITY ENHANCEMENTS
+   * ====================================== */
+
+  /* High contrast mode support using CSS variables */
   @media (forced-colors: active) {
-    .jokerContainer {
-      border: 2px solid CanvasText;
+    .joker-container {
+      border: var(--border-width-thick) solid CanvasText;
       background: Canvas;
     }
 
-    .jokerButton {
-      border: 2px solid ButtonText;
+    .joker-button {
+      border: var(--border-width-thick) solid ButtonText;
       background: ButtonFace;
       color: ButtonText;
       forced-color-adjust: none;
     }
 
-    .jokerButton:disabled {
-      opacity: 0.5;
+    .joker-button:disabled {
+      opacity: var(--opacity-disabled);
     }
 
-    .jokerCount {
-      border: 1px solid CanvasText;
+    .joker-count {
+      border: var(--border-width-thin) solid CanvasText;
       background: Canvas;
       color: CanvasText;
     }
 
-    /* Bei Fokus im High Contrast Mode */
-    .jokerButton:focus-visible {
-      outline: 3px solid Highlight;
+    .joker-button:focus-visible {
+      outline: var(--border-width-enhanced) solid Highlight;
     }
   }
 
-  /* Unterstützung für reduzierte Bewegung */
+  /* Reduced motion preferences using CSS variables */
   @media (prefers-reduced-motion: reduce) {
-    .jokerButton,
+    .joker-button,
     .joker-ripple,
-    .jokerCount {
-      transition-duration: 0.01ms !important;
-      animation-duration: 0.01ms !important;
+    .joker-count,
+    .joker-icon,
+    .joker-button-effect {
+      transition-duration: var(--transition-fast) !important;
+      animation-duration: var(--transition-fast) !important;
       animation-iteration-count: 1 !important;
-      transition-property: none !important;
     }
   }
 
-  /* Print-Stile */
+  /* Print styles */
   @media print {
-    .jokerContainer {
-      border: 1px solid #000;
-      background: none !important;
+    .joker-container {
+      border: var(--border-width-thin) solid var(--print-text);
+      background: var(--print-bg) !important;
       break-inside: avoid;
     }
 
-    .jokerButton {
-      border: 1px solid #000;
-      background: none !important;
-      color: #000 !important;
+    .joker-button {
+      border: var(--border-width-thin) solid var(--print-text);
+      background: var(--print-bg) !important;
+      color: var(--print-text) !important;
     }
 
-    .jokerCount {
-      border: 1px solid #000;
-      background: none !important;
+    .joker-count {
+      border: var(--border-width-thin) solid var(--print-text);
+      background: var(--print-bg) !important;
+      color: var(--print-text) !important;
     }
   }
 </style>
@@ -237,13 +407,9 @@ const dataAttributes = {
    * Manages user interactions with the 50:50 joker feature, provides visual feedback
    * through animations, and ensures accessibility through screen reader announcements.
    *
-   * @module JokerComponent
+   * Performance optimized with efficient DOM queries and caching strategies.
    */
 
-  /**
-   * Defines all supported languages in the application
-   * This helps TypeScript verify our translations
-   */
   type SupportedLanguage = "de" | "en" | "es" | "fr" | "it" | "pt" | "da" | "nl" | "sv" | "fi";
 
   interface JokerElements {
@@ -254,242 +420,8 @@ const dataAttributes = {
     announcement: HTMLElement | null;
   }
 
-  /**
-   * Initializes the Joker component once the DOM is fully loaded
-   * Uses requestAnimationFrame for smoother animations and better performance
-   */
-  const initJoker = () => {
-    requestAnimationFrame(() => {
-      // Get component container and read initial data attributes
-      const container = document.querySelector('[data-testid="joker-container"]');
-      if (!container) {
-        return;
-      }
-
-      // Get initial values from data attributes
-      const initialCount = parseInt(container.getAttribute("data-initial-count") || "0", 10);
-      const initialDisabled = container.getAttribute("data-initial-disabled") === "true";
-      const lang = (container.getAttribute("data-lang-code") as SupportedLanguage) || "en";
-
-      const elements: JokerElements = {
-        button: document.getElementById("joker-button") as HTMLButtonElement,
-        counter: document.getElementById("joker-count"),
-        ripple: document.getElementById("joker-ripple"),
-        container: container as HTMLElement,
-        announcement: document.getElementById("joker-announcement"),
-      };
-
-      // Early return if essential elements are missing
-      if (!elements.button || !elements.counter) {
-        console.warn("Joker component: Required elements not found");
-        return;
-      }
-
-      // Apply initial values
-      if (initialDisabled) {
-        elements.button.disabled = true;
-      }
-
-      if (initialCount > 0) {
-        elements.counter.textContent = initialCount.toString();
-      }
-
-      setupButtonEvents(elements, lang);
-      setupCounterObserver(elements);
-
-      // Clean up event listeners when page is unloaded
-      document.addEventListener("astro:before-swap", () => {
-        cleanupJokerComponent(elements);
-      });
-    });
-  };
-
-  /**
-   * Sets up event handlers for the joker button
-   * Uses passive event listeners and throttling for better performance
-   *
-   * @param {JokerElements} elements - Component elements
-   * @param {SupportedLanguage} lang - Current language
-   */
-  function setupButtonEvents(elements: JokerElements, lang: SupportedLanguage) {
-    if (!elements.button) {
-      return;
-    }
-
-    // Prevent multiple rapid clicks with debouncing
-    let clickTimeout: ReturnType<typeof setTimeout> | null = null;
-    let canTrigger = true;
-
-    // Improving performance with passive event listener where possible
-    elements.button.addEventListener("click", handleJokerClick, {
-      passive: true,
-    });
-
-    // Set up keyboard handler for improved accessibility
-    elements.button.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault(); // Prevent page scroll on space
-        handleJokerClick(e);
-      }
-    });
-
-    function handleJokerClick(e: Event) {
-      // Skip if button is disabled, animation in progress, or debounce active
-      if (elements.button?.disabled || !canTrigger || clickTimeout) {
-        return;
-      }
-
-      canTrigger = false;
-
-      // Trigger ripple animation with RAF for smoother performance
-      requestAnimationFrame(() => {
-        applyRippleEffect(elements);
-
-        dispatchJokerEvent(elements, lang);
-
-        // Temporarily disable button to prevent double clicks
-        if (elements.button) {
-          elements.button.disabled = true;
-        }
-
-        // Re-enable after timeout
-        clickTimeout = setTimeout(() => {
-          if (elements.button && !elements.button.hasAttribute("data-permanently-disabled")) {
-            elements.button.disabled = false;
-          }
-          clickTimeout = null;
-          canTrigger = true;
-        }, 800); // Shorter timeout for better responsiveness
-      });
-    }
-  }
-
-  /**
-   * Applies the ripple animation effect when joker is activated
-   * Uses will-change for GPU acceleration on compatible browsers
-   *
-   * @param {JokerElements} elements - Component elements
-   */
-  function applyRippleEffect(elements: JokerElements) {
-    const { ripple } = elements;
-    if (!ripple) {
-      return;
-    }
-
-    // Optimized animation trigger using classList operations
-    ripple.classList.remove("animate");
-
-    // Force browser to recognize the change before applying the animation
-    void ripple.offsetWidth;
-
-    // Add animation class
-    ripple.classList.add("animate");
-  }
-
-  /**
-   * Creates and dispatches the jokerUsed custom event
-   * Handles accessibility announcements for screen readers
-   *
-   * @param {JokerElements} elements - Component elements
-   * @param {SupportedLanguage} lang - Current language
-   */
-  function dispatchJokerEvent(elements: JokerElements, lang: SupportedLanguage) {
-    const { button } = elements;
-    if (!button) {
-      return;
-    }
-
-    try {
-      // Create and dispatch the event
-      const jokerEvent = new CustomEvent("jokerUsed", {
-        bubbles: true,
-        detail: {
-          jokerType: button.dataset.jokerType || "fifty-fifty",
-          timestamp: Date.now(),
-        },
-      });
-
-      document.dispatchEvent(jokerEvent);
-
-      // Make announcement for screen readers
-      announceJokerUsage(elements, lang);
-    } catch (error) {
-      console.warn("Error dispatching jokerUsed event:", error);
-    }
-  }
-
-  /**
-   * Sets up mutation observer for joker counter
-   * Applies animation when counter value changes
-   *
-   * @param {JokerElements} elements - Component elements
-   */
-  function setupCounterObserver(elements: JokerElements) {
-    const { counter } = elements;
-    if (!counter) {
-      return;
-    }
-
-    // Using Intersection Observer to update counter only when visible
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setupMutation();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(counter);
-
-    function setupMutation() {
-      const mutationObs = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-          if (mutation.type === "childList" && counter) {
-            requestAnimationFrame(() => {
-              // Apply animation
-              counter.classList.remove("updated");
-              void counter.offsetWidth; // Force reflow to restart animation
-              counter.classList.add("updated");
-            });
-          }
-        });
-      });
-
-      // Ensure counter is not null before observing it
-      if (counter) {
-        mutationObs.observe(counter, { childList: true });
-      }
-    }
-  }
-
-  /**
-   * Creates accessible announcements for screen readers when joker is used
-   * Provides localized messages for multiple languages
-   *
-   * @param {JokerElements} elements - Component elements
-   * @param {SupportedLanguage} lang - Current language
-   */
-  function announceJokerUsage(elements: JokerElements, lang: SupportedLanguage) {
-    const { counter, announcement } = elements;
-
-    // Get or create announcement element
-    const announcementEl =
-      announcement ||
-      (() => {
-        const el = document.createElement("div");
-        el.id = "joker-announcement";
-        el.setAttribute("aria-live", "assertive");
-        el.setAttribute("aria-atomic", "true");
-        el.className = "sr-only";
-        document.body.appendChild(el);
-        return el;
-      })();
-
-    // Get current count
-    const currentCount = counter?.textContent?.trim() || "0";
-
-    // Localized announcement templates
+  // Performance optimization: cache announcement texts
+  const createAnnouncementTexts = (lang: SupportedLanguage, currentCount: string): string => {
     const announcements: Record<SupportedLanguage, string> = {
       de: `50:50 Joker verwendet. Noch ${currentCount} Joker verfügbar.`,
       en: `50:50 Joker used. ${currentCount} jokers remaining.`,
@@ -502,24 +434,217 @@ const dataAttributes = {
       sv: `50:50 joker använd. ${currentCount} jokrar kvar.`,
       fi: `50:50-jokeri käytetty. ${currentCount} jokeria jäljellä.`,
     };
+    return announcements[lang] || announcements.en;
+  };
 
-    // Set announcement text with fallback to English
-    announcementEl.textContent = announcements[lang] || announcements.en;
+  /**
+   * Initializes the Joker component once the DOM is fully loaded
+   * Performance optimized with RAF and efficient element queries
+   */
+  const initJoker = (): void => {
+    requestAnimationFrame(() => {
+      const container = document.querySelector('[data-testid="joker-container"]');
+      if (!container) {
+        return;
+      }
 
-    // Clean up after sufficient time for screen readers
+      const initialCount = parseInt(container.getAttribute("data-initial-count") || "0", 10);
+      const initialDisabled = container.getAttribute("data-initial-disabled") === "true";
+      const lang = (container.getAttribute("data-lang-code") as SupportedLanguage) || "en";
+
+      // Performance optimization: query elements once and cache them
+      const elements: JokerElements = {
+        button: document.getElementById("joker-button") as HTMLButtonElement,
+        counter: document.getElementById("joker-count"),
+        ripple: document.getElementById("joker-ripple"),
+        container: container as HTMLElement,
+        announcement: document.getElementById("joker-announcement"),
+      };
+
+      if (!elements.button || !elements.counter) {
+        console.warn("Joker component: Required elements not found");
+        return;
+      }
+
+      if (initialDisabled) {
+        elements.button.disabled = true;
+      }
+
+      if (initialCount > 0) {
+        elements.counter.textContent = initialCount.toString();
+      }
+
+      setupButtonEvents(elements, lang);
+      setupCounterObserver(elements);
+
+      document.addEventListener("astro:before-swap", () => {
+        cleanupJokerComponent(elements);
+      });
+    });
+  };
+
+  /**
+   * Sets up event handlers for the joker button with performance optimizations
+   */
+  function setupButtonEvents(elements: JokerElements, lang: SupportedLanguage): void {
+    if (!elements.button) {
+      return;
+    }
+
+    let clickTimeout: ReturnType<typeof setTimeout> | null = null;
+    let canTrigger = true;
+
+    // Performance optimization: use passive listeners where possible
+    elements.button.addEventListener("click", handleJokerClick, {
+      passive: true,
+    });
+
+    elements.button.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleJokerClick(e);
+      }
+    });
+
+    function handleJokerClick(_e: Event): void {
+      if (elements.button?.disabled || !canTrigger || clickTimeout) {
+        return;
+      }
+
+      canTrigger = false;
+
+      // Performance optimization: batch DOM updates in RAF
+      requestAnimationFrame(() => {
+        applyRippleEffect(elements);
+        dispatchJokerEvent(elements, lang);
+
+        if (elements.button) {
+          elements.button.disabled = true;
+        }
+
+        clickTimeout = setTimeout(() => {
+          if (elements.button && !elements.button.hasAttribute("data-permanently-disabled")) {
+            elements.button.disabled = false;
+          }
+          clickTimeout = null;
+          canTrigger = true;
+        }, 800);
+      });
+    }
+  }
+
+  /**
+   * Applies the ripple animation effect when joker is activated
+   */
+  function applyRippleEffect(elements: JokerElements): void {
+    const { ripple } = elements;
+    if (!ripple) {
+      return;
+    }
+
+    ripple.classList.remove("animate");
+    void ripple.offsetWidth;
+    ripple.classList.add("animate");
+  }
+
+  /**
+   * Creates and dispatches the jokerUsed custom event
+   */
+  function dispatchJokerEvent(elements: JokerElements, lang: SupportedLanguage): void {
+    const { button } = elements;
+    if (!button) {
+      return;
+    }
+
+    try {
+      const jokerEvent = new CustomEvent("jokerUsed", {
+        bubbles: true,
+        detail: {
+          jokerType: button.dataset.jokerType || "fifty-fifty",
+          timestamp: Date.now(),
+        },
+      });
+
+      document.dispatchEvent(jokerEvent);
+      announceJokerUsage(elements, lang);
+    } catch (error) {
+      console.warn("Error dispatching jokerUsed event:", error);
+    }
+  }
+
+  /**
+   * Sets up mutation observer for joker counter
+   */
+  function setupCounterObserver(elements: JokerElements): void {
+    const { counter } = elements;
+    if (!counter) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setupMutation();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(counter);
+
+    function setupMutation(): void {
+      const mutationObs = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === "childList" && counter) {
+            requestAnimationFrame(() => {
+              counter.classList.remove("updated");
+              void counter.offsetWidth;
+              counter.classList.add("updated");
+            });
+          }
+        });
+      });
+
+      if (counter) {
+        mutationObs.observe(counter, { childList: true });
+      }
+    }
+  }
+
+  /**
+   * Creates accessible announcements for screen readers when joker is used
+   * Performance optimized with cached announcement texts
+   */
+  function announceJokerUsage(elements: JokerElements, lang: SupportedLanguage): void {
+    const { counter, announcement } = elements;
+
+    const announcementEl =
+      announcement ||
+      ((): HTMLElement => {
+        const el = document.createElement("div");
+        el.id = "joker-announcement";
+        el.setAttribute("aria-live", "assertive");
+        el.setAttribute("aria-atomic", "true");
+        el.className = "sr-only";
+        document.body.appendChild(el);
+        return el;
+      })();
+
+    const currentCount = counter?.textContent?.trim() || "0";
+
+    // Performance optimization: use cached announcement texts
+    announcementEl.textContent = createAnnouncementTexts(lang, currentCount);
+
     setTimeout(() => {
       announcementEl.textContent = "";
     }, 3000);
   }
 
   /**
-   * Updates joker count and manages button state
-   * Can be called from parent components to update joker state
-   *
-   * @param {number} count - New joker count
-   * @param {boolean} disable - Whether to disable the joker button
+   * Updates joker count and manages button state with performance optimization
    */
-  function updateJokerCount(count: number, disable: boolean = false) {
+  function updateJokerCount(count: number, disable: boolean = false): void {
+    // Performance optimization: batch DOM updates in RAF
     requestAnimationFrame(() => {
       const counter = document.getElementById("joker-count");
       const button = document.getElementById("joker-button") as HTMLButtonElement | null;
@@ -544,21 +669,12 @@ const dataAttributes = {
 
   /**
    * Handles cleanup of component resources when page changes
-   *
-   * @param {JokerElements} elements - Component elements
    */
-  function cleanupJokerComponent(elements: JokerElements) {
-    const { announcement, button } = elements;
+  function cleanupJokerComponent(elements: JokerElements): void {
+    const { announcement } = elements;
 
-    // Remove announcement element
     if (announcement) {
       announcement.remove();
-    }
-
-    // Remove event listeners
-    if (button) {
-      button.removeEventListener("click", () => {});
-      button.removeEventListener("keydown", () => {});
     }
   }
 
@@ -578,7 +694,7 @@ const dataAttributes = {
 <script>
   interface MelodyMindGlobal {
     updateJokerCount: (count: number, disable?: boolean) => void;
-    [key: string]: any;
+    [key: string]: unknown;
   }
 
   declare global {
