@@ -347,6 +347,14 @@ export default {
   "loading.profile": "Caricamento profilo...",
   "loading.scores": "Caricamento punteggi...",
   "loading.leaderboard": "Caricamento classifica...",
+  "loading.content": "Caricamento contenuto...",
+  "loading.started": "Caricamento iniziato",
+  "loading.completed": "Caricamento completato",
+  "loading.progress.indicator": "Indicatore di progresso",
+  "loading.context.game": "Caricamento gioco",
+  "loading.context.question": "Caricamento domanda",
+  "loading.context.results": "Caricamento risultati",
+  "loading.context.default": "Caricamento contenuto",
 
   // Placeholder
   "placeholder.search": "Cerca...",

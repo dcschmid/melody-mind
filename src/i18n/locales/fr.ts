@@ -196,8 +196,6 @@ export default {
   "auth.form.help.tip3": "Évitez les mots courants et les séquences",
   "auth.form.help.tip4": "Considérez l'utilisation d'une phrase de passe",
 
-  "auth.form.min_length": "Ce champ doit comporter au moins {length} caractères",
-
   // Accessibilité
   "auth.accessibility.loading": "Chargement, veuillez patienter",
   "auth.accessibility.error": "Erreur : {message}",
@@ -296,6 +294,13 @@ export default {
   "game.joker.use": "Utiliser le joker 50:50",
   "game.joker.description": "Supprime deux mauvaises réponses",
   "loading.content": "Chargement du contenu...",
+  "loading.started": "Chargement commencé",
+  "loading.completed": "Chargement terminé",
+  "loading.progress.indicator": "Indicateur de progression",
+  "loading.context.game": "Chargement du jeu",
+  "loading.context.question": "Chargement de la question",
+  "loading.context.results": "Chargement des résultats",
+  "loading.context.default": "Chargement du contenu",
   "share.title": "Partagez votre succès !",
   "share.buttons.group.label": "Options de partage sur les réseaux sociaux",
   "share.facebook": "Partager sur Facebook",
