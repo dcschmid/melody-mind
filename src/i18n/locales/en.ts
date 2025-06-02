@@ -266,6 +266,12 @@ export default {
   "category.image.alt": "Cover image",
   "nav.menu.open": "Open menu",
   "nav.menu.close": "Close menu",
+  "nav.menu.opened": "opened",
+  "nav.menu.closed": "closed",
+  "nav.menu.moved_to_first": "Moved to first menu item",
+  "nav.menu.moved_to_last": "Moved to last menu item",
+  "nav.menu.focused_on": "Focused on",
+  "nav.menu.long_press_detected": "Long press detected on",
   "nav.menu.home": "Homepage",
   "nav.menu.rules": "Game Rules",
   "nav.menu.highscores": "Highscores",
@@ -716,4 +722,11 @@ export default {
   "layout.accessibility.motion.reduced": "Reduced motion mode enabled for accessibility",
   "layout.accessibility.theme.dark": "Dark theme activated for optimal contrast and accessibility",
   "layout.analytics.init.failed": "Analytics initialization failed:",
+
+  // Navigation
+  "nav.ariaLabel": "Main navigation",
+
+  "achievements.nav.aria": "Achievements",
+
+  "nav.openNewWindow": "Opens in new window",
 };

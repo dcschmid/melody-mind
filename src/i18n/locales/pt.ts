@@ -518,6 +518,7 @@ export default {
   "profile.recent.game.date": "Data",
   "profile.nav.aria": "Navegação para o perfil do usuário",
   "profile.nav.link": "Ir para o perfil",
+  "achievements.nav.aria": "Navegação para as conquistas",
   "achievements.nav.link": "Ir para as conquistas",
 
   // Página de Recordes
@@ -705,4 +706,16 @@ export default {
     "Modo de movimento reduzido habilitado para acessibilidade",
   "layout.accessibility.theme.dark": "Tema escuro ativado para contraste ideal e acessibilidade",
   "layout.analytics.init.failed": "Falha na inicialização de analytics:",
+
+  // Navigation
+  "nav.ariaLabel": "Navegação principal",
+
+  "nav.openNewWindow": "Abre em nova janela",
+
+  "nav.menu.opened": "aberto",
+  "nav.menu.closed": "fechado",
+  "nav.menu.moved_to_first": "Movido para o primeiro item do menu",
+  "nav.menu.moved_to_last": "Movido para o último item do menu",
+  "nav.menu.focused_on": "Focado em",
+  "nav.menu.long_press_detected": "Pressão longa detectada em",
 };

@@ -326,6 +326,7 @@
   /* Component State Timeouts */
   --timeout-animation: 300ms;
   --timeout-announcement: 3000ms;
+  --auth-polling-interval: 2000ms;
 
   /* Enhanced Filter Effects */
   --filter-contrast: 1.2;

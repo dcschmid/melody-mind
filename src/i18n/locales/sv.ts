@@ -694,4 +694,18 @@ export default {
   "layout.accessibility.motion.reduced": "Reducerat rörelseläge aktiverat för tillgänglighet",
   "layout.accessibility.theme.dark": "Mörkt tema aktiverat för optimal kontrast och tillgänglighet",
   "layout.analytics.init.failed": "Analytics-initialisering misslyckades:",
+
+  // Navigation
+  "nav.ariaLabel": "Huvudnavigering",
+
+  "achievements.nav.aria": "Prestationer",
+
+  "nav.openNewWindow": "Öppnas i nytt fönster",
+
+  "nav.menu.opened": "Menyn är öppnad",
+  "nav.menu.closed": "Menyn är stängd",
+  "nav.menu.moved_to_first": "Flyttat till första menyalternativ",
+  "nav.menu.moved_to_last": "Flyttat till sista menyalternativ",
+  "nav.menu.focused_on": "Fokuserat på menyalternativ:",
+  "nav.menu.long_press_detected": "Långt tryck upptäckt på menyalternativ",
 };
