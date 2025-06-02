@@ -322,6 +322,7 @@ export default {
   "knowledge.filter.all": "Alle nøgleord",
   "knowledge.no.results": "Ingen artikler fundet. Prøv andre søgetermer.",
   "game.remaining": "tilbage",
+  "game.remaining.label": "{count} tilbage",
   "game.default.headline": "Spil",
   "popup.score": "Score: {score}",
   "popup.golden.lp.score": "Opnået score: {score}",

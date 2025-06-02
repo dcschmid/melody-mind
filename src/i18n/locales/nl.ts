@@ -337,6 +337,7 @@ export default {
   "knowledge.filter.all": "Alle trefwoorden",
   "knowledge.no.results": "Geen artikelen gevonden. Probeer andere zoektermen.",
   "game.remaining": "resterend",
+  "game.remaining.label": "{count} resterend",
   "game.default.headline": "Spel",
   "popup.score": "Score: {score}",
   "popup.golden.lp.score": "Behaalde score: {score}",

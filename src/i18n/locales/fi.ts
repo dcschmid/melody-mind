@@ -582,6 +582,9 @@ export default {
   "achievements.notification.toggle_sound_title":
     "Ota käyttöön tai poista käytöstä ääni saavutusilmoituksille",
 
+  // Game remaining count
+  "game.remaining.label": "{count} jäljellä",
+
   // API-virheilmoitukset
   "errors.auth.unauthorized": "Sinun on kirjauduttava sisään käyttääksesi tätä toimintoa",
   "errors.invalidRequest": "Virheellinen pyyntö: {error}",
