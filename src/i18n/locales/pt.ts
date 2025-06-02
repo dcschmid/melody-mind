@@ -335,6 +335,7 @@ export default {
   "knowledge.filter.all": "Todas as Palavras-chave",
   "knowledge.no.results": "Nenhum artigo encontrado. Tente termos de pesquisa diferentes.",
   "game.remaining": "restante",
+  "game.remaining.label": "{count} restantes",
   "game.default.headline": "Jogo",
   "popup.score": "Pontuação: {score}",
   "popup.golden.lp.score": "Pontuação alcançada: {score}",

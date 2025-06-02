@@ -369,6 +369,7 @@ export default {
   "knowledge.filter.all": "Alle Keywords",
   "knowledge.no.results": "Keine Artikel gefunden. Versuche es mit anderen Suchbegriffen.",
   "game.remaining": "verbleibend",
+  "game.remaining.label": "{count} verbleibend",
   "game.default.headline": "Spiel",
   "popup.score": "Punkte: {score}",
   "popup.golden.lp.score": "Erreichte Punkte: {score}",

@@ -322,6 +322,7 @@ export default {
   "knowledge.filter.all": "Alla nyckelord",
   "knowledge.no.results": "Inga artiklar hittades. Prova andra söktermer.",
   "game.remaining": "kvar",
+  "game.remaining.label": "{count} kvar",
   "game.default.headline": "Spel",
   "popup.score": "Poäng: {score}",
   "popup.golden.lp.score": "Uppnådd poäng: {score}",

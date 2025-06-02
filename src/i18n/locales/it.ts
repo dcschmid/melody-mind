@@ -577,4 +577,11 @@ export default {
   "auth.form.help.tip2": "Includi numeri e caratteri speciali",
   "auth.form.help.tip3": "Evita parole comuni e sequenze",
   "auth.form.help.tip4": "Considera l'uso di una passphrase",
+
+  // Game remaining count and round information
+  "game.remaining": "rimanenti",
+  "game.remaining.label": "{count} rimanenti",
+  "game.current.round": "Round",
+  "game.current.round.label": "Numero del round attuale",
+  "game.default.headline": "Quiz Musicale",
 } as const;

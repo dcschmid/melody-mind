@@ -354,6 +354,7 @@ export default {
   "knowledge.filter.all": "All Keywords",
   "knowledge.no.results": "No articles found. Try different search terms.",
   "game.remaining": "remaining",
+  "game.remaining.label": "{count} remaining",
   "game.default.headline": "Game",
   "popup.score": "Score: {score}",
   "popup.golden.lp.score": "Score achieved: {score}",

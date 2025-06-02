@@ -353,6 +353,7 @@ export default {
   "knowledge.filter.all": "Tous les mots-clés",
   "knowledge.no.results": "Aucun article trouvé. Essayez d'autres termes de recherche.",
   "game.remaining": "restant",
+  "game.remaining.label": "{count} restant",
   "game.default.headline": "Jeu",
   "popup.score": "Score : {score}",
   "popup.golden.lp.score": "Score obtenu : {score}",
