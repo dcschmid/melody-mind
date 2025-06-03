@@ -65,6 +65,18 @@ type GameTranslationKey =
   | "game.chronology.incorrect"
   | "game.joker.used"
   | "game.joker.remaining"
+  | "game.end.defaultMotivation"
+  | "game.end.announcement.gameOver"
+  | "game.end.level.genius"
+  | "game.end.level.pro"
+  | "game.end.level.enthusiast"
+  | "game.end.level.lover"
+  | "game.end.level.explorer"
+  | "game.end.motivation.genius"
+  | "game.end.motivation.pro"
+  | "game.end.motivation.enthusiast"
+  | "game.end.motivation.lover"
+  | "game.end.motivation.explorer"
   | `game.${string}`;
 
 /**
@@ -103,9 +115,11 @@ export type TranslationParams<K extends TranslationKey> = K extends "game.score.
         ? { email: string }
         : K extends "game.joker.remaining"
           ? { count: number }
-          : K extends "profile.edit.success"
-            ? { username?: string }
-            : Record<string, never>;
+          : K extends "game.end.announcement.gameOver"
+            ? { score: number; level: string }
+            : K extends "profile.edit.success"
+              ? { username?: string }
+              : Record<string, never>;
 
 /**
  * Type-safe translation function

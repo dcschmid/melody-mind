@@ -715,6 +715,52 @@ export default {
 
   "nav.openNewWindow": "Avautuu uudessa ikkunassa",
 
+  // End Overlay - Pelitulokset
+  "game.end.achievementBadge": "Saavutustrofeaikon",
+  "game.end.screenReaderDescription": "Pelitulokset näyttävät pisteesi ja saavutustason.",
+  "game.end.scoreProgress": "Pistemääräedistyminen",
+  "game.end.progressDescription":
+    "Visuaalinen edistymispalkki, joka näyttää pisteiden saavutustasosi",
+  "game.end.defaultMotivation": "Hyvin tehty! Jatka pelaamista parantaaksesi pisteitäsi!",
+  "game.end.finalScore": "Lopullinen pistemäärä:",
+  "game.end.difficultyLevel": "Vaikeustason indikaattori",
+  "game.end.difficultyDescription": "Näyttää suorittamasi vaikeustason",
+  "game.end.shareSection": "Jaa tuloksesi",
+  "game.end.shareResults": "Jaa pelituloksesi sosiaalisessa mediassa",
+  "game.end.shareDescription":
+    "Avaa jakamisvaihtoehdot pisteidesi julkaisemiseksi sosiaalisen median alustoilla",
+  "game.end.homeDescription": "Palaa päävalikkoon ja aloitussivulle",
+  "game.end.newgameDescription": "Aloita uusi peli samoilla asetuksilla",
+  "game.end.homeButtonHelp":
+    "Siirry takaisin kotisivulle valitaksesi uuden pelimuodon tai kategorian",
+  "game.end.restartButtonHelp":
+    "Aloita välittömästi uusi pelikierros samalla vaikeustasolla ja kategorialla",
+
+  // Saavutustason ilmoitukset ruudunlukijoille
+  "game.end.announcement.gameOver": "Peli loppui! Pisteesi: {score}. Saavutustaso: {level}.",
+  "game.end.announcement.gameOver.de":
+    "Spielende! Deine Punktzahl: {score}. Erreichtes Level: {level}.",
+  "game.end.level.genius": "nero",
+  "game.end.level.pro": "ammattilainen",
+  "game.end.level.enthusiast": "harrastaja",
+  "game.end.level.lover": "rakastaja",
+  "game.end.level.explorer": "tutkimusmatkailija",
+
+  // Saavutukset-osio EndOverlay:ssä
+  "achievements.unlocked": "Avatut Saavutukset",
+
+  // Motivational texts for different achievement levels
+  "game.end.motivation.genius":
+    "Uskomaton! 💫 Olet todellinen musiikin nero! 🎶 Syvällinen tietosi ja musiikillinen intuitiosi ovat todella vaikuttavia. Voisit voittaa musiikkivisailun tai jopa olla musiikkihistorioitsija. Jaa merkittävä saavutuksesi ja haasta muut kilpailemaan kanssasi!",
+  "game.end.motivation.pro":
+    "Mahtava! 🌟 Olet ehdottomasti musiikin ammattilainen, jolla on laaja tietämys eri artisteista ja genreistä. Musiikillinen ymmärryksesi on huomattavasti keskimääräistä parempi. Harvat voivat vastata tietämykseesi. Jatka samaan malliin ja haasta ystäväsi!",
+  "game.end.motivation.enthusiast":
+    "Vaikuttavaa! 👍 Aidosti musiikkia rakastavana tiedät todella, mistä puhut. Olet rakentanut vankan perustan musiikkitietämykselle, joka erottaa sinut joukosta. Vähän enemmän harjoittelua, ja voit pian nousta ammattilaisliigaan. Haluatko kokeilla toista kierrosta?",
+  "game.end.motivation.lover":
+    "Hienoa! 👏 Musiikin ystävänä olet osoittanut huomattavaa tietämystä. Olet oikealla tiellä tullaksesi todelliseksi musiikin tuntijaksi. Lisää peliharjoittelua, ja voit laajentaa tietämystäsi ja parantaa pisteitäsi. Oletko valmis uuteen haasteeseen?",
+  "game.end.motivation.explorer":
+    "Kiitos pelaamisesta! 🙏 Musiikkitutkijana olet ottanut ensimmäisen askeleen musiikin kiehtovan maailman löytämisessä. Jokainen peli on tilaisuus oppia jotain uutta. Haasta itsesi, pelaa lisää kierroksia ja laajenna musiikkitietämystäsi!",
+
   // ChronologyFeedbackOverlay specific keys
   "game.chronology.correct_order_description":
     "Lista, joka näyttää tapahtumien oikean kronologisen järjestyksen",
@@ -732,10 +778,4 @@ export default {
 
   // General
   "general.close": "Sulje",
-
-  // Session timeout
-  "session.timeout.warning": "Istuntosi päättyy {0} sekunnissa",
-  "session.timeout.extend": "Jatka istuntoa",
-  "session.timeout.continue": "Jatka",
-  "session.extended": "Istunto jatkettu onnistuneesti",
 };

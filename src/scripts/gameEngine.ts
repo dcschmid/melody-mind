@@ -435,10 +435,22 @@ const initializeGame = async (elements: GameElements) => {
     const ui = {
       showEndgamePopup: (score: number) => {
         const popup = document.getElementById("endgame-popup");
-        const scoreElement = popup?.querySelector("#popup-score");
 
-        if (popup && scoreElement) {
-          scoreElement.textContent = score.toString();
+        if (popup) {
+          // Use the enhanced showEndOverlay function for animations and setup
+          if (
+            (globalThis as { showEndOverlay?: (score: number, maxScore?: number) => void })
+              .showEndOverlay
+          ) {
+            (globalThis as { showEndOverlay?: (score: number, maxScore?: number) => void })
+              .showEndOverlay!(score);
+          } else {
+            // Fallback to basic display if enhanced function not available
+            const scoreElement = popup.querySelector("#popup-score");
+            if (scoreElement) {
+              scoreElement.textContent = score.toString();
+            }
+          }
           popup.setAttribute("data-score", score.toString());
           popup.classList.remove("hidden");
         }

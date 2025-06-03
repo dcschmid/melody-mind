@@ -740,4 +740,45 @@ export default {
   "achievements.nav.aria": "Achievements",
 
   "nav.openNewWindow": "Opens in new window",
+
+  // End Overlay - Game Results
+  "game.end.achievementBadge": "Achievement trophy icon",
+  "game.end.screenReaderDescription": "Game results showing your score and achievement level.",
+  "game.end.scoreProgress": "Score progress",
+  "game.end.progressDescription": "Visual progress bar showing your score achievement level",
+  "game.end.defaultMotivation": "Well done! Keep playing to improve your score!",
+  "game.end.finalScore": "Final Score:",
+  "game.end.difficultyLevel": "Difficulty level indicator",
+  "game.end.difficultyDescription": "Shows the difficulty level you completed",
+  "game.end.shareSection": "Share your results",
+  "game.end.shareResults": "Share your game results on social media",
+  "game.end.shareDescription": "Opens sharing options to post your score on social media platforms",
+  "game.end.homeDescription": "Return to the main menu and start page",
+  "game.end.newgameDescription": "Start a new game with the same settings",
+  "game.end.homeButtonHelp": "Navigate back to the homepage to select a new game mode or category",
+  "game.end.restartButtonHelp":
+    "Immediately start a new game round with the same difficulty and category",
+
+  // Achievement level announcements for screen readers
+  "game.end.announcement.gameOver": "Game over! Your score: {score}. Achievement level: {level}.",
+  "game.end.level.genius": "genius",
+  "game.end.level.pro": "pro",
+  "game.end.level.enthusiast": "enthusiast",
+  "game.end.level.lover": "lover",
+  "game.end.level.explorer": "explorer",
+
+  // Motivational texts for different achievement levels
+  "game.end.motivation.genius":
+    "Extraordinary! 💫 You're a true music genius! 🎶 Your deep knowledge and musical intuition are truly impressive. You could win a music quiz show or even be a music historian. Share your remarkable achievement and challenge others to compete against you!",
+  "game.end.motivation.pro":
+    "Fantastic! 🌟 You're definitely a music pro with extensive knowledge about various artists and genres. Your music comprehension is far above average. Few can match your knowledge. Keep it up and challenge your friends!",
+  "game.end.motivation.enthusiast":
+    "Impressive! 👍 As a genuine music enthusiast, you really know your stuff. You've built a solid foundation of music knowledge that sets you apart from the crowd. With a bit more practice, you could soon rise to the pro league. Would you like to try another round?",
+  "game.end.motivation.lover":
+    "Well done! 👏 As a music lover, you've shown considerable knowledge. You're on the right track to becoming a true music connoisseur. With more gameplay practice, you can expand your knowledge and improve your score. Are you ready for a new challenge?",
+  "game.end.motivation.explorer":
+    "Thanks for playing! 🙏 As a music explorer, you've taken the first step in discovering the fascinating world of music. Each game is an opportunity to learn something new. Challenge yourself, play more rounds, and expand your musical knowledge!",
+
+  // Achievements section in EndOverlay
+  "achievements.unlocked": "Achievements Unlocked",
 };

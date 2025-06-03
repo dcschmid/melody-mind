@@ -646,6 +646,54 @@ export default {
   "game.chronology.correct_order_description":
     "Elenco che mostra l'ordine cronologico corretto degli eventi",
 
+  // End Overlay - Risultati del gioco
+  "game.end.achievementBadge": "Icona del trofeo di successo",
+  "game.end.screenReaderDescription":
+    "Risultati del gioco che mostrano il tuo punteggio e livello di successo.",
+  "game.end.scoreProgress": "Progresso del punteggio",
+  "game.end.progressDescription":
+    "Barra di progresso visiva che mostra il tuo livello di successo del punteggio",
+  "game.end.defaultMotivation": "Ben fatto! Continua a giocare per migliorare il tuo punteggio!",
+  "game.end.finalScore": "Punteggio Finale:",
+  "game.end.difficultyLevel": "Indicatore del livello di difficoltà",
+  "game.end.difficultyDescription": "Mostra il livello di difficoltà che hai completato",
+  "game.end.shareSection": "Condividi i tuoi risultati",
+  "game.end.shareResults": "Condividi i risultati del tuo gioco sui social media",
+  "game.end.shareDescription":
+    "Apre opzioni di condivisione per pubblicare il tuo punteggio sulle piattaforme social",
+  "game.end.homeDescription": "Torna al menu principale e alla pagina iniziale",
+  "game.end.newgameDescription": "Inizia un nuovo gioco con le stesse impostazioni",
+  "game.end.homeButtonHelp":
+    "Naviga indietro alla homepage per selezionare una nuova modalità di gioco o categoria",
+  "game.end.restartButtonHelp":
+    "Inizia immediatamente un nuovo round di gioco con la stessa difficoltà e categoria",
+
+  // Annunci del livello di successo per i lettori di schermo
+  "game.end.announcement.gameOver":
+    "Gioco finito! Il tuo punteggio: {score}. Livello di successo: {level}.",
+  "game.end.announcement.gameOver.de":
+    "Spielende! Deine Punktzahl: {score}. Erreichtes Level: {level}.",
+  "game.end.level.genius": "genio",
+  "game.end.level.pro": "professionista",
+  "game.end.level.enthusiast": "entusiasta",
+  "game.end.level.lover": "amante",
+  "game.end.level.explorer": "esploratore",
+
+  // Sezione successi in EndOverlay
+  "achievements.unlocked": "Successi Sbloccati",
+
+  // Motivational texts for different achievement levels
+  "game.end.motivation.genius":
+    "Straordinario! 💫 Sei un vero genio della musica! 🎶 La tua profonda conoscenza e intuizione musicale sono davvero impressionanti. Potresti vincere un quiz musicale o persino essere uno storico della musica. Condividi il tuo notevole risultato e sfida gli altri a competere con te!",
+  "game.end.motivation.pro":
+    "Fantastico! 🌟 Sei sicuramente un professionista della musica con una vasta conoscenza di vari artisti e generi. La tua comprensione musicale è ben al di sopra della media. Pochi possono eguagliare la tua conoscenza. Continua così e sfida i tuoi amici!",
+  "game.end.motivation.enthusiast":
+    "Impressionante! 👍 Come vero appassionato di musica, conosci davvero il tuo mestiere. Hai costruito una solida base di conoscenze musicali che ti distingue dalla massa. Con un po' più di pratica, potresti presto salire nella lega dei professionisti. Vuoi provare un altro round?",
+  "game.end.motivation.lover":
+    "Ben fatto! 👏 Come amante della musica, hai dimostrato una conoscenza considerevole. Sei sulla strada giusta per diventare un vero intenditore di musica. Con più pratica di gioco, puoi espandere le tue conoscenze e migliorare il tuo punteggio. Sei pronto per una nuova sfida?",
+  "game.end.motivation.explorer":
+    "Grazie per aver giocato! 🙏 Come esploratore musicale, hai fatto il primo passo per scoprire il mondo affascinante della musica. Ogni partita è un'opportunità per imparare qualcosa di nuovo. Sfida te stesso, gioca più round ed espandi le tue conoscenze musicali!",
+
   // General
   "general.close": "Chiudi",
 
