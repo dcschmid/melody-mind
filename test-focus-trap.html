@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus Trap Test</title>
+    <style>
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .overlay.hidden {
+        display: none;
+      }
+      .overlay__content {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        max-width: 400px;
+      }
+      .overlay__close-button {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: #333;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 0.5rem;
+        cursor: pointer;
+      }
+      button {
+        background: #007acc;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        margin: 0.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      audio {
+        width: 100%;
+        margin: 1rem 0;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Focus Trap Test</h1>
+    <button onclick="showOverlay()">Open Overlay</button>
+
+    <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true" tabindex="-1">
+      <div class="overlay__content">
+        <h2>Test Overlay</h2>
+
+        <!-- Close button -->
+        <button id="close-overlay-button" class="overlay__close-button">×</button>
+
+        <!-- Test content with focusable elements -->
+        <button id="test-button-1">Button 1</button>
+        <button id="test-button-2">Button 2</button>
+
+        <!-- Audio element -->
+        <audio id="audio-preview" controls>
+          <source
+            src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LDdCEFTWfC7omNQAQcZ7vs55xMEwxEn+DytWQUCFKm5OimdT8IG2W57eimdDYEKXfJ8N2QNgoc"
+            type="audio/wav"
+          />
+        </audio>
+
+        <button id="next-round-button">Next Round</button>
+
+        <!-- Status announcer -->
+        <div id="feedback-status-announcer" aria-live="assertive" class="sr-only"></div>
+      </div>
+    </div>
+
+    <script>
+      // Focus trap state management
+      let focusableElements = [];
+      let isTrappingFocus = false;
+      let currentFocusIndex = 0;
+
+      function showOverlay() {
+        const overlay = document.getElementById("overlay");
+        overlay.classList.remove("hidden");
+      }
+
+      function setupBasicOverlay() {
+        const overlay = document.getElementById("overlay");
+        const closeButton = document.getElementById("close-overlay-button");
+
+        // Event listeners
+        if (closeButton) {
+          closeButton.addEventListener("click", closeOverlay);
+        }
+
+        // Observe overlay visibility changes
+        if (overlay) {
+          const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+              if (mutation.type === "attributes" && mutation.attributeName === "class") {
+                const isVisible = !overlay.classList.contains("hidden");
+
+                if (isVisible && !isTrappingFocus) {
+                  activateFocusTrap();
+                } else if (!isVisible && isTrappingFocus) {
+                  deactivateFocusTrap();
+                }
+              }
+            });
+          });
+
+          observer.observe(overlay, {
+            attributes: true,
+            attributeFilter: ["class"],
+          });
+        }
+      }
+
+      function getFocusableElements() {
+        const overlay = document.getElementById("overlay");
+        if (!overlay) return [];
+
+        const selectors = [
+          "button:not([disabled])",
+          "input:not([disabled])",
+          "select:not([disabled])",
+          "textarea:not([disabled])",
+          "audio[controls]",
+          "video[controls]",
+          '[tabindex]:not([tabindex="-1"])',
+          "a[href]",
+        ].join(", ");
+
+        return Array.from(overlay.querySelectorAll(selectors)).filter((el) => {
+          const style = getComputedStyle(el);
+          return style.display !== "none" && style.visibility !== "hidden";
+        });
+      }
+
+      function activateFocusTrap() {
+        if (isTrappingFocus) return;
+
+        focusableElements = getFocusableElements();
+        isTrappingFocus = true;
+        currentFocusIndex = 0;
+
+        console.log("Focus trap activated with", focusableElements.length, "elements");
+
+        // Focus first element
+        const firstElement =
+          document.getElementById("close-overlay-button") || focusableElements[0];
+        if (firstElement) {
+          setTimeout(() => {
+            firstElement.focus();
+            announceToScreenReader(
+              "Overlay opened. Use Escape to close, Space for audio, Enter for next round."
+            );
+          }, 100);
+        }
+
+        // Add keyboard listener
+        document.addEventListener("keydown", handleKeyboardNavigation);
+      }
+
+      function deactivateFocusTrap() {
+        if (!isTrappingFocus) return;
+
+        isTrappingFocus = false;
+        focusableElements = [];
+        currentFocusIndex = 0;
+
+        console.log("Focus trap deactivated");
+        document.removeEventListener("keydown", handleKeyboardNavigation);
+      }
+
+      function handleKeyboardNavigation(event) {
+        if (!isTrappingFocus) return;
+
+        console.log("Key pressed:", event.key);
+
+        switch (event.key) {
+          case "Escape": {
+            event.preventDefault();
+            announceToScreenReader("Closing overlay");
+            closeOverlay();
+            break;
+          }
+
+          case "Tab": {
+            event.preventDefault();
+            if (event.shiftKey) {
+              focusPrevious();
+            } else {
+              focusNext();
+            }
+            break;
+          }
+
+          case " ": {
+            event.preventDefault();
+            handleAudioToggle();
+            break;
+          }
+
+          case "Enter": {
+            const focused = document.activeElement;
+            if (focused && focused.tagName !== "BUTTON") {
+              event.preventDefault();
+              handleNextRound();
+            }
+            break;
+          }
+
+          case "ArrowDown":
+          case "ArrowRight": {
+            event.preventDefault();
+            focusNext();
+            break;
+          }
+
+          case "ArrowUp":
+          case "ArrowLeft": {
+            event.preventDefault();
+            focusPrevious();
+            break;
+          }
+        }
+      }
+
+      function focusNext() {
+        if (focusableElements.length === 0) return;
+        currentFocusIndex = (currentFocusIndex + 1) % focusableElements.length;
+        focusableElements[currentFocusIndex].focus();
+        console.log("Focused next element:", currentFocusIndex);
+      }
+
+      function focusPrevious() {
+        if (focusableElements.length === 0) return;
+        currentFocusIndex =
+          currentFocusIndex === 0 ? focusableElements.length - 1 : currentFocusIndex - 1;
+        focusableElements[currentFocusIndex].focus();
+        console.log("Focused previous element:", currentFocusIndex);
+      }
+
+      function handleAudioToggle() {
+        const audio = document.getElementById("audio-preview");
+        if (!audio) return;
+
+        if (audio.paused) {
+          audio
+            .play()
+            .then(() => announceToScreenReader("Audio playing"))
+            .catch(() => announceToScreenReader("Audio playback failed"));
+        } else {
+          audio.pause();
+          announceToScreenReader("Audio paused");
+        }
+      }
+
+      function handleNextRound() {
+        const nextButton = document.getElementById("next-round-button");
+        if (nextButton && !nextButton.disabled) {
+          announceToScreenReader("Starting next round");
+          nextButton.click();
+        }
+      }
+
+      function closeOverlay() {
+        const overlay = document.getElementById("overlay");
+        if (overlay) {
+          overlay.classList.add("hidden");
+          deactivateFocusTrap();
+        }
+      }
+
+      function announceToScreenReader(message) {
+        const announcer = document.getElementById("feedback-status-announcer");
+        if (announcer) {
+          announcer.textContent = message;
+          setTimeout(() => {
+            announcer.textContent = "";
+          }, 3000);
+        }
+        console.log("Announced:", message);
+      }
+
+      // Initialize
+      setupBasicOverlay();
+    </script>
+  </body>
+</html>
