@@ -757,10 +757,6 @@ export default {
   // ChronologyFeedbackOverlay specific keys
   "game.chronology.correct_order_description":
     "Liste zeigt die korrekte chronologische Reihenfolge der Ereignisse",
-  "session.timeout.warning": "Ihre Sitzung läuft in {0} Sekunden ab.",
-  "session.timeout.extend": "Sitzung verlängern",
-  "session.timeout.continue": "Weiter",
-  "session.extended": "Sitzung erfolgreich verlängert",
   "general.close": "Schließen",
 
   // Layout System-Nachrichten
@@ -778,4 +774,49 @@ export default {
   "achievements.nav.aria": "Erfolge",
 
   "nav.openNewWindow": "Öffnet in neuem Fenster",
+
+  // End Overlay - Spielergebnisse
+  "game.end.achievementBadge": "Erfolgs-Trophäe Symbol",
+  "game.end.screenReaderDescription": "Spielergebnisse zeigen deine Punktzahl und Erfolgslevel.",
+  "game.end.scoreProgress": "Punktzahl-Fortschritt",
+  "game.end.progressDescription": "Visueller Fortschrittsbalken zeigt deine Punktzahl-Erfolgslevel",
+  "game.end.defaultMotivation": "Gut gemacht! Spiele weiter, um deine Punktzahl zu verbessern!",
+  "game.end.finalScore": "Endpunktzahl:",
+  "game.end.difficultyLevel": "Schwierigkeitsgrad-Anzeige",
+  "game.end.difficultyDescription": "Zeigt den Schwierigkeitsgrad, den du abgeschlossen hast",
+  "game.end.shareSection": "Teile deine Ergebnisse",
+  "game.end.shareResults": "Teile deine Spielergebnisse in sozialen Medien",
+  "game.end.shareDescription":
+    "Öffnet Teilen-Optionen, um deine Punktzahl in sozialen Medien zu posten",
+  "game.end.homeDescription": "Zurück zum Hauptmenü und zur Startseite",
+  "game.end.newgameDescription": "Starte ein neues Spiel mit denselben Einstellungen",
+  "game.end.homeButtonHelp":
+    "Navigiere zurück zur Homepage, um einen neuen Spielmodus oder eine Kategorie zu wählen",
+  "game.end.restartButtonHelp":
+    "Starte sofort eine neue Spielrunde mit derselben Schwierigkeit und Kategorie",
+
+  // Erfolgslevel-Ankündigungen für Screenreader
+  "game.end.announcement.gameOver": "Spielende! Deine Punktzahl: {score}. Erfolgslevel: {level}.",
+  "game.end.announcement.gameOver.de":
+    "Spielende! Deine Punktzahl: {score}. Erreichtes Level: {level}.",
+  "game.end.level.genius": "Genie",
+  "game.end.level.pro": "Profi",
+  "game.end.level.enthusiast": "Enthusiast",
+  "game.end.level.lover": "Liebhaber",
+  "game.end.level.explorer": "Entdecker",
+
+  // Motivational texts for different achievement levels
+  "game.end.motivation.genius":
+    "Außergewöhnlich! 💫 Du bist ein wahres Musikgenie! 🎶 Dein tiefes Wissen und dein musikalisches Gespür sind beeindruckend. Du könntest in einer Musikquiz-Show gewinnen oder selbst Musikhistoriker sein. Teile deine bemerkenswerte Leistung und fordere andere heraus, gegen dich anzutreten!",
+  "game.end.motivation.pro":
+    "Fantastisch! 🌟 Du bist definitiv ein Musik-Profi mit umfassendem Wissen über verschiedene Künstler und Genres. Dein Musikverständnis ist weit überdurchschnittlich. Nur wenige können mit deinem Wissen mithalten. Mach weiter so und fordere deine Freunde heraus!",
+  "game.end.motivation.enthusiast":
+    "Bemerkenswert! 👍 Als echter Musikenthusiast kennst du dich richtig gut aus. Du hast ein solides Fundament an Musikwissen aufgebaut, das dich von der Masse abhebt. Mit etwas mehr Übung könntest du bald zur Profi-Liga aufsteigen. Probiere eine weitere Runde?",
+  "game.end.motivation.lover":
+    "Gut gemacht! 👏 Als Musikliebhaber hast du ein ordentliches Wissen gezeigt. Du bist auf dem richtigen Weg, ein echter Musikkenner zu werden. Mit mehr Spielpraxis kannst du dein Wissen weiter ausbauen und deine Punktzahl verbessern. Bist du bereit für eine neue Herausforderung?",
+  "game.end.motivation.explorer":
+    "Danke fürs Spielen! 🙏 Als Musikentdecker hast du den ersten Schritt gemacht, die faszinierende Welt der Musik zu erkunden. Jedes Spiel ist eine Gelegenheit, Neues zu lernen. Fordere dich selbst heraus, spiele weitere Runden und erweitere dein musikalisches Wissen!",
+
+  // Achievements section in EndOverlay
+  "achievements.unlocked": "Errungenschaften freigeschaltet",
 };

@@ -715,6 +715,37 @@ export default {
 
   "nav.openNewWindow": "Opent in nieuw venster",
 
+  // End Overlay - Spelresultaten
+  "game.end.achievementBadge": "Prestatie trofee icoon",
+  "game.end.screenReaderDescription": "Spelresultaten die je score en prestatieniveau tonen.",
+  "game.end.scoreProgress": "Score voortgang",
+  "game.end.progressDescription": "Visuele voortgangsbalk die je score prestatieniveau toont",
+  "game.end.defaultMotivation": "Goed gedaan! Blijf spelen om je score te verbeteren!",
+  "game.end.finalScore": "Eindscore:",
+  "game.end.difficultyLevel": "Moeilijkheidsgraad indicator",
+  "game.end.difficultyDescription": "Toont de moeilijkheidsgraad die je hebt voltooid",
+  "game.end.shareSection": "Deel je resultaten",
+  "game.end.shareResults": "Deel je spelresultaten op sociale media",
+  "game.end.shareDescription": "Opent deelopties om je score te posten op sociale media platforms",
+  "game.end.homeDescription": "Terug naar het hoofdmenu en startpagina",
+  "game.end.newgameDescription": "Start een nieuw spel met dezelfde instellingen",
+  "game.end.homeButtonHelp":
+    "Navigeer terug naar de homepage om een nieuwe spelmodus of categorie te selecteren",
+  "game.end.restartButtonHelp":
+    "Start onmiddellijk een nieuwe spelronde met dezelfde moeilijkheidsgraad en categorie",
+
+  // Motivational texts for different achievement levels
+  "game.end.motivation.genius":
+    "Buitengewoon! 💫 Je bent een echt muzikaal genie! 🎶 Je diepgaande kennis en muzikale intuïtie zijn echt indrukwekkend. Je zou een muziekquiz kunnen winnen of zelfs een muziekgeschiedkundige kunnen zijn. Deel je opmerkelijke prestatie en daag anderen uit om tegen je te strijden!",
+  "game.end.motivation.pro":
+    "Fantastisch! 🌟 Je bent zeker een muziekprofessional met uitgebreide kennis over verschillende artiesten en genres. Je muzikale begrip is ver boven het gemiddelde. Weinig mensen kunnen jouw kennis evenaren. Ga zo door en daag je vrienden uit!",
+  "game.end.motivation.enthusiast":
+    "Indrukwekkend! 👍 Als echte muziekliefhebber weet je echt waar je het over hebt. Je hebt een solide basis van muziekkennis opgebouwd die je onderscheidt van de massa. Met een beetje meer oefening kun je binnenkort naar de pro-league stijgen. Wil je nog een ronde proberen?",
+  "game.end.motivation.lover":
+    "Goed gedaan! 👏 Als muziekliefhebber heb je aanzienlijke kennis getoond. Je bent op de goede weg om een echte muziekkenner te worden. Met meer spelervaring kun je je kennis uitbreiden en je score verbeteren. Ben je klaar voor een nieuwe uitdaging?",
+  "game.end.motivation.explorer":
+    "Bedankt voor het spelen! 🙏 Als muziekontdekker heb je de eerste stap gezet in het ontdekken van de fascinerende wereld van muziek. Elk spel is een kans om iets nieuws te leren. Daag jezelf uit, speel meer rondes en breid je muziekkennis uit!",
+
   // ChronologyFeedbackOverlay specific keys
   "game.chronology.correct_order_description":
     "Lijst die de juiste chronologische volgorde van de gebeurtenissen toont",

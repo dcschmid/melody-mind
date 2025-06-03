@@ -1816,13 +1816,22 @@ console.warn(
       const ui = {
         showEndgamePopup: (score: number): void => {
           if (this.elements.endGamePopup) {
-            const scoreElement = this.elements.endGamePopup.querySelector("#popup-score");
-
-            if (scoreElement) {
-              scoreElement.textContent = score.toString();
-              this.elements.endGamePopup.setAttribute("data-score", score.toString());
-              this.elements.endGamePopup.classList.remove("hidden");
+            // Use the enhanced showEndOverlay function for animations and setup
+            if (
+              (globalThis as { showEndOverlay?: (score: number, maxScore?: number) => void })
+                .showEndOverlay
+            ) {
+              (globalThis as { showEndOverlay?: (score: number, maxScore?: number) => void })
+                .showEndOverlay!(score);
+            } else {
+              // Fallback to basic display if enhanced function not available
+              const scoreElement = this.elements.endGamePopup.querySelector("#popup-score");
+              if (scoreElement) {
+                scoreElement.textContent = score.toString();
+              }
             }
+            this.elements.endGamePopup.setAttribute("data-score", score.toString());
+            this.elements.endGamePopup.classList.remove("hidden");
           }
         },
       };

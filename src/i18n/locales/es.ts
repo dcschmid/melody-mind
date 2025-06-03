@@ -713,12 +713,51 @@ export default {
 
   "nav.openNewWindow": "Se abre en nueva ventana",
 
-  // General
-  "general.close": "Cerrar",
+  // End Overlay - Resultados del juego
+  "game.end.achievementBadge": "Icono de trofeo de logro",
+  "game.end.screenReaderDescription":
+    "Resultados del juego mostrando tu puntuación y nivel de logro.",
+  "game.end.scoreProgress": "Progreso de puntuación",
+  "game.end.progressDescription":
+    "Barra de progreso visual mostrando tu nivel de logro de puntuación",
+  "game.end.defaultMotivation": "¡Bien hecho! ¡Sigue jugando para mejorar tu puntuación!",
+  "game.end.finalScore": "Puntuación Final:",
+  "game.end.difficultyLevel": "Indicador de nivel de dificultad",
+  "game.end.difficultyDescription": "Muestra el nivel de dificultad que completaste",
+  "game.end.shareSection": "Comparte tus resultados",
+  "game.end.shareResults": "Comparte los resultados de tu juego en redes sociales",
+  "game.end.shareDescription":
+    "Abre opciones para compartir tu puntuación en plataformas de redes sociales",
+  "game.end.homeDescription": "Volver al menú principal y página de inicio",
+  "game.end.newgameDescription": "Iniciar un nuevo juego con la misma configuración",
+  "game.end.homeButtonHelp":
+    "Navegar de vuelta a la página principal para seleccionar un nuevo modo de juego o categoría",
+  "game.end.restartButtonHelp":
+    "Iniciar inmediatamente una nueva ronda de juego con la misma dificultad y categoría",
 
-  // Session timeout
-  "session.timeout.warning": "Tu sesión expirará en {0} segundos",
-  "session.timeout.extend": "Extender sesión",
-  "session.timeout.continue": "Continuar",
-  "session.extended": "Sesión extendida exitosamente",
+  // Anuncios de nivel de logro para lectores de pantalla
+  "game.end.announcement.gameOver":
+    "¡Juego terminado! Tu puntuación: {score}. Nivel de logro: {level}.",
+  "game.end.announcement.gameOver.de":
+    "Spielende! Deine Punktzahl: {score}. Erreichtes Level: {level}.",
+  "game.end.level.genius": "genio",
+  "game.end.level.pro": "profesional",
+  "game.end.level.enthusiast": "entusiasta",
+  "game.end.level.lover": "amante",
+  "game.end.level.explorer": "explorador",
+
+  // Sección de logros en EndOverlay
+  "achievements.unlocked": "Logros Desbloqueados",
+
+  // Motivational texts for different achievement levels
+  "game.end.motivation.genius":
+    "¡Extraordinario! 💫 ¡Eres un verdadero genio musical! 🎶 Tu profundo conocimiento e intuición musical son realmente impresionantes. Podrías ganar un programa de preguntas musicales o incluso ser historiador de música. ¡Comparte tu notable logro y desafía a otros a competir contra ti!",
+  "game.end.motivation.pro":
+    "¡Fantástico! 🌟 Definitivamente eres un profesional de la música con un amplio conocimiento sobre varios artistas y géneros. Tu comprensión musical está muy por encima del promedio. Pocos pueden igualar tu conocimiento. ¡Sigue así y desafía a tus amigos!",
+  "game.end.motivation.enthusiast":
+    "¡Impresionante! 👍 Como auténtico entusiasta de la música, realmente sabes de lo que hablas. Has construido una base sólida de conocimiento musical que te distingue de la multitud. Con un poco más de práctica, pronto podrías ascender a la liga profesional. ¿Te gustaría intentar otra ronda?",
+  "game.end.motivation.lover":
+    "¡Bien hecho! 👏 Como amante de la música, has demostrado un buen conocimiento. Estás en el camino correcto para convertirte en un verdadero conocedor de música. Con más práctica de juego, puedes expandir tu conocimiento y mejorar tu puntuación. ¿Listo para un nuevo desafío?",
+  "game.end.motivation.explorer":
+    "¡Gracias por jugar! 🙏 Como explorador musical, has dado el primer paso para descubrir el fascinante mundo de la música. Cada juego es una oportunidad para aprender algo nuevo. Desafíate a ti mismo, juega más rondas y amplía tu conocimiento musical.",
 };

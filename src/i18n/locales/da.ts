@@ -706,13 +706,54 @@ export default {
 
   "nav.openNewWindow": "Åbner i nyt vindue",
 
+  // End Overlay - Spilresultater
+  "game.end.achievementBadge": "Præstationstrofæ ikon",
+  "game.end.screenReaderDescription": "Spilresultater der viser din score og præstationsniveau.",
+  "game.end.scoreProgress": "Score fremgang",
+  "game.end.progressDescription": "Visuel fremgangsbjælke der viser dit score præstationsniveau",
+  "game.end.defaultMotivation": "Godt klaret! Fortsæt med at spille for at forbedre din score!",
+  "game.end.finalScore": "Endelig Score:",
+  "game.end.difficultyLevel": "Sværhedsgrad indikator",
+  "game.end.difficultyDescription": "Viser sværhedsgraden du gennemførte",
+  "game.end.shareSection": "Del dine resultater",
+  "game.end.shareResults": "Del dine spilresultater på sociale medier",
+  "game.end.shareDescription":
+    "Åbner delingsmuligheder for at poste din score på sociale medier platforme",
+  "game.end.homeDescription": "Vend tilbage til hovedmenuen og startsiden",
+  "game.end.newgameDescription": "Start et nyt spil med samme indstillinger",
+  "game.end.homeButtonHelp":
+    "Naviger tilbage til hjemmesiden for at vælge en ny spiltilstand eller kategori",
+  "game.end.restartButtonHelp":
+    "Start øjeblikkeligt en ny spillerunde med samme sværhedsgrad og kategori",
+
+  // Præstationsniveau annonceringer for skærmlæsere
+  "game.end.announcement.gameOver": "Spil slut! Din score: {score}. Præstationsniveau: {level}.",
+  "game.end.announcement.gameOver.de":
+    "Spielende! Deine Punktzahl: {score}. Erreichtes Level: {level}.",
+  "game.end.level.genius": "geni",
+  "game.end.level.pro": "professionel",
+  "game.end.level.enthusiast": "entusiast",
+  "game.end.level.lover": "elsker",
+  "game.end.level.explorer": "opdagelsesrejsende",
+
+  // Præstationer sektion i EndOverlay
+  "achievements.unlocked": "Præstationer Låst Op",
+
+  // Motivational texts for different achievement levels
+  "game.end.motivation.genius":
+    "Ekstraordinært! 💫 Du er et sandt musiktalent! 🎶 Din dybe viden og musikalske intuition er virkelig imponerende. Du kunne vinde en musikquiz eller endda være musikhistoriker. Del din bemærkelsesværdige præstation og udfordr andre til at konkurrere mod dig!",
+  "game.end.motivation.pro":
+    "Fantastisk! 🌟 Du er bestemt en musikekspert med omfattende viden om forskellige kunstnere og genrer. Din musikforståelse er langt over gennemsnittet. Få kan matche din viden. Bliv ved og udfordr dine venner!",
+  "game.end.motivation.enthusiast":
+    "Bemærkelsesværdigt! 👍 Som ægte musikentusiast kender du virkelig din sag. Du har opbygget et solidt fundament af musikkundskab, der adskiller dig fra mængden. Med lidt mere øvelse kan du snart stige til pro-ligaen. Vil du prøve en runde mere?",
+  "game.end.motivation.lover":
+    "Godt klaret! 👏 Som musikelsker har du vist betydelig viden. Du er på rette vej til at blive en ægte musikconnaisseur. Med mere spilpraksis kan du udvide din viden og forbedre din score. Er du klar til en ny udfordring?",
+  "game.end.motivation.explorer":
+    "Tak for spillet! 🙏 Som musikopdager har du taget det første skridt i at opdage musikkens fascinerende verden. Hvert spil er en mulighed for at lære noget nyt. Udfordr dig selv, spil flere runder og udvid din musikkundskab!",
+
   // ChronologyFeedbackOverlay specific keys
   "game.chronology.correct_order_description":
     "Liste der viser den korrekte kronologiske rækkefølge af begivenhederne",
-  "session.timeout.warning": "Din session udløber om {0} sekunder.",
-  "session.timeout.extend": "Forlæng session",
-  "session.timeout.continue": "Fortsæt",
-  "session.extended": "Session forlænget med succes",
 
   "nav.menu.opened": "åbnet",
   "nav.menu.closed": "lukket",

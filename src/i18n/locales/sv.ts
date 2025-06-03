@@ -704,13 +704,54 @@ export default {
 
   "nav.openNewWindow": "Öppnas i nytt fönster",
 
+  // End Overlay - Spelresultat
+  "game.end.achievementBadge": "Prestationspokal ikon",
+  "game.end.screenReaderDescription": "Spelresultat som visar din poäng och prestationsnivå.",
+  "game.end.scoreProgress": "Poängframsteg",
+  "game.end.progressDescription": "Visuell framstegsballong som visar din poäng prestationsnivå",
+  "game.end.defaultMotivation": "Bra gjort! Fortsätt spela för att förbättra din poäng!",
+  "game.end.finalScore": "Slutpoäng:",
+  "game.end.difficultyLevel": "Svårighetsgrad indikator",
+  "game.end.difficultyDescription": "Visar svårighetsgraden du genomförde",
+  "game.end.shareSection": "Dela dina resultat",
+  "game.end.shareResults": "Dela dina spelresultat på sociala medier",
+  "game.end.shareDescription":
+    "Öppnar delningsalternativ för att posta din poäng på sociala mediaplattformar",
+  "game.end.homeDescription": "Tillbaka till huvudmenyn och startsidan",
+  "game.end.newgameDescription": "Starta ett nytt spel med samma inställningar",
+  "game.end.homeButtonHelp":
+    "Navigera tillbaka till hemsidan för att välja ett nytt spelläge eller kategori",
+  "game.end.restartButtonHelp":
+    "Starta omedelbart en ny spelomgång med samma svårighetsgrad och kategori",
+
+  // Prestationsnivå meddelanden för skärmläsare
+  "game.end.announcement.gameOver": "Spelet slut! Din poäng: {score}. Prestationsnivå: {level}.",
+  "game.end.announcement.gameOver.de":
+    "Spielende! Deine Punktzahl: {score}. Erreichtes Level: {level}.",
+  "game.end.level.genius": "geni",
+  "game.end.level.pro": "professionell",
+  "game.end.level.enthusiast": "entusiast",
+  "game.end.level.lover": "älskare",
+  "game.end.level.explorer": "utforskare",
+
+  // Prestationer sektion i EndOverlay
+  "achievements.unlocked": "Prestationer Upplåsta",
+
+  // Motivational texts for different achievement levels
+  "game.end.motivation.genius":
+    "Enastående! 💫 Du är ett riktigt musikgeni! 🎶 Din djupa kunskap och musikaliska intuition är verkligen imponerande. Du skulle kunna vinna en musiktävling eller till och med vara en musikhistoriker. Dela din anmärkningsvärda prestation och utmana andra att tävla mot dig!",
+  "game.end.motivation.pro":
+    "Fantastiskt! 🌟 Du är definitivt en musikproffs med omfattande kunskap om olika artister och genrer. Din musikaliska förståelse är långt över genomsnittet. Få kan matcha din kunskap. Fortsätt så och utmana dina vänner!",
+  "game.end.motivation.enthusiast":
+    "Imponerande! 👍 Som en sann musikentusiast känner du verkligen till ämnet. Du har byggt en solid grund av musikkunskap som skiljer dig från mängden. Med lite mer övning kan du snart stiga till pro-ligan. Vill du prova en runda till?",
+  "game.end.motivation.lover":
+    "Bra gjort! 👏 Som musikälskare har du visat betydande kunskap. Du är på rätt väg att bli en riktig musikälskare. Med mer spelövning kan du utöka din kunskap och förbättra din poäng. Är du redo för en ny utmaning?",
+  "game.end.motivation.explorer":
+    "Tack för att du spelade! 🙏 Som musikutforskare har du tagit det första steget i att upptäcka musikens fascinerande värld. Varje spel är en möjlighet att lära sig något nytt. Utmana dig själv, spela fler rundor och utöka din musikkunskap!",
+
   // ChronologyFeedbackOverlay specific keys
   "game.chronology.correct_order_description":
     "Lista som visar den korrekta kronologiska ordningen av händelserna",
-  "session.timeout.warning": "Din session löper ut om {0} sekunder.",
-  "session.timeout.extend": "Förläng session",
-  "session.timeout.continue": "Fortsätt",
-  "session.extended": "Session förlängd framgångsrikt",
 
   "nav.menu.opened": "Menyn är öppnad",
   "nav.menu.closed": "Menyn är stängd",
