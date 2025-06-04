@@ -97,6 +97,7 @@ export default {
   "nav.login": "Accedi",
   "nav.user_profile": "Profilo utente",
   "nav.toggle_menu": "Attiva/disattiva menu",
+  "nav.skip.main": "Salta al contenuto principale",
 
   // Componenti di gioco
   "game.start": "Inizia gioco",
