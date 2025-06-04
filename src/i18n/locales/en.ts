@@ -324,6 +324,37 @@ export default {
   "share.email.label": "Email",
   "share.copy": "Copy text to share to clipboard",
   "share.copy.label": "Copy Text",
+  "share.fallback.message":
+    "Game data is currently unavailable. Please try again or copy the page link manually.",
+  "share.fallback.retry.label": "Retry loading game data",
+  "share.fallback.retry.text": "Retry",
+  "share.fallback.manual.label": "Copy page link manually",
+  "share.fallback.manual.text": "Copy Link",
+
+  // Share accessibility announcements for screen readers
+  "share.accessibility.data_unavailable": "Game data unavailable. Please retry or copy manually.",
+  "share.accessibility.retrying": "Retrying to find game data...",
+  "share.accessibility.data_found": "Game data found! Sharing options are now available.",
+  "share.accessibility.data_still_unavailable":
+    "Game data still unavailable. Try refreshing the page or use manual copy.",
+  "share.accessibility.retry_failed": "Retry failed. Please try manual copy or refresh the page.",
+  "share.accessibility.link_copied": "Game link copied to clipboard successfully!",
+  "share.accessibility.link_copied_fallback":
+    "Game link copied to clipboard using fallback method!",
+  "share.accessibility.copy_failed_manual":
+    "Copy failed. Please manually copy the page URL from your browser.",
+  "share.accessibility.score_shared": "Successfully shared your score.",
+  "share.accessibility.sharing_cancelled": "Sharing cancelled.",
+  "share.accessibility.platform_share_failed":
+    "Failed to share to {platform}: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_alternative_methods":
+    "Try copying to clipboard or using another sharing method.",
+  "share.accessibility.score_copied": "Score copied to clipboard successfully!",
+  "share.accessibility.native_share_failed":
+    "Native sharing failed: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_platform_buttons":
+    "Try using the platform-specific share buttons or copy to clipboard instead.",
+  "share.accessibility.platform_opened": "Opened {platform} sharing successfully.",
   "error.default": "An error has occurred",
   "error.close": "Close error message",
   "coins.collected": "Collected Coins",

@@ -96,6 +96,44 @@ type AchievementTranslationKey =
   | `achievements.${string}`;
 
 /**
+ * Share-related translation keys
+ */
+type ShareTranslationKey =
+  | "share.title"
+  | "share.buttons.group.label"
+  | "share.facebook"
+  | "share.whatsapp"
+  | "share.native"
+  | "share.native.label"
+  | "share.twitter"
+  | "share.email"
+  | "share.email.label"
+  | "share.copy"
+  | "share.copy.label"
+  | "share.fallback.message"
+  | "share.fallback.retry.label"
+  | "share.fallback.retry.text"
+  | "share.fallback.manual.label"
+  | "share.fallback.manual.text"
+  | "share.accessibility.data_unavailable"
+  | "share.accessibility.retrying"
+  | "share.accessibility.data_found"
+  | "share.accessibility.data_still_unavailable"
+  | "share.accessibility.retry_failed"
+  | "share.accessibility.link_copied"
+  | "share.accessibility.link_copied_fallback"
+  | "share.accessibility.copy_failed_manual"
+  | "share.accessibility.score_shared"
+  | "share.accessibility.sharing_cancelled"
+  | "share.accessibility.platform_share_failed"
+  | "share.accessibility.try_alternative_methods"
+  | "share.accessibility.score_copied"
+  | "share.accessibility.native_share_failed"
+  | "share.accessibility.try_platform_buttons"
+  | "share.accessibility.platform_opened"
+  | `share.${string}`;
+
+/**
  * All valid translation keys for the application
  */
 export type TranslationKey =
@@ -103,7 +141,8 @@ export type TranslationKey =
   | AuthTranslationKey
   | ProfileTranslationKey
   | GameTranslationKey
-  | AchievementTranslationKey;
+  | AchievementTranslationKey
+  | ShareTranslationKey;
 
 /**
  * Translation parameter types based on translation key
@@ -122,7 +161,13 @@ export type TranslationParams<K extends TranslationKey> = K extends "game.score.
             ? { score: number; level: string }
             : K extends "profile.edit.success"
               ? { username?: string }
-              : Record<string, never>;
+              : K extends "share.accessibility.platform_share_failed"
+                ? { platform: string; errorMessage: string; recoveryMessage: string }
+                : K extends "share.accessibility.native_share_failed"
+                  ? { errorMessage: string; recoveryMessage: string }
+                  : K extends "share.accessibility.platform_opened"
+                    ? { platform: string }
+                    : Record<string, never>;
 
 /**
  * Type-safe translation function

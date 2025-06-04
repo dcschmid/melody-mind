@@ -299,6 +299,41 @@ export default {
   "share.email.label": "Email",
   "share.copy": "Copiar texto para compartilhar para a área de transferência",
   "share.copy.label": "Copiar Texto",
+  "share.fallback.message":
+    "Os dados do jogo não estão disponíveis no momento. Tente novamente ou copie o link da página manualmente.",
+  "share.fallback.retry.label": "Tentar carregar dados do jogo novamente",
+  "share.fallback.retry.text": "Tentar novamente",
+  "share.fallback.manual.label": "Copiar link da página manualmente",
+  "share.fallback.manual.text": "Copiar Link",
+
+  // Anúncios de acessibilidade para compartilhamento para leitores de tela
+  "share.accessibility.data_unavailable":
+    "Dados do jogo indisponíveis. Por favor, tente novamente ou copie manualmente.",
+  "share.accessibility.retrying": "Tentando encontrar dados do jogo...",
+  "share.accessibility.data_found":
+    "Dados do jogo encontrados! As opções de compartilhamento estão agora disponíveis.",
+  "share.accessibility.data_still_unavailable":
+    "Os dados do jogo ainda estão indisponíveis. Atualize a página ou use cópia manual.",
+  "share.accessibility.retry_failed":
+    "Nova tentativa falhou. Por favor, use cópia manual ou atualize a página.",
+  "share.accessibility.link_copied":
+    "Link do jogo copiado para a área de transferência com sucesso!",
+  "share.accessibility.link_copied_fallback":
+    "Link do jogo copiado para a área de transferência usando método de fallback!",
+  "share.accessibility.copy_failed_manual":
+    "Cópia falhou. Por favor, copie manualmente a URL da página do seu navegador.",
+  "share.accessibility.score_shared": "Sua pontuação foi compartilhada com sucesso.",
+  "share.accessibility.sharing_cancelled": "Compartilhamento cancelado.",
+  "share.accessibility.platform_share_failed":
+    "Falha ao compartilhar no {platform}: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_alternative_methods":
+    "Tente copiar para a área de transferência ou usar outro método de compartilhamento.",
+  "share.accessibility.score_copied": "Pontuação copiada para a área de transferência com sucesso!",
+  "share.accessibility.native_share_failed":
+    "Compartilhamento nativo falhou: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_platform_buttons":
+    "Tente usar os botões de compartilhamento específicos da plataforma ou copiar para a área de transferência.",
+  "share.accessibility.platform_opened": "Compartilhamento no {platform} aberto com sucesso.",
   "error.default": "Ocorreu um erro",
   "error.close": "Fechar mensagem de erro",
   "coins.collected": "Moedas Coletadas",

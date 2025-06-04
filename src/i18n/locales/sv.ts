@@ -286,6 +286,38 @@ export default {
   "share.email.label": "E-post",
   "share.copy": "Kopiera text att dela till urklipp",
   "share.copy.label": "Kopiera text",
+  "share.fallback.message":
+    "Speldata är för närvarande inte tillgänglig. Försök igen eller kopiera sidlänken manuellt.",
+  "share.fallback.retry.label": "Försök ladda speldata igen",
+  "share.fallback.retry.text": "Försök igen",
+  "share.fallback.manual.label": "Kopiera sidlänk manuellt",
+  "share.fallback.manual.text": "Kopiera länk",
+
+  // Tillgänglighetsmeddelanden för delning för skärmläsare
+  "share.accessibility.data_unavailable":
+    "Speldata otillgängliga. Vänligen försök igen eller kopiera manuellt.",
+  "share.accessibility.retrying": "Försöker hitta speldata...",
+  "share.accessibility.data_found": "Speldata hittade! Delningsalternativ är nu tillgängliga.",
+  "share.accessibility.data_still_unavailable":
+    "Speldata är fortfarande otillgängliga. Uppdatera sidan eller använd manuell kopiering.",
+  "share.accessibility.retry_failed":
+    "Nytt försök misslyckades. Vänligen använd manuell kopiering eller uppdatera sidan.",
+  "share.accessibility.link_copied": "Spellink kopierad till urklipp framgångsrikt!",
+  "share.accessibility.link_copied_fallback": "Spellink kopierad till urklipp med reservmetod!",
+  "share.accessibility.copy_failed_manual":
+    "Kopiering misslyckades. Vänligen kopiera sidans URL manuellt från din webbläsare.",
+  "share.accessibility.score_shared": "Din poäng har delats framgångsrikt.",
+  "share.accessibility.sharing_cancelled": "Delning avbröts.",
+  "share.accessibility.platform_share_failed":
+    "Misslyckades dela till {platform}: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_alternative_methods":
+    "Försök kopiera till urklipp eller använd en annan delningsmetod.",
+  "share.accessibility.score_copied": "Poäng kopierad till urklipp framgångsrikt!",
+  "share.accessibility.native_share_failed":
+    "Inbyggd delning misslyckades: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_platform_buttons":
+    "Försök använda plattformsspecifika delningsknappar eller kopiera till urklipp.",
+  "share.accessibility.platform_opened": "Delning till {platform} öppnades framgångsrikt.",
   "error.default": "Ett fel har inträffat",
   "error.close": "Stäng felmeddelande",
   "coins.collected": "Insamlade mynt",

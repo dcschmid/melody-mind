@@ -550,6 +550,53 @@ export default {
   "social.challenge": "Sfida",
   "social.share_score": "Condividi punteggio",
 
+  // Share functionality
+  "share.title": "Condividi il tuo successo!",
+  "share.buttons.group.label": "Opzioni di condivisione sui social media",
+  "share.facebook": "Condividi su Facebook",
+  "share.whatsapp": "Condividi tramite WhatsApp",
+  "share.native": "Condividi con...",
+  "share.native.label": "Condividi",
+  "share.twitter": "Condividi su X/Twitter",
+  "share.email": "Condividi tramite Email",
+  "share.email.label": "Email",
+  "share.copy": "Copia testo da condividere negli appunti",
+  "share.copy.label": "Copia testo",
+  "share.fallback.message":
+    "I dati del gioco non sono attualmente disponibili. Riprova o copia il link della pagina manualmente.",
+  "share.fallback.retry.label": "Riprova a caricare i dati del gioco",
+  "share.fallback.retry.text": "Riprova",
+  "share.fallback.manual.label": "Copia link della pagina manualmente",
+  "share.fallback.manual.text": "Copia link",
+
+  // Annunci di accessibilità per la condivisione per i lettori di schermo
+  "share.accessibility.data_unavailable":
+    "Dati del gioco non disponibili. Per favore riprova o copia manualmente.",
+  "share.accessibility.retrying": "Tentativo di recupero dei dati del gioco...",
+  "share.accessibility.data_found":
+    "Dati del gioco trovati! Le opzioni di condivisione sono ora disponibili.",
+  "share.accessibility.data_still_unavailable":
+    "I dati del gioco non sono ancora disponibili. Aggiorna la pagina o usa la copia manuale.",
+  "share.accessibility.retry_failed":
+    "Nuovo tentativo fallito. Per favore usa la copia manuale o aggiorna la pagina.",
+  "share.accessibility.link_copied": "Link del gioco copiato negli appunti con successo!",
+  "share.accessibility.link_copied_fallback":
+    "Link del gioco copiato negli appunti usando il metodo di fallback!",
+  "share.accessibility.copy_failed_manual":
+    "Copia fallita. Per favore copia manualmente l'URL della pagina dal tuo browser.",
+  "share.accessibility.score_shared": "Il tuo punteggio è stato condiviso con successo.",
+  "share.accessibility.sharing_cancelled": "Condivisione annullata.",
+  "share.accessibility.platform_share_failed":
+    "Condivisione su {platform} fallita: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_alternative_methods":
+    "Prova a copiare negli appunti o usa un altro metodo di condivisione.",
+  "share.accessibility.score_copied": "Punteggio copiato negli appunti con successo!",
+  "share.accessibility.native_share_failed":
+    "Condivisione nativa fallita: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_platform_buttons":
+    "Prova a usare i pulsanti di condivisione specifici della piattaforma o copia negli appunti.",
+  "share.accessibility.platform_opened": "Condivisione {platform} aperta con successo.",
+
   // Stringhe per aiuto e tutorial
   "help.title": "Aiuto",
   "help.how_to_play": "Come giocare",

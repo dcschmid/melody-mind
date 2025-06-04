@@ -321,6 +321,40 @@ export default {
   "share.email.label": "E-mail",
   "share.copy": "Copier le texte à partager dans le presse-papiers",
   "share.copy.label": "Copier le texte",
+  "share.fallback.message":
+    "Les données du jeu ne sont actuellement pas disponibles. Veuillez réessayer ou copier le lien de la page manuellement.",
+  "share.fallback.retry.label": "Réessayer de charger les données du jeu",
+  "share.fallback.retry.text": "Réessayer",
+  "share.fallback.manual.label": "Copier le lien de la page manuellement",
+  "share.fallback.manual.text": "Copier le lien",
+
+  // Annonces d'accessibilité pour le partage pour les lecteurs d'écran
+  "share.accessibility.data_unavailable":
+    "Données du jeu indisponibles. Veuillez réessayer ou copier manuellement.",
+  "share.accessibility.retrying": "Tentative de récupération des données du jeu...",
+  "share.accessibility.data_found":
+    "Données du jeu trouvées ! Les options de partage sont maintenant disponibles.",
+  "share.accessibility.data_still_unavailable":
+    "Les données du jeu sont toujours indisponibles. Actualisez la page ou utilisez la copie manuelle.",
+  "share.accessibility.retry_failed":
+    "Nouvelle tentative échouée. Veuillez utiliser la copie manuelle ou actualiser la page.",
+  "share.accessibility.link_copied": "Lien du jeu copié dans le presse-papiers avec succès !",
+  "share.accessibility.link_copied_fallback":
+    "Lien du jeu copié dans le presse-papiers avec la méthode de secours !",
+  "share.accessibility.copy_failed_manual":
+    "Copie échouée. Veuillez copier manuellement l'URL de la page depuis votre navigateur.",
+  "share.accessibility.score_shared": "Votre score a été partagé avec succès.",
+  "share.accessibility.sharing_cancelled": "Partage annulé.",
+  "share.accessibility.platform_share_failed":
+    "Échec du partage sur {platform} : {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_alternative_methods":
+    "Essayez de copier dans le presse-papiers ou d'utiliser une autre méthode de partage.",
+  "share.accessibility.score_copied": "Score copié dans le presse-papiers avec succès !",
+  "share.accessibility.native_share_failed":
+    "Partage natif échoué : {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_platform_buttons":
+    "Essayez d'utiliser les boutons de partage spécifiques à la plateforme ou de copier dans le presse-papiers.",
+  "share.accessibility.platform_opened": "Partage {platform} ouvert avec succès.",
   "error.default": "Une erreur s'est produite",
   "error.close": "Fermer le message d'erreur",
   "coins.collected": "Pièces collectées",
@@ -737,10 +771,6 @@ export default {
   // ChronologyFeedbackOverlay specific keys
   "game.chronology.correct_order_description":
     "Liste affichant l'ordre chronologique correct des événements",
-  "session.timeout.warning": "Votre session expirera dans {0} secondes.",
-  "session.timeout.extend": "Prolonger la session",
-  "session.timeout.continue": "Continuer",
-  "session.extended": "Session prolongée avec succès",
 
   // Messages système de layout
   "layout.error.system": "Une erreur système s'est produite. Veuillez actualiser la page.",
@@ -808,10 +838,4 @@ export default {
 
   // General
   "general.close": "Fermer",
-
-  // Session timeout
-  "session.timeout.warning": "Votre session expirera dans {0} secondes",
-  "session.timeout.extend": "Prolonger la session",
-  "session.timeout.continue": "Continuer",
-  "session.extended": "Session prolongée avec succès",
 };

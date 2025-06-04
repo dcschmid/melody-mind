@@ -345,6 +345,39 @@ export default {
   "share.email.label": "E-Mail",
   "share.copy": "Text zum Teilen in die Zwischenablage kopieren",
   "share.copy.label": "Text kopieren",
+  "share.fallback.message":
+    "Spieldaten sind derzeit nicht verfügbar. Bitte versuchen Sie es erneut oder kopieren Sie den Seitenlink manuell.",
+  "share.fallback.retry.label": "Spieldaten erneut laden",
+  "share.fallback.retry.text": "Wiederholen",
+  "share.fallback.manual.label": "Seitenlink manuell kopieren",
+  "share.fallback.manual.text": "Link kopieren",
+
+  // Share-Zugänglichkeitsansagen für Screenreader
+  "share.accessibility.data_unavailable":
+    "Spieldaten nicht verfügbar. Bitte versuchen Sie es erneut oder kopieren Sie manuell.",
+  "share.accessibility.retrying": "Spieldaten werden erneut gesucht...",
+  "share.accessibility.data_found": "Spieldaten gefunden! Teilen-Optionen sind jetzt verfügbar.",
+  "share.accessibility.data_still_unavailable":
+    "Spieldaten sind weiterhin nicht verfügbar. Bitte aktualisieren Sie die Seite oder verwenden Sie manuelles Kopieren.",
+  "share.accessibility.retry_failed":
+    "Wiederholung fehlgeschlagen. Bitte verwenden Sie manuelles Kopieren oder aktualisieren Sie die Seite.",
+  "share.accessibility.link_copied": "Spiellink erfolgreich in die Zwischenablage kopiert!",
+  "share.accessibility.link_copied_fallback":
+    "Spiellink mit Fallback-Methode in die Zwischenablage kopiert!",
+  "share.accessibility.copy_failed_manual":
+    "Kopieren fehlgeschlagen. Bitte kopieren Sie die Seiten-URL manuell aus Ihrem Browser.",
+  "share.accessibility.score_shared": "Ihr Ergebnis wurde erfolgreich geteilt.",
+  "share.accessibility.sharing_cancelled": "Teilen abgebrochen.",
+  "share.accessibility.platform_share_failed":
+    "Teilen auf {platform} fehlgeschlagen: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_alternative_methods":
+    "Versuchen Sie das Kopieren in die Zwischenablage oder eine andere Teilen-Methode.",
+  "share.accessibility.score_copied": "Ergebnis erfolgreich in die Zwischenablage kopiert!",
+  "share.accessibility.native_share_failed":
+    "Natives Teilen fehlgeschlagen: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_platform_buttons":
+    "Versuchen Sie plattformspezifische Teilen-Buttons oder Kopieren in die Zwischenablage.",
+  "share.accessibility.platform_opened": "{platform}-Teilen erfolgreich geöffnet.",
   "error.default": "Ein Fehler ist aufgetreten",
   "error.close": "Fehlermeldung schließen",
   "coins.collected": "Gesammelte Münzen",
