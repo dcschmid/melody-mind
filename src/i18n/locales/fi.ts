@@ -847,4 +847,30 @@ export default {
   "error.context.medium": "Virheviesti joka vaatii käyttäjän huomiota",
   "error.context.high": "Korkean prioriteetin virhe joka vaatii välitöntä huomiota",
   "error.context.critical": "Kriittinen virhe joka vaatii välitöntä toimintaa",
+
+  // AudioPlayer Component
+  "audioplayer.aria.region": "Äänitehdas",
+  "audioplayer.play.aria": "Toista ääni",
+  "audioplayer.play.title": "Toista/Keskeytä",
+  "audioplayer.progress.aria":
+    "Äänen edistyminen - Käytä nuolinäppäimiä hakemiseen, Home alkuun, End loppuun",
+  "audioplayer.progress.help":
+    "Nuoli Vasen/Oikea: Hae 5 sekuntia, Shift+Nuoli: Hae 30 sekuntia, Home: Alku, End: Loppu",
+  "audioplayer.volume.toggle.aria": "Vaihda mykistys päälle/pois",
+  "audioplayer.volume.toggle.title": "Äänenvoimakkuus",
+  "audioplayer.volume.slider.aria": "Säädä äänenvoimakkuutta",
+  "audioplayer.volume.slider.help":
+    "Käytä nuolinäppäimiä äänenvoimakkuuden säätämiseen 5% askelin. Nykyinen äänenvoimakkuus: {volume}%",
+  "audioplayer.captions.english": "Suomenkieliset tekstitykset",
+  "audioplayer.captions.none": "Ei tekstityksiä saatavilla",
+  "audioplayer.fallback.download": "Lataa äänitiedosto sen sijaan",
+  "audioplayer.fallback.unsupported": "Selaimesi ei tue ääni-elementtiä.",
+  "audioplayer.description":
+    "Äänitehdas {title} {artist}. Käytä välilyöntiä toistaaksesi tai keskeytykseen, nuolinäppäimiä hakuun ja M mykistämiseen.",
+  "audioplayer.description.no_title":
+    "Äänitehdas kappaleelle. Käytä välilyöntiä toistaaksesi tai keskeytykseen, nuolinäppäimiä hakuun ja M mykistämiseen.",
+  "audioplayer.help.button.aria": "Ohje",
+  "audioplayer.help.button.title": "Äänentoistion näppäinoikotiet",
+  "audioplayer.help.shortcuts":
+    "Välilyönti: Toista/Keskeytä, M: Mykistä/Palauta ääni, Nuolinäppäimet: Hae ääntä, Ylös/Alas: Äänenvoimakkuuden hallinta",
 };

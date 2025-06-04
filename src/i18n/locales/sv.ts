@@ -834,4 +834,30 @@ export default {
   "error.context.medium": "Felmeddelande som kräver användarens uppmärksamhet",
   "error.context.high": "Hög prioritet fel som kräver omedelbar uppmärksamhet",
   "error.context.critical": "Kritiskt fel som kräver omedelbar åtgärd",
+
+  // AudioPlayer Component
+  "audioplayer.aria.region": "Ljudspelare",
+  "audioplayer.play.aria": "Spela ljud",
+  "audioplayer.play.title": "Spela/Pausa",
+  "audioplayer.progress.aria":
+    "Ljudframsteg - Använd piltangenter för att söka, Home för början, End för slutet",
+  "audioplayer.progress.help":
+    "Pil Vänster/Höger: Sök 5 sekunder, Shift+Pil: Sök 30 sekunder, Home: Början, End: Slutet",
+  "audioplayer.volume.toggle.aria": "Växla tyst/avtysta",
+  "audioplayer.volume.toggle.title": "Volym",
+  "audioplayer.volume.slider.aria": "Justera volymnivå",
+  "audioplayer.volume.slider.help":
+    "Använd piltangenter för att justera volymen i 5% steg. Nuvarande volym: {volume}%",
+  "audioplayer.captions.english": "Svenska undertexter",
+  "audioplayer.captions.none": "Inga undertexter tillgängliga",
+  "audioplayer.fallback.download": "Ladda ner ljudfil istället",
+  "audioplayer.fallback.unsupported": "Din webbläsare stöder inte ljudelementet.",
+  "audioplayer.description":
+    "Ljudspelare för {title} {artist}. Använd mellanslag för att spela eller pausa, piltangenter för att söka och M för att tysta.",
+  "audioplayer.description.no_title":
+    "Ljudspelare för spår. Använd mellanslag för att spela eller pausa, piltangenter för att söka och M för att tysta.",
+  "audioplayer.help.button.aria": "Hjälp",
+  "audioplayer.help.button.title": "Ljudspelare tangentbordsgenvägar",
+  "audioplayer.help.shortcuts":
+    "Mellanslag: Spela/Pausa, M: Tyst/Avtysta, Piltangenter: Sök ljud, Upp/Ner: Volymkontroll",
 };

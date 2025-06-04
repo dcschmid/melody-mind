@@ -1,5 +1,4 @@
 ---
-
 /**
  * @component AchievementBadge
  * @description Displays a badge for new achievements in the navigation.
@@ -17,7 +16,7 @@
  */
 
 // 1. Imports
-import { useTranslations } from '@utils/i18n';
+import { useTranslations } from "@utils/i18n";
 
 // 2. Props definition
 interface Props {
@@ -226,7 +225,7 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
       if (newAchievementsCount > 0) {
         badgeElement.classList.add("visible");
         badgeElement.setAttribute("aria-hidden", "false");
-        
+
         // Make badge focusable when visible for keyboard users
         badgeElement.setAttribute("tabindex", "0");
 
@@ -237,9 +236,10 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
           : `${newLabelText || fallbackLabelText}: ${newAchievementsCount}`;
 
         badgeElement.setAttribute("aria-label", formattedLabel);
-        
+
         // Enhanced aria-description for better context
-        const contextualDescription = `${contextDescriptionText} ${keyboardInstructionsText}`.trim();
+        const contextualDescription =
+          `${contextDescriptionText} ${keyboardInstructionsText}`.trim();
         if (contextualDescription) {
           badgeElement.setAttribute("aria-description", contextualDescription);
         }
@@ -258,7 +258,7 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
         badgeElement.setAttribute("aria-hidden", "true");
         badgeElement.setAttribute("aria-label", newLabelText || fallbackLabelText);
         badgeElement.setAttribute("role", "status");
-        
+
         // Remove tabindex when hidden
         badgeElement.removeAttribute("tabindex");
         badgeElement.removeAttribute("aria-description");
@@ -289,27 +289,29 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
    * Provides keyboard access to badge information and navigation
    */
   function setupKeyboardInteraction(): void {
-    if (!badgeElement) {return;}
+    if (!badgeElement) {
+      return;
+    }
 
     badgeElement.addEventListener("keydown", (event: KeyboardEvent): void => {
       // Handle Enter and Space key for activation
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-        
+
         // Navigate to achievements page when badge is activated
         const currentPath = window.location.pathname;
         const langMatch = currentPath.match(/^\/([a-z]{2})\//);
-        const lang = langMatch ? langMatch[1] : 'en';
+        const lang = langMatch ? langMatch[1] : "en";
         const achievementsUrl = `/${lang}/achievements`;
-        
+
         // Announce navigation intent to screen readers
-        const announcement = document.createElement('div');
-        announcement.setAttribute('aria-live', 'polite');
-        announcement.setAttribute('aria-atomic', 'true');
-        announcement.className = 'sr-only';
+        const announcement = document.createElement("div");
+        announcement.setAttribute("aria-live", "polite");
+        announcement.setAttribute("aria-atomic", "true");
+        announcement.className = "sr-only";
         announcement.textContent = `Navigating to achievements page with ${newAchievementsCount} new achievements`;
         document.body.appendChild(announcement);
-        
+
         // Navigate after brief delay to allow announcement
         setTimeout(() => {
           window.location.href = achievementsUrl;
@@ -323,7 +325,7 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
       // Announce detailed information when focused
       if (newAchievementsCount > 0) {
         const detailedInfo = `Achievement badge focused. ${newAchievementsCount} new achievements available. Press Enter or Space to view achievements page.`;
-        
+
         // Use aria-live region for dynamic announcement
         badgeElement.setAttribute("aria-label", detailedInfo);
       }
@@ -334,7 +336,7 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
       const standardLabel = newLabelWithCountText
         ? newLabelWithCountText.replace("{count}", newAchievementsCount.toString())
         : `${newLabelText || fallbackLabelText}: ${newAchievementsCount}`;
-      
+
       badgeElement.setAttribute("aria-label", standardLabel);
     });
   }
@@ -358,7 +360,7 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
 
     // Initially update badge
     updateBadge();
-    
+
     // Setup keyboard interaction for accessibility
     setupKeyboardInteraction();
   });

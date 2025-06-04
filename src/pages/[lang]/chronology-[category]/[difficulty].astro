@@ -27,7 +27,6 @@ import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
 import GameHeadline from "@components/Game/GameHeadline.astro";
 import EndOverlay from "@components/Overlays/EndOverlay.astro";
 import LoadingSpinner from "@components/Game/LoadingSpinner.astro";
-import ErrorMessage from "@components/Shared/ErrorMessage.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import type { Difficulty as GameDifficulty } from "@utils/game/jokerUtils";
 import { Icon } from "astro-icon/components";
@@ -165,7 +164,8 @@ console.warn(
     </div>
   </div>
 
-  <ErrorMessage />
+  <!-- Error message should only show when needed -->
+  <!-- ErrorMessage component will be dynamically created by JavaScript when errors occur -->
 
   <LoadingSpinner />
 

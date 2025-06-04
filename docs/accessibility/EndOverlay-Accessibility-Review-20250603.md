@@ -251,6 +251,7 @@ full WCAG 2.2 AAA compliance.
    ```
 
 3. **Improve Animation Accessibility**
+
    ```css
    /* Strengthen reduced motion support */
    @media (prefers-reduced-motion: reduce) {

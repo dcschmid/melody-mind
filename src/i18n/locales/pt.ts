@@ -845,4 +845,30 @@ export default {
   "error.context.medium": "Mensagem de erro que requer atenção do usuário",
   "error.context.high": "Erro de alta prioridade que requer atenção imediata",
   "error.context.critical": "Erro crítico que requer ação imediata",
+
+  // AudioPlayer Component
+  "audioplayer.aria.region": "Player de áudio",
+  "audioplayer.play.aria": "Reproduzir áudio",
+  "audioplayer.play.title": "Reproduzir/Pausar",
+  "audioplayer.progress.aria":
+    "Progresso do áudio - Use as setas para navegar, Home para o início, End para o fim",
+  "audioplayer.progress.help":
+    "Seta Esquerda/Direita: Navegar 5 segundos, Shift+Seta: Navegar 30 segundos, Home: Início, End: Fim",
+  "audioplayer.volume.toggle.aria": "Ativar/desativar mudo",
+  "audioplayer.volume.toggle.title": "Volume",
+  "audioplayer.volume.slider.aria": "Ajustar nível de volume",
+  "audioplayer.volume.slider.help":
+    "Use as setas para ajustar o volume em incrementos de 5%. Volume atual: {volume}%",
+  "audioplayer.captions.english": "Legendas em português",
+  "audioplayer.captions.none": "Nenhuma legenda disponível",
+  "audioplayer.fallback.download": "Baixar arquivo de áudio ao invés",
+  "audioplayer.fallback.unsupported": "Seu navegador não suporta o elemento de áudio.",
+  "audioplayer.description":
+    "Player de áudio para {title} {artist}. Use a barra de espaço para reproduzir ou pausar, setas para navegar e M para silenciar.",
+  "audioplayer.description.no_title":
+    "Player de áudio para faixa. Use a barra de espaço para reproduzir ou pausar, setas para navegar e M para silenciar.",
+  "audioplayer.help.button.aria": "Ajuda",
+  "audioplayer.help.button.title": "Atalhos de teclado do player de áudio",
+  "audioplayer.help.shortcuts":
+    "Espaço: Reproduzir/Pausar, M: Mudo/Ativar som, Setas: Navegar áudio, Cima/Baixo: Controle de volume",
 };
