@@ -319,6 +319,27 @@ export default {
   "error.default": "Ha ocurrido un error",
   "error.close": "Cerrar mensaje de error",
   "coins.collected": "Monedas recolectadas",
+  "coins.tooltip.authenticated":
+    "Tu saldo de monedas. El progreso se guarda automáticamente en tu cuenta.",
+  "coins.tooltip.guest": "Tu saldo actual de monedas para esta sesión.",
+  "coins.announce.earned_excellent":
+    "¡Excelente! ¡Ganaste {difference} monedas en {context}! Nuevo total: {newCount} monedas.",
+  "coins.announce.earned_great":
+    "¡Muy bien! Ganaste {difference} moneda{plural} en {context}. Total: {newCount} monedas.",
+  "coins.announce.earned_normal":
+    "Ganaste {difference} moneda{plural} en {context}. Total: {newCount} monedas.",
+  "coins.announce.progress_saved": " Progreso guardado en tu cuenta.",
+  "coins.announce.lost":
+    "Perdiste {lost} moneda{plural} en {context}. Restantes: {newCount} monedas.",
+  "coins.announce.updated": "Monedas actualizadas en {context}. Total actual: {newCount} monedas.",
+  "coins.context.game": "el juego",
+  "coins.context.shop": "una compra",
+  "coins.context.achievement": "obtener un logro",
+  "coins.context.bonus": "recibir un bono",
+  "coins.context.daily": "recolectar la recompensa diaria",
+  "coins.context.quiz": "responder preguntas del quiz",
+  "coins.context.challenge": "completar un desafío",
+  "coins.context.streak": "mantener una racha",
   "language.picker.label": "Selector de idioma",
   "language.change": "Cambiar idioma del sitio web",
   "language.select.label": "Selecciona tu idioma preferido",

@@ -388,6 +388,28 @@ export default {
   "error.context.high": "Hochpriorisierter Fehler, der sofortige Aufmerksamkeit erfordert",
   "error.context.critical": "Kritischer Fehler, der sofortige Maßnahmen erfordert",
   "coins.collected": "Gesammelte Münzen",
+  "coins.tooltip.authenticated":
+    "Ihr Münzguthaben. Fortschritt wird automatisch in Ihrem Konto gespeichert.",
+  "coins.tooltip.guest": "Ihr aktuelles Münzguthaben für diese Sitzung.",
+  "coins.announce.earned_excellent":
+    "Ausgezeichnet! {difference} Münzen bei {context} verdient! Neuer Gesamtbetrag: {newCount} Münzen.",
+  "coins.announce.earned_great":
+    "Großartig! {difference} Münze{plural} bei {context} gewonnen. Gesamt: {newCount} Münzen.",
+  "coins.announce.earned_normal":
+    "{difference} Münze{plural} bei {context} gewonnen. Gesamt: {newCount} Münzen.",
+  "coins.announce.progress_saved": " Fortschritt in Ihrem Konto gespeichert.",
+  "coins.announce.lost":
+    "{lost} Münze{plural} bei {context} verloren. Verbleibend: {newCount} Münzen.",
+  "coins.announce.updated":
+    "Münzen bei {context} aktualisiert. Aktueller Gesamtbetrag: {newCount} Münzen.",
+  "coins.context.game": "dem Spielen",
+  "coins.context.shop": "einem Einkauf",
+  "coins.context.achievement": "dem Erreichen einer Errungenschaft",
+  "coins.context.bonus": "dem Erhalten eines Bonus",
+  "coins.context.daily": "dem Sammeln der täglichen Belohnung",
+  "coins.context.quiz": "dem Beantworten von Quiz-Fragen",
+  "coins.context.challenge": "dem Abschließen einer Herausforderung",
+  "coins.context.streak": "dem Aufrechterhalten einer Serie",
   "language.picker.label": "Sprachwahl",
   "language.change": "Sprache der Webseite ändern",
   "language.select.label": "Wählen Sie Ihre bevorzugte Sprache",

@@ -321,6 +321,28 @@ export default {
   "error.default": "Ett fel har inträffat",
   "error.close": "Stäng felmeddelande",
   "coins.collected": "Insamlade mynt",
+  "coins.tooltip.authenticated":
+    "Dina insamlade mynt: Du har tjänat {count} mynt under din speltid. Fortsätt spela för att tjäna fler!",
+  "coins.tooltip.guest":
+    "Gästspelare mynt: Du har tjänat {count} mynt under denna session. Logga in för att spara dina framsteg permanent!",
+  "coins.announce.earned_excellent":
+    "Utmärkt! Tjänade {difference} mynt under {context}! Ny summa: {newCount} mynt.",
+  "coins.announce.earned_great":
+    "Bra jobbat! Tjänade {difference} mynt{plural} under {context}. Totalt: {newCount} mynt.",
+  "coins.announce.earned_normal":
+    "Tjänade {difference} mynt{plural} under {context}. Totalt: {newCount} mynt.",
+  "coins.announce.progress_saved": " Framsteg sparat på ditt konto.",
+  "coins.announce.lost":
+    "Förlorade {lost} mynt{plural} under {context}. Återstående: {newCount} mynt.",
+  "coins.announce.updated": "Mynt uppdaterade under {context}. Nuvarande summa: {newCount} mynt.",
+  "coins.context.game": "spel",
+  "coins.context.shop": "köp",
+  "coins.context.achievement": "att uppnå en prestation",
+  "coins.context.bonus": "att få en bonus",
+  "coins.context.daily": "att samla daglig belöning",
+  "coins.context.quiz": "att svara på quizfrågor",
+  "coins.context.challenge": "att slutföra en utmaning",
+  "coins.context.streak": "att upprätthålla en streak",
   "language.picker.label": "Språkväljare",
   "language.change": "Ändra webbplatsens språk",
   "language.select.label": "Välj önskat språk",
