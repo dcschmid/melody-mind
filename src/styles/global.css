@@ -343,7 +343,9 @@
   --z-dropdown: 10;
   --z-sticky: 20;
   --z-fixed: 30;
-  --z-modal: 50;
+  --z-backdrop: 40; /* Modal backdrop layer */
+  --z-modal: 50; /* Modal container layer */
+  --z-modal-content: 51; /* Modal content layer (above backdrop) */
   --z-tooltip: 60;
   --z-notification: 70;
 

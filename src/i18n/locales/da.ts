@@ -286,6 +286,39 @@ export default {
   "share.email.label": "E-mail",
   "share.copy": "Kopier tekst til deling til udklipsholder",
   "share.copy.label": "Kopier tekst",
+  "share.fallback.message":
+    "Spildata er i øjeblikket ikke tilgængelige. Prøv igen eller kopier sidelinket manuelt.",
+  "share.fallback.retry.label": "Prøv at indlæse spildata igen",
+  "share.fallback.retry.text": "Prøv igen",
+  "share.fallback.manual.label": "Kopier sidelink manuelt",
+  "share.fallback.manual.text": "Kopier link",
+
+  // Del tilgængelighed meddelelser for skærmlæsere
+  "share.accessibility.data_unavailable":
+    "Spildata ikke tilgængelig. Prøv igen eller kopier manuelt.",
+  "share.accessibility.retrying": "Prøver at finde spildata igen...",
+  "share.accessibility.data_found": "Spildata fundet! Deling muligheder er nu tilgængelige.",
+  "share.accessibility.data_still_unavailable":
+    "Spildata er stadig ikke tilgængelig. Opdater siden eller brug manuel kopiering.",
+  "share.accessibility.retry_failed":
+    "Genprøv mislykkedes. Brug venligst manuel kopiering eller opdater siden.",
+  "share.accessibility.link_copied": "Spillink kopieret til udklipsholder med succes!",
+  "share.accessibility.link_copied_fallback":
+    "Spillink kopieret til udklipsholder med fallback metode!",
+  "share.accessibility.copy_failed_manual":
+    "Kopiering mislykkedes. Kopier venligst side-URL'en manuelt fra din browser.",
+  "share.accessibility.score_shared": "Din score blev delt med succes.",
+  "share.accessibility.sharing_cancelled": "Deling annulleret.",
+  "share.accessibility.platform_share_failed":
+    "Kunne ikke dele til {platform}: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_alternative_methods":
+    "Prøv at kopiere til udklipsholder eller brug en anden deling metode.",
+  "share.accessibility.score_copied": "Score kopieret til udklipsholder med succes!",
+  "share.accessibility.native_share_failed":
+    "Native deling mislykkedes: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_platform_buttons":
+    "Prøv at bruge platform-specifikke deling knapper eller kopier til udklipsholder.",
+  "share.accessibility.platform_opened": "{platform} deling åbnet med succes.",
   "error.default": "Der er opstået en fejl",
   "error.close": "Luk fejlmeddelelse",
   "coins.collected": "Indsamlede mønter",

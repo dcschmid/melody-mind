@@ -301,6 +301,39 @@ export default {
   "share.email.label": "E-mail",
   "share.copy": "Kopieer tekst om te delen naar klembord",
   "share.copy.label": "Kopieer tekst",
+  "share.fallback.message":
+    "Spelgegevens zijn momenteel niet beschikbaar. Probeer opnieuw of kopieer de paginakoppeling handmatig.",
+  "share.fallback.retry.label": "Probeer spelgegevens opnieuw te laden",
+  "share.fallback.retry.text": "Opnieuw proberen",
+  "share.fallback.manual.label": "Paginakoppeling handmatig kopiëren",
+  "share.fallback.manual.text": "Kopieer koppeling",
+
+  // Deel toegankelijkheid aankondigingen voor schermvoorlezers
+  "share.accessibility.data_unavailable":
+    "Spelgegevens niet beschikbaar. Probeer opnieuw of kopieer handmatig.",
+  "share.accessibility.retrying": "Proberen spelgegevens opnieuw te vinden...",
+  "share.accessibility.data_found": "Spelgegevens gevonden! Deel opties zijn nu beschikbaar.",
+  "share.accessibility.data_still_unavailable":
+    "Spelgegevens zijn nog steeds niet beschikbaar. Ververs de pagina of gebruik handmatig kopiëren.",
+  "share.accessibility.retry_failed":
+    "Opnieuw proberen mislukt. Gebruik handmatig kopiëren of ververs de pagina.",
+  "share.accessibility.link_copied": "Spelkoppeling succesvol gekopieerd naar klembord!",
+  "share.accessibility.link_copied_fallback":
+    "Spelkoppeling gekopieerd naar klembord met terugvalmethode!",
+  "share.accessibility.copy_failed_manual":
+    "Kopiëren mislukt. Kopieer de pagina-URL handmatig vanuit uw browser.",
+  "share.accessibility.score_shared": "Uw score is succesvol gedeeld.",
+  "share.accessibility.sharing_cancelled": "Delen geannuleerd.",
+  "share.accessibility.platform_share_failed":
+    "Delen naar {platform} mislukt: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_alternative_methods":
+    "Probeer kopiëren naar klembord of gebruik een andere deelmethode.",
+  "share.accessibility.score_copied": "Score succesvol gekopieerd naar klembord!",
+  "share.accessibility.native_share_failed":
+    "Native delen mislukt: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_platform_buttons":
+    "Probeer platform-specifieke deelknoppen of kopiëren naar klembord.",
+  "share.accessibility.platform_opened": "{platform} delen succesvol geopend.",
   "error.default": "Er is een fout opgetreden",
   "error.close": "Foutmelding sluiten",
   "coins.collected": "Verzamelde munten",

@@ -286,6 +286,40 @@ export default {
   "share.email.label": "Sähköposti",
   "share.copy": "Kopioi jaettava teksti leikepöydälle",
   "share.copy.label": "Kopioi teksti",
+  "share.fallback.message":
+    "Pelin tiedot eivät ole tällä hetkellä saatavilla. Yritä uudelleen tai kopioi sivun linkki manuaalisesti.",
+  "share.fallback.retry.label": "Yritä ladata pelin tiedot uudelleen",
+  "share.fallback.retry.text": "Yritä uudelleen",
+  "share.fallback.manual.label": "Kopioi sivun linkki manuaalisesti",
+  "share.fallback.manual.text": "Kopioi linkki",
+
+  // Saavutettavuusilmoitukset jakamiselle ruudunlukijoille
+  "share.accessibility.data_unavailable":
+    "Pelin tiedot eivät ole käytettävissä. Yritä uudelleen tai kopioi manuaalisesti.",
+  "share.accessibility.retrying": "Etsitään pelin tietoja...",
+  "share.accessibility.data_found":
+    "Pelin tiedot löydetty! Jakovaihtoehdot ovat nyt käytettävissä.",
+  "share.accessibility.data_still_unavailable":
+    "Pelin tiedot eivät ole edelleenkään käytettävissä. Päivitä sivu tai käytä manuaalista kopiointia.",
+  "share.accessibility.retry_failed":
+    "Uudelleenyritys epäonnistui. Käytä manuaalista kopiointia tai päivitä sivu.",
+  "share.accessibility.link_copied": "Pelin linkki kopioitu leikepöydälle onnistuneesti!",
+  "share.accessibility.link_copied_fallback":
+    "Pelin linkki kopioitu leikepöydälle varamenetelmällä!",
+  "share.accessibility.copy_failed_manual":
+    "Kopiointi epäonnistui. Kopioi sivun URL manuaalisesti selaimestasi.",
+  "share.accessibility.score_shared": "Pisteesi on jaettu onnistuneesti.",
+  "share.accessibility.sharing_cancelled": "Jakaminen peruutettu.",
+  "share.accessibility.platform_share_failed":
+    "Jakaminen alustalle {platform} epäonnistui: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_alternative_methods":
+    "Yritä kopioida leikepöydälle tai käyttää toista jakamismenetelmää.",
+  "share.accessibility.score_copied": "Pisteet kopioitu leikepöydälle onnistuneesti!",
+  "share.accessibility.native_share_failed":
+    "Alkuperäinen jakaminen epäonnistui: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_platform_buttons":
+    "Yritä käyttää alustaspesifisiä jakamispainikkeita tai kopioi leikepöydälle.",
+  "share.accessibility.platform_opened": "Jakaminen alustalle {platform} avattiin onnistuneesti.",
   "error.default": "On tapahtunut virhe",
   "error.close": "Sulje virheilmoitus",
   "coins.collected": "Kerätyt kolikot",

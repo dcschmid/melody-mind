@@ -282,6 +282,40 @@ export default {
   "share.email.label": "Correo electrónico",
   "share.copy": "Copiar texto para compartir al portapapeles",
   "share.copy.label": "Copiar texto",
+  "share.fallback.message":
+    "Los datos del juego no están disponibles actualmente. Por favor, inténtalo de nuevo o copia el enlace de la página manualmente.",
+  "share.fallback.retry.label": "Reintentar cargar datos del juego",
+  "share.fallback.retry.text": "Reintentar",
+  "share.fallback.manual.label": "Copiar enlace de la página manualmente",
+  "share.fallback.manual.text": "Copiar enlace",
+
+  // Anuncios de accesibilidad para compartir para lectores de pantalla
+  "share.accessibility.data_unavailable":
+    "Datos del juego no disponibles. Por favor, inténtalo de nuevo o copia manualmente.",
+  "share.accessibility.retrying": "Reintentando encontrar datos del juego...",
+  "share.accessibility.data_found":
+    "¡Datos del juego encontrados! Las opciones para compartir están ahora disponibles.",
+  "share.accessibility.data_still_unavailable":
+    "Los datos del juego aún no están disponibles. Actualiza la página o usa copia manual.",
+  "share.accessibility.retry_failed":
+    "Reintento fallido. Por favor, usa copia manual o actualiza la página.",
+  "share.accessibility.link_copied": "¡Enlace del juego copiado al portapapeles exitosamente!",
+  "share.accessibility.link_copied_fallback":
+    "¡Enlace del juego copiado al portapapeles usando método de respaldo!",
+  "share.accessibility.copy_failed_manual":
+    "Copia fallida. Por favor, copia manualmente la URL de la página desde tu navegador.",
+  "share.accessibility.score_shared": "Tu puntuación se compartió exitosamente.",
+  "share.accessibility.sharing_cancelled": "Compartir cancelado.",
+  "share.accessibility.platform_share_failed":
+    "Error al compartir en {platform}: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_alternative_methods":
+    "Intenta copiar al portapapeles o usar otro método para compartir.",
+  "share.accessibility.score_copied": "¡Puntuación copiada al portapapeles exitosamente!",
+  "share.accessibility.native_share_failed":
+    "Compartir nativo falló: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_platform_buttons":
+    "Intenta usar los botones de compartir específicos de la plataforma o copiar al portapapeles.",
+  "share.accessibility.platform_opened": "Compartir en {platform} abierto exitosamente.",
   "error.default": "Ha ocurrido un error",
   "error.close": "Cerrar mensaje de error",
   "coins.collected": "Monedas recolectadas",
