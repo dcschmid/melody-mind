@@ -358,6 +358,26 @@ export default {
   "error.default": "Une erreur s'est produite",
   "error.close": "Fermer le message d'erreur",
   "coins.collected": "Pièces collectées",
+  "coins.tooltip.authenticated":
+    "Votre solde de pièces. Les progrès sont automatiquement sauvegardés dans votre compte.",
+  "coins.tooltip.guest": "Votre solde actuel de pièces pour cette session.",
+  "coins.announce.earned_excellent":
+    "Excellent ! Gagné {difference} pièces en {context} ! Nouveau total : {newCount} pièces.",
+  "coins.announce.earned_great":
+    "Très bien ! Gagné {difference} pièce{plural} en {context}. Total : {newCount} pièces.",
+  "coins.announce.earned_normal":
+    "Gagné {difference} pièce{plural} en {context}. Total : {newCount} pièces.",
+  "coins.announce.progress_saved": " Progrès sauvegardé dans votre compte.",
+  "coins.announce.lost": "Perdu {lost} pièce{plural} en {context}. Restant : {newCount} pièces.",
+  "coins.announce.updated": "Pièces mises à jour en {context}. Total actuel : {newCount} pièces.",
+  "coins.context.game": "jouant au jeu",
+  "coins.context.shop": "effectuant un achat",
+  "coins.context.achievement": "obtenant un succès",
+  "coins.context.bonus": "recevant un bonus",
+  "coins.context.daily": "collectant la récompense quotidienne",
+  "coins.context.quiz": "répondant aux questions du quiz",
+  "coins.context.challenge": "complétant un défi",
+  "coins.context.streak": "maintenant une série",
   "language.picker.label": "Sélecteur de langue",
   "language.change": "Changer la langue du site web",
   "language.select.label": "Sélectionnez votre langue préférée",

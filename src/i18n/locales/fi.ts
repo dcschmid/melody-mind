@@ -323,6 +323,29 @@ export default {
   "error.default": "On tapahtunut virhe",
   "error.close": "Sulje virheilmoitus",
   "coins.collected": "Kerätyt kolikot",
+  "coins.tooltip.authenticated":
+    "Keräämäsi kolikot: Olet ansainnut {count} kolikkoa peliaikasi aikana. Jatka pelaamista ansaitaksesi lisää!",
+  "coins.tooltip.guest":
+    "Vieraspelaajan kolikot: Olet ansainnut {count} kolikkoa tämän istunnon aikana. Kirjaudu sisään tallentaaksesi edistymisesi pysyvästi!",
+  "coins.announce.earned_excellent":
+    "Erinomaista! Ansaittu {difference} kolikkoa {context} aikana! Uusi summa: {newCount} kolikkoa.",
+  "coins.announce.earned_great":
+    "Hyvä työ! Ansaittu {difference} kolikko{plural} {context} aikana. Yhteensä: {newCount} kolikkoa.",
+  "coins.announce.earned_normal":
+    "Ansaittu {difference} kolikko{plural} {context} aikana. Yhteensä: {newCount} kolikkoa.",
+  "coins.announce.progress_saved": " Edistyminen tallennettu tilillesi.",
+  "coins.announce.lost":
+    "Menetettiin {lost} kolikko{plural} {context} aikana. Jäljellä: {newCount} kolikkoa.",
+  "coins.announce.updated":
+    "Kolikot päivitetty {context} aikana. Nykyinen summa: {newCount} kolikkoa.",
+  "coins.context.game": "pelin pelaamisen",
+  "coins.context.shop": "ostoksen tekemisen",
+  "coins.context.achievement": "saavutuksen ansaitsemisen",
+  "coins.context.bonus": "bonuksen saamisen",
+  "coins.context.daily": "päivittäisen palkinnon keräämisen",
+  "coins.context.quiz": "tietovisakysymyksiin vastaamisen",
+  "coins.context.challenge": "haasteen suorittamisen",
+  "coins.context.streak": "sarjan ylläpitämisen",
   "language.picker.label": "Kielivalitsin",
   "language.change": "Vaihda verkkosivuston kieltä",
   "language.select.label": "Valitse haluamasi kieli",

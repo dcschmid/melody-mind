@@ -322,6 +322,27 @@ export default {
   "error.default": "Der er opstået en fejl",
   "error.close": "Luk fejlmeddelelse",
   "coins.collected": "Indsamlede mønter",
+  "coins.tooltip.authenticated":
+    "Dine indsamlede mønter: Du har optjent {count} mønter gennem din spiltid. Fortsæt med at spille for at tjene flere!",
+  "coins.tooltip.guest":
+    "Gæstespiller mønter: Du har optjent {count} mønter i denne session. Log ind for at gemme din fremgang permanent!",
+  "coins.announce.earned_excellent":
+    "Fremragende! Tjent {difference} mønter under {context}! Nyt total: {newCount} mønter.",
+  "coins.announce.earned_great":
+    "Godt arbejde! Optjent {difference} mønt{plural} under {context}. Total: {newCount} mønter.",
+  "coins.announce.earned_normal":
+    "Optjent {difference} mønt{plural} under {context}. Total: {newCount} mønter.",
+  "coins.announce.progress_saved": " Fremgang gemt på din konto.",
+  "coins.announce.lost": "Mistede {lost} mønt{plural} under {context}. Tilbage: {newCount} mønter.",
+  "coins.announce.updated": "Mønter opdateret under {context}. Nuværende total: {newCount} mønter.",
+  "coins.context.game": "spil",
+  "coins.context.shop": "køb",
+  "coins.context.achievement": "opnåelse af en præstation",
+  "coins.context.bonus": "modtagelse af bonus",
+  "coins.context.daily": "indsamling af daglig belønning",
+  "coins.context.quiz": "besvarelse af quiz-spørgsmål",
+  "coins.context.challenge": "gennemførelse af udfordring",
+  "coins.context.streak": "opretholdelse af streak",
   "language.picker.label": "Sprogvælger",
   "language.change": "Skift webstedets sprog",
   "language.select.label": "Vælg dit foretrukne sprog",

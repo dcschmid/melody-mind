@@ -337,6 +337,29 @@ export default {
   "error.default": "Er is een fout opgetreden",
   "error.close": "Foutmelding sluiten",
   "coins.collected": "Verzamelde munten",
+  "coins.tooltip.authenticated":
+    "Jouw verzamelde munten: Je hebt {count} munten verdiend tijdens het spelen. Blijf spelen om er meer te verdienen!",
+  "coins.tooltip.guest":
+    "Gastspeler munten: Je hebt {count} munten verdiend in deze sessie. Log in om je voortgang permanent op te slaan!",
+  "coins.announce.earned_excellent":
+    "Uitstekend! {difference} munten verdiend tijdens {context}! Nieuw totaal: {newCount} munten.",
+  "coins.announce.earned_great":
+    "Goed gedaan! {difference} munt{plural} verdiend tijdens {context}. Totaal: {newCount} munten.",
+  "coins.announce.earned_normal":
+    "{difference} munt{plural} verdiend tijdens {context}. Totaal: {newCount} munten.",
+  "coins.announce.progress_saved": " Voortgang opgeslagen in je account.",
+  "coins.announce.lost":
+    "{lost} munt{plural} verloren tijdens {context}. Overgebleven: {newCount} munten.",
+  "coins.announce.updated":
+    "Munten bijgewerkt tijdens {context}. Huidig totaal: {newCount} munten.",
+  "coins.context.game": "het spelen van het spel",
+  "coins.context.shop": "het doen van een aankoop",
+  "coins.context.achievement": "het behalen van een prestatie",
+  "coins.context.bonus": "het ontvangen van een bonus",
+  "coins.context.daily": "het ophalen van de dagelijkse beloning",
+  "coins.context.quiz": "het beantwoorden van quizvragen",
+  "coins.context.challenge": "het voltooien van een uitdaging",
+  "coins.context.streak": "het behouden van een reeks",
   "language.picker.label": "Taalkiezer",
   "language.change": "Wijzig websitetaal",
   "language.select.label": "Selecteer uw voorkeurstaal",

@@ -337,6 +337,26 @@ export default {
   "error.default": "Ocorreu um erro",
   "error.close": "Fechar mensagem de erro",
   "coins.collected": "Moedas Coletadas",
+  "coins.tooltip.authenticated":
+    "Seu saldo de moedas. O progresso é salvo automaticamente na sua conta.",
+  "coins.tooltip.guest": "Seu saldo atual de moedas para esta sessão.",
+  "coins.announce.earned_excellent":
+    "Excelente! Ganhou {difference} moedas em {context}! Novo total: {newCount} moedas.",
+  "coins.announce.earned_great":
+    "Ótimo trabalho! Ganhou {difference} moeda{plural} em {context}. Total: {newCount} moedas.",
+  "coins.announce.earned_normal":
+    "Ganhou {difference} moeda{plural} em {context}. Total: {newCount} moedas.",
+  "coins.announce.progress_saved": " Progresso salvo na sua conta.",
+  "coins.announce.lost": "Perdeu {lost} moeda{plural} em {context}. Restantes: {newCount} moedas.",
+  "coins.announce.updated": "Moedas atualizadas em {context}. Total atual: {newCount} moedas.",
+  "coins.context.game": "jogando",
+  "coins.context.shop": "fazendo uma compra",
+  "coins.context.achievement": "conquistando uma conquista",
+  "coins.context.bonus": "recebendo um bônus",
+  "coins.context.daily": "coletando a recompensa diária",
+  "coins.context.quiz": "respondendo perguntas do quiz",
+  "coins.context.challenge": "completando um desafio",
+  "coins.context.streak": "mantendo uma sequência",
   "language.picker.label": "Seletor de Idioma",
   "language.change": "Mudar idioma do site",
   "language.select.label": "Selecione seu idioma preferido",

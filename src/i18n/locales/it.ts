@@ -757,4 +757,25 @@ export default {
   "error.context.medium": "Messaggio di errore che richiede attenzione dell'utente",
   "error.context.high": "Errore ad alta priorità che richiede attenzione immediata",
   "error.context.critical": "Errore critico che richiede azione immediata",
+  "coins.collected": "Monete raccolte",
+  "coins.tooltip.authenticated":
+    "Il tuo saldo di monete. I progressi vengono salvati automaticamente nel tuo account.",
+  "coins.tooltip.guest": "Il tuo saldo attuale di monete per questa sessione.",
+  "coins.announce.earned_excellent":
+    "Eccellente! Guadagnate {difference} monete in {context}! Nuovo totale: {newCount} monete.",
+  "coins.announce.earned_great":
+    "Ottimo lavoro! Guadagnat{plural} {difference} monet{plural} in {context}. Totale: {newCount} monete.",
+  "coins.announce.earned_normal":
+    "Guadagnat{plural} {difference} monet{plural} in {context}. Totale: {newCount} monete.",
+  "coins.announce.progress_saved": " Progressi salvati nel tuo account.",
+  "coins.announce.lost": "Perse {lost} monet{plural} in {context}. Rimanenti: {newCount} monete.",
+  "coins.announce.updated": "Monete aggiornate in {context}. Totale attuale: {newCount} monete.",
+  "coins.context.game": "giocando",
+  "coins.context.shop": "effettuando un acquisto",
+  "coins.context.achievement": "ottenendo un achievement",
+  "coins.context.bonus": "ricevendo un bonus",
+  "coins.context.daily": "raccogliendo la ricompensa giornaliera",
+  "coins.context.quiz": "rispondendo alle domande del quiz",
+  "coins.context.challenge": "completando una sfida",
+  "coins.context.streak": "mantenendo una serie",
 } as const;
