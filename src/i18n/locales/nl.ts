@@ -799,4 +799,13 @@ export default {
 
   // General
   "general.close": "Sluiten",
+
+  // Error messages and accessibility
+  "error.countdown": "Resterende tijd tot automatisch verbergen",
+  "error.extend": "Timeout verlengen",
+  "error.extend.tooltip": "De timeout van het foutbericht met 5 seconden verlengen",
+  "error.context.low": "Informatieve melding die aandacht vereist",
+  "error.context.medium": "Foutbericht dat gebruikersaandacht vereist",
+  "error.context.high": "Hoge prioriteit fout die onmiddellijke aandacht vereist",
+  "error.context.critical": "Kritieke fout die onmiddellijke actie vereist",
 };

@@ -815,4 +815,13 @@ export default {
 
   // General
   "general.close": "Sulje",
+
+  // Error messages and accessibility
+  "error.countdown": "Jäljellä oleva aika automaattiseen piilottamiseen",
+  "error.extend": "Pidennä aikataulua",
+  "error.extend.tooltip": "Pidennä virheviestin aikataulua 5 sekunnilla",
+  "error.context.low": "Informatiivinen ilmoitus joka vaatii huomiota",
+  "error.context.medium": "Virheviesti joka vaatii käyttäjän huomiota",
+  "error.context.high": "Korkean prioriteetin virhe joka vaatii välitöntä huomiota",
+  "error.context.critical": "Kriittinen virhe joka vaatii välitöntä toimintaa",
 };

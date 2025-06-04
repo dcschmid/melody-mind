@@ -803,4 +803,13 @@ export default {
   "session.timeout.extend": "Förläng session",
   "session.timeout.continue": "Fortsätt",
   "session.extended": "Session förlängd framgångsrikt",
+
+  // Error messages and accessibility
+  "error.countdown": "Återstående tid till automatisk dölj",
+  "error.extend": "Förläng timeout",
+  "error.extend.tooltip": "Förläng felmeddelandes timeout med 5 sekunder",
+  "error.context.low": "Informativ notis som kräver uppmärksamhet",
+  "error.context.medium": "Felmeddelande som kräver användarens uppmärksamhet",
+  "error.context.high": "Hög prioritet fel som kräver omedelbar uppmärksamhet",
+  "error.context.critical": "Kritiskt fel som kräver omedelbar åtgärd",
 };

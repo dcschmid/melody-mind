@@ -816,4 +816,13 @@ export default {
   "session.timeout.extend": "Estender sessão",
   "session.timeout.continue": "Continuar",
   "session.extended": "Sessão estendida com sucesso",
+
+  // Error messages and accessibility
+  "error.countdown": "Tempo restante até ocultação automática",
+  "error.extend": "Estender tempo limite",
+  "error.extend.tooltip": "Estender o tempo limite da mensagem de erro em 5 segundos",
+  "error.context.low": "Aviso informativo que requer atenção",
+  "error.context.medium": "Mensagem de erro que requer atenção do usuário",
+  "error.context.high": "Erro de alta prioridade que requer atenção imediata",
+  "error.context.critical": "Erro crítico que requer ação imediata",
 };
