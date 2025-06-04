@@ -797,4 +797,13 @@ export default {
     "¡Bien hecho! 👏 Como amante de la música, has demostrado un buen conocimiento. Estás en el camino correcto para convertirte en un verdadero conocedor de música. Con más práctica de juego, puedes expandir tu conocimiento y mejorar tu puntuación. ¿Listo para un nuevo desafío?",
   "game.end.motivation.explorer":
     "¡Gracias por jugar! 🙏 Como explorador musical, has dado el primer paso para descubrir el fascinante mundo de la música. Cada juego es una oportunidad para aprender algo nuevo. Desafíate a ti mismo, juega más rondas y amplía tu conocimiento musical.",
+
+  // Error messages and accessibility
+  "error.countdown": "Tiempo restante hasta ocultarse automáticamente",
+  "error.extend": "Extender tiempo de espera",
+  "error.extend.tooltip": "Extender el tiempo de espera del mensaje de error en 5 segundos",
+  "error.context.low": "Aviso informativo que requiere atención",
+  "error.context.medium": "Mensaje de error que requiere atención del usuario",
+  "error.context.high": "Error de alta prioridad que requiere atención inmediata",
+  "error.context.critical": "Error crítico que requiere acción inmediata",
 };

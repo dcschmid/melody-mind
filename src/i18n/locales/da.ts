@@ -806,4 +806,13 @@ export default {
   "session.timeout.extend": "Forlæng session",
   "session.timeout.continue": "Fortsæt",
   "session.extended": "Session forlænget succesfuldt",
+
+  // Error messages and accessibility
+  "error.countdown": "Resterende tid indtil automatisk skjul",
+  "error.extend": "Forlæng timeout",
+  "error.extend.tooltip": "Forlæng fejlmeddelelsens timeout med 5 sekunder",
+  "error.context.low": "Informativ besked der kræver opmærksomhed",
+  "error.context.medium": "Fejlmeddelelse der kræver brugerens opmærksomhed",
+  "error.context.high": "Højprioritets fejl der kræver øjeblikkelig opmærksomhed",
+  "error.context.critical": "Kritisk fejl der kræver øjeblikkelig handling",
 };

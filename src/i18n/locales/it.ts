@@ -748,4 +748,13 @@ export default {
   "session.timeout.extend": "Prolunga sessione",
   "session.timeout.continue": "Continua",
   "session.extended": "Sessione prolungata con successo",
+
+  // Error messages and accessibility
+  "error.countdown": "Tempo rimanente prima della scomparsa automatica",
+  "error.extend": "Estendi timeout",
+  "error.extend.tooltip": "Estendi il timeout del messaggio di errore di 5 secondi",
+  "error.context.low": "Avviso informativo che richiede attenzione",
+  "error.context.medium": "Messaggio di errore che richiede attenzione dell'utente",
+  "error.context.high": "Errore ad alta priorità che richiede attenzione immediata",
+  "error.context.critical": "Errore critico che richiede azione immediata",
 } as const;

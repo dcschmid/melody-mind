@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ErrorMessage Accessibility Test</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        margin: 2rem;
+        background: #1a1a2e;
+        color: #eee;
+      }
+
+      .test-controls {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+
+      button {
+        padding: 0.75rem 1.5rem;
+        background: #7c3aed;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      button:hover {
+        background: #8b5cf6;
+      }
+
+      button:focus-visible {
+        outline: 2px solid #a78bfa;
+        outline-offset: 2px;
+      }
+
+      /* Import ErrorMessage component styles */
+      :root {
+        --space-xs: 0.25rem;
+        --space-sm: 0.5rem;
+        --space-md: 1rem;
+        --space-lg: 1.5rem;
+        --space-xl: 2rem;
+        --radius-md: 0.375rem;
+        --radius-lg: 0.5rem;
+        --radius-full: 9999px;
+        --color-error-600: #dc2626;
+        --color-error-700: #b91c1c;
+        --color-error-800: #991b1b;
+        --color-warning-600: #d97706;
+        --color-success-400: #4ade80;
+        --color-warning-400: #fbbf24;
+        --color-error-400: #f87171;
+        --text-error-aaa: #ffffff;
+        --text-warning-aaa: #ffffff;
+        --border-error: #ef4444;
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        --z-notification: 9999;
+        --transition-normal: 300ms;
+        --transition-fast: 150ms;
+        --border-width-thick: 2px;
+        --border-width-thin: 1px;
+        --text-xl: 1.25rem;
+        --text-base: 1rem;
+        --text-xs: 0.75rem;
+        --font-medium: 500;
+        --leading-normal: 1.5;
+        --min-touch-size: 44px;
+        --focus-enhanced-outline-light: 2px solid rgba(255, 255, 255, 0.8);
+        --focus-ring-offset: 2px;
+        --focus-enhanced-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ErrorMessage Accessibility Test</h1>
+    <p>Test the enhanced accessibility features of the ErrorMessage component:</p>
+
+    <div class="test-controls">
+      <button onclick="testLowPriority()">Test Low Priority Error</button>
+      <button onclick="testMediumPriority()">Test Medium Priority Error</button>
+      <button onclick="testHighPriority()">Test High Priority Error</button>
+      <button onclick="testCriticalPriority()">Test Critical Priority Error</button>
+      <button onclick="testWithCountdown()">Test with Countdown</button>
+      <button onclick="testWithSound()">Test with Sound</button>
+      <button onclick="testExtendable()">Test Extendable Timeout</button>
+    </div>
+
+    <div id="container"></div>
+
+    <script>
+      // Simulate the ErrorMessage component functionality for testing
+      function createErrorMessage(options = {}) {
+        const {
+          message = "This is a test error message",
+          priority = "medium",
+          autoHideAfter = 5000,
+          showCountdown = false,
+          enableSound = false,
+          allowExtendTimeout = false,
+        } = options;
+
+        // Remove any existing error messages
+        const existing = document.querySelector(".errorMessage");
+        if (existing) {
+          existing.remove();
+        }
+
+        const errorDiv = document.createElement("div");
+        errorDiv.className = `errorMessage errorMessage--${priority}`;
+        errorDiv.setAttribute("role", "alert");
+        errorDiv.setAttribute("aria-live", "assertive");
+        errorDiv.setAttribute("data-priority", priority);
+        errorDiv.setAttribute("data-auto-hide", autoHideAfter);
+        errorDiv.setAttribute("data-enable-sound", enableSound);
+        errorDiv.setAttribute("data-show-countdown", showCountdown);
+        errorDiv.setAttribute("data-allow-extend", allowExtendTimeout);
+        errorDiv.setAttribute("data-pause-on-hover", "true");
+
+        let countdownHTML = "";
+        if (showCountdown) {
+          countdownHTML = `
+                    <div class="countdownContainer">
+                        <div class="countdownBar"></div>
+                        <span class="countdownText">${Math.ceil(autoHideAfter / 1000)}</span>
+                    </div>
+                `;
+        }
+
+        let extendButtonHTML = "";
+        if (allowExtendTimeout) {
+          extendButtonHTML = `
+                    <button class="extendButton" title="Extend timeout">⏱️</button>
+                `;
+        }
+
+        errorDiv.innerHTML = `
+                <div class="errorContent">
+                    <span class="errorIcon">⚠️</span>
+                    <div class="errorTextContainer">
+                        <p class="errorText">${message}</p>
+                        ${countdownHTML}
+                    </div>
+                    <div class="errorActions">
+                        ${extendButtonHTML}
+                        <button class="closeButton">×</button>
+                    </div>
+                </div>
+            `;
+
+        document.body.appendChild(errorDiv);
+
+        // Add basic functionality
+        const closeButton = errorDiv.querySelector(".closeButton");
+        closeButton.addEventListener("click", () => {
+          errorDiv.classList.add("hidden");
+          setTimeout(() => errorDiv.remove(), 300);
+        });
+
+        if (allowExtendTimeout) {
+          const extendButton = errorDiv.querySelector(".extendButton");
+          extendButton.addEventListener("click", () => {
+            console.log("Timeout extended!");
+            // In real implementation, this would extend the timeout
+          });
+        }
+
+        // Auto-hide functionality
+        if (autoHideAfter > 0) {
+          setTimeout(() => {
+            if (!errorDiv.classList.contains("hidden")) {
+              errorDiv.classList.add("hidden");
+              setTimeout(() => errorDiv.remove(), 300);
+            }
+          }, autoHideAfter);
+        }
+
+        // Basic sound simulation
+        if (enableSound) {
+          console.log(`Playing ${priority} priority notification sound`);
+        }
+
+        return errorDiv;
+      }
+
+      function testLowPriority() {
+        createErrorMessage({
+          message: "Low priority warning - This is just informational",
+          priority: "low",
+          autoHideAfter: 3000,
+        });
+      }
+
+      function testMediumPriority() {
+        createErrorMessage({
+          message: "Medium priority error - Something went wrong",
+          priority: "medium",
+          autoHideAfter: 5000,
+        });
+      }
+
+      function testHighPriority() {
+        createErrorMessage({
+          message: "High priority error - Action required!",
+          priority: "high",
+          autoHideAfter: 7000,
+        });
+      }
+
+      function testCriticalPriority() {
+        createErrorMessage({
+          message: "CRITICAL ERROR - Immediate attention needed!",
+          priority: "critical",
+          autoHideAfter: 10000,
+        });
+      }
+
+      function testWithCountdown() {
+        createErrorMessage({
+          message: "Error with visual countdown",
+          priority: "medium",
+          autoHideAfter: 8000,
+          showCountdown: true,
+        });
+      }
+
+      function testWithSound() {
+        createErrorMessage({
+          message: "Error with sound notification",
+          priority: "high",
+          autoHideAfter: 5000,
+          enableSound: true,
+        });
+      }
+
+      function testExtendable() {
+        createErrorMessage({
+          message: "Error with extendable timeout - hover to pause",
+          priority: "medium",
+          autoHideAfter: 6000,
+          allowExtendTimeout: true,
+          showCountdown: true,
+        });
+      }
+
+      // Add keyboard support for testing
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          const errorMessage = document.querySelector(".errorMessage:not(.hidden)");
+          if (errorMessage) {
+            errorMessage.classList.add("hidden");
+            setTimeout(() => errorMessage.remove(), 300);
+          }
+        }
+      });
+
+      console.log(
+        "ErrorMessage Accessibility Test loaded. Use the buttons to test different scenarios."
+      );
+      console.log("Press Escape to close any visible error message.");
+    </script>
+
+    <!-- Include the actual component styles -->
+    <style>
+      .errorMessage {
+        position: fixed;
+        top: 1.5rem;
+        left: 50%;
+        z-index: 9999;
+        transform: translate(-50%, 0);
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        max-width: calc(100% - 2rem);
+        padding: 1rem;
+        background-color: var(--color-error-600);
+        color: var(--text-error-aaa);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-xl);
+        border: var(--border-width-thick) solid var(--border-error);
+        transition:
+          opacity var(--transition-normal),
+          transform var(--transition-normal);
+      }
+
+      .errorMessage--low {
+        background-color: var(--color-warning-600);
+        color: var(--text-warning-aaa);
+      }
+
+      .errorMessage--high {
+        background-color: var(--color-error-700);
+        animation: pulse-high 2s infinite;
+      }
+
+      .errorMessage--critical {
+        background-color: var(--color-error-800);
+        animation: pulse-critical 1s infinite;
+        box-shadow:
+          var(--shadow-xl),
+          0 0 20px var(--color-error-500);
+      }
+
+      @keyframes pulse-high {
+        0%,
+        100% {
+          opacity: 1;
+          transform: translate(-50%, 0) scale(1);
+        }
+        50% {
+          opacity: 0.9;
+          transform: translate(-50%, 0) scale(1.02);
+        }
+      }
+
+      @keyframes pulse-critical {
+        0%,
+        100% {
+          opacity: 1;
+          transform: translate(-50%, 0) scale(1);
+        }
+        50% {
+          opacity: 0.95;
+          transform: translate(-50%, 0) scale(1.05);
+        }
+      }
+
+      .errorMessage.hidden {
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%, -2rem);
+      }
+
+      .errorContent {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-sm);
+      }
+
+      .errorIcon {
+        font-size: var(--text-xl);
+        flex-shrink: 0;
+        margin-top: var(--space-xs);
+      }
+
+      .errorTextContainer {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .errorText {
+        margin: 0;
+        font-weight: var(--font-medium);
+        font-size: var(--text-base);
+        line-height: var(--leading-normal);
+      }
+
+      .errorActions {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-xs);
+        margin-top: var(--space-xs);
+      }
+
+      .countdownContainer {
+        margin-top: var(--space-sm);
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+      }
+
+      .countdownBar {
+        flex: 1;
+        height: var(--space-xs);
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: var(--radius-full);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .countdownBar::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          var(--color-success-400) 0%,
+          var(--color-warning-400) 50%,
+          var(--color-error-400) 100%
+        );
+        width: 100%;
+        transform-origin: left;
+        animation: countdown-progress 8s linear forwards;
+      }
+
+      @keyframes countdown-progress {
+        from {
+          transform: scaleX(1);
+        }
+        to {
+          transform: scaleX(0);
+        }
+      }
+
+      .countdownText {
+        font-size: var(--text-xs);
+        font-weight: var(--font-medium);
+        min-width: 2ch;
+        text-align: right;
+      }
+
+      .extendButton,
+      .closeButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: var(--min-touch-size);
+        min-width: var(--min-touch-size);
+        padding: var(--space-xs);
+        background: transparent;
+        border: var(--border-width-thin) solid rgba(255, 255, 255, 0.3);
+        border-radius: var(--radius-md);
+        color: var(--text-error-aaa);
+        font-size: var(--text-base);
+        cursor: pointer;
+        opacity: 0.8;
+        transition:
+          opacity var(--transition-fast),
+          border-color var(--transition-fast);
+      }
+
+      .closeButton {
+        border-radius: var(--radius-full);
+        font-size: var(--text-xl);
+      }
+
+      .extendButton:hover,
+      .closeButton:hover,
+      .extendButton:focus,
+      .closeButton:focus {
+        opacity: 1;
+        border-color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .extendButton:focus-visible,
+      .closeButton:focus-visible {
+        outline: var(--focus-enhanced-outline-light);
+        outline-offset: var(--focus-ring-offset);
+      }
+    </style>
+  </body>
+</html>

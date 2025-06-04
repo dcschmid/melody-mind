@@ -838,4 +838,13 @@ export default {
 
   // General
   "general.close": "Fermer",
+
+  // Error messages and accessibility
+  "error.countdown": "Temps restant avant masquage automatique",
+  "error.extend": "Prolonger le délai",
+  "error.extend.tooltip": "Prolonger le délai du message d'erreur de 5 secondes",
+  "error.context.low": "Avis informatif nécessitant une attention",
+  "error.context.medium": "Message d'erreur nécessitant l'attention de l'utilisateur",
+  "error.context.high": "Erreur prioritaire nécessitant une attention immédiate",
+  "error.context.critical": "Erreur critique nécessitant une action immédiate",
 };

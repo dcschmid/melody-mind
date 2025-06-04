@@ -270,14 +270,69 @@
   /* Animation System - Consistent animation values across components */
   --animation-scale-start: 0.95; /* Animation starting scale */
   --animation-scale-end: 1; /* Animation ending scale */
+  --animation-scale-default: 1; /* Default scale value for animations */
   --animation-glow-size: 15px; /* Glow animation size */
   --animation-opacity-start: 0.7; /* Animation starting opacity */
   --animation-opacity-end: 0; /* Animation ending opacity */
+  --animation-opacity-full: 1; /* Full opacity for visible states */
   --animation-y-offset: 10px; /* Standard Y translation offset */
   --animation-y-offset-small: -1px; /* Small upward movement */
   --animation-scale-hover: 0.98; /* Scale for hover effects */
   --animation-pulse-duration: 2s; /* Standard pulse animation duration */
   --animation-shimmer-duration: 2s; /* Shimmer effect duration */
+
+  /* ======================================
+   * AUDIO SYSTEM
+   * ====================================== */
+
+  /* Audio Configuration Variables for ErrorMessage Component */
+  --audio-frequency-low: 400; /* Low priority error frequency (Hz) */
+  --audio-frequency-medium: 600; /* Medium priority error frequency (Hz) */
+  --audio-frequency-high: 800; /* High priority error frequency (Hz) */
+  --audio-frequency-critical: 1000; /* Critical priority error frequency (Hz) */
+
+  --audio-duration-low: 0.1; /* Low priority sound duration (seconds) */
+  --audio-duration-medium: 0.2; /* Medium priority sound duration (seconds) */
+  --audio-duration-high: 0.3; /* High priority sound duration (seconds) */
+  --audio-duration-critical: 0.5; /* Critical priority sound duration (seconds) */
+
+  --audio-volume-low: 0.1; /* Low priority sound volume (0-1) */
+  --audio-volume-medium: 0.15; /* Medium priority sound volume (0-1) */
+  --audio-volume-high: 0.2; /* High priority sound volume (0-1) */
+  --audio-volume-critical: 0.3; /* Critical priority sound volume (0-1) */
+
+  /* Screen Reader and Accessibility Utilities */
+  --sr-only-width: 1px; /* Standard screen reader only width */
+  --sr-only-height: 1px; /* Standard screen reader only height */
+  --sr-only-margin: -1px; /* Standard screen reader only margin */
+
+  /* Announcement Timings */
+  --announcement-delay: 50ms; /* Delay before screen reader announcement */
+  --announcement-cleanup: 3000ms; /* Time before cleanup of announcement elements */
+
+  /* Audio Context Values */
+  --audio-fade-in-time: 0.01; /* Audio fade in time (seconds) */
+  --audio-fade-out-factor: 0.001; /* Audio fade out factor for exponential ramp */
+
+  /* ======================================
+   * TIMING CONSTANTS
+   * ====================================== */
+
+  /* Error Message Timing */
+  --error-auto-hide-duration: 5000ms; /* Default auto-hide timeout */
+  --error-extension-duration: 5000ms; /* Timeout extension duration */
+  --error-countdown-update-interval: 100ms; /* Countdown update frequency */
+
+  /* General Timeout Values */
+  --timeout-short: 1000ms; /* Short timeout operations */
+  --timeout-medium: 3000ms; /* Medium timeout operations */
+  --timeout-long: 5000ms; /* Long timeout operations */
+  --timeout-extended: 10000ms; /* Extended timeout operations */
+
+  /* Update Intervals */
+  --update-interval-fast: 50ms; /* Fast update frequency */
+  --update-interval-medium: 100ms; /* Medium update frequency */
+  --update-interval-slow: 500ms; /* Slow update frequency */
 
   /* ======================================
    * TYPOGRAPHY SYSTEM
