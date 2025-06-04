@@ -841,4 +841,30 @@ export default {
 
   // Achievements section in EndOverlay
   "achievements.unlocked": "Achievements Unlocked",
+
+  // AudioPlayer Component
+  "audioplayer.aria.region": "Audio player",
+  "audioplayer.play.aria": "Play audio",
+  "audioplayer.play.title": "Play/Pause",
+  "audioplayer.progress.aria":
+    "Audio progress - Use arrow keys to seek, Home for beginning, End for finish",
+  "audioplayer.progress.help":
+    "Arrow Left/Right: Seek 5 seconds, Shift+Arrow: Seek 30 seconds, Home: Beginning, End: Finish",
+  "audioplayer.volume.toggle.aria": "Toggle mute/unmute",
+  "audioplayer.volume.toggle.title": "Volume",
+  "audioplayer.volume.slider.aria": "Adjust volume level",
+  "audioplayer.volume.slider.help":
+    "Use arrow keys to adjust volume in 5% increments. Current volume: {volume}%",
+  "audioplayer.captions.english": "English captions",
+  "audioplayer.captions.none": "No captions available",
+  "audioplayer.fallback.download": "Download audio file instead",
+  "audioplayer.fallback.unsupported": "Your browser does not support the audio element.",
+  "audioplayer.description":
+    "Audio player for {title} {artist}. Use space bar to play or pause, arrow keys to seek, and M to mute.",
+  "audioplayer.description.no_title":
+    "Audio player for track. Use space bar to play or pause, arrow keys to seek, and M to mute.",
+  "audioplayer.help.button.aria": "Help",
+  "audioplayer.help.button.title": "Audio player keyboard shortcuts",
+  "audioplayer.help.shortcuts":
+    "Space: Play/Pause, M: Mute/Unmute, Arrow keys: Seek audio, Up/Down: Volume control",
 };

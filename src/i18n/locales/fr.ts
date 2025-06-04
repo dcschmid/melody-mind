@@ -867,4 +867,30 @@ export default {
   "error.context.medium": "Message d'erreur nécessitant l'attention de l'utilisateur",
   "error.context.high": "Erreur prioritaire nécessitant une attention immédiate",
   "error.context.critical": "Erreur critique nécessitant une action immédiate",
+
+  // AudioPlayer Component
+  "audioplayer.aria.region": "Lecteur audio",
+  "audioplayer.play.aria": "Lire l'audio",
+  "audioplayer.play.title": "Lecture/Pause",
+  "audioplayer.progress.aria":
+    "Progression audio - Utilisez les touches fléchées pour naviguer, Début pour le début, Fin pour la fin",
+  "audioplayer.progress.help":
+    "Flèche Gauche/Droite : Naviguer 5 secondes, Shift+Flèche : Naviguer 30 secondes, Début : Commencement, Fin : Fin",
+  "audioplayer.volume.toggle.aria": "Activer/désactiver le son",
+  "audioplayer.volume.toggle.title": "Volume",
+  "audioplayer.volume.slider.aria": "Ajuster le niveau de volume",
+  "audioplayer.volume.slider.help":
+    "Utilisez les touches fléchées pour ajuster le volume par incréments de 5%. Volume actuel : {volume}%",
+  "audioplayer.captions.english": "Sous-titres français",
+  "audioplayer.captions.none": "Aucun sous-titre disponible",
+  "audioplayer.fallback.download": "Télécharger le fichier audio à la place",
+  "audioplayer.fallback.unsupported": "Votre navigateur ne supporte pas l'élément audio.",
+  "audioplayer.description":
+    "Lecteur audio pour {title} {artist}. Utilisez la barre d'espace pour lire ou mettre en pause, les touches fléchées pour naviguer et M pour couper le son.",
+  "audioplayer.description.no_title":
+    "Lecteur audio pour la piste. Utilisez la barre d'espace pour lire ou mettre en pause, les touches fléchées pour naviguer et M pour couper le son.",
+  "audioplayer.help.button.aria": "Aide",
+  "audioplayer.help.button.title": "Raccourcis clavier du lecteur audio",
+  "audioplayer.help.shortcuts":
+    "Espace : Lecture/Pause, M : Muet/Réactiver, Touches fléchées : Naviguer audio, Haut/Bas : Contrôle du volume",
 };

@@ -779,4 +779,30 @@ export default {
   "coins.context.quiz": "rispondendo alle domande del quiz",
   "coins.context.challenge": "completando una sfida",
   "coins.context.streak": "mantenendo una serie",
+
+  // AudioPlayer Component
+  "audioplayer.aria.region": "Lettore audio",
+  "audioplayer.play.aria": "Riproduci audio",
+  "audioplayer.play.title": "Riproduci/Pausa",
+  "audioplayer.progress.aria":
+    "Progresso audio - Usa i tasti freccia per cercare, Home per l'inizio, Fine per la fine",
+  "audioplayer.progress.help":
+    "Freccia Sinistra/Destra: Cerca 5 secondi, Shift+Freccia: Cerca 30 secondi, Home: Inizio, Fine: Fine",
+  "audioplayer.volume.toggle.aria": "Attiva/disattiva muto",
+  "audioplayer.volume.toggle.title": "Volume",
+  "audioplayer.volume.slider.aria": "Regola livello volume",
+  "audioplayer.volume.slider.help":
+    "Usa i tasti freccia per regolare il volume con incrementi del 5%. Volume attuale: {volume}%",
+  "audioplayer.captions.english": "Sottotitoli italiani",
+  "audioplayer.captions.none": "Nessun sottotitolo disponibile",
+  "audioplayer.fallback.download": "Scarica il file audio invece",
+  "audioplayer.fallback.unsupported": "Il tuo browser non supporta l'elemento audio.",
+  "audioplayer.description":
+    "Lettore audio per {title} {artist}. Usa la barra spaziatrice per riprodurre o mettere in pausa, i tasti freccia per cercare e M per silenziare.",
+  "audioplayer.description.no_title":
+    "Lettore audio per traccia. Usa la barra spaziatrice per riprodurre o mettere in pausa, i tasti freccia per cercare e M per silenziare.",
+  "audioplayer.help.button.aria": "Aiuto",
+  "audioplayer.help.button.title": "Scorciatoie da tastiera del lettore audio",
+  "audioplayer.help.shortcuts":
+    "Spazio: Riproduci/Pausa, M: Muto/Attiva audio, Tasti freccia: Cerca audio, Su/Giù: Controllo volume",
 } as const;

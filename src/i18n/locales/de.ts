@@ -884,4 +884,30 @@ export default {
 
   // Achievements section in EndOverlay
   "achievements.unlocked": "Errungenschaften freigeschaltet",
+
+  // AudioPlayer Component
+  "audioplayer.aria.region": "Audio-Player",
+  "audioplayer.play.aria": "Audio abspielen",
+  "audioplayer.play.title": "Wiedergabe/Pause",
+  "audioplayer.progress.aria":
+    "Audio-Fortschritt - Verwende Pfeiltasten zum Springen, Pos1 für Anfang, Ende für Schluss",
+  "audioplayer.progress.help":
+    "Pfeil Links/Rechts: 5 Sekunden springen, Umschalt+Pfeil: 30 Sekunden springen, Pos1: Anfang, Ende: Schluss",
+  "audioplayer.volume.toggle.aria": "Stummschalten ein/aus",
+  "audioplayer.volume.toggle.title": "Lautstärke",
+  "audioplayer.volume.slider.aria": "Lautstärke anpassen",
+  "audioplayer.volume.slider.help":
+    "Verwende Pfeiltasten um die Lautstärke in 5%-Schritten anzupassen. Aktuelle Lautstärke: {volume}%",
+  "audioplayer.captions.english": "Deutsche Untertitel",
+  "audioplayer.captions.none": "Keine Untertitel verfügbar",
+  "audioplayer.fallback.download": "Audio-Datei stattdessen herunterladen",
+  "audioplayer.fallback.unsupported": "Ihr Browser unterstützt das Audio-Element nicht.",
+  "audioplayer.description":
+    "Audio-Player für {title} {artist}. Verwende Leertaste zum Abspielen oder Pausieren, Pfeiltasten zum Springen und M zum Stummschalten.",
+  "audioplayer.description.no_title":
+    "Audio-Player für Titel. Verwende Leertaste zum Abspielen oder Pausieren, Pfeiltasten zum Springen und M zum Stummschalten.",
+  "audioplayer.help.button.aria": "Hilfe",
+  "audioplayer.help.button.title": "Audio-Player Tastenkürzel",
+  "audioplayer.help.shortcuts":
+    "Leertaste: Wiedergabe/Pause, M: Stumm/Laut, Pfeiltasten: Audio springen, Hoch/Runter: Lautstärke",
 };

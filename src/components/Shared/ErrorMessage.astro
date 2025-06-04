@@ -143,10 +143,10 @@ const contextText = errorContext || t(`error.context.${priority}`);
     z-index: var(--z-notification);
     transform: translate(-50%, 0) translateZ(0);
 
-    /* Visibility states */
-    visibility: hidden;
-    opacity: var(--animation-opacity-end);
-    pointer-events: none;
+    /* Visibility states - SHOWN by default */
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
 
     /* Layout with responsive constraints */
     max-width: calc(100% - var(--space-xl));
@@ -1179,4 +1179,274 @@ const contextText = errorContext || t(`error.context.${priority}`);
 
     return errorMessage;
   };
+
+  /**
+   * ErrorMessage Component JavaScript
+   * Implements auto-hide functionality, user interactions, and accessibility features
+   */
+
+  // Find all error message elements on the current page
+  const errorMessages = document.querySelectorAll(".errorMessage");
+
+  errorMessages.forEach((errorElement) => {
+    // Get configuration from data attributes
+    const autoHideAfter = parseInt(errorElement.dataset.autoHide || "5000");
+    const animationDuration = parseInt(errorElement.dataset.animationDuration || "300");
+    const priority = errorElement.dataset.priority || "medium";
+    const pauseOnHover = errorElement.dataset.pauseOnHover === "true";
+    const allowExtendTimeout = errorElement.dataset.allowExtendTimeout === "true";
+    const enableSound = errorElement.dataset.enableSound === "true";
+    const soundType = errorElement.dataset.soundType || "alert";
+    const showCountdown = errorElement.dataset.showCountdown === "true";
+
+    // Initialize state
+    let autoHideTimer = null;
+    let countdownTimer = null;
+    let isHovered = false;
+    let isFocused = false;
+    let remainingTime = autoHideAfter;
+
+    // Get DOM elements
+    const closeButton = errorElement.querySelector(".closeButton");
+    const extendButton = errorElement.querySelector(".extendButton");
+    const countdownText = errorElement.querySelector(".countdownText");
+    const countdownBar = errorElement.querySelector(".countdownBar");
+
+    /**
+     * Show the error message with animation
+     */
+    function showError() {
+      errorElement.classList.remove("hidden");
+
+      // Play sound if enabled
+      if (enableSound) {
+        playErrorSound(soundType);
+      }
+
+      // Start auto-hide timer
+      if (autoHideAfter > 0) {
+        startAutoHideTimer();
+      }
+
+      // Start countdown if enabled
+      if (showCountdown && countdownText) {
+        startCountdown();
+      }
+    }
+
+    /**
+     * Hide the error message with animation
+     */
+    function hideError() {
+      errorElement.classList.add("hidden");
+      clearTimers();
+
+      // Remove from DOM after animation completes
+      setTimeout(() => {
+        if (errorElement.parentNode) {
+          errorElement.parentNode.removeChild(errorElement);
+        }
+      }, animationDuration);
+    }
+
+    /**
+     * Start the auto-hide timer
+     */
+    function startAutoHideTimer() {
+      clearTimers();
+
+      if (autoHideAfter > 0 && !isHovered && !isFocused) {
+        autoHideTimer = setTimeout(() => {
+          hideError();
+        }, remainingTime);
+      }
+    }
+
+    /**
+     * Start countdown display
+     */
+    function startCountdown() {
+      if (!showCountdown || !countdownText) {
+        return;
+      }
+
+      const startTime = Date.now();
+
+      countdownTimer = setInterval(() => {
+        const elapsed = Date.now() - startTime;
+        const remaining = Math.max(0, autoHideAfter - elapsed);
+        const seconds = Math.ceil(remaining / 1000);
+
+        if (countdownText) {
+          countdownText.textContent = `${seconds}s`;
+        }
+
+        if (remaining <= 0) {
+          clearInterval(countdownTimer);
+          countdownTimer = null;
+        }
+      }, 100);
+    }
+
+    /**
+     * Clear all timers
+     */
+    function clearTimers() {
+      if (autoHideTimer) {
+        clearTimeout(autoHideTimer);
+        autoHideTimer = null;
+      }
+      if (countdownTimer) {
+        clearInterval(countdownTimer);
+        countdownTimer = null;
+      }
+    }
+
+    /**
+     * Extend timeout when requested
+     */
+    function extendTimeout() {
+      remainingTime = autoHideAfter; // Reset to full duration
+      startAutoHideTimer();
+
+      if (showCountdown) {
+        startCountdown();
+      }
+    }
+
+    /**
+     * Play error sound based on type
+     */
+    function playErrorSound(type) {
+      try {
+        // Create audio context for sound playback
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+
+        // Configure sound based on type
+        switch (type) {
+          case "beep":
+            oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 0.1);
+            break;
+          case "alert":
+            oscillator.frequency.setValueAtTime(600, audioContext.currentTime);
+            gainNode.gain.setValueAtTime(0.05, audioContext.currentTime);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 0.2);
+            break;
+          default:
+            // Custom sound implementation can be added here
+            break;
+        }
+      } catch (error) {
+        console.warn("Error playing sound:", error);
+      }
+    }
+
+    // Event Listeners
+
+    // Close button functionality
+    if (closeButton) {
+      closeButton.addEventListener("click", () => {
+        hideError();
+      });
+    }
+
+    // Extend button functionality
+    if (extendButton && allowExtendTimeout) {
+      extendButton.addEventListener("click", () => {
+        extendTimeout();
+      });
+    }
+
+    // Pause on hover functionality
+    if (pauseOnHover) {
+      errorElement.addEventListener("mouseenter", () => {
+        isHovered = true;
+        clearTimers();
+      });
+
+      errorElement.addEventListener("mouseleave", () => {
+        isHovered = false;
+        startAutoHideTimer();
+      });
+    }
+
+    // Pause on focus functionality
+    errorElement.addEventListener("focusin", () => {
+      isFocused = true;
+      clearTimers();
+    });
+
+    errorElement.addEventListener("focusout", () => {
+      isFocused = false;
+      startAutoHideTimer();
+    });
+
+    // Keyboard accessibility - Escape key
+    errorElement.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        hideError();
+      }
+    });
+
+    // Make error message focusable for keyboard users
+    if (!errorElement.hasAttribute("tabindex")) {
+      errorElement.setAttribute("tabindex", "-1");
+    }
+
+    // Focus the error message for screen readers
+    setTimeout(() => {
+      errorElement.focus();
+    }, 100);
+
+    // Initialize by showing the error
+    showError();
+  });
+
+  // Simplified initialization for basic functionality
+  document.addEventListener("DOMContentLoaded", () => {
+    const simpleErrorMessages = document.querySelectorAll(".errorMessage:not([data-initialized])");
+
+    simpleErrorMessages.forEach((element) => {
+      const htmlElement = element as HTMLElement;
+      const autoHideAfter = parseInt(htmlElement.dataset.autoHide || "5000");
+      const closeButton = htmlElement.querySelector(".closeButton") as HTMLButtonElement;
+
+      // Mark as initialized
+      htmlElement.dataset.initialized = "true";
+
+      // Simple close functionality
+      if (closeButton) {
+        closeButton.addEventListener("click", () => {
+          htmlElement.style.display = "none";
+        });
+      }
+
+      // Simple auto-hide
+      if (autoHideAfter > 0) {
+        setTimeout(() => {
+          htmlElement.style.opacity = "0";
+          setTimeout(() => {
+            htmlElement.style.display = "none";
+          }, 300);
+        }, autoHideAfter);
+      }
+
+      // Escape key support
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && htmlElement.style.display !== "none") {
+          htmlElement.style.display = "none";
+        }
+      });
+    });
+  });
 </script>

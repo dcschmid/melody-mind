@@ -831,4 +831,30 @@ export default {
   "error.context.medium": "Foutbericht dat gebruikersaandacht vereist",
   "error.context.high": "Hoge prioriteit fout die onmiddellijke aandacht vereist",
   "error.context.critical": "Kritieke fout die onmiddellijke actie vereist",
+
+  // AudioPlayer Component
+  "audioplayer.aria.region": "Audiospeler",
+  "audioplayer.play.aria": "Audio afspelen",
+  "audioplayer.play.title": "Afspelen/Pauzeren",
+  "audioplayer.progress.aria":
+    "Audio voortgang - Gebruik pijltoetsen om te zoeken, Home voor begin, End voor einde",
+  "audioplayer.progress.help":
+    "Pijl Links/Rechts: 5 seconden zoeken, Shift+Pijl: 30 seconden zoeken, Home: Begin, End: Einde",
+  "audioplayer.volume.toggle.aria": "Dempen aan/uit",
+  "audioplayer.volume.toggle.title": "Volume",
+  "audioplayer.volume.slider.aria": "Volumeniveau aanpassen",
+  "audioplayer.volume.slider.help":
+    "Gebruik pijltoetsen om volume aan te passen in stappen van 5%. Huidig volume: {volume}%",
+  "audioplayer.captions.english": "Nederlandse ondertitels",
+  "audioplayer.captions.none": "Geen ondertitels beschikbaar",
+  "audioplayer.fallback.download": "Audiobestand downloaden in plaats daarvan",
+  "audioplayer.fallback.unsupported": "Uw browser ondersteunt het audio-element niet.",
+  "audioplayer.description":
+    "Audiospeler voor {title} {artist}. Gebruik spatiebalk om af te spelen of te pauzeren, pijltoetsen om te zoeken en M om te dempen.",
+  "audioplayer.description.no_title":
+    "Audiospeler voor track. Gebruik spatiebalk om af te spelen of te pauzeren, pijltoetsen om te zoeken en M om te dempen.",
+  "audioplayer.help.button.aria": "Help",
+  "audioplayer.help.button.title": "Audiospeler sneltoetsen",
+  "audioplayer.help.shortcuts":
+    "Spatie: Afspelen/Pauzeren, M: Dempen/Geluid aan, Pijltoetsen: Audio zoeken, Omhoog/Omlaag: Volume controle",
 };

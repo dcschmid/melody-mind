@@ -836,4 +836,30 @@ export default {
   "error.context.medium": "Fejlmeddelelse der kræver brugerens opmærksomhed",
   "error.context.high": "Højprioritets fejl der kræver øjeblikkelig opmærksomhed",
   "error.context.critical": "Kritisk fejl der kræver øjeblikkelig handling",
+
+  // AudioPlayer Component
+  "audioplayer.aria.region": "Lydafspiller",
+  "audioplayer.play.aria": "Afspil lyd",
+  "audioplayer.play.title": "Afspil/Pause",
+  "audioplayer.progress.aria":
+    "Lydfremdrift - Brug piletaster til at søge, Home for begyndelse, End for slut",
+  "audioplayer.progress.help":
+    "Pil venstre/højre: Søg 5 sekunder, Shift+pil: Søg 30 sekunder, Home: Begyndelse, End: Slut",
+  "audioplayer.volume.toggle.aria": "Slå lydløs til/fra",
+  "audioplayer.volume.toggle.title": "Lydstyrke",
+  "audioplayer.volume.slider.aria": "Juster lydstyrkeniveau",
+  "audioplayer.volume.slider.help":
+    "Brug piletaster til at justere lydstyrke i 5% trin. Nuværende lydstyrke: {volume}%",
+  "audioplayer.captions.english": "Danske undertekster",
+  "audioplayer.captions.none": "Ingen undertekster tilgængelige",
+  "audioplayer.fallback.download": "Download lydfil i stedet",
+  "audioplayer.fallback.unsupported": "Din browser understøtter ikke lydfeltet.",
+  "audioplayer.description":
+    "Lydafspiller til {title} {artist}. Brug mellemrumstasten til at afspille eller pause, piletaster til at søge og M til at slå lydløs.",
+  "audioplayer.description.no_title":
+    "Lydafspiller til track. Brug mellemrumstasten til at afspille eller pause, piletaster til at søge og M til at slå lydløs.",
+  "audioplayer.help.button.aria": "Hjælp",
+  "audioplayer.help.button.title": "Lydafspiller tastaturgenveje",
+  "audioplayer.help.shortcuts":
+    "Mellemrum: Afspil/Pause, M: Lydløs/Aktivér lyd, Piletaster: Søg lyd, Op/Ned: Lydstyrke kontrol",
 };

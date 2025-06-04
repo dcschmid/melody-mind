@@ -827,4 +827,30 @@ export default {
   "error.context.medium": "Mensaje de error que requiere atención del usuario",
   "error.context.high": "Error de alta prioridad que requiere atención inmediata",
   "error.context.critical": "Error crítico que requiere acción inmediata",
+
+  // AudioPlayer Component
+  "audioplayer.aria.region": "Reproductor de audio",
+  "audioplayer.play.aria": "Reproducir audio",
+  "audioplayer.play.title": "Reproducir/Pausar",
+  "audioplayer.progress.aria":
+    "Progreso del audio - Usa las teclas de flecha para buscar, Inicio para el principio, Fin para el final",
+  "audioplayer.progress.help":
+    "Flecha Izquierda/Derecha: Buscar 5 segundos, Shift+Flecha: Buscar 30 segundos, Inicio: Principio, Fin: Final",
+  "audioplayer.volume.toggle.aria": "Activar/desactivar silencio",
+  "audioplayer.volume.toggle.title": "Volumen",
+  "audioplayer.volume.slider.aria": "Ajustar nivel de volumen",
+  "audioplayer.volume.slider.help":
+    "Usa las teclas de flecha para ajustar el volumen en incrementos del 5%. Volumen actual: {volume}%",
+  "audioplayer.captions.english": "Subtítulos en español",
+  "audioplayer.captions.none": "No hay subtítulos disponibles",
+  "audioplayer.fallback.download": "Descargar archivo de audio en su lugar",
+  "audioplayer.fallback.unsupported": "Su navegador no soporta el elemento de audio.",
+  "audioplayer.description":
+    "Reproductor de audio para {title} {artist}. Usa la barra espaciadora para reproducir o pausar, teclas de flecha para buscar y M para silenciar.",
+  "audioplayer.description.no_title":
+    "Reproductor de audio para pista. Usa la barra espaciadora para reproducir o pausar, teclas de flecha para buscar y M para silenciar.",
+  "audioplayer.help.button.aria": "Ayuda",
+  "audioplayer.help.button.title": "Atajos de teclado del reproductor de audio",
+  "audioplayer.help.shortcuts":
+    "Espacio: Reproducir/Pausar, M: Silenciar/Activar sonido, Teclas de flecha: Buscar audio, Arriba/Abajo: Control de volumen",
 };
