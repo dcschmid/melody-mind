@@ -335,14 +335,10 @@
   --sr-only-width: 1px; /* Standard screen reader only width */
   --sr-only-height: 1px; /* Standard screen reader only height */
   --sr-only-margin: -1px; /* Standard screen reader only margin */
+  --sr-only-clip-path: inset(50%); /* Screen reader only clip-path value */
 
-  /* Announcement Timings */
-  --announcement-delay: 50ms; /* Delay before screen reader announcement */
-  --announcement-cleanup: 3000ms; /* Time before cleanup of announcement elements */
-
-  /* Audio Context Values */
-  --audio-fade-in-time: 0.01; /* Audio fade in time (seconds) */
-  --audio-fade-out-factor: 0.001; /* Audio fade out factor for exponential ramp */
+  /* Layout Percentage Values */
+  --width-full: 100%; /* Full width value for max-width declarations */
 
   /* ======================================
    * TIMING CONSTANTS

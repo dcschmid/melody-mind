@@ -295,6 +295,15 @@ export default {
   "game.feedback.listen.spotify": "Écouter sur Spotify",
   "game.feedback.listen.deezer": "Écouter sur Deezer",
   "game.feedback.listen.apple": "Écouter sur Apple Music",
+
+  // Music Platforms Component - Accessibility Features
+  "musicPlatforms.heading": "Écouter de la musique associée",
+  "musicPlatforms.keyboardInstructions":
+    "Naviguez dans les plateformes musicales avec la touche Tab. Appuyez sur Entrée ou Espace pour ouvrir les plateformes dans de nouveaux onglets.",
+  "musicPlatforms.externalNotice":
+    "Les liens vers les plateformes musicales externes peuvent nécessiter des comptes ou des abonnements pour un accès complet.",
+  "musicPlatforms.listenOn":
+    "Écouter {title} sur {platform} - Ouvre la plateforme musicale {platform} dans un nouvel onglet. Peut nécessiter un compte ou un abonnement {platform}.",
   "game.feedback.next.round": "Manche suivante",
   "game.feedback.next.starting": "Démarrage de la manche suivante",
   "game.current.round": "Manche",

@@ -275,6 +275,15 @@ export default {
   "game.feedback.listen.spotify": "Luister op Spotify",
   "game.feedback.listen.deezer": "Luister op Deezer",
   "game.feedback.listen.apple": "Luister op Apple Music",
+
+  // Music Platforms Component - Accessibility Features
+  "musicPlatforms.heading": "Luister naar gerelateerde muziek",
+  "musicPlatforms.keyboardInstructions":
+    "Navigeer door muziekplatforms met de Tab-toets. Druk op Enter of Spatie om platforms in nieuwe tabbladen te openen.",
+  "musicPlatforms.externalNotice":
+    "Externe muziekplatformlinks kunnen accounts of abonnementen vereisen voor volledige toegang.",
+  "musicPlatforms.listenOn":
+    "Luister naar {title} op {platform} - Opent {platform} muziekplatform in nieuw tabblad. Kan {platform} account of abonnement vereisen.",
   "game.feedback.next.round": "Volgende ronde",
   "game.feedback.next.starting": "Volgende ronde starten",
   "game.current.round": "Ronde",

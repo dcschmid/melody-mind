@@ -362,6 +362,21 @@ export default {
   "button.undo": "Annulla",
   "button.redo": "Ripeti",
 
+  // Game Feedback and Music Streaming
+  "game.feedback.streaming.links": "Link di streaming musicale",
+  "game.feedback.listen.spotify": "Ascolta su Spotify",
+  "game.feedback.listen.deezer": "Ascolta su Deezer",
+  "game.feedback.listen.apple": "Ascolta su Apple Music",
+
+  // Music Platforms Component - Accessibility Features
+  "musicPlatforms.heading": "Ascolta musica correlata",
+  "musicPlatforms.keyboardInstructions":
+    "Naviga tra le piattaforme musicali usando il tasto Tab. Premi Invio o Spazio per aprire le piattaforme in nuove schede.",
+  "musicPlatforms.externalNotice":
+    "I link alle piattaforme musicali esterne potrebbero richiedere account o abbonamenti per l'accesso completo.",
+  "musicPlatforms.listenOn":
+    "Ascolta {title} su {platform} - Apre la piattaforma musicale {platform} in una nuova scheda. Potrebbe richiedere account o abbonamento {platform}.",
+
   // Testi di caricamento
   "loading.generic": "Caricamento...",
   "loading.games": "Caricamento giochi...",
