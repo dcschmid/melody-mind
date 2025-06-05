@@ -433,6 +433,13 @@ export default {
   "language.nl.label": "Webseite auf Niederländisch anzeigen",
   "language.sv.label": "Webseite auf Schwedisch anzeigen",
   "language.fi.label": "Webseite auf Finnisch anzeigen",
+  "language.selected": "Aktuelle Sprache: {language}",
+  "language.dropdown.arrow": "Dropdown-Pfeil",
+  "language.focus.announce":
+    "Sprachwähler fokussiert. Verwenden Sie die Pfeiltasten zur Navigation.",
+  "language.change.success": "Sprache geändert zu {language}",
+  "language.change.error": "Sprachwechsel fehlgeschlagen. Bitte versuchen Sie es erneut.",
+  "language.preference.restored": "Sprachpräferenz wiederhergestellt: {language}",
   "playlist.item.unavailable": "Dieser Inhalt ist noch nicht verfügbar",
   "playlist.item.status": "Status",
   "playlist.item.coming.soon": "Demnächst verfügbar",

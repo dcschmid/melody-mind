@@ -216,187 +216,18 @@
   --scale-active: 0.98;
   --scale-focus: 1.02;
 
-  /* ======================================
-   * LAYOUT SYSTEM
-   * ====================================== */
-
-  /* Spacing Scale */
-  --space-micro: 0.0625rem; /* 1px - for micro-movements like hover effects */
-  --space-xs: 0.25rem; /* 4px */
-  --space-sm: 0.5rem; /* 8px */
-  --space-md: 1rem; /* 16px */
-  --space-lg: 1.5rem; /* 24px */
-  --space-xl: 2rem; /* 32px */
-  --space-2xl: 3rem; /* 48px */
-  --space-3xl: 4rem; /* 64px */
-
-  /* Scrollbar System - Consistent scrollbar styling across components */
-  --scrollbar-thin: var(--space-sm); /* 8px - Standard thin scrollbar */
-  --scrollbar-track-bg: var(--bg-tertiary); /* Track background color */
-  --scrollbar-thumb-bg: var(--border-secondary); /* Thumb background color */
-  --scrollbar-thumb-hover: var(--text-tertiary); /* Thumb hover color */
-  --scrollbar-track-radius: var(--radius-lg); /* Track border radius */
-  --scrollbar-thumb-radius: var(--radius-lg); /* Thumb border radius */
-
-  /* ======================================
-   * RESPONSIVE BREAKPOINTS (EM-BASED)
-   * ====================================== */
-
-  /* Breakpoint Variables (em-based for accessibility) */
-  --breakpoint-xs: 20em; /* 320px @ 16px base */
-  --breakpoint-sm: 40em; /* 640px @ 16px base */
-  --breakpoint-md: 48em; /* 768px @ 16px base */
-  --breakpoint-lg: 64em; /* 1024px @ 16px base */
-  --breakpoint-xl: 80em; /* 1280px @ 16px base */
-  --breakpoint-2xl: 96em; /* 1536px @ 16px base */
-
-  /* Container Max Widths */
-  --container-xs: 100%;
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1280px;
-  --container-2xl: 1536px;
-
-  /* Component Width System */
-  --form-container-max-width: 28rem; /* 448px - Optimal width for auth forms */
-  --container-query-lg: 25rem; /* 400px - Container query breakpoint for auth forms */
-  --container-query-md: 20rem; /* 320px - Container query breakpoint for smaller forms */
-  --container-query-sm: 16rem; /* 256px - Container query breakpoint for micro forms */
-  --stat-width-sm: 120px;
-  --stat-width-md: 150px;
-  --grid-min-width-sm: 280px;
-  --grid-min-width-md: 300px;
-
-  /* Animation System - Consistent animation values across components */
-  --animation-scale-start: 0.95; /* Animation starting scale */
-  --animation-scale-end: 1; /* Animation ending scale */
-  --animation-scale-default: 1; /* Default scale value for animations */
-  --animation-scale-enhanced: 1.2; /* Enhanced scale for significant changes */
-  --animation-scale-large: 1.15; /* Large scale for moderate changes */
-  --animation-glow-size: 15px; /* Glow animation size */
-  --animation-opacity-start: 0.7; /* Animation starting opacity */
-  --animation-opacity-end: 0; /* Animation ending opacity */
-  --animation-opacity-full: 1; /* Full opacity for visible states */
-  --animation-y-offset: 10px; /* Standard Y translation offset */
-  --animation-y-offset-small: -1px; /* Small upward movement */
-  --animation-scale-hover: 0.98; /* Scale for hover effects */
-  --animation-pulse-duration: 2s; /* Standard pulse animation duration */
-  --animation-shimmer-duration: 2s; /* Shimmer effect duration */
-  --animation-bounce-offset: var(
-    --animation-y-offset-small
-  ); /* Bounce animation offset for subtle movement */
-
-  /* Enhanced Animation Timing System */
-  --animation-duration-fast: 200ms; /* Fast animations */
-  --animation-duration-normal: 300ms; /* Normal speed animations */
-  --animation-duration-medium: 450ms; /* Medium speed animations */
-  --animation-duration-slow: 600ms; /* Slow animations */
-  --animation-duration-extended: 800ms; /* Extended duration animations */
-
-  /* Icon System - Consistent icon sizing across components */
-  --icon-size-sm: var(--space-md); /* 16px - Small icons */
-  --icon-size-md: var(--space-lg); /* 24px - Medium icons (default) */
-  --icon-size-lg: var(--space-xl); /* 32px - Large icons */
-  --icon-size-xl: var(--space-2xl); /* 48px - Extra large icons */
-
-  /* Component-specific variables for ShowCoins */
-  --coins-display-max-width: var(--stat-width-sm); /* Maximum width for coin display */
-  --coin-number-min-width: 2ch; /* Minimum width for coin number display */
+  /* Rotation Values */
+  --rotation-0: 0deg;
+  --rotation-90: 90deg;
+  --rotation-180: 180deg;
+  --rotation-270: 270deg;
 
   /* ======================================
    * LAYOUT SYSTEM
    * ====================================== */
 
   /* Spacing Scale */
-  --space-micro: 0.0625rem; /* 1px - for micro-movements like hover effects */
-  --space-xs: 0.25rem; /* 4px */
-  --space-sm: 0.5rem; /* 8px */
-  --space-md: 1rem; /* 16px */
-  --space-lg: 1.5rem; /* 24px */
-  --space-xl: 2rem; /* 32px */
-  --space-2xl: 3rem; /* 48px */
-  --space-3xl: 4rem; /* 64px */
-
-  /* Scrollbar System - Consistent scrollbar styling across components */
-  --scrollbar-thin: var(--space-sm); /* 8px - Standard thin scrollbar */
-  --scrollbar-track-bg: var(--bg-tertiary); /* Track background color */
-  --scrollbar-thumb-bg: var(--border-secondary); /* Thumb background color */
-  --scrollbar-thumb-hover: var(--text-tertiary); /* Thumb hover color */
-  --scrollbar-track-radius: var(--radius-lg); /* Track border radius */
-  --scrollbar-thumb-radius: var(--radius-lg); /* Thumb border radius */
-
-  /* ======================================
-   * RESPONSIVE BREAKPOINTS (EM-BASED)
-   * ====================================== */
-
-  /* Breakpoint Variables (em-based for accessibility) */
-  --breakpoint-xs: 20em; /* 320px @ 16px base */
-  --breakpoint-sm: 40em; /* 640px @ 16px base */
-  --breakpoint-md: 48em; /* 768px @ 16px base */
-  --breakpoint-lg: 64em; /* 1024px @ 16px base */
-  --breakpoint-xl: 80em; /* 1280px @ 16px base */
-  --breakpoint-2xl: 96em; /* 1536px @ 16px base */
-
-  /* Container Max Widths */
-  --container-xs: 100%;
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1280px;
-  --container-2xl: 1536px;
-
-  /* Component Width System */
-  --form-container-max-width: 28rem; /* 448px - Optimal width for auth forms */
-  --container-query-lg: 25rem; /* 400px - Container query breakpoint for auth forms */
-  --container-query-md: 20rem; /* 320px - Container query breakpoint for smaller forms */
-  --container-query-sm: 16rem; /* 256px - Container query breakpoint for micro forms */
-  --stat-width-sm: 120px;
-  --stat-width-md: 150px;
-  --grid-min-width-sm: 280px;
-  --grid-min-width-md: 300px;
-
-  /* Animation System - Consistent animation values across components */
-  --animation-scale-start: 0.95; /* Animation starting scale */
-  --animation-scale-end: 1; /* Animation ending scale */
-  --animation-scale-default: 1; /* Default scale value for animations */
-  --animation-scale-enhanced: 1.2; /* Enhanced scale for significant changes */
-  --animation-scale-large: 1.15; /* Large scale for moderate changes */
-  --animation-glow-size: 15px; /* Glow animation size */
-  --animation-opacity-start: 0.7; /* Animation starting opacity */
-  --animation-opacity-end: 0; /* Animation ending opacity */
-  --animation-opacity-full: 1; /* Full opacity for visible states */
-  --animation-y-offset: 10px; /* Standard Y translation offset */
-  --animation-y-offset-small: -1px; /* Small upward movement */
-  --animation-scale-hover: 0.98; /* Scale for hover effects */
-  --animation-pulse-duration: 2s; /* Standard pulse animation duration */
-  --animation-shimmer-duration: 2s; /* Shimmer effect duration */
-  --animation-bounce-offset: var(
-    --animation-y-offset-small
-  ); /* Bounce animation offset for subtle movement */
-
-  /* Enhanced Animation Timing System */
-  --animation-duration-fast: 200ms; /* Fast animations */
-  --animation-duration-normal: 300ms; /* Normal speed animations */
-  --animation-duration-medium: 450ms; /* Medium speed animations */
-  --animation-duration-slow: 600ms; /* Slow animations */
-  --animation-duration-extended: 800ms; /* Extended duration animations */
-
-  /* Icon System - Consistent icon sizing across components */
-  --icon-size-sm: var(--space-md); /* 16px - Small icons */
-  --icon-size-md: var(--space-lg); /* 24px - Medium icons (default) */
-  --icon-size-lg: var(--space-xl); /* 32px - Large icons */
-  --icon-size-xl: var(--space-2xl); /* 48px - Extra large icons */
-
-  /* Component-specific variables for ShowCoins */
-  --coins-display-max-width: var(--stat-width-sm); /* Maximum width for coin display */
-  --coin-number-min-width: 2ch; /* Minimum width for coin number display */
-
-  /* ======================================
-   * LAYOUT SYSTEM
-   * ====================================== */
-
-  /* Spacing Scale */
+  --space-none: 0; /* 0px - for border/padding reset */
   --space-micro: 0.0625rem; /* 1px - for micro-movements like hover effects */
   --space-xs: 0.25rem; /* 4px */
   --space-sm: 0.5rem; /* 8px */
@@ -694,6 +525,11 @@
   /* Enhanced Border Widths for High Contrast */
   --border-width-enhanced: 3px; /* Enhanced border for high contrast mode */
   --border-width-thick: 2px; /* Thick border for emphasis */
+
+  /* Enhanced Text Spacing Variables for WCAG 2.2 Compliance */
+  --letter-spacing-enhanced: 0.12em; /* 2x normal spacing for WCAG 2.2 */
+  --word-spacing-enhanced: 0.32em; /* 2x normal spacing for WCAG 2.2 */
+  --line-height-enhanced: 1.8; /* 1.5x normal line height for WCAG 2.2 */
 
   /* Enhanced Focus Outlines */
   --focus-enhanced-outline-dark: 3px solid var(--color-primary-400);
