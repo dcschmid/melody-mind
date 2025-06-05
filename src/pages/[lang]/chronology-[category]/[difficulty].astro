@@ -425,68 +425,8 @@ console.warn(
       isMoving: false,
     };
 
-    /**
-     * Helper function to create buttons in the ButtonLink style
-     * @param {string} id - Button ID
-     * @param {string} ariaLabel - Accessibility label
-     * @param {string} content - Button content (HTML)
-     * @param {string} variant - Button variant ('primary', 'secondary', etc.)
-     * @param {string} size - Button size ('sm', 'md', 'lg')
-     * @param {string} extraClasses - Additional CSS classes
-     * @returns {string} HTML string for the button
-     */
-    private createButtonLink(
-      id: string,
-      ariaLabel: string,
-      content: string,
-      variant: string = "secondary",
-      size: string = "sm",
-      extraClasses: string = ""
-    ): string {
-      // Base classes - copied from ButtonLink component
-      const baseClasses = `
-        inline-flex items-center justify-center rounded-lg font-bold
-        transition-all duration-300
-        hover:shadow-lg hover:shadow-sky-500/20
-        focus-visible:outline-none focus-visible:ring-2
-        focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900
-        active:scale-[0.98]
-        disabled:pointer-events-none disabled:opacity-50
-        min-w-[48px]
-      `
-        .replace(/\s+/g, " ")
-        .trim();
-
-      // Variant classes - copied from ButtonLink component
-      const variantClasses: Record<string, string> = {
-        primary: "bg-sky-700 text-white hover:bg-sky-600 focus-visible:ring-sky-300",
-        secondary: "bg-purple-700 text-white hover:bg-purple-600 focus-visible:ring-purple-300",
-        outline:
-          "bg-transparent text-sky-400 border-2 border-sky-700 hover:bg-sky-900/20 focus-visible:ring-sky-300",
-        text: "bg-transparent text-sky-400 hover:text-sky-300 hover:bg-transparent hover:shadow-none focus-visible:ring-sky-300 px-2",
-      };
-
-      // Size classes - copied from ButtonLink component
-      const sizeClasses: Record<string, string> = {
-        sm: "text-sm px-4 py-2 min-h-[40px]",
-        md: "px-6 py-3 min-h-[48px]",
-        lg: "text-lg px-8 py-4 min-h-[56px]",
-      };
-
-      // Combine classes
-      const btnClasses =
-        `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${extraClasses}`.trim();
-
-      return `
-        <button 
-          type="button"
-          id="${id}"
-          class="${btnClasses}"
-          aria-label="${ariaLabel}">
-          ${content}
-        </button>
-      `;
-    }
+    // Note: Dynamic button creation uses chronology-button class with CSS variables
+    // This approach ensures consistency with project standards and avoids code duplication
 
     /**
      * Constructor initializes the game controller with required DOM elements
