@@ -419,6 +419,7 @@ export default {
   "game.categories.no.playable.text":
     "Er zijn momenteel geen speelbare categorieën. Kom later terug.",
   "knowledge.reading.time": "min leestijd",
+  "knowledge.reading.time.label": "Leestijd",
   "knowledge.breadcrumb.label": "Navigatie",
   "knowledge.listen.heading": "Luister naar gerelateerde muziek",
   "knowledge.back.to.list": "Terug naar overzicht",

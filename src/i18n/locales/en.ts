@@ -442,6 +442,7 @@ export default {
   "game.categories.no.playable.text":
     "There are currently no playable categories. Please check back later.",
   "knowledge.reading.time": "min read",
+  "knowledge.reading.time.label": "Reading time",
   "knowledge.breadcrumb.label": "Navigation",
   "knowledge.listen.heading": "Listen to Related Music",
   "knowledge.back.to.list": "Back to Overview",
@@ -575,6 +576,8 @@ export default {
   "knowledge.animations.auto.disabled":
     "Animations automatically disabled based on system preference",
   "knowledge.animations.toggle": "Toggle animations",
+  "knowledge.published": "Published",
+  "navigation.article.opens": "opens article page",
   "difficulty.level": "Difficulty Level",
 
   // Profile Page

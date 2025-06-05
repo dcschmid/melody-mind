@@ -398,7 +398,8 @@ export default {
   "game.categories.no.playable.headline": "No hay géneros jugables",
   "game.categories.no.playable.text":
     "Actualmente no hay categorías jugables. Por favor, vuelve más tarde.",
-  "knowledge.reading.time": "min de lectura",
+  "knowledge.reading.time": "min",
+  "knowledge.reading.time.label": "Tiempo de lectura",
   "knowledge.breadcrumb.label": "Navegación",
   "knowledge.listen.heading": "Escuchar música relacionada",
   "knowledge.back.to.list": "Volver al resumen",
