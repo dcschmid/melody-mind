@@ -260,6 +260,15 @@ export default {
   "game.feedback.listen.spotify": "Lyssna på Spotify",
   "game.feedback.listen.deezer": "Lyssna på Deezer",
   "game.feedback.listen.apple": "Lyssna på Apple Music",
+
+  // Music Platforms Component - Accessibility Features
+  "musicPlatforms.heading": "Lyssna på relaterad musik",
+  "musicPlatforms.keyboardInstructions":
+    "Navigera musikplattformar med Tab-tangenten. Tryck Enter eller Mellanslag för att öppna plattformar i nya flikar.",
+  "musicPlatforms.externalNotice":
+    "Externa musikplattformslänkar kan kräva konton eller prenumerationer för fullständig åtkomst.",
+  "musicPlatforms.listenOn":
+    "Lyssna på {title} på {platform} - Öppnar {platform} musikplattform i ny flik. Kan kräva {platform} konto eller prenumeration.",
   "game.feedback.next.round": "Nästa omgång",
   "game.feedback.next.starting": "Startar nästa omgång",
   "game.current.round": "Omgång",

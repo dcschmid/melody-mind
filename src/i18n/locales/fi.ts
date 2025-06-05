@@ -260,6 +260,15 @@ export default {
   "game.feedback.listen.spotify": "Kuuntele Spotifyssa",
   "game.feedback.listen.deezer": "Kuuntele Deezerissä",
   "game.feedback.listen.apple": "Kuuntele Apple Musicissa",
+
+  // Music Platforms Component - Accessibility Features
+  "musicPlatforms.heading": "Kuuntele liittyvää musiikkia",
+  "musicPlatforms.keyboardInstructions":
+    "Navigoi musiikkialustoilla Tab-näppäimellä. Paina Enter tai välilyönti avataksesi alustat uusissa välilehdissä.",
+  "musicPlatforms.externalNotice":
+    "Ulkoiset musiikkialustaliukit voivat vaatia tilejä tai tilauksia täydelliseen pääsyyn.",
+  "musicPlatforms.listenOn":
+    "Kuuntele {title} palvelussa {platform} - Avaa {platform} musiikkialustan uudessa välilehdessä. Saattaa vaatia {platform} tilin tai tilauksen.",
   "game.feedback.next.round": "Seuraava kierros",
   "game.feedback.next.starting": "Aloitetaan seuraava kierros",
   "game.current.round": "Kierros",
