@@ -675,6 +675,8 @@ export default {
   "nav.title": "Navigazione",
   "nav.menu.home": "Home",
   "knowledge.title": "Conoscenza",
+  "knowledge.reading.time": "min",
+  "knowledge.reading.time.label": "Tempo di lettura",
   "playlist.page.heading": "Playlist",
   "nav.menu.rules": "Regole del gioco",
   "nav.menu.highscores": "Punteggi alti",

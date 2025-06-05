@@ -402,6 +402,7 @@ export default {
   "game.categories.no.playable.text":
     "Der er i øjeblikket ingen spilbare kategorier. Tjek venligst igen senere.",
   "knowledge.reading.time": "min læsetid",
+  "knowledge.reading.time.label": "Læsetid",
   "knowledge.breadcrumb.label": "Navigation",
   "knowledge.listen.heading": "Lyt til relateret musik",
   "knowledge.back.to.list": "Tilbage til oversigt",
