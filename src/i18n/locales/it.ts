@@ -407,6 +407,11 @@ export default {
   "footer.terms": "Termini di servizio",
   "footer.contact": "Contatti",
   "footer.about": "Chi siamo",
+  "footer.rights": "Tutti i diritti riservati",
+  "footer.donate": "Dona",
+  "footer.donate_aria": "Dona tramite PayPal",
+  "footer.source_code": "Visualizza il codice sorgente di MelodyMind su GitHub",
+  "footer.support_kofi": "Supporta MelodyMind su Ko-fi",
 
   // Nuove chiavi per i badge del gioco
   "game.info.badges": "Informazioni sul gioco",

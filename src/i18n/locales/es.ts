@@ -488,6 +488,9 @@ export default {
   "playlist.decade.filter": "Filtrar por Década",
   "footer.rights": "Todos los derechos reservados",
   "footer.donate": "Donar",
+  "footer.donate_aria": "Donar vía PayPal",
+  "footer.source_code": "Ver código fuente de MelodyMind en GitHub",
+  "footer.support_kofi": "Apoyar MelodyMind en Ko-fi",
   "game.chronology.title": "Cronología Musical",
   "game.chronology.description":
     "Ordena estos álbumes por su año de lanzamiento (el más antiguo primero)",
