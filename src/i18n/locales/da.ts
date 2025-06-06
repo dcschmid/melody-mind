@@ -500,6 +500,17 @@ export default {
   "playlist.listen.deezer": "Lyt på Deezer",
   "playlist.listen.apple": "Lyt på Apple Music",
   "playlist.decade.filter": "Filtrer efter Årti",
+  "playlist.priority.loading": "Prioriteret playlist-indlæsning: {headline}",
+  "playlist.music.from.decade": "Musik fra {decade}",
+  "playlist.streaming.services": "Streamingtjenester for {headline}",
+  "playlist.accessibility.instruction":
+    "Brug Enter eller Space for at åbne playlist i streamingtjeneste. Naviger mellem tjenester med Tab-tasten. Disse playlister er offentligt tilgængelige og kræver ingen godkendelse.",
+  "playlist.accessibility.info": "Playlist tilgængelighedsinformation",
+  "playlist.accessibility.public":
+    "Offentlig playlist - ingen godkendelse påkrævet til adgang til streamingtjenester",
+  "playlist.accessibility.selected": "{service} valgt for {playlist}",
+  "playlist.accessibility.focus": "Fokus på {service}-mulighed for {playlist}",
+  "playlist.accessibility.opened": "Åbner {playlist} på {service}",
   "footer.rights": "Alle rettigheder forbeholdes",
   "footer.donate": "Doner",
   "footer.donate_aria": "Doner via PayPal",
@@ -881,4 +892,16 @@ export default {
   "audioplayer.help.button.title": "Lydafspiller tastaturgenveje",
   "audioplayer.help.shortcuts":
     "Mellemrum: Afspil/Pause, M: Lydløs/Aktivér lyd, Piletaster: Søg lyd, Op/Ned: Lydstyrke kontrol",
+
+  // Playlist-specific translation keys
+  "playlist.open.spotify": 'Åbn spilleliste "{playlist}" i Spotify',
+  "playlist.open.deezer": 'Åbn spilleliste "{playlist}" i Deezer',
+  "playlist.open.apple": 'Åbn spilleliste "{playlist}" i Apple Music',
+  "playlist.activation.focused":
+    "Spilleliste aktiveret: {title}. Fokus flyttet til streaming-links.",
+  "playlist.activation.no_links": "Spilleliste valgt: {title}. Ingen streaming-links tilgængelige.",
+  "playlist.exit": "Forlod spilleliste: {title}",
+  "playlist.visible": "Prioritets spilleliste synlig: {title}",
+  "playlist.image.error": "Billede kunne ikke indlæses for spilleliste: {title}",
+  "playlist.title.unknown": "Ukendt spilleliste",
 };

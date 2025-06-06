@@ -851,4 +851,39 @@ export default {
   "audioplayer.help.button.title": "Scorciatoie da tastiera del lettore audio",
   "audioplayer.help.shortcuts":
     "Spazio: Riproduci/Pausa, M: Muto/Attiva audio, Tasti freccia: Cerca audio, Su/Giù: Controllo volume",
+  "playlist.page.title": "Playlist Musicali | Melody Mind",
+  "playlist.page.description":
+    "Immergiti in playlist accuratamente curate di diverse epoche e generi. Perfetto per scoprire nuova musica o rivivere i tuoi classici preferiti.",
+  "playlist.search.label": "Cerca Playlist",
+  "playlist.search.placeholder": "Cerca per artista o stile...",
+  "playlist.filter.all": "Tutte le Epoche",
+  "playlist.no.results":
+    "Nessuna playlist corrispondente trovata. Prova un termine di ricerca diverso.",
+  "playlist.listen.on": "Ascolta su",
+  "playlist.listen.spotify": "Ascolta su Spotify",
+  "playlist.listen.deezer": "Ascolta su Deezer",
+  "playlist.listen.apple": "Ascolta su Apple Music",
+  "playlist.decade.filter": "Filtra per Decennio",
+  "playlist.priority.loading": "Caricamento playlist prioritaria: {headline}",
+  "playlist.music.from.decade": "Musica da {decade}",
+  "playlist.streaming.services": "Servizi di streaming per {headline}",
+  "playlist.accessibility.instruction":
+    "Usa Invio o Spazio per aprire la playlist nel servizio di streaming. Naviga tra i servizi usando il tasto Tab. Queste playlist sono accessibili pubblicamente e non richiedono autenticazione.",
+  "playlist.accessibility.info": "Informazioni di accessibilità della playlist",
+  "playlist.accessibility.public":
+    "Playlist pubblica - nessuna autenticazione richiesta per l'accesso ai servizi di streaming",
+  "playlist.accessibility.selected": "{service} selezionato per {playlist}",
+  "playlist.accessibility.focus": "Focus sull'opzione {service} per {playlist}",
+  "playlist.accessibility.opened": "Apertura di {playlist} su {service}",
+  "playlist.open.spotify": 'Apri playlist "{playlist}" in Spotify',
+  "playlist.open.deezer": 'Apri playlist "{playlist}" in Deezer',
+  "playlist.open.apple": 'Apri playlist "{playlist}" in Apple Music',
+  "playlist.activation.focused":
+    "Playlist attivata: {title}. Il focus è stato spostato sui link di streaming.",
+  "playlist.activation.no_links":
+    "Playlist selezionata: {title}. Nessun link di streaming disponibile.",
+  "playlist.exit": "Uscita dalla playlist: {title}",
+  "playlist.visible": "Playlist prioritaria visibile: {title}",
+  "playlist.image.error": "Errore nel caricamento dell'immagine per la playlist: {title}",
+  "playlist.title.unknown": "Playlist sconosciuta",
 } as const;
