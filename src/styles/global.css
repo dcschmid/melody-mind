@@ -281,7 +281,10 @@
   --animation-scale-default: 1; /* Default scale value for animations */
   --animation-scale-enhanced: 1.2; /* Enhanced scale for significant changes */
   --animation-scale-large: 1.15; /* Large scale for moderate changes */
+  --animation-scale-medium: 1.1; /* Medium scale for moderate changes - NEW */
+  --animation-scale-hover-subtle: 1.02; /* Subtle hover scale effect - NEW */
   --animation-glow-size: 15px; /* Glow animation size */
+  --animation-glow-spread: 0; /* Glow animation spread radius - NEW */
   --animation-opacity-start: 0.7; /* Animation starting opacity */
   --animation-opacity-end: 0; /* Animation ending opacity */
   --animation-opacity-full: 1; /* Full opacity for visible states */
