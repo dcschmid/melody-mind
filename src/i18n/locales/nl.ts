@@ -61,6 +61,13 @@ export default {
   "auth.form.error.general": "Er is een fout opgetreden",
   "auth.form.success": "Succes!",
   "auth.form.email_required": "E-mailadres is vereist",
+
+  // Table of Contents
+  "toc.toggle.label": "Inhoudsopgave tonen of verbergen",
+  "toc.state.expanded": "Uitgevouwen",
+  "toc.state.collapsed": "Ingeklapt",
+  "toc.nav.label": "Inhoudsopgave",
+  "toc.skip.link": "Naar hoofdinhoud springen",
   "auth.form.email_invalid_short": "Ongeldig e-mailadres",
   "auth.form.loading_text": "Laden...",
   "auth.form.send_reset_link": "Resetlink verzenden",
@@ -401,6 +408,8 @@ export default {
   "playlist.item.unavailable": "Deze inhoud is nog niet beschikbaar",
   "playlist.item.status": "Status",
   "playlist.item.coming.soon": "Binnenkort beschikbaar",
+  "playlist.item.status.changed.disabled": "Deze afspeellijst is momenteel niet beschikbaar",
+  "playlist.item.status.changed.available": "Deze afspeellijst is nu beschikbaar",
   "game.area.label": "Spelgebied",
   "game.options.label": "Antwoordopties",
   "game.answer.correct": "Correct! {points} punten + {bonus} bonuspunten",
@@ -897,4 +906,23 @@ export default {
   "audioplayer.help.button.title": "Audiospeler sneltoetsen",
   "audioplayer.help.shortcuts":
     "Spatie: Afspelen/Pauzeren, M: Dempen/Geluid aan, Pijltoetsen: Audio zoeken, Omhoog/Omlaag: Volume controle",
+
+  // TestLint Component Translations
+  "test.lint.title": "ESLint Testcomponent met WCAG AAA",
+  "test.lint.wcag_title": "WCAG AAA Test",
+  "test.lint.next_level_aria": "Ga verder naar het volgende niveau",
+  "test.lint.next_button": "Verder",
+  "test.lint.problematic_button_aria": "Problematische knop",
+  "test.lint.correct_button_aria": "Correcte knop met toetsenbord functionaliteit",
+  "test.lint.test_image_alt": "Testafbeelding",
+  "test.lint.musician_image_alt":
+    "Een gitarist speelt op een helder verlicht podium tijdens een rockconcert",
+  "test.lint.weak_contrast_text": "Deze tekst heeft zeer zwak contrast.",
+  "test.lint.good_contrast_text": "Deze tekst heeft voldoende contrast voor WCAG AAA.",
+  "test.lint.error_message": "Er is een fout opgetreden.",
+  "test.lint.score_label": "Score:",
+  "test.lint.incomplete_button": "Onvolledige knop",
+  "test.lint.correct_button": "Correcte knop",
+  "test.lint.main_heading": "Hoofdkop",
+  "test.lint.subsection_heading": "Onderafdeling (h2 ontbreekt)",
 };

@@ -34,7 +34,16 @@ interface Props {
   lang?: string;
 }
 
-const { headings = [], title = "Inhaltsverzeichnis", lang = "de" } = Astro.props;
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { Icon } from "astro-icon/components";
+
+const { headings = [], title, lang } = Astro.props;
+
+// Get language from URL if not provided
+const currentLang = lang || getLangFromUrl(Astro.url);
+
+// Get translations function
+const t = useTranslations(currentLang);
 
 // Filter to only include h2 and h3 headings
 const filteredHeadings = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
@@ -42,145 +51,50 @@ const filteredHeadings = headings.filter((heading) => heading.depth === 2 || hea
 // Check if there are any headings to display
 const hasHeadings = filteredHeadings.length > 0;
 
-// Translations for accessibility
-const translations = {
-  de: {
-    toggleLabel: "Inhaltsverzeichnis anzeigen oder ausblenden",
-    expanded: "Erweitert",
-    collapsed: "Eingeklappt",
-    tocLabel: "Inhaltsverzeichnis",
-    skipLink: "Zum Hauptinhalt springen",
-  },
-  en: {
-    toggleLabel: "Toggle table of contents",
-    expanded: "Expanded",
-    collapsed: "Collapsed",
-    tocLabel: "Table of contents",
-    skipLink: "Skip to main content",
-  },
-  es: {
-    toggleLabel: "Mostrar u ocultar tabla de contenidos",
-    expanded: "Expandido",
-    collapsed: "Contraído",
-    tocLabel: "Tabla de contenidos",
-    skipLink: "Saltar al contenido principal",
-  },
-  fr: {
-    toggleLabel: "Afficher ou masquer la table des matières",
-    expanded: "Développé",
-    collapsed: "Réduit",
-    tocLabel: "Table des matières",
-    skipLink: "Passer au contenu principal",
-  },
-  it: {
-    toggleLabel: "Mostra o nascondi indice",
-    expanded: "Espanso",
-    collapsed: "Compresso",
-    tocLabel: "Indice dei contenuti",
-    skipLink: "Passa al contenuto principale",
-  },
-  pt: {
-    toggleLabel: "Mostrar ou ocultar índice",
-    expanded: "Expandido",
-    collapsed: "Recolhido",
-    tocLabel: "Índice",
-    skipLink: "Pular para o conteúdo principal",
-  },
-  nl: {
-    toggleLabel: "Inhoudsopgave tonen of verbergen",
-    expanded: "Uitgevouwen",
-    collapsed: "Ingeklapt",
-    tocLabel: "Inhoudsopgave",
-    skipLink: "Naar hoofdinhoud springen",
-  },
-  da: {
-    toggleLabel: "Vis eller skjul indholdsfortegnelse",
-    expanded: "Udvidet",
-    collapsed: "Sammenfoldet",
-    tocLabel: "Indholdsfortegnelse",
-    skipLink: "Spring til hovedindhold",
-  },
-  sv: {
-    toggleLabel: "Visa eller dölj innehållsförteckning",
-    expanded: "Utökad",
-    collapsed: "Ihopfälld",
-    tocLabel: "Innehållsförteckning",
-    skipLink: "Hoppa till huvudinnehåll",
-  },
-  fi: {
-    toggleLabel: "Näytä tai piilota sisällysluettelo",
-    expanded: "Laajennettu",
-    collapsed: "Tiivistetty",
-    tocLabel: "Sisällysluettelo",
-    skipLink: "Siirry pääsisältöön",
-  },
-};
-
-// Use German as the default language if the specified language is not supported
-const t = translations[lang as keyof typeof translations] || translations.de;
+// Use title from props or default to translated title
+const tocTitle = title || t("toc.nav.label");
 ---
 
 {
   hasHeadings && (
-    <div class="toc-container my-6 mb-10 print:hidden">
-      <div class="relative">
+    <div class="toc">
+      <div class="toc__wrapper">
         <button
           id="toc-toggle"
           aria-expanded="false"
           aria-controls="toc-content"
-          aria-label={t.toggleLabel}
-          class="flex w-full items-center justify-between rounded-xl border border-zinc-700/30 bg-zinc-800 px-6 py-4 text-left text-lg font-medium text-white shadow-md transition-colors hover:bg-zinc-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+          aria-label={t("toc.toggle.label")}
+          class="toc__toggle"
         >
-          <span class="flex items-center gap-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 text-sky-400"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <span>{title}</span>
+          <span class="toc__title-wrapper">
+            <Icon name="menu" class="toc__icon toc__icon--menu" aria-hidden="true" />
+            <span>{tocTitle}</span>
           </span>
-          <span class="toc-state sr-only">{t.collapsed}</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="toc-icon h-5 w-5 transform transition-transform duration-200"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
+          <span
+            class="toc__state"
+            data-expanded={t("toc.state.expanded")}
+            data-collapsed={t("toc.state.collapsed")}
           >
-            <path
-              fill-rule="evenodd"
-              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clip-rule="evenodd"
-            />
-          </svg>
+            {t("toc.state.collapsed")}
+          </span>
+          <Icon name="chevron-down" class="toc__icon toc__icon--chevron" aria-hidden="true" />
         </button>
 
         <div
           id="toc-content"
           aria-labelledby="toc-toggle"
-          class="toc-content mt-2 hidden overflow-hidden rounded-xl border border-zinc-700/30 bg-zinc-800/80 shadow-lg backdrop-blur-sm"
+          class="toc__content toc__content--hidden"
         >
-          <nav aria-label={t.tocLabel} class="p-4">
-            <a
-              href="#article-content"
-              class="mb-4 block text-sm text-sky-400 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
-            >
-              {t.skipLink}
+          <nav aria-label={t("toc.nav.label")} class="toc__nav">
+            <a href="#article-content" class="toc__skip-link">
+              {t("toc.skip.link")}
             </a>
-            <ul class="max-h-[60vh] space-y-2 overflow-y-auto pr-2">
+            <ul class="toc__list">
               {filteredHeadings.map((heading) => (
-                <li class={`${heading.depth === 3 ? "ml-4" : ""}`}>
+                <li class={`toc__item ${heading.depth === 3 ? "toc__item--nested" : ""}`}>
                   <a
                     href={`#${heading.slug}`}
-                    class={`block rounded-lg px-3 py-2 text-${heading.depth === 2 ? "base font-medium" : "sm"} text-zinc-300 transition-colors hover:bg-zinc-700 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900`}
+                    class={`toc__link ${heading.depth === 2 ? "toc__link--primary" : "toc__link--secondary"}`}
                   >
                     {heading.text}
                   </a>
@@ -203,13 +117,34 @@ const t = translations[lang as keyof typeof translations] || translations.de;
    * - Handles translations for screen readers
    */
   document.addEventListener("DOMContentLoaded", () => {
-    const tocToggle = document.getElementById("toc-toggle");
-    const tocContent = document.getElementById("toc-content");
-    const tocIcon = document.querySelector(".toc-icon");
-    const tocState = document.querySelector(".toc-state");
+    // Cache DOM elements
+    const elements = {
+      tocToggle: document.getElementById("toc-toggle"),
+      tocContent: document.getElementById("toc-content"),
+      tocIcon: document.querySelector(".toc__icon--chevron"),
+      tocState: document.querySelector(".toc__state"),
+    };
 
-    if (!tocToggle || !tocContent || !tocIcon || !tocState) {
+    // Early return if essential elements are missing
+    if (!elements.tocToggle || !elements.tocContent || !elements.tocIcon || !elements.tocState) {
       return;
+    }
+
+    const { tocToggle, tocContent, tocIcon, tocState } = elements;
+
+    /**
+     * Updates the visual state of the table of contents
+     * @param {boolean} isExpanded - Whether the TOC should be expanded
+     */
+    function updateVisualState(isExpanded: boolean): void {
+      const stateText = isExpanded
+        ? tocState.getAttribute("data-expanded") || "Expanded"
+        : tocState.getAttribute("data-collapsed") || "Collapsed";
+
+      // Update visual state
+      tocContent.classList.toggle("toc__content--hidden", !isExpanded);
+      tocIcon.classList.toggle("toc__icon--rotated", isExpanded);
+      tocState.textContent = stateText;
     }
 
     /**
@@ -218,11 +153,7 @@ const t = translations[lang as keyof typeof translations] || translations.de;
      * - Updates visual state (icon rotation, text)
      * - Handles screen reader announcements
      */
-    function toggleToc() {
-      if (!tocToggle || !tocContent || !tocIcon || !tocState) {
-        return;
-      }
-
+    function toggleToc(): void {
       const isExpanded = tocToggle.getAttribute("aria-expanded") === "true";
       const newState = !isExpanded;
 
@@ -230,170 +161,376 @@ const t = translations[lang as keyof typeof translations] || translations.de;
       tocToggle.setAttribute("aria-expanded", newState.toString());
 
       // Update visual state
-      if (newState) {
-        tocContent.classList.remove("hidden");
-        tocIcon.classList.add("rotate-180");
-        tocState.textContent = tocState.getAttribute("data-expanded") || "Erweitert";
-      } else {
-        tocContent.classList.add("hidden");
-        tocIcon.classList.remove("rotate-180");
-        tocState.textContent = tocState.getAttribute("data-collapsed") || "Eingeklappt";
+      updateVisualState(newState);
+    }
+
+    /**
+     * Handles keyboard navigation for toggle button
+     * @param {KeyboardEvent} e - The keyboard event
+     */
+    function handleToggleKeydown(e: KeyboardEvent): void {
+      if (e.key === " " || e.key === "Enter") {
+        e.preventDefault();
+        toggleToc();
       }
     }
 
-    // Set up click event listener
-    if (tocToggle) {
-      tocToggle.addEventListener("click", toggleToc);
+    /**
+     * Sets focus on target heading and manages tabindex
+     * @param {string} targetId - The ID of the target element
+     */
+    function focusTargetHeading(targetId: string): void {
+      if (targetId === "article-content") {
+        return;
+      }
 
-      // Set up keyboard event listeners (Space/Enter)
-      tocToggle.addEventListener("keydown", (e) => {
-        if (e.key === " " || e.key === "Enter") {
-          e.preventDefault();
-          toggleToc();
-        }
-      });
+      const targetElement = document.getElementById(targetId);
+      if (!targetElement) {
+        return;
+      }
+
+      targetElement.setAttribute("tabindex", "-1");
+      targetElement.focus();
+
+      // Remove tabindex after blur
+      targetElement.addEventListener(
+        "blur",
+        () => {
+          targetElement.removeAttribute("tabindex");
+        },
+        { once: true }
+      );
     }
 
-    // Set up event listeners for links in the table of contents
-    // for proper focus management when clicking on links
-    const tocLinks = tocContent ? tocContent.querySelectorAll("a") : [];
-    tocLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        // Set focus on the heading that is being jumped to
-        setTimeout(() => {
-          const targetId = link.getAttribute("href")?.substring(1);
-          if (targetId && targetId !== "article-content") {
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-              targetElement.setAttribute("tabindex", "-1");
-              targetElement.focus();
+    /**
+     * Handles clicks on TOC links for proper focus management
+     * @param {Event} e - The click event
+     */
+    function handleLinkClick(e: Event): void {
+      const link = e.target as HTMLAnchorElement;
+      const targetId = link.getAttribute("href")?.substring(1);
 
-              // Event listener to remove tabindex after leaving the element
-              targetElement.addEventListener(
-                "blur",
-                () => {
-                  targetElement.removeAttribute("tabindex");
-                },
-                { once: true }
-              );
-            }
-          }
-        }, 100);
-      });
+      if (targetId) {
+        setTimeout(() => focusTargetHeading(targetId), 100);
+      }
+    }
+
+    // Initialize the component in collapsed state
+    updateVisualState(false);
+
+    // Set up event listeners
+    tocToggle.addEventListener("click", toggleToc);
+    tocToggle.addEventListener("keydown", handleToggleKeydown);
+
+    // Set up event listeners for TOC links
+    const tocLinks = tocContent.querySelectorAll("a");
+    tocLinks.forEach((link) => {
+      link.addEventListener("click", handleLinkClick);
     });
 
-    // Set up translations for screen readers based on document language
-    const lang = document.documentElement.lang || "de";
-    let expandedText = "Erweitert"; // Default in German
-    let collapsedText = "Eingeklappt"; // Default in German
-
-    // Set translations based on language
-    switch (lang) {
-      case "en":
-        expandedText = "Expanded";
-        collapsedText = "Collapsed";
-        break;
-      case "es":
-        expandedText = "Expandido";
-        collapsedText = "Contraído";
-        break;
-      case "fr":
-        expandedText = "Développé";
-        collapsedText = "Réduit";
-        break;
-      case "it":
-        expandedText = "Espanso";
-        collapsedText = "Compresso";
-        break;
-      case "pt":
-        expandedText = "Expandido";
-        collapsedText = "Recolhido";
-        break;
-      case "nl":
-        expandedText = "Uitgevouwen";
-        collapsedText = "Ingeklapt";
-        break;
-      case "da":
-        expandedText = "Udvidet";
-        collapsedText = "Sammenfoldet";
-        break;
-      case "sv":
-        expandedText = "Utökad";
-        collapsedText = "Ihopfälld";
-        break;
-      case "fi":
-        expandedText = "Laajennettu";
-        collapsedText = "Tiivistetty";
-        break;
-      default:
-        // Default values in German remain
-        break;
-    }
-
-    if (tocState) {
-      tocState.setAttribute("data-expanded", expandedText);
-      tocState.setAttribute("data-collapsed", collapsedText);
-      tocState.textContent = collapsedText;
-    }
+    // Initialize the state text from data attributes
+    const collapsedText = tocState.getAttribute("data-collapsed") || "Collapsed";
+    tocState.textContent = collapsedText;
   });
 </script>
 
 <style>
-  /* Additional styles for animation and accessibility */
-  .toc-content {
-    max-height: 0;
+  /* ======================================
+   * TABLE OF CONTENTS COMPONENT STYLES
+   * WCAG AAA 2.2 COMPLIANT (7:1 CONTRAST)
+   * OPTIMIZED WITH CSS VARIABLES & DRY PRINCIPLES
+   * ====================================== */
+
+  /* Base transition for all interactive elements */
+  .toc__toggle,
+  .toc__content,
+  .toc__icon--chevron,
+  .toc__link {
+    transition: var(--transition-normal);
+  }
+
+  /* Override specific transitions where needed */
+  .toc__toggle {
     transition:
-      max-height 0.3s ease-out,
-      opacity 0.2s ease-out;
-    opacity: 0;
+      background-color var(--transition-normal),
+      border-color var(--transition-normal),
+      box-shadow var(--transition-normal);
   }
 
-  .toc-content:not(.hidden) {
-    max-height: 80vh;
+  .toc__content {
+    transition:
+      max-height var(--transition-normal),
+      opacity var(--transition-fast);
+  }
+
+  .toc__icon--chevron {
+    transition: transform var(--transition-normal);
+  }
+
+  .toc__link {
+    transition:
+      background-color var(--transition-normal),
+      color var(--transition-normal);
+  }
+
+  /* Container */
+  .toc {
+    margin: var(--space-xl) var(--space-none) var(--space-3xl) var(--space-none);
+  }
+
+  .toc__wrapper {
+    position: relative;
+  }
+
+  /* Toggle Button */
+  .toc__toggle {
+    display: flex;
+    width: var(--width-full);
+    align-items: center;
+    justify-content: space-between;
+    border-radius: var(--radius-xl);
+    border: var(--border-width-thin) solid var(--border-primary);
+    background: var(--card-bg);
+    padding: var(--space-lg) var(--space-xl);
+    text-align: left;
+    font-size: var(--text-lg);
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+    box-shadow: var(--card-shadow);
+    cursor: pointer;
+    min-height: var(--min-touch-size);
+  }
+
+  .toc__toggle:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--border-secondary);
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  /* ======================================
+   * SHARED FOCUS STYLES
+   * ====================================== */
+
+  /* Common focus styles for all interactive elements */
+  .toc__toggle:focus,
+  .toc__skip-link:focus,
+  .toc__link:focus {
+    outline: var(--focus-enhanced-outline-dark);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* Enhanced focus for button */
+  .toc__toggle:focus {
+    box-shadow: var(--focus-enhanced-shadow);
+  }
+
+  /* Title section with icon */
+  .toc__title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  /* Icons */
+  .toc__icon {
+    width: var(--icon-size-md);
+    height: var(--icon-size-md);
+  }
+
+  .toc__icon--menu {
+    color: var(--interactive-primary);
+  }
+
+  .toc__icon--chevron {
+    transition: transform var(--transition-normal);
+  }
+
+  .toc__icon--rotated {
+    transform: rotate(180deg);
+  }
+
+  /* Screen reader state text */
+  .toc__state {
+    position: absolute;
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
+    margin: var(--sr-only-margin);
+    overflow: hidden;
+    clip: var(--sr-only-clip-path);
+    white-space: nowrap;
+    border: var(--space-none);
+  }
+
+  /* Content container */
+  .toc__content {
+    margin-top: var(--space-sm);
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    border: var(--border-width-thin) solid var(--border-primary);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(var(--space-sm));
+    max-height: var(--modal-content-max-height);
+    transition:
+      max-height var(--transition-normal),
+      opacity var(--transition-fast);
+    opacity: var(--animation-opacity-full);
+  }
+
+  .toc__content--hidden {
+    max-height: var(--space-none);
+    opacity: var(--animation-opacity-end);
+    border: none;
+    box-shadow: none;
+  }
+
+  /* Navigation container */
+  .toc__nav {
+    padding: var(--space-lg);
+  }
+
+  /* Skip link */
+  .toc__skip-link {
+    display: block;
+    margin-bottom: var(--space-lg);
+    font-size: var(--text-sm);
+    color: var(--interactive-primary);
+    text-decoration: none;
+  }
+
+  .toc__skip-link:hover {
+    text-decoration: underline;
+    text-decoration-thickness: var(--text-decoration-thickness);
+    text-underline-offset: var(--text-underline-offset);
+  }
+
+  /* List container */
+  .toc__list {
+    max-height: 60vh;
     overflow-y: auto;
-    opacity: 1;
+    padding: var(--space-none);
+    margin: var(--space-none);
+    list-style: none;
+    scrollbar-width: var(--scrollbar-thin);
+    scrollbar-color: var(--scrollbar-thumb-bg) var(--scrollbar-track-bg);
   }
 
-  /* High contrast for accessibility (minimum 7:1 ratio for WCAG AAA) */
-  .toc-container a:focus-visible {
-    outline: 2px solid #38bdf8;
-    outline-offset: 2px;
+  /* Custom scrollbar for Webkit browsers */
+  .toc__list::-webkit-scrollbar {
+    width: var(--scrollbar-thin);
   }
 
-  /* Scrollbar styling for better visibility */
-  .toc-content::-webkit-scrollbar,
-  .toc-content ul::-webkit-scrollbar {
-    width: 6px;
+  .toc__list::-webkit-scrollbar-track {
+    background: var(--scrollbar-track-bg);
+    border-radius: var(--scrollbar-track-radius);
   }
 
-  .toc-content::-webkit-scrollbar-track,
-  .toc-content ul::-webkit-scrollbar-track {
-    background: rgba(39, 39, 42, 0.5);
-    border-radius: 8px;
+  .toc__list::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-bg);
+    border-radius: var(--scrollbar-thumb-radius);
   }
 
-  .toc-content::-webkit-scrollbar-thumb,
-  .toc-content ul::-webkit-scrollbar-thumb {
-    background: rgba(56, 189, 248, 0.5);
-    border-radius: 8px;
+  .toc__list::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
   }
 
-  .toc-content::-webkit-scrollbar-thumb:hover,
-  .toc-content ul::-webkit-scrollbar-thumb:hover {
-    background: rgba(56, 189, 248, 0.7);
+  /* List items */
+  .toc__item {
+    margin-bottom: var(--space-sm);
   }
 
-  /* Responsive adjustments */
-  @media (max-width: 640px) {
-    .toc-content ul {
+  .toc__item--nested {
+    margin-left: var(--space-lg);
+  }
+
+  /* Links */
+  .toc__link {
+    display: block;
+    border-radius: var(--radius-lg);
+    padding: var(--space-md) var(--space-md);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition:
+      background-color var(--transition-normal),
+      color var(--transition-normal);
+    min-height: var(--min-touch-size);
+    line-height: var(--leading-enhanced);
+  }
+
+  .toc__link--primary {
+    font-size: var(--text-base);
+    font-weight: var(--font-medium);
+  }
+
+  .toc__link--secondary {
+    font-size: var(--text-sm);
+    font-weight: var(--font-normal);
+  }
+
+  .toc__link:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+  }
+
+  /* ======================================
+   * RESPONSIVE DESIGN
+   * ====================================== */
+
+  @media (max-width: var(--breakpoint-sm)) {
+    .toc__list {
       max-height: 50vh;
+    }
+
+    .toc__toggle {
+      padding: var(--space-md) var(--space-lg);
+      font-size: var(--text-base);
+    }
+
+    .toc__nav {
+      padding: var(--space-md);
     }
   }
 
-  /* Focus styles for better visibility */
-  .toc-container a:focus,
-  .toc-container button:focus {
-    outline: 2px solid #38bdf8;
-    outline-offset: 2px;
+  /* ======================================
+   * PRINT STYLES
+   * ====================================== */
+
+  @media print {
+    .toc {
+      display: none;
+    }
+  }
+
+  /* ======================================
+   * REDUCED MOTION SUPPORT
+   * ====================================== */
+
+  @media (prefers-reduced-motion: reduce) {
+    .toc__toggle,
+    .toc__content,
+    .toc__icon--chevron,
+    .toc__link {
+      transition: none;
+    }
+  }
+
+  /* ======================================
+   * HIGH CONTRAST MODE SUPPORT
+   * ====================================== */
+
+  @media (prefers-contrast: high) {
+    .toc__toggle {
+      border-width: var(--border-width-enhanced);
+    }
+
+    .toc__content {
+      border-width: var(--border-width-enhanced);
+    }
+
+    .toc__link:focus,
+    .toc__skip-link:focus,
+    .toc__toggle:focus {
+      outline-width: var(--border-width-enhanced);
+    }
   }
 </style>

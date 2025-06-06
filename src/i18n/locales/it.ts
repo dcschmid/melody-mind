@@ -29,6 +29,13 @@ export default {
   "auth.form.error.general": "Si è verificato un errore",
   "auth.form.success": "Successo!",
   "auth.form.email_required": "L'indirizzo email è obbligatorio",
+
+  // Table of Contents
+  "toc.toggle.label": "Mostra o nascondi indice",
+  "toc.state.expanded": "Espanso",
+  "toc.state.collapsed": "Compresso",
+  "toc.nav.label": "Indice dei contenuti",
+  "toc.skip.link": "Passa al contenuto principale",
   "auth.form.email_invalid_short": "Indirizzo email non valido",
   "auth.form.loading_text": "Caricamento...",
   "auth.form.send_reset_link": "Invia link di reimpostazione",
@@ -538,6 +545,11 @@ export default {
   "language.change.success": "Lingua cambiata a {language}",
   "language.change.error": "Cambio di lingua fallito. Riprova.",
   "language.preference.restored": "Preferenza di lingua ripristinata: {language}",
+  "playlist.item.unavailable": "Questo contenuto non è ancora disponibile",
+  "playlist.item.status": "Stato",
+  "playlist.item.coming.soon": "Prossimamente",
+  "playlist.item.status.changed.disabled": "Questa playlist non è attualmente disponibile",
+  "playlist.item.status.changed.available": "Questa playlist è ora disponibile",
 
   // Livelli di difficoltà estesi
   "difficulty.beginner": "Principiante",
@@ -886,4 +898,23 @@ export default {
   "playlist.visible": "Playlist prioritaria visibile: {title}",
   "playlist.image.error": "Errore nel caricamento dell'immagine per la playlist: {title}",
   "playlist.title.unknown": "Playlist sconosciuta",
+
+  // Componente di Test
+  "test.lint.title": "Componente di Test ESLint con WCAG AAA",
+  "test.lint.wcag_title": "Test WCAG AAA",
+  "test.lint.next_level_aria": "Continua al livello successivo",
+  "test.lint.next_button": "Continua",
+  "test.lint.problematic_button_aria": "Pulsante problematico",
+  "test.lint.correct_button_aria": "Pulsante corretto con funzionalità tastiera",
+  "test.lint.test_image_alt": "Immagine di test",
+  "test.lint.musician_image_alt":
+    "Un chitarrista che suona su un palco ben illuminato durante un concerto rock",
+  "test.lint.weak_contrast_text": "Questo testo ha un contrasto molto debole.",
+  "test.lint.good_contrast_text": "Questo testo ha un contrasto sufficiente per WCAG AAA.",
+  "test.lint.error_message": "Si è verificato un errore.",
+  "test.lint.score_label": "Punteggio:",
+  "test.lint.incomplete_button": "Pulsante incompleto",
+  "test.lint.correct_button": "Pulsante corretto",
+  "test.lint.main_heading": "Titolo principale",
+  "test.lint.subsection_heading": "Sottosezione (h2 mancante)",
 } as const;

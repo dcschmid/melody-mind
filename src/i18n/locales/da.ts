@@ -61,6 +61,13 @@ export default {
   "auth.form.error.general": "Der opstod en fejl",
   "auth.form.success": "Succes!",
   "auth.form.email_required": "E-mailadresse er påkrævet",
+
+  // Table of Contents
+  "toc.toggle.label": "Vis eller skjul indholdsfortegnelse",
+  "toc.state.expanded": "Udvidet",
+  "toc.state.collapsed": "Sammenfoldet",
+  "toc.nav.label": "Indholdsfortegnelse",
+  "toc.skip.link": "Spring til hovedindhold",
   "auth.form.email_invalid_short": "Ugyldig e-mailadresse",
   "auth.form.loading_text": "Indlæser...",
   "auth.form.send_reset_link": "Send nulstillingslink",
@@ -384,6 +391,8 @@ export default {
   "playlist.item.unavailable": "Dette indhold er endnu ikke tilgængeligt",
   "playlist.item.status": "Status",
   "playlist.item.coming.soon": "Kommer snart",
+  "playlist.item.status.changed.disabled": "Denne spilleliste er i øjeblikket ikke tilgængelig",
+  "playlist.item.status.changed.available": "Denne spilleliste er nu tilgængelig",
   "game.area.label": "Spilområde",
   "game.options.label": "Svarmuligheder",
   "game.answer.correct": "Korrekt! {points} point + {bonus} bonuspoint",
@@ -904,4 +913,23 @@ export default {
   "playlist.visible": "Prioritets spilleliste synlig: {title}",
   "playlist.image.error": "Billede kunne ikke indlæses for spilleliste: {title}",
   "playlist.title.unknown": "Ukendt spilleliste",
+
+  // Test Komponent
+  "test.lint.title": "ESLint Test Komponent med WCAG AAA",
+  "test.lint.wcag_title": "WCAG AAA Test",
+  "test.lint.next_level_aria": "Fortsæt til næste niveau",
+  "test.lint.next_button": "Fortsæt",
+  "test.lint.problematic_button_aria": "Problematisk knap",
+  "test.lint.correct_button_aria": "Korrekt knap med tastaturfunktionalitet",
+  "test.lint.test_image_alt": "Testbillede",
+  "test.lint.musician_image_alt":
+    "En guitarist der spiller på en godt belyst scene under en rockkoncert",
+  "test.lint.weak_contrast_text": "Denne tekst har meget svag kontrast.",
+  "test.lint.good_contrast_text": "Denne tekst har tilstrækkelig kontrast for WCAG AAA.",
+  "test.lint.error_message": "Der opstod en fejl.",
+  "test.lint.score_label": "Score:",
+  "test.lint.incomplete_button": "Ufuldstændig knap",
+  "test.lint.correct_button": "Korrekt knap",
+  "test.lint.main_heading": "Hovedoverskrift",
+  "test.lint.subsection_heading": "Underafsnit (h2 mangler)",
 };

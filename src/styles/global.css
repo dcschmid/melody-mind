@@ -442,9 +442,22 @@
   --min-touch-size: 44px;
   --touch-target-enhanced: 44px;
 
-  /* Backdrop Effects */
-  --backdrop-overlay-light: rgba(255, 255, 255, 0.8);
-  --backdrop-overlay-dark: rgba(0, 0, 0, 0.8);
+  /* Enhanced Focus System for WCAG AAA */
+  --focus-ring-width: 3px;
+  --focus-ring-color: var(--color-primary-400);
+  --focus-ring-offset: 2px;
+  --focus-ring: var(--focus-ring-width) solid var(--focus-ring-color);
+  --focus-outline: var(--focus-ring-width) solid var(--focus-ring-color);
+
+  /* Enhanced focus styles for dark theme */
+  --focus-enhanced-outline-dark: 3px solid var(--color-primary-300);
+  --focus-enhanced-shadow: 0 0 0 1px var(--color-primary-500), var(--shadow-lg);
+
+  /* Screen reader utilities */
+  --sr-only-width: 1px;
+  --sr-only-height: 1px;
+  --sr-only-margin: -1px;
+  --sr-only-clip-path: inset(50%);
 
   /* Print Styles */
   --print-bg: white;

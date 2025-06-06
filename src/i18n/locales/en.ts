@@ -29,6 +29,13 @@ export default {
   "auth.form.error.general": "An error occurred",
   "auth.form.success": "Success!",
   "auth.form.email_required": "Email address is required",
+
+  // Table of Contents
+  "toc.toggle.label": "Toggle table of contents",
+  "toc.state.expanded": "Expanded",
+  "toc.state.collapsed": "Collapsed",
+  "toc.nav.label": "Table of contents",
+  "toc.skip.link": "Skip to main content",
   "auth.form.email_invalid_short": "Invalid email address",
   "auth.form.loading_text": "Loading...",
   "auth.form.send_reset_link": "Send Reset Link",
@@ -425,6 +432,8 @@ export default {
   "playlist.item.unavailable": "This content is not yet available",
   "playlist.item.status": "Status",
   "playlist.item.coming.soon": "Coming soon",
+  "playlist.item.status.changed.disabled": "This playlist is currently unavailable",
+  "playlist.item.status.changed.available": "This playlist is now available for play",
   "game.area.label": "Game Area",
   "game.options.label": "Answer Options",
   "game.answer.correct": "Correct! {points} points + {bonus} bonus points",
@@ -908,4 +917,23 @@ export default {
   "audioplayer.help.button.title": "Audio player keyboard shortcuts",
   "audioplayer.help.shortcuts":
     "Space: Play/Pause, M: Mute/Unmute, Arrow keys: Seek audio, Up/Down: Volume control",
+
+  // Test Component
+  "test.lint.title": "ESLint Test Component with WCAG AAA",
+  "test.lint.wcag_title": "WCAG AAA Test",
+  "test.lint.next_level_aria": "Continue to next level",
+  "test.lint.next_button": "Continue",
+  "test.lint.problematic_button_aria": "Problematic button",
+  "test.lint.correct_button_aria": "Correct button with keyboard functionality",
+  "test.lint.test_image_alt": "Test image",
+  "test.lint.musician_image_alt":
+    "A guitarist playing on a brightly lit stage during a rock concert",
+  "test.lint.weak_contrast_text": "This text has very weak contrast.",
+  "test.lint.good_contrast_text": "This text has sufficient contrast for WCAG AAA.",
+  "test.lint.error_message": "An error has occurred.",
+  "test.lint.score_label": "Score:",
+  "test.lint.incomplete_button": "Incomplete button",
+  "test.lint.correct_button": "Correct button",
+  "test.lint.main_heading": "Main heading",
+  "test.lint.subsection_heading": "Subsection (h2 missing)",
 };
