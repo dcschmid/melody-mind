@@ -538,6 +538,17 @@ export default {
   "playlist.listen.deezer": "Écouter sur Deezer",
   "playlist.listen.apple": "Écouter sur Apple Music",
   "playlist.decade.filter": "Filtrer par Décennie",
+  "playlist.priority.loading": "Chargement de playlist prioritaire : {headline}",
+  "playlist.music.from.decade": "Musique de {decade}",
+  "playlist.streaming.services": "Services de streaming pour {headline}",
+  "playlist.accessibility.instruction":
+    "Utilisez Entrée ou Espace pour ouvrir la playlist dans le service de streaming. Naviguez entre les services avec la touche Tab. Ces playlists sont accessibles publiquement et ne nécessitent aucune authentification.",
+  "playlist.accessibility.info": "Informations d'accessibilité de la playlist",
+  "playlist.accessibility.public":
+    "Playlist publique - aucune authentification requise pour l'accès aux services de streaming",
+  "playlist.accessibility.selected": "{service} sélectionné pour {playlist}",
+  "playlist.accessibility.focus": "Focus sur l'option {service} pour {playlist}",
+  "playlist.accessibility.opened": "Ouverture de {playlist} sur {service}",
   "footer.rights": "Tous droits réservés",
   "footer.donate": "Faire un don",
   "footer.donate_aria": "Faire un don via PayPal",
@@ -912,4 +923,17 @@ export default {
   "audioplayer.help.button.title": "Raccourcis clavier du lecteur audio",
   "audioplayer.help.shortcuts":
     "Espace : Lecture/Pause, M : Muet/Réactiver, Touches fléchées : Naviguer audio, Haut/Bas : Contrôle du volume",
+
+  // Playlist-specific translation keys
+  "playlist.open.spotify": 'Ouvrir la playlist "{playlist}" dans Spotify',
+  "playlist.open.deezer": 'Ouvrir la playlist "{playlist}" dans Deezer',
+  "playlist.open.apple": 'Ouvrir la playlist "{playlist}" dans Apple Music',
+  "playlist.activation.focused":
+    "Playlist activée : {title}. Le focus a été déplacé vers les liens de streaming.",
+  "playlist.activation.no_links":
+    "Playlist sélectionnée : {title}. Aucun lien de streaming disponible.",
+  "playlist.exit": "Quitter la playlist : {title}",
+  "playlist.visible": "Playlist prioritaire visible : {title}",
+  "playlist.image.error": "Erreur lors du chargement de l'image pour la playlist : {title}",
+  "playlist.title.unknown": "Playlist inconnue",
 };
