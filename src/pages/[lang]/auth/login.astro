@@ -37,7 +37,8 @@ export async function getStaticPaths() {
 import AuthForm from "@components/auth/AuthForm.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Layout from "@layouts/Layout.astro";
-import { Icon } from "astro-icon/components";
+import BackToHomeLink from "@components/Shared/BackToHomeLink.astro";
+import Headline from "@components/Headline.astro";
 
 // 2. Data processing - Optimized translation batching
 // Extract language code from the current URL for internationalization
@@ -50,33 +51,19 @@ const t = useTranslations(lang.toString());
 const translations = {
   pageTitle: t("auth.login.title"),
   pageDescription: t("auth.login.description"),
-  backToHomeLabel: t("auth.login.back_to_home"),
   headingText: t("auth.login.heading"),
-  helpText: t("auth.login.help_text"),
 };
 
 // Destructure for easier access
-const { pageTitle, pageDescription, backToHomeLabel, headingText, helpText } = translations;
+const { pageTitle, pageDescription, headingText } = translations;
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
   <!-- Login container with responsive layout and improved accessibility -->
   <!-- Back to home link for improved navigation with preload optimization -->
-  <div class="back-to-home">
-    <a
-      href={`/${String(lang)}/`}
-      class="back-to-home__link"
-      aria-label={backToHomeLabel}
-      rel="prefetch"
-    >
-      <Icon name="arrow-left" class="back-to-home__icon" aria-hidden="true" />
-      <span>{backToHomeLabel}</span>
-    </a>
-  </div>
+  <BackToHomeLink lang={lang.toString()} />
 
-  <h1 id="login-heading" class="login-heading" aria-level="1">
-    {headingText}
-  </h1>
+  <Headline level="h1" id="login-heading" title={headingText} />
 
   <!-- Auth form with login mode and enhanced contrast for accessibility -->
   <div class="auth-form-container" aria-live="polite" aria-labelledby="login-heading" role="region">
@@ -122,64 +109,6 @@ const { pageTitle, pageDescription, backToHomeLabel, headingText, helpText } = t
    * Using CSS variables from global.css only
    * ====================================== */
 
-  /* Back to home navigation - Optimized for performance */
-  .back-to-home {
-    margin-bottom: var(--space-md);
-    text-align: left;
-  }
-
-  .back-to-home__link {
-    display: inline-flex;
-    align-items: center;
-    min-height: var(--min-touch-size);
-    min-width: var(--min-touch-size);
-    padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-md);
-    font-size: var(--text-sm);
-    color: var(--color-primary-300);
-    text-decoration: none;
-    transition: all var(--transition-normal);
-    letter-spacing: var(--letter-spacing-base);
-
-    /* Performance optimizations */
-    contain: layout style;
-    will-change: transform, background-color;
-
-    /* Enhanced focus styles for WCAG AAA */
-    outline: none;
-  }
-
-  .back-to-home__link:hover {
-    background-color: var(--bg-tertiary);
-    color: var(--color-primary-200);
-    transform: translateX(calc(-1 * var(--space-xs)));
-  }
-
-  .back-to-home__link:focus {
-    outline: var(--focus-enhanced-outline-dark);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-enhanced-shadow);
-  }
-
-  .back-to-home__icon {
-    width: var(--icon-size-md);
-    height: var(--icon-size-md);
-    margin-right: var(--space-xs);
-    color: currentColor;
-  }
-
-  /* Main heading styles */
-  .login-heading {
-    margin-bottom: var(--space-2xl);
-    text-align: center;
-    font-size: var(--text-2xl);
-    font-weight: var(--font-bold);
-    line-height: var(--leading-enhanced);
-    letter-spacing: var(--letter-spacing-enhanced);
-    color: var(--text-primary);
-    word-spacing: var(--word-spacing-enhanced);
-  }
-
   /* Auth form container - Enhanced performance optimizations */
   .auth-form-container {
     border-radius: var(--radius-lg);
@@ -190,38 +119,6 @@ const { pageTitle, pageDescription, backToHomeLabel, headingText, helpText } = t
     /* Performance optimizations */
     contain: layout style;
     will-change: opacity, transform;
-  }
-
-  /* Help text styling */
-  .login-help-text {
-    margin-top: var(--space-2xl);
-    text-align: center;
-    font-size: var(--text-sm);
-    color: var(--color-primary-200);
-    line-height: var(--leading-enhanced);
-    letter-spacing: var(--letter-spacing-base);
-    word-spacing: var(--word-spacing-enhanced);
-  }
-
-  /* Responsive design */
-  @media (min-width: 768px) {
-    .login-heading {
-      font-size: var(--text-3xl);
-    }
-
-    .login-help-text {
-      font-size: var(--text-base);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .login-heading {
-      font-size: var(--text-4xl);
-    }
-
-    .login-help-text {
-      font-size: var(--text-lg);
-    }
   }
 
   /* Fade-in animation for better UX - GPU accelerated */
@@ -243,10 +140,6 @@ const { pageTitle, pageDescription, backToHomeLabel, headingText, helpText } = t
       transition: none;
     }
 
-    .back-to-home__link {
-      transition: none;
-    }
-
     @keyframes fadeIn {
       from,
       to {
@@ -258,14 +151,6 @@ const { pageTitle, pageDescription, backToHomeLabel, headingText, helpText } = t
 
   /* Enhanced contrast for high contrast mode */
   @media (prefers-contrast: high) {
-    .back-to-home__link {
-      border: var(--border-width-thick) solid var(--border-primary);
-    }
-
-    .login-heading {
-      text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
-    }
-
     .auth-form-container {
       border: var(--border-width-thick) solid var(--border-primary);
     }
