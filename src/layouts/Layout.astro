@@ -318,10 +318,14 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
 
-    <!-- Color scheme and theme color for browser UI -->
+    <!-- Color scheme and theme color for browser UI using CSS variables -->
     <meta name="color-scheme" content="dark light" />
-    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta
+      name="theme-color"
+      content="var(--color-neutral-950)"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta name="theme-color" content="var(--color-white)" media="(prefers-color-scheme: light)" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
@@ -362,8 +366,8 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       /* Print styles for better document printing mit WCAG AAA Konformität */
       @media print {
         body {
-          background-color: var(--color-white) !important;
-          color: var(--color-black) !important;
+          background-color: var(--print-bg) !important;
+          color: var(--print-text) !important;
         }
 
         .no-print {
@@ -371,9 +375,9 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
         }
 
         main {
-          width: 100%;
-          padding: 0;
-          margin: 0;
+          width: var(--width-full);
+          padding: var(--space-none);
+          margin: var(--space-none);
         }
 
         a::after {
@@ -384,8 +388,8 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 
         /* Sicherstellen, dass der Kontrast beim Drucken stimmt */
         * {
-          background-color: var(--color-white) !important;
-          color: var(--color-black) !important;
+          background-color: var(--print-bg) !important;
+          color: var(--print-text) !important;
           border-color: var(--color-neutral-700) !important;
         }
       }
@@ -439,15 +443,15 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 
       /* HTML root element styling with accessibility foundations and modern features */
       .layout__html {
-        margin: 0;
-        padding: 0;
+        margin: var(--space-none);
+        padding: var(--space-none);
         box-sizing: border-box;
-        height: 100%;
+        height: var(--width-full);
         /* Smooth scrolling only when motion is not reduced (progressive enhancement) */
         scroll-behavior: auto;
         /* Modern CSS logical properties for better internationalization support */
-        block-size: 100%;
-        inline-size: 100%;
+        block-size: var(--width-full);
+        inline-size: var(--width-full);
       }
 
       /* Progressive enhancement for smooth scrolling */
@@ -459,10 +463,10 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 
       /* Main body container with flexbox layout and WCAG AAA colors */
       .layout__body {
-        margin: 0 auto;
+        margin: var(--space-none) auto;
         display: flex;
         min-height: 100vh;
-        width: 100%;
+        width: var(--width-full);
         max-width: var(--layout-max-width);
         flex-direction: column;
 
@@ -475,7 +479,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 
         /* Enhanced typography for better readability */
         font-size: var(--text-lg);
-        line-height: var(--leading-relaxed);
+        line-height: var(--leading-enhanced);
         letter-spacing: var(--letter-spacing-base);
         text-wrap: wrap;
 
@@ -493,7 +497,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 
       /* Header section with full width and semantic structure */
       .layout__header {
-        width: 100%;
+        width: var(--width-full);
         /* Ensure header doesn't interfere with main content flow */
         flex-shrink: 0;
       }
@@ -523,19 +527,19 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 
       /* Main content area with enhanced accessibility */
       .layout__main {
-        margin: 0 auto;
-        max-width: 100%;
+        margin: var(--space-none) auto;
+        max-width: var(--width-full);
         flex-grow: 1;
 
         /* Content spacing for optimal reading experience */
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: var(--space-none);
+        padding-right: var(--space-none);
         padding-top: var(--layout-padding-large);
         padding-bottom: var(--layout-padding-large);
 
         /* Enhanced typography for content readability */
         font-size: var(--text-lg);
-        line-height: var(--leading-relaxed);
+        line-height: var(--leading-enhanced);
         text-wrap: pretty;
       }
 
@@ -550,7 +554,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
         .layout__body {
           background-color: var(--color-black);
           color: var(--color-white);
-          border: var(--border-width-thick) solid var(--color-white);
+          border: var(--border-width-enhanced) solid var(--color-white);
         }
 
         .layout__header,
@@ -586,9 +590,9 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
         *,
         *::before,
         *::after {
-          animation-duration: 0.01ms !important;
+          animation-duration: var(--transition-instant) !important;
           animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
+          transition-duration: var(--transition-instant) !important;
           scroll-behavior: auto !important;
         }
       }
@@ -677,14 +681,14 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
               statusElement.className = "sr-only";
               statusElement.style.cssText = `
                 position: absolute !important;
-                width: 1px !important;
-                height: 1px !important;
-                padding: 0 !important;
-                margin: -1px !important;
+                width: var(--sr-only-width) !important;
+                height: var(--sr-only-height) !important;
+                padding: var(--space-none) !important;
+                margin: var(--sr-only-margin) !important;
                 overflow: hidden !important;
                 clip: rect(0, 0, 0, 0) !important;
                 white-space: nowrap !important;
-                border: 0 !important;
+                border: var(--space-none) !important;
               `;
               document.body.appendChild(statusElement);
             }
