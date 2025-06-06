@@ -30,6 +30,13 @@ export default {
   "auth.form.error.general": "Ein Fehler ist aufgetreten",
   "auth.form.success": "Erfolgreich!",
   "auth.form.email_required": "E-Mail-Adresse ist erforderlich",
+
+  // Table of Contents
+  "toc.toggle.label": "Inhaltsverzeichnis anzeigen oder ausblenden",
+  "toc.state.expanded": "Erweitert",
+  "toc.state.collapsed": "Eingeklappt",
+  "toc.nav.label": "Inhaltsverzeichnis",
+  "toc.skip.link": "Zum Hauptinhalt springen",
   "auth.form.email_invalid_short": "Ungültige E-Mail-Adresse",
   "auth.form.loading_text": "Wird geladen...",
   "auth.form.send_reset_link": "Zurücksetzen-Link senden",
@@ -452,6 +459,8 @@ export default {
   "playlist.item.unavailable": "Dieser Inhalt ist noch nicht verfügbar",
   "playlist.item.status": "Status",
   "playlist.item.coming.soon": "Demnächst verfügbar",
+  "playlist.item.status.changed.disabled": "Diese Playlist ist derzeit nicht verfügbar",
+  "playlist.item.status.changed.available": "Diese Playlist ist jetzt verfügbar",
   "game.area.label": "Spielbereich",
   "game.options.label": "Antwortmöglichkeiten",
   "game.answer.correct": "Richtig! {points} Punkte + {bonus} Bonuspunkte",
@@ -953,4 +962,23 @@ export default {
   "audioplayer.help.button.title": "Audio-Player Tastenkürzel",
   "audioplayer.help.shortcuts":
     "Leertaste: Wiedergabe/Pause, M: Stumm/Laut, Pfeiltasten: Audio springen, Hoch/Runter: Lautstärke",
+
+  // Test-Komponente
+  "test.lint.title": "ESLint Testkomponente mit WCAG AAA",
+  "test.lint.wcag_title": "WCAG AAA Test",
+  "test.lint.next_level_aria": "Weiter zum nächsten Level",
+  "test.lint.next_button": "Weiter",
+  "test.lint.problematic_button_aria": "Problematischer Button",
+  "test.lint.correct_button_aria": "Korrekter Button mit Tastaturfunktionalität",
+  "test.lint.test_image_alt": "Testbild",
+  "test.lint.musician_image_alt":
+    "Ein Gitarrist spielt während eines Rockkonzerts auf einer hell beleuchteten Bühne",
+  "test.lint.weak_contrast_text": "Dieser Text hat einen sehr schwachen Kontrast.",
+  "test.lint.good_contrast_text": "Dieser Text hat ausreichenden Kontrast für WCAG AAA.",
+  "test.lint.error_message": "Es ist ein Fehler aufgetreten.",
+  "test.lint.score_label": "Punktzahl:",
+  "test.lint.incomplete_button": "Unvollständiger Button",
+  "test.lint.correct_button": "Korrekter Button",
+  "test.lint.main_heading": "Hauptüberschrift",
+  "test.lint.subsection_heading": "Unterabschnitt (h2 fehlt)",
 };

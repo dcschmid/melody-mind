@@ -1,6 +1,6 @@
 // filepath: /home/daniel/projects/melody-mind/src/i18n/locales/es.ts
 export default {
-  // Componentes de autenticación
+  // Auth Components
   "auth.required.title": "Se requiere iniciar sesión",
   "auth.required.description": "Por favor, inicia sesión para acceder a esta área",
   "auth.login.title": "Iniciar sesión",
@@ -30,6 +30,13 @@ export default {
   "auth.form.error.general": "Ocurrió un error",
   "auth.form.success": "¡Éxito!",
   "auth.form.email_required": "La dirección de correo electrónico es obligatoria",
+
+  // Table of Contents
+  "toc.toggle.label": "Mostrar u ocultar tabla de contenidos",
+  "toc.state.expanded": "Expandido",
+  "toc.state.collapsed": "Contraído",
+  "toc.nav.label": "Tabla de contenidos",
+  "toc.skip.link": "Saltar al contenido principal",
   "auth.form.email_invalid_short": "Dirección de correo electrónico no válida",
   "auth.form.loading_text": "Cargando...",
   "auth.form.send_reset_link": "Enviar enlace de restablecimiento",
@@ -381,6 +388,9 @@ export default {
   "playlist.item.unavailable": "Este contenido aún no está disponible",
   "playlist.item.status": "Estado",
   "playlist.item.coming.soon": "Próximamente",
+  "playlist.item.status.changed.disabled":
+    "Esta lista de reproducción no está disponible actualmente",
+  "playlist.item.status.changed.available": "Esta lista de reproducción ya está disponible",
   "game.area.label": "Área de juego",
   "game.options.label": "Opciones de respuesta",
   "game.answer.correct": "¡Correcto! {points} puntos + {bonus} puntos de bonificación",
@@ -896,4 +906,23 @@ export default {
   "playlist.visible": "Playlist prioritaria visible: {title}",
   "playlist.image.error": "Error al cargar la imagen de la playlist: {title}",
   "playlist.title.unknown": "Playlist desconocida",
+
+  // Componente de Prueba
+  "test.lint.title": "Componente de Prueba ESLint con WCAG AAA",
+  "test.lint.wcag_title": "Prueba WCAG AAA",
+  "test.lint.next_level_aria": "Continuar al siguiente nivel",
+  "test.lint.next_button": "Continuar",
+  "test.lint.problematic_button_aria": "Botón problemático",
+  "test.lint.correct_button_aria": "Botón correcto con funcionalidad de teclado",
+  "test.lint.test_image_alt": "Imagen de prueba",
+  "test.lint.musician_image_alt":
+    "Un guitarrista tocando en un escenario bien iluminado durante un concierto de rock",
+  "test.lint.weak_contrast_text": "Este texto tiene un contraste muy débil.",
+  "test.lint.good_contrast_text": "Este texto tiene suficiente contraste para WCAG AAA.",
+  "test.lint.error_message": "Ha ocurrido un error.",
+  "test.lint.score_label": "Puntuación:",
+  "test.lint.incomplete_button": "Botón incompleto",
+  "test.lint.correct_button": "Botón correcto",
+  "test.lint.main_heading": "Encabezado principal",
+  "test.lint.subsection_heading": "Subsección (falta h2)",
 };

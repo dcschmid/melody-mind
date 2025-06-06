@@ -387,6 +387,8 @@ export default {
   "playlist.item.unavailable": "Tämä sisältö ei ole vielä saatavilla",
   "playlist.item.status": "Tila",
   "playlist.item.coming.soon": "Tulossa pian",
+  "playlist.item.status.changed.disabled": "Tämä soittolista ei ole tällä hetkellä saatavilla",
+  "playlist.item.status.changed.available": "Tämä soittolista on nyt saatavilla",
   "game.area.label": "Pelialue",
   "game.options.label": "Vastausvaihtoehdot",
   "game.answer.correct": "Oikein! {points} pistettä + {bonus} bonuspistettä",
@@ -913,4 +915,30 @@ export default {
   "audioplayer.help.button.title": "Äänentoistion näppäinoikotiet",
   "audioplayer.help.shortcuts":
     "Välilyönti: Toista/Keskeytä, M: Mykistä/Palauta ääni, Nuolinäppäimet: Hae ääntä, Ylös/Alas: Äänenvoimakkuuden hallinta",
+
+  // Table of Contents
+  "toc.toggle.label": "Vaihda sisällysluettelo",
+  "toc.state.expanded": "Sisällysluettelo laajennettu",
+  "toc.state.collapsed": "Sisällysluettelo tiivistetty",
+  "toc.nav.label": "Sisällysluettelo",
+  "toc.skip.link": "Ohita sisällysluettelo",
+
+  // TestLint Component Translations
+  "test.lint.title": "ESLint Testikomponentti WCAG AAA -standardin mukaisesti",
+  "test.lint.wcag_title": "WCAG AAA -testi",
+  "test.lint.next_level_aria": "Jatka seuraavalle tasolle",
+  "test.lint.next_button": "Jatka",
+  "test.lint.problematic_button_aria": "Ongelmallinen painike",
+  "test.lint.correct_button_aria": "Oikea painike näppäimistötoiminnallisuudella",
+  "test.lint.test_image_alt": "Testikuva",
+  "test.lint.musician_image_alt":
+    "Kitaristi soittaa kirkkaasti valaistulla lavalla rockkonsertissa",
+  "test.lint.weak_contrast_text": "Tämän tekstin kontrasti on erittäin heikko.",
+  "test.lint.good_contrast_text": "Tämän tekstin kontrasti on riittävä WCAG AAA -standardille.",
+  "test.lint.error_message": "Tapahtui virhe.",
+  "test.lint.score_label": "Pisteet:",
+  "test.lint.incomplete_button": "Epätäydellinen painike",
+  "test.lint.correct_button": "Oikea painike",
+  "test.lint.main_heading": "Pääotsikko",
+  "test.lint.subsection_heading": "Alaosio (h2 puuttuu)",
 };

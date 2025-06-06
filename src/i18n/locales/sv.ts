@@ -384,6 +384,8 @@ export default {
   "playlist.item.unavailable": "Detta innehåll är ännu inte tillgängligt",
   "playlist.item.status": "Status",
   "playlist.item.coming.soon": "Kommer snart",
+  "playlist.item.status.changed.disabled": "Denna spellista är för närvarande inte tillgänglig",
+  "playlist.item.status.changed.available": "Denna spellista är nu tillgänglig",
   "game.area.label": "Spelområde",
   "game.options.label": "Svarsalternativ",
   "game.answer.correct": "Rätt! {points} poäng + {bonus} bonuspoäng",
@@ -899,4 +901,29 @@ export default {
   "audioplayer.help.button.title": "Ljudspelare tangentbordsgenvägar",
   "audioplayer.help.shortcuts":
     "Mellanslag: Spela/Pausa, M: Tyst/Avtysta, Piltangenter: Sök ljud, Upp/Ner: Volymkontroll",
+
+  // Table of Contents
+  "toc.toggle.label": "Växla innehållsförteckning",
+  "toc.state.expanded": "Innehållsförteckning utvidgad",
+  "toc.state.collapsed": "Innehållsförteckning kollapsad",
+  "toc.nav.label": "Innehållsförteckning",
+  "toc.skip.link": "Hoppa över innehållsförteckning",
+
+  // TestLint component
+  "test.lint.title": "Tillgänglighetstest",
+  "test.lint.wcag_title": "WCAG AAA Test",
+  "test.lint.next_level_aria": "Fortsätt till nästa nivå",
+  "test.lint.next_button": "Fortsätt",
+  "test.lint.problematic_button_aria": "Problematisk knapp med dålig kontrast",
+  "test.lint.correct_button_aria": "Korrekt knapp med god kontrast",
+  "test.lint.test_image_alt": "Testbild för tillgänglighet",
+  "test.lint.musician_image_alt": "Musiker som spelar instrument",
+  "test.lint.weak_contrast_text": "Den här texten har svag kontrast",
+  "test.lint.good_contrast_text": "Den här texten har god kontrast",
+  "test.lint.error_message": "Fel: Detta är ett felmeddelande",
+  "test.lint.score_label": "Poäng:",
+  "test.lint.incomplete_button": "Ofullständig",
+  "test.lint.correct_button": "Korrekt",
+  "test.lint.main_heading": "Huvudrubrik",
+  "test.lint.subsection_heading": "Underrubrik",
 };

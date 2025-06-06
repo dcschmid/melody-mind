@@ -29,6 +29,13 @@ export default {
   "auth.form.error.general": "Ocorreu um erro",
   "auth.form.success": "Sucesso!",
   "auth.form.email_required": "O endereço de email é obrigatório",
+
+  // Table of Contents
+  "toc.toggle.label": "Mostrar ou ocultar índice",
+  "toc.state.expanded": "Expandido",
+  "toc.state.collapsed": "Recolhido",
+  "toc.nav.label": "Índice",
+  "toc.skip.link": "Pular para o conteúdo principal",
   "auth.form.email_invalid_short": "Endereço de email inválido",
   "auth.form.loading_text": "Carregando...",
   "auth.form.send_reset_link": "Enviar Link de Redefinição",
@@ -398,6 +405,8 @@ export default {
   "playlist.item.unavailable": "Este conteúdo ainda não está disponível",
   "playlist.item.status": "Status",
   "playlist.item.coming.soon": "Em breve",
+  "playlist.item.status.changed.disabled": "Esta playlist não está disponível atualmente",
+  "playlist.item.status.changed.available": "Esta playlist está agora disponível",
   "game.area.label": "Área do Jogo",
   "game.options.label": "Opções de Resposta",
   "game.answer.correct": "Correto! {points} pontos + {bonus} pontos bônus",
@@ -914,4 +923,23 @@ export default {
   "playlist.visible": "Playlist prioritária visível: {title}",
   "playlist.image.error": "Erro ao carregar imagem para a playlist: {title}",
   "playlist.title.unknown": "Playlist desconhecida",
+
+  // Componente de Teste
+  "test.lint.title": "Componente de Teste ESLint com WCAG AAA",
+  "test.lint.wcag_title": "Teste WCAG AAA",
+  "test.lint.next_level_aria": "Continuar para o próximo nível",
+  "test.lint.next_button": "Continuar",
+  "test.lint.problematic_button_aria": "Botão problemático",
+  "test.lint.correct_button_aria": "Botão correto com funcionalidade de teclado",
+  "test.lint.test_image_alt": "Imagem de teste",
+  "test.lint.musician_image_alt":
+    "Um guitarrista tocando em um palco bem iluminado durante um show de rock",
+  "test.lint.weak_contrast_text": "Este texto tem contraste muito fraco.",
+  "test.lint.good_contrast_text": "Este texto tem contraste suficiente para WCAG AAA.",
+  "test.lint.error_message": "Ocorreu um erro.",
+  "test.lint.score_label": "Pontuação:",
+  "test.lint.incomplete_button": "Botão incompleto",
+  "test.lint.correct_button": "Botão correto",
+  "test.lint.main_heading": "Título principal",
+  "test.lint.subsection_heading": "Subseção (h2 faltando)",
 };
