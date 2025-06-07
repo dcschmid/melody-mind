@@ -925,4 +925,5 @@ export default {
   "test.lint.correct_button": "Botón correcto",
   "test.lint.main_heading": "Encabezado principal",
   "test.lint.subsection_heading": "Subsección (falta h2)",
+  "knowledge.word.count": "palabras",
 };

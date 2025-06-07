@@ -443,6 +443,7 @@ export default {
   "game.categories.no.playable.text":
     "Er zijn momenteel geen speelbare categorieën. Kom later terug.",
   "knowledge.reading.time": "min leestijd",
+  "knowledge.word.count": "woorden",
   "knowledge.reading.time.label": "Leestijd",
   "knowledge.breadcrumb.label": "Navigatie",
   "knowledge.listen.heading": "Luister naar gerelateerde muziek",

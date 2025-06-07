@@ -290,6 +290,7 @@
   --animation-opacity-full: 1; /* Full opacity for visible states */
   --animation-y-offset: 10px; /* Standard Y translation offset */
   --animation-y-offset-small: -1px; /* Small upward movement */
+  --animation-x-offset-small: -2px; /* Small leftward movement for interactive elements */
   --animation-scale-hover: 0.98; /* Scale for hover effects */
   --animation-pulse-duration: 2s; /* Standard pulse animation duration */
   --animation-shimmer-duration: 2s; /* Shimmer effect duration */

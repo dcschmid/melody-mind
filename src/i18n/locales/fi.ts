@@ -421,6 +421,7 @@ export default {
   "game.categories.no.playable.text":
     "Tällä hetkellä ei ole pelattavia kategorioita. Tarkista myöhemmin uudelleen.",
   "knowledge.reading.time": "min lukuaika",
+  "knowledge.word.count": "sanaa",
   "knowledge.reading.time.label": "Lukuaika",
   "knowledge.breadcrumb.label": "Navigaatio",
   "knowledge.listen.heading": "Kuuntele aiheeseen liittyvää musiikkia",

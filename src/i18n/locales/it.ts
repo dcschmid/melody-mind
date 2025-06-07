@@ -471,6 +471,11 @@ export default {
   "meta.keywords":
     "quiz musicale, trivia musicale, gioco musicale, test musicale, conoscenza musicale",
 
+  // Knowledge section
+  "knowledge.word.count": "parole",
+  "knowledge.back.to.list": "Torna alla panoramica",
+  "knowledge.play.category": "Inizia Quiz Musicale",
+
   // Componenti aria-label per accessibilità
   "aria.navigation": "Navigazione principale",
   "aria.user_menu": "Menu utente",

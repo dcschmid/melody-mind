@@ -981,4 +981,8 @@ export default {
   "test.lint.correct_button": "Korrekter Button",
   "test.lint.main_heading": "Hauptüberschrift",
   "test.lint.subsection_heading": "Unterabschnitt (h2 fehlt)",
+
+  // Knowledge translations
+  "knowledge.reading.time": "min Lesezeit",
+  "knowledge.word.count": "Wörter",
 };

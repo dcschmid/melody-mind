@@ -418,6 +418,7 @@ export default {
   "game.categories.no.playable.text":
     "Det finns för närvarande inga spelbara kategorier. Kom tillbaka senare.",
   "knowledge.reading.time": "min lästid",
+  "knowledge.word.count": "ord",
   "knowledge.reading.time.label": "Lästid",
   "knowledge.breadcrumb.label": "Navigering",
   "knowledge.listen.heading": "Lyssna på relaterad musik",
