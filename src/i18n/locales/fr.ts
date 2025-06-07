@@ -461,6 +461,7 @@ export default {
   "game.categories.no.playable.text":
     "Il n'y a actuellement aucune catégorie jouable. Veuillez revenir plus tard.",
   "knowledge.reading.time": "min de lecture",
+  "knowledge.word.count": "mots",
   "knowledge.reading.time.label": "Temps de lecture",
   "knowledge.breadcrumb.label": "Navigation",
   "knowledge.listen.heading": "Écouter de la musique associée",
