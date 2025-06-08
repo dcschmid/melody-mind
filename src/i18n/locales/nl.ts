@@ -450,7 +450,8 @@ export default {
   "knowledge.back.to.list": "Terug naar overzicht",
   "knowledge.interact.heading": "Luisteren & Spelen",
   "knowledge.play.heading": "Speel dit genre",
-  "knowledge.play.description": "Test je kennis van dit muziekgenre in onze interactieve quiz!",
+  "knowledge.play.description":
+    "🎵 Ben je klaar voor de ultieme uitdaging? Test je muziekkennis en word een genre-expert! Verzamel punten, gebruik slimme jokers en bewijs dat je hebt wat nodig is om een muziekkampioen te worden! 🏆",
   "knowledge.play.category": "Start Muziekquiz",
   "category.play": "Spelen",
   "play.cover.puzzle": "Speel Coverpuzzel",
@@ -557,7 +558,8 @@ export default {
   "footer.source_code": "Bekijk MelodyMind broncode op GitHub",
   "footer.support_kofi": "Steun MelodyMind op Ko-fi",
   "game.chronology.title": "Muziekchronologie",
-  "game.chronology.description": "Rangschik deze albums op hun releasejaar (oudste eerst)",
+  "game.chronology.description":
+    "⏰ Word een tijdreiziger van de muziek! Rangschik deze legendarische albums in de juiste chronologische volgorde en toon dat je een echte muziekhistoricus bent. Elke juiste zet brengt je dichter bij de perfecte score! 🎯",
   "game.chronology.area.label": "Chronologiespelgebied",
   "game.chronology.result": "Resultaat",
   "game.chronology.correct": "Correct! 🎉",
@@ -931,4 +933,7 @@ export default {
   "knowledge.accessibility.scrolling_to_top": "Scrollen naar boven",
   "knowledge.accessibility.scrolled_to_top": "Naar boven gescrold",
   "knowledge.accessibility.search_focused": "Het zoekveld is nu gefocust",
+
+  // Categoriepagina's
+  "category.about.title": "Over deze categorie",
 };

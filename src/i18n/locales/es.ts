@@ -220,6 +220,7 @@ export default {
   "game.no.results": "No se encontraron resultados",
   "game.not.available": "No disponible",
   "category.selected": "¡seleccionado!",
+  "category.about.title": "Sobre esta categoría",
   "category.difficulty.heading": "Elige tu nivel de dificultad",
   "category.difficulty.group": "Niveles de dificultad",
   "category.difficulty.easy": "Fácil",
@@ -431,7 +432,7 @@ export default {
   "knowledge.interact.heading": "Escuchar y Jugar",
   "knowledge.play.heading": "Jugar este género",
   "knowledge.play.description":
-    "¡Pon a prueba tus conocimientos sobre este género musical en nuestro quiz interactivo!",
+    "🎵 ¿Estás listo para el desafío definitivo? ¡Pon a prueba tus conocimientos musicales y conviértete en un experto del género! Recolecta puntos, usa comodines inteligentes y demuestra que tienes lo necesario para ser un campeón musical! 🏆",
   "knowledge.play.category": "Iniciar Quiz de Música",
   "category.play": "Jugar",
   "play.cover.puzzle": "Jugar Rompecabezas de Portadas",
@@ -530,7 +531,7 @@ export default {
   "footer.support_kofi": "Apoyar MelodyMind en Ko-fi",
   "game.chronology.title": "Cronología Musical",
   "game.chronology.description":
-    "Ordena estos álbumes por su año de lanzamiento (el más antiguo primero)",
+    "⏰ ¡Conviértete en un viajero del tiempo musical! Ordena estos álbumes legendarios en el orden cronológico correcto y demuestra que eres un verdadero historiador de la música. ¡Cada movimiento correcto te acerca más a la puntuación perfecta! 🎯",
   "game.chronology.area.label": "Área de Juego de Cronología",
   "game.chronology.result": "Resultado",
   "game.chronology.correct": "¡Correcto! 🎉",
@@ -936,4 +937,7 @@ export default {
   "knowledge.accessibility.scrolling_to_top": "Desplazando hacia arriba",
   "knowledge.accessibility.scrolled_to_top": "Desplazado hacia arriba",
   "knowledge.accessibility.search_focused": "El campo de búsqueda está ahora enfocado",
+
+  // Category pages
+  "category.about.title": "Sobre esta categoría",
 };

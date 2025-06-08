@@ -283,6 +283,7 @@ export default {
   "game.no.results": "Keine Ergebnisse gefunden",
   "game.not.available": "Nicht verfügbar",
   "category.selected": "gewählt!",
+  "category.about.title": "Über diese Kategorie",
   "category.difficulty.heading": "Wähle deinen Schwierigkeitsgrad",
   "category.difficulty.group": "Schwierigkeitsgrade",
   "category.difficulty.easy": "Leicht",
@@ -501,7 +502,7 @@ export default {
   "knowledge.interact.heading": "Anhören & Spielen",
   "knowledge.play.heading": "Dieses Genre spielen",
   "knowledge.play.description":
-    "Teste dein Wissen zu diesem Musikgenre in unserem interaktiven Quiz!",
+    "🎵 Bist du bereit für die ultimative Herausforderung? Teste dein Musikwissen und werde zum Genre-Experten! Sammle Punkte, nutze clevere Joker und beweise, dass du das Zeug zum Musik-Champion hast! 🏆",
   "knowledge.play.category": "Musikquiz starten",
   "category.play": "Spielen",
   "play.cover.puzzle": "Cover Puzzle spielen",
@@ -609,7 +610,8 @@ export default {
   "footer.source_code": "MelodyMind-Quellcode auf GitHub ansehen",
   "footer.support_kofi": "MelodyMind auf Ko-fi unterstützen",
   "game.chronology.title": "Musik-Chronologie",
-  "game.chronology.description": "Ordne diese Alben nach ihrem Erscheinungsjahr (ältestes zuerst)",
+  "game.chronology.description":
+    "⏰ Werde zum Zeitreisenden der Musik! Bringe diese legendären Alben in die richtige chronologische Reihenfolge und zeige, dass du ein wahrer Musikhistoriker bist. Jeder korrekte Zug bringt dich näher zum perfekten Score! 🎯",
   "game.chronology.area.label": "Chronologie-Spielbereich",
   "game.chronology.result": "Ergebnis",
   "game.chronology.correct": "Richtig! 🎉",

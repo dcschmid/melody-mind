@@ -433,7 +433,8 @@ export default {
   "knowledge.back.to.list": "Tilbage til oversigt",
   "knowledge.interact.heading": "Lyt & Spil",
   "knowledge.play.heading": "Spil denne genre",
-  "knowledge.play.description": "Test din viden om denne musikgenre i vores interaktive quiz!",
+  "knowledge.play.description":
+    "🎵 Er du klar til den ultimative udfordring? Test din musikviden og bliv en genre-ekspert! Saml point, brug smarte jokere og bevis, at du har hvad der skal til for at blive en musikmester! 🏆",
   "knowledge.play.category": "Start Musikquiz",
   "category.play": "Spil",
   "play.cover.puzzle": "Spil Coverpuslespil",
@@ -527,7 +528,8 @@ export default {
   "footer.source_code": "Se MelodyMind kildekode på GitHub",
   "footer.support_kofi": "Støt MelodyMind på Ko-fi",
   "game.chronology.title": "Musikkronologi",
-  "game.chronology.description": "Arranger disse album efter deres udgivelsesår (ældste først)",
+  "game.chronology.description":
+    "⏰ Bliv en tidsrejsende i musikken! Arranger disse legendariske album i den korrekte kronologiske rækkefølge og vis, at du er en sand musikhistoriker. Hvert korrekt træk bringer dig tættere på den perfekte score! 🎯",
   "game.chronology.area.label": "Kronologispilområde",
   "game.chronology.result": "Resultat",
   "game.chronology.correct": "Korrekt! 🎉",
@@ -938,4 +940,7 @@ export default {
   "knowledge.accessibility.scrolling_to_top": "Ruller til toppen",
   "knowledge.accessibility.scrolled_to_top": "Rullet til toppen",
   "knowledge.accessibility.search_focused": "Søgefeltet er nu fokuseret",
+
+  // Kategorisider
+  "category.about.title": "Om denne kategori",
 };

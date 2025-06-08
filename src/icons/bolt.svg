@@ -5,9 +5,11 @@
     <title>106</title>
     
     <defs>
-</defs>
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M14.289,0.023 L6.925,0 L2.984,8 L8,8 L3.666,15.916 L14.924,4.941 L10.35,4.941 L14.289,0.023 Z" fill="#434343" class="si-glyph-fill">
-</path>
+
+</defs>
+    <g stroke="none" stroke-width="1" fill-rule="evenodd">
+        <path d="M14.289,0.023 L6.925,0 L2.984,8 L8,8 L3.666,15.916 L14.924,4.941 L10.35,4.941 L14.289,0.023 Z" class="si-glyph-fill">
+
+</path>
     </g>
 </svg>
