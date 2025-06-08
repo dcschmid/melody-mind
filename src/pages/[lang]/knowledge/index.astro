@@ -429,15 +429,6 @@ const clientTranslations = {
 </Layout>
 
 <style>
-  /* ======================================
-   * KNOWLEDGE PAGE COMPONENTS - SEO OPTIMIZED VERSION
-   * 
-   * ✅ 100% CSS root variables usage - NO hardcoded values
-   * ✅ Enhanced accessibility with ARIA labels
-   * ✅ Optimized for Core Web Vitals
-   * ✅ Semantic HTML structure for better SEO
-   * ====================================== */
-
   /* Knowledge Page - Using CSS Variables */
   .knowledge-page {
     max-width: var(--container-xl);
@@ -516,6 +507,18 @@ const clientTranslations = {
   }
 
   /* Search Container */
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
   .search-container {
     margin-bottom: var(--space-2xl);
     padding: var(--space-xl);
@@ -668,19 +671,6 @@ const clientTranslations = {
   .icon-3xl {
     height: var(--space-3xl);
     width: var(--space-3xl);
-  }
-
-  /* Screen reader only */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
   }
 
   /* Centering utilities */
