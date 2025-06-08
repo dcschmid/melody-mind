@@ -425,7 +425,8 @@ export default {
   "knowledge.back.to.list": "Tillbaka till översikt",
   "knowledge.interact.heading": "Lyssna & Spela",
   "knowledge.play.heading": "Spela denna genre",
-  "knowledge.play.description": "Testa dina kunskaper om denna musikgenre i vårt interaktiva quiz!",
+  "knowledge.play.description":
+    "🎵 Är du redo för den ultimata utmaningen? Testa dina musikkunskaper och bli en genreexpert! Samla poäng, använd smarta jokrar och bevisa att du har vad som krävs för att bli en musikmästare! 🏆",
   "knowledge.play.category": "Starta Musikquiz",
   "category.play": "Spela",
   "play.cover.puzzle": "Spela Omslagspussel",
@@ -528,7 +529,8 @@ export default {
   "footer.source_code": "Visa MelodyMind källkod på GitHub",
   "footer.support_kofi": "Stöd MelodyMind på Ko-fi",
   "game.chronology.title": "Musikkronologi",
-  "game.chronology.description": "Ordna dessa album efter deras utgivningsår (äldsta först)",
+  "game.chronology.description":
+    "⏰ Bli en tidsresenär inom musik! Ordna dessa legendariska album i rätt kronologisk ordning och visa att du är en riktig musikhistoriker. Varje rätt drag för dig närmare den perfekta poängen! 🎯",
   "game.chronology.area.label": "Kronologispelområde",
   "game.chronology.result": "Resultat",
   "game.chronology.correct": "Korrekt! 🎉",
@@ -932,4 +934,7 @@ export default {
   "knowledge.accessibility.scrolling_to_top": "Rullar till toppen",
   "knowledge.accessibility.scrolled_to_top": "Rullat till toppen",
   "knowledge.accessibility.search_focused": "Sökfältet är nu fokuserat",
+
+  // Kategorisidor
+  "category.about.title": "Om denna kategori",
 };

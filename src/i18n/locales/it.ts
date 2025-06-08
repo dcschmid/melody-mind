@@ -133,7 +133,7 @@ export default {
   // Game Chronology
   "game.chronology.title": "Cronologia Musicale",
   "game.chronology.description":
-    "Ordina questi album per anno di uscita (dal più vecchio al più recente)",
+    "⏰ Diventa un viaggiatore del tempo della musica! Ordina questi album leggendari nell'ordine cronologico corretto e dimostra di essere un vero storico musicale. Ogni mossa corretta ti avvicina al punteggio perfetto! 🎯",
   "game.chronology.area.label": "Area di Gioco Cronologia",
   "game.chronology.result": "Risultato",
   "game.chronology.correct": "Corretto! 🎉",
@@ -485,6 +485,10 @@ export default {
   "knowledge.empty": "Nessun articolo trovato per questa lingua",
   "knowledge.word.count": "parole",
   "knowledge.back.to.list": "Torna alla panoramica",
+  "knowledge.interact.heading": "Ascoltare e Giocare",
+  "knowledge.play.heading": "Gioca a Questo Genere",
+  "knowledge.play.description":
+    "🎵 Sei pronto per la sfida definitiva? Metti alla prova le tue conoscenze musicali e diventa un esperto del genere! Raccogli punti, usa jolly intelligenti e dimostra di avere quello che serve per essere un campione musicale! 🏆",
   "knowledge.play.category": "Inizia Quiz Musicale",
 
   // Componenti aria-label per accessibilità
@@ -969,4 +973,7 @@ export default {
   "knowledge.accessibility.scrolling_to_top": "Scorrimento verso l'alto",
   "knowledge.accessibility.scrolled_to_top": "Scorrimento verso l'alto completato",
   "knowledge.accessibility.search_focused": "Il campo di ricerca è ora attivo",
+
+  // Pagine delle categorie
+  "category.about.title": "Informazioni su questa categoria",
 } as const;

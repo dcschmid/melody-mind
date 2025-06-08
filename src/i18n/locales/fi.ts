@@ -429,7 +429,7 @@ export default {
   "knowledge.interact.heading": "Kuuntele & Pelaa",
   "knowledge.play.heading": "Pelaa tätä genreä",
   "knowledge.play.description":
-    "Testaa tietosi tästä musiikkigenrestä interaktiivisessa visassamme!",
+    "🎵 Oletko valmis äärimmäiseen haasteeseen? Testaa musiikkitietosi ja tule genren asiantuntijaksi! Kerää pisteitä, käytä älykkäitä jokereita ja todista, että sinulla on tarvittavat taidot tulla musiikkimestariksi! 🏆",
   "knowledge.play.category": "Aloita Musiikkivisa",
   "category.play": "Pelaa",
   "play.cover.puzzle": "Pelaa Kansikuvapalapeliä",
@@ -534,7 +534,8 @@ export default {
   "footer.source_code": "Katso MelodyMindin lähdekoodi GitHubissa",
   "footer.support_kofi": "Tue MelodyMindia Ko-fissa",
   "game.chronology.title": "Musiikin Kronologia",
-  "game.chronology.description": "Järjestä nämä albumit julkaisuvuoden mukaan (vanhin ensin)",
+  "game.chronology.description":
+    "⏰ Tule musiikin aikamatkustajaksi! Järjestä nämä legendaariset albumit oikeaan kronologiseen järjestykseen ja osoita olevasi todellinen musiikin historioitsija. Jokainen oikea siirto vie sinua lähemmäs täydellistä tulosta! 🎯",
   "game.chronology.area.label": "Kronologiapelialue",
   "game.chronology.result": "Tulos",
   "game.chronology.correct": "Oikein! 🎉",
@@ -947,4 +948,7 @@ export default {
   "knowledge.accessibility.scrolling_to_top": "Vieritetään sivun alkuun",
   "knowledge.accessibility.scrolled_to_top": "Vieritetty sivun alkuun",
   "knowledge.accessibility.search_focused": "Hakukenttä on nyt aktiivinen",
+
+  // Kategorisivut
+  "category.about.title": "Tietoja tästä kategoriasta",
 };

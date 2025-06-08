@@ -448,7 +448,7 @@ export default {
   "knowledge.interact.heading": "Ouvir e Jogar",
   "knowledge.play.heading": "Jogar Este Gênero",
   "knowledge.play.description":
-    "Teste seus conhecimentos sobre este gênero musical em nosso quiz interativo!",
+    "🎵 Está pronto para o desafio definitivo? Teste seus conhecimentos musicais e torne-se um especialista no gênero! Colete pontos, use curingas inteligentes e prove que tem o que é preciso para ser um campeão musical! 🏆",
   "knowledge.play.category": "Iniciar Quiz de Música",
   "category.play": "Jogar",
   "play.cover.puzzle": "Jogar Quebra-cabeça de Capas",
@@ -546,7 +546,7 @@ export default {
   "footer.support_kofi": "Apoiar MelodyMind no Ko-fi",
   "game.chronology.title": "Cronologia Musical",
   "game.chronology.description":
-    "Organize estes álbuns por ano de lançamento (o mais antigo primeiro)",
+    "⏰ Torne-se um viajante do tempo da música! Organize estes álbuns lendários na ordem cronológica correta e mostre que é um verdadeiro historiador musical. Cada movimento correto o aproxima da pontuação perfeita! 🎯",
   "game.chronology.area.label": "Área do Jogo de Cronologia",
   "game.chronology.result": "Resultado",
   "game.chronology.correct": "Correto! 🎉",
@@ -948,4 +948,7 @@ export default {
   "knowledge.accessibility.scrolling_to_top": "Rolando para o topo",
   "knowledge.accessibility.scrolled_to_top": "Rolado para o topo",
   "knowledge.accessibility.search_focused": "O campo de pesquisa está agora focado",
+
+  // Páginas de categorias
+  "category.about.title": "Sobre esta categoria",
 };
