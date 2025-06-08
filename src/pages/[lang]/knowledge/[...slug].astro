@@ -28,8 +28,9 @@ import { Picture } from "astro:assets";
 import Headline from "@components/Headline.astro";
 import { Icon } from "astro-icon/components";
 import ButtonLink from "@components/ButtonLink.astro";
-import MusicButtons from "../../../components/MusicButtons.astro";
-import TableOfContents from "../../../components/TableOfContents.astro";
+import MusicButtons from "@components/MusicButtons.astro";
+import TableOfContents from "@components/TableOfContents.astro";
+import BackToTop from "@components/Shared/BackToTop.astro";
 import { calculateReadingTime } from "@utils/readingTime";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
 import {
@@ -411,6 +412,9 @@ const articleSchemaData = {
       </div>
     </article>
   </main>
+
+  <!-- BackToTop component for improved navigation on long articles -->
+  <BackToTop lang={String(lang)} />
 </Layout>
 
 <style is:global>
@@ -627,7 +631,6 @@ const articleSchemaData = {
     word-spacing: var(--word-spacing-enhanced);
 
     /* Improved paragraph spacing for better readability */
-    max-width: 70ch; /* Optimal reading line length */
     margin: 0 auto; /* Center content for better focus */
   }
 
