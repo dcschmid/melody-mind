@@ -841,6 +841,11 @@ export default {
     "Thème sombre activé pour un contraste optimal et l'accessibilité",
   "layout.analytics.init.failed": "Échec de l'initialisation des analytiques :",
 
+  // Accessibility Skip Links
+  "accessibility.skip.main": "Aller au contenu principal",
+  "accessibility.skip.search": "Aller à la recherche",
+  "accessibility.skip.articles": "Aller aux articles",
+
   // Navigation
   "nav.ariaLabel": "Navigation principale",
 
@@ -965,4 +970,9 @@ export default {
   "test.lint.correct_button": "Bouton correct",
   "test.lint.main_heading": "Titre principal",
   "test.lint.subsection_heading": "Sous-section (h2 manquant)",
+
+  // Knowledge accessibility translations
+  "knowledge.accessibility.scrolling_to_top": "Défilement vers le haut",
+  "knowledge.accessibility.scrolled_to_top": "Défilé vers le haut",
+  "knowledge.accessibility.search_focused": "Le champ de recherche est maintenant mis au point",
 };

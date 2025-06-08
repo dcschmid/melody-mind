@@ -172,6 +172,9 @@ export default {
   "accessibility.skip.to.main": "Passa al contenuto principale",
   "accessibility.skip.to.navigation": "Passa alla navigazione",
   "accessibility.skip.to.game": "Passa al gioco",
+  "accessibility.skip.main": "Passa al contenuto principale",
+  "accessibility.skip.search": "Passa alla ricerca",
+  "accessibility.skip.articles": "Passa agli articoli",
 
   // Risultati/Achievement
   "achievements.title": "I tuoi risultati",
@@ -472,6 +475,14 @@ export default {
     "quiz musicale, trivia musicale, gioco musicale, test musicale, conoscenza musicale",
 
   // Knowledge section
+  "knowledge.title": "Base di Conoscenza Musicale",
+  "knowledge.intro":
+    "Immergiti nel mondo affascinante della storia musicale. Qui troverai articoli emozionanti su diverse epoche musicali, generi e il loro sviluppo. Scopri fatti interessanti ed espandi la tua conoscenza musicale.",
+  "knowledge.search.label": "Cerca articoli",
+  "knowledge.search.placeholder": "Cerca...",
+  "knowledge.filter.all": "Tutte le Parole Chiave",
+  "knowledge.no.results": "Nessun articolo trovato. Prova termini di ricerca diversi.",
+  "knowledge.empty": "Nessun articolo trovato per questa lingua",
   "knowledge.word.count": "parole",
   "knowledge.back.to.list": "Torna alla panoramica",
   "knowledge.play.category": "Inizia Quiz Musicale",
@@ -730,7 +741,6 @@ export default {
   "nav.menu.text": "Menu",
   "nav.title": "Navigazione",
   "nav.menu.home": "Home",
-  "knowledge.title": "Conoscenza",
   "knowledge.reading.time": "min",
   "knowledge.reading.time.label": "Tempo di lettura",
   "playlist.page.heading": "Playlist",
@@ -922,4 +932,41 @@ export default {
   "test.lint.correct_button": "Pulsante corretto",
   "test.lint.main_heading": "Titolo principale",
   "test.lint.subsection_heading": "Sottosezione (h2 mancante)",
+
+  // Common navigation and knowledge translations
+  "common.back.to.top": "Torna all'inizio",
+  "common.accessibility.main_content": "Contenuto principale",
+  "knowledge.articles.heading": "Articoli di Conoscenza",
+  "knowledge.search.heading": "Cerca Articoli",
+  "knowledge.search.description": "Gli articoli vengono filtrati automaticamente mentre digiti",
+  "knowledge.search.reset": "Ripristina Ricerca",
+  "knowledge.search.reset.text": "Ripristina",
+  "knowledge.search.initial": "Mostra tutti gli articoli. Digita per filtrare.",
+  "knowledge.no.results.help": "Prova termini di ricerca diversi o ripristina la ricerca",
+  "knowledge.search.no.articles": "Nessun articolo trovato",
+  "knowledge.search.one.article": "1 articolo trovato",
+  "knowledge.search.all.articles": "Tutti i {count} articoli visualizzati",
+  "knowledge.search.count.articles": "{count} di {total} articoli trovati",
+  "knowledge.search.results.format":
+    'Risultati di ricerca per "{term}": {count} di {total} articoli corrispondono alla tua ricerca.',
+  "knowledge.search.no.results.format":
+    'Nessun articolo corrisponde alla tua ricerca per "{term}". Prova parole chiave diverse.',
+  "knowledge.search.showing.all": "Mostra tutti i {total} articoli.",
+  "knowledge.reset.search.button": "Ripristina Ricerca",
+  "knowledge.keyboard.instructions":
+    "Usa i tasti freccia per navigare tra gli articoli. Premi Invio per aprire un articolo.",
+  "knowledge.animations.on": "Animazioni: Attive",
+  "knowledge.animations.off": "Animazioni: Disattive",
+  "knowledge.animations.enabled": "Animazioni abilitate",
+  "knowledge.animations.disabled": "Animazioni disabilitate per migliore accessibilità",
+  "knowledge.animations.auto.disabled":
+    "Animazioni automaticamente disabilitate basandosi sulle preferenze di sistema",
+  "knowledge.animations.toggle": "Attiva/disattiva animazioni",
+  "knowledge.published": "Pubblicato",
+  "navigation.article.opens": "apre la pagina dell'articolo",
+
+  // Knowledge accessibility translations
+  "knowledge.accessibility.scrolling_to_top": "Scorrimento verso l'alto",
+  "knowledge.accessibility.scrolled_to_top": "Scorrimento verso l'alto completato",
+  "knowledge.accessibility.search_focused": "Il campo di ricerca è ora attivo",
 } as const;

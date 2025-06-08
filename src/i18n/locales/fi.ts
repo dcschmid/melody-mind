@@ -942,4 +942,9 @@ export default {
   "test.lint.correct_button": "Oikea painike",
   "test.lint.main_heading": "Pääotsikko",
   "test.lint.subsection_heading": "Alaosio (h2 puuttuu)",
+
+  // Knowledge accessibility translations
+  "knowledge.accessibility.scrolling_to_top": "Vieritetään sivun alkuun",
+  "knowledge.accessibility.scrolled_to_top": "Vieritetty sivun alkuun",
+  "knowledge.accessibility.search_focused": "Hakukenttä on nyt aktiivinen",
 };

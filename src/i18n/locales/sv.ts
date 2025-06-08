@@ -927,4 +927,9 @@ export default {
   "test.lint.correct_button": "Korrekt",
   "test.lint.main_heading": "Huvudrubrik",
   "test.lint.subsection_heading": "Underrubrik",
+
+  // Knowledge accessibility translations
+  "knowledge.accessibility.scrolling_to_top": "Rullar till toppen",
+  "knowledge.accessibility.scrolled_to_top": "Rullat till toppen",
+  "knowledge.accessibility.search_focused": "Sökfältet är nu fokuserat",
 };

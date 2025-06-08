@@ -134,6 +134,40 @@ type ShareTranslationKey =
   | `share.${string}`;
 
 /**
+ * Knowledge-related translation keys
+ */
+type KnowledgeTranslationKey =
+  | "knowledge.title"
+  | "knowledge.intro"
+  | "knowledge.articles.heading"
+  | "knowledge.search.heading"
+  | "knowledge.search.label"
+  | "knowledge.search.placeholder"
+  | "knowledge.search.description"
+  | "knowledge.search.reset"
+  | "knowledge.search.reset.text"
+  | "knowledge.search.initial"
+  | "knowledge.no.results"
+  | "knowledge.no.results.help"
+  | "knowledge.search.no.articles"
+  | "knowledge.search.one.article"
+  | "knowledge.search.all.articles"
+  | "knowledge.search.count.articles"
+  | "knowledge.search.results.format"
+  | "knowledge.search.no.results.format"
+  | "knowledge.search.showing.all"
+  | "knowledge.reset.search.button"
+  | "knowledge.keyboard.instructions"
+  | "knowledge.animations.on"
+  | "knowledge.animations.off"
+  | "knowledge.animations.enabled"
+  | "knowledge.animations.disabled"
+  | "knowledge.animations.auto.disabled"
+  | "knowledge.animations.toggle"
+  | "knowledge.empty"
+  | `knowledge.${string}`;
+
+/**
  * All valid translation keys for the application
  */
 export type TranslationKey =
@@ -142,7 +176,8 @@ export type TranslationKey =
   | ProfileTranslationKey
   | GameTranslationKey
   | AchievementTranslationKey
-  | ShareTranslationKey;
+  | ShareTranslationKey
+  | KnowledgeTranslationKey;
 
 /**
  * Translation parameter types based on translation key

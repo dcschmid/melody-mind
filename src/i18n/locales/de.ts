@@ -885,6 +885,11 @@ export default {
     "Dunkles Theme für optimalen Kontrast und Barrierefreiheit aktiviert",
   "layout.analytics.init.failed": "Analytics-Initialisierung fehlgeschlagen:",
 
+  // Accessibility Skip Links
+  "accessibility.skip.main": "Zum Hauptinhalt springen",
+  "accessibility.skip.search": "Zur Suche springen",
+  "accessibility.skip.articles": "Zu den Artikeln springen",
+
   // Navigation
   "nav.ariaLabel": "Hauptnavigation",
 
@@ -983,6 +988,8 @@ export default {
   "test.lint.subsection_heading": "Unterabschnitt (h2 fehlt)",
 
   // Knowledge translations
-  "knowledge.reading.time": "min Lesezeit",
   "knowledge.word.count": "Wörter",
+  "knowledge.accessibility.scrolling_to_top": "Scrolle nach oben",
+  "knowledge.accessibility.scrolled_to_top": "Nach oben gescrollt",
+  "knowledge.accessibility.search_focused": "Suchfeld ist jetzt fokussiert",
 };
