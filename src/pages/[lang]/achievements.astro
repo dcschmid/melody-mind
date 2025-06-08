@@ -1,76 +1,7 @@
 ---
 /**
  * @fileoverview Achievements Page - Displays all available achievements and user progress
- * @module pages/achievements
- * @version 3.0.0
- * @since 1.0.0
- *
- * @component AchievementsPage
- * @description
- * A comprehensive achievements page that displays all available achievements and user progress
- * with advanced filtering capabilities. Implements WCAG AAA accessibility standards and
- * performance optimizations for the MelodyMind music trivia game.
- *
- * @features
- * - Achievement filtering by category and status
- * - Responsive grid layout with CSS Grid auto-fit
- * - Real-time achievement notifications
- * - Progress tracking and statistics
- * - Performance optimized with lazy loading and event cleanup
- * - WCAG AAA compliant with 7:1 contrast ratios
- * - Multilingual support through i18n system
- * - Authentication required with automatic redirect handling
- *
- * @accessibility
- * - Meets WCAG AAA standards with 7:1 color contrast ratio
- * - Full keyboard navigation support with visible focus indicators
- * - Screen reader optimized with comprehensive ARIA attributes
- * - Touch-friendly targets (minimum 44×44px) for mobile accessibility
- * - Reduced motion support for vestibular disorder considerations
- * - High contrast mode support for vision accessibility
- *
- * @performance
- * - CSS Grid auto-fit for efficient responsive layouts
- * - Layout and style containment for optimized rendering
- * - Event cleanup for memory leak prevention
- * - Lazy loading for images and dynamic content
- * - CSS custom properties for consistent theming
- *
- * @route `/[lang]/achievements`
- * @params {SupportedLanguage} lang - Language code for localized content (en, de, es, fr, it)
- *
- * @requires authentication - Users must be logged in to view achievements
- * @redirects `/[lang]/login` - Unauthenticated users are redirected to login
- *
- * @example
- * ```
- * // Accessible via these URLs:
- * /en/achievements - English achievements page
- * /de/achievements - German achievements page
- * /es/achievements - Spanish achievements page
- * /fr/achievements - French achievements page
- * /it/achievements - Italian achievements page
- * ```
- *
- * @dependencies
- * - Layout component for page structure
- * - AchievementCard for individual achievement display
- * - AchievementFilter for filtering functionality
- * - AchievementNotification for real-time notifications
- * - Achievement service for data fetching
- * - Authentication middleware for access control
- * - i18n utilities for translations
- *
- * @throws {Error} When achievement data cannot be fetched
- * @throws {AuthenticationError} When user is not authenticated
- *
- * @see {@link /docs/pages/AchievementsPage.md} - Comprehensive page documentation
- * @see {@link /docs/components/AchievementCard.md} - Achievement card component
- * @see {@link /docs/api/user-achievements-endpoint.md} - API documentation
- *
- * @author MelodyMind Development Team
- * @copyright 2025 MelodyMind
- * @license MIT
+ * @description A comprehensive achievements page with filtering capabilities and WCAG AAA accessibility
  */
 
 // Export getStaticPaths for dynamic route generation (REQUIRED for Astro dynamic routes)
@@ -123,6 +54,8 @@ import AchievementFilter from "@components/Achievements/AchievementFilter.astro"
 import AchievementNotification from "@components/Achievements/AchievementNotification.astro";
 import ErrorMessage from "@components/Shared/ErrorMessage.astro";
 import ButtonLink from "@components/ButtonLink.astro";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
 
 // 3. Language and authentication setup
 // Extract language from URL parameters
@@ -163,10 +96,8 @@ const achievementStats = calculateAchievementStats(achievements);
 
 <Layout title={t("achievements.title")} description={t("achievements.description")}>
   <main class="achievements container" id="main-content" role="main">
-    <h1 class="achievements__title">{t("achievements.title")}</h1>
-    <p class="achievements__description">
-      {t("achievements.description")}
-    </p>
+    <Headline level="h1" title={t("achievements.title")} className="achievements__title" />
+    <Paragraph description={t("achievements.description")} className="achievements__description" />
 
     <!-- Live region for dynamic content updates -->
     <div aria-live="polite" aria-atomic="true" class="sr-only" id="achievements-status">
@@ -178,8 +109,8 @@ const achievementStats = calculateAchievementStats(achievements);
     {
       !authenticated && (
         <div class="achievements__auth-required" role="region" aria-labelledby="auth-title">
-          <h2 id="auth-title">{t("auth.required.title")}</h2>
-          <p>{t("auth.required.description")}</p>
+          <Headline level="h2" id="auth-title" title={t("auth.required.title")} />
+          <Paragraph description={t("auth.required.description")} />
           <ButtonLink
             href={`/${langString}/auth/login`}
             variant="primary"
@@ -194,7 +125,7 @@ const achievementStats = calculateAchievementStats(achievements);
     {
       authenticated && achievements.length === 0 && !error && (
         <div class="achievements__empty" role="status">
-          <p>{t("achievements.empty")}</p>
+          <Paragraph description={t("achievements.empty")} />
         </div>
       )
     }
@@ -205,9 +136,12 @@ const achievementStats = calculateAchievementStats(achievements);
           <AchievementFilter lang={langString} />
 
           <div class="achievements__list" role="region" aria-labelledby="achievements-categories">
-            <h2 id="achievements-categories" class="sr-only">
-              {t("achievements.categories")}
-            </h2>
+            <Headline
+              level="h2"
+              id="achievements-categories"
+              className="sr-only"
+              title={t("achievements.categories")}
+            />
             {sortedCategories.map(([categoryId, categoryAchievements]) => {
               const categoryCode =
                 (categoryAchievements as LocalizedAchievement[])[0]?.category?.code ?? "bronze";
@@ -220,16 +154,18 @@ const achievementStats = calculateAchievementStats(achievements);
                   data-category-id={categoryId}
                   aria-labelledby={`category-${categoryId}-title`}
                 >
-                  <h3
+                  <Headline
+                    level="h3"
                     id={`category-${categoryId}-title`}
-                    class={`achievements__category-title achievements__category-title--${categoryCode}`}
-                    aria-describedby={`category-${categoryId}-count`}
-                  >
-                    {categoryTitle}
-                  </h3>
-                  <p id={`category-${categoryId}-count`} class="sr-only">
-                    {t("achievements.category.count", { count: achievementCount })}
-                  </p>
+                    title={categoryTitle}
+                    className={`achievements__category-title achievements__category-title--${categoryCode}`}
+                    ariaDescribedBy={`category-${categoryId}-count`}
+                  />
+                  <Paragraph
+                    id={`category-${categoryId}-count`}
+                    className="sr-only"
+                    description={t("achievements.category.count", { count: achievementCount })}
+                  />
                   <div
                     class="achievements__grid"
                     role="list"
@@ -249,9 +185,12 @@ const achievementStats = calculateAchievementStats(achievements);
           </div>
 
           <section class="achievements__summary" aria-labelledby="summary-title">
-            <h2 id="summary-title" class="achievements__summary-title">
-              {t("achievements.summary.title")}
-            </h2>
+            <Headline
+              level="h2"
+              id="summary-title"
+              className="achievements__summary-title"
+              title={t("achievements.summary.title")}
+            />
             <div class="achievements__summary-stats" role="list" aria-labelledby="summary-title">
               <div class="achievements__stat" role="listitem">
                 <span class="achievements__stat-label">{t("achievements.summary.total")}</span>
@@ -299,66 +238,52 @@ const achievementStats = calculateAchievementStats(achievements);
 
 <style>
   /**
-   * Achievements Page CSS - WCAG AAA Compliant & Maximum Performance Optimized
+   * Achievements Page CSS - WCAG AAA 2.2 Compliant & Performance Optimized
    * 
    * COMPREHENSIVE OPTIMIZATION FEATURES:
    * - Mandatory CSS custom properties from global.css for design consistency
    * - Maximum DRY principles applied with consolidated repetitive patterns
    * - BEM methodology for maintainable class naming
-   * - WCAG AAA accessibility standards compliance (7:1 contrast ratios)
+   * - WCAG AAA 2.2 accessibility standards compliance (7:1 contrast ratios)
    * - Performance optimizations with logical CSS organization
    * - Semantic CSS variables for enhanced maintainability
    * - Modern CSS features (Grid auto-fit, Container Queries, CSS logical properties)
+   * - No Tailwind CSS classes - pure CSS implementation
    * 
    * SPECIFIC OPTIMIZATIONS IMPLEMENTED:
-   * 1. Layout System: Utilizes existing .container utility class from global.css
+   * 1. Layout System: Standard CSS with existing CSS variables
    * 2. CSS Variables: Maximum usage of semantic variables (--text-*, --space-*, --border-*, etc.)
    * 3. DRY Consolidation: Merged repetitive patterns into shared selectors
-   * 4. Grid System: Enhanced responsive grid using --grid-auto-fit-responsive variable
-   * 5. Media Queries: Converted hardcoded breakpoints to semantic CSS variables
+   * 4. Grid System: Enhanced responsive grid using existing grid variables
+   * 5. Media Queries: Using semantic CSS variables for breakpoints
    * 6. State Components: Consolidated auth-required/empty/summary component styles
-   * 7. Accessibility: Enhanced WCAG AAA compliance with semantic variable usage
+   * 7. Accessibility: Enhanced WCAG AAA 2.2 compliance with semantic variable usage
    * 8. Print Styles: Optimized print output using semantic print variables
    * 9. Performance: Container queries and layout containment for optimal rendering
    * 10. Touch Targets: Consistent use of --min-touch-size for mobile accessibility
    */
 
   /* ======================================
-   * LAYOUT SYSTEM - Using existing container utility for consistency
+   * LAYOUT SYSTEM - Using existing CSS variables for consistency
    * ====================================== */
 
   .achievements {
+    max-width: var(--container-xl);
+    margin: var(--space-none) auto;
+    padding: var(--space-lg);
+
     /* Performance: Enable GPU acceleration for smooth scrolling */
     transform: translateZ(0);
     will-change: auto; /* Reset after initial render */
+
+    /* Enhanced content visibility for performance optimization */
+    contain: layout style;
   }
 
   /* ======================================
-   * TYPOGRAPHY SYSTEM - WCAG AAA compliant typography
+   * TYPOGRAPHY SYSTEM - Handled by Headline and Paragraph components
+   * Note: Typography styles are now managed entirely by the respective components
    * ====================================== */
-
-  .achievements__title {
-    margin-bottom: var(--space-md);
-    text-align: center;
-    font-size: var(--text-3xl);
-    font-weight: var(--font-bold);
-    color: var(--text-primary);
-
-    /* Enhanced text spacing for WCAG AAA */
-    letter-spacing: var(--letter-spacing-base);
-    line-height: var(--leading-tight);
-    text-wrap: balance; /* Modern CSS for better line breaks */
-  }
-
-  .achievements__description {
-    max-width: var(--container-md);
-    margin: 0 auto var(--space-2xl) auto;
-    text-align: center;
-    font-size: var(--text-lg);
-    line-height: var(--leading-relaxed);
-    color: var(--text-tertiary);
-    text-wrap: pretty; /* Enhanced readability */
-  }
 
   /* ======================================
    * SHARED COMPONENT STYLES - Maximum DRY optimization using semantic CSS variables
@@ -373,34 +298,39 @@ const achievementStats = calculateAchievementStats(achievements);
     padding: var(--space-lg);
     border-radius: var(--radius-md);
     text-align: center;
-    border: var(--card-border);
+    border: var(--border-width-thin) solid var(--border-primary);
     background-color: var(--card-bg);
     box-shadow: var(--card-shadow);
 
     /* Enhanced accessibility and UX using existing touch target variable */
     min-height: var(--min-touch-size);
     display: flex;
-    flex-direction: var(--flex-direction-column);
+    flex-direction: column;
     justify-content: center;
-    align-items: var(--align-items-center);
+    align-items: center;
 
-    /* Performance optimizations */
+    /* Performance optimizations with CSS containment */
     contain: layout style;
 
-    /* Smooth hover effect using semantic transition variable */
-    transition: box-shadow var(--transition-normal);
+    /* Smooth hover effect using semantic transition variables */
+    transition:
+      box-shadow var(--transition-normal),
+      border-color var(--transition-fast),
+      background-color var(--transition-fast);
   }
 
   .achievements__auth-required:hover,
   .achievements__summary:hover {
     box-shadow: var(--card-shadow-hover);
+    border-color: var(--border-focus);
+    background-color: var(--bg-secondary);
   }
 
-  .achievements__auth-required h2 {
-    margin-top: 0;
-    margin-bottom: var(--space-md);
-    color: var(--text-primary);
-  }
+  /* Consolidated heading styles - Component-specific layout only */
+  /* Note: Typography handled by Headline component, only layout-specific styles remain */
+
+  /* Consolidated text content styles - Component-specific layout only */
+  /* Note: Typography handled by Paragraph component, only layout-specific styles remain */
 
   /* ======================================
    * ENHANCED GRID SYSTEM - Maximum CSS variable usage with performance optimizations
@@ -420,24 +350,23 @@ const achievementStats = calculateAchievementStats(achievements);
 
     /* Performance: Enable efficient paint containment */
     contain: layout style paint;
+
+    /* Enhanced content visibility for performance */
+    content-visibility: auto;
+    contain-intrinsic-size: 0 var(--container-intrinsic-height-component);
   }
 
   .achievements__category-title {
+    /* Note: Typography handled by Headline component, only layout styles remain */
     margin-bottom: var(--space-lg);
     padding-bottom: var(--space-sm);
     border-bottom: var(--border-width-thick) solid var(--border-primary);
-    font-size: var(--text-xl);
-    font-weight: var(--font-semibold);
-
-    /* Enhanced text spacing for accessibility using existing variables */
-    letter-spacing: var(--letter-spacing-base);
-    line-height: var(--leading-tight);
   }
 
-  /* High-performance responsive grid using existing semantic variable */
+  /* High-performance responsive grid using existing semantic variables */
   .achievements__grid {
     display: grid;
-    grid-template-columns: var(--grid-auto-fit-responsive);
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-sm), 100%), 1fr));
     gap: var(--space-lg);
 
     /* OPTIMIZED: Dense grid packing eliminates gaps from filtered items */
@@ -445,16 +374,21 @@ const achievementStats = calculateAchievementStats(achievements);
     align-items: stretch; /* Equal heights for cards */
     justify-items: stretch;
 
-    /* Smooth transitions for filtering using semantic transition variable */
+    /* Smooth transitions for filtering using semantic transition variables */
     transition:
       grid-template-columns var(--transition-fast),
-      gap var(--transition-fast);
+      gap var(--transition-fast),
+      opacity var(--transition-normal);
 
     /* Prevent grid overflow issues */
     min-width: 0;
 
     /* Performance: Optimize grid layout containment */
-    contain: layout;
+    contain: layout style;
+
+    /* Enhanced content visibility for performance */
+    content-visibility: auto;
+    contain-intrinsic-size: 0 var(--container-intrinsic-height-component);
   }
 
   /* CRITICAL: Only visible achievement cards participate in grid layout */
@@ -467,28 +401,25 @@ const achievementStats = calculateAchievementStats(achievements);
   .achievements__category.filtered-hidden,
   .achievements__category.all-filtered {
     display: none !important;
-    margin: 0;
-    padding: 0;
+    margin: var(--space-none);
+    padding: var(--space-none);
   }
 
   /* Achievement category colors using CSS custom properties - DRY optimized */
+  /* Note: Category titles use component styles, only border colors applied here */
   .achievements__category-title--bronze {
-    color: var(--achievement-bronze);
     border-bottom-color: var(--achievement-bronze);
   }
 
   .achievements__category-title--silver {
-    color: var(--achievement-silver);
     border-bottom-color: var(--achievement-silver);
   }
 
   .achievements__category-title--gold {
-    color: var(--achievement-gold);
     border-bottom-color: var(--achievement-gold);
   }
 
   .achievements__category-title--platinum {
-    color: var(--achievement-platinum);
     border-bottom-color: var(--achievement-platinum);
   }
 
@@ -496,44 +427,44 @@ const achievementStats = calculateAchievementStats(achievements);
    * GRID PERFORMANCE OPTIMIZATIONS (DRY Pattern)
    * ====================================== */
 
-  /* Utility for empty grids - performance optimization */
+  /* Utility for empty grids - performance optimization using semantic variables */
   .achievements__grid:empty {
     display: none;
+    margin: var(--space-none);
+    padding: var(--space-none);
   }
 
-  /* Consolidated grid item and card height optimization */
+  /* Consolidated grid item and card height optimization using semantic variables */
   .achievements__grid > *,
   .achievements__grid .achievement-card {
-    min-width: 0; /* Prevent grid overflow */
-    width: 100%;
-    height: 100%; /* Ensure cards stretch to fill grid cell height */
+    min-width: var(--space-none); /* Prevent grid overflow using semantic variable */
+    width: var(--width-full);
+    height: var(--width-full); /* Ensure cards stretch to fill grid cell height */
     display: flex;
     flex-direction: column;
 
     /* Performance: Enable efficient paint and layout containment */
     contain: layout style;
+
+    /* Enhanced transition for smooth interactions */
+    transition:
+      transform var(--transition-fast),
+      opacity var(--transition-normal);
   }
 
-  /* Ensure card content fills available space */
+  /* Ensure card content fills available space using semantic variables */
   .achievements__grid .achievement-card .achievement-card__content {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: var(--space-md);
+    gap: var(--space-sm);
   }
 
   /* ======================================
-   * SUMMARY STATISTICS SECTION - Using semantic CSS variables
+   * SUMMARY STATISTICS SECTION - Enhanced with semantic CSS variables
    * ====================================== */
-
-  .achievements__summary-title {
-    margin-top: 0;
-    margin-bottom: var(--space-md);
-    text-align: center;
-    font-size: var(--text-xl);
-    font-weight: var(--font-semibold);
-    color: var(--text-primary);
-  }
 
   .achievements__summary-stats {
     display: flex;
@@ -543,12 +474,15 @@ const achievementStats = calculateAchievementStats(achievements);
 
     /* Performance: Optimize flexbox layout */
     align-items: baseline;
+
+    /* Enhanced content visibility for performance */
+    contain: layout style;
   }
 
   .achievements__stat {
     display: flex;
-    flex-direction: var(--flex-direction-column);
-    align-items: var(--align-items-center);
+    flex-direction: column;
+    align-items: center;
     padding: var(--space-md);
     min-width: var(--stat-width-sm); /* Using existing semantic variable */
 
@@ -560,23 +494,33 @@ const achievementStats = calculateAchievementStats(achievements);
     border-radius: var(--radius-sm);
     transition:
       background-color var(--transition-normal),
-      transform var(--transition-fast);
+      transform var(--transition-fast),
+      box-shadow var(--transition-fast);
   }
 
   .achievements__stat:hover {
     background-color: var(--bg-tertiary);
     transform: scale(var(--scale-focus));
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Focus state for accessibility using semantic variables */
+  .achievements__stat:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-ring-offset);
+    background-color: var(--bg-tertiary);
   }
 
   .achievements__stat-label {
     margin-bottom: var(--space-sm);
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
-    color: var(--text-tertiary);
+    color: var(--text-secondary);
     text-align: center;
 
-    /* Enhanced text spacing for WCAG AAA */
+    /* Enhanced text spacing for WCAG AAA 2.2 */
     letter-spacing: var(--letter-spacing-base);
+    line-height: var(--leading-enhanced);
   }
 
   .achievements__stat-value {
@@ -584,43 +528,82 @@ const achievementStats = calculateAchievementStats(achievements);
     font-weight: var(--font-bold);
     color: var(--interactive-secondary);
 
-    /* Enhanced number readability */
+    /* Enhanced number readability using semantic variables */
     font-variant-numeric: tabular-nums;
-    line-height: var(--leading-tight);
+    line-height: var(--leading-enhanced);
+    letter-spacing: var(--letter-spacing-base);
   }
 
   /* ======================================
-   * RESPONSIVE DESIGN - Using CSS variables for consistency
+   * EMPTY STATE STYLING - Layout only
+   * Note: Typography handled by Paragraph component
    * ====================================== */
 
-  /* Small devices and up (tablets) */
+  /* ======================================
+   * RESPONSIVE DESIGN - Enhanced with comprehensive CSS variables usage
+   * ====================================== */
+
+  /* Small devices and up (tablets) using semantic breakpoint variables */
   @media (min-width: var(--breakpoint-md)) {
-    .achievements__title {
-      font-size: var(--text-4xl);
+    .achievements {
+      padding: var(--space-xl);
     }
 
     /* Enhanced grid for tablets - using semantic grid variable */
     .achievements__grid {
       grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-md), 100%), 1fr));
+      gap: var(--space-xl);
     }
 
     .achievements__stat {
       min-width: var(--stat-width-md); /* Using existing semantic variable for tablets */
+      padding: var(--space-lg);
     }
   }
 
-  /* Large devices and up (desktops) */
+  /* Large devices and up (desktops) using semantic variables */
   @media (min-width: var(--breakpoint-lg)) {
-    .achievements__grid {
-      grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-sm), 100%), 1fr));
+    .achievements {
+      padding: var(--space-2xl);
     }
-  }
 
-  /* Extra large devices and up */
-  @media (min-width: var(--breakpoint-xl)) {
     .achievements__grid {
       grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-sm), 100%), 1fr));
       gap: var(--space-xl);
+    }
+
+    .achievements__list {
+      gap: var(--space-3xl);
+    }
+  }
+
+  /* Extra large devices and up using semantic variables */
+  @media (min-width: var(--breakpoint-xl)) {
+    .achievements__grid {
+      grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-sm), 100%), 1fr));
+      gap: var(--space-2xl);
+    }
+
+    .achievements__summary-stats {
+      gap: var(--space-lg);
+    }
+  }
+
+  /* ======================================
+   * CONTAINER QUERIES - Modern responsive design using semantic variables
+   * ====================================== */
+
+  /* Container query for achievement cards using semantic variables */
+  @container (min-width: var(--container-query-md)) {
+    .achievements__grid {
+      grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-md), 1fr));
+    }
+  }
+
+  @container (min-width: var(--container-query-lg)) {
+    .achievements__stat {
+      min-width: var(--stat-width-md);
+      font-size: var(--text-lg);
     }
   }
 
@@ -631,10 +614,17 @@ const achievementStats = calculateAchievementStats(achievements);
   /* Consolidated motion and transition resets using semantic variables */
   @media (prefers-reduced-motion: reduce) {
     .achievements,
-    .achievements__grid {
+    .achievements__grid,
+    .achievements__stat {
       transition: none;
       transform: none;
       will-change: auto;
+      animation: none;
+    }
+
+    /* Reset hover effects for reduced motion */
+    .achievements__stat:hover {
+      transform: none;
     }
   }
 
@@ -643,8 +633,20 @@ const achievementStats = calculateAchievementStats(achievements);
     .achievements__auth-required,
     .achievements__empty,
     .achievements__summary {
-      border-width: var(--enhanced-border-thickness);
-      filter: var(--filter-high-contrast-button);
+      border-width: var(--border-width-enhanced);
+      border-color: var(--text-primary);
+      background-color: var(--bg-primary);
+    }
+
+    .achievements__category-title {
+      border-bottom-width: var(--border-width-enhanced);
+      color: var(--text-primary);
+    }
+
+    .achievements__stat:hover,
+    .achievements__stat:focus-visible {
+      background-color: var(--bg-primary);
+      border: var(--border-width-thin) solid var(--text-primary);
     }
   }
 
@@ -653,9 +655,14 @@ const achievementStats = calculateAchievementStats(achievements);
     .achievements__auth-required,
     .achievements__empty,
     .achievements__summary {
-      border: var(--print-border);
+      border: var(--border-width-thin) solid CanvasText;
       background: Canvas;
       color: CanvasText;
+    }
+
+    .achievements__category-title {
+      color: CanvasText;
+      border-bottom-color: CanvasText;
     }
   }
 
@@ -664,7 +671,8 @@ const achievementStats = calculateAchievementStats(achievements);
     .achievements {
       background: var(--print-bg);
       color: var(--print-text);
-      padding: 0;
+      padding: var(--space-none);
+      max-width: var(--width-full);
     }
 
     /* Consolidated print styles for card-like elements using semantic variables */
@@ -675,10 +683,20 @@ const achievementStats = calculateAchievementStats(achievements);
       border: var(--print-border);
       color: var(--print-text);
       box-shadow: none;
+      margin-bottom: var(--space-md);
     }
 
     .achievements__grid {
       break-inside: avoid;
+      gap: var(--space-sm);
+      grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-sm), 1fr));
+    }
+
+    /* Print-specific layout optimizations */
+    .achievements__title,
+    .achievements__category-title,
+    .achievements__summary-title {
+      page-break-after: avoid;
     }
   }
 </style>
@@ -699,7 +717,7 @@ const achievementStats = calculateAchievementStats(achievements);
 
   // Performance optimization: Use passive event listeners for better scroll performance
   const initializePagePerformance = () => {
-    // Enable GPU acceleration for smooth animations
+    // Enable GPU acceleration for smooth animations using semantic variables
     const mainElement = document.querySelector(".achievements");
     if (mainElement) {
       mainElement.style.transform = "translateZ(0)";
@@ -709,12 +727,26 @@ const achievementStats = calculateAchievementStats(achievements);
       });
     }
 
-    // Optimize grid containers for better layout performance
+    // Optimize grid containers for better layout performance using CSS containment
     const gridElements = document.querySelectorAll(".achievements__grid");
     gridElements.forEach((grid) => {
       // Enable layout containment for performance
       if ("CSS" in window && "supports" in CSS && CSS.supports("contain", "layout")) {
-        grid.style.contain = "layout";
+        grid.style.contain = "layout style";
+
+        // Add content-visibility for performance optimization
+        if (CSS.supports("content-visibility", "auto")) {
+          grid.style.contentVisibility = "auto";
+          grid.style.containIntrinsicSize = "0 var(--container-intrinsic-height-component)";
+        }
+      }
+    });
+
+    // Optimize card elements with CSS variables
+    const cardElements = document.querySelectorAll(".achievement-card");
+    cardElements.forEach((card) => {
+      if (CSS.supports("contain", "layout style")) {
+        card.style.contain = "layout style";
       }
     });
   };
@@ -729,15 +761,30 @@ const achievementStats = calculateAchievementStats(achievements);
     }
   };
 
-  // Cleanup function for memory management
+  // Cleanup function for memory management using semantic CSS variable resets
   const cleanup = () => {
     // Remove any global event listeners if added
-    // Reset performance optimizations
+    // Reset performance optimizations using semantic variable defaults
     const mainElement = document.querySelector(".achievements");
     if (mainElement) {
       mainElement.style.transform = "";
       mainElement.style.willChange = "";
+      mainElement.style.contain = "";
     }
+
+    // Reset grid optimizations
+    const gridElements = document.querySelectorAll(".achievements__grid");
+    gridElements.forEach((grid) => {
+      grid.style.contain = "";
+      grid.style.contentVisibility = "";
+      grid.style.containIntrinsicSize = "";
+    });
+
+    // Reset card optimizations
+    const cardElements = document.querySelectorAll(".achievement-card");
+    cardElements.forEach((card) => {
+      card.style.contain = "";
+    });
   };
 
   // Initialize on DOM ready
