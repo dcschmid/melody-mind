@@ -361,7 +361,8 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     color: var(--text-primary);
   }
 
-  @media (min-width: 768px) {
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
     .page-container {
       padding: var(--space-2xl);
     }
@@ -387,7 +388,8 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     max-width: var(--container-xl);
   }
 
-  @media (min-width: 768px) {
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
     .header-with-image {
       text-align: left;
     }
@@ -413,12 +415,13 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
 
   .header-image {
     width: var(--width-full);
-    max-width: 400px;
+    max-width: var(--container-xs);
     flex-shrink: 0;
   }
 
   /* Desktop Layout - Side by side */
-  @media (min-width: 768px) {
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
     .header-content {
       flex-direction: row;
       align-items: center;
@@ -434,19 +437,20 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
 
     .header-image {
       flex: 0 0 40%;
-      max-width: 500px;
+      max-width: var(--container-sm);
     }
   }
 
   /* Large screens - More spacing and larger image */
-  @media (min-width: 1024px) {
+  /* Desktop and above: --breakpoint-lg (1024px) */
+  @media (min-width: 64em) {
     .header-content {
-      gap: 5rem; /* 80px - Custom spacing for more visual separation */
+      gap: var(--space-3xl); /* Using root variable for consistent spacing */
     }
 
     .header-image {
       flex: 0 0 45%;
-      max-width: 600px;
+      max-width: var(--container-sm);
     }
   }
 
@@ -469,7 +473,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   }
 
   .header-with-image:hover .header-responsive-image {
-    transform: scale(1.02);
+    transform: scale(var(--animation-scale-hover-subtle));
   }
 
   .header-no-image-container {
@@ -575,7 +579,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   }
 
   .section-container:hover {
-    transform: translateY(-2px);
+    transform: translateY(var(--animation-x-offset-small));
     box-shadow: var(--shadow-xl);
     border-color: var(--interactive-primary);
   }
@@ -583,10 +587,11 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   .section-container:focus-within {
     box-shadow: var(--focus-ring), var(--shadow-xl);
     border-color: var(--border-focus);
-    transform: translateY(-2px);
+    transform: translateY(var(--animation-x-offset-small));
   }
 
-  @media (min-width: 768px) {
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
     .section-container {
       padding: var(--space-3xl);
       margin-left: auto;
@@ -611,13 +616,14 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     gap: var(--space-md);
     padding: var(--space-lg);
     border-radius: var(--radius-lg);
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(10px);
-    border: var(--border-width-thin) solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, var(--color-mix-light));
+    backdrop-filter: blur(var(--space-sm));
+    border: var(--border-width-thin) solid rgba(255, 255, 255, var(--opacity-low));
   }
 
   /* Tablet and Desktop - buttons side by side */
-  @media (min-width: 480px) {
+  /* Small tablet and above: closest to --breakpoint-sm (640px) but using 480px for early responsive design */
+  @media (min-width: 30em) {
     .button-group {
       flex-direction: row;
       align-items: center;
@@ -631,14 +637,16 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   }
 
   /* Medium screens and up - more spacing */
-  @media (min-width: 768px) {
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
     .button-group {
       gap: var(--space-xl);
     }
   }
 
   /* Large screens - maximum spacing and comfort */
-  @media (min-width: 1024px) {
+  /* Desktop and above: --breakpoint-lg (1024px) */
+  @media (min-width: 64em) {
     .button-group {
       gap: var(--space-2xl);
       padding: var(--space-2xl);
@@ -646,7 +654,8 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   }
 
   /* Force buttons to maintain natural width on larger screens */
-  @media (min-width: 480px) {
+  /* Small tablet and above: closest to --breakpoint-sm (640px) but using 480px for early responsive design */
+  @media (min-width: 30em) {
     .button-group :global(.button-link) {
       flex-shrink: 0;
       width: fit-content !important;
@@ -663,7 +672,8 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     transition: var(--transition-normal);
   }
 
-  @media (min-width: 768px) {
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
     .game-button {
       padding: var(--space-md) var(--space-lg);
     }
@@ -684,7 +694,8 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     width: var(--icon-size-sm);
   }
 
-  @media (min-width: 768px) {
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
     .icon-medium {
       height: var(--icon-size-md);
       width: var(--icon-size-md);
@@ -714,10 +725,10 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       var(--btn-primary-bg) 0%,
       var(--interactive-primary-hover) 100%
     );
-    border: var(--border-width-medium) solid var(--color-white);
+    border: var(--border-width-thick) solid var(--color-white);
     box-shadow:
       var(--shadow-lg),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      inset 0 1px 0 rgba(255, 255, 255, var(--opacity-low));
     transition: all var(--transition-normal);
     margin-bottom: var(--space-md);
   }
@@ -725,7 +736,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   .game-icon-badge::before {
     content: "";
     position: absolute;
-    inset: -2px;
+    inset: var(--animation-x-offset-small);
     border-radius: var(--radius-full);
     background: linear-gradient(135deg, var(--interactive-primary), var(--color-secondary-500));
     z-index: -1;
@@ -738,13 +749,14 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   }
 
   .section-container:hover .game-icon-badge {
-    transform: scale(1.05);
+    transform: scale(var(--animation-scale-hover-subtle));
     box-shadow:
       var(--shadow-xl),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      inset 0 1px 0 rgba(255, 255, 255, var(--color-mix-dark));
   }
 
-  @media (min-width: 768px) {
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
     .game-icon-badge {
       width: var(--space-3xl);
       height: var(--space-3xl);
@@ -772,7 +784,8 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     text-align: center;
   }
 
-  @media (min-width: 768px) {
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
     .headline-primary {
       font-size: var(--text-4xl);
     }
@@ -796,7 +809,8 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     line-height: var(--leading-enhanced);
   }
 
-  @media (min-width: 640px) {
+  /* Small tablet and above: --breakpoint-sm (640px) */
+  @media (min-width: 40em) {
     .paragraph-description {
       font-size: var(--text-lg);
     }
@@ -810,7 +824,8 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     color: var(--text-primary);
   }
 
-  @media (min-width: 768px) {
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
     .section-heading {
       font-size: var(--text-3xl);
     }
@@ -825,7 +840,8 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     line-height: var(--leading-enhanced);
   }
 
-  @media (min-width: 768px) {
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
     .section-description {
       font-size: var(--text-xl);
       margin-bottom: var(--space-2xl);
