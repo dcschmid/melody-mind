@@ -412,6 +412,3 @@ export function getAvailablePlatforms(category: CategoryWithPlaylists): MusicPla
  * @deprecated Use MusicButtonsProps instead
  */
 export type Props = MusicButtonsProps;
-
-// Default export for convenience
-export default MusicButtonsProps;

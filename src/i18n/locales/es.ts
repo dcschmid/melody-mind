@@ -937,7 +937,4 @@ export default {
   "knowledge.accessibility.scrolling_to_top": "Desplazando hacia arriba",
   "knowledge.accessibility.scrolled_to_top": "Desplazado hacia arriba",
   "knowledge.accessibility.search_focused": "El campo de búsqueda está ahora enfocado",
-
-  // Category pages
-  "category.about.title": "Sobre esta categoría",
 };
