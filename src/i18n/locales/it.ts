@@ -976,4 +976,37 @@ export default {
 
   // Pagine delle categorie
   "category.about.title": "Informazioni su questa categoria",
+
+  // Pagina Punteggi Alti
+  "highscores.title": "Punteggi Alti",
+  "highscores.description":
+    "Visualizza i punteggi migliori in diverse modalità di gioco e categorie",
+  "highscores.loading": "Caricamento punteggi alti...",
+  "highscores.error": "Errore nel caricamento dei punteggi alti",
+  "highscores.empty": "Nessuna voce trovata nei punteggi alti",
+  "highscores.filter.title": "Filtra Punteggi Alti",
+  "highscores.filter.game.mode": "Modalità di Gioco",
+  "highscores.filter.category": "Categoria",
+  "highscores.filter.all": "Tutti",
+  "highscores.filter.search": "Cerca categorie...",
+  "highscores.filter.no.results": "Nessuna categoria trovata",
+  "highscores.filters": "Filtra risultati",
+  "highscores.allModes": "Tutte le modalità",
+  "highscores.allCategories": "Tutte le categorie",
+  "highscores.results": "Punteggi migliori",
+  "highscores.noResults": "Nessun punteggio trovato con i filtri selezionati.",
+  "highscores.points": "punti",
+  "highscores.rank": "Posizione",
+  "highscores.gameMode": "Modalità di Gioco",
+  "highscores.category": "Categoria",
+  "highscores.date": "Data",
+  "highscores.tableLabel": "Lista punteggi alti",
+  "highscores.scoreEntry": "Voce {rank} di {username}",
+  "highscores.table.title": "Punteggi Migliori",
+  "highscores.table.rank": "Posizione",
+  "highscores.table.player": "Giocatore",
+  "highscores.table.game.mode": "Modalità di Gioco",
+  "highscores.table.category": "Categoria",
+  "highscores.table.score": "Punteggio",
+  "highscores.table.date": "Data",
 } as const;

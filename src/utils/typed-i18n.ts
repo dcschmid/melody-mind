@@ -168,6 +168,24 @@ type KnowledgeTranslationKey =
   | `knowledge.${string}`;
 
 /**
+ * Highscores-related translation keys
+ */
+type HighscoresTranslationKey =
+  | "highscores.filters"
+  | "highscores.allModes"
+  | "highscores.allCategories"
+  | "highscores.results"
+  | "highscores.noResults"
+  | "highscores.points"
+  | "highscores.rank"
+  | "highscores.gameMode"
+  | "highscores.category"
+  | "highscores.date"
+  | "highscores.tableLabel"
+  | "highscores.scoreEntry"
+  | `highscores.${string}`;
+
+/**
  * All valid translation keys for the application
  */
 export type TranslationKey =
@@ -177,7 +195,8 @@ export type TranslationKey =
   | GameTranslationKey
   | AchievementTranslationKey
   | ShareTranslationKey
-  | KnowledgeTranslationKey;
+  | KnowledgeTranslationKey
+  | HighscoresTranslationKey;
 
 /**
  * Translation parameter types based on translation key
@@ -202,7 +221,9 @@ export type TranslationParams<K extends TranslationKey> = K extends "game.score.
                   ? { errorMessage: string; recoveryMessage: string }
                   : K extends "share.accessibility.platform_opened"
                     ? { platform: string }
-                    : Record<string, never>;
+                    : K extends "highscores.scoreEntry"
+                      ? { rank: number; username: string }
+                      : Record<string, never>;
 
 /**
  * Type-safe translation function
