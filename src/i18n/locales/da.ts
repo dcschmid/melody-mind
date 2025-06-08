@@ -933,4 +933,9 @@ export default {
   "test.lint.correct_button": "Korrekt knap",
   "test.lint.main_heading": "Hovedoverskrift",
   "test.lint.subsection_heading": "Underafsnit (h2 mangler)",
+
+  // Knowledge accessibility translations
+  "knowledge.accessibility.scrolling_to_top": "Ruller til toppen",
+  "knowledge.accessibility.scrolled_to_top": "Rullet til toppen",
+  "knowledge.accessibility.search_focused": "Søgefeltet er nu fokuseret",
 };

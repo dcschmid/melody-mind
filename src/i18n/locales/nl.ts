@@ -926,4 +926,9 @@ export default {
   "test.lint.correct_button": "Correcte knop",
   "test.lint.main_heading": "Hoofdkop",
   "test.lint.subsection_heading": "Onderafdeling (h2 ontbreekt)",
+
+  // Knowledge accessibility translations
+  "knowledge.accessibility.scrolling_to_top": "Scrollen naar boven",
+  "knowledge.accessibility.scrolled_to_top": "Naar boven gescrold",
+  "knowledge.accessibility.search_focused": "Het zoekveld is nu gefocust",
 };

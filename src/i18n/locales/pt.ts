@@ -943,4 +943,9 @@ export default {
   "test.lint.correct_button": "Botão correto",
   "test.lint.main_heading": "Título principal",
   "test.lint.subsection_heading": "Subseção (h2 faltando)",
+
+  // Knowledge accessibility translations
+  "knowledge.accessibility.scrolling_to_top": "Rolando para o topo",
+  "knowledge.accessibility.scrolled_to_top": "Rolado para o topo",
+  "knowledge.accessibility.search_focused": "O campo de pesquisa está agora focado",
 };

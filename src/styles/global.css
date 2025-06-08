@@ -274,6 +274,7 @@
   --stat-width-md: 150px;
   --grid-min-width-sm: 280px;
   --grid-min-width-md: 300px;
+  --scroll-threshold: 400px; /* Scroll threshold for back-to-top button */
 
   /* Animation System - Consistent animation values across components */
   --animation-scale-start: 0.95; /* Animation starting scale */
@@ -484,9 +485,6 @@
   --radius-xl: 1rem; /* 16px */
   --radius-full: 9999px; /* Full circle */
 
-  /* Additional Animation Values */
-  --animation-gradient: 3s ease-in-out infinite;
-
   /* ======================================
    * MODAL & OVERLAY DIMENSIONS
    * ====================================== */
@@ -508,4 +506,29 @@
   --container-intrinsic-height-card: 400px; /* Standard card intrinsic height for content-visibility */
   --container-intrinsic-height-component: 300px; /* Standard component intrinsic height */
   --container-intrinsic-height-modal: 500px; /* Modal intrinsic height */
+
+  /* ======================================
+   * PERFORMANCE THRESHOLDS
+   * ====================================== */
+
+  /* Search Performance Thresholds */
+  --performance-search-threshold: 100; /* Milliseconds - threshold for slow search warning */
+  --performance-fid-threshold: 300; /* Milliseconds - First Input Delay threshold */
+  --performance-memory-threshold: 80; /* Percentage - Memory usage warning threshold */
+
+  /* Animation Delay Constants */
+  --animation-delay-base: 50; /* Base delay between staggered animations (ms) */
+  --animation-delay-max: 500; /* Maximum animation delay (ms) */
+
+  /* Shimmer Animation Constants */
+  --shimmer-bg-size: 200% 100%; /* Background size for shimmer effect */
+  --shimmer-position-start: -200% 0; /* Starting background position */
+  --shimmer-position-end: 200% 0; /* Ending background position */
+  --shimmer-gradient-25: 25%; /* First gradient stop */
+  --shimmer-gradient-50: 50%; /* Middle gradient stop */
+  --shimmer-gradient-75: 75%; /* Last gradient stop */
 }
+
+/* ======================================
+ * BASE STYLES
+ * ====================================== */
