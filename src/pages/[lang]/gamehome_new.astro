@@ -8,18 +8,6 @@ import { extractKeywords, generateMetaDescription } from "@utils/seo";
 import { Icon } from "astro-icon/components";
 
 /**
- * Static path generation for internationalization
- * Required for Astro dynamic routes to work properly
- */
-export async function getStaticPaths(): Promise<{ params: { lang: string } }[]> {
-  const supportedLanguages = ["en", "de", "es", "fr", "it"];
-
-  return supportedLanguages.map((lang) => ({
-    params: { lang },
-  }));
-}
-
-/**
  * Language and translation setup
  * Sets the current language based on URL and loads appropriate translations
  */
@@ -51,7 +39,7 @@ async function loadCategoriesForLanguage(language: string): Promise<Category[]> 
       .then((module) => module.default)
       .catch(async () => {
         // Fallback to relative path if alias fails
-        console.warn(`Attempting to load ${language}_categories.json using relative path`);
+        console.info(`Attempting to load ${language}_categories.json using relative path`);
         return await import(`../../json/${language}_categories.json`)
           .then((module) => module.default)
           .catch((err) => {
@@ -74,7 +62,6 @@ const categories = Array.isArray(categoriesList) ? categoriesList : [];
  * @param item - The item to check
  * @returns Boolean indicating if item is a valid playable category
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function isPlayableCategory(item: any): item is Category & { categoryUrl: string } {
   return (
     item &&
@@ -156,6 +143,8 @@ const noPlayableCategoriesText =
     </section>
 
     <section class="genre-selection" aria-labelledby="playlist-heading">
+      <Headline level="h2" title={t("game.genre.list")} className="genre-selection__title" />
+
       <!-- Search input with improved accessibility and styling -->
       <div class="search-container">
         <div class="search-container__icon" aria-hidden="true">
@@ -204,30 +193,22 @@ const noPlayableCategoriesText =
                         isDisabled={!item.isPlayable}
                         aria-label={`${item.headline} ${t("game.genre.play.label")}`}
                       />
+                      <div class="genre-grid__play-indicator" aria-hidden="true">
+                        {t("category.play")} →
+                      </div>
                     </li>
                   )
               )
             ) : (
               <div class="genre-grid__empty">
-                <Headline
-                  level="h3"
-                  title={noPlayableCategoriesHeadline}
-                  className="genre-grid__empty-title"
-                />
-                <Paragraph
-                  description={noPlayableCategoriesText}
-                  className="genre-grid__empty-text"
-                />
+                <h3 class="genre-grid__empty-title">{noPlayableCategoriesHeadline}</h3>
+                <p class="genre-grid__empty-text">{noPlayableCategoriesText}</p>
               </div>
             )
           ) : (
             <div class="genre-grid__empty">
-              <Headline
-                level="h3"
-                title={emptyCategoriesHeadline}
-                className="genre-grid__empty-title"
-              />
-              <Paragraph description={emptyCategoriesText} className="genre-grid__empty-text" />
+              <h3 class="genre-grid__empty-title">{emptyCategoriesHeadline}</h3>
+              <p class="genre-grid__empty-text">{emptyCategoriesText}</p>
             </div>
           )
         }
@@ -248,7 +229,7 @@ const noPlayableCategoriesText =
     padding: var(--space-lg) var(--space-md);
   }
 
-  @media (min-width: var(--breakpoint-md)) {
+  @media (min-width: 48em) {
     .gamehome-container {
       padding: var(--space-xl) var(--space-lg);
     }
@@ -286,26 +267,26 @@ const noPlayableCategoriesText =
   }
 
   .gamehome-hero__decoration-item--top-right {
-    top: calc(-1 * var(--space-3xl) - var(--space-2xl));
-    right: calc(-1 * var(--space-3xl) - var(--space-md));
-    width: calc(var(--space-3xl) * 4);
-    height: calc(var(--space-3xl) * 4);
+    top: -6rem;
+    right: -5rem;
+    width: 16rem;
+    height: 16rem;
     background-color: var(--color-primary-500);
   }
 
   .gamehome-hero__decoration-item--bottom-left {
-    bottom: calc(var(--space-xl) + var(--space-sm));
-    left: calc(var(--space-xl) + var(--space-sm));
-    width: calc(var(--space-3xl) + var(--space-2xl));
-    height: calc(var(--space-3xl) + var(--space-2xl));
+    bottom: 2.5rem;
+    left: 2.5rem;
+    width: 10rem;
+    height: 10rem;
     background-color: var(--color-secondary-500);
   }
 
   .gamehome-hero__decoration-item--center-right {
     top: 50%;
-    right: var(--percentage-quarter);
-    width: calc(var(--space-3xl) + var(--space-xl));
-    height: calc(var(--space-3xl) + var(--space-xl));
+    right: 25%;
+    width: 8rem;
+    height: 8rem;
     background-color: var(--color-primary-400);
     transform: translateY(-50%);
   }
@@ -316,12 +297,33 @@ const noPlayableCategoriesText =
     text-align: center;
   }
 
+  .gamehome-hero__title {
+    margin-bottom: var(--space-md);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+  }
+
+  @media (min-width: 48em) {
+    .gamehome-hero__title {
+      font-size: var(--text-4xl);
+    }
+  }
+
   .gamehome-hero__divider {
     margin: var(--space-sm) auto var(--space-lg);
-    width: calc(var(--space-3xl) + var(--space-xl));
-    height: var(--space-xs);
+    width: 6rem;
+    height: 4px;
     border-radius: var(--radius-full);
     background-color: var(--color-secondary-400);
+  }
+
+  .gamehome-hero__description {
+    max-width: 512px;
+    margin: 0 auto;
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary);
   }
 
   /* ======================================
@@ -332,6 +334,14 @@ const noPlayableCategoriesText =
     margin-top: var(--space-2xl);
   }
 
+  .genre-selection__title {
+    margin-bottom: var(--space-md);
+    text-align: center;
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+  }
+
   /* ======================================
    * SEARCH CONTAINER STYLING
    * ====================================== */
@@ -340,7 +350,7 @@ const noPlayableCategoriesText =
     position: relative;
     margin: var(--space-xl) auto;
     width: var(--width-full);
-    max-width: var(--container-sm);
+    max-width: 512px;
   }
 
   .search-container__icon {
@@ -362,7 +372,7 @@ const noPlayableCategoriesText =
     width: var(--width-full);
     padding: var(--space-md) var(--space-lg) var(--space-md) var(--space-2xl);
     background-color: var(--form-bg);
-    border: var(--border-width-thick) solid var(--form-border);
+    border: 2px solid var(--form-border);
     border-radius: var(--radius-lg);
     color: var(--form-text);
     font-size: var(--text-base);
@@ -396,18 +406,16 @@ const noPlayableCategoriesText =
     gap: var(--space-lg);
     margin: var(--space-xl) auto;
     width: var(--width-full);
-    min-height: calc(var(--container-sm) * 0.4);
+    max-width: var(--container-lg);
+    min-height: 200px;
   }
 
-  /* Mobile first: 1 column by default */
-  /* --breakpoint-xs: 20em (320px) */
   @media (min-width: 20em) {
     .genre-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  /* --breakpoint-md: 48em (768px) */
   @media (min-width: 48em) {
     .genre-grid {
       grid-template-columns: repeat(3, 1fr);
@@ -415,7 +423,6 @@ const noPlayableCategoriesText =
     }
   }
 
-  /* --breakpoint-lg: 64em (1024px) */
   @media (min-width: 64em) {
     .genre-grid {
       grid-template-columns: repeat(3, 1fr);
@@ -457,10 +464,22 @@ const noPlayableCategoriesText =
     grid-column: 1 / -1;
     padding: var(--space-2xl) var(--space-lg);
     background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-    border: var(--border-width-thin) solid var(--border-primary);
+    border: 1px solid var(--border-primary);
     border-radius: var(--radius-lg);
     text-align: center;
     box-shadow: var(--shadow-md);
+  }
+
+  .genre-grid__empty-title {
+    margin-bottom: var(--space-md);
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+  }
+
+  .genre-grid__empty-text {
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
   }
 
   /* ======================================
@@ -471,7 +490,7 @@ const noPlayableCategoriesText =
     grid-column: 1 / -1;
     padding: var(--space-xl) var(--space-lg);
     background-color: var(--bg-secondary);
-    border: var(--border-width-thin) solid var(--border-secondary);
+    border: 1px solid var(--border-secondary);
     border-radius: var(--radius-lg);
     text-align: center;
     color: var(--text-primary);
@@ -512,6 +531,23 @@ const noPlayableCategoriesText =
   }
 
   /* ======================================
+   * ACCESSIBILITY UTILITIES
+   * ====================================== */
+
+  .sr-only {
+    position: absolute;
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
+    padding: 0;
+    margin: var(--sr-only-margin);
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: var(--sr-only-clip-path);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* ======================================
    * ANIMATION DEFINITIONS
    * ====================================== */
 
@@ -541,7 +577,7 @@ const noPlayableCategoriesText =
   }
 
   .genre-grid__item a:focus-visible {
-    outline-width: var(--space-xs);
+    outline-width: 4px;
   }
 
   /* ======================================
@@ -576,15 +612,15 @@ const noPlayableCategoriesText =
 
   @media (forced-colors: active) {
     .genre-grid__item a {
-      border: var(--border-width-thick) solid ButtonText;
+      border: 2px solid ButtonText;
     }
 
     .search-container__input {
-      border: var(--border-width-thick) solid ButtonText;
+      border: 2px solid ButtonText;
     }
 
     .gamehome-hero {
-      border: var(--border-width-thick) solid ButtonText;
+      border: 2px solid ButtonText;
     }
   }
 
@@ -628,29 +664,17 @@ const noPlayableCategoriesText =
 
   // Configuration constants for the filtering system
   const CONFIG = {
-    DEBOUNCE_DELAY: 250, // Quarter second delay for optimal UX
+    DEBOUNCE_DELAY: 250,
     SELECTOR: {
       FILTER_INPUT: "#filter-input",
       GRID: "#playlist-grid",
       LIST_ITEM: "li",
       HEADLINE: ".headline",
       NO_RESULTS: ".no-results",
-      CLEAR_BUTTON: ".search-clear-button",
-      SR_ANNOUNCEMENTS: ".sr-announcements",
     },
     KEY_CODES: {
       ESCAPE: "Escape",
       ENTER: "Enter",
-    },
-    ARIA: {
-      LIVE: "polite",
-      ATOMIC: "true",
-      CONTROLS: "playlist-grid",
-    },
-    CLASSES: {
-      SR_ONLY: "sr-only",
-      NO_RESULTS: "genre-grid__no-results no-results",
-      SR_ANNOUNCEMENTS: "sr-announcements sr-only",
     },
   } as const;
 
@@ -697,12 +721,12 @@ const noPlayableCategoriesText =
    * Announces messages to screen readers
    */
   function announceToScreenReader(message: string): void {
-    let liveRegion = document.querySelector(CONFIG.SELECTOR.SR_ANNOUNCEMENTS) as HTMLElement;
+    let liveRegion = document.querySelector(".sr-announcements") as HTMLElement;
     if (!liveRegion) {
       liveRegion = document.createElement("div");
-      liveRegion.className = CONFIG.CLASSES.SR_ANNOUNCEMENTS;
-      liveRegion.setAttribute("aria-live", CONFIG.ARIA.LIVE);
-      liveRegion.setAttribute("aria-atomic", CONFIG.ARIA.ATOMIC);
+      liveRegion.className = "sr-announcements sr-only";
+      liveRegion.setAttribute("aria-live", "polite");
+      liveRegion.setAttribute("aria-atomic", "true");
       document.body.appendChild(liveRegion);
     }
     liveRegion.textContent = message;
@@ -741,7 +765,7 @@ const noPlayableCategoriesText =
     }
 
     const clearButton = document.createElement("button");
-    clearButton.className = CONFIG.SELECTOR.CLEAR_BUTTON.substring(1); // Remove the dot
+    clearButton.className = "search-clear-button";
     clearButton.setAttribute("type", "button");
     clearButton.setAttribute("aria-label", translations.clearSearch);
     clearButton.innerHTML = "×";
@@ -773,7 +797,7 @@ const noPlayableCategoriesText =
         elements.filterInput.value = "";
         filterGenres();
 
-        const clearButton = document.querySelector(CONFIG.SELECTOR.CLEAR_BUTTON) as HTMLElement;
+        const clearButton = document.querySelector(".search-clear-button") as HTMLElement;
         if (clearButton) {
           clearButton.style.display = "none";
         }
@@ -837,9 +861,9 @@ const noPlayableCategoriesText =
     if (!hasResults) {
       if (!noResultsMessage) {
         noResultsMessage = document.createElement("p");
-        noResultsMessage.className = CONFIG.CLASSES.NO_RESULTS;
+        noResultsMessage.className = "genre-grid__no-results no-results";
         noResultsMessage.setAttribute("role", "status");
-        noResultsMessage.setAttribute("aria-live", CONFIG.ARIA.LIVE);
+        noResultsMessage.setAttribute("aria-live", "polite");
         noResultsMessage.textContent = translations.noResults;
         elements.grid.appendChild(noResultsMessage);
       }

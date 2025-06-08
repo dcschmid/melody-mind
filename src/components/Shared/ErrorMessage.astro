@@ -1189,15 +1189,16 @@ const contextText = errorContext || t(`error.context.${priority}`);
   const errorMessages = document.querySelectorAll(".errorMessage");
 
   errorMessages.forEach((errorElement) => {
+    const htmlElement = errorElement as HTMLElement;
     // Get configuration from data attributes
-    const autoHideAfter = parseInt(errorElement.dataset.autoHide || "5000");
-    const animationDuration = parseInt(errorElement.dataset.animationDuration || "300");
-    const priority = errorElement.dataset.priority || "medium";
-    const pauseOnHover = errorElement.dataset.pauseOnHover === "true";
-    const allowExtendTimeout = errorElement.dataset.allowExtendTimeout === "true";
-    const enableSound = errorElement.dataset.enableSound === "true";
-    const soundType = errorElement.dataset.soundType || "alert";
-    const showCountdown = errorElement.dataset.showCountdown === "true";
+    const autoHideAfter = parseInt(htmlElement.dataset.autoHide || "5000");
+    const animationDuration = parseInt(htmlElement.dataset.animationDuration || "300");
+    const priority = htmlElement.dataset.priority || "medium";
+    const pauseOnHover = htmlElement.dataset.pauseOnHover === "true";
+    const allowExtendTimeout = htmlElement.dataset.allowExtendTimeout === "true";
+    const enableSound = htmlElement.dataset.enableSound === "true";
+    const soundType = htmlElement.dataset.soundType || "alert";
+    const showCountdown = htmlElement.dataset.showCountdown === "true";
 
     // Initialize state
     let autoHideTimer = null;
@@ -1392,8 +1393,9 @@ const contextText = errorContext || t(`error.context.${priority}`);
 
     // Keyboard accessibility - Escape key
     errorElement.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
+      const keyboardEvent = event as KeyboardEvent;
+      if (keyboardEvent.key === "Escape") {
+        keyboardEvent.preventDefault();
         hideError();
       }
     });
@@ -1405,7 +1407,7 @@ const contextText = errorContext || t(`error.context.${priority}`);
 
     // Focus the error message for screen readers
     setTimeout(() => {
-      errorElement.focus();
+      (errorElement as HTMLElement).focus();
     }, 100);
 
     // Initialize by showing the error

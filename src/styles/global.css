@@ -527,6 +527,17 @@
   --shimmer-gradient-25: 25%; /* First gradient stop */
   --shimmer-gradient-50: 50%; /* Middle gradient stop */
   --shimmer-gradient-75: 75%; /* Last gradient stop */
+
+  /* ======================================
+   * PERCENTAGE SYSTEM
+   * ====================================== */
+
+  /* Layout Percentages */
+  --percentage-quarter: 25%; /* Quarter position (25%) */
+  --percentage-third: 33.333%; /* Third position (33.333%) */
+  --percentage-half: 50%; /* Half position (50%) */
+  --percentage-two-thirds: 66.667%; /* Two thirds position (66.667%) */
+  --percentage-three-quarters: 75%; /* Three quarters position (75%) */
 }
 
 /* ======================================
