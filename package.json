@@ -41,6 +41,7 @@
     "@astrojs/node": "^9.2.1",
     "@astrojs/sitemap": "^3.3.1",
     "@astropub/flow": "^0.4.0",
+    "@fontsource/atkinson-hyperlegible": "^5.2.6",
     "@fontsource/source-sans-pro": "^5.2.5",
     "@libsql/client": "^0.15.4",
     "@playform/compress": "^0.1.9",

@@ -415,6 +415,23 @@
   --text-underline-offset: 0.125em;
 
   /* ======================================
+   * FONT FAMILY SYSTEM
+   * Enhanced typography with accessibility focus
+   * ====================================== */
+
+  /* Primary font stack with Atkinson Hyperlegible for maximum accessibility */
+  --font-family-primary: 'Atkinson Hyperlegible', 'Source Sans Pro', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Fallback font stack (maintains current Source Sans Pro as primary fallback) */
+  --font-family-fallback: 'Source Sans Pro', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  
+  /* System font stack for optimal performance */
+  --font-family-system: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Monospace font stack for code */
+  --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+
+  /* ======================================
    * TRANSITION SYSTEM
    * ====================================== */
 
@@ -541,3 +558,99 @@
 /* ======================================
  * BASE STYLES
  * ====================================== */
+
+/* ======================================
+ * BASE STYLES & ACCESSIBILITY
+ * Enhanced typography with Atkinson Hyperlegible for maximum accessibility
+ * ====================================== */
+
+/* HTML and Body base styles with accessibility enhancements */
+html {
+  /* Enhanced base font size for better readability (WCAG AAA) */
+  font-size: 18px; /* Base 18px instead of 16px for better accessibility */
+  line-height: var(--leading-enhanced); /* 1.8 for optimal readability */
+  
+  /* Enhanced text spacing for WCAG 2.2 AAA compliance */
+  letter-spacing: var(--letter-spacing-enhanced);
+  word-spacing: var(--word-spacing-enhanced);
+  
+  /* Smooth scrolling for better user experience */
+  scroll-behavior: smooth;
+  
+  /* Optimized text rendering */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  /* Primary font family with Atkinson Hyperlegible for accessibility */
+  font-family: var(--font-family-primary);
+  
+  /* Base typography settings */
+  font-size: var(--text-lg); /* 18px for better readability */
+  font-weight: var(--font-normal);
+  line-height: var(--leading-enhanced);
+  
+  /* Enhanced text spacing for accessibility */
+  letter-spacing: var(--letter-spacing-base);
+  word-spacing: var(--word-spacing-enhanced);
+  
+  /* Color and background using CSS variables */
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  
+  /* Layout and spacing */
+  margin: 0;
+  padding: 0;
+  
+  /* Enhanced font rendering for better readability */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Support for text resizing up to 400% (WCAG AAA) */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Accessibility: Support for user preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  body {
+    font-weight: var(--font-medium);
+    text-shadow: none;
+  }
+}
+
+/* Forced colors mode support (Windows High Contrast) */
+@media (forced-colors: active) {
+  body {
+    forced-color-adjust: none;
+    font-family: var(--font-family-system); /* Use system fonts for better compatibility */
+  }
+}
+
+/* Print styles for better document printing */
+@media print {
+  body {
+    font-family: var(--font-family-fallback); /* Use fallback fonts for print */
+    font-size: 12pt;
+    line-height: 1.6;
+    color: black !important;
+    background: white !important;
+  }
+}
