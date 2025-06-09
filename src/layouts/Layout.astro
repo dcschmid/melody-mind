@@ -112,6 +112,10 @@ const clientTranslations = {
 import { When } from "@astropub/flow";
 
 // 2. Font imports with display=swap for performance optimization
+// Primary accessible font: Atkinson Hyperlegible for improved readability
+import "@fontsource/atkinson-hyperlegible/400.css";
+import "@fontsource/atkinson-hyperlegible/700.css";
+// Fallback font: Source Sans Pro for compatibility
 import "@fontsource/source-sans-pro/400.css";
 import "@fontsource/source-sans-pro/700.css";
 import "@fontsource/source-sans-pro/900.css";
@@ -291,14 +295,15 @@ const preloadedResources = [
 
 // Font preloading for critical web fonts with proper CORS and performance optimization
 const fontPreloads = [
+  // Primary accessible font: Atkinson Hyperlegible for enhanced readability
   {
-    href: "/fonts/source-sans-pro-latin-400-normal.woff2",
+    href: "/fonts/atkinson-hyperlegible-latin-400-normal.woff2",
     as: "font" as const,
     type: "font/woff2",
     crossorigin: "anonymous",
   },
   {
-    href: "/fonts/source-sans-pro-latin-700-normal.woff2",
+    href: "/fonts/atkinson-hyperlegible-latin-700-normal.woff2",
     as: "font" as const,
     type: "font/woff2",
     crossorigin: "anonymous",
@@ -306,7 +311,11 @@ const fontPreloads = [
 ];
 
 // DNS prefetching for external domains to reduce connection time and improve performance
-const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
+const dnsPrefetch = [
+  { href: "https://cdn.usefathom.com" },
+  { href: "https://fonts.googleapis.com" },
+  { href: "https://fonts.gstatic.com" }
+];
 ---
 
 <!doctype html>
@@ -355,6 +364,14 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
         />
       ))
     }
+
+    <!-- Google Fonts for Atkinson Hyperlegible (accessible font) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Structured data and SEO -->
     <link rel="sitemap" href="/sitemap-index.xml" />
