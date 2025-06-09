@@ -628,6 +628,30 @@ body {
   }
 }
 
+/* ======================================
+ * UTILITY CLASSES
+ * ====================================== */
+
+/* Screen Reader Only - Global Utility Class
+ * Hides content visually while keeping it accessible to screen readers
+ * Uses CSS variables for consistent implementation across components
+ *
+ * @accessibility Essential for screen reader users - provides context without visual clutter
+ * @wcag Meets WCAG 2.2 guidelines for hidden content (Technique C7)
+ * @performance Minimal impact on layout with absolute positioning
+ */
+.sr-only {
+  position: absolute;
+  width: var(--sr-only-width);
+  height: var(--sr-only-height);
+  padding: 0;
+  margin: var(--sr-only-margin);
+  overflow: hidden;
+  clip-path: var(--sr-only-clip-path);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   body {
