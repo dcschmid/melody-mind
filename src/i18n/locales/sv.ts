@@ -639,6 +639,8 @@ export default {
   "achievements.title": "Prestationer",
   "achievements.description":
     "Fira dina musikaliska triumfer och samla unika troféer på din resa att bli en musikmästare",
+  "achievements.seo.description":
+    "Följ dina framsteg med detaljerade prestationer i alla musikkategorier. Lås upp speciella belöningar genom att klara utmaningar och nå milstolpar.",
   "achievements.loading": "Laddar prestationer...",
   "achievements.error": "Fel vid laddning av prestationer",
   "achievements.empty": "Inga prestationer hittades",

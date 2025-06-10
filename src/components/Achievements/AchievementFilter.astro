@@ -7,6 +7,7 @@
 
 import { useTranslations } from "../../utils/i18n.ts";
 import Headline from "../Headline.astro";
+import ButtonLink from "../ButtonLink.astro";
 
 interface Props {
   /** Language code for translations */
@@ -90,30 +91,27 @@ const categoryOptions = [
   </div>
 
   <div class="achievement-filter__actions">
-    <button
+    <ButtonLink
       type="button"
-      class="achievement-filter__reset"
-      id="reset-filters"
-      aria-label={t("achievements.filter.reset_aria")}
+      className="achievement-filter__reset"
+      ariaLabel={t("achievements.filter.reset_aria")}
     >
       {t("achievements.filter.reset")}
-    </button>
+    </ButtonLink>
 
-    <button
+    <ButtonLink
       type="button"
-      class="achievement-filter__help-button"
-      id="keyboard-help-toggle"
-      aria-expanded="false"
-      aria-controls="keyboard-shortcuts-panel"
+      className="achievement-filter__help-button"
+      ariaLabel={t("achievements.filter.keyboard_shortcuts")}
     >
       {t("achievements.filter.keyboard_shortcuts")}
-    </button>
+    </ButtonLink>
   </div>
 
   <div
     class="achievement-filter__keyboard-shortcuts"
     id="keyboard-shortcuts-panel"
-    aria-labelledby="keyboard-help-toggle"
+    aria-labelledby="help-button-label"
     hidden
   >
     <Headline
@@ -906,12 +904,21 @@ const categoryOptions = [
     private initializeElements(): void {
       this.statusSelect = document.getElementById("status-filter") as HTMLSelectElement;
       this.categorySelect = document.getElementById("category-filter") as HTMLSelectElement;
-      this.resetButton = document.getElementById("reset-filters") as HTMLButtonElement;
-      this.helpButton = document.getElementById("keyboard-help-toggle") as HTMLButtonElement;
+      this.resetButton = document.querySelector(".achievement-filter__reset") as HTMLButtonElement;
+      this.helpButton = document.querySelector(
+        ".achievement-filter__help-button"
+      ) as HTMLButtonElement;
       this.keyboardPanel = document.getElementById("keyboard-shortcuts-panel") as HTMLElement;
       this.announcements = document.getElementById("filter-announcements") as HTMLElement;
       this.statusCount = document.getElementById("status-count") as HTMLElement;
       this.categoryCount = document.getElementById("category-count") as HTMLElement;
+
+      // Initialize ARIA attributes for ButtonLink components
+      if (this.helpButton) {
+        this.helpButton.setAttribute("aria-expanded", "false");
+        this.helpButton.setAttribute("aria-controls", "keyboard-shortcuts-panel");
+        this.helpButton.setAttribute("id", "help-button-label");
+      }
 
       // Lade Übersetzungen aus Datenattributen
       const filterContainer = document.querySelector(".achievement-filter") as HTMLElement;

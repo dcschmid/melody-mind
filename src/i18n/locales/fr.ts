@@ -463,8 +463,6 @@ export default {
   "nav.menu.text": "Menu",
   "game.categories.title": "Catégories Musicales",
   "game.categories.loading": "Chargement des catégories musicales...",
-  "game.categories.title": "Catégories Musicales",
-  "game.categories.loading": "Chargement des catégories musicales...",
   "game.categories.empty.headline": "Aucun genre trouvé",
   "game.categories.empty.text":
     "Malheureusement, aucune catégorie n'a été trouvée. Veuillez réessayer plus tard.",
@@ -696,6 +694,8 @@ export default {
   "achievements.title": "Succès",
   "achievements.description":
     "Célébrez vos triomphes musicaux et collectionnez des trophées uniques sur votre chemin pour devenir un maître de la musique",
+  "achievements.seo.description":
+    "Suivez vos progrès avec des succès détaillés dans toutes les catégories musicales. Débloquez des récompenses spéciales en relevant des défis et en atteignant des objectifs.",
   "achievements.loading": "Chargement des succès...",
   "achievements.error": "Erreur lors du chargement des succès",
   "achievements.empty": "Aucun succès trouvé",

@@ -133,10 +133,7 @@ const achievementStats = calculateAchievementStats(achievements);
 
         <!-- Additional descriptive content for SEO -->
         <p class="achievements-hero__seo-description sr-only">
-          {
-            t("achievements.seo.description") ||
-              "Track your progress with detailed achievements across all music categories. Unlock special rewards by completing challenges and reaching milestones."
-          }
+          {t("achievements.seo.description")}
         </p>
       </div>
     </header>
@@ -531,32 +528,23 @@ const achievementStats = calculateAchievementStats(achievements);
     border-bottom: var(--border-width-thick) solid var(--border-primary);
   }
 
-  /* High-performance responsive grid using existing semantic variables */
+  /* High-performance responsive grid using existing semantic variables with max 3 columns */
   .achievements__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-sm), 100%), 1fr));
     gap: var(--space-lg);
+    max-width: 100%;
+
+    /* CRITICAL: Limit to maximum 3 columns */
+    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
 
     /* OPTIMIZED: Dense grid packing eliminates gaps from filtered items */
     grid-auto-flow: row dense;
     align-items: stretch; /* Equal heights for cards */
     justify-items: stretch;
 
-    /* Smooth transitions for filtering using semantic transition variables */
-    transition:
-      grid-template-columns var(--transition-fast),
-      gap var(--transition-fast),
-      opacity var(--transition-normal);
-
-    /* Prevent grid overflow issues */
-    min-width: 0;
-
     /* Performance: Optimize grid layout containment */
     contain: layout style;
-
-    /* Enhanced content visibility for performance */
-    content-visibility: auto;
-    contain-intrinsic-size: 0 var(--container-intrinsic-height-component);
   }
 
   /* CRITICAL: Only visible achievement cards participate in grid layout */
@@ -717,9 +705,9 @@ const achievementStats = calculateAchievementStats(achievements);
       padding: var(--space-xl);
     }
 
-    /* Enhanced grid for tablets - using semantic grid variable */
+    /* Enhanced grid for tablets - max 2 columns */
     .achievements__grid {
-      grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-md), 100%), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
       gap: var(--space-xl);
     }
 
@@ -735,8 +723,9 @@ const achievementStats = calculateAchievementStats(achievements);
       padding: var(--space-2xl);
     }
 
+    /* Desktop - max 3 columns */
     .achievements__grid {
-      grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-sm), 100%), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
       gap: var(--space-xl);
     }
 
@@ -747,8 +736,9 @@ const achievementStats = calculateAchievementStats(achievements);
 
   /* Extra large devices and up using semantic variables */
   @media (min-width: var(--breakpoint-xl)) {
+    /* Keep max 3 columns even on very large screens */
     .achievements__grid {
-      grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-sm), 100%), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(24rem, 100%), 1fr));
       gap: var(--space-2xl);
     }
 
@@ -764,11 +754,16 @@ const achievementStats = calculateAchievementStats(achievements);
   /* Container query for achievement cards using semantic variables */
   @container (min-width: var(--container-query-md)) {
     .achievements__grid {
-      grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-md), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
     }
   }
 
   @container (min-width: var(--container-query-lg)) {
+    .achievements__grid {
+      /* Max 3 columns in large containers */
+      grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+    }
+
     .achievements__stat {
       min-width: var(--stat-width-md);
       font-size: var(--text-lg);
@@ -891,111 +886,32 @@ const achievementStats = calculateAchievementStats(achievements);
   }
 </style>
 
-<script type="module">
-  /* eslint-disable @typescript-eslint/explicit-function-return-type */
+<script>
   /**
-   * Achievement Page Client-Side Script
+   * Achievement Page - Minimal Client-Side Enhancement
    *
-   * Performance optimized with:
-   * - Efficient event handling with passive listeners
-   * - Proper cleanup on navigation
-   * - Memory leak prevention
-   * - Astro page transitions support
+   * Simplified script focusing only on essential functionality:
+   * - Achievement notification system
    */
 
   import { initAchievementEventSystem } from "../../utils/achievements/achievementEvents.ts";
 
-  // Performance optimization: Use passive event listeners for better scroll performance
-  const initializePagePerformance = () => {
-    // Enable GPU acceleration for smooth animations using semantic variables
-    const mainElement = document.querySelector(".achievements");
-    if (mainElement) {
-      mainElement.style.transform = "translateZ(0)";
-      // Reset will-change after initial render to avoid memory overhead
-      requestAnimationFrame(() => {
-        mainElement.style.willChange = "auto";
-      });
-    }
-
-    // Optimize grid containers for better layout performance using CSS containment
-    const gridElements = document.querySelectorAll(".achievements__grid");
-    gridElements.forEach((grid) => {
-      // Enable layout containment for performance
-      if ("CSS" in window && "supports" in CSS && CSS.supports("contain", "layout")) {
-        grid.style.contain = "layout style";
-
-        // Add content-visibility for performance optimization
-        if (CSS.supports("content-visibility", "auto")) {
-          grid.style.contentVisibility = "auto";
-          grid.style.containIntrinsicSize = "0 var(--container-intrinsic-height-component)";
-        }
-      }
-    });
-
-    // Optimize card elements with CSS variables
-    const cardElements = document.querySelectorAll(".achievement-card");
-    cardElements.forEach((card) => {
-      if (CSS.supports("contain", "layout style")) {
-        card.style.contain = "layout style";
-      }
-    });
-  };
-
-  // Initialize achievement event system with error handling
-  const initializeAchievements = async () => {
+  // Minimal initialization for achievement notifications
+  async function initializeAchievements(): Promise<void> {
     try {
       await initAchievementEventSystem();
     } catch (error) {
       console.error("Failed to initialize achievement system:", error);
-      // Graceful degradation - page still functions without achievements
     }
-  };
-
-  // Cleanup function for memory management using semantic CSS variable resets
-  const cleanup = () => {
-    // Remove any global event listeners if added
-    // Reset performance optimizations using semantic variable defaults
-    const mainElement = document.querySelector(".achievements");
-    if (mainElement) {
-      mainElement.style.transform = "";
-      mainElement.style.willChange = "";
-      mainElement.style.contain = "";
-    }
-
-    // Reset grid optimizations
-    const gridElements = document.querySelectorAll(".achievements__grid");
-    gridElements.forEach((grid) => {
-      grid.style.contain = "";
-      grid.style.contentVisibility = "";
-      grid.style.containIntrinsicSize = "";
-    });
-
-    // Reset card optimizations
-    const cardElements = document.querySelectorAll(".achievement-card");
-    cardElements.forEach((card) => {
-      card.style.contain = "";
-    });
-  };
+  }
 
   // Initialize on DOM ready
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => {
-      initializePagePerformance();
-      initializeAchievements();
-    });
+    document.addEventListener("DOMContentLoaded", initializeAchievements);
   } else {
-    // DOM already loaded
-    initializePagePerformance();
     initializeAchievements();
   }
 
   // Astro page transition support
-  document.addEventListener("astro:page-load", () => {
-    initializePagePerformance();
-    initializeAchievements();
-  });
-
-  // Cleanup on page navigation
-  document.addEventListener("astro:before-preparation", cleanup);
-  window.addEventListener("beforeunload", cleanup);
+  document.addEventListener("astro:page-load", initializeAchievements);
 </script>

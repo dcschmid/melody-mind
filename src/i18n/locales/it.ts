@@ -207,6 +207,8 @@ export default {
   "achievements.title": "I tuoi risultati",
   "achievements.description":
     "Celebra i tuoi trionfi musicali e colleziona trofei unici nel tuo viaggio per diventare un maestro della musica",
+  "achievements.seo.description":
+    "Traccia i tuoi progressi con risultati dettagliati in tutte le categorie musicali. Sblocca ricompense speciali completando sfide e raggiungendo traguardi.",
   "achievements.loading": "Caricamento risultati...",
   "achievements.empty.title": "Nessun risultato ancora",
   "achievements.empty.description": "Inizia a giocare per sbloccare i tuoi primi risultati!",
