@@ -657,6 +657,8 @@ export default {
   "achievements.title": "Logros",
   "achievements.description":
     "Celebra tus triunfos musicales y colecciona trofeos únicos en tu camino hacia convertirte en un maestro de la música",
+  "achievements.seo.description":
+    "Rastrea tu progreso con logros detallados en todas las categorías musicales. Desbloquea recompensas especiales completando desafíos y alcanzando hitos.",
   "achievements.loading": "Cargando logros...",
   "achievements.error": "Error al cargar los logros",
   "achievements.empty": "No se encontraron logros",

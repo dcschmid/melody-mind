@@ -677,6 +677,8 @@ export default {
   "achievements.title": "Conquistas",
   "achievements.description":
     "Celebre seus triunfos musicais e colete troféus únicos em sua jornada para se tornar um mestre da música",
+  "achievements.seo.description":
+    "Acompanhe seu progresso com conquistas detalhadas em todas as categorias musicais. Desbloqueie recompensas especiais completando desafios e alcançando marcos.",
   "achievements.loading": "Carregando conquistas...",
   "achievements.error": "Erro ao carregar conquistas",
   "achievements.empty": "Nenhuma conquista encontrada",

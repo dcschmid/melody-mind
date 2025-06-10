@@ -744,6 +744,8 @@ export default {
   "achievements.title": "Achievements",
   "achievements.description":
     "Feiere deine musikalischen Triumphe und sammle einzigartige Trophäen auf deiner Reise zum Musik-Meister",
+  "achievements.seo.description":
+    "Verfolge deinen Fortschritt mit detaillierten Achievements in allen Musikkategorien. Schalte besondere Belohnungen frei, indem du Herausforderungen meisterst und Meilensteine erreichst.",
   "achievements.loading": "Achievements werden geladen...",
   "achievements.error": "Fehler beim Laden der Achievements",
   "achievements.empty": "Keine Achievements gefunden",

@@ -688,6 +688,8 @@ export default {
   "achievements.title": "Prestaties",
   "achievements.description":
     "Vier uw muzikale triomfen en verzamel unieke trofeeën op uw reis naar het worden van een muziekmeester",
+  "achievements.seo.description":
+    "Volg uw voortgang met gedetailleerde prestaties in alle muziekcategorieën. Ontgrendel speciale beloningen door uitdagingen te voltooien en mijlpalen te bereiken.",
   "achievements.loading": "Prestaties laden...",
   "achievements.error": "Fout bij het laden van prestaties",
   "achievements.empty": "Geen prestaties gevonden",
@@ -969,6 +971,6 @@ export default {
   // Accessibility
   "accessibility.skip.to.content": "Naar hoofdinhoud springen",
 
-  // Categoriepagina's
+  // Categoriepaginas
   "category.about.title": "Over deze categorie",
 };

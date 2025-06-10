@@ -659,6 +659,8 @@ export default {
   "achievements.title": "Præstationer",
   "achievements.description":
     "Fejr dine musikalske triumfer og saml unikke trofæer på din rejse til at blive en musikmester",
+  "achievements.seo.description":
+    "Følg dine fremskridt med detaljerede præstationer på tværs af alle musikkategorier. Lås op for særlige belønninger ved at gennemføre udfordringer og nå milepæle.",
   "achievements.loading": "Indlæser præstationer...",
   "achievements.error": "Fejl ved indlæsning af præstationer",
   "achievements.empty": "Ingen præstationer fundet",

@@ -710,6 +710,8 @@ export default {
   "achievements.title": "Achievements",
   "achievements.description":
     "Celebrate your musical triumphs and collect unique trophies on your journey to becoming a music master",
+  "achievements.seo.description":
+    "Track your progress with detailed achievements across all music categories. Unlock special rewards by completing challenges and reaching milestones.",
   "achievements.loading": "Loading achievements...",
   "achievements.error": "Error loading achievements",
   "achievements.empty": "No achievements found",
