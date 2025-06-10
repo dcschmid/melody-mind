@@ -210,7 +210,7 @@ export default {
   "difficulty.medium": "Medio",
   "difficulty.hard": "Difícil",
   "game.select":
-    "Descubre el fascinante mundo de la música y pon a prueba tus conocimientos en nuestros concursos de música interactivos. ¡Elige tu género favorito y comienza tu viaje melodioso!",
+    "🎵 ¿Listo para la aventura musical definitiva? ¡Sumérgete en un mundo de ritmos, melodías y canciones inolvidables! Desde solos de guitarra electrizantes hasta clásicos eternos – encuentra tu batalla musical perfecta. ¡Demuestra al mundo que eres un verdadero conocedor de la música!",
   "game.welcome": "Bienvenido a Melody Mind",
   "game.genre.list": "Selección de género",
   "game.search.label": "Buscar un género",
@@ -623,7 +623,7 @@ export default {
   // Página de Puntuaciones Más Altas
   "highscores.title": "Puntuaciones Más Altas",
   "highscores.description":
-    "Consulta las puntuaciones más altas en diferentes modos de juego y categorías",
+    "¡Descubre las leyendas de la música! Mira quién lidera las listas y déjate inspirar por los mejores jugadores 🎵🏆",
   "highscores.loading": "Cargando puntuaciones más altas...",
   "highscores.error": "Error al cargar las puntuaciones más altas",
   "highscores.empty": "No se encontraron entradas en las puntuaciones más altas",

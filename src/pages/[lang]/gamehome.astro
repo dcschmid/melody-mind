@@ -45,25 +45,30 @@ interface Category {
 /**
  * Generates WebApplication schema for the game home page
  */
-function generateGameApplicationSchema(title: string, description: string, currentUrl: string, lang: string) {
+function generateGameApplicationSchema(
+  title: string,
+  description: string,
+  currentUrl: string,
+  lang: string
+) {
   return {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": `MelodyMind - ${title}`,
-    "description": description,
-    "url": currentUrl,
-    "applicationCategory": "GameApplication",
-    "applicationSubCategory": "MusicTrivia",
-    "operatingSystem": "Web Browser",
-    "genre": "Music Trivia",
-    "inLanguage": lang,
-    "creator": {
+    name: `MelodyMind - ${title}`,
+    description: description,
+    url: currentUrl,
+    applicationCategory: "GameApplication",
+    applicationSubCategory: "MusicTrivia",
+    operatingSystem: "Web Browser",
+    genre: "Music Trivia",
+    inLanguage: lang,
+    creator: {
       "@type": "Organization",
-      "name": "MelodyMind Team"
+      name: "MelodyMind Team",
     },
-    "datePublished": "2024-01-01",
-    "dateModified": new Date().toISOString(),
-    "isAccessibleForFree": true
+    datePublished: "2024-01-01",
+    dateModified: new Date().toISOString(),
+    isAccessibleForFree: true,
   };
 }
 
@@ -74,21 +79,21 @@ function generateCategoryListSchema(baseUrl: string, lang: string, playableCateg
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Music Game Categories",
-    "description": "Available music trivia categories in MelodyMind",
-    "numberOfItems": playableCategories.length,
-    "itemListElement": playableCategories.slice(0, 10).map((category, index) => ({
+    name: "Music Game Categories",
+    description: "Available music trivia categories in MelodyMind",
+    numberOfItems: playableCategories.length,
+    itemListElement: playableCategories.slice(0, 10).map((category, index) => ({
       "@type": "ListItem",
-      "position": index + 1,
-      "item": {
+      position: index + 1,
+      item: {
         "@type": "Game",
-        "name": category.headline,
-        "description": category.introSubline,
-        "url": `${baseUrl}/${lang}${category.categoryUrl}`,
-        "genre": "Music Trivia",
-        "applicationCategory": "Game"
-      }
-    }))
+        name: category.headline,
+        description: category.introSubline,
+        url: `${baseUrl}/${lang}${category.categoryUrl}`,
+        genre: "Music Trivia",
+        applicationCategory: "Game",
+      },
+    })),
   };
 }
 
@@ -102,12 +107,12 @@ function generateClientTranslations(t: (key: string) => string) {
       showingAll: t("game.search.showing.all") || "Showing all genres",
       resultsFound: t("game.search.results") || "genres found",
       noResults: t("game.search.no.results") || "No genres found matching your search",
-      clear: t("game.search.clear") || "Clear search"
+      clear: t("game.search.clear") || "Clear search",
     },
     accessibility: {
       skipToContent: t("accessibility.skip.to.content") || "Skip to main content",
-      searchLabel: t("game.search.label") || "Search music genres"
-    }
+      searchLabel: t("game.search.label") || "Search music genres",
+    },
   };
 }
 
@@ -180,15 +185,23 @@ const optimizedDescription = generateMetaDescription(enrichedContent, 158); // L
 const seoKeywords = extractKeywords(enrichedContent, 12, lang) || t("meta.keywords");
 
 // Create category-specific keywords for better targeting
-const categoryNames = sortedCategories.map(c => c.headline.toLowerCase()).join(", ");
-const combinedKeywords = `${seoKeywords}, ${categoryNames}, ${t("meta.keywords")}`.substring(0, 255);
+const categoryNames = sortedCategories.map((c) => c.headline.toLowerCase()).join(", ");
+const combinedKeywords = `${seoKeywords}, ${categoryNames}, ${t("meta.keywords")}`.substring(
+  0,
+  255
+);
 
 // Enhanced structured data for GameHub/CategoryList
 const baseUrl = Astro.site?.toString() || "https://melody-mind.de";
 const currentUrl = `${baseUrl}/${lang}/gamehome`;
 
 // JSON-LD structured data for better search engine understanding
-const gameApplicationSchema = generateGameApplicationSchema(title, optimizedDescription, currentUrl, lang);
+const gameApplicationSchema = generateGameApplicationSchema(
+  title,
+  optimizedDescription,
+  currentUrl,
+  lang
+);
 
 // ItemList schema for game categories
 const categoryListSchema = generateCategoryListSchema(baseUrl, lang, playableCategories);
@@ -209,24 +222,24 @@ const clientTranslations = generateClientTranslations(t);
 ---
 
 <Layout
-  title={title}
+  {title}
   description={optimizedDescription}
   keywords={combinedKeywords}
   image={`/og-images/social-share-gamehome-${String(lang)}.jpg`}
   type={pageType}
-  publishDate={publishDate}
-  modifiedDate={modifiedDate}
+  {publishDate}
+  {modifiedDate}
 >
   <!-- Enhanced structured data for SEO -->
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(gameApplicationSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(categoryListSchema)} />
-    
+
     <!-- Additional SEO meta tags -->
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="googlebot" content="index, follow" />
     <link rel="canonical" href={currentUrl} />
-    
+
     <!-- Enhanced OpenGraph tags for social sharing -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={`${lang}_${lang.toUpperCase()}`} />
@@ -254,11 +267,12 @@ const clientTranslations = generateClientTranslations(t);
       </div>
 
       <div class="gamehome-hero__content">
-        <Headline 
-          title={`${t("game.welcome")}`} 
-          level="h1" 
-          className="gamehome-hero__title" 
+        <Headline
+          title={`${t("game.welcome")}`}
+          level="h1"
+          className="gamehome-hero__title"
           id="welcome-heading"
+          size="4xl"
         />
         <div class="gamehome-hero__divider"></div>
         <Paragraph className="gamehome-hero__description" align="center">
@@ -266,7 +280,10 @@ const clientTranslations = generateClientTranslations(t);
         </Paragraph>
         <!-- Additional descriptive content for SEO -->
         <p class="gamehome-hero__seo-description sr-only">
-          {t("game.genre.selection.description") || "Choose from multiple music genres including rock, pop, jazz, classical and more. Test your knowledge with challenging questions and compete with players worldwide."}
+          {
+            t("game.genre.selection.description") ||
+              "Choose from multiple music genres including rock, pop, jazz, classical and more. Test your knowledge with challenging questions and compete with players worldwide."
+          }
         </p>
       </div>
     </header>
@@ -313,13 +330,13 @@ const clientTranslations = generateClientTranslations(t);
 
       <!-- Enhanced genre grid with semantic markup -->
       <div class="genre-content">
-        <Headline 
-          title={t("game.categories.title") || "Music Categories"} 
-          level="h2" 
-          className="genre-content__title sr-only" 
-          id="playlist-heading" 
+        <Headline
+          title={t("game.categories.title") || "Music Categories"}
+          level="h2"
+          className="genre-content__title sr-only"
+          id="playlist-heading"
         />
-        
+
         <div
           id="playlist-grid"
           class="genre-grid"
@@ -332,12 +349,12 @@ const clientTranslations = generateClientTranslations(t);
           {
             categories && categories.length > 0 ? (
               sortedCategories.map((category, _index) => (
-                <PlaylistItem 
+                <PlaylistItem
                   headline={category.headline}
                   subheadline={category.introSubline}
                   image={category.imageUrl}
                   imageAlt={`${category.headline} music category`}
-                  href={category.categoryUrl || '#'}
+                  href={category.categoryUrl || "#"}
                   isDisabled={!category.isPlayable}
                 />
               ))
@@ -363,7 +380,7 @@ const clientTranslations = generateClientTranslations(t);
   </main>
 
   <!-- Back to Top Component for improved UX and accessibility -->
-  <BackToTop lang={lang} />
+  <BackToTop {lang} />
 </Layout>
 
 <style>
@@ -377,17 +394,19 @@ const clientTranslations = generateClientTranslations(t);
     --gamehome-hero-decoration-sm: var(--space-2xl); /* 48px - Small decoration */
     --gamehome-hero-decoration-md: var(--space-3xl); /* 64px - Medium decoration */
     --gamehome-hero-decoration-lg: calc(var(--space-3xl) * 2); /* 128px - Large decoration */
-    
+
     /* Layout constraints using design system */
     --gamehome-content-max-width: calc(var(--container-md) * 0.6); /* ~460px - Content max width */
     --gamehome-search-max-width: var(--container-sm); /* 640px - Search container max width */
-    
+
     /* Visual effects using global tokens */
     --gamehome-hero-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Hero text shadow */
     --gamehome-divider-height: var(--border-width-thick); /* 2px - Divider height */
-    
+
     /* Search input specific spacing */
-    --gamehome-search-icon-offset: calc(var(--space-md) + var(--icon-size-md) + var(--space-md)); /* Icon + padding space */
+    --gamehome-search-icon-offset: calc(
+      var(--space-md) + var(--icon-size-md) + var(--space-md)
+    ); /* Icon + padding space */
   }
 
   /* ======================================
@@ -695,12 +714,12 @@ const clientTranslations = generateClientTranslations(t);
           showingAll: "Showing all genres",
           resultsFound: "genres found",
           noResults: "No genres found matching your search",
-          clear: "Clear search"
+          clear: "Clear search",
         },
         accessibility: {
           skipToContent: "Skip to main content",
-          searchLabel: "Search music genres"
-        }
+          searchLabel: "Search music genres",
+        },
       };
     }
 
@@ -708,7 +727,7 @@ const clientTranslations = generateClientTranslations(t);
       // Add event listeners with proper binding
       this.searchInput!.addEventListener("input", this.handleSearch.bind(this));
       this.searchInput!.addEventListener("keydown", this.handleKeydown.bind(this));
-      
+
       if (this.clearButton) {
         this.clearButton.addEventListener("click", this.clearSearch.bind(this));
       }
@@ -720,7 +739,7 @@ const clientTranslations = generateClientTranslations(t);
     private handleSearch(event: Event): void {
       const target = event.target as HTMLInputElement;
       const query = target.value.toLowerCase().trim();
-      
+
       this.filterItems(query);
       this.updateClearButton(query);
     }
@@ -737,7 +756,7 @@ const clientTranslations = generateClientTranslations(t);
       this.allItems.forEach((item) => {
         const textContent = item.textContent?.toLowerCase() || "";
         const isVisible = query === "" || textContent.includes(query);
-        
+
         if (item instanceof HTMLElement) {
           item.style.display = isVisible ? "" : "none";
           item.setAttribute("aria-hidden", (!isVisible).toString());

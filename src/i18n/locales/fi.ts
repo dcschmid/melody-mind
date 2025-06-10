@@ -213,7 +213,7 @@ export default {
   "difficulty.medium": "Keskivaikea",
   "difficulty.hard": "Vaikea",
   "game.select":
-    "Tutustu musiikin kiehtovaan maailmaan ja testaa tietosi interaktiivisissa musiikillista visoissamme. Valitse suosikkigenresi ja aloita melodinen matkasi!",
+    "🎵 Valmiina äärimmäiseen musiikkiseikkailuun? Sukella rytmien, melodioiden ja unohtumattomien kappaleiden maailmaan! Murskaavista kitarasooloista ajattomiin klassikoihin – löydä täydellinen musiikillinen taistelusi. Näytä maailmalle, että olet todellinen musiikin asiantuntija!",
   "game.welcome": "Tervetuloa Melody Mindiin",
   "game.genre.list": "Genren valinta",
   "game.search.label": "Etsi genreä",
@@ -620,7 +620,8 @@ export default {
 
   // Ennätyssivu
   "highscores.title": "Ennätykset",
-  "highscores.description": "Tarkastele parhaita pisteitä eri pelitiloissa ja kategorioissa",
+  "highscores.description":
+    "Löydä musiikin legendat! Katso kuka johtaa listoja ja inspiroidu parhaista pelaajista 🎵🏆",
   "highscores.loading": "Ladataan ennätyksiä...",
   "highscores.error": "Virhe ennätysten lataamisessa",
   "highscores.empty": "Ennätyksiä ei löytynyt",

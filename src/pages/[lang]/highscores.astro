@@ -113,8 +113,8 @@ const gameModeNames = {
 
 <Layout title={t("highscores.title")} description={t("highscores.description")} type="website">
   <div class="highscores-container" id="main-content">
-    <!-- Hero section with improved contrast and accessibility -->
-    <section class="highscores-hero" aria-labelledby="highscores-heading">
+    <!-- Hero section styled like GameHome with improved contrast and accessibility -->
+    <header class="highscores-hero" aria-labelledby="highscores-heading">
       <!-- Decorative background elements with aria-hidden -->
       <div class="highscores-hero__decoration" aria-hidden="true">
         <div class="highscores-hero__decoration-item highscores-hero__decoration-item--top-right">
@@ -128,15 +128,28 @@ const gameModeNames = {
       </div>
 
       <div class="highscores-hero__content">
-        <Headline level="h1" id="highscores-heading" title={t("highscores.title")} />
+        <Headline
+          level="h1"
+          id="highscores-heading"
+          title={t("highscores.title")}
+          className="highscores-hero__title"
+          size="4xl"
+        />
         <div class="highscores-hero__divider"></div>
         <Paragraph
           description={t("highscores.description")}
           className="highscores-hero__description"
           align="center"
         />
+        <!-- Additional descriptive content for SEO -->
+        <p class="highscores-hero__seo-description sr-only">
+          {
+            t("highscores.seo.description") ||
+              "View the top scores from players worldwide. Compare achievements across different game modes and music categories."
+          }
+        </p>
       </div>
-    </section>
+    </header>
 
     {
       isLoading && (
@@ -343,6 +356,25 @@ const gameModeNames = {
 
 <style>
   /* ======================================
+   * CSS CUSTOM PROPERTIES FOR COMPONENT
+   * Enhanced with global.css variables matching GameHome
+   * ====================================== */
+
+  :root {
+    /* Component-specific dimensions using global scale */
+    --highscores-hero-decoration-sm: var(--space-2xl); /* 48px - Small decoration */
+    --highscores-hero-decoration-md: var(--space-3xl); /* 64px - Medium decoration */
+    --highscores-hero-decoration-lg: calc(var(--space-3xl) * 2); /* 128px - Large decoration */
+
+    /* Layout constraints using design system */
+    --highscores-content-max-width: 28rem; /* 448px - Content max width */
+
+    /* Visual effects using global tokens */
+    --highscores-hero-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Hero text shadow */
+    --highscores-divider-height: 2px; /* 2px - Divider height */
+  }
+
+  /* ======================================
    * HIGHSCORES CONTAINER LAYOUT 
    * Matching GameHome layout system for consistency
    * ====================================== */
@@ -352,6 +384,9 @@ const gameModeNames = {
     max-width: var(--container-xl);
     margin: 0 auto;
     padding: var(--space-lg) var(--space-md);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
   @media (min-width: var(--breakpoint-md)) {
@@ -362,7 +397,7 @@ const gameModeNames = {
 
   /* ======================================
    * HERO SECTION STYLING
-   * Consistent with GameHome hero pattern
+   * Matching GameHome hero pattern exactly
    * ====================================== */
 
   .highscores-hero {
@@ -372,12 +407,19 @@ const gameModeNames = {
     border-radius: var(--radius-xl);
     background: linear-gradient(
       135deg,
-      var(--color-primary-800) 0%,
-      var(--color-primary-900) 50%,
-      var(--color-neutral-900) 100%
+      var(--color-primary-900) 0%,
+      var(--color-primary-700) 50%,
+      var(--color-secondary-800) 100%
     );
     padding: var(--space-xl);
     box-shadow: var(--shadow-xl);
+    border: var(--border-width-thin) solid var(--border-primary);
+  }
+
+  @media (min-width: 768px) {
+    .highscores-hero {
+      padding: var(--space-2xl) var(--space-xl);
+    }
   }
 
   .highscores-hero__decoration {
@@ -390,45 +432,98 @@ const gameModeNames = {
   .highscores-hero__decoration-item {
     position: absolute;
     border-radius: var(--radius-full);
+    background: var(--color-white);
   }
 
   .highscores-hero__decoration-item--top-right {
-    top: calc(-1 * var(--space-3xl) - var(--space-2xl));
-    right: calc(-1 * var(--space-3xl) - var(--space-md));
-    width: calc(var(--space-3xl) * 4);
-    height: calc(var(--space-3xl) * 4);
-    background-color: var(--color-primary-500);
+    top: calc(-1 * var(--space-xl));
+    right: calc(-1 * var(--space-xl));
+    width: var(--highscores-hero-decoration-md);
+    height: var(--highscores-hero-decoration-md);
   }
 
   .highscores-hero__decoration-item--bottom-left {
-    bottom: calc(var(--space-xl) + var(--space-sm));
-    left: calc(var(--space-xl) + var(--space-sm));
-    width: calc(var(--space-3xl) + var(--space-2xl));
-    height: calc(var(--space-3xl) + var(--space-2xl));
-    background-color: var(--color-secondary-500);
+    bottom: calc(-1 * var(--space-2xl));
+    left: calc(-1 * var(--space-2xl));
+    width: var(--highscores-hero-decoration-lg);
+    height: var(--highscores-hero-decoration-lg);
   }
 
   .highscores-hero__decoration-item--center-right {
     top: 50%;
-    right: var(--percentage-quarter);
-    width: calc(var(--space-3xl) + var(--space-xl));
-    height: calc(var(--space-3xl) + var(--space-xl));
-    background-color: var(--color-primary-400);
+    right: calc(-1 * var(--space-md));
+    width: var(--highscores-hero-decoration-sm);
+    height: var(--highscores-hero-decoration-sm);
     transform: translateY(-50%);
   }
 
   .highscores-hero__content {
     position: relative;
-    z-index: var(--z-fixed);
+    z-index: 1;
     text-align: center;
+    color: var(--color-white);
+  }
+
+  .highscores-hero__title {
+    margin-bottom: var(--space-lg);
+    color: var(--color-white);
+    text-shadow: var(--highscores-hero-shadow);
   }
 
   .highscores-hero__divider {
-    margin: var(--space-sm) auto var(--space-lg);
-    width: calc(var(--space-3xl) + var(--space-xl));
-    height: var(--space-xs);
+    width: var(--space-2xl);
+    height: var(--highscores-divider-height);
+    background: var(--color-secondary-400);
+    margin: var(--space-lg) auto;
     border-radius: var(--radius-full);
-    background-color: var(--color-secondary-400);
+  }
+
+  .highscores-hero__description {
+    color: var(--color-neutral-100);
+    font-size: var(--text-xl);
+    line-height: var(--leading-relaxed);
+    max-width: var(--highscores-content-max-width);
+    margin: 0 auto;
+  }
+
+  .highscores-hero__seo-description {
+    /* SEO content hidden visually but available to screen readers */
+  }
+
+  /* ======================================
+   * RESPONSIVE DESIGN ENHANCEMENTS
+   * Matching GameHome responsive patterns
+   * ====================================== */
+
+  @media (min-width: 1024px) {
+    .highscores-hero__title {
+      font-size: var(--text-4xl);
+    }
+
+    .highscores-hero__description {
+      font-size: var(--text-2xl);
+    }
+  }
+
+  /* ======================================
+   * ACCESSIBILITY ENHANCEMENTS
+   * Matching GameHome accessibility patterns
+   * ====================================== */
+
+  @media (prefers-reduced-motion: reduce) {
+    .highscores-hero__decoration-item {
+      animation: none;
+    }
+
+    .highscores__loading-icon {
+      animation: none;
+    }
+  }
+
+  @media (prefers-contrast: high) {
+    .highscores-hero {
+      border-width: var(--border-width-thick);
+    }
   }
 
   /* ======================================

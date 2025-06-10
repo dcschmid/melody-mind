@@ -233,7 +233,7 @@ export default {
   "difficulty.medium": "Médio",
   "difficulty.hard": "Difícil",
   "game.select":
-    "Descubra o fascinante mundo da música e teste seus conhecimentos em nossos quizzes musicais interativos. Escolha seu gênero favorito e comece sua jornada melodiosa!",
+    "🎵 Pronto para a aventura musical definitiva? Mergulhe em um mundo de ritmos, melodias e canções inesquecíveis! De solos de guitarra arrebatadores a clássicos eternos – encontre sua batalha musical perfeita. Mostre ao mundo que você é um verdadeiro conhecedor de música!",
   "game.welcome": "Bem-vindo ao Melody Mind",
   "game.genre.list": "Seleção de Gênero",
   "game.search.label": "Procurar por um gênero",
@@ -643,7 +643,7 @@ export default {
   // Página de Recordes
   "highscores.title": "Recordes",
   "highscores.description":
-    "Veja as pontuações mais altas em diferentes modos de jogo e categorias",
+    "Descubra as lendas da música! Veja quem está liderando as paradas e se inspire com os melhores jogadores 🎵🏆",
   "highscores.loading": "Carregando recordes...",
   "highscores.error": "Erro ao carregar recordes",
   "highscores.empty": "Nenhuma entrada encontrada nos recordes",

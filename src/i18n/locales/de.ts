@@ -273,7 +273,7 @@ export default {
   "difficulty.medium": "Mittel",
   "difficulty.hard": "Schwer",
   "game.select":
-    "Entdecke die faszinierende Welt der Musik und teste dein Wissen in unseren interaktiven Musik-Quizzen. Wähle dein Lieblingsgenre und beginne deine klangvolle Reise!",
+    "🎵 Bereit für das ultimative Musik-Abenteuer? Tauche ein in eine Welt voller Rhythmen, Melodien und unvergesslicher Songs! Von rockigen Gitarrenriffs bis zu klassischen Meisterwerken – hier findest du dein perfektes musikalisches Duell. Zeig der Welt, dass du ein echter Musik-Experte bist!",
   "game.welcome": "Willkommen bei Melody Mind",
   "game.genre.list": "Genre Auswahl",
   "game.search.label": "Suche nach einem Genre",
@@ -710,7 +710,7 @@ export default {
   // Highscores-Seite
   "highscores.title": "Bestenliste",
   "highscores.description":
-    "Sieh dir die besten Punktzahlen in verschiedenen Spielmodi und Kategorien an",
+    "Entdecke die Musik-Legenden! Sieh dir an, wer die Charts anführt und lass dich von den besten Spielern inspirieren 🎵🏆",
   "highscores.loading": "Bestenliste wird geladen...",
   "highscores.error": "Fehler beim Laden der Bestenliste",
   "highscores.empty": "Keine Einträge in der Bestenliste gefunden",
