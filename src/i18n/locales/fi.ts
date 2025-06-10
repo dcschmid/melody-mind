@@ -499,10 +499,19 @@ export default {
   "playlist.page.description":
     "Sukella huolellisesti kuratoituihin soittolistoihin eri aikakausilta ja genreistä. Täydellinen uuden musiikin löytämiseen tai suosikkiklassikoidesi uudelleen kokemiseen.",
   "playlist.search.label": "Etsi Soittolistoja",
+  "playlist.search.heading": "Etsi Soittolistoja",
   "playlist.search.placeholder": "Etsi artistin tai tyylin mukaan...",
+  "playlist.search.aria.label": "Etsi musiikkisoittolistoja",
   "playlist.filter.all": "Kaikki Aikakaudet",
   "playlist.no.results": "Vastaavia soittolistoja ei löytynyt. Kokeile toista hakusanaa.",
+  "playlist.no.results.heading": "Soittolistoja ei löytynyt",
+  "playlist.reset.search": "Näytä kaikki soittolistat",
+  "playlist.grid.heading": "Saatavilla Olevat Musiikkisoittolistat ({count} yhteensä)",
   "playlist.listen.on": "Kuuntele",
+  "playlist.image.alt":
+    'Yksityiskohtainen soittolistan kansi kohteelle "{headline}" - {introSubline} sisältäen {decade} musiikkikokoelman',
+  "playlist.image.description":
+    "Soittolistan kansi, joka edustaa {decade} musiikkikokoelmaa temaattisilla visuaalisilla elementeillä kohteelle {headline}. Visuaalinen suunnittelu heijastaa musiikkiaikakauden ja genren ominaisuuksia.",
   "playlist.listen.spotify": "Kuuntele Spotifyssa",
   "playlist.listen.deezer": "Kuuntele Deezerissä",
   "playlist.listen.apple": "Kuuntele Apple Musicissa",

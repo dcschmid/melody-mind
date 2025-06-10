@@ -128,7 +128,7 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 1,
-      name: t("nav.home") || "Home",
+      name: t("nav.home"),
       item: `${baseUrl}/${lang}/`,
     },
     {
@@ -229,11 +229,8 @@ const breadcrumbSchema = {
           className="playlist-hero__title"
         />
         <div class="playlist-hero__divider" aria-hidden="true"></div>
-        <Paragraph className="playlist-hero__description">
-          {
-            t("playlist.page.description") ||
-              "Discover curated music playlists across different decades and genres. From classic rock anthems to contemporary pop hits, explore musical history through carefully selected tracks."
-          }
+        <Paragraph className="playlist-hero__description" align="center">
+          {t("playlist.page.description")}
         </Paragraph>
       </div>
     </section>
@@ -241,22 +238,26 @@ const breadcrumbSchema = {
     <main class="playlist-selection" role="main">
       <!-- Search input with improved accessibility -->
       <section class="search-section" role="search" aria-labelledby="search-heading">
-        <h2 id="search-heading" class="sr-only">
-          {t("playlist.search.heading") || "Search Playlists"}
-        </h2>
+        <Headline
+          title={t("playlist.search.heading")}
+          level="h2"
+          size="base"
+          className="sr-only"
+          id="search-heading"
+        />
         <div class="search-container">
           <div class="search-container__icon" aria-hidden="true">
             <Icon name="search" class="search-container__icon-element" />
           </div>
           <label for="playlist-search" class="sr-only">
-            {t("playlist.search.label") || "Search music playlists"}
+            {t("playlist.search.aria.label")}
           </label>
           <input
             class="search-container__input"
             type="search"
             id="playlist-search"
-            placeholder={t("playlist.search.label") || "Search playlists..."}
-            aria-label={t("playlist.search.label") || "Search music playlists"}
+            placeholder={t("playlist.search.placeholder")}
+            aria-label={t("playlist.search.aria.label")}
             autocomplete="off"
           />
         </div>
@@ -264,25 +265,29 @@ const breadcrumbSchema = {
 
       <!-- No results message with improved accessibility -->
       <div id="no-results" class="no-results" role="status" aria-live="polite">
-        <h3 class="no-results__heading">
-          {t("playlist.no.results.heading") || "No playlists found"}
-        </h3>
-        <p class="no-results__text">
-          {
-            t("playlist.no.results") ||
-              "Try adjusting your search terms or browse all available playlists."
-          }
-        </p>
+        <Headline
+          title={t("playlist.no.results.heading")}
+          level="h3"
+          size="2xl"
+          className="no-results__heading"
+        />
+        <Paragraph className="no-results__text">
+          {t("playlist.no.results")}
+        </Paragraph>
         <button id="reset-search" class="no-results__button">
-          {t("playlist.reset.search") || "Show all playlists"}
+          {t("playlist.reset.search")}
         </button>
       </div>
 
       <!-- Enhanced Playlist Grid with semantic markup and microdata -->
       <section aria-labelledby="playlists-heading">
-        <h2 id="playlists-heading" class="sr-only">
-          {t("playlist.grid.heading") || `Available Music Playlists (${playlistCount} total)`}
-        </h2>
+        <Headline
+          title={t("playlist.grid.heading", { count: playlistCount })}
+          level="h2"
+          size="base"
+          className="sr-only"
+          id="playlists-heading"
+        />
         <ul id="playlist-grid" class="playlist-grid">
           {
             sortedPlaylists.map((playlist, index) => (

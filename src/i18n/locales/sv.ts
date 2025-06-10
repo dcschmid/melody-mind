@@ -495,10 +495,19 @@ export default {
   "playlist.page.description":
     "Dyk in i noggrant utvalda spellistor från olika epoker och genrer. Perfekt för att upptäcka ny musik eller återuppleva dina favoritklassiker.",
   "playlist.search.label": "Sök Spellistor",
+  "playlist.search.heading": "Sök Spellistor",
   "playlist.search.placeholder": "Sök efter artist eller stil...",
+  "playlist.search.aria.label": "Sök musikspellistor",
   "playlist.filter.all": "Alla Epoker",
   "playlist.no.results": "Inga matchande spellistor hittades. Prova en annan sökterm.",
+  "playlist.no.results.heading": "Inga spellistor hittades",
+  "playlist.reset.search": "Visa alla spellistor",
+  "playlist.grid.heading": "Tillgängliga Musikspellistor ({count} totalt)",
   "playlist.listen.on": "Lyssna på",
+  "playlist.image.alt":
+    'Detaljerat spellistomslag för "{headline}" - {introSubline} med {decade} musiksamling',
+  "playlist.image.description":
+    "Spellistomslag som representerar {decade} musiksamling med tematiska visuella element för {headline}. Den visuella designen återspeglar musikeran och genreegenskaper.",
   "playlist.listen.spotify": "Lyssna på Spotify",
   "playlist.listen.deezer": "Lyssna på Deezer",
   "playlist.listen.apple": "Lyssna på Apple Music",

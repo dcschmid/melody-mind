@@ -222,7 +222,8 @@ export default {
   "game.search.no.results": "No se encontraron géneros que coincidan con tu búsqueda",
   "game.genre.play.label": "jugar",
   "game.genre.image": "Imagen de portada para",
-  "game.genre.selection.description": "Elige entre múltiples géneros musicales incluyendo rock, pop, jazz, clásica y más. Cada categoría presenta preguntas cuidadosamente seleccionadas para poner a prueba tu conocimiento musical.",
+  "game.genre.selection.description":
+    "Elige entre múltiples géneros musicales incluyendo rock, pop, jazz, clásica y más. Cada categoría presenta preguntas cuidadosamente seleccionadas para poner a prueba tu conocimiento musical.",
   "game.no.results": "No se encontraron resultados",
   "game.not.available": "No disponible",
   "category.selected": "¡seleccionado!",
@@ -512,10 +513,15 @@ export default {
   "playlist.page.description":
     "Sumérgete en listas de reproducción cuidadosamente seleccionadas de diferentes épocas y géneros. Perfecto para descubrir nueva música o revivir tus clásicos favoritos.",
   "playlist.search.label": "Buscar Listas de Reproducción",
+  "playlist.search.heading": "Buscar Listas de Reproducción",
   "playlist.search.placeholder": "Buscar por artista o estilo...",
+  "playlist.search.aria.label": "Buscar listas de reproducción de música",
   "playlist.filter.all": "Todas las Épocas",
   "playlist.no.results":
     "No se encontraron listas de reproducción coincidentes. Intenta con otro término de búsqueda.",
+  "playlist.no.results.heading": "No se encontraron listas de reproducción",
+  "playlist.reset.search": "Mostrar todas las listas de reproducción",
+  "playlist.grid.heading": "Listas de Reproducción de Música Disponibles ({count} en total)",
   "playlist.listen.on": "Escuchar en",
   "playlist.listen.spotify": "Escuchar en Spotify",
   "playlist.listen.deezer": "Escuchar en Deezer",
@@ -932,6 +938,10 @@ export default {
   "playlist.exit": "Salir de la playlist: {title}",
   "playlist.visible": "Playlist prioritaria visible: {title}",
   "playlist.image.error": "Error al cargar la imagen de la playlist: {title}",
+  "playlist.image.alt":
+    'Portada detallada de playlist para "{headline}" - {introSubline} con colección musical de {decade}',
+  "playlist.image.description":
+    "Portada de playlist que representa colección musical de {decade} con elementos visuales temáticos para {headline}. El diseño visual refleja la era musical y características del género.",
   "playlist.title.unknown": "Playlist desconocida",
 
   // Componente de Prueba

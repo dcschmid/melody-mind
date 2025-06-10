@@ -186,6 +186,52 @@ type HighscoresTranslationKey =
   | `highscores.${string}`;
 
 /**
+ * Playlist-related translation keys
+ */
+type PlaylistTranslationKey =
+  | "playlist.page.title"
+  | "playlist.page.heading"
+  | "playlist.page.description"
+  | "playlist.search.label"
+  | "playlist.search.heading"
+  | "playlist.search.placeholder"
+  | "playlist.search.aria.label"
+  | "playlist.filter.all"
+  | "playlist.no.results"
+  | "playlist.no.results.heading"
+  | "playlist.reset.search"
+  | "playlist.grid.heading"
+  | "playlist.listen.on"
+  | "playlist.listen.spotify"
+  | "playlist.listen.deezer"
+  | "playlist.listen.apple"
+  | "playlist.decade.filter"
+  | "playlist.priority.loading"
+  | "playlist.music.from.decade"
+  | "playlist.streaming.services"
+  | "playlist.item.unavailable"
+  | "playlist.item.status"
+  | "playlist.item.coming.soon"
+  | "playlist.item.status.changed.disabled"
+  | "playlist.item.status.changed.available"
+  | "playlist.accessibility.instruction"
+  | "playlist.accessibility.info"
+  | "playlist.accessibility.public"
+  | "playlist.accessibility.selected"
+  | "playlist.accessibility.focus"
+  | "playlist.accessibility.opened"
+  | "playlist.open.spotify"
+  | "playlist.open.deezer"
+  | "playlist.open.apple"
+  | "playlist.activation.focused"
+  | "playlist.activation.no_links"
+  | "playlist.exit"
+  | "playlist.visible"
+  | "playlist.image.alt"
+  | "playlist.image.description"
+  | `playlist.${string}`;
+
+/**
  * All valid translation keys for the application
  */
 export type TranslationKey =
@@ -196,7 +242,8 @@ export type TranslationKey =
   | AchievementTranslationKey
   | ShareTranslationKey
   | KnowledgeTranslationKey
-  | HighscoresTranslationKey;
+  | HighscoresTranslationKey
+  | PlaylistTranslationKey;
 
 /**
  * Translation parameter types based on translation key
@@ -223,7 +270,9 @@ export type TranslationParams<K extends TranslationKey> = K extends "game.score.
                     ? { platform: string }
                     : K extends "highscores.scoreEntry"
                       ? { rank: number; username: string }
-                      : Record<string, never>;
+                      : K extends "playlist.grid.heading"
+                        ? { count: number }
+                        : Record<string, never>;
 
 /**
  * Type-safe translation function

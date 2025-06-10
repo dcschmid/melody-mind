@@ -247,7 +247,8 @@ export default {
   "game.search.no.results": "Geen genres gevonden die overeenkomen met uw zoekopdracht",
   "game.genre.play.label": "spelen",
   "game.genre.image": "Coverafbeelding voor",
-  "game.genre.selection.description": "Kies uit meerdere muziekgenres waaronder rock, pop, jazz, klassiek en meer. Elke categorie bevat zorgvuldig samengestelde vragen om uw muziekkennis te testen.",
+  "game.genre.selection.description":
+    "Kies uit meerdere muziekgenres waaronder rock, pop, jazz, klassiek en meer. Elke categorie bevat zorgvuldig samengestelde vragen om uw muziekkennis te testen.",
   "game.no.results": "Geen resultaten gevonden",
   "game.not.available": "Niet beschikbaar",
   "category.selected": "geselecteerd!",
@@ -530,11 +531,20 @@ export default {
   "playlist.page.description":
     "Duik in zorgvuldig samengestelde afspeellijsten uit verschillende tijdperken en genres. Perfect om nieuwe muziek te ontdekken of je favoriete klassiekers opnieuw te beleven.",
   "playlist.search.label": "Afspeellijsten doorzoeken",
+  "playlist.search.heading": "Afspeellijsten doorzoeken",
   "playlist.search.placeholder": "Zoeken op artiest of stijl...",
+  "playlist.search.aria.label": "Muziekafspeellijsten doorzoeken",
   "playlist.filter.all": "Alle Tijdperken",
   "playlist.no.results":
     "Geen overeenkomende afspeellijsten gevonden. Probeer een andere zoekterm.",
+  "playlist.no.results.heading": "Geen afspeellijsten gevonden",
+  "playlist.reset.search": "Alle afspeellijsten tonen",
+  "playlist.grid.heading": "Beschikbare Muziekafspeellijsten ({count} in totaal)",
   "playlist.listen.on": "Luister op",
+  "playlist.image.alt":
+    'Gedetailleerde afspeellijstcover voor "{headline}" - {introSubline} met {decade} muziekcollectie',
+  "playlist.image.description":
+    "Afspeellijstcover die {decade} muziekcollectie vertegenwoordigt met thematische visuele elementen voor {headline}. Het visuele ontwerp reflecteert het muzikale tijdperk en genrekenmerken.",
   "playlist.listen.spotify": "Luister op Spotify",
   "playlist.listen.deezer": "Luister op Deezer",
   "playlist.listen.apple": "Luister op Apple Music",

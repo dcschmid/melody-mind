@@ -128,7 +128,8 @@ export default {
   "game.search.no.results": "Nessun genere trovato corrispondente alla tua ricerca",
   "game.genre.play.label": "gioca",
   "game.genre.image": "Immagine di copertina per",
-  "game.genre.selection.description": "Scegli tra molteplici generi musicali tra cui rock, pop, jazz, classico e altro. Ogni categoria presenta domande accuratamente selezionate per testare le tue conoscenze musicali.",
+  "game.genre.selection.description":
+    "Scegli tra molteplici generi musicali tra cui rock, pop, jazz, classico e altro. Ogni categoria presenta domande accuratamente selezionate per testare le tue conoscenze musicali.",
   "game.no.results": "Nessun risultato trovato",
   "game.not.available": "Non disponibile",
   "game.categories.title": "Categorie Musicali",
@@ -912,10 +913,15 @@ export default {
   "playlist.page.description":
     "Immergiti in playlist accuratamente curate di diverse epoche e generi. Perfetto per scoprire nuova musica o rivivere i tuoi classici preferiti.",
   "playlist.search.label": "Cerca Playlist",
+  "playlist.search.heading": "Cerca Playlist",
   "playlist.search.placeholder": "Cerca per artista o stile...",
+  "playlist.search.aria.label": "Cerca playlist musicali",
   "playlist.filter.all": "Tutte le Epoche",
   "playlist.no.results":
     "Nessuna playlist corrispondente trovata. Prova un termine di ricerca diverso.",
+  "playlist.no.results.heading": "Nessuna playlist trovata",
+  "playlist.reset.search": "Mostra tutte le playlist",
+  "playlist.grid.heading": "Playlist Musicali Disponibili ({count} in totale)",
   "playlist.listen.on": "Ascolta su",
   "playlist.listen.spotify": "Ascolta su Spotify",
   "playlist.listen.deezer": "Ascolta su Deezer",
@@ -942,6 +948,10 @@ export default {
   "playlist.exit": "Uscita dalla playlist: {title}",
   "playlist.visible": "Playlist prioritaria visibile: {title}",
   "playlist.image.error": "Errore nel caricamento dell'immagine per la playlist: {title}",
+  "playlist.image.alt":
+    'Copertina dettagliata della playlist per "{headline}" - {introSubline} con collezione musicale {decade}',
+  "playlist.image.description":
+    "Copertina della playlist che rappresenta una collezione musicale {decade} con elementi visivi tematici per {headline}. Il design visivo riflette l'era musicale e le caratteristiche del genere.",
   "playlist.title.unknown": "Playlist sconosciuta",
 
   // Componente di Test
