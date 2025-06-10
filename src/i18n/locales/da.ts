@@ -657,7 +657,8 @@ export default {
 
   // Præstationssystem
   "achievements.title": "Præstationer",
-  "achievements.description": "Opdag og lås op for præstationer for at spore dine fremskridt",
+  "achievements.description":
+    "Fejr dine musikalske triumfer og saml unikke trofæer på din rejse til at blive en musikmester",
   "achievements.loading": "Indlæser præstationer...",
   "achievements.error": "Fejl ved indlæsning af præstationer",
   "achievements.empty": "Ingen præstationer fundet",

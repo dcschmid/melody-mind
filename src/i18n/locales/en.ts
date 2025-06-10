@@ -708,7 +708,8 @@ export default {
 
   // Achievement System
   "achievements.title": "Achievements",
-  "achievements.description": "Discover and unlock achievements to track your progress",
+  "achievements.description":
+    "Celebrate your musical triumphs and collect unique trophies on your journey to becoming a music master",
   "achievements.loading": "Loading achievements...",
   "achievements.error": "Error loading achievements",
   "achievements.empty": "No achievements found",

@@ -637,7 +637,8 @@ export default {
 
   // Prestationssystem
   "achievements.title": "Prestationer",
-  "achievements.description": "Upptäck och lås upp prestationer för att följa dina framsteg",
+  "achievements.description":
+    "Fira dina musikaliska triumfer och samla unika troféer på din resa att bli en musikmästare",
   "achievements.loading": "Laddar prestationer...",
   "achievements.error": "Fel vid laddning av prestationer",
   "achievements.empty": "Inga prestationer hittades",

@@ -95,9 +95,51 @@ const achievementStats = calculateAchievementStats(achievements);
 ---
 
 <Layout title={t("achievements.title")} description={t("achievements.description")}>
-  <main class="achievements container" id="main-content" role="main">
-    <Headline level="h1" title={t("achievements.title")} className="achievements__title" />
-    <Paragraph description={t("achievements.description")} className="achievements__description" />
+  <main class="achievements-container" id="main-content" role="main">
+    <!-- Hero section styled like GameHome with improved contrast and accessibility -->
+    <header class="achievements-hero" aria-labelledby="achievements-heading">
+      <!-- Decorative background elements with aria-hidden -->
+      <div class="achievements-hero__decoration" aria-hidden="true">
+        <div
+          class="achievements-hero__decoration-item achievements-hero__decoration-item--top-right"
+        >
+        </div>
+        <div
+          class="achievements-hero__decoration-item achievements-hero__decoration-item--bottom-left"
+        >
+        </div>
+        <div
+          class="achievements-hero__decoration-item achievements-hero__decoration-item--center-right"
+        >
+        </div>
+      </div>
+
+      <div class="achievements-hero__content">
+        <Headline
+          level="h1"
+          title={t("achievements.title")}
+          className="achievements-hero__title"
+          id="achievements-heading"
+          size="4xl"
+        />
+
+        <div class="achievements-hero__divider"></div>
+
+        <Paragraph
+          description={t("achievements.description")}
+          className="achievements-hero__description"
+          align="center"
+        />
+
+        <!-- Additional descriptive content for SEO -->
+        <p class="achievements-hero__seo-description sr-only">
+          {
+            t("achievements.seo.description") ||
+              "Track your progress with detailed achievements across all music categories. Unlock special rewards by completing challenges and reaching milestones."
+          }
+        </p>
+      </div>
+    </header>
 
     <!-- Live region for dynamic content updates -->
     <div aria-live="polite" aria-atomic="true" class="sr-only" id="achievements-status">
@@ -249,9 +291,10 @@ const achievementStats = calculateAchievementStats(achievements);
    * - Semantic CSS variables for enhanced maintainability
    * - Modern CSS features (Grid auto-fit, Container Queries, CSS logical properties)
    * - No Tailwind CSS classes - pure CSS implementation
+   * - Hero section matching GameHome design pattern
    * 
    * SPECIFIC OPTIMIZATIONS IMPLEMENTED:
-   * 1. Layout System: Standard CSS with existing CSS variables
+   * 1. Layout System: GameHome-style container with hero section
    * 2. CSS Variables: Maximum usage of semantic variables (--text-*, --space-*, --border-*, etc.)
    * 3. DRY Consolidation: Merged repetitive patterns into shared selectors
    * 4. Grid System: Enhanced responsive grid using existing grid variables
@@ -261,16 +304,43 @@ const achievementStats = calculateAchievementStats(achievements);
    * 8. Print Styles: Optimized print output using semantic print variables
    * 9. Performance: Container queries and layout containment for optimal rendering
    * 10. Touch Targets: Consistent use of --min-touch-size for mobile accessibility
+   * 11. Hero Section: GameHome-style visual design with decorative elements
    */
 
   /* ======================================
-   * LAYOUT SYSTEM - Using existing CSS variables for consistency
+   * CSS CUSTOM PROPERTIES FOR COMPONENT
+   * Enhanced with global.css variables matching GameHome pattern
    * ====================================== */
 
-  .achievements {
+  :root {
+    /* Component-specific dimensions using global scale */
+    --achievements-hero-decoration-sm: var(--space-2xl); /* 48px - Small decoration */
+    --achievements-hero-decoration-md: var(--space-3xl); /* 64px - Medium decoration */
+    --achievements-hero-decoration-lg: calc(var(--space-3xl) * 2); /* 128px - Large decoration */
+
+    /* Layout constraints using design system */
+    --achievements-content-max-width: calc(
+      var(--container-md) * 0.6
+    ); /* ~460px - Content max width */
+
+    /* Visual effects using global tokens */
+    --achievements-hero-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Hero text shadow */
+    --achievements-divider-height: var(--border-width-thick); /* 2px - Divider height */
+  }
+
+  /* ======================================
+   * ACHIEVEMENTS CONTAINER LAYOUT 
+   * Matching GameHome layout system for consistency
+   * ====================================== */
+
+  .achievements-container {
+    width: var(--width-full);
     max-width: var(--container-xl);
-    margin: var(--space-none) auto;
-    padding: var(--space-lg);
+    margin: 0 auto;
+    padding: var(--space-lg) var(--space-md);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 
     /* Performance: Enable GPU acceleration for smooth scrolling */
     transform: translateZ(0);
@@ -280,10 +350,108 @@ const achievementStats = calculateAchievementStats(achievements);
     contain: layout style;
   }
 
+  @media (min-width: var(--breakpoint-md)) {
+    .achievements-container {
+      padding: var(--space-xl) var(--space-lg);
+    }
+  }
+
   /* ======================================
-   * TYPOGRAPHY SYSTEM - Handled by Headline and Paragraph components
-   * Note: Typography styles are now managed entirely by the respective components
+   * HERO SECTION STYLING
+   * Matching GameHome hero pattern exactly
    * ====================================== */
+
+  .achievements-hero {
+    position: relative;
+    margin-bottom: var(--space-2xl);
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-900) 0%,
+      var(--color-primary-700) 50%,
+      var(--color-secondary-800) 100%
+    );
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-xl);
+    border: var(--border-width-thin) solid var(--border-primary);
+  }
+
+  @media (min-width: 768px) {
+    .achievements-hero {
+      margin-bottom: var(--space-3xl);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-2xl) var(--space-xl);
+    }
+  }
+
+  .achievements-hero__decoration {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  .achievements-hero__decoration-item {
+    position: absolute;
+    border-radius: var(--radius-full);
+    background: var(--color-white);
+  }
+
+  .achievements-hero__decoration-item--top-right {
+    top: calc(-1 * var(--space-xl));
+    right: calc(-1 * var(--space-xl));
+    width: var(--achievements-hero-decoration-md);
+    height: var(--achievements-hero-decoration-md);
+  }
+
+  .achievements-hero__decoration-item--bottom-left {
+    bottom: calc(-1 * var(--space-2xl));
+    left: calc(-1 * var(--space-2xl));
+    width: var(--achievements-hero-decoration-lg);
+    height: var(--achievements-hero-decoration-lg);
+  }
+
+  .achievements-hero__decoration-item--center-right {
+    top: 50%;
+    right: calc(-1 * var(--space-md));
+    width: var(--achievements-hero-decoration-sm);
+    height: var(--achievements-hero-decoration-sm);
+    transform: translateY(-50%);
+  }
+
+  .achievements-hero__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--color-white);
+  }
+
+  .achievements-hero__title {
+    margin-bottom: var(--space-lg);
+    color: var(--color-white);
+    text-shadow: var(--achievements-hero-shadow);
+  }
+
+  .achievements-hero__divider {
+    width: var(--space-2xl);
+    height: var(--achievements-divider-height);
+    background: var(--color-secondary-400);
+    margin: var(--space-lg) auto;
+    border-radius: var(--radius-full);
+  }
+
+  .achievements-hero__description {
+    color: var(--color-neutral-100);
+    font-size: var(--text-xl);
+    line-height: var(--leading-relaxed);
+    max-width: var(--achievements-content-max-width);
+    margin: 0 auto;
+  }
+
+  .achievements-hero__seo-description {
+    /* SEO content hidden visually but available to screen readers */
+  }
 
   /* ======================================
    * SHARED COMPONENT STYLES - Maximum DRY optimization using semantic CSS variables
@@ -626,9 +794,12 @@ const achievementStats = calculateAchievementStats(achievements);
     .achievements__stat:hover {
       transform: none;
     }
+
+    .achievements-hero__decoration-item {
+      animation: none;
+    }
   }
 
-  /* Enhanced accessibility and contrast using semantic variables */
   @media (prefers-contrast: high) {
     .achievements__auth-required,
     .achievements__empty,
@@ -647,6 +818,10 @@ const achievementStats = calculateAchievementStats(achievements);
     .achievements__stat:focus-visible {
       background-color: var(--bg-primary);
       border: var(--border-width-thin) solid var(--text-primary);
+    }
+
+    .achievements-hero {
+      border-width: var(--border-width-thick);
     }
   }
 
@@ -697,6 +872,21 @@ const achievementStats = calculateAchievementStats(achievements);
     .achievements__category-title,
     .achievements__summary-title {
       page-break-after: avoid;
+    }
+  }
+
+  /* ======================================
+   * RESPONSIVE DESIGN ENHANCEMENTS
+   * Matching GameHome responsive patterns
+   * ====================================== */
+
+  @media (min-width: 1024px) {
+    .achievements-hero__title {
+      font-size: var(--text-4xl);
+    }
+
+    .achievements-hero__description {
+      font-size: var(--text-2xl);
     }
   }
 </style>

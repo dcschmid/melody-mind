@@ -655,7 +655,8 @@ export default {
 
   // Sistema de Logros
   "achievements.title": "Logros",
-  "achievements.description": "Descubre y desbloquea logros para seguir tu progreso",
+  "achievements.description":
+    "Celebra tus triunfos musicales y colecciona trofeos únicos en tu camino hacia convertirte en un maestro de la música",
   "achievements.loading": "Cargando logros...",
   "achievements.error": "Error al cargar los logros",
   "achievements.empty": "No se encontraron logros",

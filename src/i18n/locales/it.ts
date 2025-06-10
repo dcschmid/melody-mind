@@ -205,7 +205,8 @@ export default {
 
   // Risultati/Achievement
   "achievements.title": "I tuoi risultati",
-  "achievements.description": "Tieni traccia dei tuoi progressi e celebra i tuoi successi",
+  "achievements.description":
+    "Celebra i tuoi trionfi musicali e colleziona trofei unici nel tuo viaggio per diventare un maestro della musica",
   "achievements.loading": "Caricamento risultati...",
   "achievements.empty.title": "Nessun risultato ancora",
   "achievements.empty.description": "Inizia a giocare per sbloccare i tuoi primi risultati!",

@@ -675,7 +675,8 @@ export default {
 
   // Sistema de Conquistas
   "achievements.title": "Conquistas",
-  "achievements.description": "Descubra e desbloqueie conquistas para acompanhar seu progresso",
+  "achievements.description":
+    "Celebre seus triunfos musicais e colete troféus únicos em sua jornada para se tornar um mestre da música",
   "achievements.loading": "Carregando conquistas...",
   "achievements.error": "Erro ao carregar conquistas",
   "achievements.empty": "Nenhuma conquista encontrada",

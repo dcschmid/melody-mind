@@ -743,7 +743,7 @@ export default {
   // Achievement-System
   "achievements.title": "Achievements",
   "achievements.description":
-    "Entdecke und schalte Achievements frei, um deinen Fortschritt zu verfolgen",
+    "Feiere deine musikalischen Triumphe und sammle einzigartige Trophäen auf deiner Reise zum Musik-Meister",
   "achievements.loading": "Achievements werden geladen...",
   "achievements.error": "Fehler beim Laden der Achievements",
   "achievements.empty": "Keine Achievements gefunden",
