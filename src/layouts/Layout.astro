@@ -314,7 +314,7 @@ const fontPreloads = [
 const dnsPrefetch = [
   { href: "https://cdn.usefathom.com" },
   { href: "https://fonts.googleapis.com" },
-  { href: "https://fonts.gstatic.com" }
+  { href: "https://fonts.gstatic.com" },
 ];
 ---
 
@@ -464,6 +464,9 @@ const dnsPrefetch = [
         padding: var(--space-none);
         box-sizing: border-box;
         height: var(--width-full);
+        /* Prevent horizontal scrolling */
+        overflow-x: hidden;
+        width: var(--width-full);
         /* Smooth scrolling only when motion is not reduced (progressive enhancement) */
         scroll-behavior: auto;
         /* Modern CSS logical properties for better internationalization support */
@@ -486,6 +489,10 @@ const dnsPrefetch = [
         width: var(--width-full);
         max-width: var(--layout-max-width);
         flex-direction: column;
+
+        /* Prevent horizontal overflow and scrolling */
+        overflow-x: hidden;
+        box-sizing: border-box;
 
         /* WCAG AAA compliant background and text colors */
         background-color: var(--bg-primary);
@@ -547,6 +554,11 @@ const dnsPrefetch = [
         margin: var(--space-none) auto;
         max-width: var(--width-full);
         flex-grow: 1;
+
+        /* Prevent overflow from child elements */
+        overflow-x: hidden;
+        box-sizing: border-box;
+        width: var(--width-full);
 
         /* Content spacing for optimal reading experience */
         padding-left: var(--space-none);

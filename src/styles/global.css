@@ -272,6 +272,8 @@
   --stat-width-md: 150px;
   --grid-min-width-sm: 280px;
   --grid-min-width-md: 300px;
+  --grid-min-width-lg: 320px;
+  --grid-min-width-xl: 340px;
   --scroll-threshold: 400px; /* Scroll threshold for back-to-top button */
 
   /* Animation System - Consistent animation values across components */
@@ -420,16 +422,20 @@
    * ====================================== */
 
   /* Primary font stack with Atkinson Hyperlegible for maximum accessibility */
-  --font-family-primary: 'Atkinson Hyperlegible', 'Source Sans Pro', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  
+  --font-family-primary:
+    "Atkinson Hyperlegible", "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+
   /* Fallback font stack (maintains current Source Sans Pro as primary fallback) */
-  --font-family-fallback: 'Source Sans Pro', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  
+  --font-family-fallback:
+    "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
   /* System font stack for optimal performance */
-  --font-family-system: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  
+  --font-family-system: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
   /* Monospace font stack for code */
-  --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  --font-family-mono:
+    "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
 
   /* ======================================
    * TRANSITION SYSTEM
@@ -569,14 +575,19 @@ html {
   /* Enhanced base font size for better readability (WCAG AAA) */
   font-size: 18px; /* Base 18px instead of 16px for better accessibility */
   line-height: var(--leading-enhanced); /* 1.8 for optimal readability */
-  
+
+  /* Prevent horizontal scrolling globally */
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+
   /* Enhanced text spacing for WCAG 2.2 AAA compliance */
   letter-spacing: var(--letter-spacing-enhanced);
   word-spacing: var(--word-spacing-enhanced);
-  
+
   /* Smooth scrolling for better user experience */
   scroll-behavior: smooth;
-  
+
   /* Optimized text rendering */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -586,33 +597,45 @@ html {
 body {
   /* Primary font family with Atkinson Hyperlegible for accessibility */
   font-family: var(--font-family-primary);
-  
+
   /* Base typography settings */
   font-size: var(--text-lg); /* 18px for better readability */
   font-weight: var(--font-normal);
   line-height: var(--leading-enhanced);
-  
+
   /* Enhanced text spacing for accessibility */
   letter-spacing: var(--letter-spacing-base);
   word-spacing: var(--word-spacing-enhanced);
-  
+
   /* Color and background using CSS variables */
   color: var(--text-primary);
   background-color: var(--bg-primary);
-  
-  /* Layout and spacing */
+
+  /* Layout and spacing with overflow control */
   margin: 0;
   padding: 0;
-  
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+
   /* Enhanced font rendering for better readability */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
   /* Support for text resizing up to 400% (WCAG AAA) */
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
+}
+
+/* Universal box-sizing and overflow control for responsive design */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* Prevent individual elements from causing horizontal overflow */
+  max-width: 100%;
 }
 
 /* Accessibility: Support for user preferences */
@@ -620,8 +643,10 @@ body {
   html {
     scroll-behavior: auto;
   }
-  
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

@@ -27,8 +27,10 @@ interface Props {
   ariaDescribedBy?: string;
   /** Semantic wrapper element for better document structure */
   wrapper?: "section" | "header" | "article" | "div" | "none";
-  /** Size variant for consistent typography scale */
-  variant?: "small" | "medium" | "large" | "primary";
+  /** Text size using CSS custom properties (xs, sm, base, lg, xl, 2xl, 3xl, 4xl) - similar to Paragraph component */
+  size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
+  /** Style variant for visual appearance (default uses standard colors, primary uses gradient) */
+  variant?: "default" | "primary";
   /** Text alignment option for different layout needs */
   textAlign?: "left" | "center" | "right";
   /** Indicates this heading is a skip navigation target */
@@ -48,7 +50,8 @@ const {
   ariaLabel,
   ariaDescribedBy,
   wrapper = "none",
-  variant = "medium",
+  size = "xl",
+  variant = "default",
   textAlign = "left",
   skipTarget = false,
   interactive = false,
@@ -65,7 +68,8 @@ const WrapperTag = wrapper === "none" ? "div" : wrapper;
  */
 const baseClasses = "headline";
 const levelClass = `headline--${level}`;
-const variantClass = variant ? `headline--${variant}` : "";
+const sizeClass = size ? `headline--size-${size}` : "";
+const variantClass = variant !== "default" ? `headline--${variant}` : "";
 const focusableClass = focusable ? "headline--focusable" : "";
 const alignClass = textAlign !== "left" ? `headline--align-${textAlign}` : "";
 const skipTargetClass = skipTarget ? "headline--skip-target" : "";
@@ -73,6 +77,7 @@ const interactiveClass = interactive ? "headline--interactive" : "";
 const headlineClasses = [
   baseClasses,
   levelClass,
+  sizeClass,
   variantClass,
   focusableClass,
   alignClass,
@@ -124,7 +129,6 @@ const wrapperAttrs =
   /* Enhanced text spacing support (WCAG 2.2) */
   .headline {
     /* Base headline styles using CSS variables from global.css */
-    font-size: var(--text-2xl);
     font-weight: var(--font-bold);
     line-height: var(--leading-tight);
     letter-spacing: var(--letter-spacing-base);
@@ -138,15 +142,6 @@ const wrapperAttrs =
     letter-spacing: max(var(--letter-spacing-base), var(--letter-spacing-enhanced));
     line-height: max(var(--leading-tight), var(--line-height-enhanced));
     word-spacing: max(normal, var(--word-spacing-enhanced));
-
-    /* Responsive typography using em-based breakpoints */
-    @media (min-width: var(--breakpoint-md)) {
-      font-size: var(--text-3xl);
-    }
-
-    @media (min-width: var(--breakpoint-lg)) {
-      font-size: var(--text-4xl);
-    }
   }
 
   /* Focusable modifier for accessibility (WCAG 2.2 AAA) */
@@ -209,33 +204,57 @@ const wrapperAttrs =
     }
   }
 
-  /* Size variants - consolidated responsive patterns for DRY principle */
-  .headline--small {
+  /* Size variants using CSS custom properties - similar to Paragraph component */
+  .headline--size-xs {
+    font-size: var(--text-xs);
+  }
+  .headline--size-sm {
+    font-size: var(--text-sm);
+  }
+  .headline--size-base {
+    font-size: var(--text-base);
+  }
+  .headline--size-lg {
     font-size: var(--text-lg);
-    line-height: var(--leading-normal);
+  }
+  .headline--size-xl {
+    font-size: var(--text-xl);
+  }
+  .headline--size-2xl {
+    font-size: var(--text-2xl);
+  }
+  .headline--size-3xl {
+    font-size: var(--text-3xl);
+  }
+  .headline--size-4xl {
+    font-size: var(--text-4xl);
+  }
 
-    @media (min-width: var(--breakpoint-md)) {
-      font-size: var(--text-xl);
-    }
-
-    @media (min-width: var(--breakpoint-lg)) {
+  /* Responsive size adjustments for larger text sizes */
+  @media (min-width: var(--breakpoint-md)) {
+    .headline--size-xl {
       font-size: var(--text-2xl);
     }
-  }
-
-  .headline--medium {
-    /* Default size - inherits from base .headline */
-  }
-
-  .headline--large {
-    font-size: var(--text-3xl);
-
-    @media (min-width: var(--breakpoint-md)) {
+    .headline--size-2xl {
+      font-size: var(--text-3xl);
+    }
+    .headline--size-3xl {
       font-size: var(--text-4xl);
     }
-
-    @media (min-width: var(--breakpoint-lg)) {
+    .headline--size-4xl {
       font-size: calc(var(--text-4xl) * 1.25);
+    }
+  }
+
+  @media (min-width: var(--breakpoint-lg)) {
+    .headline--size-2xl {
+      font-size: var(--text-4xl);
+    }
+    .headline--size-3xl {
+      font-size: calc(var(--text-4xl) * 1.25);
+    }
+    .headline--size-4xl {
+      font-size: calc(var(--text-4xl) * 1.5);
     }
   }
 
@@ -303,28 +322,21 @@ const wrapperAttrs =
 
   /* Level-specific sizes and spacing */
   .headline--h1 {
-    font-size: var(--text-4xl);
     margin-bottom: var(--space-xl);
 
-    @media (min-width: var(--breakpoint-lg)) {
-      font-size: calc(var(--text-4xl) * 1.25);
-    }
   }
 
   .headline--h2 {
-    font-size: var(--text-3xl);
     margin-bottom: var(--space-lg);
   }
 
   .headline--h3 {
-    font-size: var(--text-2xl);
     margin-bottom: var(--space-md);
   }
 
   .headline--h4,
   .headline--h5,
   .headline--h6 {
-    font-size: var(--text-xl);
     margin-bottom: var(--space-sm);
   }
 
