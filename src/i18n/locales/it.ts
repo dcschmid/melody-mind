@@ -116,7 +116,7 @@ export default {
   "difficulty.medium": "Medio",
   "difficulty.hard": "Difficile",
   "game.select":
-    "Scopri l'affascinante mondo della musica e metti alla prova le tue conoscenze nei nostri quiz musicali interattivi. Scegli il tuo genere preferito e inizia il tuo viaggio melodioso!",
+    "🎵 Pronto per l'avventura musicale definitiva? Immergiti in un mondo di ritmi, melodie e canzoni indimenticabili! Dai assoli di chitarra mozzafiato ai classici senza tempo – trova la tua battaglia musicale perfetta. Mostra al mondo che sei un vero intenditore di musica!",
   "game.welcome": "Benvenuti a Melody Mind",
   "game.genre.list": "Selezione del genere",
   "game.search.label": "Cerca un genere",
@@ -1016,7 +1016,7 @@ export default {
   // Pagina Punteggi Alti
   "highscores.title": "Punteggi Alti",
   "highscores.description":
-    "Visualizza i punteggi migliori in diverse modalità di gioco e categorie",
+    "Scopri le leggende della musica! Guarda chi comanda le classifiche e lasciati ispirare dai migliori giocatori 🎵🏆",
   "highscores.loading": "Caricamento punteggi alti...",
   "highscores.error": "Errore nel caricamento dei punteggi alti",
   "highscores.empty": "Nessuna voce trovata nei punteggi alti",

@@ -235,7 +235,7 @@ export default {
   "difficulty.medium": "Gemiddeld",
   "difficulty.hard": "Moeilijk",
   "game.select":
-    "Ontdek de fascinerende wereld van muziek en test je kennis in onze interactieve muziekquizzen. Kies je favoriete genre en begin je melodieuze reis!",
+    "🎵 Klaar voor het ultieme muziekavontuur? Duik in een wereld vol ritmes, melodieën en onvergetelijke nummers! Van verpletterende gitaarsolos tot tijdloze klassiekers – vind jouw perfecte muzikale duel. Laat de wereld zien dat je een echte muziekkenner bent!",
   "game.welcome": "Welkom bij Melody Mind",
   "game.genre.list": "Genreselectie",
   "game.search.label": "Zoek naar een genre",
@@ -653,7 +653,8 @@ export default {
 
   // Highscorespagina
   "highscores.title": "Highscores",
-  "highscores.description": "Bekijk de beste scores in verschillende spelmodi en categorieën",
+  "highscores.description":
+    "Ontdek de muzieklegendes! Zie wie de ranglijsten aanvoert en laat je inspireren door de beste spelers 🎵🏆",
   "highscores.loading": "Highscores laden...",
   "highscores.error": "Fout bij het laden van highscores",
   "highscores.empty": "Geen vermeldingen gevonden in de highscores",

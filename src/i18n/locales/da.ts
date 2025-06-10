@@ -220,7 +220,7 @@ export default {
   "difficulty.medium": "Mellem",
   "difficulty.hard": "Svær",
   "game.select":
-    "Opdag musikkens fascinerende verden og test din viden i vores interaktive musikquizzer. Vælg din yndlingsgenre og start din melodiske rejse!",
+    "🎵 Klar til det ultimative musikeventyr? Dyk ned i en verden af rytmer, melodier og uforglemmelige sange! Fra fantastiske guitarsoloer til tidløse klassikere – find din perfekte musikalske duel. Vis verden, at du er en sand musikekspert!",
   "game.welcome": "Velkommen til Melody Mind",
   "game.genre.list": "Genrevalg",
   "game.search.label": "Søg efter en genre",
@@ -624,7 +624,8 @@ export default {
 
   // Highscores-side
   "highscores.title": "Highscores",
-  "highscores.description": "Se de bedste scores i forskellige spiltilstande og kategorier",
+  "highscores.description":
+    "Opdag musiklegenderne! Se hvem der topper listerne og bliv inspireret af de bedste spillere 🎵🏆",
   "highscores.loading": "Indlæser highscores...",
   "highscores.error": "Fejl ved indlæsning af highscores",
   "highscores.empty": "Ingen poster fundet i highscores",

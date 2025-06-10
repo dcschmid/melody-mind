@@ -252,7 +252,7 @@ export default {
   "difficulty.medium": "Medium",
   "difficulty.hard": "Hard",
   "game.select":
-    "Discover the fascinating world of music and test your knowledge in our interactive music quizzes. Choose your favorite genre and start your melodious journey!",
+    "🎵 Ready for the ultimate music adventure? Dive into a world of rhythm, melody, and unforgettable songs! From crushing guitar solos to timeless classics – find your perfect musical battle. Show the world you're a true music connoisseur!",
   "game.welcome": "Welcome to Melody Mind",
   "game.genre.list": "Genre Selection",
   "game.search.label": "Search for a genre",
@@ -675,7 +675,8 @@ export default {
 
   // Highscores Page
   "highscores.title": "Highscores",
-  "highscores.description": "View the top scores in different game modes and categories",
+  "highscores.description":
+    "Discover the music legends! See who's topping the charts and get inspired by the best players 🎵🏆",
   "highscores.loading": "Loading highscores...",
   "highscores.error": "Error loading highscores",
   "highscores.empty": "No entries found in the highscores",

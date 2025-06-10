@@ -213,7 +213,7 @@ export default {
   "difficulty.medium": "Medel",
   "difficulty.hard": "Svår",
   "game.select":
-    "Upptäck musikens fascinerande värld och testa dina kunskaper i våra interaktiva musikquiz. Välj din favoritgenre och starta din melodiösa resa!",
+    "🎵 Redo för det ultimata musikäventyret? Dyk in i en värld full av rytmer, melodier och oförglömliga låtar! Från fantastiska gitarrsolon till tidlösa klassiker – hitta din perfekta musikaliska duell. Visa världen att du är en sann musikexpert!",
   "game.welcome": "Välkommen till Melody Mind",
   "game.genre.list": "Genreval",
   "game.search.label": "Sök efter en genre",
@@ -604,7 +604,8 @@ export default {
 
   // Topplistesida
   "highscores.title": "Topplistor",
-  "highscores.description": "Se de bästa poängen i olika spellägen och kategorier",
+  "highscores.description":
+    "Upptäck musiklegenderna! Se vem som toppar listorna och låt dig inspireras av de bästa spelarna 🎵🏆",
   "highscores.loading": "Laddar topplistor...",
   "highscores.error": "Fel vid laddning av topplistor",
   "highscores.empty": "Inga poster hittades i topplistorna",
