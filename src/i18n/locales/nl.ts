@@ -497,11 +497,11 @@ export default {
   "podcast.listen.heading": "Luister naar Onze Podcasts",
   "login.welcome": "Welkom bij Melody Mind!",
   "login.description":
-    "Ga op een muzikale ontdekkingsreis door de tijd! Test je kennis in spannende quizzen, verken fascinerende muziekgenres en duik in onze meeslepende podcasts. Toon je vaardigheden, verzamel punten en word een echte muzieklegende!",
+    "🎵 Duik in het ultieme muziekuniversum! Ontdek legendarische hits, beheers spannende uitdagingen en word de absolute muziekkampioen. Je reis naar de grootste muzikale geheimen begint nu! 🚀",
   "index.continue": "Laten we beginnen!",
   "index.start.game.label": "Begin je muzikale reis",
   "index.welcome.footnote":
-    "Voorbereid door muziekliefhebbers voor muziekliefhebbers. Veel plezier!",
+    "🎶 Gemaakt met passie voor echte muziekfans - Laat de magie beginnen! ✨",
   "accessibility.wcag": "Deze applicatie streeft naar WCAG AAA-conformiteit.",
   "game.instructions.title": "Spelinstructies",
   "game.instructions.puzzle":
@@ -529,7 +529,7 @@ export default {
   "playlist.page.title": "Muziekafspeellijsten | Melody Mind",
   "playlist.page.heading": "Ontdek Onze Muziekafspeellijsten",
   "playlist.page.description":
-    "Duik in zorgvuldig samengestelde afspeellijsten uit verschillende tijdperken en genres. Perfect om nieuwe muziek te ontdekken of je favoriete klassiekers opnieuw te beleven.",
+    "🎵 Begin aan een epische muzikale reis door legendarische tijdperken! Onze handgeselecteerde afspeellijsten brengen de grootste hits tot leven - van tijdloze klassiekers tot onvergetelijke hitparadehits. Perfect om je muziekkennis uit te breiden of nostalgische herinneringen op te wekken! 🎶",
   "playlist.search.label": "Afspeellijsten doorzoeken",
   "playlist.search.heading": "Afspeellijsten doorzoeken",
   "playlist.search.placeholder": "Zoeken op artiest of stijl...",

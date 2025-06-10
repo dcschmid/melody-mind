@@ -479,11 +479,11 @@ export default {
   "podcast.listen.heading": "Escucha Nuestros Podcasts",
   "login.welcome": "¡Bienvenido a Melody Mind!",
   "login.description":
-    "¡Embárcate en un viaje musical de descubrimiento a través de las épocas! Pon a prueba tus conocimientos en emocionantes concursos, explora fascinantes géneros musicales y sumérgete en nuestros cautivadores podcasts. ¡Demuestra tus habilidades, acumula puntos y conviértete en una verdadera leyenda de la música!",
+    "🎵 ¡Sumérgete en el universo musical definitivo! Descubre éxitos legendarios, domina desafíos emocionantes y conviértete en el campeón musical absoluto. ¡Tu viaje hacia los secretos musicales más grandes comienza ahora! 🚀",
   "index.continue": "¡Vamos!",
   "index.start.game.label": "Comienza tu viaje musical",
   "index.welcome.footnote":
-    "Preparado por amantes de la música para amantes de la música. ¡Disfruta!",
+    "🎶 Creado con pasión para verdaderos fanáticos de la música - ¡Que comience la magia! ✨",
   "accessibility.wcag": "Esta aplicación aspira a la conformidad WCAG AAA.",
   "game.instructions.title": "Instrucciones del Juego",
   "game.instructions.puzzle":
@@ -511,7 +511,7 @@ export default {
   "playlist.page.title": "Listas de Reproducción de Música | Melody Mind",
   "playlist.page.heading": "Descubre Nuestras Listas de Reproducción de Música",
   "playlist.page.description":
-    "Sumérgete en listas de reproducción cuidadosamente seleccionadas de diferentes épocas y géneros. Perfecto para descubrir nueva música o revivir tus clásicos favoritos.",
+    "🎵 ¡Embárcate en un viaje musical épico a través de épocas legendarias! Nuestras listas seleccionadas dan vida a los más grandes éxitos - desde clásicos atemporales hasta éxitos inolvidables. ¡Perfecto para ampliar tu conocimiento musical o despertar recuerdos nostálgicos! 🎶",
   "playlist.search.label": "Buscar Listas de Reproducción",
   "playlist.search.heading": "Buscar Listas de Reproducción",
   "playlist.search.placeholder": "Buscar por artista o estilo...",

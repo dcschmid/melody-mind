@@ -550,10 +550,11 @@ export default {
   "podcast.listen.heading": "Höre unsere Podcasts",
   "login.welcome": "Willkommen bei Melody Mind!",
   "login.description":
-    "Begib dich auf eine musikalische Entdeckungsreise durch die Zeiten! Teste dein Wissen in spannenden Quizzen, erkunde faszinierende Musikgenres und tauche ein in unsere mitreißenden Podcasts. Zeige dein Können, sammle Punkte und werde zur wahren Musiklegende!",
+    "🎵 Tauche ein in das ultimative Musik-Universum! Entdecke legendäre Hits, meistere spannende Challenges und werde zum absoluten Musik-Champion. Deine Reise zu den größten musikalischen Geheimnissen beginnt jetzt! 🚀",
   "index.continue": "Los geht's!",
   "index.start.game.label": "Starte deine musikalische Reise",
-  "index.welcome.footnote": "Vorbereitet von Musikliebhabern für Musikliebhaber. Viel Spaß!",
+  "index.welcome.footnote":
+    "🎶 Mit Leidenschaft für echte Musikfans entwickelt - Lass dich verzaubern! ✨",
   "accessibility.wcag": "Diese Anwendung strebt WCAG AAA Konformität an.",
   "game.instructions.title": "Spielanleitung",
   "game.instructions.puzzle":
@@ -581,7 +582,7 @@ export default {
   "playlist.page.title": "Musik Playlists | Melody Mind",
   "playlist.page.heading": "Entdecke unsere Musikplaylists",
   "playlist.page.description":
-    "Tauche ein in sorgfältig kuratierte Playlists verschiedener Epochen und Genres. Perfekt zum Entdecken neuer Musik oder zum Wiedererleben deiner Lieblingsklassiker.",
+    "🎵 Begib dich auf eine musikalische Zeitreise durch legendäre Epochen! Unsere handverlesenen Playlists erwecken die größten Hits zum Leben - von zeitlosen Klassikern bis zu unvergesslichen Chart-Stürmern. Perfekt, um dein Musikwissen zu vertiefen oder nostalgische Erinnerungen zu wecken! 🎶",
   "playlist.search.label": "Playlists durchsuchen",
   "playlist.search.heading": "Playlists durchsuchen",
   "playlist.search.placeholder": "Nach Musikera oder Stil suchen...",

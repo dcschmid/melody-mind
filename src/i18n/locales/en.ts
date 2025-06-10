@@ -520,10 +520,10 @@ export default {
   "podcast.listen.heading": "Listen to Our Podcasts",
   "login.welcome": "Welcome to Melody Mind!",
   "login.description":
-    "Embark on a musical journey of discovery through the ages! Test your knowledge in exciting quizzes, explore fascinating music genres, and dive into our captivating podcasts. Show off your skills, collect points, and become a true music legend!",
+    "🎵 Dive into the ultimate music universe! Discover legendary hits, master thrilling challenges, and become the absolute music champion. Your journey to the greatest musical secrets starts now! 🚀",
   "index.continue": "Let's go!",
   "index.start.game.label": "Start your musical journey",
-  "index.welcome.footnote": "Prepared by music lovers for music lovers. Enjoy!",
+  "index.welcome.footnote": "🎶 Created with passion for true music fans - Let the magic begin! ✨",
   "accessibility.wcag": "This application aims for WCAG AAA conformance.",
   "game.instructions.title": "Game Instructions",
   "game.instructions.puzzle":
@@ -551,7 +551,7 @@ export default {
   "playlist.page.title": "Music Playlists | Melody Mind",
   "playlist.page.heading": "Discover Our Music Playlists",
   "playlist.page.description":
-    "Immerse yourself in carefully curated playlists from different eras and genres. Perfect for discovering new music or reliving your favorite classics.",
+    "🎵 Embark on an epic musical journey through legendary eras! Our handpicked playlists bring the greatest hits to life - from timeless classics to unforgettable chart-toppers. Perfect for expanding your musical knowledge or awakening nostalgic memories! 🎶",
   "playlist.search.label": "Search Playlists",
   "playlist.search.heading": "Search Playlists",
   "playlist.search.placeholder": "Search by artist or style...",

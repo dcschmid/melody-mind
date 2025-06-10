@@ -466,10 +466,11 @@ export default {
   "podcast.listen.heading": "Kuuntele Podcastejamme",
   "login.welcome": "Tervetuloa Melody Mindiin!",
   "login.description":
-    "Lähde musiikilliselle löytöretkelle aikojen halki! Testaa tietosi jännittävissä visoissa, tutustu kiehtoviin musiikkigenreihin ja sukella mukaansatempaaviin podcasteihimme. Näytä taitosi, kerää pisteitä ja tule todelliseksi musiikkilegendaksi!",
+    "🎵 Sukella äärimmäiseen musiikkiuniversumiin! Löydä legendaarisia hittejä, hallitse jännittäviä haasteita ja tule absoluuttiseksi musiikkimestariksi. Matkasi suurimpiin musiikillisiin salaisuuksiin alkaa nyt! 🚀",
   "index.continue": "Aloitetaan!",
   "index.start.game.label": "Aloita musiikillinen matkasi",
-  "index.welcome.footnote": "Musiikin ystävien valmistama musiikin ystäville. Nauti!",
+  "index.welcome.footnote":
+    "🎶 Luotu intohimolla todellisille musiikkifaneille - Anna taikuuden alkaa! ✨",
   "accessibility.wcag": "Tämä sovellus pyrkii WCAG AAA -yhteensopivuuteen.",
   "game.instructions.title": "Pelin Ohjeet",
   "game.instructions.puzzle":
@@ -497,7 +498,7 @@ export default {
   "playlist.page.title": "Musiikkisoittolistat | Melody Mind",
   "playlist.page.heading": "Tutustu Musiikkisoittolistoihimme",
   "playlist.page.description":
-    "Sukella huolellisesti kuratoituihin soittolistoihin eri aikakausilta ja genreistä. Täydellinen uuden musiikin löytämiseen tai suosikkiklassikoidesi uudelleen kokemiseen.",
+    "🎵 Lähde eeppiselle musiikkimatkalle legendaristen aikakausien halki! Käsin valitut soittolistamme herättävät suurimmat hitit henkiin - ajattomista klassikoista unohtumattomiin listaykkösiin. Täydellinen musikaalisen tietämyksesi laajentamiseen tai nostalgisten muistojen herättämiseen! 🎶",
   "playlist.search.label": "Etsi Soittolistoja",
   "playlist.search.heading": "Etsi Soittolistoja",
   "playlist.search.placeholder": "Etsi artistin tai tyylin mukaan...",

@@ -911,7 +911,7 @@ export default {
     "Spazio: Riproduci/Pausa, M: Muto/Attiva audio, Tasti freccia: Cerca audio, Su/Giù: Controllo volume",
   "playlist.page.title": "Playlist Musicali | Melody Mind",
   "playlist.page.description":
-    "Immergiti in playlist accuratamente curate di diverse epoche e generi. Perfetto per scoprire nuova musica o rivivere i tuoi classici preferiti.",
+    "🎵 Intraprendi un epico viaggio musicale attraverso ere leggendarie! Le nostre playlist selezionate danno vita ai più grandi successi - dai classici senza tempo ai tormentoni indimenticabili. Perfetto per ampliare la tua conoscenza musicale o risvegliare ricordi nostalgici! 🎶",
   "playlist.search.label": "Cerca Playlist",
   "playlist.search.heading": "Cerca Playlist",
   "playlist.search.placeholder": "Cerca per artista o stile...",
@@ -1045,4 +1045,13 @@ export default {
   "highscores.table.category": "Categoria",
   "highscores.table.score": "Punteggio",
   "highscores.table.date": "Data",
+
+  // Homepage translations
+  "login.welcome": "Benvenuto in Melody Mind!",
+  "login.description":
+    "🎵 Immergiti nell'universo musicale definitivo! Scopri successi leggendari, padroneggia sfide emozionanti e diventa il campione musicale assoluto. Il tuo viaggio verso i più grandi segreti musicali inizia ora! 🚀",
+  "index.continue": "Iniziamo!",
+  "index.start.game.label": "Inizia il tuo viaggio musicale",
+  "index.welcome.footnote":
+    "🎶 Creato con passione per i veri amanti della musica - Che la magia abbia inizio! ✨",
 } as const;
