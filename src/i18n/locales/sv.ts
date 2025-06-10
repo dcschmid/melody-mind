@@ -462,10 +462,10 @@ export default {
   "podcast.listen.heading": "Lyssna på Våra Poddar",
   "login.welcome": "Välkommen till Melody Mind!",
   "login.description":
-    "Ge dig ut på en musikalisk upptäcktsresa genom tiderna! Testa dina kunskaper i spännande quiz, utforska fascinerande musikgenrer och dyk in i våra medryckande poddar. Visa dina färdigheter, samla poäng och bli en sann musiklegend!",
+    "🎵 Dyk in i det ultimata musikuniversumet! Upptäck legendariska hits, bemästra spännande utmaningar och bli den absoluta musikmästaren. Din resa till de största musikaliska hemligheterna börjar nu! 🚀",
   "index.continue": "Nu kör vi!",
   "index.start.game.label": "Starta din musikaliska resa",
-  "index.welcome.footnote": "Förberett av musikälskare för musikälskare. Ha så kul!",
+  "index.welcome.footnote": "🎶 Skapat med passion för sanna musikfans - Låt magin börja! ✨",
   "accessibility.wcag": "Denna applikation strävar efter WCAG AAA-överensstämmelse.",
   "game.instructions.title": "Spelinstruktioner",
   "game.instructions.puzzle":
@@ -493,7 +493,7 @@ export default {
   "playlist.page.title": "Musikspellistor | Melody Mind",
   "playlist.page.heading": "Upptäck Våra Musikspellistor",
   "playlist.page.description":
-    "Dyk in i noggrant utvalda spellistor från olika epoker och genrer. Perfekt för att upptäcka ny musik eller återuppleva dina favoritklassiker.",
+    "🎵 Ge dig ut på en episk musikalisk resa genom legendariska epoker! Våra handplockade spellistor ger liv åt de största hitsen - från tidlösa klassiker till oförglömliga chartlistetoppare. Perfekt för att utöka din musikkunskap eller väcka nostalgiska minnen! 🎶",
   "playlist.search.label": "Sök Spellistor",
   "playlist.search.heading": "Sök Spellistor",
   "playlist.search.placeholder": "Sök efter artist eller stil...",
