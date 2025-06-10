@@ -1,28 +1,7 @@
 ---
 /**
  * Category Page Component
- *
  * Displays a specific music category with its details and game options.
- * This page is pre-rendered at build time for all supported languages and categories.
- *
- * Accessibility Features:
- * - Proper heading hierarchy with semantic HTML
- * - High contrast text with 7:1 ratio for WCAG AAA compliance
- * - ARIA attributes for screen reader support
- * - Keyboard navigation support
- * - Reduced motion option for animations
- * - High contrast mode support
- * - Focus indicators with 3px borders for proper visibility
- *
- * Performance Optimizations:
- * - Static pre-rendering (SSG) for fast initial load
- * - Responsive image optimization with multiple formats and sizes
- * - Proper image aspect ratio to prevent layout shifts
- * - GPU-accelerated animations with will-change property
- * - Optimized CSS with Tailwind utility classes
- * - CSS containment for better rendering performance
- * - Modular JavaScript with proper event listener cleanup
- * - Optimized authentication checking with debounced functions
  */
 
 import { Picture } from "astro:assets";
@@ -35,46 +14,31 @@ import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
 import AuthForm from "@components/auth/AuthForm.astro";
-// Keine serverseitige Authentifizierung mehr nötig, da wir clientseitig prüfen
 
-// Mark this route for static generation (SSG)
 export const prerender = true;
 
-/**
- * Generates static paths for all supported languages and categories
- * This ensures fast page loads as everything is pre-rendered at build time
- * @returns {Array} Array of path objects with params and props
- */
 export async function getStaticPaths() {
-  // Define all supported languages as a constant array for type safety
   const supportedLanguages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"] as const;
-
   const paths = [];
 
   for (const lang of supportedLanguages) {
-    // Load categories based on language with proper fallback mechanism
     let categories;
     let usedFallback = false;
 
     try {
-      // Try to load language-specific categories first
       const categoryData = await import(`../../../public/json/categories/${lang}_categories.json`);
       categories = categoryData.default;
     } catch {
-      // Fallback to English if language-specific file doesn't exist
       usedFallback = true;
-
       try {
         const fallbackData = await import(`../../../public/json/categories/en_categories.json`);
         categories = fallbackData.default;
       } catch {
-        // Emergency fallback with empty categories if even English fails
         console.error(`Failed to load categories for ${lang} and fallback`);
         categories = [];
       }
     }
 
-    // Create a path for each category in this language
     for (const category of categories) {
       paths.push({
         params: { lang, category: category.slug },
@@ -91,23 +55,9 @@ export async function getStaticPaths() {
   return paths;
 }
 
-// Get props from getStaticPaths
 const { category, lang, usedFallback } = Astro.props;
 const t = useTranslations(lang);
 
-// Bei SSG können wir keine serverseitige Authentifizierung durchführen
-// Die Authentifizierungsprüfung erfolgt vollständig clientseitig
-
-/**
- * Category interface definition
- * Represents the structure of a music category
- * @typedef {Object} CategoryType
- * @property {string} slug - URL-friendly identifier for routing and links
- * @property {string} headline - Display title shown as main category heading
- * @property {string} introSubline - Short description shown below the headline
- * @property {string} imageUrl - Path to category image used for visual representation
- * @property {string} text - Full description text with detailed information about the category
- */
 interface CategoryType {
   slug: string;
   headline: string;
@@ -116,24 +66,12 @@ interface CategoryType {
   text: string;
 }
 
-// Current category being displayed - Explizites Typing für bessere Typsicherheit
 const currentCategory = category as CategoryType;
-
-// Generate SEO content for the current category
 const title = `${currentCategory?.headline} ${t("category.start") || "Start"}`;
 const description = currentCategory?.introSubline || "";
-
-// Enhanced SEO content using utility functions
 const pageContent = `${title} ${description} ${currentCategory?.text || ""}`;
-
-// Generate optimized meta description and keywords for better search ranking
 const optimizedDescription = generateMetaDescription(pageContent);
 const keywords = extractKeywords(pageContent) || t("meta.keywords");
-
-// Additional structured data parameters for SEO
-const pageType = "website";
-const publishDate = new Date("2024-01-01");
-const modifiedDate = new Date();
 ---
 
 <Layout
@@ -141,21 +79,16 @@ const modifiedDate = new Date();
   description={optimizedDescription}
   {keywords}
   image={currentCategory?.imageUrl || "/social-share-categories.jpg"}
-  type={pageType}
-  {publishDate}
-  {modifiedDate}
 >
   <div class="page-container">
-    <!-- Live-Region für dynamische Benachrichtigungen und Status-Updates -->
     <div class="sr-only" aria-live="polite" id="dynamic-announcements"></div>
 
-    {/* Fallback Warning - Enhanced for screen readers with proper ARIA attributes */}
     {
       usedFallback && (
         <div class="alert-box" role="alert" aria-live="polite">
-          <div class="alert-box-content">
+          <div class="alert-content">
             <Icon name="warning" class="icon-small" aria-hidden="true" />
-            <span class="alert-text">
+            <span>
               {t("notice.fallback_content") ||
                 "Using fallback content. Some information may be displayed in English."}
             </span>
@@ -164,17 +97,52 @@ const modifiedDate = new Date();
       )
     }
 
-    <!-- Hero section with enhanced contrast and accessibility -->
-    <header class="section-header">
-      <Headline
-        className="headline-primary"
-        title={currentCategory?.headline}
-        level="h1"
-        id="category-heading"
-      />
-      <div class="divider" aria-hidden="true"></div>
+    <header
+      class="section-header section-container header-with-image"
+      aria-labelledby="category-heading"
+    >
+      <div class="header-content">
+        <div class="header-text">
+          <div class="game-icon-badge header-badge">
+            <Icon name="music-note" class="icon-large icon-white" />
+          </div>
+          <Headline title={currentCategory?.headline} level="h1" id="category-heading" />
+          <Paragraph textSize="2xl" description={currentCategory?.introSubline} />
+        </div>
 
-      <Paragraph className="paragraph-standard" description={currentCategory?.introSubline} />
+        <div class="header-image">
+          {
+            currentCategory?.imageUrl ? (
+              <div class="header-image-container">
+                <Picture
+                  class="header-responsive-image"
+                  src={currentCategory.imageUrl}
+                  widths={[400, 600, 800, 1000]}
+                  sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1000px"
+                  formats={["avif", "webp", "jpg"]}
+                  alt={`${currentCategory.headline} ${t("category.image.alt") || "category image"}`}
+                  loading="eager"
+                  fetchpriority="high"
+                  width={1000}
+                  height={600}
+                  decoding="async"
+                />
+              </div>
+            ) : (
+              <div
+                class="header-no-image-container"
+                role="img"
+                aria-label={t("category.no_image_available") || "No image available"}
+              >
+                <div class="header-no-image-content">
+                  <Icon name="image" class="icon-large" aria-hidden="true" />
+                  <span>{t("category.no_image_available") || "No image available"}</span>
+                </div>
+              </div>
+            )
+          }
+        </div>
+      </div>
     </header>
 
     <article
@@ -184,989 +152,793 @@ const modifiedDate = new Date();
       id="main-content"
       tabindex="-1"
     >
-      <!-- Category image section with optimized responsive pictures -->
-      <div class="image-container">
-        {
-          currentCategory?.imageUrl ? (
-            <div class="image-aspect-container">
-              <Picture
-                class="responsive-image"
-                src={currentCategory.imageUrl}
-                widths={[400, 800, 1200, 1600]}
-                sizes="(max-width: 640px) 400px, (max-width: 1024px) 800px, (max-width: 1280px) 1200px, 1600px"
-                formats={["avif", "webp", "jpg"]}
-                alt={`${currentCategory.headline} ${t("category.image.alt") || "category image"}`}
-                loading="eager"
-                fetchpriority="high"
-                width={1600}
-                height={900}
-                decoding="async"
-              />
-              <div class="image-gradient-overlay" aria-hidden="true" />
-            </div>
-          ) : (
-            <div
-              class="no-image-container"
-              role="img"
-              aria-label={t("category.no_image_available") || "No image available"}
-            >
-              <div class="no-image-content">
-                <Icon name="image" class="missing-image-icon" aria-hidden="true" />
-                <span>{t("category.no_image_available") || "No image available"}</span>
-              </div>
-            </div>
-          )
-        }
-      </div>
+      <section
+        class="description-container section-container"
+        aria-labelledby="description-heading"
+      >
+        <div class="game-icon-badge description-badge">
+          <Icon name="info-circle" class="icon-large icon-white" />
+        </div>
+        <Headline level="h2" id="description-heading">
+          {t("category.about.title") || "Über diese Kategorie"}
+        </Headline>
+        <Paragraph textSize="2xl" description={currentCategory?.text} />
+      </section>
 
-      <!-- Category description with enhanced readability and performance -->
-      <div class="description-container">
-        <Paragraph className="paragraph-description" description={currentCategory?.text} />
-      </div>
-
-      <!-- Auth Form - Sichtbarkeit wird durch JavaScript gesteuert -->
       <section
         id="auth-section"
-        class="auth-section-container opacity-transition"
+        class="section-container"
         aria-labelledby="auth-heading"
         aria-hidden="true"
       >
-        <Headline level="h2" id="auth-heading" className="auth-heading">
+        <Headline level="h2" id="auth-heading">
           {t("auth.required.title") || "Anmeldung erforderlich"}
         </Headline>
-
         <Paragraph
-          className="auth-description"
           description={t("auth.required.description") ||
             "Bitte melde dich an oder registriere dich, um die Spielmodi zu nutzen."}
         />
-
         <div class="auth-form-container">
           <AuthForm initialMode="login" />
         </div>
       </section>
 
-      <!-- Music Quiz Section - Enhanced with improved accessibility and focus states -->
       <section
         id="quiz-section"
-        class="game-section-container opacity-transition"
+        class="section-container"
         aria-labelledby="quiz-heading"
         aria-hidden="true"
       >
-        <div class="game-icon-badge" aria-hidden="true">
+        <div class="game-icon-badge">
           <Icon name="music" class="icon-large icon-white" />
         </div>
-
-        <Headline level="h2" id="quiz-heading" className="game-heading">
+        <Headline level="h2" id="quiz-heading">
           {t("category.difficulty.heading")}
         </Headline>
+        <Paragraph textSize="2xl" description={t("knowledge.play.description")} />
 
-        <Paragraph className="game-description" description={t("knowledge.play.description")} />
+        <div class="button-group" role="group" aria-labelledby="quiz-heading">
+          <ButtonLink
+            href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/easy`)}
+            aria-label={`${t("category.difficulty.easy")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
+            icon="play"
+          >
+            <span>{t("category.difficulty.easy")}</span>
+          </ButtonLink>
 
-        <div class="button-group-container" role="group" aria-labelledby="quiz-heading">
-          <!-- Difficulty levels with enhanced accessibility and performance -->
-          <div class="button-perspective">
-            <ButtonLink
-              href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/easy`)}
-              aria-label={`${t("category.difficulty.easy")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="game-button-easy"
-            >
-              <Icon name="play" class="icon-medium" aria-hidden="true" />
-              <span class="button-text">{t("category.difficulty.easy")}</span>
-            </ButtonLink>
-          </div>
+          <ButtonLink
+            href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/medium`)}
+            aria-label={`${t("category.difficulty.medium")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
+            icon="bolt"
+          >
+            <span>{t("category.difficulty.medium")}</span>
+          </ButtonLink>
 
-          <div class="button-perspective">
-            <ButtonLink
-              href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/medium`)}
-              aria-label={`${t("category.difficulty.medium")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="game-button-medium"
-            >
-              <Icon name="bolt" class="icon-medium" aria-hidden="true" />
-              <span class="button-text">{t("category.difficulty.medium")}</span>
-            </ButtonLink>
-          </div>
-
-          <div class="button-perspective">
-            <ButtonLink
-              href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/hard`)}
-              aria-label={`${t("category.difficulty.hard")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="game-button-hard"
-            >
-              <Icon name="fire" class="icon-medium" aria-hidden="true" />
-              <span class="button-text">{t("category.difficulty.hard")}</span>
-            </ButtonLink>
-          </div>
+          <ButtonLink
+            href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/hard`)}
+            aria-label={`${t("category.difficulty.hard")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
+            icon="fire"
+          >
+            <span>{t("category.difficulty.hard")}</span>
+          </ButtonLink>
         </div>
       </section>
 
-      <!-- Music Chronology Game Section - Enhanced with improved accessibility and focus states -->
       <section
         id="chronology-section"
-        class="game-section-container chronology-section opacity-transition"
+        class="section-container chronology-section"
         aria-labelledby="chronology-heading"
         aria-hidden="true"
       >
-        <div class="game-icon-badge chronology-badge" aria-hidden="true">
+        <div class="game-icon-badge chronology-badge">
           <Icon name="clock-history" class="icon-large icon-white" />
         </div>
-
-        <Headline level="h2" id="chronology-heading" className="game-heading">
+        <Headline level="h2" id="chronology-heading">
           {t("game.chronology.title")}
         </Headline>
+        <Paragraph textSize="2xl" description={t("game.chronology.description")} />
 
-        <Paragraph className="game-description" description={t("game.chronology.description")} />
+        <div class="button-group" role="group" aria-labelledby="chronology-heading">
+          <ButtonLink
+            href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/easy`)}
+            aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.easy")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
+            icon="play"
+          >
+            {t("category.difficulty.easy")}
+          </ButtonLink>
 
-        <div class="button-group-container" role="group" aria-labelledby="chronology-heading">
-          <!-- Difficulty levels with enhanced accessibility and performance -->
-          <div class="button-perspective">
-            <ButtonLink
-              href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/easy`)}
-              aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.easy")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="game-button-easy"
-            >
-              <Icon name="play" class="icon-medium" aria-hidden="true" />
-              <span class="button-text">{t("category.difficulty.easy")}</span>
-            </ButtonLink>
-          </div>
+          <ButtonLink
+            href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/medium`)}
+            aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.medium")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
+            icon="bolt"
+          >
+            <span>{t("category.difficulty.medium")}</span>
+          </ButtonLink>
 
-          <div class="button-perspective">
-            <ButtonLink
-              href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/medium`)}
-              aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.medium")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="game-button-medium"
-            >
-              <Icon name="bolt" class="icon-medium" aria-hidden="true" />
-              <span class="button-text">{t("category.difficulty.medium")}</span>
-            </ButtonLink>
-          </div>
-
-          <div class="button-perspective">
-            <ButtonLink
-              href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/hard`)}
-              aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.hard")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="game-button-hard"
-            >
-              <Icon name="fire" class="icon-medium" aria-hidden="true" />
-              <span class="button-text">{t("category.difficulty.hard")}</span>
-            </ButtonLink>
-          </div>
+          <ButtonLink
+            href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/hard`)}
+            aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.hard")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
+            icon="fire"
+          >
+            <span>{t("category.difficulty.hard")}</span>
+          </ButtonLink>
         </div>
       </section>
-
-      <!-- Client-side script für die Authentifizierungsprüfung -->
-      <script>
-        import {
-          focusFirstElement,
-          announceForScreenReader,
-          setupKeyboardNavigation,
-        } from "../../utils/client/a11y";
-        import {
-          isUserAuthenticated,
-          updateSectionVisibility,
-          setLocalStorage,
-          removeLocalStorage,
-          registerAuthEventListeners,
-          initCookieWatcher,
-        } from "../../utils/client/authStatus";
-
-        function checkAuthStatus(): void {
-          // Authentifizierungsstatus prüfen
-          const isLoggedIn = isUserAuthenticated();
-
-          // Elemente basierend auf dem Authentifizierungsstatus anzeigen/ausblenden
-          const authSection = document.getElementById("auth-section");
-          const quizSection = document.getElementById("quiz-section");
-          const chronologySection = document.getElementById("chronology-section");
-
-          if (isLoggedIn) {
-            // Benutzer ist eingeloggt - Spielmodi anzeigen, Auth-Form ausblenden
-            updateSectionVisibility(authSection, false);
-            updateSectionVisibility(quizSection, true);
-            updateSectionVisibility(chronologySection, true);
-
-            // Nach einem kurzen Delay den ersten Button fokussieren
-            setTimeout(() => {
-              // Versuchen, den ersten Button im Quiz-Bereich zu fokussieren
-              const quizButtons = quizSection?.querySelector("a[href]") as HTMLElement;
-              if (quizButtons) {
-                quizButtons.focus();
-              }
-
-              // Ankündigung für Screenreader
-              const translationKey = "accessibility.game_modes_available";
-              const translatedMessage =
-                document.querySelector(`[data-i18n-key="${translationKey}"]`)?.textContent ||
-                "Spielmodi sind jetzt verfügbar";
-              announceForScreenReader(translatedMessage);
-            }, 350); // Nach Abschluss der Transition
-
-            // Authentifizierungsstatus im localStorage speichern
-            setLocalStorage("auth_status", "authenticated");
-
-            // Benutzerstatus-Event auslösen für andere Komponenten
-            window.dispatchEvent(
-              new CustomEvent("auth:status-change", {
-                detail: { isAuthenticated: true },
-              })
-            );
-          } else {
-            // Benutzer ist nicht eingeloggt - Auth-Form anzeigen, Spielmodi ausblenden
-            updateSectionVisibility(authSection, true);
-            updateSectionVisibility(quizSection, false);
-            updateSectionVisibility(chronologySection, false);
-
-            // Nach einem kurzen Delay das erste Eingabefeld im Auth-Formular fokussieren
-            setTimeout(() => {
-              // Sicherstellen, dass authSection nicht null ist, bevor focusFirstElement aufgerufen wird
-              if (authSection) {
-                focusFirstElement(authSection);
-              }
-
-              // Ankündigung für Screenreader
-              const translationKey = "accessibility.login_required";
-              const translatedMessage =
-                document.querySelector(`[data-i18n-key="${translationKey}"]`)?.textContent ||
-                "Anmeldung erforderlich";
-              announceForScreenReader(translatedMessage);
-            }, 350); // Nach Abschluss der Transition
-
-            // Authentifizierungsstatus im localStorage löschen
-            removeLocalStorage("auth_status");
-
-            // Benutzerstatus-Event auslösen für andere Komponenten
-            window.dispatchEvent(
-              new CustomEvent("auth:status-change", {
-                detail: { isAuthenticated: false },
-              })
-            );
-          }
-        }
-
-        /**
-         * Initialisierungsfunktion für die Seite
-         * Setzt den initialen Zustand und registriert Event-Listener
-         */
-        function initializePage(): void {
-          // Ladezustand für alle Sektionen hinzufügen
-          const sections = ["auth-section", "quiz-section", "chronology-section"];
-          sections.forEach((id) => {
-            const section = document.getElementById(id);
-            if (section) {
-              // Sektionen sind initial unsichtbar
-              section.style.opacity = "0";
-              section.style.visibility = "hidden";
-              section.style.display = "none";
-              section.setAttribute("aria-hidden", "true");
-
-              // Disable tab navigation in hidden sections
-              const focusableElements = section.querySelectorAll(
-                'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
-              );
-
-              focusableElements.forEach((el) => {
-                (el as HTMLElement).setAttribute("tabindex", "-1");
-              });
-            } else {
-              console.warn(`Sektion ${id} nicht gefunden`);
-            }
-          });
-
-          // Verbesserungen für die Tastaturnavigation in Button-Gruppen
-          // Dies ermöglicht die Navigation mit Pfeiltasten zwischen Schwierigkeitsgraden
-          setupKeyboardNavigation("quiz-section", ".button-perspective a");
-          setupKeyboardNavigation("chronology-section", ".button-perspective a");
-
-          // Skip-Link Funktionalität verbessern
-          const skipLink = document.querySelector(".skip-link") as HTMLAnchorElement;
-          const mainContent = document.getElementById("main-content");
-
-          if (skipLink && mainContent) {
-            skipLink.addEventListener("click", (event) => {
-              event.preventDefault();
-
-              // Fokus auf Hauptinhalt setzen
-              mainContent.focus();
-
-              // URL aktualisieren
-              if (history.pushState) {
-                history.pushState(null, "", skipLink.href);
-              }
-            });
-          }
-
-          // Auth-Status sofort prüfen
-          checkAuthStatus();
-
-          // Und nach kurzer Verzögerung erneut prüfen (für den Fall, dass Cookies verzögert geladen werden)
-          setTimeout(() => checkAuthStatus(), 500);
-        }
-
-        // Seite initialisieren, wenn DOM geladen ist
-        if (document.readyState === "loading") {
-          document.addEventListener("DOMContentLoaded", initializePage);
-        } else {
-          // Falls DOMContentLoaded bereits ausgelöst wurde
-          initializePage();
-        }
-
-        // Event-Listener für Authentifizierungsänderungen registrieren
-        const authListeners = registerAuthEventListeners(checkAuthStatus);
-
-        // Cookie-Überwachung initialisieren
-        const cookieWatcherId = initCookieWatcher(checkAuthStatus, 1000);
-
-        // Bereinigungsfunktion für Page-Transitions oder Unmount
-        document.addEventListener("astro:page-unload", () => {
-          // Event-Listener entfernen
-          authListeners.remove();
-
-          // Cookie-Überwachung stoppen
-          clearInterval(cookieWatcherId);
-        });
-
-        // Debug-Hilfsfunktionen in Entwicklungsumgebung
-        if (import.meta.env.DEV) {
-          (
-            window as Window &
-              typeof globalThis & {
-                checkAuthManually: () => boolean;
-                forceAuth: (status: boolean) => boolean;
-              }
-          ).checkAuthManually = function (): boolean {
-            checkAuthStatus();
-            return isUserAuthenticated();
-          };
-
-          (
-            window as Window &
-              typeof globalThis & {
-                checkAuthManually: () => boolean;
-                forceAuth: (status: boolean) => boolean;
-              }
-          ).forceAuth = function (status: boolean): boolean {
-            if (status) {
-              setLocalStorage("auth_status", "authenticated");
-              checkAuthStatus();
-            } else {
-              removeLocalStorage("auth_status");
-              checkAuthStatus();
-            }
-            return isUserAuthenticated();
-          };
-        }
-      </script>
     </article>
   </div>
+
+  <script>
+    import {
+      isUserAuthenticated,
+      registerAuthEventListeners,
+      initCookieWatcher,
+    } from "../../utils/client/authStatus";
+
+    function checkAuthStatus(): void {
+      const isLoggedIn = isUserAuthenticated();
+      const authSection = document.getElementById("auth-section");
+      const quizSection = document.getElementById("quiz-section");
+      const chronologySection = document.getElementById("chronology-section");
+
+      if (isLoggedIn) {
+        // User is logged in - show game modes, hide auth form
+        if (authSection) {
+          authSection.style.display = "none";
+          authSection.setAttribute("aria-hidden", "true");
+        }
+        if (quizSection) {
+          quizSection.style.display = "flex";
+          quizSection.setAttribute("aria-hidden", "false");
+        }
+        if (chronologySection) {
+          chronologySection.style.display = "flex";
+          chronologySection.setAttribute("aria-hidden", "false");
+        }
+      } else {
+        // User is not logged in - show auth form, hide game modes
+        if (authSection) {
+          authSection.style.display = "flex";
+          authSection.setAttribute("aria-hidden", "false");
+        }
+        if (quizSection) {
+          quizSection.style.display = "none";
+          quizSection.setAttribute("aria-hidden", "true");
+        }
+        if (chronologySection) {
+          chronologySection.style.display = "none";
+          chronologySection.setAttribute("aria-hidden", "true");
+        }
+      }
+    }
+
+    function initializePage(): void {
+      // Initially hide all sections
+      const sections = ["auth-section", "quiz-section", "chronology-section"];
+      sections.forEach((id) => {
+        const section = document.getElementById(id);
+        if (section) {
+          section.style.display = "none";
+          section.setAttribute("aria-hidden", "true");
+        }
+      });
+
+      // Check auth status
+      checkAuthStatus();
+    }
+
+    // Initialize page when DOM is loaded
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initializePage);
+    } else {
+      initializePage();
+    }
+
+    // Register auth event listeners
+    const authListeners = registerAuthEventListeners(checkAuthStatus);
+    const cookieWatcherId = initCookieWatcher(checkAuthStatus, 1000);
+
+    // Cleanup on page unload
+    document.addEventListener("astro:page-unload", () => {
+      authListeners.remove();
+      clearInterval(cookieWatcherId);
+    });
+  </script>
 </Layout>
 
-<!-- Optimierte CSS-Styles nach BEM-Methodik und WCAG AAA-Standards -->
 <style>
-  /* ======================================
-   * KATEGORIE-SEITE STILVARIABLEN
-   * - Nutzt globale CSS-Variablen aus global.css
-   * - Verwendet BEM-Methodologie für Klassenbenennungen
-   * - Optimiert für WCAG AAA-Konformität (7:1 Kontrast)
-   * ====================================== */
+  /* ==============================================
+   * KATEGORIE-SEITE STYLES - CLEAN & FUNCTIONAL
+   * Using CSS variables from global.css for optimal maintainability
+   * ============================================== */
 
-  /* ===== 1. LAYOUT & STRUKTUR ===== */
-
-  /* category-page - Hauptcontainer für die gesamte Seite */
   .page-container {
-    margin: 0 auto;
-    max-width: var(--breakpoint-lg);
-    padding: var(--spacing-2xl) var(--spacing-md);
+    margin: var(--space-none) auto;
+    width: var(--width-full);
+    max-width: var(--container-2xl);
+    padding: var(--space-lg);
+    min-height: 100vh;
+    background: var(--bg-primary);
+    color: var(--text-primary);
   }
 
-  /* category-article - Primäre Inhaltssektion */
-  .article-container {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-2xl);
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
+    .page-container {
+      padding: var(--space-2xl);
+    }
   }
 
-  /* category-header - Hauptüberschriftenbereich */
+  /* ==============================================
+   * HEADER & LAYOUT SECTIONS
+   * ============================================== */
+
+  /* Header Section */
   .section-header {
-    margin-bottom: var(--spacing-3xl);
-    border-radius: var(--border-radius-lg);
-    background-image: linear-gradient(
-      to bottom right,
-      rgba(31, 41, 55, 0.6),
-      rgba(17, 24, 39, 0.6)
-    );
-    padding: var(--spacing-2xl);
     text-align: center;
-    box-shadow: var(--shadow-lg);
-    backdrop-filter: blur(4px);
+    margin-bottom: var(--space-3xl);
+    padding: var(--space-xl);
   }
 
-  /* category-divider - Dekorative Trennlinie */
-  .divider {
-    margin: var(--spacing-md) auto;
-    height: var(--spacing-xs);
-    width: 6rem;
-    border-radius: var(--border-radius-full);
-    background-color: var(--color-purple-500);
-  }
-
-  /* ===== 2. MODUL-CONTAINER ===== */
-
-  /* Game-Section-Container - Basis für Spielmodul-Container */
-  .game-section-container {
-    position: relative;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-2xl);
-    margin-top: var(--spacing-2xl);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 300ms ease-in-out;
-    border-radius: var(--border-radius-lg);
-    border: 1px solid rgba(63, 63, 70, 0.3);
-    background-image: linear-gradient(
-      to bottom right,
-      rgba(31, 41, 55, 0.4),
-      rgba(17, 24, 39, 0.4)
-    );
-    padding: var(--spacing-2xl);
-    box-shadow: var(--shadow-lg);
-    backdrop-filter: blur(4px);
-  }
-
-  .game-section-container:focus-within {
-    box-shadow: 0 0 0 3px var(--color-purple-500);
-  }
-
-  @media (min-width: 768px) {
-    .game-section-container {
-      padding: var(--spacing-2xl);
-      max-width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .game-section-container {
-      padding: var(--spacing-3xl);
-      max-width: 85%;
-    }
-  }
-
-  /* Chronology-Section - Variante für Chronologie-Spiele */
-  .chronology-section {
-    margin-top: var(--spacing-3xl);
-  }
-
-  /* Auth-Section-Container - Container für Auth-Formulare */
-  .auth-section-container {
-    position: relative;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-2xl);
-    margin-top: var (--spacing-2xl);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 300ms ease-in-out;
-    border-radius: var(--border-radius-lg);
-    border: 1px solid rgba(63, 63, 70, 0.3);
-    background-image: linear-gradient(
-      to bottom right,
-      rgba(31, 41, 55, 0.4),
-      rgba(17, 24, 39, 0.4)
-    );
-    padding: var(--spacing-2xl);
-    box-shadow: var(--shadow-lg);
-    backdrop-filter: blur(4px);
-  }
-
-  .auth-section-container:focus-within {
-    box-shadow: 0 0 0 3px var(--color-purple-500);
-  }
-
-  /* ===== 3. BILD & MEDIEN ===== */
-
-  /* Image-Container - Container für Kategoriebilder */
-  .image-container {
-    position: relative;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 42rem;
-    overflow: hidden;
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-lg);
-  }
-
-  /* Image-Aspect-Container - Seitenverhältnis-Container für Bilder */
-  .image-aspect-container {
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    overflow: hidden;
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-lg);
-  }
-
-  /* Responsive-Image - Optimierte Bilddarstellung */
-  .responsive-image {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  /* Image-Gradient-Overlay - Gradient-Überlagerung für bessere Textlesbarkeit */
-  .image-gradient-overlay {
-    position: absolute;
-    inset: 0;
-    background-image: linear-gradient(to top, rgba(17, 24, 39, 0.7), transparent);
-  }
-
-  /* No-Image-Container - Container für fehlende Bilder */
-  .no-image-container {
-    display: flex;
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--border-radius-lg);
-    background-color: var(--color-gray-800);
-    padding: var(--spacing-lg);
+  /* Modern Header with integrated image */
+  .header-with-image {
+    margin: var(--space-none) auto var(--space-3xl) auto;
+    padding: var(--space-2xl);
     text-align: center;
-    font-family: system-ui, sans-serif;
-    font-size: var(--font-size-md);
-    color: var(--color-gray-100);
-    box-shadow: var(--shadow-lg);
+    width: var(--width-full);
+    max-width: var(--container-xl);
   }
 
-  /* No-Image-Content - Inhaltsbereich für fehlende Bilder */
-  .no-image-content {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-  }
-
-  /* Missing-Image-Icon - Icon für fehlende Bilder */
-  .missing-image-icon {
-    height: 2rem;
-    width: 2rem;
-    color: var(--color-gray-400);
-  }
-
-  /* ===== 4. BESCHREIBUNGEN & TEXT ===== */
-
-  /* Description-Container - Container für Textbeschreibungen */
-  .description-container {
-    width: 100%;
-    max-width: none;
-    border-radius: var(--border-radius-lg);
-    border: 1px solid rgba(63, 63, 70, 0.3);
-    background-color: rgba(31, 41, 55, 0.5);
-    padding: var(--spacing-lg);
-    line-height: var(--line-height-relaxed);
-    box-shadow: var(--shadow-md);
-  }
-
-  .description-container:focus-within {
-    box-shadow: 0 0 0 3px var(--color-purple-500);
-  }
-
-  @media (min-width: 640px) {
-    .description-container {
-      padding: var(--spacing-2xl);
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
+    .header-with-image {
+      text-align: left;
     }
   }
 
-  /* ===== 5. INTERAKTIVE ELEMENTE ===== */
-
-  /* Button-Group-Container - Container für Schaltflächengruppen */
-  .button-group-container {
-    margin-top: var(--spacing-sm);
+  .header-content {
     display: flex;
-    width: 100%;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-md);
+    gap: var(--space-3xl);
+    width: var(--width-full);
   }
 
-  @media (min-width: 640px) {
-    .button-group-container {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--spacing-lg);
-      max-width: 42rem;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .button-group-container {
-      gap: var(--spacing-2xl);
-    }
-  }
-
-  /* Button-Perspective - Container für 3D-Button-Effekt */
-  .button-perspective {
-    perspective: 1000px;
-    width: 100%;
-    max-width: 14rem;
-  }
-
-  @media (min-width: 640px) {
-    .button-perspective {
-      width: auto;
-    }
-  }
-
-  /* Button-Text - Textformatierung für Schaltflächen */
-  .button-text {
-    font-size: var(--font-size-md);
-    font-weight: 500;
-  }
-
-  @media (min-width: 768px) {
-    .button-text {
-      font-size: var(--font-size-lg);
-    }
-  }
-
-  /* Auth-Form-Container - Container für Authentifizierungsformulare */
-  .auth-form-container {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 28rem;
-  }
-
-  /* Alert-Box - Warnmeldungen und Benachrichtigungen */
-  .alert-box {
-    margin-bottom: var(--spacing-lg);
-    border-radius: var(--border-radius-md);
-    border: 1px solid rgba(217, 119, 6, 0.3);
-    background-color: rgba(180, 83, 9, 0.3);
-    padding: var(--spacing-md);
-    color: var(--color-gray-100);
-    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-  }
-
-  /* Alert-Box-Content - Inhaltsbereich für Warnmeldungen */
-  .alert-box-content {
+  .header-text {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: var(--spacing-sm);
+    text-align: center;
+    gap: var(--space-lg);
+    flex: 1;
+    min-width: 0;
   }
 
-  /* Alert-Text - Textformatierung für Warnmeldungen */
-  .alert-text {
-    font-weight: 500;
-  }
-
-  /* ===== 6. ICONS & BADGES ===== */
-
-  /* Game-Icon-Badge - Badges für Spieltypen */
-  .game-icon-badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: var(--border-radius-full);
-    background-image: linear-gradient(
-      to bottom right,
-      var(--color-purple-600),
-      var(--color-purple-700)
-    );
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: var(--shadow-md);
-    transition: transform 0.3s ease;
-  }
-
-  @media (min-width: 768px) {
-    .game-icon-badge {
-      width: 4rem;
-      height: 4rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .game-icon-badge {
-      width: 4.5rem;
-      height: 4.5rem;
-    }
-
-    .game-section-container:hover .game-icon-badge {
-      transform: rotate(15deg) scale(1.1);
-    }
-  }
-
-  /* Chronology-Badge - Spezielle Variante für Chronologie-Spiele */
-  .chronology-badge {
-    background-image: linear-gradient(
-      to bottom right,
-      var(--color-purple-400),
-      var(--color-purple-600)
-    );
-  }
-
-  /* Icon-Größen und Farben */
-  .icon-small {
-    height: 1.25rem;
-    width: 1.25rem;
+  .header-image {
+    width: var(--width-full);
+    max-width: var(--container-xs);
     flex-shrink: 0;
+  }
+
+  /* Desktop Layout - Side by side */
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
+    .header-content {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-3xl);
+    }
+
+    .header-text {
+      flex: 1;
+      align-items: flex-start;
+      text-align: left;
+      max-width: 60%;
+    }
+
+    .header-image {
+      flex: 0 0 40%;
+      max-width: var(--container-sm);
+    }
+  }
+
+  /* Large screens - More spacing and larger image */
+  /* Desktop and above: --breakpoint-lg (1024px) */
+  @media (min-width: 64em) {
+    .header-content {
+      gap: var(--space-3xl); /* Using root variable for consistent spacing */
+    }
+
+    .header-image {
+      flex: 0 0 45%;
+      max-width: var(--container-sm);
+    }
+  }
+
+  /* Header Image Styling */
+  .header-image-container {
+    position: relative;
+    width: var(--width-full);
+    aspect-ratio: 5 / 3;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    border: var(--border-width-thin) solid var(--border-primary);
+  }
+
+  .header-responsive-image {
+    height: var(--width-full);
+    width: var(--width-full);
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+  }
+
+  .header-with-image:hover .header-responsive-image {
+    transform: scale(var(--animation-scale-hover-subtle));
+  }
+
+  .header-no-image-container {
+    display: flex;
+    aspect-ratio: 5 / 3;
+    width: var(--width-full);
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-xl);
+    background: var(--bg-secondary);
+    padding: var(--space-lg);
+    text-align: center;
+    color: var(--text-secondary);
+    border: var(--border-width-thin) dashed var(--border-secondary);
+  }
+
+  .header-no-image-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .divider {
+    margin: var(--space-lg) auto;
+    height: var(--border-width-thick);
+    width: var(--space-3xl);
+    border-radius: var(--radius-full);
+    background: var(--interactive-primary);
+  }
+
+  /* Article Container */
+  .article-container {
+    margin: var(--space-none) auto;
+    width: var(--width-full);
+    max-width: var(--container-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xl);
+  }
+
+  /* ==============================================
+   * CONTENT SECTIONS
+   * ============================================== */
+
+  /* Description Section - Modern styling matching game sections */
+  .description-container {
+    /* Remove old styles - now uses section-container base styles */
+  }
+
+  .description-badge {
+    background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-600) 100%);
+  }
+
+  .description-badge::before {
+    background: linear-gradient(135deg, var(--color-primary-400), var(--color-primary-600));
+  }
+
+  /* Header Badge - Modern styling with secondary color gradient */
+  .header-badge {
+    background: linear-gradient(
+      135deg,
+      var(--color-secondary-500) 0%,
+      var(--color-secondary-600) 100%
+    );
+  }
+
+  .header-badge::before {
+    background: linear-gradient(135deg, var(--color-secondary-400), var(--color-secondary-600));
+  }
+
+  /* ==============================================
+   * INTERACTIVE SECTIONS & COMPONENTS
+   * ============================================== */
+
+  /* Section Containers - Modern styling for game sections */
+  .section-container {
+    position: relative;
+    display: flex;
+    width: var(--width-full);
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2xl);
+    margin-top: var(--space-2xl);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    border: var(--border-width-thin) solid var(--border-primary);
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-normal);
+    overflow: hidden;
+  }
+
+  .section-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--border-width-thick);
+    background: linear-gradient(90deg, var(--interactive-primary), var(--color-secondary-500));
+    opacity: var(--opacity-high);
+  }
+
+  .section-container:hover {
+    transform: translateY(var(--animation-x-offset-small));
+    box-shadow: var(--shadow-xl);
+    border-color: var(--interactive-primary);
+  }
+
+  .section-container:focus-within {
+    box-shadow: var(--focus-ring), var(--shadow-xl);
+    border-color: var(--border-focus);
+    transform: translateY(var(--animation-x-offset-small));
+  }
+
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
+    .section-container {
+      padding: var(--space-3xl);
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: var(--radius-2xl);
+    }
+  }
+
+  .chronology-section {
+    margin-top: var(--space-3xl);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  }
+
+  .chronology-section::before {
+    background: linear-gradient(90deg, var(--color-primary-500), var(--interactive-primary));
+  } /* Button Groups - Responsive modern layout */
+  .button-group {
+    margin-top: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, var(--color-mix-light));
+    backdrop-filter: blur(var(--space-sm));
+    border: var(--border-width-thin) solid rgba(255, 255, 255, var(--opacity-low));
+  }
+
+  /* Tablet and Desktop - buttons side by side */
+  /* Small tablet and above: closest to --breakpoint-sm (640px) but using 480px for early responsive design */
+  @media (min-width: 30em) {
+    .button-group {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-lg);
+      padding: var(--space-xl);
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  /* Medium screens and up - more spacing */
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
+    .button-group {
+      gap: var(--space-xl);
+    }
+  }
+
+  /* Large screens - maximum spacing and comfort */
+  /* Desktop and above: --breakpoint-lg (1024px) */
+  @media (min-width: 64em) {
+    .button-group {
+      gap: var(--space-2xl);
+      padding: var(--space-2xl);
+    }
+  }
+
+  /* Force buttons to maintain natural width on larger screens */
+  /* Small tablet and above: closest to --breakpoint-sm (640px) but using 480px for early responsive design */
+  @media (min-width: 30em) {
+    .button-group :global(.button-link) {
+      flex-shrink: 0;
+      width: fit-content !important;
+    }
+  }
+
+  .game-button {
+    min-height: var(--touch-target-enhanced);
+    min-width: var(--touch-target-enhanced);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    transition: var(--transition-normal);
+  }
+
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
+    .game-button {
+      padding: var(--space-md) var(--space-lg);
+    }
+  }
+
+  /* ==============================================
+   * ICON SYSTEM
+   * ============================================== */
+
+  /* Consolidated icon sizing system */
+  .icon-small {
+    height: var(--icon-size-sm);
+    width: var(--icon-size-sm);
   }
 
   .icon-medium {
-    height: 1.25rem;
-    width: 1.25rem;
-    flex-shrink: 0;
-    margin-right: var(--spacing-sm);
+    height: var(--icon-size-sm);
+    width: var(--icon-size-sm);
   }
 
-  @media (min-width: 768px) {
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
     .icon-medium {
-      height: 1.5rem;
-      width: 1.5rem;
-      margin-right: var(--spacing-sm);
+      height: var(--icon-size-md);
+      width: var(--icon-size-md);
     }
   }
 
   .icon-large {
-    height: 2.5rem;
-    width: 2.5rem;
-    flex-shrink: 0;
+    height: var(--icon-size-xl);
+    width: var(--icon-size-xl);
   }
 
   .icon-white {
-    color: white;
+    color: var(--color-white);
   }
 
-  /* ===== 7. TYPOGRAFIE ===== */
+  /* Game Icon Badge - Modern circular design */
+  .game-icon-badge {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--space-3xl);
+    height: var(--space-3xl);
+    border-radius: var(--radius-full);
+    background: linear-gradient(
+      135deg,
+      var(--btn-primary-bg) 0%,
+      var(--interactive-primary-hover) 100%
+    );
+    border: var(--border-width-thick) solid var(--color-white);
+    box-shadow:
+      var(--shadow-lg),
+      inset 0 1px 0 rgba(255, 255, 255, var(--opacity-low));
+    transition: all var(--transition-normal);
+    margin-bottom: var(--space-md);
+  }
 
-  /* Headline-Primary - Primäre Überschriften */
+  .game-icon-badge::before {
+    content: "";
+    position: absolute;
+    inset: var(--animation-x-offset-small);
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--interactive-primary), var(--color-secondary-500));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+  }
+
+  .section-container:hover .game-icon-badge::before {
+    opacity: var(--opacity-medium);
+  }
+
+  .section-container:hover .game-icon-badge {
+    transform: scale(var(--animation-scale-hover-subtle));
+    box-shadow:
+      var(--shadow-xl),
+      inset 0 1px 0 rgba(255, 255, 255, var(--color-mix-dark));
+  }
+
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
+    .game-icon-badge {
+      width: var(--space-3xl);
+      height: var(--space-3xl);
+    }
+  }
+
+  .chronology-badge {
+    background: linear-gradient(
+      135deg,
+      var(--interactive-primary) 0%,
+      var(--color-primary-600) 100%
+    );
+  }
+
+  /* ==============================================
+   * TYPOGRAPHY SYSTEM
+   * ============================================== */
+
+  /* Consolidated typography with consistent patterns */
   .headline-primary {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--space-md);
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
     text-align: center;
-    font-size: var(--font-size-3xl);
-    font-weight: 700;
-    color: white;
-    line-height: var(--line-height-tight);
   }
 
-  @media (min-width: 768px) {
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
     .headline-primary {
-      font-size: var(--font-size-4xl);
+      font-size: var(--text-4xl);
     }
   }
 
-  /* Paragraph-Standard - Standardabsätze */
   .paragraph-standard {
-    margin: 0 auto;
-    max-width: 42rem;
+    font-size: var(--text-lg);
+    font-weight: var(--font-medium);
+    color: var(--text-secondary);
     text-align: center;
-    font-size: var(--font-size-lg);
-    font-weight: 500;
-    color: var(--color-gray-100);
-    line-height: var(--line-height-relaxed);
+    max-width: var(--container-md);
+    margin: var(--space-none) auto;
   }
 
-  /* Paragraph-Description - Beschreibungstexte */
   .paragraph-description {
-    font-size: var(--font-size-md);
-    line-height: var(--line-height-relaxed);
-    color: var(--color-gray-100);
+    font-size: var(--text-base);
+    color: var(--text-primary);
+    text-align: center;
+    max-width: var(--container-md);
+    margin: var(--space-none) auto;
+    line-height: var(--leading-enhanced);
   }
 
-  @media (min-width: 640px) {
+  /* Small tablet and above: --breakpoint-sm (640px) */
+  @media (min-width: 40em) {
     .paragraph-description {
-      font-size: var(--font-size-lg);
+      font-size: var(--text-lg);
     }
   }
 
-  /* Auth-Heading - Überschriften für Authentifizierungsbereiche */
-  .auth-heading {
-    margin-bottom: var(--spacing-lg);
+  .section-heading {
+    margin-bottom: var(--space-lg);
     text-align: center;
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    color: white;
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
   }
 
-  /* Game-Heading - Überschriften für Spielbereiche */
-  .game-heading {
-    margin-top: var(--spacing-lg);
-    padding-top: var(--spacing-sm);
-    text-align: center;
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    color: white;
-  }
-
-  @media (min-width: 768px) {
-    .game-heading {
-      font-size: 1.75rem;
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
+    .section-heading {
+      font-size: var(--text-3xl);
     }
   }
 
-  @media (min-width: 1024px) {
-    .game-heading {
-      font-size: var(--font-size-4xl);
+  .section-description {
+    margin-bottom: var(--space-lg);
+    max-width: var(--container-md);
+    text-align: center;
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    line-height: var(--leading-enhanced);
+  }
+
+  /* Tablet and above: --breakpoint-md (768px) */
+  @media (min-width: 48em) {
+    .section-description {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-2xl);
     }
   }
 
-  /* Auth-Description - Beschreibungstexte für Authentifizierungsbereiche */
-  .auth-description {
-    margin-bottom: var(--spacing-lg);
-    max-width: 42rem;
-    text-align: center;
-    font-size: var(--font-size-lg);
-    color: var(--color-gray-100);
-    line-height: var(--line-height-relaxed);
+  /* ==============================================
+   * FORM & INTERACTION COMPONENTS
+   * ============================================== */
+
+  /* Auth Form */
+  .auth-form-container {
+    margin: var(--space-none) auto;
+    width: var(--width-full);
+    max-width: var(--form-container-max-width);
   }
 
-  /* Game-Description - Beschreibungstexte für Spielbereiche */
-  .game-description {
-    margin-bottom: var(--spacing-lg);
-    max-width: 42rem;
-    text-align: center;
-    font-size: var(--font-size-lg);
-    color: var(--color-gray-100);
-    line-height: var(--line-height-normal);
+  /* Alert Box */
+  .alert-box {
+    margin-bottom: var(--space-lg);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    background: var(--bg-warning-aaa);
+    border: var(--border-width-thin) solid var(--color-warning-600);
+    color: var(--text-warning-aaa);
+    box-shadow: var(--shadow-sm);
   }
 
-  @media (min-width: 768px) {
-    .game-description {
-      font-size: var(--font-size-xl);
-      line-height: var(--line-height-normal);
-      margin-bottom: var(--spacing-2xl);
-    }
+  .alert-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
   }
 
-  /* ===== 8. ANIMATIONEN & TRANSITIONS ===== */
+  /* ==============================================
+   * ACCESSIBILITY & UTILITY CLASSES
+   * ============================================== */
 
-  .opacity-transition {
-    transition: opacity 300ms ease-in-out;
-  }
-
-  /* ===== 9. BARRIEREFREIHEIT ===== */
-
-  /* Screenreader-Only Klasse - Verwende die globale .sr-only Klasse */
+  /* Screen Reader Only */
   .sr-only {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
+    padding: var(--space-none);
+    margin: var(--sr-only-margin);
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
+    clip-path: var(--sr-only-clip-path);
     white-space: nowrap;
-    border-width: 0;
+    border-width: var(--space-none);
   }
 
-  /* Reduced Motion Preferences - Ergänzt die globalen Einstellungen */
+  /* Enhanced Focus Styles */
+  :global(a:focus-visible),
+  :global(button:focus-visible) {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* ==============================================
+   * RESPONSIVE & ACCESSIBILITY FEATURES
+   * ============================================== */
+
+  /* Reduced Motion Support */
   @media (prefers-reduced-motion: reduce) {
-    .game-section-container:hover .game-icon-badge {
-      transform: none !important;
-      box-shadow: none !important;
-      transition: none !important;
+    .section-container,
+    .game-icon-badge,
+    .game-button {
+      transition: var(--transition-instant);
+    }
+
+    .section-container:hover,
+    .section-container:focus-within {
+      transform: none;
+    }
+
+    .section-container:hover .game-icon-badge {
+      transform: none;
     }
   }
 
   /* High Contrast Mode Support */
   @media (forced-colors: active) {
-    article[data-category],
-    section,
-    div[role="alert"] {
-      border: 2px solid CanvasText;
-      forced-color-adjust: none;
-    }
-
-    [role="group"] :global(a) {
-      border: 2px solid ButtonText !important;
-      forced-color-adjust: none;
+    .section-container,
+    .description-container,
+    .alert-box {
+      border: var(--border-width-thick) solid CanvasText;
+      background: Canvas;
     }
 
     .game-icon-badge {
-      border: 2px solid ButtonText;
+      border: var(--border-width-thick) solid ButtonText;
       background: ButtonFace;
     }
 
     .icon-white {
       color: ButtonText;
-    }
-
-    :global(a:focus-visible),
-    :global(button:focus-visible) {
-      outline: 3px solid ButtonText !important;
-      outline-offset: 3px !important;
-    }
-  }
-
-  /* Focus Visibility - Verbesserter Fokus für Tastaturbedienung */
-  :global(a:focus-visible),
-  :global(button:focus-visible) {
-    outline: 3px solid var(--color-purple-500) !important;
-    outline-offset: 3px !important;
-  }
-
-  /* Skip-Link-Funktionalität für bessere Barrierefreiheit */
-  .skip-link {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-    padding: var(--spacing-md);
-    background-color: var(--color-purple-600);
-    color: white;
-    font-weight: 700;
-    text-decoration: none;
-    z-index: 9999;
-    border-radius: var(--border-radius-md);
-    transform: translateY(-100%);
-    transition: transform 0.3s;
-  }
-
-  .skip-link:focus {
-    top: var(--spacing-md);
-    left: var(--spacing-md);
-    transform: translateY(0);
-    outline: 3px solid var(--color-purple-300);
-    outline-offset: 3px;
-  }
-
-  /* Entfernt den Standard-Outline von :focus-visible */
-  #main-content:focus {
-    outline: none;
-  }
-
-  /* Verbesserte Fokuszustände für alle interaktiven Elemente */
-  :global(a:focus-visible),
-  :global(button:focus-visible),
-  :global(.button-perspective a:focus-visible) {
-    outline: 3px solid var(--color-purple-500);
-    outline-offset: 3px;
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
-  }
-
-  /* Vergrößerte Berührungsziel für Touch-Geräte */
-  .button-perspective a,
-  :global(.button-perspective a) {
-    min-height: 44px;
-    min-width: 44px;
-    display: flex;
-    align-items: center;
-    padding: var(--spacing-sm) var(--spacing-md);
-  }
-
-  @media (min-width: 768px) {
-    .button-perspective a,
-    :global(.button-perspective a) {
-      min-height: 48px;
-      padding: var(--spacing-md) var(--spacing-lg);
     }
   }
 </style>

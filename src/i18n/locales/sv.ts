@@ -36,8 +36,23 @@ export default {
   "auth.accessibility.requirement.unmet": "Krav inte uppfyllt",
   "auth.accessibility.password.visible": "Lösenord är nu synligt",
   "auth.accessibility.password.hidden": "Lösenord är nu dolt",
+  "auth.accessibility.password.visible_status":
+    "Lösenord är nu synligt. Kom ihåg att dölja det när du är klar av säkerhetsskäl.",
+  "auth.accessibility.password.hidden_status": "Lösenord är nu dolt av säkerhetsskäl.",
+  "auth.accessibility.password_toggle_empty": "Ange ett lösenord först innan du växlar synlighet.",
+  "auth.accessibility.password_toggle_help":
+    "Växla för att visa eller dölja lösenordstecken. Använd försiktigt på offentliga platser av säkerhetsskäl.",
   "auth.accessibility.requirements.expanded": "Lösenordskrav utökade",
   "auth.accessibility.requirements.collapsed": "Lösenordskrav kollapsade",
+  "auth.accessibility.login_form_active": "Inloggningsformuläret är nu aktivt",
+  "auth.accessibility.register_form_active": "Registreringsformuläret är nu aktivt",
+  "auth.accessibility.focus_trapped":
+    "Fokus är nu fångat inom denna dialog. Använd Tab för att navigera och Escape för att stänga.",
+  "auth.accessibility.error_message_dismissed": "Felmeddelande ignorerat",
+  "auth.accessibility.success_message_dismissed": "Framgångsmeddelande ignorerat",
+
+  // Skip links
+  "auth.skip_to_verification": "Hoppa till e-postverifieringsinnehåll",
 
   "auth.tabs.login": "Logga in",
   "auth.tabs.register": "Registrera",
@@ -52,6 +67,8 @@ export default {
   "auth.form.password_requirements": "Lösenordet uppfyller inte alla krav",
   "auth.form.password_confirm_required": "Lösenordsbekräftelse krävs",
   "auth.form.passwords_not_match": "Lösenorden matchar inte",
+  "auth.form.init_error": "Misslyckades med att initialisera formulärelement",
+
   "auth.password_reset.success_message":
     "Om ett konto finns med denna e-postadress har ett e-postmeddelande med instruktioner för lösenordsåterställning skickats.",
   "auth.password_reset.error_message": "Ett fel uppstod. Försök igen senare.",
@@ -74,8 +91,6 @@ export default {
   "auth.register.error": "Registrering misslyckades",
 
   "auth.password_reset.title": "Återställ lösenord",
-  "auth.password_reset.description":
-    "Ange din e-postadress för att få en länk för återställning av lösenord",
   "auth.password_reset.description":
     "Ange din e-postadress för att få en länk för återställning av lösenord",
   "auth.password_reset.submit": "Skicka återställningslänk",
@@ -124,6 +139,36 @@ export default {
   "auth.form.required": "Detta fält är obligatoriskt",
   "auth.form.email_invalid": "Ange en giltig e-postadress",
   "auth.form.password_min_length": "Lösenordet måste vara minst 6 tecken långt",
+  "auth.form.email_invalid_format": "Ange en giltig e-postadress i formatet: användare@exempel.se",
+  "auth.form.password_length_error": "Lösenordet måste vara minst 8 tecken långt",
+  "auth.form.password_uppercase_error": "Lösenordet måste innehålla minst en versal (A-Z)",
+  "auth.form.password_lowercase_error": "Lösenordet måste innehålla minst en gemen (a-z)",
+  "auth.form.password_number_error": "Lösenordet måste innehålla minst en siffra (0-9)",
+  "auth.form.password_special_error":
+    "Lösenordet måste innehålla minst ett specialtecken (!@#$%^&*)",
+  "auth.form.password_common_error": "Välj ett mindre vanligt lösenord",
+  "auth.form.password_repeats_error":
+    "Lösenordet får inte innehålla mer än 2 identiska tecken i följd",
+  "auth.form.password_sequences_error":
+    "Lösenordet får inte innehålla vanliga sekvenser som '123' eller 'abc'",
+  "auth.form.instructions.title": "Hur man fyller i detta formulär",
+  "auth.form.instructions.request.step1": "Ange din e-postadress i fältet nedan",
+  "auth.form.instructions.request.step2":
+    "Klicka på 'Skicka återställningslänk' för att få instruktioner för lösenordsåterställning",
+  "auth.form.instructions.request.step3":
+    "Kontrollera din e-post för återställningslänken och följ instruktionerna",
+  "auth.form.instructions.confirm.step1": "Skapa ett starkt lösenord som uppfyller alla krav",
+  "auth.form.instructions.confirm.step2": "Bekräfta ditt lösenord genom att skriva det igen",
+  "auth.form.instructions.confirm.step3":
+    "Klicka på 'Återställ lösenord' för att slutföra processen",
+  "auth.form.help.password_button": "Få hjälp med att skapa ett starkt lösenord",
+  "auth.form.help.password_title": "Tips för lösenordsskapande",
+  "auth.form.help.password_suggestions":
+    "Försök använda en kombination av ord, siffror och symboler. Undvik vanliga lösenord som 'lösenord123'.",
+  "auth.form.help.tip1": "Använd en blandning av versaler och gemener",
+  "auth.form.help.tip2": "Inkludera siffror och specialtecken",
+  "auth.form.help.tip3": "Undvik vanliga ord och sekvenser",
+  "auth.form.help.tip4": "Överväg att använda en lösenordsfras",
   "auth.form.min_length": "Detta fält måste vara minst {length} tecken långt",
   "auth.form.max_length": "Detta fält får inte överstiga {length} tecken",
   "auth.form.invalid": "Detta fält är ogiltigt",
@@ -138,6 +183,8 @@ export default {
   "auth.accessibility.password_requirements": "Visa/dölj lösenordskrav",
   "auth.accessibility.form": "Inloggningsformulär",
   "auth.accessibility.close_modal": "Stäng fönster",
+  "auth.accessibility.button_focus_instruction":
+    "Knapp: {buttonText}. Tryck på Enter för att skicka",
 
   // API-felmeddelanden
   "auth.api.network_error": "Nätverksfel. Kontrollera din anslutning",
@@ -166,7 +213,7 @@ export default {
   "difficulty.medium": "Medel",
   "difficulty.hard": "Svår",
   "game.select":
-    "Upptäck musikens fascinerande värld och testa dina kunskaper i våra interaktiva musikquiz. Välj din favoritgenre och starta din melodiösa resa!",
+    "🎵 Redo för det ultimata musikäventyret? Dyk in i en värld full av rytmer, melodier och oförglömliga låtar! Från fantastiska gitarrsolon till tidlösa klassiker – hitta din perfekta musikaliska duell. Visa världen att du är en sann musikexpert!",
   "game.welcome": "Välkommen till Melody Mind",
   "game.genre.list": "Genreval",
   "game.search.label": "Sök efter en genre",
@@ -205,19 +252,38 @@ export default {
   "game.feedback.resolution": "Upplösning",
   "game.feedback.media.section": "Mediaavsnitt",
   "game.feedback.audio.preview": "Musikförhandsvisning",
+  "game.feedback.audio.failed": "Ljuduppspelning misslyckades",
+  "game.feedback.audio.paused": "Ljud pausat",
   "game.feedback.subtitles": "Undertexter",
   "game.feedback.audio.unsupported": "Din webbläsare stöder inte ljuduppspelning.",
   "game.feedback.streaming.links": "Musikströmningslänkar",
   "game.feedback.listen.spotify": "Lyssna på Spotify",
   "game.feedback.listen.deezer": "Lyssna på Deezer",
   "game.feedback.listen.apple": "Lyssna på Apple Music",
+
+  // Music Platforms Component - Accessibility Features
+  "musicPlatforms.heading": "Lyssna på relaterad musik",
+  "musicPlatforms.keyboardInstructions":
+    "Navigera musikplattformar med Tab-tangenten. Tryck Enter eller Mellanslag för att öppna plattformar i nya flikar.",
+  "musicPlatforms.externalNotice":
+    "Externa musikplattformslänkar kan kräva konton eller prenumerationer för fullständig åtkomst.",
+  "musicPlatforms.listenOn":
+    "Lyssna på {title} på {platform} - Öppnar {platform} musikplattform i ny flik. Kan kräva {platform} konto eller prenumeration.",
   "game.feedback.next.round": "Nästa omgång",
+  "game.feedback.next.starting": "Startar nästa omgång",
   "game.current.round": "Omgång",
   "game.current.round.label": "Nuvarande omgångsnummer",
   "game.joker.options": "Jokeralternativ",
   "game.joker.use": "Använd 50:50 Joker",
   "game.joker.description": "Tar bort två felaktiga svarsalternativ",
   "loading.content": "Laddar innehåll...",
+  "loading.started": "Laddning startad",
+  "loading.completed": "Laddning klar",
+  "loading.progress.indicator": "Framstegsindikator",
+  "loading.context.game": "Laddar spel",
+  "loading.context.question": "Laddar fråga",
+  "loading.context.results": "Laddar resultat",
+  "loading.context.default": "Laddar innehåll",
   "share.title": "Dela din framgång!",
   "share.buttons.group.label": "Delningsalternativ för sociala medier",
   "share.facebook": "Dela på Facebook",
@@ -229,9 +295,63 @@ export default {
   "share.email.label": "E-post",
   "share.copy": "Kopiera text att dela till urklipp",
   "share.copy.label": "Kopiera text",
+  "share.fallback.message":
+    "Speldata är för närvarande inte tillgänglig. Försök igen eller kopiera sidlänken manuellt.",
+  "share.fallback.retry.label": "Försök ladda speldata igen",
+  "share.fallback.retry.text": "Försök igen",
+  "share.fallback.manual.label": "Kopiera sidlänk manuellt",
+  "share.fallback.manual.text": "Kopiera länk",
+
+  // Tillgänglighetsmeddelanden för delning för skärmläsare
+  "share.accessibility.data_unavailable":
+    "Speldata otillgängliga. Vänligen försök igen eller kopiera manuellt.",
+  "share.accessibility.retrying": "Försöker hitta speldata...",
+  "share.accessibility.data_found": "Speldata hittade! Delningsalternativ är nu tillgängliga.",
+  "share.accessibility.data_still_unavailable":
+    "Speldata är fortfarande otillgängliga. Uppdatera sidan eller använd manuell kopiering.",
+  "share.accessibility.retry_failed":
+    "Nytt försök misslyckades. Vänligen använd manuell kopiering eller uppdatera sidan.",
+  "share.accessibility.link_copied": "Spellink kopierad till urklipp framgångsrikt!",
+  "share.accessibility.link_copied_fallback": "Spellink kopierad till urklipp med reservmetod!",
+  "share.accessibility.copy_failed_manual":
+    "Kopiering misslyckades. Vänligen kopiera sidans URL manuellt från din webbläsare.",
+  "share.accessibility.score_shared": "Din poäng har delats framgångsrikt.",
+  "share.accessibility.sharing_cancelled": "Delning avbröts.",
+  "share.accessibility.platform_share_failed":
+    "Misslyckades dela till {platform}: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_alternative_methods":
+    "Försök kopiera till urklipp eller använd en annan delningsmetod.",
+  "share.accessibility.score_copied": "Poäng kopierad till urklipp framgångsrikt!",
+  "share.accessibility.native_share_failed":
+    "Inbyggd delning misslyckades: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_platform_buttons":
+    "Försök använda plattformsspecifika delningsknappar eller kopiera till urklipp.",
+  "share.accessibility.platform_opened": "Delning till {platform} öppnades framgångsrikt.",
   "error.default": "Ett fel har inträffat",
   "error.close": "Stäng felmeddelande",
   "coins.collected": "Insamlade mynt",
+  "coins.tooltip.authenticated":
+    "Dina insamlade mynt: Du har tjänat {count} mynt under din speltid. Fortsätt spela för att tjäna fler!",
+  "coins.tooltip.guest":
+    "Gästspelare mynt: Du har tjänat {count} mynt under denna session. Logga in för att spara dina framsteg permanent!",
+  "coins.announce.earned_excellent":
+    "Utmärkt! Tjänade {difference} mynt under {context}! Ny summa: {newCount} mynt.",
+  "coins.announce.earned_great":
+    "Bra jobbat! Tjänade {difference} mynt{plural} under {context}. Totalt: {newCount} mynt.",
+  "coins.announce.earned_normal":
+    "Tjänade {difference} mynt{plural} under {context}. Totalt: {newCount} mynt.",
+  "coins.announce.progress_saved": " Framsteg sparat på ditt konto.",
+  "coins.announce.lost":
+    "Förlorade {lost} mynt{plural} under {context}. Återstående: {newCount} mynt.",
+  "coins.announce.updated": "Mynt uppdaterade under {context}. Nuvarande summa: {newCount} mynt.",
+  "coins.context.game": "spel",
+  "coins.context.shop": "köp",
+  "coins.context.achievement": "att uppnå en prestation",
+  "coins.context.bonus": "att få en bonus",
+  "coins.context.daily": "att samla daglig belöning",
+  "coins.context.quiz": "att svara på quizfrågor",
+  "coins.context.challenge": "att slutföra en utmaning",
+  "coins.context.streak": "att upprätthålla en streak",
   "language.picker.label": "Språkväljare",
   "language.change": "Ändra webbplatsens språk",
   "language.select.label": "Välj önskat språk",
@@ -255,9 +375,17 @@ export default {
   "language.nl.label": "Visa webbplats på nederländska",
   "language.sv.label": "Visa webbplats på svenska",
   "language.fi.label": "Visa webbplats på finska",
+  "language.selected": "Nuvarande språk: {language}",
+  "language.dropdown.arrow": "Rullgardinspil",
+  "language.focus.announce": "Språkväljare fokuserad. Använd piltangenter för att navigera.",
+  "language.change.success": "Språk ändrat till {language}",
+  "language.change.error": "Språkändring misslyckades. Försök igen.",
+  "language.preference.restored": "Språkpreferens återställd: {language}",
   "playlist.item.unavailable": "Detta innehåll är ännu inte tillgängligt",
   "playlist.item.status": "Status",
   "playlist.item.coming.soon": "Kommer snart",
+  "playlist.item.status.changed.disabled": "Denna spellista är för närvarande inte tillgänglig",
+  "playlist.item.status.changed.available": "Denna spellista är nu tillgänglig",
   "game.area.label": "Spelområde",
   "game.options.label": "Svarsalternativ",
   "game.answer.correct": "Rätt! {points} poäng + {bonus} bonuspoäng",
@@ -269,12 +397,13 @@ export default {
     "Musikquiz, Musikspel, Låtquiz, Artistquiz, Online Musikquiz, Musik Trivia, Melody Mind, Musikgissningsspel",
   "knowledge.title": "Musikkunskapsbas",
   "knowledge.intro":
-    "Dyk in i musikhistoriens fascinerande värld. Här hittar du spännande artiklar om olika musikepoker, genrer och deras utveckling. Upptäck intressanta fakta och utöka din musikkunskap.",
+    "🎵 Lås upp musikuniversums hemligheter! Dyk in i fängslande berättelser om legendariska artister, utforska utvecklingen av musikgenrer och upptäck fascinerande fakta som gör dig till en sann musikexpert. Från klassiska mästerverk till moderna hits – låt dig fängslas av engagerande artiklar som ger liv åt din passion för musik.",
   "knowledge.search.label": "Sök artiklar",
   "knowledge.search.placeholder": "Sök...",
   "knowledge.filter.all": "Alla nyckelord",
   "knowledge.no.results": "Inga artiklar hittades. Prova andra söktermer.",
   "game.remaining": "kvar",
+  "game.remaining.label": "{count} kvar",
   "game.default.headline": "Spel",
   "popup.score": "Poäng: {score}",
   "popup.golden.lp.score": "Uppnådd poäng: {score}",
@@ -289,12 +418,15 @@ export default {
   "game.categories.no.playable.text":
     "Det finns för närvarande inga spelbara kategorier. Kom tillbaka senare.",
   "knowledge.reading.time": "min lästid",
+  "knowledge.word.count": "ord",
+  "knowledge.reading.time.label": "Lästid",
   "knowledge.breadcrumb.label": "Navigering",
   "knowledge.listen.heading": "Lyssna på relaterad musik",
   "knowledge.back.to.list": "Tillbaka till översikt",
   "knowledge.interact.heading": "Lyssna & Spela",
   "knowledge.play.heading": "Spela denna genre",
-  "knowledge.play.description": "Testa dina kunskaper om denna musikgenre i vårt interaktiva quiz!",
+  "knowledge.play.description":
+    "🎵 Är du redo för den ultimata utmaningen? Testa dina musikkunskaper och bli en genreexpert! Samla poäng, använd smarta jokrar och bevisa att du har vad som krävs för att bli en musikmästare! 🏆",
   "knowledge.play.category": "Starta Musikquiz",
   "category.play": "Spela",
   "play.cover.puzzle": "Spela Omslagspussel",
@@ -330,10 +462,10 @@ export default {
   "podcast.listen.heading": "Lyssna på Våra Poddar",
   "login.welcome": "Välkommen till Melody Mind!",
   "login.description":
-    "Ge dig ut på en musikalisk upptäcktsresa genom tiderna! Testa dina kunskaper i spännande quiz, utforska fascinerande musikgenrer och dyk in i våra medryckande poddar. Visa dina färdigheter, samla poäng och bli en sann musiklegend!",
+    "🎵 Dyk in i det ultimata musikuniversumet! Upptäck legendariska hits, bemästra spännande utmaningar och bli den absoluta musikmästaren. Din resa till de största musikaliska hemligheterna börjar nu! 🚀",
   "index.continue": "Nu kör vi!",
   "index.start.game.label": "Starta din musikaliska resa",
-  "index.welcome.footnote": "Förberett av musikälskare för musikälskare. Ha så kul!",
+  "index.welcome.footnote": "🎶 Skapat med passion för sanna musikfans - Låt magin börja! ✨",
   "accessibility.wcag": "Denna applikation strävar efter WCAG AAA-överensstämmelse.",
   "game.instructions.title": "Spelinstruktioner",
   "game.instructions.puzzle":
@@ -361,23 +493,58 @@ export default {
   "playlist.page.title": "Musikspellistor | Melody Mind",
   "playlist.page.heading": "Upptäck Våra Musikspellistor",
   "playlist.page.description":
-    "Dyk in i noggrant utvalda spellistor från olika epoker och genrer. Perfekt för att upptäcka ny musik eller återuppleva dina favoritklassiker.",
+    "🎵 Ge dig ut på en episk musikalisk resa genom legendariska epoker! Våra handplockade spellistor ger liv åt de största hitsen - från tidlösa klassiker till oförglömliga chartlistetoppare. Perfekt för att utöka din musikkunskap eller väcka nostalgiska minnen! 🎶",
   "playlist.search.label": "Sök Spellistor",
+  "playlist.search.heading": "Sök Spellistor",
   "playlist.search.placeholder": "Sök efter artist eller stil...",
+  "playlist.search.aria.label": "Sök musikspellistor",
   "playlist.filter.all": "Alla Epoker",
   "playlist.no.results": "Inga matchande spellistor hittades. Prova en annan sökterm.",
+  "playlist.no.results.heading": "Inga spellistor hittades",
+  "playlist.reset.search": "Visa alla spellistor",
+  "playlist.grid.heading": "Tillgängliga Musikspellistor ({count} totalt)",
   "playlist.listen.on": "Lyssna på",
+  "playlist.image.alt":
+    'Detaljerat spellistomslag för "{headline}" - {introSubline} med {decade} musiksamling',
+  "playlist.image.description":
+    "Spellistomslag som representerar {decade} musiksamling med tematiska visuella element för {headline}. Den visuella designen återspeglar musikeran och genreegenskaper.",
   "playlist.listen.spotify": "Lyssna på Spotify",
   "playlist.listen.deezer": "Lyssna på Deezer",
   "playlist.listen.apple": "Lyssna på Apple Music",
   "playlist.decade.filter": "Filtrera efter Årtionde",
+  "playlist.priority.loading": "Prioritetsuppspelningslista laddas: {headline}",
+  "playlist.music.from.decade": "Musik från {decade}",
+  "playlist.streaming.services": "Streamingtjänster för {headline}",
+  "playlist.accessibility.instruction":
+    "Använd Enter eller Mellanslag för att öppna spellistan i streamingtjänsten. Navigera mellan tjänster med Tab-tangenten. Dessa spellistor är offentligt tillgängliga och kräver ingen autentisering.",
+  "playlist.accessibility.info": "Information om spellistans tillgänglighet",
+  "playlist.accessibility.public":
+    "Offentlig spellista - ingen autentisering krävs för åtkomst till streamingtjänster",
+  "playlist.accessibility.selected": "{service} vald för {playlist}",
+  "playlist.accessibility.focus": "Fokus på {service}-alternativ för {playlist}",
+  "playlist.accessibility.opened": "Öppnar {playlist} på {service}",
+  "playlist.open.spotify": 'Öppna spellista "{playlist}" i Spotify',
+  "playlist.open.deezer": 'Öppna spellista "{playlist}" i Deezer',
+  "playlist.open.apple": 'Öppna spellista "{playlist}" i Apple Music',
+  "playlist.activation.focused": "Spellista aktiverad. Välj en streamingtjänst med Enter.",
+  "playlist.activation.no_links": "Spellistan är inte tillgänglig på någon streamingtjänst.",
+  "playlist.exit": "Lämnar spellistan",
+  "playlist.visible": "Prioritetsspellista synlig",
+  "playlist.image.error": "Laddning av spellistabild misslyckades",
+  "playlist.title.unknown": "Okänd spellista",
   "footer.rights": "Alla rättigheter förbehållna",
   "footer.donate": "Donera",
+  "footer.donate_aria": "Donera via PayPal",
+  "footer.source_code": "Visa MelodyMind källkod på GitHub",
+  "footer.support_kofi": "Stöd MelodyMind på Ko-fi",
   "game.chronology.title": "Musikkronologi",
-  "game.chronology.description": "Ordna dessa album efter deras utgivningsår (äldsta först)",
+  "game.chronology.description":
+    "⏰ Bli en tidsresenär inom musik! Ordna dessa legendariska album i rätt kronologisk ordning och visa att du är en riktig musikhistoriker. Varje rätt drag för dig närmare den perfekta poängen! 🎯",
   "game.chronology.area.label": "Kronologispelområde",
   "game.chronology.result": "Resultat",
-  "game.chronology.correct": "Korrekt",
+  "game.chronology.correct": "Korrekt! 🎉",
+  "game.chronology.incorrect": "Fel! 😔",
+  "game.chronology.correct_order": "Rätt ordning:",
   "game.chronology.wrong": "Borde vara på position {position}",
   "game.chronology.score": "Poäng: {score} poäng",
   "game.chronology.details": "{correct} av {total} album placerade korrekt",
@@ -437,7 +604,8 @@ export default {
 
   // Topplistesida
   "highscores.title": "Topplistor",
-  "highscores.description": "Se de bästa poängen i olika spellägen och kategorier",
+  "highscores.description":
+    "Upptäck musiklegenderna! Se vem som toppar listorna och låt dig inspireras av de bästa spelarna 🎵🏆",
   "highscores.loading": "Laddar topplistor...",
   "highscores.error": "Fel vid laddning av topplistor",
   "highscores.empty": "Inga poster hittades i topplistorna",
@@ -447,6 +615,18 @@ export default {
   "highscores.filter.all": "Alla",
   "highscores.filter.search": "Sök kategorier...",
   "highscores.filter.no.results": "Inga kategorier hittades",
+  "highscores.filters": "Filtrera resultat",
+  "highscores.allModes": "Alla lägen",
+  "highscores.allCategories": "Alla kategorier",
+  "highscores.results": "Toppresultat",
+  "highscores.noResults": "Inga poäng hittades med de valda filtren.",
+  "highscores.points": "poäng",
+  "highscores.rank": "Rang",
+  "highscores.gameMode": "Spelläge",
+  "highscores.category": "Kategori",
+  "highscores.date": "Datum",
+  "highscores.tableLabel": "Topplista",
+  "highscores.scoreEntry": "Poängpost {rank} av {username}",
   "highscores.table.title": "Toppresultat",
   "highscores.table.rank": "Rang",
   "highscores.table.player": "Spelare",
@@ -457,10 +637,22 @@ export default {
 
   // Prestationssystem
   "achievements.title": "Prestationer",
-  "achievements.description": "Upptäck och lås upp prestationer för att följa dina framsteg",
+  "achievements.description":
+    "Fira dina musikaliska triumfer och samla unika troféer på din resa att bli en musikmästare",
+  "achievements.seo.description":
+    "Följ dina framsteg med detaljerade prestationer i alla musikkategorier. Lås upp speciella belöningar genom att klara utmaningar och nå milstolpar.",
   "achievements.loading": "Laddar prestationer...",
   "achievements.error": "Fel vid laddning av prestationer",
   "achievements.empty": "Inga prestationer hittades",
+  "achievements.summary.title": "Sammanfattning av prestationer",
+  "achievements.summary.total": "Totalt: {total} prestationer",
+  "achievements.summary.unlocked": "Upplåsta: {unlocked} prestationer",
+  "achievements.summary.progress": "Framsteg: {percentage}% klart",
+  "achievements.summary.total-aria": "Totalt antal prestationer: {total}",
+  "achievements.summary.unlocked-aria": "Antal upplåsta prestationer: {unlocked}",
+  "achievements.summary.progress-aria": "Totala framsteg: {percentage} procent klart",
+  "achievements.categories": "Kategorier",
+  "achievements.category.count": "{count} prestationer",
   "achievements.category.bronze": "Brons",
   "achievements.category.silver": "Silver",
   "achievements.category.gold": "Guld",
@@ -474,9 +666,17 @@ export default {
   "achievements.unlocked_at": "Upplåst den {date}",
   "achievements.points": "Poäng: {points}",
   "achievements.rarity": "Sällsynthet: {percentage}%",
+  "achievements.rarity.tooltip":
+    "Visar hur sällsynt denna prestation är - lägre procentsatser betyder att den är mer sällsynt",
   "achievements.notification.unlocked": "Prestation upplåst!",
   "achievements.notification.progress": "Prestationsframsteg uppdaterat!",
   "achievements.notification.close": "Stäng prestationsavisering",
+  "achievements.notification.new_achievement": "Ny prestationsavisering",
+  "achievements.notification.pause": "Pausa aviseringtimer",
+  "achievements.notification.pause_title": "Pausa den automatiska avstängningen av denna avisering",
+  "achievements.notification.toggle_sound": "Växla aviseringsljud",
+  "achievements.notification.toggle_sound_title":
+    "Aktivera eller inaktivera ljud för prestationsaviseringar",
   "achievements.filter.title": "Filtrera Prestationer",
   "achievements.filter.status": "Status",
   "achievements.filter.category": "Kategori",
@@ -500,6 +700,10 @@ export default {
   "achievements.badge.new": "Ny prestation upplåst",
   "achievements.badge.new_with_count": "{count} nya prestationer upplåsta",
   "achievements.badge.fallback_text": "Prestationsavisering",
+  "achievements.badge.context_description":
+    "Prestationsmeddelande-märke. Visar antal nya upplåsta prestationer i navigationsområdet.",
+  "achievements.badge.keyboard_instructions":
+    "Tryck Enter eller mellanslag för att visa din prestationssida.",
 
   // API felmeddelanden
   "errors.auth.unauthorized": "Du måste vara inloggad för att få tillgång till denna funktion",
@@ -553,6 +757,21 @@ export default {
   "achievements.filter.focus_category": "Fokusera på kategorifilter",
   "achievements.filter.toggle_keyboard_help": "Visa/dölj tangentbordshjälp",
 
+  // Räkningsvisning för filter
+  "achievements.filter.count.all": "Alla ({count} synliga)",
+  "achievements.filter.count.category_all": "Alla Kategorier ({count} synliga)",
+  "achievements.filter.count.generic": "{value} ({count} synliga)",
+
+  // Achievement Filter Reset Button
+  achievementFilterReset: "Återställ alla prestation filter",
+
+  // Skärmläsarmeddelanden - prestationsfilter
+  "achievements.filter.announcement.changed": "Filter ändrat: {filterType} till {filterValue}",
+  "achievements.filter.announcement.no_results": "Inga prestationer matchar de aktuella filtren",
+  "achievements.filter.announcement.results":
+    "{visibleCards} prestation{cardPlural} hittad{cardPlural} i {visibleSections} kategori{sectionPlural}",
+  "achievements.filter.announcement.reset": "Alla filter har återställts",
+
   // Ytterligare nycklar för Kronologispelet
   "game.chronology.meta.description": "Musikkronologispel:",
   "game.meta.description.prefix": "Spela",
@@ -590,10 +809,174 @@ export default {
   "auth.password.requirements.not_met": "Krav ej uppfyllt",
   "auth.password.requirements.keyboard_navigation":
     "Använd Tab och Enter för att navigera och aktivera",
+  "auth.password.requirements.position": "{{current}} av {{total}}",
+  "auth.password.requirements.progress":
+    "{{met}} av {{total}} krav uppfyllda. {{percentage}}% klart.",
   "auth.password.strength.good": "Bra",
   "auth.password.strength.description": "Indikator för lösenordssäkerhetsnivå",
 
-  // Missing translations
+  // Layout systemmeddelanden
+  "layout.error.system": "Systemfel uppstod. Vänligen uppdatera sidan.",
+  "layout.error.tracking": "Fel spårat:",
+  "layout.error.tracking.failed": "Felspårning misslyckades:",
+  "layout.accessibility.motion.reduced": "Reducerat rörelseläge aktiverat för tillgänglighet",
+  "layout.accessibility.theme.dark": "Mörkt tema aktiverat för optimal kontrast och tillgänglighet",
+  "layout.analytics.init.failed": "Analytics-initialisering misslyckades:",
 
-  // Missing translations added automatically
+  // Navigation
+  "nav.ariaLabel": "Huvudnavigering",
+
+  "achievements.nav.aria": "Prestationer",
+
+  "nav.openNewWindow": "Öppnas i nytt fönster",
+
+  // End Overlay - Spelresultat
+  "game.end.achievementBadge": "Prestationspokal ikon",
+  "game.end.screenReaderDescription": "Spelresultat som visar din poäng och prestationsnivå.",
+  "game.end.scoreProgress": "Poängframsteg",
+  "game.end.progressDescription": "Visuell framstegsballong som visar din poäng prestationsnivå",
+  "game.end.defaultMotivation": "Bra gjort! Fortsätt spela för att förbättra din poäng!",
+  "game.end.finalScore": "Slutpoäng:",
+  "game.end.difficultyLevel": "Svårighetsgrad indikator",
+  "game.end.difficultyDescription": "Visar svårighetsgraden du genomförde",
+  "game.end.shareSection": "Dela dina resultat",
+  "game.end.shareResults": "Dela dina spelresultat på sociala medier",
+  "game.end.shareDescription":
+    "Öppnar delningsalternativ för att posta din poäng på sociala mediaplattformar",
+  "game.end.homeDescription": "Tillbaka till huvudmenyn och startsidan",
+  "game.end.newgameDescription": "Starta ett nytt spel med samma inställningar",
+  "game.end.homeButtonHelp":
+    "Navigera tillbaka till hemsidan för att välja ett nytt spelläge eller kategori",
+  "game.end.restartButtonHelp":
+    "Starta omedelbart en ny spelomgång med samma svårighetsgrad och kategori",
+
+  // Prestationsnivå meddelanden för skärmläsare
+  "game.end.announcement.gameOver": "Spelet slut! Din poäng: {score}. Prestationsnivå: {level}.",
+  "game.end.announcement.gameOver.de":
+    "Spielende! Deine Punktzahl: {score}. Erreichtes Level: {level}.",
+  "game.end.level.genius": "geni",
+  "game.end.level.pro": "professionell",
+  "game.end.level.enthusiast": "entusiast",
+  "game.end.level.lover": "älskare",
+  "game.end.level.explorer": "utforskare",
+
+  // Prestationer sektion i EndOverlay
+  "achievements.unlocked": "Prestationer Upplåsta",
+
+  // Motivational texts for different achievement levels
+  "game.end.motivation.genius":
+    "Enastående! 💫 Du är ett riktigt musikgeni! 🎶 Din djupa kunskap och musikaliska intuition är verkligen imponerande. Du skulle kunna vinna en musiktävling eller till och med vara en musikhistoriker. Dela din anmärkningsvärda prestation och utmana andra att tävla mot dig!",
+  "game.end.motivation.pro":
+    "Fantastiskt! 🌟 Du är definitivt en musikproffs med omfattande kunskap om olika artister och genrer. Din musikaliska förståelse är långt över genomsnittet. Få kan matcha din kunskap. Fortsätt så och utmana dina vänner!",
+  "game.end.motivation.enthusiast":
+    "Imponerande! 👍 Som en sann musikentusiast känner du verkligen till ämnet. Du har byggt en solid grund av musikkunskap som skiljer dig från mängden. Med lite mer övning kan du snart stiga till pro-ligan. Vill du prova en runda till?",
+  "game.end.motivation.lover":
+    "Bra gjort! 👏 Som musikälskare har du visat betydande kunskap. Du är på rätt väg att bli en riktig musikälskare. Med mer spelövning kan du utöka din kunskap och förbättra din poäng. Är du redo för en ny utmaning?",
+  "game.end.motivation.explorer":
+    "Tack för att du spelade! 🙏 Som musikutforskare har du tagit det första steget i att upptäcka musikens fascinerande värld. Varje spel är en möjlighet att lära sig något nytt. Utmana dig själv, spela fler rundor och utöka din musikkunskap!",
+
+  // ChronologyFeedbackOverlay specific keys
+  "game.chronology.correct_order_description":
+    "Lista som visar den korrekta kronologiska ordningen av händelserna",
+
+  "nav.menu.opened": "Menyn är öppnad",
+  "nav.menu.closed": "Menyn är stängd",
+  "nav.menu.moved_to_first": "Flyttat till första menyalternativ",
+  "nav.menu.moved_to_last": "Flyttat till sista menyalternativ",
+  "nav.menu.focused_on": "Fokuserat på menyalternativ:",
+  "nav.menu.long_press_detected": "Långt tryck upptäckt på menyalternativ",
+
+  // General
+  "general.close": "Stäng",
+
+  // Session timeout
+  "session.timeout.warning": "Din session upphör om {0} sekunder",
+  "session.timeout.extend": "Förläng session",
+  "session.timeout.continue": "Fortsätt",
+  "session.extended": "Session förlängd framgångsrikt",
+
+  // Error messages and accessibility
+  "error.countdown": "Återstående tid till automatisk dölj",
+  "error.extend": "Förläng timeout",
+  "error.extend.tooltip": "Förläng felmeddelandes timeout med 5 sekunder",
+  "error.context.low": "Informativ notis som kräver uppmärksamhet",
+  "error.context.medium": "Felmeddelande som kräver användarens uppmärksamhet",
+  "error.context.high": "Hög prioritet fel som kräver omedelbar uppmärksamhet",
+  "error.context.critical": "Kritiskt fel som kräver omedelbar åtgärd",
+
+  // AudioPlayer Component
+  "audioplayer.aria.region": "Ljudspelare",
+  "audioplayer.play.aria": "Spela ljud",
+  "audioplayer.play.title": "Spela/Pausa",
+  "audioplayer.progress.aria":
+    "Ljudframsteg - Använd piltangenter för att söka, Home för början, End för slutet",
+  "audioplayer.progress.help":
+    "Pil Vänster/Höger: Sök 5 sekunder, Shift+Pil: Sök 30 sekunder, Home: Början, End: Slutet",
+  "audioplayer.volume.toggle.aria": "Växla tyst/avtysta",
+  "audioplayer.volume.toggle.title": "Volym",
+  "audioplayer.volume.slider.aria": "Justera volymnivå",
+  "audioplayer.volume.slider.help":
+    "Använd piltangenter för att justera volymen i 5% steg. Nuvarande volym: {volume}%",
+  "audioplayer.captions.english": "Svenska undertexter",
+  "audioplayer.captions.none": "Inga undertexter tillgängliga",
+  "audioplayer.fallback.download": "Ladda ner ljudfil istället",
+  "audioplayer.fallback.unsupported": "Din webbläsare stöder inte ljudelementet.",
+  "audioplayer.description":
+    "Ljudspelare för {title} {artist}. Använd mellanslag för att spela eller pausa, piltangenter för att söka och M för att tysta.",
+  "audioplayer.description.no_title":
+    "Ljudspelare för spår. Använd mellanslag för att spela eller pausa, piltangenter för att söka och M för att tysta.",
+  "audioplayer.help.button.aria": "Hjälp",
+  "audioplayer.help.button.title": "Ljudspelare tangentbordsgenvägar",
+  "audioplayer.help.shortcuts":
+    "Mellanslag: Spela/Pausa, M: Tyst/Avtysta, Piltangenter: Sök ljud, Upp/Ner: Volymkontroll",
+
+  // Table of Contents
+  "toc.toggle.label": "Växla innehållsförteckning",
+  "toc.state.expanded": "Innehållsförteckning utvidgad",
+  "toc.state.collapsed": "Innehållsförteckning kollapsad",
+  "toc.nav.label": "Innehållsförteckning",
+  "toc.skip.link": "Hoppa över innehållsförteckning",
+
+  // TestLint component
+  "test.lint.title": "Tillgänglighetstest",
+  "test.lint.wcag_title": "WCAG AAA Test",
+  "test.lint.next_level_aria": "Fortsätt till nästa nivå",
+  "test.lint.next_button": "Fortsätt",
+  "test.lint.problematic_button_aria": "Problematisk knapp med dålig kontrast",
+  "test.lint.correct_button_aria": "Korrekt knapp med god kontrast",
+  "test.lint.test_image_alt": "Testbild för tillgänglighet",
+  "test.lint.musician_image_alt": "Musiker som spelar instrument",
+  "test.lint.weak_contrast_text": "Den här texten har svag kontrast",
+  "test.lint.good_contrast_text": "Den här texten har god kontrast",
+  "test.lint.error_message": "Fel: Detta är ett felmeddelande",
+  "test.lint.score_label": "Poäng:",
+  "test.lint.incomplete_button": "Ofullständig",
+  "test.lint.correct_button": "Korrekt",
+  "test.lint.main_heading": "Huvudrubrik",
+  "test.lint.subsection_heading": "Underrubrik",
+
+  // Knowledge accessibility translations
+  "knowledge.accessibility.scrolling_to_top": "Rullar till toppen",
+  "knowledge.accessibility.scrolled_to_top": "Rullat till toppen",
+  "knowledge.accessibility.search_focused": "Sökfältet är nu fokuserat",
+
+  // Game search functionality
+  "game.search.clear": "Rensa sökning",
+  "game.search.help": "Sök efter musikgenrer för att hitta din favoritkategori",
+  "game.search.showing.all": "Visar alla genrer",
+  "game.search.results": "genrer hittade",
+  "game.search.no.results": "Inga genrer hittades som matchar din sökning",
+
+  // Game categories
+  "game.categories.title": "Musikkategorier",
+  "game.categories.loading": "Laddar musikkategorier...",
+
+  // Game genre selection
+  "game.genre.selection.description": "Välj din favoritmusikgenre och testa dina kunskaper",
+
+  // Accessibility
+  "accessibility.skip.to.content": "Hoppa till huvudinnehåll",
+
+  // Kategorisidor
+  "category.about.title": "Om denna kategori",
 };

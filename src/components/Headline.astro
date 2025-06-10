@@ -23,95 +23,400 @@ interface Props {
   focusable?: boolean;
   /** Optional ARIA label for improved screen reader context */
   ariaLabel?: string;
+  /** ARIA describedby for additional context */
+  ariaDescribedBy?: string;
+  /** Semantic wrapper element for better document structure */
+  wrapper?: "section" | "header" | "article" | "div" | "none";
+  /** Text size using CSS custom properties (xs, sm, base, lg, xl, 2xl, 3xl, 4xl) - similar to Paragraph component */
+  size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
+  /** Style variant for visual appearance (default uses standard colors, primary uses gradient) */
+  variant?: "default" | "primary";
+  /** Text alignment option for different layout needs */
+  textAlign?: "left" | "center" | "right";
+  /** Indicates this heading is a skip navigation target */
+  skipTarget?: boolean;
+  /** Makes the heading clickable with proper button semantics */
+  interactive?: boolean;
+  /** Click handler for interactive headlines */
+  onClick?: string;
 }
 
-const { title, level = "h1", className = "", id, focusable = false, ariaLabel } = Astro.props;
+const {
+  title,
+  level = "h1",
+  className = "",
+  id,
+  focusable = false,
+  ariaLabel,
+  ariaDescribedBy,
+  wrapper = "none",
+  size = "xl",
+  variant = "default",
+  textAlign = "left",
+  skipTarget = false,
+  interactive = false,
+  onClick,
+} = Astro.props;
 
 // Dynamic heading tag based on level prop
 const Tag = level;
+const WrapperTag = wrapper === "none" ? "div" : wrapper;
 
 /**
- * BEM-style CSS classes for headline component
- * Follows WCAG AAA accessibility standards
+ * Generate optimized CSS classes following BEM methodology
+ * Ensures WCAG AAA compliance and proper semantic hierarchy
  */
 const baseClasses = "headline";
-const headlineClasses = `${baseClasses} ${className}`.trim();
+const levelClass = `headline--${level}`;
+const sizeClass = size ? `headline--size-${size}` : "";
+const variantClass = variant !== "default" ? `headline--${variant}` : "";
+const focusableClass = focusable ? "headline--focusable" : "";
+const alignClass = textAlign !== "left" ? `headline--align-${textAlign}` : "";
+const skipTargetClass = skipTarget ? "headline--skip-target" : "";
+const interactiveClass = interactive ? "headline--interactive" : "";
+const headlineClasses = [
+  baseClasses,
+  levelClass,
+  sizeClass,
+  variantClass,
+  focusableClass,
+  alignClass,
+  skipTargetClass,
+  interactiveClass,
+  className,
+]
+  .filter(Boolean)
+  .join(" ")
+  .trim();
 
-// Focusable attributes for accessibility when needed (skip navigation)
-const focusableAttrs = focusable
-  ? {
-      tabindex: "-1",
-      class: `${headlineClasses} headline--focusable`,
-    }
-  : { class: headlineClasses };
+// Optimized attributes for better accessibility and performance
+const headlineAttrs = {
+  id,
+  "aria-label": ariaLabel,
+  "aria-describedby": ariaDescribedBy,
+  class: headlineClasses,
+  ...(focusable && {
+    tabindex: "-1" as const,
+    // Only add button role if explicitly marked as interactive
+    ...(interactive && { role: "button" as const }),
+  }),
+  ...(interactive &&
+    onClick && {
+      onclick: onClick,
+    }),
+} as const;
+
+// Wrapper attributes for semantic structure
+const wrapperAttrs =
+  wrapper !== "none"
+    ? ({
+        class: "headline-wrapper",
+        role: wrapper === "div" ? ("region" as const) : undefined,
+      } as const)
+    : null;
 ---
 
 <style>
   /* ======================================
    * HEADLINE COMPONENT - BEM STYLE
+   * WCAG AAA 2.2 COMPLIANT STYLES
    * ====================================== */
 
+  /* ======================================
+   * SHARED RESPONSIVE TYPOGRAPHY PATTERNS - DRY OPTIMIZED
+   * ====================================== */
+
+  /* Enhanced text spacing support (WCAG 2.2) */
   .headline {
-    /* Base headline styles with WCAG AAA compliance */
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.025em;
-    margin-bottom: 1.5rem;
-    color: var(--color-sky-500, #0ea5e9);
+    /* Base headline styles using CSS variables from global.css */
+    font-weight: var(--font-bold);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--letter-spacing-base);
+    margin-bottom: var(--space-lg);
+    color: var(--text-primary);
     text-wrap: balance;
     word-break: break-words;
+    transition: color var(--transition-normal);
 
-    /* Responsive typography */
-    @media (min-width: 768px) {
-      font-size: 2.5rem;
-    }
+    /* Support for enhanced text spacing (2x letter spacing, 1.5x line height) */
+    letter-spacing: max(var(--letter-spacing-base), var(--letter-spacing-enhanced));
+    line-height: max(var(--leading-tight), var(--line-height-enhanced));
+    word-spacing: max(normal, var(--word-spacing-enhanced));
   }
 
-  /* Focusable modifier for accessibility */
+  /* Focusable modifier for accessibility (WCAG 2.2 AAA) */
   .headline--focusable {
-    /* Focus styles for skip navigation and screen readers */
+    /* Enhanced focus styles with 4.5:1 contrast ratio */
     &:focus {
-      outline: none;
-      box-shadow:
-        0 0 0 2px var(--color-sky-500, #0ea5e9),
-        0 0 0 4px var(--color-zinc-900, #18181b);
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--focus-ring);
+      /* Minimum touch target size (WCAG 2.2) */
+      min-height: var(--min-touch-size);
+      min-width: var(--min-touch-size);
+      /* Enhanced focus appearance */
+      background-color: var(--focus-bg-overlay);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-fast);
     }
   }
 
-  /* Size modifiers */
-  .headline--small {
-    font-size: 1.25rem;
+  /* Interactive modifier for clickable headlines */
+  .headline--interactive {
+    cursor: pointer;
+    transition: all var(--transition-normal);
 
-    @media (min-width: 768px) {
-      font-size: 1.5rem;
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: var(--text-decoration-thickness);
+      text-underline-offset: var(--text-underline-offset);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
     }
   }
 
-  .headline--large {
-    font-size: 2.5rem;
+  /* Skip navigation target styling */
+  .headline--skip-target {
+    scroll-margin-top: var(--space-xl);
+    position: relative;
 
-    @media (min-width: 768px) {
-      font-size: 3rem;
+    &::before {
+      content: "";
+      position: absolute;
+      top: calc(-1 * var(--space-lg));
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: transparent;
+      transition: background-color var(--transition-fast);
+    }
+
+    &:target::before {
+      background-color: var(--interactive-primary);
+      box-shadow: 0 0 var(--space-sm) var(--interactive-primary);
+    }
+
+    &:target {
+      animation: skip-highlight 2s ease-in-out;
     }
   }
 
-  /* Level-specific adjustments for semantic hierarchy */
-  .headline h2 {
-    margin-bottom: 1.25rem;
+  /* Size variants using CSS custom properties - similar to Paragraph component */
+  .headline--size-xs {
+    font-size: var(--text-xs);
+  }
+  .headline--size-sm {
+    font-size: var(--text-sm);
+  }
+  .headline--size-base {
+    font-size: var(--text-base);
+  }
+  .headline--size-lg {
+    font-size: var(--text-lg);
+  }
+  .headline--size-xl {
+    font-size: var(--text-xl);
+  }
+  .headline--size-2xl {
+    font-size: var(--text-2xl);
+  }
+  .headline--size-3xl {
+    font-size: var(--text-3xl);
+  }
+  .headline--size-4xl {
+    font-size: var(--text-4xl);
   }
 
-  .headline h3 {
-    margin-bottom: 1rem;
+  /* Responsive size adjustments for larger text sizes */
+  @media (min-width: var(--breakpoint-md)) {
+    .headline--size-xl {
+      font-size: var(--text-2xl);
+    }
+    .headline--size-2xl {
+      font-size: var(--text-3xl);
+    }
+    .headline--size-3xl {
+      font-size: var(--text-4xl);
+    }
+    .headline--size-4xl {
+      font-size: calc(var(--text-4xl) * 1.25);
+    }
   }
 
-  .headline h4,
-  .headline h5,
-  .headline h6 {
-    margin-bottom: 0.75rem;
+  @media (min-width: var(--breakpoint-lg)) {
+    .headline--size-2xl {
+      font-size: var(--text-4xl);
+    }
+    .headline--size-3xl {
+      font-size: calc(var(--text-4xl) * 1.25);
+    }
+    .headline--size-4xl {
+      font-size: calc(var(--text-4xl) * 1.5);
+    }
+  }
+
+  .headline--primary {
+    /* WCAG AAA compliant fallback color (7:1 contrast ratio) */
+    color: var(--interactive-primary);
+
+    /* Enhanced gradient text with accessibility considerations */
+    background: linear-gradient(135deg, var(--color-primary-500), var(--color-secondary-500));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift var(--animation-gradient);
+    will-change: background-position;
+
+    /* Fallback for browsers that don't support background-clip: text */
+    @supports not (background-clip: text) {
+      background: none;
+      -webkit-text-fill-color: initial;
+      color: var(--interactive-primary);
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+      background: none;
+      -webkit-text-fill-color: initial;
+      color: var(--text-primary);
+      font-weight: var(--font-bold);
+    }
+
+    /* Ensure proper contrast in forced colors mode */
+    @media (forced-colors: active) {
+      background: none;
+      -webkit-text-fill-color: initial;
+      color: ButtonText;
+      forced-color-adjust: none;
+    }
+  }
+
+  /* Level-specific typography - consolidated font weights for DRY */
+  .headline--h1 {
+    font-weight: var(--font-bold);
+  }
+
+  .headline--h2,
+  .headline--h3 {
+    font-weight: var(--font-semibold);
+  }
+
+  .headline--h4,
+  .headline--h5,
+  .headline--h6 {
+    font-weight: var(--font-medium);
+  }
+
+  /* Text alignment modifiers for layout flexibility */
+  .headline--align-center {
+    text-align: center;
+  }
+
+  .headline--align-right {
+    text-align: right;
+  }
+
+  /* Level-specific sizes and spacing */
+  .headline--h1 {
+    margin-bottom: var(--space-xl);
+
+  }
+
+  .headline--h2 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .headline--h3 {
+    margin-bottom: var(--space-md);
+  }
+
+  .headline--h4,
+  .headline--h5,
+  .headline--h6 {
+    margin-bottom: var(--space-sm);
+  }
+
+  /* Gradient animation optimized for performance */
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Skip navigation highlight animation */
+  @keyframes skip-highlight {
+    0% {
+      background-color: transparent;
+    }
+    10%,
+    90% {
+      background-color: var(--focus-bg-overlay);
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+
+  /* Wrapper element for semantic structure */
+  .headline-wrapper {
+    display: contents; /* Maintains layout flow */
+  }
+
+  /* Enhanced support for reduced motion (WCAG 2.2) - specific overrides only */
+  @media (prefers-reduced-motion: reduce) {
+    .headline {
+      /* Reset enhanced spacing to standard for reduced motion */
+      letter-spacing: var(--letter-spacing-base);
+      line-height: var(--leading-tight);
+    }
+
+    .headline--primary {
+      /* Reset gradient animation - global reduced motion handles animation: none */
+      background: none;
+      -webkit-text-fill-color: initial;
+      color: var(--interactive-primary);
+      will-change: auto;
+      animation: none;
+    }
+
+    .headline--skip-target {
+      animation: none;
+
+      &:target {
+        /* Static highlight for reduced motion users */
+        background-color: var(--focus-bg-overlay);
+        border-radius: var(--radius-sm);
+        padding: var(--space-xs);
+        margin: calc(-1 * var(--space-xs));
+      }
+    }
+
+    .headline--interactive {
+      &:hover {
+        transform: none;
+      }
+
+      &:active {
+        transform: none;
+      }
+    }
   }
 </style>
 
-<Tag {id} aria-label={ariaLabel} {...focusableAttrs}>
-  {title || <slot />}
-</Tag>
+{
+  wrapper !== "none" ? (
+    <WrapperTag {...wrapperAttrs}>
+      <Tag {...headlineAttrs}>{title || <slot />}</Tag>
+    </WrapperTag>
+  ) : (
+    <Tag {...headlineAttrs}>{title || <slot />}</Tag>
+  )
+}

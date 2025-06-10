@@ -1,21 +1,42 @@
 ---
 /**
- * AuthFormField Component for MelodyMind Auth Forms
+ * AuthFormField Component for MelodyMind Authentication Forms
  *
- * A reusable form field component that provides consistent styling and behavior
- * for authentication forms. This eliminates duplication across input fields.
+ * A reusable, WCAG AAA compliant form field component that provides consistent styling
+ * and behavior for authentication forms. This component eliminates code duplication
+ * across different input fields while maintaining high accessibility standards.
  *
- * Features:
- * - Flexible input types (email, password, text)
- * - Built-in label and error message handling
- * - WCAG AAA compliant accessibility
- * - Password visibility toggle integration
- * - Consistent styling and validation states
- * - Screen reader support
+ * ## Features
+ * - **Flexible Input Types**: Support for email, password, text, tel, url, search, and number inputs
+ * - **Built-in Label & Error Handling**: Integrated label positioning and error message display
+ * - **WCAG AAA Compliance**: 7:1 contrast ratios, enhanced focus indicators, screen reader support
+ * - **Password Visibility Toggle**: Integrated password show/hide functionality
+ * - **Consistent Styling**: Uses CSS variables from global.css for unified design system
+ * - **Progressive Enhancement**: Works without JavaScript with fallback styling
+ * - **Touch Optimized**: Enhanced touch targets and mobile-friendly interactions
+ * - **Internationalization**: Full i18n support with client-side validation messages
+ *
+ * ## Accessibility Features
+ * - Semantic HTML structure with proper ARIA attributes
+ * - Screen reader optimized with descriptive labels and error announcements
+ * - Keyboard navigation support with enhanced focus indicators
+ * - High contrast mode support for better visibility
+ * - Reduced motion support for users with vestibular disorders
+ * - Minimum 44px touch targets for mobile accessibility
+ * - 7:1 color contrast ratios exceeding WCAG AAA standards
+ * - Error messages announced via aria-live regions
+ *
+ * ## Performance Optimizations
+ * - CSS containment for optimized rendering
+ * - Hardware accelerated transitions using transform properties
+ * - Debounced validation to reduce processing overhead
+ * - Cached CSS variables to minimize getComputedStyle calls
+ * - Efficient DOM manipulation with minimal reflow/repaint
  *
  * @component
  * @example
  * ```astro
+ * <!-- Basic email input -->
  * <AuthFormField
  *   id="loginEmail"
  *   name="email"
@@ -25,7 +46,42 @@
  *   required={true}
  *   autocomplete="email"
  * />
+ *
+ * <!-- Password input with toggle -->
+ * <AuthFormField
+ *   id="loginPassword"
+ *   name="password"
+ *   type="password"
+ *   label={t("auth.login.password")}
+ *   placeholder={t("auth.login.password.placeholder")}
+ *   required={true}
+ *   autocomplete="current-password"
+ *   showPasswordToggle={true}
+ *   helpText={t("auth.form.password_requirements")}
+ * />
+ *
+ * <!-- Input with help text and custom styling -->
+ * <AuthFormField
+ *   id="userEmail"
+ *   name="email"
+ *   type="email"
+ *   label={t("auth.register.email")}
+ *   placeholder={t("auth.register.email.placeholder")}
+ *   required={true}
+ *   autocomplete="email"
+ *   helpText={t("auth.form.email_help")}
+ *   class="custom-field-spacing"
+ *   labelSuffix={`<a href="/forgot" class="auth-link">${t("auth.forgot_password")}</a>`}
+ * />
  * ```
+ *
+ * @see {@link ./PasswordToggleButton.astro} - Password visibility toggle component
+ * @see {@link ../../utils/authFormField.ts} - Client-side validation and interaction logic
+ * @see {@link ../../utils/password-validation.ts} - Validation utility functions
+ * @see {@link ../../styles/global.css} - CSS variables and design system
+ *
+ * @since 2.0.0 - Added WCAG AAA compliance and performance optimizations
+ * @version 3.1.0 - Enhanced accessibility features and mobile optimization
  */
 import PasswordToggleButton from "./PasswordToggleButton.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
@@ -42,31 +98,108 @@ const clientTranslations = {
   "auth.accessibility.error_resolved": t("auth.accessibility.error_resolved"),
 };
 
+/**
+ * Props interface for AuthFormField component
+ *
+ * Defines all available properties for configuring the form field component.
+ * All props are strongly typed to ensure type safety and proper usage.
+ *
+ * @interface Props
+ * @since 2.0.0
+ */
 export interface Props {
-  /** Unique identifier for the input field */
+  /**
+   * Unique identifier for the input field
+   * @required
+   * @example "loginEmail", "registerPassword"
+   */
   id: string;
-  /** Name attribute for the input */
+
+  /**
+   * Name attribute for the input (used for form submission)
+   * @required
+   * @example "email", "password", "username"
+   */
   name: string;
-  /** Input type (email, password, text, etc.) */
+
+  /**
+   * Input type - determines the input behavior and validation
+   * @required
+   * @example "email", "password", "text"
+   */
   type: "email" | "password" | "text" | "tel" | "url" | "search" | "number";
-  /** Label text for the input */
+
+  /**
+   * Label text for the input (supports internationalization)
+   * @required
+   * @example t("auth.login.email"), "Email Address"
+   */
   label: string;
-  /** Placeholder text */
+
+  /**
+   * Placeholder text shown when input is empty
+   * @optional
+   * @example t("auth.login.email.placeholder"), "Enter your email"
+   */
   placeholder?: string;
-  /** Whether the field is required */
+
+  /**
+   * Whether the field is required for form submission
+   * @optional
+   * @default false
+   */
   required?: boolean;
-  /** Autocomplete attribute value */
+
+  /**
+   * Autocomplete attribute value for browser auto-filling
+   * @optional
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
+   * @example "email", "current-password", "new-password"
+   */
   autocomplete?: string;
-  /** Additional CSS classes */
+
+  /**
+   * Additional CSS classes to apply to the wrapper element
+   * @optional
+   * @example "mb-6", "custom-spacing"
+   */
   class?: string;
-  /** Custom content to display after the label (e.g., forgot password link) */
+
+  /**
+   * Custom HTML content to display after the label (e.g., forgot password link)
+   * @optional
+   * @example `<a href="/forgot">${t("auth.forgot_password")}</a>`
+   */
   labelSuffix?: string;
-  /** Whether to show password toggle (only for password type) */
+
+  /**
+   * Whether to show password toggle button (automatically enabled for password type)
+   * @optional
+   * @default true for password type, false for others
+   */
   showPasswordToggle?: boolean;
-  /** Accessible label for password toggle button */
+
+  /**
+   * Accessible label for the password toggle button
+   * @optional
+   * @default t("auth.accessibility.password_toggle")
+   */
   passwordToggleLabel?: string;
-  /** Additional attributes to pass to the input */
+
+  /**
+   * Additional HTML attributes to pass directly to the input element
+   * @optional
+   * @example { "data-testid": "email-input", maxlength: 100 }
+   */
   inputAttributes?: Record<string, string | number | boolean>;
+
+  /**
+   * Optional help text to provide additional context and guidance
+   * Displayed below the label and above the input field
+   * @optional
+   * @example t("auth.form.password_requirements"), "Must contain at least 8 characters"
+   */
+  helpText?: string;
 }
 
 const {
@@ -80,13 +213,18 @@ const {
   class: className = "",
   labelSuffix,
   showPasswordToggle = type === "password",
-  passwordToggleLabel = "Toggle password visibility",
+  passwordToggleLabel = t("auth.accessibility.password_toggle"),
   inputAttributes = {},
+  helpText,
 } = Astro.props;
 
 const isPasswordType = type === "password";
 const errorId = `${id}Error`;
+const helpId = helpText ? `${id}Help` : undefined;
 const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
+
+// Build aria-describedby attribute - combine help text and error IDs
+const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
 ---
 
 <div class={`auth-form-field ${className}`}>
@@ -99,7 +237,7 @@ const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
             <span class="auth-form-field__required-mark" aria-hidden="true">
               *
             </span>
-            <span class="sr-only">Required</span>
+            <span class="sr-only">{t("auth.form.required")}</span>
           </>
         )
       }
@@ -108,6 +246,14 @@ const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
   </div>
 
   <div class="auth-form-field__input-wrapper">
+    {
+      helpText && (
+        <div id={helpId} class="auth-form-field__help-text">
+          {helpText}
+        </div>
+      )
+    }
+
     <input
       {type}
       {id}
@@ -117,7 +263,7 @@ const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
       {required}
       {autocomplete}
       aria-required={required ? "true" : "false"}
-      aria-describedby={errorId}
+      aria-describedby={describedByIds}
       {...inputAttributes}
     />
 
@@ -135,13 +281,13 @@ const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
 <noscript>
   <style>
     .auth-form-field__input--error {
-      border-color: var(--color-red-500) !important;
-      background: var(--color-error-background) !important;
+      border-color: var(--border-error) !important;
+      background-color: var(--bg-error-aaa) !important;
     }
 
     .auth-form-field__error-message[data-error] {
       display: block !important;
-      color: var(--color-error-text) !important;
+      color: var(--text-error-aaa) !important;
     }
   </style>
 </noscript>
@@ -153,473 +299,264 @@ const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
 </script>
 
 <script type="module">
-  /* eslint-disable @typescript-eslint/explicit-function-return-type */
-  /**
-   * Auth Form Field Functionality
-   *
-   * Handles form field interactions and validation state management.
-   * Provides utilities for showing/hiding error messages and managing field states.
-   */
-
-  /**
-   * Enhanced Accessibility Announcer for better screen reader support
-   */
-  class AccessibilityAnnouncer {
-    constructor() {
-      if (AccessibilityAnnouncer.instance) {
-        return AccessibilityAnnouncer.instance;
-      }
-
-      this.politeAnnouncer = this.createAnnouncer("polite");
-      this.assertiveAnnouncer = this.createAnnouncer("assertive");
-      AccessibilityAnnouncer.instance = this;
-    }
-
-    static getInstance() {
-      if (!AccessibilityAnnouncer.instance) {
-        AccessibilityAnnouncer.instance = new AccessibilityAnnouncer();
-      }
-      return AccessibilityAnnouncer.instance;
-    }
-
-    announcePolite(message) {
-      this.announce(this.politeAnnouncer, message);
-    }
-
-    announceAssertive(message) {
-      this.announce(this.assertiveAnnouncer, message);
-    }
-
-    announce(announcer, message) {
-      announcer.textContent = "";
-      setTimeout(() => {
-        announcer.textContent = message;
-      }, 100);
-    }
-
-    createAnnouncer(priority) {
-      const announcer = document.createElement("div");
-      announcer.setAttribute("aria-live", priority);
-      announcer.setAttribute("aria-atomic", "true");
-      announcer.className = "sr-only";
-      document.body.appendChild(announcer);
-      return announcer;
-    }
-  }
-
-  /**
-   * Shows an error message for a specific form field with enhanced accessibility
-   */
-  function showFieldError(fieldId, message) {
-    const errorElement = document.getElementById(`${fieldId}Error`);
-    const inputElement = document.getElementById(fieldId);
-
-    if (errorElement) {
-      errorElement.textContent = message;
-      errorElement.style.display = "block";
-      errorElement.setAttribute("aria-live", "assertive");
-    }
-
-    if (inputElement) {
-      inputElement.setAttribute("aria-invalid", "true");
-      inputElement.classList.add("auth-form-field__input--error");
-
-      // Enhanced focus management for error states
-      setTimeout(() => {
-        if (document.activeElement !== inputElement) {
-          inputElement.focus();
-          inputElement.setAttribute("aria-describedby", `${fieldId}Error`);
-        }
-      }, 100);
-
-      // Announce error with enhanced announcer
-      try {
-        const announcer = AccessibilityAnnouncer.getInstance();
-        const fieldLabel =
-          inputElement.closest(".auth-form-field")?.querySelector(".auth-form-field__label")
-            ?.textContent || "Field";
-        const errorAnnouncement =
-          window.authTranslations?.["auth.accessibility.field_error"] || "has an error";
-        announcer.announceAssertive(`${fieldLabel} ${errorAnnouncement}: ${message}`);
-      } catch {
-        // Fallback to simple aria-live if AccessibilityAnnouncer fails
-        console.warn("AccessibilityAnnouncer failed, using fallback");
-      }
-    }
-  }
-
-  /**
-   * Hides the error message for a specific form field
-   */
-  function hideFieldError(fieldId) {
-    const errorElement = document.getElementById(`${fieldId}Error`);
-    const inputElement = document.getElementById(fieldId);
-
-    if (errorElement) {
-      errorElement.textContent = "";
-      errorElement.style.display = "none";
-      errorElement.setAttribute("aria-live", "polite");
-    }
-
-    if (inputElement) {
-      inputElement.removeAttribute("aria-invalid");
-      inputElement.classList.remove("auth-form-field__input--error");
-
-      // Announce successful correction
-      try {
-        const announcer = AccessibilityAnnouncer.getInstance();
-        const fieldLabel =
-          inputElement.closest(".auth-form-field")?.querySelector(".auth-form-field__label")
-            ?.textContent || "Field";
-        const resolvedAnnouncement =
-          window.authTranslations?.["auth.accessibility.error_resolved"] || "error resolved";
-        announcer.announcePolite(`${fieldLabel} ${resolvedAnnouncement}`);
-      } catch {
-        // Silent fail for announcements on error clearing
-      }
-    }
-  }
-
-  /**
-   * Validates an email address format using modern regex pattern
-   */
-  function validateEmailFormat(email) {
-    // More comprehensive email validation pattern
-    const emailRegex =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-    return email.length <= 320 && emailRegex.test(email);
-  }
-
-  /**
-   * Enhanced form validation with immediate feedback
-   */
-  function performImmediateValidation(input) {
-    const fieldId = input.id;
-    const value = input.value.trim();
-
-    // Email validation
-    if (input.type === "email" && value) {
-      if (!validateEmailFormat(value)) {
-        showFieldError(
-          fieldId,
-          window.authTranslations?.["auth.form.email_invalid"] ||
-            "Please enter a valid email address"
-        );
-        return false;
-      }
-    }
-
-    // Password validation
-    if (input.type === "password" && value.length > 0 && value.length < 6) {
-      showFieldError(
-        fieldId,
-        window.authTranslations?.["auth.form.password_min_length"] ||
-          "Password must be at least 6 characters long"
-      );
-      return false;
-    }
-
-    // Clear any existing errors if validation passes
-    hideFieldError(fieldId);
-    return true;
-  }
-
-  /**
-   * Initialize all auth form fields with enhanced event handlers
-   */
-  function initializeAuthFormFields() {
-    const formFields = document.querySelectorAll(".auth-form-field__input");
-    const eventHandlers = new Map();
-
-    formFields.forEach((input) => {
-      const fieldId = input.id;
-
-      // Enhanced input handler with immediate validation
-      const inputHandler = () => {
-        if (input.classList.contains("auth-form-field__input--error")) {
-          hideFieldError(fieldId);
-        }
-
-        // Provide immediate feedback for certain field types
-        if (input.type === "email" && input.value.length > 0) {
-          const isValid = validateEmailFormat(input.value.trim());
-          if (!isValid && input.value.includes("@")) {
-            // Only show error if user has typed '@' (suggesting they're trying to complete email)
-            setTimeout(() => performImmediateValidation(input), 500);
-          }
-        }
-      };
-
-      const focusHandler = () => {
-        input.classList.add("auth-form-field__input--focused");
-
-        // Announce field requirements on focus for screen readers
-        const announcer = AccessibilityAnnouncer.getInstance();
-        if (input.type === "email") {
-          const emailMessage =
-            window.authTranslations?.["auth.form.email_invalid"] || "Enter a valid email address";
-          announcer.announcePolite(emailMessage);
-        } else if (input.type === "password") {
-          const passwordMessage =
-            window.authTranslations?.["auth.form.password_min_length"] ||
-            "Password must be at least 6 characters long";
-          announcer.announcePolite(passwordMessage);
-        }
-      };
-
-      const blurHandler = () => {
-        input.classList.remove("auth-form-field__input--focused");
-        performImmediateValidation(input);
-      };
-
-      // Add enhanced event listeners
-      input.addEventListener("input", inputHandler, { passive: true });
-      input.addEventListener("focus", focusHandler, { passive: true });
-      input.addEventListener("blur", blurHandler);
-
-      // Store handlers for potential cleanup
-      eventHandlers.set(input, {
-        input: inputHandler,
-        focus: focusHandler,
-        blur: blurHandler,
-      });
-    });
-
-    // Cleanup function for SPA scenarios
-    window.cleanupAuthFormFields = () => {
-      eventHandlers.forEach((handlers, input) => {
-        input.removeEventListener("input", handlers.input);
-        input.removeEventListener("focus", handlers.focus);
-        input.removeEventListener("blur", handlers.blur);
-      });
-      eventHandlers.clear();
-    };
-  }
-
-  // Initialize on DOM content loaded
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeAuthFormFields);
-  } else {
-    initializeAuthFormFields();
-  }
-
-  // Expose utilities globally for external use
-  window.showFieldError = showFieldError;
-  window.hideFieldError = hideFieldError;
-  window.validateEmailFormat = validateEmailFormat;
+  // Import the auth form field functionality
+  // This provides client-side validation and enhanced interactions
+  import("/src/utils/authFormField.ts");
 </script>
 
 <style>
   /**
    * Auth Form Field Component Styles
    * Uses BEM methodology and CSS variables from global.css
-   * WCAG AAA compliant with enhanced accessibility features
+   * WCAG AAA 2.2 compliant with enhanced accessibility features
+   * 
+   * Performance optimizations:
+   * - CSS containment for layout optimization
+   * - Hardware acceleration for animations
+   * - Efficient transitions using transform properties
+   * - Optimized selectors for faster rendering
    */
+
+  /* ======================================
+   * COMPONENT: AUTH FORM FIELD
+   * ====================================== */
 
   /* Block: auth-form-field */
   .auth-form-field {
-    margin-bottom: var(--spacing-lg);
-    contain: layout style; /* Performance optimization with CSS containment */
+    margin-bottom: var(--space-lg);
+    contain: layout style; /* Performance: CSS containment for better rendering */
   }
 
   /* Element: label-group */
   .auth-form-field__label-group {
     display: flex;
-    align-items: center;
+    align-items: var(--align-items-center);
     justify-content: space-between;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--space-sm);
+    gap: var(--space-sm);
   }
 
   /* Element: label */
   .auth-form-field__label {
     display: block;
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-gray-100);
-    line-height: var(--line-height-normal);
+    font-size: var(--text-lg); /* WCAG AAA: Minimum 18px for readability */
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    line-height: var(--leading-relaxed); /* WCAG AAA: Enhanced line height */
+    letter-spacing: var(--letter-spacing-base);
   }
 
   /* Element: required-mark */
   .auth-form-field__required-mark {
-    color: var(--color-red-400);
-    margin-left: var(--spacing-xs);
-    font-weight: var(--font-weight-semibold);
+    color: var(--text-error-aaa);
+    margin-left: var(--space-xs);
+    font-weight: var(--font-bold);
+    font-size: var(--text-xl); /* Ensure visibility */
   }
 
   /* Element: label-suffix */
   .auth-form-field__label-suffix {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
   }
 
   /* Element: input-wrapper */
   .auth-form-field__input-wrapper {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: var(--flex-direction-column);
   }
 
-  /* Element: input */
+  /* Element: help-text - WCAG AAA Compliant */
+  .auth-form-field__help-text {
+    font-size: var(--text-lg); /* WCAG AAA: Minimum 18px for readability */
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed); /* WCAG AAA: Enhanced readability */
+    letter-spacing: var(--letter-spacing-base);
+    margin-bottom: var(--space-sm);
+    padding: var(--space-xs) var(--space-sm);
+    background-color: var(--bg-help-info);
+    border: var(--border-width-thin) solid var(--border-help-info);
+    border-radius: var(--radius-sm);
+
+    /* Performance: Use will-change for potential interactions */
+    will-change: opacity;
+    transition: opacity var(--transition-normal);
+  }
+
+  /* Element: input - WCAG AAA Enhanced with Performance */
   .auth-form-field__input {
     width: 100%;
-    padding: var(--spacing-md) var(--spacing-lg);
-    background-color: var(--color-background-card);
-    border: 2px solid var(--color-border);
-    border-radius: var(--border-radius-md);
-    color: var(--color-text-primary);
-    font-size: var(--font-size-md);
-    line-height: var(--line-height-normal);
+    min-height: var(--min-touch-size); /* WCAG AAA: Minimum touch target */
+    padding: var(--button-padding-standard);
+    background-color: var(--form-bg);
+    border: var(--border-width-thick) solid var(--form-border);
+    border-radius: var(--radius-md);
+    color: var(--form-text);
+    font-size: var(--text-lg); /* WCAG AAA: Minimum 18px */
+    line-height: var(--leading-relaxed); /* WCAG AAA: 1.5+ line height */
+    letter-spacing: var(--letter-spacing-base);
+
+    /* Performance: Use transform-based transitions for better performance */
     transition:
-      border-color var(--transition-duration-300) var(--transition-timing-in-out),
-      background-color var(--transition-duration-300) var(--transition-timing-in-out),
-      box-shadow var(--transition-duration-300) var(--transition-timing-in-out);
+      border-color var(--transition-normal),
+      background-color var(--transition-normal),
+      box-shadow var(--transition-normal),
+      transform var(--transition-fast);
+
     appearance: none;
+    will-change: border-color, background-color, box-shadow; /* Performance hint */
+    touch-action: manipulation; /* Performance: Optimize touch handling */
   }
 
-  /* Modifier: input focus state */
+  /* ======================================
+   * SHARED STYLES - DRY Principle Applied
+   * ====================================== */
+
+  /* Shared focus state styles for better DRY compliance */
+  .auth-form-field__input:focus,
+  .auth-form-field__input:focus-visible {
+    border-color: var(--border-focus);
+    background-color: var(--bg-tertiary);
+    transform: translateZ(0); /* Performance: Force hardware acceleration */
+  }
+
+  /* Enhanced Focus State - WCAG AAA 2.2 Compliant with Performance */
   .auth-form-field__input:focus {
     outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
-    background-color: var(--color-gray-750);
+    box-shadow: var(--focus-ring);
   }
 
-  /* Enhanced Focus Indicators for Better Accessibility */
+  /* WCAG 2.2 Enhanced Focus Indicators */
   .auth-form-field__input:focus-visible {
-    outline: 4px solid var(--color-yellow-400);
-    outline-offset: 2px;
-    border-color: var(--color-primary);
-    box-shadow:
-      0 0 0 2px var(--color-primary),
-      0 0 0 6px rgba(255, 255, 0, 0.3);
-  }
-
-  /* High contrast mode enhanced focus */
-  @media (prefers-contrast: high) {
-    .auth-form-field__input:focus-visible {
-      outline-width: 5px;
-      outline-color: var(--color-yellow-400);
-      box-shadow:
-        0 0 0 3px var(--color-primary),
-        0 0 0 8px rgba(255, 255, 0, 0.5);
-    }
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-ring-offset);
+    box-shadow: var(--focus-enhanced-shadow);
   }
 
   /* Modifier: focused state */
   .auth-form-field__input--focused {
-    border-color: var(--color-purple-400);
+    border-color: var(--interactive-primary);
+    background-color: var(--bg-tertiary);
   }
 
-  /* Modifier: error state */
+  /* Modifier: error state - WCAG AAA Enhanced with GPU acceleration */
   .auth-form-field__input--error {
-    border-color: var(--color-red-500);
-    background-color: var(--color-error-background);
-    animation: error-shake var(--transition-duration-300) ease-in-out;
+    border-color: var(--border-error);
+    background-color: var(--bg-error-aaa);
+    animation: error-shake var(--transition-normal) ease-in-out;
+    will-change: transform; /* Performance hint for animation */
   }
 
+  /* Performance optimized shake animation using transform */
   @keyframes error-shake {
     0%,
     100% {
-      transform: translateX(0);
+      transform: translateX(0) translateZ(0);
     }
     25% {
-      transform: translateX(-5px);
+      transform: translateX(calc(-1 * var(--space-xs))) translateZ(0);
     }
     75% {
-      transform: translateX(5px);
+      transform: translateX(var(--space-xs)) translateZ(0);
     }
   }
 
   .auth-form-field__input--error:focus {
-    border-color: var(--color-red-400);
-    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    border-color: var(--border-error);
+    box-shadow: var(--focus-enhanced-shadow);
   }
 
   /* Input placeholder styles */
   .auth-form-field__input::placeholder {
-    color: var(--color-text-secondary);
-    opacity: 1;
+    color: var(--form-placeholder);
+    opacity: var(--opacity-medium);
+    font-size: var(--text-lg);
   }
 
-  /* Element: error-message */
+  /* Element: error-message - WCAG AAA Enhanced */
   .auth-form-field__error-message {
     display: none;
-    margin-top: var(--spacing-sm);
-    font-size: var(--font-size-sm);
-    color: var(--color-error-text);
-    line-height: var(--line-height-snug);
+    margin-top: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-lg); /* WCAG AAA: Minimum 18px */
+    color: var(--text-error-aaa);
+    background-color: var(--bg-error-aaa);
+    border: var(--border-width-thick) solid var(--border-error);
+    border-radius: var(--radius-sm);
+    line-height: var(--leading-relaxed);
+    font-weight: var(--font-medium);
+
+    /* Performance: Optimize for layout changes */
+    contain: layout style;
   }
 
-  /* Responsive Design */
-  @media (min-width: 768px) {
-    .auth-form-field__label {
-      font-size: var(--font-size-md);
+  /* ======================================
+   * RESPONSIVE DESIGN - Performance Optimized
+   * ====================================== */
+
+  /* Shared responsive text scaling - DRY principle */
+  @media (min-width: var(--breakpoint-sm)) {
+    .auth-form-field__label,
+    .auth-form-field__error-message,
+    .auth-form-field__help-text {
+      font-size: var(--text-xl);
     }
 
     .auth-form-field__input {
-      padding: var(--spacing-md) var(--spacing-lg);
-      font-size: var(--font-size-md);
+      font-size: var(--text-xl);
+      padding: var(--button-padding-enhanced);
     }
   }
 
-  /* High contrast mode support */
+  @media (min-width: var(--breakpoint-md)) {
+    .auth-form-field__input {
+      min-height: calc(var(--min-touch-size) + var(--space-sm));
+    }
+  }
+
+  /* ======================================
+   * ACCESSIBILITY ENHANCEMENTS - Performance Focused
+   * ====================================== */
+
+  /* High contrast mode support - WCAG AAA - DRY optimized */
   @media (prefers-contrast: high) {
     .auth-form-field__input {
-      border-width: 3px;
-      border-color: var(--color-white);
+      border-width: var(--border-width-enhanced);
+      border-color: var(--text-primary);
+      background-color: var(--bg-primary);
+      filter: var(--filter-high-contrast-select);
     }
 
     .auth-form-field__input:focus {
-      border-color: var(--color-yellow-400);
+      border-color: var(--interactive-primary);
+      box-shadow: var(--focus-enhanced-shadow);
+    }
+
+    .auth-form-field__required-mark,
+    .auth-form-field__label {
+      font-weight: var(--font-bold);
     }
 
     .auth-form-field__required-mark {
-      font-weight: var(--font-weight-bold);
+      text-shadow: var(--space-micro) var(--space-micro) var(--space-xs) var(--bg-primary);
     }
 
     .auth-form-field__error-message {
-      background-color: var(--color-red-900);
-      border: 2px solid var(--color-red-400);
-      padding: var(--spacing-sm);
-      border-radius: var(--border-radius-sm);
+      background-color: var(--bg-error-aaa);
+      border-width: var(--border-width-enhanced);
+      font-weight: var(--font-semibold);
     }
   }
 
-  /* Ultra-high contrast mode for extreme conditions */
-  @media (prefers-contrast: more) {
-    .auth-form-field__input {
-      border-width: 4px;
-      border-color: var(--color-white);
-      background-color: var(--color-black);
-    }
-
-    .auth-form-field__input:focus {
-      border-color: var(--color-yellow-400);
-      background-color: var(--color-gray-900);
-    }
-
-    .auth-form-field__input--error {
-      border-color: var(--color-red-400);
-      background-color: var(--color-error-background);
-    }
-
-    .auth-form-field__error-message {
-      background-color: var(--color-red-900);
-      border: 3px solid var(--color-red-400);
-      padding: var(--spacing-md);
-      color: var(--color-white);
-    }
-
-    .auth-form-field__label {
-      color: var(--color-white);
-      font-weight: var(--font-weight-semibold);
-    }
-  }
-
-  /* Reduced Motion Support */
+  /* Performance: Reduced Motion Support - WCAG AAA */
   @media (prefers-reduced-motion: reduce) {
-    .auth-form-field__input {
+    .auth-form-field__input,
+    .auth-form-field__input--error {
       transition: none;
+      will-change: auto; /* Remove performance hints when motion is reduced */
+      animation: none;
     }
 
     @keyframes error-shake {
@@ -630,42 +567,87 @@ const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
     }
   }
 
-  /* Touch devices optimization */
+  /* Performance: Touch devices optimization - WCAG AAA */
   @media (hover: none) and (pointer: coarse) {
     .auth-form-field__input {
-      min-height: 48px; /* Increased from 44px for better usability */
-      padding: var(--spacing-md) var(--spacing-lg);
-      font-size: 16px; /* Prevents zoom on iOS */
-      touch-action: manipulation; /* Improves touch performance */
+      min-height: var(--enhanced-gap-mobile); /* Enhanced touch target using predefined gap */
+      padding: var(--button-padding-enhanced);
+      font-size: var(--text-xl); /* Prevent zoom on mobile */
+      touch-action: manipulation; /* Performance: Optimize touch handling */
+      filter: var(--filter-enhanced-mobile); /* Enhanced visibility on mobile */
     }
-  }
 
-  /* Dark mode specific overrides (if needed) */
-  @media (prefers-color-scheme: dark) {
+    .auth-form-field__label,
+    .auth-form-field__error-message,
+    .auth-form-field__help-text {
+      font-size: var(--text-xl);
+    }
+
     .auth-form-field__label {
-      color: var(--color-gray-100);
+      margin-bottom: var(--space-md);
     }
 
-    .auth-form-field__input {
-      background-color: var(--color-background-card);
-      color: var(--color-text-primary);
+    .auth-form-field__error-message {
+      padding: var(--space-md) var(--space-lg);
+    }
+
+    /* Enhanced Mobile Touch Optimization */
+    .auth-form-field__help-text {
+      padding: var(--space-md) var(--space-lg);
+      font-size: var(--text-xl);
+      line-height: var(--leading-relaxed);
+      min-height: calc(var(--min-touch-size) - var(--space-sm));
+      display: flex;
+      align-items: var(--align-items-center);
+    }
+
+    /* Enhanced touch targets for interactive elements */
+    .auth-form-field__input-wrapper {
+      gap: var(--space-md);
+    }
+
+    /* Better touch feedback for focus states */
+    .auth-form-field__input:focus {
+      transform: scale(var(--scale-focus));
+      transition: transform var(--transition-fast);
     }
   }
 
-  /* Light mode overrides */
+  /* ======================================
+   * THEME SUPPORT - Performance Optimized
+   * ====================================== */
+
+  /* Light mode with efficient property updates - DRY optimized */
   @media (prefers-color-scheme: light) {
-    .auth-form-field__label {
-      color: var(--color-gray-800);
+    .auth-form-field__label,
+    .auth-form-field__input {
+      color: var(--text-primary);
     }
 
     .auth-form-field__input {
-      background-color: var(--color-white);
-      color: var(--color-gray-900);
-      border-color: var(--color-gray-300);
+      background-color: var(--form-bg);
+      border-color: var(--form-border);
     }
 
     .auth-form-field__input:focus {
-      background-color: var(--color-gray-50);
+      background-color: var(--bg-secondary);
+      border-color: var(--border-focus);
     }
+
+    .auth-form-field__error-message {
+      background-color: var(--bg-error-aaa);
+      color: var(--text-error-aaa);
+    }
+  }
+
+  /* Performance: Critical path rendering optimization */
+  .auth-form-field * {
+    box-sizing: border-box;
+  }
+
+  /* Performance: Minimize layout shifts during loading */
+  .auth-form-field__input,
+  .auth-form-field__error-message {
+    transform: translateZ(0); /* Create new stacking context for performance */
   }
 </style>

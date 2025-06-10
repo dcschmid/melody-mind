@@ -36,8 +36,24 @@ export default {
   "auth.accessibility.requirement.unmet": "Krav ikke opfyldt",
   "auth.accessibility.password.visible": "Adgangskode er nu synlig",
   "auth.accessibility.password.hidden": "Adgangskode er nu skjult",
+  "auth.accessibility.password.visible_status":
+    "Adgangskode er nu synlig. Husk at skjule den, når du er færdig af sikkerhedshensyn.",
+  "auth.accessibility.password.hidden_status": "Adgangskode er nu skjult af sikkerhedshensyn.",
+  "auth.accessibility.password_toggle_empty":
+    "Indtast først en adgangskode, før du skifter synlighed.",
+  "auth.accessibility.password_toggle_help":
+    "Skift for at vise eller skjule adgangskode-tegn. Brug forsigtigt på offentlige steder af sikkerhedshensyn.",
   "auth.accessibility.requirements.expanded": "Adgangskodekrav udvidet",
   "auth.accessibility.requirements.collapsed": "Adgangskodekrav sammenfoldet",
+  "auth.accessibility.login_form_active": "Login-formularen er nu aktiv",
+  "auth.accessibility.register_form_active": "Registreringsformularen er nu aktiv",
+  "auth.accessibility.focus_trapped":
+    "Fokus er nu fanget inden for denne dialog. Brug Tab til at navigere og Escape til at lukke.",
+  "auth.accessibility.error_message_dismissed": "Fejlbesked afvist",
+  "auth.accessibility.success_message_dismissed": "Successbesked afvist",
+
+  // Spring-links
+  "auth.skip_to_verification": "Spring til e-mailverifikationsindhold",
 
   "auth.tabs.login": "Login",
   "auth.tabs.register": "Registrer",
@@ -45,6 +61,13 @@ export default {
   "auth.form.error.general": "Der opstod en fejl",
   "auth.form.success": "Succes!",
   "auth.form.email_required": "E-mailadresse er påkrævet",
+
+  // Table of Contents
+  "toc.toggle.label": "Vis eller skjul indholdsfortegnelse",
+  "toc.state.expanded": "Udvidet",
+  "toc.state.collapsed": "Sammenfoldet",
+  "toc.nav.label": "Indholdsfortegnelse",
+  "toc.skip.link": "Spring til hovedindhold",
   "auth.form.email_invalid_short": "Ugyldig e-mailadresse",
   "auth.form.loading_text": "Indlæser...",
   "auth.form.send_reset_link": "Send nulstillingslink",
@@ -52,6 +75,7 @@ export default {
   "auth.form.password_requirements": "Adgangskoden opfylder ikke alle krav",
   "auth.form.password_confirm_required": "Bekræftelse af adgangskode er påkrævet",
   "auth.form.passwords_not_match": "Adgangskoderne stemmer ikke overens",
+  "auth.form.init_error": "Kunne ikke initialisere formularelementer",
   "auth.password_reset.success_message":
     "Hvis der findes en konto med denne e-mailadresse, er der sendt en e-mail med instruktioner til nulstilling af adgangskode.",
   "auth.password_reset.error_message": "Der opstod en fejl. Prøv venligst igen senere.",
@@ -76,8 +100,6 @@ export default {
   "auth.password_reset.title": "Nulstil adgangskode",
   "auth.password_reset.description":
     "Indtast din e-mailadresse for at modtage et link til nulstilling af adgangskode",
-  "auth.password_reset.description":
-    "Indtast din e-mail for at modtage et link til nulstilling af adgangskoden",
   "auth.password_reset.submit": "Send nulstillingslink",
   "auth.password_reset.email": "E-mailadresse",
   "auth.password_reset.email.placeholder": "Din registrerede e-mailadresse",
@@ -124,6 +146,36 @@ export default {
   "auth.form.required": "Dette felt er påkrævet",
   "auth.form.email_invalid": "Indtast venligst en gyldig e-mailadresse",
   "auth.form.password_min_length": "Adgangskoden skal være mindst 6 tegn lang",
+  "auth.form.email_invalid_format":
+    "Indtast venligst en gyldig emailadresse i formatet: bruger@eksempel.dk",
+  "auth.form.password_length_error": "Adgangskoden skal være mindst 8 tegn lang",
+  "auth.form.password_uppercase_error": "Adgangskoden skal indeholde mindst ét stort bogstav (A-Z)",
+  "auth.form.password_lowercase_error": "Adgangskoden skal indeholde mindst ét lille bogstav (a-z)",
+  "auth.form.password_number_error": "Adgangskoden skal indeholde mindst ét tal (0-9)",
+  "auth.form.password_special_error":
+    "Adgangskoden skal indeholde mindst ét specialtegn (!@#$%^&*)",
+  "auth.form.password_common_error": "Vælg venligst en mindre almindelig adgangskode",
+  "auth.form.password_repeats_error":
+    "Adgangskoden må ikke indeholde mere end 2 identiske tegn i træk",
+  "auth.form.password_sequences_error":
+    "Adgangskoden må ikke indeholde almindelige sekvenser som '123' eller 'abc'",
+  "auth.form.instructions.title": "Sådan udfylder du denne formular",
+  "auth.form.instructions.request.step1": "Indtast din emailadresse i feltet nedenfor",
+  "auth.form.instructions.request.step2":
+    "Klik på 'Send nulstillingslink' for at modtage instruktioner til nulstilling af adgangskode",
+  "auth.form.instructions.request.step3":
+    "Tjek din email for nulstillingslinket og følg instruktionerne",
+  "auth.form.instructions.confirm.step1": "Opret en stærk adgangskode der opfylder alle krav",
+  "auth.form.instructions.confirm.step2": "Bekræft din adgangskode ved at skrive den igen",
+  "auth.form.instructions.confirm.step3": "Klik på 'Nulstil adgangskode' for at fuldføre processen",
+  "auth.form.help.password_button": "Få hjælp til at oprette en stærk adgangskode",
+  "auth.form.help.password_title": "Tips til oprettelse af adgangskode",
+  "auth.form.help.password_suggestions":
+    "Prøv at bruge en kombination af ord, tal og symboler. Undgå almindelige adgangskoder som 'adgangskode123'.",
+  "auth.form.help.tip1": "Brug en blanding af store og små bogstaver",
+  "auth.form.help.tip2": "Inkluder tal og specialtegn",
+  "auth.form.help.tip3": "Undgå almindelige ord og sekvenser",
+  "auth.form.help.tip4": "Overvej at bruge en passphrase",
   "auth.form.min_length": "Dette felt skal være mindst {length} tegn langt",
   "auth.form.max_length": "Dette felt må ikke overstige {length} tegn",
   "auth.form.invalid": "Dette felt er ugyldigt",
@@ -138,6 +190,8 @@ export default {
   "auth.accessibility.password_requirements": "Vis/skjul adgangskodekrav",
   "auth.accessibility.form": "Loginformular",
   "auth.accessibility.close_modal": "Luk vindue",
+  "auth.accessibility.button_focus_instruction":
+    "Knap: {buttonText}. Tryk på Enter for at indsende",
 
   // API-fejlmeddelelser
   "auth.api.network_error": "Netværksfejl. Tjek venligst din forbindelse",
@@ -166,13 +220,20 @@ export default {
   "difficulty.medium": "Mellem",
   "difficulty.hard": "Svær",
   "game.select":
-    "Opdag musikkens fascinerende verden og test din viden i vores interaktive musikquizzer. Vælg din yndlingsgenre og start din melodiske rejse!",
+    "🎵 Klar til det ultimative musikeventyr? Dyk ned i en verden af rytmer, melodier og uforglemmelige sange! Fra fantastiske guitarsoloer til tidløse klassikere – find din perfekte musikalske duel. Vis verden, at du er en sand musikekspert!",
   "game.welcome": "Velkommen til Melody Mind",
   "game.genre.list": "Genrevalg",
   "game.search.label": "Søg efter en genre",
   "game.search.description": "Listen filtreres automatisk, mens du skriver",
+  "game.search.clear": "Ryd søgning",
+  "game.search.help": "Skriv for at filtrere musikgenrer efter navn",
+  "game.search.showing.all": "Viser alle genrer",
+  "game.search.results": "genrer fundet",
+  "game.search.no.results": "Ingen genrer fundet, der matcher din søgning",
   "game.genre.play.label": "spil",
   "game.genre.image": "Coverbillede for",
+  "game.genre.selection.description":
+    "Vælg mellem flere musikgenrer inklusive rock, pop, jazz, klassisk og mere. Hver kategori indeholder nøje udvalgte spørgsmål til at teste din musikviden.",
   "game.no.results": "Ingen resultater fundet",
   "game.not.available": "Ikke tilgængelig",
   "category.selected": "valgt!",
@@ -205,19 +266,38 @@ export default {
   "game.feedback.resolution": "Opløsning",
   "game.feedback.media.section": "Mediesektion",
   "game.feedback.audio.preview": "Musikforhåndsvisning",
+  "game.feedback.audio.failed": "Lydafspilning mislykkedes",
+  "game.feedback.audio.paused": "Lyd sat på pause",
   "game.feedback.subtitles": "Undertekster",
   "game.feedback.audio.unsupported": "Din browser understøtter ikke lydafspilning.",
   "game.feedback.streaming.links": "Musikstreaminglinks",
   "game.feedback.listen.spotify": "Lyt på Spotify",
   "game.feedback.listen.deezer": "Lyt på Deezer",
   "game.feedback.listen.apple": "Lyt på Apple Music",
+
+  // Music Platforms Component - Accessibility Features
+  "musicPlatforms.heading": "Lyt til relateret musik",
+  "musicPlatforms.keyboardInstructions":
+    "Naviger musikplatforme med Tab-tasten. Tryk Enter eller Mellemrum for at åbne platforme i nye faner.",
+  "musicPlatforms.externalNotice":
+    "Eksterne musikplatformlinks kan kræve konti eller abonnementer for fuld adgang.",
+  "musicPlatforms.listenOn":
+    "Lyt til {title} på {platform} - Åbner {platform} musikplatform i ny fane. Kan kræve {platform} konto eller abonnement.",
   "game.feedback.next.round": "Næste runde",
+  "game.feedback.next.starting": "Starter næste runde",
   "game.current.round": "Runde",
   "game.current.round.label": "Nuværende rundenummer",
   "game.joker.options": "Jokermuligheder",
   "game.joker.use": "Brug 50:50 Joker",
   "game.joker.description": "Fjerner to forkerte svarmuligheder",
   "loading.content": "Indlæser indhold...",
+  "loading.started": "Indlæsning startet",
+  "loading.completed": "Indlæsning færdig",
+  "loading.progress.indicator": "Fremgangsindicator",
+  "loading.context.game": "Indlæser spil",
+  "loading.context.question": "Indlæser spørgsmål",
+  "loading.context.results": "Indlæser resultater",
+  "loading.context.default": "Indlæser indhold",
   "share.title": "Del din succes!",
   "share.buttons.group.label": "Delingsmuligheder på sociale medier",
   "share.facebook": "Del på Facebook",
@@ -229,9 +309,63 @@ export default {
   "share.email.label": "E-mail",
   "share.copy": "Kopier tekst til deling til udklipsholder",
   "share.copy.label": "Kopier tekst",
+  "share.fallback.message":
+    "Spildata er i øjeblikket ikke tilgængelige. Prøv igen eller kopier sidelinket manuelt.",
+  "share.fallback.retry.label": "Prøv at indlæse spildata igen",
+  "share.fallback.retry.text": "Prøv igen",
+  "share.fallback.manual.label": "Kopier sidelink manuelt",
+  "share.fallback.manual.text": "Kopier link",
+
+  // Del tilgængelighed meddelelser for skærmlæsere
+  "share.accessibility.data_unavailable":
+    "Spildata ikke tilgængelig. Prøv igen eller kopier manuelt.",
+  "share.accessibility.retrying": "Prøver at finde spildata igen...",
+  "share.accessibility.data_found": "Spildata fundet! Deling muligheder er nu tilgængelige.",
+  "share.accessibility.data_still_unavailable":
+    "Spildata er stadig ikke tilgængelig. Opdater siden eller brug manuel kopiering.",
+  "share.accessibility.retry_failed":
+    "Genprøv mislykkedes. Brug venligst manuel kopiering eller opdater siden.",
+  "share.accessibility.link_copied": "Spillink kopieret til udklipsholder med succes!",
+  "share.accessibility.link_copied_fallback":
+    "Spillink kopieret til udklipsholder med fallback metode!",
+  "share.accessibility.copy_failed_manual":
+    "Kopiering mislykkedes. Kopier venligst side-URL'en manuelt fra din browser.",
+  "share.accessibility.score_shared": "Din score blev delt med succes.",
+  "share.accessibility.sharing_cancelled": "Deling annulleret.",
+  "share.accessibility.platform_share_failed":
+    "Kunne ikke dele til {platform}: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_alternative_methods":
+    "Prøv at kopiere til udklipsholder eller brug en anden deling metode.",
+  "share.accessibility.score_copied": "Score kopieret til udklipsholder med succes!",
+  "share.accessibility.native_share_failed":
+    "Native deling mislykkedes: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_platform_buttons":
+    "Prøv at bruge platform-specifikke deling knapper eller kopier til udklipsholder.",
+  "share.accessibility.platform_opened": "{platform} deling åbnet med succes.",
   "error.default": "Der er opstået en fejl",
   "error.close": "Luk fejlmeddelelse",
   "coins.collected": "Indsamlede mønter",
+  "coins.tooltip.authenticated":
+    "Dine indsamlede mønter: Du har optjent {count} mønter gennem din spiltid. Fortsæt med at spille for at tjene flere!",
+  "coins.tooltip.guest":
+    "Gæstespiller mønter: Du har optjent {count} mønter i denne session. Log ind for at gemme din fremgang permanent!",
+  "coins.announce.earned_excellent":
+    "Fremragende! Tjent {difference} mønter under {context}! Nyt total: {newCount} mønter.",
+  "coins.announce.earned_great":
+    "Godt arbejde! Optjent {difference} mønt{plural} under {context}. Total: {newCount} mønter.",
+  "coins.announce.earned_normal":
+    "Optjent {difference} mønt{plural} under {context}. Total: {newCount} mønter.",
+  "coins.announce.progress_saved": " Fremgang gemt på din konto.",
+  "coins.announce.lost": "Mistede {lost} mønt{plural} under {context}. Tilbage: {newCount} mønter.",
+  "coins.announce.updated": "Mønter opdateret under {context}. Nuværende total: {newCount} mønter.",
+  "coins.context.game": "spil",
+  "coins.context.shop": "køb",
+  "coins.context.achievement": "opnåelse af en præstation",
+  "coins.context.bonus": "modtagelse af bonus",
+  "coins.context.daily": "indsamling af daglig belønning",
+  "coins.context.quiz": "besvarelse af quiz-spørgsmål",
+  "coins.context.challenge": "gennemførelse af udfordring",
+  "coins.context.streak": "opretholdelse af streak",
   "language.picker.label": "Sprogvælger",
   "language.change": "Skift webstedets sprog",
   "language.select.label": "Vælg dit foretrukne sprog",
@@ -255,9 +389,17 @@ export default {
   "language.nl.label": "Se websted på hollandsk",
   "language.sv.label": "Se websted på svensk",
   "language.fi.label": "Se websted på finsk",
+  "language.selected": "Nuværende sprog: {language}",
+  "language.dropdown.arrow": "Rullemenu-pil",
+  "language.focus.announce": "Sprogvælger fokuseret. Brug piletaster til at navigere.",
+  "language.change.success": "Sprog ændret til {language}",
+  "language.change.error": "Sprogændring mislykkedes. Prøv igen.",
+  "language.preference.restored": "Sprogpræference gendannet: {language}",
   "playlist.item.unavailable": "Dette indhold er endnu ikke tilgængeligt",
   "playlist.item.status": "Status",
   "playlist.item.coming.soon": "Kommer snart",
+  "playlist.item.status.changed.disabled": "Denne spilleliste er i øjeblikket ikke tilgængelig",
+  "playlist.item.status.changed.available": "Denne spilleliste er nu tilgængelig",
   "game.area.label": "Spilområde",
   "game.options.label": "Svarmuligheder",
   "game.answer.correct": "Korrekt! {points} point + {bonus} bonuspoint",
@@ -269,12 +411,13 @@ export default {
     "Musikquiz, Musikspil, Sangquiz, Kunstnerquiz, Online Musikquiz, Musik Trivia, Melody Mind, Musikgættespil",
   "knowledge.title": "Musikvidensbase",
   "knowledge.intro":
-    "Dyk ned i musikhistorien fascinerende verden. Her finder du spændende artikler om forskellige musikepoker, genrer og deres udvikling. Opdag interessante fakta og udvid din musikviden.",
+    "🎵 Oplås musikuniversets hemmeligheder! Dyk ned i fængslende historier om legendariske kunstnere, udforsk udviklingen af musikgenrer og opdag fascinerende fakta, der gør dig til en sand musikekspert. Fra klassiske mesterværker til moderne hits – lad dig rive med af engagerende artikler, der giver liv til din passion for musik.",
   "knowledge.search.label": "Søg i artikler",
   "knowledge.search.placeholder": "Søg...",
   "knowledge.filter.all": "Alle nøgleord",
   "knowledge.no.results": "Ingen artikler fundet. Prøv andre søgetermer.",
   "game.remaining": "tilbage",
+  "game.remaining.label": "{count} tilbage",
   "game.default.headline": "Spil",
   "popup.score": "Score: {score}",
   "popup.golden.lp.score": "Opnået score: {score}",
@@ -283,6 +426,8 @@ export default {
   "nav.donate.coffee": "Køb os en kop kaffe",
   "nav.title": "Navigation",
   "nav.menu.text": "Menu",
+  "game.categories.title": "Musikkategorier",
+  "game.categories.loading": "Indlæser musikkategorier...",
   "game.categories.empty.headline": "Ingen genrer fundet",
   "game.categories.empty.text":
     "Desværre blev der ikke fundet nogen kategorier. Prøv venligst igen senere.",
@@ -290,12 +435,15 @@ export default {
   "game.categories.no.playable.text":
     "Der er i øjeblikket ingen spilbare kategorier. Tjek venligst igen senere.",
   "knowledge.reading.time": "min læsetid",
+  "knowledge.word.count": "ord",
+  "knowledge.reading.time.label": "Læsetid",
   "knowledge.breadcrumb.label": "Navigation",
   "knowledge.listen.heading": "Lyt til relateret musik",
   "knowledge.back.to.list": "Tilbage til oversigt",
   "knowledge.interact.heading": "Lyt & Spil",
   "knowledge.play.heading": "Spil denne genre",
-  "knowledge.play.description": "Test din viden om denne musikgenre i vores interaktive quiz!",
+  "knowledge.play.description":
+    "🎵 Er du klar til den ultimative udfordring? Test din musikviden og bliv en genre-ekspert! Saml point, brug smarte jokere og bevis, at du har hvad der skal til for at blive en musikmester! 🏆",
   "knowledge.play.category": "Start Musikquiz",
   "category.play": "Spil",
   "play.cover.puzzle": "Spil Coverpuslespil",
@@ -331,10 +479,10 @@ export default {
   "podcast.listen.heading": "Lyt til Vores Podcasts",
   "login.welcome": "Velkommen til Melody Mind!",
   "login.description":
-    "Tag på en musikalsk opdagelsesrejse gennem tiderne! Test din viden i spændende quizzer, udforsk fascinerende musikgenrer og dyk ned i vores medrivende podcasts. Vis dine evner, saml point og bliv en sand musiklegende!",
+    "🎵 Dyk ned i det ultimative musikunivers! Opdag legendariske hits, mestre spændende udfordringer og bliv den absolutte musikchampion. Din rejse til de største musikalske hemmeligheder begynder nu! 🚀",
   "index.continue": "Lad os komme i gang!",
   "index.start.game.label": "Start din musikalske rejse",
-  "index.welcome.footnote": "Forberedt af musikelskere for musikelskere. God fornøjelse!",
+  "index.welcome.footnote": "🎶 Skabt med passion for sande musikfans - Lad magien begynde! ✨",
   "accessibility.wcag": "Denne applikation sigter mod WCAG AAA-overensstemmelse.",
   "game.instructions.title": "Spilinstruktioner",
   "game.instructions.puzzle":
@@ -362,23 +510,49 @@ export default {
   "playlist.page.title": "Musikplaylister | Melody Mind",
   "playlist.page.heading": "Opdag Vores Musikplaylister",
   "playlist.page.description":
-    "Dyk ned i omhyggeligt kuraterede playlister fra forskellige epoker og genrer. Perfekt til at opdage ny musik eller genopleve dine yndlingsklassikere.",
+    "🎵 Begynd på en episk musikalsk rejse gennem legendariske epoker! Vores håndplukkede playlister bringer de største hits til live - fra tidløse klassikere til uforglemmelige chart-toppere. Perfekt til at udvide din musikviden eller vække nostalgiske minder! 🎶",
   "playlist.search.label": "Søg i Playlister",
+  "playlist.search.heading": "Søg i Playlister",
   "playlist.search.placeholder": "Søg efter kunstner eller stil...",
+  "playlist.search.aria.label": "Søg i musikplaylister",
   "playlist.filter.all": "Alle Epoker",
   "playlist.no.results": "Ingen matchende playlister fundet. Prøv et andet søgeord.",
+  "playlist.no.results.heading": "Ingen playlister fundet",
+  "playlist.reset.search": "Vis alle playlister",
+  "playlist.grid.heading": "Tilgængelige Musikplaylister ({count} i alt)",
   "playlist.listen.on": "Lyt på",
+  "playlist.image.alt":
+    'Detaljeret playlistcover for "{headline}" - {introSubline} med {decade} musiksamling',
+  "playlist.image.description":
+    "Playlistcover der repræsenterer {decade} musiksamling med tematiske visuelle elementer for {headline}. Det visuelle design reflekterer den musikalske æra og genrekarakteristika.",
   "playlist.listen.spotify": "Lyt på Spotify",
   "playlist.listen.deezer": "Lyt på Deezer",
   "playlist.listen.apple": "Lyt på Apple Music",
   "playlist.decade.filter": "Filtrer efter Årti",
+  "playlist.priority.loading": "Prioriteret playlist-indlæsning: {headline}",
+  "playlist.music.from.decade": "Musik fra {decade}",
+  "playlist.streaming.services": "Streamingtjenester for {headline}",
+  "playlist.accessibility.instruction":
+    "Brug Enter eller Space for at åbne playlist i streamingtjeneste. Naviger mellem tjenester med Tab-tasten. Disse playlister er offentligt tilgængelige og kræver ingen godkendelse.",
+  "playlist.accessibility.info": "Playlist tilgængelighedsinformation",
+  "playlist.accessibility.public":
+    "Offentlig playlist - ingen godkendelse påkrævet til adgang til streamingtjenester",
+  "playlist.accessibility.selected": "{service} valgt for {playlist}",
+  "playlist.accessibility.focus": "Fokus på {service}-mulighed for {playlist}",
+  "playlist.accessibility.opened": "Åbner {playlist} på {service}",
   "footer.rights": "Alle rettigheder forbeholdes",
   "footer.donate": "Doner",
+  "footer.donate_aria": "Doner via PayPal",
+  "footer.source_code": "Se MelodyMind kildekode på GitHub",
+  "footer.support_kofi": "Støt MelodyMind på Ko-fi",
   "game.chronology.title": "Musikkronologi",
-  "game.chronology.description": "Arranger disse album efter deres udgivelsesår (ældste først)",
+  "game.chronology.description":
+    "⏰ Bliv en tidsrejsende i musikken! Arranger disse legendariske album i den korrekte kronologiske rækkefølge og vis, at du er en sand musikhistoriker. Hvert korrekt træk bringer dig tættere på den perfekte score! 🎯",
   "game.chronology.area.label": "Kronologispilområde",
   "game.chronology.result": "Resultat",
-  "game.chronology.correct": "Korrekt",
+  "game.chronology.correct": "Korrekt! 🎉",
+  "game.chronology.incorrect": "Forkert! 😔",
+  "game.chronology.correct_order": "Korrekt rækkefølge:",
   "game.chronology.wrong": "Skulle være på position {position}",
   "game.chronology.score": "Score: {score} point",
   "game.chronology.details": "{correct} ud af {total} album placeret korrekt",
@@ -445,11 +619,13 @@ export default {
   "profile.recent.game.date": "Dato",
   "profile.nav.aria": "Navigation til brugerprofil",
   "profile.nav.link": "Gå til profil",
+  "achievements.nav.aria": "Navigation til præstationer",
   "achievements.nav.link": "Gå til præstationer",
 
   // Highscores-side
   "highscores.title": "Highscores",
-  "highscores.description": "Se de bedste scores i forskellige spiltilstande og kategorier",
+  "highscores.description":
+    "Opdag musiklegenderne! Se hvem der topper listerne og bliv inspireret af de bedste spillere 🎵🏆",
   "highscores.loading": "Indlæser highscores...",
   "highscores.error": "Fejl ved indlæsning af highscores",
   "highscores.empty": "Ingen poster fundet i highscores",
@@ -459,6 +635,18 @@ export default {
   "highscores.filter.all": "Alle",
   "highscores.filter.search": "Søg i kategorier...",
   "highscores.filter.no.results": "Ingen kategorier fundet",
+  "highscores.filters": "Filtrer resultater",
+  "highscores.allModes": "Alle tilstande",
+  "highscores.allCategories": "Alle kategorier",
+  "highscores.results": "Topscorer",
+  "highscores.noResults": "Ingen scorer fundet med de valgte filtre.",
+  "highscores.points": "point",
+  "highscores.rank": "Rang",
+  "highscores.gameMode": "Spiltilstand",
+  "highscores.category": "Kategori",
+  "highscores.date": "Dato",
+  "highscores.tableLabel": "Highscoresliste",
+  "highscores.scoreEntry": "Score-post {rank} af {username}",
   "highscores.table.title": "Topscorer",
   "highscores.table.rank": "Rang",
   "highscores.table.player": "Spiller",
@@ -469,10 +657,22 @@ export default {
 
   // Præstationssystem
   "achievements.title": "Præstationer",
-  "achievements.description": "Opdag og lås op for præstationer for at spore dine fremskridt",
+  "achievements.description":
+    "Fejr dine musikalske triumfer og saml unikke trofæer på din rejse til at blive en musikmester",
+  "achievements.seo.description":
+    "Følg dine fremskridt med detaljerede præstationer på tværs af alle musikkategorier. Lås op for særlige belønninger ved at gennemføre udfordringer og nå milepæle.",
   "achievements.loading": "Indlæser præstationer...",
   "achievements.error": "Fejl ved indlæsning af præstationer",
   "achievements.empty": "Ingen præstationer fundet",
+  "achievements.summary.title": "Oversigt over præstationer",
+  "achievements.summary.total": "I alt: {total} præstationer",
+  "achievements.summary.unlocked": "Låst op: {unlocked} præstationer",
+  "achievements.summary.progress": "Fremskridt: {percentage}% gennemført",
+  "achievements.summary.total-aria": "Samlet antal præstationer: {total}",
+  "achievements.summary.unlocked-aria": "Antal låste præstationer: {unlocked}",
+  "achievements.summary.progress-aria": "Samlet fremskridt: {percentage} procent gennemført",
+  "achievements.categories": "Kategorier",
+  "achievements.category.count": "{count} præstationer",
   "achievements.category.bronze": "Bronze",
   "achievements.category.silver": "Sølv",
   "achievements.category.gold": "Guld",
@@ -486,9 +686,17 @@ export default {
   "achievements.unlocked_at": "Låst op den {date}",
   "achievements.points": "Point: {points}",
   "achievements.rarity": "Sjældenhed: {percentage}%",
+  "achievements.rarity.tooltip":
+    "Viser hvor sjælden denne præstation er - lavere procenter betyder, at den er sjældnere",
   "achievements.notification.unlocked": "Præstation låst op!",
   "achievements.notification.progress": "Præstationsfremskridt opdateret!",
   "achievements.notification.close": "Luk præstationsmeddelelse",
+  "achievements.notification.new_achievement": "Ny præstationsmeddelelse",
+  "achievements.notification.pause": "Pause meddelelsetimer",
+  "achievements.notification.pause_title": "Pause den automatiske lukning af denne meddelelse",
+  "achievements.notification.toggle_sound": "Skift meddelelselyd",
+  "achievements.notification.toggle_sound_title":
+    "Aktiver eller deaktiver lyd for præstationsmeddelelser",
   "achievements.filter.title": "Filtrer Præstationer",
   "achievements.filter.status": "Status",
   "achievements.filter.category": "Kategori",
@@ -512,6 +720,10 @@ export default {
   "achievements.badge.new": "Ny præstation låst op",
   "achievements.badge.new_with_count": "{count} nye præstationer låst op",
   "achievements.badge.fallback_text": "Præstationsmeddelelse",
+  "achievements.badge.context_description":
+    "Præstationsmeddelelse-badge. Viser antal nye låste præstationer i navigationsområdet.",
+  "achievements.badge.keyboard_instructions":
+    "Tryk Enter eller mellemrum for at se din præstationsside.",
 
   // API fejlmeddelelser
   "errors.auth.unauthorized": "Du skal være logget ind for at få adgang til denne funktion",
@@ -561,6 +773,11 @@ export default {
   "game.meta.description.prefix": "Spil",
   "game.meta.description.suffix": "i sværhedsgrad",
   "game.meta.difficulty": "i sværhedsgrad",
+  // Accessibility Skip Links
+  "accessibility.skip.main": "Spring til hovedindhold",
+  "accessibility.skip.to.content": "Spring til hovedindhold",
+  "accessibility.skip.search": "Spring til søgning",
+  "accessibility.skip.articles": "Spring til artikler",
   "accessibility.skip.to.game": "Spring til spil",
   "game.info.badges": "Spilinformation",
   "game.difficulty.label": "Sværhedsgrad",
@@ -580,6 +797,21 @@ export default {
   "achievements.filter.focus_category": "Fokuser på kategorifilter",
   "achievements.filter.toggle_keyboard_help": "Vis/skjul tastaturhjælp",
 
+  // Tæller display til filtre
+  "achievements.filter.count.all": "Alle ({count} synlige)",
+  "achievements.filter.count.category_all": "Alle Kategorier ({count} synlige)",
+  "achievements.filter.count.generic": "{value} ({count} synlige)",
+
+  // Achievement Filter Reset Button
+  achievementFilterReset: "Nulstil alle præstation filtre",
+
+  // Meddelelser til skærmlæsere - præstationsfiltre
+  "achievements.filter.announcement.changed": "Filter ændret: {filterType} til {filterValue}",
+  "achievements.filter.announcement.no_results": "Ingen præstationer matcher de nuværende filtre",
+  "achievements.filter.announcement.results":
+    "{visibleCards} præstation{cardPlural} fundet i {visibleSections} kategori{sectionPlural}",
+  "achievements.filter.announcement.reset": "Alle filtre er blevet nulstillet",
+
   "game.time.extended": "Tid forlænget med 5 sekunder",
   "game.time.before.end": "Forlæng før spilslut",
 
@@ -590,8 +822,164 @@ export default {
   "auth.password.requirements.met": "Krav opfyldt",
   "auth.password.requirements.not_met": "Krav ikke opfyldt",
   "auth.password.requirements.keyboard_navigation": "Brug Tab og Enter til at navigere og aktivere",
+  "auth.password.requirements.position": "{{current}} af {{total}}",
+  "auth.password.requirements.progress":
+    "{{met}} af {{total}} krav opfyldt. {{percentage}}% færdig.",
   "auth.password.strength.good": "God",
   "auth.password.strength.description": "Indikator for kodeordssikkerhedsniveau",
 
   "achievements.filter.reset": "Nulstil",
+
+  // Layout systemmeddelelser
+  "layout.error.system": "Systemfejl opstod. Opdater venligst siden.",
+  "layout.error.tracking": "Fejl sporet:",
+  "layout.error.tracking.failed": "Fejlsporing mislykkedes:",
+  "layout.accessibility.motion.reduced":
+    "Reduceret bevægelse tilstand aktiveret for tilgængelighed",
+  "layout.accessibility.theme.dark": "Mørkt tema aktiveret for optimal kontrast og tilgængelighed",
+  "layout.analytics.init.failed": "Analytics initialisering mislykkedes:",
+
+  // Navigation
+  "nav.ariaLabel": "Hovednavigation",
+
+  "nav.openNewWindow": "Åbner i nyt vindue",
+
+  // End Overlay - Spilresultater
+  "game.end.achievementBadge": "Præstationstrofæ ikon",
+  "game.end.screenReaderDescription": "Spilresultater der viser din score og præstationsniveau.",
+  "game.end.scoreProgress": "Score fremgang",
+  "game.end.progressDescription": "Visuel fremgangsbjælke der viser dit score præstationsniveau",
+  "game.end.defaultMotivation": "Godt klaret! Fortsæt med at spille for at forbedre din score!",
+  "game.end.finalScore": "Endelig Score:",
+  "game.end.difficultyLevel": "Sværhedsgrad indikator",
+  "game.end.difficultyDescription": "Viser sværhedsgraden du gennemførte",
+  "game.end.shareSection": "Del dine resultater",
+  "game.end.shareResults": "Del dine spilresultater på sociale medier",
+  "game.end.shareDescription":
+    "Åbner delingsmuligheder for at poste din score på sociale medier platforme",
+  "game.end.homeDescription": "Vend tilbage til hovedmenuen og startsiden",
+  "game.end.newgameDescription": "Start et nyt spil med samme indstillinger",
+  "game.end.homeButtonHelp":
+    "Naviger tilbage til hjemmesiden for at vælge en ny spiltilstand eller kategori",
+  "game.end.restartButtonHelp":
+    "Start øjeblikkeligt en ny spillerunde med samme sværhedsgrad og kategori",
+
+  // Præstationsniveau annonceringer for skærmlæsere
+  "game.end.announcement.gameOver": "Spil slut! Din score: {score}. Præstationsniveau: {level}.",
+  "game.end.announcement.gameOver.de":
+    "Spielende! Deine Punktzahl: {score}. Erreichtes Level: {level}.",
+  "game.end.level.genius": "geni",
+  "game.end.level.pro": "professionel",
+  "game.end.level.enthusiast": "entusiast",
+  "game.end.level.lover": "elsker",
+  "game.end.level.explorer": "opdagelsesrejsende",
+
+  // Præstationer sektion i EndOverlay
+  "achievements.unlocked": "Præstationer Låst Op",
+
+  // Motivational texts for different achievement levels
+  "game.end.motivation.genius":
+    "Ekstraordinært! 💫 Du er et sandt musiktalent! 🎶 Din dybe viden og musikalske intuition er virkelig imponerende. Du kunne vinde en musikquiz eller endda være musikhistoriker. Del din bemærkelsesværdige præstation og udfordr andre til at konkurrere mod dig!",
+  "game.end.motivation.pro":
+    "Fantastisk! 🌟 Du er bestemt en musikekspert med omfattende viden om forskellige kunstnere og genrer. Din musikforståelse er langt over gennemsnittet. Få kan matche din viden. Bliv ved og udfordr dine venner!",
+  "game.end.motivation.enthusiast":
+    "Bemærkelsesværdigt! 👍 Som ægte musikentusiast kender du virkelig din sag. Du har opbygget et solidt fundament af musikkundskab, der adskiller dig fra mængden. Med lidt mere øvelse kan du snart stige til pro-ligaen. Vil du prøve en runde mere?",
+  "game.end.motivation.lover":
+    "Godt klaret! 👏 Som musikelsker har du vist betydelig viden. Du er på rette vej til at blive en ægte musikconnaisseur. Med mere spilpraksis kan du udvide din viden og forbedre din score. Er du klar til en ny udfordring?",
+  "game.end.motivation.explorer":
+    "Tak for spillet! 🙏 Som musikopdager har du taget det første skridt i at opdage musikkens fascinerende verden. Hvert spil er en mulighed for at lære noget nyt. Udfordr dig selv, spil flere runder og udvid din musikkundskab!",
+
+  // ChronologyFeedbackOverlay specific keys
+  "game.chronology.correct_order_description":
+    "Liste der viser den korrekte kronologiske rækkefølge af begivenhederne",
+
+  "nav.menu.opened": "åbnet",
+  "nav.menu.closed": "lukket",
+  "nav.menu.moved_to_first": "Flyttet til første menupunkt",
+  "nav.menu.moved_to_last": "Flyttet til sidste menupunkt",
+  "nav.menu.focused_on": "Fokuseret på",
+  "nav.menu.long_press_detected": "Langt tryk registreret på",
+
+  // General
+  "general.close": "Luk",
+
+  // Session timeout
+  "session.timeout.warning": "Din session udløber om {0} sekunder",
+  "session.timeout.extend": "Forlæng session",
+  "session.timeout.continue": "Fortsæt",
+  "session.extended": "Session forlænget succesfuldt",
+
+  // Error messages and accessibility
+  "error.countdown": "Resterende tid indtil automatisk skjul",
+  "error.extend": "Forlæng timeout",
+  "error.extend.tooltip": "Forlæng fejlmeddelelsens timeout med 5 sekunder",
+  "error.context.low": "Informativ besked der kræver opmærksomhed",
+  "error.context.medium": "Fejlmeddelelse der kræver brugerens opmærksomhed",
+  "error.context.high": "Højprioritets fejl der kræver øjeblikkelig opmærksomhed",
+  "error.context.critical": "Kritisk fejl der kræver øjeblikkelig handling",
+
+  // AudioPlayer Component
+  "audioplayer.aria.region": "Lydafspiller",
+  "audioplayer.play.aria": "Afspil lyd",
+  "audioplayer.play.title": "Afspil/Pause",
+  "audioplayer.progress.aria":
+    "Lydfremdrift - Brug piletaster til at søge, Home for begyndelse, End for slut",
+  "audioplayer.progress.help":
+    "Pil venstre/højre: Søg 5 sekunder, Shift+pil: Søg 30 sekunder, Home: Begyndelse, End: Slut",
+  "audioplayer.volume.toggle.aria": "Slå lydløs til/fra",
+  "audioplayer.volume.toggle.title": "Lydstyrke",
+  "audioplayer.volume.slider.aria": "Juster lydstyrkeniveau",
+  "audioplayer.volume.slider.help":
+    "Brug piletaster til at justere lydstyrke i 5% trin. Nuværende lydstyrke: {volume}%",
+  "audioplayer.captions.english": "Danske undertekster",
+  "audioplayer.captions.none": "Ingen undertekster tilgængelige",
+  "audioplayer.fallback.download": "Download lydfil i stedet",
+  "audioplayer.fallback.unsupported": "Din browser understøtter ikke lydfeltet.",
+  "audioplayer.description":
+    "Lydafspiller til {title} {artist}. Brug mellemrumstasten til at afspille eller pause, piletaster til at søge og M til at slå lydløs.",
+  "audioplayer.description.no_title":
+    "Lydafspiller til track. Brug mellemrumstasten til at afspille eller pause, piletaster til at søge og M til at slå lydløs.",
+  "audioplayer.help.button.aria": "Hjælp",
+  "audioplayer.help.button.title": "Lydafspiller tastaturgenveje",
+  "audioplayer.help.shortcuts":
+    "Mellemrum: Afspil/Pause, M: Lydløs/Aktivér lyd, Piletaster: Søg lyd, Op/Ned: Lydstyrke kontrol",
+
+  // Playlist-specific translation keys
+  "playlist.open.spotify": 'Åbn spilleliste "{playlist}" i Spotify',
+  "playlist.open.deezer": 'Åbn spilleliste "{playlist}" i Deezer',
+  "playlist.open.apple": 'Åbn spilleliste "{playlist}" i Apple Music',
+  "playlist.activation.focused":
+    "Spilleliste aktiveret: {title}. Fokus flyttet til streaming-links.",
+  "playlist.activation.no_links": "Spilleliste valgt: {title}. Ingen streaming-links tilgængelige.",
+  "playlist.exit": "Forlod spilleliste: {title}",
+  "playlist.visible": "Prioritets spilleliste synlig: {title}",
+  "playlist.image.error": "Billede kunne ikke indlæses for spilleliste: {title}",
+  "playlist.title.unknown": "Ukendt spilleliste",
+
+  // Test Komponent
+  "test.lint.title": "ESLint Test Komponent med WCAG AAA",
+  "test.lint.wcag_title": "WCAG AAA Test",
+  "test.lint.next_level_aria": "Fortsæt til næste niveau",
+  "test.lint.next_button": "Fortsæt",
+  "test.lint.problematic_button_aria": "Problematisk knap",
+  "test.lint.correct_button_aria": "Korrekt knap med tastaturfunktionalitet",
+  "test.lint.test_image_alt": "Testbillede",
+  "test.lint.musician_image_alt":
+    "En guitarist der spiller på en godt belyst scene under en rockkoncert",
+  "test.lint.weak_contrast_text": "Denne tekst har meget svag kontrast.",
+  "test.lint.good_contrast_text": "Denne tekst har tilstrækkelig kontrast for WCAG AAA.",
+  "test.lint.error_message": "Der opstod en fejl.",
+  "test.lint.score_label": "Score:",
+  "test.lint.incomplete_button": "Ufuldstændig knap",
+  "test.lint.correct_button": "Korrekt knap",
+  "test.lint.main_heading": "Hovedoverskrift",
+  "test.lint.subsection_heading": "Underafsnit (h2 mangler)",
+
+  // Knowledge accessibility translations
+  "knowledge.accessibility.scrolling_to_top": "Ruller til toppen",
+  "knowledge.accessibility.scrolled_to_top": "Rullet til toppen",
+  "knowledge.accessibility.search_focused": "Søgefeltet er nu fokuseret",
+
+  // Kategorisider
+  "category.about.title": "Om denne kategori",
 };

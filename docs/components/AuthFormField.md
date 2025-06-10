@@ -2,9 +2,9 @@
 
 ## Overview
 
-The `AuthFormField` component is a highly accessible, reusable form field component designed specifically for authentication forms in the MelodyMind project. It provides consistent styling, behavior, and validation across all form inputs while meeting WCAG AAA accessibility standards.
+The `AuthFormField` component is a reusable, WCAG AAA compliant form field designed specifically for authentication forms in the MelodyMind application. It provides consistent styling, behavior, and accessibility features while eliminating code duplication across different input types.
 
-![AuthFormField Example](../public/docs/auth-form-field.png)
+![AuthFormField Component Screenshot](../assets/auth-form-field.png)
 
 ## Features
 

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error Message Translation Test</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #1a1a2e, #16213e);
+        color: #fff;
+        margin: 0;
+        padding: 20px;
+        min-height: 100vh;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      h1 {
+        text-align: center;
+        color: #a78bfa;
+        margin-bottom: 30px;
+      }
+      .language-selector {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      select {
+        background: #2a2a4a;
+        color: #fff;
+        padding: 10px 15px;
+        border: 1px solid #a78bfa;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      .test-section {
+        background: rgba(167, 139, 250, 0.1);
+        border: 1px solid #a78bfa;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .test-button {
+        background: linear-gradient(45deg, #a78bfa, #ec4899);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 5px;
+        transition: transform 0.2s;
+      }
+      .test-button:hover {
+        transform: translateY(-2px);
+      }
+      .translation-result {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        padding: 15px;
+        margin-top: 10px;
+        font-family: monospace;
+      }
+      .key {
+        color: #60a5fa;
+        font-weight: bold;
+      }
+      .value {
+        color: #34d399;
+      }
+      .missing {
+        color: #f87171;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🌍 Error Message Translation Test</h1>
+
+      <div class="language-selector">
+        <label for="languageSelect">Select Language:</label>
+        <select id="languageSelect">
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="it">Italiano</option>
+          <option value="pt">Português</option>
+          <option value="da">Dansk</option>
+          <option value="nl">Nederlands</option>
+          <option value="sv">Svenska</option>
+          <option value="fi">Suomi</option>
+        </select>
+      </div>
+
+      <div class="test-section">
+        <h3>📝 Error Message Keys Test</h3>
+        <p>Test all the new ErrorMessage component translation keys:</p>
+        <button class="test-button" onclick="testAllKeys()">Test All Error Keys</button>
+        <div id="testResults"></div>
+      </div>
+
+      <div class="test-section">
+        <h3>🎯 Individual Key Tests</h3>
+        <button class="test-button" onclick="testKey('error.countdown')">Countdown</button>
+        <button class="test-button" onclick="testKey('error.extend')">Extend</button>
+        <button class="test-button" onclick="testKey('error.extend.tooltip')">
+          Extend Tooltip
+        </button>
+        <button class="test-button" onclick="testKey('error.context.low')">Context Low</button>
+        <button class="test-button" onclick="testKey('error.context.medium')">
+          Context Medium
+        </button>
+        <button class="test-button" onclick="testKey('error.context.high')">Context High</button>
+        <button class="test-button" onclick="testKey('error.context.critical')">
+          Context Critical
+        </button>
+        <div id="individualResults"></div>
+      </div>
+    </div>
+
+    <script>
+      // Mock translation data for testing
+      const translations = {
+        en: {
+          "error.countdown": "Time remaining until auto-hide",
+          "error.extend": "Extend timeout",
+          "error.extend.tooltip": "Extend the error message timeout by 5 seconds",
+          "error.context.low": "Informational notice requiring attention",
+          "error.context.medium": "Error message requiring user attention",
+          "error.context.high": "High priority error requiring immediate attention",
+          "error.context.critical": "Critical error requiring immediate action",
+        },
+        de: {
+          "error.countdown": "Verbleibende Zeit bis zum automatischen Ausblenden",
+          "error.extend": "Zeitüberschreitung verlängern",
+          "error.extend.tooltip": "Die Fehlermeldung um 5 Sekunden verlängern",
+          "error.context.low": "Informationshinweis, der Aufmerksamkeit erfordert",
+          "error.context.medium": "Fehlermeldung, die Benutzeraufmerksamkeit erfordert",
+          "error.context.high": "Hochpriorisierter Fehler, der sofortige Aufmerksamkeit erfordert",
+          "error.context.critical": "Kritischer Fehler, der sofortige Maßnahmen erfordert",
+        },
+        es: {
+          "error.countdown": "Tiempo restante hasta ocultarse automáticamente",
+          "error.extend": "Extender tiempo de espera",
+          "error.extend.tooltip": "Extender el tiempo de espera del mensaje de error en 5 segundos",
+          "error.context.low": "Aviso informativo que requiere atención",
+          "error.context.medium": "Mensaje de error que requiere atención del usuario",
+          "error.context.high": "Error de alta prioridad que requiere atención inmediata",
+          "error.context.critical": "Error crítico que requiere acción inmediata",
+        },
+        fr: {
+          "error.countdown": "Temps restant avant masquage automatique",
+          "error.extend": "Prolonger le délai",
+          "error.extend.tooltip": "Prolonger le délai du message d'erreur de 5 secondes",
+          "error.context.low": "Avis informatif nécessitant une attention",
+          "error.context.medium": "Message d'erreur nécessitant l'attention de l'utilisateur",
+          "error.context.high": "Erreur prioritaire nécessitant une attention immédiate",
+          "error.context.critical": "Erreur critique nécessitant une action immédiate",
+        },
+        it: {
+          "error.countdown": "Tempo rimanente prima della scomparsa automatica",
+          "error.extend": "Estendi timeout",
+          "error.extend.tooltip": "Estendi il timeout del messaggio di errore di 5 secondi",
+          "error.context.low": "Avviso informativo che richiede attenzione",
+          "error.context.medium": "Messaggio di errore che richiede attenzione dell'utente",
+          "error.context.high": "Errore ad alta priorità che richiede attenzione immediata",
+          "error.context.critical": "Errore critico che richiede azione immediata",
+        },
+        pt: {
+          "error.countdown": "Tempo restante até ocultação automática",
+          "error.extend": "Estender tempo limite",
+          "error.extend.tooltip": "Estender o tempo limite da mensagem de erro em 5 segundos",
+          "error.context.low": "Aviso informativo que requer atenção",
+          "error.context.medium": "Mensagem de erro que requer atenção do usuário",
+          "error.context.high": "Erro de alta prioridade que requer atenção imediata",
+          "error.context.critical": "Erro crítico que requer ação imediata",
+        },
+        da: {
+          "error.countdown": "Resterende tid indtil automatisk skjul",
+          "error.extend": "Forlæng timeout",
+          "error.extend.tooltip": "Forlæng fejlmeddelelsens timeout med 5 sekunder",
+          "error.context.low": "Informativ besked der kræver opmærksomhed",
+          "error.context.medium": "Fejlmeddelelse der kræver brugerens opmærksomhed",
+          "error.context.high": "Højprioritets fejl der kræver øjeblikkelig opmærksomhed",
+          "error.context.critical": "Kritisk fejl der kræver øjeblikkelig handling",
+        },
+        nl: {
+          "error.countdown": "Resterende tijd tot automatisch verbergen",
+          "error.extend": "Timeout verlengen",
+          "error.extend.tooltip": "De timeout van het foutbericht met 5 seconden verlengen",
+          "error.context.low": "Informatieve melding die aandacht vereist",
+          "error.context.medium": "Foutbericht dat gebruikersaandacht vereist",
+          "error.context.high": "Hoge prioriteit fout die onmiddellijke aandacht vereist",
+          "error.context.critical": "Kritieke fout die onmiddellijke actie vereist",
+        },
+        sv: {
+          "error.countdown": "Återstående tid till automatisk dölj",
+          "error.extend": "Förläng timeout",
+          "error.extend.tooltip": "Förläng felmeddelandes timeout med 5 sekunder",
+          "error.context.low": "Informativ notis som kräver uppmärksamhet",
+          "error.context.medium": "Felmeddelande som kräver användarens uppmärksamhet",
+          "error.context.high": "Hög prioritet fel som kräver omedelbar uppmärksamhet",
+          "error.context.critical": "Kritiskt fel som kräver omedelbar åtgärd",
+        },
+        fi: {
+          "error.countdown": "Jäljellä oleva aika automaattiseen piilottamiseen",
+          "error.extend": "Pidennä aikataulua",
+          "error.extend.tooltip": "Pidennä virheviestin aikataulua 5 sekunnilla",
+          "error.context.low": "Informatiivinen ilmoitus joka vaatii huomiota",
+          "error.context.medium": "Virheviesti joka vaatii käyttäjän huomiota",
+          "error.context.high": "Korkean prioriteetin virhe joka vaatii välitöntä huomiota",
+          "error.context.critical": "Kriittinen virhe joka vaatii välitöntä toimintaa",
+        },
+      };
+
+      const errorKeys = [
+        "error.countdown",
+        "error.extend",
+        "error.extend.tooltip",
+        "error.context.low",
+        "error.context.medium",
+        "error.context.high",
+        "error.context.critical",
+      ];
+
+      function getTranslation(key) {
+        const language = document.getElementById("languageSelect").value;
+        const langData = translations[language];
+        return langData && langData[key] ? langData[key] : null;
+      }
+
+      function testKey(key) {
+        const translation = getTranslation(key);
+        const language = document.getElementById("languageSelect").value;
+
+        let html = `<div class="translation-result">`;
+        html += `<div><span class="key">${key}</span> [${language.toUpperCase()}]:</div>`;
+
+        if (translation) {
+          html += `<div><span class="value">"${translation}"</span></div>`;
+        } else {
+          html += `<div><span class="missing">❌ Translation missing</span></div>`;
+        }
+
+        html += `</div>`;
+
+        document.getElementById("individualResults").innerHTML = html;
+      }
+
+      function testAllKeys() {
+        const language = document.getElementById("languageSelect").value;
+        let html = `<div class="translation-result">`;
+        html += `<h4>🌍 All Error Keys for ${language.toUpperCase()}:</h4>`;
+
+        let allPresent = true;
+
+        errorKeys.forEach((key) => {
+          const translation = getTranslation(key);
+          html += `<div style="margin: 8px 0;">`;
+          html += `<span class="key">${key}</span>: `;
+
+          if (translation) {
+            html += `<span class="value">"${translation}"</span>`;
+          } else {
+            html += `<span class="missing">❌ Missing</span>`;
+            allPresent = false;
+          }
+
+          html += `</div>`;
+        });
+
+        if (allPresent) {
+          html += `<div style="margin-top: 15px; color: #34d399; font-weight: bold;">✅ All translations present!</div>`;
+        } else {
+          html += `<div style="margin-top: 15px; color: #f87171; font-weight: bold;">❌ Some translations missing!</div>`;
+        }
+
+        html += `</div>`;
+
+        document.getElementById("testResults").innerHTML = html;
+      }
+
+      // Test all keys when language changes
+      document.getElementById("languageSelect").addEventListener("change", testAllKeys);
+
+      // Initial test
+      testAllKeys();
+    </script>
+  </body>
+</html>

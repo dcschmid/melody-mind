@@ -112,25 +112,21 @@ const languages = Object.fromEntries(
 );
 ---
 
-<div
-  class="focus-within:ring-opacity-75 flex items-center gap-2 rounded-lg focus-within:ring focus-within:ring-sky-300"
-  role="navigation"
-  aria-label={t("language.picker.label")}
->
+<div class="language-picker" role="navigation" aria-label={t("language.picker.label")}>
   {/* Language selector container with proper ARIA landmarks */}
-  <div class="relative">
+  <div class="language-picker__select-container">
     {
       /* 
       Native select element for maximum accessibility and compatibility
-      - WCAG AAA compliant colors (sky-600 on white for 7:1 contrast ratio)
-      - Minimum touch target size of 44x44px
+      - WCAG AAA compliant colors using CSS variables
+      - Minimum touch target size using CSS variables
       - Proper focus indicators for keyboard navigation
       - ARIA attributes for screen reader support
     */
     }
     <select
       id="language-select"
-      class="min-h-[44px] w-full min-w-[44px] cursor-pointer appearance-none rounded-lg border-0 bg-sky-600 px-3 py-2 pr-10 text-base font-medium text-white transition duration-200 hover:bg-sky-700 focus-visible:bg-sky-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-200 disabled:opacity-50"
+      class="language-picker__select"
       value={getRelativeLocaleUrl(String(lang), cleanPath)}
       aria-expanded="false"
       onchange="
@@ -139,6 +135,10 @@ const languages = Object.fromEntries(
         window.location.href = this.value;
       "
       aria-label={t("language.select.label")}
+      data-focus-announce={t("language.focus.announce")}
+      data-change-success={t("language.change.success")}
+      data-change-error={t("language.change.error")}
+      data-preference-restored={t("language.preference.restored")}
     >
       {/* Generate language options from the configured languages object */}
       {
@@ -149,7 +149,7 @@ const languages = Object.fromEntries(
               value={url}
               selected={code === lang}
               aria-label={label}
-              class="flex items-center gap-2 bg-zinc-100 py-1 text-zinc-900"
+              class="language-picker__option"
             >
               {flag} {name}
             </option>
@@ -161,23 +161,20 @@ const languages = Object.fromEntries(
     {
       /* 
       Decorative dropdown arrow indicator
-      - Animated for visual feedback
+      - Animated for visual feedback using CSS variables
       - Marked as aria-hidden to avoid screen reader noise
       - Includes title for SVG accessibility 
     */
     }
-    <div
-      class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-zinc-900 transition-colors duration-200"
-      id="arrow-container"
-    >
+    <div class="language-picker__arrow-container" id="arrow-container">
       <svg
         id="language-arrow"
-        class="h-4 w-4 fill-current transition-transform duration-300"
+        class="language-picker__arrow"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         aria-hidden="true"
       >
-        <title>Dropdown Arrow</title>
+        <title>{t("language.dropdown.arrow")}</title>
         <path
           d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
         ></path>
@@ -192,280 +189,296 @@ const languages = Object.fromEntries(
     - Hidden visually but available to assistive technology 
   */
   }
-  <div class="sr-only" id="language-status" aria-live="polite">
+  <div class="language-picker__status" id="language-status" aria-live="polite">
     {t("language.selected", { language: languages[String(lang)].name })}
   </div>
 </div>
 
-<script>
+<style>
+  /**
+   * LanguagePicker Component Styles
+   * 
+   * WCAG AAA 2.2 compliant language picker using only CSS custom properties
+   * All styles use root variables from global.css for consistency and accessibility
+   * Follows BEM methodology for maintainable CSS architecture
+   */
+
+  /* ======================================
+   * CONTAINER & LAYOUT
+   * ====================================== */
+
+  .language-picker {
+    /* Layout using CSS variables */
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    border-radius: var(--radius-lg);
+
+    /* Enhanced focus-within state for WCAG AAA compliance */
+    transition: box-shadow var(--transition-normal);
+  }
+
+  .language-picker:focus-within {
+    box-shadow: var(--focus-ring);
+  }
+
+  .language-picker__select-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ======================================
+   * SHARED LAYOUT PATTERNS (DRY)
+   * ====================================== */
+
+  /* Common focus styles - reusable pattern */
+  .language-picker__select:focus,
+  .language-picker__select:focus-visible {
+    background-color: var(--interactive-primary-hover);
+    outline: var(--focus-enhanced-outline-dark);
+    outline-offset: var(--focus-ring-offset);
+    box-shadow: var(--focus-enhanced-shadow);
+  }
+
+  /* Common transition pattern for interactive elements */
+  .language-picker__select,
+  .language-picker__arrow {
+    transition:
+      background-color var(--transition-normal),
+      transform var(--transition-normal),
+      box-shadow var(--transition-normal),
+      color var(--transition-normal);
+  }
+
+  /* ======================================
+   * SELECT ELEMENT STYLING
+   * ====================================== */
+
+  .language-picker__select {
+    /* Layout and sizing using CSS variables for WCAG AAA compliance */
+    min-height: var(--min-touch-size); /* 44px minimum for touch targets */
+    width: 100%;
+    min-width: var(--min-touch-size);
+
+    /* Appearance and positioning */
+    cursor: pointer;
+    appearance: none;
+    border: none;
+    border-radius: var(--radius-lg);
+
+    /* Spacing using CSS variables */
+    padding: var(--space-sm) var(--space-2xl) var(--space-sm) var(--space-md);
+
+    /* Background and colors using semantic CSS variables */
+    background-color: var(--interactive-primary);
+    color: var(--btn-primary-text);
+
+    /* Typography using CSS variables */
+    font-size: var(--text-base);
+    font-weight: var(--font-medium);
+
+    /* Note: transition moved to shared pattern above for DRY compliance */
+  }
+
+  .language-picker__select:hover {
+    background-color: var(--interactive-primary-hover);
+    transform: translateY(calc(var(--space-micro) * var(--transform-factor-hover)));
+  }
+
+  /* Note: focus styles moved to shared pattern above for DRY compliance */
+
+  .language-picker__select:disabled {
+    opacity: var(--opacity-disabled);
+    cursor: not-allowed;
+  }
+
+  /* ======================================
+   * OPTION STYLING
+   * ====================================== */
+
+  .language-picker__option {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: var(--space-xs);
+
+    /* Enhanced option styling for better contrast */
+    border-bottom: var(--border-width-thin) solid var(--border-primary);
+  }
+
+  /* Shared hover and focus patterns for options */
+  .language-picker__option:hover {
+    background-color: var(--bg-tertiary);
+  }
+
+  .language-picker__option:focus {
+    background-color: var(--interactive-primary);
+    color: var(--btn-primary-text);
+  }
+
+  /* ======================================
+   * ARROW INDICATOR
+   * ====================================== */
+
+  .language-picker__arrow-container {
+    /* Positioning */
+    position: absolute;
+    top: var(--space-none);
+    bottom: var(--space-none);
+    right: var(--space-none);
+
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Spacing and styling */
+    padding: var(--space-none) var(--space-sm);
+    pointer-events: none;
+
+    /* Color using CSS variables */
+    color: var(--btn-primary-text);
+
+    /* Note: transition moved to shared pattern above for DRY compliance */
+  }
+
+  .language-picker__arrow {
+    /* Size using CSS variables */
+    height: var(--icon-size-sm);
+    width: var(--icon-size-sm);
+
+    /* Styling */
+    fill: currentColor;
+
+    /* Note: transition moved to shared pattern above for DRY compliance */
+  }
+
+  /* Arrow rotation states for enhanced UX - consolidated selectors */
+  .language-picker__select:focus + .language-picker__arrow-container .language-picker__arrow,
+  .language-picker__select:active + .language-picker__arrow-container .language-picker__arrow {
+    transform: rotate(var(--rotation-180));
+  }
+
+  .language-picker__select:focus + .language-picker__arrow-container,
+  .language-picker__select:active + .language-picker__arrow-container {
+    color: var(--btn-primary-text);
+  }
+
+  /* ======================================
+   * SCREEN READER STATUS
+   * ====================================== */
+
+  .language-picker__status {
+    /* Screen reader only - using semantic utility class approach with CSS variables */
+    position: absolute;
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
+    padding: var(--space-none);
+    margin: var(--sr-only-margin);
+    overflow: hidden;
+    clip: rect(var(--space-none), var(--space-none), var(--space-none), var(--space-none));
+    white-space: nowrap;
+    border: var(--space-none);
+  }
+
+  /* ======================================
+   * RESPONSIVE DESIGN
+   * ====================================== */
+
+  @media (min-width: var(--breakpoint-sm)) {
+    .language-picker__select {
+      min-width: calc(
+        var(--min-touch-size) * var(--scale-factor-responsive-wide)
+      ); /* Wider on larger screens */
+    }
+  }
+
+  /* ======================================
+   * ACCESSIBILITY ENHANCEMENTS
+   * ====================================== */
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .language-picker__select {
+      border: var(--border-width-thick) solid var(--text-primary);
+    }
+
+    .language-picker__select:focus,
+    .language-picker__select:focus-visible {
+      outline: var(--border-width-enhanced) solid var(--text-primary);
+      outline-offset: var(--space-xs);
+    }
+  }
+
+  /* Forced colors mode support */
+  @media (forced-colors: active) {
+    .language-picker__select {
+      background-color: ButtonFace;
+      color: ButtonText;
+      border: var(--border-width-thin) solid ButtonText;
+      forced-color-adjust: none;
+    }
+
+    .language-picker__select:focus,
+    .language-picker__select:focus-visible {
+      outline: var(--border-width-thick) solid Highlight;
+    }
+
+    .language-picker__arrow {
+      fill: ButtonText;
+    }
+  }
+
+  /* Reduced motion support - consolidated transition override */
+  @media (prefers-reduced-motion: reduce) {
+    .language-picker__select,
+    .language-picker__arrow {
+      transition-duration: var(--transition-fast) !important;
+    }
+
+    .language-picker__select:hover {
+      transform: none;
+    }
+  }
+
+  /* Enhanced text spacing support (WCAG 2.2) */
+  .enhanced-text-spacing .language-picker__select {
+    letter-spacing: var(--letter-spacing-enhanced);
+    word-spacing: var(--word-spacing-enhanced);
+    line-height: var(--line-height-enhanced);
+    padding-top: calc(var(--space-sm) * var(--scale-factor-enhanced));
+    padding-bottom: calc(var(--space-sm) * var(--scale-factor-enhanced));
+  }
+
+  /* Enhanced text spacing support for better accessibility */
+  @media (min-width: var(--breakpoint-sm)) {
+    .enhanced-text-spacing .language-picker__select {
+      padding-top: calc(var(--space-md) * var(--scale-factor-responsive));
+      padding-bottom: calc(var(--space-md) * var(--scale-factor-responsive));
+    }
+  }
+</style>
+
+<script type="module">
   /**
    * LanguagePicker Component Script
    *
-   * Enhances the language selection dropdown with interactive features and accessibility support.
-   * This script follows the MelodyMind project standards for performance and accessibility:
-   *
-   * - Uses TypeScript for type safety
-   * - Implements proper cleanup to prevent memory leaks
-   * - Provides enhanced keyboard navigation
-   * - Manages ARIA states for screen reader announcements
-   * - Uses event delegation for better performance
-   * - Persists user preferences across sessions
+   * Enhanced language picker implementation using external TypeScript module for better performance.
+   * This optimized approach includes:
+   * - External module for code reusability and maintainability
+   * - CSS variables for all hardcoded values (100% compliance)
+   * - AbortController for memory-efficient cleanup
+   * - Cached DOM references and CSS values
+   * - Enhanced error handling and validation
    *
    * @module LanguagePickerScript
    */
 
-  /**
-   * TypeScript class that manages the language picker functionality
-   * Uses OOP approach for better organization and maintainability
-   */
-  class LanguagePicker {
-    /** Reference to the select element */
-    private selectElement: HTMLSelectElement | null;
-    /** Reference to the dropdown arrow SVG element */
-    private arrowElement: HTMLElement | null;
-    /** Reference to the container of the arrow for styling */
-    private arrowContainer: HTMLElement | null;
-    /** Map of event handlers for proper cleanup */
-    private eventHandlers: Map<string, EventListenerOrEventListenerObject>;
+  import { LanguagePicker } from "../utils/languagePicker.ts";
 
-    /**
-     * Initializes the language picker with DOM references and sets up event handlers
-     * @constructor
-     */
-    constructor() {
-      // Get required DOM elements with appropriate type casting
-      this.selectElement = document.getElementById("language-select") as HTMLSelectElement;
-      this.arrowElement = document.getElementById("language-arrow");
-      this.arrowContainer = document.getElementById("arrow-container");
-      this.eventHandlers = new Map();
-
-      // Only initialize if all required elements are found in the DOM
-      if (this.isValid()) {
-        this.initialize();
-      } else {
-        console.debug("Language picker initialization skipped - required elements not found");
-      }
-    }
-
-    /**
-     * Validates that all required DOM elements exist before initialization
-     * Helps prevent runtime errors and improves debugging
-     *
-     * @returns {boolean} True if all required elements exist in the DOM
-     */
-    private isValid(): boolean {
-      return !!(this.selectElement && this.arrowElement && this.arrowContainer);
-    }
-
-    /**
-     * Sets up the component's initial state and event handlers
-     * Acts as the main initialization method after construction
-     */
-    private initialize(): void {
-      // Set up event handlers for user interactions
-      this.setupEventHandlers();
-
-      // Restore any previously saved language preference
-      this.applyPreferredLanguage();
-    }
-
-    /**
-     * Attaches all necessary event handlers to the select element
-     * Stores references for later cleanup to prevent memory leaks
-     */
-    private setupEventHandlers(): void {
-      if (!this.selectElement) {
-        return;
-      }
-
-      // Define event handlers with proper binding to maintain 'this' context
-      const handlers: Record<string, EventListenerOrEventListenerObject> = {
-        focus: this.handleFocus.bind(this),
-        blur: this.handleBlur.bind(this),
-        mousedown: this.handleMouseInteraction.bind(this),
-        keydown: this.handleKeyboardInteraction.bind(this),
-        change: this.handleLanguageChange.bind(this),
-      };
-
-      // Store handler references in a Map for later cleanup
-      this.eventHandlers = new Map(Object.entries(handlers));
-
-      // Attach all events to the select element
-      for (const [event, handler] of this.eventHandlers) {
-        this.selectElement.addEventListener(event, handler);
-      }
-    }
-
-    /**
-     * Applies the user's preferred language if stored in localStorage
-     * Provides persistence across sessions for better user experience
-     */
-    private applyPreferredLanguage(): void {
-      try {
-        const preferredLanguage = localStorage.getItem("preferred-language");
-        if (preferredLanguage && this.selectElement) {
-          // Find the option that matches the stored language code
-          const options = this.selectElement.options;
-          for (let i = 0; i < options.length; i++) {
-            const url = options[i].value;
-            if (url.includes(`/${preferredLanguage}/`)) {
-              this.selectElement.selectedIndex = i;
-              break;
-            }
-          }
-        }
-      } catch (error) {
-        // Handle potential localStorage errors (e.g., in private browsing)
-        console.debug("Failed to access localStorage for language preference:", error);
-      }
-    }
-
-    /**
-     * Handles focus event on the select element
-     * Provides visual feedback by rotating the arrow icon
-     *
-     * @fires focus - Native DOM focus event
-     */
-    private handleFocus(): void {
-      this.arrowElement?.classList.add("rotate-180");
-      this.arrowContainer?.classList.add("text-white");
-    }
-
-    /**
-     * Handles blur event on the select element
-     * Restores the default visual state when focus is lost
-     *
-     * @fires blur - Native DOM blur event
-     */
-    private handleBlur(): void {
-      this.arrowElement?.classList.remove("rotate-180");
-      this.arrowContainer?.classList.remove("text-white");
-    }
-
-    /**
-     * Handles mouse interactions for custom dropdown behavior
-     * Improves UX by providing visual feedback and custom dropdown sizing
-     *
-     * @param {Event} event - The mouse event object
-     * @fires mousedown - Native DOM mousedown event
-     */
-    private handleMouseInteraction(event: Event): void {
-      // Custom behavior only when clicking on an already focused select
-      if (document.activeElement === this.selectElement) {
-        // Prevent default behavior for custom handling
-        (event as MouseEvent).preventDefault();
-        this.arrowElement?.classList.toggle("rotate-180");
-
-        // Toggle between open and closed states
-        if (this.selectElement?.size === 1) {
-          // Open the dropdown with 4 visible options
-          this.selectElement.size = 4;
-          // Update ARIA state for screen readers
-          this.selectElement.setAttribute("aria-expanded", "true");
-        } else {
-          // Close the dropdown
-          this.selectElement!.size = 1;
-          this.selectElement?.blur();
-          // Update ARIA state for screen readers
-          this.selectElement?.setAttribute("aria-expanded", "false");
-        }
-      }
-    }
-
-    /**
-     * Handles keyboard interactions for accessibility
-     * Ensures the component is fully usable with keyboard navigation
-     *
-     * @param {Event} event - The keyboard event object
-     * @fires keydown - Native DOM keydown event
-     */
-    private handleKeyboardInteraction(event: Event): void {
-      const keyEvent = event as KeyboardEvent;
-
-      // Respond to Enter or Space key presses as per accessibility guidelines
-      if (keyEvent.key === "Enter" || keyEvent.key === " ") {
-        this.arrowElement?.classList.toggle("rotate-180");
-
-        // Update ARIA expanded state for screen readers
-        const expanded = this.selectElement?.getAttribute("aria-expanded") === "true";
-        this.selectElement?.setAttribute("aria-expanded", expanded ? "false" : "true");
-
-        // Announce state change to screen readers via aria-live region
-        const statusElement = document.getElementById("language-status");
-        if (statusElement && this.selectElement) {
-          const selectedOption = this.selectElement.options[this.selectElement.selectedIndex];
-
-          // Update status message based on expanded state
-          if (expanded) {
-            statusElement.textContent = "Sprachauswahl geschlossen";
-          } else {
-            statusElement.textContent = "Sprachauswahl geöffnet";
-          }
-        }
-      }
-    }
-
-    /**
-     * Handles language change events
-     * Persists selection to localStorage and navigates to new language URL
-     *
-     * @param {Event} event - The change event object
-     * @fires change - Native DOM change event
-     */
-    private handleLanguageChange(event: Event): void {
-      const target = event.target as HTMLSelectElement;
-      const newUrl = target.value;
-
-      try {
-        // Extract language code from URL using regex
-        const langMatch = newUrl.match(/\/([a-z]{2})\//);
-        if (langMatch && langMatch[1]) {
-          // Store the selected language preference
-          localStorage.setItem("preferred-language", langMatch[1]);
-        }
-
-        // Navigate to the URL with the selected language
-        window.location.href = newUrl;
-      } catch (error) {
-        console.error("Failed to process language change:", error);
-      }
-    }
-
-    /**
-     * Cleans up all event listeners to prevent memory leaks
-     * Called when the component is destroyed or page is navigated away
-     */
-    public cleanup(): void {
-      if (!this.selectElement) {
-        return;
-      }
-
-      // Remove all registered event listeners
-      for (const [event, handler] of this.eventHandlers) {
-        this.selectElement.removeEventListener(event, handler);
-      }
-
-      // Clear the event handlers map
-      this.eventHandlers.clear();
-    }
-  }
-
-  // Create and initialize the language picker component with proper lifecycle management
-  let languagePicker: LanguagePicker | null = null;
-
-  // Initialize on DOMContentLoaded if the document is still loading
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => {
-      languagePicker = new LanguagePicker();
-    });
-  } else {
-    // Initialize immediately if the DOM is already ready
-    languagePicker = new LanguagePicker();
-  }
-
-  // Clean up when navigating away with Astro's navigation system
-  document.addEventListener("astro:before-swap", () => {
-    languagePicker?.cleanup();
-    languagePicker = null;
-  });
+  // Initialize the language picker with enhanced performance and cleanup
+  LanguagePicker.init();
 </script>

@@ -36,8 +36,24 @@ export default {
   "auth.accessibility.requirement.unmet": "Vereiste niet voldaan",
   "auth.accessibility.password.visible": "Wachtwoord is nu zichtbaar",
   "auth.accessibility.password.hidden": "Wachtwoord is nu verborgen",
+  "auth.accessibility.password.visible_status":
+    "Wachtwoord is nu zichtbaar. Vergeet niet het te verbergen wanneer je klaar bent voor de veiligheid.",
+  "auth.accessibility.password.hidden_status": "Wachtwoord is nu verborgen voor de veiligheid.",
+  "auth.accessibility.password_toggle_empty":
+    "Voer eerst een wachtwoord in voordat je de zichtbaarheid wisselt.",
+  "auth.accessibility.password_toggle_help":
+    "Wissel om wachtwoordtekens te tonen of verbergen. Gebruik voorzichtig in openbare ruimtes voor de veiligheid.",
   "auth.accessibility.requirements.expanded": "Wachtwoordvereisten uitgebreid",
   "auth.accessibility.requirements.collapsed": "Wachtwoordvereisten ingeklapt",
+  "auth.accessibility.login_form_active": "Het inlogformulier is nu actief",
+  "auth.accessibility.register_form_active": "Het registratieformulier is nu actief",
+  "auth.accessibility.focus_trapped":
+    "Focus is nu gevangen binnen dit dialoogvenster. Gebruik Tab om te navigeren en Escape om te sluiten.",
+  "auth.accessibility.error_message_dismissed": "Foutmelding weggenomen",
+  "auth.accessibility.success_message_dismissed": "Succesbericht weggenomen",
+
+  // Skip links
+  "auth.skip_to_verification": "Ga naar e-mailverificatie-inhoud",
 
   "auth.tabs.login": "Inloggen",
   "auth.tabs.register": "Registreren",
@@ -45,6 +61,13 @@ export default {
   "auth.form.error.general": "Er is een fout opgetreden",
   "auth.form.success": "Succes!",
   "auth.form.email_required": "E-mailadres is vereist",
+
+  // Table of Contents
+  "toc.toggle.label": "Inhoudsopgave tonen of verbergen",
+  "toc.state.expanded": "Uitgevouwen",
+  "toc.state.collapsed": "Ingeklapt",
+  "toc.nav.label": "Inhoudsopgave",
+  "toc.skip.link": "Naar hoofdinhoud springen",
   "auth.form.email_invalid_short": "Ongeldig e-mailadres",
   "auth.form.loading_text": "Laden...",
   "auth.form.send_reset_link": "Resetlink verzenden",
@@ -52,6 +75,7 @@ export default {
   "auth.form.password_requirements": "Wachtwoord voldoet niet aan alle vereisten",
   "auth.form.password_confirm_required": "Wachtwoordbevestiging is vereist",
   "auth.form.passwords_not_match": "Wachtwoorden komen niet overeen",
+  "auth.form.init_error": "Formulierelementen konden niet worden geïnitialiseerd",
   "auth.password_reset.success_message":
     "Als er een account bestaat met dit e-mailadres, is er een e-mail met instructies voor het opnieuw instellen van het wachtwoord verzonden.",
   "auth.password_reset.error_message": "Er is een fout opgetreden. Probeer het later opnieuw.",
@@ -74,8 +98,6 @@ export default {
   "auth.register.error": "Registratie mislukt",
 
   "auth.password_reset.title": "Wachtwoord opnieuw instellen",
-  "auth.password_reset.description":
-    "Voer uw e-mailadres in om een link voor het opnieuw instellen van uw wachtwoord te ontvangen",
   "auth.password_reset.description":
     "Voer uw e-mailadres in om een link voor het opnieuw instellen van uw wachtwoord te ontvangen",
   "auth.password_reset.submit": "Resetlink verzenden",
@@ -114,6 +136,9 @@ export default {
   "auth.password.requirements.not_met": "Vereiste niet voldaan",
   "auth.password.requirements.keyboard_navigation":
     "Gebruik pijltjestoetsen om door vereisten te navigeren, Escape om te verlaten",
+  "auth.password.requirements.position": "{{current}} van {{total}}",
+  "auth.password.requirements.progress":
+    "{{met}} van {{total}} vereisten voldaan. {{percentage}}% voltooid.",
   "auth.password.min_length": "Wachtwoord moet minimaal 8 tekens lang zijn",
   "auth.password.uppercase": "Wachtwoord moet minimaal één hoofdletter bevatten",
   "auth.password.lowercase": "Wachtwoord moet minimaal één kleine letter bevatten",
@@ -135,6 +160,37 @@ export default {
   "auth.form.required": "Dit veld is vereist",
   "auth.form.email_invalid": "Voer een geldig e-mailadres in",
   "auth.form.password_min_length": "Wachtwoord moet minimaal 6 tekens lang zijn",
+  "auth.form.email_invalid_format":
+    "Voer een geldig e-mailadres in het formaat in: gebruiker@voorbeeld.nl",
+  "auth.form.password_length_error": "Wachtwoord moet minstens 8 tekens lang zijn",
+  "auth.form.password_uppercase_error": "Wachtwoord moet minstens één hoofdletter bevatten (A-Z)",
+  "auth.form.password_lowercase_error": "Wachtwoord moet minstens één kleine letter bevatten (a-z)",
+  "auth.form.password_number_error": "Wachtwoord moet minstens één cijfer bevatten (0-9)",
+  "auth.form.password_special_error":
+    "Wachtwoord moet minstens één speciaal teken bevatten (!@#$%^&*)",
+  "auth.form.password_common_error": "Kies een minder gangbaar wachtwoord",
+  "auth.form.password_repeats_error":
+    "Wachtwoord mag niet meer dan 2 opeenvolgende identieke tekens bevatten",
+  "auth.form.password_sequences_error":
+    "Wachtwoord mag geen gangbare reeksen bevatten zoals '123' of 'abc'",
+  "auth.form.instructions.title": "Hoe dit formulier in te vullen",
+  "auth.form.instructions.request.step1": "Voer je e-mailadres in het onderstaande veld in",
+  "auth.form.instructions.request.step2":
+    "Klik op 'Verstuur reset-link' om wachtwoord reset instructies te ontvangen",
+  "auth.form.instructions.request.step3":
+    "Controleer je e-mail voor de reset-link en volg de instructies",
+  "auth.form.instructions.confirm.step1": "Maak een sterk wachtwoord dat aan alle eisen voldoet",
+  "auth.form.instructions.confirm.step2": "Bevestig je wachtwoord door het opnieuw in te typen",
+  "auth.form.instructions.confirm.step3":
+    "Klik op 'Wachtwoord resetten' om het proces te voltooien",
+  "auth.form.help.password_button": "Krijg hulp bij het maken van een sterk wachtwoord",
+  "auth.form.help.password_title": "Tips voor wachtwoord aanmaken",
+  "auth.form.help.password_suggestions":
+    "Probeer een combinatie van woorden, cijfers en symbolen te gebruiken. Vermijd gangbare wachtwoorden zoals 'wachtwoord123'.",
+  "auth.form.help.tip1": "Gebruik een mix van hoofdletters en kleine letters",
+  "auth.form.help.tip2": "Voeg cijfers en speciale tekens toe",
+  "auth.form.help.tip3": "Vermijd gangbare woorden en reeksen",
+  "auth.form.help.tip4": "Overweeg het gebruik van een wachtwoordzin",
   "auth.form.min_length": "Dit veld moet minimaal {length} tekens lang zijn",
   "auth.form.max_length": "Dit veld mag niet langer zijn dan {length} tekens",
   "auth.form.invalid": "Dit veld is ongeldig",
@@ -149,6 +205,8 @@ export default {
   "auth.accessibility.password_requirements": "Wachtwoordvereisten weergeven/verbergen",
   "auth.accessibility.form": "Inlogformulier",
   "auth.accessibility.close_modal": "Venster sluiten",
+  "auth.accessibility.button_focus_instruction":
+    "Knop: {buttonText}. Druk op Enter om te verzenden",
 
   // API-foutmeldingen
   "auth.api.network_error": "Netwerkfout. Controleer uw verbinding",
@@ -177,13 +235,20 @@ export default {
   "difficulty.medium": "Gemiddeld",
   "difficulty.hard": "Moeilijk",
   "game.select":
-    "Ontdek de fascinerende wereld van muziek en test je kennis in onze interactieve muziekquizzen. Kies je favoriete genre en begin je melodieuze reis!",
+    "🎵 Klaar voor het ultieme muziekavontuur? Duik in een wereld vol ritmes, melodieën en onvergetelijke nummers! Van verpletterende gitaarsolos tot tijdloze klassiekers – vind jouw perfecte muzikale duel. Laat de wereld zien dat je een echte muziekkenner bent!",
   "game.welcome": "Welkom bij Melody Mind",
   "game.genre.list": "Genreselectie",
   "game.search.label": "Zoek naar een genre",
   "game.search.description": "De lijst wordt automatisch gefilterd terwijl u typt",
+  "game.search.clear": "Zoekopdracht wissen",
+  "game.search.help": "Typ om muziekgenres op naam te filteren",
+  "game.search.showing.all": "Alle genres tonen",
+  "game.search.results": "genres gevonden",
+  "game.search.no.results": "Geen genres gevonden die overeenkomen met uw zoekopdracht",
   "game.genre.play.label": "spelen",
   "game.genre.image": "Coverafbeelding voor",
+  "game.genre.selection.description":
+    "Kies uit meerdere muziekgenres waaronder rock, pop, jazz, klassiek en meer. Elke categorie bevat zorgvuldig samengestelde vragen om uw muziekkennis te testen.",
   "game.no.results": "Geen resultaten gevonden",
   "game.not.available": "Niet beschikbaar",
   "category.selected": "geselecteerd!",
@@ -216,19 +281,38 @@ export default {
   "game.feedback.resolution": "Resolutie",
   "game.feedback.media.section": "Mediagedeelte",
   "game.feedback.audio.preview": "Muziekvoorbeeld",
+  "game.feedback.audio.failed": "Audioweergave mislukt",
+  "game.feedback.audio.paused": "Audio gepauzeerd",
   "game.feedback.subtitles": "Ondertitels",
   "game.feedback.audio.unsupported": "Uw browser ondersteunt geen audioweergave.",
   "game.feedback.streaming.links": "Muziekstreaminglinks",
   "game.feedback.listen.spotify": "Luister op Spotify",
   "game.feedback.listen.deezer": "Luister op Deezer",
   "game.feedback.listen.apple": "Luister op Apple Music",
+
+  // Music Platforms Component - Accessibility Features
+  "musicPlatforms.heading": "Luister naar gerelateerde muziek",
+  "musicPlatforms.keyboardInstructions":
+    "Navigeer door muziekplatforms met de Tab-toets. Druk op Enter of Spatie om platforms in nieuwe tabbladen te openen.",
+  "musicPlatforms.externalNotice":
+    "Externe muziekplatformlinks kunnen accounts of abonnementen vereisen voor volledige toegang.",
+  "musicPlatforms.listenOn":
+    "Luister naar {title} op {platform} - Opent {platform} muziekplatform in nieuw tabblad. Kan {platform} account of abonnement vereisen.",
   "game.feedback.next.round": "Volgende ronde",
+  "game.feedback.next.starting": "Volgende ronde starten",
   "game.current.round": "Ronde",
   "game.current.round.label": "Huidig rondenummer",
   "game.joker.options": "Jokeropties",
   "game.joker.use": "Gebruik 50:50 Joker",
   "game.joker.description": "Verwijdert twee foute antwoordopties",
   "loading.content": "Inhoud laden...",
+  "loading.started": "Laden gestart",
+  "loading.completed": "Laden voltooid",
+  "loading.progress.indicator": "Voortgangsindicator",
+  "loading.context.game": "Spel laden",
+  "loading.context.question": "Vraag laden",
+  "loading.context.results": "Resultaten laden",
+  "loading.context.default": "Inhoud laden",
   "share.title": "Deel je succes!",
   "share.buttons.group.label": "Opties voor delen op sociale media",
   "share.facebook": "Deel op Facebook",
@@ -240,9 +324,65 @@ export default {
   "share.email.label": "E-mail",
   "share.copy": "Kopieer tekst om te delen naar klembord",
   "share.copy.label": "Kopieer tekst",
+  "share.fallback.message":
+    "Spelgegevens zijn momenteel niet beschikbaar. Probeer opnieuw of kopieer de paginakoppeling handmatig.",
+  "share.fallback.retry.label": "Probeer spelgegevens opnieuw te laden",
+  "share.fallback.retry.text": "Opnieuw proberen",
+  "share.fallback.manual.label": "Paginakoppeling handmatig kopiëren",
+  "share.fallback.manual.text": "Kopieer koppeling",
+
+  // Deel toegankelijkheid aankondigingen voor schermvoorlezers
+  "share.accessibility.data_unavailable":
+    "Spelgegevens niet beschikbaar. Probeer opnieuw of kopieer handmatig.",
+  "share.accessibility.retrying": "Proberen spelgegevens opnieuw te vinden...",
+  "share.accessibility.data_found": "Spelgegevens gevonden! Deel opties zijn nu beschikbaar.",
+  "share.accessibility.data_still_unavailable":
+    "Spelgegevens zijn nog steeds niet beschikbaar. Ververs de pagina of gebruik handmatig kopiëren.",
+  "share.accessibility.retry_failed":
+    "Opnieuw proberen mislukt. Gebruik handmatig kopiëren of ververs de pagina.",
+  "share.accessibility.link_copied": "Spelkoppeling succesvol gekopieerd naar klembord!",
+  "share.accessibility.link_copied_fallback":
+    "Spelkoppeling gekopieerd naar klembord met terugvalmethode!",
+  "share.accessibility.copy_failed_manual":
+    "Kopiëren mislukt. Kopieer de pagina-URL handmatig vanuit uw browser.",
+  "share.accessibility.score_shared": "Uw score is succesvol gedeeld.",
+  "share.accessibility.sharing_cancelled": "Delen geannuleerd.",
+  "share.accessibility.platform_share_failed":
+    "Delen naar {platform} mislukt: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_alternative_methods":
+    "Probeer kopiëren naar klembord of gebruik een andere deelmethode.",
+  "share.accessibility.score_copied": "Score succesvol gekopieerd naar klembord!",
+  "share.accessibility.native_share_failed":
+    "Native delen mislukt: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_platform_buttons":
+    "Probeer platform-specifieke deelknoppen of kopiëren naar klembord.",
+  "share.accessibility.platform_opened": "{platform} delen succesvol geopend.",
   "error.default": "Er is een fout opgetreden",
   "error.close": "Foutmelding sluiten",
   "coins.collected": "Verzamelde munten",
+  "coins.tooltip.authenticated":
+    "Jouw verzamelde munten: Je hebt {count} munten verdiend tijdens het spelen. Blijf spelen om er meer te verdienen!",
+  "coins.tooltip.guest":
+    "Gastspeler munten: Je hebt {count} munten verdiend in deze sessie. Log in om je voortgang permanent op te slaan!",
+  "coins.announce.earned_excellent":
+    "Uitstekend! {difference} munten verdiend tijdens {context}! Nieuw totaal: {newCount} munten.",
+  "coins.announce.earned_great":
+    "Goed gedaan! {difference} munt{plural} verdiend tijdens {context}. Totaal: {newCount} munten.",
+  "coins.announce.earned_normal":
+    "{difference} munt{plural} verdiend tijdens {context}. Totaal: {newCount} munten.",
+  "coins.announce.progress_saved": " Voortgang opgeslagen in je account.",
+  "coins.announce.lost":
+    "{lost} munt{plural} verloren tijdens {context}. Overgebleven: {newCount} munten.",
+  "coins.announce.updated":
+    "Munten bijgewerkt tijdens {context}. Huidig totaal: {newCount} munten.",
+  "coins.context.game": "het spelen van het spel",
+  "coins.context.shop": "het doen van een aankoop",
+  "coins.context.achievement": "het behalen van een prestatie",
+  "coins.context.bonus": "het ontvangen van een bonus",
+  "coins.context.daily": "het ophalen van de dagelijkse beloning",
+  "coins.context.quiz": "het beantwoorden van quizvragen",
+  "coins.context.challenge": "het voltooien van een uitdaging",
+  "coins.context.streak": "het behouden van een reeks",
   "language.picker.label": "Taalkiezer",
   "language.change": "Wijzig websitetaal",
   "language.select.label": "Selecteer uw voorkeurstaal",
@@ -266,9 +406,17 @@ export default {
   "language.nl.label": "Bekijk website in het Nederlands",
   "language.sv.label": "Bekijk website in het Zweeds",
   "language.fi.label": "Bekijk website in het Fins",
+  "language.selected": "Huidige taal: {language}",
+  "language.dropdown.arrow": "Dropdown-pijl",
+  "language.focus.announce": "Taalselector gefocust. Gebruik pijltjestoetsen om te navigeren.",
+  "language.change.success": "Taal gewijzigd naar {language}",
+  "language.change.error": "Taalwijziging mislukt. Probeer opnieuw.",
+  "language.preference.restored": "Taalvoorkeur hersteld: {language}",
   "playlist.item.unavailable": "Deze inhoud is nog niet beschikbaar",
   "playlist.item.status": "Status",
   "playlist.item.coming.soon": "Binnenkort beschikbaar",
+  "playlist.item.status.changed.disabled": "Deze afspeellijst is momenteel niet beschikbaar",
+  "playlist.item.status.changed.available": "Deze afspeellijst is nu beschikbaar",
   "game.area.label": "Spelgebied",
   "game.options.label": "Antwoordopties",
   "game.answer.correct": "Correct! {points} punten + {bonus} bonuspunten",
@@ -280,12 +428,13 @@ export default {
     "Muziekquiz, Muziekspel, Liedjesquiz, Artiestenquiz, Online Muziekquiz, Muziektrivia, Melody Mind, Muziekraadspel",
   "knowledge.title": "Muziekkennisbank",
   "knowledge.intro":
-    "Duik in de fascinerende wereld van de muziekgeschiedenis. Hier vindt u spannende artikelen over verschillende muziektijdperken, genres en hun ontwikkeling. Ontdek interessante feiten en breid uw muziekkennis uit.",
+    "🎵 Ontgrendel de geheimen van het muziekuniversum! Duik in boeiende verhalen van legendarische artiesten, verken de evolutie van muziekgenres en ontdek fascinerende feiten die je tot een echte muziekkenner maken. Van klassieke meesterwerken tot moderne hits – laat je meeslepen door aangrijpende artikelen die je passie voor muziek tot leven brengen.",
   "knowledge.search.label": "Artikelen doorzoeken",
   "knowledge.search.placeholder": "Zoeken...",
   "knowledge.filter.all": "Alle trefwoorden",
   "knowledge.no.results": "Geen artikelen gevonden. Probeer andere zoektermen.",
   "game.remaining": "resterend",
+  "game.remaining.label": "{count} resterend",
   "game.default.headline": "Spel",
   "popup.score": "Score: {score}",
   "popup.golden.lp.score": "Behaalde score: {score}",
@@ -294,6 +443,8 @@ export default {
   "nav.donate.coffee": "Koop ons een kopje koffie",
   "nav.title": "Navigatie",
   "nav.menu.text": "Menu",
+  "game.categories.title": "Muziekcategorieën",
+  "game.categories.loading": "Muziekcategorieën laden...",
   "game.categories.empty.headline": "Geen genres gevonden",
   "game.categories.empty.text":
     "Helaas zijn er geen categorieën gevonden. Probeer het later opnieuw.",
@@ -301,12 +452,15 @@ export default {
   "game.categories.no.playable.text":
     "Er zijn momenteel geen speelbare categorieën. Kom later terug.",
   "knowledge.reading.time": "min leestijd",
+  "knowledge.word.count": "woorden",
+  "knowledge.reading.time.label": "Leestijd",
   "knowledge.breadcrumb.label": "Navigatie",
   "knowledge.listen.heading": "Luister naar gerelateerde muziek",
   "knowledge.back.to.list": "Terug naar overzicht",
   "knowledge.interact.heading": "Luisteren & Spelen",
   "knowledge.play.heading": "Speel dit genre",
-  "knowledge.play.description": "Test je kennis van dit muziekgenre in onze interactieve quiz!",
+  "knowledge.play.description":
+    "🎵 Ben je klaar voor de ultieme uitdaging? Test je muziekkennis en word een genre-expert! Verzamel punten, gebruik slimme jokers en bewijs dat je hebt wat nodig is om een muziekkampioen te worden! 🏆",
   "knowledge.play.category": "Start Muziekquiz",
   "category.play": "Spelen",
   "play.cover.puzzle": "Speel Coverpuzzel",
@@ -343,11 +497,11 @@ export default {
   "podcast.listen.heading": "Luister naar Onze Podcasts",
   "login.welcome": "Welkom bij Melody Mind!",
   "login.description":
-    "Ga op een muzikale ontdekkingsreis door de tijd! Test je kennis in spannende quizzen, verken fascinerende muziekgenres en duik in onze meeslepende podcasts. Toon je vaardigheden, verzamel punten en word een echte muzieklegende!",
+    "🎵 Duik in het ultieme muziekuniversum! Ontdek legendarische hits, beheers spannende uitdagingen en word de absolute muziekkampioen. Je reis naar de grootste muzikale geheimen begint nu! 🚀",
   "index.continue": "Laten we beginnen!",
   "index.start.game.label": "Begin je muzikale reis",
   "index.welcome.footnote":
-    "Voorbereid door muziekliefhebbers voor muziekliefhebbers. Veel plezier!",
+    "🎶 Gemaakt met passie voor echte muziekfans - Laat de magie beginnen! ✨",
   "accessibility.wcag": "Deze applicatie streeft naar WCAG AAA-conformiteit.",
   "game.instructions.title": "Spelinstructies",
   "game.instructions.puzzle":
@@ -375,24 +529,60 @@ export default {
   "playlist.page.title": "Muziekafspeellijsten | Melody Mind",
   "playlist.page.heading": "Ontdek Onze Muziekafspeellijsten",
   "playlist.page.description":
-    "Duik in zorgvuldig samengestelde afspeellijsten uit verschillende tijdperken en genres. Perfect om nieuwe muziek te ontdekken of je favoriete klassiekers opnieuw te beleven.",
+    "🎵 Begin aan een epische muzikale reis door legendarische tijdperken! Onze handgeselecteerde afspeellijsten brengen de grootste hits tot leven - van tijdloze klassiekers tot onvergetelijke hitparadehits. Perfect om je muziekkennis uit te breiden of nostalgische herinneringen op te wekken! 🎶",
   "playlist.search.label": "Afspeellijsten doorzoeken",
+  "playlist.search.heading": "Afspeellijsten doorzoeken",
   "playlist.search.placeholder": "Zoeken op artiest of stijl...",
+  "playlist.search.aria.label": "Muziekafspeellijsten doorzoeken",
   "playlist.filter.all": "Alle Tijdperken",
   "playlist.no.results":
     "Geen overeenkomende afspeellijsten gevonden. Probeer een andere zoekterm.",
+  "playlist.no.results.heading": "Geen afspeellijsten gevonden",
+  "playlist.reset.search": "Alle afspeellijsten tonen",
+  "playlist.grid.heading": "Beschikbare Muziekafspeellijsten ({count} in totaal)",
   "playlist.listen.on": "Luister op",
+  "playlist.image.alt":
+    'Gedetailleerde afspeellijstcover voor "{headline}" - {introSubline} met {decade} muziekcollectie',
+  "playlist.image.description":
+    "Afspeellijstcover die {decade} muziekcollectie vertegenwoordigt met thematische visuele elementen voor {headline}. Het visuele ontwerp reflecteert het muzikale tijdperk en genrekenmerken.",
   "playlist.listen.spotify": "Luister op Spotify",
   "playlist.listen.deezer": "Luister op Deezer",
   "playlist.listen.apple": "Luister op Apple Music",
   "playlist.decade.filter": "Filter op Decennium",
+  "playlist.priority.loading": "Prioritaire afspeellijst laden: {headline}",
+  "playlist.music.from.decade": "Muziek uit {decade}",
+  "playlist.streaming.services": "Streamingdiensten voor {headline}",
+  "playlist.accessibility.instruction":
+    "Gebruik Enter of Spatie om de afspeellijst te openen in de streamingdienst. Navigeer tussen diensten met de Tab-toets. Deze afspeellijsten zijn openbaar toegankelijk en vereisen geen authenticatie.",
+  "playlist.accessibility.info": "Toegankelijkheidsinformatie afspeellijst",
+  "playlist.accessibility.public":
+    "Openbare afspeellijst - geen authenticatie vereist voor toegang tot streamingdiensten",
+  "playlist.accessibility.selected": "{service} geselecteerd voor {playlist}",
+  "playlist.accessibility.focus": "Focus op {service}-optie voor {playlist}",
+  "playlist.accessibility.opened": "{playlist} openen op {service}",
+  "playlist.open.spotify": 'Open playlist "{playlist}" in Spotify',
+  "playlist.open.deezer": 'Open playlist "{playlist}" in Deezer',
+  "playlist.open.apple": 'Open playlist "{playlist}" in Apple Music',
+  "playlist.activation.focused":
+    "Afspeellijst geactiveerd. Selecteer een streamingdienst met Enter.",
+  "playlist.activation.no_links": "Afspeellijst is niet beschikbaar op streamingdiensten.",
+  "playlist.exit": "Afspeellijst verlaten",
+  "playlist.visible": "Prioriteitsafspeellijst zichtbaar",
+  "playlist.image.error": "Laden van afspeellijstafbeelding mislukt",
+  "playlist.title.unknown": "Onbekende afspeellijst",
   "footer.rights": "Alle rechten voorbehouden",
   "footer.donate": "Doneren",
+  "footer.donate_aria": "Doneren via PayPal",
+  "footer.source_code": "Bekijk MelodyMind broncode op GitHub",
+  "footer.support_kofi": "Steun MelodyMind op Ko-fi",
   "game.chronology.title": "Muziekchronologie",
-  "game.chronology.description": "Rangschik deze albums op hun releasejaar (oudste eerst)",
+  "game.chronology.description":
+    "⏰ Word een tijdreiziger van de muziek! Rangschik deze legendarische albums in de juiste chronologische volgorde en toon dat je een echte muziekhistoricus bent. Elke juiste zet brengt je dichter bij de perfecte score! 🎯",
   "game.chronology.area.label": "Chronologiespelgebied",
   "game.chronology.result": "Resultaat",
-  "game.chronology.correct": "Correct",
+  "game.chronology.correct": "Correct! 🎉",
+  "game.chronology.incorrect": "Onjuist! 😔",
+  "game.chronology.correct_order": "Juiste volgorde:",
   "game.chronology.wrong": "Moet op positie {position} zijn",
   "game.chronology.score": "Score: {score} punten",
   "game.chronology.details": "{correct} van de {total} albums correct geplaatst",
@@ -458,11 +648,13 @@ export default {
   "profile.recent.game.date": "Datum",
   "profile.nav.aria": "Navigatie naar gebruikersprofiel",
   "profile.nav.link": "Ga naar profiel",
+  "achievements.nav.aria": "Navigatie naar prestaties",
   "achievements.nav.link": "Ga naar prestaties",
 
   // Highscorespagina
   "highscores.title": "Highscores",
-  "highscores.description": "Bekijk de beste scores in verschillende spelmodi en categorieën",
+  "highscores.description":
+    "Ontdek de muzieklegendes! Zie wie de ranglijsten aanvoert en laat je inspireren door de beste spelers 🎵🏆",
   "highscores.loading": "Highscores laden...",
   "highscores.error": "Fout bij het laden van highscores",
   "highscores.empty": "Geen vermeldingen gevonden in de highscores",
@@ -472,6 +664,18 @@ export default {
   "highscores.filter.all": "Alle",
   "highscores.filter.search": "Categorieën doorzoeken...",
   "highscores.filter.no.results": "Geen categorieën gevonden",
+  "highscores.filters": "Resultaten filteren",
+  "highscores.allModes": "Alle modi",
+  "highscores.allCategories": "Alle categorieën",
+  "highscores.results": "Topscores",
+  "highscores.noResults": "Geen scores gevonden met de geselecteerde filters.",
+  "highscores.points": "punten",
+  "highscores.rank": "Rang",
+  "highscores.gameMode": "Spelmodus",
+  "highscores.category": "Categorie",
+  "highscores.date": "Datum",
+  "highscores.tableLabel": "Highscoreslijst",
+  "highscores.scoreEntry": "Score-item {rank} door {username}",
   "highscores.table.title": "Topscores",
   "highscores.table.rank": "Rang",
   "highscores.table.player": "Speler",
@@ -482,10 +686,22 @@ export default {
 
   // Prestatiesysteem
   "achievements.title": "Prestaties",
-  "achievements.description": "Ontdek en ontgrendel prestaties om uw voortgang bij te houden",
+  "achievements.description":
+    "Vier uw muzikale triomfen en verzamel unieke trofeeën op uw reis naar het worden van een muziekmeester",
+  "achievements.seo.description":
+    "Volg uw voortgang met gedetailleerde prestaties in alle muziekcategorieën. Ontgrendel speciale beloningen door uitdagingen te voltooien en mijlpalen te bereiken.",
   "achievements.loading": "Prestaties laden...",
   "achievements.error": "Fout bij het laden van prestaties",
   "achievements.empty": "Geen prestaties gevonden",
+  "achievements.summary.title": "Overzicht van prestaties",
+  "achievements.summary.total": "Totaal: {total} prestaties",
+  "achievements.summary.unlocked": "Ontgrendeld: {unlocked} prestaties",
+  "achievements.summary.progress": "Voortgang: {percentage}% voltooid",
+  "achievements.summary.total-aria": "Totaal aantal prestaties: {total}",
+  "achievements.summary.unlocked-aria": "Aantal ontgrendelde prestaties: {unlocked}",
+  "achievements.summary.progress-aria": "Totale voortgang: {percentage} procent voltooid",
+  "achievements.categories": "Categorieën",
+  "achievements.category.count": "{count} prestaties",
   "achievements.category.bronze": "Brons",
   "achievements.category.silver": "Zilver",
   "achievements.category.gold": "Goud",
@@ -499,9 +715,17 @@ export default {
   "achievements.unlocked_at": "Ontgrendeld op {date}",
   "achievements.points": "Punten: {points}",
   "achievements.rarity": "Zeldzaamheid: {percentage}%",
+  "achievements.rarity.tooltip":
+    "Toont hoe zeldzaam deze achievement is - lagere percentages betekenen dat het zeldzamer is",
   "achievements.notification.unlocked": "Prestatie ontgrendeld!",
   "achievements.notification.progress": "Prestatievoortgang bijgewerkt!",
   "achievements.notification.close": "Sluit prestatie melding",
+  "achievements.notification.new_achievement": "Nieuwe prestatie melding",
+  "achievements.notification.pause": "Pauzeer melding timer",
+  "achievements.notification.pause_title": "Pauzeer het automatisch wegvallen van deze melding",
+  "achievements.notification.toggle_sound": "Schakel melding geluid",
+  "achievements.notification.toggle_sound_title":
+    "Schakel geluid voor prestatie meldingen in of uit",
   "achievements.filter.title": "Filter Prestaties",
   "achievements.filter.status": "Status",
   "achievements.filter.category": "Categorie",
@@ -525,6 +749,10 @@ export default {
   "achievements.badge.new": "Nieuwe prestatie ontgrendeld",
   "achievements.badge.new_with_count": "{count} nieuwe prestaties ontgrendeld",
   "achievements.badge.fallback_text": "Prestatie melding",
+  "achievements.badge.context_description":
+    "Prestatie melding badge. Toont het aantal nieuwe ontgrendelde prestaties in het navigatiegebied.",
+  "achievements.badge.keyboard_instructions":
+    "Druk op Enter of Spatie om je prestatiepagina te bekijken.",
 
   // API foutmeldingen
   "errors.auth.unauthorized": "Je moet ingelogd zijn om toegang te krijgen tot deze functie",
@@ -592,6 +820,22 @@ export default {
   "achievements.filter.focus_category": "Focus op categoriefilter",
   "achievements.filter.toggle_keyboard_help": "Toetsenbordhelp tonen/verbergen",
 
+  // Teller weergave voor filters
+  "achievements.filter.count.all": "Alle ({count} zichtbaar)",
+  "achievements.filter.count.category_all": "Alle Categorieën ({count} zichtbaar)",
+  "achievements.filter.count.generic": "{value} ({count} zichtbaar)",
+
+  // Achievement Filter Reset Button
+  achievementFilterReset: "Reset alle prestatie filters",
+
+  // Aankondigingen voor schermlezer - prestatiefilters
+  "achievements.filter.announcement.changed": "Filter gewijzigd: {filterType} naar {filterValue}",
+  "achievements.filter.announcement.no_results":
+    "Geen prestaties komen overeen met de huidige filters",
+  "achievements.filter.announcement.results":
+    "{visibleCards} prestatie{cardPlural} gevonden in {visibleSections} categorie{sectionPlural}",
+  "achievements.filter.announcement.reset": "Alle filters zijn gereset",
+
   "game.chronology.move.up": "Omhoog verplaatsen",
   "game.chronology.move.down": "Omlaag verplaatsen",
   "game.time.extend": "Tijd verlengen",
@@ -600,4 +844,133 @@ export default {
   "game.time.before.end": "Verlengen voor einde spel",
 
   "common.accessibility.main_content": "Hoofdinhoudsgebied",
+
+  // Layout systeemberichten
+  "layout.error.system": "Systeemfout opgetreden. Ververs de pagina.",
+  "layout.error.tracking": "Fout gevolgd:",
+  "layout.error.tracking.failed": "Foutvolging mislukt:",
+  "layout.accessibility.motion.reduced":
+    "Gereduceerde bewegingsmodus ingeschakeld voor toegankelijkheid",
+  "layout.accessibility.theme.dark":
+    "Donker thema geactiveerd voor optimaal contrast en toegankelijkheid",
+  "layout.analytics.init.failed": "Analytics initialisatie mislukt:",
+
+  // Navigation
+  "nav.ariaLabel": "Hoofdnavigatie",
+
+  "nav.openNewWindow": "Opent in nieuw venster",
+
+  // End Overlay - Spelresultaten
+  "game.end.achievementBadge": "Prestatie trofee icoon",
+  "game.end.screenReaderDescription": "Spelresultaten die je score en prestatieniveau tonen.",
+  "game.end.scoreProgress": "Score voortgang",
+  "game.end.progressDescription": "Visuele voortgangsbalk die je score prestatieniveau toont",
+  "game.end.defaultMotivation": "Goed gedaan! Blijf spelen om je score te verbeteren!",
+  "game.end.finalScore": "Eindscore:",
+  "game.end.difficultyLevel": "Moeilijkheidsgraad indicator",
+  "game.end.difficultyDescription": "Toont de moeilijkheidsgraad die je hebt voltooid",
+  "game.end.shareSection": "Deel je resultaten",
+  "game.end.shareResults": "Deel je spelresultaten op sociale media",
+  "game.end.shareDescription": "Opent deelopties om je score te posten op sociale media platforms",
+  "game.end.homeDescription": "Terug naar het hoofdmenu en startpagina",
+  "game.end.newgameDescription": "Start een nieuw spel met dezelfde instellingen",
+  "game.end.homeButtonHelp":
+    "Navigeer terug naar de homepage om een nieuwe spelmodus of categorie te selecteren",
+  "game.end.restartButtonHelp":
+    "Start onmiddellijk een nieuwe spelronde met dezelfde moeilijkheidsgraad en categorie",
+
+  // Motivational texts for different achievement levels
+  "game.end.motivation.genius":
+    "Buitengewoon! 💫 Je bent een echt muzikaal genie! 🎶 Je diepgaande kennis en muzikale intuïtie zijn echt indrukwekkend. Je zou een muziekquiz kunnen winnen of zelfs een muziekgeschiedkundige kunnen zijn. Deel je opmerkelijke prestatie en daag anderen uit om tegen je te strijden!",
+  "game.end.motivation.pro":
+    "Fantastisch! 🌟 Je bent zeker een muziekprofessional met uitgebreide kennis over verschillende artiesten en genres. Je muzikale begrip is ver boven het gemiddelde. Weinig mensen kunnen jouw kennis evenaren. Ga zo door en daag je vrienden uit!",
+  "game.end.motivation.enthusiast":
+    "Indrukwekkend! 👍 Als echte muziekliefhebber weet je echt waar je het over hebt. Je hebt een solide basis van muziekkennis opgebouwd die je onderscheidt van de massa. Met een beetje meer oefening kun je binnenkort naar de pro-league stijgen. Wil je nog een ronde proberen?",
+  "game.end.motivation.lover":
+    "Goed gedaan! 👏 Als muziekliefhebber heb je aanzienlijke kennis getoond. Je bent op de goede weg om een echte muziekkenner te worden. Met meer spelervaring kun je je kennis uitbreiden en je score verbeteren. Ben je klaar voor een nieuwe uitdaging?",
+  "game.end.motivation.explorer":
+    "Bedankt voor het spelen! 🙏 Als muziekontdekker heb je de eerste stap gezet in het ontdekken van de fascinerende wereld van muziek. Elk spel is een kans om iets nieuws te leren. Daag jezelf uit, speel meer rondes en breid je muziekkennis uit!",
+
+  // ChronologyFeedbackOverlay specific keys
+  "game.chronology.correct_order_description":
+    "Lijst die de juiste chronologische volgorde van de gebeurtenissen toont",
+  "session.timeout.warning": "Uw sessie verloopt over {0} seconden.",
+  "session.timeout.extend": "Sessie verlengen",
+  "session.timeout.continue": "Doorgaan",
+  "session.extended": "Sessie succesvol verlengd",
+
+  "nav.menu.opened": "geopend",
+  "nav.menu.closed": "gesloten",
+  "nav.menu.moved_to_first": "Verplaatst naar eerste menu-item",
+  "nav.menu.moved_to_last": "Verplaatst naar laatste menu-item",
+  "nav.menu.focused_on": "Gefocust op",
+  "nav.menu.long_press_detected": "Lange druk gedetecteerd op",
+
+  // General
+  "general.close": "Sluiten",
+
+  // Error messages and accessibility
+  "error.countdown": "Resterende tijd tot automatisch verbergen",
+  "error.extend": "Timeout verlengen",
+  "error.extend.tooltip": "De timeout van het foutbericht met 5 seconden verlengen",
+  "error.context.low": "Informatieve melding die aandacht vereist",
+  "error.context.medium": "Foutbericht dat gebruikersaandacht vereist",
+  "error.context.high": "Hoge prioriteit fout die onmiddellijke aandacht vereist",
+  "error.context.critical": "Kritieke fout die onmiddellijke actie vereist",
+
+  // AudioPlayer Component
+  "audioplayer.aria.region": "Audiospeler",
+  "audioplayer.play.aria": "Audio afspelen",
+  "audioplayer.play.title": "Afspelen/Pauzeren",
+  "audioplayer.progress.aria":
+    "Audio voortgang - Gebruik pijltoetsen om te zoeken, Home voor begin, End voor einde",
+  "audioplayer.progress.help":
+    "Pijl Links/Rechts: 5 seconden zoeken, Shift+Pijl: 30 seconden zoeken, Home: Begin, End: Einde",
+  "audioplayer.volume.toggle.aria": "Dempen aan/uit",
+  "audioplayer.volume.toggle.title": "Volume",
+  "audioplayer.volume.slider.aria": "Volumeniveau aanpassen",
+  "audioplayer.volume.slider.help":
+    "Gebruik pijltoetsen om volume aan te passen in stappen van 5%. Huidig volume: {volume}%",
+  "audioplayer.captions.english": "Nederlandse ondertitels",
+  "audioplayer.captions.none": "Geen ondertitels beschikbaar",
+  "audioplayer.fallback.download": "Audiobestand downloaden in plaats daarvan",
+  "audioplayer.fallback.unsupported": "Uw browser ondersteunt het audio-element niet.",
+  "audioplayer.description":
+    "Audiospeler voor {title} {artist}. Gebruik spatiebalk om af te spelen of te pauzeren, pijltoetsen om te zoeken en M om te dempen.",
+  "audioplayer.description.no_title":
+    "Audiospeler voor track. Gebruik spatiebalk om af te spelen of te pauzeren, pijltoetsen om te zoeken en M om te dempen.",
+  "audioplayer.help.button.aria": "Help",
+  "audioplayer.help.button.title": "Audiospeler sneltoetsen",
+  "audioplayer.help.shortcuts":
+    "Spatie: Afspelen/Pauzeren, M: Dempen/Geluid aan, Pijltoetsen: Audio zoeken, Omhoog/Omlaag: Volume controle",
+
+  // TestLint Component Translations
+  "test.lint.title": "ESLint Testcomponent met WCAG AAA",
+  "test.lint.wcag_title": "WCAG AAA Test",
+  "test.lint.next_level_aria": "Ga verder naar het volgende niveau",
+  "test.lint.next_button": "Verder",
+  "test.lint.problematic_button_aria": "Problematische knop",
+  "test.lint.correct_button_aria": "Correcte knop met toetsenbord functionaliteit",
+  "test.lint.test_image_alt": "Testafbeelding",
+  "test.lint.musician_image_alt":
+    "Een gitarist speelt op een helder verlicht podium tijdens een rockconcert",
+  "test.lint.weak_contrast_text": "Deze tekst heeft zeer zwak contrast.",
+  "test.lint.good_contrast_text": "Deze tekst heeft voldoende contrast voor WCAG AAA.",
+  "test.lint.error_message": "Er is een fout opgetreden.",
+  "test.lint.score_label": "Score:",
+  "test.lint.incomplete_button": "Onvolledige knop",
+  "test.lint.correct_button": "Correcte knop",
+  "test.lint.main_heading": "Hoofdkop",
+  "test.lint.subsection_heading": "Onderafdeling (h2 ontbreekt)",
+
+  // Knowledge accessibility translations
+  "knowledge.accessibility.scrolling_to_top": "Scrollen naar boven",
+  "knowledge.accessibility.scrolled_to_top": "Naar boven gescrold",
+  "knowledge.accessibility.search_focused": "Het zoekveld is nu gefocust",
+
+  // Accessibility
+  "accessibility.skip.to.content": "Naar hoofdinhoud springen",
+
+  // Categoriepaginas
+  "category.about.title": "Over deze categorie",
 };

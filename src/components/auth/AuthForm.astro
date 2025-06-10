@@ -57,6 +57,99 @@ const t = useTranslations(lang);
 
 <!-- Main auth form container -->
 <div class="auth-form__container">
+  <!-- Enhanced live region for tab switching announcements -->
+  <div id="tabSwitchAnnouncer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Form Progress Indicator -->
+  <div class="auth-form__progress" aria-labelledby="progressTitle">
+    <h3 id="progressTitle" class="auth-form__progress-title sr-only">
+      {t("auth.form.progress.title")}
+    </h3>
+
+    <!-- Visual Progress Bar -->
+    <div
+      class="auth-form__progress-bar"
+      role="progressbar"
+      aria-valuenow="0"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-labelledby="progressStatus"
+    >
+      <div class="auth-form__progress-fill"></div>
+    </div>
+
+    <!-- Progress Status Text -->
+    <div
+      id="progressStatus"
+      class="auth-form__progress-status"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <!-- Will be populated by JavaScript -->
+    </div>
+
+    <!-- Field Completion Indicators -->
+    <div class="auth-form__field-indicators" aria-label={t("auth.form.progress.title")}>
+      <!-- Login form indicators -->
+      <div
+        id="loginFieldIndicators"
+        class="auth-form__indicators auth-form__indicators--login"
+        role="list"
+      >
+        <div class="auth-form__indicator" data-field="loginEmail" role="listitem">
+          <span class="auth-form__indicator-icon" aria-hidden="true">○</span>
+          <span class="auth-form__indicator-label"
+            >{t("auth.login.email")}
+            <span class="auth-form__indicator-required">({t("auth.form.progress.required")})</span>
+          </span>
+        </div>
+        <div class="auth-form__indicator" data-field="loginPassword" role="listitem">
+          <span class="auth-form__indicator-icon" aria-hidden="true">○</span>
+          <span class="auth-form__indicator-label"
+            >{t("auth.login.password")}
+            <span class="auth-form__indicator-required">({t("auth.form.progress.required")})</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Registration form indicators -->
+      <div
+        id="registerFieldIndicators"
+        class="auth-form__indicators auth-form__indicators--register"
+        role="list"
+      >
+        <div class="auth-form__indicator" data-field="registerEmail" role="listitem">
+          <span class="auth-form__indicator-icon" aria-hidden="true">○</span>
+          <span class="auth-form__indicator-label"
+            >{t("auth.register.email")}
+            <span class="auth-form__indicator-required">({t("auth.form.progress.required")})</span>
+          </span>
+        </div>
+        <div class="auth-form__indicator" data-field="registerUsername" role="listitem">
+          <span class="auth-form__indicator-icon" aria-hidden="true">○</span>
+          <span class="auth-form__indicator-label"
+            >{t("auth.register.username")}
+            <span class="auth-form__indicator-optional">({t("auth.form.progress.optional")})</span>
+          </span>
+        </div>
+        <div class="auth-form__indicator" data-field="registerPassword" role="listitem">
+          <span class="auth-form__indicator-icon" aria-hidden="true">○</span>
+          <span class="auth-form__indicator-label"
+            >{t("auth.register.password")}
+            <span class="auth-form__indicator-required">({t("auth.form.progress.required")})</span>
+          </span>
+        </div>
+        <div class="auth-form__indicator" data-field="registerPasswordConfirm" role="listitem">
+          <span class="auth-form__indicator-icon" aria-hidden="true">○</span>
+          <span class="auth-form__indicator-label"
+            >{t("auth.register.password_confirm")}
+            <span class="auth-form__indicator-required">({t("auth.form.progress.required")})</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Error message display area -->
   <div
     id="formError"
@@ -217,86 +310,140 @@ const t = useTranslations(lang);
 </div>
 
 <script>
-  import {
-    initializeAuthForm,
-    switchTab,
-    handleLoginSubmit,
-    handleRegisterSubmit,
-  } from "../../utils/auth/authFormUtils";
+  import { handleLoginSubmit, handleRegisterSubmit } from "../../utils/auth/authFormUtils";
+  import { createFormProgressManager } from "../../utils/auth/formProgressManager";
+  import { createSessionTimeoutManager } from "../../utils/auth/sessionTimeout";
+  import { setupTabSwitching, initializeAuthFormElements } from "../../utils/auth/ui-interactions";
   import { useTranslations } from "../../utils/i18n";
 
   /**
    * Initialize the authentication form when DOM is loaded.
+   * Optimized for performance with minimal inline code and efficient utilities.
    *
-   * This function sets up all the necessary event listeners, accessibility features,
-   * and form validation for both login and registration forms. It also handles
-   * reduced motion preferences and internationalization setup.
-   *
-   * Features initialized:
-   * - Reduced motion detection and support
-   * - Form validation with real-time feedback
-   * - Tab navigation with keyboard support
-   * - Form submission handlers
-   * - Translation setup for error messages
-   *
-   * @accessibility Adds reduced motion support and proper keyboard navigation
-   * @i18n Sets up translations for error messages and form feedback
+   * @accessibility WCAG AAA compliant with reduced motion and enhanced spacing support
+   * @i18n Internationalization support for all user feedback
+   * @performance Optimized event handling and DOM queries
    */
   function setupAuthForm(): void {
-    // Add reduced motion support
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    // Performance: Single media query check with caching
+    const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    const isTouchDevice = window.matchMedia?.("(any-hover: none)").matches;
+
+    if (prefersReducedMotion) {
       document.documentElement.classList.add("reduced-motion");
     }
 
-    // Get current language and initialize translations
+    if (isTouchDevice) {
+      document.documentElement.classList.add("enhanced-text-spacing");
+    }
+
+    // Initialize translations once
     const currentLang = document.documentElement.lang || "en";
     const t = useTranslations(currentLang);
 
-    // Initialize form with translations
     const translations = {
       invalidCredentials: t("auth.service.invalid_credentials"),
       tooManyAttempts: t("auth.service.too_many_attempts"),
+      loginFormActive: t("auth.accessibility.login_form_active"),
+      registerFormActive: t("auth.accessibility.register_form_active"),
+      initError: t("auth.form.init_error"),
+      errorMessageDismissed: t("auth.accessibility.error_message_dismissed"),
+      successMessageDismissed: t("auth.accessibility.success_message_dismissed"),
     };
 
-    initializeAuthForm(translations);
+    // Initialize DOM elements with error handling
+    const elements = initializeAuthFormElements();
+    if (!elements) {
+      console.error(translations.initError);
+      return;
+    }
 
-    // Setup tab switching
-    const loginTab = document.getElementById("loginTab");
-    const registerTab = document.getElementById("registerTab");
+    // Setup tab switching with announcements
+    setupTabSwitching(
+      elements.loginTab,
+      elements.registerTab,
+      elements.loginForm,
+      elements.registerForm,
+      elements.formError,
+      elements.formSuccess
+    );
 
-    if (loginTab && registerTab) {
-      loginTab.addEventListener("click", () => switchTab("login"));
-      registerTab.addEventListener("click", () => switchTab("register"));
-
-      loginTab.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          switchTab("login");
-        }
+    // Performance: Efficient event delegation for tab announcements
+    const announcer = document.getElementById("tabSwitchAnnouncer");
+    if (announcer && elements.loginTab && elements.registerTab) {
+      elements.loginTab.addEventListener("click", () => {
+        announcer.textContent = translations.loginFormActive;
       });
 
-      registerTab.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          switchTab("register");
-        }
+      elements.registerTab.addEventListener("click", () => {
+        announcer.textContent = translations.registerFormActive;
       });
     }
 
-    // Setup form submissions
-    const loginForm = document.getElementById("loginForm") as HTMLFormElement;
-    const registerForm = document.getElementById("registerForm") as HTMLFormElement;
+    // Performance: Single keyboard event listener with efficient handling
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        const errorEl = document.getElementById("formError");
+        const successEl = document.getElementById("formSuccess");
+        let messageCleared = false;
 
-    if (loginForm) {
-      loginForm.addEventListener("submit", (event) => handleLoginSubmit(event, translations));
-    }
+        if (errorEl?.textContent?.trim()) {
+          errorEl.textContent = "";
+          errorEl.style.display = "none";
+          messageCleared = true;
+          if (announcer) {
+            announcer.textContent = translations.errorMessageDismissed;
+          }
+        }
 
-    if (registerForm) {
-      registerForm.addEventListener("submit", handleRegisterSubmit);
-    }
+        if (successEl?.textContent?.trim()) {
+          successEl.textContent = "";
+          successEl.style.display = "none";
+          messageCleared = true;
+          if (announcer) {
+            announcer.textContent = translations.successMessageDismissed;
+          }
+        }
+
+        if (messageCleared) {
+          event.preventDefault();
+        }
+      }
+    });
+
+    // Initialize session timeout with optimized config
+    const sessionManager = createSessionTimeoutManager({
+      sessionTimeout: 20 * 60 * 1000, // 20 minutes
+      warningTime: 2 * 60 * 1000, // 2 minutes warning
+      redirectUrl: `/${currentLang}/auth/login?reason=session_expired`,
+      translations: {
+        title: t("auth.session.timeout.title"),
+        message: t("auth.session.timeout.message"),
+        extend: t("auth.session.timeout.extend"),
+        close: t("auth.session.timeout.close"),
+      },
+    });
+    sessionManager.initialize();
+
+    // Store reference for potential cleanup
+    (window as Window & { authSessionManager?: typeof sessionManager }).authSessionManager =
+      sessionManager;
+
+    // Initialize form progress manager
+    const progressManager = createFormProgressManager();
+    progressManager.initialize();
+
+    // Performance: Optimized form submission handlers
+    elements.loginForm?.addEventListener("submit", (event: Event) => {
+      handleLoginSubmit(event, translations);
+    });
+
+    elements.registerForm?.addEventListener("submit", (event: Event) => {
+      handleRegisterSubmit(event);
+    });
   }
 
-  // Initialize when DOM is ready
+  // Performance: Optimized initialization
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", setupAuthForm);
   } else {
@@ -312,45 +459,48 @@ const t = useTranslations(lang);
    * ============================================================================ */
 
   /* ============================================================================
-   * Auth Form Container and Layout
+   * Auth Form Container and Layout - Using CSS Variables Only
    * ============================================================================ */
   .auth-form__container {
-    max-width: 28rem; /* 448px */
+    max-width: var(--form-container-max-width); /* Use proper form container variable */
     margin: 0 auto;
-    padding: var(--spacing-lg);
-    background: var(--color-background-card);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--color-border);
+    padding: var(--space-lg);
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--card-shadow);
+    border: var(--border-width-thin) solid var(--card-border);
     position: relative;
     isolation: isolate;
+    /* Container query support for responsive design */
+    container-type: inline-size;
+    container-name: auth-form;
   }
 
   /* ============================================================================
    * Message Display Styles
    * ============================================================================ */
   .auth-form__message {
-    padding: var(--spacing-md);
-    border-radius: var(--border-radius-md);
-    margin-bottom: var(--spacing-lg);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    line-height: var(--line-height-relaxed);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-lg);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    line-height: var(--leading-relaxed);
     display: none;
-    border-width: 1px;
+    border-width: var(--border-width-thin);
     border-style: solid;
   }
 
   .auth-form__message--error {
-    background-color: var(--color-error-background);
-    border-color: var(--color-error-border);
-    color: var(--color-error-text);
+    background-color: var(--bg-error-aaa);
+    border-color: var(--border-error);
+    color: var(--text-error-aaa);
   }
 
   .auth-form__message--success {
-    background-color: var(--color-success-background);
-    border-color: var(--color-success-border);
-    color: var(--color-success-text);
+    background-color: var(--bg-success-aaa);
+    border-color: var(--border-success);
+    color: var(--text-success-aaa);
   }
 
   .auth-form__message:not(:empty) {
@@ -358,90 +508,100 @@ const t = useTranslations(lang);
   }
 
   /* ============================================================================
-   * Tab Navigation Styles
+   * Tab Navigation Styles - Optimized with CSS Variables & DRY Principles
    * Implements accessible tab navigation with WCAG AAA compliance
    * ============================================================================ */
   .auth-form__tabs {
     display: flex;
-    background: var(--color-gray-800);
-    border-radius: var(--border-radius-md);
-    padding: var(--spacing-xs);
-    margin-bottom: var(--spacing-lg);
-    gap: var(--spacing-xs);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    padding: var(--space-xs);
+    margin-bottom: var(--space-lg);
+    gap: var(--space-xs);
     position: relative;
     role: tablist;
   }
 
+  /* Consolidated tab base styles using CSS variables */
   .auth-form__tab {
     flex: 1;
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: var(--space-sm) var(--space-md);
     background: transparent;
     border: none;
-    border-radius: var(--border-radius-sm);
-    color: var(--color-text-secondary);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    line-height: var(--line-height-normal);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    line-height: var(--leading-normal);
     cursor: pointer;
     transition:
-      background-color var(--transition-duration-200) var(--transition-timing-in-out),
-      color var(--transition-duration-200) var(--transition-timing-in-out),
-      transform var(--transition-duration-150) var(--transition-timing-in-out);
+      background-color var(--transition-normal),
+      color var(--transition-normal),
+      transform var(--transition-fast);
     position: relative;
-    min-height: 44px; /* WCAG AAA touch target size */
+    min-height: var(--min-touch-size); /* WCAG AAA touch target size */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
   }
 
+  /* Shared hover styles using CSS variables */
   .auth-form__tab:hover {
-    background: var(--color-gray-700);
-    color: var(--color-text-primary);
-    transform: translateY(-1px);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    transform: translateY(calc(-1 * var(--space-micro)));
   }
 
+  /* Enhanced focus using CSS variables from global.css */
   .auth-form__tab:focus-visible {
-    outline: 3px solid var(--color-focus);
-    outline-offset: 2px;
-    z-index: 1;
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-ring-offset);
+    z-index: var(--z-dropdown);
+    /* WCAG 2.2: Enhanced focus appearance with 4.5:1 contrast */
+    box-shadow: var(--focus-enhanced-shadow);
   }
 
   .auth-form__tab:active {
     transform: translateY(0);
   }
 
+  /* Active state using semantic interactive colors */
   .auth-form__tab--active {
-    background: var(--color-primary);
+    background: var(--interactive-primary);
     color: var(--color-white);
     position: relative;
   }
 
   .auth-form__tab--active:hover {
-    background: var(--color-primary-hover);
+    background: var(--interactive-primary-hover);
   }
 
+  /* Enhanced focus for active tab with better contrast using CSS variables */
   .auth-form__tab--active:focus-visible {
     outline-color: var(--color-white);
+    box-shadow:
+      0 0 0 var(--space-micro) var(--bg-primary),
+      0 0 0 var(--space-xs) var(--text-primary);
   }
 
   /* ============================================================================
-   * Form Container and Animation
+   * Form Container and Animation - Optimized with CSS Variables
    * Smooth transitions with reduced motion support
    * ============================================================================ */
   .auth-form__forms-container {
     position: relative;
     overflow: hidden;
-    border-radius: var(--border-radius-md);
+    border-radius: var(--radius-md);
   }
 
   .auth-form__form {
     display: none;
     opacity: 0;
-    transform: translateX(var(--spacing-md));
+    transform: translateX(var(--space-md));
     transition:
-      opacity var(--transition-duration-300) var(--transition-timing-in-out),
-      transform var(--transition-duration-300) var(--transition-timing-in-out);
+      opacity var(--transition-slow),
+      transform var(--transition-slow);
   }
 
   .auth-form__form--active {
@@ -451,49 +611,84 @@ const t = useTranslations(lang);
   }
 
   /* ============================================================================
-   * Forgot Password Link Styles
+   * Forgot Password Link Styles - Using CSS Variables
    * ============================================================================ */
   .auth-form__forgot-password {
-    color: var(--color-primary);
+    color: var(--interactive-primary);
     text-decoration: none;
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-medium);
-    line-height: var(--line-height-normal);
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    line-height: var(--leading-normal);
     transition:
-      color var(--transition-duration-200) var(--transition-timing-in-out),
-      text-decoration-color var(--transition-duration-200) var(--transition-timing-in-out);
+      color var(--transition-normal),
+      text-decoration-color var(--transition-normal);
     display: inline-block;
-    padding: var(--spacing-xs);
-    border-radius: var(--border-radius-sm);
+    padding: var(--space-xs);
+    border-radius: var(--radius-sm);
   }
 
   .auth-form__forgot-password:hover {
-    color: var(--color-primary-hover);
+    color: var(--interactive-primary-hover);
     text-decoration: underline;
-    text-decoration-color: var(--color-primary-hover);
+    text-decoration-color: var(--interactive-primary-hover);
+    text-decoration-thickness: var(--text-decoration-thickness);
+    text-underline-offset: var(--text-underline-offset);
   }
 
   .auth-form__forgot-password:focus-visible {
-    outline: 3px solid var(--color-focus);
-    outline-offset: 2px;
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-ring-offset);
   }
 
   /* ============================================================================
-   * Reduced Motion Support
+   * Enhanced Text Spacing Support (WCAG 2.2) - Optimized with CSS Variables
+   * Supports up to 2x letter spacing and 1.5x line height customization
+   * ============================================================================ */
+  .enhanced-text-spacing .auth-form__container * {
+    letter-spacing: var(--letter-spacing-enhanced) !important;
+    word-spacing: var(--word-spacing-enhanced) !important;
+    line-height: var(--line-height-enhanced) !important;
+  }
+
+  .enhanced-text-spacing .auth-form__container p,
+  .enhanced-text-spacing .auth-form__message {
+    margin-bottom: var(--text-spacing-paragraph-2x) !important;
+  }
+
+  /* Maintain functionality with enhanced text spacing using CSS variables */
+  .enhanced-text-spacing .auth-form__tab {
+    padding: calc(var(--space-sm) * 1.2) calc(var(--space-md) * 1.2);
+  }
+
+  /* ============================================================================
+   * Responsive Text Handling with Enhanced Spacing - Using CSS Variables
+   * ============================================================================ */
+  @supports (font-size: clamp(1rem, 4vw, 1.5rem)) {
+    .auth-form__tab {
+      font-size: clamp(var(--text-sm), 3vw, var(--text-lg));
+    }
+
+    .enhanced-text-spacing .auth-form__tab {
+      font-size: clamp(var(--text-xs), 3vw, var(--text-base));
+    }
+  }
+
+  /* ============================================================================
+   * Reduced Motion Support - Consolidated for DRY Principle
    * Respects user's motion preferences for accessibility
    * ============================================================================ */
   @media (prefers-reduced-motion: reduce) {
     .auth-form__form,
     .auth-form__tab,
-    .auth-form__forgot-password {
+    .auth-form__forgot-password,
+    .auth-form__progress-fill,
+    .auth-form__indicator {
       transition: none;
       transform: none;
+      animation: none;
     }
 
-    .auth-form__tab:hover {
-      transform: none;
-    }
-
+    .auth-form__tab:hover,
     .auth-form__tab:active {
       transform: none;
     }
@@ -503,109 +698,298 @@ const t = useTranslations(lang);
    * Responsive Design
    * Mobile-first approach with progressive enhancement
    * ============================================================================ */
-  @media (min-width: 640px) {
+  @media (min-width: var(--breakpoint-sm)) {
     .auth-form__container {
-      padding: var(--spacing-xl);
+      padding: var(--space-xl);
     }
   }
 
-  @media (max-width: 639px) {
+  @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
     .auth-form__container {
-      margin: var(--spacing-md);
-      padding: var(--spacing-md);
-      border-radius: var(--border-radius-md);
+      margin: var(--space-md);
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
     }
 
     .auth-form__tab {
-      padding: var(--spacing-xs) var(--spacing-sm);
-      font-size: var(--font-size-xs);
-      min-height: 44px; /* Maintain touch target size */
+      padding: var(--space-xs) var(--space-sm);
+      font-size: var(--text-xs);
+      min-height: var(--min-touch-size); /* Maintain touch target size */
     }
 
     .auth-form__tabs {
-      padding: var(--spacing-xs);
-      gap: var(--spacing-xs);
+      padding: var(--space-xs);
+      gap: var(--space-xs);
     }
   }
 
-  @media (max-width: 479px) {
+  @media (max-width: calc(var(--breakpoint-xs) + calc(var(--space-3xl) * 2.5))) {
     .auth-form__container {
-      margin: var(--spacing-sm);
-      padding: var(--spacing-sm);
+      margin: var(--space-sm);
+      padding: var(--space-sm);
     }
 
     .auth-form__message {
-      padding: var(--spacing-sm);
-      font-size: var(--font-size-xs);
+      padding: var(--space-sm);
+      font-size: var(--text-xs);
     }
   }
 
   /* ============================================================================
-   * High Contrast Mode Support
+   * High Contrast Mode Support - Consolidated for DRY Principle
    * Enhanced visibility for users with vision needs
    * ============================================================================ */
   @media (prefers-contrast: high) {
     .auth-form__container {
-      border: 2px solid var(--color-border);
+      border: var(--border-width-thick) solid var(--border-primary);
       background: var(--color-black);
     }
 
     .auth-form__tab {
-      border: 1px solid var(--color-border);
+      border: var(--border-width-thin) solid var(--border-primary);
     }
 
     .auth-form__tab--active {
-      border: 2px solid var(--color-primary);
+      border: var(--border-width-thick) solid var(--interactive-primary);
       background: var(--color-white);
       color: var(--color-black);
     }
 
-    .auth-form__message--error {
-      border-width: 2px;
+    .auth-form__message--error,
+    .auth-form__message--success {
+      border-width: var(--border-width-thick);
     }
 
-    .auth-form__message--success {
-      border-width: 2px;
+    .auth-form__progress {
+      border: var(--border-width-thick) solid var(--border-primary);
+    }
+
+    .auth-form__progress-bar {
+      border: var(--border-width-thick) solid var(--border-primary);
+    }
+
+    .auth-form__indicator--completed {
+      border: var(--border-width-thin) solid var(--text-success-aaa);
     }
   }
 
   /* ============================================================================
-   * Print Styles
+   * Print Styles - Optimized with CSS Variables
    * Optimized for printing with high contrast and simplified layout
    * ============================================================================ */
   @media print {
     .auth-form__container {
       box-shadow: none;
-      border: 1px solid var(--color-black);
-      background: var(--color-white);
-      color: var(--color-black);
+      border: var(--print-border);
+      background: var(--print-bg);
+      color: var(--print-text);
     }
 
     .auth-form__tab,
     .auth-form__message {
       background: transparent !important;
-      color: var(--color-black) !important;
-      border-color: var(--color-black) !important;
+      color: var(--print-text) !important;
+      border-color: var(--print-text) !important;
     }
 
     .auth-form__tab--active {
-      background: var(--color-black) !important;
-      color: var(--color-white) !important;
+      background: var(--print-text) !important;
+      color: var(--print-bg) !important;
+    }
+
+    /* Hide interactive elements in print */
+    .auth-form__progress,
+    .auth-form__field-indicators {
+      display: none;
     }
   }
 
   /* ============================================================================
-   * Container Queries for Component-Specific Responsiveness
-   * Modern CSS feature for better component isolation
+   * Form Progress Indicator Styles - Optimized with CSS Variables & DRY
+   * Provides visual and accessible form completion feedback using CSS variables
    * ============================================================================ */
-  @container (max-width: 400px) {
+  .auth-form__progress {
+    margin-bottom: var(--space-lg);
+    padding: var(--space-md);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    border: var(--border-width-thin) solid var(--border-secondary);
+  }
+
+  .auth-form__progress-title {
+    margin-bottom: var(--space-sm);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-secondary);
+  }
+
+  /* Visual Progress Bar - Using CSS Variables */
+  .auth-form__progress-bar {
+    width: 100%;
+    height: var(--space-sm);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-bottom: var(--space-sm);
+    border: var(--border-width-thin) solid var(--border-secondary);
+  }
+
+  .auth-form__progress-fill {
+    height: 100%;
+    background: linear-gradient(
+      var(--gradient-angle),
+      var(--interactive-primary),
+      var(--interactive-primary-hover)
+    );
+    border-radius: var(--radius-full);
+    transition: width var(--transition-normal);
+    width: 0%;
+  }
+
+  /* Progress Status Text - Using CSS Variables */
+  .auth-form__progress-status {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+    min-height: var(--text-lg);
+  }
+
+  /* Field Completion Indicators */
+  .auth-form__field-indicators {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .auth-form__indicators {
+    display: none;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .auth-form__indicators--active {
+    display: flex;
+  }
+
+  .auth-form__indicator {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    padding: var(--space-xs);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-normal);
+  }
+
+  .auth-form__indicator--completed {
+    color: var(--text-success-aaa);
+    background: var(--bg-success-subtle);
+  }
+
+  .auth-form__indicator-icon {
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+    width: 1em;
+    text-align: center;
+    transition: all var(--transition-normal);
+  }
+
+  .auth-form__indicator--completed .auth-form__indicator-icon {
+    color: var(--text-success-aaa);
+  }
+
+  .auth-form__indicator-label {
+    flex: 1;
+  }
+
+  .auth-form__indicator-required {
+    font-weight: var(--font-medium);
+    color: var(--text-warning);
+  }
+
+  .auth-form__indicator-optional {
+    font-style: italic;
+    color: var(--text-muted);
+  }
+
+  /* Responsive Form Progress - Consolidated with main responsive styles */
+  @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+    .auth-form__progress {
+      padding: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .auth-form__field-indicators {
+      gap: var(--space-xs);
+    }
+
+    .auth-form__indicator {
+      padding: var(--space-xs);
+      font-size: var(--text-xs);
+    }
+  }
+
+  /* Reduced Motion for Progress Indicators - Moved to consolidated section above */
+
+  /* ============================================================================
+   * Container Queries for Component-Specific Responsiveness - Optimized with CSS Variables
+   * Modern CSS feature for better component isolation and responsive design
+   * ============================================================================ */
+  @container auth-form (max-width: var(--container-query-lg)) {
     .auth-form__tabs {
-      flex-direction: column;
-      gap: var(--spacing-xs);
+      flex-direction: var(--flex-direction-column);
+      gap: var(--space-xs);
     }
 
     .auth-form__tab {
       width: 100%;
+    }
+
+    .auth-form__progress {
+      padding: var(--space-sm);
+    }
+
+    .auth-form__field-indicators {
+      gap: var(--space-xs);
+    }
+  }
+
+  /* Additional container query for smaller containers - Using CSS Variables */
+  @container auth-form (max-width: var(--container-query-md)) {
+    .auth-form__container {
+      padding: var(--space-sm);
+    }
+
+    .auth-form__message {
+      padding: var(--space-sm);
+      font-size: var(--text-xs);
+    }
+
+    .auth-form__tabs {
+      padding: var(--space-xs);
+    }
+
+    .auth-form__tab {
+      padding: var(--space-xs) var(--space-sm);
+      font-size: var(--text-xs);
+    }
+  }
+
+  /* Container query for very small containers - Micro optimizations with CSS Variables */
+  @container auth-form (max-width: var(--container-query-sm)) {
+    .auth-form__progress {
+      padding: var(--space-xs);
+      margin-bottom: var(--space-sm);
+    }
+
+    .auth-form__indicator {
+      padding: calc(var(--space-xs) * 0.75);
+      font-size: calc(var(--text-xs) * 0.9);
+    }
+
+    .auth-form__progress-bar {
+      height: calc(var(--space-sm) * 0.75);
     }
   }
 </style>
