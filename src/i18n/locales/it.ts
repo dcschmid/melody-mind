@@ -507,7 +507,7 @@ export default {
   // Knowledge section
   "knowledge.title": "Base di Conoscenza Musicale",
   "knowledge.intro":
-    "Immergiti nel mondo affascinante della storia musicale. Qui troverai articoli emozionanti su diverse epoche musicali, generi e il loro sviluppo. Scopri fatti interessanti ed espandi la tua conoscenza musicale.",
+    "🎵 Svela i segreti dell'universo musicale! Immergiti nelle storie affascinanti di artisti leggendari, esplora l'evoluzione dei generi musicali e scopri fatti straordinari che ti trasformeranno in un vero intenditore di musica. Dai capolavori classici ai successi moderni – lasciati coinvolgere da articoli avvincenti che danno vita alla tua passione per la musica.",
   "knowledge.search.label": "Cerca articoli",
   "knowledge.search.placeholder": "Cerca...",
   "knowledge.filter.all": "Tutte le Parole Chiave",

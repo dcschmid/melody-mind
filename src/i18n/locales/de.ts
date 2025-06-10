@@ -480,7 +480,7 @@ export default {
     "Musik Quiz, Musikspiel, Song Quiz, Künstler Quiz, Online Musikquiz, Musik Trivia, Melody Mind, Musik Ratespiel",
   "knowledge.title": "Musik-Wissensdatenbank",
   "knowledge.intro":
-    "Tauche ein in die faszinierende Welt der Musikgeschichte. Hier findest du spannende Artikel über verschiedene Musikepochen, Genres und deren Entwicklung. Entdecke interessante Fakten und erweitere dein Musikwissen.",
+    "🎵 Entdecke die Geheimnisse der Musikwelt! Tauche ein in faszinierende Geschichten großer Künstler, erkunde die Evolution verschiedener Musikgenres und lerne spannende Fakten, die dich zum Musik-Experten machen. Von klassischen Meisterwerken bis hin zu modernen Hits – hier erwarten dich packende Artikel, die deine Leidenschaft für Musik zum Leben erwecken.",
   "knowledge.search.label": "Artikel durchsuchen",
   "knowledge.search.placeholder": "Suchen...",
   "knowledge.filter.all": "Alle Keywords",

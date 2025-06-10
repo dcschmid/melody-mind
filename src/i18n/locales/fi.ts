@@ -400,7 +400,7 @@ export default {
     "Musiikkivisa, Musiikkipeli, Laulutietovisa, Artistivisa, Online Musiikkivisa, Musiikkitrivia, Melody Mind, Musiikin arvauspeli",
   "knowledge.title": "Musiikkitietokanta",
   "knowledge.intro":
-    "Sukella musiikin historian kiehtovaan maailmaan. Täältä löydät jännittäviä artikkeleita eri musiikkikausista, genreistä ja niiden kehityksestä. Löydä mielenkiintoisia faktoja ja laajenna musiikkitietoasi.",
+    "🎵 Avaa musiikkiuniversumin salaisuudet! Sukella kiehtoviin tarinoihin legendaarisista artisteista, tutki musiikkigenrejen kehitystä ja löydä kiehtovia faktoja, jotka tekevät sinusta todellisen musiikin asiantuntijan. Klassisista mestariteoksista moderneihin hitteihin – anna mukaansatempaavien artikkelien herättää musiikkiintohimosi henkiin.",
   "knowledge.search.label": "Etsi artikkeleita",
   "knowledge.search.placeholder": "Etsi...",
   "knowledge.filter.all": "Kaikki avainsanat",

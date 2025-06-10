@@ -428,7 +428,7 @@ export default {
     "Muziekquiz, Muziekspel, Liedjesquiz, Artiestenquiz, Online Muziekquiz, Muziektrivia, Melody Mind, Muziekraadspel",
   "knowledge.title": "Muziekkennisbank",
   "knowledge.intro":
-    "Duik in de fascinerende wereld van de muziekgeschiedenis. Hier vindt u spannende artikelen over verschillende muziektijdperken, genres en hun ontwikkeling. Ontdek interessante feiten en breid uw muziekkennis uit.",
+    "🎵 Ontgrendel de geheimen van het muziekuniversum! Duik in boeiende verhalen van legendarische artiesten, verken de evolutie van muziekgenres en ontdek fascinerende feiten die je tot een echte muziekkenner maken. Van klassieke meesterwerken tot moderne hits – laat je meeslepen door aangrijpende artikelen die je passie voor muziek tot leven brengen.",
   "knowledge.search.label": "Artikelen doorzoeken",
   "knowledge.search.placeholder": "Zoeken...",
   "knowledge.filter.all": "Alle trefwoorden",

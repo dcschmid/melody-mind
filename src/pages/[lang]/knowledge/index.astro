@@ -159,19 +159,33 @@ const clientTranslations = {
       </ol>
     </nav>
 
-    <!-- Page header -->
-    <header class="knowledge-page__header">
-      <Headline
-        title={ui[uiLang]["knowledge.title"]}
-        level="h1"
-        className="knowledge-page__title"
-        id="page-heading"
-      />
-      <div class="knowledge-page__divider" aria-hidden="true"></div>
-      <Paragraph
-        description={ui[uiLang]["knowledge.intro"]}
-        className="knowledge-page__intro mx-auto"
-      />
+    <!-- Hero section with improved design inspired by gamehome -->
+    <header class="knowledge-hero" aria-labelledby="page-heading">
+      <!-- Decorative background elements -->
+      <div class="knowledge-hero__decoration" aria-hidden="true">
+        <div class="knowledge-hero__decoration-item knowledge-hero__decoration-item--top-left"></div>
+        <div class="knowledge-hero__decoration-item knowledge-hero__decoration-item--bottom-right"></div>
+        <div class="knowledge-hero__decoration-item knowledge-hero__decoration-item--center-left"></div>
+      </div>
+
+      <div class="knowledge-hero__content">
+        <Headline
+          title={ui[uiLang]["knowledge.title"]}
+          level="h1"
+          className="knowledge-hero__title"
+          id="page-heading"
+          size="4xl"
+        />
+        <div class="knowledge-hero__divider" aria-hidden="true"></div>
+        <Paragraph
+          description={ui[uiLang]["knowledge.intro"]}
+          className="knowledge-hero__description"
+        />
+        <!-- Additional descriptive content for SEO -->
+        <p class="knowledge-hero__seo-description sr-only">
+          Entdecke eine umfassende Sammlung von Musik-Wissensartikeln. Lerne über verschiedene Musikgenres, Künstler, Instrumente und die Geschichte der Musik.
+        </p>
+      </div>
     </header>
 
     <div class="knowledge-page__content">
@@ -436,6 +450,94 @@ const clientTranslations = {
     padding: var(--space-lg);
     background-color: var(--bg-primary);
     color: var(--text-primary);
+  }
+
+  /* Knowledge Hero Section */
+  .knowledge-hero {
+    position: relative;
+    margin-bottom: var(--space-2xl);
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-900) 0%,
+      var(--color-primary-700) 50%,
+      var(--color-secondary-800) 100%
+    );
+    padding: var(--space-2xl) var(--space-xl);
+    box-shadow: var(--shadow-xl);
+    border: var(--border-width-thin) solid var(--border-primary);
+  }
+
+  .knowledge-hero__decoration {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  .knowledge-hero__decoration-item {
+    position: absolute;
+    border-radius: var(--radius-full);
+    background: var(--color-white);
+  }
+
+  .knowledge-hero__decoration-item--top-left {
+    top: calc(-1 * var(--space-xl));
+    left: calc(-1 * var(--space-xl));
+    width: var(--space-3xl);
+    height: var(--space-3xl);
+  }
+
+  .knowledge-hero__decoration-item--bottom-right {
+    bottom: calc(-1 * var(--space-2xl));
+    right: calc(-1 * var(--space-2xl));
+    width: calc(var(--space-3xl) * 2);
+    height: calc(var(--space-3xl) * 2);
+  }
+
+  .knowledge-hero__decoration-item--center-left {
+    top: 50%;
+    left: calc(-1 * var(--space-md));
+    width: var(--space-2xl);
+    height: var(--space-2xl);
+    transform: translateY(-50%);
+  }
+
+  .knowledge-hero__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--color-white);
+    margin: 0 auto;
+  }
+
+  .knowledge-hero__title {
+    margin-bottom: var(--space-lg);
+    color: var(--color-white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .knowledge-hero__divider {
+    width: var(--icon-size-xl);
+    height: var(--border-width-thick);
+    background: var(--color-secondary-400);
+    margin: var(--space-lg) auto;
+    border-radius: var(--radius-full);
+  }
+
+  .knowledge-hero__description {
+    color: var(--color-neutral-100);
+    font-size: var(--text-xl);
+    line-height: var(--leading-relaxed);
+    text-align: center;
+  }
+
+  /* Responsive Hero adjustments */
+  @media (min-width: 768px) {
+    .knowledge-hero {
+      padding: var(--space-3xl) var(--space-2xl);
+    }
   }
 
   /* Breadcrumbs */

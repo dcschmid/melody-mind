@@ -411,7 +411,7 @@ export default {
     "Musikquiz, Musikspil, Sangquiz, Kunstnerquiz, Online Musikquiz, Musik Trivia, Melody Mind, Musikgættespil",
   "knowledge.title": "Musikvidensbase",
   "knowledge.intro":
-    "Dyk ned i musikhistorien fascinerende verden. Her finder du spændende artikler om forskellige musikepoker, genrer og deres udvikling. Opdag interessante fakta og udvid din musikviden.",
+    "🎵 Oplås musikuniversets hemmeligheder! Dyk ned i fængslende historier om legendariske kunstnere, udforsk udviklingen af musikgenrer og opdag fascinerende fakta, der gør dig til en sand musikekspert. Fra klassiske mesterværker til moderne hits – lad dig rive med af engagerende artikler, der giver liv til din passion for musik.",
   "knowledge.search.label": "Søg i artikler",
   "knowledge.search.placeholder": "Søg...",
   "knowledge.filter.all": "Alle nøgleord",
