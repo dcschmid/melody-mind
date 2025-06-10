@@ -240,8 +240,14 @@ export default {
   "game.genre.list": "Genreselectie",
   "game.search.label": "Zoek naar een genre",
   "game.search.description": "De lijst wordt automatisch gefilterd terwijl u typt",
+  "game.search.clear": "Zoekopdracht wissen",
+  "game.search.help": "Typ om muziekgenres op naam te filteren",
+  "game.search.showing.all": "Alle genres tonen",
+  "game.search.results": "genres gevonden",
+  "game.search.no.results": "Geen genres gevonden die overeenkomen met uw zoekopdracht",
   "game.genre.play.label": "spelen",
   "game.genre.image": "Coverafbeelding voor",
+  "game.genre.selection.description": "Kies uit meerdere muziekgenres waaronder rock, pop, jazz, klassiek en meer. Elke categorie bevat zorgvuldig samengestelde vragen om uw muziekkennis te testen.",
   "game.no.results": "Geen resultaten gevonden",
   "game.not.available": "Niet beschikbaar",
   "category.selected": "geselecteerd!",
@@ -436,6 +442,8 @@ export default {
   "nav.donate.coffee": "Koop ons een kopje koffie",
   "nav.title": "Navigatie",
   "nav.menu.text": "Menu",
+  "game.categories.title": "Muziekcategorieën",
+  "game.categories.loading": "Muziekcategorieën laden...",
   "game.categories.empty.headline": "Geen genres gevonden",
   "game.categories.empty.text":
     "Helaas zijn er geen categorieën gevonden. Probeer het later opnieuw.",
@@ -945,6 +953,9 @@ export default {
   "knowledge.accessibility.scrolling_to_top": "Scrollen naar boven",
   "knowledge.accessibility.scrolled_to_top": "Naar boven gescrold",
   "knowledge.accessibility.search_focused": "Het zoekveld is nu gefocust",
+
+  // Accessibility
+  "accessibility.skip.to.content": "Naar hoofdinhoud springen",
 
   // Categoriepagina's
   "category.about.title": "Over deze categorie",

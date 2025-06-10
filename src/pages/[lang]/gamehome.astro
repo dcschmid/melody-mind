@@ -6,13 +6,16 @@ import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
 import { Icon } from "astro-icon/components";
+import EmptyState from "@components/EmptyState.astro";
+import LoadingState from "@components/LoadingState.astro";
+import BackToTop from "@components/Shared/BackToTop.astro";
 
 /**
  * Static path generation for internationalization
  * Required for Astro dynamic routes to work properly
  */
 export async function getStaticPaths(): Promise<{ params: { lang: string } }[]> {
-  const supportedLanguages = ["en", "de", "es", "fr", "it"];
+  const supportedLanguages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"] as const;
 
   return supportedLanguages.map((lang) => ({
     params: { lang },
@@ -40,6 +43,75 @@ interface Category {
 }
 
 /**
+ * Generates WebApplication schema for the game home page
+ */
+function generateGameApplicationSchema(title: string, description: string, currentUrl: string, lang: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": `MelodyMind - ${title}`,
+    "description": description,
+    "url": currentUrl,
+    "applicationCategory": "GameApplication",
+    "applicationSubCategory": "MusicTrivia",
+    "operatingSystem": "Web Browser",
+    "genre": "Music Trivia",
+    "inLanguage": lang,
+    "creator": {
+      "@type": "Organization",
+      "name": "MelodyMind Team"
+    },
+    "datePublished": "2024-01-01",
+    "dateModified": new Date().toISOString(),
+    "isAccessibleForFree": true
+  };
+}
+
+/**
+ * Generates ItemList schema for game categories
+ */
+function generateCategoryListSchema(baseUrl: string, lang: string, playableCategories: Category[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Music Game Categories",
+    "description": "Available music trivia categories in MelodyMind",
+    "numberOfItems": playableCategories.length,
+    "itemListElement": playableCategories.slice(0, 10).map((category, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Game",
+        "name": category.headline,
+        "description": category.introSubline,
+        "url": `${baseUrl}/${lang}${category.categoryUrl}`,
+        "genre": "Music Trivia",
+        "applicationCategory": "Game"
+      }
+    }))
+  };
+}
+
+/**
+ * Generates client-side translations with fallbacks
+ */
+function generateClientTranslations(t: (key: string) => string) {
+  return {
+    search: {
+      placeholder: t("game.search.label") || "Search genres...",
+      showingAll: t("game.search.showing.all") || "Showing all genres",
+      resultsFound: t("game.search.results") || "genres found",
+      noResults: t("game.search.no.results") || "No genres found matching your search",
+      clear: t("game.search.clear") || "Clear search"
+    },
+    accessibility: {
+      skipToContent: t("accessibility.skip.to.content") || "Skip to main content",
+      searchLabel: t("game.search.label") || "Search music genres"
+    }
+  };
+}
+
+/**
  * Asynchronously loads category data with fallback mechanisms
  * First attempts to load using the alias path, then tries relative path if that fails
  * @returns {Promise<Category[]>} Array of category objects
@@ -54,8 +126,7 @@ async function loadCategoriesForLanguage(language: string): Promise<Category[]> 
         console.warn(`Attempting to load ${language}_categories.json using relative path`);
         return await import(`../../json/${language}_categories.json`)
           .then((module) => module.default)
-          .catch((err) => {
-            console.error(`Failed to load ${language}_categories.json:`, err);
+          .catch((_err) => {
             return [];
           });
       });
@@ -97,18 +168,32 @@ const nonPlayableCategories = categories.filter((item) => item && !item.isPlayab
 // Combined categories with playable ones first
 const sortedCategories = [...playableCategories, ...nonPlayableCategories];
 
-// Generate SEO content
+// Enhanced SEO content generation for better search visibility
 const title = t("game.select");
 const description = t("game.welcome");
 
-// Enhanced SEO content using utility functions
-const pageContent = `${title} ${description} ${sortedCategories.map((c) => `${c.headline} ${c.introSubline}`).join(" ")}`;
+// Create rich SEO content combining category information
+const enrichedContent = `${title} ${description} ${t("game.genre.selection.description") || "Choose from multiple music genres including rock, pop, jazz, classical and more. Each category features carefully curated questions to test your musical knowledge."} ${sortedCategories.map((c) => `${c.headline} ${c.introSubline} ${c.text || ""}`).join(" ")}`;
 
-// Generate optimized meta description and keywords
-const optimizedDescription = generateMetaDescription(pageContent);
-const keywords = extractKeywords(pageContent) || t("meta.keywords");
+// Generate optimized meta description and keywords using enhanced content
+const optimizedDescription = generateMetaDescription(enrichedContent, 158); // Leave room for ellipsis
+const seoKeywords = extractKeywords(enrichedContent, 12, lang) || t("meta.keywords");
 
-// Additional structured data parameters for SEO
+// Create category-specific keywords for better targeting
+const categoryNames = sortedCategories.map(c => c.headline.toLowerCase()).join(", ");
+const combinedKeywords = `${seoKeywords}, ${categoryNames}, ${t("meta.keywords")}`.substring(0, 255);
+
+// Enhanced structured data for GameHub/CategoryList
+const baseUrl = Astro.site?.toString() || "https://melody-mind.de";
+const currentUrl = `${baseUrl}/${lang}/gamehome`;
+
+// JSON-LD structured data for better search engine understanding
+const gameApplicationSchema = generateGameApplicationSchema(title, optimizedDescription, currentUrl, lang);
+
+// ItemList schema for game categories
+const categoryListSchema = generateCategoryListSchema(baseUrl, lang, playableCategories);
+
+// Additional structured data parameters for enhanced SEO
 const pageType = "website";
 const publishDate = new Date("2024-01-01");
 const modifiedDate = new Date();
@@ -118,25 +203,47 @@ const emptyCategoriesHeadline = t("game.categories.empty.headline") || "No genre
 const emptyCategoriesText =
   t("game.categories.empty.text") ||
   "Unfortunately, no categories were found. Please try again later.";
-const noPlayableCategoriesHeadline =
-  t("game.categories.no.playable.headline") || "No playable genres";
-const noPlayableCategoriesText =
-  t("game.categories.no.playable.text") ||
-  "There are currently no playable categories. Please check back later.";
+
+// Client-side translations for enhanced interactivity
+const clientTranslations = generateClientTranslations(t);
 ---
 
 <Layout
-  {title}
+  title={title}
   description={optimizedDescription}
-  {keywords}
+  keywords={combinedKeywords}
   image={`/og-images/social-share-gamehome-${String(lang)}.jpg`}
   type={pageType}
-  {publishDate}
-  {modifiedDate}
+  publishDate={publishDate}
+  modifiedDate={modifiedDate}
 >
-  <div class="gamehome-container" id="main-content">
-    <!-- Hero section with improved contrast and accessibility -->
-    <section class="gamehome-hero" aria-labelledby="welcome-heading">
+  <!-- Enhanced structured data for SEO -->
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(gameApplicationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(categoryListSchema)} />
+    
+    <!-- Additional SEO meta tags -->
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href={currentUrl} />
+    
+    <!-- Enhanced OpenGraph tags for social sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={`${lang}_${lang.toUpperCase()}`} />
+    <meta property="article:section" content="Gaming" />
+    <meta property="article:tag" content="Music Trivia" />
+    <meta property="article:tag" content="Online Game" />
+    <meta property="article:tag" content="Music Knowledge" />
+  </Fragment>
+
+  <!-- Make translations available for JavaScript functionality -->
+  <script is:inline define:vars={{ clientTranslations }}>
+    window.gameHomeTranslations = clientTranslations;
+  </script>
+
+  <main id="main-content" class="gamehome-container" role="main" aria-labelledby="welcome-heading">
+    <!-- Hero section with improved semantics and accessibility -->
+    <header class="gamehome-hero" aria-labelledby="welcome-heading">
       <!-- Decorative background elements with aria-hidden -->
       <div class="gamehome-hero__decoration" aria-hidden="true">
         <div class="gamehome-hero__decoration-item gamehome-hero__decoration-item--top-right"></div>
@@ -147,96 +254,142 @@ const noPlayableCategoriesText =
       </div>
 
       <div class="gamehome-hero__content">
-        <Headline title={`${t("game.welcome")}`} level="h1" className="gamehome-hero__title" />
+        <Headline 
+          title={`${t("game.welcome")}`} 
+          level="h1" 
+          className="gamehome-hero__title" 
+          id="welcome-heading"
+        />
         <div class="gamehome-hero__divider"></div>
-        <Paragraph className="gamehome-hero__description">
+        <Paragraph className="gamehome-hero__description" align="center">
           {t("game.select")}
         </Paragraph>
+        <!-- Additional descriptive content for SEO -->
+        <p class="gamehome-hero__seo-description sr-only">
+          {t("game.genre.selection.description") || "Choose from multiple music genres including rock, pop, jazz, classical and more. Test your knowledge with challenging questions and compete with players worldwide."}
+        </p>
       </div>
-    </section>
+    </header>
 
     <section class="genre-selection" aria-labelledby="playlist-heading">
-      <!-- Search input with improved accessibility and styling -->
-      <div class="search-container">
-        <div class="search-container__icon" aria-hidden="true">
-          <Icon name="search" class="search-container__icon-element" />
+      <!-- Enhanced search input with better a11y and SEO -->
+      <div class="search-container" role="search">
+        <div class="search-container__wrapper">
+          <div class="search-container__icon" aria-hidden="true">
+            <Icon name="search" class="search-container__icon-element" />
+          </div>
+          <label for="filter-input" class="search-container__label sr-only">
+            {t("game.search.label")}
+          </label>
+          <input
+            class="search-container__input"
+            type="search"
+            id="filter-input"
+            name="genre-search"
+            placeholder={t("game.search.label")}
+            aria-label={t("game.search.label")}
+            aria-controls="playlist-grid"
+            aria-describedby="search-description"
+            spellcheck="false"
+            autocomplete="off"
+            enterkeyhint="search"
+          />
+          <button
+            type="button"
+            class="search-container__clear"
+            aria-label={t("game.search.clear") || "Clear search"}
+            hidden
+          >
+            <Icon name="x" aria-hidden="true" />
+          </button>
+          <span id="search-description" class="sr-only">
+            {t("game.search.help") || "Type to filter music genres by name"}
+          </span>
         </div>
-        <label for="filter-input" class="sr-only">
-          {t("game.search.label")}
-        </label>
-        <input
-          class="search-container__input"
-          type="search"
-          id="filter-input"
-          placeholder={t("game.search.label")}
-          aria-label={t("game.search.label")}
-          aria-controls="playlist-grid"
-          aria-describedby="search-description"
-          autocomplete="off"
-          spellcheck="false"
-        />
-        <span id="search-description" class="sr-only">
-          {t("game.search.description")}
-        </span>
+        <div class="search-container__results-info" aria-live="polite" aria-atomic="true">
+          <!-- Results information will be populated by JavaScript -->
+        </div>
       </div>
 
-      <!-- Genre grid with improved card styling and animations -->
-      <div
-        id="playlist-grid"
-        class="genre-grid"
-        role="list"
-        aria-label={t("game.genre.list")}
-        aria-live="polite"
-      >
-        {
-          categories && categories.length > 0 ? (
-            playableCategories.length > 0 ? (
-              categories.map(
-                (item, _index) =>
-                  item.isPlayable && (
-                    <li class="genre-grid__item">
-                      <PlaylistItem
-                        headline={item.headline}
-                        subheadline={item.introSubline}
-                        image={item.imageUrl}
-                        imageAlt={`${t("game.genre.image")} ${item.headline}`}
-                        href={`/${String(lang)}${item.categoryUrl}`}
-                        isDisabled={!item.isPlayable}
-                        aria-label={`${item.headline} ${t("game.genre.play.label")}`}
-                      />
-                    </li>
-                  )
-              )
+      <!-- Enhanced genre grid with semantic markup -->
+      <div class="genre-content">
+        <Headline 
+          title={t("game.categories.title") || "Music Categories"} 
+          level="h2" 
+          className="genre-content__title sr-only" 
+          id="playlist-heading" 
+        />
+        
+        <div
+          id="playlist-grid"
+          class="genre-grid"
+          role="list"
+          aria-label={t("game.genre.list") || "Music genre selection"}
+          aria-live="polite"
+          itemscope
+          itemtype="https://schema.org/ItemList"
+        >
+          {
+            categories && categories.length > 0 ? (
+              sortedCategories.map((category, _index) => (
+                <PlaylistItem 
+                  headline={category.headline}
+                  subheadline={category.introSubline}
+                  image={category.imageUrl}
+                  imageAlt={`${category.headline} music category`}
+                  href={category.categoryUrl || '#'}
+                  isDisabled={!category.isPlayable}
+                />
+              ))
             ) : (
-              <div class="genre-grid__empty">
-                <Headline
-                  level="h3"
-                  title={noPlayableCategoriesHeadline}
-                  className="genre-grid__empty-title"
-                />
-                <Paragraph
-                  description={noPlayableCategoriesText}
-                  className="genre-grid__empty-text"
-                />
-              </div>
-            )
-          ) : (
-            <div class="genre-grid__empty">
-              <Headline
-                level="h3"
-                title={emptyCategoriesHeadline}
-                className="genre-grid__empty-title"
+              <EmptyState
+                headline={emptyCategoriesHeadline}
+                text={emptyCategoriesText}
+                iconName="music-note"
+                className="genre-grid__empty"
               />
-              <Paragraph description={emptyCategoriesText} className="genre-grid__empty-text" />
-            </div>
-          )
-        }
+            )
+          }
+        </div>
       </div>
+
+      <!-- Loading state for better UX -->
+      <LoadingState
+        text={t("game.categories.loading") || "Loading music categories..."}
+        className="loading-state"
+        visible={false}
+      />
     </section>
-  </div>
+  </main>
+
+  <!-- Back to Top Component for improved UX and accessibility -->
+  <BackToTop lang={lang} />
 </Layout>
 
 <style>
+  /* ======================================
+   * CSS CUSTOM PROPERTIES FOR COMPONENT
+   * Enhanced with global.css variables
+   * ====================================== */
+
+  :root {
+    /* Component-specific dimensions using global scale */
+    --gamehome-hero-decoration-sm: var(--space-2xl); /* 48px - Small decoration */
+    --gamehome-hero-decoration-md: var(--space-3xl); /* 64px - Medium decoration */
+    --gamehome-hero-decoration-lg: calc(var(--space-3xl) * 2); /* 128px - Large decoration */
+    
+    /* Layout constraints using design system */
+    --gamehome-content-max-width: calc(var(--container-md) * 0.6); /* ~460px - Content max width */
+    --gamehome-search-max-width: var(--container-sm); /* 640px - Search container max width */
+    
+    /* Visual effects using global tokens */
+    --gamehome-hero-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Hero text shadow */
+    --gamehome-divider-height: var(--border-width-thick); /* 2px - Divider height */
+    
+    /* Search input specific spacing */
+    --gamehome-search-icon-offset: calc(var(--space-md) + var(--icon-size-md) + var(--space-md)); /* Icon + padding space */
+  }
+
   /* ======================================
    * GAMEHOME CONTAINER LAYOUT
    * ====================================== */
@@ -246,6 +399,9 @@ const noPlayableCategoriesText =
     max-width: var(--container-xl);
     margin: 0 auto;
     padding: var(--space-lg) var(--space-md);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
   @media (min-width: var(--breakpoint-md)) {
@@ -265,12 +421,13 @@ const noPlayableCategoriesText =
     border-radius: var(--radius-xl);
     background: linear-gradient(
       135deg,
-      var(--color-primary-800) 0%,
-      var(--color-primary-900) 50%,
-      var(--color-neutral-900) 100%
+      var(--color-primary-900) 0%,
+      var(--color-primary-700) 50%,
+      var(--color-secondary-800) 100%
     );
     padding: var(--space-xl);
     box-shadow: var(--shadow-xl);
+    border: var(--border-width-thin) solid var(--border-primary);
   }
 
   .gamehome-hero__decoration {
@@ -283,574 +440,362 @@ const noPlayableCategoriesText =
   .gamehome-hero__decoration-item {
     position: absolute;
     border-radius: var(--radius-full);
+    background: var(--color-white);
   }
 
   .gamehome-hero__decoration-item--top-right {
-    top: calc(-1 * var(--space-3xl) - var(--space-2xl));
-    right: calc(-1 * var(--space-3xl) - var(--space-md));
-    width: calc(var(--space-3xl) * 4);
-    height: calc(var(--space-3xl) * 4);
-    background-color: var(--color-primary-500);
+    top: calc(-1 * var(--space-xl));
+    right: calc(-1 * var(--space-xl));
+    width: var(--gamehome-hero-decoration-md);
+    height: var(--gamehome-hero-decoration-md);
   }
 
   .gamehome-hero__decoration-item--bottom-left {
-    bottom: calc(var(--space-xl) + var(--space-sm));
-    left: calc(var(--space-xl) + var(--space-sm));
-    width: calc(var(--space-3xl) + var(--space-2xl));
-    height: calc(var(--space-3xl) + var(--space-2xl));
-    background-color: var(--color-secondary-500);
+    bottom: calc(-1 * var(--space-2xl));
+    left: calc(-1 * var(--space-2xl));
+    width: var(--gamehome-hero-decoration-lg);
+    height: var(--gamehome-hero-decoration-lg);
   }
 
   .gamehome-hero__decoration-item--center-right {
-    top: 50%;
-    right: var(--percentage-quarter);
-    width: calc(var(--space-3xl) + var(--space-xl));
-    height: calc(var(--space-3xl) + var(--space-xl));
-    background-color: var(--color-primary-400);
+    top: var(--percentage-half);
+    right: calc(-1 * var(--space-md));
+    width: var(--gamehome-hero-decoration-sm);
+    height: var(--gamehome-hero-decoration-sm);
     transform: translateY(-50%);
   }
 
   .gamehome-hero__content {
     position: relative;
-    z-index: var(--z-fixed);
+    z-index: 1;
     text-align: center;
+    color: var(--color-white);
+  }
+
+  .gamehome-hero__title {
+    margin-bottom: var(--space-lg);
+    color: var(--color-white);
+    text-shadow: var(--gamehome-hero-shadow);
   }
 
   .gamehome-hero__divider {
-    margin: var(--space-sm) auto var(--space-lg);
-    width: calc(var(--space-3xl) + var(--space-xl));
-    height: var(--space-xs);
+    width: var(--icon-size-xl);
+    height: var(--gamehome-divider-height);
+    background: var(--color-secondary-400);
+    margin: var(--space-lg) auto;
     border-radius: var(--radius-full);
-    background-color: var(--color-secondary-400);
+  }
+
+  .gamehome-hero__description {
+    color: var(--color-neutral-100);
+    font-size: var(--text-xl);
+    line-height: var(--leading-relaxed);
+    max-width: var(--gamehome-content-max-width);
+    margin: 0 auto;
   }
 
   /* ======================================
-   * GENRE SELECTION SECTION
-   * ====================================== */
-
-  .genre-selection {
-    margin-top: var(--space-2xl);
-  }
-
-  /* ======================================
-   * SEARCH CONTAINER STYLING
+   * SEARCH CONTAINER
    * ====================================== */
 
   .search-container {
+    margin-bottom: var(--space-xl);
+  }
+
+  .search-container__wrapper {
     position: relative;
-    margin: var(--space-xl) auto;
-    width: var(--width-full);
-    max-width: var(--container-sm);
+    max-width: var(--gamehome-search-max-width);
+    margin: 0 auto;
   }
 
   .search-container__icon {
     position: absolute;
-    top: 50%;
     left: var(--space-md);
+    top: var(--percentage-half);
     transform: translateY(-50%);
+    color: var(--text-tertiary);
     pointer-events: none;
-    z-index: var(--z-dropdown);
+    z-index: 1;
   }
 
   .search-container__icon-element {
     width: var(--icon-size-md);
     height: var(--icon-size-md);
-    color: var(--text-tertiary);
   }
 
   .search-container__input {
     width: var(--width-full);
-    padding: var(--space-md) var(--space-lg) var(--space-md) var(--space-2xl);
-    background-color: var(--form-bg);
-    border: var(--border-width-thick) solid var(--form-border);
+    padding: var(--space-md) var(--space-md) var(--space-md) var(--gamehome-search-icon-offset);
+    border: var(--border-width-thin) solid var(--border-primary);
     border-radius: var(--radius-lg);
+    background-color: var(--form-bg);
     color: var(--form-text);
-    font-size: var(--text-base);
-    line-height: var(--leading-relaxed);
-    box-shadow: var(--shadow-lg);
+    font-size: var(--text-lg);
+    line-height: var(--leading-normal);
     transition: all var(--transition-normal);
-  }
-
-  .search-container__input::placeholder {
-    color: var(--form-placeholder);
+    box-shadow: var(--shadow-sm);
   }
 
   .search-container__input:focus {
-    outline: none;
-    border-color: var(--form-border-focus);
-    box-shadow: var(--focus-ring);
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-ring-offset);
+    border-color: var(--interactive-primary);
+    box-shadow: var(--shadow-md);
   }
 
-  .search-container__input:focus-visible {
+  .search-container__input::placeholder {
+    color: var(--text-tertiary);
+  }
+
+  .search-container__clear {
+    position: absolute;
+    right: var(--space-md);
+    top: var(--percentage-half);
+    transform: translateY(-50%);
+    padding: var(--space-xs);
+    border: none;
+    background: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: color var(--transition-fast);
+  }
+
+  .search-container__clear:hover {
+    color: var(--text-primary);
+  }
+
+  .search-container__clear:focus {
     outline: var(--focus-outline);
     outline-offset: var(--focus-ring-offset);
   }
 
+  .search-container__results-info {
+    text-align: center;
+    margin-top: var(--space-md);
+    color: var(--text-secondary);
+    font-size: var(--text-base);
+  }
+
   /* ======================================
-   * GENRE GRID LAYOUT
+   * GENRE GRID STYLING
    * ====================================== */
+
+  .genre-content {
+    flex-grow: 1;
+  }
 
   .genre-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-width-md), 1fr));
     gap: var(--space-lg);
-    margin: var(--space-xl) auto;
-    width: var(--width-full);
-    min-height: calc(var(--container-sm) * 0.4);
+    margin-bottom: var(--space-xl);
   }
 
-  /* Mobile first: 1 column by default */
-  /* --breakpoint-xs: 20em (320px) */
-  @media (min-width: 20em) {
+  @media (min-width: var(--breakpoint-sm)) {
     .genre-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  /* --breakpoint-md: 48em (768px) */
-  @media (min-width: 48em) {
-    .genre-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: var(--space-xl);
     }
   }
 
-  /* --breakpoint-lg: 64em (1024px) */
-  @media (min-width: 64em) {
-    .genre-grid {
-      grid-template-columns: repeat(3, 1fr);
+  /* ======================================
+   * RESPONSIVE DESIGN ENHANCEMENTS
+   * ====================================== */
+
+  @media (min-width: var(--breakpoint-lg)) {
+    .gamehome-hero {
+      padding: var(--space-2xl) var(--space-xl);
     }
-  }
 
-  .genre-grid__item {
-    display: block;
-    height: var(--width-full);
-    list-style: none;
-    opacity: 0;
-    animation: fadeIn var(--animation-duration-slow) ease-out forwards;
-  }
-
-  .genre-grid__play-indicator {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-sm);
-    background: linear-gradient(90deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
-    border-radius: 0 0 var(--radius-md) var(--radius-md);
-    color: var(--btn-primary-text);
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
-    opacity: 0;
-    transition: opacity var(--transition-normal);
-  }
-
-  .genre-grid__item:hover .genre-grid__play-indicator,
-  .genre-grid__item:focus-within .genre-grid__play-indicator {
-    opacity: 1;
-  }
-
-  /* ======================================
-   * EMPTY STATE STYLING
-   * ====================================== */
-
-  .genre-grid__empty {
-    grid-column: 1 / -1;
-    padding: var(--space-2xl) var(--space-lg);
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-    border: var(--border-width-thin) solid var(--border-primary);
-    border-radius: var(--radius-lg);
-    text-align: center;
-    box-shadow: var(--shadow-md);
-  }
-
-  /* ======================================
-   * NO RESULTS STYLING  
-   * ====================================== */
-
-  .genre-grid__no-results {
-    grid-column: 1 / -1;
-    padding: var(--space-xl) var(--space-lg);
-    background-color: var(--bg-secondary);
-    border: var(--border-width-thin) solid var(--border-secondary);
-    border-radius: var(--radius-lg);
-    text-align: center;
-    color: var(--text-primary);
-    font-size: var(--text-lg);
-    font-weight: var(--font-medium);
-  }
-
-  /* ======================================
-   * SEARCH CLEAR BUTTON
-   * ====================================== */
-
-  .search-clear-button {
-    position: absolute;
-    top: 50%;
-    right: var(--space-md);
-    transform: translateY(-50%);
-    width: var(--space-lg);
-    height: var(--space-lg);
-    background: none;
-    border: none;
-    color: var(--text-tertiary);
-    font-size: var(--text-lg);
-    cursor: pointer;
-    border-radius: var(--radius-sm);
-    transition: color var(--transition-fast);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .search-clear-button:hover {
-    color: var(--text-primary);
-  }
-
-  .search-clear-button:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  /* ======================================
-   * ANIMATION DEFINITIONS
-   * ====================================== */
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(var(--animation-y-offset));
+    .gamehome-hero__title {
+      font-size: var(--text-4xl);
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    .gamehome-hero__description {
+      font-size: var(--text-2xl);
     }
   }
 
   /* ======================================
-   * FOCUS AND INTERACTION STATES
-   * ====================================== */
-
-  :focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    border-radius: var(--radius-sm);
-  }
-
-  .genre-grid__item:focus-within {
-    transform: translateY(calc(-1 * var(--space-sm)));
-  }
-
-  .genre-grid__item a:focus-visible {
-    outline-width: var(--space-xs);
-  }
-
-  /* ======================================
-   * REDUCED MOTION SUPPORT
+   * ACCESSIBILITY ENHANCEMENTS
    * ====================================== */
 
   @media (prefers-reduced-motion: reduce) {
-    .genre-grid__item {
+    .loading-state__spinner {
       animation: none;
-      opacity: 1;
+      border: var(--border-width-thick) solid var(--interactive-primary);
     }
 
-    .genre-grid__item:hover,
-    .genre-grid__item:focus-within {
-      transform: none;
-    }
-
-    .search-container__input,
-    .genre-grid__play-indicator,
-    .search-clear-button {
-      transition: none;
-    }
-
-    :focus-visible {
-      transition: none;
+    .gamehome-hero {
+      background: var(--color-primary-800);
     }
   }
 
-  /* ======================================
-   * HIGH CONTRAST MODE SUPPORT
-   * ====================================== */
-
-  @media (forced-colors: active) {
-    .genre-grid__item a {
-      border: var(--border-width-thick) solid ButtonText;
-    }
-
+  @media (prefers-contrast: high) {
     .search-container__input {
-      border: var(--border-width-thick) solid ButtonText;
-    }
-
-    .gamehome-hero {
-      border: var(--border-width-thick) solid ButtonText;
-    }
-  }
-
-  /* ======================================
-   * PRINT STYLES
-   * ====================================== */
-
-  @media print {
-    .search-container {
-      display: none;
-    }
-
-    .genre-grid {
-      gap: var(--space-md);
-    }
-
-    .genre-grid__item {
-      break-inside: avoid;
-      page-break-inside: avoid;
-    }
-
-    .gamehome-hero {
-      background: var(--print-bg);
-      color: var(--print-text);
-      border: var(--print-border);
+      border-width: var(--border-width-thick);
     }
   }
 </style>
 
+<!-- Enhanced client-side functionality for search and filtering -->
 <script>
-  /**
-   * Genre Filtering and Search System
-   *
-   * Provides search functionality for the genre grid using modern TypeScript
-   * and performance optimizations including debouncing and DOM caching.
-   */
-
-  import { getLangFromUrl } from "@utils/i18n";
-
-  import { ui } from "../../i18n/ui";
-
-  // Configuration constants for the filtering system
-  const CONFIG = {
-    DEBOUNCE_DELAY: 250, // Quarter second delay for optimal UX
-    SELECTOR: {
-      FILTER_INPUT: "#filter-input",
-      GRID: "#playlist-grid",
-      LIST_ITEM: "li",
-      HEADLINE: ".headline",
-      NO_RESULTS: ".no-results",
-      CLEAR_BUTTON: ".search-clear-button",
-      SR_ANNOUNCEMENTS: ".sr-announcements",
-    },
-    KEY_CODES: {
-      ESCAPE: "Escape",
-      ENTER: "Enter",
-    },
-    ARIA: {
-      LIVE: "polite",
-      ATOMIC: "true",
-      CONTROLS: "playlist-grid",
-    },
-    CLASSES: {
-      SR_ONLY: "sr-only",
-      NO_RESULTS: "genre-grid__no-results no-results",
-      SR_ANNOUNCEMENTS: "sr-announcements sr-only",
-    },
-  } as const;
-
-  // Load translations for the current language
-  const currentLang = getLangFromUrl(new URL(window.location.href));
-  const translations = {
-    noResults:
-      (ui[currentLang] as Record<string, string>)?.["game.no.results"] || "No results found",
-    resultsCount:
-      (ui[currentLang] as Record<string, string>)?.["game.results.count"] || "{count} genres found",
-    clearSearch:
-      (ui[currentLang] as Record<string, string>)?.["game.search.clear"] || "Clear search",
-  };
-
-  // DOM elements cache
-  const elements = {
-    filterInput: document.querySelector(CONFIG.SELECTOR.FILTER_INPUT) as HTMLInputElement | null,
-    grid: document.querySelector(CONFIG.SELECTOR.GRID) as HTMLElement | null,
-    get items(): NodeListOf<HTMLElement> {
-      return (
-        elements.grid?.querySelectorAll(CONFIG.SELECTOR.LIST_ITEM) || document.querySelectorAll("")
-      );
-    },
-  };
-
-  /**
-   * Creates a debounced version of a function
-   */
-  function debounce<T extends unknown[]>(
-    func: (...args: T) => void,
-    wait: number
-  ): (...args: T) => void {
-    let timeout: ReturnType<typeof setTimeout> | undefined;
-    return function (this: unknown, ...args: T): void {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func.apply(this, args), wait);
+  interface GameTranslations {
+    search: {
+      placeholder: string;
+      showingAll: string;
+      resultsFound: string;
+      noResults: string;
+      clear: string;
+    };
+    accessibility: {
+      skipToContent: string;
+      searchLabel: string;
     };
   }
 
-  // Cache for genre item text content
-  const textContentCache = new WeakMap<Element, string>();
-
-  /**
-   * Announces messages to screen readers
-   */
-  function announceToScreenReader(message: string): void {
-    let liveRegion = document.querySelector(CONFIG.SELECTOR.SR_ANNOUNCEMENTS) as HTMLElement;
-    if (!liveRegion) {
-      liveRegion = document.createElement("div");
-      liveRegion.className = CONFIG.CLASSES.SR_ANNOUNCEMENTS;
-      liveRegion.setAttribute("aria-live", CONFIG.ARIA.LIVE);
-      liveRegion.setAttribute("aria-atomic", CONFIG.ARIA.ATOMIC);
-      document.body.appendChild(liveRegion);
+  declare global {
+    interface Window {
+      gameHomeTranslations: GameTranslations;
     }
-    liveRegion.textContent = message;
   }
 
   /**
-   * Initializes the genre filtering system
+   * Enhanced search functionality using modern patterns
+   * Implements progressive enhancement and accessibility best practices
    */
-  function initGenreFilter(): void {
-    if (!elements.filterInput || !elements.grid) {
-      console.warn("Filter elements not found. Genre filtering disabled.");
-      return;
-    }
+  class GameHomeSearch {
+    private searchInput: HTMLInputElement | null;
+    private clearButton: HTMLButtonElement | null;
+    private gridContainer: HTMLElement | null;
+    private resultsInfo: HTMLElement | null;
+    private allItems: NodeListOf<Element>;
+    private translations: GameTranslations;
 
-    const debouncedFilter = debounce(filterGenres, CONFIG.DEBOUNCE_DELAY);
-    elements.filterInput.addEventListener("input", debouncedFilter);
-    elements.filterInput.addEventListener("keydown", handleFilterKeydown);
+    constructor() {
+      // Initialize elements with error handling
+      this.searchInput = document.getElementById("filter-input") as HTMLInputElement;
+      this.clearButton = document.querySelector(".search-container__clear") as HTMLButtonElement;
+      this.gridContainer = document.getElementById("playlist-grid");
+      this.resultsInfo = document.querySelector(".search-container__results-info");
+      this.allItems = document.querySelectorAll("#playlist-grid > *");
+      this.translations = window.gameHomeTranslations || this.getDefaultTranslations();
 
-    addClearButton();
-
-    const initialCount = elements.items.length;
-    announceToScreenReader(translations.resultsCount.replace("{count}", initialCount.toString()));
-  }
-
-  /**
-   * Adds a clear button for the search input
-   */
-  function addClearButton(): void {
-    if (!elements.filterInput) {
-      return;
-    }
-
-    const inputWrapper = elements.filterInput.parentElement;
-    if (!inputWrapper) {
-      return;
-    }
-
-    const clearButton = document.createElement("button");
-    clearButton.className = CONFIG.SELECTOR.CLEAR_BUTTON.substring(1); // Remove the dot
-    clearButton.setAttribute("type", "button");
-    clearButton.setAttribute("aria-label", translations.clearSearch);
-    clearButton.innerHTML = "×";
-    clearButton.style.display = "none";
-
-    clearButton.addEventListener("click", () => {
-      if (elements.filterInput) {
-        elements.filterInput.value = "";
-        clearButton.style.display = "none";
-        filterGenres();
-        elements.filterInput.focus();
+      // Only initialize if required elements exist
+      if (this.searchInput && this.gridContainer) {
+        this.init();
       }
-    });
+    }
 
-    elements.filterInput.addEventListener("input", () => {
-      const hasValue = (elements.filterInput?.value.length || 0) > 0;
-      clearButton.style.display = hasValue ? "block" : "none";
-    });
-
-    inputWrapper.appendChild(clearButton);
-  }
-
-  /**
-   * Handles keyboard events on the filter input
-   */
-  function handleFilterKeydown(event: KeyboardEvent): void {
-    if (event.key === CONFIG.KEY_CODES.ESCAPE) {
-      if (elements.filterInput) {
-        elements.filterInput.value = "";
-        filterGenres();
-
-        const clearButton = document.querySelector(CONFIG.SELECTOR.CLEAR_BUTTON) as HTMLElement;
-        if (clearButton) {
-          clearButton.style.display = "none";
+    private getDefaultTranslations(): GameTranslations {
+      return {
+        search: {
+          placeholder: "Search genres...",
+          showingAll: "Showing all genres",
+          resultsFound: "genres found",
+          noResults: "No genres found matching your search",
+          clear: "Clear search"
+        },
+        accessibility: {
+          skipToContent: "Skip to main content",
+          searchLabel: "Search music genres"
         }
-      }
-      event.preventDefault();
-    } else if (event.key === CONFIG.KEY_CODES.ENTER) {
-      const firstVisibleItem = Array.from(elements.items).find(
-        (item) => item.style.display !== "none"
-      );
+      };
+    }
 
-      if (firstVisibleItem) {
-        const firstLink = firstVisibleItem.querySelector("a") as HTMLAnchorElement;
-        if (firstLink) {
-          event.preventDefault();
-          firstLink.focus();
+    private init(): void {
+      // Add event listeners with proper binding
+      this.searchInput!.addEventListener("input", this.handleSearch.bind(this));
+      this.searchInput!.addEventListener("keydown", this.handleKeydown.bind(this));
+      
+      if (this.clearButton) {
+        this.clearButton.addEventListener("click", this.clearSearch.bind(this));
+      }
+
+      // Set initial results info
+      this.updateResultsInfo(this.allItems.length, "");
+    }
+
+    private handleSearch(event: Event): void {
+      const target = event.target as HTMLInputElement;
+      const query = target.value.toLowerCase().trim();
+      
+      this.filterItems(query);
+      this.updateClearButton(query);
+    }
+
+    private handleKeydown(event: KeyboardEvent): void {
+      if (event.key === "Escape") {
+        this.clearSearch();
+      }
+    }
+
+    private filterItems(query: string): void {
+      let visibleCount = 0;
+
+      this.allItems.forEach((item) => {
+        const textContent = item.textContent?.toLowerCase() || "";
+        const isVisible = query === "" || textContent.includes(query);
+        
+        if (item instanceof HTMLElement) {
+          item.style.display = isVisible ? "" : "none";
+          item.setAttribute("aria-hidden", (!isVisible).toString());
         }
+
+        if (isVisible) {
+          visibleCount++;
+        }
+      });
+
+      this.updateResultsInfo(visibleCount, query);
+    }
+
+    private updateResultsInfo(count: number, query: string): void {
+      if (!this.resultsInfo) {
+        return;
       }
+
+      let message = "";
+      if (query === "") {
+        message = `${this.translations.search.showingAll} (${count})`;
+      } else if (count === 0) {
+        message = this.translations.search.noResults;
+      } else {
+        message = `${count} ${this.translations.search.resultsFound}`;
+      }
+
+      this.resultsInfo.textContent = message;
+    }
+
+    private updateClearButton(query: string): void {
+      if (!this.clearButton) {
+        return;
+      }
+
+      if (query.length > 0) {
+        this.clearButton.removeAttribute("hidden");
+      } else {
+        this.clearButton.setAttribute("hidden", "");
+      }
+    }
+
+    private clearSearch(): void {
+      if (!this.searchInput) {
+        return;
+      }
+
+      this.searchInput.value = "";
+      this.filterItems("");
+      this.updateClearButton("");
+      this.searchInput.focus();
     }
   }
 
-  /**
-   * Filters the genre items based on the search query
-   */
-  function filterGenres(): void {
-    if (!elements.filterInput || !elements.grid) {
-      return;
-    }
-
-    const query = elements.filterInput.value.toLowerCase().trim();
-    let visibleCount = 0;
-
-    elements.items.forEach((item) => {
-      let itemText = textContentCache.get(item);
-      if (!itemText) {
-        itemText = item.querySelector(CONFIG.SELECTOR.HEADLINE)?.textContent?.toLowerCase() || "";
-        textContentCache.set(item, itemText);
-      }
-
-      const isVisible = itemText.includes(query);
-      item.style.display = isVisible ? "" : "none";
-
-      if (isVisible) {
-        visibleCount++;
-      }
-    });
-
-    updateNoResultsMessage(visibleCount > 0);
-    announceToScreenReader(translations.resultsCount.replace("{count}", visibleCount.toString()));
-  }
-
-  /**
-   * Updates the UI with a "no results" message when needed
-   */
-  function updateNoResultsMessage(hasResults: boolean): void {
-    if (!elements.grid) {
-      return;
-    }
-
-    let noResultsMessage = elements.grid.querySelector(CONFIG.SELECTOR.NO_RESULTS) as HTMLElement;
-
-    if (!hasResults) {
-      if (!noResultsMessage) {
-        noResultsMessage = document.createElement("p");
-        noResultsMessage.className = CONFIG.CLASSES.NO_RESULTS;
-        noResultsMessage.setAttribute("role", "status");
-        noResultsMessage.setAttribute("aria-live", CONFIG.ARIA.LIVE);
-        noResultsMessage.textContent = translations.noResults;
-        elements.grid.appendChild(noResultsMessage);
-      }
-    } else {
-      noResultsMessage?.remove();
-    }
-  }
-
-  // Initialize when DOM is ready
-  document.addEventListener("DOMContentLoaded", initGenreFilter);
-  if (document.readyState !== "loading") {
-    initGenreFilter();
+  // Initialize search functionality when DOM is ready using modern approach
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => new GameHomeSearch());
+  } else {
+    new GameHomeSearch();
   }
 </script>

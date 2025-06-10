@@ -1,0 +1,129 @@
+---
+/**
+ * EmptyState Component
+ * Reusable component for displaying empty states with consistent styling
+ * 
+ * @component EmptyState
+ * @description Displays an empty state message with icon and optional action button
+ * @accessibility WCAG AAA compliant with proper ARIA attributes and semantic HTML
+ */
+
+import { Icon } from "astro-icon/components";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
+
+export interface Props {
+  /** The main headline text */
+  headline: string;
+  /** The descriptive text below the headline */
+  text: string;
+  /** The icon name to display (from astro-icon) */
+  iconName?: string;
+  /** Additional CSS class for styling customization */
+  className?: string;
+  /** The heading level for the headline (default: h3) */
+  headingLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  /** Maximum width constraint for the content */
+  maxWidth?: string;
+  /** Minimum height for the empty state container */
+  minHeight?: string;
+}
+
+const {
+  headline,
+  text,
+  iconName = "alert-circle",
+  className = "",
+  headingLevel = "h3",
+  maxWidth = "28rem",
+  minHeight = "24rem"
+} = Astro.props;
+
+// Generate unique IDs for accessibility
+const headlineId = `empty-state-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div 
+  class={`empty-state ${className}`}
+  role="status" 
+  aria-live="polite"
+  aria-labelledby={headlineId}
+  style={`--empty-state-max-width: ${maxWidth}; --empty-state-min-height: ${minHeight};`}
+>
+  <div class="empty-state__content">
+    {iconName && (
+      <Icon 
+        name={iconName} 
+        class="empty-state__icon" 
+        aria-hidden="true" 
+      />
+    )}
+    <Headline 
+      title={headline} 
+      level={headingLevel} 
+      className="empty-state__title" 
+      id={headlineId}
+    />
+    <Paragraph className="empty-state__text">
+      {text}
+    </Paragraph>
+    <slot name="action" />
+  </div>
+</div>
+
+<style>
+  .empty-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: var(--empty-state-min-height, var(--gamehome-empty-min-height, 24rem));
+    padding: var(--space-xl);
+    grid-column: 1 / -1;
+  }
+
+  .empty-state__content {
+    text-align: center;
+    max-width: var(--empty-state-max-width, var(--gamehome-empty-max-width, 28rem));
+  }
+
+  .empty-state__icon {
+    width: var(--icon-size-xl);
+    height: var(--icon-size-xl);
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-lg);
+  }
+
+  .empty-state__title {
+    margin-bottom: var(--space-md);
+    color: var(--text-secondary);
+  }
+
+  .empty-state__text {
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-lg);
+  }
+
+  /* Support for custom CSS properties */
+  .empty-state.custom-spacing {
+    --space-custom: var(--space-2xl);
+    gap: var(--space-custom);
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .empty-state__icon {
+      color: var(--text-secondary);
+    }
+    
+    .empty-state__title {
+      color: var(--text-primary);
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .empty-state {
+      transition: none;
+    }
+  }
+</style>

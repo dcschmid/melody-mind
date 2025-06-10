@@ -961,6 +961,23 @@ export default {
   "knowledge.accessibility.scrolled_to_top": "Vieritetty sivun alkuun",
   "knowledge.accessibility.search_focused": "Hakukenttä on nyt aktiivinen",
 
+  // Game search functionality
+  "game.search.clear": "Tyhjennä haku",
+  "game.search.help": "Etsi musiikkigenrejä löytääksesi suosikkikategoriasi",
+  "game.search.showing.all": "Näytetään kaikki genret",
+  "game.search.results": "genreä löytyi",
+  "game.search.no.results": "Hakuasi vastaavia genrejä ei löytynyt",
+
+  // Game categories
+  "game.categories.title": "Musiikkikategoriat",
+  "game.categories.loading": "Ladataan musiikkikategorioita...",
+
+  // Game genre selection
+  "game.genre.selection.description": "Valitse suosikkimusiikkigenresi ja testaa tietämystäsi",
+
+  // Accessibility
+  "accessibility.skip.to.content": "Siirry pääsisältöön",
+
   // Kategorisivut
   "category.about.title": "Tietoja tästä kategoriasta",
 };
