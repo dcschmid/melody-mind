@@ -686,7 +686,8 @@ export default {
 
   // Prestatiesysteem
   "achievements.title": "Prestaties",
-  "achievements.description": "Ontdek en ontgrendel prestaties om uw voortgang bij te houden",
+  "achievements.description":
+    "Vier uw muzikale triomfen en verzamel unieke trofeeën op uw reis naar het worden van een muziekmeester",
   "achievements.loading": "Prestaties laden...",
   "achievements.error": "Fout bij het laden van prestaties",
   "achievements.empty": "Geen prestaties gevonden",

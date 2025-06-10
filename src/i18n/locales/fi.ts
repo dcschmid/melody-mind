@@ -653,7 +653,8 @@ export default {
 
   // Saavutusjärjestelmä
   "achievements.title": "Saavutukset",
-  "achievements.description": "Löydä ja avaa saavutuksia seurataksesi edistymistäsi",
+  "achievements.description":
+    "Juhli musiikillisia voittojasi ja kerää ainutlaatuisia palkintoja matkallasi musiikkimestariksi",
   "achievements.loading": "Ladataan saavutuksia...",
   "achievements.error": "Virhe saavutusten lataamisessa",
   "achievements.empty": "Saavutuksia ei löytynyt",

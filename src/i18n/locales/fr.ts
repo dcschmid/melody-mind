@@ -694,7 +694,8 @@ export default {
 
   // Système de Succès
   "achievements.title": "Succès",
-  "achievements.description": "Découvrez et débloquez des succès pour suivre votre progression",
+  "achievements.description":
+    "Célébrez vos triomphes musicaux et collectionnez des trophées uniques sur votre chemin pour devenir un maître de la musique",
   "achievements.loading": "Chargement des succès...",
   "achievements.error": "Erreur lors du chargement des succès",
   "achievements.empty": "Aucun succès trouvé",
