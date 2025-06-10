@@ -4,6 +4,7 @@ import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import PlaylistCard from "@components/PlaylistCard.astro";
+import BackToTop from "@components/Shared/BackToTop.astro";
 import { Icon } from "astro-icon/components";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
 
@@ -47,16 +48,19 @@ const { lang } = Astro.params;
 const { playlists } = Astro.props;
 const t = useTranslations(lang);
 
-// SEO-Optimierung
-const title = t("playlist.page.heading") || "Music Playlists Collection";
-const description =
-  t("playlist.page.description") ||
-  "Discover curated music playlists across different decades and genres.";
-const pageContent = `${title} ${description}`;
-const optimizedDescription = generateMetaDescription(pageContent);
-const keywords = extractKeywords(pageContent, 10, lang);
+/**
+ * Interface for playlist data structure
+ */
+interface Playlist {
+  headline: string;
+  imageUrl: string;
+  introSubline: string;
+  spotifyPlaylist: string;
+  deezerPlaylist: string;
+  appleMusicPlaylist: string;
+}
 
-// Helper function for decade extraction
+// Helper function for decade extraction (moved up)
 function getDecadeFromHeadline(headline: string): string {
   const yearMatch = headline.match(/\b(\d{4})\b/);
   if (yearMatch) {
@@ -65,12 +69,76 @@ function getDecadeFromHeadline(headline: string): string {
   return "Other";
 }
 
-// Sort playlists chronologically
-const sortedPlaylists = [...playlists].sort((a, b) => {
+// Sort playlists chronologically (moved up)
+const sortedPlaylists = [...playlists].sort((a: Playlist, b: Playlist) => {
   const decadeA = getDecadeFromHeadline(a.headline);
   const decadeB = getDecadeFromHeadline(b.headline);
   return decadeA.localeCompare(decadeB, undefined, { sensitivity: "base" });
 });
+
+// Enhanced SEO content generation with more detailed information
+const title = t("playlist.page.heading") || "Music Playlists Collection";
+const description =
+  t("playlist.page.description") ||
+  "Discover curated music playlists across different decades and genres.";
+
+// Create enriched content for better SEO by including playlist information
+const playlistDecades = [
+  ...new Set(playlists.map((p: Playlist) => getDecadeFromHeadline(p.headline))),
+].join(", ");
+const playlistCount = playlists.length;
+const enrichedContent = `${title} ${description} Explore ${playlistCount} carefully curated music playlists spanning decades including ${playlistDecades}. Each playlist features authentic tracks from legendary artists and iconic albums. Perfect for music enthusiasts, trivia players, and anyone looking to discover classic hits from different musical eras.`;
+
+const optimizedDescription = generateMetaDescription(enrichedContent, 158);
+const keywords = extractKeywords(enrichedContent, 12, lang);
+
+// SEO-optimized URL and canonical setup
+const baseUrl = Astro.site?.toString() || "https://melody-mind.de";
+const currentUrl = `${baseUrl}/${lang}/playlists`;
+
+// Enhanced structured data for playlist collection
+const playlistCollectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: `${title} | Melody Mind`,
+  description: optimizedDescription,
+  url: currentUrl,
+  numberOfItems: playlistCount,
+  itemListOrder: "chronological",
+  itemListElement: sortedPlaylists.slice(0, 10).map((playlist, index) => ({
+    "@type": "MusicPlaylist",
+    position: index + 1,
+    name: playlist.headline,
+    description: playlist.introSubline || playlist.headline,
+    url: `${currentUrl}#playlist-${index}`,
+    genre: getDecadeFromHeadline(playlist.headline),
+    inLanguage: lang,
+    creator: {
+      "@type": "Organization",
+      name: "Melody Mind",
+    },
+  })),
+};
+
+// Breadcrumb structured data for better navigation SEO
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: t("nav.home") || "Home",
+      item: `${baseUrl}/${lang}/`,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: title,
+      item: currentUrl,
+    },
+  ],
+};
 ---
 
 <Layout
@@ -78,8 +146,71 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
   description={optimizedDescription}
   {keywords}
   image={`/og-images/social-share-playlist-${lang}.jpg`}
+  type="website"
+  publishDate={new Date()}
+  modifiedDate={new Date()}
 >
+  <!-- Enhanced SEO structured data -->
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(playlistCollectionSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href={currentUrl} />
+
+    <!-- Additional SEO meta tags -->
+    <meta name="author" content="Melody Mind Team" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={`${lang}_${lang.toUpperCase()}`} />
+    <meta property="article:section" content="Music" />
+    <meta property="article:tag" content="Music Playlists" />
+    <meta property="article:tag" content="Music History" />
+    <meta property="article:tag" content="Music Discovery" />
+
+    <!-- Music-specific meta tags -->
+    <meta name="music:genre" content="Various" />
+    <meta name="music:playlist_count" content={playlistCount.toString()} />
+    <meta name="music:decades" content={playlistDecades} />
+
+    <!-- Enhanced Open Graph for better social sharing -->
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+
+    <!-- Twitter Card enhancements -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@melodymind" />
+    <meta name="twitter:creator" content="@melodymind" />
+  </Fragment>
+
   <div class="playlist-container">
+    <!-- Breadcrumb Navigation for SEO -->
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+      <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li
+          class="breadcrumb-item"
+          itemprop="itemListElement"
+          itemscope
+          itemtype="https://schema.org/ListItem"
+        >
+          <a href={`/${lang}/`} itemprop="item" class="breadcrumb-link">
+            <Icon name="home" class="breadcrumb-icon" aria-hidden="true" />
+            <span itemprop="name" class="sr-only">{t("nav.home") || "Home"}</span>
+          </a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <li
+          class="breadcrumb-item"
+          itemprop="itemListElement"
+          itemscope
+          itemtype="https://schema.org/ListItem"
+          aria-current="page"
+        >
+          <span itemprop="name">{title}</span>
+          <meta itemprop="position" content="2" />
+        </li>
+      </ol>
+    </nav>
     <!-- Hero section -->
     <section class="playlist-hero" aria-labelledby="playlist-heading">
       <div class="playlist-hero__decoration" aria-hidden="true">
@@ -91,102 +222,207 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       </div>
 
       <div class="playlist-hero__content">
-        <Headline title={t("playlist.page.heading")} level="h1" className="playlist-hero__title" />
-        <div class="playlist-hero__divider"></div>
-        <Paragraph className="playlist-hero__description" align="center">
-          {t("playlist.page.description")}
+        <Headline
+          title={t("playlist.page.heading")}
+          level="h1"
+          size="3xl"
+          className="playlist-hero__title"
+        />
+        <div class="playlist-hero__divider" aria-hidden="true"></div>
+        <Paragraph className="playlist-hero__description">
+          {
+            t("playlist.page.description") ||
+              "Discover curated music playlists across different decades and genres. From classic rock anthems to contemporary pop hits, explore musical history through carefully selected tracks."
+          }
         </Paragraph>
       </div>
     </section>
 
-    <section class="playlist-selection">
-      <!-- Search input -->
-      <div class="search-container">
-        <div class="search-container__icon" aria-hidden="true">
-          <Icon name="search" class="search-container__icon-element" />
-        </div>
-        <label for="playlist-search" class="sr-only">
-          {t("playlist.search.label")}
-        </label>
-        <input
-          class="search-container__input"
-          type="search"
-          id="playlist-search"
-          placeholder={t("playlist.search.label")}
-          aria-label={t("playlist.search.label")}
-          autocomplete="off"
-        />
-      </div>
-
-      <!-- No results message -->
-      <div id="no-results" class="no-results">
-        <h2 class="no-results__heading">
-          {t("playlist.no.results.heading") || "No playlists found"}
+    <main class="playlist-selection" role="main">
+      <!-- Search input with improved accessibility -->
+      <section class="search-section" role="search" aria-labelledby="search-heading">
+        <h2 id="search-heading" class="sr-only">
+          {t("playlist.search.heading") || "Search Playlists"}
         </h2>
+        <div class="search-container">
+          <div class="search-container__icon" aria-hidden="true">
+            <Icon name="search" class="search-container__icon-element" />
+          </div>
+          <label for="playlist-search" class="sr-only">
+            {t("playlist.search.label") || "Search music playlists"}
+          </label>
+          <input
+            class="search-container__input"
+            type="search"
+            id="playlist-search"
+            placeholder={t("playlist.search.label") || "Search playlists..."}
+            aria-label={t("playlist.search.label") || "Search music playlists"}
+            autocomplete="off"
+          />
+        </div>
+      </section>
+
+      <!-- No results message with improved accessibility -->
+      <div id="no-results" class="no-results" role="status" aria-live="polite">
+        <h3 class="no-results__heading">
+          {t("playlist.no.results.heading") || "No playlists found"}
+        </h3>
         <p class="no-results__text">
-          {t("playlist.no.results")}
+          {
+            t("playlist.no.results") ||
+              "Try adjusting your search terms or browse all available playlists."
+          }
         </p>
         <button id="reset-search" class="no-results__button">
-          {t("playlist.reset.search") || "Reset search"}
+          {t("playlist.reset.search") || "Show all playlists"}
         </button>
       </div>
 
-      <!-- Playlist Grid -->
-      <ul id="playlist-grid" class="playlist-grid">
-        {
-          sortedPlaylists.map((playlist, index) => (
-            <li
-              class="playlist-card"
-              data-searchable={`${playlist.headline.toLowerCase()} ${playlist.introSubline.toLowerCase()}`}
-              data-decade={getDecadeFromHeadline(playlist.headline)}
-            >
-              <PlaylistCard
-                headline={playlist.headline}
-                imageUrl={playlist.imageUrl}
-                introSubline={playlist.introSubline}
-                spotifyPlaylist={playlist.spotifyPlaylist}
-                deezerPlaylist={playlist.deezerPlaylist}
-                appleMusicPlaylist={playlist.appleMusicPlaylist}
-                index={index}
-                lang={lang}
-              />
-            </li>
-          ))
-        }
-      </ul>
-    </section>
+      <!-- Enhanced Playlist Grid with semantic markup and microdata -->
+      <section aria-labelledby="playlists-heading">
+        <h2 id="playlists-heading" class="sr-only">
+          {t("playlist.grid.heading") || `Available Music Playlists (${playlistCount} total)`}
+        </h2>
+        <ul id="playlist-grid" class="playlist-grid">
+          {
+            sortedPlaylists.map((playlist, index) => (
+              <li
+                class="playlist-card"
+                id={`playlist-${index}`}
+                data-searchable={`${playlist.headline.toLowerCase()} ${playlist.introSubline.toLowerCase()}`}
+                data-decade={getDecadeFromHeadline(playlist.headline)}
+                itemscope
+                itemtype="https://schema.org/MusicPlaylist"
+              >
+                <meta itemprop="name" content={playlist.headline} />
+                <meta itemprop="description" content={playlist.introSubline || playlist.headline} />
+                <meta itemprop="genre" content={getDecadeFromHeadline(playlist.headline)} />
+                <meta itemprop="inLanguage" content={lang} />
+                <PlaylistCard
+                  headline={playlist.headline}
+                  imageUrl={playlist.imageUrl}
+                  introSubline={playlist.introSubline}
+                  spotifyPlaylist={playlist.spotifyPlaylist}
+                  deezerPlaylist={playlist.deezerPlaylist}
+                  appleMusicPlaylist={playlist.appleMusicPlaylist}
+                  index={index}
+                  lang={lang}
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
   </div>
+
+  <!-- Back to Top Button -->
+  <BackToTop {lang} />
 </Layout>
 
 <style>
   /* Container Layout */
   .playlist-container {
-    width: var(--width-full);
+    width: 100%;
     max-width: var(--container-xl);
     margin: 0 auto;
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-md) var(--space-sm);
+
+    /* Prevent horizontal overflow on small screens */
+    overflow-x: hidden;
+    box-sizing: border-box;
   }
 
-  @media (min-width: var(--breakpoint-md)) {
+  @media (min-width: 640px) {
+    .playlist-container {
+      padding: var(--space-lg) var(--space-md);
+    }
+  }
+
+  @media (min-width: 768px) {
     .playlist-container {
       padding: var(--space-xl) var(--space-lg);
     }
   }
 
+  /* Breadcrumb Navigation */
+  .breadcrumb-nav {
+    margin-bottom: var(--space-lg);
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .breadcrumb-item:not(:last-child)::after {
+    content: "›";
+    margin-left: var(--space-sm);
+    color: var(--text-tertiary);
+    font-weight: var(--font-medium);
+  }
+
+  .breadcrumb-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--interactive-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .breadcrumb-link:hover,
+  .breadcrumb-link:focus {
+    color: var(--interactive-primary-hover);
+    text-decoration: underline;
+  }
+
+  .breadcrumb-icon {
+    width: var(--icon-size-sm);
+    height: var(--icon-size-sm);
+  }
+
   /* Hero Section */
   .playlist-hero {
     position: relative;
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
     overflow: hidden;
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     background: linear-gradient(
       135deg,
       var(--color-primary-800) 0%,
       var(--color-primary-900) 50%,
       var(--color-neutral-900) 100%
     );
-    padding: var(--space-xl);
+    padding: var(--space-lg);
     box-shadow: var(--shadow-xl);
+  }
+
+  @media (min-width: 768px) {
+    .playlist-hero {
+      margin-bottom: var(--space-2xl);
+      border-radius: var(--radius-xl);
+      padding: var(--space-xl);
+    }
+  }
+
+  /* Responsive Hero Section padding */
+  @media (max-width: 767px) {
+    .playlist-hero {
+      padding: var(--space-md);
+      margin-bottom: var(--space-lg);
+      border-radius: var(--radius-lg);
+    }
   }
 
   .playlist-hero__decoration {
@@ -202,27 +438,27 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
   }
 
   .playlist-hero__decoration-item--top-right {
-    top: calc(-1 * var(--space-3xl) - var(--space-2xl));
-    right: calc(-1 * var(--space-3xl) - var(--space-md));
-    width: calc(var(--space-3xl) * 4);
-    height: calc(var(--space-3xl) * 4);
+    top: calc(-1 * var(--space-xl));
+    right: calc(-1 * var(--space-xl));
+    width: var(--space-3xl);
+    height: var(--space-3xl);
     background-color: var(--color-primary-500);
   }
 
   .playlist-hero__decoration-item--bottom-left {
-    bottom: calc(var(--space-xl) + var(--space-sm));
-    left: calc(var(--space-xl) + var(--space-sm));
-    width: calc(var(--space-3xl) + var(--space-2xl));
-    height: calc(var(--space-3xl) + var(--space-2xl));
+    bottom: var(--space-md);
+    left: var(--space-md);
+    width: var(--space-2xl);
+    height: var(--space-2xl);
     background-color: var(--color-secondary-500);
   }
 
   .playlist-hero__decoration-item--center-right {
     top: 50%;
-    right: var(--percentage-quarter);
+    right: var(--space-lg);
     transform: translateY(-50%);
-    width: var(--space-3xl);
-    height: var(--space-3xl);
+    width: var(--space-lg);
+    height: var(--space-lg);
     background-color: var(--color-primary-400);
   }
 
@@ -238,6 +474,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
     font-size: var(--text-4xl);
     line-height: var(--leading-tight);
     font-weight: var(--font-bold);
+    text-align: center;
   }
 
   .playlist-hero__divider {
@@ -254,12 +491,17 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
     font-size: var(--text-xl);
     line-height: var(--leading-relaxed);
     opacity: 0.9;
+    text-align: center;
   }
 
   /* Search Container */
+  .search-section {
+    margin-bottom: var(--space-xl);
+  }
+
   .search-container {
     position: relative;
-    margin: 0 auto var(--space-xl);
+    margin: 0 auto;
     max-width: var(--container-sm);
     display: flex;
     align-items: center;
@@ -292,6 +534,8 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
 
   .search-container__input {
     width: 100%;
+    min-width: 0; /* Prevent input from overflowing */
+    max-width: 100%; /* Ensure input doesn't exceed container */
     padding: var(--space-lg) var(--space-lg) var(--space-lg)
       calc(var(--space-3xl) + var(--space-sm));
     border: none;
@@ -300,6 +544,10 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
     color: var(--text-primary);
     font-size: var(--text-lg);
     transition: all var(--transition-base);
+    box-sizing: border-box; /* Include padding in width calculation */
+    /* Additional mobile-friendly constraints */
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .search-container__input::placeholder {
@@ -310,37 +558,44 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
     outline: none;
   }
 
-  /* Playlist Grid - Progressive responsive scaling */
+  /* Mobile-specific search container optimizations */
+  @media (max-width: 480px) {
+    .search-container {
+      max-width: 100%;
+      margin: 0 var(--space-xs);
+    }
+
+    .search-container__input {
+      font-size: var(--text-base);
+      padding: var(--space-md) var(--space-md) var(--space-md)
+        calc(var(--space-2xl) + var(--space-sm));
+    }
+
+    .search-container__icon {
+      left: var(--space-md);
+    }
+  }
+
+  /* ======================================
+   * PLAYLIST GRID - Responsive Auto-Fill Pattern (Aligned with GameHome)
+   * ====================================== */
   .playlist-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-width-md), 1fr));
     gap: var(--space-lg);
-    margin: var(--space-xl) auto;
-    width: var(--width-full);
+    margin: var(--space-lg) auto;
+    width: 100%;
     list-style: none;
     padding: 0;
+
+    /* Performance optimizations */
+    contain: layout style;
   }
 
-  /* Mobile first: 1 column by default */
-  /* --breakpoint-xs: 20em (320px) */
-  @media (min-width: 20em) {
+  @media (min-width: 640px) {
     .playlist-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  /* --breakpoint-md: 48em (768px) */
-  @media (min-width: 48em) {
-    .playlist-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: var(--space-xl);
-    }
-  }
-
-  /* --breakpoint-lg: 64em (1024px) */
-  @media (min-width: 64em) {
-    .playlist-grid {
-      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -400,18 +655,6 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
   }
 
   /* Utility Classes */
-  .sr-only {
-    position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    padding: 0;
-    margin: var(--sr-only-margin);
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-  }
-
   :focus {
     outline: var(--focus-outline);
     outline-offset: var(--focus-ring-offset);
@@ -428,12 +671,60 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
 </style>
 
 <script>
+  // Global timeout management with proper typing
+  interface WindowWithTimeouts extends Window {
+    searchTimeout?: number;
+    filterTimeout?: number;
+  }
+
+  declare const window: WindowWithTimeouts;
+
   document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("playlist-search") as HTMLInputElement | null;
     const playlistCards = document.querySelectorAll(".playlist-card");
     const noResultsElement = document.getElementById("no-results") as HTMLElement | null;
     const resetButton = document.getElementById("reset-search") as HTMLButtonElement | null;
+    const playlistGrid = document.getElementById("playlist-grid") as HTMLElement | null;
 
+    /**
+     * Announces search results to screen readers for accessibility
+     */
+    function announceSearchResults(visibleCount: number, searchTerm: string): void {
+      const announcement = document.createElement("div");
+      announcement.setAttribute("aria-live", "polite");
+      announcement.setAttribute("aria-atomic", "true");
+      announcement.className = "sr-only";
+
+      if (searchTerm === "") {
+        announcement.textContent = `Showing all ${playlistCards.length} playlists`;
+      } else if (visibleCount === 0) {
+        announcement.textContent = `No playlists found for "${searchTerm}"`;
+      } else {
+        announcement.textContent = `Found ${visibleCount} playlist${visibleCount === 1 ? "" : "s"} for "${searchTerm}"`;
+      }
+
+      document.body.appendChild(announcement);
+      setTimeout(() => document.body.removeChild(announcement), 1000);
+    }
+
+    /**
+     * Updates the browser URL with search parameters
+     */
+    function updateSearchUrl(searchTerm: string, visibleCount: number): void {
+      if (searchTerm && visibleCount > 0) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("search", searchTerm);
+        window.history.replaceState(null, "", url.toString());
+      } else if (!searchTerm) {
+        const url = new URL(window.location.href);
+        url.searchParams.delete("search");
+        window.history.replaceState(null, "", url.toString());
+      }
+    }
+
+    /**
+     * Filters playlist cards based on search term
+     */
     function filterPlaylists(): void {
       if (!searchInput) {
         return;
@@ -443,39 +734,133 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       let visibleCount = 0;
 
       playlistCards.forEach((card) => {
-        const searchableText = (card as HTMLElement).getAttribute("data-searchable") || "";
-        const isVisible = searchableText.includes(searchTerm);
+        const element = card as HTMLElement;
+        const searchableText = element.getAttribute("data-searchable") || "";
+        const decade = element.getAttribute("data-decade") || "";
+        const isVisible =
+          searchableText.includes(searchTerm) || decade.toLowerCase().includes(searchTerm);
 
-        (card as HTMLElement).style.display = isVisible ? "" : "none";
+        element.style.display = isVisible ? "" : "none";
         if (isVisible) {
           visibleCount++;
         }
       });
 
-      if (noResultsElement) {
-        noResultsElement.classList.toggle("show", visibleCount === 0 && searchTerm !== "");
+      if (playlistGrid) {
+        playlistGrid.setAttribute("aria-busy", "false");
       }
+
+      if (noResultsElement) {
+        const shouldShow = visibleCount === 0 && searchTerm !== "";
+        noResultsElement.classList.toggle("show", shouldShow);
+        if (shouldShow) {
+          noResultsElement.focus();
+        }
+      }
+
+      // Debounced announcement and URL update
+      if (window.searchTimeout) {
+        clearTimeout(window.searchTimeout);
+      }
+      window.searchTimeout = window.setTimeout(() => {
+        announceSearchResults(visibleCount, searchTerm);
+      }, 500);
+
+      updateSearchUrl(searchTerm, visibleCount);
     }
 
-    if (searchInput) {
-      searchInput.addEventListener("input", filterPlaylists);
+    /**
+     * Sets up search input event listeners
+     */
+    function setupSearchListeners(): void {
+      if (!searchInput) {
+        return;
+      }
 
-      searchInput.addEventListener("keydown", (e) => {
+      searchInput.addEventListener("input", () => {
+        if (playlistGrid) {
+          playlistGrid.setAttribute("aria-busy", "true");
+        }
+
+        if (window.filterTimeout) {
+          clearTimeout(window.filterTimeout);
+        }
+        window.filterTimeout = window.setTimeout(filterPlaylists, 200);
+      });
+
+      searchInput.addEventListener("keydown", (e: KeyboardEvent) => {
         if (e.key === "Escape") {
           searchInput.value = "";
           filterPlaylists();
+          searchInput.blur();
+        }
+      });
+
+      searchInput.addEventListener("focus", () => {
+        searchInput.setAttribute("aria-expanded", "true");
+      });
+
+      searchInput.addEventListener("blur", () => {
+        searchInput.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    /**
+     * Sets up keyboard navigation and reset button
+     */
+    function setupAdditionalListeners(): void {
+      if (resetButton) {
+        resetButton.addEventListener("click", () => {
+          if (searchInput) {
+            searchInput.value = "";
+            searchInput.focus();
+          }
+          filterPlaylists();
+        });
+      }
+
+      document.addEventListener("keydown", (e: KeyboardEvent) => {
+        if (e.altKey && e.key === "/") {
+          e.preventDefault();
+          if (searchInput) {
+            searchInput.focus();
+          }
         }
       });
     }
 
-    if (resetButton) {
-      resetButton.addEventListener("click", () => {
-        if (searchInput) {
-          searchInput.value = "";
-          searchInput.focus();
-        }
-        filterPlaylists();
-      });
+    /**
+     * Sets up intersection observer for card animations
+     */
+    function setupIntersectionObserver(): void {
+      const observerOptions = {
+        root: null,
+        rootMargin: "50px",
+        threshold: 0.1,
+      };
+
+      const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+          }
+        });
+      }, observerOptions);
+
+      playlistCards.forEach((card) => cardObserver.observe(card));
     }
+
+    // Initialize search from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialSearch = urlParams.get("search");
+    if (initialSearch && searchInput) {
+      searchInput.value = initialSearch;
+      filterPlaylists();
+    }
+
+    // Setup all functionality
+    setupSearchListeners();
+    setupAdditionalListeners();
+    setupIntersectionObserver();
   });
 </script>

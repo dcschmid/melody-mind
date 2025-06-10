@@ -34,7 +34,8 @@ The Headline component is a versatile and accessible heading component that supp
 | ariaLabel       | string                                                | No       | Optional ARIA label for improved screen reader       | -        |
 | ariaDescribedBy | string                                                | No       | ARIA describedby for additional context               | -        |
 | wrapper         | "section" \| "header" \| "article" \| "div" \| "none" | No       | Semantic wrapper element                              | "none"   |
-| variant         | "small" \| "medium" \| "large" \| "primary"           | No       | Size variant for consistent typography scale          | "medium" |
+| size            | "xs" \| "sm" \| "base" \| "lg" \| "xl" \| "2xl" \| "3xl" \| "4xl" | No  | Text size using CSS custom properties (similar to Paragraph) | "xl"     |
+| variant         | "default" \| "primary"                                 | No       | Style variant (default or primary with gradient)      | "default" |
 | textAlign       | "left" \| "center" \| "right"                         | No       | Text alignment option                                 | "left"   |
 | skipTarget      | boolean                                               | No       | Indicates this heading is a skip navigation target   | false    |
 | interactive     | boolean                                               | No       | Makes the heading clickable with button semantics    | false    |
@@ -104,17 +105,17 @@ import Headline from="../components/Headline.astro";
 import Headline from "../components/Headline.astro";
 ---
 
-<!-- Small variant -->
-<Headline level="h3" variant="small" title="Game Statistics" />
+<!-- Small size -->
+<Headline level="h3" size="sm" variant="default" title="Game Statistics" />
 
-<!-- Medium variant (default) -->
-<Headline level="h2" variant="medium" title="Choose Category" />
+<!-- Medium size (default) -->
+<Headline level="h2" size="xl" variant="default" title="Choose Category" />
 
-<!-- Large variant -->
-<Headline level="h1" variant="large" title="MelodyMind Trivia" />
+<!-- Large size -->
+<Headline level="h1" size="3xl" variant="default" title="MelodyMind Trivia" />
 
 <!-- Primary variant with gradient -->
-<Headline level="h1" variant="primary" title="Welcome Player!" />
+<Headline level="h1" size="4xl" variant="primary" title="Welcome Player!" />
 ```
 
 ### Advanced Accessibility Features
