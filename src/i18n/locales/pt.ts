@@ -425,7 +425,7 @@ export default {
     "Quiz de Música, Jogo de Música, Quiz de Canções, Quiz de Artistas, Quiz de Música Online, Trivia de Música, Melody Mind, Jogo de Adivinhar Música",
   "knowledge.title": "Base de Conhecimento Musical",
   "knowledge.intro":
-    "Mergulhe no fascinante mundo da história da música. Aqui você encontrará artigos emocionantes sobre diferentes eras musicais, gêneros e seu desenvolvimento. Descubra fatos interessantes e expanda seu conhecimento musical.",
+    "🎵 Desvende os segredos do universo musical! Mergulhe em histórias cativantes de artistas lendários, explore a evolução dos gêneros musicais e descubra fatos fascinantes que o transformarão em um verdadeiro conhecedor de música. De obras-primas clássicas aos sucessos modernos – deixe-se envolver por artigos envolventes que dão vida à sua paixão pela música.",
   "knowledge.search.label": "Pesquisar artigos",
   "knowledge.search.placeholder": "Pesquisar...",
   "knowledge.filter.all": "Todas as Palavras-chave",

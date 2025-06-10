@@ -453,7 +453,7 @@ export default {
     "Music Quiz, Music Game, Song Quiz, Artist Quiz, Online Music Quiz, Music Trivia, Melody Mind, Music Guessing Game",
   "knowledge.title": "Music Knowledge Base",
   "knowledge.intro":
-    "Immerse yourself in the fascinating world of music history. Here you will find exciting articles about different music eras, genres, and their development. Discover interesting facts and expand your music knowledge.",
+    "🎵 Unlock the secrets of the music universe! Dive into captivating stories of legendary artists, explore the evolution of musical genres, and discover fascinating facts that will make you a true music connoisseur. From classical masterpieces to modern chart-toppers – immerse yourself in engaging articles that bring your passion for music to life.",
   "knowledge.search.label": "Search articles",
   "knowledge.search.placeholder": "Search...",
   "knowledge.filter.all": "All Keywords",

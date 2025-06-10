@@ -397,7 +397,7 @@ export default {
     "Musikquiz, Musikspel, Låtquiz, Artistquiz, Online Musikquiz, Musik Trivia, Melody Mind, Musikgissningsspel",
   "knowledge.title": "Musikkunskapsbas",
   "knowledge.intro":
-    "Dyk in i musikhistoriens fascinerande värld. Här hittar du spännande artiklar om olika musikepoker, genrer och deras utveckling. Upptäck intressanta fakta och utöka din musikkunskap.",
+    "🎵 Lås upp musikuniversums hemligheter! Dyk in i fängslande berättelser om legendariska artister, utforska utvecklingen av musikgenrer och upptäck fascinerande fakta som gör dig till en sann musikexpert. Från klassiska mästerverk till moderna hits – låt dig fängslas av engagerande artiklar som ger liv åt din passion för musik.",
   "knowledge.search.label": "Sök artiklar",
   "knowledge.search.placeholder": "Sök...",
   "knowledge.filter.all": "Alla nyckelord",
