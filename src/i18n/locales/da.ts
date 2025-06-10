@@ -232,7 +232,8 @@ export default {
   "game.search.no.results": "Ingen genrer fundet, der matcher din søgning",
   "game.genre.play.label": "spil",
   "game.genre.image": "Coverbillede for",
-  "game.genre.selection.description": "Vælg mellem flere musikgenrer inklusive rock, pop, jazz, klassisk og mere. Hver kategori indeholder nøje udvalgte spørgsmål til at teste din musikviden.",
+  "game.genre.selection.description":
+    "Vælg mellem flere musikgenrer inklusive rock, pop, jazz, klassisk og mere. Hver kategori indeholder nøje udvalgte spørgsmål til at teste din musikviden.",
   "game.no.results": "Ingen resultater fundet",
   "game.not.available": "Ikke tilgængelig",
   "category.selected": "valgt!",
@@ -511,10 +512,19 @@ export default {
   "playlist.page.description":
     "Dyk ned i omhyggeligt kuraterede playlister fra forskellige epoker og genrer. Perfekt til at opdage ny musik eller genopleve dine yndlingsklassikere.",
   "playlist.search.label": "Søg i Playlister",
+  "playlist.search.heading": "Søg i Playlister",
   "playlist.search.placeholder": "Søg efter kunstner eller stil...",
+  "playlist.search.aria.label": "Søg i musikplaylister",
   "playlist.filter.all": "Alle Epoker",
   "playlist.no.results": "Ingen matchende playlister fundet. Prøv et andet søgeord.",
+  "playlist.no.results.heading": "Ingen playlister fundet",
+  "playlist.reset.search": "Vis alle playlister",
+  "playlist.grid.heading": "Tilgængelige Musikplaylister ({count} i alt)",
   "playlist.listen.on": "Lyt på",
+  "playlist.image.alt":
+    'Detaljeret playlistcover for "{headline}" - {introSubline} med {decade} musiksamling',
+  "playlist.image.description":
+    "Playlistcover der repræsenterer {decade} musiksamling med tematiske visuelle elementer for {headline}. Det visuelle design reflekterer den musikalske æra og genrekarakteristika.",
   "playlist.listen.spotify": "Lyt på Spotify",
   "playlist.listen.deezer": "Lyt på Deezer",
   "playlist.listen.apple": "Lyt på Apple Music",

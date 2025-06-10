@@ -264,7 +264,8 @@ export default {
   "game.search.no.results": "No genres found matching your search",
   "game.genre.play.label": "play",
   "game.genre.image": "Cover image for",
-  "game.genre.selection.description": "Choose from multiple music genres including rock, pop, jazz, classical and more. Each category features carefully curated questions to test your musical knowledge.",
+  "game.genre.selection.description":
+    "Choose from multiple music genres including rock, pop, jazz, classical and more. Each category features carefully curated questions to test your musical knowledge.",
   "game.no.results": "No results found",
   "game.not.available": "Not available",
   "category.selected": "selected!",
@@ -552,9 +553,14 @@ export default {
   "playlist.page.description":
     "Immerse yourself in carefully curated playlists from different eras and genres. Perfect for discovering new music or reliving your favorite classics.",
   "playlist.search.label": "Search Playlists",
+  "playlist.search.heading": "Search Playlists",
   "playlist.search.placeholder": "Search by artist or style...",
+  "playlist.search.aria.label": "Search music playlists",
   "playlist.filter.all": "All Eras",
   "playlist.no.results": "No matching playlists found. Try a different search term.",
+  "playlist.no.results.heading": "No playlists found",
+  "playlist.reset.search": "Show all playlists",
+  "playlist.grid.heading": "Available Music Playlists ({count} total)",
   "playlist.listen.on": "Listen on",
   "playlist.listen.spotify": "Listen on Spotify",
   "playlist.listen.deezer": "Listen on Deezer",
@@ -579,6 +585,10 @@ export default {
   "playlist.exit": "Exited playlist: {title}",
   "playlist.visible": "Priority playlist visible: {title}",
   "playlist.image.error": "Image failed to load for playlist: {title}",
+  "playlist.image.alt":
+    'Detailed playlist cover for "{headline}" - {introSubline} featuring {decade} music collection',
+  "playlist.image.description":
+    "Playlist cover representing {decade} music collection with thematic visual elements for {headline}. Visual design reflects the musical era and genre characteristics.",
   "playlist.title.unknown": "Unknown playlist",
   "footer.rights": "All rights reserved",
   "footer.donate": "Donate",

@@ -245,7 +245,8 @@ export default {
   "game.search.no.results": "Nenhum gênero encontrado correspondente à sua pesquisa",
   "game.genre.play.label": "jogar",
   "game.genre.image": "Imagem da capa para",
-  "game.genre.selection.description": "Escolha entre múltiplos gêneros musicais incluindo rock, pop, jazz, clássico e mais. Cada categoria apresenta perguntas cuidadosamente selecionadas para testar seu conhecimento musical.",
+  "game.genre.selection.description":
+    "Escolha entre múltiplos gêneros musicais incluindo rock, pop, jazz, clássico e mais. Cada categoria apresenta perguntas cuidadosamente selecionadas para testar seu conhecimento musical.",
   "game.no.results": "Nenhum resultado encontrado",
   "game.not.available": "Não disponível",
   "category.selected": "selecionado!",
@@ -527,11 +528,20 @@ export default {
   "playlist.page.description":
     "Mergulhe em playlists cuidadosamente selecionadas de diferentes épocas e gêneros. Perfeito para descobrir novas músicas ou reviver seus clássicos favoritos.",
   "playlist.search.label": "Pesquisar Playlists",
+  "playlist.search.heading": "Pesquisar Playlists",
   "playlist.search.placeholder": "Pesquisar por artista ou estilo...",
+  "playlist.search.aria.label": "Pesquisar playlists de música",
   "playlist.filter.all": "Todas as Épocas",
   "playlist.no.results":
     "Nenhuma playlist correspondente encontrada. Tente um termo de pesquisa diferente.",
+  "playlist.no.results.heading": "Nenhuma playlist encontrada",
+  "playlist.reset.search": "Mostrar todas as playlists",
+  "playlist.grid.heading": "Playlists de Música Disponíveis ({count} no total)",
   "playlist.listen.on": "Ouvir em",
+  "playlist.image.alt":
+    'Capa detalhada da playlist para "{headline}" - {introSubline} apresentando coleção musical de {decade}',
+  "playlist.image.description":
+    "Capa da playlist representando coleção musical de {decade} com elementos visuais temáticos para {headline}. O design visual reflete a era musical e características do gênero.",
   "playlist.listen.spotify": "Ouvir no Spotify",
   "playlist.listen.deezer": "Ouvir no Deezer",
   "playlist.listen.apple": "Ouvir na Apple Music",

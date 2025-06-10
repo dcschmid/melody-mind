@@ -285,7 +285,8 @@ export default {
   "game.search.no.results": "Keine Genres gefunden, die Ihrer Suche entsprechen",
   "game.genre.play.label": "spielen",
   "game.genre.image": "Cover-Bild für",
-  "game.genre.selection.description": "Wähle aus mehreren Musikgenres inklusive Rock, Pop, Jazz, Klassik und mehr. Jede Kategorie enthält sorgfältig kuratierte Fragen, um dein Musikwissen zu testen.",
+  "game.genre.selection.description":
+    "Wähle aus mehreren Musikgenres inklusive Rock, Pop, Jazz, Klassik und mehr. Jede Kategorie enthält sorgfältig kuratierte Fragen, um dein Musikwissen zu testen.",
   "game.no.results": "Keine Ergebnisse gefunden",
   "game.not.available": "Nicht verfügbar",
   "category.selected": "gewählt!",
@@ -582,10 +583,15 @@ export default {
   "playlist.page.description":
     "Tauche ein in sorgfältig kuratierte Playlists verschiedener Epochen und Genres. Perfekt zum Entdecken neuer Musik oder zum Wiedererleben deiner Lieblingsklassiker.",
   "playlist.search.label": "Playlists durchsuchen",
+  "playlist.search.heading": "Playlists durchsuchen",
   "playlist.search.placeholder": "Nach Musikera oder Stil suchen...",
+  "playlist.search.aria.label": "Musik-Playlists durchsuchen",
   "playlist.filter.all": "Alle Epochen",
   "playlist.no.results":
     "Keine passenden Playlists gefunden. Versuche es mit einem anderen Suchbegriff.",
+  "playlist.no.results.heading": "Keine Playlists gefunden",
+  "playlist.reset.search": "Alle Playlists anzeigen",
+  "playlist.grid.heading": "Verfügbare Musik-Playlists ({count} insgesamt)",
   "playlist.listen.on": "Anhören auf",
   "playlist.listen.spotify": "Auf Spotify anhören",
   "playlist.listen.deezer": "Auf Deezer anhören",
@@ -611,6 +617,10 @@ export default {
   "playlist.exit": "Playlist verlassen: {title}",
   "playlist.visible": "Prioritätswiedergabeliste sichtbar: {title}",
   "playlist.image.error": "Bild konnte nicht für Playlist geladen werden: {title}",
+  "playlist.image.alt":
+    'Detailliertes Playlist-Cover für "{headline}" - {introSubline} mit {decade} Musiksammlung',
+  "playlist.image.description":
+    "Playlist-Cover repräsentiert {decade} Musiksammlung mit thematischen visuellen Elementen für {headline}. Visuelles Design spiegelt die musikalische Ära und Genre-Eigenschaften wider.",
   "playlist.title.unknown": "Unbekannte Playlist",
   "footer.rights": "Alle Rechte vorbehalten",
   "footer.donate": "Spenden",

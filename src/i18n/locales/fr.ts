@@ -261,7 +261,8 @@ export default {
   "game.search.no.results": "Aucun genre trouvé correspondant à votre recherche",
   "game.genre.play.label": "jouer",
   "game.genre.image": "Image de couverture pour",
-  "game.genre.selection.description": "Choisissez parmi plusieurs genres musicaux incluant rock, pop, jazz, classique et plus. Chaque catégorie présente des questions soigneusement sélectionnées pour tester vos connaissances musicales.",
+  "game.genre.selection.description":
+    "Choisissez parmi plusieurs genres musicaux incluant rock, pop, jazz, classique et plus. Chaque catégorie présente des questions soigneusement sélectionnées pour tester vos connaissances musicales.",
   "game.no.results": "Aucun résultat trouvé",
   "game.not.available": "Non disponible",
   "category.selected": "sélectionné !",
@@ -549,10 +550,15 @@ export default {
   "playlist.page.description":
     "Plongez dans des playlists soigneusement sélectionnées de différentes époques et genres. Parfait pour découvrir de nouvelles musiques ou revivre vos classiques préférés.",
   "playlist.search.label": "Rechercher des Playlists",
+  "playlist.search.heading": "Rechercher des Playlists",
   "playlist.search.placeholder": "Rechercher par artiste ou style...",
+  "playlist.search.aria.label": "Rechercher des playlists musicales",
   "playlist.filter.all": "Toutes les Époques",
   "playlist.no.results":
     "Aucune playlist correspondante trouvée. Essayez un autre terme de recherche.",
+  "playlist.no.results.heading": "Aucune playlist trouvée",
+  "playlist.reset.search": "Afficher toutes les playlists",
+  "playlist.grid.heading": "Playlists Musicales Disponibles ({count} au total)",
   "playlist.listen.on": "Écouter sur",
   "playlist.listen.spotify": "Écouter sur Spotify",
   "playlist.listen.deezer": "Écouter sur Deezer",
@@ -973,6 +979,10 @@ export default {
   "playlist.exit": "Quitter la playlist : {title}",
   "playlist.visible": "Playlist prioritaire visible : {title}",
   "playlist.image.error": "Erreur lors du chargement de l'image pour la playlist : {title}",
+  "playlist.image.alt":
+    'Couverture détaillée de playlist pour "{headline}" - {introSubline} avec collection musicale {decade}',
+  "playlist.image.description":
+    "Couverture de playlist représentant une collection musicale {decade} avec des éléments visuels thématiques pour {headline}. Le design visuel reflète l'ère musicale et les caractéristiques du genre.",
   "playlist.title.unknown": "Playlist inconnue",
 
   // Composant de Test

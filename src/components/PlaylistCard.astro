@@ -54,10 +54,10 @@
  * @see {@link /src/styles/global.css} - CSS custom properties reference
  */
 import { Picture } from "astro:assets";
-import { Icon } from "astro-icon/components";
 import { useTranslations } from "../utils/i18n";
 import Headline from "./Headline.astro";
 import Paragraph from "./Paragraph.astro";
+import MusicButtons from "./MusicButtons.astro";
 
 /**
  * Type definition for playlist objects with comprehensive TypeScript validation
@@ -154,7 +154,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
   <div class="playlist-card__image-container">
     <Picture
       src={imageUrl || "/default-cover.jpg"}
-      alt={`Detailed playlist cover for "${headline}" - ${introSubline} featuring ${decade} music collection`}
+      alt={t("playlist.image.alt", { headline, introSubline, decade })}
       class="playlist-card__image"
       loading={loadingStrategy}
       widths={[320, 480, 640, 768, 1024, 1280]}
@@ -172,9 +172,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
 
     {/* Enhanced image description for WCAG 2.2 AAA */}
     <div id={`playlist-detailed-desc-${index}`} class="sr-only">
-      {
-        `Playlist cover representing ${decade} music collection with thematic visual elements for ${headline}. Visual design reflects the musical era and genre characteristics.`
-      }
+      {t("playlist.image.description", { decade, headline })}
     </div>
   </div>
 
@@ -194,55 +192,14 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
 
     {
       hasStreamingLinks && (
-        <div
-          class="playlist-card__streaming-links"
-          itemtype="https://schema.org/ListenAction"
-          role="group"
-          aria-label={t("playlist.streaming.services", { headline })}
-          aria-describedby={`streaming-help-${index}`}
-        >
-          {/* Hidden help text for streaming services */}
-          <div id={`streaming-help-${index}`} class="sr-only">
-            {t("playlist.accessibility.instruction")}
-          </div>
-
-          {spotifyPlaylist && (
-            <a
-              href={spotifyPlaylist}
-              class="playlist-card__streaming-link playlist-card__streaming-link--spotify"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${t("playlist.open.spotify")} "${headline}"`}
-            >
-              <Icon name="spotify" class="playlist-card__streaming-icon" aria-hidden="true" />
-              <span class="sr-only">Spotify</span>
-            </a>
-          )}
-          {deezerPlaylist && (
-            <a
-              href={deezerPlaylist}
-              class="playlist-card__streaming-link playlist-card__streaming-link--deezer"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${t("playlist.open.deezer")} "${headline}"`}
-            >
-              <Icon name="deezer" class="playlist-card__streaming-icon" aria-hidden="true" />
-              <span class="sr-only">Deezer</span>
-            </a>
-          )}
-          {appleMusicPlaylist && (
-            <a
-              href={appleMusicPlaylist}
-              class="playlist-card__streaming-link playlist-card__streaming-link--apple"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${t("playlist.open.apple")} "${headline}"`}
-            >
-              <Icon name="apple-music" class="playlist-card__streaming-icon" aria-hidden="true" />
-              <span class="sr-only">Apple Music</span>
-            </a>
-          )}
-        </div>
+        <MusicButtons
+          category={{
+            spotifyPlaylist,
+            deezerPlaylist,
+            appleMusicPlaylist,
+          }}
+          title={headline}
+        />
       )
     }
   </div>
@@ -280,7 +237,8 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
       if (image && image instanceof HTMLImageElement) {
         image.addEventListener("error", () => {
           image.src = "/default-cover.jpg";
-          console.warn("Failed to load playlist image, using fallback");
+          // Translation handled server-side - client fallback message
+          console.warn("Playlist image failed to load, using fallback");
         });
       }
     });
@@ -401,95 +359,6 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     margin-bottom: var(--space-sm);
   }
 
-  /* Streaming links container */
-  .playlist-card__streaming-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
-    margin-top: var(--space-md);
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  /* Base streaming link styles with enhanced accessibility */
-  .playlist-card__streaming-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: var(--min-touch-size);
-    min-width: var(--min-touch-size);
-    max-width: 100%;
-    padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-lg);
-    text-decoration: none;
-    font-weight: var(--font-medium);
-    font-size: var(--text-sm);
-    gap: var(--space-xs);
-    transition:
-      background-color var(--transition-fast),
-      transform var(--transition-fast),
-      box-shadow var(--transition-fast);
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-    flex: 0 1 auto;
-    box-sizing: border-box;
-  }
-
-  /* Common streaming link hover pattern - applied to all platforms */
-  .playlist-card__streaming-link:hover {
-    transform: scale(var(--scale-hover, 1.05));
-  }
-
-  /* Common streaming link active pattern - applied to all platforms */
-  .playlist-card__streaming-link:active {
-    transform: scale(var(--scale-active, 0.98));
-  }
-
-  /* Common streaming link focus pattern - applied to all platforms */
-  .playlist-card__streaming-link:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-ring);
-  }
-
-  /* Spotify platform styling - only unique background color */
-  .playlist-card__streaming-link--spotify {
-    background-color: var(--color-success-600);
-    color: var(--text-primary);
-  }
-
-  .playlist-card__streaming-link--spotify:hover {
-    background-color: var(--color-success-700);
-  }
-
-  /* Deezer platform styling */
-  .playlist-card__streaming-link--deezer {
-    background-color: var(--color-secondary-600);
-    color: var(--text-primary);
-  }
-
-  .playlist-card__streaming-link--deezer:hover {
-    background-color: var(--color-secondary-700);
-  }
-
-  /* Apple Music platform styling */
-  .playlist-card__streaming-link--apple {
-    background-color: var(--color-error-600);
-    color: var(--text-primary);
-  }
-
-  .playlist-card__streaming-link--apple:hover {
-    background-color: var(--color-error-700);
-  }
-
-  /* Streaming icon sizing */
-  .playlist-card__streaming-icon {
-    width: var(--icon-size-sm, 1.25rem);
-    height: var(--icon-size-sm, 1.25rem);
-  }
-
   /* Screen reader only utility - using established pattern */
   .sr-only {
     position: absolute;
@@ -518,27 +387,6 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
       width: var(--space-3xl);
       margin-bottom: var(--space-md);
     }
-
-    .playlist-card__streaming-links {
-      gap: var(--space-md);
-      margin-top: var(--space-lg);
-    }
-
-    .playlist-card__streaming-link {
-      font-size: var(--text-base);
-      padding: var(--space-md) var(--space-lg);
-    }
-
-    .playlist-card__streaming-icon {
-      width: var(--icon-size-md, 1.5rem);
-      height: var(--icon-size-md, 1.5rem);
-    }
-  }
-
-  @media (min-width: var(--breakpoint-lg)) {
-    .playlist-card__streaming-link {
-      font-size: var(--text-lg);
-    }
   }
 
   /* ======================================
@@ -561,14 +409,11 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
 
   /* Reduced Motion Support */
   @media (prefers-reduced-motion: reduce) {
-    .playlist-card,
-    .playlist-card__streaming-link {
+    .playlist-card {
       transition: none;
     }
 
-    .playlist-card:hover,
-    .playlist-card__streaming-link:hover,
-    .playlist-card__streaming-link:active {
+    .playlist-card:hover {
       transform: none;
     }
   }
@@ -579,10 +424,6 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
       border-color: var(--text-primary);
       border-width: var(--border-width-thick);
     }
-
-    .playlist-card__streaming-link {
-      border: var(--border-width-thin) solid var(--text-primary);
-    }
   }
 
   /* Forced Colors Mode (Windows High Contrast) */
@@ -590,12 +431,6 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     .playlist-card {
       border-color: ButtonBorder;
       background-color: ButtonFace;
-    }
-
-    .playlist-card__streaming-link {
-      background-color: ButtonFace;
-      border: var(--border-width-thin) solid ButtonBorder;
-      color: ButtonText;
     }
   }
 
@@ -620,15 +455,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
 
   /* Touch Optimizations */
   @media (hover: none) {
-    .playlist-card__streaming-link:active {
-      transform: scale(var(--scale-active));
-      background-color: color-mix(in srgb, currentColor 20%, transparent);
-    }
-
-    /* Ensure adequate touch spacing on mobile */
-    .playlist-card__streaming-links {
-      gap: var(--space-md); /* Increased gap for touch devices */
-    }
+    /* Touch-specific optimizations can be handled by MusicButtons component */
   }
 
   /* WCAG 2.2 Text Personalization Support */
@@ -652,10 +479,6 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
       border: var(--border-width-thin) solid var(--print-border, #000);
       box-shadow: none;
       background: var(--print-bg, #fff);
-    }
-
-    .playlist-card__streaming-links {
-      display: none;
     }
   }
 </style>
