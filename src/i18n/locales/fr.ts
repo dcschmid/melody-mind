@@ -254,8 +254,14 @@ export default {
   "game.genre.list": "Sélection de genre",
   "game.search.label": "Rechercher un genre",
   "game.search.description": "La liste se filtre automatiquement au fur et à mesure de la saisie",
+  "game.search.clear": "Effacer la recherche",
+  "game.search.help": "Tapez pour filtrer les genres musicaux par nom",
+  "game.search.showing.all": "Affichage de tous les genres",
+  "game.search.results": "genres trouvés",
+  "game.search.no.results": "Aucun genre trouvé correspondant à votre recherche",
   "game.genre.play.label": "jouer",
   "game.genre.image": "Image de couverture pour",
+  "game.genre.selection.description": "Choisissez parmi plusieurs genres musicaux incluant rock, pop, jazz, classique et plus. Chaque catégorie présente des questions soigneusement sélectionnées pour tester vos connaissances musicales.",
   "game.no.results": "Aucun résultat trouvé",
   "game.not.available": "Non disponible",
   "category.selected": "sélectionné !",
@@ -454,6 +460,10 @@ export default {
   "nav.donate.coffee": "Offrez-nous un café",
   "nav.title": "Navigation",
   "nav.menu.text": "Menu",
+  "game.categories.title": "Catégories Musicales",
+  "game.categories.loading": "Chargement des catégories musicales...",
+  "game.categories.title": "Catégories Musicales",
+  "game.categories.loading": "Chargement des catégories musicales...",
   "game.categories.empty.headline": "Aucun genre trouvé",
   "game.categories.empty.text":
     "Malheureusement, aucune catégorie n'a été trouvée. Veuillez réessayer plus tard.",
@@ -855,6 +865,7 @@ export default {
 
   // Accessibility Skip Links
   "accessibility.skip.main": "Aller au contenu principal",
+  "accessibility.skip.to.content": "Aller au contenu principal",
   "accessibility.skip.search": "Aller à la recherche",
   "accessibility.skip.articles": "Aller aux articles",
 

@@ -947,6 +947,23 @@ export default {
   "knowledge.accessibility.scrolled_to_top": "Rullat till toppen",
   "knowledge.accessibility.search_focused": "Sökfältet är nu fokuserat",
 
+  // Game search functionality
+  "game.search.clear": "Rensa sökning",
+  "game.search.help": "Sök efter musikgenrer för att hitta din favoritkategori",
+  "game.search.showing.all": "Visar alla genrer",
+  "game.search.results": "genrer hittade",
+  "game.search.no.results": "Inga genrer hittades som matchar din sökning",
+
+  // Game categories
+  "game.categories.title": "Musikkategorier",
+  "game.categories.loading": "Laddar musikkategorier...",
+
+  // Game genre selection
+  "game.genre.selection.description": "Välj din favoritmusikgenre och testa dina kunskaper",
+
+  // Accessibility
+  "accessibility.skip.to.content": "Hoppa till huvudinnehåll",
+
   // Kategorisidor
   "category.about.title": "Om denna kategori",
 };
