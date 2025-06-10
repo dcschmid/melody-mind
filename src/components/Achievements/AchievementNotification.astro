@@ -55,12 +55,12 @@ const t = useTranslations(lang);
       <p id="achievement-description" class="achievement-notification__description">
         {t("achievements.notification.progress")}
       </p>
-      <!-- Zusätzliche versteckte Information für Screenreader -->
+      <!-- Additional hidden information for screen readers -->
       <span id="sr-notification-type" class="sr-only">
         {t("achievements.notification.new_achievement")}
       </span>
     </div>
-    <!-- Steuerelemente für Benachrichtigung -->
+    <!-- Notification controls -->
     <div class="achievement-notification__controls">
       <button
         id="achievement-pause"
@@ -89,13 +89,13 @@ const t = useTranslations(lang);
   </div>
   <div id="achievement-category" class="achievement-notification__category"></div>
 
-  <!-- Timer für Benachrichtigung -->
+  <!-- Notification timer -->
   <div class="achievement-notification__timer" aria-hidden="true">
     <div class="achievement-notification__timer-progress" id="notification-timer"></div>
   </div>
 </div>
 
-<!-- Audio für Benachrichtigungen mit verbesserter Zugänglichkeit -->
+<!-- Audio for notifications with enhanced accessibility -->
 <audio id="achievement-sound" preload="none">
   <source src="/sounds/achievement-unlocked.mp3" type="audio/mpeg" />
   <source src="/sounds/achievement-unlocked.ogg" type="audio/ogg" />
@@ -108,7 +108,7 @@ const t = useTranslations(lang);
   />
 </audio>
 
-<!-- Einstellungen für Barrierefreiheit (wird dynamisch mit JavaScript geladen) -->
+<!-- Accessibility settings (loaded dynamically with JavaScript) -->
 <div
   id="achievement-a11y-settings"
   class="sr-only"
@@ -125,198 +125,181 @@ const t = useTranslations(lang);
   /* Achievement notification main container */
   .achievement-notification {
     position: fixed;
-    right: var(--spacing-xl);
-    bottom: var(--spacing-xl);
-    z-index: var(--z-index-notification);
-    max-width: 24rem;
+    right: var(--space-xl);
+    bottom: var(--space-xl);
+    z-index: var(--z-notification);
+    max-width: calc(var(--space-3xl) * 6); /* 24rem equivalent */
     transform: translateY(150%);
     overflow: hidden;
-    border-radius: var(--border-radius-md);
-    background-color: var(--color-notification-bg);
-    padding: var(--spacing-md);
-    color: var(--color-notification-text);
+    border-radius: var(--radius-md);
+    background-color: var(--card-bg);
+    border: var(--border-width-thin) solid var(--border-primary);
+    padding: var(--space-md);
+    color: var(--text-primary);
     opacity: 0;
     box-shadow: var(--shadow-lg);
     outline: none;
     transition:
-      transform var(--transition-duration-300) var(--transition-timing-out),
-      opacity var(--transition-duration-300) var(--transition-timing-out);
+      transform var(--transition-normal),
+      opacity var(--transition-normal);
     isolation: isolate;
-    line-height: var(--line-height-relaxed);
-    letter-spacing: var(--letter-spacing-wide);
+    line-height: var(--leading-relaxed);
+    letter-spacing: var(--letter-spacing-base);
     overflow-wrap: break-word;
-    font-size: var(--font-size-base);
+    font-size: var(--text-base);
   }
 
-  /* Container für den Benachrichtigungsinhalt */
+  /* Container for notification content */
   .achievement-notification__container {
     position: relative;
     display: flex;
     align-items: flex-start;
-    gap: var(--spacing-md);
+    gap: var(--space-md);
   }
 
-  /* Icon-Container mit verbessertem Kontrast */
+  /* Icon container with improved contrast */
   .achievement-notification__icon {
     display: flex;
-    height: 2.5rem;
-    width: 2.5rem;
+    height: calc(var(--min-touch-size) - var(--space-sm)); /* 2.5rem equivalent */
+    width: calc(var(--min-touch-size) - var(--space-sm));
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    border-radius: var(--border-radius-full);
-    background-color: var(--color-notification-icon-bg);
-    padding: var(--spacing-sm);
-    color: var(--color-notification-text);
-    box-shadow: 0 0 0 rgba(139, 92, 246, 0.4);
-    animation: pulse 2s infinite;
+    border-radius: var(--radius-full);
+    background-color: var(--interactive-primary);
+    padding: var(--space-sm);
+    color: var(--text-primary);
+    box-shadow: 0 0 0 var(--interactive-primary);
+    animation: pulse var(--transition-slow) infinite;
   }
 
-  /* Subtile Pulsanimation für das Achievement-Icon */
+  /* Subtle pulse animation for achievement icon with CSS variables */
   @keyframes pulse {
     0% {
-      box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
+      box-shadow: 0 0 0 0 var(--interactive-primary);
     }
     70% {
-      box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
+      box-shadow: 0 0 0 var(--space-xs) transparent;
     }
     100% {
-      box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+      box-shadow: 0 0 0 0 transparent;
     }
   }
 
-  /* Animation für Benutzer mit reduzierter Bewegung deaktivieren */
+  /* Disable animation for users with reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .achievement-notification__icon {
       animation: none;
-      box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.4);
+      box-shadow: 0 0 0 var(--border-width-thick) var(--interactive-primary);
     }
   }
 
-  /* Inhaltsbereich */
+  /* Content area */
   .achievement-notification__content {
     flex-grow: 1;
-    padding-right: var(--spacing-lg);
+    padding-right: var(--space-lg);
   }
 
-  /* Titel mit verbessertem Kontrast */
+  /* Title with improved contrast */
   .achievement-notification__title {
     margin: 0;
-    margin-bottom: var(--spacing-xs);
-    font-size: var(--font-size-lg);
-    font-weight: 600;
+    margin-bottom: var(--space-xs);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
     color: inherit;
-    line-height: var(--line-height-tight);
+    line-height: var(--leading-tight);
   }
 
-  /* Beschreibung mit verbessertem Kontrast */
+  /* Description with improved contrast and CSS variables */
   .achievement-notification__description {
     margin: 0;
-    font-size: var(--font-size-sm);
-    opacity: 0.96;
-    line-height: var(--line-height-normal);
+    font-size: var(--text-sm);
+    opacity: var(--opacity-medium);
+    line-height: var(--leading-normal);
     max-width: 100%;
     word-wrap: break-word;
   }
 
-  /* Schließen-Button mit verbesserter Zugänglichkeit */
+  /* Common properties for buttons */
+  .achievement-notification__close,
+  .achievement-notification__control-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: var(--text-tertiary);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition:
+      color var(--transition-fast),
+      background-color var(--transition-fast),
+      outline var(--transition-fast);
+    min-height: var(--min-touch-size);
+    min-width: var(--min-touch-size);
+  }
+
+  /* Spezifische Eigenschaften für Schließen-Button */
   .achievement-notification__close {
     position: absolute;
     top: 0;
     right: 0;
-    display: flex;
-    height: 2.5rem;
-    width: 2.5rem;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background-color: transparent;
+    height: calc(var(--min-touch-size) - var(--space-sm));
+    width: calc(var(--min-touch-size) - var(--space-sm));
     padding: 0;
-    color: var(--color-notification-controls);
-    transition:
-      color var(--transition-duration-200) var(--transition-timing-in-out),
-      outline var(--transition-duration-200) var(--transition-timing-in-out);
-    border-radius: var(--border-radius-sm);
-    min-height: 44px;
-    min-width: 44px;
   }
 
+  /* Specific properties for control buttons */
+  .achievement-notification__control-button {
+    height: var(--space-xl);
+    width: var(--space-xl);
+  }
+
+  /* Combined hover/focus states for all buttons */
   .achievement-notification__close:hover,
-  .achievement-notification__close:focus-visible {
-    color: var(--color-notification-text);
+  .achievement-notification__close:focus-visible,
+  .achievement-notification__control-button:hover,
+  .achievement-notification__control-button:focus-visible {
+    color: var(--text-primary);
   }
 
-  /* Verbesserter Fokusstil nach WCAG 2.2 Enhanced Focus Appearance */
+  /* Unified focus style according to WCAG 2.2 Enhanced Focus Appearance */
   .achievement-notification__close:focus-visible,
   .achievement-notification__control-button:focus-visible {
-    outline: var(--color-focus-outline);
-    outline-offset: 3px;
-    border-radius: var(--border-radius-sm);
-    background-color: rgba(124, 58, 237, 0.1);
-    min-width: 44px;
-    min-height: 44px;
-    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.3);
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-ring-offset);
+    border-radius: var(--radius-sm);
+    background-color: var(--focus-bg-overlay);
+    min-width: var(--min-touch-size);
+    min-height: var(--min-touch-size);
+    box-shadow: var(--focus-ring);
   }
 
-  /* Kategorie */
+  /* Category */
   .achievement-notification__category {
-    margin-top: var(--spacing-sm);
-    padding: var(--spacing-xs) 0;
+    margin-top: var(--space-sm);
+    padding: var(--space-xs) 0 0 0;
     text-align: center;
-    font-size: var(--font-size-sm);
-    font-weight: 600;
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
     text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wider);
-    border-top: 1px solid var(--color-notification-border);
-    padding-top: var(--spacing-sm);
+    letter-spacing: var(--letter-spacing-enhanced);
+    border-top: var(--border-width-thin) solid var(--border-primary);
   }
 
-  /* Modifier für sichtbaren Zustand */
+  /* Modifier for visible state */
   .achievement-notification--visible {
     transform: translateY(0);
     opacity: 1;
   }
 
-  /* Steuerelemente für die Benachrichtigung */
+  /* Notification controls */
   .achievement-notification__controls {
     position: absolute;
     top: 0;
     right: 0;
     display: flex;
-    gap: var(--spacing-xs);
-  }
-
-  /* Steuerelementtasten */
-  .achievement-notification__control-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 2rem;
-    width: 2rem;
-    background-color: transparent;
-    color: var(--color-notification-controls);
-    border: none;
-    border-radius: var(--border-radius-sm);
-    cursor: pointer;
-    transition:
-      color var(--transition-duration-200) var(--transition-timing-in-out),
-      background-color var(--transition-duration-200) var(--transition-timing-in-out),
-      outline var(--transition-duration-200) var(--transition-timing-in-out);
-    min-height: 44px;
-    min-width: 44px;
-  }
-
-  .achievement-notification__control-button:hover,
-  .achievement-notification__control-button:focus-visible {
-    color: var(--color-notification-text);
-  }
-
-  .achievement-notification__control-button:focus-visible {
-    outline: var(--color-focus-outline);
-    outline-offset: 3px;
-    border-radius: var(--border-radius-sm);
-    background-color: rgba(124, 58, 237, 0.1);
+    gap: var(--space-xs);
   }
 
   /* Timer für Benachrichtigung */
@@ -325,15 +308,15 @@ const t = useTranslations(lang);
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 3px;
-    background-color: var(--color-notification-timer-bg);
+    height: var(--space-xs);
+    background-color: var(--color-neutral-700);
     overflow: hidden;
   }
 
   .achievement-notification__timer-progress {
     height: 100%;
     width: 100%;
-    background-color: var(--color-notification-timer-progress);
+    background-color: var(--interactive-primary);
     transform-origin: left;
     transform: translateZ(0);
     will-change: transform;
@@ -348,71 +331,74 @@ const t = useTranslations(lang);
     }
   }
 
-  /* Responsive Anpassungen */
-  @media (min-width: 640px) {
+  /* Responsive Anpassungen mit CSS-Variablen */
+  @media (min-width: 40em) {
+    /* 640px entspricht --breakpoint-sm */
     .achievement-notification {
-      max-width: 30rem;
-      bottom: var(--spacing-2xl);
-      right: var(--spacing-2xl);
+      max-width: calc(var(--space-3xl) * 7.5); /* 30rem equivalent */
+      bottom: var(--space-2xl);
+      right: var(--space-2xl);
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48em) {
+    /* 768px entspricht --breakpoint-md */
     .achievement-notification {
-      max-width: 36rem;
+      max-width: calc(var(--space-3xl) * 9); /* 36rem equivalent */
     }
   }
 
-  /* Standardmäßig Dunkelmodus, Überschreibung für Hellmodus */
+  /* Light mode overrides - consolidated for DRY principle */
   @media (prefers-color-scheme: light) {
     .achievement-notification {
-      background-color: var(--color-notification-bg-light);
-      color: var(--color-notification-text-light);
+      background-color: var(--card-bg);
+      color: var(--text-primary);
       box-shadow: var(--shadow-xl);
     }
 
     .achievement-notification__icon {
-      background-color: var(--color-notification-icon-bg-light);
-      color: var(--color-notification-text);
+      background-color: var(--interactive-primary);
+      color: var(--btn-primary-text);
     }
 
     .achievement-notification__category {
-      border-top-color: var(--color-notification-border-light);
-      color: var(--color-notification-text-light);
-      font-weight: 700;
+      border-top-color: var(--border-primary);
+      color: var(--text-secondary);
+      font-weight: var(--font-bold);
     }
 
     .achievement-notification__description {
-      color: var(--color-notification-text-light);
-      opacity: 1;
+      color: var(--text-secondary);
+      opacity: var(--opacity-medium);
     }
 
+    /* Consolidated button styles for light mode */
     .achievement-notification__close,
     .achievement-notification__control-button {
-      color: var(--color-notification-controls-light);
+      color: var(--text-tertiary);
     }
 
     .achievement-notification__close:hover,
     .achievement-notification__close:focus-visible,
     .achievement-notification__control-button:hover,
     .achievement-notification__control-button:focus-visible {
-      color: var(--color-notification-text-light);
-      background-color: rgba(0, 0, 0, 0.1);
+      color: var(--text-primary);
+      background-color: var(--bg-glass);
     }
 
     .achievement-notification__close:focus-visible,
     .achievement-notification__control-button:focus-visible {
-      outline: 3px solid var(--color-purple-800);
-      outline-offset: 3px;
-      border-radius: var(--border-radius-sm);
-      background-color: rgba(88, 28, 135, 0.15);
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+      border-radius: var(--radius-sm);
+      background-color: var(--focus-bg-overlay);
     }
   }
 
-  /* Unterstützung für reduzierte Bewegung */
+  /* Support for reduced motion with CSS variables */
   @media (prefers-reduced-motion: reduce) {
     .achievement-notification {
-      transition-duration: var(--transition-duration-75);
+      transition-duration: var(--transition-fast);
     }
 
     .achievement-notification--visible {
@@ -420,41 +406,39 @@ const t = useTranslations(lang);
     }
   }
 
-  /* Unterstützung für High Contrast Mode */
+  /* Unterstützung für High Contrast Mode - konsolidiert für DRY-Prinzip */
   @media (forced-colors: active) {
     .achievement-notification {
-      border: 1px solid CanvasText;
+      border: var(--border-width-thin) solid CanvasText;
     }
 
     .achievement-notification__icon {
       background-color: Highlight;
       color: HighlightText;
-      border: 1px solid CanvasText;
-    }
-
-    .achievement-notification__close:focus-visible {
-      outline: 3px solid CanvasText;
+      border: var(--border-width-thin) solid CanvasText;
     }
 
     .achievement-notification__category {
-      border-top: 1px solid CanvasText;
-    }
-
-    .achievement-notification__control-button {
-      border: 1px solid CanvasText;
-    }
-
-    .achievement-notification__control-button:focus-visible {
-      outline: 3px solid CanvasText;
+      border-top: var(--border-width-thin) solid CanvasText;
     }
 
     .achievement-notification__timer {
       background-color: Canvas;
-      border-bottom: 1px solid CanvasText;
+      border-bottom: var(--border-width-thin) solid CanvasText;
     }
 
     .achievement-notification__timer-progress {
       background-color: Highlight;
+    }
+
+    /* Konsolidierte Button-Styles für High Contrast Mode */
+    .achievement-notification__control-button {
+      border: var(--border-width-thin) solid CanvasText;
+    }
+
+    .achievement-notification__close:focus-visible,
+    .achievement-notification__control-button:focus-visible {
+      outline: var(--enhanced-border-thickness) solid CanvasText;
     }
   }
 </style>

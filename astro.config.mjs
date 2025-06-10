@@ -4,8 +4,6 @@ import node from "@astrojs/node";
 import compressor from "astro-compressor";
 import path from "path";
 
-import tailwindcss from "@tailwindcss/vite";
-
 import sitemap from "@astrojs/sitemap";
 
 import metaTags from "astro-meta-tags";
@@ -77,7 +75,5 @@ export default defineConfig({
         "@lib": path.resolve("./src/lib"),
       },
     },
-
-    plugins: [tailwindcss()],
   },
 });

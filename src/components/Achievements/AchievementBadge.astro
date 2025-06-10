@@ -16,7 +16,7 @@
  */
 
 // 1. Imports
-import { useTranslations } from "../../utils/i18n.ts";
+import { useTranslations } from "@utils/i18n";
 
 // 2. Props definition
 interface Props {
@@ -32,6 +32,8 @@ const t = useTranslations(lang);
 const newLabel = t("achievements.badge.new");
 const newLabelWithCount = t("achievements.badge.new_with_count");
 const fallbackLabel = t("achievements.badge.fallback_text");
+const contextDescription = t("achievements.badge.context_description");
+const keyboardInstructions = t("achievements.badge.keyboard_instructions");
 ---
 
 <!-- 4. Component template with semantic HTML -->
@@ -39,48 +41,56 @@ const fallbackLabel = t("achievements.badge.fallback_text");
   id="achievement-badge"
   class="achievement-badge"
   aria-label={newLabel}
+  aria-describedby="achievement-badge-description"
   role="status"
   aria-live="polite"
   data-new-label={newLabel}
   data-new-label-with-count={newLabelWithCount}
   data-fallback-label={fallbackLabel}
+  data-context-description={contextDescription}
+  data-keyboard-instructions={keyboardInstructions}
 >
   <span class="achievement-badge__count">0</span>
+  <span id="achievement-badge-description" class="sr-only">
+    {contextDescription}
+  </span>
 </span>
 
 <!-- 5. Component styles with CSS -->
 <style>
   .achievement-badge {
-    /* Use global CSS variables from global.css */
+    /* Use only CSS variables from global.css */
     position: absolute;
-    inset-block-start: var(--badge-position-offset); /* logical property */
-    inset-inline-end: var(--badge-position-offset); /* logical property */
+    inset-block-start: var(--space-sm); /* Use standard spacing */
+    inset-inline-end: var(--space-sm); /* Use standard spacing */
     display: flex;
-    height: var(--badge-size);
-    width: var(--badge-size);
-    padding: var(--spacing-xs);
+    height: var(--min-touch-size); /* WCAG AAA compliant 44px minimum */
+    width: var(--min-touch-size); /* WCAG AAA compliant 44px minimum */
+    padding: var(--space-xs);
     align-items: center;
     justify-content: center;
-    border-radius: var(--border-radius-full);
-    background-color: var(--color-pink-700);
-    color: var(--color-white);
-    font-size: var(--font-size-sm);
-    font-weight: 700;
+    border-radius: var(--radius-full);
+    background-color: var(--interactive-secondary); /* WCAG AAA compliant secondary color */
+    color: var(--text-primary); /* High contrast text */
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
     opacity: 0;
     transform: scale(0);
     transition-property: opacity, transform;
-    transition-duration: var(--transition-duration-normal);
-    transition-timing-function: var(--transition-timing-ease);
+    transition-duration: var(--transition-normal);
+    transition-timing-function: ease-in-out;
     pointer-events: none;
     text-align: center;
-    min-width: var(--badge-min-width);
+    min-width: var(--min-touch-size); /* Ensure minimum touch target */
     box-sizing: border-box;
+    box-shadow: var(--shadow-md); /* Better visibility */
   }
 
   /* Badge visible state */
   .achievement-badge.visible {
     opacity: 1;
     transform: scale(1);
+    pointer-events: auto;
   }
 
   /* Counter text */
@@ -90,18 +100,19 @@ const fallbackLabel = t("achievements.badge.fallback_text");
     width: 100%;
   }
 
-  /* Light mode adjustment with enhanced contrast */
+  /* Light mode adjustment with enhanced contrast for WCAG AAA */
   @media (prefers-color-scheme: light) {
     .achievement-badge {
-      background-color: var(--color-pink-800);
-      box-shadow: var(--shadow-sm);
+      background-color: var(--interactive-secondary-hover); /* Darker for better contrast */
+      color: var(--text-inverse); /* Ensure high contrast */
+      box-shadow: var(--shadow-lg); /* Enhanced shadow for light mode */
     }
   }
 
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     .achievement-badge {
-      transition-duration: var(--reduced-motion-duration);
+      transition-duration: var(--transition-fast);
       transform: scale(1);
     }
   }
@@ -122,6 +133,45 @@ const fallbackLabel = t("achievements.badge.fallback_text");
       forced-color-adjust: none;
     }
   }
+
+  /* Enhanced contrast support for users who need higher contrast */
+  @media (prefers-contrast: high) {
+    .achievement-badge {
+      border: 2px solid var(--text-primary);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      box-shadow: var(--shadow-xl);
+    }
+  }
+
+  /* Text spacing adaptation support */
+  .achievement-badge {
+    /* Support user text spacing preferences up to 200% */
+    text-spacing: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    line-height: max(1.5, inherit);
+  }
+
+  /* Focus state for keyboard navigation when badge becomes interactive */
+  .achievement-badge:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-ring-offset);
+    box-shadow: var(--focus-ring), var(--shadow-lg);
+  }
+
+  /* Screen reader only content */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 </style>
 
 <!-- 6. Client-side interactivity -->
@@ -136,6 +186,8 @@ const fallbackLabel = t("achievements.badge.fallback_text");
   const newLabelText = badgeElement?.getAttribute("data-new-label") || "";
   const newLabelWithCountText = badgeElement?.getAttribute("data-new-label-with-count") || "";
   const fallbackLabelText = badgeElement?.getAttribute("data-fallback-label") || "New achievements";
+  const contextDescriptionText = badgeElement?.getAttribute("data-context-description") || "";
+  const keyboardInstructionsText = badgeElement?.getAttribute("data-keyboard-instructions") || "";
 
   // Retrieve number of new achievements from localStorage
   let newAchievementsCount = 0;
@@ -155,6 +207,7 @@ const fallbackLabel = t("achievements.badge.fallback_text");
   /**
    * Updates the achievement badge display based on current count
    * Controls visibility, content and accessibility attributes
+   * Enhanced for WCAG 2.2 AAA compliance
    */
   function updateBadge(): void {
     if (!badgeElement) {
@@ -173,6 +226,9 @@ const fallbackLabel = t("achievements.badge.fallback_text");
         badgeElement.classList.add("visible");
         badgeElement.setAttribute("aria-hidden", "false");
 
+        // Make badge focusable when visible for keyboard users
+        badgeElement.setAttribute("tabindex", "0");
+
         // Format aria-label with count for screen readers
         // Use translation with placeholders if available, fallback to simple concatenation
         const formattedLabel = newLabelWithCountText
@@ -180,6 +236,13 @@ const fallbackLabel = t("achievements.badge.fallback_text");
           : `${newLabelText || fallbackLabelText}: ${newAchievementsCount}`;
 
         badgeElement.setAttribute("aria-label", formattedLabel);
+
+        // Enhanced aria-description for better context
+        const contextualDescription =
+          `${contextDescriptionText} ${keyboardInstructionsText}`.trim();
+        if (contextualDescription) {
+          badgeElement.setAttribute("aria-description", contextualDescription);
+        }
 
         // When new achievements are unlocked, also add an alert role temporarily
         if (newAchievementsCount === 1) {
@@ -195,6 +258,10 @@ const fallbackLabel = t("achievements.badge.fallback_text");
         badgeElement.setAttribute("aria-hidden", "true");
         badgeElement.setAttribute("aria-label", newLabelText || fallbackLabelText);
         badgeElement.setAttribute("role", "status");
+
+        // Remove tabindex when hidden
+        badgeElement.removeAttribute("tabindex");
+        badgeElement.removeAttribute("aria-description");
       }
     });
   }
@@ -217,6 +284,63 @@ const fallbackLabel = t("achievements.badge.fallback_text");
     }
   });
 
+  /**
+   * Enhanced keyboard interaction support for accessibility
+   * Provides keyboard access to badge information and navigation
+   */
+  function setupKeyboardInteraction(): void {
+    if (!badgeElement) {
+      return;
+    }
+
+    badgeElement.addEventListener("keydown", (event: KeyboardEvent): void => {
+      // Handle Enter and Space key for activation
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+
+        // Navigate to achievements page when badge is activated
+        const currentPath = window.location.pathname;
+        const langMatch = currentPath.match(/^\/([a-z]{2})\//);
+        const lang = langMatch ? langMatch[1] : "en";
+        const achievementsUrl = `/${lang}/achievements`;
+
+        // Announce navigation intent to screen readers
+        const announcement = document.createElement("div");
+        announcement.setAttribute("aria-live", "polite");
+        announcement.setAttribute("aria-atomic", "true");
+        announcement.className = "sr-only";
+        announcement.textContent = `Navigating to achievements page with ${newAchievementsCount} new achievements`;
+        document.body.appendChild(announcement);
+
+        // Navigate after brief delay to allow announcement
+        setTimeout(() => {
+          window.location.href = achievementsUrl;
+          document.body.removeChild(announcement);
+        }, 100);
+      }
+    });
+
+    // Add focus and blur event handlers for enhanced feedback
+    badgeElement.addEventListener("focus", (): void => {
+      // Announce detailed information when focused
+      if (newAchievementsCount > 0) {
+        const detailedInfo = `Achievement badge focused. ${newAchievementsCount} new achievements available. Press Enter or Space to view achievements page.`;
+
+        // Use aria-live region for dynamic announcement
+        badgeElement.setAttribute("aria-label", detailedInfo);
+      }
+    });
+
+    badgeElement.addEventListener("blur", (): void => {
+      // Reset to standard label when focus is lost
+      const standardLabel = newLabelWithCountText
+        ? newLabelWithCountText.replace("{count}", newAchievementsCount.toString())
+        : `${newLabelText || fallbackLabelText}: ${newAchievementsCount}`;
+
+      badgeElement.setAttribute("aria-label", standardLabel);
+    });
+  }
+
   // Reset badge when achievement page is visited
   document.addEventListener("DOMContentLoaded", (): void => {
     // Check if we're on the achievements page
@@ -236,6 +360,9 @@ const fallbackLabel = t("achievements.badge.fallback_text");
 
     // Initially update badge
     updateBadge();
+
+    // Setup keyboard interaction for accessibility
+    setupKeyboardInteraction();
   });
 
   // Remove event listener when unloading the page

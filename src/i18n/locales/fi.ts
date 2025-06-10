@@ -36,8 +36,23 @@ export default {
   "auth.accessibility.requirement.unmet": "Vaatimus ei täyttynyt",
   "auth.accessibility.password.visible": "Salasana on nyt näkyvissä",
   "auth.accessibility.password.hidden": "Salasana on nyt piilossa",
+  "auth.accessibility.password.visible_status":
+    "Salasana on nyt näkyvissä. Muista piilottaa se turvallisuussyistä, kun olet valmis.",
+  "auth.accessibility.password.hidden_status": "Salasana on nyt piilossa turvallisuussyistä.",
+  "auth.accessibility.password_toggle_empty": "Syötä salasana ensin ennen näkyvyyden vaihtamista.",
+  "auth.accessibility.password_toggle_help":
+    "Vaihda salasanan merkkien näyttämistä tai piilottamista. Käytä varovasti julkisissa tiloissa turvallisuussyistä.",
   "auth.accessibility.requirements.expanded": "Salasanavaatimukset laajennettu",
   "auth.accessibility.requirements.collapsed": "Salasanavaatimukset tiivistetty",
+  "auth.accessibility.login_form_active": "Kirjautumislomake on nyt aktiivinen",
+  "auth.accessibility.register_form_active": "Rekisteröitymislomake on nyt aktiivinen",
+  "auth.accessibility.focus_trapped":
+    "Kohdistus on nyt vangittu tähän dialogiin. Käytä Tab-näppäintä navigointiin ja Escape-näppäintä sulkemiseen.",
+  "auth.accessibility.error_message_dismissed": "Virheilmoitus hylätty",
+  "auth.accessibility.success_message_dismissed": "Onnistumisilmoitus hylätty",
+
+  // Skip links
+  "auth.skip_to_verification": "Siirry sähköpostin vahvistussisältöön",
 
   "auth.tabs.login": "Kirjaudu sisään",
   "auth.tabs.register": "Rekisteröidy",
@@ -52,6 +67,7 @@ export default {
   "auth.form.password_requirements": "Salasana ei täytä kaikkia vaatimuksia",
   "auth.form.password_confirm_required": "Salasanan vahvistus vaaditaan",
   "auth.form.passwords_not_match": "Salasanat eivät täsmää",
+  "auth.form.init_error": "Lomakeelementtien alustaminen epäonnistui",
   "auth.password_reset.success_message":
     "Jos tällä sähköpostiosoitteella on tili, salasanan nollausohjeet on lähetetty sähköpostitse.",
   "auth.password_reset.error_message": "Tapahtui virhe. Yritä myöhemmin uudelleen.",
@@ -104,14 +120,6 @@ export default {
 
   // Salasanan validointi
   "auth.password.requirements": "Salasanavaatimukset:",
-  "auth.password.requirements.status": "{{met}} / {{total}} vaatimusta täytetty",
-  "auth.password.requirements.help":
-    "Salasanasi tulee täyttää kaikki alla luetellut vaatimukset turvallisuuden vuoksi",
-  "auth.password.requirements.checklist": "Salasanavaatimusten tarkistuslista",
-  "auth.password.requirements.met": "Vaatimus täytetty",
-  "auth.password.requirements.not_met": "Vaatimus ei täytetty",
-  "auth.password.requirements.keyboard_navigation":
-    "Käytä nuolinäppäimiä vaatimusten välillä siirtymiseen, Escape poistuaksesi",
   "auth.password.min_length": "Salasanan on oltava vähintään 8 merkkiä pitkä",
   "auth.password.uppercase": "Salasanan on sisällettävä vähintään yksi iso kirjain",
   "auth.password.lowercase": "Salasanan on sisällettävä vähintään yksi pieni kirjain",
@@ -131,6 +139,36 @@ export default {
   "auth.form.required": "Tämä kenttä vaaditaan",
   "auth.form.email_invalid": "Anna kelvollinen sähköpostiosoite",
   "auth.form.password_min_length": "Salasanan on oltava vähintään 6 merkkiä pitkä",
+  "auth.form.email_invalid_format":
+    "Anna kelvollinen sähköpostiosoite muodossa: käyttäjä@esimerkki.fi",
+  "auth.form.password_length_error": "Salasanan on oltava vähintään 8 merkkiä pitkä",
+  "auth.form.password_uppercase_error": "Salasanassa on oltava vähintään yksi iso kirjain (A-Z)",
+  "auth.form.password_lowercase_error": "Salasanassa on oltava vähintään yksi pieni kirjain (a-z)",
+  "auth.form.password_number_error": "Salasanassa on oltava vähintään yksi numero (0-9)",
+  "auth.form.password_special_error":
+    "Salasanassa on oltava vähintään yksi erikoismerkki (!@#$%^&*)",
+  "auth.form.password_common_error": "Valitse vähemmän yleinen salasana",
+  "auth.form.password_repeats_error":
+    "Salasana ei saa sisältää yli 2 peräkkäistä identtistä merkkiä",
+  "auth.form.password_sequences_error":
+    "Salasana ei saa sisältää yleisiä sarjoja kuten '123' tai 'abc'",
+  "auth.form.instructions.title": "Kuinka täyttää tämä lomake",
+  "auth.form.instructions.request.step1": "Anna sähköpostiosoitteesi alla olevaan kenttään",
+  "auth.form.instructions.request.step2":
+    "Napsauta 'Lähetä palautuslinkkiä' saadaksesi salasanan palautusohjeet",
+  "auth.form.instructions.request.step3":
+    "Tarkista sähköpostisi palautuslinkin varalta ja seuraa ohjeita",
+  "auth.form.instructions.confirm.step1": "Luo vahva salasana, joka täyttää kaikki vaatimukset",
+  "auth.form.instructions.confirm.step2": "Vahvista salasanasi kirjoittamalla se uudelleen",
+  "auth.form.instructions.confirm.step3": "Napsauta 'Nollaa salasana' viimeistelläksesi prosessin",
+  "auth.form.help.password_button": "Hanki apua vahvan salasanan luomiseen",
+  "auth.form.help.password_title": "Salasanan luomisvinkkejä",
+  "auth.form.help.password_suggestions":
+    "Kokeile sanojen, numeroiden ja symbolien yhdistelmää. Vältä yleisiä salasanoja kuten 'salasana123'.",
+  "auth.form.help.tip1": "Käytä sekoitusta isoja ja pieniä kirjaimia",
+  "auth.form.help.tip2": "Sisällytä numeroita ja erikoismerkkejä",
+  "auth.form.help.tip3": "Vältä yleisiä sanoja ja sarjoja",
+  "auth.form.help.tip4": "Harkitse salasanalauseen käyttöä",
   "auth.form.min_length": "Tämän kentän on oltava vähintään {length} merkkiä pitkä",
   "auth.form.max_length": "Tämä kenttä ei saa ylittää {length} merkkiä",
   "auth.form.invalid": "Tämä kenttä on virheellinen",
@@ -145,6 +183,7 @@ export default {
   "auth.accessibility.password_requirements": "Näytä/piilota salasanavaatimukset",
   "auth.accessibility.form": "Kirjautumislomake",
   "auth.accessibility.close_modal": "Sulje ikkuna",
+  "auth.accessibility.button_focus_instruction": "Painike: {buttonText}. Paina Enter lähettääksesi",
 
   // API-virheilmoitukset
   "auth.api.network_error": "Verkkovirhe. Tarkista yhteytesi",
@@ -174,7 +213,7 @@ export default {
   "difficulty.medium": "Keskivaikea",
   "difficulty.hard": "Vaikea",
   "game.select":
-    "Tutustu musiikin kiehtovaan maailmaan ja testaa tietosi interaktiivisissa musiikkivisoissamme. Valitse suosikkigenresi ja aloita melodinen matkasi!",
+    "🎵 Valmiina äärimmäiseen musiikkiseikkailuun? Sukella rytmien, melodioiden ja unohtumattomien kappaleiden maailmaan! Murskaavista kitarasooloista ajattomiin klassikoihin – löydä täydellinen musiikillinen taistelusi. Näytä maailmalle, että olet todellinen musiikin asiantuntija!",
   "game.welcome": "Tervetuloa Melody Mindiin",
   "game.genre.list": "Genren valinta",
   "game.search.label": "Etsi genreä",
@@ -213,19 +252,38 @@ export default {
   "game.feedback.resolution": "Resoluutio",
   "game.feedback.media.section": "Mediaosio",
   "game.feedback.audio.preview": "Musiikin esikatselu",
+  "game.feedback.audio.failed": "Äänentoisto epäonnistui",
+  "game.feedback.audio.paused": "Ääni keskeytetty",
   "game.feedback.subtitles": "Tekstitykset",
   "game.feedback.audio.unsupported": "Selaimesi ei tue äänentoistoa.",
   "game.feedback.streaming.links": "Musiikin suoratoistolinkit",
   "game.feedback.listen.spotify": "Kuuntele Spotifyssa",
   "game.feedback.listen.deezer": "Kuuntele Deezerissä",
   "game.feedback.listen.apple": "Kuuntele Apple Musicissa",
+
+  // Music Platforms Component - Accessibility Features
+  "musicPlatforms.heading": "Kuuntele liittyvää musiikkia",
+  "musicPlatforms.keyboardInstructions":
+    "Navigoi musiikkialustoilla Tab-näppäimellä. Paina Enter tai välilyönti avataksesi alustat uusissa välilehdissä.",
+  "musicPlatforms.externalNotice":
+    "Ulkoiset musiikkialustaliukit voivat vaatia tilejä tai tilauksia täydelliseen pääsyyn.",
+  "musicPlatforms.listenOn":
+    "Kuuntele {title} palvelussa {platform} - Avaa {platform} musiikkialustan uudessa välilehdessä. Saattaa vaatia {platform} tilin tai tilauksen.",
   "game.feedback.next.round": "Seuraava kierros",
+  "game.feedback.next.starting": "Aloitetaan seuraava kierros",
   "game.current.round": "Kierros",
   "game.current.round.label": "Nykyinen kierrosnumero",
   "game.joker.options": "Jokerivaihtoehdot",
   "game.joker.use": "Käytä 50:50 Jokeria",
   "game.joker.description": "Poistaa kaksi väärää vastausvaihtoehtoa",
   "loading.content": "Ladataan sisältöä...",
+  "loading.started": "Lataus aloitettu",
+  "loading.completed": "Lataus valmis",
+  "loading.progress.indicator": "Edistymisindkaattori",
+  "loading.context.game": "Ladataan peliä",
+  "loading.context.question": "Ladataan kysymystä",
+  "loading.context.results": "Ladataan tuloksia",
+  "loading.context.default": "Ladataan sisältöä",
   "share.title": "Jaa menestyksesi!",
   "share.buttons.group.label": "Sosiaalisen median jakovaihtoehdot",
   "share.facebook": "Jaa Facebookissa",
@@ -237,9 +295,66 @@ export default {
   "share.email.label": "Sähköposti",
   "share.copy": "Kopioi jaettava teksti leikepöydälle",
   "share.copy.label": "Kopioi teksti",
+  "share.fallback.message":
+    "Pelin tiedot eivät ole tällä hetkellä saatavilla. Yritä uudelleen tai kopioi sivun linkki manuaalisesti.",
+  "share.fallback.retry.label": "Yritä ladata pelin tiedot uudelleen",
+  "share.fallback.retry.text": "Yritä uudelleen",
+  "share.fallback.manual.label": "Kopioi sivun linkki manuaalisesti",
+  "share.fallback.manual.text": "Kopioi linkki",
+
+  // Saavutettavuusilmoitukset jakamiselle ruudunlukijoille
+  "share.accessibility.data_unavailable":
+    "Pelin tiedot eivät ole käytettävissä. Yritä uudelleen tai kopioi manuaalisesti.",
+  "share.accessibility.retrying": "Etsitään pelin tietoja...",
+  "share.accessibility.data_found":
+    "Pelin tiedot löydetty! Jakovaihtoehdot ovat nyt käytettävissä.",
+  "share.accessibility.data_still_unavailable":
+    "Pelin tiedot eivät ole edelleenkään käytettävissä. Päivitä sivu tai käytä manuaalista kopiointia.",
+  "share.accessibility.retry_failed":
+    "Uudelleenyritys epäonnistui. Käytä manuaalista kopiointia tai päivitä sivu.",
+  "share.accessibility.link_copied": "Pelin linkki kopioitu leikepöydälle onnistuneesti!",
+  "share.accessibility.link_copied_fallback":
+    "Pelin linkki kopioitu leikepöydälle varamenetelmällä!",
+  "share.accessibility.copy_failed_manual":
+    "Kopiointi epäonnistui. Kopioi sivun URL manuaalisesti selaimestasi.",
+  "share.accessibility.score_shared": "Pisteesi on jaettu onnistuneesti.",
+  "share.accessibility.sharing_cancelled": "Jakaminen peruutettu.",
+  "share.accessibility.platform_share_failed":
+    "Jakaminen alustalle {platform} epäonnistui: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_alternative_methods":
+    "Yritä kopioida leikepöydälle tai käyttää toista jakamismenetelmää.",
+  "share.accessibility.score_copied": "Pisteet kopioitu leikepöydälle onnistuneesti!",
+  "share.accessibility.native_share_failed":
+    "Alkuperäinen jakaminen epäonnistui: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_platform_buttons":
+    "Yritä käyttää alustaspesifisiä jakamispainikkeita tai kopioi leikepöydälle.",
+  "share.accessibility.platform_opened": "Jakaminen alustalle {platform} avattiin onnistuneesti.",
   "error.default": "On tapahtunut virhe",
   "error.close": "Sulje virheilmoitus",
   "coins.collected": "Kerätyt kolikot",
+  "coins.tooltip.authenticated":
+    "Keräämäsi kolikot: Olet ansainnut {count} kolikkoa peliaikasi aikana. Jatka pelaamista ansaitaksesi lisää!",
+  "coins.tooltip.guest":
+    "Vieraspelaajan kolikot: Olet ansainnut {count} kolikkoa tämän istunnon aikana. Kirjaudu sisään tallentaaksesi edistymisesi pysyvästi!",
+  "coins.announce.earned_excellent":
+    "Erinomaista! Ansaittu {difference} kolikkoa {context} aikana! Uusi summa: {newCount} kolikkoa.",
+  "coins.announce.earned_great":
+    "Hyvä työ! Ansaittu {difference} kolikko{plural} {context} aikana. Yhteensä: {newCount} kolikkoa.",
+  "coins.announce.earned_normal":
+    "Ansaittu {difference} kolikko{plural} {context} aikana. Yhteensä: {newCount} kolikkoa.",
+  "coins.announce.progress_saved": " Edistyminen tallennettu tilillesi.",
+  "coins.announce.lost":
+    "Menetettiin {lost} kolikko{plural} {context} aikana. Jäljellä: {newCount} kolikkoa.",
+  "coins.announce.updated":
+    "Kolikot päivitetty {context} aikana. Nykyinen summa: {newCount} kolikkoa.",
+  "coins.context.game": "pelin pelaamisen",
+  "coins.context.shop": "ostoksen tekemisen",
+  "coins.context.achievement": "saavutuksen ansaitsemisen",
+  "coins.context.bonus": "bonuksen saamisen",
+  "coins.context.daily": "päivittäisen palkinnon keräämisen",
+  "coins.context.quiz": "tietovisakysymyksiin vastaamisen",
+  "coins.context.challenge": "haasteen suorittamisen",
+  "coins.context.streak": "sarjan ylläpitämisen",
   "language.picker.label": "Kielivalitsin",
   "language.change": "Vaihda verkkosivuston kieltä",
   "language.select.label": "Valitse haluamasi kieli",
@@ -263,9 +378,17 @@ export default {
   "language.nl.label": "Näytä verkkosivusto hollanniksi",
   "language.sv.label": "Näytä verkkosivusto ruotsiksi",
   "language.fi.label": "Näytä verkkosivusto suomeksi",
+  "language.selected": "Nykyinen kieli: {language}",
+  "language.dropdown.arrow": "Pudotusvalikko nuoli",
+  "language.focus.announce": "Kielivalitsin kohdistettuna. Käytä nuolinäppäimiä navigointiin.",
+  "language.change.success": "Kieli vaihdettu kieleen {language}",
+  "language.change.error": "Kielen vaihto epäonnistui. Yritä uudelleen.",
+  "language.preference.restored": "Kieliasetus palautettu: {language}",
   "playlist.item.unavailable": "Tämä sisältö ei ole vielä saatavilla",
   "playlist.item.status": "Tila",
   "playlist.item.coming.soon": "Tulossa pian",
+  "playlist.item.status.changed.disabled": "Tämä soittolista ei ole tällä hetkellä saatavilla",
+  "playlist.item.status.changed.available": "Tämä soittolista on nyt saatavilla",
   "game.area.label": "Pelialue",
   "game.options.label": "Vastausvaihtoehdot",
   "game.answer.correct": "Oikein! {points} pistettä + {bonus} bonuspistettä",
@@ -277,7 +400,7 @@ export default {
     "Musiikkivisa, Musiikkipeli, Laulutietovisa, Artistivisa, Online Musiikkivisa, Musiikkitrivia, Melody Mind, Musiikin arvauspeli",
   "knowledge.title": "Musiikkitietokanta",
   "knowledge.intro":
-    "Sukella musiikin historian kiehtovaan maailmaan. Täältä löydät jännittäviä artikkeleita eri musiikkikausista, genreistä ja niiden kehityksestä. Löydä mielenkiintoisia faktoja ja laajenna musiikkitietoasi.",
+    "🎵 Avaa musiikkiuniversumin salaisuudet! Sukella kiehtoviin tarinoihin legendaarisista artisteista, tutki musiikkigenrejen kehitystä ja löydä kiehtovia faktoja, jotka tekevät sinusta todellisen musiikin asiantuntijan. Klassisista mestariteoksista moderneihin hitteihin – anna mukaansatempaavien artikkelien herättää musiikkiintohimosi henkiin.",
   "knowledge.search.label": "Etsi artikkeleita",
   "knowledge.search.placeholder": "Etsi...",
   "knowledge.filter.all": "Kaikki avainsanat",
@@ -298,13 +421,15 @@ export default {
   "game.categories.no.playable.text":
     "Tällä hetkellä ei ole pelattavia kategorioita. Tarkista myöhemmin uudelleen.",
   "knowledge.reading.time": "min lukuaika",
+  "knowledge.word.count": "sanaa",
+  "knowledge.reading.time.label": "Lukuaika",
   "knowledge.breadcrumb.label": "Navigaatio",
   "knowledge.listen.heading": "Kuuntele aiheeseen liittyvää musiikkia",
   "knowledge.back.to.list": "Takaisin yleiskatsaukseen",
   "knowledge.interact.heading": "Kuuntele & Pelaa",
   "knowledge.play.heading": "Pelaa tätä genreä",
   "knowledge.play.description":
-    "Testaa tietosi tästä musiikkigenrestä interaktiivisessa visassamme!",
+    "🎵 Oletko valmis äärimmäiseen haasteeseen? Testaa musiikkitietosi ja tule genren asiantuntijaksi! Kerää pisteitä, käytä älykkäitä jokereita ja todista, että sinulla on tarvittavat taidot tulla musiikkimestariksi! 🏆",
   "knowledge.play.category": "Aloita Musiikkivisa",
   "category.play": "Pelaa",
   "play.cover.puzzle": "Pelaa Kansikuvapalapeliä",
@@ -341,10 +466,11 @@ export default {
   "podcast.listen.heading": "Kuuntele Podcastejamme",
   "login.welcome": "Tervetuloa Melody Mindiin!",
   "login.description":
-    "Lähde musiikilliselle löytöretkelle aikojen halki! Testaa tietosi jännittävissä visoissa, tutustu kiehtoviin musiikkigenreihin ja sukella mukaansatempaaviin podcasteihimme. Näytä taitosi, kerää pisteitä ja tule todelliseksi musiikkilegendaksi!",
+    "🎵 Sukella äärimmäiseen musiikkiuniversumiin! Löydä legendaarisia hittejä, hallitse jännittäviä haasteita ja tule absoluuttiseksi musiikkimestariksi. Matkasi suurimpiin musiikillisiin salaisuuksiin alkaa nyt! 🚀",
   "index.continue": "Aloitetaan!",
   "index.start.game.label": "Aloita musiikillinen matkasi",
-  "index.welcome.footnote": "Musiikin ystävien valmistama musiikin ystäville. Nauti!",
+  "index.welcome.footnote":
+    "🎶 Luotu intohimolla todellisille musiikkifaneille - Anna taikuuden alkaa! ✨",
   "accessibility.wcag": "Tämä sovellus pyrkii WCAG AAA -yhteensopivuuteen.",
   "game.instructions.title": "Pelin Ohjeet",
   "game.instructions.puzzle":
@@ -372,23 +498,59 @@ export default {
   "playlist.page.title": "Musiikkisoittolistat | Melody Mind",
   "playlist.page.heading": "Tutustu Musiikkisoittolistoihimme",
   "playlist.page.description":
-    "Sukella huolellisesti kuratoituihin soittolistoihin eri aikakausilta ja genreistä. Täydellinen uuden musiikin löytämiseen tai suosikkiklassikoidesi uudelleen kokemiseen.",
+    "🎵 Lähde eeppiselle musiikkimatkalle legendaristen aikakausien halki! Käsin valitut soittolistamme herättävät suurimmat hitit henkiin - ajattomista klassikoista unohtumattomiin listaykkösiin. Täydellinen musikaalisen tietämyksesi laajentamiseen tai nostalgisten muistojen herättämiseen! 🎶",
   "playlist.search.label": "Etsi Soittolistoja",
+  "playlist.search.heading": "Etsi Soittolistoja",
   "playlist.search.placeholder": "Etsi artistin tai tyylin mukaan...",
+  "playlist.search.aria.label": "Etsi musiikkisoittolistoja",
   "playlist.filter.all": "Kaikki Aikakaudet",
   "playlist.no.results": "Vastaavia soittolistoja ei löytynyt. Kokeile toista hakusanaa.",
+  "playlist.no.results.heading": "Soittolistoja ei löytynyt",
+  "playlist.reset.search": "Näytä kaikki soittolistat",
+  "playlist.grid.heading": "Saatavilla Olevat Musiikkisoittolistat ({count} yhteensä)",
   "playlist.listen.on": "Kuuntele",
+  "playlist.image.alt":
+    'Yksityiskohtainen soittolistan kansi kohteelle "{headline}" - {introSubline} sisältäen {decade} musiikkikokoelman',
+  "playlist.image.description":
+    "Soittolistan kansi, joka edustaa {decade} musiikkikokoelmaa temaattisilla visuaalisilla elementeillä kohteelle {headline}. Visuaalinen suunnittelu heijastaa musiikkiaikakauden ja genren ominaisuuksia.",
   "playlist.listen.spotify": "Kuuntele Spotifyssa",
   "playlist.listen.deezer": "Kuuntele Deezerissä",
   "playlist.listen.apple": "Kuuntele Apple Musicissa",
   "playlist.decade.filter": "Suodata Vuosikymmenen Mukaan",
+  "playlist.priority.loading": "Prioriteettisoittolistan lataus: {headline}",
+  "playlist.music.from.decade": "Musiikki vuosikymmeneltä {decade}",
+  "playlist.streaming.services": "Suoratoistopalvelut kohteelle {headline}",
+  "playlist.accessibility.instruction":
+    "Käytä Enter- tai välilyönti-näppäintä avataksesi soittolistan suoratoistopalvelussa. Navigoi palveluiden välillä Tab-näppäimellä. Nämä soittolistat ovat julkisesti saatavilla eivätkä vaadi todennusta.",
+  "playlist.accessibility.info": "Soittolistan saavutettavuustiedot",
+  "playlist.accessibility.public":
+    "Julkinen soittolista - ei vaadi todennusta suoratoistopalveluiden käyttöön",
+  "playlist.accessibility.selected": "{service} valittu kohteelle {playlist}",
+  "playlist.accessibility.focus": "Fokus {service}-vaihtoehdossa kohteelle {playlist}",
+  "playlist.accessibility.opened": "Avataan {playlist} palvelussa {service}",
+  "playlist.open.spotify": 'Avaa soittolista "{playlist}" Spotifyssa',
+  "playlist.open.deezer": 'Avaa soittolista "{playlist}" Deezerissä',
+  "playlist.open.apple": 'Avaa soittolista "{playlist}" Apple Musicissa',
+  "playlist.activation.focused":
+    "Soittolista aktivoitu. Valitse suoratoistopalvelu Enter-näppäimellä.",
+  "playlist.activation.no_links": "Soittolista ei ole käytettävissä millään suoratoistopalvelulla.",
+  "playlist.exit": "Poistutaan soittolistasta",
+  "playlist.visible": "Prioriteettisoittolista näkyvissä",
+  "playlist.image.error": "Soittolistan kuvan lataus epäonnistui",
+  "playlist.title.unknown": "Tuntematon soittolista",
   "footer.rights": "Kaikki oikeudet pidätetään",
   "footer.donate": "Lahjoita",
+  "footer.donate_aria": "Lahjoita PayPalin kautta",
+  "footer.source_code": "Katso MelodyMindin lähdekoodi GitHubissa",
+  "footer.support_kofi": "Tue MelodyMindia Ko-fissa",
   "game.chronology.title": "Musiikin Kronologia",
-  "game.chronology.description": "Järjestä nämä albumit julkaisuvuoden mukaan (vanhin ensin)",
+  "game.chronology.description":
+    "⏰ Tule musiikin aikamatkustajaksi! Järjestä nämä legendaariset albumit oikeaan kronologiseen järjestykseen ja osoita olevasi todellinen musiikin historioitsija. Jokainen oikea siirto vie sinua lähemmäs täydellistä tulosta! 🎯",
   "game.chronology.area.label": "Kronologiapelialue",
   "game.chronology.result": "Tulos",
-  "game.chronology.correct": "Oikein",
+  "game.chronology.correct": "Oikein! 🎉",
+  "game.chronology.incorrect": "Väärin! 😔",
+  "game.chronology.correct_order": "Oikea järjestys:",
   "game.chronology.wrong": "Pitäisi olla paikassa {position}",
   "game.chronology.score": "Pisteet: {score} pistettä",
   "game.chronology.details": "{correct} / {total} albumia sijoitettu oikein",
@@ -458,7 +620,8 @@ export default {
 
   // Ennätyssivu
   "highscores.title": "Ennätykset",
-  "highscores.description": "Tarkastele parhaita pisteitä eri pelitiloissa ja kategorioissa",
+  "highscores.description":
+    "Löydä musiikin legendat! Katso kuka johtaa listoja ja inspiroidu parhaista pelaajista 🎵🏆",
   "highscores.loading": "Ladataan ennätyksiä...",
   "highscores.error": "Virhe ennätysten lataamisessa",
   "highscores.empty": "Ennätyksiä ei löytynyt",
@@ -468,6 +631,18 @@ export default {
   "highscores.filter.all": "Kaikki",
   "highscores.filter.search": "Etsi kategorioita...",
   "highscores.filter.no.results": "Kategorioita ei löytynyt",
+  "highscores.filters": "Suodata tuloksia",
+  "highscores.allModes": "Kaikki tilat",
+  "highscores.allCategories": "Kaikki kategoriat",
+  "highscores.results": "Parhaat pisteet",
+  "highscores.noResults": "Valituilla suodattimilla ei löytynyt pisteitä.",
+  "highscores.points": "pistettä",
+  "highscores.rank": "Sijoitus",
+  "highscores.gameMode": "Pelitila",
+  "highscores.category": "Kategoria",
+  "highscores.date": "Päivämäärä",
+  "highscores.tableLabel": "Ennätyslista",
+  "highscores.scoreEntry": "Pistekirjaus {rank}, pelaaja {username}",
   "highscores.table.title": "Parhaat Pisteet",
   "highscores.table.rank": "Sijoitus",
   "highscores.table.player": "Pelaaja",
@@ -478,10 +653,22 @@ export default {
 
   // Saavutusjärjestelmä
   "achievements.title": "Saavutukset",
-  "achievements.description": "Löydä ja avaa saavutuksia seurataksesi edistymistäsi",
+  "achievements.description":
+    "Juhli musiikillisia voittojasi ja kerää ainutlaatuisia palkintoja matkallasi musiikkimestariksi",
+  "achievements.seo.description":
+    "Seuraa edistymistäsi yksityiskohtaisilla saavutuksilla kaikissa musiikkikategorioissa. Avaa erikoispalkkioita suorittamalla haasteita ja saavuttamalla virstanpylväitä.",
   "achievements.loading": "Ladataan saavutuksia...",
   "achievements.error": "Virhe saavutusten lataamisessa",
   "achievements.empty": "Saavutuksia ei löytynyt",
+  "achievements.summary.title": "Saavutusten yhteenveto",
+  "achievements.summary.total": "Yhteensä: {total} saavutusta",
+  "achievements.summary.unlocked": "Avattu: {unlocked} saavutusta",
+  "achievements.summary.progress": "Edistyminen: {percentage}% valmis",
+  "achievements.summary.total-aria": "Saavutusten kokonaismäärä: {total}",
+  "achievements.summary.unlocked-aria": "Avattujen saavutusten määrä: {unlocked}",
+  "achievements.summary.progress-aria": "Kokonaisedistyminen: {percentage} prosenttia valmis",
+  "achievements.categories": "Kategoriat",
+  "achievements.category.count": "{count} saavutusta",
   "achievements.category.bronze": "Pronssi",
   "achievements.category.silver": "Hopea",
   "achievements.category.gold": "Kulta",
@@ -495,6 +682,8 @@ export default {
   "achievements.unlocked_at": "Avattu {date}",
   "achievements.points": "Pisteet: {points}",
   "achievements.rarity": "Harvinaisuus: {percentage}%",
+  "achievements.rarity.tooltip":
+    "Näyttää kuinka harvinainen tämä saavutus on - matalammat prosentit tarkoittavat, että se on harvinaisempi",
   "achievements.notification.unlocked": "Saavutus avattu!",
   "achievements.notification.progress": "Saavutuksen edistyminen päivitetty!",
   "achievements.filter.title": "Suodata Saavutuksia",
@@ -520,7 +709,20 @@ export default {
   "achievements.badge.new": "Uusi saavutus avattu",
   "achievements.badge.new_with_count": "{count} uutta saavutusta avattu",
   "achievements.badge.fallback_text": "Saavutusilmoitus",
+  "achievements.badge.context_description":
+    "Saavutusilmoituksen merkki. Näyttää uusien avattujen saavutusten määrän navigointialueella.",
+  "achievements.badge.keyboard_instructions":
+    "Paina Enter tai välilyönti nähdäksesi saavutussivusi.",
   "achievements.notification.close": "Sulje saavutusilmoitus",
+  "achievements.notification.new_achievement": "Uusi saavutusilmoitus",
+  "achievements.notification.pause": "Keskeytä ilmoitusajastin",
+  "achievements.notification.pause_title": "Keskeytä tämän ilmoituksen automaattinen sulkeminen",
+  "achievements.notification.toggle_sound": "Vaihda ilmoitusääni",
+  "achievements.notification.toggle_sound_title":
+    "Ota käyttöön tai poista käytöstä ääni saavutusilmoituksille",
+
+  // Game remaining count
+  "game.remaining.label": "{count} jäljellä",
 
   // API-virheilmoitukset
   "errors.auth.unauthorized": "Sinun on kirjauduttava sisään käyttääksesi tätä toimintoa",
@@ -587,6 +789,22 @@ export default {
   "achievements.filter.focus_category": "Kohdista kategoriasuodattimeen",
   "achievements.filter.toggle_keyboard_help": "Näytä/piilota pikanäppäinohjeet",
 
+  // Laskurin näyttö suodattimille
+  "achievements.filter.count.all": "Kaikki ({count} näkyvissä)",
+  "achievements.filter.count.category_all": "Kaikki Kategoriat ({count} näkyvissä)",
+  "achievements.filter.count.generic": "{value} ({count} näkyvissä)",
+
+  // Achievement Filter Reset Button
+  achievementFilterReset: "Nollaa kaikki saavutus suodattimet",
+
+  // Ruudunlukijan kuulutukset - saavutussuodattimet
+  "achievements.filter.announcement.changed":
+    "Suodatin muutettu: {filterType} arvoon {filterValue}",
+  "achievements.filter.announcement.no_results": "Mikään saavutus ei vastaa nykyisiä suodattimia",
+  "achievements.filter.announcement.results":
+    "{visibleCards} saavutus{cardPlural} löydetty {visibleSections} kategoria{sectionPlural}",
+  "achievements.filter.announcement.reset": "Kaikki suodattimet on nollattu",
+
   "game.chronology.move.up": "Siirrä ylös",
   "game.chronology.move.down": "Siirrä alas",
   "game.time.extend": "Pidennä aikaa",
@@ -603,8 +821,177 @@ export default {
   "auth.password.requirements.not_met": "Vaatimus ei täytetty",
   "auth.password.requirements.keyboard_navigation":
     "Käytä Tab ja Enter -näppäimiä navigointiin ja aktivointiin",
+  "auth.password.requirements.position": "{{current}} / {{total}}",
+  "auth.password.requirements.progress":
+    "{{met}} / {{total}} vaatimusta täytetty. {{percentage}}% valmis.",
   "auth.password.strength.good": "Hyvä",
   "auth.password.strength.description": "Salasanan turvallisuustason ilmaisin",
 
+  // Layout system messages
+  "layout.error.system": "Järjestelmävirhe tapahtui. Päivitä sivu.",
+  "layout.error.tracking": "Virheidenseuranta käytössä",
+  "layout.error.tracking.failed": "Virheidenseurannan alustus epäonnistui:",
+  "layout.accessibility.motion.reduced": "Rajoitettu liike -tila käytössä saavutettavuuden vuoksi",
+  "layout.accessibility.theme.dark":
+    "Tumma teema aktivoitu optimaalista kontrastia ja saavutettavuutta varten",
+  "layout.analytics.init.failed": "Analytiikan alustus epäonnistui:",
+
   "common.accessibility.main_content": "Pääsisältöalue",
+
+  // Navigation
+  "nav.ariaLabel": "Päänavigointi",
+
+  "achievements.nav.aria": "Navigointi saavutuksiin",
+
+  "nav.openNewWindow": "Avautuu uudessa ikkunassa",
+
+  // End Overlay - Pelitulokset
+  "game.end.achievementBadge": "Saavutustrofeaikon",
+  "game.end.screenReaderDescription": "Pelitulokset näyttävät pisteesi ja saavutustason.",
+  "game.end.scoreProgress": "Pistemääräedistyminen",
+  "game.end.progressDescription":
+    "Visuaalinen edistymispalkki, joka näyttää pisteiden saavutustasosi",
+  "game.end.defaultMotivation": "Hyvin tehty! Jatka pelaamista parantaaksesi pisteitäsi!",
+  "game.end.finalScore": "Lopullinen pistemäärä:",
+  "game.end.difficultyLevel": "Vaikeustason indikaattori",
+  "game.end.difficultyDescription": "Näyttää suorittamasi vaikeustason",
+  "game.end.shareSection": "Jaa tuloksesi",
+  "game.end.shareResults": "Jaa pelituloksesi sosiaalisessa mediassa",
+  "game.end.shareDescription":
+    "Avaa jakamisvaihtoehdot pisteidesi julkaisemiseksi sosiaalisen median alustoilla",
+  "game.end.homeDescription": "Palaa päävalikkoon ja aloitussivulle",
+  "game.end.newgameDescription": "Aloita uusi peli samoilla asetuksilla",
+  "game.end.homeButtonHelp":
+    "Siirry takaisin kotisivulle valitaksesi uuden pelimuodon tai kategorian",
+  "game.end.restartButtonHelp":
+    "Aloita välittömästi uusi pelikierros samalla vaikeustasolla ja kategorialla",
+
+  // Saavutustason ilmoitukset ruudunlukijoille
+  "game.end.announcement.gameOver": "Peli loppui! Pisteesi: {score}. Saavutustaso: {level}.",
+  "game.end.announcement.gameOver.de":
+    "Spielende! Deine Punktzahl: {score}. Erreichtes Level: {level}.",
+  "game.end.level.genius": "nero",
+  "game.end.level.pro": "ammattilainen",
+  "game.end.level.enthusiast": "harrastaja",
+  "game.end.level.lover": "rakastaja",
+  "game.end.level.explorer": "tutkimusmatkailija",
+
+  // Saavutukset-osio EndOverlay:ssä
+  "achievements.unlocked": "Avatut Saavutukset",
+
+  // Motivational texts for different achievement levels
+  "game.end.motivation.genius":
+    "Uskomaton! 💫 Olet todellinen musiikin nero! 🎶 Syvällinen tietosi ja musiikillinen intuitiosi ovat todella vaikuttavia. Voisit voittaa musiikkivisailun tai jopa olla musiikkihistorioitsija. Jaa merkittävä saavutuksesi ja haasta muut kilpailemaan kanssasi!",
+  "game.end.motivation.pro":
+    "Mahtava! 🌟 Olet ehdottomasti musiikin ammattilainen, jolla on laaja tietämys eri artisteista ja genreistä. Musiikillinen ymmärryksesi on huomattavasti keskimääräistä parempi. Harvat voivat vastata tietämykseesi. Jatka samaan malliin ja haasta ystäväsi!",
+  "game.end.motivation.enthusiast":
+    "Vaikuttavaa! 👍 Aidosti musiikkia rakastavana tiedät todella, mistä puhut. Olet rakentanut vankan perustan musiikkitietämykselle, joka erottaa sinut joukosta. Vähän enemmän harjoittelua, ja voit pian nousta ammattilaisliigaan. Haluatko kokeilla toista kierrosta?",
+  "game.end.motivation.lover":
+    "Hienoa! 👏 Musiikin ystävänä olet osoittanut huomattavaa tietämystä. Olet oikealla tiellä tullaksesi todelliseksi musiikin tuntijaksi. Lisää peliharjoittelua, ja voit laajentaa tietämystäsi ja parantaa pisteitäsi. Oletko valmis uuteen haasteeseen?",
+  "game.end.motivation.explorer":
+    "Kiitos pelaamisesta! 🙏 Musiikkitutkijana olet ottanut ensimmäisen askeleen musiikin kiehtovan maailman löytämisessä. Jokainen peli on tilaisuus oppia jotain uutta. Haasta itsesi, pelaa lisää kierroksia ja laajenna musiikkitietämystäsi!",
+
+  // ChronologyFeedbackOverlay specific keys
+  "game.chronology.correct_order_description":
+    "Lista, joka näyttää tapahtumien oikean kronologisen järjestyksen",
+  "session.timeout.warning": "Istuntosi päättyy {0} sekunnissa.",
+  "session.timeout.extend": "Pidennä istuntoa",
+  "session.timeout.continue": "Jatka",
+  "session.extended": "Istunto pidennetty onnistuneesti",
+
+  "nav.menu.opened": "Valikko on avattu",
+  "nav.menu.closed": "Valikko on suljettu",
+  "nav.menu.moved_to_first": "Siirretty ensimmäiseen valikkovaihtoehtoon",
+  "nav.menu.moved_to_last": "Siirretty viimeiseen valikkovaihtoehtoon",
+  "nav.menu.focused_on": "Keskitytty valikkovaihtoehtoon:",
+  "nav.menu.long_press_detected": "Pitkä painallus havaittu valikkovaihtoehdossa",
+
+  // General
+  "general.close": "Sulje",
+
+  // Error messages and accessibility
+  "error.countdown": "Jäljellä oleva aika automaattiseen piilottamiseen",
+  "error.extend": "Pidennä aikataulua",
+  "error.extend.tooltip": "Pidennä virheviestin aikataulua 5 sekunnilla",
+  "error.context.low": "Informatiivinen ilmoitus joka vaatii huomiota",
+  "error.context.medium": "Virheviesti joka vaatii käyttäjän huomiota",
+  "error.context.high": "Korkean prioriteetin virhe joka vaatii välitöntä huomiota",
+  "error.context.critical": "Kriittinen virhe joka vaatii välitöntä toimintaa",
+
+  // AudioPlayer Component
+  "audioplayer.aria.region": "Äänitehdas",
+  "audioplayer.play.aria": "Toista ääni",
+  "audioplayer.play.title": "Toista/Keskeytä",
+  "audioplayer.progress.aria":
+    "Äänen edistyminen - Käytä nuolinäppäimiä hakemiseen, Home alkuun, End loppuun",
+  "audioplayer.progress.help":
+    "Nuoli Vasen/Oikea: Hae 5 sekuntia, Shift+Nuoli: Hae 30 sekuntia, Home: Alku, End: Loppu",
+  "audioplayer.volume.toggle.aria": "Vaihda mykistys päälle/pois",
+  "audioplayer.volume.toggle.title": "Äänenvoimakkuus",
+  "audioplayer.volume.slider.aria": "Säädä äänenvoimakkuutta",
+  "audioplayer.volume.slider.help":
+    "Käytä nuolinäppäimiä äänenvoimakkuuden säätämiseen 5% askelin. Nykyinen äänenvoimakkuus: {volume}%",
+  "audioplayer.captions.english": "Suomenkieliset tekstitykset",
+  "audioplayer.captions.none": "Ei tekstityksiä saatavilla",
+  "audioplayer.fallback.download": "Lataa äänitiedosto sen sijaan",
+  "audioplayer.fallback.unsupported": "Selaimesi ei tue ääni-elementtiä.",
+  "audioplayer.description":
+    "Äänitehdas {title} {artist}. Käytä välilyöntiä toistaaksesi tai keskeytykseen, nuolinäppäimiä hakuun ja M mykistämiseen.",
+  "audioplayer.description.no_title":
+    "Äänitehdas kappaleelle. Käytä välilyöntiä toistaaksesi tai keskeytykseen, nuolinäppäimiä hakuun ja M mykistämiseen.",
+  "audioplayer.help.button.aria": "Ohje",
+  "audioplayer.help.button.title": "Äänentoistion näppäinoikotiet",
+  "audioplayer.help.shortcuts":
+    "Välilyönti: Toista/Keskeytä, M: Mykistä/Palauta ääni, Nuolinäppäimet: Hae ääntä, Ylös/Alas: Äänenvoimakkuuden hallinta",
+
+  // Table of Contents
+  "toc.toggle.label": "Vaihda sisällysluettelo",
+  "toc.state.expanded": "Sisällysluettelo laajennettu",
+  "toc.state.collapsed": "Sisällysluettelo tiivistetty",
+  "toc.nav.label": "Sisällysluettelo",
+  "toc.skip.link": "Ohita sisällysluettelo",
+
+  // TestLint Component Translations
+  "test.lint.title": "ESLint Testikomponentti WCAG AAA -standardin mukaisesti",
+  "test.lint.wcag_title": "WCAG AAA -testi",
+  "test.lint.next_level_aria": "Jatka seuraavalle tasolle",
+  "test.lint.next_button": "Jatka",
+  "test.lint.problematic_button_aria": "Ongelmallinen painike",
+  "test.lint.correct_button_aria": "Oikea painike näppäimistötoiminnallisuudella",
+  "test.lint.test_image_alt": "Testikuva",
+  "test.lint.musician_image_alt":
+    "Kitaristi soittaa kirkkaasti valaistulla lavalla rockkonsertissa",
+  "test.lint.weak_contrast_text": "Tämän tekstin kontrasti on erittäin heikko.",
+  "test.lint.good_contrast_text": "Tämän tekstin kontrasti on riittävä WCAG AAA -standardille.",
+  "test.lint.error_message": "Tapahtui virhe.",
+  "test.lint.score_label": "Pisteet:",
+  "test.lint.incomplete_button": "Epätäydellinen painike",
+  "test.lint.correct_button": "Oikea painike",
+  "test.lint.main_heading": "Pääotsikko",
+  "test.lint.subsection_heading": "Alaosio (h2 puuttuu)",
+
+  // Knowledge accessibility translations
+  "knowledge.accessibility.scrolling_to_top": "Vieritetään sivun alkuun",
+  "knowledge.accessibility.scrolled_to_top": "Vieritetty sivun alkuun",
+  "knowledge.accessibility.search_focused": "Hakukenttä on nyt aktiivinen",
+
+  // Game search functionality
+  "game.search.clear": "Tyhjennä haku",
+  "game.search.help": "Etsi musiikkigenrejä löytääksesi suosikkikategoriasi",
+  "game.search.showing.all": "Näytetään kaikki genret",
+  "game.search.results": "genreä löytyi",
+  "game.search.no.results": "Hakuasi vastaavia genrejä ei löytynyt",
+
+  // Game categories
+  "game.categories.title": "Musiikkikategoriat",
+  "game.categories.loading": "Ladataan musiikkikategorioita...",
+
+  // Game genre selection
+  "game.genre.selection.description": "Valitse suosikkimusiikkigenresi ja testaa tietämystäsi",
+
+  // Accessibility
+  "accessibility.skip.to.content": "Siirry pääsisältöön",
+
+  // Kategorisivut
+  "category.about.title": "Tietoja tästä kategoriasta",
 };

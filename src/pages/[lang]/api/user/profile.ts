@@ -11,15 +11,13 @@
  * URL Parameters:
  * - lang: The language code for i18n translations
  *
- * Query Parameters:
- * - userId: The unique identifier of the user (required)
- *
  * Authentication:
- * - Requires a valid userId (non-guest) in the query parameters
+ * - Requires valid JWT access token in cookies
+ * - Only authenticated users can access their own profile
  *
  * Response:
  * - 200: User profile data successfully retrieved
- * - 401: Unauthorized (missing or invalid user ID)
+ * - 401: Unauthorized (missing or invalid authentication)
  * - 404: User profile not found
  * - 500: Server error during data retrieval
  *
@@ -27,6 +25,7 @@
  */
 import type { APIRoute } from "astro";
 
+import { requireAuth } from "../../../../middleware/auth.ts";
 import { turso } from "../../../../turso.ts";
 import { useTranslations } from "../../../../utils/i18n.ts";
 
@@ -163,18 +162,6 @@ class ProfileError extends Error {
     super(message);
     this.name = "ProfileError";
   }
-}
-
-/**
- * Type guard for checking if a value is a valid UserId
- *
- * @param {string | null} value - The value to check
- * @returns {boolean} Whether the value is a valid user ID
- *
- * @category Type Guards
- */
-function isValidUserId(value: string | null): value is string {
-  return value !== null && value !== "" && value !== "guest";
 }
 
 /**
@@ -364,15 +351,15 @@ export const GET: APIRoute = async ({ request, params }) => {
   const t = useTranslations(lang);
 
   try {
-    // Extract and validate user ID from the URL query parameters
-    const url = new URL(request.url);
-    const userIdRaw = url.searchParams.get("userId");
+    // Check authentication using JWT from cookies
+    const authResult = await requireAuth(request);
 
-    if (!isValidUserId(userIdRaw)) {
-      throw new ProfileError(t("auth.service.unauthorized"), 401);
+    if (!authResult.authenticated || !authResult.user) {
+      return createErrorResponse(t("auth.service.unauthorized"), 401);
     }
 
-    const userId = userIdRaw as UserId;
+    // Use the authenticated user's ID from the JWT token
+    const userId = authResult.user.id as UserId;
 
     // Fetch all required user data in parallel
     const [userRow, stats, recentGames] = await Promise.all([

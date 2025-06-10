@@ -27,8 +27,16 @@ applyTo: "**/*.{ts,astro}"
   // Keep simple transformations and calculations here
   const formattedText = text.toUpperCase();
   const score = correctAnswers * 50;
+  // ALWAYS use CSS variables for styling values
+  const dynamicStyles = `
+    background-color: var(--card-bg);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+  `;
   ---
   ```
+- **MANDATORY: Use CSS custom properties from global.css** - Never hardcode design tokens
+- **ALWAYS perform code deduplication** - Check for existing patterns before creating new ones
 - **Use local scripts with `is:inline`** or as modules for the main functionality
 
   ```astro
@@ -103,16 +111,64 @@ applyTo: "**/*.{ts,astro}"
   // 3. Props processing
   const { category, difficulty = "medium" } = Astro.props;
 
-  // 4. Inline logic
+  // 4. Inline logic with CSS variables
   const lang = getLangFromUrl(Astro.url);
   const t = useTranslations(lang);
 
   // Implement logic directly here if it's only relevant for this component
   const isHardMode = difficulty === "hard";
   const questionCount = isHardMode ? 20 : difficulty === "medium" ? 15 : 10;
+  
+  // Use CSS variables for dynamic styling
+  const difficultyClass = `difficulty-${difficulty}`;
   ---
 
-  <!-- HTML structure with Tailwind styling -->
+  <!-- HTML structure with semantic markup and CSS variables -->
+  <div class={`quiz-component ${difficultyClass}`}>
+    <h2 class="quiz-component__title">{t('quiz.title')}</h2>
+    <p class="quiz-component__info">{questionCount} {t('quiz.questions')}</p>
+  </div>
+
+  <style>
+    .quiz-component {
+      padding: var(--space-lg);
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+    }
+
+    .quiz-component__title {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-bold);
+      color: var(--text-primary);
+      margin-bottom: var(--space-md);
+    }
+
+    .quiz-component__info {
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+    }
+
+    .difficulty-easy {
+      border-left: 4px solid var(--color-success-500);
+    }
+
+    .difficulty-medium {
+      border-left: 4px solid var(--color-warning-500);
+    }
+
+    .difficulty-hard {
+      border-left: 4px solid var(--color-error-500);
+    }
+
+    /* Use existing responsive breakpoints */
+    @media (min-width: 48em) {
+      .quiz-component {
+        padding: var(--space-xl);
+      }
+    }
+  </style>
   ```
 
 ### Performance Optimization
@@ -125,15 +181,17 @@ applyTo: "**/*.{ts,astro}"
 
 ### Decision Matrix for Code Organization
 
-| Scenario                    | Solution                                 |
-| --------------------------- | ---------------------------------------- |
-| Simple UI logic             | Inline in Astro frontmatter              |
-| Simple DOM interactions     | Inline script with `is:inline`           |
-| More complex frontend logic | Module script (`<script>`)               |
-| Reusable frontend logic     | In `/src/utils/` as TS file              |
-| Game logic                  | In `/src/utils/game/` as TS file         |
-| Reusable UI element         | As Astro component in `/src/components/` |
-| Page-specific UI element    | Keep in the current file                 |
+| Scenario                    | Solution                                          |
+| --------------------------- | ------------------------------------------------- |
+| Simple UI logic             | Inline in Astro frontmatter with CSS variables   |
+| Simple DOM interactions     | Inline script with `is:inline`                   |
+| More complex frontend logic | Module script (`<script>`) using CSS variables   |
+| Reusable frontend logic     | In `/src/utils/` as TS file                      |
+| Game logic                  | In `/src/utils/game/` as TS file                 |
+| Reusable UI element         | As Astro component in `/src/components/`         |
+| Page-specific UI element    | Keep in the current file with CSS variables      |
+| **CSS Styling**             | **ALWAYS use root variables from global.css**    |
+| **Code Patterns**           | **ALWAYS check for existing patterns first**     |
 
 ### Code Analysis and Refactoring Process
 

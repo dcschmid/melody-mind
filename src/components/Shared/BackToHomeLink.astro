@@ -1,0 +1,131 @@
+---
+/**
+ * @component BackToHomeLink
+ * @description Reusable back-to-home navigation link component with arrow icon.
+ * This component provides consistent styling and accessibility for navigation
+ * across authentication pages and other areas that need a home link.
+ *
+ * Features:
+ * - WCAG AAA compliant with enhanced focus indicators
+ * - Responsive design with hover animations
+ * - Performance optimized with CSS containment
+ * - Full internationalization support
+ * - Consistent styling using CSS variables
+ *
+ * @example
+ * ```astro
+ * <BackToHomeLink lang="en" />
+ * <BackToHomeLink lang="de" className="custom-back-link" />
+ * ```
+ *
+ * @accessibility
+ * - Minimum 44×44px touch target
+ * - High contrast focus indicators
+ * - Screen reader friendly with proper aria-label
+ * - Keyboard navigation support
+ */
+
+import { Icon } from "astro-icon/components";
+import { useTranslations } from "@utils/i18n";
+
+/**
+ * Props interface for the BackToHomeLink component
+ */
+interface Props {
+  /** Language code for internationalization */
+  lang: string;
+  /** Additional CSS class for custom styling */
+  className?: string;
+  /** Custom aria-label (overrides default translation) */
+  ariaLabel?: string;
+}
+
+const { lang, className = "", ariaLabel } = Astro.props;
+const t = useTranslations(lang);
+
+// Use custom aria-label or fallback to translation
+const linkAriaLabel = ariaLabel || t("auth.login.back_to_home");
+const linkText = t("auth.login.back_to_home");
+---
+
+<div class={`back-to-home ${className}`.trim()}>
+  <a
+    href={`/${String(lang)}/`}
+    class="back-to-home__link"
+    aria-label={linkAriaLabel}
+    rel="prefetch"
+  >
+    <Icon name="arrow-left" class="back-to-home__icon" aria-hidden="true" />
+    <span>{linkText}</span>
+  </a>
+</div>
+
+<style>
+  /* ======================================
+   * BACK TO HOME NAVIGATION - REUSABLE COMPONENT
+   * Using CSS variables from global.css only
+   * ====================================== */
+
+  .back-to-home {
+    margin-bottom: var(--space-md);
+    text-align: left;
+  }
+
+  .back-to-home__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--min-touch-size);
+    min-width: var(--min-touch-size);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    color: var(--color-primary-300);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    letter-spacing: var(--letter-spacing-base);
+
+    /* Performance optimizations */
+    contain: layout style;
+    will-change: transform, background-color;
+
+    /* Enhanced focus styles for WCAG AAA */
+    outline: none;
+  }
+
+  .back-to-home__link:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--color-primary-200);
+    transform: translateX(calc(-1 * var(--space-xs)));
+  }
+
+  .back-to-home__link:focus {
+    outline: var(--focus-enhanced-outline-dark);
+    outline-offset: var(--focus-ring-offset);
+    box-shadow: var(--focus-enhanced-shadow);
+  }
+
+  .back-to-home__icon {
+    width: var(--icon-size-md);
+    height: var(--icon-size-md);
+    margin-right: var(--space-xs);
+    color: currentColor;
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .back-to-home__link {
+      border: var(--border-width-thick) solid var(--border-primary);
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .back-to-home__link {
+      transition: none;
+    }
+
+    .back-to-home__link:hover {
+      transform: none;
+    }
+  }
+</style>

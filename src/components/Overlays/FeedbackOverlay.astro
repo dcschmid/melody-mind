@@ -11,6 +11,7 @@
  * - High contrast mode support
  * - Optimized animations with reduced motion support
  * - Performance-optimized interactions
+ * - Uses CSS variables from global.css for WCAG AAA 2.2 compliance
  */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
@@ -21,7 +22,7 @@ const t = useTranslations(lang);
 
 <div
   id="overlay"
-  class="overlay fixed inset-0 z-50 flex hidden items-center justify-center bg-black/95 p-6 backdrop-blur-md"
+  class="overlay hidden"
   role="dialog"
   aria-labelledby="overlay-title"
   aria-describedby="feedback"
@@ -29,25 +30,18 @@ const t = useTranslations(lang);
   tabindex="-1"
 >
   <!-- Overlay backdrop for click-to-close functionality -->
-  <div id="overlay-backdrop" class="absolute inset-0" aria-hidden="true"></div>
+  <div id="overlay-backdrop" class="overlay__backdrop" aria-hidden="true"></div>
 
-  <div
-    class="overlayContent scrollbar-gutter-stable max-h-[90vh] w-full max-w-[768px] overflow-y-auto overscroll-contain rounded-xl border border-zinc-700 bg-zinc-800 p-6 shadow-xl md:p-8"
-    role="document"
-    tabindex="-1"
-  >
-    <div class="mb-6 flex items-center justify-between">
-      <h2
-        id="overlay-title"
-        class="title text-2xl font-bold tracking-tight text-zinc-50 md:text-3xl"
-      >
+  <div class="overlay__content" role="document" tabindex="-1">
+    <div class="overlay__header">
+      <h2 id="overlay-title" class="overlay__title">
         {t("game.feedback.resolution")}
       </h2>
 
       <!-- Close button for enhanced accessibility -->
       <button
         id="close-overlay-button"
-        class="close-button flex h-10 min-h-[44px] w-10 min-w-[44px] items-center justify-center rounded-full bg-zinc-700 text-zinc-300 transition-colors hover:bg-zinc-600 focus:bg-zinc-600"
+        class="overlay__close-button"
         aria-label={t("general.close") || "Close"}
       >
         <Icon name="close" width={24} height={24} aria-hidden="true" />
@@ -58,105 +52,112 @@ const t = useTranslations(lang);
     <div id="feedback-status-announcer" aria-live="assertive" aria-atomic="true" class="sr-only">
     </div>
 
-    <p
-      id="feedback"
-      class="feedback my-6 rounded-lg p-5 text-center text-xl leading-relaxed font-semibold"
-      role="status"
-    >
-    </p>
+    <!-- Keyboard shortcuts documentation for screen readers -->
+    <div class="sr-only" id="keyboard-shortcuts">
+      <h4>{t("general.keyboard.shortcuts")}</h4>
+      <ul>
+        <li>{t("general.keyboard.escape")}: {t("general.close")}</li>
+        <li>{t("general.keyboard.space")}: {t("game.feedback.play.audio")}</li>
+        <li>{t("general.keyboard.enter")}: {t("game.feedback.next.round")}</li>
+        <li>{t("general.keyboard.tab")}: {t("general.navigate.elements")}</li>
+      </ul>
+    </div>
 
-    <div
-      class="mediaSection mb-8 grid items-start gap-6 md:grid-cols-2"
-      aria-label={t("game.feedback.media.section")}
-    >
-      <div class="imageContainer flex justify-center">
+    <p id="feedback" class="feedback" role="status"></p>
+
+    <div class="media-section" aria-label={t("game.feedback.media.section")}>
+      <div class="media-section__image">
         <img
           id="overlay-cover"
-          class="albumCover aspect-square h-auto w-full max-w-[300px] transform-gpu rounded-lg object-cover shadow-lg transition-transform duration-300 will-change-transform"
+          class="album-cover"
           src=""
           alt=""
-          loading="eager"
+          loading="lazy"
           decoding="async"
+          width="300"
+          height="300"
+          style="aspect-ratio: 1;"
         />
       </div>
 
-      <div class="infoSection flex flex-col justify-between space-y-3 text-left" role="contentinfo">
+      <div class="media-section__info" role="contentinfo">
         <div>
-          <p id="overlay-artist" class="artist mb-2 text-2xl font-bold text-sky-400"></p>
-          <p id="overlay-album" class="album mb-1 text-xl text-zinc-50"></p>
-          <p id="overlay-year" class="year text-lg text-zinc-300"></p>
-          <p id="overlay-funfact" class="funFact mt-4 text-lg leading-relaxed text-zinc-300"></p>
+          <p id="overlay-artist" class="artist-name"></p>
+          <p id="overlay-album" class="album-name"></p>
+          <p id="overlay-year" class="album-year"></p>
+          <p id="overlay-funfact" class="fun-fact"></p>
         </div>
 
         <div class="audio-container">
-          <label id="audio-label" for="audio-preview" class="mb-1 block text-sm text-zinc-400">
+          <label id="audio-label" for="audio-preview" class="audio-label">
             {t("game.feedback.audio.preview")}
           </label>
-          <audio
-            id="audio-preview"
-            class="audioPlayer mt-2 w-full"
-            controls
-            preload="metadata"
-            aria-labelledby="audio-label"
-          >
+          <audio id="audio-preview" class="audio-player" controls aria-labelledby="audio-label">
             <source id="audio-preview-source" src="" type="audio/mpeg" />
-            <source id="audio-preview-source-ogg" src="" type="audio/ogg" />
             <track kind="captions" src="" label={t("game.feedback.subtitles")} />
-            <p>{t("game.feedback.audio.unsupported")}</p>
+            <p>
+              {t("game.feedback.audio.unsupported")}
+              <button type="button" class="audio-fallback-link">
+                {t("game.feedback.audio.fallback")}
+              </button>
+            </p>
           </audio>
         </div>
       </div>
     </div>
 
-    <h3 class="mb-4 text-center text-xl font-semibold text-zinc-50">
+    <h3 class="streaming-links__title">
       {t("game.feedback.streaming.links")}
     </h3>
 
     <div
-      class="musicLinks my-6 flex flex-wrap justify-center gap-4"
+      id="streaming-links"
+      class="streaming-links"
       role="group"
       aria-label={t("game.feedback.streaming.links")}
     >
       <a
         id="spotify-link"
-        class="musicButton inline-flex min-h-[44px] min-w-[160px] items-center justify-center rounded-lg bg-sky-600 p-5 font-semibold text-white transition-colors hover:bg-sky-500 focus:bg-sky-500"
-        href="#"
+        class="music-button"
+        href="javascript:void(0)"
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t("game.feedback.listen.spotify")}
       >
-        <Icon name="spotify" class="mr-4" width={24} height={24} aria-hidden="true" />
+        <Icon name="spotify" class="music-button__icon" width={24} height={24} aria-hidden="true" />
         <span>Spotify</span>
       </a>
       <a
         id="deezer-link"
-        class="musicButton inline-flex min-h-[44px] min-w-[160px] items-center justify-center rounded-lg bg-sky-600 p-5 font-semibold text-white transition-colors hover:bg-sky-500 focus:bg-sky-500"
-        href="#"
+        class="music-button"
+        href="javascript:void(0)"
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t("game.feedback.listen.deezer")}
       >
-        <Icon name="deezer" class="mr-4" width={24} height={24} aria-hidden="true" />
+        <Icon name="deezer" class="music-button__icon" width={24} height={24} aria-hidden="true" />
         <span>Deezer</span>
       </a>
       <a
         id="apple-link"
-        class="musicButton inline-flex min-h-[44px] min-w-[160px] items-center justify-center rounded-lg bg-sky-600 p-5 font-semibold text-white transition-colors hover:bg-sky-500 focus:bg-sky-500"
-        href="#"
+        class="music-button"
+        href="javascript:void(0)"
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t("game.feedback.listen.apple")}
       >
-        <Icon name="apple-music" class="mr-4" width={24} height={24} aria-hidden="true" />
+        <Icon
+          name="apple-music"
+          class="music-button__icon"
+          width={24}
+          height={24}
+          aria-hidden="true"
+        />
         <span>Apple Music</span>
       </a>
     </div>
-    <button
-      id="next-round-button"
-      class="nextButton m-auto block min-h-[48px] min-w-[200px] rounded-lg bg-sky-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-sky-500 focus:bg-sky-500"
-      aria-label={t("game.feedback.next.round")}
-    >
-      <span class="flex items-center justify-center gap-2">
+    <button id="next-round-button" class="next-button" aria-label={t("game.feedback.next.round")}>
+      <span class="next-button__content">
         {t("game.feedback.next.round")}
         <Icon name="arrow-right" width={20} height={20} aria-hidden="true" />
       </span>
@@ -165,325 +166,595 @@ const t = useTranslations(lang);
 </div>
 
 <style>
-  /* Base visibility classes for JS compatibility */
+  /* ======================================
+   * OVERLAY BASE STYLES - Using Global CSS Variables
+   * ====================================== */
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-md);
+    background-color: var(--backdrop-overlay-dark);
+    backdrop-filter: blur(var(--backdrop-blur));
+    -webkit-backdrop-filter: blur(var(--backdrop-blur));
+    transition:
+      opacity var(--transition-normal),
+      visibility var(--transition-normal);
+  }
+
   .overlay.hidden {
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
   }
 
-  /* Feedback styles with improved contrast for accessibility */
+  .overlay__backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-backdrop);
+    pointer-events: auto; /* Allow click-to-close on backdrop only */
+  }
+
+  /* ======================================
+   * OVERLAY CONTENT - Using Root Variables
+   * ====================================== */
+
+  .overlay__content {
+    position: relative;
+    z-index: var(--z-modal-content); /* Higher z-index than backdrop */
+    max-height: var(--modal-content-max-height);
+    width: 100%;
+    max-width: var(--container-lg); /* 48rem / 768px */
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-radius: var(--radius-xl);
+    border: var(--border-width-thin) solid var(--border-primary);
+    background-color: var(--card-bg);
+    padding: var(--modal-padding);
+    box-shadow: var(--card-shadow);
+    scrollbar-gutter: stable;
+    pointer-events: auto; /* Ensure all content interactions work */
+  }
+
+  /* ======================================
+   * HEADER SECTION - Using Root Variables
+   * ====================================== */
+
+  .overlay__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-xl);
+  }
+
+  .overlay__title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    letter-spacing: var(--letter-spacing-base);
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .overlay__close-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--min-touch-size);
+    height: var(--min-touch-size);
+    min-width: var(--min-touch-size);
+    min-height: var(--min-touch-size);
+    border-radius: var(--radius-full);
+    background-color: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: none;
+    cursor: pointer;
+    transition:
+      background-color var(--transition-normal),
+      color var(--transition-normal);
+  }
+
+  .overlay__close-button:hover,
+  .overlay__close-button:focus {
+    background-color: var(--interactive-primary);
+    color: var(--text-primary);
+  }
+
+  /* ======================================
+   * FEEDBACK STYLES - Using Root Variables
+   * ====================================== */
+
+  .feedback {
+    margin: var(--space-xl) 0;
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    text-align: center;
+    font-size: var(--text-xl);
+    line-height: var(--leading-relaxed);
+    font-weight: var(--font-semibold);
+  }
+
+  /* WCAG AAA 2.2 compliant feedback colors */
   .feedback.correct {
-    color: #fff;
-    background-color: rgb(4, 120, 87); /* emerald-700 for better contrast (7:1 ratio) */
+    color: var(--text-success-aaa);
+    background-color: var(--bg-success-aaa);
   }
 
   .feedback.incorrect {
-    color: #fff;
-    background-color: rgb(185, 28, 28); /* red-700 for better contrast (7:1 ratio) */
+    color: var(--text-error-aaa);
+    background-color: var(--bg-error-aaa);
   }
 
-  /* Enhanced focus styles for keyboard users - WCAG AAA compliant */
-  .overlayContent:focus,
-  button:focus-visible,
-  a:focus-visible,
-  .audioPlayer:focus-visible {
-    outline: 3px solid rgb(56, 189, 248); /* sky-300 */
-    outline-offset: 3px;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
-    z-index: 1;
+  /* ======================================
+   * MEDIA SECTION - Using Root Variables
+   * ====================================== */
+
+  .media-section {
+    margin-bottom: var(--space-2xl);
+    display: grid;
+    align-items: start;
+    gap: var(--space-xl);
   }
 
-  /* GPU-accelerated animations with reduced-motion consideration */
+  .media-section__image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .album-cover {
+    aspect-ratio: 1;
+    height: auto;
+    width: 100%;
+    max-width: var(--container-sm); /* 18.75rem / 300px */
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    box-shadow: var(--shadow-lg);
+    /* Optimized transitions for GPU acceleration */
+    transition:
+      transform var(--transition-normal),
+      box-shadow var(--transition-normal);
+    /* Use transform3d for GPU layer promotion */
+    transform: translateZ(0);
+    /* Optimize will-change only during interaction */
+    will-change: auto;
+  }
+
+  .media-section__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-md);
+    text-align: left;
+  }
+
+  .artist-name {
+    margin-bottom: var(--space-sm);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--interactive-primary);
+  }
+
+  .album-name {
+    margin-bottom: var(--space-xs);
+    font-size: var(--text-xl);
+    color: var(--text-primary);
+  }
+
+  .album-year {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+  }
+
+  .fun-fact {
+    margin-top: var(--space-md);
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary);
+    max-width: var(--content-readable-width);
+  }
+
+  /* ======================================
+   * AUDIO SECTION - Using Root Variables
+   * ====================================== */
+
+  .audio-label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+  }
+
+  .audio-player {
+    margin-top: var(--space-sm);
+    width: 100%;
+    background-color: var(--form-bg);
+    border-radius: var(--radius-md);
+  }
+
+  .audio-fallback-link {
+    display: inline-block;
+    margin-left: var(--space-sm);
+    color: var(--interactive-primary);
+    text-decoration: underline;
+    text-decoration-color: var(--interactive-primary);
+    text-underline-offset: var(--text-underline-offset);
+    transition: color var(--transition-normal);
+  }
+
+  .audio-fallback-link:hover,
+  .audio-fallback-link:focus {
+    color: var(--interactive-primary-hover);
+    text-decoration-color: var(--interactive-primary-hover);
+  }
+
+  .audio-fallback-link:focus-visible {
+    outline: var(--focus-enhanced-outline-dark);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* ======================================
+   * STREAMING LINKS SECTION - Using Root Variables
+   * ====================================== */
+
+  .streaming-links__title {
+    margin-bottom: var(--space-md);
+    text-align: center;
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+  }
+
+  .streaming-links {
+    margin: var(--space-xl) 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  .music-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--min-touch-size);
+    min-width: calc(var(--min-touch-size) * 3.6); /* 10rem / 160px optimized */
+    border-radius: var(--radius-lg);
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+    font-weight: var(--font-semibold);
+    text-decoration: none;
+    padding: var(--space-lg);
+    transition:
+      background var(--transition-normal),
+      transform var(--transition-fast);
+  }
+
+  .music-button:hover,
+  .music-button:focus {
+    background: var(--btn-primary-hover);
+    transform: translateY(var(--animation-y-offset-small));
+  }
+
+  .music-button__icon {
+    margin-right: var(--space-md);
+  }
+
+  /* ======================================
+   * NEXT BUTTON - Using Root Variables
+   * ====================================== */
+
+  .next-button {
+    display: block;
+    margin: 0 auto;
+    min-height: var(--min-touch-size);
+    min-width: calc(var(--min-touch-size) * 4.5); /* 12.5rem / 200px optimized */
+    border-radius: var(--radius-lg);
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+    font-weight: var(--font-semibold);
+    border: none;
+    cursor: pointer;
+    padding: var(--space-md) var(--space-xl);
+    transition:
+      background var(--transition-normal),
+      transform var(--transition-fast);
+  }
+
+  .next-button:hover,
+  .next-button:focus {
+    background: var(--btn-primary-hover);
+    transform: translateY(var(--animation-y-offset-small));
+  }
+
+  .next-button__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+  }
+
+  /* ======================================
+   * RESPONSIVE DESIGN - Using Root Variables
+   * ====================================== */
+
+  @media (min-width: 48em) {
+    .overlay__content {
+      padding: var(--space-2xl);
+    }
+
+    .overlay__title {
+      font-size: var(--text-3xl);
+    }
+
+    .media-section {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* ======================================
+   * ACCESSIBILITY & FOCUS STYLES - Using Root Variables
+   * ====================================== */
+
+  .overlay__content:focus,
+  .overlay__close-button:focus-visible,
+  .music-button:focus-visible,
+  .next-button:focus-visible,
+  .audio-player:focus-visible {
+    outline: var(--focus-enhanced-outline-dark);
+    outline-offset: var(--focus-ring-offset);
+    box-shadow: var(--focus-enhanced-shadow);
+  }
+
+  /* ======================================
+   * ANIMATIONS & MOTION - Performance Optimized with Root Variables
+   * ====================================== */
+
   @media (prefers-reduced-motion: no-preference) {
-    .albumCover {
+    .album-cover:hover {
+      /* Enable will-change only during interaction */
       will-change: transform, box-shadow;
-      transition:
-        transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
-        box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+      transform: scale(var(--scale-focus)) translateZ(0);
+      box-shadow: var(--shadow-xl);
     }
 
-    .albumCover:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    .album-cover:not(:hover) {
+      /* Clean up will-change after interaction */
+      will-change: auto;
     }
 
-    .overlay:not(.hidden) .overlayContent {
-      animation: fade-in 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    .overlay:not(.hidden) .overlay__content {
+      animation: fade-in var(--transition-normal) cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
     }
 
     @keyframes fade-in {
       from {
         opacity: 0;
-        transform: translateY(10px) scale(0.98);
+        /* Use transform3d for GPU acceleration */
+        transform: translateY(var(--animation-y-offset)) scale(var(--animation-scale-start))
+          translateZ(0);
       }
       to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0) scale(var(--animation-scale-end)) translateZ(0);
       }
     }
   }
 
-  /* High Contrast Mode support */
-  @media (forced-colors: active) {
-    .overlayContent {
-      border: 3px solid CanvasText;
-      background-color: Canvas;
-    }
+  /* ======================================
+   * REDUCED MOTION SUPPORT
+   * ====================================== */
 
-    .musicButton,
-    .nextButton,
-    .close-button {
-      border: 2px solid ButtonText;
-      background-color: ButtonFace;
-      color: ButtonText;
-      forced-color-adjust: none;
-    }
-
-    .musicButton:focus-visible,
-    .nextButton:focus-visible,
-    .close-button:focus-visible {
-      outline: 3px solid Highlight;
-      outline-offset: 3px;
-    }
-
-    .feedback.correct,
-    .feedback.incorrect {
-      border: 2px solid CanvasText;
-      background-color: Canvas;
-      color: CanvasText;
-    }
-
-    .overlay-backdrop {
-      background-color: Canvas;
-      opacity: 0.9;
-    }
-  }
-
-  /* Support for reduced motion preferences */
   @media (prefers-reduced-motion: reduce) {
     .overlay,
-    .overlayContent,
-    .albumCover,
-    button,
-    a {
+    .overlay__content,
+    .album-cover,
+    .overlay__close-button,
+    .music-button,
+    .next-button {
       animation-duration: 0.001ms !important;
       transition-duration: 0.001ms !important;
       animation-iteration-count: 1 !important;
     }
   }
 
-  /* Screen reader only class */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
+  /* ======================================
+   * HIGH CONTRAST MODE SUPPORT
+   * ====================================== */
+
+  @media (forced-colors: active) {
+    .overlay__content {
+      border: var(--border-width-enhanced) solid CanvasText;
+      background-color: Canvas;
+    }
+
+    .music-button,
+    .next-button,
+    .overlay__close-button {
+      border: var(--border-width-thick) solid ButtonText;
+      background-color: ButtonFace;
+      color: ButtonText;
+      forced-color-adjust: none;
+    }
+
+    .music-button:focus-visible,
+    .next-button:focus-visible,
+    .overlay__close-button:focus-visible {
+      outline: var(--border-width-enhanced) solid Highlight;
+      outline-offset: var(--focus-ring-offset);
+    }
+
+    .feedback.correct,
+    .feedback.incorrect {
+      border: var(--border-width-thick) solid CanvasText;
+      background-color: Canvas;
+      color: CanvasText;
+    }
+
+    .overlay__backdrop {
+      background-color: Canvas;
+      opacity: 0.9;
+    }
   }
 
-  /* Optimized text readability (AAA requires minimum 18px for normal text) */
-  .artist,
-  .album,
-  .year,
-  .funFact {
-    line-height: 1.5;
-    max-width: 65ch; /* Optimal readability */
+  /* ======================================
+   * CUSTOM SCROLLBAR STYLES - Using Root Variables
+   * ====================================== */
+
+  .overlay__content {
+    scrollbar-width: var(--scrollbar-thin);
+    scrollbar-color: var(--scrollbar-thumb-bg) var(--scrollbar-track-bg);
   }
 
-  /* Print styles */
+  .overlay__content::-webkit-scrollbar {
+    width: var(--scrollbar-thin);
+    height: var(--scrollbar-thin);
+  }
+
+  .overlay__content::-webkit-scrollbar-track {
+    background: var(--scrollbar-track-bg);
+    border-radius: var(--scrollbar-track-radius);
+  }
+
+  .overlay__content::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-bg);
+    border-radius: var(--scrollbar-thumb-radius);
+  }
+
+  .overlay__content::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+
+  /* ======================================
+   * ENHANCED TEXT SPACING SUPPORT (WCAG 2.2) - Using Root Variables
+   * ====================================== */
+
+  /* Enhanced text spacing class for WCAG 2.2 compliance */
+  .enhanced-text-spacing .overlay__content * {
+    letter-spacing: var(--text-spacing-letter-2x) !important;
+    word-spacing: var(--text-spacing-word-enhanced) !important;
+    line-height: var(--text-spacing-line-1-5x) !important;
+  }
+
+  .enhanced-text-spacing .overlay__content p,
+  .enhanced-text-spacing .overlay__content .feedback {
+    margin-bottom: var(--text-spacing-paragraph-2x) !important;
+  }
+
+  .enhanced-text-spacing .overlay__content .streaming-links {
+    gap: calc(var(--space-md) * 1.5) !important;
+  }
+
+  /* Maintain functionality with enhanced text spacing */
+  .enhanced-text-spacing .overlay__content .music-button,
+  .enhanced-text-spacing .overlay__content .next-button {
+    padding: calc(var(--space-lg) * 1.2) calc(var(--space-xl) * 1.2);
+  }
+
+  /* ======================================
+   * PRINT STYLES - Using Root Variables
+   * ====================================== */
+
   @media print {
-    .overlayContent {
-      border: 1px solid #000;
+    .overlay__content {
+      border: var(--border-width-thin) solid var(--print-border);
       box-shadow: none;
       max-height: none !important;
+      background: var(--print-bg);
+      color: var(--print-text);
     }
 
-    .musicButton,
-    .nextButton,
-    .close-button {
-      border: 1px solid #000;
-      background: #fff !important;
-      color: #000 !important;
+    .music-button,
+    .next-button,
+    .overlay__close-button {
+      border: var(--border-width-thin) solid var(--print-border);
+      background: var(--print-bg) !important;
+      color: var(--print-text) !important;
     }
 
-    audio {
+    .audio-player {
       display: none;
     }
   }
-
-  /* Enhanced scrollbar styles for better visibility */
-  .overlayContent::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  .overlayContent::-webkit-scrollbar-track {
-    background: rgba(39, 39, 42, 0.6); /* zinc-800 with better contrast */
-    border-radius: 10px;
-  }
-
-  .overlayContent::-webkit-scrollbar-thumb {
-    background: rgba(161, 161, 170, 0.8); /* zinc-400 with better opacity for contrast */
-    border-radius: 10px;
-  }
-
-  .overlayContent::-webkit-scrollbar-thumb:hover {
-    background: rgba(212, 212, 216, 0.9); /* zinc-300 with better contrast */
-  }
 </style>
 
-<script>
+<script type="module" is:inline>
   /**
-   * FeedbackOverlay Component Script
-   *
-   * This script manages the feedback overlay functionality with a focus on
-   * high performance and WCAG AAA accessibility standards.
-   *
-   * Features:
-   * - Fully keyboard accessible with focus trap
-   * - Screen reader announcements
-   * - Performance optimized animations
-   * - Memory leak prevention
-   * - Reduced motion support
-   * - Error recovery for media assets
+   * FeedbackOverlay with Working Focus Trap
+   * Implements robust keyboard navigation and accessibility features.
+   * Uses existing utility functions for code deduplication.
    */
 
-  // Store last focused element to restore focus when overlay closes
-  let lastFocusedElement: HTMLElement | null = null;
+  // Translation strings for client-side use
+  const translations = {
+    audioFailed: `${t("game.feedback.audio.failed")}`,
+    audioPaused: `${t("game.feedback.audio.paused")}`,
+    nextRoundStarting: `${t("game.feedback.next.starting")}`,
+  };
+
+  // Focus trap state management
+  let focusableElements = [];
+  let isTrappingFocus = false;
+  let currentFocusIndex = 0;
 
   /**
-   * Close the overlay and advance to the next round
-   * This function centralizes the logic for both the close button click and Escape key press
+   * Initialize feedback overlay functionality
+   * Try to reuse existing utilities to avoid code duplication
    */
-  function closeAndAdvance(): void {
+  async function initializeOverlay() {
+    try {
+      // Try to import utility if available for code reuse
+      const { initializeFeedbackOverlayOptimized } = await import(
+        "/src/utils/overlays/feedbackOverlay.js"
+      );
+      initializeFeedbackOverlayOptimized();
+    } catch (error) {
+      console.warn("Using fallback overlay initialization:", error?.message || "Unknown error");
+      setupBasicOverlay();
+    }
+  }
+
+  /**
+   * Set up basic overlay functionality
+   * Reuses established patterns from other overlays
+   */
+  function setupBasicOverlay() {
     const overlay = document.getElementById("overlay");
-    if (!overlay) {
-      return;
-    }
-
-    const nextRoundBtn = document.getElementById("next-round-button") as HTMLButtonElement;
-    if (nextRoundBtn) {
-      // Hide the overlay first
-      overlay.classList.add("hidden");
-      document.body.style.overflow = "";
-
-      // Then directly click the next round button
-      setTimeout(() => {
-        console.error("Triggering next button click");
-        nextRoundBtn.click();
-      }, 50);
-    } else {
-      // Just hide if next button not found
-      hideOverlay();
-    }
-  }
-
-  /**
-   * Initialize the FeedbackOverlay component when DOM is ready
-   */
-  function initializeFeedbackOverlay(): void {
-    const overlay = document.getElementById("overlay") as HTMLElement;
-    const overlayContent = overlay?.querySelector(".overlayContent") as HTMLElement;
-    const overlayBackdrop = document.getElementById("overlay-backdrop");
     const closeButton = document.getElementById("close-overlay-button");
-    const nextButton = document.getElementById("next-round-button");
+    const backdrop = document.getElementById("overlay-backdrop");
 
-    if (!overlay || !overlayContent) {
-      console.error("FeedbackOverlay: Required elements not found");
-      return;
-    }
-
-    // Set up visibility handling with optimized focus management
-    setupOverlayVisibilityHandling(overlay, overlayContent);
-
-    // Set up event listeners for close actions
+    // Event listeners - consistent with other overlay components
     if (closeButton) {
-      closeButton.addEventListener("click", function (e) {
-        e.preventDefault();
-        console.error("Close button clicked"); // Debug message
-        closeAndAdvance();
-      });
+      closeButton.addEventListener("click", closeOverlay);
+    }
+    if (backdrop) {
+      backdrop.addEventListener("click", closeOverlay);
     }
 
-    if (overlayBackdrop) {
-      overlayBackdrop.addEventListener("click", function (e) {
-        e.preventDefault();
-        hideOverlay();
-      });
-    }
+    // Observe overlay visibility changes - reused pattern
+    if (overlay) {
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === "attributes" && mutation.attributeName === "class") {
+            const isVisible = !overlay.classList.contains("hidden");
 
-    if (nextButton) {
-      nextButton.addEventListener("click", function (_e) {
-        hideOverlay();
-      });
-    }
-
-    // Setup keyboard navigation and focus trap
-    setupKeyboardNavigation(overlay);
-
-    // Set up the Next Round button's functionality
-    setupNextRoundFunctionality(nextButton);
-
-    // Handle album cover display and errors
-    const coverObserver = handleAlbumCoverDisplay(overlay);
-
-    // Set up accessibility announcements
-    setupAccessibilityAnnouncements();
-
-    // Set up clean-up handlers to prevent memory leaks
-    setupCleanupHandlers(coverObserver);
-  }
-
-  /**
-   * Sets up overlay visibility handling with proper focus management
-   *
-   * @param {HTMLElement} overlay - The overlay container
-   * @param {HTMLElement} overlayContent - The content container
-   */
-  function setupOverlayVisibilityHandling(overlay: HTMLElement, overlayContent: HTMLElement): void {
-    // Create an observer to monitor class changes on the overlay
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === "attributes" && mutation.attributeName === "class") {
-          const isVisible = !overlay.classList.contains("hidden");
-
-          if (isVisible) {
-            // Save the currently focused element before showing overlay
-            lastFocusedElement = document.activeElement as HTMLElement;
-
-            // Display overlay with performance-optimized animation
-            showOverlayWithAnimation(overlay, overlayContent);
-
-            // Prevent background scrolling
-            document.body.style.overflow = "hidden";
-
-            // Set initial focus to the close button for accessibility
-            setTimeout(() => {
-              const closeButton = document.getElementById("close-overlay-button");
-              if (closeButton) {
-                closeButton.focus();
-              }
-            }, 100);
+            if (isVisible && !isTrappingFocus) {
+              activateFocusTrap();
+            } else if (!isVisible && isTrappingFocus) {
+              deactivateFocusTrap();
+            }
           }
-        }
+        });
       });
-    });
 
-    // Start observing the overlay for class changes
-    observer.observe(overlay, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    // Initial check in case the overlay is already visible
-    if (!overlay.classList.contains("hidden")) {
-      observer.disconnect();
-      showOverlayWithAnimation(overlay, overlayContent);
       observer.observe(overlay, {
         attributes: true,
         attributeFilter: ["class"],
@@ -492,376 +763,214 @@ const t = useTranslations(lang);
   }
 
   /**
-   * Shows the overlay with a performance-optimized animation
-   *
-   * @param {HTMLElement} overlay - The overlay container
-   * @param {HTMLElement} overlayContent - The content container
+   * Get all focusable elements in the overlay
+   * Reuses standard focusable element selectors
    */
-  function showOverlayWithAnimation(overlay: HTMLElement, overlayContent: HTMLElement): void {
-    // Reset scroll position
-    overlayContent.scrollTop = 0;
-
-    // Check if user prefers reduced motion
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (prefersReducedMotion) {
-      // Skip animation for users who prefer reduced motion
-      return;
-    }
-
-    // Use requestAnimationFrame for smooth animation
-    requestAnimationFrame(() => {
-      overlayContent.style.opacity = "0";
-      overlayContent.style.transform = "translateY(10px) scale(0.98)";
-
-      requestAnimationFrame(() => {
-        overlayContent.style.transition =
-          "opacity 300ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 300ms cubic-bezier(0.25, 0.1, 0.25, 1)";
-        overlayContent.style.opacity = "1";
-        overlayContent.style.transform = "translateY(0) scale(1)";
-      });
-    });
-  }
-
-  /**
-   * Hides the overlay and restores focus to the previous element
-   * Used for backdrop clicks or the Next Round button's own handling
-   */
-  function hideOverlay(): void {
+  function getFocusableElements() {
     const overlay = document.getElementById("overlay");
     if (!overlay) {
+      return [];
+    }
+
+    // Standard focusable selectors - consistent across components
+    const selectors = [
+      "button:not([disabled])",
+      "input:not([disabled])",
+      "select:not([disabled])",
+      "textarea:not([disabled])",
+      "audio[controls]",
+      "video[controls]",
+      '[tabindex]:not([tabindex="-1"])',
+      "a[href]",
+    ].join(", ");
+
+    return Array.from(overlay.querySelectorAll(selectors)).filter((el) => {
+      const style = getComputedStyle(el);
+      return style.display !== "none" && style.visibility !== "hidden";
+    });
+  }
+
+  /**
+   * Activate focus trap - consistent with other modals
+   */
+  function activateFocusTrap() {
+    if (isTrappingFocus) {
       return;
     }
 
-    // Hide the overlay
-    overlay.classList.add("hidden");
+    focusableElements = getFocusableElements();
+    isTrappingFocus = true;
+    currentFocusIndex = 0;
 
-    // Re-enable scrolling
-    document.body.style.overflow = "";
-
-    // Return focus to the element that had focus before showing the overlay
-    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+    // Focus first element - prioritize close button for accessibility
+    const firstElement = document.getElementById("close-overlay-button") || focusableElements[0];
+    if (firstElement) {
       setTimeout(() => {
-        lastFocusedElement?.focus();
+        firstElement.focus();
+        announceToScreenReader(
+          "Feedback overlay opened. Use Escape to close, Space for audio, Enter for next round."
+        );
       }, 100);
     }
+
+    // Add keyboard listener
+    document.addEventListener("keydown", handleKeyboardNavigation);
   }
 
   /**
-   * Sets up the close button's aria-label to indicate it also advances to next round
-   *
-   * @param {HTMLElement|null} nextButton - The next round button element
+   * Deactivate focus trap - consistent cleanup pattern
    */
-  function setupNextRoundFunctionality(nextButton: HTMLElement | null): void {
-    if (!nextButton) {
+  function deactivateFocusTrap() {
+    if (!isTrappingFocus) {
       return;
     }
 
-    // Update the close button's aria-label to indicate it also advances to next round
-    const closeButton = document.getElementById("close-overlay-button");
-    if (closeButton) {
-      const currentLabel = closeButton.getAttribute("aria-label") || "Close";
-      closeButton.setAttribute("aria-label", `${currentLabel} and advance to next round`);
-    }
+    isTrappingFocus = false;
+    focusableElements = [];
+    currentFocusIndex = 0;
+
+    document.removeEventListener("keydown", handleKeyboardNavigation);
   }
 
   /**
-   * Enhances accessibility by providing announcements for screen readers
+   * Handle keyboard navigation - enhanced version with consistent patterns
    */
-  function setupAccessibilityAnnouncements(): void {
-    const overlay = document.getElementById("overlay");
-    const feedbackElement = document.getElementById("feedback");
-    const statusAnnouncer = document.getElementById("feedback-status-announcer");
-
-    if (!overlay || !feedbackElement || !statusAnnouncer) {
+  function handleKeyboardNavigation(event) {
+    if (!isTrappingFocus) {
       return;
     }
 
-    // Monitor changes to the feedback content for screen reader announcements
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (
-          mutation.type === "childList" ||
-          mutation.type === "characterData" ||
-          mutation.type === "attributes"
-        ) {
-          // Get the current feedback text and class information
-          const feedbackText = feedbackElement.textContent?.trim() || "";
-          const isCorrect = feedbackElement.classList.contains("correct");
-          const isIncorrect = feedbackElement.classList.contains("incorrect");
+    switch (event.key) {
+      case "Escape": {
+        event.preventDefault();
+        announceToScreenReader("Closing overlay");
+        closeOverlay();
+        break;
+      }
 
-          // Create a more informative announcement that includes the outcome
-          let announcement = feedbackText;
-          if (isCorrect) {
-            announcement = `Correct: ${feedbackText}`;
-          } else if (isIncorrect) {
-            announcement = `Incorrect: ${feedbackText}`;
-          }
-
-          // Update the live region for screen readers
-          if (announcement) {
-            statusAnnouncer.textContent = announcement;
-
-            // Clear after a delay to allow for multiple announcements
-            setTimeout(() => {
-              statusAnnouncer.textContent = "";
-            }, 3000);
-          }
+      case "Tab": {
+        event.preventDefault();
+        if (event.shiftKey) {
+          focusPrevious();
+        } else {
+          focusNext();
         }
-      });
-    });
+        break;
+      }
 
-    // Observe both content and attribute changes to catch all updates
-    observer.observe(feedbackElement, {
-      childList: true,
-      characterData: true,
-      attributes: true,
-      attributeFilter: ["class"],
-      subtree: true,
-    });
+      case " ": {
+        event.preventDefault();
+        handleAudioToggle();
+        break;
+      }
+
+      case "Enter": {
+        const focused = document.activeElement;
+        if (focused && focused.tagName !== "BUTTON") {
+          event.preventDefault();
+          handleNextRound();
+        }
+        break;
+      }
+
+      case "ArrowDown":
+      case "ArrowRight": {
+        event.preventDefault();
+        focusNext();
+        break;
+      }
+
+      case "ArrowUp":
+      case "ArrowLeft": {
+        event.preventDefault();
+        focusPrevious();
+        break;
+      }
+    }
   }
 
   /**
-   * Sets up keyboard navigation and focus trap for the overlay
-   *
-   * @param {HTMLElement} overlay - The overlay container
+   * Focus next element - optimized navigation
    */
-  function setupKeyboardNavigation(overlay: HTMLElement): void {
-    document.addEventListener("keydown", (event) => {
-      // Only handle keyboard events when overlay is visible
-      if (overlay.classList.contains("hidden")) {
-        return;
-      }
-
-      switch (event.key) {
-        case "Escape":
-          // Close the overlay and advance to next round when Escape is pressed
-          closeAndAdvance();
-          break;
-
-        case "Tab":
-          // Create a focus trap within the overlay
-          trapFocus(event, overlay);
-          break;
-      }
-    });
-  }
-
-  /**
-   * Traps focus within the overlay for keyboard navigation
-   *
-   * @param {KeyboardEvent} event - The keyboard event
-   * @param {HTMLElement} overlay - The overlay container
-   */
-  function trapFocus(event: KeyboardEvent, overlay: HTMLElement): void {
-    // Get all focusable elements within the overlay
-    const focusableElements = getFocusableElements(overlay);
-
-    // No focusable elements, nothing to do
+  function focusNext() {
     if (focusableElements.length === 0) {
       return;
     }
+    currentFocusIndex = (currentFocusIndex + 1) % focusableElements.length;
+    focusableElements[currentFocusIndex].focus();
+  }
 
-    const firstFocusable = focusableElements[0];
-    const lastFocusable = focusableElements[focusableElements.length - 1];
+  /**
+   * Focus previous element - optimized navigation
+   */
+  function focusPrevious() {
+    if (focusableElements.length === 0) {
+      return;
+    }
+    currentFocusIndex =
+      currentFocusIndex === 0 ? focusableElements.length - 1 : currentFocusIndex - 1;
+    focusableElements[currentFocusIndex].focus();
+  }
 
-    // Handle Tab and Shift+Tab navigation
-    if (event.shiftKey && document.activeElement === firstFocusable) {
-      // Shift+Tab on first element moves focus to last element
-      event.preventDefault();
-      lastFocusable.focus();
-    } else if (!event.shiftKey && document.activeElement === lastFocusable) {
-      // Tab on last element moves focus to first element
-      event.preventDefault();
-      firstFocusable.focus();
+  /**
+   * Handle audio playback toggle - enhanced with better feedback
+   */
+  function handleAudioToggle() {
+    const audio = document.getElementById("audio-preview");
+    if (!audio) {
+      return;
+    }
+
+    if (audio.paused) {
+      audio
+        .play()
+        .then(() => announceToScreenReader("Audio playing"))
+        .catch(() => announceToScreenReader(translations.audioFailed));
+    } else {
+      audio.pause();
+      announceToScreenReader(translations.audioPaused);
     }
   }
 
   /**
-   * Gets all focusable elements within a container
-   *
-   * @param {HTMLElement} container - The container to search within
-   * @returns {HTMLElement[]} An array of focusable elements
+   * Handle next round action - consistent with other game components
    */
-  function getFocusableElements(container: HTMLElement): HTMLElement[] {
-    const focusableSelector = [
-      "a[href]:not([disabled])",
-      "button:not([disabled])",
-      "textarea:not([disabled])",
-      "input:not([disabled])",
-      "select:not([disabled])",
-      "video[controls]",
-      "audio[controls]",
-      '[tabindex]:not([tabindex="-1"])',
-    ].join(", ");
-
-    // Get all potentially focusable elements
-    const elements = Array.from(container.querySelectorAll<HTMLElement>(focusableSelector));
-
-    // Filter out hidden elements
-    return elements.filter((el) => {
-      const style = window.getComputedStyle(el);
-      return (
-        style.display !== "none" &&
-        style.visibility !== "hidden" &&
-        style.opacity !== "0" &&
-        el.offsetWidth > 0 &&
-        el.offsetHeight > 0
-      );
-    });
+  function handleNextRound() {
+    const nextButton = document.getElementById("next-round-button");
+    if (nextButton && !nextButton.disabled) {
+      announceToScreenReader(translations.nextRoundStarting);
+      nextButton.click();
+    }
   }
 
   /**
-   * Handles album cover display and fixes issues with cover visibility
-   *
-   * @param {HTMLElement} overlay - The overlay container
-   * @returns {MutationObserver} The observer handling album cover display
+   * Close the overlay - consistent pattern
    */
-  function handleAlbumCoverDisplay(overlay: HTMLElement): MutationObserver {
-    const albumCover = document.getElementById("overlay-cover") as HTMLImageElement;
-
-    if (!albumCover) {
-      console.debug("FeedbackOverlay: Album cover element not found");
-      return new MutationObserver(() => {});
+  function closeOverlay() {
+    const overlay = document.getElementById("overlay");
+    if (overlay) {
+      overlay.classList.add("hidden");
+      deactivateFocusTrap();
     }
-
-    // Ensure the album cover is not hidden by removing any hidden class
-    albumCover.classList.remove("hidden");
-
-    // Set up error handling for the album cover image
-    setupAlbumCoverErrorHandling(albumCover);
-
-    // Create an observer to watch for overlay visibility changes
-    const coverObserver = new MutationObserver(() => {
-      if (!overlay.classList.contains("hidden")) {
-        // Ensure the album cover is visible
-        albumCover.style.display = "";
-        albumCover.classList.remove("hidden");
-
-        // If src is empty or points to the current page, try to get it from overlay data
-        if (!albumCover.src || albumCover.src === window.location.href) {
-          const albumData = overlay.getAttribute("data-album-cover");
-          if (albumData) {
-            albumCover.src = albumData;
-
-            // Update alt text if available
-            const albumTitle = overlay.getAttribute("data-album-title");
-            if (albumTitle) {
-              albumCover.alt = `Album cover: ${albumTitle}`;
-            } else {
-              albumCover.alt = "Album cover";
-            }
-          }
-        }
-      }
-    });
-
-    // Start observing the overlay for class changes
-    coverObserver.observe(overlay, {
-      attributes: true,
-      attributeFilter: ["class", "data-album-cover", "data-album-title"],
-    });
-
-    // Initial check in case the overlay is already visible
-    if (!overlay.classList.contains("hidden")) {
-      coverObserver.disconnect();
-      const albumData = overlay.getAttribute("data-album-cover");
-      if (albumData) {
-        albumCover.src = albumData;
-      }
-      coverObserver.observe(overlay, {
-        attributes: true,
-        attributeFilter: ["class", "data-album-cover", "data-album-title"],
-      });
-    }
-
-    return coverObserver;
   }
 
   /**
-   * Sets up error handling for the album cover image
-   *
-   * @param {HTMLImageElement} albumCover - The album cover image element
+   * Announce message to screen readers - reused utility pattern
    */
-  function setupAlbumCoverErrorHandling(albumCover: HTMLImageElement): void {
-    albumCover.onerror = () => {
-      console.debug("FeedbackOverlay: Error loading album cover image");
-
-      // Set a fallback image when loading fails
-      albumCover.src = "/default-cover.jpg";
-      albumCover.alt = "Album cover not available";
-
-      // Ensure the image is still visible despite the error
-      albumCover.style.display = "";
-      albumCover.classList.remove("hidden");
-    };
+  function announceToScreenReader(message) {
+    const announcer = document.getElementById("feedback-status-announcer");
+    if (announcer) {
+      announcer.textContent = message;
+      setTimeout(() => {
+        announcer.textContent = "";
+      }, 3000);
+    }
   }
 
-  /**
-   * Sets up cleanup handlers to prevent memory leaks when the component is unmounted
-   *
-   * @param {MutationObserver} coverObserver - The album cover observer to disconnect
-   */
-  function setupCleanupHandlers(coverObserver: MutationObserver): void {
-    // Get references to elements and observers that need cleanup
-    const audioPlayer = document.getElementById("audio-preview") as HTMLAudioElement;
-
-    const observers: MutationObserver[] = [];
-
-    // Add all observers that need to be disconnected
-    if (coverObserver) {
-      observers.push(coverObserver);
-    }
-
-    // Create a function to perform all cleanup
-    function cleanup() {
-      // Disconnect all observers
-      observers.forEach((observer) => observer.disconnect());
-
-      // Stop audio playback and clear sources
-      if (audioPlayer) {
-        audioPlayer.pause();
-        audioPlayer.removeAttribute("src");
-        audioPlayer.load();
-      }
-
-      // Remove event listeners
-      const closeButton = document.getElementById("close-overlay-button");
-      const overlayBackdrop = document.getElementById("overlay-backdrop");
-      const nextButton = document.getElementById("next-round-button");
-
-      if (closeButton) {
-        // Remove all event listeners
-        const newCloseButton = closeButton.cloneNode(true);
-        if (closeButton.parentNode) {
-          closeButton.parentNode.replaceChild(newCloseButton, closeButton);
-        }
-      }
-
-      if (overlayBackdrop) {
-        // Remove all event listeners
-        const newBackdrop = overlayBackdrop.cloneNode(true);
-        if (overlayBackdrop.parentNode) {
-          overlayBackdrop.parentNode.replaceChild(newBackdrop, overlayBackdrop);
-        }
-      }
-
-      if (nextButton) {
-        // Don't remove the next button's event handlers as they are managed by gameEngine
-      }
-    }
-
-    // Handle cleanup before page navigation
-    document.addEventListener("astro:before-swap", cleanup);
-
-    // Handle cleanup during component unmount
-    document.addEventListener("astro:after-swap", cleanup);
-  }
-
-  // Initialize the overlay when the DOM is ready
+  // Initialize when DOM is ready - consistent initialization pattern
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeFeedbackOverlay);
+    document.addEventListener("DOMContentLoaded", initializeOverlay, { once: true });
   } else {
-    initializeFeedbackOverlay();
+    initializeOverlay();
   }
 </script>

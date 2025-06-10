@@ -1,6 +1,6 @@
 // filepath: /home/daniel/projects/melody-mind/src/i18n/locales/es.ts
 export default {
-  // Componentes de autenticación
+  // Auth Components
   "auth.required.title": "Se requiere iniciar sesión",
   "auth.required.description": "Por favor, inicia sesión para acceder a esta área",
   "auth.login.title": "Iniciar sesión",
@@ -30,6 +30,13 @@ export default {
   "auth.form.error.general": "Ocurrió un error",
   "auth.form.success": "¡Éxito!",
   "auth.form.email_required": "La dirección de correo electrónico es obligatoria",
+
+  // Table of Contents
+  "toc.toggle.label": "Mostrar u ocultar tabla de contenidos",
+  "toc.state.expanded": "Expandido",
+  "toc.state.collapsed": "Contraído",
+  "toc.nav.label": "Tabla de contenidos",
+  "toc.skip.link": "Saltar al contenido principal",
   "auth.form.email_invalid_short": "Dirección de correo electrónico no válida",
   "auth.form.loading_text": "Cargando...",
   "auth.form.send_reset_link": "Enviar enlace de restablecimiento",
@@ -57,8 +64,27 @@ export default {
   "auth.accessibility.requirement.unmet": "Requisito no cumplido",
   "auth.accessibility.password.visible": "La contraseña ahora es visible",
   "auth.accessibility.password.hidden": "La contraseña ahora está oculta",
+  "auth.accessibility.password.visible_status":
+    "La contraseña ahora es visible. Recuerda ocultarla cuando termines por seguridad.",
+  "auth.accessibility.password.hidden_status": "La contraseña ahora está oculta por seguridad.",
+  "auth.accessibility.password_toggle_empty":
+    "Ingresa una contraseña primero antes de alternar la visibilidad.",
+  "auth.accessibility.password_toggle_help":
+    "Alternar para mostrar u ocultar caracteres de contraseña. Usar con cuidado en espacios públicos por seguridad.",
   "auth.accessibility.requirements.expanded": "Requisitos de contraseña expandidos",
   "auth.accessibility.requirements.collapsed": "Requisitos de contraseña colapsados",
+  "auth.accessibility.focus_trapped":
+    "El foco ahora está atrapado dentro de este diálogo. Use Tab para navegar y Escape para cerrar.",
+  "auth.accessibility.login_form_active": "El formulario de inicio de sesión está ahora activo",
+  "auth.accessibility.register_form_active": "El formulario de registro está ahora activo",
+  "auth.accessibility.error_message_dismissed": "Mensaje de error desechado",
+  "auth.accessibility.success_message_dismissed": "Mensaje de éxito desechado",
+
+  // Enlaces de salto
+  "auth.skip_to_verification": "Saltar al contenido de verificación de correo electrónico",
+
+  // Inicialización del formulario
+  "auth.form.init_error": "Error al inicializar los elementos del formulario de autenticación",
 
   "auth.register.name": "Nombre completo",
   "auth.register.email": "Dirección de correo electrónico",
@@ -114,6 +140,9 @@ export default {
   "auth.password.requirements.not_met": "Requisito no cumplido",
   "auth.password.requirements.keyboard_navigation":
     "Use las teclas de flecha para navegar por los requisitos, Escape para salir",
+  "auth.password.requirements.position": "{{current}} de {{total}}",
+  "auth.password.requirements.progress":
+    "{{met}} de {{total}} requisitos cumplidos. {{percentage}}% completado.",
   "auth.password.min_length": "La contraseña debe tener al menos 8 caracteres",
   "auth.password.uppercase": "La contraseña debe contener al menos una letra mayúscula",
   "auth.password.lowercase": "La contraseña debe contener al menos una letra minúscula",
@@ -134,6 +163,8 @@ export default {
   // Validación de formularios
   "auth.form.required": "Este campo es obligatorio",
   "auth.form.email_invalid": "Por favor, introduce una dirección de correo electrónico válida",
+  "auth.form.email_invalid_format":
+    "Por favor, introduce una dirección de correo electrónico válida en el formato: usuario@ejemplo.es",
   "auth.form.password_min_length": "La contraseña debe tener al menos 6 caracteres",
   "auth.form.min_length": "Este campo debe tener al menos {length} caracteres",
   "auth.form.max_length": "Este campo no debe exceder los {length} caracteres",
@@ -149,6 +180,7 @@ export default {
   "auth.accessibility.password_requirements": "Mostrar/ocultar requisitos de contraseña",
   "auth.accessibility.form": "Formulario de inicio de sesión",
   "auth.accessibility.close_modal": "Cerrar ventana",
+  "auth.accessibility.button_focus_instruction": "Botón: {buttonText}. Presiona Enter para enviar",
 
   // Mensajes de error de la API
   "auth.api.network_error": "Error de red. Por favor, comprueba tu conexión",
@@ -178,16 +210,24 @@ export default {
   "difficulty.medium": "Medio",
   "difficulty.hard": "Difícil",
   "game.select":
-    "Descubre el fascinante mundo de la música y pon a prueba tus conocimientos en nuestros concursos de música interactivos. ¡Elige tu género favorito y comienza tu viaje melodioso!",
+    "🎵 ¿Listo para la aventura musical definitiva? ¡Sumérgete en un mundo de ritmos, melodías y canciones inolvidables! Desde solos de guitarra electrizantes hasta clásicos eternos – encuentra tu batalla musical perfecta. ¡Demuestra al mundo que eres un verdadero conocedor de la música!",
   "game.welcome": "Bienvenido a Melody Mind",
   "game.genre.list": "Selección de género",
   "game.search.label": "Buscar un género",
   "game.search.description": "La lista se filtra automáticamente a medida que escribes",
+  "game.search.clear": "Limpiar búsqueda",
+  "game.search.help": "Escribe para filtrar géneros musicales por nombre",
+  "game.search.showing.all": "Mostrando todos los géneros",
+  "game.search.results": "géneros encontrados",
+  "game.search.no.results": "No se encontraron géneros que coincidan con tu búsqueda",
   "game.genre.play.label": "jugar",
   "game.genre.image": "Imagen de portada para",
+  "game.genre.selection.description":
+    "Elige entre múltiples géneros musicales incluyendo rock, pop, jazz, clásica y más. Cada categoría presenta preguntas cuidadosamente seleccionadas para poner a prueba tu conocimiento musical.",
   "game.no.results": "No se encontraron resultados",
   "game.not.available": "No disponible",
   "category.selected": "¡seleccionado!",
+  "category.about.title": "Sobre esta categoría",
   "category.difficulty.heading": "Elige tu nivel de dificultad",
   "category.difficulty.group": "Niveles de dificultad",
   "category.difficulty.easy": "Fácil",
@@ -199,6 +239,12 @@ export default {
   "category.image.alt": "Imagen de portada",
   "nav.menu.open": "Abrir menú",
   "nav.menu.close": "Cerrar menú",
+  "nav.menu.opened": "abierto",
+  "nav.menu.closed": "cerrado",
+  "nav.menu.moved_to_first": "Movido al primer elemento del menú",
+  "nav.menu.moved_to_last": "Movido al último elemento del menú",
+  "nav.menu.focused_on": "Enfocado en",
+  "nav.menu.long_press_detected": "Pulsación larga detectada en",
   "nav.menu.home": "Página de inicio",
   "nav.menu.rules": "Reglas del juego",
   "nav.menu.highscores": "Puntuaciones más altas",
@@ -217,19 +263,38 @@ export default {
   "game.feedback.resolution": "Resolución",
   "game.feedback.media.section": "Sección de medios",
   "game.feedback.audio.preview": "Vista previa de la música",
+  "game.feedback.audio.failed": "Error en la reproducción de audio",
+  "game.feedback.audio.paused": "Audio pausado",
   "game.feedback.subtitles": "Subtítulos",
   "game.feedback.audio.unsupported": "Tu navegador no admite la reproducción de audio.",
   "game.feedback.streaming.links": "Enlaces de transmisión de música",
   "game.feedback.listen.spotify": "Escuchar en Spotify",
   "game.feedback.listen.deezer": "Escuchar en Deezer",
   "game.feedback.listen.apple": "Escuchar en Apple Music",
+
+  // Music Platforms Component - Accessibility Features
+  "musicPlatforms.heading": "Escuchar música relacionada",
+  "musicPlatforms.keyboardInstructions":
+    "Navega por las plataformas musicales usando la tecla Tab. Presiona Enter o Espacio para abrir plataformas en nuevas pestañas.",
+  "musicPlatforms.externalNotice":
+    "Los enlaces a plataformas musicales externas pueden requerir cuentas o suscripciones para acceso completo.",
+  "musicPlatforms.listenOn":
+    "Escuchar {title} en {platform} - Abre la plataforma musical {platform} en una nueva pestaña. Puede requerir cuenta o suscripción de {platform}.",
   "game.feedback.next.round": "Siguiente ronda",
+  "game.feedback.next.starting": "Iniciando siguiente ronda",
   "game.current.round": "Ronda",
   "game.current.round.label": "Número de ronda actual",
   "game.joker.options": "Opciones de comodín",
   "game.joker.use": "Usar comodín 50:50",
   "game.joker.description": "Elimina dos opciones de respuesta incorrectas",
   "loading.content": "Cargando contenido...",
+  "loading.started": "Carga iniciada",
+  "loading.completed": "Carga completada",
+  "loading.progress.indicator": "Indicador de progreso",
+  "loading.context.game": "Cargando juego",
+  "loading.context.question": "Cargando pregunta",
+  "loading.context.results": "Cargando resultados",
+  "loading.context.default": "Cargando contenido",
   "share.title": "¡Comparte tu éxito!",
   "share.buttons.group.label": "Opciones para compartir en redes sociales",
   "share.facebook": "Compartir en Facebook",
@@ -241,9 +306,64 @@ export default {
   "share.email.label": "Correo electrónico",
   "share.copy": "Copiar texto para compartir al portapapeles",
   "share.copy.label": "Copiar texto",
+  "share.fallback.message":
+    "Los datos del juego no están disponibles actualmente. Por favor, inténtalo de nuevo o copia el enlace de la página manualmente.",
+  "share.fallback.retry.label": "Reintentar cargar datos del juego",
+  "share.fallback.retry.text": "Reintentar",
+  "share.fallback.manual.label": "Copiar enlace de la página manualmente",
+  "share.fallback.manual.text": "Copiar enlace",
+
+  // Anuncios de accesibilidad para compartir para lectores de pantalla
+  "share.accessibility.data_unavailable":
+    "Datos del juego no disponibles. Por favor, inténtalo de nuevo o copia manualmente.",
+  "share.accessibility.retrying": "Reintentando encontrar datos del juego...",
+  "share.accessibility.data_found":
+    "¡Datos del juego encontrados! Las opciones para compartir están ahora disponibles.",
+  "share.accessibility.data_still_unavailable":
+    "Los datos del juego aún no están disponibles. Actualiza la página o usa copia manual.",
+  "share.accessibility.retry_failed":
+    "Reintento fallido. Por favor, usa copia manual o actualiza la página.",
+  "share.accessibility.link_copied": "¡Enlace del juego copiado al portapapeles exitosamente!",
+  "share.accessibility.link_copied_fallback":
+    "¡Enlace del juego copiado al portapapeles usando método de respaldo!",
+  "share.accessibility.copy_failed_manual":
+    "Copia fallida. Por favor, copia manualmente la URL de la página desde tu navegador.",
+  "share.accessibility.score_shared": "Tu puntuación se compartió exitosamente.",
+  "share.accessibility.sharing_cancelled": "Compartir cancelado.",
+  "share.accessibility.platform_share_failed":
+    "Error al compartir en {platform}: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_alternative_methods":
+    "Intenta copiar al portapapeles o usar otro método para compartir.",
+  "share.accessibility.score_copied": "¡Puntuación copiada al portapapeles exitosamente!",
+  "share.accessibility.native_share_failed":
+    "Compartir nativo falló: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.try_platform_buttons":
+    "Intenta usar los botones de compartir específicos de la plataforma o copiar al portapapeles.",
+  "share.accessibility.platform_opened": "Compartir en {platform} abierto exitosamente.",
   "error.default": "Ha ocurrido un error",
   "error.close": "Cerrar mensaje de error",
   "coins.collected": "Monedas recolectadas",
+  "coins.tooltip.authenticated":
+    "Tu saldo de monedas. El progreso se guarda automáticamente en tu cuenta.",
+  "coins.tooltip.guest": "Tu saldo actual de monedas para esta sesión.",
+  "coins.announce.earned_excellent":
+    "¡Excelente! ¡Ganaste {difference} monedas en {context}! Nuevo total: {newCount} monedas.",
+  "coins.announce.earned_great":
+    "¡Muy bien! Ganaste {difference} moneda{plural} en {context}. Total: {newCount} monedas.",
+  "coins.announce.earned_normal":
+    "Ganaste {difference} moneda{plural} en {context}. Total: {newCount} monedas.",
+  "coins.announce.progress_saved": " Progreso guardado en tu cuenta.",
+  "coins.announce.lost":
+    "Perdiste {lost} moneda{plural} en {context}. Restantes: {newCount} monedas.",
+  "coins.announce.updated": "Monedas actualizadas en {context}. Total actual: {newCount} monedas.",
+  "coins.context.game": "el juego",
+  "coins.context.shop": "una compra",
+  "coins.context.achievement": "obtener un logro",
+  "coins.context.bonus": "recibir un bono",
+  "coins.context.daily": "recolectar la recompensa diaria",
+  "coins.context.quiz": "responder preguntas del quiz",
+  "coins.context.challenge": "completar un desafío",
+  "coins.context.streak": "mantener una racha",
   "language.picker.label": "Selector de idioma",
   "language.change": "Cambiar idioma del sitio web",
   "language.select.label": "Selecciona tu idioma preferido",
@@ -267,9 +387,18 @@ export default {
   "language.nl.label": "Ver sitio web en holandés",
   "language.sv.label": "Ver sitio web en sueco",
   "language.fi.label": "Ver sitio web en finlandés",
+  "language.selected": "Idioma actual: {language}",
+  "language.dropdown.arrow": "Flecha desplegable",
+  "language.focus.announce": "Selector de idioma enfocado. Use las teclas de flecha para navegar.",
+  "language.change.success": "Idioma cambiado a {language}",
+  "language.change.error": "Error al cambiar idioma. Por favor, inténtelo de nuevo.",
+  "language.preference.restored": "Preferencia de idioma restaurada: {language}",
   "playlist.item.unavailable": "Este contenido aún no está disponible",
   "playlist.item.status": "Estado",
   "playlist.item.coming.soon": "Próximamente",
+  "playlist.item.status.changed.disabled":
+    "Esta lista de reproducción no está disponible actualmente",
+  "playlist.item.status.changed.available": "Esta lista de reproducción ya está disponible",
   "game.area.label": "Área de juego",
   "game.options.label": "Opciones de respuesta",
   "game.answer.correct": "¡Correcto! {points} puntos + {bonus} puntos de bonificación",
@@ -281,12 +410,13 @@ export default {
     "Quiz de música, Juego de música, Quiz de canciones, Quiz de artistas, Quiz de música online, Trivia de música, Melody Mind, Juego de adivinar música",
   "knowledge.title": "Base de conocimientos musicales",
   "knowledge.intro":
-    "Sumérgete en el fascinante mundo de la historia de la música. Aquí encontrarás artículos emocionantes sobre diferentes épocas musicales, géneros y su desarrollo. Descubre datos interesantes y amplía tus conocimientos musicales.",
+    "🎵 ¡Descubre los secretos del universo musical! Sumérgete en historias cautivadoras de artistas legendarios, explora la evolución de los géneros musicales y conoce datos fascinantes que te convertirán en un verdadero conocedor de la música. Desde obras maestras clásicas hasta éxitos modernos – déjate envolver por artículos apasionantes que dan vida a tu amor por la música.",
   "knowledge.search.label": "Buscar artículos",
   "knowledge.search.placeholder": "Buscar...",
   "knowledge.filter.all": "Todas las palabras clave",
   "knowledge.no.results": "No se encontraron artículos. Intenta con otros términos de búsqueda.",
   "game.remaining": "restante",
+  "game.remaining.label": "{count} restantes",
   "game.default.headline": "Juego",
   "popup.score": "Puntuación: {score}",
   "popup.golden.lp.score": "Puntuación obtenida: {score}",
@@ -295,20 +425,23 @@ export default {
   "nav.donate.coffee": "Cómpranos un café",
   "nav.title": "Navegación",
   "nav.menu.text": "Menú",
+  "game.categories.title": "Categorías Musicales",
+  "game.categories.loading": "Cargando categorías musicales...",
   "game.categories.empty.headline": "No se encontraron géneros",
   "game.categories.empty.text":
     "Lamentablemente, no se encontraron categorías. Por favor, inténtalo de nuevo más tarde.",
   "game.categories.no.playable.headline": "No hay géneros jugables",
   "game.categories.no.playable.text":
     "Actualmente no hay categorías jugables. Por favor, vuelve más tarde.",
-  "knowledge.reading.time": "min de lectura",
+  "knowledge.reading.time": "min",
+  "knowledge.reading.time.label": "Tiempo de lectura",
   "knowledge.breadcrumb.label": "Navegación",
   "knowledge.listen.heading": "Escuchar música relacionada",
   "knowledge.back.to.list": "Volver al resumen",
   "knowledge.interact.heading": "Escuchar y Jugar",
   "knowledge.play.heading": "Jugar este género",
   "knowledge.play.description":
-    "¡Pon a prueba tus conocimientos sobre este género musical en nuestro quiz interactivo!",
+    "🎵 ¿Estás listo para el desafío definitivo? ¡Pon a prueba tus conocimientos musicales y conviértete en un experto del género! Recolecta puntos, usa comodines inteligentes y demuestra que tienes lo necesario para ser un campeón musical! 🏆",
   "knowledge.play.category": "Iniciar Quiz de Música",
   "category.play": "Jugar",
   "play.cover.puzzle": "Jugar Rompecabezas de Portadas",
@@ -346,11 +479,11 @@ export default {
   "podcast.listen.heading": "Escucha Nuestros Podcasts",
   "login.welcome": "¡Bienvenido a Melody Mind!",
   "login.description":
-    "¡Embárcate en un viaje musical de descubrimiento a través de las épocas! Pon a prueba tus conocimientos en emocionantes concursos, explora fascinantes géneros musicales y sumérgete en nuestros cautivadores podcasts. ¡Demuestra tus habilidades, acumula puntos y conviértete en una verdadera leyenda de la música!",
+    "🎵 ¡Sumérgete en el universo musical definitivo! Descubre éxitos legendarios, domina desafíos emocionantes y conviértete en el campeón musical absoluto. ¡Tu viaje hacia los secretos musicales más grandes comienza ahora! 🚀",
   "index.continue": "¡Vamos!",
   "index.start.game.label": "Comienza tu viaje musical",
   "index.welcome.footnote":
-    "Preparado por amantes de la música para amantes de la música. ¡Disfruta!",
+    "🎶 Creado con pasión para verdaderos fanáticos de la música - ¡Que comience la magia! ✨",
   "accessibility.wcag": "Esta aplicación aspira a la conformidad WCAG AAA.",
   "game.instructions.title": "Instrucciones del Juego",
   "game.instructions.puzzle":
@@ -378,25 +511,46 @@ export default {
   "playlist.page.title": "Listas de Reproducción de Música | Melody Mind",
   "playlist.page.heading": "Descubre Nuestras Listas de Reproducción de Música",
   "playlist.page.description":
-    "Sumérgete en listas de reproducción cuidadosamente seleccionadas de diferentes épocas y géneros. Perfecto para descubrir nueva música o revivir tus clásicos favoritos.",
+    "🎵 ¡Embárcate en un viaje musical épico a través de épocas legendarias! Nuestras listas seleccionadas dan vida a los más grandes éxitos - desde clásicos atemporales hasta éxitos inolvidables. ¡Perfecto para ampliar tu conocimiento musical o despertar recuerdos nostálgicos! 🎶",
   "playlist.search.label": "Buscar Listas de Reproducción",
+  "playlist.search.heading": "Buscar Listas de Reproducción",
   "playlist.search.placeholder": "Buscar por artista o estilo...",
+  "playlist.search.aria.label": "Buscar listas de reproducción de música",
   "playlist.filter.all": "Todas las Épocas",
   "playlist.no.results":
     "No se encontraron listas de reproducción coincidentes. Intenta con otro término de búsqueda.",
+  "playlist.no.results.heading": "No se encontraron listas de reproducción",
+  "playlist.reset.search": "Mostrar todas las listas de reproducción",
+  "playlist.grid.heading": "Listas de Reproducción de Música Disponibles ({count} en total)",
   "playlist.listen.on": "Escuchar en",
   "playlist.listen.spotify": "Escuchar en Spotify",
   "playlist.listen.deezer": "Escuchar en Deezer",
   "playlist.listen.apple": "Escuchar en Apple Music",
   "playlist.decade.filter": "Filtrar por Década",
+  "playlist.priority.loading": "Carga prioritaria de lista de reproducción: {headline}",
+  "playlist.music.from.decade": "Música de {decade}",
+  "playlist.streaming.services": "Servicios de streaming para {headline}",
+  "playlist.accessibility.instruction":
+    "Usa Enter o Espacio para abrir la lista de reproducción en el servicio de streaming. Navega entre servicios usando la tecla Tab. Estas listas de reproducción son de acceso público y no requieren autenticación.",
+  "playlist.accessibility.info": "Información de accesibilidad de la lista de reproducción",
+  "playlist.accessibility.public":
+    "Lista de reproducción pública - no se requiere autenticación para acceder a los servicios de streaming",
+  "playlist.accessibility.selected": "{service} seleccionado para {playlist}",
+  "playlist.accessibility.focus": "Enfocado en la opción {service} para {playlist}",
+  "playlist.accessibility.opened": "Abriendo {playlist} en {service}",
   "footer.rights": "Todos los derechos reservados",
   "footer.donate": "Donar",
+  "footer.donate_aria": "Donar vía PayPal",
+  "footer.source_code": "Ver código fuente de MelodyMind en GitHub",
+  "footer.support_kofi": "Apoyar MelodyMind en Ko-fi",
   "game.chronology.title": "Cronología Musical",
   "game.chronology.description":
-    "Ordena estos álbumes por su año de lanzamiento (el más antiguo primero)",
+    "⏰ ¡Conviértete en un viajero del tiempo musical! Ordena estos álbumes legendarios en el orden cronológico correcto y demuestra que eres un verdadero historiador de la música. ¡Cada movimiento correcto te acerca más a la puntuación perfecta! 🎯",
   "game.chronology.area.label": "Área de Juego de Cronología",
   "game.chronology.result": "Resultado",
-  "game.chronology.correct": "Correcto",
+  "game.chronology.correct": "¡Correcto! 🎉",
+  "game.chronology.incorrect": "¡Incorrecto! 😔",
+  "game.chronology.correct_order": "Orden correcto:",
   "game.chronology.wrong": "Debería estar en la posición {position}",
   "game.chronology.score": "Puntuación: {score} puntos",
   "game.chronology.details": "{correct} de {total} álbumes colocados correctamente",
@@ -469,7 +623,7 @@ export default {
   // Página de Puntuaciones Más Altas
   "highscores.title": "Puntuaciones Más Altas",
   "highscores.description":
-    "Consulta las puntuaciones más altas en diferentes modos de juego y categorías",
+    "¡Descubre las leyendas de la música! Mira quién lidera las listas y déjate inspirar por los mejores jugadores 🎵🏆",
   "highscores.loading": "Cargando puntuaciones más altas...",
   "highscores.error": "Error al cargar las puntuaciones más altas",
   "highscores.empty": "No se encontraron entradas en las puntuaciones más altas",
@@ -479,6 +633,18 @@ export default {
   "highscores.filter.all": "Todos",
   "highscores.filter.search": "Buscar categorías...",
   "highscores.filter.no.results": "No se encontraron categorías",
+  "highscores.filters": "Filtrar resultados",
+  "highscores.allModes": "Todos los modos",
+  "highscores.allCategories": "Todas las categorías",
+  "highscores.results": "Puntuaciones máximas",
+  "highscores.noResults": "No se encontraron puntuaciones con los filtros seleccionados.",
+  "highscores.points": "puntos",
+  "highscores.rank": "Rango",
+  "highscores.gameMode": "Modo de Juego",
+  "highscores.category": "Categoría",
+  "highscores.date": "Fecha",
+  "highscores.tableLabel": "Lista de puntuaciones más altas",
+  "highscores.scoreEntry": "Entrada {rank} por {username}",
   "highscores.table.title": "Puntuaciones Máximas",
   "highscores.table.rank": "Rango",
   "highscores.table.player": "Jugador",
@@ -489,7 +655,10 @@ export default {
 
   // Sistema de Logros
   "achievements.title": "Logros",
-  "achievements.description": "Descubre y desbloquea logros para seguir tu progreso",
+  "achievements.description":
+    "Celebra tus triunfos musicales y colecciona trofeos únicos en tu camino hacia convertirte en un maestro de la música",
+  "achievements.seo.description":
+    "Rastrea tu progreso con logros detallados en todas las categorías musicales. Desbloquea recompensas especiales completando desafíos y alcanzando hitos.",
   "achievements.loading": "Cargando logros...",
   "achievements.error": "Error al cargar los logros",
   "achievements.empty": "No se encontraron logros",
@@ -506,9 +675,17 @@ export default {
   "achievements.unlocked_at": "Desbloqueado el {date}",
   "achievements.points": "Puntos: {points}",
   "achievements.rarity": "Rareza: {percentage}%",
+  "achievements.rarity.tooltip":
+    "Muestra lo raro que es este logro: porcentajes más bajos significan que es más raro",
   "achievements.notification.unlocked": "¡Logro desbloqueado!",
   "achievements.notification.progress": "¡Progreso del logro actualizado!",
   "achievements.notification.close": "Cerrar notificación de logro",
+  "achievements.notification.new_achievement": "Notificación de nuevo logro",
+  "achievements.notification.pause": "Pausar temporizador de notificación",
+  "achievements.notification.pause_title": "Pausar el cierre automático de esta notificación",
+  "achievements.notification.toggle_sound": "Alternar sonido de notificación",
+  "achievements.notification.toggle_sound_title":
+    "Activar o desactivar sonido para notificaciones de logros",
   "achievements.filter.title": "Filtrar Logros",
   "achievements.filter.status": "Estado",
   "achievements.filter.category": "Categoría",
@@ -532,6 +709,21 @@ export default {
   "achievements.badge.new": "¡Nuevo logro desbloqueado!",
   "achievements.badge.new_with_count": "{count} nuevos logros desbloqueados",
   "achievements.badge.fallback_text": "Notificación de logro",
+  "achievements.badge.context_description":
+    "Badge de notificación de logro. Muestra el número de nuevos logros desbloqueados en el área de navegación.",
+  "achievements.badge.keyboard_instructions":
+    "Presiona Enter o Espacio para ver tu página de logros.",
+
+  // Resumen y estadísticas de logros
+  "achievements.summary.title": "Resumen de Logros",
+  "achievements.summary.total": "Total",
+  "achievements.summary.unlocked": "Desbloqueados",
+  "achievements.summary.progress": "Progreso",
+  "achievements.summary.total-aria": "Total de logros: {count}",
+  "achievements.summary.unlocked-aria": "Logros desbloqueados: {count}",
+  "achievements.summary.progress-aria": "Progreso: {percent} por ciento completado",
+  "achievements.categories": "Categorías de Logros",
+  "achievements.category.count": "Contiene {count} logros",
 
   // Mensajes de error de API
   "errors.auth.unauthorized": "Debes iniciar sesión para acceder a esta función",
@@ -589,7 +781,22 @@ export default {
   "achievements.filter.focus_category": "Enfocar filtro de categoría",
   "achievements.filter.toggle_keyboard_help": "Mostrar/ocultar ayuda de teclado",
 
-  // Claves adicionales del juego de cronología
+  // Anuncios para lectores de pantalla - filtros de logros
+  "achievements.filter.announcement.changed": "Filtro cambiado: {filterType} a {filterValue}",
+  "achievements.filter.announcement.no_results": "Ningún logro coincide con los filtros actuales",
+  "achievements.filter.announcement.results":
+    "{visibleCards} logro{cardPlural} encontrado{cardPlural} en {visibleSections} categoría{sectionPlural}",
+  "achievements.filter.announcement.reset": "Todos los filtros han sido restablecidos",
+
+  // Achievements Filter Count Display
+  "achievements.filter.count.all": "Todos ({count} visibles)",
+  "achievements.filter.count.category_all": "Todas las categorías ({count} visibles)",
+  "achievements.filter.count.generic": "{value} ({count} visibles)",
+
+  // Achievement Filter Reset Button
+  achievementFilterReset: "Restablecer todos los filtros de logros",
+
+  // Additional Chronology Game Keys
   "game.chronology.meta.description": "Juego de Cronología Musical:",
   "game.meta.description.prefix": "Juega",
   "game.meta.description.suffix": "en nivel de dificultad",
@@ -608,5 +815,160 @@ export default {
   "game.time.extended": "Tiempo extendido por 5 segundos",
   "game.time.before.end": "Extender antes del fin del juego",
 
+  // ChronologyFeedbackOverlay specific keys
+  "game.chronology.correct_order_description":
+    "Lista que muestra el orden cronológico correcto de los eventos",
+  "session.timeout.warning": "Su sesión expirará en {0} segundos.",
+  "session.timeout.extend": "Extender sesión",
+  "session.timeout.continue": "Continuar",
+  "session.extended": "Sesión extendida exitosamente",
+
   "achievements.filter.reset": "Restablecer",
+
+  // Mensajes del sistema de layout
+  "layout.error.system": "Se produjo un error del sistema. Por favor, actualice la página.",
+  "layout.error.tracking": "Error rastreado:",
+  "layout.error.tracking.failed": "Seguimiento de errores fallido:",
+  "layout.accessibility.motion.reduced":
+    "Modo de movimiento reducido habilitado para accesibilidad",
+  "layout.accessibility.theme.dark": "Tema oscuro activado para contraste óptimo y accesibilidad",
+  "layout.analytics.init.failed": "Falló la inicialización de analíticas:",
+
+  // Accessibility Skip Links
+  "accessibility.skip.main": "Ir al contenido principal",
+  "accessibility.skip.to.content": "Ir al contenido principal",
+  "accessibility.skip.search": "Ir a la búsqueda",
+  "accessibility.skip.articles": "Ir a los artículos",
+
+  // Navigation
+  "nav.ariaLabel": "Navegación principal",
+
+  "achievements.nav.aria": "Logros",
+
+  "nav.openNewWindow": "Se abre en nueva ventana",
+
+  // End Overlay - Resultados del juego
+  "game.end.achievementBadge": "Icono de trofeo de logro",
+  "game.end.screenReaderDescription":
+    "Resultados del juego mostrando tu puntuación y nivel de logro.",
+  "game.end.scoreProgress": "Progreso de puntuación",
+  "game.end.progressDescription":
+    "Barra de progreso visual mostrando tu nivel de logro de puntuación",
+  "game.end.defaultMotivation": "¡Bien hecho! ¡Sigue jugando para mejorar tu puntuación!",
+  "game.end.finalScore": "Puntuación Final:",
+  "game.end.difficultyLevel": "Indicador de nivel de dificultad",
+  "game.end.difficultyDescription": "Muestra el nivel de dificultad que completaste",
+  "game.end.shareSection": "Comparte tus resultados",
+  "game.end.shareResults": "Comparte los resultados de tu juego en redes sociales",
+  "game.end.shareDescription":
+    "Abre opciones para compartir tu puntuación en plataformas de redes sociales",
+  "game.end.homeDescription": "Volver al menú principal y página de inicio",
+  "game.end.newgameDescription": "Iniciar un nuevo juego con la misma configuración",
+  "game.end.homeButtonHelp":
+    "Navegar de vuelta a la página principal para seleccionar un nuevo modo de juego o categoría",
+  "game.end.restartButtonHelp":
+    "Iniciar inmediatamente una nueva ronda de juego con la misma dificultad y categoría",
+
+  // Anuncios de nivel de logro para lectores de pantalla
+  "game.end.announcement.gameOver":
+    "¡Juego terminado! Tu puntuación: {score}. Nivel de logro: {level}.",
+  "game.end.announcement.gameOver.de":
+    "Spielende! Deine Punktzahl: {score}. Erreichtes Level: {level}.",
+  "game.end.level.genius": "genio",
+  "game.end.level.pro": "profesional",
+  "game.end.level.enthusiast": "entusiasta",
+  "game.end.level.lover": "amante",
+  "game.end.level.explorer": "explorador",
+
+  // Sección de logros en EndOverlay
+  "achievements.unlocked": "Logros Desbloqueados",
+
+  // Motivational texts for different achievement levels
+  "game.end.motivation.genius":
+    "¡Extraordinario! 💫 ¡Eres un verdadero genio musical! 🎶 Tu profundo conocimiento e intuición musical son realmente impresionantes. Podrías ganar un programa de preguntas musicales o incluso ser historiador de música. ¡Comparte tu notable logro y desafía a otros a competir contra ti!",
+  "game.end.motivation.pro":
+    "¡Fantástico! 🌟 Definitivamente eres un profesional de la música con un amplio conocimiento sobre varios artistas y géneros. Tu comprensión musical está muy por encima del promedio. Pocos pueden igualar tu conocimiento. ¡Sigue así y desafía a tus amigos!",
+  "game.end.motivation.enthusiast":
+    "¡Impresionante! 👍 Como auténtico entusiasta de la música, realmente sabes de lo que hablas. Has construido una base sólida de conocimiento musical que te distingue de la multitud. Con un poco más de práctica, pronto podrías ascender a la liga profesional. ¿Te gustaría intentar otra ronda?",
+  "game.end.motivation.lover":
+    "¡Bien hecho! 👏 Como amante de la música, has demostrado un buen conocimiento. Estás en el camino correcto para convertirte en un verdadero conocedor de música. Con más práctica de juego, puedes expandir tu conocimiento y mejorar tu puntuación. ¿Listo para un nuevo desafío?",
+  "game.end.motivation.explorer":
+    "¡Gracias por jugar! 🙏 Como explorador musical, has dado el primer paso para descubrir el fascinante mundo de la música. Cada juego es una oportunidad para aprender algo nuevo. Desafíate a ti mismo, juega más rondas y amplía tu conocimiento musical.",
+
+  // Error messages and accessibility
+  "error.countdown": "Tiempo restante hasta ocultarse automáticamente",
+  "error.extend": "Extender tiempo de espera",
+  "error.extend.tooltip": "Extender el tiempo de espera del mensaje de error en 5 segundos",
+  "error.context.low": "Aviso informativo que requiere atención",
+  "error.context.medium": "Mensaje de error que requiere atención del usuario",
+  "error.context.high": "Error de alta prioridad que requiere atención inmediata",
+  "error.context.critical": "Error crítico que requiere acción inmediata",
+
+  // AudioPlayer Component
+  "audioplayer.aria.region": "Reproductor de audio",
+  "audioplayer.play.aria": "Reproducir audio",
+  "audioplayer.play.title": "Reproducir/Pausar",
+  "audioplayer.progress.aria":
+    "Progreso del audio - Usa las teclas de flecha para buscar, Inicio para el principio, Fin para el final",
+  "audioplayer.progress.help":
+    "Flecha Izquierda/Derecha: Buscar 5 segundos, Shift+Flecha: Buscar 30 segundos, Inicio: Principio, Fin: Final",
+  "audioplayer.volume.toggle.aria": "Activar/desactivar silencio",
+  "audioplayer.volume.toggle.title": "Volumen",
+  "audioplayer.volume.slider.aria": "Ajustar nivel de volumen",
+  "audioplayer.volume.slider.help":
+    "Usa las teclas de flecha para ajustar el volumen en incrementos del 5%. Volumen actual: {volume}%",
+  "audioplayer.captions.english": "Subtítulos en español",
+  "audioplayer.captions.none": "No hay subtítulos disponibles",
+  "audioplayer.fallback.download": "Descargar archivo de audio en su lugar",
+  "audioplayer.fallback.unsupported": "Su navegador no soporta el elemento de audio.",
+  "audioplayer.description":
+    "Reproductor de audio para {title} {artist}. Usa la barra espaciadora para reproducir o pausar, teclas de flecha para buscar y M para silenciar.",
+  "audioplayer.description.no_title":
+    "Reproductor de audio para pista. Usa la barra espaciadora para reproducir o pausar, teclas de flecha para buscar y M para silenciar.",
+  "audioplayer.help.button.aria": "Ayuda",
+  "audioplayer.help.button.title": "Atajos de teclado del reproductor de audio",
+  "audioplayer.help.shortcuts":
+    "Espacio: Reproducir/Pausar, M: Silenciar/Activar sonido, Teclas de flecha: Buscar audio, Arriba/Abajo: Control de volumen",
+
+  // Playlist-specific translation keys
+  "playlist.open.spotify": 'Abrir playlist "{playlist}" en Spotify',
+  "playlist.open.deezer": 'Abrir playlist "{playlist}" en Deezer',
+  "playlist.open.apple": 'Abrir playlist "{playlist}" en Apple Music',
+  "playlist.activation.focused":
+    "Playlist activada: {title}. El foco se movió a los enlaces de streaming.",
+  "playlist.activation.no_links":
+    "Playlist seleccionada: {title}. No hay enlaces de streaming disponibles.",
+  "playlist.exit": "Salir de la playlist: {title}",
+  "playlist.visible": "Playlist prioritaria visible: {title}",
+  "playlist.image.error": "Error al cargar la imagen de la playlist: {title}",
+  "playlist.image.alt":
+    'Portada detallada de playlist para "{headline}" - {introSubline} con colección musical de {decade}',
+  "playlist.image.description":
+    "Portada de playlist que representa colección musical de {decade} con elementos visuales temáticos para {headline}. El diseño visual refleja la era musical y características del género.",
+  "playlist.title.unknown": "Playlist desconocida",
+
+  // Componente de Prueba
+  "test.lint.title": "Componente de Prueba ESLint con WCAG AAA",
+  "test.lint.wcag_title": "Prueba WCAG AAA",
+  "test.lint.next_level_aria": "Continuar al siguiente nivel",
+  "test.lint.next_button": "Continuar",
+  "test.lint.problematic_button_aria": "Botón problemático",
+  "test.lint.correct_button_aria": "Botón correcto con funcionalidad de teclado",
+  "test.lint.test_image_alt": "Imagen de prueba",
+  "test.lint.musician_image_alt":
+    "Un guitarrista tocando en un escenario bien iluminado durante un concierto de rock",
+  "test.lint.weak_contrast_text": "Este texto tiene un contraste muy débil.",
+  "test.lint.good_contrast_text": "Este texto tiene suficiente contraste para WCAG AAA.",
+  "test.lint.error_message": "Ha ocurrido un error.",
+  "test.lint.score_label": "Puntuación:",
+  "test.lint.incomplete_button": "Botón incompleto",
+  "test.lint.correct_button": "Botón correcto",
+  "test.lint.main_heading": "Encabezado principal",
+  "test.lint.subsection_heading": "Subsección (falta h2)",
+  "knowledge.word.count": "palabras",
+
+  // Knowledge accessibility translations
+  "knowledge.accessibility.scrolling_to_top": "Desplazando hacia arriba",
+  "knowledge.accessibility.scrolled_to_top": "Desplazado hacia arriba",
+  "knowledge.accessibility.search_focused": "El campo de búsqueda está ahora enfocado",
 };

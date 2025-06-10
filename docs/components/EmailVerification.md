@@ -2,12 +2,21 @@
 
 ## Overview
 
-The EmailVerification component handles the email verification process for new user accounts in
-MelodyMind. This component displays a confirmation page when users click the verification link in
-their email. It manages three distinct states (loading, success, error) and provides a fully
-accessible, WCAG AAA compliant user experience with comprehensive internationalization support.
+The EmailVerification component provides a comprehensive email verification interface for the MelodyMind authentication system. It handles the complete verification flow with three distinct states (loading, success, error) while maintaining full WCAG AAA accessibility compliance and seamless internationalization support.
+
+This component is designed as a standalone verification page that users access via email confirmation links. It automatically processes verification tokens, communicates with the backend API, and provides clear visual feedback throughout the verification process.
 
 ![Email Verification Component States](../images/email-verification-states.png)
+
+## Features
+
+- **Three distinct states**: Loading, Success, and Error with smooth transitions
+- **WCAG AAA compliant**: Full accessibility support with screen readers and keyboard navigation
+- **Internationalization ready**: Multi-language content via i18n system
+- **Responsive design**: Optimized for all screen sizes and devices
+- **Performance optimized**: Efficient DOM operations and API calls with timeout handling
+- **Reduced motion support**: Respects user motion preferences
+- **High contrast support**: Enhanced visibility for users with visual impairments
 
 ## Properties
 
@@ -30,17 +39,25 @@ const { token } = Astro.params;
 <EmailVerification token={token} />
 ```
 
-### Complete Page Implementation
+### Complete Page Implementation with Dynamic Routes
 
 ```astro
 ---
-// src/pages/[lang]/auth/verify-email.astro
-import EmailVerification from "@components/auth/EmailVerification.astro";
-import AuthLayout from "@layouts/AuthLayout.astro";
+// src/pages/[lang]/auth/verify-email/[token].astro
+import EmailVerification from "../../../../components/auth/EmailVerification.astro";
+import AuthLayout from "../../../../layouts/AuthLayout.astro";
 import { getLangFromUrl } from "@utils/i18n";
 
-const lang = getLangFromUrl(Astro.url);
-const token = Astro.url.searchParams.get("token");
+export async function getStaticPaths() {
+  // Required for dynamic routes in Astro
+  return [
+    { params: { lang: "en", token: "example-token" } },
+    { params: { lang: "de", token: "example-token" } },
+    // Add other language/token combinations as needed
+  ];
+}
+
+const { lang, token } = Astro.params;
 
 if (!token) {
   return Astro.redirect(`/${lang}/auth/login`);
@@ -49,6 +66,30 @@ if (!token) {
 
 <AuthLayout title="Email Verification" lang={lang}>
   <EmailVerification token={token} />
+</AuthLayout>
+```
+
+### Error Handling Implementation
+
+```astro
+---
+import EmailVerification from "@components/auth/EmailVerification.astro";
+import ErrorBoundary from "@components/Shared/ErrorBoundary.astro";
+
+const { token } = Astro.params;
+
+// Validate token format before rendering
+const tokenValidation = /^[a-zA-Z0-9\-_]+$/.test(token || '');
+
+if (!token || !tokenValidation) {
+  return Astro.redirect(`/${lang}/auth/login?error=invalid_token`);
+}
+---
+
+<ErrorBoundary>
+  <EmailVerification token={token} />
+</ErrorBoundary>
+```
 </AuthLayout>
 ```
 
@@ -100,6 +141,32 @@ The component handles three distinct states during the email verification proces
 - **Font Sizes**: Minimum 16px to prevent iOS zoom, scalable with clamp()
 - **Touch Actions**: Proper touch-action manipulation for performance
 
+## CSS Variables and Design System
+
+The component follows MelodyMind's CSS variable system from `global.css`:
+
+### Layout and Spacing
+```css
+--space-xs      /* 4px */
+--space-sm      /* 8px */
+--space-md      /* 16px */
+--space-lg      /* 24px */
+--space-xl      /* 32px */
+--space-2xl     /* 48px */
+--space-3xl     /* 64px */
+```
+
+### Typography
+```css
+--text-base     /* 16px */
+--text-lg       /* 18px */
+--text-xl       /* 20px */
+--text-2xl      /* 24px */
+--font-medium   /* 500 */
+--font-bold     /* 700 */
+--leading-tight /* 1.25 */
+```
+
 ## Internationalization Support
 
 The component uses the MelodyMind i18n system with the following translation keys:
@@ -107,23 +174,105 @@ The component uses the MelodyMind i18n system with the following translation key
 ```typescript
 // Text keys used by this component
 const i18nKeys = {
-  "auth.email_verification.loading_label": "Loading verification status",
-  "auth.email_verification.success_icon_label": "Success icon",
-  "auth.email_verification.error_icon_label": "Error icon",
+  "auth.skip_to_verification": "Skip to verification content",
+  "auth.email_verification.loading_label": "Verifying your email address",
   "auth.email_verification.title": "Email Verification",
-  "auth.email_verification.message": "Your email has been successfully verified",
-  "auth.email_verification.error": "Email verification failed",
+  "auth.email_verification.message": "Your email has been successfully verified!",
+  "auth.email_verification.error": "Email verification failed. Please try again.",
   "auth.email_verification.login": "Continue to Login",
-  "loading.content": "Verifying your email address...",
+  "auth.email_verification.success_icon_label": "Success checkmark",
+  "auth.email_verification.error_icon_label": "Error warning"
 };
 ```
 
 ### Language Support
 
-- German (de) - Primary language
-- English (en) - Secondary language
-- Extensible for additional languages
-- Right-to-left (RTL) language support via CSS logical properties
+- **German (de)** - Primary language for UI
+- **English (en)** - Secondary language
+- **Extensible** - Ready for additional languages
+- **RTL Support** - Uses CSS logical properties for right-to-left languages
+
+### Translation Integration
+
+```typescript
+// Automatic language detection from URL
+const lang = String(getLangFromUrl(Astro.url));
+const t = useTranslations(String(lang));
+
+// Usage in component
+<p class="email-verification__text">
+  {t("auth.email_verification.loading_label")}
+</p>
+```
+
+### Colors (WCAG AAA Compliant)
+```css
+--bg-success-aaa     /* Success background with 7:1 contrast */
+--text-success-aaa   /* Success text with 7:1 contrast */
+--bg-error-aaa       /* Error background with 7:1 contrast */
+--text-error-aaa     /* Error text with 7:1 contrast */
+--bg-primary         /* Primary background */
+--text-primary       /* Primary text */
+--text-secondary     /* Secondary text */
+```
+
+### Interactive Elements
+```css
+--btn-primary-bg       /* Primary button background */
+--btn-primary-hover    /* Primary button hover state */
+--btn-primary-text     /* Primary button text */
+--border-primary       /* Primary borders */
+--interactive-primary  /* Interactive elements */
+```
+
+### Focus System
+```css
+--focus-outline                 /* Standard focus outline */
+--focus-ring                   /* Focus ring shadow */
+--focus-ring-offset           /* Focus ring offset */
+--focus-enhanced-outline-dark /* Enhanced focus for WCAG 2.2 */
+--focus-enhanced-shadow       /* Enhanced focus shadow */
+```
+
+### Accessibility and Motion
+```css
+--transition-normal     /* Standard transitions */
+--radius-md            /* Medium border radius */
+--radius-full          /* Full border radius */
+--min-touch-size       /* Minimum touch target (44px) */
+```
+
+## Code Deduplication and Reusability
+
+### Existing Utility Functions Used
+
+```typescript
+// i18n utilities - Always reuse these
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+
+// Icon system - Reuse existing icon components
+import { Icon } from "astro-icon/components";
+```
+
+### Reusable CSS Patterns
+
+The component follows established patterns from the global design system:
+
+```css
+/* Button pattern - reused from global system */
+.email-verification__button {
+  /* Uses --btn-primary-* variables */
+  /* Follows standard focus indicators */
+  /* Maintains accessibility standards */
+}
+
+/* Icon pattern - consistent with other components */
+.email-verification__icon {
+  /* Uses standard spacing variables */
+  /* Follows accessibility contrast requirements */
+  /* Maintains touch target standards */
+}
+```
 
 ## Icon Usage with astro-icon
 

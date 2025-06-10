@@ -13,7 +13,6 @@ import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations, getRelativeLocaleUrl } from "@utils/i18n";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
-import LanguagePicker from "@components/LanguagePicker.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import ButtonLink from "@components/ButtonLink.astro";
@@ -66,65 +65,42 @@ const imageHeight = 600;
   {publishDate}
   {modifiedDate}
 >
-  {/* Skip to content link for keyboard navigation accessibility */}
-  <a
-    href="#main-content"
-    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded focus:bg-purple-700 focus:px-4 focus:py-2 focus:font-medium focus:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-purple-700 focus:outline-none"
-  >
-    {t("accessibility.skip.to.content")}
-  </a>
-
-  <main
-    id="main-content"
-    class="flex min-h-screen items-center justify-center text-zinc-50"
-    tabindex="-1"
-  >
-    <div class="mx-auto flex w-full max-w-4xl flex-col items-center px-6 py-12 text-center">
-      <div class="flex w-full flex-col items-center">
+  <main id="main-content" class="main-content" tabindex="-1">
+    <div class="content-container">
+      <div class="content-wrapper">
         {/* Logo with comprehensive image optimization and accessibility */}
-        <div class="relative mx-auto mb-8 aspect-square w-full max-w-[310px]" aria-hidden="true">
-          <img
+        <div class="logo-container" aria-hidden="true">
+          <Image
             src="/melody-mind.png"
             width={imageWidth}
             height={imageHeight}
             alt="Melody Mind Logo - Music Quiz App Logo"
             loading="eager"
-            class="h-auto w-full transition-transform duration-300 motion-safe:hover:scale-105"
+            class="logo-image"
             fetchpriority="high"
           />
         </div>
 
         {/* Semantic heading with proper hierarchy */}
-        <Headline level="h1" {title} className="mb-6 text-3xl font-bold text-white md:text-4xl" />
+        <Headline level="h1" {title} size="4xl" />
 
         {/* Description with enhanced contrast for AAA compliance */}
-        <Paragraph
-          className="mb-8 flex max-w-2xl items-center text-center text-lg leading-relaxed text-white"
-        >
+        <Paragraph align="center" textSize="2xl">
           {description}
         </Paragraph>
 
         {/* Accessible button container with increased touch targets */}
-        <div class="mx-auto mt-6 flex w-full max-w-xs flex-col items-center gap-5">
-          <ButtonLink
-            href={`/${String(lang)}/gamehome`}
-            aria-label={t("index.start.game.label")}
-            className="focus:ring-opacity-80 flex min-h-[56px] w-full transform items-center justify-center rounded-xl bg-gradient-to-r from-purple-700 to-indigo-700 px-6 py-4 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:from-purple-600 hover:to-indigo-600 focus:ring-4 focus:ring-purple-300 focus:outline-none"
-          >
+        <div class="button-container">
+          <ButtonLink href={`/${String(lang)}/gamehome`} aria-label={t("index.start.game.label")}>
             <span>{t("index.continue")}</span>
           </ButtonLink>
         </div>
 
         {/* Footer text with improved contrast ratio */}
-        <p class="mt-10 text-xl text-white" aria-live="polite">
-          {t("index.welcome.footnote")}
-        </p>
-
-        {/* Language selection with explicit label for accessibility */}
-        <div class="mt-8" aria-labelledby="language-selector-label">
-          <p id="language-selector-label" class="sr-only">
-            {t("accessibility.language.selection")}
-          </p>
+        <div class="footer-section">
+          <Paragraph textSize="xl" ariaLive="polite">
+            {t("index.welcome.footnote")}
+          </Paragraph>
         </div>
       </div>
     </div>
@@ -132,32 +108,137 @@ const imageHeight = 600;
 </Layout>
 
 <style>
-  /* Enhanced focus styles for accessibility with improved contrast */
-  :global(:focus-visible) {
-    outline: 4px solid #a855f7 !important; /* Increased width and brighter color */
-    outline-offset: 4px !important;
-    border-radius: 0.25rem;
+  /* ======================================
+   * MAIN LAYOUT
+   * ====================================== */
+  .main-content {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
   }
 
-  /* Respect user preferences for reduced motion */
+  .content-container {
+    margin: 0 auto;
+    display: flex;
+    width: var(--width-full);
+    max-width: var(--container-lg);
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-xl) var(--space-lg);
+    text-align: center;
+  }
+
+  .content-wrapper {
+    display: flex;
+    width: var(--width-full);
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ======================================
+   * LOGO SECTION
+   * ====================================== */
+  .logo-container {
+    position: relative;
+    margin: 0 auto var(--space-3xl);
+    aspect-ratio: 1;
+    width: var(--width-full);
+    max-width: var(--container-query-md);
+  }
+
+  .logo-image {
+    height: auto;
+    width: var(--width-full);
+    transition: transform var(--transition-normal);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .logo-image:hover {
+      transform: scale(var(--animation-scale-hover-subtle));
+    }
+  }
+
+  /* ======================================
+   * BUTTON SECTION
+   * ====================================== */
+  .button-container {
+    margin: var(--space-lg) auto 0;
+    display: flex;
+    width: var(--width-full);
+    max-width: var(--container-query-md);
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  /* ======================================
+   * FOOTER SECTION
+   * ====================================== */
+  .footer-section {
+    margin-top: var(--space-3xl);
+  }
+
+  /* ======================================
+   * LANGUAGE SELECTOR
+   * ====================================== */
+  .language-selector-wrapper {
+    margin-top: var(--space-3xl);
+  }
+
+  /* ======================================
+   * SCREEN READER UTILITIES
+   * ====================================== */
+  .sr-only {
+    position: absolute;
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
+    padding: 0;
+    margin: var(--sr-only-margin);
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    clip-path: var(--sr-only-clip-path);
+  }
+
+  /* ======================================
+   * RESPONSIVE DESIGN
+   * ====================================== */
+  @media (min-width: var(--breakpoint-md)) {
+    .content-container {
+      padding: var(--space-2xl) var(--space-lg);
+    }
+  }
+
+  /* ======================================
+   * REDUCED MOTION SUPPORT
+   * ====================================== */
   @media (prefers-reduced-motion: reduce) {
-    :global(*) {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
+    .logo-image,
+    .primary-button {
+      transition: none;
+    }
+
+    .logo-image:hover,
+    .primary-button:hover,
+    .primary-button:active {
+      transform: none;
     }
   }
 
-  /* High contrast mode support */
-  @media (forced-colors: active) {
-    :global(button),
-    :global(a[role="button"]) {
-      border: 2px solid ButtonText;
+  /* ======================================
+   * PRINT STYLES
+   * ====================================== */
+  @media print {
+    .language-selector-wrapper {
+      display: none;
     }
 
-    :global(:focus-visible) {
-      outline: 3px solid Highlight !important;
+    .main-content {
+      background: var(--print-bg);
+      color: var(--print-text);
     }
   }
 </style>
@@ -171,7 +252,8 @@ const imageHeight = 600;
     "DOMContentLoaded",
     () => {
       // Use requestIdleCallback for non-critical operations
-      const idleCallback = window.requestIdleCallback || ((cb) => setTimeout(cb, 50));
+      const idleCallback =
+        window.requestIdleCallback || ((cb: () => void): number => window.setTimeout(cb, 50));
 
       idleCallback(() => {
         // Register intersection observer for animation elements
