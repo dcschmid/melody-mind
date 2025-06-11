@@ -319,6 +319,7 @@ const articleSchemaData = {
             title={entry.data.title}
             id="article-title"
             className="article__title"
+            size="4xl"
           />
 
           <!-- Meta Information -->
@@ -682,30 +683,119 @@ const articleSchemaData = {
   }
 
   .article-content a {
-    color: var(--interactive-primary);
-    text-decoration: underline;
-    text-underline-offset: var(--text-underline-offset);
-    text-decoration-thickness: var(--text-decoration-thickness);
-    font-weight: var(--font-medium); /* Slightly bolder for better visibility */
+    position: relative;
+    text-decoration: none; /* We'll create a custom underline */
+    font-weight: var(--font-semibold); /* Slightly bolder for better visibility */
 
     /* Enhanced focus and interaction area for better accessibility */
     padding: var(--space-xs) var(--space-sm);
     margin: -var(--space-xs) -var(--space-sm);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     transition: all var(--transition-normal);
+
+    /* Custom gradient underline effect */
+    background-image: linear-gradient(
+      90deg,
+      var(--interactive-primary) 0%,
+      var(--color-secondary-500) 100%
+    );
+    background-size: 100% 2px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+
+    /* Enhanced text rendering */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Custom underline animation on hover */
+  .article-content a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: var(--space-sm);
+    right: var(--space-sm);
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--interactive-primary) 0%,
+      var(--color-secondary-500) 50%,
+      var(--interactive-primary) 100%
+    );
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform var(--transition-normal);
+    border-radius: var(--radius-sm);
   }
 
   .article-content a:hover {
     color: var(--interactive-primary-hover);
     background-color: var(--bg-tertiary);
-    text-decoration-thickness: 3px; /* Thicker underline on hover */
+    background-image: none; /* Remove default underline on hover */
+    transform: translateY(-1px); /* Subtle lift effect */
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15); /* Subtle shadow */
+  }
+
+  .article-content a:hover::before {
+    transform: scaleX(1); /* Animate custom underline */
   }
 
   .article-content a:focus-visible {
     outline: var(--focus-enhanced-outline-dark);
     outline-offset: var(--focus-ring-offset);
     background-color: var(--bg-tertiary);
-    box-shadow: 0 0 0 3px var(--interactive-primary);
+    background-image: none;
+    box-shadow:
+      0 0 0 3px var(--interactive-primary),
+      0 4px 12px rgba(139, 92, 246, 0.25);
+    transform: translateY(-1px);
+  }
+
+  .article-content a:focus-visible::before {
+    transform: scaleX(1);
+  }
+
+  /* Active state for better feedback */
+  .article-content a:active {
+    transform: translateY(0);
+    transition-duration: var(--transition-fast);
+  }
+
+  /* External link styling with icon */
+  .article-content a[href^="http"]:not([href*="melody-mind.com"])::after,
+  .article-content a[href^="https"]:not([href*="melody-mind.com"])::after {
+    content: "↗";
+    display: inline-block;
+    font-size: var(--text-sm);
+    margin-left: var(--space-xs);
+    opacity: 0.7;
+    transition: all var(--transition-normal);
+    vertical-align: super;
+    line-height: 1;
+  }
+
+  .article-content a[href^="http"]:not([href*="melody-mind.com"]):hover::after,
+  .article-content a[href^="https"]:not([href*="melody-mind.com"]):hover::after {
+    opacity: 1;
+    transform: translate(2px, -2px);
+  }
+
+  /* Special styling for email links */
+  .article-content a[href^="mailto:"] {
+    background-image: linear-gradient(
+      90deg,
+      var(--color-secondary-500) 0%,
+      var(--interactive-primary) 100%
+    );
+  }
+
+  .article-content a[href^="mailto:"]::before {
+    background: linear-gradient(
+      90deg,
+      var(--color-secondary-500) 0%,
+      var(--interactive-primary) 50%,
+      var(--color-secondary-500) 100%
+    );
   }
 
   .article-content blockquote {
