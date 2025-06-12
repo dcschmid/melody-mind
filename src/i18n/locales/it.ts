@@ -161,6 +161,10 @@ export default {
   "game.chronology.description":
     "⏰ Diventa un viaggiatore del tempo della musica! Ordina questi album leggendari nell'ordine cronologico corretto e dimostra di essere un vero storico musicale. Ogni mossa corretta ti avvicina al punteggio perfetto! 🎯",
   "game.chronology.area.label": "Area di Gioco Cronologia",
+  "game.chronology.aria.main": "Area principale del gioco di cronologia",
+  "game.chronology.info.aria": "Informazioni del gioco e statistiche",
+  "game.chronology.sort.albums": "Ordina gli album per anno di uscita",
+  "game.chronology.instructions": "Organizza gli album nell'ordine cronologico corretto",
   "game.chronology.result": "Risultato",
   "game.chronology.correct": "Corretto! 🎉",
   "game.chronology.incorrect": "Sbagliato! 😔",
@@ -170,11 +174,21 @@ export default {
   "game.chronology.details": "{correct} su {total} album posizionati correttamente",
   "game.chronology.year": "Anno: {year}",
   "game.chronology.drag.help": "Usa i tasti freccia ↑/↓ o trascina per ordinare",
+  "game.submit.answer": "Controlla Risposta",
   "game.chronology.up": "Su",
   "game.chronology.down": "Giù",
+  "game.move.up.aria": "Sposta l'elemento selezionato verso l'alto",
+  "game.move.down.aria": "Sposta l'elemento selezionato verso il basso",
+  "game.submit.answer.aria": "Controlla l'ordine attuale e continua al prossimo round",
   "game.chronology.position": "Posizione",
   "game.chronology.start": "Inizio",
   "game.chronology.end": "Fine",
+  "game.chronology.stats.accuracy": "Precisione:",
+  "game.chronology.stats.round_points": "Punti questo round:",
+  "game.chronology.stats.total_points": "Punti totali:",
+  "game.chronology.stats.round": "Round:",
+  "game.chronology.user_order.correct_title": "Il tuo ordine corretto:",
+  "game.chronology.user_order.incorrect_title": "Il tuo ordine:",
 
   "game.session.title": "Sessione di gioco attiva",
   "game.session.question_progress": "Domanda {current} di {total}",
@@ -425,6 +439,7 @@ export default {
   "loading.scores": "Caricamento punteggi...",
   "loading.leaderboard": "Caricamento classifica...",
   "loading.content": "Caricamento contenuto...",
+  "loading.albums": "Caricamento album...",
   "loading.started": "Caricamento iniziato",
   "loading.completed": "Caricamento completato",
   "loading.progress.indicator": "Indicatore di progresso",
@@ -802,6 +817,7 @@ export default {
     "Elenco che mostra l'ordine cronologico corretto degli eventi",
 
   // End Overlay - Risultati del gioco
+  "game.end.title": "Gioco Completato!",
   "game.end.achievementBadge": "Icona del trofeo di successo",
   "game.end.screenReaderDescription":
     "Risultati del gioco che mostrano il tuo punteggio e livello di successo.",
