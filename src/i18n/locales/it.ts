@@ -183,6 +183,12 @@ export default {
   "game.chronology.position": "Posizione",
   "game.chronology.start": "Inizio",
   "game.chronology.end": "Fine",
+  "game.chronology.stats.accuracy": "Precisione:",
+  "game.chronology.stats.round_points": "Punti questo round:",
+  "game.chronology.stats.total_points": "Punti totali:",
+  "game.chronology.stats.round": "Round:",
+  "game.chronology.user_order.correct_title": "Il tuo ordine corretto:",
+  "game.chronology.user_order.incorrect_title": "Il tuo ordine:",
 
   "game.session.title": "Sessione di gioco attiva",
   "game.session.question_progress": "Domanda {current} di {total}",
@@ -811,6 +817,7 @@ export default {
     "Elenco che mostra l'ordine cronologico corretto degli eventi",
 
   // End Overlay - Risultati del gioco
+  "game.end.title": "Gioco Completato!",
   "game.end.achievementBadge": "Icona del trofeo di successo",
   "game.end.screenReaderDescription":
     "Risultati del gioco che mostrano il tuo punteggio e livello di successo.",

@@ -22,8 +22,8 @@ import type { Difficulty as GameDifficulty } from "@utils/game/jokerUtils";
 import { Icon } from "astro-icon/components";
 import { requireAuth } from "../../../middleware/auth.js";
 
-// Use static site generation for optimal performance
-export const prerender = true;
+// Server-side rendering for cookie-based authentication
+export const prerender = false;
 
 /**
  * Generates static paths for all supported languages, categories, and difficulty levels.
