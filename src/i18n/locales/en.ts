@@ -330,6 +330,7 @@ export default {
   "game.joker.use": "Use 50:50 Joker",
   "game.joker.description": "Removes two incorrect answer options",
   "loading.content": "Loading content...",
+  "loading.albums": "Loading albums...",
   "loading.started": "Loading started",
   "loading.completed": "Loading completed",
   "loading.progress.indicator": "Progress indicator",
@@ -599,6 +600,16 @@ export default {
   "game.chronology.description":
     "⏰ Become a time traveler of music! Arrange these legendary albums in the correct chronological order and show that you're a true music historian. Every correct move brings you closer to the perfect score! 🎯",
   "game.chronology.area.label": "Chronology Game Area",
+  "game.chronology.aria.main": "Main area of the chronology game",
+  "game.chronology.info.aria": "Game information and statistics",
+  "game.chronology.sort.albums": "Sort albums by release year",
+  "game.chronology.instructions": "Arrange the albums in correct chronological order",
+  "game.move.up": "Up",
+  "game.move.down": "Down",
+  "game.move.up.aria": "Move selected element up",
+  "game.move.down.aria": "Move selected element down",
+  "game.submit.answer": "Check Answer",
+  "game.submit.answer.aria": "Check current order and proceed to next round",
   "game.chronology.result": "Result",
   "game.chronology.correct": "Correct! 🎉",
   "game.chronology.incorrect": "Incorrect! 😔",
@@ -608,7 +619,6 @@ export default {
   "game.chronology.details": "{correct} of {total} albums placed correctly",
   "game.chronology.year": "Year: {year}",
   "game.chronology.drag.help": "Use arrow keys ↑/↓ or drag & drop to sort",
-  "game.submit.answer": "Check Answer",
   "game.chronology.up": "Up",
   "game.chronology.down": "Down",
   "game.chronology.position": "Position",
@@ -815,6 +825,19 @@ export default {
   "errors.gameResult.log.api": "API Error:",
   "errors.gameResult.log.unknown": "Unknown error",
 
+  // Chronology game error messages
+  "errors.chronology.albums.loading": "Error loading albums data",
+  "errors.chronology.albums.notFound": "No albums found for category",
+  "errors.chronology.albums.fallback":
+    "No albums found for {language}/{category}, falling back to German",
+  "errors.chronology.question.generation": "Failed to load question. Please try again.",
+  "errors.chronology.data.unavailable": "No albums data available",
+  "errors.chronology.initialization": "Failed to initialize game",
+  "errors.chronology.game.data": "Failed to load game data. Please try again.",
+  "errors.chronology.elements.missing": "Required DOM elements not found",
+  "errors.chronology.years.insufficient":
+    "Not enough unique years ({available}) for difficulty {difficulty} (needs {required}). Using available years.",
+
   // API Highscores Errors
   "api.errors.database_error": "Database error in highscores API: {message}",
   "api.errors.highscores_retrieval": "Error retrieving highscores: {message}",
@@ -985,4 +1008,17 @@ export default {
   "knowledge.accessibility.scrolling_to_top": "Scrolling to top of page",
   "knowledge.accessibility.scrolled_to_top": "Scrolled to top of page",
   "knowledge.accessibility.search_focused": "Search input is now focused",
+
+  // Chronology game error messages
+  "errors.chronology.albums.loading": "Error loading albums data",
+  "errors.chronology.albums.notFound": "No albums found for category",
+  "errors.chronology.albums.fallback":
+    "No albums found for {language}/{category}, falling back to German",
+  "errors.chronology.question.generation": "Failed to load question. Please try again.",
+  "errors.chronology.data.unavailable": "No albums data available",
+  "errors.chronology.initialization": "Failed to initialize game",
+  "errors.chronology.game.data": "Failed to load game data. Please try again.",
+  "errors.chronology.elements.missing": "Required DOM elements not found",
+  "errors.chronology.years.insufficient":
+    "Not enough unique years ({available}) for difficulty {difficulty} (needs {required}). Using available years.",
 };

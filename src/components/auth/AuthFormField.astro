@@ -617,29 +617,6 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
    * THEME SUPPORT - Performance Optimized
    * ====================================== */
 
-  /* Light mode with efficient property updates - DRY optimized */
-  @media (prefers-color-scheme: light) {
-    .auth-form-field__label,
-    .auth-form-field__input {
-      color: var(--text-primary);
-    }
-
-    .auth-form-field__input {
-      background-color: var(--form-bg);
-      border-color: var(--form-border);
-    }
-
-    .auth-form-field__input:focus {
-      background-color: var(--bg-secondary);
-      border-color: var(--border-focus);
-    }
-
-    .auth-form-field__error-message {
-      background-color: var(--bg-error-aaa);
-      color: var(--text-error-aaa);
-    }
-  }
-
   /* Performance: Critical path rendering optimization */
   .auth-form-field * {
     box-sizing: border-box;

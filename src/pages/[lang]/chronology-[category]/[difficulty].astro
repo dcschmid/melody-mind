@@ -1,81 +1,51 @@
 ---
 /**
- * Chronology Game Page Component
+ * @component ChronologyGamePage
+ * @description Moderne Chronologie-Spielseite für das MelodyMind-Projekt
  *
- * This page implements the chronology game mode where players arrange music albums in chronological order.
- * It's pre-rendered at build time for all supported languages, categories, and difficulty levels.
- *
- * Accessibility Features:
- * - Semantic HTML with proper ARIA attributes (WCAG AAA compliance)
- * - High contrast text with 7:1 ratio for normal text
- * - Keyboard navigation for all interactive elements
- * - Descriptive ARIA labels for game elements
- * - Focus management for interactive components
- * - Reduced motion support for animations
- *
- * Performance Optimizations:
- * - Static pre-rendering (SSG) for fast initial load
- * - Optimized image loading with responsive sizes
- * - Efficient DOM updates with requestAnimationFrame
- * - Progressive enhancement for game functionality
- * - Touch interaction optimizations for mobile devices
+ * Funktionen:
+ * - Schwierigkeitsgrade (Easy: 4 Alben, Medium: 5 Alben, Hard: 6 Alben)
+ * - Intuitive Buttons zum Verschieben der Elemente
+ * - Vollständige Tastatursteuerung
+ * - Punkteberechnung basierend auf korrekter Reihenfolge
+ * - Lösungsoverlay nach jeder Runde
+ * - Endoverlay mit Gesamtergebnis
+ * - Modernes, ansprechendes Design mit CSS-Variablen
  */
 
 // 1. Imports
 import Layout from "@layouts/Layout.astro";
-import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
-import GameHeadline from "@components/Game/GameHeadline.astro";
 import EndOverlay from "@components/Overlays/EndOverlay.astro";
 import LoadingSpinner from "@components/Game/LoadingSpinner.astro";
-import { getLangFromUrl, useTranslations } from "@utils/i18n";
-import type { Difficulty as GameDifficulty } from "@utils/game/jokerUtils";
-import { Icon } from "astro-icon/components";
 import ChronologyFeedbackOverlay from "@components/Overlays/ChronologyFeedbackOverlay.astro";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { Icon } from "astro-icon/components";
 import { requireAuth } from "../../../middleware/auth.js";
-import Headline from "@components/Headline.astro";
-import Paragraph from "@components/Paragraph.astro";
-import ButtonLink from "@components/ButtonLink.astro";
 
-// Use static site generation for optimal performance
+// Static site generation für optimale Performance
 export const prerender = true;
 
 /**
- * Generates static paths for all supported languages, categories, and difficulty levels.
- * This ensures fast page loads as everything is pre-rendered at build time.
- * @returns {Array} Array of path objects with params and props
+ * Generiert statische Pfade für alle unterstützten Sprachen, Kategorien und Schwierigkeitsgrade
  */
 export async function getStaticPaths() {
-  // Define all supported languages for type safety
   const supportedLanguages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"] as const;
-
-  // Define available difficulty levels
   const difficultyLevels = ["easy", "medium", "hard"] as const;
-
   const paths = [];
 
   for (const lang of supportedLanguages) {
-    // Load categories based on language with proper fallback mechanism
     let categories;
     try {
       categories = await import(`@json/${lang}_categories.json`);
     } catch {
-      // Fallback to default language if the specific language file doesn't exist
       categories = await import(`@json/en_categories.json`);
     }
 
-    // Create a path for each category and difficulty combination
     for (const categoryData of categories.default) {
       for (const difficulty of difficultyLevels) {
         paths.push({
-          params: {
-            lang,
-            category: categoryData.slug,
-            difficulty,
-          },
-          props: {
-            categoryData,
-            lang,
-          },
+          params: { lang, category: categoryData.slug, difficulty },
+          props: { categoryData, lang },
         });
       }
     }
@@ -84,12 +54,9 @@ export async function getStaticPaths() {
   return paths;
 }
 
-// 2. Route params and props processing
+// 2. Props und Parameter verarbeitung
 interface Props {
-  categoryData: {
-    headline: string;
-    slug: string;
-  };
+  categoryData: { headline: string; slug: string };
   lang: string;
 }
 
@@ -98,2418 +65,638 @@ const lang = getLangFromUrl(Astro.url) as string;
 const t = useTranslations(lang);
 const { category, difficulty } = Astro.params;
 
-// 3. Auth-Check: Check if the user is logged in
+// 3. Authentifizierung prüfen
 const authResult = await requireAuth(Astro.request);
-
-// 4. User and game data processing
-// Default user for game functionality
 const user = { id: authResult.user?.id || "guest" };
 
-// Find current category data to use in page metadata and title
-const currentCategoryData = categoryData || {
-  headline: "",
-  slug: category,
-};
-
-// Get custom player title based on difficulty for personalized experience
-const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
-
-// 5. SEO optimization
-// Generate SEO-friendly meta description that includes game mode and category
-const metaDescription = `${t("game.chronology.meta.description") || "Music Chronology Game:"} ${currentCategoryData?.headline || ""} ${t("game.meta.difficulty") || "in difficulty level"} ${t(`difficulty.${difficulty}`) || difficulty}`;
-
-// 6. Logging for monitoring and debugging
-console.warn(
-  `User ${user.id} is playing Chronology in category ${category} with difficulty ${difficulty}`
-);
+// 4. Meta-Daten für SEO
+const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headline} (${t(`difficulty.${difficulty}`)})`;
 ---
 
 <Layout
-  title={`${t("game.chronology.title")} - ${currentCategoryData?.headline}`}
+  title={`${t("game.chronology.title")} - ${categoryData?.headline}`}
   description={metaDescription}
   showHeader={false}
   showCoins={false}
 >
+  <!-- Feedback- und End-Overlays -->
   <ChronologyFeedbackOverlay />
-
   <EndOverlay
     id="endgame-popup"
     data-score="0"
-    data-category={currentCategoryData?.headline || ""}
+    data-category={categoryData?.headline || ""}
     data-difficulty={difficulty || ""}
   />
 
-  <div class="mb-6 md:mb-8">
-    <GameHeadline headline={currentCategoryData?.headline} />
-
-    <!-- Game info badges -->
-    <div class="game-info-badges" aria-live="polite" aria-label={t("game.info.badges")}>
-      <div class="game-badge" aria-label={t("game.difficulty.label")}>
-        <Icon
-          name="difficulty"
-          class="game-badge__icon game-badge__icon--difficulty"
-          aria-hidden="true"
-        />
-        <span class="game-badge__text">
-          {t(`difficulty.${difficulty}`)}
-        </span>
-      </div>
-
-      <div class="game-badge" aria-label={t("game.coins.label")}>
-        <Icon name="coins" class="game-badge__icon game-badge__icon--coins" aria-hidden="true" />
-        <span class="game-badge__text">
-          <span id="coins-display" class="coinsCount">0</span>
-        </span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Error message should only show when needed -->
-  <!-- ErrorMessage component will be dynamically created by JavaScript when errors occur -->
-
+  <!-- Loading Spinner -->
   <LoadingSpinner />
 
+  <!-- Spielbereich -->
   <main
     id="chronology-container"
-    class="chronology-container"
-    role="region"
-    aria-labelledby="chronology-title"
-    aria-label={t("game.chronology.area.label")}
-    data-categoryName={currentCategoryData?.headline}
-    data-genre={category}
-    data-userID={user.id}
+    class="chronology-game"
+    data-category={category}
     data-difficulty={difficulty}
+    data-user-id={user.id}
+    data-category-name={categoryData?.headline || ""}
+    aria-label={t("game.chronology.aria.main")}
   >
-    {
-      playerTitle && (
-        <div class="player-title-container">
-          <span class="player-title-badge" aria-label={t("game.player.title")}>
-            <Icon name="user" class="player-title-badge__icon" aria-hidden="true" />
-            <span class="player-title-badge__text">{playerTitle}</span>
+    <!-- Game Header -->
+    <header class="game-header">
+      <!-- Game Info Badges -->
+      <div class="game-info" role="banner" aria-label={t("game.chronology.info.aria")}>
+        <div class="badge">
+          <Icon name="trophy" class="badge__icon" />
+          <span class="badge__text" id="score-display">0</span>
+        </div>
+        <div class="badge">
+          <Icon name="target" class="badge__icon" />
+          <span class="badge__text">
+            <span id="round-display">1</span>/10
           </span>
         </div>
-      )
-    }
-
-    <Headline
-      level="h2"
-      id="chronology-title"
-      className="mb-6 text-xl leading-relaxed font-bold text-white md:text-2xl"
-    >
-      {t("game.chronology.title")}
-    </Headline>
-
-    <Paragraph id="chronology-description" align="center" textSize="base" className="mb-6">
-      {t("game.chronology.description")}
-    </Paragraph>
-
-    <div
-      class="chronology-items-container"
-      id="chronology-items-container"
-      aria-live="polite"
-      role="region"
-      aria-labelledby="chronology-title"
-    >
-      <!-- Items added via JavaScript -->
-      <div class="chronology-placeholder" role="status">
-        <Icon name="loader" class="chronology-placeholder__icon" aria-hidden="true" />
-        <p class="chronology-placeholder__text" id="loading-status">{t("loading.content")}</p>
+        <div class="badge">
+          <Icon name="gauge" class="badge__icon" />
+          <span class="badge__text">{t(`difficulty.${difficulty}`)}</span>
+        </div>
       </div>
-    </div>
+    </header>
 
-    <!-- Navigation buttons for touchscreen users -->
-    <nav
-      id="chronology-navigation"
-      class="chronology-navigation"
-      aria-label={t("game.chronology.touch.navigation")}
-    >
-      <div class="sr-only" id="nav-description">
-        {t("game.chronology.navigation.description")}
+    <!-- Game Content -->
+    <div class="game-content">
+      <h1 class="game-title">{t("game.chronology.sort.albums")}</h1>
+      <p class="game-description">{t("game.chronology.instructions")}</p>
+
+      <!-- Chronology Container -->
+      <div id="chronology-items-container" class="chronology-container">
+        <div class="loading-placeholder">
+          <Icon name="loader" class="loading-icon" />
+          <p>{t("loading.albums")}</p>
+        </div>
       </div>
-      <div id="chronology-move-up">
-        <ButtonLink
-          className="chronology-button chronology-button--up"
-          aria-label={t("game.chronology.move.up")}
-          aria-describedby="nav-description"
-          disabled
+
+      <!-- Game Controls -->
+      <div class="game-controls">
+        <!-- Move Buttons -->
+        <div class="move-buttons">
+          <button
+            id="move-up-btn"
+            type="button"
+            class="move-button"
+            disabled
+            aria-label={t("game.move.up.aria")}
+          >
+            <Icon name="chevron-up" class="move-button__icon" />
+            {t("game.move.up")}
+          </button>
+          <button
+            id="move-down-btn"
+            type="button"
+            class="move-button"
+            disabled
+            aria-label={t("game.move.down.aria")}
+          >
+            <Icon name="chevron-down" class="move-button__icon" />
+            {t("game.move.down")}
+          </button>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          id="submit-btn"
           type="button"
-          variant="secondary"
-        >
-          <Icon name="chevron-up" class="chronology-button__icon" aria-hidden="true" />
-          <span>{t("game.chronology.up")}</span>
-        </ButtonLink>
-      </div>
-      <div id="chronology-move-down">
-        <ButtonLink
-          className="chronology-button chronology-button--down"
-          aria-label={t("game.chronology.move.down")}
-          aria-describedby="nav-description"
+          class="submit-button"
           disabled
-          type="button"
-          variant="secondary"
+          aria-label={t("game.submit.answer.aria")}
         >
-          <Icon name="chevron-down" class="chronology-button__icon" aria-hidden="true" />
-          <span>{t("game.chronology.down")}</span>
-        </ButtonLink>
-      </div>
-    </nav>
-
-    <div class="chronology-submit-container">
-      <div id="chronology-submit">
-        <ButtonLink
-          className="chronology-submit-button"
-          type="button"
-          aria-label={t("game.submit.answer")}
-          disabled
-          variant="primary"
-          size="lg"
-        >
+          <Icon name="check" class="submit-button__icon" />
           {t("game.submit.answer")}
-        </ButtonLink>
+        </button>
       </div>
     </div>
   </main>
 </Layout>
 
-<script>
-  /**
-   * Music Chronology Game Mode
-   *
-   * This game mode challenges players to correctly order albums/songs chronologically.
-   * Players receive points based on accuracy of their ordering and are rewarded for perfectly ordered sequences.
-   */
-  import { ErrorHandler } from "@utils/error/errorHandler";
-  import {
-    generateChronologyQuestion,
-    evaluateChronologyAnswer,
-  } from "@utils/game/chronologyGameMode";
-  import { handleEndGame, restartGame } from "@utils/game/endGameUtils";
-  import type { Album } from "@utils/game/getRandomQuestion";
-  import { Difficulty } from "@utils/game/jokerUtils";
-  import { getLangFromUrl, useTranslations } from "@utils/i18n";
-  import { QueueManager } from "@utils/queue/queueManager";
+<script type="module">
+  // Game implementation with standalone functionality (no external imports)
 
-  /**
-   * Interface for feedback event detail sent to ChronologyFeedbackOverlay
-   * Used to trigger the feedback overlay with appropriate data
-   */
-  interface FeedbackEventDetail {
-    isCorrect: boolean; // Whether the answer was completely correct
-    isLastRound: boolean; // Whether this is the final round
-    correctOrder?: string[]; // Array of correct song/album names in order
-  }
-
-  /**
-   * Interface for chronology question structure
-   * Defines the data structure for chronology questions
-   */
-  interface ChronologyQuestion {
-    items: Array<{
-      id: number;
-      artist: string;
-      title: string;
-      year: number;
-    }>;
-    correctOrder: number[];
-  }
-
-  /**
-   * Represents the evaluation result of a chronology answer
-   */
-  interface ChronologyResult {
-    score: number;
-    correctItems: number;
-    totalItems: number;
-  }
-
-  /**
-   * Get current language from URL and initialize translations
-   */
-  const lang = getLangFromUrl(new URL(window.location.pathname, window.location.origin)) as string;
-  const t = useTranslations(lang);
-
-  /**
-   * Configuration constants for number of rounds based on difficulty level
-   * Easy: 10 rounds, Medium: 15 rounds, Hard: 20 rounds
-   */
-  const ROUNDS_PER_DIFFICULTY = {
-    [Difficulty.EASY]: 10,
-    [Difficulty.MEDIUM]: 15,
-    [Difficulty.HARD]: 20,
-  } as const;
-
-  /**
-   * Validates and normalizes the difficulty level from URL parameters
-   * @param {string|null} diff - The difficulty string from URL
-   * @returns {Difficulty} Normalized difficulty enum value
-   */
-  const validateDifficulty = (diff: string | null): Difficulty => {
-    if (diff === "easy") {
-      return Difficulty.EASY;
-    }
-    if (diff === "medium") {
-      return Difficulty.MEDIUM;
-    }
-    if (diff === "hard") {
-      return Difficulty.HARD;
-    }
-    return Difficulty.EASY;
+  // Type definitions as constants to avoid TypeScript syntax issues
+  const DIFFICULTY_LEVELS = {
+    EASY: "easy",
+    MEDIUM: "medium",
+    HARD: "hard",
   };
 
-  /**
-   * Interface for DOM elements required by the game controller
-   * Centralizes element references to improve code organization and performance
-   */
-  interface ChronologyGameElements {
-    itemsContainer: HTMLElement;
-    submitButton: HTMLButtonElement;
-    coinsDisplay: HTMLElement;
-    loadingSpinner: HTMLElement;
-    chronologyContainer: HTMLElement;
-    endGamePopup: HTMLElement;
-    roundElement: HTMLElement; // For displaying current round
-    moveUpButton: HTMLButtonElement; // Navigation button for moving up
-    moveDownButton: HTMLButtonElement; // Navigation button for moving down
-  }
+  const ITEMS_PER_DIFFICULTY = {
+    [DIFFICULTY_LEVELS.EASY]: 4,
+    [DIFFICULTY_LEVELS.MEDIUM]: 5,
+    [DIFFICULTY_LEVELS.HARD]: 6,
+  };
 
-  /**
-   * Caches DOM elements to avoid repeated queries and improve performance
-   * @returns {ChronologyGameElements} Object containing all required DOM elements
-   */
-  function cacheElements(): ChronologyGameElements {
-    return {
-      itemsContainer: document.getElementById("chronology-items-container") as HTMLElement,
-      submitButton: document
-        .getElementById("chronology-submit")
-        ?.querySelector("button") as HTMLButtonElement,
-      coinsDisplay: document.querySelector(".coinsCount") as HTMLElement,
-      loadingSpinner: document.getElementById("loading-spinner") as HTMLElement,
-      chronologyContainer: document.getElementById("chronology-container") as HTMLElement,
-      endGamePopup: document.getElementById("endgame-popup") as HTMLElement,
-      roundElement: document.querySelector(".round") as HTMLElement,
-      moveUpButton: document
-        .getElementById("chronology-move-up")
-        ?.querySelector("button") as HTMLButtonElement,
-      moveDownButton: document
-        .getElementById("chronology-move-down")
-        ?.querySelector("button") as HTMLButtonElement,
-    };
-  }
-
-  /**
-   * Main controller class for the Chronology game
-   * Handles game initialization, state management, user interactions, and scoring
-   */
-  class ChronologyGameController {
-    private elements: ChronologyGameElements;
-    private albums: Album[] = [];
-    private currentQuestion: ChronologyQuestion | null = null;
-    private score: number = 0;
-    private roundIndex: number = 0;
-    private correctAnswers: number = 0;
-    private totalRounds: number = 10;
-    private difficulty: Difficulty;
-    private category: string;
-    private categoryName: string;
-    private userId: string;
-    private currentlySelectedItem: HTMLElement | null = null; // Track the currently selected item
-
-    // Status-Management für verbesserte Interaktionslogik
-    private selectionState: {
-      currentItem: HTMLElement | null;
-      previousItem: HTMLElement | null;
-      isMoving: boolean;
-    } = {
-      currentItem: null,
-      previousItem: null,
-      isMoving: false,
-    };
-
-    // Note: Dynamic button creation uses chronology-button class with CSS variables
-    // This approach ensures consistency with project standards and avoids code duplication
-
-    /**
-     * Constructor initializes the game controller with required DOM elements
-     * and sets up game parameters based on URL and container attributes
-     * @param {ChronologyGameElements} elements - Cached DOM elements
-     */
-    constructor(elements: ChronologyGameElements) {
-      this.elements = elements;
-
-      const container = this.elements.chronologyContainer;
-      this.category = container.getAttribute("data-genre") || "";
-      this.userId = container.getAttribute("data-userID") || "guest";
-      this.categoryName = container.getAttribute("data-categoryName") || "";
-      this.difficulty = validateDifficulty(container.getAttribute("data-difficulty"));
-
-      this.totalRounds =
-        ROUNDS_PER_DIFFICULTY[this.difficulty] || ROUNDS_PER_DIFFICULTY[Difficulty.EASY];
-
-      // Initialize round display
-      this.updateRoundDisplay();
-
-      // Check for seasonal events
-      this.checkForSeasonalEvent();
-
-      this.initEventListeners();
-    }
-
-    /**
-     * Checks if there is an active seasonal event based on current date
-     * Used for seasonal achievements and special game features
-     */
-    private checkForSeasonalEvent(): void {
-      // This could come from an API call or configuration
-      const currentDate = new Date();
-      const month = currentDate.getMonth() + 1; // 1-12
-
-      // Example of seasonal events
-      if (month === 12) {
-        ChronologyGameController.currentEventId = "winter_2025";
-      } else if (month >= 6 && month <= 8) {
-        ChronologyGameController.currentEventId = "summer_2025";
-      }
-    }
-
-    /**
-     * Initializes event listeners for game interactions
-     * Sets up handlers for button clicks and game restart
-     */
-    private initEventListeners(): void {
-      // Submit button
-      this.elements.submitButton.addEventListener("click", () => this.handleSubmit());
-
-      // Restart button in endgame popup
-      const restartButton = document.getElementById("restart-button");
-      if (restartButton) {
-        restartButton.addEventListener("click", restartGame);
-      }
-
-      // Touch navigation buttons
-      this.elements.moveUpButton.addEventListener("click", () => this.moveSelectedItem("up"));
-      this.elements.moveDownButton.addEventListener("click", () => this.moveSelectedItem("down"));
-
-      // Initially buttons are disabled until an item is selected
-      this.updateNavigationButtonState();
-    }
-
-    /**
-     * Updates the round display
-     * Shows current round number and total rounds in the UI if the round element exists
-     */
-    private updateRoundDisplay(): void {
-      if (this.elements.roundElement) {
-        this.elements.roundElement.textContent = `${this.roundIndex + 1}/${this.totalRounds}`;
-      }
-    }
-
-    // The updateNavigationButtonState method is already defined earlier in the class
-
-    /**
-     * Loads album data for the current category and user's language
-     *
-     * This method fetches album data from the JSON API with a localization fallback mechanism.
-     * It first tries to load albums in the user's selected language, and if that fails,
-     * it falls back to the default German language version.
-     *
-     * Accessibility Considerations:
-     * - Appropriate error messages are provided for screen readers
-     * - Loading states are managed via the loading spinner
-     * - Error handling preserves navigation flow for keyboard users
-     *
-     * @returns {Promise<boolean>} True if albums were loaded successfully, false otherwise
-     */
-    public async loadAlbums(): Promise<boolean> {
-      // Set a status message for screen readers
-      this.announceToScreenReader(t("loading.albums") || "Loading music albums");
-
-      // Try to load from cache first
-      if (await this.loadAlbumsFromCache()) {
-        return true;
-      }
-
-      // If cache loading failed, try to fetch fresh data
-      try {
-        const albumsData = await this.fetchAlbumsData();
-        this.albums = albumsData;
-
-        if (!this.albums?.length) {
-          throw new Error(t("error.no.albums.found"));
-        }
-
-        // Cache successful result
-        this.cacheAlbumsData();
-
-        this.announceToScreenReader(t("albums.loaded.success") || "Albums loaded successfully");
-        return true;
-      } catch (error) {
-        this.handleAlbumLoadError(error);
-        return false;
-      }
-    }
-
-    /**
-     * Attempts to load albums data from the browser cache
-     * @returns {Promise<boolean>} True if cache load was successful, false otherwise
-     */
-    private async loadAlbumsFromCache(): Promise<boolean> {
-      const cacheKey = `albums-${this.category}-${lang}`;
-      const cachedData = sessionStorage.getItem(cacheKey);
-
-      if (!cachedData) {
-        return false;
-      }
-
-      try {
-        this.albums = JSON.parse(cachedData);
-        this.announceToScreenReader(t("albums.loaded") || "Albums loaded from cache");
-        return true;
-      } catch (parseError) {
-        console.warn("Failed to parse cached albums, fetching fresh data", parseError);
-        return false;
-      }
-    }
-
-    /**
-     * Fetches albums data from the API with language fallback
-     * @returns {Promise<Album[]>} The albums data
-     */
-    private async fetchAlbumsData(): Promise<Album[]> {
-      try {
-        // Try to load albums for the current language first
-        return await this.fetchAlbumsForLanguage(lang);
-      } catch {
-        // Fallback to German if the specific language file doesn't exist
-        console.warn(`No albums found for ${lang}/${this.category}, falling back to German`);
-        this.announceToScreenReader(t("loading.fallback") || "Using fallback language for albums");
-        return await this.fetchAlbumsForLanguage("de");
-      }
-    }
-
-    /**
-     * Fetches albums for a specific language
-     * @param {string} language - The language code to fetch albums for
-     * @returns {Promise<Album[]>} The albums data
-     */
-    private async fetchAlbumsForLanguage(language: string): Promise<Album[]> {
-      const response = await fetch(`/json/genres/${language}/${this.category}.json`);
+  // Data loading functions
+  async function loadAlbumsData(category, language) {
+    try {
+      // Try to load from the specified language first
+      const response = await fetch(`/json/genres/${language}/${category}.json`);
 
       if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        // Fallback to German if the language-specific file doesn't exist
+        console.warn(`No albums found for ${language}/${category}, falling back to German`);
+        const fallbackResponse = await fetch(`/json/genres/de/${category}.json`);
+
+        if (!fallbackResponse.ok) {
+          throw new Error(`Failed to load albums for category: ${category}`);
+        }
+
+        return await fallbackResponse.json();
       }
 
       return await response.json();
-    }
-
-    /**
-     * Caches the loaded albums data for future use
-     */
-    private cacheAlbumsData(): void {
-      const cacheKey = `albums-${this.category}-${lang}`;
-      try {
-        sessionStorage.setItem(cacheKey, JSON.stringify(this.albums));
-      } catch (cacheError) {
-        console.warn("Failed to cache albums data", cacheError);
-        // Non-critical error, continue without caching
-      }
-    }
-
-    /**
-     * Handles errors that occur during album loading
-     * @param {unknown} error - The error that occurred
-     */
-    private handleAlbumLoadError(error: unknown): void {
-      console.error("Error loading albums:", error);
-      ErrorHandler.handleApiError(error instanceof Error ? error : new Error(String(error)));
-
-      // Announce error to screen readers for better accessibility
-      this.announceToScreenReader(
-        t("error.loading.albums") || "Error loading albums. Please try again later."
-      );
-    }
-
-    /**
-     * Announces a message to screen readers using ARIA live regions
-     * Creates a temporary element for announcements that's removed after being read
-     *
-     * @param {string} message - The message to announce to screen readers
-     * @param {string} politeness - ARIA live politeness setting: 'polite' or 'assertive'
-     * @param {number} duration - How long the announcement should remain in the DOM (ms)
-     */
-    private announceToScreenReader(
-      message: string,
-      politeness: "polite" | "assertive" = "polite",
-      duration: number = 7000 // Increased from 5000 to 7000 ms for better accessibility
-    ): void {
-      if (!message) {
-        return;
-      }
-
-      const announcement = document.createElement("div");
-      announcement.className = "sr-only";
-      announcement.setAttribute("aria-live", politeness);
-      announcement.textContent = message;
-
-      document.body.appendChild(announcement);
-
-      // Remove the announcement after it's likely been read
-      setTimeout(() => announcement.remove(), duration);
-    }
-
-    /**
-     * Starts the game and displays the first question
-     * Shows loading spinner during initialization
-     */
-    public async startGame(): Promise<void> {
-      this.showLoadingSpinner(true);
-
-      // Alben laden
-      const success = await this.loadAlbums();
-      if (!success) {
-        this.showLoadingSpinner(false);
-        return;
-      }
-
-      // Erste Frage generieren und anzeigen
-      this.loadNextQuestion();
-
-      this.showLoadingSpinner(false);
-    }
-
-    /**
-     * Shows/hides the loading spinner
-     * Controls the visibility of the loading indicator with proper ARIA attributes
-     *
-     * Accessibility Considerations:
-     * - Announces loading state to screen readers through aria-live regions
-     * - Maintains focus management during loading operations
-     * - Prevents interaction with hidden elements
-     *
-     * @param {boolean} show - Whether to show or hide the spinner
-     */
-    private showLoadingSpinner(show: boolean): void {
-      if (!this.elements.loadingSpinner) {
-        return;
-      }
-
-      if (show) {
-        this.elements.loadingSpinner.classList.remove("hidden");
-        this.elements.loadingSpinner.setAttribute("aria-hidden", "false");
-        // Announce loading state to screen readers
-        this.announceToScreenReader(t("game.loading") || "Laden, bitte warten...");
-      } else {
-        this.elements.loadingSpinner.classList.add("hidden");
-        this.elements.loadingSpinner.setAttribute("aria-hidden", "true");
-        // Announce when loading is complete
-        this.announceToScreenReader(t("game.loading.complete") || "Laden abgeschlossen");
-      }
-    }
-
-    /**
-     * Tracking variable for achievement timing
-     * Measures time taken to answer questions for speed bonuses
-     */
-    private questionStartTime: number = 0;
-
-    /**
-     * Generates and loads the next chronology question
-     * Resets the container, initializes question timer, and renders the question
-     */
-    private loadNextQuestion(): void {
-      // Alle Items zurücksetzen
-      if (this.elements.itemsContainer) {
-        this.elements.itemsContainer.innerHTML = "";
-      }
-
-      // Startzeit für Achievement-Tracking speichern
-      this.questionStartTime = Date.now();
-
-      // Frage für aktuellen Schwierigkeitsgrad generieren
-      this.currentQuestion = generateChronologyQuestion(this.albums, this.difficulty);
-
-      if (!this.currentQuestion) {
-        ErrorHandler.handleApiError(
-          new Error("Keine gültige Chronologie-Frage konnte generiert werden")
-        );
-        return;
-      }
-
-      // Frage anzeigen
-      this.renderQuestion();
-
-      // Submit-Button aktivieren
-      if (this.elements.submitButton) {
-        this.elements.submitButton.disabled = false;
-      }
-
-      // Rundenanzeige aktualisieren
-      this.updateRoundDisplay();
-    }
-
-    /**
-     * Renders the chronology question in the container
-     * Creates list items representing albums to be ordered with button navigation
-     */
-    private renderQuestion(): void {
-      if (!this.elements.itemsContainer || !this.currentQuestion) {
-        return;
-      }
-
-      const container = this.elements.itemsContainer;
-      container.innerHTML = "";
-
-      // Add ARIA description for sorting
-      const instructions = document.createElement("p");
-      instructions.id = "chronology-instruction";
-      instructions.className = "sr-only";
-      instructions.innerText =
-        t("game.chronology.aria.instructions") ||
-        "Select an element by clicking and then use the up and down buttons to move it. Arrange the elements in chronological order - from oldest to newest.";
-      container.appendChild(instructions);
-
-      // Create list
-      const list = document.createElement("ul");
-      list.className = "chronology-list space-y-3";
-      list.setAttribute("aria-label", t("game.chronology.sortable.list") || "Liste von Alben");
-      list.setAttribute("role", "list");
-
-      // Füge Items hinzu
-      this.currentQuestion.items.forEach((item, index: number) => {
-        const li = document.createElement("li");
-        li.className =
-          "chronology-item bg-zinc-900 p-4 rounded-lg border border-zinc-700 flex items-center cursor-pointer";
-        li.setAttribute("data-id", item.id.toString());
-        li.setAttribute("aria-grabbed", "false");
-        li.setAttribute("tabindex", "0");
-        li.setAttribute("role", "listitem");
-
-        // Content
-        const content = document.createElement("div");
-        content.className = "flex-1";
-
-        const artistName = document.createElement("div");
-        artistName.className = "font-bold text-white";
-        artistName.textContent = item.artist;
-
-        const albumTitle = document.createElement("div");
-        albumTitle.className = "text-zinc-300";
-        albumTitle.textContent = item.title;
-
-        content.appendChild(artistName);
-        content.appendChild(albumTitle);
-
-        // Position number (for accessibility)
-        const position = document.createElement("div");
-        position.className = "chronology-position ml-auto text-xl font-bold text-zinc-500";
-        position.textContent = (index + 1).toString();
-        position.setAttribute("aria-hidden", "true");
-
-        // Assemble
-        li.appendChild(content);
-        li.appendChild(position);
-
-        // Klick-Event für Touch-Geräte und Maus
-        li.addEventListener("click", () => {
-          // Highlight für ausgewähltes Element setzen
-          this.highlightElement(li as HTMLElement);
-        });
-
-        list.appendChild(li);
-      });
-
-      container.appendChild(list);
-
-      // Add keyboard accessibility
-      this.addKeyboardSorting(list);
-
-      // Announce for screen readers
-      const announcement = document.createElement("div");
-      announcement.className = "sr-only";
-      announcement.setAttribute("aria-live", "polite");
-      announcement.textContent = `${t("game.chronology.new.task") || "New task loaded:"} ${this.currentQuestion.items.length} ${t("game.chronology.albums.order") || "albums to arrange in chronological order."}`;
-      container.appendChild(announcement);
-
-      // Remove announcement after it's been read
-      setTimeout(() => announcement.remove(), 1000);
-    }
-
-    /**
-     * Updates the displayed position numbers
-     * Called after drag operations to maintain visual position indicators
-     */
-    private updatePositionNumbers(): void {
-      if (!this.elements.itemsContainer) {
-        return;
-      }
-
-      try {
-        // Die aktuellste Liste von Elementen abrufen
-        const items = this.elements.itemsContainer.querySelectorAll(".chronology-item");
-
-        // Für jedes Element die Position aktualisieren
-        items.forEach((item, index) => {
-          const position = item.querySelector(".chronology-position");
-          if (position) {
-            position.textContent = (index + 1).toString();
-
-            // Auch das aria-label mit der aktualisierten Position aktualisieren
-            const artistText = item.querySelector(".font-bold")?.textContent || "";
-            const albumText = item.querySelector(".text-zinc-300")?.textContent || "";
-            item.setAttribute(
-              "aria-label",
-              `${artistText}: ${albumText}. ${t("game.chronology.position") || "Position"} ${index + 1}`
-            );
-          }
-        });
-      } catch (error) {
-        console.error("Error updating position numbers:", error);
-      }
-    }
-
-    /**
-     * Creates a reusable move handler for keyboard navigation
-     * @param {HTMLElement} listElement - The container element for sortable items
-     * @returns {Function} A function to move elements to a target position
-     */
-    private createMoveToPositionHandler(
-      listElement: HTMLElement
-    ): (element: HTMLElement, currentIndex: number, targetIndex: number) => boolean {
-      return (element: HTMLElement, currentIndex: number, targetIndex: number): boolean => {
-        try {
-          // Immer die aktuellste Liste von Elementen abrufen
-          const items = Array.from(listElement.querySelectorAll(".chronology-item"));
-
-          // Sicherheitscheck für Index-Grenzen
-          if (targetIndex < 0) {
-            targetIndex = 0;
-          }
-          if (targetIndex >= items.length) {
-            targetIndex = items.length - 1;
-          }
-
-          if (targetIndex === currentIndex) {
-            return false; // Keine Änderung nötig
-          }
-
-          // Prüfen, ob das Element tatsächlich ein Kind des Containers ist
-          if (!listElement.contains(element)) {
-            console.error("Element ist kein Kind des Containers!");
-            return false;
-          }
-
-          // Eine sicherere Methode zur Neuanordnung der Elemente
-          // Statt DOM-Manipulation mit insertBefore verwenden wir einen vollständigen Neuaufbau
-          // der Liste in der gewünschten Reihenfolge
-
-          // 1. Erstelle ein Array mit allen Elementen in der aktuellen Reihenfolge
-          const orderedItems = Array.from(items);
-
-          // 2. Entferne das zu bewegende Element aus dem Array
-          orderedItems.splice(currentIndex, 1);
-
-          // 3. Füge das Element an der neuen Position wieder ein
-          orderedItems.splice(targetIndex, 0, element);
-
-          // 4. Lösche den Inhalt des Container-Elements
-          while (listElement.firstChild) {
-            listElement.removeChild(listElement.firstChild);
-          }
-
-          // 5. Füge alle Elemente in der neuen Reihenfolge wieder zum Container hinzu
-          orderedItems.forEach((item) => {
-            listElement.appendChild(item);
-          });
-
-          return true;
-        } catch (error) {
-          console.error("Error moving element:", error);
-          return false;
-        }
-      };
-    }
-
-    /**
-     * Processes a keyboard event to determine the new position of an item
-     * Centralizes keyboard navigation logic for better maintainability and accessibility
-     *
-     * Accessibility Considerations:
-     * - Provides efficient keyboard controls (WCAG 2.1.1)
-     * - Enables direct item positioning via number keys (WCAG 2.1.4)
-     * - Supports Home/End keys for quick navigation to list extremes
-     * - Implements arrow key navigation for sequential movement
-     * - Uses consistent interaction patterns throughout the application
-     * - Gives immediate feedback through updates to ARIA properties
-     *
-     * @param {string} key - The key from the keyboard event
-     * @param {HTMLElement} item - The element to be moved
-     * @param {number} currentIndex - Current index of the element
-     * @param {NodeListOf<Element>} items - List of all items
-     * @param {Function} moveToPosition - Function to move an element
-     * @returns {{ moved: boolean, newIndex: number }} Result indicating if item was moved and new index
-     */
-    private processKeyboardNavigation(
-      key: string,
-      item: HTMLElement,
-      currentIndex: number,
-      items: NodeListOf<Element>,
-      moveToPosition: (element: HTMLElement, fromIndex: number, toIndex: number) => boolean
-    ): { moved: boolean; newIndex: number } {
-      let newIndex = currentIndex;
-      let moved = false;
-
-      // Nach oben mit Pfeil-Hoch
-      if (key === "ArrowUp" && currentIndex > 0) {
-        moved = moveToPosition(item, currentIndex, currentIndex - 1);
-        newIndex = currentIndex - 1;
-      }
-      // Nach unten mit Pfeil-Runter
-      else if (key === "ArrowDown" && currentIndex < items.length - 1) {
-        moved = moveToPosition(item, currentIndex, currentIndex + 1);
-        newIndex = currentIndex + 1;
-      }
-      // An den Anfang mit Home-Taste
-      else if (key === "Home") {
-        moved = moveToPosition(item, currentIndex, 0);
-        newIndex = 0;
-      }
-      // An das Ende mit End-Taste
-      else if (key === "End") {
-        moved = moveToPosition(item, currentIndex, items.length - 1);
-        newIndex = items.length - 1;
-      }
-      // Direkte Positionsangabe mit Zifferntasten
-      else if (/^[1-9]$/.test(key) && parseInt(key) <= items.length) {
-        const targetIndex = parseInt(key) - 1;
-        moved = moveToPosition(item, currentIndex, targetIndex);
-        newIndex = targetIndex;
-      }
-
-      return { moved, newIndex };
-    }
-
-    /**
-     * Creates a key handler for keyboard navigation of sortable items
-     * This is a critical accessibility feature enabling full keyboard control
-     * of the chronology sorting mechanism.
-     *
-     * Accessibility Considerations:
-     * - Provides full keyboard navigation following WCAG AAA 2.1.1 requirements
-     * - Implements proper focus management (WCAG 2.4.7)
-     * - Offers semantic announcements for screen readers (WCAG 4.1.2)
-     * - Maintains a logical tab order (WCAG 2.4.3)
-     * - Supports efficient keyboard shortcuts (WCAG 2.1.4)
-     *
-     * @param {HTMLElement} listElement - The container element for sortable items
-     * @returns {Function} A keyboard event handler that processes key presses and moves items
-     */
-    private createKeyboardNavigationHandler(
-      listElement: HTMLElement
-    ): (e: Event, item: HTMLElement) => void {
-      const moveToPosition = this.createMoveToPositionHandler(listElement);
-
-      return (e: Event, item: HTMLElement): void => {
-        const key = (e as KeyboardEvent).key;
-
-        // Aktualisiere die Elementliste vor jeder Operation
-        const items = listElement.querySelectorAll(".chronology-item");
-        const currentIndex = Array.from(items).indexOf(item);
-
-        // ARIA-Announcement vorbereiten
-        const artistName = item.querySelector(".font-bold")?.textContent || "";
-        const albumTitle = item.querySelector(".text-zinc-300")?.textContent || "";
-        const itemDescription = `${artistName} - ${albumTitle}`;
-
-        // Verhindere Scrollen mit Pfeiltasten
-        if (["ArrowUp", "ArrowDown", "Home", "End"].includes(key)) {
-          e.preventDefault();
-        }
-
-        // Tastenbehandlung in separate Methode ausgelagert
-        const { moved, newIndex } = this.processKeyboardNavigation(
-          key,
-          item,
-          currentIndex,
-          items,
-          moveToPosition
-        );
-
-        if (moved) {
-          // Aktualisiere Listenelemente nach der Verschiebung
-          this.updatePositionNumbers();
-
-          // Fokus beibehalten und Element hervorheben
-          requestAnimationFrame(() => {
-            item.focus();
-            this.highlightElement(item);
-          });
-
-          // Screenreader-Announcement
-          const announcement = document.createElement("div");
-          announcement.className = "sr-only";
-          announcement.setAttribute("aria-live", "assertive");
-          announcement.textContent = `${itemDescription} ${t("game.chronology.moved.position") || "wurde auf Position"} ${newIndex + 1} ${t("game.chronology.of") || "von"} ${items.length} ${t("game.chronology.moved") || "verschoben"}.`;
-          document.body.appendChild(announcement);
-
-          // Entferne das Announcement nach kurzer Zeit
-          setTimeout(() => announcement.remove(), 1000);
-        }
-      };
-    }
-
-    /**
-     * Adds keyboard support for sorting
-     * Enables accessibility for users who navigate with keyboard
-     * @param {HTMLElement} listElement - The container for sortable items
-     */
-    private addKeyboardSorting(listElement: HTMLElement): void {
-      const items = listElement.querySelectorAll(".chronology-item");
-
-      // Hilfsinstruktionen für Tastaturnutzer hinzufügen
-      this.createKeyboardInstructions(
-        listElement.parentNode as HTMLElement,
-        listElement,
-        items.length
-      );
-
-      // Event-Handler erstellen
-      const keyDownHandler = this.createKeyboardNavigationHandler(listElement);
-
-      // Jeden Eintrag für Tastatursteuerung vorbereiten
-      items.forEach((item) => {
-        this.setupKeyboardEvents(item, keyDownHandler);
-      });
-    }
-
-    /**
-     * Visually highlights an element to indicate focus
-     * Provides visual feedback for keyboard navigation and accessibility
-     *
-     * Accessibility Considerations:
-     * - Sets ARIA selected state for screen readers
-     * - Provides clear visual focus indication with high contrast
-     * - Maintains focus consistency across different interaction methods
-     * - Adds subtle animation for visual feedback (respects reduced motion preferences)
-     *
-     * @param {HTMLElement} element - The element to highlight
-     * @param {boolean} updateSelection - Whether to update the selection state
-     */
-    private highlightElement(element: HTMLElement, updateSelection: boolean = true): void {
-      try {
-        if (!this.validateElement(element)) {
-          return;
-        }
-
-        // Remove highlighting from all elements and apply to the current one
-        this.updateElementHighlighting(element);
-
-        // Update selection state if needed
-        if (updateSelection) {
-          this.updateElementSelection(element);
-        }
-
-        // Apply animation if supported
-        this.applyElementAnimation(element);
-
-        // Announce selection to screen readers if needed
-        if (updateSelection) {
-          this.announceElementSelection(element);
-        }
-      } catch (error) {
-        console.error("Error highlighting element:", error);
-        this.resetSelectionOnError();
-      }
-    }
-
-    /**
-     * Validates that the element exists and is in the DOM
-     * @param {HTMLElement} element - The element to validate
-     * @returns {boolean} Whether the element is valid
-     */
-    private validateElement(element: HTMLElement): boolean {
-      if (!element || !document.body.contains(element)) {
-        console.error("Element existiert nicht oder ist nicht im DOM");
-        return false;
-      }
-      return true;
-    }
-
-    /**
-     * Updates the visual highlighting of elements
-     * @param {HTMLElement} element - The element to highlight
-     */
-    private updateElementHighlighting(element: HTMLElement): void {
-      // Remove highlighting from all elements
-      const allItems = this.elements.itemsContainer?.querySelectorAll(".chronology-item") || [];
-      allItems.forEach((item) => {
-        item.classList.remove("ring-2", "ring-purple-500", "ring-offset-1", "bg-purple-900/20");
-        item.setAttribute("aria-selected", "false"); // ARIA state for screen readers
-      });
-
-      // Add highlighting to the focused element
-      element.classList.add("ring-2", "ring-purple-500", "ring-offset-1", "bg-purple-900/20");
-      element.setAttribute("aria-selected", "true"); // ARIA state for screen readers
-    }
-
-    /**
-     * Updates the selection state with the new element
-     * @param {HTMLElement} element - The selected element
-     */
-    private updateElementSelection(element: HTMLElement): void {
-      // Store previous state for reference
-      if (this.selectionState) {
-        this.selectionState.previousItem = this.selectionState.currentItem;
-        this.selectionState.currentItem = element;
-      }
-
-      this.currentlySelectedItem = element;
-
-      // Update navigation button state
-      this.updateNavigationButtonState();
-    }
-
-    /**
-     * Applies animation to the element if supported
-     * @param {HTMLElement} element - The element to animate
-     */
-    private applyElementAnimation(element: HTMLElement): void {
-      // Only apply animation if supported and reduced motion is not preferred
-      if ("animate" in element && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        try {
-          element.animate(
-            [
-              { transform: "scale(1)", opacity: "1", offset: 0 },
-              { transform: "scale(1.02)", opacity: "1", offset: 0.5 },
-              { transform: "scale(1)", opacity: "1", offset: 1 },
-            ],
-            {
-              duration: 300,
-              easing: "ease-in-out",
-            }
-          );
-        } catch (animError) {
-          console.error("Animation wird nicht unterstützt:", animError);
-        }
-      }
-    }
-
-    /**
-     * Announces the selection to screen readers
-     * @param {HTMLElement} element - The selected element
-     */
-    private announceElementSelection(element: HTMLElement): void {
-      const artistName = element.querySelector(".font-bold")?.textContent || "";
-      const albumTitle = element.querySelector(".text-zinc-300")?.textContent || "";
-
-      // Create announcement for screen readers
-      const announcement = document.createElement("div");
-      announcement.className = "sr-only";
-      announcement.setAttribute("aria-live", "assertive");
-      announcement.textContent = `${artistName} - ${albumTitle} ${t("game.chronology.selected") || "ausgewählt"}`;
-      document.body.appendChild(announcement);
-
-      // Remove announcement after it's been read
-      setTimeout(() => announcement.remove(), 1000);
-    }
-
-    /**
-     * Resets selection state when an error occurs
-     */
-    private resetSelectionOnError(): void {
-      this.currentlySelectedItem = null;
-      if (this.selectionState) {
-        this.selectionState.currentItem = null;
-      }
-      this.updateNavigationButtonState();
-    }
-
-    /**
-     * Processes the player's submission
-     * Evaluates answer, updates score, and handles game progression
-     *
-     * This method is called when the player submits their sorted chronology items.
-     * It calculates the score based on the correctness of the order, updates the
-     * score display, and prepares for the next question or end of game.
-     *
-     * Accessibility Considerations:
-     * - Announces score changes to screen readers (WCAG 4.1.3)
-     * - Provides visual feedback with appropriate contrast (WCAG 1.4.11)
-     * - Maintains focus management during transitions (WCAG 2.4.7)
-     * - Ensures all result states are properly announced (WCAG 4.1.2)
-     *
-     * Performance Optimizations:
-     * - Uses requestAnimationFrame for smooth visual updates
-     * - Implements proper DOM element cleanup to prevent memory leaks
-     * - Delays heavy computations until after animation frames
-     */
-    private handleSubmit(): void {
-      if (!this.elements.itemsContainer || !this.currentQuestion) {
-        return;
-      }
-
-      // Antwortzeit für Achievement-Tracking speichern
-      const answerTime = Date.now() - this.questionStartTime;
-      this.lastAnswerTime = answerTime;
-
-      // Auswertung der Benutzerantwort
-      const result = this.evaluateUserAnswer();
-
-      // Ergebnis anzeigen und UI aktualisieren
-      this.showResultAndUpdateUI(result);
-
-      // Submit-Button deaktivieren
-      if (this.elements.submitButton) {
-        this.elements.submitButton.disabled = true;
-      }
-
-      // Nächste Runde oder Spiel beenden
-      this.handleGameProgress();
-    }
-
-    /**
-     * Evaluates the user's answer by comparing their order with the correct order
-     * Updates the score and tracking variables based on the result
-     *
-     * @returns {ChronologyResult} The evaluation result with score and correctness information
-     */
-    private evaluateUserAnswer(): ChronologyResult {
-      const items = this.elements.itemsContainer!.querySelectorAll(".chronology-item");
-      const userOrder = Array.from(items).map((item) =>
-        parseInt(item.getAttribute("data-id") || "0")
-      );
-
-      const result = evaluateChronologyAnswer(userOrder, this.currentQuestion!.correctOrder);
-
-      // Punktestand aktualisieren
-      this.score += result.score;
-      this.updateCoinsDisplay(this.score);
-
-      // Wenn perfekte Antwort
-      if (result.correctItems === result.totalItems) {
-        this.correctAnswers++;
-        this.lastAnswerCorrect = true;
-      } else {
-        this.lastAnswerCorrect = false;
-      }
-
-      return result;
-    }
-
-    /**
-     * Displays the results of the chronology evaluation to the user
-     * Highlights correct/incorrect items and shows detailed score information
-     * Dispatches feedback event to trigger the ChronologyFeedbackOverlay
-     *
-     * @param {ChronologyResult} result - The evaluation result to display
-     */
-    private showResultAndUpdateUI(result: ChronologyResult): void {
-      // Show results inline first
-      this.showResults(result, []);
-
-      // Dispatch event to trigger the feedback overlay
-      this.dispatchFeedbackEvent(result);
-    }
-
-    /**
-     * Dispatches the showChronologyFeedback event to trigger the feedback overlay
-     * Maps ChronologyResult data to FeedbackEventDetail interface
-     *
-     * @param {ChronologyResult} result - The evaluation result from the chronology answer
-     */
-    private dispatchFeedbackEvent(result: ChronologyResult): void {
-      if (!this.currentQuestion) {
-        return;
-      }
-
-      // Determine if the answer was completely correct
-      const isCorrect = result.correctItems === result.totalItems;
-
-      // Check if this is the last round
-      const isLastRound = this.roundIndex >= this.totalRounds - 1;
-
-      // Get the correct order as an array of song/album names
-      const correctOrder = this.currentQuestion.correctOrder.map((id) => {
-        const item = this.currentQuestion!.items.find((i) => i.id === id);
-        return item ? item.title : `Item ${id}`;
-      });
-
-      // Create the event detail with proper typing
-      const eventDetail: FeedbackEventDetail = {
-        isCorrect,
-        isLastRound,
-        correctOrder,
-      };
-
-      // Dispatch the event to trigger the feedback overlay
-      window.dispatchEvent(
-        new CustomEvent("showChronologyFeedback", {
-          detail: eventDetail,
-        })
-      );
-    }
-
-    /**
-     * Handles the game progression after an answer is submitted
-     * Decides whether to set up the next round or end the game
-     */
-    private handleGameProgress(): void {
-      if (this.roundIndex < this.totalRounds - 1) {
-        // Set up transition to next round
-        this.setupRoundTransition();
-      } else {
-        // Set up transition to end game
-        this.setupEndGameTransition();
-      }
-    }
-
-    /**
-     * Sets up the transition to the next round
-     * Creates a timer with optional time extension feature
-     */
-    private setupRoundTransition(): void {
-      // Allow user to pause or extend automatic transition
-      const nextRoundDelay = 3000;
-      const nextRoundTimer = setTimeout(() => {
-        this.roundIndex++;
-        // Rundenanzeige wird in loadNextQuestion aktualisiert
-        this.loadNextQuestion();
-      }, nextRoundDelay);
-
-      // Create time extension control
-      const timeControl = this.createTimeExtensionControl();
-
-      // Set up time extension functionality
-      this.setupTimeExtensionForRound(timeControl, nextRoundTimer);
-
-      this.elements.itemsContainer?.appendChild(timeControl);
-    }
-
-    /**
-     * Sets up the transition to the end game
-     * Creates a timer with optional time extension feature
-     */
-    private setupEndGameTransition(): void {
-      // Allow user to pause or extend automatic transition before game end
-      const endGameDelay = 5000;
-      const endGameTimer = setTimeout(() => {
-        this.endGame();
-      }, endGameDelay);
-
-      // Create time extension control
-      const timeControl = this.createTimeExtensionControl();
-
-      // Set up time extension functionality
-      this.setupTimeExtensionForEndGame(timeControl, endGameTimer);
-
-      this.elements.itemsContainer?.appendChild(timeControl);
-    }
-
-    /**
-     * Creates a time extension control element
-     * Used to allow players to extend the automatic transition time
-     *
-     * @returns {HTMLDivElement} The created time extension control
-     */
-    private createTimeExtensionControl(): HTMLDivElement {
-      const timeControl = document.createElement("div");
-      timeControl.className = "time-extension";
-      return timeControl;
-    }
-
-    /**
-     * Sets up the time extension functionality for round transitions
-     * Creates a visually appealing button for extending the transition time to the next round
-     *
-     * @param {HTMLDivElement} timeControl - The container for the time extension control
-     * @param {ReturnType<typeof setTimeout>} nextRoundTimer - The timer ID for the next round transition
-     */
-    private setupTimeExtensionForRound(
-      timeControl: HTMLDivElement,
-      nextRoundTimer: ReturnType<typeof setTimeout>
-    ): void {
-      // Erstelle den Button mit ausschließlich der chronology-button Klasse für konsistentes Styling
-      const button = document.createElement("button");
-      button.id = "extend-time-btn";
-      button.className = "chronology-button";
-      button.setAttribute("aria-label", t("game.time.extend"));
-      button.style.display = "flex";
-      button.style.alignItems = "center";
-      button.style.justifyContent = "center";
-
-      // Erstelle ein Container-Element für den Inhalt (Icon + Text)
-      const contentSpan = document.createElement("span");
-      contentSpan.style.display = "flex";
-      contentSpan.style.alignItems = "center";
-      contentSpan.style.justifyContent = "center";
-      contentSpan.style.fontWeight = "500";
-
-      // Erstelle das Uhr-Icon als SVG und verwende nur die chronology-button__icon Klasse
-      const iconSvg = this.createClockIcon();
-      iconSvg.classList.add("chronology-button__icon");
-
-      // Füge Icon und Text zum Content-Container hinzu
-      contentSpan.appendChild(iconSvg);
-      contentSpan.appendChild(document.createTextNode(` ${t("game.time.extend")} (+5s)`));
-
-      // Füge den Content-Container zum Button hinzu
-      button.appendChild(contentSpan);
-
-      // Füge den Button zum Container hinzu
-      timeControl.appendChild(button);
-
-      // Event-Listener für die Zeitverlängerung
-      button.addEventListener("click", () => {
-        // Ursprünglichen Timer löschen
-        clearTimeout(nextRoundTimer);
-
-        // Um 5 Sekunden verlängern
-        const extendedTimer = setTimeout(() => {
-          this.roundIndex++;
-          this.loadNextQuestion();
-        }, 5000);
-
-        // Button-Inhalt aktualisieren, um mehrfache Verlängerungen zu ermöglichen
-        this.updateExtendButton(button, extendedTimer);
-
-        // Für Screenreader ankündigen
-        this.announceToScreenReader(t("game.time.extended"), "assertive");
-      });
-    }
-
-    /**
-     * Sets up the time extension functionality for end game transitions
-     * Creates a visually appealing button for extending the transition time to the end game
-     *
-     * @param {HTMLDivElement} timeControl - The container for the time extension control
-     * @param {ReturnType<typeof setTimeout>} endGameTimer - The timer ID for the end game transition
-     */
-    private setupTimeExtensionForEndGame(
-      timeControl: HTMLDivElement,
-      endGameTimer: ReturnType<typeof setTimeout>
-    ): void {
-      // Erstelle den Button mit ausschließlich der chronology-button Klasse für konsistentes Styling
-      const button = document.createElement("button");
-      button.id = "extend-end-time-btn";
-      button.className = "chronology-button";
-      button.setAttribute("aria-label", t("game.time.extend"));
-      button.style.display = "flex";
-      button.style.alignItems = "center";
-      button.style.justifyContent = "center";
-
-      // Erstelle ein Container-Element für den Inhalt (Icon + Text)
-      const contentSpan = document.createElement("span");
-      contentSpan.style.display = "flex";
-      contentSpan.style.alignItems = "center";
-      contentSpan.style.justifyContent = "center";
-      contentSpan.style.fontWeight = "500";
-
-      // Erstelle das Uhr-Icon als SVG und verwende nur die chronology-button__icon Klasse
-      const iconSvg = this.createClockIcon();
-      iconSvg.classList.add("chronology-button__icon");
-
-      // Füge Icon und Text zum Content-Container hinzu
-      contentSpan.appendChild(iconSvg);
-      contentSpan.appendChild(document.createTextNode(` ${t("game.time.before.end")} (+5s)`));
-
-      // Füge den Content-Container zum Button hinzu
-      button.appendChild(contentSpan);
-
-      // Füge den Button zum Container hinzu
-      timeControl.appendChild(button);
-
-      // Event-Listener für die Zeitverlängerung
-      button.addEventListener("click", () => {
-        // Ursprünglichen Timer löschen
-        clearTimeout(endGameTimer);
-
-        // Um 5 Sekunden verlängern
-        const extendedTimer = setTimeout(() => {
-          this.endGame();
-        }, 5000);
-
-        // Button-Inhalt aktualisieren, um mehrfache Verlängerungen zu ermöglichen
-        this.updateExtendButton(button, extendedTimer);
-
-        // Für Screenreader ankündigen
-        this.announceToScreenReader(t("game.time.extended"), "assertive");
-      });
-    }
-
-    /**
-     * Updates the extend button after a time extension is applied
-     * Changes the text to allow for additional extensions with a smooth transition
-     *
-     * @param {HTMLElement} extendBtn - The button element to update
-     * @param {ReturnType<typeof setTimeout>} extendedTimer - The new timer ID to store
-     */
-    private updateExtendButton(
-      extendBtn: HTMLElement,
-      extendedTimer: ReturnType<typeof setTimeout>
-    ): void {
-      // Erstelle den neuen Content-Container mit "Extend Again"-Text
-      const newContentSpan = document.createElement("span");
-      newContentSpan.style.display = "flex";
-      newContentSpan.style.alignItems = "center";
-      newContentSpan.style.justifyContent = "center";
-      newContentSpan.style.fontWeight = "500";
-
-      // Erstelle das Clock-Icon wieder
-      const iconSvg = this.createClockIcon();
-      iconSvg.classList.add("chronology-button__icon");
-
-      // Füge Icon und neuen Text zum Content-Container hinzu
-      newContentSpan.appendChild(iconSvg);
-      newContentSpan.appendChild(document.createTextNode(` ${t("game.time.extend.again")} (+5s)`));
-
-      // Optional: Animation zum Button hinzufügen (falls Animation unterstützt wird)
-      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        // Hier verwenden wir die native Animation-API statt CSS-Klassen
-        try {
-          extendBtn.animate(
-            [
-              { transform: "scale(1)", boxShadow: "0 0 0 0 rgba(147, 51, 234, 0.7)" },
-              { transform: "scale(1.05)", boxShadow: "0 0 10px 0 rgba(147, 51, 234, 0.3)" },
-              { transform: "scale(1)", boxShadow: "0 0 0 0 rgba(147, 51, 234, 0)" },
-            ],
-            {
-              duration: 1000,
-              easing: "ease",
-            }
-          );
-        } catch (e) {
-          console.warn("Animation nicht unterstützt:", e);
-        }
-      }
-
-      // Ersetze den alten Inhalt
-      extendBtn.innerHTML = "";
-      extendBtn.appendChild(newContentSpan);
-
-      // Speichere die neue Timer-ID für weitere Verlängerungen
-      extendBtn.dataset.timerId = String(extendedTimer);
-    }
-
-    /**
-     * Updates the coin display with animation for visual feedback
-     * Provides both visual and auditory feedback for score changes
-     *
-     * Accessibility Considerations:
-     * - Uses ARIA live regions for screen reader announcements (WCAG 4.1.3)
-     * - Provides clear score information (WCAG 3.2.4)
-     * - Uses visual animation with appropriate contrast (WCAG 1.4.11)
-     * - Cleans up temporary DOM elements to prevent pollution
-     *
-     * @param {number} newScore - The updated score to display
-     */
-    private updateCoinsDisplay(newScore: number): void {
-      if (!this.elements.coinsDisplay) {
-        return;
-      }
-
-      const previousScore = parseInt(this.elements.coinsDisplay.textContent || "0", 10);
-      const scoreChange = newScore - previousScore;
-      let scoreChangeText = "";
-
-      if (scoreChange > 0) {
-        scoreChangeText = `${t("game.score.increased") || "Punktestand erhöht um"} ${scoreChange} ${t("game.points") || "Punkte"}`;
-      } else if (scoreChange < 0) {
-        scoreChangeText = `${t("game.score.decreased") || "Punktestand verringert um"} ${Math.abs(scoreChange)} ${t("game.points") || "Punkte"}`;
-      }
-
-      // Animation-Klasse für visuelles Feedback anwenden
-      this.elements.coinsDisplay.classList.add("coins-updated");
-      this.elements.coinsDisplay.textContent = newScore.toString();
-
-      // Punkteänderung für Screenreader ankündigen mit mehr Kontext
-      this.announceToScreenReader(
-        `${scoreChangeText}. ${t("game.new.score") || "Neuer Punktestand"}: ${newScore} ${t("game.points") || "Punkte"}`
-      );
-
-      // Animation-Klasse entfernen, nachdem sie abgeschlossen ist
-      setTimeout(() => {
-        this.elements.coinsDisplay.classList.remove("coins-updated");
-      }, 1500);
-    }
-
-    /**
-     * Updates the state of the navigation buttons
-     * Enables/disables up/down buttons based on the currently selected item's position
-     */
-    private updateNavigationButtonState(): void {
-      if (!this.currentlySelectedItem) {
-        // Disable both buttons if no item is selected
-        this.elements.moveUpButton.disabled = true;
-        this.elements.moveDownButton.disabled = true;
-        return;
-      }
-
-      // Get the container and all items
-      const container = this.elements.itemsContainer;
-      if (!container) {
-        return;
-      }
-
-      const items = Array.from(container.querySelectorAll(".chronology-item"));
-      const currentIndex = items.indexOf(this.currentlySelectedItem);
-
-      // Enable/disable buttons based on position
-      this.elements.moveUpButton.disabled = currentIndex <= 0;
-      this.elements.moveDownButton.disabled = currentIndex >= items.length - 1;
-    }
-
-    /**
-     * Displays the results of the chronology task
-     * Shows correct/incorrect positions and year information
-     * @param {ChronologyResult} result - The evaluation result
-     * @param {number[]} _userOrder - The order submitted by the user (not currently used)
-     */
-    private showResults(result: ChronologyResult, _userOrder: number[]): void {
-      if (!this.elements.itemsContainer || !this.currentQuestion) {
-        return;
-      }
-
-      // Korrekte/falsche Items markieren
-      const items = this.elements.itemsContainer.querySelectorAll(".chronology-item");
-
-      items.forEach((item, index) => {
-        const id = parseInt(item.getAttribute("data-id") || "0");
-        const correctIndex = this.currentQuestion!.correctOrder.indexOf(id);
-
-        // Status-Badge hinzufügen
-        const badge = document.createElement("div");
-        badge.className = "absolute top-2 right-2 text-xs px-2 py-1 rounded-full";
-
-        if (correctIndex === index) {
-          // Korrekte Position
-          item.classList.add("border-green-500");
-          badge.className += " bg-green-500/20 text-green-300";
-          badge.textContent = "Korrekt";
-        } else {
-          // Falsche Position
-          item.classList.add("border-red-500");
-          badge.className += " bg-red-500/20 text-red-300";
-          badge.textContent = `Sollte an Position ${correctIndex + 1} sein`;
-        }
-
-        // Jahr anzeigen
-        const matchingItem = this.currentQuestion!.items.find((i) => i.id === id);
-        const content = item.querySelector(".chronology-item > div:nth-child(2)");
-        if (content && matchingItem) {
-          const yearElement = document.createElement("div");
-          yearElement.className = "mt-1 text-sm font-bold";
-          yearElement.textContent = `${matchingItem.year}`;
-          content.appendChild(yearElement);
-        }
-
-        // Positionsklasse hinzufügen
-        (item as HTMLElement).style.position = "relative";
-        item.appendChild(badge);
-      });
-
-      // Ergebnis-Box anzeigen
-      const resultBox = document.createElement("div");
-      resultBox.className = "mt-6 p-4 rounded-lg bg-zinc-900 border border-zinc-700 text-center";
-
-      const scoreHeading = document.createElement("h3");
-      scoreHeading.className = "text-lg font-bold";
-      scoreHeading.textContent = `Ergebnis: ${result.score} Punkte`;
-
-      const scoreDetails = document.createElement("p");
-      scoreDetails.className = "text-zinc-300";
-      scoreDetails.textContent = `${result.correctItems} von ${result.totalItems} Alben korrekt platziert`;
-
-      resultBox.appendChild(scoreHeading);
-      resultBox.appendChild(scoreDetails);
-
-      this.elements.itemsContainer.appendChild(resultBox);
-    }
-
-    /**
-     * Variables for achievement tracking
-     * Used to track game performance for awarding achievements
-     */
-    private lastAnswerTime: number = 0;
-    private lastAnswerCorrect: boolean = false;
-    private static currentEventId?: string;
-
-    /**
-     * Ends the game and shows the summary
-     * Calculates final score and triggers achievement evaluation
-     */
-    private endGame(): void {
-      const config = {
-        userId: this.userId,
-        categoryName: this.categoryName,
-        difficulty: this.difficulty,
-        totalRounds: this.totalRounds,
-        correctAnswers: this.correctAnswers,
-        score: this.score,
-        language: lang,
-
-        // Erweiterte Eigenschaften für Achievement-Tracking
-        genreId: this.category, // Kategorie/Genre-ID für genre_explorer
-        lastAnswerTime: this.lastAnswerTime, // Letzte Antwortzeit für quick_answer
-        lastAnswerCorrect: this.lastAnswerCorrect, // Ob die letzte Antwort korrekt war
-        eventId: ChronologyGameController.currentEventId, // Event-ID für seasonal_event
-        endOfSession: true, // Ende der Spielsitzung für game_series
-      };
-
-      const ui = {
-        showEndgamePopup: (score: number): void => {
-          if (this.elements.endGamePopup) {
-            // Use the enhanced showEndOverlay function for animations and setup
-            if (
-              (globalThis as { showEndOverlay?: (score: number, maxScore?: number) => void })
-                .showEndOverlay
-            ) {
-              (globalThis as { showEndOverlay?: (score: number, maxScore?: number) => void })
-                .showEndOverlay!(score);
-            } else {
-              // Fallback to basic display if enhanced function not available
-              const scoreElement = this.elements.endGamePopup.querySelector("#popup-score");
-              if (scoreElement) {
-                scoreElement.textContent = score.toString();
-              }
-            }
-            this.elements.endGamePopup.setAttribute("data-score", score.toString());
-            this.elements.endGamePopup.classList.remove("hidden");
-          }
-        },
-      };
-
-      handleEndGame(config, ui, {
-        onError: (error) => {
-          ErrorHandler.handleSaveError(error, "score", {
-            userId: config.userId,
-            category: config.categoryName,
-          });
-        },
-      });
-    }
-
-    /**
-     * Calculates the target index when moving an item in a specific direction
-     * @param {number} currentIndex - Current index of the item in the list
-     * @param {string} direction - Direction to move: "up" or "down"
-     * @param {number} listLength - Total number of items in the list
-     * @returns {number} The target index after movement
-     */
-    private calculateTargetIndex(
-      currentIndex: number,
-      direction: "up" | "down",
-      listLength: number
-    ): number {
-      let targetIndex = currentIndex;
-
-      if (direction === "up" && currentIndex > 0) {
-        targetIndex = currentIndex - 1;
-      } else if (direction === "down" && currentIndex < listLength - 1) {
-        targetIndex = currentIndex + 1;
-      }
-
-      return targetIndex;
-    }
-
-    /**
-     * Maintains focus on an element and updates highlighting after movement
-     * Includes improved focus management for better accessibility
-     * @param {HTMLElement} element - The element to maintain focus on
-     */
-    private maintainElementFocus(element: HTMLElement): void {
-      // Ankündigen, dass der Fokus verschoben wird
-      this.announceToScreenReader(
-        t("accessibility.focus.moved") || "Fokus wurde verschoben",
-        "assertive"
-      );
-
-      // Verwende requestAnimationFrame für sanftere Übergänge
-      window.requestAnimationFrame(() => {
-        // Prüfe, ob das Element noch im DOM existiert
-        if (element && document.body.contains(element)) {
-          // Zuerst Fokus setzen für Tastaturnutzer
-          element.focus();
-
-          // Stelle sicher, dass das Element im sichtbaren Bereich ist
-          element.scrollIntoView({ behavior: "smooth", block: "nearest" });
-
-          // Dann Element hervorheben für visuelle Nutzer
-          this.highlightElement(element);
-
-          // Erweitere ARIA-Status für bessere Bildschirmleser-Unterstützung
-          element.setAttribute("aria-selected", "true");
-        } else {
-          // Element existiert nicht mehr, reset Zustand
-          this.currentlySelectedItem = null;
-          this.updateNavigationButtonState();
-
-          // Informiere Bildschirmleser
-          this.announceToScreenReader(
-            t("accessibility.focus.reset") || "Fokus wurde zurückgesetzt",
-            "assertive"
-          );
-        }
-      });
-    }
-
-    /**
-     * Creates and announces an accessibility message for item movement
-     * @param {HTMLElement} element - The moved element
-     * @param {number} targetIndex - The new index of the element
-     * @param {number} listLength - Total number of items in the list
-     */
-    private announceItemMovement(
-      element: HTMLElement,
-      targetIndex: number,
-      listLength: number
-    ): void {
-      // Extract item text content for the announcement
-      const artistName = element.querySelector(".font-bold")?.textContent || "";
-      const albumTitle = element.querySelector(".text-zinc-300")?.textContent || "";
-      const itemDescription = `${artistName} - ${albumTitle}`;
-
-      // Create the announcement element
-      const announcement = document.createElement("div");
-      announcement.className = "sr-only";
-      announcement.setAttribute("aria-live", "assertive");
-      announcement.textContent = `${itemDescription} ${t("game.chronology.moved.position") || "wurde auf Position"} ${targetIndex + 1} ${t("game.chronology.of") || "von"} ${listLength} ${t("game.chronology.moved") || "verschoben"}.`;
-
-      // Add to DOM and remove after reading
-      document.body.appendChild(announcement);
-      setTimeout(() => announcement.remove(), 1000);
-    }
-
-    /**
-     * Verbesserte Methode für die Bewegung von Elementen mit Bildschirmleseranzeigen und Scroll-Unterstützung
-     * Implementiert robustere Fokusmanagement-Strategien für komplexe UI-Updates
-     *
-     * @param {string} direction - Die Richtung, in die das Element bewegt werden soll: "up" oder "down"
-     * @param {number} steps - Die Anzahl der Schritte, die das Element bewegt werden soll (Standard: 1)
-     */
-    private moveSelectedItem(direction: "up" | "down", steps: number = 1): void {
-      if (!this.currentlySelectedItem || !this.elements.itemsContainer) {
-        // Keine Aktion erforderlich, wenn kein Element ausgewählt ist
-        return;
-      }
-
-      try {
-        // Aktuellen Index und Elementliste ermitteln
-        const items = Array.from(this.elements.itemsContainer.querySelectorAll(".chronology-item"));
-        const currentIndex = items.indexOf(this.currentlySelectedItem);
-
-        if (currentIndex === -1) {
-          console.error("Ausgewähltes Element nicht in der Liste gefunden");
-          return;
-        }
-
-        // Zielpositionen berechnen und Element bewegen
-        const targetIndex = this.calculateTargetIndexWithSteps(
-          currentIndex,
-          direction,
-          items.length,
-          steps
-        );
-
-        // Element bewegen, wenn eine gültige Zielposition gefunden wurde
-        if (targetIndex !== currentIndex) {
-          this.moveElementToPosition(items, currentIndex, targetIndex);
-        }
-
-        // Navigation-Buttons aktualisieren
-        this.updateNavigationButtonState();
-      } catch (error) {
-        console.error("Error moving selected element:", error);
-        // Announce error for screen readers
-        this.announceToScreenReader(
-          t("error.moving.element") || "Error moving element",
-          "assertive"
-        );
-      }
-    }
-
-    /**
-     * Berechnet den Zielindex unter Berücksichtigung mehrerer Schritte
-     * @param {number} currentIndex - Der aktuelle Index des Elements
-     * @param {string} direction - Die Bewegungsrichtung
-     * @param {number} listLength - Die Gesamtanzahl der Elemente
-     * @param {number} steps - Die Anzahl der auszuführenden Schritte
-     * @returns {number} Der berechnete Zielindex
-     */
-    private calculateTargetIndexWithSteps(
-      currentIndex: number,
-      direction: "up" | "down",
-      listLength: number,
-      steps: number
-    ): number {
-      let targetIndex = currentIndex;
-
-      for (let i = 0; i < steps; i++) {
-        const newIndex = this.calculateTargetIndex(targetIndex, direction, listLength);
-
-        // Wenn keine weitere Bewegung möglich ist, abbrechen
-        if (newIndex === targetIndex) {
-          break;
-        }
-
-        targetIndex = newIndex;
-      }
-
-      return targetIndex;
-    }
-
-    /**
-     * Bewegt ein Element an eine neue Position und kündigt die Änderung an
-     * @param {Element[]} items - Liste aller Elemente
-     * @param {number} currentIndex - Aktueller Index des Elements
-     * @param {number} targetIndex - Zielindex für das Element
-     */
-    private moveElementToPosition(
-      items: Element[],
-      currentIndex: number,
-      targetIndex: number
-    ): void {
-      const moveToPosition = this.createMoveToPositionHandler(this.elements.itemsContainer!);
-      const moved = moveToPosition(this.currentlySelectedItem!, currentIndex, targetIndex);
-
-      if (moved) {
-        // Position aktualisieren
-        this.updatePositionNumbers();
-
-        // Fokus und Sichtbarkeit wiederherstellen
-        this.restoreFocusAndVisibility();
-
-        // Bewegung für Bildschirmleser ankündigen
-        this.announceElementMovement(items.length, targetIndex);
-      }
-    }
-
-    /**
-     * Stellt den Fokus auf das ausgewählte Element wieder her und scrollt es in den sichtbaren Bereich
-     */
-    private restoreFocusAndVisibility(): void {
-      requestAnimationFrame(() => {
-        if (this.currentlySelectedItem) {
-          this.currentlySelectedItem.focus();
-          this.currentlySelectedItem.scrollIntoView({
-            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-              ? "auto"
-              : "smooth",
-            block: "nearest",
-          });
-          this.highlightElement(this.currentlySelectedItem as HTMLElement);
-        }
-      });
-    }
-
-    /**
-     * Announces element movement for screen readers
-     * @param {number} totalItems - Total number of elements
-     * @param {number} targetIndex - The new index of the element
-     */
-    private announceElementMovement(totalItems: number, targetIndex: number): void {
-      if (!this.currentlySelectedItem) {
-        return;
-      }
-
-      // Beschreibendes Feedback für Bildschirmleser
-      const artistName = this.currentlySelectedItem.querySelector(".font-bold")?.textContent || "";
-      const albumTitle =
-        this.currentlySelectedItem.querySelector(".text-zinc-300")?.textContent || "";
-      const itemDescription = `${artistName} - ${albumTitle}`;
-
-      this.announceToScreenReader(
-        `${itemDescription} ${t("game.chronology.moved.position") || "moved to position"} ${targetIndex + 1} ${t("game.chronology.of") || "of"} ${totalItems} ${t("game.chronology.moved") || "moved"}.`,
-        "assertive"
-      );
-    }
-
-    /**
-     * Creates list items representing albums to be ordered
-     * Sets up visual representation of chronology elements for button-based navigation
-     */
-    private createChronologyItems(): void {
-      if (!this.elements.itemsContainer || !this.currentQuestion) {
-        return;
-      }
-
-      const container = this.elements.itemsContainer;
-      container.innerHTML = "";
-
-      // Add ARIA description for sorting
-      const instructions = document.createElement("p");
-      instructions.id = "chronology-instruction";
-      instructions.className = "sr-only";
-      instructions.innerText =
-        t("game.chronology.aria.instructions") ||
-        "Select an element by clicking and then use the up and down buttons to move it. Arrange the elements in chronological order - from oldest to newest.";
-      container.appendChild(instructions);
-
-      const list = document.createElement("ul");
-      list.id = "albums-list";
-      list.className = "chronology-list space-y-3";
-      list.setAttribute("role", "list");
-      list.setAttribute("aria-labelledby", "chronology-title");
-      list.setAttribute("aria-describedby", "chronology-instruction");
-      list.setAttribute("aria-label", t("game.chronology.sortable.list") || "List of albums");
-
-      this.currentQuestion.items.forEach((item, index) => {
-        // Chronologie-Element erstellen
-        const li = document.createElement("li");
-        li.className =
-          "chronology-item bg-zinc-900 p-4 rounded-lg border border-zinc-700 flex items-center cursor-pointer";
-        li.setAttribute("data-id", item.id.toString());
-        li.setAttribute("aria-grabbed", "false");
-        li.setAttribute("tabindex", "0");
-        li.setAttribute("role", "listitem");
-        li.setAttribute(
-          "aria-label",
-          `${item.artist}: ${item.title}. ${t("game.chronology.position") || "Position"} ${index + 1}`
-        );
-
-        // Benutzerinstruktion für Screenreader
-        li.setAttribute("aria-describedby", "chronology-instruction");
-
-        // Content
-        const content = document.createElement("div");
-        content.className = "flex-1";
-
-        const artistName = document.createElement("div");
-        artistName.className = "font-bold text-white";
-        artistName.textContent = item.artist;
-
-        const albumTitle = document.createElement("div");
-        albumTitle.className = "text-zinc-300";
-        albumTitle.textContent = item.title;
-
-        content.appendChild(artistName);
-        content.appendChild(albumTitle);
-
-        // Position number (for accessibility)
-        const position = document.createElement("div");
-        position.className = "chronology-position ml-auto text-xl font-bold text-zinc-500";
-        position.textContent = (index + 1).toString();
-        position.setAttribute("aria-hidden", "true");
-
-        // Assemble
-        li.appendChild(content);
-        li.appendChild(position);
-
-        // Klick-Event für Touch-Geräte und Maus
-        li.addEventListener("click", () => {
-          // Highlight für ausgewähltes Element setzen
-          this.highlightElement(li as HTMLElement);
-        });
-
-        list.appendChild(li);
-      });
-
-      container.appendChild(list);
-
-      // Initial position numbers
-      this.updatePositionNumbers();
-
-      // Add keyboard accessibility
-      this.addKeyboardSorting(list);
-
-      // Announce for screen readers
-      const announcement = document.createElement("div");
-      announcement.className = "sr-only";
-      announcement.setAttribute("aria-live", "polite");
-      announcement.textContent = `${t("game.chronology.new.task") || "Neue Aufgabe geladen:"} ${this.currentQuestion.items.length} ${t("game.chronology.albums.order") || "Alben in chronologische Reihenfolge bringen."}`;
-      container.appendChild(announcement);
-
-      // Remove announcement after it's been read
-      setTimeout(() => announcement.remove(), 1000);
-    }
-
-    /**
-     * Central state management for element selection
-     * Implements a clear state pattern for better maintainability
-     *
-     * @param {HTMLElement|null} element - The element to select or null to clear selection
-     * @param {boolean} shouldFocus - Whether to set focus on the element
-     */
-    private updateSelectionState(element: HTMLElement | null, shouldFocus: boolean = true): void {
-      // Save previous state
-      this.selectionState.previousItem = this.selectionState.currentItem;
-
-      // Update current element
-      this.selectionState.currentItem = element;
-      this.currentlySelectedItem = element; // For backward compatibility
-
-      // Actions on the element
-      if (element) {
-        // Visual feedback
-        this.highlightElement(element);
-
-        // Set focus if desired
-        if (shouldFocus) {
-          requestAnimationFrame(() => {
-            if (element && document.body.contains(element)) {
-              element.focus();
-            }
-          });
-        }
-      }
-
-      // Update UI state
-      this.updateNavigationButtonState();
-    }
-
-    /**
-     * Creates keyboard instructions for keyboard users
-     * Extracts the creation of helper elements into a separate method
-     *
-     * @param {HTMLElement} parentElement - The parent element where the instructions should be inserted
-     * @param {HTMLElement} listElement - The list with sortable elements
-     * @param {number} itemCount - The number of sortable elements
-     * @returns {HTMLElement} The created instruction element
-     */
-    private createKeyboardInstructions(
-      parentElement: HTMLElement,
-      listElement: HTMLElement,
-      itemCount: number
-    ): HTMLElement {
-      const keyboardInstructions = document.createElement("div");
-      keyboardInstructions.className = "keyboard-instructions text-sm text-zinc-400 mt-2 mb-4";
-      keyboardInstructions.innerHTML = `
-        <span class="sr-only">${t("game.chronology.keyboard.help") || "Use the arrow keys or the up/down buttons to sort"}</span>
-        <div class="flex flex-wrap justify-center gap-2 text-xs" aria-hidden="true">
-          <span class="inline-flex items-center px-2 py-1 bg-zinc-800 rounded">
-            <kbd class="px-1 py-0.5 mr-1 bg-zinc-700 rounded text-zinc-300">↑</kbd><span>${t("game.chronology.up") || "Move up"}</span>
-          </span>
-          <span class="inline-flex items-center px-2 py-1 bg-zinc-800 rounded">
-            <kbd class="px-1 py-0.5 mr-1 bg-zinc-700 rounded text-zinc-300">↓</kbd><span>${t("game.chronology.down") || "Move down"}</span>
-          </span>
-          <span class="inline-flex items-center px-2 py-1 bg-zinc-800 rounded">
-            <kbd class="px-1 py-0.5 mr-1 bg-zinc-700 rounded text-zinc-300">1-${itemCount}</kbd><span>${t("game.chronology.position") || "Position"}</span>
-          </span>
-          <span class="inline-flex items-center px-2 py-1 bg-zinc-800 rounded">
-            <kbd class="px-1 py-0.5 mr-1 bg-zinc-700 rounded text-zinc-300">Home</kbd><span>${t("game.chronology.start") || "Anfang"}</span>
-          </span>
-          <span class="inline-flex items-center px-2 py-1 bg-zinc-800 rounded">
-            <kbd class="px-1 py-0.5 mr-1 bg-zinc-700 rounded text-zinc-300">End</kbd><span>${t("game.chronology.end") || "Ende"}</span>
-          </span>
-        </div>
-      `;
-
-      parentElement.insertBefore(keyboardInstructions, listElement);
-      return keyboardInstructions;
-    }
-
-    /**
-     * Konfiguriert Tastaturereignisse für ein Element
-     * Extrahiert die Ereignisbehandlung in eine separate Methode
-     *
-     * @param {Element} item - Das Element, für das Tastaturereignisse konfiguriert werden sollen
-     * @param {Function} keyDownHandler - Der Ereignishandler für Tastendruck
-     */
-    private setupKeyboardEvents(
-      item: Element,
-      keyDownHandler: (e: Event, item: HTMLElement) => void
-    ): void {
-      // Setze Tabindex für Fokussierbarkeit
-      item.setAttribute("tabindex", "0");
-
-      // Füge Rollenbeschreibung für Screenreader hinzu
-      item.setAttribute("role", "listitem");
-
-      const artistText = item.querySelector(".font-bold")?.textContent || "";
-      const albumText = item.querySelector(".text-zinc-300")?.textContent || "";
-
-      // Verbesserte Beschreibung mit Positionsinformation
-      item.setAttribute(
-        "aria-label",
-        `${t("game.chronology.element") || "Element"} ${artistText} - ${albumText}. ${t("game.chronology.keyboard.instruction") || "Nutze Pfeiltasten zum Umordnen."}`
-      );
-
-      // Keyboard events
-      item.addEventListener("keydown", (e) => keyDownHandler(e, item as HTMLElement));
-
-      // Click event for touch devices and mouse with improved state management
-      item.addEventListener("click", () => {
-        this.updateSelectionState(item as HTMLElement);
-      });
-
-      // Visual feedback for keyboard focus
-      item.addEventListener("focus", () => {
-        // Setze ARIA-Attribute für bessere Screenreader-Unterstützung
-        item.setAttribute("aria-grabbed", "true");
-        this.highlightElement(item as HTMLElement);
-      });
-
-      item.addEventListener("blur", () => {
-        item.setAttribute("aria-grabbed", "false");
-
-        // Only remove styling if it's not the currently selected element
-        if (this.selectionState.currentItem !== item) {
-          (item as HTMLElement).classList.remove(
-            "ring-2",
-            "ring-purple-500",
-            "ring-offset-1",
-            "bg-purple-900/20"
-          );
-        }
-      });
-    }
-
-    /**
-     * Helper method for focus announcement for screen readers
-     * Improves accessibility for complex UI updates
-     *
-     * @param {HTMLElement} element - The element to be focused
-     * @param {string} context - Additional context for the announcement
-     */
-    private announceFocus(element: HTMLElement, context: string = ""): void {
-      // Check if element exists
-      if (!element || !document.body.contains(element)) {
-        this.announceToScreenReader(
-          t("accessibility.focus.not.available") || "Element is not available",
-          "assertive"
-        );
-        return;
-      }
-
-      try {
-        // Extract element information
-        const artistName = element.querySelector(".font-bold")?.textContent || "";
-        const albumTitle = element.querySelector(".text-zinc-300")?.textContent || "";
-        const position = element.querySelector(".chronology-position")?.textContent || "";
-        const itemDescription = `${artistName} - ${albumTitle}`;
-
-        // Create context-specific announcement
-        let announcement = `${itemDescription}, ${t("game.chronology.position") || "Position"} ${position}`;
-
-        if (context) {
-          announcement += `, ${context}`;
-        }
-
-        // Announcement for screen readers
-        this.announceToScreenReader(announcement, "assertive");
-
-        // Ensure element is visible
-        element.scrollIntoView({
-          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-            ? "auto"
-            : "smooth",
-          block: "nearest",
-        });
-      } catch (error) {
-        console.error("Error with focus announcement:", error);
-      }
-    }
-
-    /**
-     * Creates an SVG clock icon for the time extension buttons
-     * @returns {SVGElement} The SVG element representing a clock
-     */
-    /**
-     * Creates an SVG clock icon for the time extension buttons
-     * Enhanced to match the project's icon style
-     * @returns {SVGElement} The SVG element representing a clock
-     */
-    private createClockIcon(): SVGElement {
-      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      svg.setAttribute("width", "20");
-      svg.setAttribute("height", "20");
-      svg.setAttribute("viewBox", "0 0 24 24");
-      svg.setAttribute("fill", "none");
-      svg.setAttribute("stroke", "currentColor");
-      svg.setAttribute("stroke-width", "2");
-      svg.setAttribute("stroke-linecap", "round");
-      svg.setAttribute("stroke-linejoin", "round");
-      svg.setAttribute("aria-hidden", "true");
-      svg.style.display = "inline-block";
-      svg.style.verticalAlign = "middle";
-
-      // Circle for clock face
-      const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-      circle.setAttribute("cx", "12");
-      circle.setAttribute("cy", "12");
-      circle.setAttribute("r", "10");
-
-      // Hour hand
-      const hourHand = document.createElementNS("http://www.w3.org/2000/svg", "line");
-      hourHand.setAttribute("x1", "12");
-      hourHand.setAttribute("y1", "12");
-      hourHand.setAttribute("x2", "12");
-      hourHand.setAttribute("y2", "8");
-
-      // Minute hand
-      const minuteHand = document.createElementNS("http://www.w3.org/2000/svg", "line");
-      minuteHand.setAttribute("x1", "12");
-      minuteHand.setAttribute("y1", "12");
-      minuteHand.setAttribute("x2", "16");
-      minuteHand.setAttribute("y2", "12");
-
-      svg.appendChild(circle);
-      svg.appendChild(hourHand);
-      svg.appendChild(minuteHand);
-
-      return svg;
+    } catch (error) {
+      console.error("Error loading albums data:", error);
+      throw error;
     }
   }
 
-  /**
-   * Initialize the game when the DOM is ready
-   * Creates game controller instance and starts the game
-   */
-  document.addEventListener("DOMContentLoaded", async () => {
-    const elements = cacheElements();
+  function generateChronologyQuestion(albumsData, difficulty) {
+    const itemCount = ITEMS_PER_DIFFICULTY[difficulty] || 4;
 
-    // Check if all required elements are present
-    if (!elements.itemsContainer || !elements.submitButton || !elements.chronologyContainer) {
-      console.error("Required DOM elements not found");
-      return;
+    if (!albumsData || albumsData.length === 0) {
+      throw new Error("No albums data available");
     }
 
-    // Initialize achievement event system
-    try {
-      // Dynamic import for the achievement system
-      const achievementModule = await import("../../../utils/achievements/achievementEvents.js");
-      achievementModule.initAchievementEventSystem();
-      console.warn("Achievement event system initialized for game mode");
-    } catch (error) {
-      console.error("Error initializing achievement event system:", error);
-    }
+    // Convert albums data to chronology items format
+    const allItems = albumsData.map((album, index) => ({
+      id: index + 1,
+      artist: album.artist,
+      title: album.album,
+      year: parseInt(album.year),
+    }));
 
-    // Create and start the game controller
-    const gameController = new ChronologyGameController(elements);
-    gameController.startGame();
-
-    // Warn before leaving if there is unsaved data
-    window.addEventListener("beforeunload", (e) => {
-      if (QueueManager.hasUnsavedData()) {
-        e.preventDefault();
+    // Group albums by year to avoid duplicates
+    const albumsByYear = new Map();
+    allItems.forEach((item) => {
+      if (!albumsByYear.has(item.year)) {
+        albumsByYear.set(item.year, []);
       }
+      albumsByYear.get(item.year).push(item);
     });
+
+    // Get unique years sorted chronologically
+    const uniqueYears = Array.from(albumsByYear.keys()).sort((a, b) => a - b);
+
+    // Check if we have enough unique years
+    if (uniqueYears.length < itemCount) {
+      console.warn(
+        `Not enough unique years (${uniqueYears.length}) for difficulty ${difficulty} (needs ${itemCount}). Using available years.`
+      );
+    }
+
+    // Select one album per year, ensuring unique years
+    const selectedItems = [];
+    const availableYears = [...uniqueYears];
+
+    for (let i = 0; i < Math.min(itemCount, availableYears.length); i++) {
+      // Randomly select a year
+      const randomYearIndex = Math.floor(Math.random() * availableYears.length);
+      const selectedYear = availableYears.splice(randomYearIndex, 1)[0];
+
+      // Randomly select one album from that year
+      const albumsInYear = albumsByYear.get(selectedYear);
+      const randomAlbumIndex = Math.floor(Math.random() * albumsInYear.length);
+      const selectedAlbum = albumsInYear[randomAlbumIndex];
+
+      selectedItems.push(selectedAlbum);
+    }
+
+    // Sort selected items by year to get correct order
+    const correctOrderItems = selectedItems.sort((a, b) => a.year - b.year);
+    const correctOrder = correctOrderItems.map((item) => item.id);
+
+    // Shuffle the items for display
+    const shuffledItems = [...selectedItems].sort(() => Math.random() - 0.5);
+
+    return {
+      items: shuffledItems,
+      correctOrder: correctOrder,
+    };
+  }
+
+  // Score evaluation function
+  function evaluateChronologyAnswer(userOrder, correctOrder) {
+    let correctItems = 0;
+    const totalItems = correctOrder.length;
+
+    for (let i = 0; i < totalItems; i++) {
+      if (userOrder[i] === correctOrder[i]) {
+        correctItems++;
+      }
+    }
+
+    const score = Math.round((correctItems / totalItems) * 100);
+
+    return {
+      score: score,
+      correctItems: correctItems,
+      totalItems: totalItems,
+    };
+  }
+
+  // Main game class
+  class ChronologyGame {
+    constructor() {
+      this.container = document.getElementById("chronology-container");
+      this.itemsContainer = document.getElementById("chronology-items-container");
+      this.moveUpBtn = document.getElementById("move-up-btn");
+      this.moveDownBtn = document.getElementById("move-down-btn");
+      this.submitBtn = document.getElementById("submit-btn");
+      this.scoreDisplay = document.getElementById("score-display");
+      this.roundDisplay = document.getElementById("round-display");
+
+      this.difficulty = this.container?.dataset.difficulty || "easy";
+      this.category = this.container?.dataset.category || "";
+      this.userId = this.container?.dataset.userId || "guest";
+
+      this.currentItems = [];
+      this.correctOrder = [];
+      this.selectedIndex = -1;
+      this.score = 0;
+      this.round = 1;
+      this.totalRounds = 10;
+      this.albumsData = null;
+
+      // Get language from URL
+      const urlPath = window.location.pathname;
+      const langMatch = urlPath.match(/^\/([a-z]{2})\//);
+      this.language = langMatch ? langMatch[1] : "de";
+
+      this.initializeGame();
+    }
+
+    async initializeGame() {
+      if (!this.container || !this.itemsContainer) {
+        console.error("Required DOM elements not found");
+        return;
+      }
+
+      try {
+        // Load albums data first
+        await this.loadAlbumsData();
+        this.setupEventListeners();
+        await this.loadQuestion();
+      } catch (error) {
+        console.error("Failed to initialize game:", error);
+        this.showError("chronology.error.initialization");
+      }
+    }
+
+    async loadAlbumsData() {
+      try {
+        this.albumsData = await loadAlbumsData(this.category, this.language);
+      } catch (error) {
+        console.error("Error loading albums:", error);
+        throw error;
+      }
+    }
+
+    setupEventListeners() {
+      this.moveUpBtn?.addEventListener("click", () => this.moveItem(-1));
+      this.moveDownBtn?.addEventListener("click", () => this.moveItem(1));
+      this.submitBtn?.addEventListener("click", () => this.submitAnswer());
+    }
+
+    async loadQuestion() {
+      try {
+        if (!this.albumsData) {
+          throw new Error("Albums data not loaded");
+        }
+
+        // Generate question from real data
+        const questionData = generateChronologyQuestion(this.albumsData, this.difficulty);
+        this.currentItems = questionData.items;
+        this.correctOrder = questionData.correctOrder;
+
+        this.renderItems();
+        this.updateControls();
+      } catch (error) {
+        console.error("Error loading question:", error);
+        this.showError("chronology.error.question.load");
+      }
+    }
+
+    renderItems() {
+      if (!this.itemsContainer) {
+        return;
+      }
+
+      this.itemsContainer.innerHTML = "";
+
+      this.currentItems.forEach((item, index) => {
+        const itemElement = document.createElement("div");
+        itemElement.className = "chronology-item";
+        itemElement.dataset.index = index.toString();
+        itemElement.setAttribute("tabindex", "0");
+        itemElement.setAttribute("role", "button");
+        itemElement.setAttribute(
+          "aria-label",
+          `${item.artist} - ${item.title}, Position ${index + 1}`
+        );
+
+        itemElement.innerHTML = `
+          <div class="chronology-item__position">${index + 1}</div>
+          <div class="chronology-item__content">
+            <div class="chronology-item__title">${item.title}</div>
+            <div class="chronology-item__artist">${item.artist}</div>
+          </div>
+        `;
+
+        itemElement.addEventListener("click", () => this.selectItem(index));
+        itemElement.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            this.selectItem(index);
+          }
+          if (event.key === "ArrowUp") {
+            event.preventDefault();
+            this.moveItem(-1);
+          }
+          if (event.key === "ArrowDown") {
+            event.preventDefault();
+            this.moveItem(1);
+          }
+        });
+
+        this.itemsContainer.appendChild(itemElement);
+      });
+    }
+
+    selectItem(index) {
+      // Remove previous selection
+      const items = this.itemsContainer?.querySelectorAll(".chronology-item");
+      items?.forEach((item) => item.classList.remove("chronology-item--selected"));
+
+      // Add new selection
+      this.selectedIndex = index;
+      const selectedItem = items?.[index];
+      if (selectedItem) {
+        selectedItem.classList.add("chronology-item--selected");
+        selectedItem.focus();
+      }
+
+      this.updateControls();
+    }
+
+    moveItem(direction) {
+      if (this.selectedIndex === -1) {
+        // Auto-select first item if none selected
+        this.selectItem(0);
+        return;
+      }
+
+      const newIndex = this.selectedIndex + direction;
+      if (newIndex < 0 || newIndex >= this.currentItems.length) {
+        return;
+      }
+
+      // Swap items
+      [this.currentItems[this.selectedIndex], this.currentItems[newIndex]] = [
+        this.currentItems[newIndex],
+        this.currentItems[this.selectedIndex],
+      ];
+
+      // Re-render and maintain selection
+      this.renderItems();
+      this.selectItem(newIndex);
+    }
+
+    updateControls() {
+      const hasSelection = this.selectedIndex !== -1;
+      const canMoveUp = hasSelection && this.selectedIndex > 0;
+      const canMoveDown = hasSelection && this.selectedIndex < this.currentItems.length - 1;
+
+      if (this.moveUpBtn) {
+        this.moveUpBtn.disabled = !canMoveUp;
+      }
+      if (this.moveDownBtn) {
+        this.moveDownBtn.disabled = !canMoveDown;
+      }
+      if (this.submitBtn) {
+        this.submitBtn.disabled = this.currentItems.length === 0;
+      }
+    }
+
+    submitAnswer() {
+      const userOrder = this.currentItems.map((item) => item.id);
+      const result = evaluateChronologyAnswer(userOrder, this.correctOrder);
+
+      this.score += result.score;
+      if (this.scoreDisplay) {
+        this.scoreDisplay.textContent = this.score.toString();
+      }
+
+      // Show feedback
+      this.showFeedback(result);
+
+      // Next round or end game
+      if (this.round >= this.totalRounds) {
+        this.endGame();
+      } else {
+        setTimeout(() => {
+          this.round++;
+          if (this.roundDisplay) {
+            this.roundDisplay.textContent = this.round.toString();
+          }
+          this.loadQuestion();
+        }, 2000);
+      }
+    }
+
+    showFeedback(result) {
+      // Create detailed feedback with more information
+      const correctOrderWithDetails = this.correctOrder.map((id) => {
+        const item = this.currentItems.find((i) => i.id === id);
+        if (!item) {
+          return "";
+        }
+
+        // Include artist, title, and year for comprehensive feedback
+        return `${item.artist} - ${item.title} (${item.year})`;
+      });
+
+      // Create user order for comparison (with current positions)
+      const userOrderWithDetails = this.currentItems.map((item, index) => ({
+        position: index + 1,
+        artist: item.artist,
+        title: item.title,
+        year: item.year,
+        isCorrectPosition: this.correctOrder[index] === item.id,
+      }));
+
+      // Calculate additional statistics
+      const accuracy = Math.round((result.correctItems / result.totalItems) * 100);
+      const scoreGained = result.score;
+
+      // Dispatch enhanced event for feedback overlay
+      const event = new CustomEvent("showChronologyFeedback", {
+        detail: {
+          isCorrect: result.correctItems === result.totalItems,
+          isLastRound: this.round >= this.totalRounds,
+          correctOrder: correctOrderWithDetails,
+          userOrder: userOrderWithDetails,
+          accuracy: accuracy,
+          scoreGained: scoreGained,
+          totalScore: this.score,
+          round: this.round,
+          totalRounds: this.totalRounds,
+          category: this.category,
+          difficulty: this.difficulty,
+        },
+      });
+      window.dispatchEvent(event);
+    }
+
+    endGame() {
+      // Show end overlay
+      const endOverlay = document.getElementById("endgame-popup");
+      if (endOverlay) {
+        endOverlay.dataset.score = this.score.toString();
+        endOverlay.classList.remove("hidden");
+      }
+    }
+
+    showError(messageKey) {
+      // Get translation based on current language
+      const translations = {
+        de: {
+          "chronology.error.initialization":
+            "Spiel konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+          "chronology.error.question.load":
+            "Frage konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+        },
+        en: {
+          "chronology.error.initialization": "Failed to load game data. Please try again.",
+          "chronology.error.question.load": "Failed to load question. Please try again.",
+        },
+      };
+
+      const message =
+        translations[this.language]?.[messageKey] || translations.en[messageKey] || messageKey;
+      console.error(message);
+      alert(message);
+    }
+  }
+
+  // Initialize game when DOM is loaded
+  document.addEventListener("DOMContentLoaded", () => {
+    new ChronologyGame();
   });
 </script>
 
-<style>
+<style is:inline>
   /**
-   * Chronology Game Component Styling
-   * BEM-based CSS classes for better organization and maintainability
+   * Chronology Game Styles
+   * Uses CSS variables from global.css for consistent theming
    */
 
-  /* Game info badges */
-  .game-info-badges {
-    margin-top: var(--spacing-md);
+  .chronology-game {
+    min-height: 100vh;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    padding: var(--space-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Game Header */
+  .game-header {
+    margin-bottom: var(--space-lg);
+    text-align: center;
+  }
+
+  .game-info {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
-    gap: var(--spacing-sm);
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    flex-wrap: wrap;
   }
 
-  .game-badge {
-    display: inline-flex;
+  .badge {
+    display: flex;
     align-items: center;
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--color-gray-700);
-    background: linear-gradient(to right, var(--color-gray-800), var(--color-gray-900));
-    padding: var(--spacing-xs) var(--spacing-sm);
-    box-shadow: var(--shadow-sm);
+    gap: var(--space-sm);
+    background: var(--bg-secondary);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-secondary);
+    transition: all 0.2s ease;
   }
 
-  .game-badge__icon {
-    margin-right: var(--spacing-sm);
-    height: 1rem;
-    width: 1rem;
+  .badge:hover {
+    background: var(--bg-tertiary);
+    transform: translateY(-1px);
   }
 
-  .game-badge__icon--difficulty {
-    color: #fbbf24; /* gelb-400 */
+  .badge__icon {
+    width: 16px;
+    height: 16px;
+    color: var(--interactive-primary);
   }
 
-  .game-badge__icon--coins {
-    color: #f59e0b; /* amber-400 */
+  .badge__text {
+    font-weight: var(--font-medium);
+    font-size: var(--text-sm);
   }
 
-  .game-badge__text {
-    font-size: var(--font-size-md);
-    font-weight: 500;
-    color: var(--color-text-primary);
+  /* Game Content */
+  .game-content {
+    max-width: 800px;
+    margin: 0 auto;
   }
 
-  /* Main container for chronology game */
+  .game-title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    text-align: center;
+    margin-bottom: var(--space-sm);
+    background: var(--btn-primary-bg);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .game-description {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xl);
+    line-height: var(--leading-enhanced);
+  }
+
+  /* Chronology Container */
   .chronology-container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 48rem; /* 3xl */
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--color-gray-700);
-    background: linear-gradient(to bottom, var(--color-gray-800), var(--color-gray-900));
-    padding: var(--spacing-lg);
-    text-align: center;
-    opacity: 1;
-    box-shadow: var(--shadow-lg);
-    transition: opacity 0.5s;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    border: 1px solid var(--border-secondary);
+    min-height: 400px;
+    position: relative;
   }
 
-  .chronology-container[data-hidden="true"] {
-    opacity: 0;
-  }
-
-  @media (min-width: var(--breakpoint-md)) {
-    .chronology-container {
-      padding: var(--spacing-xl);
-    }
-  }
-
-  /* Player title badge */
-  .player-title-container {
-    margin-bottom: var(--spacing-md);
-    text-align: center;
-  }
-
-  .player-title-badge {
-    display: inline-flex;
-    align-items: center;
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--color-gray-700);
-    background: linear-gradient(to right, var(--color-gray-800), var(--color-gray-900));
-    padding: var(--spacing-xs) var(--spacing-sm);
-    font-size: var(--font-size-sm);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .player-title-badge__icon {
-    margin-right: var(--spacing-sm);
-    height: 1rem;
-    width: 1rem;
-    color: var(--color-purple-400);
-  }
-
-  .player-title-badge__text {
-    font-weight: 500;
-    color: var(--color-text-primary);
-  }
-
-  /* Container for chronological elements */
-  .chronology-items-container {
-    margin-bottom: var(--spacing-xl);
-    min-height: 300px;
+  .loading-placeholder {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: var(--text-secondary);
   }
 
-  /* Loading placeholder */
-  .chronology-placeholder {
-    text-align: center;
-    color: var(--color-text-primary);
-  }
-
-  .chronology-placeholder__icon {
-    margin-left: auto;
-    margin-right: auto;
-    height: 2rem;
-    width: 2rem;
+  .loading-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: var(--space-md);
     animation: spin 1s linear infinite;
-  }
-
-  .chronology-placeholder__text {
-    margin-top: var(--spacing-sm);
   }
 
   @keyframes spin {
@@ -2521,236 +708,236 @@ console.warn(
     }
   }
 
-  /* Navigation for touch users */
-  .chronology-navigation {
-    margin-bottom: var(--spacing-lg);
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-md);
-  }
-
-  /* Navigation buttons */
-  .chronology-button {
+  /* Chronology Items */
+  .chronology-item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    min-height: var(--touch-target-min-size, 48px);
-    min-width: var(--touch-target-min-size, 48px);
-    border-radius: 9999px;
-    background: linear-gradient(to right, var(--color-purple-600), var(--color-purple-700));
-    padding: var(--spacing-sm) var(--spacing-md);
-    font-weight: 500;
-    color: var(--color-white);
-    transition: transform 0.2s;
-    border: none;
+    gap: var(--space-md);
+    background: var(--card-bg);
+    border: 2px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
     cursor: pointer;
-  }
-
-  .chronology-button:hover:not([disabled]) {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px var(--color-purple-300);
-  }
-
-  .chronology-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px var(--color-purple-400);
-    outline-offset: 2px;
-  }
-
-  .chronology-button:focus-visible {
-    outline: 3px solid var(--color-purple-300);
-    outline-offset: 2px;
-  }
-
-  .chronology-button[disabled] {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-
-  .chronology-button__icon {
-    margin-right: var(--spacing-sm);
-    height: 1.25rem;
-    width: 1.25rem;
-  }
-
-  /* Container for submit button */
-  .chronology-submit-container {
-    display: flex;
-    justify-content: center;
-  }
-
-  /* Submit Button */
-  .chronology-submit-button {
-    border-radius: 9999px;
-    background: linear-gradient(to right, var(--color-purple-600), var(--color-purple-700));
-    padding: var(--spacing-md) var(--spacing-lg);
-    font-weight: 700;
-    color: var(--color-white);
-    transition: all 0.2s;
-    min-width: 200px;
-    border: none;
-    cursor: pointer;
-    min-height: var(--touch-target-min-size, 48px);
-  }
-
-  .chronology-submit-button:hover:not([disabled]) {
-    transform: scale(1.05);
-    box-shadow: 0 0 12px var(--color-purple-300);
-  }
-
-  .chronology-submit-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px var(--color-purple-400);
-    outline-offset: 2px;
-  }
-
-  .chronology-submit-button:focus-visible {
-    outline: 3px solid var(--color-purple-300);
-    outline-offset: 2px;
-  }
-
-  .chronology-submit-button[disabled] {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-
-  /* Chronology elements */
-  .chronology-item {
+    transition: all 0.2s ease;
     position: relative;
-    transition:
-      background-color 0.2s,
-      border-color 0.2s;
-    line-height: var(--line-height-base, 1.8);
-    hyphens: auto;
-    break-inside: avoid;
+  }
+
+  .chronology-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .chronology-item:hover {
+    border-color: var(--interactive-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow-hover);
   }
 
   .chronology-item:focus {
-    outline: 3px solid var(--color-purple-500);
-    outline-offset: 2px;
+    outline: none;
+    border-color: var(--interactive-primary);
+    box-shadow: var(--focus-ring);
   }
 
-  .chronology-item.selected {
-    background-color: rgba(139, 92, 246, 0.2);
-    border-color: var(--color-purple-500);
+  .chronology-item--selected {
+    border-color: var(--interactive-primary);
+    background: var(--bg-tertiary);
+    box-shadow: var(--card-shadow-hover);
   }
 
-  .chronology-item-content {
-    max-width: 100%;
-    overflow-wrap: break-word;
-    word-break: break-word;
-  }
-
-  /* Responsive design for text */
-  @media (max-width: 640px) {
-    .chronology-item-content p,
-    .chronology-description,
-    .game-instructions {
-      font-size: calc(1rem + 0.5vw);
-      line-height: 1.8;
-      max-width: 100%;
-      overflow-wrap: break-word;
-      word-break: break-word;
-      hyphens: auto;
-    }
-  }
-
-  /* Animations for coin updates */
-  .coins-updated {
-    animation: coinPulse 1s ease-in-out;
-    color: #fbbf24;
-  }
-
-  @keyframes coinPulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.25);
-      color: #f59e0b;
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  /* Reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .chronology-item {
-      transition: none !important;
-    }
-
-    .chronology-button:hover:not([disabled]),
-    .chronology-submit-button:hover:not([disabled]) {
-      transform: none;
-    }
-
-    .coins-updated {
-      animation: none;
-    }
-  }
-
-  /* High Contrast Mode Support */
-  @media (forced-colors: active) {
-    .chronology-container {
-      border: 2px solid CanvasText;
-    }
-
-    .chronology-item {
-      border: 1px solid ButtonText;
-      forced-color-adjust: none;
-    }
-
-    .chronology-item:focus-visible,
-    .chronology-button:focus-visible,
-    .chronology-submit-button:focus-visible {
-      outline: 3px solid Highlight !important;
-    }
-
-    .game-badge,
-    .player-title-badge {
-      border: 1px solid ButtonText;
-    }
-
-    button[disabled] {
-      opacity: 0.6;
-    }
-  }
-
-  /* Time extension container */
-  .time-extension {
-    margin-top: 1.5rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  /* Alte time-extension Stile werden durch chronology-button ersetzt */
-  .time-extension__content {
+  .chronology-item__position {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 500;
-    letter-spacing: 0.025em;
+    width: 40px;
+    height: 40px;
+    background: var(--interactive-primary);
+    color: white;
+    border-radius: 50%;
+    font-weight: var(--font-bold);
+    font-size: var(--text-lg);
+    flex-shrink: 0;
   }
 
+  .chronology-item--selected .chronology-item__position {
+    background: var(--interactive-secondary);
+  }
+
+  .chronology-item__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .chronology-item__title {
+    font-weight: var(--font-semibold);
+    font-size: var(--text-lg);
+    margin-bottom: 2px;
+    color: var(--text-primary);
+  }
+
+  .chronology-item__artist {
+    color: var(--text-secondary);
+    font-size: var(--text-base);
+  }
+
+  /* Game Controls */
+  .game-controls {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  .move-buttons {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .move-button {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-secondary);
+    color: var(--text-primary);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-lg);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 120px;
+    justify-content: center;
+  }
+
+  .move-button:not(:disabled):hover {
+    background: var(--interactive-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .move-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--bg-tertiary);
+    color: var(--text-tertiary);
+  }
+
+  .move-button__icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .submit-button {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: var(--btn-primary-bg);
+    border: none;
+    color: white;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-lg);
+    font-weight: var(--font-semibold);
+    font-size: var(--text-lg);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 180px;
+    justify-content: center;
+  }
+
+  .submit-button:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .submit-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .submit-button__icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .chronology-game {
+      padding: var(--space-md);
+    }
+
+    .game-info {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .chronology-item {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--space-sm);
+    }
+
+    .chronology-item__content {
+      order: -1;
+    }
+
+    .move-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .move-button,
+    .submit-button {
+      width: 100%;
+      min-width: auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .game-title {
+      font-size: var(--text-xl);
+    }
+
+    .chronology-container {
+      padding: var(--space-md);
+    }
+
+    .chronology-item {
+      padding: var(--space-sm);
+    }
+  }
+
+  /* Accessibility Enhancements */
   @media (prefers-reduced-motion: reduce) {
-    .chronology-button,
-    .chronology-submit-button {
-      animation: none;
+    .chronology-item,
+    .move-button,
+    .submit-button,
+    .badge {
       transition: none;
     }
-    .chronology-button:hover:not([disabled]),
-    .chronology-submit-button:hover:not([disabled]) {
-      transform: none;
-      box-shadow: 0 0 10px var(--color-purple-300);
+
+    .loading-icon {
+      animation: none;
     }
   }
 
-  @media (max-width: 640px) {
-    .time-extension .chronology-button {
-      width: 100%;
-      padding: 0.625rem 1rem;
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .chronology-item {
+      border-width: 3px;
     }
+
+    .chronology-item:focus {
+      border-width: 4px;
+      box-shadow: 0 0 0 2px var(--interactive-primary);
+    }
+  }
+
+  /* Focus management for keyboard users */
+  .chronology-item:focus-visible,
+  .move-button:focus-visible,
+  .submit-button:focus-visible {
+    outline: 3px solid var(--interactive-primary);
+    outline-offset: 2px;
   }
 </style>

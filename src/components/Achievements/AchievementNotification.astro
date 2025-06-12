@@ -348,53 +348,6 @@ const t = useTranslations(lang);
     }
   }
 
-  /* Light mode overrides - consolidated for DRY principle */
-  @media (prefers-color-scheme: light) {
-    .achievement-notification {
-      background-color: var(--card-bg);
-      color: var(--text-primary);
-      box-shadow: var(--shadow-xl);
-    }
-
-    .achievement-notification__icon {
-      background-color: var(--interactive-primary);
-      color: var(--btn-primary-text);
-    }
-
-    .achievement-notification__category {
-      border-top-color: var(--border-primary);
-      color: var(--text-secondary);
-      font-weight: var(--font-bold);
-    }
-
-    .achievement-notification__description {
-      color: var(--text-secondary);
-      opacity: var(--opacity-medium);
-    }
-
-    /* Consolidated button styles for light mode */
-    .achievement-notification__close,
-    .achievement-notification__control-button {
-      color: var(--text-tertiary);
-    }
-
-    .achievement-notification__close:hover,
-    .achievement-notification__close:focus-visible,
-    .achievement-notification__control-button:hover,
-    .achievement-notification__control-button:focus-visible {
-      color: var(--text-primary);
-      background-color: var(--bg-glass);
-    }
-
-    .achievement-notification__close:focus-visible,
-    .achievement-notification__control-button:focus-visible {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-      border-radius: var(--radius-sm);
-      background-color: var(--focus-bg-overlay);
-    }
-  }
-
   /* Support for reduced motion with CSS variables */
   @media (prefers-reduced-motion: reduce) {
     .achievement-notification {
