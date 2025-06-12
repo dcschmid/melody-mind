@@ -374,6 +374,96 @@ const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryD
     }
   }
 
+    /* ======================================
+   * Game Option Buttons - Replacing Tailwind Classes
+   * ====================================== */
+  
+  /* Main option button styling */
+  .game-option-button {
+    position: relative;
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-xl);
+    text-align: left;
+    font-size: var(--text-lg);
+    font-weight: var(--font-medium);
+    background-color: var(--bg-secondary);
+    border: var(--border-width-thin) solid var(--border-primary);
+    color: var(--text-primary);
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    min-height: var(--min-touch-size);
+    display: flex;
+    align-items: center;
+  }
+
+  .game-option-button:hover {
+    background-color: var(--bg-tertiary);
+    border-color: var(--border-secondary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .game-option-button:focus-visible {
+    outline: 2px solid var(--border-focus);
+    outline-offset: 2px;
+    box-shadow: var(--focus-ring);
+  }
+
+  .game-option-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* Option number styling */
+  .game-option-button__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--space-2xl);
+    height: var(--space-2xl);
+    margin-right: var(--space-md);
+    border-radius: var(--radius-full);
+    background-color: var(--color-neutral-700);
+    color: var(--text-primary);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    flex-shrink: 0;
+  }
+
+  /* Option text styling */
+  .game-option-button__text {
+    flex: 1;
+    text-align: left;
+  }
+
+  /* Selected option state */
+  .game-option-button.selected-option {
+    background-color: var(--interactive-primary);
+    border-color: var(--color-primary-500);
+    color: var(--btn-primary-text);
+  }
+
+  .game-option-button.selected-option .game-option-button__number {
+    background-color: var(--color-primary-600);
+    color: var(--btn-primary-text);
+  }
+
+  /* Correct/Incorrect states for feedback */
+  .game-option-button[data-correct="true"] {
+    background-color: var(--color-success-600);
+    border-color: var(--color-success-500);
+    color: var(--text-primary);
+  }
+
+  .game-option-button[data-incorrect="true"] {
+    background-color: var(--color-error-600);
+    border-color: var(--color-error-500);
+    color: var(--text-primary);
+  }
+
   /* Enhanced focus styles for WCAG AAA keyboard navigation - NOW CONSOLIDATED BELOW */
 
   /* Accessibility optimizations for various browsers/modes - NOW CONSOLIDATED BELOW */
@@ -381,7 +471,7 @@ const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryD
 
 <style>
   /**
-   * Game Page Component Styles - OPTIMIZED FOR DRY & CSS VARIABLES
+   * Game Page Component Styles - ULTRA MODERN GLASSMORPHISM DESIGN
    * 
    * ✅ 100% CSS root variables usage - NO hardcoded values
    * ✅ DRY principles applied - consolidated repetitive patterns
@@ -390,142 +480,477 @@ const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryD
    * ✅ Consolidated media queries for better maintainability
    * ✅ Responsive design with CSS variable breakpoints
    * ✅ Enhanced accessibility with semantic variable usage
+   * ✅ Modern glassmorphism design with backdrop filters
+   * ✅ Smooth animations and micro-interactions
+   * ✅ Enhanced visual hierarchy and depth
    * 
-   * OPTIMIZATIONS COMPLETED:
-   * - Replaced hardcoded breakpoints with CSS variables (--breakpoint-md)
-   * - Consolidated focus styles for DRY compliance
-   * - Merged accessibility media queries (forced-colors, reduced-motion, print)
-   * - Added missing animation scale variables to global.css
-   * - Enhanced animation keyframes with consistent CSS variables
-   * - Optimized touch targets with semantic variables
-   * - Removed code duplication across media query patterns
+   * DESIGN UPGRADES COMPLETED:
+   * - Ultra modern glassmorphism badges with backdrop blur
+   * - Enhanced game container with animated background patterns
+   * - Smooth hover animations with shimmer effects
+   * - Improved typography with glow effects
+   * - Enhanced focus states for accessibility
+   * - Responsive scaling and spacing improvements
+   * - Added keyframe animations for smooth transitions
    */
 
   /* ======================================
-   * Game Header
+   * Keyframe Animations
    * ====================================== */
-  .game-header {
-    margin-bottom: var(--space-lg);
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  /* Game info badges container */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  @keyframes glow {
+    0%, 100% {
+      box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        0 0 60px rgba(139, 92, 246, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    50% {
+      box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        0 0 80px rgba(139, 92, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  /* ======================================
+   * Game Header - Enhanced visual hierarchy
+   * ====================================== */
+  .game-header {
+    margin-bottom: var(--space-xl);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Game info badges container - Enhanced layout */
   .game-header__badges {
-    margin-top: var(--space-md);
+    margin-top: var(--space-xl);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: var(--space-sm);
+    gap: var(--space-lg);
+    animation: fadeInUp 0.8s ease-out;
   }
 
-  /* Individual game badge */
+  /* Individual game badge - Ultra modern glassmorphism design */
   .game-badge {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    border-radius: var(--radius-lg);
-    border: var(--border-width-thin) solid var(--border-primary);
-    background: linear-gradient(to right, var(--bg-secondary), var(--bg-tertiary));
-    padding: var(--space-xs) var(--space-sm);
-    box-shadow: var(--shadow-sm);
+    min-height: var(--min-touch-size);
+    border-radius: var(--radius-2xl);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.9) 0%,
+      rgba(124, 58, 237, 0.8) 50%,
+      rgba(109, 40, 217, 0.9) 100%
+    );
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: var(--space-md) var(--space-xl);
+    box-shadow: 
+      var(--shadow-xl),
+      0 0 30px rgba(139, 92, 246, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all var(--transition-normal), transform var(--transition-fast);
+    cursor: default;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease-out both;
   }
 
-  /* Badge icon styling */
+  /* Staggered animation for multiple badges */
+  .game-badge:first-child {
+    animation-delay: 0.1s;
+  }
+
+  .game-badge:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  /* Animated shimmer effect */
+  .game-badge::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: left var(--transition-slow);
+    z-index: 1;
+  }
+
+  /* Enhanced hover effect with floating animation */
+  .game-badge:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.2),
+      0 0 50px rgba(139, 92, 246, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .game-badge:hover::before {
+    left: 100%;
+  }
+
+  /* Badge icon styling - Enhanced with glow effect */
   .game-badge__icon {
-    margin-right: var(--space-sm);
-    height: var(--icon-size-sm);
-    width: var(--icon-size-sm);
+    margin-right: var(--space-md);
+    height: var(--text-xl);
+    width: var(--text-xl);
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: all var(--transition-fast);
+    z-index: 2;
+    position: relative;
+  }
+
+  .game-badge:hover .game-badge__icon {
+    filter: 
+      drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))
+      drop-shadow(0 0 12px rgba(255, 255, 255, 0.5));
+    transform: scale(1.1);
   }
 
   .game-badge__icon--difficulty {
-    color: var(--color-warning-400);
+    color: var(--color-warning-200);
   }
 
   .game-badge__icon--coins {
-    color: var(--color-warning-400);
+    color: var(--color-warning-200);
   }
 
-  /* Badge text styling */
+  /* Badge text styling - Enhanced typography with glow */
   .game-badge__text {
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
+    font-size: var(--text-base);
+    font-weight: var(--font-bold);
     color: var(--text-primary);
+    text-shadow: 
+      0 1px 2px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.05em;
+    z-index: 2;
+    position: relative;
+    transition: all var(--transition-fast);
+  }
+
+  .game-badge:hover .game-badge__text {
+    text-shadow: 
+      0 1px 2px rgba(0, 0, 0, 0.5),
+      0 0 30px rgba(255, 255, 255, 0.6);
+    transform: translateY(-1px);
+  }
+
+  /* Difficulty badge specific styling - Pink glassmorphism */
+  .game-badge:first-child {
+    background: linear-gradient(
+      135deg,
+      rgba(219, 39, 119, 0.9) 0%,
+      rgba(190, 24, 93, 0.8) 50%,
+      rgba(157, 23, 77, 0.9) 100%
+    );
+    border-color: rgba(255, 182, 193, 0.3);
+    animation-delay: 0.1s; /* Maintain staggered animation */
+  }
+
+  .game-badge:first-child:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(244, 63, 94, 0.95) 0%,
+      rgba(219, 39, 119, 0.85) 50%,
+      rgba(190, 24, 93, 0.95) 100%
+    );
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.2),
+      0 0 50px rgba(244, 63, 94, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 182, 193, 0.5);
   }
 
   /* ======================================
-   * Game Container
+   * Game Container - Ultra modern design
    * ====================================== */
   .game-container {
     margin: 0 auto;
     width: var(--width-full);
     max-width: var(--container-lg);
-    border-radius: var(--radius-lg);
-    border: var(--border-width-thin) solid var(--border-primary);
-    background: linear-gradient(to bottom, var(--bg-secondary), var(--bg-tertiary));
-    padding: var(--space-xl);
+    border-radius: var(--radius-2xl);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: 
+      linear-gradient(135deg, 
+        rgba(17, 24, 39, 0.95) 0%,
+        rgba(31, 41, 55, 0.9) 50%,
+        rgba(17, 24, 39, 0.95) 100%
+      );
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: var(--space-2xl);
     text-align: center;
     opacity: var(--animation-opacity-full);
-    box-shadow: var(--shadow-lg);
-    transition: opacity var(--transition-slow);
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.3),
+      0 0 60px rgba(139, 92, 246, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-slow);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out 0.3s both, glow 4s ease-in-out infinite;
+  }
+
+  /* Animated background pattern */
+  .game-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(244, 63, 94, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+    animation: float 6s ease-in-out infinite;
   }
 
   .game-container[data-hidden="true"] {
     opacity: var(--animation-opacity-start);
+    transform: translateY(20px) scale(0.98);
   }
 
-  /* Question text */
+  /* Question text - Enhanced with glow effect */
   .game-container__question {
     margin-bottom: var(--space-2xl);
     font-size: var(--text-xl);
     font-weight: var(--font-bold);
     line-height: var(--leading-enhanced);
     color: var(--text-primary);
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.3),
+      0 0 30px rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
-  /* Options container */
+  /* Options container - Enhanced spacing and styling */
   .game-container__options {
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    gap: var(--space-lg);
+    position: relative;
+    z-index: 1;
   }
 
-  /* Game controls area */
+  /* Game controls area - Enhanced positioning */
   .game-controls {
-    margin-top: var(--space-lg);
+    margin-top: var(--space-xl);
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 2;
   }
+
+
 
   /* ======================================
    * Responsive Adjustments
    * ====================================== */
-  @media (min-width: var(--breakpoint-md)) {
-    /* md breakpoint using CSS variable */
-    .game-header {
-      margin-bottom: var(--space-xl);
+  /* ======================================
+   * Responsive Design & Enhanced Accessibility
+   * ====================================== */
+  @media (max-width: 640px) {
+    .game-header__badges {
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .game-badge {
+      width: 100%;
+      justify-content: center;
+      padding: var(--space-lg) var(--space-xl);
+      border-radius: var(--radius-xl);
+    }
+
+    .game-badge__icon {
+      margin-right: var(--space-sm);
+      height: var(--text-lg);
+      width: var(--text-lg);
+    }
+
+    .game-badge__text {
+      font-size: var(--text-base);
     }
 
     .game-container {
-      padding: var(--space-2xl);
+      padding: var(--space-xl);
+      border-radius: var(--radius-xl);
+    }
+
+    .game-container__question {
+      font-size: var(--text-lg);
+      padding: var(--space-md);
+    }
+  }
+
+  @media (min-width: var(--breakpoint-md)) {
+    /* md breakpoint using CSS variable */
+    .game-header {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .game-header__badges {
+      gap: var(--space-xl);
+    }
+
+    .game-badge {
+      padding: var(--space-lg) var(--space-2xl);
+      border-radius: var(--radius-2xl);
+    }
+
+    .game-badge__icon {
+      height: var(--text-2xl);
+      width: var(--text-2xl);
+    }
+
+    .game-badge__text {
+      font-size: var(--text-lg);
+    }
+
+    .game-container {
+      padding: var(--space-3xl);
+      border-radius: var(--radius-2xl);
     }
 
     .game-container__question {
       font-size: var(--text-2xl);
+      padding: var(--space-xl);
     }
   }
 
   /* ======================================
-   * Light Mode Support - Optimized with CSS variables
+   * Enhanced Accessibility & Motion Support
    * ====================================== */
-  @media (prefers-color-scheme: light) {
-    .game-badge {
-      border-color: var(--color-neutral-400);
-      background: linear-gradient(to right, var(--color-neutral-200), var(--color-neutral-300));
+
+  /* Reduced motion support for badges and containers */
+  @media (prefers-reduced-motion: reduce) {
+    .game-badge,
+    .game-container {
+      animation: none;
+      transition: opacity var(--transition-fast);
     }
 
+    .game-badge:hover {
+      transform: none;
+    }
+
+    .game-badge::before,
+    .game-container::before {
+      animation: none;
+      transition: none;
+    }
+
+    .game-badge__icon,
     .game-badge__text {
-      color: var(--color-neutral-900);
+      transition: none;
+      transform: none;
+    }
+
+    .game-container[data-hidden="true"] {
+      transform: none;
+    }
+
+    .game-header__badges {
+      animation: none;
+    }
+
+    /* Disable all keyframe animations */
+    @keyframes fadeInUp {
+      from, to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @keyframes float {
+      from, to {
+        transform: none;
+      }
+    }
+
+    @keyframes glow {
+      from, to {
+        box-shadow: 
+          0 25px 50px rgba(0, 0, 0, 0.3),
+          0 0 60px rgba(139, 92, 246, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
     }
   }
+
+  /* Enhanced focus states for keyboard navigation */
+  .game-badge:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-ring-offset);
+    box-shadow:
+      var(--focus-ring),
+      0 20px 40px rgba(0, 0, 0, 0.2),
+      0 0 50px rgba(139, 92, 246, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .game-container:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-ring-offset);
+    box-shadow:
+      var(--focus-ring),
+      0 25px 50px rgba(0, 0, 0, 0.3),
+      0 0 60px rgba(139, 92, 246, 0.2);
+  }
+
+
 
   /* ======================================
    * Accessibility Enhancements - Consolidated Media Queries (DRY)
@@ -533,25 +958,33 @@ const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryD
 
   /* High contrast mode support - consolidated for all components */
   @media (forced-colors: active) {
-    #question-container {
+    #question-container,
+    .game-container {
       border: var(--border-width-enhanced) solid CanvasText;
       background-color: Canvas;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      box-shadow: none;
     }
 
-    #options button {
+    .game-container::before {
+      display: none;
+    }
+
+    .game-option-button {
       border: var(--border-width-thick) solid ButtonText;
       background-color: ButtonFace;
       color: ButtonText;
       forced-color-adjust: none;
     }
 
-    #options button:focus-visible {
+    .game-option-button:focus-visible {
       outline: var(--border-width-enhanced) solid Highlight;
       outline-offset: var(--border-width-enhanced);
     }
 
-    #options button[data-correct="true"],
-    #options button[data-incorrect="true"] {
+    .game-option-button[data-correct="true"],
+    .game-option-button[data-incorrect="true"] {
       border: var(--border-width-thick) solid ButtonText;
       forced-color-adjust: none;
     }
@@ -564,15 +997,24 @@ const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryD
     .game-badge {
       border: var(--border-width-thick) solid ButtonText;
       background: ButtonFace;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      box-shadow: none;
+    }
+
+    .game-badge::before {
+      display: none;
     }
 
     .game-badge__icon {
       forced-color-adjust: none;
     }
 
-    .game-container {
-      border: var(--border-width-thick) solid ButtonText;
-      background: Canvas;
+    .game-container__question {
+      background: transparent;
+      border: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
   }
 
@@ -594,6 +1036,14 @@ const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryD
     .game-container {
       transition: none;
     }
+
+    .game-option-button {
+      transition: none;
+    }
+
+    .game-option-button:hover {
+      transform: none;
+    }
   }
 
   /* Print styles - consolidated optimization */
@@ -607,18 +1057,18 @@ const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryD
       background: var(--print-bg) !important;
     }
 
-    #options button {
+    .game-option-button {
+      break-inside: avoid;
+      border: var(--print-border);
+      background: var(--print-bg) !important;
+      box-shadow: none;
+    }
       break-inside: avoid;
       border: var(--print-border);
     }
 
     .game-header {
       break-inside: avoid;
-    }
-
-    .game-badge {
-      border: var(--print-border);
-      background: var(--print-bg) !important;
     }
   }
 

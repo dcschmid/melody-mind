@@ -145,13 +145,13 @@ const stableItemIds = {
           </h2>
         </div>
 
-        <!-- Status announcer for screen readers - updates when menu opens/closes -->
+        <!-- Status announcer for screen readers -->
         <div aria-live="polite" aria-atomic="true" class="sr-only" id="menu-status-announcer"></div>
 
         <!-- Navigation menu items -->
         <ul class="navigation-menu__list">
           <!-- Home link -->
-          <li role="none">
+          <li class="navigation-menu__list-item">
             <a
               href={getRelativeLocaleUrl(lang, "gamehome")}
               class="navigation-menu__item"
@@ -161,12 +161,12 @@ const stableItemIds = {
             >
               <Icon
                 name="home"
-                width={28}
-                height={28}
+                width={24}
+                height={24}
                 aria-hidden="true"
                 class="navigation-menu__item-icon"
               />
-              <span>{t("nav.menu.home")}</span>
+              <span class="navigation-menu__item-text">{t("nav.menu.home")}</span>
             </a>
           </li>
 
@@ -1367,6 +1367,7 @@ const stableItemIds = {
     transition: opacity var(--transition-normal);
     visibility: hidden;
     opacity: 0;
+    z-index: 12;
   }
 
   .navigation-backdrop[data-state="open"] {
@@ -1511,8 +1512,6 @@ const stableItemIds = {
   }
 
   .navigation-menu__item-icon {
-    width: var(--space-2xl);
-    height: var(--space-2xl);
     flex-shrink: 0;
   }
 

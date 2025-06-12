@@ -141,11 +141,15 @@ const clientTranslations = {
     margin: var(--space-md);
     width: 100%;
     max-width: var(--container-sm);
+    max-height: calc(100vh - var(--space-2xl));
     border-radius: var(--radius-xl);
     border: var(--border-width-thin) solid var(--border-primary);
     background: var(--bg-secondary);
     padding: var(--space-xl);
     box-shadow: var(--shadow-xl);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   .close-button {
@@ -198,9 +202,15 @@ const clientTranslations = {
 
   .modal-content-text {
     margin-bottom: var(--space-xl);
-    min-height: var(--space-2xl);
+    min-height: var(--space-3xl);
     text-align: center;
     color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+    flex: 1;
+    overflow-y: auto;
   }
 
   .button-container {
@@ -208,6 +218,12 @@ const clientTranslations = {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-md);
+    flex-shrink: 0;
+    position: sticky;
+    bottom: 0;
+    background: var(--bg-secondary);
+    padding-top: var(--space-md);
+    border-top: var(--border-width-thin) solid var(--border-secondary);
   }
 
   @media (min-width: var(--breakpoint-md)) {
@@ -270,37 +286,258 @@ const clientTranslations = {
 
   /* Improved contrast for feedback text */
   .feedback-correct {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
     color: var(--color-success-400);
     font-weight: var(--font-bold);
-    font-size: var(--text-xl);
-    margin-bottom: var(--space-md);
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-lg);
+    background: linear-gradient(135deg, var(--color-success-50), var(--color-success-100));
+    border: var(--border-width-thin) solid var(--color-success-300);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    animation: successPulse 0.6s ease-out;
   }
 
   .feedback-incorrect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
     color: var(--color-error-400);
     font-weight: var(--font-bold);
-    font-size: var(--text-xl);
-    margin-bottom: var(--space-md);
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-lg);
+    background: linear-gradient(135deg, var(--color-error-50), var(--color-error-100));
+    border: var(--border-width-thin) solid var(--color-error-300);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    animation: errorShake 0.6s ease-out;
+  }
+
+  /* Dark mode feedback adjustments */
+  @media (prefers-color-scheme: dark) {
+    .feedback-correct {
+      background: linear-gradient(135deg, var(--color-success-900), var(--color-success-800));
+      border-color: var(--color-success-600);
+      color: var(--color-success-200);
+    }
+
+    .feedback-incorrect {
+      background: linear-gradient(135deg, var(--color-error-900), var(--color-error-800));
+      border-color: var(--color-error-600);
+      color: var(--color-error-200);
+    }
   }
 
   .correct-order-heading {
-    font-size: var(--text-lg);
-    margin-bottom: var(--space-sm);
-    color: var(--text-secondary);
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .correct-order-heading::before {
+    content: "🎯";
+    font-size: var(--text-2xl);
+  }
+
+  .correct-order-container {
+    width: 100%;
+    max-width: 28rem;
+    margin: var(--space-lg) auto 0;
+    padding: var(--space-lg);
+    background: var(--bg-tertiary);
+    border: var(--border-width-thin) solid var(--border-secondary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
   }
 
   .correct-order-list {
-    list-style: decimal;
-    list-style-position: inside;
-    text-align: left;
-    max-width: var(--container-xs);
-    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
   }
 
   .correct-order-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--bg-primary);
+    border: var(--border-width-thin) solid var(--border-primary);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-weight: var(--font-medium);
+    transition: all var(--transition-fast);
+    animation: slideUp 0.4s ease-out forwards;
+    animation-delay: calc(0.1s * var(--item-index, 0));
+    opacity: 0;
+    transform: translateY(var(--space-md));
+    box-shadow: var(--shadow-sm);
+  }
+
+  .correct-order-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--interactive-primary);
+  }
+
+  .order-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--space-2xl);
+    height: var(--space-2xl);
+    background: var(--interactive-primary);
+    color: var(--btn-primary-text);
+    border-radius: var(--radius-full);
+    font-weight: var(--font-bold);
+    font-size: var(--text-sm);
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .song-info {
+    flex: 1;
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+  }
+
+  /* Feedback message improvements */
+  .feedback-message {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  .feedback-icon {
+    font-size: var(--text-3xl);
+    animation: iconBounce 0.8s ease-out;
+  }
+
+  .feedback-text {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    text-align: center;
+    line-height: var(--leading-relaxed);
+  }
+
+  /* Game statistics display */
+  .game-stats {
+    width: 100%;
+    max-width: 24rem;
+    margin: var(--space-lg) auto;
+    padding: var(--space-lg);
+    background: var(--bg-tertiary);
+    border: var(--border-width-thin) solid var(--border-secondary);
+    border-radius: var(--radius-lg);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+    gap: var(--space-md);
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: var(--text-sm);
     color: var(--text-secondary);
     margin-bottom: var(--space-xs);
-    padding: var(--space-xs) 0;
+    font-weight: var(--font-medium);
+  }
+
+  .stat-value {
+    display: block;
+    font-size: var(--text-xl);
+    color: var(--text-primary);
+    font-weight: var(--font-bold);
+  }
+
+  /* Animations */
+  @keyframes successPulse {
+    0% {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes errorShake {
+    0%,
+    100% {
+      transform: translateX(0);
+      opacity: 0;
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      transform: translateX(-4px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+      transform: translateX(4px);
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes iconBounce {
+    0%,
+    20%,
+    53%,
+    100% {
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      transform: translate3d(0, 0, 0);
+    }
+    40%,
+    43% {
+      animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+      transform: translate3d(0, -15px, 0) scaleY(1.1);
+    }
+    70% {
+      animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+      transform: translate3d(0, 0, 0) scaleY(0.95);
+    }
+    80% {
+      transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      transform: translate3d(0, 0, 0) scaleY(1.05);
+    }
+    90% {
+      transform: translate3d(0, 0, 0) scaleY(0.95);
+    }
   }
 
   /* Reduced motion support - using root variables for consistency */
@@ -315,6 +552,259 @@ const clientTranslations = {
     .primary-button:hover,
     .secondary-button:hover {
       transform: none;
+    }
+
+    .feedback-correct,
+    .feedback-incorrect,
+    .correct-order-list li,
+    .feedback-icon {
+      animation: none;
+    }
+
+    .correct-order-list li:hover {
+      transform: none;
+    }
+  }
+
+  /* Responsive design improvements */
+  @media (min-width: var(--breakpoint-md)) {
+    .feedback-correct,
+    .feedback-incorrect {
+      font-size: var(--text-3xl);
+      padding: var(--space-xl);
+    }
+
+    .correct-order-container {
+      max-width: 32rem;
+    }
+
+    .correct-order-list li {
+      padding: var(--space-lg);
+    }
+
+    .order-number {
+      width: var(--space-3xl);
+      height: var(--space-3xl);
+      font-size: var(--text-base);
+    }
+
+    .song-info {
+      font-size: var(--text-lg);
+    }
+
+    .game-stats {
+      max-width: 28rem;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .modal-content {
+      max-height: calc(100vh - var(--space-3xl));
+    }
+  }
+
+  /* Custom scrollbar styling for webkit browsers */
+  .modal-content::-webkit-scrollbar {
+    width: var(--space-sm);
+  }
+
+  .modal-content::-webkit-scrollbar-track {
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+  }
+
+  .modal-content::-webkit-scrollbar-thumb {
+    background: var(--border-primary);
+    border-radius: var(--radius-sm);
+    transition: background var(--transition-fast);
+  }
+
+  .modal-content::-webkit-scrollbar-thumb:hover {
+    background: var(--interactive-primary);
+  }
+
+  /* Firefox scrollbar styling */
+  .modal-content {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-primary) var(--bg-tertiary);
+  }
+
+  /* Enhanced Feedback Styles - using updated styles from above */
+
+  .feedback-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+    padding: var(--space-md);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-secondary);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .stat-label {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    font-weight: var(--font-medium);
+  }
+
+  .stat-value {
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+    font-weight: var(--font-bold);
+  }
+
+  .correct-order-section,
+  .user-order-section {
+    margin-top: var(--space-lg);
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-primary);
+  }
+
+  .correct-order-heading,
+  .user-order-heading {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .correct-order-heading::before {
+    content: "🎯";
+    font-size: var(--text-xl);
+  }
+
+  .user-order-heading::before {
+    content: "📝";
+    font-size: var(--text-xl);
+  }
+
+  .correct-order-list,
+  .user-order-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .order-item,
+  .user-order-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-secondary);
+    transition: all var(--transition-normal);
+  }
+
+  .order-item:hover,
+  .user-order-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .user-order-item.correct {
+    border-color: var(--color-secondary-300);
+    background: linear-gradient(
+      135deg,
+      var(--color-secondary-50) 0%,
+      var(--color-secondary-100) 100%
+    );
+  }
+
+  .user-order-item.incorrect {
+    border-color: var(--color-neutral-300);
+    background: linear-gradient(135deg, var(--color-neutral-50) 0%, var(--color-neutral-100) 100%);
+  }
+
+  .order-position {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--interactive-primary);
+    color: white;
+    border-radius: var(--radius-full);
+    font-weight: var(--font-bold);
+    font-size: var(--text-sm);
+    flex-shrink: 0;
+  }
+
+  .user-order-item.correct .order-position {
+    background: var(--color-secondary-500);
+  }
+
+  .user-order-item.incorrect .order-position {
+    background: var(--color-neutral-500);
+  }
+
+  .order-content {
+    flex: 1;
+    font-size: var(--text-base);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .check-icon {
+    color: var(--color-secondary-600);
+    font-weight: var(--font-bold);
+    margin-left: var(--space-sm);
+  }
+
+  .x-icon {
+    color: var(--color-neutral-600);
+    font-weight: var(--font-bold);
+    margin-left: var(--space-sm);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .feedback-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .stat-item {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .order-item,
+    .user-order-item {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--space-sm);
+    }
+
+    .order-content {
+      justify-content: center;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .feedback-correct,
+    .feedback-incorrect,
+    .order-item,
+    .user-order-item {
+      border-width: 3px;
     }
   }
 </style>
@@ -348,13 +838,42 @@ const clientTranslations = {
   import { getGlobalSessionManager } from "@utils/auth/sessionTimeoutManager";
 
   // Type definitions following TypeScript best practices
+  interface UserOrderItem {
+    /** Position in user's ordering (1-based) */
+    position: number;
+    /** Artist name */
+    artist: string;
+    /** Album/song title */
+    title: string;
+    /** Release year */
+    year: number;
+    /** Whether this item is in the correct position */
+    isCorrectPosition: boolean;
+  }
+
   interface FeedbackEventDetail {
     /** Whether the user's chronology order was correct */
     isCorrect: boolean;
     /** Whether this is the final round of the game */
     isLastRound: boolean;
-    /** Array of song titles in correct chronological order */
+    /** Array of song titles in correct chronological order with years */
     correctOrder?: string[];
+    /** User's ordering with position details */
+    userOrder?: UserOrderItem[];
+    /** Accuracy percentage (0-100) */
+    accuracy?: number;
+    /** Score gained this round */
+    scoreGained?: number;
+    /** Total accumulated score */
+    totalScore?: number;
+    /** Current round number */
+    round?: number;
+    /** Total number of rounds */
+    totalRounds?: number;
+    /** Game category */
+    category?: string;
+    /** Game difficulty */
+    difficulty?: string;
   }
 
   interface TranslationMap {
@@ -623,8 +1142,7 @@ const clientTranslations = {
     /**
      * Updates the feedback content based on the chronology game result
      *
-     * @param {boolean} isCorrect - Whether the user's chronology order was correct
-     * @param {string[]} correctOrder - Array of song titles in correct chronological order
+     * @param {FeedbackEventDetail} detail - Complete feedback data from the game
      *
      * @accessibility
      * - Creates semantic HTML with proper roles and ARIA attributes
@@ -633,7 +1151,7 @@ const clientTranslations = {
      *
      * @performance Uses efficient DOM manipulation with minimal reflows
      */
-    function updateFeedbackContent(isCorrect: boolean, correctOrder?: string[]): void {
+    function updateFeedbackContent(detail: FeedbackEventDetail): void {
       const feedbackContent = document.getElementById("feedback-content");
       if (!feedbackContent) {
         return;
@@ -642,42 +1160,141 @@ const clientTranslations = {
       // Clear previous content efficiently
       feedbackContent.innerHTML = "";
 
-      // Create feedback message with semantic HTML
-      const messageEl = document.createElement("p");
+      const {
+        isCorrect,
+        correctOrder,
+        userOrder,
+        accuracy,
+        scoreGained,
+        totalScore,
+        round,
+        totalRounds,
+      } = detail;
+
+      // Create main feedback message with enhanced styling
+      const messageEl = document.createElement("div");
+      messageEl.className = "feedback-message";
       messageEl.setAttribute("role", "status");
       messageEl.setAttribute("aria-live", "polite");
 
+      // Main result message
+      const resultEl = document.createElement("h3");
+      resultEl.className = isCorrect ? "feedback-correct" : "feedback-incorrect";
+
       if (isCorrect) {
-        messageEl.textContent = getTranslation("game.chronology.correct");
-        messageEl.className = "feedback-correct";
+        resultEl.textContent = getTranslation("game.chronology.correct");
+        resultEl.innerHTML = `
+          <span class="feedback-icon">🎉</span>
+          ${getTranslation("game.chronology.correct")}
+        `;
       } else {
-        messageEl.textContent = getTranslation("game.chronology.incorrect");
-        messageEl.className = "feedback-incorrect";
+        resultEl.innerHTML = `
+          <span class="feedback-icon">😔</span>
+          ${getTranslation("game.chronology.incorrect")}
+        `;
+      }
+
+      messageEl.appendChild(resultEl);
+
+      // Add score and statistics section
+      if (typeof scoreGained === "number" || typeof accuracy === "number") {
+        const statsEl = document.createElement("div");
+        statsEl.className = "feedback-stats";
+
+        let statsHTML = "";
+        if (typeof accuracy === "number") {
+          statsHTML += `<div class="stat-item">
+            <span class="stat-label">Genauigkeit:</span>
+            <span class="stat-value">${accuracy}%</span>
+          </div>`;
+        }
+
+        if (typeof scoreGained === "number") {
+          statsHTML += `<div class="stat-item">
+            <span class="stat-label">Punkte diese Runde:</span>
+            <span class="stat-value">+${scoreGained}</span>
+          </div>`;
+        }
+
+        if (typeof totalScore === "number") {
+          statsHTML += `<div class="stat-item">
+            <span class="stat-label">Gesamtpunkte:</span>
+            <span class="stat-value">${totalScore}</span>
+          </div>`;
+        }
+
+        if (typeof round === "number" && typeof totalRounds === "number") {
+          statsHTML += `<div class="stat-item">
+            <span class="stat-label">Runde:</span>
+            <span class="stat-value">${round}/${totalRounds}</span>
+          </div>`;
+        }
+
+        statsEl.innerHTML = statsHTML;
+        messageEl.appendChild(statsEl);
       }
 
       feedbackContent.appendChild(messageEl);
 
-      // Add correct order information if available
+      // Add correct order information with years
       if (correctOrder && Array.isArray(correctOrder) && correctOrder.length > 0) {
-        const orderHeading = document.createElement("h3");
+        const orderSection = document.createElement("div");
+        orderSection.className = "correct-order-container";
+
+        const orderHeading = document.createElement("h4");
         orderHeading.className = "correct-order-heading";
         orderHeading.textContent = getTranslation("game.chronology.correct_order");
-        feedbackContent.appendChild(orderHeading);
+        orderSection.appendChild(orderHeading);
 
-        // Create accessible ordered list
-        const orderList = document.createElement("ol");
+        // Create accessible ordered list with enhanced styling
+        const orderList = document.createElement("ul");
         orderList.className = "correct-order-list";
         orderList.setAttribute("aria-label", getTranslation("game.chronology.correct_order"));
 
         correctOrder.forEach((item, index) => {
           const listItem = document.createElement("li");
-          listItem.textContent = item;
+          // Keine zusätzliche Klasse notwendig, CSS wird über .correct-order-list li angewendet
+          listItem.innerHTML = `
+            <span class="order-number">${index + 1}</span>
+            <span class="song-info">${item}</span>
+          `;
           listItem.setAttribute("aria-setsize", correctOrder.length.toString());
           listItem.setAttribute("aria-posinset", (index + 1).toString());
           orderList.appendChild(listItem);
         });
 
-        feedbackContent.appendChild(orderList);
+        orderSection.appendChild(orderList);
+        feedbackContent.appendChild(orderSection);
+      }
+
+      // Show user's ordering with corrections if incorrect
+      if (!isCorrect && userOrder && Array.isArray(userOrder)) {
+        const userOrderSection = document.createElement("div");
+        userOrderSection.className = "user-order-section";
+
+        const userHeading = document.createElement("h4");
+        userHeading.className = "user-order-heading";
+        userHeading.textContent = "Deine Reihenfolge:";
+        userOrderSection.appendChild(userHeading);
+
+        const userOrderList = document.createElement("ol");
+        userOrderList.className = "user-order-list";
+
+        userOrder.forEach((item) => {
+          const listItem = document.createElement("li");
+          listItem.className = `user-order-item ${item.isCorrectPosition ? "correct" : "incorrect"}`;
+          listItem.innerHTML = `
+            <span class="order-position">${item.position}</span>
+            <span class="order-content">
+              ${item.artist} - ${item.title} (${item.year})
+              ${item.isCorrectPosition ? '<span class="check-icon">✓</span>' : '<span class="x-icon">✗</span>'}
+            </span>
+          `;
+          userOrderList.appendChild(listItem);
+        });
+
+        userOrderSection.appendChild(userOrderList);
+        feedbackContent.appendChild(userOrderSection);
       }
     }
 
@@ -811,13 +1428,12 @@ const clientTranslations = {
      */
     function handleShowFeedback(e: CustomEvent): void {
       const detail = e.detail as FeedbackEventDetail;
-      const { isCorrect, isLastRound, correctOrder } = detail || {};
 
       showOverlay();
-      updateFeedbackContent(isCorrect, correctOrder);
+      updateFeedbackContent(detail);
 
       // Manage button visibility with proper accessibility
-      if (isLastRound) {
+      if (detail.isLastRound) {
         elements.endButton.classList.remove("hidden");
         elements.endButton.removeAttribute("aria-hidden");
       } else {
@@ -827,7 +1443,7 @@ const clientTranslations = {
 
       // Screen reader announcement for immediate feedback
       if (elements.statusAnnouncer) {
-        elements.statusAnnouncer.textContent = isCorrect
+        elements.statusAnnouncer.textContent = detail.isCorrect
           ? getTranslation("game.chronology.correct")
           : getTranslation("game.chronology.incorrect");
       }
