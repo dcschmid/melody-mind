@@ -332,6 +332,15 @@ export const POST: APIRoute = async ({ request, params }) => {
     const referer = request.headers.get("referer") || "";
     const gameMode: GameMode = referer.includes("/game-") ? "quiz" : "chronology";
 
+    // Skip saving for guest users (not authenticated)
+    if (data.userId === "guest") {
+      console.warn("Guest user detected, skipping database save");
+
+      // Return a successful response without actually saving to database
+      // This prevents FOREIGN KEY constraint errors while maintaining game flow
+      return createSuccessResponse({ gameMode, id: "guest-session" });
+    }
+
     // Generate a unique ID for the game result using nanoid
     const id = nanoid();
 

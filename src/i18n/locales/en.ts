@@ -624,6 +624,12 @@ export default {
   "game.chronology.position": "Position",
   "game.chronology.start": "Start",
   "game.chronology.end": "End",
+  "game.chronology.stats.accuracy": "Accuracy:",
+  "game.chronology.stats.round_points": "Points this round:",
+  "game.chronology.stats.total_points": "Total points:",
+  "game.chronology.stats.round": "Round:",
+  "game.chronology.user_order.correct_title": "Your correct order:",
+  "game.chronology.user_order.incorrect_title": "Your order:",
   "common.back.to.top": "Back to top",
   "common.accessibility.main_content": "Main content area",
   "knowledge.articles.heading": "Knowledge Articles",
@@ -1008,17 +1014,4 @@ export default {
   "knowledge.accessibility.scrolling_to_top": "Scrolling to top of page",
   "knowledge.accessibility.scrolled_to_top": "Scrolled to top of page",
   "knowledge.accessibility.search_focused": "Search input is now focused",
-
-  // Chronology game error messages
-  "errors.chronology.albums.loading": "Error loading albums data",
-  "errors.chronology.albums.notFound": "No albums found for category",
-  "errors.chronology.albums.fallback":
-    "No albums found for {language}/{category}, falling back to German",
-  "errors.chronology.question.generation": "Failed to load question. Please try again.",
-  "errors.chronology.data.unavailable": "No albums data available",
-  "errors.chronology.initialization": "Failed to initialize game",
-  "errors.chronology.game.data": "Failed to load game data. Please try again.",
-  "errors.chronology.elements.missing": "Required DOM elements not found",
-  "errors.chronology.years.insufficient":
-    "Not enough unique years ({available}) for difficulty {difficulty} (needs {required}). Using available years.",
 };

@@ -36,8 +36,8 @@ export function updateMotivationText(score: number): void {
     .querySelector("[data-translations]")
     ?.getAttribute("data-translations");
   if (!translationsData) {
-    console.warn("Translation data not found, using fallback text");
-    motivationElement.textContent = "Danke fürs Spielen! Probiere eine weitere Runde.";
+    console.warn("Translation data not found, using empty fallback");
+    motivationElement.textContent = "";
     return;
   }
 
@@ -59,12 +59,17 @@ export function updateMotivationText(score: number): void {
       }
     } else {
       console.warn(`Missing translation for key: ${motivationKey}`);
-      motivationElement.textContent =
-        translations["game.end.defaultMotivation"] || "Danke fürs Spielen!";
+      motivationElement.textContent = translations["game.end.defaultMotivation"] || "";
     }
   } catch (error) {
     console.error("Error parsing translation data:", error);
-    motivationElement.textContent = "Danke fürs Spielen! Probiere eine weitere Runde.";
+    // Try to parse translations again for the fallback, or use empty string
+    try {
+      const fallbackTranslations = JSON.parse(translationsData);
+      motivationElement.textContent = fallbackTranslations["game.end.defaultMotivation"] || "";
+    } catch {
+      motivationElement.textContent = "";
+    }
   }
 }
 

@@ -602,6 +602,12 @@ export default {
   "game.chronology.position": "Positie",
   "game.chronology.start": "Begin",
   "game.chronology.end": "Einde",
+  "game.chronology.stats.accuracy": "Nauwkeurigheid:",
+  "game.chronology.stats.round_points": "Punten deze ronde:",
+  "game.chronology.stats.total_points": "Totale punten:",
+  "game.chronology.stats.round": "Ronde:",
+  "game.chronology.user_order.correct_title": "Jouw juiste volgorde:",
+  "game.chronology.user_order.incorrect_title": "Jouw volgorde:",
   "common.back.to.top": "Terug naar boven",
   "knowledge.articles.heading": "Kennisartikelen",
   "knowledge.search.heading": "Artikelen Doorzoeken",
@@ -869,6 +875,7 @@ export default {
   "nav.openNewWindow": "Opent in nieuw venster",
 
   // End Overlay - Spelresultaten
+  "game.end.title": "Spel Voltooid!",
   "game.end.achievementBadge": "Prestatie trofee icoon",
   "game.end.screenReaderDescription": "Spelresultaten die je score en prestatieniveau tonen.",
   "game.end.scoreProgress": "Score voortgang",
@@ -978,6 +985,16 @@ export default {
 
   // Accessibility
   "accessibility.skip.to.content": "Naar hoofdinhoud springen",
+
+  // End game level achievements
+  "game.end.level.genius": "Genie",
+  "game.end.level.pro": "Professional",
+  "game.end.level.enthusiast": "Liefhebber",
+  "game.end.level.lover": "Minnaar",
+  "game.end.level.explorer": "Ontdekker",
+
+  // End game announcements
+  "game.end.announcement.gameOver": "Spel afgelopen! Je eindscore is beschikbaar.",
 
   // Categoriepaginas
   "category.about.title": "Over deze categorie",
