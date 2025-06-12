@@ -224,9 +224,7 @@ function createOptionButtons(
 ): void {
   options.forEach((option: string, index: number) => {
     const button = document.createElement("button");
-    button.textContent = option;
-    button.className =
-      "relative w-full py-4 px-5 rounded-xl text-left text-lg font-medium bg-zinc-800 border border-zinc-600 hover:bg-zinc-700 hover:border-zinc-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900 transition-all duration-200 shadow-sm hover:shadow-md text-zinc-50";
+    button.className = "game-option-button";
 
     // Set appropriate ARIA attributes
     button.setAttribute("role", "radio");
@@ -235,12 +233,18 @@ function createOptionButtons(
     button.setAttribute("data-index", index.toString());
     button.setAttribute("data-testid", `option-${index}`); // For easier testing
 
-    // Add structure to help with visual scanning
+    // Create structured content for better visual scanning
     const optionNumber = document.createElement("span");
-    optionNumber.className =
-      "inline-flex items-center justify-center w-6 h-6 mr-3 rounded-full bg-zinc-700 text-zinc-100 text-sm";
+    optionNumber.className = "game-option-button__number";
     optionNumber.textContent = `${index + 1}`;
-    button.prepend(optionNumber);
+
+    const optionText = document.createElement("span");
+    optionText.className = "game-option-button__text";
+    optionText.textContent = option;
+
+    // Append both elements to the button
+    button.appendChild(optionNumber);
+    button.appendChild(optionText);
 
     // Attach click handler
     button.onclick = (): void => {

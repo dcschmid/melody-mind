@@ -100,15 +100,6 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
     width: 100%;
   }
 
-  /* Light mode adjustment with enhanced contrast for WCAG AAA */
-  @media (prefers-color-scheme: light) {
-    .achievement-badge {
-      background-color: var(--interactive-secondary-hover); /* Darker for better contrast */
-      color: var(--text-inverse); /* Ensure high contrast */
-      box-shadow: var(--shadow-lg); /* Enhanced shadow for light mode */
-    }
-  }
-
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     .achievement-badge {

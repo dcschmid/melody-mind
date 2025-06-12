@@ -306,6 +306,7 @@ export default {
   "game.joker.use": "Gebruik 50:50 Joker",
   "game.joker.description": "Verwijdert twee foute antwoordopties",
   "loading.content": "Inhoud laden...",
+  "loading.albums": "Albums laden...",
   "loading.started": "Laden gestart",
   "loading.completed": "Laden voltooid",
   "loading.progress.indicator": "Voortgangsindicator",
@@ -579,6 +580,10 @@ export default {
   "game.chronology.description":
     "⏰ Word een tijdreiziger van de muziek! Rangschik deze legendarische albums in de juiste chronologische volgorde en toon dat je een echte muziekhistoricus bent. Elke juiste zet brengt je dichter bij de perfecte score! 🎯",
   "game.chronology.area.label": "Chronologiespelgebied",
+  "game.chronology.aria.main": "Hoofdgebied van het chronologiespel",
+  "game.chronology.info.aria": "Spelinformatie en statistieken",
+  "game.chronology.sort.albums": "Sorteer albums op uitgavejaar",
+  "game.chronology.instructions": "Organiseer de albums in de juiste chronologische volgorde",
   "game.chronology.result": "Resultaat",
   "game.chronology.correct": "Correct! 🎉",
   "game.chronology.incorrect": "Onjuist! 😔",
@@ -591,9 +596,18 @@ export default {
   "game.submit.answer": "Antwoord Controleren",
   "game.chronology.up": "Omhoog",
   "game.chronology.down": "Omlaag",
+  "game.move.up.aria": "Verplaats geselecteerd element omhoog",
+  "game.move.down.aria": "Verplaats geselecteerd element omlaag",
+  "game.submit.answer.aria": "Controleer huidige volgorde en ga door naar de volgende ronde",
   "game.chronology.position": "Positie",
   "game.chronology.start": "Begin",
   "game.chronology.end": "Einde",
+  "game.chronology.stats.accuracy": "Nauwkeurigheid:",
+  "game.chronology.stats.round_points": "Punten deze ronde:",
+  "game.chronology.stats.total_points": "Totale punten:",
+  "game.chronology.stats.round": "Ronde:",
+  "game.chronology.user_order.correct_title": "Jouw juiste volgorde:",
+  "game.chronology.user_order.incorrect_title": "Jouw volgorde:",
   "common.back.to.top": "Terug naar boven",
   "knowledge.articles.heading": "Kennisartikelen",
   "knowledge.search.heading": "Artikelen Doorzoeken",
@@ -861,6 +875,7 @@ export default {
   "nav.openNewWindow": "Opent in nieuw venster",
 
   // End Overlay - Spelresultaten
+  "game.end.title": "Spel Voltooid!",
   "game.end.achievementBadge": "Prestatie trofee icoon",
   "game.end.screenReaderDescription": "Spelresultaten die je score en prestatieniveau tonen.",
   "game.end.scoreProgress": "Score voortgang",
@@ -970,6 +985,16 @@ export default {
 
   // Accessibility
   "accessibility.skip.to.content": "Naar hoofdinhoud springen",
+
+  // End game level achievements
+  "game.end.level.genius": "Genie",
+  "game.end.level.pro": "Professional",
+  "game.end.level.enthusiast": "Liefhebber",
+  "game.end.level.lover": "Minnaar",
+  "game.end.level.explorer": "Ontdekker",
+
+  // End game announcements
+  "game.end.announcement.gameOver": "Spel afgelopen! Je eindscore is beschikbaar.",
 
   // Categoriepaginas
   "category.about.title": "Over deze categorie",
