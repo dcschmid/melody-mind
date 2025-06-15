@@ -18,7 +18,7 @@ import BackToTop from "@components/Shared/BackToTop.astro";
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const supportedLanguages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"] as const;
+  const supportedLanguages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi", "cn", "ru", "jp", "uk"] as const;
 
   const paths = await Promise.all(
     supportedLanguages.map(async (lang) => {

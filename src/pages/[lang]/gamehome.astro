@@ -15,7 +15,22 @@ import BackToTop from "@components/Shared/BackToTop.astro";
  * Required for Astro dynamic routes to work properly
  */
 export async function getStaticPaths(): Promise<{ params: { lang: string } }[]> {
-  const supportedLanguages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"] as const;
+  const supportedLanguages = [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt",
+    "da",
+    "nl",
+    "sv",
+    "fi",
+    "cn",
+    "ru",
+    "jp",
+    "uk",
+  ] as const;
 
   return supportedLanguages.map((lang) => ({
     params: { lang },

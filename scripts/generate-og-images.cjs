@@ -8,7 +8,22 @@ const OUTPUT_DIR = path.join(PROJECT_ROOT, "public", "og-images");
 const FONTS_DIR = path.join(PROJECT_ROOT, "public", "fonts");
 
 // Supported languages
-const LANGUAGES = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"];
+const LANGUAGES = [
+  "de",
+  "en",
+  "es",
+  "fr",
+  "it",
+  "pt",
+  "da",
+  "nl",
+  "sv",
+  "fi",
+  "cn",
+  "ru",
+  "jp",
+  "uk",
+];
 
 // Configure canvas settings
 const WIDTH = 1200;
