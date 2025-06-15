@@ -22,16 +22,20 @@ export default defineConfig({
       i18n: {
         defaultLocale: "en",
         locales: {
-          en: "en",
+          cn: "cn",
+          da: "da",
           de: "de",
+          en: "en",
           es: "es",
+          fi: "fi",
           fr: "fr",
           it: "it",
-          pt: "pt",
-          da: "da",
+          jp: "jp",
           nl: "nl",
+          pt: "pt",
+          ru: "ru",
           sv: "sv",
-          fi: "fi",
+          uk: "uk",
         },
       },
       // Use our custom sitemap-index.xml as the main sitemap
@@ -57,7 +61,7 @@ export default defineConfig({
   ],
   i18n: {
     defaultLocale: "en",
-    locales: ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"],
+    locales: ["cn", "da", "de", "en", "es", "fi", "fr", "it", "jp", "nl", "pt", "ru", "sv", "uk"],
     routing: {
       prefixDefaultLocale: true,
     },

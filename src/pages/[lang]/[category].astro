@@ -18,7 +18,22 @@ import AuthForm from "@components/auth/AuthForm.astro";
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const supportedLanguages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"] as const;
+  const supportedLanguages = [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt",
+    "da",
+    "nl",
+    "sv",
+    "fi",
+    "cn",
+    "ru",
+    "jp",
+    "uk",
+  ] as const;
   const paths = [];
 
   for (const lang of supportedLanguages) {

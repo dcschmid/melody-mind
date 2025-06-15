@@ -30,7 +30,22 @@
  * @since 1.0.0
  */
 export async function getStaticPaths() {
-  const supportedLanguages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"] as const;
+  const supportedLanguages = [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt",
+    "da",
+    "nl",
+    "sv",
+    "fi",
+    "cn",
+    "ru",
+    "jp",
+    "uk",
+  ] as const;
 
   return supportedLanguages.map((lang) => ({
     params: { lang },

@@ -39,7 +39,23 @@ const currentPath = Astro.url.pathname;
 const cleanPath = currentPath
   .split("/")
   .filter(
-    (segment) => !["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"].includes(segment)
+    (segment) =>
+      ![
+        "de",
+        "en",
+        "es",
+        "fr",
+        "it",
+        "pt",
+        "da",
+        "nl",
+        "sv",
+        "fi",
+        "cn",
+        "ru",
+        "jp",
+        "uk",
+      ].includes(segment)
   )
   .join("/");
 
@@ -51,6 +67,11 @@ const cleanPath = currentPath
  * - flag: Unicode flag emoji for visual identification
  */
 const unsortedLanguages = {
+  cn: {
+    name: t("language.cn"),
+    label: t("language.cn.label"),
+    flag: "🇨🇳",
+  },
   da: {
     name: t("language.da"),
     label: t("language.da.label"),
@@ -86,6 +107,11 @@ const unsortedLanguages = {
     label: t("language.it.label"),
     flag: "🇮🇹",
   },
+  jp: {
+    name: t("language.jp"),
+    label: t("language.jp.label"),
+    flag: "🇯🇵",
+  },
   nl: {
     name: t("language.nl"),
     label: t("language.nl.label"),
@@ -96,10 +122,20 @@ const unsortedLanguages = {
     label: t("language.pt.label"),
     flag: "🇵🇹",
   },
+  ru: {
+    name: t("language.ru"),
+    label: t("language.ru.label"),
+    flag: "🇷🇺",
+  },
   sv: {
     name: t("language.sv"),
     label: t("language.sv.label"),
     flag: "🇸🇪",
+  },
+  uk: {
+    name: t("language.uk"),
+    label: t("language.uk.label"),
+    flag: "🇺🇦",
   },
 };
 

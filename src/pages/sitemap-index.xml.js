@@ -9,7 +9,22 @@ export async function get() {
   const siteUrl = import.meta.env.SITE || "https://melodymind.app";
 
   // Supported languages
-  const languages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"];
+  const languages = [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt",
+    "da",
+    "nl",
+    "sv",
+    "fi",
+    "cn",
+    "ru",
+    "jp",
+    "uk",
+  ];
 
   // Current date in ISO format for lastmod
   const today = new Date().toISOString();

@@ -8,7 +8,22 @@
 import { getCollection } from "astro:content";
 
 // Define supported languages for type safety
-const supportedLanguages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"];
+const supportedLanguages = [
+  "de",
+  "en",
+  "es",
+  "fr",
+  "it",
+  "pt",
+  "da",
+  "nl",
+  "sv",
+  "fi",
+  "cn",
+  "ru",
+  "jp",
+  "uk",
+];
 
 // Generate static paths for all supported languages
 /**
