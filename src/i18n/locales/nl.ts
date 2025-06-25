@@ -475,12 +475,24 @@ export default {
   "index.start.game.label": "Start je muzikale reis",
   "index.welcome.footnote":
     "🎶 Gemaakt met passie voor echte muziekfans - Laat de magie beginnen! ✨",
+  "knowledge.description":
+    "Duik in de fascinerende wereld van muziek! 🎶 Ontdek uitgebreide artikelen, expertinzichten en boeiende feiten over artiesten, genres en muziekgeschiedenis. Verbreed je muzikale horizon en word een echte kenner met onze zorgvuldig samengestelde kennisbank.",
   "knowledge.play.description":
     "🎵 Klaar voor de ultieme uitdaging? Test je muziekkennis en word een genre expert! Verzamel punten, gebruik slimme jokers, en bewijs dat je hebt wat er nodig is om een muziekkampioen te zijn! 🏆",
   "knowledge.published": "Gepubliceerd",
   "knowledge.reading.time": "min lezen",
   "knowledge.reading.time.label": "Leestijd",
+  "knowledge.search.subtitle": "Vind artikelen op titel, beschrijving of trefwoorden",
+  "knowledge.search.title": "Zoek artikelen",
+  "knowledge.search.placeholder": "Zoek artikelen...",
   "knowledge.title": "Muziek Kennisbank",
+  "knowledge.search.showing.all": "Alle artikelen weergeven",
+  "knowledge.search.reset.text": "Zoekopdracht resetten",
+  "knowledge.search.initial": "Voer trefwoorden in om onze muziek kennisbank te doorzoeken",
+  "knowledge.no.results": "Geen artikelen gevonden",
+  "knowledge.no.results.help": "Probeer andere trefwoorden of bekijk alle artikelen hieronder",
+  "knowledge.empty":
+    "Momenteel geen artikelen beschikbaar. Kom binnenkort terug voor nieuwe content!",
   "language.change.error": "Taalwisseling mislukt. Probeer opnieuw.",
   "language.change.success": "Taal gewijzigd naar {language}",
   "language.da": "Deens",

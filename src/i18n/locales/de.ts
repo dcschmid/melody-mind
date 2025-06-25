@@ -493,12 +493,26 @@ export default {
   "index.start.game.label": "Starten Sie Ihre musikalische Reise",
   "index.welcome.footnote":
     "🎶 Mit Leidenschaft für wahre Musikfans erstellt - Lassen Sie die Magie beginnen! ✨",
+  "knowledge.description":
+    "Tauchen Sie ein in die faszinierende Welt der Musik! 🎶 Entdecken Sie umfassende Artikel, Experteneinblicke und faszinierende Fakten über Künstler, Genres und Musikgeschichte. Erweitern Sie Ihren musikalischen Horizont und werden Sie zum wahren Kenner mit unserer sorgfältig kuratierten Wissensdatenbank.",
   "knowledge.play.description":
     "🎵 Bereit für die ultimative Herausforderung? Testen Sie Ihr Musikwissen und werden Sie ein Genre-Experte! Sammeln Sie Punkte, nutzen Sie clevere Joker und beweisen Sie, dass Sie das Zeug zum Musikchampion haben! 🏆",
   "knowledge.published": "Veröffentlicht",
   "knowledge.reading.time": "Min. Lesezeit",
   "knowledge.reading.time.label": "Lesezeit",
+  "knowledge.search.subtitle": "Finden Sie Artikel nach Titel, Beschreibung oder Schlüsselwörtern",
+  "knowledge.search.title": "Artikel durchsuchen",
+  "knowledge.search.placeholder": "Artikel durchsuchen...",
   "knowledge.title": "Musik-Wissensdatenbank",
+  "knowledge.search.showing.all": "Alle Artikel anzeigen",
+  "knowledge.search.reset.text": "Suche zurücksetzen",
+  "knowledge.search.initial":
+    "Geben Sie Schlüsselwörter ein, um unsere Musik-Wissensdatenbank zu durchsuchen",
+  "knowledge.no.results": "Keine Artikel gefunden",
+  "knowledge.no.results.help":
+    "Versuchen Sie andere Schlüsselwörter oder durchstöbern Sie alle Artikel unten",
+  "knowledge.empty":
+    "Momentan sind keine Artikel verfügbar. Schauen Sie bald wieder vorbei für neue Inhalte!",
   "language.change.error": "Sprachänderung fehlgeschlagen. Bitte versuchen Sie es erneut.",
   "language.change.success": "Sprache geändert zu {language}",
   "language.da": "Dänisch",

@@ -485,12 +485,26 @@ export default {
   "index.start.game.label": "Inicia tu viaje musical",
   "index.welcome.footnote":
     "🎶 Creado con pasión para los verdaderos fanáticos de la música - ¡Que comience la magia! ✨",
+  "knowledge.description":
+    "¡Sumérgete en el fascinante mundo de la música! 🎶 Descubre artículos completos, perspectivas de expertos y datos cautivadores sobre artistas, géneros e historia musical. Amplía tus horizontes musicales y conviértete en un verdadero conocedor con nuestra base de conocimientos cuidadosamente seleccionada.",
   "knowledge.play.description":
     "🎵 ¿Listo para el desafío definitivo? ¡Pon a prueba tu conocimiento musical y conviértete en un experto de género! ¡Recolecta puntos, usa comodines inteligentes y demuestra que tienes lo necesario para ser un campeón musical! 🏆",
   "knowledge.published": "Publicado",
   "knowledge.reading.time": "min de lectura",
   "knowledge.reading.time.label": "Tiempo de lectura",
+  "knowledge.search.subtitle": "Encuentra artículos por título, descripción o palabras clave",
+  "knowledge.search.title": "Buscar artículos",
+  "knowledge.search.placeholder": "Buscar artículos...",
   "knowledge.title": "Base de Conocimiento Musical",
+  "knowledge.search.showing.all": "Mostrando todos los artículos",
+  "knowledge.search.reset.text": "Restablecer búsqueda",
+  "knowledge.search.initial":
+    "Introduce palabras clave para buscar en nuestra base de conocimiento musical",
+  "knowledge.no.results": "No se encontraron artículos",
+  "knowledge.no.results.help":
+    "Prueba con otras palabras clave o navega por todos los artículos abajo",
+  "knowledge.empty":
+    "No hay artículos disponibles en este momento. ¡Vuelve pronto para nuevo contenido!",
   "language.change.error": "Error al cambiar idioma. Por favor intenta de nuevo.",
   "language.change.success": "Idioma cambiado a {language}",
   "language.da": "Danés",

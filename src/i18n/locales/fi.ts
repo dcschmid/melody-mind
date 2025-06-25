@@ -476,12 +476,24 @@ export default {
   "index.start.game.label": "Aloita musiikillinen matkasi",
   "index.welcome.footnote":
     "🎶 Luotu intohimolla todellisille musiikkifaneille - Anna taikuuden alkaa! ✨",
+  "knowledge.description":
+    "Sukella musiikin kiehtovaan maailmaan! 🎶 Löydä kattavia artikkeleita, asiantuntijaäkemyksiä ja mukaansatempaavia faktoja artisteista, genreistä ja musiikkihistoriasta. Laajenna musiikillisia näköalojasi ja tule todelliseksi tuntelijaksi huolellisesti kuratoitujen tietopankkimme avulla.",
   "knowledge.play.description":
     "🎵 Valmiina äärimmäiseen haasteeseen? Testaa musiikkitietämyksesi ja tule genren asiantuntijaksi! Kerää pisteitä, käytä älykkäitä jokereita ja todista, että sinulla on se mitä tarvitaan musiikin mestariudeksi! 🏆",
   "knowledge.published": "Julkaistu",
   "knowledge.reading.time": "min lukuaika",
   "knowledge.reading.time.label": "Lukuaika",
+  "knowledge.search.subtitle": "Löydä artikkeleita otsikon, kuvauksen tai avainsanojen perusteella",
+  "knowledge.search.title": "Hae artikkeleita",
+  "knowledge.search.placeholder": "Hae artikkeleita...",
   "knowledge.title": "Musiikin tietopankki",
+  "knowledge.search.showing.all": "Näytetään kaikki artikkelit",
+  "knowledge.search.reset.text": "Nollaa haku",
+  "knowledge.search.initial": "Syötä avainsanoja hakeaksesi musiikin tietopankistamme",
+  "knowledge.no.results": "Artikkeleita ei löytynyt",
+  "knowledge.no.results.help": "Kokeile muita avainsanoja tai selaa kaikkia artikkeleita alla",
+  "knowledge.empty":
+    "Artikkeleita ei ole tällä hetkellä saatavilla. Tule pian takaisin uuden sisällön pariin!",
   "language.change.error": "Kielen vaihto epäonnistui. Yritä uudelleen.",
   "language.change.success": "Kieli vaihdettu kieleen {language}",
   "language.da": "Tanska",

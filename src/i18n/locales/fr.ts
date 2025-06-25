@@ -489,12 +489,26 @@ export default {
   "index.start.game.label": "Commencez votre voyage musical",
   "index.welcome.footnote":
     "🎶 Créé avec passion pour les vrais fans de musique - Laissez la magie commencer ! ✨",
+  "knowledge.description":
+    "Plongez dans le monde fascinant de la musique ! 🎶 Découvrez des articles complets, des perspectives d'experts et des faits captivants sur les artistes, les genres et l'histoire musicale. Élargissez vos horizons musicaux et devenez un vrai connaisseur avec notre base de connaissances soigneusement sélectionnée.",
   "knowledge.play.description":
     "🎵 Prêt pour le défi ultime ? Testez vos connaissances musicales et devenez un expert de genre ! Collectez des points, utilisez des jokers intelligents, et prouvez que vous avez ce qu'il faut pour être un champion de musique ! 🏆",
   "knowledge.published": "Publié",
   "knowledge.reading.time": "min de lecture",
   "knowledge.reading.time.label": "Temps de lecture",
+  "knowledge.search.subtitle": "Trouvez des articles par titre, description ou mots-clés",
+  "knowledge.search.title": "Rechercher des articles",
+  "knowledge.search.placeholder": "Rechercher des articles...",
   "knowledge.title": "Base de connaissances musicales",
+  "knowledge.search.showing.all": "Affichage de tous les articles",
+  "knowledge.search.reset.text": "Réinitialiser la recherche",
+  "knowledge.search.initial":
+    "Entrez des mots-clés pour rechercher dans notre base de connaissances musicales",
+  "knowledge.no.results": "Aucun article trouvé",
+  "knowledge.no.results.help":
+    "Essayez d'autres mots-clés ou parcourez tous les articles ci-dessous",
+  "knowledge.empty":
+    "Aucun article disponible pour le moment. Revenez bientôt pour du nouveau contenu !",
   "language.change.error": "Échec du changement de langue. Veuillez réessayer.",
   "language.change.success": "Langue changée en {language}",
   "language.da": "Danois",
