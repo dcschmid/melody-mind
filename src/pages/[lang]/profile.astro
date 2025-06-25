@@ -20,8 +20,8 @@ import { Icon } from "astro-icon/components";
 import { formatDate } from "@utils/dateUtils";
 import { requireAuth } from "src/middleware/auth";
 
-// Enable static site generation for all supported languages
-export const prerender = true;
+// Disable prerendering since this page requires authentication and cookies
+export const prerender = false;
 
 /**
  * Generate static paths for all supported languages

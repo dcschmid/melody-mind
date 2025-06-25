@@ -351,7 +351,7 @@ const initializeGame = async (elements: GameElements) => {
         scoreElement: elements.score,
         overlayCover: elements.overlayCover,
         overlay: elements.overlay,
-        mediaElements,
+        mediaElements: mediaElements || undefined,
       },
       state: {
         score,
