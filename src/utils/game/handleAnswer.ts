@@ -137,9 +137,12 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
       updateMedia(album, config.mediaElements);
     }
 
-    // Show overlay
+    // Show overlay with immediate auto-scroll to top
     const overlay = document.getElementById("overlay") as HTMLDivElement;
     overlay.classList.remove("hidden");
+
+    // IMMEDIATE auto-scroll to top when overlay opens
+    window.scrollTo(0, 0);
 
     // Setup next round button
     const nextRoundButton = document.getElementById("next-round-button") as HTMLButtonElement;
