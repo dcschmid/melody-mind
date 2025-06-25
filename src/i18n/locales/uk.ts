@@ -366,6 +366,7 @@ export default {
   "game.chronology.user_order.correct_title": "Ваш правильний порядок:",
   "game.chronology.user_order.incorrect_title": "Ваш порядок:",
   "game.current.round": "Раунд",
+  "game.current.rounds": "Раунди",
   "game.default.headline": "Гра",
   "game.difficulty.easy": "Легкий",
   "game.end.achievementBadge": "Іконка трофея досягнення",

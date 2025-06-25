@@ -364,6 +364,7 @@ export default {
   "game.chronology.user_order.correct_title": "Sua ordem correta:",
   "game.chronology.user_order.incorrect_title": "Sua ordem:",
   "game.current.round": "Rodada",
+  "game.current.rounds": "Rodadas",
   "game.default.headline": "Jogo",
   "game.difficulty.easy": "Fácil",
   "game.end.achievementBadge": "Ícone de troféu de conquista",

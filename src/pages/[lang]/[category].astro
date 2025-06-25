@@ -60,9 +60,9 @@ export async function getStaticPaths() {
         // Ensure category has required slug property
         if (categoryItem && categoryItem.slug) {
           paths.push({
-            params: { 
-              lang, 
-              category: categoryItem.slug 
+            params: {
+              lang,
+              category: categoryItem.slug,
             },
             props: {
               categories,

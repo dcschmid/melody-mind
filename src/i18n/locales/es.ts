@@ -373,6 +373,7 @@ export default {
   "game.chronology.user_order.correct_title": "Tu orden correcto:",
   "game.chronology.user_order.incorrect_title": "Tu orden:",
   "game.current.round": "Ronda",
+  "game.current.rounds": "Rondas",
   "game.default.headline": "Juego",
   "game.difficulty.easy": "Fácil",
   "game.end.achievementBadge": "Ícono de trofeo de logro",

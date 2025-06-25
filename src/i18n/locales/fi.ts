@@ -365,6 +365,7 @@ export default {
   "game.chronology.user_order.correct_title": "Oikea järjestyksesi:",
   "game.chronology.user_order.incorrect_title": "Järjestyksesi:",
   "game.current.round": "Kierros",
+  "game.current.rounds": "Kierrokset",
   "game.default.headline": "Peli",
   "game.difficulty.easy": "Helppo",
   "game.end.achievementBadge": "Saavutuksen pokaali-ikoni",

@@ -366,6 +366,7 @@ export default {
   "game.chronology.user_order.correct_title": "Il tuo ordine corretto:",
   "game.chronology.user_order.incorrect_title": "Il tuo ordine:",
   "game.current.round": "Round",
+  "game.current.rounds": "Rounds",
   "game.default.headline": "Gioco",
   "game.difficulty.easy": "Facile",
   "game.end.achievementBadge": "Icona trofeo obiettivo",

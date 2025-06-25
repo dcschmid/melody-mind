@@ -360,6 +360,7 @@ export default {
   "game.chronology.user_order.correct_title": "Din korrekte rækkefølge:",
   "game.chronology.user_order.incorrect_title": "Din rækkefølge:",
   "game.current.round": "Runde",
+  "game.current.rounds": "Runder",
   "game.default.headline": "Spil",
   "game.difficulty.easy": "Let",
   "game.end.achievementBadge": "Præstationstrufé-ikon",
