@@ -366,6 +366,7 @@ export default {
   "game.chronology.user_order.correct_title": "Jouw juiste volgorde:",
   "game.chronology.user_order.incorrect_title": "Jouw volgorde:",
   "game.current.round": "Ronde",
+  "game.current.rounds": "Rondes",
   "game.default.headline": "Spel",
   "game.difficulty.easy": "Makkelijk",
   "game.end.achievementBadge": "Prestatie trofee icoon",

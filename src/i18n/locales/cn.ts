@@ -335,6 +335,7 @@ export default {
   "game.chronology.user_order.correct_title": "您的正确顺序：",
   "game.chronology.user_order.incorrect_title": "您的顺序：",
   "game.current.round": "轮次",
+  "game.current.rounds": "轮数",
   "game.default.headline": "游戏",
   "game.difficulty.easy": "简单",
   "game.end.achievementBadge": "成就奖杯图标",

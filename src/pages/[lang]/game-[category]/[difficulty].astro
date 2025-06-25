@@ -109,6 +109,22 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 
 // Generate optimized meta description for SEO
 const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryData?.headline || ""} ${t("game.meta.description.suffix")} ${t(`difficulty.${String(difficulty)}`) || String(difficulty)}`;
+
+// Calculate rounds based on difficulty
+const getRoundsForDifficulty = (difficulty: string | undefined): number => {
+  switch (difficulty) {
+    case "easy":
+      return 10;
+    case "medium":
+      return 15;
+    case "hard":
+      return 20;
+    default:
+      return 10;
+  }
+};
+
+const totalRounds = getRoundsForDifficulty(difficulty);
 ---
 
 <Layout
@@ -128,8 +144,6 @@ const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryD
 
   <!-- Improved game header section with better visual distinction -->
   <div class="game-header">
-    <GameHeadline headline={currentCategoryData?.headline} />
-
     <!-- Game info badges -->
     <div class="game-header__badges" aria-live="polite">
       <div class="game-badge">
@@ -140,6 +154,13 @@ const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryD
         />
         <span class="game-badge__text">
           {t(`difficulty.${String(difficulty)}`)}
+        </span>
+      </div>
+
+      <div class="game-badge">
+        <Icon name="round" class="game-badge__icon game-badge__icon--rounds" aria-hidden="true" />
+        <span class="game-badge__text">
+          <span id="round-display" class="round">1/{totalRounds}</span>
         </span>
       </div>
 

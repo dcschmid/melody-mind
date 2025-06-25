@@ -358,6 +358,7 @@ export default {
   "game.chronology.user_order.correct_title": "Din korrekta ordning:",
   "game.chronology.user_order.incorrect_title": "Din ordning:",
   "game.current.round": "Runda",
+  "game.current.rounds": "Rundor",
   "game.default.headline": "Spel",
   "game.difficulty.easy": "Lätt",
   "game.end.achievementBadge": "Prestationstrofé-ikon",

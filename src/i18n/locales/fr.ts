@@ -377,6 +377,7 @@ export default {
   "game.chronology.user_order.correct_title": "Votre ordre correct :",
   "game.chronology.user_order.incorrect_title": "Votre ordre :",
   "game.current.round": "Tour",
+  "game.current.rounds": "Tours",
   "game.default.headline": "Jeu",
   "game.difficulty.easy": "Facile",
   "game.end.achievementBadge": "Icône de trophée de succès",

@@ -381,6 +381,7 @@ export default {
   "game.chronology.user_order.correct_title": "Ihre richtige Reihenfolge:",
   "game.chronology.user_order.incorrect_title": "Ihre Reihenfolge:",
   "game.current.round": "Runde",
+  "game.current.rounds": "Runden",
   "game.default.headline": "Spiel",
   "game.difficulty.easy": "Einfach",
   "game.end.achievementBadge": "Erfolge-Trophäe-Symbol",

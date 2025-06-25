@@ -356,6 +356,7 @@ export default {
   "game.chronology.user_order.correct_title": "あなたの正しい順序:",
   "game.chronology.user_order.incorrect_title": "あなたの順序:",
   "game.current.round": "ラウンド",
+  "game.current.rounds": "ラウンド",
   "game.default.headline": "ゲーム",
   "game.difficulty.easy": "簡単",
   "game.end.achievementBadge": "達成トロフィーアイコン",
