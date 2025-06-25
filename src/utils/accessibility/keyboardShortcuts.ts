@@ -177,14 +177,19 @@ function addKeyboardShortcutHints(lang: string): void {
       const currentLabel = button.getAttribute("aria-label") || button.textContent || "";
       button.setAttribute("aria-label", `${currentLabel} - ${shortcutNumber}`);
 
-      // Add visual indicator of keyboard shortcut
-      const shortcutIndicator = document.createElement("span");
-      shortcutIndicator.classList.add("keyboard-shortcut-hint");
-      shortcutIndicator.setAttribute("aria-hidden", "true");
-      shortcutIndicator.textContent = shortcutNumber.toString();
+      // Check if button already has a number indicator (game-option-button__number)
+      const existingNumberSpan = button.querySelector(".game-option-button__number");
 
-      // Add shortcut indicator before button text
-      button.prepend(shortcutIndicator);
+      // Only add keyboard shortcut hint if no number indicator exists
+      if (!existingNumberSpan && !button.querySelector(".keyboard-shortcut-hint")) {
+        const shortcutIndicator = document.createElement("span");
+        shortcutIndicator.classList.add("keyboard-shortcut-hint");
+        shortcutIndicator.setAttribute("aria-hidden", "true");
+        shortcutIndicator.textContent = shortcutNumber.toString();
+
+        // Add shortcut indicator before button text
+        button.prepend(shortcutIndicator);
+      }
     });
   }, 500); // Short delay to ensure options are loaded
 }
@@ -192,8 +197,9 @@ function addKeyboardShortcutHints(lang: string): void {
 /**
  * Announces a message to screen readers via an ARIA live region
  *
- * @param message - The message to announce
- * @param politeness - The politeness level of the announcement
+ * @param {string} message - The message to announce
+ * @param {"assertive" | "polite"} politeness - The politeness level of the announcement
+ * @returns {void}
  */
 function announceToScreenReader(
   message: string,
@@ -225,8 +231,8 @@ function announceToScreenReader(
  * Checks if the user is typing in a form element
  * Prevents shortcuts from interfering with text input
  *
- * @param element - The element being interacted with
- * @returns Whether the user is typing in a form element
+ * @param {HTMLElement | null} element - The element being interacted with
+ * @returns {boolean} Whether the user is typing in a form element
  */
 function isTypingInFormElement(element: HTMLElement | null): boolean {
   if (!element) {
