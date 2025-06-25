@@ -689,73 +689,143 @@ const t = useTranslations(lang);
 
 <script type="module" is:inline>
   /**
-   * FeedbackOverlay with Working Focus Trap
-   * Implements robust keyboard navigation and accessibility features.
-   * Uses existing utility functions for code deduplication.
+   * Simple and reliable FeedbackOverlay Event Handlers
+   * Maximum reliability with direct approach
    */
 
-  // Translation strings for client-side use
-  const translations = {
-    audioFailed: `${t("game.feedback.audio.failed")}`,
-    audioPaused: `${t("game.feedback.audio.paused")}`,
-    nextRoundStarting: `${t("game.feedback.next.starting")}`,
-  };
-
-  // Focus trap state management
-  let focusableElements = [];
-  let isTrappingFocus = false;
-  let currentFocusIndex = 0;
+  // Global flag to prevent duplicate handlers
+  let handlersInitialized = false;
+  let escapeHandler = null;
 
   /**
-   * Initialize feedback overlay functionality
-   * Try to reuse existing utilities to avoid code duplication
+   * Simple initialization - direct event handlers
    */
-  async function initializeOverlay() {
-    try {
-      // Try to import utility if available for code reuse
-      const { initializeFeedbackOverlayOptimized } = await import(
-        "/src/utils/overlays/feedbackOverlay.js"
-      );
-      initializeFeedbackOverlayOptimized();
-    } catch (error) {
-      console.warn("Using fallback overlay initialization:", error?.message || "Unknown error");
-      setupBasicOverlay();
+  function initializeOverlay() {
+    if (handlersInitialized) {
+      return;
     }
+
+    setupDirectEventHandlers();
+    handlersInitialized = true;
   }
 
   /**
-   * Set up basic overlay functionality
-   * Reuses established patterns from other overlays
+   * Set up direct event handlers - no delegation, no complexity
    */
-  function setupBasicOverlay() {
-    const overlay = document.getElementById("overlay");
+  function setupDirectEventHandlers() {
+    // Close button handler
     const closeButton = document.getElementById("close-overlay-button");
-    const backdrop = document.getElementById("overlay-backdrop");
-
-    // Event listeners - consistent with other overlay components
     if (closeButton) {
-      closeButton.addEventListener("click", closeOverlay);
+      closeButton.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        closeOverlayAndNextRound();
+      };
     }
+
+    // Backdrop handler
+    const backdrop = document.getElementById("overlay-backdrop");
     if (backdrop) {
-      backdrop.addEventListener("click", closeOverlay);
+      backdrop.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        closeOverlayAndNextRound();
+      };
     }
 
-    // Observe overlay visibility changes - reused pattern
-    if (overlay) {
-      const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-          if (mutation.type === "attributes" && mutation.attributeName === "class") {
-            const isVisible = !overlay.classList.contains("hidden");
+    // Next round button handler
+    const nextButton = document.getElementById("next-round-button");
+    if (nextButton) {
+      nextButton.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        closeOverlayAndNextRound();
+      };
+    }
 
-            if (isVisible && !isTrappingFocus) {
-              activateFocusTrap();
-            } else if (!isVisible && isTrappingFocus) {
-              deactivateFocusTrap();
-            }
+    // Remove existing escape handler if any
+    if (escapeHandler) {
+      document.removeEventListener("keydown", escapeHandler);
+    }
+
+    // Enhanced keyboard navigation handler
+    escapeHandler = function (e) {
+      const overlay = document.getElementById("overlay");
+      if (!overlay || overlay.classList.contains("hidden")) {
+        return;
+      }
+
+      switch (e.key) {
+        case "Escape":
+          e.preventDefault();
+          e.stopPropagation();
+          closeOverlayAndNextRound();
+          break;
+
+        case "Tab":
+          e.preventDefault();
+          handleTabNavigation(e.shiftKey);
+          break;
+
+        case "Enter":
+        case " ":
+          // If focused element is a button, let it handle the event
+          if (document.activeElement && document.activeElement.tagName === "BUTTON") {
+            return;
           }
-        });
-      });
+          // Otherwise, trigger next round
+          e.preventDefault();
+          closeOverlayAndNextRound();
+          break;
 
+        case "ArrowUp":
+        case "ArrowLeft":
+          e.preventDefault();
+          navigateFocus(-1);
+          break;
+
+        case "ArrowDown":
+        case "ArrowRight":
+          e.preventDefault();
+          navigateFocus(1);
+          break;
+      }
+    };
+
+    document.addEventListener("keydown", escapeHandler);
+
+    // Set up focus management when overlay becomes visible
+    setupFocusManagement();
+  }
+
+  /**
+   * Set up focus management for the overlay
+   */
+  function setupFocusManagement() {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "attributes" && mutation.attributeName === "class") {
+          const overlay = mutation.target;
+          const isVisible = !overlay.classList.contains("hidden");
+
+          if (isVisible) {
+            // Scroll to top immediately when overlay opens
+            window.scrollTo(0, 0);
+
+            // Focus the close button when overlay opens
+            setTimeout(() => {
+              const closeButton = document.getElementById("close-overlay-button");
+              if (closeButton) {
+                closeButton.focus();
+              }
+            }, 100);
+          }
+        }
+      });
+    });
+
+    const overlay = document.getElementById("overlay");
+    if (overlay) {
       observer.observe(overlay, {
         attributes: true,
         attributeFilter: ["class"],
@@ -765,7 +835,6 @@ const t = useTranslations(lang);
 
   /**
    * Get all focusable elements in the overlay
-   * Reuses standard focusable element selectors
    */
   function getFocusableElements() {
     const overlay = document.getElementById("overlay");
@@ -773,16 +842,11 @@ const t = useTranslations(lang);
       return [];
     }
 
-    // Standard focusable selectors - consistent across components
     const selectors = [
       "button:not([disabled])",
-      "input:not([disabled])",
-      "select:not([disabled])",
-      "textarea:not([disabled])",
-      "audio[controls]",
-      "video[controls]",
-      '[tabindex]:not([tabindex="-1"])',
-      "a[href]",
+      "a[href]:not([disabled])",
+      "audio[controls]:not([disabled])",
+      "[tabindex]:not([tabindex='-1']):not([disabled])",
     ].join(", ");
 
     return Array.from(overlay.querySelectorAll(selectors)).filter((el) => {
@@ -792,186 +856,93 @@ const t = useTranslations(lang);
   }
 
   /**
-   * Activate focus trap - consistent with other modals
+   * Handle Tab navigation through focusable elements
    */
-  function activateFocusTrap() {
-    if (isTrappingFocus) {
-      return;
-    }
-
-    focusableElements = getFocusableElements();
-    isTrappingFocus = true;
-    currentFocusIndex = 0;
-
-    // Focus first element - prioritize close button for accessibility
-    const firstElement = document.getElementById("close-overlay-button") || focusableElements[0];
-    if (firstElement) {
-      setTimeout(() => {
-        firstElement.focus();
-        announceToScreenReader(
-          "Feedback overlay opened. Use Escape to close, Space for audio, Enter for next round."
-        );
-      }, 100);
-    }
-
-    // Add keyboard listener
-    document.addEventListener("keydown", handleKeyboardNavigation);
-  }
-
-  /**
-   * Deactivate focus trap - consistent cleanup pattern
-   */
-  function deactivateFocusTrap() {
-    if (!isTrappingFocus) {
-      return;
-    }
-
-    isTrappingFocus = false;
-    focusableElements = [];
-    currentFocusIndex = 0;
-
-    document.removeEventListener("keydown", handleKeyboardNavigation);
-  }
-
-  /**
-   * Handle keyboard navigation - enhanced version with consistent patterns
-   */
-  function handleKeyboardNavigation(event) {
-    if (!isTrappingFocus) {
-      return;
-    }
-
-    switch (event.key) {
-      case "Escape": {
-        event.preventDefault();
-        announceToScreenReader("Closing overlay");
-        closeOverlay();
-        break;
-      }
-
-      case "Tab": {
-        event.preventDefault();
-        if (event.shiftKey) {
-          focusPrevious();
-        } else {
-          focusNext();
-        }
-        break;
-      }
-
-      case " ": {
-        event.preventDefault();
-        handleAudioToggle();
-        break;
-      }
-
-      case "Enter": {
-        const focused = document.activeElement;
-        if (focused && focused.tagName !== "BUTTON") {
-          event.preventDefault();
-          handleNextRound();
-        }
-        break;
-      }
-
-      case "ArrowDown":
-      case "ArrowRight": {
-        event.preventDefault();
-        focusNext();
-        break;
-      }
-
-      case "ArrowUp":
-      case "ArrowLeft": {
-        event.preventDefault();
-        focusPrevious();
-        break;
-      }
-    }
-  }
-
-  /**
-   * Focus next element - optimized navigation
-   */
-  function focusNext() {
+  function handleTabNavigation(isShiftKey) {
+    const focusableElements = getFocusableElements();
     if (focusableElements.length === 0) {
       return;
     }
-    currentFocusIndex = (currentFocusIndex + 1) % focusableElements.length;
-    focusableElements[currentFocusIndex].focus();
-  }
 
-  /**
-   * Focus previous element - optimized navigation
-   */
-  function focusPrevious() {
-    if (focusableElements.length === 0) {
-      return;
-    }
-    currentFocusIndex =
-      currentFocusIndex === 0 ? focusableElements.length - 1 : currentFocusIndex - 1;
-    focusableElements[currentFocusIndex].focus();
-  }
+    const currentIndex = focusableElements.indexOf(document.activeElement);
+    let nextIndex;
 
-  /**
-   * Handle audio playback toggle - enhanced with better feedback
-   */
-  function handleAudioToggle() {
-    const audio = document.getElementById("audio-preview");
-    if (!audio) {
-      return;
-    }
-
-    if (audio.paused) {
-      audio
-        .play()
-        .then(() => announceToScreenReader("Audio playing"))
-        .catch(() => announceToScreenReader(translations.audioFailed));
+    if (isShiftKey) {
+      // Shift+Tab: go backwards
+      nextIndex = currentIndex <= 0 ? focusableElements.length - 1 : currentIndex - 1;
     } else {
-      audio.pause();
-      announceToScreenReader(translations.audioPaused);
+      // Tab: go forwards
+      nextIndex = currentIndex >= focusableElements.length - 1 ? 0 : currentIndex + 1;
     }
+
+    focusableElements[nextIndex].focus();
   }
 
   /**
-   * Handle next round action - consistent with other game components
+   * Navigate focus with arrow keys
    */
-  function handleNextRound() {
-    const nextButton = document.getElementById("next-round-button");
-    if (nextButton && !nextButton.disabled) {
-      announceToScreenReader(translations.nextRoundStarting);
-      nextButton.click();
+  function navigateFocus(direction) {
+    const focusableElements = getFocusableElements();
+    if (focusableElements.length === 0) {
+      return;
     }
+
+    const currentIndex = focusableElements.indexOf(document.activeElement);
+    let nextIndex;
+
+    if (direction > 0) {
+      // Forward navigation
+      nextIndex = currentIndex >= focusableElements.length - 1 ? 0 : currentIndex + 1;
+    } else {
+      // Backward navigation
+      nextIndex = currentIndex <= 0 ? focusableElements.length - 1 : currentIndex - 1;
+    }
+
+    focusableElements[nextIndex].focus();
   }
 
   /**
-   * Close the overlay - consistent pattern
+   * Close overlay and trigger next round - simple and reliable
    */
-  function closeOverlay() {
+  function closeOverlayAndNextRound() {
     const overlay = document.getElementById("overlay");
-    if (overlay) {
+    if (!overlay) {
+      return;
+    }
+
+    // Stop audio immediately
+    const audio = document.getElementById("audio-preview");
+    if (audio && !audio.paused) {
+      audio.pause();
+    }
+
+    // Scroll to top immediately when overlay closes
+    window.scrollTo(0, 0);
+
+    // Find and trigger the next round button that the game engine set up
+    const nextRoundButton = document.getElementById("next-round-button");
+    if (nextRoundButton && nextRoundButton.onclick) {
+      // Call the game engine's onclick handler directly
+      nextRoundButton.onclick(new MouseEvent("click"));
+    } else {
+      // Fallback: Hide overlay and dispatch click event
       overlay.classList.add("hidden");
-      deactivateFocusTrap();
+      if (nextRoundButton) {
+        nextRoundButton.click();
+      }
     }
   }
 
-  /**
-   * Announce message to screen readers - reused utility pattern
-   */
-  function announceToScreenReader(message) {
-    const announcer = document.getElementById("feedback-status-announcer");
-    if (announcer) {
-      announcer.textContent = message;
-      setTimeout(() => {
-        announcer.textContent = "";
-      }, 3000);
-    }
-  }
-
-  // Initialize when DOM is ready - consistent initialization pattern
+  // Initialize when DOM is ready
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeOverlay, { once: true });
+    document.addEventListener("DOMContentLoaded", initializeOverlay);
   } else {
     initializeOverlay();
   }
+
+  // Re-initialize on Astro page load
+  document.addEventListener("astro:page-load", () => {
+    handlersInitialized = false;
+    initializeOverlay();
+  });
 </script>

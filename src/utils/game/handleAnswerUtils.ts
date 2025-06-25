@@ -111,7 +111,11 @@ export function handleAnswer(config: HandleAnswerConfig) {
     updateMedia(album, mediaElements);
   }
 
+  // Show overlay with immediate auto-scroll to top
   overlay.classList.remove("hidden");
+
+  // IMMEDIATE auto-scroll to top when overlay opens
+  window.scrollTo(0, 0);
 
   return state.score;
 }
