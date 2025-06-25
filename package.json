@@ -48,7 +48,7 @@
     "@types/bcryptjs": "^3.0.0",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/uuid": "^10.0.0",
-    "astro": "^5.7.10",
+    "astro": "^5.10.1",
     "astro-compressor": "^1.0.0",
     "astro-icon": "^1.1.5",
     "astro-meta-tags": "^0.3.1",
