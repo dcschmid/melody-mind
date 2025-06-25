@@ -1201,8 +1201,8 @@ const contextText = errorContext || t(`error.context.${priority}`);
     const showCountdown = htmlElement.dataset.showCountdown === "true";
 
     // Initialize state
-    let autoHideTimer = null;
-    let countdownTimer = null;
+    let autoHideTimer: NodeJS.Timeout | null = null;
+    let countdownTimer: NodeJS.Timeout | null = null;
     let isHovered = false;
     let isFocused = false;
     let remainingTime = autoHideAfter;

@@ -42,28 +42,37 @@ export async function getStaticPaths() {
 
     try {
       const categoryData = await import(`../../../public/json/categories/${lang}_categories.json`);
-      categories = categoryData.default;
+      categories = categoryData.default || [];
     } catch {
       usedFallback = true;
       try {
         const fallbackData = await import(`../../../public/json/categories/en_categories.json`);
-        categories = fallbackData.default;
+        categories = fallbackData.default || [];
       } catch {
         console.error(`Failed to load categories for ${lang} and fallback`);
         categories = [];
       }
     }
 
-    for (const category of categories) {
-      paths.push({
-        params: { lang, category: category.slug },
-        props: {
-          categories,
-          category,
-          lang,
-          usedFallback,
-        },
-      });
+    // Ensure categories is an array and has valid entries
+    if (Array.isArray(categories) && categories.length > 0) {
+      for (const categoryItem of categories) {
+        // Ensure category has required slug property
+        if (categoryItem && categoryItem.slug) {
+          paths.push({
+            params: { 
+              lang, 
+              category: categoryItem.slug 
+            },
+            props: {
+              categories,
+              category: categoryItem,
+              lang,
+              usedFallback,
+            },
+          });
+        }
+      }
     }
   }
 

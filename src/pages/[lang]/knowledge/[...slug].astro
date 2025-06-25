@@ -64,8 +64,14 @@ export async function getStaticPaths() {
 }
 
 // 4. TypeScript Definitions
-type KnowledgeEntry = CollectionEntry<`knowledge-${keyof typeof languages}`> & {
+type KnowledgeEntry = CollectionEntry<KnowledgeCollectionKey> & {
   data: {
+    title: string;
+    description: string;
+    keywords?: string[];
+    createdAt?: Date;
+    updatedAt?: Date;
+    image?: string;
     category?: {
       spotifyPlaylist?: string;
       deezerPlaylist?: string;
