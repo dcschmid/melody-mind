@@ -245,9 +245,9 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
   });
 </script>
 
-<style>
+<style lang="scss">
   /**
-   * PlaylistCard Component Styles
+   * PlaylistCard Component Styles (SCSS)
    * 
    * ✅ WCAG AAA 2.2 compliant using CSS custom properties
    * ✅ 100% CSS root variables usage from global.css - NO hardcoded values
@@ -259,7 +259,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
    * ✅ Enhanced accessibility with semantic CSS variables
    * 
    * Features:
-   * - Modern CSS color functions using semantic variables
+   * - Modern SCSS with nesting and variables
    * - Logical properties for better internationalization  
    * - Optimized performance with CSS containment
    * - Consistent design system integration
@@ -287,76 +287,97 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     contain: layout style;
     will-change: transform;
     box-sizing: border-box;
-  }
+    scroll-margin-top: var(--space-lg);
+    scroll-margin-bottom: var(--space-lg);
 
-  .playlist-card:hover {
-    transform: translateY(calc(-1 * var(--space-xs)));
-    box-shadow: var(--card-shadow-hover);
-  }
+    &:hover {
+      transform: translateY(calc(-1 * var(--space-xs)));
+      box-shadow: var(--card-shadow-hover);
+    }
 
-  .playlist-card:focus-within {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-ring), var(--card-shadow-hover);
-  }
+    &:focus-within {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--focus-ring), var(--card-shadow-hover);
+    }
 
-  /* Card border accent using semantic primary colors */
-  .playlist-card__border {
-    height: var(--space-xs);
-    background: linear-gradient(to right, var(--interactive-primary), var(--color-secondary-500));
-  }
+    &:focus {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--focus-ring), var(--card-shadow-hover);
+      transform: translateY(calc(-1 * var(--space-xs)));
+    }
 
-  /* Image container with optimized aspect ratio */
-  .playlist-card__image-container {
-    position: relative;
-    aspect-ratio: 16/9;
-    overflow: hidden;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    contain: layout size;
-  }
+    // Card border accent using semantic primary colors
+    &__border {
+      height: var(--space-xs);
+      background: linear-gradient(to right, var(--interactive-primary), var(--color-secondary-500));
+    }
 
-  .playlist-card__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    image-rendering: high-quality;
-    color-rendering: optimizeQuality;
-    transform: translateZ(0);
-  }
+    // Image container with optimized aspect ratio
+    &__image-container {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      contain: layout size;
+    }
 
-  /* Image overlay using semantic background variables */
-  .playlist-card__image-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      var(--bg-secondary) 0%,
-      color-mix(in srgb, var(--bg-secondary) 30%, transparent) 50%,
-      transparent 100%
-    );
-  }
+    &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      image-rendering: high-quality;
+      color-rendering: optimizeQuality;
+      transform: translateZ(0);
+    }
 
-  /* Content area with enhanced spacing */
-  .playlist-card__content {
-    padding: var(--space-lg);
-    background: linear-gradient(
-      to bottom,
-      var(--bg-secondary),
-      color-mix(in srgb, var(--bg-secondary) 95%, var(--bg-primary))
-    );
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    flex-grow: 1;
-  }
+    // Image overlay using semantic background variables
+    &__image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        var(--bg-secondary) 0%,
+        color-mix(in srgb, var(--bg-secondary) 30%, transparent) 50%,
+        transparent 100%
+      );
+    }
 
-  /* Decade indicator using primary color gradients */
-  .playlist-card__decade {
-    height: var(--space-xs);
-    width: var(--touch-target-enhanced);
-    border-radius: var(--radius-full);
-    background: linear-gradient(to right, var(--color-primary-400), var(--color-secondary-400));
-    margin-bottom: var(--space-sm);
+    // Content area with enhanced spacing
+    &__content {
+      padding: var(--space-lg);
+      background: linear-gradient(
+        to bottom,
+        var(--bg-secondary),
+        color-mix(in srgb, var(--bg-secondary) 95%, var(--bg-primary))
+      );
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      flex-grow: 1;
+    }
+
+    // Decade indicator using primary color gradients
+    &__decade {
+      height: var(--space-xs);
+      width: var(--touch-target-enhanced);
+      border-radius: var(--radius-full);
+      background: linear-gradient(to right, var(--color-primary-400), var(--color-secondary-400));
+      margin-bottom: var(--space-sm);
+    }
+
+    // Data attribute selectors for enhanced functionality
+    &[data-personalization="music-card"] {
+      content-visibility: auto;
+      contain-intrinsic-size: 0 var(--container-intrinsic-height-card);
+    }
+
+    &[data-index="0"],
+    &[data-index="1"] {
+      scroll-snap-align: start;
+      scroll-margin-top: var(--space-xl);
+    }
   }
 
   /* Screen reader only utility - using established pattern */
@@ -373,19 +394,28 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     clip-path: var(--sr-only-clip-path, inset(50%));
   }
 
+  /* Enhanced Text Spacing Support (WCAG 2.2) */
+  .enhanced-text-spacing .playlist-card__content * {
+    letter-spacing: var(--text-spacing-letter-2x, 0.12em) !important;
+    word-spacing: var(--text-spacing-word-enhanced, 0.16em) !important;
+    line-height: var(--text-spacing-line-1-5x, 1.5) !important;
+  }
+
   /* ======================================
    * RESPONSIVE DESIGN - Using CSS Variables
    * ====================================== */
 
   @media (min-width: var(--breakpoint-md)) {
-    .playlist-card__content {
-      padding: var(--space-xl);
-      gap: var(--space-lg);
-    }
+    .playlist-card {
+      &__content {
+        padding: var(--space-xl);
+        gap: var(--space-lg);
+      }
 
-    .playlist-card__decade {
-      width: var(--space-3xl);
-      margin-bottom: var(--space-md);
+      &__decade {
+        width: var(--space-3xl);
+        margin-bottom: var(--space-md);
+      }
     }
   }
 
@@ -393,28 +423,14 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
    * ACCESSIBILITY ENHANCEMENTS
    * ====================================== */
 
-  /* Focus management with CSS only */
-  .playlist-card:focus {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-ring), var(--card-shadow-hover);
-    transform: translateY(calc(-1 * var(--space-xs)));
-  }
-
-  /* Fixed reference points for WCAG 2.2 */
-  .playlist-card {
-    scroll-margin-top: var(--space-lg);
-    scroll-margin-bottom: var(--space-lg);
-  }
-
   /* Reduced Motion Support */
   @media (prefers-reduced-motion: reduce) {
     .playlist-card {
       transition: none;
-    }
 
-    .playlist-card:hover {
-      transform: none;
+      &:hover {
+        transform: none;
+      }
     }
   }
 
@@ -434,13 +450,6 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     }
   }
 
-  /* Enhanced Text Spacing Support (WCAG 2.2) */
-  .enhanced-text-spacing .playlist-card__content * {
-    letter-spacing: var(--text-spacing-letter-2x, 0.12em) !important;
-    word-spacing: var(--text-spacing-word-enhanced, 0.16em) !important;
-    line-height: var(--text-spacing-line-1-5x, 1.5) !important;
-  }
-
   /* ======================================
    * PERFORMANCE OPTIMIZATIONS
    * ====================================== */
@@ -456,21 +465,6 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
   /* Touch Optimizations */
   @media (hover: none) {
     /* Touch-specific optimizations can be handled by MusicButtons component */
-  }
-
-  /* WCAG 2.2 Text Personalization Support */
-  .playlist-card[data-personalization="music-card"] {
-    /* Support for user content customization */
-    content-visibility: auto;
-    contain-intrinsic-size: 0 var(--container-intrinsic-height-card);
-  }
-
-  /* Enhanced loading priority announcements */
-  .playlist-card[data-index="0"],
-  .playlist-card[data-index="1"] {
-    /* Priority playlist styling */
-    scroll-snap-align: start;
-    scroll-margin-top: var(--space-xl);
   }
 
   /* Print Styles */

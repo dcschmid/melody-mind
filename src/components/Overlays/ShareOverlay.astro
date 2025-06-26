@@ -170,27 +170,39 @@ const {
   }
 </div>
 
-<style>
+<style lang="scss">
   /* ======================================
    * SHARED UTILITY CLASSES (DRY OPTIMIZATION)
    * ====================================== */
 
-  /* Shared icon styles to reduce repetition */
-  .share-overlay__icon,
-  .share-overlay__clipboard-icon,
-  .share-overlay__fallback-icon,
-  .share-overlay__fallback-button-icon {
+  // Shared icon styles to reduce repetition
+  %icon-base {
     flex-shrink: 0;
   }
 
-  /* Shared button transition styles */
-  .share-overlay__button,
-  .share-overlay__clipboard-button,
-  .share-overlay__fallback-button {
+  // Shared button transition styles
+  %button-transitions {
     transition:
       transform var(--transition-fast),
       background-color var(--transition-fast),
       border-color var(--transition-fast);
+  }
+
+  // Shared button focus styles
+  %button-focus {
+    &:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+    }
+  }
+
+  // Shared button disabled styles
+  %button-disabled {
+    &:disabled {
+      opacity: var(--opacity-disabled);
+      cursor: not-allowed;
+      transform: none;
+    }
   }
 
   /* ======================================
@@ -201,335 +213,395 @@ const {
   .share-overlay {
     margin-top: var(--space-xl);
     text-align: center;
+
+    &__title {
+      margin-bottom: var(--space-lg);
+      font-size: var(--text-xl);
+      font-weight: var(--font-semibold);
+      color: var(--text-primary);
+    }
+
+    &__buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    // ======================================
+    // ICONS
+    // ======================================
+
+    &__icon,
+    &__clipboard-icon,
+    &__fallback-icon,
+    &__fallback-button-icon {
+      @extend %icon-base;
+    }
+
+    &__icon,
+    &__clipboard-icon {
+      width: var(--space-xl); // 32px equivalent using existing variables
+      height: var(--space-xl);
+    }
+
+    &__clipboard-icon {
+      width: var(--space-lg); // 24px equivalent using existing variables
+      height: var(--space-lg);
+    }
+
+    // ======================================
+    // BASE BUTTON STYLES
+    // ======================================
+
+    &__button {
+      @extend %button-transitions;
+      @extend %button-focus;
+      @extend %button-disabled;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: var(--min-touch-size);
+      min-width: var(--min-touch-size);
+      padding: var(--space-md) var(--space-lg);
+      border: none;
+      border-radius: var(--radius-lg);
+      font-size: var(--text-base);
+      font-weight: var(--font-medium);
+      color: var(--text-primary);
+      background: var(--bg-tertiary);
+      cursor: pointer;
+      transform: translateZ(0); // GPU acceleration
+      will-change: transform;
+      backface-visibility: hidden;
+      perspective: 1000px;
+
+      &:hover {
+        transform: translateY(var(--animation-y-offset-small));
+        box-shadow: var(--shadow-lg);
+        will-change: transform, box-shadow;
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+
+      &:not(:hover):not(:focus) {
+        will-change: auto;
+      }
+
+      // ======================================
+      // BUTTON VARIANTS
+      // ======================================
+
+      // Native Share Button
+      &--native {
+        background: var(--interactive-primary);
+        color: var(--btn-primary-text);
+
+        &:hover:not(:disabled) {
+          background: var(--interactive-primary-hover);
+        }
+
+        &:active:not(:disabled) {
+          background: var(--interactive-primary-active);
+        }
+
+        &.share-overlay__button--visible {
+          display: flex;
+        }
+      }
+
+      &--hidden {
+        display: none;
+      }
+
+      // Twitter/X Button
+      &--twitter {
+        background: var(--color-neutral-800);
+        color: var(--text-primary);
+
+        &:hover:not(:disabled) {
+          background: var(--color-neutral-700);
+        }
+
+        &:active:not(:disabled) {
+          background: var(--color-neutral-900);
+        }
+      }
+
+      // WhatsApp Button
+      &--whatsapp {
+        background: var(--color-success-600);
+        color: var(--text-primary);
+
+        &:hover:not(:disabled) {
+          background: var(--color-success-500);
+        }
+
+        &:active:not(:disabled) {
+          background: var(--color-success-700);
+        }
+      }
+
+      // Email Button
+      &--email {
+        background: var(--color-warning-600);
+        color: var(--text-primary);
+
+        &:hover:not(:disabled) {
+          background: var(--color-warning-500);
+        }
+
+        &:active:not(:disabled) {
+          background: var(--color-warning-700);
+        }
+      }
+    }
+
+    // ======================================
+    // CLIPBOARD SECTION
+    // ======================================
+
+    &__clipboard-section {
+      margin-top: var(--space-lg);
+    }
+
+    &__clipboard-button {
+      @extend %button-transitions;
+      @extend %button-focus;
+      @extend %button-disabled;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: var(--min-touch-size);
+      min-width: var(--min-touch-size);
+      padding: var(--space-md) var(--space-lg);
+      border: var(--border-width-thick) solid var(--color-info-500);
+      border-radius: var(--radius-lg);
+      background: transparent;
+      font-size: var(--text-base);
+      font-weight: var(--font-medium);
+      color: var(--color-info-400);
+      cursor: pointer;
+      will-change: transform;
+      backface-visibility: hidden;
+      perspective: 1000px;
+
+      &:hover:not(:disabled) {
+        border-color: var(--color-info-400);
+        color: var(--color-info-300);
+        transform: translateY(var(--animation-y-offset-small));
+        will-change: transform, box-shadow;
+      }
+
+      &:active:not(:disabled) {
+        transform: translateY(0);
+      }
+
+      &:not(:hover):not(:focus) {
+        will-change: auto;
+      }
+
+      // Success state for clipboard button
+      &--success {
+        background: var(--color-success-900);
+        border-color: var(--color-success-400);
+        color: var(--color-success-100); // Enhanced contrast for AAA compliance
+      }
+
+      // Error state for clipboard button
+      &--error {
+        background: var(--color-error-900);
+        border-color: var(--color-error-400);
+        color: var(--color-error-100); // Enhanced contrast for AAA compliance
+      }
+    }
+
+    // ======================================
+    // FALLBACK CONTENT STYLES
+    // ======================================
+
+    &__fallback {
+      margin-top: var(--space-lg);
+      padding: var(--space-lg);
+      border: var(--border-width-default) solid var(--color-warning-600);
+      border-radius: var(--radius-lg);
+      background: var(--color-warning-950);
+      text-align: center;
+
+      &-message {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-md);
+        margin-bottom: var(--space-lg);
+      }
+
+      &-icon {
+        color: var(--color-warning-400);
+        width: var(--space-xl); // Using CSS variable instead of hardcoded 24px
+        height: var(--space-xl);
+        flex-shrink: 0;
+      }
+
+      &-text {
+        color: var(--color-warning-100); // Enhanced contrast for AAA compliance
+        font-size: var(--text-base);
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      &-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-md);
+        justify-content: center;
+        align-items: center;
+      }
+
+      &-button {
+        @extend %button-transitions;
+        @extend %button-focus;
+        @extend %button-disabled;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-sm);
+        min-height: var(--min-touch-size);
+        padding: var(--space-sm) var(--space-md);
+        border: var(--border-width-default) solid var(--interactive-primary);
+        border-radius: var(--radius-md);
+        background: var(--interactive-primary);
+        color: var(--btn-primary-text);
+        font-size: var(--text-sm);
+        font-weight: var(--font-medium);
+        cursor: pointer;
+
+        &:hover:not(:disabled) {
+          background: var(--interactive-primary-hover);
+          border-color: var(--interactive-primary-hover);
+          transform: translateY(var(--animation-y-offset-small));
+        }
+
+        &:active:not(:disabled) {
+          background: var(--interactive-primary-active);
+          border-color: var(--interactive-primary-active);
+          transform: translateY(0);
+        }
+
+        &--secondary {
+          background: transparent;
+          color: var(--color-warning-200); // Enhanced contrast
+          border-color: var(--color-warning-500);
+
+          &:hover:not(:disabled) {
+            background: var(--color-warning-900);
+            border-color: var(--color-warning-400);
+            color: var(--color-warning-100);
+          }
+
+          &:active:not(:disabled) {
+            background: var(--color-warning-800);
+          }
+        }
+
+        &-icon {
+          width: var(--space-md); // Using CSS variable instead of hardcoded 16px
+          height: var(--space-md);
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    // ======================================
+    // TEXT STYLES
+    // ======================================
+
+    &__button-text,
+    &__clipboard-text {
+      font-size: var(--text-base);
+      white-space: nowrap;
+    }
+
+    // ======================================
+    // RESPONSIVE DESIGN - OPTIMIZED WITH CSS VARIABLES
+    // ======================================
+
+    @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+      &__buttons-container {
+        gap: var(--space-sm);
+      }
+
+      &__button,
+      &__clipboard-button {
+        padding: var(--space-sm) var(--space-md);
+        font-size: var(--text-sm);
+      }
+
+      &__button-text,
+      &__clipboard-text {
+        font-size: var(--text-sm);
+      }
+    }
+
+    // Container queries for responsive optimization
+    @container (min-width: var(--container-query-lg)) {
+      &__buttons-container {
+        gap: var(--space-lg);
+      }
+    }
+
+    // ======================================
+    // ACCESSIBILITY ENHANCEMENTS
+    // ======================================
+
+    // High contrast mode support
+    @media (forced-colors: active) {
+      &__button,
+      &__clipboard-button {
+        border: var(--border-width-thick) solid ButtonText;
+        background-color: ButtonFace;
+        color: ButtonText;
+        forced-color-adjust: none;
+
+        &:focus-visible {
+          outline: var(--border-width-enhanced) solid Highlight;
+        }
+      }
+
+      &__icon,
+      &__clipboard-icon {
+        fill: ButtonText;
+      }
+    }
+
+    // Reduced motion support
+    @media (prefers-reduced-motion: reduce) {
+      &__button,
+      &__clipboard-button,
+      &__fallback-button {
+        transition: none;
+
+        &:hover,
+        &:active {
+          transform: none;
+        }
+      }
+    }
   }
 
-  .share-overlay__title {
-    margin-bottom: var(--space-lg);
-    font-size: var(--text-xl);
-    font-weight: var(--font-semibold);
-    color: var(--text-primary);
-  }
+  // ======================================
+  // SCREEN READER ONLY UTILITY
+  // ======================================
 
-  .share-overlay__buttons-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-md);
-    margin-top: var(--space-lg);
-  }
-
-  /* ======================================
-   * BASE BUTTON STYLES
-   * ====================================== */
-
-  .share-overlay__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    min-height: var(--min-touch-size);
-    min-width: var(--min-touch-size);
-    padding: var(--space-md) var(--space-lg);
-    border: none;
-    border-radius: var(--radius-lg);
-    font-size: var(--text-base);
-    font-weight: var(--font-medium);
-    color: var(--text-primary);
-    background: var(--bg-tertiary);
-    cursor: pointer;
-    /* Using shared transition styles for better maintainability */
-    transform: translateZ(0); /* GPU acceleration */
-  }
-
-  .share-overlay__button:hover {
-    transform: translateY(var(--animation-y-offset-small));
-    box-shadow: var(--shadow-lg);
-  }
-
-  .share-overlay__button:active {
-    transform: translateY(0);
-  }
-
-  .share-overlay__button:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  .share-overlay__button:disabled {
-    opacity: var(--opacity-disabled);
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  /* ======================================
-   * BUTTON VARIANTS
-   * ====================================== */
-
-  /* Native Share Button */
-  .share-overlay__button--native {
-    background: var(--interactive-primary);
-    color: var(--btn-primary-text);
-  }
-
-  .share-overlay__button--native:hover:not(:disabled) {
-    background: var(--interactive-primary-hover);
-  }
-
-  .share-overlay__button--native:active:not(:disabled) {
-    background: var(--interactive-primary-active);
-  }
-
-  .share-overlay__button--hidden {
-    display: none;
-  }
-
-  .share-overlay__button--native.share-overlay__button--visible {
-    display: flex;
-  }
-
-  /* Twitter/X Button */
-  .share-overlay__button--twitter {
-    background: var(--color-neutral-800);
-    color: var(--text-primary);
-  }
-
-  .share-overlay__button--twitter:hover:not(:disabled) {
-    background: var(--color-neutral-700);
-  }
-
-  .share-overlay__button--twitter:active:not(:disabled) {
-    background: var(--color-neutral-900);
-  }
-
-  /* WhatsApp Button */
-  .share-overlay__button--whatsapp {
-    background: var(--color-success-600);
-    color: var(--text-primary);
-  }
-
-  .share-overlay__button--whatsapp:hover:not(:disabled) {
-    background: var(--color-success-500);
-  }
-
-  .share-overlay__button--whatsapp:active:not(:disabled) {
-    background: var(--color-success-700);
-  }
-
-  /* Email Button */
-  .share-overlay__button--email {
-    background: var(--color-warning-600);
-    color: var(--text-primary);
-  }
-
-  .share-overlay__button--email:hover:not(:disabled) {
-    background: var(--color-warning-500);
-  }
-
-  .share-overlay__button--email:active:not(:disabled) {
-    background: var(--color-warning-700);
-  }
-
-  /* ======================================
-   * CLIPBOARD SECTION
-   * ====================================== */
-
-  .share-overlay__clipboard-section {
-    margin-top: var(--space-lg);
-  }
-
-  .share-overlay__clipboard-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    min-height: var(--min-touch-size);
-    min-width: var(--min-touch-size);
-    padding: var(--space-md) var(--space-lg);
-    border: var(--border-width-thick) solid var(--color-info-500);
-    border-radius: var(--radius-lg);
-    background: transparent;
-    font-size: var(--text-base);
-    font-weight: var(--font-medium);
-    color: var(--color-info-400);
-    cursor: pointer;
-    /* Using shared transition defined in utility classes */
-  }
-
-  .share-overlay__clipboard-button:hover:not(:disabled) {
-    border-color: var(--color-info-400);
-    color: var(--color-info-300);
-    transform: translateY(var(--animation-y-offset-small));
-  }
-
-  .share-overlay__clipboard-button:active:not(:disabled) {
-    transform: translateY(0);
-  }
-
-  .share-overlay__clipboard-button:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  .share-overlay__clipboard-button:disabled {
-    opacity: var(--opacity-disabled);
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  /* Success state for clipboard button */
-  .share-overlay__clipboard-button--success {
-    background: var(--color-success-900);
-    border-color: var(--color-success-400);
-    color: var(--color-success-100); /* Enhanced contrast for AAA compliance */
-  }
-
-  /* Error state for clipboard button */
-  .share-overlay__clipboard-button--error {
-    background: var(--color-error-900);
-    border-color: var(--color-error-400);
-    color: var(--color-error-100); /* Enhanced contrast for AAA compliance */
-  }
-
-  /* ======================================
-   * FALLBACK CONTENT STYLES
-   * ====================================== */
-
-  .share-overlay__fallback {
-    margin-top: var(--space-lg);
-    padding: var(--space-lg);
-    border: var(--border-width-default) solid var(--color-warning-600);
-    border-radius: var(--radius-lg);
-    background: var(--color-warning-950);
-    text-align: center;
-  }
-
-  .share-overlay__fallback-message {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-md);
-    margin-bottom: var(--space-lg);
-  }
-
-  .share-overlay__fallback-icon {
-    color: var(--color-warning-400);
-    width: var(--space-xl); /* Using CSS variable instead of hardcoded 24px */
-    height: var(--space-xl);
-    flex-shrink: 0;
-  }
-
-  .share-overlay__fallback-text {
-    color: var(--color-warning-100); /* Enhanced contrast for AAA compliance */
-    font-size: var(--text-base);
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  .share-overlay__fallback-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-    justify-content: center;
-    align-items: center;
-  }
-
-  .share-overlay__fallback-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    min-height: var(--min-touch-size);
-    padding: var(--space-sm) var(--space-md);
-    border: var(--border-width-default) solid var(--interactive-primary);
-    border-radius: var(--radius-md);
-    background: var(--interactive-primary);
-    color: var(--btn-primary-text);
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
-    cursor: pointer;
-    transition:
-      transform var(--transition-fast),
-      background-color var(--transition-fast),
-      border-color var(--transition-fast);
-  }
-
-  .share-overlay__fallback-button:hover:not(:disabled) {
-    background: var(--interactive-primary-hover);
-    border-color: var(--interactive-primary-hover);
-    transform: translateY(var(--animation-y-offset-small));
-  }
-
-  .share-overlay__fallback-button:active:not(:disabled) {
-    background: var(--interactive-primary-active);
-    border-color: var(--interactive-primary-active);
-    transform: translateY(0);
-  }
-
-  .share-overlay__fallback-button:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  .share-overlay__fallback-button:disabled {
-    opacity: var(--opacity-disabled);
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  .share-overlay__fallback-button--secondary {
-    background: transparent;
-    color: var(--color-warning-200); /* Enhanced contrast */
-    border-color: var(--color-warning-500);
-  }
-
-  .share-overlay__fallback-button--secondary:hover:not(:disabled) {
-    background: var(--color-warning-900);
-    border-color: var(--color-warning-400);
-    color: var(--color-warning-100);
-  }
-
-  .share-overlay__fallback-button--secondary:active:not(:disabled) {
-    background: var(--color-warning-800);
-  }
-
-  .share-overlay__fallback-button-icon {
-    width: var(--space-md); /* Using CSS variable instead of hardcoded 16px */
-    height: var(--space-md);
-    flex-shrink: 0;
-  }
-
-  /* ======================================
-   * ICON STYLES - OPTIMIZED WITH CSS VARIABLES
-   * ====================================== */
-
-  .share-overlay__icon,
-  .share-overlay__clipboard-icon {
-    width: var(--space-xl); /* 32px equivalent using existing variables */
-    height: var(--space-xl);
-    flex-shrink: 0;
-  }
-
-  .share-overlay__clipboard-icon {
-    width: var(--space-lg); /* 24px equivalent using existing variables */
-    height: var(--space-lg);
-  }
-
-  /* ======================================
-   * TEXT STYLES
-   * ====================================== */
-
-  .share-overlay__button-text,
-  .share-overlay__clipboard-text {
-    font-size: var(--text-base);
-    white-space: nowrap;
-  }
-
-  /* ======================================
-   * ACCESSIBILITY ENHANCEMENTS
-   * ====================================== */
-
-  /* Screen reader only content */
   .sr-only {
     position: absolute;
     width: 1px;
@@ -542,98 +614,16 @@ const {
     border-width: 0;
   }
 
-  /* High contrast mode support */
-  @media (forced-colors: active) {
-    .share-overlay__button,
-    .share-overlay__clipboard-button {
-      border: var(--border-width-thick) solid ButtonText;
-      background-color: ButtonFace;
-      color: ButtonText;
-      forced-color-adjust: none;
-    }
+  // ======================================
+  // ICON OPTIMIZATIONS
+  // ======================================
 
-    .share-overlay__button:focus-visible,
-    .share-overlay__clipboard-button:focus-visible {
-      outline: var(--border-width-enhanced) solid Highlight;
-    }
-
-    .share-overlay__icon,
-    .share-overlay__clipboard-icon {
-      fill: ButtonText;
-    }
-  }
-
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .share-overlay__button,
-    .share-overlay__clipboard-button {
-      transition: none;
-    }
-
-    .share-overlay__button:hover,
-    .share-overlay__clipboard-button:hover {
-      transform: none;
-    }
-  }
-
-  /* ======================================
-   * RESPONSIVE DESIGN - OPTIMIZED WITH CSS VARIABLES
-   * ====================================== */
-
-  @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
-    .share-overlay__buttons-container {
-      gap: var(--space-sm);
-    }
-
-    .share-overlay__button,
-    .share-overlay__clipboard-button {
-      padding: var(--space-sm) var(--space-md);
-      font-size: var(--text-sm);
-    }
-
-    .share-overlay__button-text,
-    .share-overlay__clipboard-text {
-      font-size: var(--text-sm);
-    }
-  }
-
-  /* ======================================
-   * PERFORMANCE OPTIMIZATIONS
-   * ====================================== */
-
-  /* Enable GPU acceleration for better performance */
-  .share-overlay__button,
-  .share-overlay__clipboard-button {
-    will-change: transform;
-    backface-visibility: hidden;
-    perspective: 1000px;
-  }
-
-  /* Optimize repaints during animations */
-  .share-overlay__button:hover,
-  .share-overlay__clipboard-button:hover {
-    will-change: transform, box-shadow;
-  }
-
-  /* Remove will-change after animations complete */
-  .share-overlay__button:not(:hover):not(:focus),
-  .share-overlay__clipboard-button:not(:hover):not(:focus) {
-    will-change: auto;
-  }
-
-  /* Optimize icon rendering */
+  // Optimize icon rendering
   .share-overlay__icon,
   .share-overlay__clipboard-icon {
     will-change: auto;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
-  }
-
-  /* Container queries for responsive optimization */
-  @container (min-width: var(--container-query-lg)) {
-    .share-overlay__buttons-container {
-      gap: var(--space-lg);
-    }
   }
 </style>
 

@@ -202,12 +202,12 @@ const t = useTranslations(String(lang));
   </div>
 </div>
 
-<style>
+<style lang="scss">
   /* ======================================
    * EMAIL VERIFICATION COMPONENT STYLES
    * WCAG AAA COMPLIANT WITH CSS VARIABLES
    * MAXIMUM USAGE OF ROOT VARIABLES FROM GLOBAL.CSS
-   * OPTIMIZED FOR DRY PRINCIPLES
+   * OPTIMIZED FOR DRY PRINCIPLES WITH SCSS
    * ====================================== */
 
   .email-verification {
@@ -220,62 +220,122 @@ const t = useTranslations(String(lang));
     max-width: var(--form-container-max-width);
     margin: 0 auto;
     text-align: center;
+
+    // State management for verification flow
+    &__state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-lg);
+      opacity: 1;
+      transform: translateY(0);
+      transition:
+        opacity var(--transition-normal),
+        transform var(--transition-normal);
+
+      &--hidden {
+        display: none;
+        opacity: 0;
+        transform: translateY(var(--space-md));
+      }
+    }
+
+    // Icon styling with semantic CSS variables
+    &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--space-3xl);
+      height: var(--space-3xl);
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-md);
+
+      &--success {
+        background-color: var(--bg-success-aaa);
+        color: var(--text-success-aaa);
+      }
+
+      &--error {
+        background-color: var(--bg-error-aaa);
+        color: var(--text-error-aaa);
+      }
+    }
+
+    &__svg {
+      width: var(--space-xl);
+      height: var(--space-xl);
+    }
+
+    // Spinner animation using CSS variables
+    &__spinner {
+      width: var(--space-xl);
+      height: var(--space-xl);
+      border: var(--border-width-enhanced) solid var(--border-primary);
+      border-top: var(--border-width-enhanced) solid var(--interactive-primary);
+      border-radius: var(--radius-full);
+      animation: spin 1s linear infinite;
+    }
+
+    // Typography using semantic CSS variables
+    &__title {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-bold);
+      color: var(--text-primary);
+      margin: 0 0 var(--space-md) 0;
+      line-height: var(--leading-tight);
+    }
+
+    &__text,
+    &__message {
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+      margin: 0;
+    }
+
+    // Button styling using semantic button variables
+    &__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: var(--min-touch-size);
+      min-width: var(--min-touch-size);
+      padding: var(--space-md) var(--space-xl);
+      background: var(--btn-primary-bg);
+      color: var(--btn-primary-text);
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: var(--text-base);
+      font-weight: var(--font-medium);
+      text-decoration: none;
+      transition: all var(--transition-normal);
+      cursor: pointer;
+
+      &:hover {
+        background: var(--btn-primary-hover);
+        transform: translateY(calc(-1 * var(--space-micro)));
+      }
+
+      &:focus {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-ring);
+      }
+
+      // Enhanced Focus for WCAG 2.2
+      &:focus-visible {
+        outline: var(--focus-enhanced-outline-dark);
+        box-shadow: var(--focus-enhanced-shadow);
+      }
+
+      &:active {
+        transform: translateY(0);
+        background: var(--btn-primary-active);
+      }
+    }
   }
 
-  .email-verification__state {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-lg);
-    opacity: 1;
-    transform: translateY(0);
-    transition:
-      opacity var(--transition-normal),
-      transform var(--transition-normal);
-  }
-
-  .email-verification__state--hidden {
-    display: none;
-    opacity: 0;
-    transform: translateY(var(--space-md));
-  }
-
-  /* Icon Styling - Using semantic CSS variables for consistency */
-  .email-verification__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: var(--space-3xl);
-    height: var(--space-3xl);
-    border-radius: var(--radius-full);
-    margin-bottom: var(--space-md);
-  }
-
-  .email-verification__icon--success {
-    background-color: var(--bg-success-aaa);
-    color: var(--text-success-aaa);
-  }
-
-  .email-verification__icon--error {
-    background-color: var(--bg-error-aaa);
-    color: var(--text-error-aaa);
-  }
-
-  .email-verification__svg {
-    width: var(--space-xl);
-    height: var(--space-xl);
-  }
-
-  /* Spinner Animation - Using CSS variables for consistency */
-  .email-verification__spinner {
-    width: var(--space-xl);
-    height: var(--space-xl);
-    border: var(--border-width-enhanced) solid var(--border-primary);
-    border-top: var(--border-width-enhanced) solid var(--interactive-primary);
-    border-radius: var(--radius-full);
-    animation: spin 1s linear infinite;
-  }
-
+  // Keyframe animation for spinner
   @keyframes spin {
     0% {
       transform: rotate(0deg);
@@ -285,105 +345,77 @@ const t = useTranslations(String(lang));
     }
   }
 
-  /* Typography - Using semantic CSS variables */
-  .email-verification__title {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-bold);
-    color: var(--text-primary);
-    margin: 0 0 var(--space-md) 0;
-    line-height: var(--leading-tight);
-  }
-
-  .email-verification__text,
-  .email-verification__message {
-    font-size: var(--text-lg);
-    color: var(--text-secondary);
-    line-height: var(--leading-relaxed);
-    margin: 0;
-  }
-
-  /* Button Styling - Using semantic button variables */
-  .email-verification__button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: var(--min-touch-size);
-    min-width: var(--min-touch-size);
-    padding: var(--space-md) var(--space-xl);
-    background: var(--btn-primary-bg);
-    color: var(--btn-primary-text);
-    border: none;
-    border-radius: var(--radius-md);
-    font-size: var(--text-base);
-    font-weight: var(--font-medium);
-    text-decoration: none;
-    transition: all var(--transition-normal);
-    cursor: pointer;
-  }
-
-  .email-verification__button:hover {
-    background: var(--btn-primary-hover);
-    transform: translateY(calc(-1 * var(--space-micro)));
-  }
-
-  .email-verification__button:focus {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-ring);
-  }
-
-  /* Enhanced Focus for WCAG 2.2 */
-  .email-verification__button:focus-visible {
-    outline: var(--focus-enhanced-outline-dark);
-    box-shadow: var(--focus-enhanced-shadow);
-  }
-
-  /* Responsive Design - Using CSS variables for breakpoints */
+  // Responsive design using CSS variables for breakpoints
   @media (max-width: 640px) {
     .email-verification {
       padding: var(--space-lg);
       min-height: 40vh;
-    }
 
-    .email-verification__title {
-      font-size: var(--text-xl);
-    }
+      &__title {
+        font-size: var(--text-xl);
+      }
 
-    .email-verification__text,
-    .email-verification__message {
-      font-size: var(--text-base);
+      &__text,
+      &__message {
+        font-size: var(--text-base);
+      }
+
+      &__button {
+        padding: var(--space-sm) var(--space-lg);
+        font-size: var(--text-sm);
+      }
     }
   }
 
-  /* Reduced Motion Support - Using CSS variables for transitions */
+  // Reduced motion support using CSS variables for transitions
   @media (prefers-reduced-motion: reduce) {
-    .email-verification__state,
-    .email-verification__button {
-      transition: none;
-    }
+    .email-verification {
+      &__state,
+      &__button {
+        transition: none;
+      }
 
-    .email-verification__spinner {
-      animation: none;
-      border-top-color: var(--interactive-primary);
-    }
+      &__spinner {
+        animation: none;
+        border-top-color: var(--interactive-primary);
+      }
 
-    .email-verification__button:hover {
-      transform: none;
+      &__button:hover {
+        transform: none;
+      }
     }
   }
 
-  /* High Contrast Mode Support - Using semantic color variables */
+  // High contrast mode support using semantic color variables
   @media (prefers-contrast: high) {
-    .email-verification__icon--success {
-      border: var(--border-width-thick) solid var(--text-success-aaa);
-    }
+    .email-verification {
+      &__icon {
+        &--success {
+          border: var(--border-width-thick) solid var(--text-success-aaa);
+        }
 
-    .email-verification__icon--error {
-      border: var(--border-width-thick) solid var(--text-error-aaa);
-    }
+        &--error {
+          border: var(--border-width-thick) solid var(--text-error-aaa);
+        }
+      }
 
-    .email-verification__button {
-      border: var(--border-width-thick) solid var(--btn-primary-text);
+      &__button {
+        border: var(--border-width-thick) solid var(--btn-primary-text);
+
+        &:focus {
+          outline-width: var(--focus-outline-width-enhanced);
+        }
+      }
+    }
+  }
+
+  // Dark mode optimizations
+  :global(.dark) {
+    .email-verification {
+      &__spinner {
+        border-color: var(--border-secondary);
+        border-top-color: var(--interactive-primary-dark);
+      }
     }
   }
 </style>

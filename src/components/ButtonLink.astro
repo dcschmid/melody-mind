@@ -129,7 +129,7 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
   )
 }
 
-<style>
+<style lang="scss">
   /* ======================================
    * BUTTON LINK COMPONENT STYLES
    * Maximum CSS variables usage from global.css - Complete DRY optimization
@@ -160,153 +160,149 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
     contain: layout style;
     will-change: transform, background-color;
     transform: translateZ(0); /* GPU acceleration */
-  }
 
-  /* Sizes - Using semantic spacing variables */
-  .button-link--sm {
-    padding: var(--space-sm) var(--space-md);
-    font-size: var(--text-sm);
-  }
+    /* Sizes - Using semantic spacing variables */
+    &--sm {
+      padding: var(--space-sm) var(--space-md);
+      font-size: var(--text-sm);
+    }
 
-  .button-link--md {
-    padding: var(--space-md) var(--space-lg);
-    font-size: var(--text-base);
-  }
+    &--md {
+      padding: var(--space-md) var(--space-lg);
+      font-size: var(--text-base);
+    }
 
-  .button-link--lg {
-    padding: var(--space-lg) var(--space-xl);
-    font-size: var(--text-lg);
-  }
+    &--lg {
+      padding: var(--space-lg) var(--space-xl);
+      font-size: var(--text-lg);
+    }
 
-  /* Primary variant - Using button system variables */
-  .button-link--primary {
-    background: var(--btn-primary-bg);
-    color: var(--btn-primary-text);
-    border: var(--border-width-thin) solid transparent;
-    box-shadow: var(--card-shadow);
-  }
+    /* Primary variant - Using button system variables */
+    &--primary {
+      background: var(--btn-primary-bg);
+      color: var(--btn-primary-text);
+      border: var(--border-width-thin) solid transparent;
+      box-shadow: var(--card-shadow);
 
-  .button-link--primary:hover:not([aria-disabled="true"]) {
-    background: var(--btn-primary-hover);
-    box-shadow: var(--card-shadow-hover);
-    transform: translateY(var(--animation-y-offset-small));
-  }
+      &:hover:not([aria-disabled="true"]) {
+        background: var(--btn-primary-hover);
+        box-shadow: var(--card-shadow-hover);
+        transform: translateY(var(--animation-y-offset-small));
+      }
 
-  .button-link--primary:active:not([aria-disabled="true"]) {
-    transform: scale(var(--animation-scale-hover));
-    transition: all var(--animation-duration-fast);
-  }
+      &:active:not([aria-disabled="true"]) {
+        transform: scale(var(--animation-scale-hover));
+        transition: all var(--animation-duration-fast);
+      }
+    }
 
-  /* Secondary variant - Using button system variables */
-  .button-link--secondary {
-    background: var(--btn-secondary-bg);
-    color: var(--btn-secondary-text);
-    border: var(--border-width-thin) solid var(--btn-secondary-border);
-  }
+    /* Secondary variant - Using button system variables */
+    &--secondary {
+      background: var(--btn-secondary-bg);
+      color: var(--btn-secondary-text);
+      border: var(--border-width-thin) solid var(--btn-secondary-border);
 
-  .button-link--secondary:hover:not([aria-disabled="true"]) {
-    background: var(--btn-secondary-hover);
-    border-color: var(--border-focus);
-    transform: translateY(var(--animation-y-offset-small));
-  }
+      &:hover:not([aria-disabled="true"]) {
+        background: var(--btn-secondary-hover);
+        border-color: var(--border-focus);
+        transform: translateY(var(--animation-y-offset-small));
+      }
 
-  .button-link--secondary:active:not([aria-disabled="true"]) {
-    transform: scale(var(--animation-scale-hover));
-    transition: all var(--animation-duration-fast);
-  }
+      &:active:not([aria-disabled="true"]) {
+        transform: scale(var(--animation-scale-hover));
+        transition: all var(--animation-duration-fast);
+      }
+    }
 
-  /* Outline variant - Using semantic color system */
-  .button-link--outline {
-    background: transparent;
-    color: var(--text-primary);
-    border: var(--border-width-thick) solid var(--border-primary);
-  }
+    /* Outline variant - Using semantic color system */
+    &--outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: var(--border-width-thick) solid var(--border-primary);
 
-  .button-link--outline:hover:not([aria-disabled="true"]) {
-    background: var(--bg-tertiary);
-    border-color: var(--border-focus);
-    color: var(--interactive-primary);
-    transform: translateY(var(--animation-y-offset-small));
-  }
+      &:hover:not([aria-disabled="true"]) {
+        background: var(--bg-tertiary);
+        border-color: var(--border-focus);
+        color: var(--interactive-primary);
+        transform: translateY(var(--animation-y-offset-small));
+      }
 
-  .button-link--outline:active:not([aria-disabled="true"]) {
-    transform: scale(var(--animation-scale-hover));
-    transition: all var(--animation-duration-fast);
-  }
+      &:active:not([aria-disabled="true"]) {
+        transform: scale(var(--animation-scale-hover));
+        transition: all var(--animation-duration-fast);
+      }
+    }
 
-  /* Text variant - Using text decoration system */
-  .button-link--text {
-    background: transparent;
-    color: var(--interactive-primary);
-    border: none;
-    text-decoration: underline;
-    text-decoration-thickness: var(--text-decoration-thickness);
-    text-underline-offset: var(--text-underline-offset);
-  }
+    /* Text variant - Using text decoration system */
+    &--text {
+      background: transparent;
+      color: var(--interactive-primary);
+      border: none;
+      text-decoration: underline;
+      text-decoration-thickness: var(--text-decoration-thickness);
+      text-underline-offset: var(--text-underline-offset);
 
-  .button-link--text:hover:not([aria-disabled="true"]) {
-    color: var(--interactive-primary-hover);
-    text-decoration-color: var(--interactive-primary-hover);
-    transform: translateY(var(--animation-y-offset-small));
-  }
+      &:hover:not([aria-disabled="true"]) {
+        color: var(--interactive-primary-hover);
+        text-decoration-color: var(--interactive-primary-hover);
+        transform: translateY(var(--animation-y-offset-small));
+      }
 
-  .button-link--text:active:not([aria-disabled="true"]) {
-    color: var(--interactive-primary-active);
-    transform: scale(var(--animation-scale-hover));
-    transition: all var(--animation-duration-fast);
-  }
+      &:active:not([aria-disabled="true"]) {
+        color: var(--interactive-primary-active);
+        transform: scale(var(--animation-scale-hover));
+        transition: all var(--animation-duration-fast);
+      }
+    }
 
-  /* Disabled state - using semantic variables */
-  .button-link--disabled,
-  .button-link[aria-disabled="true"] {
-    opacity: var(--opacity-disabled);
-    cursor: not-allowed;
-    pointer-events: none;
-    filter: grayscale(var(--filter-grayscale-half));
-  }
+    /* Disabled state - using semantic variables */
+    &--disabled,
+    &[aria-disabled="true"] {
+      opacity: var(--opacity-disabled);
+      cursor: not-allowed;
+      pointer-events: none;
+      filter: grayscale(var(--filter-grayscale-half));
+    }
 
-  /* Icon styling using icon system variables */
-  .button-link__icon {
-    width: var(--icon-size-sm);
-    height: var(--icon-size-sm);
-    flex-shrink: 0;
-    margin-right: var(--space-md);
-  }
+    /* Icon styling using icon system variables */
+    &__icon {
+      width: var(--icon-size-sm);
+      height: var(--icon-size-sm);
+      flex-shrink: 0;
+      margin-right: var(--space-md);
+    }
 
-  /* Enhanced focus state for WCAG AAA */
-  .button-link:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-ring);
-  }
+    /* Enhanced focus state for WCAG AAA */
+    &:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--focus-ring);
+    }
 
-  /* High contrast mode support */
-  @media (prefers-contrast: high) {
-    .button-link {
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
       border-width: var(--border-width-enhanced);
+
+      &:focus-visible {
+        outline-width: var(--border-width-enhanced);
+      }
     }
 
-    .button-link:focus-visible {
-      outline-width: var(--border-width-enhanced);
-    }
-  }
-
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .button-link {
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
       transition: none;
+
+      &:hover,
+      &:active {
+        transform: none;
+      }
     }
 
-    .button-link:hover,
-    .button-link:active {
-      transform: none;
-    }
-  }
-
-  /* Touch device optimization */
-  @media (hover: none) and (pointer: coarse) {
-    .button-link:hover {
-      transform: none;
+    /* Touch device optimization */
+    @media (hover: none) and (pointer: coarse) {
+      &:hover {
+        transform: none;
+      }
     }
   }
 

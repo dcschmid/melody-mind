@@ -64,7 +64,7 @@ const screenReaderText = t("common.back.to.top");
   <span class="sr-only">{screenReaderText}</span>
 </button>
 
-<style>
+<style lang="scss">
   /* ======================================
    * BACK TO TOP COMPONENT STYLES
    * Using CSS variables from global.css only
@@ -92,30 +92,30 @@ const screenReaderText = t("common.back.to.top");
 
     /* Enhanced focus styles for WCAG AAA */
     outline: none;
-  }
 
-  .back-to-top:hover {
-    background: var(--btn-primary-hover);
-    transform: translateY(calc(-1 * var(--space-xs)));
-    box-shadow: var(--shadow-xl);
-  }
+    &:hover {
+      background: var(--btn-primary-hover);
+      transform: translateY(calc(-1 * var(--space-xs)));
+      box-shadow: var(--shadow-xl);
+    }
 
-  .back-to-top:focus,
-  .back-to-top:focus-visible {
-    background: var(--btn-primary-hover);
-    box-shadow: var(--focus-ring);
-    outline-offset: var(--focus-ring-offset);
-  }
+    &:focus,
+    &:focus-visible {
+      background: var(--btn-primary-hover);
+      box-shadow: var(--focus-ring);
+      outline-offset: var(--focus-ring-offset);
+    }
 
-  .back-to-top:active {
-    transform: translateY(var(--space-xs));
-    transition-duration: var(--transition-instant);
-  }
+    &:active {
+      transform: translateY(var(--space-xs));
+      transition-duration: var(--transition-instant);
+    }
 
-  /* Icon styles handled by utility class */
-  .back-to-top__icon {
-    /* Icon sizing handled by utility class - applied in HTML */
-    color: inherit;
+    /* Icon styles handled by utility class */
+    &__icon {
+      /* Icon sizing handled by utility class - applied in HTML */
+      color: inherit;
+    }
   }
 
   /* Screen reader only content - using semantic CSS variables */
@@ -135,14 +135,14 @@ const screenReaderText = t("common.back.to.top");
   @media (prefers-reduced-motion: reduce) {
     .back-to-top {
       transition-duration: var(--transition-instant) !important;
-    }
 
-    .back-to-top:hover {
-      transform: none;
-    }
+      &:hover {
+        transform: none;
+      }
 
-    .back-to-top:active {
-      transform: none;
+      &:active {
+        transform: none;
+      }
     }
   }
 
@@ -152,13 +152,13 @@ const screenReaderText = t("common.back.to.top");
       border: var(--border-width-thin) solid ButtonBorder;
       background: ButtonFace;
       color: ButtonText;
-    }
 
-    .back-to-top:hover,
-    .back-to-top:focus {
-      border-color: Highlight;
-      background: Highlight;
-      color: HighlightText;
+      &:hover,
+      &:focus {
+        border-color: Highlight;
+        background: Highlight;
+        color: HighlightText;
+      }
     }
   }
 

@@ -228,169 +228,42 @@ const roundAriaLabel = t("game.current.round.label", {
   }
 </script>
 
-<!-- 7. Component styles with CSS variables and WCAG AAA compliance -->
-<style>
+<!-- 7. Component styles with SCSS and CSS variables for WCAG AAA compliance -->
+<style lang="scss">
   /* ======================================
    * GAME HEADLINE COMPONENT STYLES
-   * Using CSS variables from global.css for consistency
+   * Using SCSS with CSS variables from global.css for consistency
    * WCAG AAA compliant design (7:1 contrast)
    * ====================================== */
 
-  .game-headline {
+  // SCSS mixins for reusable patterns
+  @mixin flex-center($direction: row, $gap: var(--space-md)) {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
+    flex-direction: $direction;
     align-items: center;
-    justify-content: space-between;
-    padding: var(--space-lg) var(--space-md);
-    margin-bottom: var(--space-xl);
-    background: var(--card-bg);
-    border: var(--border-width-thin) solid var(--card-border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--card-shadow);
-    position: relative;
-
-    /* Enhanced focus support for accessibility */
-    &:focus-within {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-    }
+    gap: $gap;
   }
 
-  .game-headline__title {
-    /* Legacy styles - kept for backward compatibility */
-    /* Will be removed when fully migrated to Headline component */
-    font-size: var(--text-2xl);
-    font-weight: var(--font-bold);
-    line-height: var(--leading-tight);
-    color: var(--text-primary);
-    text-align: center;
-    margin: 0;
-
-    /* Enhanced text spacing for WCAG 2.2 AAA */
-    letter-spacing: var(--letter-spacing-enhanced);
-    word-spacing: var(--word-spacing-enhanced);
-
-    /* Gradient text effect for visual appeal */
-    background: linear-gradient(
-      135deg,
-      var(--color-primary-400) 0%,
-      var(--color-secondary-400) 100%
-    );
+  @mixin text-gradient($start: var(--color-primary-400), $end: var(--color-secondary-400)) {
+    background: linear-gradient(135deg, $start 0%, $end 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: var(--text-primary); /* Fallback for unsupported browsers */
+    color: var(--text-primary); // Fallback for unsupported browsers
   }
 
-  .game-headline__stats {
-    display: flex;
-    align-items: center;
-    gap: var(--space-lg);
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
+  @mixin accessibility-focus {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-ring-offset);
   }
 
-  .game-headline__round {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    font-weight: var(--font-medium);
-    color: var(--text-primary);
+  @mixin enhanced-accessibility-focus {
+    outline: var(--focus-enhanced-outline-dark);
+    outline-offset: var(--focus-ring-offset);
+    border-radius: var(--radius-sm);
   }
 
-  .game-headline__round-label {
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
-  }
-
-  .game-headline__round-display {
-    font-weight: var(--font-bold);
-    font-variant-numeric: tabular-nums;
-    color: var(--interactive-primary);
-    font-size: var(--text-base);
-  }
-
-  .game-headline__divider {
-    /* Deprecated - visual divider no longer needed without remaining element */
-    display: none;
-    height: var(--space-lg);
-    width: var(--border-width-thin);
-    background-color: var(--border-primary);
-    animation: pulse var(--transition-slow) infinite;
-  }
-
-  /* Legacy styles for remaining element - deprecated */
-  .game-headline__remaining {
-    /* This element has been removed from the template */
-    display: none;
-    align-items: center;
-    gap: var(--space-sm);
-    font-size: var(--text-sm);
-  }
-
-  .game-headline__remaining--visible {
-    display: none; /* Always hidden now */
-  }
-
-  .game-headline__remaining--hidden {
-    display: none;
-  }
-
-  .game-headline__remaining-text {
-    font-weight: var(--font-medium);
-    color: var(--text-warning-aaa);
-  }
-
-  .remaining-count {
-    font-variant-numeric: tabular-nums;
-    font-weight: var(--font-bold);
-    color: var(--color-warning-400);
-  }
-
-  /* ======================================
-   * RESPONSIVE DESIGN
-   * Mobile-first approach with progressive enhancement using CSS variables
-   * ====================================== */
-
-  @media (min-width: var(--breakpoint-sm)) {
-    .game-headline {
-      flex-direction: row;
-      padding: var(--space-xl) var(--space-2xl);
-    }
-
-    .game-headline__title {
-      /* Legacy responsive styles for backward compatibility */
-      font-size: var(--text-3xl);
-      text-align: left;
-    }
-
-    /* Divider no longer needed without remaining element */
-    .game-headline__divider {
-      display: none;
-    }
-  }
-
-  @media (min-width: var(--breakpoint-lg)) {
-    .game-headline {
-      padding: var(--space-2xl) var(--space-3xl);
-    }
-
-    .game-headline__title {
-      font-size: var(--text-4xl);
-    }
-
-    .game-headline__stats {
-      gap: var(--space-xl);
-      font-size: var(--text-base);
-    }
-  }
-
-  /* ======================================
-   * ANIMATIONS AND VISUAL EFFECTS
-   * Respecting reduced motion preferences
-   * ====================================== */
-
+  // Animation keyframes
   @keyframes pulse {
     0%,
     100% {
@@ -401,82 +274,205 @@ const roundAriaLabel = t("game.current.round.label", {
     }
   }
 
-  /* Enhanced hover effects for interactive elements */
-  .game-headline__round:hover {
-    transform: translateY(calc(-1 * var(--space-micro)));
-    transition: transform var(--transition-fast);
-  }
+  // Main component container with nested BEM structure
+  .game-headline {
+    @include flex-center(column, var(--space-md));
+    justify-content: space-between;
+    padding: var(--space-lg) var(--space-md);
+    margin-bottom: var(--space-xl);
+    background: var(--card-bg);
+    border: var(--border-width-thin) solid var(--card-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--card-shadow);
+    position: relative;
 
-  /* Legacy hover effect - removed remaining element */
-  .game-headline__remaining:hover {
-    /* No longer applicable as element is removed */
-  }
+    // Enhanced focus support for accessibility
+    &:focus-within {
+      @include accessibility-focus;
+    }
 
-  /* High contrast mode support */
-  @media (prefers-contrast: high) {
-    .game-headline__title {
-      /* Legacy support for h1 styling */
-      background: none;
-      -webkit-text-fill-color: unset;
+    // Legacy title element (BEM child)
+    &__title {
+      // Legacy styles - kept for backward compatibility
+      // Will be removed when fully migrated to Headline component
+      font-size: var(--text-2xl);
+      font-weight: var(--font-bold);
+      line-height: var(--leading-tight);
       color: var(--text-primary);
+      text-align: center;
+      margin: 0;
+
+      // Enhanced text spacing for WCAG 2.2 AAA
+      letter-spacing: var(--letter-spacing-enhanced);
+      word-spacing: var(--word-spacing-enhanced);
+
+      // Gradient text effect for visual appeal
+      @include text-gradient;
     }
 
-    .game-headline {
+    // Stats container
+    &__stats {
+      @include flex-center(row, var(--space-lg));
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+    }
+
+    // Round information container
+    &__round {
+      @include flex-center(row, var(--space-sm));
+      font-weight: var(--font-medium);
+      color: var(--text-primary);
+
+      &:hover {
+        transform: translateY(calc(-1 * var(--space-micro)));
+        transition: transform var(--transition-fast);
+      }
+
+      &:focus-within {
+        @include enhanced-accessibility-focus;
+      }
+
+      // Round label
+      &-label {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+      }
+
+      // Round display number
+      &-display {
+        font-weight: var(--font-bold);
+        font-variant-numeric: tabular-nums;
+        color: var(--interactive-primary);
+        font-size: var(--text-base);
+      }
+    }
+
+    // Deprecated divider element
+    &__divider {
+      // Deprecated - visual divider no longer needed without remaining element
+      display: none;
+      height: var(--space-lg);
+      width: var(--border-width-thin);
+      background-color: var(--border-primary);
+      animation: pulse var(--transition-slow) infinite;
+    }
+
+    // Legacy styles for remaining element - deprecated
+    &__remaining {
+      // This element has been removed from the template
+      display: none;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: var(--text-sm);
+
+      // BEM modifiers for visibility states
+      &--visible {
+        display: none; // Always hidden now
+      }
+
+      &--hidden {
+        display: none;
+      }
+
+      // Legacy hover effect - removed remaining element
+      &:hover {
+        // No longer applicable as element is removed
+      }
+
+      &:focus-within {
+        // No longer applicable as element is removed
+      }
+
+      // Text styling
+      &-text {
+        font-weight: var(--font-medium);
+        color: var(--text-warning-aaa);
+      }
+    }
+
+    // Responsive breakpoints
+    @media (min-width: var(--breakpoint-sm)) {
+      flex-direction: row;
+      padding: var(--space-xl) var(--space-2xl);
+
+      &__title {
+        // Legacy responsive styles for backward compatibility
+        font-size: var(--text-3xl);
+        text-align: left;
+      }
+
+      // Divider no longer needed without remaining element
+      &__divider {
+        display: none;
+      }
+    }
+
+    @media (min-width: var(--breakpoint-lg)) {
+      padding: var(--space-2xl) var(--space-3xl);
+
+      &__title {
+        font-size: var(--text-4xl);
+      }
+
+      &__stats {
+        gap: var(--space-xl);
+        font-size: var(--text-base);
+      }
+    }
+
+    // High contrast mode support
+    @media (prefers-contrast: high) {
       border-width: var(--border-width-enhanced);
-    }
-  }
 
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .game-headline__divider {
-      animation: none;
-    }
-
-    .game-headline__round:hover {
-      transform: none;
-      transition: none;
+      &__title {
+        // Legacy support for h1 styling
+        background: none;
+        -webkit-text-fill-color: unset;
+        color: var(--text-primary);
+      }
     }
 
-    /* Legacy - remaining element hover removed */
-    .game-headline__remaining:hover {
-      /* No longer applicable */
+    // Reduced motion support
+    @media (prefers-reduced-motion: reduce) {
+      &__divider {
+        animation: none;
+      }
+
+      &__round:hover {
+        transform: none;
+        transition: none;
+      }
+
+      // Legacy - remaining element hover removed
+      &__remaining:hover {
+        // No longer applicable
+      }
     }
-  }
 
-  /* ======================================
-   * FOCUS MANAGEMENT FOR ACCESSIBILITY
-   * Enhanced focus indicators for WCAG AAA
-   * ====================================== */
-
-  .game-headline__round:focus-within {
-    outline: var(--focus-enhanced-outline-dark);
-    outline-offset: var(--focus-ring-offset);
-    border-radius: var(--radius-sm);
-  }
-
-  /* Legacy focus styles - remaining element removed */
-  .game-headline__remaining:focus-within {
-    /* No longer applicable as element is removed */
-  }
-
-  /* Print styles for optimal printing experience */
-  @media print {
-    .game-headline {
+    // Print styles for optimal printing experience
+    @media print {
       background: white;
       border: var(--border-width-thin) solid black;
       box-shadow: none;
       color: black;
-    }
 
-    .game-headline__title {
-      /* Legacy print styles for h1 */
-      background: none;
-      -webkit-text-fill-color: unset;
-      color: black;
-    }
+      &__title {
+        // Legacy print styles for h1
+        background: none;
+        -webkit-text-fill-color: unset;
+        color: black;
+      }
 
-    .game-headline__divider {
-      animation: none;
+      &__divider {
+        animation: none;
+      }
     }
+  }
+
+  // Remaining count element (standalone for legacy compatibility)
+  .remaining-count {
+    font-variant-numeric: tabular-nums;
+    font-weight: var(--font-bold);
+    color: var(--color-warning-400);
   }
 </style>

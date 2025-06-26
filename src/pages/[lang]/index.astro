@@ -107,7 +107,7 @@ const imageHeight = 600;
   </main>
 </Layout>
 
-<style>
+<style lang="scss">
   /* ======================================
    * MAIN LAYOUT
    * ====================================== */
@@ -128,6 +128,11 @@ const imageHeight = 600;
     align-items: center;
     padding: var(--space-xl) var(--space-lg);
     text-align: center;
+
+    // Responsive design
+    @media (min-width: var(--breakpoint-md)) {
+      padding: var(--space-2xl) var(--space-lg);
+    }
   }
 
   .content-wrapper {
@@ -152,11 +157,20 @@ const imageHeight = 600;
     height: auto;
     width: var(--width-full);
     transition: transform var(--transition-normal);
-  }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .logo-image:hover {
-      transform: scale(var(--animation-scale-hover-subtle));
+    @media (prefers-reduced-motion: no-preference) {
+      &:hover {
+        transform: scale(var(--animation-scale-hover-subtle));
+      }
+    }
+
+    // Reduced motion support
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
     }
   }
 
@@ -185,6 +199,11 @@ const imageHeight = 600;
    * ====================================== */
   .language-selector-wrapper {
     margin-top: var(--space-3xl);
+
+    // Print styles
+    @media print {
+      display: none;
+    }
   }
 
   /* ======================================
@@ -204,27 +223,16 @@ const imageHeight = 600;
   }
 
   /* ======================================
-   * RESPONSIVE DESIGN
+   * BUTTON STYLING (for reduced motion)
    * ====================================== */
-  @media (min-width: var(--breakpoint-md)) {
-    .content-container {
-      padding: var(--space-2xl) var(--space-lg);
-    }
-  }
-
-  /* ======================================
-   * REDUCED MOTION SUPPORT
-   * ====================================== */
-  @media (prefers-reduced-motion: reduce) {
-    .logo-image,
-    .primary-button {
+  .primary-button {
+    @media (prefers-reduced-motion: reduce) {
       transition: none;
-    }
 
-    .logo-image:hover,
-    .primary-button:hover,
-    .primary-button:active {
-      transform: none;
+      &:hover,
+      &:active {
+        transform: none;
+      }
     }
   }
 
@@ -232,10 +240,6 @@ const imageHeight = 600;
    * PRINT STYLES
    * ====================================== */
   @media print {
-    .language-selector-wrapper {
-      display: none;
-    }
-
     .main-content {
       background: var(--print-bg);
       color: var(--print-text);

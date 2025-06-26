@@ -108,7 +108,7 @@ const paragraphClasses = [
   {description || <slot />}
 </p>
 
-<style>
+<style lang="scss">
   /**
    * Paragraph Component Styles
    *
@@ -136,87 +136,119 @@ const paragraphClasses = [
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
-  }
 
-  /* Text size variants using CSS custom properties */
-  .paragraph--size-xs {
-    font-size: var(--text-xs);
-  }
-  .paragraph--size-sm {
-    font-size: var(--text-sm);
-  }
-  .paragraph--size-base {
-    font-size: var(--text-base);
-  }
-  .paragraph--size-lg {
-    font-size: var(--text-lg);
-  }
-  .paragraph--size-xl {
-    font-size: var(--text-xl);
-  }
-  .paragraph--size-2xl {
-    font-size: var(--text-2xl);
-  }
-  .paragraph--size-3xl {
-    font-size: var(--text-3xl);
-  }
-  .paragraph--size-4xl {
-    font-size: var(--text-4xl);
-  }
+    /* Support for user text customization (WCAG 2.2 AAA) */
+    /* Allow user agent stylesheets to override these properties */
+    line-height: var(--leading-relaxed) !important;
 
-  /* Text alignment variants */
-  .paragraph--align-start {
-    text-align: left;
-  }
-  .paragraph--align-center {
-    text-align: center;
-  }
-  .paragraph--align-end {
-    text-align: right;
-  }
+    /* Text size variants using SCSS nesting and CSS custom properties */
+    &--size-xs {
+      font-size: var(--text-xs);
+    }
 
-  /* High contrast mode for enhanced accessibility (WCAG AAA 7:1 ratio) */
-  .paragraph--high-contrast {
-    color: var(--text-primary);
-    font-weight: var(--font-medium);
-  }
+    &--size-sm {
+      font-size: var(--text-sm);
+    }
 
-  /* Enhanced text spacing for WCAG 2.2 AAA compliance */
-  .paragraph--enhanced-spacing {
-    letter-spacing: 0.12em; /* 2x normal spacing */
-    line-height: 2.4; /* 1.5x relaxed line height */
-    margin-bottom: calc(var(--space-xl) * 2); /* 2x paragraph spacing */
-  }
+    &--size-base {
+      font-size: var(--text-base);
+    }
 
-  /* Interactive paragraph styling with proper focus management */
-  .paragraph--interactive {
-    cursor: pointer;
-    min-height: var(--min-touch-size);
-    padding: var(--space-sm);
-    border-radius: var(--radius-sm);
-    transition: all var(--transition-normal);
-  }
+    &--size-lg {
+      font-size: var(--text-lg);
+    }
 
-  .paragraph--interactive:hover {
-    background-color: var(--bg-glass);
-  }
+    &--size-xl {
+      font-size: var(--text-xl);
+    }
 
-  .paragraph--interactive:focus {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    background-color: var(--bg-glass);
+    &--size-2xl {
+      font-size: var(--text-2xl);
+    }
+
+    &--size-3xl {
+      font-size: var(--text-3xl);
+    }
+
+    &--size-4xl {
+      font-size: var(--text-4xl);
+    }
+
+    /* Text alignment variants using SCSS nesting */
+    &--align-start {
+      text-align: left;
+    }
+
+    &--align-center {
+      text-align: center;
+    }
+
+    &--align-end {
+      text-align: right;
+    }
+
+    /* High contrast mode for enhanced accessibility (WCAG AAA 7:1 ratio) */
+    &--high-contrast {
+      color: var(--text-primary);
+      font-weight: var(--font-medium);
+    }
+
+    /* Enhanced text spacing for WCAG 2.2 AAA compliance */
+    &--enhanced-spacing {
+      letter-spacing: 0.12em; /* 2x normal spacing */
+      line-height: 2.4; /* 1.5x relaxed line height */
+      margin-bottom: calc(var(--space-xl) * 2); /* 2x paragraph spacing */
+    }
+
+    /* Interactive paragraph styling with proper focus management */
+    &--interactive {
+      cursor: pointer;
+      min-height: var(--min-touch-size);
+      padding: var(--space-sm);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-normal);
+
+      &:hover {
+        background-color: var(--bg-glass);
+      }
+
+      &:focus {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+        background-color: var(--bg-glass);
+      }
+    }
+
+    /* Focus styles for when paragraph contains interactive content */
+    &:focus-within {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--focus-ring);
+    }
+
+    /* Ensure text remains readable with user customizations */
+    &[style*="letter-spacing"],
+    &[style*="line-height"],
+    &[style*="word-spacing"] {
+      overflow: visible;
+      text-overflow: clip;
+    }
   }
 
   /* Responsive text sizing for better readability using CSS custom properties */
   @media (min-width: var(--breakpoint-md)) {
-    .paragraph--size-xl {
-      font-size: var(--text-2xl);
-    }
-    .paragraph--size-2xl {
-      font-size: var(--text-3xl);
-    }
-    .paragraph--size-3xl {
-      font-size: var(--text-4xl);
+    .paragraph {
+      &--size-xl {
+        font-size: var(--text-2xl);
+      }
+
+      &--size-2xl {
+        font-size: var(--text-3xl);
+      }
+
+      &--size-3xl {
+        font-size: var(--text-4xl);
+      }
     }
   }
 
@@ -257,32 +289,5 @@ const paragraphClasses = [
       color: CanvasText;
       forced-color-adjust: none;
     }
-  }
-
-  /**
-   * Focus styles for when paragraph contains interactive content
-   * Enhanced focus appearance with 4.5:1 contrast ratio (WCAG 2.2)
-   */
-  .paragraph:focus-within {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-ring);
-  }
-
-  /**
-   * Support for user text customization (WCAG 2.2 AAA)
-   * Allows users to override text spacing without loss of functionality
-   */
-  .paragraph {
-    /* Allow user agent stylesheets to override these properties */
-    line-height: var(--leading-relaxed) !important;
-  }
-
-  /* Ensure text remains readable with user customizations */
-  .paragraph[style*="letter-spacing"],
-  .paragraph[style*="line-height"],
-  .paragraph[style*="word-spacing"] {
-    overflow: visible;
-    text-overflow: clip;
   }
 </style>

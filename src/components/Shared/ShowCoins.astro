@@ -102,7 +102,7 @@ const clientTranslations = {
   }
 </coin-display>
 
-<style>
+<style lang="scss">
   /**
    * Coins Count Component with WCAG AAA 2.2 Compliance
    * Using CSS custom properties from global.css for consistent design system
@@ -143,62 +143,57 @@ const clientTranslations = {
       box-shadow var(--transition-normal),
       background-color var(--transition-normal);
     will-change: transform, background-color;
-  }
 
-  /* Hover effects with accessibility considerations */
-  .coins-count:hover {
-    transform: translateY(var(--animation-y-offset-small));
-    box-shadow: var(--shadow-lg);
-  }
+    /* Hover effects with accessibility considerations */
+    &:hover {
+      transform: translateY(var(--animation-y-offset-small));
+      box-shadow: var(--shadow-lg);
+    }
 
-  /* Focus styles with enhanced visibility for keyboard users - WCAG AAA */
-  .coins-count:focus-within {
-    outline: var(--focus-enhanced-outline-dark);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-enhanced-shadow);
-  }
+    /* Focus styles with enhanced visibility for keyboard users - WCAG AAA */
+    &:focus-within,
+    &:focus-visible {
+      outline: var(--focus-enhanced-outline-dark);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--focus-enhanced-shadow);
+    }
 
-  .coins-count:focus-visible {
-    outline: var(--focus-enhanced-outline-dark);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-enhanced-shadow);
-  }
+    /* Content wrapper */
+    &__content {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: calc(var(--space-xs) / 2);
+    }
 
-  /* Content wrapper */
-  .coins-count__content {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: calc(var(--space-xs) / 2);
-  }
+    /* Icon styling with animation using semantic sizing variables */
+    &__icon {
+      width: var(--icon-size-md); /* Use semantic icon sizing */
+      height: var(--icon-size-md);
+      color: var(--color-warning-400); /* Gold color for coin */
+      filter: drop-shadow(
+        0 var(--space-xs) var(--space-xs) rgba(0, 0, 0, var(--shadow-opacity-light))
+      );
+      animation: bounce-subtle var(--animation-pulse-duration) ease-in-out infinite alternate;
+      will-change: transform;
+      transform: translateZ(0); /* Force GPU acceleration */
+    }
 
-  /* Icon styling with animation using semantic sizing variables */
-  .coins-count__icon {
-    width: var(--icon-size-md); /* Use semantic icon sizing */
-    height: var(--icon-size-md);
-    color: var(--color-warning-400); /* Gold color for coin */
-    filter: drop-shadow(
-      0 var(--space-xs) var(--space-xs) rgba(0, 0, 0, var(--shadow-opacity-light))
-    );
-    animation: bounce-subtle var(--animation-pulse-duration) ease-in-out infinite alternate;
-    will-change: transform;
-    transform: translateZ(0); /* Force GPU acceleration */
-  }
+    /* Display text styling */
+    &__display {
+      font-family:
+        ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+      font-weight: var(--font-bold);
+      line-height: var(--leading-tight);
+      font-variant-numeric: tabular-nums;
+    }
 
-  /* Display text styling */
-  .coins-count__display {
-    font-family:
-      ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
-    font-weight: var(--font-bold);
-    line-height: var(--leading-tight);
-    font-variant-numeric: tabular-nums;
-  }
-
-  /* Number display with semantic width variable */
-  .coins-count__number {
-    display: inline-block;
-    min-width: var(--coin-number-min-width);
-    text-align: right;
+    /* Number display with semantic width variable */
+    &__number {
+      display: inline-block;
+      min-width: var(--coin-number-min-width);
+      text-align: right;
+    }
   }
 
   /* Optimized bounce animation using semantic animation variables */
@@ -217,32 +212,32 @@ const clientTranslations = {
       border: var(--border-width-thick) solid CanvasText;
       background-color: Canvas;
       color: CanvasText;
-    }
 
-    .coins-count__icon {
-      color: LinkText;
-      forced-color-adjust: none;
-    }
+      &__icon {
+        color: LinkText;
+        forced-color-adjust: none;
+      }
 
-    .coins-count:focus-within,
-    .coins-count:focus-visible {
-      outline: var(--border-width-enhanced) solid Highlight;
-      outline-offset: var(--focus-ring-offset);
+      &:focus-within,
+      &:focus-visible {
+        outline: var(--border-width-enhanced) solid Highlight;
+        outline-offset: var(--focus-ring-offset);
+      }
     }
   }
 
   /* Reduced Motion support - WCAG AAA */
   @media (prefers-reduced-motion: reduce) {
-    .coins-count__icon {
-      animation: none;
-    }
-
     .coins-count {
       transition: none;
-    }
 
-    .coins-count:hover {
-      transform: none;
+      &__icon {
+        animation: none;
+      }
+
+      &:hover {
+        transform: none;
+      }
     }
   }
 
@@ -253,11 +248,11 @@ const clientTranslations = {
       color: var(--print-text);
       border: var(--print-border);
       box-shadow: none;
-    }
 
-    .coins-count__icon {
-      color: var(--print-text);
-      animation: none;
+      &__icon {
+        color: var(--print-text);
+        animation: none;
+      }
     }
   }
 

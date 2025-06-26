@@ -707,12 +707,72 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
   });
 </script>
 
-<style is:inline>
+<style lang="scss" is:inline>
   /**
    * Chronology Game Styles
    * Uses CSS variables from global.css for consistent theming
+   * SCSS implementation with nested selectors and mixins
    */
 
+  // SCSS Variables for better maintainability
+  $transition-smooth: all 0.2s ease;
+  $border-selected: 2px solid var(--interactive-primary);
+  $border-default: 2px solid var(--border-primary);
+  $hover-transform: translateY(-2px);
+
+  // Mixins for common patterns
+  @mixin flex-center($direction: row) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: $direction;
+  }
+
+  @mixin button-base {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    border-radius: var(--radius-lg);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    transition: $transition-smooth;
+    justify-content: center;
+
+    &:not(:disabled):hover {
+      transform: $hover-transform;
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  @mixin focus-styles {
+    &:focus {
+      outline: none;
+      border-color: var(--interactive-primary);
+      box-shadow: var(--focus-ring);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--interactive-primary);
+      outline-offset: 2px;
+    }
+  }
+
+  // Keyframes
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  // Main game container
   .chronology-game {
     min-height: 100vh;
     background: var(--bg-primary);
@@ -722,48 +782,46 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     margin: 0 auto;
   }
 
-  /* Game Header */
+  // Game Header Section
   .game-header {
     margin-bottom: var(--space-lg);
     text-align: center;
   }
 
   .game-info {
-    display: flex;
-    justify-content: center;
+    @include flex-center;
     gap: var(--space-md);
     margin-top: var(--space-md);
     flex-wrap: wrap;
   }
 
   .badge {
-    display: flex;
-    align-items: center;
+    @include flex-center;
     gap: var(--space-sm);
     background: var(--bg-secondary);
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--radius-lg);
     border: 1px solid var(--border-secondary);
-    transition: all 0.2s ease;
+    transition: $transition-smooth;
+
+    &:hover {
+      background: var(--bg-tertiary);
+      transform: translateY(-1px);
+    }
+
+    &__icon {
+      width: 16px;
+      height: 16px;
+      color: var(--interactive-primary);
+    }
+
+    &__text {
+      font-weight: var(--font-medium);
+      font-size: var(--text-sm);
+    }
   }
 
-  .badge:hover {
-    background: var(--bg-tertiary);
-    transform: translateY(-1px);
-  }
-
-  .badge__icon {
-    width: 16px;
-    height: 16px;
-    color: var(--interactive-primary);
-  }
-
-  .badge__text {
-    font-weight: var(--font-medium);
-    font-size: var(--text-sm);
-  }
-
-  /* Game Content */
+  // Game Content Section
   .game-content {
     max-width: 800px;
     margin: 0 auto;
@@ -787,7 +845,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     line-height: var(--leading-enhanced);
   }
 
-  /* Chronology Container */
+  // Chronology Container
   .chronology-container {
     background: var(--bg-secondary);
     border-radius: var(--radius-xl);
@@ -799,10 +857,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
   }
 
   .loading-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @include flex-center(column);
     height: 200px;
     color: var(--text-secondary);
   }
@@ -814,93 +869,76 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     animation: spin 1s linear infinite;
   }
 
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  /* Chronology Items */
+  // Chronology Items
   .chronology-item {
     display: flex;
     align-items: center;
     gap: var(--space-md);
     background: var(--card-bg);
-    border: 2px solid var(--border-primary);
+    border: $border-default;
     border-radius: var(--radius-lg);
     padding: var(--space-md);
     margin-bottom: var(--space-md);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: $transition-smooth;
     position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      border-color: var(--interactive-primary);
+      transform: $hover-transform;
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    @include focus-styles;
+
+    &--selected {
+      border-color: var(--interactive-primary);
+      background: var(--bg-tertiary);
+      box-shadow: var(--card-shadow-hover);
+
+      .chronology-item__position {
+        background: var(--interactive-secondary);
+      }
+    }
+
+    &__position {
+      @include flex-center;
+      width: 40px;
+      height: 40px;
+      background: var(--interactive-primary);
+      color: white;
+      border-radius: 50%;
+      font-weight: var(--font-bold);
+      font-size: var(--text-lg);
+      flex-shrink: 0;
+    }
+
+    &__content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    &__title {
+      font-weight: var(--font-semibold);
+      font-size: var(--text-lg);
+      margin-bottom: 2px;
+      color: var(--text-primary);
+    }
+
+    &__artist {
+      color: var(--text-secondary);
+      font-size: var(--text-base);
+    }
   }
 
-  .chronology-item:last-child {
-    margin-bottom: 0;
-  }
-
-  .chronology-item:hover {
-    border-color: var(--interactive-primary);
-    transform: translateY(-2px);
-    box-shadow: var(--card-shadow-hover);
-  }
-
-  .chronology-item:focus {
-    outline: none;
-    border-color: var(--interactive-primary);
-    box-shadow: var(--focus-ring);
-  }
-
-  .chronology-item--selected {
-    border-color: var(--interactive-primary);
-    background: var(--bg-tertiary);
-    box-shadow: var(--card-shadow-hover);
-  }
-
-  .chronology-item__position {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: var(--interactive-primary);
-    color: white;
-    border-radius: 50%;
-    font-weight: var(--font-bold);
-    font-size: var(--text-lg);
-    flex-shrink: 0;
-  }
-
-  .chronology-item--selected .chronology-item__position {
-    background: var(--interactive-secondary);
-  }
-
-  .chronology-item__content {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .chronology-item__title {
-    font-weight: var(--font-semibold);
-    font-size: var(--text-lg);
-    margin-bottom: 2px;
-    color: var(--text-primary);
-  }
-
-  .chronology-item__artist {
-    color: var(--text-secondary);
-    font-size: var(--text-base);
-  }
-
-  /* Game Controls */
+  // Game Controls
   .game-controls {
-    display: flex;
-    flex-direction: column;
+    @include flex-center(column);
     gap: var(--space-md);
-    align-items: center;
   }
 
   .move-buttons {
@@ -909,73 +947,50 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
   }
 
   .move-button {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
+    @include button-base;
     background: var(--bg-secondary);
     border: 2px solid var(--border-secondary);
     color: var(--text-primary);
     padding: var(--space-md) var(--space-lg);
-    border-radius: var(--radius-lg);
-    font-weight: var(--font-medium);
-    cursor: pointer;
-    transition: all 0.2s ease;
     min-width: 120px;
-    justify-content: center;
-  }
 
-  .move-button:not(:disabled):hover {
-    background: var(--interactive-primary);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: var(--card-shadow-hover);
-  }
+    &:not(:disabled):hover {
+      background: var(--interactive-primary);
+      color: white;
+    }
 
-  .move-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    background: var(--bg-tertiary);
-    color: var(--text-tertiary);
-  }
+    &:disabled {
+      background: var(--bg-tertiary);
+      color: var(--text-tertiary);
+    }
 
-  .move-button__icon {
-    width: 18px;
-    height: 18px;
+    @include focus-styles;
+
+    &__icon {
+      width: 18px;
+      height: 18px;
+    }
   }
 
   .submit-button {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
+    @include button-base;
     background: var(--btn-primary-bg);
     border: none;
     color: white;
     padding: var(--space-md) var(--space-xl);
-    border-radius: var(--radius-lg);
     font-weight: var(--font-semibold);
     font-size: var(--text-lg);
-    cursor: pointer;
-    transition: all 0.2s ease;
     min-width: 180px;
-    justify-content: center;
+
+    @include focus-styles;
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+    }
   }
 
-  .submit-button:not(:disabled):hover {
-    transform: translateY(-2px);
-    box-shadow: var(--card-shadow-hover);
-  }
-
-  .submit-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  .submit-button__icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  /* Responsive Design */
+  // Responsive Design
   @media (max-width: 768px) {
     .chronology-game {
       padding: var(--space-md);
@@ -990,10 +1005,10 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       flex-direction: column;
       text-align: center;
       gap: var(--space-sm);
-    }
 
-    .chronology-item__content {
-      order: -1;
+      &__content {
+        order: -1;
+      }
     }
 
     .move-buttons {
@@ -1022,7 +1037,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
   }
 
-  /* Accessibility Enhancements */
+  // Accessibility Enhancements
   @media (prefers-reduced-motion: reduce) {
     .chronology-item,
     .move-button,
@@ -1036,23 +1051,15 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
   }
 
-  /* High contrast mode support */
+  // High contrast mode support
   @media (prefers-contrast: high) {
     .chronology-item {
       border-width: 3px;
-    }
 
-    .chronology-item:focus {
-      border-width: 4px;
-      box-shadow: 0 0 0 2px var(--interactive-primary);
+      &:focus {
+        border-width: 4px;
+        box-shadow: 0 0 0 2px var(--interactive-primary);
+      }
     }
-  }
-
-  /* Focus management for keyboard users */
-  .chronology-item:focus-visible,
-  .move-button:focus-visible,
-  .submit-button:focus-visible {
-    outline: 3px solid var(--interactive-primary);
-    outline-offset: 2px;
   }
 </style>

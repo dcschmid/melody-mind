@@ -121,7 +121,7 @@ const t = useTranslations(lang);
 >
 </div>
 
-<style>
+<style lang="scss">
   /* Achievement notification main container */
   .achievement-notification {
     position: fixed;
@@ -147,30 +147,217 @@ const t = useTranslations(lang);
     letter-spacing: var(--letter-spacing-base);
     overflow-wrap: break-word;
     font-size: var(--text-base);
-  }
 
-  /* Container for notification content */
-  .achievement-notification__container {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-md);
-  }
+    /* Modifier for visible state */
+    &--visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
 
-  /* Icon container with improved contrast */
-  .achievement-notification__icon {
-    display: flex;
-    height: calc(var(--min-touch-size) - var(--space-sm)); /* 2.5rem equivalent */
-    width: calc(var(--min-touch-size) - var(--space-sm));
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-full);
-    background-color: var(--interactive-primary);
-    padding: var(--space-sm);
-    color: var(--text-primary);
-    box-shadow: 0 0 0 var(--interactive-primary);
-    animation: pulse var(--transition-slow) infinite;
+    /* Container for notification content */
+    &__container {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+
+    /* Icon container with improved contrast */
+    &__icon {
+      display: flex;
+      height: calc(var(--min-touch-size) - var(--space-sm)); /* 2.5rem equivalent */
+      width: calc(var(--min-touch-size) - var(--space-sm));
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-full);
+      background-color: var(--interactive-primary);
+      padding: var(--space-sm);
+      color: var(--text-primary);
+      box-shadow: 0 0 0 var(--interactive-primary);
+      animation: pulse var(--transition-slow) infinite;
+
+      /* Disable animation for users with reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+        box-shadow: 0 0 0 var(--border-width-thick) var(--interactive-primary);
+      }
+    }
+
+    /* Content area */
+    &__content {
+      flex-grow: 1;
+      padding-right: var(--space-lg);
+    }
+
+    /* Title with improved contrast */
+    &__title {
+      margin: 0;
+      margin-bottom: var(--space-xs);
+      font-size: var(--text-lg);
+      font-weight: var(--font-semibold);
+      color: inherit;
+      line-height: var(--leading-tight);
+    }
+
+    /* Description with improved contrast and CSS variables */
+    &__description {
+      margin: 0;
+      font-size: var(--text-sm);
+      opacity: var(--opacity-medium);
+      line-height: var(--leading-normal);
+      max-width: 100%;
+      word-wrap: break-word;
+    }
+
+    /* Common properties for buttons */
+    &__close,
+    &__control-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      color: var(--text-tertiary);
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition:
+        color var(--transition-fast),
+        background-color var(--transition-fast),
+        outline var(--transition-fast);
+      min-height: var(--min-touch-size);
+      min-width: var(--min-touch-size);
+
+      /* Combined hover/focus states for all buttons */
+      &:hover,
+      &:focus-visible {
+        color: var(--text-primary);
+      }
+
+      /* Unified focus style according to WCAG 2.2 Enhanced Focus Appearance */
+      &:focus-visible {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+        border-radius: var(--radius-sm);
+        background-color: var(--focus-bg-overlay);
+        min-width: var(--min-touch-size);
+        min-height: var(--min-touch-size);
+        box-shadow: var(--focus-ring);
+      }
+    }
+
+    /* Specific properties for close button */
+    &__close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: calc(var(--min-touch-size) - var(--space-sm));
+      width: calc(var(--min-touch-size) - var(--space-sm));
+      padding: 0;
+    }
+
+    /* Specific properties for control buttons */
+    &__control-button {
+      height: var(--space-xl);
+      width: var(--space-xl);
+    }
+
+    /* Category */
+    &__category {
+      margin-top: var(--space-sm);
+      padding: var(--space-xs) 0 0 0;
+      text-align: center;
+      font-size: var(--text-sm);
+      font-weight: var(--font-semibold);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-enhanced);
+      border-top: var(--border-width-thin) solid var(--border-primary);
+    }
+
+    /* Notification controls */
+    &__controls {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      gap: var(--space-xs);
+    }
+
+    /* Timer for notification */
+    &__timer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: var(--space-xs);
+      background-color: var(--color-neutral-700);
+      overflow: hidden;
+
+      &-progress {
+        height: 100%;
+        width: 100%;
+        background-color: var(--interactive-primary);
+        transform-origin: left;
+        transform: translateZ(0);
+        will-change: transform;
+      }
+    }
+
+    /* Responsive adjustments with CSS variables */
+    @media (min-width: 40em) {
+      /* 640px equivalent to --breakpoint-sm */
+      max-width: calc(var(--space-3xl) * 7.5); /* 30rem equivalent */
+      bottom: var(--space-2xl);
+      right: var(--space-2xl);
+    }
+
+    @media (min-width: 48em) {
+      /* 768px equivalent to --breakpoint-md */
+      max-width: calc(var(--space-3xl) * 9); /* 36rem equivalent */
+    }
+
+    /* Support for reduced motion with CSS variables */
+    @media (prefers-reduced-motion: reduce) {
+      transition-duration: var(--transition-fast);
+
+      &--visible {
+        transition: none;
+      }
+    }
+
+    /* Support for High Contrast Mode - consolidated for DRY principle */
+    @media (forced-colors: active) {
+      border: var(--border-width-thin) solid CanvasText;
+
+      #{&}__icon {
+        background-color: Highlight;
+        color: HighlightText;
+        border: var(--border-width-thin) solid CanvasText;
+      }
+
+      #{&}__category {
+        border-top: var(--border-width-thin) solid CanvasText;
+      }
+
+      #{&}__timer {
+        background-color: Canvas;
+        border-bottom: var(--border-width-thin) solid CanvasText;
+
+        &-progress {
+          background-color: Highlight;
+        }
+      }
+
+      /* Consolidated button styles for High Contrast Mode */
+      #{&}__control-button {
+        border: var(--border-width-thin) solid CanvasText;
+      }
+
+      #{&}__close:focus-visible,
+      #{&}__control-button:focus-visible {
+        outline: var(--enhanced-border-thickness) solid CanvasText;
+      }
+    }
   }
 
   /* Subtle pulse animation for achievement icon with CSS variables */
@@ -186,212 +373,12 @@ const t = useTranslations(lang);
     }
   }
 
-  /* Disable animation for users with reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .achievement-notification__icon {
-      animation: none;
-      box-shadow: 0 0 0 var(--border-width-thick) var(--interactive-primary);
-    }
-  }
-
-  /* Content area */
-  .achievement-notification__content {
-    flex-grow: 1;
-    padding-right: var(--space-lg);
-  }
-
-  /* Title with improved contrast */
-  .achievement-notification__title {
-    margin: 0;
-    margin-bottom: var(--space-xs);
-    font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
-    color: inherit;
-    line-height: var(--leading-tight);
-  }
-
-  /* Description with improved contrast and CSS variables */
-  .achievement-notification__description {
-    margin: 0;
-    font-size: var(--text-sm);
-    opacity: var(--opacity-medium);
-    line-height: var(--leading-normal);
-    max-width: 100%;
-    word-wrap: break-word;
-  }
-
-  /* Common properties for buttons */
-  .achievement-notification__close,
-  .achievement-notification__control-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    color: var(--text-tertiary);
-    border: none;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    transition:
-      color var(--transition-fast),
-      background-color var(--transition-fast),
-      outline var(--transition-fast);
-    min-height: var(--min-touch-size);
-    min-width: var(--min-touch-size);
-  }
-
-  /* Spezifische Eigenschaften für Schließen-Button */
-  .achievement-notification__close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: calc(var(--min-touch-size) - var(--space-sm));
-    width: calc(var(--min-touch-size) - var(--space-sm));
-    padding: 0;
-  }
-
-  /* Specific properties for control buttons */
-  .achievement-notification__control-button {
-    height: var(--space-xl);
-    width: var(--space-xl);
-  }
-
-  /* Combined hover/focus states for all buttons */
-  .achievement-notification__close:hover,
-  .achievement-notification__close:focus-visible,
-  .achievement-notification__control-button:hover,
-  .achievement-notification__control-button:focus-visible {
-    color: var(--text-primary);
-  }
-
-  /* Unified focus style according to WCAG 2.2 Enhanced Focus Appearance */
-  .achievement-notification__close:focus-visible,
-  .achievement-notification__control-button:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    border-radius: var(--radius-sm);
-    background-color: var(--focus-bg-overlay);
-    min-width: var(--min-touch-size);
-    min-height: var(--min-touch-size);
-    box-shadow: var(--focus-ring);
-  }
-
-  /* Category */
-  .achievement-notification__category {
-    margin-top: var(--space-sm);
-    padding: var(--space-xs) 0 0 0;
-    text-align: center;
-    font-size: var(--text-sm);
-    font-weight: var(--font-semibold);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-enhanced);
-    border-top: var(--border-width-thin) solid var(--border-primary);
-  }
-
-  /* Modifier for visible state */
-  .achievement-notification--visible {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  /* Notification controls */
-  .achievement-notification__controls {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    gap: var(--space-xs);
-  }
-
-  /* Timer für Benachrichtigung */
-  .achievement-notification__timer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: var(--space-xs);
-    background-color: var(--color-neutral-700);
-    overflow: hidden;
-  }
-
-  .achievement-notification__timer-progress {
-    height: 100%;
-    width: 100%;
-    background-color: var(--interactive-primary);
-    transform-origin: left;
-    transform: translateZ(0);
-    will-change: transform;
-  }
-
   @keyframes timer-countdown {
     from {
       transform: translateX(0);
     }
     to {
       transform: translateX(-100%);
-    }
-  }
-
-  /* Responsive Anpassungen mit CSS-Variablen */
-  @media (min-width: 40em) {
-    /* 640px entspricht --breakpoint-sm */
-    .achievement-notification {
-      max-width: calc(var(--space-3xl) * 7.5); /* 30rem equivalent */
-      bottom: var(--space-2xl);
-      right: var(--space-2xl);
-    }
-  }
-
-  @media (min-width: 48em) {
-    /* 768px entspricht --breakpoint-md */
-    .achievement-notification {
-      max-width: calc(var(--space-3xl) * 9); /* 36rem equivalent */
-    }
-  }
-
-  /* Support for reduced motion with CSS variables */
-  @media (prefers-reduced-motion: reduce) {
-    .achievement-notification {
-      transition-duration: var(--transition-fast);
-    }
-
-    .achievement-notification--visible {
-      transition: none;
-    }
-  }
-
-  /* Unterstützung für High Contrast Mode - konsolidiert für DRY-Prinzip */
-  @media (forced-colors: active) {
-    .achievement-notification {
-      border: var(--border-width-thin) solid CanvasText;
-    }
-
-    .achievement-notification__icon {
-      background-color: Highlight;
-      color: HighlightText;
-      border: var(--border-width-thin) solid CanvasText;
-    }
-
-    .achievement-notification__category {
-      border-top: var(--border-width-thin) solid CanvasText;
-    }
-
-    .achievement-notification__timer {
-      background-color: Canvas;
-      border-bottom: var(--border-width-thin) solid CanvasText;
-    }
-
-    .achievement-notification__timer-progress {
-      background-color: Highlight;
-    }
-
-    /* Konsolidierte Button-Styles für High Contrast Mode */
-    .achievement-notification__control-button {
-      border: var(--border-width-thin) solid CanvasText;
-    }
-
-    .achievement-notification__close:focus-visible,
-    .achievement-notification__control-button:focus-visible {
-      outline: var(--enhanced-border-thickness) solid CanvasText;
     }
   }
 </style>

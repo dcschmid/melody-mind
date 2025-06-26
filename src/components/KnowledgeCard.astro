@@ -224,7 +224,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
   }
 </article>
 
-<style>
+<style lang="scss">
   /**
    * KNOWLEDGE CARD COMPONENT STYLES
    * ==============================
@@ -239,7 +239,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
    * ✅ Enhanced accessibility with semantic CSS variables
    * 
    * Features:
-   * - Modern CSS color functions using semantic variables
+   * - Modern SCSS nesting for better organization
    * - Logical properties for better internationalization  
    * - Optimized performance with CSS containment
    * - Consistent design system integration
@@ -260,193 +260,196 @@ const imageAltText = title ? `Cover image for ${title}` : "";
     box-shadow: var(--card-shadow);
     transition: all var(--transition-normal);
     contain: layout style;
-  }
 
-  /* Enhanced hover states using semantic interactive colors */
-  .knowledge-card:hover {
-    border-color: var(--interactive-primary);
-    box-shadow: var(--card-shadow-hover);
-    transform: translateY(calc(-1 * var(--space-xs)));
-  }
+    /* Enhanced hover states using semantic interactive colors */
+    &:hover {
+      border-color: var(--interactive-primary);
+      box-shadow: var(--card-shadow-hover);
+      transform: translateY(calc(-1 * var(--space-xs)));
 
-  /* Link wrapper for accessible navigation */
-  .knowledge-card__link {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    overflow: hidden;
-    border-radius: var(--radius-xl);
-    color: inherit;
-    text-decoration: none;
-    transition: all var(--transition-normal);
-  }
+      .knowledge-card__title {
+        color: var(--color-primary-400);
+        transition: color var(--transition-fast);
+      }
 
-  /* Focus states using semantic focus system */
-  .knowledge-card__link:focus-visible {
-    outline: var(--focus-enhanced-outline-dark);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-enhanced-shadow);
-  }
-
-  /* Content container with flexible layout */
-  .knowledge-card__content {
-    position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Accent line using primary gradient with CSS variables */
-  .knowledge-card__accent-line {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: var(--space-xs);
-    background: linear-gradient(
-      to right,
-      var(--color-primary-700) var(--gradient-start),
-      var(--color-primary-500) calc(var(--gradient-start) + 50%),
-      var(--color-primary-700) var(--gradient-end)
-    );
-  }
-
-  /* Image container with optimal aspect ratio using CSS variables */
-  .knowledge-card__image-container {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-  }
-
-  /* Image with smooth hover animation using CSS variables */
-  .knowledge-card__image {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-slow);
-  }
-
-  .knowledge-card__link:hover .knowledge-card__image,
-  .knowledge-card__link:focus-visible .knowledge-card__image {
-    transform: scale(var(--animation-scale-large));
-  }
-
-  /* Overlay gradient using CSS variables for consistency */
-  .knowledge-card__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.95) var(--gradient-start),
-      rgba(0, 0, 0, 0.75) calc(var(--gradient-start) + 50%),
-      transparent var(--gradient-end)
-    );
-    opacity: var(--animation-opacity-start);
-  }
-
-  /* Body content with semantic spacing */
-  .knowledge-card__body {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: var(--space-lg) var(--space-lg) var(--space-md);
-  }
-
-  /* Title styling with semantic typography */
-  .knowledge-card__title {
-    margin-bottom: var(--space-md);
-    font-size: var(--text-2xl);
-    font-weight: var(--font-bold);
-    letter-spacing: var(--letter-spacing-base);
-    line-height: var(--leading-tight);
-    color: var(--text-primary);
-  }
-
-  .knowledge-card__title--clamp {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-  }
-
-  /* Description with enhanced readability using CSS variables */
-  .knowledge-card__description {
-    margin-bottom: var(--space-lg);
-    font-size: var(--text-lg);
-    line-height: var(--leading-relaxed);
-    color: var(--text-secondary);
-  }
-
-  .knowledge-card__description--clamp {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-  }
-
-  /* Footer with semantic border and spacing */
-  .knowledge-card__footer {
-    margin-top: auto;
-    padding-top: var(--space-md);
-    border-top: var(--border-width-thin) solid var(--border-primary);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-md);
-  }
-
-  /* Meta information styling with CSS variables */
-  .knowledge-card__meta {
-    display: flex;
-    align-items: center;
-    font-size: var(--text-base);
-    color: var(--text-tertiary);
-  }
-
-  /* Icon styling with semantic sizing */
-  .knowledge-card__icon {
-    width: var(--icon-size-sm);
-    height: var(--icon-size-sm);
-    margin-right: var(--space-sm);
-    color: var(--color-primary-400);
-    flex-shrink: 0;
-  }
-
-  /* RESPONSIVE DESIGN using available breakpoint variables */
-
-  /* Mobile-first responsive design */
-  @media (max-width: var(--breakpoint-sm)) {
-    .knowledge-card__title {
-      font-size: var(--text-xl);
-      line-height: var(--leading-normal);
+      .knowledge-card__accent-line {
+        height: calc(var(--space-xs) * 1.5);
+        transition: height var(--transition-fast);
+      }
     }
 
-    .knowledge-card__description {
-      font-size: var(--text-base);
-      line-height: var(--leading-relaxed);
-    }
-
-    .knowledge-card__meta {
-      font-size: var(--text-sm);
-    }
-
-    .knowledge-card__footer {
+    /* Link wrapper for accessible navigation */
+    &__link {
+      display: flex;
+      height: 100%;
       flex-direction: column;
-      align-items: flex-start;
-      gap: var(--space-sm);
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      color: inherit;
+      text-decoration: none;
+      transition: all var(--transition-normal);
+
+      /* Focus states using semantic focus system */
+      &:focus-visible {
+        outline: var(--focus-enhanced-outline-dark);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-enhanced-shadow);
+        border-radius: var(--radius-xl);
+        transform: translateY(calc(-1 * var(--space-xs)));
+        transition: all var(--transition-fast) ease-out;
+      }
+
+      &:hover,
+      &:focus-visible {
+        .knowledge-card__image {
+          transform: scale(var(--animation-scale-large));
+        }
+      }
     }
-  }
 
-  /* Enhanced hover states with micro-interactions */
-  .knowledge-card:hover .knowledge-card__title {
-    color: var(--color-primary-400);
-    transition: color var(--transition-fast);
-  }
+    /* Content container with flexible layout */
+    &__content {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
 
-  .knowledge-card:hover .knowledge-card__accent-line {
-    height: calc(var(--space-xs) * 1.5);
-    transition: height var(--transition-fast);
+    /* Accent line using primary gradient with CSS variables */
+    &__accent-line {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: var(--space-xs);
+      background: linear-gradient(
+        to right,
+        var(--color-primary-700) var(--gradient-start),
+        var(--color-primary-500) calc(var(--gradient-start) + 50%),
+        var(--color-primary-700) var(--gradient-end)
+      );
+    }
+
+    /* Image container with optimal aspect ratio using CSS variables */
+    &__image-container {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+
+    /* Image with smooth hover animation using CSS variables */
+    &__image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+
+    /* Overlay gradient using CSS variables for consistency */
+    &__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95) var(--gradient-start),
+        rgba(0, 0, 0, 0.75) calc(var(--gradient-start) + 50%),
+        transparent var(--gradient-end)
+      );
+      opacity: var(--animation-opacity-start);
+    }
+
+    /* Body content with semantic spacing */
+    &__body {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: var(--space-lg) var(--space-lg) var(--space-md);
+    }
+
+    /* Title styling with semantic typography */
+    &__title {
+      margin-bottom: var(--space-md);
+      font-size: var(--text-2xl);
+      font-weight: var(--font-bold);
+      letter-spacing: var(--letter-spacing-base);
+      line-height: var(--leading-tight);
+      color: var(--text-primary);
+
+      &--clamp {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+
+      /* Mobile-first responsive design */
+      @media (max-width: var(--breakpoint-sm)) {
+        font-size: var(--text-xl);
+        line-height: var(--leading-normal);
+      }
+    }
+
+    /* Description with enhanced readability using CSS variables */
+    &__description {
+      margin-bottom: var(--space-lg);
+      font-size: var(--text-lg);
+      line-height: var(--leading-relaxed);
+      color: var(--text-secondary);
+
+      &--clamp {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+      }
+
+      /* Mobile-first responsive design */
+      @media (max-width: var(--breakpoint-sm)) {
+        font-size: var(--text-base);
+        line-height: var(--leading-relaxed);
+      }
+    }
+
+    /* Footer with semantic border and spacing */
+    &__footer {
+      margin-top: auto;
+      padding-top: var(--space-md);
+      border-top: var(--border-width-thin) solid var(--border-primary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+
+      /* Mobile-first responsive design */
+      @media (max-width: var(--breakpoint-sm)) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+      }
+    }
+
+    /* Meta information styling with CSS variables */
+    &__meta {
+      display: flex;
+      align-items: center;
+      font-size: var(--text-base);
+      color: var(--text-tertiary);
+
+      /* Mobile-first responsive design */
+      @media (max-width: var(--breakpoint-sm)) {
+        font-size: var(--text-sm);
+      }
+    }
+
+    /* Icon styling with semantic sizing */
+    &__icon {
+      width: var(--icon-size-sm);
+      height: var(--icon-size-sm);
+      margin-right: var(--space-sm);
+      color: var(--color-primary-400);
+      flex-shrink: 0;
+    }
   }
 
   /* ACCESSIBILITY OPTIMIZATIONS using semantic variables */
@@ -460,16 +463,16 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       background-color: var(--print-bg);
       color: var(--print-text);
       box-shadow: none;
-    }
 
-    .knowledge-card__title,
-    .knowledge-card__description,
-    .knowledge-card__meta {
-      color: var(--print-text);
-    }
+      &__title,
+      &__description,
+      &__meta {
+        color: var(--print-text);
+      }
 
-    .knowledge-card__image {
-      max-height: 3in;
+      &__image {
+        max-height: 3in;
+      }
     }
   }
 
@@ -477,37 +480,32 @@ const imageAltText = title ? `Cover image for ${title}` : "";
   @media (forced-colors: active) {
     .knowledge-card {
       border: var(--border-width-thick) solid CanvasText;
-    }
 
-    .knowledge-card__link:focus-visible {
-      outline: var(--border-width-thick) solid CanvasText;
+      &__link:focus-visible {
+        outline: var(--border-width-thick) solid CanvasText;
+      }
     }
   }
 
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
-    .knowledge-card,
-    .knowledge-card__link,
-    .knowledge-card__image {
-      transition: none;
-      transform: none;
-    }
+    .knowledge-card {
+      &,
+      &__link,
+      &__image {
+        transition: none;
+        transform: none;
+      }
 
-    .knowledge-card:hover {
-      transform: none;
-    }
+      &:hover {
+        transform: none;
+      }
 
-    .knowledge-card__link:hover .knowledge-card__image,
-    .knowledge-card__link:focus-visible .knowledge-card__image {
-      transform: none;
+      &__link:hover .knowledge-card__image,
+      &__link:focus-visible .knowledge-card__image {
+        transform: none;
+      }
     }
-  }
-
-  /* Enhanced Focus for Better Accessibility */
-  .knowledge-card__link:focus-visible {
-    border-radius: var(--radius-xl);
-    transform: translateY(calc(-1 * var(--space-xs)));
-    transition: all var(--transition-fast) ease-out;
   }
 
   /* Screen Reader Only utility class */

@@ -38,6 +38,11 @@ export async function getStaticPaths(): Promise<{ params: { lang: string } }[]> 
 }
 
 /**
+ * Enable static site generation for this page
+ */
+export const prerender = true;
+
+/**
  * Language and translation setup
  * Sets the current language based on URL and loads appropriate translations
  */
@@ -398,9 +403,9 @@ const clientTranslations = generateClientTranslations(t);
   <BackToTop {lang} />
 </Layout>
 
-<style>
+<style lang="scss">
   /* ======================================
-   * CSS CUSTOM PROPERTIES FOR COMPONENT
+   * SCSS CUSTOM PROPERTIES FOR COMPONENT
    * Enhanced with global.css variables
    * ====================================== */
 
@@ -436,10 +441,8 @@ const clientTranslations = generateClientTranslations(t);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-  }
 
-  @media (min-width: var(--breakpoint-md)) {
-    .gamehome-container {
+    @media (min-width: var(--breakpoint-md)) {
       padding: var(--space-xl) var(--space-lg);
     }
   }
@@ -462,70 +465,86 @@ const clientTranslations = generateClientTranslations(t);
     padding: var(--space-xl);
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
-  }
 
-  .gamehome-hero__decoration {
-    position: absolute;
-    inset: 0;
-    opacity: 0.1;
-    pointer-events: none;
-  }
+    @media (min-width: var(--breakpoint-lg)) {
+      padding: var(--space-2xl) var(--space-xl);
+    }
 
-  .gamehome-hero__decoration-item {
-    position: absolute;
-    border-radius: var(--radius-full);
-    background: var(--color-white);
-  }
+    @media (prefers-reduced-motion: reduce) {
+      background: var(--color-primary-800);
+    }
 
-  .gamehome-hero__decoration-item--top-right {
-    top: calc(-1 * var(--space-xl));
-    right: calc(-1 * var(--space-xl));
-    width: var(--gamehome-hero-decoration-md);
-    height: var(--gamehome-hero-decoration-md);
-  }
+    &__decoration {
+      position: absolute;
+      inset: 0;
+      opacity: 0.1;
+      pointer-events: none;
+    }
 
-  .gamehome-hero__decoration-item--bottom-left {
-    bottom: calc(-1 * var(--space-2xl));
-    left: calc(-1 * var(--space-2xl));
-    width: var(--gamehome-hero-decoration-lg);
-    height: var(--gamehome-hero-decoration-lg);
-  }
+    &__decoration-item {
+      position: absolute;
+      border-radius: var(--radius-full);
+      background: var(--color-white);
 
-  .gamehome-hero__decoration-item--center-right {
-    top: var(--percentage-half);
-    right: calc(-1 * var(--space-md));
-    width: var(--gamehome-hero-decoration-sm);
-    height: var(--gamehome-hero-decoration-sm);
-    transform: translateY(-50%);
-  }
+      &--top-right {
+        top: calc(-1 * var(--space-xl));
+        right: calc(-1 * var(--space-xl));
+        width: var(--gamehome-hero-decoration-md);
+        height: var(--gamehome-hero-decoration-md);
+      }
 
-  .gamehome-hero__content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    color: var(--color-white);
-  }
+      &--bottom-left {
+        bottom: calc(-1 * var(--space-2xl));
+        left: calc(-1 * var(--space-2xl));
+        width: var(--gamehome-hero-decoration-lg);
+        height: var(--gamehome-hero-decoration-lg);
+      }
 
-  .gamehome-hero__title {
-    margin-bottom: var(--space-lg);
-    color: var(--color-white);
-    text-shadow: var(--gamehome-hero-shadow);
-  }
+      &--center-right {
+        top: var(--percentage-half);
+        right: calc(-1 * var(--space-md));
+        width: var(--gamehome-hero-decoration-sm);
+        height: var(--gamehome-hero-decoration-sm);
+        transform: translateY(-50%);
+      }
+    }
 
-  .gamehome-hero__divider {
-    width: var(--icon-size-xl);
-    height: var(--gamehome-divider-height);
-    background: var(--color-secondary-400);
-    margin: var(--space-lg) auto;
-    border-radius: var(--radius-full);
-  }
+    &__content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: var(--color-white);
+    }
 
-  .gamehome-hero__description {
-    color: var(--color-neutral-100);
-    font-size: var(--text-xl);
-    line-height: var(--leading-relaxed);
-    max-width: var(--gamehome-content-max-width);
-    margin: 0 auto;
+    &__title {
+      margin-bottom: var(--space-lg);
+      color: var(--color-white);
+      text-shadow: var(--gamehome-hero-shadow);
+
+      @media (min-width: var(--breakpoint-lg)) {
+        font-size: var(--text-4xl);
+      }
+    }
+
+    &__divider {
+      width: var(--icon-size-xl);
+      height: var(--gamehome-divider-height);
+      background: var(--color-secondary-400);
+      margin: var(--space-lg) auto;
+      border-radius: var(--radius-full);
+    }
+
+    &__description {
+      color: var(--color-neutral-100);
+      font-size: var(--text-xl);
+      line-height: var(--leading-relaxed);
+      max-width: var(--gamehome-content-max-width);
+      margin: 0 auto;
+
+      @media (min-width: var(--breakpoint-lg)) {
+        font-size: var(--text-2xl);
+      }
+    }
   }
 
   /* ======================================
@@ -534,81 +553,85 @@ const clientTranslations = generateClientTranslations(t);
 
   .search-container {
     margin-bottom: var(--space-xl);
-  }
 
-  .search-container__wrapper {
-    position: relative;
-    max-width: var(--gamehome-search-max-width);
-    margin: 0 auto;
-  }
+    &__wrapper {
+      position: relative;
+      max-width: var(--gamehome-search-max-width);
+      margin: 0 auto;
+    }
 
-  .search-container__icon {
-    position: absolute;
-    left: var(--space-md);
-    top: var(--percentage-half);
-    transform: translateY(-50%);
-    color: var(--text-tertiary);
-    pointer-events: none;
-    z-index: 1;
-  }
+    &__icon {
+      position: absolute;
+      left: var(--space-md);
+      top: var(--percentage-half);
+      transform: translateY(-50%);
+      color: var(--text-tertiary);
+      pointer-events: none;
+      z-index: 1;
 
-  .search-container__icon-element {
-    width: var(--icon-size-md);
-    height: var(--icon-size-md);
-  }
+      &-element {
+        width: var(--icon-size-md);
+        height: var(--icon-size-md);
+      }
+    }
 
-  .search-container__input {
-    width: var(--width-full);
-    padding: var(--space-md) var(--space-md) var(--space-md) var(--gamehome-search-icon-offset);
-    border: var(--border-width-thin) solid var(--border-primary);
-    border-radius: var(--radius-lg);
-    background-color: var(--form-bg);
-    color: var(--form-text);
-    font-size: var(--text-lg);
-    line-height: var(--leading-normal);
-    transition: all var(--transition-normal);
-    box-shadow: var(--shadow-sm);
-  }
+    &__input {
+      width: var(--width-full);
+      padding: var(--space-md) var(--space-md) var(--space-md) var(--gamehome-search-icon-offset);
+      border: var(--border-width-thin) solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      background-color: var(--form-bg);
+      color: var(--form-text);
+      font-size: var(--text-lg);
+      line-height: var(--leading-normal);
+      transition: all var(--transition-normal);
+      box-shadow: var(--shadow-sm);
 
-  .search-container__input:focus {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    border-color: var(--interactive-primary);
-    box-shadow: var(--shadow-md);
-  }
+      &:focus {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+        border-color: var(--interactive-primary);
+        box-shadow: var(--shadow-md);
+      }
 
-  .search-container__input::placeholder {
-    color: var(--text-tertiary);
-  }
+      &::placeholder {
+        color: var(--text-tertiary);
+      }
 
-  .search-container__clear {
-    position: absolute;
-    right: var(--space-md);
-    top: var(--percentage-half);
-    transform: translateY(-50%);
-    padding: var(--space-xs);
-    border: none;
-    background: none;
-    color: var(--text-secondary);
-    cursor: pointer;
-    border-radius: var(--radius-sm);
-    transition: color var(--transition-fast);
-  }
+      @media (prefers-contrast: high) {
+        border-width: var(--border-width-thick);
+      }
+    }
 
-  .search-container__clear:hover {
-    color: var(--text-primary);
-  }
+    &__clear {
+      position: absolute;
+      right: var(--space-md);
+      top: var(--percentage-half);
+      transform: translateY(-50%);
+      padding: var(--space-xs);
+      border: none;
+      background: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      transition: color var(--transition-fast);
 
-  .search-container__clear:focus {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-  }
+      &:hover {
+        color: var(--text-primary);
+      }
 
-  .search-container__results-info {
-    text-align: center;
-    margin-top: var(--space-md);
-    color: var(--text-secondary);
-    font-size: var(--text-base);
+      &:focus {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+      }
+    }
+
+    &__results-info {
+      text-align: center;
+      margin-top: var(--space-md);
+      color: var(--text-secondary);
+      font-size: var(--text-base);
+    }
   }
 
   /* ======================================
@@ -624,30 +647,10 @@ const clientTranslations = generateClientTranslations(t);
     grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-width-md), 1fr));
     gap: var(--space-lg);
     margin-bottom: var(--space-xl);
-  }
 
-  @media (min-width: var(--breakpoint-sm)) {
-    .genre-grid {
+    @media (min-width: var(--breakpoint-sm)) {
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: var(--space-xl);
-    }
-  }
-
-  /* ======================================
-   * RESPONSIVE DESIGN ENHANCEMENTS
-   * ====================================== */
-
-  @media (min-width: var(--breakpoint-lg)) {
-    .gamehome-hero {
-      padding: var(--space-2xl) var(--space-xl);
-    }
-
-    .gamehome-hero__title {
-      font-size: var(--text-4xl);
-    }
-
-    .gamehome-hero__description {
-      font-size: var(--text-2xl);
     }
   }
 
@@ -659,16 +662,6 @@ const clientTranslations = generateClientTranslations(t);
     .loading-state__spinner {
       animation: none;
       border: var(--border-width-thick) solid var(--interactive-primary);
-    }
-
-    .gamehome-hero {
-      background: var(--color-primary-800);
-    }
-  }
-
-  @media (prefers-contrast: high) {
-    .search-container__input {
-      border-width: var(--border-width-thick);
     }
   }
 </style>

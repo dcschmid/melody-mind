@@ -304,7 +304,7 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
   import("/src/utils/authFormField.ts");
 </script>
 
-<style>
+<style lang="scss">
   /**
    * Auth Form Field Component Styles
    * Uses BEM methodology and CSS variables from global.css
@@ -317,139 +317,172 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
    * - Optimized selectors for faster rendering
    */
 
-  /* ======================================
+  /* =======================================
    * COMPONENT: AUTH FORM FIELD
-   * ====================================== */
+   * ======================================= */
 
-  /* Block: auth-form-field */
   .auth-form-field {
     margin-bottom: var(--space-lg);
     contain: layout style; /* Performance: CSS containment for better rendering */
+
+    // Performance: Critical path rendering optimization
+    * {
+      box-sizing: border-box;
+    }
+
+    /* ======================================
+     * LABEL GROUP SECTION
+     * ====================================== */
+
+    &__label-group {
+      display: flex;
+      align-items: var(--align-items-center);
+      justify-content: space-between;
+      margin-bottom: var(--space-sm);
+      gap: var(--space-sm);
+    }
+
+    &__label {
+      display: block;
+      font-size: var(--text-lg); /* WCAG AAA: Minimum 18px for readability */
+      font-weight: var(--font-semibold);
+      color: var(--text-primary);
+      line-height: var(--leading-relaxed); /* WCAG AAA: Enhanced line height */
+      letter-spacing: var(--letter-spacing-base);
+    }
+
+    &__required-mark {
+      color: var(--text-error-aaa);
+      margin-left: var(--space-xs);
+      font-weight: var(--font-bold);
+      font-size: var(--text-xl); /* Ensure visibility */
+    }
+
+    &__label-suffix {
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* ======================================
+     * INPUT SECTION
+     * ====================================== */
+
+    &__input-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: var(--flex-direction-column);
+    }
+
+    &__help-text {
+      font-size: var(--text-lg); /* WCAG AAA: Minimum 18px for readability */
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed); /* WCAG AAA: Enhanced readability */
+      letter-spacing: var(--letter-spacing-base);
+      margin-bottom: var(--space-sm);
+      padding: var(--space-xs) var(--space-sm);
+      background-color: var(--bg-help-info);
+      border: var(--border-width-thin) solid var(--border-help-info);
+      border-radius: var(--radius-sm);
+      will-change: opacity; /* Performance: Use will-change for potential interactions */
+      transition: opacity var(--transition-normal);
+    }
+
+    &__input {
+      width: 100%;
+      min-height: var(--min-touch-size); /* WCAG AAA: Minimum touch target */
+      padding: var(--button-padding-standard);
+      background-color: var(--form-bg);
+      border: var(--border-width-thick) solid var(--form-border);
+      border-radius: var(--radius-md);
+      color: var(--form-text);
+      font-size: var(--text-lg); /* WCAG AAA: Minimum 18px */
+      line-height: var(--leading-relaxed); /* WCAG AAA: 1.5+ line height */
+      letter-spacing: var(--letter-spacing-base);
+      appearance: none;
+      will-change: border-color, background-color, box-shadow; /* Performance hint */
+      touch-action: manipulation; /* Performance: Optimize touch handling */
+      transform: translateZ(0); /* Performance: Minimize layout shifts during loading */
+
+      /* Performance: Use transform-based transitions for better performance */
+      transition:
+        border-color var(--transition-normal),
+        background-color var(--transition-normal),
+        box-shadow var(--transition-normal),
+        transform var(--transition-fast);
+
+      /* ======================================
+       * INPUT STATES
+       * ====================================== */
+
+      &::placeholder {
+        color: var(--form-placeholder);
+        opacity: var(--opacity-medium);
+        font-size: var(--text-lg);
+      }
+
+      // Shared focus state styles for better DRY compliance
+      &:focus,
+      &:focus-visible {
+        border-color: var(--border-focus);
+        background-color: var(--bg-tertiary);
+        transform: translateZ(0); /* Performance: Force hardware acceleration */
+        outline: none;
+        box-shadow: var(--focus-ring);
+      }
+
+      // WCAG 2.2 Enhanced Focus Indicators
+      &:focus-visible {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-enhanced-shadow);
+      }
+
+      // Modifier: focused state
+      &--focused {
+        border-color: var(--interactive-primary);
+        background-color: var(--bg-tertiary);
+      }
+
+      // Modifier: error state - WCAG AAA Enhanced with GPU acceleration
+      &--error {
+        border-color: var(--border-error);
+        background-color: var(--bg-error-aaa);
+        animation: error-shake var(--transition-normal) ease-in-out;
+        will-change: transform; /* Performance hint for animation */
+
+        &:focus {
+          border-color: var(--border-error);
+          box-shadow: var(--focus-enhanced-shadow);
+        }
+      }
+    }
+
+    /* ======================================
+     * ERROR MESSAGE SECTION
+     * ====================================== */
+
+    &__error-message {
+      display: none;
+      margin-top: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      font-size: var(--text-lg); /* WCAG AAA: Minimum 18px */
+      color: var(--text-error-aaa);
+      background-color: var(--bg-error-aaa);
+      border: var(--border-width-thick) solid var(--border-error);
+      border-radius: var(--radius-sm);
+      line-height: var(--leading-relaxed);
+      font-weight: var(--font-medium);
+      contain: layout style; /* Performance: Optimize for layout changes */
+      transform: translateZ(0); /* Performance: Minimize layout shifts during loading */
+    }
   }
 
-  /* Element: label-group */
-  .auth-form-field__label-group {
-    display: flex;
-    align-items: var(--align-items-center);
-    justify-content: space-between;
-    margin-bottom: var(--space-sm);
-    gap: var(--space-sm);
-  }
+  /* =======================================
+   * ANIMATIONS
+   * ======================================= */
 
-  /* Element: label */
-  .auth-form-field__label {
-    display: block;
-    font-size: var(--text-lg); /* WCAG AAA: Minimum 18px for readability */
-    font-weight: var(--font-semibold);
-    color: var(--text-primary);
-    line-height: var(--leading-relaxed); /* WCAG AAA: Enhanced line height */
-    letter-spacing: var(--letter-spacing-base);
-  }
-
-  /* Element: required-mark */
-  .auth-form-field__required-mark {
-    color: var(--text-error-aaa);
-    margin-left: var(--space-xs);
-    font-weight: var(--font-bold);
-    font-size: var(--text-xl); /* Ensure visibility */
-  }
-
-  /* Element: label-suffix */
-  .auth-form-field__label-suffix {
-    font-size: var(--text-lg);
-    color: var(--text-secondary);
-    line-height: var(--leading-relaxed);
-  }
-
-  /* Element: input-wrapper */
-  .auth-form-field__input-wrapper {
-    position: relative;
-    display: flex;
-    flex-direction: var(--flex-direction-column);
-  }
-
-  /* Element: help-text - WCAG AAA Compliant */
-  .auth-form-field__help-text {
-    font-size: var(--text-lg); /* WCAG AAA: Minimum 18px for readability */
-    color: var(--text-secondary);
-    line-height: var(--leading-relaxed); /* WCAG AAA: Enhanced readability */
-    letter-spacing: var(--letter-spacing-base);
-    margin-bottom: var(--space-sm);
-    padding: var(--space-xs) var(--space-sm);
-    background-color: var(--bg-help-info);
-    border: var(--border-width-thin) solid var(--border-help-info);
-    border-radius: var(--radius-sm);
-
-    /* Performance: Use will-change for potential interactions */
-    will-change: opacity;
-    transition: opacity var(--transition-normal);
-  }
-
-  /* Element: input - WCAG AAA Enhanced with Performance */
-  .auth-form-field__input {
-    width: 100%;
-    min-height: var(--min-touch-size); /* WCAG AAA: Minimum touch target */
-    padding: var(--button-padding-standard);
-    background-color: var(--form-bg);
-    border: var(--border-width-thick) solid var(--form-border);
-    border-radius: var(--radius-md);
-    color: var(--form-text);
-    font-size: var(--text-lg); /* WCAG AAA: Minimum 18px */
-    line-height: var(--leading-relaxed); /* WCAG AAA: 1.5+ line height */
-    letter-spacing: var(--letter-spacing-base);
-
-    /* Performance: Use transform-based transitions for better performance */
-    transition:
-      border-color var(--transition-normal),
-      background-color var(--transition-normal),
-      box-shadow var(--transition-normal),
-      transform var(--transition-fast);
-
-    appearance: none;
-    will-change: border-color, background-color, box-shadow; /* Performance hint */
-    touch-action: manipulation; /* Performance: Optimize touch handling */
-  }
-
-  /* ======================================
-   * SHARED STYLES - DRY Principle Applied
-   * ====================================== */
-
-  /* Shared focus state styles for better DRY compliance */
-  .auth-form-field__input:focus,
-  .auth-form-field__input:focus-visible {
-    border-color: var(--border-focus);
-    background-color: var(--bg-tertiary);
-    transform: translateZ(0); /* Performance: Force hardware acceleration */
-  }
-
-  /* Enhanced Focus State - WCAG AAA 2.2 Compliant with Performance */
-  .auth-form-field__input:focus {
-    outline: none;
-    box-shadow: var(--focus-ring);
-  }
-
-  /* WCAG 2.2 Enhanced Focus Indicators */
-  .auth-form-field__input:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-enhanced-shadow);
-  }
-
-  /* Modifier: focused state */
-  .auth-form-field__input--focused {
-    border-color: var(--interactive-primary);
-    background-color: var(--bg-tertiary);
-  }
-
-  /* Modifier: error state - WCAG AAA Enhanced with GPU acceleration */
-  .auth-form-field__input--error {
-    border-color: var(--border-error);
-    background-color: var(--bg-error-aaa);
-    animation: error-shake var(--transition-normal) ease-in-out;
-    will-change: transform; /* Performance hint for animation */
-  }
-
-  /* Performance optimized shake animation using transform */
+  // Performance optimized shake animation using transform
   @keyframes error-shake {
     0%,
     100% {
@@ -463,100 +496,83 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
     }
   }
 
-  .auth-form-field__input--error:focus {
-    border-color: var(--border-error);
-    box-shadow: var(--focus-enhanced-shadow);
-  }
+  /* =======================================
+   * RESPONSIVE DESIGN
+   * ======================================= */
 
-  /* Input placeholder styles */
-  .auth-form-field__input::placeholder {
-    color: var(--form-placeholder);
-    opacity: var(--opacity-medium);
-    font-size: var(--text-lg);
-  }
-
-  /* Element: error-message - WCAG AAA Enhanced */
-  .auth-form-field__error-message {
-    display: none;
-    margin-top: var(--space-sm);
-    padding: var(--space-sm) var(--space-md);
-    font-size: var(--text-lg); /* WCAG AAA: Minimum 18px */
-    color: var(--text-error-aaa);
-    background-color: var(--bg-error-aaa);
-    border: var(--border-width-thick) solid var(--border-error);
-    border-radius: var(--radius-sm);
-    line-height: var(--leading-relaxed);
-    font-weight: var(--font-medium);
-
-    /* Performance: Optimize for layout changes */
-    contain: layout style;
-  }
-
-  /* ======================================
-   * RESPONSIVE DESIGN - Performance Optimized
-   * ====================================== */
-
-  /* Shared responsive text scaling - DRY principle */
+  // Shared responsive text scaling - DRY principle
   @media (min-width: var(--breakpoint-sm)) {
-    .auth-form-field__label,
-    .auth-form-field__error-message,
-    .auth-form-field__help-text {
-      font-size: var(--text-xl);
-    }
+    .auth-form-field {
+      &__label,
+      &__error-message,
+      &__help-text {
+        font-size: var(--text-xl);
+      }
 
-    .auth-form-field__input {
-      font-size: var(--text-xl);
-      padding: var(--button-padding-enhanced);
+      &__input {
+        font-size: var(--text-xl);
+        padding: var(--button-padding-enhanced);
+      }
     }
   }
 
   @media (min-width: var(--breakpoint-md)) {
-    .auth-form-field__input {
-      min-height: calc(var(--min-touch-size) + var(--space-sm));
+    .auth-form-field {
+      &__input {
+        min-height: calc(var(--min-touch-size) + var(--space-sm));
+      }
     }
   }
 
-  /* ======================================
-   * ACCESSIBILITY ENHANCEMENTS - Performance Focused
-   * ====================================== */
+  /* =======================================
+   * ACCESSIBILITY ENHANCEMENTS
+   * ======================================= */
 
-  /* High contrast mode support - WCAG AAA - DRY optimized */
+  // High contrast mode support - WCAG AAA - DRY optimized
   @media (prefers-contrast: high) {
-    .auth-form-field__input {
-      border-width: var(--border-width-enhanced);
-      border-color: var(--text-primary);
-      background-color: var(--bg-primary);
-      filter: var(--filter-high-contrast-select);
-    }
+    .auth-form-field {
+      &__input {
+        border-width: var(--border-width-enhanced);
+        border-color: var(--text-primary);
+        background-color: var(--bg-primary);
+        filter: var(--filter-high-contrast-select);
 
-    .auth-form-field__input:focus {
-      border-color: var(--interactive-primary);
-      box-shadow: var(--focus-enhanced-shadow);
-    }
+        &:focus {
+          border-color: var(--interactive-primary);
+          box-shadow: var(--focus-enhanced-shadow);
+        }
+      }
 
-    .auth-form-field__required-mark,
-    .auth-form-field__label {
-      font-weight: var(--font-bold);
-    }
+      &__required-mark,
+      &__label {
+        font-weight: var(--font-bold);
+      }
 
-    .auth-form-field__required-mark {
-      text-shadow: var(--space-micro) var(--space-micro) var(--space-xs) var(--bg-primary);
-    }
+      &__required-mark {
+        text-shadow: var(--space-micro) var(--space-micro) var(--space-xs) var(--bg-primary);
+      }
 
-    .auth-form-field__error-message {
-      background-color: var(--bg-error-aaa);
-      border-width: var(--border-width-enhanced);
-      font-weight: var(--font-semibold);
+      &__error-message {
+        background-color: var(--bg-error-aaa);
+        border-width: var(--border-width-enhanced);
+        font-weight: var(--font-semibold);
+      }
     }
   }
 
-  /* Performance: Reduced Motion Support - WCAG AAA */
+  // Performance: Reduced Motion Support - WCAG AAA
   @media (prefers-reduced-motion: reduce) {
-    .auth-form-field__input,
-    .auth-form-field__input--error {
-      transition: none;
-      will-change: auto; /* Remove performance hints when motion is reduced */
-      animation: none;
+    .auth-form-field {
+      &__input {
+        transition: none;
+        will-change: auto; /* Remove performance hints when motion is reduced */
+        animation: none;
+
+        &--error {
+          transition: none;
+          animation: none;
+        }
+      }
     }
 
     @keyframes error-shake {
@@ -567,64 +583,50 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
     }
   }
 
-  /* Performance: Touch devices optimization - WCAG AAA */
+  // Performance: Touch devices optimization - WCAG AAA
   @media (hover: none) and (pointer: coarse) {
-    .auth-form-field__input {
-      min-height: var(--enhanced-gap-mobile); /* Enhanced touch target using predefined gap */
-      padding: var(--button-padding-enhanced);
-      font-size: var(--text-xl); /* Prevent zoom on mobile */
-      touch-action: manipulation; /* Performance: Optimize touch handling */
-      filter: var(--filter-enhanced-mobile); /* Enhanced visibility on mobile */
+    .auth-form-field {
+      &__input {
+        min-height: var(--enhanced-gap-mobile); /* Enhanced touch target using predefined gap */
+        padding: var(--button-padding-enhanced);
+        font-size: var(--text-xl); /* Prevent zoom on mobile */
+        touch-action: manipulation; /* Performance: Optimize touch handling */
+        filter: var(--filter-enhanced-mobile); /* Enhanced visibility on mobile */
+
+        &:focus {
+          transform: scale(var(--scale-focus));
+          transition: transform var(--transition-fast);
+        }
+      }
+
+      &__label,
+      &__error-message,
+      &__help-text {
+        font-size: var(--text-xl);
+      }
+
+      &__label {
+        margin-bottom: var(--space-md);
+      }
+
+      &__error-message {
+        padding: var(--space-md) var(--space-lg);
+      }
+
+      // Enhanced Mobile Touch Optimization
+      &__help-text {
+        padding: var(--space-md) var(--space-lg);
+        font-size: var(--text-xl);
+        line-height: var(--leading-relaxed);
+        min-height: calc(var(--min-touch-size) - var(--space-sm));
+        display: flex;
+        align-items: var(--align-items-center);
+      }
+
+      // Enhanced touch targets for interactive elements
+      &__input-wrapper {
+        gap: var(--space-md);
+      }
     }
-
-    .auth-form-field__label,
-    .auth-form-field__error-message,
-    .auth-form-field__help-text {
-      font-size: var(--text-xl);
-    }
-
-    .auth-form-field__label {
-      margin-bottom: var(--space-md);
-    }
-
-    .auth-form-field__error-message {
-      padding: var(--space-md) var(--space-lg);
-    }
-
-    /* Enhanced Mobile Touch Optimization */
-    .auth-form-field__help-text {
-      padding: var(--space-md) var(--space-lg);
-      font-size: var(--text-xl);
-      line-height: var(--leading-relaxed);
-      min-height: calc(var(--min-touch-size) - var(--space-sm));
-      display: flex;
-      align-items: var(--align-items-center);
-    }
-
-    /* Enhanced touch targets for interactive elements */
-    .auth-form-field__input-wrapper {
-      gap: var(--space-md);
-    }
-
-    /* Better touch feedback for focus states */
-    .auth-form-field__input:focus {
-      transform: scale(var(--scale-focus));
-      transition: transform var(--transition-fast);
-    }
-  }
-
-  /* ======================================
-   * THEME SUPPORT - Performance Optimized
-   * ====================================== */
-
-  /* Performance: Critical path rendering optimization */
-  .auth-form-field * {
-    box-sizing: border-box;
-  }
-
-  /* Performance: Minimize layout shifts during loading */
-  .auth-form-field__input,
-  .auth-form-field__error-message {
-    transform: translateZ(0); /* Create new stacking context for performance */
   }
 </style>

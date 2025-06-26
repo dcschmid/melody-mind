@@ -11,7 +11,25 @@
  *    - Implemented text shadows for improved readability
  *    - Added support for forced-colors and prefers-contrast media queries
  *
- * 2. ✅ Enhanced Text Spacing Implementation
+ * 2. ✅ Enhanc  .popup__btn--primary {
+    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
+    color: var(--color-white);
+
+    &:hover {
+      background: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-800) 100%);
+    }
+  }
+
+  .popup__btn--secondary {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: var(--border-width-thin) solid var(--border-primary);
+
+    &:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-secondary);
+    }
+  }Implementation
  *    - Added enhanced line spacing (--leading-enhanced)
  *    - Implemented improved letter spacing (--letter-spacing-enhanced)
  *    - Added proper word spacing (--word-spacing-enhanced)
@@ -275,7 +293,7 @@ const clientTranslations = {
   </div>
 </div>
 
-<style>
+<style lang="scss">
   /* =================================================
    * END OVERLAY - PURE CSS IMPLEMENTATION
    * Uses only global.css root variables
@@ -295,12 +313,17 @@ const clientTranslations = {
     backdrop-filter: blur(var(--backdrop-blur));
     -webkit-backdrop-filter: blur(var(--backdrop-blur));
     transition: opacity var(--transition-normal);
-  }
 
-  .popup.hidden {
-    pointer-events: none;
-    visibility: hidden;
-    opacity: 0;
+    &.hidden {
+      pointer-events: none;
+      visibility: hidden;
+      opacity: 0;
+
+      .popup__content {
+        transform: translateY(var(--space-lg)) scale(0.98);
+        opacity: 0;
+      }
+    }
   }
 
   /* Backdrop for click-to-close */
@@ -326,11 +349,6 @@ const clientTranslations = {
     transition:
       transform var(--transition-normal),
       opacity var(--transition-normal);
-  }
-
-  .popup.hidden .popup__content {
-    transform: translateY(var(--space-lg)) scale(0.98);
-    opacity: 0;
   }
 
   /* Achievement badge with trophy */
@@ -421,22 +439,22 @@ const clientTranslations = {
     transform-origin: left center;
     transition: transform var(--transition-slow);
     will-change: transform;
-  }
 
-  .achievement-progress__bar::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.2) 50%,
-      transparent 100%
-    );
-    animation: shimmer var(--animation-shimmer-duration) infinite;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 100%
+      );
+      animation: shimmer var(--animation-shimmer-duration) infinite;
+    }
   }
 
   /* Motivation text - Enhanced with improved text spacing */
@@ -528,10 +546,10 @@ const clientTranslations = {
     border: var(--border-width-thin) solid var(--border-primary);
     border-radius: var(--radius-lg);
     transition: transform var(--transition-normal);
-  }
 
-  .achievement-item:hover {
-    transform: translateY(calc(-1 * var(--space-micro)));
+    &:hover {
+      transform: translateY(calc(-1 * var(--space-micro)));
+    }
   }
 
   /* ================================================= 
@@ -564,21 +582,17 @@ const clientTranslations = {
     padding-bottom: max(var(--space-md), 12px);
     padding-left: max(var(--space-xl), 16px);
     padding-right: max(var(--space-xl), 16px);
-  }
 
-  /* Base button hover effects */
-  .btn-base:hover,
-  .popup__btn:hover,
-  .share-btn:hover {
-    transform: translateY(var(--animation-y-offset-small));
-  }
+    /* Base button hover effects */
+    &:hover {
+      transform: translateY(var(--animation-y-offset-small));
+    }
 
-  /* Base button focus styles */
-  .btn-base:focus-visible,
-  .popup__btn:focus-visible,
-  .share-btn:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
+    /* Base button focus styles */
+    &:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+    }
   }
 
   /* Share section */
@@ -595,14 +609,14 @@ const clientTranslations = {
       var(--color-secondary-700) 100%
     );
     color: var(--color-white);
-  }
 
-  .share-btn:hover {
-    background: linear-gradient(
-      135deg,
-      var(--color-secondary-700) 0%,
-      var(--color-secondary-800) 100%
-    );
+    &:hover {
+      background: linear-gradient(
+        135deg,
+        var(--color-secondary-700) 0%,
+        var(--color-secondary-800) 100%
+      );
+    }
   }
 
   /* Button wrapper */

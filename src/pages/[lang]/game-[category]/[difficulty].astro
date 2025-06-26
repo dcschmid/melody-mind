@@ -12,7 +12,6 @@
  */
 import Layout from "@layouts/Layout.astro";
 import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
-import GameHeadline from "@components/Game/GameHeadline.astro";
 import FeedbackOverlay from "@components/Overlays/FeedbackOverlay.astro";
 import EndOverlay from "@components/Overlays/EndOverlay.astro";
 import LoadingSpinner from "@components/Game/LoadingSpinner.astro";
@@ -32,7 +31,22 @@ export const prerender = false;
  */
 export async function getStaticPaths() {
   // Define all supported languages for type safety
-  const supportedLanguages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi", "cn", "ru", "jp", "uk"] as const;
+  const supportedLanguages = [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt",
+    "da",
+    "nl",
+    "sv",
+    "fi",
+    "cn",
+    "ru",
+    "jp",
+    "uk",
+  ] as const;
 
   // Define available difficulty levels
   const difficultyLevels = ["easy", "medium", "hard"] as const;
@@ -349,23 +363,28 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   }
 </script>
 
-<style is:global>
+<style lang="scss" is:global>
   /* Global styles for game functionality with WCAG AAA compliance */
 
   /* Overlay states */
-  .overlay.hidden,
-  .popup.hidden,
-  #question-container[data-hidden="true"] {
-    display: none;
+  .overlay,
+  .popup {
+    &.hidden {
+      display: none;
+    }
   }
 
-  /* Coin update animation with reduced motion support - NOW HANDLED IN CONSOLIDATED SECTION */
+  #question-container {
+    &[data-hidden="true"] {
+      display: none;
+    }
+  }
+
+  /* Coin update animation with reduced motion support */
   .coins-updated {
     color: var(--color-warning-400);
-  }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .coins-updated {
+    @media (prefers-reduced-motion: no-preference) {
       animation: coinPulseAAA var(--animation-duration-extended) ease-in-out;
     }
   }
@@ -395,10 +414,10 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     }
   }
 
-    /* ======================================
+  /* ======================================
    * Game Option Buttons - Replacing Tailwind Classes
    * ====================================== */
-  
+
   /* Main option button styling */
   .game-option-button {
     position: relative;
@@ -417,41 +436,41 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     min-height: var(--min-touch-size);
     display: flex;
     align-items: center;
-  }
 
-  .game-option-button:hover {
-    background-color: var(--bg-tertiary);
-    border-color: var(--border-secondary);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-1px);
-  }
+    &:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-secondary);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
 
-  .game-option-button:focus-visible {
-    outline: 2px solid var(--border-focus);
-    outline-offset: 2px;
-    box-shadow: var(--focus-ring);
-  }
+    &:focus-visible {
+      outline: 2px solid var(--border-focus);
+      outline-offset: 2px;
+      box-shadow: var(--focus-ring);
+    }
 
-  .game-option-button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-  }
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
 
-  /* Option number styling */
-  .game-option-button__number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: var(--space-2xl);
-    height: var(--space-2xl);
-    margin-right: var(--space-md);
-    border-radius: var(--radius-full);
-    background-color: var(--color-neutral-700);
-    color: var(--text-primary);
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
-    flex-shrink: 0;
+    /* Option number styling */
+    &__number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--space-2xl);
+      height: var(--space-2xl);
+      margin-right: var(--space-md);
+      border-radius: var(--radius-full);
+      background-color: var(--color-neutral-700);
+      color: var(--text-primary);
+      font-size: var(--text-sm);
+      font-weight: var(--font-bold);
+      flex-shrink: 0;
+    }
   }
 
   /* Option text styling */
@@ -461,28 +480,30 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   }
 
   /* Selected option state */
-  .game-option-button.selected-option {
-    background-color: var(--interactive-primary);
-    border-color: var(--color-primary-500);
-    color: var(--btn-primary-text);
-  }
+  .game-option-button {
+    &.selected-option {
+      background-color: var(--interactive-primary);
+      border-color: var(--color-primary-500);
+      color: var(--btn-primary-text);
 
-  .game-option-button.selected-option .game-option-button__number {
-    background-color: var(--color-primary-600);
-    color: var(--btn-primary-text);
-  }
+      .game-option-button__number {
+        background-color: var(--color-primary-600);
+        color: var(--btn-primary-text);
+      }
+    }
 
-  /* Correct/Incorrect states for feedback */
-  .game-option-button[data-correct="true"] {
-    background-color: var(--color-success-600);
-    border-color: var(--color-success-500);
-    color: var(--text-primary);
-  }
+    /* Correct/Incorrect states for feedback */
+    &[data-correct="true"] {
+      background-color: var(--color-success-600);
+      border-color: var(--color-success-500);
+      color: var(--text-primary);
+    }
 
-  .game-option-button[data-incorrect="true"] {
-    background-color: var(--color-error-600);
-    border-color: var(--color-error-500);
-    color: var(--text-primary);
+    &[data-incorrect="true"] {
+      background-color: var(--color-error-600);
+      border-color: var(--color-error-500);
+      color: var(--text-primary);
+    }
   }
 
   /* Enhanced focus styles for WCAG AAA keyboard navigation - NOW CONSOLIDATED BELOW */
@@ -490,7 +511,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   /* Accessibility optimizations for various browsers/modes - NOW CONSOLIDATED BELOW */
 </style>
 
-<style>
+<style lang="scss">
   /**
    * Game Page Component Styles - ULTRA MODERN GLASSMORPHISM DESIGN
    * 
@@ -530,7 +551,8 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   }
 
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px);
     }
     50% {
@@ -548,14 +570,15 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   }
 
   @keyframes glow {
-    0%, 100% {
-      box-shadow: 
+    0%,
+    100% {
+      box-shadow:
         0 25px 50px rgba(0, 0, 0, 0.3),
         0 0 60px rgba(139, 92, 246, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
     50% {
-      box-shadow: 
+      box-shadow:
         0 25px 50px rgba(0, 0, 0, 0.3),
         0 0 80px rgba(139, 92, 246, 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.15);
@@ -569,17 +592,17 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     margin-bottom: var(--space-xl);
     position: relative;
     z-index: 1;
-  }
 
-  /* Game info badges container - Enhanced layout */
-  .game-header__badges {
-    margin-top: var(--space-xl);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-lg);
-    animation: fadeInUp 0.8s ease-out;
+    /* Game info badges container - Enhanced layout */
+    &__badges {
+      margin-top: var(--space-xl);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-lg);
+      animation: fadeInUp 0.8s ease-out;
+    }
   }
 
   /* Individual game badge - Ultra modern glassmorphism design */
@@ -599,11 +622,13 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     padding: var(--space-md) var(--space-xl);
-    box-shadow: 
+    box-shadow:
       var(--shadow-xl),
       0 0 30px rgba(139, 92, 246, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    transition: all var(--transition-normal), transform var(--transition-fast);
+    transition:
+      all var(--transition-normal),
+      transform var(--transition-fast);
     cursor: default;
     overflow: hidden;
     animation: fadeInUp 0.6s ease-out both;
@@ -626,12 +651,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.3),
-      transparent
-    );
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     transition: left var(--transition-slow);
     z-index: 1;
   }
@@ -639,7 +659,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   /* Enhanced hover effect with floating animation */
   .game-badge:hover {
     transform: translateY(-4px) scale(1.02);
-    box-shadow: 
+    box-shadow:
       0 20px 40px rgba(0, 0, 0, 0.2),
       0 0 50px rgba(139, 92, 246, 0.5),
       inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -663,9 +683,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   }
 
   .game-badge:hover .game-badge__icon {
-    filter: 
-      drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))
-      drop-shadow(0 0 12px rgba(255, 255, 255, 0.5));
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 12px rgba(255, 255, 255, 0.5));
     transform: scale(1.1);
   }
 
@@ -682,7 +700,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     font-size: var(--text-base);
     font-weight: var(--font-bold);
     color: var(--text-primary);
-    text-shadow: 
+    text-shadow:
       0 1px 2px rgba(0, 0, 0, 0.5),
       0 0 20px rgba(255, 255, 255, 0.3);
     letter-spacing: 0.05em;
@@ -692,7 +710,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   }
 
   .game-badge:hover .game-badge__text {
-    text-shadow: 
+    text-shadow:
       0 1px 2px rgba(0, 0, 0, 0.5),
       0 0 30px rgba(255, 255, 255, 0.6);
     transform: translateY(-1px);
@@ -717,7 +735,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       rgba(219, 39, 119, 0.85) 50%,
       rgba(190, 24, 93, 0.95) 100%
     );
-    box-shadow: 
+    box-shadow:
       0 20px 40px rgba(0, 0, 0, 0.2),
       0 0 50px rgba(244, 63, 94, 0.5),
       inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -733,25 +751,27 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     max-width: var(--container-lg);
     border-radius: var(--radius-2xl);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background: 
-      linear-gradient(135deg, 
-        rgba(17, 24, 39, 0.95) 0%,
-        rgba(31, 41, 55, 0.9) 50%,
-        rgba(17, 24, 39, 0.95) 100%
-      );
+    background: linear-gradient(
+      135deg,
+      rgba(17, 24, 39, 0.95) 0%,
+      rgba(31, 41, 55, 0.9) 50%,
+      rgba(17, 24, 39, 0.95) 100%
+    );
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     padding: var(--space-2xl);
     text-align: center;
     opacity: var(--animation-opacity-full);
-    box-shadow: 
+    box-shadow:
       0 25px 50px rgba(0, 0, 0, 0.3),
       0 0 60px rgba(139, 92, 246, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transition: all var(--transition-slow);
     position: relative;
     overflow: hidden;
-    animation: fadeInUp 1s ease-out 0.3s both, glow 4s ease-in-out infinite;
+    animation:
+      fadeInUp 1s ease-out 0.3s both,
+      glow 4s ease-in-out infinite;
   }
 
   /* Animated background pattern */
@@ -762,7 +782,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
       radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
       radial-gradient(circle at 80% 20%, rgba(244, 63, 94, 0.1) 0%, transparent 50%),
       radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
@@ -783,7 +803,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     font-weight: var(--font-bold);
     line-height: var(--leading-enhanced);
     color: var(--text-primary);
-    text-shadow: 
+    text-shadow:
       0 2px 4px rgba(0, 0, 0, 0.3),
       0 0 30px rgba(255, 255, 255, 0.1);
     position: relative;
@@ -813,8 +833,6 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     position: relative;
     z-index: 2;
   }
-
-
 
   /* ======================================
    * Responsive Adjustments
@@ -929,21 +947,24 @@ const totalRounds = getRoundsForDifficulty(difficulty);
 
     /* Disable all keyframe animations */
     @keyframes fadeInUp {
-      from, to {
+      from,
+      to {
         opacity: 1;
         transform: none;
       }
     }
 
     @keyframes float {
-      from, to {
+      from,
+      to {
         transform: none;
       }
     }
 
     @keyframes glow {
-      from, to {
-        box-shadow: 
+      from,
+      to {
+        box-shadow:
           0 25px 50px rgba(0, 0, 0, 0.3),
           0 0 60px rgba(139, 92, 246, 0.1),
           inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -970,8 +991,6 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       0 25px 50px rgba(0, 0, 0, 0.3),
       0 0 60px rgba(139, 92, 246, 0.2);
   }
-
-
 
   /* ======================================
    * Accessibility Enhancements - Consolidated Media Queries (DRY)
@@ -1084,9 +1103,6 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       background: var(--print-bg) !important;
       box-shadow: none;
     }
-      break-inside: avoid;
-      border: var(--print-border);
-    }
 
     .game-header {
       break-inside: avoid;
@@ -1097,11 +1113,13 @@ const totalRounds = getRoundsForDifficulty(difficulty);
    * Enhanced Focus Management (WCAG AAA) - DRY Consolidated
    * ====================================== */
   /* Shared focus styles for all interactive elements - DRY principle */
-  .game-badge:focus-visible,
-  .game-container:focus-visible,
+  .game-badge,
+  .game-container,
   :focus-visible {
-    outline: var(--focus-enhanced-outline-dark);
-    outline-offset: var(--focus-ring-offset);
+    &:focus-visible {
+      outline: var(--focus-enhanced-outline-dark);
+      outline-offset: var(--focus-ring-offset);
+    }
   }
 
   /* Touch target enhancement for mobile accessibility - using CSS variables */

@@ -290,9 +290,9 @@ const achievementStats = calculateAchievementStats(achievements);
   <AchievementNotification lang={langString} />
 </Layout>
 
-<style>
+<style lang="scss">
   /**
-   * Achievements Page CSS - WCAG AAA 2.2 Compliant & Performance Optimized
+   * Achievements Page SCSS - WCAG AAA 2.2 Compliant & Performance Optimized
    * 
    * COMPREHENSIVE OPTIMIZATION FEATURES:
    * - Mandatory CSS custom properties from global.css for design consistency
@@ -360,10 +360,8 @@ const achievementStats = calculateAchievementStats(achievements);
 
     /* Enhanced content visibility for performance optimization */
     contain: layout style;
-  }
 
-  @media (min-width: var(--breakpoint-md)) {
-    .achievements-container {
+    @media (min-width: var(--breakpoint-md)) {
       padding: var(--space-xl) var(--space-lg);
     }
   }
@@ -387,82 +385,80 @@ const achievementStats = calculateAchievementStats(achievements);
     padding: var(--space-xl);
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
-  }
 
-  @media (min-width: 768px) {
-    .achievements-hero {
+    @media (min-width: 768px) {
       margin-bottom: var(--space-3xl);
       border-radius: var(--radius-2xl);
       padding: var(--space-2xl) var(--space-xl);
     }
-  }
 
-  .achievements-hero__decoration {
-    position: absolute;
-    inset: 0;
-    opacity: 0.1;
-    pointer-events: none;
-  }
+    &__decoration {
+      position: absolute;
+      inset: 0;
+      opacity: 0.1;
+      pointer-events: none;
 
-  .achievements-hero__decoration-item {
-    position: absolute;
-    border-radius: var(--radius-full);
-    background: var(--color-white);
-  }
+      &-item {
+        position: absolute;
+        border-radius: var(--radius-full);
+        background: var(--color-white);
 
-  .achievements-hero__decoration-item--top-right {
-    top: calc(-1 * var(--space-xl));
-    right: calc(-1 * var(--space-xl));
-    width: var(--achievements-hero-decoration-md);
-    height: var(--achievements-hero-decoration-md);
-  }
+        &--top-right {
+          top: calc(-1 * var(--space-xl));
+          right: calc(-1 * var(--space-xl));
+          width: var(--achievements-hero-decoration-md);
+          height: var(--achievements-hero-decoration-md);
+        }
 
-  .achievements-hero__decoration-item--bottom-left {
-    bottom: calc(-1 * var(--space-2xl));
-    left: calc(-1 * var(--space-2xl));
-    width: var(--achievements-hero-decoration-lg);
-    height: var(--achievements-hero-decoration-lg);
-  }
+        &--bottom-left {
+          bottom: calc(-1 * var(--space-2xl));
+          left: calc(-1 * var(--space-2xl));
+          width: var(--achievements-hero-decoration-lg);
+          height: var(--achievements-hero-decoration-lg);
+        }
 
-  .achievements-hero__decoration-item--center-right {
-    top: 50%;
-    right: calc(-1 * var(--space-md));
-    width: var(--achievements-hero-decoration-sm);
-    height: var(--achievements-hero-decoration-sm);
-    transform: translateY(-50%);
-  }
+        &--center-right {
+          top: 50%;
+          right: calc(-1 * var(--space-md));
+          width: var(--achievements-hero-decoration-sm);
+          height: var(--achievements-hero-decoration-sm);
+          transform: translateY(-50%);
+        }
+      }
+    }
 
-  .achievements-hero__content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    color: var(--color-white);
-  }
+    &__content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: var(--color-white);
+    }
 
-  .achievements-hero__title {
-    margin-bottom: var(--space-lg);
-    color: var(--color-white);
-    text-shadow: var(--achievements-hero-shadow);
-  }
+    &__title {
+      margin-bottom: var(--space-lg);
+      color: var(--color-white);
+      text-shadow: var(--achievements-hero-shadow);
+    }
 
-  .achievements-hero__divider {
-    width: var(--space-2xl);
-    height: var(--achievements-divider-height);
-    background: var(--color-secondary-400);
-    margin: var(--space-lg) auto;
-    border-radius: var(--radius-full);
-  }
+    &__divider {
+      width: var(--space-2xl);
+      height: var(--achievements-divider-height);
+      background: var(--color-secondary-400);
+      margin: var(--space-lg) auto;
+      border-radius: var(--radius-full);
+    }
 
-  .achievements-hero__description {
-    color: var(--color-neutral-100);
-    font-size: var(--text-xl);
-    line-height: var(--leading-relaxed);
-    max-width: var(--achievements-content-max-width);
-    margin: 0 auto;
-  }
+    &__description {
+      color: var(--color-neutral-100);
+      font-size: var(--text-xl);
+      line-height: var(--leading-relaxed);
+      max-width: var(--achievements-content-max-width);
+      margin: 0 auto;
+    }
 
-  .achievements-hero__seo-description {
-    /* SEO content hidden visually but available to screen readers */
+    &__seo-description {
+      /* SEO content hidden visually but available to screen readers */
+    }
   }
 
   /* ======================================
@@ -470,295 +466,271 @@ const achievementStats = calculateAchievementStats(achievements);
    * ====================================== */
 
   /* Consolidated card-like components using semantic variables */
-  .achievements__auth-required,
-  .achievements__empty,
-  .achievements__summary {
-    /* Shared layout and spacing using design tokens */
-    margin-bottom: var(--space-lg);
-    padding: var(--space-lg);
-    border-radius: var(--radius-md);
-    text-align: center;
-    border: var(--border-width-thin) solid var(--border-primary);
-    background-color: var(--card-bg);
-    box-shadow: var(--card-shadow);
+  .achievements {
+    &__auth-required,
+    &__empty,
+    &__summary {
+      /* Shared layout and spacing using design tokens */
+      margin-bottom: var(--space-lg);
+      padding: var(--space-lg);
+      border-radius: var(--radius-md);
+      text-align: center;
+      border: var(--border-width-thin) solid var(--border-primary);
+      background-color: var(--card-bg);
+      box-shadow: var(--card-shadow);
 
-    /* Enhanced accessibility and UX using existing touch target variable */
-    min-height: var(--min-touch-size);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+      /* Enhanced accessibility and UX using existing touch target variable */
+      min-height: var(--min-touch-size);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-    /* Performance optimizations with CSS containment */
-    contain: layout style;
+      /* Performance optimizations with CSS containment */
+      contain: layout style;
 
-    /* Smooth hover effect using semantic transition variables */
-    transition:
-      box-shadow var(--transition-normal),
-      border-color var(--transition-fast),
-      background-color var(--transition-fast);
+      /* Smooth hover effect using semantic transition variables */
+      transition:
+        box-shadow var(--transition-normal),
+        border-color var(--transition-fast),
+        background-color var(--transition-fast);
+    }
+
+    &__auth-required:hover,
+    &__summary:hover {
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--border-focus);
+      background-color: var(--bg-secondary);
+    }
+
+    /* Enhanced grid system */
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2xl);
+
+      /* Performance: Contain layout to prevent unnecessary recalculations */
+      contain: layout style;
+    }
+
+    &__category {
+      margin-bottom: var(--space-md);
+
+      /* Performance: Enable efficient paint containment */
+      contain: layout style paint;
+
+      /* Enhanced content visibility for performance */
+      content-visibility: auto;
+      contain-intrinsic-size: 0 var(--container-intrinsic-height-component);
+
+      &-title {
+        /* Note: Typography handled by Headline component, only layout styles remain */
+        margin-bottom: var(--space-lg);
+        padding-bottom: var(--space-sm);
+        border-bottom: var(--border-width-thick) solid var(--border-primary);
+
+        &--bronze {
+          border-bottom-color: var(--achievement-bronze);
+        }
+
+        &--silver {
+          border-bottom-color: var(--achievement-silver);
+        }
+
+        &--gold {
+          border-bottom-color: var(--achievement-gold);
+        }
+
+        &--platinum {
+          border-bottom-color: var(--achievement-platinum);
+        }
+      }
+    }
+
+    /* High-performance responsive grid */
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-sm), 100%), 1fr));
+      gap: var(--space-lg);
+      max-width: 100%;
+
+      /* CRITICAL: Limit to maximum 3 columns */
+      grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+
+      /* OPTIMIZED: Dense grid packing eliminates gaps from filtered items */
+      grid-auto-flow: row dense;
+      align-items: stretch;
+      justify-items: stretch;
+
+      /* Performance: Optimize grid layout containment */
+      contain: layout style;
+
+      /* Utility for empty grids */
+      &:empty {
+        display: none;
+        margin: var(--space-none);
+        padding: var(--space-none);
+      }
+
+      /* Grid item optimization */
+      > * {
+        min-width: var(--space-none);
+        width: var(--width-full);
+        height: var(--width-full);
+        display: flex;
+        flex-direction: column;
+
+        /* Performance: Enable efficient paint and layout containment */
+        contain: layout style;
+
+        /* Enhanced transition for smooth interactions */
+        transition:
+          transform var(--transition-fast),
+          opacity var(--transition-normal);
+
+        &:not(.filtered-hidden) {
+          position: relative;
+          display: block;
+        }
+
+        .achievement-card {
+          &__content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: var(--space-md);
+            gap: var(--space-sm);
+          }
+        }
+      }
+    }
+
+    /* Summary statistics section */
+    &__summary {
+      &-stats {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: var(--space-md);
+
+        /* Performance: Optimize flexbox layout */
+        align-items: baseline;
+
+        /* Enhanced content visibility for performance */
+        contain: layout style;
+      }
+    }
+
+    &__stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--space-md);
+      min-width: var(--stat-width-sm);
+
+      /* Enhanced touch target for mobile accessibility */
+      min-height: var(--min-touch-size);
+      justify-content: center;
+
+      /* Hover effect using semantic variables */
+      border-radius: var(--radius-sm);
+      transition:
+        background-color var(--transition-normal),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+
+      &:hover {
+        background-color: var(--bg-tertiary);
+        transform: scale(var(--scale-focus));
+        box-shadow: var(--shadow-md);
+      }
+
+      &:focus-visible {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+        background-color: var(--bg-tertiary);
+      }
+
+      &-label {
+        margin-bottom: var(--space-sm);
+        font-size: var(--text-sm);
+        font-weight: var(--font-medium);
+        color: var(--text-secondary);
+        text-align: center;
+
+        /* Enhanced text spacing for WCAG AAA 2.2 */
+        letter-spacing: var(--letter-spacing-base);
+        line-height: var(--leading-enhanced);
+      }
+
+      &-value {
+        font-size: var(--text-xl);
+        font-weight: var(--font-bold);
+        color: var(--interactive-secondary);
+
+        /* Enhanced number readability using semantic variables */
+        font-variant-numeric: tabular-nums;
+        line-height: var(--leading-enhanced);
+        letter-spacing: var(--letter-spacing-base);
+      }
+    }
   }
 
-  .achievements__auth-required:hover,
-  .achievements__summary:hover {
-    box-shadow: var(--card-shadow-hover);
-    border-color: var(--border-focus);
-    background-color: var(--bg-secondary);
-  }
-
-  /* Consolidated heading styles - Component-specific layout only */
-  /* Note: Typography handled by Headline component, only layout-specific styles remain */
-
-  /* Consolidated text content styles - Component-specific layout only */
-  /* Note: Typography handled by Paragraph component, only layout-specific styles remain */
-
-  /* ======================================
-   * ENHANCED GRID SYSTEM - Maximum CSS variable usage with performance optimizations
-   * ====================================== */
-
-  .achievements__list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2xl);
-
-    /* Performance: Contain layout to prevent unnecessary recalculations */
-    contain: layout style;
-  }
-
+  /* Category filter states */
   .achievements__category {
-    margin-bottom: var(--space-md);
-
-    /* Performance: Enable efficient paint containment */
-    contain: layout style paint;
-
-    /* Enhanced content visibility for performance */
-    content-visibility: auto;
-    contain-intrinsic-size: 0 var(--container-intrinsic-height-component);
+    &.filtered-hidden,
+    &.all-filtered {
+      display: none !important;
+      margin: var(--space-none);
+      padding: var(--space-none);
+    }
   }
-
-  .achievements__category-title {
-    /* Note: Typography handled by Headline component, only layout styles remain */
-    margin-bottom: var(--space-lg);
-    padding-bottom: var(--space-sm);
-    border-bottom: var(--border-width-thick) solid var(--border-primary);
-  }
-
-  /* High-performance responsive grid using existing semantic variables with max 3 columns */
-  .achievements__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-sm), 100%), 1fr));
-    gap: var(--space-lg);
-    max-width: 100%;
-
-    /* CRITICAL: Limit to maximum 3 columns */
-    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
-
-    /* OPTIMIZED: Dense grid packing eliminates gaps from filtered items */
-    grid-auto-flow: row dense;
-    align-items: stretch; /* Equal heights for cards */
-    justify-items: stretch;
-
-    /* Performance: Optimize grid layout containment */
-    contain: layout style;
-  }
-
-  /* CRITICAL: Only visible achievement cards participate in grid layout */
-  .achievements__grid > *:not(.filtered-hidden) {
-    position: relative;
-    display: block;
-  }
-
-  /* Auto-hide empty categories when all achievements are filtered */
-  .achievements__category.filtered-hidden,
-  .achievements__category.all-filtered {
-    display: none !important;
-    margin: var(--space-none);
-    padding: var(--space-none);
-  }
-
-  /* Achievement category colors using CSS custom properties - DRY optimized */
-  /* Note: Category titles use component styles, only border colors applied here */
-  .achievements__category-title--bronze {
-    border-bottom-color: var(--achievement-bronze);
-  }
-
-  .achievements__category-title--silver {
-    border-bottom-color: var(--achievement-silver);
-  }
-
-  .achievements__category-title--gold {
-    border-bottom-color: var(--achievement-gold);
-  }
-
-  .achievements__category-title--platinum {
-    border-bottom-color: var(--achievement-platinum);
-  }
-
-  /* ======================================
-   * GRID PERFORMANCE OPTIMIZATIONS (DRY Pattern)
-   * ====================================== */
-
-  /* Utility for empty grids - performance optimization using semantic variables */
-  .achievements__grid:empty {
-    display: none;
-    margin: var(--space-none);
-    padding: var(--space-none);
-  }
-
-  /* Consolidated grid item and card height optimization using semantic variables */
-  .achievements__grid > *,
-  .achievements__grid .achievement-card {
-    min-width: var(--space-none); /* Prevent grid overflow using semantic variable */
-    width: var(--width-full);
-    height: var(--width-full); /* Ensure cards stretch to fill grid cell height */
-    display: flex;
-    flex-direction: column;
-
-    /* Performance: Enable efficient paint and layout containment */
-    contain: layout style;
-
-    /* Enhanced transition for smooth interactions */
-    transition:
-      transform var(--transition-fast),
-      opacity var(--transition-normal);
-  }
-
-  /* Ensure card content fills available space using semantic variables */
-  .achievements__grid .achievement-card .achievement-card__content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: var(--space-md);
-    gap: var(--space-sm);
-  }
-
-  /* ======================================
-   * SUMMARY STATISTICS SECTION - Enhanced with semantic CSS variables
-   * ====================================== */
-
-  .achievements__summary-stats {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: var(--space-md);
-
-    /* Performance: Optimize flexbox layout */
-    align-items: baseline;
-
-    /* Enhanced content visibility for performance */
-    contain: layout style;
-  }
-
-  .achievements__stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: var(--space-md);
-    min-width: var(--stat-width-sm); /* Using existing semantic variable */
-
-    /* Enhanced touch target for mobile accessibility */
-    min-height: var(--min-touch-size);
-    justify-content: center;
-
-    /* Hover effect using semantic variables */
-    border-radius: var(--radius-sm);
-    transition:
-      background-color var(--transition-normal),
-      transform var(--transition-fast),
-      box-shadow var(--transition-fast);
-  }
-
-  .achievements__stat:hover {
-    background-color: var(--bg-tertiary);
-    transform: scale(var(--scale-focus));
-    box-shadow: var(--shadow-md);
-  }
-
-  /* Focus state for accessibility using semantic variables */
-  .achievements__stat:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    background-color: var(--bg-tertiary);
-  }
-
-  .achievements__stat-label {
-    margin-bottom: var(--space-sm);
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
-    color: var(--text-secondary);
-    text-align: center;
-
-    /* Enhanced text spacing for WCAG AAA 2.2 */
-    letter-spacing: var(--letter-spacing-base);
-    line-height: var(--leading-enhanced);
-  }
-
-  .achievements__stat-value {
-    font-size: var(--text-xl);
-    font-weight: var(--font-bold);
-    color: var(--interactive-secondary);
-
-    /* Enhanced number readability using semantic variables */
-    font-variant-numeric: tabular-nums;
-    line-height: var(--leading-enhanced);
-    letter-spacing: var(--letter-spacing-base);
-  }
-
-  /* ======================================
-   * EMPTY STATE STYLING - Layout only
-   * Note: Typography handled by Paragraph component
-   * ====================================== */
 
   /* ======================================
    * RESPONSIVE DESIGN - Enhanced with comprehensive CSS variables usage
    * ====================================== */
 
-  /* Small devices and up (tablets) using semantic breakpoint variables */
-  @media (min-width: var(--breakpoint-md)) {
-    .achievements {
+  .achievements {
+    @media (min-width: var(--breakpoint-md)) {
       padding: var(--space-xl);
+
+      /* Enhanced grid for tablets - max 2 columns */
+      &__grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
+        gap: var(--space-xl);
+      }
+
+      &__stat {
+        min-width: var(--stat-width-md);
+        padding: var(--space-lg);
+      }
     }
 
-    /* Enhanced grid for tablets - max 2 columns */
-    .achievements__grid {
-      grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
-      gap: var(--space-xl);
-    }
-
-    .achievements__stat {
-      min-width: var(--stat-width-md); /* Using existing semantic variable for tablets */
-      padding: var(--space-lg);
-    }
-  }
-
-  /* Large devices and up (desktops) using semantic variables */
-  @media (min-width: var(--breakpoint-lg)) {
-    .achievements {
+    @media (min-width: var(--breakpoint-lg)) {
       padding: var(--space-2xl);
+
+      /* Desktop - max 3 columns */
+      &__grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+        gap: var(--space-xl);
+      }
+
+      &__list {
+        gap: var(--space-3xl);
+      }
     }
 
-    /* Desktop - max 3 columns */
-    .achievements__grid {
-      grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
-      gap: var(--space-xl);
-    }
+    @media (min-width: var(--breakpoint-xl)) {
+      /* Keep max 3 columns even on very large screens */
+      &__grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(24rem, 100%), 1fr));
+        gap: var(--space-2xl);
+      }
 
-    .achievements__list {
-      gap: var(--space-3xl);
-    }
-  }
-
-  /* Extra large devices and up using semantic variables */
-  @media (min-width: var(--breakpoint-xl)) {
-    /* Keep max 3 columns even on very large screens */
-    .achievements__grid {
-      grid-template-columns: repeat(auto-fit, minmax(min(24rem, 100%), 1fr));
-      gap: var(--space-2xl);
-    }
-
-    .achievements__summary-stats {
-      gap: var(--space-lg);
+      &__summary-stats {
+        gap: var(--space-lg);
+      }
     }
   }
 
@@ -766,7 +738,6 @@ const achievementStats = calculateAchievementStats(achievements);
    * CONTAINER QUERIES - Modern responsive design using semantic variables
    * ====================================== */
 
-  /* Container query for achievement cards using semantic variables */
   @container (min-width: var(--container-query-md)) {
     .achievements__grid {
       grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
@@ -786,6 +757,25 @@ const achievementStats = calculateAchievementStats(achievements);
   }
 
   /* ======================================
+   * RESPONSIVE DESIGN ENHANCEMENTS
+   * Matching GameHome responsive patterns
+   * ====================================== */
+
+  .achievements-hero {
+    &__title {
+      @media (min-width: 1024px) {
+        font-size: var(--text-4xl);
+      }
+    }
+
+    &__description {
+      @media (min-width: 1024px) {
+        font-size: var(--text-2xl);
+      }
+    }
+  }
+
+  /* ======================================
    * ENHANCED ACCESSIBILITY & PRINT STYLES - Maximum DRY optimization using semantic variables
    * ====================================== */
 
@@ -798,11 +788,10 @@ const achievementStats = calculateAchievementStats(achievements);
       transform: none;
       will-change: auto;
       animation: none;
-    }
 
-    /* Reset hover effects for reduced motion */
-    .achievements__stat:hover {
-      transform: none;
+      &:hover {
+        transform: none;
+      }
     }
 
     .achievements-hero__decoration-item {
@@ -811,23 +800,27 @@ const achievementStats = calculateAchievementStats(achievements);
   }
 
   @media (prefers-contrast: high) {
-    .achievements__auth-required,
-    .achievements__empty,
-    .achievements__summary {
-      border-width: var(--border-width-enhanced);
-      border-color: var(--text-primary);
-      background-color: var(--bg-primary);
-    }
+    .achievements {
+      &__auth-required,
+      &__empty,
+      &__summary {
+        border-width: var(--border-width-enhanced);
+        border-color: var(--text-primary);
+        background-color: var(--bg-primary);
+      }
 
-    .achievements__category-title {
-      border-bottom-width: var(--border-width-enhanced);
-      color: var(--text-primary);
-    }
+      &__category-title {
+        border-bottom-width: var(--border-width-enhanced);
+        color: var(--text-primary);
+      }
 
-    .achievements__stat:hover,
-    .achievements__stat:focus-visible {
-      background-color: var(--bg-primary);
-      border: var(--border-width-thin) solid var(--text-primary);
+      &__stat {
+        &:hover,
+        &:focus-visible {
+          background-color: var(--bg-primary);
+          border: var(--border-width-thin) solid var(--text-primary);
+        }
+      }
     }
 
     .achievements-hero {
@@ -837,17 +830,19 @@ const achievementStats = calculateAchievementStats(achievements);
 
   /* Forced colors mode support (Windows High Contrast) using semantic variables */
   @media (forced-colors: active) {
-    .achievements__auth-required,
-    .achievements__empty,
-    .achievements__summary {
-      border: var(--border-width-thin) solid CanvasText;
-      background: Canvas;
-      color: CanvasText;
-    }
+    .achievements {
+      &__auth-required,
+      &__empty,
+      &__summary {
+        border: var(--border-width-thin) solid CanvasText;
+        background: Canvas;
+        color: CanvasText;
+      }
 
-    .achievements__category-title {
-      color: CanvasText;
-      border-bottom-color: CanvasText;
+      &__category-title {
+        color: CanvasText;
+        border-bottom-color: CanvasText;
+      }
     }
   }
 
@@ -858,45 +853,45 @@ const achievementStats = calculateAchievementStats(achievements);
       color: var(--print-text);
       padding: var(--space-none);
       max-width: var(--width-full);
+
+      &__auth-required,
+      &__empty,
+      &__summary {
+        background: var(--print-bg);
+        border: var(--print-border);
+        color: var(--print-text);
+        box-shadow: none;
+        margin-bottom: var(--space-md);
+      }
+
+      &__grid {
+        break-inside: avoid;
+        gap: var(--space-sm);
+        grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-sm), 1fr));
+      }
+
+      /* Print-specific layout optimizations */
+      &__title,
+      &__category-title,
+      &__summary-title {
+        page-break-after: avoid;
+      }
     }
 
-    /* Consolidated print styles for card-like elements using semantic variables */
-    .achievements__auth-required,
-    .achievements__empty,
-    .achievements__summary {
-      background: var(--print-bg);
-      border: var(--print-border);
-      color: var(--print-text);
-      box-shadow: none;
-      margin-bottom: var(--space-md);
-    }
+    .achievements-hero {
+      background: none;
+      color: black;
+      border: 1px solid black;
 
-    .achievements__grid {
-      break-inside: avoid;
-      gap: var(--space-sm);
-      grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-sm), 1fr));
-    }
+      &__decoration {
+        display: none;
+      }
 
-    /* Print-specific layout optimizations */
-    .achievements__title,
-    .achievements__category-title,
-    .achievements__summary-title {
-      page-break-after: avoid;
-    }
-  }
-
-  /* ======================================
-   * RESPONSIVE DESIGN ENHANCEMENTS
-   * Matching GameHome responsive patterns
-   * ====================================== */
-
-  @media (min-width: 1024px) {
-    .achievements-hero__title {
-      font-size: var(--text-4xl);
-    }
-
-    .achievements-hero__description {
-      font-size: var(--text-2xl);
+      &__title,
+      &__description {
+        color: black;
+        text-shadow: none;
+      }
     }
   }
 </style>

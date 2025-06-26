@@ -162,7 +162,7 @@ const buttons = [
   </div>
 </div>
 
-<style>
+<style lang="scss">
   /* ======================================
    * MUSIC BUTTONS COMPONENT STYLES
    * WCAG AAA 2.2 compliant with CSS variables only
@@ -262,28 +262,33 @@ const buttons = [
 
     /* Touch optimization - DRY: Reuses accessibility pattern */
     touch-action: manipulation;
+
+    /* ======================================
+     * SHARED INTERACTION STATES - DRY: Consolidated common hover/focus patterns
+     * All variants share the same base interaction pattern for consistency
+     * ====================================== */
+
+    /* Base hover pattern for all platforms - DRY optimization */
+    &:hover {
+      transform: translateY(var(--animation-y-offset-small)) scale(var(--scale-focus));
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Base active pattern for all platforms - DRY optimization */
+    &:active {
+      transform: translateY(var(--space-none)) scale(var(--scale-active));
+    }
+
+    /* Base focus pattern for all platforms - DRY optimization */
+    &:focus-visible {
+      outline-offset: var(--focus-ring-offset);
+    }
   }
 
   /* ======================================
    * PLATFORM VARIANTS - DRY: Consolidated common hover/focus patterns
    * All variants share the same base interaction pattern for consistency
    * ====================================== */
-
-  /* Base hover pattern for all platforms - DRY optimization */
-  :global(.music-button:hover) {
-    transform: translateY(var(--animation-y-offset-small)) scale(var(--scale-focus));
-    box-shadow: var(--shadow-lg);
-  }
-
-  /* Base active pattern for all platforms - DRY optimization */
-  :global(.music-button:active) {
-    transform: translateY(var(--space-none)) scale(var(--scale-active));
-  }
-
-  /* Base focus pattern for all platforms - DRY optimization */
-  :global(.music-button:focus-visible) {
-    outline-offset: var(--focus-ring-offset);
-  }
 
   /**
    * Spotify Platform Variant - DRY: Uses semantic success colors
@@ -296,18 +301,18 @@ const buttons = [
   :global(.music-button--spotify) {
     background-color: var(--color-success-600); /* #16a34a - 7:1 contrast on dark */
     color: var(--color-white);
-  }
 
-  :global(.music-button--spotify:hover) {
-    background-color: var(--color-success-700);
-  }
+    &:hover {
+      background-color: var(--color-success-700);
+    }
 
-  :global(.music-button--spotify:active) {
-    background-color: var(--color-success-800);
-  }
+    &:active {
+      background-color: var(--color-success-800);
+    }
 
-  :global(.music-button--spotify:focus-visible) {
-    outline: var(--focus-enhanced-outline-dark);
+    &:focus-visible {
+      outline: var(--focus-enhanced-outline-dark);
+    }
   }
 
   /**
@@ -321,21 +326,21 @@ const buttons = [
   :global(.music-button--deezer) {
     background-color: var(--color-primary-600); /* #7c3aed - 7:1 contrast on dark */
     color: var(--color-white);
-  }
 
-  :global(.music-button--deezer:hover) {
-    background-color: var(--color-primary-700);
-  }
+    &:hover {
+      background-color: var(--color-primary-700);
+    }
 
-  :global(.music-button--deezer:active) {
-    background-color: var(--color-primary-800);
-  }
+    &:active {
+      background-color: var(--color-primary-800);
+    }
 
-  :global(.music-button--deezer:focus-visible) {
-    outline: var(--border-width-enhanced) solid var(--color-primary-400);
-    box-shadow:
-      var(--shadow-lg),
-      0 0 0 var(--border-width-enhanced) var(--color-primary-400);
+    &:focus-visible {
+      outline: var(--border-width-enhanced) solid var(--color-primary-400);
+      box-shadow:
+        var(--shadow-lg),
+        0 0 0 var(--border-width-enhanced) var(--color-primary-400);
+    }
   }
 
   /**
@@ -349,21 +354,21 @@ const buttons = [
   :global(.music-button--apple) {
     background-color: var(--color-secondary-600); /* #db2777 - 7:1 contrast on dark */
     color: var(--color-white);
-  }
 
-  :global(.music-button--apple:hover) {
-    background-color: var(--color-secondary-700);
-  }
+    &:hover {
+      background-color: var(--color-secondary-700);
+    }
 
-  :global(.music-button--apple:active) {
-    background-color: var(--color-secondary-800);
-  }
+    &:active {
+      background-color: var(--color-secondary-800);
+    }
 
-  :global(.music-button--apple:focus-visible) {
-    outline: var(--border-width-enhanced) solid var(--color-secondary-400);
-    box-shadow:
-      var(--shadow-lg),
-      0 0 0 var(--border-width-enhanced) var(--color-secondary-400);
+    &:focus-visible {
+      outline: var(--border-width-enhanced) solid var(--color-secondary-400);
+      box-shadow:
+        var(--shadow-lg),
+        0 0 0 var(--border-width-enhanced) var(--color-secondary-400);
+    }
   }
 
   /**
@@ -405,11 +410,11 @@ const buttons = [
     :global(.music-button) {
       transition: background-color var(--animation-duration-normal);
       will-change: auto; /* Disable transform optimizations for reduced motion */
-    }
 
-    :global(.music-button:hover),
-    :global(.music-button:active) {
-      transform: none;
+      &:hover,
+      &:active {
+        transform: none;
+      }
     }
   }
 
@@ -420,10 +425,10 @@ const buttons = [
       background-color: ButtonFace;
       color: ButtonText;
       forced-color-adjust: none;
-    }
 
-    :global(.music-button:focus-visible) {
-      outline: var(--border-width-enhanced) solid Highlight;
+      &:focus-visible {
+        outline: var(--border-width-enhanced) solid Highlight;
+      }
     }
   }
 
