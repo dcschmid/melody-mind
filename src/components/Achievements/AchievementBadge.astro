@@ -56,22 +56,23 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
   </span>
 </span>
 
-<!-- 5. Component styles with CSS -->
-<style>
+<!-- 5. Component styles with SCSS -->
+<style lang="scss">
   .achievement-badge {
-    /* Use only CSS variables from global.css */
+    // Use only CSS variables from global.css
     position: absolute;
-    inset-block-start: var(--space-sm); /* Use standard spacing */
-    inset-inline-end: var(--space-sm); /* Use standard spacing */
+    inset-block-start: var(--space-sm); // Use standard spacing
+    inset-inline-end: var(--space-sm); // Use standard spacing
     display: flex;
-    height: var(--min-touch-size); /* WCAG AAA compliant 44px minimum */
-    width: var(--min-touch-size); /* WCAG AAA compliant 44px minimum */
+    height: var(--min-touch-size); // WCAG AAA compliant 44px minimum
+    width: var(--min-touch-size); // WCAG AAA compliant 44px minimum
+    min-width: var(--min-touch-size); // Ensure minimum touch target
     padding: var(--space-xs);
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-full);
-    background-color: var(--interactive-secondary); /* WCAG AAA compliant secondary color */
-    color: var(--text-primary); /* High contrast text */
+    background-color: var(--interactive-secondary); // WCAG AAA compliant secondary color
+    color: var(--text-primary); // High contrast text
     font-size: var(--text-sm);
     font-weight: var(--font-bold);
     opacity: 0;
@@ -81,87 +82,62 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
     transition-timing-function: ease-in-out;
     pointer-events: none;
     text-align: center;
-    min-width: var(--min-touch-size); /* Ensure minimum touch target */
     box-sizing: border-box;
-    box-shadow: var(--shadow-md); /* Better visibility */
-  }
+    box-shadow: var(--shadow-md); // Better visibility
 
-  /* Badge visible state */
-  .achievement-badge.visible {
-    opacity: 1;
-    transform: scale(1);
-    pointer-events: auto;
-  }
+    // Support user text spacing preferences up to 200%
+    text-spacing: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    line-height: max(1.5, inherit);
 
-  /* Counter text */
-  .achievement-badge__count {
-    line-height: 1;
-    display: block;
-    width: 100%;
-  }
+    // Badge visible state
+    &.visible {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
 
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .achievement-badge {
+    // Focus state for keyboard navigation when badge becomes interactive
+    &:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--focus-ring), var(--shadow-lg);
+    }
+
+    // Counter text
+    &__count {
+      line-height: 1;
+      display: block;
+      width: 100%;
+    }
+
+    // Reduced motion support
+    @media (prefers-reduced-motion: reduce) {
       transition-duration: var(--transition-fast);
       transform: scale(1);
     }
-  }
 
-  /* Print styles - hide badge when printing */
-  @media print {
-    .achievement-badge {
+    // Print styles - hide badge when printing
+    @media print {
       display: none;
     }
-  }
 
-  /* High contrast mode support */
-  @media (forced-colors: active) {
-    .achievement-badge {
+    // High contrast mode support
+    @media (forced-colors: active) {
       border: 2px solid CanvasText;
       background-color: Highlight;
       color: HighlightText;
       forced-color-adjust: none;
     }
-  }
 
-  /* Enhanced contrast support for users who need higher contrast */
-  @media (prefers-contrast: high) {
-    .achievement-badge {
+    // Enhanced contrast support for users who need higher contrast
+    @media (prefers-contrast: high) {
       border: 2px solid var(--text-primary);
       background-color: var(--bg-primary);
       color: var(--text-primary);
       box-shadow: var(--shadow-xl);
     }
-  }
-
-  /* Text spacing adaptation support */
-  .achievement-badge {
-    /* Support user text spacing preferences up to 200% */
-    text-spacing: inherit;
-    letter-spacing: inherit;
-    word-spacing: inherit;
-    line-height: max(1.5, inherit);
-  }
-
-  /* Focus state for keyboard navigation when badge becomes interactive */
-  .achievement-badge:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-ring), var(--shadow-lg);
-  }
-
-  /* Screen reader only content */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
   }
 </style>
 

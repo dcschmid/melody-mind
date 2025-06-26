@@ -2,7 +2,7 @@
 /**
  * LoadingState Component
  * Reusable component for displaying loading states with consistent styling
- * 
+ *
  * @component LoadingState
  * @description Displays a loading spinner with optional text message
  * @accessibility WCAG AAA compliant with proper ARIA attributes and motion preferences
@@ -26,36 +26,32 @@ const {
   className = "",
   size = "md",
   visible = true,
-  minHeight = "12rem"
+  minHeight = "12rem",
 } = Astro.props;
 
 // Generate unique ID for accessibility
 const loadingId = `loading-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
-{visible && (
-  <div 
-    class={`loading-state loading-state--${size} ${className}`}
-    role="status" 
-    aria-live="polite"
-    aria-labelledby={loadingId}
-    style={`--loading-state-min-height: ${minHeight};`}
-  >
-    <div 
-      class="loading-state__spinner" 
-      aria-label={text}
-    ></div>
-    <p 
-      id={loadingId}
-      class="loading-state__text"
+{
+  visible && (
+    <div
+      class={`loading-state loading-state--${size} ${className}`}
+      role="status"
+      aria-live="polite"
+      aria-labelledby={loadingId}
+      style={`--loading-state-min-height: ${minHeight};`}
     >
-      {text}
-    </p>
-    <span class="sr-only">Loading content, please wait...</span>
-  </div>
-)}
+      <div class="loading-state__spinner" aria-label={text} />
+      <p id={loadingId} class="loading-state__text">
+        {text}
+      </p>
+      <span class="sr-only">Loading content, please wait...</span>
+    </div>
+  )
+}
 
-<style>
+<style lang="scss">
   .loading-state {
     display: flex;
     flex-direction: column;
@@ -64,44 +60,54 @@ const loadingId = `loading-${Math.random().toString(36).substr(2, 9)}`;
     min-height: var(--loading-state-min-height, calc(var(--space-3xl) * 3));
     gap: var(--space-md);
     padding: var(--space-lg);
-  }
 
-  .loading-state__spinner {
-    border-radius: var(--radius-full);
-    border: var(--border-width-thick) solid var(--border-primary);
-    border-top: var(--border-width-thick) solid var(--interactive-primary);
-    animation: spin 1s linear infinite;
-  }
+    &__spinner {
+      border-radius: var(--radius-full);
+      border: var(--border-width-thick) solid var(--border-primary);
+      border-top: var(--border-width-thick) solid var(--interactive-primary);
+      animation: spin 1s linear infinite;
+    }
 
-  /* Size variants */
-  .loading-state--sm .loading-state__spinner {
-    width: var(--space-lg);
-    height: var(--space-lg);
-  }
+    &__text {
+      color: var(--text-secondary);
+      font-size: var(--text-base);
+      margin: 0;
+      text-align: center;
+    }
 
-  .loading-state--md .loading-state__spinner {
-    width: var(--space-xl);
-    height: var(--space-xl);
-  }
+    // Size variants with nesting
+    &--sm {
+      .loading-state__spinner {
+        width: var(--space-lg);
+        height: var(--space-lg);
+      }
+    }
 
-  .loading-state--lg .loading-state__spinner {
-    width: var(--space-2xl);
-    height: var(--space-2xl);
-  }
+    &--md {
+      .loading-state__spinner {
+        width: var(--space-xl);
+        height: var(--space-xl);
+      }
+    }
 
-  .loading-state__text {
-    color: var(--text-secondary);
-    font-size: var(--text-base);
-    margin: 0;
-    text-align: center;
+    &--lg {
+      .loading-state__spinner {
+        width: var(--space-2xl);
+        height: var(--space-2xl);
+      }
+    }
   }
 
   @keyframes spin {
-    0% { transform: rotate(var(--rotation-0)); }
-    100% { transform: rotate(var(--rotation-360, 360deg)); }
+    0% {
+      transform: rotate(var(--rotation-0));
+    }
+    100% {
+      transform: rotate(var(--rotation-360, 360deg));
+    }
   }
 
-  /* Accessibility: Respect reduced motion preferences */
+  // Accessibility: Respect reduced motion preferences
   @media (prefers-reduced-motion: reduce) {
     .loading-state__spinner {
       animation: none;
@@ -109,14 +115,14 @@ const loadingId = `loading-${Math.random().toString(36).substr(2, 9)}`;
     }
   }
 
-  /* High contrast mode support */
+  // High contrast mode support
   @media (prefers-contrast: high) {
     .loading-state__spinner {
       border-width: var(--border-width-enhanced);
     }
   }
 
-  /* Forced colors mode support */
+  // Forced colors mode support
   @media (forced-colors: active) {
     .loading-state__spinner {
       border-color: ButtonText;

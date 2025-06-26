@@ -128,7 +128,7 @@ const contextText = errorContext || t(`error.context.${priority}`);
   </div>
 </div>
 
-<style>
+<style lang="scss">
   /* 
    * ErrorMessage Component Styles
    * Maximizing CSS variables usage from global.css and applying DRY principles
@@ -166,36 +166,55 @@ const contextText = errorContext || t(`error.context.${priority}`);
       visibility 0s,
       opacity var(--error-animation-duration, var(--transition-normal)),
       transform var(--error-animation-duration, var(--transition-normal));
-  }
 
-  /* Priority-based styling using CSS variables for consistency */
-  .errorMessage--low {
-    background-color: var(--color-warning-600);
-    border-color: var(--color-warning-500);
-    color: var(--text-warning-aaa);
-  }
+    /* Priority-based styling using SCSS nesting and CSS variables */
+    &--low {
+      background-color: var(--color-warning-600);
+      border-color: var(--color-warning-500);
+      color: var(--text-warning-aaa);
+    }
 
-  .errorMessage--medium {
-    background-color: var(--color-error-600);
-    border-color: var(--border-error);
-    color: var(--text-error-aaa);
-  }
+    &--medium {
+      background-color: var(--color-error-600);
+      border-color: var(--border-error);
+      color: var(--text-error-aaa);
+    }
 
-  .errorMessage--high {
-    background-color: var(--color-error-700);
-    border-color: var(--color-error-600);
-    color: var(--text-error-aaa);
-    animation: pulse-high var(--transition-slow) infinite;
-  }
+    &--high {
+      background-color: var(--color-error-700);
+      border-color: var(--color-error-600);
+      color: var(--text-error-aaa);
+      animation: pulse-high var(--transition-slow) infinite;
+    }
 
-  .errorMessage--critical {
-    background-color: var(--color-error-800);
-    border-color: var(--color-error-700);
-    color: var(--text-error-aaa);
-    animation: pulse-critical var(--transition-slow) infinite;
-    box-shadow:
-      var(--shadow-xl),
-      0 0 var(--space-lg) var(--color-error-500);
+    &--critical {
+      background-color: var(--color-error-800);
+      border-color: var(--color-error-700);
+      color: var(--text-error-aaa);
+      animation: pulse-critical var(--transition-slow) infinite;
+      box-shadow:
+        var(--shadow-xl),
+        0 0 var(--space-lg) var(--color-error-500);
+    }
+
+    /* Visibility states using SCSS nesting */
+    &:not(.hidden) {
+      visibility: visible;
+      opacity: var(--animation-opacity-full);
+      pointer-events: auto;
+      transform: translate(-50%, 0) translateZ(0);
+    }
+
+    &.hidden {
+      visibility: hidden;
+      opacity: var(--animation-opacity-end);
+      pointer-events: none;
+      transform: translate(-50%, calc(-1 * var(--space-xl))) translateZ(0);
+      transition:
+        visibility 0s linear var(--transition-normal),
+        opacity var(--transition-normal),
+        transform var(--transition-normal);
+    }
   }
 
   /* Pulse animations for high priority errors using global animation variables */
@@ -229,22 +248,37 @@ const contextText = errorContext || t(`error.context.${priority}`);
     }
   }
 
-  .errorMessage:not(.hidden) {
-    visibility: visible;
-    opacity: var(--animation-opacity-full);
-    pointer-events: auto;
-    transform: translate(-50%, 0) translateZ(0);
-  }
+  .errorMessage {
+    /* ...existing code... */
 
-  .errorMessage.hidden {
-    visibility: hidden;
-    opacity: var(--animation-opacity-end);
-    pointer-events: none;
-    transform: translate(-50%, calc(-1 * var(--space-xl))) translateZ(0);
-    transition:
-      visibility 0s linear var(--transition-normal),
-      opacity var(--transition-normal),
-      transform var(--transition-normal);
+    &:not(.hidden) {
+      visibility: visible;
+      opacity: var(--animation-opacity-full);
+      pointer-events: auto;
+      transform: translate(-50%, 0) translateZ(0);
+    }
+
+    &.hidden {
+      visibility: hidden;
+      opacity: var(--animation-opacity-end);
+      pointer-events: none;
+      transform: translate(-50%, calc(-1 * var(--space-xl))) translateZ(0);
+      transition:
+        visibility 0s linear var(--transition-normal),
+        opacity var(--transition-normal),
+        transform var(--transition-normal);
+    }
+
+    /* Pause on hover functionality */
+    &[data-pause-on-hover="true"] {
+      &:hover .countdownBar::before {
+        animation-play-state: paused;
+      }
+
+      &:focus-within .countdownBar::before {
+        animation-play-state: paused;
+      }
+    }
   }
 
   .errorContent {
@@ -287,25 +321,25 @@ const contextText = errorContext || t(`error.context.${priority}`);
     overflow: hidden;
     position: relative;
     opacity: var(--opacity-medium);
-  }
 
-  .countdownBar::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background: linear-gradient(
-      var(--gradient-angle),
-      var(--color-success-400) var(--gradient-start),
-      var(--color-warning-400) 50%,
-      var(--color-error-400) var(--gradient-end)
-    );
-    width: 100%;
-    transform-origin: left;
-    transition: transform linear;
-    animation: countdown-progress var(--error-auto-hide-duration, var(--timeout-long)) linear
-      forwards;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: linear-gradient(
+        var(--gradient-angle),
+        var(--color-success-400) var(--gradient-start),
+        var(--color-warning-400) 50%,
+        var(--color-error-400) var(--gradient-end)
+      );
+      width: 100%;
+      transform-origin: left;
+      transition: transform linear;
+      animation: countdown-progress var(--error-auto-hide-duration, var(--timeout-long)) linear
+        forwards;
+    }
   }
 
   @keyframes countdown-progress {
@@ -348,24 +382,24 @@ const contextText = errorContext || t(`error.context.${priority}`);
       border-color var(--transition-fast),
       background-color var(--transition-fast),
       transform var(--transition-fast);
-  }
 
-  .interactiveButton:hover,
-  .interactiveButton:focus {
-    opacity: var(--animation-opacity-full);
-    border-color: var(--border-secondary);
-    background-color: var(--bg-tertiary);
-    transform: scale(var(--scale-focus));
-  }
+    &:hover,
+    &:focus {
+      opacity: var(--animation-opacity-full);
+      border-color: var(--border-secondary);
+      background-color: var(--bg-tertiary);
+      transform: scale(var(--scale-focus));
+    }
 
-  .interactiveButton:focus-visible {
-    outline: var(--focus-enhanced-outline-light);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-enhanced-shadow);
-  }
+    &:focus-visible {
+      outline: var(--focus-enhanced-outline-light);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--focus-enhanced-shadow);
+    }
 
-  .interactiveButton:active {
-    transform: scale(var(--scale-active));
+    &:active {
+      transform: scale(var(--scale-active));
+    }
   }
 
   /* Extend Button - inherits from interactiveButton */
@@ -401,15 +435,6 @@ const contextText = errorContext || t(`error.context.${priority}`);
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
-  }
-
-  /* Pause on hover functionality */
-  .errorMessage[data-pause-on-hover="true"]:hover .countdownBar::before {
-    animation-play-state: paused;
-  }
-
-  .errorMessage[data-pause-on-hover="true"]:focus-within .countdownBar::before {
-    animation-play-state: paused;
   }
 
   /* Reduced motion support for accessibility using CSS variables */

@@ -68,128 +68,134 @@ const {
   </span>
 </button>
 
-<style>
+<style lang="scss">
   /* ======================================
    * AUTH SUBMIT BUTTON COMPONENT STYLES
    * WCAG AAA 2.2 Compliant - Optimized with CSS Variables Only
    * ====================================== */
 
-  .auth-form__submit-button {
-    /* Layout and positioning using CSS variables */
+  // SCSS Mixins for reusable patterns
+  @mixin button-base {
     position: relative;
     display: flex;
     align-items: var(--align-items-center);
     justify-content: center;
-    width: var(--container-xs); /* Use semantic width variable */
-    min-height: var(--touch-target-min); /* WCAG AAA compliant touch target */
-    gap: var(--space-sm);
-
-    /* Spacing using global CSS variables */
-    padding: var(--button-padding-standard); /* Use semantic button padding */
-
-    /* Visual styling using CSS variables only */
-    background: var(--btn-primary-bg); /* Use semantic button background */
-    color: var(--btn-primary-text);
-    border: none;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--card-shadow);
-
-    /* Typography using CSS variables */
-    font-size: var(--text-base);
-    font-weight: var(--font-semibold);
-    line-height: var(--leading-normal);
-
-    /* Enhanced text spacing for accessibility (WCAG 2.2 AAA) */
-    letter-spacing: var(--letter-spacing-enhanced);
-    word-spacing: var(--word-spacing-enhanced);
-
-    /* Interaction and performance optimizations */
     cursor: pointer;
+    border: none;
     transition: var(--transition-normal);
-    contain: layout style; /* Performance optimization */
-    will-change: transform, background-color; /* Performance hint */
-  }
-
-  /* Interactive states using CSS variables only */
-  .auth-form__submit-button:hover:not(:disabled) {
-    background: var(--btn-primary-hover); /* Use semantic button hover */
-    transform: translateY(calc(-1 * var(--space-xs)));
-    box-shadow: var(--card-shadow-hover);
-    filter: var(--filter-enhanced-visibility); /* Enhanced visibility filter */
-  }
-
-  .auth-form__submit-button:focus-visible {
-    outline: var(--focus-enhanced-outline-dark);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-enhanced-shadow), var(--card-shadow-hover);
-  }
-
-  .auth-form__submit-button:active:not(:disabled) {
-    transform: translateY(0) scale(var(--scale-active)); /* Use scale variable */
-    background: var(--interactive-primary-active);
-    box-shadow: var(--card-shadow);
-  }
-
-  /* Disabled state */
-  .auth-form__submit-button:disabled {
-    opacity: var(--opacity-disabled);
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-    pointer-events: none;
-  }
-
-  /* Loading state modifier */
-  .auth-form__submit-button--loading {
-    pointer-events: none;
-  }
-
-  /* Button text element with performance optimization */
-  .auth-form__submit-text {
-    font-weight: inherit;
-    color: inherit;
+    contain: layout style;
     user-select: none;
-    transition: opacity var(--transition-fast);
-    will-change: opacity; /* Performance hint for loading transitions */
   }
 
-  /* Hide text in loading state with optimized transition */
-  .auth-form__submit-button--loading .auth-form__submit-text {
-    opacity: 0;
-    transform: translateZ(0); /* GPU acceleration for smooth fade */
+  @mixin gpu-acceleration {
+    transform: translateZ(0);
+    will-change: transform;
   }
 
-  /* Loading spinner container with performance optimization */
-  .auth-form__spinner {
-    display: none;
-    align-items: var(--align-items-center);
-    justify-content: center;
-    position: absolute;
-    left: var(--gradient-start); /* Use semantic percentage variable */
-    top: var(--gradient-start); /* Use semantic percentage variable */
-    transform: translate(
-      calc(-1 * var(--gradient-start)),
-      calc(-1 * var(--gradient-start))
-    ); /* Use semantic transform */
-    contain: layout style; /* Performance optimization */
+  @mixin enhanced-touch-target {
+    min-height: var(--touch-target-enhanced);
+    padding: var(--button-padding-enhanced);
   }
 
-  /* Show spinner in loading state */
-  .auth-form__submit-button--loading .auth-form__spinner {
-    display: flex;
+  .auth-form {
+    &__submit-button {
+      @include button-base;
+
+      // Layout and positioning using CSS variables
+      width: var(--container-xs);
+      min-height: var(--touch-target-min);
+      gap: var(--space-sm);
+      padding: var(--button-padding-standard);
+
+      // Visual styling using CSS variables only
+      background: var(--btn-primary-bg);
+      color: var(--btn-primary-text);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--card-shadow);
+
+      // Typography using CSS variables
+      font-size: var(--text-base);
+      font-weight: var(--font-semibold);
+      line-height: var(--leading-normal);
+      letter-spacing: var(--letter-spacing-enhanced);
+      word-spacing: var(--word-spacing-enhanced);
+
+      // Performance optimization
+      will-change: transform, background-color;
+
+      // Interactive states using nested selectors
+      &:hover:not(:disabled) {
+        background: var(--btn-primary-hover);
+        transform: translateY(calc(-1 * var(--space-xs)));
+        box-shadow: var(--card-shadow-hover);
+        filter: var(--filter-enhanced-visibility);
+      }
+
+      &:focus-visible {
+        outline: var(--focus-enhanced-outline-dark);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-enhanced-shadow), var(--card-shadow-hover);
+      }
+
+      &:active:not(:disabled) {
+        transform: translateY(0) scale(var(--scale-active));
+        background: var(--interactive-primary-active);
+        box-shadow: var(--card-shadow);
+      }
+
+      &:disabled {
+        opacity: var(--opacity-disabled);
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+        pointer-events: none;
+      }
+
+      // Loading state modifier
+      &--loading {
+        pointer-events: none;
+
+        .auth-form__submit-text {
+          opacity: 0;
+          @include gpu-acceleration;
+        }
+
+        .auth-form__spinner {
+          display: flex;
+        }
+      }
+    }
+
+    &__submit-text {
+      font-weight: inherit;
+      color: inherit;
+      user-select: none;
+      transition: opacity var(--transition-fast);
+      will-change: opacity;
+    }
+
+    &__spinner {
+      display: none;
+      align-items: var(--align-items-center);
+      justify-content: center;
+      position: absolute;
+      left: var(--gradient-start);
+      top: var(--gradient-start);
+      transform: translate(calc(-1 * var(--gradient-start)), calc(-1 * var(--gradient-start)));
+      contain: layout style;
+
+      &-icon {
+        height: var(--text-base);
+        width: var(--text-base);
+        color: var(--btn-primary-text);
+        animation: auth-spinner-rotate var(--transition-normal) linear infinite;
+        filter: var(--filter-enhanced-visibility);
+        @include gpu-acceleration;
+      }
+    }
   }
 
-  /* Optimized spinner animation with CSS variables */
-  .auth-form__spinner-icon {
-    height: var(--text-base);
-    width: var(--text-base);
-    color: var(--btn-primary-text);
-    animation: auth-spinner-rotate var(--transition-normal) linear infinite;
-    transform: translateZ(0); /* GPU acceleration */
-    will-change: transform; /* Performance hint */
-    filter: var(--filter-enhanced-visibility); /* Enhanced visibility */
-  }
-
+  // Keyframes animations
   @keyframes auth-spinner-rotate {
     0% {
       transform: translateZ(0) rotate(0deg);
@@ -199,17 +205,25 @@ const {
     }
   }
 
+  @keyframes auth-spinner-pulse {
+    0%,
+    100% {
+      opacity: var(--opacity-medium);
+    }
+    50% {
+      opacity: var(--opacity-low);
+    }
+  }
+
   /* ======================================
-   * RESPONSIVE DESIGN - Optimized with CSS variables
+   * RESPONSIVE DESIGN - Organized with SCSS nesting
    * ====================================== */
 
   @media (min-width: 768px) {
     .auth-form__submit-button {
-      padding: var(--button-padding-enhanced); /* Use enhanced button padding */
+      @include enhanced-touch-target;
       font-size: var(--text-lg);
-      min-height: calc(
-        var(--touch-target-enhanced) + var(--space-xs)
-      ); /* Use enhanced touch target */
+      min-height: calc(var(--touch-target-enhanced) + var(--space-xs));
     }
   }
 
@@ -217,21 +231,21 @@ const {
    * ACCESSIBILITY ENHANCEMENTS - WCAG AAA 2.2
    * ====================================== */
 
-  /* High contrast mode support with enhanced CSS variables */
+  // High contrast mode support
   @media (prefers-contrast: high) {
     .auth-form__submit-button {
-      border: var(--enhanced-border-thickness) solid var(--border-focus); /* Use enhanced border thickness */
+      border: var(--enhanced-border-thickness) solid var(--border-focus);
       background: var(--interactive-primary);
-      filter: var(--filter-high-contrast-button); /* Enhanced high contrast filter */
-    }
+      filter: var(--filter-high-contrast-button);
 
-    .auth-form__submit-button:focus-visible {
-      outline-width: var(--border-width-enhanced);
-      background: var(--interactive-primary-hover);
+      &:focus-visible {
+        outline-width: var(--border-width-enhanced);
+        background: var(--interactive-primary-hover);
+      }
     }
   }
 
-  /* Reduced motion support with CSS variables */
+  // Reduced motion support
   @media (prefers-reduced-motion: reduce) {
     .auth-form__submit-button,
     .auth-form__spinner-icon {
@@ -243,46 +257,35 @@ const {
       transform: none;
     }
 
-    /* Alternative loading indicator for reduced motion using CSS variables */
+    // Alternative loading indicator for reduced motion
     .auth-form__spinner-icon {
       animation: auth-spinner-pulse var(--transition-slow) ease-in-out infinite;
     }
-
-    @keyframes auth-spinner-pulse {
-      0%,
-      100% {
-        opacity: var(--opacity-medium);
-      }
-      50% {
-        opacity: var(--opacity-low);
-      }
-    }
   }
 
-  /* Touch device optimization with enhanced CSS variables */
+  // Touch device optimization
   @media (hover: none) and (pointer: coarse) {
     .auth-form__submit-button {
-      min-height: var(--touch-target-enhanced); /* Use enhanced touch target for mobile */
-      padding: var(--button-padding-enhanced); /* Use enhanced padding for mobile */
-    }
+      @include enhanced-touch-target;
 
-    .auth-form__submit-button:hover {
-      transform: none;
-      box-shadow: var(--card-shadow);
-      background: var(--interactive-primary);
+      &:hover {
+        transform: none;
+        box-shadow: var(--card-shadow);
+        background: var(--interactive-primary);
+      }
     }
   }
 
-  /* Enhanced zoom support for 400% magnification (WCAG 2.2 AAA) with CSS variables */
+  // Enhanced zoom support for 400% magnification (WCAG 2.2 AAA)
   @supports (zoom: 4) {
     .auth-form__submit-button {
       font-size: max(var(--text-base), 16px);
-      min-height: max(var(--touch-target-enhanced), 44px); /* Use enhanced touch target */
+      min-height: max(var(--touch-target-enhanced), 44px);
       padding: max(var(--space-md), 12px) max(var(--space-xl), 16px);
     }
   }
 
-  /* Print styles using CSS variables */
+  // Print styles
   @media print {
     .auth-form__submit-button {
       background: var(--print-bg) !important;

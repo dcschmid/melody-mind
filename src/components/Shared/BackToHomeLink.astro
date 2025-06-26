@@ -60,7 +60,7 @@ const linkText = t("auth.login.back_to_home");
   </a>
 </div>
 
-<style>
+<style lang="scss">
   /* ======================================
    * BACK TO HOME NAVIGATION - REUSABLE COMPONENT
    * Using CSS variables from global.css only
@@ -69,63 +69,59 @@ const linkText = t("auth.login.back_to_home");
   .back-to-home {
     margin-bottom: var(--space-md);
     text-align: left;
-  }
 
-  .back-to-home__link {
-    display: inline-flex;
-    align-items: center;
-    min-height: var(--min-touch-size);
-    min-width: var(--min-touch-size);
-    padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-md);
-    font-size: var(--text-sm);
-    color: var(--color-primary-300);
-    text-decoration: none;
-    transition: all var(--transition-normal);
-    letter-spacing: var(--letter-spacing-base);
+    &__link {
+      display: inline-flex;
+      align-items: center;
+      min-height: var(--min-touch-size);
+      min-width: var(--min-touch-size);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      color: var(--color-primary-300);
+      text-decoration: none;
+      transition: all var(--transition-normal);
+      letter-spacing: var(--letter-spacing-base);
 
-    /* Performance optimizations */
-    contain: layout style;
-    will-change: transform, background-color;
+      /* Performance optimizations */
+      contain: layout style;
+      will-change: transform, background-color;
 
-    /* Enhanced focus styles for WCAG AAA */
-    outline: none;
-  }
+      /* Enhanced focus styles for WCAG AAA */
+      outline: none;
 
-  .back-to-home__link:hover {
-    background-color: var(--bg-tertiary);
-    color: var(--color-primary-200);
-    transform: translateX(calc(-1 * var(--space-xs)));
-  }
+      &:hover {
+        background-color: var(--bg-tertiary);
+        color: var(--color-primary-200);
+        transform: translateX(calc(-1 * var(--space-xs)));
+      }
 
-  .back-to-home__link:focus {
-    outline: var(--focus-enhanced-outline-dark);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-enhanced-shadow);
-  }
+      &:focus {
+        outline: var(--focus-enhanced-outline-dark);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-enhanced-shadow);
+      }
 
-  .back-to-home__icon {
-    width: var(--icon-size-md);
-    height: var(--icon-size-md);
-    margin-right: var(--space-xs);
-    color: currentColor;
-  }
+      /* High contrast mode support */
+      @media (prefers-contrast: high) {
+        border: var(--border-width-thick) solid var(--border-primary);
+      }
 
-  /* High contrast mode support */
-  @media (prefers-contrast: high) {
-    .back-to-home__link {
-      border: var(--border-width-thick) solid var(--border-primary);
-    }
-  }
+      /* Reduced motion support */
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
 
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .back-to-home__link {
-      transition: none;
+        &:hover {
+          transform: none;
+        }
+      }
     }
 
-    .back-to-home__link:hover {
-      transform: none;
+    &__icon {
+      width: var(--icon-size-md);
+      height: var(--icon-size-md);
+      margin-right: var(--space-xs);
+      color: currentColor;
     }
   }
 </style>

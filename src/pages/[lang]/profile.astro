@@ -322,98 +322,98 @@ const difficultyNames = {
   </div>
 </Layout>
 
-<style>
+<style lang="scss">
   /* ===========================================
    * PROFILE PAGE STYLES - WCAG AAA COMPLIANT
    * Using CSS custom properties from global.css
    * Applying DRY principles with utility classes
    * =========================================== */
 
-  /* Profile Container */
+  // Profile Container
   .profile {
     max-width: var(--container-xl);
     margin: 0 auto;
     padding: var(--space-md);
+
+    &__title {
+      font-size: var(--text-4xl);
+      font-weight: var(--font-bold);
+      color: var(--text-primary);
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+      line-height: var(--leading-enhanced);
+    }
+
+    // ===========================================
+    // LOADING STATE
+    // ===========================================
+
+    &__loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 18.75rem;
+      color: var(--text-secondary);
+
+      &-content {
+        text-align: center;
+      }
+
+      &-icon {
+        width: var(--icon-size-xl);
+        height: var(--icon-size-xl);
+        margin: 0 auto var(--space-md);
+        color: var(--interactive-primary);
+        animation: profile-spin var(--animation-duration-slow) linear infinite;
+      }
+
+      &-text {
+        font-size: var(--text-lg);
+        color: var(--text-secondary);
+        line-height: var(--leading-enhanced);
+      }
+    }
+
+    // ===========================================
+    // ERROR STATE
+    // ===========================================
+
+    &__error {
+      background-color: var(--bg-error-aaa);
+      border: var(--border-width-thick) solid var(--border-error);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-xl);
+      color: var(--text-error-aaa);
+
+      &-message {
+        font-weight: var(--font-semibold);
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-sm);
+        line-height: var(--leading-enhanced);
+      }
+
+      &-help {
+        font-size: var(--text-base);
+        color: var(--text-error-aaa);
+        line-height: var(--leading-enhanced);
+      }
+    }
+
+    // ===========================================
+    // PROFILE CONTENT
+    // ===========================================
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3xl);
+    }
   }
 
-  .profile__title {
-    font-size: var(--text-4xl);
-    font-weight: var(--font-bold);
-    color: var(--text-primary);
-    text-align: center;
-    margin-bottom: var(--space-3xl);
-    line-height: var(--leading-enhanced);
-  }
-
-  /* ===========================================
-   * LOADING STATE
-   * =========================================== */
-
-  .profile__loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 18.75rem;
-    color: var(--text-secondary);
-  }
-
-  .profile__loading-content {
-    text-align: center;
-  }
-
-  .profile__loading-icon {
-    width: var(--icon-size-xl);
-    height: var(--icon-size-xl);
-    margin: 0 auto var(--space-md);
-    color: var(--interactive-primary);
-    animation: profile-spin var(--animation-duration-slow) linear infinite;
-  }
-
-  .profile__loading-text {
-    font-size: var(--text-lg);
-    color: var(--text-secondary);
-    line-height: var(--leading-enhanced);
-  }
-
-  /* ===========================================
-   * ERROR STATE
-   * =========================================== */
-
-  .profile__error {
-    background-color: var(--bg-error-aaa);
-    border: var(--border-width-thick) solid var(--border-error);
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    margin-bottom: var(--space-xl);
-    color: var(--text-error-aaa);
-  }
-
-  .profile__error-message {
-    font-weight: var(--font-semibold);
-    font-size: var(--text-lg);
-    margin-bottom: var(--space-sm);
-    line-height: var(--leading-enhanced);
-  }
-
-  .profile__error-help {
-    font-size: var(--text-base);
-    color: var(--text-error-aaa);
-    line-height: var(--leading-enhanced);
-  }
-
-  /* ===========================================
-   * PROFILE CONTENT
-   * =========================================== */
-
-  .profile__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3xl);
-  }
-
-  /* ===========================================
-   * PROFILE CARDS
-   * =========================================== */
+  // ===========================================
+  // PROFILE CARDS
+  // ===========================================
 
   .profile-card {
     background-color: var(--card-bg);
@@ -422,63 +422,82 @@ const difficultyNames = {
     padding: var(--space-2xl);
     box-shadow: var(--card-shadow);
     transition: box-shadow var(--transition-normal);
+
+    &:focus-within {
+      box-shadow: var(--card-shadow-hover);
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+    }
+
+    &__title {
+      font-size: var(--text-3xl);
+      font-weight: var(--font-bold);
+      color: var(--text-primary);
+      margin-bottom: var(--space-xl);
+      line-height: var(--leading-enhanced);
+    }
+
+    // ===========================================
+    // USER INFO SECTION
+    // ===========================================
+
+    &__user-details {
+      gap: var(--space-lg);
+    }
+
+    &__user-item {
+      gap: var(--space-md);
+      padding: var(--space-md);
+    }
+
+    &__icon {
+      color: var(--interactive-primary);
+      flex-shrink: 0;
+      margin-top: var(--space-xs);
+    }
+
+    &__user-text {
+      flex: 1;
+    }
+
+    &__label {
+      display: block;
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+      color: var(--text-secondary);
+      margin-bottom: var(--space-xs);
+    }
+
+    &__value {
+      display: block;
+      font-size: var(--text-lg);
+      font-weight: var(--font-semibold);
+      color: var(--text-primary);
+    }
+
+    // ===========================================
+    // EMPTY STATE
+    // ===========================================
+
+    &__empty {
+      text-align: center;
+      padding: var(--space-3xl);
+      color: var(--text-tertiary);
+
+      &-icon {
+        margin: 0 auto var(--space-lg);
+        color: var(--text-tertiary);
+      }
+
+      &-text {
+        font-size: var(--text-lg);
+      }
+    }
   }
 
-  .profile-card:focus-within {
-    box-shadow: var(--card-shadow-hover);
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  .profile-card__title {
-    font-size: var(--text-3xl);
-    font-weight: var(--font-bold);
-    color: var(--text-primary);
-    margin-bottom: var(--space-xl);
-    line-height: var(--leading-enhanced);
-  }
-
-  /* ===========================================
-   * USER INFO SECTION
-   * =========================================== */
-
-  .profile-card__user-details {
-    gap: var(--space-lg);
-  }
-
-  .profile-card__user-item {
-    gap: var(--space-md);
-    padding: var(--space-md);
-  }
-
-  .profile-card__icon {
-    color: var(--interactive-primary);
-    flex-shrink: 0;
-    margin-top: var(--space-xs);
-  }
-
-  .profile-card__user-text {
-    flex: 1;
-  }
-
-  .profile-card__label {
-    display: block;
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
-    color: var(--text-secondary);
-    margin-bottom: var(--space-xs);
-  }
-
-  .profile-card__value {
-    display: block;
-    font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
-    color: var(--text-primary);
-  }
-
-  /* ===========================================
-   * STATS SECTION
-   * =========================================== */
+  // ===========================================
+  // STATS SECTION
+  // ===========================================
 
   .stats-grid {
     display: grid;
@@ -488,157 +507,144 @@ const difficultyNames = {
 
   .stat-card {
     padding: var(--space-xl);
+
+    &__title {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-bold);
+      color: var(--text-primary);
+      margin-bottom: var(--space-lg);
+    }
+
+    &__list {
+      gap: var(--space-md);
+    }
+
+    &__item {
+      padding: var(--space-md);
+      background-color: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      border: var(--border-width-thin) solid var(--border-primary);
+    }
+
+    &__label {
+      font-size: var(--text-base);
+      color: var(--text-secondary);
+      font-weight: var(--font-medium);
+    }
+
+    &__value {
+      font-size: var(--text-xl);
+      font-weight: var(--font-bold);
+      color: var(--text-primary);
+    }
   }
 
-  .stat-card__title {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-bold);
-    color: var(--text-primary);
-    margin-bottom: var(--space-lg);
-  }
+  // ===========================================
+  // RECENT GAMES SECTION
+  // ===========================================
 
-  .stat-card__list {
-    gap: var(--space-md);
-  }
-
-  .stat-card__item {
-    padding: var(--space-md);
-    background-color: var(--bg-secondary);
-    border-radius: var(--radius-sm);
-    border: var(--border-width-thin) solid var(--border-primary);
-  }
-
-  .stat-card__label {
-    font-size: var(--text-base);
-    color: var(--text-secondary);
-    font-weight: var(--font-medium);
-  }
-
-  .stat-card__value {
-    font-size: var(--text-xl);
-    font-weight: var(--font-bold);
-    color: var(--text-primary);
-  }
-
-  /* ===========================================
-   * RECENT GAMES SECTION
-   * =========================================== */
-
-  .profile-card__empty {
-    text-align: center;
-    padding: var(--space-3xl);
-    color: var(--text-tertiary);
-  }
-
-  .profile-card__empty-icon {
-    margin: 0 auto var(--space-lg);
-    color: var(--text-tertiary);
-  }
-
-  .profile-card__empty-text {
-    font-size: var(--text-lg);
-  }
-
-  .recent-games__list {
-    gap: var(--space-lg);
-    list-style: none;
-    padding: 0;
+  .recent-games {
+    &__list {
+      gap: var(--space-lg);
+      list-style: none;
+      padding: 0;
+    }
   }
 
   .recent-game {
     padding: var(--space-lg);
+
+    &:hover {
+      border-color: var(--border-focus);
+    }
+
+    &:focus-within {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+    }
+
+    &__header {
+      margin-bottom: var(--space-md);
+    }
+
+    &__mode {
+      gap: var(--space-sm);
+
+      &-text {
+        font-size: var(--text-lg);
+        font-weight: var(--font-semibold);
+        color: var(--text-primary);
+      }
+    }
+
+    &__icon {
+      color: var(--interactive-primary);
+    }
+
+    &__score {
+      text-align: right;
+
+      &-value {
+        display: block;
+        font-size: var(--text-2xl);
+        font-weight: var(--font-bold);
+        color: var(--interactive-primary);
+        line-height: var(--leading-tight);
+      }
+
+      &-label {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: var(--leading-enhanced);
+      }
+    }
+
+    &__details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+      font-size: var(--text-base);
+      color: var(--text-secondary);
+      line-height: var(--leading-enhanced);
+    }
+
+    &__category {
+      font-weight: var(--font-medium);
+      color: var(--text-primary);
+    }
+
+    &__difficulty {
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+      text-transform: capitalize;
+
+      &--easy {
+        background-color: var(--bg-success-aaa);
+        color: var(--text-success-aaa);
+      }
+
+      &--medium {
+        background-color: var(--bg-warning-aaa);
+        color: var(--text-warning-aaa);
+      }
+
+      &--hard {
+        background-color: var(--bg-error-aaa);
+        color: var(--text-error-aaa);
+      }
+    }
+
+    &__date {
+      color: var(--text-tertiary);
+      font-size: var(--text-sm);
+    }
   }
 
-  .recent-game:hover {
-    border-color: var(--border-focus);
-  }
-
-  .recent-game:focus-within {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  .recent-game__header {
-    margin-bottom: var(--space-md);
-  }
-
-  .recent-game__mode {
-    gap: var(--space-sm);
-  }
-
-  .recent-game__icon {
-    color: var(--interactive-primary);
-  }
-
-  .recent-game__mode-text {
-    font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
-    color: var(--text-primary);
-  }
-
-  .recent-game__score {
-    text-align: right;
-  }
-
-  .recent-game__score-value {
-    display: block;
-    font-size: var(--text-2xl);
-    font-weight: var(--font-bold);
-    color: var(--interactive-primary);
-    line-height: var(--leading-tight);
-  }
-
-  .recent-game__score-label {
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
-    line-height: var(--leading-enhanced);
-  }
-
-  .recent-game__details {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-lg);
-    font-size: var(--text-base);
-    color: var(--text-secondary);
-    line-height: var(--leading-enhanced);
-  }
-
-  .recent-game__category {
-    font-weight: var(--font-medium);
-    color: var(--text-primary);
-  }
-
-  .recent-game__difficulty {
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius-sm);
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
-    text-transform: capitalize;
-  }
-
-  .recent-game__difficulty--easy {
-    background-color: var(--bg-success-aaa);
-    color: var(--text-success-aaa);
-  }
-
-  .recent-game__difficulty--medium {
-    background-color: var(--bg-warning-aaa);
-    color: var(--text-warning-aaa);
-  }
-
-  .recent-game__difficulty--hard {
-    background-color: var(--bg-error-aaa);
-    color: var(--text-error-aaa);
-  }
-
-  .recent-game__date {
-    color: var(--text-tertiary);
-    font-size: var(--text-sm);
-  }
-
-  /* ===========================================
-   * ANIMATIONS
-   * =========================================== */
+  // ===========================================
+  // ANIMATIONS
+  // ===========================================
 
   @keyframes profile-spin {
     from {
@@ -649,9 +655,9 @@ const difficultyNames = {
     }
   }
 
-  /* ===========================================
-   * RESPONSIVE DESIGN
-   * =========================================== */
+  // ===========================================
+  // RESPONSIVE DESIGN
+  // ===========================================
 
   @media (min-width: var(--breakpoint-md)) {
     .profile {
@@ -670,16 +676,16 @@ const difficultyNames = {
   @media (min-width: var(--breakpoint-lg)) {
     .profile {
       padding: var(--space-2xl);
-    }
 
-    .profile-card {
-      padding: var(--space-3xl);
+      &-card {
+        padding: var(--space-3xl);
+      }
     }
   }
 
-  /* ===========================================
-   * REDUCED MOTION SUPPORT
-   * =========================================== */
+  // ===========================================
+  // ACCESSIBILITY ENHANCEMENTS
+  // ===========================================
 
   @media (prefers-reduced-motion: reduce) {
     .profile__loading-icon {
@@ -697,10 +703,6 @@ const difficultyNames = {
     }
   }
 
-  /* ===========================================
-   * HIGH CONTRAST MODE SUPPORT
-   * =========================================== */
-
   @media (prefers-contrast: high) {
     .profile-card {
       border-width: var(--border-width-enhanced);
@@ -713,11 +715,11 @@ const difficultyNames = {
     }
   }
 
-  /* ===========================================
-   * UTILITY CLASSES (DRY OPTIMIZATION)
-   * =========================================== */
+  // ===========================================
+  // UTILITY CLASSES (DRY OPTIMIZATION)
+  // ===========================================
 
-  /* Common Flexbox Patterns */
+  // Common Flexbox Patterns
   .flex-column {
     display: flex;
     flex-direction: column;
@@ -740,7 +742,7 @@ const difficultyNames = {
     align-items: flex-start;
   }
 
-  /* Common Text Patterns */
+  // Common Text Patterns
   .text-enhanced {
     line-height: var(--leading-enhanced);
   }
@@ -749,7 +751,7 @@ const difficultyNames = {
     margin: 0;
   }
 
-  /* Common Interactive Patterns */
+  // Common Interactive Patterns
   .card-transition {
     transition:
       transform var(--transition-normal),
@@ -757,21 +759,27 @@ const difficultyNames = {
       border-color var(--transition-normal);
   }
 
-  .hover-lift:hover {
-    transform: translateY(calc(-1 * var(--space-xs)));
+  .hover-lift {
+    &:hover {
+      transform: translateY(calc(-1 * var(--space-xs)));
+    }
   }
 
-  .hover-shadow:hover {
-    box-shadow: var(--shadow-lg);
+  .hover-shadow {
+    &:hover {
+      box-shadow: var(--shadow-lg);
+    }
   }
 
-  /* Common Focus Patterns */
-  .focus-outline:focus-within {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
+  // Common Focus Patterns
+  .focus-outline {
+    &:focus-within {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+    }
   }
 
-  /* Icon Sizing */
+  // Icon Sizing
   .icon-standard {
     width: var(--icon-size-md);
     height: var(--icon-size-md);
@@ -782,7 +790,7 @@ const difficultyNames = {
     height: var(--icon-size-xl);
   }
 
-  /* Common Card Pattern */
+  // Common Card Pattern
   .card-base {
     background-color: var(--bg-tertiary);
     border: var(--border-width-thin) solid var(--border-secondary);
@@ -797,8 +805,4 @@ const difficultyNames = {
     padding: var(--space-2xl);
     box-shadow: var(--card-shadow);
   }
-
-  /* ===========================================
-   * MAIN PROFILE CONTAINER
-   * =========================================== */
 </style>

@@ -2,7 +2,7 @@
 /**
  * EmptyState Component
  * Reusable component for displaying empty states with consistent styling
- * 
+ *
  * @component EmptyState
  * @description Displays an empty state message with icon and optional action button
  * @accessibility WCAG AAA compliant with proper ARIA attributes and semantic HTML
@@ -36,32 +36,26 @@ const {
   className = "",
   headingLevel = "h3",
   maxWidth = "28rem",
-  minHeight = "24rem"
+  minHeight = "24rem",
 } = Astro.props;
 
 // Generate unique IDs for accessibility
 const headlineId = `empty-state-${Math.random().toString(36).substr(2, 9)}`;
 ---
 
-<div 
+<div
   class={`empty-state ${className}`}
-  role="status" 
+  role="status"
   aria-live="polite"
   aria-labelledby={headlineId}
   style={`--empty-state-max-width: ${maxWidth}; --empty-state-min-height: ${minHeight};`}
 >
   <div class="empty-state__content">
-    {iconName && (
-      <Icon 
-        name={iconName} 
-        class="empty-state__icon" 
-        aria-hidden="true" 
-      />
-    )}
-    <Headline 
-      title={headline} 
-      level={headingLevel} 
-      className="empty-state__title" 
+    {iconName && <Icon name={iconName} class="empty-state__icon" aria-hidden="true" />}
+    <Headline
+      title={headline}
+      level={headingLevel}
+      className="empty-state__title"
       id={headlineId}
     />
     <Paragraph className="empty-state__text">
@@ -71,7 +65,7 @@ const headlineId = `empty-state-${Math.random().toString(36).substr(2, 9)}`;
   </div>
 </div>
 
-<style>
+<style lang="scss">
   .empty-state {
     display: flex;
     justify-content: center;
@@ -79,48 +73,50 @@ const headlineId = `empty-state-${Math.random().toString(36).substr(2, 9)}`;
     min-height: var(--empty-state-min-height, var(--gamehome-empty-min-height, 24rem));
     padding: var(--space-xl);
     grid-column: 1 / -1;
-  }
 
-  .empty-state__content {
-    text-align: center;
-    max-width: var(--empty-state-max-width, var(--gamehome-empty-max-width, 28rem));
-  }
+    &__content {
+      text-align: center;
+      max-width: var(--empty-state-max-width, var(--gamehome-empty-max-width, 28rem));
+    }
 
-  .empty-state__icon {
-    width: var(--icon-size-xl);
-    height: var(--icon-size-xl);
-    color: var(--text-tertiary);
-    margin-bottom: var(--space-lg);
-  }
+    &__icon {
+      width: var(--icon-size-xl);
+      height: var(--icon-size-xl);
+      color: var(--text-tertiary);
+      margin-bottom: var(--space-lg);
+    }
 
-  .empty-state__title {
-    margin-bottom: var(--space-md);
-    color: var(--text-secondary);
-  }
-
-  .empty-state__text {
-    color: var(--text-tertiary);
-    margin-bottom: var(--space-lg);
-  }
-
-  /* Support for custom CSS properties */
-  .empty-state.custom-spacing {
-    --space-custom: var(--space-2xl);
-    gap: var(--space-custom);
-  }
-
-  /* High contrast mode support */
-  @media (prefers-contrast: high) {
-    .empty-state__icon {
+    &__title {
+      margin-bottom: var(--space-md);
       color: var(--text-secondary);
     }
-    
-    .empty-state__title {
-      color: var(--text-primary);
+
+    &__text {
+      color: var(--text-tertiary);
+      margin-bottom: var(--space-lg);
+    }
+
+    // Support for custom CSS properties
+    &.custom-spacing {
+      --space-custom: var(--space-2xl);
+      gap: var(--space-custom);
     }
   }
 
-  /* Reduced motion support */
+  // High contrast mode support
+  @media (prefers-contrast: high) {
+    .empty-state {
+      &__icon {
+        color: var(--text-secondary);
+      }
+
+      &__title {
+        color: var(--text-primary);
+      }
+    }
+  }
+
+  // Reduced motion support
   @media (prefers-reduced-motion: reduce) {
     .empty-state {
       transition: none;

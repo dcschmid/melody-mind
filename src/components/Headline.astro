@@ -116,7 +116,7 @@ const wrapperAttrs =
     : null;
 ---
 
-<style>
+<style lang="scss">
   /* ======================================
    * HEADLINE COMPONENT - BEM STYLE
    * WCAG AAA 2.2 COMPLIANT STYLES
@@ -142,205 +142,196 @@ const wrapperAttrs =
     letter-spacing: max(var(--letter-spacing-base), var(--letter-spacing-enhanced));
     line-height: max(var(--leading-tight), var(--line-height-enhanced));
     word-spacing: max(normal, var(--word-spacing-enhanced));
-  }
 
-  /* Focusable modifier for accessibility (WCAG 2.2 AAA) */
-  .headline--focusable {
-    /* Enhanced focus styles with 4.5:1 contrast ratio */
-    &:focus {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-      box-shadow: var(--focus-ring);
-      /* Minimum touch target size (WCAG 2.2) */
-      min-height: var(--min-touch-size);
-      min-width: var(--min-touch-size);
-      /* Enhanced focus appearance */
-      background-color: var(--focus-bg-overlay);
-      border-radius: var(--radius-sm);
-      transition: all var(--transition-fast);
-    }
-  }
-
-  /* Interactive modifier for clickable headlines */
-  .headline--interactive {
-    cursor: pointer;
-    transition: all var(--transition-normal);
-
-    &:hover {
-      text-decoration: underline;
-      text-decoration-thickness: var(--text-decoration-thickness);
-      text-underline-offset: var(--text-underline-offset);
-      transform: translateY(-1px);
+    // Focusable modifier for accessibility (WCAG 2.2 AAA)
+    &--focusable {
+      // Enhanced focus styles with 4.5:1 contrast ratio
+      &:focus {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-ring);
+        // Minimum touch target size (WCAG 2.2)
+        min-height: var(--min-touch-size);
+        min-width: var(--min-touch-size);
+        // Enhanced focus appearance
+        background-color: var(--focus-bg-overlay);
+        border-radius: var(--radius-sm);
+        transition: all var(--transition-fast);
+      }
     }
 
-    &:active {
-      transform: translateY(0);
-    }
-  }
+    // Interactive modifier for clickable headlines
+    &--interactive {
+      cursor: pointer;
+      transition: all var(--transition-normal);
 
-  /* Skip navigation target styling */
-  .headline--skip-target {
-    scroll-margin-top: var(--space-xl);
-    position: relative;
+      &:hover {
+        text-decoration: underline;
+        text-decoration-thickness: var(--text-decoration-thickness);
+        text-underline-offset: var(--text-underline-offset);
+        transform: translateY(-1px);
+      }
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: calc(-1 * var(--space-lg));
-      left: 0;
-      right: 0;
-      height: 2px;
-      background-color: transparent;
-      transition: background-color var(--transition-fast);
+      &:active {
+        transform: translateY(0);
+      }
     }
 
-    &:target::before {
-      background-color: var(--interactive-primary);
-      box-shadow: 0 0 var(--space-sm) var(--interactive-primary);
+    // Skip navigation target styling
+    &--skip-target {
+      scroll-margin-top: var(--space-xl);
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: calc(-1 * var(--space-lg));
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: transparent;
+        transition: background-color var(--transition-fast);
+      }
+
+      &:target {
+        &::before {
+          background-color: var(--interactive-primary);
+          box-shadow: 0 0 var(--space-sm) var(--interactive-primary);
+        }
+
+        animation: skip-highlight 2s ease-in-out;
+      }
     }
 
-    &:target {
-      animation: skip-highlight 2s ease-in-out;
+    // Size variants using CSS custom properties - similar to Paragraph component
+    &--size-xs {
+      font-size: var(--text-xs);
     }
-  }
-
-  /* Size variants using CSS custom properties - similar to Paragraph component */
-  .headline--size-xs {
-    font-size: var(--text-xs);
-  }
-  .headline--size-sm {
-    font-size: var(--text-sm);
-  }
-  .headline--size-base {
-    font-size: var(--text-base);
-  }
-  .headline--size-lg {
-    font-size: var(--text-lg);
-  }
-  .headline--size-xl {
-    font-size: var(--text-xl);
-  }
-  .headline--size-2xl {
-    font-size: var(--text-2xl);
-  }
-  .headline--size-3xl {
-    font-size: var(--text-3xl);
-  }
-  .headline--size-4xl {
-    font-size: var(--text-4xl);
-  }
-
-  /* Responsive size adjustments for larger text sizes */
-  @media (min-width: var(--breakpoint-md)) {
-    .headline--size-xl {
+    &--size-sm {
+      font-size: var(--text-sm);
+    }
+    &--size-base {
+      font-size: var(--text-base);
+    }
+    &--size-lg {
+      font-size: var(--text-lg);
+    }
+    &--size-xl {
+      font-size: var(--text-xl);
+    }
+    &--size-2xl {
       font-size: var(--text-2xl);
     }
-    .headline--size-2xl {
+    &--size-3xl {
       font-size: var(--text-3xl);
     }
-    .headline--size-3xl {
+    &--size-4xl {
       font-size: var(--text-4xl);
     }
-    .headline--size-4xl {
-      font-size: calc(var(--text-4xl) * 1.25);
-    }
-  }
 
-  @media (min-width: var(--breakpoint-lg)) {
-    .headline--size-2xl {
-      font-size: var(--text-4xl);
+    // Responsive size adjustments - nested within size modifiers
+    @media (min-width: var(--breakpoint-md)) {
+      &--size-xl {
+        font-size: var(--text-2xl);
+      }
+      &--size-2xl {
+        font-size: var(--text-3xl);
+      }
+      &--size-3xl {
+        font-size: var(--text-4xl);
+      }
+      &--size-4xl {
+        font-size: calc(var(--text-4xl) * 1.25);
+      }
     }
-    .headline--size-3xl {
-      font-size: calc(var(--text-4xl) * 1.25);
+
+    @media (min-width: var(--breakpoint-lg)) {
+      &--size-2xl {
+        font-size: var(--text-4xl);
+      }
+      &--size-3xl {
+        font-size: calc(var(--text-4xl) * 1.25);
+      }
+      &--size-4xl {
+        font-size: calc(var(--text-4xl) * 1.5);
+      }
     }
-    .headline--size-4xl {
-      font-size: calc(var(--text-4xl) * 1.5);
-    }
-  }
 
-  .headline--primary {
-    /* WCAG AAA compliant fallback color (7:1 contrast ratio) */
-    color: var(--interactive-primary);
-
-    /* Enhanced gradient text with accessibility considerations */
-    background: linear-gradient(135deg, var(--color-primary-500), var(--color-secondary-500));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% 200%;
-    animation: gradient-shift var(--animation-gradient);
-    will-change: background-position;
-
-    /* Fallback for browsers that don't support background-clip: text */
-    @supports not (background-clip: text) {
-      background: none;
-      -webkit-text-fill-color: initial;
+    // Primary style variant
+    &--primary {
+      // WCAG AAA compliant fallback color (7:1 contrast ratio)
       color: var(--interactive-primary);
+
+      // Enhanced gradient text with accessibility considerations
+      background: linear-gradient(135deg, var(--color-primary-500), var(--color-secondary-500));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 200%;
+      animation: gradient-shift var(--animation-gradient);
+      will-change: background-position;
+
+      // Fallback for browsers that don't support background-clip: text
+      @supports not (background-clip: text) {
+        background: none;
+        -webkit-text-fill-color: initial;
+        color: var(--interactive-primary);
+      }
+
+      // High contrast mode support
+      @media (prefers-contrast: high) {
+        background: none;
+        -webkit-text-fill-color: initial;
+        color: var(--text-primary);
+        font-weight: var(--font-bold);
+      }
+
+      // Ensure proper contrast in forced colors mode
+      @media (forced-colors: active) {
+        background: none;
+        -webkit-text-fill-color: initial;
+        color: ButtonText;
+        forced-color-adjust: none;
+      }
     }
 
-    /* High contrast mode support */
-    @media (prefers-contrast: high) {
-      background: none;
-      -webkit-text-fill-color: initial;
-      color: var(--text-primary);
+    // Level-specific typography - consolidated font weights for DRY
+    &--h1 {
       font-weight: var(--font-bold);
+      margin-bottom: var(--space-xl);
     }
 
-    /* Ensure proper contrast in forced colors mode */
-    @media (forced-colors: active) {
-      background: none;
-      -webkit-text-fill-color: initial;
-      color: ButtonText;
-      forced-color-adjust: none;
+    &--h2,
+    &--h3 {
+      font-weight: var(--font-semibold);
+    }
+
+    &--h2 {
+      margin-bottom: var(--space-lg);
+    }
+
+    &--h3 {
+      margin-bottom: var(--space-md);
+    }
+
+    &--h4,
+    &--h5,
+    &--h6 {
+      font-weight: var(--font-medium);
+      margin-bottom: var(--space-sm);
+    }
+
+    // Text alignment modifiers for layout flexibility
+    &--align-center {
+      text-align: center;
+    }
+
+    &--align-right {
+      text-align: right;
     }
   }
 
-  /* Level-specific typography - consolidated font weights for DRY */
-  .headline--h1 {
-    font-weight: var(--font-bold);
-  }
-
-  .headline--h2,
-  .headline--h3 {
-    font-weight: var(--font-semibold);
-  }
-
-  .headline--h4,
-  .headline--h5,
-  .headline--h6 {
-    font-weight: var(--font-medium);
-  }
-
-  /* Text alignment modifiers for layout flexibility */
-  .headline--align-center {
-    text-align: center;
-  }
-
-  .headline--align-right {
-    text-align: right;
-  }
-
-  /* Level-specific sizes and spacing */
-  .headline--h1 {
-    margin-bottom: var(--space-xl);
-
-  }
-
-  .headline--h2 {
-    margin-bottom: var(--space-lg);
-  }
-
-  .headline--h3 {
-    margin-bottom: var(--space-md);
-  }
-
-  .headline--h4,
-  .headline--h5,
-  .headline--h6 {
-    margin-bottom: var(--space-sm);
-  }
-
-  /* Gradient animation optimized for performance */
+  // Gradient animation optimized for performance
   @keyframes gradient-shift {
     0%,
     100% {
@@ -351,7 +342,7 @@ const wrapperAttrs =
     }
   }
 
-  /* Skip navigation highlight animation */
+  // Skip navigation highlight animation
   @keyframes skip-highlight {
     0% {
       background-color: transparent;
@@ -365,47 +356,47 @@ const wrapperAttrs =
     }
   }
 
-  /* Wrapper element for semantic structure */
+  // Wrapper element for semantic structure
   .headline-wrapper {
-    display: contents; /* Maintains layout flow */
+    display: contents; // Maintains layout flow
   }
 
-  /* Enhanced support for reduced motion (WCAG 2.2) - specific overrides only */
+  // Enhanced support for reduced motion (WCAG 2.2) - specific overrides only
   @media (prefers-reduced-motion: reduce) {
     .headline {
-      /* Reset enhanced spacing to standard for reduced motion */
+      // Reset enhanced spacing to standard for reduced motion
       letter-spacing: var(--letter-spacing-base);
       line-height: var(--leading-tight);
-    }
 
-    .headline--primary {
-      /* Reset gradient animation - global reduced motion handles animation: none */
-      background: none;
-      -webkit-text-fill-color: initial;
-      color: var(--interactive-primary);
-      will-change: auto;
-      animation: none;
-    }
-
-    .headline--skip-target {
-      animation: none;
-
-      &:target {
-        /* Static highlight for reduced motion users */
-        background-color: var(--focus-bg-overlay);
-        border-radius: var(--radius-sm);
-        padding: var(--space-xs);
-        margin: calc(-1 * var(--space-xs));
-      }
-    }
-
-    .headline--interactive {
-      &:hover {
-        transform: none;
+      &--primary {
+        // Reset gradient animation - global reduced motion handles animation: none
+        background: none;
+        -webkit-text-fill-color: initial;
+        color: var(--interactive-primary);
+        will-change: auto;
+        animation: none;
       }
 
-      &:active {
-        transform: none;
+      &--skip-target {
+        animation: none;
+
+        &:target {
+          // Static highlight for reduced motion users
+          background-color: var(--focus-bg-overlay);
+          border-radius: var(--radius-sm);
+          padding: var(--space-xs);
+          margin: calc(-1 * var(--space-xs));
+        }
+      }
+
+      &--interactive {
+        &:hover {
+          transform: none;
+        }
+
+        &:active {
+          transform: none;
+        }
       }
     }
   }

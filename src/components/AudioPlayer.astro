@@ -238,9 +238,9 @@ const t = useTranslations(lang);
   </div>
 </div>
 
-<style>
+<style lang="scss">
   /**
-   * AudioPlayer Component Styles
+   * AudioPlayer Component Styles (SCSS)
    * Uses CSS custom properties from global.css for WCAG AAA 2.2 compliance
    * 
    * OPTIMIZATION SUMMARY (DRY PRINCIPLES APPLIED):
@@ -315,9 +315,9 @@ const t = useTranslations(lang);
    * - CLS: Explicit image dimensions + contain-intrinsic-size
    */
 
-  /* ======================================
-   * MAIN CONTAINER
-   * ====================================== */
+  // ======================================
+  // MAIN CONTAINER
+  // ======================================
   .audio-player {
     position: relative;
     margin: 0 auto;
@@ -326,84 +326,151 @@ const t = useTranslations(lang);
     /* Modern CSS performance optimization */
     content-visibility: auto;
     contain-intrinsic-size: 640px 360px;
+
+    &__container {
+      position: relative;
+      isolation: isolate;
+      width: 100%;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      transition: all var(--transition-normal);
+      /* Performance optimizations */
+      contain: layout style paint;
+      will-change: transform, box-shadow;
+
+      &:hover {
+        transform: translateY(calc(-1 * var(--space-xs)));
+        box-shadow: var(--shadow-xl);
+
+        .audio-player__cover {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    // ======================================
+    // COVER IMAGE
+    // ======================================
+    &__cover-container {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    &__cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow) ease-in-out;
+      /* Performance optimizations */
+      transform: translateZ(0); /* Force GPU acceleration */
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+
+    // ======================================
+    // OVERLAY AND CONTROLS
+    // ======================================
+    &__overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(
+        to top,
+        var(--bg-primary) 0%,
+        var(--bg-secondary) 40%,
+        transparent 100%
+      );
+      backdrop-filter: blur(var(--backdrop-blur-light));
+      padding: var(--space-md) var(--space-lg);
+      color: var(--text-primary);
+      transition: opacity var(--transition-normal);
+    }
+
+    &__controls {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    // ======================================
+    // PLAY BUTTON
+    // ======================================
+    &__play-button {
+      position: relative;
+      display: flex;
+      height: var(--min-touch-size);
+      width: var(--min-touch-size);
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-full);
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      border: none;
+      transition: all var(--transition-fast);
+      contain: layout;
+      /* Performance optimizations */
+      transform: translateZ(0); /* Force GPU acceleration */
+      will-change: transform, box-shadow;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: var(--shadow-lg);
+      }
+
+      &:focus-visible {
+        outline: var(--focus-enhanced-outline-dark);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-enhanced-shadow);
+      }
+    }
+
+    // ======================================
+    // PROGRESS CONTAINER
+    // ======================================
+    &__progress-container {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    &__time-display {
+      display: flex;
+      justify-content: space-between;
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+    }
+
+    // ======================================
+    // VOLUME CONTROLS
+    // ======================================
+    &__volume-controls {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+
+      &:hover .volume-slider-container,
+      .volume-slider-container:focus-within {
+        width: var(--space-3xl);
+      }
+    }
   }
 
-  .audio-player__container {
-    position: relative;
-    isolation: isolate;
-    width: 100%;
-    overflow: hidden;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg);
-    transition: all var(--transition-normal);
-    /* Performance optimizations */
-    contain: layout style paint;
-    will-change: transform, box-shadow;
-  }
-
-  .audio-player__container:hover {
-    transform: translateY(calc(-1 * var(--space-xs)));
-    box-shadow: var(--shadow-xl);
-  }
-
-  /* ======================================
-   * COVER IMAGE
-   * ====================================== */
-  .audio-player__cover-container {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .audio-player__cover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-slow) ease-in-out;
-    /* Performance optimizations */
-    transform: translateZ(0); /* Force GPU acceleration */
-    will-change: transform;
-    backface-visibility: hidden;
-  }
-
-  .audio-player__container:hover .audio-player__cover {
-    transform: scale(1.05);
-  }
-
-  /* ======================================
-   * OVERLAY AND CONTROLS
-   * ====================================== */
-  .audio-player__overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(
-      to top,
-      var(--bg-primary) 0%,
-      var(--bg-secondary) 40%,
-      transparent 100%
-    );
-    backdrop-filter: blur(var(--backdrop-blur-light));
-    padding: var(--space-md) var(--space-lg);
-    color: var(--text-primary);
-    transition: opacity var(--transition-normal);
-  }
-
-  .audio-player__controls {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    gap: var(--space-md);
-  }
-
-  /* ======================================
-   * SHARED BUTTON STYLES (DRY PRINCIPLE)
-   * ====================================== */
+  // ======================================
+  // SHARED BUTTON STYLES (DRY PRINCIPLE)
+  // ======================================
   .audio-player__play-button,
   .volume-btn,
   .help-btn {
@@ -411,48 +478,30 @@ const t = useTranslations(lang);
     border: none;
     transition: all var(--transition-fast);
     contain: layout;
+
+    // Consolidated focus states for all interactive buttons
+    &:focus-visible {
+      outline: var(--focus-enhanced-outline-dark);
+      outline-offset: var(--focus-ring-offset);
+    }
   }
 
-  /* Consolidated focus states for all interactive buttons */
+  // Enhanced focus states with shadow
   .audio-player__play-button:focus-visible,
-  .volume-btn:focus-visible,
-  .help-btn:focus-visible,
+  .help-btn:focus-visible {
+    box-shadow: var(--focus-enhanced-shadow);
+  }
+
+  // Consolidated focus for progress and volume elements
   .progress-bar-container:focus-visible,
   .volume-slider:focus-visible {
     outline: var(--focus-enhanced-outline-dark);
     outline-offset: var(--focus-ring-offset);
   }
 
-  /* Enhanced focus states with shadow */
-  .audio-player__play-button:focus-visible,
-  .help-btn:focus-visible {
-    box-shadow: var(--focus-enhanced-shadow);
-  }
-  /* ======================================
-   * PLAY BUTTON
-   * ====================================== */
-  .audio-player__play-button {
-    position: relative;
-    display: flex;
-    height: var(--min-touch-size);
-    width: var(--min-touch-size);
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-full);
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
-    box-shadow: var(--shadow-md);
-    /* Performance optimizations */
-    transform: translateZ(0); /* Force GPU acceleration */
-    will-change: transform, box-shadow;
-  }
-
-  .audio-player__play-button:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-lg);
-  }
-
+  // ======================================
+  // ICON STYLES
+  // ======================================
   .play-icon,
   .pause-icon {
     position: absolute;
@@ -467,16 +516,9 @@ const t = useTranslations(lang);
     transform: scale(0.75);
   }
 
-  /* ======================================
-   * PROGRESS CONTAINER
-   * ====================================== */
-  .audio-player__progress-container {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-
+  // ======================================
+  // PROGRESS BAR
+  // ======================================
   .progress-bar-container {
     position: relative;
     height: var(--space-sm);
@@ -484,12 +526,23 @@ const t = useTranslations(lang);
     overflow: hidden;
     border-radius: var(--radius-sm);
     background-color: var(--border-primary);
-  }
 
-  .progress-bar-container:focus-visible {
-    outline: var(--focus-enhanced-outline);
-    outline-offset: 2px;
-    border-radius: var(--radius-sm);
+    &:focus-visible {
+      outline: var(--focus-enhanced-outline);
+      outline-offset: 2px;
+      border-radius: var(--radius-sm);
+    }
+
+    &[aria-busy="true"] .progress-bar {
+      background: linear-gradient(
+        90deg,
+        var(--color-primary-400) 0%,
+        var(--color-primary-600) 50%,
+        var(--color-primary-400) 100%
+      );
+      background-size: 200% 100%;
+      animation: loadingShimmer var(--animation-shimmer-duration) ease-in-out infinite;
+    }
   }
 
   .progress-bar-bg {
@@ -527,26 +580,9 @@ const t = useTranslations(lang);
     will-change: contents;
   }
 
-  /* ======================================
-   * TIME DISPLAY
-   * ====================================== */
-  .audio-player__time-display {
-    display: flex;
-    justify-content: space-between;
-    font-size: var(--text-xs);
-    color: var(--text-tertiary);
-  }
-
-  /* ======================================
-   * VOLUME CONTROLS
-   * ====================================== */
-  .audio-player__volume-controls {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-  }
-
+  // ======================================
+  // VOLUME CONTROLS
+  // ======================================
   .volume-btn {
     display: flex;
     min-height: var(--min-touch-size);
@@ -558,10 +594,10 @@ const t = useTranslations(lang);
     color: var(--text-primary);
     opacity: var(--animation-opacity-start);
     transition: opacity var(--transition-normal);
-  }
 
-  .volume-btn:hover {
-    opacity: var(--animation-opacity-full);
+    &:hover {
+      opacity: var(--animation-opacity-full);
+    }
   }
 
   .volume-icon,
@@ -590,11 +626,6 @@ const t = useTranslations(lang);
     will-change: width;
   }
 
-  .audio-player__volume-controls:hover .volume-slider-container,
-  .volume-slider-container:focus-within {
-    width: var(--space-3xl);
-  }
-
   .volume-slider {
     height: var(--space-xs);
     width: 100%;
@@ -602,45 +633,57 @@ const t = useTranslations(lang);
     border-radius: var(--radius-sm);
     background-color: var(--border-primary);
     outline: none;
+
+    &:focus-visible {
+      border-radius: var(--radius-sm);
+    }
+
+    // ======================================
+    // VOLUME SLIDER CUSTOM STYLING
+    // ======================================
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: var(--icon-size-sm);
+      height: var(--icon-size-sm);
+      border-radius: var(--radius-full);
+      background: var(--text-primary);
+      cursor: pointer;
+      transition: transform var(--transition-fast);
+
+      &:hover {
+        transform: scale(var(--animation-scale-enhanced));
+      }
+    }
+
+    &::-moz-range-thumb {
+      width: var(--icon-size-sm);
+      height: var(--icon-size-sm);
+      border-radius: var(--radius-full);
+      border: none;
+      background: var(--text-primary);
+      cursor: pointer;
+      transition: transform var(--transition-fast);
+
+      &:hover {
+        transform: scale(var(--animation-scale-enhanced));
+      }
+    }
+
+    &:active {
+      &::-webkit-slider-thumb {
+        transform: scale(var(--animation-scale-enhanced));
+      }
+
+      &::-moz-range-thumb {
+        transform: scale(var(--animation-scale-enhanced));
+      }
+    }
   }
 
-  /* ======================================
-   * VOLUME SLIDER CUSTOM STYLING
-   * ====================================== */
-  .volume-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: var(--icon-size-sm);
-    height: var(--icon-size-sm);
-    border-radius: var(--radius-full);
-    background: var(--text-primary);
-    cursor: pointer;
-    transition: transform var(--transition-fast);
-  }
-
-  .volume-slider::-moz-range-thumb {
-    width: var(--icon-size-sm);
-    height: var(--icon-size-sm);
-    border-radius: var(--radius-full);
-    border: none;
-    background: var(--text-primary);
-    cursor: pointer;
-    transition: transform var(--transition-fast);
-  }
-
-  .volume-slider::-webkit-slider-thumb:hover,
-  .volume-slider:active::-webkit-slider-thumb {
-    transform: scale(var(--animation-scale-enhanced));
-  }
-
-  .volume-slider::-moz-range-thumb:hover,
-  .volume-slider:active::-moz-range-thumb {
-    transform: scale(var(--animation-scale-enhanced));
-  }
-
-  /* ======================================
-   * HELP BUTTON AND ACCESSIBILITY
-   * ====================================== */
+  // ======================================
+  // HELP BUTTON AND ACCESSIBILITY
+  // ======================================
   .help-btn {
     display: flex;
     height: var(--min-touch-size);
@@ -651,11 +694,11 @@ const t = useTranslations(lang);
     color: var(--text-primary);
     border-radius: var(--radius-sm);
     opacity: var(--animation-opacity-start);
-  }
 
-  .help-btn:hover {
-    opacity: var(--animation-opacity-full);
-    background-color: var(--bg-secondary);
+    &:hover {
+      opacity: var(--animation-opacity-full);
+      background-color: var(--bg-secondary);
+    }
   }
 
   .help-icon {
@@ -664,22 +707,9 @@ const t = useTranslations(lang);
     fill: currentColor;
   }
 
-  /* Enhanced progress bar accessibility */
-  .progress-bar-container:focus-visible {
-    border-radius: var(--radius-sm);
-  }
-
-  .progress-bar-container[aria-busy="true"] .progress-bar {
-    background: linear-gradient(
-      90deg,
-      var(--color-primary-400) 0%,
-      var(--color-primary-600) 50%,
-      var(--color-primary-400) 100%
-    );
-    background-size: 200% 100%;
-    animation: loadingShimmer var(--animation-shimmer-duration) ease-in-out infinite;
-  }
-
+  // ======================================
+  // ANIMATIONS
+  // ======================================
   @keyframes loadingShimmer {
     0% {
       background-position: -200% 0;
@@ -689,12 +719,9 @@ const t = useTranslations(lang);
     }
   }
 
-  /* Enhanced volume slider accessibility */
-  .volume-slider:focus-visible {
-    border-radius: var(--radius-sm);
-  }
-
-  /* Audio fallback button styling */
+  // ======================================
+  // FALLBACK ELEMENTS
+  // ======================================
   .audio-fallback-link {
     color: var(--interactive-primary);
     text-decoration: underline;
@@ -702,43 +729,43 @@ const t = useTranslations(lang);
     border: none;
     cursor: pointer;
     font: inherit;
+
+    &:hover {
+      color: var(--interactive-primary-hover);
+    }
+
+    &:focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: 2px;
+    }
   }
 
-  .audio-fallback-link:hover {
-    color: var(--interactive-primary-hover);
-  }
-
-  .audio-fallback-link:focus-visible {
-    outline: var(--focus-ring);
-    outline-offset: 2px;
-  }
-
-  /* ======================================
-   * TRACK INFO
-   * ====================================== */
+  // ======================================
+  // TRACK INFO
+  // ======================================
   .track-info {
     margin-top: var(--space-sm);
     font-size: var(--text-sm);
+
+    &__title {
+      font-weight: var(--font-medium);
+      color: var(--text-primary);
+    }
+
+    &__artist {
+      opacity: var(--opacity-medium);
+      color: var(--text-secondary);
+    }
   }
 
-  .track-info__title {
-    font-weight: var(--font-medium);
-    color: var(--text-primary);
-  }
-
-  .track-info__artist {
-    opacity: var(--opacity-medium);
-    color: var(--text-secondary);
-  }
-
-  /* ======================================
-   * HIDDEN ELEMENTS
-   * ====================================== */
+  // ======================================
+  // HIDDEN ELEMENTS
+  // ======================================
   .audio-element {
     display: none;
   }
 
-  /* Screen reader only content */
+  // Screen reader only content
   .sr-only {
     position: absolute;
     left: -10000px;
@@ -747,20 +774,26 @@ const t = useTranslations(lang);
     overflow: hidden;
   }
 
-  /* ======================================
-   * REDUCED MOTION SUPPORT
-   * ====================================== */
+  // ======================================
+  // REDUCED MOTION SUPPORT
+  // ======================================
   @media (prefers-reduced-motion: reduce) {
-    .audio-player__container:hover {
-      transform: none;
-    }
+    .audio-player {
+      &__container:hover {
+        transform: none;
 
-    .audio-player__play-button:hover {
-      transform: none !important;
-    }
+        .audio-player__cover {
+          transform: none;
+        }
+      }
 
-    .audio-player__cover {
-      transition: none;
+      &__play-button:hover {
+        transform: none !important;
+      }
+
+      &__cover {
+        transition: none;
+      }
     }
 
     .play-icon,
@@ -771,16 +804,18 @@ const t = useTranslations(lang);
     }
   }
 
-  /* ======================================
-   * RESPONSIVE DESIGN
-   * ====================================== */
+  // ======================================
+  // RESPONSIVE DESIGN
+  // ======================================
   @media (max-width: var(--breakpoint-sm)) {
-    .audio-player__controls {
-      gap: var(--space-sm);
-    }
+    .audio-player {
+      &__controls {
+        gap: var(--space-sm);
+      }
 
-    .audio-player__overlay {
-      padding: var(--space-sm) var(--space-md);
+      &__overlay {
+        padding: var(--space-sm) var(--space-md);
+      }
     }
 
     .volume-slider-container {

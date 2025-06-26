@@ -142,10 +142,10 @@ const enhancedAriaLabel = context
   <div class="sr-only" aria-live="assertive" id={`${id}-announcement`}></div>
 </div>
 
-<style>
+<style lang="scss">
   /**
-   * LoadingSpinner Component Styles - Fully Optimized with CSS Variables
-   * =====================================================================
+   * LoadingSpinner Component Styles - Fully Optimized with CSS Variables & SCSS
+   * ===========================================================================
    * 
    * ✅ 100% CSS custom properties usage - NO hardcoded values
    * ✅ WCAG AAA compliance with enhanced contrast ratios (7:1)
@@ -153,6 +153,7 @@ const enhancedAriaLabel = context
    * ✅ Reduced motion support for accessibility
    * ✅ Touch-friendly minimum sizes for mobile devices
    * ✅ Consistent design system integration
+   * ✅ SCSS features for better maintainability and DRY principles
    * 
    * Features:
    * - CSS variables only for all styling (colors, spacing, typography)
@@ -160,11 +161,49 @@ const enhancedAriaLabel = context
    * - Responsive sizing using semantic design tokens
    * - Accessibility-first approach with screen reader support
    * - Performance-optimized with will-change and containment
+   * - SCSS nesting and mixins for cleaner code organization
    */
 
-  /* ============================================================================
-   * CONTAINER STYLES - Layout and visibility management
-   * ============================================================================ */
+  // ============================================================================
+  // SCSS MIXINS - Reusable styling patterns for DRY principles
+  // ============================================================================
+
+  @mixin alert-state-base {
+    border: var(--border-width-thin) solid;
+    border-radius: var(--radius-md);
+
+    .loading-spinner__label {
+      font-weight: var(--font-semibold);
+    }
+  }
+
+  @mixin spinner-colors($top-color, $other-colors) {
+    .loading-spinner__circle {
+      border-top-color: $top-color;
+      border-right-color: $other-colors;
+      border-bottom-color: $other-colors;
+      border-left-color: $other-colors;
+    }
+  }
+
+  @mixin size-variant($width-calc, $height-calc, $border-width) {
+    width: $width-calc;
+    height: $height-calc;
+    border-width: $border-width;
+    position: relative;
+    border-radius: var(--radius-full);
+  }
+
+  @mixin gpu-acceleration {
+    will-change: transform;
+    transform: translateZ(0) rotateZ(0deg);
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+
+  // ============================================================================
+  // MAIN COMPONENT STYLES - Container and base layout
+  // ============================================================================
 
   .loading-spinner {
     /* Layout using CSS variables */
@@ -178,123 +217,184 @@ const enhancedAriaLabel = context
     /* Performance optimization */
     contain: layout style;
     will-change: auto; /* Reset after initial render */
+
+    /* Improve scroll performance when container is in viewport */
+    content-visibility: auto;
+
+    // ============================================================================
+    // STATE MODIFIERS - Hidden, progress, error, timeout states
+    // ============================================================================
+
+    &.hidden {
+      display: none !important;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    &--progress {
+      /* Progress bar container layout */
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-sm);
+    }
+
+    &--error {
+      @include alert-state-base;
+      background-color: var(--bg-error-aaa);
+      border-color: var(--border-error);
+
+      @include spinner-colors(var(--color-error-600), var(--color-error-200));
+
+      .loading-spinner__label {
+        color: var(--text-error-aaa);
+      }
+    }
+
+    &--timeout {
+      @include alert-state-base;
+      background-color: var(--bg-warning-aaa);
+      border-color: var(--color-warning-500);
+
+      @include spinner-colors(var(--color-warning-600), var(--color-warning-200));
+
+      .loading-spinner__label {
+        color: var(--text-warning-aaa);
+      }
+    }
+
+    // ============================================================================
+    // SIZE VARIANTS - Small, medium, large spinners
+    // ============================================================================
+
+    &--small {
+      @include size-variant(
+        calc(var(--space-lg) * 1.5),
+        /* 36px */ calc(var(--space-lg) * 1.5),
+        var(--border-width-thick)
+      );
+    }
+
+    &--medium {
+      @include size-variant(
+        calc(var(--space-xl) * 1.5),
+        /* 48px */ calc(var(--space-xl) * 1.5),
+        var(--border-width-enhanced)
+      );
+    }
+
+    &--large {
+      @include size-variant(
+        calc(var(--space-2xl) + var(--space-md)),
+        /* 64px */ calc(var(--space-2xl) + var(--space-md)),
+        var(--border-width-enhanced)
+      );
+    }
+
+    // ============================================================================
+    // COMPONENT ELEMENTS - Progress bar, circle, label
+    // ============================================================================
+
+    &__progress-container {
+      /* Progress container styling using CSS variables */
+      width: 100%;
+      height: var(--space-lg);
+      background-color: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      border: var(--border-width-thin) solid var(--border-primary);
+      overflow: hidden;
+      position: relative;
+
+      /* Enhanced accessibility for high contrast */
+      box-shadow: inset 0 0 0 var(--border-width-thin) var(--border-primary);
+    }
+
+    &__progress-bar {
+      /* Progress bar fill using CSS variables */
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        var(--interactive-primary) 0%,
+        var(--interactive-primary-hover) 100%
+      );
+      border-radius: inherit;
+      transition: width var(--transition-normal) ease-out;
+      position: relative;
+
+      /* Performance optimization for smooth progress updates */
+      will-change: width;
+      transform: translateZ(0);
+
+      /* Progress bar loading animation for visual feedback */
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          var(--gradient-angle),
+          transparent var(--gradient-start),
+          rgba(255, 255, 255, 0.3) 50%,
+          transparent var(--gradient-end)
+        );
+        animation: progressShimmer var(--transition-slow) ease-in-out infinite;
+      }
+    }
+
+    &__circle {
+      /* Base layout */
+      position: relative;
+      border-radius: var(--radius-full);
+
+      /* Border styling using CSS variables for enhanced WCAG AAA contrast */
+      border: var(--border-width-enhanced) solid transparent;
+      border-top-color: var(--interactive-primary); /* Primary brand color */
+      border-right-color: var(--border-primary); /* Subtle background */
+      border-bottom-color: var(--border-primary);
+      border-left-color: var(--border-primary);
+
+      /* Performance-optimized animation - using only transform for best performance */
+      animation: spinOptimized var(--transition-slow) linear infinite;
+      @include gpu-acceleration;
+
+      /* Force hardware acceleration for smooth animation */
+      transform-style: preserve-3d;
+      perspective: 1000px;
+
+      /* Optimize repaints and reflows */
+      contain: paint;
+    }
+
+    &__label {
+      /* Typography using CSS variables */
+      font-size: var(--text-lg);
+      font-weight: var(--font-medium);
+      line-height: var(--leading-normal);
+      color: var(--text-secondary);
+
+      /* Enhanced text spacing for WCAG AAA */
+      letter-spacing: var(--letter-spacing-base);
+
+      /* Performance optimization */
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    // ============================================================================
+    // CONTAINER OPTIMIZATIONS - Performance and layout stability
+    // ============================================================================
   }
 
-  /* Hidden state - ensures element is completely hidden */
-  .loading-spinner.hidden {
-    display: none !important;
-    visibility: hidden;
-    opacity: 0;
-  }
+  // ============================================================================
+  // KEYFRAME ANIMATIONS - Performance-optimized with GPU acceleration
+  // ============================================================================
 
-  /* ============================================================================
-   * ERROR AND TIMEOUT STATES - Enhanced accessibility feedback with DRY principles
-   * ============================================================================ */
-
-  /* Base alert state styling - shared between error and timeout */
-  .loading-spinner--error,
-  .loading-spinner--timeout {
-    border: var(--border-width-thin) solid;
-    border-radius: var(--radius-md);
-  }
-
-  /* Shared styling for label elements in alert states */
-  .loading-spinner--error .loading-spinner__label,
-  .loading-spinner--timeout .loading-spinner__label {
-    font-weight: var(--font-semibold);
-  }
-
-  .loading-spinner--error {
-    /* Error state specific styling */
-    background-color: var(--bg-error-aaa);
-    border-color: var(--border-error);
-  }
-
-  .loading-spinner--error .loading-spinner__circle {
-    border-top-color: var(--color-error-600);
-    border-right-color: var(--color-error-200);
-    border-bottom-color: var(--color-error-200);
-    border-left-color: var(--color-error-200);
-  }
-
-  .loading-spinner--error .loading-spinner__label {
-    color: var(--text-error-aaa);
-  }
-
-  .loading-spinner--timeout {
-    /* Timeout state specific styling */
-    background-color: var(--bg-warning-aaa);
-    border-color: var(--color-warning-500);
-  }
-
-  .loading-spinner--timeout .loading-spinner__circle {
-    border-top-color: var(--color-warning-600);
-    border-right-color: var(--color-warning-200);
-    border-bottom-color: var(--color-warning-200);
-    border-left-color: var(--color-warning-200);
-  }
-
-  .loading-spinner--timeout .loading-spinner__label {
-    color: var(--text-warning-aaa);
-  }
-
-  /* ============================================================================
-   * PROGRESS BAR STYLES - Determinate loading indicators
-   * ============================================================================ */
-
-  .loading-spinner--progress {
-    /* Progress bar container layout */
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--space-sm);
-  }
-
-  .loading-spinner__progress-container {
-    /* Progress container styling using CSS variables */
-    width: 100%;
-    height: var(--space-lg);
-    background-color: var(--bg-secondary);
-    border-radius: var(--radius-md);
-    border: var(--border-width-thin) solid var(--border-primary);
-    overflow: hidden;
-    position: relative;
-
-    /* Enhanced accessibility for high contrast */
-    box-shadow: inset 0 0 0 var(--border-width-thin) var(--border-primary);
-  }
-
-  .loading-spinner__progress-bar {
-    /* Progress bar fill using CSS variables */
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      var(--interactive-primary) 0%,
-      var(--interactive-primary-hover) 100%
-    );
-    border-radius: inherit;
-    transition: width var(--transition-normal) ease-out;
-    position: relative;
-
-    /* Performance optimization for smooth progress updates */
-    will-change: width;
-    transform: translateZ(0);
-  }
-
-  /* Progress bar loading animation for visual feedback */
-  .loading-spinner__progress-bar::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      var(--gradient-angle),
-      transparent var(--gradient-start),
-      rgba(255, 255, 255, 0.3) 50%,
-      transparent var(--gradient-end)
-    );
-    animation: progressShimmer var(--transition-slow) ease-in-out infinite;
+  @keyframes spinOptimized {
+    to {
+      transform: translateZ(0) rotateZ(360deg);
+    }
   }
 
   @keyframes progressShimmer {
@@ -306,175 +406,89 @@ const enhancedAriaLabel = context
     }
   }
 
-  /* ============================================================================
-   * SPINNER CIRCLE STYLES - Animated loading indicator
-   * ============================================================================ */
-
-  .loading-spinner__circle {
-    /* Base layout */
-    position: relative;
-    border-radius: var(--radius-full);
-
-    /* Border styling using CSS variables for enhanced WCAG AAA contrast */
-    border: var(--border-width-enhanced) solid transparent;
-    border-top-color: var(--interactive-primary); /* Primary brand color */
-    border-right-color: var(--border-primary); /* Subtle background */
-    border-bottom-color: var(--border-primary);
-    border-left-color: var(--border-primary);
-
-    /* Performance-optimized animation - using only transform for best performance */
-    animation: spinOptimized var(--transition-slow) linear infinite;
-    will-change: transform;
-
-    /* Enhanced GPU acceleration for smooth animation */
-    transform: translateZ(0) rotateZ(0deg);
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-  }
-
-  /* Size variants using CSS custom properties and consistent calculations */
-  /* Base size settings for all spinner sizes */
-  .loading-spinner--small,
-  .loading-spinner--medium,
-  .loading-spinner--large {
-    /* Common properties for all sizes */
-    position: relative;
-    border-radius: var(--radius-full);
-  }
-
-  .loading-spinner--small {
-    width: calc(var(--space-lg) * 1.5); /* 36px */
-    height: calc(var(--space-lg) * 1.5);
-    border-width: var(--border-width-thick);
-  }
-
-  .loading-spinner--medium,
-  .loading-spinner--large {
-    border-width: var(--border-width-enhanced);
-  }
-
-  .loading-spinner--medium {
-    width: calc(var(--space-xl) * 1.5); /* 48px */
-    height: calc(var(--space-xl) * 1.5);
-  }
-
-  .loading-spinner--large {
-    width: calc(var(--space-2xl) + var(--space-md)); /* 64px */
-    height: calc(var(--space-2xl) + var(--space-md));
-  }
-
-  /* ============================================================================
-   * TEXT LABEL STYLES - Accessible loading text
-   * ============================================================================ */
-
-  .loading-spinner__label {
-    /* Typography using CSS variables */
-    font-size: var(--text-lg);
-    font-weight: var(--font-medium);
-    line-height: var(--leading-normal);
-    color: var(--text-secondary);
-
-    /* Enhanced text spacing for WCAG AAA */
-    letter-spacing: var(--letter-spacing-base);
-
-    /* Performance optimization */
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* ============================================================================
-   * ANIMATION DEFINITIONS - Performance-optimized keyframes
-   * ============================================================================ */
-
-  /* Optimized spin animation using only transform for best performance */
-  @keyframes spinOptimized {
-    to {
-      transform: translateZ(0) rotateZ(360deg);
-    }
-  }
-
-  /* Legacy spin animation as fallback */
-  @keyframes spin {
+  @keyframes pulse {
     from {
-      transform: translateZ(0) rotate(0deg);
+      opacity: var(--opacity-medium);
     }
     to {
-      transform: translateZ(0) rotate(360deg);
+      opacity: var(--opacity-disabled);
     }
   }
 
-  /* ============================================================================
-   * ACCESSIBILITY SUPPORT - Motion and contrast preferences
-   * ============================================================================ */
+  // ============================================================================
+  // ACCESSIBILITY MEDIA QUERIES - Motion, contrast, and forced colors
+  // ============================================================================
 
   /* Reduced motion support - respects user preferences */
   @media (prefers-reduced-motion: reduce) {
-    .loading-spinner__circle {
-      animation: none;
+    .loading-spinner {
+      &__circle {
+        animation: none;
 
-      /* Alternative loading indicator using opacity pulse */
-      animation: pulse var(--transition-slow) ease-in-out infinite alternate;
-    }
-
-    @keyframes pulse {
-      from {
-        opacity: var(--opacity-medium);
+        /* Alternative loading indicator using opacity pulse */
+        animation: pulse var(--transition-slow) ease-in-out infinite alternate;
       }
-      to {
-        opacity: var(--opacity-disabled);
+
+      &__progress-bar {
+        &::after {
+          animation: none;
+        }
       }
     }
   }
 
   /* High contrast mode support - uses semantic colors from global.css */
   @media (prefers-contrast: high) {
-    .loading-spinner__circle {
-      border-top-color: var(--text-primary);
-      border-width: var(--enhanced-border-thickness); /* 3px from global.css */
-    }
+    .loading-spinner {
+      &__circle {
+        border-top-color: var(--text-primary);
+        border-width: var(--enhanced-border-thickness); /* 3px from global.css */
+      }
 
-    .loading-spinner__label {
-      color: var(--text-primary);
-      font-weight: var(--font-semibold);
+      &__label {
+        color: var(--text-primary);
+        font-weight: var(--font-semibold);
+      }
     }
   }
 
   /* Forced colors mode support (Windows High Contrast) */
   @media (forced-colors: active) {
-    .loading-spinner__circle {
-      border-top-color: ButtonText;
-      border-right-color: ButtonFace;
-      border-bottom-color: ButtonFace;
-      border-left-color: ButtonFace;
-    }
+    .loading-spinner {
+      &__circle {
+        border-top-color: ButtonText;
+        border-right-color: ButtonFace;
+        border-bottom-color: ButtonFace;
+        border-left-color: ButtonFace;
+      }
 
-    .loading-spinner__label {
-      color: ButtonText;
+      &__label {
+        color: ButtonText;
+      }
     }
   }
 
-  /* ============================================================================
-   * RESPONSIVE DESIGN - Mobile-first approach with CSS variables
-   * ============================================================================ */
+  // ============================================================================
+  // RESPONSIVE DESIGN - Mobile-first approach with breakpoints
+  // ============================================================================
 
   /* Small screens - optimize for mobile viewing with consistent touch targets */
   @media (max-width: var(--breakpoint-sm)) {
     .loading-spinner {
       gap: var(--space-sm);
       padding: var(--space-sm);
-    }
 
-    .loading-spinner__label {
-      font-size: var(--text-base);
-    }
+      &__label {
+        font-size: var(--text-base);
+      }
 
-    /* Ensure all spinner sizes meet minimum touch target requirements */
-    .loading-spinner--small,
-    .loading-spinner--medium,
-    .loading-spinner--large {
-      min-width: var(--min-touch-size);
-      min-height: var(--min-touch-size);
+      /* Ensure all spinner sizes meet minimum touch target requirements */
+      &--small,
+      &--medium,
+      &--large {
+        min-width: var(--min-touch-size);
+        min-height: var(--min-touch-size);
+      }
     }
   }
 
@@ -482,17 +496,36 @@ const enhancedAriaLabel = context
   @media (min-width: var(--breakpoint-md)) {
     .loading-spinner {
       gap: var(--space-lg);
-    }
 
-    .loading-spinner__label {
-      font-size: var(--text-xl);
-      letter-spacing: var(--letter-spacing-enhanced);
+      &__label {
+        font-size: var(--text-xl);
+        letter-spacing: var(--letter-spacing-enhanced);
+      }
+
+      &--progress {
+        gap: var(--space-md);
+      }
+
+      &__progress-container {
+        height: var(--space-xl);
+      }
     }
   }
 
-  /* ============================================================================
-   * SCREEN READER SUPPORT - Hidden but accessible content
-   * ============================================================================ */
+  @media (min-width: 640px) {
+    .loading-spinner {
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+
+      &__label {
+        font-size: var(--text-xl);
+      }
+    }
+  }
+
+  // ============================================================================
+  // UTILITY CLASSES - Screen reader support and accessibility
+  // ============================================================================
 
   .sr-only {
     position: absolute;
@@ -504,29 +537,6 @@ const enhancedAriaLabel = context
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
-  }
-
-  /* ============================================================================
-   * PERFORMANCE OPTIMIZATIONS - Hardware acceleration and containment
-   * ============================================================================ */
-
-  /* Optimize for smooth animations on all devices */
-  .loading-spinner__circle {
-    /* Force hardware acceleration */
-    transform-style: preserve-3d;
-    perspective: 1000px;
-
-    /* Optimize repaints and reflows */
-    contain: paint;
-  }
-
-  /* Optimize container for layout stability */
-  .loading-spinner {
-    /* Prevent layout shifts during show/hide */
-    contain: layout;
-
-    /* Improve scroll performance when container is in viewport */
-    content-visibility: auto;
   }
 </style>
 

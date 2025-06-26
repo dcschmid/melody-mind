@@ -354,7 +354,7 @@ const gameModeNames = {
   });
 </script>
 
-<style>
+<style lang="scss">
   /* ======================================
    * CSS CUSTOM PROPERTIES FOR COMPONENT
    * Enhanced with global.css variables matching GameHome
@@ -387,10 +387,8 @@ const gameModeNames = {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-  }
 
-  @media (min-width: var(--breakpoint-md)) {
-    .highscores-container {
+    @media (min-width: var(--breakpoint-md)) {
       padding: var(--space-xl) var(--space-lg);
     }
   }
@@ -414,80 +412,78 @@ const gameModeNames = {
     padding: var(--space-xl);
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
-  }
 
-  @media (min-width: 768px) {
-    .highscores-hero {
+    @media (min-width: 768px) {
       padding: var(--space-2xl) var(--space-xl);
     }
-  }
 
-  .highscores-hero__decoration {
-    position: absolute;
-    inset: 0;
-    opacity: 0.1;
-    pointer-events: none;
-  }
+    &__decoration {
+      position: absolute;
+      inset: 0;
+      opacity: 0.1;
+      pointer-events: none;
 
-  .highscores-hero__decoration-item {
-    position: absolute;
-    border-radius: var(--radius-full);
-    background: var(--color-white);
-  }
+      &-item {
+        position: absolute;
+        border-radius: var(--radius-full);
+        background: var(--color-white);
 
-  .highscores-hero__decoration-item--top-right {
-    top: calc(-1 * var(--space-xl));
-    right: calc(-1 * var(--space-xl));
-    width: var(--highscores-hero-decoration-md);
-    height: var(--highscores-hero-decoration-md);
-  }
+        &--top-right {
+          top: calc(-1 * var(--space-xl));
+          right: calc(-1 * var(--space-xl));
+          width: var(--highscores-hero-decoration-md);
+          height: var(--highscores-hero-decoration-md);
+        }
 
-  .highscores-hero__decoration-item--bottom-left {
-    bottom: calc(-1 * var(--space-2xl));
-    left: calc(-1 * var(--space-2xl));
-    width: var(--highscores-hero-decoration-lg);
-    height: var(--highscores-hero-decoration-lg);
-  }
+        &--bottom-left {
+          bottom: calc(-1 * var(--space-2xl));
+          left: calc(-1 * var(--space-2xl));
+          width: var(--highscores-hero-decoration-lg);
+          height: var(--highscores-hero-decoration-lg);
+        }
 
-  .highscores-hero__decoration-item--center-right {
-    top: 50%;
-    right: calc(-1 * var(--space-md));
-    width: var(--highscores-hero-decoration-sm);
-    height: var(--highscores-hero-decoration-sm);
-    transform: translateY(-50%);
-  }
+        &--center-right {
+          top: 50%;
+          right: calc(-1 * var(--space-md));
+          width: var(--highscores-hero-decoration-sm);
+          height: var(--highscores-hero-decoration-sm);
+          transform: translateY(-50%);
+        }
+      }
+    }
 
-  .highscores-hero__content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    color: var(--color-white);
-  }
+    &__content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: var(--color-white);
+    }
 
-  .highscores-hero__title {
-    margin-bottom: var(--space-lg);
-    color: var(--color-white);
-    text-shadow: var(--highscores-hero-shadow);
-  }
+    &__title {
+      margin-bottom: var(--space-lg);
+      color: var(--color-white);
+      text-shadow: var(--highscores-hero-shadow);
+    }
 
-  .highscores-hero__divider {
-    width: var(--space-2xl);
-    height: var(--highscores-divider-height);
-    background: var(--color-secondary-400);
-    margin: var(--space-lg) auto;
-    border-radius: var(--radius-full);
-  }
+    &__divider {
+      width: var(--space-2xl);
+      height: var(--highscores-divider-height);
+      background: var(--color-secondary-400);
+      margin: var(--space-lg) auto;
+      border-radius: var(--radius-full);
+    }
 
-  .highscores-hero__description {
-    color: var(--color-neutral-100);
-    font-size: var(--text-xl);
-    line-height: var(--leading-relaxed);
-    max-width: var(--highscores-content-max-width);
-    margin: 0 auto;
-  }
+    &__description {
+      color: var(--color-neutral-100);
+      font-size: var(--text-xl);
+      line-height: var(--leading-relaxed);
+      max-width: var(--highscores-content-max-width);
+      margin: 0 auto;
+    }
 
-  .highscores-hero__seo-description {
-    /* SEO content hidden visually but available to screen readers */
+    &__seo-description {
+      /* SEO content hidden visually but available to screen readers */
+    }
   }
 
   /* ======================================
@@ -536,17 +532,17 @@ const gameModeNames = {
     min-height: calc(var(--container-sm) * 0.4);
     padding: var(--space-xl);
     margin: var(--space-xl) auto;
-  }
 
-  .highscores__loading-content {
-    text-align: center;
-  }
+    &-content {
+      text-align: center;
+    }
 
-  .highscores__loading-icon {
-    width: var(--icon-size-lg);
-    height: var(--icon-size-lg);
-    color: var(--interactive-primary);
-    animation: loading-spin var(--animation-pulse-duration) linear infinite;
+    &-icon {
+      width: var(--icon-size-lg);
+      height: var(--icon-size-lg);
+      color: var(--interactive-primary);
+      animation: loading-spin var(--animation-pulse-duration) linear infinite;
+    }
   }
 
   @keyframes loading-spin {
@@ -605,10 +601,10 @@ const gameModeNames = {
     box-shadow: var(--card-shadow);
     transition: box-shadow var(--transition-normal);
     margin-bottom: var(--space-xl);
-  }
 
-  .highscores__filters:hover {
-    box-shadow: var(--card-shadow-hover);
+    &:hover {
+      box-shadow: var(--card-shadow-hover);
+    }
   }
 
   .highscores__filter-grid {
@@ -617,10 +613,8 @@ const gameModeNames = {
     gap: var(--space-lg);
     max-width: var(--container-sm);
     margin: 0 auto;
-  }
 
-  @media (min-width: var(--breakpoint-sm)) {
-    .highscores__filter-grid {
+    @media (min-width: var(--breakpoint-sm)) {
       grid-template-columns: 1fr 1fr;
     }
   }
@@ -652,18 +646,18 @@ const gameModeNames = {
       border-color var(--transition-fast),
       box-shadow var(--transition-fast);
     box-shadow: var(--shadow-lg);
-  }
 
-  .highscores__filter-select:focus {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    border-color: var(--form-border-focus);
-    box-shadow: var(--focus-ring);
-  }
+    &:focus {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+      border-color: var(--form-border-focus);
+      box-shadow: var(--focus-ring);
+    }
 
-  .highscores__filter-select:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
+    &:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+    }
   }
 
   /* ======================================
@@ -692,19 +686,15 @@ const gameModeNames = {
     width: var(--width-full);
     min-height: calc(var(--container-sm) * 0.4);
     contain: layout style;
-  }
 
-  /* Mobile first: 1 column by default */
-  /* --breakpoint-xs: 20em (320px) */
-  @media (min-width: 40em) {
-    .highscores__cards-grid {
+    /* Mobile first: 1 column by default */
+    /* --breakpoint-xs: 20em (320px) */
+    @media (min-width: 40em) {
       grid-template-columns: repeat(2, 1fr);
     }
-  }
 
-  /* --breakpoint-md: 48em (768px) */
-  @media (min-width: 64em) {
-    .highscores__cards-grid {
+    /* --breakpoint-md: 48em (768px) */
+    @media (min-width: 64em) {
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-xl);
     }
@@ -735,69 +725,69 @@ const gameModeNames = {
     box-shadow:
       var(--card-shadow),
       inset 0 1px 0 oklch(from var(--interactive-primary) l c h / 0.1);
-  }
 
-  /* Beautiful hover states with enhanced visual feedback */
-  .highscores__card:hover {
-    transform: translateY(calc(-1 * var(--space-xs)));
-    box-shadow:
-      var(--card-shadow-hover),
-      0 0 var(--space-2xl) oklch(from var(--interactive-primary) l c h / 0.15),
-      inset 0 1px 0 oklch(from var(--interactive-primary) l c h / 0.2);
-    border-color: var(--interactive-primary);
-    background: linear-gradient(
-      135deg,
-      var(--card-bg) 0%,
-      color-mix(in srgb, var(--card-bg) 90%, var(--interactive-primary) 10%) 100%
-    );
-  }
+    /* Beautiful hover states with enhanced visual feedback */
+    &:hover {
+      transform: translateY(calc(-1 * var(--space-xs)));
+      box-shadow:
+        var(--card-shadow-hover),
+        0 0 var(--space-2xl) oklch(from var(--interactive-primary) l c h / 0.15),
+        inset 0 1px 0 oklch(from var(--interactive-primary) l c h / 0.2);
+      border-color: var(--interactive-primary);
+      background: linear-gradient(
+        135deg,
+        var(--card-bg) 0%,
+        color-mix(in srgb, var(--card-bg) 90%, var(--interactive-primary) 10%) 100%
+      );
 
-  /* Focus states for accessibility */
-  .highscores__card:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--card-shadow-hover), var(--focus-enhanced-shadow);
-  }
+      &::before {
+        opacity: 1;
+      }
+    }
 
-  /* Decorative accent line */
-  .highscores__card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: var(--border-width-enhanced);
-    background: linear-gradient(
-      90deg,
-      var(--interactive-primary) 0%,
-      var(--interactive-secondary) 50%,
-      var(--interactive-primary) 100%
-    );
-    opacity: 0.7;
-    transition: opacity var(--transition-normal);
-  }
+    /* Focus states for accessibility */
+    &:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--card-shadow-hover), var(--focus-enhanced-shadow);
+    }
 
-  .highscores__card:hover::before {
-    opacity: 1;
-  }
+    /* Decorative accent line */
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--border-width-enhanced);
+      background: linear-gradient(
+        90deg,
+        var(--interactive-primary) 0%,
+        var(--interactive-secondary) 50%,
+        var(--interactive-primary) 100%
+      );
+      opacity: 0.7;
+      transition: opacity var(--transition-normal);
+    }
 
-  /* ======================================
-   * ENHANCED CARD HEADER WITH BEAUTIFUL LAYOUT
-   * ====================================== */
-  .highscores__card-header {
-    display: flex;
-    align-items: center;
-    gap: var(--space-lg);
-    margin-bottom: var(--space-lg);
-    padding-bottom: var(--space-md);
-    border-bottom: var(--border-width-thin) solid
-      color-mix(in srgb, var(--border-primary) 70%, transparent 30%);
-    position: relative;
-  }
+    /* ======================================
+     * ENHANCED CARD HEADER WITH BEAUTIFUL LAYOUT
+     * ====================================== */
+    &-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-md);
+      border-bottom: var(--border-width-thin) solid
+        color-mix(in srgb, var(--border-primary) 70%, transparent 30%);
+      position: relative;
+    }
 
-  /* Rank badge with beautiful styling */
-  .highscores__card-rank {
-    flex-shrink: 0;
+    /* Rank badge with beautiful styling */
+    &-rank {
+      flex-shrink: 0;
+    }
   }
 
   .highscores__rank {
@@ -819,42 +809,49 @@ const gameModeNames = {
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
-  }
 
-  /* Animated shine effect on rank badges */
-  .highscores__rank::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-      45deg,
-      transparent 30%,
-      oklch(from var(--interactive-primary) l c h / 0.3) 50%,
-      transparent 70%
-    );
-    transform: translateX(-100%);
-    transition: transform var(--animation-duration-slow);
+    /* Animated shine effect on rank badges */
+    &::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 30%,
+        oklch(from var(--interactive-primary) l c h / 0.3) 50%,
+        transparent 70%
+      );
+      transform: translateX(-100%);
+      transition: transform var(--animation-duration-slow);
+    }
+
+    &:hover {
+      transform: var(--animation-scale-hover-subtle);
+      box-shadow:
+        0 0 var(--space-lg) oklch(from var(--interactive-primary) l c h / 0.3),
+        inset 0 1px 0 oklch(from var(--color-white) l c h / 0.2);
+    }
+
+    /* Medal styling for top 3 positions */
+    &--medal {
+      background: linear-gradient(
+        135deg,
+        var(--achievement-gold) 0%,
+        color-mix(in srgb, var(--achievement-gold) 80%, var(--color-white) 20%) 100%
+      );
+      color: var(--color-black);
+      border-color: var(--achievement-gold);
+      box-shadow:
+        0 0 var(--space-md) oklch(from var(--achievement-gold) l c h / 0.4),
+        inset 0 1px 0 oklch(from var(--color-white) l c h / 0.3);
+    }
   }
 
   .highscores__card:hover .highscores__rank::before {
     transform: translateX(100%);
-  }
-
-  /* Medal styling for top 3 positions */
-  .highscores__rank--medal {
-    background: linear-gradient(
-      135deg,
-      var(--achievement-gold) 0%,
-      color-mix(in srgb, var(--achievement-gold) 80%, var(--color-white) 20%) 100%
-    );
-    color: var(--color-black);
-    border-color: var(--achievement-gold);
-    box-shadow:
-      0 0 var(--space-md) oklch(from var(--achievement-gold) l c h / 0.4),
-      inset 0 1px 0 oklch(from var(--color-white) l c h / 0.3);
   }
 
   /* Silver and bronze variations */
@@ -880,13 +877,6 @@ const gameModeNames = {
     box-shadow:
       0 0 var(--space-md) oklch(from var(--achievement-bronze) l c h / 0.4),
       inset 0 1px 0 oklch(from var(--color-white) l c h / 0.3);
-  }
-
-  .highscores__rank:hover {
-    transform: var(--animation-scale-hover-subtle);
-    box-shadow:
-      0 0 var(--space-lg) oklch(from var(--interactive-primary) l c h / 0.3),
-      inset 0 1px 0 oklch(from var(--color-white) l c h / 0.2);
   }
 
   /* ======================================
@@ -957,40 +947,40 @@ const gameModeNames = {
       color-mix(in srgb, var(--border-primary) 30%, transparent 70%);
     transition: all var(--transition-normal);
     min-height: var(--space-2xl);
-  }
 
-  .highscores__card-detail:hover {
-    background: color-mix(in srgb, var(--bg-tertiary) 80%, var(--interactive-primary) 5%);
-    border-color: color-mix(in srgb, var(--border-primary) 80%, var(--interactive-primary) 20%);
-    transform: translateX(var(--space-xs));
-  }
+    &:hover {
+      background: color-mix(in srgb, var(--bg-tertiary) 80%, var(--interactive-primary) 5%);
+      border-color: color-mix(in srgb, var(--border-primary) 80%, var(--interactive-primary) 20%);
+      transform: translateX(var(--space-xs));
+    }
 
-  .highscores__card-detail-label {
-    font-size: var(--text-sm);
-    font-weight: var(--font-semibold);
-    color: var(--text-secondary);
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-  }
+    &-label {
+      font-size: var(--text-sm);
+      font-weight: var(--font-semibold);
+      color: var(--text-secondary);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
 
-  /* Add subtle icons using CSS for visual enhancement */
-  .highscores__card-detail-label::before {
-    content: "";
-    width: var(--space-sm);
-    height: var(--space-sm);
-    border-radius: var(--radius-sm);
-    background: var(--interactive-primary);
-    opacity: 0.6;
-    flex-shrink: 0;
-  }
+      /* Add subtle icons using CSS for visual enhancement */
+      &::before {
+        content: "";
+        width: var(--space-sm);
+        height: var(--space-sm);
+        border-radius: var(--radius-sm);
+        background: var(--interactive-primary);
+        opacity: 0.6;
+        flex-shrink: 0;
+      }
+    }
 
-  .highscores__card-detail-value {
-    font-size: var(--text-sm);
-    color: var(--text-primary);
-    font-weight: var(--font-medium);
-    text-align: right;
+    &-value {
+      font-size: var(--text-sm);
+      color: var(--text-primary);
+      font-weight: var(--font-medium);
+      text-align: right;
+    }
   }
 
   /* Special styling for different detail types */
@@ -1024,24 +1014,24 @@ const gameModeNames = {
   @media (min-width: var(--breakpoint-md)) {
     .highscores__card {
       padding: var(--space-xl);
-    }
 
-    .highscores__card-header {
-      margin-bottom: var(--space-xl);
-      padding-bottom: var(--space-lg);
-    }
+      &-header {
+        margin-bottom: var(--space-xl);
+        padding-bottom: var(--space-lg);
+      }
 
-    .highscores__card-details {
-      grid-template-columns: 1fr;
-      gap: var(--space-md);
-    }
+      &-details {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+      }
 
-    .highscores__card-detail {
-      justify-content: space-between;
-    }
+      &-detail {
+        justify-content: space-between;
 
-    .highscores__card-detail-label {
-      min-width: auto;
+        &-label {
+          min-width: auto;
+        }
+      }
     }
   }
 
@@ -1086,10 +1076,10 @@ const gameModeNames = {
   @media (prefers-contrast: high) {
     .highscores__card {
       border: var(--border-width-thick) solid var(--text-primary);
-    }
 
-    .highscores__card-header {
-      border-bottom: var(--border-width-thick) solid var(--text-primary);
+      &-header {
+        border-bottom: var(--border-width-thick) solid var(--text-primary);
+      }
     }
 
     .highscores__rank--medal {
@@ -1132,16 +1122,21 @@ const gameModeNames = {
       box-shadow: none;
       padding: var(--space-sm);
       font-size: var(--text-sm);
-    }
 
-    .highscores__card-header {
-      margin-bottom: var(--space-md);
-      padding-bottom: var(--space-sm);
-      border-bottom: var(--border-width-thin) solid var(--print-border);
-    }
+      &-header {
+        margin-bottom: var(--space-md);
+        padding-bottom: var(--space-sm);
+        border-bottom: var(--border-width-thin) solid var(--print-border);
+      }
 
-    .highscores__card-username {
-      font-size: var(--text-base);
+      &-username {
+        font-size: var(--text-base);
+      }
+
+      &-detail-label,
+      &-detail-value {
+        font-size: var(--text-xs);
+      }
     }
 
     .highscores__score-value {
@@ -1151,11 +1146,6 @@ const gameModeNames = {
     .highscores__rank--medal {
       background: var(--print-text) !important;
       color: var(--print-bg) !important;
-    }
-
-    .highscores__card-detail-label,
-    .highscores__card-detail-value {
-      font-size: var(--text-xs);
     }
   }
 </style>

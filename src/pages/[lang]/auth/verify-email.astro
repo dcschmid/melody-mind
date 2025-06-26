@@ -24,7 +24,21 @@ import { getLangFromUrl, useTranslations, getRelativeLocaleUrl } from "@utils/i1
 /**
  * Type-safe language codes using template literal types
  */
-type SupportedLanguage = "de" | "en" | "fr" | "es" | "it" | "pt" | "da" | "nl" | "sv" | "fi";
+type SupportedLanguage =
+  | "de"
+  | "en"
+  | "fr"
+  | "es"
+  | "it"
+  | "pt"
+  | "da"
+  | "nl"
+  | "sv"
+  | "fi"
+  | "ru"
+  | "uk"
+  | "jp"
+  | "cn";
 
 // 2. Data processing and prop preparation
 // Extract language from URL for internationalization

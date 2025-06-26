@@ -230,9 +230,9 @@ const languages = Object.fromEntries(
   </div>
 </div>
 
-<style>
+<style lang="scss">
   /**
-   * LanguagePicker Component Styles
+   * LanguagePicker Component Styles (SCSS)
    * 
    * WCAG AAA 2.2 compliant language picker using only CSS custom properties
    * All styles use root variables from global.css for consistency and accessibility
@@ -240,46 +240,11 @@ const languages = Object.fromEntries(
    */
 
   /* ======================================
-   * CONTAINER & LAYOUT
+   * SCSS MIXINS & SHARED PATTERNS
    * ====================================== */
 
-  .language-picker {
-    /* Layout using CSS variables */
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    border-radius: var(--radius-lg);
-
-    /* Enhanced focus-within state for WCAG AAA compliance */
-    transition: box-shadow var(--transition-normal);
-  }
-
-  .language-picker:focus-within {
-    box-shadow: var(--focus-ring);
-  }
-
-  .language-picker__select-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-
-  /* ======================================
-   * SHARED LAYOUT PATTERNS (DRY)
-   * ====================================== */
-
-  /* Common focus styles - reusable pattern */
-  .language-picker__select:focus,
-  .language-picker__select:focus-visible {
-    background-color: var(--interactive-primary-hover);
-    outline: var(--focus-enhanced-outline-dark);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-enhanced-shadow);
-  }
-
-  /* Common transition pattern for interactive elements */
-  .language-picker__select,
-  .language-picker__arrow {
+  // Common transition pattern for interactive elements
+  @mixin interactive-transition {
     transition:
       background-color var(--transition-normal),
       transform var(--transition-normal),
@@ -287,211 +252,251 @@ const languages = Object.fromEntries(
       color var(--transition-normal);
   }
 
-  /* ======================================
-   * SELECT ELEMENT STYLING
-   * ====================================== */
-
-  .language-picker__select {
-    /* Layout and sizing using CSS variables for WCAG AAA compliance */
-    min-height: var(--min-touch-size); /* 44px minimum for touch targets */
-    width: 100%;
-    min-width: var(--min-touch-size);
-
-    /* Appearance and positioning */
-    cursor: pointer;
-    appearance: none;
-    border: none;
-    border-radius: var(--radius-lg);
-
-    /* Spacing using CSS variables */
-    padding: var(--space-sm) var(--space-2xl) var(--space-sm) var(--space-md);
-
-    /* Background and colors using semantic CSS variables */
-    background-color: var(--interactive-primary);
-    color: var(--btn-primary-text);
-
-    /* Typography using CSS variables */
-    font-size: var(--text-base);
-    font-weight: var(--font-medium);
-
-    /* Note: transition moved to shared pattern above for DRY compliance */
-  }
-
-  .language-picker__select:hover {
+  // Common focus styles - reusable pattern
+  @mixin focus-enhanced {
     background-color: var(--interactive-primary-hover);
-    transform: translateY(calc(var(--space-micro) * var(--transform-factor-hover)));
+    outline: var(--focus-enhanced-outline-dark);
+    outline-offset: var(--focus-ring-offset);
+    box-shadow: var(--focus-enhanced-shadow);
   }
 
-  /* Note: focus styles moved to shared pattern above for DRY compliance */
-
-  .language-picker__select:disabled {
-    opacity: var(--opacity-disabled);
-    cursor: not-allowed;
+  // Common hover state pattern
+  @mixin hover-lift {
+    &:hover {
+      background-color: var(--interactive-primary-hover);
+      transform: translateY(calc(var(--space-micro) * var(--transform-factor-hover)));
+    }
   }
 
-  /* ======================================
-   * OPTION STYLING
-   * ====================================== */
-
-  .language-picker__option {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-    padding: var(--space-xs);
-
-    /* Enhanced option styling for better contrast */
-    border-bottom: var(--border-width-thin) solid var(--border-primary);
-  }
-
-  /* Shared hover and focus patterns for options */
-  .language-picker__option:hover {
-    background-color: var(--bg-tertiary);
-  }
-
-  .language-picker__option:focus {
-    background-color: var(--interactive-primary);
-    color: var(--btn-primary-text);
-  }
-
-  /* ======================================
-   * ARROW INDICATOR
-   * ====================================== */
-
-  .language-picker__arrow-container {
-    /* Positioning */
-    position: absolute;
-    top: var(--space-none);
-    bottom: var(--space-none);
-    right: var(--space-none);
-
-    /* Layout */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /* Spacing and styling */
-    padding: var(--space-none) var(--space-sm);
-    pointer-events: none;
-
-    /* Color using CSS variables */
-    color: var(--btn-primary-text);
-
-    /* Note: transition moved to shared pattern above for DRY compliance */
-  }
-
-  .language-picker__arrow {
-    /* Size using CSS variables */
-    height: var(--icon-size-sm);
-    width: var(--icon-size-sm);
-
-    /* Styling */
-    fill: currentColor;
-
-    /* Note: transition moved to shared pattern above for DRY compliance */
-  }
-
-  /* Arrow rotation states for enhanced UX - consolidated selectors */
-  .language-picker__select:focus + .language-picker__arrow-container .language-picker__arrow,
-  .language-picker__select:active + .language-picker__arrow-container .language-picker__arrow {
+  // Arrow rotation states mixin
+  @mixin arrow-rotation {
     transform: rotate(var(--rotation-180));
   }
 
-  .language-picker__select:focus + .language-picker__arrow-container,
-  .language-picker__select:active + .language-picker__arrow-container {
-    color: var(--btn-primary-text);
+  /* ======================================
+   * COMPONENT STRUCTURE
+   * ====================================== */
+
+  .language-picker {
+    // Layout using CSS variables
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    border-radius: var(--radius-lg);
+
+    // Enhanced focus-within state for WCAG AAA compliance
+    transition: box-shadow var(--transition-normal);
+
+    &:focus-within {
+      box-shadow: var(--focus-ring);
+    }
+
+    // ======================================
+    // SELECT CONTAINER
+    // ======================================
+
+    &__select-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    // ======================================
+    // SELECT ELEMENT STYLING
+    // ======================================
+
+    &__select {
+      // Layout and sizing using CSS variables for WCAG AAA compliance
+      min-height: var(--min-touch-size); // 44px minimum for touch targets
+      width: 100%;
+      min-width: var(--min-touch-size);
+
+      // Appearance and positioning
+      cursor: pointer;
+      appearance: none;
+      border: none;
+      border-radius: var(--radius-lg);
+
+      // Spacing using CSS variables
+      padding: var(--space-sm) var(--space-2xl) var(--space-sm) var(--space-md);
+
+      // Background and colors using semantic CSS variables
+      background-color: var(--interactive-primary);
+      color: var(--btn-primary-text);
+
+      // Typography using CSS variables
+      font-size: var(--text-base);
+      font-weight: var(--font-medium);
+
+      // Apply shared mixins
+      @include interactive-transition;
+      @include hover-lift;
+
+      // Focus states
+      &:focus,
+      &:focus-visible {
+        @include focus-enhanced;
+      }
+
+      // Disabled state
+      &:disabled {
+        opacity: var(--opacity-disabled);
+        cursor: not-allowed;
+      }
+
+      // Responsive design
+      @media (min-width: var(--breakpoint-sm)) {
+        min-width: calc(
+          var(--min-touch-size) * var(--scale-factor-responsive-wide)
+        ); // Wider on larger screens
+      }
+
+      // High contrast mode support
+      @media (prefers-contrast: high) {
+        border: var(--border-width-thick) solid var(--text-primary);
+
+        &:focus,
+        &:focus-visible {
+          outline: var(--border-width-enhanced) solid var(--text-primary);
+          outline-offset: var(--space-xs);
+        }
+      }
+
+      // Forced colors mode support
+      @media (forced-colors: active) {
+        background-color: ButtonFace;
+        color: ButtonText;
+        border: var(--border-width-thin) solid ButtonText;
+        forced-color-adjust: none;
+
+        &:focus,
+        &:focus-visible {
+          outline: var(--border-width-thick) solid Highlight;
+        }
+      }
+
+      // Reduced motion support
+      @media (prefers-reduced-motion: reduce) {
+        transition-duration: var(--transition-fast) !important;
+
+        &:hover {
+          transform: none;
+        }
+      }
+    }
+
+    // ======================================
+    // OPTION STYLING
+    // ======================================
+
+    &__option {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      padding: var(--space-xs);
+
+      // Enhanced option styling for better contrast
+      border-bottom: var(--border-width-thin) solid var(--border-primary);
+
+      &:hover {
+        background-color: var(--bg-tertiary);
+      }
+
+      &:focus {
+        background-color: var(--interactive-primary);
+        color: var(--btn-primary-text);
+      }
+    }
+
+    // ======================================
+    // ARROW INDICATOR
+    // ======================================
+
+    &__arrow-container {
+      // Positioning
+      position: absolute;
+      top: var(--space-none);
+      bottom: var(--space-none);
+      right: var(--space-none);
+
+      // Layout
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      // Spacing and styling
+      padding: var(--space-none) var(--space-sm);
+      pointer-events: none;
+
+      // Color using CSS variables
+      color: var(--btn-primary-text);
+    }
+
+    &__arrow {
+      // Size using CSS variables
+      height: var(--icon-size-sm);
+      width: var(--icon-size-sm);
+
+      // Styling
+      fill: currentColor;
+
+      @include interactive-transition;
+
+      // Forced colors mode support
+      @media (forced-colors: active) {
+        fill: ButtonText;
+      }
+
+      // Reduced motion support
+      @media (prefers-reduced-motion: reduce) {
+        transition-duration: var(--transition-fast) !important;
+      }
+    }
+
+    // Arrow rotation states for enhanced UX
+    &__select:focus + &__arrow-container &__arrow,
+    &__select:active + &__arrow-container &__arrow {
+      @include arrow-rotation;
+    }
+
+    &__select:focus + &__arrow-container,
+    &__select:active + &__arrow-container {
+      color: var(--btn-primary-text);
+    }
+
+    // ======================================
+    // SCREEN READER STATUS
+    // ======================================
+
+    &__status {
+      // Screen reader only - using semantic utility class approach with CSS variables
+      position: absolute;
+      width: var(--sr-only-width);
+      height: var(--sr-only-height);
+      padding: var(--space-none);
+      margin: var(--sr-only-margin);
+      overflow: hidden;
+      clip: rect(var(--space-none), var(--space-none), var(--space-none), var(--space-none));
+      white-space: nowrap;
+      border: var(--space-none);
+    }
   }
 
   /* ======================================
-   * SCREEN READER STATUS
+   * ENHANCED TEXT SPACING SUPPORT (WCAG 2.2)
    * ====================================== */
 
-  .language-picker__status {
-    /* Screen reader only - using semantic utility class approach with CSS variables */
-    position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    padding: var(--space-none);
-    margin: var(--sr-only-margin);
-    overflow: hidden;
-    clip: rect(var(--space-none), var(--space-none), var(--space-none), var(--space-none));
-    white-space: nowrap;
-    border: var(--space-none);
-  }
-
-  /* ======================================
-   * RESPONSIVE DESIGN
-   * ====================================== */
-
-  @media (min-width: var(--breakpoint-sm)) {
-    .language-picker__select {
-      min-width: calc(
-        var(--min-touch-size) * var(--scale-factor-responsive-wide)
-      ); /* Wider on larger screens */
-    }
-  }
-
-  /* ======================================
-   * ACCESSIBILITY ENHANCEMENTS
-   * ====================================== */
-
-  /* High contrast mode support */
-  @media (prefers-contrast: high) {
-    .language-picker__select {
-      border: var(--border-width-thick) solid var(--text-primary);
-    }
-
-    .language-picker__select:focus,
-    .language-picker__select:focus-visible {
-      outline: var(--border-width-enhanced) solid var(--text-primary);
-      outline-offset: var(--space-xs);
-    }
-  }
-
-  /* Forced colors mode support */
-  @media (forced-colors: active) {
-    .language-picker__select {
-      background-color: ButtonFace;
-      color: ButtonText;
-      border: var(--border-width-thin) solid ButtonText;
-      forced-color-adjust: none;
-    }
-
-    .language-picker__select:focus,
-    .language-picker__select:focus-visible {
-      outline: var(--border-width-thick) solid Highlight;
-    }
-
-    .language-picker__arrow {
-      fill: ButtonText;
-    }
-  }
-
-  /* Reduced motion support - consolidated transition override */
-  @media (prefers-reduced-motion: reduce) {
-    .language-picker__select,
-    .language-picker__arrow {
-      transition-duration: var(--transition-fast) !important;
-    }
-
-    .language-picker__select:hover {
-      transform: none;
-    }
-  }
-
-  /* Enhanced text spacing support (WCAG 2.2) */
   .enhanced-text-spacing .language-picker__select {
     letter-spacing: var(--letter-spacing-enhanced);
     word-spacing: var(--word-spacing-enhanced);
     line-height: var(--line-height-enhanced);
     padding-top: calc(var(--space-sm) * var(--scale-factor-enhanced));
     padding-bottom: calc(var(--space-sm) * var(--scale-factor-enhanced));
-  }
 
-  /* Enhanced text spacing support for better accessibility */
-  @media (min-width: var(--breakpoint-sm)) {
-    .enhanced-text-spacing .language-picker__select {
+    // Enhanced text spacing support for better accessibility
+    @media (min-width: var(--breakpoint-sm)) {
       padding-top: calc(var(--space-md) * var(--scale-factor-responsive));
       padding-bottom: calc(var(--space-md) * var(--scale-factor-responsive));
     }

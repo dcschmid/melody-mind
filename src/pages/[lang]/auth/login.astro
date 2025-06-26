@@ -30,6 +30,10 @@ export async function getStaticPaths() {
     { params: { lang: "nl" } },
     { params: { lang: "sv" } },
     { params: { lang: "fi" } },
+    { params: { lang: "ru" } },
+    { params: { lang: "uk" } },
+    { params: { lang: "jp" } },
+    { params: { lang: "cn" } },
   ];
 }
 
@@ -103,23 +107,15 @@ const { pageTitle, pageDescription, headingText } = translations;
   });
 </script>
 
-<style>
+<style lang="scss">
   /* ======================================
    * LOGIN PAGE STYLES - WCAG AAA 2.2 COMPLIANT
    * Using CSS variables from global.css only
    * ====================================== */
 
-  /* Auth form container - Enhanced performance optimizations */
-  .auth-form-container {
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    transition: all var(--transition-normal);
-    animation: fadeIn var(--animation-duration-medium) ease-out;
-
-    /* Performance optimizations */
-    contain: layout style;
-    will-change: opacity, transform;
-  }
+  // SCSS variables for better maintainability
+  $animation-duration: var(--animation-duration-medium);
+  $animation-easing: ease-out;
 
   /* Fade-in animation for better UX - GPU accelerated */
   @keyframes fadeIn {
@@ -133,7 +129,19 @@ const { pageTitle, pageDescription, headingText } = translations;
     }
   }
 
-  /* Reduced motion support for accessibility */
+  /* Auth form container - Enhanced performance optimizations */
+  .auth-form-container {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-normal);
+    animation: fadeIn $animation-duration $animation-easing;
+
+    /* Performance optimizations */
+    contain: layout style;
+    will-change: opacity, transform;
+  }
+
+  /* Media queries with SCSS nesting */
   @media (prefers-reduced-motion: reduce) {
     .auth-form-container {
       animation: none;
@@ -149,7 +157,6 @@ const { pageTitle, pageDescription, headingText } = translations;
     }
   }
 
-  /* Enhanced contrast for high contrast mode */
   @media (prefers-contrast: high) {
     .auth-form-container {
       border: var(--border-width-thick) solid var(--border-primary);

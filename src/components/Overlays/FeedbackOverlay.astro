@@ -165,10 +165,10 @@ const t = useTranslations(lang);
   </div>
 </div>
 
-<style>
-  /* ======================================
-   * OVERLAY BASE STYLES - Using Global CSS Variables
-   * ====================================== */
+<style lang="scss">
+  // ======================================
+  // OVERLAY BASE STYLES - Using Global CSS Variables
+  // ======================================
 
   .overlay {
     position: fixed;
@@ -187,12 +187,12 @@ const t = useTranslations(lang);
     transition:
       opacity var(--transition-normal),
       visibility var(--transition-normal);
-  }
 
-  .overlay.hidden {
-    pointer-events: none;
-    visibility: hidden;
-    opacity: 0;
+    &.hidden {
+      pointer-events: none;
+      visibility: hidden;
+      opacity: 0;
+    }
   }
 
   .overlay__backdrop {
@@ -206,9 +206,9 @@ const t = useTranslations(lang);
     background-color: rgba(0, 0, 0, 0.8);
   }
 
-  /* ======================================
-   * OVERLAY CONTENT - Using Root Variables
-   * ====================================== */
+  // ======================================
+  // OVERLAY CONTENT - Using Root Variables
+  // ======================================
 
   .overlay__content {
     position: relative;
@@ -227,9 +227,9 @@ const t = useTranslations(lang);
     pointer-events: auto; /* Ensure all content interactions work */
   }
 
-  /* ======================================
-   * HEADER SECTION - Using Root Variables
-   * ====================================== */
+  // ======================================
+  // HEADER SECTION - Using Root Variables
+  // ======================================
 
   .overlay__header {
     display: flex;
@@ -262,17 +262,17 @@ const t = useTranslations(lang);
     transition:
       background-color var(--transition-normal),
       color var(--transition-normal);
+
+    &:hover,
+    &:focus {
+      background-color: var(--interactive-primary);
+      color: var(--text-primary);
+    }
   }
 
-  .overlay__close-button:hover,
-  .overlay__close-button:focus {
-    background-color: var(--interactive-primary);
-    color: var(--text-primary);
-  }
-
-  /* ======================================
-   * FEEDBACK STYLES - Using Root Variables
-   * ====================================== */
+  // ======================================
+  // FEEDBACK STYLES - Using Root Variables
+  // ======================================
 
   .feedback {
     margin: var(--space-xl) 0;
@@ -282,33 +282,41 @@ const t = useTranslations(lang);
     font-size: var(--text-xl);
     line-height: var(--leading-relaxed);
     font-weight: var(--font-semibold);
+
+    // WCAG AAA 2.2 compliant feedback colors
+    &.correct {
+      color: var(--text-success-aaa);
+      background-color: var(--bg-success-aaa);
+    }
+
+    &.incorrect {
+      color: var(--text-error-aaa);
+      background-color: var(--bg-error-aaa);
+    }
   }
 
-  /* WCAG AAA 2.2 compliant feedback colors */
-  .feedback.correct {
-    color: var(--text-success-aaa);
-    background-color: var(--bg-success-aaa);
-  }
-
-  .feedback.incorrect {
-    color: var(--text-error-aaa);
-    background-color: var(--bg-error-aaa);
-  }
-
-  /* ======================================
-   * MEDIA SECTION - Using Root Variables
-   * ====================================== */
+  // ======================================
+  // MEDIA SECTION - Using Root Variables
+  // ======================================
 
   .media-section {
     margin-bottom: var(--space-2xl);
     display: grid;
     align-items: start;
     gap: var(--space-xl);
-  }
 
-  .media-section__image {
-    display: flex;
-    justify-content: center;
+    &__image {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-md);
+      text-align: left;
+    }
   }
 
   .album-cover {
@@ -327,14 +335,6 @@ const t = useTranslations(lang);
     transform: translateZ(0);
     /* Optimize will-change only during interaction */
     will-change: auto;
-  }
-
-  .media-section__info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: var(--space-md);
-    text-align: left;
   }
 
   .artist-name {
@@ -363,9 +363,9 @@ const t = useTranslations(lang);
     max-width: var(--content-readable-width);
   }
 
-  /* ======================================
-   * AUDIO SECTION - Using Root Variables
-   * ====================================== */
+  // ======================================
+  // AUDIO SECTION - Using Root Variables
+  // ======================================
 
   .audio-label {
     display: block;
@@ -389,22 +389,22 @@ const t = useTranslations(lang);
     text-decoration-color: var(--interactive-primary);
     text-underline-offset: var(--text-underline-offset);
     transition: color var(--transition-normal);
+
+    &:hover,
+    &:focus {
+      color: var(--interactive-primary-hover);
+      text-decoration-color: var(--interactive-primary-hover);
+    }
+
+    &:focus-visible {
+      outline: var(--focus-enhanced-outline-dark);
+      outline-offset: var(--focus-ring-offset);
+    }
   }
 
-  .audio-fallback-link:hover,
-  .audio-fallback-link:focus {
-    color: var(--interactive-primary-hover);
-    text-decoration-color: var(--interactive-primary-hover);
-  }
-
-  .audio-fallback-link:focus-visible {
-    outline: var(--focus-enhanced-outline-dark);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  /* ======================================
-   * STREAMING LINKS SECTION - Using Root Variables
-   * ====================================== */
+  // ======================================
+  // STREAMING LINKS SECTION - Using Root Variables
+  // ======================================
 
   .streaming-links__title {
     margin-bottom: var(--space-md);
@@ -437,21 +437,21 @@ const t = useTranslations(lang);
     transition:
       background var(--transition-normal),
       transform var(--transition-fast);
+
+    &:hover,
+    &:focus {
+      background: var(--btn-primary-hover);
+      transform: translateY(var(--animation-y-offset-small));
+    }
+
+    &__icon {
+      margin-right: var(--space-md);
+    }
   }
 
-  .music-button:hover,
-  .music-button:focus {
-    background: var(--btn-primary-hover);
-    transform: translateY(var(--animation-y-offset-small));
-  }
-
-  .music-button__icon {
-    margin-right: var(--space-md);
-  }
-
-  /* ======================================
-   * NEXT BUTTON - Using Root Variables
-   * ====================================== */
+  // ======================================
+  // NEXT BUTTON - Using Root Variables
+  // ======================================
 
   .next-button {
     display: block;
@@ -468,24 +468,24 @@ const t = useTranslations(lang);
     transition:
       background var(--transition-normal),
       transform var(--transition-fast);
+
+    &:hover,
+    &:focus {
+      background: var(--btn-primary-hover);
+      transform: translateY(var(--animation-y-offset-small));
+    }
+
+    &__content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+    }
   }
 
-  .next-button:hover,
-  .next-button:focus {
-    background: var(--btn-primary-hover);
-    transform: translateY(var(--animation-y-offset-small));
-  }
-
-  .next-button__content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-  }
-
-  /* ======================================
-   * RESPONSIVE DESIGN - Using Root Variables
-   * ====================================== */
+  // ======================================
+  // RESPONSIVE DESIGN - Using Root Variables
+  // ======================================
 
   @media (min-width: 48em) {
     .overlay__content {
@@ -501,9 +501,9 @@ const t = useTranslations(lang);
     }
   }
 
-  /* ======================================
-   * ACCESSIBILITY & FOCUS STYLES - Using Root Variables
-   * ====================================== */
+  // ======================================
+  // ACCESSIBILITY & FOCUS STYLES - Using Root Variables
+  // ======================================
 
   .overlay__content:focus,
   .overlay__close-button:focus-visible,
@@ -515,21 +515,23 @@ const t = useTranslations(lang);
     box-shadow: var(--focus-enhanced-shadow);
   }
 
-  /* ======================================
-   * ANIMATIONS & MOTION - Performance Optimized with Root Variables
-   * ====================================== */
+  // ======================================
+  // ANIMATIONS & MOTION - Performance Optimized with Root Variables
+  // ======================================
 
   @media (prefers-reduced-motion: no-preference) {
-    .album-cover:hover {
-      /* Enable will-change only during interaction */
-      will-change: transform, box-shadow;
-      transform: scale(var(--scale-focus)) translateZ(0);
-      box-shadow: var(--shadow-xl);
-    }
+    .album-cover {
+      &:hover {
+        /* Enable will-change only during interaction */
+        will-change: transform, box-shadow;
+        transform: scale(var(--scale-focus)) translateZ(0);
+        box-shadow: var(--shadow-xl);
+      }
 
-    .album-cover:not(:hover) {
-      /* Clean up will-change after interaction */
-      will-change: auto;
+      &:not(:hover) {
+        /* Clean up will-change after interaction */
+        will-change: auto;
+      }
     }
 
     .overlay:not(.hidden) .overlay__content {
@@ -550,9 +552,9 @@ const t = useTranslations(lang);
     }
   }
 
-  /* ======================================
-   * REDUCED MOTION SUPPORT
-   * ====================================== */
+  // ======================================
+  // REDUCED MOTION SUPPORT
+  // ======================================
 
   @media (prefers-reduced-motion: reduce) {
     .overlay,
@@ -567,9 +569,9 @@ const t = useTranslations(lang);
     }
   }
 
-  /* ======================================
-   * HIGH CONTRAST MODE SUPPORT
-   * ====================================== */
+  // ======================================
+  // HIGH CONTRAST MODE SUPPORT
+  // ======================================
 
   @media (forced-colors: active) {
     .overlay__content {
@@ -584,25 +586,25 @@ const t = useTranslations(lang);
       background-color: ButtonFace;
       color: ButtonText;
       forced-color-adjust: none;
+
+      &:focus-visible {
+        outline: var(--border-width-enhanced) solid Highlight;
+        outline-offset: var(--focus-ring-offset);
+      }
     }
 
-    .music-button:focus-visible,
-    .next-button:focus-visible,
-    .overlay__close-button:focus-visible {
-      outline: var(--border-width-enhanced) solid Highlight;
-      outline-offset: var(--focus-ring-offset);
-    }
-
-    .feedback.correct,
-    .feedback.incorrect {
-      border: var(--border-width-thick) solid CanvasText;
-      background-color: Canvas;
-      color: CanvasText;
+    .feedback {
+      &.correct,
+      &.incorrect {
+        border: var(--border-width-thick) solid CanvasText;
+        background-color: Canvas;
+        color: CanvasText;
+      }
     }
 
     .overlay__backdrop {
-      background-color: Canvas;
-      opacity: 0.9;
+      background: Canvas;
+      opacity: 0.8;
     }
   }
 

@@ -158,10 +158,11 @@ const linkClasses = "footer-link";
   </div>
 </footer>
 
-<style>
+<style lang="scss">
   /* ======================================
    * FOOTER COMPONENT STYLES
    * Using CSS variables from global.css (WCAG AAA compliant)
+   * Converted to SCSS for better maintainability
    * ====================================== */
 
   .footer {
@@ -169,136 +170,133 @@ const linkClasses = "footer-link";
     border-top: var(--border-width-thin) solid var(--border-primary);
     padding-top: var(--space-xl);
     padding-bottom: var(--space-xl);
-  }
 
-  .footer-container {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: var(--container-xl);
-    padding-left: var(--space-md);
-    padding-right: var(--space-md);
-  }
-
-  .footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-lg);
-  }
-
-  /* Copyright text styles */
-  .footer-copyright {
-    font-size: var(--text-sm);
-    color: var(--text-tertiary);
-  }
-
-  /* Footer navigation styles */
-  .footer-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-md);
-  }
-
-  /* Donation links container */
-  .footer-donations {
-    display: flex;
-    gap: var(--space-md);
-  }
-
-  /* Footer link styles - WCAG AAA compliant with performance optimization */
-  .footer-link {
-    color: var(--text-tertiary);
-    text-decoration: none;
-    font-size: var(--text-sm);
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-md);
-    min-height: var(--min-touch-size);
-    min-width: var(--min-touch-size);
-    transition:
-      color var(--transition-normal),
-      background-color var(--transition-normal),
-      transform var(--transition-normal);
-
-    /* Performance optimizations */
-    contain: layout style;
-    will-change: transform, background-color;
-  }
-
-  /* Hover states with WCAG AAA compliant colors */
-  .footer-link:hover {
-    color: var(--interactive-primary);
-    background-color: var(--bg-tertiary);
-    transform: translateY(var(--animation-y-offset-small));
-  }
-
-  /* Focus styles for keyboard navigation - WCAG AAA compliant */
-  .footer-link:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-ring);
-    background-color: var(--bg-tertiary);
-  }
-
-  /* Active state */
-  .footer-link:active {
-    transform: scale(var(--animation-scale-hover));
-  }
-
-  /* Responsive design for medium screens and up */
-  @media (min-width: var(--breakpoint-md)) {
-    .footer-content {
-      flex-direction: row;
+    // Container nesting
+    &-container {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: var(--container-xl);
+      padding-left: var(--space-md);
+      padding-right: var(--space-md);
     }
 
-    .footer-nav {
-      justify-content: flex-end;
-    }
-  }
+    // Content layout
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-lg);
 
-  /* Reduced motion support for accessibility */
-  @media (prefers-reduced-motion: reduce) {
-    .footer-link {
-      transition-duration: var(--animation-duration-fast) !important;
-      will-change: auto;
+      // Responsive layout
+      @media (min-width: var(--breakpoint-md)) {
+        flex-direction: row;
+      }
     }
 
-    .footer-link:hover,
-    .footer-link:active {
-      transform: none !important;
+    // Copyright text styles
+    &-copyright {
+      font-size: var(--text-sm);
+      color: var(--text-tertiary);
     }
-  }
 
-  /* High contrast mode support */
-  @media (prefers-contrast: high) {
-    .footer {
+    // Navigation styles
+    &-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-md);
+
+      // Responsive navigation
+      @media (min-width: var(--breakpoint-md)) {
+        justify-content: flex-end;
+      }
+    }
+
+    // Donation links container
+    &-donations {
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    // Footer link styles - WCAG AAA compliant with performance optimization
+    &-link {
+      color: var(--text-tertiary);
+      text-decoration: none;
+      font-size: var(--text-sm);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-md);
+      min-height: var(--min-touch-size);
+      min-width: var(--min-touch-size);
+      transition:
+        color var(--transition-normal),
+        background-color var(--transition-normal),
+        transform var(--transition-normal);
+
+      // Performance optimizations
+      contain: layout style;
+      will-change: transform, background-color;
+
+      // Hover states with WCAG AAA compliant colors
+      &:hover {
+        color: var(--interactive-primary);
+        background-color: var(--bg-tertiary);
+        transform: translateY(var(--animation-y-offset-small));
+      }
+
+      // Focus styles for keyboard navigation - WCAG AAA compliant
+      &:focus-visible {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-ring);
+        background-color: var(--bg-tertiary);
+      }
+
+      // Active state
+      &:active {
+        transform: scale(var(--animation-scale-hover));
+      }
+
+      // Reduced motion support for accessibility
+      @media (prefers-reduced-motion: reduce) {
+        transition-duration: var(--animation-duration-fast) !important;
+        will-change: auto;
+
+        &:hover,
+        &:active {
+          transform: none !important;
+        }
+      }
+
+      // High contrast mode support
+      @media (prefers-contrast: high) {
+        border: var(--border-width-thin) solid transparent;
+
+        &:focus-visible {
+          border-color: var(--border-focus);
+          background-color: var(--bg-primary);
+        }
+      }
+
+      // Print styles
+      @media print {
+        color: var(--print-text) !important;
+      }
+    }
+
+    // High contrast mode support for footer itself
+    @media (prefers-contrast: high) {
       border-top-width: var(--border-width-thick);
     }
 
-    .footer-link {
-      border: var(--border-width-thin) solid transparent;
-    }
-
-    .footer-link:focus-visible {
-      border-color: var(--border-focus);
-      background-color: var(--bg-primary);
-    }
-  }
-
-  /* Print styles */
-  @media print {
-    .footer {
+    // Print styles for footer
+    @media print {
       border-top: var(--border-width-thin) solid var(--print-border);
       color: var(--print-text);
       background: var(--print-bg);
-    }
-
-    .footer-link {
-      color: var(--print-text) !important;
     }
   }
 </style>

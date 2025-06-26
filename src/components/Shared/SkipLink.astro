@@ -39,7 +39,7 @@ const t = useTranslations(lang);
   {t("nav.skip.main")}
 </a>
 
-<style>
+<style lang="scss">
   /**
    * Skip Link Styles with enhanced accessibility and maximized CSS variable usage
    * - BEM methodology for consistent class naming
@@ -50,110 +50,115 @@ const t = useTranslations(lang);
    * - Semantic touch targets, animations, and focus system variables
    */
 
+  // SCSS Variables for better maintainability
+  $skip-link-transform-base: translate(-50%, 0);
+  $skip-link-transform-gpu: #{$skip-link-transform-base} translateZ(0);
+  $skip-link-border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+
   .skip-link {
-    /* Positioning - optimize using standardized variables */
+    // Positioning - optimize using standardized variables
     position: absolute;
-    top: calc(-1 * var(--space-3xl)); /* -64px equivalent to -top-20 */
+    top: calc(-1 * var(--space-3xl)); // -64px equivalent to -top-20
     left: 50%;
-    z-index: var(--z-modal); /* Use z-modal (50) instead of hardcoded z-50 */
+    z-index: var(--z-modal); // Use z-modal (50) instead of hardcoded z-50
 
-    /* Layout - use semantic touch target variables consistently */
-    min-width: var(--min-touch-size); /* Use standardized touch target size */
-    min-height: var(--min-touch-size); /* Enhanced sizing for consistency - WCAG AAA compliance */
-    transform: translate(-50%, 0) translateZ(0); /* GPU acceleration */
+    // Layout - use semantic touch target variables consistently
+    min-width: var(--min-touch-size); // Use standardized touch target size
+    min-height: var(--min-touch-size); // Enhanced sizing for consistency - WCAG AAA compliance
+    transform: $skip-link-transform-gpu; // GPU acceleration
 
-    /* Visual styling - use semantic design tokens */
-    border-radius: 0 0 var(--radius-lg) var(--radius-lg); /* Bottom rounded corners only */
-    background-color: var(--interactive-primary); /* WCAG AAA compliant semantic color */
-    padding: var(--space-sm) var(--space-xl); /* py-2 px-6 equivalent */
+    // Visual styling - use semantic design tokens
+    border-radius: $skip-link-border-radius; // Bottom rounded corners only
+    background-color: var(--interactive-primary); // WCAG AAA compliant semantic color
+    padding: var(--space-sm) var(--space-xl); // py-2 px-6 equivalent
     box-shadow: var(--shadow-md);
 
-    /* Typography - use consistent font variables */
+    // Typography - use consistent font variables
     text-align: center;
     font-size: var(--text-base);
     font-weight: var(--font-bold);
-    color: var(--btn-primary-text); /* Use semantic button text color */
+    color: var(--btn-primary-text); // Use semantic button text color
     line-height: var(--leading-normal);
 
-    /* Interactive styles */
+    // Interactive styles
     text-decoration: none;
     cursor: pointer;
 
-    /* Performance optimization */
+    // Performance optimization
     will-change: top, background-color, transform;
     transition:
       top var(--animation-duration-normal) cubic-bezier(0.16, 1, 0.3, 1),
       background-color var(--animation-duration-fast),
       transform var(--animation-duration-fast);
 
-    /* Layout optimization */
+    // Layout optimization
     display: flex;
     align-items: center;
     justify-content: center;
+
+    // Hover state - use semantic interaction variables
+    &:hover {
+      background-color: var(--interactive-primary-hover);
+      transform: $skip-link-transform-gpu scale(var(--scale-focus));
+    }
+
+    // Focus state - use enhanced focus system variables
+    &:focus-visible {
+      top: 0; // Show skip link when focused
+      outline: var(--focus-enhanced-outline-dark);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--focus-enhanced-shadow), var(--shadow-lg);
+      background-color: var(--interactive-primary-hover);
+    }
+
+    // Active state - use semantic scale variable
+    &:active {
+      transform: $skip-link-transform-gpu scale(var(--scale-active));
+      background-color: var(--interactive-primary-active);
+    }
   }
 
-  /* Hover state - use semantic interaction variables */
-  .skip-link:hover {
-    background-color: var(--interactive-primary-hover);
-    transform: translate(-50%, 0) translateZ(0) scale(var(--scale-focus));
-  }
-
-  /* Focus state - use enhanced focus system variables */
-  .skip-link:focus-visible {
-    top: 0; /* Show skip link when focused */
-    outline: var(--focus-enhanced-outline-dark);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-enhanced-shadow), var(--shadow-lg);
-    background-color: var(--interactive-primary-hover);
-  }
-
-  /* Active state - use semantic scale variable */
-  .skip-link:active {
-    transform: translate(-50%, 0) translateZ(0) scale(var(--scale-active));
-    background-color: var(--interactive-primary-active);
-  }
-
-  /* High Contrast Mode Support */
+  // High Contrast Mode Support
   @media (forced-colors: active) {
     .skip-link {
       border: var(--border-width-thick) solid ButtonText;
       background-color: ButtonFace !important;
       color: ButtonText !important;
       forced-color-adjust: none;
-    }
 
-    .skip-link:focus-visible {
-      outline: var(--border-width-enhanced) solid Highlight !important;
-      background-color: Highlight !important;
-      color: HighlightText !important;
+      &:focus-visible {
+        outline: var(--border-width-enhanced) solid Highlight !important;
+        background-color: Highlight !important;
+        color: HighlightText !important;
+      }
     }
   }
 
-  /* Reduced Motion Support - use semantic animation variables */
+  // Reduced Motion Support - use semantic animation variables
   @media (prefers-reduced-motion: reduce) {
     .skip-link {
       transition-duration: var(--animation-duration-fast) !important;
-      transform: translate(-50%, 0); /* Remove translateZ for reduced motion */
-    }
+      transform: $skip-link-transform-base; // Remove translateZ for reduced motion
 
-    .skip-link:hover,
-    .skip-link:active {
-      transform: translate(-50%, 0); /* No scale animations */
+      &:hover,
+      &:active {
+        transform: $skip-link-transform-base; // No scale animations
+      }
     }
   }
 
-  /* Enhanced contrast for high contrast preference - using semantic variables */
+  // Enhanced contrast for high contrast preference - using semantic variables
   @media (prefers-contrast: high) {
     .skip-link {
-      background-color: var(--bg-primary); /* Use semantic background variable */
-      color: var(--text-primary); /* Use semantic text variable */
+      background-color: var(--bg-primary); // Use semantic background variable
+      color: var(--text-primary); // Use semantic text variable
       border: var(--border-width-thick) solid var(--text-primary);
-    }
 
-    .skip-link:focus-visible {
-      background-color: var(--text-primary); /* Inverse colors for high contrast */
-      color: var(--bg-primary);
-      outline-width: var(--border-width-enhanced);
+      &:focus-visible {
+        background-color: var(--text-primary); // Inverse colors for high contrast
+        color: var(--bg-primary);
+        outline-width: var(--border-width-enhanced);
+      }
     }
   }
 </style>

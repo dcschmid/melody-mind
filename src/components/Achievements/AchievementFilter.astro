@@ -153,26 +153,23 @@ const categoryOptions = [
   <div id="filter-announcements" aria-live="polite" aria-atomic="true" class="sr-only"></div>
 </div>
 
-<style>
+<style lang="scss">
   /**
    * AchievementFilter Component Styles
    * 
    * FULLY OPTIMIZED: Maximum usage of CSS root variables from global.css
-   * DRY principles applied - consolidated repetitive patterns into shared selectors
+   * DRY principles applied with SCSS mixins and nesting for better maintainability
    * WCAG AAA 2.2 compliant with semantic color variables
    * BEM methodology for consistent class naming
-   * Performance optimized with efficient CSS organization
+   * Performance optimized with efficient SCSS organization
    */
 
   /* ============================================================================
-   * SHARED INTERACTIVE ELEMENT STYLES (DRY Optimization)
-   * Consolidated common patterns used across all interactive elements
+   * SCSS MIXINS FOR DRY OPTIMIZATION
+   * Consolidated common patterns using SCSS mixins for better maintainability
    * ============================================================================ */
 
-  /* Shared base styles for all interactive elements */
-  .achievement-filter__select,
-  .achievement-filter__reset,
-  .achievement-filter__help-button {
+  @mixin interactive-base {
     /* Typography using semantic variables */
     font-size: var(--text-lg);
     font-weight: var(--font-medium);
@@ -194,95 +191,41 @@ const categoryOptions = [
       transform var(--transition-fast);
   }
 
-  /* Unified focus styles for all interactive elements (WCAG AAA) */
-  .achievement-filter__select:focus,
-  .achievement-filter__reset:focus,
-  .achievement-filter__help-button:focus {
-    outline: none;
-    box-shadow: var(--focus-ring);
-  }
-
-  .achievement-filter__select:focus-visible,
-  .achievement-filter__reset:focus-visible,
-  .achievement-filter__help-button:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  /* ============================================================================
-   * SHARED TRANSFORM AND ANIMATION PATTERNS (DRY Optimization)
-   * Consolidated all transform and animation patterns for consistency
-   * ============================================================================ */
-
-  /* Shared hover transform pattern using CSS variables */
-  .achievement-filter__reset:hover,
-  .achievement-filter__help-button:hover {
-    transform: translateY(calc(-1 * var(--space-xs)));
-    box-shadow: var(--shadow-md);
-  }
-
-  /* Shared active transform pattern */
-  .achievement-filter__reset:active,
-  .achievement-filter__help-button:active {
-    transform: translateY(0);
-  }
-
-  /* Shared scale animations using CSS variables */
-  @keyframes cardEnter {
-    from {
-      opacity: 0;
-      transform: translateY(var(--space-lg)) scale(var(--scale-hover));
+  @mixin focus-styles {
+    &:focus {
+      outline: none;
+      box-shadow: var(--focus-ring);
     }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
+
+    &:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
     }
   }
 
-  @keyframes cardLeave {
-    from {
-      opacity: 1;
-      transform: translateY(0) scale(1);
+  @mixin hover-transform {
+    &:hover {
+      transform: translateY(calc(-1 * var(--space-xs)));
+      box-shadow: var(--shadow-md);
     }
-    to {
-      opacity: 0;
-      transform: translateY(calc(-1 * var(--space-sm))) scale(var(--scale-hover));
+
+    &:active {
+      transform: translateY(0);
     }
   }
 
-  /* ============================================================================
-   * SHARED TEXT ELEMENTS (DRY Typography)
-   * Consolidated typography styles for all text elements
-   * ============================================================================ */
-
-  .achievement-filter__label,
-  .achievement-filter__count {
+  @mixin text-base {
     color: var(--text-primary);
     letter-spacing: var(--letter-spacing-base);
     text-wrap: balance;
-    margin: 0; /* Reset margins to use consistent spacing variables */
-  }
-
-  /* Text hierarchy using semantic size scale */
-  .achievement-filter__label {
-    font-size: var(--text-lg);
-    font-weight: var(--font-medium);
-    line-height: var(--leading-normal);
-    margin-bottom: var(--space-xs);
-    display: block;
-  }
-
-  .achievement-filter__count {
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
-    font-weight: var(--font-medium);
-    margin-top: var(--space-xs);
-    line-height: var(--leading-normal);
+    margin: 0;
   }
 
   /* ============================================================================
-   * BASE COMPONENT CONTAINER (Semantic Variables)
+   * MAIN COMPONENT STYLES WITH SCSS NESTING
+   * Using SCSS nesting and mixins for better organization and maintainability
    * ============================================================================ */
+
   .achievement-filter {
     background-color: var(--card-bg);
     border: var(--border-width-thin) solid var(--card-border);
@@ -295,174 +238,235 @@ const categoryOptions = [
     /* Performance optimization */
     contain: layout style;
     will-change: auto;
-  }
 
-  .achievement-filter:hover {
-    box-shadow: var(--card-shadow-hover);
+    &:hover {
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    /* Title styling with SCSS nesting */
+    &__title {
+      margin-bottom: var(--space-lg);
+      text-align: center;
+
+      @media (min-width: 48em) {
+        text-align: left;
+      }
+    }
+
+    /* Container layout with SCSS organization */
+    &__container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
+
+      @media (min-width: 48em) {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+      }
+    }
+
+    /* Form field styling with SCSS nesting */
+    &__field {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      position: relative;
+    }
+
+    /* Label styling using SCSS mixins */
+    &__label {
+      @include text-base;
+      font-size: var(--text-lg);
+      font-weight: var(--font-medium);
+      line-height: var(--leading-normal);
+      margin-bottom: var(--space-xs);
+      display: block;
+    }
+
+    /* Select dropdown styling with SCSS mixins and nesting */
+    &__select {
+      @include interactive-base;
+      @include focus-styles;
+
+      appearance: none;
+      background-color: var(--form-bg);
+      border: var(--border-width-thick) solid var(--form-border);
+      color: var(--form-text);
+      padding: var(--space-md) var(--space-lg);
+      width: 100%;
+      min-width: var(--min-touch-size);
+
+      /* Custom dropdown arrow using semantic colors and CSS variables */
+      background-image: var(--icon-dropdown-arrow);
+      filter: opacity(var(--opacity-medium)) brightness(var(--filter-brightness-high));
+      background-position: right var(--space-md) center;
+      background-repeat: no-repeat;
+      background-size: var(--space-lg) var(--space-lg);
+      padding-right: var(--select-padding-right);
+
+      &:hover:not(:focus) {
+        border-color: var(--border-secondary);
+        background-color: var(--bg-glass);
+      }
+
+      &:focus {
+        border-color: var(--form-border-focus);
+        background-color: var(--bg-glass);
+      }
+    }
+
+    /* Count display styling with SCSS mixins and nesting */
+    &__count {
+      @include text-base;
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      font-weight: var(--font-medium);
+      margin-top: var(--space-xs);
+      line-height: var(--leading-normal);
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    /* Actions container styling with SCSS nesting */
+    &__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      align-items: center;
+      justify-content: flex-start;
+      margin-top: var(--space-lg);
+      padding-top: var(--space-lg);
+      border-top: var(--border-width-thin) solid var(--border-primary);
+
+      @media (max-width: calc(48em - 1px)) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-lg);
+      }
+    }
+
+    /* Button styling with SCSS mixins and nesting */
+    &__reset,
+    &__help-button {
+      @include interactive-base;
+      @include focus-styles;
+      @include hover-transform;
+
+      background: var(--btn-primary-bg);
+      border: none;
+      color: var(--btn-primary-text);
+      cursor: pointer;
+      padding: var(--button-padding-standard);
+      min-width: var(--min-touch-size);
+
+      /* Enhanced interaction transitions using CSS variables */
+      transition:
+        background var(--transition-normal),
+        transform var(--transition-fast),
+        box-shadow var(--transition-normal);
+
+      @media (max-width: calc(48em - 1px)) {
+        width: 100%;
+        text-align: center;
+        min-height: var(--enhanced-touch-target);
+        padding: var(--button-padding-enhanced);
+      }
+    }
+
+    &__reset {
+      &:hover {
+        background: var(--btn-primary-hover);
+      }
+    }
+
+    &__help-button {
+      background: var(--btn-secondary-bg);
+      border: var(--border-width-thick) solid var(--btn-secondary-border);
+      color: var(--btn-secondary-text);
+
+      &:hover {
+        background: var(--btn-secondary-hover);
+        border-color: var(--border-focus);
+      }
+    }
+
+    /* Keyboard shortcuts panel with SCSS nesting */
+    &__keyboard-shortcuts {
+      background-color: var(--bg-tertiary);
+      border: var(--border-width-thin) solid var(--border-primary);
+      border-radius: var(--radius-md);
+      margin-top: var(--space-lg);
+      padding: var(--space-lg);
+      overflow: hidden;
+
+      /* Smooth transitions using system variables */
+      transition:
+        max-height var(--transition-normal),
+        opacity var(--transition-normal),
+        padding var(--transition-normal);
+
+      &[hidden] {
+        display: none;
+      }
+    }
+
+    &__shortcuts-title {
+      margin-bottom: var(--space-md);
+    }
+
+    &__shortcuts-list {
+      margin: 0;
+      display: grid;
+      gap: var(--space-sm);
+      font-size: var(--text-base);
+      line-height: var(--leading-relaxed);
+
+      @media (min-width: 48em) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+      }
+    }
+
+    &__shortcut-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-md);
+      align-items: baseline;
+
+      @media (max-width: calc(32em - 1px)) {
+        grid-template-columns: 1fr;
+        gap: var(--space-xs);
+      }
+    }
+
+    &__shortcut-key {
+      font-weight: var(--font-medium);
+      color: var(--text-primary);
+
+      kbd {
+        background-color: var(--bg-secondary);
+        border: var(--border-width-thin) solid var(--border-primary);
+        border-radius: var(--radius-sm);
+        padding: var(--space-xs) var(--space-sm);
+        font-size: var(--text-sm);
+        font-weight: var(--font-medium);
+        color: var(--text-primary);
+        margin: 0 var(--space-xs);
+      }
+    }
+
+    &__shortcut-description {
+      margin: 0;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-sm);
+    }
   }
 
   /* ============================================================================
-   * LAYOUT SYSTEM (Grid with semantic spacing)
-   * ============================================================================ */
-  .achievement-filter__container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    margin-bottom: var(--space-lg);
-  }
-
-  .achievement-filter__field {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    position: relative;
-  }
-
-  .achievement-filter__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-    align-items: center;
-    justify-content: flex-start;
-    margin-top: var(--space-lg);
-    padding-top: var(--space-lg);
-    border-top: var(--border-width-thin) solid var(--border-primary);
-  }
-
-  /* ============================================================================
-   * FORM ELEMENTS (Using form system variables)
-   * ============================================================================ */
-  .achievement-filter__select {
-    appearance: none;
-    background-color: var(--form-bg);
-    border: var(--border-width-thick) solid var(--form-border);
-    color: var(--form-text);
-    padding: var(--space-md) var(--space-lg);
-    width: 100%;
-    min-width: var(--min-touch-size);
-
-    /* Custom dropdown arrow using semantic colors and CSS variables */
-    background-image: var(--icon-dropdown-arrow);
-    filter: opacity(var(--opacity-medium)) brightness(var(--filter-brightness-high));
-    background-position: right var(--space-md) center;
-    background-repeat: no-repeat;
-    background-size: var(--space-lg) var(--space-lg);
-    padding-right: var(--select-padding-right);
-  }
-
-  .achievement-filter__select:focus {
-    border-color: var(--form-border-focus);
-    background-color: var(--bg-glass);
-  }
-
-  .achievement-filter__select:hover:not(:focus) {
-    border-color: var(--border-secondary);
-    background-color: var(--bg-glass);
-  }
-
-  /* ============================================================================
-   * BUTTON SYSTEM (Using button system variables)
-   * ============================================================================ */
-  .achievement-filter__reset {
-    background: var(--btn-primary-bg);
-    border: none;
-    color: var(--btn-primary-text);
-    cursor: pointer;
-    padding: var(--button-padding-standard);
-    min-width: var(--min-touch-size);
-
-    /* Enhanced interaction transitions using CSS variables */
-    transition:
-      background var(--transition-normal),
-      transform var(--transition-fast),
-      box-shadow var(--transition-normal);
-  }
-
-  .achievement-filter__reset:hover {
-    background: var(--btn-primary-hover);
-    transform: translateY(calc(-1 * var(--space-xs)));
-    box-shadow: var(--shadow-md);
-  }
-
-  .achievement-filter__reset:active {
-    transform: translateY(0);
-  }
-
-  .achievement-filter__help-button {
-    background: var(--btn-secondary-bg);
-    border: var(--border-width-thick) solid var(--btn-secondary-border);
-    color: var(--btn-secondary-text);
-    cursor: pointer;
-    padding: var(--button-padding-standard);
-    min-width: var(--min-touch-size);
-  }
-
-  .achievement-filter__help-button:hover {
-    background: var(--btn-secondary-hover);
-    border-color: var(--border-focus);
-  }
-
-  /* ============================================================================
-   * KEYBOARD SHORTCUTS PANEL (Collapsible content system)
-   * ============================================================================ */
-  .achievement-filter__keyboard-shortcuts {
-    background-color: var(--bg-tertiary);
-    border: var(--border-width-thin) solid var(--border-primary);
-    border-radius: var(--radius-md);
-    margin-top: var(--space-lg);
-    padding: var(--space-lg);
-    overflow: hidden;
-
-    /* Smooth transitions using system variables */
-    transition:
-      max-height var(--transition-normal),
-      opacity var(--transition-normal),
-      padding var(--transition-normal);
-  }
-
-  .achievement-filter__keyboard-shortcuts[hidden] {
-    display: none;
-  }
-
-  .achievement-filter__shortcuts-list {
-    margin: 0;
-    display: grid;
-    gap: var(--space-sm);
-    font-size: var(--text-base);
-    line-height: var(--leading-relaxed);
-  }
-
-  .achievement-filter__shortcut-item {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: var(--space-md);
-    align-items: baseline;
-  }
-
-  .achievement-filter__shortcut-key {
-    font-weight: var(--font-medium);
-    color: var(--text-primary);
-  }
-
-  .achievement-filter__shortcut-key kbd {
-    background-color: var(--bg-secondary);
-    border: var(--border-width-thin) solid var(--border-primary);
-    border-radius: var(--radius-sm);
-    padding: var(--space-xs) var(--space-sm);
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
-    color: var(--text-primary);
-    margin: 0 var(--space-xs);
-  }
-
-  .achievement-filter__shortcut-description {
-    margin: 0;
-    color: var(--text-secondary);
-    margin-bottom: var(--space-sm);
-  }
-
-  /* ============================================================================
-   * FILTER UTILITIES - Gap-free grid layout optimization
+   * FILTER UTILITIES - Gap-free grid layout optimization with SCSS
    * ============================================================================ */
 
   /* 
@@ -509,84 +513,43 @@ const categoryOptions = [
 
     /* Performance: Contain layout changes for better rendering */
     contain: layout style;
-  }
 
-  /* 
-   * CRITICAL: Target only visible achievement cards to prevent gaps
-   * This ensures filtered cards don't interfere with grid layout
-   */
-  .achievements__grid > *:not(.filtered-hidden) {
-    /* Only visible items participate in grid flow */
-    position: relative;
-    display: block;
-  }
-
-  /* 
-   * Auto-hide empty category sections when all achievements are filtered
-   * Uses modern CSS :has() selector with fallback
-   */
-  .achievements__category:has(.achievements__grid:empty),
-  .achievements__category:has(.achievements__grid > *:not(.filtered-hidden):empty) {
-    display: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Fallback for browsers without :has() support */
-  @supports not selector(:has(*)) {
-    /* JavaScript will handle section hiding in applyFilters() method */
-    .achievements__category.all-filtered {
-      display: none;
+    /* Target only visible achievement cards to prevent gaps */
+    > *:not(.filtered-hidden) {
+      /* Only visible items participate in grid flow */
+      position: relative;
+      display: block;
     }
-  }
 
-  /* 
-   * Enhanced responsive grid behavior 
-   * Automatically adapts to screen size and available content
-   */
-  @media (min-width: var(--breakpoint-md)) {
-    /* Tablet and up: Allow up to 2 columns */
-    .achievements__grid {
+    /* Enhanced visual feedback when filtering is active */
+    &:has(.filtered-hidden) {
+      /* Subtle highlight when filtering is active */
+      filter: var(--filter-enhanced-visibility);
+    }
+
+    /* Responsive grid behavior */
+    @media (min-width: var(--breakpoint-md)) {
+      /* Tablet and up: Allow up to 2 columns */
       grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-md), 45%), 1fr));
       gap: var(--space-xl);
     }
-  }
 
-  @media (min-width: var(--breakpoint-lg)) {
-    /* Desktop: Allow up to 3 columns */
-    .achievements__grid {
+    @media (min-width: var(--breakpoint-lg)) {
+      /* Desktop: Allow up to 3 columns */
       grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-sm), 30%), 1fr));
       gap: var(--space-xl);
     }
-  }
 
-  @media (min-width: var(--breakpoint-xl)) {
-    /* Large desktop: Allow optimal spacing */
-    .achievements__grid {
+    @media (min-width: var(--breakpoint-xl)) {
+      /* Large desktop: Allow optimal spacing */
       grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-md), 28%), 1fr));
       gap: var(--enhanced-gap-mobile);
     }
   }
 
-  /*
-   * Hide empty category sections automatically
-   * Uses CSS :empty selector and advanced :has() selector
-   */
-  .achievements__category:has(.achievements__grid:not(:has(*:not(.filtered-hidden)))) {
-    display: none;
-  }
-
-  /* Fallback for browsers without :has() support */
-  @supports not selector(:has(*)) {
-    .achievements__category {
-      /* Keep visible by default, JavaScript will handle hiding */
-      display: block;
-    }
-  }
-
-  /*
-   * Optimize layout when sections become empty
-   * Ensures smooth visual transitions
+  /* 
+   * Auto-hide empty category sections when all achievements are filtered
+   * Uses modern CSS :has() selector with fallback
    */
   .achievements__category {
     transition:
@@ -596,16 +559,45 @@ const categoryOptions = [
 
     /* Prevent layout shift when content changes */
     contain: layout style;
+
+    /* Hide empty sections using modern CSS */
+    &:has(.achievements__grid:empty),
+    &:has(.achievements__grid > *:not(.filtered-hidden):empty) {
+      display: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    &:has(.achievements__grid:not(:has(*:not(.filtered-hidden)))) {
+      display: none;
+    }
+
+    /* Section animations for empty state */
+    &.section-empty {
+      opacity: 0;
+      transform: translateY(calc(-1 * var(--space-lg)));
+      margin: 0;
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    /* Fallback for browsers without :has() support */
+    @supports not selector(:has(*)) {
+      /* JavaScript will handle section hiding in applyFilters() method */
+      &.all-filtered {
+        display: none;
+      }
+
+      /* Keep visible by default, JavaScript will handle hiding */
+      display: block;
+    }
   }
 
-  /*
-   * Enhanced visual feedback for filtered states
-   * Provides subtle visual cues during filtering
-   */
-  .achievements__grid:has(.filtered-hidden) {
-    /* Subtle highlight when filtering is active */
-    filter: var(--filter-enhanced-visibility);
-  }
+  /* ============================================================================
+   * KEYFRAME ANIMATIONS WITH SCSS ORGANIZATION
+   * Reusable animations using CSS variables for timing
+   * ============================================================================ */
 
   /*
    * Animation for smooth insertion/removal of achievement cards
@@ -641,69 +633,54 @@ const categoryOptions = [
     }
   }
 
-  /*
-   * Section animations for empty state
-   */
-  .achievements__category {
-    transition: all var(--transition-slow) ease-out;
-  }
-
-  .achievements__category.section-empty {
-    opacity: 0;
-    transform: translateY(calc(-1 * var(--space-lg)));
-    margin: 0;
-    padding: 0;
-    max-height: 0;
-    overflow: hidden;
-  }
-
   /* ============================================================================
-   * RESPONSIVE DESIGN (Using breakpoint variables)
+   * RESPONSIVE DESIGN WITH SCSS NESTING
+   * Using SCSS nesting for better organization of media queries
    * ============================================================================ */
+
   /* Responsive design optimized with filter effects for better visual hierarchy */
   @media (min-width: var(--breakpoint-md)) {
-    .achievement-filter__container {
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-xl); /* Increased gap for better breathing space */
-    }
-
     .achievement-filter {
       box-shadow: var(--card-shadow-hover); /* Enhanced shadow on larger screens */
       filter: brightness(
         var(--filter-brightness-high)
       ); /* Subtle brightness boost for better visibility */
+
+      &__container {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl); /* Increased gap for better breathing space */
+      }
     }
   }
 
   /* Mobile optimization with enhanced touch accessibility and visual effects */
   @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
-    /* Below md breakpoint - using semantic spacing variables */
     .achievement-filter {
       padding: var(--space-md);
       margin-bottom: var(--space-lg);
       /* Enhanced visual hierarchy for mobile using filter effects */
       filter: var(--filter-enhanced-mobile);
-    }
 
-    .achievement-filter__actions {
-      flex-direction: column;
-      align-items: stretch;
-      gap: var(--space-lg); /* Increased gap for better touch accessibility */
-    }
+      &__actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-lg); /* Increased gap for better touch accessibility */
+      }
 
-    .achievement-filter__reset,
-    .achievement-filter__help-button {
-      width: 100%;
-      text-align: center;
-      min-height: var(--enhanced-touch-target); /* Enhanced touch target for mobile */
-      padding: var(
-        --button-padding-enhanced
-      ); /* Increased padding for better touch accessibility */
+      &__reset,
+      &__help-button {
+        width: 100%;
+        text-align: center;
+        min-height: var(--enhanced-touch-target); /* Enhanced touch target for mobile */
+        padding: var(
+          --button-padding-enhanced
+        ); /* Increased padding for better touch accessibility */
+      }
     }
   }
 
   /* ============================================================================
-   * ENHANCED ACCESSIBILITY SUPPORT (WCAG AAA)
+   * ENHANCED ACCESSIBILITY SUPPORT (WCAG AAA) WITH SCSS
    * ============================================================================ */
 
   /* High contrast mode support - OPTIMIZED: Using additional CSS variables for enhanced accessibility */
@@ -712,54 +689,69 @@ const categoryOptions = [
       border-width: var(--border-width-thick);
       border-color: var(--text-primary);
       filter: contrast(2) saturate(var(--filter-saturate-high)); /* Enhanced contrast using filter variables */
-    }
 
-    .achievement-filter__select {
-      border-width: var(--border-width-enhanced);
-      filter: var(--filter-high-contrast-select); /* Better visibility in high contrast */
-    }
+      &__select {
+        border-width: var(--border-width-enhanced);
+        filter: var(--filter-high-contrast-select); /* Better visibility in high contrast */
+      }
 
-    .achievement-filter__reset,
-    .achievement-filter__help-button {
-      border-width: var(--border-width-enhanced); /* Consistent enhanced borders */
-      filter: var(--filter-high-contrast-button); /* Improved button visibility */
+      &__reset,
+      &__help-button {
+        border-width: var(--border-width-enhanced); /* Consistent enhanced borders */
+        filter: var(--filter-high-contrast-button); /* Improved button visibility */
+      }
     }
   }
 
   /* Reduced motion support - OPTIMIZED: Using CSS variables for consistent disabled states */
   @media (prefers-reduced-motion: reduce) {
     /* Apply to all elements that use transitions using semantic CSS variables */
-    .achievement-filter,
-    .achievement-filter__select,
-    .achievement-filter__reset,
-    .achievement-filter__help-button,
-    .achievement-filter__keyboard-shortcuts {
+    .achievement-filter {
       transition: none;
       will-change: auto; /* Reset will-change for performance */
+
+      &__select,
+      &__reset,
+      &__help-button,
+      &__keyboard-shortcuts {
+        transition: none;
+        will-change: auto;
+      }
+
+      &__reset:hover,
+      &__help-button:hover {
+        transform: none;
+        /* Provide alternative visual feedback without motion */
+        filter: var(--filter-enhanced-visibility);
+      }
     }
 
-    .achievement-filter__reset:hover,
-    .achievement-filter__help-button:hover {
-      transform: none;
-      /* Provide alternative visual feedback without motion */
-      filter: var(--filter-enhanced-visibility);
+    @keyframes cardEnter,
+    @keyframes cardLeave {
+      from,
+      to {
+        opacity: 1;
+        transform: none;
+      }
     }
   }
 
   /* Enhanced text spacing support (WCAG 2.2) - OPTIMIZED: Using more CSS variables */
   @supports (letter-spacing: var(--letter-spacing-enhanced)) {
-    .enhanced-text-spacing .achievement-filter__label,
-    .enhanced-text-spacing .achievement-filter__select {
-      letter-spacing: var(--letter-spacing-enhanced);
-      word-spacing: var(--word-spacing-enhanced);
-      line-height: var(--line-height-enhanced);
-    }
+    .enhanced-text-spacing {
+      .achievement-filter__label,
+      .achievement-filter__select {
+        letter-spacing: var(--letter-spacing-enhanced);
+        word-spacing: var(--word-spacing-enhanced);
+        line-height: var(--line-height-enhanced);
+      }
 
-    /* Additional enhanced spacing for better readability */
-    .enhanced-text-spacing .achievement-filter__shortcut-description {
-      letter-spacing: var(--letter-spacing-enhanced);
-      word-spacing: var(--word-spacing-enhanced);
-      line-height: var(--line-height-enhanced);
+      /* Additional enhanced spacing for better readability */
+      .achievement-filter__shortcut-description {
+        letter-spacing: var(--letter-spacing-enhanced);
+        word-spacing: var(--word-spacing-enhanced);
+        line-height: var(--line-height-enhanced);
+      }
     }
   }
 
@@ -768,24 +760,24 @@ const categoryOptions = [
     .achievement-filter {
       border-color: ButtonBorder;
       background-color: ButtonFace;
-    }
 
-    .achievement-filter__select {
-      border-color: ButtonBorder;
-      background-color: Field;
-      color: FieldText;
-    }
+      &__select {
+        border-color: ButtonBorder;
+        background-color: Field;
+        color: FieldText;
+      }
 
-    .achievement-filter__reset {
-      background-color: ButtonFace;
-      border: var(--border-width-thin) solid ButtonBorder;
-      color: ButtonText;
-    }
+      &__reset {
+        background-color: ButtonFace;
+        border: var(--border-width-thin) solid ButtonBorder;
+        color: ButtonText;
+      }
 
-    .achievement-filter__help-button {
-      background-color: ButtonFace;
-      border-color: ButtonBorder;
-      color: ButtonText;
+      &__help-button {
+        background-color: ButtonFace;
+        border-color: ButtonBorder;
+        color: ButtonText;
+      }
     }
   }
 
@@ -801,47 +793,47 @@ const categoryOptions = [
       page-break-inside: avoid;
       /* Enhanced print optimization using CSS variables */
       filter: contrast(var(--filter-contrast)) brightness(var(--filter-brightness-high));
-    }
 
-    .achievement-filter__label {
-      color: var(--print-text);
-      /* Enhanced text rendering for print */
-      text-rendering: optimizeLegibility;
-      -webkit-print-color-adjust: exact;
-    }
+      &__label {
+        color: var(--print-text);
+        /* Enhanced text rendering for print */
+        text-rendering: optimizeLegibility;
+        -webkit-print-color-adjust: exact;
+      }
 
-    .achievement-filter__select {
-      background-color: var(--print-bg);
-      border: var(--print-border);
-      color: var(--print-text);
-      padding: var(--space-sm) var(--space-md);
-    }
+      &__select {
+        background-color: var(--print-bg);
+        border: var(--print-border);
+        color: var(--print-text);
+        padding: var(--space-sm) var(--space-md);
+      }
 
-    .achievement-filter__reset,
-    .achievement-filter__help-button {
-      background-color: var(--print-bg);
-      border: var(--print-border);
-      color: var(--print-text);
-      box-shadow: none;
-      padding: var(--space-sm) var(--space-md);
-    }
+      &__reset,
+      &__help-button {
+        background-color: var(--print-bg);
+        border: var(--print-border);
+        color: var(--print-text);
+        box-shadow: none;
+        padding: var(--space-sm) var(--space-md);
+      }
 
-    .achievement-filter__keyboard-shortcuts {
-      background-color: var(--print-bg);
-      border: var(--print-border);
-      color: var(--print-text);
-      margin-top: var(--space-md);
-      padding: var(--space-md);
-    }
+      &__keyboard-shortcuts {
+        background-color: var(--print-bg);
+        border: var(--print-border);
+        color: var(--print-text);
+        margin-top: var(--space-md);
+        padding: var(--space-md);
+      }
 
-    .achievement-filter__shortcut-key {
-      color: var(--print-text);
-      font-weight: var(--font-bold);
-    }
+      &__shortcut-key {
+        color: var(--print-text);
+        font-weight: var(--font-bold);
+      }
 
-    .achievement-filter__shortcut-description {
-      color: var(--print-text);
-      font-size: var(--text-sm);
+      &__shortcut-description {
+        color: var(--print-text);
+        font-size: var(--text-sm);
+      }
     }
   }
 </style>

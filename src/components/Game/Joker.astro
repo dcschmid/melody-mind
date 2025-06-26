@@ -93,20 +93,20 @@ const dataAttributes = {
   <div id="joker-announcement" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
 </div>
 
-<style>
+<style lang="scss">
   /* ======================================
    * JOKER COMPONENT STYLES
    * WCAG AAA 2.2 COMPLIANT WITH CSS VARIABLES
    * ====================================== */
 
-  /* Common base styles for reusability (DRY principle) */
-  .joker-base-interactive {
+  // Common base styles for reusability (DRY principle)
+  %joker-base-interactive {
     border-radius: var(--radius-lg);
     transition: all var(--transition-normal);
     cursor: pointer;
   }
 
-  .joker-base-text {
+  %joker-base-text {
     font-weight: var(--font-medium);
     line-height: var(--leading-normal);
   }
@@ -123,8 +123,7 @@ const dataAttributes = {
     background: var(--card-bg);
     padding: var(--space-lg);
     box-shadow: var(--shadow-md);
-    /* Performance optimization */
-    contain: layout style;
+    contain: layout style; // Performance optimization
   }
 
   .joker-title {
@@ -141,6 +140,7 @@ const dataAttributes = {
   }
 
   .joker-button {
+    @extend %joker-base-interactive;
     position: relative;
     display: flex;
     align-items: center;
@@ -148,44 +148,49 @@ const dataAttributes = {
     min-height: var(--touch-target-min);
     min-width: var(--touch-target-min);
     gap: var(--space-sm);
-    border-radius: var(--radius-lg);
     background: var(--btn-primary-bg);
     padding: var(--space-md) var(--space-xl);
     font-weight: var(--font-semibold);
     color: var(--btn-primary-text);
     border: none;
-    cursor: pointer;
     box-shadow: var(--shadow-lg);
-    transition: all var(--transition-normal);
     transform: translateY(0);
-    /* Performance optimization */
-    will-change: transform, background-color;
-  }
+    will-change: transform, background-color; // Performance optimization
 
-  .joker-button:hover:not(:disabled) {
-    background: var(--btn-primary-hover);
-    transform: translateY(calc(-1 * var(--space-micro)));
-    box-shadow: var(--shadow-xl);
-  }
+    &:hover:not(:disabled) {
+      background: var(--btn-primary-hover);
+      transform: translateY(calc(-1 * var(--space-micro)));
+      box-shadow: var(--shadow-xl);
 
-  .joker-button:active:not(:disabled) {
-    transform: translateY(0);
-    box-shadow: var(--shadow-md);
-  }
+      .joker-icon {
+        transform: scale(var(--scale-focus));
+      }
 
-  .joker-button:disabled {
-    cursor: not-allowed;
-    background: var(--bg-tertiary);
-    color: var(--text-disabled);
-    box-shadow: none;
-    transform: none;
-    opacity: var(--opacity-disabled);
-  }
+      .joker-button-effect {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
 
-  .joker-button:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-ring), var(--shadow-lg);
+    &:active:not(:disabled) {
+      transform: translateY(0);
+      box-shadow: var(--shadow-md);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background: var(--bg-tertiary);
+      color: var(--text-disabled);
+      box-shadow: none;
+      transform: none;
+      opacity: var(--opacity-disabled);
+    }
+
+    &:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--focus-ring), var(--shadow-lg);
+    }
   }
 
   .joker-button-content {
@@ -202,14 +207,10 @@ const dataAttributes = {
     transition: transform var(--transition-normal);
   }
 
-  .joker-button:hover:not(:disabled) .joker-icon {
-    transform: scale(var(--scale-focus));
-  }
-
   .joker-text {
+    @extend %joker-base-text;
     white-space: nowrap;
     font-size: var(--text-base);
-    line-height: var(--leading-normal);
   }
 
   .joker-button-effect {
@@ -223,11 +224,6 @@ const dataAttributes = {
     pointer-events: none;
   }
 
-  .joker-button:hover:not(:disabled) .joker-button-effect {
-    opacity: 1;
-    transform: scale(1);
-  }
-
   .joker-ripple {
     position: absolute;
     inset: 0;
@@ -236,10 +232,10 @@ const dataAttributes = {
     opacity: 0;
     pointer-events: none;
     will-change: transform, opacity;
-  }
 
-  .joker-ripple.animate {
-    animation: ripple var(--transition-slow) ease-out forwards;
+    &.animate {
+      animation: ripple var(--transition-slow) ease-out forwards;
+    }
   }
 
   .joker-count-container {
@@ -249,13 +245,13 @@ const dataAttributes = {
   }
 
   .joker-count-label {
+    @extend %joker-base-text;
     color: var(--text-secondary);
     font-size: var(--text-sm);
-    font-weight: var(--font-medium);
-    line-height: var(--leading-normal);
   }
 
   .joker-count {
+    @extend %joker-base-text;
     min-width: var(--touch-target-min);
     border-radius: var(--radius-full);
     border: var(--border-width-thin) solid var(--border-primary);
@@ -265,13 +261,10 @@ const dataAttributes = {
     font-size: var(--text-lg);
     color: var(--text-primary);
     font-variant-numeric: tabular-nums;
-    /* Shared text properties */
-    font-weight: var(--font-medium);
-    line-height: var(--leading-normal);
-  }
 
-  .joker-count.updated {
-    animation: pulse var(--transition-slow) ease-in-out;
+    &.updated {
+      animation: pulse var(--transition-slow) ease-in-out;
+    }
   }
 
   .joker-description {
@@ -336,7 +329,7 @@ const dataAttributes = {
    * ACCESSIBILITY ENHANCEMENTS
    * ====================================== */
 
-  /* High contrast mode support using CSS variables */
+  // High contrast mode support using CSS variables
   @media (forced-colors: active) {
     .joker-container {
       border: var(--border-width-thick) solid CanvasText;
@@ -348,10 +341,14 @@ const dataAttributes = {
       background: ButtonFace;
       color: ButtonText;
       forced-color-adjust: none;
-    }
 
-    .joker-button:disabled {
-      opacity: var(--opacity-disabled);
+      &:disabled {
+        opacity: var(--opacity-disabled);
+      }
+
+      &:focus-visible {
+        outline: var(--border-width-enhanced) solid Highlight;
+      }
     }
 
     .joker-count {
@@ -359,13 +356,9 @@ const dataAttributes = {
       background: Canvas;
       color: CanvasText;
     }
-
-    .joker-button:focus-visible {
-      outline: var(--border-width-enhanced) solid Highlight;
-    }
   }
 
-  /* Reduced motion preferences using CSS variables */
+  // Reduced motion preferences using CSS variables
   @media (prefers-reduced-motion: reduce) {
     .joker-button,
     .joker-ripple,
@@ -378,7 +371,7 @@ const dataAttributes = {
     }
   }
 
-  /* Print styles */
+  // Print styles
   @media print {
     .joker-container {
       border: var(--border-width-thin) solid var(--print-text);
