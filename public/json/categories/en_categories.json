@@ -91,6 +91,15 @@
     "knowledgeUrl": "/knowledge/en/2010s"
   },
   {
+    "categoryUrl": "/acid-jazz",
+    "headline": "Acid Jazz",
+    "imageUrl": "/category/acid-jazz.jpg",
+    "introSubline": "Dive into the groovy world where jazz improvisation meets funky rhythms and electronic vibes!",
+    "isPlayable": false,
+    "slug": "acid-jazz",
+    "text": "Step into the vibrant universe of Acid Jazz – a genre where the freedom of jazz collides with the infectious grooves of funk, soul, and electronic music. Born in the clubs of London in the late 1980s, Acid Jazz is the soundtrack for late-night city drives, stylish lounges, and anyone who loves their music with both brains and a beat. Imagine the improvisational spirit of jazz, the deep bass lines of funk, and the cool textures of hip-hop and electronica, all blended into a sound that’s both timeless and modern. From pioneers like Jamiroquai, Incognito, and The Brand New Heavies to today’s new wave of genre-bending artists, Acid Jazz is music for movement, for chilling out, and for getting lost in the rhythm. Whether you’re a jazz aficionado or a groove seeker, this is the place where sophistication meets pure danceable energy – so press play and let the acid flow!"
+  },
+  {
     "categoryUrl": "/acoustic-metal",
     "headline": "Acoustic Metal",
     "imageUrl": "/category/acoustic-metal.jpg",
@@ -98,6 +107,33 @@
     "isPlayable": false,
     "slug": "acoustic-metal",
     "text": "Forget everything you think you know about metal! Acoustic Metal is where raw emotion meets gentle power, creating something so beautiful it'll give you chills. Imagine the crushing intensity of your favorite metal anthems stripped down to their emotional core – suddenly, every lyric hits deeper, every melody soars higher, and every moment becomes more intimate. This is where legends like Opeth reveal their tender side, where Metallica's 'S&M' performances prove that orchestras and metal are soulmates, and where bands like Anathema create sonic landscapes that are both devastating and healing. From complex fingerpicked guitar arrangements that would make classical musicians weep to vocals that carry the weight of the world, Acoustic Metal proves that sometimes the quietest moments can be the most powerful. Get ready to discover your favorite metal songs in a completely new light!"
+  },
+  {
+    "categoryUrl": "/acoustic-pop",
+    "headline": "Acoustic Pop",
+    "imageUrl": "/category/acoustic-pop.jpg",
+    "introSubline": "Where raw emotion meets pop perfection in the most intimate musical experience!",
+    "isPlayable": false,
+    "slug": "acoustic-pop",
+    "text": "Step into the warm, organic world of Acoustic Pop, where the essence of songwriting shines through in its purest form. Stripped of electronic production, these songs reveal their true emotional core through the delicate interplay of acoustic guitars, subtle percussion, and heartfelt vocals. From Ed Sheeran's soul-baring ballads to the raw vulnerability of early Taylor Swift, from the folksy charm of The Lumineers to the sophisticated arrangements of Sara Bareilles, Acoustic Pop proves that sometimes less is more. This is music that feels like a late-night conversation with an old friend – intimate, honest, and deeply personal. Whether you're looking for background music for a cozy evening or lyrics that speak directly to your soul, these acoustic renditions and original compositions create a space where every note and every word carries weight. Perfect for moments of reflection, relaxation, or simply appreciating the beauty of a well-crafted song, Acoustic Pop is musical storytelling at its most authentic and moving."
+  },
+  {
+    "categoryUrl": "/african-music",
+    "headline": "African Music",
+    "imageUrl": "/category/african-music.jpg",
+    "introSubline": "Experience the rich tapestry of sounds from the world's most rhythmically diverse continent!",
+    "isPlayable": false,
+    "slug": "african-music",
+    "text": "Embark on an extraordinary musical journey across the African continent, where ancient traditions meet contemporary innovation in a vibrant celebration of rhythm and melody. African music is the living heartbeat of a continent, a kaleidoscope of sounds that tells the story of its people, their struggles, and their joys. From the hypnotic kora melodies of West Africa to the powerful choral traditions of South Africa, from the desert blues of the Sahara to the pulsating Afrobeat rhythms that conquered the world, this is music that moves both body and soul. Discover the intricate polyrhythms of traditional drumming circles, the soulful melodies of thumb pianos, and the electrifying energy of modern Afro-fusion. Whether it's the legendary Fela Kuti's political anthems, the ethereal vocals of Angelique Kidjo, or the contemporary sounds of Burna Boy and Wizkid, African music continues to shape global sounds while staying true to its rich cultural roots. This is more than music – it's a living, breathing expression of a continent's soul, where every beat tells a story and every song is a celebration of life itself."
+  },
+  {
+    "categoryUrl": "/african-music",
+    "headline": "African Music",
+    "imageUrl": "/category/african-music.jpg",
+    "introSubline": "Experience the vibrant rhythms and soulful melodies that have shaped musical traditions across the African continent!",
+    "isPlayable": false,
+    "slug": "african-music",
+    "text": "Welcome to the diverse soundscape of African music, where ancient traditions meet contemporary innovation. From the mesmerizing rhythms of West African drumming to the soulful melodies of South African jazz, African music is a celebration of cultural heritage and creative expression. Experience the powerful storytelling of griots, the hypnotic grooves of Afrobeat, and the spiritual depth of traditional chants that continue to influence music worldwide."
   },
   {
     "categoryUrl": "/afrobeat",
@@ -208,6 +244,15 @@
     "text": "Welcome to metal's most fearless frontier! Avant-Garde Metal is what happens when brilliant musicians decide that genres are just suggestions and creativity has no limits. Picture Arcturus turning black metal into cosmic theater, Ulver evolving from folk-influenced extremity to electronic experimentation that defies all categorization, Celtic Frost pioneering sounds that seemed to come from another planet, and Sigh creating symphonic chaos that sounds like a beautiful nightmare. This isn't just music – it's sonic alchemy, where jazz harmonies crash into blast beats, where orchestral arrangements dance with distorted guitars, and where every song feels like discovering a new musical language. From the most delicate ambient interludes to the most crushing walls of experimental noise, Avant-Garde Metal challenges every assumption about what heavy music can be while proving that the most innovative art often comes from the most unlikely combinations. Prepare to have your musical worldview completely reconstructed!"
   },
   {
+    "categoryUrl": "/bachata",
+    "headline": "Bachata",
+    "imageUrl": "/category/bachata.jpg",
+    "introSubline": "Let the sensual rhythms of the Dominican Republic move your body and touch your soul!",
+    "isPlayable": false,
+    "slug": "bachata",
+    "text": "Feel the passion and romance of Bachata, the irresistible musical genre that emerged from the streets of the Dominican Republic to conquer dance floors worldwide. Born from a blend of bolero, son, and African rhythms, Bachata tells stories of love, heartbreak, and everyday life with raw emotion and undeniable groove. From its humble beginnings as the 'music of the people' to its current status as a global phenomenon, Bachata has evolved while maintaining its soulful essence. The distinctive sound of the requinto guitar weaves through syncopated rhythms, while the bongo and güira create an unmistakable beat that makes moving your hips completely involuntary. Whether you're swaying to the traditional sounds of legends like Anthony Santos and Aventura, or feeling the modern urban twist of artists like Romeo Santos and Prince Royce, Bachata speaks the universal language of passion. This is music that demands to be felt as much as heard, where every note carries the warmth of the Caribbean and every rhythm tells a story of love, longing, and the joy of living in the moment."
+  },
+  {
     "categoryUrl": "/back-to-school",
     "headline": "Back to School",
     "imageUrl": "/category/back-to-school.jpg",
@@ -224,6 +269,33 @@
     "isPlayable": false,
     "slug": "backyard-bbq",
     "text": "Welcome to the ultimate outdoor party soundtrack! There's something magical about the combination of sizzling grills, cold drinks, good friends, and the perfect playlist that turns any backyard into the best place on Earth. Picture this: the sun is shining, the burgers are flipping, someone's telling that story everyone's heard before (but it's still funny), and these carefully chosen tracks are creating the perfect atmosphere for making memories that'll last forever. From classic rock anthems that get three generations singing along to reggae rhythms that make everyone move a little smoother, from country songs that celebrate simple pleasures to funk grooves that turn even the most reluctant dancers into party stars – this playlist captures that special BBQ magic where time slows down and life feels exactly like it should. Whether you're hosting a small family gathering or a neighborhood block party, these songs ensure that every moment feels like summer, every conversation flows easier, and every bite tastes even better!"
+  },
+  {
+    "categoryUrl": "/balkan-music",
+    "headline": "Balkan Music",
+    "imageUrl": "/category/balkan-music.jpg",
+    "introSubline": "Dive into the fiery passion and complex rhythms of the Balkan musical tradition!",
+    "isPlayable": false,
+    "slug": "balkan-music",
+    "text": "Discover the intoxicating energy of Balkan music, where Eastern and Western influences collide in a whirlwind of emotion and rhythm. From the haunting melodies of Bulgarian women's choirs to the frenetic energy of brass bands, Balkan music is a celebration of life's joys and sorrows. Experience the asymmetric time signatures, the soulful vocals, and the virtuosic instrumental performances that make this music truly unique."
+  },
+  {
+    "categoryUrl": "/balkan-music",
+    "headline": "Balkan Music",
+    "imageUrl": "/category/balkan-music.jpg",
+    "introSubline": "Experience the fiery energy and complex rhythms of the Balkan musical tradition!",
+    "isPlayable": false,
+    "slug": "balkan-music",
+    "text": "Prepare to be swept away by the intoxicating energy of Balkan music, where East meets West in a whirlwind of passionate melodies and heart-pounding rhythms! This is music that refuses to sit still, with time signatures that twist and turn like mountain roads, brass sections that wail with unbridled emotion, and beats that make even the most reluctant dancers move their feet. From the haunting beauty of Bulgarian women's choirs to the breakneck speed of Serbian brass bands, from the soulful melodies of Greek rebetiko to the fiery Romani orchestras that set every wedding party ablaze – Balkan music is a celebration of life in all its complexity. Whether it's the melancholic sevdah of Bosnia, the turbo-folk phenomenon sweeping the clubs, or the modern fusions bringing ancient traditions into the 21st century, this is music that speaks directly to the soul. Feel the passion, the joy, the sorrow, and the unquenchable spirit of a region where music isn't just entertainment – it's life itself, played out in every note and every dance step."
+  },
+  {
+    "categoryUrl": "/bass-music",
+    "headline": "Bass Music",
+    "imageUrl": "/category/bass-music.jpg",
+    "introSubline": "Feel the rumble of the low end where basslines become the foundation for sonic exploration and rhythmic innovation!",
+    "isPlayable": false,
+    "slug": "bass-music",
+    "text": "Welcome to the world of Bass Music, where the low end reigns supreme and the beat drops like a seismic event that shakes the very foundations of your being! This is music that's all about the vibe, the flow, and the unrelenting energy that comes from exploring the deepest frequencies and the most infectious rhythms. From the dubstep pioneers who first dared to push the bass to its limits, to the trap and drill innovators who turned 808s into an art form, from the bass house and future bass producers who blend the heaviest drops with the most euphoric melodies, to the experimentalists who use bass as a canvas for sonic innovation – every track is a journey into the unknown, where the only constant is the bassline that drives everything forward. Picture yourself in darkened clubs where the subwoofers rumble like thunder and the crowd moves as one, feel the physical power of music that's designed to be felt as much as heard, experience the unique thrill of being on the cutting edge of sound where the future of electronic music is being written in real-time."
   },
   {
     "categoryUrl": "/beach-day",
@@ -325,6 +397,15 @@
     "text": "Step into the dazzling universe of Hong Kong's musical heartbeat, where skyscrapers sing in Cantonese and every melody carries the soul of a city that never sleeps! Cantopop isn't just music – it's the soundtrack to Asia's most cinematic metropolis, where every song tells a story of love, longing, and dreams painted against the backdrop of Victoria Harbor's glittering lights. This is where Leslie Cheung's ethereal voice became the sound of romantic yearning, where Anita Mui's powerful performances turned concerts into emotional earthquakes, where Beyond's rock anthems united generations across linguistic barriers, and where modern stars like Eason Chan continue to redefine what it means to touch hearts through melody. Picture yourself in the neon-soaked streets of Tsim Sha Tsui, where Cantopop ballads drift from karaoke bars like urban lullabies, where every taxi radio plays the latest chart-toppers, and where the language of love is sung in tones that rise and fall like the city's dramatic skyline. From melancholic love songs that make monsoon rains feel romantic to upbeat anthems that capture the unstoppable energy of Hong Kong's spirit – Cantopop is pure emotion distilled into sonic gold, East meets West magic that makes your heart beat in Cantonese!"
   },
   {
+    "categoryUrl": "/caribbean-music",
+    "headline": "Caribbean Music",
+    "imageUrl": "/category/caribbean-music.jpg",
+    "introSubline": "Feel the tropical pulse of the islands where rhythm is a way of life and every beat tells a story of sun, sea, and celebration!",
+    "isPlayable": false,
+    "slug": "caribbean-music",
+    "text": "Welcome to the vibrant musical melting pot of the Caribbean, where African, European, and indigenous influences collide in a kaleidoscope of irresistible rhythms and soul-stirring melodies! From the reggae grooves of Jamaica that spread messages of love and revolution, to the sultry salsa beats of Puerto Rico that make hips sway with effortless grace, from the soca energy of Trinidad's Carnival that powers the world's biggest street party, to the zouk rhythms of the French Antilles that set hearts on fire – Caribbean music is pure, unadulterated joy in sonic form. Imagine steel pans singing under starlit skies, the call-and-response of calypso storytellers, the hypnotic pulse of merengue, and the spiritual depth of roots reggae. This is where Bob Marley's timeless messages of unity were born, where Celia Cruz became the Queen of Salsa, and where artists like Rihanna, Sean Paul, and Burna Boy blend island vibes with global pop. More than just music, it's the sound of resilience, creativity, and the indomitable spirit of island nations that have given the world some of its most life-affirming rhythms. So take off your shoes, feel the sand between your toes, and let the Caribbean spirit move you!"
+  },
+  {
     "categoryUrl": "/celtic-metal",
     "headline": "Celtic Metal",
     "imageUrl": "/category/celtic-metal.jpg",
@@ -343,6 +424,24 @@
     "text": "Enter a realm where Beethoven's ghost headbangs alongside modern metal masters, where string quartets weave their silken melodies through walls of crushing guitars, and where the concert hall meets the mosh pit in a glorious explosion of artistic brilliance! Chamber Metal is the ultimate musical alchemy – taking the raw, untamed power of metal and refining it through the sophisticated lens of classical composition, creating something that transcends both genres and becomes pure sonic magic. From Apocalyptica's revolutionary cello-driven metal symphonies that make Bach roll over in his grave (with approval), to Ne Obliviscaris's progressive masterpieces where violins dance with death metal vocals in perfect, impossible harmony, from Septicflesh's orchestral metal operas that sound like the soundtrack to gods at war – this is music for both the intellectual and the primitive, the refined and the rebellious. Picture yourself in a candlelit conservatory where violins scream instead of sing, where pianos thunder instead of whisper, where every classical instrument has been possessed by the spirit of metal and transformed into something both beautiful and devastating. This is what happens when centuries of musical tradition meet the unstoppable force of modern rebellion – and the result is absolutely transcendent!"
   },
   {
+    "categoryUrl": "/chamber-music",
+    "headline": "Chamber Music",
+    "imageUrl": "/category/chamber-music.jpg",
+    "introSubline": "Experience the intimate conversation of musical voices in perfect harmony, where every note is a whispered secret between friends!",
+    "isPlayable": false,
+    "slug": "chamber-music",
+    "text": "Step into the elegant world of Chamber Music, where musical conversations unfold with the intimacy of a fireside chat and the precision of a Swiss watch. This is classical music at its most personal and profound – not the grand spectacle of orchestras, but the magical alchemy that happens when a handful of musicians create an entire universe of sound. Imagine the rich dialogue between a string quartet, where each instrument speaks with its own voice yet blends into perfect harmony, or the playful banter between a piano trio, where melodies dance like old friends finishing each other's sentences. From the emotional depth of Beethoven's late quartets that seem to contain the entire human experience, to the sparkling wit of Mozart's divertimentos, from the passionate outpourings of Brahms to the modern explorations of contemporary composers – chamber music is where composers bare their souls without pretense. This is music that was born in the grand salons of Vienna and the noble courts of Europe, yet feels as fresh and immediate today as when it was first performed. Whether it's the heart-wrenching beauty of a cello sonata, the joyful interplay of a wind quintet, or the intricate counterpoint of a Baroque trio sonata, chamber music invites you to lean in closer, to discover the exquisite details and profound emotions that can only emerge when musicians listen and respond to each other with absolute attention and respect. In a world of constant noise and distraction, chamber music reminds us of the power of quiet connection and the beauty of shared artistic creation."
+  },
+  {
+    "categoryUrl": "/chamber-music",
+    "headline": "Chamber Music",
+    "imageUrl": "/category/chamber-music.jpg",
+    "introSubline": "Discover the intimate beauty of classical music's most personal form of expression!",
+    "isPlayable": false,
+    "slug": "chamber-music",
+    "text": "Step into the refined world of chamber music, where small ensembles create intricate musical conversations. From the elegant string quartets of Haydn and Mozart to the passionate works of Brahms and Dvořák, chamber music offers an intimate listening experience that reveals new depths with each performance. Discover the delicate interplay between instruments and the rich emotional landscape that can be created with just a handful of musicians."
+  },
+  {
     "categoryUrl": "/chicago-house",
     "headline": "Chicago House",
     "imageUrl": "/category/chicago-house.jpg",
@@ -359,6 +458,15 @@
     "isPlayable": false,
     "slug": "children",
     "text": "Welcome to the most wonderfully whimsical corner of the musical universe, where every song is a ticket to adventure and every melody opens doors to imagination! Children's music isn't just entertainment – it's pure magic distilled into sound waves that make tiny hearts dance and little minds sparkle with possibility. From classic nursery rhymes that have been passed down through generations like precious family treasures, to modern Disney masterpieces that turn everyday moments into Broadway productions, from silly songs that make tummy-aching laughter inevitable to gentle lullabies that carry sleepy angels to dreamland on clouds of melody. Picture car rides transformed into concert halls where everyone sings along, bath time becoming underwater dance parties, and bedtime stories told through songs that make even the grumpiest little ones smile. These aren't just tunes – they're memory-makers, confidence-builders, and happiness-multipliers that teach kids that the world is full of wonder, friendship is magical, and their own voices are the most beautiful instruments of all. Get ready for giggles, sing-alongs, and those precious moments when music turns an ordinary day into an extraordinary adventure that families will treasure forever!"
+  },
+  {
+    "categoryUrl": "/chiptune",
+    "headline": "Chiptune",
+    "imageUrl": "/category/chiptune.jpg",
+    "introSubline": "Experience the nostalgic bleeps and bloops of 8-bit magic that powered the soundtracks of a generation's childhood!",
+    "isPlayable": false,
+    "slug": "chiptune",
+    "text": "Welcome to the digital playground where music meets pure nostalgia! Chiptune is the sound of a generation's childhood compressed into hypnotic 8-bit melodies and pulsing square waves. This is the music that once emerged from the sound chips of vintage gaming consoles like the Nintendo NES, Game Boy, and Sega Genesis, now transformed into a vibrant art form that celebrates the beauty of technical limitations. Imagine the infectious energy of arcade high scores, the thrill of discovering secret levels, and the magic of 8-bit adventures – all translated into music that makes your heart race with joy. From the pioneering work of composers like Koji Kondo (Super Mario Bros., The Legend of Zelda) to modern chiptune artists who push the boundaries of what these retro sounds can do, this genre proves that great music isn't about having unlimited options, but about making the most of what you've got. Whether it's the bouncy melodies of classic game soundtracks, the energetic beats of chiptune dance music, or the emotional depth of modern chiptune compositions that will make you feel things you never thought possible from simple bleeps and bloops – this is music that celebrates the digital revolution that changed entertainment forever. So dust off your old Game Boy, fire up your favorite emulator, or just press play and let the 8-bit nostalgia wash over you in waves of pure, unadulterated joy!"
   },
   {
     "categoryUrl": "/christian-metal",
@@ -487,6 +595,15 @@
     "text": "¡Bienvenidos to the most rhythmically intoxicating island on Earth, where every street corner pulses with the heartbeat of the Caribbean and every melody carries the soul of a nation that turned music into its greatest export! Cuban music isn't just sound – it's liquid sunshine distilled into rhythm, the perfect fusion of African fire and Spanish romance that creates something so irresistibly danceable it should be considered a public health hazard. From the legendary Buena Vista Social Club's vintage magic that makes time travel possible through pure musical nostalgia, to Celia Cruz's explosive salsa royalty that could make statues dance, from the timeless elegance of Compay Segundo's guitar wizardry to modern revolutionaries like Orishas and Gente de Zona who prove Cuban music can be both traditional and cutting-edge – every note is soaked in Caribbean sunshine and aged in Havana's humid, music-filled air. Picture yourself in colorful Old Havana where vintage cars cruise past while congas echo through colonial streets, feel the irresistible call of mambo that makes your hips move before your brain realizes what's happening, experience the magic of son cubano that turns every gathering into an impromptu dance party. This is music that doesn't just play – it seduces, it celebrates, it makes being alive feel like the greatest dance party ever thrown!"
   },
   {
+    "categoryUrl": "/cumbia",
+    "headline": "Cumbia",
+    "imageUrl": "/category/cumbia.jpg",
+    "introSubline": "Let the hypnotic rhythms of Cumbia move your soul and body in an irresistible dance of cultural fusion!",
+    "isPlayable": false,
+    "slug": "cumbia",
+    "text": "¡Baila! Let the intoxicating pulse of Cumbia transport you to the heart of Latin America, where African, Indigenous, and European musical traditions blend into one of the most infectious rhythms on the planet! Born on Colombia's Caribbean coast, Cumbia is the sound of cultural celebration, a musical journey that has spread across continents while maintaining its irresistible, hip-swaying essence. From the traditional gaita flutes and African drums that tell stories of resistance and joy, to the modern electronic beats that keep the party going until sunrise, Cumbia is the lifeblood of Latin American dance floors. Imagine colorful town squares where couples move in perfect sync to the hypnotic 2/4 rhythm, street festivals where the air vibrates with the sound of accordions and guacharacas, and beach parties where the ocean itself seems to dance to the beat. From the classic sounds of Lucho Bermúdez and Los Gaiteros de San Jacinto to contemporary fusions that blend Cumbia with hip-hop, electronica, and rock, this genre proves that great music knows no boundaries. Whether you're in a packed club in Buenos Aires, a beach party in Veracruz, or a festival in Mexico City, when that distinctive rhythm starts, resistance is futile – your feet will move on their own, your hips will find the groove, and you'll understand why Cumbia has been making the world dance for centuries!"
+  },
+  {
     "categoryUrl": "/cyber-metal",
     "headline": "Cyber Metal",
     "imageUrl": "/category/cyber-metal.jpg",
@@ -613,6 +730,15 @@
     "text": "Enter the realm where Black Sabbath's heaviest dreams became reality, where every guitar riff moves with the inexorable weight of tectonic plates shifting and every song unfolds like a slow-motion apocalypse that's somehow the most beautiful thing you've ever witnessed! Doom Metal isn't just music – it's meditation through crushing heaviness, the sound of time itself slowing down until every moment becomes eternal, every emotion magnified to cosmic proportions, every riff a prayer to the gods of absolute sonic weight. From Candlemass's epic Swedish majesty that turned doom into operatic grandeur, to Electric Wizard's drug-fueled sludge that sounds like the earth itself groaning under the weight of existence, from Saint Vitus's American pioneers who proved slow could be more powerful than fast, to Sleep's marathon hymns that turn repetition into transcendence – every song is a journey into the beautiful darkness of human experience distilled into pure sonic gravity. Picture yourself in ancient cathedrals where these riffs echo like funeral bells for the old world, feel the meditative power of music that moves like glaciers but hits like avalanches, experience the profound catharsis of surrendering to the beautiful inevitability of crushing heaviness. This is music for deep thinkers, for souls who find beauty in weight, for anyone who understands that sometimes the most powerful thing you can do is slow down and let the heaviness wash over you like waves of molten gold!"
   },
   {
+    "categoryUrl": "/downtempo",
+    "headline": "Downtempo",
+    "imageUrl": "/category/downtempo.jpg",
+    "introSubline": "Sink into the velvety embrace of electronic music's most sophisticated and atmospheric genre!",
+    "isPlayable": false,
+    "slug": "downtempo",
+    "text": "Welcome to the sonic sanctuary where time slows down, stress melts away, and every beat is a gentle invitation to breathe deeper. Downtempo is the art of electronic tranquility, where lush soundscapes meet hypnotic rhythms at the perfect pace for both focused work and blissful relaxation. Imagine the perfect balance of electronic sophistication and organic warmth, where influences from trip-hop, jazz, ambient, and world music blend into something greater than the sum of their parts. From the pioneering chillout rooms of 90s clubs to today's cutting-edge producers, Downtempo creates a space where music becomes a healing force, a mental massage, and a passport to inner peace. Whether you're unwinding after a long day, setting a sophisticated mood, or simply giving your mind the gift of calm, let these carefully curated sounds transport you to a place where time moves at exactly the right speed – yours."
+  },
+  {
     "categoryUrl": "/dramatic",
     "headline": "Dramatic",
     "imageUrl": "/category/dramatic.jpg",
@@ -640,6 +766,15 @@
     "text": "Welcome to the ultimate sonic laboratory where UK's brightest minds took jungle's wild energy and engineered it into the most precisely devastating dancefloor weapon ever created! Drum and Bass isn't just music – it's liquid lightning running through fiber optic cables, the sound of breakbeats chopped, screwed, and reassembled into patterns so complex they make your nervous system upgrade itself just to keep up. From Goldie's 'Timeless' epic that proved electronic music could be both brutal and beautiful, to LTJ Bukem's jazz-infused liquid magic that makes basslines flow like honey through a particle accelerator, from Roni Size's Bristol genius that brought D&B to mainstream consciousness, to Netsky's modern melodic mastery that proves the future of bass music is brighter than ever – every track is a masterclass in controlled chaos, surgical precision applied to maximum sonic impact. Picture yourself in underground London clubs where 180 BPM feels like meditation, feel the moment when the bass drops and reality wobbles, experience the unique euphoria of music that's simultaneously the most technical and most primal electronic genre ever invented. This is music for the cerebrally physical, for dancers who think and thinkers who move, for anyone who's ever wanted their heartbeat synchronized to the rhythm of the future!"
   },
   {
+    "categoryUrl": "/dubstep",
+    "headline": "Dubstep",
+    "imageUrl": "/category/dubstep.jpg",
+    "introSubline": "Feel the seismic bass drops and wobbly rhythms that define this groundbreaking electronic genre!",
+    "isPlayable": false,
+    "slug": "dubstep",
+    "text": "Welcome to the bass-heavy world of dubstep, where subwoofers rumble and rhythms skitter across the sonic spectrum. Emerging from London's underground scene in the early 2000s, dubstep combines elements of drum and bass, 2-step garage, and dub reggae to create a sound that's both futuristic and deeply rooted in sound system culture. Experience the genre's evolution from dark, minimal beginnings to its explosive mainstream breakthrough and beyond."
+  },
+  {
     "categoryUrl": "/dutch",
     "headline": "Dutch",
     "imageUrl": "/category/dutch.jpg",
@@ -665,6 +800,15 @@
     "isPlayable": false,
     "slug": "eurodance",
     "text": "Welcome to the most gloriously cheesy, absolutely irresistible, and completely unapologetic celebration of 90s dance music, where every synthesizer riff was designed to make you lose complete control and every rap verse was delivered with the confidence of someone who knew they were creating pure liquid happiness! Eurodance isn't just music – it's concentrated nostalgia in sonic form, the soundtrack to an era when dance music was unashamed to be joyful, when hooks were designed to burrow into your brain and never leave, when every track sounded like the theme song to the best party that never ended. From Snap!'s 'Rhythm Is A Dancer' that turned philosophical truth into dancefloor gospel, to 2 Unlimited's 'No Limit' that made limitlessness feel like a legal requirement, from Haddaway's 'What Is Love' that gave us the most perfect head-bobbing anthem ever created, to La Bouche's 'Be My Lover' that proved love could be expressed in 140 BPM – every song is a time machine back to an era when clubs were temples and DJs were prophets of pure euphoria. Picture yourself in underground European clubs where fog machines worked overtime and mirror balls cast rainbows over seas of dancing humanity, feel the beautiful ridiculousness of music that refused to take itself seriously while taking joy very seriously indeed. This is music for the beautifully cheesy, for anyone who misses when dance music was about dancing!"
+  },
+  {
+    "categoryUrl": "/experimental",
+    "headline": "Experimental",
+    "imageUrl": "/category/experimental.jpg",
+    "introSubline": "Push the boundaries of sound and explore the cutting edge of musical innovation!",
+    "isPlayable": false,
+    "slug": "experimental",
+    "text": "Venture into the uncharted territories of experimental music, where rules are made to be broken and new sonic landscapes are constantly being discovered. From avant-garde classical to noise, ambient to musique concrète, experimental music challenges our very definition of what music can be. Experience the work of sonic pioneers who use unconventional techniques, found sounds, and electronic manipulation to create compositions that push the boundaries of auditory perception."
   },
   {
     "categoryUrl": "/experimental-metal",
@@ -784,15 +928,6 @@
     "text": "Welcome to the most euphoric time of year, where dusty fields transform into temporary cities of pure musical magic and every stage becomes a portal to collective transcendence! Festival Season isn't just music – it's the soundtrack to liberation itself, where 100,000 strangers become family through the alchemy of shared rhythms, where sunrise sets set your soul on fire and midnight electronic odysseys make you believe in tomorrow. From the first indie rock anthem that makes everyone throw their hands up in perfect unison, to the EDM drops that turn entire fields into human oceans of synchronized euphoria, from acoustic folk moments that make amphitheaters feel intimate, to hip-hop bangers that unite every demographic under the same bouncing beat – every song is chosen for its ability to create that indefinable festival magic where music becomes community. Picture yourself with dust on your boots and music in your heart, walking between stages where every sound system pumps life-changing experiences, feel the beautiful exhaustion of dancing from noon to 3 AM while discovering your new favorite artist every hour, experience the pure bliss of those perfect moments when the music, the crowd, and the stars align to create memories that will soundtrack the rest of your life. This is music for the beautifully free, for the temporarily homeless, for anyone who's ever found their tribe in a field full of strangers singing the same song!"
   },
   {
-    "categoryUrl": "/film-music",
-    "headline": "Film Music",
-    "imageUrl": "/category/film-music.jpg",
-    "introSubline": "Experience the cinematic sorcery where orchestras become storytellers and melodies paint emotions in sound!",
-    "isPlayable": false,
-    "slug": "film-music",
-    "text": "Welcome to the most emotionally manipulative and gloriously effective music ever created, where master composers wield orchestras like emotional weapons and every note is precisely calculated to make you laugh, cry, gasp, or cheer on command! Film music isn't just background sound – it's the invisible narrator of your favorite movies, the puppet master pulling your heartstrings, the magic spell that transforms moving pictures into life-changing experiences. From John Williams' iconic themes that make you believe men can fly and galaxies far, far away feel like home, to Hans Zimmer's earth-shaking BRAAMS that turn action sequences into religious experiences, from Ennio Morricone's spaghetti western wizardry that makes deserts sing, to Danny Elfman's gothic fantasies that make Tim Burton's worlds feel real – every composition is a masterclass in emotional storytelling without words. Picture yourself in a darkened theater where the music swells and suddenly you're not just watching a movie, you're living inside it, feel the precise moment when a perfect musical cue transforms a good scene into an unforgettable one, experience the pure magic of composers who understand that the right melody at the right moment can make audiences fall in love, believe in heroes, and remember why stories matter. This is music that doesn't just accompany drama – it creates it, amplifies it, and makes it eternal!"
-  },
-  {
     "categoryUrl": "/finnish",
     "headline": "Finnish",
     "imageUrl": "/category/finnish.jpg",
@@ -863,6 +998,15 @@
     "isPlayable": false,
     "slug": "funk",
     "text": "Welcome to the most physically addictive music ever created, where James Brown's genius unleashed a rhythmic virus that infected the entire planet and turned ordinary humans into unstoppable dancing machines! Funk isn't just music – it's a full-body takeover, the sonic equivalent of lightning striking your nervous system and rewiring it for pure groove, where every bassline is a direct command to your hips and every drum hit synchronizes with your heartbeat until moving becomes as involuntary as breathing. From the Godfather of Soul's revolutionary rhythmic innovations that literally created the template for making people move, to Parliament-Funkadelic's psychedelic space funk that proved you could get high off rhythm alone, from the lock-tight precision of The Meters that made New Orleans the groove capital of the universe, to Prince's Minneapolis funk revolution that combined sexual energy with musical genius – every track is engineered with scientific precision to bypass your brain and speak directly to your body's primal need to move. Picture yourself in sweaty clubs where the bassline takes control of your motor functions, feel the impossible satisfaction of when your body finds the perfect pocket and you become one with the rhythm, experience the collective euphoria that happens when an entire room of strangers becomes a single organism pulsing to the same irresistible beat. This is music for the rhythmically fearless, for bodies that need to express themselves, for souls who understand that sometimes the most profound communication happens without words – just pure, undeniable groove!"
+  },
+  {
+    "categoryUrl": "/future-bass",
+    "headline": "Future Bass",
+    "imageUrl": "/category/future-bass.jpg",
+    "introSubline": "Immerse yourself in the lush, emotional soundscapes of electronic music's most vibrant subgenre!",
+    "isPlayable": false,
+    "slug": "future-bass",
+    "text": "Step into the neon-lit world of Future Bass, where soaring synths meet soulful vocals and seismic bass drops create moments of pure euphoria. Born from the fusion of trap, R&B, and electronic dance music, Future Bass has become the soundtrack of a generation that values emotion as much as energy. From the genre-defining sounds of Flume and ODESZA to the chart-topping productions of Marshmello and The Chainsmokers, this is music that's as at home in headphones as it is on festival main stages. Experience the perfect balance of organic and electronic elements, where chopped vocals dance over warm, pulsating basslines and shimmering chords create an atmosphere that's both nostalgic and forward-thinking."
   },
   {
     "categoryUrl": "/gaming-session",
@@ -1126,6 +1270,15 @@
     "text": "Welcome to music's most authentically democratic revolution, where artistic integrity matters more than commercial appeal and where the most powerful sounds often emerge from bedrooms, basements, and garages filled with nothing but passion, creativity, and the radical belief that music should serve art rather than industry! Indie music isn't just a genre – it's a philosophy of creative independence that has consistently produced the most innovative and emotionally honest sounds in modern music, where artists from Arctic Monkeys to Bon Iver prove that the best music happens when creators are free to follow their artistic instincts without compromise. From the lo-fi bedroom pop that makes intimate feel universal, to the experimental indie rock that pushes boundaries while maintaining emotional accessibility, from the indie folk storytellers who make personal confessions feel like shared experiences, to the electronic indie innovators who use technology to create rather than replace human connection – every track represents the beautiful chaos that emerges when talented people are given complete creative freedom. Picture yourself discovering these sounds in small venues where the barrier between artist and audience dissolves, feel the democratic energy of a musical movement that values authenticity over production budgets, experience the profound satisfaction of music that speaks directly to your soul without asking permission from focus groups or market research. This is music for the creatively curious, for souls who believe the best art comes from real places, for anyone who's ever felt that the most powerful musical experiences happen when artists are brave enough to be completely themselves!"
   },
   {
+    "categoryUrl": "/indie-folk",
+    "headline": "Indie Folk",
+    "imageUrl": "/category/indie-folk.jpg",
+    "introSubline": "Discover the intimate, authentic sound of modern folk music with an independent spirit!",
+    "isPlayable": false,
+    "slug": "indie-folk",
+    "text": "Welcome to the warm, organic world of Indie Folk, where acoustic guitars, heartfelt lyrics, and rich vocal harmonies create music that feels both timeless and contemporary. This is the sound of singer-songwriters and bands who've traded stadium ambitions for emotional authenticity, crafting songs that feel like intimate conversations around a campfire. From the poetic storytelling of Fleet Foxes and Bon Iver to the raw emotional power of Phoebe Bridgers and Big Thief, Indie Folk offers a refuge from the digital age with its emphasis on human connection and musical craftsmanship. Experience the delicate interplay of banjos, fiddles, and gentle percussion that creates a sound as comforting as it is emotionally resonant."
+  },
+  {
     "categoryUrl": "/indie-pop",
     "headline": "Indie-Pop",
     "imageUrl": "/category/indie-pop.jpg",
@@ -1216,6 +1369,15 @@
     "text": "Welcome to music's most intellectually stimulating and emotionally honest art form, where every performance is a high-wire act of creative risk-taking and where the most profound musical communication happens through the beautiful uncertainty of improvisation! Jazz isn't just music – it's democracy in action, the sonic proof that the most beautiful artistic experiences emerge when skilled individuals come together to create something none of them could achieve alone, where legends like Miles Davis, John Coltrane, and Ella Fitzgerald proved that the highest form of musical expression happens when technical mastery meets emotional vulnerability and creates magic that can't be repeated or replicated. From the swing era's infectious optimism that made entire generations move to the same irresistible rhythm, to bebop's intellectual complexity that proved popular music could also be intellectually challenging, from the modal explorations that made jazz feel cosmically significant, to the fusion experiments that proved tradition and innovation could create more powerful combinations than either could achieve alone – every style represents a different approach to the same fundamental jazz truth: that the most beautiful music happens when artists are brave enough to take risks in real time. Picture yourself in smoky clubs where these conversations first took place, feel the electric tension of musicians creating unrepeatable magic through pure listening and response, experience the unique jazz phenomenon where technical virtuosity serves emotional honesty rather than replacing it. This is music for the intellectually curious, for souls who appreciate both sophistication and accessibility, for anyone who's ever felt that the most profound artistic experiences require both preparation and the courage to abandon all plans!"
   },
   {
+    "categoryUrl": "/jazz-fusion",
+    "headline": "Jazz Fusion",
+    "imageUrl": "/category/jazz-fusion.jpg",
+    "introSubline": "Experience the electrifying collision of jazz improvisation with rock energy and global rhythms!",
+    "isPlayable": false,
+    "slug": "jazz-fusion",
+    "text": "Prepare for a musical journey where jazz's harmonic sophistication meets the raw power of rock and the rhythmic complexity of world music. Jazz Fusion emerged in the late 1960s when visionary musicians like Miles Davis, Herbie Hancock, and John McLaughlin began incorporating electric instruments and rock rhythms into their music, creating a sound that was both intellectually stimulating and viscerally exciting. From the groundbreaking experiments of Bitches Brew to the technical wizardry of Return to Forever and the genre-defying compositions of Weather Report, Jazz Fusion is a celebration of musical virtuosity and creative exploration. Experience the thrill of extended improvisations, complex time signatures, and the seamless blending of acoustic and electronic textures that define this endlessly innovative genre."
+  },
+  {
     "categoryUrl": "/jazz-metal",
     "headline": "Jazz Metal",
     "imageUrl": "/category/jazz-metal.jpg",
@@ -1279,6 +1441,24 @@
     "text": "Welcome to the most sacred day of the week, where productivity takes a well-deserved vacation and your only obligation is to honor the beautiful art of moving at the speed of contentment! Lazy Sunday isn't just a playlist – it's a permission slip to embrace the radical act of slowing down in a world that never stops rushing, a carefully curated soundtrack for those precious hours when your biggest decision is whether to have your second cup of coffee in bed or on the couch. Picture the gentle guitar fingerpicking of acoustic folk that makes morning light streaming through windows sound like music, the smooth jazz that turns making breakfast into a leisurely ritual, the bossa nova rhythms that make even washing dishes feel like a meditative dance, and the indie folk whispers that turn afternoon napping into an art form. From Norah Jones making lazy sound luxurious to Jack Johnson proving that the best songs come from the most relaxed places, from Kings of Convenience turning Sunday morning into a Scandinavian café experience to Zero 7 making electronic music sound like silk pajamas – every track is chosen to help you remember that rest isn't laziness, it's rebellion against a culture that mistakes busy for important. Feel your shoulders drop as gentle melodies remind you that there's nowhere you need to be except exactly where you are, experience the profound luxury of time that belongs entirely to you, witness how the right music can transform doing nothing into doing everything your soul needs. This is music for coffee that stays hot because you're sipping it slowly, for books that actually get read instead of just carried around, for conversations that meander like Sunday afternoon rivers, and for the beautiful realization that the most productive thing you can do on Sunday is absolutely nothing at all!"
   },
   {
+    "categoryUrl": "/lo-fi",
+    "headline": "Lo-Fi",
+    "imageUrl": "/category/lo-fi.jpg",
+    "introSubline": "Chill out to the warm, nostalgic sounds of lo-fi beats perfect for studying and relaxing!",
+    "isPlayable": false,
+    "slug": "lo-fi",
+    "text": "Step into the cozy, analog world of Lo-Fi music, where the imperfections are the point and the crackle of vinyl is part of the charm. Born from hip-hop production techniques and the DIY spirit of bedroom producers, Lo-Fi has become the soundtrack for a generation seeking calm in an increasingly digital world. From the jazz-infused beats of J Dilla and Nujabes to the endless stream of 24/7 study mixes, Lo-Fi music creates a perfect backdrop for concentration, relaxation, and introspection. Experience the warm embrace of dusty drum breaks, dreamy jazz samples, and the comforting hiss of tape that makes this music feel like a warm blanket for your ears."
+  },
+  {
+    "categoryUrl": "/mambo",
+    "headline": "Mambo",
+    "imageUrl": "/category/mambo.jpg",
+    "introSubline": "Feel the irresistible rhythm of Mambo, the Cuban-born dance craze that took the world by storm!",
+    "isPlayable": false,
+    "slug": "mambo",
+    "text": "Get ready to move to the electrifying sounds of Mambo, the Cuban musical genre that became a global dance phenomenon in the 1940s and 50s. Born from the fusion of Afro-Cuban rhythms and big band jazz, Mambo is all about the irresistible call of the horns, the driving pulse of the percussion, and the sultry sway of the dance floor. From the pioneering work of Pérez Prado, the 'King of Mambo,' to the golden age of New York's Palladium Ballroom where Tito Puente and Tito Rodríguez ruled supreme, Mambo represents a golden age of Latin music that continues to inspire musicians and dancers today. Experience the joyful energy, the sophisticated arrangements, and the sheer danceability that made Mambo one of the most exciting musical developments of the 20th century."
+  },
+  {
     "categoryUrl": "/mandopop",
     "headline": "Mandopop",
     "imageUrl": "/category/mandopop.jpg",
@@ -1324,6 +1504,15 @@
     "text": "Welcome to metal's most emotionally complex paradox, where bands like In Flames, Dark Tranquillity, Amon Amarth, and Arch Enemy prove that the most devastating music can simultaneously be the most uplifting, creating soundscapes that make destruction sound gorgeous and aggression feel like hope! Melodic Death Metal isn't just metal with pretty parts – it's the genre that discovered you could growl about darkness while playing riffs that sound like sunlight breaking through storm clouds, where every song becomes a masterclass in emotional duality that makes you want to both destroy everything and build something beautiful from the ashes. From the Swedish melodic revolution that turned Gothenburg into the epicenter of beautiful brutality, to the Viking-inspired epic storytelling that makes ancient battles sound like personal victories, from the guitar harmonies that prove melody can survive any amount of distortion, to the rhythmic precision that makes chaos sound like the most organized force in the universe – every track represents the perfect marriage between technique and emotion that only happens when musicians stop choosing between beauty and power. Picture yourself in mosh pits where the most violent dancing happens to the most beautiful melodies, feel the cognitive dissonance of music that makes your heart soar while your neck snaps, experience the unique melodic death metal phenomenon where the most extreme sounds become the most emotionally accessible. This is music for the beautifully contradictory, for souls who understand that the most profound beauty often emerges from the darkest places, for anyone who's ever discovered that sometimes you need to scream melodically to be truly heard!"
   },
   {
+    "categoryUrl": "/merengue",
+    "headline": "Merengue",
+    "imageUrl": "/category/merengue.jpg",
+    "introSubline": "Feel the infectious energy of Merengue, the Dominican Republic's most famous musical export!",
+    "isPlayable": false,
+    "slug": "merengue",
+    "text": "Get ready to move your feet to the irresistible rhythm of Merengue, the national music and dance of the Dominican Republic that has become a global phenomenon. Characterized by its fast tempo, distinctive drum patterns, and the iconic guira scraper, Merengue is pure, unadulterated joy set to music. From the traditional accordion-led perico ripiao style to the modern, brass-heavy orquestas of Juan Luis Guerra and Wilfrido Vargas, Merengue has evolved while maintaining its core essence. Experience the call-and-response vocals, the driving percussion, and the unmistakable two-step dance that makes this one of the most accessible and celebratory Latin music genres. Whether you're at a beachside bar in Santo Domingo or a dance club in New York, when the Merengue starts playing, resistance is futile!"
+  },
+  {
     "categoryUrl": "/metalcore",
     "headline": "Metalcore",
     "imageUrl": "/category/metalcore.jpg",
@@ -1340,6 +1529,24 @@
     "isPlayable": false,
     "slug": "mexican",
     "text": "Welcome to one of the world's most emotionally expressive musical traditions, where every note carries the weight of centuries of passion, struggle, celebration, and the profound Mexican understanding that music isn't just entertainment – it's the essential soundtrack to the full spectrum of human experience! Mexican music isn't just cultural expression – it's liquid emotion flowing through mariachi trumpets, ranchera vocals, and accordion-driven norteño rhythms that can make you laugh, cry, dance, and fall in love all within the same song. From the mariachi masters whose trumpet fanfares make every entrance feel like a celebration worthy of royalty, to Vicente Fernández's legendary voice that turned heartbreak into high art, from Luis Miguel's romantic crooning that made Latin balladry sound like the most sophisticated music on Earth, to the modern fusion artists who blend traditional Mexican sounds with contemporary global influences while never losing the essential Mexican soul – every tradition represents a different facet of a culture that views music as both personal expression and community celebration. Picture yourself in plazas where these sounds emerge from genuine cultural celebration and transform ordinary gatherings into spontaneous festivals, feel the profound emotional honesty that makes Mexican music capable of expressing feelings that other cultures struggle to articulate, experience the unique Mexican ability to make the most personal emotions feel like shared community experiences. This is music for the emotionally generous, for souls who believe the best art emerges from cultures that refuse to separate feeling from celebration, for anyone who's ever needed proof that the most powerful music comes from places where artistic expression and daily life are completely inseparable!"
+  },
+  {
+    "categoryUrl": "/middle-eastern-music",
+    "headline": "Middle Eastern Music",
+    "imageUrl": "/category/middle-eastern-music.jpg",
+    "introSubline": "Discover the rich musical traditions of the Middle East, where ancient melodies meet modern innovation!",
+    "isPlayable": false,
+    "slug": "middle-eastern-music",
+    "text": "Embark on an auditory journey through the diverse soundscape of Middle Eastern music, where centuries-old traditions continue to inspire contemporary artists. From the haunting melodies of the oud and qanun to the hypnotic rhythms of the darbuka and frame drums, Middle Eastern music is a tapestry of cultural expression that spans from North Africa to Central Asia. Experience the maqam system's microtonal scales that give this music its distinctive sound, the passionate vocal traditions of Umm Kulthum and Fairuz, and the innovative fusions of artists like Omar Souleyman and Mashrou' Leila who are bringing these sounds to global audiences. Whether it's the spiritual Sufi music of Turkey, the classical traditions of Persia, or the modern pop of the Arab world, Middle Eastern music offers a rich and varied listening experience that continues to evolve while staying true to its roots."
+  },
+  {
+    "categoryUrl": "/minimal-techno",
+    "headline": "Minimal Techno",
+    "imageUrl": "/category/minimal-techno.jpg",
+    "introSubline": "Lose yourself in the hypnotic, stripped-back sounds of Minimal Techno!",
+    "isPlayable": false,
+    "slug": "minimal-techno",
+    "text": "Step into the immersive world of Minimal Techno, where less is more and every sound serves a purpose. Born in the underground clubs of Detroit and Berlin in the 1990s, Minimal Techno strips electronic music down to its bare essentials, creating hypnotic, groove-based tracks that are as much about the space between the notes as the notes themselves. From the pioneering work of Robert Hood and Richie Hawtin to the contemporary sounds of Ricardo Villalobos and Amelie Lens, Minimal Techno is all about subtle variations, precise sound design, and the power of repetition. Experience the way a single hi-hat can become a mesmerizing rhythm, how a simple bassline can move a dancefloor, and how the careful addition or subtraction of elements can create moments of pure euphoria in an otherwise minimal soundscape."
   },
   {
     "categoryUrl": "/morning-coffee",
@@ -1396,6 +1603,15 @@
     "text": "Welcome to music's most uncompromising frontier, where bands like Today is the Day, The Body, KEN mode, and Unsane prove that the most honest artistic expression sometimes requires demolishing every expectation of what music should sound like and rebuilding it from pure, undiluted emotional chaos! Noise Metal isn't just heavy music – it's sonic terrorism with a purpose, where every distorted riff becomes a rejection of musical politeness and every dissonant chord becomes a declaration that some emotions are too raw for pretty packaging. From the abrasive textures that make comfort impossible and catharsis inevitable, to the chaotic structures that mirror the beautiful mess of actual human experience, from the atonal elements that prove harmony isn't always honest, to the overwhelming sonic landscapes that make you feel like you're inside a beautiful earthquake – every track represents the artistic courage to prioritize truth over palatability. Picture yourself in venues where these sounds create the most honest communal experience possible, where pretense becomes impossible and authentic emotion becomes the only currency that matters, feel the democratic power of music that validates the parts of human experience that polite society prefers to ignore, experience the unique noise metal phenomenon where the most extreme sounds become the most psychologically liberating. This is music for the emotionally fearless, for souls who refuse to pretend that life is always beautiful, for anyone who's ever discovered that sometimes the most healing thing you can do is embrace the chaos instead of fighting it!"
   },
   {
+    "categoryUrl": "/nordic-folk",
+    "headline": "Nordic Folk",
+    "imageUrl": "/category/nordic-folk.jpg",
+    "introSubline": "Discover the haunting beauty of Nordic Folk music, where ancient traditions meet contemporary sounds!",
+    "isPlayable": false,
+    "slug": "nordic-folk",
+    "text": "Immerse yourself in the evocative soundscape of Nordic Folk music, where the stark beauty of Scandinavia's landscapes is reflected in melodies that are by turns haunting, joyful, and deeply moving. From the traditional folk music of Norway's Hardanger fiddle to the contemporary interpretations of artists like Gjallarhorn and Wardruna, Nordic Folk draws on centuries of musical tradition while embracing modern influences. Experience the unique instruments like the nyckelharpa, the kantele, and the tagelharpa, the distinctive vocal styles that range from the ethereal to the guttural, and the themes of nature, mythology, and the changing seasons that run through the music. Whether it's the energetic polskas and hallings of Sweden, the epic ballads of Denmark, or the Sami joik tradition that spans across the northern regions, Nordic Folk offers a window into the soul of the North."
+  },
+  {
     "categoryUrl": "/nostalgic",
     "headline": "Nostalgic",
     "imageUrl": "/category/nostalgic.jpg",
@@ -1421,6 +1637,15 @@
     "isPlayable": false,
     "slug": "opera",
     "text": "Welcome to humanity's most emotionally ambitious artistic achievement, where every performance is a full-scale assault on your emotional defenses designed to make you feel everything the human heart is capable of experiencing in the span of three hours! Opera isn't just music – it's emotional warfare conducted by the most powerful voices ever trained, where composers like Verdi, Puccini, and Wagner created musical dramas so psychologically intense they can make audiences weep, gasp, and applaud simultaneously while experiencing the full spectrum of human emotion amplified to cosmic proportions. From the soaring arias that make individual human voices sound like they contain entire orchestras, to the dramatic orchestrations that turn every emotion into a symphonic event worthy of gods and heroes, from the theatrical spectacles that make every performance feel like witnessing mythology come to life, to the vocal virtuosity that proves the human voice is the most powerful instrument ever created when wielded by artists who understand that singing can be a form of controlled emotional violence – every performance represents the marriage of technical mastery and emotional fearlessness that makes opera the most unapologetically intense art form ever conceived. Picture yourself in opera houses where these sounds transform ordinary evenings into life-changing emotional experiences, feel the collective catharsis that happens when entire audiences surrender to art designed to overwhelm rather than comfort, experience the unique opera phenomenon where the most artificial theatrical conventions somehow produce the most authentic emotional responses. This is music for the emotionally fearless, for souls who believe art should change lives rather than simply entertain, for anyone who's ever needed proof that the most powerful human experiences require the most powerful artistic expressions!"
+  },
+  {
+    "categoryUrl": "/orchestral",
+    "headline": "Orchestral",
+    "imageUrl": "/category/orchestral.jpg",
+    "introSubline": "Experience the grandeur and emotional power of the symphony orchestra in all its glory!",
+    "isPlayable": false,
+    "slug": "orchestral",
+    "text": "Prepare to be swept away by the majestic sound of the symphony orchestra, the most powerful and versatile musical ensemble ever created. From the intricate counterpoint of the Baroque period to the lush Romanticism of the 19th century, from the groundbreaking modernism of the 20th century to today's film scores and contemporary compositions, the orchestra has been the canvas for some of humanity's greatest musical achievements. Experience the way a hundred musicians can play as one, the rich palette of colors available from the different instrumental families, and the emotional journey that a great orchestral work can take you on. Whether it's the dramatic power of Beethoven's Fifth, the shimmering beauty of Debussy's 'La Mer,' the thrilling excitement of a John Williams film score, or the boundary-pushing works of living composers, orchestral music represents the pinnacle of human musical expression."
   },
   {
     "categoryUrl": "/party-on",
@@ -1504,6 +1729,15 @@
     "text": "Welcome to metal's most emotionally ambitious frontier, where bands like Neurosis, Isis, Cult of Luna, and Pelican prove that the most powerful music emerges when artists stop rushing toward climaxes and start building sonic cathedrals that take time to fully reveal their architectural majesty! Post-Metal isn't just heavy music – it's emotional architecture disguised as the most patient and rewarding listening experiences ever constructed, where every gradual build becomes a meditation on how the most profound transformations happen slowly, and every explosive climax becomes a reminder that the most powerful releases require the most careful preparation. From the atmospheric textures that create vast internal landscapes perfect for introspection and revelation, to the rhythmic patience that proves the most important musical conversations happen in the spaces between obvious statements, from the cinematic scope that makes every song feel like the soundtrack to your most significant life moments, to the dynamic range that teaches listeners that the most powerful emotions exist in the contrast between silence and overwhelming sound – every track represents the beautiful wisdom of artists who understand that true power comes from restraint in service of eventual release. Picture yourself in venues where these sounds create the most contemplative collective experiences in heavy music, where audiences become participants in shared emotional journeys that require both patience and surrender, feel the unique satisfaction of music that rewards deep listening with increasingly profound revelations, experience the post-metal phenomenon where the most experimental approaches somehow become the most emotionally direct communications possible. This is music for the spiritually ambitious, for souls who believe that the most important emotional experiences can't be rushed, for anyone who's ever discovered that the most powerful music happens when artists care more about creating transformation than providing immediate gratification!"
   },
   {
+    "categoryUrl": "/post-punk",
+    "headline": "Post-Punk",
+    "imageUrl": "/category/post-punk.jpg",
+    "introSubline": "Experience the raw energy and artistic ambition of Post-Punk's revolutionary sound!",
+    "isPlayable": false,
+    "slug": "post-punk",
+    "text": "Step into the world of Post-Punk, where the raw energy of punk rock collides with artistic experimentation and boundary-pushing creativity. Emerging in the late 1970s as punk's more sophisticated sibling, Post-Punk took the DIY ethos of punk and infused it with elements of art rock, funk, electronic music, and avant-garde composition. From the angular guitar lines of Gang of Four and Wire to the atmospheric soundscapes of Joy Division and The Cure, Post-Punk created a template for alternative music that continues to influence artists today. Experience the genre's intellectual lyrics, the innovative production techniques, and the willingness to take risks that made Post-Punk one of the most exciting and influential movements in rock history. Whether it's the danceable rhythms of Talking Heads, the gothic atmospherics of Siouxsie and the Banshees, or the political fury of The Pop Group, Post-Punk proved that punk could be both intelligent and incendiary."
+  },
+  {
     "categoryUrl": "/power-metal",
     "headline": "Power Metal",
     "imageUrl": "/category/power-metal.jpg",
@@ -1529,6 +1763,15 @@
     "isPlayable": false,
     "slug": "power-walk",
     "text": "Welcome to the most perfectly calibrated musical companion for transforming ordinary walks into empowering personal victories, where every song is scientifically designed to make your stride feel like a celebration and your breathing feel like a soundtrack to the most confident version of yourself! Power Walk music isn't just exercise background – it's motivational architecture disguised as the perfect tempo therapy, where beats sync with your natural walking rhythm to create a feedback loop of physical momentum and mental determination that makes every step feel purposeful and every block feel conquerable. From uplifting pop anthems that make walking feel like dancing while still keeping your pace controlled and sustainable, to classic rock hits that prove the best motivation comes from songs that make you feel like the main character in your own life story, from R&B grooves that turn simple movement into a celebration of what your body can do, to electronic beats that make the urban landscape feel like your personal fitness playground – every track is chosen for its magical ability to make exercise feel less like work and more like the most enjoyable part of your day. Picture yourself striding through neighborhoods where these sounds make every familiar route feel like a new adventure, feel the psychological transformation that happens when the right music makes physical activity feel effortless and empowering, experience the unique power walking phenomenon where consistent movement becomes meditation in motion and fitness becomes the most accessible form of daily joy. This is music for the practically ambitious, for souls who understand that the best exercise is the kind you actually enjoy doing, for anyone who's discovered that the secret to consistent fitness isn't punishment but finding ways to make movement feel like the most natural celebration of being alive!"
+  },
+  {
+    "categoryUrl": "/progressive-house",
+    "headline": "Progressive House",
+    "imageUrl": "/category/progressive-house.jpg",
+    "introSubline": "Lose yourself in the euphoric builds and emotional peaks of Progressive House!",
+    "isPlayable": false,
+    "slug": "progressive-house",
+    "text": "Prepare for lift-off as we journey through the soaring soundscapes of Progressive House, the electronic music genre that turned dancefloors into cathedrals of sound. Emerging in the early 1990s as a reaction to the harder, more aggressive styles of house and techno, Progressive House is all about the journey – long, evolving tracks that build gradually to euphoric peaks before descending into deep, hypnotic valleys. From the early anthems of Sasha & John Digweed to the stadium-filling sounds of Eric Prydz and Deadmau5, Progressive House has become one of electronic music's most enduring and influential genres. Experience the genre's signature elements: the rolling basslines, the ethereal pads, the emotional chord progressions, and the spine-tingling breakdowns that create moments of pure transcendence on dancefloors around the world."
   },
   {
     "categoryUrl": "/progressive-metal",
@@ -1711,6 +1954,15 @@
     "text": "Sertanejo is the heart of Brazilian country music and reflects the rural roots and lifestyle of Brazil's heartland. This genre, often seen as the Brazilian equivalent to country music, combines emotional ballads, catchy melodies, and powerful duets that tell stories of love, longing, and life in the countryside. With artists like Zezé Di Camargo & Luciano, Chitãozinho & Xororó, and Luan Santana, Sertanejo has gained a loyal following and become one of Brazil's most popular music styles. Let yourself be carried away by the authentic sounds and emotional lyrics of Sertanejo and experience the musical soul of Brazil."
   },
   {
+    "categoryUrl": "/shoegaze",
+    "headline": "Shoegaze",
+    "imageUrl": "/category/shoegaze.jpg",
+    "introSubline": "Immerse yourself in the swirling, effects-drenched soundscapes of Shoegaze!",
+    "isPlayable": false,
+    "slug": "shoegaze",
+    "text": "Welcome to the dreamlike world of Shoegaze, where walls of distorted guitars, ethereal vocals, and layers of effects create a sound that's as immersive as it is intoxicating. Named for the musicians' tendency to stare at their effects pedals while performing, Shoegaze emerged in the late 1980s as a reaction to the polished production and clear vocals of mainstream rock. From the genre-defining albums of My Bloody Valentine and Slowdive to the modern revival led by bands like Beach House and DIIV, Shoegaze creates a sonic experience that's both overwhelming and intimate. Experience the way the music seems to wrap around you, the way melodies emerge from the noise, and the emotional weight that can be conveyed without a single intelligible lyric. Whether it's the sheer sonic assault of 'Loveless,' the dreamy pop sensibilities of Cocteau Twins, or the heavier, more psychedelic takes of contemporary bands, Shoegaze remains one of alternative music's most distinctive and influential sounds."
+  },
+  {
     "categoryUrl": "/ska",
     "headline": "Ska",
     "imageUrl": "/category/ska.jpg",
@@ -1738,6 +1990,15 @@
     "text": "Welcome to metal's most cathartic therapy session, where bands like Eyehategod, Crowbar, Melvins, and Mastodon prove that the most healing music emerges when artists stop pretending that life isn't sometimes overwhelmingly difficult and start creating sounds that match the weight of genuine human struggle! Sludge Metal isn't just heavy music – it's emotional archaeology disguised as the most crushingly honest sounds ever recorded, where every droning riff becomes a meditation on endurance and every desperate vocal becomes a reminder that sometimes the most powerful response to pain is refusing to pretend it doesn't exist. From the doom-laden tempos that prove the most profound emotions require time to fully experience, to the hardcore punk aggression that demonstrates healing isn't always a gentle process, from the raw production aesthetics that make authenticity more important than polish, to the oppressive atmospheres that create safe spaces for processing feelings too heavy for ordinary conversation – every track represents the beautiful courage of artists who use music as a tool for transforming suffering into something that can be shared and survived together. Picture yourself in venues where these sounds create the most honest collective emotional experiences possible, where the heaviest music becomes the most supportive community and the most crushing rhythms become the most therapeutic releases, feel the unique power of music that proves the most beautiful healing often sounds like the most brutal honesty, experience the sludge metal phenomenon where the most oppressive sounds somehow become the most liberating experiences possible. This is music for the emotionally fearless, for souls who understand that the most powerful therapy happens when you stop running from difficult feelings and start screaming them into microphones, for anyone who's ever discovered that sometimes the most healing thing you can do is let music be as heavy as your heart feels!"
   },
   {
+    "categoryUrl": "/smooth-jazz",
+    "headline": "Smooth Jazz",
+    "imageUrl": "/category/smooth-jazz.jpg",
+    "introSubline": "Relax and unwind with the sophisticated, easygoing sounds of Smooth Jazz!",
+    "isPlayable": false,
+    "slug": "smooth-jazz",
+    "text": "Sink into the velvety sounds of Smooth Jazz, where polished production meets effortless musicianship to create the perfect soundtrack for relaxation and sophistication. Emerging in the 1970s as a more accessible, radio-friendly cousin to traditional jazz, Smooth Jazz combines elements of jazz, R&B, funk, and pop to create a sound that's as easy on the ears as it is musically satisfying. From the silky saxophone lines of Kenny G and Grover Washington Jr. to the smooth guitar work of George Benson and Norman Brown, Smooth Jazz is all about creating a mood of laid-back elegance. Experience the genre's signature elements: the warm, clean production, the memorable melodies, the tasteful improvisations, and the undeniable groove that makes this music so instantly appealing. Whether it's the perfect background music for a dinner party or the soundtrack to a late-night drive through the city, Smooth Jazz creates an atmosphere of effortless cool."
+  },
+  {
     "categoryUrl": "/songwriter",
     "headline": "Songwriter",
     "imageUrl": "/category/songwriter.jpg",
@@ -1754,6 +2015,15 @@
     "isPlayable": false,
     "slug": "soul",
     "text": "Soul music is the heart and soul of American music history, characterized by deep emotions, powerful vocals, and a distinctive mix of Gospel, R&B, and Jazz. This category unites the unforgettable classics and modern hits that have defined the genre. With legendary artists like Aretha Franklin, Marvin Gaye, Otis Redding, and Etta James, Soul offers an impressive palette of songs that tell stories of love, pain, joy, and social consciousness. The passionate voices and dynamic melodies of Soul draw the listener into a world full of feeling and authenticity. Let yourself be enchanted by the emotional power and musical depth of Soul and experience the music that touches the heart and moves the soul."
+  },
+  {
+    "categoryUrl": "/soundtrack",
+    "headline": "Soundtrack",
+    "imageUrl": "/category/soundtrack.jpg",
+    "introSubline": "Experience the magic of film and television through their unforgettable musical scores!",
+    "isPlayable": false,
+    "slug": "soundtrack",
+    "text": "Step into the world of Soundtrack music, where composers become storytellers and melodies become memories. From the sweeping orchestral scores of John Williams and Hans Zimmer to the carefully curated song selections of Quentin Tarantino and Wes Anderson, soundtrack music has the power to transport us back to our favorite cinematic moments. Experience the way a simple theme can make us cheer, cry, or sit on the edge of our seats. Whether it's the iconic opening notes of 'Star Wars,' the haunting piano of 'The Piano,' the electronic pulse of 'Tron: Legacy,' or the classic rock anthems of 'Guardians of the Galaxy,' great soundtrack music stays with us long after the credits roll. Discover the art of musical storytelling, where composers use melody, harmony, and orchestration to create emotional landscapes that enhance and elevate the visual experience."
   },
   {
     "categoryUrl": "/spanish",
@@ -1819,6 +2089,15 @@
     "text": "Welcome to the most cinematically perfect musical accompaniment to nature's daily masterpiece, where every song captures that magical golden hour when the sky becomes an artist and every moment feels like a meditation on the beautiful impermanence of all perfect things! Sunset Vibes music isn't just evening background – it's the soundtrack to reflection, where the day's transition from light to darkness becomes the perfect metaphor for all of life's beautiful transformations and every note helps you slow down enough to witness one of the earth's most reliable daily miracles. From chillwave compositions that feel like being wrapped in warm, golden light while floating on clouds of pure contentment, to acoustic melodies that make the simple act of watching the sky change colors feel like the most profound spiritual practice, from ambient electronic pieces that capture the exact emotional temperature of that moment when the sun kisses the horizon, to downtempo beats that make time feel optional and contemplation feel inevitable – every track is chosen for its ability to create that distinctive sunset state of mind where everything feels both significant and peaceful simultaneously. Picture yourself in perfect viewing spots where these sounds enhance rather than compete with nature's daily light show, feel the emotional transformation that happens when the right music makes ordinary moments feel like personal revelations, experience the unique sunset phenomenon where the most beautiful daily occurrence becomes even more beautiful when accompanied by the perfect sonic atmosphere. This is music for the daily mystics, for souls who understand that the most profound spiritual experiences are often the most regular ones, for anyone who's discovered that the best therapy happens when you combine nature's most reliable beauty with music designed to help you actually be present for it!"
   },
   {
+    "categoryUrl": "/surf-rock",
+    "headline": "Surf Rock",
+    "imageUrl": "/category/surf-rock.jpg",
+    "introSubline": "Catch a wave with the sun-drenched sounds of Surf Rock!",
+    "isPlayable": false,
+    "slug": "surf-rock",
+    "text": "Hang ten and ride the perfect wave of sound with Surf Rock, the sun-bleached soundtrack of California's beach culture. Born in the early 1960s, Surf Rock captures the carefree spirit of surf culture with its reverb-drenched guitars, propulsive rhythms, and infectious melodies. From the pioneering instrumentals of Dick Dale and The Ventures to the vocal harmonies of The Beach Boys and Jan & Dean, Surf Rock created an enduring musical mythology of hot rods, beach parties, and endless summers. Experience the genre's signature elements: the twangy Fender guitars drenched in spring reverb, the driving bass lines that mimic the ocean's power, the rolling drum patterns that suggest the motion of waves, and those unforgettable melodies that instantly transport you to the Pacific Coast Highway. Whether it's the raw energy of the original surf instrumentals, the polished pop of the surf vocal groups, or the modern revivalists keeping the spirit alive, Surf Rock remains the ultimate musical expression of sun, sand, and the search for the perfect wave."
+  },
+  {
     "categoryUrl": "/swedish",
     "headline": "Swedish",
     "imageUrl": "/category/swedish.jpg",
@@ -1826,6 +2105,15 @@
     "isPlayable": false,
     "slug": "swedish",
     "text": "Welcome to music's most enigmatically successful laboratory, where a relatively small Scandinavian nation has somehow become the world's most consistent producer of irresistible melodies that dominate global charts and prove that the best pop music happens when artistic ambition meets mathematical precision! Swedish music isn't just songs from Sweden – it's a cultural phenomenon that demonstrates how a country can export happiness disguised as the most perfectly crafted three-minute sonic experiences ever engineered, where artists from ABBA to Robyn to Avicii have created a distinctive musical DNA that makes Swedish production synonymous with quality, catchiness, and an indefinable emotional warmth that feels like musical sunshine. From the pop perfection that makes every Swedish hit sound like it was designed by scientists who discovered the exact frequencies that trigger human joy, to the folk traditions that prove melancholy can be the most beautiful emotion when expressed through perfect harmonies, from the electronic innovations that make Swedish DJs sound like they're beaming music directly from the future, to the songwriting expertise that has made Swedish producers the secret weapon behind countless international hits – every track represents the mysterious Swedish ability to make complexity sound effortless and make universal emotions feel personally crafted. Picture yourself in venues where these sounds create the most perfectly balanced atmosphere between intimate and epic, where every song feels like both a personal revelation and a massive celebration, feel the unique Swedish phenomenon where the most carefully crafted music somehow sounds the most natural and spontaneous, experience the musical mystery of how one country became the world's most reliable source of songs that make being alive feel like the best thing that ever happened to anyone. This is music for the globally curious, for souls who believe that the best art transcends geography while celebrating its origins, for anyone who's ever wondered how a country with long, dark winters became the world's most consistent producer of musical sunshine!"
+  },
+  {
+    "categoryUrl": "/swing",
+    "headline": "Swing",
+    "imageUrl": "/category/swing.jpg",
+    "introSubline": "Step back to the golden age of big bands and dance the night away to Swing!",
+    "isPlayable": false,
+    "slug": "swing",
+    "text": "Step onto the dance floor and experience the infectious energy of Swing, the music that defined an era and still gets feet tapping today. Born in the 1930s and reaching its peak during the Swing Era of the late 1930s and 1940s, Swing took the rhythmic innovations of jazz and transformed them into dance music that swept the nation. From the sophisticated arrangements of Duke Ellington and Count Basie to the crowd-pleasing hits of Benny Goodman and Glenn Miller, Swing created a cultural phenomenon that brought people together on dance floors across America. Experience the genre's signature elements: the driving four-beat rhythm that makes it impossible to sit still, the call-and-response between brass and reed sections, the virtuosic soloists who could improvise dazzling melodies, and the sense of joy and community that made Swing more than just music—it was a way of life. Whether it's the classic big band sound, the jump blues that followed, or the modern neo-swing revival, Swing remains one of America's greatest contributions to global music."
   },
   {
     "categoryUrl": "/swiss",
@@ -1862,6 +2150,15 @@
     "isPlayable": false,
     "slug": "synth-pop",
     "text": "Welcome to music's most beautifully artificial paradise, where pioneers like Depeche Mode, The Human League, and New Order proved that the most human emotions could be expressed through the most electronic sounds, creating a musical DNA that continues to evolve through modern masters like CHVRCHES and The Weeknd who keep proving that synthetic doesn't mean shallow! Synth-Pop isn't just retro electronic music – it's emotional architecture built from the most gorgeous machine sounds ever programmed, where every synthesizer arpeggio becomes a meditation on how technology can amplify rather than diminish human feeling, and every drum machine beat becomes a reminder that the most perfect rhythms sometimes emerge from the most artificial sources. From the shimmering textures that make the future sound like the most beautiful place you've never been, to the melancholic melodies that prove robots can cry more beautifully than humans, from the danceable arrangements that turn nightclub floors into emotional laboratories, to the atmospheric production that creates sonic spaces where vulnerability and sophistication become natural partners – every track represents the beautiful paradox of artists who use machines to explore the most human experiences possible. Picture yourself in venues where these sounds create the most stylishly emotional collective experiences, where nostalgia and futurism prove they're secret lovers rather than opposites, feel the unique satisfaction of music that makes artificial intelligence sound like emotional intelligence, experience the synth-pop phenomenon where the most carefully programmed sounds somehow become the most spontaneously moving experiences possible. This is music for the digitally romantic, for souls who believe that the most authentic emotions often require the most sophisticated technology to fully express, for anyone who's ever discovered that sometimes the most human thing you can do is dance to a drum machine that understands your heart better than most people do!"
+  },
+  {
+    "categoryUrl": "/synthwave",
+    "headline": "Synthwave",
+    "imageUrl": "/category/synthwave.jpg",
+    "introSubline": "Travel back to an 80s that never was with the retro-futuristic sounds of Synthwave!",
+    "isPlayable": false,
+    "slug": "synthwave",
+    "text": "Buckle up for a neon-drenched journey through the Synthwave universe, where 1980s nostalgia meets futuristic soundscapes. Emerging in the late 2000s as a reaction to the digital perfection of contemporary electronic music, Synthwave draws inspiration from 1980s film scores, video game soundtracks, and pop culture to create a sound that's both warmly familiar and excitingly new. From the cinematic soundscapes of Kavinsky and The Midnight to the more aggressive sounds of Perturbator and Carpenter Brut, Synthwave has grown from an underground movement to a cultural phenomenon. Experience the genre's signature elements: the pulsating analog synthesizers, the gated reverb drums that defined 80s production, the nostalgic melodies that seem to tell stories of late-night drives through glowing cityscapes, and the visual aesthetic that's as important as the music itself. Whether it's the dreamy, nostalgic side of the genre or the darker, more aggressive 'outrun' style, Synthwave offers a perfect blend of past and future, nostalgia and innovation."
   },
   {
     "categoryUrl": "/tango",
@@ -1909,6 +2206,15 @@
     "text": "Welcome to electronic music's most scientifically spiritual laboratory, where masters like Armin van Buuren, Tiësto, and Paul van Dyk discovered that the most transcendent human experiences emerge when melodies are mathematically designed to trigger specific emotional responses and beats are precisely programmed to synchronize hearts in massive communal celebrations of pure feeling! Trance isn't just dance music – it's emotional engineering disguised as the most gorgeous sonic architecture ever constructed for the sole purpose of making thousands of strangers feel like family through the power of perfectly timed melodic releases and euphoric climaxes that turn dance floors into temporary utopias. From the classic '90s foundations that first proved electronic music could be both cerebrally sophisticated and viscerally overwhelming, to the modern evolution that continues to discover new ways to make synthesizers cry tears of pure joy, from the breakdown-to-build structure that teaches patience as a form of musical foreplay, to the harmonic progressions that make mathematical equations sound like prayers – every track represents the beautiful ambition of artists who use technology to create the most honest expressions of human hope and collective celebration possible. Picture yourself in festivals where these sounds unite tens of thousands in synchronized emotional release that makes individual problems disappear into collective euphoria, feel the unique satisfaction of music that proves the most artificial production techniques can create the most authentic spiritual experiences, experience the trance phenomenon where the most carefully constructed sounds somehow become the most spontaneously transcendent moments of pure human connection. This is music for the spiritually electronic, for souls who believe that the most profound religious experiences can happen through speakers, for anyone who's ever discovered that sometimes the most honest way to pray is to dance to beats that understand your heart's rhythm better than you do!"
   },
   {
+    "categoryUrl": "/trap",
+    "headline": "Trap",
+    "imageUrl": "/category/trap.jpg",
+    "introSubline": "Feel the bass drop and the hi-hats rattle with the hard-hitting sounds of Trap!",
+    "isPlayable": false,
+    "slug": "trap",
+    "text": "Prepare for the seismic impact of Trap, the hip-hop subgenre that took over the world and never let go. Emerging from the Southern United States in the 1990s before becoming a global phenomenon, Trap music is characterized by its aggressive lyrical content, ominous synthesizers, and most famously, its intricate hi-hat patterns and booming 808 bass. From the pioneering work of producers like Shawty Redd and Zaytoven to the chart-dominating sounds of Migos, Future, and Travis Scott, Trap has become one of the most influential musical movements of the 21st century. Experience the genre's signature elements: the rapid-fire hi-hat rolls that create relentless energy, the deep, distorted 808 bass that hits you in the chest, the dark, minor-key melodies that create an atmosphere of tension and release, and the charismatic vocal deliveries that range from melodic crooning to rapid-fire rapping. Whether it's the raw, street-oriented sounds of the early days or the more polished, genre-blending versions that dominate today's charts, Trap remains the sound of contemporary hip-hop and electronic music."
+  },
+  {
     "categoryUrl": "/trip-hop",
     "headline": "Trip-Hop",
     "imageUrl": "/category/trip-hop.jpg",
@@ -1952,6 +2258,15 @@
     "isPlayable": false,
     "slug": "valentines-day",
     "text": "Welcome to the most romantically perfect musical celebration of love designed to transform February 14th from a commercial obligation into a genuine celebration of the most powerful force in the universe - the mysterious magic that happens when two hearts decide to beat in harmony! Valentine's Day music isn't just romantic background – it's the official soundtrack to vulnerability, where every note creates the perfect atmosphere for the kind of emotional honesty that transforms relationships from casual connections into lifelong adventures. From timeless jazz standards that prove love songs have been making hearts flutter for generations, to contemporary ballads that capture how modern romance feels both timeless and completely new, from soulful classics that make devotion sound like the most natural thing in the world, to intimate acoustic pieces that turn quiet moments into the most significant conversations of your entire relationship – every track is chosen for its ability to create that magical emotional space where saying 'I love you' feels both surprising and inevitable. Picture yourself in candlelit spaces where these sounds make every glance feel more meaningful and every touch feel more electric, feel the transformation that happens when the right music gives love permission to be both playful and profound simultaneously, experience the unique Valentine's phenomenon where the most beautiful music somehow makes even the simplest gestures feel like grand romantic declarations worthy of the greatest love stories ever told. This is music for the romantically fearless, for souls who understand that celebrating love isn't cheesy but essential, for anyone who's discovered that the most powerful holiday isn't about expensive gifts but about creating the perfect atmosphere for two people to remember why they chose each other and why that choice still feels like the most important decision they ever made!"
+  },
+  {
+    "categoryUrl": "/vaporwave",
+    "headline": "Vaporwave",
+    "imageUrl": "/category/vaporwave.jpg",
+    "introSubline": "Immerse yourself in the surreal, nostalgic world of Vaporwave!",
+    "isPlayable": false,
+    "slug": "vaporwave",
+    "text": "Step into the surreal, dreamlike world of Vaporwave, where 1980s and 90s nostalgia meets internet culture in a haze of pink and purple. Emerging in the early 2010s from the depths of the internet, Vaporwave is as much a visual and conceptual art movement as it is a musical genre. Characterized by its slowed-down, chopped and screwed samples of smooth jazz, elevator music, and 80s pop, Vaporwave creates a sense of nostalgia for a time and place that never quite existed. From the genre-defining works of Macintosh Plus and Saint Pepsi to the more experimental fringes of the genre, Vaporwave explores themes of consumerism, technology, and the uncanny valley of digital culture. Experience the genre's signature elements: the warped, slowed-down samples that create a dreamlike atmosphere, the heavy use of reverb and echo that creates a sense of vast, empty spaces, the glitchy, digital artifacts that remind us of the internet's early days, and the distinctive visual aesthetic of classical statues, Japanese text, and VHS-era graphics. Whether it's the more accessible 'mallsoft' subgenre or the darker, more experimental fringes, Vaporwave remains one of the most distinctive and thought-provoking musical movements of the internet age."
   },
   {
     "categoryUrl": "/viking-metal",
