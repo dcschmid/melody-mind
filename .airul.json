@@ -4,7 +4,6 @@
   "sources": ["TODO-AI.md", "README.md"],
   "output": {
     "cursor": false,
-    "windsurf": false,
     "copilot": true,
     "cline": true,
     "claude": false
