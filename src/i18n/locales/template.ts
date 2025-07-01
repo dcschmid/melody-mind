@@ -629,4 +629,9 @@ export default {
   "toc.state.collapsed": "Collapsed",
   "toc.state.expanded": "Expanded",
   "toc.toggle.label": "Toggle table of contents",
+  "knowledge.section.title": "Learn More",
+  "knowledge.section.description": "Dive deeper into this topic with comprehensive article",
+  "knowledge.read.more": "Read more",
+  "knowledge.read.article": "Read article",
+  "musicPlatforms.description": "Listen to this playlist on popular music platforms",
 };

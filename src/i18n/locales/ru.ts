@@ -659,4 +659,9 @@ export default {
   "toc.state.collapsed": "Свернуто",
   "toc.state.expanded": "Развернуто",
   "toc.toggle.label": "Переключить содержание",
+  "knowledge.section.title": "Узнать Больше",
+  "knowledge.section.description": "Углубитесь в эту тему с помощью исчерпывающей статьи",
+  "knowledge.read.more": "Читать далее",
+  "knowledge.read.article": "Читать статью",
+  "musicPlatforms.description": "Слушайте этот плейлист на популярных музыкальных платформах",
 };

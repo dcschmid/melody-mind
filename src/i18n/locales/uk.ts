@@ -659,4 +659,9 @@ export default {
   "toc.state.collapsed": "Згорнуто",
   "toc.state.expanded": "Розгорнуто",
   "toc.toggle.label": "Переключити зміст",
+  "knowledge.section.title": "Дізнатися Більше",
+  "knowledge.section.description": "Заглибіться в цю тему за допомогою вичерпної статті",
+  "knowledge.read.more": "Читати далі",
+  "knowledge.read.article": "Читати статтю",
+  "musicPlatforms.description": "Слухайте цей плейлист на популярних музичних платформах",
 };

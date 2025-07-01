@@ -479,6 +479,11 @@ export default {
   "knowledge.no.results": "No articles found",
   "knowledge.no.results.help": "Try different keywords or browse all articles below",
   "knowledge.empty": "No articles available at the moment. Check back soon for new content!",
+  "knowledge.section.title": "Learn More",
+  "knowledge.section.description":
+    "Dive deeper into the history and background of this music genre.",
+  "knowledge.read.more": "Learn more",
+  "knowledge.read.article": "Read Article",
   "language.change.error": "Language change failed. Please try again.",
   "language.change.success": "Language changed to {language}",
   "language.da": "Danish",
@@ -537,6 +542,7 @@ export default {
   "musicPlatforms.externalNotice":
     "External music platform links may require accounts or subscriptions for full access.",
   "musicPlatforms.heading": "Listen to Related Music",
+  "musicPlatforms.description": "Discover curated playlists on your favorite streaming platforms.",
   "musicPlatforms.keyboardInstructions":
     "Navigate music platforms using Tab key. Press Enter or Space to open platforms in new tabs.",
   "nav.ariaLabel": "Main navigation",

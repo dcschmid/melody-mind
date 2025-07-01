@@ -513,6 +513,11 @@ export default {
     "Versuchen Sie andere Schlüsselwörter oder durchstöbern Sie alle Artikel unten",
   "knowledge.empty":
     "Momentan sind keine Artikel verfügbar. Schauen Sie bald wieder vorbei für neue Inhalte!",
+  "knowledge.section.title": "Mehr erfahren",
+  "knowledge.section.description":
+    "Tauche tiefer in die Geschichte und Hintergründe dieser Musikrichtung ein.",
+  "knowledge.read.more": "Mehr erfahren",
+  "knowledge.read.article": "Artikel lesen",
   "language.change.error": "Sprachänderung fehlgeschlagen. Bitte versuchen Sie es erneut.",
   "language.change.success": "Sprache geändert zu {language}",
   "language.da": "Dänisch",
@@ -574,6 +579,8 @@ export default {
   "musicPlatforms.externalNotice":
     "Links zu externen Musikplattformen können Konten oder Abonnements für vollständigen Zugriff erfordern.",
   "musicPlatforms.heading": "Verwandte Musik anhören",
+  "musicPlatforms.description":
+    "Entdecke kuratierte Playlists auf deinen bevorzugten Streaming-Plattformen.",
   "musicPlatforms.keyboardInstructions":
     "Navigieren Sie Musikplattformen mit der Tab-Taste. Drücken Sie Enter oder Leertaste, um Plattformen in neuen Tabs zu öffnen.",
   "nav.ariaLabel": "Hauptnavigation",

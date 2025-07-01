@@ -484,6 +484,10 @@ export default {
   "knowledge.no.results.help": "Prova andra nyckelord eller bläddra bland alla artiklar nedan",
   "knowledge.empty":
     "Inga artiklar tillgängliga för tillfället. Kom tillbaka snart för nytt innehåll!",
+  "knowledge.section.title": "Lär Dig Mer",
+  "knowledge.section.description": "Fördjupa dig i historien och bakgrunden för denna musikgenre.",
+  "knowledge.read.more": "Lär dig mer",
+  "knowledge.read.article": "Läs Artikel",
   "language.change.error": "Språkbyte misslyckades. Vänligen försök igen.",
   "language.change.success": "Språk ändrat till {language}",
   "language.da": "Danska",
