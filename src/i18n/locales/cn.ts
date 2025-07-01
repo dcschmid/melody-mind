@@ -609,4 +609,9 @@ export default {
   "toc.state.collapsed": "已折叠",
   "toc.state.expanded": "已展开",
   "toc.toggle.label": "切换目录",
+  "knowledge.section.title": "了解更多",
+  "knowledge.section.description": "通过综合文章深入了解此主题",
+  "knowledge.read.more": "阅读更多",
+  "knowledge.read.article": "阅读文章",
+  "musicPlatforms.description": "在热门音乐平台上收听此播放列表",
 };

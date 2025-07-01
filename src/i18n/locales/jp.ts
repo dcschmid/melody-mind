@@ -646,4 +646,9 @@ export default {
   "toc.state.collapsed": "折りたたみ",
   "toc.state.expanded": "展開",
   "toc.toggle.label": "目次を切り替え",
+  "knowledge.section.title": "詳しく読む",
+  "knowledge.section.description": "包括的な記事でこのトピックを深く掘り下げる",
+  "knowledge.read.more": "続きを読む",
+  "knowledge.read.article": "記事を読む",
+  "musicPlatforms.description": "人気の音楽プラットフォームでこのプレイリストを聞く",
 };

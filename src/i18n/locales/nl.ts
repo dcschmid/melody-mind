@@ -493,6 +493,11 @@ export default {
   "knowledge.no.results.help": "Probeer andere trefwoorden of bekijk alle artikelen hieronder",
   "knowledge.empty":
     "Momenteel geen artikelen beschikbaar. Kom binnenkort terug voor nieuwe content!",
+  "knowledge.section.title": "Meer Leren",
+  "knowledge.section.description":
+    "Duik dieper in de geschiedenis en achtergrond van dit muziekgenre.",
+  "knowledge.read.more": "Meer leren",
+  "knowledge.read.article": "Artikel Lezen",
   "language.change.error": "Taalwisseling mislukt. Probeer opnieuw.",
   "language.change.success": "Taal gewijzigd naar {language}",
   "language.da": "Deens",
@@ -554,6 +559,8 @@ export default {
   "musicPlatforms.externalNotice":
     "Externe muziekplatform links kunnen accounts of abonnementen vereisen voor volledige toegang.",
   "musicPlatforms.heading": "Luister naar Gerelateerde Muziek",
+  "musicPlatforms.description":
+    "Ontdek samengestelde playlists op je favoriete streamingplatforms.",
   "musicPlatforms.keyboardInstructions":
     "Navigeer door muziekplatforms met Tab toets. Druk op Enter of Spatie om platforms in nieuwe tabbladen te openen.",
   "nav.ariaLabel": "Hoofdnavigatie",

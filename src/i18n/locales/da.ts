@@ -483,6 +483,10 @@ export default {
   "knowledge.no.results": "Ingen artikler fundet",
   "knowledge.no.results.help": "Prøv andre nøgleord eller gennemse alle artikler nedenfor",
   "knowledge.empty": "Ingen artikler tilgængelige i øjeblikket. Kom snart tilbage for nyt indhold!",
+  "knowledge.section.title": "Lær Mere",
+  "knowledge.section.description": "Dyk dybere ned i historien og baggrunden for denne musikgenre.",
+  "knowledge.read.more": "Lær mere",
+  "knowledge.read.article": "Læs Artikel",
   "language.change.error": "Sprogskift mislykkedes. Prøv igen.",
   "language.change.success": "Sprog ændret til {language}",
   "language.da": "Dansk",
@@ -542,6 +546,8 @@ export default {
   "musicPlatforms.externalNotice":
     "Eksterne musikplatform-links kan kræve konti eller abonnementer for fuld adgang.",
   "musicPlatforms.heading": "Lyt til relateret musik",
+  "musicPlatforms.description":
+    "Opdag kuraterede playlister på dine foretrukne streaming platforme.",
   "musicPlatforms.keyboardInstructions":
     "Navigér musikplatforme ved hjælp af Tab-tasten. Tryk Enter eller mellemrum for at åbne platforme i nye faner.",
   "nav.ariaLabel": "Hovednavigation",

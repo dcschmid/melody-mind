@@ -7,6 +7,7 @@
 import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import ButtonLink from "@components/ButtonLink.astro";
+import MusicButtons from "@components/MusicButtons.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
@@ -88,6 +89,10 @@ interface CategoryType {
   introSubline: string;
   imageUrl: string;
   text: string;
+  spotifyPlaylist?: string;
+  deezerPlaylist?: string;
+  appleMusicPlaylist?: string;
+  knowledgeUrl?: string;
 }
 
 const currentCategory = category as CategoryType;
@@ -187,6 +192,33 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
           {t("category.about.title") || "Über diese Kategorie"}
         </Headline>
         <Paragraph textSize="2xl" description={currentCategory?.text} />
+
+        {/* Music streaming platforms buttons */}
+        {
+          (currentCategory?.spotifyPlaylist ||
+            currentCategory?.deezerPlaylist ||
+            currentCategory?.appleMusicPlaylist) && (
+            <div class="content-buttons-section">
+              <MusicButtons category={currentCategory} title={currentCategory?.headline || ""} />
+            </div>
+          )
+        }
+
+        {/* Knowledge article button */}
+        {
+          currentCategory?.knowledgeUrl && (
+            <div class="content-buttons-section">
+              <ButtonLink
+                href={currentCategory.knowledgeUrl}
+                variant="secondary"
+                icon="book-open"
+                aria-label={`${t("knowledge.read.more") || "Mehr erfahren"} über ${currentCategory?.headline}`}
+              >
+                {t("knowledge.read.article") || "Artikel lesen"}
+              </ButtonLink>
+            </div>
+          )
+        }
       </section>
 
       <section
@@ -940,6 +972,25 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
 
     .icon-white {
       color: ButtonText;
+    }
+  }
+
+  /* ==============================================
+   * CONTENT BUTTONS (Music Platforms & Knowledge)
+   * ============================================== */
+
+  /**
+   * Simple content button sections within description container
+   * Just adds spacing between button groups
+   */
+  .content-buttons-section {
+    margin-top: var(--space-lg);
+  }
+
+  /* Responsive adjustments for content buttons */
+  @media (min-width: 48em) {
+    .content-buttons-section {
+      margin-top: var(--space-xl);
     }
   }
 </style>

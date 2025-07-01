@@ -660,4 +660,9 @@ export default {
   "toc.state.collapsed": "Supistettu",
   "toc.state.expanded": "Laajennettu",
   "toc.toggle.label": "Vaihda sisällysluettelon näkyvyys",
+  "knowledge.section.title": "Lue Lisää",
+  "knowledge.section.description": "Syvenny tähän aiheeseen kattavan artikkelin avulla",
+  "knowledge.read.more": "Lue lisää",
+  "knowledge.read.article": "Lue artikkeli",
+  "musicPlatforms.description": "Kuuntele tätä soittolistaa suosituissa musiikkipalveluissa",
 };
