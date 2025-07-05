@@ -39,8 +39,8 @@ export interface MediaElements {
   audioPreviewSource: HTMLSourceElement;
   /** Image element for album cover display */
   overlayCover: HTMLImageElement;
-  /** Collection of streaming service links */
-  streamingLinks: Partial<Record<StreamingService, HTMLAnchorElement>>;
+  /** Collection of streaming service links (accessible buttons) */
+  streamingLinks: Partial<Record<StreamingService, HTMLButtonElement>>;
 }
 
 /**
@@ -203,23 +203,29 @@ function setAccessibilityAttributes(album: Album, elements: MediaElements): void
 }
 
 /**
- * Updates a single streaming service link
+ * Updates a single streaming service button
  *
- * Sets the URL and visibility of a streaming service link element based
+ * Sets the URL and visibility of a streaming service button element based
  * on whether a URL is available.
  *
- * @param {HTMLAnchorElement} [linkElement] - The link element to update
+ * @param {HTMLButtonElement} [linkElement] - The button element to update
  * @param {string} [url] - The new URL for the streaming service
  * @param {Album} album - Album data for accessibility information
  * @private
  */
-function updateStreamingLink(linkElement?: HTMLAnchorElement, url?: string, album?: Album): void {
+function updateStreamingLink(linkElement?: HTMLButtonElement, url?: string, album?: Album): void {
   if (!linkElement) {
     return;
   }
 
   if (url) {
-    linkElement.href = url;
+    // Store URL in data attribute for click handling
+    linkElement.setAttribute("data-url", url);
+
+    // Add click handler to open URL in new tab
+    linkElement.onclick = (): void => {
+      window.open(url, "_blank", "noopener,noreferrer");
+    };
 
     // Add accessibility attributes
     if (album?.artist && album?.album) {
@@ -229,9 +235,15 @@ function updateStreamingLink(linkElement?: HTMLAnchorElement, url?: string, albu
         `Listen to ${album.album} by ${album.artist} on ${serviceName}`
       );
     }
+
+    // Ensure button is visible and accessible
+    linkElement.style.display = "";
+    linkElement.removeAttribute("aria-hidden");
   } else {
     linkElement.style.display = "none";
     linkElement.setAttribute("aria-hidden", "true");
+    linkElement.removeAttribute("data-url");
+    linkElement.onclick = null;
   }
 }
 
@@ -251,10 +263,10 @@ export function initializeMediaElements(): MediaElements | null {
     const audioPreviewSource = document.getElementById("audio-preview-source") as HTMLSourceElement;
     const overlayCover = document.getElementById("overlay-cover") as HTMLImageElement;
 
-    // Find streaming link elements
-    const spotifyLink = document.getElementById("spotify-link") as HTMLAnchorElement;
-    const deezerLink = document.getElementById("deezer-link") as HTMLAnchorElement;
-    const appleLink = document.getElementById("apple-link") as HTMLAnchorElement;
+    // Find streaming link elements (converted to buttons for accessibility)
+    const spotifyLink = document.getElementById("spotify-link") as HTMLButtonElement;
+    const deezerLink = document.getElementById("deezer-link") as HTMLButtonElement;
+    const appleLink = document.getElementById("apple-link") as HTMLButtonElement;
 
     // Validate required elements
     if (!audioPreview || !audioPreviewSource || !overlayCover) {
@@ -283,5 +295,66 @@ export function initializeMediaElements(): MediaElements | null {
   } catch (error) {
     console.error("Error initializing media elements:", error);
     return null;
+  }
+}
+
+/**
+ * Updates the AudioPlayer component with album data
+ *
+ * This function finds the AudioPlayer component and updates its audio source
+ * and cover image to match the current album being displayed.
+ *
+ * @param {Album} album - Album data containing preview link and cover
+ */
+export function updateAudioPlayer(album: Album): void {
+  try {
+    // Find the AudioPlayer component container
+    const audioPlayerContainer = document.querySelector(".audio-container .audio-player");
+    if (!audioPlayerContainer) {
+      return;
+    }
+
+    // Find the controls container with data attributes
+    const controlsContainer = audioPlayerContainer.querySelector("[data-audio-src]");
+    if (controlsContainer && album.preview_link) {
+      controlsContainer.setAttribute("data-audio-src", album.preview_link);
+    }
+
+    // Find and update the actual audio element
+    const audioElement = audioPlayerContainer.querySelector("audio") as HTMLAudioElement;
+    if (audioElement && album.preview_link) {
+      // Update source if available
+      const audioSource = audioElement.querySelector("source") as HTMLSourceElement;
+      if (audioSource) {
+        audioSource.src = album.preview_link;
+        audioSource.type = "audio/mpeg";
+      } else {
+        // Create source element if it doesn't exist
+        const newSource = document.createElement("source");
+        newSource.src = album.preview_link;
+        newSource.type = "audio/mpeg";
+        audioElement.appendChild(newSource);
+      }
+
+      // Reload audio with new source
+      audioElement.load();
+    }
+
+    // Find and update the cover image
+    const coverImage = audioPlayerContainer.querySelector(
+      ".audio-player__cover"
+    ) as HTMLImageElement;
+    if (coverImage && album.coverSrc) {
+      coverImage.src = album.coverSrc;
+
+      // Set appropriate alt text
+      if (album.artist && album.album) {
+        coverImage.alt = `Album cover for ${album.album} by ${album.artist}`;
+      } else {
+        coverImage.alt = "Album cover";
+      }
+    }
+  } catch (error: unknown) {
+    console.error("Failed to update AudioPlayer:", error);
   }
 }
