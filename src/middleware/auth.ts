@@ -56,6 +56,57 @@ export async function requireAuth(request: Request): Promise<{
 }
 
 /**
+ * Checks if a valid JWT token is present in the cookies
+ * WITHOUT redirecting to login page - for optional authentication
+ *
+ * @param {Request} request - The Astro request
+ * @returns {Promise<{authenticated: boolean, user?: {id: string, email: string}}>} An object with the authentication status and possibly the user information
+ */
+export async function checkAuth(request: Request): Promise<{
+  authenticated: boolean;
+  user?: { id: string; email: string };
+}> {
+  // Extract cookie header from the request
+  const cookieHeader = request.headers.get("cookie");
+
+  if (!cookieHeader) {
+    // No cookie present, return unauthenticated without redirect
+    return {
+      authenticated: false,
+    };
+  }
+
+  // Extract access token from cookies
+  const accessToken = extractCookieValue(cookieHeader, "access_token");
+
+  if (!accessToken) {
+    // No access token present, return unauthenticated without redirect
+    return {
+      authenticated: false,
+    };
+  }
+
+  // Verify token
+  const payload = verifyAccessToken(accessToken);
+
+  if (!payload || !payload.userId) {
+    // Invalid or expired token, return unauthenticated without redirect
+    return {
+      authenticated: false,
+    };
+  }
+
+  // Authentication successful
+  return {
+    authenticated: true,
+    user: {
+      id: payload.userId,
+      email: payload.email,
+    },
+  };
+}
+
+/**
  * Extracts the value of a specific cookie from the cookie header
  */
 function extractCookieValue(cookieHeader: string, cookieName: string): string | null {
