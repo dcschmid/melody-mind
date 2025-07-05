@@ -115,8 +115,6 @@ const statusAnnouncementText = isDisabled
   <div class="top-accent" aria-hidden="true"></div>
 
   <div class="image-container">
-    <div class="image-overlay" aria-hidden="true"></div>
-
     <span class="status-badge">
       {isDisabled ? t("playlist.item.coming.soon") : t("category.play")}
     </span>
@@ -221,14 +219,6 @@ const statusAnnouncementText = isDisabled
         border-color: var(--color-primary-500);
         box-shadow: var(--shadow-xl);
         transform: translateY(calc(-1 * var(--space-xs)));
-
-        .image-overlay {
-          opacity: var(--opacity-low);
-        }
-
-        .playlist-image:not(.playlist-image--disabled) {
-          transform: scale(var(--scale-hover, 1.05));
-        }
 
         .bottom-accent {
           transform: scaleX(1);
@@ -391,32 +381,6 @@ const statusAnnouncementText = isDisabled
     overflow: hidden;
   }
 
-  .image-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: var(--z-sticky);
-    background: linear-gradient(
-      to top,
-      var(--color-neutral-900) var(--gradient-start),
-      var(--overlay-gradient-middle, rgba(38, 38, 38, 0.5)) 50%,
-      transparent var(--gradient-end)
-    );
-    opacity: var(--opacity-medium);
-    transition: opacity var(--transition-normal);
-
-    @media (forced-colors: active) {
-      display: none;
-    }
-
-    @media print {
-      display: none !important;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      transition: none !important;
-    }
-  }
-
   /* Status badge */
   .status-badge {
     position: absolute;
@@ -456,16 +420,10 @@ const statusAnnouncementText = isDisabled
     width: var(--width-full);
     height: var(--width-full);
     object-fit: cover;
-    transition: transform var(--animation-duration-slow);
 
     &--disabled {
       opacity: var(--opacity-disabled);
       filter: grayscale(var(--filter-grayscale-half));
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      transition: none !important;
-      transform: none !important;
     }
   }
 

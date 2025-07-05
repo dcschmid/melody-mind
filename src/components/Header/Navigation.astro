@@ -59,7 +59,7 @@ import AchievementBadge from "../Achievements/AchievementBadge.astro";
  *
  * @interface Props
  * @property {boolean} [showHeaderIcons=true] - Controls visibility of additional navigation icons
- *   including Knowledge, Playlists, Rules, Highscores, and Achievements links.
+ *   including Knowledge, Playlists, Highscores, and Achievements links.
  *   Set to false for minimal navigation on game pages or simplified layouts.
  *
  * @example
@@ -88,7 +88,7 @@ const stableItemIds = {
   home: "nav-home-stable",
   knowledge: "nav-knowledge-stable",
   playlists: "nav-playlists-stable",
-  rules: "nav-rules-stable",
+
   highscores: "nav-highscores-stable",
   achievements: "nav-achievements-stable",
   profile: "nav-profile-stable",
@@ -118,253 +118,299 @@ const stableItemIds = {
         <span class="navigation-hamburger__text">{t("nav.menu.text")}</span>
       </button>
 
+      <!-- Full-screen overlay backdrop -->
       <div id="menu-backdrop" class="navigation-backdrop" aria-hidden="true"></div>
 
+      <!-- Full-screen navigation overlay -->
       <div
         id="main-menu"
-        class="navigation-menu"
+        class="navigation-overlay"
         role="dialog"
         aria-modal="true"
         aria-labelledby="menu-title"
         data-stable-id={stableMenuId}
+        data-state="closed"
       >
-        <button class="navigation-menu__close" aria-label={t("nav.menu.close")}>
+        <!-- Close button with enhanced styling -->
+        <button class="navigation-overlay__close" aria-label={t("nav.menu.close")}>
           <Icon
             name="close"
-            width={28}
-            height={28}
+            width={32}
+            height={32}
             aria-hidden="true"
-            class="navigation-menu__close-icon"
+            class="navigation-overlay__close-icon"
           />
         </button>
 
-        <!-- Menu title -->
-        <div class="navigation-menu__title-container">
-          <h2 id="menu-title" class="navigation-menu__title">
-            {t("nav.title")}
-          </h2>
-        </div>
+        <!-- Navigation content container -->
+        <div class="navigation-overlay__content">
+          <!-- Menu title with enhanced typography -->
+          <div class="navigation-overlay__header">
+            <h2 id="menu-title" class="navigation-overlay__title">
+              {t("nav.title")}
+            </h2>
+            <p class="navigation-overlay__subtitle">
+              {t("nav.subtitle")}
+            </p>
+          </div>
 
-        <!-- Status announcer for screen readers -->
-        <div aria-live="polite" aria-atomic="true" class="sr-only" id="menu-status-announcer"></div>
+          <!-- Status announcer for screen readers -->
+          <div aria-live="polite" aria-atomic="true" class="sr-only" id="menu-status-announcer">
+          </div>
 
-        <!-- Navigation menu items -->
-        <ul class="navigation-menu__list">
-          <!-- Home link -->
-          <li class="navigation-menu__list-item">
-            <a
-              href={getRelativeLocaleUrl(lang, "gamehome")}
-              class="navigation-menu__item"
-              role="menuitem"
-              id={stableItemIds.home}
-              data-stable-ref="navigation-home"
+          <!-- Main navigation sections -->
+          <div class="navigation-overlay__sections">
+            <!-- Home section -->
+            <div class="navigation-section navigation-section--primary">
+              <h3 class="navigation-section__title">{t("nav.section.main")}</h3>
+              <nav class="navigation-section__nav">
+                <a
+                  href={getRelativeLocaleUrl(lang, "gamehome")}
+                  class="navigation-link navigation-link--home"
+                  role="menuitem"
+                  id={stableItemIds.home}
+                  data-stable-ref="navigation-home"
+                >
+                  <div class="navigation-link__icon-wrapper">
+                    <Icon
+                      name="home"
+                      width={32}
+                      height={32}
+                      aria-hidden="true"
+                      class="navigation-link__icon"
+                    />
+                  </div>
+                  <div class="navigation-link__content">
+                    <span class="navigation-link__title">{t("nav.menu.home")}</span>
+                    <span class="navigation-link__description">{t("nav.menu.home.desc")}</span>
+                  </div>
+                </a>
+              </nav>
+            </div>
+
+            <!-- Game sections (conditional) -->
+            <When test={showHeaderIcons}>
+              <!-- Discover section -->
+              <div class="navigation-section">
+                <h3 class="navigation-section__title">{t("nav.section.discover")}</h3>
+                <nav class="navigation-section__nav">
+                  <a
+                    href={getRelativeLocaleUrl(lang, "knowledge")}
+                    class="navigation-link navigation-link--knowledge"
+                    role="menuitem"
+                    id={stableItemIds.knowledge}
+                    data-stable-ref="navigation-knowledge"
+                  >
+                    <div class="navigation-link__icon-wrapper">
+                      <Icon
+                        name="book"
+                        width={28}
+                        height={28}
+                        aria-hidden="true"
+                        class="navigation-link__icon"
+                      />
+                    </div>
+                    <div class="navigation-link__content">
+                      <span class="navigation-link__title">{t("knowledge.title")}</span>
+                      <span class="navigation-link__description"
+                        >{t("nav.menu.knowledge.desc")}</span
+                      >
+                    </div>
+                  </a>
+
+                  <a
+                    href={getRelativeLocaleUrl(lang, "playlists")}
+                    class="navigation-link navigation-link--playlists"
+                    role="menuitem"
+                    id={stableItemIds.playlists}
+                    data-stable-ref="navigation-playlists"
+                  >
+                    <div class="navigation-link__icon-wrapper">
+                      <Icon
+                        name="music-note"
+                        width={28}
+                        height={28}
+                        aria-hidden="true"
+                        class="navigation-link__icon"
+                      />
+                    </div>
+                    <div class="navigation-link__content">
+                      <span class="navigation-link__title">{t("playlist.page.heading")}</span>
+                      <span class="navigation-link__description"
+                        >{t("nav.menu.playlists.desc")}</span
+                      >
+                    </div>
+                  </a>
+                </nav>
+              </div>
+
+              <!-- Competition section -->
+              <div class="navigation-section">
+                <h3 class="navigation-section__title">{t("nav.section.compete")}</h3>
+                <nav class="navigation-section__nav">
+                  <a
+                    href={getRelativeLocaleUrl(lang, "highscores")}
+                    class="navigation-link navigation-link--highscores"
+                    role="menuitem"
+                    id={stableItemIds.highscores}
+                    data-stable-ref="navigation-highscores"
+                  >
+                    <div class="navigation-link__icon-wrapper">
+                      <Icon
+                        name="trophy"
+                        width={28}
+                        height={28}
+                        aria-hidden="true"
+                        class="navigation-link__icon"
+                      />
+                    </div>
+                    <div class="navigation-link__content">
+                      <span class="navigation-link__title">{t("nav.menu.highscores")}</span>
+                      <span class="navigation-link__description"
+                        >{t("nav.menu.highscores.desc")}</span
+                      >
+                    </div>
+                  </a>
+
+                  <a
+                    href={getRelativeLocaleUrl(lang, "achievements")}
+                    class="navigation-link navigation-link--achievements"
+                    role="menuitem"
+                    aria-label={t("achievements.nav.aria")}
+                    id={stableItemIds.achievements}
+                    data-stable-ref="navigation-achievements"
+                  >
+                    <div class="navigation-link__icon-wrapper">
+                      <Icon
+                        name="award"
+                        width={28}
+                        height={28}
+                        aria-hidden="true"
+                        class="navigation-link__icon"
+                      />
+                      <AchievementBadge {lang} />
+                    </div>
+                    <div class="navigation-link__content">
+                      <span class="navigation-link__title">{t("achievements.nav.link")}</span>
+                      <span class="navigation-link__description"
+                        >{t("nav.menu.achievements.desc")}</span
+                      >
+                    </div>
+                  </a>
+                </nav>
+              </div>
+            </When>
+
+            <!-- User section (conditional) -->
+            <div
+              class="navigation-section navigation-section--user"
+              id="user-section"
+              style="display: none;"
             >
-              <Icon
-                name="home"
-                width={24}
-                height={24}
-                aria-hidden="true"
-                class="navigation-menu__item-icon"
-              />
-              <span class="navigation-menu__item-text">{t("nav.menu.home")}</span>
-            </a>
-          </li>
+              <h3 class="navigation-section__title">{t("nav.section.account")}</h3>
+              <nav class="navigation-section__nav">
+                <a
+                  href={getRelativeLocaleUrl(lang, "profile")}
+                  class="navigation-link navigation-link--profile"
+                  role="menuitem"
+                  aria-label={t("profile.nav.aria")}
+                  id={stableItemIds.profile}
+                  data-stable-ref="navigation-profile"
+                >
+                  <div class="navigation-link__icon-wrapper">
+                    <Icon
+                      name="user"
+                      width={28}
+                      height={28}
+                      aria-hidden="true"
+                      class="navigation-link__icon"
+                    />
+                  </div>
+                  <div class="navigation-link__content">
+                    <span class="navigation-link__title">{t("profile.nav.link")}</span>
+                    <span class="navigation-link__description">{t("nav.menu.profile.desc")}</span>
+                  </div>
+                </a>
 
-          <!-- Conditional menu items based on showHeaderIcons prop -->
-          <When test={showHeaderIcons}>
-            <!-- Knowledge link -->
-            <li role="none">
-              <a
-                href={getRelativeLocaleUrl(lang, "knowledge")}
-                class="navigation-menu__item"
-                role="menuitem"
-                id={stableItemIds.knowledge}
-                data-stable-ref="navigation-knowledge"
-              >
-                <Icon
-                  name="book"
-                  width={28}
-                  height={28}
-                  aria-hidden="true"
-                  class="navigation-menu__item-icon"
-                />
-                <span>{t("knowledge.title")}</span>
-              </a>
-            </li>
+                <button
+                  id="logout-button"
+                  class="navigation-link navigation-link--logout"
+                  role="menuitem"
+                  aria-label={t("nav.logout.label")}
+                  data-stable-id={stableItemIds.logout}
+                  data-stable-ref="navigation-logout"
+                  type="button"
+                >
+                  <div class="navigation-link__icon-wrapper">
+                    <Icon
+                      name="logout"
+                      width={28}
+                      height={28}
+                      aria-hidden="true"
+                      class="navigation-link__icon"
+                    />
+                  </div>
+                  <div class="navigation-link__content">
+                    <span class="navigation-link__title">{t("nav.menu.logout")}</span>
+                    <span class="navigation-link__description">{t("nav.menu.logout.desc")}</span>
+                  </div>
+                </button>
+              </nav>
+            </div>
+          </div>
 
-            <!-- Playlists link -->
-            <li role="none">
-              <a
-                href={getRelativeLocaleUrl(lang, "playlists")}
-                class="navigation-menu__item"
-                role="menuitem"
-                id={stableItemIds.playlists}
-                data-stable-ref="navigation-playlists"
-              >
-                <Icon
-                  name="music-note"
-                  width={28}
-                  height={28}
-                  aria-hidden="true"
-                  class="navigation-menu__item-icon"
-                />
-                <span>{t("playlist.page.heading")}</span>
-              </a>
-            </li>
-
-            <!-- Rules link -->
-            <li role="none">
-              <a
-                href={getRelativeLocaleUrl(lang, "rules")}
-                class="navigation-menu__item"
-                role="menuitem"
-                id={stableItemIds.rules}
-                data-stable-ref="navigation-rules"
-              >
-                <Icon
-                  name="question"
-                  width={28}
-                  height={28}
-                  aria-hidden="true"
-                  class="navigation-menu__item-icon"
-                />
-                <span>{t("nav.menu.rules")}</span>
-              </a>
-            </li>
-
-            <!-- Highscores link -->
-            <li role="none">
-              <a
-                href={getRelativeLocaleUrl(lang, "highscores")}
-                class="navigation-menu__item"
-                role="menuitem"
-                id={stableItemIds.highscores}
-                data-stable-ref="navigation-highscores"
-              >
-                <Icon
-                  name="trophy"
-                  width={28}
-                  height={28}
-                  aria-hidden="true"
-                  class="navigation-menu__item-icon"
-                />
-                <span>{t("nav.menu.highscores")}</span>
-              </a>
-            </li>
-
-            <!-- Achievements link -->
-            <li role="none">
-              <a
-                href={getRelativeLocaleUrl(lang, "achievements")}
-                class="navigation-menu__item"
-                role="menuitem"
-                aria-label={t("achievements.nav.aria")}
-                id={stableItemIds.achievements}
-                data-stable-ref="navigation-achievements"
-              >
-                <div class="navigation-menu__item-icon-container">
-                  <Icon
-                    name="award"
-                    width={28}
-                    height={28}
-                    aria-hidden="true"
-                    class="navigation-menu__item-icon"
-                  />
-                  <AchievementBadge {lang} />
-                </div>
-                <span>{t("achievements.nav.link")}</span>
-              </a>
-            </li>
-          </When>
-
-          <!-- Divider -->
-          <div class="navigation-menu__divider"></div>
-
-          <!-- Profile link - only shown when authenticated -->
-          <li role="none" id="profile-container" class="navigation-menu__item-container--hidden">
-            <a
-              href={getRelativeLocaleUrl(lang, "profile")}
-              class="navigation-menu__item"
-              role="menuitem"
-              aria-label={t("profile.nav.aria")}
-              id={stableItemIds.profile}
-              data-stable-ref="navigation-profile"
-            >
-              <Icon
-                name="user"
-                width={28}
-                height={28}
-                aria-hidden="true"
-                class="navigation-menu__item-icon"
-              />
-              <span>{t("profile.nav.link")}</span>
-            </a>
-          </li>
-
-          <!-- Logout button - initially hidden, shown dynamically when authenticated -->
-          <li role="none" id="logout-container" class="navigation-menu__item-container--hidden">
-            <button
-              id="logout-button"
-              class="navigation-menu__item navigation-menu__item--button"
-              role="menuitem"
-              aria-label={t("nav.logout.label")}
-              data-stable-id={stableItemIds.logout}
-              data-stable-ref="navigation-logout"
-            >
-              <Icon
-                name="logout"
-                width={28}
-                height={28}
-                aria-hidden="true"
-                class="navigation-menu__item-icon"
-              />
-              <span>{t("nav.menu.logout")}</span>
-            </button>
-          </li>
-
-          <!-- Donation section -->
-          <div class="navigation-menu__donation">
-            <h3 class="navigation-menu__donation-title">
-              {t("nav.donate.heading")}
-            </h3>
-            <div class="navigation-menu__donation-links">
-              <!-- PayPal donation link -->
+          <!-- Support section -->
+          <div class="navigation-section">
+            <h3 class="navigation-section__title">{t("nav.donate.heading")}</h3>
+            <nav class="navigation-section__nav">
               <a
                 href="https://www.paypal.me/dcschmid"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="navigation-menu__donation-link navigation-menu__donation-link--paypal"
+                class="navigation-link navigation-link--paypal"
+                role="menuitem"
                 aria-label={`${t("nav.donate.paypal")} (${t("nav.openNewWindow")})`}
               >
-                <Icon
-                  name="paypal"
-                  width={24}
-                  height={24}
-                  aria-hidden="true"
-                  class="navigation-menu__donation-icon"
-                />
-                <span>{t("nav.donate.paypal")}</span>
+                <div class="navigation-link__icon-wrapper">
+                  <Icon
+                    name="paypal"
+                    width={28}
+                    height={28}
+                    aria-hidden="true"
+                    class="navigation-link__icon"
+                  />
+                </div>
+                <div class="navigation-link__content">
+                  <span class="navigation-link__title">{t("nav.donate.paypal")}</span>
+                  <span class="navigation-link__description">{t("nav.donate.description")}</span>
+                </div>
               </a>
-              <!-- Buy Me a Coffee donation link -->
+
               <a
                 href="https://www.buymeacoffee.com/dcschmid"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="navigation-menu__donation-link navigation-menu__donation-link--coffee"
+                class="navigation-link navigation-link--coffee"
+                role="menuitem"
                 aria-label={`${t("nav.donate.coffee")} (${t("nav.openNewWindow")})`}
               >
-                <Icon
-                  name="coffee-cup"
-                  width={24}
-                  height={24}
-                  aria-hidden="true"
-                  class="navigation-menu__donation-icon"
-                />
-                <span>{t("nav.donate.coffee")}</span>
+                <div class="navigation-link__icon-wrapper">
+                  <Icon
+                    name="coffee-cup"
+                    width={28}
+                    height={28}
+                    aria-hidden="true"
+                    class="navigation-link__icon"
+                  />
+                </div>
+                <div class="navigation-link__content">
+                  <span class="navigation-link__title">{t("nav.donate.coffee")}</span>
+                  <span class="navigation-link__description">{t("nav.donate.description")}</span>
+                </div>
               </a>
-            </div>
+            </nav>
           </div>
-        </ul>
+        </div>
       </div>
     </div>
   </nav>
@@ -396,7 +442,7 @@ const stableItemIds = {
     const mainMenu = document.getElementById("main-menu") as HTMLDivElement | null;
     const menuBackdrop = document.getElementById("menu-backdrop") as HTMLDivElement | null;
     const closeButton = mainMenu?.querySelector(
-      ".navigation-menu__close"
+      ".navigation-overlay__close"
     ) as HTMLButtonElement | null;
     const statusAnnouncer = document.getElementById(
       "menu-status-announcer"
@@ -547,7 +593,7 @@ const stableItemIds = {
           // Navigate to first menu item
           e.preventDefault();
           const firstMenuItem = menuElement.querySelector(
-            '.navigation-menu__item[role="menuitem"]'
+            '.navigation-link[role="menuitem"]'
           ) as HTMLElement;
           if (firstMenuItem) {
             firstMenuItem.focus();
@@ -561,7 +607,7 @@ const stableItemIds = {
         case "E": {
           // Navigate to last menu item
           e.preventDefault();
-          const menuItems = menuElement.querySelectorAll('.navigation-menu__item[role="menuitem"]');
+          const menuItems = menuElement.querySelectorAll('.navigation-link[role="menuitem"]');
           const lastMenuItem = menuItems[menuItems.length - 1] as HTMLElement;
           if (lastMenuItem) {
             lastMenuItem.focus();
@@ -598,7 +644,7 @@ const stableItemIds = {
    * @param {HTMLElement} menuElement - The menu element to enhance
    */
   function setupEnhancedTouchSupport(menuElement: HTMLElement): void {
-    const menuItems = menuElement.querySelectorAll('.navigation-menu__item[role="menuitem"]');
+    const menuItems = menuElement.querySelectorAll('.navigation-link[role="menuitem"]');
 
     // Get touch timeout from CSS variable for consistency
     const touchTimeoutMs =
@@ -705,7 +751,7 @@ const stableItemIds = {
    */
   function navigateMenuItems(menuElement: HTMLElement, direction: "next" | "previous"): void {
     const menuItems = Array.from(
-      menuElement.querySelectorAll('.navigation-menu__item[role="menuitem"]')
+      menuElement.querySelectorAll('.navigation-link[role="menuitem"]')
     ) as HTMLElement[];
     const currentFocus = document.activeElement as HTMLElement;
     const currentIndex = menuItems.findIndex((item) => item === currentFocus);
@@ -828,9 +874,8 @@ const stableItemIds = {
    * based on the authentication status
    */
   function updateLogoutButtonVisibility(): void {
-    const logoutContainer = document.getElementById("logout-container");
-    const profileContainer = document.getElementById("profile-container");
-    if (!logoutContainer || !profileContainer) {
+    const userSection = document.getElementById("user-section");
+    if (!userSection) {
       return;
     }
 
@@ -838,11 +883,9 @@ const stableItemIds = {
     console.warn("Auth Status in Navigation:", isAuthenticated);
 
     if (isAuthenticated) {
-      logoutContainer.classList.remove("hidden");
-      profileContainer.classList.remove("hidden");
+      userSection.style.display = "block";
     } else {
-      logoutContainer.classList.add("hidden");
-      profileContainer.classList.add("hidden");
+      userSection.style.display = "none";
     }
   }
 
@@ -878,8 +921,7 @@ const stableItemIds = {
    */
   function initLogoutButton(): void {
     const logoutButton = document.getElementById("logout-button");
-    const logoutContainer = document.getElementById("logout-container");
-    if (!logoutButton || !logoutContainer) {
+    if (!logoutButton) {
       return;
     }
 
@@ -1111,9 +1153,21 @@ const stableItemIds = {
         return;
       }
 
-      // Only initialize for authenticated users
+      // Only initialize for authenticated users on protected pages that require auth
       const authStatus = localStorage.getItem("auth_status");
       if (!authStatus || authStatus !== "authenticated") {
+        return;
+      }
+
+      // Check if current page requires session timeout (only game pages and protected areas)
+      const currentPath = window.location.pathname;
+      const requiresSessionTimeout =
+        currentPath.includes("/game-") ||
+        currentPath.includes("/chronology-") ||
+        currentPath.includes("/admin/") ||
+        currentPath.includes("/dashboard/");
+
+      if (!requiresSessionTimeout) {
         return;
       }
 
@@ -1189,7 +1243,10 @@ const stableItemIds = {
           sessionManager.initialize();
 
           isSessionTimeoutInitialized = true;
-          console.warn("Navigation: Session timeout warnings initialized for authenticated user");
+          console.warn(
+            "Navigation: Session timeout warnings initialized for protected page:",
+            currentPath
+          );
 
           // Set up cleanup for page navigation
           function cleanupSessionManager(): void {
@@ -1263,8 +1320,8 @@ const stableItemIds = {
 
 <style lang="scss">
   /* ======================================
- * NAVIGATION HEADER & BASE STYLES
- * ====================================== */
+   * NAVIGATION HEADER & BASE STYLES
+   * ====================================== */
 
   .navigation-header {
     display: flex;
@@ -1277,7 +1334,7 @@ const stableItemIds = {
   .navigation-nav {
     display: flex;
     flex-wrap: wrap;
-    align-items: var(--align-items-center);
+    align-items: center;
     justify-content: space-between;
     gap: var(--space-md);
   }
@@ -1285,25 +1342,25 @@ const stableItemIds = {
   .navigation-slot {
     display: flex;
     flex: 1;
-    align-items: var(--align-items-center);
+    align-items: center;
     justify-content: center;
     gap: var(--space-md);
   }
 
   /* ======================================
- * HAMBURGER BUTTON STYLES
- * ====================================== */
+   * HAMBURGER BUTTON STYLES - Enhanced
+   * ====================================== */
 
   .navigation-hamburger {
     position: relative;
     display: flex;
     min-height: var(--min-touch-size);
     min-width: var(--min-touch-size);
-    align-items: var(--align-items-center);
+    align-items: center;
     justify-content: center;
     gap: var(--space-sm);
     border-radius: var(--radius-lg);
-    border: var(--border-width-thick) solid var(--interactive-primary);
+    border: 2px solid var(--interactive-primary);
     background: var(--btn-primary-bg);
     padding: var(--space-sm) var(--space-md);
     font-weight: var(--font-medium);
@@ -1311,27 +1368,24 @@ const stableItemIds = {
     box-shadow: var(--shadow-md);
     transition: all var(--transition-normal);
     cursor: pointer;
-    /* WCAG 2.2 Target Size Enhancement - ensure spacing */
-    margin: var(--space-micro);
-    /* Content Adaptation Support */
-    letter-spacing: var(--letter-spacing-base);
-    line-height: var(--line-height-enhanced);
-    word-spacing: inherit;
+    margin: var(--space-xs);
 
     &:hover {
       background: var(--interactive-primary-hover);
       box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
     }
 
     &:focus-visible {
-      outline: var(--focus-enhanced-outline-dark);
-      outline-offset: var(--focus-ring-offset);
-      box-shadow: var(--focus-enhanced-shadow);
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 2px;
+      box-shadow: var(--shadow-xl);
     }
 
     &__icon {
-      width: var(--space-2xl);
-      height: var(--space-2xl);
+      width: 28px;
+      height: 28px;
+      transition: transform var(--transition-fast);
     }
 
     &__text {
@@ -1342,8 +1396,7 @@ const stableItemIds = {
       overflow: hidden;
       font-weight: var(--font-medium);
 
-      /* Show text on larger screens */
-      @media (min-width: var(--breakpoint-sm)) {
+      @media (min-width: 640px) {
         position: static;
         width: auto;
         height: auto;
@@ -1353,19 +1406,23 @@ const stableItemIds = {
   }
 
   /* ======================================
- * BACKDROP OVERLAY STYLES
- * ====================================== */
+   * BACKDROP OVERLAY STYLES - Full Screen
+   * ====================================== */
 
   .navigation-backdrop {
     position: fixed;
     inset: 0;
-    z-index: var(--z-modal-backdrop);
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(var(--space-xs));
-    transition: opacity var(--transition-normal);
+    z-index: 998;
+    background: linear-gradient(
+      135deg,
+      rgba(var(--color-primary-900), 0.95) 0%,
+      rgba(var(--color-secondary-800), 0.9) 100%
+    );
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all var(--transition-normal);
     visibility: hidden;
     opacity: 0;
-    z-index: 12;
 
     &[data-state="open"] {
       visibility: visible;
@@ -1374,340 +1431,514 @@ const stableItemIds = {
   }
 
   /* ======================================
- * MAIN MENU CONTAINER STYLES
- * ====================================== */
+   * FULL-SCREEN OVERLAY NAVIGATION
+   * ====================================== */
 
-  .navigation-menu {
+  .navigation-overlay {
     position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    z-index: var(--z-modal);
-    margin: var(--space-md);
-    width: 90%;
-    max-width: var(--form-container-max-width);
-    transform: translateX(-50%) translateY(-100%);
+    inset: 0;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(
+      135deg,
+      var(--bg-primary) 0%,
+      var(--bg-secondary) 50%,
+      var(--bg-tertiary) 100%
+    );
     overflow-y: auto;
-    border-radius: var(--radius-xl);
-    background-color: var(--bg-secondary);
-    padding-top: var(--space-3xl);
-    padding-bottom: var(--space-2xl);
-    box-shadow: var(--shadow-xl);
-    transition:
-      transform var(--transition-normal) ease-out,
-      opacity var(--transition-normal);
+    overscroll-behavior: contain;
+    transition: all var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1);
     visibility: hidden;
     opacity: 0;
+    transform: scale(0.95);
 
     &[data-state="open"] {
       visibility: visible;
-      transform: translateX(-50%) translateY(0);
       opacity: 1;
+      transform: scale(1);
     }
 
-    /* ======================================
-    * MENU CLOSE BUTTON STYLES
-    * ====================================== */
-
+    /* Close Button - Enhanced */
     &__close {
       position: absolute;
-      top: var(--space-md);
-      right: var(--space-md);
+      top: var(--space-lg);
+      right: var(--space-lg);
+      z-index: 10;
       display: flex;
-      height: var(--min-touch-size);
-      width: var(--min-touch-size);
-      align-items: var(--align-items-center);
+      align-items: center;
       justify-content: center;
+      width: var(--min-touch-size);
+      height: var(--min-touch-size);
       border-radius: var(--radius-full);
-      background-color: var(--bg-tertiary);
+      background: var(--bg-tertiary);
       color: var(--text-primary);
-      border: none;
+      border: 2px solid var(--border-primary);
       cursor: pointer;
-      transition: background-color var(--transition-fast);
+      transition: all var(--transition-normal);
+      box-shadow: var(--shadow-lg);
 
       &:hover {
-        background-color: var(--border-primary);
+        background: var(--interactive-primary);
+        color: var(--btn-primary-text);
+        transform: rotate(90deg) scale(1.1);
+        box-shadow: var(--shadow-xl);
       }
 
       &:focus-visible {
-        outline: var(--focus-enhanced-outline-dark);
-        outline-offset: var(--focus-ring-offset);
-        box-shadow: var(--focus-enhanced-shadow);
+        outline: 3px solid var(--focus-ring);
+        outline-offset: 2px;
       }
 
       &-icon {
-        width: var(--space-2xl);
-        height: var(--space-2xl);
-        fill: inherit;
-        stroke: var(--text-primary);
-        color: var(--text-primary);
+        width: 32px;
+        height: 32px;
+        transition: inherit;
       }
     }
 
-    /* ======================================
-    * MENU TITLE STYLES
-    * ====================================== */
+    /* Main Content Container */
+    &__content {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
 
-    &__title-container {
-      margin-bottom: var(--space-xl);
+    /* Header Section */
+    &__header {
       text-align: center;
+      margin-bottom: var(--space-3xl);
+      padding-top: var(--space-2xl);
+    }
+
+    &__title {
+      font-size: clamp(var(--text-3xl), 5vw, var(--text-4xl));
+      font-weight: var(--font-bold);
+      color: var(--text-primary);
+      margin-bottom: var(--space-md);
+      background: linear-gradient(135deg, var(--interactive-primary), var(--color-secondary-400));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    &__subtitle {
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+      opacity: 0.8;
+    }
+
+    /* Navigation Sections Layout */
+    &__sections {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2xl);
+      flex: 1;
+      margin-bottom: var(--space-2xl);
+    }
+
+    /* Footer Section */
+    &__footer {
+      border-top: 1px solid var(--border-primary);
+      padding-top: var(--space-xl);
+      margin-top: auto;
+    }
+  }
+
+  /* ======================================
+   * NAVIGATION SECTIONS
+   * ====================================== */
+
+  .navigation-section {
+    width: 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+
+    &:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
     }
 
     &__title {
       font-size: var(--text-xl);
-      font-weight: var(--font-bold);
+      font-weight: var(--font-semibold);
       color: var(--text-primary);
-      text-wrap: balance;
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-sm);
+      border-bottom: 2px solid var(--interactive-primary);
+      opacity: 0.9;
     }
 
-    /* ======================================
-    * MENU LIST & ITEM STYLES
-    * ====================================== */
-
-    &__list {
+    &__nav {
       display: flex;
       flex-direction: column;
       gap: var(--space-md);
-      padding: 0 var(--space-md);
-      list-style: none;
-      margin: 0;
     }
 
-    &__item {
+    &--primary .navigation-section__title {
+      color: var(--interactive-primary);
+      border-bottom-color: var(--interactive-primary);
+    }
+  }
+
+  /* ======================================
+   * NAVIGATION LINKS - Card Style
+   * ====================================== */
+
+  .navigation-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    border-radius: var(--radius-xl);
+    background: var(--card-bg);
+    border: 1px solid var(--border-primary);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    min-height: 80px;
+    position: relative;
+    overflow: hidden;
+
+    /* Hover Effects */
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--interactive-primary);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 2px;
+      transform: translateY(-2px);
+    }
+
+    /* Gradient Background on Hover */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(var(--color-primary-500), 0.1) 0%,
+        rgba(var(--color-secondary-500), 0.05) 100%
+      );
+      opacity: 0;
+      transition: opacity var(--transition-normal);
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+
+    /* Icon Wrapper */
+    &__icon-wrapper {
+      position: relative;
       display: flex;
-      width: 100%;
-      align-items: var(--align-items-center);
-      gap: var(--space-md);
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
       border-radius: var(--radius-lg);
-      padding: var(--space-md) var(--space-lg);
-      font-weight: var(--font-medium);
+      background: linear-gradient(135deg, var(--interactive-primary), var(--color-secondary-500));
+      flex-shrink: 0;
+      box-shadow: var(--shadow-md);
+    }
+
+    &__icon {
+      color: var(--btn-primary-text);
+      z-index: 1;
+    }
+
+    /* Badge for achievements */
+    &__badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      z-index: 2;
+    }
+
+    /* Content Area */
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      flex: 1;
+      z-index: 1;
+    }
+
+    &__title {
+      font-size: var(--text-lg);
+      font-weight: var(--font-semibold);
       color: var(--text-primary);
-      text-decoration: none;
-      transition: all var(--transition-fast);
-      cursor: pointer;
+      line-height: 1.2;
+    }
+
+    &__description {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      opacity: 0.8;
+      line-height: 1.4;
+    }
+
+    /* Variant Styles */
+    &--home &__icon-wrapper {
+      background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+    }
+
+    &--knowledge &__icon-wrapper {
+      background: linear-gradient(135deg, var(--color-info-500), var(--color-info-600));
+    }
+
+    &--playlists &__icon-wrapper {
+      background: linear-gradient(135deg, var(--color-success-500), var(--color-success-600));
+    }
+
+    &--highscores &__icon-wrapper {
+      background: linear-gradient(135deg, var(--color-warning-500), var(--color-warning-600));
+    }
+
+    &--achievements &__icon-wrapper {
+      background: linear-gradient(135deg, var(--color-secondary-500), var(--color-secondary-600));
+    }
+
+    &--profile &__icon-wrapper {
+      background: linear-gradient(135deg, var(--color-neutral-600), var(--color-neutral-700));
+    }
+
+    &--logout {
       background: none;
-      border: none;
-      font-size: var(--text-base);
-      min-height: var(--min-touch-size);
+      border: 2px solid var(--color-error-500);
+      font-family: inherit;
+      font-size: inherit;
 
       &:hover {
-        transform: translateX(var(--space-xs));
-        background-color: var(--bg-tertiary);
+        background: var(--color-error-50);
+        border-color: var(--color-error-600);
       }
 
-      &:focus-visible {
-        background-color: var(--bg-tertiary);
-        outline: var(--focus-enhanced-outline-dark);
-        outline-offset: var(--focus-ring-offset);
-        box-shadow: var(--focus-enhanced-shadow);
-      }
-
-      &--button {
-        font-family: inherit;
-        text-align: left;
-      }
-
-      &-icon {
-        flex-shrink: 0;
-
-        &-container {
-          position: relative;
-          display: flex;
-          align-items: var(--align-items-center);
-          justify-content: center;
-        }
-      }
-
-      &-container--hidden {
-        display: none;
-
-        /* JavaScript will toggle this class */
-        &:not(.hidden) {
-          display: block;
-        }
-      }
-    }
-
-    /* ======================================
-    * MENU DIVIDER STYLES
-    * ====================================== */
-
-    &__divider {
-      margin: var(--space-md) 0;
-      height: var(--border-width-thin);
-      width: 100%;
-      background-color: var(--border-primary);
-    }
-
-    /* ======================================
-    * DONATION SECTION STYLES
-    * ====================================== */
-
-    &__donation {
-      padding: 0 var(--space-lg);
-      margin-top: var(--space-lg);
-
-      &-title {
-        margin-bottom: var(--space-md);
-        font-size: var(--text-lg);
-        font-weight: var(--font-bold);
-        color: var(--text-primary);
-      }
-
-      &-links {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-md);
-      }
-
-      &-link {
-        display: flex;
-        align-items: var(--align-items-center);
-        justify-content: center;
-        gap: var(--space-sm);
-        border-radius: var(--radius-lg);
-        padding: var(--space-md) var(--space-md);
-        font-weight: var(--font-medium);
-        text-decoration: none;
-        transition: background-color var(--transition-fast);
-        min-height: var(--min-touch-size);
-
-        &--paypal {
-          background-color: var(--color-info-600);
-          color: var(--color-white);
-
-          &:hover {
-            background-color: var(--color-info-700);
-          }
-
-          &:focus-visible {
-            outline: var(--focus-enhanced-outline-dark);
-            outline-offset: var(--focus-ring-offset);
-            box-shadow: var(--focus-enhanced-shadow);
-          }
-        }
-
-        &--coffee {
-          background-color: var(--color-warning-400);
-          color: var(--color-neutral-900);
-
-          &:hover {
-            background-color: var(--color-warning-500);
-          }
-
-          &:focus-visible {
-            outline: var(--focus-enhanced-outline-light);
-            outline-offset: var(--focus-ring-offset);
-            box-shadow: var(--focus-enhanced-shadow);
-          }
-        }
-      }
-
-      &-icon {
-        width: var(--space-xl);
-        height: var(--space-xl);
-        flex-shrink: 0;
+      .navigation-link__icon-wrapper {
+        background: linear-gradient(135deg, var(--color-error-500), var(--color-error-600));
       }
     }
   }
 
   /* ======================================
- * SCREEN READER ONLY UTILITY
- * ====================================== */
+   * SUPPORT SECTION
+   * ====================================== */
+
+  .navigation-support {
+    text-align: center;
+
+    &__title {
+      font-size: var(--text-xl);
+      font-weight: var(--font-semibold);
+      color: var(--text-primary);
+      margin-bottom: var(--space-md);
+    }
+
+    &__description {
+      font-size: var(--text-base);
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+      opacity: 0.8;
+    }
+
+    &__links {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-lg);
+      flex-wrap: wrap;
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      font-weight: var(--font-medium);
+      transition: all var(--transition-normal);
+      min-height: var(--min-touch-size);
+      box-shadow: var(--shadow-sm);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      &:focus-visible {
+        outline: 3px solid var(--focus-ring);
+        outline-offset: 2px;
+      }
+
+      &--paypal {
+        background: var(--color-info-600);
+        color: var(--color-white);
+
+        &:hover {
+          background: var(--color-info-700);
+        }
+      }
+
+      &--coffee {
+        background: var(--color-warning-400);
+        color: var(--color-neutral-900);
+
+        &:hover {
+          background: var(--color-warning-500);
+        }
+      }
+    }
+
+    &__icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+  }
+
+  /* ======================================
+   * UTILITIES
+   * ====================================== */
 
   .sr-only {
     position: absolute;
     left: -10000px;
-    width: var(--border-width-thin);
-    height: var(--border-width-thin);
+    width: 1px;
+    height: 1px;
     overflow: hidden;
-    clip: rect(
-      var(--border-width-thin),
-      var(--border-width-thin),
-      var(--border-width-thin),
-      var(--border-width-thin)
-    );
+    clip: rect(1px, 1px, 1px, 1px);
     white-space: nowrap;
   }
 
   /* ======================================
- * GLOBAL BODY STATE STYLES (prevent scroll when menu open)
- * ====================================== */
+   * GLOBAL BODY LOCK
+   * ====================================== */
 
   :global(body[data-menu-open="true"]) {
     overflow: hidden;
+    height: 100vh;
   }
 
   /* ======================================
- * RESPONSIVE DESIGN
- * ====================================== */
+   * RESPONSIVE DESIGN
+   * ====================================== */
 
-  @media (max-width: var(--breakpoint-sm)) {
-    .navigation-menu {
-      margin: var(--space-sm);
-      width: calc(100% - var(--space-md));
+  @media (max-width: 640px) {
+    .navigation-overlay {
+      &__content {
+        padding: var(--space-2xl) var(--space-md) var(--space-xl);
+      }
 
-      &__donation {
-        padding: 0 var(--space-md);
+      &__grid {
+        gap: var(--space-xl);
+      }
+    }
+
+    .navigation-link {
+      padding: var(--space-md);
+      min-height: 70px;
+
+      &__icon-wrapper {
+        width: 50px;
+        height: 50px;
+      }
+
+      &__title {
+        font-size: var(--text-base);
+      }
+
+      &__description {
+        font-size: var(--text-xs);
+      }
+    }
+
+    .navigation-support {
+      &__links {
+        flex-direction: column;
+        align-items: center;
       }
     }
   }
 
   /* ======================================
- * HIGH CONTRAST MODE SUPPORT
- * ====================================== */
+   * ACCESSIBILITY ENHANCEMENTS
+   * ====================================== */
 
   @media (prefers-contrast: high) {
-    .navigation-hamburger {
-      border-width: var(--border-width-enhanced);
+    .navigation-link {
+      border-width: 2px;
+
+      &:focus-visible {
+        outline-width: 4px;
+      }
     }
 
-    .navigation-menu {
-      &__item {
-        border: var(--border-width-thin) solid transparent;
-
-        &:focus-visible {
-          border-color: var(--border-focus);
-        }
-      }
-
-      &__donation-link {
-        border: var(--border-width-thick) solid currentColor;
-      }
+    .navigation-overlay__close {
+      border-width: 3px;
     }
   }
-
-  /* ======================================
- * REDUCED MOTION SUPPORT
- * ====================================== */
 
   @media (prefers-reduced-motion: reduce) {
     .navigation-hamburger,
     .navigation-backdrop,
-    .navigation-menu {
+    .navigation-overlay,
+    .navigation-link,
+    .navigation-support__link {
       transition: none;
     }
 
-    .navigation-menu {
-      &__close,
-      &__item,
-      &__donation-link {
-        transition: none;
-      }
+    .navigation-link:hover {
+      transform: none;
+    }
 
-      &__item:hover {
-        transform: none;
-      }
+    .navigation-overlay__close:hover {
+      transform: none;
     }
   }
 
   /* ======================================
- * PRINT STYLES
- * ====================================== */
+   * PRINT STYLES
+   * ====================================== */
 
   @media print {
     .navigation-header {
       display: none;
+    }
+  }
+
+  /* ======================================
+   * DARK THEME ENHANCEMENTS
+   * ====================================== */
+
+  @media (prefers-color-scheme: dark) {
+    .navigation-overlay {
+      background: linear-gradient(
+        135deg,
+        var(--color-neutral-900) 0%,
+        var(--color-neutral-800) 50%,
+        var(--color-neutral-900) 100%
+      );
+    }
+
+    .navigation-link::before {
+      background: linear-gradient(
+        135deg,
+        rgba(var(--color-primary-400), 0.15) 0%,
+        rgba(var(--color-secondary-400), 0.1) 100%
+      );
     }
   }
 </style>

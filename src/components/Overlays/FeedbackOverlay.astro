@@ -15,6 +15,7 @@
  */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
+import AudioPlayer from "@components/AudioPlayer.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -67,16 +68,15 @@ const t = useTranslations(lang);
 
     <div class="media-section" aria-label={t("game.feedback.media.section")}>
       <div class="media-section__image">
-        <img
-          id="overlay-cover"
-          class="album-cover"
-          src=""
-          alt=""
-          loading="lazy"
-          decoding="async"
-          width="300"
-          height="300"
-          style="aspect-ratio: 1;"
+        <AudioPlayer
+          audioSrc=""
+          imageSrc=""
+          imageAlt=""
+          title=""
+          artist=""
+          preload="metadata"
+          showHelp={true}
+          coverId="overlay-cover"
         />
       </div>
 
@@ -86,22 +86,6 @@ const t = useTranslations(lang);
           <p id="overlay-album" class="album-name"></p>
           <p id="overlay-year" class="album-year"></p>
           <p id="overlay-funfact" class="fun-fact"></p>
-        </div>
-
-        <div class="audio-container">
-          <label id="audio-label" for="audio-preview" class="audio-label">
-            {t("game.feedback.audio.preview")}
-          </label>
-          <audio id="audio-preview" class="audio-player" controls aria-labelledby="audio-label">
-            <source id="audio-preview-source" src="" type="audio/mpeg" />
-            <track kind="captions" src="" label={t("game.feedback.subtitles")} />
-            <p>
-              {t("game.feedback.audio.unsupported")}
-              <button type="button" class="audio-fallback-link">
-                {t("game.feedback.audio.fallback")}
-              </button>
-            </p>
-          </audio>
         </div>
       </div>
     </div>
@@ -116,35 +100,29 @@ const t = useTranslations(lang);
       role="group"
       aria-label={t("game.feedback.streaming.links")}
     >
-      <a
+      <button
         id="spotify-link"
         class="music-button"
-        href="javascript:void(0)"
-        target="_blank"
-        rel="noopener noreferrer"
         aria-label={t("game.feedback.listen.spotify")}
+        title={t("game.feedback.listen.spotify")}
       >
         <Icon name="spotify" class="music-button__icon" width={24} height={24} aria-hidden="true" />
         <span>Spotify</span>
-      </a>
-      <a
+      </button>
+      <button
         id="deezer-link"
         class="music-button"
-        href="javascript:void(0)"
-        target="_blank"
-        rel="noopener noreferrer"
         aria-label={t("game.feedback.listen.deezer")}
+        title={t("game.feedback.listen.deezer")}
       >
         <Icon name="deezer" class="music-button__icon" width={24} height={24} aria-hidden="true" />
         <span>Deezer</span>
-      </a>
-      <a
+      </button>
+      <button
         id="apple-link"
         class="music-button"
-        href="javascript:void(0)"
-        target="_blank"
-        rel="noopener noreferrer"
         aria-label={t("game.feedback.listen.apple")}
+        title={t("game.feedback.listen.apple")}
       >
         <Icon
           name="apple-music"
@@ -154,7 +132,7 @@ const t = useTranslations(lang);
           aria-hidden="true"
         />
         <span>Apple Music</span>
-      </a>
+      </button>
     </div>
     <button id="next-round-button" class="next-button" aria-label={t("game.feedback.next.round")}>
       <span class="next-button__content">
@@ -319,24 +297,6 @@ const t = useTranslations(lang);
     }
   }
 
-  .album-cover {
-    aspect-ratio: 1;
-    height: auto;
-    width: 100%;
-    max-width: var(--container-sm); /* 18.75rem / 300px */
-    border-radius: var(--radius-lg);
-    object-fit: cover;
-    box-shadow: var(--shadow-lg);
-    /* Optimized transitions for GPU acceleration */
-    transition:
-      transform var(--transition-normal),
-      box-shadow var(--transition-normal);
-    /* Use transform3d for GPU layer promotion */
-    transform: translateZ(0);
-    /* Optimize will-change only during interaction */
-    will-change: auto;
-  }
-
   .artist-name {
     margin-bottom: var(--space-sm);
     font-size: var(--text-2xl);
@@ -361,45 +321,6 @@ const t = useTranslations(lang);
     line-height: var(--leading-relaxed);
     color: var(--text-secondary);
     max-width: var(--content-readable-width);
-  }
-
-  // ======================================
-  // AUDIO SECTION - Using Root Variables
-  // ======================================
-
-  .audio-label {
-    display: block;
-    margin-bottom: var(--space-xs);
-    font-size: var(--text-sm);
-    color: var(--text-tertiary);
-  }
-
-  .audio-player {
-    margin-top: var(--space-sm);
-    width: 100%;
-    background-color: var(--form-bg);
-    border-radius: var(--radius-md);
-  }
-
-  .audio-fallback-link {
-    display: inline-block;
-    margin-left: var(--space-sm);
-    color: var(--interactive-primary);
-    text-decoration: underline;
-    text-decoration-color: var(--interactive-primary);
-    text-underline-offset: var(--text-underline-offset);
-    transition: color var(--transition-normal);
-
-    &:hover,
-    &:focus {
-      color: var(--interactive-primary-hover);
-      text-decoration-color: var(--interactive-primary-hover);
-    }
-
-    &:focus-visible {
-      outline: var(--focus-enhanced-outline-dark);
-      outline-offset: var(--focus-ring-offset);
-    }
   }
 
   // ======================================
@@ -702,6 +623,9 @@ const t = useTranslations(lang);
   /**
    * Simple initialization - direct event handlers
    */
+  /**
+   * Initialize the overlay and set up event handlers
+   */
   function initializeOverlay() {
     if (handlersInitialized) {
       return;
@@ -912,11 +836,13 @@ const t = useTranslations(lang);
       return;
     }
 
-    // Stop audio immediately
-    const audio = document.getElementById("audio-preview");
-    if (audio && !audio.paused) {
-      audio.pause();
-    }
+    // Stop all audio players - works with AudioPlayer component
+    const audioElements = document.querySelectorAll("audio");
+    audioElements.forEach((audio) => {
+      if (!audio.paused) {
+        audio.pause();
+      }
+    });
 
     // Scroll to top immediately when overlay closes
     window.scrollTo(0, 0);

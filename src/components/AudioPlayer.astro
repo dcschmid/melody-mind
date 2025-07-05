@@ -35,6 +35,8 @@ interface Props {
   descriptionsUrl?: string;
   /** Show contextual help for keyboard shortcuts (optional) */
   showHelp?: boolean;
+  /** ID for the cover image (optional, for external references) */
+  coverId?: string;
 }
 
 const {
@@ -49,6 +51,7 @@ const {
   captionsUrl,
   descriptionsUrl,
   showHelp = false,
+  coverId,
 } = Astro.props;
 
 // Generate unique player ID for multiple instances on the same page
@@ -63,6 +66,7 @@ const t = useTranslations(lang);
   <div class="audio-player__container">
     <div class="audio-player__cover-container">
       <img
+        id={coverId}
         src={imageSrc}
         alt={imageAlt}
         class="audio-player__cover"
@@ -162,8 +166,13 @@ const t = useTranslations(lang);
           </div>
 
           <!-- Hidden audio element with enhanced accessibility -->
-          <audio class="audio-element" {preload} aria-describedby={`${playerId}-audio-description`}>
-            <source src={audioSrc} type="audio/mpeg" />
+          <audio
+            id="audio-preview"
+            class="audio-element"
+            {preload}
+            aria-describedby={`${playerId}-audio-description`}
+          >
+            <source id="audio-preview-source" src={audioSrc} type="audio/mpeg" />
             <track
               kind="captions"
               src={captionsUrl || "data:text/vtt,WEBVTT"}
@@ -354,7 +363,7 @@ const t = useTranslations(lang);
     // ======================================
     &__cover-container {
       position: relative;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 1 / 1; /* Force square aspect ratio regardless of source image */
       width: 100%;
       overflow: hidden;
     }
@@ -825,10 +834,96 @@ const t = useTranslations(lang);
 </style>
 
 <!-- Enhanced Audio Player Script with WCAG 2.2 AAA Compliance -->
-<script define:vars={{ playerId }} is:inline type="module">
-  // Import and initialize the audio player with modern performance optimizations
-  import { initializeAudioPlayers } from "../utils/audio/audioPlayerInit.js";
+<script>
+  // Simple audio player initialization
+  document.addEventListener("DOMContentLoaded", () => {
+    const players = document.querySelectorAll('[id^="audio-player-"]');
 
-  // Initialize the audio player when the script loads
-  initializeAudioPlayers(playerId);
+    players.forEach((player) => {
+      const audio = player.querySelector("audio");
+      const playButton = player.querySelector(".audio-player__play-button");
+
+      if (!audio || !playButton) {
+        return;
+      }
+
+      // Basic play/pause functionality
+      playButton.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play().catch(() => {
+            // Handle play error silently
+          });
+        } else {
+          audio.pause();
+        }
+      });
+
+      // Update play/pause icons
+      audio.addEventListener("play", () => {
+        const playIcon = player.querySelector(".play-icon") as HTMLElement;
+        const pauseIcon = player.querySelector(".pause-icon") as HTMLElement;
+        if (playIcon) {
+          playIcon.style.opacity = "0";
+        }
+        if (pauseIcon) {
+          pauseIcon.style.opacity = "1";
+        }
+      });
+
+      audio.addEventListener("pause", () => {
+        const playIcon = player.querySelector(".play-icon") as HTMLElement;
+        const pauseIcon = player.querySelector(".pause-icon") as HTMLElement;
+        if (playIcon) {
+          playIcon.style.opacity = "1";
+        }
+        if (pauseIcon) {
+          pauseIcon.style.opacity = "0";
+        }
+      });
+
+      // Update progress bar
+      audio.addEventListener("timeupdate", () => {
+        if (!audio.duration) {
+          return;
+        }
+
+        const progressBar = player.querySelector(".progress-bar") as HTMLElement;
+        const currentTimeEl = player.querySelector(".current-time") as HTMLElement;
+
+        if (progressBar) {
+          const progressPercent = (audio.currentTime / audio.duration) * 100;
+          progressBar.style.width = `${progressPercent}%`;
+        }
+
+        if (currentTimeEl) {
+          const minutes = Math.floor(audio.currentTime / 60);
+          const seconds = Math.floor(audio.currentTime % 60);
+          currentTimeEl.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
+        }
+      });
+
+      // Update duration display
+      audio.addEventListener("loadedmetadata", () => {
+        const durationEl = player.querySelector(".duration");
+        if (durationEl && audio.duration) {
+          const minutes = Math.floor(audio.duration / 60);
+          const seconds = Math.floor(audio.duration % 60);
+          durationEl.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
+        }
+      });
+
+      // Basic volume control
+      const volumeSlider = player.querySelector(".volume-slider") as HTMLInputElement;
+      if (volumeSlider) {
+        volumeSlider.addEventListener("input", () => {
+          audio.volume = parseFloat(volumeSlider.value);
+          audio.muted = false;
+        });
+
+        // Initialize volume
+        audio.volume = 0.7;
+        volumeSlider.value = "0.7";
+      }
+    });
+  });
 </script>

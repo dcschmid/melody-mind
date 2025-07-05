@@ -18,7 +18,7 @@ import Layout from "@layouts/Layout.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 import { formatDate } from "@utils/dateUtils";
-import { requireAuth } from "src/middleware/auth";
+import { checkAuth } from "src/middleware/auth";
 
 // Disable prerendering since this page requires authentication and cookies
 export const prerender = false;
@@ -82,42 +82,43 @@ interface UserProfile {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(String(lang));
 
-// Auth check: Verify if the user is logged in
-const authResult = await requireAuth(Astro.request);
-
-// If not authenticated, the middleware will handle the redirect
-if (!authResult.authenticated) {
-  return authResult.redirectToLogin;
-}
+// Auth check: Check if the user is logged in (optional - no redirect)
+const authResult = await checkAuth(Astro.request);
 
 // Default values for user data
 let profileData: UserProfile | null = null;
 let isLoading = true;
 let error: string | null = null;
 
-// Fetch user data from API endpoint
-try {
-  // No need to pass userId - the API will get it from the JWT token
-  const response = await fetch(`${Astro.url.origin}/${String(lang)}/api/user/profile`, {
-    headers: {
-      "Content-Type": "application/json",
-      Cookie: Astro.request.headers.get("cookie") || "", // Forward cookies for auth
-    },
-    credentials: "include", // Important: Send cookies
-  });
-
-  const data = await response.json();
-
-  if (data.success) {
-    profileData = data.profile;
-  } else {
-    error = data.error || t("profile.error");
-  }
-} catch (err) {
-  console.error("Error fetching profile data:", err);
-  error = t("profile.error");
-} finally {
+// Show login prompt if not authenticated, but don't redirect
+if (!authResult.authenticated) {
   isLoading = false;
+  // User will see a login prompt in the HTML instead of being redirected
+} else {
+  // Fetch user data from API endpoint only if authenticated
+  try {
+    // No need to pass userId - the API will get it from the JWT token
+    const response = await fetch(`${Astro.url.origin}/${String(lang)}/api/user/profile`, {
+      headers: {
+        "Content-Type": "application/json",
+        Cookie: Astro.request.headers.get("cookie") || "", // Forward cookies for auth
+      },
+      credentials: "include", // Important: Send cookies
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      profileData = data.profile;
+    } else {
+      error = data.error || t("profile.error");
+    }
+  } catch (err) {
+    console.error("Error fetching profile data:", err);
+    error = t("profile.error");
+  } finally {
+    isLoading = false;
+  }
 }
 
 // Format the date for display
@@ -148,7 +149,27 @@ const difficultyNames = {
     <h1 class="profile__title">{t("profile.title")}</h1>
 
     {
-      isLoading && (
+      !authResult.authenticated && (
+        <div class="profile__login-prompt" role="alert">
+          <div class="profile__login-content">
+            <Icon name="user-lock" class="profile__login-icon" aria-hidden="true" />
+            <h2 class="profile__login-title">{t("profile.auth.required.title")}</h2>
+            <p class="profile__login-message">{t("profile.auth.required.message")}</p>
+            <div class="profile__login-actions">
+              <a
+                href={`/${lang}/auth/login?redirect=${encodeURIComponent(Astro.url.pathname)}`}
+                class="profile__login-button"
+              >
+                {t("profile.auth.login")}
+              </a>
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+    {
+      isLoading && authResult.authenticated && (
         <div class="profile__loading" aria-live="polite">
           <div class="profile__loading-content">
             <Icon name="loader" class="profile__loading-icon" aria-hidden="true" />
@@ -159,7 +180,7 @@ const difficultyNames = {
     }
 
     {
-      error && (
+      error && authResult.authenticated && (
         <div class="profile__error" role="alert">
           <p class="profile__error-message">{error}</p>
           <p class="profile__error-help">{t("profile.auth.required")}</p>

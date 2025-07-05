@@ -56,7 +56,7 @@ export async function getStaticPaths() {
 import Layout from "../../layouts/Layout.astro";
 import { useTranslations } from "../../utils/i18n.ts";
 import { getUserAchievements } from "../../services/achievementService.ts";
-import { requireAuth } from "../../middleware/auth.ts";
+import { checkAuth } from "../../middleware/auth.ts";
 import {
   processAchievements,
   calculateAchievementStats,
@@ -79,15 +79,11 @@ const { lang } = Astro.params;
 const langString = lang as string;
 const t = useTranslations(langString);
 
-// 4. Authentication check with redirect handling
-const { authenticated, user, redirectToLogin } = await requireAuth(Astro.request);
+// 4. Authentication check (optional - no redirect)
+const { authenticated, user } = await checkAuth(Astro.request);
 
-// If not authenticated, redirect to login page
-if (!authenticated || !user) {
-  if (redirectToLogin) {
-    return redirectToLogin;
-  }
-}
+// Show achievements based on authentication status
+// If not authenticated, show public achievements only
 
 // 5. Data fetching and error handling
 let achievements: LocalizedAchievement[] = [];

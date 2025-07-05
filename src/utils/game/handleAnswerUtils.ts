@@ -1,6 +1,6 @@
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
-import { updateMedia, type MediaElements } from "./mediaUtils";
+import { updateMedia, updateAudioPlayer, type MediaElements } from "./mediaUtils";
 import { updateScoreDisplay } from "./scoreUtils";
 
 /**
@@ -110,6 +110,9 @@ export function handleAnswer(config: HandleAnswerConfig) {
   if (mediaElements) {
     updateMedia(album, mediaElements);
   }
+
+  // Update AudioPlayer component as well
+  updateAudioPlayer(album);
 
   // Show overlay with immediate auto-scroll to top
   overlay.classList.remove("hidden");
