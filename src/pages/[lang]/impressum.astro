@@ -1,0 +1,51 @@
+---
+/**
+ * @component ImpressumFallback
+ * @description Dynamic impressum page that falls back to English legal notice for unsupported languages
+ */
+
+import { languages } from "../../i18n/ui";
+import { getLangFromUrl } from "../../utils/i18n";
+
+// Define the return type for getStaticPaths
+interface StaticPath {
+  params: {
+    lang: string;
+  };
+}
+
+// Get static paths for all supported languages
+export async function getStaticPaths(): Promise<StaticPath[]> {
+  const paths: StaticPath[] = [];
+
+  // Generate paths for all supported languages
+  Object.keys(languages).forEach((lang) => {
+    paths.push({
+      params: { lang },
+    });
+  });
+
+  return paths;
+}
+
+// Get current language and check if we need to redirect
+const lang = getLangFromUrl(Astro.url);
+
+// Languages that have native legal pages
+const nativeLanguages = ["de"];
+
+// If this is not German, redirect to English legal notice
+if (!nativeLanguages.includes(lang)) {
+  return Astro.redirect("/en/legal-notice", 302);
+}
+
+// If this is German but accessed through dynamic route, redirect to static route
+if (lang === "de") {
+  return Astro.redirect("/de/impressum", 301);
+}
+
+// This should not be reached, but fallback to English
+return Astro.redirect("/en/legal-notice", 302);
+---
+
+<!-- This component handles redirects, so no HTML content is needed -->
