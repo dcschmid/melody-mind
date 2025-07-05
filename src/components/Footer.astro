@@ -62,6 +62,7 @@
  */
 import { useTranslations, getLangFromUrl } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 // Get current language for i18n
 const lang = getLangFromUrl(Astro.url);
@@ -72,6 +73,43 @@ const t = useTranslations(String(lang));
  * @type {number} Current year for copyright notice
  */
 const currentYear = new Date().getFullYear();
+
+/**
+ * Legal links configuration for each language with fallback support
+ * Languages without native legal pages will use the English fallback versions
+ * @type {Array<{href: string, label: string, ariaLabel: string}>}
+ */
+
+// Languages that have native legal page translations
+const nativeLanguages = ["en", "de"];
+
+// Determine the legal page links based on language support
+const getLegalPageUrl = (page: "legal-notice" | "privacy-policy"): string => {
+  if (nativeLanguages.includes(lang)) {
+    // Use native language version
+    if (lang === "de") {
+      return getRelativeLocaleUrl(lang, page === "legal-notice" ? "impressum" : "datenschutz");
+    }
+    // English version
+    return getRelativeLocaleUrl("en", page);
+  }
+
+  // Fallback to English for all other languages
+  return getRelativeLocaleUrl("en", page);
+};
+
+const legalLinks = [
+  {
+    href: getLegalPageUrl("legal-notice"),
+    label: t("footer.impressum"),
+    ariaLabel: t("footer.impressum_aria"),
+  },
+  {
+    href: getLegalPageUrl("privacy-policy"),
+    label: t("footer.privacy"),
+    ariaLabel: t("footer.privacy_aria"),
+  },
+];
 
 /**
  * External link configuration with accessibility and i18n support
@@ -109,12 +147,23 @@ const linkClasses = "footer-link";
 <footer class="footer" role="contentinfo" aria-label="Site footer">
   <div class="footer-container">
     <div class="footer-content">
-      <!-- Copyright -->
-      <div class="footer-copyright">
-        &copy; {currentYear} MelodyMind - {t("footer.rights")}
+      <!-- Copyright and Legal Links -->
+      <div class="footer-left">
+        <div class="footer-copyright">
+          &copy; {currentYear} MelodyMind - {t("footer.rights")}
+        </div>
+        <nav aria-label="Legal information" class="footer-legal">
+          {
+            legalLinks.map((link) => (
+              <a href={link.href} class="footer-legal-link" aria-label={link.ariaLabel}>
+                {link.label}
+              </a>
+            ))
+          }
+        </nav>
       </div>
 
-      <!-- Links Section -->
+      <!-- External Links -->
       <nav aria-label="Footer links" class="footer-nav">
         <!-- GitHub Link -->
         <a
@@ -124,35 +173,27 @@ const linkClasses = "footer-link";
           class={linkClasses}
           aria-label={links[0].ariaLabel}
         >
-          <Icon name={links[0].icon} width="20" height="20" aria-hidden="true" focusable="false" />
+          <Icon name={links[0].icon} width="16" height="16" aria-hidden="true" focusable="false" />
           <span>{links[0].label}</span>
           <span class="sr-only">(opens in a new tab)</span>
         </a>
 
         <!-- Donation Links -->
-        <div class="footer-donations" role="group" aria-label="Donation options">
-          {
-            links.slice(1).map((link) => (
-              <a
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                class={linkClasses}
-                aria-label={link.ariaLabel}
-              >
-                <Icon
-                  name={link.icon}
-                  width="20"
-                  height="20"
-                  aria-hidden="true"
-                  focusable="false"
-                />
-                <span>{link.label}</span>
-                <span class="sr-only">(opens in a new tab)</span>
-              </a>
-            ))
-          }
-        </div>
+        {
+          links.slice(1).map((link) => (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={linkClasses}
+              aria-label={link.ariaLabel}
+            >
+              <Icon name={link.icon} width="16" height="16" aria-hidden="true" focusable="false" />
+              <span>{link.label}</span>
+              <span class="sr-only">(opens in a new tab)</span>
+            </a>
+          ))
+        }
       </nav>
     </div>
   </div>
@@ -160,16 +201,17 @@ const linkClasses = "footer-link";
 
 <style lang="scss">
   /* ======================================
-   * FOOTER COMPONENT STYLES
+   * COMPACT FOOTER COMPONENT STYLES
    * Using CSS variables from global.css (WCAG AAA compliant)
-   * Converted to SCSS for better maintainability
+   * Minimal, compact design with clean layout
    * ====================================== */
 
   .footer {
     margin-top: var(--space-3xl);
     border-top: var(--border-width-thin) solid var(--border-primary);
-    padding-top: var(--space-xl);
-    padding-bottom: var(--space-xl);
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    background-color: var(--bg-secondary);
 
     // Container nesting
     &-container {
@@ -180,17 +222,31 @@ const linkClasses = "footer-link";
       padding-right: var(--space-md);
     }
 
-    // Content layout
+    // Main content layout - simple flex
     &-content {
       display: flex;
       flex-direction: column;
+      gap: var(--space-md);
       align-items: center;
-      justify-content: space-between;
-      gap: var(--space-lg);
 
-      // Responsive layout
+      // Responsive layout - side by side on larger screens
       @media (min-width: var(--breakpoint-md)) {
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--space-xl);
+      }
+    }
+
+    // Left section - copyright and legal
+    &-left {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      align-items: center;
+
+      @media (min-width: var(--breakpoint-md)) {
+        align-items: flex-start;
       }
     }
 
@@ -198,56 +254,97 @@ const linkClasses = "footer-link";
     &-copyright {
       font-size: var(--text-sm);
       color: var(--text-tertiary);
+      text-align: center;
+
+      @media (min-width: var(--breakpoint-md)) {
+        text-align: left;
+      }
     }
 
-    // Navigation styles
-    &-nav {
+    // Legal links
+    &-legal {
       display: flex;
+      gap: var(--space-md);
       flex-wrap: wrap;
       justify-content: center;
-      gap: var(--space-md);
 
-      // Responsive navigation
+      @media (min-width: var(--breakpoint-md)) {
+        justify-content: flex-start;
+      }
+    }
+
+    &-legal-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+      transition: color var(--transition-fast);
+      min-height: var(--min-touch-size);
+      display: inline-flex;
+      align-items: center;
+
+      &:hover {
+        color: var(--interactive-primary);
+      }
+
+      &:focus-visible {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-ring);
+      }
+
+      // High contrast mode support
+      @media (prefers-contrast: high) {
+        border: var(--border-width-thin) solid transparent;
+
+        &:focus-visible {
+          border-color: var(--border-focus);
+        }
+      }
+
+      // Reduced motion support
+      @media (prefers-reduced-motion: reduce) {
+        transition-duration: var(--animation-duration-fast) !important;
+      }
+    }
+
+    // Navigation - external links
+    &-nav {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      justify-content: center;
+
       @media (min-width: var(--breakpoint-md)) {
         justify-content: flex-end;
       }
     }
 
-    // Donation links container
-    &-donations {
-      display: flex;
-      gap: var(--space-md);
-    }
-
-    // Footer link styles - WCAG AAA compliant with performance optimization
+    // Footer link styles - simple and clean
     &-link {
-      color: var(--text-tertiary);
+      color: var(--text-secondary);
       text-decoration: none;
       font-size: var(--text-sm);
+      font-weight: var(--font-medium);
       display: flex;
       align-items: center;
-      gap: var(--space-sm);
-      padding: var(--space-sm) var(--space-md);
-      border-radius: var(--radius-md);
+      gap: var(--space-xs);
+      padding: var(--space-sm);
+      border-radius: var(--radius-sm);
       min-height: var(--min-touch-size);
-      min-width: var(--min-touch-size);
       transition:
-        color var(--transition-normal),
-        background-color var(--transition-normal),
-        transform var(--transition-normal);
+        color var(--transition-fast),
+        background-color var(--transition-fast);
 
-      // Performance optimizations
-      contain: layout style;
-      will-change: transform, background-color;
-
-      // Hover states with WCAG AAA compliant colors
+      // Simple hover states
       &:hover {
         color: var(--interactive-primary);
         background-color: var(--bg-tertiary);
-        transform: translateY(var(--animation-y-offset-small));
       }
 
-      // Focus styles for keyboard navigation - WCAG AAA compliant
+      // Focus styles for keyboard navigation
       &:focus-visible {
         outline: var(--focus-outline);
         outline-offset: var(--focus-ring-offset);
@@ -255,20 +352,9 @@ const linkClasses = "footer-link";
         background-color: var(--bg-tertiary);
       }
 
-      // Active state
-      &:active {
-        transform: scale(var(--animation-scale-hover));
-      }
-
       // Reduced motion support for accessibility
       @media (prefers-reduced-motion: reduce) {
         transition-duration: var(--animation-duration-fast) !important;
-        will-change: auto;
-
-        &:hover,
-        &:active {
-          transform: none !important;
-        }
       }
 
       // High contrast mode support
@@ -284,6 +370,7 @@ const linkClasses = "footer-link";
       // Print styles
       @media print {
         color: var(--print-text) !important;
+        background: transparent !important;
       }
     }
 
@@ -297,6 +384,11 @@ const linkClasses = "footer-link";
       border-top: var(--border-width-thin) solid var(--print-border);
       color: var(--print-text);
       background: var(--print-bg);
+
+      // Hide donation links in print
+      .footer-nav {
+        display: none;
+      }
     }
   }
 </style>

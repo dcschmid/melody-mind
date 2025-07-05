@@ -1,0 +1,268 @@
+---
+/**
+ * @component ImpressumPage
+ * @description German Impressum (Legal Notice) page for MelodyMind
+ */
+
+import Layout from "@layouts/Layout.astro";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
+
+export const prerender = true;
+
+// Page configuration
+const title = "Impressum | MelodyMind";
+const description =
+  "Rechtliche Informationen und Impressum für MelodyMind - Das ultimative Musik-Quiz-Spiel";
+---
+
+<Layout {title} {description} type="website" showHeader={true} showHeaderIcons={true}>
+  <main class="legal-page">
+    <div class="container">
+      <header class="legal-page__header">
+        <Headline level="h1" title="Impressum" />
+        <Paragraph description="Angaben gemäß § 5 TMG" />
+      </header>
+
+      <div class="legal-page__content">
+        <section class="legal-section">
+          <Headline level="h2" title="Verantwortlich für den Inhalt" />
+          <div class="legal-section__content">
+            <Paragraph>
+              <strong>Daniel Schmid</strong><br />
+              Hiltenspergerstr. 78<br />
+              80796 München<br />
+              Deutschland
+            </Paragraph>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2" title="Kontakt" />
+          <div class="legal-section__content">
+            <Paragraph>
+              <strong>E-Mail:</strong>
+              <a href="mailto:dcschmid@murena.io" class="legal-link">dcschmid@murena.io</a><br />
+              <strong>Website:</strong>
+              <a href="https://melodymind.de" class="legal-link">https://melodymind.de</a>
+            </Paragraph>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2" title="Redaktionell verantwortlich" />
+          <div class="legal-section__content">
+            <Paragraph>
+              Daniel Schmid<br />
+              Hiltenspergerstr. 78<br />
+              80796 München<br />
+              Deutschland
+            </Paragraph>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2" title="EU-Streitschlichtung" />
+          <div class="legal-section__content">
+            <Paragraph>
+              Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)
+              bereit:
+              <a
+                href="https://ec.europa.eu/consumers/odr/"
+                class="legal-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://ec.europa.eu/consumers/odr/
+              </a>
+            </Paragraph>
+            <Paragraph>Unsere E-Mail-Adresse finden Sie oben im Impressum.</Paragraph>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2" title="Verbraucherstreitbeilegung/Universalschlichtungsstelle" />
+          <div class="legal-section__content">
+            <Paragraph>
+              Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+              Verbraucherschlichtungsstelle teilzunehmen.
+            </Paragraph>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2" title="Haftung für Inhalte" />
+          <div class="legal-section__content">
+            <Paragraph>
+              Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten
+              nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
+              Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte
+              fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine
+              rechtswidrige Tätigkeit hinweisen.
+            </Paragraph>
+            <Paragraph>
+              Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den
+              allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch
+              erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei
+              Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend
+              entfernen.
+            </Paragraph>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2" title="Haftung für Links" />
+          <div class="legal-section__content">
+            <Paragraph>
+              Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen
+              Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr
+              übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter
+              oder Betreiber der Seiten verantwortlich.
+            </Paragraph>
+            <Paragraph>
+              Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße
+              überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+              Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete
+              Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von
+              Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+            </Paragraph>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2" title="Urheberrecht" />
+          <div class="legal-section__content">
+            <Paragraph>
+              Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
+              unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung
+              und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der
+              schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+            </Paragraph>
+            <Paragraph>
+              Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen
+              Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt
+              wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter
+              als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung
+              aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von
+              Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
+            </Paragraph>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2" title="Musik-Content und Lizenzen" />
+          <div class="legal-section__content">
+            <Paragraph>
+              Die in MelodyMind verwendeten Musik-Previews und Album-Cover werden über lizenzierte
+              APIs bereitgestellt. Alle Rechte an den Musikstücken und Bildern liegen bei den
+              jeweiligen Künstlern, Plattenlabels und Rechteinhabern.
+            </Paragraph>
+            <Paragraph>
+              Die Streaming-Links führen zu lizenzierten Musikdiensten wie Spotify, Apple Music und
+              Deezer. MelodyMind selbst hostet keine urheberrechtlich geschützten Inhalte.
+            </Paragraph>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .legal-page {
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    padding: var(--space-xl) 0;
+  }
+
+  .container {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .legal-page__header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .legal-page__content {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+    border: 1px solid var(--border-primary);
+    box-shadow: var(--shadow-md);
+  }
+
+  .legal-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .legal-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-section__content {
+    padding-top: var(--space-md);
+  }
+
+  .legal-link {
+    color: var(--interactive-primary);
+    text-decoration: underline;
+    font-weight: var(--font-medium);
+    transition: color var(--transition-fast);
+  }
+
+  .legal-link:hover {
+    color: var(--interactive-primary-hover);
+  }
+
+  .legal-link:focus {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  .legal-page__footer {
+    margin-top: var(--space-2xl);
+    padding: var(--space-lg);
+    background-color: var(--color-warning-50);
+    border: 1px solid var(--color-warning-200);
+    border-radius: var(--radius-md);
+  }
+
+  /* Responsive Design */
+  @media (min-width: 48em) {
+    .legal-page {
+      padding: var(--space-3xl) 0;
+    }
+
+    .container {
+      padding: 0 var(--space-lg);
+    }
+
+    .legal-page__content {
+      padding: var(--space-3xl);
+    }
+  }
+
+  /* Print Styles */
+  @media print {
+    .legal-page {
+      background: white;
+      color: black;
+    }
+
+    .legal-page__content {
+      background: white;
+      border: none;
+      box-shadow: none;
+    }
+
+    .legal-link {
+      color: black;
+      text-decoration: underline;
+    }
+  }
+</style>

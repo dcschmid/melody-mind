@@ -1,0 +1,534 @@
+---
+/**
+ * @component PrivacyPolicyPage
+ * @description English Privacy Policy page for MelodyMind
+ */
+
+import Layout from "@layouts/Layout.astro";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
+
+export const prerender = true;
+
+// Page configuration
+const title = "Privacy Policy | MelodyMind";
+const description =
+  "Privacy policy for MelodyMind - Information about the processing of personal data";
+---
+
+<Layout {title} {description} type="website" showHeader={true} showHeaderIcons={true}>
+  <main class="legal-page">
+    <div class="container">
+      <header class="legal-page__header">
+        <Headline level="h1" className="legal-page__title">Privacy Policy</Headline>
+        <Paragraph className="legal-page__subtitle"
+          >Information about the processing of your personal data</Paragraph
+        >
+        <Paragraph className="legal-page__date"
+          >Last updated: {new Date().toLocaleDateString("en-US")}</Paragraph
+        >
+      </header>
+
+      <div class="legal-page__content">
+        <section class="legal-section">
+          <Headline level="h2" className="legal-section__title">1. Privacy at a Glance</Headline>
+          <div class="legal-section__content">
+            <Headline level="h3">General Information</Headline>
+            <Paragraph>
+              The following gives a simple overview of what happens to your personal information
+              when you visit our website. Personal information is any data with which you could be
+              personally identified.
+            </Paragraph>
+
+            <Headline level="h3">Data Collection on this Website</Headline>
+            <Paragraph>
+              <strong>Who is responsible for the data collection on this website?</strong>
+            </Paragraph>
+            <Paragraph>
+              The data processing on this website is carried out by the website operator. You can
+              find the operator's contact details in the "Information about the responsible party"
+              section of this privacy policy.
+            </Paragraph>
+
+            <Paragraph>
+              <strong>How do we collect your data?</strong>
+            </Paragraph>
+            <Paragraph>
+              Some data is collected when you provide it to us. This could, for example, be data you
+              enter on a contact form.
+            </Paragraph>
+            <Paragraph>
+              Other data is collected automatically by our IT systems when you visit the website.
+              This data is primarily technical data such as the browser and operating system you are
+              using or when you accessed the page.
+            </Paragraph>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2" className="legal-section__title">2. Hosting</Headline>
+          <div class="legal-section__content">
+            <Headline level="h3">Hosting with Render</Headline>
+            <Paragraph>
+              We host the content of our website at Render Services, Inc., 525 Brannan Street, Suite
+              300, San Francisco, CA 94107, USA.
+            </Paragraph>
+            <Paragraph>
+              When you visit our website, Render collects various logfiles including your IP
+              addresses. Details can be found in Render's privacy policy:
+              <a
+                href="https://render.com/privacy"
+                class="legal-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                render.com/privacy
+              </a>
+            </Paragraph>
+            <Paragraph>
+              The use is based on Art. 6 para. 1 lit. f GDPR. We have a legitimate interest in a
+              reliable presentation of our website.
+            </Paragraph>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2" className="legal-section__title"
+            >3. General Information and Mandatory Information</Headline
+          >
+          <div class="legal-section__content">
+            <Headline level="h3">Data Protection</Headline>
+            <Paragraph>
+              The operators of this website take the protection of your personal data very
+              seriously. We treat your personal data confidentially and in accordance with the
+              statutory data protection regulations and this privacy policy.
+            </Paragraph>
+
+            <Headline level="h3">Information about the responsible party</Headline>
+            <Paragraph>The responsible party for data processing on this website is:</Paragraph>
+            <div class="contact-info">
+              <Paragraph>
+                <strong>Daniel Schmid</strong><br />
+                Hiltenspergerstr. 78<br />
+                80796 München<br />
+                Deutschland
+              </Paragraph>
+              <Paragraph>
+                <strong>Email:</strong>
+                <a href="mailto:dcschmid@murena.io" class="legal-link">dcschmid@murena.io</a>
+              </Paragraph>
+            </div>
+
+            <Headline level="h3">Storage Duration</Headline>
+            <Paragraph>
+              Unless a more specific storage period has been specified in this privacy policy, your
+              personal data will remain with us until the purpose for which it was collected no
+              longer applies.
+            </Paragraph>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2">4. Data Collection on this Website</Headline>
+          <div class="legal-section__content">
+            <Headline level="h3">Server Log Files</Headline>
+            <Paragraph>
+              The website provider automatically collects and stores information in so-called server
+              log files, which your browser automatically transmits to us. These are:
+            </Paragraph>
+            <ul class="legal-list">
+              <li>Browser type and browser version</li>
+              <li>Operating system used</li>
+              <li>Referrer URL</li>
+              <li>Host name of the accessing computer</li>
+              <li>Time of the server request</li>
+              <li>IP address</li>
+            </ul>
+            <Paragraph>
+              A combination of this data with other data sources will not be made. The collection of
+              this data is based on Art. 6 para. 1 lit. f GDPR.
+            </Paragraph>
+
+            <Headline level="h3">Game Data and High Scores</Headline>
+            <Paragraph
+              >When you play MelodyMind, the following data is stored in our TursoDB database:</Paragraph
+            >
+            <ul class="legal-list">
+              <li>Your chosen username</li>
+              <li>Your game results and scores</li>
+              <li>Game statistics (rounds played, categories, difficulty levels)</li>
+              <li>Your language setting</li>
+              <li>Achievements and unlocked content</li>
+            </ul>
+            <Paragraph>
+              This data is stored securely in our TursoDB database to provide you with persistent
+              game progress and enable features like high scores and achievements. You can request
+              deletion of your data at any time by contacting us at
+              <a href="mailto:dcschmid@murena.io" class="legal-link">dcschmid@murena.io</a>.
+            </Paragraph>
+            <Paragraph>
+              The legal basis for this processing is Art. 6 para. 1 lit. b GDPR (performance of
+              contract) and Art. 6 para. 1 lit. f GDPR (legitimate interest in providing game
+              functionality).
+            </Paragraph>
+
+            <Headline level="h3">Music Content and External APIs</Headline>
+            <Paragraph>
+              MelodyMind uses external music APIs for preview links and album covers. When playing
+              music previews or clicking on streaming links, you will be redirected to external
+              services:
+            </Paragraph>
+            <ul class="legal-list">
+              <li>
+                <strong>Spotify:</strong> Privacy policy at <a
+                  href="https://www.spotify.com/privacy/"
+                  class="legal-link"
+                  target="_blank"
+                  rel="noopener">spotify.com/privacy</a
+                >
+              </li>
+              <li>
+                <strong>Apple Music:</strong> Privacy policy at <a
+                  href="https://www.apple.com/privacy/"
+                  class="legal-link"
+                  target="_blank"
+                  rel="noopener">apple.com/privacy</a
+                >
+              </li>
+              <li>
+                <strong>Deezer:</strong> Privacy policy at <a
+                  href="https://www.deezer.com/legal/personal-datas"
+                  class="legal-link"
+                  target="_blank"
+                  rel="noopener">deezer.com/legal/personal-datas</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2">5. Cookies and Local Storage</Headline>
+          <div class="legal-section__content">
+            <Headline level="h3">Cookies</Headline>
+            <Paragraph>
+              Our website uses cookies. These are small text files that your browser stores on your
+              device. We only use technically necessary cookies for:
+            </Paragraph>
+            <ul class="legal-list">
+              <li>Storing your language setting</li>
+              <li>Maintaining your game session</li>
+              <li>Game functionality</li>
+            </ul>
+            <Paragraph>
+              These cookies are necessary for the website to function and are stored on the basis of
+              Art. 6 para. 1 lit. f GDPR.
+            </Paragraph>
+
+            <Headline level="h3">Local Storage</Headline>
+            <Paragraph>
+              Your game scores and settings are stored in your browser's local storage. This data
+              remains local and is not transmitted.
+            </Paragraph>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2">6. Your Rights</Headline>
+          <div class="legal-section__content">
+            <Paragraph>You have the following rights regarding your personal data:</Paragraph>
+            <ul class="legal-list">
+              <li><strong>Right to information</strong> (Art. 15 GDPR)</li>
+              <li><strong>Right to rectification</strong> (Art. 16 GDPR)</li>
+              <li><strong>Right to erasure</strong> (Art. 17 GDPR)</li>
+              <li><strong>Right to restriction of processing</strong> (Art. 18 GDPR)</li>
+              <li><strong>Right to data portability</strong> (Art. 20 GDPR)</li>
+              <li><strong>Right to object</strong> (Art. 21 GDPR)</li>
+              <li>
+                <strong>Right to lodge a complaint with a supervisory authority</strong> (Art. 77 GDPR)
+              </li>
+            </ul>
+            <Paragraph>
+              If you wish to exercise these rights, please contact us at:
+              <a href="mailto:dcschmid@murena.io" class="legal-link">dcschmid@murena.io</a>
+            </Paragraph>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2">7. Analytics Tools</Headline>
+          <div class="legal-section__content">
+            <Headline level="h3">Fathom Analytics</Headline>
+            <Paragraph>
+              We use Fathom Analytics, a privacy-focused analytics service, to better understand how
+              visitors interact with our website. Fathom Analytics is GDPR, CCPA and PECR compliant
+              and does not use cookies or collect personal data.
+            </Paragraph>
+            <Paragraph>Fathom Analytics collects anonymized data including:</Paragraph>
+            <ul class="legal-list">
+              <li>Page views and visitor counts</li>
+              <li>Referrer information (which website you came from)</li>
+              <li>General location (country level only)</li>
+              <li>Device and browser information (anonymized)</li>
+            </ul>
+            <Paragraph>
+              This data is processed anonymously and cannot be used to identify individual users.
+              For more information, see Fathom's privacy policy:
+              <a
+                href="https://usefathom.com/privacy"
+                class="legal-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                usefathom.com/privacy
+              </a>
+            </Paragraph>
+            <Paragraph>
+              The legal basis for this processing is Art. 6 para. 1 lit. f GDPR (legitimate interest
+              in analyzing website usage to improve our services).
+            </Paragraph>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2">8. Contact and Complaints</Headline>
+          <div class="legal-section__content">
+            <Paragraph>
+              If you have questions about data protection, wish to exercise your rights, or have
+              complaints, you can always contact us:
+            </Paragraph>
+            <div class="contact-info">
+              <Paragraph>
+                <strong>Data Protection Contact:</strong><br />
+                Email: <a href="mailto:dcschmid@murena.io" class="legal-link">dcschmid@murena.io</a
+                ><br />
+                Address: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland
+              </Paragraph>
+            </div>
+            <Paragraph>
+              You also have the right to lodge a complaint with a data protection supervisory
+              authority about our processing of your personal data.
+            </Paragraph>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2">9. Security</Headline>
+          <div class="legal-section__content">
+            <Paragraph>
+              We use appropriate technical and organizational security measures to protect your data
+              against accidental or intentional manipulation, partial or complete loss, destruction,
+              or unauthorized access by third parties.
+            </Paragraph>
+            <Paragraph>
+              The website is transmitted via HTTPS encryption. This protects your input from access
+              by third parties.
+            </Paragraph>
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <Headline level="h2">10. Changes to this Privacy Policy</Headline>
+          <div class="legal-section__content">
+            <Paragraph>
+              We reserve the right to adapt this privacy policy so that it always complies with
+              current legal requirements or to implement changes to our services in the privacy
+              policy.
+            </Paragraph>
+            <Paragraph>
+              The new privacy policy will then apply to your next visit. We recommend that you visit
+              this page regularly to stay informed about changes.
+            </Paragraph>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .legal-page {
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    padding: var(--space-xl) 0;
+  }
+
+  .container {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .legal-page__header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .legal-page__title {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .legal-page__subtitle {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    font-weight: var(--font-medium);
+    margin-bottom: var(--space-sm);
+  }
+
+  .legal-page__date {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    font-style: italic;
+  }
+
+  .legal-page__content {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+    border: 1px solid var(--border-primary);
+    box-shadow: var(--shadow-md);
+  }
+
+  .legal-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .legal-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-section__title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-semibold);
+    color: var(--interactive-primary);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--border-secondary);
+  }
+
+  .legal-section__content h3 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+    margin: var(--space-lg) 0 var(--space-md) 0;
+  }
+
+  .legal-section__content h3:first-child {
+    margin-top: 0;
+  }
+
+  .legal-section__content p {
+    margin-bottom: var(--space-md);
+    line-height: var(--leading-relaxed);
+    color: var(--text-primary);
+  }
+
+  .legal-section__content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-list {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-lg);
+  }
+
+  .legal-list li {
+    margin-bottom: var(--space-sm);
+    line-height: var(--leading-relaxed);
+    color: var(--text-primary);
+  }
+
+  .contact-info {
+    background-color: var(--bg-secondary);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--interactive-primary);
+    margin: var(--space-md) 0;
+  }
+
+  .contact-info p {
+    margin-bottom: var(--space-sm);
+  }
+
+  .contact-info p:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-link {
+    color: var(--interactive-primary);
+    text-decoration: underline;
+    font-weight: var(--font-medium);
+    transition: color var(--transition-fast);
+  }
+
+  .legal-link:hover {
+    color: var(--interactive-primary-hover);
+  }
+
+  .legal-link:focus {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  .legal-page__footer {
+    margin-top: var(--space-2xl);
+    padding: var(--space-lg);
+    background-color: var(--color-warning-50);
+    border: 1px solid var(--color-warning-200);
+    border-radius: var(--radius-md);
+  }
+
+  .legal-notice {
+    font-size: var(--text-sm);
+    color: var(--color-warning-800);
+    margin: 0;
+    font-style: italic;
+  }
+
+  /* Responsive Design */
+  @media (min-width: 48em) {
+    .legal-page {
+      padding: var(--space-3xl) 0;
+    }
+
+    .container {
+      padding: 0 var(--space-lg);
+    }
+
+    .legal-page__title {
+      font-size: var(--text-5xl);
+    }
+
+    .legal-page__content {
+      padding: var(--space-3xl);
+    }
+  }
+
+  /* Print Styles */
+  @media print {
+    .legal-page {
+      background: white;
+      color: black;
+    }
+
+    .legal-page__content {
+      background: white;
+      border: none;
+      box-shadow: none;
+    }
+
+    .legal-link {
+      color: black;
+      text-decoration: underline;
+    }
+
+    .legal-list {
+      list-style-type: disc;
+    }
+  }
+</style>
