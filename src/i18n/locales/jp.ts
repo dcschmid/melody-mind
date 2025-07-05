@@ -557,8 +557,28 @@ export default {
   "nav.openNewWindow": "新しいウィンドウで開く",
   "nav.skip.main": "メインコンテンツにスキップ",
   "nav.title": "ナビゲーション",
-  "navigation.article.opens": "記事ページを開く",
-  "notice.fallback_content": "フォールバックコンテンツが利用可能",
+  // Section titles for the new navigation overlay
+  "nav.section.account": "アカウント",
+  "nav.section.compete": "競う",
+  "nav.section.discover": "発見",
+  "nav.section.main": "メイン",
+  "nav.section.support": "サポート",
+  // Navigation subtitle
+  "nav.subtitle": "音楽を発見し、友達と競い、知識をテストしよう",
+  // Legacy section keys for compatibility
+  "nav.sections.account": "アカウント",
+  "nav.sections.compete": "競う",
+  "nav.sections.discover": "発見",
+  "nav.sections.main": "メイン",
+  "nav.sections.support": "サポート",
+  // Navigation menu item descriptions
+  "nav.menu.home.desc": "メインページに戻る",
+  "nav.menu.knowledge.desc": "音楽の知識とトリビアを探る",
+  "nav.menu.playlists.desc": "厳選された音楽プレイリストを発見",
+  "nav.menu.highscores.desc": "最高スコアとランキングを見る",
+  "nav.menu.achievements.desc": "解除された実績と進歩を見る",
+  "nav.menu.profile.desc": "プロフィールと設定を管理",
+  "nav.menu.logout.desc": "アカウントからログアウト",
   "playlist.accessibility.info": "プレイリストアクセシビリティ情報",
   "playlist.accessibility.public":
     "パブリックプレイリスト - ストリーミングサービスアクセスに認証は不要",

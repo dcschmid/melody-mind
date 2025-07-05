@@ -572,6 +572,28 @@ export default {
   "nav.openNewWindow": "Открывается в новом окне",
   "nav.skip.main": "Перейти к основному содержанию",
   "nav.title": "Навигация",
+  // Section titles for the new navigation overlay
+  "nav.section.account": "Аккаунт",
+  "nav.section.compete": "Соревноваться",
+  "nav.section.discover": "Открывать",
+  "nav.section.main": "Главное",
+  "nav.section.support": "Поддержка",
+  // Navigation subtitle
+  "nav.subtitle": "Открывайте музыку, соревнуйтесь с друзьями и тестируйте свои знания",
+  // Legacy section keys for compatibility
+  "nav.sections.account": "Аккаунт",
+  "nav.sections.compete": "Соревноваться",
+  "nav.sections.discover": "Открывать",
+  "nav.sections.main": "Главное",
+  "nav.sections.support": "Поддержка",
+  // Navigation menu item descriptions
+  "nav.menu.home.desc": "Вернуться на главную страницу",
+  "nav.menu.knowledge.desc": "Изучайте музыкальные знания и викторины",
+  "nav.menu.playlists.desc": "Откройте кураторские музыкальные плейлисты",
+  "nav.menu.highscores.desc": "Посмотрите лучшие результаты и рейтинги",
+  "nav.menu.achievements.desc": "Посмотрите свои разблокированные достижения и прогресс",
+  "nav.menu.profile.desc": "Управляйте своим профилем и настройками",
+  "nav.menu.logout.desc": "Выйти из аккаунта",
   "navigation.article.opens": "открывает страницу статьи",
   "notice.fallback_content": "Доступен резервный контент",
   "playlist.accessibility.info": "Информация о доступности плейлиста",
