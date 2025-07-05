@@ -152,7 +152,7 @@ export default {
   "auth.form.password_min_length": "Salasanan on oltava vähintään 6 merkkiä pitkä",
   "auth.form.password_number_error": "Salasanan on sisällettävä vähintään yksi numero (0-9)",
   "auth.form.password_repeats_error":
-    "Salasana ei voi sisältää yli 2 peräkkäistä identtistä merkkiä",
+    "Salasana ei voi sisältää yli 2 peräkkäistä identtistä merkkejä",
   "auth.form.password_required": "Salasana on pakollinen",
   "auth.form.password_requirements": "Salasana ei täytä kaikkia vaatimuksia",
   "auth.form.password_sequences_error":
@@ -444,7 +444,7 @@ export default {
   "game.search.results": "genreä löytyi",
   "game.search.showing.all": "Näytetään kaikki genret",
   "game.select":
-    "🎵 Valmiina äärimmäiseen musiikkiseikkailuun? Sukella rytmin, melodian ja unohtumattomien kappaleiden maailmaan! Murskaavista kitarasooloista ajattomiin klassikoihin – löydä täydellinen musiikillinen taistelusi. Näytä maailmalle, että olet todellinen musiikin tuntija!",
+    "🎵 Valmiina äärimmäiseen musiikkiseikkailuun? Sukella rytmin, melodian ja unohtumattomiin kappaleiden maailmaan! Murskaavista kitarasooloista ajattomiin klassikoihin – löydä täydellinen musiikillinen taistelusi. Näytä maailmalle, että olet todellinen musiikin tuntija!",
   "game.submit.answer": "Tarkista vastaus",
   "game.submit.answer.aria": "Tarkista nykyinen järjestys ja siirry seuraavaan kierrokseen",
   "game.welcome": "Tervetuloa Melody Mindiin",
@@ -572,6 +572,28 @@ export default {
   "nav.openNewWindow": "Avautuu uudessa ikkunassa",
   "nav.skip.main": "Siirry pääsisältöön",
   "nav.title": "Navigaatio",
+  // Section titles for the new navigation overlay
+  "nav.section.account": "Tili",
+  "nav.section.compete": "Kilpaile",
+  "nav.section.discover": "Löydä",
+  "nav.section.main": "Päävalikko",
+  "nav.section.support": "Tuki",
+  // Navigation subtitle
+  "nav.subtitle": "Löydä musiikkia, kilpaile ystävien kanssa ja testaa tietämystäsi",
+  // Legacy section keys for compatibility
+  "nav.sections.account": "Tili",
+  "nav.sections.compete": "Kilpaile",
+  "nav.sections.discover": "Löydä",
+  "nav.sections.main": "Päävalikko",
+  "nav.sections.support": "Tuki",
+  // Navigation menu item descriptions
+  "nav.menu.home.desc": "Palaa pääsivulle",
+  "nav.menu.knowledge.desc": "Tutustu musiikkitietoon ja tietovisailuun",
+  "nav.menu.playlists.desc": "Löydä kuratoituja musiikkisoittolistoja",
+  "nav.menu.highscores.desc": "Katso parhaat pisteet ja sijoitukset",
+  "nav.menu.achievements.desc": "Katso avatut saavutuksesi ja edistymisesi",
+  "nav.menu.profile.desc": "Hallitse profiiliasi ja asetuksiasi",
+  "nav.menu.logout.desc": "Kirjaudu ulos tilistäsi",
   "navigation.article.opens": "avaa artikkelin sivun",
   "notice.fallback_content": "Varastoinen sisältö saatavilla",
   "playlist.accessibility.info": "Soittolistan esteettömyystiedot",
