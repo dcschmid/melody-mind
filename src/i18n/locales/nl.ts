@@ -574,6 +574,7 @@ export default {
   "nav.menu.home": "Startpagina",
   "nav.menu.logout": "Uitloggen",
   "nav.menu.open": "Menu openen",
+  "nav.menu.podcasts": "Podcasts",
   "nav.menu.rules": "Spelregels",
   "nav.menu.text": "Menu",
   "nav.openNewWindow": "Opent in nieuw venster",
@@ -597,8 +598,24 @@ export default {
   "nav.menu.home.desc": "Terug naar de hoofdpagina",
   "nav.menu.knowledge.desc": "Verken muziekkennis en trivia",
   "nav.menu.playlists.desc": "Ontdek samengestelde muziekplaylists",
+  "nav.menu.podcasts.desc": "Luister naar muziekpodcasts en lees transcripties",
   "nav.menu.highscores.desc": "Bekijk de beste scores en ranglijsten",
   "nav.menu.achievements.desc": "Bekijk je vrijgespeelde prestaties en voortgang",
   "nav.menu.profile.desc": "Beheer je profiel en instellingen",
   "nav.menu.logout.desc": "Uitloggen van je account",
+  // Podcast page translations
+  "podcast.title": "Podcasts",
+  "podcast.description": "Ontdek muziekinzichten door onze podcastserie",
+  "podcasts.episode.singular": "Aflevering",
+  "podcasts.episode.plural": "Afleveringen",
+  "podcasts.empty.title": "Geen podcasts beschikbaar",
+  "podcasts.empty.text":
+    "Er zijn nog geen podcastafleveringen beschikbaar in deze taal. Kom snel terug voor nieuwe inhoud!",
+  // Podcast transcript translations
+  "podcasts.transcript.toggle": "Transcript in-/uitschakelen",
+  "podcasts.transcript.show": "Transcript tonen",
+  "podcasts.transcript.title": "Aflevering transcript",
+  "podcasts.transcript.info": "Klik op elk segment om naar die positie in de audio te springen.",
+  "podcasts.transcript.loading": "Klik om het transcript te laden...",
+  "podcasts.player.transcript.placeholder": "Nog geen transcript-inhoud beschikbaar.",
 };

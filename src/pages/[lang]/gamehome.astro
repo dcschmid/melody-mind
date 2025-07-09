@@ -123,15 +123,15 @@ function generateCategoryListSchema(baseUrl: string, lang: string, playableCateg
 function generateClientTranslations(t: (key: string) => string) {
   return {
     search: {
-      placeholder: t("game.search.label") || "Search genres...",
-      showingAll: t("game.search.showing.all") || "Showing all genres",
-      resultsFound: t("game.search.results") || "genres found",
-      noResults: t("game.search.no.results") || "No genres found matching your search",
-      clear: t("game.search.clear") || "Clear search",
+      placeholder: t("game.search.label"),
+      showingAll: t("game.search.showing.all"),
+      resultsFound: t("game.search.results"),
+      noResults: t("game.search.no.results"),
+      clear: t("game.search.clear"),
     },
     accessibility: {
-      skipToContent: t("accessibility.skip.to.content") || "Skip to main content",
-      searchLabel: t("game.search.label") || "Search music genres",
+      skipToContent: t("accessibility.skip.to.content"),
+      searchLabel: t("game.search.label"),
     },
   };
 }
@@ -198,7 +198,7 @@ const title = t("game.select");
 const description = t("game.welcome");
 
 // Create rich SEO content combining category information
-const enrichedContent = `${title} ${description} ${t("game.genre.selection.description") || "Choose from multiple music genres including rock, pop, jazz, classical and more. Each category features carefully curated questions to test your musical knowledge."} ${sortedCategories.map((c) => `${c.headline} ${c.introSubline} ${c.text || ""}`).join(" ")}`;
+const enrichedContent = `${title} ${description} ${t("game.genre.selection.description")} ${sortedCategories.map((c) => `${c.headline} ${c.introSubline} ${c.text || ""}`).join(" ")}`;
 
 // Generate optimized meta description and keywords using enhanced content
 const optimizedDescription = generateMetaDescription(enrichedContent, 158); // Leave room for ellipsis
@@ -232,10 +232,8 @@ const publishDate = new Date("2024-01-01");
 const modifiedDate = new Date();
 
 // Prepare fallback text for empty states
-const emptyCategoriesHeadline = t("game.categories.empty.headline") || "No genres found";
-const emptyCategoriesText =
-  t("game.categories.empty.text") ||
-  "Unfortunately, no categories were found. Please try again later.";
+const emptyCategoriesHeadline = t("game.categories.empty.headline");
+const emptyCategoriesText = t("game.categories.empty.text");
 
 // Client-side translations for enhanced interactivity
 const clientTranslations = generateClientTranslations(t);
@@ -300,10 +298,7 @@ const clientTranslations = generateClientTranslations(t);
         </Paragraph>
         <!-- Additional descriptive content for SEO -->
         <p class="gamehome-hero__seo-description sr-only">
-          {
-            t("game.genre.selection.description") ||
-              "Choose from multiple music genres including rock, pop, jazz, classical and more. Test your knowledge with challenging questions and compete with players worldwide."
-          }
+          {t("game.genre.selection.description")}
         </p>
       </div>
     </header>
@@ -334,13 +329,13 @@ const clientTranslations = generateClientTranslations(t);
           <button
             type="button"
             class="search-container__clear"
-            aria-label={t("game.search.clear") || "Clear search"}
+            aria-label={t("game.search.clear")}
             hidden
           >
             <Icon name="x" aria-hidden="true" />
           </button>
           <span id="search-description" class="sr-only">
-            {t("game.search.help") || "Type to filter music genres by name"}
+            {t("game.search.help")}
           </span>
         </div>
         <div class="search-container__results-info" aria-live="polite" aria-atomic="true">
@@ -351,7 +346,7 @@ const clientTranslations = generateClientTranslations(t);
       <!-- Enhanced genre grid with semantic markup -->
       <div class="genre-content">
         <Headline
-          title={t("game.categories.title") || "Music Categories"}
+          title={t("game.categories.title")}
           level="h2"
           className="genre-content__title sr-only"
           id="playlist-heading"
@@ -361,7 +356,7 @@ const clientTranslations = generateClientTranslations(t);
           id="playlist-grid"
           class="genre-grid"
           role="list"
-          aria-label={t("game.genre.list") || "Music genre selection"}
+          aria-label={t("game.genre.list")}
           aria-live="polite"
           itemscope
           itemtype="https://schema.org/ItemList"
@@ -391,11 +386,7 @@ const clientTranslations = generateClientTranslations(t);
       </div>
 
       <!-- Loading state for better UX -->
-      <LoadingState
-        text={t("game.categories.loading") || "Loading music categories..."}
-        className="loading-state"
-        visible={false}
-      />
+      <LoadingState text={t("game.categories.loading")} className="loading-state" visible={false} />
     </section>
   </main>
 

@@ -96,7 +96,7 @@ interface CategoryType {
 }
 
 const currentCategory = category as CategoryType;
-const title = `${currentCategory?.headline} ${t("category.start") || "Start"}`;
+const title = `${currentCategory?.headline} ${t("category.start")}`;
 const description = currentCategory?.introSubline || "";
 const pageContent = `${title} ${description} ${currentCategory?.text || ""}`;
 const optimizedDescription = generateMetaDescription(pageContent);
@@ -117,10 +117,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         <div class="alert-box" role="alert" aria-live="polite">
           <div class="alert-content">
             <Icon name="warning" class="icon-small" aria-hidden="true" />
-            <span>
-              {t("notice.fallback_content") ||
-                "Using fallback content. Some information may be displayed in English."}
-            </span>
+            <span>{t("notice.fallback_content")}</span>
           </div>
         </div>
       )
@@ -149,7 +146,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
                   widths={[400, 600, 800, 1000]}
                   sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1000px"
                   formats={["avif", "webp", "jpg"]}
-                  alt={`${currentCategory.headline} ${t("category.image.alt") || "category image"}`}
+                  alt={`${currentCategory.headline} ${t("category.image.alt")}`}
                   loading="eager"
                   fetchpriority="high"
                   width={1000}
@@ -161,11 +158,11 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
               <div
                 class="header-no-image-container"
                 role="img"
-                aria-label={t("category.no_image_available") || "No image available"}
+                aria-label={t("category.no_image_available")}
               >
                 <div class="header-no-image-content">
                   <Icon name="image" class="icon-large" aria-hidden="true" />
-                  <span>{t("category.no_image_available") || "No image available"}</span>
+                  <span>{t("category.no_image_available")}</span>
                 </div>
               </div>
             )
@@ -189,7 +186,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
           <Icon name="info-circle" class="icon-large icon-white" />
         </div>
         <Headline level="h2" id="description-heading">
-          {t("category.about.title") || "Über diese Kategorie"}
+          {t("category.about.title")}
         </Headline>
         <Paragraph textSize="2xl" description={currentCategory?.text} />
 
@@ -212,9 +209,9 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
                 href={currentCategory.knowledgeUrl}
                 variant="secondary"
                 icon="book-open"
-                aria-label={`${t("knowledge.read.more") || "Mehr erfahren"} über ${currentCategory?.headline}`}
+                aria-label={`${t("knowledge.read.more")} über ${currentCategory?.headline}`}
               >
-                {t("knowledge.read.article") || "Artikel lesen"}
+                {t("knowledge.read.article")}
               </ButtonLink>
             </div>
           )
@@ -228,12 +225,9 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         aria-hidden="true"
       >
         <Headline level="h2" id="auth-heading">
-          {t("auth.required.title") || "Anmeldung erforderlich"}
+          {t("auth.required.title")}
         </Headline>
-        <Paragraph
-          description={t("auth.required.description") ||
-            "Bitte melde dich an oder registriere dich, um die Spielmodi zu nutzen."}
-        />
+        <Paragraph description={t("auth.required.description")} />
         <div class="auth-form-container">
           <AuthForm initialMode="login" />
         </div>

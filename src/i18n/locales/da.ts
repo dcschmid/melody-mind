@@ -561,6 +561,7 @@ export default {
   "nav.menu.home": "Forside",
   "nav.menu.logout": "Log ud",
   "nav.menu.open": "Åbn menu",
+  "nav.menu.podcasts": "Podcasts",
   "nav.menu.rules": "Spilleregler",
   "nav.menu.text": "Menu",
   "nav.openNewWindow": "Åbner i nyt vindue",
@@ -584,8 +585,24 @@ export default {
   "nav.menu.home.desc": "Vend tilbage til hovedsiden",
   "nav.menu.knowledge.desc": "Udforsk musikviden og trivia",
   "nav.menu.playlists.desc": "Opdage kuraterede musikafspilningslister",
+  "nav.menu.podcasts.desc": "Lyt til musikpodcasts og læs transskripter",
   "nav.menu.highscores.desc": "Se de bedste scores og ranglister",
   "nav.menu.achievements.desc": "Se dine ulåste præstationer og fremskridt",
   "nav.menu.profile.desc": "Administrer din profil og indstillinger",
   "nav.menu.logout.desc": "Log ud af din konto",
+  // Podcast page translations
+  "podcast.title": "Podcasts",
+  "podcast.description": "Oplev musikindsigt gennem vores podcastserie",
+  "podcasts.episode.singular": "Episode",
+  "podcasts.episode.plural": "Episoder",
+  "podcasts.empty.title": "Ingen podcasts tilgængelige",
+  "podcasts.empty.text":
+    "Der er endnu ingen podcastepisoder tilgængelige på dette sprog. Kom snart tilbage for nyt indhold!",
+  // Podcast transcript translations
+  "podcasts.transcript.toggle": "Skift transskript",
+  "podcasts.transcript.show": "Vis transskript",
+  "podcasts.transcript.title": "Episode transskript",
+  "podcasts.transcript.info": "Klik på ethvert segment for at springe til den position i lyden.",
+  "podcasts.transcript.loading": "Klik for at indlæse transskript...",
+  "podcasts.player.transcript.placeholder": "Endnu intet transskript-indhold tilgængeligt.",
 };

@@ -560,6 +560,7 @@ export default {
   "nav.menu.home": "Hemsida",
   "nav.menu.logout": "Logga ut",
   "nav.menu.open": "Öppna meny",
+  "nav.menu.podcasts": "Podcasts",
   "nav.menu.rules": "Spelregler",
   "nav.menu.text": "Meny",
   "nav.openNewWindow": "Öppnas i nytt fönster",
@@ -583,8 +584,25 @@ export default {
   "nav.menu.home.desc": "Tillbaka till huvudsidan",
   "nav.menu.knowledge.desc": "Utforska musikkunskap och trivia",
   "nav.menu.playlists.desc": "Upptäck kurerade musikspellistor",
+  "nav.menu.podcasts.desc": "Lyssna på musikpodcasts och läs transkript",
   "nav.menu.highscores.desc": "Se de bästa poängen och rankningar",
   "nav.menu.achievements.desc": "Se dina upplåsta prestationer och framsteg",
   "nav.menu.profile.desc": "Hantera din profil och inställningar",
   "nav.menu.logout.desc": "Logga ut från ditt konto",
+  // Podcast page translations
+  "podcast.title": "Podcasts",
+  "podcast.description": "Upptäck musikinsikter genom vår podcastserie",
+  "podcasts.episode.singular": "Avsnitt",
+  "podcasts.episode.plural": "Avsnitt",
+  "podcasts.empty.title": "Inga podcasts tillgängliga",
+  "podcasts.empty.text":
+    "Det finns inga podcastavsnitt tillgängliga på detta språk ännu. Kom tillbaka snart för nytt innehåll!",
+  // Podcast transcript translations
+  "podcasts.transcript.toggle": "Växla transkript",
+  "podcasts.transcript.show": "Visa transkript",
+  "podcasts.transcript.title": "Avsnitt transkript",
+  "podcasts.transcript.info":
+    "Klicka på valfritt segment för att hoppa till den positionen i ljudet.",
+  "podcasts.transcript.loading": "Klicka för att ladda transkript...",
+  "podcasts.player.transcript.placeholder": "Inget transkriptinnehåll tillgängligt ännu.",
 };

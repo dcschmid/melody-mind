@@ -591,6 +591,7 @@ export default {
   "nav.menu.home": "Página Principal",
   "nav.menu.logout": "Cerrar Sesión",
   "nav.menu.open": "Abrir menú",
+  "nav.menu.podcasts": "Podcasts",
   "nav.menu.rules": "Reglas del Juego",
   "nav.menu.text": "Menú",
   "nav.title": "Navegación",
@@ -598,10 +599,19 @@ export default {
   "nav.menu.home.desc": "Volver a la página principal",
   "nav.menu.knowledge.desc": "Explorar conocimientos musicales y trivia",
   "nav.menu.playlists.desc": "Descubrir listas de reproducción musicales curadas",
+  "nav.menu.podcasts.desc": "Escuchar podcasts de música y leer transcripciones",
   "nav.menu.highscores.desc": "Ver las mejores puntuaciones y clasificaciones",
   "nav.menu.achievements.desc": "Ver tus logros desbloqueados y progreso",
   "nav.menu.profile.desc": "Gestionar tu perfil y configuraciones",
   "nav.menu.logout.desc": "Cerrar sesión de tu cuenta",
+  // Podcast page translations
+  "podcast.title": "Podcasts",
+  "podcast.description": "Descubre conocimientos musicales a través de nuestra serie de podcasts",
+  "podcasts.episode.singular": "Episodio",
+  "podcasts.episode.plural": "Episodios",
+  "podcasts.empty.title": "No hay podcasts disponibles",
+  "podcasts.empty.text":
+    "Aún no hay episodios de podcasts disponibles en este idioma. ¡Vuelve pronto para nuevo contenido!",
   "playlist.accessibility.info": "Información de accesibilidad de la lista de reproducción",
   "playlist.accessibility.public":
     "Lista de reproducción pública - no se requiere autenticación para acceso al servicio de transmisión",
@@ -692,4 +702,12 @@ export default {
   "toc.state.collapsed": "Colapsado",
   "toc.state.expanded": "Expandido",
   "toc.toggle.label": "Alternar tabla de contenidos",
+  // Podcast transcript translations
+  "podcasts.transcript.toggle": "Alternar transcripción",
+  "podcasts.transcript.show": "Mostrar transcripción",
+  "podcasts.transcript.title": "Transcripción del episodio",
+  "podcasts.transcript.info":
+    "Haga clic en cualquier segmento para saltar a esa posición en el audio.",
+  "podcasts.transcript.loading": "Haga clic para cargar la transcripción...",
+  "podcasts.player.transcript.placeholder": "Aún no hay contenido de transcripción disponible.",
 };
