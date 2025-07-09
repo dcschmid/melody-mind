@@ -1,0 +1,268 @@
+---
+/**
+ * @component 404ErrorPage
+ * @description 404 Not Found page for MelodyMind (English only, static)
+ */
+
+import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+
+export const prerender = true;
+
+// Static English content
+const title = "404 - Page Not Found | MelodyMind";
+const description = "The page you're looking for doesn't exist. Explore our music trivia games and playlists instead.";
+---
+
+<Layout {title} {description} type="website" showHeader={true} showHeaderIcons={true}>
+  <main class="error-page">
+    <div class="container">
+      <div class="error-page__content">
+        <div class="error-page__visual">
+          <Icon name="x-circle" class="error-page__icon" aria-hidden="true" />
+          <div class="error-page__code">404</div>
+        </div>
+
+        <div class="error-page__text">
+          <h1 class="error-page__title">Page Not Found</h1>
+          <p class="error-page__description">
+            Oops! The page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL.
+          </p>
+          <p class="error-page__suggestion">
+            Don't worry though, there's plenty of music to discover! Try one of the options below to get back on track.
+          </p>
+        </div>
+
+        <div class="error-page__actions">
+          <a href="/" class="btn-primary">
+            <Icon name="home" class="btn-icon" aria-hidden="true" />
+            Go to Homepage
+          </a>
+          <button onclick="window.history.back()" class="btn-secondary">
+            <Icon name="arrow-left" class="btn-icon" aria-hidden="true" />
+            Go Back
+          </button>
+        </div>
+
+        <div class="error-page__help">
+          <h2 class="error-page__help-title">What would you like to do?</h2>
+          <ul class="error-page__help-list">
+            <li>
+              <a href="/playlists" class="help-link">
+                <Icon name="music" class="help-icon" aria-hidden="true" />
+                Explore Music Playlists
+              </a>
+            </li>
+            <li>
+              <a href="/gamehome" class="help-link">
+                <Icon name="gamepad" class="help-icon" aria-hidden="true" />
+                Start a Music Quiz
+              </a>
+            </li>
+            <li>
+              <a href="/highscores" class="help-link">
+                <Icon name="trophy" class="help-icon" aria-hidden="true" />
+                View High Scores
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .error-page {
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    padding: var(--space-xl) 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .container {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .error-page__content {
+    text-align: center;
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3xl);
+    border: 1px solid var(--border-primary);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .error-page__visual {
+    margin-bottom: var(--space-2xl);
+    position: relative;
+  }
+
+  .error-page__icon {
+    width: 6rem;
+    height: 6rem;
+    color: var(--color-primary-400);
+    margin-bottom: var(--space-lg);
+    opacity: 0.7;
+  }
+
+  .error-page__code {
+    font-size: 8rem;
+    font-weight: var(--font-bold);
+    color: var(--color-primary-500);
+    line-height: 1;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: var(--space-md);
+  }
+
+  .error-page__text {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .error-page__title {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+  }
+
+  .error-page__description {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    line-height: var(--leading-relaxed);
+  }
+
+  .error-page__suggestion {
+    font-size: var(--text-base);
+    color: var(--text-tertiary);
+    line-height: var(--leading-relaxed);
+  }
+
+  .error-page__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-3xl);
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-semibold);
+    text-decoration: none;
+    transition: var(--transition-normal);
+    border: none;
+    cursor: pointer;
+    font-size: var(--text-base);
+  }
+
+  .btn-primary {
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+    border: 2px solid var(--btn-primary-bg);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--btn-primary-hover);
+    border-color: var(--btn-primary-hover);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border-primary);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-secondary);
+    transform: translateY(-1px);
+  }
+
+  .btn-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .error-page__help {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border-primary);
+  }
+
+  .error-page__help-title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+  }
+
+  .error-page__help-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .help-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: var(--transition-normal);
+    border: 1px solid var(--border-secondary);
+  }
+
+  .help-link:hover {
+    background-color: var(--bg-tertiary);
+    border-color: var(--border-focus);
+    transform: translateY(-1px);
+  }
+
+  .help-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--color-primary-400);
+  }
+
+  @media (min-width: 640px) {
+    .error-page__actions {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .error-page__help-list {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      padding: 0 var(--space-lg);
+    }
+
+    .error-page__content {
+      padding: var(--space-3xl) var(--space-3xl);
+    }
+
+    .error-page__code {
+      font-size: 10rem;
+    }
+  }
+</style>

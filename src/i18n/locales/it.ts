@@ -581,6 +581,7 @@ export default {
   "nav.menu.home": "Homepage",
   "nav.menu.logout": "Logout",
   "nav.menu.open": "Apri menu",
+  "nav.menu.podcasts": "Podcast",
   "nav.menu.rules": "Regole del Gioco",
   "nav.menu.text": "Menu",
   "nav.openNewWindow": "Si apre in una nuova finestra",
@@ -600,8 +601,25 @@ export default {
   "nav.menu.home.desc": "Torna alla pagina principale",
   "nav.menu.knowledge.desc": "Esplora conoscenze musicali e quiz",
   "nav.menu.playlists.desc": "Scopri playlist musicali curate",
+  "nav.menu.podcasts.desc": "Ascolta podcast musicali e leggi le trascrizioni",
   "nav.menu.highscores.desc": "Visualizza i migliori punteggi e classifiche",
   "nav.menu.achievements.desc": "Visualizza i tuoi successi sbloccati e i progressi",
   "nav.menu.profile.desc": "Gestisci il tuo profilo e le impostazioni",
   "nav.menu.logout.desc": "Esci dal tuo account",
+  // Podcast page translations
+  "podcast.title": "Podcast",
+  "podcast.description": "Scopri approfondimenti musicali attraverso la nostra serie di podcast",
+  "podcasts.episode.singular": "Episodio",
+  "podcasts.episode.plural": "Episodi",
+  "podcasts.empty.title": "Nessun podcast disponibile",
+  "podcasts.empty.text":
+    "Non ci sono ancora episodi di podcast disponibili in questa lingua. Torna presto per nuovi contenuti!",
+  // Podcast transcript translations
+  "podcasts.transcript.toggle": "Attiva/disattiva trascrizione",
+  "podcasts.transcript.show": "Mostra trascrizione",
+  "podcasts.transcript.title": "Trascrizione dell'episodio",
+  "podcasts.transcript.info":
+    "Clicca su qualsiasi segmento per saltare a quella posizione nell'audio.",
+  "podcasts.transcript.loading": "Clicca per caricare la trascrizione...",
+  "podcasts.player.transcript.placeholder": "Nessun contenuto di trascrizione ancora disponibile.",
 };

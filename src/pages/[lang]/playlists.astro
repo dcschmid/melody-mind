@@ -92,10 +92,8 @@ const sortedPlaylists = [...playlists].sort((a: Playlist, b: Playlist) => {
 });
 
 // Enhanced SEO content generation with more detailed information
-const title = t("playlist.page.heading") || "Music Playlists Collection";
-const description =
-  t("playlist.page.description") ||
-  "Discover curated music playlists across different decades and genres.";
+const title = t("playlist.page.heading");
+const description = t("playlist.page.description");
 
 // Create enriched content for better SEO by including playlist information
 const playlistDecades = [
@@ -210,7 +208,7 @@ const breadcrumbSchema = {
         >
           <a href={`/${lang}/`} itemprop="item" class="breadcrumb-link">
             <Icon name="home" class="breadcrumb-icon" aria-hidden="true" />
-            <span itemprop="name" class="sr-only">{t("nav.home") || "Home"}</span>
+            <span itemprop="name" class="sr-only">{t("nav.home")}</span>
           </a>
           <meta itemprop="position" content="1" />
         </li>
@@ -346,9 +344,15 @@ const breadcrumbSchema = {
     width: 100%;
     max-width: var(--container-xl);
     margin: 0 auto;
-    padding: var(--space-md) var(--space-sm);
+    padding: var(--space-sm) var(--space-xs);
     overflow-x: hidden;
     box-sizing: border-box;
+    container-type: inline-size;
+    container-name: playlist-container;
+
+    @media (min-width: 480px) {
+      padding: var(--space-md) var(--space-sm);
+    }
 
     @media (min-width: 640px) {
       padding: var(--space-lg) var(--space-md);
@@ -357,22 +361,35 @@ const breadcrumbSchema = {
     @media (min-width: 768px) {
       padding: var(--space-xl) var(--space-lg);
     }
+
+    @media (min-width: 1024px) {
+      padding: var(--space-xl) var(--space-xl);
+    }
   }
 
   /* Breadcrumb Navigation */
   .breadcrumb-nav {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
+
+    @media (min-width: 768px) {
+      margin-bottom: var(--space-lg);
+    }
   }
 
   .breadcrumb-list {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
+    gap: var(--space-xs);
     margin: 0;
     padding: 0;
     list-style: none;
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     color: var(--text-secondary);
+
+    @media (min-width: 480px) {
+      gap: var(--space-sm);
+      font-size: var(--text-sm);
+    }
   }
 
   .breadcrumb-item {
@@ -381,9 +398,13 @@ const breadcrumbSchema = {
 
     &:not(:last-child)::after {
       content: "›";
-      margin-left: var(--space-sm);
+      margin-left: var(--space-xs);
       color: var(--text-tertiary);
       font-weight: var(--font-medium);
+
+      @media (min-width: 480px) {
+        margin-left: var(--space-sm);
+      }
     }
   }
 
@@ -393,23 +414,36 @@ const breadcrumbSchema = {
     color: var(--interactive-primary);
     text-decoration: none;
     transition: color var(--transition-fast);
+    padding: var(--space-xs);
+    border-radius: var(--radius-sm);
+    min-height: var(--touch-target);
+
+    @media (min-width: 480px) {
+      padding: var(--space-sm);
+    }
 
     &:hover,
     &:focus {
       color: var(--interactive-primary-hover);
       text-decoration: underline;
+      background-color: var(--bg-secondary);
     }
   }
 
   .breadcrumb-icon {
-    width: var(--icon-size-sm);
-    height: var(--icon-size-sm);
+    width: var(--icon-size-xs);
+    height: var(--icon-size-xs);
+
+    @media (min-width: 480px) {
+      width: var(--icon-size-sm);
+      height: var(--icon-size-sm);
+    }
   }
 
   /* Hero Section */
   .playlist-hero {
     position: relative;
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
     overflow: hidden;
     border-radius: var(--radius-lg);
     background: linear-gradient(
@@ -418,8 +452,13 @@ const breadcrumbSchema = {
       var(--color-primary-900) 50%,
       var(--color-neutral-900) 100%
     );
-    padding: var(--space-lg);
+    padding: var(--space-md);
     box-shadow: var(--shadow-xl);
+
+    @media (min-width: 480px) {
+      padding: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
 
     @media (min-width: 768px) {
       margin-bottom: var(--space-2xl);
@@ -427,10 +466,8 @@ const breadcrumbSchema = {
       padding: var(--space-xl);
     }
 
-    @media (max-width: 767px) {
-      padding: var(--space-md);
-      margin-bottom: var(--space-lg);
-      border-radius: var(--radius-lg);
+    @media (min-width: 1024px) {
+      padding: var(--space-2xl) var(--space-xl);
     }
 
     &__decoration {
@@ -478,34 +515,64 @@ const breadcrumbSchema = {
     }
 
     &__title {
-      margin-bottom: var(--space-md);
-      font-size: var(--text-4xl);
+      margin-bottom: var(--space-sm);
+      font-size: var(--text-2xl);
       line-height: var(--leading-tight);
       font-weight: var(--font-bold);
       text-align: center;
+
+      @media (min-width: 480px) {
+        font-size: var(--text-3xl);
+        margin-bottom: var(--space-md);
+      }
+
+      @media (min-width: 768px) {
+        font-size: var(--text-4xl);
+      }
+
+      @media (min-width: 1024px) {
+        font-size: var(--text-5xl);
+      }
     }
 
     &__divider {
-      margin: var(--space-lg) auto;
+      margin: var(--space-md) auto;
       height: var(--border-width-thick);
-      width: var(--space-3xl);
+      width: var(--space-2xl);
       border-radius: var(--radius-full);
       background: var(--color-secondary-400);
+
+      @media (min-width: 480px) {
+        margin: var(--space-lg) auto;
+        width: var(--space-3xl);
+      }
     }
 
     &__description {
       margin: 0 auto;
       max-width: var(--container-sm);
-      font-size: var(--text-xl);
+      font-size: var(--text-base);
       line-height: var(--leading-relaxed);
       opacity: 0.9;
       text-align: center;
+
+      @media (min-width: 480px) {
+        font-size: var(--text-lg);
+      }
+
+      @media (min-width: 768px) {
+        font-size: var(--text-xl);
+      }
     }
   }
 
   /* Search Container */
   .search-section {
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
+
+    @media (min-width: 768px) {
+      margin-bottom: var(--space-xl);
+    }
   }
 
   .search-container {
@@ -529,14 +596,23 @@ const breadcrumbSchema = {
 
     &__icon {
       position: absolute;
-      left: var(--space-lg);
+      left: var(--space-md);
       z-index: var(--z-10);
       color: var(--text-tertiary);
       transition: color var(--transition-fast);
 
+      @media (min-width: 480px) {
+        left: var(--space-lg);
+      }
+
       &-element {
-        width: var(--icon-size-lg);
-        height: var(--icon-size-lg);
+        width: var(--icon-size-md);
+        height: var(--icon-size-md);
+
+        @media (min-width: 480px) {
+          width: var(--icon-size-lg);
+          height: var(--icon-size-lg);
+        }
       }
     }
 
@@ -544,17 +620,23 @@ const breadcrumbSchema = {
       width: 100%;
       min-width: 0;
       max-width: 100%;
-      padding: var(--space-lg) var(--space-lg) var(--space-lg)
-        calc(var(--space-3xl) + var(--space-sm));
+      padding: var(--space-md) var(--space-md) var(--space-md)
+        calc(var(--space-2xl) + var(--space-sm));
       border: none;
       border-radius: var(--radius-full);
       background-color: transparent;
       color: var(--text-primary);
-      font-size: var(--text-lg);
+      font-size: var(--text-base);
       transition: all var(--transition-base);
       box-sizing: border-box;
       overflow: hidden;
       text-overflow: ellipsis;
+
+      @media (min-width: 480px) {
+        padding: var(--space-lg) var(--space-lg) var(--space-lg)
+          calc(var(--space-3xl) + var(--space-sm));
+        font-size: var(--text-lg);
+      }
 
       &::placeholder {
         color: var(--text-tertiary);
@@ -565,38 +647,59 @@ const breadcrumbSchema = {
       }
     }
 
-    @media (max-width: 480px) {
-      max-width: 100%;
+    @media (max-width: 479px) {
       margin: 0 var(--space-xs);
-
-      .search-container__input {
-        font-size: var(--text-base);
-        padding: var(--space-md) var(--space-md) var(--space-md)
-          calc(var(--space-2xl) + var(--space-sm));
-      }
-
-      .search-container__icon {
-        left: var(--space-md);
-      }
     }
   }
 
   /* ======================================
-   * PLAYLIST GRID - Responsive Auto-Fill Pattern (Aligned with GameHome)
+   * PLAYLIST GRID - Enhanced Responsive Auto-Fill Pattern
    * ====================================== */
   .playlist-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-width-md), 1fr));
-    gap: var(--space-lg);
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
     margin: var(--space-lg) auto;
     width: 100%;
     list-style: none;
     padding: 0;
     contain: layout style;
 
+    /* Small mobile devices */
+    @media (min-width: 480px) {
+      grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-width-sm), 1fr));
+      gap: var(--space-lg);
+    }
+
+    /* Large mobile / small tablets */
     @media (min-width: 640px) {
-      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--space-lg);
+    }
+
+    /* Tablets */
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: var(--space-xl);
+    }
+
+    /* Small desktop */
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      gap: var(--space-xl);
+    }
+
+    /* Large desktop - limit max columns for better readability */
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+      max-width: calc(3 * 450px + 2 * var(--space-xl));
+      margin: var(--space-lg) auto;
+    }
+
+    /* Ultra-wide screens - maximum 4 columns */
+    @media (min-width: 1920px) {
+      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+      max-width: calc(4 * 480px + 3 * var(--space-xl));
     }
   }
 
@@ -606,10 +709,29 @@ const breadcrumbSchema = {
       transform var(--transition-base),
       box-shadow var(--transition-base);
 
-    &:hover,
-    &:focus-within {
-      transform: translateY(calc(-1 * var(--space-xs)));
-      box-shadow: var(--shadow-xl);
+    /* Enhanced touch targets for mobile */
+    @media (max-width: 767px) {
+      margin-bottom: var(--space-xs);
+    }
+
+    /* Desktop hover effects */
+    @media (hover: hover) and (pointer: fine) {
+      &:hover,
+      &:focus-within {
+        transform: translateY(calc(-1 * var(--space-xs)));
+        box-shadow: var(--shadow-xl);
+      }
+    }
+
+    /* Touch device optimizations */
+    @media (hover: none) and (pointer: coarse) {
+      /* Larger touch targets */
+      min-height: var(--touch-target-enhanced);
+
+      &:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease-out;
+      }
     }
   }
 
@@ -617,41 +739,229 @@ const breadcrumbSchema = {
   .no-results {
     display: none;
     text-align: center;
-    padding: var(--space-2xl);
+    padding: var(--space-lg);
     color: var(--text-secondary);
+
+    @media (min-width: 768px) {
+      padding: var(--space-2xl);
+    }
 
     &.show {
       display: block;
     }
 
     &__heading {
-      margin-bottom: var(--space-md);
-      font-size: var(--text-2xl);
+      margin-bottom: var(--space-sm);
+      font-size: var(--text-xl);
       font-weight: var(--font-semibold);
       color: var(--text-primary);
+
+      @media (min-width: 480px) {
+        margin-bottom: var(--space-md);
+        font-size: var(--text-2xl);
+      }
     }
 
     &__text {
-      margin-bottom: var(--space-lg);
-      font-size: var(--text-lg);
+      margin-bottom: var(--space-md);
+      font-size: var(--text-base);
+
+      @media (min-width: 480px) {
+        margin-bottom: var(--space-lg);
+        font-size: var(--text-lg);
+      }
     }
 
     &__button {
-      padding: var(--space-md) var(--space-lg);
+      padding: var(--space-sm) var(--space-md);
       border: none;
       border-radius: var(--radius-lg);
       background-color: var(--interactive-primary);
       color: var(--color-neutral-100);
-      font-size: var(--text-base);
+      font-size: var(--text-sm);
       font-weight: var(--font-medium);
       cursor: pointer;
       transition: all var(--transition-base);
+      min-height: var(--touch-target);
+
+      @media (min-width: 480px) {
+        padding: var(--space-md) var(--space-lg);
+        font-size: var(--text-base);
+      }
+
+      /* Enhanced touch targets */
+      @media (hover: none) and (pointer: coarse) {
+        min-height: var(--touch-target-enhanced);
+        padding: var(--space-md) var(--space-xl);
+      }
 
       &:hover,
       &:focus {
         background-color: var(--interactive-primary-hover);
         transform: translateY(calc(-1 * var(--space-xs)));
       }
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+
+  /* ======================================
+   * ADDITIONAL RESPONSIVE OPTIMIZATIONS
+   * ====================================== */
+
+  /* Container Queries for modern responsive design (where supported) */
+  @container playlist-container (max-width: 400px) {
+    .playlist-hero {
+      padding: var(--space-sm);
+    }
+
+    .playlist-hero__title {
+      font-size: var(--text-lg);
+    }
+
+    .search-container {
+      margin: 0;
+    }
+  }
+
+  @container playlist-container (min-width: 1200px) {
+    .playlist-grid {
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    }
+  }
+
+  /* Ultra-small screens (below 360px) */
+  @media (max-width: 359px) {
+    .playlist-container {
+      padding: var(--space-xs);
+      container-type: inline-size;
+      container-name: playlist-container;
+    }
+
+    .playlist-hero {
+      padding: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .playlist-hero__title {
+      font-size: var(--text-xl);
+    }
+
+    .playlist-hero__description {
+      font-size: var(--text-sm);
+    }
+
+    .search-container__input {
+      font-size: var(--text-sm);
+    }
+
+    .breadcrumb-list {
+      font-size: var(--text-xs);
+    }
+  }
+
+  /* Very small screens optimization */
+  @media (max-width: 320px) {
+    .playlist-container {
+      padding: var(--space-xs) calc(var(--space-xs) / 2);
+    }
+
+    .playlist-hero__title {
+      font-size: var(--text-lg);
+      line-height: var(--leading-tight);
+    }
+
+    .search-container {
+      margin: 0 calc(var(--space-xs) / 2);
+    }
+  }
+
+  /* Print optimizations */
+  @media print {
+    .playlist-hero,
+    .search-section,
+    .breadcrumb-nav {
+      display: none;
+    }
+
+    .playlist-grid {
+      display: block;
+      columns: 2;
+      column-gap: var(--space-lg);
+    }
+
+    .playlist-card {
+      break-inside: avoid;
+      margin-bottom: var(--space-md);
+    }
+  }
+
+  /* Dark mode specific responsive adjustments */
+  @media (prefers-color-scheme: dark) {
+    .playlist-hero {
+      background: linear-gradient(
+        135deg,
+        var(--color-neutral-900) 0%,
+        var(--color-primary-900) 50%,
+        var(--color-neutral-800) 100%
+      );
+    }
+  }
+
+  /* ======================================
+   * ENHANCED CONTAINER QUERIES (CSS CONTAINMENT LEVEL 3)
+   * Modern responsive design with container-based queries
+   * ====================================== */
+
+  /* Small container optimizations */
+  @container playlist-container (max-width: 500px) {
+    .playlist-hero {
+      padding: var(--space-md);
+      border-radius: var(--radius-lg);
+    }
+
+    .playlist-hero__decoration-item {
+      opacity: 0.05;
+    }
+
+    .search-container {
+      margin: 0 var(--space-xs);
+    }
+  }
+
+  /* Large container optimizations */
+  @container playlist-container (min-width: 1400px) {
+    .playlist-grid {
+      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+      max-width: calc(4 * 480px + 3 * var(--space-xl));
+    }
+
+    .playlist-hero {
+      padding: var(--space-3xl) var(--space-2xl);
+    }
+  }
+
+  /* ======================================
+   * MICRO-INTERACTIONS FOR ENHANCED UX
+   * ====================================== */
+
+  /* Smooth grid transitions when filtering */
+  @supports (grid-template-rows: masonry) {
+    .playlist-grid {
+      grid-template-rows: masonry;
+    }
+  }
+
+  /* Enhanced scroll behavior */
+  .playlist-container {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .playlist-container {
+      scroll-behavior: auto;
     }
   }
 
@@ -680,176 +990,187 @@ const breadcrumbSchema = {
 
   declare const window: WindowWithTimeouts;
 
-  document.addEventListener("DOMContentLoaded", function () {
+  /**
+   * Announces search results to screen readers for accessibility
+   */
+  function announceSearchResults(visibleCount: number, searchTerm: string): void {
+    const announcement = document.createElement("div");
+    announcement.setAttribute("aria-live", "polite");
+    announcement.setAttribute("aria-atomic", "true");
+    announcement.className = "sr-only";
+
+    if (searchTerm === "") {
+      announcement.textContent = `Showing all playlists`;
+    } else if (visibleCount === 0) {
+      announcement.textContent = `No playlists found for "${searchTerm}"`;
+    } else {
+      announcement.textContent = `Found ${visibleCount} playlist${visibleCount === 1 ? "" : "s"} for "${searchTerm}"`;
+    }
+
+    document.body.appendChild(announcement);
+    setTimeout(() => document.body.removeChild(announcement), 1000);
+  }
+
+  /**
+   * Updates the browser URL with search parameters
+   */
+  function updateSearchUrl(searchTerm: string, visibleCount: number): void {
+    if (searchTerm && visibleCount > 0) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("search", searchTerm);
+      window.history.replaceState(null, "", url.toString());
+    } else if (!searchTerm) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete("search");
+      window.history.replaceState(null, "", url.toString());
+    }
+  }
+
+  /**
+   * Filters playlist cards based on search term
+   */
+  function filterPlaylists(): void {
     const searchInput = document.getElementById("playlist-search") as HTMLInputElement | null;
     const playlistCards = document.querySelectorAll(".playlist-card");
     const noResultsElement = document.getElementById("no-results") as HTMLElement | null;
-    const resetButton = document.getElementById("reset-search") as HTMLButtonElement | null;
     const playlistGrid = document.getElementById("playlist-grid") as HTMLElement | null;
 
-    /**
-     * Announces search results to screen readers for accessibility
-     */
-    function announceSearchResults(visibleCount: number, searchTerm: string): void {
-      const announcement = document.createElement("div");
-      announcement.setAttribute("aria-live", "polite");
-      announcement.setAttribute("aria-atomic", "true");
-      announcement.className = "sr-only";
-
-      if (searchTerm === "") {
-        announcement.textContent = `Showing all ${playlistCards.length} playlists`;
-      } else if (visibleCount === 0) {
-        announcement.textContent = `No playlists found for "${searchTerm}"`;
-      } else {
-        announcement.textContent = `Found ${visibleCount} playlist${visibleCount === 1 ? "" : "s"} for "${searchTerm}"`;
-      }
-
-      document.body.appendChild(announcement);
-      setTimeout(() => document.body.removeChild(announcement), 1000);
+    if (!searchInput) {
+      return;
     }
 
-    /**
-     * Updates the browser URL with search parameters
-     */
-    function updateSearchUrl(searchTerm: string, visibleCount: number): void {
-      if (searchTerm && visibleCount > 0) {
-        const url = new URL(window.location.href);
-        url.searchParams.set("search", searchTerm);
-        window.history.replaceState(null, "", url.toString());
-      } else if (!searchTerm) {
-        const url = new URL(window.location.href);
-        url.searchParams.delete("search");
-        window.history.replaceState(null, "", url.toString());
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    playlistCards.forEach((card) => {
+      const element = card as HTMLElement;
+      const searchableText = element.getAttribute("data-searchable") || "";
+      const decade = element.getAttribute("data-decade") || "";
+      const isVisible =
+        searchableText.includes(searchTerm) || decade.toLowerCase().includes(searchTerm);
+
+      element.style.display = isVisible ? "" : "none";
+      if (isVisible) {
+        visibleCount++;
+      }
+    });
+
+    if (playlistGrid) {
+      playlistGrid.setAttribute("aria-busy", "false");
+    }
+
+    if (noResultsElement) {
+      const shouldShow = visibleCount === 0 && searchTerm !== "";
+      noResultsElement.classList.toggle("show", shouldShow);
+      if (shouldShow) {
+        noResultsElement.focus();
       }
     }
 
-    /**
-     * Filters playlist cards based on search term
-     */
-    function filterPlaylists(): void {
-      if (!searchInput) {
-        return;
-      }
+    // Debounced announcement and URL update
+    if (window.searchTimeout) {
+      clearTimeout(window.searchTimeout);
+    }
+    window.searchTimeout = window.setTimeout(() => {
+      announceSearchResults(visibleCount, searchTerm);
+    }, 500);
 
-      const searchTerm = searchInput.value.toLowerCase().trim();
-      let visibleCount = 0;
+    updateSearchUrl(searchTerm, visibleCount);
+  }
 
-      playlistCards.forEach((card) => {
-        const element = card as HTMLElement;
-        const searchableText = element.getAttribute("data-searchable") || "";
-        const decade = element.getAttribute("data-decade") || "";
-        const isVisible =
-          searchableText.includes(searchTerm) || decade.toLowerCase().includes(searchTerm);
+  /**
+   * Sets up search input event listeners
+   */
+  function setupSearchListeners(): void {
+    const searchInput = document.getElementById("playlist-search") as HTMLInputElement | null;
+    const playlistGrid = document.getElementById("playlist-grid") as HTMLElement | null;
 
-        element.style.display = isVisible ? "" : "none";
-        if (isVisible) {
-          visibleCount++;
-        }
-      });
+    if (!searchInput) {
+      return;
+    }
 
+    searchInput.addEventListener("input", () => {
       if (playlistGrid) {
-        playlistGrid.setAttribute("aria-busy", "false");
+        playlistGrid.setAttribute("aria-busy", "true");
       }
 
-      if (noResultsElement) {
-        const shouldShow = visibleCount === 0 && searchTerm !== "";
-        noResultsElement.classList.toggle("show", shouldShow);
-        if (shouldShow) {
-          noResultsElement.focus();
-        }
+      if (window.filterTimeout) {
+        clearTimeout(window.filterTimeout);
       }
+      window.filterTimeout = window.setTimeout(filterPlaylists, 200);
+    });
 
-      // Debounced announcement and URL update
-      if (window.searchTimeout) {
-        clearTimeout(window.searchTimeout);
+    searchInput.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        searchInput.value = "";
+        filterPlaylists();
+        searchInput.blur();
       }
-      window.searchTimeout = window.setTimeout(() => {
-        announceSearchResults(visibleCount, searchTerm);
-      }, 500);
+    });
 
-      updateSearchUrl(searchTerm, visibleCount);
-    }
+    searchInput.addEventListener("focus", () => {
+      searchInput.setAttribute("aria-expanded", "true");
+    });
 
-    /**
-     * Sets up search input event listeners
-     */
-    function setupSearchListeners(): void {
-      if (!searchInput) {
-        return;
-      }
+    searchInput.addEventListener("blur", () => {
+      searchInput.setAttribute("aria-expanded", "false");
+    });
+  }
 
-      searchInput.addEventListener("input", () => {
-        if (playlistGrid) {
-          playlistGrid.setAttribute("aria-busy", "true");
-        }
+  /**
+   * Sets up keyboard navigation and reset button
+   */
+  function setupAdditionalListeners(): void {
+    const resetButton = document.getElementById("reset-search") as HTMLButtonElement | null;
+    const searchInput = document.getElementById("playlist-search") as HTMLInputElement | null;
 
-        if (window.filterTimeout) {
-          clearTimeout(window.filterTimeout);
-        }
-        window.filterTimeout = window.setTimeout(filterPlaylists, 200);
-      });
-
-      searchInput.addEventListener("keydown", (e: KeyboardEvent) => {
-        if (e.key === "Escape") {
+    if (resetButton) {
+      resetButton.addEventListener("click", () => {
+        if (searchInput) {
           searchInput.value = "";
-          filterPlaylists();
-          searchInput.blur();
+          searchInput.focus();
         }
-      });
-
-      searchInput.addEventListener("focus", () => {
-        searchInput.setAttribute("aria-expanded", "true");
-      });
-
-      searchInput.addEventListener("blur", () => {
-        searchInput.setAttribute("aria-expanded", "false");
+        filterPlaylists();
       });
     }
 
-    /**
-     * Sets up keyboard navigation and reset button
-     */
-    function setupAdditionalListeners(): void {
-      if (resetButton) {
-        resetButton.addEventListener("click", () => {
-          if (searchInput) {
-            searchInput.value = "";
-            searchInput.focus();
-          }
-          filterPlaylists();
-        });
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.altKey && e.key === "/") {
+        e.preventDefault();
+        if (searchInput) {
+          searchInput.focus();
+        }
       }
+    });
+  }
 
-      document.addEventListener("keydown", (e: KeyboardEvent) => {
-        if (e.altKey && e.key === "/") {
-          e.preventDefault();
-          if (searchInput) {
-            searchInput.focus();
-          }
+  /**
+   * Sets up intersection observer for card animations
+   */
+  function setupIntersectionObserver(): void {
+    const playlistCards = document.querySelectorAll(".playlist-card");
+    const observerOptions = {
+      root: null,
+      rootMargin: "50px",
+      threshold: 0.1,
+    };
+
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
         }
       });
-    }
+    }, observerOptions);
 
-    /**
-     * Sets up intersection observer for card animations
-     */
-    function setupIntersectionObserver(): void {
-      const observerOptions = {
-        root: null,
-        rootMargin: "50px",
-        threshold: 0.1,
-      };
+    playlistCards.forEach((card) => cardObserver.observe(card));
+  }
 
-      const cardObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-          }
-        });
-      }, observerOptions);
-
-      playlistCards.forEach((card) => cardObserver.observe(card));
-    }
+  /**
+   * Initialize all functionality
+   */
+  function initializePlaylistPage(): void {
+    const searchInput = document.getElementById("playlist-search") as HTMLInputElement | null;
 
     // Initialize search from URL parameter
     const urlParams = new URLSearchParams(window.location.search);
@@ -863,5 +1184,7 @@ const breadcrumbSchema = {
     setupSearchListeners();
     setupAdditionalListeners();
     setupIntersectionObserver();
-  });
+  }
+
+  document.addEventListener("DOMContentLoaded", initializePlaylistPage);
 </script>

@@ -88,7 +88,7 @@ const stableItemIds = {
   home: "nav-home-stable",
   knowledge: "nav-knowledge-stable",
   playlists: "nav-playlists-stable",
-
+  podcasts: "nav-podcasts-stable",
   highscores: "nav-highscores-stable",
   achievements: "nav-achievements-stable",
   profile: "nav-profile-stable",
@@ -99,7 +99,7 @@ const stableItemIds = {
 <!-- Main header with navigation and language picker -->
 <header role="banner" class="navigation-header">
   <LanguagePicker />
-  <nav aria-label={t("nav.ariaLabel") || "Main navigation"} class="navigation-nav">
+  <nav aria-label={t("nav.ariaLabel")} class="navigation-nav">
     <div class="navigation-slot">
       <button
         class="navigation-hamburger"
@@ -238,6 +238,30 @@ const stableItemIds = {
                       <span class="navigation-link__title">{t("playlist.page.heading")}</span>
                       <span class="navigation-link__description"
                         >{t("nav.menu.playlists.desc")}</span
+                      >
+                    </div>
+                  </a>
+
+                  <a
+                    href={getRelativeLocaleUrl(lang, "podcasts")}
+                    class="navigation-link navigation-link--podcasts"
+                    role="menuitem"
+                    id={stableItemIds.podcasts}
+                    data-stable-ref="navigation-podcasts"
+                  >
+                    <div class="navigation-link__icon-wrapper">
+                      <Icon
+                        name="microphone"
+                        width={28}
+                        height={28}
+                        aria-hidden="true"
+                        class="navigation-link__icon"
+                      />
+                    </div>
+                    <div class="navigation-link__content">
+                      <span class="navigation-link__title">{t("nav.menu.podcasts")}</span>
+                      <span class="navigation-link__description"
+                        >{t("nav.podcasts.description")}</span
                       >
                     </div>
                   </a>

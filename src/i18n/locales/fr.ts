@@ -595,6 +595,7 @@ export default {
   "nav.menu.home": "Accueil",
   "nav.menu.logout": "Déconnexion",
   "nav.menu.open": "Ouvrir le menu",
+  "nav.menu.podcasts": "Podcasts",
   "nav.menu.rules": "Règles du jeu",
   "nav.menu.text": "Menu",
   "nav.openNewWindow": "S'ouvre dans une nouvelle fenêtre",
@@ -620,8 +621,26 @@ export default {
   "nav.menu.home.desc": "Retourner à la page principale",
   "nav.menu.knowledge.desc": "Explorer les connaissances musicales et les quiz",
   "nav.menu.playlists.desc": "Découvrir des playlists musicales sélectionnées",
+  "nav.menu.podcasts.desc": "Écouter des podcasts musicaux et lire les transcriptions",
   "nav.menu.highscores.desc": "Voir les meilleurs scores et classements",
   "nav.menu.achievements.desc": "Voir vos succès débloqués et votre progression",
   "nav.menu.profile.desc": "Gérer votre profil et paramètres",
   "nav.menu.logout.desc": "Se déconnecter de votre compte",
+  // Podcast page translations
+  "podcast.title": "Podcasts",
+  "podcast.description": "Découvrez des perspectives musicales à travers notre série de podcasts",
+  "podcasts.episode.singular": "Épisode",
+  "podcasts.episode.plural": "Épisodes",
+  "podcasts.empty.title": "Aucun podcast disponible",
+  "podcasts.empty.text":
+    "Aucun épisode de podcast n'est encore disponible dans cette langue. Revenez bientôt pour du nouveau contenu !",
+  // Podcast transcript translations
+  "podcasts.transcript.toggle": "Basculer la transcription",
+  "podcasts.transcript.show": "Afficher la transcription",
+  "podcasts.transcript.title": "Transcription de l'épisode",
+  "podcasts.transcript.info":
+    "Cliquez sur n'importe quel segment pour passer à cette position dans l'audio.",
+  "podcasts.transcript.loading": "Cliquez pour charger la transcription...",
+  "podcasts.player.transcript.placeholder":
+    "Aucun contenu de transcription disponible pour le moment.",
 };

@@ -589,8 +589,25 @@ export default {
   "nav.menu.home.desc": "Повернутися на головну сторінку",
   "nav.menu.knowledge.desc": "Досліджуйте музичні знання та вікторини",
   "nav.menu.playlists.desc": "Відкрийте кураторські музичні плейлисти",
+  "nav.menu.podcasts.desc": "Слухайте музичні подкасти та читайте транскрипти",
   "nav.menu.highscores.desc": "Переглядайте найкращі результати та рейтинги",
   "nav.menu.achievements.desc": "Переглядайте свої розблоковані досягнення та прогрес",
   "nav.menu.profile.desc": "Керуйте своїм профілем та налаштуваннями",
   "nav.menu.logout.desc": "Вийти з акаунта",
+  // Podcast page translations
+  "podcast.title": "Подкасти",
+  "podcast.description": "Відкрийте для себе музичні знання через нашу серію подкастів",
+  "podcasts.episode.singular": "Епізод",
+  "podcasts.episode.plural": "Епізоди",
+  "podcasts.empty.title": "Подкасти недоступні",
+  "podcasts.empty.text":
+    "Поки немає епізодів подкастів цією мовою. Повертайтесь незабаром за новим контентом!",
+  // Podcast transcript translations
+  "podcasts.transcript.toggle": "Перемкнути транскрипт",
+  "podcasts.transcript.show": "Показати транскрипт",
+  "podcasts.transcript.title": "Транскрипт епізоду",
+  "podcasts.transcript.info":
+    "Натисніть на будь-який сегмент, щоб перейти до цієї позиції в аудіо.",
+  "podcasts.transcript.loading": "Натисніть, щоб завантажити транскрипт...",
+  "podcasts.player.transcript.placeholder": "Контент транскрипту поки недоступний.",
 };
