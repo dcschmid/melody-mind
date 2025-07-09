@@ -1,0 +1,58 @@
+{
+  "de": {
+    "1950s": {
+      "id": "1950s",
+      "title": "Die goldenen 50er Jahre",
+      "description": "Eine musikalische Zeitreise in die Geburtsstunde der modernen Popmusik. Von Elvis Presley bis Chuck Berry - entdecke die Sounds, die alles veränderten.",
+      "slug": "1950s",
+      "category": "1950er Jahre",
+      "duration": "31 min",
+      "imageUrl": "/images/podcasts/1950s-cover.jpg",
+      "publishedAt": "2025-01-01",
+      "author": "Daniel & Annabelle",
+      "tags": ["Rock'n'Roll", "Elvis", "Chuck Berry", "50er Jahre"],
+      "isAvailable": true
+    },
+    "1960s": {
+      "id": "1960s",
+      "title": "Die wilden 60er Jahre",
+      "description": "Von den Beatles bis Bob Dylan - die 60er revolutionierten nicht nur die Musik, sondern eine ganze Generation. Erlebe die Klänge der Veränderung.",
+      "slug": "1960s",
+      "category": "1960er Jahre",
+      "duration": "28 min",
+      "imageUrl": "/images/podcasts/1960s-cover.jpg",
+      "publishedAt": "2025-01-02",
+      "author": "Daniel & Annabelle",
+      "tags": ["Beatles", "Bob Dylan", "Rock", "60er Jahre"],
+      "isAvailable": true
+    }
+  },
+  "en": {
+    "1950s": {
+      "id": "1950s",
+      "title": "The Golden 50s",
+      "description": "A musical journey to the birth of modern pop music. From Elvis Presley to Chuck Berry - discover the sounds that changed everything.",
+      "slug": "1950s",
+      "category": "1950s Era",
+      "duration": "31 min",
+      "imageUrl": "/images/podcasts/1950s-cover.jpg",
+      "publishedAt": "2025-01-01",
+      "author": "Daniel & Annabelle",
+      "tags": ["Rock'n'Roll", "Elvis", "Chuck Berry", "50s"],
+      "isAvailable": true
+    },
+    "1960s": {
+      "id": "1960s",
+      "title": "The Wild 60s",
+      "description": "From The Beatles to Bob Dylan - the 60s revolutionized not just music, but an entire generation. Experience the sounds of change.",
+      "slug": "1960s",
+      "category": "1960s Era",
+      "duration": "28 min",
+      "imageUrl": "/images/podcasts/1960s-cover.jpg",
+      "publishedAt": "2025-01-02",
+      "author": "Daniel & Annabelle",
+      "tags": ["Beatles", "Bob Dylan", "Rock", "60s"],
+      "isAvailable": true
+    }
+  }
+}

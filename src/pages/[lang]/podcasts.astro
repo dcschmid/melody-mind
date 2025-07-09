@@ -1,0 +1,695 @@
+---
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import Layout from "@layouts/Layout.astro";
+import Headline from "@components/Headline.astro";
+import PodcastEpisode from "@components/Podcast/PodcastEpisode.astro";
+import type { PodcastData } from "../../types/podcast";
+
+/**
+ * Static path generation for internationalization
+ * Required for Astro dynamic routes to work properly
+ */
+export async function getStaticPaths(): Promise<{ params: { lang: string } }[]> {
+  const supportedLanguages = [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt",
+    "da",
+    "nl",
+    "sv",
+    "fi",
+    "cn",
+    "ru",
+    "jp",
+    "uk",
+  ] as const;
+
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+/**
+ * Enable static site generation for this page
+ */
+export const prerender = true;
+
+/**
+ * Language and translation setup
+ */
+const lang = String(getLangFromUrl(Astro.url));
+const t = useTranslations(String(lang));
+
+/**
+ * Load podcast data for the current language with fallback to English
+ * Uses the same pattern as categories and other JSON loading
+ */
+async function loadPodcastsForLanguage(language: string): Promise<PodcastData[]> {
+  try {
+    // First try to load the language-specific file
+    const podcastData = await import(`../../../public/json/podcasts/${language}.json`);
+    return podcastData.default?.podcasts || [];
+  } catch {
+    // Fallback to English if the language file doesn't exist
+    if (language !== "en") {
+      try {
+        console.warn(`[Podcasts] Falling back to English for podcast data (${language} not found)`);
+        const fallbackData = await import(`../../../public/json/podcasts/en.json`);
+        return fallbackData.default?.podcasts || [];
+      } catch {
+        console.error(
+          `[Podcasts] Failed to load podcast data for ${language} and English fallback`
+        );
+        return [];
+      }
+    }
+    console.error(`[Podcasts] Failed to load podcast data for ${language}`);
+    return [];
+  }
+}
+
+// Load podcast data
+const episodes = await loadPodcastsForLanguage(lang);
+
+// SEO and page metadata
+const title = t("podcast.title");
+const description = t("podcast.description");
+const currentUrl = new URL(Astro.url.pathname, Astro.site);
+const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "";
+
+/**
+ * Generate WebPage schema for podcast overview
+ */
+function generatePodcastPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: `MelodyMind - ${title}`,
+    description: description,
+    url: currentUrl.toString(),
+    inLanguage: lang,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "MelodyMind",
+      url: baseUrl,
+    },
+    mainEntity: {
+      "@type": "PodcastSeries",
+      name: "MelodyMind Podcast",
+      description: description,
+      url: currentUrl.toString(),
+      numberOfEpisodes: episodes.length,
+    },
+  };
+}
+
+const pageSchema = generatePodcastPageSchema();
+---
+
+<Layout {title} {description} type="website" image="/social-share.jpg">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+  </Fragment>
+
+  <div class="podcasts-page">
+    <!-- Hero Section -->
+    <header class="podcasts-hero" aria-labelledby="podcast-heading">
+      <!-- Decorative background elements -->
+      <div class="podcasts-hero__decoration" aria-hidden="true">
+        <div class="podcasts-hero__decoration-item podcasts-hero__decoration-item--top-right"></div>
+        <div class="podcasts-hero__decoration-item podcasts-hero__decoration-item--bottom-left">
+        </div>
+        <div class="podcasts-hero__decoration-item podcasts-hero__decoration-item--center-right">
+        </div>
+      </div>
+
+      <div class="podcasts-hero__content">
+        <Headline level="h1" className="podcasts-hero__title" id="podcast-heading" size="4xl">
+          🎙️ {title}
+        </Headline>
+
+        <div class="podcasts-hero__divider"></div>
+
+        <p class="podcasts-hero__description">
+          {description}
+        </p>
+
+        {
+          episodes.length > 0 && (
+            <div class="podcasts-hero__stats">
+              <div class="podcasts-stat">
+                <div class="podcasts-stat__icon-wrapper">
+                  <span class="podcasts-stat__icon">📚</span>
+                </div>
+                <div class="podcasts-stat__content">
+                  <span class="podcasts-stat__value">
+                    {episodes.length}{" "}
+                    {episodes.length === 1
+                      ? t("podcasts.episode.singular")
+                      : t("podcasts.episode.plural")}
+                  </span>
+                </div>
+              </div>
+
+              <div class="podcasts-stat">
+                <div class="podcasts-stat__icon-wrapper">
+                  <span class="podcasts-stat__icon">🌐</span>
+                </div>
+                <div class="podcasts-stat__content">
+                  <span class="podcasts-stat__value">
+                    {t(`language.${String(lang)}`) || String(lang).toUpperCase()}
+                  </span>
+                </div>
+              </div>
+            </div>
+          )
+        }
+      </div>
+    </header>
+
+    <!-- Episodes List -->
+    <main class="podcasts-main">
+      {
+        episodes.length === 0 ? (
+          <div class="podcasts-empty">
+            <div class="podcasts-empty__icon">🎙️</div>
+            <h2 class="podcasts-empty__title">{t("podcasts.empty.title")}</h2>
+            <p class="podcasts-empty__text">{t("podcasts.empty.text")}</p>
+          </div>
+        ) : (
+          <div class="podcasts-list">
+            {episodes
+              .filter((episode: PodcastData) => episode.isAvailable)
+              .map((episode: PodcastData) => (
+                <PodcastEpisode
+                  podcast={episode}
+                  lang={String(lang)}
+                  className="podcasts-list__episode"
+                />
+              ))}
+          </div>
+        )
+      }
+    </main>
+  </div>
+</Layout>
+
+<style lang="scss">
+  /* ======================================
+   * PODCAST PAGE - Enhanced Responsive Design
+   * Uses global.css variables for consistency
+   * ====================================== */
+
+  /* Container Layout - Enhanced Mobile-First */
+  .podcasts-page {
+    width: 100%;
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: var(--space-sm) var(--space-xs);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    min-height: 100vh;
+    box-sizing: border-box;
+    container-type: inline-size;
+    container-name: podcasts-page;
+
+    @media (min-width: 480px) {
+      padding: var(--space-md) var(--space-sm);
+      gap: var(--space-xl);
+    }
+
+    @media (min-width: 640px) {
+      padding: var(--space-lg) var(--space-md);
+    }
+
+    @media (min-width: 768px) {
+      padding: var(--space-xl) var(--space-lg);
+      gap: var(--space-2xl);
+    }
+
+    @media (min-width: 1024px) {
+      padding: var(--space-xl) var(--space-xl);
+    }
+  }
+
+  /* Hero Section - Enhanced Responsive */
+  .podcasts-hero {
+    position: relative;
+    margin-bottom: var(--space-lg);
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-800) 0%,
+      var(--color-primary-900) 50%,
+      var(--color-neutral-900) 100%
+    );
+    padding: var(--space-md);
+    box-shadow: var(--shadow-xl);
+    border: var(--border-width-thin) solid var(--border-primary);
+
+    @media (min-width: 480px) {
+      padding: var(--space-lg);
+      margin-bottom: var(--space-xl);
+      border-radius: var(--radius-xl);
+    }
+
+    @media (min-width: 768px) {
+      padding: var(--space-xl);
+      margin-bottom: var(--space-2xl);
+    }
+
+    @media (min-width: 1024px) {
+      padding: var(--space-2xl) var(--space-xl);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      background: var(--color-primary-800);
+    }
+
+    &__decoration {
+      position: absolute;
+      inset: 0;
+      opacity: 0.1;
+      pointer-events: none;
+
+      &-item {
+        position: absolute;
+        border-radius: var(--radius-full);
+        background: var(--color-white);
+
+        &--top-right {
+          top: calc(-1 * var(--space-xl));
+          right: calc(-1 * var(--space-xl));
+          width: var(--space-3xl);
+          height: var(--space-3xl);
+        }
+
+        &--bottom-left {
+          bottom: calc(-1 * var(--space-2xl));
+          left: calc(-1 * var(--space-2xl));
+          width: calc(var(--space-3xl) * 2);
+          height: calc(var(--space-3xl) * 2);
+        }
+
+        &--center-right {
+          top: 50%;
+          right: calc(-1 * var(--space-md));
+          width: var(--space-2xl);
+          height: var(--space-2xl);
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    &__content {
+      position: relative;
+      z-index: var(--z-fixed);
+      text-align: center;
+      color: var(--color-white);
+    }
+
+    &__title {
+      margin-bottom: var(--space-sm);
+      color: var(--color-white);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      font-size: var(--text-2xl);
+      line-height: var(--leading-tight);
+
+      @media (min-width: 480px) {
+        font-size: var(--text-3xl);
+        margin-bottom: var(--space-md);
+      }
+
+      @media (min-width: 768px) {
+        font-size: var(--text-4xl);
+        margin-bottom: var(--space-lg);
+      }
+
+      @media (min-width: 1024px) {
+        font-size: var(--text-4xl);
+      }
+    }
+
+    &__divider {
+      width: var(--space-2xl);
+      height: var(--border-width-thick);
+      background: var(--color-secondary-400);
+      margin: var(--space-md) auto;
+      border-radius: var(--radius-full);
+
+      @media (min-width: 480px) {
+        margin: var(--space-lg) auto;
+        width: var(--space-3xl);
+      }
+    }
+
+    &__description {
+      color: var(--color-neutral-100);
+      font-size: var(--text-base);
+      line-height: var(--leading-relaxed);
+      max-width: var(--container-sm);
+      margin: 0 auto var(--space-md);
+      opacity: 0.9;
+
+      @media (min-width: 480px) {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-lg);
+      }
+
+      @media (min-width: 768px) {
+        font-size: var(--text-xl);
+      }
+
+      @media (min-width: 1024px) {
+        font-size: var(--text-2xl);
+      }
+    }
+
+    &__stats {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      margin-top: var(--space-lg);
+      width: 100%;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media (min-width: 480px) {
+        gap: var(--space-lg);
+        margin-top: var(--space-xl);
+      }
+
+      @media (min-width: 768px) {
+        gap: var(--space-xl);
+        max-width: 600px;
+      }
+
+      @media (max-width: 480px) {
+        flex-direction: column;
+        align-items: center;
+        max-width: 280px;
+      }
+    }
+  }
+
+  /* Podcast Stats */
+  .podcasts-stat {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-neutral-200);
+    background: rgba(255, 255, 255, 0.15);
+    padding: var(--space-sm);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(10px);
+    border: var(--border-width-thin) solid rgba(255, 255, 255, 0.25);
+    min-height: var(--touch-target-enhanced);
+    transition: all var(--transition-normal);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    flex: 1;
+    min-width: 140px;
+    max-width: 220px;
+
+    &:hover {
+      transform: translateY(var(--animation-y-offset-small));
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    @media (min-width: 480px) {
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      text-align: center;
+      padding: var(--space-sm);
+    }
+
+    &__icon-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-full);
+      margin-right: var(--space-xs);
+
+      @media (max-width: 480px) {
+        margin: 0 auto var(--space-xs);
+        width: 42px;
+        height: 42px;
+      }
+
+      @media (min-width: 768px) {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    &__icon {
+      font-size: var(--text-base);
+
+      @media (min-width: 480px) {
+        font-size: var(--text-lg);
+      }
+
+      @media (min-width: 768px) {
+        font-size: var(--text-xl);
+      }
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__label {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-enhanced);
+      opacity: 0.8;
+      margin-bottom: var(--space-2xs);
+
+      @media (min-width: 480px) {
+        font-size: var(--text-xs);
+      }
+    }
+
+    &__value {
+      font-size: var(--text-sm);
+      font-weight: var(--font-semibold);
+
+      @media (min-width: 480px) {
+        font-size: var(--text-base);
+      }
+
+      @media (min-width: 768px) {
+        font-size: var(--text-lg);
+      }
+    }
+
+    &__text {
+      white-space: nowrap;
+    }
+  }
+
+  /* Main Content */
+  .podcasts-main {
+    flex: 1;
+    width: 100%;
+  }
+
+  .podcasts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+
+    &__episode {
+      width: 100%;
+    }
+  }
+
+  /* Empty State */
+  .podcasts-empty {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-lg);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    border: var(--border-width-thick) dashed var(--border-secondary);
+    color: var(--text-secondary);
+
+    @media (min-width: 768px) {
+      padding: var(--space-3xl) var(--space-2xl);
+    }
+
+    &__icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-md);
+      opacity: var(--opacity-low);
+
+      @media (min-width: 480px) {
+        font-size: var(--text-4xl);
+        margin-bottom: var(--space-lg);
+      }
+    }
+
+    &__title {
+      font-size: var(--text-lg);
+      color: var(--text-primary);
+      margin: 0 0 var(--space-md) 0;
+      font-weight: var(--font-semibold);
+
+      @media (min-width: 480px) {
+        font-size: var(--text-xl);
+      }
+
+      @media (min-width: 768px) {
+        font-size: var(--text-2xl);
+      }
+    }
+
+    &__text {
+      color: var(--text-secondary);
+      font-size: var(--text-sm);
+      line-height: var(--leading-relaxed);
+      max-width: var(--container-sm);
+      margin: 0 auto;
+
+      @media (min-width: 480px) {
+        font-size: var(--text-base);
+      }
+    }
+  }
+
+  /* ======================================
+   * CONTAINER QUERIES (Modern Browsers)
+   * ====================================== */
+
+  @supports (container-type: inline-size) {
+    /* Small container optimizations */
+    @container podcasts-page (max-width: 500px) {
+      .podcasts-hero {
+        padding: var(--space-sm);
+        border-radius: var(--radius-lg);
+      }
+
+      .podcasts-hero__decoration-item {
+        opacity: 0.05;
+      }
+
+      .podcasts-stat {
+        flex-direction: column;
+        gap: calc(var(--space-xs) / 2);
+        text-align: center;
+        padding: var(--space-xs);
+      }
+    }
+
+    /* Large container optimizations */
+    @container podcasts-page (min-width: 1200px) {
+      .podcasts-hero {
+        padding: var(--space-3xl) var(--space-2xl);
+      }
+
+      .podcasts-hero__stats {
+        gap: var(--space-xl);
+      }
+    }
+  }
+
+  /* ======================================
+   * ACCESSIBILITY ENHANCEMENTS
+   * ====================================== */
+
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .podcasts-hero {
+      background: var(--color-primary-800);
+    }
+    
+    .podcasts-stat:hover {
+      transform: none;
+    }
+  }
+
+  /* High Contrast Mode */
+  @media (prefers-contrast: high) {
+    .podcasts-hero {
+      border-color: var(--text-primary);
+      border-width: var(--border-width-thick);
+    }
+
+    .podcasts-stat {
+      border-color: var(--text-primary);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+    }
+  }
+
+  /* Ultra-small screens */
+  @media (max-width: 320px) {
+    .podcasts-page {
+      padding: var(--space-xs) calc(var(--space-xs) / 2);
+    }
+
+    .podcasts-hero {
+      padding: var(--space-sm);
+    }
+
+    .podcasts-hero__title {
+      font-size: var(--text-lg);
+    }
+
+    .podcasts-hero__description {
+      font-size: var(--text-sm);
+    }
+
+    .podcasts-hero__stats {
+      flex-direction: column;
+      gap: var(--space-xs);
+      align-items: center;
+    }
+  }
+
+  /* Landscape mobile optimization */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .podcasts-hero {
+      padding: var(--space-sm) var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    .podcasts-hero__title {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-sm);
+    }
+  }
+
+  /* Print optimizations */
+  @media print {
+    .podcasts-hero__decoration {
+      display: none;
+    }
+
+    .podcasts-hero {
+      background: var(--print-bg);
+      color: var(--print-text);
+      border: var(--print-border);
+    }
+
+    .podcasts-hero__title,
+    .podcasts-hero__description {
+      color: var(--print-text);
+    }
+  }
+</style>
