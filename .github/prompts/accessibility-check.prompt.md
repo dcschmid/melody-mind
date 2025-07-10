@@ -68,14 +68,12 @@ If a specific file isn't provided, ask for:
 ## Advanced Review Structure
 
 1. **Content Structure Analysis**
-
    - Semantic HTML evaluation
    - Document outline and heading hierarchy
    - Content organization and predictability
    - Astro component structure assessment
 
 2. **Interface Interaction Assessment**
-
    - Keyboard navigation testing
    - Touch/pointer interaction evaluation
    - Gesture alternatives
@@ -83,7 +81,6 @@ If a specific file isn't provided, ask for:
    - Astro client-side hydration assessment
 
 3. **Information Conveyance Review**
-
    - Text alternatives quality
    - ARIA implementation correctness
    - State and property communication
@@ -91,7 +88,6 @@ If a specific file isn't provided, ask for:
    - Astro island accessibility assessment
 
 4. **Sensory Adaptability Check**
-
    - Visual presentation flexibility
    - Audio/video alternatives
    - Contrast and color independence
@@ -99,7 +95,6 @@ If a specific file isn't provided, ask for:
    - Media query implementation for preferences
 
 5. **Technical Robustness Verification**
-
    - HTML validity
    - Compatibility with assistive technologies
    - Responsive adaptation

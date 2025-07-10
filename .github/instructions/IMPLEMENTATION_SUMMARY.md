@@ -3,6 +3,7 @@
 ## ✅ Completed Updates
 
 ### 1. CSS Style Instructions (`css-style.instructions.md`)
+
 - **Added mandatory CSS variables requirement**
 - **Added code deduplication rules**
 - **Updated examples to use root variables**
@@ -10,22 +11,26 @@
 - **Enhanced with deduplication checklist**
 
 ### 2. Astro Component Instructions (`astro-component.instructions.md`)
+
 - **Updated CSS styling best practices**
 - **Added mandatory CSS variables usage**
 - **Enhanced component examples with root variables**
 - **Added utility class reuse requirements**
 
 ### 3. Code Organization Instructions (`code-organization.instructions.md`)
+
 - **Enhanced inline code examples with CSS variables**
 - **Updated decision matrix with CSS variables**
 - **Added mandatory deduplication checks**
 
 ### 4. TypeScript Instructions (`typescript.instructions.md`)
+
 - **Added code deduplication requirements**
 - **Enhanced with utility function reuse guidelines**
 - **Added type and interface reuse requirements**
 
 ### 5. New Critical Standards File (`css-variables-deduplication.instructions.md`)
+
 - **Comprehensive CSS variables documentation**
 - **Complete list of available root variables from global.css**
 - **Mandatory code deduplication rules**
@@ -33,6 +38,7 @@
 - **Automatic rejection criteria for code reviews**
 
 ### 6. New README (`README.md`)
+
 - **Overview of all instruction files**
 - **Quick reference for CSS variables**
 - **Common utility imports**
@@ -41,18 +47,21 @@
 ## 🎯 Key Improvements
 
 ### CSS Variables Integration
+
 - **Never hardcode design values** - Always use `var(--variable-name)`
 - **Comprehensive variable documentation** with exact pixel values
 - **Semantic color system** for automatic dark/light mode
 - **Consistent spacing, typography, and layout systems**
 
 ### Code Deduplication Enforcement
+
 - **Mandatory existing code checks** before creating new functionality
 - **Utility function reuse** from `/src/utils/` directory
 - **Component reuse** from `/src/components/` hierarchy
 - **Type definition reuse** from `/src/types/` directory
 
 ### Developer Workflow
+
 - **Pre-coding checklist** to verify existing solutions
 - **Validation criteria** for code reviews
 - **Automatic rejection rules** for non-compliant code
@@ -61,11 +70,12 @@
 ## 📋 Available CSS Variables (From global.css)
 
 ### Colors
+
 ```css
 /* Primary brand colors */
 --color-primary-50 to --color-primary-900
 
-/* Secondary brand colors */  
+/* Secondary brand colors */
 --color-secondary-50 to --color-secondary-900
 
 /* Neutral colors */
@@ -79,6 +89,7 @@
 ```
 
 ### Layout & Typography
+
 ```css
 /* Spacing system */
 --space-xs (4px) to --space-3xl (64px)
@@ -95,6 +106,7 @@
 ```
 
 ### Component Variables
+
 ```css
 /* Buttons */
 --btn-primary-bg, --btn-primary-hover, --btn-primary-text
@@ -112,6 +124,7 @@
 ## 🚨 Mandatory Rules
 
 ### Rule 1: CSS Variables Only
+
 ```css
 /* ❌ REJECTED */
 .component {
@@ -129,15 +142,17 @@
 ```
 
 ### Rule 2: Code Deduplication
+
 ```typescript
 // ❌ REJECTED - Duplicate function
 export const calculatePoints = (correct: number) => correct * 50;
 
 // ✅ ACCEPTED - Reuse existing
-import { calculateScore } from '@utils/game/score';
+import { calculateScore } from "@utils/game/score";
 ```
 
 ### Rule 3: Component Reuse
+
 ```astro
 <!-- ❌ REJECTED - Creating new button -->
 <button class="custom-button">Click me</button>
@@ -163,4 +178,5 @@ import { calculateScore } from '@utils/game/score';
 - `/home/daniel/projects/melody-mind/.github/instructions/typescript.instructions.md`
 - `/home/daniel/projects/melody-mind/.github/instructions/README.md`
 
-Diese Standards sind ab sofort **verpflichtend** und gelten für alle Code-Änderungen im MelodyMind-Projekt.
+Diese Standards sind ab sofort **verpflichtend** und gelten für alle Code-Änderungen im
+MelodyMind-Projekt.

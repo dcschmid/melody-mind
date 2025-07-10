@@ -17,7 +17,8 @@ These instructions apply to all TypeScript and JavaScript files in the MelodyMin
 - Implement proper error handling with contextual information
 - Follow consistent code formatting with Prettier
 - Use strict TypeScript compiler options
-- **Check existing utility files**: `/src/utils/game/`, `/src/utils/i18n.ts`, `/src/utils/seo.ts` before creating similar functionality
+- **Check existing utility files**: `/src/utils/game/`, `/src/utils/i18n.ts`, `/src/utils/seo.ts`
+  before creating similar functionality
 
 **Example:**
 
