@@ -1,0 +1,81 @@
+{
+  "podcasts": [
+    {
+      "id": "1950s",
+      "title": "Melody Mind: The Golden 50s - Rock 'n' Roll Revolution",
+      "description": "Dive into the birth of Rock 'n' Roll! In this podcast, we explore the 1950s when Elvis Presley shook the world, Chuck Berry made the guitar talk, and Bill Haley's 'Rock Around the Clock' sparked a musical revolution. From the first teen hits to jazz legends like Miles Davis and John Coltrane - discover the sounds that shaped a generation and laid the foundation for everything that came after.",
+      "imageUrl": "/category/1950s.jpg",
+      "language": "en",
+      "isAvailable": true,
+      "publishedAt": "2025-01-01",
+      "audioUrl": "/podcasts/en/1950s.mp3",
+      "subtitleUrl": "/podcasts/en/1950s.vtt"
+    },
+    {
+      "id": "1960s",
+      "title": "Melody Mind: The Wild 60s - Beatlemania & Woodstock",
+      "description": "The 1960s - an era of rebellion and revolution! Join us on a musical journey from Beatlemania, which sent the world into a collective frenzy, to the Woodstock Festival that defined an entire generation. From Bob Dylan's poetic protest songs to Jimi Hendrix's psychedelic sounds to soul legends like Aretha Franklin - experience the music that wasn't just entertainment, but drove a social movement.",
+      "imageUrl": "/category/1960s.jpg",
+      "language": "en",
+      "isAvailable": true,
+      "publishedAt": "2025-01-02",
+      "audioUrl": "/podcasts/en/1960s.mp3",
+      "subtitleUrl": "/podcasts/en/1960s.vtt"
+    },
+    {
+      "id": "1970s",
+      "title": "Melody Mind: The 70s - Disco Fever & Rock Explosion",
+      "description": "Welcome to the 1970s - the decade of extremes! From the funky disco beats of Donna Summer and Bee Gees that made dance floors shake, to the epic rock operas of Pink Floyd and Led Zeppelin. The 70s brought us Glam Rock with David Bowie, Progressive Rock with Genesis and Yes, and the birth of Punk with the Sex Pistols. A decade that had everything from disco fever to heavy metal - and changed the music world forever.",
+      "imageUrl": "/category/1970s.jpg",
+      "language": "en",
+      "isAvailable": true,
+      "publishedAt": "2025-08-15",
+      "audioUrl": "/podcasts/en/1970s.mp3",
+      "subtitleUrl": "/podcasts/en/1970s.vtt"
+    },
+    {
+      "id": "1980s",
+      "title": "Melody Mind: The 80s - Synth-Pop & Hair Metal",
+      "description": "The 1980s - the golden age of synthesizers and the MTV era! Experience the rise of synth-pop with bands like Depeche Mode, New Order, and The Human League experimenting with electronic sounds. Meanwhile, hair metal bands like Bon Jovi, Guns N' Roses, and Def Leppard dominated the charts. The 80s brought us Madonna, Michael Jackson's Thriller era, and the birth of hip-hop with Run-DMC and Public Enemy. A decade of innovation and excess!",
+      "imageUrl": "/category/1980s.jpg",
+      "language": "en",
+      "isAvailable": true,
+      "publishedAt": "2025-09-20",
+      "audioUrl": "/podcasts/en/1980s.mp3",
+      "subtitleUrl": "/podcasts/en/1980s.vtt"
+    },
+    {
+      "id": "1990s",
+      "title": "Melody Mind: The 90s - Grunge & Britpop Revolution",
+      "description": "The 1990s - the decade of the alternative revolution! Nirvana and the grunge sound from Seattle shook the music world and brought us Pearl Jam, Soundgarden, and Alice in Chains. Meanwhile, Britpop exploded with Oasis, Blur, and Pulp. The 90s also brought us the Spice Girls, Backstreet Boys, and NSYNC - the boy band era reached its peak. Hip-hop went mainstream with Tupac, Notorious B.I.G., and Wu-Tang Clan. A decade that changed the music industry forever!",
+      "imageUrl": "/category/1990s.jpg",
+      "language": "en",
+      "isAvailable": true,
+      "publishedAt": "2025-10-25",
+      "audioUrl": "/podcasts/en/1990s.mp3",
+      "subtitleUrl": "/podcasts/en/1990s.vtt"
+    },
+    {
+      "id": "2000s",
+      "title": "Melody Mind: The 2000s - Digital Age & Pop Dominance",
+      "description": "The 2000s - the age of digital revolution! With the rise of iTunes and MySpace, the music industry changed fundamentally. Britney Spears, Christina Aguilera, and Beyoncé dominated the pop charts, while rock bands like Linkin Park, System of a Down, and The Strokes took new paths. The 2000s also brought us the garage rock revival with The White Stripes and The Hives, as well as the rise of indie rock with Arcade Fire and The Killers. A decade of change and innovation!",
+      "imageUrl": "/category/2000s.jpg",
+      "language": "en",
+      "isAvailable": true,
+      "publishedAt": "2025-11-30",
+      "audioUrl": "/podcasts/en/2000s.mp3",
+      "subtitleUrl": "/podcasts/en/2000s.vtt"
+    },
+    {
+      "id": "2010s",
+      "title": "Melody Mind: The 2010s - Streaming Era & Genre Blending",
+      "description": "The 2010s - the age of streaming and genre blending! Spotify and YouTube revolutionized how we consume music. Taylor Swift, Adele, and Ed Sheeran dominated the charts, while EDM conquered the clubs with David Guetta, Calvin Harris, and Skrillex. The 2010s also brought us the indie-folk wave with Mumford & Sons and The Lumineers, as well as the rise of K-pop with BTS and Blackpink. A decade that blurred the boundaries between genres and created new sounds!",
+      "imageUrl": "/category/2010s.jpg",
+      "language": "en",
+      "isAvailable": true,
+      "publishedAt": "2025-12-15",
+      "audioUrl": "/podcasts/en/2010s.mp3",
+      "subtitleUrl": "/podcasts/en/2010s.vtt"
+    }
+  ]
+}

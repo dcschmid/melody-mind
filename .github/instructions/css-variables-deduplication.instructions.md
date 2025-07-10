@@ -11,6 +11,7 @@ These instructions apply to ALL files in the MelodyMind project and have the hig
 ### RULE 1: NEVER use hardcoded design values
 
 **❌ WRONG:**
+
 ```css
 .component {
   color: #ffffff;
@@ -22,6 +23,7 @@ These instructions apply to ALL files in the MelodyMind project and have the hig
 ```
 
 **✅ CORRECT:**
+
 ```css
 .component {
   color: var(--text-primary);
@@ -37,6 +39,7 @@ These instructions apply to ALL files in the MelodyMind project and have the hig
 **Always available variables:**
 
 #### Colors
+
 ```css
 /* Primary colors (Purple) */
 --color-primary-50 to --color-primary-900
@@ -55,6 +58,7 @@ These instructions apply to ALL files in the MelodyMind project and have the hig
 ```
 
 #### Spacing
+
 ```css
 --space-xs    /* 4px */
 --space-sm    /* 8px */
@@ -66,6 +70,7 @@ These instructions apply to ALL files in the MelodyMind project and have the hig
 ```
 
 #### Typography
+
 ```css
 --text-xs     /* 12px */
 --text-sm     /* 14px */
@@ -81,6 +86,7 @@ These instructions apply to ALL files in the MelodyMind project and have the hig
 ```
 
 #### Layout
+
 ```css
 --radius-sm, --radius-md, --radius-lg, --radius-xl, --radius-full
 --shadow-sm, --shadow-md, --shadow-lg, --shadow-xl
@@ -89,6 +95,7 @@ These instructions apply to ALL files in the MelodyMind project and have the hig
 ```
 
 #### Components
+
 ```css
 --btn-primary-bg, --btn-primary-hover, --btn-primary-text
 --card-bg, --card-border, --card-shadow
@@ -99,10 +106,11 @@ These instructions apply to ALL files in the MelodyMind project and have the hig
 ### RULE 3: Practical Implementation
 
 **In Astro components:**
+
 ```astro
 ---
 // Logic for dynamic styles with CSS variables
-const difficultyLevel = difficulty === 'hard' ? 'high' : 'normal';
+const difficultyLevel = difficulty === "hard" ? "high" : "normal";
 ---
 
 <div class={`quiz-card quiz-card--${difficultyLevel}`}>
@@ -144,19 +152,20 @@ const difficultyLevel = difficulty === 'hard' ? 'high' : 'normal';
 ```
 
 **In TypeScript for dynamic styles:**
+
 ```typescript
 /**
  * Generates CSS custom property styles for dynamic components
  * @param variant - Component variant type
  * @returns CSS string with custom properties
  */
-export const getVariantStyles = (variant: 'primary' | 'secondary' | 'danger'): string => {
+export const getVariantStyles = (variant: "primary" | "secondary" | "danger"): string => {
   const variantMap = {
-    primary: 'var(--interactive-primary)',
-    secondary: 'var(--color-secondary-600)',
-    danger: 'var(--color-error-500)'
+    primary: "var(--interactive-primary)",
+    secondary: "var(--color-secondary-600)",
+    danger: "var(--color-error-500)",
   };
-  
+
   return `
     background-color: ${variantMap[variant]};
     color: var(--btn-primary-text);
@@ -184,16 +193,16 @@ export const getVariantStyles = (variant: 'primary' | 'secondary' | 'danger'): s
 
 ```typescript
 // i18n utilities
-import { getLangFromUrl, useTranslations } from '@utils/i18n';
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 // Game logic
-import { calculateScore, getQuestionsByCategory } from '@utils/game/score';
+import { calculateScore, getQuestionsByCategory } from "@utils/game/score";
 
 // SEO helpers
-import { generateMetaTags, createStructuredData } from '@utils/seo';
+import { generateMetaTags, createStructuredData } from "@utils/seo";
 
 // Validation utilities
-import { validateEmail, sanitizeInput } from '@utils/validation';
+import { validateEmail, sanitizeInput } from "@utils/validation";
 ```
 
 ### RULE 3: Component Reuse Patterns
@@ -202,20 +211,21 @@ import { validateEmail, sanitizeInput } from '@utils/validation';
 
 ```
 /src/components/Shared/     - Base UI components
-/src/components/Game/       - Game-specific components  
+/src/components/Game/       - Game-specific components
 /src/components/Overlays/   - Modals and overlays
 /src/components/Header/     - Navigation
 /src/components/Footer/     - Footer areas
 ```
 
 **Example for Component Reuse:**
+
 ```astro
 ---
 // ❌ WRONG: Create new button component
 // ✅ CORRECT: Use existing ones
-import PrimaryButton from '@components/Shared/PrimaryButton.astro';
-import Modal from '@components/Overlays/Modal.astro';
-import ScoreDisplay from '@components/Game/ScoreDisplay.astro';
+import PrimaryButton from "@components/Shared/PrimaryButton.astro";
+import Modal from "@components/Overlays/Modal.astro";
+import ScoreDisplay from "@components/Game/ScoreDisplay.astro";
 ---
 
 <Modal title="Game Results">
@@ -239,7 +249,7 @@ import ScoreDisplay from '@components/Game/ScoreDisplay.astro';
 .new-component {
   /* Use existing container logic */
   @extend .container;
-  
+
   /* Use CSS variables for styling */
   background-color: var(--card-bg);
   padding: var(--space-lg);
@@ -265,9 +275,9 @@ import ScoreDisplay from '@components/Game/ScoreDisplay.astro';
 ```typescript
 // ❌ AUTOMATICALLY REJECTED
 const styles = {
-  color: '#ffffff',           // Hardcoded color
-  padding: '16px',           // Hardcoded spacing
-  fontSize: '18px'           // Hardcoded font size
+  color: "#ffffff", // Hardcoded color
+  padding: "16px", // Hardcoded spacing
+  fontSize: "18px", // Hardcoded font size
 };
 
 // ❌ AUTOMATICALLY REJECTED - Duplicated functionality
@@ -277,18 +287,19 @@ export const calculatePoints = (correct: number) => {
 
 // ✅ ACCEPTED
 const styles = {
-  color: 'var(--text-primary)',
-  padding: 'var(--space-md)',
-  fontSize: 'var(--text-lg)'
+  color: "var(--text-primary)",
+  padding: "var(--space-md)",
+  fontSize: "var(--text-lg)",
 };
 
 // ✅ ACCEPTED - Reuse
-import { calculateScore } from '@utils/game/score';
+import { calculateScore } from "@utils/game/score";
 ```
 
 ## Performance Implications
 
 **CSS variables provide:**
+
 - **Consistency**: Unified design system
 - **Maintainability**: Central changes possible
 - **Performance**: Browser-optimized CSS Custom Properties
@@ -296,6 +307,7 @@ import { calculateScore } from '@utils/game/score';
 - **Accessibility**: WCAG-compliant contrasts through semantic variables
 
 **Code deduplication provides:**
+
 - **Bundle Size**: Smaller JavaScript/CSS bundles
 - **Maintainability**: Less code to maintain
 - **Consistency**: Unified implementations
@@ -313,21 +325,22 @@ import { calculateScore } from '@utils/game/score';
 5. **Update documentation**
 
 **Migration example:**
+
 ```typescript
 // BEFORE
 const buttonStyle = {
-  backgroundColor: '#8b5cf6',
-  color: '#ffffff',
-  padding: '12px 24px',
-  borderRadius: '8px'
+  backgroundColor: "#8b5cf6",
+  color: "#ffffff",
+  padding: "12px 24px",
+  borderRadius: "8px",
 };
 
 // AFTER
 const buttonStyle = {
-  backgroundColor: 'var(--interactive-primary)',
-  color: 'var(--btn-primary-text)',
-  padding: 'var(--space-md) var(--space-lg)',
-  borderRadius: 'var(--radius-md)'
+  backgroundColor: "var(--interactive-primary)",
+  color: "var(--btn-primary-text)",
+  padding: "var(--space-md) var(--space-lg)",
+  borderRadius: "var(--radius-md)",
 };
 ```
 

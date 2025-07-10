@@ -4,6 +4,8 @@ import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import PodcastEpisode from "@components/Podcast/PodcastEpisode.astro";
 import type { PodcastData } from "../../types/podcast";
+import dePodcastsJson from "../../data/podcasts/de.json" assert { type: "json" };
+import enPodcastsJson from "../../data/podcasts/en.json" assert { type: "json" };
 
 /**
  * Static path generation for internationalization
@@ -47,173 +49,18 @@ const t = useTranslations(String(lang));
  * Load podcast data for the current language with fallback to English
  * Uses static data to avoid build issues
  */
-function loadPodcastsForLanguage(language: string): PodcastData[] {
-  const podcastData = {
-    de: [
-      {
-        id: "1950s",
-        title: "Melody Mind: Die goldenen 50er Jahre - Rock 'n' Roll Revolution",
-        description: "Tauchen Sie ein in die Geburtsstunde des Rock 'n' Roll! In diesem Podcast erkunden wir die 1950er Jahre, als Elvis Presley die Welt erschütterte, Chuck Berry die Gitarre zum Sprechen brachte und Bill Haley mit 'Rock Around the Clock' eine musikalische Revolution auslöste. Von den ersten Teenager-Hits bis zu den Jazz-Legenden wie Miles Davis und John Coltrane - entdecken Sie die Klänge, die eine Generation prägten und die Grundlage für alles legten, was danach kam.",
-        imageUrl: "/category/1950s.jpg",
-        language: "de",
-        isAvailable: true,
-        publishedAt: "2025-07-08",
-        audioUrl: "/podcasts/de/1950s.mp3",
-        subtitleUrl: "/podcasts/de/1950s.vtt"
-      },
-      {
-        id: "1960s",
-        title: "Melody Mind: Die wilden 60er - Beatlemania & Woodstock",
-        description: "Die 1960er Jahre - eine Ära der Rebellion und Revolution! Begleiten Sie uns auf einer musikalischen Zeitreise von der Beatlemania, die die Welt in einen kollektiven Rausch versetzte, bis zum Woodstock-Festival, das eine ganze Generation definierte. Von Bob Dylans poetischen Protestliedern über die psychedelischen Klänge von Jimi Hendrix bis zu den Soul-Legenden wie Aretha Franklin - erleben Sie die Musik, die nicht nur Unterhaltung war, sondern eine soziale Bewegung antrieb.",
-        imageUrl: "/category/1960s.jpg",
-        language: "de",
-        isAvailable: true,
-        publishedAt: "2025-07-08",
-        audioUrl: "/podcasts/de/1960s.mp3",
-        subtitleUrl: "/podcasts/de/1960s.vtt"
-      },
-      {
-        id: "1970s",
-        title: "Melody Mind: Die 70er - Disco Fever & Rock Explosion",
-        description: "Willkommen in den 1970er Jahren - dem Jahrzehnt der Extreme! Von den funky Disco-Beats von Donna Summer und Bee Gees, die die Tanzflächen zum Beben brachten, bis zu den epischen Rock-Opern von Pink Floyd und Led Zeppelin. Die 70er brachten uns Glam Rock mit David Bowie, Progressive Rock mit Genesis und Yes, und die Geburt des Punk mit den Sex Pistols. Ein Jahrzehnt, das von Disco-Fieber bis Heavy Metal alles hatte - und die Musikwelt für immer veränderte.",
-        imageUrl: "/category/1970s.jpg",
-        language: "de",
-        isAvailable: true,
-        publishedAt: "2025-08-15",
-        audioUrl: "/podcasts/de/1970s.mp3",
-        subtitleUrl: "/podcasts/de/1970s.vtt"
-      },
-      {
-        id: "1980s",
-        title: "Melody Mind: Die 80er - Synthie-Pop & Hair Metal",
-        description: "Die 1980er Jahre - das goldene Zeitalter der Synthesizer und der MTV-Ära! Erleben Sie den Aufstieg des Synthie-Pop mit Bands wie Depeche Mode, New Order und The Human League, die mit elektronischen Klängen experimentierten. Gleichzeitig dominierten Hair Metal-Bands wie Bon Jovi, Guns N' Roses und Def Leppard die Charts. Die 80er brachten uns Madonna, Michael Jackson's Thriller-Ära, und die Geburt des Hip-Hop mit Run-DMC und Public Enemy. Ein Jahrzehnt der Innovation und des Überflusses!",
-        imageUrl: "/category/1980s.jpg",
-        language: "de",
-        isAvailable: true,
-        publishedAt: "2025-09-20",
-        audioUrl: "/podcasts/de/1980s.mp3",
-        subtitleUrl: "/podcasts/de/1980s.vtt"
-      },
-      {
-        id: "1990s",
-        title: "Melody Mind: Die 90er - Grunge & Britpop Revolution",
-        description: "Die 1990er Jahre - das Jahrzehnt der Alternative-Revolution! Nirvana und der Grunge-Sound aus Seattle erschütterten die Musikwelt und brachten uns Pearl Jam, Soundgarden und Alice in Chains. Gleichzeitig explodierte der Britpop mit Oasis, Blur und Pulp. Die 90er brachten uns auch die Spice Girls, Backstreet Boys und NSYNC - die Boyband-Ära erreichte ihren Höhepunkt. Hip-Hop wurde Mainstream mit Tupac, Notorious B.I.G. und Wu-Tang Clan. Ein Jahrzehnt, das die Musikindustrie für immer veränderte!",
-        imageUrl: "/category/1990s.jpg",
-        language: "de",
-        isAvailable: true,
-        publishedAt: "2025-10-25",
-        audioUrl: "/podcasts/de/1990s.mp3",
-        subtitleUrl: "/podcasts/de/1990s.vtt"
-      },
-      {
-        id: "2000s",
-        title: "Melody Mind: Die 2000er - Digital Age & Pop Dominance",
-        description: "Die 2000er Jahre - das Zeitalter der digitalen Revolution! Mit dem Aufstieg von iTunes und MySpace veränderte sich die Musikindustrie grundlegend. Britney Spears, Christina Aguilera und Beyoncé dominierten die Pop-Charts, während Rock-Bands wie Linkin Park, System of a Down und The Strokes neue Wege beschritten. Die 2000er brachten uns auch die Garage Rock-Revival mit The White Stripes und The Hives, sowie den Aufstieg von Indie-Rock mit Arcade Fire und The Killers. Ein Jahrzehnt des Wandels und der Innovation!",
-        imageUrl: "/category/2000s.jpg",
-        language: "de",
-        isAvailable: true,
-        publishedAt: "2025-11-30",
-        audioUrl: "/podcasts/de/2000s.mp3",
-        subtitleUrl: "/podcasts/de/2000s.vtt"
-      },
-      {
-        id: "2010s",
-        title: "Melody Mind: Die 2010er - Streaming Era & Genre Blending",
-        description: "Die 2010er Jahre - das Zeitalter des Streamings und der Genre-Verschmelzung! Spotify und YouTube revolutionierten die Art, wie wir Musik konsumieren. Taylor Swift, Adele und Ed Sheeran dominierten die Charts, während EDM mit David Guetta, Calvin Harris und Skrillex die Clubs eroberte. Die 2010er brachten uns auch die Indie-Folk-Welle mit Mumford & Sons und The Lumineers, sowie den Aufstieg von K-Pop mit BTS und Blackpink. Ein Jahrzehnt, das die Grenzen zwischen Genres verwischte und neue Klänge schuf!",
-        imageUrl: "/category/2010s.jpg",
-        language: "de",
-        isAvailable: true,
-        publishedAt: "2025-12-15",
-        audioUrl: "/podcasts/de/2010s.mp3",
-        subtitleUrl: "/podcasts/de/2010s.vtt"
-      }
-    ],
-    en: [
-      {
-        id: "1950s",
-        title: "Melody Mind: The Golden 50s - Rock 'n' Roll Revolution",
-        description: "Dive into the birth of Rock 'n' Roll! In this podcast, we explore the 1950s when Elvis Presley shook the world, Chuck Berry made the guitar talk, and Bill Haley's 'Rock Around the Clock' sparked a musical revolution. From the first teen hits to jazz legends like Miles Davis and John Coltrane - discover the sounds that shaped a generation and laid the foundation for everything that came after.",
-        imageUrl: "/category/1950s.jpg",
-        language: "en",
-        isAvailable: false,
-        publishedAt: "2025-01-01",
-        audioUrl: "/podcasts/en/1950s.mp3",
-        subtitleUrl: "/podcasts/en/1950s.vtt"
-      },
-      {
-        id: "1960s",
-        title: "Melody Mind: The Wild 60s - Beatlemania & Woodstock",
-        description: "The 1960s - an era of rebellion and revolution! Join us on a musical journey from Beatlemania, which sent the world into a collective frenzy, to the Woodstock Festival that defined an entire generation. From Bob Dylan's poetic protest songs to Jimi Hendrix's psychedelic sounds to soul legends like Aretha Franklin - experience the music that wasn't just entertainment, but drove a social movement.",
-        imageUrl: "/category/1960s.jpg",
-        language: "en",
-        isAvailable: false,
-        publishedAt: "2025-01-02",
-        audioUrl: "/podcasts/en/1960s.mp3",
-        subtitleUrl: "/podcasts/en/1960s.vtt"
-      },
-      {
-        id: "1970s",
-        title: "Melody Mind: The 70s - Disco Fever & Rock Explosion",
-        description: "Welcome to the 1970s - the decade of extremes! From the funky disco beats of Donna Summer and Bee Gees that made dance floors shake, to the epic rock operas of Pink Floyd and Led Zeppelin. The 70s brought us Glam Rock with David Bowie, Progressive Rock with Genesis and Yes, and the birth of Punk with the Sex Pistols. A decade that had everything from disco fever to heavy metal - and changed the music world forever.",
-        imageUrl: "/category/1970s.jpg",
-        language: "en",
-        isAvailable: false,
-        publishedAt: "2025-08-15",
-        audioUrl: "/podcasts/en/1970s.mp3",
-        subtitleUrl: "/podcasts/en/1970s.vtt"
-      },
-      {
-        id: "1980s",
-        title: "Melody Mind: The 80s - Synth-Pop & Hair Metal",
-        description: "The 1980s - the golden age of synthesizers and the MTV era! Experience the rise of synth-pop with bands like Depeche Mode, New Order, and The Human League experimenting with electronic sounds. Meanwhile, hair metal bands like Bon Jovi, Guns N' Roses, and Def Leppard dominated the charts. The 80s brought us Madonna, Michael Jackson's Thriller era, and the birth of hip-hop with Run-DMC and Public Enemy. A decade of innovation and excess!",
-        imageUrl: "/category/1980s.jpg",
-        language: "en",
-        isAvailable: false,
-        publishedAt: "2025-09-20",
-        audioUrl: "/podcasts/en/1980s.mp3",
-        subtitleUrl: "/podcasts/en/1980s.vtt"
-      },
-      {
-        id: "1990s",
-        title: "Melody Mind: The 90s - Grunge & Britpop Revolution",
-        description: "The 1990s - the decade of the alternative revolution! Nirvana and the grunge sound from Seattle shook the music world and brought us Pearl Jam, Soundgarden, and Alice in Chains. Meanwhile, Britpop exploded with Oasis, Blur, and Pulp. The 90s also brought us the Spice Girls, Backstreet Boys, and NSYNC - the boy band era reached its peak. Hip-hop went mainstream with Tupac, Notorious B.I.G., and Wu-Tang Clan. A decade that changed the music industry forever!",
-        imageUrl: "/category/1990s.jpg",
-        language: "en",
-        isAvailable: false,
-        publishedAt: "2025-10-25",
-        audioUrl: "/podcasts/en/1990s.mp3",
-        subtitleUrl: "/podcasts/en/1990s.vtt"
-      },
-      {
-        id: "2000s",
-        title: "Melody Mind: The 2000s - Digital Age & Pop Dominance",
-        description: "The 2000s - the age of digital revolution! With the rise of iTunes and MySpace, the music industry changed fundamentally. Britney Spears, Christina Aguilera, and Beyoncé dominated the pop charts, while rock bands like Linkin Park, System of a Down, and The Strokes took new paths. The 2000s also brought us the garage rock revival with The White Stripes and The Hives, as well as the rise of indie rock with Arcade Fire and The Killers. A decade of change and innovation!",
-        imageUrl: "/category/2000s.jpg",
-        language: "en",
-        isAvailable: false,
-        publishedAt: "2025-11-30",
-        audioUrl: "/podcasts/en/2000s.mp3",
-        subtitleUrl: "/podcasts/en/2000s.vtt"
-      },
-      {
-        id: "2010s",
-        title: "Melody Mind: The 2010s - Streaming Era & Genre Blending",
-        description: "The 2010s - the age of streaming and genre blending! Spotify and YouTube revolutionized how we consume music. Taylor Swift, Adele, and Ed Sheeran dominated the charts, while EDM conquered the clubs with David Guetta, Calvin Harris, and Skrillex. The 2010s also brought us the indie-folk wave with Mumford & Sons and The Lumineers, as well as the rise of K-pop with BTS and Blackpink. A decade that blurred the boundaries between genres and created new sounds!",
-        imageUrl: "/category/2010s.jpg",
-        language: "en",
-        isAvailable: false,
-        publishedAt: "2025-12-15",
-        audioUrl: "/podcasts/en/2010s.mp3",
-        subtitleUrl: "/podcasts/en/2010s.vtt"
-      }
-    ]
-  };
-
-  return podcastData[language as keyof typeof podcastData] || podcastData.en;
+async function loadPodcastsForLanguage(language: string): Promise<PodcastData[]> {
+  if (language === "en") {
+    return Array.isArray(enPodcastsJson.podcasts) ? enPodcastsJson.podcasts : [];
+  }
+  if (language === "de") {
+    return Array.isArray(dePodcastsJson.podcasts) ? dePodcastsJson.podcasts : [];
+  }
+  return [];
 }
 
 // Load podcast data
-const episodes = loadPodcastsForLanguage(lang);
+const episodes = await loadPodcastsForLanguage(lang);
 
 // SEO and page metadata
 const title = t("podcast.title");
@@ -758,7 +605,7 @@ const pageSchema = generatePodcastPageSchema();
     .podcasts-hero {
       background: var(--color-primary-800);
     }
-    
+
     .podcasts-stat:hover {
       transform: none;
     }

@@ -577,14 +577,12 @@ export default [
 When reviewing and optimizing TypeScript code, the following points should be considered:
 
 1. **Type Safety:**
-
    - Avoid `any` and `as` type casts
    - Use union types instead of optional parameters where appropriate
    - Use template literal types for string validation
    - Use branded/nominal types for better type differentiation
 
 2. **Performance:**
-
    - Efficient data structures (Maps, Sets) for frequent operations
    - Avoid unnecessary array copies and iterations
    - Memoization for computationally intensive functions
@@ -592,14 +590,12 @@ When reviewing and optimizing TypeScript code, the following points should be co
    - Proper cleanup of event listeners and resources
 
 3. **Bundle Size:**
-
    - Individual named exports instead of default exports
    - Code splitting with dynamic imports
    - Lazy loading of non-critical components
    - Tree-shakeable module design
 
 4. **Documentation:**
-
    - JSDoc comments for all public APIs
    - Type definitions in both comments and as TypeScript types
    - Examples for complex functions
@@ -607,7 +603,6 @@ When reviewing and optimizing TypeScript code, the following points should be co
    - Mark breaking changes, deprecations, and version info
 
 5. **Accessibility:**
-
    - Type-safe ARIA attributes
    - Correct semantic elements
    - Keyboard navigation and focus management

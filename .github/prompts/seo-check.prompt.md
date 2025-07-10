@@ -117,7 +117,6 @@ If a specific file isn't provided, ask for:
 ### Component-Specific SEO Analysis
 
 - **Content Components SEO Optimization**:
-
   - Use semantic HTML elements appropriate for the content type
   - Ensure proper heading hierarchy within the component (without skipping levels)
   - Include appropriate Schema.org attributes for the component's specific content type
@@ -176,7 +175,6 @@ If a specific file isn't provided, ask for:
   ```
 
 - **Navigation Components SEO Optimization**:
-
   - Implement proper ARIA landmarks for navigation elements
   - Use descriptive link text with relevant keywords
   - Avoid keyword stuffing in navigation items
@@ -233,7 +231,6 @@ If a specific file isn't provided, ask for:
   ```
 
 - **Interactive Components SEO Considerations**:
-
   - Use progressive enhancement to ensure content is accessible without JavaScript
   - Implement proper fallbacks for search engine crawlers
   - Minimize Cumulative Layout Shift for SEO ranking factors
@@ -282,7 +279,6 @@ If a specific file isn't provided, ask for:
   ```
 
 - **Media Components SEO Best Practices**:
-
   - Optimize image components with proper alt text, dimensions and lazy loading
   - Implement structured data for video components
   - Use captions and transcripts for multimedia accessibility and SEO
@@ -601,7 +597,6 @@ If a specific file isn't provided, ask for:
 ## Advanced Review Structure
 
 1. **Technical Foundation Analysis**
-
    - Code structure and validation
    - URL structure and canonicalization
    - Server-side rendering implementation
@@ -612,7 +607,6 @@ If a specific file isn't provided, ask for:
    - **Semantic structure of individual components**
 
 2. **Metadata Evaluation**
-
    - Title tag quality and structure
    - Meta description effectiveness
    - OpenGraph and Twitter Cards implementation
@@ -623,7 +617,6 @@ If a specific file isn't provided, ask for:
    - **Component-specific structured data and semantic attributes**
 
 3. **Content Assessment**
-
    - Keyword strategy and implementation
    - Content quality and relevance
    - Content structure and readability
@@ -632,7 +625,6 @@ If a specific file isn't provided, ask for:
    - Multi-language content handling
 
 4. **Performance Review**
-
    - Core Web Vitals metrics
    - Page load speed optimization
    - Resource optimization (images, scripts, styles)
@@ -641,7 +633,6 @@ If a specific file isn't provided, ask for:
    - Mobile performance optimization
 
 5. **User Experience Evaluation**
-
    - Mobile-friendliness
    - Navigation structure
    - User engagement elements

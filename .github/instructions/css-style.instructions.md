@@ -10,11 +10,14 @@ Context7 optimizations and the latest standards.
 ## General Guidelines
 
 - Use pure CSS for all styling requirements
-- **ALWAYS use CSS custom properties (root variables) from `/src/styles/global.css`** - Never hardcode colors, spacing, or other design tokens
-- **ALWAYS perform code deduplication** - Check for existing similar CSS patterns before creating new ones
+- **ALWAYS use CSS custom properties (root variables) from `/src/styles/global.css`** - Never
+  hardcode colors, spacing, or other design tokens
+- **ALWAYS perform code deduplication** - Check for existing similar CSS patterns before creating
+  new ones
 - Organize CSS with logical sections and components
 - Use the BEM methodology (Block-Element-Modifier) for class names
-- Apply a consistent color scheme using predefined CSS variables (--color-primary-*, --color-secondary-*, etc.)
+- Apply a consistent color scheme using predefined CSS variables (--color-primary-_,
+  --color-secondary-_, etc.)
 - Implement component-based organization for better maintainability
 - Support both light and dark themes with sufficient contrast using semantic color variables
 
@@ -47,8 +50,10 @@ Context7 optimizations and the latest standards.
 - **MANDATORY: Use CSS custom properties from global.css** - Never hardcode design values
 - **Available root variables include:**
   - **Colors**: `--color-primary-*`, `--color-secondary-*`, `--color-neutral-*` (50-950 scale)
-  - **Semantic colors**: `--bg-primary`, `--bg-secondary`, `--text-primary`, `--text-secondary`, `--border-primary`, etc.
-  - **Interactive colors**: `--interactive-primary`, `--interactive-primary-hover`, `--interactive-primary-active`
+  - **Semantic colors**: `--bg-primary`, `--bg-secondary`, `--text-primary`, `--text-secondary`,
+    `--border-primary`, etc.
+  - **Interactive colors**: `--interactive-primary`, `--interactive-primary-hover`,
+    `--interactive-primary-active`
   - **Component colors**: `--btn-primary-bg`, `--card-bg`, `--form-bg`, etc.
   - **Spacing**: `--space-xs` (4px) to `--space-3xl` (64px)
   - **Typography**: `--text-xs` (12px) to `--text-4xl` (36px), `--font-normal` to `--font-bold`

@@ -480,7 +480,6 @@ describe("Internationalization", () => {
 ## Quick Test Generation Workflow
 
 1. **Identify the file type**:
-
    - `.astro` → Use Astro Component Template
    - `/utils/` → Use Utility Function Template
    - `/pages/api/` → Use API Endpoint Template
@@ -489,14 +488,12 @@ describe("Internationalization", () => {
 2. **Generate base structure** from appropriate template
 
 3. **Customize for specific functionality**:
-
    - Add component-specific props and behaviors
    - Include relevant edge cases
    - Add accessibility tests for interactive elements
    - Include snapshot tests for UI components
 
 4. **Add MelodyMind-specific tests**:
-
    - Game mechanics (scoring, timing, difficulty)
    - Audio features (if applicable)
    - Internationalization (if applicable)

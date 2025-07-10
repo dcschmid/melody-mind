@@ -66,7 +66,6 @@ applyTo: "**/*.{ts,astro}"
 ### Component Extraction
 
 - **Create new components only when:**
-
   1. The UI structure is **reused in multiple places**
   2. The component represents a **standalone functional unit** (e.g., a QuestionCard)
   3. The UI logic becomes too complex for a single file (more than 100 lines of HTML)
@@ -81,7 +80,6 @@ applyTo: "**/*.{ts,astro}"
 ### TypeScript and Utility Organization
 
 - **For new TypeScript utilities:**
-
   1. Check if the functionality already exists in `/src/utils/`
   2. Place domain-specific utilities in appropriate subdirectories (e.g., `/src/utils/game/`)
   3. Export only what is actually needed (named exports)
@@ -118,15 +116,15 @@ applyTo: "**/*.{ts,astro}"
   // Implement logic directly here if it's only relevant for this component
   const isHardMode = difficulty === "hard";
   const questionCount = isHardMode ? 20 : difficulty === "medium" ? 15 : 10;
-  
+
   // Use CSS variables for dynamic styling
   const difficultyClass = `difficulty-${difficulty}`;
   ---
 
   <!-- HTML structure with semantic markup and CSS variables -->
   <div class={`quiz-component ${difficultyClass}`}>
-    <h2 class="quiz-component__title">{t('quiz.title')}</h2>
-    <p class="quiz-component__info">{questionCount} {t('quiz.questions')}</p>
+    <h2 class="quiz-component__title">{t("quiz.title")}</h2>
+    <p class="quiz-component__info">{questionCount} {t("quiz.questions")}</p>
   </div>
 
   <style>
@@ -181,43 +179,39 @@ applyTo: "**/*.{ts,astro}"
 
 ### Decision Matrix for Code Organization
 
-| Scenario                    | Solution                                          |
-| --------------------------- | ------------------------------------------------- |
-| Simple UI logic             | Inline in Astro frontmatter with CSS variables   |
-| Simple DOM interactions     | Inline script with `is:inline`                   |
-| More complex frontend logic | Module script (`<script>`) using CSS variables   |
-| Reusable frontend logic     | In `/src/utils/` as TS file                      |
-| Game logic                  | In `/src/utils/game/` as TS file                 |
-| Reusable UI element         | As Astro component in `/src/components/`         |
-| Page-specific UI element    | Keep in the current file with CSS variables      |
-| **CSS Styling**             | **ALWAYS use root variables from global.css**    |
-| **Code Patterns**           | **ALWAYS check for existing patterns first**     |
+| Scenario                    | Solution                                       |
+| --------------------------- | ---------------------------------------------- |
+| Simple UI logic             | Inline in Astro frontmatter with CSS variables |
+| Simple DOM interactions     | Inline script with `is:inline`                 |
+| More complex frontend logic | Module script (`<script>`) using CSS variables |
+| Reusable frontend logic     | In `/src/utils/` as TS file                    |
+| Game logic                  | In `/src/utils/game/` as TS file               |
+| Reusable UI element         | As Astro component in `/src/components/`       |
+| Page-specific UI element    | Keep in the current file with CSS variables    |
+| **CSS Styling**             | **ALWAYS use root variables from global.css**  |
+| **Code Patterns**           | **ALWAYS check for existing patterns first**   |
 
 ### Code Analysis and Refactoring Process
 
 When working on an existing file, follow this process to identify reusable parts:
 
 1. **Identify repetitive patterns** in the current file:
-
    - Similar UI structures that appear multiple times
    - Logic that performs similar operations in different parts
    - Event handlers that could be consolidated
 
 2. **Extract reusable UI components** when you find:
-
    - UI patterns that are used across multiple pages
    - Complex UI elements with their own state/behavior
    - UI fragments that represent a discrete concept
 
 3. **Extract TypeScript utilities** when you find:
-
    - Data transformation or calculation logic
    - Complex validation functions
    - State management functions
    - Helper functions used in multiple places
 
 4. **Naming and organization**:
-
    - Name components based on their function, not their appearance
    - Name utilities based on what they do, not how they do it
    - Place components in appropriate subdirectories by domain

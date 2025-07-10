@@ -1,16 +1,19 @@
 # MelodyMind Development Instructions
 
-This directory contains comprehensive coding instructions for the MelodyMind project. These instructions are enforced automatically and must be followed by all developers and AI assistants.
+This directory contains comprehensive coding instructions for the MelodyMind project. These
+instructions are enforced automatically and must be followed by all developers and AI assistants.
 
 ## 🚨 CRITICAL STANDARDS - NON-NEGOTIABLE
 
 ### 1. CSS Variables (HIGHEST PRIORITY)
+
 - **File**: `css-variables-deduplication.instructions.md`
 - **Rule**: NEVER use hardcoded colors, spacing, or design tokens
 - **Requirement**: ALWAYS use CSS custom properties from `/src/styles/global.css`
 - **Examples**: `var(--text-primary)`, `var(--space-md)`, `var(--radius-sm)`
 
 ### 2. Code Deduplication (HIGHEST PRIORITY)
+
 - **File**: `css-variables-deduplication.instructions.md`
 - **Rule**: ALWAYS check for existing patterns before creating new code
 - **Requirement**: Reuse utilities, components, and types from existing codebase
@@ -19,24 +22,29 @@ This directory contains comprehensive coding instructions for the MelodyMind pro
 ## 📁 Instruction Files
 
 ### Core Standards
-- **`css-variables-deduplication.instructions.md`** - Mandatory CSS variables and deduplication rules
+
+- **`css-variables-deduplication.instructions.md`** - Mandatory CSS variables and deduplication
+  rules
 - **`astro-component.instructions.md`** - Astro component architecture and best practices
 - **`css-style.instructions.md`** - CSS styling standards with WCAG AAA compliance
 - **`code-organization.instructions.md`** - File structure and code organization patterns
 - **`typescript.instructions.md`** - TypeScript coding standards and type safety
 
 ### Specialized Instructions
+
 - **`testing.instructions.md`** - Testing strategies and best practices
 
 ## 🔄 Workflow Integration
 
 ### Before Writing Any Code
+
 1. **Check CSS Variables**: Verify `/src/styles/global.css` for available design tokens
 2. **Search for Existing**: Look in `/src/utils/`, `/src/components/`, `/src/types/`
 3. **Review Patterns**: Check similar implementations in the codebase
 4. **Plan Reuse**: Identify opportunities to reuse existing code
 
 ### Code Review Checklist
+
 - [ ] No hardcoded design values (colors, spacing, fonts)
 - [ ] CSS custom properties used throughout
 - [ ] Existing utilities and components reused
@@ -47,27 +55,29 @@ This directory contains comprehensive coding instructions for the MelodyMind pro
 - [ ] JSDoc comments for all functions
 
 ### Automatic Rejection Criteria
+
 ```typescript
 // ❌ REJECTED - Hardcoded values
-color: '#ffffff'
-padding: '16px'
-fontSize: '18px'
+color: "#ffffff";
+padding: "16px";
+fontSize: "18px";
 
 // ❌ REJECTED - Duplicate functionality
 export const calculateScore = (answers: number) => answers * 50;
 
 // ✅ ACCEPTED - CSS variables
-color: 'var(--text-primary)'
-padding: 'var(--space-md)'
-fontSize: 'var(--text-lg)'
+color: "var(--text-primary)";
+padding: "var(--space-md)";
+fontSize: "var(--text-lg)";
 
 // ✅ ACCEPTED - Reused utility
-import { calculateScore } from '@utils/game/score';
+import { calculateScore } from "@utils/game/score";
 ```
 
 ## 🎯 Project-Specific Standards
 
 ### MelodyMind Architecture
+
 - **Framework**: Astro.js with TypeScript
 - **Styling**: CSS custom properties, BEM methodology
 - **Accessibility**: WCAG AAA compliance
@@ -75,6 +85,7 @@ import { calculateScore } from '@utils/game/score';
 - **Performance**: Optimized for Core Web Vitals
 
 ### Design System
+
 - **Colors**: Purple/pink gradient theme with dark mode support
 - **Typography**: Source Sans Pro font family
 - **Spacing**: 8px base unit system
@@ -82,6 +93,7 @@ import { calculateScore } from '@utils/game/score';
 - **Responsive**: Mobile-first design approach
 
 ### Key Directories
+
 ```
 /src/
 ├── components/        # Reusable UI components
@@ -110,6 +122,7 @@ import { calculateScore } from '@utils/game/score';
 ## ⚡ Quick Reference
 
 ### CSS Variables
+
 ```css
 /* Colors */
 --text-primary, --text-secondary, --text-tertiary
@@ -131,32 +144,29 @@ import { calculateScore } from '@utils/game/score';
 ```
 
 ### Common Utilities
+
 ```typescript
 // i18n
-import { getLangFromUrl, useTranslations } from '@utils/i18n';
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 // Game logic
-import { calculateScore, validateAnswer } from '@utils/game/score';
+import { calculateScore, validateAnswer } from "@utils/game/score";
 
 // SEO
-import { generateMetaTags } from '@utils/seo';
+import { generateMetaTags } from "@utils/seo";
 
 // Validation
-import { validateEmail, sanitizeInput } from '@utils/validation';
+import { validateEmail, sanitizeInput } from "@utils/validation";
 ```
 
 ### Component Imports
+
 ```astro
-// Shared components
-import PrimaryButton from '@components/Shared/PrimaryButton.astro';
-import Modal from '@components/Overlays/Modal.astro';
-
-// Game components
-import ScoreDisplay from '@components/Game/ScoreDisplay.astro';
-import QuestionCard from '@components/Game/QuestionCard.astro';
-
-// Layout components
-import Navigation from '@components/Header/Navigation.astro';
+// Shared components import PrimaryButton from '@components/Shared/PrimaryButton.astro'; import
+Modal from '@components/Overlays/Modal.astro'; // Game components import ScoreDisplay from
+'@components/Game/ScoreDisplay.astro'; import QuestionCard from
+'@components/Game/QuestionCard.astro'; // Layout components import Navigation from
+'@components/Header/Navigation.astro';
 ```
 
 ## 📚 Additional Resources
@@ -170,10 +180,12 @@ import Navigation from '@components/Header/Navigation.astro';
 ## 🔧 Enforcement
 
 These instructions are automatically enforced through:
+
 - ESLint configuration
 - Prettier formatting rules
 - TypeScript strict mode
 - Automated accessibility testing
 - Code review requirements
 
-**Remember**: These standards are designed to ensure consistency, maintainability, accessibility, and performance across the entire MelodyMind codebase.
+**Remember**: These standards are designed to ensure consistency, maintainability, accessibility,
+and performance across the entire MelodyMind codebase.

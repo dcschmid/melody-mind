@@ -537,7 +537,8 @@ const { question, timeLimit } = Astro.props;
 
 ## CSS Styling Best Practices
 
-- **MANDATORY: Use CSS custom properties from `/src/styles/global.css`** - Never hardcode colors, spacing, or design tokens
+- **MANDATORY: Use CSS custom properties from `/src/styles/global.css`** - Never hardcode colors,
+  spacing, or design tokens
 - **ALWAYS perform code deduplication** - Check for existing CSS patterns and reuse them
 - Use component-scoped CSS with the `<style>` tag in Astro components
 - Create clear, semantic class names that describe the purpose of the element
@@ -891,19 +892,16 @@ import { Icon } from "astro-icon/components";
    ```
 
 2. **Icon Naming**:
-
    - Use kebab-case for icon names (e.g., `music-note`, `arrow-right`)
    - Be descriptive but concise
    - Group related icons with prefixes (e.g., `social-twitter`, `social-facebook`)
 
 3. **Accessibility**:
-
    - Add `aria-hidden="true"` to decorative icons
    - Always include text or `aria-label` for interactive icons
    - Use proper color contrast (WCAG AAA)
 
 4. **Performance**:
-
    - Avoid excessively large icons
    - Use the smallest icon that maintains visual clarity
    - Consider lazy-loading icons below the fold
