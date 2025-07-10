@@ -6,6 +6,7 @@ import PodcastEpisode from "@components/Podcast/PodcastEpisode.astro";
 import type { PodcastData } from "../../types/podcast";
 import dePodcastsJson from "../../data/podcasts/de.json" assert { type: "json" };
 import enPodcastsJson from "../../data/podcasts/en.json" assert { type: "json" };
+import frPodcastsJson from "../../data/podcasts/fr.json" assert { type: "json" };
 
 /**
  * Static path generation for internationalization
@@ -55,6 +56,9 @@ async function loadPodcastsForLanguage(language: string): Promise<PodcastData[]>
   }
   if (language === "de") {
     return Array.isArray(dePodcastsJson.podcasts) ? dePodcastsJson.podcasts : [];
+  }
+  if (language === "fr") {
+    return Array.isArray(frPodcastsJson.podcasts) ? frPodcastsJson.podcasts : [];
   }
   return [];
 }
