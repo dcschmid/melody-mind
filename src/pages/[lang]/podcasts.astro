@@ -9,6 +9,7 @@ import enPodcastsJson from "../../data/podcasts/en.json" assert { type: "json" }
 import frPodcastsJson from "../../data/podcasts/fr.json" assert { type: "json" };
 import itPodcastsJson from "../../data/podcasts/it.json" assert { type: "json" };
 import esPodcastsJson from "../../data/podcasts/es.json" assert { type: "json" };
+import ptPodcastsJson from "../../data/podcasts/pt.json" assert { type: "json" };
 
 /**
  * Static path generation for internationalization
@@ -67,6 +68,9 @@ async function loadPodcastsForLanguage(language: string): Promise<PodcastData[]>
   }
   if (language === "es") {
     return Array.isArray(esPodcastsJson.podcasts) ? esPodcastsJson.podcasts : [];
+  }
+  if (language === "pt") {
+    return Array.isArray(ptPodcastsJson.podcasts) ? ptPodcastsJson.podcasts : [];
   }
   return [];
 }
