@@ -7,6 +7,8 @@ import type { PodcastData } from "../../types/podcast";
 import dePodcastsJson from "../../data/podcasts/de.json" assert { type: "json" };
 import enPodcastsJson from "../../data/podcasts/en.json" assert { type: "json" };
 import frPodcastsJson from "../../data/podcasts/fr.json" assert { type: "json" };
+import itPodcastsJson from "../../data/podcasts/it.json" assert { type: "json" };
+import esPodcastsJson from "../../data/podcasts/es.json" assert { type: "json" };
 
 /**
  * Static path generation for internationalization
@@ -59,6 +61,12 @@ async function loadPodcastsForLanguage(language: string): Promise<PodcastData[]>
   }
   if (language === "fr") {
     return Array.isArray(frPodcastsJson.podcasts) ? frPodcastsJson.podcasts : [];
+  }
+  if (language === "it") {
+    return Array.isArray(itPodcastsJson.podcasts) ? itPodcastsJson.podcasts : [];
+  }
+  if (language === "es") {
+    return Array.isArray(esPodcastsJson.podcasts) ? esPodcastsJson.podcasts : [];
   }
   return [];
 }
