@@ -1,0 +1,81 @@
+{
+  "podcasts": [
+    {
+      "id": "1950s",
+      "title": "Melody Mind: I favolosi anni '50 – La rivoluzione del Rock 'n' Roll",
+      "description": "Immergiti nella nascita del Rock 'n' Roll! In questo podcast esploriamo gli anni '50, quando Elvis Presley sconvolse il mondo, Chuck Berry fece parlare la chitarra e Bill Haley con “Rock Around the Clock” diede il via a una rivoluzione musicale. Dai primi successi adolescenziali alle leggende del jazz come Miles Davis e John Coltrane: scopri i suoni che hanno plasmato una generazione e gettato le basi per tutto ciò che è venuto dopo.",
+      "imageUrl": "/category/1950s.jpg",
+      "language": "it",
+      "isAvailable": true,
+      "publishedAt": "2025-01-01",
+      "audioUrl": "/podcasts/it/1950s.mp3",
+      "subtitleUrl": "/podcasts/it/1950s.vtt"
+    },
+    {
+      "id": "1960s",
+      "title": "Melody Mind: I mitici anni '60 – Beatlemania & Woodstock",
+      "description": "Gli anni '60 – un’epoca di ribellione e rivoluzione! Unisciti a noi in un viaggio musicale dalla Beatlemania, che ha travolto il mondo, fino al Festival di Woodstock che ha definito un’intera generazione. Dai brani di protesta poetici di Bob Dylan ai suoni psichedelici di Jimi Hendrix fino alle leggende soul come Aretha Franklin: vivi la musica che non era solo intrattenimento, ma ha guidato un movimento sociale.",
+      "imageUrl": "/category/1960s.jpg",
+      "language": "it",
+      "isAvailable": true,
+      "publishedAt": "2025-01-02",
+      "audioUrl": "/podcasts/it/1960s.mp3",
+      "subtitleUrl": "/podcasts/it/1960s.vtt"
+    },
+    {
+      "id": "1970s",
+      "title": "Melody Mind: Gli anni '70 – Febbre Disco & Esplosione Rock",
+      "description": "Benvenuto negli anni '70 – il decennio degli estremi! Dai ritmi funky della disco di Donna Summer e Bee Gees che hanno fatto ballare tutti, alle epiche opere rock dei Pink Floyd e dei Led Zeppelin. Gli anni '70 ci hanno portato il Glam Rock con David Bowie, il Progressive Rock con Genesis e Yes, e la nascita del Punk con i Sex Pistols. Un decennio che ha avuto di tutto, dalla febbre disco all’heavy metal – e ha cambiato per sempre il mondo della musica.",
+      "imageUrl": "/category/1970s.jpg",
+      "language": "it",
+      "isAvailable": true,
+      "publishedAt": "2025-08-15",
+      "audioUrl": "/podcasts/it/1970s.mp3",
+      "subtitleUrl": "/podcasts/it/1970s.vtt"
+    },
+    {
+      "id": "1980s",
+      "title": "Melody Mind: Gli anni '80 – Synth-Pop & Hair Metal",
+      "description": "Gli anni '80 – l’età d’oro dei sintetizzatori e l’era di MTV! Vivi l’ascesa del synth-pop con band come Depeche Mode, New Order e The Human League che sperimentavano suoni elettronici. Nel frattempo, band hair metal come Bon Jovi, Guns N' Roses e Def Leppard dominavano le classifiche. Gli anni '80 ci hanno portato Madonna, l’era Thriller di Michael Jackson e la nascita dell’hip-hop con Run-DMC e Public Enemy. Un decennio di innovazione e eccessi!",
+      "imageUrl": "/category/1980s.jpg",
+      "language": "it",
+      "isAvailable": true,
+      "publishedAt": "2025-09-20",
+      "audioUrl": "/podcasts/it/1980s.mp3",
+      "subtitleUrl": "/podcasts/it/1980s.vtt"
+    },
+    {
+      "id": "1990s",
+      "title": "Melody Mind: Gli anni '90 – Rivoluzione Grunge & Britpop",
+      "description": "Gli anni '90 – il decennio della rivoluzione alternativa! I Nirvana e il suono grunge di Seattle hanno sconvolto il mondo musicale e portato Pearl Jam, Soundgarden e Alice in Chains. Nel frattempo, il Britpop esplodeva con Oasis, Blur e Pulp. Gli anni '90 ci hanno dato anche le Spice Girls, i Backstreet Boys e gli NSYNC – l’era delle boy band ha raggiunto il suo apice. L’hip-hop è diventato mainstream con Tupac, Notorious B.I.G. e Wu-Tang Clan. Un decennio che ha cambiato per sempre l’industria musicale!",
+      "imageUrl": "/category/1990s.jpg",
+      "language": "it",
+      "isAvailable": true,
+      "publishedAt": "2025-10-25",
+      "audioUrl": "/podcasts/it/1990s.mp3",
+      "subtitleUrl": "/podcasts/it/1990s.vtt"
+    },
+    {
+      "id": "2000s",
+      "title": "Melody Mind: Gli anni 2000 – Era digitale & Dominio Pop",
+      "description": "Gli anni 2000 – l’era della rivoluzione digitale! Con l’ascesa di iTunes e MySpace, l’industria musicale è cambiata radicalmente. Britney Spears, Christina Aguilera e Beyoncé dominavano le classifiche pop, mentre band rock come Linkin Park, System of a Down e The Strokes hanno aperto nuove strade. Gli anni 2000 ci hanno portato anche il garage rock revival con The White Stripes e The Hives, oltre all’ascesa dell’indie rock con Arcade Fire e The Killers. Un decennio di cambiamento e innovazione!",
+      "imageUrl": "/category/2000s.jpg",
+      "language": "it",
+      "isAvailable": true,
+      "publishedAt": "2025-11-30",
+      "audioUrl": "/podcasts/it/2000s.mp3",
+      "subtitleUrl": "/podcasts/it/2000s.vtt"
+    },
+    {
+      "id": "2010s",
+      "title": "Melody Mind: Gli anni 2010 – Era dello streaming & Fusione dei generi",
+      "description": "Gli anni 2010 – l’era dello streaming e della fusione dei generi! Spotify e YouTube hanno rivoluzionato il modo in cui ascoltiamo la musica. Taylor Swift, Adele ed Ed Sheeran dominavano le classifiche, mentre l’EDM conquistava i club con David Guetta, Calvin Harris e Skrillex. Gli anni 2010 ci hanno portato anche l’ondata indie-folk con Mumford & Sons e The Lumineers, oltre all’ascesa del K-pop con BTS e Blackpink. Un decennio che ha abbattuto i confini tra i generi e creato nuovi suoni!",
+      "imageUrl": "/category/2010s.jpg",
+      "language": "it",
+      "isAvailable": true,
+      "publishedAt": "2025-12-15",
+      "audioUrl": "/podcasts/it/2010s.mp3",
+      "subtitleUrl": "/podcasts/it/2010s.vtt"
+    }
+  ]
+}
