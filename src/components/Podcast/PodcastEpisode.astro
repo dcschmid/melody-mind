@@ -43,17 +43,17 @@ const audioId = `podcast-audio-${podcast.id}`;
 
     <!-- Episode Info -->
     <div class="podcast-episode__info">
-      <Headline 
-        level="h2" 
+      <Headline
+        level="h2"
         title={podcast.title}
-        size="lg"
+        size="2xl"
         textAlign="center"
         className="podcast-episode__title"
       />
       <div class="podcast-episode__divider"></div>
-      <Paragraph 
+      <Paragraph
         description={podcast.description}
-        textSize="base"
+        textSize="lg"
         align="center"
         className="podcast-episode__description"
       />
@@ -80,25 +80,23 @@ const audioId = `podcast-audio-${podcast.id}`;
         data-audio-url={podcast.audioUrl}
       >
         <source src={podcast.audioUrl} type="audio/mpeg" />
-        {podcast.subtitleUrl && (
-          <track
-            kind="captions"
-            src={podcast.subtitleUrl}
-            srclang={podcast.language || lang}
-            label={t("podcasts.captions")}
-            default
-          />
-        )}
+        {
+          podcast.subtitleUrl && (
+            <track
+              kind="captions"
+              src={podcast.subtitleUrl}
+              srclang={podcast.language || lang}
+              label={t("podcasts.captions")}
+              default
+            />
+          )
+        }
         {t("podcasts.audio.not_supported")}
       </audio>
 
       <!-- Custom player controls -->
       <div class="podcast-episode__custom-player">
-        <button 
-          class="podcast-episode__play-button" 
-          aria-label="Play audio"
-          type="button"
-        >
+        <button class="podcast-episode__play-button" aria-label="Play audio" type="button">
           <svg class="podcast-episode__play-icon" viewBox="0 0 24 24" fill="currentColor">
             <path d="M8 5v14l11-7z"></path>
           </svg>
@@ -106,7 +104,7 @@ const audioId = `podcast-audio-${podcast.id}`;
             <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
           </svg>
         </button>
-        
+
         <div class="podcast-episode__progress-container">
           <div class="podcast-episode__waveform-bg">
             {
@@ -122,7 +120,7 @@ const audioId = `podcast-audio-${podcast.id}`;
           </div>
           <div class="podcast-episode__progress-indicator"></div>
         </div>
-        
+
         <div class="podcast-episode__time-display">
           <span class="podcast-episode__current-time">0:00</span>
           <span class="podcast-episode__time-separator">/</span>
@@ -395,7 +393,9 @@ const audioId = `podcast-audio-${podcast.id}`;
   // Initialize all audio players on the page
   function initAllAudioPlayers(): void {
     try {
-      const audioElements = document.querySelectorAll(".podcast-episode__audio") as NodeListOf<HTMLAudioElement>;
+      const audioElements = document.querySelectorAll(
+        ".podcast-episode__audio"
+      ) as NodeListOf<HTMLAudioElement>;
       console.log(`Found ${audioElements.length} audio players`);
 
       audioElements.forEach((audio: HTMLAudioElement) => {
@@ -417,15 +417,21 @@ const audioId = `podcast-audio-${podcast.id}`;
       }
 
       // Get custom player elements
-      const playButton = episodeElement.querySelector(".podcast-episode__play-button") as HTMLButtonElement;
+      const playButton = episodeElement.querySelector(
+        ".podcast-episode__play-button"
+      ) as HTMLButtonElement;
       const progressIndicator = episodeElement.querySelector(
         ".podcast-episode__progress-indicator"
       ) as HTMLElement;
       const progressContainer = episodeElement.querySelector(
         ".podcast-episode__progress-container"
       ) as HTMLElement;
-      const currentTimeDisplay = episodeElement.querySelector(".podcast-episode__current-time") as HTMLElement;
-      const totalTimeDisplay = episodeElement.querySelector(".podcast-episode__total-time") as HTMLElement;
+      const currentTimeDisplay = episodeElement.querySelector(
+        ".podcast-episode__current-time"
+      ) as HTMLElement;
+      const totalTimeDisplay = episodeElement.querySelector(
+        ".podcast-episode__total-time"
+      ) as HTMLElement;
 
       if (
         !playButton ||
@@ -441,9 +447,11 @@ const audioId = `podcast-audio-${podcast.id}`;
       // Remove existing event listeners to prevent duplicates
       const newPlayButton = playButton.cloneNode(true) as HTMLButtonElement;
       playButton.parentNode?.replaceChild(newPlayButton, playButton);
-      
+
       // Get the new button reference
-      const cleanPlayButton = episodeElement.querySelector(".podcast-episode__play-button") as HTMLButtonElement;
+      const cleanPlayButton = episodeElement.querySelector(
+        ".podcast-episode__play-button"
+      ) as HTMLButtonElement;
 
       // Reset audio state
       audio.pause();
@@ -454,7 +462,9 @@ const audioId = `podcast-audio-${podcast.id}`;
       // Play/Pause button functionality
       cleanPlayButton.addEventListener("click", () => {
         console.log("Play button clicked");
-        const allAudio = document.querySelectorAll(".podcast-episode__audio") as NodeListOf<HTMLAudioElement>;
+        const allAudio = document.querySelectorAll(
+          ".podcast-episode__audio"
+        ) as NodeListOf<HTMLAudioElement>;
 
         // Pause all other audio players
         allAudio.forEach((otherAudio: HTMLAudioElement) => {
@@ -463,7 +473,9 @@ const audioId = `podcast-audio-${podcast.id}`;
             const otherEpisode = findParentEpisode(otherAudio);
             if (otherEpisode) {
               otherEpisode.classList.remove("is-playing");
-              const otherButton = otherEpisode.querySelector(".podcast-episode__play-button") as HTMLButtonElement;
+              const otherButton = otherEpisode.querySelector(
+                ".podcast-episode__play-button"
+              ) as HTMLButtonElement;
               if (otherButton) {
                 otherButton.setAttribute("aria-label", "Play audio");
               }
@@ -473,22 +485,30 @@ const audioId = `podcast-audio-${podcast.id}`;
 
         if (audio.paused) {
           console.log("Attempting to play audio...");
-          
+
           // Load audio on first play if not already loaded
           if (audio.readyState === 0) {
             console.log("Loading audio metadata first...");
             audio.load();
-            
+
             // Wait for metadata to load before playing
-            audio.addEventListener("loadedmetadata", () => {
-              console.log("Metadata loaded, now attempting to play...");
-              playAudio();
-            }, { once: true });
-            
-            audio.addEventListener("error", (event) => {
-              console.error("Error loading audio metadata:", event);
-              episodeElement.classList.add("has-error");
-            }, { once: true });
+            audio.addEventListener(
+              "loadedmetadata",
+              () => {
+                console.log("Metadata loaded, now attempting to play...");
+                playAudio();
+              },
+              { once: true }
+            );
+
+            audio.addEventListener(
+              "error",
+              (event) => {
+                console.error("Error loading audio metadata:", event);
+                episodeElement.classList.add("has-error");
+              },
+              { once: true }
+            );
           } else {
             playAudio();
           }
@@ -498,14 +518,14 @@ const audioId = `podcast-audio-${podcast.id}`;
           episodeElement.classList.remove("is-playing");
           cleanPlayButton.setAttribute("aria-label", "Play audio");
         }
-        
+
         // Helper function to actually play the audio
         function playAudio() {
           if (!episodeElement) {
             console.error("Episode element not found");
             return;
           }
-          
+
           audio
             .play()
             .then(() => {
@@ -515,7 +535,7 @@ const audioId = `podcast-audio-${podcast.id}`;
             })
             .catch((error: Error) => {
               console.error("Error playing audio:", error);
-              
+
               // Handle specific autoplay policy errors
               if (error.name === "NotAllowedError" || error.message.includes("user gesture")) {
                 console.log("Autoplay blocked - user interaction required");
@@ -542,16 +562,16 @@ const audioId = `podcast-audio-${podcast.id}`;
           const progress = (audio.currentTime / audio.duration) * 100;
           progressIndicator.style.width = `${progress}%`;
           currentTimeDisplay.textContent = formatTime(audio.currentTime);
-          
+
           // Add visual feedback for progress
-          const bars = progressContainer.querySelectorAll('.podcast-episode__waveform-bar');
+          const bars = progressContainer.querySelectorAll(".podcast-episode__waveform-bar");
           const activeBarCount = Math.floor((progress / 100) * bars.length);
-          
+
           bars.forEach((bar, index) => {
             if (index < activeBarCount) {
-              bar.classList.add('active');
+              bar.classList.add("active");
             } else {
-              bar.classList.remove('active');
+              bar.classList.remove("active");
             }
           });
         }
@@ -734,11 +754,7 @@ const audioId = `podcast-audio-${podcast.id}`;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-      to top,
-      var(--color-primary-400),
-      var(--color-primary-500)
-    );
+    background: linear-gradient(to top, var(--color-primary-400), var(--color-primary-500));
     border-radius: var(--radius-sm);
     transform: scaleY(0);
     transform-origin: bottom;
@@ -764,25 +780,18 @@ const audioId = `podcast-audio-${podcast.id}`;
   /* Active bars styling - fill up with color */
   .podcast-episode__waveform-bar.active::after {
     transform: scaleY(1);
-    background: linear-gradient(
-      to top,
-      var(--color-primary-500),
-      var(--color-primary-600)
-    );
+    background: linear-gradient(to top, var(--color-primary-500), var(--color-primary-600));
   }
 
   /* Active state when playing */
   .is-playing .podcast-episode__waveform-bar.active::after {
-    background: linear-gradient(
-      to top,
-      var(--color-primary-500),
-      var(--color-primary-600)
-    );
+    background: linear-gradient(to top, var(--color-primary-500), var(--color-primary-600));
     animation: pulse var(--animation-pulse-duration) infinite;
   }
 
   @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 1;
     }
     50% {
@@ -800,7 +809,8 @@ const audioId = `podcast-audio-${podcast.id}`;
   }
 
   @keyframes loading-wave {
-    0%, 100% {
+    0%,
+    100% {
       transform: scaleY(0.3);
     }
     50% {
@@ -818,11 +828,7 @@ const audioId = `podcast-audio-${podcast.id}`;
   }
 
   .has-error .podcast-episode__waveform-bar::after {
-    background: linear-gradient(
-      to top,
-      var(--color-error-400),
-      var(--color-error-500)
-    );
+    background: linear-gradient(to top, var(--color-error-400), var(--color-error-500));
   }
 
   /* Time Display */

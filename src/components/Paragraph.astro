@@ -14,7 +14,6 @@
  * - Touch targets minimum 44x44px for mobile accessibility
  * - Responsive typography using CSS variables and media queries
  * - Screen reader optimizations with proper ARIA attributes
- * - Support for multiple languages with lang attribute
  * - Configurable text alignment and sizing using CSS custom properties
  * - High contrast mode for enhanced accessibility
  * - Support for reduced motion preferences
@@ -109,39 +108,49 @@ const paragraphClasses = [
 </p>
 
 <style lang="scss">
-  /**
-   * Paragraph Component Styles
-   *
-   * WCAG AAA 2.2 compliant paragraph component using CSS custom properties
-   * All styles use root variables from global.css for consistency and accessibility
-   */
+  /* ======================================
+   * PARAGRAPH COMPONENT - BEM STYLE
+   * WCAG AAA 2.2 COMPLIANT STYLES
+   * Optimized for responsive design and global.css integration
+   * ====================================== */
 
-  /* Base paragraph styles using CSS custom properties */
+  /* ======================================
+   * BASE PARAGRAPH STYLES
+   * ====================================== */
   .paragraph {
-    margin: 0 0 var(--space-xl) 0;
+    // Base typography using global.css variables
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-normal);
     line-height: var(--leading-relaxed);
-    letter-spacing: 0.025em;
+    letter-spacing: var(--letter-spacing-base);
+    margin: 0 0 var(--space-xl) 0;
     color: var(--text-secondary);
 
-    /* Enhanced text rendering for better readability */
+    // Enhanced text rendering for better readability
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    /* Smooth transitions using CSS custom properties */
-    transition: color var(--transition-normal);
+    // Smooth transitions using CSS custom properties
+    transition: all var(--transition-normal);
 
-    /* WCAG 2.2 AAA: Support for text resizing up to 400% */
+    // WCAG 2.2 AAA: Support for text resizing up to 400%
     max-width: 100%;
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
+    text-wrap: balance;
 
-    /* Support for user text customization (WCAG 2.2 AAA) */
-    /* Allow user agent stylesheets to override these properties */
-    line-height: var(--leading-relaxed) !important;
+    // Enhanced text spacing support (WCAG 2.2)
+    letter-spacing: max(var(--letter-spacing-base), var(--letter-spacing-enhanced));
+    line-height: max(var(--leading-relaxed), var(--line-height-enhanced));
+    word-spacing: max(normal, var(--word-spacing-enhanced));
 
-    /* Text size variants using SCSS nesting and CSS custom properties */
+    // ======================================
+    // SIZE VARIANTS - RESPONSIVE TYPOGRAPHY
+    // ======================================
+
+    // Mobile-first responsive sizing
     &--size-xs {
       font-size: var(--text-xs);
     }
@@ -174,7 +183,59 @@ const paragraphClasses = [
       font-size: var(--text-4xl);
     }
 
-    /* Text alignment variants using SCSS nesting */
+    // ======================================
+    // RESPONSIVE BREAKPOINT ADJUSTMENTS
+    // ======================================
+
+    // Tablet breakpoint (md)
+    @media (min-width: var(--breakpoint-md)) {
+      &--size-xl {
+        font-size: var(--text-2xl);
+      }
+
+      &--size-2xl {
+        font-size: var(--text-3xl);
+      }
+
+      &--size-3xl {
+        font-size: var(--text-4xl);
+      }
+
+      &--size-4xl {
+        font-size: calc(var(--text-4xl) * 1.25);
+      }
+    }
+
+    // Desktop breakpoint (lg)
+    @media (min-width: var(--breakpoint-lg)) {
+      &--size-2xl {
+        font-size: var(--text-4xl);
+      }
+
+      &--size-3xl {
+        font-size: calc(var(--text-4xl) * 1.25);
+      }
+
+      &--size-4xl {
+        font-size: calc(var(--text-4xl) * 1.5);
+      }
+    }
+
+    // Large desktop breakpoint (xl)
+    @media (min-width: var(--breakpoint-xl)) {
+      &--size-3xl {
+        font-size: calc(var(--text-4xl) * 1.5);
+      }
+
+      &--size-4xl {
+        font-size: calc(var(--text-4xl) * 2);
+      }
+    }
+
+    // ======================================
+    // TEXT ALIGNMENT
+    // ======================================
+
     &--align-start {
       text-align: left;
     }
@@ -187,46 +248,85 @@ const paragraphClasses = [
       text-align: right;
     }
 
-    /* High contrast mode for enhanced accessibility (WCAG AAA 7:1 ratio) */
+    // ======================================
+    // ACCESSIBILITY VARIANTS
+    // ======================================
+
+    // High contrast mode for enhanced accessibility (WCAG AAA 7:1 ratio)
     &--high-contrast {
       color: var(--text-primary);
       font-weight: var(--font-medium);
     }
 
-    /* Enhanced text spacing for WCAG 2.2 AAA compliance */
+    // Enhanced text spacing for WCAG 2.2 AAA compliance
     &--enhanced-spacing {
-      letter-spacing: 0.12em; /* 2x normal spacing */
-      line-height: 2.4; /* 1.5x relaxed line height */
-      margin-bottom: calc(var(--space-xl) * 2); /* 2x paragraph spacing */
+      letter-spacing: var(--text-spacing-letter-2x);
+      line-height: var(--text-spacing-line-1-5x);
+      margin-bottom: calc(var(--space-xl) * 2);
+      word-spacing: var(--text-spacing-word-enhanced);
     }
 
-    /* Interactive paragraph styling with proper focus management */
+    // ======================================
+    // INTERACTIVE STATES
+    // ======================================
+
+    // Interactive paragraph styling with proper focus management
     &--interactive {
       cursor: pointer;
       min-height: var(--min-touch-size);
+      min-width: var(--min-touch-size);
       padding: var(--space-sm);
       border-radius: var(--radius-sm);
       transition: all var(--transition-normal);
 
       &:hover {
-        background-color: var(--bg-glass);
+        background-color: var(--focus-bg-overlay);
+        transform: translateY(var(--animation-y-offset-small));
+      }
+
+      &:active {
+        transform: translateY(0);
       }
 
       &:focus {
         outline: var(--focus-outline);
         outline-offset: var(--focus-ring-offset);
-        background-color: var(--bg-glass);
+        box-shadow: var(--focus-ring);
+        background-color: var(--focus-bg-overlay);
+        border-radius: var(--radius-sm);
       }
     }
 
-    /* Focus styles for when paragraph contains interactive content */
+    // Focus styles for when paragraph contains interactive content
     &:focus-within {
       outline: var(--focus-outline);
       outline-offset: var(--focus-ring-offset);
       box-shadow: var(--focus-ring);
     }
 
-    /* Ensure text remains readable with user customizations */
+    // ======================================
+    // RESPONSIVE LAYOUT OPTIMIZATIONS
+    // ======================================
+
+    // Optimal reading line length for larger screens
+    @media (min-width: var(--breakpoint-sm)) {
+      max-width: var(--content-readable-width);
+    }
+
+    // Enhanced spacing for larger screens
+    @media (min-width: var(--breakpoint-lg)) {
+      margin-bottom: var(--space-2xl);
+
+      &--enhanced-spacing {
+        margin-bottom: calc(var(--space-2xl) * 2);
+      }
+    }
+
+    // ======================================
+    // USER CUSTOMIZATION SUPPORT
+    // ======================================
+
+    // Ensure text remains readable with user customizations
     &[style*="letter-spacing"],
     &[style*="line-height"],
     &[style*="word-spacing"] {
@@ -235,59 +335,72 @@ const paragraphClasses = [
     }
   }
 
-  /* Responsive text sizing for better readability using CSS custom properties */
-  @media (min-width: var(--breakpoint-md)) {
-    .paragraph {
-      &--size-xl {
-        font-size: var(--text-2xl);
-      }
+  // ======================================
+  // ACCESSIBILITY ENHANCEMENTS
+  // ======================================
 
-      &--size-2xl {
-        font-size: var(--text-3xl);
-      }
-
-      &--size-3xl {
-        font-size: var(--text-4xl);
-      }
-    }
-  }
-
-  /* WCAG 2.2 AAA: Support for 400% text zoom without horizontal scrolling */
-  @media (min-width: var(--breakpoint-sm)) {
-    .paragraph {
-      max-width: 80ch; /* Optimal reading line length */
-    }
-  }
-
-  /* Reduced motion support for accessibility */
+  // Reduced motion support for accessibility
   @media (prefers-reduced-motion: reduce) {
     .paragraph {
       transition: none;
+
+      &--interactive {
+        &:hover {
+          transform: none;
+        }
+
+        &:active {
+          transform: none;
+        }
+      }
     }
   }
 
-  /**
-   * Print styles for better document formatting when printed
-   * WCAG 2.2 Success Criterion 1.4.8 (Visual Presentation)
-   */
+  // ======================================
+  // PRINT STYLES
+  // ======================================
+
   @media print {
     .paragraph {
-      color: var(--color-black) !important;
+      color: var(--print-text) !important;
       font-size: 12pt !important;
       line-height: var(--leading-normal) !important;
       margin-bottom: var(--space-md) !important;
+      background: none !important;
+
+      &--high-contrast {
+        color: var(--print-text) !important;
+      }
+
+      &--enhanced-spacing {
+        letter-spacing: normal !important;
+        line-height: var(--leading-normal) !important;
+        margin-bottom: var(--space-md) !important;
+      }
     }
   }
 
-  /**
-   * High Contrast Mode Support for Windows
-   * Ensures visibility in Windows High Contrast Mode
-   * WCAG 2.2 Success Criterion 1.4.3 (Contrast)
-   */
+  // ======================================
+  // HIGH CONTRAST MODE SUPPORT
+  // ======================================
+
+  // High Contrast Mode Support for Windows
   @media (forced-colors: active) {
     .paragraph {
       color: CanvasText;
       forced-color-adjust: none;
+
+      &--high-contrast {
+        color: CanvasText;
+      }
+
+      &--interactive {
+        &:hover,
+        &:focus {
+          background-color: Highlight;
+          color: HighlightText;
+        }
+      }
     }
   }
 </style>

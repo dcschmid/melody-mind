@@ -120,144 +120,169 @@ const wrapperAttrs =
   /* ======================================
    * HEADLINE COMPONENT - BEM STYLE
    * WCAG AAA 2.2 COMPLIANT STYLES
+   * Optimized for responsive design and global.css integration
    * ====================================== */
 
   /* ======================================
-   * SHARED RESPONSIVE TYPOGRAPHY PATTERNS - DRY OPTIMIZED
+   * BASE HEADLINE STYLES
    * ====================================== */
-
-  /* Enhanced text spacing support (WCAG 2.2) */
   .headline {
-    /* Base headline styles using CSS variables from global.css */
+    // Base typography using global.css variables
+    font-family: var(--font-family-primary);
     font-weight: var(--font-bold);
     line-height: var(--leading-tight);
     letter-spacing: var(--letter-spacing-base);
     margin-bottom: var(--space-lg);
     color: var(--text-primary);
+
+    // Enhanced text wrapping and accessibility
     text-wrap: balance;
     word-break: break-words;
-    transition: color var(--transition-normal);
+    overflow-wrap: break-word;
+    hyphens: auto;
 
-    /* Support for enhanced text spacing (2x letter spacing, 1.5x line height) */
+    // Smooth transitions for interactive states
+    transition: all var(--transition-normal);
+
+    // Enhanced text spacing support (WCAG 2.2)
     letter-spacing: max(var(--letter-spacing-base), var(--letter-spacing-enhanced));
     line-height: max(var(--leading-tight), var(--line-height-enhanced));
     word-spacing: max(normal, var(--word-spacing-enhanced));
 
-    // Focusable modifier for accessibility (WCAG 2.2 AAA)
-    &--focusable {
-      // Enhanced focus styles with 4.5:1 contrast ratio
-      &:focus {
-        outline: var(--focus-outline);
-        outline-offset: var(--focus-ring-offset);
-        box-shadow: var(--focus-ring);
-        // Minimum touch target size (WCAG 2.2)
-        min-height: var(--min-touch-size);
-        min-width: var(--min-touch-size);
-        // Enhanced focus appearance
-        background-color: var(--focus-bg-overlay);
-        border-radius: var(--radius-sm);
-        transition: all var(--transition-fast);
-      }
-    }
+    // ======================================
+    // SIZE VARIANTS - RESPONSIVE TYPOGRAPHY
+    // ======================================
 
-    // Interactive modifier for clickable headlines
-    &--interactive {
-      cursor: pointer;
-      transition: all var(--transition-normal);
-
-      &:hover {
-        text-decoration: underline;
-        text-decoration-thickness: var(--text-decoration-thickness);
-        text-underline-offset: var(--text-underline-offset);
-        transform: translateY(-1px);
-      }
-
-      &:active {
-        transform: translateY(0);
-      }
-    }
-
-    // Skip navigation target styling
-    &--skip-target {
-      scroll-margin-top: var(--space-xl);
-      position: relative;
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: calc(-1 * var(--space-lg));
-        left: 0;
-        right: 0;
-        height: 2px;
-        background-color: transparent;
-        transition: background-color var(--transition-fast);
-      }
-
-      &:target {
-        &::before {
-          background-color: var(--interactive-primary);
-          box-shadow: 0 0 var(--space-sm) var(--interactive-primary);
-        }
-
-        animation: skip-highlight 2s ease-in-out;
-      }
-    }
-
-    // Size variants using CSS custom properties - similar to Paragraph component
+    // Mobile-first responsive sizing
     &--size-xs {
       font-size: var(--text-xs);
     }
+
     &--size-sm {
       font-size: var(--text-sm);
     }
+
     &--size-base {
       font-size: var(--text-base);
     }
+
     &--size-lg {
       font-size: var(--text-lg);
     }
+
     &--size-xl {
       font-size: var(--text-xl);
     }
+
     &--size-2xl {
       font-size: var(--text-2xl);
     }
+
     &--size-3xl {
       font-size: var(--text-3xl);
     }
+
     &--size-4xl {
       font-size: var(--text-4xl);
     }
 
-    // Responsive size adjustments - nested within size modifiers
+    // ======================================
+    // RESPONSIVE BREAKPOINT ADJUSTMENTS
+    // ======================================
+
+    // Tablet breakpoint (md)
     @media (min-width: var(--breakpoint-md)) {
       &--size-xl {
         font-size: var(--text-2xl);
       }
+
       &--size-2xl {
         font-size: var(--text-3xl);
       }
+
       &--size-3xl {
         font-size: var(--text-4xl);
       }
+
       &--size-4xl {
         font-size: calc(var(--text-4xl) * 1.25);
       }
     }
 
+    // Desktop breakpoint (lg)
     @media (min-width: var(--breakpoint-lg)) {
       &--size-2xl {
         font-size: var(--text-4xl);
       }
+
       &--size-3xl {
         font-size: calc(var(--text-4xl) * 1.25);
       }
+
       &--size-4xl {
         font-size: calc(var(--text-4xl) * 1.5);
       }
     }
 
-    // Primary style variant
+    // Large desktop breakpoint (xl)
+    @media (min-width: var(--breakpoint-xl)) {
+      &--size-3xl {
+        font-size: calc(var(--text-4xl) * 1.5);
+      }
+
+      &--size-4xl {
+        font-size: calc(var(--text-4xl) * 2);
+      }
+    }
+
+    // ======================================
+    // LEVEL-SPECIFIC TYPOGRAPHY
+    // ======================================
+
+    &--h1 {
+      font-weight: var(--font-bold);
+      margin-bottom: var(--space-xl);
+
+      // Enhanced spacing for large screens
+      @media (min-width: var(--breakpoint-lg)) {
+        margin-bottom: var(--space-2xl);
+      }
+    }
+
+    &--h2 {
+      font-weight: var(--font-semibold);
+      margin-bottom: var(--space-lg);
+
+      @media (min-width: var(--breakpoint-lg)) {
+        margin-bottom: var(--space-xl);
+      }
+    }
+
+    &--h3 {
+      font-weight: var(--font-semibold);
+      margin-bottom: var(--space-md);
+
+      @media (min-width: var(--breakpoint-lg)) {
+        margin-bottom: var(--space-lg);
+      }
+    }
+
+    &--h4,
+    &--h5,
+    &--h6 {
+      font-weight: var(--font-medium);
+      margin-bottom: var(--space-sm);
+
+      @media (min-width: var(--breakpoint-lg)) {
+        margin-bottom: var(--space-md);
+      }
+    }
+
+    // ======================================
+    // STYLE VARIANTS
+    // ======================================
+
+    // Primary variant with gradient
     &--primary {
       // WCAG AAA compliant fallback color (7:1 contrast ratio)
       color: var(--interactive-primary);
@@ -268,7 +293,7 @@ const wrapperAttrs =
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-size: 200% 200%;
-      animation: gradient-shift var(--animation-gradient);
+      animation: gradient-shift var(--animation-duration-slow) ease-in-out infinite;
       will-change: background-position;
 
       // Fallback for browsers that don't support background-clip: text
@@ -295,33 +320,84 @@ const wrapperAttrs =
       }
     }
 
-    // Level-specific typography - consolidated font weights for DRY
-    &--h1 {
-      font-weight: var(--font-bold);
-      margin-bottom: var(--space-xl);
+    // ======================================
+    // INTERACTIVE STATES
+    // ======================================
+
+    // Focusable modifier for accessibility (WCAG 2.2 AAA)
+    &--focusable {
+      &:focus {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-ring);
+        // Minimum touch target size (WCAG 2.2)
+        min-height: var(--min-touch-size);
+        min-width: var(--min-touch-size);
+        // Enhanced focus appearance
+        background-color: var(--focus-bg-overlay);
+        border-radius: var(--radius-sm);
+        transition: all var(--transition-fast);
+      }
     }
 
-    &--h2,
-    &--h3 {
-      font-weight: var(--font-semibold);
+    // Interactive modifier for clickable headlines
+    &--interactive {
+      cursor: pointer;
+      transition: all var(--transition-normal);
+
+      &:hover {
+        text-decoration: underline;
+        text-decoration-thickness: var(--text-decoration-thickness);
+        text-underline-offset: var(--text-underline-offset);
+        transform: translateY(var(--animation-y-offset-small));
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+
+      &:focus {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-ring);
+        background-color: var(--focus-bg-overlay);
+        border-radius: var(--radius-sm);
+      }
     }
 
-    &--h2 {
-      margin-bottom: var(--space-lg);
+    // ======================================
+    // SKIP NAVIGATION TARGET
+    // ======================================
+
+    &--skip-target {
+      scroll-margin-top: var(--space-xl);
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: calc(-1 * var(--space-lg));
+        left: 0;
+        right: 0;
+        height: var(--border-width-thick);
+        background-color: transparent;
+        transition: background-color var(--transition-fast);
+      }
+
+      &:target {
+        &::before {
+          background-color: var(--interactive-primary);
+          box-shadow: 0 0 var(--space-sm) var(--interactive-primary);
+        }
+
+        animation: skip-highlight var(--animation-duration-medium) ease-in-out;
+      }
     }
 
-    &--h3 {
-      margin-bottom: var(--space-md);
-    }
+    // ======================================
+    // TEXT ALIGNMENT
+    // ======================================
 
-    &--h4,
-    &--h5,
-    &--h6 {
-      font-weight: var(--font-medium);
-      margin-bottom: var(--space-sm);
-    }
-
-    // Text alignment modifiers for layout flexibility
     &--align-center {
       text-align: center;
     }
@@ -330,6 +406,10 @@ const wrapperAttrs =
       text-align: right;
     }
   }
+
+  // ======================================
+  // ANIMATIONS
+  // ======================================
 
   // Gradient animation optimized for performance
   @keyframes gradient-shift {
@@ -356,12 +436,19 @@ const wrapperAttrs =
     }
   }
 
-  // Wrapper element for semantic structure
+  // ======================================
+  // WRAPPER ELEMENT
+  // ======================================
+
   .headline-wrapper {
     display: contents; // Maintains layout flow
   }
 
-  // Enhanced support for reduced motion (WCAG 2.2) - specific overrides only
+  // ======================================
+  // ACCESSIBILITY ENHANCEMENTS
+  // ======================================
+
+  // Enhanced support for reduced motion (WCAG 2.2)
   @media (prefers-reduced-motion: reduce) {
     .headline {
       // Reset enhanced spacing to standard for reduced motion
@@ -369,7 +456,7 @@ const wrapperAttrs =
       line-height: var(--leading-tight);
 
       &--primary {
-        // Reset gradient animation - global reduced motion handles animation: none
+        // Reset gradient animation
         background: none;
         -webkit-text-fill-color: initial;
         color: var(--interactive-primary);
@@ -397,6 +484,24 @@ const wrapperAttrs =
         &:active {
           transform: none;
         }
+      }
+    }
+  }
+
+  // ======================================
+  // PRINT STYLES
+  // ======================================
+
+  @media print {
+    .headline {
+      color: var(--print-text) !important;
+      background: none !important;
+      -webkit-text-fill-color: initial !important;
+
+      &--primary {
+        color: var(--print-text) !important;
+        background: none !important;
+        -webkit-text-fill-color: initial !important;
       }
     }
   }
