@@ -108,15 +108,101 @@ const imageHeight = 600;
 </Layout>
 
 <style lang="scss">
+  @use "sass:map";
+
+  /* ======================================
+   * SCSS VARIABLES & MIXINS
+   * ====================================== */
+
+  // Responsive breakpoints using CSS custom properties
+  $breakpoints: (
+    xs: var(--breakpoint-xs),
+    sm: var(--breakpoint-sm),
+    md: var(--breakpoint-md),
+    lg: var(--breakpoint-lg),
+    xl: var(--breakpoint-xl),
+    2xl: var(--breakpoint-2xl),
+  );
+
+  // Mixin for responsive media queries
+  @mixin respond-to($breakpoint) {
+    @if map.has-key($breakpoints, $breakpoint) {
+      @media (min-width: map.get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    }
+  }
+
+  // Mixin for reduced motion support
+  @mixin reduced-motion {
+    @media (prefers-reduced-motion: reduce) {
+      @content;
+    }
+  }
+
+  // Mixin for high contrast mode
+  @mixin high-contrast {
+    @media (prefers-contrast: high) {
+      @content;
+    }
+  }
+
+  // Mixin for print styles
+  @mixin print {
+    @media print {
+      @content;
+    }
+  }
+
+  // Mixin for focus styles (WCAG AAA compliant)
+  @mixin focus-visible {
+    &:focus-visible {
+      outline: var(--focus-enhanced-outline-dark);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--focus-enhanced-shadow);
+    }
+  }
+
+  // Mixin for smooth transitions
+  @mixin smooth-transition($property: all, $duration: var(--transition-normal)) {
+    transition: $property $duration;
+
+    @include reduced-motion {
+      transition: none;
+    }
+  }
+
+  // Mixin for hover effects
+  @mixin hover-effect($scale: var(--animation-scale-hover-subtle)) {
+    @include smooth-transition(transform);
+
+    &:hover {
+      transform: scale($scale);
+    }
+
+    @include reduced-motion {
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+
   /* ======================================
    * MAIN LAYOUT
    * ====================================== */
+
   .main-content {
     display: flex;
     min-height: 100vh;
     align-items: center;
     justify-content: center;
     color: var(--text-primary);
+    background-color: var(--bg-primary);
+
+    // Enhanced focus management
+    &:focus {
+      outline: none;
+    }
   }
 
   .content-container {
@@ -129,9 +215,18 @@ const imageHeight = 600;
     padding: var(--space-xl) var(--space-lg);
     text-align: center;
 
-    // Responsive design
-    @media (min-width: var(--breakpoint-md)) {
+    // Responsive padding adjustments
+    @include respond-to(md) {
       padding: var(--space-2xl) var(--space-lg);
+    }
+
+    @include respond-to(lg) {
+      padding: var(--space-3xl) var(--space-xl);
+    }
+
+    // Container query support for smaller screens
+    @container (max-width: 400px) {
+      padding: var(--space-lg) var(--space-md);
     }
   }
 
@@ -140,43 +235,72 @@ const imageHeight = 600;
     width: var(--width-full);
     flex-direction: column;
     align-items: center;
+    gap: var(--space-lg);
+
+    // Enhanced spacing for larger screens
+    @include respond-to(md) {
+      gap: var(--space-xl);
+    }
+
+    @include respond-to(lg) {
+      gap: var(--space-2xl);
+    }
   }
 
   /* ======================================
    * LOGO SECTION
    * ====================================== */
+
   .logo-container {
     position: relative;
     margin: 0 auto var(--space-3xl);
     aspect-ratio: 1;
     width: var(--width-full);
     max-width: var(--container-query-md);
+
+    // Responsive sizing
+    @include respond-to(sm) {
+      max-width: var(--container-query-lg);
+    }
+
+    @include respond-to(md) {
+      max-width: 25rem; // 400px
+    }
+
+    @include respond-to(lg) {
+      max-width: 30rem; // 480px
+    }
+
+    // Container query for very small screens
+    @container (max-width: 320px) {
+      max-width: 100%;
+      margin-bottom: var(--space-2xl);
+    }
   }
 
   .logo-image {
     height: auto;
     width: var(--width-full);
-    transition: transform var(--transition-normal);
+    border-radius: var(--radius-lg);
 
-    @media (prefers-reduced-motion: no-preference) {
-      &:hover {
-        transform: scale(var(--animation-scale-hover-subtle));
-      }
+    @include hover-effect();
+
+    // Enhanced accessibility for high contrast
+    @include high-contrast {
+      border: 2px solid var(--text-primary);
     }
 
-    // Reduced motion support
-    @media (prefers-reduced-motion: reduce) {
-      transition: none;
-
-      &:hover {
-        transform: none;
-      }
+    // Print optimization
+    @include print {
+      filter: grayscale(100%);
+      max-width: 200px;
     }
   }
 
   /* ======================================
    * BUTTON SECTION
    * ====================================== */
+
   .button-container {
     margin: var(--space-lg) auto 0;
     display: flex;
@@ -185,30 +309,63 @@ const imageHeight = 600;
     flex-direction: column;
     align-items: center;
     gap: var(--space-lg);
+
+    // Responsive adjustments
+    @include respond-to(sm) {
+      max-width: var(--container-query-lg);
+    }
+
+    @include respond-to(md) {
+      max-width: 28rem; // 448px
+    }
+
+    // Container query for small screens
+    @container (max-width: 400px) {
+      gap: var(--space-md);
+    }
+
+    // Enhanced touch targets for mobile
+    @media (max-width: 768px) {
+      gap: var(--space-xl);
+
+      a {
+        min-height: var(--min-touch-size);
+        min-width: var(--min-touch-size);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
   }
 
   /* ======================================
    * FOOTER SECTION
    * ====================================== */
+
   .footer-section {
     margin-top: var(--space-3xl);
-  }
+    max-width: var(--content-readable-width);
 
-  /* ======================================
-   * LANGUAGE SELECTOR
-   * ====================================== */
-  .language-selector-wrapper {
-    margin-top: var(--space-3xl);
+    // Responsive margin adjustments
+    @include respond-to(md) {
+      margin-top: var(--space-2xl);
+    }
 
-    // Print styles
-    @media print {
-      display: none;
+    @include respond-to(lg) {
+      margin-top: var(--space-3xl);
+    }
+
+    // Container query for small screens
+    @container (max-width: 500px) {
+      margin-top: var(--space-2xl);
     }
   }
 
   /* ======================================
-   * SCREEN READER UTILITIES
+   * ACCESSIBILITY ENHANCEMENTS
    * ====================================== */
+
+  // Screen reader utilities
   .sr-only {
     position: absolute;
     width: var(--sr-only-width);
@@ -222,27 +379,118 @@ const imageHeight = 600;
     clip-path: var(--sr-only-clip-path);
   }
 
-  /* ======================================
-   * BUTTON STYLING (for reduced motion)
-   * ====================================== */
-  .primary-button {
-    @media (prefers-reduced-motion: reduce) {
-      transition: none;
+  // Enhanced focus styles for all interactive elements
+  a,
+  button,
+  [tabindex] {
+    @include focus-visible;
+  }
 
-      &:hover,
-      &:active {
-        transform: none;
-      }
+  // High contrast mode enhancements
+  @include high-contrast {
+    .main-content {
+      background-color: var(--color-black);
+      color: var(--color-white);
+    }
+
+    .logo-image {
+      border: 3px solid var(--color-white);
+    }
+  }
+
+  // Forced colors mode support
+  @media (forced-colors: active) {
+    .main-content {
+      background-color: Canvas;
+      color: CanvasText;
+    }
+
+    .logo-image {
+      border: 2px solid CanvasText;
+    }
+  }
+
+  /* ======================================
+   * PERFORMANCE OPTIMIZATIONS
+   * ====================================== */
+
+  // Content visibility optimization
+  .content-wrapper {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+  }
+
+  // Will-change hints for animations
+  .logo-image {
+    will-change: transform;
+
+    @include reduced-motion {
+      will-change: auto;
     }
   }
 
   /* ======================================
    * PRINT STYLES
    * ====================================== */
-  @media print {
+
+  @include print {
     .main-content {
       background: var(--print-bg);
       color: var(--print-text);
+      min-height: auto;
+      padding: var(--space-lg);
+    }
+
+    .content-container {
+      max-width: none;
+      padding: 0;
+    }
+
+    .button-container {
+      display: none;
+    }
+
+    .footer-section {
+      margin-top: var(--space-lg);
+      font-size: var(--text-sm);
+    }
+  }
+
+  /* ======================================
+   * ANIMATION CLASSES
+   * ====================================== */
+
+  .animate-on-view {
+    opacity: 0;
+    transform: translateY(var(--animation-y-offset));
+    @include smooth-transition(opacity transform);
+
+    &.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ======================================
+   * RESPONSIVE TYPOGRAPHY
+   * ====================================== */
+
+  // Fluid typography for better responsive design
+  h1 {
+    font-size: clamp(var(--text-2xl), 5vw, var(--text-4xl));
+    line-height: var(--leading-tight);
+
+    @include respond-to(md) {
+      font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
+    }
+  }
+
+  p {
+    font-size: clamp(var(--text-lg), 3vw, var(--text-2xl));
+    line-height: var(--leading-relaxed);
+
+    @include respond-to(md) {
+      font-size: clamp(var(--text-xl), 2.5vw, var(--text-2xl));
     }
   }
 </style>
@@ -250,36 +498,159 @@ const imageHeight = 600;
 <script>
   /**
    * Performance-optimized client-side enhancements
-   * Uses passive event listeners and requestIdleCallback for non-critical operations
+   * Uses modern ES6+ features and TypeScript for better type safety
    */
-  document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-      // Use requestIdleCallback for non-critical operations
-      const idleCallback =
-        window.requestIdleCallback || ((cb: () => void): number => window.setTimeout(cb, 50));
 
-      idleCallback(() => {
-        // Register intersection observer for animation elements
-        // This improves performance by only animating visible elements
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("animate-in");
-                observer.unobserve(entry.target); // Stop observing once visible
-              }
-            });
-          },
-          { rootMargin: "0px", threshold: 0.1 }
-        );
+  // Type definitions for better type safety
+  interface AnimationConfig {
+    rootMargin: string;
+    threshold: number;
+  }
 
-        // Observe animatable elements
-        document.querySelectorAll(".animate-on-view").forEach((el) => {
-          observer.observe(el);
+  interface IdleCallbackOptions {
+    timeout?: number;
+  }
+
+  // Modern ES6+ class for animation management
+  class AnimationManager {
+    private observer: IntersectionObserver | null = null;
+    private idleCallback: (callback: () => void, options?: IdleCallbackOptions) => number;
+
+    constructor() {
+      // Modern idle callback with fallback
+      this.idleCallback =
+        window.requestIdleCallback ||
+        ((callback: () => void): number => window.setTimeout(callback, 50));
+    }
+
+    /**
+     * Initialize intersection observer for animation elements
+     */
+    private initializeObserver(): void {
+      const config: AnimationConfig = {
+        rootMargin: "0px",
+        threshold: 0.1,
+      };
+
+      this.observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry: IntersectionObserverEntry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+            this.observer?.unobserve(entry.target);
+          }
+        });
+      }, config);
+    }
+
+    /**
+     * Observe animatable elements
+     */
+    private observeElements(): void {
+      const animatableElements = document.querySelectorAll(".animate-on-view");
+
+      animatableElements.forEach((element: Element) => {
+        this.observer?.observe(element);
+      });
+    }
+
+    /**
+     * Initialize animations with performance optimization
+     */
+    public initialize(): void {
+      this.idleCallback(() => {
+        this.initializeObserver();
+        this.observeElements();
+      });
+    }
+
+    /**
+     * Cleanup observer on component unmount
+     */
+    public destroy(): void {
+      if (this.observer) {
+        this.observer.disconnect();
+        this.observer = null;
+      }
+    }
+  }
+
+  // Modern event handling with arrow functions and optional chaining
+  const initializePage = (): void => {
+    const animationManager = new AnimationManager();
+
+    // Initialize animations when DOM is ready
+    if (document.readyState === "loading") {
+      document.addEventListener(
+        "DOMContentLoaded",
+        () => {
+          animationManager.initialize();
+        },
+        { passive: true }
+      );
+    } else {
+      animationManager.initialize();
+    }
+
+    // Cleanup on page unload
+    window.addEventListener(
+      "beforeunload",
+      () => {
+        animationManager.destroy();
+      },
+      { passive: true }
+    );
+  };
+
+  // Performance monitoring with modern APIs
+  const monitorPerformance = (): void => {
+    // Use Performance Observer for monitoring if available
+    if ("PerformanceObserver" in window) {
+      const observer = new PerformanceObserver((list) => {
+        list.getEntries().forEach((entry) => {
+          if (entry.entryType === "navigation") {
+            const navEntry = entry as PerformanceNavigationTiming;
+            console.log(`Page load time: ${navEntry.loadEventEnd - navEntry.loadEventStart}ms`);
+          }
         });
       });
-    },
-    { passive: true }
-  ); // Performance optimization with passive listener
+
+      observer.observe({ entryTypes: ["navigation"] });
+    }
+  };
+
+  // Enhanced accessibility with modern event handling
+  const enhanceAccessibility = (): void => {
+    // Skip to main content functionality
+    const skipLink = document.querySelector('[href="#main-content"]') as HTMLAnchorElement;
+
+    if (skipLink) {
+      skipLink.addEventListener("click", (event: Event) => {
+        event.preventDefault();
+
+        const mainContent = document.getElementById("main-content");
+        mainContent?.focus();
+
+        // Announce focus to screen readers
+        mainContent?.setAttribute("aria-live", "polite");
+      });
+    }
+
+    // Enhanced keyboard navigation
+    document.addEventListener(
+      "keydown",
+      (event: KeyboardEvent) => {
+        // Escape key handling
+        if (event.key === "Escape") {
+          const focusedElement = document.activeElement as HTMLElement;
+          focusedElement?.blur();
+        }
+      },
+      { passive: true }
+    );
+  };
+
+  // Initialize all functionality
+  initializePage();
+  monitorPerformance();
+  enhanceAccessibility();
 </script>

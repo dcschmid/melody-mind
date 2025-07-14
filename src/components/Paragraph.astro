@@ -68,6 +68,7 @@ interface Props {
   interactive?: boolean;
 }
 
+// Modern ES6+ destructuring with default values
 const {
   description,
   textSize = "xl",
@@ -80,23 +81,26 @@ const {
   highContrast = false,
   enhancedSpacing = false,
   interactive = false,
-} = Astro.props;
+}: Props = Astro.props;
 
-// Generate CSS classes based on props using CSS custom properties
-const textAlignClass = `paragraph--align-${align}`;
-const textSizeClass = `paragraph--size-${textSize}`;
-const contrastClass = highContrast ? "paragraph--high-contrast" : "";
-const spacingClass = enhancedSpacing ? "paragraph--enhanced-spacing" : "";
-const interactiveClass = interactive ? "paragraph--interactive" : "";
+// Generate CSS classes using arrow functions and modern array methods
+const generateTextAlignClass = (alignment: string): string => `paragraph--align-${alignment}`;
+const generateTextSizeClass = (size: string): string => `paragraph--size-${size}`;
+const generateContrastClass = (isHighContrast: boolean): string =>
+  isHighContrast ? "paragraph--high-contrast" : "";
+const generateSpacingClass = (isEnhancedSpacing: boolean): string =>
+  isEnhancedSpacing ? "paragraph--enhanced-spacing" : "";
+const generateInteractiveClass = (isInteractive: boolean): string =>
+  isInteractive ? "paragraph--interactive" : "";
 
-// Compose all CSS classes for the paragraph
-const paragraphClasses = [
+// Compose all CSS classes using modern array methods
+const paragraphClasses: string = [
   "paragraph",
-  textSizeClass,
-  textAlignClass,
-  contrastClass,
-  spacingClass,
-  interactiveClass,
+  generateTextSizeClass(textSize),
+  generateTextAlignClass(align),
+  generateContrastClass(highContrast),
+  generateSpacingClass(enhancedSpacing),
+  generateInteractiveClass(interactive),
   className,
 ]
   .filter(Boolean)
@@ -109,7 +113,7 @@ const paragraphClasses = [
 
 <style lang="scss">
   /* ======================================
-   * PARAGRAPH COMPONENT - BEM STYLE
+   * PARAGRAPH COMPONENT - SCSS BEM STYLE
    * WCAG AAA 2.2 COMPLIANT STYLES
    * Optimized for responsive design and global.css integration
    * ====================================== */
@@ -151,36 +155,38 @@ const paragraphClasses = [
     // ======================================
 
     // Mobile-first responsive sizing
-    &--size-xs {
-      font-size: var(--text-xs);
-    }
+    &--size {
+      &-xs {
+        font-size: var(--text-xs);
+      }
 
-    &--size-sm {
-      font-size: var(--text-sm);
-    }
+      &-sm {
+        font-size: var(--text-sm);
+      }
 
-    &--size-base {
-      font-size: var(--text-base);
-    }
+      &-base {
+        font-size: var(--text-base);
+      }
 
-    &--size-lg {
-      font-size: var(--text-lg);
-    }
+      &-lg {
+        font-size: var(--text-lg);
+      }
 
-    &--size-xl {
-      font-size: var(--text-xl);
-    }
+      &-xl {
+        font-size: var(--text-xl);
+      }
 
-    &--size-2xl {
-      font-size: var(--text-2xl);
-    }
+      &-2xl {
+        font-size: var(--text-2xl);
+      }
 
-    &--size-3xl {
-      font-size: var(--text-3xl);
-    }
+      &-3xl {
+        font-size: var(--text-3xl);
+      }
 
-    &--size-4xl {
-      font-size: var(--text-4xl);
+      &-4xl {
+        font-size: var(--text-4xl);
+      }
     }
 
     // ======================================
@@ -189,46 +195,52 @@ const paragraphClasses = [
 
     // Tablet breakpoint (md)
     @media (min-width: var(--breakpoint-md)) {
-      &--size-xl {
-        font-size: var(--text-2xl);
-      }
+      &--size {
+        &-xl {
+          font-size: var(--text-2xl);
+        }
 
-      &--size-2xl {
-        font-size: var(--text-3xl);
-      }
+        &-2xl {
+          font-size: var(--text-3xl);
+        }
 
-      &--size-3xl {
-        font-size: var(--text-4xl);
-      }
+        &-3xl {
+          font-size: var(--text-4xl);
+        }
 
-      &--size-4xl {
-        font-size: calc(var(--text-4xl) * 1.25);
+        &-4xl {
+          font-size: calc(var(--text-4xl) * 1.25);
+        }
       }
     }
 
     // Desktop breakpoint (lg)
     @media (min-width: var(--breakpoint-lg)) {
-      &--size-2xl {
-        font-size: var(--text-4xl);
-      }
+      &--size {
+        &-2xl {
+          font-size: var(--text-4xl);
+        }
 
-      &--size-3xl {
-        font-size: calc(var(--text-4xl) * 1.25);
-      }
+        &-3xl {
+          font-size: calc(var(--text-4xl) * 1.25);
+        }
 
-      &--size-4xl {
-        font-size: calc(var(--text-4xl) * 1.5);
+        &-4xl {
+          font-size: calc(var(--text-4xl) * 1.5);
+        }
       }
     }
 
     // Large desktop breakpoint (xl)
     @media (min-width: var(--breakpoint-xl)) {
-      &--size-3xl {
-        font-size: calc(var(--text-4xl) * 1.5);
-      }
+      &--size {
+        &-3xl {
+          font-size: calc(var(--text-4xl) * 1.5);
+        }
 
-      &--size-4xl {
-        font-size: calc(var(--text-4xl) * 2);
+        &-4xl {
+          font-size: calc(var(--text-4xl) * 2);
+        }
       }
     }
 
@@ -236,16 +248,18 @@ const paragraphClasses = [
     // TEXT ALIGNMENT
     // ======================================
 
-    &--align-start {
-      text-align: left;
-    }
+    &--align {
+      &-start {
+        text-align: left;
+      }
 
-    &--align-center {
-      text-align: center;
-    }
+      &-center {
+        text-align: center;
+      }
 
-    &--align-end {
-      text-align: right;
+      &-end {
+        text-align: right;
+      }
     }
 
     // ======================================

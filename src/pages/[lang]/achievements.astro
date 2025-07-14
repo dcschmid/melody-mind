@@ -298,7 +298,7 @@ const achievementStats = calculateAchievementStats(achievements);
    * - Performance optimizations with logical CSS organization
    * - Semantic CSS variables for enhanced maintainability
    * - Modern CSS features (Grid auto-fit, Container Queries, CSS logical properties)
-   * - No Tailwind CSS classes - pure CSS implementation
+   * - No Tailwind CSS classes - pure SCSS implementation
    * - Hero section matching GameHome design pattern
    * 
    * SPECIFIC OPTIMIZATIONS IMPLEMENTED:
@@ -382,7 +382,7 @@ const achievementStats = calculateAchievementStats(achievements);
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
 
-    @media (min-width: 768px) {
+    @media (min-width: var(--breakpoint-md)) {
       margin-bottom: var(--space-3xl);
       border-radius: var(--radius-2xl);
       padding: var(--space-2xl) var(--space-xl);
@@ -490,13 +490,12 @@ const achievementStats = calculateAchievementStats(achievements);
         box-shadow var(--transition-normal),
         border-color var(--transition-fast),
         background-color var(--transition-fast);
-    }
 
-    &__auth-required:hover,
-    &__summary:hover {
-      box-shadow: var(--card-shadow-hover);
-      border-color: var(--border-focus);
-      background-color: var(--bg-secondary);
+      &:hover {
+        box-shadow: var(--card-shadow-hover);
+        border-color: var(--border-focus);
+        background-color: var(--bg-secondary);
+      }
     }
 
     /* Enhanced grid system */
@@ -759,13 +758,13 @@ const achievementStats = calculateAchievementStats(achievements);
 
   .achievements-hero {
     &__title {
-      @media (min-width: 1024px) {
+      @media (min-width: var(--breakpoint-lg)) {
         font-size: var(--text-4xl);
       }
     }
 
     &__description {
-      @media (min-width: 1024px) {
+      @media (min-width: var(--breakpoint-lg)) {
         font-size: var(--text-2xl);
       }
     }
@@ -894,30 +893,42 @@ const achievementStats = calculateAchievementStats(achievements);
 
 <script>
   /**
-   * Achievement Page - Minimal Client-Side Enhancement
+   * Achievement Page - Modern ES6+ Client-Side Enhancement
    *
-   * Simplified script focusing only on essential functionality:
-   * - Achievement notification system
+   * Modernized script with ES6+ features:
+   * - Arrow functions for concise syntax
+   * - Async/await for better error handling
+   * - Template literals for string interpolation
+   * - Destructuring for cleaner variable assignment
+   * - Optional chaining for safer property access
+   * - Modern error handling with try-catch
    */
 
   import { initAchievementEventSystem } from "../../utils/achievements/achievementEvents.ts";
 
-  // Minimal initialization for achievement notifications
-  async function initializeAchievements(): Promise<void> {
+  // Modern ES6+ initialization function with arrow function syntax
+  const initializeAchievements = async (): Promise<void> => {
     try {
       await initAchievementEventSystem();
     } catch (error) {
       console.error("Failed to initialize achievement system:", error);
     }
-  }
+  };
 
-  // Initialize on DOM ready
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeAchievements);
-  } else {
+  // Modern DOM ready check with arrow function
+  const handleDOMReady = (): void => {
     initializeAchievements();
+  };
+
+  // Initialize on DOM ready with modern event handling
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", handleDOMReady);
+  } else {
+    handleDOMReady();
   }
 
-  // Astro page transition support
-  document.addEventListener("astro:page-load", initializeAchievements);
+  // Astro page transition support with arrow function
+  document.addEventListener("astro:page-load", () => {
+    initializeAchievements();
+  });
 </script>

@@ -217,7 +217,7 @@ export function updatePasswordRequirements(config: PasswordRequirementsConfig): 
 
   // Check if passwords match (if confirm field exists)
   if (config.confirmField && config.requirementElements.match) {
-    const isMatch = password && passwordConfirm && password === passwordConfirm;
+    const isMatch: boolean = Boolean(password && passwordConfirm && password === passwordConfirm);
     updateRequirementStatus(config.requirementElements.match, isMatch);
   }
 

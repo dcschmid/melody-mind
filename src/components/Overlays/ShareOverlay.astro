@@ -1,8 +1,9 @@
 ---
 /**
- * @component ShareOverlay
- * @description A reusable sharing component that provides multiple ways to share game results.
- * This component is optimized for WCAG AAA accessibility standards and high performance.
+ * ShareOverlay Component
+ *
+ * A reusable sharing component that provides multiple ways to share game results.
+ * Optimized for WCAG AAA accessibility and high performance.
  *
  * Features:
  * - Native Web Share API integration (when supported)
@@ -13,6 +14,20 @@
  * - Performance-optimized animations and event handling
  * - Enhanced error recovery and user guidance
  * - Fallback content when game data is unavailable
+ * - Responsive design with mobile-first approach
+ * - Uses only global CSS variables for all styling
+ *
+ * Accessibility:
+ * - WCAG AAA compliant with proper ARIA attributes
+ * - Focus indicators and touch target sizes
+ * - High contrast and reduced motion support
+ * - Comprehensive ARIA labeling and descriptions
+ *
+ * @component
+ * @example
+ * ```astro
+ * <ShareOverlay gameData={gameData} />
+ * ```
  */
 import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
@@ -21,10 +36,6 @@ import type { ShareData } from "@utils/share/shareUtils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-/**
- * Component Props Interface
- * Defines expected props for better type safety and documentation
- */
 export interface Props {
   /** Game data to share - if not provided, component will attempt to extract from DOM */
   gameData?: ShareData;
@@ -243,13 +254,13 @@ const {
 
     &__icon,
     &__clipboard-icon {
-      width: var(--space-xl); // 32px equivalent using existing variables
-      height: var(--space-xl);
+      width: var(--icon-size-md); // 24px equivalent using existing variables
+      height: var(--icon-size-md);
     }
 
     &__clipboard-icon {
-      width: var(--space-lg); // 24px equivalent using existing variables
-      height: var(--space-lg);
+      width: var(--icon-size-sm); // 20px equivalent using existing variables
+      height: var(--icon-size-sm);
     }
 
     // ======================================
@@ -411,16 +422,16 @@ const {
 
       // Success state for clipboard button
       &--success {
-        background: var(--color-success-900);
+        background: var(--bg-success-aaa);
         border-color: var(--color-success-400);
-        color: var(--color-success-100); // Enhanced contrast for AAA compliance
+        color: var(--text-success-aaa); // Enhanced contrast for AAA compliance
       }
 
       // Error state for clipboard button
       &--error {
-        background: var(--color-error-900);
+        background: var(--bg-error-aaa);
         border-color: var(--color-error-400);
-        color: var(--color-error-100); // Enhanced contrast for AAA compliance
+        color: var(--text-error-aaa); // Enhanced contrast for AAA compliance
       }
     }
 
@@ -433,7 +444,7 @@ const {
       padding: var(--space-lg);
       border: var(--border-width-default) solid var(--color-warning-600);
       border-radius: var(--radius-lg);
-      background: var(--color-warning-950);
+      background: var(--bg-warning-aaa);
       text-align: center;
 
       &-message {
@@ -446,16 +457,16 @@ const {
 
       &-icon {
         color: var(--color-warning-400);
-        width: var(--space-xl); // Using CSS variable instead of hardcoded 24px
-        height: var(--space-xl);
+        width: var(--icon-size-md); // Using CSS variable instead of hardcoded 24px
+        height: var(--icon-size-md);
         flex-shrink: 0;
       }
 
       &-text {
-        color: var(--color-warning-100); // Enhanced contrast for AAA compliance
+        color: var(--text-warning-aaa); // Enhanced contrast for AAA compliance
         font-size: var(--text-base);
         margin: 0;
-        line-height: 1.5;
+        line-height: var(--leading-enhanced);
       }
 
       &-actions {
@@ -514,8 +525,8 @@ const {
         }
 
         &-icon {
-          width: var(--space-md); // Using CSS variable instead of hardcoded 16px
-          height: var(--space-md);
+          width: var(--icon-size-sm); // Using CSS variable instead of hardcoded 16px
+          height: var(--icon-size-sm);
           flex-shrink: 0;
         }
       }
@@ -535,20 +546,65 @@ const {
     // RESPONSIVE DESIGN - OPTIMIZED WITH CSS VARIABLES
     // ======================================
 
+    // Mobile-first responsive design
     @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
       &__buttons-container {
         gap: var(--space-sm);
+        flex-direction: column;
       }
 
       &__button,
       &__clipboard-button {
         padding: var(--space-sm) var(--space-md);
         font-size: var(--text-sm);
+        width: 100%;
+        max-width: 280px;
       }
 
       &__button-text,
       &__clipboard-text {
         font-size: var(--text-sm);
+      }
+
+      &__fallback-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      &__fallback-button {
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+
+    // Tablet breakpoint
+    @media (min-width: var(--breakpoint-sm)) and (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
+      &__buttons-container {
+        gap: var(--space-md);
+      }
+
+      &__button,
+      &__clipboard-button {
+        padding: var(--space-md) var(--space-lg);
+      }
+    }
+
+    // Desktop breakpoint
+    @media (min-width: var(--breakpoint-md)) {
+      &__buttons-container {
+        gap: var(--space-lg);
+      }
+
+      &__button,
+      &__clipboard-button {
+        padding: var(--space-md) var(--space-xl);
+      }
+    }
+
+    // Large desktop breakpoint
+    @media (min-width: var(--breakpoint-lg)) {
+      &__buttons-container {
+        gap: var(--space-xl);
       }
     }
 
@@ -596,6 +652,17 @@ const {
         }
       }
     }
+
+    // High contrast mode
+    @media (prefers-contrast: high) {
+      &__button {
+        border: var(--border-width-thick) solid var(--text-primary);
+      }
+
+      &__clipboard-button {
+        border-width: var(--border-width-enhanced);
+      }
+    }
   }
 
   // ======================================
@@ -604,12 +671,12 @@ const {
 
   .sr-only {
     position: absolute;
-    width: 1px;
-    height: 1px;
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
     padding: 0;
-    margin: -1px;
+    margin: var(--sr-only-margin);
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    clip-path: var(--sr-only-clip-path);
     white-space: nowrap;
     border-width: 0;
   }
@@ -649,12 +716,9 @@ const {
   }}
 >
   /**
-   * ShareOverlay Component Script (TypeScript Optimized)
-   * Manages sharing game results with DRY principles and CSS variables optimization
+   * ShareOverlay Component Script (Modern ES6+ Optimized)
+   * Manages sharing game results with modern JavaScript features
    */
-
-  // Remove unused variable
-  // shareAccessibilityLinkCopied was removed as it's not used in the optimized version
 
   // Error types constants
   const ShareErrorType = {
@@ -686,7 +750,7 @@ const {
   };
 
   // Initialize the sharing functionality
-  function initializeSharing() {
+  const initializeSharing = () => {
     cacheElements();
 
     if (!elements.statusAnnouncer || !elements.copyButton) {
@@ -702,19 +766,19 @@ const {
     initializeFallbackHandlers();
     setupCleanupHandlers();
     validateGameDataAvailability();
-  }
+  };
 
   // Validate game data availability
-  function validateGameDataAvailability() {
+  const validateGameDataAvailability = () => {
     const gameData = getGameDataFromProps() || getGameDataFromPopup();
 
     if (!gameData || !isValidShareData(gameData)) {
       showFallbackContent();
     }
-  }
+  };
 
   // Get game data from component props
-  function getGameDataFromProps() {
+  const getGameDataFromProps = () => {
     const overlay = document.querySelector(".share-overlay");
     if (!overlay) {
       return null;
@@ -730,10 +794,10 @@ const {
     } catch {
       return null;
     }
-  }
+  };
 
   // Validate share data
-  function isValidShareData(data) {
+  const isValidShareData = (data) => {
     if (!data || typeof data !== "object") {
       return false;
     }
@@ -760,10 +824,10 @@ const {
     }
 
     return isValid;
-  }
+  };
 
   // Show fallback content
-  function showFallbackContent() {
+  const showFallbackContent = () => {
     if (!elements.fallbackContent) {
       return;
     }
@@ -780,10 +844,10 @@ const {
 
     elements.fallbackContent.style.display = "block";
     announceToScreenReader(shareAccessibilityDataUnavailable);
-  }
+  };
 
   // Hide fallback content
-  function hideFallbackContent() {
+  const hideFallbackContent = () => {
     if (!elements.fallbackContent) {
       return;
     }
@@ -799,10 +863,10 @@ const {
     }
 
     elements.fallbackContent.style.display = "none";
-  }
+  };
 
   // Initialize fallback handlers
-  function initializeFallbackHandlers() {
+  const initializeFallbackHandlers = () => {
     if (elements.retryButton) {
       elements.retryButton.addEventListener("click", handleRetryAction);
     }
@@ -810,10 +874,10 @@ const {
     if (elements.manualCopyButton) {
       elements.manualCopyButton.addEventListener("click", handleManualCopyAction);
     }
-  }
+  };
 
   // Handle retry action
-  async function handleRetryAction() {
+  const handleRetryAction = async () => {
     if (!elements.retryButton) {
       return;
     }
@@ -838,10 +902,10 @@ const {
     } finally {
       elements.retryButton.disabled = false;
     }
-  }
+  };
 
   // Handle manual copy action
-  async function handleManualCopyAction() {
+  const handleManualCopyAction = async () => {
     if (!elements.manualCopyButton) {
       return;
     }
@@ -867,10 +931,10 @@ const {
     } finally {
       elements.manualCopyButton.disabled = false;
     }
-  }
+  };
 
   // Fallback copy method
-  async function copyTextFallback(text) {
+  const copyTextFallback = async (text) => {
     if (navigator.clipboard && window.isSecureContext) {
       try {
         await navigator.clipboard.writeText(text);
@@ -898,10 +962,10 @@ const {
     } finally {
       document.body.removeChild(textarea);
     }
-  }
+  };
 
   // Cache DOM elements
-  function cacheElements() {
+  const cacheElements = () => {
     elements.nativeShareButton = document.getElementById("native-share-button");
     elements.copyButton = document.getElementById("copy-share-button");
     elements.copyButtonText = document.getElementById("copy-button-text");
@@ -910,10 +974,10 @@ const {
     elements.fallbackContent = document.getElementById("share-fallback-content");
     elements.retryButton = document.getElementById("retry-share-button");
     elements.manualCopyButton = document.getElementById("manual-copy-button");
-  }
+  };
 
   // Initialize native sharing
-  function initializeNativeSharing() {
+  const initializeNativeSharing = () => {
     const nativeShareSupported = "share" in navigator;
 
     if (!nativeShareSupported || !elements.nativeShareButton) {
@@ -964,10 +1028,10 @@ const {
         button.removeAttribute("disabled");
       }
     });
-  }
+  };
 
   // Handle native share errors
-  async function handleNativeShareError(errorType, button, error) {
+  const handleNativeShareError = async (errorType, button, error) => {
     console.warn(`Native share error (${errorType}):`, error);
 
     const errorMessage = getErrorMessage(errorType);
@@ -998,10 +1062,10 @@ const {
         }, 3000);
       }
     }
-  }
+  };
 
   // Initialize platform sharing
-  function initializePlatformSharing() {
+  const initializePlatformSharing = () => {
     if (!elements.shareButtons || !elements.shareButtons.length) {
       return;
     }
@@ -1051,10 +1115,10 @@ const {
         }, 1000);
       }
     });
-  }
+  };
 
   // Create platform-specific share URLs
-  function createShareUrl(platform, text) {
+  const createShareUrl = (platform, text) => {
     const encodedText = encodeURIComponent(text);
     const encodedUrl = encodeURIComponent(window.location.href);
 
@@ -1068,16 +1132,16 @@ const {
       default:
         return null;
     }
-  }
+  };
 
   // Generate simple share text
-  function generateSimpleShareText(data) {
+  const generateSimpleShareText = (data) => {
     const { score, category, difficulty } = data;
     return `I scored ${score} points in ${category} on ${difficulty} difficulty! 🎵 Can you beat my score?`;
-  }
+  };
 
   // Handle platform share errors
-  async function handlePlatformShareError(errorType, platform, button, error) {
+  const handlePlatformShareError = async (errorType, platform, button, error) => {
     console.warn(`Platform share error for ${platform} (${errorType}):`, error);
 
     const errorMessage = getErrorMessage(errorType);
@@ -1107,10 +1171,10 @@ const {
         }
       }, 3000);
     }
-  }
+  };
 
   // Initialize clipboard copy
-  function initializeClipboardCopy() {
+  const initializeClipboardCopy = () => {
     if (!elements.copyButton || !elements.copyButtonText) {
       return;
     }
@@ -1169,10 +1233,10 @@ const {
         await handleClipboardError(ShareErrorType.CLIPBOARD_FAILED, button, originalCopyText, err);
       }
     });
-  }
+  };
 
   // Handle clipboard errors
-  async function handleClipboardError(errorType, button, originalText, error) {
+  const handleClipboardError = async (errorType, button, originalText, error) => {
     console.warn(`Clipboard error (${errorType}):`, error);
 
     if (elements.copyButtonText) {
@@ -1201,10 +1265,10 @@ const {
       button.classList.remove("share-overlay__clipboard-button--error");
       button.removeAttribute("disabled");
     }, UI_CONSTANTS.COPY_SUCCESS_DURATION / 2);
-  }
+  };
 
   // Get user-friendly error messages
-  function getErrorMessage(errorType) {
+  const getErrorMessage = (errorType) => {
     switch (errorType) {
       case ShareErrorType.NO_DATA:
         return "No game data";
@@ -1215,10 +1279,10 @@ const {
       default:
         return "Error occurred";
     }
-  }
+  };
 
   // Get recovery guidance messages
-  function getRecoveryMessage(errorType) {
+  const getRecoveryMessage = (errorType) => {
     switch (errorType) {
       case ShareErrorType.NO_DATA:
         return "Please retry or refresh the page";
@@ -1229,10 +1293,10 @@ const {
       default:
         return "Please try again or use alternative sharing methods";
     }
-  }
+  };
 
   // Announce messages to screen readers
-  function announceToScreenReader(message) {
+  const announceToScreenReader = (message) => {
     if (!elements.statusAnnouncer) {
       return;
     }
@@ -1244,10 +1308,10 @@ const {
         elements.statusAnnouncer.textContent = "";
       }
     }, 5000);
-  }
+  };
 
   // Extract game data from popup element
-  function getGameDataFromPopup() {
+  const getGameDataFromPopup = () => {
     const popup = document.querySelector("#endgame-popup");
     if (!popup) {
       return null;
@@ -1291,10 +1355,10 @@ const {
       console.warn("ShareOverlay: Error extracting game data from popup:", error);
       return null;
     }
-  }
+  };
 
   // Setup cleanup handlers
-  function setupCleanupHandlers() {
+  const setupCleanupHandlers = () => {
     const eventHandlers = new Map();
 
     const cleanup = () => {
@@ -1313,7 +1377,7 @@ const {
     document.addEventListener("astro:before-swap", cleanup);
     document.addEventListener("astro:after-swap", cleanup);
     window.addEventListener("beforeunload", cleanup);
-  }
+  };
 
   // Initialize sharing features when DOM is ready
   if (document.readyState === "loading") {

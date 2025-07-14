@@ -38,13 +38,6 @@ export async function getStaticPaths() {
 const { articles, lang } = Astro.props;
 const uiLang = lang in ui ? lang as keyof typeof ui : "en";
 
-// Type-safe UI access helper
-type UIKeys = keyof typeof ui[typeof uiLang];
-const getUIText = (key: string, fallback: string = ""): string => {
-  const uiObj = ui[uiLang] as Record<string, string>;
-  return uiObj[key] || fallback;
-};
-
 // Process articles with reading time
 const articlesWithReadingTime = articles.map((article) => {
   if (!article.data.readingTime) {
@@ -107,7 +100,7 @@ const articleCollectionSchema = {
     "position": index + 1,
     "name": article.data.title,
     "description": article.data.description,
-    "url": `${baseUrl}/${lang}/knowledge/${article.slug}`,
+    "url": `${baseUrl}/${lang}/knowledge/${('slug' in article ? article.slug : article.id)}`,
     "datePublished": article.data.createdAt,
     "keywords": article.data.keywords?.join(", ") || "",
     "author": {
@@ -291,6 +284,8 @@ const clientTranslations = {
                     ? article.data.createdAt
                     : new Date(article.data.createdAt || Date.now());
 
+                const articleSlug = 'slug' in article ? article.slug : article.id;
+
                 return (
                   <li class="articles-grid__item" itemscope itemtype="https://schema.org/Article">
                     <KnowledgeCard
@@ -298,17 +293,17 @@ const clientTranslations = {
                       description={article.data.description}
                       image={article.data.image as string}
                       createdAt={createdAt}
-                      slug={article.slug}
+                      slug={articleSlug}
                       lang={lang}
                       readingTime={article.data.readingTime}
-                      articleUrl={`/${String(lang)}/knowledge/${article.slug}`}
+                      articleUrl={`/${String(lang)}/knowledge/${articleSlug}`}
                       keywords={article.data.keywords?.join(", ")}
                       index={index}
                     />
                     <!-- Micro-data for enhanced SEO -->
                     <meta itemprop="name" content={article.data.title} />
                     <meta itemprop="description" content={article.data.description} />
-                    <meta itemprop="url" content={`${baseUrl}/${lang}/knowledge/${article.slug}`} />
+                    <meta itemprop="url" content={`${baseUrl}/${lang}/knowledge/${articleSlug}`} />
                     <meta itemprop="datePublished" content={createdAt.toISOString()} />
                     {article.data.keywords && (
                       <meta itemprop="keywords" content={article.data.keywords.join(", ")} />
@@ -336,9 +331,10 @@ const clientTranslations = {
     </div>
   </main>
 
-  <!-- Enhanced SEO-optimized JavaScript -->
+  <!-- Enhanced SEO-optimized JavaScript with modern ES6+ features -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", () => {
+      // Modern ES6+ destructuring and type assertions
       const searchInput = document.querySelector("#searchInput") as HTMLInputElement;
       const resetButton = document.querySelector("#reset-search") as HTMLButtonElement;
       const clearButton = document.querySelector("#clear-search") as HTMLButtonElement;
@@ -346,6 +342,7 @@ const clientTranslations = {
       const noResultsDiv = document.querySelector("#no-results") as HTMLElement;
       const searchStatus = document.querySelector("#search-status") as HTMLElement;
       
+      // Modern variable declarations with let/const
       let debounceTimer: ReturnType<typeof setTimeout>;
       let currentSearchQuery = "";
       
@@ -361,32 +358,34 @@ const clientTranslations = {
       
       const translations = (window as unknown as WindowWithTranslations).knowledgeTranslations;
 
+      // Early return if required elements don't exist
       if (!searchInput || !articlesGrid || !noResultsDiv || !searchStatus) {
         return;
       }
 
+      // Modern array methods
       const allArticles = Array.from(articlesGrid.children) as HTMLElement[];
 
-      function updateSearchStatus(count: number, query: string): void {
-        if (query.trim()) {
-          searchStatus.textContent = `${count} ${translations.search.articlesFound}`;
-        } else {
-          searchStatus.textContent = translations.search.showingAll;
-        }
-      }
+      // Arrow functions for all methods
+      const updateSearchStatus = (count: number, query: string): void => {
+        const statusText = query.trim() 
+          ? `${count} ${translations.search.articlesFound}`
+          : translations.search.showingAll;
+        searchStatus.textContent = statusText;
+      };
 
-      function toggleClearButton(show: boolean): void {
+      const toggleClearButton = (show: boolean): void => {
         if (clearButton) {
           clearButton.style.display = show ? "flex" : "none";
         }
-      }
+      };
 
-      function performSearch(query: string): void {
+      const performSearch = (query: string): void => {
         const searchTerm = query.toLowerCase().trim();
         currentSearchQuery = searchTerm;
-        let visibleCount = 0;
-
-        allArticles.forEach((article) => {
+        
+        // Modern array methods with arrow functions
+        const visibleCount = allArticles.reduce((count, article) => {
           const title = article.querySelector("h3")?.textContent?.toLowerCase() || "";
           const description = article.querySelector("p")?.textContent?.toLowerCase() || "";
           
@@ -395,25 +394,23 @@ const clientTranslations = {
                            description.includes(searchTerm);
 
           article.style.display = isVisible ? "block" : "none";
-          if (isVisible) {
-            visibleCount++;
-          }
-        });
+          return isVisible ? count + 1 : count;
+        }, 0);
 
         noResultsDiv.style.display = visibleCount === 0 && searchTerm ? "block" : "none";
         updateSearchStatus(visibleCount, searchTerm);
         toggleClearButton(searchTerm.length > 0);
-      }
+      };
 
-      function resetSearch(): void {
+      const resetSearch = (): void => {
         searchInput.value = "";
         currentSearchQuery = "";
         performSearch("");
         searchInput.focus();
-      }
+      };
 
-      // Enhanced search with debouncing
-      searchInput.addEventListener("input", function (e: Event) {
+      // Enhanced search with debouncing using arrow functions
+      searchInput.addEventListener("input", (e: Event) => {
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(() => {
           const target = e.target as HTMLInputElement;
@@ -423,46 +420,22 @@ const clientTranslations = {
         }, 300);
       });
 
-      // Clear button functionality
+      // Clear button functionality with arrow functions
       if (clearButton) {
-        clearButton.addEventListener("click", function() {
+        clearButton.addEventListener("click", () => {
           searchInput.value = "";
           performSearch("");
           searchInput.focus();
         });
       }
 
-      // Reset button
+      // Reset button with arrow function
       if (resetButton) {
         resetButton.addEventListener("click", resetSearch);
       }
 
-      // Quick filter functionality
-      filterTags.forEach(tag => {
-        tag.addEventListener("click", function() {
-          const filterValue = this.dataset.filter || "";
-          
-          if (this.classList.contains("active")) {
-            // Remove filter
-            const currentValue = searchInput.value;
-            const newValue = currentValue.replace(new RegExp(filterValue, 'gi'), '').trim();
-            searchInput.value = newValue;
-            this.classList.remove("active");
-          } else {
-            // Add filter
-            const currentValue = searchInput.value.trim();
-            const newValue = currentValue ? `${currentValue} ${filterValue}` : filterValue;
-            searchInput.value = newValue;
-            this.classList.add("active");
-          }
-          
-          performSearch(searchInput.value);
-          searchInput.focus();
-        });
-      });
-
-      // Enhanced keyboard navigation
-      document.addEventListener("keydown", function (e) {
+      // Enhanced keyboard navigation with arrow functions
+      document.addEventListener("keydown", (e: KeyboardEvent) => {
         if (e.key === "Escape" && (document.activeElement === searchInput || currentSearchQuery)) {
           resetSearch();
         }
@@ -473,10 +446,10 @@ const clientTranslations = {
         }
       });
 
-      // Improved lazy loading
+      // Improved lazy loading with modern APIs
       if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
               const img = entry.target as HTMLImageElement;
               if (img.dataset.src) {
@@ -490,7 +463,7 @@ const clientTranslations = {
           rootMargin: '50px'
         });
 
-        document.querySelectorAll('img[data-src]').forEach(img => {
+        document.querySelectorAll('img[data-src]').forEach((img) => {
           imageObserver.observe(img);
         });
       }
@@ -498,7 +471,7 @@ const clientTranslations = {
       // Initialize search state
       toggleClearButton(false);
 
-      // Simple Core Web Vitals monitoring for SEO
+      // Simple Core Web Vitals monitoring for SEO with modern APIs
       if ('PerformanceObserver' in window && 'sessionStorage' in window) {
         try {
           new PerformanceObserver((list) => {
@@ -521,7 +494,12 @@ const clientTranslations = {
 </Layout>
 
 <style lang="scss">
-  /* Knowledge Page - Using CSS Variables with SCSS */
+  /* ======================================
+   * KNOWLEDGE PAGE STYLES
+   * Modern SCSS with global.css variables
+   * Fully responsive with WCAG AAA compliance
+   * ====================================== */
+
   .knowledge-page {
     max-width: var(--container-xl);
     margin: 0 auto;
@@ -529,12 +507,22 @@ const clientTranslations = {
     background-color: var(--bg-primary);
     color: var(--text-primary);
 
+    @media (min-width: 768px) {
+      padding: var(--space-xl);
+    }
+
+    @media (min-width: 1024px) {
+      padding: var(--space-2xl);
+    }
+
     &__content {
       // Add specific content styling if needed
     }
   }
 
-  /* Knowledge Hero Section */
+  /* ======================================
+   * KNOWLEDGE HERO SECTION
+   * ====================================== */
   .knowledge-hero {
     position: relative;
     margin-bottom: var(--space-2xl);
@@ -546,9 +534,18 @@ const clientTranslations = {
       var(--color-primary-700) 50%,
       var(--color-secondary-800) 100%
     );
-    padding: var(--space-2xl) var(--space-xl);
+    padding: var(--space-xl);
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
+
+    @media (min-width: 768px) {
+      padding: var(--space-2xl);
+      margin-bottom: var(--space-3xl);
+    }
+
+    @media (min-width: 1024px) {
+      padding: var(--space-3xl) var(--space-2xl);
+    }
 
     &__decoration {
       position: absolute;
@@ -566,6 +563,11 @@ const clientTranslations = {
           left: calc(-1 * var(--space-xl));
           width: var(--space-3xl);
           height: var(--space-3xl);
+
+          @media (min-width: 768px) {
+            width: calc(var(--space-3xl) * 1.5);
+            height: calc(var(--space-3xl) * 1.5);
+          }
         }
 
         &--bottom-right {
@@ -573,6 +575,11 @@ const clientTranslations = {
           right: calc(-1 * var(--space-2xl));
           width: calc(var(--space-3xl) * 2);
           height: calc(var(--space-3xl) * 2);
+
+          @media (min-width: 768px) {
+            width: calc(var(--space-3xl) * 2.5);
+            height: calc(var(--space-3xl) * 2.5);
+          }
         }
 
         &--center-left {
@@ -581,6 +588,11 @@ const clientTranslations = {
           width: var(--space-2xl);
           height: var(--space-2xl);
           transform: translateY(-50%);
+
+          @media (min-width: 768px) {
+            width: calc(var(--space-2xl) * 1.5);
+            height: calc(var(--space-2xl) * 1.5);
+          }
         }
       }
     }
@@ -597,6 +609,10 @@ const clientTranslations = {
       margin-bottom: var(--space-lg);
       color: var(--color-white);
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+      @media (min-width: 768px) {
+        margin-bottom: var(--space-xl);
+      }
     }
 
     &__divider {
@@ -605,26 +621,36 @@ const clientTranslations = {
       background: var(--color-secondary-400);
       margin: var(--space-lg) auto;
       border-radius: var(--radius-full);
+
+      @media (min-width: 768px) {
+        width: calc(var(--icon-size-xl) * 1.5);
+        margin: var(--space-xl) auto;
+      }
     }
 
     &__description {
       color: var(--color-neutral-100);
-      font-size: var(--text-xl);
+      font-size: var(--text-lg);
       line-height: var(--leading-relaxed);
       text-align: center;
+
+      @media (min-width: 768px) {
+        font-size: var(--text-xl);
+        max-width: 600px;
+        margin: 0 auto;
+      }
     }
   }
 
-  /* Responsive Hero adjustments */
-  @media (min-width: 768px) {
-    .knowledge-hero {
-      padding: var(--space-3xl) var(--space-2xl);
-    }
-  }
-
-  /* Breadcrumbs */
+  /* ======================================
+   * BREADCRUMBS
+   * ====================================== */
   .breadcrumb {
     margin-bottom: var(--space-xl);
+
+    @media (min-width: 768px) {
+      margin-bottom: var(--space-2xl);
+    }
 
     &__list {
       display: flex;
@@ -633,6 +659,7 @@ const clientTranslations = {
       list-style: none;
       margin: 0;
       padding: 0;
+      flex-wrap: wrap;
     }
 
     &__item {
@@ -653,59 +680,50 @@ const clientTranslations = {
       color: var(--text-secondary);
       text-decoration: none;
       transition: color var(--transition-normal);
+      padding: var(--space-xs);
+      border-radius: var(--radius-sm);
 
       &:hover {
         color: var(--interactive-primary);
+        background-color: var(--bg-secondary);
+      }
+
+      &:focus {
+        outline: var(--focus-outline);
+        border-radius: var(--radius-sm);
       }
     }
 
     &__separator {
       color: var(--text-tertiary);
     }
-  }
 
-  /* Knowledge Page Header */
-  .knowledge-page {
-    &__header {
-      text-align: center;
-      margin-bottom: var(--space-3xl);
-    }
-
-    &__title {
-      margin-bottom: var(--space-lg);
-    }
-
-    &__divider {
-      height: 4px;
-      width: var(--space-3xl);
-      background: linear-gradient(
-        90deg,
-        var(--color-primary-500),
-        var(--color-secondary-500)
-      );
-      border-radius: var(--radius-full);
-      margin: 0 auto var(--space-lg) auto;
-    }
-
-    &__intro {
-      max-width: 600px;
+    &__icon {
+      width: var(--space-md);
+      height: var(--space-md);
     }
   }
 
-  /* Enhanced Search Container */
+  /* ======================================
+   * ENHANCED SEARCH CONTAINER
+   * ====================================== */
   .search-container {
     position: relative;
     margin-bottom: var(--space-3xl);
-    padding: var(--space-2xl);
+    padding: var(--space-xl);
     background: linear-gradient(
       135deg,
       var(--bg-secondary) 0%,
       rgba(139, 92, 246, 0.05) 100%
     );
-    border: 1px solid var(--border-primary);
+    border: var(--border-width-thin) solid var(--border-primary);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-xl);
     overflow: hidden;
+
+    @media (min-width: 768px) {
+      padding: var(--space-2xl);
+    }
 
     &::before {
       content: '';
@@ -724,6 +742,10 @@ const clientTranslations = {
     &__header {
       text-align: center;
       margin-bottom: var(--space-xl);
+
+      @media (min-width: 768px) {
+        margin-bottom: var(--space-2xl);
+      }
     }
 
     &__heading {
@@ -740,9 +762,13 @@ const clientTranslations = {
 
     &__subtitle {
       color: var(--text-secondary);
-      font-size: var(--text-lg);
+      font-size: var(--text-base);
       max-width: 500px;
       margin: 0 auto;
+
+      @media (min-width: 768px) {
+        font-size: var(--text-lg);
+      }
     }
 
     &__form {
@@ -754,6 +780,7 @@ const clientTranslations = {
       @media (min-width: 768px) {
         flex-direction: row;
         align-items: flex-end;
+        gap: var(--space-xl);
       }
     }
 
@@ -769,7 +796,7 @@ const clientTranslations = {
       display: flex;
       align-items: center;
       background-color: var(--form-bg);
-      border: 2px solid var(--border-primary);
+      border: var(--border-width-thick) solid var(--border-primary);
       border-radius: var(--radius-lg);
       transition: all var(--transition-normal);
       overflow: hidden;
@@ -777,7 +804,7 @@ const clientTranslations = {
       &:focus-within {
         border-color: var(--interactive-primary);
         box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
-        transform: translateY(-2px);
+        transform: translateY(calc(-1 * var(--space-xs)));
       }
     }
 
@@ -811,6 +838,11 @@ const clientTranslations = {
         color: var(--text-tertiary);
         font-weight: var(--font-normal);
       }
+
+      @media (min-width: 768px) {
+        font-size: var(--text-xl);
+        padding: var(--space-xl) var(--space-3xl) var(--space-xl) var(--space-3xl);
+      }
     }
 
     &__clear-wrapper {
@@ -834,6 +866,10 @@ const clientTranslations = {
       &:hover {
         background-color: var(--color-neutral-300);
         transform: scale(1.1);
+      }
+
+      &:focus {
+        outline: var(--focus-outline);
       }
     }
 
@@ -864,12 +900,17 @@ const clientTranslations = {
       min-width: 120px;
 
       &:hover {
-        transform: translateY(-2px);
+        transform: translateY(calc(-1 * var(--space-xs)));
         box-shadow: var(--shadow-lg);
       }
 
       &:focus {
         outline: var(--focus-outline);
+      }
+
+      @media (min-width: 768px) {
+        padding: var(--space-xl) var(--space-2xl);
+        font-size: var(--text-xl);
       }
     }
 
@@ -898,15 +939,25 @@ const clientTranslations = {
     }
   }
 
-  /* No Results */
+  /* ======================================
+   * NO RESULTS
+   * ====================================== */
   .no-results {
     text-align: center;
     padding: var(--space-2xl);
     margin-bottom: var(--space-xl);
 
+    @media (min-width: 768px) {
+      padding: var(--space-3xl);
+    }
+
     &__content {
       max-width: 400px;
       margin: 0 auto;
+
+      @media (min-width: 768px) {
+        max-width: 500px;
+      }
     }
 
     &__icon {
@@ -915,9 +966,15 @@ const clientTranslations = {
     }
   }
 
-  /* Articles Grid */
+  /* ======================================
+   * ARTICLES GRID
+   * ====================================== */
   .articles-section {
     margin-bottom: var(--space-2xl);
+
+    @media (min-width: 768px) {
+      margin-bottom: var(--space-3xl);
+    }
   }
 
   .articles-grid {
@@ -930,6 +987,15 @@ const clientTranslations = {
 
     @media (min-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-2xl);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(4, 1fr);
     }
 
     &__item {
@@ -941,9 +1007,17 @@ const clientTranslations = {
       text-align: center;
       padding: var(--space-2xl);
 
+      @media (min-width: 768px) {
+        padding: var(--space-3xl);
+      }
+
       &-content {
         max-width: 400px;
         margin: 0 auto;
+
+        @media (min-width: 768px) {
+          max-width: 500px;
+        }
       }
 
       &-icon {
@@ -953,7 +1027,9 @@ const clientTranslations = {
     }
   }
 
-  /* Icon utilities */
+  /* ======================================
+   * UTILITY CLASSES
+   * ====================================== */
   .icon-md {
     height: var(--space-lg);
     width: var(--space-lg);
@@ -964,12 +1040,15 @@ const clientTranslations = {
     width: var(--space-3xl);
   }
 
-  /* Centering utilities */
   .mx-auto {
     margin-left: auto;
     margin-right: auto;
   }
 
+  /* ======================================
+   * ACCESSIBILITY & PERFORMANCE
+   * ====================================== */
+  
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     * {
@@ -977,5 +1056,23 @@ const clientTranslations = {
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .knowledge-hero {
+      border: var(--border-width-enhanced) solid var(--color-white);
+    }
+
+    .search-container {
+      border: var(--border-width-enhanced) solid var(--color-white);
+    }
+  }
+
+  /* Focus visible support */
+  .search-container__input:focus-visible,
+  .search-container__clear-button:focus-visible,
+  .search-container__reset-button:focus-visible {
+    outline: var(--focus-enhanced-outline-dark);
   }
 </style>

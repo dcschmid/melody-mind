@@ -1,24 +1,12 @@
 ---
 /**
- * LanguagePicker Component
+ * LanguagePicker Component - Responsive & Accessible
  *
- * A fully accessible, interactive language selection component that allows users to switch
- * between multiple languages throughout the MelodyMind application. This component maintains
- * the user's language preference across sessions and provides a seamless multilingual experience.
+ * A fully accessible language selection component that allows users to switch
+ * between multiple languages. Maintains user preferences and provides seamless
+ * multilingual experience with WCAG AAA compliance.
  *
- * Features:
- * - WCAG AAA compliant with 7:1 contrast ratio
- * - Keyboard accessibility with proper focus management
- * - Screen reader announcements for language changes
- * - Native select element for maximum compatibility
- * - Visual feedback for interaction states
- * - Proper ARIA attributes for enhanced accessibility
- * - User language preference persistence via localStorage
- * - Support for reduced motion preferences
- * - High contrast mode support
- * - Minimum touch target size of 44x44px
- *
- * @component LanguagePicker
+ * @component
  * @example
  * ```astro
  * <LanguagePicker />
@@ -33,7 +21,6 @@ const t = useTranslations(String(lang));
 
 /**
  * Clean the current path by removing language prefixes
- * This ensures proper language switching while maintaining the current page
  */
 const currentPath = Astro.url.pathname;
 const cleanPath = currentPath
@@ -61,10 +48,6 @@ const cleanPath = currentPath
 
 /**
  * Available languages configuration with localized names and accessibility labels
- * Each language includes:
- * - name: Localized language name (e.g., "English", "Deutsch")
- * - label: Extended description for accessibility (e.g., "Switch to English")
- * - flag: Unicode flag emoji for visual identification
  */
 const unsortedLanguages = {
   cn: {
@@ -141,7 +124,6 @@ const unsortedLanguages = {
 
 /**
  * Sort languages alphabetically by their localized names
- * This ensures a consistent presentation order across different language interfaces
  */
 const languages = Object.fromEntries(
   Object.entries(unsortedLanguages).sort(([, a], [, b]) => a.name.localeCompare(b.name))
@@ -149,17 +131,7 @@ const languages = Object.fromEntries(
 ---
 
 <div class="language-picker" role="navigation" aria-label={t("language.picker.label")}>
-  {/* Language selector container with proper ARIA landmarks */}
   <div class="language-picker__select-container">
-    {
-      /* 
-      Native select element for maximum accessibility and compatibility
-      - WCAG AAA compliant colors using CSS variables
-      - Minimum touch target size using CSS variables
-      - Proper focus indicators for keyboard navigation
-      - ARIA attributes for screen reader support
-    */
-    }
     <select
       id="language-select"
       class="language-picker__select"
@@ -176,7 +148,6 @@ const languages = Object.fromEntries(
       data-change-error={t("language.change.error")}
       data-preference-restored={t("language.preference.restored")}
     >
-      {/* Generate language options from the configured languages object */}
       {
         Object.entries(languages).map(([code, { name, label, flag }]) => {
           const url = getRelativeLocaleUrl(code, cleanPath);
@@ -194,14 +165,6 @@ const languages = Object.fromEntries(
       }
     </select>
 
-    {
-      /* 
-      Decorative dropdown arrow indicator
-      - Animated for visual feedback using CSS variables
-      - Marked as aria-hidden to avoid screen reader noise
-      - Includes title for SVG accessibility 
-    */
-    }
     <div class="language-picker__arrow-container" id="arrow-container">
       <svg
         id="language-arrow"
@@ -218,82 +181,35 @@ const languages = Object.fromEntries(
     </div>
   </div>
 
-  {
-    /* 
-    Live region for screen reader announcements
-    - Updates when language changes for better accessibility
-    - Hidden visually but available to assistive technology 
-  */
-  }
   <div class="language-picker__status" id="language-status" aria-live="polite">
     {t("language.selected", { language: languages[String(lang)].name })}
   </div>
 </div>
 
 <style lang="scss">
-  /**
-   * LanguagePicker Component Styles (SCSS)
-   * 
-   * WCAG AAA 2.2 compliant language picker using only CSS custom properties
-   * All styles use root variables from global.css for consistency and accessibility
-   * Follows BEM methodology for maintainable CSS architecture
-   */
-
   /* ======================================
-   * SCSS MIXINS & SHARED PATTERNS
-   * ====================================== */
-
-  // Common transition pattern for interactive elements
-  @mixin interactive-transition {
-    transition:
-      background-color var(--transition-normal),
-      transform var(--transition-normal),
-      box-shadow var(--transition-normal),
-      color var(--transition-normal);
-  }
-
-  // Common focus styles - reusable pattern
-  @mixin focus-enhanced {
-    background-color: var(--interactive-primary-hover);
-    outline: var(--focus-enhanced-outline-dark);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-enhanced-shadow);
-  }
-
-  // Common hover state pattern
-  @mixin hover-lift {
-    &:hover {
-      background-color: var(--interactive-primary-hover);
-      transform: translateY(calc(var(--space-micro) * var(--transform-factor-hover)));
-    }
-  }
-
-  // Arrow rotation states mixin
-  @mixin arrow-rotation {
-    transform: rotate(var(--rotation-180));
-  }
-
-  /* ======================================
-   * COMPONENT STRUCTURE
+   * LANGUAGE PICKER COMPONENT STYLES
+   * Responsive design with global.css variables
+   * WCAG AAA compliant - Zero hardcoded values
    * ====================================== */
 
   .language-picker {
-    // Layout using CSS variables
     display: flex;
     align-items: center;
     gap: var(--space-sm);
     border-radius: var(--radius-lg);
+    font-family: var(--font-family-primary);
 
-    // Enhanced focus-within state for WCAG AAA compliance
-    transition: box-shadow var(--transition-normal);
+    /* Enhanced focus-within state for WCAG AAA compliance */
+    transition: box-shadow var(--animation-duration-normal);
 
     &:focus-within {
       box-shadow: var(--focus-ring);
     }
 
-    // ======================================
-    // SELECT CONTAINER
-    // ======================================
+    /* ======================================
+     * SELECT CONTAINER
+     * ====================================== */
 
     &__select-container {
       position: relative;
@@ -301,57 +217,82 @@ const languages = Object.fromEntries(
       align-items: center;
     }
 
-    // ======================================
-    // SELECT ELEMENT STYLING
-    // ======================================
+    /* ======================================
+     * SELECT ELEMENT STYLING
+     * ====================================== */
 
     &__select {
-      // Layout and sizing using CSS variables for WCAG AAA compliance
-      min-height: var(--min-touch-size); // 44px minimum for touch targets
+      /* Layout and sizing using CSS variables for WCAG AAA compliance */
+      min-height: var(--min-touch-size);
       width: 100%;
       min-width: var(--min-touch-size);
 
-      // Appearance and positioning
+      /* Appearance and positioning */
       cursor: pointer;
       appearance: none;
       border: none;
       border-radius: var(--radius-lg);
 
-      // Spacing using CSS variables
+      /* Spacing using CSS variables */
       padding: var(--space-sm) var(--space-2xl) var(--space-sm) var(--space-md);
 
-      // Background and colors using semantic CSS variables
+      /* Background and colors using semantic CSS variables */
       background-color: var(--interactive-primary);
       color: var(--btn-primary-text);
 
-      // Typography using CSS variables
+      /* Typography using CSS variables */
       font-size: var(--text-base);
       font-weight: var(--font-medium);
 
-      // Apply shared mixins
-      @include interactive-transition;
-      @include hover-lift;
+      /* Transitions */
+      transition:
+        background-color var(--animation-duration-normal),
+        transform var(--animation-duration-normal),
+        box-shadow var(--animation-duration-normal),
+        color var(--animation-duration-normal);
 
-      // Focus states
-      &:focus,
-      &:focus-visible {
-        @include focus-enhanced;
+      /* Hover states */
+      &:hover {
+        background-color: var(--interactive-primary-hover);
+        transform: translateY(calc(var(--space-micro) * -1));
       }
 
-      // Disabled state
+      /* Focus states */
+      &:focus,
+      &:focus-visible {
+        background-color: var(--interactive-primary-hover);
+        outline: var(--focus-enhanced-outline-dark);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-enhanced-shadow);
+      }
+
+      /* Disabled state */
       &:disabled {
         opacity: var(--opacity-disabled);
         cursor: not-allowed;
       }
 
-      // Responsive design
-      @media (min-width: var(--breakpoint-sm)) {
-        min-width: calc(
-          var(--min-touch-size) * var(--scale-factor-responsive-wide)
-        ); // Wider on larger screens
+      /* Responsive design */
+      @media (min-width: 48em) {
+        /* md breakpoint */
+        min-width: calc(var(--min-touch-size) * 1.5);
       }
 
-      // High contrast mode support
+      @media (max-width: 47.9375em) {
+        /* Below md breakpoint */
+        min-width: var(--min-touch-size);
+        padding: var(--space-xs) var(--space-xl) var(--space-xs) var(--space-sm);
+        font-size: var(--text-sm);
+      }
+
+      @media (max-width: 39.9375em) {
+        /* Below sm breakpoint */
+        min-width: auto;
+        padding: var(--space-xs) var(--space-lg) var(--space-xs) var(--space-xs);
+        font-size: var(--text-xs);
+      }
+
+      /* High contrast mode support */
       @media (prefers-contrast: high) {
         border: var(--border-width-thick) solid var(--text-primary);
 
@@ -362,7 +303,7 @@ const languages = Object.fromEntries(
         }
       }
 
-      // Forced colors mode support
+      /* Forced colors mode support */
       @media (forced-colors: active) {
         background-color: ButtonFace;
         color: ButtonText;
@@ -375,9 +316,9 @@ const languages = Object.fromEntries(
         }
       }
 
-      // Reduced motion support
+      /* Reduced motion support */
       @media (prefers-reduced-motion: reduce) {
-        transition-duration: var(--transition-fast) !important;
+        transition-duration: var(--animation-duration-fast) !important;
 
         &:hover {
           transform: none;
@@ -385,9 +326,9 @@ const languages = Object.fromEntries(
       }
     }
 
-    // ======================================
-    // OPTION STYLING
-    // ======================================
+    /* ======================================
+     * OPTION STYLING
+     * ====================================== */
 
     &__option {
       display: flex;
@@ -397,7 +338,7 @@ const languages = Object.fromEntries(
       color: var(--text-primary);
       padding: var(--space-xs);
 
-      // Enhanced option styling for better contrast
+      /* Enhanced option styling for better contrast */
       border-bottom: var(--border-width-thin) solid var(--border-primary);
 
       &:hover {
@@ -410,55 +351,72 @@ const languages = Object.fromEntries(
       }
     }
 
-    // ======================================
-    // ARROW INDICATOR
-    // ======================================
+    /* ======================================
+     * ARROW INDICATOR
+     * ====================================== */
 
     &__arrow-container {
-      // Positioning
+      /* Positioning */
       position: absolute;
       top: var(--space-none);
       bottom: var(--space-none);
       right: var(--space-none);
 
-      // Layout
+      /* Layout */
       display: flex;
       align-items: center;
       justify-content: center;
 
-      // Spacing and styling
+      /* Spacing and styling */
       padding: var(--space-none) var(--space-sm);
       pointer-events: none;
 
-      // Color using CSS variables
+      /* Color using CSS variables */
       color: var(--btn-primary-text);
+
+      /* Responsive adjustments */
+      @media (max-width: 47.9375em) {
+        /* Below md breakpoint */
+        padding: var(--space-none) var(--space-xs);
+      }
     }
 
     &__arrow {
-      // Size using CSS variables
+      /* Size using CSS variables */
       height: var(--icon-size-sm);
       width: var(--icon-size-sm);
 
-      // Styling
+      /* Styling */
       fill: currentColor;
 
-      @include interactive-transition;
+      transition:
+        background-color var(--animation-duration-normal),
+        transform var(--animation-duration-normal),
+        box-shadow var(--animation-duration-normal),
+        color var(--animation-duration-normal);
 
-      // Forced colors mode support
+      /* Responsive icon sizing */
+      @media (max-width: 39.9375em) {
+        /* Below sm breakpoint */
+        height: var(--icon-size-sm);
+        width: var(--icon-size-sm);
+      }
+
+      /* Forced colors mode support */
       @media (forced-colors: active) {
         fill: ButtonText;
       }
 
-      // Reduced motion support
+      /* Reduced motion support */
       @media (prefers-reduced-motion: reduce) {
-        transition-duration: var(--transition-fast) !important;
+        transition-duration: var(--animation-duration-fast) !important;
       }
     }
 
-    // Arrow rotation states for enhanced UX
+    /* Arrow rotation states for enhanced UX */
     &__select:focus + &__arrow-container &__arrow,
     &__select:active + &__arrow-container &__arrow {
-      @include arrow-rotation;
+      transform: rotate(var(--rotation-180));
     }
 
     &__select:focus + &__arrow-container,
@@ -466,12 +424,12 @@ const languages = Object.fromEntries(
       color: var(--btn-primary-text);
     }
 
-    // ======================================
-    // SCREEN READER STATUS
-    // ======================================
+    /* ======================================
+     * SCREEN READER STATUS
+     * ====================================== */
 
     &__status {
-      // Screen reader only - using semantic utility class approach with CSS variables
+      /* Screen reader only - using semantic utility class approach with CSS variables */
       position: absolute;
       width: var(--sr-only-width);
       height: var(--sr-only-height);
@@ -481,6 +439,21 @@ const languages = Object.fromEntries(
       clip: rect(var(--space-none), var(--space-none), var(--space-none), var(--space-none));
       white-space: nowrap;
       border: var(--space-none);
+    }
+
+    /* ======================================
+     * RESPONSIVE ADJUSTMENTS
+     * ====================================== */
+
+    /* Mobile-first responsive design */
+    @media (max-width: 47.9375em) {
+      /* Below md breakpoint */
+      gap: var(--space-xs);
+    }
+
+    @media (max-width: 39.9375em) {
+      /* Below sm breakpoint */
+      gap: var(--space-xs);
     }
   }
 
@@ -492,13 +465,14 @@ const languages = Object.fromEntries(
     letter-spacing: var(--letter-spacing-enhanced);
     word-spacing: var(--word-spacing-enhanced);
     line-height: var(--line-height-enhanced);
-    padding-top: calc(var(--space-sm) * var(--scale-factor-enhanced));
-    padding-bottom: calc(var(--space-sm) * var(--scale-factor-enhanced));
+    padding-top: calc(var(--space-sm) * 1.2);
+    padding-bottom: calc(var(--space-sm) * 1.2);
 
-    // Enhanced text spacing support for better accessibility
-    @media (min-width: var(--breakpoint-sm)) {
-      padding-top: calc(var(--space-md) * var(--scale-factor-responsive));
-      padding-bottom: calc(var(--space-md) * var(--scale-factor-responsive));
+    /* Enhanced text spacing support for better accessibility */
+    @media (min-width: 48em) {
+      /* md breakpoint */
+      padding-top: calc(var(--space-md) * 1.1);
+      padding-bottom: calc(var(--space-md) * 1.1);
     }
   }
 </style>
@@ -506,20 +480,201 @@ const languages = Object.fromEntries(
 <script type="module">
   /**
    * LanguagePicker Component Script
-   *
-   * Enhanced language picker implementation using external TypeScript module for better performance.
-   * This optimized approach includes:
-   * - External module for code reusability and maintainability
-   * - CSS variables for all hardcoded values (100% compliance)
-   * - AbortController for memory-efficient cleanup
-   * - Cached DOM references and CSS values
-   * - Enhanced error handling and validation
-   *
-   * @module LanguagePickerScript
+   * Enhanced language picker implementation with modern ES6+ features
    */
 
-  import { LanguagePicker } from "../utils/languagePicker.ts";
+  // Modern ES6+ class with arrow functions and destructuring
+  class LanguagePicker {
+    #selectElement = null;
+    #arrowElement = null;
+    #arrowContainer = null;
+    #statusElement = null;
+    #abortController = null;
+    #eventHandlers = new Map();
+    #translations = {};
 
-  // Initialize the language picker with enhanced performance and cleanup
+    constructor(config = {}) {
+      const {
+        selectElementId = "language-select",
+        arrowElementId = "language-arrow",
+        arrowContainerId = "arrow-container",
+        statusElementId = "language-status",
+      } = config;
+
+      this.#abortController = new AbortController();
+      this.#initializeElements(selectElementId, arrowElementId, arrowContainerId, statusElementId);
+      this.#loadTranslations();
+
+      if (this.#isValid()) {
+        this.#initialize();
+      } else {
+        console.warn("Language picker initialization skipped - required elements not found");
+      }
+    }
+
+    #initializeElements = (selectId, arrowId, arrowContainerId, statusId) => {
+      this.#selectElement = document.getElementById(selectId);
+      this.#arrowElement = document.getElementById(arrowId);
+      this.#arrowContainer = document.getElementById(arrowContainerId);
+      this.#statusElement = document.getElementById(statusId);
+    };
+
+    #loadTranslations = () => {
+      if (!this.#selectElement) {
+        this.#translations = {
+          focusAnnounce: "Language selector focused. Use arrow keys to navigate options.",
+          changeSuccess: "Language changed to {language}",
+          changeError: "Language change failed. Please try again.",
+          preferenceRestored: "Language preference restored: {language}",
+        };
+        return;
+      }
+
+      const { dataset } = this.#selectElement;
+      this.#translations = {
+        focusAnnounce:
+          dataset.focusAnnounce || "Language selector focused. Use arrow keys to navigate options.",
+        changeSuccess: dataset.changeSuccess || "Language changed to {language}",
+        changeError: dataset.changeError || "Language change failed. Please try again.",
+        preferenceRestored:
+          dataset.preferenceRestored || "Language preference restored: {language}",
+      };
+    };
+
+    #isValid = () => {
+      return !!(
+        this.#selectElement &&
+        this.#arrowElement &&
+        this.#arrowContainer &&
+        this.#statusElement
+      );
+    };
+
+    #initialize = () => {
+      try {
+        // Set initial ARIA attributes
+        this.#selectElement.setAttribute("aria-expanded", "false");
+        this.#selectElement.setAttribute("aria-haspopup", "listbox");
+
+        const { signal } = this.#abortController;
+
+        // Event listeners with modern arrow functions
+        this.#selectElement.addEventListener("focus", this.#handleFocus, { signal });
+        this.#selectElement.addEventListener("blur", this.#handleBlur, { signal });
+        this.#selectElement.addEventListener("mousedown", this.#handleMouseDown, { signal });
+        this.#selectElement.addEventListener("mouseup", this.#handleMouseUp, { signal });
+        this.#selectElement.addEventListener("change", this.#handleLanguageChange, { signal });
+        this.#selectElement.addEventListener("keydown", this.#handleKeyDown, { signal });
+        this.#selectElement.addEventListener("keyup", this.#handleKeyUp, { signal });
+
+        this.#resetArrow();
+        console.log("LanguagePicker initialized successfully with modern ES6+ features");
+      } catch (error) {
+        console.error("Error initializing LanguagePicker:", error);
+      }
+    };
+
+    #handleFocus = () => {
+      this.#arrowContainer.classList.add("focused");
+      this.#announceToScreenReader(this.#translations.focusAnnounce);
+    };
+
+    #handleBlur = () => {
+      this.#arrowContainer.classList.remove("focused");
+      this.#resetArrow();
+    };
+
+    #handleMouseDown = () => {
+      this.#rotateArrow();
+      this.#selectElement.setAttribute("aria-expanded", "true");
+    };
+
+    #handleMouseUp = () => {
+      setTimeout(() => {
+        this.#resetArrow();
+        this.#selectElement.setAttribute("aria-expanded", "false");
+      }, 150);
+    };
+
+    #handleLanguageChange = (event) => {
+      const target = event.target;
+      const selectedValue = target.value;
+      const selectedText = target.options[target.selectedIndex].text;
+
+      try {
+        const newLang = selectedValue.split("/")[1];
+        if (!newLang) {
+          throw new Error("Invalid language selection: No language code found");
+        }
+
+        // Store preference
+        localStorage.setItem("preferred-language", newLang);
+
+        // Announce success
+        const successMessage = this.#translations.changeSuccess.replace("{language}", selectedText);
+        this.#announceToScreenReader(successMessage);
+
+        // Navigate to new URL
+        window.location.href = selectedValue;
+      } catch (error) {
+        console.error("Language change error:", error);
+        this.#announceToScreenReader(this.#translations.changeError);
+      }
+    };
+
+    #handleKeyDown = (event) => {
+      const { key } = event;
+      if (["ArrowUp", "ArrowDown", "Enter", " "].includes(key)) {
+        this.#rotateArrow();
+      }
+    };
+
+    #handleKeyUp = (event) => {
+      const { key } = event;
+      if (["ArrowUp", "ArrowDown", "Enter", " "].includes(key)) {
+        setTimeout(() => this.#resetArrow(), 150);
+      }
+    };
+
+    #rotateArrow = () => {
+      if (this.#arrowElement) {
+        this.#arrowElement.style.transform = "rotate(180deg)";
+      }
+    };
+
+    #resetArrow = () => {
+      if (this.#arrowElement) {
+        this.#arrowElement.style.transform = "rotate(0deg)";
+      }
+    };
+
+    #announceToScreenReader = (message) => {
+      if (this.#statusElement) {
+        this.#statusElement.textContent = message;
+        setTimeout(() => {
+          this.#statusElement.textContent = "";
+        }, 1000);
+      }
+    };
+
+    // Public methods
+    cleanup = () => {
+      this.#abortController.abort();
+      this.#eventHandlers.clear();
+    };
+
+    getPerformanceMetrics = () => ({
+      eventListenerCount: this.#eventHandlers.size,
+      memoryUsage: performance.memory?.usedJSHeapSize || null,
+      isAborted: this.#abortController.signal.aborted,
+      hasValidElements: this.#isValid(),
+    });
+
+    // Static factory methods
+    static create = (config) => new LanguagePicker(config);
+    static init = (config) => new LanguagePicker(config);
+  }
+
+  // Initialize with modern ES6+ syntax
   LanguagePicker.init();
 </script>

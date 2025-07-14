@@ -7,6 +7,9 @@
  */
 import { getCollection } from "astro:content";
 
+// Enable prerendering for static generation
+export const prerender = true;
+
 // Define supported languages for type safety
 const supportedLanguages = [
   "de",

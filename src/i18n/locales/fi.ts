@@ -58,6 +58,7 @@ export default {
   "achievements.status.in_progress": "Käynnissä",
   "achievements.status.locked": "Lukittu",
   "achievements.status.unlocked": "Avattu",
+  "achievements.points": "{points} pistettä",
   "achievements.summary.progress": "Edistyminen",
   "achievements.summary.title": "Saavutusyhteenveto",
   "achievements.summary.total": "Yhteensä",
@@ -556,6 +557,7 @@ export default {
   "musicPlatforms.heading": "Kuuntele liittyvää musiikkia",
   "musicPlatforms.keyboardInstructions":
     "Navigoi musiikkialustoissa Tab-näppäimellä. Paina Enter tai välilyöntiä avataksesi alustat uusissa välilehdissä.",
+  "musicPlatforms.listenOn": "Kuuntele {title} palvelussa {platform}",
   "nav.ariaLabel": "Päänavigaatio",
   "nav.donate.coffee": "Osta meille kahvi",
   "nav.donate.heading": "Tue meitä",

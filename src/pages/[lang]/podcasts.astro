@@ -15,7 +15,7 @@ import ptPodcastsJson from "../../data/podcasts/pt.json" assert { type: "json" }
  * Static path generation for internationalization
  * Required for Astro dynamic routes to work properly
  */
-export async function getStaticPaths(): Promise<{ params: { lang: string } }[]> {
+export const getStaticPaths = async (): Promise<{ params: { lang: string } }[]> => {
   const supportedLanguages = [
     "de",
     "en",
@@ -36,7 +36,7 @@ export async function getStaticPaths(): Promise<{ params: { lang: string } }[]> 
   return supportedLanguages.map((lang) => ({
     params: { lang },
   }));
-}
+};
 
 /**
  * Enable static site generation for this page
@@ -53,27 +53,19 @@ const t = useTranslations(String(lang));
  * Load podcast data for the current language with fallback to English
  * Uses static data to avoid build issues
  */
-async function loadPodcastsForLanguage(language: string): Promise<PodcastData[]> {
-  if (language === "en") {
-    return Array.isArray(enPodcastsJson.podcasts) ? enPodcastsJson.podcasts : [];
-  }
-  if (language === "de") {
-    return Array.isArray(dePodcastsJson.podcasts) ? dePodcastsJson.podcasts : [];
-  }
-  if (language === "fr") {
-    return Array.isArray(frPodcastsJson.podcasts) ? frPodcastsJson.podcasts : [];
-  }
-  if (language === "it") {
-    return Array.isArray(itPodcastsJson.podcasts) ? itPodcastsJson.podcasts : [];
-  }
-  if (language === "es") {
-    return Array.isArray(esPodcastsJson.podcasts) ? esPodcastsJson.podcasts : [];
-  }
-  if (language === "pt") {
-    return Array.isArray(ptPodcastsJson.podcasts) ? ptPodcastsJson.podcasts : [];
-  }
-  return [];
-}
+const loadPodcastsForLanguage = async (language: string): Promise<PodcastData[]> => {
+  const podcastDataMap = {
+    en: enPodcastsJson.podcasts,
+    de: dePodcastsJson.podcasts,
+    fr: frPodcastsJson.podcasts,
+    it: itPodcastsJson.podcasts,
+    es: esPodcastsJson.podcasts,
+    pt: ptPodcastsJson.podcasts,
+  };
+
+  const podcasts = podcastDataMap[language as keyof typeof podcastDataMap];
+  return Array.isArray(podcasts) ? podcasts : [];
+};
 
 // Load podcast data
 const episodes = await loadPodcastsForLanguage(lang);
@@ -87,28 +79,26 @@ const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "";
 /**
  * Generate WebPage schema for podcast overview
  */
-function generatePodcastPageSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: `MelodyMind - ${title}`,
-    description: description,
+const generatePodcastPageSchema = () => ({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: `MelodyMind - ${title}`,
+  description,
+  url: currentUrl.toString(),
+  inLanguage: lang,
+  isPartOf: {
+    "@type": "WebSite",
+    name: "MelodyMind",
+    url: baseUrl,
+  },
+  mainEntity: {
+    "@type": "PodcastSeries",
+    name: "MelodyMind Podcast",
+    description,
     url: currentUrl.toString(),
-    inLanguage: lang,
-    isPartOf: {
-      "@type": "WebSite",
-      name: "MelodyMind",
-      url: baseUrl,
-    },
-    mainEntity: {
-      "@type": "PodcastSeries",
-      name: "MelodyMind Podcast",
-      description: description,
-      url: currentUrl.toString(),
-      numberOfEpisodes: episodes.length,
-    },
-  };
-}
+    numberOfEpisodes: episodes.length,
+  },
+});
 
 const pageSchema = generatePodcastPageSchema();
 ---
@@ -221,21 +211,21 @@ const pageSchema = generatePodcastPageSchema();
     container-type: inline-size;
     container-name: podcasts-page;
 
-    @media (min-width: 480px) {
+    @media (min-width: var(--breakpoint-xs)) {
       padding: var(--space-md) var(--space-sm);
       gap: var(--space-xl);
     }
 
-    @media (min-width: 640px) {
+    @media (min-width: var(--breakpoint-sm)) {
       padding: var(--space-lg) var(--space-md);
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: var(--breakpoint-md)) {
       padding: var(--space-xl) var(--space-lg);
       gap: var(--space-2xl);
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: var(--breakpoint-lg)) {
       padding: var(--space-xl) var(--space-xl);
     }
   }
@@ -256,18 +246,18 @@ const pageSchema = generatePodcastPageSchema();
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
 
-    @media (min-width: 480px) {
+    @media (min-width: var(--breakpoint-xs)) {
       padding: var(--space-lg);
       margin-bottom: var(--space-xl);
       border-radius: var(--radius-xl);
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: var(--breakpoint-md)) {
       padding: var(--space-xl);
       margin-bottom: var(--space-2xl);
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: var(--breakpoint-lg)) {
       padding: var(--space-2xl) var(--space-xl);
     }
 
@@ -324,17 +314,17 @@ const pageSchema = generatePodcastPageSchema();
       font-size: var(--text-2xl);
       line-height: var(--leading-tight);
 
-      @media (min-width: 480px) {
+      @media (min-width: var(--breakpoint-xs)) {
         font-size: var(--text-3xl);
         margin-bottom: var(--space-md);
       }
 
-      @media (min-width: 768px) {
+      @media (min-width: var(--breakpoint-md)) {
         font-size: var(--text-4xl);
         margin-bottom: var(--space-lg);
       }
 
-      @media (min-width: 1024px) {
+      @media (min-width: var(--breakpoint-lg)) {
         font-size: var(--text-4xl);
       }
     }
@@ -346,7 +336,7 @@ const pageSchema = generatePodcastPageSchema();
       margin: var(--space-md) auto;
       border-radius: var(--radius-full);
 
-      @media (min-width: 480px) {
+      @media (min-width: var(--breakpoint-xs)) {
         margin: var(--space-lg) auto;
         width: var(--space-3xl);
       }
@@ -360,16 +350,16 @@ const pageSchema = generatePodcastPageSchema();
       margin: 0 auto var(--space-md);
       opacity: 0.9;
 
-      @media (min-width: 480px) {
+      @media (min-width: var(--breakpoint-xs)) {
         font-size: var(--text-lg);
         margin-bottom: var(--space-lg);
       }
 
-      @media (min-width: 768px) {
+      @media (min-width: var(--breakpoint-md)) {
         font-size: var(--text-xl);
       }
 
-      @media (min-width: 1024px) {
+      @media (min-width: var(--breakpoint-lg)) {
         font-size: var(--text-2xl);
       }
     }
@@ -385,17 +375,17 @@ const pageSchema = generatePodcastPageSchema();
       margin-left: auto;
       margin-right: auto;
 
-      @media (min-width: 480px) {
+      @media (min-width: var(--breakpoint-xs)) {
         gap: var(--space-lg);
         margin-top: var(--space-xl);
       }
 
-      @media (min-width: 768px) {
+      @media (min-width: var(--breakpoint-md)) {
         gap: var(--space-xl);
         max-width: 600px;
       }
 
-      @media (max-width: 480px) {
+      @media (max-width: var(--breakpoint-xs)) {
         flex-direction: column;
         align-items: center;
         max-width: 280px;
@@ -428,11 +418,11 @@ const pageSchema = generatePodcastPageSchema();
       border-color: rgba(255, 255, 255, 0.35);
     }
 
-    @media (min-width: 480px) {
+    @media (min-width: var(--breakpoint-xs)) {
       padding: var(--space-sm) var(--space-md);
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: var(--breakpoint-xs)) {
       flex-direction: column;
       text-align: center;
       padding: var(--space-sm);
@@ -448,13 +438,13 @@ const pageSchema = generatePodcastPageSchema();
       border-radius: var(--radius-full);
       margin-right: var(--space-xs);
 
-      @media (max-width: 480px) {
+      @media (max-width: var(--breakpoint-xs)) {
         margin: 0 auto var(--space-xs);
         width: 42px;
         height: 42px;
       }
 
-      @media (min-width: 768px) {
+      @media (min-width: var(--breakpoint-md)) {
         width: 48px;
         height: 48px;
       }
@@ -463,11 +453,11 @@ const pageSchema = generatePodcastPageSchema();
     &__icon {
       font-size: var(--text-base);
 
-      @media (min-width: 480px) {
+      @media (min-width: var(--breakpoint-xs)) {
         font-size: var(--text-lg);
       }
 
-      @media (min-width: 768px) {
+      @media (min-width: var(--breakpoint-md)) {
         font-size: var(--text-xl);
       }
     }
@@ -484,7 +474,7 @@ const pageSchema = generatePodcastPageSchema();
       opacity: 0.8;
       margin-bottom: var(--space-2xs);
 
-      @media (min-width: 480px) {
+      @media (min-width: var(--breakpoint-xs)) {
         font-size: var(--text-xs);
       }
     }
@@ -493,11 +483,11 @@ const pageSchema = generatePodcastPageSchema();
       font-size: var(--text-sm);
       font-weight: var(--font-semibold);
 
-      @media (min-width: 480px) {
+      @media (min-width: var(--breakpoint-xs)) {
         font-size: var(--text-base);
       }
 
-      @media (min-width: 768px) {
+      @media (min-width: var(--breakpoint-md)) {
         font-size: var(--text-lg);
       }
     }
@@ -533,7 +523,7 @@ const pageSchema = generatePodcastPageSchema();
     border: var(--border-width-thick) dashed var(--border-secondary);
     color: var(--text-secondary);
 
-    @media (min-width: 768px) {
+    @media (min-width: var(--breakpoint-md)) {
       padding: var(--space-3xl) var(--space-2xl);
     }
 
@@ -542,7 +532,7 @@ const pageSchema = generatePodcastPageSchema();
       margin-bottom: var(--space-md);
       opacity: var(--opacity-low);
 
-      @media (min-width: 480px) {
+      @media (min-width: var(--breakpoint-xs)) {
         font-size: var(--text-4xl);
         margin-bottom: var(--space-lg);
       }
@@ -554,11 +544,11 @@ const pageSchema = generatePodcastPageSchema();
       margin: 0 0 var(--space-md) 0;
       font-weight: var(--font-semibold);
 
-      @media (min-width: 480px) {
+      @media (min-width: var(--breakpoint-xs)) {
         font-size: var(--text-xl);
       }
 
-      @media (min-width: 768px) {
+      @media (min-width: var(--breakpoint-md)) {
         font-size: var(--text-2xl);
       }
     }
@@ -570,7 +560,7 @@ const pageSchema = generatePodcastPageSchema();
       max-width: var(--container-sm);
       margin: 0 auto;
 
-      @media (min-width: 480px) {
+      @media (min-width: var(--breakpoint-xs)) {
         font-size: var(--text-base);
       }
     }

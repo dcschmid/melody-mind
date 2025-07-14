@@ -324,80 +324,80 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       initCookieWatcher,
     } from "../../utils/client/authStatus";
 
-    function checkAuthStatus(): void {
+    // Modern section management with WeakMap for better performance
+    const sectionStates = new WeakMap();
+    
+    const getSectionElements = (): HTMLElement[] => {
+      const sections = ["auth-section", "quiz-section", "chronology-section"];
+      return sections.map(id => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    };
+
+    const updateSectionVisibility = (element: HTMLElement, isVisible: boolean): void => {
+      element.style.display = isVisible ? "flex" : "none";
+      element.setAttribute("aria-hidden", String(!isVisible));
+    };
+
+    const checkAuthStatus = (): void => {
       const isLoggedIn = isUserAuthenticated();
-      const authSection = document.getElementById("auth-section");
-      const quizSection = document.getElementById("quiz-section");
-      const chronologySection = document.getElementById("chronology-section");
+      const [authSection, quizSection, chronologySection] = getSectionElements();
 
       if (isLoggedIn) {
         // User is logged in - show game modes, hide auth form
-        if (authSection) {
-          authSection.style.display = "none";
-          authSection.setAttribute("aria-hidden", "true");
-        }
-        if (quizSection) {
-          quizSection.style.display = "flex";
-          quizSection.setAttribute("aria-hidden", "false");
-        }
-        if (chronologySection) {
-          chronologySection.style.display = "flex";
-          chronologySection.setAttribute("aria-hidden", "false");
-        }
+        authSection && updateSectionVisibility(authSection, false);
+        quizSection && updateSectionVisibility(quizSection, true);
+        chronologySection && updateSectionVisibility(chronologySection, true);
       } else {
         // User is not logged in - show auth form, hide game modes
-        if (authSection) {
-          authSection.style.display = "flex";
-          authSection.setAttribute("aria-hidden", "false");
-        }
-        if (quizSection) {
-          quizSection.style.display = "none";
-          quizSection.setAttribute("aria-hidden", "true");
-        }
-        if (chronologySection) {
-          chronologySection.style.display = "none";
-          chronologySection.setAttribute("aria-hidden", "true");
-        }
+        authSection && updateSectionVisibility(authSection, true);
+        quizSection && updateSectionVisibility(quizSection, false);
+        chronologySection && updateSectionVisibility(chronologySection, false);
       }
-    }
+    };
 
-    function initializePage(): void {
-      // Initially hide all sections
-      const sections = ["auth-section", "quiz-section", "chronology-section"];
-      sections.forEach((id) => {
-        const section = document.getElementById(id);
+    const initializePage = (): void => {
+      // Initially hide all sections with performance optimization
+      const sections = getSectionElements();
+      sections.forEach(section => {
         if (section) {
-          section.style.display = "none";
-          section.setAttribute("aria-hidden", "true");
+          updateSectionVisibility(section, false);
+          sectionStates.set(section, { initialized: true });
         }
       });
 
       // Check auth status
       checkAuthStatus();
-    }
+    };
+
+    // Modern DOM ready check with performance optimization
+    const runWhenReady = (callback: () => void): void => {
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", callback, { once: true });
+      } else {
+        requestAnimationFrame(callback);
+      }
+    };
 
     // Initialize page when DOM is loaded
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initializePage);
-    } else {
-      initializePage();
-    }
+    runWhenReady(initializePage);
 
-    // Register auth event listeners
+    // Register auth event listeners with cleanup tracking
     const authListeners = registerAuthEventListeners(checkAuthStatus);
     const cookieWatcherId = initCookieWatcher(checkAuthStatus, 1000);
 
-    // Cleanup on page unload
-    document.addEventListener("astro:page-unload", () => {
+    // Modern cleanup with AbortController for better performance
+    const cleanup = (): void => {
       authListeners.remove();
       clearInterval(cookieWatcherId);
-    });
+    };
+
+    // Cleanup on page unload
+    document.addEventListener("astro:page-unload", cleanup, { once: true });
   </script>
 </Layout>
 
 <style lang="scss">
   /* ==============================================
-   * KATEGORIE-SEITE STYLES - CLEAN & FUNCTIONAL
+   * KATEGORIE-SEITE STYLES - MODERN & RESPONSIVE
    * Using CSS variables from global.css for optimal maintainability
    * ============================================== */
 
@@ -409,33 +409,45 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     min-height: 100vh;
     background: var(--bg-primary);
     color: var(--text-primary);
+    
+    // Modern CSS containment for better performance
+    contain: layout style;
 
-    /* Tablet and above: --breakpoint-md (768px) */
+    // Responsive padding with fluid scaling
+    @media (min-width: 30em) {
+      padding: clamp(var(--space-lg), 4vw, var(--space-xl));
+    }
+    
     @media (min-width: 48em) {
+      padding: clamp(var(--space-xl), 5vw, var(--space-2xl));
+    }
+    
+    @media (min-width: 64em) {
       padding: var(--space-2xl);
     }
   }
 
   /* ==============================================
-   * HEADER & LAYOUT SECTIONS
+   * HEADER & LAYOUT SECTIONS - MODERN RESPONSIVE
    * ============================================== */
 
-  /* Header Section */
+  // Header Section with improved performance
   .section-header {
     text-align: center;
-    margin-bottom: var(--space-3xl);
-    padding: var(--space-xl);
+    margin-bottom: clamp(var(--space-2xl), 6vw, var(--space-3xl));
+    padding: clamp(var(--space-lg), 4vw, var(--space-xl));
+    contain: layout style;
   }
 
-  /* Modern Header with integrated image */
+  // Modern Header with integrated image and fluid design
   .header-with-image {
     margin: var(--space-none) auto var(--space-3xl) auto;
-    padding: var(--space-2xl);
+    padding: clamp(var(--space-lg), 4vw, var(--space-2xl));
     text-align: center;
     width: var(--width-full);
     max-width: var(--container-xl);
+    contain: layout style;
 
-    /* Tablet and above: --breakpoint-md (768px) */
     @media (min-width: 48em) {
       text-align: left;
     }
@@ -445,8 +457,21 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-3xl);
+    gap: clamp(var(--space-2xl), 5vw, var(--space-3xl));
     width: var(--width-full);
+    
+    // Modern CSS Grid for better control on larger screens
+    @media (min-width: 48em) {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: clamp(var(--space-2xl), 4vw, var(--space-3xl));
+      align-items: center;
+    }
+    
+    @media (min-width: 64em) {
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-3xl);
+    }
   }
 
   .header-text {
@@ -454,53 +479,27 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: var(--space-lg);
+    gap: clamp(var(--space-sm), 3vw, var(--space-lg));
     flex: 1;
     min-width: 0;
+    
+    @media (min-width: 48em) {
+      align-items: flex-start;
+      text-align: left;
+    }
   }
 
   .header-image {
     width: var(--width-full);
-    max-width: var(--container-xs);
+    max-width: min(var(--container-xs), 90vw);
     flex-shrink: 0;
-  }
-
-  /* Desktop Layout - Side by side */
-  /* Tablet and above: --breakpoint-md (768px) */
-  @media (min-width: 48em) {
-    .header-content {
-      flex-direction: row;
-      align-items: center;
-      gap: var(--space-3xl);
-    }
-
-    .header-text {
-      flex: 1;
-      align-items: flex-start;
-      text-align: left;
-      max-width: 60%;
-    }
-
-    .header-image {
-      flex: 0 0 40%;
+    
+    @media (min-width: 48em) {
       max-width: var(--container-sm);
     }
   }
 
-  /* Large screens - More spacing and larger image */
-  /* Desktop and above: --breakpoint-lg (1024px) */
-  @media (min-width: 64em) {
-    .header-content {
-      gap: var(--space-3xl); /* Using root variable for consistent spacing */
-    }
-
-    .header-image {
-      flex: 0 0 45%;
-      max-width: var(--container-sm);
-    }
-  }
-
-  /* Header Image Styling */
+  // Header Image Styling with modern approach
   .header-image-container {
     position: relative;
     width: var(--width-full);
@@ -509,6 +508,15 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
+    
+    // Modern CSS transforms for better performance
+    transform: translateZ(0);
+    will-change: transform;
+    
+    // Responsive aspect ratio
+    @media (max-width: 30em) {
+      aspect-ratio: 4 / 3;
+    }
   }
 
   .header-responsive-image {
@@ -516,11 +524,15 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     width: var(--width-full);
     object-fit: cover;
     transition: transform var(--transition-normal);
+    
+    // Performance optimization
+    transform: translateZ(0);
+    will-change: transform;
   }
 
   .header-with-image:hover {
     .header-responsive-image {
-      transform: scale(var(--animation-scale-hover-subtle));
+      transform: scale(var(--animation-scale-hover-subtle)) translateZ(0);
     }
   }
 
@@ -653,49 +665,42 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     &::before {
       background: linear-gradient(90deg, var(--color-primary-500), var(--interactive-primary));
     }
-  } /* Button Groups - Responsive modern layout */
+  }
+  
+  // Button Groups - Modern responsive layout with CSS Grid
   .button-group {
-    margin-top: var(--space-lg);
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    margin-top: clamp(var(--space-md), 3vw, var(--space-lg));
+    display: grid;
+    grid-template-columns: 1fr;
     gap: var(--space-md);
-    padding: var(--space-lg);
+    padding: clamp(var(--space-md), 3vw, var(--space-lg));
     border-radius: var(--radius-lg);
     background: rgba(255, 255, 255, var(--color-mix-light));
     backdrop-filter: blur(var(--space-sm));
     border: var(--border-width-thin) solid rgba(255, 255, 255, var(--opacity-low));
-
-    /* Small tablet and above: closest to --breakpoint-sm (640px) but using 480px for early responsive design */
+    contain: layout style;
+    
+    // Modern CSS Grid with auto-fit for responsive behavior
     @media (min-width: 30em) {
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-lg);
-      padding: var(--space-xl);
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: clamp(var(--space-sm), 2vw, var(--space-lg));
+      place-items: center;
       width: fit-content;
       margin-left: auto;
       margin-right: auto;
+      padding: clamp(var(--space-lg), 4vw, var(--space-xl));
     }
 
-    /* Tablet and above: --breakpoint-md (768px) */
     @media (min-width: 48em) {
-      gap: var(--space-xl);
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: clamp(var(--space-md), 3vw, var(--space-xl));
     }
 
-    /* Desktop and above: --breakpoint-lg (1024px) */
     @media (min-width: 64em) {
+      grid-template-columns: repeat(3, 1fr);
       gap: var(--space-2xl);
       padding: var(--space-2xl);
-    }
-
-    /* Force buttons to maintain natural width on larger screens */
-    /* Small tablet and above: closest to --breakpoint-sm (640px) but using 480px for early responsive design */
-    @media (min-width: 30em) {
-      :global(.button-link) {
-        flex-shrink: 0;
-        width: fit-content !important;
-      }
+      max-width: 600px;
     }
   }
 

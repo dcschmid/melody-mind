@@ -53,6 +53,7 @@ export default {
   "achievements.status.in_progress": "进行中",
   "achievements.status.locked": "已锁定",
   "achievements.status.unlocked": "已解锁",
+  "achievements.points": "{points}分",
   "achievements.summary.progress": "进度",
   "achievements.summary.title": "成就摘要",
   "achievements.summary.total": "总计",
@@ -515,6 +516,7 @@ export default {
   "musicPlatforms.heading": "收听相关音乐",
   "musicPlatforms.keyboardInstructions":
     "使用Tab键导航音乐平台。按回车键或空格键在新标签页中打开平台。",
+  "musicPlatforms.listenOn": "在{platform}上收听{title}",
   "nav.ariaLabel": "主导航",
   "nav.donate.coffee": "请我们喝咖啡",
   "nav.donate.heading": "支持我们",

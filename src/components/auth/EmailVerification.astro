@@ -2,114 +2,53 @@
 /**
  * EmailVerification Component for MelodyMind
  *
- * A comprehensive email verification interface that handles the complete verification flow
- * with three distinct states (loading, success, error) while maintaining full WCAG AAA
- * accessibility compliance and seamless internationalization support.
- *
- * This component is designed as a standalone verification page that users access via email
- * confirmation links. It automatically processes verification tokens, communicates with the
- * backend API, and provides clear visual feedback throughout the verification process.
+ * Handles email verification flow with three states: loading, success, error.
+ * WCAG AAA compliant with full internationalization support.
  *
  * @component
  * @example
  * ```astro
  * ---
- * // Basic usage in a dynamic route
  * const { token } = Astro.params;
  * ---
  * <EmailVerification token={token} />
  * ```
  *
- * @example
- * ```astro
- * ---
- * // Complete page implementation with error handling
- * import EmailVerification from "@components/auth/EmailVerification.astro";
- * import AuthLayout from "@layouts/AuthLayout.astro";
- *
- * const { lang, token } = Astro.params;
- *
- * if (!token) {
- *   return Astro.redirect(`/${lang}/auth/login`);
- * }
- * ---
- * <AuthLayout title="Email Verification" lang={lang}>
- *   <EmailVerification token={token} />
- * </AuthLayout>
- * ```
- *
  * @features
- * - WCAG AAA accessibility compliance with 7:1 color contrast
- * - Full internationalization support via i18n system
- * - Responsive design optimized for all screen sizes
- * - Performance optimized with efficient DOM operations
- * - Timeout handling for API requests (30 seconds)
- * - Reduced motion support for accessibility
- * - High contrast mode support
- * - Keyboard navigation and screen reader support
+ * - WCAG AAA accessibility compliance
+ * - Full internationalization support
+ * - Responsive design
+ * - Performance optimized
+ * - Timeout handling (30 seconds)
+ * - Reduced motion support
  *
  * @accessibility
- * - Uses semantic HTML with proper ARIA attributes
- * - Automatic focus management on state changes
- * - Screen reader announcements via aria-live regions
- * - Keyboard navigation with visible focus indicators
- * - Touch targets minimum 44×44px for mobile
- * - Skip links for screen reader navigation
- * - Role-based state announcements (status/alert)
- *
- * @performance
- * - CSS custom properties for consistent theming
- * - Hardware-accelerated animations
- * - Efficient DOM queries with early returns
- * - AbortController for request management
- * - CSS containment for layout isolation
- * - Minimal JavaScript bundle impact
- *
- * @security
- * - URL-safe token encoding
- * - No token storage in browser storage
- * - CORS-protected API endpoints
- * - Rate limiting protection
- * - Token expiration handling
- *
- * @browser_support
- * - Modern browsers: Chrome 90+, Firefox 88+, Safari 14+
- * - Progressive enhancement for older browsers
- * - Graceful degradation without JavaScript
- * - CSS custom properties with fallbacks
- *
- * @related_components
- * - AuthLayout - Authentication page structure
- * - LoginForm - User login after verification
- * - RegistrationForm - Initial registration flow
+ * - Semantic HTML with ARIA attributes
+ * - Automatic focus management
+ * - Screen reader announcements
+ * - Keyboard navigation support
+ * - Touch targets minimum 44×44px
  *
  * @api_dependencies
- * - POST /{lang}/api/auth/verify-email - Email verification endpoint
- * - i18n system - Internationalization utilities
- * - astro-icon - SVG icon components
+ * - POST /{lang}/api/auth/verify-email
+ * - i18n system
+ * - astro-icon
  *
  * @since 3.1.0
- * @author MelodyMind Development Team
  */
 
-// 1. Imports
+// Imports
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
 
-// 2. Component props with comprehensive type definitions
+// Component props
 interface Props {
   /**
-   * The verification token from the email confirmation URL
-   *
-   * This token is typically extracted from URL parameters in dynamic routes
-   * and should be a URL-safe string containing alphanumeric characters,
-   * hyphens, and underscores.
-   *
-   * @example "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+   * Verification token from email confirmation URL
    * @required
-   * @security Token is validated server-side and has expiration handling
    * @format URL-safe string (a-zA-Z0-9\-_)
-   * @length Typically 100-200 characters for JWT tokens
    */
   token: string;
 }
@@ -130,6 +69,7 @@ const t = useTranslations(String(lang));
   <a href="#verification-container" class="sr-only-focusable sr-only">
     {t("auth.skip_to_verification")}
   </a>
+
   <!-- Loading state -->
   <div
     id="loadingState"
@@ -138,9 +78,13 @@ const t = useTranslations(String(lang));
     aria-label={t("auth.email_verification.loading_label")}
   >
     <div class="email-verification__spinner" aria-hidden="true" role="presentation"></div>
-    <p class="email-verification__text" id="loading-message" aria-live="polite">
-      {t("auth.email_verification.loading_label")}
-    </p>
+    <Paragraph
+      id="loading-message"
+      aria-live="polite"
+      textSize="lg"
+      align="center"
+      description={t("auth.email_verification.loading_label")}
+    />
   </div>
 
   <div
@@ -156,12 +100,22 @@ const t = useTranslations(String(lang));
     >
       <Icon name="check" class="email-verification__svg" aria-hidden="true" />
     </div>
-    <h1 id="verification-heading" class="email-verification__title" tabindex="-1">
-      {t("auth.email_verification.title")}
-    </h1>
-    <p class="email-verification__message" id="success-message" aria-live="polite">
-      {t("auth.email_verification.message")}
-    </p>
+    <Headline
+      id="verification-heading"
+      level="h1"
+      size="2xl"
+      variant="primary"
+      textAlign="center"
+      focusable={true}
+      title={t("auth.email_verification.title")}
+    />
+    <Paragraph
+      id="success-message"
+      aria-live="polite"
+      textSize="lg"
+      align="center"
+      description={t("auth.email_verification.message")}
+    />
     <a
       href={`/${String(lang)}/auth/login`}
       class="email-verification__button"
@@ -185,12 +139,23 @@ const t = useTranslations(String(lang));
     >
       <Icon name="exclamation-triangle" class="email-verification__svg" aria-hidden="true" />
     </div>
-    <h1 id="error-heading" class="email-verification__title" aria-live="assertive" tabindex="-1">
-      {t("auth.email_verification.title")}
-    </h1>
-    <p class="email-verification__message" id="error-message" aria-live="assertive">
-      {t("auth.email_verification.error")}
-    </p>
+    <Headline
+      id="error-heading"
+      level="h1"
+      size="2xl"
+      variant="primary"
+      textAlign="center"
+      focusable={true}
+      aria-live="assertive"
+      title={t("auth.email_verification.title")}
+    />
+    <Paragraph
+      id="error-message"
+      aria-live="assertive"
+      textSize="lg"
+      align="center"
+      description={t("auth.email_verification.error")}
+    />
     <a
       href={`/${String(lang)}/auth/login`}
       class="email-verification__button"
@@ -203,12 +168,38 @@ const t = useTranslations(String(lang));
 </div>
 
 <style lang="scss">
-  /* ======================================
-   * EMAIL VERIFICATION COMPONENT STYLES
-   * WCAG AAA COMPLIANT WITH CSS VARIABLES
-   * MAXIMUM USAGE OF ROOT VARIABLES FROM GLOBAL.CSS
-   * OPTIMIZED FOR DRY PRINCIPLES WITH SCSS
-   * ====================================== */
+  /* Email Verification Component Styles */
+
+  // Breakpoints for responsive design
+  $breakpoint-mobile: 39.9375em; // 639px
+  $breakpoint-small-mobile: 23.4375em; // 375px
+
+  // Animation durations
+  $transition-normal: 0.3s ease-in-out;
+  $transition-fast: 0.15s ease-in-out;
+
+  // Spacing variables
+  $spacing-xs: 0.25rem;
+  $spacing-sm: 0.5rem;
+  $spacing-md: 1rem;
+  $spacing-lg: 1.5rem;
+  $spacing-xl: 2rem;
+  $spacing-2xl: 3rem;
+  $spacing-3xl: 4rem;
+
+  // Border radius
+  $radius-sm: 0.25rem;
+  $radius-md: 0.5rem;
+  $radius-lg: 0.75rem;
+  $radius-full: 50%;
+
+  // Icon sizes
+  $icon-size-lg: 3rem;
+  $icon-size-xl: 4rem;
+  $icon-size-2xl: 5rem;
+
+  // Touch target minimum size
+  $min-touch-size: 2.75rem;
 
   .email-verification {
     display: flex;
@@ -217,125 +208,161 @@ const t = useTranslations(String(lang));
     justify-content: center;
     min-height: 50vh;
     padding: var(--space-xl);
-    max-width: var(--form-container-max-width);
+    max-width: var(--form-container-max-width, 28rem);
     margin: 0 auto;
     text-align: center;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-primary);
 
-    // State management for verification flow
+    // State management with smooth transitions
     &__state {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: var(--space-lg);
+      width: 100%;
       opacity: 1;
       transform: translateY(0);
       transition:
-        opacity var(--transition-normal),
-        transform var(--transition-normal);
+        opacity $transition-normal,
+        transform $transition-normal,
+        visibility $transition-normal;
+      visibility: visible;
 
       &--hidden {
         display: none;
         opacity: 0;
-        transform: translateY(var(--space-md));
+        transform: translateY($spacing-md);
+        visibility: hidden;
       }
     }
 
-    // Icon styling with semantic CSS variables
+    // Icon styling with enhanced accessibility
     &__icon {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: var(--space-3xl);
-      height: var(--space-3xl);
-      border-radius: var(--radius-full);
-      margin-bottom: var(--space-md);
+      width: $icon-size-2xl;
+      height: $icon-size-2xl;
+      border-radius: $radius-full;
+      margin-bottom: $spacing-md;
+      transition: transform $transition-fast;
+
+      &:hover {
+        transform: scale(1.05);
+      }
 
       &--success {
-        background-color: var(--bg-success-aaa);
+        background: linear-gradient(135deg, var(--bg-success-aaa), var(--color-success-800));
         color: var(--text-success-aaa);
+        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
       }
 
       &--error {
-        background-color: var(--bg-error-aaa);
+        background: linear-gradient(135deg, var(--bg-error-aaa), var(--color-error-800));
         color: var(--text-error-aaa);
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
       }
     }
 
     &__svg {
-      width: var(--space-xl);
-      height: var(--space-xl);
+      width: $icon-size-lg;
+      height: $icon-size-lg;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     }
 
-    // Spinner animation using CSS variables
+    // Enhanced spinner animation
     &__spinner {
-      width: var(--space-xl);
-      height: var(--space-xl);
-      border: var(--border-width-enhanced) solid var(--border-primary);
-      border-top: var(--border-width-enhanced) solid var(--interactive-primary);
-      border-radius: var(--radius-full);
+      width: $icon-size-lg;
+      height: $icon-size-lg;
+      border: 3px solid var(--border-primary);
+      border-top: 3px solid var(--interactive-primary);
+      border-radius: $radius-full;
       animation: spin 1s linear infinite;
+      box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2);
     }
 
-    // Typography using semantic CSS variables
-    &__title {
-      font-size: var(--text-2xl);
-      font-weight: var(--font-bold);
-      color: var(--text-primary);
-      margin: 0 0 var(--space-md) 0;
-      line-height: var(--leading-tight);
-    }
-
-    &__text,
-    &__message {
-      font-size: var(--text-lg);
-      color: var(--text-secondary);
-      line-height: var(--leading-relaxed);
-      margin: 0;
-    }
-
-    // Button styling using semantic button variables
+    // Modern button styling with enhanced interactions
     &__button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: var(--min-touch-size);
-      min-width: var(--min-touch-size);
-      padding: var(--space-md) var(--space-xl);
-      background: var(--btn-primary-bg);
-      color: var(--btn-primary-text);
+      min-height: $min-touch-size;
+      min-width: $min-touch-size;
+      padding: $spacing-md $spacing-xl;
+      background: linear-gradient(135deg, var(--interactive-primary), var(--color-primary-700));
+      color: var(--color-white);
       border: none;
-      border-radius: var(--radius-md);
+      border-radius: $radius-md;
       font-size: var(--text-base);
-      font-weight: var(--font-medium);
+      font-weight: var(--font-medium, 500);
       text-decoration: none;
-      transition: all var(--transition-normal);
+      transition: all $transition-normal;
       cursor: pointer;
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+      position: relative;
+      overflow: hidden;
 
+      // Hover effect with transform
       &:hover {
-        background: var(--btn-primary-hover);
-        transform: translateY(calc(-1 * var(--space-micro)));
+        background: linear-gradient(
+          135deg,
+          var(--interactive-primary-hover),
+          var(--color-primary-800)
+        );
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
       }
 
+      // Focus states for accessibility
       &:focus {
         outline: var(--focus-outline);
         outline-offset: var(--focus-ring-offset);
         box-shadow: var(--focus-ring);
       }
 
-      // Enhanced Focus for WCAG 2.2
       &:focus-visible {
         outline: var(--focus-enhanced-outline-dark);
         box-shadow: var(--focus-enhanced-shadow);
       }
 
+      // Active state
       &:active {
         transform: translateY(0);
-        background: var(--btn-primary-active);
+        background: linear-gradient(
+          135deg,
+          var(--interactive-primary-active),
+          var(--color-primary-900)
+        );
+        box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+      }
+
+      // Ripple effect for modern feel
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: $radius-full;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition:
+          width 0.6s,
+          height 0.6s;
+      }
+
+      &:active::before {
+        width: 300px;
+        height: 300px;
       }
     }
   }
 
-  // Keyframe animation for spinner
+  // Spinner animation with smooth rotation
   @keyframes spin {
     0% {
       transform: rotate(0deg);
@@ -345,33 +372,66 @@ const t = useTranslations(String(lang));
     }
   }
 
-  // Responsive design using CSS variables for breakpoints
-  @media (max-width: 640px) {
+  // Responsive design for mobile devices
+  @media (max-width: $breakpoint-mobile) {
     .email-verification {
-      padding: var(--space-lg);
+      padding: $spacing-lg;
       min-height: 40vh;
+      margin: $spacing-md;
+      border-radius: $radius-md;
 
-      &__title {
-        font-size: var(--text-xl);
+      &__icon {
+        width: $icon-size-xl;
+        height: $icon-size-xl;
       }
 
-      &__text,
-      &__message {
-        font-size: var(--text-base);
+      &__svg {
+        width: $icon-size-lg;
+        height: $icon-size-lg;
       }
 
       &__button {
-        padding: var(--space-sm) var(--space-lg);
+        padding: $spacing-sm $spacing-lg;
         font-size: var(--text-sm);
+        min-height: 2.5rem;
       }
     }
   }
 
-  // Reduced motion support using CSS variables for transitions
+  // Small mobile devices
+  @media (max-width: $breakpoint-small-mobile) {
+    .email-verification {
+      padding: $spacing-md;
+      min-height: 35vh;
+      margin: $spacing-sm;
+      border-radius: $radius-sm;
+
+      &__icon {
+        width: $icon-size-lg;
+        height: $icon-size-lg;
+      }
+
+      &__svg {
+        width: $spacing-xl;
+        height: $spacing-xl;
+      }
+
+      &__button {
+        padding: $spacing-xs $spacing-md;
+        font-size: var(--text-xs);
+        min-height: 2.25rem;
+        width: 100%;
+        max-width: 12rem;
+      }
+    }
+  }
+
+  // Reduced motion support for accessibility
   @media (prefers-reduced-motion: reduce) {
     .email-verification {
       &__state,
-      &__button {
+      &__button,
+      &__icon {
         transition: none;
       }
 
@@ -380,41 +440,88 @@ const t = useTranslations(String(lang));
         border-top-color: var(--interactive-primary);
       }
 
-      &__button:hover {
+      &__button {
+        &:hover {
+          transform: none;
+        }
+
+        &::before {
+          display: none;
+        }
+      }
+
+      &__icon:hover {
         transform: none;
       }
     }
   }
 
-  // High contrast mode support using semantic color variables
+  // High contrast mode support
   @media (prefers-contrast: high) {
     .email-verification {
+      border: 2px solid var(--border-primary);
+
       &__icon {
         &--success {
-          border: var(--border-width-thick) solid var(--text-success-aaa);
+          border: 3px solid var(--text-success-aaa);
+          background: var(--bg-success-aaa);
         }
 
         &--error {
-          border: var(--border-width-thick) solid var(--text-error-aaa);
+          border: 3px solid var(--text-error-aaa);
+          background: var(--bg-error-aaa);
         }
       }
 
       &__button {
-        border: var(--border-width-thick) solid var(--btn-primary-text);
+        border: 2px solid var(--color-white);
+        background: var(--interactive-primary);
 
         &:focus {
-          outline-width: var(--focus-outline-width-enhanced);
+          outline-width: 3px;
         }
       }
     }
   }
 
-  // Dark mode optimizations
-  :global(.dark) {
+  // Touch device optimization
+  @media (hover: none) and (pointer: coarse) {
     .email-verification {
-      &__spinner {
-        border-color: var(--border-secondary);
-        border-top-color: var(--interactive-primary-dark);
+      &__button {
+        min-height: $min-touch-size;
+        padding: $spacing-lg $spacing-xl;
+        font-size: var(--text-lg);
+
+        &:hover {
+          transform: none;
+        }
+      }
+
+      &__icon:hover {
+        transform: none;
+      }
+    }
+  }
+
+  // Dark mode enhancements
+  @media (prefers-color-scheme: dark) {
+    .email-verification {
+      background: var(--bg-tertiary);
+      border-color: var(--border-secondary);
+    }
+  }
+
+  // Print styles
+  @media print {
+    .email-verification {
+      box-shadow: none;
+      border: 1px solid var(--border-primary);
+      background: transparent;
+
+      &__button {
+        background: var(--interactive-primary);
+        color: var(--color-white);
+        border: 1px solid var(--interactive-primary);
       }
     }
   }
@@ -422,44 +529,27 @@ const t = useTranslations(String(lang));
 
 <script>
   /**
-   * Display the appropriate state for email verification
+   * Email Verification Component - Modern ES6+ Implementation
    *
-   * This function manages the visual state transitions between loading, success, and error
-   * states while maintaining full accessibility compliance. It ensures proper ARIA
-   * announcements and focus management for screen readers.
-   *
-   * @param {string} state - The state to display: 'loading', 'success', or 'error'
-   *
-   * @accessibility
-   * - Updates aria-hidden attributes for proper screen reader behavior
-   * - Manages focus to headings for immediate user feedback
-   * - Announces state changes via aria-live regions
-   * - Maintains logical tab order during state transitions
-   *
-   * @performance
-   * - Uses efficient DOM queries with getElementById for fast lookups
-   * - Batches DOM operations to minimize repaints
-   * - Early returns to avoid unnecessary operations
-   *
-   * @example
-   * ```typescript
-   * // Show success state after successful verification
-   * showState('success');
-   *
-   * // Show error state when verification fails
-   * showState('error');
-   *
-   * // Reset to loading state for retry
-   * showState('loading');
-   * ```
-   *
-   * @since 3.0.0
+   * Handles email verification flow with enhanced error handling,
+   * accessibility features, and modern JavaScript patterns.
    */
-  function showState(state: "loading" | "success" | "error"): void {
-    const states = ["loading", "success", "error"] as const;
 
-    // Hide all states first
-    states.forEach((stateName) => {
+  // Type definitions for better type safety
+  type VerificationState = "loading" | "success" | "error";
+  type VerificationResult = { success: boolean; message?: string };
+
+  // Constants
+  const VERIFICATION_TIMEOUT = 30000; // 30 seconds
+  const STATES: VerificationState[] = ["loading", "success", "error"];
+
+  /**
+   * Display verification state with enhanced accessibility
+   * @param state - The state to display
+   */
+  const showState = (state: VerificationState): void => {
+    // Hide all states first with proper ARIA management
+    STATES.forEach((stateName) => {
       const element = document.getElementById(`${stateName}State`);
       if (element) {
         element.classList.add("email-verification__state--hidden");
@@ -478,104 +568,84 @@ const t = useTranslations(String(lang));
       if (title && typeof title.focus === "function") {
         title.focus();
       }
+
+      // Announce state change to screen readers
+      const announcement = document.createElement("div");
+      announcement.setAttribute("aria-live", "assertive");
+      announcement.setAttribute("aria-label", `Verification ${state}`);
+      announcement.className = "sr-only";
+      document.body.appendChild(announcement);
+
+      setTimeout(() => {
+        document.body.removeChild(announcement);
+      }, 1000);
     }
-  }
+  };
 
   /**
-   * Verify email token with the API
-   *
-   * Handles the complete email verification process including API communication,
-   * error handling, timeout management, and user feedback. This function implements
-   * robust error handling and provides clear feedback to users throughout the process.
-   *
-   * @async
-   * @function verifyEmailToken
-   * @returns {Promise<void>} Resolves when verification process completes
-   *
-   * @throws {Error} Network errors, timeout errors, or API response errors
-   *
-   * @security
-   * - Uses URL-safe token encoding to prevent injection attacks
-   * - Implements timeout protection against hanging requests
-   * - Validates API responses before processing
-   * - No sensitive data stored in browser storage
-   *
-   * @performance
-   * - 30-second timeout prevents hanging requests
-   * - Uses AbortController for proper request cancellation
-   * - Efficient error handling with early returns
-   * - Minimal DOM updates during verification process
-   *
-   * @accessibility
-   * - Automatic state transitions with screen reader announcements
-   * - Error states use assertive ARIA live regions
-   * - Success states use polite announcements
-   * - Focus management for immediate user feedback
-   *
-   * @api_integration
-   * - POST /{lang}/api/auth/verify-email
-   * - Content-Type: application/json
-   * - Body: { token: string }
-   * - Response: { success: boolean, message?: string }
-   *
-   * @example
-   * ```typescript
-   * // Automatic verification on component load
-   * await verifyEmailToken();
-   *
-   * // Manual retry after error
-   * try {
-   *   await verifyEmailToken();
-   * } catch (error) {
-   *   console.error('Verification failed:', error);
-   * }
-   * ```
-   *
-   * @flow
-   * 1. Extract and validate token from DOM dataset
-   * 2. Setup timeout protection (30 seconds)
-   * 3. Detect current language from URL
-   * 4. Make API request with proper headers
-   * 5. Handle response and update UI state
-   * 6. Provide user feedback and navigation options
-   *
-   * @since 3.0.0
-   * @updated 3.1.0 - Added enhanced timeout handling and error recovery
+   * Extract language from URL path
+   * @returns The language code or 'en' as default
    */
-  async function verifyEmailToken(): Promise<void> {
+  const getLanguageFromUrl = (): string => {
+    const path = window.location.pathname;
+    const langMatch = path.match(/^\/([a-z]{2})\//);
+    return langMatch ? langMatch[1] : "en";
+  };
+
+  /**
+   * Create timeout promise for verification
+   * @returns Promise that rejects after timeout
+   */
+  const createTimeoutPromise = (): Promise<never> =>
+    new Promise((_resolve, reject) => {
+      setTimeout(() => reject(new Error("Verification timeout")), VERIFICATION_TIMEOUT);
+    });
+
+  /**
+   * Verify email token with enhanced error handling
+   * @param token - The verification token
+   * @returns Promise with verification result
+   */
+  const verifyEmailToken = async (token: string): Promise<VerificationResult> => {
+    const lang = getLanguageFromUrl();
+
+    const response = await fetch(`/${lang}/api/auth/verify-email`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ token }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+
+    return await response.json();
+  };
+
+  /**
+   * Main verification process with timeout and error handling
+   */
+  const performVerification = async (): Promise<void> => {
     const container = document.getElementById("verification-container");
     const token = container?.dataset.verificationToken;
 
     if (!token) {
+      console.error("No verification token found");
       showState("error");
       return;
     }
 
-    // Set timeout for verification process (30 seconds)
-    const VERIFICATION_TIMEOUT = 30000;
-    const timeoutPromise = new Promise<never>((_resolve, reject) => {
-      setTimeout(() => reject(new Error("Verification timeout")), VERIFICATION_TIMEOUT);
-    });
-
     try {
-      // Get current language from URL for API call
-      const path = window.location.pathname;
-      const langMatch = path.match(/^\/([a-z]{2})\//);
-      const lang = langMatch ? langMatch[1] : "en";
-
-      const verificationPromise = fetch(`/${lang}/api/auth/verify-email`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ token }),
-      });
-
       // Race between verification and timeout
-      const response = (await Promise.race([verificationPromise, timeoutPromise])) as Response;
-      const result = await response.json();
+      const result = (await Promise.race([
+        verifyEmailToken(token),
+        createTimeoutPromise(),
+      ])) as VerificationResult;
 
-      if (response.ok && result.success) {
+      if (result.success) {
         showState("success");
       } else {
         showState("error");
@@ -584,61 +654,40 @@ const t = useTranslations(String(lang));
       console.error("Email verification error:", error);
       showState("error");
     }
-  }
+  };
 
   /**
    * Initialize email verification when DOM is ready
-   *
-   * This function serves as the entry point for the email verification process.
-   * It ensures the DOM is fully loaded before starting verification and handles
-   * both immediate execution and deferred loading scenarios.
-   *
-   * @function initializeEmailVerification
-   * @returns {void}
-   *
-   * @dom_ready_handling
-   * - Checks document.readyState for immediate execution
-   * - Uses DOMContentLoaded event for deferred execution
-   * - Ensures all DOM elements are available before processing
-   *
-   * @performance
-   * - Minimal initialization overhead
-   * - Efficient DOM ready detection
-   * - Single event listener registration
-   * - Automatic cleanup when not needed
-   *
-   * @accessibility
-   * - Ensures screen reader compatibility by waiting for complete DOM
-   * - Allows assistive technologies to register page structure
-   * - Maintains proper focus order during initialization
-   *
-   * @example
-   * ```typescript
-   * // Automatic initialization
-   * initializeEmailVerification();
-   *
-   * // Manual initialization (rare use case)
-   * if (document.readyState === 'complete') {
-   *   initializeEmailVerification();
-   * }
-   * ```
-   *
-   * @browser_compatibility
-   * - Works with all modern browsers (Chrome 90+, Firefox 88+, Safari 14+)
-   * - Graceful fallback for older browsers
-   * - Progressive enhancement approach
-   *
-   * @since 3.0.0
    */
-  function initializeEmailVerification(): void {
+  const initializeEmailVerification = (): void => {
+    // Add loading state management
+    const loadingState = document.getElementById("loadingState");
+    if (loadingState) {
+      loadingState.setAttribute("aria-busy", "true");
+    }
+
     // Start verification process
-    verifyEmailToken();
-  }
+    performVerification().finally(() => {
+      if (loadingState) {
+        loadingState.setAttribute("aria-busy", "false");
+      }
+    });
+  };
+
+  // Modern DOM ready check with fallback
+  const isDOMReady = (): boolean => (document.readyState === "loading" ? false : true);
 
   // Initialize when DOM is ready
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeEmailVerification);
-  } else {
+  if (isDOMReady()) {
     initializeEmailVerification();
+  } else {
+    document.addEventListener("DOMContentLoaded", initializeEmailVerification, { once: true });
   }
+
+  // Export for potential external use
+  (window as any).emailVerification = {
+    showState,
+    performVerification,
+    initializeEmailVerification,
+  };
 </script>

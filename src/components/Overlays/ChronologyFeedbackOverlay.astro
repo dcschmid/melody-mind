@@ -123,6 +123,11 @@ const clientTranslations = {
 </div>
 
 <style lang="scss">
+  // ======================================
+  // CHRONOLOGY FEEDBACK OVERLAY STYLES
+  // Modern SCSS with responsive design and global.css integration
+  // ======================================
+
   .chronology-feedback-overlay {
     position: fixed;
     inset: 0;
@@ -134,6 +139,11 @@ const clientTranslations = {
 
     &.hidden {
       display: none;
+    }
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      padding: var(--space-sm);
     }
   }
 
@@ -149,18 +159,30 @@ const clientTranslations = {
     max-width: var(--container-sm);
     max-height: calc(100vh - var(--space-2xl));
     border-radius: var(--radius-2xl);
-    border: 2px solid var(--border-primary);
+    border: var(--border-width-thick) solid var(--border-primary);
     background: var(--bg-secondary);
     padding: var(--space-2xl);
     box-shadow: var(--shadow-2xl);
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(10px);
-    /* Enable proper scrolling by ensuring this container has fixed constraints */
-    min-height: 0; /* Critical for flexbox scrolling */
+    min-height: 0; // Critical for flexbox scrolling
 
     &::before {
       display: none;
+    }
+
+    // Responsive design improvements
+    @media (max-width: var(--breakpoint-md)) {
+      margin: var(--space-sm);
+      padding: var(--space-xl);
+      max-height: calc(100vh - var(--space-xl));
+    }
+
+    @media (max-width: var(--breakpoint-sm)) {
+      margin: var(--space-xs);
+      padding: var(--space-lg);
+      border-radius: var(--radius-xl);
     }
   }
 
@@ -175,7 +197,7 @@ const clientTranslations = {
     justify-content: center;
     border-radius: var(--radius-full);
     background: var(--bg-tertiary);
-    border: 2px solid var(--border-primary);
+    border: var(--border-width-thick) solid var(--border-primary);
     transition:
       background-color var(--transition-normal),
       transform var(--transition-fast),
@@ -193,6 +215,14 @@ const clientTranslations = {
     &:focus-visible {
       outline: var(--focus-outline);
       outline-offset: var(--focus-ring-offset);
+    }
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      top: var(--space-md);
+      right: var(--space-md);
+      height: var(--icon-size-lg);
+      width: var(--icon-size-lg);
     }
   }
 
@@ -215,29 +245,29 @@ const clientTranslations = {
   }
 
   .modal-content-text {
-    /* Complete scrolling solution - simplified approach */
+    // Complete scrolling solution - simplified approach
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
     padding: var(--space-md);
-    /* Force explicit height constraints for scrolling */
+    // Force explicit height constraints for scrolling
     height: 0;
     min-height: 0;
     max-height: none;
-    /* Layout properties */
+    // Layout properties
     display: block;
     text-align: center;
     color: var(--text-secondary);
-    /* Reset previous flexbox that might interfere */
+    // Reset previous flexbox that might interfere
     align-items: unset;
     justify-content: unset;
     gap: unset;
 
-    /* Firefox scrollbar styling */
+    // Firefox scrollbar styling
     scrollbar-width: thin;
-    scrollbar-color: var(--border-secondary) var(--bg-tertiary);
+    scrollbar-color: var(--scrollbar-thumb-bg) var(--scrollbar-track-bg);
 
-    /* Ensure child elements don't break scrolling */
+    // Ensure child elements don't break scrolling
     > * {
       margin-bottom: var(--space-lg);
       flex-shrink: 0;
@@ -247,24 +277,29 @@ const clientTranslations = {
       }
     }
 
-    /* Custom scrollbar styling for webkit browsers */
+    // Custom scrollbar styling for webkit browsers
     &::-webkit-scrollbar {
-      width: var(--space-sm);
+      width: var(--scrollbar-thin);
     }
 
     &::-webkit-scrollbar-track {
-      background: var(--bg-tertiary);
-      border-radius: var(--radius-md);
+      background: var(--scrollbar-track-bg);
+      border-radius: var(--scrollbar-track-radius);
     }
 
     &::-webkit-scrollbar-thumb {
-      background: var(--border-secondary);
-      border-radius: var(--radius-md);
+      background: var(--scrollbar-thumb-bg);
+      border-radius: var(--scrollbar-thumb-radius);
       transition: background var(--transition-normal);
 
       &:hover {
-        background: var(--border-primary);
+        background: var(--scrollbar-thumb-hover);
       }
+    }
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      padding: var(--space-sm);
     }
   }
 
@@ -283,14 +318,21 @@ const clientTranslations = {
     @media (min-width: var(--breakpoint-md)) {
       grid-template-columns: repeat(2, 1fr);
     }
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      margin-top: var(--space-lg);
+      gap: var(--space-sm);
+      padding-top: var(--space-sm);
+    }
   }
 
-  /* Enhanced button styles with modern gradients */
+  // Enhanced button styles with modern gradients
   .primary-button,
   .secondary-button {
     min-height: var(--min-touch-size);
     border-radius: var(--radius-full);
-    padding: var(--button-padding-standard);
+    padding: var(--space-lg) var(--space-xl);
     font-weight: var(--font-bold);
     border: none;
     cursor: pointer;
@@ -310,9 +352,15 @@ const clientTranslations = {
       outline: var(--focus-outline);
       outline-offset: var(--focus-ring-offset);
     }
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      padding: var(--space-md) var(--space-lg);
+      font-size: var(--text-base);
+    }
   }
 
-  /* Primary button specific styles */
+  // Primary button specific styles
   .primary-button {
     background: var(--btn-primary-bg);
     color: var(--btn-primary-text);
@@ -329,15 +377,15 @@ const clientTranslations = {
     }
   }
 
-  /* Secondary button using simple solid colors */
+  // Secondary button using simple solid colors
   .secondary-button {
-    background: var(--btn-warning-bg);
+    background: var(--color-warning-500);
     color: var(--color-white);
-    border: 2px solid transparent;
+    border: var(--border-width-thick) solid transparent;
     box-shadow: var(--shadow-md);
 
     &:hover {
-      background: var(--btn-warning-hover);
+      background: var(--color-warning-600);
       transform: scale(var(--scale-focus)) translateY(-2px);
       box-shadow: var(--shadow-xl);
 
@@ -351,7 +399,7 @@ const clientTranslations = {
     display: none;
   }
 
-  /* Simplified feedback messages - clear and readable! */
+  // Simplified feedback messages - clear and readable!
   .feedback-correct {
     display: flex;
     align-items: center;
@@ -363,10 +411,17 @@ const clientTranslations = {
     margin-bottom: var(--space-xl);
     padding: var(--space-xl) var(--space-2xl);
     background: var(--color-success-50);
-    border: 2px solid var(--color-success-300);
+    border: var(--border-width-thick) solid var(--color-success-300);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
     animation: successPulse 0.8s ease-out;
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      font-size: var(--text-xl);
+      padding: var(--space-lg) var(--space-xl);
+      gap: var(--space-sm);
+    }
   }
 
   .feedback-incorrect {
@@ -380,13 +435,20 @@ const clientTranslations = {
     margin-bottom: var(--space-xl);
     padding: var(--space-xl) var(--space-2xl);
     background: var(--color-error-50);
-    border: 2px solid var(--color-error-300);
+    border: var(--border-width-thick) solid var(--color-error-300);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
     animation: errorShake 0.8s ease-out;
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      font-size: var(--text-xl);
+      padding: var(--space-lg) var(--space-xl);
+      gap: var(--space-sm);
+    }
   }
 
-  /* Dark mode feedback adjustments - clean and readable */
+  // Dark mode feedback adjustments - clean and readable
   @media (prefers-color-scheme: dark) {
     .feedback-correct {
       background: var(--color-success-900);
@@ -419,6 +481,16 @@ const clientTranslations = {
       font-size: var(--text-3xl);
       animation: iconBounce 2s infinite;
     }
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      font-size: var(--text-xl);
+      gap: var(--space-sm);
+
+      &::before {
+        font-size: var(--text-2xl);
+      }
+    }
   }
 
   .correct-order-container {
@@ -427,11 +499,18 @@ const clientTranslations = {
     margin: var(--space-xl) auto 0;
     padding: var(--space-xl);
     background: var(--bg-tertiary);
-    border: 2px solid var(--border-secondary);
+    border: var(--border-width-thick) solid var(--border-secondary);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
-    /* Ensure this doesn't interfere with scrolling */
+    // Ensure this doesn't interfere with scrolling
     flex-shrink: 0;
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      max-width: 100%;
+      padding: var(--space-lg);
+      margin: var(--space-lg) auto 0;
+    }
   }
 
   .correct-order-list {
@@ -448,7 +527,7 @@ const clientTranslations = {
       gap: var(--space-lg);
       padding: var(--space-lg) var(--space-xl);
       background: var(--bg-primary);
-      border: 2px solid var(--border-primary);
+      border: var(--border-width-thick) solid var(--border-primary);
       border-radius: var(--radius-lg);
       color: var(--text-primary);
       font-weight: var(--font-semibold);
@@ -463,6 +542,14 @@ const clientTranslations = {
         transform: translateY(-2px);
         box-shadow: var(--shadow-lg);
         border-color: var(--interactive-primary);
+      }
+
+      // Responsive adjustments
+      @media (max-width: var(--breakpoint-sm)) {
+        padding: var(--space-md) var(--space-lg);
+        gap: var(--space-md);
+        flex-direction: column;
+        text-align: center;
       }
     }
   }
@@ -480,6 +567,13 @@ const clientTranslations = {
     font-size: var(--text-lg);
     flex-shrink: 0;
     box-shadow: var(--shadow-md);
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      width: var(--space-2xl);
+      height: var(--space-2xl);
+      font-size: var(--text-base);
+    }
   }
 
   .song-info {
@@ -487,22 +581,37 @@ const clientTranslations = {
     font-size: var(--text-lg);
     line-height: var(--leading-relaxed);
     font-weight: var(--font-medium);
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      font-size: var(--text-base);
+    }
   }
 
-  /* Feedback message improvements */
+  // Feedback message improvements
   .feedback-message {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--space-lg);
-    /* Ensure this doesn't interfere with scrolling */
+    // Ensure this doesn't interfere with scrolling
     flex-shrink: 0;
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      gap: var(--space-md);
+    }
   }
 
   .feedback-icon {
     font-size: var(--text-3xl);
     animation: iconBounce 0.8s ease-out;
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      font-size: var(--text-2xl);
+    }
   }
 
   .feedback-text {
@@ -510,16 +619,21 @@ const clientTranslations = {
     font-weight: var(--font-bold);
     text-align: center;
     line-height: var(--leading-relaxed);
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      font-size: var(--text-lg);
+    }
   }
 
-  /* Enhanced Game statistics display with clean card design */
+  // Enhanced Game statistics display with clean card design
   .game-stats {
     width: 100%;
     max-width: 28rem;
     margin: var(--space-xl) auto;
     padding: var(--space-xl);
     background: var(--bg-tertiary);
-    border: 2px solid var(--border-secondary);
+    border: var(--border-width-thick) solid var(--border-secondary);
     border-radius: var(--radius-2xl);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
@@ -538,6 +652,14 @@ const clientTranslations = {
       background: var(--interactive-primary);
       border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
     }
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      max-width: 100%;
+      padding: var(--space-lg);
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+    }
   }
 
   .stat-item {
@@ -545,7 +667,7 @@ const clientTranslations = {
     padding: var(--space-md);
     background: var(--bg-primary);
     border-radius: var(--radius-lg);
-    border: 1px solid var(--border-primary);
+    border: var(--border-width-thin) solid var(--border-primary);
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
@@ -563,6 +685,11 @@ const clientTranslations = {
         display: none;
       }
     }
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      padding: var(--space-sm);
+    }
   }
 
   .stat-label {
@@ -573,6 +700,11 @@ const clientTranslations = {
     font-weight: var(--font-semibold);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      font-size: var(--text-xs);
+    }
   }
 
   .stat-value {
@@ -581,10 +713,15 @@ const clientTranslations = {
     color: var(--text-primary);
     font-weight: var(--font-bold);
     line-height: 1;
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      font-size: var(--text-xl);
+    }
   }
 
-  /* Animations */
-  /* Add new shimmer animation for enhanced visual appeal */
+  // Animations
+  // Add new shimmer animation for enhanced visual appeal
   @keyframes shimmer {
     0% {
       left: -100%;
@@ -665,7 +802,7 @@ const clientTranslations = {
     }
   }
 
-  /* Floating animation for enhanced visual appeal */
+  // Floating animation for enhanced visual appeal
   @keyframes float {
     0%,
     100% {
@@ -676,7 +813,7 @@ const clientTranslations = {
     }
   }
 
-  /* Reduced motion support - using root variables for consistency */
+  // Reduced motion support - using root variables for consistency
   @media (prefers-reduced-motion: reduce) {
     .close-button,
     .primary-button,
@@ -700,7 +837,7 @@ const clientTranslations = {
     }
   }
 
-  /* Responsive design improvements */
+  // Responsive design improvements
   @media (min-width: var(--breakpoint-md)) {
     .feedback-correct,
     .feedback-incorrect {
@@ -736,12 +873,12 @@ const clientTranslations = {
     }
   }
 
-  /* Remove conflicting scrollbar styles from modal-content */
+  // Remove conflicting scrollbar styles from modal-content
   .modal-content {
-    /* Remove all scrollbar styling from here - it should only be on modal-content-text */
+    // Remove all scrollbar styling from here - it should only be on modal-content-text
   }
 
-  /* Enhanced Feedback Styles - using updated styles from above */
+  // Enhanced Feedback Styles - using updated styles from above
   .feedback-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -750,7 +887,7 @@ const clientTranslations = {
     padding: var(--space-md);
     background: var(--bg-tertiary);
     border-radius: var(--radius-md);
-    border: 1px solid var(--border-secondary);
+    border: var(--border-width-thin) solid var(--border-secondary);
 
     .stat-item {
       display: flex;
@@ -770,21 +907,28 @@ const clientTranslations = {
       color: var(--text-primary);
       font-weight: var(--font-bold);
     }
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      grid-template-columns: 1fr;
+      gap: var(--space-xs);
+      padding: var(--space-sm);
+    }
   }
 
-  /* User order container - clean design without gradients */
+  // User order container - clean design without gradients
   .user-order-container {
     width: 100%;
     max-width: 32rem;
     margin: var(--space-xl) auto 0;
     padding: var(--space-xl);
     background: var(--bg-tertiary);
-    border: 2px solid var(--border-secondary);
+    border: var(--border-width-thick) solid var(--border-secondary);
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-xl);
     position: relative;
     overflow: hidden;
-    /* Ensure this doesn't interfere with scrolling */
+    // Ensure this doesn't interfere with scrolling
     flex-shrink: 0;
 
     &::before {
@@ -796,6 +940,13 @@ const clientTranslations = {
       height: 4px;
       background: var(--color-error-500);
       border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+    }
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      max-width: 100%;
+      padding: var(--space-lg);
+      margin: var(--space-lg) auto 0;
     }
   }
 
@@ -815,6 +966,16 @@ const clientTranslations = {
       font-size: var(--text-3xl);
       animation: iconBounce 2s infinite 0.5s;
     }
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      font-size: var(--text-xl);
+      gap: var(--space-sm);
+
+      &::before {
+        font-size: var(--text-2xl);
+      }
+    }
   }
 
   .user-order-list {
@@ -831,7 +992,7 @@ const clientTranslations = {
       gap: var(--space-lg);
       padding: var(--space-lg) var(--space-xl);
       background: var(--bg-primary);
-      border: 2px solid var(--border-primary);
+      border: var(--border-width-thick) solid var(--border-primary);
       border-radius: var(--radius-xl);
       color: var(--text-primary);
       font-weight: var(--font-semibold);
@@ -868,6 +1029,14 @@ const clientTranslations = {
         background: var(--color-error-100);
         box-shadow: var(--shadow-md);
       }
+
+      // Responsive adjustments
+      @media (max-width: var(--breakpoint-sm)) {
+        padding: var(--space-md) var(--space-lg);
+        gap: var(--space-md);
+        flex-direction: column;
+        text-align: center;
+      }
     }
 
     .order-number {
@@ -899,6 +1068,13 @@ const clientTranslations = {
         color: var(--color-white);
         box-shadow: var(--shadow-lg);
       }
+
+      // Responsive adjustments
+      @media (max-width: var(--breakpoint-sm)) {
+        width: var(--space-2xl);
+        height: var(--space-2xl);
+        font-size: var(--text-base);
+      }
     }
 
     .song-info {
@@ -906,6 +1082,11 @@ const clientTranslations = {
       font-size: var(--text-lg);
       line-height: var(--leading-relaxed);
       font-weight: var(--font-medium);
+
+      // Responsive adjustments
+      @media (max-width: var(--breakpoint-sm)) {
+        font-size: var(--text-base);
+      }
     }
 
     .status-icon {
@@ -929,10 +1110,17 @@ const clientTranslations = {
         background: var(--color-error-200);
         color: var(--color-error-700);
       }
+
+      // Responsive adjustments
+      @media (max-width: var(--breakpoint-sm)) {
+        width: var(--space-lg);
+        height: var(--space-lg);
+        font-size: var(--text-base);
+      }
     }
   }
 
-  /* Dark mode support for user order */
+  // Dark mode support for user order
   @media (prefers-color-scheme: dark) {
     .user-order-list {
       div {
@@ -969,7 +1157,7 @@ const clientTranslations = {
     padding: var(--space-sm) var(--space-md);
     background: var(--card-bg);
     border-radius: var(--radius-md);
-    border: 1px solid var(--border-secondary);
+    border: var(--border-width-thin) solid var(--border-secondary);
     transition: all var(--transition-normal);
 
     &:hover {
@@ -1002,6 +1190,13 @@ const clientTranslations = {
         background: var(--color-neutral-500);
       }
     }
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--space-sm);
+    }
   }
 
   .order-position {
@@ -1016,6 +1211,13 @@ const clientTranslations = {
     font-weight: var(--font-bold);
     font-size: var(--text-sm);
     flex-shrink: 0;
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      width: 28px;
+      height: 28px;
+      font-size: var(--text-xs);
+    }
   }
 
   .order-content {
@@ -1025,21 +1227,40 @@ const clientTranslations = {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      justify-content: center;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
   }
 
   .check-icon {
     color: var(--color-secondary-600);
     font-weight: var(--font-bold);
     margin-left: var(--space-sm);
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      margin-left: 0;
+      margin-top: var(--space-xs);
+    }
   }
 
   .x-icon {
     color: var(--color-neutral-600);
     font-weight: var(--font-bold);
     margin-left: var(--space-sm);
+
+    // Responsive adjustments
+    @media (max-width: var(--breakpoint-sm)) {
+      margin-left: 0;
+      margin-top: var(--space-xs);
+    }
   }
 
-  /* Responsive adjustments */
+  // Responsive adjustments
   @media (max-width: 768px) {
     .feedback-stats {
       grid-template-columns: 1fr;
@@ -1062,7 +1283,7 @@ const clientTranslations = {
     }
   }
 
-  /* High contrast mode support */
+  // High contrast mode support
   @media (prefers-contrast: high) {
     .feedback-correct,
     .feedback-incorrect,
@@ -1169,14 +1390,16 @@ const clientTranslations = {
    * @example
    * const message = getTranslation("game.chronology.correct"); // Returns "Correct! 🎉"
    */
-  function getTranslation(key: string): string {
-    return translations[key] || key;
-  }
+  const getTranslation = (key: string): string => translations[key] || key;
 
-  // State management with proper typing
-  let previouslyFocused: Element | null = null;
-  let animationFrameId: number | null = null;
-  let timeoutId: number | null = null;
+  // State management with proper typing using modern ES6+ features
+  const state = {
+    previouslyFocused: null as Element | null,
+    animation: {
+      frameId: null as number | null,
+      timeoutId: null as number | null,
+    },
+  };
 
   /**
    * Initializes the feedback overlay functionality with comprehensive setup
@@ -1268,9 +1491,9 @@ const clientTranslations = {
      * - Implements GPU acceleration with transform properties
      * - Handles reduced motion gracefully
      */
-    function showOverlay(): void {
+    const showOverlay = (): void => {
       // Store current focus for restoration
-      previouslyFocused = document.activeElement;
+      state.previouslyFocused = document.activeElement;
 
       // Check for reduced motion preference
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1302,16 +1525,16 @@ const clientTranslations = {
         elements.overlay.style.opacity = "0";
         elements.overlay.style.transform = "translateY(-20px) scale(0.95)";
 
-        animationFrameId = requestAnimationFrame(() => {
+        state.animation.frameId = requestAnimationFrame(() => {
           elements.overlay.style.transition = "opacity 0.2s ease-out, transform 0.2s ease-out";
           elements.overlay.style.opacity = "1";
           elements.overlay.style.transform = "translateY(0) scale(1)";
 
           // Focus management after animation
-          timeoutId = window.setTimeout(focusFirstElement, 200);
+          state.animation.timeoutId = window.setTimeout(focusFirstElement, 200);
         });
       }
-    }
+    };
 
     /**
      * Hides the feedback overlay with cleanup and focus restoration
@@ -1326,17 +1549,17 @@ const clientTranslations = {
      * - Uses efficient animation cleanup
      * - Prevents memory leaks
      */
-    function hideOverlay(): void {
+    const hideOverlay = (): void => {
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       // Clear any pending animations
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-        animationFrameId = null;
+      if (state.animation.frameId) {
+        cancelAnimationFrame(state.animation.frameId);
+        state.animation.frameId = null;
       }
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-        timeoutId = null;
+      if (state.animation.timeoutId) {
+        clearTimeout(state.animation.timeoutId);
+        state.animation.timeoutId = null;
       }
 
       elements.overlay.setAttribute("aria-hidden", "true");
@@ -1353,7 +1576,7 @@ const clientTranslations = {
         elements.overlay.style.opacity = "0";
         elements.overlay.style.transform = "translateY(-20px) scale(0.95)";
 
-        timeoutId = window.setTimeout(() => {
+        state.animation.timeoutId = window.setTimeout(() => {
           elements.overlay.classList.add("hidden");
           elements.overlay.style.opacity = "";
           elements.overlay.style.transform = "";
@@ -1361,7 +1584,7 @@ const clientTranslations = {
           restoreFocusAndCleanup();
         }, 200);
       }
-    }
+    };
 
     /**
      * Focuses the first interactive element in the modal with delay
@@ -1373,16 +1596,16 @@ const clientTranslations = {
      *
      * @wcag WCAG AAA compliance for focus management
      */
-    function focusFirstElement(): void {
+    const focusFirstElement = (): void => {
       // Clear any existing timeout
-      if (timeoutId) {
-        clearTimeout(timeoutId);
+      if (state.animation.timeoutId) {
+        clearTimeout(state.animation.timeoutId);
       }
 
-      timeoutId = window.setTimeout(() => {
+      state.animation.timeoutId = window.setTimeout(() => {
         elements.closeButton.focus();
       }, 50);
-    }
+    };
 
     /**
      * Restores focus and performs cleanup after modal closes
@@ -1394,7 +1617,7 @@ const clientTranslations = {
      *
      * @performance Uses defensive programming with error handling
      */
-    function restoreFocusAndCleanup(): void {
+    const restoreFocusAndCleanup = (): void => {
       // Re-enable scrolling and restore scroll position
       const scrollY = document.body.getAttribute("data-scroll-y");
       document.body.style.position = "";
@@ -1411,20 +1634,20 @@ const clientTranslations = {
 
       // Restore focus to previously focused element
       if (
-        previouslyFocused &&
-        "focus" in previouslyFocused &&
-        typeof previouslyFocused.focus === "function"
+        state.previouslyFocused &&
+        "focus" in state.previouslyFocused &&
+        typeof state.previouslyFocused.focus === "function"
       ) {
-        timeoutId = window.setTimeout(() => {
+        state.animation.timeoutId = window.setTimeout(() => {
           try {
-            (previouslyFocused as HTMLElement).focus();
+            (state.previouslyFocused as HTMLElement).focus();
           } catch {
             // Focus restoration failed silently - not critical for user experience
           }
-          previouslyFocused = null;
+          state.previouslyFocused = null;
         }, 50);
       }
-    }
+    };
 
     /**
      * Updates the feedback content based on the chronology game result
@@ -1840,15 +2063,15 @@ const clientTranslations = {
      * @usage Called automatically on page unload or manually when component is destroyed
      * @wcag Ensures proper cleanup for assistive technology compatibility
      */
-    function cleanup(): void {
+    const cleanup = (): void => {
       // Clear any pending animations or timeouts to prevent memory leaks
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-        animationFrameId = null;
+      if (state.animation.frameId) {
+        cancelAnimationFrame(state.animation.frameId);
+        state.animation.frameId = null;
       }
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-        timeoutId = null;
+      if (state.animation.timeoutId) {
+        clearTimeout(state.animation.timeoutId);
+        state.animation.timeoutId = null;
       }
 
       // Stop session timeout monitoring and free resources
@@ -1863,8 +2086,8 @@ const clientTranslations = {
       window.removeEventListener("showChronologyFeedback", handleShowFeedback as EventListener);
 
       // Reset component state for potential reuse
-      previouslyFocused = null;
-    }
+      state.previouslyFocused = null;
+    };
 
     // Initialize event listeners and component state
     setupEventListeners();

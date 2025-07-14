@@ -120,7 +120,7 @@ function generateCategoryListSchema(baseUrl: string, lang: string, playableCateg
 /**
  * Generates client-side translations with fallbacks
  */
-function generateClientTranslations(t: (key: string) => string) {
+function generateClientTranslations(t: (_key: string) => string) {
   return {
     search: {
       placeholder: t("game.search.label"),
@@ -170,7 +170,7 @@ const categories = Array.isArray(categoriesList) ? categoriesList : [];
  * @param item - The item to check
  * @returns Boolean indicating if item is a valid playable category
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 function isPlayableCategory(item: any): item is Category & { categoryUrl: string } {
   return (
     item &&
@@ -395,34 +395,56 @@ const clientTranslations = generateClientTranslations(t);
 </Layout>
 
 <style lang="scss">
-  /* ======================================
-   * SCSS CUSTOM PROPERTIES FOR COMPONENT
-   * Enhanced with global.css variables
-   * ====================================== */
+  @use "sass:map";
 
-  :root {
-    /* Component-specific dimensions using global scale */
-    --gamehome-hero-decoration-sm: var(--space-2xl); /* 48px - Small decoration */
-    --gamehome-hero-decoration-md: var(--space-3xl); /* 64px - Medium decoration */
-    --gamehome-hero-decoration-lg: calc(var(--space-3xl) * 2); /* 128px - Large decoration */
+  // ======================================
+  // SCSS VARIABLES & MIXINS
+  // ======================================
 
-    /* Layout constraints using design system */
-    --gamehome-content-max-width: calc(var(--container-md) * 0.6); /* ~460px - Content max width */
-    --gamehome-search-max-width: var(--container-sm); /* 640px - Search container max width */
+  // Responsive breakpoints using global CSS variables
+  $breakpoints: (
+    sm: var(--breakpoint-sm),
+    md: var(--breakpoint-md),
+    lg: var(--breakpoint-lg),
+    xl: var(--breakpoint-xl),
+  );
 
-    /* Visual effects using global tokens */
-    --gamehome-hero-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Hero text shadow */
-    --gamehome-divider-height: var(--border-width-thick); /* 2px - Divider height */
-
-    /* Search input specific spacing */
-    --gamehome-search-icon-offset: calc(
-      var(--space-md) + var(--icon-size-md) + var(--space-md)
-    ); /* Icon + padding space */
+  // Mixin for responsive design
+  @mixin respond-to($breakpoint) {
+    @if map.has-key($breakpoints, $breakpoint) {
+      @media (min-width: map.get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    }
   }
 
-  /* ======================================
-   * GAMEHOME CONTAINER LAYOUT
-   * ====================================== */
+  // Mixin for reduced motion
+  @mixin reduced-motion {
+    @media (prefers-reduced-motion: reduce) {
+      @content;
+    }
+  }
+
+  // Mixin for high contrast
+  @mixin high-contrast {
+    @media (prefers-contrast: high) {
+      @content;
+    }
+  }
+
+  // Component-specific variables
+  $hero-decoration-sm: var(--space-2xl);
+  $hero-decoration-md: var(--space-3xl);
+  $hero-decoration-lg: calc(var(--space-3xl) * 2);
+  $content-max-width: calc(var(--container-md) * 0.6);
+  $search-max-width: var(--container-sm);
+  $hero-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  $divider-height: var(--border-width-thin);
+  $search-icon-offset: calc(var(--space-md) + var(--icon-size-md) + var(--space-md));
+
+  // ======================================
+  // GAMEHOME CONTAINER LAYOUT
+  // ======================================
 
   .gamehome-container {
     width: var(--width-full);
@@ -433,14 +455,14 @@ const clientTranslations = generateClientTranslations(t);
     display: flex;
     flex-direction: column;
 
-    @media (min-width: var(--breakpoint-md)) {
+    @include respond-to(md) {
       padding: var(--space-xl) var(--space-lg);
     }
   }
 
-  /* ======================================
-   * HERO SECTION STYLING
-   * ====================================== */
+  // ======================================
+  // HERO SECTION STYLING
+  // ======================================
 
   .gamehome-hero {
     position: relative;
@@ -457,11 +479,11 @@ const clientTranslations = generateClientTranslations(t);
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
 
-    @media (min-width: var(--breakpoint-lg)) {
+    @include respond-to(lg) {
       padding: var(--space-2xl) var(--space-xl);
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @include reduced-motion {
       background: var(--color-primary-800);
     }
 
@@ -480,22 +502,22 @@ const clientTranslations = generateClientTranslations(t);
       &--top-right {
         top: calc(-1 * var(--space-xl));
         right: calc(-1 * var(--space-xl));
-        width: var(--gamehome-hero-decoration-md);
-        height: var(--gamehome-hero-decoration-md);
+        width: $hero-decoration-md;
+        height: $hero-decoration-md;
       }
 
       &--bottom-left {
         bottom: calc(-1 * var(--space-2xl));
         left: calc(-1 * var(--space-2xl));
-        width: var(--gamehome-hero-decoration-lg);
-        height: var(--gamehome-hero-decoration-lg);
+        width: $hero-decoration-lg;
+        height: $hero-decoration-lg;
       }
 
       &--center-right {
         top: var(--percentage-half);
         right: calc(-1 * var(--space-md));
-        width: var(--gamehome-hero-decoration-sm);
-        height: var(--gamehome-hero-decoration-sm);
+        width: $hero-decoration-sm;
+        height: $hero-decoration-sm;
         transform: translateY(-50%);
       }
     }
@@ -510,16 +532,16 @@ const clientTranslations = generateClientTranslations(t);
     &__title {
       margin-bottom: var(--space-lg);
       color: var(--color-white);
-      text-shadow: var(--gamehome-hero-shadow);
+      text-shadow: $hero-shadow;
 
-      @media (min-width: var(--breakpoint-lg)) {
+      @include respond-to(lg) {
         font-size: var(--text-4xl);
       }
     }
 
     &__divider {
       width: var(--icon-size-xl);
-      height: var(--gamehome-divider-height);
+      height: $divider-height;
       background: var(--color-secondary-400);
       margin: var(--space-lg) auto;
       border-radius: var(--radius-full);
@@ -529,25 +551,25 @@ const clientTranslations = generateClientTranslations(t);
       color: var(--color-neutral-100);
       font-size: var(--text-xl);
       line-height: var(--leading-relaxed);
-      max-width: var(--gamehome-content-max-width);
+      max-width: $content-max-width;
       margin: 0 auto;
 
-      @media (min-width: var(--breakpoint-lg)) {
+      @include respond-to(lg) {
         font-size: var(--text-2xl);
       }
     }
   }
 
-  /* ======================================
-   * SEARCH CONTAINER
-   * ====================================== */
+  // ======================================
+  // SEARCH CONTAINER
+  // ======================================
 
   .search-container {
     margin-bottom: var(--space-xl);
 
     &__wrapper {
       position: relative;
-      max-width: var(--gamehome-search-max-width);
+      max-width: $search-max-width;
       margin: 0 auto;
     }
 
@@ -568,7 +590,7 @@ const clientTranslations = generateClientTranslations(t);
 
     &__input {
       width: var(--width-full);
-      padding: var(--space-md) var(--space-md) var(--space-md) var(--gamehome-search-icon-offset);
+      padding: var(--space-md) var(--space-md) var(--space-md) $search-icon-offset;
       border: var(--border-width-thin) solid var(--border-primary);
       border-radius: var(--radius-lg);
       background-color: var(--form-bg);
@@ -589,7 +611,7 @@ const clientTranslations = generateClientTranslations(t);
         color: var(--text-tertiary);
       }
 
-      @media (prefers-contrast: high) {
+      @include high-contrast {
         border-width: var(--border-width-thick);
       }
     }
@@ -625,9 +647,9 @@ const clientTranslations = generateClientTranslations(t);
     }
   }
 
-  /* ======================================
-   * GENRE GRID STYLING
-   * ====================================== */
+  // ======================================
+  // GENRE GRID STYLING
+  // ======================================
 
   .genre-content {
     flex-grow: 1;
@@ -639,26 +661,51 @@ const clientTranslations = generateClientTranslations(t);
     gap: var(--space-lg);
     margin-bottom: var(--space-xl);
 
-    @media (min-width: var(--breakpoint-sm)) {
+    @include respond-to(sm) {
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: var(--space-xl);
     }
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    }
   }
 
-  /* ======================================
-   * ACCESSIBILITY ENHANCEMENTS
-   * ====================================== */
+  // ======================================
+  // ACCESSIBILITY ENHANCEMENTS
+  // ======================================
 
-  @media (prefers-reduced-motion: reduce) {
+  @include reduced-motion {
     .loading-state__spinner {
       animation: none;
       border: var(--border-width-thick) solid var(--interactive-primary);
     }
   }
+
+  // ======================================
+  // RESPONSIVE UTILITIES
+  // ======================================
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 </style>
 
-<!-- Enhanced client-side functionality for search and filtering -->
+<!-- Enhanced client-side functionality with modern ES6+ features -->
 <script>
+  // TypeScript interfaces for type safety
   interface GameTranslations {
     search: {
       placeholder: string;
@@ -673,6 +720,7 @@ const clientTranslations = generateClientTranslations(t);
     };
   }
 
+  // Global type declarations
   declare global {
     interface Window {
       gameHomeTranslations: GameTranslations;
@@ -680,25 +728,25 @@ const clientTranslations = generateClientTranslations(t);
   }
 
   /**
-   * Enhanced search functionality using modern patterns
+   * Modern search functionality using ES6+ features
    * Implements progressive enhancement and accessibility best practices
    */
   class GameHomeSearch {
-    private searchInput: HTMLInputElement | null;
-    private clearButton: HTMLButtonElement | null;
-    private gridContainer: HTMLElement | null;
-    private resultsInfo: HTMLElement | null;
-    private allItems: NodeListOf<Element>;
-    private translations: GameTranslations;
+    private readonly searchInput: HTMLInputElement | null;
+    private readonly clearButton: HTMLButtonElement | null;
+    private readonly gridContainer: HTMLElement | null;
+    private readonly resultsInfo: HTMLElement | null;
+    private readonly allItems: NodeListOf<Element>;
+    private readonly translations: GameTranslations;
 
     constructor() {
-      // Initialize elements with error handling
+      // Initialize elements with modern querySelector syntax
       this.searchInput = document.getElementById("filter-input") as HTMLInputElement;
       this.clearButton = document.querySelector(".search-container__clear") as HTMLButtonElement;
       this.gridContainer = document.getElementById("playlist-grid");
       this.resultsInfo = document.querySelector(".search-container__results-info");
       this.allItems = document.querySelectorAll("#playlist-grid > *");
-      this.translations = window.gameHomeTranslations || this.getDefaultTranslations();
+      this.translations = window.gameHomeTranslations ?? this.getDefaultTranslations();
 
       // Only initialize if required elements exist
       if (this.searchInput && this.gridContainer) {
@@ -706,54 +754,53 @@ const clientTranslations = generateClientTranslations(t);
       }
     }
 
-    private getDefaultTranslations(): GameTranslations {
-      return {
-        search: {
-          placeholder: "Search genres...",
-          showingAll: "Showing all genres",
-          resultsFound: "genres found",
-          noResults: "No genres found matching your search",
-          clear: "Clear search",
-        },
-        accessibility: {
-          skipToContent: "Skip to main content",
-          searchLabel: "Search music genres",
-        },
-      };
-    }
+    private getDefaultTranslations = (): GameTranslations => ({
+      search: {
+        placeholder: "Search genres...",
+        showingAll: "Showing all genres",
+        resultsFound: "genres found",
+        noResults: "No genres found matching your search",
+        clear: "Clear search",
+      },
+      accessibility: {
+        skipToContent: "Skip to main content",
+        searchLabel: "Search music genres",
+      },
+    });
 
-    private init(): void {
-      // Add event listeners with proper binding
-      this.searchInput!.addEventListener("input", this.handleSearch.bind(this));
-      this.searchInput!.addEventListener("keydown", this.handleKeydown.bind(this));
+    private init = (): void => {
+      // Add event listeners with arrow functions for better binding
+      this.searchInput!.addEventListener("input", this.handleSearch);
+      this.searchInput!.addEventListener("keydown", this.handleKeydown);
 
       if (this.clearButton) {
-        this.clearButton.addEventListener("click", this.clearSearch.bind(this));
+        this.clearButton.addEventListener("click", this.clearSearch);
       }
 
       // Set initial results info
       this.updateResultsInfo(this.allItems.length, "");
-    }
+    };
 
-    private handleSearch(event: Event): void {
+    private handleSearch = (event: Event): void => {
       const target = event.target as HTMLInputElement;
       const query = target.value.toLowerCase().trim();
 
       this.filterItems(query);
       this.updateClearButton(query);
-    }
+    };
 
-    private handleKeydown(event: KeyboardEvent): void {
+    private handleKeydown = (event: KeyboardEvent): void => {
       if (event.key === "Escape") {
         this.clearSearch();
       }
-    }
+    };
 
-    private filterItems(query: string): void {
+    private filterItems = (query: string): void => {
       let visibleCount = 0;
 
+      // Use modern forEach with arrow function
       this.allItems.forEach((item) => {
-        const textContent = item.textContent?.toLowerCase() || "";
+        const textContent = item.textContent?.toLowerCase() ?? "";
         const isVisible = query === "" || textContent.includes(query);
 
         if (item instanceof HTMLElement) {
@@ -767,38 +814,33 @@ const clientTranslations = generateClientTranslations(t);
       });
 
       this.updateResultsInfo(visibleCount, query);
-    }
+    };
 
-    private updateResultsInfo(count: number, query: string): void {
+    private updateResultsInfo = (count: number, query: string): void => {
       if (!this.resultsInfo) {
         return;
       }
 
-      let message = "";
-      if (query === "") {
-        message = `${this.translations.search.showingAll} (${count})`;
-      } else if (count === 0) {
-        message = this.translations.search.noResults;
-      } else {
-        message = `${count} ${this.translations.search.resultsFound}`;
-      }
+      const message =
+        query === ""
+          ? `${this.translations.search.showingAll} (${count})`
+          : count === 0
+            ? this.translations.search.noResults
+            : `${count} ${this.translations.search.resultsFound}`;
 
       this.resultsInfo.textContent = message;
-    }
+    };
 
-    private updateClearButton(query: string): void {
+    private updateClearButton = (query: string): void => {
       if (!this.clearButton) {
         return;
       }
 
-      if (query.length > 0) {
-        this.clearButton.removeAttribute("hidden");
-      } else {
-        this.clearButton.setAttribute("hidden", "");
-      }
-    }
+      const hasQuery = query.length > 0;
+      this.clearButton.toggleAttribute("hidden", !hasQuery);
+    };
 
-    private clearSearch(): void {
+    private clearSearch = (): void => {
       if (!this.searchInput) {
         return;
       }
@@ -807,13 +849,18 @@ const clientTranslations = generateClientTranslations(t);
       this.filterItems("");
       this.updateClearButton("");
       this.searchInput.focus();
-    }
+    };
   }
 
-  // Initialize search functionality when DOM is ready using modern approach
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => new GameHomeSearch());
-  } else {
+  // Modern initialization using arrow functions and optional chaining
+  const initSearch = (): void => {
     new GameHomeSearch();
+  };
+
+  // Initialize search functionality when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initSearch);
+  } else {
+    initSearch();
   }
 </script>

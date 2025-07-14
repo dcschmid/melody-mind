@@ -27,7 +27,7 @@ export const prerender = false;
  * Generate static paths for all supported languages
  * Required for Astro dynamic routes to work properly
  */
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const supportedLanguages = [
     "de",
     "en",
@@ -48,7 +48,7 @@ export async function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
     params: { lang },
   }));
-}
+};
 
 // Interface for user profile data
 interface UserProfile {
@@ -121,7 +121,7 @@ if (!authResult.authenticated) {
   }
 }
 
-// Format the date for display
+// Format the date for display using modern arrow function
 const formatUserDate = (dateString: string): string => {
   try {
     return formatDate(dateString, String(lang));
@@ -130,18 +130,18 @@ const formatUserDate = (dateString: string): string => {
   }
 };
 
-// Game mode names for display
+// Game mode names for display using object destructuring
 const gameModeNames = {
   quiz: t("profile.stats.quiz"),
   chronology: t("profile.stats.chronology"),
-};
+} as const;
 
-// Difficulty level names for display
+// Difficulty level names for display using object destructuring
 const difficultyNames = {
   easy: t("difficulty.easy"),
   medium: t("difficulty.medium"),
   hard: t("difficulty.hard"),
-};
+} as const;
 ---
 
 <Layout title={t("profile.title")} description={t("profile.description")} type="website">
@@ -197,38 +197,28 @@ const difficultyNames = {
             </h2>
 
             <div class="profile-card__user-info">
-              <dl class="profile-card__user-details flex-column text-reset">
-                <div class="profile-card__user-item flex-start card-base">
-                  <Icon name="user" class="profile-card__icon icon-standard" aria-hidden="true" />
+              <dl class="profile-card__user-details">
+                <div class="profile-card__user-item">
+                  <Icon name="user" class="profile-card__icon" aria-hidden="true" />
                   <div class="profile-card__user-text">
-                    <dt class="profile-card__label text-enhanced">{t("profile.user.username")}</dt>
-                    <dd class="profile-card__value text-enhanced text-reset">
-                      {profileData.user.username}
-                    </dd>
+                    <dt class="profile-card__label">{t("profile.user.username")}</dt>
+                    <dd class="profile-card__value">{profileData.user.username}</dd>
                   </div>
                 </div>
 
-                <div class="profile-card__user-item flex-start card-base">
-                  <Icon name="mail" class="profile-card__icon icon-standard" aria-hidden="true" />
+                <div class="profile-card__user-item">
+                  <Icon name="mail" class="profile-card__icon" aria-hidden="true" />
                   <div class="profile-card__user-text">
-                    <dt class="profile-card__label text-enhanced">{t("profile.user.email")}</dt>
-                    <dd class="profile-card__value text-enhanced text-reset">
-                      {profileData.user.email}
-                    </dd>
+                    <dt class="profile-card__label">{t("profile.user.email")}</dt>
+                    <dd class="profile-card__value">{profileData.user.email}</dd>
                   </div>
                 </div>
 
-                <div class="profile-card__user-item flex-start card-base">
-                  <Icon
-                    name="calendar"
-                    class="profile-card__icon icon-standard"
-                    aria-hidden="true"
-                  />
+                <div class="profile-card__user-item">
+                  <Icon name="calendar" class="profile-card__icon" aria-hidden="true" />
                   <div class="profile-card__user-text">
-                    <dt class="profile-card__label text-enhanced">
-                      {t("profile.user.member_since")}
-                    </dt>
-                    <dd class="profile-card__value text-enhanced text-reset">
+                    <dt class="profile-card__label">{t("profile.user.member_since")}</dt>
+                    <dd class="profile-card__value">
                       {formatUserDate(profileData.user.createdAt)}
                     </dd>
                   </div>
@@ -290,41 +280,35 @@ const difficultyNames = {
 
             {profileData.recentGames.length === 0 ? (
               <div class="profile-card__empty">
-                <Icon
-                  name="gamepad"
-                  class="profile-card__empty-icon icon-large"
-                  aria-hidden="true"
-                />
-                <p class="profile-card__empty-text text-enhanced text-reset">
-                  {t("profile.recent_games.empty")}
-                </p>
+                <Icon name="gamepad" class="profile-card__empty-icon" aria-hidden="true" />
+                <p class="profile-card__empty-text">{t("profile.recent_games.empty")}</p>
               </div>
             ) : (
               <div class="recent-games">
-                <ul class="recent-games__list flex-column text-reset">
+                <ul class="recent-games__list">
                   {profileData.recentGames.map((game) => (
-                    <li class="recent-game card-base card-transition hover-lift">
-                      <div class="recent-game__header flex-between">
-                        <div class="recent-game__mode flex-start">
+                    <li class="recent-game">
+                      <div class="recent-game__header">
+                        <div class="recent-game__mode">
                           <Icon
                             name={game.gameMode === "quiz" ? "brain" : "clock"}
-                            class="recent-game__icon icon-standard"
+                            class="recent-game__icon"
                             aria-hidden="true"
                           />
-                          <span class="recent-game__mode-text text-enhanced">
-                            {gameModeNames[game.gameMode]}
-                          </span>
+                          <span class="recent-game__mode-text">{gameModeNames[game.gameMode]}</span>
                         </div>
                         <div class="recent-game__score">
                           <span class="recent-game__score-value">{game.score}</span>
-                          <span class="recent-game__score-label text-enhanced">
+                          <span class="recent-game__score-label">
                             {t("profile.recent_games.points")}
                           </span>
                         </div>
                       </div>
                       <div class="recent-game__details">
                         <span class="recent-game__category">{game.category}</span>
-                        <span class="recent-game__difficulty recent-game__difficulty--{game.difficulty}">
+                        <span
+                          class={`recent-game__difficulty recent-game__difficulty--${game.difficulty}`}
+                        >
                           {difficultyNames[game.difficulty]}
                         </span>
                         <time class="recent-game__date" datetime={game.createdAt}>
@@ -347,7 +331,7 @@ const difficultyNames = {
   /* ===========================================
    * PROFILE PAGE STYLES - WCAG AAA COMPLIANT
    * Using CSS custom properties from global.css
-   * Applying DRY principles with utility classes
+   * SCSS with modern responsive design
    * =========================================== */
 
   // Profile Container
@@ -363,6 +347,68 @@ const difficultyNames = {
       text-align: center;
       margin-bottom: var(--space-3xl);
       line-height: var(--leading-enhanced);
+    }
+
+    // ===========================================
+    // LOGIN PROMPT
+    // ===========================================
+
+    &__login-prompt {
+      background: var(--card-bg);
+      border: var(--border-width-thin) solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--card-shadow);
+
+      .profile__login-content {
+        text-align: center;
+      }
+
+      .profile__login-icon {
+        width: var(--icon-size-xl);
+        height: var(--icon-size-xl);
+        margin: 0 auto var(--space-lg);
+        color: var(--interactive-primary);
+      }
+
+      .profile__login-title {
+        font-size: var(--text-2xl);
+        font-weight: var(--font-bold);
+        color: var(--text-primary);
+        margin-bottom: var(--space-md);
+        line-height: var(--leading-enhanced);
+      }
+
+      .profile__login-message {
+        font-size: var(--text-lg);
+        color: var(--text-secondary);
+        margin-bottom: var(--space-xl);
+        line-height: var(--leading-enhanced);
+      }
+
+      .profile__login-button {
+        display: inline-block;
+        background: var(--btn-primary-bg);
+        color: var(--btn-primary-text);
+        padding: var(--space-md) var(--space-xl);
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        font-weight: var(--font-semibold);
+        transition: all var(--transition-normal);
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          background: var(--btn-primary-hover);
+          transform: translateY(calc(-1 * var(--space-xs)));
+        }
+
+        &:focus {
+          outline: var(--focus-outline);
+          outline-offset: var(--focus-ring-offset);
+        }
+      }
     }
 
     // ===========================================
@@ -463,18 +509,27 @@ const difficultyNames = {
     // ===========================================
 
     &__user-details {
+      display: flex;
+      flex-direction: column;
       gap: var(--space-lg);
     }
 
     &__user-item {
+      display: flex;
+      align-items: flex-start;
       gap: var(--space-md);
       padding: var(--space-md);
+      background-color: var(--bg-tertiary);
+      border: var(--border-width-thin) solid var(--border-secondary);
+      border-radius: var(--radius-md);
     }
 
     &__icon {
       color: var(--interactive-primary);
       flex-shrink: 0;
       margin-top: var(--space-xs);
+      width: var(--icon-size-md);
+      height: var(--icon-size-md);
     }
 
     &__user-text {
@@ -508,10 +563,13 @@ const difficultyNames = {
       &-icon {
         margin: 0 auto var(--space-lg);
         color: var(--text-tertiary);
+        width: var(--icon-size-xl);
+        height: var(--icon-size-xl);
       }
 
       &-text {
         font-size: var(--text-lg);
+        line-height: var(--leading-enhanced);
       }
     }
   }
@@ -528,15 +586,21 @@ const difficultyNames = {
 
   .stat-card {
     padding: var(--space-xl);
+    background-color: var(--bg-tertiary);
+    border: var(--border-width-thin) solid var(--border-secondary);
+    border-radius: var(--radius-md);
 
     &__title {
       font-size: var(--text-2xl);
       font-weight: var(--font-bold);
       color: var(--text-primary);
       margin-bottom: var(--space-lg);
+      line-height: var(--leading-enhanced);
     }
 
     &__list {
+      display: flex;
+      flex-direction: column;
       gap: var(--space-md);
     }
 
@@ -551,12 +615,15 @@ const difficultyNames = {
       font-size: var(--text-base);
       color: var(--text-secondary);
       font-weight: var(--font-medium);
+      display: block;
+      margin-bottom: var(--space-xs);
     }
 
     &__value {
       font-size: var(--text-xl);
       font-weight: var(--font-bold);
       color: var(--text-primary);
+      display: block;
     }
   }
 
@@ -566,6 +633,8 @@ const difficultyNames = {
 
   .recent-games {
     &__list {
+      display: flex;
+      flex-direction: column;
       gap: var(--space-lg);
       list-style: none;
       padding: 0;
@@ -574,9 +643,14 @@ const difficultyNames = {
 
   .recent-game {
     padding: var(--space-lg);
+    background-color: var(--bg-tertiary);
+    border: var(--border-width-thin) solid var(--border-secondary);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-normal);
 
     &:hover {
       border-color: var(--border-focus);
+      transform: translateY(calc(-1 * var(--space-xs)));
     }
 
     &:focus-within {
@@ -585,10 +659,15 @@ const difficultyNames = {
     }
 
     &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: var(--space-md);
     }
 
     &__mode {
+      display: flex;
+      align-items: center;
       gap: var(--space-sm);
 
       &-text {
@@ -600,6 +679,8 @@ const difficultyNames = {
 
     &__icon {
       color: var(--interactive-primary);
+      width: var(--icon-size-md);
+      height: var(--icon-size-md);
     }
 
     &__score {
@@ -680,6 +761,16 @@ const difficultyNames = {
   // RESPONSIVE DESIGN
   // ===========================================
 
+  @media (min-width: var(--breakpoint-sm)) {
+    .profile {
+      padding: var(--space-lg);
+    }
+
+    .profile-card {
+      padding: var(--space-3xl);
+    }
+  }
+
   @media (min-width: var(--breakpoint-md)) {
     .profile {
       padding: var(--space-xl);
@@ -697,10 +788,16 @@ const difficultyNames = {
   @media (min-width: var(--breakpoint-lg)) {
     .profile {
       padding: var(--space-2xl);
+    }
 
-      &-card {
-        padding: var(--space-3xl);
-      }
+    .profile-card {
+      padding: var(--space-3xl);
+    }
+  }
+
+  @media (min-width: var(--breakpoint-xl)) {
+    .profile {
+      padding: var(--space-3xl);
     }
   }
 
@@ -714,11 +811,11 @@ const difficultyNames = {
     }
 
     .stat-card,
-    .recent-game {
+    .recent-game,
+    .profile-card__user-item {
       transition: none;
     }
 
-    .stat-card:hover,
     .recent-game:hover {
       transform: none;
     }
@@ -737,93 +834,129 @@ const difficultyNames = {
   }
 
   // ===========================================
-  // UTILITY CLASSES (DRY OPTIMIZATION)
+  // PRINT STYLES
   // ===========================================
 
-  // Common Flexbox Patterns
-  .flex-column {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .flex-between {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .flex-start {
-    display: flex;
-    align-items: flex-start;
-  }
-
-  // Common Text Patterns
-  .text-enhanced {
-    line-height: var(--leading-enhanced);
-  }
-
-  .text-reset {
-    margin: 0;
-  }
-
-  // Common Interactive Patterns
-  .card-transition {
-    transition:
-      transform var(--transition-normal),
-      box-shadow var(--transition-normal),
-      border-color var(--transition-normal);
-  }
-
-  .hover-lift {
-    &:hover {
-      transform: translateY(calc(-1 * var(--space-xs)));
+  @media print {
+    .profile {
+      max-width: none;
+      padding: 0;
     }
-  }
 
-  .hover-shadow {
-    &:hover {
-      box-shadow: var(--shadow-lg);
+    .profile-card {
+      break-inside: avoid;
+      box-shadow: none;
+      border: var(--print-border);
     }
-  }
 
-  // Common Focus Patterns
-  .focus-outline {
-    &:focus-within {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
+    .recent-game {
+      break-inside: avoid;
     }
-  }
-
-  // Icon Sizing
-  .icon-standard {
-    width: var(--icon-size-md);
-    height: var(--icon-size-md);
-  }
-
-  .icon-large {
-    width: var(--icon-size-xl);
-    height: var(--icon-size-xl);
-  }
-
-  // Common Card Pattern
-  .card-base {
-    background-color: var(--bg-tertiary);
-    border: var(--border-width-thin) solid var(--border-secondary);
-    border-radius: var(--radius-md);
-    padding: var(--space-lg);
-  }
-
-  .card-elevated {
-    background-color: var(--card-bg);
-    border: var(--border-width-thin) solid var(--card-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-2xl);
-    box-shadow: var(--card-shadow);
   }
 </style>
+
+<script>
+  /**
+   * Profile Page Client-Side Enhancements
+   * Modern ES6+ features with TypeScript-like structure
+   */
+
+  // Utility functions using modern ES6+ features
+
+  // Utility functions using modern ES6+ features
+  const formatNumber = (num: number): string => {
+    return new Intl.NumberFormat().format(num);
+  };
+
+  const formatDate = (dateString: string): string => {
+    return new Intl.DateTimeFormat(navigator.language, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }).format(new Date(dateString));
+  };
+
+  // Enhanced accessibility utilities
+  const announceToScreenReader = (message: string): void => {
+    const announcement = document.createElement("div");
+    announcement.setAttribute("aria-live", "polite");
+    announcement.setAttribute("aria-atomic", "true");
+    announcement.className = "sr-only";
+    announcement.textContent = message;
+
+    document.body.appendChild(announcement);
+
+    // Clean up after announcement
+    setTimeout(() => {
+      document.body.removeChild(announcement);
+    }, 1000);
+  };
+
+  // Profile page enhancements
+  const enhanceProfilePage = (): void => {
+    // Add loading states for better UX
+    const loadingElements = document.querySelectorAll(".profile__loading");
+    loadingElements.forEach((element) => {
+      element.setAttribute("aria-live", "polite");
+    });
+
+    // Enhance recent games with better accessibility
+    const recentGames = document.querySelectorAll(".recent-game");
+    recentGames.forEach((game, _index) => {
+      const gameElement = game as HTMLElement;
+
+      // Add keyboard navigation
+      gameElement.setAttribute("tabindex", "0");
+      gameElement.setAttribute("role", "button");
+
+      // Add click handler for better interaction
+      gameElement.addEventListener("click", () => {
+        const scoreElement = gameElement.querySelector(".recent-game__score-value");
+        const score = scoreElement?.textContent || "0";
+        announceToScreenReader(`Game score: ${score} points`);
+      });
+
+      // Add keyboard support
+      gameElement.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          gameElement.click();
+        }
+      });
+    });
+
+    // Enhance stats cards with animations
+    const statCards = document.querySelectorAll(".stat-card");
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("stat-card--visible");
+        }
+      });
+    }, observerOptions);
+
+    statCards.forEach((card) => {
+      statsObserver.observe(card);
+    });
+  };
+
+  // Initialize when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", enhanceProfilePage);
+  } else {
+    enhanceProfilePage();
+  }
+
+  // Export for potential external use
+  (window as Window & { profileEnhancements?: any }).profileEnhancements = {
+    enhanceProfilePage,
+    formatNumber,
+    formatDate,
+    announceToScreenReader,
+  };
+</script>

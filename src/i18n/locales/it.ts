@@ -58,6 +58,7 @@ export default {
   "achievements.status.in_progress": "In Corso",
   "achievements.status.locked": "Bloccato",
   "achievements.status.unlocked": "Sbloccato",
+  "achievements.points": "{points} punti",
   "achievements.summary.progress": "Progresso",
   "achievements.summary.title": "Riassunto Obiettivi",
   "achievements.summary.total": "Totale",
@@ -564,6 +565,7 @@ export default {
     "Scopri playlist curate sulle tue piattaforme di streaming preferite.",
   "musicPlatforms.keyboardInstructions":
     "Naviga le piattaforme musicali usando il tasto Tab. Premi Invio o Spazio per aprire le piattaforme in nuove schede.",
+  "musicPlatforms.listenOn": "Ascolta {title} su {platform}",
   "nav.achievements.description": "Visualizza i tuoi risultati sbloccati e i progressi",
   "nav.ariaLabel": "Navigazione principale",
   "nav.donate.coffee": "Offrici un caffè",

@@ -3,7 +3,7 @@
  * MusicButtons Component
  *
  * Displays interactive buttons for different music streaming platforms with WCAG AAA 2.2 compliant styling.
- * Uses only CSS variables from global.css for consistency and accessibility. Supports keyboard navigation,
+ * Uses CSS variables from global.css for consistency and accessibility. Supports keyboard navigation,
  * screen readers, and multiple languages through the i18n system.
  *
  * @component MusicButtons
@@ -25,21 +25,6 @@
  * <MusicButtons
  *   category={rockCategory}
  *   title="Rock Music Playlist"
- * />
- * ```
- *
- * @example With partial platform support
- * ```astro
- * ---
- * const partialCategory = {
- *   spotifyPlaylist: "https://open.spotify.com/playlist/...",
- *   // Only Spotify available - other platforms will be hidden
- * };
- * ---
- *
- * <MusicButtons
- *   category={partialCategory}
- *   title="Limited Platform Playlist"
  * />
  * ```
  *
@@ -101,10 +86,11 @@ import { Icon } from "astro-icon/components";
 import ButtonLink from "./ButtonLink.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
-// Get current language and translations
+// Get current language and translations using modern ES6+ destructuring
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(String(lang));
 
+// Define platform buttons with modern ES6+ const assertion and arrow functions
 const buttons = [
   {
     type: "spotify",
@@ -125,6 +111,9 @@ const buttons = [
     variant: "apple",
   },
 ] as const;
+
+// Filter buttons to only show those with valid URLs using modern ES6+ features
+const validButtons = buttons.filter(({ url }) => Boolean(url));
 ---
 
 <div class="music-buttons" role="group" aria-labelledby="music-platforms-heading">
@@ -135,27 +124,22 @@ const buttons = [
     {t("musicPlatforms.keyboardInstructions")}
   </div>
   {
-    buttons.map(
-      ({ type, url, label, variant }) =>
-        url && (
-          <ButtonLink
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={t("musicPlatforms.listenOn", { title, platform: label })}
-            className={`music-button music-button--${variant}`}
-            aria-describedby="external-platform-notice"
-          >
-            <Icon
-              name={type}
-              class="music-button__icon"
-              aria-hidden="true"
-              title={`${label} logo`}
-            />
-            <span class="music-button__label">{label}</span>
-          </ButtonLink>
-        )
-    )
+    validButtons.map(({ type, url, label, variant }) => (
+      <ButtonLink
+        href={url!}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={t("musicPlatforms.listenOn", { title, platform: label })}
+        className={`music-button-${variant}`}
+        aria-describedby="external-platform-notice"
+        variant="primary"
+        size="md"
+        style={`--btn-primary-bg: var(--color-${variant === 'spotify' ? 'success' : variant === 'deezer' ? 'primary' : 'secondary'}-600); --btn-primary-hover: var(--color-${variant === 'spotify' ? 'success' : variant === 'deezer' ? 'primary' : 'secondary'}-700);`}
+      >
+        <Icon name={type} class="music-button__icon" aria-hidden="true" title={`${label} logo`} />
+        <span class="music-button__label">{label}</span>
+      </ButtonLink>
+    ))
   }
   <div id="external-platform-notice" class="sr-only">
     {t("musicPlatforms.externalNotice")}
@@ -182,7 +166,6 @@ const buttons = [
    * @responsive Flexible layout adapts to different screen sizes
    * @accessibility Maintains proper spacing for touch targets
    */
-
   .music-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -237,170 +220,8 @@ const buttons = [
   }
 
   /**
-   * Music Button Base Styles - Enhanced Flexible Layout
-   * Defines responsive, flexible button styles with intelligent sizing
-   * 
-   * @accessibility 48px minimum height meets WCAG touch target requirements
-   * @performance Hardware acceleration with translateZ(0) and will-change
-   * @responsive Flexible sizing with min/max constraints for better wrapping
-   * @touch Optimized for touch devices with touch-action: manipulation
-   */
-  :global(.music-button) {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: var(--touch-target);
-    /* Flexible width with constraints for better responsive behavior */
-    min-width: clamp(120px, 20%, 160px);
-    max-width: 220px;
-    /* Responsive padding using clamp for fluid scaling */
-    padding: clamp(var(--space-sm), 1.5vw, var(--space-md))
-      clamp(var(--space-md), 3vw, var(--space-lg));
-    border-radius: var(--radius-lg);
-    font-size: var(--text-xs);
-    font-weight: var(--font-medium);
-    color: var(--text-primary);
-    text-decoration: none;
-    transition:
-      transform var(--animation-duration-normal),
-      background-color var(--animation-duration-normal),
-      box-shadow var(--animation-duration-normal);
-    cursor: pointer;
-    border: var(--border-width-thin) solid transparent;
-    box-shadow: var(--shadow-sm);
-
-    /* Better flex behavior for wrapping */
-    flex: 1 1 auto;
-    flex-shrink: 1;
-    flex-grow: 0;
-
-    /* Performance optimizations */
-    contain: layout style;
-    will-change: transform;
-    transform: translateZ(var(--space-none));
-
-    /* Touch optimization */
-    touch-action: manipulation;
-
-    /* Responsive font sizes */
-    @media (min-width: 480px) {
-      font-size: var(--text-sm);
-      min-width: clamp(140px, 25%, 180px);
-      border-radius: var(--radius-xl);
-    }
-
-    @media (min-width: 768px) {
-      min-width: clamp(160px, 30%, 200px);
-    }
-
-    /* Enhanced interaction states remain the same */
-    &:hover {
-      transform: translateY(var(--animation-y-offset-small)) scale(var(--scale-focus));
-      box-shadow: var(--shadow-lg);
-    }
-
-    &:active {
-      transform: translateY(var(--space-none)) scale(var(--scale-active));
-    }
-
-    &:focus-visible {
-      outline-offset: var(--focus-ring-offset);
-    }
-  }
-
-  /* ======================================
-   * PLATFORM VARIANTS - DRY: Consolidated common hover/focus patterns
-   * All variants share the same base interaction pattern for consistency
-   * ====================================== */
-
-  /**
-   * Spotify Platform Variant - DRY: Uses semantic success colors
-   * Green theme using success color variables for WCAG AAA compliance
-   * 
-   * @accessibility 7:1 contrast ratio with white text on dark green background
-   * @brand Uses semantic success colors rather than hardcoded Spotify green
-   * @performance Smooth transitions optimized for 60fps animations
-   */
-  :global(.music-button--spotify) {
-    background-color: var(--color-success-600); /* #16a34a - 7:1 contrast on dark */
-    color: var(--color-white);
-
-    &:hover {
-      background-color: var(--color-success-700);
-    }
-
-    &:active {
-      background-color: var(--color-success-800);
-    }
-
-    &:focus-visible {
-      outline: var(--focus-enhanced-outline-dark);
-    }
-  }
-
-  /**
-   * Deezer Platform Variant - DRY: Uses primary color system
-   * Purple theme using primary color variables for WCAG AAA compliance
-   * 
-   * @accessibility 7:1 contrast ratio maintained with primary color system
-   * @brand Aligns with MelodyMind's primary purple branding
-   * @consistency Uses same animation patterns as other platform variants
-   */
-  :global(.music-button--deezer) {
-    background-color: var(--color-primary-600); /* #7c3aed - 7:1 contrast on dark */
-    color: var(--color-white);
-
-    &:hover {
-      background-color: var(--color-primary-700);
-    }
-
-    &:active {
-      background-color: var(--color-primary-800);
-    }
-
-    &:focus-visible {
-      outline: var(--border-width-enhanced) solid var(--color-primary-400);
-      box-shadow:
-        var(--shadow-lg),
-        0 0 0 var(--border-width-enhanced) var(--color-primary-400);
-    }
-  }
-
-  /**
-   * Apple Music Platform Variant - DRY: Uses secondary color system
-   * Pink theme using secondary color variables for WCAG AAA compliance
-   * 
-   * @accessibility 7:1 contrast ratio with secondary color system
-   * @brand Complements MelodyMind's secondary pink accent colors
-   * @performance Consistent hover and focus states across all variants
-   */
-  :global(.music-button--apple) {
-    background-color: var(--color-secondary-600); /* #db2777 - 7:1 contrast on dark */
-    color: var(--color-white);
-
-    &:hover {
-      background-color: var(--color-secondary-700);
-    }
-
-    &:active {
-      background-color: var(--color-secondary-800);
-    }
-
-    &:focus-visible {
-      outline: var(--border-width-enhanced) solid var(--color-secondary-400);
-      box-shadow:
-        var(--shadow-lg),
-        0 0 0 var(--border-width-enhanced) var(--color-secondary-400);
-    }
-  }
-
-  /**
    * Music Button Icon Styling
-   * Ensures proper sizing and alignment of platform icons using CSS variables
-   * 
-   * @accessibility Icons are decorative with aria-hidden="true"
-   * @design Consistent spacing and sizing across all platform variants
-   * @performance Uses currentColor for efficient color inheritance
+   * Ensures proper sizing and alignment of platform icons
    */
   :global(.music-button__icon) {
     width: var(--icon-size-sm);
@@ -418,11 +239,7 @@ const buttons = [
 
   /**
    * Music Button Label Styling
-   * Platform name text styling with proper typography from CSS variables
-   * 
-   * @accessibility Readable typography with sufficient contrast
-   * @design Consistent text treatment across all platforms
-   * @responsive Prevents text wrapping with white-space: nowrap
+   * Platform name text styling with proper typography
    */
   :global(.music-button__label) {
     font-size: var(--text-xs);
@@ -434,282 +251,11 @@ const buttons = [
     }
   }
 
+
   /* ======================================
    * ACCESSIBILITY ENHANCEMENTS - DRY: Reuses ButtonLink patterns
    * ====================================== */
 
-  /* Reduced Motion Support - DRY: Uses ButtonLink pattern */
-  @media (prefers-reduced-motion: reduce) {
-    :global(.music-button) {
-      transition: background-color var(--animation-duration-normal);
-      will-change: auto; /* Disable transform optimizations for reduced motion */
 
-      &:hover,
-      &:active {
-        transform: none;
-      }
-    }
-  }
 
-  /* High Contrast Mode Support - DRY: Uses ButtonLink pattern */
-  @media (prefers-contrast: high) {
-    :global(.music-button) {
-      border: var(--border-width-thick) solid ButtonText;
-      background-color: ButtonFace;
-      color: ButtonText;
-      forced-color-adjust: none;
-
-      &:focus-visible {
-        outline: var(--border-width-enhanced) solid Highlight;
-      }
-    }
-  }
-
-  /* ======================================
-   * RESPONSIVE DESIGN - Optimized Flexible Wrapping
-   * ====================================== */
-
-  /* Ultra-small screens: Stack vertically for maximum accessibility */
-  @media (max-width: 399px) {
-    .music-buttons {
-      flex-direction: column;
-      gap: var(--space-sm);
-      align-items: stretch;
-      width: 100%;
-    }
-
-    :global(.music-button) {
-      width: 100%;
-      justify-content: center;
-      padding: var(--space-md);
-      min-height: var(--touch-target-enhanced);
-      flex: none;
-    }
-  }
-
-  /* Small screens: Allow intelligent wrapping */
-  @media (min-width: 400px) and (max-width: 599px) {
-    .music-buttons {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--space-sm);
-      align-items: stretch;
-    }
-
-    :global(.music-button) {
-      flex: 1 1 calc(50% - var(--space-sm));
-      min-width: 140px;
-      max-width: 180px;
-      justify-content: center;
-      padding: var(--space-sm) var(--space-md);
-    }
-  }
-
-  /* Medium screens: Flexible wrapping with more space */
-  @media (min-width: 600px) and (max-width: 767px) {
-    .music-buttons {
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      gap: var(--space-md);
-      align-items: center;
-    }
-
-    :global(.music-button) {
-      flex: 0 1 auto;
-      min-width: 160px;
-      max-width: 200px;
-      padding: var(--space-sm) var(--space-lg);
-    }
-  }
-
-  /* Tablet and Desktop: Horizontal layout with intelligent wrapping */
-  @media (min-width: 768px) {
-    .music-buttons {
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      gap: var(--space-md);
-      align-items: center;
-    }
-
-    :global(.music-button) {
-      flex: 0 0 auto;
-      min-width: 160px;
-      padding: var(--space-md) var(--space-lg);
-    }
-  }
-
-  /* Large Desktop: More spacing and optimal layout */
-  @media (min-width: 1024px) {
-    .music-buttons {
-      gap: var(--space-lg);
-    }
-
-    :global(.music-button) {
-      min-width: 180px;
-      padding: var(--space-md) var(--space-xl);
-    }
-  }
-
-  /* Ultra-wide: Prevent buttons from becoming too wide */
-  @media (min-width: 1400px) {
-    :global(.music-button) {
-      max-width: 220px;
-    }
-  }
-
-  /* Touch Device Optimizations */
-  @media (hover: none) and (pointer: coarse) {
-    :global(.music-button) {
-      min-height: var(--touch-target-enhanced);
-      padding: var(--space-md) var(--space-lg);
-
-      /* Remove hover effects and add touch feedback */
-      &:hover {
-        transform: none;
-      }
-
-      &:active {
-        transform: scale(0.95);
-        transition: transform 0.1s ease-out;
-      }
-    }
-  }
-
-  /* Desktop Hover Effects */
-  @media (hover: hover) and (pointer: fine) {
-    :global(.music-button) {
-      &:hover {
-        transform: translateY(calc(-1 * var(--space-xs)));
-      }
-    }
-  }
-
-  /* ======================================
-   * ENHANCED RESPONSIVE DESIGN & CONTAINER QUERIES
-   * ====================================== */
-
-  /* Container Queries for music buttons container */
-  @supports (container-type: inline-size) {
-    .music-buttons {
-      container-type: inline-size;
-      container-name: music-buttons;
-    }
-
-    /* Ultra-narrow container: Stack vertically */
-    @container music-buttons (max-width: 350px) {
-      .music-buttons {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-sm);
-      }
-
-      :global(.music-button) {
-        width: 100%;
-        justify-content: center;
-        min-height: var(--touch-target);
-        flex: none;
-      }
-    }
-
-    /* Narrow container: 2 columns */
-    @container music-buttons (min-width: 351px) and (max-width: 500px) {
-      .music-buttons {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-sm);
-        justify-items: stretch;
-      }
-
-      :global(.music-button) {
-        width: 100%;
-        justify-content: center;
-        flex: none;
-      }
-    }
-
-    /* Medium container: Flexible wrapping */
-    @container music-buttons (min-width: 501px) and (max-width: 700px) {
-      .music-buttons {
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: var(--space-sm);
-      }
-
-      :global(.music-button) {
-        flex: 1 1 calc(33.333% - var(--space-sm));
-        min-width: 140px;
-        max-width: 180px;
-      }
-    }
-
-    /* Large container: Horizontal layout */
-    @container music-buttons (min-width: 701px) {
-      .music-buttons {
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        gap: var(--space-md);
-      }
-
-      :global(.music-button) {
-        flex: 0 0 auto;
-        min-width: 160px;
-        max-width: 200px;
-      }
-    }
-  }
-
-  /* ======================================
-   * FLEXIBLE LAYOUT FALLBACKS
-   * For browsers without container query support
-   * ====================================== */
-
-  /* Fallback: Intelligent flex-wrap behavior */
-  @supports not (container-type: inline-size) {
-    .music-buttons {
-      /* Always allow wrapping for better responsive behavior */
-      flex-wrap: wrap;
-
-      /* Use CSS clamp for responsive gaps */
-      gap: clamp(var(--space-xs), 2vw, var(--space-md));
-
-      /* Ensure buttons can grow/shrink intelligently */
-      justify-content: space-evenly;
-      align-items: center;
-    }
-
-    :global(.music-button) {
-      /* Flexible sizing with min/max constraints */
-      flex: 1 1 auto;
-      min-width: clamp(120px, 25%, 200px);
-      max-width: 220px;
-
-      /* Responsive padding */
-      padding: clamp(var(--space-sm), 1.5vw, var(--space-md))
-        clamp(var(--space-md), 3vw, var(--space-xl));
-    }
-  }
-
-  /* ======================================
-   * BUTTON TEXT OVERFLOW HANDLING
-   * ====================================== */
-
-  :global(.music-button__label) {
-    /* Prevent text overflow issues */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 100%;
-
-    /* Ensure minimum readable size */
-    min-width: 0;
-    flex-shrink: 1;
-  }
-
-  /* For very narrow buttons, use shorter text */
-  @container music-buttons (max-width: 280px) {
-    :global(.music-button__label) {
-      font-size: var(--text-xs);
-      letter-spacing: -0.01em;
-    }
-  }
 </style>

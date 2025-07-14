@@ -1,24 +1,37 @@
 ---
 /**
- * @component PrivacyPolicyFallback
- * @description Dynamic privacy policy page that falls back to English version for unsupported languages
+ * @component PrivacyPolicyPage
+ * @description Dynamic privacy policy page with responsive SCSS styling and modern TypeScript
  */
 
 import { languages } from "../../i18n/ui";
 import { getLangFromUrl } from "../../utils/i18n";
+import Layout from "../../layouts/Layout.astro";
 
-// Define the return type for getStaticPaths
+// Enable prerendering for static generation
+export const prerender = true;
+
+// Define TypeScript interfaces
 interface StaticPath {
   params: {
     lang: string;
   };
 }
 
+interface PrivacyData {
+  title: string;
+  lastUpdated: string;
+  sections: Array<{
+    title: string;
+    content: string;
+  }>;
+}
+
 // Get static paths for all supported languages
-export async function getStaticPaths(): Promise<StaticPath[]> {
+export const getStaticPaths = async (): Promise<StaticPath[]> => {
   const paths: StaticPath[] = [];
 
-  // Generate paths for all supported languages
+  // Generate paths for all supported languages using modern ES6
   Object.keys(languages).forEach((lang) => {
     paths.push({
       params: { lang },
@@ -26,30 +39,744 @@ export async function getStaticPaths(): Promise<StaticPath[]> {
   });
 
   return paths;
-}
+};
 
-// Get current language and check if we need to redirect
+// Get current language
 const lang = getLangFromUrl(Astro.url);
 
 // Languages that have native legal pages
-const nativeLanguages = ["en", "de"];
+const nativeLanguages = ["en"];
 
-// If this is not a native language, redirect to English version
+// If this is not English, redirect to English privacy policy
 if (!nativeLanguages.includes(lang)) {
   return Astro.redirect("/en/privacy-policy", 302);
 }
 
-// If this is a native language but accessed through dynamic route, redirect to static route
+// If this is English but accessed through dynamic route, redirect to static route
 if (lang === "en") {
   return Astro.redirect("/en/privacy-policy", 301);
 }
 
-if (lang === "de") {
-  return Astro.redirect("/de/datenschutz", 301);
-}
-
-// This should not be reached, but fallback to English
-return Astro.redirect("/en/privacy-policy", 302);
+// Privacy policy data (this would normally come from a CMS or i18n files)
+const privacyData: PrivacyData = {
+  title: "Privacy Policy",
+  lastUpdated: "2024-01-15",
+  sections: [
+    {
+      title: "Information We Collect",
+      content:
+        "We collect information you provide directly to us, such as when you create an account, make a purchase, or contact us for support.",
+    },
+    {
+      title: "How We Use Your Information",
+      content:
+        "We use the information we collect to provide, maintain, and improve our services, to communicate with you, and to develop new features.",
+    },
+    {
+      title: "Information Sharing",
+      content:
+        "We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy.",
+    },
+  ],
+};
 ---
 
-<!-- This component handles redirects, so no HTML content is needed -->
+<style lang="scss">
+  .privacy-policy {
+    min-height: 100vh;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+
+    &__container {
+      max-width: var(--container-lg);
+      margin: 0 auto;
+      padding: var(--space-2xl) var(--space-md);
+
+      @media (max-width: 768px) {
+        padding: var(--space-xl) var(--space-sm);
+      }
+    }
+
+    &__header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+
+      @media (max-width: 768px) {
+        margin-bottom: var(--space-2xl);
+      }
+
+      h1 {
+        font-size: var(--text-4xl);
+        font-weight: var(--font-bold);
+        color: var(--text-primary);
+        margin-bottom: var(--space-md);
+
+        @media (max-width: 768px) {
+          font-size: var(--text-3xl);
+        }
+
+        @media (max-width: 480px) {
+          font-size: var(--text-2xl);
+        }
+      }
+
+      p {
+        font-size: var(--text-lg);
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+
+        @media (max-width: 768px) {
+          font-size: var(--text-base);
+        }
+      }
+    }
+
+    &__content {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-2xl);
+      border: 1px solid var(--border-primary);
+      padding: var(--space-3xl);
+      box-shadow: var(--card-shadow);
+
+      @media (max-width: 768px) {
+        padding: var(--space-2xl);
+        border-radius: var(--radius-xl);
+      }
+
+      @media (max-width: 480px) {
+        padding: var(--space-xl);
+        border-radius: var(--radius-lg);
+      }
+
+      h2 {
+        font-size: var(--text-2xl);
+        font-weight: var(--font-semibold);
+        color: var(--text-primary);
+        margin-top: var(--space-3xl);
+        margin-bottom: var(--space-lg);
+        border-bottom: 2px solid var(--border-primary);
+        padding-bottom: var(--space-md);
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+          font-size: var(--text-xl);
+          margin-top: var(--space-2xl);
+        }
+
+        @media (max-width: 480px) {
+          font-size: var(--text-lg);
+          margin-top: var(--space-xl);
+        }
+      }
+
+      h3 {
+        font-size: var(--text-xl);
+        font-weight: var(--font-semibold);
+        color: var(--text-primary);
+        margin-top: var(--space-2xl);
+        margin-bottom: var(--space-md);
+
+        @media (max-width: 768px) {
+          font-size: var(--text-lg);
+          margin-top: var(--space-xl);
+        }
+
+        @media (max-width: 480px) {
+          font-size: var(--text-base);
+        }
+      }
+
+      p {
+        font-size: var(--text-base);
+        color: var(--text-secondary);
+        margin-bottom: var(--space-lg);
+
+        @media (max-width: 768px) {
+          font-size: var(--text-sm);
+        }
+      }
+
+      ul,
+      ol {
+        margin-bottom: var(--space-lg);
+        padding-left: var(--space-xl);
+
+        @media (max-width: 768px) {
+          padding-left: var(--space-lg);
+        }
+
+        li {
+          font-size: var(--text-base);
+          color: var(--text-secondary);
+          margin-bottom: var(--space-sm);
+
+          @media (max-width: 768px) {
+            font-size: var(--text-sm);
+          }
+        }
+      }
+
+      a {
+        color: var(--interactive-primary);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: var(--interactive-primary-hover);
+        }
+
+        &:focus {
+          outline: var(--focus-ring);
+          border-radius: var(--radius-sm);
+        }
+      }
+
+      .highlight {
+        background: var(--bg-tertiary);
+        padding: var(--space-md);
+        border-radius: var(--radius-lg);
+        border-left: 4px solid var(--interactive-primary);
+        margin: var(--space-lg) 0;
+
+        @media (max-width: 768px) {
+          padding: var(--space-sm);
+          border-radius: var(--radius-md);
+        }
+      }
+
+      .contact-info {
+        background: var(--bg-tertiary);
+        border-radius: var(--radius-xl);
+        padding: var(--space-2xl);
+        margin-top: var(--space-3xl);
+        border: 1px solid var(--border-secondary);
+
+        @media (max-width: 768px) {
+          padding: var(--space-xl);
+          border-radius: var(--radius-lg);
+        }
+
+        h3 {
+          margin-top: 0;
+          color: var(--text-primary);
+        }
+
+        p {
+          margin-bottom: var(--space-md);
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    &__footer {
+      text-align: center;
+      margin-top: var(--space-3xl);
+      padding-top: var(--space-2xl);
+      border-top: 1px solid var(--border-primary);
+
+      @media (max-width: 768px) {
+        margin-top: var(--space-2xl);
+        padding-top: var(--space-xl);
+      }
+
+      p {
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+        margin-bottom: var(--space-md);
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        color: var(--interactive-primary);
+        text-decoration: none;
+        font-weight: var(--font-medium);
+        padding: var(--space-sm) var(--space-md);
+        border-radius: var(--radius-lg);
+        transition: all 0.2s ease;
+
+        &:hover {
+          color: var(--interactive-primary-hover);
+          background: var(--bg-tertiary);
+        }
+
+        &:focus {
+          outline: var(--focus-ring);
+        }
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+
+  // Accessibility enhancements
+  @media (prefers-reduced-motion: reduce) {
+    .privacy-policy {
+      * {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  }
+
+  @media (prefers-contrast: high) {
+    .privacy-policy {
+      &__content {
+        border-width: 2px;
+      }
+
+      a {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+      }
+    }
+  }
+</style>
+
+<div class="privacy-policy">
+  <div class="privacy-policy__container">
+    <header class="privacy-policy__header">
+      <h1>Privacy Policy</h1>
+      <p>
+        Your privacy is important to us. This policy explains how we collect, use, and protect your
+        information.
+      </p>
+    </header>
+
+    <main class="privacy-policy__content">
+      <h2>Information We Collect</h2>
+      <p>
+        We collect information you provide directly to us, such as when you create an account,
+        participate in games, or contact us for support.
+      </p>
+
+      <h3>Personal Information</h3>
+      <ul>
+        <li>Email address and username when you create an account</li>
+        <li>Game preferences and settings</li>
+        <li>Communication history when you contact support</li>
+      </ul>
+
+      <h3>Usage Information</h3>
+      <p>We automatically collect certain information about your use of our services:</p>
+      <ul>
+        <li>Game scores and achievements</li>
+        <li>Time spent on different features</li>
+        <li>Device and browser information</li>
+        <li>IP address and general location data</li>
+      </ul>
+
+      <div class="highlight">
+        <strong>Note:</strong> We do not collect or store sensitive personal information such as passwords,
+        financial data, or government identification numbers.
+      </div>
+
+      <h2>How We Use Your Information</h2>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Provide and improve our gaming services</li>
+        <li>Personalize your gaming experience</li>
+        <li>Track achievements and progress</li>
+        <li>Communicate with you about updates and features</li>
+        <li>Ensure security and prevent fraud</li>
+      </ul>
+
+      <h2>Information Sharing</h2>
+      <p>
+        We do not sell, trade, or otherwise transfer your personal information to third parties,
+        except:
+      </p>
+      <ul>
+        <li>With your explicit consent</li>
+        <li>To comply with legal obligations</li>
+        <li>To protect our rights and safety</li>
+        <li>With trusted service providers who assist in operating our services</li>
+      </ul>
+
+      <h2>Data Security</h2>
+      <p>
+        We implement appropriate security measures to protect your personal information against
+        unauthorized access, alteration, disclosure, or destruction.
+      </p>
+
+      <h2>Your Rights</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Access your personal information</li>
+        <li>Correct inaccurate information</li>
+        <li>Request deletion of your data</li>
+        <li>Opt out of certain data collection</li>
+        <li>Export your data in a portable format</li>
+      </ul>
+
+      <h2>Cookies and Tracking</h2>
+      <p>
+        We use cookies and similar technologies to enhance your experience, remember your
+        preferences, and analyze usage patterns.
+      </p>
+
+      <h2>Children's Privacy</h2>
+      <p>
+        Our services are not intended for children under 13. We do not knowingly collect personal
+        information from children under 13.
+      </p>
+
+      <h2>Changes to This Policy</h2>
+      <p>
+        We may update this privacy policy from time to time. We will notify you of any material
+        changes by posting the new policy on this page.
+      </p>
+
+      <div class="contact-info">
+        <h3>Contact Us</h3>
+        <p>
+          If you have any questions about this privacy policy or our data practices, please contact
+          us:
+        </p>
+        <p><strong>Email:</strong> privacy@melody-mind.de</p>
+        <p><strong>Last updated:</strong> January 2024</p>
+      </div>
+    </main>
+
+    <footer class="privacy-policy__footer">
+      <p>Thank you for trusting us with your information.</p>
+      <a href="/" class="back-link">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        Back to Home
+      </a>
+    </footer>
+  </div>
+</div>
+
+<script>
+  /**
+   * Privacy Policy Page Enhancements
+   * Modern ES6/TypeScript features for enhanced user experience
+   */
+
+  // Type definitions for better type safety
+  interface ScrollPosition {
+    top: number;
+    left: number;
+  }
+
+  interface AccessibilityOptions {
+    highContrast: boolean;
+    reducedMotion: boolean;
+    fontSize: "normal" | "large" | "x-large";
+  }
+
+  // Main class for privacy policy page functionality
+  class PrivacyPolicyEnhancements {
+    private readonly container: HTMLElement;
+    private readonly header: HTMLElement;
+    private readonly content: HTMLElement;
+    private readonly footer: HTMLElement;
+    private scrollPosition: ScrollPosition = { top: 0, left: 0 };
+    private accessibilityOptions: AccessibilityOptions = {
+      highContrast: false,
+      reducedMotion: false,
+      fontSize: "normal",
+    };
+
+    constructor() {
+      this.container = document.querySelector(".privacy-policy") as HTMLElement;
+      this.header = document.querySelector(".privacy-policy__header") as HTMLElement;
+      this.content = document.querySelector(".privacy-policy__content") as HTMLElement;
+      this.footer = document.querySelector(".privacy-policy__footer") as HTMLElement;
+
+      this.init();
+    }
+
+    private init = (): void => {
+      this.setupEventListeners();
+      this.setupAccessibility();
+      this.setupScrollEffects();
+      this.setupKeyboardNavigation();
+    };
+
+    private setupEventListeners = (): void => {
+      // Smooth scroll to sections when clicking on links
+      document.querySelectorAll('a[href^="#"]').forEach((link: Element) => {
+        link.addEventListener("click", this.handleSmoothScroll);
+      });
+
+      // Save scroll position before page unload
+      window.addEventListener("beforeunload", this.saveScrollPosition);
+
+      // Restore scroll position on page load
+      window.addEventListener("load", this.restoreScrollPosition);
+
+      // Handle window resize for responsive adjustments
+      window.addEventListener("resize", this.handleResize);
+
+      // Handle keyboard shortcuts
+      document.addEventListener("keydown", this.handleKeyboardShortcuts);
+    };
+
+    private setupAccessibility = (): void => {
+      // Check for user preferences
+      this.accessibilityOptions.reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+      this.accessibilityOptions.highContrast = window.matchMedia(
+        "(prefers-contrast: high)"
+      ).matches;
+
+      // Apply accessibility features
+      this.applyAccessibilityFeatures();
+
+      // Listen for preference changes
+      const motionMediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const contrastMediaQuery = window.matchMedia("(prefers-contrast: high)");
+
+      motionMediaQuery.addEventListener("change", this.handleMotionPreferenceChange);
+      contrastMediaQuery.addEventListener("change", this.handleContrastPreferenceChange);
+    };
+
+    private setupScrollEffects = (): void => {
+      if (this.accessibilityOptions.reducedMotion) {
+        return;
+      }
+
+      // Add scroll-triggered animations
+      const observerOptions: IntersectionObserverInit = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry: IntersectionObserverEntry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+          }
+        });
+      }, observerOptions);
+
+      // Observe content sections
+      this.content
+        .querySelectorAll("h2, h3, .highlight, .contact-info")
+        .forEach((element: Element) => {
+          observer.observe(element);
+        });
+    };
+
+    private setupKeyboardNavigation = (): void => {
+      // Enhanced keyboard navigation for better accessibility
+      const focusableElements = this.container.querySelectorAll(
+        'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+      );
+
+      focusableElements.forEach((element: Element) => {
+        element.addEventListener("keydown", this.handleElementKeydown as EventListener);
+      });
+    };
+
+    private handleSmoothScroll = (event: Event): void => {
+      event.preventDefault();
+      const target = event.target as HTMLAnchorElement;
+      const targetId = target.getAttribute("href")?.substring(1);
+
+      if (!targetId) {
+        return;
+      }
+
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: this.accessibilityOptions.reducedMotion ? "auto" : "smooth",
+          block: "start",
+        });
+      }
+    };
+
+    private saveScrollPosition = (): void => {
+      this.scrollPosition = {
+        top: window.scrollY,
+        left: window.scrollX,
+      };
+      sessionStorage.setItem("privacyPolicyScrollPosition", JSON.stringify(this.scrollPosition));
+    };
+
+    private restoreScrollPosition = (): void => {
+      const savedPosition = sessionStorage.getItem("privacyPolicyScrollPosition");
+      if (savedPosition) {
+        try {
+          this.scrollPosition = JSON.parse(savedPosition);
+          window.scrollTo(this.scrollPosition.left, this.scrollPosition.top);
+        } catch (error) {
+          console.warn("Failed to restore scroll position:", error);
+        }
+      }
+    };
+
+    private resizeTimeout: ReturnType<typeof setTimeout> | undefined;
+
+    private handleResize = (): void => {
+      // Debounced resize handler
+      if (this.resizeTimeout) {
+        clearTimeout(this.resizeTimeout);
+      }
+      this.resizeTimeout = setTimeout(() => {
+        this.updateLayoutForScreenSize();
+      }, 250);
+    };
+
+    private handleKeyboardShortcuts = (event: KeyboardEvent): void => {
+      // Keyboard shortcuts for better accessibility
+      switch (event.key) {
+        case "Escape":
+          this.handleEscapeKey();
+          break;
+        case "Home":
+          this.scrollToTop();
+          break;
+        case "End":
+          this.scrollToBottom();
+          break;
+        case "h":
+        case "H":
+          if (event.ctrlKey || event.metaKey) {
+            event.preventDefault();
+            this.toggleHighContrast();
+          }
+          break;
+      }
+    };
+
+    private handleElementKeydown = (event: KeyboardEvent): void => {
+      // Enhanced keyboard navigation for interactive elements
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        (event.target as HTMLElement).click();
+      }
+    };
+
+    private handleMotionPreferenceChange = (event: MediaQueryListEvent): void => {
+      this.accessibilityOptions.reducedMotion = event.matches;
+      this.applyAccessibilityFeatures();
+    };
+
+    private handleContrastPreferenceChange = (event: MediaQueryListEvent): void => {
+      this.accessibilityOptions.highContrast = event.matches;
+      this.applyAccessibilityFeatures();
+    };
+
+    private applyAccessibilityFeatures = (): void => {
+      // Apply accessibility features based on user preferences
+      if (this.accessibilityOptions.reducedMotion) {
+        this.container.style.setProperty("--transition-duration", "0s");
+      } else {
+        this.container.style.setProperty("--transition-duration", "0.2s");
+      }
+
+      if (this.accessibilityOptions.highContrast) {
+        this.container.classList.add("high-contrast");
+      } else {
+        this.container.classList.remove("high-contrast");
+      }
+    };
+
+    private updateLayoutForScreenSize = (): void => {
+      const width = window.innerWidth;
+
+      // Adjust layout based on screen size
+      if (width < 480) {
+        this.container.classList.add("mobile-small");
+        this.container.classList.remove("mobile-large", "tablet", "desktop");
+      } else if (width < 768) {
+        this.container.classList.add("mobile-large");
+        this.container.classList.remove("mobile-small", "tablet", "desktop");
+      } else if (width < 1024) {
+        this.container.classList.add("tablet");
+        this.container.classList.remove("mobile-small", "mobile-large", "desktop");
+      } else {
+        this.container.classList.add("desktop");
+        this.container.classList.remove("mobile-small", "mobile-large", "tablet");
+      }
+    };
+
+    private handleEscapeKey = (): void => {
+      // Handle escape key - go back to home
+      window.history.back();
+    };
+
+    private scrollToTop = (): void => {
+      window.scrollTo({
+        top: 0,
+        behavior: this.accessibilityOptions.reducedMotion ? "auto" : "smooth",
+      });
+    };
+
+    private scrollToBottom = (): void => {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: this.accessibilityOptions.reducedMotion ? "auto" : "smooth",
+      });
+    };
+
+    private toggleHighContrast = (): void => {
+      this.accessibilityOptions.highContrast = !this.accessibilityOptions.highContrast;
+      this.applyAccessibilityFeatures();
+
+      // Save preference
+      localStorage.setItem("highContrast", this.accessibilityOptions.highContrast.toString());
+    };
+
+    // Public method to get current accessibility options
+    public getAccessibilityOptions = (): AccessibilityOptions => {
+      return { ...this.accessibilityOptions };
+    };
+
+    // Public method to update font size
+    public updateFontSize = (size: AccessibilityOptions["fontSize"]): void => {
+      this.accessibilityOptions.fontSize = size;
+      this.container.style.setProperty("--font-size-multiplier", this.getFontSizeMultiplier(size));
+    };
+
+    private getFontSizeMultiplier = (size: AccessibilityOptions["fontSize"]): string => {
+      switch (size) {
+        case "large":
+          return "1.2";
+        case "x-large":
+          return "1.4";
+        default:
+          return "1";
+      }
+    };
+  }
+
+  // Initialize enhancements when DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    new PrivacyPolicyEnhancements();
+  });
+
+  // Export for potential external use
+  (window as unknown as Record<string, unknown>).PrivacyPolicyEnhancements =
+    PrivacyPolicyEnhancements;
+</script>

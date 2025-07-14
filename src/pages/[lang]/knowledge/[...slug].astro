@@ -49,15 +49,10 @@ export async function getStaticPaths() {
     Object.keys(languages).map(async (lang) => {
       const collectionName = `knowledge-${lang}` as KnowledgeCollectionKey;
       const entries = await getCollection(collectionName);
-      return entries.map((entry) => {
-        return {
-          params: {
-            lang,
-            slug: entry.slug,
-          },
-          props: { entry },
-        };
-      });
+      return entries.map((entry) => ({
+        params: { lang, slug: entry.slug },
+        props: { entry },
+      }));
     })
   );
   return allEntries.flat();
@@ -86,27 +81,24 @@ type KnowledgeEntry = CollectionEntry<KnowledgeCollectionKey> & {
 const { entry }: { entry: KnowledgeEntry } = Astro.props;
 const { lang = "en" } = Astro.params;
 
-// Type-safe translation function with fallbacks
+// Type-safe translation function with fallbacks using modern ES6+ features
 const translate = (key: string, fallback?: string): string => {
   const currentLangTranslations = ui[lang as keyof typeof ui];
   const englishTranslations = ui.en;
 
-  if (currentLangTranslations && (currentLangTranslations as Record<string, string>)[key]) {
-    return (currentLangTranslations as Record<string, string>)[key];
-  }
-
-  if ((englishTranslations as Record<string, string>)[key]) {
-    return (englishTranslations as Record<string, string>)[key];
-  }
-
-  return fallback || key;
+  return (
+    (currentLangTranslations as Record<string, string>)?.[key] ??
+    (englishTranslations as Record<string, string>)[key] ??
+    fallback ??
+    key
+  );
 };
 
 // 6. Content Processing
 // Optimize content rendering by deferring until needed
 const { Content, headings } = await entry.render();
 
-// Format date with proper localization
+// Format date with proper localization using modern Intl API
 const formattedDate = entry.data.createdAt
   ? new Intl.DateTimeFormat(lang, {
       year: "numeric",
@@ -117,7 +109,7 @@ const formattedDate = entry.data.createdAt
 
 // Default image if none provided - use optimized path
 const defaultImage = "/melody-mind.jpg";
-const imageSource = typeof entry.data.image === "string" ? entry.data.image : defaultImage;
+const imageSource = entry.data.image ?? defaultImage;
 
 // Reading time text with proper localization and fallback
 const readingTimeText = entry.body
@@ -125,8 +117,7 @@ const readingTimeText = entry.body
   : null;
 
 // Generate SEO content from the article
-const title = entry.data.title;
-const description = entry.data.description;
+const { title, description } = entry.data;
 
 // Enhanced SEO content using utility functions
 const pageContent = `${title} ${description} ${entry.body || ""}`;
@@ -153,7 +144,7 @@ const gameCategoryUrl = isPlayable ? `/${String(lang)}/${gameCategorySlug}` : nu
 // Get translation for play button
 const playButtonText = translate("knowledge.play.category", "Play this music category");
 
-// Calculate word count
+// Calculate word count using modern array methods
 const wordCount = entry.body ? entry.body.split(/\s+/).filter(Boolean).length : 0;
 
 // Reading time in ISO 8601 Duration Format (PT{X}M for X minutes)
@@ -202,9 +193,9 @@ const articleSchemaData = {
     "@type": "WebPage",
     "@id": Astro.url.href,
   },
-  keywords: keywords,
+  keywords,
   // New properties
-  wordCount: wordCount,
+  wordCount,
   articleBody: entry.body || "",
   timeRequired: timeRequiredISO,
   // MusicGroup-specific properties
@@ -223,7 +214,7 @@ const articleSchemaData = {
   inLanguage: lang,
   isAccessibleForFree: true,
   audience: "Music enthusiasts and learners of all age groups",
-  educationalLevel: educationalLevel,
+  educationalLevel,
   // Potential actions for playlist links
   potentialAction: generatePotentialActions(entry.data.category || {}, entry.data.title),
   // Structured AudioObject types for playlists
@@ -233,18 +224,17 @@ const articleSchemaData = {
     entry.data.createdAt?.toISOString() || new Date().toISOString()
   ),
   // GameItem if isPlayable is true
-  ...(isPlayable && gameCategoryUrl
-    ? {
-        gameItem: {
-          "@type": "Game",
-          name: `${entry.data.title} - Music Game`,
-          url: new URL(gameCategoryUrl, Astro.url.origin).href,
-          gamePlatform: "Web Browser",
-          applicationCategory: "Game",
-          genre: "Music Game",
-        },
-      }
-    : {}),
+  ...(isPlayable &&
+    gameCategoryUrl && {
+      gameItem: {
+        "@type": "Game",
+        name: `${entry.data.title} - Music Game`,
+        url: new URL(gameCategoryUrl, Astro.url.origin).href,
+        gamePlatform: "Web Browser",
+        applicationCategory: "Game",
+        genre: "Music Game",
+      },
+    }),
   // BreadcrumbList Schema for the breadcrumb navigation
   breadcrumb: createBreadcrumbList(String(lang), entry.data.title, Astro.url, translate),
 };
@@ -452,6 +442,14 @@ const articleSchemaData = {
     margin: 0 auto;
     max-width: var(--container-xl);
     padding: var(--space-xl) var(--space-lg);
+
+    @media (min-width: var(--breakpoint-sm)) {
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    @media (min-width: var(--breakpoint-md)) {
+      padding: var(--space-xl) var(--space-lg);
+    }
   }
 
   /* Article container */
@@ -528,6 +526,10 @@ const articleSchemaData = {
       padding: var(--space-xs) var(--space-sm);
       border-radius: var(--radius-md);
       color: var(--text-primary);
+
+      @media (min-width: var(--breakpoint-sm)) {
+        max-width: unset;
+      }
     }
   }
 
@@ -536,6 +538,10 @@ const articleSchemaData = {
     &__header {
       position: relative;
       margin-bottom: var(--space-2xl);
+
+      @media (min-width: var(--breakpoint-md)) {
+        margin-bottom: var(--space-3xl);
+      }
     }
 
     /* Cover image */
@@ -945,6 +951,50 @@ const articleSchemaData = {
       visibility: hidden;
       pointer-events: none;
     }
+
+    /* Responsive typography */
+    @media (min-width: var(--breakpoint-sm)) {
+      font-size: var(--text-2xl); /* Even larger text on tablets and up */
+
+      p {
+        font-size: var(--text-2xl);
+        margin-bottom: var(--space-xl); /* More spacing on larger screens */
+      }
+
+      h2 {
+        font-size: var(--text-4xl); /* Larger headings on tablets */
+      }
+
+      h3 {
+        font-size: var(--text-3xl);
+      }
+
+      h4 {
+        font-size: var(--text-2xl);
+      }
+
+      ul,
+      ol {
+        font-size: var(--text-2xl);
+        margin: var(--space-xl) 0;
+      }
+
+      blockquote {
+        font-size: var(--text-2xl);
+        padding: var(--space-xl);
+        margin: var(--space-2xl) 0;
+      }
+    }
+
+    @media (min-width: var(--breakpoint-md)) {
+      font-size: var(--text-2xl);
+      max-width: 75ch; /* Slightly wider on desktop for comfortable reading */
+
+      p {
+        font-size: var(--text-2xl);
+        margin-bottom: var(--space-2xl); /* More generous spacing on desktop */
+      }
+    }
   }
 
   /* Back navigation */
@@ -1066,76 +1116,6 @@ const articleSchemaData = {
     .back-link,
     .meta-info__item {
       padding: calc(var(--space-sm) * 1.5) calc(var(--space-lg) * 1.5) !important;
-    }
-  }
-
-  /* Media queries using CSS custom properties */
-  @media (min-width: var(--breakpoint-sm)) {
-    .article-page {
-      padding: var(--space-xl) var(--space-md);
-    }
-
-    .breadcrumb {
-      &__current {
-        max-width: unset;
-      }
-    }
-
-    /* Enhanced typography on larger screens */
-    .article-content {
-      font-size: var(--text-2xl); /* Even larger text on tablets and up */
-
-      p {
-        font-size: var(--text-2xl);
-        margin-bottom: var(--space-xl); /* More spacing on larger screens */
-      }
-
-      h2 {
-        font-size: var(--text-4xl); /* Larger headings on tablets */
-      }
-
-      h3 {
-        font-size: var(--text-3xl);
-      }
-
-      h4 {
-        font-size: var(--text-2xl);
-      }
-
-      ul,
-      ol {
-        font-size: var(--text-2xl);
-        margin: var(--space-xl) 0;
-      }
-
-      blockquote {
-        font-size: var(--text-2xl);
-        padding: var(--space-xl);
-        margin: var(--space-2xl) 0;
-      }
-    }
-  }
-
-  @media (min-width: var(--breakpoint-md)) {
-    .article {
-      &__header {
-        margin-bottom: var(--space-3xl);
-      }
-    }
-
-    .article-page {
-      padding: var(--space-xl) var(--space-lg);
-    }
-
-    /* Even larger typography on desktop for optimal readability */
-    .article-content {
-      font-size: var(--text-2xl);
-      max-width: 75ch; /* Slightly wider on desktop for comfortable reading */
-
-      p {
-        font-size: var(--text-2xl);
-        margin-bottom: var(--space-2xl); /* More generous spacing on desktop */
-      }
     }
   }
 

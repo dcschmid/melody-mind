@@ -60,6 +60,7 @@ export default {
   "achievements.status.in_progress": "Bezig",
   "achievements.status.locked": "Vergrendeld",
   "achievements.status.unlocked": "Ontgrendeld",
+  "achievements.points": "{points} punten",
   "achievements.summary.progress": "Voortgang",
   "achievements.summary.title": "Prestatie Overzicht",
   "achievements.summary.total": "Totaal",
@@ -563,6 +564,7 @@ export default {
     "Ontdek samengestelde playlists op je favoriete streamingplatforms.",
   "musicPlatforms.keyboardInstructions":
     "Navigeer door muziekplatforms met Tab toets. Druk op Enter of Spatie om platforms in nieuwe tabbladen te openen.",
+  "musicPlatforms.listenOn": "Luister naar {title} op {platform}",
   "nav.ariaLabel": "Hoofdnavigatie",
   "nav.donate.coffee": "Koop ons een koffie",
   "nav.donate.heading": "Ondersteun Ons",

@@ -1,22 +1,9 @@
 ---
 /**
- * ButtonLink Component - WCAG AAA Compliant Interactive Element
+ * ButtonLink Component - Responsive & Accessible
  *
- * A versatile and accessible component that renders either a button or a link (anchor)
- * with consistent styling. Complies with WCAG AAA standards and follows
- * performance best practices.
- *
- * Features:
- * - WCAG AAA 2.2 compliance with 7:1 contrast ratios
- * - Performance optimized with GPU acceleration
- * - Full keyboard navigation support
- * - Screen reader friendly with proper ARIA attributes
- * - High contrast and forced colors mode support
- * - Reduced motion preferences respected
- * - CSS variables only - zero hardcoded values
- * - Touch-optimized with minimum 44px targets
- * - Full internationalization support
- * - Optional icon support with astro-icon
+ * A versatile component that renders either a button or link with consistent styling.
+ * Fully responsive with WCAG AAA compliance and optimized for all screen sizes.
  *
  * @component
  * @example
@@ -88,7 +75,7 @@ const finalRel = isExternal ? `noopener noreferrer ${rel || ""}`.trim() : rel;
 // Get translated text for external link indicator
 const externalLinkText = t("nav.openNewWindow");
 
-// Build CSS classes with BEM methodology
+// Build CSS classes with BEM methodology using modern array methods
 const baseClass = "button-link";
 const variantClass = `${baseClass}--${variant}`;
 const sizeClass = `${baseClass}--${size}`;
@@ -132,12 +119,59 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
 <style lang="scss">
   /* ======================================
    * BUTTON LINK COMPONENT STYLES
-   * Maximum CSS variables usage from global.css - Complete DRY optimization
-   * WCAG AAA 2.2 compliant - Zero hardcoded values
+   * Responsive design with global.css variables
+   * WCAG AAA compliant - Zero hardcoded values
    * ====================================== */
 
+  // SCSS Variables for better maintainability
+  $button-transition-duration: var(--animation-duration-normal);
+  $button-transform-duration: var(--animation-duration-fast);
+  $button-bg-duration: var(--animation-duration-fast);
+  $button-hover-transform: translateY(var(--animation-y-offset-small));
+  $button-active-transform: scale(var(--animation-scale-hover));
+  $button-focus-ring: var(--focus-ring);
+  $button-focus-outline: var(--focus-outline);
+  $button-focus-offset: var(--focus-ring-offset);
+
+  // Breakpoint mixins for responsive design
+  @mixin mobile-up {
+    @media (min-width: 48em) {
+      @content;
+    }
+  }
+
+  @mixin mobile-only {
+    @media (max-width: 47.9375em) {
+      @content;
+    }
+  }
+
+  @mixin touch-device {
+    @media (hover: none) and (pointer: coarse) {
+      @content;
+    }
+  }
+
+  @mixin high-contrast {
+    @media (prefers-contrast: high) {
+      @content;
+    }
+  }
+
+  @mixin reduced-motion {
+    @media (prefers-reduced-motion: reduce) {
+      @content;
+    }
+  }
+
+  @mixin container-query {
+    @container (min-width: 20rem) {
+      @content;
+    }
+  }
+
   .button-link {
-    /* Base button styling using only CSS variables */
+    // Base button styling using global CSS variables
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -146,38 +180,57 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
     font-weight: var(--font-bold);
     text-decoration: none;
     cursor: pointer;
-    transition:
-      all var(--animation-duration-normal),
-      transform var(--animation-duration-fast),
-      background-color var(--animation-duration-fast);
     position: relative;
     min-width: var(--min-touch-size);
     min-height: var(--min-touch-size);
     line-height: var(--leading-normal);
     letter-spacing: var(--letter-spacing-base);
+    font-family: var(--font-family-primary);
 
-    /* Performance optimizations using CSS variables */
+    // Performance optimizations
     contain: layout style;
     will-change: transform, background-color;
-    transform: translateZ(0); /* GPU acceleration */
+    transform: translateZ(0);
 
-    /* Sizes - Using semantic spacing variables */
+    // Smooth transitions
+    transition: {
+      all: $button-transition-duration;
+      transform: $button-transform-duration;
+      background-color: $button-bg-duration;
+    }
+
+    // Size variants with responsive adjustments
     &--sm {
       padding: var(--space-sm) var(--space-md);
       font-size: var(--text-sm);
+
+      @include mobile-up {
+        padding: var(--space-md) var(--space-lg);
+        font-size: var(--text-base);
+      }
     }
 
     &--md {
       padding: var(--space-md) var(--space-lg);
       font-size: var(--text-base);
+
+      @include mobile-up {
+        padding: var(--space-lg) var(--space-xl);
+        font-size: var(--text-lg);
+      }
     }
 
     &--lg {
       padding: var(--space-lg) var(--space-xl);
       font-size: var(--text-lg);
+
+      @include mobile-up {
+        padding: var(--space-xl) var(--space-2xl);
+        font-size: var(--text-xl);
+      }
     }
 
-    /* Primary variant - Using button system variables */
+    // Primary variant
     &--primary {
       background: var(--btn-primary-bg);
       color: var(--btn-primary-text);
@@ -187,16 +240,16 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
       &:hover:not([aria-disabled="true"]) {
         background: var(--btn-primary-hover);
         box-shadow: var(--card-shadow-hover);
-        transform: translateY(var(--animation-y-offset-small));
+        transform: $button-hover-transform;
       }
 
       &:active:not([aria-disabled="true"]) {
-        transform: scale(var(--animation-scale-hover));
-        transition: all var(--animation-duration-fast);
+        transform: $button-active-transform;
+        transition: all $button-transform-duration;
       }
     }
 
-    /* Secondary variant - Using button system variables */
+    // Secondary variant
     &--secondary {
       background: var(--btn-secondary-bg);
       color: var(--btn-secondary-text);
@@ -205,16 +258,16 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
       &:hover:not([aria-disabled="true"]) {
         background: var(--btn-secondary-hover);
         border-color: var(--border-focus);
-        transform: translateY(var(--animation-y-offset-small));
+        transform: $button-hover-transform;
       }
 
       &:active:not([aria-disabled="true"]) {
-        transform: scale(var(--animation-scale-hover));
-        transition: all var(--animation-duration-fast);
+        transform: $button-active-transform;
+        transition: all $button-transform-duration;
       }
     }
 
-    /* Outline variant - Using semantic color system */
+    // Outline variant
     &--outline {
       background: transparent;
       color: var(--text-primary);
@@ -224,16 +277,16 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
         background: var(--bg-tertiary);
         border-color: var(--border-focus);
         color: var(--interactive-primary);
-        transform: translateY(var(--animation-y-offset-small));
+        transform: $button-hover-transform;
       }
 
       &:active:not([aria-disabled="true"]) {
-        transform: scale(var(--animation-scale-hover));
-        transition: all var(--animation-duration-fast);
+        transform: $button-active-transform;
+        transition: all $button-transform-duration;
       }
     }
 
-    /* Text variant - Using text decoration system */
+    // Text variant
     &--text {
       background: transparent;
       color: var(--interactive-primary);
@@ -245,17 +298,17 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
       &:hover:not([aria-disabled="true"]) {
         color: var(--interactive-primary-hover);
         text-decoration-color: var(--interactive-primary-hover);
-        transform: translateY(var(--animation-y-offset-small));
+        transform: $button-hover-transform;
       }
 
       &:active:not([aria-disabled="true"]) {
         color: var(--interactive-primary-active);
-        transform: scale(var(--animation-scale-hover));
-        transition: all var(--animation-duration-fast);
+        transform: $button-active-transform;
+        transition: all $button-transform-duration;
       }
     }
 
-    /* Disabled state - using semantic variables */
+    // Disabled state
     &--disabled,
     &[aria-disabled="true"] {
       opacity: var(--opacity-disabled);
@@ -264,23 +317,28 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
       filter: grayscale(var(--filter-grayscale-half));
     }
 
-    /* Icon styling using icon system variables */
+    // Icon styling with responsive sizing
     &__icon {
       width: var(--icon-size-sm);
       height: var(--icon-size-sm);
       flex-shrink: 0;
       margin-right: var(--space-md);
+
+      @include mobile-up {
+        width: var(--icon-size-md);
+        height: var(--icon-size-md);
+      }
     }
 
-    /* Enhanced focus state for WCAG AAA */
+    // Enhanced focus state for WCAG AAA
     &:focus-visible {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-      box-shadow: var(--focus-ring);
+      outline: $button-focus-outline;
+      outline-offset: $button-focus-offset;
+      box-shadow: $button-focus-ring;
     }
 
-    /* High contrast mode support */
-    @media (prefers-contrast: high) {
+    // High contrast mode support
+    @include high-contrast {
       border-width: var(--border-width-enhanced);
 
       &:focus-visible {
@@ -288,8 +346,8 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
       }
     }
 
-    /* Reduced motion support */
-    @media (prefers-reduced-motion: reduce) {
+    // Reduced motion support
+    @include reduced-motion {
       transition: none;
 
       &:hover,
@@ -298,15 +356,33 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
       }
     }
 
-    /* Touch device optimization */
-    @media (hover: none) and (pointer: coarse) {
+    // Touch device optimization
+    @include touch-device {
       &:hover {
         transform: none;
       }
     }
+
+    // Mobile responsive width adjustments
+    @include mobile-only {
+      width: 100%;
+      max-width: 100%;
+
+      // Allow smaller buttons on very small screens
+      &--sm {
+        min-width: auto;
+        padding: var(--space-xs) var(--space-sm);
+      }
+    }
+
+    // Container query support for better responsive behavior
+    @include container-query {
+      width: auto;
+      max-width: none;
+    }
   }
 
-  /* Screen reader only content using accessibility variables */
+  // Screen reader only content
   .sr-only {
     position: absolute;
     width: var(--sr-only-width);

@@ -339,7 +339,85 @@ const breadcrumbSchema = {
 </Layout>
 
 <style lang="scss">
-  /* Container Layout */
+  // ======================================
+  // SCSS VARIABLES & MIXINS
+  // ======================================
+
+  // Breakpoint mixins for responsive design
+  @mixin mobile {
+    @media (max-width: 479px) {
+      @content;
+    }
+  }
+
+  @mixin tablet {
+    @media (min-width: 480px) and (max-width: 767px) {
+      @content;
+    }
+  }
+
+  @mixin desktop {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @mixin large-desktop {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+
+  @mixin ultra-wide {
+    @media (min-width: 1280px) {
+      @content;
+    }
+  }
+
+  // Container query mixins
+  @mixin container-small {
+    @container playlist-container (max-width: 500px) {
+      @content;
+    }
+  }
+
+  @mixin container-large {
+    @container playlist-container (min-width: 1400px) {
+      @content;
+    }
+  }
+
+  // Touch device detection
+  @mixin touch-device {
+    @media (hover: none) and (pointer: coarse) {
+      @content;
+    }
+  }
+
+  @mixin mouse-device {
+    @media (hover: hover) and (pointer: fine) {
+      @content;
+    }
+  }
+
+  // Reduced motion support
+  @mixin reduced-motion {
+    @media (prefers-reduced-motion: reduce) {
+      @content;
+    }
+  }
+
+  // Dark mode support
+  @mixin dark-mode {
+    @media (prefers-color-scheme: dark) {
+      @content;
+    }
+  }
+
+  // ======================================
+  // CONTAINER LAYOUT
+  // ======================================
+
   .playlist-container {
     width: 100%;
     max-width: var(--container-xl);
@@ -350,28 +428,35 @@ const breadcrumbSchema = {
     container-type: inline-size;
     container-name: playlist-container;
 
-    @media (min-width: 480px) {
+    @include mobile {
+      padding: var(--space-xs);
+    }
+
+    @include tablet {
       padding: var(--space-md) var(--space-sm);
     }
 
-    @media (min-width: 640px) {
+    @include desktop {
       padding: var(--space-lg) var(--space-md);
     }
 
-    @media (min-width: 768px) {
+    @include large-desktop {
       padding: var(--space-xl) var(--space-lg);
     }
 
-    @media (min-width: 1024px) {
+    @include ultra-wide {
       padding: var(--space-xl) var(--space-xl);
     }
   }
 
-  /* Breadcrumb Navigation */
+  // ======================================
+  // BREADCRUMB NAVIGATION
+  // ======================================
+
   .breadcrumb-nav {
     margin-bottom: var(--space-md);
 
-    @media (min-width: 768px) {
+    @include desktop {
       margin-bottom: var(--space-lg);
     }
   }
@@ -386,7 +471,7 @@ const breadcrumbSchema = {
     font-size: var(--text-xs);
     color: var(--text-secondary);
 
-    @media (min-width: 480px) {
+    @include tablet {
       gap: var(--space-sm);
       font-size: var(--text-sm);
     }
@@ -402,7 +487,7 @@ const breadcrumbSchema = {
       color: var(--text-tertiary);
       font-weight: var(--font-medium);
 
-      @media (min-width: 480px) {
+      @include tablet {
         margin-left: var(--space-sm);
       }
     }
@@ -418,7 +503,7 @@ const breadcrumbSchema = {
     border-radius: var(--radius-sm);
     min-height: var(--touch-target);
 
-    @media (min-width: 480px) {
+    @include tablet {
       padding: var(--space-sm);
     }
 
@@ -434,13 +519,16 @@ const breadcrumbSchema = {
     width: var(--icon-size-xs);
     height: var(--icon-size-xs);
 
-    @media (min-width: 480px) {
+    @include tablet {
       width: var(--icon-size-sm);
       height: var(--icon-size-sm);
     }
   }
 
-  /* Hero Section */
+  // ======================================
+  // HERO SECTION
+  // ======================================
+
   .playlist-hero {
     position: relative;
     margin-bottom: var(--space-lg);
@@ -455,18 +543,18 @@ const breadcrumbSchema = {
     padding: var(--space-md);
     box-shadow: var(--shadow-xl);
 
-    @media (min-width: 480px) {
+    @include tablet {
       padding: var(--space-lg);
       margin-bottom: var(--space-xl);
     }
 
-    @media (min-width: 768px) {
+    @include desktop {
       margin-bottom: var(--space-2xl);
       border-radius: var(--radius-xl);
       padding: var(--space-xl);
     }
 
-    @media (min-width: 1024px) {
+    @include large-desktop {
       padding: var(--space-2xl) var(--space-xl);
     }
 
@@ -521,16 +609,16 @@ const breadcrumbSchema = {
       font-weight: var(--font-bold);
       text-align: center;
 
-      @media (min-width: 480px) {
+      @include tablet {
         font-size: var(--text-3xl);
         margin-bottom: var(--space-md);
       }
 
-      @media (min-width: 768px) {
+      @include desktop {
         font-size: var(--text-4xl);
       }
 
-      @media (min-width: 1024px) {
+      @include large-desktop {
         font-size: var(--text-5xl);
       }
     }
@@ -542,7 +630,7 @@ const breadcrumbSchema = {
       border-radius: var(--radius-full);
       background: var(--color-secondary-400);
 
-      @media (min-width: 480px) {
+      @include tablet {
         margin: var(--space-lg) auto;
         width: var(--space-3xl);
       }
@@ -556,21 +644,24 @@ const breadcrumbSchema = {
       opacity: 0.9;
       text-align: center;
 
-      @media (min-width: 480px) {
+      @include tablet {
         font-size: var(--text-lg);
       }
 
-      @media (min-width: 768px) {
+      @include desktop {
         font-size: var(--text-xl);
       }
     }
   }
 
-  /* Search Container */
+  // ======================================
+  // SEARCH CONTAINER
+  // ======================================
+
   .search-section {
     margin-bottom: var(--space-lg);
 
-    @media (min-width: 768px) {
+    @include desktop {
       margin-bottom: var(--space-xl);
     }
   }
@@ -601,7 +692,7 @@ const breadcrumbSchema = {
       color: var(--text-tertiary);
       transition: color var(--transition-fast);
 
-      @media (min-width: 480px) {
+      @include tablet {
         left: var(--space-lg);
       }
 
@@ -609,7 +700,7 @@ const breadcrumbSchema = {
         width: var(--icon-size-md);
         height: var(--icon-size-md);
 
-        @media (min-width: 480px) {
+        @include tablet {
           width: var(--icon-size-lg);
           height: var(--icon-size-lg);
         }
@@ -632,7 +723,7 @@ const breadcrumbSchema = {
       overflow: hidden;
       text-overflow: ellipsis;
 
-      @media (min-width: 480px) {
+      @include tablet {
         padding: var(--space-lg) var(--space-lg) var(--space-lg)
           calc(var(--space-3xl) + var(--space-sm));
         font-size: var(--text-lg);
@@ -647,14 +738,15 @@ const breadcrumbSchema = {
       }
     }
 
-    @media (max-width: 479px) {
+    @include mobile {
       margin: 0 var(--space-xs);
     }
   }
 
-  /* ======================================
-   * PLAYLIST GRID - Enhanced Responsive Auto-Fill Pattern
-   * ====================================== */
+  // ======================================
+  // PLAYLIST GRID - Enhanced Responsive Auto-Fill Pattern
+  // ======================================
+
   .playlist-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -665,57 +757,60 @@ const breadcrumbSchema = {
     padding: 0;
     contain: layout style;
 
-    /* Small mobile devices */
-    @media (min-width: 480px) {
+    // Small mobile devices
+    @include tablet {
       grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-width-sm), 1fr));
       gap: var(--space-lg);
     }
 
-    /* Large mobile / small tablets */
+    // Large mobile / small tablets
     @media (min-width: 640px) {
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: var(--space-lg);
     }
 
-    /* Tablets */
-    @media (min-width: 768px) {
+    // Tablets
+    @include desktop {
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: var(--space-xl);
     }
 
-    /* Small desktop */
-    @media (min-width: 1024px) {
+    // Small desktop
+    @include large-desktop {
       grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
       gap: var(--space-xl);
     }
 
-    /* Large desktop - limit max columns for better readability */
-    @media (min-width: 1280px) {
+    // Large desktop - limit max columns for better readability
+    @include ultra-wide {
       grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
       max-width: calc(3 * 450px + 2 * var(--space-xl));
       margin: var(--space-lg) auto;
     }
 
-    /* Ultra-wide screens - maximum 4 columns */
+    // Ultra-wide screens - maximum 4 columns
     @media (min-width: 1920px) {
       grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
       max-width: calc(4 * 480px + 3 * var(--space-xl));
     }
   }
 
-  /* Playlist Cards */
+  // ======================================
+  // PLAYLIST CARDS
+  // ======================================
+
   .playlist-card {
     transition:
       transform var(--transition-base),
       box-shadow var(--transition-base);
 
-    /* Enhanced touch targets for mobile */
-    @media (max-width: 767px) {
+    // Enhanced touch targets for mobile
+    @include mobile {
       margin-bottom: var(--space-xs);
     }
 
-    /* Desktop hover effects */
-    @media (hover: hover) and (pointer: fine) {
+    // Desktop hover effects
+    @include mouse-device {
       &:hover,
       &:focus-within {
         transform: translateY(calc(-1 * var(--space-xs)));
@@ -723,9 +818,9 @@ const breadcrumbSchema = {
       }
     }
 
-    /* Touch device optimizations */
-    @media (hover: none) and (pointer: coarse) {
-      /* Larger touch targets */
+    // Touch device optimizations
+    @include touch-device {
+      // Larger touch targets
       min-height: var(--touch-target-enhanced);
 
       &:active {
@@ -735,14 +830,17 @@ const breadcrumbSchema = {
     }
   }
 
-  /* No Results */
+  // ======================================
+  // NO RESULTS
+  // ======================================
+
   .no-results {
     display: none;
     text-align: center;
     padding: var(--space-lg);
     color: var(--text-secondary);
 
-    @media (min-width: 768px) {
+    @include desktop {
       padding: var(--space-2xl);
     }
 
@@ -756,7 +854,7 @@ const breadcrumbSchema = {
       font-weight: var(--font-semibold);
       color: var(--text-primary);
 
-      @media (min-width: 480px) {
+      @include tablet {
         margin-bottom: var(--space-md);
         font-size: var(--text-2xl);
       }
@@ -766,7 +864,7 @@ const breadcrumbSchema = {
       margin-bottom: var(--space-md);
       font-size: var(--text-base);
 
-      @media (min-width: 480px) {
+      @include tablet {
         margin-bottom: var(--space-lg);
         font-size: var(--text-lg);
       }
@@ -784,13 +882,13 @@ const breadcrumbSchema = {
       transition: all var(--transition-base);
       min-height: var(--touch-target);
 
-      @media (min-width: 480px) {
+      @include tablet {
         padding: var(--space-md) var(--space-lg);
         font-size: var(--text-base);
       }
 
-      /* Enhanced touch targets */
-      @media (hover: none) and (pointer: coarse) {
+      // Enhanced touch targets
+      @include touch-device {
         min-height: var(--touch-target-enhanced);
         padding: var(--space-md) var(--space-xl);
       }
@@ -807,14 +905,13 @@ const breadcrumbSchema = {
     }
   }
 
-  /* ======================================
-   * ADDITIONAL RESPONSIVE OPTIMIZATIONS
-   * ====================================== */
+  // ======================================
+  // CONTAINER QUERIES FOR MODERN RESPONSIVE DESIGN
+  // ======================================
 
-  /* Container Queries for modern responsive design (where supported) */
-  @container playlist-container (max-width: 400px) {
+  @include container-small {
     .playlist-hero {
-      padding: var(--space-sm);
+      padding: var(--space-md);
     }
 
     .playlist-hero__title {
@@ -826,13 +923,16 @@ const breadcrumbSchema = {
     }
   }
 
-  @container playlist-container (min-width: 1200px) {
+  @include container-large {
     .playlist-grid {
       grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
     }
   }
 
-  /* Ultra-small screens (below 360px) */
+  // ======================================
+  // ULTRA-SMALL SCREENS OPTIMIZATION
+  // ======================================
+
   @media (max-width: 359px) {
     .playlist-container {
       padding: var(--space-xs);
@@ -862,7 +962,7 @@ const breadcrumbSchema = {
     }
   }
 
-  /* Very small screens optimization */
+  // Very small screens optimization
   @media (max-width: 320px) {
     .playlist-container {
       padding: var(--space-xs) calc(var(--space-xs) / 2);
@@ -878,7 +978,10 @@ const breadcrumbSchema = {
     }
   }
 
-  /* Print optimizations */
+  // ======================================
+  // PRINT OPTIMIZATIONS
+  // ======================================
+
   @media print {
     .playlist-hero,
     .search-section,
@@ -898,8 +1001,11 @@ const breadcrumbSchema = {
     }
   }
 
-  /* Dark mode specific responsive adjustments */
-  @media (prefers-color-scheme: dark) {
+  // ======================================
+  // DARK MODE SPECIFIC ADJUSTMENTS
+  // ======================================
+
+  @include dark-mode {
     .playlist-hero {
       background: linear-gradient(
         135deg,
@@ -910,13 +1016,11 @@ const breadcrumbSchema = {
     }
   }
 
-  /* ======================================
-   * ENHANCED CONTAINER QUERIES (CSS CONTAINMENT LEVEL 3)
-   * Modern responsive design with container-based queries
-   * ====================================== */
+  // ======================================
+  // ENHANCED CONTAINER QUERIES (CSS CONTAINMENT LEVEL 3)
+  // ======================================
 
-  /* Small container optimizations */
-  @container playlist-container (max-width: 500px) {
+  @include container-small {
     .playlist-hero {
       padding: var(--space-md);
       border-radius: var(--radius-lg);
@@ -931,8 +1035,7 @@ const breadcrumbSchema = {
     }
   }
 
-  /* Large container optimizations */
-  @container playlist-container (min-width: 1400px) {
+  @include container-large {
     .playlist-grid {
       grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
       max-width: calc(4 * 480px + 3 * var(--space-xl));
@@ -943,29 +1046,32 @@ const breadcrumbSchema = {
     }
   }
 
-  /* ======================================
-   * MICRO-INTERACTIONS FOR ENHANCED UX
-   * ====================================== */
+  // ======================================
+  // MICRO-INTERACTIONS FOR ENHANCED UX
+  // ======================================
 
-  /* Smooth grid transitions when filtering */
+  // Smooth grid transitions when filtering
   @supports (grid-template-rows: masonry) {
     .playlist-grid {
       grid-template-rows: masonry;
     }
   }
 
-  /* Enhanced scroll behavior */
+  // Enhanced scroll behavior
   .playlist-container {
     scroll-behavior: smooth;
   }
 
-  @media (prefers-reduced-motion: reduce) {
+  @include reduced-motion {
     .playlist-container {
       scroll-behavior: auto;
     }
   }
 
-  /* Utility Classes */
+  // ======================================
+  // UTILITY CLASSES
+  // ======================================
+
   :focus {
     outline: var(--focus-outline);
     outline-offset: var(--focus-ring-offset);
@@ -982,56 +1088,102 @@ const breadcrumbSchema = {
 </style>
 
 <script>
-  // Global timeout management with proper typing
+  // ======================================
+  // MODERN ES6+ JAVASCRIPT WITH TYPE SAFETY
+  // ======================================
+
+  // Type definitions for better type safety
   interface WindowWithTimeouts extends Window {
     searchTimeout?: number;
     filterTimeout?: number;
   }
 
+  interface SearchAnnouncement {
+    visibleCount: number;
+    searchTerm: string;
+  }
+
+  interface PlaylistCard extends HTMLElement {
+    dataset: {
+      searchable: string;
+      decade: string;
+    };
+  }
+
+  // Global timeout management with proper typing
   declare const window: WindowWithTimeouts;
+
+  // ======================================
+  // UTILITY FUNCTIONS
+  // ======================================
 
   /**
    * Announces search results to screen readers for accessibility
    */
-  function announceSearchResults(visibleCount: number, searchTerm: string): void {
+  const announceSearchResults = ({ visibleCount, searchTerm }: SearchAnnouncement): void => {
     const announcement = document.createElement("div");
     announcement.setAttribute("aria-live", "polite");
     announcement.setAttribute("aria-atomic", "true");
     announcement.className = "sr-only";
 
-    if (searchTerm === "") {
-      announcement.textContent = `Showing all playlists`;
-    } else if (visibleCount === 0) {
-      announcement.textContent = `No playlists found for "${searchTerm}"`;
-    } else {
-      announcement.textContent = `Found ${visibleCount} playlist${visibleCount === 1 ? "" : "s"} for "${searchTerm}"`;
-    }
+    const message =
+      searchTerm === ""
+        ? "Showing all playlists"
+        : visibleCount === 0
+          ? `No playlists found for "${searchTerm}"`
+          : `Found ${visibleCount} playlist${visibleCount === 1 ? "" : "s"} for "${searchTerm}"`;
 
+    announcement.textContent = message;
     document.body.appendChild(announcement);
-    setTimeout(() => document.body.removeChild(announcement), 1000);
-  }
+
+    // Clean up after announcement
+    setTimeout(() => {
+      if (document.body.contains(announcement)) {
+        document.body.removeChild(announcement);
+      }
+    }, 1000);
+  };
 
   /**
    * Updates the browser URL with search parameters
    */
-  function updateSearchUrl(searchTerm: string, visibleCount: number): void {
+  const updateSearchUrl = (searchTerm: string, visibleCount: number): void => {
+    const url = new URL(window.location.href);
+
     if (searchTerm && visibleCount > 0) {
-      const url = new URL(window.location.href);
       url.searchParams.set("search", searchTerm);
-      window.history.replaceState(null, "", url.toString());
     } else if (!searchTerm) {
-      const url = new URL(window.location.href);
       url.searchParams.delete("search");
-      window.history.replaceState(null, "", url.toString());
     }
-  }
+
+    window.history.replaceState(null, "", url.toString());
+  };
+
+  /**
+   * Debounced function for performance optimization
+   */
+  const debounce = <T extends (...args: any[]) => any>(
+    func: T,
+    delay: number
+  ): ((...args: Parameters<T>) => void) => {
+    let timeoutId: number;
+
+    return (...args: Parameters<T>) => {
+      clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => func(...args), delay);
+    };
+  };
+
+  // ======================================
+  // SEARCH FUNCTIONALITY
+  // ======================================
 
   /**
    * Filters playlist cards based on search term
    */
-  function filterPlaylists(): void {
+  const filterPlaylists = (): void => {
     const searchInput = document.getElementById("playlist-search") as HTMLInputElement | null;
-    const playlistCards = document.querySelectorAll(".playlist-card");
+    const playlistCards = document.querySelectorAll(".playlist-card") as NodeListOf<PlaylistCard>;
     const noResultsElement = document.getElementById("no-results") as HTMLElement | null;
     const playlistGrid = document.getElementById("playlist-grid") as HTMLElement | null;
 
@@ -1043,25 +1195,27 @@ const breadcrumbSchema = {
     let visibleCount = 0;
 
     playlistCards.forEach((card) => {
-      const element = card as HTMLElement;
-      const searchableText = element.getAttribute("data-searchable") || "";
-      const decade = element.getAttribute("data-decade") || "";
+      const searchableText = card.dataset.searchable || "";
+      const decade = card.dataset.decade || "";
       const isVisible =
         searchableText.includes(searchTerm) || decade.toLowerCase().includes(searchTerm);
 
-      element.style.display = isVisible ? "" : "none";
+      card.style.display = isVisible ? "" : "none";
       if (isVisible) {
         visibleCount++;
       }
     });
 
+    // Update grid busy state
     if (playlistGrid) {
       playlistGrid.setAttribute("aria-busy", "false");
     }
 
+    // Handle no results
     if (noResultsElement) {
       const shouldShow = visibleCount === 0 && searchTerm !== "";
       noResultsElement.classList.toggle("show", shouldShow);
+
       if (shouldShow) {
         noResultsElement.focus();
       }
@@ -1071,17 +1225,22 @@ const breadcrumbSchema = {
     if (window.searchTimeout) {
       clearTimeout(window.searchTimeout);
     }
+
     window.searchTimeout = window.setTimeout(() => {
-      announceSearchResults(visibleCount, searchTerm);
+      announceSearchResults({ visibleCount, searchTerm });
     }, 500);
 
     updateSearchUrl(searchTerm, visibleCount);
-  }
+  };
+
+  // ======================================
+  // EVENT LISTENERS SETUP
+  // ======================================
 
   /**
    * Sets up search input event listeners
    */
-  function setupSearchListeners(): void {
+  const setupSearchListeners = (): void => {
     const searchInput = document.getElementById("playlist-search") as HTMLInputElement | null;
     const playlistGrid = document.getElementById("playlist-grid") as HTMLElement | null;
 
@@ -1089,15 +1248,14 @@ const breadcrumbSchema = {
       return;
     }
 
+    // Debounced filter function
+    const debouncedFilter = debounce(filterPlaylists, 200);
+
     searchInput.addEventListener("input", () => {
       if (playlistGrid) {
         playlistGrid.setAttribute("aria-busy", "true");
       }
-
-      if (window.filterTimeout) {
-        clearTimeout(window.filterTimeout);
-      }
-      window.filterTimeout = window.setTimeout(filterPlaylists, 200);
+      debouncedFilter();
     });
 
     searchInput.addEventListener("keydown", (e: KeyboardEvent) => {
@@ -1115,12 +1273,12 @@ const breadcrumbSchema = {
     searchInput.addEventListener("blur", () => {
       searchInput.setAttribute("aria-expanded", "false");
     });
-  }
+  };
 
   /**
    * Sets up keyboard navigation and reset button
    */
-  function setupAdditionalListeners(): void {
+  const setupAdditionalListeners = (): void => {
     const resetButton = document.getElementById("reset-search") as HTMLButtonElement | null;
     const searchInput = document.getElementById("playlist-search") as HTMLInputElement | null;
 
@@ -1134,6 +1292,7 @@ const breadcrumbSchema = {
       });
     }
 
+    // Global keyboard shortcuts
     document.addEventListener("keydown", (e: KeyboardEvent) => {
       if (e.altKey && e.key === "/") {
         e.preventDefault();
@@ -1142,14 +1301,19 @@ const breadcrumbSchema = {
         }
       }
     });
-  }
+  };
+
+  // ======================================
+  // INTERSECTION OBSERVER FOR ANIMATIONS
+  // ======================================
 
   /**
    * Sets up intersection observer for card animations
    */
-  function setupIntersectionObserver(): void {
+  const setupIntersectionObserver = (): void => {
     const playlistCards = document.querySelectorAll(".playlist-card");
-    const observerOptions = {
+
+    const observerOptions: IntersectionObserverInit = {
       root: null,
       rootMargin: "50px",
       threshold: 0.1,
@@ -1164,17 +1328,22 @@ const breadcrumbSchema = {
     }, observerOptions);
 
     playlistCards.forEach((card) => cardObserver.observe(card));
-  }
+  };
+
+  // ======================================
+  // INITIALIZATION
+  // ======================================
 
   /**
    * Initialize all functionality
    */
-  function initializePlaylistPage(): void {
+  const initializePlaylistPage = (): void => {
     const searchInput = document.getElementById("playlist-search") as HTMLInputElement | null;
 
     // Initialize search from URL parameter
     const urlParams = new URLSearchParams(window.location.search);
     const initialSearch = urlParams.get("search");
+
     if (initialSearch && searchInput) {
       searchInput.value = initialSearch;
       filterPlaylists();
@@ -1184,7 +1353,8 @@ const breadcrumbSchema = {
     setupSearchListeners();
     setupAdditionalListeners();
     setupIntersectionObserver();
-  }
+  };
 
+  // Initialize when DOM is ready
   document.addEventListener("DOMContentLoaded", initializePlaylistPage);
 </script>

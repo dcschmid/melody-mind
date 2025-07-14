@@ -13,36 +13,36 @@ function demoLanguagePicker() {
 
   // Initialize with performance monitoring
   const startTime = performance.now();
-  const picker = LanguagePicker.init();
+  const picker = (window as any).LanguagePicker?.init();
   const endTime = performance.now();
 
   console.log(`⏱️  Initialization time: ${(endTime - startTime).toFixed(2)}ms`);
 
   // Get performance metrics
-  const metrics = picker.getPerformanceMetrics();
+  const metrics = picker?.getPerformanceMetrics();
   console.log("📊 Performance Metrics:", metrics);
 
   // Test language switching (if element exists)
-  const selectElement = document.getElementById("language-select");
+  const selectElement = document.getElementById("language-select") as HTMLSelectElement;
   if (selectElement) {
     console.log("🌍 Current language:", selectElement.value);
     console.log(
       "📋 Available languages:",
-      Array.from(selectElement.options).map((opt) => opt.value)
+      Array.from(selectElement.options).map((opt: HTMLOptionElement) => opt.value)
     );
   }
 
   // Memory usage monitoring
-  if (metrics.memoryUsage !== null) {
+  if (metrics?.memoryUsage !== null) {
     console.log(`💾 Memory usage: ${(metrics.memoryUsage / 1024 / 1024).toFixed(2)} MB`);
   }
 
   // Test cleanup functionality
   setTimeout(() => {
     console.log("🧹 Testing cleanup...");
-    picker.cleanup();
+    picker?.cleanup();
 
-    const postCleanupMetrics = picker.getPerformanceMetrics();
+    const postCleanupMetrics = picker?.getPerformanceMetrics();
     console.log("📊 Post-cleanup metrics:", postCleanupMetrics);
 
     console.log("✅ LanguagePicker Demo Complete!");
@@ -52,7 +52,7 @@ function demoLanguagePicker() {
 }
 
 // Auto-run demo if LanguagePicker is available
-if (typeof LanguagePicker !== "undefined") {
+if (typeof (window as any).LanguagePicker !== "undefined") {
   // Wait for DOM to be ready
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", demoLanguagePicker);
@@ -64,4 +64,4 @@ if (typeof LanguagePicker !== "undefined") {
 }
 
 // Export for manual testing
-window.demoLanguagePicker = demoLanguagePicker;
+(window as any).demoLanguagePicker = demoLanguagePicker;

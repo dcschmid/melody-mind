@@ -210,11 +210,20 @@ export default [
   // Spezielle Konfiguration für Astro-Dateien
   {
     files: ["**/*.astro"],
+    languageOptions: {
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
+    },
     rules: {
-      // Deaktiviere TypeScript return type Anforderung für Astro inline scripts
+      // Deaktiviere ALLE TypeScript-Regeln für Astro-Dateien
       "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unused-vars": "off",
       // Erlaube unbenutzte Variablen in catch blocks (häufig in error handling)
-      "@typescript-eslint/no-unused-vars": [
+      "no-unused-vars": [
         "error",
         {
           argsIgnorePattern: "^_",

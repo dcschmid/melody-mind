@@ -25,7 +25,7 @@
  * );
  * ```
  */
-export function initPasswordRequirementsPanel(positionText: string, progressText: string): void {
+export const initPasswordRequirementsPanel = (positionText: string, progressText: string): void => {
   const requirementsList = document.querySelector<HTMLElement>('[data-keyboard-nav="true"]');
   const statusElement = document.getElementById("password-requirements-status");
 
@@ -45,110 +45,120 @@ export function initPasswordRequirementsPanel(positionText: string, progressText
    *
    * @param {KeyboardEvent} event - The keyboard event to handle
    */
-  function handleKeyDown(event: KeyboardEvent): void {
+  const handleKeyDown = (event: KeyboardEvent): void => {
     if (!isActive) {
       return;
     }
 
-    switch (event.key) {
-      case "ArrowDown":
+    const keyActions: Record<string, () => void> = {
+      ArrowDown: () => {
         event.preventDefault();
         currentIndex = (currentIndex + 1) % requirements.length;
         focusCurrentRequirement();
         announceNavigation();
-        break;
-
-      case "ArrowUp":
+      },
+      ArrowUp: () => {
         event.preventDefault();
         currentIndex = (currentIndex - 1 + requirements.length) % requirements.length;
         focusCurrentRequirement();
         announceNavigation();
-        break;
-
-      case "Home":
+      },
+      Home: () => {
         event.preventDefault();
         currentIndex = 0;
         focusCurrentRequirement();
         announceNavigation();
-        break;
-
-      case "End":
+      },
+      End: () => {
         event.preventDefault();
         currentIndex = requirements.length - 1;
         focusCurrentRequirement();
         announceNavigation();
-        break;
-
-      case "Escape":
+      },
+      Escape: () => {
         event.preventDefault();
         exitKeyboardNavigation();
-        break;
-
-      case " ":
-      case "Space":
+      },
+      " ": () => {
         event.preventDefault();
         announceRequirementDetails(currentIndex);
-        break;
-
-      case "p":
-      case "P":
+      },
+      Space: () => {
+        event.preventDefault();
+        announceRequirementDetails(currentIndex);
+      },
+      p: () => {
         event.preventDefault();
         announceProgress();
-        break;
+      },
+      P: () => {
+        event.preventDefault();
+        announceProgress();
+      },
+    };
+
+    const action = keyActions[event.key];
+    if (action) {
+      action();
     }
-  }
+  };
 
   /**
    * Focus the current requirement item and update tabindex attributes
    * Ensures proper keyboard navigation flow
    */
-  function focusCurrentRequirement(): void {
+  const focusCurrentRequirement = (): void => {
     requirements.forEach((req, index) => {
       req.setAttribute("tabindex", index === currentIndex ? "0" : "-1");
     });
 
-    if (requirements[currentIndex]) {
-      requirements[currentIndex].focus();
+    const currentRequirement = requirements[currentIndex];
+    if (currentRequirement) {
+      currentRequirement.focus();
     }
-  }
+  };
 
   /**
    * Announce the current navigation position to screen readers
    * Provides context about which requirement is currently focused
    */
-  function announceNavigation(): void {
+  const announceNavigation = (): void => {
     const current = requirements[currentIndex];
-    if (current && statusElement) {
-      const reqTextElement = current.querySelector(".password-requirements__text");
-      const reqText = reqTextElement?.textContent || "";
-      const statusText = current.querySelector(".password-requirements__status");
-      const status = statusText?.textContent || "";
-      const currentPositionText = positionText
-        .replace("{{current}}", String(currentIndex + 1))
-        .replace("{{total}}", String(requirements.length));
-
-      statusElement.textContent = `${reqText}, ${status}. ${currentPositionText}`;
+    if (!current || !statusElement) {
+      return;
     }
-  }
+
+    const reqTextElement = current.querySelector(".password-requirements__text");
+    const reqText = reqTextElement?.textContent || "";
+    const statusText = current.querySelector(".password-requirements__status");
+    const status = statusText?.textContent || "";
+    const currentPositionText = positionText
+      .replace("{{current}}", String(currentIndex + 1))
+      .replace("{{total}}", String(requirements.length));
+
+    statusElement.textContent = `${reqText}, ${status}. ${currentPositionText}`;
+  };
 
   /**
    * Announce the overall progress to screen readers
    * Provides summary of completed requirements and percentage
    */
-  function announceProgress(): void {
+  const announceProgress = (): void => {
     const metCount = requirements.filter((req) =>
       req.classList.contains("password-requirements__item--valid")
     ).length;
     const percentage = Math.round((metCount / requirements.length) * 100);
 
-    if (statusElement) {
-      const progressMessage = progressText
-        .replace("{{met}}", String(metCount))
-        .replace("{{total}}", String(requirements.length))
-        .replace("{{percentage}}", String(percentage));
-      statusElement.textContent = progressMessage;
+    if (!statusElement) {
+      return;
     }
-  }
+
+    const progressMessage = progressText
+      .replace("{{met}}", String(metCount))
+      .replace("{{total}}", String(requirements.length))
+      .replace("{{percentage}}", String(percentage));
+    statusElement.textContent = progressMessage;
+  };
 
   /**
    * Announce detailed information about a specific requirement
@@ -156,46 +166,49 @@ export function initPasswordRequirementsPanel(positionText: string, progressText
    *
    * @param {number} index - Index of the requirement to announce details for
    */
-  function announceRequirementDetails(index: number): void {
+  const announceRequirementDetails = (index: number): void => {
     const requirement = requirements[index];
-    if (requirement && statusElement) {
-      const reqTextElement = requirement.querySelector(".password-requirements__text");
-      const reqText = reqTextElement?.textContent || "";
-      const descriptionElement = requirement.querySelector('[id^="desc-"]');
-      const description = descriptionElement?.textContent || "";
-      const statusTextElement = requirement.querySelector(".password-requirements__status");
-      const status = statusTextElement?.textContent || "";
-
-      statusElement.textContent = `${reqText}. ${description}. ${status}`;
+    if (!requirement || !statusElement) {
+      return;
     }
-  }
+
+    const reqTextElement = requirement.querySelector(".password-requirements__text");
+    const reqText = reqTextElement?.textContent || "";
+    const descriptionElement = requirement.querySelector('[id^="desc-"]');
+    const description = descriptionElement?.textContent || "";
+    const statusTextElement = requirement.querySelector(".password-requirements__status");
+    const status = statusTextElement?.textContent || "";
+
+    statusElement.textContent = `${reqText}. ${description}. ${status}`;
+  };
 
   /**
    * Enter keyboard navigation mode
    * Activates enhanced keyboard interaction
    */
-  function enterKeyboardNavigation(): void {
+  const enterKeyboardNavigation = (): void => {
     isActive = true;
     currentIndex = 0;
     focusCurrentRequirement();
-  }
+  };
 
   /**
    * Exit keyboard navigation mode
    * Returns focus to the main requirements list
    */
-  function exitKeyboardNavigation(): void {
+  const exitKeyboardNavigation = (): void => {
     isActive = false;
     requirements.forEach((req) => {
       req.setAttribute("tabindex", "-1");
     });
+
     if (requirementsList) {
       requirementsList.setAttribute("tabindex", "0");
       requirementsList.focus();
     }
-  }
+  };
 
-  // Event listeners for focus management
+  // Event listeners for focus management with arrow functions
   requirementsList.addEventListener("focus", () => {
     if (!isActive) {
       enterKeyboardNavigation();
@@ -203,7 +216,8 @@ export function initPasswordRequirementsPanel(positionText: string, progressText
   });
 
   requirementsList.addEventListener("blur", (event: FocusEvent) => {
-    if (!requirementsList.contains(event.relatedTarget as Node)) {
+    const { relatedTarget } = event;
+    if (!requirementsList.contains(relatedTarget as Node)) {
       exitKeyboardNavigation();
     }
   });
@@ -217,4 +231,4 @@ export function initPasswordRequirementsPanel(positionText: string, progressText
       req.setAttribute("tabindex", "-1");
     });
   }
-}
+};

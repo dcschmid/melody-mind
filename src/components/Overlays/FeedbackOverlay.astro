@@ -77,6 +77,7 @@ const t = useTranslations(lang);
           preload="metadata"
           showHelp={true}
           coverId="overlay-cover"
+          aspectRatio="square"
         />
       </div>
 
@@ -171,6 +172,11 @@ const t = useTranslations(lang);
       visibility: hidden;
       opacity: 0;
     }
+
+    // Mobile-first responsive design
+    @media (max-width: 47.9375em) {
+      padding: var(--space-sm);
+    }
   }
 
   .overlay__backdrop {
@@ -180,7 +186,7 @@ const t = useTranslations(lang);
     width: 100%;
     height: 100%;
     z-index: 12;
-    pointer-events: auto; /* Allow click-to-close on backdrop only */
+    pointer-events: auto;
     background-color: rgba(0, 0, 0, 0.8);
   }
 
@@ -190,10 +196,10 @@ const t = useTranslations(lang);
 
   .overlay__content {
     position: relative;
-    z-index: var(--z-modal-content); /* Higher z-index than backdrop */
+    z-index: var(--z-modal-content);
     max-height: var(--modal-content-max-height);
     width: 100%;
-    max-width: var(--container-lg); /* 48rem / 768px */
+    max-width: var(--container-lg);
     overflow-y: auto;
     overscroll-behavior: contain;
     border-radius: var(--radius-xl);
@@ -202,7 +208,18 @@ const t = useTranslations(lang);
     padding: var(--modal-padding);
     box-shadow: var(--card-shadow);
     scrollbar-gutter: stable;
-    pointer-events: auto; /* Ensure all content interactions work */
+    pointer-events: auto;
+
+    // Mobile responsive adjustments
+    @media (max-width: 47.9375em) {
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
+      max-height: calc(100vh - var(--space-md) * 2);
+    }
+
+    @media (min-width: 48em) {
+      padding: var(--space-2xl);
+    }
   }
 
   // ======================================
@@ -214,6 +231,11 @@ const t = useTranslations(lang);
     align-items: center;
     justify-content: space-between;
     margin-bottom: var(--space-xl);
+    gap: var(--space-md);
+
+    @media (max-width: 47.9375em) {
+      margin-bottom: var(--space-lg);
+    }
   }
 
   .overlay__title {
@@ -222,6 +244,15 @@ const t = useTranslations(lang);
     letter-spacing: var(--letter-spacing-base);
     color: var(--text-primary);
     margin: 0;
+    flex: 1;
+
+    @media (max-width: 47.9375em) {
+      font-size: var(--text-xl);
+    }
+
+    @media (min-width: 48em) {
+      font-size: var(--text-3xl);
+    }
   }
 
   .overlay__close-button {
@@ -237,6 +268,7 @@ const t = useTranslations(lang);
     color: var(--text-secondary);
     border: none;
     cursor: pointer;
+    flex-shrink: 0;
     transition:
       background-color var(--transition-normal),
       color var(--transition-normal);
@@ -245,6 +277,13 @@ const t = useTranslations(lang);
     &:focus {
       background-color: var(--interactive-primary);
       color: var(--text-primary);
+    }
+
+    @media (max-width: 47.9375em) {
+      width: calc(var(--min-touch-size) * 0.875);
+      height: calc(var(--min-touch-size) * 0.875);
+      min-width: calc(var(--min-touch-size) * 0.875);
+      min-height: calc(var(--min-touch-size) * 0.875);
     }
   }
 
@@ -260,6 +299,12 @@ const t = useTranslations(lang);
     font-size: var(--text-xl);
     line-height: var(--leading-relaxed);
     font-weight: var(--font-semibold);
+
+    @media (max-width: 47.9375em) {
+      margin: var(--space-lg) 0;
+      padding: var(--space-md);
+      font-size: var(--text-lg);
+    }
 
     // WCAG AAA 2.2 compliant feedback colors
     &.correct {
@@ -283,9 +328,24 @@ const t = useTranslations(lang);
     align-items: start;
     gap: var(--space-xl);
 
+    @media (max-width: 47.9375em) {
+      margin-bottom: var(--space-xl);
+      gap: var(--space-lg);
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 48em) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     &__image {
       display: flex;
       justify-content: center;
+      order: 1;
+
+      @media (max-width: 47.9375em) {
+        order: 2;
+      }
     }
 
     &__info {
@@ -294,6 +354,12 @@ const t = useTranslations(lang);
       justify-content: space-between;
       gap: var(--space-md);
       text-align: left;
+      order: 2;
+
+      @media (max-width: 47.9375em) {
+        order: 1;
+        text-align: center;
+      }
     }
   }
 
@@ -302,17 +368,29 @@ const t = useTranslations(lang);
     font-size: var(--text-2xl);
     font-weight: var(--font-bold);
     color: var(--interactive-primary);
+
+    @media (max-width: 47.9375em) {
+      font-size: var(--text-xl);
+    }
   }
 
   .album-name {
     margin-bottom: var(--space-xs);
     font-size: var(--text-xl);
     color: var(--text-primary);
+
+    @media (max-width: 47.9375em) {
+      font-size: var(--text-lg);
+    }
   }
 
   .album-year {
     font-size: var(--text-lg);
     color: var(--text-secondary);
+
+    @media (max-width: 47.9375em) {
+      font-size: var(--text-base);
+    }
   }
 
   .fun-fact {
@@ -321,6 +399,11 @@ const t = useTranslations(lang);
     line-height: var(--leading-relaxed);
     color: var(--text-secondary);
     max-width: var(--content-readable-width);
+
+    @media (max-width: 47.9375em) {
+      font-size: var(--text-base);
+      margin-top: var(--space-sm);
+    }
   }
 
   // ======================================
@@ -333,6 +416,11 @@ const t = useTranslations(lang);
     font-size: var(--text-xl);
     font-weight: var(--font-semibold);
     color: var(--text-primary);
+
+    @media (max-width: 47.9375em) {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-sm);
+    }
   }
 
   .streaming-links {
@@ -341,6 +429,17 @@ const t = useTranslations(lang);
     flex-wrap: wrap;
     justify-content: center;
     gap: var(--space-md);
+
+    @media (max-width: 47.9375em) {
+      margin: var(--space-lg) 0;
+      gap: var(--space-sm);
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @media (min-width: 48em) and (max-width: 63.9375em) {
+      gap: var(--space-sm);
+    }
   }
 
   .music-button {
@@ -348,7 +447,7 @@ const t = useTranslations(lang);
     align-items: center;
     justify-content: center;
     min-height: var(--min-touch-size);
-    min-width: calc(var(--min-touch-size) * 3.6); /* 10rem / 160px optimized */
+    min-width: calc(var(--min-touch-size) * 3.6);
     border-radius: var(--radius-lg);
     background: var(--btn-primary-bg);
     color: var(--btn-primary-text);
@@ -359,6 +458,17 @@ const t = useTranslations(lang);
       background var(--transition-normal),
       transform var(--transition-fast);
 
+    @media (max-width: 47.9375em) {
+      min-width: calc(var(--min-touch-size) * 2.5);
+      padding: var(--space-md);
+      font-size: var(--text-sm);
+    }
+
+    @media (min-width: 48em) and (max-width: 63.9375em) {
+      min-width: calc(var(--min-touch-size) * 3);
+      padding: var(--space-md);
+    }
+
     &:hover,
     &:focus {
       background: var(--btn-primary-hover);
@@ -367,6 +477,12 @@ const t = useTranslations(lang);
 
     &__icon {
       margin-right: var(--space-md);
+
+      @media (max-width: 47.9375em) {
+        margin-right: var(--space-sm);
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 
@@ -378,7 +494,7 @@ const t = useTranslations(lang);
     display: block;
     margin: 0 auto;
     min-height: var(--min-touch-size);
-    min-width: calc(var(--min-touch-size) * 4.5); /* 12.5rem / 200px optimized */
+    min-width: calc(var(--min-touch-size) * 4.5);
     border-radius: var(--radius-lg);
     background: var(--btn-primary-bg);
     color: var(--btn-primary-text);
@@ -389,6 +505,16 @@ const t = useTranslations(lang);
     transition:
       background var(--transition-normal),
       transform var(--transition-fast);
+
+    @media (max-width: 47.9375em) {
+      min-width: calc(var(--min-touch-size) * 3.5);
+      padding: var(--space-sm) var(--space-lg);
+      font-size: var(--text-base);
+    }
+
+    @media (min-width: 48em) and (max-width: 63.9375em) {
+      min-width: calc(var(--min-touch-size) * 4);
+    }
 
     &:hover,
     &:focus {
@@ -401,24 +527,10 @@ const t = useTranslations(lang);
       align-items: center;
       justify-content: center;
       gap: var(--space-sm);
-    }
-  }
 
-  // ======================================
-  // RESPONSIVE DESIGN - Using Root Variables
-  // ======================================
-
-  @media (min-width: 48em) {
-    .overlay__content {
-      padding: var(--space-2xl);
-    }
-
-    .overlay__title {
-      font-size: var(--text-3xl);
-    }
-
-    .media-section {
-      grid-template-columns: repeat(2, 1fr);
+      @media (max-width: 47.9375em) {
+        gap: var(--space-xs);
+      }
     }
   }
 
@@ -443,14 +555,12 @@ const t = useTranslations(lang);
   @media (prefers-reduced-motion: no-preference) {
     .album-cover {
       &:hover {
-        /* Enable will-change only during interaction */
         will-change: transform, box-shadow;
         transform: scale(var(--scale-focus)) translateZ(0);
         box-shadow: var(--shadow-xl);
       }
 
       &:not(:hover) {
-        /* Clean up will-change after interaction */
         will-change: auto;
       }
     }
@@ -462,7 +572,6 @@ const t = useTranslations(lang);
     @keyframes fade-in {
       from {
         opacity: 0;
-        /* Use transform3d for GPU acceleration */
         transform: translateY(var(--animation-y-offset)) scale(var(--animation-scale-start))
           translateZ(0);
       }
@@ -529,39 +638,38 @@ const t = useTranslations(lang);
     }
   }
 
-  /* ======================================
-   * CUSTOM SCROLLBAR STYLES - Using Root Variables
-   * ====================================== */
+  // ======================================
+  // CUSTOM SCROLLBAR STYLES - Using Root Variables
+  // ======================================
 
   .overlay__content {
     scrollbar-width: var(--scrollbar-thin);
     scrollbar-color: var(--scrollbar-thumb-bg) var(--scrollbar-track-bg);
+
+    &::-webkit-scrollbar {
+      width: var(--scrollbar-thin);
+      height: var(--scrollbar-thin);
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--scrollbar-track-bg);
+      border-radius: var(--scrollbar-track-radius);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--scrollbar-thumb-bg);
+      border-radius: var(--scrollbar-thumb-radius);
+
+      &:hover {
+        background: var(--scrollbar-thumb-hover);
+      }
+    }
   }
 
-  .overlay__content::-webkit-scrollbar {
-    width: var(--scrollbar-thin);
-    height: var(--scrollbar-thin);
-  }
+  // ======================================
+  // ENHANCED TEXT SPACING SUPPORT (WCAG 2.2) - Using Root Variables
+  // ======================================
 
-  .overlay__content::-webkit-scrollbar-track {
-    background: var(--scrollbar-track-bg);
-    border-radius: var(--scrollbar-track-radius);
-  }
-
-  .overlay__content::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-thumb-bg);
-    border-radius: var(--scrollbar-thumb-radius);
-  }
-
-  .overlay__content::-webkit-scrollbar-thumb:hover {
-    background: var(--scrollbar-thumb-hover);
-  }
-
-  /* ======================================
-   * ENHANCED TEXT SPACING SUPPORT (WCAG 2.2) - Using Root Variables
-   * ====================================== */
-
-  /* Enhanced text spacing class for WCAG 2.2 compliance */
   .enhanced-text-spacing .overlay__content * {
     letter-spacing: var(--text-spacing-letter-2x) !important;
     word-spacing: var(--text-spacing-word-enhanced) !important;
@@ -577,15 +685,14 @@ const t = useTranslations(lang);
     gap: calc(var(--space-md) * 1.5) !important;
   }
 
-  /* Maintain functionality with enhanced text spacing */
   .enhanced-text-spacing .overlay__content .music-button,
   .enhanced-text-spacing .overlay__content .next-button {
     padding: calc(var(--space-lg) * 1.2) calc(var(--space-xl) * 1.2);
   }
 
-  /* ======================================
-   * PRINT STYLES - Using Root Variables
-   * ====================================== */
+  // ======================================
+  // PRINT STYLES - Using Root Variables
+  // ======================================
 
   @media print {
     .overlay__content {
@@ -612,37 +719,34 @@ const t = useTranslations(lang);
 
 <script type="module" is:inline>
   /**
-   * Simple and reliable FeedbackOverlay Event Handlers
-   * Maximum reliability with direct approach
+   * Modern ES6+ FeedbackOverlay Event Handlers
+   * Using arrow functions, const/let, template literals, and modern event handling
    */
 
-  // Global flag to prevent duplicate handlers
+  // Global state management
   let handlersInitialized = false;
   let escapeHandler = null;
 
   /**
-   * Simple initialization - direct event handlers
+   * Initialize the overlay with modern ES6+ features
    */
-  /**
-   * Initialize the overlay and set up event handlers
-   */
-  function initializeOverlay() {
+  const initializeOverlay = () => {
     if (handlersInitialized) {
       return;
     }
 
     setupDirectEventHandlers();
     handlersInitialized = true;
-  }
+  };
 
   /**
-   * Set up direct event handlers - no delegation, no complexity
+   * Set up direct event handlers using modern ES6+ syntax
    */
-  function setupDirectEventHandlers() {
+  const setupDirectEventHandlers = () => {
     // Close button handler
     const closeButton = document.getElementById("close-overlay-button");
     if (closeButton) {
-      closeButton.onclick = function (e) {
+      closeButton.onclick = (e) => {
         e.preventDefault();
         e.stopPropagation();
         closeOverlayAndNextRound();
@@ -652,7 +756,7 @@ const t = useTranslations(lang);
     // Backdrop handler
     const backdrop = document.getElementById("overlay-backdrop");
     if (backdrop) {
-      backdrop.onclick = function (e) {
+      backdrop.onclick = (e) => {
         e.preventDefault();
         e.stopPropagation();
         closeOverlayAndNextRound();
@@ -662,7 +766,7 @@ const t = useTranslations(lang);
     // Next round button handler
     const nextButton = document.getElementById("next-round-button");
     if (nextButton) {
-      nextButton.onclick = function (e) {
+      nextButton.onclick = (e) => {
         e.preventDefault();
         e.stopPropagation();
         closeOverlayAndNextRound();
@@ -674,47 +778,58 @@ const t = useTranslations(lang);
       document.removeEventListener("keydown", escapeHandler);
     }
 
-    // Enhanced keyboard navigation handler
-    escapeHandler = function (e) {
+    // Enhanced keyboard navigation handler with modern syntax
+    escapeHandler = (e) => {
       const overlay = document.getElementById("overlay");
-      if (!overlay || overlay.classList.contains("hidden")) {
+      if (!overlay?.classList.contains("hidden")) {
         return;
       }
 
-      switch (e.key) {
-        case "Escape":
+      const keyHandlers = {
+        Escape: () => {
           e.preventDefault();
           e.stopPropagation();
           closeOverlayAndNextRound();
-          break;
-
-        case "Tab":
+        },
+        Tab: () => {
           e.preventDefault();
           handleTabNavigation(e.shiftKey);
-          break;
-
-        case "Enter":
-        case " ":
-          // If focused element is a button, let it handle the event
-          if (document.activeElement && document.activeElement.tagName === "BUTTON") {
+        },
+        Enter: () => {
+          if (document.activeElement?.tagName === "BUTTON") {
             return;
           }
-          // Otherwise, trigger next round
           e.preventDefault();
           closeOverlayAndNextRound();
-          break;
-
-        case "ArrowUp":
-        case "ArrowLeft":
+        },
+        " ": () => {
+          if (document.activeElement?.tagName === "BUTTON") {
+            return;
+          }
+          e.preventDefault();
+          closeOverlayAndNextRound();
+        },
+        ArrowUp: () => {
           e.preventDefault();
           navigateFocus(-1);
-          break;
-
-        case "ArrowDown":
-        case "ArrowRight":
+        },
+        ArrowLeft: () => {
+          e.preventDefault();
+          navigateFocus(-1);
+        },
+        ArrowDown: () => {
           e.preventDefault();
           navigateFocus(1);
-          break;
+        },
+        ArrowRight: () => {
+          e.preventDefault();
+          navigateFocus(1);
+        },
+      };
+
+      const handler = keyHandlers[e.key];
+      if (handler) {
+        handler();
       }
     };
 
@@ -722,16 +837,16 @@ const t = useTranslations(lang);
 
     // Set up focus management when overlay becomes visible
     setupFocusManagement();
-  }
+  };
 
   /**
-   * Set up focus management for the overlay
+   * Set up focus management for the overlay using modern syntax
    */
-  function setupFocusManagement() {
+  const setupFocusManagement = () => {
     const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === "attributes" && mutation.attributeName === "class") {
-          const overlay = mutation.target;
+      mutations.forEach(({ type, target, attributeName }) => {
+        if (type === "attributes" && attributeName === "class") {
+          const overlay = target;
           const isVisible = !overlay.classList.contains("hidden");
 
           if (isVisible) {
@@ -741,9 +856,7 @@ const t = useTranslations(lang);
             // Focus the close button when overlay opens
             setTimeout(() => {
               const closeButton = document.getElementById("close-overlay-button");
-              if (closeButton) {
-                closeButton.focus();
-              }
+              closeButton?.focus();
             }, 100);
           }
         }
@@ -757,12 +870,12 @@ const t = useTranslations(lang);
         attributeFilter: ["class"],
       });
     }
-  }
+  };
 
   /**
-   * Get all focusable elements in the overlay
+   * Get all focusable elements in the overlay using modern array methods
    */
-  function getFocusableElements() {
+  const getFocusableElements = () => {
     const overlay = document.getElementById("overlay");
     if (!overlay) {
       return [];
@@ -779,64 +892,61 @@ const t = useTranslations(lang);
       const style = getComputedStyle(el);
       return style.display !== "none" && style.visibility !== "hidden";
     });
-  }
+  };
 
   /**
    * Handle Tab navigation through focusable elements
    */
-  function handleTabNavigation(isShiftKey) {
+  const handleTabNavigation = (isShiftKey) => {
     const focusableElements = getFocusableElements();
     if (focusableElements.length === 0) {
       return;
     }
 
     const currentIndex = focusableElements.indexOf(document.activeElement);
-    let nextIndex;
+    const nextIndex = isShiftKey
+      ? currentIndex <= 0
+        ? focusableElements.length - 1
+        : currentIndex - 1
+      : currentIndex >= focusableElements.length - 1
+        ? 0
+        : currentIndex + 1;
 
-    if (isShiftKey) {
-      // Shift+Tab: go backwards
-      nextIndex = currentIndex <= 0 ? focusableElements.length - 1 : currentIndex - 1;
-    } else {
-      // Tab: go forwards
-      nextIndex = currentIndex >= focusableElements.length - 1 ? 0 : currentIndex + 1;
-    }
-
-    focusableElements[nextIndex].focus();
-  }
+    focusableElements[nextIndex]?.focus();
+  };
 
   /**
    * Navigate focus with arrow keys
    */
-  function navigateFocus(direction) {
+  const navigateFocus = (direction) => {
     const focusableElements = getFocusableElements();
     if (focusableElements.length === 0) {
       return;
     }
 
     const currentIndex = focusableElements.indexOf(document.activeElement);
-    let nextIndex;
+    const nextIndex =
+      direction > 0
+        ? currentIndex >= focusableElements.length - 1
+          ? 0
+          : currentIndex + 1
+        : currentIndex <= 0
+          ? focusableElements.length - 1
+          : currentIndex - 1;
 
-    if (direction > 0) {
-      // Forward navigation
-      nextIndex = currentIndex >= focusableElements.length - 1 ? 0 : currentIndex + 1;
-    } else {
-      // Backward navigation
-      nextIndex = currentIndex <= 0 ? focusableElements.length - 1 : currentIndex - 1;
-    }
-
-    focusableElements[nextIndex].focus();
-  }
+    focusableElements[nextIndex]?.focus();
+  };
 
   /**
-   * Close overlay and trigger next round - simple and reliable
+   * Close overlay and trigger next round using modern syntax
    */
-  function closeOverlayAndNextRound() {
+  const closeOverlayAndNextRound = () => {
     const overlay = document.getElementById("overlay");
     if (!overlay) {
       return;
     }
 
-    // Stop all audio players - works with AudioPlayer component
+    // Stop all audio players using modern array methods
     const audioElements = document.querySelectorAll("audio");
     audioElements.forEach((audio) => {
       if (!audio.paused) {
@@ -849,19 +959,17 @@ const t = useTranslations(lang);
 
     // Find and trigger the next round button that the game engine set up
     const nextRoundButton = document.getElementById("next-round-button");
-    if (nextRoundButton && nextRoundButton.onclick) {
+    if (nextRoundButton?.onclick) {
       // Call the game engine's onclick handler directly
       nextRoundButton.onclick(new MouseEvent("click"));
     } else {
       // Fallback: Hide overlay and dispatch click event
       overlay.classList.add("hidden");
-      if (nextRoundButton) {
-        nextRoundButton.click();
-      }
+      nextRoundButton?.click();
     }
-  }
+  };
 
-  // Initialize when DOM is ready
+  // Initialize when DOM is ready using modern syntax
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initializeOverlay);
   } else {
