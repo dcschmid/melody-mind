@@ -1,20 +1,11 @@
 ---
 /**
- * KnowledgeCard Component
+ * KnowledgeCard Component - Responsive & Accessible
  *
- * An aesthetically enhanced and fully accessible card component for displaying
- * music knowledge articles, including image, title, description, and metadata.
- * Designed for MelodyMind's music history and educational content.
- *
- * This component supports two rendering modes:
- * 1. Standalone card with own navigation link (when articleUrl is provided)
- * 2. Non-linking card for use within parent link elements (when articleUrl is omitted)
+ * An enhanced card component for displaying music knowledge articles with image,
+ * title, description, and metadata. Fully responsive with WCAG AAA compliance.
  *
  * @component
- * @implements {WCAG AAA compliance with 7:1 contrast ratios}
- * @version 3.0.0
- * @author MelodyMind Team
- *
  * @example
  * ```astro
  * // Standalone card with own link
@@ -27,8 +18,6 @@
  *   lang="en"
  *   readingTime={8}
  *   articleUrl="/en/knowledge/history-of-rock-music"
- *   keywords="rock music, history, evolution"
- *   index={0}
  * />
  *
  * // Card for use within parent link
@@ -38,7 +27,6 @@
  *   slug="jazz-fundamentals"
  *   lang="en"
  *   readingTime={5}
- *   index={1}
  * />
  * ```
  */
@@ -86,15 +74,15 @@ const {
   index = 0,
 } = Astro.props;
 
-// Choose locale for date formatting
-const locales = { de, en };
-const locale = locales[lang as keyof typeof locales] || en;
+// Choose locale for date formatting using modern ES6+ syntax
+const locales = { de, en } as const;
+const locale = locales[lang as keyof typeof locales] ?? en;
 
 const lang_t = useTranslations(lang as "de" | "en");
 const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
 
 // Use articleUrl if provided, otherwise let the parent handle the link
-const hasOwnLink = !!articleUrl;
+const hasOwnLink = Boolean(articleUrl);
 
 // Generate unique IDs for this card for accessibility
 const cardId = `card-title-${slug}-${index}`;
@@ -225,28 +213,12 @@ const imageAltText = title ? `Cover image for ${title}` : "";
 </article>
 
 <style lang="scss">
-  /**
+  /* ======================================
    * KNOWLEDGE CARD COMPONENT STYLES
-   * ==============================
-   * 
-   * ✅ 100% CSS root variables usage from global.css - NO hardcoded values
-   * ✅ DRY principles applied - eliminated code duplication
-   * ✅ Semantic color variables for enhanced theming
-   * ✅ Consistent spacing and typography using design tokens
-   * ✅ WCAG AAA compliant with 7:1 contrast ratios
-   * ✅ Performance-optimized transitions and animations
-   * ✅ Responsive design with standardized breakpoints
-   * ✅ Enhanced accessibility with semantic CSS variables
-   * 
-   * Features:
-   * - Modern SCSS nesting for better organization
-   * - Logical properties for better internationalization  
-   * - Optimized performance with CSS containment
-   * - Consistent design system integration
-   * - Enhanced hover and focus states
-   */
+   * Modern SCSS with global.css variables
+   * WCAG AAA compliant - Zero hardcoded values
+   * ====================================== */
 
-  /* Knowledge Card Container - using semantic background variables */
   .knowledge-card {
     position: relative;
     isolation: isolate;
@@ -258,8 +230,9 @@ const imageAltText = title ? `Cover image for ${title}` : "";
     border: var(--border-width-thin) solid var(--card-border);
     background-color: var(--card-bg);
     box-shadow: var(--card-shadow);
-    transition: all var(--transition-normal);
+    transition: all var(--animation-duration-normal);
     contain: layout style;
+    font-family: var(--font-family-primary);
 
     /* Enhanced hover states using semantic interactive colors */
     &:hover {
@@ -269,12 +242,12 @@ const imageAltText = title ? `Cover image for ${title}` : "";
 
       .knowledge-card__title {
         color: var(--color-primary-400);
-        transition: color var(--transition-fast);
+        transition: color var(--animation-duration-fast);
       }
 
       .knowledge-card__accent-line {
         height: calc(var(--space-xs) * 1.5);
-        transition: height var(--transition-fast);
+        transition: height var(--animation-duration-fast);
       }
     }
 
@@ -287,7 +260,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       border-radius: var(--radius-xl);
       color: inherit;
       text-decoration: none;
-      transition: all var(--transition-normal);
+      transition: all var(--animation-duration-normal);
 
       /* Focus states using semantic focus system */
       &:focus-visible {
@@ -296,7 +269,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
         box-shadow: var(--focus-enhanced-shadow);
         border-radius: var(--radius-xl);
         transform: translateY(calc(-1 * var(--space-xs)));
-        transition: all var(--transition-fast) ease-out;
+        transition: all var(--animation-duration-fast) ease-out;
       }
 
       &:hover,
@@ -342,7 +315,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       height: 100%;
       width: 100%;
       object-fit: cover;
-      transition: transform var(--transition-slow);
+      transition: transform var(--animation-duration-slow);
     }
 
     /* Overlay gradient using CSS variables for consistency */
@@ -365,6 +338,15 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       flex-direction: column;
       justify-content: flex-start;
       padding: var(--space-lg) var(--space-lg) var(--space-md);
+
+      /* Responsive padding adjustments using breakpoint variables */
+      @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
+        padding: var(--space-md) var(--space-md) var(--space-sm);
+      }
+
+      @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+        padding: var(--space-sm) var(--space-sm) var(--space-xs);
+      }
     }
 
     /* Title styling with semantic typography */
@@ -383,10 +365,15 @@ const imageAltText = title ? `Cover image for ${title}` : "";
         overflow: hidden;
       }
 
-      /* Mobile-first responsive design */
-      @media (max-width: var(--breakpoint-sm)) {
+      /* Responsive typography using breakpoint variables */
+      @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
         font-size: var(--text-xl);
-        line-height: var(--leading-normal);
+        margin-bottom: var(--space-sm);
+      }
+
+      @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-xs);
       }
     }
 
@@ -404,10 +391,15 @@ const imageAltText = title ? `Cover image for ${title}` : "";
         overflow: hidden;
       }
 
-      /* Mobile-first responsive design */
-      @media (max-width: var(--breakpoint-sm)) {
+      /* Responsive typography using breakpoint variables */
+      @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
         font-size: var(--text-base);
-        line-height: var(--leading-relaxed);
+        margin-bottom: var(--space-md);
+      }
+
+      @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+        font-size: var(--text-sm);
+        margin-bottom: var(--space-sm);
       }
     }
 
@@ -421,11 +413,17 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       justify-content: space-between;
       gap: var(--space-md);
 
-      /* Mobile-first responsive design */
-      @media (max-width: var(--breakpoint-sm)) {
+      /* Responsive layout adjustments using breakpoint variables */
+      @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
+        padding-top: var(--space-sm);
+        gap: var(--space-sm);
+      }
+
+      @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--space-sm);
+        gap: var(--space-xs);
+        padding-top: var(--space-xs);
       }
     }
 
@@ -436,9 +434,13 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       font-size: var(--text-base);
       color: var(--text-tertiary);
 
-      /* Mobile-first responsive design */
-      @media (max-width: var(--breakpoint-sm)) {
+      /* Responsive typography using breakpoint variables */
+      @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
         font-size: var(--text-sm);
+      }
+
+      @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+        font-size: var(--text-xs);
       }
     }
 
@@ -449,10 +451,36 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       margin-right: var(--space-sm);
       color: var(--color-primary-400);
       flex-shrink: 0;
+
+      /* Responsive icon sizing using breakpoint variables */
+      @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+        width: var(--icon-size-sm);
+        height: var(--icon-size-sm);
+        margin-right: var(--space-xs);
+      }
+    }
+
+    /* Responsive card adjustments using breakpoint variables */
+    @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
+      border-radius: var(--radius-lg);
+
+      &__link {
+        border-radius: var(--radius-lg);
+      }
+    }
+
+    @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+      border-radius: var(--radius-md);
+
+      &__link {
+        border-radius: var(--radius-md);
+      }
     }
   }
 
-  /* ACCESSIBILITY OPTIMIZATIONS using semantic variables */
+  /* ======================================
+   * ACCESSIBILITY OPTIMIZATIONS
+   * ====================================== */
 
   /* Print styles using semantic variables */
   @media print {

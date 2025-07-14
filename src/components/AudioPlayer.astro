@@ -6,6 +6,40 @@ import { getLangFromUrl, useTranslations } from "../utils/i18n";
  *
  * A responsive, accessible audio player that supports custom styling, keyboard
  * navigation, and provides visual feedback. Complies with WCAG AAA standards.
+ * Uses CSS variables from global.css for consistency and accessibility.
+ *
+ * @component AudioPlayer
+ * @since 3.0.0
+ * @version 3.0.0
+ *
+ * @example Basic usage
+ * ```astro
+ * ---
+ * import AudioPlayer from "@components/AudioPlayer.astro";
+ * ---
+ *
+ * <AudioPlayer
+ *   audioSrc="/audio/song.mp3"
+ *   imageSrc="/images/cover.jpg"
+ *   imageAlt="Album cover"
+ *   title="Song Title"
+ *   artist="Artist Name"
+ * />
+ * ```
+ *
+ * @accessibility
+ * - WCAG AAA 2.2 compliant with 7:1 color contrast ratio
+ * - Full keyboard navigation support with visible focus indicators
+ * - Screen reader optimized with proper ARIA attributes
+ * - Supports reduced motion preferences
+ * - Touch-friendly targets (minimum 44×44px)
+ * - Semantic HTML structure with proper heading hierarchy
+ *
+ * @performance
+ * - Uses CSS containment for optimal rendering performance
+ * - Minimal JavaScript footprint with static rendering
+ * - Optimized for Core Web Vitals metrics
+ * - Efficient image loading with lazy loading
  */
 interface Props {
   /** URL to the audio file */
@@ -37,6 +71,12 @@ interface Props {
   showHelp?: boolean;
   /** ID for the cover image (optional, for external references) */
   coverId?: string;
+  /**
+   * Aspect ratio for the cover image (optional)
+   * - 'square': 1:1 ratio (default)
+   * - 'landscape': 16:9 ratio
+   */
+  aspectRatio?: "square" | "landscape";
 }
 
 const {
@@ -45,14 +85,19 @@ const {
   imageAlt,
   title = "",
   artist = "",
-  waveformColor = "var(--color-primary-600)", // Use CSS variable instead
-  accentColor = "var(--color-primary-400)", // Use CSS variable instead
-  preload = "metadata", // Default preload behavior
+  waveformColor = "var(--color-primary-600)",
+  accentColor = "var(--color-primary-400)",
+  preload = "metadata",
   captionsUrl,
   descriptionsUrl,
   showHelp = false,
   coverId,
+  aspectRatio = "square",
 } = Astro.props;
+
+// Calculate image dimensions based on aspect ratio
+const imageDimensions =
+  aspectRatio === "landscape" ? { width: "640", height: "360" } : { width: "150", height: "150" };
 
 // Generate unique player ID for multiple instances on the same page
 const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
@@ -64,7 +109,7 @@ const t = useTranslations(lang);
 
 <div class="audio-player" role="region" aria-label={t("audioplayer.aria.region")} data-nosnippet>
   <div class="audio-player__container">
-    <div class="audio-player__cover-container">
+    <div class={`audio-player__cover-container audio-player__cover-container--${aspectRatio}`}>
       <img
         id={coverId}
         src={imageSrc}
@@ -73,8 +118,8 @@ const t = useTranslations(lang);
         loading="lazy"
         decoding="async"
         fetchpriority="low"
-        width="640"
-        height="360"
+        width={imageDimensions.width}
+        height={imageDimensions.height}
       />
 
       <!-- Overlay with improved contrast ratio -->
@@ -249,90 +294,60 @@ const t = useTranslations(lang);
 
 <style lang="scss">
   /**
-   * AudioPlayer Component Styles (SCSS)
-   * Uses CSS custom properties from global.css for WCAG AAA 2.2 compliance
+   * AudioPlayer Component Styles
+   * WCAG AAA 2.2 compliant with CSS variables from global.css
    * 
-   * OPTIMIZATION SUMMARY (DRY PRINCIPLES APPLIED):
-   * ===============================================
-   * 
-   * 1. CSS VARIABLES MAXIMIZED:
-   *    - All hardcoded opacity values replaced with --animation-opacity-* and --opacity-*
-   *    - All hardcoded scale values use --animation-scale-*
-   *    - All hardcoded durations use --animation-duration-* and --update-interval-*
-   *    - All hardcoded sizes use --icon-size-* instead of --space-*
-   *    - All hardcoded blur values use --backdrop-blur-*
-   *    - Screen reader only dimensions use --sr-only-*
-   * 
-   * 2. DRY PRINCIPLES APPLIED:
-   *    - Consolidated button base styles into shared selector group
-   *    - Unified focus-visible states across all interactive elements
-   *    - Removed duplicate transition and cursor declarations
-   *    - Consolidated icon sizing patterns
-   *    - Unified opacity patterns for hover/focus states
-   * 
-   * 3. PERFORMANCE OPTIMIZATIONS:
-   *    - Maintained all existing GPU acceleration optimizations
-   *    - Preserved CSS containment strategies
-   *    - Kept modern CSS performance features intact
-   * 
-   * 4. ACCESSIBILITY COMPLIANCE:
-   *    - All WCAG AAA focus indicators preserved
-   *    - Touch target sizes maintained via --min-touch-size
-   *    - Color contrast ratios preserved through semantic variables
-   * 
-   * No hardcoded values remain - all styles use semantic design tokens
+   * @version 3.0.0
+   * @accessibility WCAG AAA 2.2 compliant with 7:1 contrast ratios
+   * @performance CSS containment and optimized animations
+   * @responsive Mobile-first design with touch-friendly targets
+   * @i18n Supports all MelodyMind languages through semantic classes
    */
+
+  // Variables for better maintainability
+  $player-border-radius: var(--radius-xl);
+  $player-shadow: var(--shadow-lg);
+  $player-shadow-hover: var(--shadow-xl);
+  $transition-normal: var(--transition-normal);
+  $transition-fast: var(--transition-fast);
+  $transition-slow: var(--transition-slow);
+  $space-sm: var(--space-sm);
+  $space-md: var(--space-md);
+  $space-lg: var(--space-lg);
+  $space-xl: var(--space-xl);
+  $space-2xl: var(--space-2xl);
+  $space-3xl: var(--space-3xl);
+  $touch-target: var(--touch-target-enhanced);
+  $icon-size-sm: var(--icon-size-sm);
+  $icon-size-md: var(--icon-size-md);
+  $text-xs: var(--text-xs);
+  $text-sm: var(--text-sm);
+  $font-medium: var(--font-medium);
+  $opacity-medium: var(--opacity-medium);
+  $animation-scale-medium: var(--animation-scale-medium);
+  $animation-scale-enhanced: var(--animation-scale-enhanced);
+  $animation-opacity-start: var(--animation-opacity-start);
+  $animation-opacity-end: var(--animation-opacity-end);
+  $animation-opacity-full: var(--animation-opacity-full);
+  $focus-ring: var(--focus-ring);
+  $focus-enhanced-outline: var(--focus-enhanced-outline);
+  $focus-enhanced-outline-dark: var(--focus-enhanced-outline-dark);
+  $focus-enhanced-shadow: var(--focus-enhanced-shadow);
+  $focus-ring-offset: var(--focus-ring-offset);
+  $sr-only-width: var(--sr-only-width);
+  $sr-only-height: var(--sr-only-height);
+  $sr-only-margin: var(--sr-only-margin);
 
   /* ======================================
-   * PERFORMANCE OPTIMIZATIONS SUMMARY
-   * ======================================
-   * This component has been optimized for maximum performance:
-   * 
-   * 1. GPU Acceleration:
-   *    - transform: translateZ(0) on hover elements
-   *    - will-change properties for animating elements
-   *    - backface-visibility: hidden on images
-   *
-   * 2. CSS Containment:
-   *    - contain: layout style paint on main container
-   *    - contain: layout on interactive elements
-   *    - contain: strict on frequently updated elements
-   *
-   * 3. Modern CSS Performance:
-   *    - content-visibility: auto for viewport-based rendering
-   *    - contain-intrinsic-size to prevent layout shifts
-   *
-   * 4. Image Optimization:
-   *    - fetchpriority="low" for background images
-   *    - explicit width/height to prevent layout shift
-   *    - loading="lazy" and decoding="async"
-   *
-   * 5. JavaScript Performance:
-   *    - Intersection Observer for lazy initialization
-   *    - requestIdleCallback for non-critical initialization
-   *    - Direct DOM queries without DOMContentLoaded delay
-   *    - Preconnect hints for external audio sources
-   *
-   * 6. Animation Optimization:
-   *    - Linear transitions for progress elements
-   *    - Hardware-accelerated transforms
-   *    - Reduced motion support
-   *
-   * These optimizations target Core Web Vitals:
-   * - LCP: Image loading optimization + content-visibility
-   * - FID: Idle callback + Intersection Observer initialization
-   * - CLS: Explicit image dimensions + contain-intrinsic-size
-   */
-
-  // ======================================
-  // MAIN CONTAINER
-  // ======================================
+   * MAIN CONTAINER
+   * ====================================== */
   .audio-player {
     position: relative;
     margin: 0 auto;
     width: 100%;
-    max-width: var(--container-sm); /* 640px equivalent */
-    /* Modern CSS performance optimization */
+    max-width: var(--container-sm);
+
+    // Modern CSS performance optimization
     content-visibility: auto;
     contain-intrinsic-size: 640px 360px;
 
@@ -341,31 +356,37 @@ const t = useTranslations(lang);
       isolation: isolate;
       width: 100%;
       overflow: hidden;
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-lg);
-      transition: all var(--transition-normal);
-      /* Performance optimizations */
+      border-radius: $player-border-radius;
+      box-shadow: $player-shadow;
+      transition: all $transition-normal;
+
+      // Performance optimizations
       contain: layout style paint;
       will-change: transform, box-shadow;
 
       &:hover {
         transform: translateY(calc(-1 * var(--space-xs)));
-        box-shadow: var(--shadow-xl);
+        box-shadow: $player-shadow-hover;
 
         .audio-player__cover {
-          transform: scale(1.05);
+          transform: scale($animation-scale-medium);
         }
       }
     }
 
-    // ======================================
-    // COVER IMAGE
-    // ======================================
+    /* ======================================
+     * COVER IMAGE
+     * ====================================== */
     &__cover-container {
       position: relative;
-      aspect-ratio: 1 / 1; /* Force square aspect ratio regardless of source image */
+      aspect-ratio: 1 / 1; // Default square aspect ratio
       width: 100%;
       overflow: hidden;
+
+      // Landscape aspect ratio variant
+      &--landscape {
+        aspect-ratio: 16 / 9;
+      }
     }
 
     &__cover {
@@ -375,16 +396,17 @@ const t = useTranslations(lang);
       height: 100%;
       width: 100%;
       object-fit: cover;
-      transition: transform var(--transition-slow) ease-in-out;
-      /* Performance optimizations */
-      transform: translateZ(0); /* Force GPU acceleration */
+      transition: transform $transition-slow ease-in-out;
+
+      // Performance optimizations
+      transform: translateZ(var(--space-none));
       will-change: transform;
       backface-visibility: hidden;
     }
 
-    // ======================================
-    // OVERLAY AND CONTROLS
-    // ======================================
+    /* ======================================
+     * OVERLAY AND CONTROLS
+     * ====================================== */
     &__overlay {
       position: absolute;
       bottom: 0;
@@ -396,27 +418,28 @@ const t = useTranslations(lang);
         var(--bg-secondary) 40%,
         transparent 100%
       );
-      backdrop-filter: blur(var(--backdrop-blur-light));
-      padding: var(--space-md) var(--space-lg);
+      backdrop-filter: blur($space-sm);
+      padding: $space-md $space-lg;
       color: var(--text-primary);
-      transition: opacity var(--transition-normal);
+      transition: opacity $transition-normal;
     }
 
     &__controls {
       display: flex;
       width: 100%;
       align-items: center;
-      gap: var(--space-md);
+      gap: $space-md;
+      flex-wrap: wrap;
     }
 
-    // ======================================
-    // PLAY BUTTON
-    // ======================================
+    /* ======================================
+     * PLAY BUTTON
+     * ====================================== */
     &__play-button {
       position: relative;
       display: flex;
-      height: var(--min-touch-size);
-      width: var(--min-touch-size);
+      height: $touch-target;
+      width: $touch-target;
       flex-shrink: 0;
       align-items: center;
       justify-content: center;
@@ -426,119 +449,122 @@ const t = useTranslations(lang);
       box-shadow: var(--shadow-md);
       cursor: pointer;
       border: none;
-      transition: all var(--transition-fast);
+      transition: all $transition-fast;
       contain: layout;
-      /* Performance optimizations */
-      transform: translateZ(0); /* Force GPU acceleration */
+
+      // Performance optimizations
+      transform: translateZ(var(--space-none));
       will-change: transform, box-shadow;
 
       &:hover {
-        transform: scale(1.05);
+        transform: scale($animation-scale-medium);
         box-shadow: var(--shadow-lg);
       }
 
       &:focus-visible {
-        outline: var(--focus-enhanced-outline-dark);
-        outline-offset: var(--focus-ring-offset);
-        box-shadow: var(--focus-enhanced-shadow);
+        outline: $focus-enhanced-outline-dark;
+        outline-offset: $focus-ring-offset;
+        box-shadow: $focus-enhanced-shadow;
       }
     }
 
-    // ======================================
-    // PROGRESS CONTAINER
-    // ======================================
+    /* ======================================
+     * PROGRESS CONTAINER
+     * ====================================== */
     &__progress-container {
       display: flex;
       flex-grow: 1;
       flex-direction: column;
       gap: var(--space-xs);
+      min-width: 0; // Allow shrinking
     }
 
     &__time-display {
       display: flex;
       justify-content: space-between;
-      font-size: var(--text-xs);
+      font-size: $text-xs;
       color: var(--text-tertiary);
     }
 
-    // ======================================
-    // VOLUME CONTROLS
-    // ======================================
+    /* ======================================
+     * VOLUME CONTROLS
+     * ====================================== */
     &__volume-controls {
       position: relative;
       display: flex;
       align-items: center;
-      gap: var(--space-sm);
+      gap: $space-sm;
+      flex-shrink: 0;
 
       &:hover .volume-slider-container,
       .volume-slider-container:focus-within {
-        width: var(--space-3xl);
+        width: $space-3xl;
       }
     }
   }
 
-  // ======================================
-  // SHARED BUTTON STYLES (DRY PRINCIPLE)
-  // ======================================
+  /* ======================================
+   * SHARED BUTTON STYLES (DRY PRINCIPLE)
+   * ====================================== */
   .audio-player__play-button,
   .volume-btn,
   .help-btn {
     cursor: pointer;
     border: none;
-    transition: all var(--transition-fast);
+    transition: all $transition-fast;
     contain: layout;
 
     // Consolidated focus states for all interactive buttons
     &:focus-visible {
-      outline: var(--focus-enhanced-outline-dark);
-      outline-offset: var(--focus-ring-offset);
+      outline: $focus-enhanced-outline-dark;
+      outline-offset: $focus-ring-offset;
     }
   }
 
   // Enhanced focus states with shadow
   .audio-player__play-button:focus-visible,
   .help-btn:focus-visible {
-    box-shadow: var(--focus-enhanced-shadow);
+    box-shadow: $focus-enhanced-shadow;
   }
 
   // Consolidated focus for progress and volume elements
   .progress-bar-container:focus-visible,
   .volume-slider:focus-visible {
-    outline: var(--focus-enhanced-outline-dark);
-    outline-offset: var(--focus-ring-offset);
+    outline: $focus-enhanced-outline-dark;
+    outline-offset: $focus-ring-offset;
   }
 
-  // ======================================
-  // ICON STYLES
-  // ======================================
+  /* ======================================
+   * ICON STYLES
+   * ====================================== */
   .play-icon,
   .pause-icon {
     position: absolute;
-    height: var(--icon-size-md);
-    width: var(--icon-size-md);
+    height: $icon-size-md;
+    width: $icon-size-md;
     fill: currentColor;
-    transition: all var(--transition-normal);
+    transition: all $transition-normal;
   }
 
   .pause-icon {
-    opacity: var(--animation-opacity-end);
-    transform: scale(0.75);
+    opacity: $animation-opacity-end;
+    transform: scale(var(--animation-scale-hover));
   }
 
-  // ======================================
-  // PROGRESS BAR
-  // ======================================
+  /* ======================================
+   * PROGRESS BAR
+   * ====================================== */
   .progress-bar-container {
     position: relative;
-    height: var(--space-sm);
+    height: $space-sm;
     cursor: pointer;
     overflow: hidden;
     border-radius: var(--radius-sm);
     background-color: var(--border-primary);
 
     &:focus-visible {
-      outline: var(--focus-enhanced-outline);
-      outline-offset: 2px;
+      outline: $focus-enhanced-outline;
+      outline-offset: $space-sm;
       border-radius: var(--radius-sm);
     }
 
@@ -571,7 +597,8 @@ const t = useTranslations(lang);
     border-radius: var(--radius-sm);
     background-color: var(--interactive-primary);
     transition: width var(--update-interval-medium) linear;
-    /* Performance optimization */
+
+    // Performance optimization
     contain: strict;
     will-change: width;
   }
@@ -583,54 +610,56 @@ const t = useTranslations(lang);
     z-index: 0;
     height: 100%;
     width: 100%;
-    opacity: var(--animation-opacity-start);
-    /* Performance optimization */
+    opacity: $animation-opacity-start;
+
+    // Performance optimization
     contain: strict;
     will-change: contents;
   }
 
-  // ======================================
-  // VOLUME CONTROLS
-  // ======================================
+  /* ======================================
+   * VOLUME CONTROLS
+   * ====================================== */
   .volume-btn {
     display: flex;
-    min-height: var(--min-touch-size);
-    min-width: var(--min-touch-size);
+    min-height: $touch-target;
+    min-width: $touch-target;
     align-items: center;
     justify-content: center;
     background-color: transparent;
-    padding: var(--space-sm);
+    padding: $space-sm;
     color: var(--text-primary);
-    opacity: var(--animation-opacity-start);
-    transition: opacity var(--transition-normal);
+    opacity: $animation-opacity-start;
+    transition: opacity $transition-normal;
 
     &:hover {
-      opacity: var(--animation-opacity-full);
+      opacity: $animation-opacity-full;
     }
   }
 
   .volume-icon,
   .mute-icon {
     position: absolute;
-    height: var(--icon-size-md);
-    width: var(--icon-size-md);
+    height: $icon-size-md;
+    width: $icon-size-md;
     fill: currentColor;
-    transition: all var(--transition-normal);
+    transition: all $transition-normal;
   }
 
   .mute-icon {
-    opacity: var(--animation-opacity-end);
-    transform: scale(0.75);
+    opacity: $animation-opacity-end;
+    transform: scale(var(--animation-scale-hover));
   }
 
   .volume-slider-container {
     display: flex;
-    height: var(--icon-size-md);
+    height: $icon-size-md;
     width: 0;
     align-items: center;
     overflow: hidden;
-    transition: width var(--transition-normal);
-    /* Performance optimization */
+    transition: width $transition-normal;
+
+    // Performance optimization
     contain: layout size;
     will-change: width;
   }
@@ -647,78 +676,78 @@ const t = useTranslations(lang);
       border-radius: var(--radius-sm);
     }
 
-    // ======================================
-    // VOLUME SLIDER CUSTOM STYLING
-    // ======================================
+    /* ======================================
+     * VOLUME SLIDER CUSTOM STYLING
+     * ====================================== */
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: var(--icon-size-sm);
-      height: var(--icon-size-sm);
+      width: $icon-size-sm;
+      height: $icon-size-sm;
       border-radius: var(--radius-full);
       background: var(--text-primary);
       cursor: pointer;
-      transition: transform var(--transition-fast);
+      transition: transform $transition-fast;
 
       &:hover {
-        transform: scale(var(--animation-scale-enhanced));
+        transform: scale($animation-scale-enhanced);
       }
     }
 
     &::-moz-range-thumb {
-      width: var(--icon-size-sm);
-      height: var(--icon-size-sm);
+      width: $icon-size-sm;
+      height: $icon-size-sm;
       border-radius: var(--radius-full);
       border: none;
       background: var(--text-primary);
       cursor: pointer;
-      transition: transform var(--transition-fast);
+      transition: transform $transition-fast;
 
       &:hover {
-        transform: scale(var(--animation-scale-enhanced));
+        transform: scale($animation-scale-enhanced);
       }
     }
 
     &:active {
       &::-webkit-slider-thumb {
-        transform: scale(var(--animation-scale-enhanced));
+        transform: scale($animation-scale-enhanced);
       }
 
       &::-moz-range-thumb {
-        transform: scale(var(--animation-scale-enhanced));
+        transform: scale($animation-scale-enhanced);
       }
     }
   }
 
-  // ======================================
-  // HELP BUTTON AND ACCESSIBILITY
-  // ======================================
+  /* ======================================
+   * HELP BUTTON AND ACCESSIBILITY
+   * ====================================== */
   .help-btn {
     display: flex;
-    height: var(--min-touch-size);
-    width: var(--min-touch-size);
+    height: $touch-target;
+    width: $touch-target;
     align-items: center;
     justify-content: center;
     background: transparent;
     color: var(--text-primary);
     border-radius: var(--radius-sm);
-    opacity: var(--animation-opacity-start);
+    opacity: $animation-opacity-start;
 
     &:hover {
-      opacity: var(--animation-opacity-full);
+      opacity: $animation-opacity-full;
       background-color: var(--bg-secondary);
     }
   }
 
   .help-icon {
-    height: var(--icon-size-sm);
-    width: var(--icon-size-sm);
+    height: $icon-size-sm;
+    width: $icon-size-sm;
     fill: currentColor;
   }
 
-  // ======================================
-  // ANIMATIONS
-  // ======================================
+  /* ======================================
+   * ANIMATIONS
+   * ====================================== */
   @keyframes loadingShimmer {
     0% {
       background-position: -200% 0;
@@ -728,9 +757,9 @@ const t = useTranslations(lang);
     }
   }
 
-  // ======================================
-  // FALLBACK ELEMENTS
-  // ======================================
+  /* ======================================
+   * FALLBACK ELEMENTS
+   * ====================================== */
   .audio-fallback-link {
     color: var(--interactive-primary);
     text-decoration: underline;
@@ -744,32 +773,32 @@ const t = useTranslations(lang);
     }
 
     &:focus-visible {
-      outline: var(--focus-ring);
-      outline-offset: 2px;
+      outline: $focus-ring;
+      outline-offset: $space-sm;
     }
   }
 
-  // ======================================
-  // TRACK INFO
-  // ======================================
+  /* ======================================
+   * TRACK INFO
+   * ====================================== */
   .track-info {
-    margin-top: var(--space-sm);
-    font-size: var(--text-sm);
+    margin-top: $space-sm;
+    font-size: $text-sm;
 
     &__title {
-      font-weight: var(--font-medium);
+      font-weight: $font-medium;
       color: var(--text-primary);
     }
 
     &__artist {
-      opacity: var(--opacity-medium);
+      opacity: $opacity-medium;
       color: var(--text-secondary);
     }
   }
 
-  // ======================================
-  // HIDDEN ELEMENTS
-  // ======================================
+  /* ======================================
+   * HIDDEN ELEMENTS
+   * ====================================== */
   .audio-element {
     display: none;
   }
@@ -777,15 +806,19 @@ const t = useTranslations(lang);
   // Screen reader only content
   .sr-only {
     position: absolute;
-    left: -10000px;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
+    width: $sr-only-width;
+    height: $sr-only-height;
+    padding: var(--space-none);
+    margin: $sr-only-margin;
     overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: var(--space-none);
   }
 
-  // ======================================
-  // REDUCED MOTION SUPPORT
-  // ======================================
+  /* ======================================
+   * REDUCED MOTION SUPPORT
+   * ====================================== */
   @media (prefers-reduced-motion: reduce) {
     .audio-player {
       &__container:hover {
@@ -809,121 +842,426 @@ const t = useTranslations(lang);
     .pause-icon,
     .volume-icon,
     .mute-icon {
-      transition: opacity var(--transition-fast) linear;
+      transition: opacity $transition-fast linear;
     }
   }
 
-  // ======================================
-  // RESPONSIVE DESIGN
-  // ======================================
-  @media (max-width: var(--breakpoint-sm)) {
+  /* ======================================
+   * RESPONSIVE DESIGN - Enhanced Mobile-First Approach
+   * ====================================== */
+
+  // Ultra-small screens: Compact layout
+  @media (max-width: 399px) {
     .audio-player {
       &__controls {
-        gap: var(--space-sm);
+        gap: $space-sm;
+        flex-direction: column;
+        align-items: stretch;
       }
 
       &__overlay {
-        padding: var(--space-sm) var(--space-md);
+        padding: $space-sm;
+      }
+
+      &__progress-container {
+        order: 2;
+        width: 100%;
+      }
+
+      &__volume-controls {
+        order: 3;
+        justify-content: center;
+        width: 100%;
+      }
+
+      &__play-button {
+        order: 1;
+        align-self: center;
       }
     }
 
     .volume-slider-container {
-      display: none; /* Hide volume slider on small screens */
+      display: none; // Hide volume slider on ultra-small screens
+    }
+
+    .track-info {
+      text-align: center;
+      margin-top: var(--space-xs);
+    }
+  }
+
+  // Small screens: Horizontal layout with volume hidden
+  @media (min-width: 400px) and (max-width: 599px) {
+    .audio-player {
+      &__controls {
+        gap: $space-sm;
+        flex-wrap: nowrap;
+      }
+
+      &__overlay {
+        padding: $space-sm $space-md;
+      }
+
+      &__progress-container {
+        flex: 1;
+        min-width: 0;
+      }
+    }
+
+    .volume-slider-container {
+      display: none; // Hide volume slider on small screens
+    }
+
+    .track-info {
+      margin-top: var(--space-xs);
+    }
+  }
+
+  // Medium screens: Show volume controls
+  @media (min-width: 600px) and (max-width: 767px) {
+    .audio-player {
+      &__controls {
+        gap: $space-md;
+      }
+
+      &__overlay {
+        padding: $space-md;
+      }
+    }
+
+    .volume-slider-container {
+      width: $space-2xl; // Show volume slider on medium screens
+    }
+  }
+
+  // Large screens: Full layout
+  @media (min-width: 768px) {
+    .audio-player {
+      &__controls {
+        gap: $space-lg;
+      }
+
+      &__overlay {
+        padding: $space-md $space-xl;
+      }
+    }
+
+    .volume-slider-container {
+      width: $space-3xl;
+    }
+  }
+
+  /* ======================================
+   * CONTAINER QUERIES FOR ADVANCED RESPONSIVENESS
+   * ====================================== */
+
+  @supports (container-type: inline-size) {
+    .audio-player {
+      container-type: inline-size;
+      container-name: audio-player;
+    }
+
+    // Ultra-narrow container: Stack controls
+    @container audio-player (max-width: 350px) {
+      .audio-player__controls {
+        flex-direction: column;
+        gap: $space-sm;
+      }
+
+      .audio-player__progress-container {
+        width: 100%;
+      }
+
+      .volume-slider-container {
+        display: none;
+      }
+    }
+
+    // Narrow container: Compact horizontal
+    @container audio-player (min-width: 351px) and (max-width: 500px) {
+      .audio-player__controls {
+        gap: $space-sm;
+      }
+
+      .volume-slider-container {
+        width: $space-2xl;
+      }
+    }
+
+    // Medium container: Standard layout
+    @container audio-player (min-width: 501px) and (max-width: 700px) {
+      .audio-player__controls {
+        gap: $space-md;
+      }
+
+      .volume-slider-container {
+        width: $space-3xl;
+      }
+    }
+
+    // Large container: Full layout
+    @container audio-player (min-width: 701px) {
+      .audio-player__controls {
+        gap: $space-lg;
+      }
+
+      .volume-slider-container {
+        width: $space-3xl;
+      }
+    }
+  }
+
+  /* ======================================
+   * TOUCH DEVICE OPTIMIZATIONS
+   * ====================================== */
+
+  @media (hover: none) and (pointer: coarse) {
+    .audio-player {
+      &__play-button {
+        min-height: $touch-target;
+        min-width: $touch-target;
+      }
+    }
+
+    .volume-btn,
+    .help-btn {
+      min-height: $touch-target;
+      min-width: $touch-target;
+    }
+
+    // Remove hover effects on touch devices
+    .audio-player__container:hover {
+      transform: none;
+
+      .audio-player__cover {
+        transform: none;
+      }
+    }
+
+    .audio-player__play-button:hover {
+      transform: none;
+    }
+  }
+
+  /* ======================================
+   * HIGH CONTRAST MODE SUPPORT
+   * ====================================== */
+
+  @media (prefers-contrast: high) {
+    .audio-player {
+      &__play-button {
+        border: var(--border-width-thick) solid ButtonText;
+        background-color: ButtonFace;
+        color: ButtonText;
+      }
+
+      &__overlay {
+        background: ButtonFace;
+        color: ButtonText;
+      }
+    }
+
+    .progress-bar {
+      background-color: Highlight;
+    }
+
+    .volume-slider::-webkit-slider-thumb,
+    .volume-slider::-moz-range-thumb {
+      background-color: ButtonText;
+      border: var(--border-width-thick) solid ButtonFace;
     }
   }
 </style>
 
-<!-- Enhanced Audio Player Script with WCAG 2.2 AAA Compliance -->
+<!-- Enhanced Audio Player Script with Modern ES6/TypeScript Features -->
 <script>
-  // Simple audio player initialization
-  document.addEventListener("DOMContentLoaded", () => {
-    const players = document.querySelectorAll('[id^="audio-player-"]');
+  // Type definitions for better type safety
+  interface AudioPlayerElements {
+    audio: HTMLAudioElement;
+    playButton: HTMLButtonElement;
+    playIcon: HTMLElement;
+    pauseIcon: HTMLElement;
+    progressBar: HTMLElement;
+    currentTimeEl: HTMLElement;
+    durationEl: HTMLElement;
+    volumeSlider: HTMLInputElement;
+    volumeBtn: HTMLButtonElement;
+    volumeIcon: HTMLElement;
+    muteIcon: HTMLElement;
+  }
 
-    players.forEach((player) => {
-      const audio = player.querySelector("audio");
-      const playButton = player.querySelector(".audio-player__play-button");
+  // Utility functions
+  const formatTime = (seconds: number): string => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
+  };
 
-      if (!audio || !playButton) {
+  const getElements = (player: HTMLElement): AudioPlayerElements => ({
+    audio: player.querySelector("audio") as HTMLAudioElement,
+    playButton: player.querySelector(".audio-player__play-button") as HTMLButtonElement,
+    playIcon: player.querySelector(".play-icon") as HTMLElement,
+    pauseIcon: player.querySelector(".pause-icon") as HTMLElement,
+    progressBar: player.querySelector(".progress-bar") as HTMLElement,
+    currentTimeEl: player.querySelector(".current-time") as HTMLElement,
+    durationEl: player.querySelector(".duration") as HTMLElement,
+    volumeSlider: player.querySelector(".volume-slider") as HTMLInputElement,
+    volumeBtn: player.querySelector(".volume-btn") as HTMLButtonElement,
+    volumeIcon: player.querySelector(".volume-icon") as HTMLElement,
+    muteIcon: player.querySelector(".mute-icon") as HTMLElement,
+  });
+
+  // Audio player class for better organization
+  class AudioPlayerController {
+    private elements: AudioPlayerElements;
+    private isInitialized = false;
+
+    constructor(private player: HTMLElement) {
+      this.elements = getElements(player);
+      this.initialize();
+    }
+
+    private initialize(): void {
+      if (!this.elements.audio || !this.elements.playButton) {
+        console.warn("Audio player elements not found");
         return;
       }
 
-      // Basic play/pause functionality
-      playButton.addEventListener("click", () => {
-        if (audio.paused) {
-          audio.play().catch(() => {
-            // Handle play error silently
-          });
-        } else {
-          audio.pause();
-        }
-      });
+      this.setupEventListeners();
+      this.initializeVolume();
+      this.isInitialized = true;
+    }
 
-      // Update play/pause icons
-      audio.addEventListener("play", () => {
-        const playIcon = player.querySelector(".play-icon") as HTMLElement;
-        const pauseIcon = player.querySelector(".pause-icon") as HTMLElement;
-        if (playIcon) {
-          playIcon.style.opacity = "0";
-        }
-        if (pauseIcon) {
-          pauseIcon.style.opacity = "1";
-        }
-      });
+    private setupEventListeners(): void {
+      const { audio, playButton, volumeSlider, volumeBtn } = this.elements;
 
-      audio.addEventListener("pause", () => {
-        const playIcon = player.querySelector(".play-icon") as HTMLElement;
-        const pauseIcon = player.querySelector(".pause-icon") as HTMLElement;
-        if (playIcon) {
-          playIcon.style.opacity = "1";
-        }
-        if (pauseIcon) {
-          pauseIcon.style.opacity = "0";
-        }
-      });
+      // Play/pause functionality
+      playButton.addEventListener("click", () => this.togglePlayPause());
 
-      // Update progress bar
-      audio.addEventListener("timeupdate", () => {
-        if (!audio.duration) {
-          return;
-        }
+      // Audio event listeners
+      audio.addEventListener("play", () => this.updatePlayPauseIcons(true));
+      audio.addEventListener("pause", () => this.updatePlayPauseIcons(false));
+      audio.addEventListener("timeupdate", () => this.updateProgress());
+      audio.addEventListener("loadedmetadata", () => this.updateDuration());
 
-        const progressBar = player.querySelector(".progress-bar") as HTMLElement;
-        const currentTimeEl = player.querySelector(".current-time") as HTMLElement;
-
-        if (progressBar) {
-          const progressPercent = (audio.currentTime / audio.duration) * 100;
-          progressBar.style.width = `${progressPercent}%`;
-        }
-
-        if (currentTimeEl) {
-          const minutes = Math.floor(audio.currentTime / 60);
-          const seconds = Math.floor(audio.currentTime % 60);
-          currentTimeEl.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
-        }
-      });
-
-      // Update duration display
-      audio.addEventListener("loadedmetadata", () => {
-        const durationEl = player.querySelector(".duration");
-        if (durationEl && audio.duration) {
-          const minutes = Math.floor(audio.duration / 60);
-          const seconds = Math.floor(audio.duration % 60);
-          durationEl.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
-        }
-      });
-
-      // Basic volume control
-      const volumeSlider = player.querySelector(".volume-slider") as HTMLInputElement;
+      // Volume control
       if (volumeSlider) {
-        volumeSlider.addEventListener("input", () => {
-          audio.volume = parseFloat(volumeSlider.value);
-          audio.muted = false;
+        volumeSlider.addEventListener("input", (e) => {
+          const target = e.target as HTMLInputElement;
+          this.updateVolume(parseFloat(target.value));
         });
+      }
 
-        // Initialize volume
+      // Volume button toggle
+      if (volumeBtn) {
+        volumeBtn.addEventListener("click", () => this.toggleMute());
+      }
+
+      // Progress bar click
+      const progressContainer = this.player.querySelector(".progress-bar-container");
+      if (progressContainer) {
+        progressContainer.addEventListener("click", (e) =>
+          this.handleProgressClick(e as MouseEvent)
+        );
+      }
+    }
+
+    private togglePlayPause(): void {
+      const { audio } = this.elements;
+
+      if (audio.paused) {
+        audio.play().catch((error) => {
+          console.warn("Failed to play audio:", error);
+        });
+      } else {
+        audio.pause();
+      }
+    }
+
+    private updatePlayPauseIcons(isPlaying: boolean): void {
+      const { playIcon, pauseIcon } = this.elements;
+
+      if (playIcon) {
+        playIcon.style.opacity = isPlaying ? "0" : "1";
+      }
+      if (pauseIcon) {
+        pauseIcon.style.opacity = isPlaying ? "1" : "0";
+      }
+    }
+
+    private updateProgress(): void {
+      const { audio, progressBar, currentTimeEl } = this.elements;
+
+      if (!audio.duration) {
+        return;
+      }
+
+      const progressPercent = (audio.currentTime / audio.duration) * 100;
+
+      if (progressBar) {
+        progressBar.style.width = `${progressPercent}%`;
+      }
+
+      if (currentTimeEl) {
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+      }
+    }
+
+    private updateDuration(): void {
+      const { audio, durationEl } = this.elements;
+
+      if (durationEl && audio.duration) {
+        durationEl.textContent = formatTime(audio.duration);
+      }
+    }
+
+    private updateVolume(volume: number): void {
+      const { audio } = this.elements;
+      audio.volume = volume;
+      audio.muted = false;
+    }
+
+    private toggleMute(): void {
+      const { audio, volumeIcon, muteIcon } = this.elements;
+      audio.muted = !audio.muted;
+
+      if (volumeIcon) {
+        volumeIcon.style.opacity = audio.muted ? "0" : "1";
+      }
+      if (muteIcon) {
+        muteIcon.style.opacity = audio.muted ? "1" : "0";
+      }
+    }
+
+    private handleProgressClick(event: MouseEvent): void {
+      const { audio } = this.elements;
+      const progressContainer = event.currentTarget as HTMLElement;
+      const rect = progressContainer.getBoundingClientRect();
+      const clickX = event.clientX - rect.left;
+      const width = rect.width;
+      const clickPercent = clickX / width;
+
+      if (audio.duration) {
+        audio.currentTime = clickPercent * audio.duration;
+      }
+    }
+
+    private initializeVolume(): void {
+      const { audio, volumeSlider } = this.elements;
+
+      if (volumeSlider) {
         audio.volume = 0.7;
         volumeSlider.value = "0.7";
       }
+    }
+  }
+
+  // Initialize all audio players when DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    const players = document.querySelectorAll('[id^="audio-player-"]') as NodeListOf<HTMLElement>;
+
+    players.forEach((player) => {
+      new AudioPlayerController(player);
     });
   });
 </script>

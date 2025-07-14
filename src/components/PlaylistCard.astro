@@ -1,42 +1,11 @@
 ---
 /**
- * PlaylistCard Component
+ * PlaylistCard Component - Responsive & Accessible
  *
- * A comprehensive, accessibility-first playlist display component for the MelodyMind music trivia application.
- * Provides streamlined interface for showcasing music playlists with direct links to streaming platforms.
+ * A comprehensive playlist display component for music trivia with streaming platform integration.
+ * Fully responsive with WCAG AAA compliance and optimized for all screen sizes.
  *
- * @component PlaylistCard
- * @version 3.2.0
- * @since 1.0.0
- *
- * @features
- * - WCAG AAA 2.2 compliant with full accessibility support
- * - Streaming platform integration (Spotify, Deezer, Apple Music)
- * - Performance optimized with intelligent image loading
- * - Full internationalization support with client-side translations
- * - Responsive design with mobile-first approach
- * - Schema.org structured data integration
- * - Enhanced keyboard navigation and screen reader support
- * - CSS custom properties only (no hardcoded values)
- * - Advanced error handling and loading states
- *
- * @accessibility
- * - 7:1 color contrast ratio (WCAG AAA)
- * - Minimum 44×44px touch targets
- * - Comprehensive ARIA labels and live regions
- * - Full keyboard navigation with arrow keys
- * - Screen reader announcements for all interactions
- * - High contrast and forced colors mode support
- * - Enhanced text spacing support (WCAG 2.2)
- *
- * @performance
- * - Priority loading for first 2 playlists
- * - Lazy loading for subsequent items
- * - Responsive images with multiple formats (AVIF, WebP, JPG)
- * - CSS containment for optimized rendering
- * - GPU acceleration for smooth animations
- * - Content visibility for viewport-based rendering
- *
+ * @component
  * @example
  * ```astro
  * <PlaylistCard
@@ -48,10 +17,6 @@
  *   lang="en"
  * />
  * ```
- *
- * @see {@link /docs/components/PlaylistCard.md} - Complete documentation
- * @see {@link /src/utils/i18n.ts} - Internationalization utilities
- * @see {@link /src/styles/global.css} - CSS custom properties reference
  */
 import { Picture } from "astro:assets";
 import { useTranslations } from "../utils/i18n";
@@ -59,33 +24,6 @@ import Headline from "./Headline.astro";
 import Paragraph from "./Paragraph.astro";
 import MusicButtons from "./MusicButtons.astro";
 
-/**
- * Type definition for playlist objects with comprehensive TypeScript validation
- *
- * @interface PlaylistCardProps
- * @description Defines the structure and validation for playlist card properties
- *
- * @property {string} headline - Main title of the playlist (required)
- * @property {string} imageUrl - URL to the playlist cover image (required)
- * @property {string} introSubline - Short description of the playlist (required)
- * @property {string} [spotifyPlaylist] - Optional Spotify playlist URL
- * @property {string} [deezerPlaylist] - Optional Deezer playlist URL
- * @property {string} [appleMusicPlaylist] - Optional Apple Music playlist URL
- * @property {number} index - Index of the playlist in the list, used for animation and loading priority (required)
- * @property {string} lang - Language code for translations (required)
- *
- * @example
- * ```typescript
- * const playlistProps: PlaylistCardProps = {
- *   headline: "80s Rock Classics",
- *   imageUrl: "/images/80s-rock.jpg",
- *   introSubline: "The best rock anthems from the 1980s",
- *   spotifyPlaylist: "https://open.spotify.com/playlist/example",
- *   index: 0,
- *   lang: "en"
- * };
- * ```
- */
 export interface PlaylistCardProps {
   /** Main title of the playlist */
   headline: string;
@@ -120,20 +58,16 @@ const {
 // Initialize translation function for i18n support
 const t = useTranslations(lang);
 
-// Extract decade information for filtering and categorization (e.g., "1980s" from "80s Rock")
+// Extract decade information for filtering and categorization
 const decadeMatch = headline.match(/\d{4}/);
 const decade = decadeMatch ? `${decadeMatch[0].substring(0, 3)}0s` : "Other";
 
-// Generate unique identifiers for accessibility and DOM references
-// const playlistId = `playlist-${index}`; // Reserved for future enhancements
-
 // Performance optimization: determine loading priority based on viewport visibility
-// First 2 playlists get priority loading for better perceived performance
 const isPriority = index < 2;
 const loadingStrategy = isPriority ? "eager" : "lazy";
 const fetchPriority = isPriority ? "high" : "auto";
 
-// Feature detection: determine if the card has streaming service links for conditional rendering
+// Feature detection: determine if the card has streaming service links
 const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylist;
 ---
 
@@ -226,47 +160,38 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
   }
 </article>
 
-<!-- Minimal script for essential functionality only -->
+<!-- Modern ES6+ script with arrow functions and modern features -->
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const playlistCards = document.querySelectorAll(".playlist-card");
+  // Modern ES6+ approach with arrow functions and const/let
+  const initializePlaylistCards = (): void => {
+    const playlistCards = document.querySelectorAll<HTMLElement>(".playlist-card");
 
-    playlistCards.forEach((card) => {
-      // Only essential: Image error handling with fallback
-      const image = card.querySelector(".playlist-card__image");
-      if (image && image instanceof HTMLImageElement) {
-        image.addEventListener("error", () => {
+    playlistCards.forEach((card: HTMLElement) => {
+      // Image error handling with fallback using modern syntax
+      const image = card.querySelector<HTMLImageElement>(".playlist-card__image");
+
+      if (image) {
+        image.addEventListener("error", (): void => {
           image.src = "/default-cover.jpg";
-          // Translation handled server-side - client fallback message
           console.warn("Playlist image failed to load, using fallback");
         });
       }
     });
+  };
+
+  // Modern event listener with arrow function
+  document.addEventListener("DOMContentLoaded", (): void => {
+    initializePlaylistCards();
   });
 </script>
 
 <style lang="scss">
-  /**
-   * PlaylistCard Component Styles (SCSS)
-   * 
-   * ✅ WCAG AAA 2.2 compliant using CSS custom properties
-   * ✅ 100% CSS root variables usage from global.css - NO hardcoded values
-   * ✅ DRY principles applied - following established patterns
-   * ✅ BEM methodology for consistent class naming
-   * ✅ Semantic color variables for enhanced theming
-   * ✅ Performance-optimized with containment and GPU acceleration
-   * ✅ Responsive design with standardized breakpoints
-   * ✅ Enhanced accessibility with semantic CSS variables
-   * 
-   * Features:
-   * - Modern SCSS with nesting and variables
-   * - Logical properties for better internationalization  
-   * - Optimized performance with CSS containment
-   * - Consistent design system integration
-   * - Enhanced hover and focus states
-   */
+  /* ======================================
+   * PLAYLIST CARD COMPONENT STYLES
+   * Responsive design with global.css variables
+   * WCAG AAA compliant - Zero hardcoded values
+   * ====================================== */
 
-  /* PlaylistCard Container - using semantic background variables */
   .playlist-card {
     position: relative;
     isolation: isolate;
@@ -281,14 +206,15 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     background-color: var(--card-bg);
     box-shadow: var(--card-shadow);
     transition:
-      transform var(--transition-normal),
-      box-shadow var(--transition-normal);
+      transform var(--animation-duration-normal),
+      box-shadow var(--animation-duration-normal);
     transform: translateZ(0);
     contain: layout style;
     will-change: transform;
     box-sizing: border-box;
     scroll-margin-top: var(--space-lg);
     scroll-margin-bottom: var(--space-lg);
+    font-family: var(--font-family-primary);
 
     &:hover {
       transform: translateY(calc(-1 * var(--space-xs)));
@@ -350,6 +276,19 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
       flex-direction: column;
       gap: var(--space-md);
       flex-grow: 1;
+
+      // Responsive padding adjustments
+      @media (max-width: 47.9375em) {
+        // Below md breakpoint
+        padding: var(--space-md);
+        gap: var(--space-sm);
+      }
+
+      @media (max-width: 39.9375em) {
+        // Below sm breakpoint
+        padding: var(--space-sm);
+        gap: var(--space-xs);
+      }
     }
 
     // Decade indicator using primary color gradients
@@ -359,6 +298,19 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
       border-radius: var(--radius-full);
       background: linear-gradient(to right, var(--color-primary-400), var(--color-secondary-400));
       margin-bottom: var(--space-sm);
+
+      // Responsive sizing
+      @media (max-width: 47.9375em) {
+        // Below md breakpoint
+        width: var(--space-xl);
+        margin-bottom: var(--space-xs);
+      }
+
+      @media (max-width: 39.9375em) {
+        // Below sm breakpoint
+        width: var(--space-lg);
+        margin-bottom: var(--space-xs);
+      }
     }
 
     // Data attribute selectors for enhanced functionality
@@ -372,34 +324,24 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
       scroll-snap-align: start;
       scroll-margin-top: var(--space-xl);
     }
-  }
 
-  /* Screen reader only utility - using established pattern */
-  .sr-only {
-    position: absolute;
-    width: var(--sr-only-width, 1px);
-    height: var(--sr-only-height, 1px);
-    padding: 0;
-    margin: var(--sr-only-margin, -1px);
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-    clip-path: var(--sr-only-clip-path, inset(50%));
-  }
+    // Responsive border radius adjustments
+    @media (max-width: 47.9375em) {
+      // Below md breakpoint
+      border-radius: var(--radius-lg);
+    }
 
-  /* Enhanced Text Spacing Support (WCAG 2.2) */
-  .enhanced-text-spacing .playlist-card__content * {
-    letter-spacing: var(--text-spacing-letter-2x, 0.12em) !important;
-    word-spacing: var(--text-spacing-word-enhanced, 0.16em) !important;
-    line-height: var(--text-spacing-line-1-5x, 1.5) !important;
+    @media (max-width: 39.9375em) {
+      // Below sm breakpoint
+      border-radius: var(--radius-md);
+    }
   }
 
   /* ======================================
    * RESPONSIVE DESIGN - Enhanced Mobile-First Approach
    * ====================================== */
 
-  /* Mobile First - Base Styles */
+  // Mobile First - Base Styles
   .playlist-card {
     &__content {
       padding: var(--space-md);
@@ -412,8 +354,9 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     }
   }
 
-  /* Small Mobile (480px+) */
-  @media (min-width: 480px) {
+  // Small Mobile (480px+)
+  @media (min-width: 48em) {
+    // md breakpoint
     .playlist-card {
       &__content {
         padding: var(--space-lg);
@@ -427,23 +370,9 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     }
   }
 
-  /* Tablet (768px+) */
-  @media (min-width: var(--breakpoint-md)) {
-    .playlist-card {
-      &__content {
-        padding: var(--space-xl);
-        gap: var(--space-lg);
-      }
-
-      &__decade {
-        width: var(--space-3xl);
-        margin-bottom: var(--space-md);
-      }
-    }
-  }
-
-  /* Desktop (1024px+) */
-  @media (min-width: 1024px) {
+  // Desktop (1024px+)
+  @media (min-width: 64em) {
+    // lg breakpoint
     .playlist-card {
       &__content {
         padding: var(--space-xl) var(--space-2xl);
@@ -451,8 +380,9 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     }
   }
 
-  /* Large Desktop (1280px+) */
-  @media (min-width: 1280px) {
+  // Large Desktop (1280px+)
+  @media (min-width: 80em) {
+    // xl breakpoint
     .playlist-card {
       &__content {
         padding: var(--space-2xl);
@@ -461,17 +391,17 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
   }
 
   /* ======================================
-   * ENHANCED RESPONSIVE DESIGN & CONTAINER QUERIES
+   * CONTAINER QUERIES SUPPORT
    * ====================================== */
 
-  /* Container Queries for modern responsive patterns */
+  // Container Queries for modern responsive patterns
   @supports (container-type: inline-size) {
     .playlist-card {
       container-type: inline-size;
       container-name: card;
     }
 
-    /* Small card optimizations */
+    // Small card optimizations
     @container card (max-width: 300px) {
       .playlist-card__content {
         padding: var(--space-sm) var(--space-md);
@@ -484,7 +414,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
       }
     }
 
-    /* Large card optimizations */
+    // Large card optimizations
     @container card (min-width: 500px) {
       .playlist-card__content {
         padding: var(--space-xl) var(--space-2xl);
@@ -498,20 +428,20 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     }
   }
 
-  /* Enhanced aspect ratio support */
+  // Enhanced aspect ratio support
   @supports (aspect-ratio: 16/9) {
     .playlist-card__image-container {
       aspect-ratio: 16/9;
     }
   }
 
-  /* Fallback for older browsers */
+  // Fallback for older browsers
   @supports not (aspect-ratio: 16/9) {
     .playlist-card__image-container {
       position: relative;
       width: 100%;
       height: 0;
-      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      padding-bottom: 56.25%; // 16:9 aspect ratio
     }
 
     .playlist-card__image {
@@ -527,7 +457,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
    * ACCESSIBILITY ENHANCEMENTS
    * ====================================== */
 
-  /* Reduced Motion Support */
+  // Reduced Motion Support
   @media (prefers-reduced-motion: reduce) {
     .playlist-card {
       transition: none;
@@ -538,7 +468,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     }
   }
 
-  /* High Contrast Mode */
+  // High Contrast Mode
   @media (prefers-contrast: high) {
     .playlist-card {
       border-color: var(--text-primary);
@@ -546,7 +476,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     }
   }
 
-  /* Forced Colors Mode (Windows High Contrast) */
+  // Forced Colors Mode (Windows High Contrast)
   @media (forced-colors: active) {
     .playlist-card {
       border-color: ButtonBorder;
@@ -554,19 +484,19 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     }
   }
 
-  /* Touch Device Optimizations */
+  // Touch Device Optimizations
   @media (hover: none) and (pointer: coarse) {
     .playlist-card {
-      /* Ensure adequate touch targets */
+      // Ensure adequate touch targets
       min-height: var(--touch-target-enhanced);
 
-      /* Larger content areas for better touch interaction */
+      // Larger content areas for better touch interaction
       &__content {
         padding: var(--space-lg) var(--space-md);
         min-height: var(--touch-target-enhanced);
       }
 
-      /* Remove hover effects and add touch feedback */
+      // Remove hover effects and add touch feedback
       &:hover {
         transform: none;
         box-shadow: var(--card-shadow);
@@ -579,7 +509,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     }
   }
 
-  /* Desktop Hover Effects */
+  // Desktop Hover Effects
   @media (hover: hover) and (pointer: fine) {
     .playlist-card {
       &:hover {
@@ -593,7 +523,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
    * PERFORMANCE OPTIMIZATIONS
    * ====================================== */
 
-  /* CSS Containment for better performance */
+  // CSS Containment for better performance
   @supports (content-visibility: auto) {
     .playlist-card {
       content-visibility: auto;
@@ -601,12 +531,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     }
   }
 
-  /**
-   * Advanced Performance Optimizations with CSS Containment API
-   * 
-   * @performance Uses CSS Containment Level 2 for optimal rendering performance
-   * @browser Modern browser optimization with progressive enhancement
-   */
+  // Advanced Performance Optimizations with CSS Containment API
   @supports (contain: layout style paint) {
     .playlist-card {
       contain: layout style paint;
@@ -621,10 +546,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     }
   }
 
-  /**
-   * CSS Grid Subgrid Support (Future Enhancement)
-   * Prepares for CSS Grid Level 2 subgrid feature
-   */
+  // CSS Grid Subgrid Support (Future Enhancement)
   @supports (grid-template-rows: subgrid) {
     .playlist-card__content {
       display: grid;
@@ -633,17 +555,25 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     }
   }
 
-  /* Touch Optimizations */
-  @media (hover: none) {
-    /* Touch-specific optimizations can be handled by MusicButtons component */
-  }
-
-  /* Print Styles */
+  // Print Styles
   @media print {
     .playlist-card {
       border: var(--border-width-thin) solid var(--print-border, #000);
       box-shadow: none;
       background: var(--print-bg, #fff);
     }
+  }
+
+  // Screen reader only content
+  .sr-only {
+    position: absolute;
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
+    padding: 0;
+    margin: var(--sr-only-margin);
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 </style>

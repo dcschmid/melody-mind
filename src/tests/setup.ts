@@ -44,11 +44,11 @@ beforeAll(() => {
 
   // Mock IntersectionObserver
   global.IntersectionObserver = class IntersectionObserver {
-    constructor() {}
-    disconnect() {}
-    observe() {}
-    unobserve() {}
-  };
+    constructor(_callback: IntersectionObserverCallback, _options?: IntersectionObserverInit) {}
+    disconnect(): void {}
+    observe(_target: Element): void {}
+    unobserve(_target: Element): void {}
+  } as typeof IntersectionObserver;
 
   // Mock ResizeObserver
   global.ResizeObserver = class ResizeObserver {

@@ -58,6 +58,7 @@ export default {
   "achievements.status.in_progress": "В процессе",
   "achievements.status.locked": "Заблокировано",
   "achievements.status.unlocked": "Разблокировано",
+  "achievements.points": "{points} очков",
   "achievements.summary.progress": "Прогресс",
   "achievements.summary.title": "Сводка достижений",
   "achievements.summary.total": "Всего",
@@ -556,6 +557,7 @@ export default {
   "musicPlatforms.heading": "Слушать похожую музыку",
   "musicPlatforms.keyboardInstructions":
     "Навигация по музыкальным платформам с помощью клавиши Tab. Нажмите Enter или Пробел, чтобы открыть платформы в новых вкладках.",
+  "musicPlatforms.listenOn": "Слушать {title} на {platform}",
   "nav.ariaLabel": "Основная навигация",
   "nav.donate.coffee": "Купите нам кофе",
   "nav.donate.heading": "Поддержите нас",

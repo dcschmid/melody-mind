@@ -5,22 +5,16 @@
  * A specialized game header component that displays the game title and current round progress.
  * Uses the base Headline component for consistent typography and integrates with the game system.
  *
- * ## Recent Changes
- * - Replaced h1 with reusable Headline component for consistency
- * - Removed remaining count functionality (deprecated)
- * - Simplified layout to focus on title and round progress
- * - Maintained backward compatibility for existing CSS and scripts
- *
- * ## Features
+ * Features:
  * - WCAG AAA compliant (7:1 contrast ratio)
  * - Full internationalization support for 10 languages
  * - Live ARIA updates for screen readers
  * - Responsive design with mobile-first approach
  * - Performance-optimized with requestAnimationFrame
- * - BEM CSS methodology with CSS variables
+ * - SCSS with BEM CSS methodology and CSS variables
  * - Uses shared Headline component for consistency
  *
- * ## Accessibility
+ * Accessibility:
  * - Uses semantic HTML elements with proper roles
  * - ARIA live regions for dynamic updates
  * - Keyboard navigation support
@@ -141,7 +135,7 @@ const roundAriaLabel = t("game.current.round.label", {
    * // Update to show "round 3 of 10"
    * updateRoundNumber(3, 10);
    */
-  export function updateRoundNumber(round: number, total?: number): void {
+  const updateRoundNumber = (round: number, total?: number): void => {
     // Use requestAnimationFrame for smoother UI updates
     requestAnimationFrame(() => {
       // Constants
@@ -173,7 +167,7 @@ const roundAriaLabel = t("game.current.round.label", {
       const ariaLabel = total ? `${round}/${total}` : round.toString();
       statusElement.setAttribute("aria-label", ariaLabel);
     });
-  }
+  };
 
   /**
    * Updates the remaining count display if the element exists.
@@ -192,7 +186,7 @@ const roundAriaLabel = t("game.current.round.label", {
    * // Hide remaining count
    * updateRemainingCount(0);
    */
-  export function updateRemainingCount(count: number): void {
+  const updateRemainingCount = (count: number): void => {
     requestAnimationFrame(() => {
       const remainingElement = document.querySelector<HTMLElement>("[data-remaining]");
       const countElement = document.querySelector<HTMLElement>(".remaining-count");
@@ -217,7 +211,7 @@ const roundAriaLabel = t("game.current.round.label", {
         }
       }
     });
-  }
+  };
 
   // Export functions to global scope for external script access
   if (typeof window !== "undefined") {
@@ -236,34 +230,7 @@ const roundAriaLabel = t("game.current.round.label", {
    * WCAG AAA compliant design (7:1 contrast)
    * ====================================== */
 
-  // SCSS mixins for reusable patterns
-  @mixin flex-center($direction: row, $gap: var(--space-md)) {
-    display: flex;
-    flex-direction: $direction;
-    align-items: center;
-    gap: $gap;
-  }
-
-  @mixin text-gradient($start: var(--color-primary-400), $end: var(--color-secondary-400)) {
-    background: linear-gradient(135deg, $start 0%, $end 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: var(--text-primary); // Fallback for unsupported browsers
-  }
-
-  @mixin accessibility-focus {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  @mixin enhanced-accessibility-focus {
-    outline: var(--focus-enhanced-outline-dark);
-    outline-offset: var(--focus-ring-offset);
-    border-radius: var(--radius-sm);
-  }
-
-  // Animation keyframes
+  /* Animation keyframes */
   @keyframes pulse {
     0%,
     100% {
@@ -274,9 +241,12 @@ const roundAriaLabel = t("game.current.round.label", {
     }
   }
 
-  // Main component container with nested BEM structure
+  /* Main component container with nested SCSS structure */
   .game-headline {
-    @include flex-center(column, var(--space-md));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
     justify-content: space-between;
     padding: var(--space-lg) var(--space-md);
     margin-bottom: var(--space-xl);
@@ -286,15 +256,16 @@ const roundAriaLabel = t("game.current.round.label", {
     box-shadow: var(--card-shadow);
     position: relative;
 
-    // Enhanced focus support for accessibility
+    /* Enhanced focus support for accessibility */
     &:focus-within {
-      @include accessibility-focus;
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
     }
 
-    // Legacy title element (BEM child)
+    /* Legacy title element (BEM child) */
     &__title {
-      // Legacy styles - kept for backward compatibility
-      // Will be removed when fully migrated to Headline component
+      /* Legacy styles - kept for backward compatibility */
+      /* Will be removed when fully migrated to Headline component */
       font-size: var(--text-2xl);
       font-weight: var(--font-bold);
       line-height: var(--leading-tight);
@@ -302,24 +273,38 @@ const roundAriaLabel = t("game.current.round.label", {
       text-align: center;
       margin: 0;
 
-      // Enhanced text spacing for WCAG 2.2 AAA
+      /* Enhanced text spacing for WCAG 2.2 AAA */
       letter-spacing: var(--letter-spacing-enhanced);
       word-spacing: var(--word-spacing-enhanced);
 
-      // Gradient text effect for visual appeal
-      @include text-gradient;
+      /* Gradient text effect for visual appeal */
+      background: linear-gradient(
+        135deg,
+        var(--color-primary-400) 0%,
+        var(--color-secondary-400) 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: var(--text-primary); /* Fallback for unsupported browsers */
     }
 
-    // Stats container
+    /* Stats container */
     &__stats {
-      @include flex-center(row, var(--space-lg));
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-lg);
       font-size: var(--text-sm);
       color: var(--text-secondary);
     }
 
-    // Round information container
+    /* Round information container */
     &__round {
-      @include flex-center(row, var(--space-sm));
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-sm);
       font-weight: var(--font-medium);
       color: var(--text-primary);
 
@@ -329,16 +314,18 @@ const roundAriaLabel = t("game.current.round.label", {
       }
 
       &:focus-within {
-        @include enhanced-accessibility-focus;
+        outline: var(--focus-enhanced-outline-dark);
+        outline-offset: var(--focus-ring-offset);
+        border-radius: var(--radius-sm);
       }
 
-      // Round label
+      /* Round label */
       &-label {
         font-size: var(--text-sm);
         color: var(--text-secondary);
       }
 
-      // Round display number
+      /* Round display number */
       &-display {
         font-weight: var(--font-bold);
         font-variant-numeric: tabular-nums;
@@ -347,9 +334,9 @@ const roundAriaLabel = t("game.current.round.label", {
       }
     }
 
-    // Deprecated divider element
+    /* Deprecated divider element */
     &__divider {
-      // Deprecated - visual divider no longer needed without remaining element
+      /* Deprecated - visual divider no longer needed without remaining element */
       display: none;
       height: var(--space-lg);
       width: var(--border-width-thin);
@@ -357,56 +344,61 @@ const roundAriaLabel = t("game.current.round.label", {
       animation: pulse var(--transition-slow) infinite;
     }
 
-    // Legacy styles for remaining element - deprecated
+    /* Legacy styles for remaining element - deprecated */
     &__remaining {
-      // This element has been removed from the template
+      /* This element has been removed from the template */
       display: none;
       align-items: center;
       gap: var(--space-sm);
       font-size: var(--text-sm);
 
-      // BEM modifiers for visibility states
+      /* BEM modifiers for visibility states */
       &--visible {
-        display: none; // Always hidden now
+        display: none; /* Always hidden now */
       }
 
       &--hidden {
         display: none;
       }
 
-      // Legacy hover effect - removed remaining element
+      /* Legacy hover effect - removed remaining element */
       &:hover {
-        // No longer applicable as element is removed
+        /* No longer applicable as element is removed */
       }
 
       &:focus-within {
-        // No longer applicable as element is removed
+        /* No longer applicable as element is removed */
       }
 
-      // Text styling
+      /* Text styling */
       &-text {
         font-weight: var(--font-medium);
         color: var(--text-warning-aaa);
       }
     }
 
-    // Responsive breakpoints
+    /* ============================================================================
+     * RESPONSIVE DESIGN - Mobile-first approach
+     * ============================================================================ */
+
+    /* Small screens and up */
     @media (min-width: var(--breakpoint-sm)) {
       flex-direction: row;
       padding: var(--space-xl) var(--space-2xl);
 
       &__title {
-        // Legacy responsive styles for backward compatibility
+        /* Legacy responsive styles for backward compatibility */
         font-size: var(--text-3xl);
         text-align: left;
       }
 
-      // Divider no longer needed without remaining element
+      /* Divider no longer needed without remaining element */
       &__divider {
         display: none;
       }
     }
 
+    /* Large screens and up */
     @media (min-width: var(--breakpoint-lg)) {
       padding: var(--space-2xl) var(--space-3xl);
 
@@ -420,19 +412,23 @@ const roundAriaLabel = t("game.current.round.label", {
       }
     }
 
-    // High contrast mode support
+    /* ============================================================================
+     * ACCESSIBILITY - Preference-based enhancements
+     * ============================================================================ */
+
+    /* High contrast mode support */
     @media (prefers-contrast: high) {
       border-width: var(--border-width-enhanced);
 
       &__title {
-        // Legacy support for h1 styling
+        /* Legacy support for h1 styling */
         background: none;
         -webkit-text-fill-color: unset;
         color: var(--text-primary);
       }
     }
 
-    // Reduced motion support
+    /* Reduced motion support */
     @media (prefers-reduced-motion: reduce) {
       &__divider {
         animation: none;
@@ -443,13 +439,13 @@ const roundAriaLabel = t("game.current.round.label", {
         transition: none;
       }
 
-      // Legacy - remaining element hover removed
+      /* Legacy - remaining element hover removed */
       &__remaining:hover {
-        // No longer applicable
+        /* No longer applicable */
       }
     }
 
-    // Print styles for optimal printing experience
+    /* Print styles for optimal printing experience */
     @media print {
       background: white;
       border: var(--border-width-thin) solid black;
@@ -457,7 +453,7 @@ const roundAriaLabel = t("game.current.round.label", {
       color: black;
 
       &__title {
-        // Legacy print styles for h1
+        /* Legacy print styles for h1 */
         background: none;
         -webkit-text-fill-color: unset;
         color: black;
@@ -469,7 +465,7 @@ const roundAriaLabel = t("game.current.round.label", {
     }
   }
 
-  // Remaining count element (standalone for legacy compatibility)
+  /* Remaining count element (standalone for legacy compatibility) */
   .remaining-count {
     font-variant-numeric: tabular-nums;
     font-weight: var(--font-bold);

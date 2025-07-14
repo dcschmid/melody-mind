@@ -57,6 +57,7 @@ export default {
   "achievements.status.in_progress": "Pågående",
   "achievements.status.locked": "Låst",
   "achievements.status.unlocked": "Upplåst",
+  "achievements.points": "{points} poäng",
   "achievements.summary.progress": "Framsteg",
   "achievements.summary.title": "Prestationssammanfattning",
   "achievements.summary.total": "Totalt",
@@ -549,6 +550,7 @@ export default {
   "musicPlatforms.heading": "Lyssna på relaterad musik",
   "musicPlatforms.keyboardInstructions":
     "Navigera musikplattformar med Tab-tangenten. Tryck Enter eller Space för att öppna plattformar i nya flikar.",
+  "musicPlatforms.listenOn": "Lyssna på {title} på {platform}",
   "nav.ariaLabel": "Huvudnavigering",
   "nav.donate.coffee": "Bjud oss på kaffe",
   "nav.donate.heading": "Stöd oss",

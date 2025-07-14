@@ -59,12 +59,7 @@ const audioId = `podcast-audio-${podcast.id}`;
       />
 
       <!-- Episode Meta -->
-      <div class="podcast-episode__meta">
-        <span class="podcast-episode__meta-item podcast-episode__date">
-          <span class="podcast-episode__meta-icon">📅</span>
-          <span class="podcast-episode__meta-text">{podcast.publishedAt}</span>
-        </span>
-      </div>
+      {/* Datum entfernt */}
     </div>
   </div>
 
@@ -110,7 +105,7 @@ const audioId = `podcast-audio-${podcast.id}`;
             {
               Array(50)
                 .fill(0)
-                .map((_, index) => (
+                .map((_, _index) => (
                   <div
                     class="podcast-episode__waveform-bar"
                     style={`height: ${Math.floor(Math.random() * 70) + 10}%`}
@@ -133,11 +128,11 @@ const audioId = `podcast-audio-${podcast.id}`;
 
 <style lang="scss">
   /* ======================================
-   * PODCAST EPISODE COMPONENT - Optimized
+   * PODCAST EPISODE COMPONENT - SCSS Version
    * Uses global.css variables for consistency
    * ====================================== */
 
-  /* Episode Container */
+  // Episode Container
   .podcast-episode {
     background: var(--card-bg);
     border-radius: var(--radius-xl);
@@ -169,7 +164,7 @@ const audioId = `podcast-audio-${podcast.id}`;
     }
   }
 
-  /* Episode Header Layout - Enhanced Responsive Grid */
+  // Episode Header Layout - Enhanced Responsive Grid
   .podcast-episode__header {
     display: grid;
     gap: var(--space-md);
@@ -179,7 +174,7 @@ const audioId = `podcast-audio-${podcast.id}`;
     box-sizing: border-box;
     background: linear-gradient(to bottom, var(--bg-tertiary), var(--card-bg));
 
-    /* Mobile First: Single column layout */
+    // Mobile First: Single column layout
     grid-template-columns: 1fr;
     grid-template-areas:
       "image"
@@ -191,7 +186,7 @@ const audioId = `podcast-audio-${podcast.id}`;
       gap: var(--space-lg);
     }
 
-    /* Small tablet: Image + Info side by side */
+    // Small tablet: Image + Info side by side
     @media (min-width: 640px) {
       grid-template-columns: 220px 1fr;
       grid-template-areas: "image info";
@@ -199,20 +194,26 @@ const audioId = `podcast-audio-${podcast.id}`;
       gap: var(--space-lg);
     }
 
-    /* Large tablet and Desktop: Wider image */
+    // Large tablet and Desktop: Wider image
     @media (min-width: 768px) {
       grid-template-columns: 280px 1fr;
       padding: var(--space-xl) var(--space-xl) var(--space-lg);
       gap: var(--space-xl);
     }
 
-    /* Large desktop: Even wider image */
+    // Large desktop: Even wider image
     @media (min-width: 1024px) {
       grid-template-columns: 320px 1fr;
     }
+
+    // Extra large screens
+    @media (min-width: 1280px) {
+      grid-template-columns: 360px 1fr;
+      gap: var(--space-2xl);
+    }
   }
 
-  /* Episode Image with Overlay */
+  // Episode Image with Overlay
   .podcast-episode__image-wrapper {
     position: relative;
     grid-area: image;
@@ -222,7 +223,7 @@ const audioId = `podcast-audio-${podcast.id}`;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
     background: var(--bg-tertiary);
-    transform: translateZ(0); /* Fix for Safari border-radius overflow issue */
+    transform: translateZ(0); // Fix for Safari border-radius overflow issue
     transition:
       transform var(--transition-normal),
       box-shadow var(--transition-normal);
@@ -230,6 +231,11 @@ const audioId = `podcast-audio-${podcast.id}`;
     &:hover {
       transform: translateZ(0) scale(var(--animation-scale-hover-subtle));
       box-shadow: var(--shadow-xl);
+    }
+
+    @media (max-width: 639px) {
+      max-width: 300px;
+      margin: 0 auto;
     }
   }
 
@@ -277,13 +283,13 @@ const audioId = `podcast-audio-${podcast.id}`;
     align-self: flex-start;
   }
 
-  /* Episode Info */
+  // Episode Info
   .podcast-episode__info {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
     grid-area: info;
-    min-width: 0; /* Prevent text overflow */
+    min-width: 0; // Prevent text overflow
   }
 
   .podcast-episode__divider {
@@ -291,11 +297,11 @@ const audioId = `podcast-audio-${podcast.id}`;
     height: 3px;
     background: var(--color-primary-500);
     border-radius: var(--radius-pill);
-    margin: var(--space-sm) auto var(--space-md);
+    margin: 0 auto var(--space-md); /* Immer zentriert, oben kein Abstand */
     opacity: 0.8;
   }
 
-  /* Meta Information */
+  // Meta Information
   .podcast-episode__meta {
     display: flex;
     gap: var(--space-md);
@@ -328,7 +334,7 @@ const audioId = `podcast-audio-${podcast.id}`;
     font-weight: var(--font-medium);
   }
 
-  /* Audio Player Wrapper */
+  // Audio Player Wrapper
   .podcast-episode__player-wrapper {
     padding: var(--space-md);
     background: var(--card-bg);
@@ -339,12 +345,249 @@ const audioId = `podcast-audio-${podcast.id}`;
     }
   }
 
-  /* Native Audio Player */
+  // Native Audio Player
   .podcast-episode__audio {
-    display: none; /* Hide native controls */
+    display: none; // Hide native controls
   }
 
-  /* States */
+  // Custom Audio Player Styles - SoundCloud Style
+  .podcast-episode__custom-player {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: var(--space-md);
+    align-items: center;
+    width: 100%;
+    padding: var(--space-md);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin: var(--space-md) 0;
+
+    @media (max-width: 640px) {
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto;
+      gap: var(--space-sm);
+    }
+  }
+
+  // Extra Large Play Button
+  .podcast-episode__play-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: var(--radius-full);
+    border: none;
+    background: var(--color-primary-500);
+    color: var(--color-white);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    z-index: 2;
+
+    &:hover {
+      background: var(--color-primary-600);
+      transform: scale(var(--animation-scale-hover-subtle));
+    }
+
+    &:active {
+      transform: scale(var(--animation-scale-hover));
+    }
+
+    &:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--focus-ring);
+    }
+
+    @media (max-width: 640px) {
+      grid-row: span 2;
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  // Play/Pause Icons
+  .podcast-episode__play-icon,
+  .podcast-episode__pause-icon {
+    width: 60px;
+    height: 60px;
+
+    @media (max-width: 640px) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .podcast-episode__pause-icon {
+    display: none;
+  }
+
+  .is-playing .podcast-episode__play-icon {
+    display: none;
+  }
+
+  .is-playing .podcast-episode__pause-icon {
+    display: inline;
+  }
+
+  // SoundCloud-style Waveform Progress Bar
+  .podcast-episode__progress-container {
+    position: relative;
+    height: 60px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+    width: 100%;
+    transition: all var(--transition-normal);
+
+    @media (max-width: 640px) {
+      height: 40px;
+    }
+  }
+
+  .podcast-episode__waveform-bg {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    padding: var(--space-sm);
+    gap: 2px;
+  }
+
+  .podcast-episode__waveform-bar {
+    flex: 1;
+    background: var(--color-white);
+    border-radius: var(--radius-sm);
+    min-height: 8px;
+    max-height: 80%;
+    transition: all var(--transition-normal);
+    position: relative;
+    box-shadow: var(--shadow-sm);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to top, var(--color-primary-400), var(--color-primary-500));
+      border-radius: var(--radius-sm);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform var(--transition-normal);
+    }
+
+    &.active::after {
+      transform: scaleY(1);
+      background: linear-gradient(to top, var(--color-primary-500), var(--color-primary-600));
+    }
+  }
+
+  .podcast-episode__progress-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(
+      90deg,
+      rgba(var(--color-primary-rgb), 0.05),
+      rgba(var(--color-primary-rgb), 0.1)
+    );
+    pointer-events: none;
+    z-index: 1;
+    transition: width var(--transition-fast);
+  }
+
+  // Active state when playing
+  .is-playing .podcast-episode__waveform-bar.active::after {
+    background: linear-gradient(to top, var(--color-primary-500), var(--color-primary-600));
+    animation: pulse var(--animation-pulse-duration) infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  // Loading state
+  .is-loading .podcast-episode__progress-container {
+    opacity: var(--opacity-medium);
+  }
+
+  .is-loading .podcast-episode__waveform-bar {
+    animation: loading-wave var(--animation-duration-slow) infinite;
+  }
+
+  @keyframes loading-wave {
+    0%,
+    100% {
+      transform: scaleY(0.3);
+    }
+    50% {
+      transform: scaleY(1);
+    }
+  }
+
+  // Error state
+  .has-error .podcast-episode__progress-container {
+    background: var(--bg-error);
+  }
+
+  .has-error .podcast-episode__waveform-bar {
+    background: var(--color-error-100);
+
+    &::after {
+      background: linear-gradient(to top, var(--color-error-400), var(--color-error-500));
+    }
+  }
+
+  // Time Display
+  .podcast-episode__time-display {
+    font-family: var(--font-family-mono);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    white-space: nowrap;
+    padding: var(--space-xs) var(--space-sm);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+
+    @media (max-width: 640px) {
+      grid-column: 2;
+      justify-self: start;
+      font-size: var(--text-xs);
+    }
+  }
+
+  .podcast-episode__time-separator {
+    margin: 0 4px;
+    opacity: 0.5;
+  }
+
+  // Loading State
+  .is-loading .podcast-episode__play-button {
+    opacity: var(--opacity-medium);
+    animation: pulse var(--animation-pulse-duration) infinite;
+  }
+
+  // Error State
+  .has-error .podcast-episode__play-button {
+    background: var(--color-error-500);
+    cursor: not-allowed;
+  }
+
+  // States
   .is-playing .podcast-episode__image-wrapper {
     box-shadow:
       0 0 0 var(--border-width-thick) var(--color-primary-500),
@@ -358,19 +601,24 @@ const audioId = `podcast-audio-${podcast.id}`;
   .has-error .podcast-episode__image-wrapper {
     opacity: var(--opacity-low);
   }
+
+  // Screen reader only class
+  .sr-only {
+    position: absolute;
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
+    padding: 0;
+    margin: var(--sr-only-margin);
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 </style>
 
 <script>
-  // Initialize custom audio players when DOM is loaded
-  document.addEventListener("DOMContentLoaded", initAllAudioPlayers);
-
-  // Also run if DOM is already loaded
-  if (document.readyState === "complete" || document.readyState === "interactive") {
-    setTimeout(initAllAudioPlayers, 100);
-  }
-
   // Format time in MM:SS format
-  function formatTime(seconds: number): string {
+  const formatTime = (seconds: number): string => {
     if (isNaN(seconds) || !isFinite(seconds)) {
       return "0:00";
     }
@@ -379,36 +627,19 @@ const audioId = `podcast-audio-${podcast.id}`;
     const remainingSeconds = Math.floor(seconds % 60);
 
     return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
-  }
+  };
 
   // Find parent episode container
-  function findParentEpisode(element: Element): Element | null {
+  const findParentEpisode = (element: Element): Element | null => {
     let current: Element | null = element;
     while (current && !current.classList.contains("podcast-episode")) {
       current = current.parentElement;
     }
     return current;
-  }
-
-  // Initialize all audio players on the page
-  function initAllAudioPlayers(): void {
-    try {
-      const audioElements = document.querySelectorAll(
-        ".podcast-episode__audio"
-      ) as NodeListOf<HTMLAudioElement>;
-      console.log(`Found ${audioElements.length} audio players`);
-
-      audioElements.forEach((audio: HTMLAudioElement) => {
-        console.log(`Initializing audio player for: ${audio.dataset.audioUrl}`);
-        initSingleAudioPlayer(audio);
-      });
-    } catch (err) {
-      console.error("Error initializing audio players:", err);
-    }
-  }
+  };
 
   // Initialize a single audio player with custom UI
-  function initSingleAudioPlayer(audio: HTMLAudioElement): void {
+  const initSingleAudioPlayer = (audio: HTMLAudioElement): void => {
     try {
       const episodeElement = findParentEpisode(audio);
       if (!episodeElement) {
@@ -458,6 +689,34 @@ const audioId = `podcast-audio-${podcast.id}`;
       audio.currentTime = 0;
       episodeElement.classList.remove("is-playing", "is-loading", "has-error");
       cleanPlayButton.setAttribute("aria-label", "Play audio");
+
+      // Helper function to actually play the audio
+      const playAudio = async (): Promise<void> => {
+        if (!episodeElement) {
+          console.error("Episode element not found");
+          return;
+        }
+
+        try {
+          await audio.play();
+          console.log("Audio started successfully");
+          episodeElement.classList.add("is-playing");
+          cleanPlayButton.setAttribute("aria-label", "Pause audio");
+        } catch (error: unknown) {
+          console.error("Error playing audio:", error);
+
+          // Handle specific autoplay policy errors
+          if (
+            error instanceof Error &&
+            (error.name === "NotAllowedError" || error.message.includes("user gesture"))
+          ) {
+            console.log("Autoplay blocked - user interaction required");
+            episodeElement.classList.add("has-error");
+          } else {
+            episodeElement.classList.add("has-error");
+          }
+        }
+      };
 
       // Play/Pause button functionality
       cleanPlayButton.addEventListener("click", () => {
@@ -518,40 +777,11 @@ const audioId = `podcast-audio-${podcast.id}`;
           episodeElement.classList.remove("is-playing");
           cleanPlayButton.setAttribute("aria-label", "Play audio");
         }
-
-        // Helper function to actually play the audio
-        function playAudio() {
-          if (!episodeElement) {
-            console.error("Episode element not found");
-            return;
-          }
-
-          audio
-            .play()
-            .then(() => {
-              console.log("Audio started successfully");
-              episodeElement.classList.add("is-playing");
-              cleanPlayButton.setAttribute("aria-label", "Pause audio");
-            })
-            .catch((error: Error) => {
-              console.error("Error playing audio:", error);
-
-              // Handle specific autoplay policy errors
-              if (error.name === "NotAllowedError" || error.message.includes("user gesture")) {
-                console.log("Autoplay blocked - user interaction required");
-                // Show user-friendly message
-                episodeElement.classList.add("has-error");
-                // You could show a message to the user here
-              } else {
-                episodeElement.classList.add("has-error");
-              }
-            });
-        }
       });
 
       // Progress bar click functionality (seek)
-      progressContainer.addEventListener("click", function (event: MouseEvent) {
-        const rect = this.getBoundingClientRect();
+      progressContainer.addEventListener("click", (event: MouseEvent) => {
+        const rect = progressContainer.getBoundingClientRect();
         const clickPosition = (event.clientX - rect.left) / rect.width;
         audio.currentTime = clickPosition * audio.duration;
       });
@@ -644,277 +874,30 @@ const audioId = `podcast-audio-${podcast.id}`;
     } catch (err) {
       console.error("Failed to initialize player:", err);
     }
+  };
+
+  // Initialize all audio players on the page
+  const initAllAudioPlayers = (): void => {
+    try {
+      const audioElements = document.querySelectorAll(
+        ".podcast-episode__audio"
+      ) as NodeListOf<HTMLAudioElement>;
+      console.log(`Found ${audioElements.length} audio players`);
+
+      audioElements.forEach((audio: HTMLAudioElement) => {
+        console.log(`Initializing audio player for: ${audio.dataset.audioUrl}`);
+        initSingleAudioPlayer(audio);
+      });
+    } catch (err) {
+      console.error("Error initializing audio players:", err);
+    }
+  };
+
+  // Initialize custom audio players when DOM is loaded
+  document.addEventListener("DOMContentLoaded", initAllAudioPlayers);
+
+  // Also run if DOM is already loaded
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    setTimeout(initAllAudioPlayers, 100);
   }
 </script>
-
-<style>
-  /* Custom Audio Player Styles - SoundCloud Style */
-  .podcast-episode__custom-player {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: var(--space-md);
-    align-items: center;
-    width: 100%;
-    padding: var(--space-md);
-    background: var(--bg-tertiary);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    margin: var(--space-md) 0;
-  }
-
-  /* Extra Large Play Button */
-  .podcast-episode__play-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-    border-radius: var(--radius-full);
-    border: none;
-    background: var(--color-primary-500);
-    color: var(--color-white);
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    box-shadow: var(--shadow-lg);
-    position: relative;
-    z-index: 2;
-  }
-
-  .podcast-episode__play-button:hover {
-    background: var(--color-primary-600);
-    transform: scale(var(--animation-scale-hover-subtle));
-  }
-
-  .podcast-episode__play-button:active {
-    transform: scale(var(--animation-scale-hover));
-  }
-
-  .podcast-episode__play-button:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-ring);
-  }
-
-  /* Play/Pause Icons */
-  .podcast-episode__play-icon,
-  .podcast-episode__pause-icon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .podcast-episode__pause-icon {
-    display: none;
-  }
-
-  .is-playing .podcast-episode__play-icon {
-    display: none;
-  }
-
-  .is-playing .podcast-episode__pause-icon {
-    display: inline;
-  }
-
-  /* SoundCloud-style Waveform Progress Bar */
-  .podcast-episode__progress-container {
-    position: relative;
-    height: 60px;
-    background: var(--bg-tertiary);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    cursor: pointer;
-    width: 100%;
-    transition: all var(--transition-normal);
-  }
-
-  .podcast-episode__waveform-bg {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    width: 100%;
-    padding: var(--space-sm);
-    gap: 2px;
-  }
-
-  .podcast-episode__waveform-bar {
-    flex: 1;
-    background: var(--color-white);
-    border-radius: var(--radius-sm);
-    min-height: 8px;
-    max-height: 80%;
-    transition: all var(--transition-normal);
-    position: relative;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .podcast-episode__waveform-bar::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to top, var(--color-primary-400), var(--color-primary-500));
-    border-radius: var(--radius-sm);
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform var(--transition-normal);
-  }
-
-  .podcast-episode__progress-indicator {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(
-      90deg,
-      rgba(var(--color-primary-rgb), 0.05),
-      rgba(var(--color-primary-rgb), 0.1)
-    );
-    pointer-events: none;
-    z-index: 1;
-    transition: width var(--transition-fast);
-  }
-
-  /* Active bars styling - fill up with color */
-  .podcast-episode__waveform-bar.active::after {
-    transform: scaleY(1);
-    background: linear-gradient(to top, var(--color-primary-500), var(--color-primary-600));
-  }
-
-  /* Active state when playing */
-  .is-playing .podcast-episode__waveform-bar.active::after {
-    background: linear-gradient(to top, var(--color-primary-500), var(--color-primary-600));
-    animation: pulse var(--animation-pulse-duration) infinite;
-  }
-
-  @keyframes pulse {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.8;
-    }
-  }
-
-  /* Loading state */
-  .is-loading .podcast-episode__progress-container {
-    opacity: var(--opacity-medium);
-  }
-
-  .is-loading .podcast-episode__waveform-bar {
-    animation: loading-wave var(--animation-duration-slow) infinite;
-  }
-
-  @keyframes loading-wave {
-    0%,
-    100% {
-      transform: scaleY(0.3);
-    }
-    50% {
-      transform: scaleY(1);
-    }
-  }
-
-  /* Error state */
-  .has-error .podcast-episode__progress-container {
-    background: var(--bg-error);
-  }
-
-  .has-error .podcast-episode__waveform-bar {
-    background: var(--color-error-100);
-  }
-
-  .has-error .podcast-episode__waveform-bar::after {
-    background: linear-gradient(to top, var(--color-error-400), var(--color-error-500));
-  }
-
-  /* Time Display */
-  .podcast-episode__time-display {
-    font-family: var(--font-family-mono);
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
-    white-space: nowrap;
-    padding: var(--space-xs) var(--space-sm);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-md);
-  }
-
-  .podcast-episode__time-separator {
-    margin: 0 4px;
-    opacity: 0.5;
-  }
-
-  /* Loading State */
-  .is-loading .podcast-episode__play-button {
-    opacity: var(--opacity-medium);
-    animation: pulse var(--animation-pulse-duration) infinite;
-  }
-
-  @keyframes pulse {
-    0% {
-      opacity: var(--opacity-medium);
-      transform: scale(var(--animation-scale-default));
-    }
-    50% {
-      opacity: var(--opacity-low);
-      transform: scale(var(--animation-scale-hover));
-    }
-    100% {
-      opacity: var(--opacity-medium);
-      transform: scale(var(--animation-scale-default));
-    }
-  }
-
-  /* Error State */
-  .has-error .podcast-episode__play-button {
-    background: var(--color-error-500);
-    cursor: not-allowed;
-  }
-
-  /* Responsive Adjustments */
-  @media (max-width: 640px) {
-    .podcast-episode__custom-player {
-      grid-template-columns: auto 1fr;
-      grid-template-rows: auto auto;
-      gap: var(--space-sm);
-    }
-
-    .podcast-episode__play-button {
-      grid-row: span 2;
-      width: 80px;
-      height: 80px;
-    }
-
-    .podcast-episode__play-icon,
-    .podcast-episode__pause-icon {
-      width: 40px;
-      height: 40px;
-    }
-
-    .podcast-episode__progress-container {
-      height: 40px;
-    }
-
-    .podcast-episode__time-display {
-      grid-column: 2;
-      justify-self: start;
-      font-size: var(--text-xs);
-    }
-  }
-
-  /* Screen reader only class */
-  .sr-only {
-    position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    padding: 0;
-    margin: var(--sr-only-margin);
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-</style>

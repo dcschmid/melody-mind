@@ -1,72 +1,9 @@
 ---
 /**
- * @component EndOverlay
- * @description A modal overlay that displays end-game results with score visualization, motivational text,
+ * EndOverlay Component
+ *
+ * A modal overlay that displays end-game results with score visualization, motivational text,
  * and achievement feedback. Implements WCAG AAA accessibility standards and optimized performance.
- *
- * WCAG AAA Accessibility Enhancements (2025-06-03):
- * 1. ✅ Gradient Text Contrast Verification
- *    - Enhanced gradient colors with better contrast ratios (7:1)
- *    - Added fallback colors for high contrast mode
- *    - Implemented text shadows for improved readability
- *    - Added support for forced-colors and prefers-contrast media queries
- *
- * 2. ✅ Enhanc  .popup__btn--primary {
-    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
-    color: var(--color-white);
-
-    &:hover {
-      background: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-800) 100%);
-    }
-  }
-
-  .popup__btn--secondary {
-    background-color: transparent;
-    color: var(--text-primary);
-    border: var(--border-width-thin) solid var(--border-primary);
-
-    &:hover {
-      background-color: var(--bg-tertiary);
-      border-color: var(--border-secondary);
-    }
-  }Implementation
- *    - Added enhanced line spacing (--leading-enhanced)
- *    - Implemented improved letter spacing (--letter-spacing-enhanced)
- *    - Added proper word spacing (--word-spacing-enhanced)
- *    - Applied WCAG AAA text spacing requirements
- *
- * 3. ✅ Improved Animation Accessibility
- *    - Enhanced reduced motion support with complete animation disabling
- *    - Added alternative visual feedback for reduced motion users
- *    - Implemented outline-based feedback as motion alternative
- *    - Enhanced motion sensitivity support with high contrast combinations
- *
- * 4. ✅ Missing ARIA Labels Added
- *    - Added comprehensive ARIA labels to all interactive elements
- *    - Implemented role attributes for semantic regions
- *    - Added aria-describedby for detailed descriptions
- *    - Enhanced screen reader support with hidden descriptive text
- *    - Added proper role="status" for live announcements
- *
- * 5. ✅ Enhanced Touch Target Verification
- *    - Ensured all touch targets meet 44x44px minimum (--touch-target-enhanced)
- *    - Enhanced button padding to guarantee touch target compliance
- *    - Improved spacing between interactive elements
- *    - Added min-height and min-width constraints for all buttons
- *
- * 6. ✅ Timeout Management Implementation
- *    - Added comprehensive timeout management system
- *    - Implemented user preference support for extended timeouts
- *    - Added ability to disable auto-timeouts for accessibility needs
- *    - Enhanced timeout handling with proper cleanup
- *    - Integrated with system preferences (prefers-reduced-motion)
- *
- * 7. ✅ Enhanced Error Handling
- *    - Implemented comprehensive error handling with AccessibilityError class
- *    - Added detailed error logging with context information
- *    - Enhanced error recovery mechanisms
- *    - Implemented safe error storage for user notification
- *    - Added performance metrics tracking for errors and timeouts
  *
  * Features:
  * - Score visualization with animated progress bar
@@ -77,20 +14,10 @@
  * - Optimized animations with reduced motion support
  * - Comprehensive error handling and recovery
  * - Advanced timeout management for accessibility
+ * - Responsive design with mobile-first approach
+ * - Uses SCSS with global CSS variables for all styling
  *
- * Performance Optimizations:
- * - Lazy loading of share utilities to reduce initial bundle size by ~30%
- * - RequestIdleCallback for non-critical initialization
- * - CSS transform-based animations for 60fps performance
- * - Efficient DOM manipulation with document fragments
- * - Event delegation for better memory management
- * - Intersection Observer for visibility-based optimizations
- * - WeakMap-based cleanup for efficient garbage collection
- * - Performance metrics tracking for optimization insights
- * - Code splitting for reduced bundle size
- * - Optimized CSS with GPU-accelerated animations
- *
- * Accessibility Compliance:
+ * Accessibility:
  * - WCAG AAA compliant with proper ARIA attributes
  * - Focus trap implementation for keyboard navigation
  * - Screen reader announcements for game results
@@ -102,6 +29,12 @@
  * - Advanced error handling with recovery
  * - Text spacing meeting WCAG AAA requirements
  * - Comprehensive ARIA labeling and descriptions
+ *
+ * @component
+ * @example
+ * ```astro
+ * <EndOverlay id="end-overlay" data-score="85" data-category="rock" data-difficulty="hard" />
+ * ```
  */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
@@ -131,13 +64,12 @@ const clientTranslations = {
   "game.end.announcement.gameOver": t("game.end.announcement.gameOver", {
     score: 0,
     level: "level",
-  }), // Template with placeholders
+  }),
   "game.end.level.genius": t("game.end.level.genius"),
   "game.end.level.pro": t("game.end.level.pro"),
   "game.end.level.enthusiast": t("game.end.level.enthusiast"),
   "game.end.level.lover": t("game.end.level.lover"),
   "game.end.level.explorer": t("game.end.level.explorer"),
-  // Motivation text translations for different achievement levels
   "game.end.motivation.genius": t("game.end.motivation.genius"),
   "game.end.motivation.pro": t("game.end.motivation.pro"),
   "game.end.motivation.enthusiast": t("game.end.motivation.enthusiast"),
@@ -295,20 +227,66 @@ const clientTranslations = {
 
 <style lang="scss">
   /* =================================================
-   * END OVERLAY - PURE CSS IMPLEMENTATION
-   * Uses only global.css root variables
+   * END OVERLAY - SCSS IMPLEMENTATION
+   * Modern SCSS with global.css variables
    * WCAG AAA 2.2 Compliant Design
    * ================================================= */
 
-  /* Base popup container */
+  // SCSS Variables for component-specific values
+  $overlay-z-index: var(--z-modal);
+  $backdrop-z-index: var(--z-backdrop);
+  $content-z-index: var(--z-modal-content);
+  $achievement-badge-size: var(--achievement-badge-size);
+  $modal-max-width: var(--modal-content-max-width);
+  $modal-max-height: var(--modal-content-max-height);
+  $modal-padding: var(--modal-padding);
+
+  // Mixins for responsive design
+  @mixin mobile {
+    @media (max-width: var(--breakpoint-sm)) {
+      @content;
+    }
+  }
+
+  @mixin tablet {
+    @media (min-width: var(--breakpoint-sm)) and (max-width: var(--breakpoint-lg)) {
+      @content;
+    }
+  }
+
+  @mixin desktop {
+    @media (min-width: var(--breakpoint-lg)) {
+      @content;
+    }
+  }
+
+  @mixin reduced-motion {
+    @media (prefers-reduced-motion: reduce) {
+      @content;
+    }
+  }
+
+  @mixin high-contrast {
+    @media (prefers-contrast: high) {
+      @content;
+    }
+  }
+
+  @mixin forced-colors {
+    @media (forced-colors: active) {
+      @content;
+    }
+  }
+
+  // Base popup container
   .popup {
     position: fixed;
     inset: 0;
-    z-index: var(--z-modal);
+    z-index: $overlay-z-index;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--modal-padding);
+    padding: $modal-padding;
     background-color: var(--backdrop-overlay-dark);
     backdrop-filter: blur(var(--backdrop-blur));
     -webkit-backdrop-filter: blur(var(--backdrop-blur));
@@ -324,40 +302,159 @@ const clientTranslations = {
         opacity: 0;
       }
     }
+
+    // Backdrop for click-to-close
+    &__backdrop {
+      position: absolute;
+      inset: 0;
+      z-index: $backdrop-z-index;
+    }
+
+    // Main popup content
+    &__content {
+      position: relative;
+      width: 100%;
+      max-width: $modal-max-width;
+      max-height: $modal-max-height;
+      overflow-y: auto;
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+      border: var(--border-width-thin) solid var(--border-primary);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      box-shadow: var(--shadow-xl);
+      transform: translateY(0) scale(1);
+      transition:
+        transform var(--transition-normal),
+        opacity var(--transition-normal);
+      z-index: $content-z-index;
+
+      // Enhanced focus styles
+      &:focus-visible {
+        outline: var(--focus-enhanced-outline-dark);
+        outline-offset: var(--space-xs);
+      }
+
+      // Scrollbar styling
+      &::-webkit-scrollbar {
+        width: var(--scrollbar-thin);
+        height: var(--scrollbar-thin);
+      }
+
+      &::-webkit-scrollbar-track {
+        background: var(--scrollbar-track-bg);
+        border-radius: var(--scrollbar-track-radius);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb-bg);
+        border-radius: var(--scrollbar-thumb-radius);
+
+        &:hover {
+          background: var(--scrollbar-thumb-hover);
+        }
+      }
+    }
+
+    // Title with enhanced gradient text
+    &__title {
+      font-size: var(--text-3xl);
+      font-weight: var(--font-bold);
+      text-align: center;
+      margin-bottom: var(--space-lg);
+      word-spacing: var(--word-spacing-enhanced);
+
+      // Enhanced gradient with better contrast for WCAG AAA
+      background: linear-gradient(
+        135deg,
+        var(--color-primary-300) 0%,
+        var(--color-secondary-300) 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: var(--color-primary-300);
+      line-height: var(--leading-enhanced);
+      letter-spacing: var(--letter-spacing-enhanced);
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+
+      @include mobile {
+        font-size: var(--text-2xl);
+      }
+    }
+
+    // Button styles
+    &__btn {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-md) var(--space-xl);
+      border-radius: var(--radius-lg);
+      font-size: var(--text-base);
+      font-weight: var(--font-medium);
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      text-decoration: none;
+      border: none;
+      min-height: var(--touch-target-enhanced);
+      min-width: var(--touch-target-enhanced);
+      line-height: var(--leading-enhanced);
+      letter-spacing: var(--letter-spacing-enhanced);
+      padding-top: max(var(--space-md), 12px);
+      padding-bottom: max(var(--space-md), 12px);
+      padding-left: max(var(--space-xl), 16px);
+      padding-right: max(var(--space-xl), 16px);
+
+      &:hover {
+        transform: translateY(var(--animation-y-offset-small));
+      }
+
+      &:focus-visible {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+      }
+
+      &--primary {
+        background: linear-gradient(
+          135deg,
+          var(--color-primary-600) 0%,
+          var(--color-primary-700) 100%
+        );
+        color: var(--color-white);
+
+        &:hover {
+          background: linear-gradient(
+            135deg,
+            var(--color-primary-700) 0%,
+            var(--color-primary-800) 100%
+          );
+        }
+      }
+
+      &--secondary {
+        background-color: transparent;
+        color: var(--text-primary);
+        border: var(--border-width-thin) solid var(--border-primary);
+
+        &:hover {
+          background-color: var(--bg-tertiary);
+          border-color: var(--border-secondary);
+        }
+      }
+
+      @include mobile {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   }
 
-  /* Backdrop for click-to-close */
-  .popup__backdrop {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-  }
-
-  /* Main popup content */
-  .popup__content {
-    position: relative;
-    width: 100%;
-    max-width: var(--modal-content-max-width);
-    max-height: var(--modal-content-max-height);
-    overflow-y: auto;
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-    border: var(--border-width-thin) solid var(--border-primary);
-    border-radius: var(--radius-xl);
-    padding: var(--space-2xl);
-    box-shadow: var(--shadow-xl);
-    transform: translateY(0) scale(1);
-    transition:
-      transform var(--transition-normal),
-      opacity var(--transition-normal);
-  }
-
-  /* Achievement badge with trophy */
+  // Achievement badge with trophy
   .achievement-badge {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--achievement-badge-size);
-    height: var(--achievement-badge-size);
+    width: $achievement-badge-size;
+    height: $achievement-badge-size;
     margin: 0 auto var(--space-lg);
     background: linear-gradient(135deg, var(--color-warning-400) 0%, var(--color-warning-500) 100%);
     border-radius: var(--radius-full);
@@ -365,54 +462,7 @@ const clientTranslations = {
     animation: pulse-glow var(--animation-pulse-duration) infinite;
   }
 
-  /* ================================================= 
-   * UTILITY CLASSES (DRY IMPLEMENTATION)
-   * ================================================= */
-
-  /* Enhanced gradient text utility - WCAG AAA compliant */
-  .gradient-text-enhanced,
-  .popup__title,
-  .score-section__value {
-    /* Enhanced gradient with better contrast for WCAG AAA */
-    background: linear-gradient(
-      135deg,
-      var(--color-primary-300) 0%,
-      var(--color-secondary-300) 100%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    /* Enhanced fallback with WCAG AAA contrast (7:1) */
-    color: var(--color-primary-300);
-    /* Enhanced text spacing for better readability */
-    line-height: var(--leading-enhanced);
-    letter-spacing: var(--letter-spacing-enhanced);
-    /* Ensure contrast ratios meet WCAG AAA requirements */
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
-  }
-
-  /* Gradient text contrast fallback for high contrast mode and low support */
-  @media (forced-colors: active), (prefers-contrast: high) {
-    .gradient-text-enhanced,
-    .popup__title,
-    .score-section__value {
-      background: none !important;
-      -webkit-text-fill-color: CanvasText !important;
-      color: CanvasText !important;
-      text-shadow: none;
-    }
-  }
-
-  /* Popup title - Enhanced with gradient text contrast verification */
-  .popup__title {
-    font-size: var(--text-3xl);
-    font-weight: var(--font-bold);
-    text-align: center;
-    margin-bottom: var(--space-lg);
-    word-spacing: var(--word-spacing-enhanced);
-  }
-
-  /* Progress bar container */
+  // Progress bar container
   .achievement-progress {
     width: 100%;
     height: var(--space-lg);
@@ -422,58 +472,57 @@ const clientTranslations = {
     margin-bottom: var(--space-xl);
     overflow: hidden;
     position: relative;
-  }
 
-  .achievement-progress__bar {
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(
-      90deg,
-      var(--color-primary-500) 0%,
-      var(--color-secondary-500) 50%,
-      var(--color-primary-600) 100%
-    );
-    border-radius: var(--radius-lg);
-    position: relative;
-    transform: scaleX(0);
-    transform-origin: left center;
-    transition: transform var(--transition-slow);
-    will-change: transform;
-
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+    &__bar {
+      height: 100%;
+      width: 100%;
       background: linear-gradient(
         90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.2) 50%,
-        transparent 100%
+        var(--color-primary-500) 0%,
+        var(--color-secondary-500) 50%,
+        var(--color-primary-600) 100%
       );
-      animation: shimmer var(--animation-shimmer-duration) infinite;
+      border-radius: var(--radius-lg);
+      position: relative;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform var(--transition-slow);
+      will-change: transform;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.2) 50%,
+          transparent 100%
+        );
+        animation: shimmer var(--animation-shimmer-duration) infinite;
+      }
     }
   }
 
-  /* Motivation text - Enhanced with improved text spacing */
+  // Motivation text
   .motivation-text {
     font-size: var(--text-base);
-    line-height: var(--leading-enhanced); /* Enhanced line spacing for WCAG AAA */
-    letter-spacing: var(--letter-spacing-enhanced); /* Enhanced letter spacing */
-    word-spacing: var(--word-spacing-enhanced); /* Enhanced word spacing */
+    line-height: var(--leading-enhanced);
+    letter-spacing: var(--letter-spacing-enhanced);
+    word-spacing: var(--word-spacing-enhanced);
     text-align: center;
     color: var(--text-secondary);
     margin-bottom: var(--space-xl);
     max-width: var(--motivation-text-max-width);
     margin-left: auto;
     margin-right: auto;
-    /* WCAG AAA text spacing requirements */
     text-spacing: var(--text-spacing-enhanced);
   }
 
-  /* Score section */
+  // Score section
   .score-section {
     display: flex;
     flex-direction: column;
@@ -484,23 +533,41 @@ const clientTranslations = {
     border: var(--border-width-thin) solid var(--border-primary);
     border-radius: var(--radius-lg);
     margin-bottom: var(--space-lg);
+
+    &__label {
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-enhanced);
+    }
+
+    &__value {
+      font-size: var(--text-4xl);
+      font-weight: var(--font-bold);
+      color: var(--text-primary);
+
+      // Enhanced gradient text
+      background: linear-gradient(
+        135deg,
+        var(--color-primary-300) 0%,
+        var(--color-secondary-300) 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: var(--color-primary-300);
+      line-height: var(--leading-enhanced);
+      letter-spacing: var(--letter-spacing-enhanced);
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+
+      @include mobile {
+        font-size: var(--text-3xl);
+      }
+    }
   }
 
-  .score-section__label {
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-enhanced);
-  }
-
-  .score-section__value {
-    font-size: var(--text-4xl);
-    font-weight: var(--font-bold);
-    color: var(--text-primary);
-  }
-
-  /* Difficulty badge */
+  // Difficulty badge
   .difficulty-badge {
     display: flex;
     align-items: center;
@@ -516,24 +583,24 @@ const clientTranslations = {
     font-weight: var(--font-medium);
   }
 
-  /* Achievements section */
+  // Achievements section
   .achievements-section {
     margin-bottom: var(--space-xl);
-  }
 
-  .achievements-section__title {
-    font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
-    color: var(--text-primary);
-    text-align: center;
-    margin-bottom: var(--space-lg);
-  }
+    &__title {
+      font-size: var(--text-lg);
+      font-weight: var(--font-semibold);
+      color: var(--text-primary);
+      text-align: center;
+      margin-bottom: var(--space-lg);
+    }
 
-  .achievements-section__container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-    justify-content: center;
+    &__container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      justify-content: center;
+    }
   }
 
   .achievement-item {
@@ -552,13 +619,13 @@ const clientTranslations = {
     }
   }
 
-  /* ================================================= 
-   * BASE BUTTON CLASSES (DRY IMPLEMENTATION)
-   * ================================================= */
+  // Share section
+  .share-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-xl);
+  }
 
-  /* Base button styles - shared across all button types */
-  .btn-base,
-  .popup__btn,
   .share-btn {
     display: flex;
     align-items: center;
@@ -571,38 +638,14 @@ const clientTranslations = {
     transition: all var(--transition-normal);
     text-decoration: none;
     border: none;
-    /* Enhanced touch target size for WCAG AAA compliance */
     min-height: var(--touch-target-enhanced);
     min-width: var(--touch-target-enhanced);
-    /* Enhanced text spacing for better readability */
     line-height: var(--leading-enhanced);
     letter-spacing: var(--letter-spacing-enhanced);
-    /* Ensure adequate padding for touch targets */
     padding-top: max(var(--space-md), 12px);
     padding-bottom: max(var(--space-md), 12px);
     padding-left: max(var(--space-xl), 16px);
     padding-right: max(var(--space-xl), 16px);
-
-    /* Base button hover effects */
-    &:hover {
-      transform: translateY(var(--animation-y-offset-small));
-    }
-
-    /* Base button focus styles */
-    &:focus-visible {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-    }
-  }
-
-  /* Share section */
-  .share-section {
-    display: flex;
-    justify-content: center;
-    margin-bottom: var(--space-xl);
-  }
-
-  .share-btn {
     background: linear-gradient(
       135deg,
       var(--color-secondary-600) 0%,
@@ -616,38 +659,28 @@ const clientTranslations = {
         var(--color-secondary-700) 0%,
         var(--color-secondary-800) 100%
       );
+      transform: translateY(var(--animation-y-offset-small));
+    }
+
+    &:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
     }
   }
 
-  /* Button wrapper */
+  // Button wrapper
   .button-wrapper {
     display: flex;
     gap: var(--space-md);
     justify-content: center;
     flex-wrap: wrap;
+
+    @include mobile {
+      flex-direction: column;
+    }
   }
 
-  .popup__btn--primary {
-    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
-    color: var(--color-white);
-  }
-
-  .popup__btn--primary:hover {
-    background: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-800) 100%);
-  }
-
-  .popup__btn--secondary {
-    background-color: transparent;
-    color: var(--text-primary);
-    border: var(--border-width-thin) solid var(--border-primary);
-  }
-
-  .popup__btn--secondary:hover {
-    background-color: var(--bg-tertiary);
-    border-color: var(--border-secondary);
-  }
-
-  /* Screen reader only content */
+  // Screen reader only content
   .sr-only {
     position: absolute;
     width: 1px;
@@ -660,9 +693,9 @@ const clientTranslations = {
     border: 0;
   }
 
-  /* ================================================= 
-   * ANIMATIONS
-   * ================================================= */
+  // =================================================
+  // ANIMATIONS
+  // =================================================
 
   @keyframes pulse-glow {
     0% {
@@ -703,11 +736,11 @@ const clientTranslations = {
     animation: fade-in-up var(--transition-slow) ease-out;
   }
 
-  /* ================================================= 
-   * RESPONSIVE DESIGN
-   * ================================================= */
+  // =================================================
+  // RESPONSIVE DESIGN
+  // =================================================
 
-  @media (max-width: 640px) {
+  @include mobile {
     .popup {
       padding: var(--space-md);
     }
@@ -716,31 +749,14 @@ const clientTranslations = {
       padding: var(--space-xl);
       max-width: 100%;
     }
-
-    .popup__title {
-      font-size: var(--text-2xl);
-    }
-
-    .score-section__value {
-      font-size: var(--text-3xl);
-    }
-
-    .button-wrapper {
-      flex-direction: column;
-    }
-
-    .popup__btn {
-      width: 100%;
-      justify-content: center;
-    }
   }
 
-  /* ================================================= 
-   * ACCESSIBILITY ENHANCEMENTS
-   * ================================================= */
+  // =================================================
+  // ACCESSIBILITY ENHANCEMENTS
+  // =================================================
 
-  /* High contrast mode support */
-  @media (forced-colors: active) {
+  // High contrast mode support
+  @include forced-colors {
     .popup__content {
       border: var(--border-width-enhanced) solid CanvasText;
       background: Canvas;
@@ -768,10 +784,18 @@ const clientTranslations = {
       color: ButtonText;
       forced-color-adjust: none;
     }
+
+    .popup__title,
+    .score-section__value {
+      background: none !important;
+      -webkit-text-fill-color: CanvasText !important;
+      color: CanvasText !important;
+      text-shadow: none;
+    }
   }
 
-  /* Reduced motion preferences - Enhanced animation accessibility */
-  @media (prefers-reduced-motion: reduce) {
+  // Reduced motion preferences
+  @include reduced-motion {
     .popup__content,
     .achievement-badge,
     .achievement-progress__bar,
@@ -780,7 +804,6 @@ const clientTranslations = {
     .achievement-item {
       animation: none !important;
       transition: none !important;
-      /* Maintain basic functionality without motion */
       transform: none !important;
     }
 
@@ -793,22 +816,23 @@ const clientTranslations = {
       animation: none !important;
     }
 
-    /* Provide alternative feedback for reduced motion users */
     .achievement-badge {
       outline: 3px solid var(--color-warning-400);
       outline-offset: 2px;
     }
   }
 
-  /* Enhanced motion sensitivity support */
-  @media (prefers-reduced-motion: reduce) and (prefers-contrast: high) {
-    .popup__content {
-      border-width: var(--border-width-enhanced);
-      box-shadow: 0 0 0 2px var(--color-primary-400);
+  // Enhanced motion sensitivity support
+  @include reduced-motion {
+    @include high-contrast {
+      .popup__content {
+        border-width: var(--border-width-enhanced);
+        box-shadow: 0 0 0 2px var(--color-primary-400);
+      }
     }
   }
 
-  /* Print styles */
+  // Print styles
   @media print {
     .popup__content {
       border: var(--print-border);
@@ -836,43 +860,27 @@ const clientTranslations = {
       color: var(--print-text) !important;
     }
   }
-
-  /* Enhanced focus indicators for better keyboard navigation */
-  .popup__content:focus-visible {
-    outline: var(--focus-enhanced-outline-dark);
-    outline-offset: var(--space-xs);
-  }
-
-  /* Scrollbar styling for better UX - Using CSS variables for consistency */
-  .popup__content::-webkit-scrollbar {
-    width: var(--scrollbar-thin);
-    height: var(--scrollbar-thin);
-  }
-
-  .popup__content::-webkit-scrollbar-track {
-    background: var(--scrollbar-track-bg);
-    border-radius: var(--scrollbar-track-radius);
-  }
-
-  .popup__content::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-thumb-bg);
-    border-radius: var(--scrollbar-thumb-radius);
-  }
-
-  .popup__content::-webkit-scrollbar-thumb:hover {
-    background: var(--scrollbar-thumb-hover);
-  }
 </style>
 
 <script type="module">
   /**
    * EndOverlay Component Script
    *
+   * Modern ES6+ implementation with async/await, arrow functions, and destructuring.
    * Imports and initializes the EndOverlay utilities for client-side functionality.
    * This follows the project's guideline of extracting complex scripts to external TypeScript files.
    */
-  import { setupEndOverlay } from "/src/utils/endOverlay";
+  import setupEndOverlay from "/src/utils/endOverlay";
 
-  // Initialize the end overlay functionality
-  setupEndOverlay();
+  // Initialize the end overlay functionality with modern async/await
+  const initializeOverlay = async () => {
+    try {
+      await setupEndOverlay();
+    } catch (error) {
+      console.error("Failed to initialize EndOverlay:", error);
+    }
+  };
+
+  // Start initialization
+  initializeOverlay();
 </script>

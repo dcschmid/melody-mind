@@ -171,42 +171,56 @@ const gameModeNames = {
       !isLoading && !error && (
         <div class="highscores__content">
           <section class="highscores__filters" aria-labelledby="filter-heading">
-            <Headline
-              level="h2"
-              id="filter-heading"
-              title={t("highscores.filters")}
-              className="highscores__filter-title"
-              textAlign="center"
-            />
+            <div class="highscores__filters-container">
+              <Headline
+                level="h2"
+                id="filter-heading"
+                title={t("highscores.filters")}
+                className="highscores__filter-title"
+                textAlign="center"
+              />
 
-            <div class="highscores__filter-grid">
-              <div class="highscores__filter-item">
-                <label for="game-mode-filter" class="highscores__filter-label">
-                  {t("highscores.gameMode")}
-                </label>
-                <select id="game-mode-filter" class="highscores__filter-select">
-                  <option value="">{t("highscores.allModes")}</option>
-                  <option value="quiz" selected={selectedGameMode === "quiz"}>
-                    {gameModeNames.quiz}
-                  </option>
-                  <option value="chronology" selected={selectedGameMode === "chronology"}>
-                    {gameModeNames.chronology}
-                  </option>
-                </select>
-              </div>
+              <div class="highscores__filter-grid">
+                <div class="highscores__filter-group">
+                  <div class="highscores__filter-header">
+                    <Icon name="game" class="highscores__filter-icon" aria-hidden="true" />
+                    <label for="game-mode-filter" class="highscores__filter-label">
+                      {t("highscores.gameMode")}
+                    </label>
+                  </div>
+                  <div class="highscores__select-wrapper">
+                    <select id="game-mode-filter" class="highscores__filter-select">
+                      <option value="">{t("highscores.allModes")}</option>
+                      <option value="quiz" selected={selectedGameMode === "quiz"}>
+                        {gameModeNames.quiz}
+                      </option>
+                      <option value="chronology" selected={selectedGameMode === "chronology"}>
+                        {gameModeNames.chronology}
+                      </option>
+                    </select>
+                    <Icon name="chevron-down" class="highscores__select-arrow" aria-hidden="true" />
+                  </div>
+                </div>
 
-              <div class="highscores__filter-item">
-                <label for="category-filter" class="highscores__filter-label">
-                  {t("highscores.category")}
-                </label>
-                <select id="category-filter" class="highscores__filter-select">
-                  <option value="">{t("highscores.allCategories")}</option>
-                  {categories.map((category) => (
-                    <option value={category} selected={selectedCategory === category}>
-                      {category}
-                    </option>
-                  ))}
-                </select>
+                <div class="highscores__filter-group">
+                  <div class="highscores__filter-header">
+                    <Icon name="category" class="highscores__filter-icon" aria-hidden="true" />
+                    <label for="category-filter" class="highscores__filter-label">
+                      {t("highscores.category")}
+                    </label>
+                  </div>
+                  <div class="highscores__select-wrapper">
+                    <select id="category-filter" class="highscores__filter-select">
+                      <option value="">{t("highscores.allCategories")}</option>
+                      {categories.map((category) => (
+                        <option value={category} selected={selectedCategory === category}>
+                          {category}
+                        </option>
+                      ))}
+                    </select>
+                    <Icon name="chevron-down" class="highscores__select-arrow" aria-hidden="true" />
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -239,15 +253,16 @@ const gameModeNames = {
                       username: score.username,
                     })}
                   >
-                    <div class="highscores__card-header">
-                      <div class="highscores__card-rank">
-                        <span
-                          class={`highscores__rank highscores__rank--${index < 3 ? "medal" : "normal"}`}
-                          aria-label={t("highscores.rank")}
-                        >
-                          {index + 1}
-                        </span>
-                      </div>
+                    <div class="highscores__card-badge">
+                      <span
+                        class={`highscores__rank-badge highscores__rank-badge--medal highscores__rank-badge--${index === 0 ? "gold" : index === 1 ? "silver" : index === 2 ? "bronze" : "normal"}`}
+                        aria-label={t("highscores.rank")}
+                      >
+                        <span>{index + 1}</span>
+                      </span>
+                    </div>
+
+                    <div class="highscores__card-content">
                       <div class="highscores__card-main">
                         <Headline
                           level="h3"
@@ -259,35 +274,48 @@ const gameModeNames = {
                           <span class="highscores__score-label">{t("highscores.points")}</span>
                         </div>
                       </div>
-                    </div>
 
-                    <div class="highscores__card-details">
-                      <div class="highscores__card-detail">
-                        <span class="highscores__card-detail-label">
-                          {t("highscores.gameMode")}:
-                        </span>
-                        <span class="highscores__card-detail-value highscores__mode">
-                          {gameModeNames[score.gameMode]}
-                        </span>
-                      </div>
+                      <div class="highscores__card-details">
+                        <div class="highscores__detail-item">
+                          <div class="highscores__detail-header">
+                            <Icon name="game" class="highscores__detail-icon" aria-hidden="true" />
+                            <span class="highscores__detail-label">{t("highscores.gameMode")}</span>
+                          </div>
+                          <span class="highscores__detail-value highscores__mode">
+                            {gameModeNames[score.gameMode]}
+                          </span>
+                        </div>
 
-                      <div class="highscores__card-detail">
-                        <span class="highscores__card-detail-label">
-                          {t("highscores.category")}:
-                        </span>
-                        <span class="highscores__card-detail-value highscores__category">
-                          {score.category}
-                        </span>
-                      </div>
+                        <div class="highscores__detail-item">
+                          <div class="highscores__detail-header">
+                            <Icon
+                              name="category"
+                              class="highscores__detail-icon"
+                              aria-hidden="true"
+                            />
+                            <span class="highscores__detail-label">{t("highscores.category")}</span>
+                          </div>
+                          <span class="highscores__detail-value highscores__category">
+                            {score.category}
+                          </span>
+                        </div>
 
-                      <div class="highscores__card-detail">
-                        <span class="highscores__card-detail-label">{t("highscores.date")}:</span>
-                        <time
-                          class="highscores__card-detail-value highscores__date"
-                          datetime={score.createdAt}
-                        >
-                          {formatHighscoreDate(score.createdAt)}
-                        </time>
+                        <div class="highscores__detail-item">
+                          <div class="highscores__detail-header">
+                            <Icon
+                              name="calendar"
+                              class="highscores__detail-icon"
+                              aria-hidden="true"
+                            />
+                            <span class="highscores__detail-label">{t("highscores.date")}</span>
+                          </div>
+                          <time
+                            class="highscores__detail-value highscores__date"
+                            datetime={score.createdAt}
+                          >
+                            {formatHighscoreDate(score.createdAt)}
+                          </time>
+                        </div>
                       </div>
                     </div>
                   </article>
@@ -302,21 +330,22 @@ const gameModeNames = {
 </Layout>
 
 <script>
-  // Enhanced filter functionality for highscores
-  document.addEventListener("DOMContentLoaded", () => {
+  // Enhanced filter functionality for highscores with modern ES6+ features
+  const initHighscoresFilters = (): void => {
     const gameModeFilter = document.getElementById("game-mode-filter") as HTMLSelectElement;
     const categoryFilter = document.getElementById("category-filter") as HTMLSelectElement;
 
     if (!gameModeFilter || !categoryFilter) {
+      console.warn("Filter elements not found");
       return;
     }
 
-    // Function to update highscores based on filters
+    // Function to update highscores based on filters using modern URL API
     const updateHighscores = (): void => {
       const gameMode = gameModeFilter.value;
       const category = categoryFilter.value;
 
-      // Build query parameters
+      // Build query parameters using modern URLSearchParams
       const params = new URLSearchParams();
       if (gameMode) {
         params.append("gameMode", gameMode);
@@ -325,55 +354,101 @@ const gameModeNames = {
         params.append("category", category);
       }
 
-      // Get current language from URL
-      const lang = window.location.pathname.split("/")[1];
+      // Get current language from URL using modern URL API
+      const [, lang] = window.location.pathname.split("/");
 
-      // Reload the page with the new filters
-      window.location.href = `/${String(lang)}/highscores?${params.toString()}`;
+      // Navigate with new filters using modern URL construction
+      const newUrl = `/${lang}/highscores${params.toString() ? `?${params.toString()}` : ""}`;
+      window.location.href = newUrl;
     };
 
-    // Add event listeners to filters
+    // Add event listeners using modern arrow functions
     gameModeFilter.addEventListener("change", updateHighscores);
     categoryFilter.addEventListener("change", updateHighscores);
 
-    // Set initial filter values from URL params if present
+    // Set initial filter values from URL params using modern destructuring
     const urlParams = new URLSearchParams(window.location.search);
-    const gameModeParam = urlParams.get("gameMode");
-    const categoryParam = urlParams.get("category");
+    const { gameMode: gameModeParam, category: categoryParam } = Object.fromEntries(urlParams);
 
-    if (gameModeParam) {
-      gameModeFilter.value = gameModeParam;
-    }
+    // Set initial values using optional chaining and nullish coalescing
+    gameModeFilter.value = gameModeParam ?? "";
+    categoryFilter.value = categoryParam ?? "";
+  };
 
-    if (categoryParam) {
-      categoryFilter.value = categoryParam;
-    }
-  });
+  // Initialize filters when DOM is ready using modern event handling
+  document.addEventListener("DOMContentLoaded", initHighscoresFilters);
 </script>
 
-<style lang="scss">
+<style lang="scss" is:global>
+  @use "sass:map";
+
   /* ======================================
-   * CSS CUSTOM PROPERTIES FOR COMPONENT
-   * Enhanced with global.css variables matching GameHome
+   * SCSS VARIABLES & MIXINS
+   * Enhanced with global.css variables and responsive design
    * ====================================== */
 
-  :root {
-    /* Component-specific dimensions using global scale */
-    --highscores-hero-decoration-sm: var(--space-2xl); /* 48px - Small decoration */
-    --highscores-hero-decoration-md: var(--space-3xl); /* 64px - Medium decoration */
-    --highscores-hero-decoration-lg: calc(var(--space-3xl) * 2); /* 128px - Large decoration */
+  // SCSS Variables using global.css tokens
+  $hero-decoration-sm: var(--space-2xl);
+  $hero-decoration-md: var(--space-3xl);
+  $hero-decoration-lg: calc(var(--space-3xl) * 2);
+  $content-max-width: 28rem;
+  $hero-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  $divider-height: 2px;
 
-    /* Layout constraints using design system */
-    --highscores-content-max-width: 28rem; /* 448px - Content max width */
+  // Responsive breakpoints using global.css variables
+  $breakpoint-xs: var(--breakpoint-xs);
+  $breakpoint-sm: var(--breakpoint-sm);
+  $breakpoint-md: var(--breakpoint-md);
+  $breakpoint-lg: var(--breakpoint-lg);
+  $breakpoint-xl: var(--breakpoint-xl);
 
-    /* Visual effects using global tokens */
-    --highscores-hero-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Hero text shadow */
-    --highscores-divider-height: 2px; /* 2px - Divider height */
+  // Breakpoints map for responsive design
+  $breakpoints: (
+    xs: $breakpoint-xs,
+    sm: $breakpoint-sm,
+    md: $breakpoint-md,
+    lg: $breakpoint-lg,
+    xl: $breakpoint-xl,
+  );
+
+  // Mixins for responsive design
+  @mixin respond-to($breakpoint) {
+    @if map.has-key($breakpoints, $breakpoint) {
+      @media (min-width: map.get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    }
+  }
+
+  // Mixin for container queries
+  @mixin container-query($width) {
+    @container (min-width: $width) {
+      @content;
+    }
+  }
+
+  // Mixin for focus states
+  @mixin focus-visible {
+    &:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--focus-ring);
+    }
+  }
+
+  // Mixin for hover effects
+  @mixin hover-lift {
+    transition: all var(--transition-normal);
+
+    &:hover {
+      transform: translateY(calc(-1 * var(--space-xs)));
+      box-shadow: var(--card-shadow-hover);
+    }
   }
 
   /* ======================================
    * HIGHSCORES CONTAINER LAYOUT 
-   * Matching GameHome layout system for consistency
+   * Enhanced responsive design with modern SCSS
    * ====================================== */
 
   .highscores-container {
@@ -384,15 +459,20 @@ const gameModeNames = {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    contain: layout style;
 
-    @media (min-width: var(--breakpoint-md)) {
+    @include respond-to(md) {
       padding: var(--space-xl) var(--space-lg);
+    }
+
+    @include respond-to(lg) {
+      padding: var(--space-2xl) var(--space-xl);
     }
   }
 
   /* ======================================
    * HERO SECTION STYLING
-   * Matching GameHome hero pattern exactly
+   * Enhanced responsive design with modern SCSS
    * ====================================== */
 
   .highscores-hero {
@@ -409,11 +489,17 @@ const gameModeNames = {
     padding: var(--space-xl);
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
+    contain: layout style;
 
-    @media (min-width: 768px) {
+    @include respond-to(md) {
       padding: var(--space-2xl) var(--space-xl);
     }
 
+    @include respond-to(lg) {
+      padding: var(--space-3xl) var(--space-2xl);
+    }
+
+    // Decoration elements with responsive sizing
     &__decoration {
       position: absolute;
       inset: 0;
@@ -424,31 +510,48 @@ const gameModeNames = {
         position: absolute;
         border-radius: var(--radius-full);
         background: var(--color-white);
+        transition: transform var(--transition-normal);
 
         &--top-right {
           top: calc(-1 * var(--space-xl));
           right: calc(-1 * var(--space-xl));
-          width: var(--highscores-hero-decoration-md);
-          height: var(--highscores-hero-decoration-md);
+          width: $hero-decoration-md;
+          height: $hero-decoration-md;
+
+          @include respond-to(lg) {
+            width: $hero-decoration-lg;
+            height: $hero-decoration-lg;
+          }
         }
 
         &--bottom-left {
           bottom: calc(-1 * var(--space-2xl));
           left: calc(-1 * var(--space-2xl));
-          width: var(--highscores-hero-decoration-lg);
-          height: var(--highscores-hero-decoration-lg);
+          width: $hero-decoration-lg;
+          height: $hero-decoration-lg;
+
+          @include respond-to(lg) {
+            width: calc($hero-decoration-lg * 1.5);
+            height: calc($hero-decoration-lg * 1.5);
+          }
         }
 
         &--center-right {
           top: 50%;
           right: calc(-1 * var(--space-md));
-          width: var(--highscores-hero-decoration-sm);
-          height: var(--highscores-hero-decoration-sm);
+          width: $hero-decoration-sm;
+          height: $hero-decoration-sm;
           transform: translateY(-50%);
+
+          @include respond-to(md) {
+            width: $hero-decoration-md;
+            height: $hero-decoration-md;
+          }
         }
       }
     }
 
+    // Content section with responsive typography
     &__content {
       position: relative;
       z-index: 1;
@@ -459,69 +562,151 @@ const gameModeNames = {
     &__title {
       margin-bottom: var(--space-lg);
       color: var(--color-white);
-      text-shadow: var(--highscores-hero-shadow);
+      text-shadow: $hero-shadow;
+      font-size: var(--text-3xl);
+
+      @include respond-to(md) {
+        font-size: var(--text-4xl);
+      }
+
+      @include respond-to(lg) {
+        font-size: var(--text-5xl);
+      }
     }
 
     &__divider {
       width: var(--space-2xl);
-      height: var(--highscores-divider-height);
+      height: $divider-height;
       background: var(--color-secondary-400);
       margin: var(--space-lg) auto;
       border-radius: var(--radius-full);
+
+      @include respond-to(md) {
+        width: var(--space-3xl);
+      }
     }
 
     &__description {
       color: var(--color-neutral-100);
-      font-size: var(--text-xl);
+      font-size: var(--text-lg);
       line-height: var(--leading-relaxed);
-      max-width: var(--highscores-content-max-width);
+      max-width: $content-max-width;
       margin: 0 auto;
+
+      @include respond-to(md) {
+        font-size: var(--text-xl);
+      }
+
+      @include respond-to(lg) {
+        font-size: var(--text-2xl);
+        max-width: calc($content-max-width * 1.2);
+      }
     }
 
     &__seo-description {
-      /* SEO content hidden visually but available to screen readers */
+      // SEO content hidden visually but available to screen readers
     }
   }
 
   /* ======================================
    * RESPONSIVE DESIGN ENHANCEMENTS
-   * Matching GameHome responsive patterns
+   * Enhanced with modern SCSS and container queries
    * ====================================== */
 
-  @media (min-width: 1024px) {
-    .highscores-hero__title {
-      font-size: var(--text-4xl);
-    }
+  // Container queries for better component isolation
+  .highscores-container {
+    container-type: inline-size;
+  }
 
-    .highscores-hero__description {
-      font-size: var(--text-2xl);
+  // Responsive typography using fluid scaling
+  @include respond-to(lg) {
+    .highscores-hero {
+      &__title {
+        font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+      }
+
+      &__description {
+        font-size: clamp(var(--text-lg), 3vw, var(--text-2xl));
+      }
+    }
+  }
+
+  // Fluid spacing for better responsive behavior
+  @include respond-to(xl) {
+    .highscores-container {
+      padding: clamp(var(--space-lg), 5vw, var(--space-3xl))
+        clamp(var(--space-md), 3vw, var(--space-2xl));
     }
   }
 
   /* ======================================
    * ACCESSIBILITY ENHANCEMENTS
-   * Matching GameHome accessibility patterns
+   * Enhanced with modern SCSS and better a11y support
    * ====================================== */
 
+  // Reduced motion support with SCSS mixins
   @media (prefers-reduced-motion: reduce) {
-    .highscores-hero__decoration-item {
-      animation: none;
+    .highscores-hero {
+      &__decoration-item {
+        animation: none;
+        transition: none;
+      }
     }
 
     .highscores__loading-icon {
       animation: none;
     }
-  }
 
-  @media (prefers-contrast: high) {
-    .highscores-hero {
-      border-width: var(--border-width-thick);
+    .highscores__card {
+      transition: var(--transition-instant);
+
+      &:hover {
+        transform: none;
+      }
+    }
+
+    .highscores__rank {
+      transition: var(--transition-instant);
+
+      &:hover {
+        transform: none;
+      }
     }
   }
 
+  // High contrast mode support
+  @media (prefers-contrast: high) {
+    .highscores-hero {
+      border-width: var(--border-width-thick);
+      border-color: var(--color-white);
+    }
+
+    .highscores__card {
+      border-width: var(--border-width-thick);
+      border-color: var(--text-primary);
+    }
+
+    .highscores__rank--medal {
+      background: var(--text-primary) !important;
+      color: var(--bg-primary) !important;
+      border-color: var(--text-primary) !important;
+    }
+  }
+
+  // Focus management improvements
+  .highscores__filter-select {
+    @include focus-visible;
+  }
+
+  .highscores__card {
+    @include focus-visible;
+  }
+
   /* ======================================
-   * LOADING STATE
+   * LOADING & ERROR STATES
+   * Enhanced with modern SCSS and responsive design
    * ====================================== */
+
   .highscores__loading {
     display: flex;
     align-items: center;
@@ -529,9 +714,14 @@ const gameModeNames = {
     min-height: calc(var(--container-sm) * 0.4);
     padding: var(--space-xl);
     margin: var(--space-xl) auto;
+    animation: fadeIn var(--animation-duration-normal) ease-out;
 
     &-content {
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
     }
 
     &-icon {
@@ -539,15 +729,37 @@ const gameModeNames = {
       height: var(--icon-size-lg);
       color: var(--interactive-primary);
       animation: loading-spin var(--animation-pulse-duration) linear infinite;
+
+      @include respond-to(md) {
+        width: var(--icon-size-xl);
+        height: var(--icon-size-xl);
+      }
     }
   }
 
+  .highscores__error {
+    background-color: var(--bg-error-aaa);
+    border: var(--border-width-thin) solid var(--border-error);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin: var(--space-xl) auto;
+    max-width: var(--container-sm);
+    text-align: center;
+    animation: fadeIn var(--animation-duration-normal) ease-out;
+
+    @include respond-to(md) {
+      padding: var(--space-xl);
+      max-width: var(--container-md);
+    }
+  }
+
+  // Keyframe animations with modern SCSS
   @keyframes loading-spin {
     from {
       transform: rotate(var(--rotation-0));
     }
     to {
-      transform: rotate(var(--rotation-270));
+      transform: rotate(var(--rotation-360));
     }
   }
 
@@ -562,194 +774,85 @@ const gameModeNames = {
     }
   }
 
-  /* ======================================
-   * ERROR STATE
-   * ====================================== */
-  .highscores__error {
-    background-color: var(--bg-error-aaa);
-    border: var(--border-width-thin) solid var(--border-error);
-    border-radius: var(--radius-md);
-    padding: var(--space-lg);
-    margin: var(--space-xl) auto;
-    max-width: var(--container-sm);
-    text-align: center;
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(calc(-1 * var(--space-lg)));
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   /* ======================================
-   * CONTENT SECTION
+   * CONTENT & FILTER SECTIONS
+   * Enhanced with modern SCSS and responsive design
    * ====================================== */
+
   .highscores__content {
     margin-top: var(--space-2xl);
     line-height: var(--leading-enhanced);
+    animation: fadeIn var(--animation-duration-normal) ease-out;
   }
 
-  /* ======================================
-   * CONTENT LAYOUT
-   * ====================================== */
-  /* ======================================
-   * FILTER SECTION STYLING
-   * Consistent with GameHome search pattern
-   * ====================================== */
+  // Enhanced filter section with modern design
   .highscores__filters {
-    background-color: var(--card-bg);
-    border: var(--border-width-thin) solid var(--card-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl);
-    box-shadow: var(--card-shadow);
-    transition: box-shadow var(--transition-normal);
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+    animation: slideIn var(--animation-duration-normal) ease-out;
+  }
 
-    &:hover {
-      box-shadow: var(--card-shadow-hover);
-    }
+  .highscores__filters-container {
+    max-width: var(--container-lg);
+    margin: 0 auto;
   }
 
   .highscores__filter-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    max-width: var(--container-sm);
-    margin: 0 auto;
+    gap: var(--space-xl);
+    margin-top: var(--space-2xl);
 
-    @media (min-width: var(--breakpoint-sm)) {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  .highscores__filter-item {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
-
-  .highscores__filter-label {
-    font-size: var(--text-base);
-    font-weight: var(--font-medium);
-    color: var(--form-label);
-    line-height: var(--leading-enhanced);
-  }
-
-  .highscores__filter-select {
-    width: var(--width-full);
-    padding: var(--space-md);
-    background-color: var(--form-bg);
-    border: var(--border-width-thin) solid var(--form-border);
-    border-radius: var(--radius-md);
-    color: var(--form-text);
-    font-size: var(--text-base);
-    line-height: var(--leading-normal);
-    min-height: var(--min-touch-size);
-    transition:
-      border-color var(--transition-fast),
-      box-shadow var(--transition-fast);
-    box-shadow: var(--shadow-lg);
-
-    &:focus {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-      border-color: var(--form-border-focus);
-      box-shadow: var(--focus-ring);
-    }
-
-    &:focus-visible {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-    }
-  }
-
-  /* ======================================
-   * RESULTS SECTION
-   * ====================================== */
-
-  .highscores__empty {
-    text-align: center;
-    padding: var(--space-2xl) var(--space-lg);
-    border-radius: var(--radius-md);
-    background-color: var(--bg-tertiary);
-    border: var(--border-width-thin) solid var(--border-secondary);
-    margin: var(--space-xl) auto;
-    max-width: var(--container-sm);
-  }
-
-  /* ======================================
-   * CARDS GRID LAYOUT
-   * Matching GameHome grid system for consistency
-   * ====================================== */
-  .highscores__cards-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    margin: var(--space-xl) auto;
-    width: var(--width-full);
-    min-height: calc(var(--container-sm) * 0.4);
-    contain: layout style;
-
-    /* Mobile first: 1 column by default */
-    /* --breakpoint-xs: 20em (320px) */
-    @media (min-width: 40em) {
+    @include respond-to(sm) {
       grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-2xl);
     }
 
-    /* --breakpoint-md: 48em (768px) */
-    @media (min-width: 64em) {
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-xl);
+    @include respond-to(lg) {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: var(--container-md);
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
-  /* ======================================
-   * INDIVIDUAL CARD STYLING
-   * ====================================== */
-  .highscores__card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding: var(--space-lg);
-    background: linear-gradient(
-      135deg,
-      var(--card-bg) 0%,
-      color-mix(in srgb, var(--card-bg) 95%, var(--interactive-primary) 5%) 100%
-    );
+  .highscores__filter-group {
+    background: var(--card-bg);
     border: var(--border-width-thin) solid var(--card-border);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
     box-shadow: var(--card-shadow);
     transition: all var(--transition-normal);
+    position: relative;
     overflow: hidden;
-    contain: layout style;
 
-    /* Subtle inner glow */
+    // Subtle inner glow
     box-shadow:
       var(--card-shadow),
       inset 0 1px 0 oklch(from var(--interactive-primary) l c h / 0.1);
 
-    /* Beautiful hover states with enhanced visual feedback */
     &:hover {
-      transform: translateY(calc(-1 * var(--space-xs)));
-      box-shadow:
-        var(--card-shadow-hover),
-        0 0 var(--space-2xl) oklch(from var(--interactive-primary) l c h / 0.15),
-        inset 0 1px 0 oklch(from var(--interactive-primary) l c h / 0.2);
+      transform: translateY(calc(-1 * var(--space-sm)));
+      box-shadow: var(--card-shadow-hover);
       border-color: var(--interactive-primary);
       background: linear-gradient(
         135deg,
         var(--card-bg) 0%,
-        color-mix(in srgb, var(--card-bg) 90%, var(--interactive-primary) 10%) 100%
+        color-mix(in srgb, var(--card-bg) 95%, var(--interactive-primary) 5%) 100%
       );
-
-      &::before {
-        opacity: 1;
-      }
     }
 
-    /* Focus states for accessibility */
-    &:focus-visible {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-      box-shadow: var(--card-shadow-hover), var(--focus-enhanced-shadow);
-    }
-
-    /* Decorative accent line */
+    // Decorative accent line
     &::before {
       content: "";
       position: absolute;
@@ -764,95 +867,262 @@ const gameModeNames = {
         var(--interactive-primary) 100%
       );
       opacity: 0.7;
-      transition: opacity var(--transition-normal);
     }
 
-    /* ======================================
-     * ENHANCED CARD HEADER WITH BEAUTIFUL LAYOUT
-     * ====================================== */
-    &-header {
-      display: flex;
-      align-items: center;
-      gap: var(--space-lg);
-      margin-bottom: var(--space-lg);
-      padding-bottom: var(--space-md);
-      border-bottom: var(--border-width-thin) solid
-        color-mix(in srgb, var(--border-primary) 70%, transparent 30%);
-      position: relative;
-    }
-
-    /* Rank badge with beautiful styling */
-    &-rank {
-      flex-shrink: 0;
+    @include respond-to(md) {
+      padding: var(--space-3xl);
     }
   }
 
-  .highscores__rank {
+  .highscores__filter-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+
+    @include respond-to(md) {
+      margin-bottom: var(--space-2xl);
+    }
+  }
+
+  .highscores__filter-icon {
+    width: var(--icon-size-lg);
+    height: var(--icon-size-lg);
+    color: var(--interactive-primary);
+    flex-shrink: 0;
+
+    @include respond-to(md) {
+      width: var(--icon-size-xl);
+      height: var(--icon-size-xl);
+    }
+  }
+
+  .highscores__filter-label {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    line-height: var(--leading-tight);
+
+    @include respond-to(md) {
+      font-size: var(--text-xl);
+    }
+  }
+
+  .highscores__select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .highscores__filter-select {
+    width: var(--width-full);
+    padding: var(--space-lg) var(--space-xl);
+    background: var(--form-bg);
+    border: var(--border-width-thin) solid var(--form-border);
+    border-radius: var(--radius-lg);
+    color: var(--form-text);
+    font-size: var(--text-base);
+    font-weight: var(--font-medium);
+    line-height: var(--leading-normal);
+    min-height: var(--min-touch-size);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    appearance: none;
+    padding-right: calc(var(--space-xl) + var(--icon-size-lg) + var(--space-md));
+
+    @include focus-visible;
+
+    &:hover {
+      border-color: var(--interactive-primary);
+      background-color: color-mix(in srgb, var(--form-bg) 95%, var(--interactive-primary) 5%);
+    }
+
+    &:focus {
+      border-color: var(--interactive-primary);
+      box-shadow: var(--focus-ring);
+      background-color: var(--form-bg);
+    }
+
+    @include respond-to(md) {
+      padding: var(--space-xl) var(--space-2xl);
+      font-size: var(--text-lg);
+      padding-right: calc(var(--space-2xl) + var(--icon-size-xl) + var(--space-lg));
+    }
+  }
+
+  .highscores__select-arrow {
+    position: absolute;
+    right: var(--space-lg);
+    width: var(--icon-size-md);
+    height: var(--icon-size-md);
+    color: var(--text-secondary);
+    pointer-events: none;
+    transition: color var(--transition-normal);
+
+    @include respond-to(md) {
+      right: var(--space-xl);
+      width: var(--icon-size-lg);
+      height: var(--icon-size-lg);
+    }
+  }
+
+  .highscores__filter-select:hover + .highscores__select-arrow {
+    color: var(--interactive-primary);
+  }
+
+  /* ======================================
+   * RESULTS & CARDS SECTIONS
+   * Enhanced with modern SCSS and responsive design
+   * ====================================== */
+
+  .highscores__list {
+    margin-top: var(--space-3xl);
+  }
+
+  .highscores__list-title {
+    margin-bottom: var(--space-2xl);
+    text-align: center;
+  }
+
+  .highscores__empty {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-lg);
+    border-radius: var(--radius-md);
+    background-color: var(--bg-tertiary);
+    border: var(--border-width-thin) solid var(--border-secondary);
+    margin: var(--space-xl) auto;
+    max-width: var(--container-sm);
+    animation: fadeIn var(--animation-duration-normal) ease-out;
+
+    @include respond-to(md) {
+      padding: var(--space-3xl) var(--space-2xl);
+      max-width: var(--container-md);
+    }
+  }
+
+  // Enhanced cards grid with modern responsive design
+  .highscores__cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-2xl);
+    margin: var(--space-3xl) auto;
+    width: var(--width-full);
+    max-width: var(--container-2xl);
+    contain: layout style;
+    animation: fadeIn var(--animation-duration-normal) ease-out;
+
+    // Responsive grid layout with better breakpoints
+    @include respond-to(sm) {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-xl);
+    }
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-2xl);
+    }
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: var(--space-2xl);
+    }
+
+    @include respond-to(xl) {
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: var(--space-3xl);
+    }
+
+    // Container queries for better component isolation
+    @include container-query(20rem) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @include container-query(30rem) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include container-query(40rem) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include container-query(50rem) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include container-query(60rem) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* ======================================
+   * ENHANCED CARD STYLING
+   * Modern card design with better responsive behavior
+   * ====================================== */
+
+  .highscores__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 420px;
+    background: var(--card-bg);
+    border: var(--border-width-thin) solid var(--card-border);
+    border-radius: var(--radius-3xl);
+    box-shadow: none;
+    transition: none;
+    overflow: hidden;
+    contain: layout style;
+    animation: none;
+    padding-bottom: var(--space-xl);
+  }
+
+  .highscores__card-badge {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--space-3xl);
-    height: var(--space-3xl);
-    border-radius: var(--radius-full);
-    font-size: var(--text-lg);
-    font-weight: var(--font-bold);
-    background: linear-gradient(
-      135deg,
-      var(--bg-tertiary) 0%,
-      color-mix(in srgb, var(--bg-tertiary) 80%, var(--interactive-primary) 20%) 100%
-    );
-    border: var(--border-width-thin) solid var(--border-secondary);
+  }
+
+  .highscores__rank-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    font-size: var(--text-2xl);
+    font-weight: var(--font-black);
+    background: var(--bg-tertiary);
+    border: 3px solid var(--border-secondary);
     color: var(--text-primary);
+    box-shadow: none !important;
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
+    text-align: center;
+    gap: 0.1em;
 
-    /* Animated shine effect on rank badges */
-    &::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(
-        45deg,
-        transparent 30%,
-        oklch(from var(--interactive-primary) l c h / 0.3) 50%,
-        transparent 70%
-      );
-      transform: translateX(-100%);
-      transition: transform var(--animation-duration-slow);
-    }
-
-    &:hover {
-      transform: var(--animation-scale-hover-subtle);
-      box-shadow:
-        0 0 var(--space-lg) oklch(from var(--interactive-primary) l c h / 0.3),
-        inset 0 1px 0 oklch(from var(--color-white) l c h / 0.2);
-    }
-
-    /* Medal styling for top 3 positions */
-    &--medal {
-      background: linear-gradient(
-        135deg,
-        var(--achievement-gold) 0%,
-        color-mix(in srgb, var(--achievement-gold) 80%, var(--color-white) 20%) 100%
-      );
-      color: var(--color-black);
-      border-color: var(--achievement-gold);
-      box-shadow:
-        0 0 var(--space-md) oklch(from var(--achievement-gold) l c h / 0.4),
-        inset 0 1px 0 oklch(from var(--color-white) l c h / 0.3);
+    @include respond-to(md) {
+      width: 72px;
+      height: 72px;
+      font-size: var(--text-3xl);
     }
   }
 
-  .highscores__card:hover .highscores__rank::before {
-    transform: translateX(100%);
+  .highscores__rank-badge--medal {
+    &.highscores__rank-badge--gold,
+    &.highscores__rank-badge--silver,
+    &.highscores__rank-badge--bronze {
+      box-shadow: none !important;
+    }
   }
 
-  /* Silver and bronze variations */
-  .highscores__card:nth-child(2) .highscores__rank--medal {
+  // Medal variations for specific positions
+  .highscores__card:nth-child(2) .highscores__rank-badge--medal {
     background: linear-gradient(
       135deg,
       var(--achievement-silver) 0%,
@@ -864,7 +1134,7 @@ const gameModeNames = {
       inset 0 1px 0 oklch(from var(--color-white) l c h / 0.3);
   }
 
-  .highscores__card:nth-child(3) .highscores__rank--medal {
+  .highscores__card:nth-child(3) .highscores__rank-badge--medal {
     background: linear-gradient(
       135deg,
       var(--achievement-bronze) 0%,
@@ -877,23 +1147,57 @@ const gameModeNames = {
   }
 
   /* ======================================
-   * BEAUTIFUL USERNAME AND SCORE SECTION
+   * CARD CONTENT & SCORE SECTIONS
+   * Enhanced with modern SCSS and responsive design
    * ====================================== */
+
+  .highscores__card-content {
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+
+    @include respond-to(md) {
+      padding: var(--space-2xl);
+    }
+  }
+
   .highscores__card-main {
-    flex: 1;
-    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+  }
+
+  .highscores__card-username {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    line-height: var(--leading-tight);
+    margin: 0;
+
+    @include respond-to(md) {
+      font-size: var(--text-xl);
+    }
   }
 
   .highscores__card-score {
     display: flex;
     align-items: baseline;
-    gap: var(--space-sm);
+    gap: var(--space-xs);
     flex-wrap: wrap;
+
+    @include respond-to(md) {
+      gap: var(--space-sm);
+    }
   }
 
   .highscores__score-value {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-bold);
+    font-size: var(--text-xl);
+    font-weight: var(--font-black);
     background: linear-gradient(
       135deg,
       var(--interactive-primary) 0%,
@@ -905,191 +1209,313 @@ const gameModeNames = {
     line-height: var(--leading-tight);
     position: relative;
 
-    /* Fallback for browsers that don't support background-clip: text */
-    @supports not (background-clip: text) {
-      color: var(--interactive-primary);
+    @include respond-to(md) {
+      font-size: var(--text-2xl);
     }
   }
 
   .highscores__score-label {
     font-size: var(--text-sm);
     color: var(--text-secondary);
-    font-weight: var(--font-medium);
+    font-weight: var(--font-semibold);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+
+    @include respond-to(md) {
+      font-size: var(--text-base);
+    }
   }
 
   /* ======================================
-   * ENHANCED CARD DETAILS WITH BETTER LAYOUT
+   * CARD DETAILS SECTION
+   * Enhanced with modern SCSS and responsive design
    * ====================================== */
+
   .highscores__card-details {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-    margin-top: var(--space-lg);
-    padding-top: var(--space-lg);
-    border-top: var(--border-width-thin) solid
-      color-mix(in srgb, var(--border-primary) 50%, transparent 50%);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-top: auto;
+    padding-top: var(--space-md);
+    border-top: 1px solid color-mix(in srgb, var(--border-primary) 30%, transparent 70%);
+
+    @include respond-to(md) {
+      flex-direction: row;
+      gap: var(--space-md);
+      justify-content: space-between;
+      align-items: flex-start;
+    }
   }
 
-  .highscores__card-detail {
+  .highscores__detail-item {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-md);
-    padding: var(--space-sm) var(--space-md);
-    background: color-mix(in srgb, var(--bg-tertiary) 60%, transparent 40%);
-    border-radius: var(--radius-sm);
-    border: var(--border-width-thin) solid
-      color-mix(in srgb, var(--border-primary) 30%, transparent 70%);
-    transition: all var(--transition-normal);
-    min-height: var(--space-2xl);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    min-height: unset;
+    margin-bottom: 0;
+    position: static;
+    overflow: visible;
+    box-shadow: none;
 
-    &:hover {
-      background: color-mix(in srgb, var(--bg-tertiary) 80%, var(--interactive-primary) 5%);
-      border-color: color-mix(in srgb, var(--border-primary) 80%, var(--interactive-primary) 20%);
-      transform: translateX(var(--space-xs));
+    // Trennlinie wie gehabt
+    & + .highscores__detail-item {
+      border-top: 1px solid color-mix(in srgb, var(--border-primary) 30%, transparent 70%);
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
     }
-
-    &-label {
-      font-size: var(--text-sm);
-      font-weight: var(--font-semibold);
-      color: var(--text-secondary);
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: var(--space-xs);
-
-      /* Add subtle icons using CSS for visual enhancement */
-      &::before {
-        content: "";
-        width: var(--space-sm);
-        height: var(--space-sm);
-        border-radius: var(--radius-sm);
-        background: var(--interactive-primary);
-        opacity: 0.6;
-        flex-shrink: 0;
+    @include respond-to(md) {
+      & + .highscores__detail-item {
+        border-top: none;
+        margin-top: 0;
+        padding-top: 0;
+        border-left: 1px solid color-mix(in srgb, var(--border-primary) 30%, transparent 70%);
+        margin-left: var(--space-xl);
+        padding-left: var(--space-xl);
       }
     }
 
-    &-value {
-      font-size: var(--text-sm);
+    // Icon + Label in eine Zeile
+    .highscores__detail-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      margin-bottom: 0.1em;
+    }
+
+    // Value darunter, leicht eingerückt
+    .highscores__detail-value {
+      margin-left: calc(var(--icon-size-md) + var(--space-xs));
+      margin-top: 0.1em;
+      font-size: var(--text-base);
+      font-weight: var(--font-semibold);
       color: var(--text-primary);
-      font-weight: var(--font-medium);
-      text-align: right;
+      line-height: var(--leading-tight);
+      @include respond-to(md) {
+        margin-left: calc(var(--icon-size-lg) + var(--space-xs));
+      }
     }
   }
 
-  /* Special styling for different detail types */
+  .highscores__detail-icon {
+    width: var(--icon-size-md);
+    height: var(--icon-size-md);
+    color: var(--interactive-primary);
+    flex-shrink: 0;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+
+    @include respond-to(md) {
+      width: var(--icon-size-lg);
+      height: var(--icon-size-lg);
+    }
+  }
+
+  .highscores__detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    flex: 1;
+
+    @include respond-to(md) {
+      gap: var(--space-md);
+    }
+  }
+
+  .highscores__detail-label {
+    font-size: var(--text-xs);
+    font-weight: var(--font-bold);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+
+    @include respond-to(md) {
+      font-size: var(--text-sm);
+    }
+  }
+
+  .highscores__detail-value {
+    font-size: var(--text-base);
+    color: var(--text-primary);
+    font-weight: var(--font-semibold);
+    line-height: var(--leading-tight);
+
+    @include respond-to(md) {
+      font-size: var(--text-base);
+    }
+  }
+
+  // Special styling for different detail types with responsive design
   .highscores__mode {
     color: var(--interactive-secondary);
-    font-weight: var(--font-semibold);
+    font-weight: var(--font-bold);
     text-transform: capitalize;
+    background: linear-gradient(
+      135deg,
+      var(--interactive-secondary) 0%,
+      var(--interactive-primary) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    @include respond-to(md) {
+      font-size: var(--text-xl);
+    }
+
+    // Fallback for browsers that don't support background-clip: text
+    @supports not (background-clip: text) {
+      color: var(--interactive-secondary);
+    }
   }
 
   .highscores__category {
     color: var(--text-primary);
-    font-weight: var(--font-medium);
+    font-weight: var(--font-semibold);
+
+    @include respond-to(md) {
+      font-size: var(--text-xl);
+    }
   }
 
   .highscores__date {
     color: var(--text-tertiary);
-    font-size: var(--text-xs);
+    font-size: var(--text-base);
     font-variant-numeric: tabular-nums;
+    font-weight: var(--font-medium);
+
+    @include respond-to(md) {
+      font-size: var(--text-lg);
+    }
   }
 
   /* ======================================
-   * RESPONSIVE IMPROVEMENTS FOR BEAUTIFUL CARDS
+   * RESPONSIVE IMPROVEMENTS & CONTAINER QUERIES
+   * Enhanced with modern SCSS and better responsive design
    * ====================================== */
-  @media (min-width: var(--breakpoint-sm)) {
-    .highscores__card-details {
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-md) var(--space-lg);
+
+  // Container queries for enhanced responsive cards
+  @include container-query(20rem) {
+    .highscores__card-content {
+      padding: var(--space-lg);
     }
-  }
 
-  @media (min-width: var(--breakpoint-md)) {
-    .highscores__card {
-      padding: var(--space-xl);
-
-      &-header {
-        margin-bottom: var(--space-xl);
-        padding-bottom: var(--space-lg);
-      }
-
-      &-details {
-        grid-template-columns: 1fr;
-        gap: var(--space-md);
-      }
-
-      &-detail {
-        justify-content: space-between;
-
-        &-label {
-          min-width: auto;
-        }
-      }
-    }
-  }
-
-  /* Container queries for enhanced responsive cards */
-  @container (min-width: 20rem) {
-    .highscores__card-details {
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-sm) var(--space-md);
-    }
-  }
-
-  @container (min-width: 24rem) {
     .highscores__card-header {
-      flex-direction: row;
-      align-items: center;
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-md);
+    }
+  }
+
+  @include container-query(24rem) {
+    .highscores__card-content {
+      padding: var(--space-xl);
     }
 
-    .highscores__card-details {
-      grid-template-columns: 1fr;
+    .highscores__card-header {
+      margin-bottom: var(--space-xl);
+      padding-bottom: var(--space-lg);
+    }
+  }
+
+  @include container-query(30rem) {
+    .highscores__card-content {
+      padding: var(--space-2xl);
+    }
+
+    .highscores__card-header {
+      margin-bottom: var(--space-2xl);
+      padding-bottom: var(--space-xl);
+    }
+  }
+
+  // Additional responsive improvements
+  @include respond-to(xl) {
+    .highscores__cards-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  // Fluid typography for better responsive behavior
+  @include respond-to(lg) {
+    .highscores__card {
+      &-username {
+        font-size: clamp(var(--text-xl), 2.5vw, var(--text-3xl));
+      }
+
+      &-score-value {
+        font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+      }
+
+      &-info-label,
+      &-info-value {
+        font-size: clamp(var(--text-sm), 1.5vw, var(--text-base));
+      }
     }
   }
 
   /* ======================================
-   * ACCESSIBILITY ENHANCEMENTS
+   * ACCESSIBILITY & PRINT STYLES
+   * Enhanced with modern SCSS and better a11y support
    * ====================================== */
 
-  /* Reduced motion support */
+  // Reduced motion support with enhanced SCSS
   @media (prefers-reduced-motion: reduce) {
     .highscores__loading-icon,
-    .highscores__rank,
-    .highscores__card {
+    .highscores__rank-badge,
+    .highscores__card,
+    .highscores__filter-select,
+    .highscores__detail-item {
       animation: none;
-      transition: var(--transition-instant); /* Using available variable for reduced motion */
+      transition: var(--transition-instant);
     }
 
     .highscores__card:hover {
       transform: none;
     }
+
+    .highscores__rank-badge:hover {
+      transform: none;
+    }
+
+    .highscores__detail-item:hover {
+      transform: none;
+    }
   }
 
-  /* High contrast mode support */
+  // High contrast mode support with enhanced styling
   @media (prefers-contrast: high) {
     .highscores__card {
       border: var(--border-width-thick) solid var(--text-primary);
-
-      &-header {
-        border-bottom: var(--border-width-thick) solid var(--text-primary);
-      }
     }
 
-    .highscores__rank--medal {
-      background: var(--text-primary);
-      color: var(--bg-primary);
+    .highscores__card-header {
+      border-bottom: var(--border-width-thick) solid var(--text-primary);
+    }
+
+    .highscores__rank-badge--medal {
+      background: var(--text-primary) !important;
+      color: var(--bg-primary) !important;
+      border-color: var(--text-primary) !important;
     }
 
     .highscores__mode {
       border: var(--border-width-thick) solid var(--text-primary);
     }
+
+    .highscores__filter-select {
+      border: var(--border-width-thick) solid var(--text-primary);
+    }
+
+    .highscores__detail-item {
+      border: var(--border-width-thick) solid var(--text-primary);
+    }
   }
 
-  /* Print styles optimized for GameHome consistency */
+  // Print styles optimized for modern browsers
   @media print {
     .highscores__filters {
       display: none;
@@ -1117,8 +1543,11 @@ const gameModeNames = {
       color: var(--print-text);
       page-break-inside: avoid;
       box-shadow: none;
-      padding: var(--space-sm);
       font-size: var(--text-sm);
+
+      &-content {
+        padding: var(--space-sm);
+      }
 
       &-header {
         margin-bottom: var(--space-md);
@@ -1140,7 +1569,7 @@ const gameModeNames = {
       font-size: var(--text-lg);
     }
 
-    .highscores__rank--medal {
+    .highscores__rank-badge--medal {
       background: var(--print-text) !important;
       color: var(--print-bg) !important;
     }

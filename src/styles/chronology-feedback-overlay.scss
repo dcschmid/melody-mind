@@ -1,0 +1,38 @@
+.chronology-feedback-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--backdrop-overlay-medium);
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.overlay-backdrop {
+  position: absolute;
+  inset: 0;
+}
+
+.modal-content {
+  position: relative;
+  margin: var(--space-md);
+  width: 100%;
+  max-width: var(--container-sm);
+  max-height: calc(100vh - var(--space-2xl));
+  border-radius: var(--radius-2xl);
+  border: 2px solid var(--border-primary);
+  background: var(--bg-secondary);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-2xl);
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  min-height: 0;
+  &::before {
+    display: none;
+  }
+}

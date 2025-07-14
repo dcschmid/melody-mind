@@ -57,6 +57,7 @@ export default {
   "achievements.status.in_progress": "I gang",
   "achievements.status.locked": "Låst",
   "achievements.status.unlocked": "Låst op",
+  "achievements.points": "{points} point",
   "achievements.summary.progress": "Fremgang",
   "achievements.summary.title": "Præstationsoversigt",
   "achievements.summary.total": "Total",
@@ -550,6 +551,7 @@ export default {
     "Opdag kuraterede playlister på dine foretrukne streaming platforme.",
   "musicPlatforms.keyboardInstructions":
     "Navigér musikplatforme ved hjælp af Tab-tasten. Tryk Enter eller mellemrum for at åbne platforme i nye faner.",
+  "musicPlatforms.listenOn": "Lyt til {title} på {platform}",
   "nav.ariaLabel": "Hovednavigation",
   "nav.donate.coffee": "Køb os en kaffe",
   "nav.donate.heading": "Støt os",

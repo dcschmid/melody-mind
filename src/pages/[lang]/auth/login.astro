@@ -75,36 +75,43 @@ const { pageTitle, pageDescription, headingText } = translations;
   </div>
 </Layout>
 
-<!-- Performance optimized script for better user experience -->
+<!-- Performance optimized script with modern ES6+ features -->
 <script>
   // Preload critical auth form resources for faster interaction
-  document.addEventListener("DOMContentLoaded", () => {
+  const initializeAuthForm = () => {
     // Preconnect to authentication API endpoint
     const preconnectLink = document.createElement("link");
     preconnectLink.rel = "preconnect";
     preconnectLink.href = "/api/auth";
     document.head.appendChild(preconnectLink);
 
-    // Optimize form focus management
+    // Optimize form focus management with modern ES6+ features
     const authContainer = document.querySelector(".auth-form-container");
-    if (authContainer) {
-      // Use IntersectionObserver for efficient visibility detection
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              // Form is visible, preload any additional resources if needed
-              const element = entry.target as HTMLElement;
-              element.style.willChange = "auto"; // Reset will-change for performance
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-      observer.observe(authContainer);
+
+    if (!authContainer) {
+      return;
     }
-  });
+
+    // Use IntersectionObserver for efficient visibility detection
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(({ isIntersecting, target }) => {
+          if (isIntersecting) {
+            // Form is visible, preload any additional resources if needed
+            const element = target as HTMLElement;
+            element.style.willChange = "auto"; // Reset will-change for performance
+            observer.unobserve(target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(authContainer);
+  };
+
+  // Use modern event listener with arrow function
+  document.addEventListener("DOMContentLoaded", initializeAuthForm);
 </script>
 
 <style lang="scss">
@@ -116,6 +123,10 @@ const { pageTitle, pageDescription, headingText } = translations;
   // SCSS variables for better maintainability
   $animation-duration: var(--animation-duration-medium);
   $animation-easing: ease-out;
+  $container-max-width: 28rem;
+  $container-padding: var(--spacing-6);
+  $mobile-padding: var(--spacing-4);
+  $tablet-padding: var(--spacing-5);
 
   /* Fade-in animation for better UX - GPU accelerated */
   @keyframes fadeIn {
@@ -131,23 +142,99 @@ const { pageTitle, pageDescription, headingText } = translations;
 
   /* Auth form container - Enhanced performance optimizations */
   .auth-form-container {
+    // Responsive container sizing
+    max-width: $container-max-width;
+    width: 100%;
+    margin: 0 auto;
+    padding: $container-padding;
+
+    // Visual styling
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
+    background: var(--color-background);
+    border: var(--border-width-thin) solid var(--border-subtle);
+
+    // Animation and transitions
     transition: all var(--transition-normal);
     animation: fadeIn $animation-duration $animation-easing;
 
     /* Performance optimizations */
     contain: layout style;
     will-change: opacity, transform;
-  }
 
-  /* Media queries with SCSS nesting */
-  @media (prefers-reduced-motion: reduce) {
-    .auth-form-container {
+    // Mobile-first responsive design
+    @media (max-width: 640px) {
+      padding: $mobile-padding;
+      margin: 0 var(--spacing-4);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+    }
+
+    // Tablet responsive design
+    @media (min-width: 641px) and (max-width: 1024px) {
+      padding: $tablet-padding;
+      margin: 0 var(--spacing-5);
+    }
+
+    // Desktop and larger screens
+    @media (min-width: 1025px) {
+      padding: $container-padding;
+      margin: 0 auto;
+    }
+
+    // Large screens optimization
+    @media (min-width: 1280px) {
+      max-width: 32rem;
+    }
+
+    // Extra large screens
+    @media (min-width: 1536px) {
+      max-width: 36rem;
+    }
+
+    // High contrast mode support
+    @media (prefers-contrast: high) {
+      border: var(--border-width-thick) solid var(--border-primary);
+      box-shadow: var(--shadow-xl);
+    }
+
+    // Reduced motion support
+    @media (prefers-reduced-motion: reduce) {
       animation: none;
       transition: none;
     }
 
+    // Dark mode adjustments
+    @media (prefers-color-scheme: dark) {
+      background: var(--color-background-dark, var(--color-background));
+      border-color: var(--border-subtle-dark, var(--border-subtle));
+    }
+
+    // Focus states for accessibility
+    &:focus-within {
+      outline: var(--outline-width-thick) solid var(--color-primary);
+      outline-offset: var(--outline-offset);
+      box-shadow:
+        var(--shadow-lg),
+        0 0 0 var(--outline-width-thick) var(--color-primary);
+    }
+
+    // Hover effects for interactive elements
+    &:hover {
+      box-shadow: var(--shadow-xl);
+      transform: translateY(-2px);
+      transition: all var(--transition-fast);
+    }
+
+    // Active state for better feedback
+    &:active {
+      transform: translateY(0);
+      transition: all var(--transition-fast);
+    }
+  }
+
+  /* Reduced motion keyframes override */
+  @media (prefers-reduced-motion: reduce) {
     @keyframes fadeIn {
       from,
       to {
@@ -157,9 +244,22 @@ const { pageTitle, pageDescription, headingText } = translations;
     }
   }
 
-  @media (prefers-contrast: high) {
+  /* Print styles for accessibility */
+  @media print {
     .auth-form-container {
-      border: var(--border-width-thick) solid var(--border-primary);
+      box-shadow: none;
+      border: var(--border-width-thin) solid var(--color-text);
+      background: var(--color-background);
+      animation: none;
+      transform: none;
+    }
+  }
+
+  /* Landscape orientation adjustments for mobile */
+  @media (max-width: 640px) and (orientation: landscape) {
+    .auth-form-container {
+      padding: var(--spacing-3);
+      margin: 0 var(--spacing-2);
     }
   }
 </style>

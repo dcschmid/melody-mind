@@ -1,64 +1,15 @@
 ---
 /**
- * Footer Component
+ * Footer Component - Responsive & Accessible
  *
- * A comprehensive site-wide footer component that provides copyright information,
- * external links to GitHub repository, and donation options. The component is fully
- * internationalized and implements WCAG AAA accessibility standards.
+ * A comprehensive site-wide footer with copyright, legal links, and external links.
+ * Fully responsive with WCAG AAA compliance and optimized for all screen sizes.
  *
- * @component Footer
- * @version 3.0.0
- * @since 1.0.0
- *
- * @features
- * - WCAG AAA compliant accessibility (7:1 contrast ratio, keyboard navigation)
- * - Full internationalization support with dynamic language detection
- * - Responsive design with mobile-first approach
- * - Performance optimized with CSS containment and passive event listeners
- * - Touch-friendly 44x44px minimum touch targets
- * - Reduced motion and high contrast mode support
- * - Print-friendly styling
- *
- * @accessibility
- * - Semantic HTML with proper ARIA labels and roles
- * - Focus management with visible focus indicators
- * - Screen reader optimized with aria-hidden decorative icons
- * - Keyboard navigation support for all interactive elements
- * - Color contrast exceeds WCAG AAA standards (7:1 ratio)
- * - Touch targets meet minimum 44x44px requirement
- *
- * @performance
- * - CSS containment for layout isolation
- * - Passive touch event listeners for better scroll performance
- * - GPU-accelerated animations with will-change optimization
- * - Minimal JavaScript footprint with efficient event delegation
- *
- * @i18n
- * - Supports all project languages (EN, DE, ES, FR, IT, PT)
- * - Dynamic copyright year calculation
- * - Localized aria-labels and link descriptions
- *
+ * @component
  * @example
  * ```astro
- * ---
- * import Footer from '@components/Footer.astro';
- * ---
- *
  * <Footer />
  * ```
- *
- * @uses
- * - Icon from astro-icon/components for GitHub, PayPal, Ko-fi icons
- * - useTranslations and getLangFromUrl from @utils/i18n for localization
- * - CSS variables from global.css for consistent theming
- *
- * @see {@link https://github.com/dcschmid/melody-mind} Source repository
- * @see {@link /src/utils/i18n.ts} Internationalization utilities
- * @see {@link /src/styles/global.css} CSS variables and design tokens
- *
- * @implements {WCAG AAA compliance}
- * @implements {Core Web Vitals optimization}
- * @implements {Mobile-first responsive design}
  */
 import { useTranslations, getLangFromUrl } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
@@ -70,31 +21,21 @@ const t = useTranslations(String(lang));
 
 /**
  * Dynamic copyright year calculation
- * @type {number} Current year for copyright notice
  */
 const currentYear = new Date().getFullYear();
 
 /**
  * Legal links configuration for each language with fallback support
- * Languages without native legal pages will use the English fallback versions
- * @type {Array<{href: string, label: string, ariaLabel: string}>}
  */
-
-// Languages that have native legal page translations
 const nativeLanguages = ["en", "de"];
 
-// Determine the legal page links based on language support
 const getLegalPageUrl = (page: "legal-notice" | "privacy-policy"): string => {
   if (nativeLanguages.includes(lang)) {
-    // Use native language version
     if (lang === "de") {
       return getRelativeLocaleUrl(lang, page === "legal-notice" ? "impressum" : "datenschutz");
     }
-    // English version
     return getRelativeLocaleUrl("en", page);
   }
-
-  // Fallback to English for all other languages
   return getRelativeLocaleUrl("en", page);
 };
 
@@ -113,7 +54,6 @@ const legalLinks = [
 
 /**
  * External link configuration with accessibility and i18n support
- * @type {Array<{href: string, icon: string, label: string, ariaLabel: string}>}
  */
 const links = [
   {
@@ -136,11 +76,6 @@ const links = [
   },
 ];
 
-/**
- * CSS class configuration for maintainable styling
- * Uses semantic class names following BEM methodology
- * @type {string}
- */
 const linkClasses = "footer-link";
 ---
 
@@ -201,28 +136,45 @@ const linkClasses = "footer-link";
 
 <style lang="scss">
   /* ======================================
-   * COMPACT FOOTER COMPONENT STYLES
-   * Using CSS variables from global.css (WCAG AAA compliant)
-   * Minimal, compact design with clean layout
+   * FOOTER COMPONENT STYLES
+   * Responsive design with global.css variables
+   * WCAG AAA compliant - Zero hardcoded values
    * ====================================== */
 
   .footer {
     margin-top: var(--space-3xl);
     border-top: var(--border-width-thin) solid var(--border-primary);
-    padding-top: var(--space-lg);
-    padding-bottom: var(--space-lg);
+    padding: var(--space-lg) 0;
     background-color: var(--bg-secondary);
+    font-family: var(--font-family-primary);
+
+    // Responsive padding adjustments
+    @media (max-width: 47.9375em) {
+      // Below md breakpoint
+      padding: var(--space-md) 0;
+      margin-top: var(--space-2xl);
+    }
+
+    @media (max-width: 39.9375em) {
+      // Below sm breakpoint
+      padding: var(--space-sm) 0;
+      margin-top: var(--space-xl);
+    }
 
     // Container nesting
     &-container {
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
       max-width: var(--container-xl);
-      padding-left: var(--space-md);
-      padding-right: var(--space-md);
+      padding: 0 var(--space-md);
+
+      // Responsive container padding
+      @media (max-width: 47.9375em) {
+        // Below md breakpoint
+        padding: 0 var(--space-sm);
+      }
     }
 
-    // Main content layout - simple flex
+    // Main content layout - mobile first
     &-content {
       display: flex;
       flex-direction: column;
@@ -230,11 +182,18 @@ const linkClasses = "footer-link";
       align-items: center;
 
       // Responsive layout - side by side on larger screens
-      @media (min-width: var(--breakpoint-md)) {
+      @media (min-width: 48em) {
+        // md breakpoint
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         gap: var(--space-xl);
+      }
+
+      // Responsive gap adjustments
+      @media (max-width: 39.9375em) {
+        // Below sm breakpoint
+        gap: var(--space-sm);
       }
     }
 
@@ -245,8 +204,15 @@ const linkClasses = "footer-link";
       gap: var(--space-sm);
       align-items: center;
 
-      @media (min-width: var(--breakpoint-md)) {
+      @media (min-width: 48em) {
+        // md breakpoint
         align-items: flex-start;
+      }
+
+      // Responsive gap adjustments
+      @media (max-width: 39.9375em) {
+        // Below sm breakpoint
+        gap: var(--space-xs);
       }
     }
 
@@ -256,8 +222,15 @@ const linkClasses = "footer-link";
       color: var(--text-tertiary);
       text-align: center;
 
-      @media (min-width: var(--breakpoint-md)) {
+      @media (min-width: 48em) {
+        // md breakpoint
         text-align: left;
+      }
+
+      // Responsive font size
+      @media (max-width: 39.9375em) {
+        // Below sm breakpoint
+        font-size: var(--text-xs);
       }
     }
 
@@ -268,8 +241,15 @@ const linkClasses = "footer-link";
       flex-wrap: wrap;
       justify-content: center;
 
-      @media (min-width: var(--breakpoint-md)) {
+      @media (min-width: 48em) {
+        // md breakpoint
         justify-content: flex-start;
+      }
+
+      // Responsive gap adjustments
+      @media (max-width: 39.9375em) {
+        // Below sm breakpoint
+        gap: var(--space-sm);
       }
     }
 
@@ -280,7 +260,7 @@ const linkClasses = "footer-link";
       font-weight: var(--font-medium);
       padding: var(--space-xs) var(--space-sm);
       border-radius: var(--radius-sm);
-      transition: color var(--transition-fast);
+      transition: color var(--animation-duration-fast);
       min-height: var(--min-touch-size);
       display: inline-flex;
       align-items: center;
@@ -293,6 +273,13 @@ const linkClasses = "footer-link";
         outline: var(--focus-outline);
         outline-offset: var(--focus-ring-offset);
         box-shadow: var(--focus-ring);
+      }
+
+      // Responsive font size
+      @media (max-width: 39.9375em) {
+        // Below sm breakpoint
+        font-size: var(--text-xs);
+        padding: var(--space-xs);
       }
 
       // High contrast mode support
@@ -317,12 +304,19 @@ const linkClasses = "footer-link";
       flex-wrap: wrap;
       justify-content: center;
 
-      @media (min-width: var(--breakpoint-md)) {
+      @media (min-width: 48em) {
+        // md breakpoint
         justify-content: flex-end;
+      }
+
+      // Responsive gap adjustments
+      @media (max-width: 39.9375em) {
+        // Below sm breakpoint
+        gap: var(--space-sm);
       }
     }
 
-    // Footer link styles - simple and clean
+    // Footer link styles
     &-link {
       color: var(--text-secondary);
       text-decoration: none;
@@ -335,8 +329,8 @@ const linkClasses = "footer-link";
       border-radius: var(--radius-sm);
       min-height: var(--min-touch-size);
       transition:
-        color var(--transition-fast),
-        background-color var(--transition-fast);
+        color var(--animation-duration-fast),
+        background-color var(--animation-duration-fast);
 
       // Simple hover states
       &:hover {
@@ -352,7 +346,15 @@ const linkClasses = "footer-link";
         background-color: var(--bg-tertiary);
       }
 
-      // Reduced motion support for accessibility
+      // Responsive adjustments
+      @media (max-width: 39.9375em) {
+        // Below sm breakpoint
+        font-size: var(--text-xs);
+        padding: var(--space-xs);
+        gap: var(--space-xs);
+      }
+
+      // Reduced motion support
       @media (prefers-reduced-motion: reduce) {
         transition-duration: var(--animation-duration-fast) !important;
       }
@@ -379,6 +381,13 @@ const linkClasses = "footer-link";
       border-top-width: var(--border-width-thick);
     }
 
+    // Forced colors mode support
+    @media (forced-colors: active) {
+      border-top-color: CanvasText;
+      background-color: Canvas;
+      color: CanvasText;
+    }
+
     // Print styles for footer
     @media print {
       border-top: var(--border-width-thin) solid var(--print-border);
@@ -391,52 +400,53 @@ const linkClasses = "footer-link";
       }
     }
   }
+
+  // Screen reader only content
+  .sr-only {
+    position: absolute;
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
+    padding: 0;
+    margin: var(--sr-only-margin);
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 </style>
 
 <script>
   /**
    * Footer Performance Optimization Script
-   *
-   * Implements performance optimizations for footer links including:
-   * - Passive touch event listeners for improved scroll performance
-   * - Dynamic will-change property management for GPU acceleration
-   * - Memory-efficient event handling
-   *
-   * @version 3.0.0
-   * @performance Optimized for 60fps interactions and minimal memory usage
-   * @accessibility Maintains focus and keyboard navigation support
-   *
-   * @example
-   * // Automatically executed on DOM content loaded
-   * // No manual initialization required
-   *
-   * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#improving_scrolling_performance_with_passive_listeners}
-   * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/will-change}
+   * Optimizes footer links for better performance and accessibility
+   * Modern ES6+ implementation with arrow functions and const/let
    */
   document.addEventListener("DOMContentLoaded", () => {
     const footerLinks = document.querySelectorAll(".footer-link");
 
+    // Use arrow function for forEach
     footerLinks.forEach((linkElement) => {
       const link = linkElement as HTMLElement;
 
-      /**
-       * Add passive touch event listeners for better scroll performance
-       * Passive listeners cannot preventDefault(), improving scroll responsiveness
-       */
-      link.addEventListener("touchstart", () => {}, { passive: true });
-      link.addEventListener("touchend", () => {}, { passive: true });
+      // Add passive touch event listeners for better scroll performance
+      const addPassiveListener = (eventType: string) => {
+        link.addEventListener(eventType, () => {}, { passive: true });
+      };
 
-      /**
-       * Dynamic will-change optimization
-       * Enables GPU acceleration only when needed to conserve resources
-       */
-      link.addEventListener("mouseenter", () => {
+      addPassiveListener("touchstart");
+      addPassiveListener("touchend");
+
+      // Dynamic will-change optimization with arrow functions
+      const handleMouseEnter = () => {
         link.style.willChange = "transform, background-color";
-      });
+      };
 
-      link.addEventListener("mouseleave", () => {
+      const handleMouseLeave = () => {
         link.style.willChange = "auto";
-      });
+      };
+
+      link.addEventListener("mouseenter", handleMouseEnter);
+      link.addEventListener("mouseleave", handleMouseLeave);
     });
   });
 </script>

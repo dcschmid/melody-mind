@@ -7,188 +7,201 @@
  * performance practices for smooth animations and minimal resource usage.
  *
  * @author MelodyMind Team
- * @version 1.0.0
+ * @version 2.0.0
  * @since 2025-06-03
  */
 
 import { getAchievementLevel } from "./achievements/achievementUtils";
 import { updateScoreDisplay } from "./game/scoreUtils";
 
+// Type definitions for better type safety
+interface TranslationData {
+  [key: string]: string;
+}
+
+interface EndOverlayConfig {
+  score: number;
+  maxScore?: number;
+  translations?: TranslationData;
+}
+
+// Utility functions with modern ES6+ features
+const getElement = <T extends HTMLElement>(selector: string): T | null =>
+  document.querySelector<T>(selector);
+
+const getElementById = <T extends HTMLElement>(id: string): T | null =>
+  document.getElementById(id) as T | null;
+
+const parseTranslations = (data: string | null): TranslationData | null => {
+  if (!data) {
+    return null;
+  }
+
+  try {
+    return JSON.parse(data) as TranslationData;
+  } catch (error) {
+    console.error("Error parsing translation data:", error);
+    return null;
+  }
+};
+
+const getMotivationKey = (achievementLevel: string): string =>
+  `game.end.motivation.${achievementLevel}`;
+
+const announceToScreenReader = (text: string): void => {
+  const announcement = getElementById<HTMLElement>("achievement-announcement");
+  if (announcement) {
+    announcement.textContent = text;
+  }
+};
+
 /**
  * Update the motivation text using the global translation system
- * @param {number} score - The player's score
- * @returns {void}
- *
- * @example
- * ```typescript
- * updateMotivationText(750); // Updates text for "pro" level achievement
- * ```
+ * @param score - The player's score
+ * @returns Promise<void>
  */
-export function updateMotivationText(score: number): void {
-  const motivationElement = document.getElementById("motivation-text");
+export const updateMotivationText = async (score: number): Promise<void> => {
+  const motivationElement = getElementById<HTMLElement>("motivation-text");
   if (!motivationElement) {
     console.warn("Motivation text element not found");
     return;
   }
 
-  // Get translations passed from server-side
-  const translationsData = document
-    .querySelector("[data-translations]")
-    ?.getAttribute("data-translations");
+  // Get translations passed from server-side using modern destructuring
+  const overlay = getElement<HTMLElement>("[data-translations]");
+  const translationsData = overlay?.getAttribute("data-translations");
+
   if (!translationsData) {
     console.warn("Translation data not found, using empty fallback");
     motivationElement.textContent = "";
     return;
   }
 
-  try {
-    const translations = JSON.parse(translationsData);
-    const achievementLevel = getAchievementLevel(score);
-    const motivationKey = `game.end.motivation.${achievementLevel}`;
-
-    // Get the motivation text from translations
-    const motivationText = translations[motivationKey];
-
-    if (motivationText) {
-      motivationElement.textContent = motivationText;
-
-      // Announce the motivation text to screen readers
-      const announcement = document.getElementById("achievement-announcement");
-      if (announcement) {
-        announcement.textContent = motivationText;
-      }
-    } else {
-      console.warn(`Missing translation for key: ${motivationKey}`);
-      motivationElement.textContent = translations["game.end.defaultMotivation"] || "";
-    }
-  } catch (error) {
-    console.error("Error parsing translation data:", error);
-    // Try to parse translations again for the fallback, or use empty string
-    try {
-      const fallbackTranslations = JSON.parse(translationsData);
-      motivationElement.textContent = fallbackTranslations["game.end.defaultMotivation"] || "";
-    } catch {
-      motivationElement.textContent = "";
-    }
+  const translations = parseTranslations(translationsData);
+  if (!translations) {
+    motivationElement.textContent = "";
+    return;
   }
-}
+
+  const achievementLevel = getAchievementLevel(score);
+  const motivationKey = getMotivationKey(achievementLevel);
+  const motivationText = translations[motivationKey];
+
+  if (motivationText) {
+    motivationElement.textContent = motivationText;
+    announceToScreenReader(motivationText);
+  } else {
+    console.warn(`Missing translation for key: ${motivationKey}`);
+    const fallbackText = translations["game.end.defaultMotivation"] || "";
+    motivationElement.textContent = fallbackText;
+  }
+};
 
 /**
  * Animate the progress bar to show the score percentage
- * @param {number} score - The player's score
- * @param {number} maxScore - The maximum possible score (default: 1000)
- * @returns {void}
- *
- * @example
- * ```typescript
- * animateProgressBar(750, 1000); // Animates to 75%
- * ```
+ * @param score - The player's score
+ * @param maxScore - The maximum possible score (default: 1000)
+ * @returns Promise<void>
  */
-export function animateProgressBar(score: number, maxScore: number = 1000): void {
-  const progressBar = document.getElementById("score-bar");
-  const progressContainer = document.querySelector(".achievement-progress");
+export const animateProgressBar = async (score: number, maxScore: number = 1000): Promise<void> => {
+  const progressBar = getElementById<HTMLElement>("score-bar");
+  const progressContainer = getElement<HTMLElement>(".achievement-progress");
 
   if (!progressBar || !progressContainer) {
     console.warn("Progress bar elements not found");
     return;
   }
 
-  // Calculate the percentage (0-100)
+  // Calculate the percentage (0-100) using modern Math methods
   const percentage = Math.min(Math.max((score / maxScore) * 100, 0), 100);
 
-  // Update ARIA attributes
-  if (progressContainer.hasAttribute("aria-valuenow")) {
-    progressContainer.setAttribute("aria-valuenow", percentage.toString());
-  }
+  // Update ARIA attributes using modern optional chaining
+  progressContainer.setAttribute?.("aria-valuenow", percentage.toString());
 
-  // Trigger the animation with a slight delay for visual effect
-  requestAnimationFrame(() => {
-    setTimeout(() => {
-      progressBar.style.transform = `scaleX(${percentage / 100})`;
-    }, 300); // Small delay to let the overlay fully appear first
+  // Use modern async/await with requestAnimationFrame
+  await new Promise<void>((resolve) => {
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        progressBar.style.transform = `scaleX(${percentage / 100})`;
+        resolve();
+      }, 300);
+    });
   });
-}
+};
 
 /**
  * Update the score display with animation
- * @param {number} score - The score value to display
- * @returns {void}
- *
- * @example
- * ```typescript
- * updateEndOverlayScore(750); // Updates and animates the score display
- * ```
+ * @param score - The score value to display
+ * @returns Promise<void>
  */
-export function updateEndOverlayScore(score: number): void {
-  const scoreElement = document.getElementById("popup-score");
+export const updateEndOverlayScore = async (score: number): Promise<void> => {
+  const scoreElement = getElementById<HTMLElement>("popup-score");
   if (scoreElement) {
-    updateScoreDisplay(score, scoreElement);
+    await updateScoreDisplay(score, scoreElement);
   } else {
     console.warn("Score element not found in EndOverlay");
   }
-}
+};
 
 /**
  * Complete EndOverlay setup with score, animations, and motivation text
  * This function should be called when the overlay is shown to trigger all animations
- * @param {number} score - The player's final score
- * @param {number} maxScore - The maximum possible score (default: 1000)
- * @returns {void}
- *
- * @example
- * ```typescript
- * showEndOverlay(750); // Shows overlay with full animations
- * ```
+ * @param config - Configuration object with score and optional parameters
+ * @returns Promise<void>
  */
-export function showEndOverlay(score: number, maxScore: number = 1000): void {
-  // Update the score display with animation
-  updateEndOverlayScore(score);
+export const showEndOverlay = async (config: EndOverlayConfig): Promise<void> => {
+  const { score, maxScore = 1000 } = config;
 
-  // Update motivation text based on achievement level
-  updateMotivationText(score);
-
-  // Animate the progress bar
-  animateProgressBar(score, maxScore);
+  // Use Promise.all for concurrent operations
+  await Promise.all([
+    updateEndOverlayScore(score),
+    updateMotivationText(score),
+    animateProgressBar(score, maxScore),
+  ]);
 
   // Update the overlay data attribute for consistency
-  const overlay = document.querySelector("[data-score]");
-  if (overlay) {
-    overlay.setAttribute("data-score", score.toString());
-  }
-}
+  const overlay = getElement<HTMLElement>("[data-score]");
+  overlay?.setAttribute("data-score", score.toString());
+};
 
 /**
  * Initialize the EndOverlay component functionality
  * Sets up event listeners and initializes motivation text based on score
- * @returns {void}
- *
- * @example
- * ```typescript
- * initializeEndOverlay(); // Call after DOM is loaded
- * ```
+ * @returns Promise<void>
  */
-export function initializeEndOverlay(): void {
-  // Get the initial score from the overlay data attribute
-  const overlay = document.querySelector("[data-score]");
-  if (overlay) {
-    const score = parseInt(overlay.getAttribute("data-score") || "0", 10);
-    updateMotivationText(score);
-  }
+export const initializeEndOverlay = async (): Promise<void> => {
+  // Get the initial score from the overlay data attribute using modern destructuring
+  const overlay = getElement<HTMLElement>("[data-score]");
+  const score = parseInt(overlay?.getAttribute("data-score") || "0", 10);
+
+  await updateMotivationText(score);
 
   // Set up global showEndOverlay function for game engines to use
   (globalThis as { showEndOverlay?: typeof showEndOverlay }).showEndOverlay = showEndOverlay;
-}
+};
 
 /**
  * Set up EndOverlay functionality when DOM is ready
  * This function handles the initialization timing to ensure proper setup
- * @returns {void}
+ * @returns Promise<void>
  */
-export function setupEndOverlay(): void {
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeEndOverlay);
-  } else {
-    // DOM is already loaded
-    initializeEndOverlay();
-  }
-}
+export const setupEndOverlay = async (): Promise<void> => {
+  const initializeWhenReady = async (): Promise<void> => {
+    if (document.readyState === "loading") {
+      return new Promise<void>((resolve) => {
+        document.addEventListener("DOMContentLoaded", async () => {
+          await initializeEndOverlay();
+          resolve();
+        });
+      });
+    } else {
+      // DOM is already loaded
+      await initializeEndOverlay();
+    }
+  };
+
+  await initializeWhenReady();
+};
+
+// Export a default function for easier imports
+export default setupEndOverlay;

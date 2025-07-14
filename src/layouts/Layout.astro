@@ -1,21 +1,8 @@
 ---
 /**
  * @component Layout
- * @description The main layout component used throughout the MelodyMind applicatio// 4. Utility imports
-import { getLangFromUrl, useTranslations } from "@utils/i18n";
- * This layout implements WCAG 2.2 AAA accessibility standa// 8. Reactive variables and helper functions with performance optimizations
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-
-// Prepare translations for client-side usage
-const clientTranslations = {
-  systemError: t("layout.error.system"),
-  errorTracking: t("layout.error.tracking"),
-  errorTrackingFailed: t("layout.error.tracking.failed"),
-  motionReduced: t("layout.accessibility.motion.reduced"),
-  darkTheme: t("layout.accessibility.theme.dark"),
-  analyticsInitFailed: t("layout.analytics.init.failed"),
-};rmance optimizations
+ * @description The main layout component used throughout the MelodyMind application
+ * This layout implements WCAG 2.2 AAA accessibility standards
  * including reduced motion support, proper document structure, optimized resource loading,
  * and mobile-friendly viewport configurations.
  *
@@ -100,7 +87,7 @@ const clientTranslations = {
  * ```astro
  * <Layout
  *   title="Album Review"
- *   type="music" 
+ *   type="music"
  *   ogMusic={{ creator: "The Beatles", album: "Abbey Road" }}
  *   publishDate={new Date("2024-01-15")}
  * >
@@ -121,7 +108,6 @@ import "@fontsource/source-sans-pro/700.css";
 import "@fontsource/source-sans-pro/900.css";
 
 // 3. Component imports following established project structure
-import ShowCoins from "@components/Shared/ShowCoins.astro";
 import Navigation from "@components/Header/Navigation.astro";
 import SEO from "@components/SEO.astro";
 import SkipLink from "@components/Shared/SkipLink.astro";
@@ -412,18 +398,19 @@ const dnsPrefetch = [
       }
     </style>
 
-    <!-- Layout-specific CSS following BEM methodology and WCAG 2.2 AAA standards -->
-    <style>
+    <!-- Layout-specific SCSS following BEM methodology and WCAG 2.2 AAA standards -->
+    <style lang="scss">
       /**
-       * Layout Component CSS - WCAG 2.2 AAA Compliant
+       * Layout Component SCSS - WCAG 2.2 AAA Compliant
        * 
-       * This CSS follows the MelodyMind CSS style guide with:
-       * - Pure CSS implementation (no external CSS frameworks)
+       * This SCSS follows the MelodyMind style guide with:
+       * - Pure SCSS implementation (no external CSS frameworks)
        * - BEM methodology for class naming consistency
        * - Global CSS variables from global.css for design tokens
        * - WCAG 2.2 AAA accessibility standards compliance
        * - Modern CSS features (Grid, Flexbox, Container Queries)
        * - Performance optimization with logical sections
+       * - Responsive design with em-based breakpoints
        * 
        * ACCESSIBILITY COMPLIANCE:
        * - 7:1 contrast ratios for normal text (WCAG AAA)
@@ -439,49 +426,49 @@ const dnsPrefetch = [
        * - Line height minimum 1.8 for optimal readability
        */
 
-      /* Layout-specific CSS custom properties using global design tokens */
+      // Layout-specific SCSS custom properties using global design tokens
       .layout {
-        /* Container and spacing variables derived from global.css design system */
+        // Container and spacing variables derived from global.css design system
         --layout-max-width: var(--container-xl);
         --layout-padding-small: var(--space-md);
         --layout-padding-large: var(--space-xl);
 
-        /* WCAG AAA touch target compliance following accessibility standards */
+        // WCAG AAA touch target compliance following accessibility standards
         --layout-min-touch-target: var(--min-touch-size);
 
-        /* Focus management for enhanced keyboard navigation accessibility */
+        // Focus management for enhanced keyboard navigation accessibility
         --layout-focus-outline: var(--focus-outline);
         --layout-focus-offset: var(--focus-ring-offset);
 
-        /* Modern CSS features for enhanced performance and maintainability */
+        // Modern CSS features for enhanced performance and maintainability
         container-type: inline-size;
         container-name: layout;
       }
 
-      /* HTML root element styling with accessibility foundations and modern features */
+      // HTML root element styling with accessibility foundations and modern features
       .layout__html {
         margin: var(--space-none);
         padding: var(--space-none);
         box-sizing: border-box;
         height: var(--width-full);
-        /* Prevent horizontal scrolling */
+        // Prevent horizontal scrolling
         overflow-x: hidden;
         width: var(--width-full);
-        /* Smooth scrolling only when motion is not reduced (progressive enhancement) */
+        // Smooth scrolling only when motion is not reduced (progressive enhancement)
         scroll-behavior: auto;
-        /* Modern CSS logical properties for better internationalization support */
+        // Modern CSS logical properties for better internationalization support
         block-size: var(--width-full);
         inline-size: var(--width-full);
       }
 
-      /* Progressive enhancement for smooth scrolling */
+      // Progressive enhancement for smooth scrolling
       @media (prefers-reduced-motion: no-preference) {
         .layout__html {
           scroll-behavior: smooth;
         }
       }
 
-      /* Main body container with flexbox layout and WCAG AAA colors */
+      // Main body container with flexbox layout and WCAG AAA colors
       .layout__body {
         margin: var(--space-none) auto;
         display: flex;
@@ -490,95 +477,93 @@ const dnsPrefetch = [
         max-width: var(--layout-max-width);
         flex-direction: column;
 
-        /* Prevent horizontal overflow and scrolling */
+        // Prevent horizontal overflow and scrolling
         overflow-x: hidden;
         box-sizing: border-box;
 
-        /* WCAG AAA compliant background and text colors */
+        // WCAG AAA compliant background and text colors
         background-color: var(--bg-primary);
         color: var(--text-primary);
 
-        /* Responsive padding using global spacing tokens */
+        // Responsive padding using global spacing tokens
         padding: var(--layout-padding-small);
 
-        /* Enhanced typography for better readability */
+        // Enhanced typography for better readability
         font-size: var(--text-lg);
         line-height: var(--leading-enhanced);
         letter-spacing: var(--letter-spacing-base);
         text-wrap: wrap;
 
-        /* Font rendering optimization */
+        // Font rendering optimization
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-      }
 
-      /* Responsive layout adjustments using em-based breakpoints */
-      @media (min-width: var(--breakpoint-md)) {
-        .layout__body {
+        // Responsive layout adjustments using em-based breakpoints
+        @media (min-width: var(--breakpoint-md)) {
           padding: var(--layout-padding-large);
         }
       }
 
-      /* Header section with full width and semantic structure */
+      // Header section with full width and semantic structure
       .layout__header {
         width: var(--width-full);
-        /* Ensure header doesn't interfere with main content flow */
+        // Ensure header doesn't interfere with main content flow
         flex-shrink: 0;
       }
 
-      /* Coin counter overlay with WCAG AAA touch target compliance */
+      // Coin counter overlay with WCAG AAA touch target compliance
       .layout__coins {
         position: absolute;
         top: var(--layout-padding-small);
         right: var(--layout-padding-small);
         z-index: var(--z-fixed);
 
-        /* WCAG AAA minimum touch target size */
+        // WCAG AAA minimum touch target size
         min-height: var(--layout-min-touch-target);
         min-width: var(--layout-min-touch-target);
 
-        /* Ensure proper spacing for touch targets */
+        // Ensure proper spacing for touch targets
         margin: var(--space-xs);
-      }
 
-      /* Responsive positioning for larger screens */
-      @media (min-width: var(--breakpoint-sm)) {
-        .layout__coins {
+        // Responsive positioning for larger screens
+        @media (min-width: var(--breakpoint-sm)) {
           top: var(--layout-padding-large);
           right: var(--layout-padding-large);
         }
       }
 
-      /* Main content area with enhanced accessibility */
+      // Main content area with enhanced accessibility
       .layout__main {
         margin: var(--space-none) auto;
         max-width: var(--width-full);
         flex-grow: 1;
 
-        /* Prevent overflow from child elements */
+        // Prevent overflow from child elements
         overflow-x: hidden;
         box-sizing: border-box;
         width: var(--width-full);
 
-        /* Content spacing for optimal reading experience */
-        padding-left: var(--space-none);
-        padding-right: var(--space-none);
-        padding-top: var(--layout-padding-large);
-        padding-bottom: var(--layout-padding-large);
+        // Content spacing for optimal reading experience
+        padding: {
+          left: var(--space-none);
+          right: var(--space-none);
+          top: var(--layout-padding-large);
+          bottom: var(--layout-padding-large);
+        }
 
-        /* Enhanced typography for content readability */
+        // Enhanced typography for content readability
         font-size: var(--text-lg);
         line-height: var(--leading-enhanced);
         text-wrap: pretty;
+
+        // Enhanced focus indicators for keyboard navigation
+        &:focus {
+          outline: var(--layout-focus-outline);
+          outline-offset: var(--layout-focus-offset);
+        }
       }
 
-      /* Enhanced focus indicators for keyboard navigation */
-      .layout__main:focus {
-        outline: var(--layout-focus-outline);
-        outline-offset: var(--layout-focus-offset);
-      }
-
-      /* High Contrast Mode support for improved visibility */
+      // High Contrast Mode support for improved visibility
       @media (prefers-contrast: high) {
         .layout__body {
           background-color: var(--color-black);
@@ -593,7 +578,7 @@ const dnsPrefetch = [
         }
       }
 
-      /* Forced Colors Mode for Windows High Contrast support */
+      // Forced Colors Mode for Windows High Contrast support
       @media (forced-colors: active) {
         .layout__body {
           background-color: Canvas;
@@ -614,7 +599,7 @@ const dnsPrefetch = [
         }
       }
 
-      /* Support for reduced motion preferences */
+      // Support for reduced motion preferences
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
@@ -623,6 +608,34 @@ const dnsPrefetch = [
           animation-iteration-count: 1 !important;
           transition-duration: var(--transition-instant) !important;
           scroll-behavior: auto !important;
+        }
+      }
+
+      // Responsive design enhancements
+      @media (max-width: var(--breakpoint-sm)) {
+        .layout__body {
+          padding: var(--space-sm);
+        }
+
+        .layout__main {
+          padding: {
+            top: var(--space-md);
+            bottom: var(--space-md);
+          }
+        }
+      }
+
+      @media (min-width: var(--breakpoint-lg)) {
+        .layout__body {
+          padding: var(--space-2xl);
+        }
+      }
+
+      // Container query support for modern browsers
+      @supports (container-type: inline-size) {
+        .layout {
+          container-type: inline-size;
+          container-name: layout;
         }
       }
     </style>
@@ -647,12 +660,6 @@ const dnsPrefetch = [
       </header>
     </When>
 
-    <When test={showCoins}>
-      <div class="layout__coins">
-        <ShowCoins />
-      </div>
-    </When>
-
     <!-- Main content area -->
     <main id="main-content" class="layout__main" tabindex="-1" role="main">
       <slot />
@@ -665,7 +672,7 @@ const dnsPrefetch = [
     <script define:vars={{ clientTranslations }}>
       /**
        * Enhanced error boundary handling for layout-level errors
-       * Implements proper error logging and user feedback
+       * Implements proper error logging and user feedback with modern ES6+ features
        */
       const handleLayoutError = (error, context) => {
         console.error(`Layout Error in ${context}:`, error);
@@ -678,9 +685,9 @@ const dnsPrefetch = [
 
         // Optional: Send error to monitoring service
         if (
-          typeof window["fathom"] === "object" &&
-          window["fathom"] &&
-          typeof window["fathom"]["trackPageview"] === "function"
+          typeof window.fathom === "object" &&
+          window.fathom &&
+          typeof window.fathom.trackPageview === "function"
         ) {
           try {
             // Track error events for monitoring (non-blocking)
@@ -758,11 +765,11 @@ const dnsPrefetch = [
         try {
           // Initialize analytics only if available and user hasn't opted out
           if (
-            typeof window["fathom"] === "object" &&
-            window["fathom"] &&
-            typeof window["fathom"]["trackPageview"] === "function"
+            typeof window.fathom === "object" &&
+            window.fathom &&
+            typeof window.fathom.trackPageview === "function"
           ) {
-            window["fathom"]["trackPageview"]({
+            window.fathom.trackPageview({
               url: window.location.href,
               referrer: document.referrer || undefined,
             });
@@ -773,17 +780,48 @@ const dnsPrefetch = [
         }
       };
 
-      // Register document-level events with enhanced error handling
-      document.addEventListener("DOMContentLoaded", () => {
+      /**
+       * Enhanced initialization function with modern ES6+ features
+       */
+      const initializeLayout = () => {
         try {
           // Initial setup when DOM is loaded
           setReducedMotionClass();
           updateThemePreference();
           initializeAnalytics();
         } catch (error) {
-          handleLayoutError(error, "DOMContentLoaded");
+          handleLayoutError(error, "initializeLayout");
         }
-      });
+      };
+
+      /**
+       * Enhanced visibility change handler with modern features
+       */
+      const handleVisibilityChange = () => {
+        try {
+          if (document.visibilityState === "visible") {
+            // Re-evaluate accessibility preferences when page becomes visible
+            setReducedMotionClass();
+            updateThemePreference();
+          }
+        } catch (error) {
+          handleLayoutError(error, "handleVisibilityChange");
+        }
+      };
+
+      /**
+       * Enhanced error handlers with modern ES6+ features
+       */
+      const handleGlobalError = (event) => {
+        handleLayoutError(event.error, "Global error handler");
+      };
+
+      const handleUnhandledRejection = (event) => {
+        handleLayoutError(new Error(event.reason), "Unhandled promise rejection");
+      };
+
+      // Register document-level events with enhanced error handling
+      document.addEventListener("DOMContentLoaded", initializeLayout);
 
       // Listen for reduced motion preference changes with error handling
       try {
@@ -795,27 +833,13 @@ const dnsPrefetch = [
       }
 
       // Handle page visibility for better performance and accessibility
-      document.addEventListener("visibilitychange", () => {
-        try {
-          if (document.visibilityState === "visible") {
-            // Re-evaluate accessibility preferences when page becomes visible
-            setReducedMotionClass();
-            updateThemePreference();
-          }
-        } catch (error) {
-          handleLayoutError(error, "visibilitychange");
-        }
-      });
+      document.addEventListener("visibilitychange", handleVisibilityChange);
 
       // Enhanced error handling for unhandled errors
-      window.addEventListener("error", (event) => {
-        handleLayoutError(event.error, "Global error handler");
-      });
+      window.addEventListener("error", handleGlobalError);
 
       // Enhanced error handling for unhandled promise rejections
-      window.addEventListener("unhandledrejection", (event) => {
-        handleLayoutError(new Error(event.reason), "Unhandled promise rejection");
-      });
+      window.addEventListener("unhandledrejection", handleUnhandledRejection);
     </script>
   </body>
 </html>

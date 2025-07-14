@@ -59,6 +59,7 @@ export default {
   "achievements.status.in_progress": "In Bearbeitung",
   "achievements.status.locked": "Gesperrt",
   "achievements.status.unlocked": "Freigeschaltet",
+  "achievements.points": "{points} Punkte",
   "achievements.summary.progress": "Fortschritt",
   "achievements.summary.title": "Erfolge-Übersicht",
   "achievements.summary.total": "Gesamt",
@@ -591,6 +592,7 @@ export default {
     "Entdecke kuratierte Playlists auf deinen bevorzugten Streaming-Plattformen.",
   "musicPlatforms.keyboardInstructions":
     "Navigieren Sie Musikplattformen mit der Tab-Taste. Drücken Sie Enter oder Leertaste, um Plattformen in neuen Tabs zu öffnen.",
+  "musicPlatforms.listenOn": "Hören Sie {title} auf {platform}",
   "nav.achievements.description": "Ihre freigeschalteten Erfolge und Fortschritte anzeigen",
   "nav.ariaLabel": "Hauptnavigation",
   "nav.donate.coffee": "Kaufen Sie uns einen Kaffee",

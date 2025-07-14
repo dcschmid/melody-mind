@@ -454,13 +454,33 @@ const stableItemIds = {
    * - Touch interface support via the backdrop
    * - Proper focus restoration after menu closes
    */
-  document.addEventListener("DOMContentLoaded", initNavigationMenu);
 
   /**
    * Initializes the navigation menu and sets up all necessary event listeners
    * This is the main entry point for the navigation functionality
    */
-  function initNavigationMenu(): void {
+  const setupMenuEventListeners = (
+    menuToggle: HTMLButtonElement,
+    mainMenu: HTMLDivElement,
+    menuBackdrop: HTMLDivElement,
+    statusAnnouncer: HTMLDivElement | null
+  ): void => {
+    menuToggle.addEventListener("click", () =>
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
+    );
+    menuBackdrop.addEventListener("click", () =>
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
+    );
+
+    // Close menu with Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mainMenu.getAttribute("data-state") === "open") {
+        toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer);
+      }
+    });
+  };
+
+  const initNavigationMenu = (): void => {
     // Get all required DOM elements
     const menuToggle = document.getElementById("menu-toggle") as HTMLButtonElement | null;
     const mainMenu = document.getElementById("main-menu") as HTMLDivElement | null;
@@ -482,26 +502,17 @@ const stableItemIds = {
     initLogoutButton();
 
     // Set up event listeners
-    menuToggle.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
-    );
+    setupMenuEventListeners(menuToggle, mainMenu, menuBackdrop, statusAnnouncer);
     closeButton.addEventListener("click", () =>
       toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
     );
-    menuBackdrop.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
-    );
-
-    // Close menu with Escape key
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && mainMenu.getAttribute("data-state") === "open") {
-        toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer);
-      }
-    });
 
     // Set up focus trap in the menu
     setupFocusTrap(mainMenu);
-  }
+  };
+
+  // Initialize when DOM is ready
+  document.addEventListener("DOMContentLoaded", initNavigationMenu);
 
   /**
    * Toggles the menu state between open and closed
@@ -512,12 +523,12 @@ const stableItemIds = {
    * @param {HTMLElement} menuBackdrop - The backdrop overlay element
    * @param {HTMLElement} statusAnnouncer - Element for screen reader announcements
    */
-  function toggleMenu(
+  const toggleMenu = (
     menuToggle: HTMLButtonElement,
     mainMenu: HTMLElement,
     menuBackdrop: HTMLElement,
     statusAnnouncer?: HTMLElement | null
-  ): void {
+  ): void => {
     // Get current state and determine new state
     const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
     const newState = !isExpanded;
@@ -557,7 +568,7 @@ const stableItemIds = {
       // When closing: return focus to the toggle button
       menuToggle.focus();
     }
-  }
+  };
 
   /**
    * Sets up a focus trap within the menu element
@@ -566,7 +577,7 @@ const stableItemIds = {
    *
    * @param {HTMLElement} menuElement - The menu element to trap focus within
    */
-  function setupFocusTrap(menuElement: HTMLElement): void {
+  const setupFocusTrap = (menuElement: HTMLElement): void => {
     menuElement.addEventListener("keydown", (e: KeyboardEvent) => {
       if (e.key !== "Tab" || menuElement.getAttribute("data-state") !== "open") {
         return;
@@ -594,7 +605,7 @@ const stableItemIds = {
 
     // WCAG 2.2 Enhancement: Add support for users who have difficulty with pointer precision
     setupAlternativeInteractionMethods(menuElement);
-  }
+  };
 
   /**
    * WCAG 2.2 SC 2.5.7 Dragging Movements: Alternative Interaction Methods
@@ -603,7 +614,7 @@ const stableItemIds = {
    *
    * @param {HTMLElement} menuElement - The menu element to enhance
    */
-  function setupAlternativeInteractionMethods(menuElement: HTMLElement): void {
+  const setupAlternativeInteractionMethods = (menuElement: HTMLElement): void => {
     // Enhanced keyboard shortcuts for navigation efficiency
     menuElement.addEventListener("keydown", (e: KeyboardEvent) => {
       if (menuElement.getAttribute("data-state") !== "open") {
@@ -659,7 +670,7 @@ const stableItemIds = {
 
     // Enhanced touch support for users with motor impairments
     setupEnhancedTouchSupport(menuElement);
-  }
+  };
 
   /**
    * Enhanced touch support with longer press times and larger touch areas
@@ -667,7 +678,7 @@ const stableItemIds = {
    *
    * @param {HTMLElement} menuElement - The menu element to enhance
    */
-  function setupEnhancedTouchSupport(menuElement: HTMLElement): void {
+  const setupEnhancedTouchSupport = (menuElement: HTMLElement): void => {
     const menuItems = menuElement.querySelectorAll('.navigation-link[role="menuitem"]');
 
     // Get touch timeout from CSS variable for consistency
@@ -749,7 +760,7 @@ const stableItemIds = {
         { passive: true }
       );
     });
-  }
+  };
 
   /**
    * Centralized element activation handler to reduce code duplication
@@ -757,14 +768,14 @@ const stableItemIds = {
    *
    * @param {HTMLElement} element - The element to activate
    */
-  function handleElementActivation(element: HTMLElement): void {
+  const handleElementActivation = (element: HTMLElement): void => {
     const link = element.getAttribute("href");
     if (link) {
       window.location.href = link;
     } else if (element.tagName === "BUTTON") {
       element.click();
     }
-  }
+  };
 
   /**
    * Navigate between menu items using arrow keys
@@ -773,7 +784,7 @@ const stableItemIds = {
    * @param {HTMLElement} menuElement - The menu container
    * @param {string} direction - Navigation direction ("next" or "previous")
    */
-  function navigateMenuItems(menuElement: HTMLElement, direction: "next" | "previous"): void {
+  const navigateMenuItems = (menuElement: HTMLElement, direction: "next" | "previous"): void => {
     const menuItems = Array.from(
       menuElement.querySelectorAll('.navigation-link[role="menuitem"]')
     ) as HTMLElement[];
@@ -798,7 +809,7 @@ const stableItemIds = {
 
     menuItems[nextIndex].focus();
     announceNavigation(`Focused on ${menuItems[nextIndex].textContent?.trim()}`);
-  }
+  };
 
   /**
    * Announce navigation changes to screen readers
@@ -806,7 +817,7 @@ const stableItemIds = {
    *
    * @param {string} message - The message to announce
    */
-  function announceNavigation(message: string): void {
+  const announceNavigation = (message: string): void => {
     const statusAnnouncer = document.getElementById("menu-status-announcer");
     if (statusAnnouncer) {
       statusAnnouncer.textContent = message;
@@ -826,7 +837,7 @@ const stableItemIds = {
         }
       }, announcementTimeout);
     }
-  }
+  };
 
   /**
    * Gets all focusable elements within a container
@@ -835,12 +846,12 @@ const stableItemIds = {
    * @param {HTMLElement} container - The container to search within
    * @returns {Array<HTMLElement>} Array of focusable elements
    */
-  function getFocusableElements(container: HTMLElement): Array<HTMLElement> {
+  const getFocusableElements = (container: HTMLElement): Array<HTMLElement> => {
     const selector =
       'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
     const elements = Array.from(container.querySelectorAll<HTMLElement>(selector));
     return elements.filter((el) => el.offsetParent !== null); // Filter out hidden elements
-  }
+  };
 
   /**
    * Gets the first focusable element within a container
@@ -848,17 +859,17 @@ const stableItemIds = {
    * @param {HTMLElement} container - The container to search within
    * @returns {HTMLElement | null} The first focusable element or null if none found
    */
-  function getFirstFocusableElement(container: HTMLElement): HTMLElement | null {
+  const getFirstFocusableElement = (container: HTMLElement): HTMLElement | null => {
     const focusableElements = getFocusableElements(container);
     return focusableElements.length > 0 ? focusableElements[0] : null;
-  }
+  };
 
   /**
    * Checks if a specific key exists in localStorage
    * @param {string} key - The key to check
    * @returns {boolean} - true if the key exists and has a value, false otherwise
    */
-  function checkLocalStorage(key: string): boolean {
+  const checkLocalStorage = (key: string): boolean => {
     try {
       const value = localStorage.getItem(key);
       return value !== null;
@@ -866,14 +877,14 @@ const stableItemIds = {
       console.error("Error accessing localStorage:", error);
       return false;
     }
-  }
+  };
 
   /**
    * Safely removes a key from localStorage with error handling
    * @param {string} key - The key to remove
    * @returns {boolean} - true if successful, false if failed
    */
-  function removeLocalStorage(key: string): boolean {
+  const removeLocalStorage = (key: string): boolean => {
     try {
       localStorage.removeItem(key);
       return true;
@@ -881,23 +892,23 @@ const stableItemIds = {
       console.error("Error removing from localStorage:", error);
       return false;
     }
-  }
+  };
 
   /**
    * Checks if the user is authenticated
    * @returns {boolean} - true if the user is authenticated, false otherwise
    */
-  function isUserAuthenticated(): boolean {
+  const isUserAuthenticated = (): boolean => {
     return (
       checkLocalStorage("auth_status") && localStorage.getItem("auth_status") === "authenticated"
     );
-  }
+  };
 
   /**
    * Updates the visibility of authentication-dependent elements
    * based on the authentication status
    */
-  function updateLogoutButtonVisibility(): void {
+  const updateLogoutButtonVisibility = (): void => {
     const userSection = document.getElementById("user-section");
     if (!userSection) {
       return;
@@ -911,39 +922,39 @@ const stableItemIds = {
     } else {
       userSection.style.display = "none";
     }
-  }
+  };
 
   /**
    * Gets the current language from the URL path
    * Centralized utility to reduce code duplication
    * @returns {string} The current language code (defaults to 'de')
    */
-  function getCurrentLanguage(): string {
+  const getCurrentLanguage = (): string => {
     const currentPath = window.location.pathname;
     const langMatch = currentPath.match(/^\/([a-z]{2})\//);
     return langMatch ? langMatch[1] : "de"; // Default to 'de' if no language found
-  }
+  };
 
   /**
    * Performance-optimized redirect handler with code deduplication
    * Extracts common redirect logic to follow DRY principles
    * @param {string} reason - Optional reason parameter for redirect
    */
-  function performRedirect(reason?: string): void {
+  const performRedirect = (reason?: string): void => {
     const lang = getCurrentLanguage();
     const redirectUrl = reason
       ? `/${lang}/gamehome?reason=${encodeURIComponent(reason)}`
       : `/${lang}/gamehome`;
 
     window.location.href = redirectUrl;
-  }
+  };
 
   /**
    * Handles the logout process when the logout button is clicked
    * Sends a POST request to the logout API, clears localStorage auth status,
    * dispatches logout event, and redirects to the login page on success
    */
-  function initLogoutButton(): void {
+  const initLogoutButton = (): void => {
     const logoutButton = document.getElementById("logout-button");
     if (!logoutButton) {
       return;
@@ -991,7 +1002,7 @@ const stableItemIds = {
         performRedirect("logout_error");
       }
     });
-  }
+  };
 
   // Check authentication status when the page loads
   document.addEventListener("DOMContentLoaded", () => {
@@ -1027,7 +1038,7 @@ const stableItemIds = {
      * Initialize optimized authentication monitoring with enhanced error handling
      * Uses existing authStatus utilities for efficient polling and event handling
      */
-    function initializeAuthMonitoring(): void {
+    const initializeAuthMonitoring = (): void => {
       if (isInitialized) {
         return;
       }
@@ -1048,7 +1059,7 @@ const stableItemIds = {
             ) || 2000;
 
           // Smart cookie-based polling - only when document is visible
-          function startCookieWatcher(): void {
+          const startCookieWatcher = (): void => {
             if (cookieWatcher) {
               stopCookieWatcher(cookieWatcher);
             }
@@ -1060,7 +1071,7 @@ const stableItemIds = {
                 pollingInterval
               );
             }
-          }
+          };
 
           // Handle visibility changes to optimize polling
           document.addEventListener("visibilitychange", () => {
@@ -1125,13 +1136,13 @@ const stableItemIds = {
 
           return false; // Return value for error case
         });
-    }
+    };
 
     /**
      * Enhanced auth status update with retry logic and error resilience
      * Implements exponential backoff for network issues
      */
-    function updateLogoutButtonVisibilityWithRetry(): void {
+    const updateLogoutButtonVisibilityWithRetry = (): void => {
       try {
         updateLogoutButtonVisibility();
         retryCount = 0; // Reset on success
@@ -1149,7 +1160,7 @@ const stableItemIds = {
           retryCount = 0; // Reset for next cycle
         }
       }
-    }
+    };
 
     // Initialize when DOM is ready
     if (document.readyState === "loading") {
@@ -1157,188 +1168,6 @@ const stableItemIds = {
     } else {
       initializeAuthMonitoring();
     }
-  })();
-
-  /**
-   * Initialize WCAG 2.2 AAA compliant session timeout warnings
-   * Implements SC 2.2.6 Timeouts requirements for accessibility
-   * Only activates for authenticated users to provide session management
-   */
-  ((): void => {
-    let sessionManager: { destroy: () => void; initialize: () => void } | null = null;
-    let isSessionTimeoutInitialized = false;
-
-    /**
-     * Initialize session timeout warning system
-     * Uses the established sessionTimeout.ts utility for consistency
-     */
-    function initializeSessionTimeout(): void {
-      if (isSessionTimeoutInitialized || sessionManager) {
-        return;
-      }
-
-      // Only initialize for authenticated users on protected pages that require auth
-      const authStatus = localStorage.getItem("auth_status");
-      if (!authStatus || authStatus !== "authenticated") {
-        return;
-      }
-
-      // Check if current page requires session timeout (only game pages and protected areas)
-      const currentPath = window.location.pathname;
-      const requiresSessionTimeout =
-        currentPath.includes("/game-") ||
-        currentPath.includes("/chronology-") ||
-        currentPath.includes("/admin/") ||
-        currentPath.includes("/dashboard/");
-
-      if (!requiresSessionTimeout) {
-        return;
-      }
-
-      // Import session timeout utility dynamically for performance
-      import("../../utils/auth/sessionTimeout")
-        .then(({ createSessionTimeoutManager }) => {
-          // Get current language for proper redirect and translations
-          const lang = getCurrentLanguage();
-
-          // Create session timeout configuration
-          const config = {
-            sessionTimeout: 20 * 60 * 1000, // 20 minutes
-            warningTime: 2 * 60 * 1000, // 2 minutes warning (WCAG 2.2 minimum requirement)
-            redirectUrl: `/${lang}/auth/login?reason=session_expired`,
-            translations: {
-              title:
-                {
-                  de: "Sitzung läuft ab",
-                  en: "Session Expiring",
-                  es: "Sesión expirando",
-                  fr: "Session expirant",
-                  it: "Sessione in scadenza",
-                  pt: "Sessão expirando",
-                  da: "Session udløber",
-                  nl: "Sessie verloopt",
-                  sv: "Session upphör",
-                  fi: "Istunto päättyy",
-                }[lang] || "Session Expiring",
-              message:
-                {
-                  de: "Ihre Sitzung läuft in 2 Minuten ab. Klicken Sie auf eine beliebige Stelle, um sie zu verlängern.",
-                  en: "Your session will expire in 2 minutes. Click anywhere to extend it.",
-                  es: "Tu sesión expirará en 2 minutos. Haz clic en cualquier lugar para extenderla.",
-                  fr: "Votre session expirera dans 2 minutes. Cliquez n'importe où pour l'étendre.",
-                  it: "La tua sessione scadrà tra 2 minuti. Clicca ovunque per estenderla.",
-                  pt: "Sua sessão expirará em 2 minutos. Clique em qualquer lugar para estendê-la.",
-                  da: "Din session udløber om 2 minutter. Klik hvor som helst for at forlænge den.",
-                  nl: "Je sessie verloopt over 2 minuten. Klik ergens om deze te verlengen.",
-                  sv: "Din session upphör om 2 minuter. Klicka var som helst för att förlänga den.",
-                  fi: "Istuntosi päättyy 2 minuutissa. Klikkaa mihin tahansa jatkaaksesi sitä.",
-                }[lang] || "Your session will expire in 2 minutes. Click anywhere to extend it.",
-              extend:
-                {
-                  de: "Sitzung verlängern",
-                  en: "Extend Session",
-                  es: "Extender sesión",
-                  fr: "Étendre la session",
-                  it: "Estendi sessione",
-                  pt: "Estender sessão",
-                  da: "Forlæng session",
-                  nl: "Sessie verlengen",
-                  sv: "Förläng session",
-                  fi: "Jatka istuntoa",
-                }[lang] || "Extend Session",
-              close:
-                {
-                  de: "Schließen",
-                  en: "Close",
-                  es: "Cerrar",
-                  fr: "Fermer",
-                  it: "Chiudi",
-                  pt: "Fechar",
-                  da: "Luk",
-                  nl: "Sluiten",
-                  sv: "Stäng",
-                  fi: "Sulje",
-                }[lang] || "Close",
-            },
-          };
-
-          // Create and initialize session manager
-          sessionManager = createSessionTimeoutManager(config);
-          sessionManager.initialize();
-
-          isSessionTimeoutInitialized = true;
-          console.warn(
-            "Navigation: Session timeout warnings initialized for protected page:",
-            currentPath
-          );
-
-          // Set up cleanup for page navigation
-          function cleanupSessionManager(): void {
-            if (sessionManager) {
-              sessionManager.destroy();
-              sessionManager = null;
-              isSessionTimeoutInitialized = false;
-            }
-          }
-
-          // Add cleanup event listeners
-          window.addEventListener("beforeunload", cleanupSessionManager);
-          document.addEventListener("astro:before-preparation", cleanupSessionManager);
-          document.addEventListener("astro:page-load", cleanupSessionManager);
-
-          return sessionManager;
-        })
-        .catch((error) => {
-          console.error("Failed to load session timeout manager:", error);
-          return null;
-        });
-    }
-
-    /**
-     * Handle authentication state changes for session timeout management
-     */
-    function handleAuthStateChange(): void {
-      const authStatus = localStorage.getItem("auth_status");
-
-      if (authStatus === "authenticated") {
-        // User is authenticated - initialize session timeout if not already done
-        initializeSessionTimeout();
-      } else {
-        // User is not authenticated - cleanup session timeout if it exists
-        if (sessionManager) {
-          sessionManager.destroy();
-          sessionManager = null;
-          isSessionTimeoutInitialized = false;
-          console.warn("Navigation: Session timeout cleaned up - user not authenticated");
-        }
-      }
-    }
-
-    // Initialize session timeout on DOM ready
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initializeSessionTimeout);
-    } else {
-      initializeSessionTimeout();
-    }
-
-    // Listen for authentication events to manage session timeout lifecycle
-    window.addEventListener("auth:login", () => {
-      console.warn("Navigation: auth:login received - initializing session timeout");
-      handleAuthStateChange();
-    });
-
-    window.addEventListener("auth:logout", () => {
-      console.warn("Navigation: auth:logout received - cleaning up session timeout");
-      handleAuthStateChange();
-    });
-
-    // Monitor storage changes for auth status (from other tabs/windows)
-    window.addEventListener("storage", (event) => {
-      if (event.key === "auth_status") {
-        console.warn("Navigation: auth_status storage changed - updating session timeout");
-        handleAuthStateChange();
-      }
-    });
   })();
 </script>
 

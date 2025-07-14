@@ -299,6 +299,10 @@
     --animation-y-offset-small
   ); /* Bounce animation offset for subtle movement */
 
+  /* Glow and Shadow System */
+  --glow-distance: 10px; /* Standard glow distance for animations */
+  --glow-distance-large: 15px; /* Large glow distance for enhanced effects */
+
   /* Enhanced Animation Timing System */
   --animation-duration-fast: 200ms; /* Fast animations */
   --animation-duration-normal: 300ms; /* Normal speed animations */
@@ -514,6 +518,10 @@
   --modal-content-max-width: 32rem; /* 512px - Standard modal width */
   --modal-content-max-height: 90vh; /* Maximum modal height */
   --modal-padding: var(--space-lg); /* Standard modal padding */
+
+  /* Backdrop and Overlay System */
+  --backdrop-overlay-dark: rgba(0, 0, 0, 0.8); /* Dark backdrop for modals */
+  --backdrop-blur: 8px; /* Blur effect for backdrop filters */
 
   /* Achievement & Badge Dimensions */
   --achievement-badge-size: 5rem; /* 80px - Achievement badge size */

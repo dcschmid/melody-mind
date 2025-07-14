@@ -2,38 +2,23 @@
 /**
  * PlaylistItem Component
  *
- * A performance-optimized, accessible card component that represents a music playlist
- * or category in the MelodyMind game. This component supports both interactive (linked)
- * and non-interactive (disabled) states with visual indicators for each.
+ * A responsive, accessible card component for music playlists and categories.
+ * Supports interactive and disabled states with visual indicators.
  *
  * Features:
- * - Semantic HTML structure with appropriate ARIA attributes
+ * - Responsive design with mobile-first breakpoints
  * - WCAG AAA compliant (7:1 contrast ratio)
- * - Responsive design with optimized media loading
+ * - Semantic HTML with ARIA attributes
  * - Keyboard and screen reader accessible
  * - Touch-friendly with appropriate target sizes
  * - Visual feedback for hover and focus states
  * - Support for reduced motion preferences
- * - Optimized for performance with GPU acceleration and CSS containment
- * - Uses only CSS variables from global.css - NO hardcoded values
- * - Advanced performance optimizations including:
- *   - GPU acceleration with translateZ(0)
- *   - CSS containment (layout style)
- *   - Content visibility for viewport-based rendering
- *   - Optimized transitions targeting specific properties
- *   - will-change hints for transform animations
- *   - Efficient image loading with lazy loading and proper formats
- *   - Touch device optimizations and active states
- * - DRY patterns consistent with PlaylistCard and KnowledgeCard:
- *   - Semantic color variables and design tokens
- *   - Standardized accessibility patterns and ARIA structure
- *   - Unified focus management and keyboard navigation
- *   - Shared screen reader utility classes and announcements
- *   - Consistent print styles and high contrast mode support
+ * - Performance optimized with GPU acceleration
+ * - Uses global.css variables for consistent theming
  *
  * @component
- * @performance High - Optimized for 60fps animations with GPU acceleration
- * @accessibility WCAG AAA compliant with enhanced focus management
+ * @performance High - Optimized for 60fps animations
+ * @accessibility WCAG AAA compliant
  */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Picture } from "astro:assets";
@@ -155,31 +140,13 @@ const statusAnnouncementText = isDisabled
   /**
    * PlaylistItem Component Styles
    * 
-   * ✅ PERFORMANCE OPTIMIZED - GPU accelerated animations
+   * ✅ Responsive design with mobile-first breakpoints
    * ✅ 100% CSS variables from global.css - NO hardcoded values
    * ✅ WCAG AAA 2.2 compliant colors and spacing
-   * ✅ CSS containment for improved rendering performance
-   * ✅ Optimized transitions targeting specific properties
-   * ✅ will-change hints for transform animations
-   * ✅ DRY principles with configurable fallback values
+   * ✅ Performance optimized with GPU acceleration
+   * ✅ CSS containment for improved rendering
    * ✅ Enhanced accessibility with text personalization support
-   * ✅ Consistent with PlaylistCard and KnowledgeCard patterns
-   * 
-   * Performance Features:
-   * - GPU acceleration with translateZ(0)
-   * - CSS containment (layout style) 
-   * - Content visibility for viewport-based rendering
-   * - Specific transition properties (not 'all')
-   * - Efficient image loading strategies
-   * - Reduced motion support for accessibility
-   * - Touch device optimizations
-   * 
-   * DRY Improvements:
-   * - Semantic color variables for consistent theming
-   * - Standardized spacing and typography tokens
-   * - Shared accessibility patterns with other card components
-   * - Unified performance optimization approaches
-   * - Consistent focus management and ARIA patterns
+   * ✅ Consistent with other card components
    */
 
   /* Base playlist item styles */
@@ -188,10 +155,10 @@ const statusAnnouncementText = isDisabled
     display: flex;
     flex-direction: column;
     height: var(--width-full);
-    min-height: var(--playlist-item-min-height, 250px);
+    min-height: var(--playlist-item-min-height, 200px);
     width: var(--width-full);
     overflow: hidden;
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     border: var(--border-width-thick) solid var(--color-primary-700);
     background: linear-gradient(
       to bottom,
@@ -210,6 +177,16 @@ const statusAnnouncementText = isDisabled
     contain: layout style;
     will-change: transform;
     transform: translateZ(0); /* GPU acceleration */
+
+    /* Responsive padding adjustments */
+    @media (min-width: 640px) {
+      min-height: var(--playlist-item-min-height, 250px);
+      border-radius: var(--radius-xl);
+    }
+
+    @media (min-width: 1024px) {
+      min-height: var(--playlist-item-min-height, 280px);
+    }
 
     /* Interactive state */
     &--interactive {
@@ -270,7 +247,7 @@ const statusAnnouncementText = isDisabled
 
     /* Support for extreme text customization (up to 200% line height) */
     @supports (line-height: 2) {
-      min-height: calc(var(--playlist-item-min-height, 250px) * 1.5);
+      min-height: calc(var(--playlist-item-min-height, 200px) * 1.5);
     }
 
     &[data-personalization="music-card"] {
@@ -395,6 +372,12 @@ const statusAnnouncementText = isDisabled
     font-weight: var(--font-medium);
     transition: background var(--transition-fast);
 
+    /* Responsive sizing */
+    @media (min-width: 640px) {
+      font-size: var(--text-sm);
+      padding: var(--space-sm) var(--space-md);
+    }
+
     @media (forced-colors: active) {
       background: ButtonFace;
       color: ButtonText;
@@ -432,7 +415,16 @@ const statusAnnouncementText = isDisabled
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    padding: var(--space-lg);
+    padding: var(--space-md);
+
+    /* Responsive padding */
+    @media (min-width: 640px) {
+      padding: var(--space-lg);
+    }
+
+    @media (min-width: 1024px) {
+      padding: var(--space-xl);
+    }
 
     /* Support for extreme text customization */
     @supports (line-height: 2) {
@@ -445,13 +437,22 @@ const statusAnnouncementText = isDisabled
     margin: 0;
     text-align: center;
     font-family: inherit;
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     font-weight: var(--font-semibold);
     line-height: var(--leading-enhanced); /* Enhanced line height for better readability */
     letter-spacing: var(--letter-spacing-enhanced); /* WCAG AAA compliant letter spacing */
     color: var(--text-primary);
     word-break: break-word;
     hyphens: auto;
+
+    /* Responsive typography */
+    @media (min-width: 640px) {
+      font-size: var(--text-lg);
+    }
+
+    @media (min-width: 1024px) {
+      font-size: var(--text-xl);
+    }
 
     /* Support for extreme text customization (up to 200% line height) */
     @supports (line-height: 2) {
@@ -470,16 +471,30 @@ const statusAnnouncementText = isDisabled
   /* Subheadline container */
   .subheadline-container {
     position: relative;
-    margin-top: var(--space-md);
+    margin-top: var(--space-sm);
+
+    /* Responsive spacing */
+    @media (min-width: 640px) {
+      margin-top: var(--space-md);
+    }
+
+    @media (min-width: 1024px) {
+      margin-top: var(--space-lg);
+    }
   }
 
   /* Subheadline divider */
   .subheadline-divider {
-    margin: 0 auto var(--space-md);
+    margin: 0 auto var(--space-sm);
     width: var(--divider-width, 25%);
     height: var(--border-width-thin);
     background: var(--color-primary-500);
     transition: width var(--transition-normal);
+
+    /* Responsive spacing */
+    @media (min-width: 640px) {
+      margin-bottom: var(--space-md);
+    }
 
     @media (prefers-reduced-motion: reduce) {
       transition: none !important;
@@ -489,12 +504,21 @@ const statusAnnouncementText = isDisabled
   .playlist-subheadline {
     margin: 0;
     text-align: center;
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     line-height: var(--leading-enhanced);
     letter-spacing: var(--letter-spacing-enhanced);
     word-spacing: var(--word-spacing-enhanced);
     color: var(--text-primary);
     transition: color var(--transition-fast);
+
+    /* Responsive typography */
+    @media (min-width: 640px) {
+      font-size: var(--text-base);
+    }
+
+    @media (min-width: 1024px) {
+      font-size: var(--text-lg);
+    }
 
     /* Support for extreme text customization */
     @supports (line-height: 2) {

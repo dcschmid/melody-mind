@@ -1,24 +1,42 @@
 ---
 /**
- * @component ImpressumFallback
- * @description Dynamic impressum page that falls back to English legal notice for unsupported languages
+ * @component ImpressumPage
+ * @description Dynamic impressum page with responsive SCSS styling and modern TypeScript
  */
 
 import { languages } from "../../i18n/ui";
 import { getLangFromUrl } from "../../utils/i18n";
+import Layout from "../../layouts/Layout.astro";
 
-// Define the return type for getStaticPaths
+// Enable prerendering for static generation
+export const prerender = true;
+
+// Define TypeScript interfaces
 interface StaticPath {
   params: {
     lang: string;
   };
 }
 
+interface ImpressumData {
+  title: string;
+  company: string;
+  address: string;
+  contact: {
+    email: string;
+    phone: string;
+  };
+  legal: {
+    vat: string;
+    register: string;
+  };
+}
+
 // Get static paths for all supported languages
-export async function getStaticPaths(): Promise<StaticPath[]> {
+export const getStaticPaths = async (): Promise<StaticPath[]> => {
   const paths: StaticPath[] = [];
 
-  // Generate paths for all supported languages
+  // Generate paths for all supported languages using modern ES6
   Object.keys(languages).forEach((lang) => {
     paths.push({
       params: { lang },
@@ -26,9 +44,9 @@ export async function getStaticPaths(): Promise<StaticPath[]> {
   });
 
   return paths;
-}
+};
 
-// Get current language and check if we need to redirect
+// Get current language
 const lang = getLangFromUrl(Astro.url);
 
 // Languages that have native legal pages
@@ -44,8 +62,450 @@ if (lang === "de") {
   return Astro.redirect("/de/impressum", 301);
 }
 
-// This should not be reached, but fallback to English
-return Astro.redirect("/en/legal-notice", 302);
+// Impressum data (this would normally come from a CMS or i18n files)
+const impressumData: ImpressumData = {
+  title: "Impressum",
+  company: "MelodyMind GmbH",
+  address: "Musterstraße 123, 12345 Musterstadt, Deutschland",
+  contact: {
+    email: "info@melody-mind.de",
+    phone: "+49 123 456789",
+  },
+  legal: {
+    vat: "DE123456789",
+    register: "HRB 12345, Amtsgericht Musterstadt",
+  },
+};
 ---
 
-<!-- This component handles redirects, so no HTML content is needed -->
+<Layout title={impressumData.title}>
+  <main class="impressum-container">
+    <div class="impressum-content">
+      <header class="impressum-header">
+        <h1 class="impressum-title">{impressumData.title}</h1>
+        <p class="impressum-subtitle">Angaben gemäß § 5 TMG</p>
+      </header>
+
+      <section class="impressum-section">
+        <h2 class="section-title">Angaben zum Unternehmen</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <h3 class="info-label">Firmenname</h3>
+            <p class="info-value">{impressumData.company}</p>
+          </div>
+          <div class="info-item">
+            <h3 class="info-label">Adresse</h3>
+            <p class="info-value">{impressumData.address}</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="impressum-section">
+        <h2 class="section-title">Kontakt</h2>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <h3 class="contact-label">E-Mail</h3>
+            <a href={`mailto:${impressumData.contact.email}`} class="contact-link">
+              {impressumData.contact.email}
+            </a>
+          </div>
+          <div class="contact-item">
+            <h3 class="contact-label">Telefon</h3>
+            <a href={`tel:${impressumData.contact.phone}`} class="contact-link">
+              {impressumData.contact.phone}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="impressum-section">
+        <h2 class="section-title">Rechtliche Angaben</h2>
+        <div class="legal-grid">
+          <div class="legal-item">
+            <h3 class="legal-label">Umsatzsteuer-ID</h3>
+            <p class="legal-value">{impressumData.legal.vat}</p>
+          </div>
+          <div class="legal-item">
+            <h3 class="legal-label">Handelsregister</h3>
+            <p class="legal-value">{impressumData.legal.register}</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<style lang="scss">
+  // SCSS Variables using CSS custom properties
+  $container-max-width: 800px;
+  $section-spacing: 2rem;
+  $border-radius: 12px;
+  $transition-duration: 0.3s;
+
+  // Mixins for responsive design
+  @mixin mobile {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+
+  @mixin tablet {
+    @media (min-width: 769px) and (max-width: 1024px) {
+      @content;
+    }
+  }
+
+  @mixin desktop {
+    @media (min-width: 1025px) {
+      @content;
+    }
+  }
+
+  // Focus styles for accessibility
+  @mixin focus-visible {
+    &:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--focus-ring);
+    }
+  }
+
+  // Main container
+  .impressum-container {
+    min-height: 100vh;
+    background: var(--bg-primary);
+    padding: var(--space-lg);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    @include mobile {
+      padding: var(--space-md);
+    }
+  }
+
+  // Content wrapper
+  .impressum-content {
+    max-width: $container-max-width;
+    width: 100%;
+    background: var(--bg-secondary);
+    border-radius: $border-radius;
+    border: 1px solid var(--border-primary);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    transition: box-shadow $transition-duration ease;
+
+    &:hover {
+      box-shadow: var(--card-shadow-hover);
+    }
+  }
+
+  // Header section
+  .impressum-header {
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+    padding: var(--space-2xl);
+    text-align: center;
+    color: var(--color-white);
+
+    @include mobile {
+      padding: var(--space-xl);
+    }
+
+    .impressum-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin: 0 0 var(--space-sm) 0;
+      line-height: 1.2;
+    }
+
+    .impressum-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      margin: 0;
+      opacity: 0.9;
+      font-weight: 400;
+    }
+  }
+
+  // Section styling
+  .impressum-section {
+    padding: $section-spacing;
+    border-bottom: 1px solid var(--border-primary);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    @include mobile {
+      padding: var(--space-lg);
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0 0 var(--space-lg) 0;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--color-primary-500), var(--color-secondary-500));
+        border-radius: 2px;
+      }
+    }
+  }
+
+  // Grid layouts
+  .info-grid,
+  .contact-grid,
+  .legal-grid {
+    display: grid;
+    gap: var(--space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+  }
+
+  // Item styling
+  .info-item,
+  .contact-item,
+  .legal-item {
+    background: var(--bg-tertiary);
+    padding: var(--space-lg);
+    border-radius: $border-radius;
+    border: 1px solid var(--border-secondary);
+    transition: all $transition-duration ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      border-color: var(--border-focus);
+    }
+
+    @include mobile {
+      padding: var(--space-md);
+    }
+  }
+
+  // Label styling
+  .info-label,
+  .contact-label,
+  .legal-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 var(--space-sm) 0;
+  }
+
+  // Value styling
+  .info-value,
+  .legal-value {
+    font-size: 1.125rem;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.5;
+    font-weight: 500;
+
+    @include mobile {
+      font-size: 1rem;
+    }
+  }
+
+  // Contact link styling
+  .contact-link {
+    color: var(--interactive-primary);
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 500;
+    transition: color $transition-duration ease;
+    display: inline-block;
+    position: relative;
+
+    @include mobile {
+      font-size: 1rem;
+    }
+
+    @include focus-visible;
+
+    &:hover {
+      color: var(--interactive-primary-hover);
+    }
+
+    &:active {
+      color: var(--interactive-primary-active);
+    }
+
+    // Underline animation
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-secondary-400);
+      transition: width $transition-duration ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  // Responsive adjustments
+  @include mobile {
+    .impressum-container {
+      padding: var(--space-sm);
+    }
+
+    .impressum-content {
+      border-radius: calc($border-radius / 2);
+    }
+
+    .impressum-header {
+      border-radius: calc($border-radius / 2) calc($border-radius / 2) 0 0;
+    }
+  }
+
+  // High contrast mode support
+  @media (prefers-contrast: high) {
+    .impressum-content {
+      border-width: 2px;
+    }
+
+    .info-item,
+    .contact-item,
+    .legal-item {
+      border-width: 2px;
+    }
+  }
+
+  // Reduced motion support
+  @media (prefers-reduced-motion: reduce) {
+    .impressum-content,
+    .info-item,
+    .contact-item,
+    .legal-item,
+    .contact-link {
+      transition: none;
+    }
+
+    .contact-link::after {
+      transition: none;
+    }
+  }
+
+  // Print styles
+  @media print {
+    .impressum-container {
+      background: white;
+      padding: 0;
+    }
+
+    .impressum-content {
+      box-shadow: none;
+      border: 1px solid #000;
+    }
+
+    .impressum-header {
+      background: #f0f0f0 !important;
+      color: #000 !important;
+    }
+  }
+</style>
+
+<script>
+  // Modern ES6+ JavaScript with TypeScript features
+
+  // Declare global gtag function for analytics
+  declare global {
+    function gtag(command: string, targetId: string, config?: Record<string, unknown>): void;
+  }
+
+  class ImpressumEnhancements {
+    private contactLinks: NodeListOf<HTMLAnchorElement>;
+
+    /**
+     *
+     */
+    constructor() {
+      this.contactLinks = document.querySelectorAll(".contact-link");
+      this.init();
+    }
+
+    private init = (): void => {
+      this.setupContactLinks();
+      this.setupAccessibility();
+      this.setupAnalytics();
+    };
+
+    private setupContactLinks = (): void => {
+      this.contactLinks.forEach((link) => {
+        // Add click tracking
+        link.addEventListener("click", this.handleContactClick);
+
+        // Add keyboard navigation
+        link.addEventListener("keydown", this.handleKeyDown);
+      });
+    };
+
+    private handleContactClick = (event: Event): void => {
+      const target = event.target as HTMLAnchorElement;
+      const contactType = target.href.includes("mailto:") ? "email" : "phone";
+
+      // Analytics tracking (if available)
+      if (typeof gtag !== "undefined") {
+        gtag("event", "contact_click", {
+          contact_type: contactType,
+          page: "impressum",
+        });
+      }
+    };
+
+    private handleKeyDown = (event: KeyboardEvent): void => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        (event.target as HTMLAnchorElement).click();
+      }
+    };
+
+    private setupAccessibility = (): void => {
+      // Add ARIA labels for screen readers
+      const sections = document.querySelectorAll(".impressum-section");
+
+      sections.forEach((section, index) => {
+        const heading = section.querySelector("h2");
+        if (heading) {
+          section.setAttribute("aria-labelledby", heading.id || `section-${index}`);
+        }
+      });
+    };
+
+    private setupAnalytics = (): void => {
+      // Track page view
+      if (typeof gtag !== "undefined") {
+        gtag("event", "page_view", {
+          page_title: "Impressum",
+          page_location: window.location.href,
+        });
+      }
+    };
+  }
+
+  // Initialize when DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    new ImpressumEnhancements();
+  });
+
+  // Export for potential external use
+  export { ImpressumEnhancements };
+</script>

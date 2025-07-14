@@ -6,6 +6,14 @@
  * Allows users to eliminate two wrong answers during gameplay.
  * Uses CSS custom properties for consistent styling and WCAG AAA compliance.
  *
+ * Features:
+ * - WCAG AAA compliant accessibility
+ * - Responsive design with mobile-first approach
+ * - Performance optimized with requestAnimationFrame
+ * - Screen reader announcements
+ * - Visual feedback with animations
+ * - Internationalization support
+ *
  * @component
  * @example
  * ```astro
@@ -99,187 +107,7 @@ const dataAttributes = {
    * WCAG AAA 2.2 COMPLIANT WITH CSS VARIABLES
    * ====================================== */
 
-  // Common base styles for reusability (DRY principle)
-  %joker-base-interactive {
-    border-radius: var(--radius-lg);
-    transition: all var(--transition-normal);
-    cursor: pointer;
-  }
-
-  %joker-base-text {
-    font-weight: var(--font-medium);
-    line-height: var(--leading-normal);
-  }
-
-  .joker-container {
-    position: relative;
-    margin: var(--space-xl) 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-md);
-    border-radius: var(--radius-xl);
-    border: var(--border-width-thin) solid var(--border-primary);
-    background: var(--card-bg);
-    padding: var(--space-lg);
-    box-shadow: var(--shadow-md);
-    contain: layout style; // Performance optimization
-  }
-
-  .joker-title {
-    margin-bottom: var(--space-sm);
-    font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
-    color: var(--interactive-primary);
-    text-align: center;
-    line-height: var(--leading-normal);
-  }
-
-  .joker-button-wrapper {
-    position: relative;
-  }
-
-  .joker-button {
-    @extend %joker-base-interactive;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: var(--touch-target-min);
-    min-width: var(--touch-target-min);
-    gap: var(--space-sm);
-    background: var(--btn-primary-bg);
-    padding: var(--space-md) var(--space-xl);
-    font-weight: var(--font-semibold);
-    color: var(--btn-primary-text);
-    border: none;
-    box-shadow: var(--shadow-lg);
-    transform: translateY(0);
-    will-change: transform, background-color; // Performance optimization
-
-    &:hover:not(:disabled) {
-      background: var(--btn-primary-hover);
-      transform: translateY(calc(-1 * var(--space-micro)));
-      box-shadow: var(--shadow-xl);
-
-      .joker-icon {
-        transform: scale(var(--scale-focus));
-      }
-
-      .joker-button-effect {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    &:active:not(:disabled) {
-      transform: translateY(0);
-      box-shadow: var(--shadow-md);
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-      background: var(--bg-tertiary);
-      color: var(--text-disabled);
-      box-shadow: none;
-      transform: none;
-      opacity: var(--opacity-disabled);
-    }
-
-    &:focus-visible {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-      box-shadow: var(--focus-ring), var(--shadow-lg);
-    }
-  }
-
-  .joker-button-content {
-    display: flex;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .joker-icon {
-    margin-right: var(--space-sm);
-    width: var(--space-lg);
-    height: var(--space-lg);
-    transition: transform var(--transition-normal);
-  }
-
-  .joker-text {
-    @extend %joker-base-text;
-    white-space: nowrap;
-    font-size: var(--text-base);
-  }
-
-  .joker-button-effect {
-    position: absolute;
-    inset: 0;
-    border-radius: var(--radius-lg);
-    background: var(--focus-bg-overlay);
-    opacity: 0;
-    transform: scale(var(--scale-active));
-    transition: all var(--transition-normal);
-    pointer-events: none;
-  }
-
-  .joker-ripple {
-    position: absolute;
-    inset: 0;
-    border-radius: var(--radius-lg);
-    background: var(--interactive-primary);
-    opacity: 0;
-    pointer-events: none;
-    will-change: transform, opacity;
-
-    &.animate {
-      animation: ripple var(--transition-slow) ease-out forwards;
-    }
-  }
-
-  .joker-count-container {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-  }
-
-  .joker-count-label {
-    @extend %joker-base-text;
-    color: var(--text-secondary);
-    font-size: var(--text-sm);
-  }
-
-  .joker-count {
-    @extend %joker-base-text;
-    min-width: var(--touch-target-min);
-    border-radius: var(--radius-full);
-    border: var(--border-width-thin) solid var(--border-primary);
-    background: var(--bg-tertiary);
-    padding: var(--space-xs) var(--space-md);
-    text-align: center;
-    font-size: var(--text-lg);
-    color: var(--text-primary);
-    font-variant-numeric: tabular-nums;
-
-    &.updated {
-      animation: pulse var(--transition-slow) ease-in-out;
-    }
-  }
-
-  .joker-description {
-    margin-top: var(--space-sm);
-    max-width: var(--grid-min-width-sm);
-    text-align: center;
-    font-size: var(--text-base);
-    color: var(--text-tertiary);
-    line-height: var(--leading-relaxed);
-  }
-
-  /* ======================================
-   * ANIMATIONS
-   * ====================================== */
-
+  // Animation keyframes
   @keyframes ripple {
     0% {
       transform: scale(var(--scale-active));
@@ -308,66 +136,296 @@ const dataAttributes = {
     }
   }
 
-  /* ======================================
-   * RESPONSIVE DESIGN
-   * ====================================== */
+  // Main component container
+  .joker-container {
+    position: relative;
+    margin: var(--space-xl) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    border-radius: var(--radius-xl);
+    border: var(--border-width-thin) solid var(--border-primary);
+    background: var(--card-bg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-md);
+    contain: layout style; // Performance optimization
 
-  @media (max-width: var(--breakpoint-sm)) {
+    // Title styling
+    .joker-title {
+      margin-bottom: var(--space-sm);
+      font-size: var(--text-lg);
+      font-weight: var(--font-semibold);
+      color: var(--interactive-primary);
+      text-align: center;
+      line-height: var(--leading-normal);
+    }
+
+    // Button wrapper
+    .joker-button-wrapper {
+      position: relative;
+    }
+
+    // Main button styling
     .joker-button {
-      min-height: var(--touch-target-enhanced);
-      min-width: var(--touch-target-enhanced);
-      padding: var(--space-lg);
-    }
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: var(--touch-target-min);
+      min-width: var(--touch-target-min);
+      gap: var(--space-sm);
+      background: var(--btn-primary-bg);
+      padding: var(--space-md) var(--space-xl);
+      font-weight: var(--font-semibold);
+      color: var(--btn-primary-text);
+      border: none;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(0);
+      transition: all var(--transition-normal);
+      cursor: pointer;
+      will-change: transform, background-color; // Performance optimization
 
-    .joker-container {
-      margin: var(--space-lg) 0;
-      padding: var(--space-md);
-    }
-  }
+      &:hover:not(:disabled) {
+        background: var(--btn-primary-hover);
+        transform: translateY(calc(-1 * var(--space-micro)));
+        box-shadow: var(--shadow-xl);
 
-  /* ======================================
-   * ACCESSIBILITY ENHANCEMENTS
-   * ====================================== */
+        .joker-icon {
+          transform: scale(var(--scale-focus));
+        }
 
-  // High contrast mode support using CSS variables
-  @media (forced-colors: active) {
-    .joker-container {
-      border: var(--border-width-thick) solid CanvasText;
-      background: Canvas;
-    }
+        .joker-button-effect {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
 
-    .joker-button {
-      border: var(--border-width-thick) solid ButtonText;
-      background: ButtonFace;
-      color: ButtonText;
-      forced-color-adjust: none;
+      &:active:not(:disabled) {
+        transform: translateY(0);
+        box-shadow: var(--shadow-md);
+      }
 
       &:disabled {
+        cursor: not-allowed;
+        background: var(--bg-tertiary);
+        color: var(--text-disabled);
+        box-shadow: none;
+        transform: none;
         opacity: var(--opacity-disabled);
       }
 
       &:focus-visible {
-        outline: var(--border-width-enhanced) solid Highlight;
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-ring), var(--shadow-lg);
+      }
+
+      // Button content
+      .joker-button-content {
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      // Icon styling
+      .joker-icon {
+        margin-right: var(--space-sm);
+        width: var(--space-lg);
+        height: var(--space-lg);
+        transition: transform var(--transition-normal);
+      }
+
+      // Text styling
+      .joker-text {
+        font-weight: var(--font-medium);
+        line-height: var(--leading-normal);
+        white-space: nowrap;
+        font-size: var(--text-base);
+      }
+
+      // Button effect overlay
+      .joker-button-effect {
+        position: absolute;
+        inset: 0;
+        border-radius: var(--radius-lg);
+        background: var(--focus-bg-overlay);
+        opacity: 0;
+        transform: scale(var(--scale-active));
+        transition: all var(--transition-normal);
+        pointer-events: none;
       }
     }
 
-    .joker-count {
-      border: var(--border-width-thin) solid CanvasText;
-      background: Canvas;
-      color: CanvasText;
+    // Ripple animation
+    .joker-ripple {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-lg);
+      background: var(--interactive-primary);
+      opacity: 0;
+      pointer-events: none;
+      will-change: transform, opacity;
+
+      &.animate {
+        animation: ripple var(--transition-slow) ease-out forwards;
+      }
+    }
+
+    // Count container
+    .joker-count-container {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+
+      .joker-count-label {
+        font-weight: var(--font-medium);
+        line-height: var(--leading-normal);
+        color: var(--text-secondary);
+        font-size: var(--text-sm);
+      }
+
+      .joker-count {
+        font-weight: var(--font-medium);
+        line-height: var(--leading-normal);
+        min-width: var(--touch-target-min);
+        border-radius: var(--radius-full);
+        border: var(--border-width-thin) solid var(--border-primary);
+        background: var(--bg-tertiary);
+        padding: var(--space-xs) var(--space-md);
+        text-align: center;
+        font-size: var(--text-lg);
+        color: var(--text-primary);
+        font-variant-numeric: tabular-nums;
+
+        &.updated {
+          animation: pulse var(--transition-slow) ease-in-out;
+        }
+      }
+    }
+
+    // Description
+    .joker-description {
+      margin-top: var(--space-sm);
+      max-width: var(--grid-min-width-sm);
+      text-align: center;
+      font-size: var(--text-base);
+      color: var(--text-tertiary);
+      line-height: var(--leading-relaxed);
     }
   }
 
-  // Reduced motion preferences using CSS variables
+  /* ============================================================================
+   * RESPONSIVE DESIGN - Mobile-first approach
+   * ============================================================================ */
+
+  // Small screens and down
+  @media (max-width: var(--breakpoint-sm)) {
+    .joker-container {
+      margin: var(--space-lg) 0;
+      padding: var(--space-md);
+
+      .joker-title {
+        font-size: var(--text-base);
+      }
+
+      .joker-button {
+        min-height: var(--touch-target-enhanced);
+        min-width: var(--touch-target-enhanced);
+        padding: var(--space-lg);
+
+        .joker-text {
+          font-size: var(--text-sm);
+        }
+      }
+    }
+  }
+
+  // Medium screens and up
+  @media (min-width: var(--breakpoint-md)) {
+    .joker-container {
+      padding: var(--space-xl);
+
+      .joker-button {
+        padding: var(--space-lg) var(--space-2xl);
+      }
+    }
+  }
+
+  // Large screens and up
+  @media (min-width: var(--breakpoint-lg)) {
+    .joker-container {
+      padding: var(--space-2xl);
+
+      .joker-title {
+        font-size: var(--text-xl);
+      }
+    }
+  }
+
+  /* ============================================================================
+   * ACCESSIBILITY - Preference-based enhancements
+   * ============================================================================ */
+
+  // High contrast mode support
+  @media (forced-colors: active) {
+    .joker-container {
+      border: var(--border-width-thick) solid CanvasText;
+      background: Canvas;
+
+      .joker-button {
+        border: var(--border-width-thick) solid ButtonText;
+        background: ButtonFace;
+        color: ButtonText;
+        forced-color-adjust: none;
+
+        &:disabled {
+          opacity: var(--opacity-disabled);
+        }
+
+        &:focus-visible {
+          outline: var(--border-width-enhanced) solid Highlight;
+        }
+      }
+
+      .joker-count {
+        border: var(--border-width-thin) solid CanvasText;
+        background: Canvas;
+        color: CanvasText;
+      }
+    }
+  }
+
+  // Reduced motion support
   @media (prefers-reduced-motion: reduce) {
-    .joker-button,
-    .joker-ripple,
-    .joker-count,
-    .joker-icon,
-    .joker-button-effect {
-      transition-duration: var(--transition-fast) !important;
-      animation-duration: var(--transition-fast) !important;
-      animation-iteration-count: 1 !important;
+    .joker-container {
+      .joker-button,
+      .joker-ripple,
+      .joker-count,
+      .joker-icon,
+      .joker-button-effect {
+        transition-duration: var(--transition-fast) !important;
+        animation-duration: var(--transition-fast) !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  }
+
+  // Touch devices - enhanced targets
+  @media (hover: none) and (pointer: coarse) {
+    .joker-container {
+      .joker-button {
+        min-height: var(--touch-target-enhanced);
+        min-width: var(--touch-target-enhanced);
+        padding: var(--space-lg) var(--space-xl);
+
+        .joker-icon {
+          width: var(--text-xl);
+          height: var(--text-xl);
+        }
+      }
     }
   }
 
@@ -377,18 +435,18 @@ const dataAttributes = {
       border: var(--border-width-thin) solid var(--print-text);
       background: var(--print-bg) !important;
       break-inside: avoid;
-    }
 
-    .joker-button {
-      border: var(--border-width-thin) solid var(--print-text);
-      background: var(--print-bg) !important;
-      color: var(--print-text) !important;
-    }
+      .joker-button {
+        border: var(--border-width-thin) solid var(--print-text);
+        background: var(--print-bg) !important;
+        color: var(--print-text) !important;
+      }
 
-    .joker-count {
-      border: var(--border-width-thin) solid var(--print-text);
-      background: var(--print-bg) !important;
-      color: var(--print-text) !important;
+      .joker-count {
+        border: var(--border-width-thin) solid var(--print-text);
+        background: var(--print-bg) !important;
+        color: var(--print-text) !important;
+      }
     }
   }
 </style>
@@ -401,6 +459,7 @@ const dataAttributes = {
    * through animations, and ensures accessibility through screen reader announcements.
    *
    * Performance optimized with efficient DOM queries and caching strategies.
+   * Modernized with ES6+ features including arrow functions, const/let, template literals.
    */
 
   type SupportedLanguage = "de" | "en" | "es" | "fr" | "it" | "pt" | "da" | "nl" | "sv" | "fi";
@@ -479,7 +538,7 @@ const dataAttributes = {
   /**
    * Sets up event handlers for the joker button with performance optimizations
    */
-  function setupButtonEvents(elements: JokerElements, lang: SupportedLanguage): void {
+  const setupButtonEvents = (elements: JokerElements, lang: SupportedLanguage): void => {
     if (!elements.button) {
       return;
     }
@@ -487,19 +546,8 @@ const dataAttributes = {
     let clickTimeout: ReturnType<typeof setTimeout> | null = null;
     let canTrigger = true;
 
-    // Performance optimization: use passive listeners where possible
-    elements.button.addEventListener("click", handleJokerClick, {
-      passive: true,
-    });
-
-    elements.button.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        handleJokerClick(e);
-      }
-    });
-
-    function handleJokerClick(_e: Event): void {
+    // Define the click handler function first
+    const handleJokerClick = (_e: Event): void => {
       if (elements.button?.disabled || !canTrigger || clickTimeout) {
         return;
       }
@@ -523,13 +571,25 @@ const dataAttributes = {
           canTrigger = true;
         }, 800);
       });
-    }
-  }
+    };
+
+    // Performance optimization: use passive listeners where possible
+    elements.button.addEventListener("click", handleJokerClick, {
+      passive: true,
+    });
+
+    elements.button.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleJokerClick(e);
+      }
+    });
+  };
 
   /**
    * Applies the ripple animation effect when joker is activated
    */
-  function applyRippleEffect(elements: JokerElements): void {
+  const applyRippleEffect = (elements: JokerElements): void => {
     const { ripple } = elements;
     if (!ripple) {
       return;
@@ -538,12 +598,12 @@ const dataAttributes = {
     ripple.classList.remove("animate");
     void ripple.offsetWidth;
     ripple.classList.add("animate");
-  }
+  };
 
   /**
    * Creates and dispatches the jokerUsed custom event
    */
-  function dispatchJokerEvent(elements: JokerElements, lang: SupportedLanguage): void {
+  const dispatchJokerEvent = (elements: JokerElements, lang: SupportedLanguage): void => {
     const { button } = elements;
     if (!button) {
       return;
@@ -563,12 +623,12 @@ const dataAttributes = {
     } catch (error) {
       console.warn("Error dispatching jokerUsed event:", error);
     }
-  }
+  };
 
   /**
    * Sets up mutation observer for joker counter
    */
-  function setupCounterObserver(elements: JokerElements): void {
+  const setupCounterObserver = (elements: JokerElements): void => {
     const { counter } = elements;
     if (!counter) {
       return;
@@ -585,7 +645,7 @@ const dataAttributes = {
 
     observer.observe(counter);
 
-    function setupMutation(): void {
+    const setupMutation = (): void => {
       const mutationObs = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
           if (mutation.type === "childList" && counter) {
@@ -601,14 +661,14 @@ const dataAttributes = {
       if (counter) {
         mutationObs.observe(counter, { childList: true });
       }
-    }
-  }
+    };
+  };
 
   /**
    * Creates accessible announcements for screen readers when joker is used
    * Performance optimized with cached announcement texts
    */
-  function announceJokerUsage(elements: JokerElements, lang: SupportedLanguage): void {
+  const announceJokerUsage = (elements: JokerElements, lang: SupportedLanguage): void => {
     const { counter, announcement } = elements;
 
     const announcementEl =
@@ -631,12 +691,12 @@ const dataAttributes = {
     setTimeout(() => {
       announcementEl.textContent = "";
     }, 3000);
-  }
+  };
 
   /**
    * Updates joker count and manages button state with performance optimization
    */
-  function updateJokerCount(count: number, disable: boolean = false): void {
+  const updateJokerCount = (count: number, disable: boolean = false): void => {
     // Performance optimization: batch DOM updates in RAF
     requestAnimationFrame(() => {
       const counter = document.getElementById("joker-count");
@@ -658,18 +718,18 @@ const dataAttributes = {
         }
       }
     });
-  }
+  };
 
   /**
    * Handles cleanup of component resources when page changes
    */
-  function cleanupJokerComponent(elements: JokerElements): void {
+  const cleanupJokerComponent = (elements: JokerElements): void => {
     const { announcement } = elements;
 
     if (announcement) {
       announcement.remove();
     }
-  }
+  };
 
   // Register functions on window for external component access
   window.MelodyMind = window.MelodyMind || {};

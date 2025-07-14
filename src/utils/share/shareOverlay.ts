@@ -45,21 +45,18 @@ export class ShareOverlayManager {
   };
 
   private abortController: AbortController | null = null;
+  private copyOriginalText: string = "";
 
   /**
    * Initialize the sharing functionality
    */
   public initialize(): void {
-    this.cacheElements();
     this.setupAbortController();
-
-    if (!this.elements.statusAnnouncer || !this.elements.copyButton) {
-      console.warn("ShareOverlay: Required elements not found");
-      return;
-    }
+    this.cacheElements();
 
     // Store original copy button text
-    UI_CONSTANTS.COPY_ORIGINAL_TEXT = this.elements.copyButtonText?.textContent || "";
+    const originalText = this.elements.copyButtonText?.textContent || "";
+    this.copyOriginalText = originalText;
 
     // Set up individual sharing methods
     this.initializeNativeSharing();
@@ -245,7 +242,7 @@ export class ShareOverlayManager {
       // Reset after delay
       setTimeout(() => {
         if (this.elements.copyButtonText) {
-          this.elements.copyButtonText.textContent = UI_CONSTANTS.COPY_ORIGINAL_TEXT;
+          this.elements.copyButtonText.textContent = this.copyOriginalText;
         }
         button.classList.remove("share-overlay__clipboard-button--success");
         button.removeAttribute("disabled");
@@ -261,7 +258,7 @@ export class ShareOverlayManager {
 
       setTimeout(() => {
         if (this.elements.copyButtonText) {
-          this.elements.copyButtonText.textContent = UI_CONSTANTS.COPY_ORIGINAL_TEXT;
+          this.elements.copyButtonText.textContent = this.copyOriginalText;
         }
         button.removeAttribute("disabled");
       }, UI_CONSTANTS.COPY_SUCCESS_DURATION / 2);

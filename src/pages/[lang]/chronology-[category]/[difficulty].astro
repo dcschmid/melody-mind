@@ -212,9 +212,9 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
   window.updateMotivationText = updateMotivationText;
   window.animateProgressBar = animateProgressBar;
 
-  // Game implementation with standalone functionality (no external imports)
+  // Game implementation with modern ES6+ features
 
-  // Type definitions as constants to avoid TypeScript syntax issues
+  // Constants
   const DIFFICULTY_LEVELS = {
     EASY: "easy",
     MEDIUM: "medium",
@@ -228,7 +228,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
   };
 
   // Data loading functions
-  async function loadAlbumsData(category, language) {
+  const loadAlbumsData = async (category, language) => {
     try {
       // Try to load from the specified language first
       const response = await fetch(`/json/genres/${language}/${category}.json`);
@@ -250,9 +250,9 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       console.error("Error loading albums data:", error);
       throw error;
     }
-  }
+  };
 
-  function generateChronologyQuestion(albumsData, difficulty) {
+  const generateChronologyQuestion = (albumsData, difficulty) => {
     const itemCount = ITEMS_PER_DIFFICULTY[difficulty] || 4;
 
     if (!albumsData || albumsData.length === 0) {
@@ -314,10 +314,10 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       items: shuffledItems,
       correctOrder: correctOrder,
     };
-  }
+  };
 
   // Score evaluation function
-  function evaluateChronologyAnswer(userOrder, correctOrder) {
+  const evaluateChronologyAnswer = (userOrder, correctOrder) => {
     let correctItems = 0;
     const totalItems = correctOrder.length;
 
@@ -334,9 +334,9 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       correctItems: correctItems,
       totalItems: totalItems,
     };
-  }
+  };
 
-  // Main game class
+  // Main game class with modern ES6+ features
   class ChronologyGame {
     constructor() {
       this.container = document.getElementById("chronology-container");
@@ -351,6 +351,11 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       this.category = this.container?.dataset.category || "";
       this.userId = this.container?.dataset.userId || "guest";
 
+      // Get language from URL
+      const urlPath = window.location.pathname;
+      const langMatch = urlPath.match(/^\/([a-z]{2})\//);
+      this.language = langMatch ? langMatch[1] : "de";
+
       this.currentItems = [];
       this.correctOrder = [];
       this.selectedIndex = -1;
@@ -358,11 +363,6 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       this.round = 1;
       this.totalRounds = 10;
       this.albumsData = null;
-
-      // Get language from URL
-      const urlPath = window.location.pathname;
-      const langMatch = urlPath.match(/^\/([a-z]{2})\//);
-      this.language = langMatch ? langMatch[1] : "de";
 
       this.initializeGame();
     }
@@ -492,7 +492,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
         return;
       }
 
-      // Swap items
+      // Swap items using destructuring
       [this.currentItems[this.selectedIndex], this.currentItems[newIndex]] = [
         this.currentItems[newIndex],
         this.currentItems[this.selectedIndex],
@@ -589,18 +589,16 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       window.dispatchEvent(event);
     }
 
-    endGame() {
+    async endGame() {
       // Save game result to database first
-      this.saveScoreToDatabase()
-        .then(() => {
-          // Show end overlay with complete data transfer
-          this.showEndOverlay();
-        })
-        .catch((error) => {
-          console.error("Failed to save game result:", error);
-          // Still show the overlay even if save failed
-          this.showEndOverlay();
-        });
+      try {
+        await this.saveScoreToDatabase();
+      } catch (error) {
+        console.error("Failed to save game result:", error);
+      }
+
+      // Show end overlay with complete data transfer
+      this.showEndOverlay();
     }
 
     showEndOverlay() {
@@ -707,18 +705,24 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
   });
 </script>
 
-<style lang="scss" is:inline>
+<style lang="scss" is:global>
   /**
    * Chronology Game Styles
+   * Modern SCSS implementation with responsive design
    * Uses CSS variables from global.css for consistent theming
-   * SCSS implementation with nested selectors and mixins
    */
 
-  // SCSS Variables for better maintainability
+  // SCSS Variables and Mixins
   $transition-smooth: all 0.2s ease;
   $border-selected: 2px solid var(--interactive-primary);
   $border-default: 2px solid var(--border-primary);
   $hover-transform: translateY(-2px);
+  $shadow-hover: var(--card-shadow-hover);
+  $focus-ring: var(--focus-ring);
+
+  // Responsive breakpoints
+  $breakpoint-tablet: 768px;
+  $breakpoint-mobile: 480px;
 
   // Mixins for common patterns
   @mixin flex-center($direction: row) {
@@ -737,15 +741,22 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     cursor: pointer;
     transition: $transition-smooth;
     justify-content: center;
+    border: none;
+    outline: none;
 
     &:not(:disabled):hover {
       transform: $hover-transform;
-      box-shadow: var(--card-shadow-hover);
+      box-shadow: $shadow-hover;
     }
 
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--interactive-primary);
+      outline-offset: 2px;
     }
   }
 
@@ -753,12 +764,18 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     &:focus {
       outline: none;
       border-color: var(--interactive-primary);
-      box-shadow: var(--focus-ring);
+      box-shadow: $focus-ring;
     }
 
     &:focus-visible {
       outline: 3px solid var(--interactive-primary);
       outline-offset: 2px;
+    }
+  }
+
+  @mixin responsive($breakpoint) {
+    @media (max-width: $breakpoint) {
+      @content;
     }
   }
 
@@ -772,6 +789,17 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
   }
 
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   // Main game container
   .chronology-game {
     min-height: 100vh;
@@ -780,12 +808,25 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     padding: var(--space-lg);
     max-width: 1200px;
     margin: 0 auto;
+    animation: fadeIn 0.3s ease-out;
+
+    @include responsive($breakpoint-tablet) {
+      padding: var(--space-md);
+    }
+
+    @include responsive($breakpoint-mobile) {
+      padding: var(--space-sm);
+    }
   }
 
   // Game Header Section
   .game-header {
     margin-bottom: var(--space-lg);
     text-align: center;
+
+    @include responsive($breakpoint-mobile) {
+      margin-bottom: var(--space-md);
+    }
   }
 
   .game-info {
@@ -793,6 +834,12 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     gap: var(--space-md);
     margin-top: var(--space-md);
     flex-wrap: wrap;
+
+    @include responsive($breakpoint-tablet) {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-sm);
+    }
   }
 
   .badge {
@@ -803,6 +850,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     border-radius: var(--radius-lg);
     border: 1px solid var(--border-secondary);
     transition: $transition-smooth;
+    min-width: 80px;
 
     &:hover {
       background: var(--bg-tertiary);
@@ -813,11 +861,22 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       width: 16px;
       height: 16px;
       color: var(--interactive-primary);
+      flex-shrink: 0;
     }
 
     &__text {
       font-weight: var(--font-medium);
       font-size: var(--text-sm);
+      white-space: nowrap;
+    }
+
+    @include responsive($breakpoint-mobile) {
+      padding: var(--space-xs) var(--space-sm);
+      min-width: 60px;
+
+      &__text {
+        font-size: var(--text-xs);
+      }
     }
   }
 
@@ -836,6 +895,16 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    line-height: var(--leading-tight);
+
+    @include responsive($breakpoint-tablet) {
+      font-size: var(--text-xl);
+    }
+
+    @include responsive($breakpoint-mobile) {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-xs);
+    }
   }
 
   .game-description {
@@ -843,6 +912,19 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     color: var(--text-secondary);
     margin-bottom: var(--space-xl);
     line-height: var(--leading-enhanced);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include responsive($breakpoint-tablet) {
+      margin-bottom: var(--space-lg);
+      font-size: var(--text-sm);
+    }
+
+    @include responsive($breakpoint-mobile) {
+      margin-bottom: var(--space-md);
+      font-size: var(--text-xs);
+    }
   }
 
   // Chronology Container
@@ -854,12 +936,38 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     border: 1px solid var(--border-secondary);
     min-height: 400px;
     position: relative;
+    box-shadow: var(--card-shadow);
+
+    @include responsive($breakpoint-tablet) {
+      padding: var(--space-md);
+      min-height: 350px;
+    }
+
+    @include responsive($breakpoint-mobile) {
+      padding: var(--space-sm);
+      min-height: 300px;
+      margin-bottom: var(--space-md);
+    }
   }
 
   .loading-placeholder {
     @include flex-center(column);
     height: 200px;
     color: var(--text-secondary);
+    text-align: center;
+
+    p {
+      margin-top: var(--space-md);
+      font-size: var(--text-sm);
+    }
+
+    @include responsive($breakpoint-mobile) {
+      height: 150px;
+
+      p {
+        font-size: var(--text-xs);
+      }
+    }
   }
 
   .loading-icon {
@@ -867,6 +975,13 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     height: 32px;
     margin-bottom: var(--space-md);
     animation: spin 1s linear infinite;
+    color: var(--interactive-primary);
+
+    @include responsive($breakpoint-mobile) {
+      width: 24px;
+      height: 24px;
+      margin-bottom: var(--space-sm);
+    }
   }
 
   // Chronology Items
@@ -882,6 +997,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     cursor: pointer;
     transition: $transition-smooth;
     position: relative;
+    box-shadow: var(--card-shadow);
 
     &:last-child {
       margin-bottom: 0;
@@ -890,7 +1006,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     &:hover {
       border-color: var(--interactive-primary);
       transform: $hover-transform;
-      box-shadow: var(--card-shadow-hover);
+      box-shadow: $shadow-hover;
     }
 
     @include focus-styles;
@@ -898,7 +1014,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     &--selected {
       border-color: var(--interactive-primary);
       background: var(--bg-tertiary);
-      box-shadow: var(--card-shadow-hover);
+      box-shadow: $shadow-hover;
 
       .chronology-item__position {
         background: var(--interactive-secondary);
@@ -915,6 +1031,13 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       font-weight: var(--font-bold);
       font-size: var(--text-lg);
       flex-shrink: 0;
+      transition: $transition-smooth;
+
+      @include responsive($breakpoint-mobile) {
+        width: 32px;
+        height: 32px;
+        font-size: var(--text-base);
+      }
     }
 
     &__content {
@@ -927,11 +1050,45 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       font-size: var(--text-lg);
       margin-bottom: 2px;
       color: var(--text-primary);
+      line-height: var(--leading-tight);
+
+      @include responsive($breakpoint-tablet) {
+        font-size: var(--text-base);
+      }
+
+      @include responsive($breakpoint-mobile) {
+        font-size: var(--text-sm);
+      }
     }
 
     &__artist {
       color: var(--text-secondary);
       font-size: var(--text-base);
+      line-height: var(--leading-normal);
+
+      @include responsive($breakpoint-tablet) {
+        font-size: var(--text-sm);
+      }
+
+      @include responsive($breakpoint-mobile) {
+        font-size: var(--text-xs);
+      }
+    }
+
+    @include responsive($breakpoint-tablet) {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm);
+
+      &__content {
+        order: -1;
+      }
+    }
+
+    @include responsive($breakpoint-mobile) {
+      padding: var(--space-xs);
+      gap: var(--space-xs);
     }
   }
 
@@ -939,11 +1096,21 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
   .game-controls {
     @include flex-center(column);
     gap: var(--space-md);
+
+    @include responsive($breakpoint-mobile) {
+      gap: var(--space-sm);
+    }
   }
 
   .move-buttons {
     display: flex;
     gap: var(--space-md);
+
+    @include responsive($breakpoint-tablet) {
+      flex-direction: column;
+      width: 100%;
+      gap: var(--space-sm);
+    }
   }
 
   .move-button {
@@ -964,11 +1131,26 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       color: var(--text-tertiary);
     }
 
-    @include focus-styles;
-
     &__icon {
       width: 18px;
       height: 18px;
+      flex-shrink: 0;
+    }
+
+    @include responsive($breakpoint-tablet) {
+      width: 100%;
+      min-width: auto;
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    @include responsive($breakpoint-mobile) {
+      padding: var(--space-xs) var(--space-sm);
+      font-size: var(--text-sm);
+
+      &__icon {
+        width: 16px;
+        height: 16px;
+      }
     }
   }
 
@@ -982,58 +1164,26 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     font-size: var(--text-lg);
     min-width: 180px;
 
-    @include focus-styles;
-
     &__icon {
       width: 20px;
       height: 20px;
-    }
-  }
-
-  // Responsive Design
-  @media (max-width: 768px) {
-    .chronology-game {
-      padding: var(--space-md);
+      flex-shrink: 0;
     }
 
-    .game-info {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .chronology-item {
-      flex-direction: column;
-      text-align: center;
-      gap: var(--space-sm);
-
-      &__content {
-        order: -1;
-      }
-    }
-
-    .move-buttons {
-      flex-direction: column;
-      width: 100%;
-    }
-
-    .move-button,
-    .submit-button {
+    @include responsive($breakpoint-tablet) {
       width: 100%;
       min-width: auto;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .game-title {
-      font-size: var(--text-xl);
+      padding: var(--space-sm) var(--space-lg);
     }
 
-    .chronology-container {
-      padding: var(--space-md);
-    }
+    @include responsive($breakpoint-mobile) {
+      padding: var(--space-xs) var(--space-md);
+      font-size: var(--text-base);
 
-    .chronology-item {
-      padding: var(--space-sm);
+      &__icon {
+        width: 18px;
+        height: 18px;
+      }
     }
   }
 
@@ -1060,6 +1210,37 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
         border-width: 4px;
         box-shadow: 0 0 0 2px var(--interactive-primary);
       }
+    }
+
+    .move-button,
+    .submit-button {
+      border-width: 3px;
+    }
+  }
+
+  // Dark mode optimizations
+  @media (prefers-color-scheme: dark) {
+    .chronology-container {
+      background: var(--bg-secondary);
+      border-color: var(--border-secondary);
+    }
+
+    .chronology-item {
+      background: var(--card-bg);
+      border-color: var(--border-primary);
+    }
+  }
+
+  // Print styles
+  @media print {
+    .game-controls,
+    .loading-placeholder {
+      display: none;
+    }
+
+    .chronology-game {
+      background: white;
+      color: black;
     }
   }
 </style>

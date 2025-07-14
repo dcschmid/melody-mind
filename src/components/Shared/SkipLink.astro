@@ -1,25 +1,35 @@
 ---
 /**
  * @component SkipLink
- * @description An accessibility component that allows keyboard users to bypass repetitive navigation
- * and quickly access the main content. This component is initially hidden visually but appears when
- * focused, following WCAG AAA compliance standards.
+ * @description Accessibility component that allows keyboard users to bypass repetitive navigation
+ * and quickly access the main content. Initially hidden visually but appears when focused,
+ * following WCAG AAA compliance standards.
  *
  * Features:
- * - High contrast visual appearance when focused
- * - Proper focus management
- * - Keyboard accessibility optimized
- * - Performance-optimized transitions using CSS variables
+ * - Mobile-first responsive design
+ * - WCAG AAA compliant with enhanced focus indicators
+ * - Performance optimized transitions using CSS variables
  * - High contrast mode support
  * - Reduced motion support
- * - Maximized usage of semantic CSS variables from global.css
- * - DRY principles with consolidated design tokens
- *
- * @prop {string} targetId - The ID of the element to skip to (default: "main-content")
+ * - Consistent styling using global CSS variables
+ * - Proper focus management
+ * - Keyboard accessibility optimized
  *
  * @example
+ * ```astro
  * <SkipLink targetId="quiz-content" />
+ * <SkipLink targetId="main-content" />
+ * ```
+ *
+ * @accessibility
+ * - WCAG AAA compliant with enhanced focus indicators
+ * - Screen reader announcements with proper ARIA attributes
+ * - Keyboard navigation support
+ * - High contrast mode support
+ * - Reduced motion support
+ * - Minimum 44×44px touch target
  */
+
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 interface Props {
@@ -40,44 +50,35 @@ const t = useTranslations(lang);
 </a>
 
 <style lang="scss">
-  /**
-   * Skip Link Styles with enhanced accessibility and maximized CSS variable usage
-   * - BEM methodology for consistent class naming
-   * - WCAG AAA 2.2 compliant using semantic CSS variables from global.css
-   * - GPU acceleration for performance optimization
-   * - High contrast and reduced motion support
-   * - DRY principles through consolidated design tokens
-   * - Semantic touch targets, animations, and focus system variables
-   */
-
-  // SCSS Variables for better maintainability
-  $skip-link-transform-base: translate(-50%, 0);
-  $skip-link-transform-gpu: #{$skip-link-transform-base} translateZ(0);
-  $skip-link-border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  /* ======================================
+   * SKIPLINK COMPONENT STYLES
+   * Mobile-first responsive design using global CSS variables
+   * WCAG AAA compliant with enhanced accessibility features
+   * ====================================== */
 
   .skip-link {
     // Positioning - optimize using standardized variables
     position: absolute;
-    top: calc(-1 * var(--space-3xl)); // -64px equivalent to -top-20
+    top: calc(-1 * var(--space-3xl));
     left: 50%;
-    z-index: var(--z-modal); // Use z-modal (50) instead of hardcoded z-50
+    z-index: var(--z-modal);
 
     // Layout - use semantic touch target variables consistently
-    min-width: var(--min-touch-size); // Use standardized touch target size
-    min-height: var(--min-touch-size); // Enhanced sizing for consistency - WCAG AAA compliance
-    transform: $skip-link-transform-gpu; // GPU acceleration
+    min-width: var(--min-touch-size);
+    min-height: var(--min-touch-size);
+    transform: translate(-50%, 0) translateZ(0);
 
     // Visual styling - use semantic design tokens
-    border-radius: $skip-link-border-radius; // Bottom rounded corners only
-    background-color: var(--interactive-primary); // WCAG AAA compliant semantic color
-    padding: var(--space-sm) var(--space-xl); // py-2 px-6 equivalent
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    background-color: var(--interactive-primary);
+    padding: var(--space-sm) var(--space-xl);
     box-shadow: var(--shadow-md);
 
     // Typography - use consistent font variables
     text-align: center;
     font-size: var(--text-base);
     font-weight: var(--font-bold);
-    color: var(--btn-primary-text); // Use semantic button text color
+    color: var(--btn-primary-text);
     line-height: var(--leading-normal);
 
     // Interactive styles
@@ -96,15 +97,27 @@ const t = useTranslations(lang);
     align-items: center;
     justify-content: center;
 
+    // Mobile-first responsive design
+    @media (min-width: var(--breakpoint-md)) {
+      padding: var(--space-md) var(--space-2xl);
+      font-size: var(--text-lg);
+    }
+
+    @media (min-width: var(--breakpoint-lg)) {
+      padding: var(--space-md) var(--space-3xl);
+    }
+
     // Hover state - use semantic interaction variables
-    &:hover {
-      background-color: var(--interactive-primary-hover);
-      transform: $skip-link-transform-gpu scale(var(--scale-focus));
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--interactive-primary-hover);
+        transform: translate(-50%, 0) translateZ(0) scale(var(--scale-focus));
+      }
     }
 
     // Focus state - use enhanced focus system variables
     &:focus-visible {
-      top: 0; // Show skip link when focused
+      top: 0;
       outline: var(--focus-enhanced-outline-dark);
       outline-offset: var(--focus-ring-offset);
       box-shadow: var(--focus-enhanced-shadow), var(--shadow-lg);
@@ -113,8 +126,15 @@ const t = useTranslations(lang);
 
     // Active state - use semantic scale variable
     &:active {
-      transform: $skip-link-transform-gpu scale(var(--scale-active));
+      transform: translate(-50%, 0) translateZ(0) scale(var(--scale-active));
       background-color: var(--interactive-primary-active);
+    }
+
+    // Touch device optimizations
+    @media (pointer: coarse) {
+      min-height: var(--min-touch-size);
+      min-width: var(--min-touch-size);
+      padding: var(--space-md) var(--space-xl);
     }
   }
 
@@ -125,12 +145,12 @@ const t = useTranslations(lang);
       background-color: ButtonFace !important;
       color: ButtonText !important;
       forced-color-adjust: none;
+    }
 
-      &:focus-visible {
-        outline: var(--border-width-enhanced) solid Highlight !important;
-        background-color: Highlight !important;
-        color: HighlightText !important;
-      }
+    .skip-link:focus-visible {
+      outline: var(--border-width-enhanced) solid Highlight !important;
+      background-color: Highlight !important;
+      color: HighlightText !important;
     }
   }
 
@@ -138,27 +158,51 @@ const t = useTranslations(lang);
   @media (prefers-reduced-motion: reduce) {
     .skip-link {
       transition-duration: var(--animation-duration-fast) !important;
-      transform: $skip-link-transform-base; // Remove translateZ for reduced motion
+      transform: translate(-50%, 0);
+    }
 
-      &:hover,
-      &:active {
-        transform: $skip-link-transform-base; // No scale animations
-      }
+    .skip-link:hover,
+    .skip-link:active {
+      transform: translate(-50%, 0);
     }
   }
 
   // Enhanced contrast for high contrast preference - using semantic variables
   @media (prefers-contrast: high) {
     .skip-link {
-      background-color: var(--bg-primary); // Use semantic background variable
-      color: var(--text-primary); // Use semantic text variable
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
       border: var(--border-width-thick) solid var(--text-primary);
+    }
 
-      &:focus-visible {
-        background-color: var(--text-primary); // Inverse colors for high contrast
-        color: var(--bg-primary);
-        outline-width: var(--border-width-enhanced);
-      }
+    .skip-link:focus-visible {
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      outline-width: var(--border-width-enhanced);
+    }
+  }
+
+  // Dark mode support
+  @media (prefers-color-scheme: dark) {
+    .skip-link {
+      background-color: var(--interactive-primary-dark);
+      color: var(--btn-primary-text-dark);
+    }
+
+    .skip-link:hover,
+    .skip-link:focus-visible {
+      background-color: var(--interactive-primary-hover-dark);
+    }
+
+    .skip-link:active {
+      background-color: var(--interactive-primary-active-dark);
+    }
+  }
+
+  // Print styles
+  @media print {
+    .skip-link {
+      display: none;
     }
   }
 </style>
@@ -174,29 +218,29 @@ const t = useTranslations(lang);
    */
   class SkipLinkEnhancer {
     /** The skip link element */
-    private skipLink: HTMLAnchorElement | null;
+    #skipLink: HTMLAnchorElement | null = null;
 
     /**
      * Initialize the enhancer
      */
     constructor() {
-      this.skipLink = document.querySelector("[data-skip-link]");
-      this.setupEventListeners();
+      this.#skipLink = document.querySelector("[data-skip-link]");
+      this.#setupEventListeners();
     }
 
     /**
      * Set up event listeners for the skip link
      */
-    private setupEventListeners(): void {
-      if (!this.skipLink) {
+    #setupEventListeners = (): void => {
+      if (!this.#skipLink) {
         return;
       }
 
       // Add click handler with proper focus management
-      this.skipLink.addEventListener("click", (e) => {
+      this.#skipLink.addEventListener("click", (e) => {
         e.preventDefault();
 
-        const targetId = this.skipLink?.getAttribute("href")?.substring(1);
+        const targetId = this.#skipLink?.getAttribute("href")?.substring(1);
         if (!targetId) {
           return;
         }
@@ -216,36 +260,36 @@ const t = useTranslations(lang);
           // Focus the target and scroll into view
           targetElement.focus({ preventScroll: true });
           targetElement.scrollIntoView({
-            behavior: this.prefersReducedMotion() ? "auto" : "smooth",
+            behavior: this.#prefersReducedMotion() ? "auto" : "smooth",
           });
 
           // Announce to screen readers with enhanced context
-          this.announceToScreenReader(`Skipped to ${targetId}`, announcementId);
+          this.#announceToScreenReader(`Skipped to ${targetId}`, announcementId);
         }
       });
 
       // Monitor for page changes in SPA context
       document.addEventListener("astro:page-load", () => {
         // Re-acquire skip link reference after page changes
-        this.skipLink = document.querySelector("[data-skip-link]");
-        this.setupEventListeners();
+        this.#skipLink = document.querySelector("[data-skip-link]");
+        this.#setupEventListeners();
       });
-    }
+    };
 
     /**
      * Check if user prefers reduced motion
      * @returns {boolean} True if reduced motion is preferred
      */
-    private prefersReducedMotion(): boolean {
+    #prefersReducedMotion = (): boolean => {
       return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    }
+    };
 
     /**
      * Announce a message to screen readers
      * @param {string} message - The message to announce
      * @param {string} id - Optional ID for the announcer element
      */
-    private announceToScreenReader(message: string, id?: string): void {
+    #announceToScreenReader = (message: string, id?: string): void => {
       const announcer = document.createElement("div");
       announcer.setAttribute("aria-live", "assertive");
       announcer.setAttribute("aria-atomic", "true");
@@ -272,13 +316,17 @@ const t = useTranslations(lang);
           document.body.removeChild(announcer);
         }
       }, cleanupDelay);
-    }
+    };
   }
 
-  // Initialize enhancer when DOM is ready
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => new SkipLinkEnhancer());
-  } else {
+  // Initialize enhancer when DOM is ready using modern ES6 features
+  const initializeSkipLink = (): void => {
     new SkipLinkEnhancer();
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeSkipLink);
+  } else {
+    initializeSkipLink();
   }
 </script>

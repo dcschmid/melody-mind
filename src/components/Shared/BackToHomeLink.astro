@@ -2,15 +2,15 @@
 /**
  * @component BackToHomeLink
  * @description Reusable back-to-home navigation link component with arrow icon.
- * This component provides consistent styling and accessibility for navigation
- * across authentication pages and other areas that need a home link.
+ * Provides consistent styling and accessibility for navigation across authentication
+ * pages and other areas that need a home link.
  *
  * Features:
+ * - Mobile-first responsive design
  * - WCAG AAA compliant with enhanced focus indicators
- * - Responsive design with hover animations
  * - Performance optimized with CSS containment
  * - Full internationalization support
- * - Consistent styling using CSS variables
+ * - Consistent styling using global CSS variables
  *
  * @example
  * ```astro
@@ -23,6 +23,7 @@
  * - High contrast focus indicators
  * - Screen reader friendly with proper aria-label
  * - Keyboard navigation support
+ * - Reduced motion support
  */
 
 import { Icon } from "astro-icon/components";
@@ -63,7 +64,7 @@ const linkText = t("auth.login.back_to_home");
 <style lang="scss">
   /* ======================================
    * BACK TO HOME NAVIGATION - REUSABLE COMPONENT
-   * Using CSS variables from global.css only
+   * Mobile-first responsive design using global CSS variables
    * ====================================== */
 
   .back-to-home {
@@ -73,15 +74,20 @@ const linkText = t("auth.login.back_to_home");
     &__link {
       display: inline-flex;
       align-items: center;
+      justify-content: flex-start;
       min-height: var(--min-touch-size);
       min-width: var(--min-touch-size);
       padding: var(--space-sm) var(--space-md);
       border-radius: var(--radius-md);
       font-size: var(--text-sm);
+      font-weight: var(--font-weight-medium);
       color: var(--color-primary-300);
       text-decoration: none;
       transition: all var(--transition-normal);
       letter-spacing: var(--letter-spacing-base);
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
 
       /* Performance optimizations */
       contain: layout style;
@@ -90,16 +96,32 @@ const linkText = t("auth.login.back_to_home");
       /* Enhanced focus styles for WCAG AAA */
       outline: none;
 
-      &:hover {
-        background-color: var(--bg-tertiary);
-        color: var(--color-primary-200);
-        transform: translateX(calc(-1 * var(--space-xs)));
+      /* Mobile-first responsive design */
+      @media (min-width: var(--breakpoint-md)) {
+        padding: var(--space-md) var(--space-lg);
+        font-size: var(--text-base);
       }
 
-      &:focus {
+      @media (min-width: var(--breakpoint-lg)) {
+        padding: var(--space-md) var(--space-xl);
+      }
+
+      /* Hover effects */
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--bg-tertiary);
+          color: var(--color-primary-200);
+          transform: translateX(calc(-1 * var(--space-xs)));
+        }
+      }
+
+      /* Focus styles for WCAG AAA compliance */
+      &:focus-visible {
         outline: var(--focus-enhanced-outline-dark);
         outline-offset: var(--focus-ring-offset);
         box-shadow: var(--focus-enhanced-shadow);
+        background-color: var(--bg-tertiary);
+        color: var(--color-primary-200);
       }
 
       /* High contrast mode support */
@@ -115,6 +137,17 @@ const linkText = t("auth.login.back_to_home");
           transform: none;
         }
       }
+
+      /* Dark mode support */
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-primary-200);
+
+        &:hover,
+        &:focus-visible {
+          background-color: var(--bg-tertiary-dark);
+          color: var(--color-primary-100);
+        }
+      }
     }
 
     &__icon {
@@ -122,6 +155,104 @@ const linkText = t("auth.login.back_to_home");
       height: var(--icon-size-md);
       margin-right: var(--space-xs);
       color: currentColor;
+      flex-shrink: 0;
+
+      /* Responsive icon sizing */
+      @media (min-width: var(--breakpoint-md)) {
+        width: var(--icon-size-lg);
+        height: var(--icon-size-lg);
+        margin-right: var(--space-sm);
+      }
+    }
+  }
+
+  /* Touch device optimizations */
+  @media (pointer: coarse) {
+    .back-to-home__link {
+      min-height: var(--min-touch-size);
+      min-width: var(--min-touch-size);
+      padding: var(--space-md) var(--space-lg);
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .back-to-home {
+      display: none;
     }
   }
 </style>
+
+<script>
+  /**
+   * BackToHomeLink Component Script
+   * Modern ES6+ features with TypeScript support
+   */
+
+  // Enhanced component functionality with modern JavaScript
+  const enhanceBackToHomeLink = (): void => {
+    const backToHomeLinks = document.querySelectorAll(
+      ".back-to-home__link"
+    ) as NodeListOf<HTMLAnchorElement>;
+
+    if (!backToHomeLinks.length) {
+      return;
+    }
+
+    // Modern arrow function with destructuring
+    const handleLinkInteraction = (event: Event): void => {
+      const target = event.currentTarget as HTMLAnchorElement;
+
+      // Add visual feedback for better UX
+      target.style.transform = "scale(0.98)";
+
+      // Reset transform after animation
+      setTimeout((): void => {
+        target.style.transform = "";
+      }, 150);
+    };
+
+    // Enhanced accessibility with keyboard support
+    const handleKeyDown = (event: KeyboardEvent): void => {
+      const target = event.currentTarget as HTMLAnchorElement;
+
+      // Support for Enter and Space keys
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        target.click();
+      }
+    };
+
+    // Modern forEach with arrow function
+    backToHomeLinks.forEach((link: HTMLAnchorElement): void => {
+      // Add click handler with modern event handling
+      link.addEventListener("click", handleLinkInteraction);
+
+      // Add keyboard support
+      link.addEventListener("keydown", handleKeyDown);
+
+      // Enhanced focus management
+      link.addEventListener("focus", (): void => {
+        // Ensure link is visible when focused
+        link.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+        });
+      });
+    });
+  };
+
+  // Initialize when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", enhanceBackToHomeLink);
+  } else {
+    enhanceBackToHomeLink();
+  }
+
+  // Export for potential external use
+  if (typeof window !== "undefined") {
+    (
+      window as Window & { enhanceBackToHomeLink?: typeof enhanceBackToHomeLink }
+    ).enhanceBackToHomeLink = enhanceBackToHomeLink;
+  }
+</script>

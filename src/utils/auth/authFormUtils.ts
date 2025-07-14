@@ -89,15 +89,11 @@ export function setAuthButtonLoadingState(
   isLoading: boolean,
   loadingText?: string
 ): void {
-  const button = document.getElementById(buttonId);
-  if (!button) {
-    return;
-  }
+  const button = document.getElementById(buttonId) as HTMLButtonElement;
+  const textElement = button?.querySelector(".auth-form__submit-button-text");
+  const spinner = button?.querySelector(".auth-form__submit-button-spinner");
 
-  const textElement = button.querySelector(".auth-form__submit-text");
-  const spinner = button.querySelector(".auth-form__spinner");
-
-  if (!textElement || !spinner) {
+  if (!button || !textElement || !spinner) {
     return;
   }
 

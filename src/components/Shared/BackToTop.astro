@@ -12,6 +12,7 @@
  * - Reduced motion support
  * - Screen reader announcements
  * - Touch feedback for mobile devices
+ * - Responsive design with mobile-first approach
  *
  * @example
  * ```astro
@@ -67,13 +68,13 @@ const screenReaderText = t("common.back.to.top");
 <style lang="scss">
   /* ======================================
    * BACK TO TOP COMPONENT STYLES
-   * Using CSS variables from global.css only
+   * Responsive design with mobile-first approach
+   * Using CSS variables from global.css
    * ====================================== */
 
   .back-to-top {
+    // Base positioning and sizing
     position: fixed;
-    right: var(--space-xl);
-    bottom: var(--space-xl);
     z-index: var(--z-fixed);
     min-width: var(--min-touch-size);
     min-height: var(--min-touch-size);
@@ -86,19 +87,37 @@ const screenReaderText = t("common.back.to.top");
     transition: var(--transition-normal);
     cursor: pointer;
 
-    /* Performance optimizations */
+    // Performance optimizations
     contain: layout style;
     will-change: transform, opacity, background-color;
 
-    /* Enhanced focus styles for WCAG AAA */
+    // Enhanced focus styles for WCAG AAA
     outline: none;
 
+    // Mobile-first positioning (bottom right)
+    right: var(--space-md);
+    bottom: var(--space-md);
+
+    // Tablet and desktop positioning
+    @media (min-width: 48em) {
+      right: var(--space-xl);
+      bottom: var(--space-xl);
+    }
+
+    // Large desktop positioning
+    @media (min-width: 80em) {
+      right: var(--space-2xl);
+      bottom: var(--space-2xl);
+    }
+
+    // Hover effects
     &:hover {
       background: var(--btn-primary-hover);
       transform: translateY(calc(-1 * var(--space-xs)));
       box-shadow: var(--shadow-xl);
     }
 
+    // Focus states
     &:focus,
     &:focus-visible {
       background: var(--btn-primary-hover);
@@ -106,19 +125,40 @@ const screenReaderText = t("common.back.to.top");
       outline-offset: var(--focus-ring-offset);
     }
 
+    // Active state
     &:active {
       transform: translateY(var(--space-xs));
       transition-duration: var(--transition-instant);
     }
 
-    /* Icon styles handled by utility class */
+    // Icon styles
     &__icon {
-      /* Icon sizing handled by utility class - applied in HTML */
       color: inherit;
+      width: var(--icon-size-md);
+      height: var(--icon-size-md);
+
+      // Larger icon on larger screens
+      @media (min-width: 48em) {
+        width: var(--icon-size-lg);
+        height: var(--icon-size-lg);
+      }
+    }
+
+    // Responsive sizing for different screen sizes
+    @media (min-width: 48em) {
+      min-width: calc(var(--min-touch-size) + var(--space-sm));
+      min-height: calc(var(--min-touch-size) + var(--space-sm));
+      padding: var(--space-lg);
+    }
+
+    @media (min-width: 80em) {
+      min-width: calc(var(--min-touch-size) + var(--space-md));
+      min-height: calc(var(--min-touch-size) + var(--space-md));
+      padding: var(--space-xl);
     }
   }
 
-  /* Screen reader only content - using semantic CSS variables */
+  /* Screen reader only content */
   .sr-only {
     position: absolute;
     width: var(--sr-only-width);
@@ -168,16 +208,36 @@ const screenReaderText = t("common.back.to.top");
       display: none !important;
     }
   }
+
+  /* Landscape orientation adjustments for mobile */
+  @media (orientation: landscape) and (max-width: 47.9375em) {
+    .back-to-top {
+      right: var(--space-sm);
+      bottom: var(--space-sm);
+      min-width: var(--min-touch-size);
+      min-height: var(--min-touch-size);
+      padding: var(--space-sm);
+    }
+  }
+
+  /* High DPI displays */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .back-to-top {
+      // Ensure crisp rendering on high DPI displays
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+  }
 </style>
 
 <script>
   /**
    * BackToTop Component Script
    *
-   * Handles scroll-based visibility and smooth scrolling behavior
-   * with performance optimizations and accessibility features.
+   * Modern ES6+ implementation with arrow functions, const/let,
+   * template literals, and modern event handling.
    */
-  document.addEventListener("DOMContentLoaded", function (): void {
+  document.addEventListener("DOMContentLoaded", (): void => {
     const backToTopButton = document.getElementById("back-to-top") as HTMLButtonElement;
 
     if (!backToTopButton) {
@@ -201,7 +261,7 @@ const screenReaderText = t("common.back.to.top");
     /**
      * Announces a message to screen readers
      */
-    function announceToScreenReader(message: string): void {
+    const announceToScreenReader = (message: string): void => {
       let announcer = document.getElementById("back-to-top-announcer");
       if (!announcer) {
         announcer = document.createElement("div");
@@ -219,14 +279,14 @@ const screenReaderText = t("common.back.to.top");
           announcer.textContent = message;
         }
       }, 100);
-    }
+    };
 
     /**
      * Handles scroll visibility with performance optimization
      */
-    let scrollTimeout: ReturnType<typeof setTimeout>;
+    let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
 
-    function handleScroll(): void {
+    const handleScroll = (): void => {
       // Throttle scroll events for performance
       if (scrollTimeout) {
         return;
@@ -243,14 +303,14 @@ const screenReaderText = t("common.back.to.top");
           backToTopButton.setAttribute("aria-hidden", "true");
         }
 
-        scrollTimeout = null as any;
+        scrollTimeout = null;
       }, 16); // ~60fps throttling
-    }
+    };
 
     /**
      * Handles back to top click with accessibility features
      */
-    function handleBackToTop(): void {
+    const handleBackToTop = (): void => {
       // Scroll behavior based on motion preference
       const scrollOptions: ScrollToOptions = {
         top: 0,
@@ -282,14 +342,14 @@ const screenReaderText = t("common.back.to.top");
           // Ignore vibration errors
         }
       }
-    }
+    };
 
-    // Event listeners
+    // Event listeners with modern syntax
     window.addEventListener("scroll", handleScroll, { passive: true });
     backToTopButton.addEventListener("click", handleBackToTop);
 
     // Keyboard navigation enhancement
-    backToTopButton.addEventListener("keydown", function (e) {
+    backToTopButton.addEventListener("keydown", (e: KeyboardEvent) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         handleBackToTop();

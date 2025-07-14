@@ -57,6 +57,7 @@ export default {
   "achievements.status.in_progress": "進行中",
   "achievements.status.locked": "ロック中",
   "achievements.status.unlocked": "解除済み",
+  "achievements.points": "{points}ポイント",
   "achievements.summary.progress": "進捗",
   "achievements.summary.title": "達成サマリー",
   "achievements.summary.total": "合計",
@@ -541,6 +542,7 @@ export default {
   "musicPlatforms.heading": "関連音楽を聴く",
   "musicPlatforms.keyboardInstructions":
     "Tabキーを使用して音楽プラットフォームをナビゲートしてください。EnterまたはSpaceキーを押してプラットフォームを新しいタブで開きます。",
+  "musicPlatforms.listenOn": "{platform}で{title}を聴く",
   "nav.ariaLabel": "メインナビゲーション",
   "nav.donate.coffee": "コーヒーを買う",
   "nav.donate.heading": "サポート",

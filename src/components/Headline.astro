@@ -1,12 +1,17 @@
 ---
 /**
- * Headline Component
+ * Headline Component - Responsive & Accessible
  *
- * A versatile and accessible heading component that supports different heading levels,
- * custom styling, and proper semantic hierarchy. Follows WCAG AAA accessibility standards
- * and performance best practices.
+ * A versatile heading component with different levels, custom styling, and semantic hierarchy.
+ * Fully responsive with WCAG AAA compliance and optimized for all screen sizes.
  *
  * @component
+ * @example
+ * ```astro
+ * <Headline level="h1" size="2xl" variant="primary">
+ *   Welcome to MelodyMind
+ * </Headline>
+ * ```
  */
 interface Props {
   /** Text content of the heading (can also use slot content instead) */
@@ -17,9 +22,7 @@ interface Props {
   className?: string;
   /** Optional ID for direct linking and document structure */
   id?: string;
-  /** Adds tabindex="-1" to make the heading programmatically focusable when needed
-   * (useful for skip navigation or focus management)
-   */
+  /** Adds tabindex="-1" to make the heading programmatically focusable when needed */
   focusable?: boolean;
   /** Optional ARIA label for improved screen reader context */
   ariaLabel?: string;
@@ -27,7 +30,7 @@ interface Props {
   ariaDescribedBy?: string;
   /** Semantic wrapper element for better document structure */
   wrapper?: "section" | "header" | "article" | "div" | "none";
-  /** Text size using CSS custom properties (xs, sm, base, lg, xl, 2xl, 3xl, 4xl) - similar to Paragraph component */
+  /** Text size using CSS custom properties (xs, sm, base, lg, xl, 2xl, 3xl, 4xl) */
   size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
   /** Style variant for visual appearance (default uses standard colors, primary uses gradient) */
   variant?: "default" | "primary";
@@ -64,70 +67,71 @@ const WrapperTag = wrapper === "none" ? "div" : wrapper;
 
 /**
  * Generate optimized CSS classes following BEM methodology
- * Ensures WCAG AAA compliance and proper semantic hierarchy
  */
-const baseClasses = "headline";
-const levelClass = `headline--${level}`;
-const sizeClass = size ? `headline--size-${size}` : "";
-const variantClass = variant !== "default" ? `headline--${variant}` : "";
-const focusableClass = focusable ? "headline--focusable" : "";
-const alignClass = textAlign !== "left" ? `headline--align-${textAlign}` : "";
-const skipTargetClass = skipTarget ? "headline--skip-target" : "";
-const interactiveClass = interactive ? "headline--interactive" : "";
-const headlineClasses = [
-  baseClasses,
-  levelClass,
-  sizeClass,
-  variantClass,
-  focusableClass,
-  alignClass,
-  skipTargetClass,
-  interactiveClass,
-  className,
-]
-  .filter(Boolean)
-  .join(" ")
-  .trim();
+const generateClasses = (): string => {
+  const classes = [
+    "headline",
+    `headline--${level}`,
+    size && `headline--size-${size}`,
+    variant !== "default" && `headline--${variant}`,
+    focusable && "headline--focusable",
+    textAlign !== "left" && `headline--align-${textAlign}`,
+    skipTarget && "headline--skip-target",
+    interactive && "headline--interactive",
+    className,
+  ].filter(Boolean);
+
+  return classes.join(" ").trim();
+};
 
 // Optimized attributes for better accessibility and performance
-const headlineAttrs = {
-  id,
-  "aria-label": ariaLabel,
-  "aria-describedby": ariaDescribedBy,
-  class: headlineClasses,
-  ...(focusable && {
-    tabindex: "-1" as const,
-    // Only add button role if explicitly marked as interactive
-    ...(interactive && { role: "button" as const }),
-  }),
-  ...(interactive &&
-    onClick && {
-      onclick: onClick,
-    }),
-} as const;
+const generateAttributes = () => {
+  const baseAttrs: Record<string, any> = {
+    id,
+    "aria-label": ariaLabel,
+    "aria-describedby": ariaDescribedBy,
+    class: generateClasses(),
+  };
+
+  if (focusable) {
+    baseAttrs.tabindex = "-1";
+    if (interactive) {
+      baseAttrs.role = "button";
+    }
+  }
+
+  if (interactive && onClick) {
+    baseAttrs.onclick = onClick;
+  }
+
+  return baseAttrs;
+};
 
 // Wrapper attributes for semantic structure
-const wrapperAttrs =
-  wrapper !== "none"
-    ? ({
-        class: "headline-wrapper",
-        role: wrapper === "div" ? ("region" as const) : undefined,
-      } as const)
-    : null;
+const generateWrapperAttributes = () => {
+  if (wrapper === "none") {
+    return null;
+  }
+
+  return {
+    class: "headline-wrapper",
+    role: wrapper === "div" ? "region" : undefined,
+  } as const;
+};
+
+const headlineAttrs = generateAttributes();
+const wrapperAttrs = generateWrapperAttributes();
 ---
 
 <style lang="scss">
   /* ======================================
-   * HEADLINE COMPONENT - BEM STYLE
-   * WCAG AAA 2.2 COMPLIANT STYLES
-   * Optimized for responsive design and global.css integration
+   * HEADLINE COMPONENT STYLES
+   * Responsive design with global.css variables
+   * WCAG AAA compliant - Zero hardcoded values
    * ====================================== */
 
-  /* ======================================
-   * BASE HEADLINE STYLES
-   * ====================================== */
   .headline {
-    // Base typography using global.css variables
+    /* Base typography using global CSS variables */
     font-family: var(--font-family-primary);
     font-weight: var(--font-bold);
     line-height: var(--leading-tight);
@@ -135,25 +139,25 @@ const wrapperAttrs =
     margin-bottom: var(--space-lg);
     color: var(--text-primary);
 
-    // Enhanced text wrapping and accessibility
+    /* Enhanced text wrapping and accessibility */
     text-wrap: balance;
     word-break: break-words;
     overflow-wrap: break-word;
     hyphens: auto;
 
-    // Smooth transitions for interactive states
-    transition: all var(--transition-normal);
+    /* Smooth transitions for interactive states */
+    transition: all var(--animation-duration-normal);
 
-    // Enhanced text spacing support (WCAG 2.2)
+    /* Enhanced text spacing support (WCAG 2.2) */
     letter-spacing: max(var(--letter-spacing-base), var(--letter-spacing-enhanced));
     line-height: max(var(--leading-tight), var(--line-height-enhanced));
     word-spacing: max(normal, var(--word-spacing-enhanced));
 
-    // ======================================
-    // SIZE VARIANTS - RESPONSIVE TYPOGRAPHY
-    // ======================================
+    /* ======================================
+     * SIZE VARIANTS - RESPONSIVE TYPOGRAPHY
+     * ====================================== */
 
-    // Mobile-first responsive sizing
+    /* Mobile-first responsive sizing */
     &--size-xs {
       font-size: var(--text-xs);
     }
@@ -186,11 +190,11 @@ const wrapperAttrs =
       font-size: var(--text-4xl);
     }
 
-    // ======================================
-    // RESPONSIVE BREAKPOINT ADJUSTMENTS
-    // ======================================
+    /* ======================================
+     * RESPONSIVE BREAKPOINT ADJUSTMENTS
+     * ====================================== */
 
-    // Tablet breakpoint (md)
+    /* Tablet breakpoint (48em) */
     @media (min-width: var(--breakpoint-md)) {
       &--size-xl {
         font-size: var(--text-2xl);
@@ -209,7 +213,7 @@ const wrapperAttrs =
       }
     }
 
-    // Desktop breakpoint (lg)
+    /* Desktop breakpoint (64em) */
     @media (min-width: var(--breakpoint-lg)) {
       &--size-2xl {
         font-size: var(--text-4xl);
@@ -224,7 +228,7 @@ const wrapperAttrs =
       }
     }
 
-    // Large desktop breakpoint (xl)
+    /* Large desktop breakpoint (80em) */
     @media (min-width: var(--breakpoint-xl)) {
       &--size-3xl {
         font-size: calc(var(--text-4xl) * 1.5);
@@ -235,15 +239,15 @@ const wrapperAttrs =
       }
     }
 
-    // ======================================
-    // LEVEL-SPECIFIC TYPOGRAPHY
-    // ======================================
+    /* ======================================
+     * LEVEL-SPECIFIC TYPOGRAPHY
+     * ====================================== */
 
     &--h1 {
       font-weight: var(--font-bold);
       margin-bottom: var(--space-xl);
 
-      // Enhanced spacing for large screens
+      /* Enhanced spacing for large screens */
       @media (min-width: var(--breakpoint-lg)) {
         margin-bottom: var(--space-2xl);
       }
@@ -278,16 +282,16 @@ const wrapperAttrs =
       }
     }
 
-    // ======================================
-    // STYLE VARIANTS
-    // ======================================
+    /* ======================================
+     * STYLE VARIANTS
+     * ====================================== */
 
-    // Primary variant with gradient
+    /* Primary variant with gradient */
     &--primary {
-      // WCAG AAA compliant fallback color (7:1 contrast ratio)
+      /* WCAG AAA compliant fallback color (7:1 contrast ratio) */
       color: var(--interactive-primary);
 
-      // Enhanced gradient text with accessibility considerations
+      /* Enhanced gradient text with accessibility considerations */
       background: linear-gradient(135deg, var(--color-primary-500), var(--color-secondary-500));
       background-clip: text;
       -webkit-background-clip: text;
@@ -296,14 +300,14 @@ const wrapperAttrs =
       animation: gradient-shift var(--animation-duration-slow) ease-in-out infinite;
       will-change: background-position;
 
-      // Fallback for browsers that don't support background-clip: text
+      /* Fallback for browsers that don't support background-clip: text */
       @supports not (background-clip: text) {
         background: none;
         -webkit-text-fill-color: initial;
         color: var(--interactive-primary);
       }
 
-      // High contrast mode support
+      /* High contrast mode support */
       @media (prefers-contrast: high) {
         background: none;
         -webkit-text-fill-color: initial;
@@ -311,7 +315,7 @@ const wrapperAttrs =
         font-weight: var(--font-bold);
       }
 
-      // Ensure proper contrast in forced colors mode
+      /* Ensure proper contrast in forced colors mode */
       @media (forced-colors: active) {
         background: none;
         -webkit-text-fill-color: initial;
@@ -320,30 +324,30 @@ const wrapperAttrs =
       }
     }
 
-    // ======================================
-    // INTERACTIVE STATES
-    // ======================================
+    /* ======================================
+     * INTERACTIVE STATES
+     * ====================================== */
 
-    // Focusable modifier for accessibility (WCAG 2.2 AAA)
+    /* Focusable modifier for accessibility (WCAG 2.2 AAA) */
     &--focusable {
       &:focus {
         outline: var(--focus-outline);
         outline-offset: var(--focus-ring-offset);
         box-shadow: var(--focus-ring);
-        // Minimum touch target size (WCAG 2.2)
+        /* Minimum touch target size (WCAG 2.2) */
         min-height: var(--min-touch-size);
         min-width: var(--min-touch-size);
-        // Enhanced focus appearance
+        /* Enhanced focus appearance */
         background-color: var(--focus-bg-overlay);
         border-radius: var(--radius-sm);
-        transition: all var(--transition-fast);
+        transition: all var(--animation-duration-fast);
       }
     }
 
-    // Interactive modifier for clickable headlines
+    /* Interactive modifier for clickable headlines */
     &--interactive {
       cursor: pointer;
-      transition: all var(--transition-normal);
+      transition: all var(--animation-duration-normal);
 
       &:hover {
         text-decoration: underline;
@@ -365,9 +369,9 @@ const wrapperAttrs =
       }
     }
 
-    // ======================================
-    // SKIP NAVIGATION TARGET
-    // ======================================
+    /* ======================================
+     * SKIP NAVIGATION TARGET
+     * ====================================== */
 
     &--skip-target {
       scroll-margin-top: var(--space-xl);
@@ -381,7 +385,7 @@ const wrapperAttrs =
         right: 0;
         height: var(--border-width-thick);
         background-color: transparent;
-        transition: background-color var(--transition-fast);
+        transition: background-color var(--animation-duration-fast);
       }
 
       &:target {
@@ -394,9 +398,9 @@ const wrapperAttrs =
       }
     }
 
-    // ======================================
-    // TEXT ALIGNMENT
-    // ======================================
+    /* ======================================
+     * TEXT ALIGNMENT
+     * ====================================== */
 
     &--align-center {
       text-align: center;
@@ -405,13 +409,67 @@ const wrapperAttrs =
     &--align-right {
       text-align: right;
     }
+
+    /* ======================================
+     * RESPONSIVE TEXT ALIGNMENT
+     * ====================================== */
+
+    /* Mobile-first text alignment adjustments */
+    @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
+      /* Below md breakpoint */
+      &--align-center {
+        text-align: left;
+      }
+
+      &--align-right {
+        text-align: left;
+      }
+    }
+
+    /* ======================================
+     * RESPONSIVE MARGIN ADJUSTMENTS
+     * ====================================== */
+
+    /* Smaller margins on mobile for better space utilization */
+    @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
+      /* Below md breakpoint */
+      margin-bottom: var(--space-md);
+
+      &--h1 {
+        margin-bottom: var(--space-lg);
+      }
+
+      &--h2 {
+        margin-bottom: var(--space-md);
+      }
+
+      &--h3,
+      &--h4,
+      &--h5,
+      &--h6 {
+        margin-bottom: var(--space-sm);
+      }
+    }
+
+    @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+      /* Below sm breakpoint */
+      margin-bottom: var(--space-sm);
+
+      &--h1 {
+        margin-bottom: var(--space-md);
+      }
+
+      &--h2 {
+        margin-bottom: var(--space-sm);
+      }
+    }
   }
 
-  // ======================================
-  // ANIMATIONS
-  // ======================================
+  /* ======================================
+   * ANIMATIONS
+   * ====================================== */
 
-  // Gradient animation optimized for performance
+  /* Gradient animation optimized for performance */
   @keyframes gradient-shift {
     0%,
     100% {
@@ -422,7 +480,7 @@ const wrapperAttrs =
     }
   }
 
-  // Skip navigation highlight animation
+  /* Skip navigation highlight animation */
   @keyframes skip-highlight {
     0% {
       background-color: transparent;
@@ -436,27 +494,27 @@ const wrapperAttrs =
     }
   }
 
-  // ======================================
-  // WRAPPER ELEMENT
-  // ======================================
+  /* ======================================
+   * WRAPPER ELEMENT
+   * ====================================== */
 
   .headline-wrapper {
-    display: contents; // Maintains layout flow
+    display: contents; /* Maintains layout flow */
   }
 
-  // ======================================
-  // ACCESSIBILITY ENHANCEMENTS
-  // ======================================
+  /* ======================================
+   * ACCESSIBILITY ENHANCEMENTS
+   * ====================================== */
 
-  // Enhanced support for reduced motion (WCAG 2.2)
+  /* Enhanced support for reduced motion (WCAG 2.2) */
   @media (prefers-reduced-motion: reduce) {
     .headline {
-      // Reset enhanced spacing to standard for reduced motion
+      /* Reset enhanced spacing to standard for reduced motion */
       letter-spacing: var(--letter-spacing-base);
       line-height: var(--leading-tight);
 
       &--primary {
-        // Reset gradient animation
+        /* Reset gradient animation */
         background: none;
         -webkit-text-fill-color: initial;
         color: var(--interactive-primary);
@@ -468,7 +526,7 @@ const wrapperAttrs =
         animation: none;
 
         &:target {
-          // Static highlight for reduced motion users
+          /* Static highlight for reduced motion users */
           background-color: var(--focus-bg-overlay);
           border-radius: var(--radius-sm);
           padding: var(--space-xs);
@@ -488,9 +546,9 @@ const wrapperAttrs =
     }
   }
 
-  // ======================================
-  // PRINT STYLES
-  // ======================================
+  /* ======================================
+   * PRINT STYLES
+   * ====================================== */
 
   @media print {
     .headline {

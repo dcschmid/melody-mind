@@ -57,6 +57,7 @@ export default {
   "achievements.status.in_progress": "У процесі",
   "achievements.status.locked": "Заблоковано",
   "achievements.status.unlocked": "Розблоковано",
+  "achievements.points": "{points} очок",
   "achievements.summary.progress": "Прогрес",
   "achievements.summary.title": "Підсумок досягнень",
   "achievements.summary.total": "Всього",
@@ -555,6 +556,7 @@ export default {
   "musicPlatforms.heading": "Послухайте пов'язану музику",
   "musicPlatforms.keyboardInstructions":
     "Навігація музичними платформами за допомогою клавіші Tab. Натисніть Enter або пробіл, щоб відкрити платформи в нових вкладках.",
+  "musicPlatforms.listenOn": "Слухати {title} на {platform}",
   "nav.ariaLabel": "Основна навігація",
   "nav.donate.coffee": "Купити нам каву",
   "nav.donate.heading": "Підтримати нас",
