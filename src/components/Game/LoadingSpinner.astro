@@ -2,45 +2,41 @@
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 /**
- * LoadingSpinner Component
- *
- * A fully accessible loading indicator component for MelodyMind.
- * Supports both indeterminate and determinate progress with enhanced accessibility.
+ * LoadingSpinner - Accessible loading indicator
  *
  * Features:
- * - WCAG AAA compliant accessibility
- * - Responsive design with mobile-first approach
- * - Performance optimized with GPU acceleration
- * - Screen reader announcements
- * - Multiple size variants and states
- * - Internationalization support
+ * - WCAG AAA compliant
+ * - Responsive design
+ * - Performance optimized
+ * - Screen reader support
+ * - Multiple states
  *
  * @component
  * @example
  * ```astro
- * <LoadingSpinner size="large" label="Loading game..." />
+ * <LoadingSpinner size="large" label="Loading..." />
  * ```
  */
-interface Props {
-  /** Size variant for the spinner */
+export interface Props {
+  /** Size variant: small, medium, large */
   size?: "small" | "medium" | "large";
-  /** Text label displayed next to the spinner */
+  /** Visible text label */
   label?: string;
-  /** Unique identifier for this spinner instance */
+  /** Element ID */
   id?: string;
-  /** Text announced to screen readers when loading starts */
+  /** Screen reader start text */
   loadingStartText?: string;
-  /** Text announced to screen readers when loading completes */
+  /** Screen reader end text */
   loadingEndText?: string;
-  /** Enhanced ARIA label for the loading indicator */
+  /** ARIA label */
   ariaLabel?: string;
-  /** Progress type - indeterminate (default) or determinate */
+  /** Progress type */
   type?: "indeterminate" | "determinate";
-  /** Progress value (0-100) for determinate progress bars */
+  /** Progress value (0-100) */
   progress?: number;
-  /** Loading state for enhanced error handling */
+  /** Loading state */
   state?: "normal" | "error" | "timeout";
-  /** Context for more descriptive announcements */
+  /** Context for announcements */
   context?: string;
 }
 
@@ -60,28 +56,21 @@ const {
   context = "",
 } = Astro.props;
 
-/**
- * Size class mapping for different spinner dimensions
- * Each size uses CSS custom properties for consistency
- */
+// Size class mapping
 const sizeClasses = {
   small: "loading-spinner--small",
   medium: "loading-spinner--medium",
   large: "loading-spinner--large",
 };
 
-/**
- * State class mapping for different loading states
- */
+// State class mapping
 const stateClasses = {
   normal: "",
   error: "loading-spinner--error",
   timeout: "loading-spinner--timeout",
 };
 
-/**
- * Contextual announcements for improved screen reader experience
- */
+// Contextual announcements
 const contextualAnnouncements = {
   gameLoading: t("loading.context.game"),
   questionLoading: t("loading.context.question"),
@@ -101,14 +90,7 @@ const enhancedAriaLabel = context
   : ariaLabel;
 ---
 
-<!-- 
-  LoadingSpinner component
-  - Hidden by default, shown via JavaScript
-  - Includes accessibility features for screen readers
-  - Supports motion reduction preferences
-  - Optimized for performance with GPU acceleration
-  - Enhanced with determinate progress support and error states
--->
+<!-- LoadingSpinner: Hidden by default, accessible, optimized -->
 <div
   class={`loading-spinner ${type === "determinate" ? "loading-spinner--progress" : ""} hidden ${stateClasses[state]}`}
   {id}
@@ -152,24 +134,13 @@ const enhancedAriaLabel = context
 
 <style lang="scss">
   /**
-   * LoadingSpinner Component Styles - SCSS Version
-   * ===========================================================================
+   * LoadingSpinner Styles
    * 
-   * ✅ 100% CSS custom properties usage - NO hardcoded values
-   * ✅ WCAG AAA compliance with enhanced contrast ratios (7:1)
-   * ✅ Performance-optimized animations with GPU acceleration
-   * ✅ Reduced motion support for accessibility
-   * ✅ Touch-friendly minimum sizes for mobile devices
-   * ✅ Consistent design system integration
-   * ✅ Fully responsive with mobile-first approach
-   * 
-   * Features:
-   * - SCSS nesting and mixins for better organization
-   * - CSS variables only for all styling (colors, spacing, typography)
-   * - Modern CSS animations with hardware acceleration
-   * - Responsive sizing using semantic design tokens
-   * - Accessibility-first approach with screen reader support
-   * - Performance-optimized with will-change and containment
+   * ✅ 100% global.css variables
+   * ✅ Performance optimized with CSS containment
+   * ✅ WCAG AAA compliant
+   * ✅ Responsive design with container queries
+   * ✅ GPU acceleration
    */
 
   // Animation keyframes
@@ -199,20 +170,28 @@ const enhancedAriaLabel = context
 
   // Main component container
   .loading-spinner {
-    // Layout using CSS variables
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: var(--touch-target-min);
-    gap: var(--space-md);
-    padding: var(--space-md);
 
-    // Performance optimization
-    contain: layout style;
-    will-change: auto; // Reset after initial render
+    min-height: var(--touch-target-enhanced);
+    gap: clamp(var(--space-sm), 3vw, var(--space-lg));
+    padding: clamp(var(--space-sm), 3vw, var(--space-lg));
 
-    // Improve scroll performance when container is in viewport
+    // Performance optimizations
+    contain: layout style paint;
     content-visibility: auto;
+    contain-intrinsic-size: var(--container-intrinsic-height-component);
+
+    transform: translateZ(0);
+    will-change: auto;
+
+    // Container query support
+    container-type: inline-size;
+    container-name: spinner;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 
     // Hidden state
     &.hidden {
@@ -268,26 +247,26 @@ const enhancedAriaLabel = context
       }
     }
 
-    // Size variants
+    // Size variants with fluid scaling
     &--small {
-      width: calc(var(--space-lg) * 1.5);
-      height: calc(var(--space-lg) * 1.5);
+      width: clamp(var(--space-lg), 4vw, var(--space-xl));
+      height: clamp(var(--space-lg), 4vw, var(--space-xl));
       border-width: var(--border-width-thick);
       position: relative;
       border-radius: var(--radius-full);
     }
 
     &--medium {
-      width: calc(var(--space-xl) * 1.5);
-      height: calc(var(--space-xl) * 1.5);
+      width: clamp(var(--space-xl), 6vw, var(--space-2xl));
+      height: clamp(var(--space-xl), 6vw, var(--space-2xl));
       border-width: var(--border-width-enhanced);
       position: relative;
       border-radius: var(--radius-full);
     }
 
     &--large {
-      width: calc(var(--space-2xl) + var(--space-md));
-      height: calc(var(--space-2xl) + var(--space-md));
+      width: clamp(var(--space-2xl), 8vw, calc(var(--space-3xl) + var(--space-md)));
+      height: clamp(var(--space-2xl), 8vw, calc(var(--space-3xl) + var(--space-md)));
       border-width: var(--border-width-enhanced);
       position: relative;
       border-radius: var(--radius-full);
@@ -309,34 +288,42 @@ const enhancedAriaLabel = context
 
     // Progress bar fill
     &__progress-bar {
-      height: 100%;
+      height: var(--height-full);
+
       background: linear-gradient(
         90deg,
         var(--interactive-primary) 0%,
         var(--interactive-primary-hover) 100%
       );
+
       border-radius: inherit;
-      transition: width var(--transition-normal) ease-out;
       position: relative;
 
-      // Performance optimization for smooth progress updates
-      will-change: width;
+      // Performance optimizations
+      contain: layout style;
       transform: translateZ(0);
+      will-change: width;
 
-      // Progress bar loading animation for visual feedback
+      transition: width var(--transition-normal) ease-out;
+
+      // Progress shimmer effect
       &::after {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: var(--space-none);
+
         background: linear-gradient(
-          var(--gradient-angle),
-          transparent var(--gradient-start),
+          90deg,
+          transparent 0%,
           rgba(255, 255, 255, 0.3) 50%,
-          transparent var(--gradient-end)
+          transparent 100%
         );
+
+        // Performance optimizations
+        contain: layout style;
+        transform: translateZ(0);
+        will-change: transform;
+
         animation: progressShimmer var(--transition-slow) ease-in-out infinite;
       }
     }
@@ -346,77 +333,57 @@ const enhancedAriaLabel = context
       position: relative;
       border-radius: var(--radius-full);
 
-      // Border styling using CSS variables for enhanced WCAG AAA contrast
       border: var(--border-width-enhanced) solid transparent;
       border-top-color: var(--interactive-primary);
       border-right-color: var(--border-primary);
       border-bottom-color: var(--border-primary);
       border-left-color: var(--border-primary);
 
-      // Performance-optimized animation
-      animation: spinOptimized var(--transition-slow) linear infinite;
-      will-change: transform;
+      // Performance optimizations
+      contain: layout style paint;
       transform: translateZ(0) rotateZ(0deg);
+      will-change: transform;
       backface-visibility: hidden;
       transform-style: preserve-3d;
 
-      // Optimize repaints and reflows
-      contain: paint;
+      animation: spinOptimized var(--transition-slow) linear infinite;
     }
 
     // Label styling
     &__label {
-      font-size: var(--text-lg);
+      font-size: clamp(var(--text-base), 3vw, var(--text-xl));
       font-weight: var(--font-medium);
-      line-height: var(--leading-normal);
+      line-height: var(--leading-relaxed);
       color: var(--text-secondary);
 
-      // Enhanced text spacing for WCAG AAA
       letter-spacing: var(--letter-spacing-base);
 
-      // Performance optimization
+      text-wrap: balance;
+
+      // Performance optimizations
+      contain: layout style;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
   }
 
-  // ============================================================================
-  // RESPONSIVE DESIGN - Mobile-first approach
-  // ============================================================================
-
-  // Small screens - optimize for mobile viewing
-  @media (max-width: var(--breakpoint-sm)) {
+  // Responsive design
+  @media (min-width: 48em) {
     .loading-spinner {
-      gap: var(--space-sm);
-      padding: var(--space-sm);
-
-      &__label {
-        font-size: var(--text-base);
+      &--small {
+        min-width: calc(var(--touch-target-enhanced) + var(--space-sm));
+        min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
       }
 
-      // Ensure all spinner sizes meet minimum touch target requirements
-      &--small,
-      &--medium,
+      &--medium {
+        min-width: calc(var(--touch-target-enhanced) + var(--space-md));
+        min-height: calc(var(--touch-target-enhanced) + var(--space-md));
+      }
+
       &--large {
-        min-width: var(--touch-target-min);
-        min-height: var(--touch-target-min);
-      }
-    }
-  }
-
-  // Medium screens and up
-  @media (min-width: var(--breakpoint-md)) {
-    .loading-spinner {
-      gap: var(--space-lg);
-
-      &__label {
-        font-size: var(--text-xl);
-        letter-spacing: var(--letter-spacing-enhanced);
-      }
-
-      &--progress {
-        gap: var(--space-md);
+        min-width: calc(var(--touch-target-enhanced) + var(--space-lg));
+        min-height: calc(var(--touch-target-enhanced) + var(--space-lg));
       }
 
       &__progress-container {
@@ -425,27 +392,81 @@ const enhancedAriaLabel = context
     }
   }
 
-  // Large screens and up
-  @media (min-width: var(--breakpoint-lg)) {
+  @media (max-width: 39.9375em) {
     .loading-spinner {
-      gap: var(--space-lg);
-      padding: var(--space-lg);
-
-      &__label {
-        font-size: var(--text-xl);
+      &--small,
+      &--medium,
+      &--large {
+        min-width: var(--touch-target-enhanced);
+        min-height: var(--touch-target-enhanced);
       }
     }
   }
 
-  // ============================================================================
-  // ACCESSIBILITY - Preference-based enhancements
-  // ============================================================================
+  @media (max-width: 23.4375em) {
+    .loading-spinner {
+      gap: var(--space-xs);
+      padding: var(--space-xs);
+
+      &__progress-container {
+        height: var(--space-md);
+      }
+    }
+  }
+
+  // High contrast mode support
+  @media (prefers-contrast: high) {
+    .loading-spinner {
+      &__circle {
+        border-top-color: var(--text-primary);
+        border-width: var(--border-width-thick);
+      }
+
+      &__label {
+        color: var(--text-primary);
+        font-weight: var(--font-semibold);
+      }
+
+      &__progress-container {
+        border-width: var(--border-width-thick);
+        background: var(--bg-primary);
+      }
+    }
+  }
+
+  // Touch device optimizations
+  @media (hover: none) and (pointer: coarse) {
+    .loading-spinner {
+      min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+
+      &__label {
+        font-size: var(--text-lg);
+      }
+
+      &--small,
+      &--medium,
+      &--large {
+        min-width: calc(var(--touch-target-enhanced) + var(--space-md));
+        min-height: calc(var(--touch-target-enhanced) + var(--space-md));
+      }
+
+      &__progress-container {
+        height: calc(var(--space-xl) + var(--space-sm));
+      }
+    }
+  }
 
   // Reduced motion support
   @media (prefers-reduced-motion: reduce) {
-    .loading-spinner__circle {
+    .loading-spinner__circle,
+    .loading-spinner__progress-bar {
       animation: none;
-      // Alternative loading indicator using opacity pulse
+      will-change: auto;
+    }
+
+    .loading-spinner__circle {
       animation: pulse var(--transition-slow) ease-in-out infinite alternate;
     }
 
@@ -454,55 +475,132 @@ const enhancedAriaLabel = context
     }
   }
 
-  // High contrast mode support
-  @media (prefers-contrast: high) {
-    .loading-spinner__circle {
-      border-top-color: var(--text-primary);
-      border-width: var(--enhanced-border-thickness);
+  // Enhanced text spacing support for WCAG AAA
+  .enhanced-text-spacing .loading-spinner {
+    &__label {
+      letter-spacing: var(--letter-spacing-enhanced);
+      word-spacing: var(--word-spacing-enhanced);
+      line-height: var(--leading-enhanced);
     }
 
-    .loading-spinner__label {
-      color: var(--text-primary);
-      font-weight: var(--font-semibold);
-    }
+    gap: calc(var(--space-lg) * 1.2);
+    padding: calc(var(--space-lg) * 1.2);
   }
 
-  // Forced colors mode support (Windows High Contrast)
-  @media (forced-colors: active) {
-    .loading-spinner__circle {
-      border-top-color: ButtonText;
-      border-right-color: ButtonFace;
-      border-bottom-color: ButtonFace;
-      border-left-color: ButtonFace;
-    }
-
-    .loading-spinner__label {
-      color: ButtonText;
-    }
-  }
-
-  // Touch devices - enhanced targets
-  @media (hover: none) and (pointer: coarse) {
+  // Print styles
+  @media print {
     .loading-spinner {
-      min-height: var(--touch-target-enhanced);
-      gap: var(--space-lg);
+      background: var(--color-white);
+      border: var(--border-width-thin) solid var(--color-black);
+      box-shadow: none;
+      break-inside: avoid;
+
+      &__circle {
+        border-top-color: var(--color-black);
+        border-right-color: var(--color-gray-300);
+        border-bottom-color: var(--color-gray-300);
+        border-left-color: var(--color-gray-300);
+        animation: none;
+      }
 
       &__label {
-        font-size: var(--text-lg);
+        color: var(--color-black) !important;
+      }
+
+      &__progress-bar {
+        background: var(--color-black) !important;
+        animation: none;
       }
     }
   }
 
-  // ============================================================================
-  // UTILITY CLASSES - Screen reader support
-  // ============================================================================
+  // Forced colors mode support
+  @media (forced-colors: active) {
+    .loading-spinner {
+      &__circle {
+        border-top-color: ButtonText;
+        border-right-color: ButtonFace;
+        border-bottom-color: ButtonFace;
+        border-left-color: ButtonFace;
+        forced-color-adjust: none;
+      }
 
+      &__label {
+        color: ButtonText;
+        forced-color-adjust: none;
+      }
+
+      &__progress-container {
+        border: var(--border-width-thin) solid ButtonText;
+        background: ButtonFace;
+      }
+
+      &__progress-bar {
+        background: ButtonText !important;
+      }
+    }
+  }
+
+  // Container queries for component-specific responsiveness
+  @container spinner (max-width: 20em) {
+    .loading-spinner {
+      gap: var(--space-xs);
+      padding: var(--space-sm);
+
+      &--small {
+        width: var(--space-lg);
+        height: var(--space-lg);
+      }
+
+      &--medium {
+        width: var(--space-xl);
+        height: var(--space-xl);
+      }
+
+      &--large {
+        width: var(--space-2xl);
+        height: var(--space-2xl);
+      }
+
+      &__label {
+        font-size: var(--text-sm);
+      }
+    }
+  }
+
+  @container spinner (min-width: 30em) {
+    .loading-spinner {
+      gap: var(--space-xl);
+      padding: var(--space-xl);
+
+      &--small {
+        width: calc(var(--space-2xl) + var(--space-sm));
+        height: calc(var(--space-2xl) + var(--space-sm));
+      }
+
+      &--medium {
+        width: calc(var(--space-3xl) + var(--space-md));
+        height: calc(var(--space-3xl) + var(--space-md));
+      }
+
+      &--large {
+        width: calc(var(--space-4xl) + var(--space-lg));
+        height: calc(var(--space-4xl) + var(--space-lg));
+      }
+
+      &__label {
+        font-size: var(--text-2xl);
+      }
+    }
+  }
+
+  // Screen reader only
   .sr-only {
     position: absolute;
-    width: 1px;
-    height: 1px;
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
     padding: 0;
-    margin: -1px;
+    margin: var(--sr-only-margin);
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
@@ -512,35 +610,23 @@ const enhancedAriaLabel = context
 
 <script>
   /**
-   * LoadingSpinner - Enhanced class to manage loading indicators with accessibility
+   * LoadingSpinner - Manages loading indicators with accessibility
    *
-   * This utility class provides methods for showing/hiding loading indicators and properly
-   * managing their ARIA attributes for accessibility. It implements a singleton pattern
-   * per spinner ID to ensure consistent state management throughout the application.
-   *
-   * Enhanced Features:
-   * - Focus management for screen readers
-   * - Progress updates for determinate loading
-   * - Error and timeout state management
-   * - Contextual announcements
-   * - Performance optimizations
-   * - Modern ES6+ features
+   * Features:
+   * - Focus management
+   * - Progress updates
+   * - Error/timeout states
+   * - Screen reader support
    *
    * @example
-   * // Show a spinner with focus
-   * LoadingSpinner.getInstance().showWithFocus();
-   *
-   * // Update progress for determinate spinner
+   * LoadingSpinner.getInstance().show();
    * LoadingSpinner.getInstance().updateProgress(75);
-   *
-   * // Set error state
-   * LoadingSpinner.getInstance().setErrorState("Connection failed");
    */
   class LoadingSpinner {
-    /** Storage for all spinner instances by ID for singleton pattern */
+    // Instance storage
     static #instances = new Map();
 
-    /** Contextual announcements for improved screen reader experience */
+    // Contextual announcements
     static readonly #contextualAnnouncements = {
       gameLoading: "Loading game content, please wait",
       questionLoading: "Loading next question",
@@ -557,11 +643,7 @@ const enhancedAriaLabel = context
     #type: string = "indeterminate";
     #currentState: string = "normal";
 
-    /**
-     * Creates a new LoadingSpinner instance
-     *
-     * @param {string} id - The ID of the spinner element to control
-     */
+    // Constructor
     constructor(id = "loading-spinner") {
       this.#spinner = document.getElementById(id);
       this.#announcement = document.getElementById(`${id}-announcement`);
@@ -581,21 +663,12 @@ const enhancedAriaLabel = context
       }
     }
 
-    /**
-     * Returns a singleton instance of LoadingSpinner for the specified ID
-     *
-     * @param {string} id - The ID of the spinner to control
-     * @returns {LoadingSpinner} A spinner instance for the specified ID
-     */
+    // Get instance
     static getInstance(id = "loading-spinner") {
       return this.#instances.get(id) || new LoadingSpinner(id);
     }
 
-    /**
-     * Shows the spinner and updates its accessibility attributes
-     *
-     * @returns {boolean} True on success, false if spinner element not found
-     */
+    // Show spinner
     show = (): boolean => {
       if (!this.#spinner) {
         return false;
@@ -613,11 +686,7 @@ const enhancedAriaLabel = context
       return true;
     };
 
-    /**
-     * Hides the spinner and updates its accessibility attributes
-     *
-     * @returns {boolean} True on success, false if spinner element not found
-     */
+    // Hide spinner
     hide = (): boolean => {
       if (!this.#spinner) {
         return false;
@@ -635,11 +704,7 @@ const enhancedAriaLabel = context
       return true;
     };
 
-    /**
-     * Toggles spinner visibility based on current state
-     *
-     * @returns {boolean} New visibility state (true = visible, false = hidden)
-     */
+    // Toggle spinner
     toggle = (): boolean => {
       if (!this.#spinner) {
         return false;
@@ -649,21 +714,12 @@ const enhancedAriaLabel = context
       return isCurrentlyHidden ? this.show() : this.hide();
     };
 
-    /**
-     * Checks if the spinner is currently visible
-     *
-     * @returns {boolean} True if the spinner is visible, otherwise false
-     */
+    // Check visibility
     isVisible = (): boolean => {
       return this.#spinner ? !this.#spinner.classList.contains("hidden") : false;
     };
 
-    /**
-     * Shows the spinner for a specified duration then hides it
-     *
-     * @param {number} durationMs - Duration in milliseconds to show the spinner
-     * @returns {Promise<void>} Promise that resolves when the spinner is hidden
-     */
+    // Show for duration
     showFor = async (durationMs: number): Promise<void> => {
       this.show();
 
@@ -675,12 +731,7 @@ const enhancedAriaLabel = context
       });
     };
 
-    /**
-     * Shows the spinner with optional focus for enhanced screen reader experience
-     *
-     * @param {boolean} withFocus - Whether to move focus to the spinner
-     * @returns {boolean} True on success, false if spinner element not found
-     */
+    // Show with focus
     showWithFocus = (withFocus = true): boolean => {
       const success = this.show();
 
@@ -698,13 +749,7 @@ const enhancedAriaLabel = context
       return success;
     };
 
-    /**
-     * Updates progress for determinate progress bars
-     *
-     * @param {number} progress - Progress value (0-100)
-     * @param {string} [announcement] - Optional custom announcement text
-     * @returns {boolean} True on success, false if not a progress bar or element not found
-     */
+    // Update progress
     updateProgress = (progress: number, announcement?: string): boolean => {
       if (!this.#spinner || this.#type !== "determinate") {
         return false;
@@ -737,12 +782,7 @@ const enhancedAriaLabel = context
       return true;
     };
 
-    /**
-     * Sets the spinner to error state with enhanced accessibility
-     *
-     * @param {string} [errorMessage] - Optional custom error message
-     * @returns {boolean} True on success, false if spinner element not found
-     */
+    // Set error state
     setErrorState = (errorMessage?: string): boolean => {
       if (!this.#spinner) {
         return false;
@@ -767,12 +807,7 @@ const enhancedAriaLabel = context
       return true;
     };
 
-    /**
-     * Sets the spinner to timeout state with enhanced accessibility
-     *
-     * @param {string} [timeoutMessage] - Optional custom timeout message
-     * @returns {boolean} True on success, false if spinner element not found
-     */
+    // Set timeout state
     setTimeoutState = (timeoutMessage?: string): boolean => {
       if (!this.#spinner) {
         return false;
@@ -797,11 +832,7 @@ const enhancedAriaLabel = context
       return true;
     };
 
-    /**
-     * Resets the spinner to normal state
-     *
-     * @returns {boolean} True on success, false if spinner element not found
-     */
+    // Reset state
     resetState = (): boolean => {
       if (!this.#spinner) {
         return false;
@@ -819,22 +850,12 @@ const enhancedAriaLabel = context
       return true;
     };
 
-    /**
-     * Gets the current state of the spinner
-     *
-     * @returns {string} Current state (normal, error, timeout)
-     */
+    // Get state
     getState = (): string => {
       return this.#currentState;
     };
 
-    /**
-     * Sets contextual announcement for improved screen reader experience
-     *
-     * @param {string} context - Context key for announcement
-     * @param {string} [customMessage] - Optional custom message
-     * @returns {boolean} True on success, false if spinner element not found
-     */
+    // Set announcement
     setContextualAnnouncement = (context: string, customMessage?: string): boolean => {
       if (!this.#announcement) {
         return false;

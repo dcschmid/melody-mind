@@ -1,33 +1,18 @@
 ---
 /**
- * Achievement Notification Component
+ * AchievementNotification - Toast notification for unlocked achievements
  *
- * Displays a toast-like notification when a user unlocks an achievement.
- * The notification appears with animation, plays a sound (if enabled),
- * and automatically disappears after a configurable time period.
+ * Shows animated notification when achievements are unlocked
+ * WCAG AAA compliant with sound support and accessibility features
  *
- * @component
- * @implements {WCAG AAA compliance}
- *
- * Accessibility Features:
- * - Uses role="alert" for screen reader announcements
- * - Provides aria-live="polite" for non-intrusive updates
- * - Supports close button with appropriate aria-label
- * - Implements focus management and outline for keyboard navigation
- * - Follows WCAG AAA contrast requirements (7:1 ratio)
- * - Supports reduced motion preferences
- *
- * @example
- * ```astro
- * <AchievementNotification lang="en" />
- * ```
+ * @param {string} lang - Language code for translations (e.g., 'en', 'de')
  */
 
 import { useTranslations } from "../../utils/i18n.ts";
 import { Icon } from "astro-icon/components";
 
 interface Props {
-  /** Language code for translations */
+  /** Language code for translations (e.g., 'en', 'de') */
   lang: string;
 }
 
@@ -122,80 +107,72 @@ const t = useTranslations(lang);
 </div>
 
 <style lang="scss">
-  /**
-   * AchievementNotification Component Styles - Modern SCSS
-   * 
-   * ✅ Modern notification design with fluid responsive scaling
-   * ✅ 100% CSS variables from global.css - NO hardcoded values
-   * ✅ WCAG AAA 2.2 compliant colors and spacing
-   * ✅ Performance optimized with CSS containment and modern transforms
-   * ✅ Enhanced accessibility with proper focus management
-   * ✅ Consistent with other components
-   */
+  /* AchievementNotification - responsive toast notification */
+  /* Uses global.css variables, WCAG AAA compliant, performance optimized */
 
-  // Achievement notification main container with modern design
+  /* Achievement notification main container */
   .achievement-notification {
     position: fixed;
     right: clamp(var(--space-sm), 3vw, var(--space-lg));
     bottom: clamp(var(--space-sm), 3vw, var(--space-lg));
     z-index: var(--z-notification);
-    
-    // Fluid responsive width
-    max-width: clamp(300px, 90vw, 400px);
-    min-width: 280px;
-    
-    // Modern transforms with GPU acceleration
+
+    /* Responsive width */
+    max-width: clamp(var(--grid-min-width-lg), 90vw, var(--modal-content-max-width));
+    min-width: var(--grid-min-width-sm);
+
+    /* Transform with GPU acceleration */
     transform: translateY(150%) translateZ(0);
-    
+
     overflow: hidden;
     border-radius: var(--radius-lg);
     background-color: var(--card-bg);
     border: var(--border-width-thin) solid var(--border-primary);
-    
-    // Fluid responsive padding
+
+    /* Responsive padding */
     padding: clamp(var(--space-sm), 3vw, var(--space-md));
-    
+
     color: var(--text-primary);
     opacity: 0;
     box-shadow: var(--shadow-lg);
     outline: none;
-    
-    // Modern CSS containment for performance
+
+    /* Performance optimizations */
     contain: layout style paint;
-    
-    // GPU acceleration
+    content-visibility: auto;
+    contain-intrinsic-size: var(--container-intrinsic-height-component);
     will-change: transform, opacity;
-    
+
     transition:
-      transform var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1),
-      opacity var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
-    
+      transform var(--animation-duration-normal) cubic-bezier(0.4, 0, 0.2, 1),
+      opacity var(--animation-duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+
     isolation: isolate;
     line-height: var(--leading-relaxed);
     letter-spacing: var(--letter-spacing-base);
     overflow-wrap: break-word;
     font-size: clamp(var(--text-sm), 3vw, var(--text-base));
 
-    // Responsive positioning
+    /* Responsive positioning */
     @media (min-width: 30em) {
       right: clamp(var(--space-md), 4vw, var(--space-xl));
       bottom: clamp(var(--space-md), 4vw, var(--space-xl));
-      max-width: clamp(320px, 80vw, 450px);
+      max-width: clamp(var(--grid-min-width-md), 80vw, var(--modal-content-max-width));
     }
 
     @media (min-width: 48em) {
       right: var(--space-2xl);
       bottom: var(--space-2xl);
-      max-width: 500px;
+      max-width: var(--modal-content-max-width);
     }
 
-    // Modifier for visible state with modern transforms
+    /* Visible state */
     &--visible {
-      transform: translateY(0) translateZ(0);
-      opacity: 1;
+      transform: translateY(var(--space-none)) translateZ(0);
+      opacity: var(--animation-opacity-full);
     }
 
-    // Container for notification content with modern layout
+    /* Container for notification content */
     &__container {
       position: relative;
       display: flex;
@@ -204,7 +181,7 @@ const t = useTranslations(lang);
       contain: layout style;
     }
 
-    // Icon container with modern design and enhanced accessibility
+    /* Icon container */
     &__icon {
       display: flex;
       height: clamp(var(--space-2xl), 8vw, var(--space-3xl));
@@ -216,21 +193,19 @@ const t = useTranslations(lang);
       background-color: var(--interactive-primary);
       padding: clamp(var(--space-xs), 2vw, var(--space-sm));
       color: var(--text-primary);
-      
-      // Enhanced shadow with modern color-mix
+
+      /* Enhanced shadow */
       box-shadow: 0 0 0 var(--interactive-primary);
-      
-      // Modern animation with CSS variables
+
+      /* Animation */
       animation: pulse var(--animation-pulse-duration) ease-in-out infinite;
-      
-      // Performance optimization
+
+      /* Performance optimizations */
       contain: layout style;
       will-change: transform, box-shadow;
-      
-      // GPU acceleration
       transform: translateZ(0);
 
-      // Disable animation for users with reduced motion
+      /* Disable animation for users with reduced motion */
       @media (prefers-reduced-motion: reduce) {
         animation: none;
         box-shadow: 0 0 0 var(--border-width-thick) var(--interactive-primary);
@@ -238,16 +213,16 @@ const t = useTranslations(lang);
       }
     }
 
-    // Content area with modern fluid design
+    /* Content area */
     &__content {
       flex-grow: 1;
       padding-right: clamp(var(--space-md), 4vw, var(--space-lg));
       contain: layout style;
     }
 
-    // Title with modern fluid typography
+    /* Title */
     &__title {
-      margin: 0;
+      margin: var(--space-none);
       margin-bottom: clamp(var(--space-xs), 2vw, var(--space-sm));
       font-size: clamp(var(--text-base), 4vw, var(--text-lg));
       font-weight: var(--font-semibold);
@@ -255,21 +230,21 @@ const t = useTranslations(lang);
       line-height: var(--leading-tight);
     }
 
-    // Description with modern fluid typography and accessibility
+    /* Description */
     &__description {
-      margin: 0;
+      margin: var(--space-none);
       font-size: clamp(var(--text-xs), 3vw, var(--text-sm));
       opacity: var(--opacity-medium);
       line-height: var(--leading-normal);
-      max-width: 100%;
+      max-width: var(--width-full);
       word-wrap: break-word;
-      
-      // Better text spacing for accessibility
+
+      /* Better text spacing for accessibility */
       letter-spacing: var(--letter-spacing-base);
       word-spacing: normal;
     }
 
-    // Common properties for buttons with modern design
+    /* Common properties for buttons */
     &__close,
     &__control-button {
       display: flex;
@@ -280,66 +255,66 @@ const t = useTranslations(lang);
       border: none;
       border-radius: var(--radius-sm);
       cursor: pointer;
-      
-      // Modern CSS containment and GPU acceleration
+
+      /* Performance optimizations */
       contain: layout style;
       transform: translateZ(0);
       will-change: transform, color, background-color;
-      
-      transition:
-        color var(--transition-fast) cubic-bezier(0.4, 0, 0.2, 1),
-        background-color var(--transition-fast) cubic-bezier(0.4, 0, 0.2, 1),
-        outline var(--transition-fast) cubic-bezier(0.4, 0, 0.2, 1),
-        transform var(--transition-fast) cubic-bezier(0.4, 0, 0.2, 1);
-      
-      // Touch-friendly sizing
-      min-height: var(--min-touch-size);
-      min-width: var(--min-touch-size);
 
-      // Combined hover/focus states with modern transforms
+      transition:
+        color var(--animation-duration-fast) cubic-bezier(0.4, 0, 0.2, 1),
+        background-color var(--animation-duration-fast) cubic-bezier(0.4, 0, 0.2, 1),
+        outline var(--animation-duration-fast) cubic-bezier(0.4, 0, 0.2, 1),
+        transform var(--animation-duration-fast) cubic-bezier(0.4, 0, 0.2, 1);
+
+      /* Touch-friendly sizing */
+      min-height: var(--touch-target-enhanced);
+      min-width: var(--touch-target-enhanced);
+
+      /* Combined hover/focus states */
       &:hover,
       &:focus-visible {
         color: var(--text-primary);
         transform: scale(var(--animation-scale-hover-subtle)) translateZ(0);
       }
 
-      // Unified focus style according to WCAG 2.2 Enhanced Focus Appearance
+      /* Focus style according to WCAG 2.2 */
       &:focus-visible {
         outline: var(--focus-outline);
         outline-offset: var(--focus-ring-offset);
         border-radius: var(--radius-sm);
         background-color: var(--focus-bg-overlay);
-        min-width: var(--min-touch-size);
-        min-height: var(--min-touch-size);
+        min-width: var(--touch-target-enhanced);
+        min-height: var(--touch-target-enhanced);
         box-shadow: var(--focus-ring);
       }
-      
-      // Active state
+
+      /* Active state */
       &:active {
-        transform: scale(var(--animation-scale-active, 0.95)) translateZ(0);
+        transform: scale(var(--scale-active)) translateZ(0);
       }
     }
 
-    // Specific properties for close button
+    /* Specific properties for close button */
     &__close {
       position: absolute;
-      top: 0;
-      right: 0;
-      height: calc(var(--min-touch-size) - var(--space-sm));
-      width: calc(var(--min-touch-size) - var(--space-sm));
-      padding: 0;
+      top: var(--space-none);
+      right: var(--space-none);
+      height: calc(var(--touch-target-enhanced) - var(--space-sm));
+      width: calc(var(--touch-target-enhanced) - var(--space-sm));
+      padding: var(--space-none);
     }
 
-    // Specific properties for control buttons
+    /* Specific properties for control buttons */
     &__control-button {
       height: var(--space-xl);
       width: var(--space-xl);
     }
 
-    // Category
+    /* Category */
     &__category {
       margin-top: var(--space-sm);
-      padding: var(--space-xs) 0 0 0;
+      padding: var(--space-xs) var(--space-none) var(--space-none) var(--space-none);
       text-align: center;
       font-size: var(--text-sm);
       font-weight: var(--font-semibold);
@@ -348,28 +323,28 @@ const t = useTranslations(lang);
       border-top: var(--border-width-thin) solid var(--border-primary);
     }
 
-    // Notification controls
+    /* Notification controls */
     &__controls {
       position: absolute;
-      top: 0;
-      right: 0;
+      top: var(--space-none);
+      right: var(--space-none);
       display: flex;
       gap: var(--space-xs);
     }
 
-    // Timer for notification
+    /* Timer for notification */
     &__timer {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
+      bottom: var(--space-none);
+      left: var(--space-none);
+      width: var(--width-full);
       height: var(--space-xs);
       background-color: var(--color-neutral-700);
       overflow: hidden;
 
       &-progress {
-        height: 100%;
-        width: 100%;
+        height: var(--width-full);
+        width: var(--width-full);
         background-color: var(--interactive-primary);
         transform-origin: left;
         transform: translateZ(0);
@@ -377,27 +352,24 @@ const t = useTranslations(lang);
       }
     }
 
-    // Responsive adjustments with mobile-first approach
+    /* Responsive adjustments with mobile-first approach */
     @media (min-width: 40em) {
-      // 640px equivalent to --breakpoint-sm
-      max-width: calc(var(--space-3xl) * 6); // 24rem equivalent
+      max-width: calc(var(--space-3xl) * 6);
       bottom: var(--space-xl);
       right: var(--space-xl);
     }
 
     @media (min-width: 48em) {
-      // 768px equivalent to --breakpoint-md
-      max-width: calc(var(--space-3xl) * 7.5); // 30rem equivalent
+      max-width: calc(var(--space-3xl) * 7.5);
       bottom: var(--space-2xl);
       right: var(--space-2xl);
     }
 
     @media (min-width: 64em) {
-      // 1024px equivalent to --breakpoint-lg
-      max-width: calc(var(--space-3xl) * 9); // 36rem equivalent
+      max-width: calc(var(--space-3xl) * 9);
     }
 
-    // Modern reduced motion support
+    /* Reduced motion support */
     @media (prefers-reduced-motion: reduce) {
       transition-duration: var(--transition-instant);
       will-change: auto;
@@ -405,13 +377,13 @@ const t = useTranslations(lang);
       &--visible {
         transition: none;
       }
-      
-      // Disable button animations for reduced motion users
+
+      /* Disable button animations for reduced motion users */
       #{&}__close,
       #{&}__control-button {
         transition: var(--transition-instant);
         will-change: auto;
-        
+
         &:hover,
         &:focus-visible,
         &:active {
@@ -420,7 +392,7 @@ const t = useTranslations(lang);
       }
     }
 
-    // Support for High Contrast Mode - consolidated for DRY principle
+    /* Support for High Contrast Mode */
     @media (forced-colors: active) {
       border: var(--border-width-thin) solid CanvasText;
 
@@ -443,19 +415,19 @@ const t = useTranslations(lang);
         }
       }
 
-      // Consolidated button styles for High Contrast Mode
+      /* Button styles for High Contrast Mode */
       #{&}__control-button {
         border: var(--border-width-thin) solid CanvasText;
       }
 
       #{&}__close:focus-visible,
       #{&}__control-button:focus-visible {
-        outline: var(--enhanced-border-thickness) solid CanvasText;
+        outline: var(--border-width-enhanced) solid CanvasText;
       }
     }
   }
 
-  // Modern animations with CSS variables and GPU acceleration
+  /* Animations with CSS variables and GPU acceleration */
   @keyframes pulse {
     0% {
       box-shadow: 0 0 0 0 var(--interactive-primary);
@@ -473,29 +445,29 @@ const t = useTranslations(lang);
 
   @keyframes timer-countdown {
     from {
-      transform: translateX(0) translateZ(0);
+      transform: translateX(var(--space-none)) translateZ(0);
     }
     to {
       transform: translateX(-100%) translateZ(0);
     }
   }
-  
-  // Modern slide-in animation for notification
+
+  /* Slide-in animation for notification */
   @keyframes slide-in {
     0% {
       transform: translateY(150%) translateZ(0);
       opacity: 0;
     }
     100% {
-      transform: translateY(0) translateZ(0);
-      opacity: 1;
+      transform: translateY(var(--space-none)) translateZ(0);
+      opacity: var(--animation-opacity-full);
     }
   }
-  
+
   @keyframes slide-out {
     0% {
-      transform: translateY(0) translateZ(0);
-      opacity: 1;
+      transform: translateY(var(--space-none)) translateZ(0);
+      opacity: var(--animation-opacity-full);
     }
     100% {
       transform: translateY(150%) translateZ(0);
@@ -505,26 +477,12 @@ const t = useTranslations(lang);
 </style>
 
 <script>
-  /**
-   * Performance-optimized Achievement Notifications
-   *
-   * This script integrates the achievement notification system with the DOM.
-   * The core functionality is extracted to an external TypeScript module for
-   * better maintainability and performance optimizations.
-   *
-   * Key optimizations include:
-   * - GPU acceleration using will-change and transform: translateZ(0)
-   * - Efficient SVG icon handling with DocumentFragments
-   * - Animation using translateX instead of scaleX for better performance
-   * - Proper cleanup of resources when no longer needed
-   * - Respect for user motion preferences
-   */
   import { setupAchievementNotificationSystem } from "../../utils/achievements/achievementNotification";
 
-  // Initialize notification system when document is ready
+  /* Initialize notification system when document is ready */
   const cleanupFunction = setupAchievementNotificationSystem();
 
-  // Execute cleanup function when component is removed
+  /* Execute cleanup function when component is removed */
   document.addEventListener("beforeunload", () => {
     if (typeof cleanupFunction === "function") {
       cleanupFunction();

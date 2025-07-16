@@ -137,6 +137,17 @@ async function saveGameResult(config: EndGameConfig): Promise<string> {
       console.error("JSON Parse Error:", jsonError);
       throw new Error("Ungültiges JSON-Format in der Server-Antwort");
     }
+    
+    // Handle achievements if present
+    if (result.unlockedAchievements && result.unlockedAchievements.length > 0) {
+      console.info("Achievements unlocked:", result.unlockedAchievements);
+      
+      // Trigger custom event for EndOverlay to display achievements
+      document.dispatchEvent(new CustomEvent('achievementsUpdated', {
+        detail: { achievements: result.unlockedAchievements }
+      }));
+    }
+    
     return result.gameMode;
   } catch (error) {
     console.error("Fehler beim Speichern des Spielergebnisses:", error);

@@ -1,27 +1,35 @@
 ---
 /**
- * AuthSubmitButton Component
+ * AuthSubmitButton - Submit button with loading state and accessibility
  *
- * Modern, reusable submit button with loading state and WCAG AAA compliance.
- * Features: loading spinner, accessibility support, fluid responsive design.
+ * Features:
+ * - Loading spinner with smooth animations
+ * - WCAG AAA compliance with focus management
+ * - Performance optimized with CSS containment
+ * - Full responsive design with touch optimization
+ * - Keyboard navigation support
  *
- * @example
- * <AuthSubmitButton
- *   id="loginSubmit"
- *   textId="loginSubmitText"
- *   spinnerId="loginLoadingSpinner"
- *   buttonText={t("auth.login.submit")}
- * />
+ * @component
+ * @accessibility WCAG AAA compliant with enhanced focus indicators
+ * @performance CSS containment, GPU acceleration, optimized transitions
+ * @responsive Mobile-first design with container queries
  */
 import { Icon } from "astro-icon/components";
 
 export interface Props {
+  /** Button element ID */
   id: string;
+  /** Text span ID for accessibility */
   textId: string;
+  /** Spinner element ID */
   spinnerId: string;
+  /** Button display text */
   buttonText: string;
+  /** Additional CSS classes */
   class?: string;
+  /** Button type */
   type?: "submit" | "button";
+  /** Disabled state */
   disabled?: boolean;
 }
 
@@ -53,14 +61,13 @@ const {
 
 <style lang="scss">
   /**
-   * AuthSubmitButton Component Styles - Modern SCSS
+   * AuthSubmitButton Component Styles
    * 
-   * ✅ Modern button design with fluid responsive scaling
-   * ✅ 100% CSS variables from global.css - NO hardcoded values
-   * ✅ WCAG AAA 2.2 compliant colors and spacing
-   * ✅ Performance optimized with CSS containment and modern transforms
-   * ✅ Enhanced accessibility with proper focus management
-   * ✅ Consistent with other components
+   * ✅ 100% global.css variables integration
+   * ✅ Performance optimized with CSS containment
+   * ✅ WCAG AAA compliant styling
+   * ✅ Responsive design with container queries
+   * ✅ GPU acceleration for smooth animations
    */
 
   .auth-form {
@@ -73,33 +80,38 @@ const {
       border: none;
       user-select: none;
 
-      width: 100%;
-      min-height: var(--min-touch-size);
-      
-      // Fluid responsive spacing
+      width: var(--width-full);
+      min-height: var(--touch-target-enhanced);
+
       gap: clamp(var(--space-sm), 3vw, var(--space-md));
-      padding: clamp(var(--space-md), 4vw, var(--space-lg)) clamp(var(--space-lg), 5vw, var(--space-xl));
+      padding: clamp(var(--space-md), 4vw, var(--space-lg))
+        clamp(var(--space-lg), 5vw, var(--space-xl));
 
       background: var(--interactive-primary);
-      color: var(--color-white);
+      color: var(--btn-primary-text);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-md);
 
-      // Fluid responsive typography
       font-size: clamp(var(--text-base), 3vw, var(--text-lg));
       font-weight: var(--font-semibold);
       line-height: var(--leading-normal);
       letter-spacing: var(--letter-spacing-base);
 
-      // Modern CSS containment and GPU acceleration
+      // Performance optimizations
       contain: layout style paint;
+      content-visibility: auto;
+      contain-intrinsic-size: var(--container-intrinsic-height-component);
       transform: translateZ(0);
       will-change: transform, background-color, box-shadow;
-      
+
       transition:
         background-color var(--transition-normal),
         box-shadow var(--transition-normal),
         transform var(--transition-fast);
+
+      // Container query support
+      container-type: inline-size;
+      container-name: auth-submit-button;
 
       &:hover:not(:disabled) {
         background: var(--interactive-primary-hover);
@@ -114,8 +126,8 @@ const {
       }
 
       &:active:not(:disabled) {
-        transform: translateY(0) scale(0.98) translateZ(0);
-        background: var(--interactive-primary-active);
+        transform: translateY(var(--space-none)) scale(0.98) translateZ(0);
+        background: var(--interactive-primary-hover);
         box-shadow: var(--shadow-md);
       }
 
@@ -131,7 +143,7 @@ const {
         pointer-events: none;
 
         .auth-form__submit-text {
-          opacity: 0;
+          opacity: var(--animation-opacity-start);
           transform: translateZ(0);
           will-change: opacity;
           transition: opacity var(--transition-fast);
@@ -147,14 +159,12 @@ const {
       font-weight: inherit;
       color: inherit;
       user-select: none;
-      
-      // Modern CSS containment
+
       contain: layout style;
-      
+
       transition: opacity var(--transition-fast);
       will-change: opacity;
-      
-      // Better text wrapping
+
       text-wrap: balance;
     }
 
@@ -166,17 +176,15 @@ const {
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%) translateZ(0);
-      
-      // Modern CSS containment
+
       contain: layout style;
 
       &-icon {
-        // Fluid responsive sizing
         height: clamp(var(--text-base), 4vw, var(--text-lg));
         width: clamp(var(--text-base), 4vw, var(--text-lg));
-        
-        color: var(--color-white);
-        animation: auth-spinner-rotate var(--transition-normal) linear infinite;
+
+        color: var(--btn-primary-text);
+        animation: auth-spinner-rotate var(--animation-duration-normal) linear infinite;
         transform: translateZ(0);
         will-change: transform;
       }
@@ -202,25 +210,24 @@ const {
     }
   }
 
-  // Enhanced responsive design with modern breakpoints
+  // Responsive design
   @media (min-width: 48em) {
     .auth-form__submit-button {
-      min-height: calc(var(--min-touch-size) + var(--space-sm));
+      min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
     }
   }
 
   @media (max-width: 23.4375em) {
     .auth-form__submit-button {
-      min-height: var(--min-touch-size);
+      min-height: var(--touch-target-enhanced);
     }
   }
 
-  // Enhanced accessibility support
+  // High contrast mode support
   @media (prefers-contrast: high) {
     .auth-form__submit-button {
       border: var(--border-width-thick) solid var(--border-primary);
       background: var(--interactive-primary);
-      filter: var(--filter-high-contrast-button);
 
       &:focus-visible {
         outline-width: var(--border-width-thick);
@@ -234,7 +241,7 @@ const {
     .auth-form__submit-button,
     .auth-form__spinner-icon,
     .auth-form__submit-text {
-      transition: none;
+      transition: var(--transition-instant);
       animation: none;
       will-change: auto;
     }
@@ -244,14 +251,14 @@ const {
     }
 
     .auth-form__spinner-icon {
-      animation: auth-spinner-pulse var(--transition-slow) ease-in-out infinite;
+      animation: auth-spinner-pulse var(--animation-duration-slow) ease-in-out infinite;
     }
   }
 
-  // Enhanced touch device support
+  // Touch device support
   @media (hover: none) and (pointer: coarse) {
     .auth-form__submit-button {
-      min-height: calc(var(--min-touch-size) + var(--space-sm));
+      min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
       padding: var(--space-lg) var(--space-xl);
 
       &:hover {
@@ -265,16 +272,16 @@ const {
   @supports (zoom: 4) {
     .auth-form__submit-button {
       font-size: max(var(--text-base), 16px);
-      min-height: max(var(--min-touch-size), 44px);
+      min-height: max(var(--touch-target-enhanced), 44px);
       padding: max(var(--space-md), 12px) max(var(--space-xl), 16px);
     }
   }
 
   @media print {
     .auth-form__submit-button {
-      background: var(--print-bg) !important;
-      color: var(--print-text) !important;
-      border: var(--print-border) !important;
+      background: var(--color-white) !important;
+      color: var(--color-black) !important;
+      border: var(--border-width-thin) solid var(--color-black) !important;
       box-shadow: none !important;
     }
 
@@ -282,12 +289,38 @@ const {
       display: none !important;
     }
   }
+
+  // Container queries for component-specific responsiveness
+  @container auth-submit-button (max-width: 20em) {
+    .auth-form__submit-button {
+      padding: var(--space-sm) var(--space-md);
+      font-size: var(--text-sm);
+      min-height: var(--touch-target-enhanced);
+
+      .auth-form__spinner-icon {
+        height: var(--text-sm);
+        width: var(--text-sm);
+      }
+    }
+  }
+
+  @container auth-submit-button (min-width: 30em) {
+    .auth-form__submit-button {
+      padding: var(--space-lg) var(--space-2xl);
+      font-size: var(--text-xl);
+      min-height: calc(var(--touch-target-enhanced) + var(--space-md));
+
+      .auth-form__spinner-icon {
+        height: var(--text-xl);
+        width: var(--text-xl);
+      }
+    }
+  }
 </style>
 
 <script>
   /**
    * AuthSubmitButton Accessibility Script
-   * Uses extracted TypeScript utility for better maintainability
    */
   import { initializeAuthButtonAccessibility } from "../../utils/auth/authSubmitButton";
 
@@ -296,7 +329,7 @@ const {
     initializeAuthButtonAccessibility();
   };
 
-  // Modern DOM ready check with cleanup
+  // DOM ready check with cleanup
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initButton, { once: true });
   } else {

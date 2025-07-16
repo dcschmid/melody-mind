@@ -206,9 +206,6 @@
   --border-width-thick: 2px;
   --border-width-enhanced: 3px;
 
-  /* Breakpoint Utilities */
-  --breakpoint-offset: 0.0625em; /* 1px offset for max-width calculations */
-
   /* Transform and Animation Scales */
   --scale-hover: 0.95;
   --scale-active: 0.98;
@@ -244,16 +241,9 @@
   --scrollbar-thumb-radius: var(--radius-lg); /* Thumb border radius */
 
   /* ======================================
-   * RESPONSIVE BREAKPOINTS (EM-BASED)
+   * CONTAINER MAX WIDTHS
+   * Note: Breakpoint variables removed - use hardcoded em values in @media queries
    * ====================================== */
-
-  /* Breakpoint Variables (em-based for accessibility) */
-  --breakpoint-xs: 20em; /* 320px @ 16px base */
-  --breakpoint-sm: 40em; /* 640px @ 16px base */
-  --breakpoint-md: 48em; /* 768px @ 16px base */
-  --breakpoint-lg: 64em; /* 1024px @ 16px base */
-  --breakpoint-xl: 80em; /* 1280px @ 16px base */
-  --breakpoint-2xl: 96em; /* 1536px @ 16px base */
 
   /* Container Max Widths */
   --container-xs: 100%;

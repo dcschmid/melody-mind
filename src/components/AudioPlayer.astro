@@ -146,6 +146,7 @@ const t = useTranslations(lang);
           </button>
 
           <div class="audio-player__progress-container">
+            <span class="current-time" aria-live="polite">0:00</span>
             <div
               class="progress-bar-container"
               role="progressbar"
@@ -161,10 +162,7 @@ const t = useTranslations(lang);
               <div class="progress-bar"></div>
               <div class="waveform-container" aria-hidden="true"></div>
             </div>
-            <div class="audio-player__time-display">
-              <span class="current-time" aria-live="polite">0:00</span>
-              <span class="duration">0:00</span>
-            </div>
+            <span class="duration">0:00</span>
             {
               showHelp && (
                 <div id={`${playerId}-progress-help`} class="sr-only">
@@ -255,28 +253,6 @@ const t = useTranslations(lang);
           <div aria-live="polite" aria-atomic="true" class="sr-only" id={`${playerId}-status`}>
             <!-- Dynamic status messages will be inserted here via JavaScript -->
           </div>
-
-          <!-- Contextual Help Integration -->
-          {
-            showHelp && (
-              <>
-                <button
-                  class="help-btn"
-                  aria-describedby={`${playerId}-help`}
-                  title={t("audioplayer.help.button.title")}
-                  type="button"
-                >
-                  <span class="sr-only">{t("audioplayer.help.button.aria")}</span>
-                  <svg aria-hidden="true" viewBox="0 0 24 24" class="help-icon">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z" />
-                  </svg>
-                </button>
-                <div id={`${playerId}-help`} class="sr-only">
-                  {t("audioplayer.help.shortcuts")}
-                </div>
-              </>
-            )
-          }
         </div>
 
         {
@@ -304,39 +280,7 @@ const t = useTranslations(lang);
    * @i18n Supports all MelodyMind languages through semantic classes
    */
 
-  // Variables for better maintainability
-  $player-border-radius: var(--radius-xl);
-  $player-shadow: var(--shadow-lg);
-  $player-shadow-hover: var(--shadow-xl);
-  $transition-normal: var(--transition-normal);
-  $transition-fast: var(--transition-fast);
-  $transition-slow: var(--transition-slow);
-  $space-sm: var(--space-sm);
-  $space-md: var(--space-md);
-  $space-lg: var(--space-lg);
-  $space-xl: var(--space-xl);
-  $space-2xl: var(--space-2xl);
-  $space-3xl: var(--space-3xl);
-  $touch-target: var(--touch-target-enhanced);
-  $icon-size-sm: var(--icon-size-sm);
-  $icon-size-md: var(--icon-size-md);
-  $text-xs: var(--text-xs);
-  $text-sm: var(--text-sm);
-  $font-medium: var(--font-medium);
-  $opacity-medium: var(--opacity-medium);
-  $animation-scale-medium: var(--animation-scale-medium);
-  $animation-scale-enhanced: var(--animation-scale-enhanced);
-  $animation-opacity-start: var(--animation-opacity-start);
-  $animation-opacity-end: var(--animation-opacity-end);
-  $animation-opacity-full: var(--animation-opacity-full);
-  $focus-ring: var(--focus-ring);
-  $focus-enhanced-outline: var(--focus-enhanced-outline);
-  $focus-enhanced-outline-dark: var(--focus-enhanced-outline-dark);
-  $focus-enhanced-shadow: var(--focus-enhanced-shadow);
-  $focus-ring-offset: var(--focus-ring-offset);
-  $sr-only-width: var(--sr-only-width);
-  $sr-only-height: var(--sr-only-height);
-  $sr-only-margin: var(--sr-only-margin);
+  // Using CSS custom properties directly for better maintainability
 
   /* ======================================
    * MAIN CONTAINER
@@ -344,21 +288,21 @@ const t = useTranslations(lang);
   .audio-player {
     position: relative;
     margin: 0 auto;
-    width: 100%;
+    width: var(--width-full);
     max-width: var(--container-sm);
 
-    // Modern CSS performance optimization
+    // Modern CSS performance optimization using global variables
     content-visibility: auto;
-    contain-intrinsic-size: 640px 360px;
+    contain-intrinsic-size: var(--container-intrinsic-height-component);
 
     &__container {
       position: relative;
       isolation: isolate;
-      width: 100%;
+      width: var(--width-full);
       overflow: hidden;
-      border-radius: $player-border-radius;
-      box-shadow: $player-shadow;
-      transition: all $transition-normal;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      transition: all var(--transition-normal);
 
       // Performance optimizations
       contain: layout style paint;
@@ -366,10 +310,10 @@ const t = useTranslations(lang);
 
       &:hover {
         transform: translateY(calc(-1 * var(--space-xs)));
-        box-shadow: $player-shadow-hover;
+        box-shadow: var(--shadow-xl);
 
         .audio-player__cover {
-          transform: scale($animation-scale-medium);
+          transform: scale(var(--animation-scale-medium));
         }
       }
     }
@@ -380,7 +324,7 @@ const t = useTranslations(lang);
     &__cover-container {
       position: relative;
       aspect-ratio: 1 / 1; // Default square aspect ratio
-      width: 100%;
+      width: var(--width-full);
       overflow: hidden;
 
       // Landscape aspect ratio variant
@@ -391,14 +335,14 @@ const t = useTranslations(lang);
 
     &__cover {
       position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
+      top: var(--space-none);
+      left: var(--space-none);
+      height: var(--width-full);
+      width: var(--width-full);
       object-fit: cover;
-      transition: transform $transition-slow ease-in-out;
+      transition: transform var(--transition-slow) ease-in-out;
 
-      // Performance optimizations
+      // Performance optimizations using global variables
       transform: translateZ(var(--space-none));
       will-change: transform;
       backface-visibility: hidden;
@@ -411,25 +355,36 @@ const t = useTranslations(lang);
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 100%;
+      right: 0;
       background: linear-gradient(
         to top,
-        var(--bg-primary) 0%,
-        var(--bg-secondary) 40%,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 40%,
         transparent 100%
       );
-      backdrop-filter: blur($space-sm);
-      padding: $space-md $space-lg;
+      backdrop-filter: blur(var(--space-sm));
+      padding: var(--space-sm);
       color: var(--text-primary);
-      transition: opacity $transition-normal;
+      transition: opacity var(--transition-normal);
+      border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+
+      @media (max-width: 350px) {
+        padding: var(--space-xs);
+      }
     }
 
     &__controls {
       display: flex;
-      width: 100%;
+      width: var(--width-full);
       align-items: center;
-      gap: $space-md;
-      flex-wrap: wrap;
+      gap: var(--space-xs);
+      flex-wrap: nowrap;
+      min-height: var(--touch-target-enhanced); // Using global touch target
+
+      @media (max-width: 350px) {
+        gap: var(--space-xs);
+        min-height: calc(var(--touch-target-enhanced) * 0.8); // Proportional mobile sizing
+      }
     }
 
     /* ======================================
@@ -438,18 +393,18 @@ const t = useTranslations(lang);
     &__play-button {
       position: relative;
       display: flex;
-      height: $touch-target;
-      width: $touch-target;
+      height: var(--touch-target-enhanced);
+      width: var(--touch-target-enhanced);
       flex-shrink: 0;
       align-items: center;
       justify-content: center;
       border-radius: var(--radius-full);
-      background-color: var(--text-primary);
-      color: var(--bg-primary);
+      background-color: rgba(255, 255, 255, var(--opacity-medium));
+      color: var(--color-neutral-800);
       box-shadow: var(--shadow-md);
       cursor: pointer;
       border: none;
-      transition: all $transition-fast;
+      transition: all var(--transition-fast);
       contain: layout;
 
       // Performance optimizations
@@ -457,14 +412,21 @@ const t = useTranslations(lang);
       will-change: transform, box-shadow;
 
       &:hover {
-        transform: scale($animation-scale-medium);
+        background-color: rgba(255, 255, 255, var(--animation-opacity-full));
+        transform: scale(var(--animation-scale-hover-subtle));
         box-shadow: var(--shadow-lg);
       }
 
       &:focus-visible {
-        outline: $focus-enhanced-outline-dark;
-        outline-offset: $focus-ring-offset;
-        box-shadow: $focus-enhanced-shadow;
+        outline: var(--focus-enhanced-outline-dark);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-enhanced-shadow);
+      }
+
+      @media (max-width: 350px) {
+        height: calc(var(--touch-target-enhanced) * 0.8);
+        width: calc(var(--touch-target-enhanced) * 0.8);
+        flex-shrink: 0;
       }
     }
 
@@ -474,16 +436,31 @@ const t = useTranslations(lang);
     &__progress-container {
       display: flex;
       flex-grow: 1;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: center;
       gap: var(--space-xs);
       min-width: 0; // Allow shrinking
+      height: var(--touch-target-enhanced); // Match control height
+
+      @media (max-width: 350px) {
+        flex: 1;
+        margin: 0 var(--space-xs);
+        gap: var(--space-xs);
+        height: calc(var(--touch-target-enhanced) * 0.8);
+      }
     }
 
-    &__time-display {
-      display: flex;
-      justify-content: space-between;
-      font-size: $text-xs;
-      color: var(--text-tertiary);
+    .current-time,
+    .duration {
+      font-size: var(--text-xs);
+      color: var(--text-primary);
+      line-height: var(--leading-tight);
+      white-space: nowrap;
+      flex-shrink: 0;
+
+      @media (max-width: 350px) {
+        font-size: calc(var(--text-xs) * 0.9);
+      }
     }
 
     /* ======================================
@@ -493,12 +470,18 @@ const t = useTranslations(lang);
       position: relative;
       display: flex;
       align-items: center;
-      gap: $space-sm;
+      gap: var(--space-xs);
       flex-shrink: 0;
+      height: var(--touch-target-enhanced); // Match play button height
 
       &:hover .volume-slider-container,
       .volume-slider-container:focus-within {
-        width: $space-3xl;
+        width: var(--space-3xl);
+      }
+
+      @media (max-width: 350px) {
+        flex-shrink: 0;
+        height: calc(var(--touch-target-enhanced) * 0.8);
       }
     }
   }
@@ -511,27 +494,27 @@ const t = useTranslations(lang);
   .help-btn {
     cursor: pointer;
     border: none;
-    transition: all $transition-fast;
+    transition: all var(--transition-fast);
     contain: layout;
 
     // Consolidated focus states for all interactive buttons
     &:focus-visible {
-      outline: $focus-enhanced-outline-dark;
-      outline-offset: $focus-ring-offset;
+      outline: var(--focus-enhanced-outline)-dark;
+      outline-offset: var(--focus-ring)-offset;
     }
   }
 
   // Enhanced focus states with shadow
   .audio-player__play-button:focus-visible,
   .help-btn:focus-visible {
-    box-shadow: $focus-enhanced-shadow;
+    box-shadow: var(--focus-enhanced-shadow);
   }
 
   // Consolidated focus for progress and volume elements
   .progress-bar-container:focus-visible,
   .volume-slider:focus-visible {
-    outline: $focus-enhanced-outline-dark;
-    outline-offset: $focus-ring-offset;
+    outline: var(--focus-enhanced-outline)-dark;
+    outline-offset: var(--focus-ring)-offset;
   }
 
   /* ======================================
@@ -540,14 +523,19 @@ const t = useTranslations(lang);
   .play-icon,
   .pause-icon {
     position: absolute;
-    height: $icon-size-md;
-    width: $icon-size-md;
+    height: 16px;
+    width: 16px;
     fill: currentColor;
-    transition: all $transition-normal;
+    transition: all var(--transition-normal);
+
+    @media (max-width: 350px) {
+      height: 14px;
+      width: 14px;
+    }
   }
 
   .pause-icon {
-    opacity: $animation-opacity-end;
+    opacity: var(--animation-opacity-end);
     transform: scale(var(--animation-scale-hover));
   }
 
@@ -556,15 +544,21 @@ const t = useTranslations(lang);
    * ====================================== */
   .progress-bar-container {
     position: relative;
-    height: $space-sm;
+    height: var(--space-xs);
     cursor: pointer;
     overflow: hidden;
     border-radius: var(--radius-sm);
-    background-color: var(--border-primary);
+    background-color: rgba(255, 255, 255, var(--opacity-low));
+    flex-grow: 1;
+    min-width: calc(var(--space-2xl) + var(--space-sm));
+
+    // Performance optimizations
+    contain: layout style;
+    will-change: contents;
 
     &:focus-visible {
-      outline: $focus-enhanced-outline;
-      outline-offset: $space-sm;
+      outline: var(--focus-enhanced-outline);
+      outline-offset: var(--space-sm);
       border-radius: var(--radius-sm);
     }
 
@@ -582,37 +576,40 @@ const t = useTranslations(lang);
 
   .progress-bar-bg {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: var(--space-none);
+    left: var(--space-none);
     z-index: 1;
-    height: 100%;
-    width: 100%;
+    height: var(--width-full);
+    width: var(--width-full);
+
+    // Performance optimization
+    contain: strict;
   }
 
   .progress-bar {
     position: absolute;
     z-index: 2;
-    height: 100%;
-    width: 0;
+    height: var(--width-full);
+    width: var(--space-none);
     border-radius: var(--radius-sm);
-    background-color: var(--interactive-primary);
-    transition: width var(--update-interval-medium) linear;
+    background-color: var(--color-primary-500);
+    transition: width var(--animation-duration-fast) linear;
 
-    // Performance optimization
+    // Performance optimization using global variables
     contain: strict;
     will-change: width;
   }
 
   .waveform-container {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: var(--space-none);
+    left: var(--space-none);
     z-index: 0;
-    height: 100%;
-    width: 100%;
-    opacity: $animation-opacity-start;
+    height: var(--width-full);
+    width: var(--width-full);
+    opacity: var(--animation-opacity-start);
 
-    // Performance optimization
+    // Performance optimization using global variables
     contain: strict;
     will-change: contents;
   }
@@ -622,46 +619,61 @@ const t = useTranslations(lang);
    * ====================================== */
   .volume-btn {
     display: flex;
-    min-height: $touch-target;
-    min-width: $touch-target;
+    min-height: 28px;
+    min-width: 28px;
     align-items: center;
     justify-content: center;
     background-color: transparent;
-    padding: $space-sm;
+    padding: 4px;
     color: var(--text-primary);
-    opacity: $animation-opacity-start;
-    transition: opacity $transition-normal;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-normal);
 
     &:hover {
-      opacity: $animation-opacity-full;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 350px) {
+      min-height: 24px;
+      min-width: 24px;
+      padding: 2px;
     }
   }
 
   .volume-icon,
   .mute-icon {
     position: absolute;
-    height: $icon-size-md;
-    width: $icon-size-md;
+    height: 16px;
+    width: 16px;
     fill: currentColor;
-    transition: all $transition-normal;
+    transition: all var(--transition-normal);
+
+    @media (max-width: 350px) {
+      height: 12px;
+      width: 12px;
+    }
   }
 
   .mute-icon {
-    opacity: $animation-opacity-end;
+    opacity: var(--animation-opacity-end);
     transform: scale(var(--animation-scale-hover));
   }
 
   .volume-slider-container {
     display: flex;
-    height: $icon-size-md;
+    height: var(--icon-size-md);
     width: 0;
     align-items: center;
     overflow: hidden;
-    transition: width $transition-normal;
+    transition: width var(--transition-normal);
 
     // Performance optimization
     contain: layout size;
     will-change: width;
+
+    @media (max-width: 350px) {
+      display: none; // Hide volume slider on very small screens
+    }
   }
 
   .volume-slider {
@@ -682,39 +694,39 @@ const t = useTranslations(lang);
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: $icon-size-sm;
-      height: $icon-size-sm;
+      width: var(--icon-size-sm);
+      height: var(--icon-size-sm);
       border-radius: var(--radius-full);
       background: var(--text-primary);
       cursor: pointer;
-      transition: transform $transition-fast;
+      transition: transform var(--transition-fast);
 
       &:hover {
-        transform: scale($animation-scale-enhanced);
+        transform: scale(var(--animation-scale-enhanced));
       }
     }
 
     &::-moz-range-thumb {
-      width: $icon-size-sm;
-      height: $icon-size-sm;
+      width: var(--icon-size-sm);
+      height: var(--icon-size-sm);
       border-radius: var(--radius-full);
       border: none;
       background: var(--text-primary);
       cursor: pointer;
-      transition: transform $transition-fast;
+      transition: transform var(--transition-fast);
 
       &:hover {
-        transform: scale($animation-scale-enhanced);
+        transform: scale(var(--animation-scale-enhanced));
       }
     }
 
     &:active {
       &::-webkit-slider-thumb {
-        transform: scale($animation-scale-enhanced);
+        transform: scale(var(--animation-scale-enhanced));
       }
 
       &::-moz-range-thumb {
-        transform: scale($animation-scale-enhanced);
+        transform: scale(var(--animation-scale-enhanced));
       }
     }
   }
@@ -724,24 +736,24 @@ const t = useTranslations(lang);
    * ====================================== */
   .help-btn {
     display: flex;
-    height: $touch-target;
-    width: $touch-target;
+    height: var(--touch-target-enhanced);
+    width: var(--touch-target-enhanced);
     align-items: center;
     justify-content: center;
     background: transparent;
     color: var(--text-primary);
     border-radius: var(--radius-sm);
-    opacity: $animation-opacity-start;
+    opacity: var(--animation-opacity-start);
 
     &:hover {
-      opacity: $animation-opacity-full;
+      opacity: var(--animation-opacity-full);
       background-color: var(--bg-secondary);
     }
   }
 
   .help-icon {
-    height: $icon-size-sm;
-    width: $icon-size-sm;
+    height: var(--icon-size-sm);
+    width: var(--icon-size-sm);
     fill: currentColor;
   }
 
@@ -773,8 +785,8 @@ const t = useTranslations(lang);
     }
 
     &:focus-visible {
-      outline: $focus-ring;
-      outline-offset: $space-sm;
+      outline: var(--focus-ring);
+      outline-offset: var(--space-sm);
     }
   }
 
@@ -782,16 +794,16 @@ const t = useTranslations(lang);
    * TRACK INFO
    * ====================================== */
   .track-info {
-    margin-top: $space-sm;
-    font-size: $text-sm;
+    margin-top: var(--space-sm);
+    font-size: var(--text-sm);
 
     &__title {
-      font-weight: $font-medium;
+      font-weight: var(--font-medium);
       color: var(--text-primary);
     }
 
     &__artist {
-      opacity: $opacity-medium;
+      opacity: var(--opacity-medium);
       color: var(--text-secondary);
     }
   }
@@ -806,10 +818,10 @@ const t = useTranslations(lang);
   // Screen reader only content
   .sr-only {
     position: absolute;
-    width: $sr-only-width;
-    height: $sr-only-height;
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
     padding: var(--space-none);
-    margin: $sr-only-margin;
+    margin: var(--sr-only-margin);
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
@@ -842,7 +854,7 @@ const t = useTranslations(lang);
     .pause-icon,
     .volume-icon,
     .mute-icon {
-      transition: opacity $transition-fast linear;
+      transition: opacity var(--transition-fast) linear;
     }
   }
 
@@ -853,30 +865,8 @@ const t = useTranslations(lang);
   // Ultra-small screens: Compact layout
   @media (max-width: 399px) {
     .audio-player {
-      &__controls {
-        gap: $space-sm;
-        flex-direction: column;
-        align-items: stretch;
-      }
-
       &__overlay {
-        padding: $space-sm;
-      }
-
-      &__progress-container {
-        order: 2;
-        width: 100%;
-      }
-
-      &__volume-controls {
-        order: 3;
-        justify-content: center;
-        width: 100%;
-      }
-
-      &__play-button {
-        order: 1;
-        align-self: center;
+        padding: var(--space-sm);
       }
     }
 
@@ -894,12 +884,12 @@ const t = useTranslations(lang);
   @media (min-width: 400px) and (max-width: 599px) {
     .audio-player {
       &__controls {
-        gap: $space-sm;
+        gap: var(--space-sm);
         flex-wrap: nowrap;
       }
 
       &__overlay {
-        padding: $space-sm $space-md;
+        padding: var(--space-sm) var(--space-md);
       }
 
       &__progress-container {
@@ -921,16 +911,16 @@ const t = useTranslations(lang);
   @media (min-width: 600px) and (max-width: 767px) {
     .audio-player {
       &__controls {
-        gap: $space-md;
+        gap: var(--space-md);
       }
 
       &__overlay {
-        padding: $space-md;
+        padding: var(--space-md);
       }
     }
 
     .volume-slider-container {
-      width: $space-2xl; // Show volume slider on medium screens
+      width: var(--space-2xl); // Show volume slider on medium screens
     }
   }
 
@@ -938,16 +928,16 @@ const t = useTranslations(lang);
   @media (min-width: 768px) {
     .audio-player {
       &__controls {
-        gap: $space-lg;
+        gap: var(--space-lg);
       }
 
       &__overlay {
-        padding: $space-md $space-xl;
+        padding: var(--space-md) var(--space-xl);
       }
     }
 
     .volume-slider-container {
-      width: $space-3xl;
+      width: var(--space-3xl);
     }
   }
 
@@ -964,8 +954,8 @@ const t = useTranslations(lang);
     // Ultra-narrow container: Stack controls
     @container audio-player (max-width: 350px) {
       .audio-player__controls {
-        flex-direction: column;
-        gap: $space-sm;
+        flex-direction: row;
+        gap: var(--space-sm);
       }
 
       .audio-player__progress-container {
@@ -980,33 +970,33 @@ const t = useTranslations(lang);
     // Narrow container: Compact horizontal
     @container audio-player (min-width: 351px) and (max-width: 500px) {
       .audio-player__controls {
-        gap: $space-sm;
+        gap: var(--space-sm);
       }
 
       .volume-slider-container {
-        width: $space-2xl;
+        width: var(--space-2xl);
       }
     }
 
     // Medium container: Standard layout
     @container audio-player (min-width: 501px) and (max-width: 700px) {
       .audio-player__controls {
-        gap: $space-md;
+        gap: var(--space-md);
       }
 
       .volume-slider-container {
-        width: $space-3xl;
+        width: var(--space-3xl);
       }
     }
 
     // Large container: Full layout
     @container audio-player (min-width: 701px) {
       .audio-player__controls {
-        gap: $space-lg;
+        gap: var(--space-lg);
       }
 
       .volume-slider-container {
-        width: $space-3xl;
+        width: var(--space-3xl);
       }
     }
   }
@@ -1018,15 +1008,15 @@ const t = useTranslations(lang);
   @media (hover: none) and (pointer: coarse) {
     .audio-player {
       &__play-button {
-        min-height: $touch-target;
-        min-width: $touch-target;
+        min-height: var(--touch-target-enhanced);
+        min-width: var(--touch-target-enhanced);
       }
     }
 
     .volume-btn,
     .help-btn {
-      min-height: $touch-target;
-      min-width: $touch-target;
+      min-height: var(--touch-target-enhanced);
+      min-width: var(--touch-target-enhanced);
     }
 
     // Remove hover effects on touch devices
@@ -1114,7 +1104,6 @@ const t = useTranslations(lang);
   // Audio player class for better organization
   class AudioPlayerController {
     private elements: AudioPlayerElements;
-    private isInitialized = false;
 
     constructor(private player: HTMLElement) {
       this.elements = getElements(player);
@@ -1129,7 +1118,6 @@ const t = useTranslations(lang);
 
       this.setupEventListeners();
       this.initializeVolume();
-      this.isInitialized = true;
     }
 
     private setupEventListeners(): void {

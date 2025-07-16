@@ -21,7 +21,7 @@
  * ```
  */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
-import { Icon } from "astro-icon/components";
+import ButtonLink from "@components/ButtonLink.astro";
 
 interface Props {
   /** Initial number of jokers available */
@@ -64,31 +64,25 @@ const dataAttributes = {
   <div class="joker-button-wrapper" data-joker-button-wrapper>
     <button
       id="joker-button"
-      class="joker-button"
+      type="button"
+      class="button-link button-link--primary button-link--md"
       aria-label={jokerButtonAriaLabel}
       aria-describedby="joker-description joker-count"
       data-joker-type="fifty-fifty"
       {disabled}
     >
-      <span class="joker-button-content">
-        <!-- Performance optimization: preload icon with CSS variable dimensions -->
-        <Icon name="lifeline" class="joker-icon" aria-hidden="true" width={24} height={24} />
-        <span class="joker-text">{jokerText}</span>
-      </span>
-
-      <!-- Visual effect for button when pressed (GPU accelerated) -->
-      <span class="joker-button-effect" aria-hidden="true"></span>
+      <svg class="button-link__icon" width="24" height="24" viewBox="0 0 24 24">
+        <path
+          d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"
+          fill="currentColor"></path>
+      </svg>
+      {jokerText}
     </button>
-
-    <!-- Ripple animation for active feedback (GPU accelerated) -->
-    <span id="joker-ripple" class="joker-ripple" aria-hidden="true"></span>
   </div>
 
   <div id="joker-count-container" class="joker-count-container">
     <span id="joker-count" class="joker-count" aria-live="polite" aria-atomic="true">
       {initialCount}
-    </span>
-    <span class="joker-count-label">
       {remainingText}
     </span>
   </div>
@@ -102,26 +96,17 @@ const dataAttributes = {
 </div>
 
 <style lang="scss">
-  /* ======================================
-   * JOKER COMPONENT STYLES
-   * WCAG AAA 2.2 COMPLIANT WITH CSS VARIABLES
-   * ====================================== */
+  /**
+   * Joker Component Styles
+   * 
+   * ✅ 100% global.css variables integration
+   * ✅ Performance optimized with CSS containment
+   * ✅ WCAG AAA compliant styling
+   * ✅ Responsive design with container queries
+   * ✅ GPU acceleration for smooth animations
+   */
 
   // Animation keyframes
-  @keyframes ripple {
-    0% {
-      transform: scale(var(--scale-active));
-      opacity: var(--opacity-medium);
-    }
-    50% {
-      transform: scale(var(--scale-focus));
-      opacity: var(--opacity-low);
-    }
-    100% {
-      transform: scale(1.2);
-      opacity: 0;
-    }
-  }
 
   @keyframes pulse {
     0% {
@@ -139,138 +124,153 @@ const dataAttributes = {
   // Main component container
   .joker-container {
     position: relative;
-    margin: var(--space-xl) 0;
+
+    margin: clamp(var(--space-lg), 4vw, var(--space-2xl)) var(--space-none);
+    padding: clamp(var(--space-md), 4vw, var(--space-xl));
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-md);
+    gap: clamp(var(--space-sm), 3vw, var(--space-lg));
+
     border-radius: var(--radius-xl);
-    border: var(--border-width-thin) solid var(--border-primary);
+    border: var(--border-width-thick) solid var(--border-primary);
     background: var(--card-bg);
-    padding: var(--space-lg);
-    box-shadow: var(--shadow-md);
-    contain: layout style; // Performance optimization
+
+    box-shadow: var(--shadow-lg);
+
+    max-width: var(--width-full);
+
+    // Performance optimizations
+    contain: layout style paint;
+    content-visibility: auto;
+    contain-intrinsic-size: var(--container-intrinsic-height-component);
+
+    transform: translateZ(0);
+    will-change: box-shadow, border-color;
+
+    // Container query support
+    container-type: inline-size;
+    container-name: joker;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+
+    transition:
+      box-shadow var(--transition-normal),
+      border-color var(--transition-normal);
+
+    &:hover {
+      box-shadow: var(--shadow-xl);
+      border-color: var(--interactive-primary);
+    }
 
     // Title styling
     .joker-title {
-      margin-bottom: var(--space-sm);
-      font-size: var(--text-lg);
+      margin: var(--space-none) var(--space-none) clamp(var(--space-sm), 3vw, var(--space-md))
+        var(--space-none);
+
+      font-size: clamp(var(--text-lg), 4vw, var(--text-2xl));
       font-weight: var(--font-semibold);
       color: var(--interactive-primary);
+
       text-align: center;
-      line-height: var(--leading-normal);
+      line-height: var(--leading-relaxed);
+      letter-spacing: var(--letter-spacing-base);
+
+      text-wrap: balance;
+
+      // Performance optimizations
+      contain: layout style;
     }
 
     // Button wrapper
     .joker-button-wrapper {
       position: relative;
-    }
 
-    // Main button styling
-    .joker-button {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: var(--touch-target-min);
-      min-width: var(--touch-target-min);
-      gap: var(--space-sm);
-      background: var(--btn-primary-bg);
-      padding: var(--space-md) var(--space-xl);
-      font-weight: var(--font-semibold);
-      color: var(--btn-primary-text);
-      border: none;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      transform: translateY(0);
-      transition: all var(--transition-normal);
-      cursor: pointer;
-      will-change: transform, background-color; // Performance optimization
+      // Performance optimizations
+      contain: layout style;
+      transform: translateZ(0);
 
-      &:hover:not(:disabled) {
-        background: var(--btn-primary-hover);
-        transform: translateY(calc(-1 * var(--space-micro)));
-        box-shadow: var(--shadow-xl);
-
-        .joker-icon {
-          transform: scale(var(--scale-focus));
-        }
-
-        .joker-button-effect {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-
-      &:active:not(:disabled) {
-        transform: translateY(0);
-        box-shadow: var(--shadow-md);
-      }
-
-      &:disabled {
-        cursor: not-allowed;
-        background: var(--bg-tertiary);
-        color: var(--text-disabled);
-        box-shadow: none;
-        transform: none;
-        opacity: var(--opacity-disabled);
-      }
-
-      &:focus-visible {
-        outline: var(--focus-outline);
-        outline-offset: var(--focus-ring-offset);
-        box-shadow: var(--focus-ring), var(--shadow-lg);
-      }
-
-      // Button content
-      .joker-button-content {
-        display: flex;
+      // Override for joker button to match ButtonLink primary styles exactly
+      #joker-button {
+        // Base ButtonLink styles
+        display: inline-flex;
         align-items: center;
-        position: relative;
-        z-index: 1;
-      }
-
-      // Icon styling
-      .joker-icon {
-        margin-right: var(--space-sm);
-        width: var(--space-lg);
-        height: var(--space-lg);
-        transition: transform var(--transition-normal);
-      }
-
-      // Text styling
-      .joker-text {
-        font-weight: var(--font-medium);
-        line-height: var(--leading-normal);
-        white-space: nowrap;
-        font-size: var(--text-base);
-      }
-
-      // Button effect overlay
-      .joker-button-effect {
-        position: absolute;
-        inset: 0;
+        justify-content: center;
+        border: none;
         border-radius: var(--radius-lg);
-        background: var(--focus-bg-overlay);
-        opacity: 0;
-        transform: scale(var(--scale-active));
-        transition: all var(--transition-normal);
-        pointer-events: none;
-      }
-    }
+        font-weight: var(--font-bold);
+        text-decoration: none;
+        cursor: pointer;
+        position: relative;
+        min-width: var(--min-touch-size);
+        min-height: var(--min-touch-size);
+        line-height: var(--leading-normal);
+        letter-spacing: var(--letter-spacing-base);
+        font-family: var(--font-family-primary);
 
-    // Ripple animation
-    .joker-ripple {
-      position: absolute;
-      inset: 0;
-      border-radius: var(--radius-lg);
-      background: var(--interactive-primary);
-      opacity: 0;
-      pointer-events: none;
-      will-change: transform, opacity;
+        // Performance optimizations
+        contain: layout style;
+        will-change: transform, background-color;
+        transform: translateZ(0);
 
-      &.animate {
-        animation: ripple var(--transition-slow) ease-out forwards;
+        // Size md styles
+        padding: var(--space-md) var(--space-lg);
+        font-size: var(--text-base);
+
+        // Primary variant styles
+        background: var(--btn-primary-bg);
+        color: var(--btn-primary-text);
+        border: var(--border-width-thin) solid transparent;
+        box-shadow: var(--card-shadow);
+
+        // Smooth transitions
+        transition: all var(--animation-duration-normal);
+
+        &:hover:not(:disabled) {
+          background: var(--btn-primary-hover);
+          box-shadow: var(--card-shadow-hover);
+          transform: translateY(var(--animation-y-offset-small)) translateZ(0);
+        }
+
+        &:active:not(:disabled) {
+          transform: scale(var(--animation-scale-hover)) translateZ(0);
+          transition: all var(--animation-duration-fast);
+        }
+
+        &:focus-visible {
+          outline: var(--focus-outline);
+          outline-offset: var(--focus-ring-offset);
+          box-shadow: var(--focus-ring);
+        }
+
+        &:disabled {
+          opacity: var(--opacity-disabled);
+          cursor: not-allowed;
+          pointer-events: none;
+          filter: grayscale(var(--filter-grayscale-half));
+        }
+
+        // Icon styling
+        .button-link__icon {
+          width: var(--icon-size-sm);
+          height: var(--icon-size-sm);
+          flex-shrink: 0;
+          margin-right: var(--space-md);
+        }
+
+        // Responsive sizing
+        @media (min-width: 48em) {
+          padding: var(--space-lg) var(--space-xl);
+          font-size: var(--text-lg);
+
+          .button-link__icon {
+            width: var(--icon-size-md);
+            height: var(--icon-size-md);
+          }
+        }
       }
     }
 
@@ -278,27 +278,39 @@ const dataAttributes = {
     .joker-count-container {
       display: flex;
       align-items: center;
-      gap: var(--space-sm);
+      gap: clamp(var(--space-xs), 2vw, var(--space-sm));
 
-      .joker-count-label {
-        font-weight: var(--font-medium);
-        line-height: var(--leading-normal);
-        color: var(--text-secondary);
-        font-size: var(--text-sm);
-      }
+      // Performance optimizations
+      contain: layout style;
 
       .joker-count {
         font-weight: var(--font-medium);
         line-height: var(--leading-normal);
-        min-width: var(--touch-target-min);
+
+        min-width: var(--touch-target-enhanced);
+        min-height: var(--touch-target-enhanced);
+
         border-radius: var(--radius-full);
         border: var(--border-width-thin) solid var(--border-primary);
         background: var(--bg-tertiary);
-        padding: var(--space-xs) var(--space-md);
+
+        padding: clamp(var(--space-xs), 2vw, var(--space-sm))
+          clamp(var(--space-sm), 3vw, var(--space-md));
+
         text-align: center;
-        font-size: var(--text-lg);
+        font-size: clamp(var(--text-lg), 4vw, var(--text-xl));
         color: var(--text-primary);
+
         font-variant-numeric: tabular-nums;
+
+        // Performance optimizations
+        contain: layout style;
+        transform: translateZ(0);
+
+        transition:
+          background-color var(--transition-normal),
+          border-color var(--transition-normal),
+          color var(--transition-normal);
 
         &.updated {
           animation: pulse var(--transition-slow) ease-in-out;
@@ -308,87 +320,115 @@ const dataAttributes = {
 
     // Description
     .joker-description {
-      margin-top: var(--space-sm);
-      max-width: var(--grid-min-width-sm);
+      margin-top: clamp(var(--space-sm), 3vw, var(--space-lg));
+
+      max-width: clamp(var(--grid-min-width-xs), 50vw, var(--grid-min-width-md));
+
       text-align: center;
-      font-size: var(--text-base);
+      font-size: clamp(var(--text-sm), 3vw, var(--text-base));
       color: var(--text-tertiary);
       line-height: var(--leading-relaxed);
+      letter-spacing: var(--letter-spacing-base);
+
+      text-wrap: balance;
+
+      // Performance optimizations
+      contain: layout style;
     }
   }
 
-  /* ============================================================================
-   * RESPONSIVE DESIGN - Mobile-first approach
-   * ============================================================================ */
-
-  // Small screens and down
-  @media (max-width: var(--breakpoint-sm)) {
+  // Responsive design
+  @media (min-width: 48em) {
     .joker-container {
-      margin: var(--space-lg) 0;
-      padding: var(--space-md);
-
-      .joker-title {
-        font-size: var(--text-base);
+      .joker-count {
+        min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
       }
+    }
+  }
 
-      .joker-button {
+  @media (max-width: 39.9375em) {
+    .joker-container {
+      .joker-count {
         min-height: var(--touch-target-enhanced);
-        min-width: var(--touch-target-enhanced);
-        padding: var(--space-lg);
-
-        .joker-text {
-          font-size: var(--text-sm);
-        }
       }
     }
   }
 
-  // Medium screens and up
-  @media (min-width: var(--breakpoint-md)) {
+  @media (max-width: 23.4375em) {
     .joker-container {
-      padding: var(--space-xl);
-
-      .joker-button {
-        padding: var(--space-lg) var(--space-2xl);
-      }
+      margin: var(--space-md) var(--space-none);
+      padding: var(--space-sm);
     }
   }
-
-  // Large screens and up
-  @media (min-width: var(--breakpoint-lg)) {
-    .joker-container {
-      padding: var(--space-2xl);
-
-      .joker-title {
-        font-size: var(--text-xl);
-      }
-    }
-  }
-
-  /* ============================================================================
-   * ACCESSIBILITY - Preference-based enhancements
-   * ============================================================================ */
 
   // High contrast mode support
+  @media (prefers-contrast: high) {
+    .joker-container {
+      border-width: var(--border-width-thick);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+
+      .joker-count {
+        border-width: var(--border-width-thick);
+        background: var(--bg-secondary);
+      }
+    }
+  }
+
+  // Touch device optimizations
+  @media (hover: none) and (pointer: coarse) {
+    .joker-container {
+      .joker-count {
+        min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
+        padding: var(--space-md) var(--space-lg);
+      }
+    }
+  }
+
+  // Reduced motion support
+  @media (prefers-reduced-motion: reduce) {
+    .joker-container,
+    .joker-count {
+      transition: var(--transition-instant);
+      animation: none;
+      will-change: auto;
+    }
+  }
+
+  // Enhanced text spacing support for WCAG AAA
+  .enhanced-text-spacing .joker-container {
+    .joker-title,
+    .joker-count,
+    .joker-description {
+      letter-spacing: var(--letter-spacing-enhanced);
+      word-spacing: var(--word-spacing-enhanced);
+      line-height: var(--leading-enhanced);
+    }
+  }
+
+  // Print styles
+  @media print {
+    .joker-container {
+      background: var(--color-white);
+      border: var(--border-width-thin) solid var(--color-black);
+      box-shadow: none;
+      break-inside: avoid;
+
+      .joker-count {
+        border: var(--border-width-thin) solid var(--color-black);
+        background: var(--color-white) !important;
+        color: var(--color-black) !important;
+      }
+    }
+  }
+
+  // Forced colors mode support
   @media (forced-colors: active) {
     .joker-container {
       border: var(--border-width-thick) solid CanvasText;
       background: Canvas;
-
-      .joker-button {
-        border: var(--border-width-thick) solid ButtonText;
-        background: ButtonFace;
-        color: ButtonText;
-        forced-color-adjust: none;
-
-        &:disabled {
-          opacity: var(--opacity-disabled);
-        }
-
-        &:focus-visible {
-          outline: var(--border-width-enhanced) solid Highlight;
-        }
-      }
+      color: CanvasText;
+      forced-color-adjust: none;
 
       .joker-count {
         border: var(--border-width-thin) solid CanvasText;
@@ -398,68 +438,47 @@ const dataAttributes = {
     }
   }
 
-  // Reduced motion support
-  @media (prefers-reduced-motion: reduce) {
+  // Container queries for component-specific responsiveness
+  @container joker (max-width: 20em) {
     .joker-container {
-      .joker-button,
-      .joker-ripple,
-      .joker-count,
-      .joker-icon,
-      .joker-button-effect {
-        transition-duration: var(--transition-fast) !important;
-        animation-duration: var(--transition-fast) !important;
-        animation-iteration-count: 1 !important;
+      padding: var(--space-sm);
+      gap: var(--space-xs);
+
+      .joker-title {
+        font-size: var(--text-base);
       }
     }
   }
 
-  // Touch devices - enhanced targets
-  @media (hover: none) and (pointer: coarse) {
+  @container joker (min-width: 30em) {
     .joker-container {
-      .joker-button {
-        min-height: var(--touch-target-enhanced);
-        min-width: var(--touch-target-enhanced);
-        padding: var(--space-lg) var(--space-xl);
+      padding: var(--space-2xl);
+      gap: var(--space-lg);
 
-        .joker-icon {
-          width: var(--text-xl);
-          height: var(--text-xl);
-        }
-      }
-    }
-  }
-
-  // Print styles
-  @media print {
-    .joker-container {
-      border: var(--border-width-thin) solid var(--print-text);
-      background: var(--print-bg) !important;
-      break-inside: avoid;
-
-      .joker-button {
-        border: var(--border-width-thin) solid var(--print-text);
-        background: var(--print-bg) !important;
-        color: var(--print-text) !important;
+      .joker-title {
+        font-size: var(--text-2xl);
       }
 
       .joker-count {
-        border: var(--border-width-thin) solid var(--print-text);
-        background: var(--print-bg) !important;
-        color: var(--print-text) !important;
+        font-size: var(--text-2xl);
+        min-height: calc(var(--touch-target-enhanced) + var(--space-md));
       }
     }
   }
 </style>
 
-<script>
+<script is:inline>
   /**
    * Joker Component Script
    *
-   * Manages user interactions with the 50:50 joker feature, provides visual feedback
-   * through animations, and ensures accessibility through screen reader announcements.
+   * Manages user interactions with the 50:50 joker feature in MelodyMind.
+   * Provides visual feedback through animations and ensures accessibility.
    *
-   * Performance optimized with efficient DOM queries and caching strategies.
-   * Modernized with ES6+ features including arrow functions, const/let, template literals.
+   * Features:
+   * - Performance optimized with efficient DOM queries and caching
+   * - ES6+ modern implementation
+   * - WCAG AAA compliant accessibility
+   * - Multi-language support
    */
 
   type SupportedLanguage = "de" | "en" | "es" | "fr" | "it" | "pt" | "da" | "nl" | "sv" | "fi";
@@ -467,7 +486,6 @@ const dataAttributes = {
   interface JokerElements {
     button: HTMLButtonElement | null;
     counter: HTMLElement | null;
-    ripple: HTMLElement | null;
     container: HTMLElement | null;
     announcement: HTMLElement | null;
   }
@@ -508,7 +526,6 @@ const dataAttributes = {
       const elements: JokerElements = {
         button: document.getElementById("joker-button") as HTMLButtonElement,
         counter: document.getElementById("joker-count"),
-        ripple: document.getElementById("joker-ripple"),
         container: container as HTMLElement,
         announcement: document.getElementById("joker-announcement"),
       };
@@ -556,7 +573,6 @@ const dataAttributes = {
 
       // Performance optimization: batch DOM updates in RAF
       requestAnimationFrame(() => {
-        applyRippleEffect(elements);
         dispatchJokerEvent(elements, lang);
 
         if (elements.button) {
@@ -584,20 +600,6 @@ const dataAttributes = {
         handleJokerClick(e);
       }
     });
-  };
-
-  /**
-   * Applies the ripple animation effect when joker is activated
-   */
-  const applyRippleEffect = (elements: JokerElements): void => {
-    const { ripple } = elements;
-    if (!ripple) {
-      return;
-    }
-
-    ripple.classList.remove("animate");
-    void ripple.offsetWidth;
-    ripple.classList.add("animate");
   };
 
   /**

@@ -1,24 +1,12 @@
 ---
 /**
- * AchievementCard Component
+ * AchievementCard - Responsive achievement display card
  *
- * A responsive, accessible card component for displaying individual achievements
- * with their status, progress, and metadata. Supports multiple achievement states.
+ * Displays individual achievements with progress and status
+ * WCAG AAA compliant with performance optimizations
  *
- * Features:
- * - Responsive design with mobile-first breakpoints
- * - WCAG AAA compliant with screen reader support
- * - Keyboard navigation (Enter/Space activation)
- * - Progress visualization with animated bars
- * - Multiple achievement states (locked, in-progress, unlocked)
- * - Internationalization support for multiple languages
- * - Custom event dispatching for achievement selection
- * - Performance optimized with lazy image loading
- * - Uses global.css variables for consistent theming
- *
- * @component
- * @accessibility WCAG AAA compliant
- * @performance Optimized with lazy loading
+ * @param {LocalizedAchievement} achievement - Achievement data object
+ * @param {string} lang - Language code for translations (e.g., 'en', 'de')
  */
 
 import { Icon } from "astro-icon/components";
@@ -28,41 +16,28 @@ import Headline from "../Headline.astro";
 import Paragraph from "../Paragraph.astro";
 
 interface Props {
-  /** The achievement object containing all display data */
+  /** Achievement object with status, progress, and metadata */
   achievement: LocalizedAchievement;
-  /** Language code for internationalization (e.g., "en", "de") */
+  /** Language code for translations (e.g., 'en', 'de') */
   lang: string;
 }
 
 const { achievement, lang } = Astro.props;
 const t = useTranslations(lang);
 
-// Destructure values for better performance and readability
+/* Process achievement data */
 const { progressPercentage, status, name, description, category } = achievement;
-
-// Create status-specific class name following BEM methodology
 const statusClass = `achievement-card--${status}`;
-
-// Generate accessible status text for screen readers using existing i18n utility
 const statusText =
   status === "unlocked"
     ? t("achievements.status.unlocked")
     : status === "in-progress"
       ? t("achievements.status.in_progress", { percent: progressPercentage })
       : t("achievements.status.locked");
-
-// Use safe fallback for points value
 const pointsValue = category?.points ?? 0;
-
-// ARIA state management for expanded/current state - optimized boolean handling
 const ariaExpanded = status === "unlocked" ? "true" : "false";
 const ariaCurrent = status === "unlocked" ? "true" : undefined;
-
-// Dynamic styles using CSS variables (NO hardcoded values)
-const progressBarStyles = `
-  width: ${progressPercentage}%;
-  transition: width var(--transition-normal);
-`;
+const progressBarStyles = `width: ${progressPercentage}%; transition: width var(--animation-duration-normal);`;
 ---
 
 <section class="achievement-card-section" aria-labelledby={`achievement-${achievement.id}-title`}>
@@ -135,7 +110,7 @@ const progressBarStyles = `
         </div>
       </div>
 
-      <!-- Enhanced tooltip for additional context -->
+      <!-- Tooltip for additional context -->
       <span role="tooltip" id={`achievement-tooltip-${achievement.id}`} class="sr-only">
         {
           t("achievements.detailedDescription", {
@@ -153,12 +128,12 @@ const progressBarStyles = `
 <script>
   import { initializeAchievementCards } from "../../utils/achievements/achievementCard.ts";
 
-  // Initialize achievement cards with modern TypeScript utilities
+  /* Initialize achievement cards */
   const initializeController = (): void => {
     initializeAchievementCards();
   };
 
-  // Modern DOM ready check with cleanup
+  /* DOM ready check */
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initializeController, { once: true });
   } else {
@@ -167,67 +142,61 @@ const progressBarStyles = `
 </script>
 
 <style lang="scss">
-  /**
-   * AchievementCard Component Styles - Modern SCSS
-   * 
-   * ✅ Modern glassmorphism design with fluid responsive scaling
-   * ✅ 100% CSS variables from global.css - NO hardcoded values
-   * ✅ WCAG AAA 2.2 compliant colors and spacing
-   * ✅ Performance optimized with CSS containment and modern transforms
-   * ✅ Enhanced accessibility with proper focus management
-   * ✅ Consistent with other components
-   */
+  /* AchievementCard - responsive achievement display */
+  /* Uses global.css variables, WCAG AAA compliant, performance optimized */
 
-  // Section container with modern CSS containment
+  /* Section container with CSS containment */
   .achievement-card-section {
     container-type: inline-size;
     contain: layout style paint;
+    content-visibility: auto;
+    contain-intrinsic-size: var(--container-intrinsic-height-card);
   }
 
-  // Achievement Card Container - Modern responsive design
+  /* Achievement Card Container */
   .achievement-card {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    
-    // Fluid responsive padding
+    height: var(--width-full);
+
+    /* Responsive padding */
     padding: clamp(var(--space-sm), 3vw, var(--space-md));
-    
-    // Modern glassmorphism background with CSS variables
+
+    /* Glassmorphism background */
     background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--bg-secondary) 95%, var(--color-primary-500) 5%),
-      color-mix(in srgb, var(--bg-tertiary) 90%, var(--color-secondary-500) 10%)
+      var(--gradient-angle),
+      color-mix(in srgb, var(--bg-secondary) 95%, var(--color-primary-500) var(--color-mix-light)),
+      color-mix(in srgb, var(--bg-tertiary) 90%, var(--color-secondary-500) var(--color-mix-dark))
     );
-    
+
     border: var(--border-width-thin) solid
       color-mix(in srgb, var(--border-primary) 80%, var(--color-primary-400) 20%);
     border-radius: var(--radius-lg);
-    
-    // Enhanced shadow system
+
+    /* Shadow system */
     box-shadow:
       var(--shadow-md),
       0 0 0 1px color-mix(in srgb, var(--color-primary-500) 20%, transparent 80%);
-    
-    // Modern transitions with cubic-bezier timing
-    transition: all var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
-    
-    // Interaction and performance optimizations
+
+    /* Transitions */
+    transition: all var(--animation-duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Interaction */
     cursor: pointer;
-    min-block-size: var(--min-touch-size);
+    min-block-size: var(--touch-target-enhanced);
     overflow: hidden;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    
-    // Modern CSS containment for performance
+    backdrop-filter: blur(var(--backdrop-blur));
+    -webkit-backdrop-filter: blur(var(--backdrop-blur));
+
+    /* Performance optimizations */
     contain: layout style paint;
-    
-    // GPU acceleration
+    content-visibility: auto;
+    contain-intrinsic-size: var(--container-intrinsic-height-card);
     transform: translateZ(0);
     will-change: transform, box-shadow;
 
-    // Responsive breakpoints with modern em-based approach
+    /* Responsive breakpoints */
     @media (min-width: 40em) {
       padding: clamp(var(--space-md), 4vw, var(--space-lg));
     }
@@ -236,11 +205,10 @@ const progressBarStyles = `
       padding: clamp(var(--space-lg), 5vw, var(--space-xl));
     }
 
-    // Enhanced hover states with modern transforms
+    /* Hover states */
     &:hover {
-      transform: translateY(var(--animation-y-offset-small)) 
-                 scale(var(--animation-scale-hover-subtle)) 
-                 translateZ(0);
+      transform: translateY(var(--animation-y-offset-small))
+        scale(var(--animation-scale-hover-subtle)) translateZ(0);
       box-shadow:
         var(--shadow-xl),
         0 0 0 1px color-mix(in srgb, var(--color-primary-400) 40%, transparent 60%),
@@ -248,26 +216,26 @@ const progressBarStyles = `
       border-color: var(--interactive-primary);
     }
 
-    // Enhanced focus states with modern properties
+    /* Focus states */
     &:focus-visible {
       outline: var(--focus-enhanced-outline-dark);
       outline-offset: var(--focus-ring-offset);
       box-shadow: var(--focus-enhanced-shadow);
-      z-index: var(--z-focus, 10);
+      z-index: var(--z-notification);
     }
 
-    // Header section with modern fluid design
+    /* Header section */
     &__header {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: clamp(var(--space-sm), 3vw, var(--space-md));
-      min-height: var(--min-touch-size);
+      min-height: var(--touch-target-enhanced);
       padding: clamp(var(--space-xs), 2vw, var(--space-sm));
       contain: layout style;
 
-      // Responsive spacing with modern breakpoints
+      /* Responsive spacing */
       @media (min-width: 40em) {
         margin-bottom: clamp(var(--space-md), 4vw, var(--space-lg));
         padding: clamp(var(--space-sm), 3vw, var(--space-md));
@@ -279,7 +247,7 @@ const progressBarStyles = `
       }
     }
 
-    // Modern achievement badge with enhanced glow
+    /* Achievement badge */
     &__badge {
       position: absolute;
       top: calc(-1 * var(--space-xs));
@@ -287,40 +255,42 @@ const progressBarStyles = `
       display: flex;
       align-items: center;
       justify-content: center;
-      
-      // Fluid responsive sizing
+
+      /* Responsive sizing */
       width: clamp(var(--space-md), 4vw, var(--space-lg));
       height: clamp(var(--space-md), 4vw, var(--space-lg));
-      
+
       background: linear-gradient(
-        135deg, 
-        var(--color-success-500), 
+        var(--gradient-angle),
+        var(--color-success-500),
         var(--color-success-600)
       );
       border: var(--border-width-thick) solid var(--bg-primary);
       border-radius: var(--radius-full);
       color: var(--text-inverse);
-      
-      // Enhanced shadow with modern color-mix
+
+      /* Enhanced shadow */
       box-shadow:
         var(--shadow-sm),
-        0 0 15px color-mix(in srgb, var(--color-success-400) 30%, transparent 70%);
-      
-      // Modern animation with CSS variables
+        0 0 var(--glow-distance-large)
+          color-mix(in srgb, var(--color-success-400) 30%, transparent 70%);
+
+      /* Animation */
       animation: pulse var(--animation-pulse-duration) ease-in-out infinite;
-      
-      // Performance optimization
+
+      /* Performance */
       contain: layout style;
       will-change: transform, opacity;
 
-      // Responsive sizing
+      /* Responsive sizing */
       @media (min-width: 40em) {
         width: var(--space-lg);
         height: var(--space-lg);
       }
 
       @keyframes pulse {
-        0%, 100% {
+        0%,
+        100% {
           transform: scale(var(--animation-scale-default)) translateZ(0);
           opacity: var(--animation-opacity-full);
         }
@@ -331,7 +301,7 @@ const progressBarStyles = `
       }
     }
 
-    // Content area with modern fluid spacing
+    /* Content area */
     &__content {
       flex: 1;
       display: flex;
@@ -340,7 +310,7 @@ const progressBarStyles = `
       gap: clamp(var(--space-xs), 2vw, var(--space-sm));
       contain: layout style;
 
-      // Responsive spacing with modern breakpoints
+      /* Responsive spacing */
       @media (min-width: 40em) {
         gap: clamp(var(--space-sm), 3vw, var(--space-md));
       }
@@ -350,38 +320,38 @@ const progressBarStyles = `
       }
     }
 
-    // Status text with enhanced typography
+    /* Status text */
     &__status {
       font-weight: var(--font-medium);
       color: var(--text-secondary);
       letter-spacing: var(--letter-spacing-enhanced);
     }
 
-    // Meta information container with compact layout
+    /* Meta information container */
     &__meta {
       display: flex;
       justify-content: center;
       align-items: center;
       margin-top: var(--space-sm);
 
-      // Responsive spacing - more compact
-      @media (min-width: 640px) {
+      /* Responsive spacing */
+      @media (min-width: 40em) {
         margin-top: var(--space-md);
       }
 
-      @media (min-width: 1024px) {
+      @media (min-width: 64em) {
         margin-top: var(--space-lg);
       }
     }
 
-    // Compact points display with gradient background
+    /* Points display */
     &__points {
       display: inline-flex;
       align-items: center;
       padding: var(--space-xs) var(--space-md);
       background: linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--form-bg) 90%, var(--color-primary-500) 10%),
+        var(--gradient-angle),
+        color-mix(in srgb, var(--form-bg) 90%, var(--color-primary-500) var(--color-mix-dark)),
         color-mix(in srgb, var(--form-bg) 85%, var(--color-secondary-500) 15%)
       );
       border: var(--border-width-thin) solid
@@ -391,29 +361,29 @@ const progressBarStyles = `
       font-weight: var(--font-semibold);
       color: var(--form-text);
       box-shadow: var(--shadow-sm);
-      transition: all var(--transition-fast);
+      transition: all var(--animation-duration-fast);
 
       &:hover {
         transform: scale(var(--animation-scale-hover-subtle));
         box-shadow: var(--shadow-md);
       }
 
-      // Responsive typography - more compact
-      @media (min-width: 640px) {
+      /* Responsive typography */
+      @media (min-width: 40em) {
         font-size: var(--text-sm);
         padding: var(--space-sm) var(--space-lg);
       }
 
-      @media (min-width: 1024px) {
+      @media (min-width: 64em) {
         font-size: var(--text-base);
         padding: var(--space-md) var(--space-xl);
       }
     }
 
-    // Compact progress container with glassmorphism
+    /* Progress container */
     &__progress-container {
       position: relative;
-      width: 100%;
+      width: var(--width-full);
       height: var(--space-xs);
       background: color-mix(in srgb, var(--bg-tertiary) 80%, var(--color-primary-500) 20%);
       border: var(--border-width-thin) solid
@@ -424,51 +394,51 @@ const progressBarStyles = `
       backdrop-filter: blur(3px);
       -webkit-backdrop-filter: blur(3px);
 
-      // Responsive sizing - more compact
-      @media (min-width: 640px) {
+      /* Responsive sizing */
+      @media (min-width: 40em) {
         height: var(--space-sm);
         margin-top: var(--space-lg);
       }
 
-      @media (min-width: 1024px) {
+      @media (min-width: 64em) {
         height: var(--space-md);
         margin-top: var(--space-xl);
       }
     }
 
-    // Enhanced progress bar with animated gradient
+    /* Progress bar with animated gradient */
     &__progress-bar {
-      height: 100%;
+      height: var(--width-full);
       background: linear-gradient(
-        90deg,
-        var(--interactive-primary) 0%,
-        var(--interactive-secondary) 50%,
-        var(--color-primary-400) 100%
+        var(--rotation-90),
+        var(--interactive-primary) var(--gradient-start),
+        var(--interactive-secondary) var(--percentage-half),
+        var(--color-primary-400) var(--gradient-end)
       );
-      background-size: 200% 100%;
+      background-size: var(--shimmer-bg-size);
       border-radius: var(--radius-lg);
       transition:
-        width var(--transition-normal),
+        width var(--animation-duration-normal),
         background-position var(--animation-duration-slow);
       animation: shimmer var(--animation-shimmer-duration) ease-in-out infinite;
 
       @keyframes shimmer {
         0% {
-          background-position: -200% 0;
+          background-position: var(--shimmer-position-start);
         }
         100% {
-          background-position: 200% 0;
+          background-position: var(--shimmer-position-end);
         }
       }
     }
 
-    // STATUS-SPECIFIC STYLING with enhanced visual effects
+    /* STATUS-SPECIFIC STYLING */
 
-    // Unlocked achievements with success glow
+    /* Unlocked achievements */
     &--unlocked {
       border-color: var(--color-success-500);
       background: linear-gradient(
-        135deg,
+        var(--gradient-angle),
         color-mix(in srgb, var(--bg-secondary) 85%, var(--color-success-500) 15%),
         color-mix(in srgb, var(--bg-tertiary) 80%, var(--color-success-600) 20%)
       );
@@ -479,15 +449,15 @@ const progressBarStyles = `
 
       .achievement-card__progress-bar {
         background: linear-gradient(
-          90deg,
-          var(--color-success-500) 0%,
-          var(--color-success-400) 50%,
-          var(--color-success-600) 100%
+          var(--rotation-90),
+          var(--color-success-500) var(--gradient-start),
+          var(--color-success-400) var(--percentage-half),
+          var(--color-success-600) var(--gradient-end)
         );
-        background-size: 200% 100%;
+        background-size: var(--shimmer-bg-size);
       }
 
-      // Enhanced hover state for unlocked achievements
+      /* Enhanced hover state */
       &:hover {
         border-color: var(--color-success-400);
         box-shadow:
@@ -498,11 +468,11 @@ const progressBarStyles = `
       }
     }
 
-    // In-progress achievements with info glow
+    /* In-progress achievements */
     &--in-progress {
       border-color: var(--color-info-500);
       background: linear-gradient(
-        135deg,
+        var(--gradient-angle),
         color-mix(in srgb, var(--bg-secondary) 85%, var(--color-info-500) 15%),
         color-mix(in srgb, var(--bg-tertiary) 80%, var(--color-info-600) 20%)
       );
@@ -513,15 +483,15 @@ const progressBarStyles = `
 
       .achievement-card__progress-bar {
         background: linear-gradient(
-          90deg,
-          var(--color-info-500) 0%,
-          var(--interactive-primary) 50%,
-          var(--color-info-600) 100%
+          var(--rotation-90),
+          var(--color-info-500) var(--gradient-start),
+          var(--interactive-primary) var(--percentage-half),
+          var(--color-info-600) var(--gradient-end)
         );
-        background-size: 200% 100%;
+        background-size: var(--shimmer-bg-size);
       }
 
-      // Enhanced hover state for in-progress achievements
+      /* Enhanced hover state */
       &:hover {
         border-color: var(--color-info-400);
         box-shadow:
@@ -532,14 +502,18 @@ const progressBarStyles = `
       }
     }
 
-    // Locked achievements with subtle styling
+    /* Locked achievements */
     &--locked {
       opacity: var(--opacity-disabled);
       filter: grayscale(var(--filter-grayscale-half));
       background: linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--bg-secondary) 95%, var(--color-neutral-600) 5%),
-        color-mix(in srgb, var(--bg-tertiary) 90%, var(--color-neutral-700) 10%)
+        var(--gradient-angle),
+        color-mix(
+          in srgb,
+          var(--bg-secondary) 95%,
+          var(--color-neutral-600) var(--color-mix-light)
+        ),
+        color-mix(in srgb, var(--bg-tertiary) 90%, var(--color-neutral-700) var(--color-mix-dark))
       );
 
       .achievement-card__title {
@@ -554,7 +528,7 @@ const progressBarStyles = `
         background: var(--color-neutral-600);
       }
 
-      // Subtle hover state for locked achievements
+      /* Subtle hover state */
       &:hover {
         opacity: var(--opacity-medium);
         transform: scale(var(--animation-scale-hover-subtle));
@@ -563,7 +537,7 @@ const progressBarStyles = `
     }
   }
 
-  // Screen reader only utility
+  /* Screen reader only utility */
   .sr-only {
     position: absolute;
     width: var(--sr-only-width);
@@ -575,9 +549,9 @@ const progressBarStyles = `
     border: 0;
   }
 
-  // ACCESSIBILITY OPTIMIZATIONS using semantic variables
+  /* ACCESSIBILITY OPTIMIZATIONS */
 
-  // Modern reduced motion support
+  /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     .achievement-card {
       &,
@@ -594,11 +568,10 @@ const progressBarStyles = `
     }
   }
 
-  // High contrast mode using enhanced variables
+  /* High contrast mode */
   @media (prefers-contrast: high) {
     .achievement-card {
       border-width: var(--border-width-enhanced);
-      filter: var(--filter-high-contrast-select);
 
       &--unlocked {
         border-color: var(--color-success-600);
@@ -614,8 +587,8 @@ const progressBarStyles = `
     }
   }
 
-  // Container queries for responsive design - more compact
-  @container (min-width: 300px) {
+  /* Container queries for responsive design */
+  @container (min-width: var(--container-query-sm)) {
     .achievement-card {
       &__points {
         font-size: var(--text-sm);
@@ -624,7 +597,7 @@ const progressBarStyles = `
     }
   }
 
-  @container (min-width: 400px) {
+  @container (min-width: var(--container-query-md)) {
     .achievement-card {
       &__points {
         font-size: var(--text-base);

@@ -1,23 +1,11 @@
 ---
 /**
- * AchievementFilter Component
+ * AchievementFilter - Responsive achievement filter component
  *
- * A responsive, accessible filter component for filtering achievements
- * by status and category with keyboard shortcuts and screen reader support.
+ * Filters achievements by status and category with keyboard shortcuts
+ * WCAG AAA compliant with performance optimizations
  *
- * Features:
- * - Responsive design with mobile-first breakpoints
- * - WCAG AAA compliant with proper keyboard navigation
- * - Filter by status (all, unlocked, in-progress, locked)
- * - Filter by category (all, bronze, silver, gold, platinum, diamond, time)
- * - Keyboard shortcuts for quick access
- * - Screen reader announcements for filter changes
- * - Performance optimized with efficient DOM manipulation
- * - Uses global.css variables for consistent theming
- *
- * @component
- * @accessibility WCAG AAA compliant
- * @performance Optimized with efficient DOM manipulation
+ * @param {string} lang - Language code for translations (e.g., 'en', 'de')
  */
 
 import { useTranslations } from "../../utils/i18n.ts";
@@ -25,14 +13,14 @@ import Headline from "../Headline.astro";
 import ButtonLink from "../ButtonLink.astro";
 
 interface Props {
-  /** Language code for translations */
+  /** Language code for translations (e.g., 'en', 'de') */
   lang: string;
 }
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-// Filter options
+/* Filter options */
 const statusOptions = [
   { value: "all", label: t("achievements.filter.all") },
   { value: "unlocked", label: t("achievements.status.unlocked") },
@@ -169,66 +157,57 @@ const categoryOptions = [
 </div>
 
 <style lang="scss">
-  /**
-   * AchievementFilter Component Styles
-   * 
-   * ✅ Responsive design with mobile-first breakpoints
-   * ✅ 100% CSS variables from global.css - NO hardcoded values
-   * ✅ WCAG AAA 2.2 compliant colors and spacing
-   * ✅ Performance optimized with efficient DOM manipulation
-   * ✅ Enhanced accessibility with proper focus management
-   * ✅ Consistent with other components
-   */
+  /* AchievementFilter - responsive achievement filter */
+  /* Uses global.css variables, WCAG AAA compliant, performance optimized */
 
-  // Modern SCSS mixins using CSS variables for breakpoints
+  /* Responsive mixins with hardcoded breakpoints */
   @mixin mobile {
-    @media (max-width: calc(var(--breakpoint-sm) - 0.0625em)) {
+    @media (max-width: 39.9375em) {
       @content;
     }
   }
 
   @mixin tablet {
-    @media (min-width: var(--breakpoint-sm)) {
+    @media (min-width: 40em) {
       @content;
     }
   }
 
   @mixin desktop {
-    @media (min-width: var(--breakpoint-md)) {
+    @media (min-width: 48em) {
       @content;
     }
   }
 
   @mixin large-desktop {
-    @media (min-width: var(--breakpoint-lg)) {
+    @media (min-width: 64em) {
       @content;
     }
   }
 
-  // Modern button base styles with fluid design
+  /* Button base styles */
   @mixin button-base {
     font-size: clamp(var(--text-sm), 3vw, var(--text-base));
     font-weight: var(--font-medium);
     line-height: var(--leading-normal);
     letter-spacing: var(--letter-spacing-base);
     border-radius: var(--radius-md);
-    min-height: var(--min-touch-size);
-    min-width: var(--min-touch-size);
+    min-height: var(--touch-target-enhanced);
+    min-width: var(--touch-target-enhanced);
     cursor: pointer;
-    
-    // Modern CSS containment for performance
+
+    /* Performance optimizations */
     contain: layout style;
-    
-    // GPU acceleration
+    content-visibility: auto;
     transform: translateZ(0);
     will-change: transform, box-shadow;
-    
+
     transition:
-      border-color var(--transition-normal),
-      background-color var(--transition-normal),
-      box-shadow var(--transition-normal),
-      color var(--transition-normal),
-      transform var(--transition-fast);
+      border-color var(--animation-duration-normal),
+      background-color var(--animation-duration-normal),
+      box-shadow var(--animation-duration-normal),
+      color var(--animation-duration-normal),
+      transform var(--animation-duration-fast);
 
     &:hover {
       transform: translateY(var(--animation-y-offset-small)) translateZ(0);
@@ -241,52 +220,51 @@ const categoryOptions = [
     }
 
     &:active {
-      transform: translateY(0) translateZ(0);
+      transform: translateY(var(--space-none)) translateZ(0);
     }
   }
 
-  // Modern form field base styles with fluid design
+  /* Form field base styles */
   @mixin form-field-base {
     font-size: clamp(var(--text-sm), 3vw, var(--text-base));
     font-weight: var(--font-medium);
     line-height: var(--leading-normal);
     letter-spacing: var(--letter-spacing-base);
     border-radius: var(--radius-md);
-    min-height: var(--min-touch-size);
-    min-width: var(--min-touch-size);
+    min-height: var(--touch-target-enhanced);
+    min-width: var(--touch-target-enhanced);
     cursor: pointer;
-    
-    // Modern CSS containment for performance
+
+    /* Performance optimizations */
     contain: layout style;
-    
-    // GPU acceleration
+    content-visibility: auto;
     transform: translateZ(0);
     will-change: transform, box-shadow;
-    
+
     transition:
-      border-color var(--transition-normal),
-      background-color var(--transition-normal),
-      box-shadow var(--transition-normal),
-      color var(--transition-normal),
-      transform var(--transition-fast);
+      border-color var(--animation-duration-normal),
+      background-color var(--animation-duration-normal),
+      box-shadow var(--animation-duration-normal),
+      color var(--animation-duration-normal),
+      transform var(--animation-duration-fast);
   }
 
   .achievement-filter {
     background-color: var(--card-bg);
     border: var(--border-width-thin) solid var(--card-border);
     border-radius: var(--radius-lg);
-    
-    // Fluid responsive padding
+
+    /* Responsive padding */
     padding: clamp(var(--space-sm), 4vw, var(--space-md));
     margin-bottom: clamp(var(--space-md), 5vw, var(--space-lg));
-    
+
     box-shadow: var(--card-shadow);
-    transition: box-shadow var(--transition-normal);
-    
-    // Modern CSS containment for performance
+    transition: box-shadow var(--animation-duration-normal);
+
+    /* Performance optimizations */
     contain: layout style paint;
-    
-    // GPU acceleration
+    content-visibility: auto;
+    contain-intrinsic-size: var(--container-intrinsic-height-component);
     transform: translateZ(0);
     will-change: box-shadow;
 
@@ -304,7 +282,7 @@ const categoryOptions = [
       box-shadow: var(--card-shadow-hover);
     }
 
-    // Title styling
+    /* Title styling */
     &__title {
       margin-bottom: var(--space-md);
       text-align: center;
@@ -315,18 +293,19 @@ const categoryOptions = [
       }
     }
 
-    // Container layout with modern CSS Grid
+    /* Container layout with CSS Grid */
     &__container {
       display: grid;
       grid-template-columns: 1fr;
       gap: clamp(var(--space-sm), 3vw, var(--space-md));
       margin-bottom: clamp(var(--space-sm), 3vw, var(--space-md));
-      
-      // Modern CSS containment
+
+      /* Performance optimizations */
       contain: layout style;
+      content-visibility: auto;
 
       @include tablet {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-sm), 1fr));
         gap: clamp(var(--space-md), 4vw, var(--space-lg));
         margin-bottom: clamp(var(--space-md), 4vw, var(--space-lg));
       }
@@ -337,7 +316,7 @@ const categoryOptions = [
       }
     }
 
-    // Form field styling
+    /* Form field styling */
     &__field {
       display: flex;
       flex-direction: column;
@@ -349,12 +328,12 @@ const categoryOptions = [
       }
     }
 
-    // Label styling
+    /* Label styling */
     &__label {
       color: var(--text-primary);
       letter-spacing: var(--letter-spacing-base);
       text-wrap: balance;
-      margin: 0;
+      margin: var(--space-none);
       font-size: var(--text-base);
       font-weight: var(--font-medium);
       line-height: var(--leading-normal);
@@ -367,7 +346,7 @@ const categoryOptions = [
       }
     }
 
-    // Select dropdown styling
+    /* Select dropdown styling */
     &__select {
       @include form-field-base;
       appearance: none;
@@ -375,11 +354,11 @@ const categoryOptions = [
       border: var(--border-width-thick) solid var(--form-border);
       color: var(--form-text);
       padding: var(--space-sm) var(--space-md);
-      width: 100%;
+      width: var(--width-full);
       position: relative;
       cursor: pointer;
 
-      // Custom dropdown arrow using CSS
+      /* Custom dropdown arrow using CSS */
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6,9 12,15 18,9'%3E%3C/polyline%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right var(--space-md) center;
@@ -403,7 +382,7 @@ const categoryOptions = [
 
       &:hover:not(:focus) {
         border-color: var(--border-secondary);
-        background-color: var(--bg-glass);
+        background-color: var(--bg-tertiary);
         transform: translateY(calc(-1 * var(--space-xs)));
         box-shadow: var(--shadow-sm);
       }
@@ -412,24 +391,24 @@ const categoryOptions = [
         outline: var(--focus-outline);
         outline-offset: var(--focus-ring-offset);
         border-color: var(--form-border-focus);
-        background-color: var(--bg-glass);
+        background-color: var(--bg-tertiary);
         box-shadow: var(--shadow-md);
       }
 
-      // Active state when dropdown is open
+      /* Active state when dropdown is open */
       &:active {
-        transform: translateY(0);
+        transform: translateY(var(--space-none));
       }
 
-      // Disabled state
+      /* Disabled state */
       &:disabled {
         opacity: var(--opacity-disabled);
         cursor: not-allowed;
-        background-color: var(--bg-disabled);
+        background-color: var(--bg-secondary);
         color: var(--text-disabled);
       }
 
-      // Custom styling for options
+      /* Custom styling for options */
       option {
         background-color: var(--form-bg);
         color: var(--form-text);
@@ -448,14 +427,13 @@ const categoryOptions = [
       }
     }
 
-    // Count display styling
+    /* Count display styling */
     &__count {
-      color: var(--text-primary);
+      color: var(--text-secondary);
       letter-spacing: var(--letter-spacing-base);
       text-wrap: balance;
-      margin: 0;
+      margin: var(--space-none);
       font-size: var(--text-sm);
-      color: var(--text-secondary);
       font-weight: var(--font-medium);
       margin-top: var(--space-xs);
       line-height: var(--leading-normal);
@@ -470,7 +448,7 @@ const categoryOptions = [
       }
     }
 
-    // Actions container styling
+    /* Actions container styling */
     &__actions {
       display: flex;
       flex-wrap: wrap;
@@ -494,21 +472,21 @@ const categoryOptions = [
       }
     }
 
-    // Button styling
+    /* Button styling */
     &__reset,
     &__help-button {
       @include button-base;
       background: var(--btn-primary-bg);
       border: none;
       color: var(--btn-primary-text);
-      padding: var(--button-padding-standard);
-      min-width: var(--min-touch-size);
+      padding: var(--space-sm) var(--space-md);
+      min-width: var(--touch-target-enhanced);
 
       @include mobile {
-        width: 100%;
+        width: var(--width-full);
         text-align: center;
-        min-height: var(--enhanced-touch-target);
-        padding: var(--button-padding-enhanced);
+        min-height: var(--touch-target-enhanced);
+        padding: var(--space-md) var(--space-lg);
       }
     }
 
@@ -529,7 +507,7 @@ const categoryOptions = [
       }
     }
 
-    // Keyboard shortcuts panel
+    /* Keyboard shortcuts panel */
     &__keyboard-shortcuts {
       background-color: var(--bg-tertiary);
       border: var(--border-width-thin) solid var(--border-primary);
@@ -537,10 +515,15 @@ const categoryOptions = [
       margin-top: var(--space-md);
       padding: var(--space-md);
       overflow: hidden;
+
+      /* Performance optimizations */
+      contain: layout style;
+      content-visibility: auto;
+
       transition:
-        max-height var(--transition-normal),
-        opacity var(--transition-normal),
-        padding var(--transition-normal);
+        max-height var(--animation-duration-normal),
+        opacity var(--animation-duration-normal),
+        padding var(--animation-duration-normal);
 
       @include tablet {
         margin-top: var(--space-lg);
@@ -561,7 +544,7 @@ const categoryOptions = [
     }
 
     &__shortcuts-list {
-      margin: 0;
+      margin: var(--space-none);
       display: grid;
       gap: var(--space-xs);
       font-size: var(--text-sm);
@@ -569,9 +552,8 @@ const categoryOptions = [
 
       @include tablet {
         font-size: var(--text-base);
-        gap: var(--space-sm);
-        grid-template-columns: repeat(2, 1fr);
         gap: var(--space-md);
+        grid-template-columns: repeat(2, 1fr);
       }
 
       @include desktop {
@@ -617,7 +599,7 @@ const categoryOptions = [
     }
 
     &__shortcut-description {
-      margin: 0;
+      margin: var(--space-none);
       color: var(--text-secondary);
       margin-bottom: var(--space-xs);
 
@@ -627,7 +609,7 @@ const categoryOptions = [
     }
   }
 
-  // Screen reader only utility
+  /* Screen reader only utility */
   .sr-only {
     position: absolute;
     width: var(--sr-only-width);
@@ -639,12 +621,10 @@ const categoryOptions = [
     border: 0;
   }
 
-  // ============================================================================
-  // FILTER UTILITIES - Gap-free grid layout optimization
-  // ============================================================================
+  /* FILTER UTILITIES - Gap-free grid layout optimization */
 
-  // OPTIMIZED: Complete removal from layout flow instead of display: none
-  // This prevents grid gaps by removing filtered items from the layout entirely
+  /* Complete removal from layout flow instead of display: none */
+  /* This prevents grid gaps by removing filtered items from the layout entirely */
   .filtered-hidden {
     position: absolute !important;
     left: -10000px !important;
@@ -659,18 +639,21 @@ const categoryOptions = [
     pointer-events: none;
   }
 
-  // Enhanced CSS Grid Layout - Auto-collapse for filtered content
+  /* Enhanced CSS Grid Layout - Auto-collapse for filtered content */
   .achievements__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-sm), 100%), 1fr));
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(var(--grid-min-width-sm), var(--percentage-full)), 1fr)
+    );
     gap: var(--space-md);
-    width: 100%;
+    width: var(--width-full);
     grid-auto-flow: row dense;
     align-items: start;
     justify-items: stretch;
     transition:
-      grid-template-columns var(--transition-normal),
-      gap var(--transition-normal);
+      grid-template-columns var(--animation-duration-normal),
+      gap var(--animation-duration-normal);
     contain: layout style;
 
     @include tablet {
@@ -681,62 +664,68 @@ const categoryOptions = [
       gap: var(--space-xl);
     }
 
-    // Target only visible achievement cards to prevent gaps
+    /* Target only visible achievement cards to prevent gaps */
     > *:not(.filtered-hidden) {
       position: relative;
       display: block;
     }
 
-    // Enhanced visual feedback when filtering is active
+    /* Enhanced visual feedback when filtering is active */
     &:has(.filtered-hidden) {
-      filter: var(--filter-enhanced-visibility);
+      filter: brightness(var(--filter-brightness-medium));
     }
 
-    // Responsive grid behavior
-    @media (min-width: var(--breakpoint-md)) {
-      grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-md), 45%), 1fr));
+    /* Responsive grid behavior */
+    @media (min-width: 48em) {
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(var(--grid-min-width-md), var(--percentage-half)), 1fr)
+      );
     }
 
-    @media (min-width: var(--breakpoint-lg)) {
-      grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-sm), 30%), 1fr));
+    @media (min-width: 64em) {
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(var(--grid-min-width-sm), var(--percentage-third)), 1fr)
+      );
     }
 
-    @media (min-width: var(--breakpoint-xl)) {
+    @media (min-width: 80em) {
       grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-md), 28%), 1fr));
     }
   }
 
-  // Auto-hide empty category sections when all achievements are filtered
+  /* Auto-hide empty category sections when all achievements are filtered */
   .achievements__category {
     transition:
-      opacity var(--transition-normal),
-      margin var(--transition-normal),
-      padding var(--transition-normal);
+      opacity var(--animation-duration-normal),
+      margin var(--animation-duration-normal),
+      padding var(--animation-duration-normal);
     contain: layout style;
 
-    // Hide empty sections using modern CSS
+    /* Hide empty sections using modern CSS */
     &:has(.achievements__grid:empty),
     &:has(.achievements__grid > *:not(.filtered-hidden):empty) {
       display: none;
-      margin: 0;
-      padding: 0;
+      margin: var(--space-none);
+      padding: var(--space-none);
     }
 
     &:has(.achievements__grid:not(:has(*:not(.filtered-hidden)))) {
       display: none;
     }
 
-    // Section animations for empty state
+    /* Section animations for empty state */
     &.section-empty {
       opacity: 0;
       transform: translateY(calc(-1 * var(--space-lg)));
-      margin: 0;
-      padding: 0;
+      margin: var(--space-none);
+      padding: var(--space-none);
       max-height: 0;
       overflow: hidden;
     }
 
-    // Fallback for browsers without :has() support
+    /* Fallback for browsers without :has() support */
     @supports not selector(:has(*)) {
       &.all-filtered {
         display: none;
@@ -745,17 +734,14 @@ const categoryOptions = [
     }
   }
 
-  // ============================================================================
-  // KEYFRAME ANIMATIONS
-  // Reusable animations using CSS variables for timing
-  // ============================================================================
+  /* KEYFRAME ANIMATIONS - Reusable animations using CSS variables for timing */
 
   .achievement-card-entering {
-    animation: cardEnter var(--transition-slow) ease-out forwards;
+    animation: cardEnter var(--animation-duration-slow) ease-out forwards;
   }
 
   .achievement-card-leaving {
-    animation: cardLeave var(--transition-normal) ease-in forwards;
+    animation: cardLeave var(--animation-duration-normal) ease-in forwards;
   }
 
   @keyframes cardEnter {
@@ -764,15 +750,15 @@ const categoryOptions = [
       transform: translateY(var(--space-lg)) scale(var(--scale-hover));
     }
     to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
+      opacity: var(--animation-opacity-full);
+      transform: translateY(var(--space-none)) scale(var(--animation-scale-end));
     }
   }
 
   @keyframes cardLeave {
     from {
-      opacity: 1;
-      transform: translateY(0) scale(1);
+      opacity: var(--animation-opacity-full);
+      transform: translateY(var(--space-none)) scale(var(--animation-scale-end));
     }
     to {
       opacity: 0;
@@ -780,11 +766,9 @@ const categoryOptions = [
     }
   }
 
-  // ============================================================================
-  // ENHANCED ACCESSIBILITY SUPPORT (WCAG AAA)
-  // ============================================================================
+  /* ENHANCED ACCESSIBILITY SUPPORT (WCAG AAA) */
 
-  // High contrast mode support
+  /* High contrast mode support */
   @media (prefers-contrast: high) {
     .achievement-filter {
       border-width: var(--border-width-thick);
@@ -793,18 +777,16 @@ const categoryOptions = [
 
       &__select {
         border-width: var(--border-width-enhanced);
-        filter: var(--filter-high-contrast-select);
       }
 
       &__reset,
       &__help-button {
         border-width: var(--border-width-enhanced);
-        filter: var(--filter-high-contrast-button);
       }
     }
   }
 
-  // Reduced motion support
+  /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     .achievement-filter {
       transition: none;
@@ -821,14 +803,14 @@ const categoryOptions = [
       &__reset:hover,
       &__help-button:hover {
         transform: none;
-        filter: var(--filter-enhanced-visibility);
+        filter: brightness(var(--filter-brightness-medium));
       }
     }
 
     @keyframes cardEnter {
       from,
       to {
-        opacity: 1;
+        opacity: var(--animation-opacity-full);
         transform: none;
       }
     }
@@ -836,13 +818,13 @@ const categoryOptions = [
     @keyframes cardLeave {
       from,
       to {
-        opacity: 1;
+        opacity: var(--animation-opacity-full);
         transform: none;
       }
     }
   }
 
-  // Enhanced text spacing support (WCAG 2.2)
+  /* Enhanced text spacing support (WCAG 2.2) */
   @supports (letter-spacing: var(--letter-spacing-enhanced)) {
     .enhanced-text-spacing {
       .achievement-filter__label,
@@ -860,7 +842,7 @@ const categoryOptions = [
     }
   }
 
-  // Forced colors mode support (Windows High Contrast)
+  /* Forced colors mode support (Windows High Contrast) */
   @media (forced-colors: active) {
     .achievement-filter {
       border-color: ButtonBorder;
@@ -886,9 +868,7 @@ const categoryOptions = [
     }
   }
 
-  // ============================================================================
-  // PRINT STYLES
-  // ============================================================================
+  /* PRINT STYLES */
   @media print {
     .achievement-filter {
       background-color: var(--print-bg);
@@ -953,12 +933,12 @@ const categoryOptions = [
 <script>
   import { initializeAchievementFilter } from "../../utils/achievements/achievementFilter.ts";
 
-  // Initialize achievement filter with modern TypeScript utilities
+  /* Initialize achievement filter */
   const initFilter = (): void => {
     initializeAchievementFilter();
   };
 
-  // Modern DOM ready check with cleanup
+  /* DOM ready check */
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initFilter, { once: true });
   } else {
