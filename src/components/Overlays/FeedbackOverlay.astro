@@ -5,13 +5,50 @@
  * album information, media preview, and streaming links. This component is optimized for
  * WCAG AAA accessibility standards and high performance.
  *
- * Features:
- * - Keyboard navigation with focus trap
- * - Screen reader announcements
- * - High contrast mode support
+ * @props This component does not accept props - it's controlled via JavaScript
+ * and populated dynamically by the game engine (gameEngine.ts).
+ *
+ * @usage
+ * ```astro
+ * <FeedbackOverlay />
+ * ```
+ *
+ * @features
+ * - Keyboard navigation with focus trap (Tab, Shift+Tab, Arrow keys)
+ * - Screen reader announcements with live regions
+ * - High contrast mode support (forced-colors media query)
  * - Optimized animations with reduced motion support
- * - Performance-optimized interactions
+ * - Performance-optimized interactions (CSS containment, content-visibility)
  * - Uses CSS variables from global.css for WCAG AAA 2.2 compliance
+ * - Responsive design with mobile-first approach
+ * - Touch-friendly interface with 44px minimum touch targets
+ *
+ * @accessibility
+ * - WCAG 2.2 AAA compliant (7:1 contrast ratios)
+ * - Focus management with proper focus trap
+ * - Screen reader compatible with ARIA labels and live regions
+ * - Keyboard navigation support (Escape, Enter, Space, Tab, Arrow keys)
+ * - Enhanced text spacing support for accessibility
+ * - Reduced motion preferences respected
+ *
+ * @performance
+ * - CSS containment for layout isolation
+ * - Content-visibility for rendering optimization
+ * - Will-change properties for animation performance
+ * - Modern ES6+ JavaScript with efficient event handling
+ * - Optimized scrolling with overscroll-behavior
+ *
+ * @responsive
+ * - Mobile-first design with breakpoints at 48em, 64em
+ * - Adaptive layout for different screen sizes
+ * - Touch-optimized button sizing on mobile
+ * - Responsive typography scaling
+ *
+ * @integration
+ * - Controlled by gameEngine.ts for dynamic content population
+ * - Integrates with AudioPlayer component for media playback
+ * - Uses i18n system for multilingual support
+ * - Connects to streaming services (Spotify, Deezer, Apple Music)
  */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
@@ -75,7 +112,7 @@ const t = useTranslations(lang);
           title=""
           artist=""
           preload="metadata"
-          showHelp={true}
+          showHelp={false}
           coverId="overlay-cover"
           aspectRatio="square"
         />
@@ -151,10 +188,10 @@ const t = useTranslations(lang);
 
   .overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: var(--space-none);
+    left: var(--space-none);
+    width: var(--width-full);
+    height: var(--width-full);
     z-index: var(--z-modal);
     display: flex;
     align-items: center;
@@ -167,13 +204,17 @@ const t = useTranslations(lang);
       opacity var(--transition-normal),
       visibility var(--transition-normal);
 
+    // Performance optimizations
+    contain: layout style;
+    will-change: opacity, visibility;
+
     &.hidden {
       pointer-events: none;
       visibility: hidden;
-      opacity: 0;
+      opacity: var(--animation-opacity-end);
     }
 
-    // Mobile-first responsive design
+    // Mobile-first responsive design using hardcoded breakpoints
     @media (max-width: 47.9375em) {
       padding: var(--space-sm);
     }
@@ -181,13 +222,16 @@ const t = useTranslations(lang);
 
   .overlay__backdrop {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 12;
+    top: var(--space-none);
+    left: var(--space-none);
+    width: var(--width-full);
+    height: var(--width-full);
+    z-index: var(--z-backdrop);
     pointer-events: auto;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--backdrop-overlay-dark);
+
+    // Performance optimization
+    contain: strict;
   }
 
   // ======================================
@@ -197,28 +241,35 @@ const t = useTranslations(lang);
   .overlay__content {
     position: relative;
     z-index: var(--z-modal-content);
-    max-height: var(--modal-content-max-height);
-    width: 100%;
-    max-width: var(--container-lg);
+    max-height: calc(100vh - var(--space-lg) * 2);
+    width: var(--width-full);
+    max-width: min(90vw, var(--container-lg));
     overflow-y: auto;
     overscroll-behavior: contain;
     border-radius: var(--radius-xl);
     border: var(--border-width-thin) solid var(--border-primary);
     background-color: var(--card-bg);
-    padding: var(--modal-padding);
+    padding: var(--space-xl);
     box-shadow: var(--card-shadow);
     scrollbar-gutter: stable;
     pointer-events: auto;
 
-    // Mobile responsive adjustments
+    // Performance optimizations
+    contain: layout style paint;
+    content-visibility: auto;
+    contain-intrinsic-size: var(--container-intrinsic-height-modal);
+
+    // Mobile responsive adjustments using hardcoded breakpoints
     @media (max-width: 47.9375em) {
       padding: var(--space-lg);
       border-radius: var(--radius-lg);
       max-height: calc(100vh - var(--space-md) * 2);
+      max-width: min(95vw, var(--container-sm));
     }
 
-    @media (min-width: 48em) {
-      padding: var(--space-2xl);
+    @media (min-width: 48em) and (max-width: 64em) {
+      max-width: min(85vw, var(--container-md));
+      padding: var(--space-xl);
     }
   }
 
@@ -259,10 +310,10 @@ const t = useTranslations(lang);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--min-touch-size);
-    height: var(--min-touch-size);
-    min-width: var(--min-touch-size);
-    min-height: var(--min-touch-size);
+    width: var(--touch-target-enhanced);
+    height: var(--touch-target-enhanced);
+    min-width: var(--touch-target-enhanced);
+    min-height: var(--touch-target-enhanced);
     border-radius: var(--radius-full);
     background-color: var(--bg-tertiary);
     color: var(--text-secondary);
@@ -271,19 +322,29 @@ const t = useTranslations(lang);
     flex-shrink: 0;
     transition:
       background-color var(--transition-normal),
-      color var(--transition-normal);
+      color var(--transition-normal),
+      transform var(--transition-fast);
+
+    // Performance optimization
+    contain: layout style;
+    will-change: transform, background-color;
 
     &:hover,
     &:focus {
       background-color: var(--interactive-primary);
       color: var(--text-primary);
+      transform: scale(var(--animation-scale-hover-subtle));
+    }
+
+    &:active {
+      transform: scale(var(--scale-active));
     }
 
     @media (max-width: 47.9375em) {
-      width: calc(var(--min-touch-size) * 0.875);
-      height: calc(var(--min-touch-size) * 0.875);
-      min-width: calc(var(--min-touch-size) * 0.875);
-      min-height: calc(var(--min-touch-size) * 0.875);
+      width: calc(var(--touch-target-enhanced) * 0.875);
+      height: calc(var(--touch-target-enhanced) * 0.875);
+      min-width: calc(var(--touch-target-enhanced) * 0.875);
+      min-height: calc(var(--touch-target-enhanced) * 0.875);
     }
   }
 
@@ -328,6 +389,9 @@ const t = useTranslations(lang);
     align-items: start;
     gap: var(--space-xl);
 
+    // Performance optimization
+    contain: layout;
+
     @media (max-width: 47.9375em) {
       margin-bottom: var(--space-xl);
       gap: var(--space-lg);
@@ -335,26 +399,49 @@ const t = useTranslations(lang);
     }
 
     @media (min-width: 48em) {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: minmax(var(--grid-min-width-lg), var(--stat-width-md)) 1fr;
+      gap: var(--space-2xl);
+    }
+
+    @media (min-width: 64em) {
+      grid-template-columns: var(--grid-min-width-xl) 1fr;
     }
 
     &__image {
       display: flex;
       justify-content: center;
       order: 1;
+      max-width: var(--width-full);
 
       @media (max-width: 47.9375em) {
         order: 2;
+        max-width: var(--grid-min-width-lg);
+        margin: 0 auto;
+      }
+
+      @media (min-width: 48em) {
+        justify-content: flex-start;
+      }
+
+      // Only size constraint for audio player in overlay context
+      :global(.audio-player) {
+        max-width: var(--grid-min-width-xl);
+        width: var(--width-full);
+
+        @media (max-width: 47.9375em) {
+          max-width: var(--grid-min-width-lg);
+        }
       }
     }
 
     &__info {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: var(--space-md);
       text-align: left;
       order: 2;
+      min-width: 0;
 
       @media (max-width: 47.9375em) {
         order: 1;
@@ -398,11 +485,15 @@ const t = useTranslations(lang);
     font-size: var(--text-lg);
     line-height: var(--leading-relaxed);
     color: var(--text-secondary);
-    max-width: var(--content-readable-width);
+    max-width: 100%;
 
     @media (max-width: 47.9375em) {
       font-size: var(--text-base);
       margin-top: var(--space-sm);
+    }
+
+    @media (min-width: 48em) {
+      max-width: none;
     }
   }
 
@@ -454,9 +545,18 @@ const t = useTranslations(lang);
     font-weight: var(--font-semibold);
     text-decoration: none;
     padding: var(--space-lg);
+    border: var(--border-width-thin) solid transparent;
+    box-shadow: var(--card-shadow);
+    font-family: var(--font-family-primary);
     transition:
       background var(--transition-normal),
-      transform var(--transition-fast);
+      transform var(--transition-fast),
+      box-shadow var(--transition-normal);
+
+    // Performance optimizations like ButtonLink
+    contain: layout style;
+    will-change: transform, background-color;
+    transform: translateZ(0);
 
     @media (max-width: 47.9375em) {
       min-width: calc(var(--min-touch-size) * 2.5);
@@ -472,16 +572,59 @@ const t = useTranslations(lang);
     &:hover,
     &:focus {
       background: var(--btn-primary-hover);
+      box-shadow: var(--card-shadow-hover);
       transform: translateY(var(--animation-y-offset-small));
     }
 
+    &:active {
+      transform: translateY(var(--animation-y-offset-small)) scale(var(--scale-active));
+      transition: all var(--transition-fast);
+    }
+
+    // Platform-specific colors (matching MusicButtons logic)
+    &#spotify-link {
+      --btn-primary-bg: var(--color-success-600);
+      --btn-primary-hover: var(--color-success-700);
+    }
+
+    &#deezer-link {
+      --btn-primary-bg: var(--color-primary-600);
+      --btn-primary-hover: var(--color-primary-700);
+    }
+
+    &#apple-link {
+      --btn-primary-bg: var(--color-secondary-600);
+      --btn-primary-hover: var(--color-secondary-700);
+    }
+
     &__icon {
-      margin-right: var(--space-md);
+      width: var(--icon-size-sm);
+      height: var(--icon-size-sm);
+      margin-right: var(--space-sm);
+      flex-shrink: 0;
+      fill: currentColor;
 
       @media (max-width: 47.9375em) {
-        margin-right: var(--space-sm);
+        margin-right: var(--space-xs);
         width: 20px;
         height: 20px;
+      }
+
+      @media (min-width: 480px) {
+        width: var(--icon-size-md);
+        height: var(--icon-size-md);
+        margin-right: var(--space-md);
+      }
+    }
+
+    // Text styling matching MusicButtons
+    span {
+      font-size: var(--text-xs);
+      font-weight: var(--font-medium);
+      white-space: nowrap;
+
+      @media (min-width: 480px) {
+        font-size: var(--text-sm);
       }
     }
   }
@@ -540,7 +683,6 @@ const t = useTranslations(lang);
 
   .overlay__content:focus,
   .overlay__close-button:focus-visible,
-  .music-button:focus-visible,
   .next-button:focus-visible,
   .audio-player:focus-visible {
     outline: var(--focus-enhanced-outline-dark);
@@ -609,7 +751,6 @@ const t = useTranslations(lang);
       background-color: Canvas;
     }
 
-    .music-button,
     .next-button,
     .overlay__close-button {
       border: var(--border-width-thick) solid ButtonText;
@@ -685,7 +826,6 @@ const t = useTranslations(lang);
     gap: calc(var(--space-md) * 1.5) !important;
   }
 
-  .enhanced-text-spacing .overlay__content .music-button,
   .enhanced-text-spacing .overlay__content .next-button {
     padding: calc(var(--space-lg) * 1.2) calc(var(--space-xl) * 1.2);
   }
@@ -703,7 +843,6 @@ const t = useTranslations(lang);
       color: var(--print-text);
     }
 
-    .music-button,
     .next-button,
     .overlay__close-button {
       border: var(--border-width-thin) solid var(--print-border);

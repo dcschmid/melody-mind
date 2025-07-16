@@ -1,48 +1,19 @@
 ---
 /**
- * AuthFormField Component for MelodyMind Authentication Forms
+ * AuthFormField - Reusable form input with validation and accessibility
  *
- * A reusable, WCAG AAA compliant form field component that provides consistent styling
- * and behavior for authentication forms.
- *
- * ## Features
- * - Support for email, password, text, tel, url, search, and number inputs
- * - Built-in label & error handling with integrated password visibility toggle
- * - WCAG AAA compliance with 7:1 contrast ratios and enhanced focus indicators
- * - Progressive enhancement with fallback styling
- * - Touch optimized with enhanced mobile interactions
- * - Full i18n support with client-side validation messages
+ * Features:
+ * - Email, password, text, tel, url, search, and number input support
+ * - Built-in validation with error messages and password toggle
+ * - WCAG AAA compliant with proper focus management
+ * - Performance optimized with CSS containment
+ * - Full responsive design with touch optimization
+ * - Internationalization support
  *
  * @component
- * @example
- * ```astro
- * <!-- Basic email input -->
- * <AuthFormField
- *   id="loginEmail"
- *   name="email"
- *   type="email"
- *   label={t("auth.login.email")}
- *   placeholder={t("auth.login.email.placeholder")}
- *   required={true}
- *   autocomplete="email"
- * />
- *
- * <!-- Password input with toggle -->
- * <AuthFormField
- *   id="loginPassword"
- *   name="password"
- *   type="password"
- *   label={t("auth.login.password")}
- *   placeholder={t("auth.login.password.placeholder")}
- *   required={true}
- *   autocomplete="current-password"
- *   showPasswordToggle={true}
- *   helpText={t("auth.form.password_requirements")}
- * />
- * ```
- *
- * @since 2.0.0
- * @version 3.1.0
+ * @accessibility WCAG AAA compliant with enhanced focus indicators
+ * @performance CSS containment, GPU acceleration, optimized transitions
+ * @responsive Mobile-first design with touch-friendly sizing
  */
 import PasswordToggleButton from "./PasswordToggleButton.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
@@ -60,35 +31,32 @@ const clientTranslations = {
   "auth.accessibility.error_resolved": t("auth.accessibility.error_resolved"),
 };
 
-/**
- * Props interface for AuthFormField component
- */
 export interface Props {
-  /** Unique identifier for the input field */
+  /** Unique input identifier */
   id: string;
-  /** Name attribute for the input (used for form submission) */
+  /** Form input name */
   name: string;
-  /** Input type - determines the input behavior and validation */
+  /** Input type */
   type: "email" | "password" | "text" | "tel" | "url" | "search" | "number";
-  /** Label text for the input (supports internationalization) */
+  /** Input label text */
   label: string;
-  /** Placeholder text shown when input is empty */
+  /** Placeholder text */
   placeholder?: string;
-  /** Whether the field is required for form submission */
+  /** Required field flag */
   required?: boolean;
-  /** Autocomplete attribute value for browser auto-filling */
+  /** Autocomplete attribute */
   autocomplete?: string;
-  /** Additional CSS classes to apply to the wrapper element */
+  /** Additional CSS classes */
   class?: string;
-  /** Custom HTML content to display after the label (e.g., forgot password link) */
+  /** Content after label (e.g., forgot password link) */
   labelSuffix?: string;
-  /** Whether to show password toggle button (automatically enabled for password type) */
+  /** Show password toggle button */
   showPasswordToggle?: boolean;
-  /** Accessible label for the password toggle button */
+  /** Password toggle accessibility label */
   passwordToggleLabel?: string;
-  /** Additional HTML attributes to pass directly to the input element */
+  /** Additional input attributes */
   inputAttributes?: Record<string, string | number | boolean>;
-  /** Optional help text to provide additional context and guidance */
+  /** Optional help text */
   helpText?: string;
 }
 
@@ -140,9 +108,8 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
       helpText && (
         <Paragraph
           id={helpId}
-          text={helpText}
-          size="sm"
-          variant="secondary"
+          description={helpText}
+          textSize="sm"
           className="auth-form-field__help-text"
         />
       )
@@ -175,69 +142,67 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
 <noscript>
   <style>
     .auth-form-field__input--error {
-      border-color: var(--border-error) !important;
-      background-color: var(--bg-error-aaa) !important;
+      border-color: var(--color-error-500) !important;
+      background-color: var(--color-error-50) !important;
     }
 
     .auth-form-field__error-message[data-error] {
       display: block !important;
-      color: var(--text-error-aaa) !important;
+      color: var(--color-error-800) !important;
     }
   </style>
 </noscript>
 
 <!-- Setup client-side translations for validation messages -->
-<script type="module" define:vars={{ translations: clientTranslations }}>
-  // Make translations available to the client-side validation using modern ES6+
+<script type="module" define:vars={{ translations: clientTranslations }} is:inline>
+  // Make translations available to the client-side validation
   window.authTranslations = translations;
 </script>
 
-<script type="module">
-  // Import the auth form field functionality with modern ES6+ features
-  // This provides client-side validation and enhanced interactions
+<script type="module" is:inline>
+  // Import the auth form field functionality
   import("/src/utils/authFormField.ts");
 </script>
 
 <style lang="scss">
   /**
-   * AuthFormField Component Styles - Modern SCSS
+   * AuthFormField Component Styles
    * 
-   * ✅ Modern form field design with fluid responsive scaling
-   * ✅ 100% CSS variables from global.css - NO hardcoded values
-   * ✅ WCAG AAA 2.2 compliant colors and spacing
-   * ✅ Performance optimized with CSS containment and modern transforms
-   * ✅ Enhanced accessibility with proper focus management
-   * ✅ Consistent with other components
+   * ✅ 100% global.css variables integration
+   * ✅ Performance optimized with CSS containment
+   * ✅ WCAG AAA compliant styling
+   * ✅ Responsive design with fluid scaling
+   * ✅ GPU acceleration for smooth interactions
    */
 
   .auth-form-field {
-    // Fluid responsive margin
     margin-bottom: clamp(var(--space-md), 4vw, var(--space-lg));
-    
-    // Modern CSS containment for performance
+
+    // Performance optimizations
     contain: layout style paint;
-    
-    // GPU acceleration
+    content-visibility: auto;
+    contain-intrinsic-size: var(--container-intrinsic-height-component);
+
     transform: translateZ(0);
+
+    // Container query support
+    container-type: inline-size;
+    container-name: auth-form-field;
 
     * {
       box-sizing: border-box;
     }
 
-    // Modern label group with fluid design
     &__label-group {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      
-      // Fluid responsive spacing
+
       margin-bottom: clamp(var(--space-sm), 3vw, var(--space-md));
       gap: clamp(var(--space-sm), 3vw, var(--space-md));
-      
-      // Modern CSS containment
+
       contain: layout style;
-      
-      // Responsive behavior
+
       @media (max-width: 39.9375em) {
         flex-direction: column;
         align-items: flex-start;
@@ -247,105 +212,93 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
 
     &__label {
       display: block;
-      
-      // Fluid responsive typography
+
       font-size: clamp(var(--text-base), 3vw, var(--text-lg));
       font-weight: var(--font-semibold);
       color: var(--text-primary);
       line-height: var(--leading-relaxed);
       letter-spacing: var(--letter-spacing-base);
-      
-      // Better text wrapping
+
       text-wrap: balance;
-      
-      // Modern CSS containment
       contain: layout style;
     }
 
     &__required-mark {
-      color: var(--text-error-aaa);
+      color: var(--color-error-600);
       margin-left: var(--space-xs);
       font-weight: var(--font-bold);
-      
-      // Fluid responsive sizing
+
       font-size: clamp(var(--text-lg), 4vw, var(--text-xl));
-      
-      // Enhanced accessibility
+
       text-shadow: 0 0 var(--space-micro) var(--bg-primary);
     }
 
     &__label-suffix {
-      // Fluid responsive typography
       font-size: clamp(var(--text-sm), 3vw, var(--text-base));
       color: var(--text-secondary);
       line-height: var(--leading-relaxed);
-      
-      // Better text wrapping
+
       text-wrap: balance;
     }
 
-    // Modern input wrapper with fluid design
     &__input-wrapper {
       position: relative;
       display: flex;
       flex-direction: column;
-      
-      // Fluid responsive gap
+
       gap: clamp(var(--space-xs), 2vw, var(--space-sm));
-      
-      // Modern CSS containment
+
       contain: layout style;
     }
 
     &__help-text {
-      // Fluid responsive typography
       font-size: clamp(var(--text-sm), 3vw, var(--text-base));
       color: var(--text-secondary);
       line-height: var(--leading-relaxed);
       letter-spacing: var(--letter-spacing-base);
-      
-      // Fluid responsive padding
-      padding: clamp(var(--space-xs), 2vw, var(--space-sm)) clamp(var(--space-sm), 3vw, var(--space-md));
-      
-      background-color: var(--bg-help-info);
-      border: var(--border-width-thin) solid var(--border-help-info);
+
+      padding: clamp(var(--space-xs), 2vw, var(--space-sm))
+        clamp(var(--space-sm), 3vw, var(--space-md));
+
+      background-color: var(--color-blue-50);
+      border: var(--border-width-thin) solid var(--color-blue-200);
       border-radius: var(--radius-sm);
-      
-      // Modern CSS containment and GPU acceleration
+
       contain: layout style;
       transform: translateZ(0);
       will-change: opacity;
-      
+
       transition: opacity var(--transition-normal);
-      
-      // Better text wrapping
+
       text-wrap: balance;
+
+      // Remove default paragraph margins from nested Paragraph component
+      :global(p) {
+        margin: var(--space-none);
+      }
     }
 
     &__input {
-      width: 100%;
-      min-height: var(--min-touch-size);
-      
-      // Fluid responsive padding
+      width: var(--width-full);
+      min-height: var(--touch-target-enhanced);
+
       padding: clamp(var(--space-md), 4vw, var(--space-lg));
-      
-      background-color: var(--form-bg);
-      border: var(--border-width-thick) solid var(--form-border);
+
+      background-color: var(--bg-tertiary);
+      border: var(--border-width-thick) solid var(--border-secondary);
       border-radius: var(--radius-md);
-      color: var(--form-text);
-      
-      // Fluid responsive typography
+      color: var(--text-primary);
+
       font-size: clamp(var(--text-base), 3vw, var(--text-lg));
       line-height: var(--leading-relaxed);
       letter-spacing: var(--letter-spacing-base);
-      
+
       appearance: none;
-      
-      // Modern CSS containment and GPU acceleration
+
       contain: layout style;
       transform: translateZ(0);
       will-change: border-color, background-color, box-shadow, transform;
-      
+
       touch-action: manipulation;
 
       transition:
@@ -354,22 +307,19 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
         box-shadow var(--transition-normal),
         transform var(--transition-fast);
 
-      // Enhanced input states with fluid design
       &::placeholder {
-        color: var(--form-placeholder);
+        color: var(--text-muted);
         opacity: var(--opacity-medium);
-        
-        // Fluid responsive typography
+
         font-size: clamp(var(--text-base), 3vw, var(--text-lg));
-        
-        // Better text wrapping
+
         text-wrap: balance;
       }
 
       &:focus,
       &:focus-visible {
-        border-color: var(--border-focus);
-        background-color: var(--bg-tertiary);
+        border-color: var(--interactive-primary);
+        background-color: var(--bg-secondary);
         transform: translateY(calc(-1 * var(--space-micro))) translateZ(0);
         outline: none;
         box-shadow: var(--focus-ring);
@@ -378,66 +328,61 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
       &:focus-visible {
         outline: var(--focus-outline);
         outline-offset: var(--focus-ring-offset);
-        box-shadow: var(--focus-enhanced-shadow);
+        box-shadow: var(--focus-ring);
       }
 
       &--focused {
         border-color: var(--interactive-primary);
-        background-color: var(--bg-tertiary);
+        background-color: var(--bg-secondary);
       }
 
       &--error {
-        border-color: var(--border-error);
-        background-color: var(--bg-error-aaa);
+        border-color: var(--color-error-500);
+        background-color: var(--color-error-50);
         animation: error-shake var(--transition-normal) ease-in-out;
         will-change: transform;
 
         &:focus {
-          border-color: var(--border-error);
-          box-shadow: var(--focus-enhanced-shadow);
+          border-color: var(--color-error-500);
+          box-shadow: var(--focus-ring);
           transform: translateY(calc(-1 * var(--space-micro))) translateZ(0);
         }
       }
     }
 
-    // Modern error message with fluid design
     &__error-message {
       display: none;
-      
-      // Fluid responsive spacing
+
       margin-top: clamp(var(--space-sm), 3vw, var(--space-md));
-      padding: clamp(var(--space-sm), 3vw, var(--space-md)) clamp(var(--space-md), 4vw, var(--space-lg));
-      
-      // Fluid responsive typography
+      padding: clamp(var(--space-sm), 3vw, var(--space-md))
+        clamp(var(--space-md), 4vw, var(--space-lg));
+
       font-size: clamp(var(--text-sm), 3vw, var(--text-base));
-      color: var(--text-error-aaa);
-      background-color: var(--bg-error-aaa);
-      border: var(--border-width-thick) solid var(--border-error);
+      color: var(--color-error-800);
+      background-color: var(--color-error-50);
+      border: var(--border-width-thick) solid var(--color-error-300);
       border-radius: var(--radius-sm);
       line-height: var(--leading-relaxed);
       font-weight: var(--font-medium);
-      
-      // Modern CSS containment and GPU acceleration
+
       contain: layout style;
       transform: translateZ(0);
-      
-      // Better text wrapping
+
       text-wrap: balance;
-      
-      // Enhanced animations
+
       transition: opacity var(--transition-normal);
-      
+
       &:not(:empty) {
         display: block;
       }
     }
   }
 
-  // Modern animations with GPU acceleration
+  // Error shake animation
   @keyframes error-shake {
     0%,
     100% {
-      transform: translateX(0) translateZ(0);
+      transform: translateX(var(--space-none)) translateZ(0);
     }
     25% {
       transform: translateX(calc(-1 * var(--space-xs))) translateZ(0);
@@ -447,11 +392,11 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
     }
   }
 
-  // Enhanced responsive design with modern breakpoints
+  // Responsive design
   @media (min-width: 48em) {
     .auth-form-field {
       &__input {
-        min-height: calc(var(--min-touch-size) + var(--space-sm));
+        min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
       }
     }
   }
@@ -459,23 +404,22 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
   @media (max-width: 23.4375em) {
     .auth-form-field {
       &__input {
-        min-height: var(--min-touch-size);
+        min-height: var(--touch-target-enhanced);
       }
     }
   }
 
-  // Enhanced accessibility support
+  // High contrast mode support
   @media (prefers-contrast: high) {
     .auth-form-field {
       &__input {
-        border-width: var(--border-width-enhanced);
+        border-width: var(--border-width-thick);
         border-color: var(--text-primary);
         background-color: var(--bg-primary);
-        filter: var(--filter-high-contrast-select);
 
         &:focus {
           border-color: var(--interactive-primary);
-          box-shadow: var(--focus-enhanced-shadow);
+          box-shadow: var(--focus-ring);
         }
       }
 
@@ -489,8 +433,8 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
       }
 
       &__error-message {
-        background-color: var(--bg-error-aaa);
-        border-width: var(--border-width-enhanced);
+        background-color: var(--color-error-50);
+        border-width: var(--border-width-thick);
         font-weight: var(--font-semibold);
       }
     }
@@ -502,12 +446,12 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
       &__input,
       &__help-text,
       &__error-message {
-        transition: none;
+        transition: var(--transition-instant);
         will-change: auto;
         animation: none;
 
         &--error {
-          transition: none;
+          transition: var(--transition-instant);
           animation: none;
         }
       }
@@ -521,11 +465,11 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
     }
   }
 
-  // Enhanced touch device support
+  // Touch device support
   @media (hover: none) and (pointer: coarse) {
     .auth-form-field {
       &__input {
-        min-height: calc(var(--min-touch-size) + var(--space-sm));
+        min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
         padding: var(--space-lg);
         font-size: var(--text-lg);
         touch-action: manipulation;
@@ -537,13 +481,52 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
       }
 
       &__help-text {
-        min-height: calc(var(--min-touch-size) - var(--space-sm));
+        min-height: calc(var(--touch-target-enhanced) - var(--space-sm));
         display: flex;
         align-items: center;
       }
 
       &__input-wrapper {
         gap: var(--space-md);
+      }
+    }
+  }
+
+  // Container queries for component-specific responsiveness
+  @container auth-form-field (max-width: 20em) {
+    .auth-form-field {
+      &__label-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xs);
+      }
+
+      &__input {
+        font-size: var(--text-base);
+        padding: var(--space-sm) var(--space-md);
+      }
+
+      &__help-text {
+        font-size: var(--text-sm);
+        padding: var(--space-xs) var(--space-sm);
+      }
+    }
+  }
+
+  @container auth-form-field (min-width: 30em) {
+    .auth-form-field {
+      &__input {
+        padding: var(--space-lg) var(--space-xl);
+        font-size: var(--text-lg);
+      }
+
+      &__label {
+        font-size: var(--text-xl);
+      }
+
+      &__help-text {
+        font-size: var(--text-base);
+        padding: var(--space-sm) var(--space-lg);
       }
     }
   }

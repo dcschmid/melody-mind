@@ -26,25 +26,29 @@ const FONTS = [
   {
     name: "atkinson-hyperlegible-regular.woff2",
     url: "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400&display=swap",
-    fallbackUrl: "https://brailleinstitute.org/wp-content/uploads/atkinson-hyperlegible/fonts/Atkinson-Hyperlegible-Regular-102.woff2",
+    fallbackUrl:
+      "https://brailleinstitute.org/wp-content/uploads/atkinson-hyperlegible/fonts/Atkinson-Hyperlegible-Regular-102.woff2",
     isGoogleFontsCSS: true,
   },
   {
-    name: "atkinson-hyperlegible-bold.woff2", 
+    name: "atkinson-hyperlegible-bold.woff2",
     url: "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@700&display=swap",
-    fallbackUrl: "https://brailleinstitute.org/wp-content/uploads/atkinson-hyperlegible/fonts/Atkinson-Hyperlegible-Bold-102.woff2",
+    fallbackUrl:
+      "https://brailleinstitute.org/wp-content/uploads/atkinson-hyperlegible/fonts/Atkinson-Hyperlegible-Bold-102.woff2",
     isGoogleFontsCSS: true,
   },
   {
     name: "atkinson-hyperlegible-regular.woff2",
     url: "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400&display=swap",
-    fallbackUrl: "https://brailleinstitute.org/wp-content/uploads/atkinson-hyperlegible/fonts/Atkinson-Hyperlegible-Regular-102.woff2",
+    fallbackUrl:
+      "https://brailleinstitute.org/wp-content/uploads/atkinson-hyperlegible/fonts/Atkinson-Hyperlegible-Regular-102.woff2",
     isGoogleFontsCSS: true,
   },
   {
-    name: "atkinson-hyperlegible-bold.woff2", 
+    name: "atkinson-hyperlegible-bold.woff2",
     url: "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@700&display=swap",
-    fallbackUrl: "https://brailleinstitute.org/wp-content/uploads/atkinson-hyperlegible/fonts/Atkinson-Hyperlegible-Bold-102.woff2",
+    fallbackUrl:
+      "https://brailleinstitute.org/wp-content/uploads/atkinson-hyperlegible/fonts/Atkinson-Hyperlegible-Bold-102.woff2",
     isGoogleFontsCSS: true,
   },
 ];

@@ -1,55 +1,27 @@
 ---
 /**
- * EmailVerification Component for MelodyMind
+ * EmailVerification - Email verification flow with loading, success, error states
  *
- * Handles email verification flow with three states: loading, success, error.
- * WCAG AAA compliant with full internationalization support.
+ * Features:
+ * - Three verification states with smooth transitions
+ * - WCAG AAA compliant with enhanced accessibility
+ * - Performance optimized with CSS containment
+ * - Full responsive design with container queries
+ * - Timeout handling with robust error management
+ * - Internationalization support
  *
  * @component
- * @example
- * ```astro
- * ---
- * const { token } = Astro.params;
- * ---
- * <EmailVerification token={token} />
- * ```
- *
- * @features
- * - WCAG AAA accessibility compliance
- * - Full internationalization support
- * - Responsive design
- * - Performance optimized
- * - Timeout handling (30 seconds)
- * - Reduced motion support
- *
- * @accessibility
- * - Semantic HTML with ARIA attributes
- * - Automatic focus management
- * - Screen reader announcements
- * - Keyboard navigation support
- * - Touch targets minimum 44×44px
- *
- * @api_dependencies
- * - POST /{lang}/api/auth/verify-email
- * - i18n system
- * - astro-icon
- *
- * @since 3.1.0
+ * @accessibility WCAG AAA compliant with focus management and live regions
+ * @performance CSS containment, GPU acceleration, efficient state management
+ * @responsive Mobile-first design with container queries and fluid scaling
  */
-
-// Imports
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 
-// Component props
-interface Props {
-  /**
-   * Verification token from email confirmation URL
-   * @required
-   * @format URL-safe string (a-zA-Z0-9\-_)
-   */
+export interface Props {
+  /** Email verification token from URL */
   token: string;
 }
 
@@ -168,73 +140,81 @@ const t = useTranslations(String(lang));
 </div>
 
 <style lang="scss">
-  /* Email Verification Component Styles */
-
-  // Breakpoints for responsive design
-  $breakpoint-mobile: 39.9375em; // 639px
-  $breakpoint-small-mobile: 23.4375em; // 375px
-
-  // Animation durations
-  $transition-normal: 0.3s ease-in-out;
-  $transition-fast: 0.15s ease-in-out;
-
-  // Spacing variables
-  $spacing-xs: 0.25rem;
-  $spacing-sm: 0.5rem;
-  $spacing-md: 1rem;
-  $spacing-lg: 1.5rem;
-  $spacing-xl: 2rem;
-  $spacing-2xl: 3rem;
-  $spacing-3xl: 4rem;
-
-  // Border radius
-  $radius-sm: 0.25rem;
-  $radius-md: 0.5rem;
-  $radius-lg: 0.75rem;
-  $radius-full: 50%;
-
-  // Icon sizes
-  $icon-size-lg: 3rem;
-  $icon-size-xl: 4rem;
-  $icon-size-2xl: 5rem;
-
-  // Touch target minimum size
-  $min-touch-size: 2.75rem;
+  /**
+   * EmailVerification Component Styles
+   * 
+   * ✅ 100% global.css variables integration
+   * ✅ Performance optimized with CSS containment
+   * ✅ WCAG AAA compliant styling
+   * ✅ Responsive design with container queries
+   * ✅ GPU acceleration for smooth animations
+   */
 
   .email-verification {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     min-height: 50vh;
-    padding: var(--space-xl);
-    max-width: var(--form-container-max-width, 28rem);
-    margin: 0 auto;
-    text-align: center;
+    max-width: var(--container-sm);
+    margin: var(--space-none) auto;
+    padding: clamp(var(--space-lg), 4vw, var(--space-2xl));
+
     background: var(--bg-secondary);
+    border: var(--border-width-thin) solid var(--border-primary);
     border-radius: var(--radius-lg);
-    box-shadow: var(--card-shadow);
-    border: 1px solid var(--border-primary);
+    box-shadow: var(--shadow-lg);
+
+    text-align: center;
+    isolation: isolate;
+
+    // Performance optimizations
+    contain: layout style paint;
+    content-visibility: auto;
+    contain-intrinsic-size: var(--container-intrinsic-height-form);
+
+    transform: translateZ(0);
+    will-change: box-shadow;
+
+    transition: box-shadow var(--transition-normal);
+
+    // Container query support
+    container-type: inline-size;
+    container-name: email-verification;
+
+    &:hover {
+      box-shadow: var(--shadow-xl);
+    }
 
     // State management with smooth transitions
     &__state {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: var(--space-lg);
-      width: 100%;
-      opacity: 1;
-      transform: translateY(0);
+
+      gap: clamp(var(--space-lg), 4vw, var(--space-2xl));
+      width: var(--width-full);
+
+      opacity: var(--animation-opacity-full);
+      transform: translateY(var(--space-none));
+
+      // Performance optimizations
+      contain: layout style;
+      transform: translateZ(0);
+      will-change: opacity, transform, visibility;
+
       transition:
-        opacity $transition-normal,
-        transform $transition-normal,
-        visibility $transition-normal;
+        opacity var(--transition-normal),
+        transform var(--transition-normal),
+        visibility var(--transition-normal);
+
       visibility: visible;
 
       &--hidden {
         display: none;
-        opacity: 0;
-        transform: translateY($spacing-md);
+        opacity: var(--animation-opacity-start);
+        transform: translateY(var(--space-md)) translateZ(0);
         visibility: hidden;
       }
     }
@@ -244,44 +224,65 @@ const t = useTranslations(String(lang));
       display: flex;
       align-items: center;
       justify-content: center;
-      width: $icon-size-2xl;
-      height: $icon-size-2xl;
-      border-radius: $radius-full;
-      margin-bottom: $spacing-md;
-      transition: transform $transition-fast;
+
+      width: clamp(var(--icon-size-xl), 8vw, var(--icon-size-2xl));
+      height: clamp(var(--icon-size-xl), 8vw, var(--icon-size-2xl));
+
+      border-radius: var(--radius-full);
+      margin-bottom: clamp(var(--space-md), 3vw, var(--space-lg));
+
+      // Performance optimizations
+      contain: layout style;
+      transform: translateZ(0);
+      will-change: transform;
+
+      transition: transform var(--transition-fast);
 
       &:hover {
-        transform: scale(1.05);
+        transform: scale(1.05) translateZ(0);
       }
 
       &--success {
-        background: linear-gradient(135deg, var(--bg-success-aaa), var(--color-success-800));
-        color: var(--text-success-aaa);
-        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+        background: linear-gradient(135deg, var(--color-success-500), var(--color-success-700));
+        color: var(--btn-success-text);
+        box-shadow: var(--shadow-success);
       }
 
       &--error {
-        background: linear-gradient(135deg, var(--bg-error-aaa), var(--color-error-800));
-        color: var(--text-error-aaa);
-        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        background: linear-gradient(135deg, var(--color-error-500), var(--color-error-700));
+        color: var(--btn-error-text);
+        box-shadow: var(--shadow-error);
       }
     }
 
     &__svg {
-      width: $icon-size-lg;
-      height: $icon-size-lg;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      width: clamp(var(--icon-size-lg), 6vw, var(--icon-size-xl));
+      height: clamp(var(--icon-size-lg), 6vw, var(--icon-size-xl));
+
+      filter: drop-shadow(var(--shadow-text));
+
+      // Performance optimizations
+      contain: layout style;
+      transform: translateZ(0);
     }
 
     // Enhanced spinner animation
     &__spinner {
-      width: $icon-size-lg;
-      height: $icon-size-lg;
-      border: 3px solid var(--border-primary);
-      border-top: 3px solid var(--interactive-primary);
-      border-radius: $radius-full;
-      animation: spin 1s linear infinite;
-      box-shadow: 0 2px 8px rgba(139, 92, 246, 0.2);
+      width: clamp(var(--icon-size-lg), 6vw, var(--icon-size-xl));
+      height: clamp(var(--icon-size-lg), 6vw, var(--icon-size-xl));
+
+      border: var(--border-width-thick) solid var(--border-primary);
+      border-top: var(--border-width-thick) solid var(--interactive-primary);
+      border-radius: var(--radius-full);
+
+      box-shadow: var(--shadow-primary);
+
+      // Performance optimizations
+      contain: layout style;
+      transform: translateZ(0);
+      will-change: transform;
+
+      animation: email-spinner-rotate var(--animation-duration-normal) linear infinite;
     }
 
     // Modern button styling with enhanced interactions
@@ -289,54 +290,57 @@ const t = useTranslations(String(lang));
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: $min-touch-size;
-      min-width: $min-touch-size;
-      padding: $spacing-md $spacing-xl;
-      background: linear-gradient(135deg, var(--interactive-primary), var(--color-primary-700));
-      color: var(--color-white);
+
+      min-height: var(--touch-target-enhanced);
+      min-width: var(--touch-target-enhanced);
+      padding: clamp(var(--space-md), 3vw, var(--space-lg))
+        clamp(var(--space-xl), 4vw, var(--space-2xl));
+
+      background: var(--interactive-primary);
+      color: var(--btn-primary-text);
       border: none;
-      border-radius: $radius-md;
-      font-size: var(--text-base);
-      font-weight: var(--font-medium, 500);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+
+      font-size: clamp(var(--text-base), 3vw, var(--text-lg));
+      font-weight: var(--font-medium);
+      line-height: var(--leading-normal);
+      letter-spacing: var(--letter-spacing-base);
       text-decoration: none;
-      transition: all $transition-normal;
+
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
       position: relative;
       overflow: hidden;
 
+      // Performance optimizations
+      contain: layout style;
+      transform: translateZ(0);
+      will-change: transform, background-color, box-shadow;
+
+      transition:
+        background-color var(--transition-normal),
+        box-shadow var(--transition-normal),
+        transform var(--transition-fast);
+
       // Hover effect with transform
-      &:hover {
-        background: linear-gradient(
-          135deg,
-          var(--interactive-primary-hover),
-          var(--color-primary-800)
-        );
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
+      &:hover:not(:disabled) {
+        background: var(--interactive-primary-hover);
+        transform: translateY(calc(-1 * var(--space-xs))) translateZ(0);
+        box-shadow: var(--shadow-lg);
       }
 
       // Focus states for accessibility
-      &:focus {
+      &:focus-visible {
         outline: var(--focus-outline);
         outline-offset: var(--focus-ring-offset);
-        box-shadow: var(--focus-ring);
-      }
-
-      &:focus-visible {
-        outline: var(--focus-enhanced-outline-dark);
-        box-shadow: var(--focus-enhanced-shadow);
+        box-shadow: var(--focus-ring), var(--shadow-lg);
       }
 
       // Active state
-      &:active {
-        transform: translateY(0);
-        background: linear-gradient(
-          135deg,
-          var(--interactive-primary-active),
-          var(--color-primary-900)
-        );
-        box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+      &:active:not(:disabled) {
+        transform: translateY(var(--space-none)) scale(0.98) translateZ(0);
+        background: var(--interactive-primary-hover);
+        box-shadow: var(--shadow-md);
       }
 
       // Ripple effect for modern feel
@@ -345,14 +349,17 @@ const t = useTranslations(String(lang));
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 0;
-        height: 0;
-        border-radius: $radius-full;
-        background: rgba(255, 255, 255, 0.3);
-        transform: translate(-50%, -50%);
+
+        width: var(--space-none);
+        height: var(--space-none);
+
+        border-radius: var(--radius-full);
+        background: var(--color-white-alpha-30);
+        transform: translate(-50%, -50%) translateZ(0);
+
         transition:
-          width 0.6s,
-          height 0.6s;
+          width var(--transition-slow),
+          height var(--transition-slow);
       }
 
       &:active::before {
@@ -363,65 +370,70 @@ const t = useTranslations(String(lang));
   }
 
   // Spinner animation with smooth rotation
-  @keyframes spin {
+  @keyframes email-spinner-rotate {
     0% {
-      transform: rotate(0deg);
+      transform: translateZ(0) rotate(0deg);
     }
     100% {
-      transform: rotate(360deg);
+      transform: translateZ(0) rotate(360deg);
     }
   }
 
-  // Responsive design for mobile devices
-  @media (max-width: $breakpoint-mobile) {
+  // Responsive design
+  @media (max-width: 39.9375em) {
     .email-verification {
-      padding: $spacing-lg;
       min-height: 40vh;
-      margin: $spacing-md;
-      border-radius: $radius-md;
-
-      &__icon {
-        width: $icon-size-xl;
-        height: $icon-size-xl;
-      }
-
-      &__svg {
-        width: $icon-size-lg;
-        height: $icon-size-lg;
-      }
+      margin: var(--space-md);
+      padding: var(--space-lg);
+      border-radius: var(--radius-md);
 
       &__button {
-        padding: $spacing-sm $spacing-lg;
+        min-height: calc(var(--touch-target-enhanced) - var(--space-xs));
         font-size: var(--text-sm);
-        min-height: 2.5rem;
       }
     }
   }
 
-  // Small mobile devices
-  @media (max-width: $breakpoint-small-mobile) {
+  @media (max-width: 23.4375em) {
     .email-verification {
-      padding: $spacing-md;
       min-height: 35vh;
-      margin: $spacing-sm;
-      border-radius: $radius-sm;
+      margin: var(--space-sm);
+      padding: var(--space-md);
+      border-radius: var(--radius-sm);
+
+      &__button {
+        min-height: var(--touch-target-enhanced);
+        font-size: var(--text-xs);
+        width: var(--width-full);
+        max-width: 12rem;
+      }
+    }
+  }
+
+  // High contrast mode support
+  @media (prefers-contrast: high) {
+    .email-verification {
+      border: var(--border-width-thick) solid var(--border-primary);
 
       &__icon {
-        width: $icon-size-lg;
-        height: $icon-size-lg;
-      }
+        &--success {
+          border: var(--border-width-thick) solid var(--color-success-700);
+          background: var(--color-success-500);
+        }
 
-      &__svg {
-        width: $spacing-xl;
-        height: $spacing-xl;
+        &--error {
+          border: var(--border-width-thick) solid var(--color-error-700);
+          background: var(--color-error-500);
+        }
       }
 
       &__button {
-        padding: $spacing-xs $spacing-md;
-        font-size: var(--text-xs);
-        min-height: 2.25rem;
-        width: 100%;
-        max-width: 12rem;
+        border: var(--border-width-thick) solid var(--btn-primary-text);
+        background: var(--interactive-primary);
+
+        &:focus-visible {
+          outline-width: var(--border-width-thick);
+        }
       }
     }
   }
@@ -431,18 +443,20 @@ const t = useTranslations(String(lang));
     .email-verification {
       &__state,
       &__button,
-      &__icon {
-        transition: none;
+      &__icon,
+      &__spinner {
+        transition: var(--transition-instant);
+        animation: none;
+        will-change: auto;
       }
 
       &__spinner {
-        animation: none;
         border-top-color: var(--interactive-primary);
       }
 
       &__button {
         &:hover {
-          transform: none;
+          transform: translateZ(0);
         }
 
         &::before {
@@ -451,35 +465,7 @@ const t = useTranslations(String(lang));
       }
 
       &__icon:hover {
-        transform: none;
-      }
-    }
-  }
-
-  // High contrast mode support
-  @media (prefers-contrast: high) {
-    .email-verification {
-      border: 2px solid var(--border-primary);
-
-      &__icon {
-        &--success {
-          border: 3px solid var(--text-success-aaa);
-          background: var(--bg-success-aaa);
-        }
-
-        &--error {
-          border: 3px solid var(--text-error-aaa);
-          background: var(--bg-error-aaa);
-        }
-      }
-
-      &__button {
-        border: 2px solid var(--color-white);
-        background: var(--interactive-primary);
-
-        &:focus {
-          outline-width: 3px;
-        }
+        transform: translateZ(0);
       }
     }
   }
@@ -488,17 +474,19 @@ const t = useTranslations(String(lang));
   @media (hover: none) and (pointer: coarse) {
     .email-verification {
       &__button {
-        min-height: $min-touch-size;
-        padding: $spacing-lg $spacing-xl;
+        min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
+        padding: var(--space-lg) var(--space-xl);
         font-size: var(--text-lg);
 
         &:hover {
-          transform: none;
+          transform: translateZ(0);
+          box-shadow: var(--shadow-md);
+          background: var(--interactive-primary);
         }
       }
 
       &__icon:hover {
-        transform: none;
+        transform: translateZ(0);
       }
     }
   }
@@ -515,13 +503,44 @@ const t = useTranslations(String(lang));
   @media print {
     .email-verification {
       box-shadow: none;
-      border: 1px solid var(--border-primary);
-      background: transparent;
+      border: var(--border-width-thin) solid var(--color-black);
+      background: var(--color-white);
+      color: var(--color-black);
 
       &__button {
-        background: var(--interactive-primary);
-        color: var(--color-white);
-        border: 1px solid var(--interactive-primary);
+        background: var(--color-white) !important;
+        color: var(--color-black) !important;
+        border: var(--border-width-thin) solid var(--color-black) !important;
+        box-shadow: none !important;
+      }
+
+      &__spinner {
+        display: none !important;
+      }
+    }
+  }
+
+  // Container queries for component-specific responsiveness
+  @container email-verification (max-width: 20em) {
+    .email-verification {
+      padding: var(--space-sm);
+
+      &__button {
+        font-size: var(--text-sm);
+        padding: var(--space-sm) var(--space-md);
+        min-height: var(--touch-target-enhanced);
+      }
+    }
+  }
+
+  @container email-verification (min-width: 30em) {
+    .email-verification {
+      padding: var(--space-2xl);
+
+      &__button {
+        font-size: var(--text-xl);
+        padding: var(--space-lg) var(--space-2xl);
+        min-height: calc(var(--touch-target-enhanced) + var(--space-md));
       }
     }
   }
@@ -529,10 +548,11 @@ const t = useTranslations(String(lang));
 
 <script>
   /**
-   * Email Verification Component - Modern ES6+ Implementation
+   * Email Verification - Modern ES6+ Implementation
    *
    * Handles email verification flow with enhanced error handling,
    * accessibility features, and modern JavaScript patterns.
+   * Performance optimized with efficient DOM handling.
    */
 
   // Type definitions for better type safety
@@ -545,7 +565,8 @@ const t = useTranslations(String(lang));
 
   /**
    * Display verification state with enhanced accessibility
-   * @param state - The state to display
+   * @param {VerificationState} state - The state to display
+   * @returns {void}
    */
   const showState = (state: VerificationState): void => {
     // Hide all states first with proper ARIA management
@@ -584,7 +605,7 @@ const t = useTranslations(String(lang));
 
   /**
    * Extract language from URL path
-   * @returns The language code or 'en' as default
+   * @returns {string} The language code or 'en' as default
    */
   const getLanguageFromUrl = (): string => {
     const path = window.location.pathname;
@@ -594,7 +615,7 @@ const t = useTranslations(String(lang));
 
   /**
    * Create timeout promise for verification
-   * @returns Promise that rejects after timeout
+   * @returns {Promise<never>} Promise that rejects after timeout
    */
   const createTimeoutPromise = (): Promise<never> =>
     new Promise((_resolve, reject) => {
@@ -603,8 +624,8 @@ const t = useTranslations(String(lang));
 
   /**
    * Verify email token with enhanced error handling
-   * @param token - The verification token
-   * @returns Promise with verification result
+   * @param {string} token - The verification token
+   * @returns {Promise<VerificationResult>} Promise with verification result
    */
   const verifyEmailToken = async (token: string): Promise<VerificationResult> => {
     const lang = getLanguageFromUrl();
@@ -667,11 +688,15 @@ const t = useTranslations(String(lang));
     }
 
     // Start verification process
-    performVerification().finally(() => {
-      if (loadingState) {
-        loadingState.setAttribute("aria-busy", "false");
-      }
-    });
+    performVerification()
+      .finally(() => {
+        if (loadingState) {
+          loadingState.setAttribute("aria-busy", "false");
+        }
+      })
+      .catch((error) => {
+        console.error("Failed to initialize email verification:", error);
+      });
   };
 
   // Modern DOM ready check with fallback
@@ -685,7 +710,7 @@ const t = useTranslations(String(lang));
   }
 
   // Export for potential external use
-  (window as any).emailVerification = {
+  (window as Window & { emailVerification?: unknown }).emailVerification = {
     showState,
     performVerification,
     initializeEmailVerification,

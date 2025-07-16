@@ -403,12 +403,17 @@ export const POST: APIRoute = async ({ request, params }) => {
     );
 
     // Check and update achievements
-    // This is done asynchronously to avoid delaying the response
-    processAchievementsAfterGame(data.userId, gameState, lang).catch((error) =>
-      console.error(t("errors.gameResult.log.achievements"), error)
-    );
+    // Process achievements synchronously to return them in response
+    let unlockedAchievements: any[] = [];
+    try {
+      const achievementResults = await processAchievementsAfterGame(data.userId, gameState, lang);
+      unlockedAchievements = achievementResults.unlockedAchievements || [];
+    } catch (error) {
+      console.error(t("errors.gameResult.log.achievements"), error);
+      // Continue without achievements if they fail to process
+    }
 
-    return createSuccessResponse({ gameMode, id });
+    return createSuccessResponse({ gameMode, id, unlockedAchievements });
   } catch (error) {
     console.error(t("errors.gameResult.log.api"), error);
 

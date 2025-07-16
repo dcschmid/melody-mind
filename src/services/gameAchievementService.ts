@@ -18,13 +18,15 @@ import { checkAchievementsAfterGame } from "./achievementService.js";
  * @param userId - User ID
  * @param gameState - Game state after the game
  * @param language - Language code for translations
- * @returns Promise that resolves when the check is complete
+ * @returns Promise that resolves with unlocked achievements
  */
 export async function processAchievementsAfterGame(
   userId: string,
   gameState: GameState,
   language: string
-): Promise<void> {
+): Promise<{ unlockedAchievements: any[] }> {
+  const unlockedAchievements: any[] = [];
+  
   try {
     // Check if it was a perfect game
     const isPerfectGame = isPerfectGameScore(gameState);
@@ -86,14 +88,17 @@ export async function processAchievementsAfterGame(
     // Trigger events for unlocked achievements
     if (allUnlockedAchievements.length > 0) {
       // Fetch complete achievement data with translations
-      const unlockedAchievements = await fetchLocalizedAchievements(
+      const fetchedAchievements = await fetchLocalizedAchievements(
         userId,
         allUnlockedAchievements.map((a) => a.id),
         language
       );
 
+      // Add to unlocked achievements array
+      unlockedAchievements.push(...fetchedAchievements);
+
       // Trigger events
-      for (const achievement of unlockedAchievements) {
+      for (const achievement of fetchedAchievements) {
         console.log("Triggering achievement event for:", achievement.name);
         triggerAchievementUnlocked(achievement);
       }
@@ -116,11 +121,14 @@ export async function processAchievementsAfterGame(
 
         console.log("Triggering debug achievement event:", testAchievement.name);
         triggerAchievementUnlocked(testAchievement as any);
+        unlockedAchievements.push(testAchievement);
       }
     }
   } catch (error) {
     console.error("Error processing achievements after game:", error);
   }
+  
+  return { unlockedAchievements };
 }
 
 /**

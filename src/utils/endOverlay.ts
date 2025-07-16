@@ -61,6 +61,7 @@ const announceToScreenReader = (text: string): void => {
  * @returns Promise<void>
  */
 export const updateMotivationText = async (score: number): Promise<void> => {
+  console.log("updateMotivationText called with score:", score);
   const motivationElement = getElementById<HTMLElement>("motivation-text");
   if (!motivationElement) {
     console.warn("Motivation text element not found");
@@ -68,8 +69,11 @@ export const updateMotivationText = async (score: number): Promise<void> => {
   }
 
   // Get translations passed from server-side using modern destructuring
-  const overlay = getElement<HTMLElement>("[data-translations]");
+  // Look specifically for the EndOverlay element, not just any element with data-translations
+  const overlay = getElementById<HTMLElement>("endgame-popup") || getElement<HTMLElement>("[data-translations]");
   const translationsData = overlay?.getAttribute("data-translations");
+
+  console.log("Translation data found:", translationsData ? "Yes" : "No");
 
   if (!translationsData) {
     console.warn("Translation data not found, using empty fallback");
@@ -83,16 +87,24 @@ export const updateMotivationText = async (score: number): Promise<void> => {
     return;
   }
 
+  console.log("Available translations:", Object.keys(translations));
+
   const achievementLevel = getAchievementLevel(score);
+  console.log("Achievement level for score", score, ":", achievementLevel);
+  
   const motivationKey = getMotivationKey(achievementLevel);
+  console.log("Looking for motivation key:", motivationKey);
+  
   const motivationText = translations[motivationKey];
 
   if (motivationText) {
+    console.log("Found motivation text:", motivationText);
     motivationElement.textContent = motivationText;
     announceToScreenReader(motivationText);
   } else {
     console.warn(`Missing translation for key: ${motivationKey}`);
     const fallbackText = translations["game.end.defaultMotivation"] || "";
+    console.log("Using fallback text:", fallbackText);
     motivationElement.textContent = fallbackText;
   }
 };
@@ -135,12 +147,294 @@ export const animateProgressBar = async (score: number, maxScore: number = 1000)
  * @returns Promise<void>
  */
 export const updateEndOverlayScore = async (score: number): Promise<void> => {
+  console.log("updateEndOverlayScore called with score:", score);
   const scoreElement = getElementById<HTMLElement>("popup-score");
   if (scoreElement) {
+    console.log("Score element found, updating display");
     await updateScoreDisplay(score, scoreElement);
   } else {
     console.warn("Score element not found in EndOverlay");
   }
+};
+
+/**
+ * Update the difficulty display based on data attribute
+ * @returns Promise<void>
+ */
+export const updateDifficultyDisplay = async (): Promise<void> => {
+  const difficultyElement = getElementById<HTMLElement>("difficulty-display");
+  const overlay = getElementById<HTMLElement>("endgame-popup") || getElement<HTMLElement>("[data-difficulty]");
+  
+  if (difficultyElement && overlay) {
+    const difficulty = overlay.getAttribute("data-difficulty") || "";
+    console.log("Updating difficulty display with:", difficulty);
+    
+    // Capitalize first letter and display
+    const formattedDifficulty = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+    difficultyElement.textContent = formattedDifficulty;
+  } else {
+    console.warn("Difficulty display element or overlay not found");
+  }
+};
+
+/**
+ * Update the category display based on data attribute
+ * @returns Promise<void>
+ */
+export const updateCategoryDisplay = async (): Promise<void> => {
+  // For now, log the category data - we might need to add a category display element
+  const overlay = getElementById<HTMLElement>("endgame-popup") || getElement<HTMLElement>("[data-category]");
+  
+  if (overlay) {
+    const category = overlay.getAttribute("data-category") || "";
+    console.log("Category data found:", category);
+    
+    // We could add a category display element in the future
+    // For now, just log it so we know it's working
+  } else {
+    console.warn("Category overlay not found");
+  }
+};
+
+/**
+ * Setup restart button functionality to restart the same game
+ * @returns void
+ */
+export const setupRestartButton = (): void => {
+  const restartButton = getElementById<HTMLButtonElement>("restart-button");
+  
+  if (restartButton) {
+    restartButton.addEventListener("click", () => {
+      console.log("Restart button clicked");
+      
+      // Get current game parameters from URL and data attributes
+      const currentUrl = window.location.pathname;
+      const overlay = getElementById<HTMLElement>("endgame-popup");
+      
+      if (overlay) {
+        const category = overlay.getAttribute("data-category") || "";
+        const difficulty = overlay.getAttribute("data-difficulty") || "";
+        
+        console.log("Restarting game with:", { category, difficulty, currentUrl });
+        
+        // Reload the current page to restart the game
+        window.location.reload();
+      } else {
+        console.warn("Could not find overlay element for restart");
+        // Fallback: just reload the page
+        window.location.reload();
+      }
+    });
+    
+    console.log("Restart button functionality set up");
+  } else {
+    console.warn("Restart button not found");
+  }
+};
+
+/**
+ * Generate sharing text based on game results
+ * @param score - Player's score
+ * @param category - Game category
+ * @param difficulty - Game difficulty
+ * @param translations - Available translations
+ * @returns Formatted sharing text
+ */
+const generateShareText = (score: number, category: string, difficulty: string, translations?: TranslationData): string => {
+  const achievementLevel = getAchievementLevel(score);
+  const categoryDisplay = category ? category.charAt(0).toUpperCase() + category.slice(1) : "Music";
+  const difficultyDisplay = difficulty ? difficulty.charAt(0).toUpperCase() + difficulty.slice(1) : "Normal";
+  
+  // Generate direct link to the specific game
+  const currentLang = window.location.pathname.split('/')[1] || 'en';
+  const gameUrl = `${window.location.origin}/${currentLang}/game-${category}/${difficulty}`;
+  
+  // Try to get localized sharing text template if available
+  const shareTemplate = translations?.["game.end.shareTemplate"] || 
+                        `🎵 I just scored ${score} points playing ${categoryDisplay} (${difficultyDisplay}) on MelodyMind! 🎮\n\nCan you beat my score? Play the same game: ${gameUrl}`;
+  
+  // Replace placeholders if using template
+  return shareTemplate
+    .replace('{score}', score.toString())
+    .replace('{category}', categoryDisplay)
+    .replace('{difficulty}', difficultyDisplay)
+    .replace('{url}', gameUrl);
+};
+
+/**
+ * Display achievements in the EndOverlay
+ * @param achievements - Array of unlocked achievements
+ * @param translations - Available translations
+ * @returns void
+ */
+export const displayAchievements = (achievements: any[], translations?: TranslationData): void => {
+  const achievementsContainer = getElementById<HTMLElement>("unlocked-achievements");
+  const achievementsSection = getElementById<HTMLElement>("achievements-section");
+  
+  if (!achievementsContainer || !achievementsSection) {
+    console.warn("Achievement display elements not found");
+    return;
+  }
+
+  // Clear existing content
+  achievementsContainer.innerHTML = "";
+
+  if (!achievements || achievements.length === 0) {
+    // Hide achievements section if no achievements
+    achievementsSection.style.display = "none";
+    return;
+  }
+
+  // Show achievements section
+  achievementsSection.style.display = "block";
+
+  // Create achievement items
+  achievements.forEach((achievement) => {
+    const achievementElement = document.createElement("div");
+    achievementElement.className = "achievement-item";
+    achievementElement.setAttribute("role", "listitem");
+    achievementElement.setAttribute("aria-label", `${achievement.name}: ${achievement.description}`);
+
+    achievementElement.innerHTML = `
+      <div class="achievement-item__icon" aria-hidden="true">
+        ${achievement.icon_path ? `<img src="${achievement.icon_path}" alt="" />` : "🏆"}
+      </div>
+      <div class="achievement-item__content">
+        <h4 class="achievement-item__name">${achievement.name || "Achievement"}</h4>
+        <p class="achievement-item__description">${achievement.description || ""}</p>
+      </div>
+    `;
+
+    achievementsContainer.appendChild(achievementElement);
+  });
+
+  // Update aria-live region for screen readers
+  const announcement = translations?.["achievements.unlocked.announcement"] || 
+                      `${achievements.length} achievement${achievements.length > 1 ? 's' : ''} unlocked!`;
+  
+  announceToScreenReader(announcement);
+};
+
+/**
+ * Setup achievement event listeners for EndOverlay
+ * @returns void
+ */
+export const setupAchievementDisplay = (): void => {
+  // Listen for achievement unlock events
+  const handleAchievementUnlock = (event: CustomEvent) => {
+    const achievement = event.detail;
+    console.log("Achievement unlocked for EndOverlay:", achievement);
+    
+    // Get current achievements and add the new one
+    const achievementsContainer = getElementById<HTMLElement>("unlocked-achievements");
+    if (achievementsContainer) {
+      // Get translations
+      const overlay = getElementById<HTMLElement>("endgame-popup") || getElement<HTMLElement>("[data-translations]");
+      const translationsData = overlay?.getAttribute("data-translations");
+      const translations = parseTranslations(translationsData);
+      
+      // Add single achievement
+      displayAchievements([achievement], translations);
+    }
+  };
+
+  // Listen for multiple achievements
+  const handleMultipleAchievements = (event: CustomEvent) => {
+    const achievements = event.detail.achievements || [];
+    console.log("Multiple achievements for EndOverlay:", achievements);
+    
+    // Get translations
+    const overlay = getElementById<HTMLElement>("endgame-popup") || getElement<HTMLElement>("[data-translations]");
+    const translationsData = overlay?.getAttribute("data-translations");
+    const translations = parseTranslations(translationsData);
+    
+    displayAchievements(achievements, translations);
+  };
+
+  // Add event listeners
+  document.addEventListener("achievementUnlocked", handleAchievementUnlock);
+  document.addEventListener("achievementsUpdated", handleMultipleAchievements);
+  
+  console.log("Achievement display system set up");
+};
+
+/**
+ * Setup sharing functionality with Web Share API fallback
+ * @returns void
+ */
+export const setupSharingButton = (): void => {
+  const shareButton = getElementById<HTMLButtonElement>("share-btn") || 
+                     getElement<HTMLButtonElement>('.share-btn');
+  
+  if (!shareButton) {
+    console.warn("Share button not found");
+    return;
+  }
+
+  shareButton.addEventListener("click", async (event) => {
+    event.preventDefault();
+    
+    try {
+      // Get current game data and translations
+      const overlay = getElementById<HTMLElement>("endgame-popup") || getElement<HTMLElement>("[data-score]");
+      const score = parseInt(overlay?.getAttribute("data-score") || "0", 10);
+      const category = overlay?.getAttribute("data-category") || "";
+      const difficulty = overlay?.getAttribute("data-difficulty") || "";
+      
+      // Get translations
+      const translationsData = overlay?.getAttribute("data-translations");
+      const translations = parseTranslations(translationsData);
+      
+      const shareText = generateShareText(score, category, difficulty, translations);
+      const shareUrl = window.location.origin;
+      const shareTitle = translations?.["game.end.shareResults"] || "MelodyMind - Music Quiz Game";
+      
+      // Check if Web Share API is supported
+      if (navigator.share) {
+        await navigator.share({
+          title: shareTitle,
+          text: shareText,
+          url: shareUrl
+        });
+        console.log("Shared successfully using Web Share API");
+      } else {
+        // Fallback: Copy to clipboard
+        await navigator.clipboard.writeText(shareText);
+        
+        // Show user feedback with localized text
+        const originalText = shareButton.textContent;
+        const copiedText = translations?.["general.copied"] || "✅ Kopiert!";
+        shareButton.textContent = copiedText;
+        shareButton.style.background = "var(--color-success-600)";
+        
+        setTimeout(() => {
+          shareButton.textContent = originalText;
+          shareButton.style.background = "";
+        }, 2000);
+        
+        console.log("Share text copied to clipboard");
+      }
+    } catch (error) {
+      console.error("Error sharing:", error);
+      
+      // Show error feedback with localized text
+      const overlay = getElementById<HTMLElement>("endgame-popup") || getElement<HTMLElement>("[data-score]");
+      const translationsData = overlay?.getAttribute("data-translations");
+      const translations = parseTranslations(translationsData);
+      
+      const originalText = shareButton.textContent;
+      const errorText = translations?.["general.error"] || "❌ Fehler";
+      shareButton.textContent = errorText;
+      shareButton.style.background = "var(--color-error-600)";
+      
+      setTimeout(() => {
+        shareButton.textContent = originalText;
+        shareButton.style.background = "";
+      }, 2000);
+    }
+  });
+  
+  console.log("Share button functionality set up");
 };
 
 /**
@@ -152,16 +446,22 @@ export const updateEndOverlayScore = async (score: number): Promise<void> => {
 export const showEndOverlay = async (config: EndOverlayConfig): Promise<void> => {
   const { score, maxScore = 1000 } = config;
 
+  console.log("showEndOverlay called with:", { score, maxScore });
+
   // Use Promise.all for concurrent operations
   await Promise.all([
     updateEndOverlayScore(score),
     updateMotivationText(score),
     animateProgressBar(score, maxScore),
+    updateDifficultyDisplay(),
+    updateCategoryDisplay(),
   ]);
 
   // Update the overlay data attribute for consistency
-  const overlay = getElement<HTMLElement>("[data-score]");
+  const overlay = getElementById<HTMLElement>("endgame-popup") || getElement<HTMLElement>("[data-score]");
   overlay?.setAttribute("data-score", score.toString());
+  
+  console.log("showEndOverlay completed successfully");
 };
 
 /**
@@ -175,9 +475,36 @@ export const initializeEndOverlay = async (): Promise<void> => {
   const score = parseInt(overlay?.getAttribute("data-score") || "0", 10);
 
   await updateMotivationText(score);
+  
+  // Set up restart button functionality
+  setupRestartButton();
+  
+  // Set up sharing functionality
+  setupSharingButton();
+  
+  // Set up achievement display
+  setupAchievementDisplay();
 
   // Set up global showEndOverlay function for game engines to use
-  (globalThis as { showEndOverlay?: typeof showEndOverlay }).showEndOverlay = showEndOverlay;
+  // Support both the new config API and the legacy (score, maxScore) API
+  (globalThis as { showEndOverlay?: any }).showEndOverlay = (
+    configOrScore: EndOverlayConfig | number,
+    maxScore?: number
+  ) => {
+    console.log("Global showEndOverlay called with:", { configOrScore, maxScore });
+    if (typeof configOrScore === 'number') {
+      // Legacy API: (score, maxScore)
+      console.log("Using legacy API");
+      return showEndOverlay({
+        score: configOrScore,
+        maxScore: maxScore || 1000
+      });
+    } else {
+      // New API: (config)
+      console.log("Using new config API");
+      return showEndOverlay(configOrScore);
+    }
+  };
 };
 
 /**

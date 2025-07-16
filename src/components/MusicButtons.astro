@@ -134,7 +134,7 @@ const validButtons = buttons.filter(({ url }) => Boolean(url));
         aria-describedby="external-platform-notice"
         variant="primary"
         size="md"
-        style={`--btn-primary-bg: var(--color-${variant === 'spotify' ? 'success' : variant === 'deezer' ? 'primary' : 'secondary'}-600); --btn-primary-hover: var(--color-${variant === 'spotify' ? 'success' : variant === 'deezer' ? 'primary' : 'secondary'}-700);`}
+        style={`--btn-primary-bg: var(--color-${variant === "spotify" ? "success" : variant === "deezer" ? "primary" : "secondary"}-600); --btn-primary-hover: var(--color-${variant === "spotify" ? "success" : variant === "deezer" ? "primary" : "secondary"}-700);`}
       >
         <Icon name={type} class="music-button__icon" aria-hidden="true" title={`${label} logo`} />
         <span class="music-button__label">{label}</span>
@@ -251,11 +251,7 @@ const validButtons = buttons.filter(({ url }) => Boolean(url));
     }
   }
 
-
   /* ======================================
    * ACCESSIBILITY ENHANCEMENTS - DRY: Reuses ButtonLink patterns
    * ====================================== */
-
-
-
 </style>

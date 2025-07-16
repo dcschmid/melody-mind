@@ -1,38 +1,27 @@
 ---
 /**
- * AchievementBadge Component
+ * AchievementBadge - Responsive notification badge
  *
- * A responsive, accessible badge that displays new achievement notifications
- * in the navigation. Shows count and provides keyboard navigation.
+ * Displays new achievement count with WCAG AAA compliance
+ * Uses global.css variables for consistent theming
  *
- * Features:
- * - Responsive design with mobile-first breakpoints
- * - WCAG AAA compliant with high contrast colors (7:1 ratio)
- * - Touch-friendly with 44px minimum target size
- * - Keyboard navigation and screen reader support
- * - Reduced motion support for accessibility
- * - Performance optimized with requestAnimationFrame
- * - Uses global.css variables for consistent theming
- *
- * @component
- * @accessibility WCAG AAA compliant
- * @performance Optimized with requestAnimationFrame
+ * @param {string} lang - Language code for translations (e.g., 'en', 'de')
  */
 
-// 1. Imports
+/* Imports */
 import { useTranslations } from "@utils/i18n";
 
-// 2. Props definition
+/* Props */
 interface Props {
-  /** Language code for translations */
+  /** Language code for translations (e.g., 'en', 'de') */
   lang: string;
 }
 
-// 3. Props processing
+/* Props processing */
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-// 4. Additional variables for client-side script
+/* Client-side variables */
 const newLabel = t("achievements.badge.new");
 const newLabelWithCount = t("achievements.badge.new_with_count");
 const fallbackLabel = t("achievements.badge.fallback_text");
@@ -40,7 +29,7 @@ const contextDescription = t("achievements.badge.context_description");
 const keyboardInstructions = t("achievements.badge.keyboard_instructions");
 ---
 
-<!-- 4. Component template with semantic HTML -->
+<!-- Component template -->
 <span
   id="achievement-badge"
   class="achievement-badge"
@@ -60,76 +49,76 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
   </span>
 </span>
 
-<!-- 5. Component styles with SCSS -->
+<!-- Component styles -->
 <style lang="scss">
-  /**
-   * AchievementBadge Component Styles - Modern SCSS
-   * 
-   * ✅ Responsive design with fluid scaling and modern breakpoints
-   * ✅ 100% CSS variables from global.css - NO hardcoded values
-   * ✅ WCAG AAA 2.2 compliant colors and spacing
-   * ✅ Performance optimized with CSS containment
-   * ✅ Enhanced accessibility with proper focus management
-   * ✅ Modern SCSS features with logical properties
-   */
+  /* AchievementBadge - responsive notification badge */
+  /* Uses global.css variables, WCAG AAA compliant, performance optimized */
 
   .achievement-badge {
-    // Modern CSS positioning with logical properties
+    /* Positioning with logical properties */
     position: absolute;
     inset-block-start: var(--space-xs);
     inset-inline-end: var(--space-xs);
-    
-    // Flexbox layout with modern properties
+
+    /* Flexbox layout */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    
-    // Responsive sizing with fluid scaling
-    height: clamp(var(--min-touch-size), 5vw, var(--space-3xl));
-    width: clamp(var(--min-touch-size), 5vw, var(--space-3xl));
-    min-width: var(--min-touch-size);
-    min-height: var(--min-touch-size);
-    
-    // Responsive padding
+
+    /* Responsive sizing with clamp() and container queries */
+    height: clamp(var(--touch-target-enhanced), 5vw, var(--achievement-badge-size));
+    width: clamp(var(--touch-target-enhanced), 5vw, var(--achievement-badge-size));
+    min-width: var(--touch-target-enhanced);
+    min-height: var(--touch-target-enhanced);
+
+    /* Container-based responsive scaling */
+    @container (min-width: 20rem) {
+      height: clamp(var(--touch-target-enhanced), 4vw, var(--achievement-badge-size));
+      width: clamp(var(--touch-target-enhanced), 4vw, var(--achievement-badge-size));
+    }
+
+    /* Responsive padding with container queries */
     padding: clamp(var(--space-xs), 2vw, var(--space-sm));
-    
-    // Visual styling with CSS variables
+
+    /* Optimize for different screen densities */
+    @media (min-resolution: 2dppx) {
+      padding: clamp(var(--space-xs), 1.5vw, var(--space-sm));
+    }
+
+    /* Visual styling */
     border-radius: var(--radius-full);
-    background-color: var(--interactive-secondary);
+    background: var(--interactive-secondary);
     color: var(--text-primary);
     box-shadow: var(--shadow-md);
-    
-    // Typography with fluid scaling
+
+    /* Typography */
     font-size: clamp(var(--text-xs), 3vw, var(--text-sm));
     font-weight: var(--font-bold);
     line-height: var(--leading-tight);
-    
-    // Modern animation properties
-    opacity: 0;
-    transform: scale(0) translateZ(0);
-    transition: {
-      property: opacity, transform;
-      duration: var(--transition-normal);
-      timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    // Interaction state
-    pointer-events: none;
-    
-    // Modern CSS containment for performance
-    contain: layout style paint;
-    
-    // GPU acceleration
-    will-change: transform, opacity;
-    
-    // WCAG AAA text spacing support
-    text-spacing: inherit;
-    letter-spacing: inherit;
-    word-spacing: inherit;
-    line-height: max(var(--leading-tight), inherit);
 
-    // Responsive breakpoints with modern approach
+    /* Animation */
+    opacity: 0;
+    transform: scale(var(--animation-scale-start)) translateZ(0);
+    transition:
+      opacity var(--animation-duration-normal) cubic-bezier(0.4, 0, 0.2, 1),
+      transform var(--animation-duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Interaction */
+    pointer-events: none;
+
+    /* Performance optimizations */
+    contain: layout style paint;
+    content-visibility: auto;
+    contain-intrinsic-size: var(--achievement-badge-size) var(--achievement-badge-size);
+    will-change: transform, opacity;
+
+    /* WCAG AAA text spacing */
+    letter-spacing: var(--letter-spacing-base);
+    word-spacing: var(--word-spacing-enhanced);
+    line-height: max(var(--leading-tight), var(--line-height-enhanced));
+
+    /* Responsive breakpoints */
     @media (min-width: 40em) {
       inset-block-start: var(--space-sm);
       inset-inline-end: var(--space-sm);
@@ -139,19 +128,20 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
     @media (min-width: 64em) {
       inset-block-start: var(--space-md);
       inset-inline-end: var(--space-md);
-      height: var(--space-3xl);
-      width: var(--space-3xl);
+      height: var(--achievement-badge-size);
+      width: var(--achievement-badge-size);
       font-size: var(--text-base);
     }
 
-    // Visible state with modern transforms
+    /* Visible state with performance optimization */
     &.visible {
-      opacity: 1;
-      transform: scale(1) translateZ(0);
+      opacity: var(--animation-opacity-full);
+      transform: scale(var(--animation-scale-end)) translateZ(0);
       pointer-events: auto;
+      will-change: auto; /* Remove will-change when visible */
     }
 
-    // Enhanced focus state with modern properties
+    /* Enhanced focus state */
     &:focus-visible {
       outline: var(--focus-outline);
       outline-offset: var(--focus-ring-offset);
@@ -159,27 +149,27 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
       z-index: var(--z-notification);
     }
 
-    // Counter text with modern styling
+    /* Counter text */
     &__count {
       display: block;
-      width: 100%;
+      width: var(--width-full);
       line-height: 1;
       contain: layout style;
     }
 
-    // Modern reduced motion support
+    /* Reduced motion support */
     @media (prefers-reduced-motion: reduce) {
       transition-duration: var(--transition-instant);
-      transform: scale(1) translateZ(0);
+      transform: scale(var(--animation-scale-end)) translateZ(0);
       will-change: auto;
     }
 
-    // Print optimization
+    /* Print optimization */
     @media print {
       display: none;
     }
 
-    // High contrast mode with modern approach
+    /* High contrast mode */
     @media (forced-colors: active) {
       border: var(--border-width-thick) solid CanvasText;
       background-color: Highlight;
@@ -187,15 +177,15 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
       forced-color-adjust: none;
     }
 
-    // Enhanced contrast support
+    /* Enhanced contrast support */
     @media (prefers-contrast: high) {
       border: var(--border-width-thick) solid var(--text-primary);
       background-color: var(--bg-primary);
       color: var(--text-primary);
       box-shadow: var(--shadow-xl);
     }
-    
-    // Dark mode optimization
+
+    /* Dark mode optimization */
     @media (prefers-color-scheme: dark) {
       background-color: var(--color-primary-600);
       color: var(--color-white);
@@ -204,10 +194,10 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
   }
 </style>
 
-<!-- 6. Client-side interactivity - Modern TypeScript -->
+<!-- Client-side interactivity -->
 <script>
   import { initializeAchievementBadge } from "../../utils/achievements/achievementBadge.ts";
 
-  // Initialize badge with modern TypeScript utilities
+  /* Initialize badge */
   document.addEventListener("DOMContentLoaded", initializeAchievementBadge);
 </script>

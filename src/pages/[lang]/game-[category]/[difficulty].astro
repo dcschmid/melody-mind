@@ -16,6 +16,7 @@ import FeedbackOverlay from "@components/Overlays/FeedbackOverlay.astro";
 import EndOverlay from "@components/Overlays/EndOverlay.astro";
 import LoadingSpinner from "@components/Game/LoadingSpinner.astro";
 import Joker from "@components/Game/Joker.astro";
+import AchievementNotification from "@components/Achievements/AchievementNotification.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import type { Difficulty as GameDifficulty } from "@utils/game/jokerUtils";
 import { Icon } from "astro-icon/components";
@@ -220,6 +221,9 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   <div class="game-controls">
     <Joker />
   </div>
+
+  <!-- Achievement notification component -->
+  <AchievementNotification lang={lang} />
 </Layout>
 
 <script>
