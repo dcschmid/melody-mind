@@ -10,6 +10,14 @@ import frPodcastsJson from "../../data/podcasts/fr.json" assert { type: "json" }
 import itPodcastsJson from "../../data/podcasts/it.json" assert { type: "json" };
 import esPodcastsJson from "../../data/podcasts/es.json" assert { type: "json" };
 import ptPodcastsJson from "../../data/podcasts/pt.json" assert { type: "json" };
+import daPodcastsJson from "../../data/podcasts/da.json" assert { type: "json" };
+import nlPodcastsJson from "../../data/podcasts/nl.json" assert { type: "json" };
+import svPodcastsJson from "../../data/podcasts/sv.json" assert { type: "json" };
+import fiPodcastsJson from "../../data/podcasts/fi.json" assert { type: "json" };
+import cnPodcastsJson from "../../data/podcasts/cn.json" assert { type: "json" };
+import ruPodcastsJson from "../../data/podcasts/ru.json" assert { type: "json" };
+import jpPodcastsJson from "../../data/podcasts/jp.json" assert { type: "json" };
+import ukPodcastsJson from "../../data/podcasts/uk.json" assert { type: "json" };
 
 /**
  * Static path generation for internationalization
@@ -61,6 +69,14 @@ const loadPodcastsForLanguage = async (language: string): Promise<PodcastData[]>
     it: itPodcastsJson.podcasts,
     es: esPodcastsJson.podcasts,
     pt: ptPodcastsJson.podcasts,
+    da: daPodcastsJson.podcasts,
+    nl: nlPodcastsJson.podcasts,
+    sv: svPodcastsJson.podcasts,
+    fi: fiPodcastsJson.podcasts,
+    cn: cnPodcastsJson.podcasts,
+    ru: ruPodcastsJson.podcasts,
+    jp: jpPodcastsJson.podcasts,
+    uk: ukPodcastsJson.podcasts,
   };
 
   const podcasts = podcastDataMap[language as keyof typeof podcastDataMap];
