@@ -12,6 +12,8 @@
  * - Full keyboard navigation with focus trapping
  * - Real-time achievement badge integration
  * - Donation links with external site indicators
+ * - CSS containment for performance optimization
+ * - Fully integrated with global.css variables
  *
  * @example
  * ```astro
@@ -33,18 +35,21 @@
  * - Full keyboard navigation with Home/End key shortcuts
  * - Screen reader optimization with ARIA live regions
  * - Focus trap implementation with proper escape mechanisms
+ * - Fully responsive design with proper breakpoints
  *
  * @performance
  * - Dynamic imports for session timeout utilities (loaded only when needed)
  * - Event-driven authentication monitoring with cookie watching
  * - Optimized polling with exponential backoff for network resilience
  * - Proper cleanup of event listeners to prevent memory leaks
+ * - CSS containment optimization for better rendering performance
+ * - Lazy loading of interactive elements with content-visibility
  *
  * @i18n
  * Supports multiple languages with automatic route generation and localized content.
  * Uses translation keys from the i18n system for all user-facing text.
  *
- * @version 3.0.0
+ * @version 3.1.0
  * @since 1.0.0
  */
 import { Icon } from "astro-icon/components";
@@ -61,6 +66,7 @@ import AchievementBadge from "../Achievements/AchievementBadge.astro";
  * @property {boolean} [showHeaderIcons=true] - Controls visibility of additional navigation icons
  *   including Knowledge, Playlists, Highscores, and Achievements links.
  *   Set to false for minimal navigation on game pages or simplified layouts.
+ *   When false, only the home navigation and user account sections are displayed.
  *
  * @example
  * ```astro
@@ -73,6 +79,10 @@ import AchievementBadge from "../Achievements/AchievementBadge.astro";
  * <!-- Conditional navigation based on page context -->
  * <Navigation showHeaderIcons={!isGamePage} />
  * ```
+ *
+ * @accessibility
+ * The showHeaderIcons prop maintains full accessibility compliance regardless of state.
+ * All navigation items retain proper ARIA labels and keyboard navigation support.
  */
 interface Props {
   showHeaderIcons?: boolean;
@@ -826,7 +836,7 @@ const stableItemIds = {
       const announcementTimeout =
         parseInt(
           getComputedStyle(document.documentElement)
-            .getPropertyValue("--timeout-announcement")
+            .getPropertyValue("--timeout-announcement-medium")
             .replace("ms", ""),
           10
         ) || 3000;
@@ -1053,7 +1063,7 @@ const stableItemIds = {
           const pollingInterval =
             parseInt(
               getComputedStyle(document.documentElement)
-                .getPropertyValue("--auth-polling-interval")
+                .getPropertyValue("--update-interval-slow")
                 .replace("ms", ""),
               10
             ) || 2000;
@@ -1118,7 +1128,7 @@ const stableItemIds = {
           const pollingInterval =
             parseInt(
               getComputedStyle(document.documentElement)
-                .getPropertyValue("--auth-polling-interval")
+                .getPropertyValue("--update-interval-slow")
                 .replace("ms", ""),
               10
             ) || 2000;

@@ -326,10 +326,10 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
 
     // Modern section management with WeakMap for better performance
     const sectionStates = new WeakMap();
-    
+
     const getSectionElements = (): HTMLElement[] => {
       const sections = ["auth-section", "quiz-section", "chronology-section"];
-      return sections.map(id => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+      return sections.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
     };
 
     const updateSectionVisibility = (element: HTMLElement, isVisible: boolean): void => {
@@ -357,7 +357,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     const initializePage = (): void => {
       // Initially hide all sections with performance optimization
       const sections = getSectionElements();
-      sections.forEach(section => {
+      sections.forEach((section) => {
         if (section) {
           updateSectionVisibility(section, false);
           sectionStates.set(section, { initialized: true });
@@ -409,7 +409,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     min-height: 100vh;
     background: var(--bg-primary);
     color: var(--text-primary);
-    
+
     // Modern CSS containment for better performance
     contain: layout style;
 
@@ -417,11 +417,11 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     @media (min-width: 30em) {
       padding: clamp(var(--space-lg), 4vw, var(--space-xl));
     }
-    
+
     @media (min-width: 48em) {
       padding: clamp(var(--space-xl), 5vw, var(--space-2xl));
     }
-    
+
     @media (min-width: 64em) {
       padding: var(--space-2xl);
     }
@@ -459,7 +459,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     align-items: center;
     gap: clamp(var(--space-2xl), 5vw, var(--space-3xl));
     width: var(--width-full);
-    
+
     // Modern CSS Grid for better control on larger screens
     @media (min-width: 48em) {
       display: grid;
@@ -467,7 +467,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       gap: clamp(var(--space-2xl), 4vw, var(--space-3xl));
       align-items: center;
     }
-    
+
     @media (min-width: 64em) {
       grid-template-columns: 1.2fr 1fr;
       gap: var(--space-3xl);
@@ -482,7 +482,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     gap: clamp(var(--space-sm), 3vw, var(--space-lg));
     flex: 1;
     min-width: 0;
-    
+
     @media (min-width: 48em) {
       align-items: flex-start;
       text-align: left;
@@ -493,7 +493,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     width: var(--width-full);
     max-width: min(var(--container-xs), 90vw);
     flex-shrink: 0;
-    
+
     @media (min-width: 48em) {
       max-width: var(--container-sm);
     }
@@ -508,11 +508,11 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
-    
+
     // Modern CSS transforms for better performance
     transform: translateZ(0);
     will-change: transform;
-    
+
     // Responsive aspect ratio
     @media (max-width: 30em) {
       aspect-ratio: 4 / 3;
@@ -524,7 +524,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     width: var(--width-full);
     object-fit: cover;
     transition: transform var(--transition-normal);
-    
+
     // Performance optimization
     transform: translateZ(0);
     will-change: transform;
@@ -666,7 +666,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       background: linear-gradient(90deg, var(--color-primary-500), var(--interactive-primary));
     }
   }
-  
+
   // Button Groups - Modern responsive layout with CSS Grid
   .button-group {
     margin-top: clamp(var(--space-md), 3vw, var(--space-lg));
@@ -679,7 +679,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     backdrop-filter: blur(var(--space-sm));
     border: var(--border-width-thin) solid rgba(255, 255, 255, var(--opacity-low));
     contain: layout style;
-    
+
     // Modern CSS Grid with auto-fit for responsive behavior
     @media (min-width: 30em) {
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));

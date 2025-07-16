@@ -1,7 +1,7 @@
 /**
  * Achievement Badge Utilities
  * Modern TypeScript utilities for achievement badge functionality
- * 
+ *
  * @performance Optimized with requestAnimationFrame and efficient DOM operations
  * @accessibility WCAG AAA compliant with enhanced keyboard navigation
  */
@@ -30,7 +30,7 @@ export class AchievementBadgeManager {
   private state: BadgeState = {
     count: 0,
     isVisible: false,
-    element: null
+    element: null,
   };
 
   private config: BadgeConfig;
@@ -51,7 +51,7 @@ export class AchievementBadgeManager {
       newLabelWithCount: element?.getAttribute("data-new-label-with-count") ?? "",
       fallbackLabel: element?.getAttribute("data-fallback-label") ?? "New achievements",
       contextDescription: element?.getAttribute("data-context-description") ?? "",
-      keyboardInstructions: element?.getAttribute("data-keyboard-instructions") ?? ""
+      keyboardInstructions: element?.getAttribute("data-keyboard-instructions") ?? "",
     };
   }
 
@@ -136,7 +136,8 @@ export class AchievementBadgeManager {
     this.state.element.setAttribute("aria-label", formattedLabel);
 
     // Enhanced context for screen readers
-    const contextualDescription = `${this.config.contextDescription} ${this.config.keyboardInstructions}`.trim();
+    const contextualDescription =
+      `${this.config.contextDescription} ${this.config.keyboardInstructions}`.trim();
     if (contextualDescription) {
       this.state.element.setAttribute("aria-description", contextualDescription);
     }
@@ -156,7 +157,10 @@ export class AchievementBadgeManager {
 
     this.state.element.classList.remove("visible");
     this.state.element.setAttribute("aria-hidden", "true");
-    this.state.element.setAttribute("aria-label", this.config.newLabel || this.config.fallbackLabel);
+    this.state.element.setAttribute(
+      "aria-label",
+      this.config.newLabel || this.config.fallbackLabel
+    );
     this.state.element.setAttribute("role", "status");
     this.state.element.removeAttribute("tabindex");
     this.state.element.removeAttribute("aria-description");
@@ -255,9 +259,9 @@ export const createAchievementBadge = (elementId?: string): AchievementBadgeMana
 export const initializeAchievementBadge = (): void => {
   // Check if we're on the achievements page to reset count
   const isAchievementPage = window.location.pathname.includes("/achievements");
-  
+
   const badge = createAchievementBadge();
-  
+
   if (isAchievementPage) {
     badge.resetCount();
   }

@@ -1,9 +1,9 @@
 /**
  * AuthSubmitButton Utilities - Modern TypeScript
- * 
+ *
  * Provides enhanced accessibility and interaction features for auth submit buttons.
  * Reuses existing authFormUtils to avoid code duplication.
- * 
+ *
  * @performance Optimized with modern ES6+ features and efficient DOM manipulation
  * @accessibility WCAG AAA compliant with enhanced screen reader support
  */
@@ -58,15 +58,15 @@ const translations: TranslationMap = {
   },
   de: {
     "auth.accessibility.button_focus_instruction":
-      "Schaltfläche: {buttonText}. Drücken Sie die Eingabetaste zum Absenden",
+      "Schaltflï¿½che: {buttonText}. Drï¿½cken Sie die Eingabetaste zum Absenden",
   },
   es: {
     "auth.accessibility.button_focus_instruction":
-      "Botón: {buttonText}. Presiona Enter para enviar",
+      "Botï¿½n: {buttonText}. Presiona Enter para enviar",
   },
   fr: {
     "auth.accessibility.button_focus_instruction":
-      "Bouton : {buttonText}. Appuyez sur Entrée pour soumettre",
+      "Bouton : {buttonText}. Appuyez sur Entrï¿½e pour soumettre",
   },
   it: {
     "auth.accessibility.button_focus_instruction":
@@ -74,11 +74,11 @@ const translations: TranslationMap = {
   },
   pt: {
     "auth.accessibility.button_focus_instruction":
-      "Botão: {buttonText}. Pressione Enter para enviar",
+      "Botï¿½o: {buttonText}. Pressione Enter para enviar",
   },
   da: {
     "auth.accessibility.button_focus_instruction":
-      "Knap: {buttonText}. Tryk på Enter for at indsende",
+      "Knap: {buttonText}. Tryk pï¿½ Enter for at indsende",
   },
   nl: {
     "auth.accessibility.button_focus_instruction":
@@ -86,11 +86,11 @@ const translations: TranslationMap = {
   },
   sv: {
     "auth.accessibility.button_focus_instruction":
-      "Knapp: {buttonText}. Tryck på Enter för att skicka",
+      "Knapp: {buttonText}. Tryck pï¿½ Enter fï¿½r att skicka",
   },
   fi: {
     "auth.accessibility.button_focus_instruction":
-      "Painike: {buttonText}. Paina Enter lähettääksesi",
+      "Painike: {buttonText}. Paina Enter lï¿½hettï¿½ï¿½ksesi",
   },
 };
 
