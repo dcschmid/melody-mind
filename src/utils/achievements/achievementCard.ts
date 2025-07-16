@@ -1,7 +1,7 @@
 /**
  * Achievement Card Utilities
  * Modern TypeScript utilities for achievement card functionality
- * 
+ *
  * @performance Optimized with event delegation and efficient DOM operations
  * @accessibility WCAG AAA compliant with enhanced keyboard navigation
  */
@@ -24,8 +24,8 @@ interface AchievementCardConfig {
 // Default configuration
 const DEFAULT_CONFIG: AchievementCardConfig = {
   cardSelector: '.achievement-card[role="button"]',
-  imageSelector: '.achievement-card__image',
-  placeholderSelector: '.achievement-card__icon-placeholder'
+  imageSelector: ".achievement-card__image",
+  placeholderSelector: ".achievement-card__icon-placeholder",
 };
 
 /**
@@ -45,21 +45,23 @@ export class AchievementCardController {
 
   // Initialize controller with modern event listeners
   private initialize(): void {
-    if (this.isInitialized) {return;}
+    if (this.isInitialized) {
+      return;
+    }
 
     // Use event delegation for better performance
-    document.addEventListener('click', this.handleCardClick, {
-      signal: this.abortController.signal
+    document.addEventListener("click", this.handleCardClick, {
+      signal: this.abortController.signal,
     });
 
-    document.addEventListener('keydown', this.handleCardKeydown, {
-      signal: this.abortController.signal
+    document.addEventListener("keydown", this.handleCardKeydown, {
+      signal: this.abortController.signal,
     });
 
     // Handle image loading errors
-    document.addEventListener('error', this.handleImageError, {
+    document.addEventListener("error", this.handleImageError, {
       capture: true,
-      signal: this.abortController.signal
+      signal: this.abortController.signal,
     });
 
     this.isInitialized = true;
@@ -77,7 +79,7 @@ export class AchievementCardController {
 
   // Handle keyboard navigation with enhanced accessibility
   private handleCardKeydown = (event: KeyboardEvent): void => {
-    if (event.key !== 'Enter' && event.key !== ' ') {
+    if (event.key !== "Enter" && event.key !== " ") {
       return;
     }
 
@@ -99,53 +101,52 @@ export class AchievementCardController {
   private triggerCardSelection(card: HTMLElement): void {
     try {
       const eventDetail = this.extractCardData(card);
-      
+
       if (!eventDetail.achievementId) {
-        console.warn('Achievement card missing required data-testid attribute');
+        console.warn("Achievement card missing required data-testid attribute");
         return;
       }
 
       // Dispatch custom event with rich context
-      const customEvent = new CustomEvent<AchievementCardEventDetail>('achievement:select', {
+      const customEvent = new CustomEvent<AchievementCardEventDetail>("achievement:select", {
         bubbles: true,
-        detail: eventDetail
+        detail: eventDetail,
       });
 
       card.dispatchEvent(customEvent);
       this.updateCardState(card);
-
     } catch (error) {
-      console.error('Error handling achievement card selection:', error);
+      console.error("Error handling achievement card selection:", error);
     }
   }
 
   // Extract card data with type safety
   private extractCardData(card: HTMLElement): AchievementCardEventDetail {
     const { testid, category, status } = card.dataset;
-    const achievementId = testid?.replace('achievement-card-', '') ?? '';
+    const achievementId = testid?.replace("achievement-card-", "") ?? "";
 
     return {
       achievementId,
       category,
       status,
-      timestamp: Date.now()
+      timestamp: Date.now(),
     };
   }
 
   // Update card ARIA state for accessibility
   private updateCardState(card: HTMLElement): void {
-    const expanded = card.getAttribute('aria-expanded') === 'true';
-    card.setAttribute('aria-expanded', String(!expanded));
+    const expanded = card.getAttribute("aria-expanded") === "true";
+    card.setAttribute("aria-expanded", String(!expanded));
 
     // Announce state change to screen readers
-    const announcement = document.createElement('div');
-    announcement.setAttribute('aria-live', 'polite');
-    announcement.setAttribute('aria-atomic', 'true');
-    announcement.className = 'sr-only';
-    announcement.textContent = `Achievement card ${expanded ? 'collapsed' : 'expanded'}`;
-    
+    const announcement = document.createElement("div");
+    announcement.setAttribute("aria-live", "polite");
+    announcement.setAttribute("aria-atomic", "true");
+    announcement.className = "sr-only";
+    announcement.textContent = `Achievement card ${expanded ? "collapsed" : "expanded"}`;
+
     document.body.appendChild(announcement);
-    
+
     // Clean up announcement after screen reader processes it
     setTimeout(() => {
       document.body.removeChild(announcement);
@@ -155,7 +156,7 @@ export class AchievementCardController {
   // Handle image loading errors with graceful fallback
   private handleImageError = (event: Event): void => {
     const img = event.target as HTMLImageElement;
-    
+
     if (!img.matches(this.config.imageSelector)) {
       return;
     }
@@ -165,12 +166,12 @@ export class AchievementCardController {
     ) as HTMLElement;
 
     if (placeholder) {
-      img.style.display = 'none';
-      placeholder.style.display = 'flex';
-      
+      img.style.display = "none";
+      placeholder.style.display = "flex";
+
       // Update accessibility attributes
-      placeholder.setAttribute('role', 'img');
-      placeholder.setAttribute('aria-label', 'Achievement icon placeholder');
+      placeholder.setAttribute("role", "img");
+      placeholder.setAttribute("aria-label", "Achievement icon placeholder");
     }
 
     console.warn(`Failed to load achievement icon: ${img.src}`);
@@ -198,8 +199,8 @@ export class AchievementCardController {
     }
 
     return {
-      expanded: card.getAttribute('aria-expanded') === 'true',
-      status: card.dataset.status
+      expanded: card.getAttribute("aria-expanded") === "true",
+      status: card.dataset.status,
     };
   }
 
@@ -220,11 +221,15 @@ export const createAchievementCardController = (
 // Auto-initialization helper
 export const initializeAchievementCards = (): AchievementCardController => {
   const controller = createAchievementCardController();
-  
+
   // Cleanup on page unload
-  window.addEventListener('beforeunload', () => {
-    controller.destroy();
-  }, { once: true });
+  window.addEventListener(
+    "beforeunload",
+    () => {
+      controller.destroy();
+    },
+    { once: true }
+  );
 
   return controller;
 };
@@ -238,18 +243,14 @@ export const achievementCardUtils = {
 
   // Get cards by status
   getCardsByStatus(status: string): HTMLElement[] {
-    return this.findAllCards().filter(card => 
-      card.dataset.status === status
-    );
+    return this.findAllCards().filter((card) => card.dataset.status === status);
   },
 
   // Focus first available card
   focusFirstCard(): void {
     const cards = this.findAllCards();
-    const firstCard = cards.find(card => 
-      card.getAttribute('tabindex') === '0'
-    );
-    
+    const firstCard = cards.find((card) => card.getAttribute("tabindex") === "0");
+
     if (firstCard) {
       firstCard.focus();
     }
@@ -258,20 +259,20 @@ export const achievementCardUtils = {
   // Announce card count for screen readers
   announceCardCount(): void {
     const cards = this.findAllCards();
-    const unlockedCount = this.getCardsByStatus('unlocked').length;
-    const inProgressCount = this.getCardsByStatus('in-progress').length;
-    const lockedCount = this.getCardsByStatus('locked').length;
+    const unlockedCount = this.getCardsByStatus("unlocked").length;
+    const inProgressCount = this.getCardsByStatus("in-progress").length;
+    const lockedCount = this.getCardsByStatus("locked").length;
 
-    const announcement = document.createElement('div');
-    announcement.setAttribute('aria-live', 'polite');
-    announcement.setAttribute('aria-atomic', 'true');
-    announcement.className = 'sr-only';
+    const announcement = document.createElement("div");
+    announcement.setAttribute("aria-live", "polite");
+    announcement.setAttribute("aria-atomic", "true");
+    announcement.className = "sr-only";
     announcement.textContent = `${cards.length} achievements total. ${unlockedCount} unlocked, ${inProgressCount} in progress, ${lockedCount} locked.`;
-    
+
     document.body.appendChild(announcement);
-    
+
     setTimeout(() => {
       document.body.removeChild(announcement);
     }, 2000);
-  }
+  },
 };

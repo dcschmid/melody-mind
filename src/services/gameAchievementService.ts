@@ -26,7 +26,7 @@ export async function processAchievementsAfterGame(
   language: string
 ): Promise<{ unlockedAchievements: any[] }> {
   const unlockedAchievements: any[] = [];
-  
+
   try {
     // Check if it was a perfect game
     const isPerfectGame = isPerfectGameScore(gameState);
@@ -127,7 +127,7 @@ export async function processAchievementsAfterGame(
   } catch (error) {
     console.error("Error processing achievements after game:", error);
   }
-  
+
   return { unlockedAchievements };
 }
 

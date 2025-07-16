@@ -59,7 +59,7 @@ export class ListSearchManager {
 
     this.searchInput.addEventListener("input", this.handleSearch.bind(this));
     this.searchInput.addEventListener("keydown", this.handleKeydown.bind(this));
-    
+
     if (this.clearButton) {
       this.clearButton.addEventListener("click", this.clearSearch.bind(this));
     }
@@ -71,7 +71,7 @@ export class ListSearchManager {
   private handleSearch(event: Event): void {
     const target = event.target as HTMLInputElement;
     const query = target.value.toLowerCase().trim();
-    
+
     this.filterItems(query);
     this.updateClearButton(query);
   }
@@ -88,7 +88,7 @@ export class ListSearchManager {
     this.allItems.forEach((item) => {
       const textContent = item.textContent?.toLowerCase() || "";
       const isVisible = query === "" || textContent.includes(query);
-      
+
       if (item instanceof HTMLElement) {
         item.style.display = isVisible ? "" : "none";
         item.setAttribute("aria-hidden", (!isVisible).toString());
