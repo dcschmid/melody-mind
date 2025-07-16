@@ -1,0 +1,81 @@
+{
+  "podcasts": [
+    {
+      "id": "1950s",
+      "title": "Melody Mind: Kultaiset 50-luku - Rock 'n' Roll Vallankumous",
+      "description": "Sukella Rock 'n' Rollin syntyyn! Tässä podcastissa tutkimme 1950-lukua, kun Elvis Presley järkytti maailmaa, Chuck Berry sai kitaran puhumaan, ja Bill Haleyn 'Rock Around the Clock' sytytti musiikillisen vallankumouksen. Ensimmäisistä teini-hiteistä jazz-legendoihin kuten Miles Davis ja John Coltrane - löydä äänet, jotka muovasivat sukupolven ja loivat perustan kaikelle, mikä tuli sen jälkeen.",
+      "imageUrl": "/category/1950s.jpg",
+      "language": "fi",
+      "isAvailable": true,
+      "publishedAt": "2025-01-01",
+      "audioUrl": "/podcasts/fi/1950s.mp3",
+      "subtitleUrl": "/podcasts/fi/1950s.vtt"
+    },
+    {
+      "id": "1960s",
+      "title": "Melody Mind: Villi 60-luku - Beatlemania & Woodstock",
+      "description": "1960-luku - kapinan ja vallankumouksen aika! Seuraa meitä musiikillisella matkalla Beatlemaniasta, joka lähetti maailman kollektiiviseen frenzyyn, Woodstock-festivaaliin, joka määritti koko sukupolven. Bob Dylanin runollisista protestilauluista Jimi Hendrixin psykedelisiin ääniin soul-legendoihin kuten Aretha Franklin - koe musiikki, joka ei ollut vain viihdettä, vaan ajoi sosiaalista liikettä.",
+      "imageUrl": "/category/1960s.jpg",
+      "language": "fi",
+      "isAvailable": true,
+      "publishedAt": "2025-01-02",
+      "audioUrl": "/podcasts/fi/1960s.mp3",
+      "subtitleUrl": "/podcasts/fi/1960s.vtt"
+    },
+    {
+      "id": "1970s",
+      "title": "Melody Mind: 70-luku - Disco Fever & Rock Räjäytys",
+      "description": "Tervetuloa 1970-luvulle - äärimmäisyyksien vuosikymmen! Funky disco-beateista Donna Summerin ja Bee Geesin, jotka saivat tanssilattiat täriseen, Pink Floydin ja Led Zeppelinin eeppisiin rock-operoihin. 70-luku toi meille Glam Rockin David Bowien kanssa, Progressive Rockin Genesisin ja Yesin kanssa, ja punkin syntymän Sex Pistolsin kanssa. Vuosikymmen, jolla oli kaikkea disco feveristä heavy metaliin - ja muutti musiikkimaailman ikuisesti.",
+      "imageUrl": "/category/1970s.jpg",
+      "language": "fi",
+      "isAvailable": true,
+      "publishedAt": "2025-08-15",
+      "audioUrl": "/podcasts/fi/1970s.mp3",
+      "subtitleUrl": "/podcasts/fi/1970s.vtt"
+    },
+    {
+      "id": "1980s",
+      "title": "Melody Mind: 80-luku - Synth-Pop & Hair Metal",
+      "description": "1980-luku - syntetisaattoreiden kultakausi ja MTV-aika! Koe synth-popin nousu bändien kuten Depeche Mode, New Order ja The Human League kanssa, jotka kokeilivat elektronisia ääniä. Samaan aikaan hair metal-bändit kuten Bon Jovi, Guns N' Roses ja Def Leppard hallitsivat hittilistoja. 80-luku toi meille Madonnan, Michael Jacksonin Thriller-ajan, ja hip-hopin syntymän Run-DMC:n ja Public Enemyn kanssa. Vuosikymmen innovaatiota ja yltäkylläisyyttä!",
+      "imageUrl": "/category/1980s.jpg",
+      "language": "fi",
+      "isAvailable": true,
+      "publishedAt": "2025-09-20",
+      "audioUrl": "/podcasts/fi/1980s.mp3",
+      "subtitleUrl": "/podcasts/fi/1980s.vtt"
+    },
+    {
+      "id": "1990s",
+      "title": "Melody Mind: 90-luku - Grunge & Britpop Vallankumous",
+      "description": "1990-luku - vaihtoehtoisen vallankumouksen vuosikymmen! Nirvana ja grunge-ääni Seattlesta järkytti musiikkimaailmaa ja toi meille Pearl Jamin, Soundgardenin ja Alice in Chainsin. Samaan aikaan Britpop räjähti Oasisin, Blurin ja Pulpin kanssa. 90-luku toi meille myös Spice Girlsin, Backstreet Boysin ja NSYNC:n - poikabändi-aika saavutti huippunsa. Hip-hop tuli mainstreamiksi Tupacin, Notorious B.I.G.:n ja Wu-Tang Clanin kanssa. Vuosikymmen, joka muutti musiikkiteollisuuden ikuisesti!",
+      "imageUrl": "/category/1990s.jpg",
+      "language": "fi",
+      "isAvailable": true,
+      "publishedAt": "2025-10-25",
+      "audioUrl": "/podcasts/fi/1990s.mp3",
+      "subtitleUrl": "/podcasts/fi/1990s.vtt"
+    },
+    {
+      "id": "2000s",
+      "title": "Melody Mind: 2000-luku - Digitaalinen Aika & Pop Dominanssi",
+      "description": "2000-luku - digitaalisen vallankumouksen aika! iTunesin ja MySpacen nousun myötä musiikkiteollisuus muuttui perustavanlaatuisesti. Britney Spears, Christina Aguilera ja Beyoncé hallitsivat pop-hittilistoja, kun taas rock-bändit kuten Linkin Park, System of a Down ja The Strokes ottivat uusia polkuja. 2000-luku toi meille myös garage rock-revivalin The White Stripesin ja The Hivesin kanssa, sekä indie rockin nousun Arcade Firen ja The Killersin kanssa. Vuosikymmen muutosta ja innovaatiota!",
+      "imageUrl": "/category/2000s.jpg",
+      "language": "fi",
+      "isAvailable": true,
+      "publishedAt": "2025-11-30",
+      "audioUrl": "/podcasts/fi/2000s.mp3",
+      "subtitleUrl": "/podcasts/fi/2000s.vtt"
+    },
+    {
+      "id": "2010s",
+      "title": "Melody Mind: 2010-luku - Streaming Aika & Genre Sekoitus",
+      "description": "2010-luku - streaming-aika ja genre-sekoitus! Spotify ja YouTube vallankumouksellistivat, miten kulutamme musiikkia. Taylor Swift, Adele ja Ed Sheeran hallitsivat hittilistoja, kun taas EDM valloitti klubit David Guettan, Calvin Harrisin ja Skrillexin kanssa. 2010-luku toi meille myös indie-folk-aallon Mumford & Sonsin ja The Lumineersin kanssa, sekä K-popin nousun BTS:n ja Blackpinkin kanssa. Vuosikymmen, joka hämärsi genreiden välisiä rajoja ja loi uusia ääniä!",
+      "imageUrl": "/category/2010s.jpg",
+      "language": "fi",
+      "isAvailable": true,
+      "publishedAt": "2025-12-15",
+      "audioUrl": "/podcasts/fi/2010s.mp3",
+      "subtitleUrl": "/podcasts/fi/2010s.vtt"
+    }
+  ]
+}

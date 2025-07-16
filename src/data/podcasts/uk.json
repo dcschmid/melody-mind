@@ -1,0 +1,81 @@
+{
+  "podcasts": [
+    {
+      "id": "1950s",
+      "title": "Melody Mind: Золоті 50-ті - Революція Рок-н-ролу",
+      "description": "Пориньте в народження рок-н-ролу! У цьому подкасті ми досліджуємо 1950-ті роки, коли Елвіс Преслі потряс світ, Чак Беррі змусив гітару говорити, а 'Rock Around the Clock' Білла Хейлі запалив музичну революцію. Від перших підліткових хітів до джазових легенд як Майлз Девіс і Джон Колтрейн - відкрийте звуки, які сформували покоління і заклали основу для всього, що прийшло після.",
+      "imageUrl": "/category/1950s.jpg",
+      "language": "uk",
+      "isAvailable": true,
+      "publishedAt": "2025-01-01",
+      "audioUrl": "/podcasts/uk/1950s.mp3",
+      "subtitleUrl": "/podcasts/uk/1950s.vtt"
+    },
+    {
+      "id": "1960s",
+      "title": "Melody Mind: Дикі 60-ті - Бітломанія та Вудсток",
+      "description": "1960-ті - епоха бунту та революції! Приєднуйтесь до нас у музичній подорожі від бітломанії, яка відправила світ у колективне божевілля, до фестивалю Вудсток, який визначив ціле покоління. Від поетичних протестних пісень Боба Ділана до психоделічних звуків Джимі Хендрікса до соул-легенд як Арета Франклін - пережийте музику, яка була не просто розвагою, а рухала соціальний рух.",
+      "imageUrl": "/category/1960s.jpg",
+      "language": "uk",
+      "isAvailable": true,
+      "publishedAt": "2025-01-02",
+      "audioUrl": "/podcasts/uk/1960s.mp3",
+      "subtitleUrl": "/podcasts/uk/1960s.vtt"
+    },
+    {
+      "id": "1970s",
+      "title": "Melody Mind: 70-ті - Диско-лихоманка та Рок-вибух",
+      "description": "Ласкаво просимо до 1970-х - десятиліття крайнощів! Від фанкових диско-бітів Донни Саммер і Bee Gees, які змусили танцмайданчики тремтіти, до епічних рок-опер Pink Floyd і Led Zeppelin. 70-ті принесли нам Глем-рок з Девідом Боуї, Прогресив-рок з Genesis і Yes, і народження панку з Sex Pistols. Десятиліття, яке мало все від диско-лихоманки до хеві-металу - і назавжди змінило музичний світ.",
+      "imageUrl": "/category/1970s.jpg",
+      "language": "uk",
+      "isAvailable": true,
+      "publishedAt": "2025-08-15",
+      "audioUrl": "/podcasts/uk/1970s.mp3",
+      "subtitleUrl": "/podcasts/uk/1970s.vtt"
+    },
+    {
+      "id": "1980s",
+      "title": "Melody Mind: 80-ті - Синт-поп та Хейр-метал",
+      "description": "1980-ті - золота доба синтезаторів і епоха MTV! Пережийте підйом синт-попу з групами як Depeche Mode, New Order і The Human League, які експериментували з електронними звуками. Тим часом хейр-метал групи як Bon Jovi, Guns N' Roses і Def Leppard домінували в чартах. 80-ті принесли нам Мадонну, епоху Thriller Майкла Джексона, і народження хіп-хопу з Run-DMC і Public Enemy. Десятиліття інновацій та надмірності!",
+      "imageUrl": "/category/1980s.jpg",
+      "language": "uk",
+      "isAvailable": true,
+      "publishedAt": "2025-09-20",
+      "audioUrl": "/podcasts/uk/1980s.mp3",
+      "subtitleUrl": "/podcasts/uk/1980s.vtt"
+    },
+    {
+      "id": "1990s",
+      "title": "Melody Mind: 90-ті - Гранж та Бріт-поп революція",
+      "description": "1990-ті - десятиліття альтернативної революції! Nirvana і гранж-звук з Сіетла потрясли музичний світ і принесли нам Pearl Jam, Soundgarden і Alice in Chains. Тим часом вибухнув бріт-поп з Oasis, Blur і Pulp. 90-ті також принесли нам Spice Girls, Backstreet Boys і NSYNC - епоха бой-бендів досягла свого піку. Хіп-хоп став мейнстрімом з Тупаком, Notorious B.I.G. і Wu-Tang Clan. Десятиліття, яке назавжди змінило музичну індустрію!",
+      "imageUrl": "/category/1990s.jpg",
+      "language": "uk",
+      "isAvailable": true,
+      "publishedAt": "2025-10-25",
+      "audioUrl": "/podcasts/uk/1990s.mp3",
+      "subtitleUrl": "/podcasts/uk/1990s.vtt"
+    },
+    {
+      "id": "2000s",
+      "title": "Melody Mind: 2000-ні - Цифрова епоха та домінування поп-музики",
+      "description": "2000-ні - епоха цифрової революції! З підйомом iTunes і MySpace музична індустрія змінилася фундаментально. Брітні Спірс, Крістіна Агілера і Бейонсе домінували в поп-чартах, тоді як рок-групи як Linkin Park, System of a Down і The Strokes пішли новими шляхами. 2000-ні також принесли нам гараж-рок відродження з The White Stripes і The Hives, а також підйом інди-року з Arcade Fire і The Killers. Десятиліття змін та інновацій!",
+      "imageUrl": "/category/2000s.jpg",
+      "language": "uk",
+      "isAvailable": true,
+      "publishedAt": "2025-11-30",
+      "audioUrl": "/podcasts/uk/2000s.mp3",
+      "subtitleUrl": "/podcasts/uk/2000s.vtt"
+    },
+    {
+      "id": "2010s",
+      "title": "Melody Mind: 2010-ні - Епоха стрімінгу та змішування жанрів",
+      "description": "2010-ні - епоха стрімінгу та змішування жанрів! Spotify і YouTube революціонізували те, як ми споживаємо музику. Тейлор Свіфт, Адель і Ед Ширан домінували в чартах, тоді як EDM завоював клуби з Девідом Геттою, Келвіном Харрісом і Skrillex. 2010-ні також принесли нам інди-фолк хвилю з Mumford & Sons і The Lumineers, а також підйом K-pop з BTS і Blackpink. Десятиліття, яке розмило межі між жанрами і створило нові звуки!",
+      "imageUrl": "/category/2010s.jpg",
+      "language": "uk",
+      "isAvailable": true,
+      "publishedAt": "2025-12-15",
+      "audioUrl": "/podcasts/uk/2010s.mp3",
+      "subtitleUrl": "/podcasts/uk/2010s.vtt"
+    }
+  ]
+}

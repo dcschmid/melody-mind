@@ -1,0 +1,81 @@
+{
+  "podcasts": [
+    {
+      "id": "1950s",
+      "title": "Melody Mind: De Gyldne 50'ere - Rock 'n' Roll Revolutionen",
+      "description": "Dyk ned i Rock 'n' Rolls fødsel! I denne podcast udforsker vi 1950'erne, hvor Elvis Presley rystede verden, Chuck Berry fik guitaren til at tale, og Bill Haleys 'Rock Around the Clock' startede en musikalsk revolution. Fra de første teen-hits til jazz-legender som Miles Davis og John Coltrane - opdag lydene der formede en generation og lagde grundlaget for alt der kom efter.",
+      "imageUrl": "/category/1950s.jpg",
+      "language": "da",
+      "isAvailable": true,
+      "publishedAt": "2025-01-01",
+      "audioUrl": "/podcasts/da/1950s.mp3",
+      "subtitleUrl": "/podcasts/da/1950s.vtt"
+    },
+    {
+      "id": "1960s",
+      "title": "Melody Mind: De Vilde 60'ere - Beatlemania & Woodstock",
+      "description": "1960'erne - en æra af oprør og revolution! Følg med på en musikalsk rejse fra Beatlemania, der sendte verden i kollektiv frenzy, til Woodstock Festivalen der definerede en hel generation. Fra Bob Dylans poetiske protest-sange til Jimi Hendrix' psykedeliske lyde til soul-legender som Aretha Franklin - oplev musikken der ikke bare var underholdning, men drev en social bevægelse.",
+      "imageUrl": "/category/1960s.jpg",
+      "language": "da",
+      "isAvailable": true,
+      "publishedAt": "2025-01-02",
+      "audioUrl": "/podcasts/da/1960s.mp3",
+      "subtitleUrl": "/podcasts/da/1960s.vtt"
+    },
+    {
+      "id": "1970s",
+      "title": "Melody Mind: 70'erne - Disco Fever & Rock Eksplosion",
+      "description": "Velkommen til 1970'erne - årtiet med ekstremer! Fra de funky disco-beats af Donna Summer og Bee Gees der fik dansegulvene til at ryste, til de episke rock-operaer af Pink Floyd og Led Zeppelin. 70'erne bragte os Glam Rock med David Bowie, Progressive Rock med Genesis og Yes, og punkens fødsel med Sex Pistols. Et årti der havde alt fra disco fever til heavy metal - og ændrede musikverdenen for evigt.",
+      "imageUrl": "/category/1970s.jpg",
+      "language": "da",
+      "isAvailable": true,
+      "publishedAt": "2025-08-15",
+      "audioUrl": "/podcasts/da/1970s.mp3",
+      "subtitleUrl": "/podcasts/da/1970s.vtt"
+    },
+    {
+      "id": "1980s",
+      "title": "Melody Mind: 80'erne - Synth-Pop & Hair Metal",
+      "description": "1980'erne - synthesizerens gyldne tidsalder og MTV-æraen! Oplev synth-poppens opstigen med bands som Depeche Mode, New Order og The Human League der eksperimenterede med elektroniske lyde. Samtidig dominerede hair metal-bands som Bon Jovi, Guns N' Roses og Def Leppard hitlisterne. 80'erne bragte os Madonna, Michael Jacksons Thriller-æra, og hip-hops fødsel med Run-DMC og Public Enemy. Et årti af innovation og overflod!",
+      "imageUrl": "/category/1980s.jpg",
+      "language": "da",
+      "isAvailable": true,
+      "publishedAt": "2025-09-20",
+      "audioUrl": "/podcasts/da/1980s.mp3",
+      "subtitleUrl": "/podcasts/da/1980s.vtt"
+    },
+    {
+      "id": "1990s",
+      "title": "Melody Mind: 90'erne - Grunge & Britpop Revolution",
+      "description": "1990'erne - årtiet for den alternative revolution! Nirvana og grunge-lyden fra Seattle rystede musikverdenen og bragte os Pearl Jam, Soundgarden og Alice in Chains. Samtidig eksploderede Britpop med Oasis, Blur og Pulp. 90'erne bragte os også Spice Girls, Backstreet Boys og NSYNC - boy band-æraen nåede sit højdepunkt. Hip-hop blev mainstream med Tupac, Notorious B.I.G. og Wu-Tang Clan. Et årti der ændrede musikindustrien for evigt!",
+      "imageUrl": "/category/1990s.jpg",
+      "language": "da",
+      "isAvailable": true,
+      "publishedAt": "2025-10-25",
+      "audioUrl": "/podcasts/da/1990s.mp3",
+      "subtitleUrl": "/podcasts/da/1990s.vtt"
+    },
+    {
+      "id": "2000s",
+      "title": "Melody Mind: 2000'erne - Digital Tidsalder & Pop Dominans",
+      "description": "2000'erne - den digitale revolutions tidsalder! Med iTunes og MySpaces opstigen ændrede musikindustrien sig fundamentalt. Britney Spears, Christina Aguilera og Beyoncé dominerede pop-hitlisterne, mens rock-bands som Linkin Park, System of a Down og The Strokes tog nye veje. 2000'erne bragte os også garage rock-revivalen med The White Stripes og The Hives, samt indie rocks opstigen med Arcade Fire og The Killers. Et årti af forandring og innovation!",
+      "imageUrl": "/category/2000s.jpg",
+      "language": "da",
+      "isAvailable": true,
+      "publishedAt": "2025-11-30",
+      "audioUrl": "/podcasts/da/2000s.mp3",
+      "subtitleUrl": "/podcasts/da/2000s.vtt"
+    },
+    {
+      "id": "2010s",
+      "title": "Melody Mind: 2010'erne - Streaming Æra & Genre Blanding",
+      "description": "2010'erne - streaming-æraen og genre-blanding! Spotify og YouTube revolutionerede hvordan vi konsumerer musik. Taylor Swift, Adele og Ed Sheeran dominerede hitlisterne, mens EDM erobrede klubberne med David Guetta, Calvin Harris og Skrillex. 2010'erne bragte os også indie-folk-bølgen med Mumford & Sons og The Lumineers, samt K-pops opstigen med BTS og Blackpink. Et årti der udviskede grænserne mellem genrer og skabte nye lyde!",
+      "imageUrl": "/category/2010s.jpg",
+      "language": "da",
+      "isAvailable": true,
+      "publishedAt": "2025-12-15",
+      "audioUrl": "/podcasts/da/2010s.mp3",
+      "subtitleUrl": "/podcasts/da/2010s.vtt"
+    }
+  ]
+}
