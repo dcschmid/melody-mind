@@ -1,6 +1,6 @@
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
-import { updateMedia, updateAudioPlayer, type MediaElements } from "./mediaUtils";
+import { updateMedia, type MediaElements } from "./mediaUtils";
 import { updateScoreDisplay } from "./scoreUtils";
 
 /**
@@ -28,7 +28,6 @@ interface AlbumMedia {
  * @property {Object} elements - DOM elements used in the game
  * @property {HTMLParagraphElement} elements.feedbackElement - Element for displaying feedback
  * @property {HTMLParagraphElement} elements.scoreElement - Element for displaying score
- * @property {HTMLImageElement} elements.overlayCover - Element for album cover in overlay
  * @property {HTMLDivElement} elements.overlay - Overlay container element
  * @property {any} [elements.mediaElements] - Optional media elements
  * @property {Object} state - Current game state
@@ -45,7 +44,6 @@ interface HandleAnswerConfig {
   elements: {
     feedbackElement: HTMLParagraphElement;
     scoreElement: HTMLParagraphElement;
-    overlayCover: HTMLImageElement;
     overlay: HTMLDivElement;
     mediaElements?: MediaElements;
   };
@@ -66,7 +64,7 @@ interface HandleAnswerConfig {
  * - Updates the score based on correct/incorrect answers
  * - Displays feedback to the user
  * - Updates the overlay with album information
- * - Updates media elements if provided
+ * - Updates streaming service links
  */
 export function handleAnswer(config: HandleAnswerConfig) {
   const lang = getLangFromUrl(new URL(window.location.pathname, window.location.origin));
@@ -79,7 +77,7 @@ export function handleAnswer(config: HandleAnswerConfig) {
   let bonusPoints = 0;
 
   const { option, correctAnswer, currentQuestion, album, elements, state } = config;
-  const { feedbackElement, scoreElement, overlayCover, overlay, mediaElements } = elements;
+  const { feedbackElement, scoreElement, overlay, mediaElements } = elements;
 
   if (option === correctAnswer) {
     bonusPoints = timeTaken <= 10 ? 50 : timeTaken <= 15 ? 25 : 0;
@@ -100,19 +98,20 @@ export function handleAnswer(config: HandleAnswerConfig) {
   state.score += totalPoints;
   updateScoreDisplay(state.score, scoreElement);
 
-  // Update overlay elements
-  overlayCover.src = album.coverSrc || "";
-  document.getElementById("overlay-artist")!.textContent = album.artist || "";
-  document.getElementById("overlay-album")!.textContent = album.album || "";
-  document.getElementById("overlay-funfact")!.textContent = currentQuestion.trivia || "";
-  document.getElementById("overlay-year")!.textContent = album.year || "";
+  // Update album information in overlay
+  const overlayArtist = document.getElementById("overlay-artist");
+  const overlayAlbum = document.getElementById("overlay-album");
+  const overlayFunfact = document.getElementById("overlay-funfact");
+  const overlayYear = document.getElementById("overlay-year");
+  
+  if (overlayArtist) overlayArtist.textContent = album.artist || "";
+  if (overlayAlbum) overlayAlbum.textContent = album.album || "";
+  if (overlayFunfact) overlayFunfact.textContent = currentQuestion.trivia || "";
+  if (overlayYear) overlayYear.textContent = album.year || "";
 
   if (mediaElements) {
     updateMedia(album, mediaElements);
   }
-
-  // Update AudioPlayer component as well
-  updateAudioPlayer(album);
 
   // Show overlay with immediate auto-scroll to top
   overlay.classList.remove("hidden");

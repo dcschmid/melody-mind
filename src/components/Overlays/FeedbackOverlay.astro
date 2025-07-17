@@ -46,13 +46,11 @@
  *
  * @integration
  * - Controlled by gameEngine.ts for dynamic content population
- * - Integrates with AudioPlayer component for media playback
  * - Uses i18n system for multilingual support
  * - Connects to streaming services (Spotify, Deezer, Apple Music)
  */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
-import AudioPlayer from "@components/AudioPlayer.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -95,7 +93,6 @@ const t = useTranslations(lang);
       <h4>{t("general.keyboard.shortcuts")}</h4>
       <ul>
         <li>{t("general.keyboard.escape")}: {t("general.close")}</li>
-        <li>{t("general.keyboard.space")}: {t("game.feedback.play.audio")}</li>
         <li>{t("general.keyboard.enter")}: {t("game.feedback.next.round")}</li>
         <li>{t("general.keyboard.tab")}: {t("general.navigate.elements")}</li>
       </ul>
@@ -103,75 +100,19 @@ const t = useTranslations(lang);
 
     <p id="feedback" class="feedback" role="status"></p>
 
-    <div class="media-section" aria-label={t("game.feedback.media.section")}>
-      <div class="media-section__image">
-        <AudioPlayer
-          audioSrc=""
-          imageSrc=""
-          imageAlt=""
-          title=""
-          artist=""
-          preload="metadata"
-          showHelp={false}
-          coverId="overlay-cover"
-          aspectRatio="square"
-        />
-      </div>
-
-      <div class="media-section__info" role="contentinfo">
-        <div>
-          <p id="overlay-artist" class="artist-name"></p>
-          <p id="overlay-album" class="album-name"></p>
+    <div class="album-info" aria-label={t("game.feedback.media.section")}>
+      <div class="album-info__content" role="contentinfo">
+        <div class="album-info__header">
+          <h3 id="overlay-artist" class="artist-name"></h3>
+          <h4 id="overlay-album" class="album-name"></h4>
           <p id="overlay-year" class="album-year"></p>
+        </div>
+        <div class="album-info__details">
           <p id="overlay-funfact" class="fun-fact"></p>
         </div>
       </div>
     </div>
 
-    <h3 class="streaming-links__title">
-      {t("game.feedback.streaming.links")}
-    </h3>
-
-    <div
-      id="streaming-links"
-      class="streaming-links"
-      role="group"
-      aria-label={t("game.feedback.streaming.links")}
-    >
-      <button
-        id="spotify-link"
-        class="music-button"
-        aria-label={t("game.feedback.listen.spotify")}
-        title={t("game.feedback.listen.spotify")}
-      >
-        <Icon name="spotify" class="music-button__icon" width={24} height={24} aria-hidden="true" />
-        <span>Spotify</span>
-      </button>
-      <button
-        id="deezer-link"
-        class="music-button"
-        aria-label={t("game.feedback.listen.deezer")}
-        title={t("game.feedback.listen.deezer")}
-      >
-        <Icon name="deezer" class="music-button__icon" width={24} height={24} aria-hidden="true" />
-        <span>Deezer</span>
-      </button>
-      <button
-        id="apple-link"
-        class="music-button"
-        aria-label={t("game.feedback.listen.apple")}
-        title={t("game.feedback.listen.apple")}
-      >
-        <Icon
-          name="apple-music"
-          class="music-button__icon"
-          width={24}
-          height={24}
-          aria-hidden="true"
-        />
-        <span>Apple Music</span>
-      </button>
-    </div>
     <button id="next-round-button" class="next-button" aria-label={t("game.feedback.next.round")}>
       <span class="next-button__content">
         {t("game.feedback.next.round")}
@@ -380,254 +321,138 @@ const t = useTranslations(lang);
   }
 
   // ======================================
-  // MEDIA SECTION - Using Root Variables
+  // ALBUM INFO SECTION - Using Root Variables
   // ======================================
 
-  .media-section {
+  .album-info {
     margin-bottom: var(--space-2xl);
-    display: grid;
-    align-items: start;
-    gap: var(--space-xl);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
 
     // Performance optimization
     contain: layout;
 
     @media (max-width: 47.9375em) {
       margin-bottom: var(--space-xl);
-      gap: var(--space-lg);
-      grid-template-columns: 1fr;
+      min-height: 160px;
     }
 
-    @media (min-width: 48em) {
-      grid-template-columns: minmax(var(--grid-min-width-lg), var(--stat-width-md)) 1fr;
-      gap: var(--space-2xl);
-    }
-
-    @media (min-width: 64em) {
-      grid-template-columns: var(--grid-min-width-xl) 1fr;
-    }
-
-    &__image {
-      display: flex;
-      justify-content: center;
-      order: 1;
-      max-width: var(--width-full);
+    &__content {
+      width: 100%;
+      max-width: var(--container-md);
+      text-align: center;
+      padding: var(--space-xl);
+      background: var(--bg-secondary);
+      border-radius: var(--radius-xl);
+      border: var(--border-width-thin) solid var(--border-primary);
+      box-shadow: var(--card-shadow);
+      transition: all var(--transition-normal);
 
       @media (max-width: 47.9375em) {
-        order: 2;
-        max-width: var(--grid-min-width-lg);
-        margin: 0 auto;
+        padding: var(--space-lg);
+        border-radius: var(--radius-lg);
       }
 
-      @media (min-width: 48em) {
-        justify-content: flex-start;
-      }
-
-      // Only size constraint for audio player in overlay context
-      :global(.audio-player) {
-        max-width: var(--grid-min-width-xl);
-        width: var(--width-full);
-
-        @media (max-width: 47.9375em) {
-          max-width: var(--grid-min-width-lg);
-        }
+      &:hover {
+        transform: translateY(var(--animation-y-offset-small));
+        box-shadow: var(--card-shadow-hover);
       }
     }
 
-    &__info {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: var(--space-md);
-      text-align: left;
-      order: 2;
-      min-width: 0;
+    &__header {
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-md);
+      border-bottom: var(--border-width-thin) solid var(--border-secondary);
 
       @media (max-width: 47.9375em) {
-        order: 1;
-        text-align: center;
+        margin-bottom: var(--space-md);
+        padding-bottom: var(--space-sm);
+      }
+    }
+
+    &__details {
+      margin-top: var(--space-lg);
+
+      @media (max-width: 47.9375em) {
+        margin-top: var(--space-md);
       }
     }
   }
 
   .artist-name {
-    margin-bottom: var(--space-sm);
-    font-size: var(--text-2xl);
+    margin: 0 0 var(--space-sm) 0;
+    font-size: var(--text-3xl);
     font-weight: var(--font-bold);
     color: var(--interactive-primary);
+    line-height: var(--leading-tight);
 
     @media (max-width: 47.9375em) {
-      font-size: var(--text-xl);
+      font-size: var(--text-2xl);
+    }
+
+    @media (min-width: 64em) {
+      font-size: var(--text-4xl);
     }
   }
 
   .album-name {
-    margin-bottom: var(--space-xs);
-    font-size: var(--text-xl);
+    margin: 0 0 var(--space-sm) 0;
+    font-size: var(--text-2xl);
+    font-weight: var(--font-semibold);
     color: var(--text-primary);
+    line-height: var(--leading-tight);
 
     @media (max-width: 47.9375em) {
-      font-size: var(--text-lg);
+      font-size: var(--text-xl);
+    }
+
+    @media (min-width: 64em) {
+      font-size: var(--text-3xl);
     }
   }
 
   .album-year {
-    font-size: var(--text-lg);
+    margin: 0;
+    font-size: var(--text-xl);
+    font-weight: var(--font-medium);
     color: var(--text-secondary);
+    display: inline-block;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-pill);
+    border: var(--border-width-thin) solid var(--border-secondary);
 
     @media (max-width: 47.9375em) {
-      font-size: var(--text-base);
+      font-size: var(--text-lg);
+      padding: var(--space-xs) var(--space-sm);
     }
   }
 
   .fun-fact {
-    margin-top: var(--space-md);
+    margin: 0;
     font-size: var(--text-lg);
     line-height: var(--leading-relaxed);
     color: var(--text-secondary);
     max-width: 100%;
+    padding: var(--space-lg);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    border: var(--border-width-thin) solid var(--border-secondary);
+    font-style: italic;
 
     @media (max-width: 47.9375em) {
       font-size: var(--text-base);
-      margin-top: var(--space-sm);
-    }
-
-    @media (min-width: 48em) {
-      max-width: none;
-    }
-  }
-
-  // ======================================
-  // STREAMING LINKS SECTION - Using Root Variables
-  // ======================================
-
-  .streaming-links__title {
-    margin-bottom: var(--space-md);
-    text-align: center;
-    font-size: var(--text-xl);
-    font-weight: var(--font-semibold);
-    color: var(--text-primary);
-
-    @media (max-width: 47.9375em) {
-      font-size: var(--text-lg);
-      margin-bottom: var(--space-sm);
-    }
-  }
-
-  .streaming-links {
-    margin: var(--space-xl) 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-md);
-
-    @media (max-width: 47.9375em) {
-      margin: var(--space-lg) 0;
-      gap: var(--space-sm);
-      flex-direction: column;
-      align-items: center;
-    }
-
-    @media (min-width: 48em) and (max-width: 63.9375em) {
-      gap: var(--space-sm);
-    }
-  }
-
-  .music-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: var(--min-touch-size);
-    min-width: calc(var(--min-touch-size) * 3.6);
-    border-radius: var(--radius-lg);
-    background: var(--btn-primary-bg);
-    color: var(--btn-primary-text);
-    font-weight: var(--font-semibold);
-    text-decoration: none;
-    padding: var(--space-lg);
-    border: var(--border-width-thin) solid transparent;
-    box-shadow: var(--card-shadow);
-    font-family: var(--font-family-primary);
-    transition:
-      background var(--transition-normal),
-      transform var(--transition-fast),
-      box-shadow var(--transition-normal);
-
-    // Performance optimizations like ButtonLink
-    contain: layout style;
-    will-change: transform, background-color;
-    transform: translateZ(0);
-
-    @media (max-width: 47.9375em) {
-      min-width: calc(var(--min-touch-size) * 2.5);
-      padding: var(--space-md);
-      font-size: var(--text-sm);
-    }
-
-    @media (min-width: 48em) and (max-width: 63.9375em) {
-      min-width: calc(var(--min-touch-size) * 3);
       padding: var(--space-md);
     }
 
-    &:hover,
-    &:focus {
-      background: var(--btn-primary-hover);
-      box-shadow: var(--card-shadow-hover);
-      transform: translateY(var(--animation-y-offset-small));
-    }
-
-    &:active {
-      transform: translateY(var(--animation-y-offset-small)) scale(var(--scale-active));
-      transition: all var(--transition-fast);
-    }
-
-    // Platform-specific colors (matching MusicButtons logic)
-    &#spotify-link {
-      --btn-primary-bg: var(--color-success-600);
-      --btn-primary-hover: var(--color-success-700);
-    }
-
-    &#deezer-link {
-      --btn-primary-bg: var(--color-primary-600);
-      --btn-primary-hover: var(--color-primary-700);
-    }
-
-    &#apple-link {
-      --btn-primary-bg: var(--color-secondary-600);
-      --btn-primary-hover: var(--color-secondary-700);
-    }
-
-    &__icon {
-      width: var(--icon-size-sm);
-      height: var(--icon-size-sm);
-      margin-right: var(--space-sm);
-      flex-shrink: 0;
-      fill: currentColor;
-
-      @media (max-width: 47.9375em) {
-        margin-right: var(--space-xs);
-        width: 20px;
-        height: 20px;
-      }
-
-      @media (min-width: 480px) {
-        width: var(--icon-size-md);
-        height: var(--icon-size-md);
-        margin-right: var(--space-md);
-      }
-    }
-
-    // Text styling matching MusicButtons
-    span {
-      font-size: var(--text-xs);
-      font-weight: var(--font-medium);
-      white-space: nowrap;
-
-      @media (min-width: 480px) {
-        font-size: var(--text-sm);
-      }
+    // Hide if empty
+    &:empty {
+      display: none;
     }
   }
+
 
   // ======================================
   // NEXT BUTTON - Using Root Variables
@@ -684,7 +509,7 @@ const t = useTranslations(lang);
   .overlay__content:focus,
   .overlay__close-button:focus-visible,
   .next-button:focus-visible,
-  .audio-player:focus-visible {
+  .album-info__content:focus-visible {
     outline: var(--focus-enhanced-outline-dark);
     outline-offset: var(--focus-ring-offset);
     box-shadow: var(--focus-enhanced-shadow);
@@ -731,7 +556,7 @@ const t = useTranslations(lang);
   @media (prefers-reduced-motion: reduce) {
     .overlay,
     .overlay__content,
-    .album-cover,
+    .album-info__content,
     .overlay__close-button,
     .music-button,
     .next-button {
@@ -822,9 +647,6 @@ const t = useTranslations(lang);
     margin-bottom: var(--text-spacing-paragraph-2x) !important;
   }
 
-  .enhanced-text-spacing .overlay__content .streaming-links {
-    gap: calc(var(--space-md) * 1.5) !important;
-  }
 
   .enhanced-text-spacing .overlay__content .next-button {
     padding: calc(var(--space-lg) * 1.2) calc(var(--space-xl) * 1.2);
@@ -850,8 +672,10 @@ const t = useTranslations(lang);
       color: var(--print-text) !important;
     }
 
-    .audio-player {
-      display: none;
+    .album-info__content {
+      border: var(--border-width-thin) solid var(--print-border);
+      background: var(--print-bg);
+      box-shadow: none;
     }
   }
 </style>
@@ -1023,7 +847,6 @@ const t = useTranslations(lang);
     const selectors = [
       "button:not([disabled])",
       "a[href]:not([disabled])",
-      "audio[controls]:not([disabled])",
       "[tabindex]:not([tabindex='-1']):not([disabled])",
     ].join(", ");
 
@@ -1085,13 +908,6 @@ const t = useTranslations(lang);
       return;
     }
 
-    // Stop all audio players using modern array methods
-    const audioElements = document.querySelectorAll("audio");
-    audioElements.forEach((audio) => {
-      if (!audio.paused) {
-        audio.pause();
-      }
-    });
 
     // Scroll to top immediately when overlay closes
     window.scrollTo(0, 0);

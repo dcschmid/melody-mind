@@ -34,7 +34,6 @@
 import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import type { ShareData } from "@utils/share/shareUtils";
-import { generateShareTextForLanguage } from "@utils/share/shareUtils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -771,7 +770,7 @@ const {
     initializePlatformSharing();
     initializeFallbackHandlers();
     setupCleanupHandlers();
-    
+
     // Try to validate game data with retries
     await validateGameDataWithRetries();
   };
@@ -780,27 +779,26 @@ const {
   const validateGameDataWithRetries = async () => {
     const maxRetries = 10;
     const retryDelay = 500; // 500ms
-    
+
     for (let i = 0; i < maxRetries; i++) {
       const gameData = getGameDataFromProps() || getGameDataFromPopup();
-      
+
       console.log(`ShareOverlay: Validation attempt ${i + 1}/${maxRetries}:`, gameData);
-      
+
       if (gameData && isValidShareData(gameData)) {
         console.log("ShareOverlay: Game data validation successful");
         return;
       }
-      
+
       if (i < maxRetries - 1) {
         console.log(`ShareOverlay: Retrying in ${retryDelay}ms...`);
-        await new Promise(resolve => setTimeout(resolve, retryDelay));
+        await new Promise((resolve) => setTimeout(resolve, retryDelay));
       }
     }
-    
+
     console.warn("ShareOverlay: Game data validation failed after all retries, showing fallback");
     showFallbackContent();
   };
-
 
   // Get game data from component props
   const getGameDataFromProps = () => {
@@ -816,11 +814,12 @@ const {
 
     try {
       const data = JSON.parse(propsData);
-      
+
       // Always prefer the current score from DOM over props
-      const popup = document.querySelector("#endgame-popup") ||
-                    document.querySelector("#end-overlay") || 
-                    document.querySelector(".popup[data-score]");
+      const popup =
+        document.querySelector("#endgame-popup") ||
+        document.querySelector("#end-overlay") ||
+        document.querySelector(".popup[data-score]");
       if (popup) {
         const currentScore = popup.querySelector("#popup-score");
         if (currentScore && currentScore.textContent) {
@@ -857,7 +856,11 @@ const {
     }
 
     // Check difficulty
-    if (!data.difficulty || typeof data.difficulty !== "string" || data.difficulty.trim().length === 0) {
+    if (
+      !data.difficulty ||
+      typeof data.difficulty !== "string" ||
+      data.difficulty.trim().length === 0
+    ) {
       console.log("ShareOverlay: Invalid difficulty:", data.difficulty);
       return false;
     }
@@ -1182,30 +1185,40 @@ const {
 
   // Generate advanced multilingual share text using shareUtils
   const generateAdvancedShareText = async (data) => {
-    const { score, category, difficulty, mode } = data;
-    const currentLang = document.documentElement.lang || 'en';
-    
+    const { score, category, difficulty } = data;
+    const currentLang = document.documentElement.lang || "en";
+
     try {
       // Import the generateShareTextForLanguage function from shareUtils
       const { generateShareTextForLanguage } = await import("/src/utils/share/shareUtils.ts");
       return generateShareTextForLanguage(data, currentLang);
     } catch (error) {
       console.warn("Failed to import shareUtils, using fallback:", error);
-      
+
       // Fallback implementation for compatibility
-      const achievement = score >= 800 ? "🎵 Music Genius! 🎵" :
-                         score >= 600 ? "🎧 Music Pro! 🎧" :
-                         score >= 400 ? "🎸 Music Enthusiast! 🎸" :
-                         score >= 200 ? "🎹 Music Lover! 🎹" :
-                         "🎼 Music Explorer! 🎼";
-      
-      const difficultyEmoji = difficulty.toLowerCase() === 'easy' ? '🟢' :
-                             difficulty.toLowerCase() === 'medium' ? '🟡' :
-                             difficulty.toLowerCase() === 'hard' ? '🔴' : '⚪️';
-      
+      const achievement =
+        score >= 800
+          ? "🎵 Music Genius! 🎵"
+          : score >= 600
+            ? "🎧 Music Pro! 🎧"
+            : score >= 400
+              ? "🎸 Music Enthusiast! 🎸"
+              : score >= 200
+                ? "🎹 Music Lover! 🎹"
+                : "🎼 Music Explorer! 🎼";
+
+      const difficultyEmoji =
+        difficulty.toLowerCase() === "easy"
+          ? "🟢"
+          : difficulty.toLowerCase() === "medium"
+            ? "🟡"
+            : difficulty.toLowerCase() === "hard"
+              ? "🔴"
+              : "⚪️";
+
       const scoreText = `I scored ${score} points in Melody Mind's ${category} quiz (${difficultyEmoji} ${difficulty})!`;
       const challenge = "Think you can beat me? Play now at:";
-      
+
       return `${achievement}\n\n${scoreText}\n\n${challenge}`;
     }
   };
@@ -1383,9 +1396,10 @@ const {
   // Extract game data from popup element
   const getGameDataFromPopup = () => {
     // Try multiple possible selectors for the popup element
-    const popup = document.querySelector("#endgame-popup") ||
-                  document.querySelector("#end-overlay") || 
-                  document.querySelector(".popup[data-score]");
+    const popup =
+      document.querySelector("#endgame-popup") ||
+      document.querySelector("#end-overlay") ||
+      document.querySelector(".popup[data-score]");
     if (!popup) {
       return null;
     }
@@ -1394,7 +1408,7 @@ const {
       // Try to get the current score from the DOM element first
       const scoreElement = popup.querySelector("#popup-score");
       let score = 0;
-      
+
       if (scoreElement && scoreElement.textContent) {
         score = parseInt(scoreElement.textContent, 10);
         if (isNaN(score) || score < 0) {
@@ -1471,10 +1485,10 @@ const {
     // Wait for the EndOverlay to be visible before initializing
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+        if (mutation.type === "attributes" && mutation.attributeName === "class") {
           const popup = mutation.target;
-          if (popup.classList && !popup.classList.contains('hidden')) {
-            console.log('EndOverlay is now visible, initializing ShareOverlay');
+          if (popup.classList && !popup.classList.contains("hidden")) {
+            console.log("EndOverlay is now visible, initializing ShareOverlay");
             initializeSharing().catch(console.error);
             observer.disconnect(); // Stop observing once initialized
           }
@@ -1483,14 +1497,15 @@ const {
     });
 
     // Find the EndOverlay element to observe
-    const endOverlay = document.querySelector("#endgame-popup") ||
-                       document.querySelector("#end-overlay") || 
-                       document.querySelector(".popup[data-score]");
+    const endOverlay =
+      document.querySelector("#endgame-popup") ||
+      document.querySelector("#end-overlay") ||
+      document.querySelector(".popup[data-score]");
 
     if (endOverlay) {
-      observer.observe(endOverlay, { 
-        attributes: true, 
-        attributeFilter: ['class'] 
+      observer.observe(endOverlay, {
+        attributes: true,
+        attributeFilter: ["class"],
       });
     } else {
       // Fallback: initialize after a short delay if no popup found
