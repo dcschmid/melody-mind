@@ -80,7 +80,6 @@ interface GameElements {
   question: HTMLParagraphElement;
   options: HTMLDivElement;
   container: HTMLDivElement;
-  overlayCover: HTMLImageElement;
   overlay: HTMLDivElement;
   jokerButton: HTMLButtonElement;
   jokerCounter: HTMLElement;
@@ -123,7 +122,6 @@ function cacheElements(): GameElements {
     question: document.getElementById("question") as HTMLParagraphElement,
     options: document.getElementById("options") as HTMLDivElement,
     container: document.getElementById("question-container") as HTMLDivElement,
-    overlayCover: document.getElementById("overlay-cover") as HTMLImageElement,
     overlay: document.getElementById("overlay") as HTMLDivElement,
     jokerButton: document.getElementById("joker-button") as HTMLButtonElement,
     jokerCounter: document.getElementById("joker-count") as HTMLElement,
@@ -349,7 +347,6 @@ const initializeGame = async (elements: GameElements) => {
       elements: {
         feedbackElement: elements.feedback,
         scoreElement: elements.score,
-        overlayCover: elements.overlayCover,
         overlay: elements.overlay,
         mediaElements: mediaElements || undefined,
       },

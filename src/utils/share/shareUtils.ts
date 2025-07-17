@@ -48,6 +48,7 @@ interface ShareTextTranslations {
   musicLover: string;
   musicExplorer: string;
   scoreText: string;
+  chronologyScoreText: string;
   challenge: string;
 }
 
@@ -65,6 +66,8 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicExplorer: "🎼 Musikentdecker! 🎼",
     scoreText:
       "Ich habe {score} Punkte bei Melody Mind im {category} Quiz ({difficulty}) erreicht!",
+    chronologyScoreText:
+      "Ich habe {score} Punkte bei Melody Mind im {category} Chronologie-Spiel ({difficulty}) erreicht!",
     challenge: "Forderst du mich heraus? Spiele jetzt mit:",
   },
   en: {
@@ -74,6 +77,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicLover: "🎹 Music Lover! 🎹",
     musicExplorer: "🎼 Music Explorer! 🎼",
     scoreText: "I scored {score} points in Melody Mind's {category} quiz ({difficulty})!",
+    chronologyScoreText: "I scored {score} points in Melody Mind's {category} chronology game ({difficulty})!",
     challenge: "Think you can beat me? Play now at:",
   },
   es: {
@@ -84,6 +88,8 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicExplorer: "🎼 ¡Explorador musical! 🎼",
     scoreText:
       "¡He conseguido {score} puntos en el quiz de {category} de Melody Mind ({difficulty})!",
+    chronologyScoreText:
+      "¡He conseguido {score} puntos en el juego de cronología de {category} de Melody Mind ({difficulty})!",
     challenge: "¿Crees que puedes superarme? Juega ahora en:",
   },
   fr: {
@@ -93,6 +99,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicLover: "🎹 Amateur de musique ! 🎹",
     musicExplorer: "🎼 Explorateur musical ! 🎼",
     scoreText: "J'ai obtenu {score} points dans le quiz {category} de Melody Mind ({difficulty}) !",
+    chronologyScoreText: "J'ai obtenu {score} points dans le jeu de chronologie {category} de Melody Mind ({difficulty}) !",
     challenge: "Tu penses pouvoir me battre ? Joue maintenant sur :",
   },
   it: {
@@ -102,6 +109,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicLover: "🎹 Amante della musica! 🎹",
     musicExplorer: "🎼 Esploratore musicale! 🎼",
     scoreText: "Ho ottenuto {score} punti nel quiz {category} di Melody Mind ({difficulty})!",
+    chronologyScoreText: "Ho ottenuto {score} punti nel gioco di cronologia {category} di Melody Mind ({difficulty})!",
     challenge: "Pensi di potermi battere? Gioca ora su:",
   },
   pt: {
@@ -111,6 +119,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicLover: "🎹 Amante da música! 🎹",
     musicExplorer: "🎼 Explorador musical! 🎼",
     scoreText: "Consegui {score} pontos no quiz de {category} do Melody Mind ({difficulty})!",
+    chronologyScoreText: "Consegui {score} pontos no jogo de cronologia de {category} do Melody Mind ({difficulty})!",
     challenge: "Acha que consegue me superar? Jogue agora em:",
   },
   da: {
@@ -120,6 +129,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicLover: "🎹 Musikelsker! 🎹",
     musicExplorer: "🎼 Musikopdager! 🎼",
     scoreText: "Jeg opnåede {score} point i Melody Mind's {category} quiz ({difficulty})!",
+    chronologyScoreText: "Jeg opnåede {score} point i Melody Mind's {category} kronologi-spil ({difficulty})!",
     challenge: "Tror du, du kan slå mig? Spil nu på:",
   },
   nl: {
@@ -129,6 +139,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicLover: "🎹 Muziekminnaar! 🎹",
     musicExplorer: "🎼 Muziekontdekker! 🎼",
     scoreText: "Ik heb {score} punten gescoord in de Melody Mind {category} quiz ({difficulty})!",
+    chronologyScoreText: "Ik heb {score} punten gescoord in het Melody Mind {category} chronologie-spel ({difficulty})!",
     challenge: "Denk je dat je me kunt verslaan? Speel nu op:",
   },
   sv: {
@@ -138,6 +149,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicLover: "🎹 Musikälskare! 🎹",
     musicExplorer: "🎼 Musikupptäckare! 🎼",
     scoreText: "Jag fick {score} poäng i Melody Minds {category} quiz ({difficulty})!",
+    chronologyScoreText: "Jag fick {score} poäng i Melody Minds {category} kronologi-spel ({difficulty})!",
     challenge: "Tror du att du kan slå mig? Spela nu på:",
   },
   fi: {
@@ -147,6 +159,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicLover: "🎹 Musiikinrakastaja! 🎹",
     musicExplorer: "🎼 Musiikintukija! 🎼",
     scoreText: "Sain {score} pistettä Melody Mindin {category} -visailussa ({difficulty})!",
+    chronologyScoreText: "Sain {score} pistettä Melody Mindin {category} kronologia-pelissä ({difficulty})!",
     challenge: "Luuletko voittavasi minut? Pelaa nyt osoitteessa:",
   },
   cn: {
@@ -156,6 +169,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicLover: "🎹 音乐迷！🎹",
     musicExplorer: "🎼 音乐探索者！🎼",
     scoreText: "我在 Melody Mind 的 {category} 测验中获得了 {score} 分 ({difficulty})！",
+    chronologyScoreText: "我在 Melody Mind 的 {category} 年代记游戏中获得了 {score} 分 ({difficulty})！",
     challenge: "你认为你能击败我吗？现在就来挑战：",
   },
   jp: {
@@ -165,6 +179,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicLover: "🎹 音楽愛好者！🎹",
     musicExplorer: "🎼 音楽探検家！🎼",
     scoreText: "Melody Mind の {category} クイズで {score} ポイント獲得しました ({difficulty})！",
+    chronologyScoreText: "Melody Mind の {category} 年代記ゲームで {score} ポイント獲得しました ({difficulty})！",
     challenge: "私に勝てると思いますか？今すぐプレイ：",
   },
   ru: {
@@ -174,6 +189,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicLover: "🎹 Любитель музыки! 🎹",
     musicExplorer: "🎼 Музыкальный исследователь! 🎼",
     scoreText: "Я набрал {score} очков в викторине {category} от Melody Mind ({difficulty})!",
+    chronologyScoreText: "Я набрал {score} очков в хронологической игре {category} от Melody Mind ({difficulty})!",
     challenge: "Думаешь, сможешь меня победить? Играй сейчас:",
   },
   uk: {
@@ -183,6 +199,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicLover: "🎹 Любитель музики! 🎹",
     musicExplorer: "🎼 Музичний дослідник! 🎼",
     scoreText: "Я набрав {score} очок у вікторині {category} від Melody Mind ({difficulty})!",
+    chronologyScoreText: "Я набрав {score} очок у хронологічній грі {category} від Melody Mind ({difficulty})!",
     challenge: "Думаєш, зможеш мене перемогти? Грай зараз:",
   },
 };
@@ -329,8 +346,12 @@ function generateShareTextWithTranslations(
   const difficultyEmoji = getDifficultyEmoji(data.difficulty);
   const formattedDifficulty = `${difficultyEmoji} ${data.difficulty}`;
 
+  // Choose the appropriate score text based on game mode
+  const isChronologyMode = data.mode === "chronology";
+  const scoreTextTemplate = isChronologyMode ? translations.chronologyScoreText : translations.scoreText;
+
   // Format score text
-  const scoreText = formatText(translations.scoreText, {
+  const scoreText = formatText(scoreTextTemplate, {
     score: data.score.toString(),
     category: data.category,
     difficulty: formattedDifficulty,
