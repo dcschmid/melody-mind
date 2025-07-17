@@ -24,11 +24,13 @@ export type GameDifficulty = "easy" | "medium" | "hard" | string;
  * @property {number} score - The player's achieved score
  * @property {string} category - The quiz category/genre name
  * @property {GameDifficulty} difficulty - The difficulty level that was played
+ * @property {string} mode - The game mode (optional - "normal" or "chronology")
  */
 export interface ShareData {
   score: number;
   category: string;
   difficulty: GameDifficulty;
+  mode?: string;
 }
 
 /**
@@ -147,6 +149,42 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     scoreText: "Sain {score} pistettä Melody Mindin {category} -visailussa ({difficulty})!",
     challenge: "Luuletko voittavasi minut? Pelaa nyt osoitteessa:",
   },
+  cn: {
+    musicGenius: "🎵 音乐天才！🎵",
+    musicPro: "🎧 音乐专家！🎧",
+    musicEnthusiast: "🎸 音乐爱好者！🎸",
+    musicLover: "🎹 音乐迷！🎹",
+    musicExplorer: "🎼 音乐探索者！🎼",
+    scoreText: "我在 Melody Mind 的 {category} 测验中获得了 {score} 分 ({difficulty})！",
+    challenge: "你认为你能击败我吗？现在就来挑战：",
+  },
+  jp: {
+    musicGenius: "🎵 音楽の天才！🎵",
+    musicPro: "🎧 音楽プロ！🎧",
+    musicEnthusiast: "🎸 音楽愛好家！🎸",
+    musicLover: "🎹 音楽愛好者！🎹",
+    musicExplorer: "🎼 音楽探検家！🎼",
+    scoreText: "Melody Mind の {category} クイズで {score} ポイント獲得しました ({difficulty})！",
+    challenge: "私に勝てると思いますか？今すぐプレイ：",
+  },
+  ru: {
+    musicGenius: "🎵 Музыкальный гений! 🎵",
+    musicPro: "🎧 Музыкальный профи! 🎧",
+    musicEnthusiast: "🎸 Музыкальный энтузиаст! 🎸",
+    musicLover: "🎹 Любитель музыки! 🎹",
+    musicExplorer: "🎼 Музыкальный исследователь! 🎼",
+    scoreText: "Я набрал {score} очков в викторине {category} от Melody Mind ({difficulty})!",
+    challenge: "Думаешь, сможешь меня победить? Играй сейчас:",
+  },
+  uk: {
+    musicGenius: "🎵 Музичний геній! 🎵",
+    musicPro: "🎧 Музичний професіонал! 🎧",
+    musicEnthusiast: "🎸 Музичний ентузіаст! 🎸",
+    musicLover: "🎹 Любитель музики! 🎹",
+    musicExplorer: "🎼 Музичний дослідник! 🎼",
+    scoreText: "Я набрав {score} очок у вікторині {category} від Melody Mind ({difficulty})!",
+    challenge: "Думаєш, зможеш мене перемогти? Грай зараз:",
+  },
 };
 
 /**
@@ -246,6 +284,24 @@ function getDifficultyEmoji(difficulty: GameDifficulty): string {
 function generateShareText(data: ShareData): string {
   const lang = getCurrentLanguage();
   const translations = shareTextTranslations[lang];
+
+  // Fallback to English if no translation is available
+  if (!translations) {
+    return generateShareTextWithTranslations(data, shareTextTranslations.en);
+  }
+
+  return generateShareTextWithTranslations(data, translations);
+}
+
+/**
+ * Generates share text for a specific language
+ *
+ * @param {ShareData} data - Player's score data
+ * @param {string} language - Language code (e.g., 'de', 'en', 'fr')
+ * @returns {string} A formatted share text in the specified language
+ */
+export function generateShareTextForLanguage(data: ShareData, language: string): string {
+  const translations = shareTextTranslations[language];
 
   // Fallback to English if no translation is available
   if (!translations) {

@@ -396,9 +396,13 @@ export default {
     "Fantastisch! 🌟 Je bent zeker een muziekpro met uitgebreide kennis over verschillende artiesten en genres. Je muziekbegrip ligt ver boven het gemiddelde. Weinigen kunnen tippen aan jouw kennis. Ga zo door en daag je vrienden uit!",
   "game.end.newgame": "Nieuw Spel",
   "game.end.newgameDescription": "Start een nieuw spel met dezelfde instellingen",
+  "game.end.restartSameGame": "Herstart hetzelfde spel",
+  "game.end.restartSameGameDescription": "Speel dezelfde categorie en moeilijkheidsgraad opnieuw",
   "game.end.progressDescription": "Visuele voortgangsbalk die je score prestatie niveau toont",
   "game.end.restartButtonHelp":
     "Start onmiddellijk een nieuwe spelronde met dezelfde moeilijkheidsgraad en categorie",
+  "game.end.restartSameGameHelp":
+    "Herstart dezelfde categorie en moeilijkheidsgraad voor een nieuwe ronde",
   "game.end.scoreProgress": "Score voortgang",
   "game.end.screenReaderDescription": "Spelresultaten die je score en prestatie niveau tonen.",
   "game.end.share": "Deel je succes!",

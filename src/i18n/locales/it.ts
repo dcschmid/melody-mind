@@ -396,10 +396,14 @@ export default {
     "Fantastico! 🌟 Sei decisamente un professionista della musica con vaste conoscenze su vari artisti e generi. La tua comprensione musicale è molto sopra la media. Pochi possono eguagliare la tua conoscenza. Continua così e sfida i tuoi amici!",
   "game.end.newgame": "Nuovo Gioco",
   "game.end.newgameDescription": "Inizia un nuovo gioco con le stesse impostazioni",
+  "game.end.restartSameGame": "Riavvia lo stesso gioco",
+  "game.end.restartSameGameDescription": "Gioca di nuovo la stessa categoria e difficoltà",
   "game.end.progressDescription":
     "Barra di progresso visiva che mostra il tuo livello di punteggio raggiunto",
   "game.end.restartButtonHelp":
     "Inizia immediatamente un nuovo round di gioco con la stessa difficoltà e categoria",
+  "game.end.restartSameGameHelp":
+    "Ricomincia la stessa categoria e difficoltà per un nuovo round",
   "game.end.scoreProgress": "Progresso punteggio",
   "game.end.screenReaderDescription":
     "Risultati di gioco che mostrano il tuo punteggio e livello di obiettivo.",

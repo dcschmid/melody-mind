@@ -298,6 +298,7 @@ export const displayAchievements = (achievements: any[], translations?: Translat
 
   // Show achievements section
   achievementsSection.style.display = "block";
+  console.log(`Displaying ${achievements.length} achievements:`, achievements);
 
   // Create achievement items
   achievements.forEach((achievement) => {
@@ -469,6 +470,14 @@ export const showEndOverlay = async (config: EndOverlayConfig): Promise<void> =>
 
   console.log("showEndOverlay called with:", { score, maxScore });
 
+  // Update the overlay data attribute FIRST for ShareOverlay
+  const overlay =
+    getElementById<HTMLElement>("endgame-popup") || getElement<HTMLElement>("[data-score]");
+  if (overlay) {
+    overlay.setAttribute("data-score", score.toString());
+    console.log("Updated overlay data-score attribute to:", score);
+  }
+
   // Use Promise.all for concurrent operations
   await Promise.all([
     updateEndOverlayScore(score),
@@ -477,11 +486,6 @@ export const showEndOverlay = async (config: EndOverlayConfig): Promise<void> =>
     updateDifficultyDisplay(),
     updateCategoryDisplay(),
   ]);
-
-  // Update the overlay data attribute for consistency
-  const overlay =
-    getElementById<HTMLElement>("endgame-popup") || getElement<HTMLElement>("[data-score]");
-  overlay?.setAttribute("data-score", score.toString());
 
   console.log("showEndOverlay completed successfully");
 };

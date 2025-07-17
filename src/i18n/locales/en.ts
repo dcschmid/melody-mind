@@ -394,9 +394,13 @@ export default {
     "Fantastic! 🌟 You're definitely a music pro with extensive knowledge about various artists and genres. Your music comprehension is far above average. Few can match your knowledge. Keep it up and challenge your friends!",
   "game.end.newgame": "New Game",
   "game.end.newgameDescription": "Start a new game with the same settings",
+  "game.end.restartSameGame": "Restart Same Game",
+  "game.end.restartSameGameDescription": "Play the same category and difficulty again",
   "game.end.progressDescription": "Visual progress bar showing your score achievement level",
   "game.end.restartButtonHelp":
     "Immediately start a new game round with the same difficulty and category",
+  "game.end.restartSameGameHelp":
+    "Start the same category and difficulty again for a new round",
   "game.end.scoreProgress": "Score progress",
   "game.end.screenReaderDescription": "Game results showing your score and achievement level.",
   "game.end.share": "Share your success!",

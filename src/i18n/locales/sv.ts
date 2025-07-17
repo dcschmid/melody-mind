@@ -388,9 +388,13 @@ export default {
     "Fantastiskt! 🌟 Du är definitivt ett musikproffs med omfattande kunskap om olika artister och genrer. Din musikförståelse ligger långt över genomsnittet. Få kan matcha din kunskap. Fortsätt så och utmana dina vänner!",
   "game.end.newgame": "Nytt spel",
   "game.end.newgameDescription": "Starta ett nytt spel med samma inställningar",
+  "game.end.restartSameGame": "Starta om samma spel",
+  "game.end.restartSameGameDescription": "Spela samma kategori och svårighetsgrad igen",
   "game.end.progressDescription": "Visuell framstegsindikator som visar din poängprestationsnivå",
   "game.end.restartButtonHelp":
     "Starta omedelbart en ny spelrunda med samma svårighetsgrad och kategori",
+  "game.end.restartSameGameHelp":
+    "Starta om samma kategori och svårighetsgrad för en ny runda",
   "game.end.scoreProgress": "Poängframsteg",
   "game.end.screenReaderDescription": "Spelresultat som visar din poäng och prestationsnivå.",
   "game.end.share": "Dela din framgång!",

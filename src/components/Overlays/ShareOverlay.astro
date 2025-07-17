@@ -3,12 +3,14 @@
  * ShareOverlay Component
  *
  * A reusable sharing component that provides multiple ways to share game results.
- * Optimized for WCAG AAA accessibility and high performance.
+ * Optimized for WCAG AAA accessibility and high performance with advanced share text generation.
  *
  * Features:
  * - Native Web Share API integration (when supported)
  * - Platform-specific sharing (Twitter/X, WhatsApp, Email)
  * - Copy to clipboard functionality with fallback options
+ * - Advanced multilingual share text generation (14 languages)
+ * - Achievement-based share messages with emojis
  * - Full keyboard accessibility and screen reader support
  * - High contrast mode support
  * - Performance-optimized animations and event handling
@@ -32,6 +34,7 @@
 import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import type { ShareData } from "@utils/share/shareUtils";
+import { generateShareTextForLanguage } from "@utils/share/shareUtils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -43,17 +46,20 @@ export interface Props {
   shareGroupLabel?: string;
   /** Whether to show fallback content when no game data is available */
   showFallback?: boolean;
+  /** Whether to show the title */
+  showTitle?: boolean;
 }
 
 const {
   gameData,
   shareGroupLabel = t("share.buttons.group.label"),
   showFallback = true,
+  showTitle = true,
 } = Astro.props;
 ---
 
 <div class="share-overlay" data-game-data={gameData ? JSON.stringify(gameData) : ""}>
-  <h3 class="share-overlay__title">{t("share.title")}</h3>
+  {showTitle && <h3 class="share-overlay__title">{t("share.title")}</h3>}
 
   <!-- Status announcer for screen readers -->
   <div id="share-status-announcer" aria-live="polite" aria-atomic="true" class="sr-only"></div>
@@ -750,7 +756,7 @@ const {
   };
 
   // Initialize the sharing functionality
-  const initializeSharing = () => {
+  const initializeSharing = async () => {
     cacheElements();
 
     if (!elements.statusAnnouncer || !elements.copyButton) {
@@ -765,17 +771,36 @@ const {
     initializePlatformSharing();
     initializeFallbackHandlers();
     setupCleanupHandlers();
-    validateGameDataAvailability();
+    
+    // Try to validate game data with retries
+    await validateGameDataWithRetries();
   };
 
-  // Validate game data availability
-  const validateGameDataAvailability = () => {
-    const gameData = getGameDataFromProps() || getGameDataFromPopup();
-
-    if (!gameData || !isValidShareData(gameData)) {
-      showFallbackContent();
+  // Validate game data with retries
+  const validateGameDataWithRetries = async () => {
+    const maxRetries = 10;
+    const retryDelay = 500; // 500ms
+    
+    for (let i = 0; i < maxRetries; i++) {
+      const gameData = getGameDataFromProps() || getGameDataFromPopup();
+      
+      console.log(`ShareOverlay: Validation attempt ${i + 1}/${maxRetries}:`, gameData);
+      
+      if (gameData && isValidShareData(gameData)) {
+        console.log("ShareOverlay: Game data validation successful");
+        return;
+      }
+      
+      if (i < maxRetries - 1) {
+        console.log(`ShareOverlay: Retrying in ${retryDelay}ms...`);
+        await new Promise(resolve => setTimeout(resolve, retryDelay));
+      }
     }
+    
+    console.warn("ShareOverlay: Game data validation failed after all retries, showing fallback");
+    showFallbackContent();
   };
+
 
   // Get game data from component props
   const getGameDataFromProps = () => {
@@ -790,8 +815,24 @@ const {
     }
 
     try {
-      return JSON.parse(propsData);
-    } catch {
+      const data = JSON.parse(propsData);
+      
+      // Always prefer the current score from DOM over props
+      const popup = document.querySelector("#endgame-popup") ||
+                    document.querySelector("#end-overlay") || 
+                    document.querySelector(".popup[data-score]");
+      if (popup) {
+        const currentScore = popup.querySelector("#popup-score");
+        if (currentScore && currentScore.textContent) {
+          const score = parseInt(currentScore.textContent, 10);
+          if (!isNaN(score)) {
+            data.score = score;
+          }
+        }
+      }
+      return data;
+    } catch (error) {
+      console.error("ShareOverlay: Error parsing props data:", error);
       return null;
     }
   };
@@ -799,31 +840,36 @@ const {
   // Validate share data
   const isValidShareData = (data) => {
     if (!data || typeof data !== "object") {
+      console.log("ShareOverlay: Invalid data - not an object:", data);
       return false;
     }
 
-    let isValid = true;
-
+    // Check score
     if (typeof data.score !== "number" || data.score < 0) {
-      isValid = false;
+      console.log("ShareOverlay: Invalid score:", data.score);
+      return false;
     }
+
+    // Check category
     if (!data.category || typeof data.category !== "string" || data.category.trim().length === 0) {
-      isValid = false;
+      console.log("ShareOverlay: Invalid category:", data.category);
+      return false;
     }
-    if (
-      !data.difficulty ||
-      typeof data.difficulty !== "string" ||
-      data.difficulty.trim().length === 0
-    ) {
-      isValid = false;
+
+    // Check difficulty
+    if (!data.difficulty || typeof data.difficulty !== "string" || data.difficulty.trim().length === 0) {
+      console.log("ShareOverlay: Invalid difficulty:", data.difficulty);
+      return false;
     }
 
     const validDifficulties = ["easy", "medium", "hard"];
-    if (data.difficulty && !validDifficulties.includes(data.difficulty)) {
-      isValid = false;
+    if (data.difficulty && !validDifficulties.includes(data.difficulty.toLowerCase())) {
+      console.log("ShareOverlay: Invalid difficulty value:", data.difficulty);
+      return false;
     }
 
-    return isValid;
+    console.log("ShareOverlay: Data validation successful:", data);
+    return true;
   };
 
   // Show fallback content
@@ -1003,7 +1049,7 @@ const {
           return;
         }
 
-        const shareText = generateSimpleShareText(gameData);
+        const shareText = await generateAdvancedShareText(gameData);
         const shareData = {
           title: "Melody Mind Music Quiz",
           text: shareText,
@@ -1098,7 +1144,7 @@ const {
           return;
         }
 
-        const shareText = generateSimpleShareText(gameData);
+        const shareText = await generateAdvancedShareText(gameData);
         const shareUrl = createShareUrl(platform, shareText);
 
         if (shareUrl) {
@@ -1134,10 +1180,34 @@ const {
     }
   };
 
-  // Generate simple share text
-  const generateSimpleShareText = (data) => {
-    const { score, category, difficulty } = data;
-    return `I scored ${score} points in ${category} on ${difficulty} difficulty! 🎵 Can you beat my score?`;
+  // Generate advanced multilingual share text using shareUtils
+  const generateAdvancedShareText = async (data) => {
+    const { score, category, difficulty, mode } = data;
+    const currentLang = document.documentElement.lang || 'en';
+    
+    try {
+      // Import the generateShareTextForLanguage function from shareUtils
+      const { generateShareTextForLanguage } = await import("/src/utils/share/shareUtils.ts");
+      return generateShareTextForLanguage(data, currentLang);
+    } catch (error) {
+      console.warn("Failed to import shareUtils, using fallback:", error);
+      
+      // Fallback implementation for compatibility
+      const achievement = score >= 800 ? "🎵 Music Genius! 🎵" :
+                         score >= 600 ? "🎧 Music Pro! 🎧" :
+                         score >= 400 ? "🎸 Music Enthusiast! 🎸" :
+                         score >= 200 ? "🎹 Music Lover! 🎹" :
+                         "🎼 Music Explorer! 🎼";
+      
+      const difficultyEmoji = difficulty.toLowerCase() === 'easy' ? '🟢' :
+                             difficulty.toLowerCase() === 'medium' ? '🟡' :
+                             difficulty.toLowerCase() === 'hard' ? '🔴' : '⚪️';
+      
+      const scoreText = `I scored ${score} points in Melody Mind's ${category} quiz (${difficultyEmoji} ${difficulty})!`;
+      const challenge = "Think you can beat me? Play now at:";
+      
+      return `${achievement}\n\n${scoreText}\n\n${challenge}`;
+    }
   };
 
   // Handle platform share errors
@@ -1200,7 +1270,7 @@ const {
           return;
         }
 
-        const shareText = generateSimpleShareText(gameData);
+        const shareText = await generateAdvancedShareText(gameData);
         const shareUrl = window.location.href;
         const fullText = `${shareText}\n\n${shareUrl}`;
 
@@ -1312,25 +1382,42 @@ const {
 
   // Extract game data from popup element
   const getGameDataFromPopup = () => {
-    const popup = document.querySelector("#endgame-popup");
+    // Try multiple possible selectors for the popup element
+    const popup = document.querySelector("#endgame-popup") ||
+                  document.querySelector("#end-overlay") || 
+                  document.querySelector(".popup[data-score]");
     if (!popup) {
       return null;
     }
 
     try {
-      const scoreAttr = popup.getAttribute("data-score");
+      // Try to get the current score from the DOM element first
+      const scoreElement = popup.querySelector("#popup-score");
+      let score = 0;
+      
+      if (scoreElement && scoreElement.textContent) {
+        score = parseInt(scoreElement.textContent, 10);
+        if (isNaN(score) || score < 0) {
+          // Fallback to data attribute if DOM element parsing fails
+          const scoreAttr = popup.getAttribute("data-score");
+          score = parseInt(scoreAttr, 10);
+        }
+      } else {
+        // Fallback to data attribute if no score element found
+        const scoreAttr = popup.getAttribute("data-score");
+        score = parseInt(scoreAttr, 10);
+      }
+
       const categoryAttr = popup.getAttribute("data-category");
       const difficultyAttr = popup.getAttribute("data-difficulty");
 
-      if (!scoreAttr || !categoryAttr || !difficultyAttr) {
+      if (!categoryAttr || !difficultyAttr) {
         console.warn("ShareOverlay: Missing required data attributes on popup element");
         return null;
       }
 
-      const score = parseInt(scoreAttr, 10);
-
       if (isNaN(score) || score < 0) {
-        console.warn("ShareOverlay: Invalid score value:", scoreAttr);
+        console.warn("ShareOverlay: Invalid score value:", score);
         return null;
       }
 
@@ -1379,10 +1466,44 @@ const {
     window.addEventListener("beforeunload", cleanup);
   };
 
-  // Initialize sharing features when DOM is ready
+  // Initialize sharing features when the EndOverlay is actually shown
+  const initializeOnEndOverlayShow = () => {
+    // Wait for the EndOverlay to be visible before initializing
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          const popup = mutation.target;
+          if (popup.classList && !popup.classList.contains('hidden')) {
+            console.log('EndOverlay is now visible, initializing ShareOverlay');
+            initializeSharing().catch(console.error);
+            observer.disconnect(); // Stop observing once initialized
+          }
+        }
+      });
+    });
+
+    // Find the EndOverlay element to observe
+    const endOverlay = document.querySelector("#endgame-popup") ||
+                       document.querySelector("#end-overlay") || 
+                       document.querySelector(".popup[data-score]");
+
+    if (endOverlay) {
+      observer.observe(endOverlay, { 
+        attributes: true, 
+        attributeFilter: ['class'] 
+      });
+    } else {
+      // Fallback: initialize after a short delay if no popup found
+      setTimeout(() => {
+        initializeSharing().catch(console.error);
+      }, 1000);
+    }
+  };
+
+  // Initialize when DOM is ready
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeSharing);
+    document.addEventListener("DOMContentLoaded", initializeOnEndOverlayShow);
   } else {
-    initializeSharing();
+    initializeOnEndOverlayShow();
   }
 </script>

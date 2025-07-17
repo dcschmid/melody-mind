@@ -395,10 +395,14 @@ export default {
     "Fantastista! 🌟 Olet ehdottomasti musiikin ammattilainen laajalla tietämyksellä erilaisista artisteista ja lajityypeistä. Musiikkiymmärryksesi on paljon keskivertoa parempaa. Harvat voivat kilpailla tietämyksesi kanssa. Jatka samaan malliin ja haasta ystäväsi!",
   "game.end.newgame": "Uusi peli",
   "game.end.newgameDescription": "Aloita uusi peli samoilla asetuksilla",
+  "game.end.restartSameGame": "Käynnistä sama peli uudelleen",
+  "game.end.restartSameGameDescription": "Pelaa sama kategoria ja vaikeustaso uudelleen",
   "game.end.progressDescription":
     "Visuaalinen edistymispalkki, joka näyttää pistemäärän saavutustasosi",
   "game.end.restartButtonHelp":
     "Aloita välittömästi uusi pelikierros samalla vaikeustasolla ja kategorialla",
+  "game.end.restartSameGameHelp":
+    "Käynnistä sama kategoria ja vaikeustaso uudelleen uudelle kierrokselle",
   "game.end.scoreProgress": "Pistemäärän edistyminen",
   "game.end.screenReaderDescription": "Pelitulokset näyttävät pistemäärän ja saavutustasosi.",
   "game.end.share": "Jaa menestyksesi!",
