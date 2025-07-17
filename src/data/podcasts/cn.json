@@ -8,8 +8,8 @@
       "language": "cn",
       "isAvailable": true,
       "publishedAt": "2025-01-01",
-      "audioUrl": "/podcasts/cn/1950s.mp3",
-      "subtitleUrl": "/podcasts/cn/1950s.vtt"
+      "audioUrl": "https://eu2.contabostorage.com/b2aeddb452b14863a944e9b2e80105bf:melody-mind/cn/1950s.mp3",
+      "subtitleUrl": "https://eu2.contabostorage.com/b2aeddb452b14863a944e9b2e80105bf:melody-mind/cn/1950s.vtt"
     },
     {
       "id": "1960s",
@@ -19,8 +19,8 @@
       "language": "cn",
       "isAvailable": true,
       "publishedAt": "2025-01-02",
-      "audioUrl": "/podcasts/cn/1960s.mp3",
-      "subtitleUrl": "/podcasts/cn/1960s.vtt"
+      "audioUrl": "https://eu2.contabostorage.com/b2aeddb452b14863a944e9b2e80105bf:melody-mind/cn/1960s.mp3",
+      "subtitleUrl": "https://eu2.contabostorage.com/b2aeddb452b14863a944e9b2e80105bf:melody-mind/cn/1960s.vtt"
     },
     {
       "id": "1970s",
@@ -30,8 +30,8 @@
       "language": "cn",
       "isAvailable": true,
       "publishedAt": "2025-08-15",
-      "audioUrl": "/podcasts/cn/1970s.mp3",
-      "subtitleUrl": "/podcasts/cn/1970s.vtt"
+      "audioUrl": "https://eu2.contabostorage.com/b2aeddb452b14863a944e9b2e80105bf:melody-mind/cn/1970s.mp3",
+      "subtitleUrl": "https://eu2.contabostorage.com/b2aeddb452b14863a944e9b2e80105bf:melody-mind/cn/1970s.vtt"
     },
     {
       "id": "1980s",
@@ -41,8 +41,8 @@
       "language": "cn",
       "isAvailable": true,
       "publishedAt": "2025-09-20",
-      "audioUrl": "/podcasts/cn/1980s.mp3",
-      "subtitleUrl": "/podcasts/cn/1980s.vtt"
+      "audioUrl": "https://eu2.contabostorage.com/b2aeddb452b14863a944e9b2e80105bf:melody-mind/cn/1980s.mp3",
+      "subtitleUrl": "https://eu2.contabostorage.com/b2aeddb452b14863a944e9b2e80105bf:melody-mind/cn/1980s.vtt"
     },
     {
       "id": "1990s",
@@ -52,8 +52,8 @@
       "language": "cn",
       "isAvailable": true,
       "publishedAt": "2025-10-25",
-      "audioUrl": "/podcasts/cn/1990s.mp3",
-      "subtitleUrl": "/podcasts/cn/1990s.vtt"
+      "audioUrl": "https://eu2.contabostorage.com/b2aeddb452b14863a944e9b2e80105bf:melody-mind/cn/1990s.mp3",
+      "subtitleUrl": "https://eu2.contabostorage.com/b2aeddb452b14863a944e9b2e80105bf:melody-mind/cn/1990s.vtt"
     },
     {
       "id": "2000s",
@@ -63,8 +63,8 @@
       "language": "cn",
       "isAvailable": true,
       "publishedAt": "2025-11-30",
-      "audioUrl": "/podcasts/cn/2000s.mp3",
-      "subtitleUrl": "/podcasts/cn/2000s.vtt"
+      "audioUrl": "https://eu2.contabostorage.com/b2aeddb452b14863a944e9b2e80105bf:melody-mind/cn/2000s.mp3",
+      "subtitleUrl": "https://eu2.contabostorage.com/b2aeddb452b14863a944e9b2e80105bf:melody-mind/cn/2000s.vtt"
     },
     {
       "id": "2010s",
@@ -74,8 +74,8 @@
       "language": "cn",
       "isAvailable": true,
       "publishedAt": "2025-12-15",
-      "audioUrl": "/podcasts/cn/2010s.mp3",
-      "subtitleUrl": "/podcasts/cn/2010s.vtt"
+      "audioUrl": "https://eu2.contabostorage.com/b2aeddb452b14863a944e9b2e80105bf:melody-mind/cn/2010s.mp3",
+      "subtitleUrl": "https://eu2.contabostorage.com/b2aeddb452b14863a944e9b2e80105bf:melody-mind/cn/2010s.vtt"
     }
   ]
 }
