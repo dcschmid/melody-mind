@@ -159,7 +159,374 @@ async function saveGameResult(config: EndGameConfig): Promise<string> {
 }
 
 /**
- *
+ * Show loading state during end game processing
+ */
+function showEndGameLoading(): void {
+  // Get current language for localized text
+  const currentLang = document.documentElement.lang || 'en';
+  
+  // Define localized loading texts
+  const loadingTexts = {
+    en: {
+      processing: "Processing your results...",
+      calculating: "Calculating achievements and saving score"
+    },
+    de: {
+      processing: "Verarbeite deine Ergebnisse...",
+      calculating: "Berechne Erfolge und speichere Punktzahl"
+    },
+    es: {
+      processing: "Procesando tus resultados...",
+      calculating: "Calculando logros y guardando puntuación"
+    },
+    fr: {
+      processing: "Traitement de vos résultats...",
+      calculating: "Calcul des succès et sauvegarde du score"
+    },
+    it: {
+      processing: "Elaborazione dei tuoi risultati...",
+      calculating: "Calcolo dei successi e salvataggio del punteggio"
+    },
+    pt: {
+      processing: "Processando seus resultados...",
+      calculating: "Calculando conquistas e salvando pontuação"
+    },
+    da: {
+      processing: "Behandler dine resultater...",
+      calculating: "Beregner præstationer og gemmer score"
+    },
+    nl: {
+      processing: "Verwerken van je resultaten...",
+      calculating: "Berekenen van prestaties en opslaan van score"
+    },
+    sv: {
+      processing: "Bearbetar dina resultat...",
+      calculating: "Beräknar prestationer och sparar poäng"
+    },
+    fi: {
+      processing: "Käsitellään tuloksiasi...",
+      calculating: "Lasketaan saavutuksia ja tallennetaan pisteet"
+    }
+  };
+
+  const texts = loadingTexts[currentLang] || loadingTexts.en;
+
+  // Create and show a loading overlay
+  const loadingOverlay = document.createElement('div');
+  loadingOverlay.id = 'endgame-loading-overlay';
+  loadingOverlay.className = 'endgame-loading-overlay';
+  loadingOverlay.innerHTML = `
+    <div class="endgame-loading-content">
+      <div class="endgame-loading-spinner">
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+      </div>
+      <p class="endgame-loading-text">${texts.processing}</p>
+      <p class="endgame-loading-subtext" id="endgame-loading-subtext">${texts.calculating}</p>
+    </div>
+  `;
+
+  // Add styles
+  const style = document.createElement('style');
+  style.textContent = `
+    .endgame-loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+
+    .endgame-loading-content {
+      text-align: center;
+      color: white;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .endgame-loading-spinner {
+      position: relative;
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1rem;
+    }
+
+    .spinner-ring {
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      margin: 8px;
+      border: 8px solid #fff;
+      border-radius: 50%;
+      animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      border-color: #fff transparent transparent transparent;
+    }
+
+    .spinner-ring:nth-child(1) { animation-delay: -0.45s; }
+    .spinner-ring:nth-child(2) { animation-delay: -0.3s; }
+    .spinner-ring:nth-child(3) { animation-delay: -0.15s; }
+
+    .endgame-loading-text {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem 0;
+      color: #fff;
+    }
+
+    .endgame-loading-subtext {
+      font-size: 0.9rem;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  `;
+
+  // Insert the loading overlay
+  document.head.appendChild(style);
+  document.body.appendChild(loadingOverlay);
+}
+
+/**
+ * Update the loading text to show validation progress
+ */
+function updateLoadingText(text: string): void {
+  const subtextElement = document.getElementById('endgame-loading-subtext');
+  if (subtextElement) {
+    subtextElement.textContent = text;
+  }
+}
+
+/**
+ * Wait for all data to be properly validated before showing EndOverlay
+ */
+async function waitForDataValidation(config: EndGameConfig): Promise<void> {
+  const maxWaitTime = 5000; // Maximum wait time: 5 seconds
+  const checkInterval = 200; // Check every 200ms
+  const startTime = Date.now();
+
+  // Get current language for localized validation texts
+  const currentLang = document.documentElement.lang || 'en';
+  const validationTexts = {
+    en: {
+      validating: "Validating game data...",
+      checkingElements: "Checking interface elements...",
+      finalizing: "Finalizing results..."
+    },
+    de: {
+      validating: "Validiere Spieldaten...",
+      checkingElements: "Überprüfe Interface-Elemente...",
+      finalizing: "Schließe Ergebnisse ab..."
+    },
+    es: {
+      validating: "Validando datos del juego...",
+      checkingElements: "Verificando elementos de interfaz...",
+      finalizing: "Finalizando resultados..."
+    },
+    fr: {
+      validating: "Validation des données de jeu...",
+      checkingElements: "Vérification des éléments d'interface...",
+      finalizing: "Finalisation des résultats..."
+    },
+    it: {
+      validating: "Validazione dati di gioco...",
+      checkingElements: "Controllo elementi interfaccia...",
+      finalizing: "Finalizzazione risultati..."
+    },
+    pt: {
+      validating: "Validando dados do jogo...",
+      checkingElements: "Verificando elementos da interface...",
+      finalizing: "Finalizando resultados..."
+    },
+    da: {
+      validating: "Validerer spildata...",
+      checkingElements: "Tjekker interface-elementer...",
+      finalizing: "Færdiggør resultater..."
+    },
+    nl: {
+      validating: "Valideren van spelgegevens...",
+      checkingElements: "Controleren interface-elementen...",
+      finalizing: "Afronden van resultaten..."
+    },
+    sv: {
+      validating: "Validerar speldata...",
+      checkingElements: "Kontrollerar gränssnittselement...",
+      finalizing: "Slutför resultat..."
+    },
+    fi: {
+      validating: "Vahvistetaan pelitietoja...",
+      checkingElements: "Tarkistetaan käyttöliittymäelementtejä...",
+      finalizing: "Viimeistellään tulokset..."
+    }
+  };
+
+  const texts = validationTexts[currentLang] || validationTexts.en;
+  updateLoadingText(texts.validating);
+
+  return new Promise((resolve, reject) => {
+    const checkData = () => {
+      const elapsed = Date.now() - startTime;
+      
+      // Timeout protection
+      if (elapsed > maxWaitTime) {
+        console.warn('Data validation timeout reached, proceeding anyway');
+        updateLoadingText(texts.finalizing);
+        // Force resolve after timeout
+        setTimeout(() => resolve(), 300);
+        return;
+      }
+
+      // Update loading text based on elapsed time
+      if (elapsed > 2000) {
+        updateLoadingText(texts.checkingElements);
+      } else if (elapsed > 4000) {
+        updateLoadingText(texts.finalizing);
+      }
+
+      // Check if all required data is available and valid
+      const validationChecks = [
+        // 1. Check if popup element exists
+        () => {
+          const popup = document.querySelector("#endgame-popup") ||
+                        document.querySelector("#end-overlay") || 
+                        document.querySelector(".popup[data-score]");
+          const exists = popup !== null;
+          if (!exists) console.log("Validation failed: popup element not found");
+          return exists;
+        },
+        
+        // 2. Check if score is correctly set in data attributes
+        () => {
+          const popup = document.querySelector("#endgame-popup") ||
+                        document.querySelector("#end-overlay") || 
+                        document.querySelector(".popup[data-score]");
+          if (!popup) return false;
+          
+          const scoreAttr = popup.getAttribute("data-score");
+          const score = parseInt(scoreAttr || "0", 10);
+          const isValid = !isNaN(score) && score >= 0; // Allow 0 score
+          if (!isValid) console.log(`Validation failed: score invalid. Expected: ${config.score}, Got: ${score}`);
+          return isValid;
+        },
+        
+        // 3. Check if category and difficulty are set (more lenient)
+        () => {
+          const popup = document.querySelector("#endgame-popup") ||
+                        document.querySelector("#end-overlay") || 
+                        document.querySelector(".popup[data-score]");
+          if (!popup) return false;
+          
+          const category = popup.getAttribute("data-category");
+          const difficulty = popup.getAttribute("data-difficulty");
+          const isValid = category && difficulty && 
+                         category.trim().length > 0 &&
+                         difficulty.trim().length > 0;
+          if (!isValid) console.log(`Validation failed: category/difficulty invalid. Category: ${category}, Difficulty: ${difficulty}`);
+          return isValid;
+        }
+      ];
+
+      // Run all validation checks with detailed logging
+      const checkResults = validationChecks.map((check, index) => {
+        try {
+          const result = check();
+          return { index, result };
+        } catch (error) {
+          console.warn(`Validation check ${index} failed:`, error);
+          return { index, result: false };
+        }
+      });
+
+      const allValid = checkResults.every(({ result }) => result);
+      
+      // Log failed checks for debugging
+      if (!allValid) {
+        const failedChecks = checkResults.filter(({ result }) => !result);
+        console.log(`Validation failed for checks: ${failedChecks.map(({ index }) => index).join(', ')}`);
+      }
+
+      if (allValid) {
+        console.log('All data validation checks passed');
+        updateLoadingText(texts.finalizing);
+        // Small delay to show finalizing message
+        setTimeout(() => resolve(), 200);
+      } else {
+        // Continue checking
+        setTimeout(checkData, checkInterval);
+      }
+    };
+
+    // Start checking
+    checkData();
+  });
+}
+
+/**
+ * Hide loading state after end game processing
+ */
+function hideEndGameLoading(): void {
+  const loadingOverlay = document.getElementById('endgame-loading-overlay');
+  if (loadingOverlay) {
+    console.log('Hiding loading overlay');
+    
+    // Try smooth animation first
+    try {
+      loadingOverlay.style.animation = 'fadeOut 0.3s ease-out forwards';
+      
+      // Add fadeOut animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes fadeOut {
+          from { opacity: 1; transform: scale(1); }
+          to { opacity: 0; transform: scale(0.9); }
+        }
+      `;
+      document.head.appendChild(style);
+
+      setTimeout(() => {
+        if (loadingOverlay.parentNode) {
+          loadingOverlay.remove();
+          console.log('Loading overlay removed successfully');
+        }
+      }, 300);
+    } catch (error) {
+      // Fallback: immediate removal
+      console.warn('Animation failed, removing immediately:', error);
+      loadingOverlay.remove();
+    }
+  } else {
+    console.log('No loading overlay found to hide');
+  }
+}
+
+/**
+ * Handle end game with loading state
  */
 export async function handleEndGame(
   config: EndGameConfig,
@@ -167,6 +534,9 @@ export async function handleEndGame(
   callbacks?: EndGameCallbacks
 ): Promise<void> {
   try {
+    // Show loading state before processing
+    showEndGameLoading();
+
     // Calculate achievement rate as a percentage
     const achievementRate = Math.round((config.correctAnswers / config.totalRounds) * 100);
 
@@ -185,13 +555,53 @@ export async function handleEndGame(
     // (Spielergebnis, Benutzerstatistiken und Highscore)
     await saveGameResult(config);
 
+    // Wait for all data to be properly set and validated
+    try {
+      await waitForDataValidation(config);
+    } catch (error) {
+      console.warn('Data validation failed, proceeding anyway:', error);
+    }
+
+    // Hide loading state
+    hideEndGameLoading();
+
+    // Small delay to ensure loading state is hidden
+    await new Promise(resolve => setTimeout(resolve, 100));
+
     // Display the end game popup with score
     ui.showEndgamePopup(config.score);
+
+    // Absolute fallback: ensure loading is hidden after 2 seconds
+    setTimeout(() => {
+      const loadingOverlay = document.getElementById('endgame-loading-overlay');
+      if (loadingOverlay) {
+        console.warn('Force removing stuck loading overlay');
+        loadingOverlay.remove();
+      }
+    }, 2000);
 
     // Call success callback if provided
     callbacks?.onSaveComplete?.();
   } catch (error) {
     console.error("Error ending the game:", error);
+
+    // Hide loading state in case of error
+    hideEndGameLoading();
+
+    // Force remove loading overlay in case of error
+    setTimeout(() => {
+      const loadingOverlay = document.getElementById('endgame-loading-overlay');
+      if (loadingOverlay) {
+        console.warn('Force removing loading overlay due to error');
+        loadingOverlay.remove();
+      }
+    }, 100);
+
+    // Display the end game popup with score even on error
+    // Wait a bit to let the UI settle
+    setTimeout(() => {
+      ui.showEndgamePopup(config.score);
+    }, 200);
 
     // Call error callback if provided
     callbacks?.onError?.(error instanceof Error ? error : new Error(String(error)));

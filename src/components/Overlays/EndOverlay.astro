@@ -8,7 +8,7 @@
  * Features:
  * - Score visualization with animated progress bar
  * - Dynamic motivational text based on score and language
- * - Sharing capabilities for social media
+ * - Comprehensive sharing capabilities for social media
  * - Full keyboard navigation with focus trap
  * - Screen reader announcements for game results
  * - Optimized animations with reduced motion support
@@ -38,6 +38,7 @@
  */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
+import ShareOverlay from "./ShareOverlay.astro";
 
 const lang = String(getLangFromUrl(Astro.url));
 const t = useTranslations(lang);
@@ -48,6 +49,7 @@ interface Props {
   "data-score"?: string;
   "data-category"?: string;
   "data-difficulty"?: string;
+  "data-mode"?: string;
 }
 
 const {
@@ -56,7 +58,22 @@ const {
   "data-score": initialScore = "0",
   "data-category": category = "",
   "data-difficulty": difficulty = "",
+  "data-mode": gameMode = "normal",
 } = Astro.props;
+
+// Construct the restart URL based on game data
+const constructRestartUrl = () => {
+  if (!category || !difficulty) {
+    return `/${lang}/gamehome`; // Fallback to game home if data is missing
+  }
+
+  const baseUrl = `/${lang}`;
+  const modePrefix = gameMode === "chronology" ? "chronology-" : "game-";
+
+  return `${baseUrl}/${modePrefix}${category}/${difficulty}`;
+};
+
+const restartUrl = constructRestartUrl();
 
 // Prepare translations for client-side access
 const clientTranslations = {
@@ -88,6 +105,7 @@ const clientTranslations = {
   data-score={initialScore}
   data-category={category}
   data-difficulty={difficulty}
+  data-mode={gameMode}
   data-translations={JSON.stringify(clientTranslations)}
 >
   <!-- Overlay backdrop for click-to-close functionality -->
@@ -172,30 +190,27 @@ const clientTranslations = {
       </div>
     </div>
 
-    <!-- Share Section -->
-    <div class="share-section" role="region" aria-labelledby="share-label">
-      <div id="share-label" class="sr-only">
+    <!-- Share Section with comprehensive sharing options -->
+    <div class="share-section" role="region" aria-labelledby="share-section-heading">
+      <h3 id="share-section-heading" class="share-section__title">
         {t("game.end.shareSection")}
-      </div>
-      <button
-        type="button"
-        class="share-btn"
-        aria-label={t("game.end.shareResults")}
-        aria-describedby="share-description"
-        data-share="general"
-      >
-        <Icon name="share" width={20} height={20} aria-hidden="true" />
-        {t("game.end.share")}
-      </button>
-      <!-- Hidden share description for screen readers -->
-      <div id="share-description" class="sr-only">
-        {t("game.end.shareDescription")}
-      </div>
+      </h3>
+      <ShareOverlay
+        gameData={{
+          score: parseInt(initialScore, 10),
+          category: category,
+          difficulty: difficulty,
+          mode: gameMode,
+        }}
+        shareGroupLabel={t("game.end.shareResults")}
+        showFallback={true}
+        showTitle={false}
+      />
     </div>
 
     <div class="button-wrapper">
       <a
-        href="/"
+        href="/gamehome"
         class="popup__btn popup__btn--secondary"
         aria-label={t("game.end.homeDescription")}
         aria-describedby="home-button-description"
@@ -204,28 +219,29 @@ const clientTranslations = {
         {t("game.end.home")}
       </a>
 
-      <button
+      <a
+        href={restartUrl}
         id="restart-button"
         class="popup__btn popup__btn--primary"
-        aria-label={t("game.end.newgameDescription")}
+        aria-label={t("game.end.restartSameGameDescription")}
         aria-describedby="restart-button-description"
       >
         <Icon name="restart" width={20} height={20} aria-hidden="true" />
-        {t("game.end.newgame")}
-      </button>
+        {t("game.end.restartSameGame")}
+      </a>
 
       <!-- Hidden button descriptions for screen readers -->
       <div id="home-button-description" class="sr-only">
         {t("game.end.homeButtonHelp")}
       </div>
       <div id="restart-button-description" class="sr-only">
-        {t("game.end.restartButtonHelp")}
+        {t("game.end.restartSameGameHelp")}
       </div>
     </div>
   </div>
 </div>
 
-<style lang="scss">
+<style lang="scss" is:global>
   /* =================================================
    * END OVERLAY - SCSS IMPLEMENTATION
    * Modern SCSS with global.css variables
@@ -613,17 +629,59 @@ const clientTranslations = {
     border: var(--border-width-thin) solid var(--border-primary);
     border-radius: var(--radius-lg);
     transition: transform var(--transition-normal);
+    text-align: center;
 
     &:hover {
       transform: translateY(calc(-1 * var(--space-micro)));
+    }
+
+    &__icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-sm);
+
+      img {
+        width: var(--space-2xl);
+        height: var(--space-2xl);
+        border-radius: var(--radius-md);
+      }
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    &__name {
+      font-size: var(--text-base);
+      font-weight: var(--font-semibold);
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    &__description {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: var(--leading-relaxed);
     }
   }
 
   // Share section
   .share-section {
-    display: flex;
-    justify-content: center;
     margin-bottom: var(--space-xl);
+    padding: var(--space-lg) 0;
+    border-top: var(--border-width-thin) solid var(--border-subtle);
+    border-bottom: var(--border-width-thin) solid var(--border-subtle);
+
+    &__title {
+      margin-bottom: var(--space-lg);
+      font-size: var(--text-lg);
+      font-weight: var(--font-semibold);
+      color: var(--text-primary);
+      text-align: center;
+    }
   }
 
   .share-btn {
@@ -800,7 +858,6 @@ const clientTranslations = {
     .achievement-badge,
     .achievement-progress__bar,
     .popup__btn,
-    .share-btn,
     .achievement-item {
       animation: none !important;
       transition: none !important;

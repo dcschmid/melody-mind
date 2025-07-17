@@ -170,6 +170,8 @@ interface SaveResultResponse {
   id?: string;
   /** Error message in case of failure */
   message?: string;
+  /** Unlocked achievements */
+  unlockedAchievements?: any[];
 }
 
 /**
@@ -206,12 +208,17 @@ function createErrorResponse(message: string, status: number = 500): Response {
  * @param {string} data.id - ID of the saved game
  * @returns {Response} HTTP response object
  */
-function createSuccessResponse(data: { gameMode: GameMode; id: string }): Response {
+function createSuccessResponse(data: { 
+  gameMode: GameMode; 
+  id: string; 
+  unlockedAchievements?: any[] 
+}): Response {
   return new Response(
     JSON.stringify({
       success: true,
       gameMode: data.gameMode,
       id: data.id,
+      unlockedAchievements: data.unlockedAchievements || [],
     } satisfies SaveResultResponse),
     {
       status: 200,

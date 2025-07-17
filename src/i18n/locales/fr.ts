@@ -407,10 +407,14 @@ export default {
     "Fantastique ! 🌟 Vous êtes définitivement un pro de la musique avec des connaissances étendues sur divers artistes et genres. Votre compréhension musicale est bien au-dessus de la moyenne. Peu peuvent égaler vos connaissances. Continuez ainsi et défiez vos amis !",
   "game.end.newgame": "Nouveau jeu",
   "game.end.newgameDescription": "Commencer un nouveau jeu avec les mêmes paramètres",
+  "game.end.restartSameGame": "Redémarrer le même jeu",
+  "game.end.restartSameGameDescription": "Rejouer la même catégorie et difficulté",
   "game.end.progressDescription":
     "Barre de progression visuelle montrant votre niveau de réussite du score",
   "game.end.restartButtonHelp":
     "Commencer immédiatement un nouveau tour de jeu avec la même difficulté et catégorie",
+  "game.end.restartSameGameHelp":
+    "Recommencer la même catégorie et difficulté pour un nouveau tour",
   "game.end.scoreProgress": "Progression du score",
   "game.end.screenReaderDescription":
     "Résultats du jeu montrant votre score et niveau de réussite.",

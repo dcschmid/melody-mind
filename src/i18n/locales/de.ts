@@ -419,10 +419,14 @@ export default {
     "Fantastisch! 🌟 Du bist definitiv ein Musikprofi mit umfangreichem Wissen über verschiedene Künstler und Genres. Dein Musikverständnis liegt weit über dem Durchschnitt. Wenige können mit deinem Wissen mithalten. Mach weiter so und fordere deine Freunde heraus!",
   "game.end.newgame": "Neues Spiel",
   "game.end.newgameDescription": "Ein neues Spiel mit denselben Einstellungen starten",
+  "game.end.restartSameGame": "Gleiches Spiel wiederholen",
+  "game.end.restartSameGameDescription": "Dieselbe Kategorie und Schwierigkeit nochmal spielen",
   "game.end.progressDescription":
     "Visueller Fortschrittsbalken, der Ihr Punktzahl-Erfolgs-Level anzeigt",
   "game.end.restartButtonHelp":
     "Sofort eine neue Spielrunde mit derselben Schwierigkeit und Kategorie starten",
+  "game.end.restartSameGameHelp":
+    "Startet dieselbe Kategorie und Schwierigkeit nochmal für eine neue Runde",
   "game.end.scoreProgress": "Punktzahl-Fortschritt",
   "game.end.screenReaderDescription":
     "Spielergebnisse mit Ihrer Punktzahl und Ihrem Erfolgs-Level.",
