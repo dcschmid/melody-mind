@@ -460,6 +460,169 @@ export const setupSharingButton = (): void => {
 };
 
 /**
+ * Check authentication status using localStorage (proxy for HttpOnly cookies)
+ * @returns boolean - true if authenticated, false otherwise
+ */
+const isAuthenticated = (): boolean => {
+  try {
+    const authStatus = localStorage.getItem('auth_status');
+    const isAuth = authStatus === 'authenticated';
+    
+    console.log('EndOverlay auth check:', {
+      authStatus,
+      isAuth,
+      localStorageAvailable: typeof Storage !== 'undefined'
+    });
+    
+    return isAuth;
+  } catch (error) {
+    console.error('Error checking authentication status in EndOverlay:', error);
+    return false;
+  }
+};
+
+/**
+ * Show or hide the guest login section based on authentication status
+ * @returns void
+ */
+const handleGuestLoginSection = (): void => {
+  const guestLoginSection = getElementById<HTMLElement>("guest-login-section");
+  
+  if (!guestLoginSection) {
+    console.log("Guest login section not found in EndOverlay");
+    return;
+  }
+
+  const isUserAuthenticated = isAuthenticated();
+  
+  if (isUserAuthenticated) {
+    // User is authenticated - hide guest login section
+    guestLoginSection.style.display = "none";
+    console.log("User is authenticated - hiding guest login section");
+  } else {
+    // User is not authenticated - show guest login section
+    guestLoginSection.style.display = "block";
+    console.log("User is not authenticated - showing guest login section");
+    
+    // Announce to screen readers
+    announceToScreenReader("Login options available to save your score and unlock achievements");
+  }
+};
+
+/**
+ * Set up event listeners for authentication changes
+ * @returns void
+ */
+const setupGuestLoginEventListeners = (): void => {
+  // Listen for authentication success events (existing system)
+  const handleAuthLogin = async () => {
+    console.log("Authentication login detected in EndOverlay");
+    handleGuestLoginSection();
+    
+    // Save pending game results after login
+    await savePendingGameResults();
+  };
+
+  // Listen for authentication logout events (existing system)
+  const handleAuthLogout = () => {
+    console.log("Authentication logout detected in EndOverlay");
+    handleGuestLoginSection();
+    
+    // Clear any pending results on logout
+    localStorage.removeItem("pending_game_result");
+  };
+
+  // Listen for storage events (authentication changes)
+  const handleStorageChange = async (event: StorageEvent) => {
+    if (event.key === "auth_status") {
+      console.log("Authentication storage change detected in EndOverlay:", event.newValue);
+      handleGuestLoginSection();
+      
+      // If user just logged in, save pending results
+      if (event.newValue === "authenticated") {
+        await savePendingGameResults();
+      }
+    }
+  };
+
+  // Listen for visibility changes (user might have logged in elsewhere)
+  const handleVisibilityChange = async () => {
+    if (document.visibilityState === "visible") {
+      console.log("Page became visible, checking auth status in EndOverlay");
+      handleGuestLoginSection();
+      
+      // Check if user logged in elsewhere and save pending results
+      if (isAuthenticated()) {
+        await savePendingGameResults();
+      }
+    }
+  };
+
+  // Add event listeners using the existing event system
+  window.addEventListener("auth:login", handleAuthLogin);
+  window.addEventListener("auth:logout", handleAuthLogout);
+  window.addEventListener("storage", handleStorageChange);
+  document.addEventListener("visibilitychange", handleVisibilityChange);
+
+  console.log("Guest login event listeners set up");
+};
+
+/**
+ * Store game results temporarily for guest users
+ * @param gameData - Game data to store
+ */
+const storeGameResultsForGuest = (gameData: any): void => {
+  try {
+    localStorage.setItem("pending_game_result", JSON.stringify(gameData));
+    console.log("Game results stored for guest user:", gameData);
+  } catch (error) {
+    console.error("Error storing game results for guest:", error);
+  }
+};
+
+/**
+ * Save pending game results after login
+ * @returns Promise<void>
+ */
+const savePendingGameResults = async (): Promise<void> => {
+  try {
+    const pendingResult = localStorage.getItem("pending_game_result");
+    if (!pendingResult) {
+      console.log("No pending game results to save");
+      return;
+    }
+
+    const gameData = JSON.parse(pendingResult);
+    console.log("Saving pending game results:", gameData);
+
+    // Get current language
+    const currentLang = document.documentElement.lang || "en";
+    
+    // Save to database
+    const response = await fetch(`/${currentLang}/api/game/save-result`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(gameData),
+    });
+
+    if (response.ok) {
+      // Remove from localStorage after successful save
+      localStorage.removeItem("pending_game_result");
+      console.log("Pending game results saved successfully");
+      
+      // Announce success to screen reader
+      announceToScreenReader("Game results saved successfully after login");
+    } else {
+      console.error("Failed to save pending game results:", await response.text());
+    }
+  } catch (error) {
+    console.error("Error saving pending game results:", error);
+  }
+};
+
+/**
  * Complete EndOverlay setup with score, animations, and motivation text
  * This function should be called when the overlay is shown to trigger all animations
  * @param config - Configuration object with score and optional parameters
@@ -478,6 +641,18 @@ export const showEndOverlay = async (config: EndOverlayConfig): Promise<void> =>
     console.log("Updated overlay data-score attribute to:", score);
   }
 
+  // Store game results for guest users
+  if (!isAuthenticated()) {
+    const gameData = {
+      score,
+      category: overlay?.getAttribute("data-category") || "",
+      difficulty: overlay?.getAttribute("data-difficulty") || "",
+      gameMode: overlay?.getAttribute("data-mode") || "normal",
+      timestamp: new Date().toISOString(),
+    };
+    storeGameResultsForGuest(gameData);
+  }
+
   // Use Promise.all for concurrent operations
   await Promise.all([
     updateEndOverlayScore(score),
@@ -486,6 +661,9 @@ export const showEndOverlay = async (config: EndOverlayConfig): Promise<void> =>
     updateDifficultyDisplay(),
     updateCategoryDisplay(),
   ]);
+
+  // Handle guest login section visibility
+  handleGuestLoginSection();
 
   console.log("showEndOverlay completed successfully");
 };
@@ -510,6 +688,9 @@ export const initializeEndOverlay = async (): Promise<void> => {
 
   // Set up achievement display
   setupAchievementDisplay();
+
+  // Set up authentication event listeners for guest login section
+  setupGuestLoginEventListeners();
 
   // Set up global showEndOverlay function for game engines to use
   // Support both the new config API and the legacy (score, maxScore) API

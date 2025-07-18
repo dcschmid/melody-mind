@@ -130,12 +130,7 @@
         },
         {
           "question": "AC/DC的专辑《Black Ice》在2008年发布后，首次进入美国Billboard 200排行榜时达到了什么最高排名？",
-          "options": [
-            "第一名",
-            "第五名",
-            "第十名",
-            "第二十名"
-          ],
+          "options": ["第一名", "第五名", "第十名", "第二十名"],
           "correctAnswer": "第一名",
           "trivia": "AC/DC的《Black Ice》专辑于2008年11月发行，首次登上美国Billboard 200排行榜便取得了第一名的佳绩。这是AC/DC自1980年代以来首次在美国获得该榜单冠军，显示了乐队持久的吸引力和强大的粉丝基础。专辑在全球范围内也表现出色，获得了多国的高销量认证。《Black Ice》不仅巩固了AC/DC在硬摇滚界的地位，也标志着乐队成功适应了新世纪的音乐市场。"
         },
@@ -231,12 +226,7 @@
       "easy": [
         {
           "question": "在Adele的首张专辑《19》中，哪位音乐家是主要的钢琴伴奏者？",
-          "options": [
-            "Neil Cowley",
-            "John Legend",
-            "Elton John",
-            "Jamie Cullum"
-          ],
+          "options": ["Neil Cowley", "John Legend", "Elton John", "Jamie Cullum"],
           "correctAnswer": "Neil Cowley",
           "trivia": "Neil Cowley是英国著名的爵士钢琴家，他在Adele的首张专辑《19》中担任主要钢琴伴奏。Cowley的演奏风格为专辑增添了深厚的情感层次和丰富的爵士元素。Adele在录制《19》时，选择了与多位才华横溢的音乐家合作，Neil Cowley便是其中关键的伴奏艺术家。这张专辑于2008年发布，受到了广泛好评并为Adele后续的音乐生涯奠定了坚实基础。"
         },
@@ -312,12 +302,7 @@
         },
         {
           "question": "在Adele的首张专辑《19》中，谁是负责制作和多乐器演奏的关键音乐家，对专辑的整体声音风格影响深远？",
-          "options": [
-            "Jim Abbiss",
-            "Mark Ronson",
-            "Rick Rubin",
-            "Paul Epworth"
-          ],
+          "options": ["Jim Abbiss", "Mark Ronson", "Rick Rubin", "Paul Epworth"],
           "correctAnswer": "Jim Abbiss",
           "trivia": "Jim Abbiss是Adele《19》专辑的主要制作人之一，他不仅担任制作，还参与了多种乐器的演奏，如鼓和键盘，为专辑营造出浓郁的灵魂和爵士氛围。Abbiss此前曾与Arctic Monkeys合作，这使他具备丰富的制作经验。专辑录制于2007年，Abbiss的制作风格帮助Adele的声音在年轻歌手中脱颖而出，奠定了她后续作品的基础。相比之下，Mark Ronson和Paul Epworth是后期Adele作品的合作伙伴，而Rick Rubin则未曾参与《19》的制作。"
         },
@@ -343,34 +328,19 @@
       "easy": [
         {
           "question": "在Alicia Keys的专辑'Songs in A Minor'（2001年）录制过程中，谁担任了该专辑的主要录音工程师？",
-          "options": [
-            "Ann Mincieli",
-            "Chris Lord-Alge",
-            "Tom Elmhirst",
-            "Bob Clearmountain"
-          ],
+          "options": ["Ann Mincieli", "Chris Lord-Alge", "Tom Elmhirst", "Bob Clearmountain"],
           "correctAnswer": "Ann Mincieli",
           "trivia": "Ann Mincieli是Alicia Keys早期职业生涯的重要合作伙伴，也是'Songs in A Minor'专辑的主要录音工程师。她以其细腻的工程技术帮助塑造了专辑的声音质感，使Alicia Keys的钢琴和人声表现得尤为突出。Mincieli与Keys长期合作，之后还参与了多张Alicia Keys的专辑制作。该专辑录制于2000年至2001年，融合了R&B与古典钢琴元素，录音质量获得业内高度评价。"
         },
         {
           "question": "Alicia Keys在她2001年发行的专辑《Songs in A Minor》中，哪种乐器是她最主要的音乐元素之一，并且贯穿了整张专辑的编曲？",
-          "options": [
-            "钢琴",
-            "电子合成器",
-            "电吉他",
-            "萨克斯管"
-          ],
+          "options": ["钢琴", "电子合成器", "电吉他", "萨克斯管"],
           "correctAnswer": "钢琴",
           "trivia": "Alicia Keys以其钢琴演奏而闻名，她在《Songs in A Minor》专辑中充分展现了这一才华。整张专辑融合了R&B、灵魂乐与古典钢琴元素，钢琴成为贯穿始终的核心乐器。她自己参与了大部分歌曲的钢琴编曲，展现了她作为歌手兼钢琴家的独特身份。专辑中的热门单曲如《Fallin'》也以钢琴旋律为主导，帮助她赢得了广泛的认可和格莱美奖。"
         },
         {
           "question": "Alicia Keys的首张专辑'Songs in A Minor'是在哪家唱片公司发行的？",
-          "options": [
-            "J Records",
-            "Columbia Records",
-            "Motown Records",
-            "Def Jam Recordings"
-          ],
+          "options": ["J Records", "Columbia Records", "Motown Records", "Def Jam Recordings"],
           "correctAnswer": "J Records",
           "trivia": "Alicia Keys于2001年发行的首张专辑'Songs in A Minor'是由J Records发行的。J Records成立于2000年，由Clive Davis创立，是一家以发掘新兴艺术家著称的唱片公司。'Songs in A Minor'的成功帮助J Records迅速确立了其在R&B和流行音乐市场的地位。该专辑赢得了多项格莱美奖，进一步提升了Alicia Keys和J Records的影响力。Columbia、Motown和Def Jam虽然也是知名唱片公司，但并非这张专辑的发行方。"
         }
@@ -378,12 +348,7 @@
       "medium": [
         {
           "question": "在Alicia Keys的首张专辑《Songs in A Minor》的录制过程中，哪位制作人对专辑的整体声音风格产生了重要影响？",
-          "options": [
-            "Kenny Gamble",
-            "Clive Davis",
-            "Jermaine Dupri",
-            "DJ Premier"
-          ],
+          "options": ["Kenny Gamble", "Clive Davis", "Jermaine Dupri", "DJ Premier"],
           "correctAnswer": "Jermaine Dupri",
           "trivia": "Alicia Keys的首张专辑《Songs in A Minor》于2001年录制，Jermaine Dupri作为制作人之一，对专辑的R&B和灵魂音乐风格起到了关键作用。Jermaine Dupri以其独特的采样和编曲技巧，帮助塑造了专辑温暖且富有律动的声音。虽然Clive Davis是Alicia Keys的音乐导师和签约人，但他并未直接参与制作。Kenny Gamble和DJ Premier则分别以其他音乐风格闻名，未参与此专辑的录制。此专辑的录制融合了传统钢琴演奏与现代制作技术，使得Alicia Keys的音乐既经典又具时代感。"
         },
@@ -400,12 +365,7 @@
         },
         {
           "question": "在Alicia Keys的首张专辑《Songs in A Minor》的词曲创作过程中，哪位制作人对歌曲的编曲和创作影响最大？",
-          "options": [
-            "Kerry Brothers Jr.",
-            "Dr. Dre",
-            "Pharrell Williams",
-            "Timbaland"
-          ],
+          "options": ["Kerry Brothers Jr.", "Dr. Dre", "Pharrell Williams", "Timbaland"],
           "correctAnswer": "Kerry Brothers Jr.",
           "trivia": "Alicia Keys在创作《Songs in A Minor》专辑时，与制作人兼词曲创作者Kerry Brothers Jr.紧密合作，后者在专辑的编曲和歌词创作中发挥了重要作用。Kerry Brothers Jr.帮助Alicia在融合灵魂、爵士和R&B元素时形成了独特的音乐风格。相比之下，Dr. Dre、Pharrell Williams和Timbaland虽然是知名制作人，但并未参与该专辑的制作。专辑最终凭借其经典的钢琴旋律和深情的词曲获得了广泛赞誉，并赢得了多项格莱美奖。"
         }
@@ -435,12 +395,7 @@
         },
         {
           "question": "关于Alicia Keys的首张专辑'Songs in A Minor'，她在2002年格莱美奖上获得了哪项重要荣誉？",
-          "options": [
-            "最佳新人奖",
-            "年度专辑奖",
-            "最佳R&B专辑奖",
-            "最佳音乐电影奖"
-          ],
+          "options": ["最佳新人奖", "年度专辑奖", "最佳R&B专辑奖", "最佳音乐电影奖"],
           "correctAnswer": "最佳新人奖",
           "trivia": "Alicia Keys凭借她2001年发行的首张专辑'Songs in A Minor'，在2002年格莱美奖上赢得了包括最佳新人奖在内的五项大奖。该专辑不仅商业上获得巨大成功，还获得了音乐界的高度认可，尤其是她在钢琴和R&B融合方面的创新。'最佳新人奖'是格莱美中极具分量的奖项，代表了她作为新兴艺术家的卓越表现。此外，'Songs in A Minor'还获得了最佳R&B女歌手奖和最佳R&B专辑奖的提名，巩固了Alicia Keys在音乐界的重要地位。"
         }
@@ -477,12 +432,7 @@
         },
         {
           "question": "Amy Winehouse的首张专辑《Frank》是哪一年发行的？",
-          "options": [
-            "2001年",
-            "2003年",
-            "2005年",
-            "2007年"
-          ],
+          "options": ["2001年", "2003年", "2005年", "2007年"],
           "correctAnswer": "2003年",
           "trivia": "Amy Winehouse的首张录音室专辑《Frank》于2003年发行。这张专辑以其融合了爵士、灵魂和R&B元素的风格而受到赞誉。《Frank》不仅展示了她独特的嗓音和创作才华，也为她赢得了英国音乐界的关注。专辑中的歌曲大多由她本人参与创作，反映了她早期的音乐影响。发行《Frank》标志着Amy Winehouse正式进入音乐行业，奠定了她未来成功的基础。"
         }
@@ -512,12 +462,7 @@
         },
         {
           "question": "Amy Winehouse的首张专辑《Frank》在英国专辑排行榜上的最高排名是多少？",
-          "options": [
-            "第13名",
-            "第1名",
-            "第30名",
-            "第7名"
-          ],
+          "options": ["第13名", "第1名", "第30名", "第7名"],
           "correctAnswer": "第13名",
           "trivia": "Amy Winehouse的首张专辑《Frank》于2003年发布后，在英国专辑排行榜上最高排名达到第13名。尽管它没有登顶，但这张专辑为她赢得了广泛的关注和赞誉。专辑融合了爵士和灵魂乐元素，展示了她独特的音乐风格。《Frank》还获得了英国水星音乐奖提名，巩固了Amy在音乐界的地位。该专辑的成功为她后续更加商业化的作品奠定了基础。"
         }
@@ -567,12 +512,7 @@
       "easy": [
         {
           "question": "Arctic Monkeys的专辑《Whatever People Say I Am, That's What I'm Not》在制作过程中，哪座城市的酒吧文化对专辑的歌词灵感影响最大？",
-          "options": [
-            "曼彻斯特",
-            "利物浦",
-            "谢菲尔德",
-            "伦敦"
-          ],
+          "options": ["曼彻斯特", "利物浦", "谢菲尔德", "伦敦"],
           "correctAnswer": "谢菲尔德",
           "trivia": "Arctic Monkeys的首张专辑《Whatever People Say I Am, That's What I'm Not》深受他们家乡谢菲尔德的酒吧文化影响。专辑中的歌词多描绘了年轻人在当地酒吧夜生活中的经历，这也成为专辑主题的重要组成部分。谢菲尔德的工人阶级背景和真实生活场景为歌曲提供了丰富的素材，使得这张专辑以其生活化的叙述和独特的城市气息赢得了广泛的关注。此外，这张专辑发布后迅速登顶英国专辑排行榜，成为当时最畅销的首张专辑之一。"
         },
@@ -659,12 +599,7 @@
         },
         {
           "question": "在Arctic Monkeys的首张专辑《Whatever People Say I Am, That's What I'm Not》中，哪位成员主要负责贝斯演奏？",
-          "options": [
-            "Matt Helders",
-            "Andy Nicholson",
-            "Nick O'Malley",
-            "Jamie Cook"
-          ],
+          "options": ["Matt Helders", "Andy Nicholson", "Nick O'Malley", "Jamie Cook"],
           "correctAnswer": "Andy Nicholson",
           "trivia": "《Whatever People Say I Am, That's What I'm Not》是Arctic Monkeys于2006年发布的首张录音室专辑，该专辑迅速获得巨大成功。专辑的贝斯手是Andy Nicholson，他参与了专辑的录制和早期现场演出。值得注意的是，Andy Nicholson在专辑发行后不久离开了乐队，由Nick O'Malley接替贝斯手职位。Matt Helders是乐队的鼓手，而Jamie Cook则是主音吉他手。Andy Nicholson的贝斯线为这张专辑的独特音色和节奏感奠定了坚实基础。"
         }
@@ -714,12 +649,7 @@
       "medium": [
         {
           "question": "Audioslave的首张同名专辑'Audioslave'是在哪家唱片公司发行的？",
-          "options": [
-            "Epic Records",
-            "Interscope Records",
-            "Columbia Records",
-            "Maverick Records"
-          ],
+          "options": ["Epic Records", "Interscope Records", "Columbia Records", "Maverick Records"],
           "correctAnswer": "Epic Records",
           "trivia": "Audioslave的首张同名专辑于2002年发行，发行公司是Epic Records，这是一家隶属于索尼音乐娱乐的大型唱片公司。Epic Records在当时以签约摇滚和流行艺术家闻名，这为Audioslave提供了广泛的发行和推广资源。虽然乐队成员各自来自不同的背景，最终选择Epic Records作为发行平台，有助于专辑获得商业成功。专辑发行后，不仅在美国市场取得不错的销量，还帮助Audioslave确立了作为新一代摇滚超级乐队的地位。"
         },
@@ -791,12 +721,7 @@
       "easy": [
         {
           "question": "在Avril Lavigne的首张专辑《Let Go》中，哪首歌曲成为了当时电台播放量最高的单曲？",
-          "options": [
-            "Complicated",
-            "Sk8er Boi",
-            "I'm with You",
-            "Losing Grip"
-          ],
+          "options": ["Complicated", "Sk8er Boi", "I'm with You", "Losing Grip"],
           "correctAnswer": "Complicated",
           "trivia": "《Let Go》是Avril Lavigne于2002年发行的首张录音室专辑，其中《Complicated》成为她的首支主打单曲，并迅速获得全球电台的广泛播放。这首歌在美国告示牌百强单曲榜上最高排名第7位，帮助Avril Lavigne迅速走红。相比之下，《Sk8er Boi》和《I'm with You》虽然也获得了不错的电台播放量，但《Complicated》是专辑中最初引爆市场的歌曲。该单曲的成功为Avril Lavigne赢得了国际声誉，并奠定了她作为青少年流行摇滚新星的地位。"
         },
@@ -813,12 +738,7 @@
         },
         {
           "question": "Avril Lavigne的首张专辑《Let Go》发布后，哪首歌曲成为她在青少年粉丝中最具代表性的热门单曲？",
-          "options": [
-            "Complicated",
-            "Sk8er Boi",
-            "My Happy Ending",
-            "I'm with You"
-          ],
+          "options": ["Complicated", "Sk8er Boi", "My Happy Ending", "I'm with You"],
           "correctAnswer": "Complicated",
           "trivia": "《Let Go》是Avril Lavigne于2002年发行的首张专辑，其中《Complicated》作为首支单曲迅速走红，成为她的代表作之一。这首歌曲在美国公告牌百强单曲榜中最高排名第四，并帮助她获得了大量青少年粉丝的喜爱。歌曲的流行也推动了专辑销量，使《Let Go》成为当年最畅销的年轻歌手专辑之一。《Complicated》的风格融合了流行与摇滚元素，体现了Avril Lavigne独特的音乐形象和叛逆精神。"
         }
@@ -826,34 +746,19 @@
       "medium": [
         {
           "question": "在Avril Lavigne的2002年专辑《Let Go》中，哪位音乐家参与了主要吉他伴奏的录制？",
-          "options": [
-            "Clif Magness",
-            "John Rzeznik",
-            "Kurt Cobain",
-            "Dave Grohl"
-          ],
+          "options": ["Clif Magness", "John Rzeznik", "Kurt Cobain", "Dave Grohl"],
           "correctAnswer": "Clif Magness",
           "trivia": "Clif Magness是Avril Lavigne的首张专辑《Let Go》中重要的音乐制作人和吉他手，他参与了多首歌曲的录制工作，尤其是在吉他伴奏方面贡献显著。John Rzeznik虽然是著名的Goo Goo Dolls乐队主唱兼吉他手，但他并未参与《Let Go》的制作。Kurt Cobain和Dave Grohl分别是Nirvana乐队的成员，但他们与Avril Lavigne的这张专辑没有合作关系。Clif Magness同时也是这张专辑多首歌曲的联合制作人，帮助塑造了Avril Lavigne早期独特的流行朋克风格。"
         },
         {
           "question": "Avril Lavigne的首张专辑《Let Go》中，哪首歌曲最显著地反映了青少年对社会期望和身份认同的反思？",
-          "options": [
-            "《Complicated》",
-            "《Sk8er Boi》",
-            "《Losing Grip》",
-            "《I'm with You》"
-          ],
+          "options": ["《Complicated》", "《Sk8er Boi》", "《Losing Grip》", "《I'm with You》"],
           "correctAnswer": "《Complicated》",
           "trivia": "《Let Go》是Avril Lavigne于2002年发行的首张专辑，其中《Complicated》作为主打单曲，表达了青少年在面对社会压力时的矛盾与困惑。这首歌通过歌词揭示了人与人之间真实自我与外界期望之间的冲突，成为了那个时代青少年社会身份认同的重要象征。《Complicated》不仅在商业上获得成功，还被视为对早2000年代青少年文化中不安与自我探索的一种社会评论。其简洁而富有感染力的旋律使得这首歌成为Avril Lavigne代表作之一，也体现了《Let Go》专辑整体反映年轻人心声的主题。"
         },
         {
           "question": "Avril Lavigne的首张专辑《Let Go》在录制过程中，哪位制作人对专辑的整体声音风格影响最大？",
-          "options": [
-            "Clif Magness",
-            "Max Martin",
-            "Rick Rubin",
-            "Dr. Luke"
-          ],
+          "options": ["Clif Magness", "Max Martin", "Rick Rubin", "Dr. Luke"],
           "correctAnswer": "Clif Magness",
           "trivia": "《Let Go》是Avril Lavigne于2002年推出的首张专辑，Clif Magness在其中担任了重要的制作人角色。他不仅参与了多首歌曲的制作，还帮助塑造了专辑的流行摇滚风格。虽然Max Martin也是当时知名的制作人，但他并未参与《Let Go》的录制。Clif Magness以其细腻的编曲和制作手法，使这张专辑在市场上获得了巨大成功，帮助Avril Lavigne确立了她的音乐身份。"
         }
@@ -883,12 +788,7 @@
         },
         {
           "question": "在Avril Lavigne的首张专辑《Let Go》制作过程中，哪位著名制作人并未参与该专辑的制作？",
-          "options": [
-            "Clif Magness",
-            "The Matrix",
-            "Butch Walker",
-            "Max Martin"
-          ],
+          "options": ["Clif Magness", "The Matrix", "Butch Walker", "Max Martin"],
           "correctAnswer": "Max Martin",
           "trivia": "《Let Go》是Avril Lavigne的首张录音室专辑，制作团队包括Clif Magness、The Matrix和Butch Walker等多位知名制作人，他们共同帮助塑造了专辑标志性的流行摇滚和朋克风格。Max Martin虽然是2000年代初期流行音乐的重要制作人，但他并未参与这张专辑的制作。Clif Magness尤其在歌曲《Losing Grip》中贡献显著，而The Matrix负责制作了热门单曲《Complicated》。制作团队的多样性促使《Let Go》在商业上取得巨大成功，成为Avril Lavigne职业生涯的重要开端。"
         }
@@ -914,23 +814,13 @@
         },
         {
           "question": "在Beyoncé的2003年专辑《Dangerously in Love》的音乐录影带中，哪首单曲的MV以Beyoncé在海滩上的镜头和水下拍摄为主要视觉特色？",
-          "options": [
-            "Crazy in Love",
-            "Baby Boy",
-            "Me, Myself and I",
-            "Naughty Girl"
-          ],
+          "options": ["Crazy in Love", "Baby Boy", "Me, Myself and I", "Naughty Girl"],
           "correctAnswer": "Baby Boy",
           "trivia": "《Dangerously in Love》专辑中的单曲《Baby Boy》的音乐录影带以其独特的视觉风格著称，特别是Beyoncé在海滩上和水下的镜头，展现了充满热带风情的场景。该MV由著名导演Jake Nava执导，成功捕捉了歌曲的浪漫氛围。此外，'Baby Boy'在当时的Billboard排行榜上表现优异，MV的画面也加深了歌曲的流行度，成为Beyoncé早期视觉作品中的经典之一。"
         },
         {
           "question": "在Beyoncé的2003年专辑《Dangerously in Love》的词曲创作过程中，哪位制作人是该专辑中最主要的合作伙伴之一？",
-          "options": [
-            "Scott Storch",
-            "Pharrell Williams",
-            "Rich Harrison",
-            "Timbaland"
-          ],
+          "options": ["Scott Storch", "Pharrell Williams", "Rich Harrison", "Timbaland"],
           "correctAnswer": "Rich Harrison",
           "trivia": "在Beyoncé的首张个人专辑《Dangerously in Love》中，Rich Harrison作为制作人和词曲创作者参与了多首歌曲的创作，他以融合灵魂和节奏布鲁斯的制作风格著称。虽然Pharrell Williams和Timbaland也参与了部分制作，但Rich Harrison在该专辑中担任了主要制作人角色，尤其是为歌曲如《Crazy in Love》贡献了标志性的节奏和乐器编排。此外，Scott Storch也曾参与其他作品的制作，但并非《Dangerously in Love》的核心制作人。该专辑的成功部分归功于这些制作人的合作，使Beyoncé顺利实现了从团体到个人的转型。"
         }
@@ -938,23 +828,13 @@
       "medium": [
         {
           "question": "在Beyoncé的首张个人专辑'Dangerously in Love'中，哪位艺术家被公开提及为她音乐风格和创作灵感的重要来源？",
-          "options": [
-            "Aretha Franklin",
-            "Stevie Wonder",
-            "Prince",
-            "Tina Turner"
-          ],
+          "options": ["Aretha Franklin", "Stevie Wonder", "Prince", "Tina Turner"],
           "correctAnswer": "Aretha Franklin",
           "trivia": "Beyoncé在制作2003年的专辑'Dangerously in Love'时，公开表示灵魂乐女王Aretha Franklin对她的音乐风格和演唱技巧影响深远。Aretha Franklin作为灵魂乐和R&B的传奇人物，为Beyoncé提供了情感表达和声音力量上的启发。此外，Beyoncé的这张专辑融合了R&B、灵魂乐和流行元素，正体现了她对传统灵魂乐艺术家的致敬。虽然Stevie Wonder、Prince和Tina Turner也都是音乐巨星，但Beyoncé特别提及过Aretha Franklin作为她的灵感来源。"
         },
         {
           "question": "在Beyoncé的2003年专辑《Dangerously in Love》的专辑包装设计中，哪位艺术家负责了封面摄影？",
-          "options": [
-            "Mark Seliger",
-            "Annie Leibovitz",
-            "David LaChapelle",
-            "Herb Ritts"
-          ],
+          "options": ["Mark Seliger", "Annie Leibovitz", "David LaChapelle", "Herb Ritts"],
           "correctAnswer": "Mark Seliger",
           "trivia": "《Dangerously in Love》是Beyoncé的首张个人录音室专辑，其专辑封面由著名摄影师Mark Seliger拍摄。Seliger以其在音乐和时尚界的创意摄影著称，曾为许多知名艺术家拍摄封面。该专辑的包装设计强调Beyoncé的个人魅力与艺术风格，封面照片采用了柔和的光线和简洁的背景，突出了她的自然美。Annie Leibovitz、David LaChapelle和Herb Ritts也是知名的摄影师，但本专辑封面的摄影则归功于Mark Seliger。此设计风格与2000年代初流行的简约时尚相符，增强了专辑的视觉吸引力。"
         },
@@ -973,12 +853,7 @@
       "hard": [
         {
           "question": "在Beyoncé的2003年专辑'Dangerously in Love'的音响工程制作中，哪位音响工程师因其在混音中精细处理人声层次而广受赞誉？",
-          "options": [
-            "Tony Maserati",
-            "Chris Lord-Alge",
-            "Phil Tan",
-            "Manny Marroquin"
-          ],
+          "options": ["Tony Maserati", "Chris Lord-Alge", "Phil Tan", "Manny Marroquin"],
           "correctAnswer": "Tony Maserati",
           "trivia": "Tony Maserati是为Beyoncé的首张个人专辑'Dangerously in Love'担任混音工程师的重要人物。他以在这张专辑中精准调整人声的层次感和空间感而著称，有效突出了Beyoncé独特的音色和表现力。Maserati的混音手法融合了R&B与流行元素，增强了歌曲的感染力。此外，专辑中的多首热门单曲如'Say My Name'（混音版本）和'Crazy in Love'都展现了他在音响细节上的专业水平，使得该专辑成为音响工程领域内的经典案例。"
         },
@@ -1026,23 +901,13 @@
         },
         {
           "question": "媒体报道中提到，Björk的专辑《Vespertine》（2001年）中哪首歌曲曾作为主打单曲获得广泛关注？",
-          "options": [
-            "Hidden Place",
-            "Jóga",
-            "All Is Full of Love",
-            "Human Behaviour"
-          ],
+          "options": ["Hidden Place", "Jóga", "All Is Full of Love", "Human Behaviour"],
           "correctAnswer": "Hidden Place",
           "trivia": "《Vespertine》是冰岛歌手Björk于2001年发行的专辑，其主打单曲为《Hidden Place》。这首歌因其独特的电子氛围和细腻的制作在媒体上获得了广泛的关注和好评。相比之下，《Jóga》是Björk之前专辑《Homogenic》中的知名作品，而《All Is Full of Love》则来自专辑《Homogenic》的另一个单曲。《Human Behaviour》是1993年专辑《Debut》中的曲目。媒体报道通常将《Hidden Place》视为《Vespertine》专辑的代表性单曲。"
         },
         {
           "question": "在Björk的2001年专辑《Vespertine》的制作过程中，哪位电子音乐制作人参与了专辑的共同制作？",
-          "options": [
-            "Matmos",
-            "Mark Bell",
-            "Brian Eno",
-            "Nigel Godrich"
-          ],
+          "options": ["Matmos", "Mark Bell", "Brian Eno", "Nigel Godrich"],
           "correctAnswer": "Matmos",
           "trivia": "Björk的专辑《Vespertine》于2001年发行，制作过程中她与电子实验组合Matmos紧密合作。Matmos以其独特的采样和电子音效制作闻名，他们为《Vespertine》带来了丰富细腻的声音纹理，增强了专辑的内省氛围。相比之下，Mark Bell虽然是Björk其他专辑的重要合作伙伴，但在《Vespertine》的制作中并未参与。Brian Eno和Nigel Godrich则是其他知名制作人，未直接参与该专辑的制作。"
         }
@@ -1127,34 +992,19 @@
       "easy": [
         {
           "question": "Black Eyed Peas在2003年专辑《Elephunk》中，哪首歌曲的歌词主要传达了团结与和平的信息？",
-          "options": [
-            "Where Is the Love?",
-            "Shut Up",
-            "Let's Get It Started",
-            "Hey Mama"
-          ],
+          "options": ["Where Is the Love?", "Shut Up", "Let's Get It Started", "Hey Mama"],
           "correctAnswer": "Where Is the Love?",
           "trivia": "《Elephunk》是Black Eyed Peas在2003年发行的第三张录音室专辑，其中《Where Is the Love?》这首歌以其呼吁世界和平和社会团结的歌词而广受欢迎。歌曲探讨了战争、种族歧视和社会不公等问题，成为当时反思全球事件的代表作。这首歌不仅在美国公告牌百强单曲榜上取得高位，也帮助Black Eyed Peas获得了更广泛的国际关注。歌词中的反思与呼吁使它成为专辑中最具社会意义的作品之一。"
         },
         {
           "question": "Black Eyed Peas的专辑《Elephunk》在国际音乐市场上获得了哪首歌曲的广泛成功，帮助他们首次进入全球主流视野？",
-          "options": [
-            "Where Is the Love?",
-            "Shut Up",
-            "Let's Get It Started",
-            "Hey Mama"
-          ],
+          "options": ["Where Is the Love?", "Shut Up", "Let's Get It Started", "Hey Mama"],
           "correctAnswer": "Where Is the Love?",
           "trivia": "《Elephunk》是Black Eyed Peas于2003年发行的第三张录音室专辑，其中歌曲《Where Is the Love?》成为他们首次在全球范围内取得巨大成功的单曲。这首歌不仅在美国告示牌百强单曲榜上名列前茅，还在多个国家的音乐排行榜中进入前十，显著提升了乐队的国际知名度。此外，《Where Is the Love?》的社会主题和广泛的共鸣使Black Eyed Peas获得了跨文化的认可，推动他们成为国际性的流行音乐组合。该曲的成功标志着《Elephunk》专辑在全球市场的突破，奠定了乐队未来多年的流行地位。"
         },
         {
           "question": "Black Eyed Peas在2003年专辑'Elephunk'中哪首歌曲的音乐录影带以其充满未来感的视觉效果和机器人舞蹈场景而闻名？",
-          "options": [
-            "Where Is the Love?",
-            "Shut Up",
-            "Let's Get It Started",
-            "Hey Mama"
-          ],
+          "options": ["Where Is the Love?", "Shut Up", "Let's Get It Started", "Hey Mama"],
           "correctAnswer": "Let's Get It Started",
           "trivia": "《Let's Get It Started》是Black Eyed Peas在2003年专辑《Elephunk》中的热门单曲，其音乐录影带以充满未来感的视觉效果和机器人舞蹈场景著称。该视频通过结合科幻元素与活力四射的舞蹈，增强了歌曲的动感和吸引力。与此同时，《Where Is the Love?》的MV则更侧重于社会议题和现实场景。此曲的视觉风格帮助Black Eyed Peas在早期塑造了独特的视觉形象，促进了他们在全球的流行。"
         }
@@ -1184,12 +1034,7 @@
         },
         {
           "question": "在2003年Black Eyed Peas发行的专辑'Elephunk'的媒体报道中，哪位艺术家首次作为正式成员加入乐队，成为该专辑的亮点？",
-          "options": [
-            "Fergie",
-            "J Balvin",
-            "Nicki Minaj",
-            "Missy Elliott"
-          ],
+          "options": ["Fergie", "J Balvin", "Nicki Minaj", "Missy Elliott"],
           "correctAnswer": "Fergie",
           "trivia": "Black Eyed Peas的专辑'Elephunk'于2003年发行，这张专辑是乐队音乐风格转变的重要标志。媒体报道广泛关注了新成员Fergie的加入，她首次作为正式成员参与录制，使乐队声音更加多样化和商业化。Fergie的加入不仅提升了乐队的市场影响力，还帮助专辑中的单曲如“Where Is The Love?”获得了全球范围的成功。此外，'Elephunk'标志着Black Eyed Peas从地下嘻哈转向更具流行元素的风格，这一转变也得到了媒体的积极评价。"
         }
@@ -1197,12 +1042,7 @@
       "hard": [
         {
           "question": "在Black Eyed Peas录制2003年专辑《Elephunk》的过程中，哪位制作人主要负责将嘻哈与流行音乐元素融合，推动了专辑独特的声音风格？",
-          "options": [
-            "Will.i.am",
-            "Timbaland",
-            "Dr. Dre",
-            "Pharrell Williams"
-          ],
+          "options": ["Will.i.am", "Timbaland", "Dr. Dre", "Pharrell Williams"],
           "correctAnswer": "Will.i.am",
           "trivia": "Will.i.am不仅是Black Eyed Peas的核心成员，也是《Elephunk》专辑的主要制作人。他巧妙地将嘻哈节奏与流行、放克和灵魂乐元素融合，塑造了专辑标志性的声音。录制过程中，Will.i.am积极参与编曲和混音，确保每首歌曲都具有鲜明的风格和高品质的制作水准。此外，《Elephunk》是Black Eyed Peas首次引入Fergie作为主唱之一，进一步丰富了音乐层次。该专辑的成功也奠定了Black Eyed Peas在全球流行乐坛的地位。"
         },
@@ -1239,23 +1079,13 @@
       "easy": [
         {
           "question": "Blink-182在制作2001年专辑'Take Off Your Pants and Jacket'时，哪位制作人负责了这张专辑的制作工作？",
-          "options": [
-            "Jerry Finn",
-            "Rick Rubin",
-            "Butch Vig",
-            "Nigel Godrich"
-          ],
+          "options": ["Jerry Finn", "Rick Rubin", "Butch Vig", "Nigel Godrich"],
           "correctAnswer": "Jerry Finn",
           "trivia": "Jerry Finn是Blink-182在制作'Take Off Your Pants and Jacket'专辑时的制作人，他与乐队之前的作品也有合作经验。Finn以其对流行朋克音乐的精准把控而闻名，他帮助该专辑在保持能量的同时，提升了录音质量和制作细节。Rick Rubin、Butch Vig和Nigel Godrich均是著名制作人，但他们并未参与该专辑的制作。Jerry Finn的参与为Blink-182的这张专辑注入了标志性的流行朋克风格，使其成为2001年最受欢迎的专辑之一。"
         },
         {
           "question": "Blink-182的专辑'Take Off Your Pants and Jacket'是由哪家唱片公司发行的？",
-          "options": [
-            "MCA Records",
-            "Interscope Records",
-            "Geffen Records",
-            "Maverick Records"
-          ],
+          "options": ["MCA Records", "Interscope Records", "Geffen Records", "Maverick Records"],
           "correctAnswer": "MCA Records",
           "trivia": "Blink-182的专辑'Take Off Your Pants and Jacket'于2001年发行，隶属于MCA Records旗下。MCA Records是当时重要的唱片公司之一，负责发行多位流行与摇滚艺术家的作品。尽管Blink-182后来与其他厂牌有合作，但这张专辑正是在MCA Records的支持下完成并发行的。该专辑在商业上取得了巨大成功，帮助Blink-182巩固了他们在流行朋克领域的地位。"
         },
@@ -1296,12 +1126,7 @@
         },
         {
           "question": "在Blink-182的2001年专辑'Take Off Your Pants and Jacket'制作过程中，乐队主要使用了哪种吉他放大器来塑造其标志性的朋克摇滚音色？",
-          "options": [
-            "Fender Twin Reverb",
-            "Marshall JCM800",
-            "Vox AC30",
-            "Mesa/Boogie Mark IV"
-          ],
+          "options": ["Fender Twin Reverb", "Marshall JCM800", "Vox AC30", "Mesa/Boogie Mark IV"],
           "correctAnswer": "Marshall JCM800",
           "trivia": "Blink-182在录制'Take Off Your Pants and Jacket'时，吉他手Tom DeLonge和Mark Hoppus主要使用了Marshall JCM800吉他放大器。该放大器以其强劲的失真和清晰的高频响应闻名，非常适合朋克摇滚的激烈音色。Marshall JCM800成为该专辑标志性吉他音色的关键组成部分，帮助Blink-182在2001年实现了更成熟且富有攻击性的声音。与此同时，虽然Fender Twin Reverb和Vox AC30也是经典放大器，但它们并非该专辑录音的主要选择。Mesa/Boogie Mark IV虽然在摇滚音乐中广受欢迎，但Blink-182在这张专辑中更偏好Marshall的经典音色。"
         }
@@ -1309,12 +1134,7 @@
       "hard": [
         {
           "question": "Blink-182在创作2001年专辑'Take Off Your Pants and Jacket'时，哪位乐队或艺术家的音乐风格对他们产生了重要影响？",
-          "options": [
-            "The Descendents",
-            "Green Day",
-            "Nirvana",
-            "The Offspring"
-          ],
+          "options": ["The Descendents", "Green Day", "Nirvana", "The Offspring"],
           "correctAnswer": "The Descendents",
           "trivia": "Blink-182在制作'Take Off Your Pants and Jacket'专辑期间，受到了美国朋克乐队The Descendents的显著影响，这种影响体现在他们快节奏且富有旋律感的歌曲结构上。The Descendents作为70年代末至80年代初的朋克先驱，以其直接而富有感染力的歌曲影响了许多后来的朋克乐队。虽然Green Day和The Offspring也是当时重要的朋克乐队，但Blink-182成员多次表示The Descendents在创作及编曲理念上给了他们更多启发。Nirvana虽然是摇滚界重要的代表，但其风格与Blink-182的流行朋克有较大差异。"
         },
@@ -1386,12 +1206,7 @@
       "medium": [
         {
           "question": "在Bon Jovi的2000年专辑《Crush》的音响工程制作过程中，哪位著名的混音师负责了部分关键曲目的混音工作？",
-          "options": [
-            "Bob Clearmountain",
-            "Chris Lord-Alge",
-            "Andy Wallace",
-            "Tchad Blake"
-          ],
+          "options": ["Bob Clearmountain", "Chris Lord-Alge", "Andy Wallace", "Tchad Blake"],
           "correctAnswer": "Bob Clearmountain",
           "trivia": "《Crush》专辑的制作过程中，Bon Jovi聘请了著名混音师Bob Clearmountain参与关键曲目的混音工作。Clearmountain以其清晰而富有层次的混音风格闻名，他曾为许多顶级摇滚乐队服务。Bon Jovi的这张专辑在音质上表现出色，部分归功于Clearmountain的专业处理。此外，专辑中的主打单曲《It’s My Life》也体现了精致的音响工程，增强了歌曲的感染力。其他选项中的Chris Lord-Alge、Andy Wallace和Tchad Blake虽是知名混音师，但并未参与《Crush》的音响制作。"
         },
@@ -1443,12 +1258,7 @@
         },
         {
           "question": "在Bon Jovi的2000年专辑《Crush》的制作过程中，哪位著名音乐制作人首次与乐队合作，显著影响了该专辑的现代摇滚风格？",
-          "options": [
-            "Luke Ebbin",
-            "Bob Rock",
-            "Mutt Lange",
-            "Rick Rubin"
-          ],
+          "options": ["Luke Ebbin", "Bob Rock", "Mutt Lange", "Rick Rubin"],
           "correctAnswer": "Luke Ebbin",
           "trivia": "《Crush》是Bon Jovi在2000年发行的第七张录音室专辑，标志着乐队风格的现代化转变。此次专辑制作中，Luke Ebbin首次作为制作人加入，他的参与为专辑注入了更多电子元素和现代摇滚的感觉。此前，乐队长期与著名制作人Mutt Lange合作，但这次的变化让《Crush》在音效上更加贴近当时流行的摇滚趋势。此外，专辑的成功也证明了这种新合作带来的积极影响，专辑中的单曲《It's My Life》成为乐队新世纪的代表作。"
         }
@@ -1474,23 +1284,13 @@
         },
         {
           "question": "在媒体报道中，Britney Spears的专辑'Oops!... I Did It Again'于2000年发布后，哪首歌曲成为该专辑的首支单曲并获得广泛关注？",
-          "options": [
-            "Oops!... I Did It Again",
-            "Toxic",
-            "Baby One More Time",
-            "I'm a Slave 4 U"
-          ],
+          "options": ["Oops!... I Did It Again", "Toxic", "Baby One More Time", "I'm a Slave 4 U"],
           "correctAnswer": "Oops!... I Did It Again",
           "trivia": "Britney Spears的专辑'Oops!... I Did It Again'于2000年发行，主打单曲同名歌曲《Oops!... I Did It Again》迅速登上全球多个国家的音乐排行榜，成为她的代表作之一。媒体报道普遍关注这首歌的流行程度及其标志性的舞蹈动作。此曲在公告牌百强单曲榜中最高位列第九，显示出强大的商业成功。相比之下，选项中的《Toxic》和《I'm a Slave 4 U》是她后续专辑中的知名单曲，而《Baby One More Time》则是她1999年首张专辑的主打歌。"
         },
         {
           "question": "在Britney Spears的专辑'Oops!... I Did It Again'制作过程中，哪位知名制作人主要负责该专辑的大部分制作工作？",
-          "options": [
-            "Max Martin",
-            "Dr. Luke",
-            "Timbaland",
-            "Pharrell Williams"
-          ],
+          "options": ["Max Martin", "Dr. Luke", "Timbaland", "Pharrell Williams"],
           "correctAnswer": "Max Martin",
           "trivia": "Britney Spears的专辑'Oops!... I Did It Again'于2000年发布，其中大部分的制作工作由瑞典制作人Max Martin负责。Max Martin是90年代末和2000年代初流行音乐制作的关键人物，他为许多顶级艺人制作了多首热门单曲。该专辑的主打单曲《Oops!... I Did It Again》就是由Max Martin制作，这首歌帮助巩固了Britney在流行音乐界的地位。此外，Max Martin与Britney Spears的合作标志着她音乐风格的重要转变，带来了更具电音元素的流行舞曲。"
         }
@@ -1586,12 +1386,7 @@
         },
         {
           "question": "Cent的专辑《Get Rich or Die Tryin'》在媒体报道中最受关注的单曲是哪一首？",
-          "options": [
-            "In da Club",
-            "P.I.M.P.",
-            "21 Questions",
-            "Window Shopper"
-          ],
+          "options": ["In da Club", "P.I.M.P.", "21 Questions", "Window Shopper"],
           "correctAnswer": "In da Club",
           "trivia": "《Get Rich or Die Tryin'》是Cent于2003年发行的首张专辑，其中单曲《In da Club》广受媒体关注并迅速登顶多国排行榜。该曲成为Cent职业生涯的标志性作品，获得了全球范围内的商业成功和广泛的电台播放。媒体报道中经常提到这首歌推动了专辑的销量，使其成为当年最畅销的嘻哈专辑之一。此外，《In da Club》的音乐视频也获得了高度评价，进一步提升了Cent的知名度。"
         },
@@ -1645,12 +1440,7 @@
       "hard": [
         {
           "question": "在Cent创作2003年专辑《Get Rich or Die Tryin'》的词曲过程中，哪位制作人对专辑的整体声音构建和编曲贡献最大？",
-          "options": [
-            "Dr. Dre",
-            "Scott Storch",
-            "Timbaland",
-            "Kanye West"
-          ],
+          "options": ["Dr. Dre", "Scott Storch", "Timbaland", "Kanye West"],
           "correctAnswer": "Scott Storch",
           "trivia": "Scott Storch在Cent的《Get Rich or Die Tryin'》专辑中担任了关键的制作人及编曲角色。他以其标志性的钢琴旋律和丰富的编曲技巧，为专辑塑造了独特的硬核嘻哈与流行元素融合的声音。虽然Dr. Dre是该专辑的执行制作人并参与部分制作，但Scott Storch负责了多首主打歌曲的音乐创作，如《In da Club》的标志性旋律。此专辑的制作过程展现了当时嘻哈制作的高水平技术，Scott Storch的参与使专辑在市场和艺术上都取得巨大成功。"
         },
@@ -1667,12 +1457,7 @@
         },
         {
           "question": "Cent的专辑《Get Rich or Die Tryin'》在其专辑包装设计中，哪位艺术家或设计团队负责了封面摄影？",
-          "options": [
-            "Diane Martel",
-            "Jonathan Mannion",
-            "David LaChapelle",
-            "Mark Seliger"
-          ],
+          "options": ["Diane Martel", "Jonathan Mannion", "David LaChapelle", "Mark Seliger"],
           "correctAnswer": "Jonathan Mannion",
           "trivia": "《Get Rich or Die Tryin'》是Cent于2003年发行的经典专辑，其封面摄影由著名摄影师Jonathan Mannion负责。Mannion以拍摄嘻哈和R&B艺术家的专辑封面闻名，他也为Dr. Dre和Jay-Z等人拍摄过作品。该封面展现了Cent裸露的上半身，体现了专辑的个人奋斗和坚韧精神。Diane Martel、David LaChapelle和Mark Seliger虽然都是著名摄影师，但他们并未参与该专辑的封面设计。Jonathan Mannion的摄影为这张专辑增添了强烈的视觉冲击力和艺术感染力。"
         }
@@ -1687,12 +1472,7 @@
       "easy": [
         {
           "question": "Chris Brown同名专辑《Chris Brown》中的哪首单曲在美国电台播放中最为成功？",
-          "options": [
-            "Run It!",
-            "Yo (Excuse Me Miss)",
-            "Gimme That",
-            "Say Goodbye"
-          ],
+          "options": ["Run It!", "Yo (Excuse Me Miss)", "Gimme That", "Say Goodbye"],
           "correctAnswer": "Run It!",
           "trivia": "Chris Brown的首张同名专辑《Chris Brown》于2005年发行，其中《Run It!》作为主打单曲，在美国电台播放中取得了巨大成功。这首歌不仅登顶了美国Billboard Hot 100排行榜，也成为当年电台播放频率最高的青少年节奏蓝调歌曲之一。《Run It!》的成功帮助Chris Brown迅速在主流音乐市场中崭露头角，奠定了他作为新一代R&B歌手的地位。其他单曲如《Yo (Excuse Me Miss)》和《Gimme That》虽然也有不错的表现，但在电台播放量上均不及《Run It!》。这一点体现了《Chris Brown》专辑在电台播放领域的标志性影响。"
         },
@@ -1709,12 +1489,7 @@
         },
         {
           "question": "Chris Brown在他的首张同名专辑《Chris Brown》中，主要受到哪位艺术家的音乐风格启发？",
-          "options": [
-            "Michael Jackson",
-            "Eminem",
-            "Madonna",
-            "Kanye West"
-          ],
+          "options": ["Michael Jackson", "Eminem", "Madonna", "Kanye West"],
           "correctAnswer": "Michael Jackson",
           "trivia": "Chris Brown的首张专辑《Chris Brown》发行于2005年，这张专辑深受流行和R&B巨星Michael Jackson的影响。Chris Brown在多个采访中提到，Michael Jackson不仅是他的偶像，也是他舞蹈和音乐风格的重要灵感来源。专辑中的许多歌曲和舞蹈编排都体现了Michael Jackson的经典元素。与此同时，Chris Brown也融合了当时流行的R&B和嘻哈元素，使整张专辑既有怀旧感又具现代感。"
         }
@@ -1733,12 +1508,7 @@
         },
         {
           "question": "Chris Brown的首张同名专辑'Chris Brown'在美国Billboard 200排行榜上的最高排名是？",
-          "options": [
-            "第1名",
-            "第2名",
-            "第5名",
-            "第10名"
-          ],
+          "options": ["第1名", "第2名", "第5名", "第10名"],
           "correctAnswer": "第2名",
           "trivia": "Chris Brown于2005年发布的首张同名专辑'Chris Brown'在美国Billboard 200排行榜中最高排名为第2名。这张专辑的成功使Chris Brown一举成为当时最受瞩目的年轻R&B歌手之一。专辑中的主打单曲《Run It!》也在Billboard Hot 100上获得了冠军位置，进一步推动了专辑的销量。'Chris Brown'专辑最终获得了美国唱片工业协会（RIAA）的双白金认证，证明其商业上的巨大成功。"
         },
@@ -1810,23 +1580,13 @@
         },
         {
           "question": "Colbie Caillat在她2007年发行的专辑'Coco'中，哪首歌曲被选为主打单曲并且在美国公告牌成人当代榜单上取得了极大成功？",
-          "options": [
-            "Bubbly",
-            "Realize",
-            "The Little Things",
-            "Magic"
-          ],
+          "options": ["Bubbly", "Realize", "The Little Things", "Magic"],
           "correctAnswer": "Bubbly",
           "trivia": "Colbie Caillat的首张专辑'Coco'于2007年发行，其中主打单曲《Bubbly》成为她最著名的歌曲之一。这首歌在美国公告牌成人当代榜单上排名第一，并且帮助她获得了广泛的关注。专辑整体以清新自然的民谣流行风格为主，展现了Caillat轻柔的嗓音和简洁的吉他伴奏。《Bubbly》的成功也推动了专辑在商业上的表现，使'Coco'成为她职业生涯的重要起点。"
         },
         {
           "question": "在Colbie Caillat的2007年专辑'Coco'的制作过程中，哪位著名制作人参与了该专辑的制作？",
-          "options": [
-            "Mikal Blue",
-            "Max Martin",
-            "Rick Rubin",
-            "Quincy Jones"
-          ],
+          "options": ["Mikal Blue", "Max Martin", "Rick Rubin", "Quincy Jones"],
           "correctAnswer": "Mikal Blue",
           "trivia": "Colbie Caillat的首张专辑'Coco'主要由制作人Mikal Blue负责制作。Mikal Blue以其细腻的制作风格闻名，曾与多位流行和民谣艺术家合作。该专辑在洛杉矶录制，Mikal Blue帮助塑造了Colbie Caillat清新自然的声音。Max Martin、Rick Rubin和Quincy Jones虽然都是著名制作人，但并未参与'Coco'的制作。Mikal Blue的参与对专辑的成功起到了关键作用，帮助Colbie Caillat获得了广泛的关注。"
         }
@@ -1880,12 +1640,7 @@
         },
         {
           "question": "在Colbie Caillat的2007年专辑'Coco'中，哪种乐器的使用最显著地体现了专辑轻松自然的音乐风格？",
-          "options": [
-            "原声吉他",
-            "电吉他失真效果",
-            "合成器",
-            "萨克斯风"
-          ],
+          "options": ["原声吉他", "电吉他失真效果", "合成器", "萨克斯风"],
           "correctAnswer": "原声吉他",
           "trivia": "Colbie Caillat的专辑'Coco'以其轻松、亲切的音乐风格著称，而原声吉他是这一风格的核心乐器。专辑中的许多歌曲均以原声吉他为主，营造出温暖自然的听觉体验。相较之下，电吉他失真效果和合成器在该专辑中使用较少，萨克斯风也未成为该专辑的标志性元素。原声吉他的广泛应用体现了Caillat对简单纯粹声音的追求，这也是她音乐风格的重要组成部分。"
         },
@@ -1911,12 +1666,7 @@
       "easy": [
         {
           "question": "Coldplay的专辑《Parachutes》在英国专辑排行榜上的最高排名是多少？",
-          "options": [
-            "第1名",
-            "第5名",
-            "第10名",
-            "第20名"
-          ],
+          "options": ["第1名", "第5名", "第10名", "第20名"],
           "correctAnswer": "第1名",
           "trivia": "Coldplay于2000年发行的首张专辑《Parachutes》在英国取得了巨大成功，最高登顶英国专辑排行榜第1名。这张专辑不仅帮助乐队迅速走红，还获得了英国唱片工业协会（BPI）的多白金认证。《Parachutes》中的单曲如《Yellow》同样在排行榜上表现优异，进一步巩固了Coldplay在当时音乐界的重要地位。专辑的成功为Coldplay后续作品奠定了坚实的基础。"
         },
@@ -1933,12 +1683,7 @@
         },
         {
           "question": "Coldplay在创作2000年发行的专辑《Parachutes》时，哪位艺术家对他们的音乐风格产生了明显影响？",
-          "options": [
-            "Radiohead",
-            "Nirvana",
-            "The Beatles",
-            "U2"
-          ],
+          "options": ["Radiohead", "Nirvana", "The Beatles", "U2"],
           "correctAnswer": "Radiohead",
           "trivia": "Coldplay的首张专辑《Parachutes》于2000年发行，展现了他们独特的氛围摇滚风格。乐队成员曾公开表示，英国摇滚乐队Radiohead对他们的音乐产生了重要影响，尤其是在氛围营造和情感表达方面。虽然The Beatles和U2也是他们喜欢的乐队，但《Parachutes》的声音更倾向于Radiohead早期作品的细腻与深邃。Nirvana的风格则与Coldplay的柔和旋律有较大差异，因此影响较小。"
         }
@@ -1981,12 +1726,7 @@
       "hard": [
         {
           "question": "Coldplay在创作2000年专辑《Parachutes》的词曲过程中，哪位成员主要负责了大部分歌曲的作词和旋律创作？",
-          "options": [
-            "Chris Martin",
-            "Jonny Buckland",
-            "Guy Berryman",
-            "Will Champion"
-          ],
+          "options": ["Chris Martin", "Jonny Buckland", "Guy Berryman", "Will Champion"],
           "correctAnswer": "Chris Martin",
           "trivia": "在Coldplay的首张专辑《Parachutes》中，主唱Chris Martin承担了主要的词曲创作任务，他的独特嗓音和抒情的歌词成为专辑的标志。吉他手Jonny Buckland则贡献了许多旋律性的吉他部分，为歌曲增添了丰富的层次感。贝斯手Guy Berryman与鼓手Will Champion则主要负责节奏部分和编曲。专辑《Parachutes》的创作过程体现了Chris Martin在歌词和旋律上的核心地位，这也是Coldplay早期音乐风格形成的重要原因之一。"
         },
@@ -2135,12 +1875,7 @@
       "easy": [
         {
           "question": "在David Guetta的2009年专辑《One Love》的词曲创作过程中，哪位著名歌手参与了单曲《When Love Takes Over》的创作与演唱？",
-          "options": [
-            "Kelly Rowland",
-            "Alicia Keys",
-            "Rihanna",
-            "Sia"
-          ],
+          "options": ["Kelly Rowland", "Alicia Keys", "Rihanna", "Sia"],
           "correctAnswer": "Kelly Rowland",
           "trivia": "David Guetta的专辑《One Love》于2009年发布，其中单曲《When Love Takes Over》由Kelly Rowland参与创作并担任主唱。这首歌成为当年电子舞曲的代表作之一，并在多国音乐排行榜上取得优异成绩。Kelly Rowland本身是知名的R&B歌手，她与David Guetta的合作将电子音乐与流行元素完美结合，开创了日后多次跨界合作的先河。此单曲的成功也大大提升了David Guetta在国际舞台上的影响力，成为其职业生涯的重要里程碑。"
         },
@@ -2157,12 +1892,7 @@
         },
         {
           "question": "在David Guetta的2009年专辑《One Love》中，以下哪位艺术家参与了制作并与他合作完成了一首著名单曲？",
-          "options": [
-            "Kelly Rowland",
-            "Adele",
-            "Rihanna",
-            "Beyoncé"
-          ],
+          "options": ["Kelly Rowland", "Adele", "Rihanna", "Beyoncé"],
           "correctAnswer": "Kelly Rowland",
           "trivia": "David Guetta的专辑《One Love》于2009年发布，其中包含多位知名歌手的合作。Kelly Rowland与David Guetta合作的单曲《When Love Takes Over》成为该专辑的代表作之一，获得了全球范围的成功和多个音乐奖项。该曲混合了电子舞曲与流行元素，标志着David Guetta跨界合作的成功尝试。此外，专辑还包括了与其他艺人如Estelle和Akon的合作，但Adele和Beyoncé并未参与此专辑的制作。"
         }
@@ -2181,12 +1911,7 @@
         },
         {
           "question": "在David Guetta的2009年专辑《One Love》的词曲创作过程中，哪位艺术家并未参与合作写作？",
-          "options": [
-            "Estelle",
-            "Kelly Rowland",
-            "Sia",
-            "Rihanna"
-          ],
+          "options": ["Estelle", "Kelly Rowland", "Sia", "Rihanna"],
           "correctAnswer": "Rihanna",
           "trivia": "David Guetta的专辑《One Love》以其众多知名歌手的合作而闻名，其中Estelle、Kelly Rowland和Sia都参与了部分歌曲的词曲创作。比如，Sia参与了《Titanium》的创作，而Kelly Rowland则参与了《When Love Takes Over》。然而，著名歌手Rihanna虽然与David Guetta后来有过合作，但并未参与《One Love》专辑的词曲创作。这体现了专辑制作过程中多元化的艺术家合作，但并非所有知名歌手都直接参与写作。"
         },
@@ -2227,12 +1952,7 @@
         },
         {
           "question": "David Guetta的专辑《One Love》（2009年）在英国排行榜上的最高排名是以下哪个？",
-          "options": [
-            "第1名",
-            "第2名",
-            "第4名",
-            "第6名"
-          ],
+          "options": ["第1名", "第2名", "第4名", "第6名"],
           "correctAnswer": "第2名",
           "trivia": "David Guetta的专辑《One Love》在2009年发行后，取得了显著的商业成功。该专辑在英国专辑排行榜上最高排名达到第2名，显示出其在欧洲市场的强大影响力。《One Love》收录了多首热门单曲，如《When Love Takes Over》和《Sexy Bitch》，这些单曲在多个国家的单曲榜单中均名列前茅。此外，这张专辑也推动David Guetta成为电子舞曲领域的重要人物，奠定了他在国际音乐舞台上的地位。"
         }
@@ -2258,23 +1978,13 @@
         },
         {
           "question": "Deftones 2000年专辑《White Pony》的封面设计中，主要呈现了哪种动物形象？",
-          "options": [
-            "一匹白色的小马",
-            "一只黑色的乌鸦",
-            "一只蓝色的鲸鱼",
-            "一只红色的狐狸"
-          ],
+          "options": ["一匹白色的小马", "一只黑色的乌鸦", "一只蓝色的鲸鱼", "一只红色的狐狸"],
           "correctAnswer": "一匹白色的小马",
           "trivia": "《White Pony》是Deftones在2000年发行的第三张录音室专辑，专辑封面设计以一匹白色的小马为主要形象，这也是专辑名称的直观体现。该封面由Frank Maddocks设计，他是知名的平面设计师，曾为多支摇滚乐队制作专辑封面。白马的形象简单却富有象征意义，代表纯洁与力量，符合专辑音乐风格的细腻与激烈结合。此外，这张专辑的封面设计在当时广受好评，成为Nu Metal和另类金属音乐中的经典视觉标志之一。"
         },
         {
           "question": "Deftones在他们2000年发行的专辑《White Pony》中，哪首歌曲的歌词主要探讨了梦境与现实之间的模糊界限？",
-          "options": [
-            "Passenger",
-            "Change (In the House of Flies)",
-            "Digital Bath",
-            "Knife Prty"
-          ],
+          "options": ["Passenger", "Change (In the House of Flies)", "Digital Bath", "Knife Prty"],
           "correctAnswer": "Change (In the House of Flies)",
           "trivia": "《White Pony》是Deftones在2000年发布的重要专辑，歌词主题多样且富有深意。歌曲《Change (In the House of Flies)》特别以其模糊梦境和现实边界的歌词著称，表达了一种心理状态的转变和潜在的危险感。该曲在当时获得了广泛关注，成为Deftones的代表作品之一。专辑整体在歌词上融合了情感复杂性和象征主义，这也是它被广泛认可的原因之一。"
         }
@@ -2339,12 +2049,7 @@
         },
         {
           "question": "在Deftones的专辑《White Pony》（2000年）的制作过程中，哪位著名音乐制作人负责了这张专辑的混音工作？",
-          "options": [
-            "Terry Date",
-            "Rick Rubin",
-            "Steve Albini",
-            "Andy Wallace"
-          ],
+          "options": ["Terry Date", "Rick Rubin", "Steve Albini", "Andy Wallace"],
           "correctAnswer": "Terry Date",
           "trivia": "《White Pony》是Deftones在2000年发行的重要专辑，其制作团队中最关键的人物之一是制作人Terry Date。Terry Date不仅担任了专辑的制作人，还负责了混音工作，他与Deftones合作多年，曾参与多张专辑的制作。Rick Rubin虽然是著名制作人，但并未直接参与《White Pony》的制作。Steve Albini以其独特的录音风格著称，但没有参与这张专辑。Andy Wallace作为混音师活跃于90年代多张知名专辑，但《White Pony》的混音仍由Terry Date亲自操刀，这为专辑营造出独特的氛围和声音质感。"
         }
@@ -2359,12 +2064,7 @@
       "easy": [
         {
           "question": "Destiny's Child在2001年发行的专辑《Survivor》中，哪首歌曲以其独特的鼓点和电子元素成为该专辑的主打单曲？",
-          "options": [
-            "Survivor",
-            "Bootylicious",
-            "Independent Women Part I",
-            "Say My Name"
-          ],
+          "options": ["Survivor", "Bootylicious", "Independent Women Part I", "Say My Name"],
           "correctAnswer": "Survivor",
           "trivia": "《Survivor》是Destiny's Child于2001年发行的第三张录音室专辑，标题曲《Survivor》成为了该专辑的主打单曲。这首歌以其强烈的鼓点和电子合成器元素闻名，展现出坚韧和自信的主题。歌曲在美国公告牌百强单曲榜上表现出色，进一步巩固了Destiny's Child在流行与R&B界的地位。此外，《Bootylicious》和《Say My Name》虽是Destiny's Child的知名作品，但分别属于不同专辑，而《Independent Women Part I》则是为电影《梦想成真》录制的单曲。"
         },
@@ -2471,34 +2171,19 @@
       "easy": [
         {
           "question": "在Dido的2003年专辑《Life for Rent》中，哪位音乐家是她主要的合作制作人和兄弟？",
-          "options": [
-            "Rollo Armstrong",
-            "Mark Ronson",
-            "Nigel Godrich",
-            "Brian Eno"
-          ],
+          "options": ["Rollo Armstrong", "Mark Ronson", "Nigel Godrich", "Brian Eno"],
           "correctAnswer": "Rollo Armstrong",
           "trivia": "《Life for Rent》是Dido于2003年发布的第二张录音室专辑。这张专辑的制作主要由她的哥哥Rollo Armstrong负责，他是知名电子音乐团体Faithless的成员。Rollo不仅参与制作，还在专辑中贡献了编曲和键盘演奏。Dido和Rollo的合作延续了她首张专辑《No Angel》的成功模式，帮助《Life for Rent》获得了商业上的巨大成功和多个国家的高排名。事实上，Rollo作为制作人和音乐人的身份，是这张专辑声音风格的重要组成部分。"
         },
         {
           "question": "Dido在制作2003年专辑《Life for Rent》时，哪位制作人主要参与了专辑的制作工作？",
-          "options": [
-            "Rick Rubin",
-            "Paul Statham",
-            "Nigel Godrich",
-            "Brian Eno"
-          ],
+          "options": ["Rick Rubin", "Paul Statham", "Nigel Godrich", "Brian Eno"],
           "correctAnswer": "Paul Statham",
           "trivia": "《Life for Rent》是Dido于2003年发行的第二张录音室专辑，主要由Paul Statham担任制作人。Paul Statham与Dido长期合作，帮助塑造了她独特的电子流行和轻柔节奏风格。Rick Rubin、Nigel Godrich和Brian Eno均为知名制作人，但他们并未参与该专辑的制作。Dido的这张专辑延续了她首张专辑的温暖氛围，凭借制作团队的默契合作，获得了广泛的商业成功和好评。"
         },
         {
           "question": "在Dido的2003年专辑《Life for Rent》的音响工程制作中，哪位知名音响工程师负责了该专辑的大部分混音工作？",
-          "options": [
-            "Ash Howes",
-            "Chris Lord-Alge",
-            "Nigel Godrich",
-            "Mark 'Spike' Stent"
-          ],
+          "options": ["Ash Howes", "Chris Lord-Alge", "Nigel Godrich", "Mark 'Spike' Stent"],
           "correctAnswer": "Ash Howes",
           "trivia": "《Life for Rent》是Dido于2003年发行的第二张录音室专辑，其混音工作主要由英国音响工程师Ash Howes完成。Ash Howes以其在流行音乐领域的混音技术闻名，他为包括Dido在内的多位艺人制作过声音清晰且富有层次感的作品。该专辑录制时采用了多轨录音和细致的音频处理，确保Dido独特的嗓音与背景乐器的和谐融合。相较之下，Chris Lord-Alge、Nigel Godrich和Mark 'Spike' Stent虽为业界知名的混音师，但并未参与《Life for Rent》的主要混音工作。"
         }
@@ -2506,12 +2191,7 @@
       "medium": [
         {
           "question": "在Dido的2003年专辑《Life for Rent》的音响工程制作中，哪位工程师负责大部分混音工作？",
-          "options": [
-            "Ash Howes",
-            "Chris Lord-Alge",
-            "Mark 'Spike' Stent",
-            "Alan Moulder"
-          ],
+          "options": ["Ash Howes", "Chris Lord-Alge", "Mark 'Spike' Stent", "Alan Moulder"],
           "correctAnswer": "Ash Howes",
           "trivia": "Ash Howes是《Life for Rent》专辑的主要混音工程师，他以细腻且清晰的混音风格著称。Dido的这张专辑录制过程中，Ash Howes对音质的把控帮助塑造了专辑柔和且富有层次的声音效果。此外，Ash Howes还曾与多位流行和电子音乐艺术家合作，积累了丰富的混音经验，使得《Life for Rent》在音响工程上达到了很高的水准。Chris Lord-Alge、Mark 'Spike' Stent和Alan Moulder虽然都是著名的混音师，但并未参与这张专辑的主要混音工作。"
         },
@@ -2583,12 +2263,7 @@
       "easy": [
         {
           "question": "在Disturbed的2000年专辑'The Sickness'的制作过程中，谁担任了该专辑的制作人？",
-          "options": [
-            "Johnny K",
-            "Rick Rubin",
-            "Bob Rock",
-            "Terry Date"
-          ],
+          "options": ["Johnny K", "Rick Rubin", "Bob Rock", "Terry Date"],
           "correctAnswer": "Johnny K",
           "trivia": "Disturbed的首张专辑'The Sickness'由制作人Johnny K负责制作，他在录制该专辑时为乐队打造了紧凑且富有冲击力的金属声音。Johnny K因其在2000年代初与多支摇滚和金属乐队合作而闻名，擅长捕捉乐队原始能量。专辑录制于芝加哥的Groovemaster Studios，Johnny K的制作风格帮助'The Sickness'获得了商业和评价上的成功。Rick Rubin、Bob Rock和Terry Date都是著名的制作人，但他们并未参与这张专辑的制作。"
         },
@@ -2605,12 +2280,7 @@
         },
         {
           "question": "Disturbed乐队在2000年发行的专辑'The Sickness'中，哪首歌曲最初成为他们的代表作并获得广泛关注？",
-          "options": [
-            "Stupify",
-            "Down with the Sickness",
-            "Voices",
-            "The Game"
-          ],
+          "options": ["Stupify", "Down with the Sickness", "Voices", "The Game"],
           "correctAnswer": "Down with the Sickness",
           "trivia": "《The Sickness》是Disturbed乐队于2000年发行的首张录音室专辑，其中《Down with the Sickness》成为他们的标志性歌曲。这首歌以其独特的节奏和主唱David Draiman的吼唱技巧获得了极大关注，帮助乐队在新金属（Nu Metal）风格中脱颖而出。该曲后来成为Disturbed现场演出的必唱曲目，也使专辑在商业上取得成功，专辑销量超过300万张。"
         }
@@ -2629,12 +2299,7 @@
         },
         {
           "question": "在Disturbed的2000年专辑《The Sickness》中，哪首歌曲的歌词主要探讨了个人内心的愤怒和情绪失控？",
-          "options": [
-            "Down with the Sickness",
-            "Voices",
-            "Stupify",
-            "The Game"
-          ],
+          "options": ["Down with the Sickness", "Voices", "Stupify", "The Game"],
           "correctAnswer": "Down with the Sickness",
           "trivia": "《The Sickness》是Disturbed的首张录音室专辑，其中《Down with the Sickness》以其直接表达愤怒和情绪失控的歌词而闻名。歌曲通过强烈的节奏和主唱David Draiman独特的叫喊式唱法，传达内心的挣扎和释放情绪的主题。歌词中反复出现的“ooh-wah-ah-ah-ah”声音象征着情绪的爆发，这也成为该曲标志性的元素。该曲不仅助推了专辑的商业成功，也奠定了Disturbed在新金属乐坛的地位。"
         },
@@ -2664,12 +2329,7 @@
         },
         {
           "question": "在Disturbed的2000年专辑《The Sickness》中，哪位成员担任主唱并以其独特的咆哮式唱法闻名？",
-          "options": [
-            "David Draiman",
-            "Dan Donegan",
-            "Mike Wengren",
-            "Steve Kmak"
-          ],
+          "options": ["David Draiman", "Dan Donegan", "Mike Wengren", "Steve Kmak"],
           "correctAnswer": "David Draiman",
           "trivia": "David Draiman是Disturbed乐队的主唱，他在专辑《The Sickness》中展现了标志性的咆哮式唱法和独特的嗓音，这成为乐队音乐风格的重要标志。Dan Donegan担任吉他手，Mike Wengren负责鼓组，而Steve Kmak是当时的贝斯手。该专辑的成功很大程度上归功于Draiman的强烈表现力和舞台感染力，使Disturbed在新千年初期的金属乐坛迅速崛起。"
         },
@@ -2717,12 +2377,7 @@
         },
         {
           "question": "Eminem在制作2000年专辑'The Marshall Mathers LP'时，哪位制作人主要负责了专辑的大部分音乐制作？",
-          "options": [
-            "Dr. Dre",
-            "Timbaland",
-            "Pharrell Williams",
-            "Rick Rubin"
-          ],
+          "options": ["Dr. Dre", "Timbaland", "Pharrell Williams", "Rick Rubin"],
           "correctAnswer": "Dr. Dre",
           "trivia": "Eminem的专辑'The Marshall Mathers LP'在2000年发布时，Dr. Dre是主要的制作人之一，他帮助塑造了专辑标志性的声音。Dr. Dre不仅在这张专辑中制作了多首歌曲，还对Eminem的职业生涯产生了深远影响。实际上，Dr. Dre和Eminem的合作为Hip-Hop带来了革新，专辑也因此获得了极高的评价和商业成功。与此同时，其他知名制作人如Timbaland、Pharrell Williams和Rick Rubin并未参与该专辑的制作。"
         }
@@ -2730,12 +2385,7 @@
       "medium": [
         {
           "question": "Eminem在其2000年发行的专辑《The Marshall Mathers LP》中，通过哪首歌曲最直接表达了对媒体和社会对其个人生活的批评？",
-          "options": [
-            "《Stan》",
-            "《The Way I Am》",
-            "《Marshall Mathers》",
-            "《Kim》"
-          ],
+          "options": ["《Stan》", "《The Way I Am》", "《Marshall Mathers》", "《Kim》"],
           "correctAnswer": "《The Way I Am》",
           "trivia": "《The Way I Am》是Eminem在专辑《The Marshall Mathers LP》中用来回应媒体和社会对其生活及形象的激烈批评的歌曲。该曲以强烈的歌词表达了他对名声压力和公众误解的反感，体现了专辑中明显的社会评论主题。专辑整体以真实反映Eminem的个人经历和社会问题著称，其中《The Way I Am》尤为突出，揭示了艺人面对舆论压力时的无奈和愤怒。此歌也帮助巩固了Eminem作为社会评论者的音乐身份。"
         },
@@ -2776,12 +2426,7 @@
         },
         {
           "question": "在Eminem的专辑《The Marshall Mathers LP》中，哪位音乐家以贝斯手身份参与录制，增加了专辑的音乐层次感？",
-          "options": [
-            "Jeff Bass",
-            "Dr. Dre",
-            "Mike Elizondo",
-            "Steve Baughman"
-          ],
+          "options": ["Jeff Bass", "Dr. Dre", "Mike Elizondo", "Steve Baughman"],
           "correctAnswer": "Jeff Bass",
           "trivia": "Jeff Bass是著名制作团队Bass Brothers的成员，他在Eminem的《The Marshall Mathers LP》中担任贝斯手和制作人之一。Bass Brothers在Eminem早期作品中起到了关键作用，Jeff Bass不仅参与了贝斯演奏，还负责多首歌曲的制作工作。虽然Dr. Dre是该专辑的执行制片人并参与制作，但主要负责制作和混音，而非贝斯演奏。Mike Elizondo和Steve Baughman均未参与该专辑的录制。Jeff Bass的参与为专辑注入了丰富的低音元素，提升了整体音乐质感。"
         },
@@ -2818,12 +2463,7 @@
         },
         {
           "question": "Evanescence的专辑《Fallen》在2003年首次数字发行时，以下哪种数字平台是该专辑最早上线的？",
-          "options": [
-            "iTunes音乐商店",
-            "Spotify音乐平台",
-            "Amazon MP3商店",
-            "Napster数字音乐服务"
-          ],
+          "options": ["iTunes音乐商店", "Spotify音乐平台", "Amazon MP3商店", "Napster数字音乐服务"],
           "correctAnswer": "iTunes音乐商店",
           "trivia": "Evanescence的《Fallen》专辑于2003年发行时，数字音乐销售正逐渐兴起。苹果公司的iTunes音乐商店在2003年4月正式上线，并成为当时最主流的数字音乐销售平台。《Fallen》作为当年热门的摇滚专辑，很快上架iTunes，成为数字发行的重要作品之一。相比之下，Spotify直到2008年才成立，Amazon MP3和Napster的数字音乐服务也在稍后几年才逐步普及。因此，iTunes是《Fallen》专辑最早上线的数字平台。"
         },
@@ -2842,12 +2482,7 @@
       "medium": [
         {
           "question": "在Evanescence的2003年专辑《Fallen》的词曲创作过程中，哪位成员主要负责了歌曲《Bring Me to Life》的钢琴部分创作？",
-          "options": [
-            "Amy Lee",
-            "Ben Moody",
-            "David Hodges",
-            "John LeCompt"
-          ],
+          "options": ["Amy Lee", "Ben Moody", "David Hodges", "John LeCompt"],
           "correctAnswer": "Amy Lee",
           "trivia": "《Fallen》是Evanescence的首张商业专辑，发行于2003年，其中《Bring Me to Life》成为他们的代表作之一。Amy Lee不仅是主唱，还承担了钢琴演奏和部分词曲创作工作。David Hodges也参与了部分歌曲的创作，但钢琴部分主要由Amy Lee完成。Ben Moody作为吉他手，更多负责吉他和编曲方面的贡献。Amy Lee的钢琴创作为《Bring Me to Life》注入了独特的抒情和戏剧性氛围，这也是该曲广受欢迎的重要因素。"
         },
@@ -2864,12 +2499,7 @@
         },
         {
           "question": "Evanescence的专辑《Fallen》在美国Billboard 200排行榜上的最高排名是？",
-          "options": [
-            "第1名",
-            "第3名",
-            "第5名",
-            "第10名"
-          ],
+          "options": ["第1名", "第3名", "第5名", "第10名"],
           "correctAnswer": "第3名",
           "trivia": "Evanescence于2003年发行的专辑《Fallen》在美国Billboard 200排行榜上最高排名达到第3名。该专辑凭借其融合了摇滚和哥特元素的独特风格，获得了广泛关注和商业成功。《Fallen》不仅帮助乐队赢得了两项格莱美奖，还在全球范围内售出超过1000万张。专辑中的热门单曲如《Bring Me to Life》和《My Immortal》也大大推动了专辑的销量和排行榜表现。"
         }
@@ -2877,12 +2507,7 @@
       "hard": [
         {
           "question": "在Evanescence的专辑《Fallen》（2003年）中，哪首歌曲是该专辑在美国主流电台获得最多播放次数的单曲？",
-          "options": [
-            "Bring Me to Life",
-            "My Immortal",
-            "Going Under",
-            "Haunted"
-          ],
+          "options": ["Bring Me to Life", "My Immortal", "Going Under", "Haunted"],
           "correctAnswer": "Bring Me to Life",
           "trivia": "《Fallen》是Evanescence于2003年发布的首张录音室专辑，其中《Bring Me to Life》成为该专辑最具代表性的单曲。这首歌曲在当时美国主流电台获得了极高的播放率，甚至登顶了Billboard主流摇滚电台排行榜。它融合了摇滚和交响元素，并邀请了饶舌歌手Paul McCoy参与客串，使其在电台播放中更具辨识度。相比之下，虽然《My Immortal》和《Going Under》也获得了电台播放，但播放量和影响力均不及《Bring Me to Life》。这一单曲的成功极大推动了Evanescence的商业突破和广泛知名度。"
         },
@@ -2930,12 +2555,7 @@
         },
         {
           "question": "Fall Out Boy在录制2005年专辑《From Under the Cork Tree》时，哪位资深音响工程师负责了这张专辑的混音工作？",
-          "options": [
-            "Chris Lord-Alge",
-            "Butch Vig",
-            "Bob Clearmountain",
-            "Steve Albini"
-          ],
+          "options": ["Chris Lord-Alge", "Butch Vig", "Bob Clearmountain", "Steve Albini"],
           "correctAnswer": "Chris Lord-Alge",
           "trivia": "《From Under the Cork Tree》是Fall Out Boy的突破性专辑，混音工程由著名的Chris Lord-Alge负责。Chris Lord-Alge以其清晰且富有冲击力的混音风格闻名，曾与多位摇滚和流行音乐艺术家合作。这次合作帮助专辑在声音表现上更具层次感和现场感，提升了Fall Out Boy的音乐质感。此外，该专辑的制作团队还包括制作人 Neal Avron，他与乐队密切合作，确保音响效果的完美呈现。"
         },
@@ -2954,12 +2574,7 @@
       "medium": [
         {
           "question": "Fall Out Boy在录制2005年专辑《From Under the Cork Tree》时，哪位音响工程师负责该专辑的大部分混音工作？",
-          "options": [
-            "Andy Wallace",
-            "Chris Lord-Alge",
-            "Rich Costey",
-            "Neal Avron"
-          ],
+          "options": ["Andy Wallace", "Chris Lord-Alge", "Rich Costey", "Neal Avron"],
           "correctAnswer": "Neal Avron",
           "trivia": "Neal Avron是Fall Out Boy专辑《From Under the Cork Tree》的主要混音工程师，他以其细腻且富有冲击力的混音风格闻名。Avron此前曾与多支摇滚乐队合作，擅长通过平衡各乐器层次提升整体音响效果。该专辑的录制过程在2004年于洛杉矶进行，Neal Avron的混音工作为专辑赋予了清晰且富有活力的声场，帮助Fall Out Boy实现了商业突破。相较于其他知名混音师如Andy Wallace和Chris Lord-Alge，Avron更注重保持乐队原声的动态和细节。"
         },
@@ -2976,12 +2591,7 @@
         },
         {
           "question": "Fall Out Boy在创作2005年专辑《From Under the Cork Tree》的词曲过程中，哪位成员主要负责歌词的撰写？",
-          "options": [
-            "Patrick Stump",
-            "Pete Wentz",
-            "Joe Trohman",
-            "Andy Hurley"
-          ],
+          "options": ["Patrick Stump", "Pete Wentz", "Joe Trohman", "Andy Hurley"],
           "correctAnswer": "Pete Wentz",
           "trivia": "在Fall Out Boy的专辑《From Under the Cork Tree》中，贝斯手Pete Wentz是主要的词曲创作者，尤其负责歌词的撰写。主唱Patrick Stump则更多参与旋律的创作和编曲工作。这种分工帮助乐队形成了标志性的情感丰富且旋律感强的歌曲风格。《From Under the Cork Tree》收录了多首Pete Wentz以个人经历为灵感写成的歌词，如《Sugar, We're Goin Down》体现了他对青春困惑的表达。该专辑的成功部分归功于这种明确的创作角色分配。"
         }
@@ -3011,12 +2621,7 @@
         },
         {
           "question": "Fall Out Boy在创作2005年专辑《From Under the Cork Tree》时，哪位艺术家的音乐风格对他们的歌词主题和情感表达产生了明显影响？",
-          "options": [
-            "Billy Joel",
-            "Green Day",
-            "The Beatles",
-            "My Chemical Romance"
-          ],
+          "options": ["Billy Joel", "Green Day", "The Beatles", "My Chemical Romance"],
           "correctAnswer": "Billy Joel",
           "trivia": "Fall Out Boy在制作《From Under the Cork Tree》期间，主唱Patrick Stump曾提到Billy Joel的叙事式歌曲对他们的歌词写作产生了重要影响。Billy Joel以其讲故事的能力和情感细腻的表达著称，这启发了Fall Out Boy在专辑中探索复杂的情感和青春困惑。相比之下，虽然Green Day和My Chemical Romance也影响了朋克和情感摇滚领域，但他们对该专辑的灵感较为间接。《From Under the Cork Tree》正是借鉴了Billy Joel等经典艺术家的深刻叙述方式，才使得专辑获得了广泛的认可和持久的影响力。"
         }
@@ -3077,12 +2682,7 @@
         },
         {
           "question": "Florence在其2009年专辑《Lungs》中，哪种乐器的使用最显著地增强了专辑的艺术氛围？",
-          "options": [
-            "弦乐四重奏",
-            "电子合成器",
-            "萨克斯风",
-            "管风琴"
-          ],
+          "options": ["弦乐四重奏", "电子合成器", "萨克斯风", "管风琴"],
           "correctAnswer": "弦乐四重奏",
           "trivia": "在Florence的首张专辑《Lungs》中，弦乐四重奏的编排是专辑独特艺术氛围的重要组成部分。制作人Paul Epworth利用丰富的弦乐元素，配合Florence Welch富有感染力的嗓音，营造出戏剧化且情感饱满的听觉体验。该专辑融合了独立摇滚和巴洛克流行音乐的元素，弦乐的运用使得歌曲层次更加丰富且具有史诗感。此外，《Lungs》中的弦乐部分增强了歌曲的动态变化，成为这张专辑备受赞誉的音乐元素之一。"
         },
@@ -3123,12 +2723,7 @@
         },
         {
           "question": "Florence在2009年录制专辑《Lungs》时，哪位知名制作人负责该专辑的主要制作工作？",
-          "options": [
-            "Paul Epworth",
-            "Mark Ronson",
-            "Rick Rubin",
-            "Danger Mouse"
-          ],
+          "options": ["Paul Epworth", "Mark Ronson", "Rick Rubin", "Danger Mouse"],
           "correctAnswer": "Paul Epworth",
           "trivia": "《Lungs》是Florence + The Machine的首张专辑，于2009年发行，其制作人Paul Epworth因与多位著名艺术家合作而闻名，如Adele和Rihanna。Epworth在专辑的制作中融合了丰富的器乐编配和动态的声音层次，帮助塑造了Florence独特的哥特和灵魂交织的风格。专辑录制于伦敦，Epworth的制作手法在保持原声质感的同时，增强了歌曲的戏剧张力和情感表达。此外，Paul Epworth凭借该专辑获得了广泛的业界认可，奠定了Florence的国际声誉。"
         }
@@ -3143,12 +2738,7 @@
       "easy": [
         {
           "question": "在录制Foo Fighters的2002年专辑《One by One》时，乐队选择在哪座城市的录音棚完成主要录音工作？",
-          "options": [
-            "洛杉矶",
-            "西雅图",
-            "纳什维尔",
-            "旧金山"
-          ],
+          "options": ["洛杉矶", "西雅图", "纳什维尔", "旧金山"],
           "correctAnswer": "洛杉矶",
           "trivia": "Foo Fighters在录制《One by One》专辑时，主要选择了位于洛杉矶的录音棚进行录制。这个城市因其丰富的音乐制作资源和先进的录音设备而闻名，帮助乐队实现了更为干净和直接的声音风格。相比于他们之前在西雅图录制的专辑，这次的制作过程更加注重简洁和效率。此外，专辑的录音过程历时较长，但洛杉矶的录音环境为乐队提供了稳定的创作氛围。"
         },
@@ -3165,12 +2755,7 @@
         },
         {
           "question": "Foo Fighters的专辑'One by One'中哪首歌曲曾获得美国现代摇滚电台的显著播放量，成为该专辑的热门单曲？",
-          "options": [
-            "『All My Life』",
-            "『Times Like These』",
-            "『Low』",
-            "『Have It All』"
-          ],
+          "options": ["『All My Life』", "『Times Like These』", "『Low』", "『Have It All』"],
           "correctAnswer": "『All My Life』",
           "trivia": "『All My Life』是Foo Fighters在2002年发行的专辑'One by One'中的主打单曲之一。这首歌在美国现代摇滚电台中获得了极高的播放量，成为该专辑最受欢迎的曲目。它不仅登顶了Billboard现代摇滚歌曲榜，还获得了2004年格莱美最佳硬摇滚表演奖。相比之下，虽然『Times Like These』和『Low』也获得一定的电台播放，但『All My Life』是专辑中最具代表性的电台热门曲目。"
         }
@@ -3200,12 +2785,7 @@
         },
         {
           "question": "Foo Fighters在2002年发行的专辑《One by One》是通过哪家唱片公司首次正式发布的？",
-          "options": [
-            "RCA Records",
-            "Geffen Records",
-            "Interscope Records",
-            "Epic Records"
-          ],
+          "options": ["RCA Records", "Geffen Records", "Interscope Records", "Epic Records"],
           "correctAnswer": "RCA Records",
           "trivia": "Foo Fighters的专辑《One by One》于2002年发行，首次由RCA Records正式发布。此前，乐队曾与Capitol Records有过合作，但《One by One》标志着他们与RCA Records的关系。RCA Records是索尼音乐娱乐旗下的重要唱片公司，负责推广和发行该专辑。该专辑的发行帮助Foo Fighters巩固了他们在摇滚乐坛的地位，同时也展示了他们与大牌唱片公司的合作历程。"
         }
@@ -3213,12 +2793,7 @@
       "hard": [
         {
           "question": "在Foo Fighters的专辑《One by One》中，哪首歌曲的歌词被广泛解读为反映了主唱戴夫·格罗尔经历的个人挣扎与情绪爆发？",
-          "options": [
-            "《All My Life》",
-            "《Times Like These》",
-            "《Low》",
-            "《Halo》"
-          ],
+          "options": ["《All My Life》", "《Times Like These》", "《Low》", "《Halo》"],
           "correctAnswer": "《All My Life》",
           "trivia": "《All My Life》是Foo Fighters在2002年发行的专辑《One by One》中的主打歌曲，其歌词被普遍认为表达了戴夫·格罗尔在乐队内部及个人生活中面临的压力与情绪释放。歌曲的激烈节奏和反复的歌词强调了内心的挣扎和渴望自我救赎。该曲后来获得了格莱美奖最佳硬摇滚表演奖，进一步证明了其在专辑中的重要地位。《One by One》整体上反映了乐队成员在录制过程中的复杂情绪，尤其是戴夫·格罗尔对于完美主义的追求和音乐表达的深刻体验。"
         },
@@ -3290,12 +2865,7 @@
       "medium": [
         {
           "question": "Franz Ferdinand乐队在2004年发行的同名专辑《Franz Ferdinand》中，哪首歌曲的歌词反映了乐队对都市夜生活中人际关系疏离感的探讨？",
-          "options": [
-            "Take Me Out",
-            "The Dark of the Matinée",
-            "Michael",
-            "This Fire"
-          ],
+          "options": ["Take Me Out", "The Dark of the Matinée", "Michael", "This Fire"],
           "correctAnswer": "The Dark of the Matinée",
           "trivia": "《Franz Ferdinand》专辑中的《The Dark of the Matinée》通过富有隐喻的歌词表现了都市夜晚的孤独与人际疏离，这反映了乐队成员对当代城市生活中人与人之间隔阂的感受。该曲描绘了一个人置身于社交场合却感到格格不入的情景，体现了专辑整体上对现代青年焦虑和社交困境的关注。Franz Ferdinand的这张专辑以其锐利的歌词和新颖的音乐风格赢得了广泛赞誉，其中《The Dark of the Matinée》尤为突出，展现了乐队在歌词内容上的深刻思考。"
         },
@@ -3367,23 +2937,13 @@
       "easy": [
         {
           "question": "在Gnarls Barkley 2006年专辑《St. Elsewhere》中，哪首单曲的音乐录影带以其创意动画风格而广受关注？",
-          "options": [
-            "Crazy",
-            "Smiley Faces",
-            "Go-Go Gadget Gospel",
-            "Necromancer"
-          ],
+          "options": ["Crazy", "Smiley Faces", "Go-Go Gadget Gospel", "Necromancer"],
           "correctAnswer": "Crazy",
           "trivia": "《Crazy》是Gnarls Barkley于2006年发行的专辑《St. Elsewhere》中最著名的单曲。该曲的音乐录影带采用了独特的动画和视觉效果，结合了手绘画风和动态影像，令其在当时广受好评。此视频帮助《Crazy》登顶英国单曲排行榜，并获得了多个音乐视频奖项的提名。音乐录影带的创新视觉表现也成为该专辑视觉内容的重要标志之一，强化了Gnarls Barkley的艺术形象。"
         },
         {
           "question": "Gnarls Barkley的专辑'St. Elsewhere'（2006年）封面设计灵感主要来源于哪种艺术风格？",
-          "options": [
-            "街头涂鸦艺术",
-            "超现实主义绘画",
-            "抽象表现主义",
-            "波普艺术"
-          ],
+          "options": ["街头涂鸦艺术", "超现实主义绘画", "抽象表现主义", "波普艺术"],
           "correctAnswer": "超现实主义绘画",
           "trivia": "Gnarls Barkley的专辑'St. Elsewhere'采用了超现实主义绘画风格作为封面设计的灵感来源。专辑封面由设计师Robert Beatty创作，他以融合复古与未来感的视觉元素而闻名。超现实主义艺术通常强调梦境般的视觉效果，这与专辑中融合多种音乐风格的创新精神相呼应。此外，该封面在当时因其独特且引人注目的设计获得了广泛认可，成为专辑包装的重要组成部分。"
         },
@@ -3402,12 +2962,7 @@
       "medium": [
         {
           "question": "Gnarls Barkley的专辑'St. Elsewhere'中哪首歌曲在美国主流电台的播放率最高，帮助这张专辑获得广泛关注？",
-          "options": [
-            "Crazy",
-            "Smiley Faces",
-            "Gone Daddy Gone",
-            "Who Cares?"
-          ],
+          "options": ["Crazy", "Smiley Faces", "Gone Daddy Gone", "Who Cares?"],
           "correctAnswer": "Crazy",
           "trivia": "《Crazy》是Gnarls Barkley在2006年发行的专辑'St. Elsewhere'中的主打单曲。这首歌以其独特的混合灵魂、放克和电子元素的风格迅速在美国主流电台获得大量播放，成为当年最受欢迎的单曲之一。它不仅在电台播放榜单上表现优异，还帮助专辑提升了整体销量和知名度。此外，'Crazy'在多个国家的排行榜均名列前茅，标志着Gnarls Barkley作为创新二人组合的成功。"
         },
@@ -3637,12 +3192,7 @@
         },
         {
           "question": "Green Day的专辑《American Idiot》（2004年）是由哪家唱片公司发行的？",
-          "options": [
-            "Reprise Records",
-            "Epitaph Records",
-            "Capitol Records",
-            "Fat Wreck Chords"
-          ],
+          "options": ["Reprise Records", "Epitaph Records", "Capitol Records", "Fat Wreck Chords"],
           "correctAnswer": "Reprise Records",
           "trivia": "《American Idiot》是Green Day于2004年发行的一张标志性摇滚概念专辑，该专辑由Reprise Records发行。Reprise Records是华纳音乐集团旗下的一个重要唱片品牌，Green Day自1994年的专辑《Dookie》起就一直与该公司合作。该唱片公司为Green Day提供了强大的市场推广和发行支持，助力《American Idiot》成为当年最畅销的专辑之一。相比之下，Epitaph Records和Fat Wreck Chords主要是独立朋克乐队的唱片公司，而Capitol Records则是另一家大型唱片公司，但Green Day并未与其签约。"
         },
@@ -3683,12 +3233,7 @@
         },
         {
           "question": "Green Day在录制2004年专辑《American Idiot》时，哪位著名制作人负责制作，并且对专辑的音乐风格和录音过程有重大影响？",
-          "options": [
-            "Rob Cavallo",
-            "Butch Vig",
-            "Rick Rubin",
-            "Nigel Godrich"
-          ],
+          "options": ["Rob Cavallo", "Butch Vig", "Rick Rubin", "Nigel Godrich"],
           "correctAnswer": "Rob Cavallo",
           "trivia": "Green Day的专辑《American Idiot》由制作人Rob Cavallo负责制作，他与乐队有着长期合作关系。Rob Cavallo不仅在录音过程中提供了技术指导，还帮助塑造了专辑独特的朋克摇滚与摇滚歌剧风格。该专辑在加州的多家录音室完成，录制期间使用了多轨录音技术以增强声音层次感。此外，Rob Cavallo的制作使得《American Idiot》在音质和结构上都达到了新的高度，成为Green Day最具代表性的作品之一。"
         }
@@ -3714,12 +3259,7 @@
         },
         {
           "question": "Gwen Stefani在录制2004年专辑《Love. Angel. Music. Baby.》期间，哪位著名制作人对专辑的整体声音风格贡献最大？",
-          "options": [
-            "Dr. Dre",
-            "Linda Perry",
-            "Pharrell Williams",
-            "Timbaland"
-          ],
+          "options": ["Dr. Dre", "Linda Perry", "Pharrell Williams", "Timbaland"],
           "correctAnswer": "Pharrell Williams",
           "trivia": "在Gwen Stefani的首张个人专辑《Love. Angel. Music. Baby.》制作过程中，Pharrell Williams作为制作人和词曲作者发挥了关键作用。他为专辑带来了鲜明的节奏感和融合了流行、嘻哈与放克元素的声音风格。此外，Pharrell与Chad Hugo组成的制作团队The Neptunes参与了多首歌曲的制作，极大地影响了专辑的音乐氛围。Linda Perry也参与了部分歌曲的制作，但Pharrell Williams的影响更为广泛。Dr. Dre和Timbaland虽然是当时著名的制作人，但并未直接参与这张专辑的制作。"
         },
@@ -3738,12 +3278,7 @@
       "medium": [
         {
           "question": "在电台播放中，Gwen Stefani的专辑《Love. Angel. Music. Baby.》中哪首单曲最先获得美国主流电台的广泛播放？",
-          "options": [
-            "What You Waiting For?",
-            "Hollaback Girl",
-            "Cool",
-            "Rich Girl"
-          ],
+          "options": ["What You Waiting For?", "Hollaback Girl", "Cool", "Rich Girl"],
           "correctAnswer": "What You Waiting For?",
           "trivia": "Gwen Stefani的首张个人专辑《Love. Angel. Music. Baby.》于2004年发行，其主打单曲《What You Waiting For?》被广泛视为专辑的开篇之作。这首歌是专辑的第一支单曲，率先在美国主流电台获得大量播放，帮助Stefani从No Doubt的主唱身份成功转型为独唱艺人。随后，单曲《Hollaback Girl》也因其独特的节奏和风格成为电台热门，但它是在《What You Waiting For?》之后发布的。此外，《Cool》和《Rich Girl》虽然也获得了一定的电台播放，但在专辑发行初期，第一时间广泛播放的是《What You Waiting For?》。这一顺序体现了专辑在推广策略上的阶段性。"
         },
@@ -3795,12 +3330,7 @@
         },
         {
           "question": "关于Gwen Stefani的专辑《Love. Angel. Music. Baby.》的封面设计，以下哪位艺术家是负责该专辑视觉艺术创作的主要设计师？",
-          "options": [
-            "Mat Maitland",
-            "Fabien Baron",
-            "David LaChapelle",
-            "Hedi Slimane"
-          ],
+          "options": ["Mat Maitland", "Fabien Baron", "David LaChapelle", "Hedi Slimane"],
           "correctAnswer": "Mat Maitland",
           "trivia": "Gwen Stefani的2004年专辑《Love. Angel. Music. Baby.》封面设计由英国艺术家和视觉设计师Mat Maitland主导，他以其独特的拼贴风格闻名。该封面融合了时尚元素和复古视觉，反映了专辑音乐的多样影响。Fabien Baron和Hedi Slimane虽然都是著名的视觉艺术家，但他们并未参与该专辑的视觉设计。David LaChapelle则为该专辑拍摄了部分宣传照片，但主要封面设计归功于Mat Maitland。此设计获得了音乐与时尚界的高度评价，成为早2000年代标志性的专辑艺术。"
         }
@@ -3826,23 +3356,13 @@
         },
         {
           "question": "在James Blunt的2005年专辑《Back to Bedlam》中，哪种乐器是他本人主要用来创作和演奏的？",
-          "options": [
-            "木吉他",
-            "钢琴",
-            "电贝司",
-            "萨克斯管"
-          ],
+          "options": ["木吉他", "钢琴", "电贝司", "萨克斯管"],
           "correctAnswer": "木吉他",
           "trivia": "James Blunt在他的首张专辑《Back to Bedlam》中，主要使用木吉他作为创作和演奏的乐器。这种乐器的温暖音色为专辑中的抒情歌曲如《You're Beautiful》增添了独特的情感层次。木吉他是民谣和流行音乐中常见的伴奏工具，而Blunt的演奏风格也深受其影响。专辑的制作过程中，木吉他的声音成为了许多曲目的核心元素，帮助其赢得了全球范围内的广泛认可。"
         },
         {
           "question": "James Blunt在推广他的2005年专辑《Back to Bedlam》时，以下哪个音乐会场地是他曾经进行过演出的？",
-          "options": [
-            "伦敦皇家阿尔伯特音乐厅",
-            "纽约麦迪逊广场花园",
-            "悉尼歌剧院",
-            "东京武道馆"
-          ],
+          "options": ["伦敦皇家阿尔伯特音乐厅", "纽约麦迪逊广场花园", "悉尼歌剧院", "东京武道馆"],
           "correctAnswer": "伦敦皇家阿尔伯特音乐厅",
           "trivia": "James Blunt在发行《Back to Bedlam》专辑后，为了推广这张获得巨大成功的专辑，曾在多个知名音乐会场地演出。其中，伦敦皇家阿尔伯特音乐厅是他举办过现场演出的著名地点之一。这座音乐厅以其优良的音响效果和历史地位闻名，吸引了众多国际艺术家。虽然麦迪逊广场花园、悉尼歌剧院和东京武道馆都是世界著名的演出场所，但James Blunt在该专辑推广期间主要选择了伦敦皇家阿尔伯特音乐厅进行表演。此次巡演帮助他赢得了更广泛的欧洲观众基础。"
         }
@@ -3872,12 +3392,7 @@
         },
         {
           "question": "在James Blunt的2005年专辑《Back to Bedlam》的录制过程中，哪位音乐家负责为专辑贡献了贝斯演奏？",
-          "options": [
-            "Sacha Skarbek",
-            "Paul Beard",
-            "John Baggott",
-            "Funky"
-          ],
+          "options": ["Sacha Skarbek", "Paul Beard", "John Baggott", "Funky"],
           "correctAnswer": "Funky",
           "trivia": "在James Blunt的首张专辑《Back to Bedlam》中，贝斯手Funky（本名John Garrison）负责了大部分贝斯演奏，为专辑营造了深沉且富有层次的底色。Sacha Skarbek主要参与了钢琴和编曲工作，而Paul Beard是键盘手，John Baggott则是另外一位键盘音乐家。Funky的贝斯演奏为《Back to Bedlam》中多首歌曲提供了稳定的节奏基础，帮助James Blunt塑造出独特的抒情摇滚风格。此专辑后来成为James Blunt职业生涯的突破，赢得了广泛赞誉。"
         }
@@ -3949,12 +3464,7 @@
         },
         {
           "question": "Jason Mraz在专辑《We Sing. We Dance. We Steal Things.》中，为哪首单曲拍摄的音乐录影带以其独特的卡通和真人结合风格而广受欢迎？",
-          "options": [
-            "《I'm Yours》",
-            "《Lucky》",
-            "《Make It Mine》",
-            "《Butterfly》"
-          ],
+          "options": ["《I'm Yours》", "《Lucky》", "《Make It Mine》", "《Butterfly》"],
           "correctAnswer": "《I'm Yours》",
           "trivia": "Jason Mraz在2008年发布的专辑《We Sing. We Dance. We Steal Things.》中，单曲《I'm Yours》的音乐录影带采用了真人与卡通动画相结合的表现手法，营造出轻松愉快的氛围。这支MV因其创意和视觉效果受到广泛赞誉，帮助这首歌在全球范围内走红。《I'm Yours》也成为了Jason Mraz最具代表性的作品之一，专辑整体风格融合了流行、雷鬼和民谣元素，使其在当年获得了极大的商业成功。"
         }
@@ -4008,23 +3518,13 @@
         },
         {
           "question": "在Jason Mraz的2008年专辑《We Sing. We Dance. We Steal Things.》的制作过程中，哪位制作人主要负责这张专辑的整体制作与编曲工作？",
-          "options": [
-            "Martin Terefe",
-            "Rick Rubin",
-            "T Bone Burnett",
-            "Nigel Godrich"
-          ],
+          "options": ["Martin Terefe", "Rick Rubin", "T Bone Burnett", "Nigel Godrich"],
           "correctAnswer": "Martin Terefe",
           "trivia": "Jason Mraz的专辑《We Sing. We Dance. We Steal Things.》于2008年发行，制作人Martin Terefe在这张专辑的制作中扮演了关键角色。Terefe是一位瑞典籍制作人，以其温暖自然的录音风格闻名，他不仅负责整体制作，还参与了编曲和录音安排。此外，这张专辑在制作过程中注重现场乐器的录制，力求呈现纯净且富有感染力的声音质感，体现了Terefe与Mraz之间的密切合作关系。Rick Rubin、T Bone Burnett和Nigel Godrich虽然都是知名制作人，但并未参与该专辑的制作。"
         },
         {
           "question": "在Jason Mraz的2008年专辑《We Sing. We Dance. We Steal Things.》中，哪首歌最初通过电台播放而逐渐成为热门单曲，显著提升了专辑的知名度？",
-          "options": [
-            "I'm Yours",
-            "Make It Mine",
-            "Lucky",
-            "Butterfly"
-          ],
+          "options": ["I'm Yours", "Make It Mine", "Lucky", "Butterfly"],
           "correctAnswer": "I'm Yours",
           "trivia": "Jason Mraz的《We Sing. We Dance. We Steal Things.》专辑发行于2008年，其中《I'm Yours》成为了他最具代表性的歌曲之一。该曲最初通过美国各大电台广泛播放，凭借其轻松愉快的旋律和朗朗上口的歌词，迅速获得听众喜爱，成为热门单曲。该歌曲在Billboard Hot 100排行榜上停留长达76周，创下当时较长的历史纪录。电台的持续播放对推动这首歌的流行起到了关键作用，使Jason Mraz的知名度大幅提升。"
         }
@@ -4039,12 +3539,7 @@
       "easy": [
         {
           "question": "Jay-Z的专辑《The Blueprint》在2002年的格莱美奖中获得了哪项提名？",
-          "options": [
-            "最佳说唱专辑",
-            "年度专辑",
-            "最佳嘻哈歌曲",
-            "最佳新人奖"
-          ],
+          "options": ["最佳说唱专辑", "年度专辑", "最佳嘻哈歌曲", "最佳新人奖"],
           "correctAnswer": "最佳说唱专辑",
           "trivia": "Jay-Z的《The Blueprint》发行于2001年，是他职业生涯中的重要里程碑。这张专辑凭借其创新的制作和深刻的歌词，获得了极高的评价。它在2002年的格莱美奖中获得了“最佳说唱专辑”的提名，彰显了其在嘻哈音乐领域的重要地位。虽然《The Blueprint》未能获得“年度专辑”或“最佳新人奖”，但这次提名巩固了Jay-Z作为顶尖说唱艺术家的地位。此外，专辑中的单曲如《Izzo (H.O.V.A.)》也为Jay-Z赢得了更多关注。"
         },
@@ -4151,23 +3646,13 @@
       "easy": [
         {
           "question": "Jet乐队的首张专辑《Get Born》（2003年）是在哪个国家录制的？",
-          "options": [
-            "澳大利亚",
-            "美国",
-            "英国",
-            "加拿大"
-          ],
+          "options": ["澳大利亚", "美国", "英国", "加拿大"],
           "correctAnswer": "美国",
           "trivia": "Jet的首张专辑《Get Born》于2003年录制，录音地点是在美国洛杉矶的Sound City录音室。虽然乐队成员均来自澳大利亚，但他们选择在美国录制以利用当地丰富的录音资源和经验丰富的制作团队。《Get Born》由制作人Dave Sardy执导，他曾与多位著名摇滚乐队合作，帮助Jet打造了复古而富有活力的摇滚音色。这张专辑的成功部分归功于录音室的设备和环境，促使Jet在国际乐坛迅速获得关注。"
         },
         {
           "question": "Jet乐队2003年专辑《Get Born》的封面设计中，哪种形象是主要视觉元素？",
-          "options": [
-            "乐队成员站在一辆摩托车旁",
-            "一只飞翔的鸟",
-            "一只展翅的公鸡",
-            "一辆复古汽车"
-          ],
+          "options": ["乐队成员站在一辆摩托车旁", "一只飞翔的鸟", "一只展翅的公鸡", "一辆复古汽车"],
           "correctAnswer": "一只展翅的公鸡",
           "trivia": "Jet的首张专辑《Get Born》封面以一只展翅的公鸡作为主要视觉元素，这个设计象征着能量和醒目的开始。封面采用了复古摇滚风格，强调了乐队的硬摇滚和车库摇滚根源。公鸡形象也巧妙地与专辑标题“Get Born”中“出生”和“觉醒”的主题呼应。该封面设计简洁而富有冲击力，帮助专辑在市场上获得了识别度和关注。"
         },
@@ -4186,12 +3671,7 @@
       "medium": [
         {
           "question": "在Jet的2003年专辑《Get Born》首次数字发行时，哪个平台最早提供了该专辑的合法数字下载服务？",
-          "options": [
-            "iTunes Store",
-            "Napster",
-            "Amazon MP3",
-            "eMusic"
-          ],
+          "options": ["iTunes Store", "Napster", "Amazon MP3", "eMusic"],
           "correctAnswer": "iTunes Store",
           "trivia": "Jet的首张专辑《Get Born》于2003年发行，正值数字音乐销售快速兴起的时期。苹果公司的iTunes Store在2003年4月正式上线，成为当时最主要的数字音乐销售平台。《Get Born》作为摇滚复兴的重要作品，很快在iTunes Store上提供合法数字下载，促进了其国际数字发行的普及。相比之下，Napster当时正经历转型，Amazon MP3和eMusic虽存在但尚未成为主流数字发行渠道。因此，iTunes Store是《Get Born》数字发行的先驱平台之一。"
         },
@@ -4320,12 +3800,7 @@
         },
         {
           "question": "John Mayer在2006年发行的专辑《Continuum》中，哪位艺术家对他的灵感影响最大，从而影响了专辑的蓝调和灵魂音乐风格？",
-          "options": [
-            "B.B. King",
-            "Eric Clapton",
-            "Stevie Ray Vaughan",
-            "Jimi Hendrix"
-          ],
+          "options": ["B.B. King", "Eric Clapton", "Stevie Ray Vaughan", "Jimi Hendrix"],
           "correctAnswer": "Stevie Ray Vaughan",
           "trivia": "John Mayer在创作《Continuum》专辑时，深受已故蓝调吉他大师Stevie Ray Vaughan的影响。Mayer多次公开表示，Vaughan的演奏风格和情感表达启发了他对蓝调和灵魂音乐的探索，这也使《Continuum》相比其早期作品展现出更成熟、深沉的音乐质感。此外，专辑中融合了丰富的蓝调元素和精致的吉他演奏，体现了Mayer对Vaughan音乐遗产的致敬。此专辑也因其融合现代流行与传统蓝调风格，获得了格莱美奖的认可。"
         }
@@ -4445,12 +3920,7 @@
       "hard": [
         {
           "question": "在Justin Timberlake的2002年专辑《Justified》中，哪位制作人和音乐家不仅参与制作，还以其独特的节奏和和声安排对专辑风格产生了重要影响？",
-          "options": [
-            "Pharrell Williams",
-            "Timbaland",
-            "Dr. Dre",
-            "Max Martin"
-          ],
+          "options": ["Pharrell Williams", "Timbaland", "Dr. Dre", "Max Martin"],
           "correctAnswer": "Timbaland",
           "trivia": "《Justified》是Justin Timberlake的首张个人录音室专辑，发行于2002年。该专辑的独特节奏和创新的R&B风格很大程度上得益于制作人兼音乐家Timbaland的贡献。Timbaland不仅参与了专辑的大部分制作，还在节奏编排和和声设计上注入了前卫元素，使得专辑在同时期的流行音乐中脱颖而出。此外，Pharrell Williams也参与了部分制作，但Timbaland的风格更加鲜明且贯穿全专辑。Max Martin和Dr. Dre虽然当时都是知名制作人，但并未直接参与《Justified》的制作。"
         },
@@ -4467,12 +3937,7 @@
         },
         {
           "question": "在媒体报道中，关于Justin Timberlake的2002年专辑《Justified》，哪位知名制作人并非参与该专辑制作的主要人物？",
-          "options": [
-            "Pharrell Williams",
-            "Timbaland",
-            "Dr. Dre",
-            "The Neptunes"
-          ],
+          "options": ["Pharrell Williams", "Timbaland", "Dr. Dre", "The Neptunes"],
           "correctAnswer": "Dr. Dre",
           "trivia": "Justin Timberlake的首张个人专辑《Justified》于2002年发布，获得了广泛媒体关注和赞誉。专辑的制作主要由Timbaland和Pharrell Williams组成的制作团队The Neptunes负责，他们帮助塑造了专辑独特的R&B与流行融合的声音。Dr. Dre虽然是著名的制作人和说唱艺术家，但并未参与《Justified》的制作。媒体报道称，Timberlake选择与当时最具创新力的制作人合作，以摆脱早期NSYNC成员的形象，成功打造了成熟的音乐风格，这也是专辑获得成功的重要因素之一。"
         }
@@ -4509,12 +3974,7 @@
         },
         {
           "question": "Kanye West的专辑《The College Dropout》（2004年）中，哪首歌曲最初帮助他在国际音乐市场上获得了广泛关注？",
-          "options": [
-            "Through the Wire",
-            "Jesus Walks",
-            "Slow Jamz",
-            "All Falls Down"
-          ],
+          "options": ["Through the Wire", "Jesus Walks", "Slow Jamz", "All Falls Down"],
           "correctAnswer": "Through the Wire",
           "trivia": "《The College Dropout》是Kanye West的首张正式专辑，其中《Through the Wire》这首歌曲因其独特的制作背景和真实的情感表达，帮助他在国际音乐市场上获得了广泛关注。歌曲中的人声是Kanye在经历严重车祸后，嘴部仍缝合时录制的，这使得这首歌具有强烈的个人故事感。尽管《Jesus Walks》和《Slow Jamz》也非常受欢迎，但《Through the Wire》是Kanye West作为艺人首次引起国际注意的重要作品。该专辑整体在国际排行榜中表现优异，进一步巩固了他的全球影响力。"
         }
@@ -4579,12 +4039,7 @@
         },
         {
           "question": "在Kanye West的2004年专辑'The College Dropout'制作过程中，哪位制作人并未参与合作？",
-          "options": [
-            "No I.D.",
-            "Kanye West本人",
-            "Just Blaze",
-            "Dr. Dre"
-          ],
+          "options": ["No I.D.", "Kanye West本人", "Just Blaze", "Dr. Dre"],
           "correctAnswer": "Dr. Dre",
           "trivia": "Kanye West在制作他的首张专辑'The College Dropout'时，亲自参与了大部分的制作工作，同时他也与制作人No I.D.和Just Blaze合作，这两位制作人对专辑的灵魂和节奏感贡献显著。No I.D.是Kanye早期的导师，帮助塑造了他的制作风格，而Just Blaze则以其采样和鼓点制作闻名。相比之下，Dr. Dre并未参与该专辑的制作，他主要活跃于西海岸嘻哈，与Kanye所在的芝加哥和纽约圈子有一定距离。此专辑的制作团队主要集中在东海岸和中西部地区，反映了Kanye West独特的声音融合和制作理念。"
         }
@@ -4599,34 +4054,19 @@
       "easy": [
         {
           "question": "Katy Perry在创作2008年专辑'One of the Boys'时，哪位艺术家对她的音乐灵感影响最大？",
-          "options": [
-            "Alanis Morissette",
-            "Madonna",
-            "Taylor Swift",
-            "Beyoncé"
-          ],
+          "options": ["Alanis Morissette", "Madonna", "Taylor Swift", "Beyoncé"],
           "correctAnswer": "Alanis Morissette",
           "trivia": "Katy Perry在录制她的首张主流专辑'One of the Boys'时，公开表示受到了90年代摇滚和另类歌手Alanis Morissette的启发。她特别欣赏Alanis Morissette直白且具叛逆精神的歌词风格，这种影响在专辑中如《I Kissed a Girl》和《Hot n Cold》等歌曲中有所体现。虽然Madonna、Taylor Swift和Beyoncé都是重要的流行音乐人物，但Katy Perry在这张专辑的创作阶段强调的是Alanis Morissette对她音乐表达的深远影响。"
         },
         {
           "question": "在Katy Perry的2008年专辑《One of the Boys》中，哪首歌曲的音乐录影带以她扮演一名理发师的形象出现？",
-          "options": [
-            "I Kissed a Girl",
-            "Hot n Cold",
-            "Thinking of You",
-            "Waking Up in Vegas"
-          ],
+          "options": ["I Kissed a Girl", "Hot n Cold", "Thinking of You", "Waking Up in Vegas"],
           "correctAnswer": "Hot n Cold",
           "trivia": "在Katy Perry的首张主流专辑《One of the Boys》中，歌曲《Hot n Cold》的音乐录影带非常受欢迎。该视频中，Katy Perry扮演一名理发师，她通过剪发和理发的比喻表现感情中的反复无常。此MV在MTV等多个音乐频道得到大量播放，进一步巩固了她的流行地位。相比之下，专辑中的其他歌曲如《I Kissed a Girl》和《Thinking of You》也有各自风格独特的MV，但并没有涉及理发师的角色。这个视觉形象帮助塑造了她早期的艺术形象，强化了歌曲主题。"
         },
         {
           "question": "Katy Perry的专辑'One of the Boys'于2008年发行，其中哪首歌曲成为了她在美国公告牌百强单曲榜上首支进入前十名的单曲？",
-          "options": [
-            "I Kissed a Girl",
-            "Hot n Cold",
-            "Waking Up in Vegas",
-            "Thinking of You"
-          ],
+          "options": ["I Kissed a Girl", "Hot n Cold", "Waking Up in Vegas", "Thinking of You"],
           "correctAnswer": "I Kissed a Girl",
           "trivia": "Katy Perry的专辑'One of the Boys'于2008年发行，她凭借单曲'I Kissed a Girl'首次在美国公告牌百强单曲榜上突破前十名，最高排名达到第1位。这首歌的成功为她打开了国际市场，成为她的代表作之一。专辑中的其他歌曲如'Hot n Cold'和'Waking Up in Vegas'也取得了不错的成绩，但'I Kissed a Girl'是她的首支主打并获得广泛关注和商业成功。"
         }
@@ -4634,12 +4074,7 @@
       "medium": [
         {
           "question": "在Katy Perry的2008年专辑'One of the Boys'的录制过程中，哪位制作人对专辑的整体声音风格影响最大？",
-          "options": [
-            "Dr. Luke",
-            "Max Martin",
-            "Rick Rubin",
-            "Mark Ronson"
-          ],
+          "options": ["Dr. Luke", "Max Martin", "Rick Rubin", "Mark Ronson"],
           "correctAnswer": "Dr. Luke",
           "trivia": "Katy Perry的专辑'One of the Boys'主要由制作人Dr. Luke参与制作，他对专辑的流行摇滚风格有显著影响。Dr. Luke以制作多首热门流行歌曲闻名，尤其是在2000年代后期。Max Martin虽然也是著名的制作人，但并未直接参与该专辑制作。Rick Rubin和Mark Ronson风格各异，且未参与该专辑录制。Dr. Luke的制作帮助Katy Perry塑造了她标志性的声音，使这张专辑获得了商业成功。"
         },
@@ -4680,12 +4115,7 @@
         },
         {
           "question": "在Katy Perry的2008年专辑《One of the Boys》的制作过程中，哪位知名音乐制作人负责了多首歌曲的制作和混音，帮助塑造了该专辑的摇滚流行风格？",
-          "options": [
-            "Greg Wells",
-            "Max Martin",
-            "Rick Rubin",
-            "Dr. Luke"
-          ],
+          "options": ["Greg Wells", "Max Martin", "Rick Rubin", "Dr. Luke"],
           "correctAnswer": "Greg Wells",
           "trivia": "Greg Wells是Katy Perry的专辑《One of the Boys》中关键的制作人之一，他参与了多首歌曲的制作和混音。Wells以擅长融合摇滚和流行元素著称，正是这种风格为专辑带来了独特的音乐质感。相比之下，Max Martin和Dr. Luke虽然都是杰出的制作人，但他们主要出现在Katy Perry后期专辑的制作中。Rick Rubin则以其在嘻哈和摇滚领域的制作闻名，但并未参与该专辑。Greg Wells的参与极大地影响了《One of the Boys》的整体声音，使其成为2000年代末流行摇滚的重要代表作。"
         },
@@ -4711,34 +4141,19 @@
       "easy": [
         {
           "question": "Keane在制作2004年专辑'Hopes and Fears'时，哪位艺术家被公开表示对他们的音乐灵感影响最大？",
-          "options": [
-            "Radiohead",
-            "Coldplay",
-            "U2",
-            "The Beatles"
-          ],
+          "options": ["Radiohead", "Coldplay", "U2", "The Beatles"],
           "correctAnswer": "Coldplay",
           "trivia": "Keane在创作'Hopes and Fears'专辑时，曾多次提到Coldplay对他们的音乐风格和情感表达产生了重要影响。Coldplay以其旋律优美和抒情的摇滚风格闻名，这与Keane的钢琴主导的音乐有许多相似之处。虽然Keane的声音独特且带有自身特色，但Coldplay的成功为他们提供了灵感和信心。此外，Keane的主唱Tom Chaplin和Coldplay成员Chris Martin之间也有一定的友谊，这种互动进一步促进了灵感的传递。"
         },
         {
           "question": "Keane的专辑《Hopes and Fears》（2004年）是在哪个唱片公司发行的？",
-          "options": [
-            "Island Records",
-            "EMI Records",
-            "Polydor Records",
-            "Virgin Records"
-          ],
+          "options": ["Island Records", "EMI Records", "Polydor Records", "Virgin Records"],
           "correctAnswer": "Island Records",
           "trivia": "Keane的首张录音室专辑《Hopes and Fears》于2004年发行，唱片公司是Island Records，这是一家具有悠久历史的英国唱片公司，隶属于环球音乐集团。Island Records以签约和推广多样化的艺术家闻名，曾发行过U2和Amy Winehouse的作品。《Hopes and Fears》通过Island Records的发行帮助Keane迅速走红，专辑在英国和全球多地取得了显著的商业成功，成为当年最畅销的专辑之一。"
         },
         {
           "question": "Keane在制作2004年专辑'Hopes and Fears'时，哪位制作人负责了这张专辑的制作工作？",
-          "options": [
-            "James Sanger",
-            "Nigel Godrich",
-            "Rick Rubin",
-            "Brian Eno"
-          ],
+          "options": ["James Sanger", "Nigel Godrich", "Rick Rubin", "Brian Eno"],
           "correctAnswer": "James Sanger",
           "trivia": "Keane的首张专辑'Hopes and Fears'于2004年发布，制作人James Sanger在专辑的录制过程中扮演了关键角色。James Sanger以其细腻的制作风格帮助Keane打造了温暖而丰富的钢琴摇滚音色。Nigel Godrich和Brian Eno虽然是著名制作人，但他们并未参与该专辑制作。Rick Rubin则主要以制作摇滚和嘻哈艺术家闻名，也没有参与'Hopes and Fears'的制作。"
         }
@@ -4746,12 +4161,7 @@
       "medium": [
         {
           "question": "在Keane 2004年发行的专辑《Hopes and Fears》中，哪种乐器成为其标志性的音乐元素，显著区别于同时期其他摇滚乐队？",
-          "options": [
-            "电子合成器",
-            "钢琴",
-            "电吉他",
-            "萨克斯风"
-          ],
+          "options": ["电子合成器", "钢琴", "电吉他", "萨克斯风"],
           "correctAnswer": "钢琴",
           "trivia": "Keane的专辑《Hopes and Fears》以钢琴驱动的旋律著称，这在当时主流摇滚乐队中较为少见。乐队主唱汤姆·查普林（Tom Chaplin）和键盘手蒂姆·赖斯-奥克斯利（Tim Rice-Oxley）通过钢琴营造出独特的抒情氛围，成为他们的标志性声音。与许多摇滚乐队依赖电吉他不同，Keane几乎没有使用电吉他，这让他们的音乐风格更加独特和辨识度高。此外，《Hopes and Fears》专辑中的钢琴部分展现了丰富的情感层次，帮助专辑获得了商业和批评上的成功。"
         },
@@ -4823,34 +4233,19 @@
       "easy": [
         {
           "question": "Kid Cudi在录制2009年专辑'Man on the Moon: The End of Day'时，哪位制作人负责主要的音响工程和混音工作？",
-          "options": [
-            "Emile Haynie",
-            "Rick Rubin",
-            "Dr. Dre",
-            "No I.D."
-          ],
+          "options": ["Emile Haynie", "Rick Rubin", "Dr. Dre", "No I.D."],
           "correctAnswer": "Emile Haynie",
           "trivia": "Emile Haynie是Kid Cudi的主要合作制作人，他在'Man on the Moon: The End of Day'专辑中负责了大量的音响工程和混音工作。Haynie以其细腻的制作风格和对氛围的把控著称，他为专辑打造了独特的空间感和梦幻般的音效。该专辑融合了嘻哈、另类和电子元素，这种混合在Haynie的音响工程中得到了完美体现。Rick Rubin和Dr. Dre虽然都是著名制作人，但未参与本专辑的制作。No I.D.也未参与此专辑的工程工作。"
         },
         {
           "question": "Kid Cudi的专辑'Man on the Moon: The End of Day'中，哪首歌曲曾在美国主流电台获得较高的播放频率？",
-          "options": [
-            "Day 'n' Nite",
-            "Soundtrack 2 My Life",
-            "Mr. Rager",
-            "Pursuit of Happiness"
-          ],
+          "options": ["Day 'n' Nite", "Soundtrack 2 My Life", "Mr. Rager", "Pursuit of Happiness"],
           "correctAnswer": "Day 'n' Nite",
           "trivia": "《Day 'n' Nite》是Kid Cudi在2009年发行的专辑'Man on the Moon: The End of Day'中的主打单曲，这首歌在美国主流电台特别是Urban和Rhythmic格式的电台中播放频率很高。它也是Kid Cudi首次进入Billboard Hot 100榜单的作品，最高排名第38位。此曲的电台成功帮助Kid Cudi迅速获得了广泛关注，成为他职业生涯的重要里程碑。专辑整体混合了嘻哈与另类音乐元素，而《Day 'n' Nite》的旋律和歌词易于电台接受，因此成为该专辑中最具代表性的电台播放曲目。"
         },
         {
           "question": "Kid Cudi在创作专辑'Man on the Moon: The End of Day'时，哪位艺人对他产生了重要的灵感？",
-          "options": [
-            "Kanye West",
-            "Jay-Z",
-            "Drake",
-            "Eminem"
-          ],
+          "options": ["Kanye West", "Jay-Z", "Drake", "Eminem"],
           "correctAnswer": "Kanye West",
           "trivia": "Kid Cudi在创作2009年发行的首张专辑'Man on the Moon: The End of Day'时，深受Kanye West的影响。Kanye West不仅是他的导师之一，还在专辑制作过程中担任执行制作人，帮助Cudi塑造了独特的音乐风格。专辑融合了嘻哈、另类和情感表达，体现了Kanye West对Kid Cudi音乐发展的支持。此外，Kid Cudi与Kanye West的合作奠定了他在音乐界的地位，推动了专辑在商业和艺术上的成功。"
         }
@@ -4880,12 +4275,7 @@
         },
         {
           "question": "在Kid Cudi的专辑《Man on the Moon: The End of Day》中，哪位音乐家在制作过程中担任了主要制作人，并对专辑的整体声音风格产生了深远影响？",
-          "options": [
-            "Emile Haynie",
-            "Dr. Dre",
-            "Pharrell Williams",
-            "Rick Rubin"
-          ],
+          "options": ["Emile Haynie", "Dr. Dre", "Pharrell Williams", "Rick Rubin"],
           "correctAnswer": "Emile Haynie",
           "trivia": "Emile Haynie是《Man on the Moon: The End of Day》这张专辑的主要制作人之一，他与Kid Cudi密切合作，塑造了专辑独特的梦幻氛围和情感深度。Haynie曾与多位著名艺术家合作，擅长将电子元素与传统嘻哈结合，这为专辑带来了创新的声音质感。相比之下，虽然Dr. Dre、Pharrell Williams和Rick Rubin都是知名制作人，但他们并未参与这张专辑的制作。Haynie的贡献对Kid Cudi职业生涯的早期阶段具有重要意义，帮助他在2009年成功推出这张备受赞誉的处女作。"
         }
@@ -4935,34 +4325,19 @@
       "easy": [
         {
           "question": "Kings of Leon在他们2003年发行的专辑《Youth & Young Manhood》中，哪首歌曲最能反映年轻人在社会中寻找自我认同和挣扎的主题？",
-          "options": [
-            "Molly's Chambers",
-            "California Waiting",
-            "Red Morning Light",
-            "Wasted Time"
-          ],
+          "options": ["Molly's Chambers", "California Waiting", "Red Morning Light", "Wasted Time"],
           "correctAnswer": "Red Morning Light",
           "trivia": "《Youth & Young Manhood》是Kings of Leon的首张专辑，展现了年轻人在快速变化的社会环境中面对自我认同和成长挑战的主题。其中，《Red Morning Light》被广泛认为最能体现这种挣扎和渴望自我定位的情感表达。歌曲以充满激情的摇滚风格，反映了年轻一代在社会压力下的内心冲突。此外，专辑整体风格结合了南方摇滚和车库摇滚元素，增强了对青春迷茫与社会矛盾的表现。该曲及专辑帮助Kings of Leon迅速在国际乐坛获得关注，成为2000年代初的代表作之一。"
         },
         {
           "question": "Kings of Leon在制作2003年专辑'Youth & Young Manhood'时，哪位制作人负责该专辑的录音和混音工作？",
-          "options": [
-            "Angus Cooke",
-            "Ethan Johns",
-            "Mark Ronson",
-            "Rick Rubin"
-          ],
+          "options": ["Angus Cooke", "Ethan Johns", "Mark Ronson", "Rick Rubin"],
           "correctAnswer": "Angus Cooke",
           "trivia": "Kings of Leon的首张专辑'Youth & Young Manhood'由制作人Angus Cooke负责录音和混音。Angus Cooke是一位经验丰富的制作人，曾与多位摇滚乐队合作，帮助塑造了该专辑粗犷且充满活力的声音。专辑录制于2003年，地点主要在田纳西州完成，Cooke的制作风格强调现场感和自然音色，增强了乐队的南方摇滚气质。相比之下，Ethan Johns、Mark Ronson和Rick Rubin虽然都是知名制作人，但并未参与该专辑的制作。"
         },
         {
           "question": "Kings of Leon的首张专辑'Youth & Young Manhood'于2003年发行，这张专辑的制作背景中，哪位制作人负责了录音和混音工作？",
-          "options": [
-            "Angus Cooke",
-            "Ethan Johns",
-            "Rick Rubin",
-            "Nigel Godrich"
-          ],
+          "options": ["Angus Cooke", "Ethan Johns", "Rick Rubin", "Nigel Godrich"],
           "correctAnswer": "Angus Cooke",
           "trivia": "Kings of Leon的首张专辑'Youth & Young Manhood'于2003年发行，制作人是Angus Cooke，他在录音和混音过程中帮助塑造了专辑独特的复古车库摇滚风格。Cooke此前曾与多位摇滚艺术家合作，擅长捕捉现场感强烈的声音。该专辑的录制地点位于田纳西州，制作团队致力于保持乐队原始的能量和自然氛围，从而让这张专辑成为Kings of Leon标志性的早期作品。"
         }
@@ -4970,12 +4345,7 @@
       "medium": [
         {
           "question": "Kings of Leon在创作2003年专辑'Youth & Young Manhood'时，哪位艺术家或乐队对他们的音乐风格影响最大，成为他们灵感的重要来源？",
-          "options": [
-            "The Rolling Stones",
-            "The Strokes",
-            "The Beatles",
-            "The White Stripes"
-          ],
+          "options": ["The Rolling Stones", "The Strokes", "The Beatles", "The White Stripes"],
           "correctAnswer": "The Strokes",
           "trivia": "Kings of Leon的首张专辑'Youth & Young Manhood'融合了摇滚和车库摇滚元素，其音乐风格深受当时兴起的纽约车库摇滚乐队The Strokes的影响。乐队成员多次提到，The Strokes的简洁、有力的吉他节奏和复古的摇滚感觉启发了他们的创作方向。此外，这张专辑的录制过程也体现出类似The Strokes的DIY精神和原始能量，使Kings of Leon在早期就确立了独特的声音。The Strokes作为21世纪初摇滚复兴的重要代表，对Kings of Leon的艺术风格产生了显著影响。"
         },
@@ -5082,12 +4452,7 @@
       "medium": [
         {
           "question": "Lady Gaga在录制2008年专辑'The Fame'时，以下哪种合成器设备被广泛用于打造专辑的电子舞曲声音？",
-          "options": [
-            "Roland Jupiter-8",
-            "Moog Minimoog Model D",
-            "Korg Triton",
-            "Yamaha DX7"
-          ],
+          "options": ["Roland Jupiter-8", "Moog Minimoog Model D", "Korg Triton", "Yamaha DX7"],
           "correctAnswer": "Roland Jupiter-8",
           "trivia": "在Lady Gaga的首张专辑'The Fame'的制作过程中，制作团队大量使用了Roland Jupiter-8合成器来创造其标志性的电子舞曲风格。Jupiter-8以其丰富的模拟声音和多音色能力闻名，广泛应用于1980年代及后续电子音乐制作中。相比之下，Moog Minimoog Model D更偏向单音合成，Yamaha DX7以数字FM合成著称，而Korg Triton虽然流行但未被记载为该专辑的核心设备。选择Roland Jupiter-8有助于理解'The Fame'独特的音色设计和时代风格。"
         },
@@ -5104,12 +4469,7 @@
         },
         {
           "question": "在Lady Gaga创作2008年专辑《The Fame》的词曲过程中，她与哪位制作人合作，帮助塑造了专辑的电子舞曲风格？",
-          "options": [
-            "RedOne",
-            "Mark Ronson",
-            "Pharrell Williams",
-            "Timbaland"
-          ],
+          "options": ["RedOne", "Mark Ronson", "Pharrell Williams", "Timbaland"],
           "correctAnswer": "RedOne",
           "trivia": "Lady Gaga在制作她的首张专辑《The Fame》时，与制作人RedOne建立了重要合作关系。RedOne是这张专辑中多首热门单曲的联合制作人，包括《Just Dance》和《Poker Face》，他对电子舞曲和流行元素的融合起到了关键作用。二人共同创作的这些歌曲帮助Lady Gaga确立了她独特的音乐风格和全球影响力。此外，RedOne的制作技巧也让《The Fame》在2008年成为电子舞曲和流行音乐的重要作品。"
         }
@@ -5128,12 +4488,7 @@
         },
         {
           "question": "在Lady Gaga的2008年专辑'The Fame'中，哪一首单曲首次使她登顶了美国Billboard Hot 100排行榜，标志着她商业成功的关键转折点？",
-          "options": [
-            "Just Dance",
-            "Poker Face",
-            "Paparazzi",
-            "LoveGame"
-          ],
+          "options": ["Just Dance", "Poker Face", "Paparazzi", "LoveGame"],
           "correctAnswer": "Poker Face",
           "trivia": "Lady Gaga的首张录音室专辑'The Fame'在2008年发布后迅速获得商业成功，其中单曲'Poker Face'成为她首次登顶美国Billboard Hot 100排行榜的作品。这首歌不仅巩固了她在流行音乐界的地位，还帮助专辑在全球销售超过1500万张。相比之下，'Just Dance'虽然是她的首支单曲，但最高排名为第二，而'Paparazzi'和'LoveGame'虽然也取得了不错的成绩，但未能登顶Hot 100。'Poker Face'的成功被视为Lady Gaga走向国际超级巨星的重要里程碑。"
         },
@@ -5159,12 +4514,7 @@
       "easy": [
         {
           "question": "Leona Lewis在2007年专辑'Spirit'中哪首歌曲的音乐录影带以她在自然风光中独自演唱为主要视觉特色？",
-          "options": [
-            "Bleeding Love",
-            "Better in Time",
-            "Forgive Me",
-            "Run"
-          ],
+          "options": ["Bleeding Love", "Better in Time", "Forgive Me", "Run"],
           "correctAnswer": "Bleeding Love",
           "trivia": "Leona Lewis的首张专辑'Spirit'于2007年发行，其中单曲《Bleeding Love》的音乐录影带以她在海边和草地等自然环境中独自演唱为主，展现了歌曲的情感深度。该MV由Melina Matsoukas执导，画面简洁但富有感染力，强调了Leona的声音和情感表达。《Bleeding Love》不仅成为她的代表作，也帮助专辑获得国际成功，登顶多个国家的音乐排行榜。这个视觉风格与歌曲的主题相辅相成，强化了歌曲的情感张力。"
         },
@@ -5181,12 +4531,7 @@
         },
         {
           "question": "Leona Lewis在录制2007年专辑'Spirit'时，谁是该专辑的主要制作人之一，负责塑造其独特的声音？",
-          "options": [
-            "Simon Cowell",
-            "Steve Mac",
-            "Max Martin",
-            "Dr. Luke"
-          ],
+          "options": ["Simon Cowell", "Steve Mac", "Max Martin", "Dr. Luke"],
           "correctAnswer": "Steve Mac",
           "trivia": "Leona Lewis的首张专辑'Spirit'于2007年发行，主要制作人之一是英国著名制作人Steve Mac，他与Leona携手合作，为专辑注入了流行与灵魂乐的融合风格。Steve Mac擅长制作抒情且富有感染力的歌曲，这对'Spirit'的成功至关重要。虽然Simon Cowell作为X Factor的评委对Leona的职业生涯有影响，但他并非专辑的制作人。Max Martin和Dr. Luke都是当时活跃的制作人，但他们并未参与'Spirit'的录制工作。"
         }
@@ -5194,12 +4539,7 @@
       "medium": [
         {
           "question": "Leona Lewis在发布她的首张专辑'Spirit'（2007年）后，进行了哪场巡演来支持该专辑的现场推广？",
-          "options": [
-            "The Spirit Tour",
-            "The Labyrinth Tour",
-            "The Echo Tour",
-            "The Dream Tour"
-          ],
+          "options": ["The Spirit Tour", "The Labyrinth Tour", "The Echo Tour", "The Dream Tour"],
           "correctAnswer": "The Labyrinth Tour",
           "trivia": "Leona Lewis于2008年开启了名为“The Labyrinth Tour”的巡演，以支持她2007年发布的首张专辑'Spirit'。这场巡演覆盖了英国多个城市，展示了她在现场表演中的实力与感染力。'Spirit'专辑中的热门单曲如“Bleeding Love”也成为巡演中的亮点。此次巡演帮助Leona巩固了她作为新兴流行歌手的地位，吸引了大量粉丝现场观看。'The Labyrinth Tour'的命名灵感部分来源于她的音乐旅程，体现了专辑主题的深度和情感。"
         },
@@ -5229,12 +4569,7 @@
       "hard": [
         {
           "question": "Leona Lewis的首张专辑'Spirit'在2007年英国专辑排行榜上的最高排名是多少？",
-          "options": [
-            "连续7周位居榜首",
-            "最高排名第2名",
-            "最高排名第5名",
-            "未进入前十名"
-          ],
+          "options": ["连续7周位居榜首", "最高排名第2名", "最高排名第5名", "未进入前十名"],
           "correctAnswer": "连续7周位居榜首",
           "trivia": "Leona Lewis的首张专辑'Spirit'于2007年发行后表现卓越，连续7周蝉联英国专辑排行榜冠军位置。这一成绩使她成为当时英国最成功的新人之一。专辑不仅在英国市场大获成功，还在全球范围内获得了多个白金认证，销量超过700万张。此外，'Spirit'的成功也助推了她的单曲如《Bleeding Love》在多国排行榜的高位表现，巩固了她在国际乐坛的地位。"
         },
@@ -5251,12 +4586,7 @@
         },
         {
           "question": "Leona Lewis在她2007年发行的专辑'Spirit'中，哪位艺术家的音乐风格被认为对她的创作灵感影响最大？",
-          "options": [
-            "Alicia Keys",
-            "Whitney Houston",
-            "Beyoncé",
-            "Mariah Carey"
-          ],
+          "options": ["Alicia Keys", "Whitney Houston", "Beyoncé", "Mariah Carey"],
           "correctAnswer": "Whitney Houston",
           "trivia": "Leona Lewis在录制她的首张专辑'Spirit'时，公开表达了对Whitney Houston的敬仰，Whitney的强大嗓音和情感表达对Leona的演唱风格产生了深远影响。Whitney Houston被认为是Leona音乐灵感的重要来源之一，尤其是在抒情曲目中体现出类似的技巧和情感深度。此外，Leona在多次采访中提到Whitney的作品激励她在声音表达和歌曲选择上追求卓越，体现了对90年代流行和灵魂乐传统的继承。"
         }
@@ -5282,23 +4612,13 @@
         },
         {
           "question": "在录制Lil Wayne的专辑《Tha Carter III》时，哪位制作人主要负责制作了热门单曲《Lollipop》？",
-          "options": [
-            "Dr. Dre",
-            "Mannie Fresh",
-            "Jim Jonsin",
-            "Swizz Beatz"
-          ],
+          "options": ["Dr. Dre", "Mannie Fresh", "Jim Jonsin", "Swizz Beatz"],
           "correctAnswer": "Jim Jonsin",
           "trivia": "《Tha Carter III》是Lil Wayne在2008年发行的标志性专辑，其中《Lollipop》成为他的首支告示牌百强榜冠军单曲。该曲由制作人Jim Jonsin负责制作，他以融合合成器和808鼓机的独特风格闻名。Jim Jonsin的制作为歌曲带来了独特的流行嘻哈节奏，帮助Lil Wayne实现了商业上的巨大成功。此外，专辑中其他制作人如Mannie Fresh也参与了制作，但《Lollipop》的制作人明确是Jim Jonsin。"
         },
         {
           "question": "Lil Wayne在他的2008年专辑《Tha Carter III》中，哪首歌曲通过歌词反映了他对社会不公和贫困问题的关注？",
-          "options": [
-            "《Tie My Hands》",
-            "《Lollipop》",
-            "《A Milli》",
-            "《Got Money》"
-          ],
+          "options": ["《Tie My Hands》", "《Lollipop》", "《A Milli》", "《Got Money》"],
           "correctAnswer": "《Tie My Hands》",
           "trivia": "《Tie My Hands》是Lil Wayne在《Tha Carter III》专辑中一首带有强烈社会评论色彩的歌曲，表达了他对飓风卡特里娜后新奥尔良社会不公和贫困问题的关注。Lil Wayne本人是新奥尔良人，这首歌中他呼吁社会对受灾人民的关注和援助。相比之下，《Lollipop》和《A Milli》更多体现了个人成功和财富，而《Got Money》则偏向炫耀财富和生活方式。通过《Tie My Hands》，Lil Wayne展现了他作为嘻哈艺术家的社会责任感和对现实问题的敏感度。"
         }
@@ -5306,23 +4626,13 @@
       "medium": [
         {
           "question": "在录制Lil Wayne的专辑'Tha Carter III'过程中，哪位制作人因其独特的采样和节奏编排，对专辑的整体声音风格产生了重要影响？",
-          "options": [
-            "Mannie Fresh",
-            "Dr. Dre",
-            "Scott Storch",
-            "DJ Premier"
-          ],
+          "options": ["Mannie Fresh", "Dr. Dre", "Scott Storch", "DJ Premier"],
           "correctAnswer": "Mannie Fresh",
           "trivia": "Mannie Fresh是Lil Wayne早期音乐生涯的重要制作人，他在'Tha Carter III'专辑中为多首歌曲提供制作支持，尤其以其标志性的南方采样和节奏编排闻名。虽然专辑也邀请了Scott Storch和其他制作人参与，但Mannie Fresh的贡献加强了专辑的南方嘻哈风格。Dr. Dre和DJ Premier虽是著名制作人，但并未直接参与该专辑的录制。'Tha Carter III'录制于2007至2008年，Mannie Fresh的参与帮助Lil Wayne延续了自己独特的声音表达。"
         },
         {
           "question": "在Lil Wayne的专辑《Tha Carter III》中，哪首单曲在美国主流电台的播放频率最高，成为该专辑的最大电台热门曲？",
-          "options": [
-            "Lollipop",
-            "A Milli",
-            "Mrs. Officer",
-            "Got Money"
-          ],
+          "options": ["Lollipop", "A Milli", "Mrs. Officer", "Got Money"],
           "correctAnswer": "Lollipop",
           "trivia": "《Tha Carter III》是Lil Wayne在2008年发行的突破性专辑，其中“Lollipop”这首单曲在美国主流电台获得了极高的播放量，成为该专辑的最大电台热门。该曲融合了电子元素与说唱，显著区别于当时主流嘻哈风格，因此获得了广泛关注。“Lollipop”曾登顶美国Billboard Hot 100榜单，并在电台播放排行榜中持续领先多周，推动了专辑的商业成功。此曲由制作人Jim Jonsin打造，成为Lil Wayne最具代表性的作品之一。"
         },
@@ -5405,12 +4715,7 @@
         },
         {
           "question": "在制作Limp Bizkit的专辑《Chocolate Starfish and the Hot Dog Flavored Water》时，哪位知名音响工程师负责了主要的混音工作？",
-          "options": [
-            "Terry Date",
-            "Andy Wallace",
-            "Rick Rubin",
-            "Steve Albini"
-          ],
+          "options": ["Terry Date", "Andy Wallace", "Rick Rubin", "Steve Albini"],
           "correctAnswer": "Andy Wallace",
           "trivia": "Limp Bizkit的专辑《Chocolate Starfish and the Hot Dog Flavored Water》于2000年发布，混音工程由著名的音响工程师Andy Wallace负责。Andy Wallace以其在90年代和2000年代与多支摇滚和金属乐队合作的经验闻名，他的混音风格强调清晰度和平衡，使这张专辑的音质得到了广泛好评。尽管Rick Rubin作为制作人参与了专辑的制作，但主要的混音任务是由Andy Wallace完成的。Steve Albini和Terry Date虽然也是著名的音响工程师，但他们并未参与这张专辑的制作。"
         }
@@ -5429,12 +4734,7 @@
         },
         {
           "question": "Limp Bizkit的专辑《Chocolate Starfish and the Hot Dog Flavored Water》是由哪家唱片公司发行的？",
-          "options": [
-            "Interscope Records",
-            "Epic Records",
-            "Roadrunner Records",
-            "Geffen Records"
-          ],
+          "options": ["Interscope Records", "Epic Records", "Roadrunner Records", "Geffen Records"],
           "correctAnswer": "Interscope Records",
           "trivia": "《Chocolate Starfish and the Hot Dog Flavored Water》是Limp Bizkit于2000年发行的第三张录音室专辑，该专辑由Interscope Records发行。Interscope是当时摇滚和说唱融合音乐的重要唱片公司，支持了Limp Bizkit在新金属领域的崛起。专辑一经发行即获得商业成功，登顶美国公告牌二百强专辑榜。Interscope的推广策略和资源在专辑的市场表现中起到了关键作用，巩固了Limp Bizkit作为主流摇滚乐队的地位。"
         },
@@ -5506,12 +4806,7 @@
         },
         {
           "question": "Linkin Park在录制2000年专辑《Hybrid Theory》时，哪位制作人对专辑的最终混音起到了关键作用？",
-          "options": [
-            "Don Gilmore",
-            "Rick Rubin",
-            "Bob Rock",
-            "Terry Date"
-          ],
+          "options": ["Don Gilmore", "Rick Rubin", "Bob Rock", "Terry Date"],
           "correctAnswer": "Don Gilmore",
           "trivia": "《Hybrid Theory》是Linkin Park的首张录音室专辑，发布于2000年。专辑的制作由Don Gilmore负责，他曾与多支摇滚乐队合作，帮助塑造了专辑的清晰且有力的声音。Don Gilmore在混音过程中注重平衡乐器和主唱的表现，使得《Hybrid Theory》成功融合了摇滚和说唱元素。Rick Rubin虽然是著名制作人，但并未参与该专辑的制作。Bob Rock和Terry Date也分别以制作其他摇滚和金属乐队闻名，但他们并非这张专辑的制作团队成员。"
         },
@@ -5552,12 +4847,7 @@
         },
         {
           "question": "Linkin Park的专辑《Hybrid Theory》中，哪种社会主题最为突出，体现了乐队对当代年轻人心理压力和身份认同的关注？",
-          "options": [
-            "战争与和平",
-            "心理挣扎与社会疏离",
-            "环境保护与气候变化",
-            "经济危机与失业"
-          ],
+          "options": ["战争与和平", "心理挣扎与社会疏离", "环境保护与气候变化", "经济危机与失业"],
           "correctAnswer": "心理挣扎与社会疏离",
           "trivia": "《Hybrid Theory》是Linkin Park于2000年发行的首张专辑，其中大量歌曲反映了年轻人在现代社会中面临的心理压力和身份认同危机。乐队通过融合摇滚与说唱元素，表达了内心的挣扎和对孤独感的描绘，如歌曲《Crawling》和《In the End》所示。此外，这张专辑也被认为是新金属（Nu Metal）流派中对社会疏离感表现最深刻的作品之一，其歌词和音乐风格引起了广泛共鸣。"
         }
@@ -5565,34 +4855,19 @@
       "hard": [
         {
           "question": "在Linkin Park的2000年专辑《Hybrid Theory》中，哪支歌曲的音乐录影带首次采用了结合现实拍摄与电脑生成图像（CGI）的视觉风格，显著提升了视觉叙事的未来感？",
-          "options": [
-            "《In the End》",
-            "《Papercut》",
-            "《Crawling》",
-            "《One Step Closer》"
-          ],
+          "options": ["《In the End》", "《Papercut》", "《Crawling》", "《One Step Closer》"],
           "correctAnswer": "《Papercut》",
           "trivia": "《Papercut》是Linkin Park在《Hybrid Theory》专辑中发布的单曲之一，其音乐录影带由导演Nathan Cox执导，首次将现实拍摄与电脑生成图像（CGI）相结合，营造出充满未来感的视觉效果。这种视觉风格强化了歌曲探讨内心焦虑和压力的主题，成为乐队早期视觉内容的标志。值得注意的是，《In the End》虽然更受欢迎，但其MV主要采用现实拍摄和舞台布景，缺少大量CGI元素。《Papercut》的创新视觉处理为Linkin Park在音乐录像带领域树立了独特的风格，也反映了2000年初期数字特效技术在音乐视频中的应用趋势。"
         },
         {
           "question": "Linkin Park的首张专辑《Hybrid Theory》中，哪首歌曲最直接反映了乐队对社会疏离和情感孤立现象的批判？",
-          "options": [
-            "《In the End》",
-            "《Papercut》",
-            "《Crawling》",
-            "《One Step Closer》"
-          ],
+          "options": ["《In the End》", "《Papercut》", "《Crawling》", "《One Step Closer》"],
           "correctAnswer": "《Papercut》",
           "trivia": "《Papercut》是Linkin Park在《Hybrid Theory》专辑中对社会疏离和内心焦虑的深刻表达。这首歌通过歌词描绘了个体在现代社会中感受到的精神压力与孤立感，反映了乐队对心理健康问题的关注。《Hybrid Theory》整体融合了摇滚和电子元素，成为2000年代初期社会评论和情绪表达的代表作之一。乐队成员Mike Shinoda和Chester Bennington在创作中注重展现青少年的内心痛苦，尤其是在《Papercut》中，歌词中“为什么我感觉我被监视”体现了对社会监控和自我认知的双重焦虑。该曲作为单曲也获得了广泛关注，进一步巩固了专辑在社会评论主题上的地位。"
         },
         {
           "question": "Linkin Park的首张专辑《Hybrid Theory》在美国Billboard 200排行榜上的最高排名是多少？",
-          "options": [
-            "第2名",
-            "第1名",
-            "第5名",
-            "第10名"
-          ],
+          "options": ["第2名", "第1名", "第5名", "第10名"],
           "correctAnswer": "第2名",
           "trivia": "Linkin Park的《Hybrid Theory》于2000年发布后迅速获得商业成功，专辑在美国Billboard 200排行榜上最高达到第2名的位置。这张专辑成为21世纪初最畅销的摇滚专辑之一，并最终获得了多白金认证。尽管未能登顶Billboard 200榜首，但其持续的销量和广泛的影响力使其成为Nu Metal和另类摇滚的重要里程碑。该专辑中包括了多首热门单曲，如《In the End》和《Crawling》，进一步推动了专辑的排行榜表现。"
         }
@@ -5629,12 +4904,7 @@
         },
         {
           "question": "在2006年Lupe Fiasco推广他的首张专辑《Food & Liquor》时，哪首单曲最先被作为主打在主流电台和音乐频道广泛播放？",
-          "options": [
-            "Kick, Push",
-            "Daydreamin'",
-            "I Gotcha",
-            "Hurt Me Soul"
-          ],
+          "options": ["Kick, Push", "Daydreamin'", "I Gotcha", "Hurt Me Soul"],
           "correctAnswer": "Kick, Push",
           "trivia": "《Food & Liquor》是Lupe Fiasco的首张专辑，其中“Kick, Push”被选为主打单曲并在2006年广泛推广。这首歌讲述了滑板文化，凭借其独特的叙事和旋律，在主流嘻哈圈中获得了极大关注。通过电台播放和MTV等音乐频道的支持，这首单曲帮助Lupe Fiasco打响了知名度，为专辑的成功奠定了基础。与此同时，“Daydreamin'”作为次单也获得了Grammy奖，但它并非最先推广的单曲。"
         }
@@ -5677,23 +4947,13 @@
       "hard": [
         {
           "question": "在2007年的格莱美奖中，Lupe Fiasco凭借其首张专辑《Food & Liquor》获得了哪一项提名？",
-          "options": [
-            "最佳说唱专辑",
-            "最佳说唱表演",
-            "最佳新人奖",
-            "最佳说唱歌曲"
-          ],
+          "options": ["最佳说唱专辑", "最佳说唱表演", "最佳新人奖", "最佳说唱歌曲"],
           "correctAnswer": "最佳说唱专辑",
           "trivia": "Lupe Fiasco的首张专辑《Food & Liquor》于2006年发行，凭借其深刻的歌词和创新的制作风格备受赞誉。该专辑在2007年获得了格莱美奖的“最佳说唱专辑”提名，显示出其在说唱界的影响力和艺术价值。虽然专辑并未最终获奖，但这次提名极大地提升了Lupe Fiasco在主流音乐圈的知名度。此外，《Food & Liquor》也因其社会批判性的内容而被视为当代说唱的重要作品之一。"
         },
         {
           "question": "在Lupe Fiasco的2006年专辑《Food & Liquor》的制作过程中，哪位制作人以其标志性的灵魂采样和细腻的编曲风格，主导了多首曲目的制作？",
-          "options": [
-            "Kanye West",
-            "The Neptunes",
-            "Jay Dee (J Dilla)",
-            "Just Blaze"
-          ],
+          "options": ["Kanye West", "The Neptunes", "Jay Dee (J Dilla)", "Just Blaze"],
           "correctAnswer": "Jay Dee (J Dilla)",
           "trivia": "《Food & Liquor》是Lupe Fiasco的首张正式专辑，制作团队中有多位知名制作人参与。Jay Dee（又称J Dilla）以其独特的灵魂采样和节奏编排，在专辑中贡献了关键制作，尤其体现在多首曲目的细腻质感上。J Dilla在当时被视为嘻哈制作领域的革新者，他的作品影响了众多艺术家的声音塑造。虽然Kanye West和Just Blaze在专辑制作中亦有参与，但J Dilla的风格更为突出且广受认可。The Neptunes未直接参与本专辑的制作。"
         },
@@ -5719,34 +4979,19 @@
       "easy": [
         {
           "question": "MGMT的专辑'Oracular Spectacular'于2008年发行时，是由哪家唱片公司负责发行的？",
-          "options": [
-            "Columbia Records",
-            "Capitol Records",
-            "Sony Music",
-            "Red Ink Records"
-          ],
+          "options": ["Columbia Records", "Capitol Records", "Sony Music", "Red Ink Records"],
           "correctAnswer": "Columbia Records",
           "trivia": "MGMT的首张主流专辑'Oracular Spectacular'于2008年由Columbia Records发行，这是一家在全球范围内具有重要影响力的唱片公司。Columbia Records隶属于索尼音乐娱乐公司，负责推广和发行MGMT的这张备受好评的专辑。虽然MGMT也曾与独立厂牌Red Ink Records合作发行过部分作品，但'Oracular Spectacular'的全球发行权属于Columbia。该专辑收录了多首热门单曲，如《Electric Feel》和《Kids》，在Columbia的支持下获得了广泛的商业成功和媒体关注。"
         },
         {
           "question": "MGMT的专辑'Oracular Spectacular'中，哪首歌曲因其电子合成器和迷幻摇滚元素而广受欢迎？",
-          "options": [
-            "Time to Pretend",
-            "Kids",
-            "Electric Feel",
-            "Weekend Wars"
-          ],
+          "options": ["Time to Pretend", "Kids", "Electric Feel", "Weekend Wars"],
           "correctAnswer": "Electric Feel",
           "trivia": "MGMT的'Oracular Spectacular'专辑发行于2008年，融合了电子合成器和迷幻摇滚元素，创造出独特的音乐风格。其中，歌曲《Electric Feel》以其标志性的电子合成器旋律和迷幻氛围受到广泛喜爱。该曲不仅在各大音乐排行榜上取得了成功，还成为该专辑的代表作之一。'Time to Pretend'、'Kids'和'Weekend Wars'也是专辑中的知名曲目，但《Electric Feel》尤以其鲜明的电子元素著称，体现了MGMT在音乐元素上的创新。"
         },
         {
           "question": "MGMT的专辑'Oracular Spectacular'在国际上因哪首单曲而广受欢迎，帮助乐队迅速获得全球知名度？",
-          "options": [
-            "Time to Pretend",
-            "Electric Feel",
-            "Kids",
-            "Weekend Wars"
-          ],
+          "options": ["Time to Pretend", "Electric Feel", "Kids", "Weekend Wars"],
           "correctAnswer": "Kids",
           "trivia": "MGMT的2008年专辑'Oracular Spectacular'中的单曲'Kids'在国际上取得了巨大成功，成为乐队的代表作之一。该曲以其独特的电子合成器旋律和朗朗上口的歌词，迅速风靡全球音乐榜单。'Kids'不仅帮助MGMT赢得了更多国际关注，还促进了他们在欧美和亚洲市场的知名度。除了'Kids'，专辑中的'Electric Feel'和'Time to Pretend'也在全球范围内获得了积极评价，但'Kids'无疑是推动乐队国际影响力扩展的关键歌曲。"
         }
@@ -5754,12 +4999,7 @@
       "medium": [
         {
           "question": "在MGMT制作2008年专辑'Oracular Spectacular'时，哪位制作人负责该专辑的录音和混音工作？",
-          "options": [
-            "Dave Fridmann",
-            "Nigel Godrich",
-            "Rick Rubin",
-            "Mark Ronson"
-          ],
+          "options": ["Dave Fridmann", "Nigel Godrich", "Rick Rubin", "Mark Ronson"],
           "correctAnswer": "Dave Fridmann",
           "trivia": "MGMT的'Oracular Spectacular'专辑于2008年发布，录音与混音工作由著名制作人Dave Fridmann负责。Fridmann以其在The Flaming Lips和MGMT等多支独立摇滚乐队中的工作闻名，他的制作风格强调梦幻且丰富的音效层次，极大地影响了该专辑的迷幻流行风格。该专辑在纽约的Tarbox Road Studios录制，Fridmann的参与帮助MGMT实现了其独特的合成器和电子元素融合。此外，专辑的成功也推动了MGMT迅速成为当时另类音乐的重要代表。"
         },
@@ -5776,12 +5016,7 @@
         },
         {
           "question": "MGMT的专辑'Oracular Spectacular'在国际音乐影响方面，哪一首歌曲因其融合了电子和迷幻摇滚元素而被认为对后来的独立音乐产生了重要影响？",
-          "options": [
-            "《Time to Pretend》",
-            "《Kids》",
-            "《Electric Feel》",
-            "《Weekend Wars》"
-          ],
+          "options": ["《Time to Pretend》", "《Kids》", "《Electric Feel》", "《Weekend Wars》"],
           "correctAnswer": "《Electric Feel》",
           "trivia": "MGMT的2008年专辑'Oracular Spectacular'以其独特的电子与迷幻摇滚结合风格，影响了全球独立音乐的发展。其中，《Electric Feel》因其创新的合成器使用和丰富的节奏层次，被广泛认为是该专辑中最具国际影响力的作品。这首歌不仅在欧美多个国家的音乐榜单上取得成功，还被许多艺术家翻唱和采样，进一步推动了电子与摇滚融合的潮流。与此相比，《Time to Pretend》和《Kids》虽然也非常受欢迎，但《Electric Feel》更突出地展现了MGMT对音乐风格的创新贡献。该专辑整体帮助MGMT在国际音乐舞台上确立了先锋地位。"
         }
@@ -5789,12 +5024,7 @@
       "hard": [
         {
           "question": "在MGMT的2008年专辑'Oracular Spectacular'中，哪种合成器是乐队主要用来营造其标志性电子氛围和复古音色的乐器？",
-          "options": [
-            "Roland Juno-106",
-            "Moog Minimoog Model D",
-            "Korg MS-20",
-            "Yamaha DX7"
-          ],
+          "options": ["Roland Juno-106", "Moog Minimoog Model D", "Korg MS-20", "Yamaha DX7"],
           "correctAnswer": "Moog Minimoog Model D",
           "trivia": "MGMT在录制'Oracular Spectacular'时大量使用了Moog Minimoog Model D合成器，这种经典的模拟合成器以其温暖且富有表现力的低音和旋律音色闻名。Minimoog的特色音色为专辑中的多首歌曲如《Time to Pretend》和《Electric Feel》增添了独特的复古电子氛围。虽然Roland Juno-106和Korg MS-20也都是流行的合成器，但MGMT主要依赖的是Moog Minimoog。Yamaha DX7则是数字合成器，常用于80年代流行音乐，音色风格与'Oracular Spectacular'的整体氛围有所不同。该专辑的制作体现了对70年代电子合成器的致敬，帮助塑造了其独特的迷幻摇滚与电子融合的声音。"
         },
@@ -5866,12 +5096,7 @@
       "medium": [
         {
           "question": "Madonna的专辑'Music'（2000年）在美国Billboard 200排行榜上达到了什么最高名次？",
-          "options": [
-            "第一名",
-            "第三名",
-            "第五名",
-            "第十名"
-          ],
+          "options": ["第一名", "第三名", "第五名", "第十名"],
           "correctAnswer": "第一名",
           "trivia": "Madonna的专辑'Music'于2000年发布后，迅速获得商业成功，登顶美国Billboard 200专辑排行榜，成为她第七张获得该榜冠军的专辑。这张专辑融合了电子舞曲和流行元素，反映了她音乐风格的转型。'Music'专辑不仅在美国，也在多个国家的排行榜上取得了优异的成绩，巩固了Madonna在流行音乐界的领军地位。该专辑的成功部分归功于同名主打单曲的广泛流行。"
         },
@@ -5888,12 +5113,7 @@
         },
         {
           "question": "Madonna在录制2000年专辑《Music》时，哪位制作人是她的主要合作伙伴，负责专辑的电子音乐制作和编曲？",
-          "options": [
-            "William Orbit",
-            "Mirwais Ahmadzaï",
-            "Rick Rubin",
-            "Mark Ronson"
-          ],
+          "options": ["William Orbit", "Mirwais Ahmadzaï", "Rick Rubin", "Mark Ronson"],
           "correctAnswer": "Mirwais Ahmadzaï",
           "trivia": "在录制《Music》这张专辑时，Madonna与法国制作人Mirwais Ahmadzaï紧密合作，他以其独特的电子音乐制作风格和创新的编曲技术为专辑注入了现代感。Mirwais的影响使得《Music》在电子舞曲和流行音乐之间实现了完美融合，显著区别于Madonna早期作品中更为传统的制作方式。William Orbit曾与Madonna合作过《Ray of Light》专辑，而Rick Rubin和Mark Ronson并未参与这张专辑的制作。Mirwais的参与对《Music》专辑的声音塑造起到了关键作用，帮助Madonna在千禧年初期保持音乐的前卫感。"
         }
@@ -5954,23 +5174,13 @@
         },
         {
           "question": "Mariah Carey在创作2005年专辑'The Emancipation of Mimi'的过程中，哪位制作人是她主要合作的词曲创作者之一？",
-          "options": [
-            "Jermaine Dupri",
-            "Max Martin",
-            "Timbaland",
-            "Dr. Dre"
-          ],
+          "options": ["Jermaine Dupri", "Max Martin", "Timbaland", "Dr. Dre"],
           "correctAnswer": "Jermaine Dupri",
           "trivia": "在制作《The Emancipation of Mimi》专辑时，Mariah Carey与制作人Jermaine Dupri有着密切的合作关系。Jermaine Dupri不仅参与了词曲创作，还共同制作了专辑中的多首热门单曲，如《We Belong Together》。这次合作被认为是Mariah Carey音乐风格复兴的重要因素之一。相比之下，Max Martin和Timbaland虽然是当时知名制作人，但并未深度参与该专辑的制作。Dr. Dre则主要活跃于嘻哈领域，与该专辑的创作联系较少。"
         },
         {
           "question": "Mariah Carey在录制2005年专辑'The Emancipation of Mimi'时，最常使用哪种音乐设备来制作她标志性的高音？",
-          "options": [
-            "Yamaha数字钢琴",
-            "Roland合成器",
-            "Neumann电容麦克风",
-            "Fender电吉他"
-          ],
+          "options": ["Yamaha数字钢琴", "Roland合成器", "Neumann电容麦克风", "Fender电吉他"],
           "correctAnswer": "Neumann电容麦克风",
           "trivia": "在录制《The Emancipation of Mimi》专辑时，Mariah Carey广泛使用了Neumann电容麦克风，这类麦克风以其高灵敏度和清晰的声音捕捉效果著称，非常适合表现她复杂的声乐技巧和高音部分。Neumann麦克风在专业录音室中被视为标准设备，帮助她成功塑造了专辑中的细腻音质。此外，这张专辑的制作团队还结合了多种数字设备和模拟设备来丰富声音层次，但Neumann麦克风是关键的录音工具之一。此设备的使用也反映了当时高质量录音的行业标准。"
         }
@@ -5978,12 +5188,7 @@
       "medium": [
         {
           "question": "在Mariah Carey的2005年专辑《The Emancipation of Mimi》中，哪位著名制作人兼音乐家参与了专辑的大量制作和制作协作？",
-          "options": [
-            "Jermaine Dupri",
-            "Dr. Dre",
-            "Rick Rubin",
-            "Max Martin"
-          ],
+          "options": ["Jermaine Dupri", "Dr. Dre", "Rick Rubin", "Max Martin"],
           "correctAnswer": "Jermaine Dupri",
           "trivia": "Jermaine Dupri是Mariah Carey在《The Emancipation of Mimi》专辑中的主要制作人之一，他参与了多首热门单曲的制作，如《We Belong Together》。Dupri以其独特的R&B和hip-hop制作风格著称，帮助Mariah Carey成功实现了音乐风格的转变和商业复兴。相比之下，Dr. Dre和Rick Rubin虽为著名制作人，但并未直接参与该专辑制作；Max Martin以流行音乐制作闻名，但未参与此专辑。Jermaine Dupri的参与是该专辑获得巨大成功的重要因素之一。"
         },
@@ -6077,12 +5282,7 @@
         },
         {
           "question": "Maroon 5的专辑'It Won't Be Soon Before Long'（2007年）封面设计中，主角手持的是什么乐器？",
-          "options": [
-            "电吉他",
-            "贝斯",
-            "架子鼓",
-            "钢琴"
-          ],
+          "options": ["电吉他", "贝斯", "架子鼓", "钢琴"],
           "correctAnswer": "电吉他",
           "trivia": "专辑'It Won't Be Soon Before Long'的封面以简洁而富有现代感著称，主角是Maroon 5的主唱Adam Levine，他手持一把电吉他，象征乐队的摇滚与流行融合风格。该封面由著名设计师合作完成，旨在突出乐队的音乐活力与青春气息。封面整体色调采用了冷色调的灰蓝色，配合电吉他的黑色轮廓，营造出时尚且富有力量的视觉效果。此设计风格与专辑中多首充满节奏感的歌曲相呼应，成为Maroon 5在2007年音乐市场上的经典形象之一。"
         }
@@ -6112,12 +5312,7 @@
         },
         {
           "question": "Maroon 5在录制2007年专辑'It Won't Be Soon Before Long'时，制作团队主要在哪个城市的录音室完成了录制工作？",
-          "options": [
-            "洛杉矶",
-            "纽约",
-            "纳什维尔",
-            "迈阿密"
-          ],
+          "options": ["洛杉矶", "纽约", "纳什维尔", "迈阿密"],
           "correctAnswer": "洛杉矶",
           "trivia": "Maroon 5的专辑'It Won't Be Soon Before Long'主要在洛杉矶的多家录音室完成录制，这座城市是美国音乐制作的重要中心。制作人Mick Guzauski和Mike Elizondo参与了专辑的录制和混音工作，洛杉矶拥有丰富的录音资源和技术设备，支持了专辑的高质量制作。虽然纽约和纳什维尔也以音乐制作闻名，但本专辑的录制过程主要依托于洛杉矶的录音环境。迈阿密则更多与拉丁音乐相关联，未成为该专辑的主要录音地。"
         }
@@ -6125,12 +5320,7 @@
       "hard": [
         {
           "question": "在Maroon 5的2007年专辑'It Won't Be Soon Before Long'中，哪位成员首次作为主音吉他手参与录制？",
-          "options": [
-            "James Valentine",
-            "Mickey Madden",
-            "Jesse Carmichael",
-            "Adam Levine"
-          ],
+          "options": ["James Valentine", "Mickey Madden", "Jesse Carmichael", "Adam Levine"],
           "correctAnswer": "James Valentine",
           "trivia": "James Valentine自2001年加入Maroon 5后，在'It Won't Be Soon Before Long'专辑中首次作为主要的主音吉他手亮相。此前，主音吉他部分由Adam Levine兼任，但这张专辑标志着James在乐队中的角色更加突出。Mickey Madden主要负责贝斯，Jesse Carmichael则专注于键盘和节奏吉他。该专辑的录制过程体现了乐队成员角色的细化与专业化，为其成熟的声音奠定了基础。"
         },
@@ -6147,12 +5337,7 @@
         },
         {
           "question": "Maroon 5在2007年发行的专辑'It Won't Be Soon Before Long'是与哪家唱片公司合作发布的？",
-          "options": [
-            "A&M Records",
-            "Interscope Records",
-            "Columbia Records",
-            "Atlantic Records"
-          ],
+          "options": ["A&M Records", "Interscope Records", "Columbia Records", "Atlantic Records"],
           "correctAnswer": "A&M Records",
           "trivia": "Maroon 5的专辑'It Won't Be Soon Before Long'于2007年通过A&M Records发行，这是一家具有悠久历史的唱片公司，曾签约过许多知名艺术家。A&M Records是由Herb Alpert和Jerry Moss于1962年创立，后来成为环球音乐集团的一部分。该公司在2000年代继续支持Maroon 5的音乐发展。'It Won't Be Soon Before Long'的成功部分得益于A&M Records强大的发行和推广能力。Interscope、Columbia和Atlantic虽然也是大型唱片公司，但Maroon 5这张专辑并非在它们旗下发布。"
         }
@@ -6178,23 +5363,13 @@
         },
         {
           "question": "在Mary J. Blige的专辑《No More Drama》（2001年）中，哪位著名的制作人和音乐家参与了这张专辑的制作？",
-          "options": [
-            "Dr. Dre",
-            "Jimmy Jam",
-            "Timbaland",
-            "Kanye West"
-          ],
+          "options": ["Dr. Dre", "Jimmy Jam", "Timbaland", "Kanye West"],
           "correctAnswer": "Jimmy Jam",
           "trivia": "Jimmy Jam是《No More Drama》专辑的重要制作人之一，他与Mary J. Blige合作，为专辑注入了丰富的灵魂和R&B元素。Jimmy Jam曾是传奇制作组合The Time的成员，参与制作了许多知名艺术家的作品。虽然Dr. Dre和Timbaland都是著名制作人，但他们并未参与这张专辑的制作。Kanye West当时刚刚开始他的制作生涯，也未参与该专辑。Jimmy Jam的加入帮助Mary J. Blige打造出融合了现代感与经典灵魂的声音，使《No More Drama》获得了广泛好评和商业成功。"
         },
         {
           "question": "Mary J. Blige的专辑'No More Drama'在2002年格莱美奖中获得了哪项主要提名？",
-          "options": [
-            "最佳节奏蓝调专辑",
-            "最佳新人奖",
-            "最佳乡村专辑",
-            "最佳说唱专辑"
-          ],
+          "options": ["最佳节奏蓝调专辑", "最佳新人奖", "最佳乡村专辑", "最佳说唱专辑"],
           "correctAnswer": "最佳节奏蓝调专辑",
           "trivia": "Mary J. Blige的专辑'No More Drama'于2001年发行，并在2002年格莱美奖中获得了'最佳节奏蓝调专辑'的提名，彰显了她在R&B领域的杰出表现。该专辑融合了灵魂、嘻哈和节奏蓝调元素，延续了她在音乐上的创新。虽然她未获得新人奖，因为她在音乐界已有多年经验，但这张专辑的提名巩固了她作为'R&B女王'的地位。此外，'No More Drama'中的主打歌曲也在排行榜上表现优异，进一步提升了专辑的知名度。"
         }
@@ -6279,12 +5454,7 @@
       "easy": [
         {
           "question": "Metallica的专辑'Death Magnetic'（2008年）中，哪首歌曲以其复杂的吉他独奏和多段结构而广受赞誉？",
-          "options": [
-            "The Day That Never Comes",
-            "Cyanide",
-            "All Nightmare Long",
-            "My Apocalypse"
-          ],
+          "options": ["The Day That Never Comes", "Cyanide", "All Nightmare Long", "My Apocalypse"],
           "correctAnswer": "The Day That Never Comes",
           "trivia": "《The Day That Never Comes》是Metallica在2008年专辑《Death Magnetic》中的一首重要作品，因其复杂的吉他独奏和多段结构而著称。这首歌曲展示了乐队回归传统重金属和进步金属元素的特点，融合了旋律与激烈节奏，体现了乐队成熟的音乐风格。《Death Magnetic》被认为是Metallica自1990年代以来的经典回归，特别是在吉他演奏方面，James Hetfield和Kirk Hammett的技巧得到了高度评价。该曲也曾在多个音乐排行榜上获得好评，成为专辑的代表作之一。"
         },
@@ -6360,12 +5530,7 @@
         },
         {
           "question": "Metallica在制作2008年专辑《Death Magnetic》时，哪位著名制作人负责了最终混音工作？",
-          "options": [
-            "Rick Rubin",
-            "Bob Rock",
-            "Andy Wallace",
-            "Terry Date"
-          ],
+          "options": ["Rick Rubin", "Bob Rock", "Andy Wallace", "Terry Date"],
           "correctAnswer": "Andy Wallace",
           "trivia": "《Death Magnetic》是Metallica在2008年发布的第九张录音室专辑，制作过程中经历了多个阶段。最初的制作由乐队成员和长期合作的制作人Bob Rock共同完成，但最终混音工作由著名混音师Andy Wallace负责完成。Andy Wallace以其在90年代和2000年代对多张摇滚和金属专辑的混音贡献闻名，他的加入帮助《Death Magnetic》实现了更现代且清晰的音质。值得一提的是，Rick Rubin和Terry Date也都是Metallica历史上合作过的知名制作人，但他们并未参与本专辑的制作。该专辑的混音风格对Metallica的声音回归传统重金属元素起到了关键作用。"
         },
@@ -6391,12 +5556,7 @@
       "easy": [
         {
           "question": "在Michelle Branch的2001年专辑'The Spirit Room'中，哪位音乐家主要负责吉他演奏？",
-          "options": [
-            "Jim Sitterly",
-            "John Shanks",
-            "Patrick Warren",
-            "Brendan O'Brien"
-          ],
+          "options": ["Jim Sitterly", "John Shanks", "Patrick Warren", "Brendan O'Brien"],
           "correctAnswer": "Jim Sitterly",
           "trivia": "Jim Sitterly是专辑'The Spirit Room'中主要的吉他手，他与Michelle Branch合作，为专辑增添了丰富的吉他层次感。Michelle Branch本人除了主唱外，也参与了吉他的演奏和创作。John Shanks是该专辑的制作人之一，但并非主要吉他演奏者。Patrick Warren则主要负责键盘和编曲，而Brendan O'Brien并未参与该专辑的录制。此专辑融合了流行与摇滚元素，吉他的表现尤为突出。"
         },
@@ -6413,12 +5573,7 @@
         },
         {
           "question": "Michelle Branch在她2001年发行的专辑《The Spirit Room》中，主要使用哪种乐器来塑造她的标志性声音？",
-          "options": [
-            "原声吉他",
-            "电吉他",
-            "钢琴",
-            "小提琴"
-          ],
+          "options": ["原声吉他", "电吉他", "钢琴", "小提琴"],
           "correctAnswer": "原声吉他",
           "trivia": "在《The Spirit Room》这张专辑中，Michelle Branch主要使用原声吉他作为伴奏乐器，营造出她清新而富有感染力的声音风格。她的原声吉他演奏为歌曲如《Everywhere》和《All You Wanted》提供了温暖和亲密的质感。虽然专辑中也有电吉他和键盘的配合，但原声吉他是塑造她标志性声音的关键元素。此外，这张专辑因其简洁的乐器编排而广受欢迎，突显了Michelle Branch的歌唱和创作才华。"
         }
@@ -6426,12 +5581,7 @@
       "medium": [
         {
           "question": "在Michelle Branch于2001年发行的专辑《The Spirit Room》中，哪种乐器是她本人主要使用来创作和演奏歌曲的？",
-          "options": [
-            "原声吉他",
-            "电吉他",
-            "钢琴",
-            "小提琴"
-          ],
+          "options": ["原声吉他", "电吉他", "钢琴", "小提琴"],
           "correctAnswer": "原声吉他",
           "trivia": "Michelle Branch在她的首张专辑《The Spirit Room》中，主要使用原声吉他作为创作和表演的乐器。原声吉他的温暖音色与她的流行摇滚风格相辅相成，为专辑带来了亲切自然的感觉。专辑制作过程中，她不仅是主唱，还是主要的吉他手，体现了她作为多才多艺音乐人的一面。此外，《The Spirit Room》在2001年发行后获得了商业成功，原声吉他的使用也成为该专辑标志性的声音元素之一。"
         },
@@ -6448,12 +5598,7 @@
         },
         {
           "question": "Michelle Branch在创作2001年专辑'The Spirit Room'时，哪位音乐家的风格对她的歌曲灵感影响最大？",
-          "options": [
-            "Sheryl Crow",
-            "Alanis Morissette",
-            "Norah Jones",
-            "Dido"
-          ],
+          "options": ["Sheryl Crow", "Alanis Morissette", "Norah Jones", "Dido"],
           "correctAnswer": "Sheryl Crow",
           "trivia": "在Michelle Branch的首张主流专辑'The Spirit Room'中，Sheryl Crow的音乐风格对她的创作产生了显著影响。Michelle Branch曾在多个采访中提到，Sheryl Crow的融合摇滚与民谣的风格启发了她在歌曲写作中的情感表达和编曲选择。专辑中的多首歌曲展现出类似Crow作品中那种清新且富有感染力的吉他声和旋律线。此外，'The Spirit Room'的制作团队也强调了这种灵感在录制过程中的重要性，帮助Michelle Branch塑造了独特的声音标识。这样的影响使得专辑在当时的流行摇滚界获得了广泛认可。"
         }
@@ -6461,12 +5606,7 @@
       "hard": [
         {
           "question": "在2001年Michelle Branch录制专辑《The Spirit Room》时，哪位知名音响工程师负责了大部分的混音工作？",
-          "options": [
-            "Bob Clearmountain",
-            "Chris Lord-Alge",
-            "Tom Lord-Alge",
-            "Andy Wallace"
-          ],
+          "options": ["Bob Clearmountain", "Chris Lord-Alge", "Tom Lord-Alge", "Andy Wallace"],
           "correctAnswer": "Chris Lord-Alge",
           "trivia": "Chris Lord-Alge是《The Spirit Room》专辑中主要负责混音的音响工程师，他以其清晰且富有冲击力的摇滚混音风格闻名。该专辑录制于2000至2001年间，Chris Lord-Alge的参与确保了Michelle Branch的声音既流行又具备摇滚质感。与其他著名混音师如Tom Lord-Alge（Chris的兄弟）和Bob Clearmountain相比，Chris的混音风格更适合年轻摇滚流行歌手的声音塑造。此外，Chris Lord-Alge曾与多位当时的主流艺人合作，为《The Spirit Room》带来了专业且商业化的音响品质。"
         },
@@ -6525,12 +5665,7 @@
         },
         {
           "question": "Missy Elliott在制作2002年专辑《Under Construction》时，哪位传奇嘻哈艺术家参与了专辑的制作和表演？",
-          "options": [
-            "Jay-Z",
-            "Dr. Dre",
-            "Timbaland",
-            "Nas"
-          ],
+          "options": ["Jay-Z", "Dr. Dre", "Timbaland", "Nas"],
           "correctAnswer": "Timbaland",
           "trivia": "《Under Construction》是Missy Elliott与制作人Timbaland密切合作的成果。Timbaland不仅参与了专辑的大部分制作工作，还在几首歌曲中担任伴唱，使专辑风格独特。该专辑延续了Missy和Timbaland之前合作的创新嘻哈与R&B融合风格。Timbaland作为当时最具影响力的制作人之一，他的独特节奏和声音设计为《Under Construction》增添了现代感和前卫感。Missy Elliott与Timbaland的合作是这张专辑成功的重要因素。"
         }
@@ -6560,12 +5695,7 @@
         },
         {
           "question": "在Missy Elliott的2002年专辑《Under Construction》中，哪位著名制作人兼音乐家对专辑的制作和创作贡献最大？",
-          "options": [
-            "Timbaland",
-            "Pharrell Williams",
-            "Dr. Dre",
-            "Kanye West"
-          ],
+          "options": ["Timbaland", "Pharrell Williams", "Dr. Dre", "Kanye West"],
           "correctAnswer": "Timbaland",
           "trivia": "《Under Construction》是Missy Elliott与制作人Timbaland密切合作的作品。Timbaland不仅参与了该专辑的大部分制作，还在创作中贡献了标志性的节奏和创新的声音设计。两人长期以来的合作为专辑注入了独特的风格，使其在2002年脱颖而出。与此同时，Pharrell Williams、Dr. Dre和Kanye West虽然在嘻哈音乐界具有重要影响力，但他们并未直接参与《Under Construction》的制作。该专辑的成功部分归功于Timbaland与Missy Elliott之间的紧密合作关系。"
         }
@@ -6584,23 +5714,13 @@
         },
         {
           "question": "在Missy Elliott录制2002年专辑《Under Construction》的过程中，哪位著名制作人主要负责了该专辑的音频制作与编曲工作？",
-          "options": [
-            "Timbaland",
-            "Dr. Dre",
-            "Pharrell Williams",
-            "Rick Rubin"
-          ],
+          "options": ["Timbaland", "Dr. Dre", "Pharrell Williams", "Rick Rubin"],
           "correctAnswer": "Timbaland",
           "trivia": "Missy Elliott的《Under Construction》专辑于2002年录制，制作人Timbaland在该专辑中扮演了核心的制作与编曲角色。Timbaland与Missy Elliott长期合作，以其独特的节奏感和创新的音效设计闻名，这张专辑体现了他们合作的成熟阶段。《Under Construction》的录音过程融合了电子元素与传统嘻哈风格，Timbaland的制作手法使得专辑在当时具备前卫的声音质感。除此之外，Timbaland还参与了多首主打歌曲的制作，确保整体风格的统一和创新。"
         },
         {
           "question": "在数字发行方面，Missy Elliott的专辑《Under Construction》（2002年）首次通过哪个平台实现了数字下载？",
-          "options": [
-            "iTunes Store",
-            "Napster",
-            "Amazon MP3",
-            "EMusic"
-          ],
+          "options": ["iTunes Store", "Napster", "Amazon MP3", "EMusic"],
           "correctAnswer": "iTunes Store",
           "trivia": "Missy Elliott的《Under Construction》专辑于2002年发布时，正值数字音乐市场初期发展阶段。iTunes Store作为苹果公司于2003年推出的数字音乐平台，很快成为主流数字发行渠道，随后《Under Construction》也通过iTunes实现了数字下载。虽然Napster和EMusic在早期数字音乐市场也颇具影响力，但它们的合法数字发行规模有限。Amazon MP3则是在2007年之后才开始提供音乐下载服务，因此iTunes Store是该专辑数字发行最早且最主要的平台之一。这反映了数字音乐发行逐渐替代传统实体唱片的趋势。"
         }
@@ -6650,12 +5770,7 @@
       "medium": [
         {
           "question": "Modest Mouse在录制2004年专辑《Good News for People Who Love Bad News》时，哪位成员主要负责贝斯演奏？",
-          "options": [
-            "Eric Judy",
-            "Isaac Brock",
-            "Dann Gallucci",
-            "Benjamin Weikel"
-          ],
+          "options": ["Eric Judy", "Isaac Brock", "Dann Gallucci", "Benjamin Weikel"],
           "correctAnswer": "Eric Judy",
           "trivia": "在Modest Mouse的专辑《Good News for People Who Love Bad News》中，Eric Judy作为乐队的贝斯手发挥了关键作用。Isaac Brock是主唱兼吉他手，负责歌曲的创作和主旋律。Dann Gallucci则贡献了吉他和键盘部分，而Benjamin Weikel是鼓手。Eric Judy作为早期成员之一，他的贝斯线为这张专辑的独特音色和节奏感奠定了基础，这张专辑也成为Modest Mouse最具代表性的作品之一。"
         },
@@ -6672,12 +5787,7 @@
         },
         {
           "question": "Modest Mouse在专辑《Good News for People Who Love Bad News》的音乐录影带中，哪一首歌曲的视频以动画风格呈现，并由导演Joe Stakun制作？",
-          "options": [
-            "Float On",
-            "Ocean Breathes Salty",
-            "The World at Large",
-            "Bukowski"
-          ],
+          "options": ["Float On", "Ocean Breathes Salty", "The World at Large", "Bukowski"],
           "correctAnswer": "Float On",
           "trivia": "《Good News for People Who Love Bad News》是Modest Mouse于2004年发行的重要专辑，其中单曲《Float On》的音乐录影带采用了独特的动画风格，由导演Joe Stakun执导。该视频结合了手绘和数字动画元素，增强了歌曲的乐观主题和视觉表现力。相比之下，专辑中的其他歌曲如《Ocean Breathes Salty》和《Bukowski》虽然也有音乐视频，但并未采用动画形式。这个动画视频不仅帮助《Float On》在MTV等音乐频道获得大量播放，也提升了Modest Mouse的视觉艺术表现力。"
         }
@@ -6696,12 +5806,7 @@
         },
         {
           "question": "Modest Mouse在创作2004年专辑《Good News for People Who Love Bad News》时，哪位艺术家对乐队的灵感影响最大，尤其在歌词主题和音乐风格上产生了显著作用？",
-          "options": [
-            "Neil Young",
-            "Tom Waits",
-            "Bob Dylan",
-            "PJ Harvey"
-          ],
+          "options": ["Neil Young", "Tom Waits", "Bob Dylan", "PJ Harvey"],
           "correctAnswer": "Tom Waits",
           "trivia": "Modest Mouse在制作《Good News for People Who Love Bad News》期间，主唱Isaac Brock曾多次提及Tom Waits对他们音乐和歌词风格的深远影响。Tom Waits以其独特的叙事方式和黑暗、荒诞的歌词主题著称，这些元素启发了Modest Mouse在该专辑中探索更丰富的情感层面和实验性的声音设计。此外，专辑中多首歌曲展现出类似Waits作品中那种粗糙而富有表现力的声线和氛围，使得Waits成为该专辑背后的重要艺术灵感来源。Neil Young、Bob Dylan和PJ Harvey虽然也对摇滚音乐有着广泛影响，但在这张专辑的创作背景中，Tom Waits的影响尤为突出。"
         },
@@ -6727,12 +5832,7 @@
       "easy": [
         {
           "question": "Muse的专辑《Absolution》（2003年）是在哪家唱片公司发行的？",
-          "options": [
-            "Warner Bros. Records",
-            "Mushroom Records",
-            "EMI Records",
-            "Island Records"
-          ],
+          "options": ["Warner Bros. Records", "Mushroom Records", "EMI Records", "Island Records"],
           "correctAnswer": "Mushroom Records",
           "trivia": "《Absolution》是Muse于2003年发行的第三张录音室专辑，该专辑由英国独立唱片公司Mushroom Records发行。Mushroom Records在当时主要负责发行英国及部分欧洲市场的Muse作品。值得注意的是，虽然Muse后来与Warner Bros. Records等大型唱片公司有合作，但在《Absolution》时期，Mushroom Records是其主要的合作伙伴。这张专辑帮助Muse在英国及国际市场上获得了更广泛的关注和成功。"
         },
@@ -6762,12 +5862,7 @@
       "medium": [
         {
           "question": "Muse的专辑《Absolution》在英国专辑排行榜上的最高排名是？",
-          "options": [
-            "第一名（冠军）",
-            "第二名",
-            "第三名",
-            "第五名"
-          ],
+          "options": ["第一名（冠军）", "第二名", "第三名", "第五名"],
           "correctAnswer": "第二名",
           "trivia": "Muse的《Absolution》发行于2003年，成为乐队的重要转折点。这张专辑在英国官方专辑排行榜上最高达到第二名，显示出乐队在主流市场的影响力迅速提升。尽管未能夺冠，但《Absolution》在英国获得了白金认证，销量超过30万张，证明其商业成功。此外，专辑中的主打单曲如《Time Is Running Out》也为乐队赢得了更多国际关注。"
         },
@@ -6885,12 +5980,7 @@
         },
         {
           "question": "在My Chemical Romance的2004年专辑'Three Cheers for Sweet Revenge'中，哪位成员担任主唱并且是乐队的主要词曲创作者？",
-          "options": [
-            "Gerard Way",
-            "Frank Iero",
-            "Ray Toro",
-            "Mikey Way"
-          ],
+          "options": ["Gerard Way", "Frank Iero", "Ray Toro", "Mikey Way"],
           "correctAnswer": "Gerard Way",
           "trivia": "Gerard Way是My Chemical Romance的主唱，同时也是专辑'Three Cheers for Sweet Revenge'的主要词曲创作者。他不仅负责演唱，还参与了许多歌曲的创作和构思。Frank Iero和Ray Toro主要担任吉他手，而Mikey Way则是贝斯手。'Three Cheers for Sweet Revenge'作为乐队的第二张录音室专辑，奠定了他们在摇滚乐坛的重要地位，Gerard Way的独特嗓音和创意对专辑成功起到了关键作用。"
         },
@@ -6951,12 +6041,7 @@
       "easy": [
         {
           "question": "Natasha Bedingfield的专辑《Unwritten》于2004年发行，请问该专辑是由哪个唱片公司发行的？",
-          "options": [
-            "Phonogenic Records",
-            "Island Records",
-            "Columbia Records",
-            "Virgin Records"
-          ],
+          "options": ["Phonogenic Records", "Island Records", "Columbia Records", "Virgin Records"],
           "correctAnswer": "Phonogenic Records",
           "trivia": "Natasha Bedingfield的首张专辑《Unwritten》于2004年通过Phonogenic Records发行，这是一家隶属于索尼音乐旗下的厂牌。Phonogenic Records专注于推广英国新兴艺术家，Natasha的成功也带动了该厂牌的知名度。虽然Island Records和Virgin Records也都属于大型唱片集团，但《Unwritten》并非通过他们发行。Columbia Records是索尼音乐的另一大厂牌，但Natasha的这张专辑选择了Phonogenic作为发行平台。"
         },
@@ -6986,12 +6071,7 @@
       "medium": [
         {
           "question": "Natasha Bedingfield的专辑《Unwritten》在流行文化中引起广泛关注，其中哪首歌曲因被美国著名脱口秀节目《吉米·法伦今夜秀》作为开场主题曲而大幅提升了其知名度？",
-          "options": [
-            "《Unwritten》",
-            "《These Words》",
-            "《Single》",
-            "《I Bruise Easily》"
-          ],
+          "options": ["《Unwritten》", "《These Words》", "《Single》", "《I Bruise Easily》"],
           "correctAnswer": "《Unwritten》",
           "trivia": "Natasha Bedingfield的首张国际专辑《Unwritten》发布于2004年，其中主打歌曲《Unwritten》因其积极向上的歌词和旋律迅速受到欢迎。该曲在美国流行文化中的影响尤为突出，成为NBC电视台脱口秀节目《吉米·法伦今夜秀》（The Tonight Show Starring Jimmy Fallon）的开场主题曲，自2009年节目开播起一直使用这首歌作为标志性音乐。此举极大提升了歌曲在美国的知名度和流行度，帮助Natasha扩大了在北美市场的影响力。此外，《Unwritten》也被多部影视作品和广告采用，进一步巩固了其作为21世纪初流行音乐代表作之一的地位。"
         },
@@ -7008,12 +6088,7 @@
         },
         {
           "question": "在Natasha Bedingfield的2004年专辑《Unwritten》中，哪一首歌曲的音乐录影带以主角在城市中跳舞并用彩色涂鸦表现情绪为特色？",
-          "options": [
-            "《Unwritten》",
-            "《These Words》",
-            "《I Bruise Easily》",
-            "《Single\"\"\""
-          ],
+          "options": ["《Unwritten》", "《These Words》", "《I Bruise Easily》", "《Single\"\"\""],
           "correctAnswer": "《Unwritten》",
           "trivia": "Natasha Bedingfield的《Unwritten》专辑中，主打歌曲《Unwritten》的音乐录影带以主角在城市街头自由跳舞，并通过彩色涂鸦墙面表达内心情感而著称。这支MV强调了歌曲主题的自由与自我发现，增强了视觉与歌词的契合度。此外，MV在MTV和其他音乐频道频繁播放，帮助歌曲在国际间取得成功。相比之下，《These Words》的MV更侧重于浪漫喜剧元素，而《I Bruise Easily》则展现了更抒情的画面风格。"
         }
@@ -7032,23 +6107,13 @@
         },
         {
           "question": "在Natasha Bedingfield录制2004年专辑《Unwritten》的过程中，哪位制作人主要负责了专辑的大部分制作工作？",
-          "options": [
-            "Steve Kipner",
-            "Max Martin",
-            "Timbaland",
-            "Rick Rubin"
-          ],
+          "options": ["Steve Kipner", "Max Martin", "Timbaland", "Rick Rubin"],
           "correctAnswer": "Steve Kipner",
           "trivia": "Natasha Bedingfield的首张录音室专辑《Unwritten》于2004年推出，其制作过程由多位制作人参与，但Steve Kipner是该专辑中最主要的制作人之一。Kipner不仅担任制作，还参与了歌曲的共同创作工作，帮助塑造了专辑的流行和灵魂融合的声音风格。Max Martin和Timbaland虽是知名制作人，但并未直接参与《Unwritten》的制作。Rick Rubin以其摇滚和嘻哈作品著称，也未参与本专辑录制。Kipner的参与是专辑成功的重要因素之一，体现了当时流行音乐制作的典型风格。"
         },
         {
           "question": "关于Natasha Bedingfield于2004年发行的专辑《Unwritten》数字版本的发行平台，下列哪一项最早支持该专辑的数字销售？",
-          "options": [
-            "iTunes Store",
-            "Napster",
-            "Amazon MP3",
-            "eMusic"
-          ],
+          "options": ["iTunes Store", "Napster", "Amazon MP3", "eMusic"],
           "correctAnswer": "iTunes Store",
           "trivia": "Natasha Bedingfield的首张专辑《Unwritten》于2004年发行时，正值数字音乐销售快速兴起。iTunes Store作为当时最具影响力的数字音乐平台，于2003年上线，很快成为主流艺人数字专辑发布的首选渠道。《Unwritten》专辑的数字版本最早通过iTunes Store进行销售，帮助Natasha扩大了国际市场影响力。相比之下，Napster在2001年经历转型，Amazon MP3和eMusic在2004年后才逐渐发展为数字音乐销售平台，因此iTunes是当时最早支持该专辑数字发行的平台。"
         }
@@ -7063,34 +6128,19 @@
       "easy": [
         {
           "question": "Nelly的专辑《Country Grammar》中哪首歌曲是他的首支热门单曲，帮助他首次进入美国公告牌百强单曲榜？",
-          "options": [
-            "E.I.",
-            "Ride wit Me",
-            "Country Grammar (Hot Shit)",
-            "Air Force Ones"
-          ],
+          "options": ["E.I.", "Ride wit Me", "Country Grammar (Hot Shit)", "Air Force Ones"],
           "correctAnswer": "Country Grammar (Hot Shit)",
           "trivia": "《Country Grammar》是Nelly于2000年发行的首张个人专辑，其中主打单曲《Country Grammar (Hot Shit)》成为他的首支热门歌曲。这首歌凭借其朗朗上口的旋律和具有地方特色的歌词，成功进入了美国公告牌百强单曲榜，极大提升了Nelly在主流音乐界的知名度。专辑整体融合了中西部说唱风格，体现了Nelly来自密苏里州圣路易斯的文化背景。此外，该曲的成功也为专辑的销量打下坚实基础，使《Country Grammar》最终获得了多白金认证。"
         },
         {
           "question": "Nelly在2000年发行的专辑《Country Grammar》中，哪位制作人主要负责了大部分歌曲的制作？",
-          "options": [
-            "Jason 'Jay E' Epperson",
-            "Dr. Dre",
-            "Timbaland",
-            "Pharrell Williams"
-          ],
+          "options": ["Jason 'Jay E' Epperson", "Dr. Dre", "Timbaland", "Pharrell Williams"],
           "correctAnswer": "Jason 'Jay E' Epperson",
           "trivia": "《Country Grammar》是Nelly的首张录音室专辑，其中Jason 'Jay E' Epperson担任了主要制作人，负责了专辑中大部分曲目的制作工作。Jay E是来自圣路易斯的制作人，他的制作风格融合了中西部的节奏和氛围，帮助塑造了专辑独特的声音。制作团队与Nelly紧密合作，使得专辑在商业上取得巨大成功，尤其是同名主打歌《Country Grammar》成为当年热门单曲。而Dr. Dre、Timbaland和Pharrell Williams虽然都是知名制作人，但并未参与该专辑制作。"
         },
         {
           "question": "Nelly的专辑《Country Grammar》在2000年发布后，哪首歌曲成为该专辑最著名的单曲，广泛登上美国各大音乐排行榜？",
-          "options": [
-            "Country Grammar (Hot Shit)",
-            "Ride wit Me",
-            "Hot in Herre",
-            "Dilemma"
-          ],
+          "options": ["Country Grammar (Hot Shit)", "Ride wit Me", "Hot in Herre", "Dilemma"],
           "correctAnswer": "Country Grammar (Hot Shit)",
           "trivia": "《Country Grammar》是Nelly在2000年发行的首张专辑，其中同名主打单曲《Country Grammar (Hot Shit)》迅速走红，成为他的代表作。该曲在美国Billboard Hot 100排行榜中表现突出，最高排名第7位，极大提升了Nelly的知名度。专辑整体融合了中西部嘻哈元素，反映了Nelly来自密苏里州圣路易斯的独特风格。其他选项如《Ride wit Me》虽然也是Nelly的知名曲目，但收录于他2001年的第二张专辑《Nellyville》中，而《Hot in Herre》和《Dilemma》则是2002年以后发行的热门单曲。"
         }
@@ -7109,23 +6159,13 @@
         },
         {
           "question": "Nelly在录制2000年专辑《Country Grammar》的词曲创作过程中，哪位制作人对专辑整体声音风格影响最大并参与了大量的制作工作？",
-          "options": [
-            "Jason 'Jay E' Epperson",
-            "Dr. Dre",
-            "Timbaland",
-            "Swizz Beatz"
-          ],
+          "options": ["Jason 'Jay E' Epperson", "Dr. Dre", "Timbaland", "Swizz Beatz"],
           "correctAnswer": "Jason 'Jay E' Epperson",
           "trivia": "Jason 'Jay E' Epperson是《Country Grammar》专辑的主要制作人，他与Nelly紧密合作，打造了专辑标志性的Midwest风格和朗朗上口的节奏。Jay E不仅参与了大部分歌曲的制作，还帮助Nelly在词曲创作时融合了流畅的旋律和南方嘻哈元素。相比之下，Dr. Dre、Timbaland和Swizz Beatz虽然在当时也非常活跃，但并未直接参与这张专辑的制作。Jay E的制作风格为《Country Grammar》赢得了广泛认可，并为Nelly奠定了成功基础。"
         },
         {
           "question": "在录制Nelly的2000年专辑《Country Grammar》时，制作团队主要在哪个城市的录音室完成录制工作？",
-          "options": [
-            "圣路易斯",
-            "亚特兰大",
-            "芝加哥",
-            "底特律"
-          ],
+          "options": ["圣路易斯", "亚特兰大", "芝加哥", "底特律"],
           "correctAnswer": "圣路易斯",
           "trivia": "Nelly的首张专辑《Country Grammar》主要在他的家乡圣路易斯的录音室完成录制，这帮助他融入本地的音乐风格与文化氛围。专辑制作团队利用圣路易斯的音乐资源，结合南方嘻哈元素，打造出独特的声音。与此同时，虽然亚特兰大和芝加哥在嘻哈界也很有名，但这张专辑的录制地点主要集中在圣路易斯，这对Nelly的艺术身份塑造起到了关键作用。录音过程中的地域特色是这张专辑成功的重要因素之一。"
         }
@@ -7175,12 +6215,7 @@
       "easy": [
         {
           "question": "Nelly Furtado的专辑《Loose》在美国Billboard 200排行榜上的最高排名是多少？",
-          "options": [
-            "第1名",
-            "第10名",
-            "第5名",
-            "第20名"
-          ],
+          "options": ["第1名", "第10名", "第5名", "第20名"],
           "correctAnswer": "第5名",
           "trivia": "Nelly Furtado于2006年发行的专辑《Loose》在美国Billboard 200排行榜上取得了第5名的最高排名，标志着她商业上的重大成功。这张专辑融合了流行、R&B和嘻哈元素，由著名制作人Timbaland参与制作。除了《Loose》整体的成功，专辑中的单曲如《Promiscuous》和《Maneater》也在排行榜上表现优异，进一步巩固了Nelly Furtado在全球音乐市场的地位。"
         },
@@ -7267,12 +6302,7 @@
         },
         {
           "question": "在Nelly Furtado于2006年发行的专辑《Loose》的音响工程制作中，哪位著名制作人负责了大部分的混音工作，且该制作人以其在电子和嘻哈音乐混音中的创新手法闻名？",
-          "options": [
-            "Timbaland",
-            "Rick Rubin",
-            "Mark Ronson",
-            "Dr. Dre"
-          ],
+          "options": ["Timbaland", "Rick Rubin", "Mark Ronson", "Dr. Dre"],
           "correctAnswer": "Timbaland",
           "trivia": "《Loose》专辑的大部分音响工程和混音工作由著名制作人Timbaland完成，他以融合电子、嘻哈和R&B元素的创新混音风格而闻名。Timbaland的参与极大地影响了专辑的声音质感，使Nelly Furtado的音乐展现出更现代和实验性的风格。此外，这张专辑的录制过程中采用了多轨录音技术，结合了数字音频工作站（DAW）和现场乐器采样，体现了当时音响工程领域的先进水准。Rick Rubin、Mark Ronson和Dr. Dre虽都是知名制作人，但他们并未参与《Loose》的混音制作。"
         }
@@ -7287,34 +6317,19 @@
       "easy": [
         {
           "question": "Nickelback的专辑'Silver Side Up'（2001年）中，哪首歌曲成为了该专辑最著名的单曲，帮助乐队在国际上获得广泛认可？",
-          "options": [
-            "How You Remind Me",
-            "Too Bad",
-            "Never Again",
-            "Someday"
-          ],
+          "options": ["How You Remind Me", "Too Bad", "Never Again", "Someday"],
           "correctAnswer": "How You Remind Me",
           "trivia": "Nickelback的'Silver Side Up'专辑于2001年发行，其中单曲'How You Remind Me'成为乐队最成功的作品之一。这首歌不仅登顶了美国Billboard Hot 100排行榜，还帮助Nickelback在全球范围内获得了更大的关注和商业成功。'How You Remind Me'以其强烈的摇滚旋律和感人的歌词，成为2000年代初期最具代表性的摇滚单曲之一。该专辑的成功也奠定了Nickelback作为主流摇滚乐队的地位。"
         },
         {
           "question": "Nickelback的专辑'Silver Side Up'于2001年发布时，哪个唱片公司负责了这张专辑的发行？",
-          "options": [
-            "Roadrunner Records",
-            "Atlantic Records",
-            "Island Records",
-            "Epic Records"
-          ],
+          "options": ["Roadrunner Records", "Atlantic Records", "Island Records", "Epic Records"],
           "correctAnswer": "Roadrunner Records",
           "trivia": "Nickelback的'Silver Side Up'专辑于2001年由Roadrunner Records发行，这家公司以签约多支摇滚和金属乐队闻名。Roadrunner Records成立于1980年代，专注于推广重金属和摇滚音乐。该专辑的成功帮助Roadrunner扩大了在主流音乐市场的影响力。'Silver Side Up'中最著名的单曲《How You Remind Me》也因Roadrunner的推广而获得全球关注。与其他主流唱片公司相比，Roadrunner更专注于重摇滚领域，这使得Nickelback得以在合适的平台上获得成功。"
         },
         {
           "question": "Nickelback的专辑'Silver Side Up'（2001年）中，哪首歌曲成为了该专辑最知名的主打单曲？",
-          "options": [
-            "How You Remind Me",
-            "Photograph",
-            "Someday",
-            "Too Bad"
-          ],
+          "options": ["How You Remind Me", "Photograph", "Someday", "Too Bad"],
           "correctAnswer": "How You Remind Me",
           "trivia": "《Silver Side Up》是Nickelback在2001年发行的第三张录音室专辑，其中《How You Remind Me》成为专辑的主打单曲。这首歌曲不仅是该专辑最受欢迎的作品，还帮助乐队首次登上了美国Billboard Hot 100榜首，成为他们的突破性热门单曲。此外，《How You Remind Me》因其感染力强的摇滚旋律和情感丰富的歌词，被认为是21世纪早期摇滚音乐的经典之一。该歌曲的成功极大提升了Nickelback在全球的知名度，奠定了他们在摇滚乐坛的重要地位。"
         }
@@ -7322,12 +6337,7 @@
       "medium": [
         {
           "question": "Nickelback在录制2001年专辑《Silver Side Up》时，主音吉他手使用了哪种品牌的电吉他作为主要录音设备？",
-          "options": [
-            "Gibson Les Paul",
-            "Fender Stratocaster",
-            "PRS Custom 24",
-            "Ibanez RG"
-          ],
+          "options": ["Gibson Les Paul", "Fender Stratocaster", "PRS Custom 24", "Ibanez RG"],
           "correctAnswer": "Gibson Les Paul",
           "trivia": "在Nickelback录制《Silver Side Up》专辑期间，主音吉他手Ryan Peake主要使用Gibson Les Paul电吉他进行录音，这种吉他以其饱满的音色和良好的中频响应著称，适合硬摇滚风格。Gibson Les Paul自20世纪50年代起便是摇滚乐手的首选乐器之一，广泛用于录制经典摇滚专辑。相较之下，Fender Stratocaster和PRS Custom 24虽然也是流行的电吉他品牌，但Nickelback在该专辑的录制中主要以Gibson Les Paul为主。Ibanez RG则更多被金属风格乐手青睐，较少出现在Nickelback的录音中。"
         },
@@ -7344,12 +6354,7 @@
         },
         {
           "question": "在Nickelback的2001年专辑'Silver Side Up'中，哪位成员负责主唱并同时演奏吉他？",
-          "options": [
-            "Chad Kroeger",
-            "Ryan Peake",
-            "Mike Kroeger",
-            "Daniel Adair"
-          ],
+          "options": ["Chad Kroeger", "Ryan Peake", "Mike Kroeger", "Daniel Adair"],
           "correctAnswer": "Chad Kroeger",
           "trivia": "Chad Kroeger是Nickelback的主唱兼吉他手，他在2001年发行的专辑'Silver Side Up'中担任了主要的演唱和吉他演奏工作。该专辑是Nickelback的第三张录音室专辑，也是他们首次取得国际商业成功的作品。除了Chad Kroeger，Ryan Peake在专辑中主要负责节奏吉他和背景和声，Mike Kroeger则演奏贝斯，而Daniel Adair是该专辑后期加入的鼓手，实际鼓手是Ryan Vikedal。Chad Kroeger的标志性嗓音和吉他演奏风格是该专辑成功的重要因素之一。"
         }
@@ -7368,12 +6373,7 @@
         },
         {
           "question": "Nickelback在2001年发行的专辑'Silver Side Up'中，哪首歌曲通过描绘青少年暴力事件，反映了社会对校园枪击问题的关注？",
-          "options": [
-            "《How You Remind Me》",
-            "《Never Again》",
-            "《Too Bad》",
-            "《Mistake》"
-          ],
+          "options": ["《How You Remind Me》", "《Never Again》", "《Too Bad》", "《Mistake》"],
           "correctAnswer": "《Never Again》",
           "trivia": "《Never Again》是Nickelback在专辑'Silver Side Up'中一首深刻的社会评论歌曲，歌词讲述了一起校园枪击事件，反映了当时社会对青少年暴力和枪支管控的担忧。这首歌通过描绘受害者及其家人的痛苦，强调了暴力的严重后果。《Silver Side Up》发行于2001年，正值北美多起校园枪击事件引发公众广泛讨论，该曲成为乐队表达社会责任感的重要作品。"
         },
@@ -7399,23 +6399,13 @@
       "easy": [
         {
           "question": "Norah Jones的专辑《Come Away with Me》首次数字发行在哪个平台上引起了广泛关注？",
-          "options": [
-            "iTunes Store",
-            "Amazon MP3",
-            "Napster",
-            "Spotify"
-          ],
+          "options": ["iTunes Store", "Amazon MP3", "Napster", "Spotify"],
           "correctAnswer": "iTunes Store",
           "trivia": "《Come Away with Me》是Norah Jones在2002年发布的首张专辑，该专辑不仅在实体唱片市场大获成功，也在数字音乐领域表现突出。该专辑的数字版在苹果的iTunes Store上线后，迅速吸引了大量用户购买和下载，这推动了数字音乐的普及。iTunes Store在当时是主流的数字发行平台，Norah Jones通过这个渠道使她的音乐触及全球更多听众。此举也反映了早期数字音乐销售对音乐产业的变革影响，尤其是对爵士和流行融合风格的推广。"
         },
         {
           "question": "Norah Jones在创作2002年专辑《Come Away with Me》时，哪位音乐家对她的灵感影响最大？",
-          "options": [
-            "Billie Holiday",
-            "Elvis Presley",
-            "David Bowie",
-            "Madonna"
-          ],
+          "options": ["Billie Holiday", "Elvis Presley", "David Bowie", "Madonna"],
           "correctAnswer": "Billie Holiday",
           "trivia": "Norah Jones的专辑《Come Away with Me》深受爵士和灵魂音乐的影响，其中她特别提到传奇爵士歌手Billie Holiday是她创作灵感的重要来源。Billie Holiday以其独特的唱腔和情感表达在音乐史上留下深刻烙印，而Norah Jones在这张专辑中融入了类似的温暖和柔和风格。专辑发行后，Norah Jones获得了包括格莱美最佳新人的多项大奖，进一步证明了她对经典艺术家的致敬和现代诠释的成功。相比之下，Elvis Presley、David Bowie和Madonna虽然是音乐巨星，但并不是这张专辑创作时Norah Jones特别强调的灵感来源。"
         },
@@ -7456,12 +6446,7 @@
         },
         {
           "question": "Norah Jones的专辑《Come Away with Me》在媒体报道中，哪位著名制作人被广泛认可为该专辑的制作人？",
-          "options": [
-            "Arif Mardin",
-            "T Bone Burnett",
-            "Rick Rubin",
-            "Brian Eno"
-          ],
+          "options": ["Arif Mardin", "T Bone Burnett", "Rick Rubin", "Brian Eno"],
           "correctAnswer": "Arif Mardin",
           "trivia": "Norah Jones的首张专辑《Come Away with Me》于2002年发布，制作人是传奇音乐制作人Arif Mardin，他曾与许多著名艺术家合作。这张专辑被媒体高度评价为融合爵士、乡村和流行元素的作品。Arif Mardin的制作风格帮助Norah Jones打造出温暖、细腻的音色，专辑随后获得了包括格莱美最佳年度专辑在内的多项大奖。T Bone Burnett、Rick Rubin和Brian Eno虽是著名制作人，但并未参与此专辑制作。"
         }
@@ -7469,12 +6454,7 @@
       "hard": [
         {
           "question": "在Norah Jones的专辑《Come Away with Me》的词曲创作过程中，哪位音乐人对其大部分歌曲的编曲和制作起到了关键指导作用？",
-          "options": [
-            "Arif Mardin",
-            "Rick Rubin",
-            "T Bone Burnett",
-            "Daniel Lanois"
-          ],
+          "options": ["Arif Mardin", "Rick Rubin", "T Bone Burnett", "Daniel Lanois"],
           "correctAnswer": "Arif Mardin",
           "trivia": "Arif Mardin是《Come Away with Me》专辑的制作人，他不仅负责整体制作，还参与了编曲工作，为Norah Jones的音乐风格注入了丰富的爵士和乡村元素。Mardin在音乐界享有盛誉，曾与多位知名艺术家合作，这也是该专辑成功的重要因素之一。Norah Jones在词曲创作时，得到了Mardin的专业指导，使得歌曲在表现力和编排上达到高度统一。专辑最终获得了多项格莱美奖，体现了制作团队的精湛水平。"
         },
@@ -7557,12 +6537,7 @@
         },
         {
           "question": "OutKast的专辑'Stankonia'在美国Billboard 200排行榜上的最高排名是多少？",
-          "options": [
-            "第2名",
-            "第5名",
-            "第10名",
-            "第15名"
-          ],
+          "options": ["第2名", "第5名", "第10名", "第15名"],
           "correctAnswer": "第2名",
           "trivia": "OutKast的专辑'Stankonia'于2000年发行，凭借其创新的制作和多元风格，迅速受到了广泛关注。这张专辑在美国Billboard 200排行榜上最高攀升至第2名，显示出其商业上的巨大成功。专辑中的单曲如\"Ms. Jackson\"也在排行榜上表现优异，进一步推动了整张专辑的销量。'Stankonia'不仅获得了商业成就，还赢得了评论界的高度评价，成为嘻哈音乐史上的经典作品之一。"
         },
@@ -7623,12 +6598,7 @@
       "easy": [
         {
           "question": "Owl City的专辑《Ocean Eyes》于2009年以数字形式发行时，哪首歌曲成为该专辑中最早在数字平台上获得广泛关注的单曲？",
-          "options": [
-            "Fireflies",
-            "Vanilla Twilight",
-            "Hello Seattle",
-            "Dental Care"
-          ],
+          "options": ["Fireflies", "Vanilla Twilight", "Hello Seattle", "Dental Care"],
           "correctAnswer": "Fireflies",
           "trivia": "《Ocean Eyes》是Owl City在2009年发布的第二张录音室专辑，数字发行使得其中的单曲迅速传播。专辑中的歌曲《Fireflies》尤其受到欢迎，成为其最早在数字音乐平台上广泛流行的单曲。这首歌不仅占据了多个国家的音乐排行榜高位，还帮助Owl City获得了国际知名度。此外，《Fireflies》的成功也推动了专辑整体销量，成为数字发行时代的代表作品之一。"
         },
@@ -7669,12 +6639,7 @@
         },
         {
           "question": "在数字发行方面，Owl City的专辑《Ocean Eyes》（2009年）首次在哪个平台上线，标志着其数字音乐传播的重要节点？",
-          "options": [
-            "iTunes Store",
-            "Spotify",
-            "Amazon MP3",
-            "Napster"
-          ],
+          "options": ["iTunes Store", "Spotify", "Amazon MP3", "Napster"],
           "correctAnswer": "iTunes Store",
           "trivia": "Owl City的专辑《Ocean Eyes》于2009年通过iTunes Store进行数字发行，这对于当时的独立电子音乐人来说是一个重要的数字传播平台。iTunes Store当时是数字音乐销售的主流渠道，助力《Ocean Eyes》中的单曲如《Fireflies》迅速获得全球关注。Spotify虽然现在非常流行，但在2009年尚未在美国广泛推出，因此并非该专辑的首发数字平台。此外，Amazon MP3和Napster虽然存在，但影响力和用户基础相较iTunes Store有限。数字发行通过iTunes Store极大地推动了Owl City的知名度和专辑的商业成功。"
         },
@@ -7693,12 +6658,7 @@
       "hard": [
         {
           "question": "在Owl City的2009年专辑《Ocean Eyes》中，除了主创Adam Young之外，哪位音乐家为专辑的部分歌曲贡献了键盘或合成器演奏？",
-          "options": [
-            "Breanne Düren",
-            "Jared Sledge",
-            "Michael McGregor",
-            "Laura Musten"
-          ],
+          "options": ["Breanne Düren", "Jared Sledge", "Michael McGregor", "Laura Musten"],
           "correctAnswer": "Breanne Düren",
           "trivia": "Owl City的《Ocean Eyes》专辑主要由Adam Young独自完成，他负责了大部分的创作和演奏。然而，Breanne Düren作为一位合作音乐人，为专辑中的多首歌曲提供了键盘和合成器的演奏支持。她的加入为专辑增添了丰富的音色层次，尤其在歌曲《The Saltwater Room》中表现突出。其他选项如Jared Sledge和Michael McGregor则与Owl City的合作较少或未参与《Ocean Eyes》的录制，Laura Musten则主要以小提琴演奏闻名。Breanne Düren的贡献体现了专辑制作中团队合作的细节，提升了整体的音乐质感。"
         },
@@ -7715,12 +6675,7 @@
         },
         {
           "question": "Owl City的专辑'Ocean Eyes'在美国Billboard 200排行榜上的最高排名是什么？",
-          "options": [
-            "第8名",
-            "第50名",
-            "第1名",
-            "第25名"
-          ],
+          "options": ["第8名", "第50名", "第1名", "第25名"],
           "correctAnswer": "第8名",
           "trivia": "Owl City的专辑'Ocean Eyes'于2009年发行后，在美国Billboard 200排行榜上取得了第8名的最佳成绩，这使其成为当年最成功的电子流行专辑之一。该专辑凭借单曲《Fireflies》的巨大成功，显著提升了Owl City的知名度和商业表现。值得注意的是，‘Ocean Eyes’也是Owl City首次进入美国主流排行榜的专辑，标志着其音乐风格在主流市场的认可。专辑的成功不仅体现在排行榜排名，还促进了其后续作品的影响力扩展。"
         }
@@ -7757,12 +6712,7 @@
         },
         {
           "question": "在P!nk的首张专辑《Can't Take Me Home》中，哪首单曲最早获得主流电台的广泛播放？",
-          "options": [
-            "There You Go",
-            "Most Girls",
-            "You Make Me Sick",
-            "Split Personality"
-          ],
+          "options": ["There You Go", "Most Girls", "You Make Me Sick", "Split Personality"],
           "correctAnswer": "There You Go",
           "trivia": "《Can't Take Me Home》是P!nk于2000年发行的首张专辑，其中单曲《There You Go》是她的首支主打歌，并迅速获得美国主流电台的广泛播放。这首歌的节奏感强烈，融合了R&B和流行元素，符合当时的电台播放趋势。《There You Go》不仅帮助P!nk打开了市场，还在Billboard百强单曲榜上进入了前40名，奠定了她后续音乐事业的基础。相比之下，专辑中的其他单曲如《Most Girls》和《You Make Me Sick》虽也获得关注，但《There You Go》无疑是最先被电台大量播放的作品。"
         }
@@ -7805,12 +6755,7 @@
       "hard": [
         {
           "question": "在P!nk的2000年专辑《Can't Take Me Home》的专辑包装设计中，哪位设计师或设计团队负责了该专辑封面的视觉创作？",
-          "options": [
-            "Carolyn Tracey",
-            "Karla Welch",
-            "Peter Savic",
-            "Lisa Johnson"
-          ],
+          "options": ["Carolyn Tracey", "Karla Welch", "Peter Savic", "Lisa Johnson"],
           "correctAnswer": "Carolyn Tracey",
           "trivia": "《Can't Take Me Home》是P!nk的首张录音室专辑，其专辑封面和包装由设计师Carolyn Tracey负责。Tracey以其在视觉艺术领域的专业能力，为该专辑打造了具有2000年代初R&B风格的视觉形象。专辑封面采用了柔和的色调和P!nk标志性的粉色发色，体现了她当时的音乐风格和个性。Peter Savic则主要负责该专辑的摄影工作，而非设计。此设计为P!nk早期形象塑造做出了重要贡献，也反映了当时流行音乐专辑包装的设计趋势。"
         },
@@ -7869,12 +6814,7 @@
         },
         {
           "question": "Panic! at the Disco的专辑《A Fever You Can't Sweat Out》于2005年首次数字发行时，以下哪种数字平台最早提供了该专辑的合法下载？",
-          "options": [
-            "iTunes Store",
-            "Amazon MP3",
-            "Napster",
-            "MySpace Music"
-          ],
+          "options": ["iTunes Store", "Amazon MP3", "Napster", "MySpace Music"],
           "correctAnswer": "iTunes Store",
           "trivia": "《A Fever You Can't Sweat Out》是Panic! at the Disco于2005年发行的首张录音室专辑。该专辑在当时随着数字音乐市场的发展，也通过iTunes Store进行了合法数字发行，这是当时主流数字音乐平台之一。iTunes Store的数字发行使专辑更广泛地接触到全球听众，推动了专辑的销量和知名度。虽然Amazon MP3和Napster等平台随后也开始提供该专辑，但iTunes Store是最早支持该专辑数字下载的主流渠道之一。MySpace Music则更多被用作艺术家推广和试听，并非主要的数字销售平台。"
         }
@@ -7928,12 +6868,7 @@
         },
         {
           "question": "在制作Panic! at the Disco的专辑《A Fever You Can't Sweat Out》时，哪位制作人负责了这张专辑的大部分录制和混音工作？",
-          "options": [
-            "Matt Squire",
-            "Butch Vig",
-            "Rick Rubin",
-            "Steve Albini"
-          ],
+          "options": ["Matt Squire", "Butch Vig", "Rick Rubin", "Steve Albini"],
           "correctAnswer": "Matt Squire",
           "trivia": "Panic! at the Disco的首张专辑《A Fever You Can't Sweat Out》于2005年发行，其制作人Matt Squire在录制和混音过程中发挥了关键作用。Matt Squire以擅长制作流行朋克和另类摇滚专辑而闻名，他为这张专辑注入了丰富的电子元素和复古氛围，有效融合了电子音乐与朋克摇滚。相较之下，Butch Vig、Rick Rubin和Steve Albini虽是著名制作人，但并未参与此专辑的制作。Matt Squire的参与对Panic! at the Disco的早期声音塑造起到了重要推动作用。"
         },
@@ -7970,12 +6905,7 @@
         },
         {
           "question": "Papa Roach的专辑《Infest》在发行后，哪首歌曲最受粉丝欢迎并成为了流行文化中的代表作？",
-          "options": [
-            "Last Resort",
-            "Broken Home",
-            "Dead Cell",
-            "Infest"
-          ],
+          "options": ["Last Resort", "Broken Home", "Dead Cell", "Infest"],
           "correctAnswer": "Last Resort",
           "trivia": "Papa Roach于2000年发行的专辑《Infest》中的单曲《Last Resort》迅速成为粉丝们的最爱，并且在音乐排行榜上取得了显著的成绩。这首歌因其直白而强烈的歌词表达了年轻人的心理挣扎，成为新金属（Nu Metal）风格的代表之一。《Last Resort》不仅帮助专辑获得了广泛关注，还进入了美国公告牌百强单曲榜的前十名，进一步巩固了Papa Roach在流行文化中的地位。专辑整体销量超过300万张，证明了其在当时音乐市场的影响力和粉丝基础。"
         },
@@ -7994,12 +6924,7 @@
       "medium": [
         {
           "question": "在Papa Roach的2000年专辑《Infest》中，哪首歌曲因其频繁的电台播放而帮助乐队首次进入主流音乐视野？",
-          "options": [
-            "Last Resort",
-            "Broken Home",
-            "Dead Cell",
-            "Infest"
-          ],
+          "options": ["Last Resort", "Broken Home", "Dead Cell", "Infest"],
           "correctAnswer": "Last Resort",
           "trivia": "《Infest》是Papa Roach于2000年发行的突破性专辑，其中歌曲《Last Resort》因其强烈的情绪表达和冲击力十足的曲风，迅速获得了美国主流摇滚电台的广泛播放。这首歌成为了当年最具代表性的另类金属单曲之一，也帮助乐队首次进入了Billboard排行榜的前列。《Last Resort》不仅推动了专辑的销量，还奠定了Papa Roach作为新千年初期重要摇滚乐队的地位。其他曲目如《Broken Home》和《Dead Cell》虽有一定的电台播放量，但远不及《Last Resort》的影响力。"
         },
@@ -8040,23 +6965,13 @@
         },
         {
           "question": "在Papa Roach创作2000年专辑《Infest》的词曲过程中，哪位成员主要负责歌词的撰写？",
-          "options": [
-            "Jacoby Shaddix",
-            "Jerry Horton",
-            "Dave Buckner",
-            "Terry Date"
-          ],
+          "options": ["Jacoby Shaddix", "Jerry Horton", "Dave Buckner", "Terry Date"],
           "correctAnswer": "Jacoby Shaddix",
           "trivia": "Jacoby Shaddix，作为Papa Roach的主唱，不仅负责演唱，还承担了《Infest》专辑中大部分歌词的创作工作。他的歌词内容多围绕个人挣扎和情感表达，这也是该专辑情感深刻的原因之一。Jerry Horton和Dave Buckner分别是吉他手和鼓手，主要负责乐器演奏而非词曲创作。Terry Date是该专辑的制作人，负责录音和混音工作，但并未参与歌词创作。Jacoby的词曲贡献为《Infest》在新金属领域获得成功奠定了坚实基础。"
         },
         {
           "question": "在Papa Roach的专辑《Infest》录制过程中，哪位制作人负责了该专辑的制作工作，这在当时对乐队的声音风格有重要影响？",
-          "options": [
-            "Jay Baumgardner",
-            "Rick Rubin",
-            "Terry Date",
-            "Bob Rock"
-          ],
+          "options": ["Jay Baumgardner", "Rick Rubin", "Terry Date", "Bob Rock"],
           "correctAnswer": "Jay Baumgardner",
           "trivia": "《Infest》是Papa Roach于2000年发布的突破性专辑，其制作人是Jay Baumgardner。Baumgardner以擅长融合硬摇滚与金属元素闻名，他的制作风格帮助Papa Roach塑造了标志性的nu metal声音。与其他当时著名制作人如Rick Rubin和Terry Date相比，Baumgardner更注重保持乐队的原始能量和情感表达。此外，Baumgardner曾与多支硬摇滚和金属乐队合作，这为《Infest》带来了专业且富有冲击力的音质，助力该专辑在商业上获得巨大成功。"
         }
@@ -8152,12 +7067,7 @@
         },
         {
           "question": "Paramore的专辑《Riot!》于2007年数字发行时，以下哪种数字发行平台并未包含该专辑的完整曲目？",
-          "options": [
-            "iTunes Store",
-            "Amazon MP3",
-            "Napster",
-            "Spotify"
-          ],
+          "options": ["iTunes Store", "Amazon MP3", "Napster", "Spotify"],
           "correctAnswer": "Napster",
           "trivia": "《Riot!》是Paramore的第二张录音室专辑，于2007年正式发行，并在当时的主要数字音乐平台如iTunes Store和Amazon MP3上提供完整专辑销售。值得注意的是，Napster在2007年尚处于转型期，其数字目录并未包含Paramore的《Riot!》完整曲目。Spotify直到2008年后才开始运营，因此最初发行时未提供该专辑的数字版。iTunes Store作为当时数字音乐销售的主流平台，极大推动了《Riot!》的数字发行和销售表现。"
         },
@@ -8183,12 +7093,7 @@
       "easy": [
         {
           "question": "凤凰乐队（Phoenix）的专辑《Wolfgang Amadeus Phoenix》于2009年发布时，以下哪种数字音乐平台最早提供了该专辑的合法数字下载？",
-          "options": [
-            "iTunes Store",
-            "Amazon MP3",
-            "Google Play音乐",
-            "Bandcamp"
-          ],
+          "options": ["iTunes Store", "Amazon MP3", "Google Play音乐", "Bandcamp"],
           "correctAnswer": "iTunes Store",
           "trivia": "《Wolfgang Amadeus Phoenix》是法国乐队Phoenix于2009年发行的第四张录音室专辑。该专辑在发布之初，iTunes Store作为当时主流的数字音乐销售平台，最早提供了其合法数字下载服务。iTunes Store于2003年上线，成为数字音乐销售的先驱，帮助许多艺术家拓展了数字发行渠道。Amazon MP3和Google Play音乐虽然后来也成为重要数字音乐平台，但在2009年时尚未达到iTunes的市场规模。Bandcamp则更多服务于独立音乐人，与Phoenix这类主流乐队的数字发行策略有所不同。"
         },
@@ -8229,23 +7134,13 @@
         },
         {
           "question": "在制作Phoenix的2009年专辑《Wolfgang Amadeus Phoenix》时，哪位制作人参与了这张专辑的录音和混音工作？",
-          "options": [
-            "Tony Hoffer",
-            "Mark Ronson",
-            "Danger Mouse",
-            "Nigel Godrich"
-          ],
+          "options": ["Tony Hoffer", "Mark Ronson", "Danger Mouse", "Nigel Godrich"],
           "correctAnswer": "Tony Hoffer",
           "trivia": "Phoenix的专辑《Wolfgang Amadeus Phoenix》由制作人Tony Hoffer负责录音和混音。Tony Hoffer以其与Beck、Air等艺术家的合作而闻名，他为该专辑营造了清晰且富有层次的声音质感。专辑的成功部分归功于他的制作技巧，使得歌曲如《1901》拥有明亮的合成器和清晰的吉他音色。Mark Ronson、Danger Mouse和Nigel Godrich虽然都是著名制作人，但并未参与这张专辑的制作。"
         },
         {
           "question": "在媒体报道中，Phoenix的专辑《Wolfgang Amadeus Phoenix》被哪家知名音乐杂志评为2009年最佳专辑之一？",
-          "options": [
-            "《滚石》杂志",
-            "《NME》杂志",
-            "《Pitchfork》杂志",
-            "《Billboard》杂志"
-          ],
+          "options": ["《滚石》杂志", "《NME》杂志", "《Pitchfork》杂志", "《Billboard》杂志"],
           "correctAnswer": "《Pitchfork》杂志",
           "trivia": "Phoenix的专辑《Wolfgang Amadeus Phoenix》在2009年发行后，受到了广泛的媒体关注。《Pitchfork》杂志不仅给予该专辑极高的评分，还将其列为当年年度最佳专辑之一，彰显了其在独立摇滚领域的影响力。此外，这张专辑凭借其独特的合成器与吉他融合音效，获得了评论界的一致好评。《Pitchfork》是以深入的音乐评论著称的媒体，其对《Wolfgang Amadeus Phoenix》的认可进一步推动了Phoenix在国际音乐舞台上的知名度。"
         }
@@ -8275,12 +7170,7 @@
         },
         {
           "question": "在Phoenix于2009年发行的专辑《Wolfgang Amadeus Phoenix》的制作过程中，哪位制作人对专辑的整体声音设计贡献最大？",
-          "options": [
-            "Tony Hoffer",
-            "Nigel Godrich",
-            "Mark Ronson",
-            "Rick Rubin"
-          ],
+          "options": ["Tony Hoffer", "Nigel Godrich", "Mark Ronson", "Rick Rubin"],
           "correctAnswer": "Tony Hoffer",
           "trivia": "Phoenix的专辑《Wolfgang Amadeus Phoenix》由制作人Tony Hoffer负责制作，他以细腻的混音和对电子元素的巧妙融合闻名。Hoffer曾与Beck和Air等艺术家合作，带来了独特的制作风格，极大地丰富了专辑的声音层次。该专辑录制于洛杉矶，Hoffer通过将传统摇滚乐器与合成器的结合，帮助Phoenix塑造了标志性的独特音色。这种创新的制作方法使得《Wolfgang Amadeus Phoenix》在当年获得了广泛的赞誉和成功。"
         }
@@ -8295,12 +7185,7 @@
       "easy": [
         {
           "question": "Queens of the Stone Age在制作2002年专辑'Songs for the Deaf'时，哪位著名音乐人担任了鼓手并参与了录制？",
-          "options": [
-            "Dave Grohl",
-            "Josh Homme",
-            "John Paul Jones",
-            "Trent Reznor"
-          ],
+          "options": ["Dave Grohl", "Josh Homme", "John Paul Jones", "Trent Reznor"],
           "correctAnswer": "Dave Grohl",
           "trivia": "在制作Queens of the Stone Age的专辑'Songs for the Deaf'时，著名的Foo Fighters鼓手Dave Grohl参与了鼓的录制，这为专辑增添了强烈的节奏感和动力。Josh Homme作为乐队主脑，担任吉他和主唱，同时也参与制作。John Paul Jones是Led Zeppelin的贝斯手，并未参与该专辑。Trent Reznor是Nine Inch Nails的核心成员，也没有参与该项目。Dave Grohl的加入被视为该专辑成功的重要因素之一，这张专辑也因其独特的制作和合作而广受好评。"
         },
@@ -8341,12 +7226,7 @@
         },
         {
           "question": "在Queens of the Stone Age的专辑《Songs for the Deaf》中，哪位音乐家担任了鼓手，且在录制过程中对专辑的节奏感贡献显著？",
-          "options": [
-            "Dave Grohl",
-            "Joey Castillo",
-            "Alfredo Hernández",
-            "Gene Trautmann"
-          ],
+          "options": ["Dave Grohl", "Joey Castillo", "Alfredo Hernández", "Gene Trautmann"],
           "correctAnswer": "Dave Grohl",
           "trivia": "《Songs for the Deaf》是Queens of the Stone Age于2002年发行的重要专辑，Dave Grohl担任了该专辑的主打鼓手。他以其在Nirvana和Foo Fighters中的知名鼓技而闻名，录制时为专辑带来了强烈且富有动力的节奏感。虽然Joey Castillo和Gene Trautmann都曾是乐队的鼓手，但他们主要参与的是专辑发行后的巡演或后续作品的录制。Alfredo Hernández曾与乐队早期成员合作，但未参与本专辑录制。Grohl的加入极大提升了该专辑的音乐表现力，使其成为摇滚经典。"
         },
@@ -8418,12 +7298,7 @@
         },
         {
           "question": "Radiohead在《Kid A》专辑中广泛使用了哪种音乐元素，标志着他们风格的转变？",
-          "options": [
-            "电子合成器和环境音效",
-            "传统吉他独奏",
-            "现场管弦乐伴奏",
-            "重金属鼓点"
-          ],
+          "options": ["电子合成器和环境音效", "传统吉他独奏", "现场管弦乐伴奏", "重金属鼓点"],
           "correctAnswer": "电子合成器和环境音效",
           "trivia": "Radiohead的《Kid A》专辑于2000年发布，被认为是乐队从传统摇滚向电子和实验音乐转型的里程碑。在这张专辑中，乐队大量使用电子合成器和环境音效，创造出一种氛围感极强且前卫的音乐风格。相比以往的吉他主导，《Kid A》更注重合成音色和节奏的创新，这也使专辑在发布后获得了广泛的赞誉和影响力。此外，乐队在录制过程中还引入了采样器和电子乐器，进一步丰富了音乐层次。"
         },
@@ -8519,23 +7394,13 @@
       "easy": [
         {
           "question": "Red Hot Chili Peppers发行2002年专辑'By the Way'时，哪款品牌成为该专辑官方的促销合作伙伴？",
-          "options": [
-            "耐克（Nike）",
-            "可口可乐（Coca-Cola）",
-            "索尼（Sony）",
-            "百事可乐（Pepsi）"
-          ],
+          "options": ["耐克（Nike）", "可口可乐（Coca-Cola）", "索尼（Sony）", "百事可乐（Pepsi）"],
           "correctAnswer": "耐克（Nike）",
           "trivia": "Red Hot Chili Peppers在2002年发行的专辑'By the Way'期间，与耐克（Nike）建立了促销合作关系。耐克利用该专辑的音乐和形象推出了特别版运动鞋，吸引了乐迷和运动爱好者的关注。此举是早期音乐与体育品牌跨界营销的成功案例之一。相比之下，可口可乐、索尼和百事可乐当时虽有其他音乐合作项目，但并非与'By the Way'专辑进行官方推广。这样的品牌合作帮助专辑在全球市场获得更大曝光，促进了商品销售和品牌推广。"
         },
         {
           "question": "Red Hot Chili Peppers的专辑'By the Way'于2002年数字发行时，以下哪首歌曲作为首支单曲推出？",
-          "options": [
-            "By the Way",
-            "Can't Stop",
-            "Californication",
-            "Dani California"
-          ],
+          "options": ["By the Way", "Can't Stop", "Californication", "Dani California"],
           "correctAnswer": "By the Way",
           "trivia": "Red Hot Chili Peppers的专辑'By the Way'于2002年发行时，首支数字单曲是同名歌曲'By the Way'。这首歌在多个国家的音乐排行榜上表现出色，成为乐队的代表作之一。'Can't Stop'和'Californication'分别来自乐队其他时期的专辑，而'Dani California'是他们2006年专辑'Starway to Heaven'中的单曲。数字发行的推广帮助乐队吸引了更多在线听众，推动了专辑的全球成功。"
         },
@@ -8589,12 +7454,7 @@
       "hard": [
         {
           "question": "在Red Hot Chili Peppers的2002年专辑《By the Way》的创作背景中，哪位制作人对这张专辑的整体声音和风格起到了关键作用？",
-          "options": [
-            "Rick Rubin",
-            "Brian Eno",
-            "Butch Vig",
-            "Nigel Godrich"
-          ],
+          "options": ["Rick Rubin", "Brian Eno", "Butch Vig", "Nigel Godrich"],
           "correctAnswer": "Rick Rubin",
           "trivia": "《By the Way》是Red Hot Chili Peppers与著名制作人Rick Rubin的第五次合作。Rick Rubin在这张专辑中运用了更为精致和层次丰富的录音手法，帮助乐队从之前的朋克和放克风格转向更为旋律化和情感细腻的方向。Rubin的制作风格注重乐器间的平衡与空间感，这使得专辑整体听感更加饱满且具有深度。此外，Rick Rubin与乐队成员之间的长期合作关系也为专辑的创作提供了稳定的支持和信任基础。"
         },
@@ -8611,12 +7471,7 @@
         },
         {
           "question": "在Red Hot Chili Peppers的2002年专辑'By the Way'的词曲创作过程中，哪位成员首次承担了大量主唱任务，从而显著影响了专辑的音乐风格？",
-          "options": [
-            "Anthony Kiedis",
-            "John Frusciante",
-            "Flea",
-            "Chad Smith"
-          ],
+          "options": ["Anthony Kiedis", "John Frusciante", "Flea", "Chad Smith"],
           "correctAnswer": "John Frusciante",
           "trivia": "在Red Hot Chili Peppers的专辑'By the Way'中，吉他手John Frusciante不仅在吉他演奏上发挥重要作用，还首次承担了大量主唱任务，这在之前的专辑中较为少见。Frusciante的嗓音和和声为专辑带来了更丰富的层次感，促使乐队的音乐风格从以往的放克摇滚向更柔和且旋律性更强的方向发展。此外，Anthony Kiedis的主唱风格也因此有所调整，两者的声音在专辑中形成了独特的互动。此创作过程标志着乐队音乐表达的一个重要转型期。"
         }
@@ -8754,12 +7609,7 @@
         },
         {
           "question": "Seconds to Mars在录制2005年专辑《A Beautiful Lie》时，哪位资深音响工程师负责了主要的混音工作？",
-          "options": [
-            "Tom Lord-Alge",
-            "Chris Lord-Alge",
-            "Andy Wallace",
-            "Alan Moulder"
-          ],
+          "options": ["Tom Lord-Alge", "Chris Lord-Alge", "Andy Wallace", "Alan Moulder"],
           "correctAnswer": "Tom Lord-Alge",
           "trivia": "《A Beautiful Lie》是Seconds to Mars于2005年发行的第二张录音室专辑，融合了摇滚与交响元素。在这张专辑的制作过程中，著名音响工程师Tom Lord-Alge负责了主要的混音工作，他以处理摇滚和流行音乐混音闻名。Tom Lord-Alge曾与多位知名艺术家合作，提升了专辑的声音表现力和清晰度。Chris Lord-Alge和Andy Wallace也都是业界著名的工程师，但此专辑主要由Tom Lord-Alge操刀混音。Alan Moulder虽然擅长另类摇滚，但未参与该专辑的混音制作。"
         },
@@ -8778,34 +7628,19 @@
       "medium": [
         {
           "question": "在2005年由Seconds to Mars发行的专辑《A Beautiful Lie》的制作过程中，谁担任了该专辑的联合制作人？",
-          "options": [
-            "Brian Virtue",
-            "Rick Rubin",
-            "Steve Lillywhite",
-            "Butch Vig"
-          ],
+          "options": ["Brian Virtue", "Rick Rubin", "Steve Lillywhite", "Butch Vig"],
           "correctAnswer": "Brian Virtue",
           "trivia": "Seconds to Mars在制作2005年专辑《A Beautiful Lie》时，与制作人Brian Virtue紧密合作。Brian Virtue不仅参与了录音工程，还担任了联合制作人，帮助塑造了专辑的音色和整体氛围。该专辑的录制地点包括加利福尼亚的多个录音棚，这种合作为乐队带来了更成熟且丰富的声音。Rick Rubin、Steve Lillywhite和Butch Vig虽然都是著名制作人，但并未参与《A Beautiful Lie》的制作。Brian Virtue的贡献对该专辑的成功起到了关键作用。"
         },
         {
           "question": "在Seconds to Mars的专辑《A Beautiful Lie》中，哪首歌曲曾在美国主流摇滚电台获得较高的播放量，成为该专辑电台播放的代表作？",
-          "options": [
-            "The Kill",
-            "Attack",
-            "A Beautiful Lie",
-            "From Yesterday"
-          ],
+          "options": ["The Kill", "Attack", "A Beautiful Lie", "From Yesterday"],
           "correctAnswer": "The Kill",
           "trivia": "《A Beautiful Lie》是Seconds to Mars于2005年发行的第二张专辑，其中《The Kill》是该专辑中最成功的单曲之一。该曲在美国主流摇滚电台获得大量播放，帮助乐队在主流音乐市场中奠定了地位。除了在摇滚电台的高频播放外，《The Kill》还进入了Billboard主流摇滚曲目榜的前十名，成为乐队的代表作之一。相比之下，虽然《Attack》、《A Beautiful Lie》和《From Yesterday》也有一定的电台播放，但未达到《The Kill》的广泛影响力和播放量。"
         },
         {
           "question": "在数字发行方面，Seconds to Mars的专辑《A Beautiful Lie》（2005年）首次在哪个平台以数字形式上线？",
-          "options": [
-            "iTunes Store",
-            "Amazon MP3",
-            "Napster",
-            "eMusic"
-          ],
+          "options": ["iTunes Store", "Amazon MP3", "Napster", "eMusic"],
           "correctAnswer": "iTunes Store",
           "trivia": "《A Beautiful Lie》是Seconds to Mars于2005年发行的第二张录音室专辑。该专辑在数字发行方面首次通过iTunes Store上线，使其能够迅速接触到全球数字音乐市场。iTunes Store在2000年代中期成为主流的数字音乐销售平台，推动了包括摇滚乐队在内的众多艺术家采用数字发行方式。虽然当时Amazon MP3和eMusic也提供数字音乐服务，但iTunes因其庞大的用户基础和良好的版权管理而成为首选。Napster则已从最初的点对点共享平台转型，数字发行影响力相对有限。"
         }
@@ -8813,12 +7648,7 @@
       "hard": [
         {
           "question": "Seconds to Mars在录制2005年专辑《A Beautiful Lie》时，哪一位著名音乐制作人参与了专辑的混音工作？",
-          "options": [
-            "Bob Ezrin",
-            "Rick Rubin",
-            "Flood",
-            "Steve Lillywhite"
-          ],
+          "options": ["Bob Ezrin", "Rick Rubin", "Flood", "Steve Lillywhite"],
           "correctAnswer": "Bob Ezrin",
           "trivia": "《A Beautiful Lie》是Seconds to Mars的第二张录音室专辑，制作过程中邀请了著名制作人Bob Ezrin参与混音工作，他以曾与Pink Floyd和Alice Cooper等传奇乐队合作闻名。Ezrin的加入为专辑带来了更为丰富和层次分明的声音质感，有效提升了歌曲的情感表达。专辑录制地点包括洛杉矶的多个录音室，体现了乐队对制作细节的高度重视。此次合作不仅巩固了Seconds to Mars在摇滚乐坛的地位，也为他们后续作品奠定了坚实基础。"
         },
@@ -8866,12 +7696,7 @@
         },
         {
           "question": "Shakira在录制2001年专辑《Laundry Service》时，主要在哪个城市的录音室完成了制作？",
-          "options": [
-            "迈阿密",
-            "洛杉矶",
-            "纽约",
-            "伦敦"
-          ],
+          "options": ["迈阿密", "洛杉矶", "纽约", "伦敦"],
           "correctAnswer": "洛杉矶",
           "trivia": "《Laundry Service》是Shakira的第一张英文录音室专辑，她为了这张专辑选择在洛杉矶的多个录音室进行录制。洛杉矶作为全球音乐制作的重要中心，拥有先进的录音设备和丰富的音乐制作人才，这为专辑的国际化制作提供了良好的环境。专辑融合了摇滚、拉丁流行和中东元素，部分得益于洛杉矶多元化的音乐氛围。除了洛杉矶的录制，Shakira也在迈阿密等地进行了一些后期制作，但主要录音工作是在洛杉矶完成的。"
         },
@@ -8901,12 +7726,7 @@
         },
         {
           "question": "Shakira在录制2001年专辑《Laundry Service》时，哪一位音响工程师负责了大部分录音和混音工作？",
-          "options": [
-            "Gustavo Celis",
-            "Bob Clearmountain",
-            "Mutt Lange",
-            "Rick Rubin"
-          ],
+          "options": ["Gustavo Celis", "Bob Clearmountain", "Mutt Lange", "Rick Rubin"],
           "correctAnswer": "Gustavo Celis",
           "trivia": "Gustavo Celis是《Laundry Service》专辑中担任主要录音和混音工程师的音响专家。他与Shakira合作紧密，帮助将这张专辑中的拉丁流行元素与摇滚和流行音乐完美融合。Celis在录音过程中采用了多轨录音技术，提高了音质的清晰度和层次感。此外，他的混音工作使得专辑整体声音均衡且富有动感。《Laundry Service》因其高质量的制作和音响工程获得了广泛好评，部分归功于Celis的专业贡献。"
         },
@@ -8925,12 +7745,7 @@
       "hard": [
         {
           "question": "在Shakira的专辑《Laundry Service》（2001年）制作过程中，哪位著名制作人参与了专辑的制作并对其摇滚和流行元素的融合起到了关键作用？",
-          "options": [
-            "Gustavo Santaolalla",
-            "Rick Rubin",
-            "Emile Haynie",
-            "Glen Ballard"
-          ],
+          "options": ["Gustavo Santaolalla", "Rick Rubin", "Emile Haynie", "Glen Ballard"],
           "correctAnswer": "Gustavo Santaolalla",
           "trivia": "Gustavo Santaolalla是阿根廷著名音乐制作人，他参与了Shakira的《Laundry Service》专辑制作，帮助Shakira将拉丁音乐元素与摇滚和流行音乐巧妙融合。Santaolalla在该专辑中不仅担任制作人，还参与了编曲和器乐演奏，赋予专辑独特的跨文化风格。此外，这张专辑标志着Shakira首次大规模进军英语市场，Santaolalla的制作经验为其跨界成功奠定了基础。Rick Rubin和Glen Ballard虽然是知名制作人，但并未参与这张专辑的制作。"
         },
@@ -8967,12 +7782,7 @@
       "easy": [
         {
           "question": "Shania Twain的专辑《Up!》于2002年数字发行时，以下哪种格式是该专辑首次同时提供的数字版本？",
-          "options": [
-            "MP3格式",
-            "FLAC格式",
-            "WAV格式",
-            "AAC格式"
-          ],
+          "options": ["MP3格式", "FLAC格式", "WAV格式", "AAC格式"],
           "correctAnswer": "MP3格式",
           "trivia": "Shania Twain的《Up!》专辑在2002年发行时，作为当时数字音乐兴起的代表之一，首次通过MP3格式进行数字发行。MP3格式因其高效的压缩率和广泛的兼容性，成为早期数字音乐的标准选择。虽然高品质格式如FLAC和WAV存在，但它们在2002年尚未广泛应用于主流数字发行。AAC格式则是在稍晚些年才逐渐普及。Shania Twain的《Up!》数字发行帮助推动了乡村流行音乐在新兴数字平台上的传播。"
         },
@@ -9048,12 +7858,7 @@
         },
         {
           "question": "在Shania Twain的2002年专辑《Up!》的录制过程中，哪位音乐家因其在乡村和摇滚吉他演奏上的贡献而被特别认可？",
-          "options": [
-            "Dann Huff",
-            "Keith Urban",
-            "Vince Gill",
-            "Brent Mason"
-          ],
+          "options": ["Dann Huff", "Keith Urban", "Vince Gill", "Brent Mason"],
           "correctAnswer": "Dann Huff",
           "trivia": "Dann Huff是著名的吉他手和制作人，他在Shania Twain的专辑《Up!》中担任重要的吉他演奏工作，特别是在乡村与摇滚风格的融合中发挥了关键作用。Huff曾是摇滚乐队Giant的成员，后来成为顶尖的录音室吉他手和制作人，为许多乡村和流行艺人录制专辑。其精湛的吉他技巧和丰富的录音经验，为《Up!》的多风格音乐制作增添了专业色彩。与此同时，其他选项中的Keith Urban、Vince Gill和Brent Mason虽然均为著名乡村音乐吉他手，但并未在《Up!》专辑的录制中担任主要角色。"
         },
@@ -9202,12 +8007,7 @@
         },
         {
           "question": "Snow Patrol的专辑《Final Straw》发行后，哪首歌曲最先成为英国排行榜上的热门单曲，显著提升了乐队的知名度？",
-          "options": [
-            "《Run》",
-            "《Chocolate》",
-            "《Spitting Games》",
-            "《How to Be Dead》"
-          ],
+          "options": ["《Run》", "《Chocolate》", "《Spitting Games》", "《How to Be Dead》"],
           "correctAnswer": "《Spitting Games》",
           "trivia": "《Spitting Games》是Snow Patrol在2004年《Final Straw》专辑中发行的首支单曲。它成功进入英国单曲排行榜前40名，为乐队赢得了更广泛的关注和商业成功。随后，《Run》这首歌曲也取得了巨大反响，进一步巩固了Snow Patrol在流行摇滚领域的地位。专辑整体在英国获得了良好销量，成为乐队突破性的作品之一。"
         },
@@ -9237,12 +8037,7 @@
         },
         {
           "question": "Snow Patrol在2004年发行的专辑《Final Straw》中，哪种乐器的使用显著增强了其摇滚音乐的情感表达？",
-          "options": [
-            "大提琴",
-            "萨克斯风",
-            "口琴",
-            "钢琴"
-          ],
+          "options": ["大提琴", "萨克斯风", "口琴", "钢琴"],
           "correctAnswer": "钢琴",
           "trivia": "在Snow Patrol的《Final Straw》专辑中，钢琴的运用成为增强歌曲情感层次的重要元素。虽然乐队以吉他和鼓为主，但钢琴的加入为多首歌曲提供了更丰富的音色和氛围，尤其是在《Run》等曲目中表现突出。录制该专辑时，乐队致力于打造既有力量又细腻的摇滚风格，钢琴的温暖音质帮助实现了这一目标。此外，制作人Jacknife Lee在录音过程中也鼓励乐队尝试多样化的乐器编排，进一步丰富了专辑的音乐元素。"
         },
@@ -9261,12 +8056,7 @@
       "hard": [
         {
           "question": "Snow Patrol的2004年专辑《Final Straw》是通过哪家唱片公司首次在英国市场发行的？",
-          "options": [
-            "Polydor Records",
-            "Island Records",
-            "RCA Records",
-            "Atlantic Records"
-          ],
+          "options": ["Polydor Records", "Island Records", "RCA Records", "Atlantic Records"],
           "correctAnswer": "Polydor Records",
           "trivia": "《Final Straw》是Snow Patrol在2004年发行的第三张录音室专辑，标志着乐队商业突破的重要里程碑。该专辑首次在英国由Polydor Records发行，这家唱片公司在当时专注于推广摇滚和另类音乐，帮助乐队获得更广泛的关注。此前，Snow Patrol的早期作品是通过不同的小型厂牌发行的，Polydor的加入为他们提供了更强的发行和宣传资源。此外，Polydor Records隶属于环球音乐集团，这为《Final Straw》在国际市场上的推广提供了有力支持，推动了专辑在英国及其他地区的销量和影响力。"
         },
@@ -9314,23 +8104,13 @@
         },
         {
           "question": "Sum 41的专辑《All Killer No Filler》在2001年发行后，哪首歌曲成为该专辑最广为人知的热门单曲，帮助乐队在流行朋克界迅速崛起？",
-          "options": [
-            "《Fat Lip》",
-            "《In Too Deep》",
-            "《Motivation》",
-            "《Handle This》"
-          ],
+          "options": ["《Fat Lip》", "《In Too Deep》", "《Motivation》", "《Handle This》"],
           "correctAnswer": "《Fat Lip》",
           "trivia": "《All Killer No Filler》是加拿大朋克摇滚乐队Sum 41于2001年发行的首张录音室专辑，其中《Fat Lip》成为了乐队的代表作，也是在全球范围内广受欢迎的热门单曲。该歌曲以其充满活力的节奏和混合说唱与摇滚的风格，成功登上了美国公告牌现代摇滚榜的冠军位置。凭借《Fat Lip》的成功，Sum 41迅速在流行朋克领域崭露头角，并影响了一代年轻人的音乐品味。专辑整体风格结合了朋克和流行元素，体现了当时流行朋克的文化潮流。"
         },
         {
           "question": "Sum 41发行他们的首张专辑'All Killer No Filler'时，隶属于哪家唱片公司？",
-          "options": [
-            "Island Records",
-            "Aquarius Records",
-            "Fueled by Ramen",
-            "Epitaph Records"
-          ],
+          "options": ["Island Records", "Aquarius Records", "Fueled by Ramen", "Epitaph Records"],
           "correctAnswer": "Aquarius Records",
           "trivia": "Sum 41的首张录音室专辑'All Killer No Filler'于2001年发行，当时该专辑由加拿大的Aquarius Records发行。Aquarius Records是一家著名的加拿大独立唱片公司，支持了许多本地摇滚和朋克乐队的发展。尽管Sum 41后来与其他厂牌有过合作，但他们的早期作品，包括这张专辑，均通过Aquarius Records发布。此外，'All Killer No Filler'成功进入了多个国家的排行榜，推动了Sum 41在国际上的知名度。"
         }
@@ -9338,12 +8118,7 @@
       "medium": [
         {
           "question": "在Sum 41的专辑《All Killer No Filler》（2001年）的音响工程制作过程中，哪位音响工程师负责了大部分的混音工作？",
-          "options": [
-            "Jerry Finn",
-            "Butch Vig",
-            "Andy Wallace",
-            "Steve Albini"
-          ],
+          "options": ["Jerry Finn", "Butch Vig", "Andy Wallace", "Steve Albini"],
           "correctAnswer": "Jerry Finn",
           "trivia": "Jerry Finn是著名的音响工程师，因与多支朋克和摇滚乐队合作而闻名，他负责了Sum 41《All Killer No Filler》专辑的大部分混音工作。该专辑录制于2000年，Jerry Finn的混音风格帮助塑造了专辑清晰且富有冲击力的声音质感。除了Sum 41，他还曾为Green Day和Blink-182等乐队担任混音工程师，促进了流行朋克的声音发展。Jerry Finn的参与被认为是《All Killer No Filler》成功的重要因素之一。"
         },
@@ -9360,12 +8135,7 @@
         },
         {
           "question": "Sum 41在录制2001年专辑《All Killer No Filler》时，哪位制作人负责了专辑的大部分制作工作？",
-          "options": [
-            "Jerry Finn",
-            "Greig Nori",
-            "Butch Vig",
-            "Rick Rubin"
-          ],
+          "options": ["Jerry Finn", "Greig Nori", "Butch Vig", "Rick Rubin"],
           "correctAnswer": "Greig Nori",
           "trivia": "《All Killer No Filler》是Sum 41的首张录音室专辑，制作人Greig Nori在专辑的制作过程中扮演了关键角色。Nori不仅是制作人，同时也是Sum 41的导师和早期支持者，他帮助乐队打造了清晰且充满活力的流行朋克声音。专辑在加拿大的Metalworks Studios录制，Greig Nori的参与确保了作品的统一性和专业度。Jerry Finn虽然是当时流行朋克界知名制作人，但他并未参与该专辑的制作。Butch Vig和Rick Rubin虽是著名制作人，但与Sum 41的这张专辑无关。"
         }
@@ -9395,12 +8165,7 @@
         },
         {
           "question": "Sum 41在其2001年专辑《All Killer No Filler》中，通过哪首歌曲对当时青少年面临的社会压力和内心困惑进行了深刻的社会评论？",
-          "options": [
-            "《Fat Lip》",
-            "《In Too Deep》",
-            "《Motivation》",
-            "《Nothing On My Back》"
-          ],
+          "options": ["《Fat Lip》", "《In Too Deep》", "《Motivation》", "《Nothing On My Back》"],
           "correctAnswer": "《Motivation》",
           "trivia": "《Motivation》是Sum 41在专辑《All Killer No Filler》中较少被提及但具有深刻社会评论意义的歌曲。这首歌表达了青少年在社会和自我认同中挣扎的心境，反映了当时年轻人面对的压力和迷茫。与专辑中更流行、节奏明快的歌曲《Fat Lip》和《In Too Deep》相比，《Motivation》的歌词更具内省性和批判性。专辑整体以朋克摇滚风格著称，但《Motivation》展示了乐队在主题深度上的多样性，揭示了2000年代初社会环境对青少年的影响。"
         }
@@ -9437,12 +8202,7 @@
         },
         {
           "question": "Susan Boyle在录制2009年专辑'I Dreamed a Dream'时，哪位制作人主要负责专辑的制作工作？",
-          "options": [
-            "Steve Mac",
-            "Simon Cowell",
-            "Nigel Wright",
-            "David Foster"
-          ],
+          "options": ["Steve Mac", "Simon Cowell", "Nigel Wright", "David Foster"],
           "correctAnswer": "Steve Mac",
           "trivia": "Susan Boyle的首张专辑'I Dreamed a Dream'由制作人Steve Mac主导制作。Steve Mac是一位著名的英国音乐制作人，以其流行和成人当代音乐作品闻名。这张专辑于2009年录制，成功地将Susan Boyle的声音特色与高质量制作结合起来。Simon Cowell虽然是Susan Boyle在英国达人秀的评委，但并非专辑的制作人。Nigel Wright则是其他音乐项目的制作人，而David Foster更专注于北美市场，因此Steve Mac的参与是专辑成功的重要因素之一。"
         }
@@ -9450,12 +8210,7 @@
       "medium": [
         {
           "question": "在录制Susan Boyle的2009年专辑《I Dreamed a Dream》时，制作团队主要在哪个城市完成了录音工作？",
-          "options": [
-            "伦敦",
-            "洛杉矶",
-            "纽约",
-            "爱丁堡"
-          ],
+          "options": ["伦敦", "洛杉矶", "纽约", "爱丁堡"],
           "correctAnswer": "伦敦",
           "trivia": "Susan Boyle的首张录音室专辑《I Dreamed a Dream》主要在伦敦完成录制。伦敦作为音乐制作的重要中心，拥有众多世界级的录音棚和制作人才，这为专辑的高品质音效提供了保障。专辑由著名制作人Steve Mac负责制作，他在伦敦的录音棚中利用先进设备捕捉了Susan的声音特色。虽然Susan本人来自苏格兰的帕斯利，但录音过程选择了伦敦以确保专业制作水平和国际发行标准。"
         },
@@ -9527,34 +8282,19 @@
       "easy": [
         {
           "question": "System of a Down的专辑'Toxicity'在发布后，哪首歌曲最受粉丝欢迎并成为该专辑的代表作之一？",
-          "options": [
-            "Chop Suey!",
-            "Bounce",
-            "Science",
-            "ATWA"
-          ],
+          "options": ["Chop Suey!", "Bounce", "Science", "ATWA"],
           "correctAnswer": "Chop Suey!",
           "trivia": "System of a Down的专辑'Toxicity'于2001年发布，其中歌曲'Chop Suey!'迅速成为粉丝最喜爱的作品，也成为乐队的代表作之一。这首歌在美国公告牌主流摇滚榜上排名靠前，并且因其独特的节奏变化和深刻的歌词广受好评。'Chop Suey!'的音乐视频在MTV等音乐频道频繁播放，极大提升了专辑的流行度和乐队的知名度。此外，这首歌也常被粉丝在现场演唱会中合唱，体现了其持久的影响力。"
         },
         {
           "question": "System of a Down发行2001年专辑'Toxicity'时，哪首歌曲成为该专辑的主打单曲并获得广泛关注？",
-          "options": [
-            "Chop Suey!",
-            "Sugar",
-            "Aerials",
-            "Bounce"
-          ],
+          "options": ["Chop Suey!", "Sugar", "Aerials", "Bounce"],
           "correctAnswer": "Chop Suey!",
           "trivia": "System of a Down的'Toxicity'专辑于2001年发行，其中《Chop Suey!》作为主打单曲迅速走红，成为乐队最具代表性的作品之一。这首歌以其独特的节奏变化和深刻歌词吸引了大量听众，并帮助专辑在全球范围内取得商业成功。《Chop Suey!》还登上了多个国家的音乐排行榜，增强了System of a Down的国际知名度。整张专辑的制作过程在加利福尼亚完成，融合了金属与另类摇滚元素，体现了乐队独特的音乐风格。"
         },
         {
           "question": "System of a Down的专辑《Toxicity》在美国Billboard 200排行榜上的最高排名是多少？",
-          "options": [
-            "第一名",
-            "第五名",
-            "第十名",
-            "第二十名"
-          ],
+          "options": ["第一名", "第五名", "第十名", "第二十名"],
           "correctAnswer": "第一名",
           "trivia": "System of a Down于2001年发行的专辑《Toxicity》在美国Billboard 200排行榜上取得了极大的成功，曾登顶第一名。这是乐队首次获得该排行榜的冠军，标志着他们在主流音乐界的突破。专辑中的热门单曲如《Chop Suey!》和《Toxicity》也帮助提升了专辑的销量和知名度。《Toxicity》最终被认证为多白金唱片，巩固了System of a Down作为另类金属的重要地位。"
         }
@@ -9562,23 +8302,13 @@
       "medium": [
         {
           "question": "System of a Down在录制2001年专辑'Toxicity'时，哪位制作人负责该专辑的制作工作？",
-          "options": [
-            "Rick Rubin",
-            "Andy Wallace",
-            "David Bottrill",
-            "Bob Rock"
-          ],
+          "options": ["Rick Rubin", "Andy Wallace", "David Bottrill", "Bob Rock"],
           "correctAnswer": "Rick Rubin",
           "trivia": "专辑'Toxicity'由著名制作人Rick Rubin制作，他以推动多种摇滚和金属乐队的成功作品而闻名。System of a Down选择Rubin作为制作人，部分原因是他能够帮助乐队在保持独特风格的同时提升录音质量。录制过程在洛杉矶的Canyon Club和Henson Studios进行，Rubin的参与使得专辑的声音更加紧凑且具有冲击力。此外，Rick Rubin曾与多支著名乐队合作，如Red Hot Chili Peppers和Metallica，这为'Toxicity'注入了丰富的制作经验和专业水准。"
         },
         {
           "question": "System of a Down在发行专辑'Toxicity'时，哪支歌曲的音乐录影带采用了大量快速切换的视觉效果和超现实主义元素，增强了歌曲的紧张氛围？",
-          "options": [
-            "《Chop Suey!》",
-            "《Aerials》",
-            "《Bounce》",
-            "《Science》"
-          ],
+          "options": ["《Chop Suey!》", "《Aerials》", "《Bounce》", "《Science》"],
           "correctAnswer": "《Chop Suey!》",
           "trivia": "《Chop Suey!》是System of a Down在2001年专辑'Toxicity'中的主打单曲，其音乐录影带以快速切换的画面和超现实主义视觉效果著称，成功表现了歌曲紧张且复杂的情绪。该MV由导演Marc Webb执导，他后来也执导了多部知名音乐录影带和电影。除此之外，MV中穿插了乐队现场演出的片段，增强了视觉冲击力。《Chop Suey!》的音乐录影带帮助歌曲在MTV和音乐频道上获得了大量播放，进一步推动了专辑的商业成功。"
         },
@@ -9661,12 +8391,7 @@
         },
         {
           "question": "在T.I.的2008年专辑《Paper Trail》的制作过程中，哪种音乐设备被广泛用于采样和节奏制作？",
-          "options": [
-            "Akai MPC系列采样器",
-            "Moog合成器",
-            "Fender电吉他",
-            "Yamaha钢琴"
-          ],
+          "options": ["Akai MPC系列采样器", "Moog合成器", "Fender电吉他", "Yamaha钢琴"],
           "correctAnswer": "Akai MPC系列采样器",
           "trivia": "在《Paper Trail》专辑的制作中，Akai MPC系列采样器是节奏制作的核心设备之一。T.I.与制作人们利用MPC的采样和鼓机功能，创造出具有特色的南方嘻哈节奏。Akai MPC以其直观的打击垫和强大的采样能力，在2000年代嘻哈音乐制作中极为流行。相比之下，虽然Moog合成器和Yamaha钢琴也在音乐中使用，但它们并非该专辑节奏制作的主要设备。Fender电吉他则较少出现在嘻哈制作中，尤其是在像《Paper Trail》这样的作品里。"
         }
@@ -9709,12 +8434,7 @@
       "hard": [
         {
           "question": "T.I.在创作2008年专辑《Paper Trail》时，哪位艺术家对他的灵感影响最为显著，尤其是在探讨个人成长和社会责任的主题上？",
-          "options": [
-            "Jay-Z",
-            "Kanye West",
-            "Nas",
-            "Dr. Dre"
-          ],
+          "options": ["Jay-Z", "Kanye West", "Nas", "Dr. Dre"],
           "correctAnswer": "Jay-Z",
           "trivia": "在《Paper Trail》专辑的创作过程中，T.I.受到了Jay-Z的显著影响，尤其是在歌词内容上更注重反思个人成长和社会责任。Jay-Z以其深刻的叙事方式和商业头脑启发了T.I.，促使他在这张专辑中表现出更多层次的成熟和自省。事实上，T.I.曾公开表示，Jay-Z在音乐和事业规划上的榜样作用帮助他更好地平衡艺术表达与商业成功。此外，《Paper Trail》中的多首歌曲体现了对社会问题的关注，这与Jay-Z早期作品中的主题相呼应。"
         },
@@ -9762,23 +8482,13 @@
         },
         {
           "question": "Taylor Swift的专辑《Fearless》在哪个著名的音乐奖项中获得了“年度专辑”奖？",
-          "options": [
-            "格莱美奖",
-            "全美音乐奖",
-            "公告牌音乐奖",
-            "乡村音乐协会奖"
-          ],
+          "options": ["格莱美奖", "全美音乐奖", "公告牌音乐奖", "乡村音乐协会奖"],
           "correctAnswer": "格莱美奖",
           "trivia": "Taylor Swift的专辑《Fearless》于2008年发布，并在2009年赢得了格莱美奖中的“年度专辑”奖，这使她成为当时最年轻的获奖者之一。该专辑不仅获得了商业上的巨大成功，还因其歌曲的创作和制作质量获得了广泛认可。《Fearless》还获得了包括最佳乡村专辑在内的多个格莱美奖项，巩固了Taylor Swift在乡村和流行音乐界的地位。格莱美奖作为美国音乐界最有影响力的奖项，代表了音乐作品的最高荣誉。"
         },
         {
           "question": "在Taylor Swift的2008年专辑《Fearless》中，哪首歌曲曾在美国主流电台的播放中获得最高排名，成为她早期最受欢迎的单曲之一？",
-          "options": [
-            "Love Story",
-            "Fifteen",
-            "The Way I Loved You",
-            "Hey Stephen"
-          ],
+          "options": ["Love Story", "Fifteen", "The Way I Loved You", "Hey Stephen"],
           "correctAnswer": "Love Story",
           "trivia": "《Fearless》是Taylor Swift的第二张录音室专辑，其中单曲《Love Story》在美国主流电台播放量极高，曾跻身Billboard Hot 100榜单的前五名。该曲融合了乡村与流行元素，成为她早期的代表作之一。相比之下，尽管《Fifteen》和《The Way I Loved You》也获得了不错的电台播放，但都未达到《Love Story》的高度。《Hey Stephen》则主要作为专辑深度曲目，电台曝光较少。此单曲帮助Taylor Swift巩固了她作为跨界歌手的地位。"
         }
@@ -9797,23 +8507,13 @@
         },
         {
           "question": "在Taylor Swift的2008年专辑《Fearless》的制作过程中，哪位制作人主要负责了专辑的大部分录音和制作工作？",
-          "options": [
-            "Nathan Chapman",
-            "Max Martin",
-            "Rick Rubin",
-            "T Bone Burnett"
-          ],
+          "options": ["Nathan Chapman", "Max Martin", "Rick Rubin", "T Bone Burnett"],
           "correctAnswer": "Nathan Chapman",
           "trivia": "Nathan Chapman是Taylor Swift早期作品的重要合作制作人，他主要负责了《Fearless》专辑的大部分录音和制作。Chapman与Taylor Swift合作创建了专辑中融合乡村和流行元素的独特声音，确保了歌曲的情感表达与商业吸引力的平衡。《Fearless》中的许多热门单曲，如《Love Story》和《You Belong with Me》，都是在Chapman的指导下完成录制的。Max Martin等其他著名制作人虽然在Swift后期作品中出现，但并未参与《Fearless》的制作。Rick Rubin和T Bone Burnett虽然是著名制作人，但与此专辑无关。"
         },
         {
           "question": "在Taylor Swift 2008年发行的专辑《Fearless》中，哪首歌曲在美国乡村电台的播放量最高，成为该专辑最具代表性的电台热门曲目？",
-          "options": [
-            "Love Story",
-            "You Belong with Me",
-            "Fifteen",
-            "White Horse"
-          ],
+          "options": ["Love Story", "You Belong with Me", "Fifteen", "White Horse"],
           "correctAnswer": "You Belong with Me",
           "trivia": "《Fearless》是Taylor Swift的第二张录音室专辑，发行于2008年，其中多首歌曲在乡村电台表现出色。尽管《Love Story》是专辑中的首支单曲并取得巨大成功，但《You Belong with Me》在美国乡村电台的播放量最高，成为专辑最具代表性的电台热门曲目。该曲不仅在乡村电台获得广泛播放，还成功跨界进入主流流行音乐市场，进一步提升了Taylor Swift的知名度。《You Belong with Me》也因此获得了多项音乐奖项提名，成为Taylor Swift早期职业生涯中的里程碑。"
         }
@@ -9874,12 +8574,7 @@
         },
         {
           "question": "在The Flaming Lips的专辑《Yoshimi Battles the Pink Robots》中，哪位成员主要负责主唱和吉他演奏？",
-          "options": [
-            "Wayne Coyne",
-            "Steven Drozd",
-            "Michael Ivins",
-            "Nash Kato"
-          ],
+          "options": ["Wayne Coyne", "Steven Drozd", "Michael Ivins", "Nash Kato"],
           "correctAnswer": "Wayne Coyne",
           "trivia": "Wayne Coyne是The Flaming Lips的主唱和吉他手，他在2002年发行的专辑《Yoshimi Battles the Pink Robots》中扮演了核心角色。这张专辑融合了摇滚与电子元素，展示了Wayne Coyne独特的声音和创作风格。Steven Drozd作为多乐器演奏者也参与制作，但主唱职责主要由Wayne Coyne承担。Michael Ivins则负责贝斯和电子音效，而Nash Kato并非该乐队成员。"
         },
@@ -9986,12 +8681,7 @@
         },
         {
           "question": "在制作The Game的2005年专辑《The Documentary》时，哪位著名制作人主要负责了专辑的大部分词曲创作与制作？",
-          "options": [
-            "Dr. Dre",
-            "Timbaland",
-            "Pharrell Williams",
-            "Kanye West"
-          ],
+          "options": ["Dr. Dre", "Timbaland", "Pharrell Williams", "Kanye West"],
           "correctAnswer": "Dr. Dre",
           "trivia": "《The Documentary》是The Game的首张录音室专辑，于2005年发行。该专辑的大部分制作工作由传奇制作人Dr. Dre完成，他不仅参与了词曲的创作，还为专辑塑造了典型的西海岸嘻哈音色。Dr. Dre在90年代和2000年代对嘻哈音乐产生了深远影响，尤其以其细腻的采样和硬朗的鼓点著称。The Game与Dr. Dre的合作成为《The Documentary》成功的重要因素之一，该专辑也因此被认为是西海岸复兴的代表作。"
         },
@@ -10010,23 +8700,13 @@
       "medium": [
         {
           "question": "在The Game的2005年专辑'The Documentary'中，哪位知名制作人兼音乐人不仅担任制作，还在多首歌曲中参与了伴唱和乐器演奏？",
-          "options": [
-            "Dr. Dre",
-            "Kanye West",
-            "Timbaland",
-            "Pharrell Williams"
-          ],
+          "options": ["Dr. Dre", "Kanye West", "Timbaland", "Pharrell Williams"],
           "correctAnswer": "Dr. Dre",
           "trivia": "Dr. Dre在The Game的首张专辑'The Documentary'中扮演了核心制作人角色，他不仅负责制作多首重要曲目，还参与了部分伴唱和乐器演奏，增强了专辑的西海岸嘻哈风格。该专辑发布于2005年，是Dr. Dre与The Game合作的代表作之一。除了制作身份，Dr. Dre的音乐影响力和演奏才能为专辑增添了独特的声音质感，使'The Documentary'在当年获得了极大的商业成功和评论认可。"
         },
         {
           "question": "在The Game的2005年专辑《The Documentary》中，哪位音响工程师负责了大部分录音和混音工作，确保了专辑的高质量音效？",
-          "options": [
-            "Dr. Dre",
-            "Richard Huredia",
-            "Eminem",
-            "Scott Storch"
-          ],
+          "options": ["Dr. Dre", "Richard Huredia", "Eminem", "Scott Storch"],
           "correctAnswer": "Richard Huredia",
           "trivia": "Richard Huredia是《The Documentary》专辑中主要负责录音和混音的音响工程师，他的专业技术帮助专辑达到了清晰且层次丰富的声音效果。虽然Dr. Dre是该专辑制作的重要制作人和混音师之一，但具体的工程师角色由Huredia承担。Scott Storch和Eminem虽然参与了专辑制作中的音乐创作或制作部分，但并非主要的音响工程师。Richard Huredia曾与多位著名艺人合作，其在《The Documentary》中的工作体现了当时西海岸嘻哈音乐对音质的高标准要求。"
         },
@@ -10045,12 +8725,7 @@
       "hard": [
         {
           "question": "关于The Game在2005年数字发行的首张专辑《The Documentary》，以下哪种数字发行平台首次正式推出了该专辑的数字版本？",
-          "options": [
-            "iTunes Store",
-            "Amazon MP3",
-            "Napster",
-            "eMusic"
-          ],
+          "options": ["iTunes Store", "Amazon MP3", "Napster", "eMusic"],
           "correctAnswer": "iTunes Store",
           "trivia": "《The Documentary》是The Game于2005年发行的首张录音室专辑，这张专辑在数字发行方面的一个重要里程碑是通过苹果的iTunes Store进行首次正式数字发布。iTunes Store当时已成为主流数字音乐销售平台，帮助专辑在数字市场上获得了广泛的关注和销售成绩。Amazon MP3、Napster和eMusic虽然也存在于那个时代，但iTunes Store是《The Documentary》数字版本的主要发行渠道。这一数字发行策略反映了2000年代中期数字音乐市场的快速发展趋势。"
         },
@@ -10067,12 +8742,7 @@
         },
         {
           "question": "在制作The Game于2005年发行的专辑《The Documentary》时，哪位制作人负责了大部分录音室制作工作，奠定了专辑的西海岸硬核嘻哈风格？",
-          "options": [
-            "Dr. Dre",
-            "Timbaland",
-            "Pharrell Williams",
-            "DJ Premier"
-          ],
+          "options": ["Dr. Dre", "Timbaland", "Pharrell Williams", "DJ Premier"],
           "correctAnswer": "Dr. Dre",
           "trivia": "The Game的首张专辑《The Documentary》大部分录音室制作工作由传奇制作人Dr. Dre主导。Dr. Dre不仅以其标志性的西海岸嘻哈风格著称，还在该专辑中为The Game提供了坚实的音质基础。专辑录制期间，Dr. Dre利用他的专业设备和丰富经验，打造了包括《How We Do》和《Hate It or Love It》等经典曲目。虽然其他制作人如Timbaland和Pharrell Williams也参与了部分制作，但Dr. Dre的贡献最为关键，推动了整张专辑的整体声音和风格。DJ Premier则是另一位著名制作人，但未参与本专辑的制作。"
         }
@@ -10098,12 +8768,7 @@
         },
         {
           "question": "在The Killers的首张专辑《Hot Fuss》（2004年）的制作过程中，哪位制作人负责了该专辑的主要录音和制作工作？",
-          "options": [
-            "Jeff Saltzman",
-            "Rick Rubin",
-            "Brian Eno",
-            "Butch Vig"
-          ],
+          "options": ["Jeff Saltzman", "Rick Rubin", "Brian Eno", "Butch Vig"],
           "correctAnswer": "Jeff Saltzman",
           "trivia": "《Hot Fuss》是The Killers的首张专辑，其制作人是Jeff Saltzman，他在录制过程中扮演了关键角色，帮助乐队打造出独特的80年代风格合成器和摇滚混合音效。Jeff Saltzman曾参与多个独立摇滚乐队的制作，凭借细腻的制作手法使得《Hot Fuss》中的歌曲如“Mr. Brightside”和“Somebody Told Me”成为广受欢迎的经典曲目。相较之下，Rick Rubin、Brian Eno和Butch Vig虽然都是著名制作人，但并未参与该专辑的制作。Jeff Saltzman的贡献是The Killers成功开启其职业生涯的重要因素之一。"
         },
@@ -10122,12 +8787,7 @@
       "medium": [
         {
           "question": "在制作The Killers的2004年专辑《Hot Fuss》时，哪位制作人负责了大部分录音和制作工作？",
-          "options": [
-            "Jacquire King",
-            "Mickey Petralia",
-            "Alan Moulder",
-            "Jeff Saltzman"
-          ],
+          "options": ["Jacquire King", "Mickey Petralia", "Alan Moulder", "Jeff Saltzman"],
           "correctAnswer": "Jeff Saltzman",
           "trivia": "The Killers的首张专辑《Hot Fuss》主要由制作人Jeff Saltzman负责录制和制作，他帮助塑造了专辑标志性的合成器和吉他融合的声音。Jeff Saltzman曾与其他独立摇滚乐队合作，擅长捕捉现场感和复古的音响质感。相比之下，Jacquire King和Mickey Petralia也都是知名制作人，但他们并未参与《Hot Fuss》的制作。Alan Moulder则更多参与了The Killers后续专辑的混音工作。"
         },
@@ -10245,12 +8905,7 @@
         },
         {
           "question": "在The Offspring于2000年发行的专辑《Conspiracy of One》的录音过程中，哪位音响工程师负责了专辑的大部分混音工作？",
-          "options": [
-            "David J. Holman",
-            "Andy Wallace",
-            "Bob Rock",
-            "Chris Lord-Alge"
-          ],
+          "options": ["David J. Holman", "Andy Wallace", "Bob Rock", "Chris Lord-Alge"],
           "correctAnswer": "David J. Holman",
           "trivia": "David J. Holman是负责The Offspring《Conspiracy of One》专辑大部分混音工作的音响工程师。他以在摇滚和流行音乐领域的混音经验著称，曾参与多张知名专辑的制作。该专辑录制于加利福尼亚，Holman的混音帮助塑造了专辑清晰而富有冲击力的音质。相比之下，Andy Wallace和Chris Lord-Alge也都是著名混音师，但并未参与该专辑的主要混音工作。Bob Rock则主要以制作工作闻名，未直接负责此专辑的混音。"
         },
@@ -10381,12 +9036,7 @@
       "hard": [
         {
           "question": "在The Streets的2002年专辑《Original Pirate Material》中，以下哪位音乐人是该专辑制作过程中主要的协作成员，而非仅由Mike Skinner一人完成？",
-          "options": [
-            "Kevin Mark Trail",
-            "Damon Albarn",
-            "Mark Ronson",
-            "Paul Epworth"
-          ],
+          "options": ["Kevin Mark Trail", "Damon Albarn", "Mark Ronson", "Paul Epworth"],
           "correctAnswer": "Kevin Mark Trail",
           "trivia": "《Original Pirate Material》基本是Mike Skinner的个人项目，他负责编写、制作和演唱大部分内容。然而，Kevin Mark Trail作为协作歌手参与了部分歌曲的和声与伴唱，尤其是在专辑中的几首曲目中提供了灵魂和R&B风格的声音支持。Damon Albarn、Mark Ronson和Paul Epworth虽然都是英国音乐圈的重要人物，但他们并未直接参与该专辑的制作。Skinner的独特风格和部分合作，使得这张专辑成为英国街头文化与电子音乐的代表作品。"
         },
@@ -10434,12 +9084,7 @@
         },
         {
           "question": "The Strokes在2001年发行的专辑《Is This It》中，哪首歌曲以其简洁明快的吉他riff被广泛认为是专辑的代表作？",
-          "options": [
-            "Last Nite",
-            "Hard to Explain",
-            "Someday",
-            "New York City Cops"
-          ],
+          "options": ["Last Nite", "Hard to Explain", "Someday", "New York City Cops"],
           "correctAnswer": "Last Nite",
           "trivia": "《Is This It》是The Strokes于2001年发行的首张录音室专辑，标志着早2000年代车库摇滚的复兴。其中，歌曲《Last Nite》以其简洁有力的吉他riff和朗朗上口的旋律成为专辑最具代表性的曲目，广受乐迷喜爱。该曲在多个国家的音乐榜单中取得了不错的成绩，也经常被视为The Strokes的经典作品。专辑整体风格融合了复古摇滚元素，展现了乐队的独特音乐魅力。"
         },
@@ -10535,12 +9180,7 @@
       "easy": [
         {
           "question": "The White Stripes的专辑'Elephant'在美国Billboard 200排行榜上的最高排名是多少？",
-          "options": [
-            "第6名",
-            "第1名",
-            "第15名",
-            "第30名"
-          ],
+          "options": ["第6名", "第1名", "第15名", "第30名"],
           "correctAnswer": "第6名",
           "trivia": "The White Stripes于2003年发行的专辑'Elephant'在美国Billboard 200排行榜上取得了第6名的最高排名，显示了该专辑的商业成功。该专辑包含了热门单曲'Seven Nation Army'，这首歌广受欢迎并帮助专辑提升知名度。'Elephant'还赢得了格莱美最佳另类音乐专辑奖，进一步巩固了The White Stripes的地位。专辑的成功不仅体现在排行榜上，也推动了车库摇滚的复兴潮流。"
         },
@@ -10647,12 +9287,7 @@
       "easy": [
         {
           "question": "Timbaland在2007年发行的专辑《Shock Value》中，哪位著名艺术家参与了合作制作？",
-          "options": [
-            "Justin Timberlake",
-            "Jay-Z",
-            "Kanye West",
-            "Dr. Dre"
-          ],
+          "options": ["Justin Timberlake", "Jay-Z", "Kanye West", "Dr. Dre"],
           "correctAnswer": "Justin Timberlake",
           "trivia": "《Shock Value》是Timbaland于2007年推出的一张融合多种风格的制作专辑，专辑中汇聚了众多知名艺人的合作。Justin Timberlake作为Timbaland多次合作的伙伴，在这张专辑中贡献了人声和制作支持，特别是在单曲《Give It to Me》中表现突出。Jay-Z和Kanye West虽然是当时著名的说唱艺人，但并未参与该专辑制作。Dr. Dre以其独特的西海岸制作风格闻名，但他并未参与《Shock Value》的制作。Timbaland的这张专辑因其跨界合作和创新节奏设计而备受赞誉。"
         },
@@ -10669,12 +9304,7 @@
         },
         {
           "question": "Timbaland在2007年发布的专辑'Shock Value'的推广巡演中，以下哪一个场地是他实际演出过的？",
-          "options": [
-            "纽约麦迪逊广场花园",
-            "洛杉矶好莱坞碗剧场",
-            "伦敦O2竞技场",
-            "芝加哥联合中心"
-          ],
+          "options": ["纽约麦迪逊广场花园", "洛杉矶好莱坞碗剧场", "伦敦O2竞技场", "芝加哥联合中心"],
           "correctAnswer": "纽约麦迪逊广场花园",
           "trivia": "Timbaland在2007年发行的专辑'Shock Value'后，进行了多场推广演出，其中包括在纽约著名的麦迪逊广场花园的现场表演。麦迪逊广场花园是全球知名的大型演出场地，曾举办过众多国际顶级音乐人和大型音乐会。虽然洛杉矶好莱坞碗剧场和伦敦O2竞技场也都是著名的音乐会场地，但在当时的'Shock Value'巡演中，Timbaland并未在这些地方进行演出。芝加哥联合中心同样是大型体育和演出场地，但未被记录为该巡演的场地之一。此信息基于2007年的官方巡演记录及当年媒体报道。"
         }
@@ -10693,23 +9323,13 @@
         },
         {
           "question": "在Timbaland制作2007年专辑《Shock Value》的词曲创作过程中，哪位艺术家并未参与该专辑的合作创作？",
-          "options": [
-            "Justin Timberlake",
-            "Nelly Furtado",
-            "Alicia Keys",
-            "Kanye West"
-          ],
+          "options": ["Justin Timberlake", "Nelly Furtado", "Alicia Keys", "Kanye West"],
           "correctAnswer": "Kanye West",
           "trivia": "Timbaland的2007年专辑《Shock Value》以其跨界合作著称，汇聚了众多当时流行的音乐人。Justin Timberlake和Nelly Furtado都参与了该专辑的词曲创作，贡献了多首热门单曲。Alicia Keys也以其独特的风格参与了部分创作过程。然而，尽管Kanye West是当时著名的制作人和艺术家，他并未参与《Shock Value》的制作或词曲创作。该专辑体现了Timbaland对多样化合作的重视，但并非涵盖所有同时代的大牌艺人。"
         },
         {
           "question": "在Timbaland的专辑'Shock Value'（2007年）制作过程中，哪位著名艺术家并未参与该专辑的合作录制？",
-          "options": [
-            "Keri Hilson",
-            "Justin Timberlake",
-            "Jay-Z",
-            "Madonna"
-          ],
+          "options": ["Keri Hilson", "Justin Timberlake", "Jay-Z", "Madonna"],
           "correctAnswer": "Madonna",
           "trivia": "Timbaland的专辑'Shock Value'于2007年发布，以其丰富的跨界合作而闻名。专辑中邀请了多位知名音乐人加盟录制，包括Keri Hilson、Justin Timberlake和Jay-Z，他们在不同曲目中贡献了人声或创作。尽管Madonna与Timbaland在其他作品中有合作，但她并未参与'Shock Value'的录制。该专辑融合了电子、嘻哈和流行元素，体现了Timbaland在制作上的创新和多样性。"
         }
@@ -10759,12 +9379,7 @@
       "easy": [
         {
           "question": "Tool在录制2001年专辑《Lateralus》时，哪位知名音响工程师参与了混音工作？",
-          "options": [
-            "David Bottrill",
-            "Rick Rubin",
-            "Bob Rock",
-            "Steve Albini"
-          ],
+          "options": ["David Bottrill", "Rick Rubin", "Bob Rock", "Steve Albini"],
           "correctAnswer": "David Bottrill",
           "trivia": "David Bottrill是著名的音响工程师，他参与了Tool 2001年专辑《Lateralus》的混音制作工作。Bottrill曾与多支知名乐队合作，包括King Crimson和Muse，他以细致且富有层次感的混音风格著称。Tool选择Bottrill为混音工程师，旨在充分展现《Lateralus》中复杂的节奏和丰富的音效细节，使专辑在音响质感上达到了高度的艺术水准。此外，Bottrill的参与也帮助这张专辑在音响工程领域获得了较高的评价。"
         },
@@ -10805,23 +9420,13 @@
         },
         {
           "question": "在Tool乐队2001年发行的专辑《Lateralus》中，乐队主要使用了哪种品牌的鼓组作为录音设备？",
-          "options": [
-            "Tama鼓组",
-            "Yamaha鼓组",
-            "Ludwig鼓组",
-            "Pearl鼓组"
-          ],
+          "options": ["Tama鼓组", "Yamaha鼓组", "Ludwig鼓组", "Pearl鼓组"],
           "correctAnswer": "Tama鼓组",
           "trivia": "Tool乐队在录制《Lateralus》专辑时，鼓手Danny Carey主要使用了Tama品牌的鼓组。Tama鼓组因其坚固耐用和音色丰富而受到许多摇滚和金属乐手的青睐。Carey的套鼓装备还配备了电子打击垫，以便在专辑中实现更多样化的节奏效果。此外，《Lateralus》的录音过程强调了高质量的硬件设备，Tama鼓组的使用帮助塑造了专辑中复杂且层次丰富的打击乐声音。该专辑因其技术性和实验性而被认为是Tool音乐生涯中的里程碑。"
         },
         {
           "question": "在Tool制作2001年专辑《Lateralus》时，哪位制作人负责与乐队合作并参与了专辑的混音工作？",
-          "options": [
-            "David Bottrill",
-            "Rick Rubin",
-            "Bob Ezrin",
-            "Terry Date"
-          ],
+          "options": ["David Bottrill", "Rick Rubin", "Bob Ezrin", "Terry Date"],
           "correctAnswer": "David Bottrill",
           "trivia": "《Lateralus》是Tool于2001年发行的第三张录音室专辑，制作人David Bottrill在该专辑的录制和混音过程中发挥了关键作用。Bottrill以其在进步摇滚和另类金属领域的专业经验闻名，曾与King Crimson和Peter Gabriel等艺术家合作。Tool选择他来协助制作《Lateralus》，以确保专辑的复杂节奏和层次感得以精细呈现。Rick Rubin、Bob Ezrin和Terry Date虽然都是著名的制作人，但他们并未参与《Lateralus》的制作。Bottrill的加入帮助Tool实现了他们对声音细节和氛围的高要求。"
         }
@@ -10906,23 +9511,13 @@
       "medium": [
         {
           "question": "在U2的专辑《All That You Can't Leave Behind》中，哪位乐队成员负责为歌曲《Beautiful Day》创作了标志性的吉他旋律？",
-          "options": [
-            "The Edge",
-            "Adam Clayton",
-            "Larry Mullen Jr.",
-            "Bono"
-          ],
+          "options": ["The Edge", "Adam Clayton", "Larry Mullen Jr.", "Bono"],
           "correctAnswer": "The Edge",
           "trivia": "《All That You Can't Leave Behind》是U2于2000年发行的专辑，其中《Beautiful Day》成为乐队的重要代表作。该曲的标志性吉他旋律由乐队的吉他手The Edge创作，他以其独特的延迟效果和氛围营造而闻名。Adam Clayton负责贝斯部分，Larry Mullen Jr.则演奏鼓点，Bono作为主唱贡献了歌词和旋律。The Edge的吉他演奏为这首歌增添了丰富的层次感，成为U2音乐风格的重要元素之一。"
         },
         {
           "question": "U2的专辑《All That You Can't Leave Behind》在2001年格莱美奖中获得了哪项重要荣誉？",
-          "options": [
-            "年度专辑奖",
-            "最佳摇滚专辑奖",
-            "最佳另类音乐专辑奖",
-            "最佳制作人奖"
-          ],
+          "options": ["年度专辑奖", "最佳摇滚专辑奖", "最佳另类音乐专辑奖", "最佳制作人奖"],
           "correctAnswer": "最佳摇滚专辑奖",
           "trivia": "U2的《All That You Can't Leave Behind》在2001年格莱美奖中获得了“最佳摇滚专辑奖”。这张专辑标志着乐队回归经典摇滚风格，赢得了评论界的高度评价。除了获得该奖项之外，专辑中的单曲《Beautiful Day》也赢得了包括“年度歌曲奖”在内的多个格莱美奖项。该专辑不仅巩固了U2在摇滚乐坛的地位，也推动了新千年初期的摇滚音乐发展。"
         },
@@ -10994,23 +9589,13 @@
         },
         {
           "question": "Usher在录制2004年专辑《Confessions》时，主要在哪个城市完成了大部分制作工作？",
-          "options": [
-            "亚特兰大",
-            "洛杉矶",
-            "纽约",
-            "芝加哥"
-          ],
+          "options": ["亚特兰大", "洛杉矶", "纽约", "芝加哥"],
           "correctAnswer": "亚特兰大",
           "trivia": "Usher的专辑《Confessions》于2004年录制，大部分制作工作在亚特兰大完成。亚特兰大当时是R&B和嘻哈音乐的重要制作中心，许多知名制作人如Jermaine Dupri和Bryan-Michael Cox都活跃于此。Usher与这些制作人密切合作，利用当地先进的录音设备和制作环境，最终打造出这张获得巨大商业成功和多项奖项的专辑。《Confessions》不仅展现了Usher的歌唱实力，也反映了亚特兰大音乐制作的高水准。"
         },
         {
           "question": "Usher在制作2004年专辑《Confessions》的词曲创作过程中，以下哪位制作人是他主要合作的伙伴？",
-          "options": [
-            "Jermaine Dupri",
-            "Dr. Dre",
-            "Pharrell Williams",
-            "Timbaland"
-          ],
+          "options": ["Jermaine Dupri", "Dr. Dre", "Pharrell Williams", "Timbaland"],
           "correctAnswer": "Jermaine Dupri",
           "trivia": "在Usher的2004年专辑《Confessions》中，Jermaine Dupri是其主要的制作人和词曲创作伙伴。Dupri不仅参与了多首热门单曲的制作，如《Yeah!》，还帮助塑造了专辑整体的R&B与流行风格。虽然Timbaland和Pharrell Williams当时也非常活跃，但他们并未直接参与《Confessions》的制作。此专辑的成功部分归功于Jermaine Dupri与Usher密切合作，打造了流行且具有感染力的音乐作品。"
         }
@@ -11029,23 +9614,13 @@
         },
         {
           "question": "在Usher的2004年专辑《Confessions》中，哪一位音乐人被认为是他灵感的重要来源，特别是在表达个人情感和关系主题方面？",
-          "options": [
-            "Jermaine Dupri",
-            "Dr. Dre",
-            "Timbaland",
-            "Pharrell Williams"
-          ],
+          "options": ["Jermaine Dupri", "Dr. Dre", "Timbaland", "Pharrell Williams"],
           "correctAnswer": "Jermaine Dupri",
           "trivia": "Usher的专辑《Confessions》深受Jermaine Dupri的影响，他不仅担任了制作人，还在创作过程中帮助Usher探索和表达了深刻的个人情感和复杂的恋爱关系。Jermaine Dupri与Usher的长期合作关系为专辑注入了独特的情感层次，尤其是在歌曲如《Confessions Part II》中体现明显。除此之外，Dupri的制作风格融合了R&B与流行元素，使得专辑在商业和艺术上都获得了巨大成功。因此，Jermaine Dupri被认为是该专辑艺术灵感的核心人物之一。"
         },
         {
           "question": "在Usher的2004年专辑《Confessions》中，哪首歌曲的音乐录影带以其复杂的故事叙述和多场景切换而著称？",
-          "options": [
-            "《Yeah!》",
-            "《Burn》",
-            "《Confessions Part II》",
-            "《My Boo》"
-          ],
+          "options": ["《Yeah!》", "《Burn》", "《Confessions Part II》", "《My Boo》"],
           "correctAnswer": "《Confessions Part II》",
           "trivia": "《Confessions Part II》是Usher专辑《Confessions》中极具代表性的单曲，其音乐录影带因叙述一段复杂的情感故事而广受赞誉。该MV通过多场景切换展现主人公面对爱情背叛的内心挣扎，增强了歌曲的情感表达。导演Chris Robinson负责了这支MV的拍摄，他以细腻的视觉风格帮助Usher更好地传达歌曲主题。此外，这首歌曲和MV都在当时引起了广泛讨论，成为2000年代R&B音乐的重要作品。"
         }
@@ -11117,12 +9692,7 @@
         },
         {
           "question": "Yeah Yeah Yeahs的首张专辑《Fever to Tell》发行后，哪首歌曲最广泛地被粉丝和媒体认可，成为他们的代表作之一？",
-          "options": [
-            "Maps",
-            "Date with the Night",
-            "Pin",
-            "Y-Control"
-          ],
+          "options": ["Maps", "Date with the Night", "Pin", "Y-Control"],
           "correctAnswer": "Maps",
           "trivia": "《Fever to Tell》是Yeah Yeah Yeahs于2003年发布的首张专辑，其中歌曲《Maps》因其感人至深的歌词和独特的旋律，迅速赢得了大量粉丝的喜爱和媒体的关注。该曲不仅成为乐队的代表作，还多次出现在电影和电视节目中，进一步扩大了专辑的影响力。此外，《Maps》在MTV和其他音乐频道的播放频率很高，帮助Yeah Yeah Yeahs在早期独立摇滚场景中获得了更广泛的认可。该歌曲的成功也推动了专辑在英国和美国的销量表现，成为独立摇滚领域的经典之一。"
         }
@@ -11130,12 +9700,7 @@
       "medium": [
         {
           "question": "在Yeah Yeah Yeahs的2003年专辑《Fever to Tell》中，哪首歌曲最初在美国现代摇滚电台获得了较多的播放量，从而帮助乐队扩大了知名度？",
-          "options": [
-            "Maps",
-            "Date with the Night",
-            "Y Control",
-            "Pin"
-          ],
+          "options": ["Maps", "Date with the Night", "Y Control", "Pin"],
           "correctAnswer": "Maps",
           "trivia": "《Fever to Tell》是Yeah Yeah Yeahs的首张专辑，发行于2003年，其中“Maps”因其感人的旋律和独特的氛围成为了电台的热门播放曲目。该曲在美国现代摇滚电台获得了显著的播放量，帮助乐队在主流音乐圈中迅速崭露头角。此外，“Maps”还获得了广泛的赞誉，并成为乐队的代表作品之一。这首歌的电台成功也促进了专辑整体销量的提升，巩固了Yeah Yeah Yeahs在独立摇滚界的重要地位。"
         },
@@ -11152,12 +9717,7 @@
         },
         {
           "question": "Yeah Yeah Yeahs的专辑《Fever to Tell》在美国Billboard 200排行榜上的最高排名是？",
-          "options": [
-            "第55名",
-            "第10名",
-            "第100名",
-            "未进入榜单"
-          ],
+          "options": ["第55名", "第10名", "第100名", "未进入榜单"],
           "correctAnswer": "第55名",
           "trivia": "Yeah Yeah Yeahs的首张专辑《Fever to Tell》于2003年发行，成功打入美国市场。该专辑在美国Billboard 200排行榜上最高达到了第55名的位置，显示出较强的商业表现。除了美国市场，该专辑也在英国和澳大利亚的独立音乐排行榜上获得了不错的成绩。《Fever to Tell》凭借其独特的后朋克复兴风格和主唱Karen O的个性魅力，奠定了乐队在独立摇滚领域的重要地位。正是这张专辑让Yeah Yeah Yeahs获得了广泛关注和后续的国际巡演机会。"
         }

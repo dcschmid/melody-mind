@@ -18,23 +18,13 @@
         },
         {
           "question": "Kuka tuotti suurimman osan 2Pacin vuoden 1996 albumin 'All Eyez on Me' kappaleista?",
-          "options": [
-            "Dr. Dre",
-            "DJ Quik",
-            "Timbaland",
-            "Johnny J"
-          ],
+          "options": ["Dr. Dre", "DJ Quik", "Timbaland", "Johnny J"],
           "correctAnswer": "Johnny J",
           "trivia": "Johnny J oli keskeinen tuottaja 2Pacin 'All Eyez on Me' -albumilla, tuottaen useita kappaleita, mukaan lukien hitit kuten 'How Do U Want It' ja 'All Eyez on Me'. Vaikka Dr. Dre oli tunnettu tuottaja West Coast -hiphopissa, hän ei osallistunut merkittävästi tähän albumiin. DJ Quik oli myös suosittu tuottaja tuolloin, mutta ei ollut päävastuussa tämän albumin tuotannosta. Timbaland puolestaan nousi tunnetuksi vasta myöhemmin 1990-luvulla. Johnny J:n tuottama soundi auttoi muokkaamaan albumin tunnistettavaa West Coast -tyyliä."
         },
         {
           "question": "Mikä seuraavista kappaleista albumilla 'All Eyez on Me' auttoi 2Pacia saavuttamaan kansainvälistä suosiota vuonna 1996?",
-          "options": [
-            "California Love",
-            "Dear Mama",
-            "Changes",
-            "Keep Ya Head Up"
-          ],
+          "options": ["California Love", "Dear Mama", "Changes", "Keep Ya Head Up"],
           "correctAnswer": "California Love",
           "trivia": "Kappale 'California Love' oli yksi 2Pacin suurimmista kansainvälisistä hiteistä ja yksi albumin 'All Eyez on Me' tunnetuimmista singleistä. Se julkaistiin vuonna 1995 yhteistyössä Dr. Dren kanssa ja saavutti Yhdysvaltojen Billboard Hot 100 -listan ykköspaikan. Tämä biisi vahvisti 2Pacin asemaa maailmanlaajuisena hiphop-tähtenä ja vaikutti merkittävästi hänen kansainväliseen suosioonsa. 'Dear Mama', 'Changes' ja 'Keep Ya Head Up' ovat myös tunnettuja kappaleita, mutta ne eivät ole osa 'All Eyez on Me' -albumia vuodelta 1996."
         }
@@ -88,12 +78,7 @@
         },
         {
           "question": "Missä kaupungissa 2Pac järjesti 'All Eyez on Me' -albumin julkaisukiertueen ensimmäisen virallisen live-esiintymisen, joka myös nauhoitettiin ja myöhemmin julkaistiin osana virallista konserttimateriaalia?",
-          "options": [
-            "Los Angeles",
-            "New York",
-            "San Francisco",
-            "Las Vegas"
-          ],
+          "options": ["Los Angeles", "New York", "San Francisco", "Las Vegas"],
           "correctAnswer": "Las Vegas",
           "trivia": "2Pacin 'All Eyez on Me' -albumin julkaisun aikaan vuonna 1996 hän toteutti kiertueen, joka alkoi Las Vegasista. Tätä esiintymistä pidetään merkittävänä, koska se oli ensimmäinen virallinen live-esiintyminen albumin julkaisun jälkeen, ja se nauhoitettiin myöhempää julkaisua varten. Kiertueen aikana 2Pac esiintyi myös useissa muissa merkittävissä kaupungeissa, mutta Las Vegasin keikka erottui erityisesti virallisen konserttitaltioinnin vuoksi. Tämä live-esiintyminen kuvastaa 2Pacin kykyä yhdistää studioäänitteensä vahvaan lavapresenssiin, mikä vahvisti 'All Eyez on Me' -albumin kulttuurista vaikutusta hiphop-maailmassa."
         },
@@ -119,12 +104,7 @@
       "easy": [
         {
           "question": "Kuka toimi pääasiallisena tuottajana A Tribe Called Questin vuoden 1991 albumilla 'The Low End Theory'?",
-          "options": [
-            "Q-Tip",
-            "Dr. Dre",
-            "Rick Rubin",
-            "RZA"
-          ],
+          "options": ["Q-Tip", "Dr. Dre", "Rick Rubin", "RZA"],
           "correctAnswer": "Q-Tip",
           "trivia": "A Tribe Called Questin jäsen Q-Tip toimi pääasiallisena tuottajana heidän toisella albumillaan 'The Low End Theory', joka julkaistiin vuonna 1991. Hänen tuotantotyylinsä yhdisti jazz-vaikutteita hiphopiin, mikä antoi albumille sen tunnistettavan soundin. Albumilla soittaa myös basisti Ron Carter yhteistyössä, mikä vahvisti levyn orgaanista ja groove-painotteista tuotantoa. 'The Low End Theory' on usein noteerattu yhdeksi hiphopin tuotannollisista merkkipaaluista 1990-luvulla."
         },
@@ -154,34 +134,19 @@
       "medium": [
         {
           "question": "Millä sijalla A Tribe Called Questin albumi 'The Low End Theory' ylsi Yhdysvaltojen Billboard 200 -albumilistan korkeimpana sijoituksena julkaisunsa jälkeen vuonna 1991?",
-          "options": [
-            "Sijalle 45",
-            "Sijalle 58",
-            "Sijalle 35",
-            "Sijalle 22"
-          ],
+          "options": ["Sijalle 45", "Sijalle 58", "Sijalle 35", "Sijalle 22"],
           "correctAnswer": "Sijalle 45",
           "trivia": "A Tribe Called Quest julkaisi 'The Low End Theory' -albumin vuonna 1991, ja se saavutti Yhdysvaltojen Billboard 200 -albumilistalla korkeimmillaan sijan 45. Albumi merkitsi ryhmälle kaupallista läpimurtoa ja on sittemmin saanut klassikon aseman hip hop -musiikissa. Lisäksi 'The Low End Theory' nousi listalla myös R&B/Hip-Hop Albums -kategoriassa top 10 -sijoille. Albumin onnistuminen listalla kuvastaa sen vaikutusta ja suosiota, vaikka se ei heti päässyt aivan listan kärkeen."
         },
         {
           "question": "Kuka toimi pääosin basistina ja tuottajana A Tribe Called Questin vuoden 1991 albumilla 'The Low End Theory', korostaen albumin jazz-vaikutteista soundia?",
-          "options": [
-            "Ron Carter",
-            "J Dilla",
-            "Ali Shaheed Muhammad",
-            "James P. Scott"
-          ],
+          "options": ["Ron Carter", "J Dilla", "Ali Shaheed Muhammad", "James P. Scott"],
           "correctAnswer": "Ali Shaheed Muhammad",
           "trivia": "Ali Shaheed Muhammad, joka on A Tribe Called Questin DJ ja tuottaja, vastasi pääosin bassolinjoista ja tuotannosta albumilla 'The Low End Theory'. Hänen roolinsa oli keskeinen albumin jazz-vaikutteisen ja groovaavan soundin luomisessa, erityisesti bassoäänten korostamisessa, joka on albumin nimiinkin viittaava teema. Vaikka Ron Carter on tunnettu jazzbasisti, hän ei osallistunut tähän albumiin. J Dilla sen sijaan työskenteli myöhemmin ryhmän kanssa, mutta ei 'The Low End Theory' -levyllä. James P. Scott ei liity tähän projektiin."
         },
         {
           "question": "Millä Yhdysvaltain kaupungilla A Tribe Called Quest kiersi vuonna 1991 promotoidessaan albumiaan 'The Low End Theory' livenä?",
-          "options": [
-            "New York",
-            "Atlanta",
-            "Los Angeles",
-            "Chicago"
-          ],
+          "options": ["New York", "Atlanta", "Los Angeles", "Chicago"],
           "correctAnswer": "New York",
           "trivia": "A Tribe Called Quest kiersi vuonna 1991 erityisesti New Yorkin alueella levittäen live-esiintymisillään 'The Low End Theory' -albumin soundia. New York oli heidän kotikaupunkinsa ja hip hop -kulttuurin keskus tuolloin, mikä teki kaupunkikiertueesta luonnollisen valinnan. Kiertueilla yhtye esiintyi usein intiimeissä klubeissa, joissa heidän jazzahtava ja bassovoimainen soundinsa pääsi parhaiten esiin. Lisäksi New Yorkin kiertue auttoi vahvistamaan heidän asemaansa East Coast -hip hopin eturintamassa."
         }
@@ -266,12 +231,7 @@
       "medium": [
         {
           "question": "Kuka toimi merkittävänä tuottajana ja myös soittajana Aaliyahin vuoden 1996 albumilla 'One in a Million', ja vaikutti näin olennaisesti albumin soundiin?",
-          "options": [
-            "Timbaland",
-            "Jermaine Dupri",
-            "Babyface",
-            "Sean Combs"
-          ],
+          "options": ["Timbaland", "Jermaine Dupri", "Babyface", "Sean Combs"],
           "correctAnswer": "Timbaland",
           "trivia": "Timbaland oli keskeinen tuottaja ja muusikko Aaliyahin albumilla 'One in a Million', joka julkaistiin vuonna 1996. Hänen ainutlaatuinen tuotantotyylinsä yhdisti innovatiivisia rytmejä ja elektronisia elementtejä, mikä auttoi erottamaan albumin R&B-skenessä. Timbaland myös soitti useita instrumentteja ja loi monia beattejä, jotka antoivat albumille sen tunnistettavan soundin. Jermaine Dupri ja Babyface olivat tuottajina aktiivisia samana aikana, mutta eivät osallistuneet tähän erityiseen projektiin, ja Sean Combs (Puff Daddy) oli tunnettu lähinnä muista artisteista. Näin ollen Timbaland on oikea vastaus kysymykseen hänen keskeisestä roolistaan tässä albumissa."
         },
@@ -288,12 +248,7 @@
         },
         {
           "question": "Kuka toimi pääasiallisena tuottajana Aaliyahin vuonna 1996 julkaistulla albumilla 'One in a Million', ja joka tunnetaan erityisesti sulavasta R&B-äänimaailmastaan?",
-          "options": [
-            "Timbaland",
-            "Jermaine Dupri",
-            "Sean Combs",
-            "Babyface"
-          ],
+          "options": ["Timbaland", "Jermaine Dupri", "Sean Combs", "Babyface"],
           "correctAnswer": "Timbaland",
           "trivia": "Aaliyahin albumin 'One in a Million' tuotannosta vastasi pääosin tuottaja Timbaland, joka toi tuoretta ja innovatiivista soundia 1990-luvun R&B-musiikkiin. Tämä yhteistyö oli merkittävä uran kannalta sekä Aaliyahille että Timbalandille, sillä se auttoi muovaamaan modernia urbaania ääntä. Albumin äänityksissä käytettiin monipuolisesti elektronisia rytmejä ja rytmisiä tekstuureja, jotka erosivat perinteisemmästä R&B:stä. Lisäksi albumille osallistui myös tuottaja Missy Elliott, joka oli läheinen yhteistyökumppani Timbalandin kanssa. 'One in a Million' on usein noteerattu esimerkkinä siitä, miten tuottaja voi vaikuttaa artistin musiikilliseen identiteettiin."
         }
@@ -312,12 +267,7 @@
         },
         {
           "question": "Missä kaupungissa Aaliyah esiintyi ensimmäistä kertaa live-keikalla, joka sisälsi kappaleita hänen vuoden 1996 albumiltaan 'One in a Million' kiertueellaan?",
-          "options": [
-            "New York",
-            "Los Angeles",
-            "Atlanta",
-            "Chicago"
-          ],
+          "options": ["New York", "Los Angeles", "Atlanta", "Chicago"],
           "correctAnswer": "Los Angeles",
           "trivia": "Aaliyahin vuoden 1996 'One in a Million' -albumin kiertue alkoi Los Angelesista, missä hän esiintyi ensimmäistä kertaa live-keikalla esittäen useita albumin kappaleita. Tämä esiintyminen oli merkittävä, sillä se vahvisti hänen asemaansa nousevana R&B-tähtenä ja toi esille hänen yhteistyönsä tuottaja Timbalandin kanssa. Kiertueen aikana Aaliyah sai paljon kiitosta erityisesti energisestä lavakarismaansa ja sulavasta tanssityylistään, jotka korostivat albumin modernia soundia. New York, Atlanta ja Chicago olivat myös tärkeitä pysäkkejä kiertueella, mutta Los Angeles toimi avauspaikkana, mikä teki siitä historiallisen hetken Aaliyahin uralla."
         },
@@ -343,12 +293,7 @@
       "easy": [
         {
           "question": "Mikä levy-yhtiö julkaisi Alanis Morissetten vuonna 1995 ilmestyneen albumin 'Jagged Little Pill'?",
-          "options": [
-            "Maverick Records",
-            "Epic Records",
-            "Island Records",
-            "Arista Records"
-          ],
+          "options": ["Maverick Records", "Epic Records", "Island Records", "Arista Records"],
           "correctAnswer": "Maverick Records",
           "trivia": "Alanis Morissetten albumi 'Jagged Little Pill' julkaistiin vuonna 1995 Maverick Records -levy-yhtiön kautta. Maverick oli tuolloin vielä suhteellisen uusi levy-yhtiö, jonka perusti Madonna yhdessä muiden kanssa. Tämä levy-yhtiösuhde auttoi Alanisia saavuttamaan laajan kansainvälisen kuulijakunnan. 'Jagged Little Pill' nousi nopeasti myyntimenestykseksi ja teki Morissettesta yhden 1990-luvun merkittävimmistä rock-artisteista."
         },
@@ -365,12 +310,7 @@
         },
         {
           "question": "Kuka soitti kitaraa Alanis Morissetten vuonna 1995 julkaistulla albumilla 'Jagged Little Pill'?",
-          "options": [
-            "Nick Lashley",
-            "Dave Navarro",
-            "John Frusciante",
-            "Tom Morello"
-          ],
+          "options": ["Nick Lashley", "Dave Navarro", "John Frusciante", "Tom Morello"],
           "correctAnswer": "Nick Lashley",
           "trivia": "Albumilla 'Jagged Little Pill', joka julkaistiin vuonna 1995, Alanis Morissette työskenteli yhdessä useiden muusikoiden kanssa. Kitaraa soitti Nick Lashley, joka oli yksi albumin keskeisistä muusikoista. Dave Navarro, John Frusciante ja Tom Morello ovat tunnettuja kitaristeja, mutta he eivät osallistuneet tämän albumin äänityksiin. 'Jagged Little Pill' nousi nopeasti suosioon ja sisälsi useita hittisinglejä, ja sen soundi rakentui olennaisesti myös Lashleyn kitaratyöskentelyn ympärille."
         }
@@ -389,12 +329,7 @@
         },
         {
           "question": "Missä kaupungissa Alanis Morissette aloitti Jagged Little Pill -kiertueensa vuonna 1995, joka vahvisti hänen asemaansa maailmanlaajuisena live-esiintyjänä?",
-          "options": [
-            "Toronto",
-            "Los Angeles",
-            "Chicago",
-            "New York"
-          ],
+          "options": ["Toronto", "Los Angeles", "Chicago", "New York"],
           "correctAnswer": "Toronto",
           "trivia": "Alanis Morissette aloitti Jagged Little Pill -albuminsa kiertueen vuonna 1995 Torontosta, joka on myös hänen kotikaupunkinsa. Tämä kiertue oli merkittävä, sillä se nosti hänen live-esiintymisensä uudelle tasolle ja vahvisti albumin suosiota ympäri maailmaa. Kiertueeseen kuului yli 100 konserttia eri puolilla Pohjois-Amerikkaa ja Eurooppaa, ja se sisälsi usein intensiivisiä ja tunteikkaita live-esityksiä, jotka loivat vahvan yhteyden yleisöön. Toronton valinta kiertueen aloituspaikaksi heijasti myös artistin juuria ja vahvaa yhteyttä kotimaahansa."
         },
@@ -435,12 +370,7 @@
         },
         {
           "question": "Kuka toimi pääkitaristina ja myös taustalaulajana Alanis Morissetten vuonna 1995 julkaistulla albumilla 'Jagged Little Pill'?",
-          "options": [
-            "Nick Lashley",
-            "Taylor Hawkins",
-            "Dean DeLeo",
-            "Steve Jocz"
-          ],
+          "options": ["Nick Lashley", "Taylor Hawkins", "Dean DeLeo", "Steve Jocz"],
           "correctAnswer": "Nick Lashley",
           "trivia": "Nick Lashley oli pääkitaristi ja taustalaulaja Alanis Morissetten läpimurtolevyllä 'Jagged Little Pill' (1995). Hän oli osa levyn sessiomuusikkoja ja osallistui albumin raskaan rock-soundin luomiseen. Sen sijaan Taylor Hawkins tunnetaan paremmin yhtyeestä Foo Fighters, Dean DeLeo on Stone Temple Pilotsin kitaristi, ja Steve Jocz vaikutti punkyhtye Sum 41:ssä. Lashleyn panos oli merkittävä albumin monipuolisen rock-tyylin rakentamisessa, joka yhdisti alternative rockin ja popin elementtejä."
         }
@@ -455,23 +385,13 @@
       "easy": [
         {
           "question": "Mikä Alice in Chainsin albumi 'Dirt' sai erityistä mediajulkisuutta vuonna 1992 sen kappaleiden synkkien teemojen ja yhtyeen jäsenen kokeman päihdekriisin vuoksi?",
-          "options": [
-            "Dirt",
-            "Facelift",
-            "Jar of Flies",
-            "Alice in Chains"
-          ],
+          "options": ["Dirt", "Facelift", "Jar of Flies", "Alice in Chains"],
           "correctAnswer": "Dirt",
           "trivia": "Alice in Chainsin vuonna 1992 julkaistu albumi 'Dirt' herätti laajaa mediajulkisuutta erityisesti sen synkkien ja henkilökohtaisten sanoitustensa ansiosta, jotka käsittelivät muun muassa päihderiippuvuutta ja kuolemaa. Albumin kappaleet kuten 'Would?' ja 'Rooster' saivat paljon radiosoittoa, mikä lisäsi yhtyeen näkyvyyttä valtamediassa. Samalla Alice in Chainsin laulaja Layne Staleyn kamppailu päihteiden kanssa nousi julkisuuteen, mikä vaikutti albumin vastaanottoon ja yhtyeen imagoon. 'Dirt' on sittemmin tunnustettu yhdeksi 1990-luvun tärkeimmistä grunge-albumeista ja se vahvisti yhtyeen asemaa musiikkimaailmassa."
         },
         {
           "question": "Mikä levy-yhtiö julkaisi Alice in Chainsin vuonna 1992 ilmestyneen albumin 'Dirt'?",
-          "options": [
-            "Columbia Records",
-            "Geffen Records",
-            "Epic Records",
-            "Atlantic Records"
-          ],
+          "options": ["Columbia Records", "Geffen Records", "Epic Records", "Atlantic Records"],
           "correctAnswer": "Columbia Records",
           "trivia": "Alice in Chainsin toinen studioalbumi 'Dirt' julkaistiin vuonna 1992 Columbia Recordsin kautta. Columbia Records oli tuohon aikaan yksi suurimmista levy-yhtiöistä, joka tuki grunge- ja vaihtoehtorock-yhtyeitä. 'Dirt' nousi nopeasti suosituksi ja sisältää tunnettuja kappaleita kuten \"Would?\" ja \"Rooster\". Levy-yhtiön vahva tuki auttoi albumia saavuttamaan platinalevystatuksen Yhdysvalloissa ja vakiinnuttamaan Alice in Chainsin aseman 1990-luvun rock-musiikin kärjessä."
         },
@@ -525,23 +445,13 @@
       "hard": [
         {
           "question": "Missä sijalla Yhdysvaltain Billboard 200 -listalla Alice in Chainsin vuonna 1992 julkaistu albumi 'Dirt' saavutti korkeimman sijoituksensa?",
-          "options": [
-            "Kuudes sija",
-            "Ensimmäinen sija",
-            "Kahdeksas sija",
-            "Neljästoista sija"
-          ],
+          "options": ["Kuudes sija", "Ensimmäinen sija", "Kahdeksas sija", "Neljästoista sija"],
           "correctAnswer": "Kuudes sija",
           "trivia": "Alice in Chainsin 'Dirt' -albumi julkaistiin vuonna 1992 ja nousi Yhdysvaltain Billboard 200 -albumilistan korkeimmaksi sijoituksekseen kuudenneksi. Tämä oli merkittävä saavutus grunge- ja alternative-metal -kentässä, sillä 'Dirt' toi bändille laajempaa kaupallista menestystä ja kriitikoiden tunnustusta. Albumilta nousi useita singlejä, jotka myös menestyivät rock-listoilla, kuten 'Would?', joka nousi Mainstream Rock Tracks -listan kärkeen. 'Dirt' on sittemmin saanut kulttiaseman raskaan rockin historiassa, ja sen myyntiluvut ovat ylittäneet kultalevyn rajan Yhdysvalloissa."
         },
         {
           "question": "Mikä levy-yhtiö julkaisi Alice in Chainsin vuoden 1992 albumin 'Dirt', joka on tunnettu raskaan grungen ja vaihtoehtorockin yhdistelmästä?",
-          "options": [
-            "Columbia Records",
-            "Geffen Records",
-            "Elektra Records",
-            "Atlantic Records"
-          ],
+          "options": ["Columbia Records", "Geffen Records", "Elektra Records", "Atlantic Records"],
           "correctAnswer": "Columbia Records",
           "trivia": "Alice in Chainsin 'Dirt' julkaistiin vuonna 1992 levy-yhtiö Columbia Recordsin kautta. Tämä levy-yhtiö oli merkittävä toimija grungea ja vaihtoehtorockia esittäville yhtyeille 1990-luvulla. 'Dirt' on yksi Columbia Recordsin menestyneimmistä julkaisuista, ja se vahvisti Alice in Chainsin asemaa genren kärkinimien joukossa. Levy-yhtiön tuki mahdollisti myös laajan levityksen ja promootion, mikä edesauttoi albumin kulttimaineen syntyä."
         },
@@ -578,12 +488,7 @@
         },
         {
           "question": "Missä Euroopan kaupungissa Aqua teki merkittävän keikan, joka edisti albumin 'Aquarium' suosiota vuonna 1997?",
-          "options": [
-            "Lontoo",
-            "Kööpenhamina",
-            "Berliini",
-            "Pariisi"
-          ],
+          "options": ["Lontoo", "Kööpenhamina", "Berliini", "Pariisi"],
           "correctAnswer": "Lontoo",
           "trivia": "Aqua levitti albuminsa 'Aquarium' suosiota vuonna 1997 tekemällä useita keikkoja eri Euroopan kaupungeissa. Erityisesti Lontoon konserttipaikat olivat tärkeitä bändille, sillä siellä järjestettiin useita tapahtumia, jotka nostivat yhtyeen profiilia kansainvälisesti. Lontoo on tunnettu vilkkaasta musiikkikentästään ja se toimi keskeisenä areenana Euroopan popmusiikin levittäjänä 1990-luvulla. Aqua hyötyi tästä, kun he esittivät kappaleitaan, kuten \"Barbie Girl\" ja \"Dr. Jones\", livenä Lontoon esiintymispaikoilla, mikä edesauttoi heidän albuminsa 'Aquarium' menestystä."
         },
@@ -826,12 +731,7 @@
       "medium": [
         {
           "question": "Mikä oli Beckin albumin 'Odelay' korkein sijoitus Yhdysvaltain Billboard 200 -listalla vuonna 1996?",
-          "options": [
-            "Sijoitus 16",
-            "Sijoitus 45",
-            "Sijoitus 72",
-            "Sijoitus 30"
-          ],
+          "options": ["Sijoitus 16", "Sijoitus 45", "Sijoitus 72", "Sijoitus 30"],
           "correctAnswer": "Sijoitus 16",
           "trivia": "Beckin albumi 'Odelay', julkaistu vuonna 1996, saavutti suurta kaupallista menestystä. Se nousi Yhdysvaltain Billboard 200 -albumilistan korkeimmalle sijalleen numerolla 16, mikä oli merkittävä saavutus vaihtoehtorockin genressä tuolloin. Albumi sai myös kultalevyn Yhdysvalloissa, mikä kertoo yli 500 000 kappaleen myynnistä. 'Odelay' sisälsi hittejä kuten \"Where It's At\" ja sai laajaa kriitikoiden ylistystä, mikä edesauttoi sen lista-menestystä. Tämä sijoitus osoitti Beckin kasvavaa suosiota ja vaikutusvaltaa 1990-luvun musiikkikentällä."
         },
@@ -848,12 +748,7 @@
         },
         {
           "question": "Missä kaupungissa Beck aloitti 'Odelay'-albumin kiertueen vuonna 1996, joka tunnettiin energisistä live-esiintymisistään ja monipuolisesta musiikkityylistään?",
-          "options": [
-            "Los Angeles",
-            "New York",
-            "Seattle",
-            "Austin"
-          ],
+          "options": ["Los Angeles", "New York", "Seattle", "Austin"],
           "correctAnswer": "Los Angeles",
           "trivia": "Beck aloitti 'Odelay'-albuminsa kiertueen vuonna 1996 Los Angelesista, joka oli myös hänen kotikaupunkinsa. Tämä kiertue oli merkittävä, sillä Beckin live-esiintymiset saivat paljon huomiota energisyydestään ja eklektisestä musiikkityylistään, joka yhdisteli folkia, hip-hopia ja vaihtoehtorockia. Kiertueen aikana Beck esiintyi sekä pienemmillä klubeilla että suuremmilla festivaaleilla, mikä kasvatti hänen suosiotaan merkittävästi. Lisäksi 'Odelay'-albumin kappaleet, kuten \"Where It's At\", toimivat livenä hyvin ja korostivat Beckin monipuolista esiintymistaitoa."
         }
@@ -861,12 +756,7 @@
       "hard": [
         {
           "question": "Millä yhdysvaltalaisella festivaalilla Beck esitti useita kappaleita albumilta 'Odelay' kiertueellaan vuonna 1997?",
-          "options": [
-            "Lollapalooza",
-            "Woodstock '94",
-            "Coachella",
-            "Bonnaroo"
-          ],
+          "options": ["Lollapalooza", "Woodstock '94", "Coachella", "Bonnaroo"],
           "correctAnswer": "Lollapalooza",
           "trivia": "Beck kiersi aktiivisesti albumin 'Odelay' julkaisun jälkeen vuonna 1996 ja vuonna 1997 esiintyen useilla merkittävillä festivaaleilla. Yksi hänen tärkeimmistä live-esiintymisistään oli Lollapalooza-festivaali, jossa hän esitti muun muassa hittejä albumilta kuten \"Where It's At\" ja \"Devils Haircut\". Woodstock '94 oli liian varhainen tapahtuma Beckin uran kannalta, eikä Coachella ollut vielä perustettu vuonna 1997. Bonnaroo-festivaali puolestaan alkoi vasta vuonna 2002, joten se ei ollut Beckin Odelay-kiertueen aikainen esiintymispaikka. Lollapalooza oli tuolloin yksi vaihtoehtorockin keskeisistä tapahtumista, mikä teki siitä luonnollisen valinnan Beckille ja hänen Odelay-albuminsa esittelylle livenä."
         },
@@ -903,12 +793,7 @@
       "easy": [
         {
           "question": "Mikä Blackstreetin vuonna 1996 julkaistun albumin 'Another Level' kappaleista nousi erityisesti fanien suosioon ja vaikutti merkittävästi R&B-musiikin suosion kasvuun 1990-luvulla?",
-          "options": [
-            "No Diggity",
-            "Booti Call",
-            "Before I Let You Go",
-            "Joy"
-          ],
+          "options": ["No Diggity", "Booti Call", "Before I Let You Go", "Joy"],
           "correctAnswer": "No Diggity",
           "trivia": "'Another Level' on Blackstreetin toinen studioalbumi, joka julkaistiin vuonna 1996 ja saavutti suuren suosion R&B-piireissä. Albumin tunnetuin single \"No Diggity\" nousi Billboardin listaykköseksi ja sai laajaa fanien tunnustusta, mikä vahvisti Blackstreetin asemaa populaarimusiikin huipulla. Kappale oli merkittävä myös siksi, että se yhdisti perinteisiä R&B-elementtejä moderniin hiphop-vaikutteiseen soundiin, mikä teki siitä helposti lähestyttävän laajalle yleisölle. Fanien reaktiot olivat erittäin positiivisia, ja \"No Diggity\" vaikutti suoraan R&B-musiikin laajenemiseen 1990-luvun loppupuolella."
         },
@@ -949,12 +834,7 @@
         },
         {
           "question": "Kuka ohjasi Blackstreetin vuoden 1996 albumin 'Another Level' kappaleesta 'No Diggity' tehdyn musiikkivideon, joka tunnetaan sen visuaalisesta tyylistä ja tunnelmasta?",
-          "options": [
-            "Hype Williams",
-            "Marcus Nispel",
-            "Paul Hunter",
-            "F. Gary Gray"
-          ],
+          "options": ["Hype Williams", "Marcus Nispel", "Paul Hunter", "F. Gary Gray"],
           "correctAnswer": "F. Gary Gray",
           "trivia": "Musiikkivideo 'No Diggity' albumilta 'Another Level' ohjattiin vuonna 1996 F. Gary Gray'n toimesta, joka oli tuolloin nouseva ohjaaja tunnettu tyylikkäistä ja tarinallisista musiikkivideoistaan. Video sai kiitosta sen visuaalisesta ilmeestä, joka yhdisti urbaanin estetiikan ja elokuvallisen tunnelman, mikä vahvisti kappaleen suosiota. F. Gary Gray myöhemmin ohjasi myös useita menestyselokuvia, mutta hänen työnsä musiikkivideoiden parissa 1990-luvulla oli merkittävä osa hänen uraa. Näin ollen hänen roolinsa 'Another Level' -albumin musiikkivideon ohjaajana on tärkeä osa Blackstreetin visuaalisen ilmeen historiaa."
         },
@@ -984,12 +864,7 @@
         },
         {
           "question": "Missä kaupungissa Blackstreet järjesti 'Another Level' -albumin julkaisukiertueensa ensimmäisen live-esiintymisen vuonna 1996?",
-          "options": [
-            "New York",
-            "Los Angeles",
-            "Atlanta",
-            "Chicago"
-          ],
+          "options": ["New York", "Los Angeles", "Atlanta", "Chicago"],
           "correctAnswer": "Los Angeles",
           "trivia": "Blackstreet aloitti 'Another Level' -albuminsa kiertueen vuoden 1996 lopulla, ja ensimmäinen live-esiintyminen järjestettiin Los Angelesissa. Tämä kaupunki oli merkittävä R&B- ja hiphop-kulttuurin keskus 1990-luvulla, mikä teki siitä luonnollisen valinnan kiertueen starttipaikaksi. Kiertueen aikana Blackstreet esitti albumin hittejä, kuten \"No Diggity\", joka sai suurta suosiota live-yleisön keskuudessa. Los Angelesin konsertti vahvisti Blackstreetin asemaa yhtenä 90-luvun merkittävimmistä R&B-yhtyeistä ja tuki albumin menestystä niin Yhdysvalloissa kuin kansainvälisestikin."
         },
@@ -1026,12 +901,7 @@
         },
         {
           "question": "Kuka toimi Blind Melonin debyyttialbumin 'Blind Melon' tuottajana vuonna 1992?",
-          "options": [
-            "Gavin MacKillop",
-            "Rick Rubin",
-            "Butch Vig",
-            "Steve Albini"
-          ],
+          "options": ["Gavin MacKillop", "Rick Rubin", "Butch Vig", "Steve Albini"],
           "correctAnswer": "Gavin MacKillop",
           "trivia": "Blind Melonin vuonna 1992 julkaistun debyyttialbumin 'Blind Melon' tuottajana toimi Gavin MacKillop. MacKillop on tunnettu yhteistyöstään muun muassa 80- ja 90-lukujen vaihtoehtorock-yhtyeiden kanssa, ja hänen tuotantotyylinsä toi levylle selkeän sekä dynaamisen soundin. Levy äänitettiin pääosin Los Angelesissa, ja MacKillopin rooli tuotannossa oli keskeinen yhtyeen raikkaan ja orgaanisen ilmeen luomisessa. Hän onnistui korostamaan Blind Melonin monipuolista soittoa ja Shannon Hoonin tunnistettavaa laulutyyliä, mikä auttoi albumia saavuttamaan laajaa suosiota."
         },
@@ -1050,12 +920,7 @@
       "medium": [
         {
           "question": "Mikä soitin oli erityisen keskeisessä roolissa Blind Melonin vuoden 1992 debyyttialbumilla 'Blind Melon', ja joka vaikutti merkittävästi sen folk-vaikutteiseen soundiin?",
-          "options": [
-            "Akustinen kitara",
-            "Sähköpiano",
-            "Syntetisaattori",
-            "Saksofoni"
-          ],
+          "options": ["Akustinen kitara", "Sähköpiano", "Syntetisaattori", "Saksofoni"],
           "correctAnswer": "Akustinen kitara",
           "trivia": "Blind Melonin vuoden 1992 debyyttialbumilla 'Blind Melon' akustisella kitaralla oli keskeinen rooli yhtyeen folk-vaikutteisen ja vaihtoehtorockia yhdistävän soundin luomisessa. Kitaristi Christopher Thorn käytti paljon erilaisia akustisia kitaraääniä, jotka toivat albumille lämpöä ja orgaanisuutta. Tämä instrumentti täydensi Shannon Hoonin ilmaisuvoimaista laulua ja erottautui selvästi sähköisten instrumenttien joukosta. Alkuperäisen albumin äänitys tapahtui Capitol Studiosissa Los Angelesissa, ja tuottajana toimi Rick Parashar, joka tunnettiin myös Pearl Jamin ja Temple of the Dogin tuotannoista."
         },
@@ -1219,12 +1084,7 @@
         },
         {
           "question": "Mikä levy-yhtiö allekirjoitti Blink-182:n ja julkaisi heidän vuoden 1999 albuminsa 'Enema of the State', mikä oli ratkaisevaa bändin kansainväliselle läpimurrolle?",
-          "options": [
-            "MCA Records",
-            "Interscope Records",
-            "Epitaph Records",
-            "Geffen Records"
-          ],
+          "options": ["MCA Records", "Interscope Records", "Epitaph Records", "Geffen Records"],
           "correctAnswer": "MCA Records",
           "trivia": "Blink-182:n albumi 'Enema of the State' julkaistiin vuonna 1999 MCA Recordsin kautta. Tämä levy-yhtiö oli merkittävä toimija 1990-luvun lopun ja 2000-luvun alun rock- ja pop-punk-skenessä, ja sen kautta Blink-182 saavutti laajaa kansainvälistä näkyvyyttä. Ennen MCA Recordsia bändi oli julkaissut albumeita pienemmällä indie-yhtiöllä, mutta MCA:n resurssit mahdollistivat laajemman markkinoinnin ja levikin. Epitaph Records oli aiemmin tunnettu punk-levy-yhtiö, mutta Blink-182 siirtyi MCA:lle juuri ennen 'Enema of the State' -albumin julkaisua, mikä oli keskeinen askel heidän kaupallisessa menestyksessään."
         }
@@ -1239,34 +1099,19 @@
       "easy": [
         {
           "question": "Mikä Blur-yhtyeen 'Parklife'-albumilta vuonna 1994 julkaistu kappale nousi merkittävästi radiosoiton suosioon ja tunnetaan erityisesti tarttuvasta kertosäkeestään?",
-          "options": [
-            "Girls & Boys",
-            "End of a Century",
-            "To the End",
-            "Magic America"
-          ],
+          "options": ["Girls & Boys", "End of a Century", "To the End", "Magic America"],
           "correctAnswer": "Girls & Boys",
           "trivia": "Blurin 'Parklife' -albumi julkaistiin vuonna 1994 ja se nosti yhtyeen brittipopin kärkikaartiin. Albumilta 'Girls & Boys' oli yksi keskeisimmistä radiosoiton hiteistä, joka erottui energisellä rytmillään ja tarttuvalla kertosäkeellään. Kappale saavutti myös listamenestystä ja on edelleen yksi Blurille tunnusomaisista biiseistä. 'End of a Century' ja 'To the End' ovat myös albumin kappaleita, mutta ne eivät saavuttaneet yhtä suurta radiosoiton suosiota kuin 'Girls & Boys'. 'Magic America' puolestaan ei kuulu 'Parklife'-albumin kappaleisiin."
         },
         {
           "question": "Millä digitaalisella alustalla Blur julkaisi 'Parklife'-albuminsa vuonna 1994 ensimmäisenä laajemmin, mikä edusti tuon ajan digitaalisen jakelun alkuvaiheita?",
-          "options": [
-            "Apple Music",
-            "Napster",
-            "iTunes Store",
-            "LiveJournal"
-          ],
+          "options": ["Apple Music", "Napster", "iTunes Store", "LiveJournal"],
           "correctAnswer": "LiveJournal",
           "trivia": "Vuonna 1994 digitaalinen jakelu oli vielä hyvin alkutekijöissään, eikä nykyisiä suoratoistopalveluita ollut olemassa. Blur julkaisi 'Parklife'-albumin aikana ja sen jälkeen materiaaliaan muun muassa fanien yhteisöissä kuten LiveJournalissa, joka oli yksi varhaisista sosiaalisen median alustoista ja mahdollisti digitaalisen sisällön jakamisen. Toisaalta Apple Music ja iTunes Store perustettiin vasta 2000-luvulla, ja Napster tuli tunnetuksi vasta myöhemmin 1999. Tämä tekee LiveJournalista varhaisen esimerkin digitaalisen musiikin jakelusta ja faniyhteisön rakentamisesta Blurille."
         },
         {
           "question": "Mikä instrumentti on erityisen korostetusti esillä Blur-yhtyeen 'Parklife'-albumilla, ja se antaa albumille tunnistettavan brittipopin soundin?",
-          "options": [
-            "Saksofoni",
-            "Syntetisaattori",
-            "Koskettimet",
-            "Banjo"
-          ],
+          "options": ["Saksofoni", "Syntetisaattori", "Koskettimet", "Banjo"],
           "correctAnswer": "Koskettimet",
           "trivia": "Blurin 'Parklife', joka julkaistiin vuonna 1994, tunnetaan vahvasta brittipopin soundistaan, jossa koskettimet ovat keskeisessä roolissa. Albumin tuottajana toimi Stephen Street, joka on tunnettu siitä, että hän korostaa yhtyeen melodioita ja tekstuureja juuri koskettimien kautta. 'Parklife'-albumilla koskettimet tuovat esiin 1960- ja 1970-lukujen brittipopin vaikutteita, mikä on yksi syy albumin ajattomaan soundiin. Vaikka myös syntetisaattoreita ja saksofonia käytettiin joissakin kappaleissa, koskettimet ovat selkeästi kuuluvin instrumentti, joka rakentaa albumin tunnistettavaa äänimaailmaa."
         }
@@ -1285,12 +1130,7 @@
         },
         {
           "question": "Mikä Blur-yhtyeen 'Parklife'-albumin kappaleista sai eniten radiosoittoa Britanniassa julkaisunsa jälkeen vuonna 1994?",
-          "options": [
-            "Girls & Boys",
-            "End of a Century",
-            "Parklife",
-            "To the End"
-          ],
+          "options": ["Girls & Boys", "End of a Century", "Parklife", "To the End"],
           "correctAnswer": "Girls & Boys",
           "trivia": "Blurin vuoden 1994 albumi 'Parklife' oli brittipopin kulmakivi, ja sen single 'Girls & Boys' saavutti suurta radiosoittoa erityisesti Isossa-Britanniassa. Kappale nousi myös singlelistojen kärkisijoille, mikä vahvisti sen asemaa yhtyeen tunnetuimpana radiosoittona kyseiseltä albumilta. 'Parklife' ja 'End of a Century' saivat myös merkittävää huomiota, mutta 'Girls & Boys' oli selvästi suosituin radioissa. Tämä kappale edustaa britpopin energistä ja tanssittavaa puolta, mikä auttoi Bluria saavuttamaan laajan yleisön."
         },
@@ -1362,12 +1202,7 @@
         },
         {
           "question": "Missä kaupungissa Bone Thugs-n-Harmony aloitti kiertueensa albumin 'E. 1999 Eternal' julkaisun yhteydessä vuonna 1995?",
-          "options": [
-            "Cleveland",
-            "Los Angeles",
-            "New York",
-            "Atlanta"
-          ],
+          "options": ["Cleveland", "Los Angeles", "New York", "Atlanta"],
           "correctAnswer": "Cleveland",
           "trivia": "Bone Thugs-n-Harmony aloitti 'E. 1999 Eternal' -albuminsa kiertueen vuonna 1995 kotikaupungistaan Clevelandista. Tämä oli merkittävä tapahtuma, koska ryhmä halusi vahvistaa yhteyttään paikalliseen yleisöönsä ennen laajempaa valtakunnallista kiertuetta. 'E. 1999 Eternal' oli heidän läpimurtoalbuminsa, ja kiertueen onnistuminen auttoi nostamaan heidän mainettaan rap-musiikin kentällä. Cleveland toimi siis tärkeänä lähtöpisteenä heidän live-esiintymisilleen tänä aikana."
         },
@@ -1397,12 +1232,7 @@
         },
         {
           "question": "Millä sijalla Bone Thugs-n-Harmonyn albumi 'E. 1999 Eternal' ylsi Billboard 200 -listalla julkaisuvuotenaan 1995?",
-          "options": [
-            "Sijalle 1",
-            "Sijalle 3",
-            "Sijalle 5",
-            "Sijalle 7"
-          ],
+          "options": ["Sijalle 1", "Sijalle 3", "Sijalle 5", "Sijalle 7"],
           "correctAnswer": "Sijalle 3",
           "trivia": "Bone Thugs-n-Harmonyn 'E. 1999 Eternal' julkaistiin vuonna 1995 ja se saavutti merkittävää kaupallista menestystä. Albumi nousi Billboard 200 -listalla korkeimmillaan sijalle 3, mikä oli suuri saavutus rap-artistilta tuohon aikaan. Lisäksi albumilta julkaistiin useita menestyneitä singlejä, kuten 'Tha Crossroads', joka voitti Grammy-palkinnon. Tämä albumi vakiinnutti Bone Thugs-n-Harmonyn aseman yhtenä 1990-luvun vaikutusvaltaisimmista rap-yhtyeistä."
         },
@@ -1463,23 +1293,13 @@
       "easy": [
         {
           "question": "Mikä Boyz II Menin albumin 'II' kappaleista saavutti suurta kansainvälistä suosiota ja nousi listaykköseksi useissa maissa vuonna 1994?",
-          "options": [
-            "I'll Make Love to You",
-            "Water Runs Dry",
-            "On Bended Knee",
-            "Thank You"
-          ],
+          "options": ["I'll Make Love to You", "Water Runs Dry", "On Bended Knee", "Thank You"],
           "correctAnswer": "I'll Make Love to You",
           "trivia": "Boyz II Menin vuoden 1994 albumi 'II' sisältää kappaleen 'I'll Make Love to You', joka nousi merkittävästi kansainvälisille listoille ja oli listaykkösenä muun muassa Yhdysvalloissa, Isossa-Britanniassa ja Australiassa. Tämä hitti vahvisti yhtyeen aseman globaalina R&B-ilmiönä ja myi miljoonia kappaleita maailmanlaajuisesti. Albumi 'II' itsessään oli suuri menestys, ja sen kappaleet vaikuttivat vahvasti 1990-luvun soul- ja R&B-musiikin kehitykseen. Lisäksi 'I'll Make Love to You' voitti Grammy-palkinnon parhaasta R&B-kappaleesta vuonna 1995."
         },
         {
           "question": "Kuka Boyz II Menin jäsenistä lauloi päävokalisointia useissa kappaleissa vuoden 1994 albumilla 'II'?",
-          "options": [
-            "Nathan Morris",
-            "Wanya Morris",
-            "Shawn Stockman",
-            "Michael McCary"
-          ],
+          "options": ["Nathan Morris", "Wanya Morris", "Shawn Stockman", "Michael McCary"],
           "correctAnswer": "Wanya Morris",
           "trivia": "Boyz II Menin vuoden 1994 albumi 'II' sisälsi useita hittejä, joissa Wanya Morris toimi päävokalistina. Hän oli tunnettu korkeasta ja melodisesta äänestään, joka erottui esimerkiksi kappaleissa \"I'll Make Love to You\" ja \"On Bended Knee\". Albumilla kaikki neljä jäsentä - Nathan Morris, Wanya Morris, Shawn Stockman ja Michael McCary - lauloivat taustoja, mutta Wanya kantoi monia soolo-osuuksia. 'II' nousi Billboard 200 -listalla sijalle kaksi ja voitti Grammy-palkinnon parhaasta R&B-albumista vuonna 1995."
         },
@@ -1498,12 +1318,7 @@
       "medium": [
         {
           "question": "Mikä seuraavista tuottajista työskenteli Boyz II Menin albumilla 'II' vuonna 1994, vaikuttaen sen tunnistettavaan neo-soul-vaikutteiseen soundiin?",
-          "options": [
-            "Babyface",
-            "Dr. Dre",
-            "Quincy Jones",
-            "Timbaland"
-          ],
+          "options": ["Babyface", "Dr. Dre", "Quincy Jones", "Timbaland"],
           "correctAnswer": "Babyface",
           "trivia": "Boyz II Men julkaisi albumin 'II' vuonna 1994, ja sen tuotannossa merkittävässä roolissa oli tuottaja Babyface. Hän oli tunnettu kyvystään yhdistää R&B:n perinteisiä elementtejä moderniin soundiin, mikä näkyy selvästi albumin melodisissa ja harmoniaa korostavissa kappaleissa. Babyfacen tuottaja- ja säveltäjäpanos auttoi 'II'-albumia saavuttamaan valtavan kaupallisen menestyksen, mukaan lukien useita hittejä kuten \"I'll Make Love to You\". Muita albumilla työskennelleitä tuottajia olivat mm. Dallas Austin, mutta Dr. Dre, Quincy Jones ja Timbaland eivät osallistuneet tähän projektiin."
         },
@@ -1544,23 +1359,13 @@
         },
         {
           "question": "Kuka toimi pääasiallisena tuottajana Boyz II Men -yhtyeen vuoden 1994 albumilla 'II', vaikuttaen merkittävästi sen soundiin ja yhteistyöprosessiin?",
-          "options": [
-            "Dallas Austin",
-            "Babyface",
-            "Teddy Riley",
-            "Jimmy Jam"
-          ],
+          "options": ["Dallas Austin", "Babyface", "Teddy Riley", "Jimmy Jam"],
           "correctAnswer": "Babyface",
           "trivia": "Boyz II Men -yhtyeen albumilla 'II', joka julkaistiin vuonna 1994, pääasiallisena tuottajana toimi Kenneth \"Babyface\" Edmonds. Hän oli keskeisessä roolissa albumin sulavan R&B-soundin luomisessa ja tuotti useita kappaleita, mukaan lukien hittisinglet. Babyfacen yhteistyö Boyz II Menin kanssa toi esiin heidän harmonisen laulutaitonsa ja modernin tuotannon yhdistelmän. Lisäksi albumilla työskentelivät myös muut tuottajat, mutta Babyfacen vaikutus oli merkittävin tuotannollisesti ja kaupallisesti."
         },
         {
           "question": "Kuka toimi Boyz II Men -yhtyeen jäsenenä ja vastasi erityisesti alttoäänestä albumilla 'II', jonka he julkaisivat vuonna 1994?",
-          "options": [
-            "Shawn Stockman",
-            "Nathan Morris",
-            "Wanya Morris",
-            "Michael McCary"
-          ],
+          "options": ["Shawn Stockman", "Nathan Morris", "Wanya Morris", "Michael McCary"],
           "correctAnswer": "Michael McCary",
           "trivia": "Michael McCary oli Boyz II Menin basisti ja tunnettu erityisesti syvästä alttoäänestään, joka erottui selvästi albumilla 'II' vuodelta 1994. Hän oli tärkeä osa yhtyeen ääntä ja vaikutti merkittävästi ryhmän harmonioihin. Shawn Stockman, Nathan Morris ja Wanya Morris puolestaan lauloivat korkeammilla ääniasteikoilla, kuten tenori- ja baritoniosuuksilla. Albumi 'II' on yksi Boyz II Menin kaupallisesti menestyneimmistä julkaisuista, ja sen moniääninen laulu perustui vahvasti jäsenten erilaisiin lauluääniin."
         }
@@ -1586,12 +1391,7 @@
         },
         {
           "question": "Mikä seuraavista kappaleista Brandy levytti albumilleen 'Never Say Never', joka vahvisti hänen kansainvälistä vaikutustaan vuonna 1998?",
-          "options": [
-            "The Boy Is Mine",
-            "I Wanna Be Down",
-            "Have You Ever?",
-            "Angel in Disguise"
-          ],
+          "options": ["The Boy Is Mine", "I Wanna Be Down", "Have You Ever?", "Angel in Disguise"],
           "correctAnswer": "The Boy Is Mine",
           "trivia": "Brandy julkaisi albumin 'Never Say Never' vuonna 1998, ja sen single 'The Boy Is Mine', duetto Monica-nimisen artistin kanssa, nousi maailmanlaajuiseksi hittikappaleeksi. Tämä kappale vahvisti Brandy kansainvälistä asemaa R&B-artistina ja voitti muun muassa Grammy-palkinnon. Albumi itsessään myi miljoonia kappaleita eri puolilla maailmaa, mikä korosti sen laajaa vaikutusta. Lisäksi 'Never Say Never' sisälsi myös muita menestyksekkäitä singlejä, mutta 'The Boy Is Mine' oli erityisen merkittävä kansainvälisessä mittakaavassa."
         },
@@ -1610,12 +1410,7 @@
       "medium": [
         {
           "question": "Millä digitaalisella jakelualustalla Brandy julkaisi albuminsa 'Never Say Never' vuonna 1998, joka oli tuohon aikaan yksi harvoista digitaalisesti saatavilla olevista R&B-albumeista?",
-          "options": [
-            "Apple Music",
-            "Napster",
-            "iTunes Store",
-            "RealAudio"
-          ],
+          "options": ["Apple Music", "Napster", "iTunes Store", "RealAudio"],
           "correctAnswer": "RealAudio",
           "trivia": "Brandy julkaisi 'Never Say Never' -albuminsa vuonna 1998, jolloin digitaalinen musiikin jakelu oli vielä alkuvaiheessa. Tuolloin suosituimmat digitaaliset jakelukanavat perustuivat usein RealAudio-tekniikkaan, joka mahdollisti musiikin kuuntelun netissä ilman lataamista. Alusta kuten iTunes Store tai Apple Music eivät vielä olleet olemassa, ja Napster perustettiin vasta vuonna 1999. 'Never Say Never' oli yksi niistä R&B-albumeista, joita markkinoitiin myös digitaalisten äänitteiden muodossa, mikä osoittaa Brandy ja hänen levy-yhtiönsä ennakoivan digitaalisen musiikin tulevaa merkitystä."
         },
@@ -1667,12 +1462,7 @@
         },
         {
           "question": "Mikä tuottaja oli keskeisessä roolissa Brandyn vuoden 1998 albumin 'Never Say Never' taustalla, erityisesti vaikuttaen sen soundiin ja tuotantotyyleihin?",
-          "options": [
-            "Rodney Jerkins",
-            "Timbaland",
-            "Babyface",
-            "Pharrell Williams"
-          ],
+          "options": ["Rodney Jerkins", "Timbaland", "Babyface", "Pharrell Williams"],
           "correctAnswer": "Rodney Jerkins",
           "trivia": "Brandyn 'Never Say Never' -albumin tuotannossa Rodney Jerkins, tunnettu myös nimellä Darkchild, oli keskeinen hahmo. Hän tuotti suurimman osan albumin kappaleista, mikä toi albumille modernin ja innovatiivisen R&B-soundin, joka erottui 1990-luvun lopun markkinoilla. Jerkinsin yhteistyö Brandyn kanssa oli merkittävä uraauurtava vaihe molempien uralla, ja se auttoi albumia saavuttamaan suurta kaupallista menestystä sekä kriitikoiden ylistystä. Vaikka Babyface ja Timbaland olivat tuohon aikaan myös tunnettuja tuottajia, heidän roolinsa 'Never Say Never' -albumilla oli vähäisempi verrattuna Jerkinsiin."
         }
@@ -1687,23 +1477,13 @@
       "easy": [
         {
           "question": "Kuka oli pääasiallinen laulaja ja yhtyeen jäsen albumilla '...Baby One More Time', jonka Britney Spears julkaisi vuonna 1999?",
-          "options": [
-            "Britney Spears",
-            "Christina Aguilera",
-            "Jessica Simpson",
-            "Mandy Moore"
-          ],
+          "options": ["Britney Spears", "Christina Aguilera", "Jessica Simpson", "Mandy Moore"],
           "correctAnswer": "Britney Spears",
           "trivia": "Britney Spears oli pääasiallinen laulaja ja artisti albumilla '...Baby One More Time', joka julkaistiin vuonna 1999. Tämä albumi oli hänen debyyttialbuminsa ja se teki hänestä kansainvälisen poptähden. Vaikka albumilla työskenneltiin useiden tuottajien kanssa, kuten Max Martin, itse Britney hoiti pääosan vokaaleista. Christina Aguilera, Jessica Simpson ja Mandy Moore ovat myös pop-artisteja, jotka nousivat kuuluisuuteen samaan aikaan, mutta eivät olleet mukana tässä albumissa."
         },
         {
           "question": "Kuka tuotti suurimman osan Britney Spearsin vuonna 1999 julkaistun albumin '...Baby One More Time' kappaleista?",
-          "options": [
-            "Max Martin",
-            "Dr. Luke",
-            "Timbaland",
-            "Pharrell Williams"
-          ],
+          "options": ["Max Martin", "Dr. Luke", "Timbaland", "Pharrell Williams"],
           "correctAnswer": "Max Martin",
           "trivia": "Ruotsalainen tuottaja Max Martin oli keskeinen henkilö Britney Spearsin debyyttialbumin '...Baby One More Time' tuotannossa vuonna 1999. Hän kirjoitti ja tuotti albumin nimikkokappaleen, joka saavutti valtavan kaupallisen menestyksen ympäri maailmaa. Max Martinin työ vaikutti merkittävästi popmusiikin soundiin 1990-luvun lopulla ja 2000-luvun alussa. Vaikka muut tuottajat kuten Dr. Luke ja Timbaland nousivat myöhemmin tunnetuiksi, tämä albumi oli yksi Max Martinin uran tärkeimmistä läpimurroista."
         },
@@ -1733,12 +1513,7 @@
         },
         {
           "question": "Kuka suunnitteli Britney Spearsin vuoden 1999 albumin '...Baby One More Time' kansitaiteen, joka esittää Spearsia koulupuvussa punaisen taustan edessä?",
-          "options": [
-            "Jeri Heiden",
-            "Anton Corbijn",
-            "Mark Seliger",
-            "Fabien Baron"
-          ],
+          "options": ["Jeri Heiden", "Anton Corbijn", "Mark Seliger", "Fabien Baron"],
           "correctAnswer": "Jeri Heiden",
           "trivia": "Britney Spearsin debyyttialbumin '...Baby One More Time' kansitaiteen suunnitteli graafinen suunnittelija Jeri Heiden, joka tunnetaan erityisesti 1990-luvun lopun ja 2000-luvun alun popmusiikin visuaalisesta ilmeestä. Kansikuvassa Britney esiintyy koulupuvussa ja punaisella taustalla, mikä korostaa albumin nuorekasta ja samalla hieman kapinallista tyyliä. Kuvaaja oli Patrick Demarchelier, joka on merkittävä muotikuvaaja. Tämä kansitaide loi vahvan visuaalisen identiteetin albumille ja auttoi nostamaan Spearsin popmusiikin ikoniksi heti uran alussa."
         },
@@ -1768,23 +1543,13 @@
         },
         {
           "question": "Kuka vastasi Britney Spearsin vuoden 1999 albumin '...Baby One More Time' kansitaiteen valokuvauksesta ja visuaalisesta suunnittelusta, joka loi ikonisen nuoruuden ja viattomuuden kuvan?",
-          "options": [
-            "Patrick Demarchelier",
-            "Mark Seliger",
-            "Herb Ritts",
-            "Ellen von Unwerth"
-          ],
+          "options": ["Patrick Demarchelier", "Mark Seliger", "Herb Ritts", "Ellen von Unwerth"],
           "correctAnswer": "Mark Seliger",
           "trivia": "Britney Spearsin debyyttialbumin '...Baby One More Time' kansitaiteesta vastasi valokuvaaja Mark Seliger, joka tunnetaan työstään musiikkimaailmassa ja muotivalokuvauksessa. Hänen ottamansa kuva korostaa Spearsin nuorekasta ja viatonta imagoa, mikä sopi täydellisesti albumin teemaan. Visuaalinen suunnittelu tuki albumin markkinointia voimakkaasti, ja Seligerin työ on saanut kiitosta juuri sen ajattoman ja tunnistettavan tyylin vuoksi. Albumin kansi on edelleen yksi 1990-luvun pop-musiikin ikonisimmista kuvista."
         },
         {
           "question": "Kuka toimi pääasiallisena tuottajana Britney Spearsin vuonna 1999 julkaistulla albumilla '...Baby One More Time', ja jonka tuotantotyylillä vaikutettiin merkittävästi albumin pop- ja R&B-soundiin?",
-          "options": [
-            "Max Martin",
-            "Dr. Luke",
-            "Timbaland",
-            "Babyface"
-          ],
+          "options": ["Max Martin", "Dr. Luke", "Timbaland", "Babyface"],
           "correctAnswer": "Max Martin",
           "trivia": "Britney Spearsin debyyttialbumin '...Baby One More Time' pääasiallinen tuottaja oli ruotsalainen Max Martin, joka oli tuolloin jo tunnettu kyvyistään luoda koukuttavia pop-kappaleita. Martinin tuotantotyyli yhdisti vahvasti tarttuvat melodiat ja modernit R&B-vaikutteet, mikä teki albumista kansainvälisen menestyksen. Albumilla hyödynnettiin perinteisten soitinten lisäksi myös digitaalista äänitystekniikkaa, joka oli tuohon aikaan vielä suhteellisen uusi poptuotannoissa. Muut vaihtoehdot, kuten Dr. Luke, Timbaland ja Babyface, olivat tuolloin aktiivisia tuottajia, mutta eivät osallistuneet tähän projektiin."
         }
@@ -1799,23 +1564,13 @@
       "easy": [
         {
           "question": "Mikä seuraavista digitaalisista alustoista julkaisi ensimmäisenä Bushin albumin 'Sixteen Stone' digitaalisesti?",
-          "options": [
-            "iTunes Store",
-            "Napster",
-            "Amazon MP3",
-            "Spotify"
-          ],
+          "options": ["iTunes Store", "Napster", "Amazon MP3", "Spotify"],
           "correctAnswer": "iTunes Store",
           "trivia": "Bushin albumi 'Sixteen Stone', alun perin julkaistu vuonna 1994, tuli digitaalisesti saataville vasta 2000-luvun lopulla, kun iTunes Store aloitti musiikin digitaalisen jakelun laajamittaisesti. iTunes oli yksi ensimmäisistä virallisista alustoista, joka tarjosi 'Sixteen Stone' -albumin digitaalisessa muodossa, mikä teki albumista helpommin saatavan nykyaikaisille kuuntelijoille. Napster ja Spotify perustettiin myöhemmin, ja Amazon MP3 aloitti digitaalimusiikin myynnin vasta 2000-luvun puolivälissä. Tämä digitaalinen julkaisu auttoi säilyttämään albumin suosion myös suoratoisto- ja latausajan aikana."
         },
         {
           "question": "Mikä oli Bush-yhtyeen 'Sixteen Stone' -albumin ensimmäinen single, joka toi heille laajaa kansainvälistä huomiota vuonna 1994?",
-          "options": [
-            "Glycerine",
-            "Comedown",
-            "Everything Zen",
-            "Machinehead"
-          ],
+          "options": ["Glycerine", "Comedown", "Everything Zen", "Machinehead"],
           "correctAnswer": "Everything Zen",
           "trivia": "Bush julkaisi debyyttialbuminsa 'Sixteen Stone' vuonna 1994, ja albumin ensimmäinen single oli 'Everything Zen'. Kappale auttoi yhtyettä saamaan kansainvälistä huomiota erityisesti Yhdysvalloissa, missä brittiläinen grunge-tyyli oli tuolloin suosittua. 'Everything Zen' nousi myös rock-radiosoiton suosioon, mikä oli merkittävä saavutus debyyttialbumille. Albumilta julkaistiin myöhemmin useita menestyneitä singlejä, kuten 'Glycerine' ja 'Comedown', mutta juuri 'Everything Zen' oli se, joka käynnisti Bushin nousun laajempaan tietoisuuteen."
         },
@@ -1869,12 +1624,7 @@
       "hard": [
         {
           "question": "Mikä seuraavista Bushin 'Sixteen Stone' -albumin kappaleista saavutti merkittävän radiosoiton Yhdysvalloissa ja nousi Billboardin Mainstream Rock -listan top 10 -sijoille vuonna 1995?",
-          "options": [
-            "Glycerine",
-            "Everything Zen",
-            "Comedown",
-            "Machinehead"
-          ],
+          "options": ["Glycerine", "Everything Zen", "Comedown", "Machinehead"],
           "correctAnswer": "Comedown",
           "trivia": "Bushin debyyttialbumi 'Sixteen Stone', julkaistu vuonna 1994, saavutti merkittävää radiosoittoa erityisesti Yhdysvalloissa grungen ja alternative rockin suosion kasvaessa. Kappale 'Comedown' nousi Billboardin Mainstream Rock -listalla top 10 -sijoille vuonna 1995, mikä vahvisti yhtyeen asemaa amerikkalaisessa rock-skeneissä. Vaikka myös 'Glycerine' ja 'Machinehead' saivat radiosoittoa, ne eivät saavuttaneet yhtä korkeaa sijoitusta kyseisellä listalla samana aikana. 'Everything Zen' sen sijaan oli tärkeä single, mutta jäi hieman vähemmälle radiosoitolle verrattuna 'Comedowniin'. Tämä menestys auttoi Bushia saamaan laajemman yleisön Yhdysvalloissa ja vahvisti 'Sixteen Stone' -albumin vaikutusta 1990-luvun rock-musiikissa."
         },
@@ -1891,12 +1641,7 @@
         },
         {
           "question": "Missä sijoituksessa Bushin albumi 'Sixteen Stone' saavutti Yhdysvaltain Billboard 200 -albumilistan korkeimman paikkansa vuonna 1995?",
-          "options": [
-            "14. sijalla",
-            "7. sijalla",
-            "3. sijalla",
-            "20. sijalla"
-          ],
+          "options": ["14. sijalla", "7. sijalla", "3. sijalla", "20. sijalla"],
           "correctAnswer": "14. sijalla",
           "trivia": "Bushin debyyttialbumi 'Sixteen Stone', julkaistu vuonna 1994, saavutti Yhdysvalloissa parhaimmillaan 14. sijan Billboard 200 -albumilistalla vuonna 1995. Tämä menestys oli merkittävä erityisesti brittiläiselle post-grunge-yhtyeelle, joka nousi suosion kärkeen Yhdysvalloissa. Albumi myi Yhdysvalloissa platinaa useaan kertaan, ja sen tunnetuimmat singlet, kuten \"Glycerine\" ja \"Comedown\", auttoivat nostamaan Bushin kansainväliseen kuuluisuuteen. Vaikka 'Sixteen Stone' ei yltänyt listaykköseksi, sen pitkäkestoinen suosio ja myyntiluvut tekevät siitä tärkeän albumin 1990-luvun rock-musiikin historiassa."
         }
@@ -1968,12 +1713,7 @@
         },
         {
           "question": "Kuka toimi pääasiallisena tuottajana Busta Rhymesin vuoden 1997 albumilla 'When Disaster Strikes...', ja tunnetaan myös yhteistyöstään muiden Notorious B.I.G.:n ja Puff Daddyn kanssa?",
-          "options": [
-            "DJ Premier",
-            "Timbaland",
-            "DJ Scratch",
-            "Dr. Dre"
-          ],
+          "options": ["DJ Premier", "Timbaland", "DJ Scratch", "Dr. Dre"],
           "correctAnswer": "DJ Scratch",
           "trivia": "Busta Rhymesin albumilla 'When Disaster Strikes...' vuodelta 1997 DJ Scratch toimi yhtenä pääasiallisista tuottajista. DJ Scratch tunnetaan erityisesti hänen työskentelystään EPMD:n kanssa sekä yhteistyöstään Notorious B.I.G.:n ja Puff Daddyn tuotannoissa. Albumin tuotannossa yhdistettiin useita tuottajia, mutta DJ Scratchin panos erottui erityisesti skarppina hip-hop -soundina. Tämä yhteistyö toi albumille autenttisen East Coast -hiphopin tunnelman ja vaikutti sen kriittiseen menestykseen."
         }
@@ -1981,12 +1721,7 @@
       "hard": [
         {
           "question": "Mikä digitaalisen jakelualustan kautta Busta Rhymes julkaisi albuminsa 'When Disaster Strikes...' ensimmäisinä vuosinaan, ottaen huomioon vuoden 1997 julkaisun digitaalisen musiikkikentän tilan?",
-          "options": [
-            "Apple iTunes Store",
-            "Napster P2P-verkko",
-            "Amazon MP3",
-            "CD Baby"
-          ],
+          "options": ["Apple iTunes Store", "Napster P2P-verkko", "Amazon MP3", "CD Baby"],
           "correctAnswer": "Napster P2P-verkko",
           "trivia": "Vuonna 1997 digitaalinen musiikin jakelu oli vielä varhaisessa vaiheessa, eikä iTunes Storea tai Amazon MP3:ta ollut olemassa. Busta Rhymes julkaisi 'When Disaster Strikes...' fyysisesti, mutta sen musiikki alkoi levitä digitaalisen jakelun kautta pääasiassa Napsterin kaltaisissa vertaisverkostoissa. Napster käynnistyi vuonna 1999, kaksi vuotta albumin julkaisun jälkeen, ja se mullisti musiikin digitaalisen jakelun ja levityksen. Tämän vuoksi 'When Disaster Strikes...' oli yksi varhaisista hiphop-albumeista, jotka levisivät laajasti myös digitaalisesti Napsterin kautta, vaikka virallisia digitaalisia jakelukanavia ei tuolloin vielä ollut. CD Baby taas perustettiin vasta vuonna 1998, eikä ollut merkittävässä roolissa suurten levy-yhtiöiden julkaisujen levityksessä."
         },
@@ -2003,12 +1738,7 @@
         },
         {
           "question": "Millä korkeimmalla Billboard 200 -listan sijoituksella Busta Rhymesin albumi 'When Disaster Strikes...' ylsi vuonna 1997?",
-          "options": [
-            "Sijoituksella 3",
-            "Sijoituksella 12",
-            "Sijoituksella 7",
-            "Sijoituksella 20"
-          ],
+          "options": ["Sijoituksella 3", "Sijoituksella 12", "Sijoituksella 7", "Sijoituksella 20"],
           "correctAnswer": "Sijoituksella 3",
           "trivia": "Busta Rhymesin toinen studioalbumi 'When Disaster Strikes...', julkaistu vuonna 1997, saavutti merkittävän kaupallisen menestyksen. Albumi nousi korkeimmillaan Billboard 200 -listalla sijalle 3, mikä vahvisti hänen asemaansa 1990-luvun hiphop-skenen keskeisenä artistina. Lisäksi levy sai platinalevyn Yhdysvalloissa, mikä kertoo sen laajasta myynnistä. Albumin menestys oli osin seurausta sen energisestä tyylistä ja Busta Rhymesin persoonallisesta flow’sta, jotka erottuivat tuon ajan rap-musiikissa."
         }
@@ -2525,12 +2255,7 @@
         },
         {
           "question": "Millä digitaalisella alustalla Outkast julkaisi albuminsa 'ATLiens' ensimmäisten joukossa vuonna 1996?",
-          "options": [
-            "Apple iTunes",
-            "Amazon Music",
-            "Napster",
-            "MySpace Music"
-          ],
+          "options": ["Apple iTunes", "Amazon Music", "Napster", "MySpace Music"],
           "correctAnswer": "Napster",
           "trivia": "Outkast julkaisi 'ATLiens'-albuminsa vuonna 1996, jolloin digitaalinen musiikin jakelu oli vielä alkuvaiheessa. Yksi varhaisimmista digitaalisista alustoista, jolla albumia jaettiin laajemmin, oli Napster, joka avasi tien musiikin tiedostojen jakamiseen internetissä vuonna 1999. Apple iTunes ja Amazon Music lanseerattiin vasta myöhemmin 2000-luvulla, ja MySpace Music tuli suosioon vasta 2000-luvun puolivälissä. Näin 'ATLiens' on osa musiikin siirtymistä perinteisestä fyysisestä jakelusta digitaaliseen aikakauteen."
         }
@@ -2573,23 +2298,13 @@
       "hard": [
         {
           "question": "Mikä digitaalinen jakelualusta oli ensimmäisten joukossa, joka tarjosi Outkastin vuonna 1996 julkaistun albumin 'ATLiens' virallisesti ladattavaksi myöhemmin 2000-luvulla?",
-          "options": [
-            "Napster",
-            "iTunes Store",
-            "Amazon MP3",
-            "Spotify"
-          ],
+          "options": ["Napster", "iTunes Store", "Amazon MP3", "Spotify"],
           "correctAnswer": "iTunes Store",
           "trivia": "Outkastin albumi 'ATLiens' julkaistiin alun perin fyysisenä CD-levynä ja vinyylinä vuonna 1996. Digitaalinen jakelu ei vielä tuolloin ollut yleistä, mutta 2000-luvun puolivälissä iTunes Store nousi yhdeksi ensimmäisistä laillisen digitaalisen musiikin jakelualustoista, joka tarjosi myös vanhempia albumeita kuten 'ATLiens' ladattavaksi. Napster oli alun perin vertaisverkko, joka mahdollisti tiedostojen jakamisen ilman virallista lupaa, eikä näin ollen ollut virallinen jakelualusta. Amazon MP3 ja Spotify tulivat digitaalisen jakelun kentälle myöhemmin, mutta iTunesilla oli merkittävä rooli klassikkoalbumien laillisessa digitaalisessa saatavuudessa. Tämä digitaalinen jakelu auttoi säilyttämään 'ATLiensin' kulttuurisen merkityksen uuden sukupolven kuulijoille."
         },
         {
           "question": "Kuka Outkastiin kuuluva jäsen vastasi pääasiassa albumin 'ATLiens' vuonna 1996 tuottamisesta ja äänityksistä?",
-          "options": [
-            "André 3000",
-            "Big Boi",
-            "Organized Noize",
-            "Earthtone III"
-          ],
+          "options": ["André 3000", "Big Boi", "Organized Noize", "Earthtone III"],
           "correctAnswer": "Earthtone III",
           "trivia": "Outkastin vuoden 1996 albumi 'ATLiens' merkitsi merkittävää kehitystä yhtyeen tuotannossa, sillä jäsenet André 3000 ja Big Boi alkoivat itse tuottamaan musiikkiaan yhdessä Earthtone III -tuotantoryhmän kanssa, johon molemmat kuuluivat. Earthtone III on Outkastin jäsenten ja heidän tuottajakumppaneiden muodostama ryhmä, joka vaikutti vahvasti albumin soundiin. Organized Noize oli aiemmin tärkeä tuottaja Outkastin tuotannossa, mutta 'ATLiens'-albumilla Earthtone III:n rooli korostui. Tämä siirtymä itsensä tuottamiseen oli merkittävä askel yhtyeen luovassa prosessissa ja vaikutti albumin ainutlaatuiseen, avaruudelliseen ja kokeelliseen äänimaailmaan."
         },
@@ -2637,12 +2352,7 @@
         },
         {
           "question": "Kuka toimi tuottajana Panteran vuoden 1992 albumilla 'Vulgar Display of Power'?",
-          "options": [
-            "Terry Date",
-            "Rick Rubin",
-            "Bob Rock",
-            "Andy Wallace"
-          ],
+          "options": ["Terry Date", "Rick Rubin", "Bob Rock", "Andy Wallace"],
           "correctAnswer": "Terry Date",
           "trivia": "Panteran 'Vulgar Display of Power' -albumin tuottajana toimi Terry Date, joka oli tunnettu myös yhteistyöstään muiden metalliyhtyeiden kanssa kuten Soundgarden ja White Zombie. Albumi äänitettiin vuonna 1992, ja Date auttoi yhtyettä saavuttamaan raskaamman ja selkeämmän soundin verrattuna heidän aiempiin julkaisuihinsa. Hänen tuotantotyylinsä korosti erityisesti rumpujen ja kitaroiden voimakkuutta, mikä vahvisti albumin aggressiivista ilmettä. Tämä yhteistyö loi pohjan Panteran läpimurrolle laajempien yleisöjen keskuudessa."
         }
@@ -2696,23 +2406,13 @@
         },
         {
           "question": "Mikä Panteran 'Vulgar Display of Power' -albumin kappaleista saavutti merkittävää radiosoittoa erityisesti metalliradiossa 1990-luvun alussa?",
-          "options": [
-            "Walk",
-            "Fucking Hostile",
-            "This Love",
-            "Hollow"
-          ],
+          "options": ["Walk", "Fucking Hostile", "This Love", "Hollow"],
           "correctAnswer": "Walk",
           "trivia": "Panteran vuoden 1992 albumi 'Vulgar Display of Power' on tunnettu aggressiivisesta soundistaan ja vaikutuksestaan metallimusiikkiin. Kappale 'Walk' nousi erityisesti metallimusiikkia soittavilla radioasemilla suureen suosioon sen tarttuvan riffin ja tunnistettavan rytmin ansiosta. 'Walk' toimi myös singlenä, joka auttoi levittämään albumin mainetta laajalti radiossa. Vaikka muutkin kappaleet, kuten 'This Love' ja 'Fucking Hostile', saivat radiosoittoa, 'Walk' oli ehdottomasti se, joka sai eniten toistoja ja on edelleen yksi Panteran tunnetuimmista radiohiteistä."
         },
         {
           "question": "Missä sijoituksessa Panteran albumi 'Vulgar Display of Power' saavutti Yhdysvaltain Billboard 200 -listalla julkaisuvuonnaan 1992?",
-          "options": [
-            "27. sija",
-            "10. sija",
-            "48. sija",
-            "3. sija"
-          ],
+          "options": ["27. sija", "10. sija", "48. sija", "3. sija"],
           "correctAnswer": "27. sija",
           "trivia": "Panteran 'Vulgar Display of Power' julkaistiin vuonna 1992 ja se merkitsi bändin läpimurtoa laajempaan yleisöön. Albumi saavutti Yhdysvaltain Billboard 200 -listalla parhaan sijoituksensa 27. sijalla, mikä oli merkittävä saavutus groove metal -genressä tuohon aikaan. Vaikka albumi ei yltänyt korkeimmille listoille heti julkaisuvuonnaan, sen pitkäaikainen menestys ja vaikutus heavy metal -musiikkiin ovat kiistattomat. 'Vulgar Display of Power' on myöhemmin saanut kultalevystatuksen Yhdysvalloissa, ja se on yksi Panteran tunnetuimmista ja arvostetuimmista albumeista."
         }
@@ -2738,23 +2438,13 @@
         },
         {
           "question": "Mikä oli Pearl Jamin albumin 'Ten' ensimmäinen single, joka toi yhtyeen laajempaan julkisuuteen vuonna 1991?",
-          "options": [
-            "Alive",
-            "Black",
-            "Even Flow",
-            "Jeremy"
-          ],
+          "options": ["Alive", "Black", "Even Flow", "Jeremy"],
           "correctAnswer": "Alive",
           "trivia": "Pearl Jamin albumin 'Ten' ensimmäinen single oli kappale 'Alive', joka julkaistiin vuonna 1991. Tämä biisi auttoi yhtyettä nousemaan vaihtoehtorockin kärkeen ja sai laajaa radiosoittoa. 'Ten' on yhtyeen debyyttialbumi, ja sen kappaleet kuten 'Alive', 'Even Flow' ja 'Jeremy' ovat edelleen keskeisiä grunge-musiikin klassikoita. Albumi myi miljoonia kappaleita ja määritteli Pearl Jamin uran alkutaipaleen."
         },
         {
           "question": "Kuka toimi tuottajana Pearl Jamin vuoden 1991 albumilla 'Ten'?",
-          "options": [
-            "Rick Parashar",
-            "Butch Vig",
-            "Steve Albini",
-            "Brendan O'Brien"
-          ],
+          "options": ["Rick Parashar", "Butch Vig", "Steve Albini", "Brendan O'Brien"],
           "correctAnswer": "Rick Parashar",
           "trivia": "Pearl Jamin debyyttialbumi 'Ten' julkaistiin vuonna 1991 ja sen tuottajana toimi Rick Parashar. Hän oli tunnettu Seattle-alueen tuottaja, joka työskenteli myös muiden grunge-yhtyeiden kanssa, kuten Temple of the Dogin kanssa. 'Ten' äänitettiin London Bridge Studiosissa Seattlessa, ja Parasharin tuotanto auttoi luomaan albumille sen tunnistettavan, voimakkaan ja selkeän soundin. Rick Parashar oli keskeisessä roolissa siinä, miten albumin kappaleet saivat täyteläisen ja energisen ilmeen, mikä edesauttoi Pearl Jamin läpimurtoa grungen suurseuroihin."
         }
@@ -2839,23 +2529,13 @@
       "easy": [
         {
           "question": "Kuka toimi pääasiallisena tuottajana Public Enemyn vuoden 1990 albumilla 'Fear of a Black Planet'?",
-          "options": [
-            "The Bomb Squad",
-            "Rick Rubin",
-            "Dr. Dre",
-            "DJ Premier"
-          ],
+          "options": ["The Bomb Squad", "Rick Rubin", "Dr. Dre", "DJ Premier"],
           "correctAnswer": "The Bomb Squad",
           "trivia": "Public Enemyn albumin 'Fear of a Black Planet' tuotannosta vastasi pääosin The Bomb Squad, joka oli ryhmän oma tuottajatiimi. Heidän tuotantotyylinsä tunnetaan monikerroksisista sampleista ja tiheästä äänimaisemasta, mikä erotti albumin sen aikaisista hiphop-levyistä. Rick Rubin, Dr. Dre ja DJ Premier ovat myös merkittäviä hiphop-tuottajia, mutta eivät olleet mukana tämän albumin tuotannossa. The Bomb Squadin vaikutus oli keskeinen Public Enemyn poliittisesti latautuneen ja kokeellisen soundin luomisessa vuoden 1990 albumilla."
         },
         {
           "question": "Mikä levy-yhtiö julkaisi Public Enemyn albumin 'Fear of a Black Planet' vuonna 1990?",
-          "options": [
-            "Def Jam Recordings",
-            "Motown Records",
-            "Profile Records",
-            "Island Records"
-          ],
+          "options": ["Def Jam Recordings", "Motown Records", "Profile Records", "Island Records"],
           "correctAnswer": "Def Jam Recordings",
           "trivia": "Public Enemyn albumi 'Fear of a Black Planet' julkaistiin vuonna 1990 levy-yhtiö Def Jam Recordingsin kautta. Def Jam oli yksi vaikutusvaltaisimmista hiphopin levy-yhtiöistä, joka tuki monia merkittäviä artisteja 1980- ja 1990-luvuilla. Profile Records oli aiemmin julkaissut Public Enemyn tuotantoa, mutta 'Fear of a Black Planet' oli heidän ensimmäinen albuminsa Def Jamin alaisuudessa. Tämä yhteistyö vahvisti Public Enemyn asemaa hiphopin eturintamassa ja vaikutti levyn laajaan levikkiin ja tunnettuuteen."
         },
@@ -2885,12 +2565,7 @@
         },
         {
           "question": "Minkä levy-yhtiön kautta Public Enemy julkaisi vuonna 1990 albumin 'Fear of a Black Planet', joka vahvisti heidän asemaansa poliittisesti kantaaottavana hip hop -yhtyeenä?",
-          "options": [
-            "Def Jam Recordings",
-            "Island Records",
-            "Motown Records",
-            "Epic Records"
-          ],
+          "options": ["Def Jam Recordings", "Island Records", "Motown Records", "Epic Records"],
           "correctAnswer": "Def Jam Recordings",
           "trivia": "Public Enemy julkaisi 'Fear of a Black Planet' -albuminsa vuonna 1990 Def Jam Recordingsin kautta, joka oli tuolloin yksi merkittävimmistä hip hop -levy-yhtiöistä. Def Jam oli tunnettu siitä, että se tuki poliittisesti ja yhteiskunnallisesti aktiivisia artisteja, mikä sopi hyvin Public Enemyn aggressiiviseen ja kantaaottavaan tyyliin. Albumi nousi nopeasti kulttistatukseen ja vahvisti Def Jamin asemaa hip hopin keskeisenä toimijana. Lisäksi 'Fear of a Black Planet' on usein nähty yhtenä 1990-luvun tärkeimmistä hip hop-albumeista, joka vaikutti vahvasti lajin suuntaan ja sanomaan."
         },
@@ -2997,12 +2672,7 @@
         },
         {
           "question": "Missä kaupungissa Puff Daddy aloitti 'No Way Out' -albuminsa kiertueen vuonna 1997, joka sisälsi useita live-esiintymisiä albumin suosituimmista kappaleista?",
-          "options": [
-            "New York City",
-            "Los Angeles",
-            "Chicago",
-            "Atlanta"
-          ],
+          "options": ["New York City", "Los Angeles", "Chicago", "Atlanta"],
           "correctAnswer": "New York City",
           "trivia": "Puff Daddy käynnisti 'No Way Out' -albuminsa kiertueen vuonna 1997 New York Cityssä, joka on myös hänen kotikaupunkinsa. Kiertue keskittyi esittelemään albumin suurimmat hitit, kuten 'I'll Be Missing You', ja se saavutti suurta suosiota live-esiintymisten intensiivisellä energialla. New York oli merkittävä paikka myös albumin äänitys- ja tuotantoprosessissa, mikä teki siitä luonnollisen valinnan kiertueen käynnistämispaikaksi. Kiertueen aikana Puff Daddy esiintyi useilla tunnetuilla areenoilla, mikä vahvisti hänen asemaansa 1990-luvun hiphop-skenen kärjessä."
         },
@@ -3063,23 +2733,13 @@
       "easy": [
         {
           "question": "Millä soittimella Pulpin jäsen Russell Senior soitti pääasiassa albumilla 'Different Class'?",
-          "options": [
-            "Violetta",
-            "Saksofoni",
-            "Kitara",
-            "Piano"
-          ],
+          "options": ["Violetta", "Saksofoni", "Kitara", "Piano"],
           "correctAnswer": "Violetta",
           "trivia": "Pulpin vuoden 1995 albumilla 'Different Class' Russell Senior tunnettiin erityisesti violettinsa, eli viulunsa, soitosta. Hän toi albumille ainutlaatuisen soundin juuri tällä jousisoittimella, joka erotti Pulpin musiikin monista muista brittipopin yhtyeistä. Vaikka kitara on yleinen instrumentti rock- ja popmusiikissa, tässä albumissa violetta oli keskeisessä roolissa monissa kappaleissa, kuten esimerkiksi 'Common People' -hitissä. Russell Senior myös soitti kitaraa, mutta violetta oli hänen tunnusomainen instrumenttinsa juuri 'Different Class' -levyllä."
         },
         {
           "question": "Mikä kappale oli Pulpin albumin 'Different Class' ensimmäinen single, joka toi yhtyeelle merkittävää suosiota vuonna 1995?",
-          "options": [
-            "Common People",
-            "Disco 2000",
-            "Mis-Shapes",
-            "Sorted for E's & Wizz"
-          ],
+          "options": ["Common People", "Disco 2000", "Mis-Shapes", "Sorted for E's & Wizz"],
           "correctAnswer": "Common People",
           "trivia": "Pulpin vuoden 1995 albumin 'Different Class' ensimmäinen single oli 'Common People', joka nousi nopeasti brittien listoilla ja teki yhtyeestä laajalti tunnetun. Tämä kappale käsittelee luokkaeroja ja nuorten kokemuksia, ja siitä tuli brittipopin ikoninen teos. Albumi 'Different Class' voitti myös Mercury Prize -palkinnon vuonna 1996, mikä vahvisti sen asemaa 1990-luvun brittiläisen musiikin tärkeänä julkaisuina. Singlen menestys oli keskeistä Pulpin läpimurrolle kansainvälisesti."
         },
@@ -3098,12 +2758,7 @@
       "medium": [
         {
           "question": "Mikä oli Pulpin 'Different Class' -albumin korkein sijoitus Britannian albumilistan virallisella top 40 -listalla julkaisunsa aikaan?",
-          "options": [
-            "Ykkössija",
-            "Kolmas sija",
-            "Viides sija",
-            "Kahdeksas sija"
-          ],
+          "options": ["Ykkössija", "Kolmas sija", "Viides sija", "Kahdeksas sija"],
           "correctAnswer": "Ykkössija",
           "trivia": "Pulpin 'Different Class' julkaistiin vuonna 1995 ja se saavutti suuren kaupallisen menestyksen. Albumi nousi Britannian albumilistan ykköseksi, mikä vahvisti yhtyeen asemaa brittipopin kärkinimien joukossa. 'Different Class' sisälsi useita hittejä, kuten \"Common People\" ja \"Disco 2000\", jotka edesauttoivat albumin korkeaa sijoitusta. Tämä menestys oli merkittävä, sillä se merkitsi Pulpille läpimurtoa laajempaan kuulijakuntaan ja Britpopin kultakauden huippua."
         },
@@ -3144,12 +2799,7 @@
         },
         {
           "question": "Kuka vastasi Pulpin vuonna 1995 julkaistun albumin 'Different Class' kansitaiteen suunnittelusta, joka yhdisteli brittiläistä arkkitehtonista estetiikkaa ja pop-taiteen elementtejä?",
-          "options": [
-            "Peter Saville",
-            "Phil Smith",
-            "Martin Parr",
-            "Storm Thorgerson"
-          ],
+          "options": ["Peter Saville", "Phil Smith", "Martin Parr", "Storm Thorgerson"],
           "correctAnswer": "Phil Smith",
           "trivia": "Pulpin 'Different Class' -albumin kansitaiteen suunnittelusta vastasi graafinen suunnittelija Phil Smith. Hän loi albumille tunnistettavan ilmeen, jossa yhdistyvät arkkitehtoniset elementit ja pop-taiteen vaikutteet, heijastaen 1990-luvun brittiläistä kulttuuria. Kansikuvassa on myös kuvattu eräänlainen luokkien välinen dialogi, joka on albumin teemoissa keskeistä. Martin Parr, joka toimi valokuvaajana albumin sisäkuvissa, ei vastannut kansitaiteesta, eikä Peter Saville tai Storm Thorgerson olleet mukana tässä projektissa. Tämä yhteistyö auttoi vahvistamaan 'Different Classin' asemaa yhtenä Britpopin visuaalisesti merkittävimmistä albumeista."
         },
@@ -3197,12 +2847,7 @@
         },
         {
           "question": "Mikä kappale R.E.M.:n vuoden 1991 albumin 'Out of Time' musiikkivideolla esiintyy yhtyeen tunnetuksi tullut tanssiliike, joka on nähtävissä videon visuaalisessa ilmeessä?",
-          "options": [
-            "Losing My Religion",
-            "Shiny Happy People",
-            "Near Wild Heaven",
-            "Radio Song"
-          ],
+          "options": ["Losing My Religion", "Shiny Happy People", "Near Wild Heaven", "Radio Song"],
           "correctAnswer": "Losing My Religion",
           "trivia": "R.E.M.:n vuonna 1991 julkaistun 'Out of Time' -albumin tunnetuin single ja musiikkivideo on 'Losing My Religion'. Videolla näkyy Michael Stipen ikoninen mandoliinin soitto sekä hänen tunnistettava tanssiliikkeensä, mikä on jäänyt vahvasti fanien mieleen. Tämä video sai laajaa MTV:n näkyvyyttä ja voitti useita palkintoja, mukaan lukien MTV Video Music Awards -palkinnon vuonna 1991. 'Losing My Religion' oli tärkeä osa R.E.M.:n läpimurtoa suuremman yleisön keskuudessa ja sen visuaalinen tyyli yhdisti perinteisiä ja kokeellisia elementtejä, mikä vahvisti yhtyeen asemaa musiikkivideoiden saralla."
         }
@@ -3267,12 +2912,7 @@
         },
         {
           "question": "Kuka suunnitteli R.E.M.:n vuoden 1991 albumin 'Out of Time' kannen ja sen visuaalisen ilmeen, joka erottuu minimalistisella ja symbolisella tyylillään?",
-          "options": [
-            "Jeff Gold",
-            "Peter Saville",
-            "Storm Thorgerson",
-            "Andy Warhol"
-          ],
+          "options": ["Jeff Gold", "Peter Saville", "Storm Thorgerson", "Andy Warhol"],
           "correctAnswer": "Jeff Gold",
           "trivia": "R.E.M.:n albumin 'Out of Time' kannen ja visuaalisen ilmeen suunnitteli Jeff Gold, joka tunnetaan laajasta työstä musiikkialalla graafisena suunnittelijana. Kansi erottuu minimalistisella ja symbolisella typografiallaan, jossa yhdistyvät luonnonläheiset elementit, kuten kello ja kukka, korostaen albumin teemojen ajattomuutta ja luonnonmukaisuutta. Jeff Goldin työssä näkyy myös hänen taitonsa yhdistää kuva- ja tekstielementtejä siten, että ne tukevat albumin musiikillista sisältöä. 'Out of Time' oli R.E.M.:n läpimurtoteos, ja sen visuaalinen ilme vahvisti albumin identiteettiä ja nosti sen kulttuurista merkitystä 1990-luvun alun vaihtoehtorockissa."
         }
@@ -3287,12 +2927,7 @@
       "easy": [
         {
           "question": "Mikä Radioheadin albumin 'OK Computer' tunnetuimmista singlejulkaisuista sai laajaa mediajulkisuutta vuonna 1997?",
-          "options": [
-            "Paranoid Android",
-            "Karma Police",
-            "No Surprises",
-            "Lucky"
-          ],
+          "options": ["Paranoid Android", "Karma Police", "No Surprises", "Lucky"],
           "correctAnswer": "Karma Police",
           "trivia": "Radioheadin 'OK Computer' -albumin single 'Karma Police' sai vuonna 1997 laajaa mediajulkisuutta erityisesti musiikkivideonsa ansiosta, joka sai paljon näkyvyyttä televisiossa ja musiikkikanavilla. Se oli toinen single albumilta ja saavutti myös listamenestystä useissa maissa. 'Paranoid Android' ja 'No Surprises' olivat myös suosittuja singlejä, mutta 'Karma Police' erottui erityisesti mediassa. 'Lucky' oli albumin kappale, mutta se julkaistiin singlenä vasta myöhemmin ja sai vähemmän julkisuutta alkuperäisen albumin julkaisun aikaan."
         },
@@ -3309,12 +2944,7 @@
         },
         {
           "question": "Kuka toimi tuottajana Radioheadin vuoden 1997 albumilla 'OK Computer'?",
-          "options": [
-            "Nigel Godrich",
-            "Brian Eno",
-            "Steve Albini",
-            "Rick Rubin"
-          ],
+          "options": ["Nigel Godrich", "Brian Eno", "Steve Albini", "Rick Rubin"],
           "correctAnswer": "Nigel Godrich",
           "trivia": "Nigel Godrich toimi tuottajana Radioheadin 'OK Computer' -albumilla, joka julkaistiin vuonna 1997. Tämä oli ensimmäinen kerta, kun Godrich työskenteli yhtyeen kanssa, ja yhteistyö jatkui myöhemmin myös heidän seuraavissa albumeissaan. Godrichin tuotantotyyli tunnetaan tarkasta yksityiskohtien huomiosta ja äänimaailman monimuotoisuudesta, mikä auttoi muokkaamaan 'OK Computerin' ainutlaatuisen ja vaikuttavan soundin. Brian Eno, Steve Albini ja Rick Rubin olivat kaikki tuottajia, jotka vaikuttivat 1990-luvun musiikkikenttään, mutta he eivät olleet mukana tässä projektissa."
         }
@@ -3344,12 +2974,7 @@
         },
         {
           "question": "Kuka toimi Radioheadin 'OK Computer' -albumin päääänittäjänä ja tuottajana, joka vaikutti merkittävästi albumin kokeelliseen ja moniulotteiseen soundiin?",
-          "options": [
-            "Nigel Godrich",
-            "Steve Albini",
-            "Brian Eno",
-            "Butch Vig"
-          ],
+          "options": ["Nigel Godrich", "Steve Albini", "Brian Eno", "Butch Vig"],
           "correctAnswer": "Nigel Godrich",
           "trivia": "Radioheadin 'OK Computer' -albumin tuotannosta vastasi pääasiassa Nigel Godrich, joka sai tunnustusta albumin moniulotteisesta ja kokeellisesta äänimaailmasta. Godrich oli aiemmin työskennellyt Radioheadin kanssa EP:llä ja toimi tuottajana myös myöhemmillä albumeilla. Äänitystyö tehtiin pääosin RAK Studiossa Lontoossa, ja Godrichin yhteistyö yhtyeen kanssa auttoi muokkaamaan albumin ainutlaatuisen ilmapiirin ja teknisen syvyyden. Steve Albini, Brian Eno ja Butch Vig ovat tunnettuja tuottajia, mutta he eivät olleet mukana tämän albumin tuotantoprosessissa."
         }
@@ -3368,23 +2993,13 @@
         },
         {
           "question": "Mikä epätavallinen soitin tai äänilähde on käytetty Radioheadin 'OK Computer' -albumilla vuonna 1997 korostamaan sen kokeellista ja futuristista musiikillista ilmettä?",
-          "options": [
-            "Mellotron",
-            "Theremin",
-            "Sitar",
-            "Ondes Martenot"
-          ],
+          "options": ["Mellotron", "Theremin", "Sitar", "Ondes Martenot"],
           "correctAnswer": "Ondes Martenot",
           "trivia": "Radioheadin 'OK Computer' -albumilla vuodelta 1997 käytettiin Ondes Martenot -soitinta, joka on varhainen elektroninen soitin tunnettu eteerisestä ja aavemaisesta äänestään. Tämä soitin esiintyy erityisesti kappaleessa \"Climbing Up the Walls\", ja sen käyttö vahvistaa albumin futuristista ja kokeellista tunnelmaa. Ondes Martenot on harvinainen soitin pop- ja rockmusiikissa, mikä tekee sen käytöstä 'OK Computer'-albumilla merkittävän musiikillisen elementin. Lisäksi albumin äänityksissä hyödynnettiin monipuolisesti analogisia ja digitaalisia äänilähteitä, mikä loi sen tunnistettavan modernin äänimaiseman."
         },
         {
           "question": "Missä sijoituksessa Radioheadin albumi 'OK Computer' saavutti korkeimman paikkansa Britannian albumilistan virallisella UK Albums Chartilla vuonna 1997?",
-          "options": [
-            "Kolmas sija",
-            "Ensimmäinen sija",
-            "Viides sija",
-            "Seitsemäs sija"
-          ],
+          "options": ["Kolmas sija", "Ensimmäinen sija", "Viides sija", "Seitsemäs sija"],
           "correctAnswer": "Kolmas sija",
           "trivia": "Radioheadin 'OK Computer' julkaistiin vuonna 1997 ja albumi nousi korkeimmillaan kolmannelle sijalle Britannian Official Albums Chartilla. Vaikka albumi ei saavuttanut ykkössijaa, sen kaupallinen menestys oli merkittävä ja se pysyi listalla useita viikkoja. 'OK Computer' vahvisti Radioheadin aseman yhtenä 1990-luvun vaikutusvaltaisimmista rock-yhtyeistä, ja sen menestys Britanniassa heijasti kriitikoiden ylistystä ja fanien kasvavaa kiinnostusta. Albumi sai myöhemmin myös kansainvälistä tunnustusta ja vaikutti vahvasti vaihtoehtorockin kehitykseen."
         }
@@ -3421,12 +3036,7 @@
         },
         {
           "question": "Mikä oli Rage Against the Machine -yhtyeen alkuvuoden 1992 albumin 'Rage Against the Machine' ensimmäinen single, jota käytettiin bändin markkinoinnissa ja promootiossa?",
-          "options": [
-            "Killing in the Name",
-            "Bombtrack",
-            "Take the Power Back",
-            "Freedom"
-          ],
+          "options": ["Killing in the Name", "Bombtrack", "Take the Power Back", "Freedom"],
           "correctAnswer": "Killing in the Name",
           "trivia": "Rage Against the Machine julkaisi debyyttialbuminsa 'Rage Against the Machine' vuonna 1992, ja sen ensimmäinen single oli 'Killing in the Name'. Tämä kappale toimi tehokkaasti bändin tunnetuksi tekemisessä ja oli keskeinen osa heidän markkinointistrategiaansa. 'Killing in the Name' sai laajaa radiosoittoa ja musiikkivideon myötä yhtye sai nopeasti kansainvälistä huomiota. Albumi myi hyvin ja nousi listoille, mikä vahvisti Rage Against the Machinen asemaa poliittisesti latautuneen rockin edelläkävijänä 1990-luvulla."
         }
@@ -3491,12 +3101,7 @@
         },
         {
           "question": "Millä kitaravahvistimella Tom Morello soitti pääasiassa Rage Against the Machinen vuoden 1992 albumilla 'Rage Against the Machine'?",
-          "options": [
-            "Marshall JCM800",
-            "Fender Twin Reverb",
-            "Mesa/Boogie Mark IIC+",
-            "Vox AC30"
-          ],
+          "options": ["Marshall JCM800", "Fender Twin Reverb", "Mesa/Boogie Mark IIC+", "Vox AC30"],
           "correctAnswer": "Mesa/Boogie Mark IIC+",
           "trivia": "Rage Against the Machinen vuonna 1992 julkaistulla itseään nimenneellä albumilla kitaristi Tom Morello käytti pääasiassa Mesa/Boogie Mark IIC+ -kitaravahvistinta, joka tunnetaan monipuolisista särö- ja efekteistään. Tämä vahvistin mahdollisti Morellon omaleimaisen, innovatiivisen soundin, joka yhdisteli funkia, metallia ja hip hopia. Vaikka Marshall JCM800 oli tuohon aikaan suosittu vahvistin monissa rock-yhtyeissä, Morello suosikin Mesa/Boogieta juuri sen laajemman äänenmuokkausmahdollisuuden vuoksi. Fender Twin Reverb ja Vox AC30 ovat enemmän puhtaaseen, puhtaaseen soundiin keskittyneitä vahvistimia, joita Morello käytti vähemmän tässä nimenomaisessa projektissa."
         }
@@ -3522,23 +3127,13 @@
         },
         {
           "question": "Mikä seuraavista kappaleista Red Hot Chili Peppersin albumilta 'Blood Sugar Sex Magik' nousi erityisen suureen kansainväliseen suosioon ja auttoi tekemään bändistä maailmanlaajuisen tähden?",
-          "options": [
-            "Under the Bridge",
-            "Sir Psycho Sexy",
-            "Breaking the Girl",
-            "Suck My Kiss"
-          ],
+          "options": ["Under the Bridge", "Sir Psycho Sexy", "Breaking the Girl", "Suck My Kiss"],
           "correctAnswer": "Under the Bridge",
           "trivia": "Red Hot Chili Peppersin albumi 'Blood Sugar Sex Magik', julkaistu vuonna 1991, merkitsi bändille läpimurtoa kansainvälisellä tasolla. Yksi albumin tunnetuimmista kappaleista on 'Under the Bridge', joka nousi suuriksi radiosoitoksi ympäri maailmaa ja auttoi levittämään bändin mainetta laajasti. Kappaleen melankolinen ja melodinen tyyli erottui aiemmasta funk-painotteisesta materiaalista, mikä laajensi yhtyeen fanikuntaa. Albumi myi miljoonia kopioita ja sijoittui korkealle monien maiden albumilistoilla, mikä vahvisti Red Hot Chili Peppersin asemaa globaalina rock-yhtyeenä. 'Under the Bridge' on edelleen yksi heidän tunnetuimmista ja soitetuimmista kappaleistaan."
         },
         {
           "question": "Millä levy-yhtiöllä Red Hot Chili Peppers julkaisi albuminsa 'Blood Sugar Sex Magik' vuonna 1991?",
-          "options": [
-            "Warner Bros. Records",
-            "Capitol Records",
-            "Epic Records",
-            "Geffen Records"
-          ],
+          "options": ["Warner Bros. Records", "Capitol Records", "Epic Records", "Geffen Records"],
           "correctAnswer": "Warner Bros. Records",
           "trivia": "Red Hot Chili Peppers julkaisi 'Blood Sugar Sex Magik' -albuminsa Warner Bros. Records -levy-yhtiön kautta vuonna 1991. Tämä yhteistyö oli merkittävä, koska Warner Bros. oli yhtyeen pitkäaikainen levy-yhtiö, joka tuki heidän uraansa useilla albumeilla. Albumi nousi suureen suosioon ja toi yhtyeelle kansainvälistä menestystä. Warner Bros. Records tunnetaan monista merkittävistä rock- ja pop-artisteista, ja heidän panoksensa oli ratkaiseva 'Blood Sugar Sex Magik' -levyn levityksessä ja markkinoinnissa."
         }
@@ -3557,12 +3152,7 @@
         },
         {
           "question": "Kuka toimi rumpalina Red Hot Chili Peppersin albumilla 'Blood Sugar Sex Magik' vuonna 1991?",
-          "options": [
-            "Chad Smith",
-            "Jack Irons",
-            "Cliff Martinez",
-            "D.H. Peligro"
-          ],
+          "options": ["Chad Smith", "Jack Irons", "Cliff Martinez", "D.H. Peligro"],
           "correctAnswer": "Chad Smith",
           "trivia": "Chad Smith liittyi Red Hot Chili Peppersiin juuri ennen 'Blood Sugar Sex Magik' -albumin äänityksiä, ja hän toimi rumpalina kyseisellä albumilla. Tämä oli hänen ensimmäinen studioalbuminsa yhtyeen kanssa. Ennen Smithiä rumpalina toimi muun muassa Jack Irons, joka soitti yhtyeessä 1980-luvun lopulla. 'Blood Sugar Sex Magik' -albumin tuotanto tapahtui legendaarisessa The Mansion -studiossa Los Angelesissa, ja Chad Smithin voimakas ja tarkka soitto sai paljon kiitosta kriitikoilta ja faneilta, mikä vaikutti osaltaan albumin menestykseen."
         },
@@ -3623,12 +3213,7 @@
       "easy": [
         {
           "question": "Mikä Savage Gardenin vuoden 1997 albumin 'Savage Garden' kappaleista sai laajaa radiosoittoa ja nousi erityisen tunnetuksi singleksi?",
-          "options": [
-            "I Want You",
-            "Santa Monica",
-            "To the Moon and Back",
-            "Break Me Shake Me"
-          ],
+          "options": ["I Want You", "Santa Monica", "To the Moon and Back", "Break Me Shake Me"],
           "correctAnswer": "I Want You",
           "trivia": "Vuonna 1997 julkaistu Savage Gardenin debyyttialbumi 'Savage Garden' sisälsi useita hittejä, joista 'I Want You' oli yksi eniten radiosoitettua kappaletta. Tämä single nousi listoilla korkealle, erityisesti Australiassa ja Yhdysvalloissa, ja se auttoi bändiä saavuttamaan kansainvälistä suosiota. 'To the Moon and Back' oli myös suosittu single, mutta 'I Want You' oli ensimmäinen ja laajimmin soitetuista kappaleista. Albumi itsessään myi maailmanlaajuisesti miljoonia kappaleita ja vahvisti Savage Gardenin asemaa 90-luvun popmusiikin kentällä."
         },
@@ -3645,12 +3230,7 @@
         },
         {
           "question": "Mikä soitin on erityisen keskeisessä roolissa Savage Gardenin vuoden 1997 albumilla 'Savage Garden' ja kuuluu sen tunnusomaiseen soundiin?",
-          "options": [
-            "Sähkökitara",
-            "Kosketinsoitin",
-            "Rumpukone",
-            "Saksofoni"
-          ],
+          "options": ["Sähkökitara", "Kosketinsoitin", "Rumpukone", "Saksofoni"],
           "correctAnswer": "Kosketinsoitin",
           "trivia": "Savage Gardenin debyyttialbumilla 'Savage Garden' vuonna 1997 kosketinsoittimet ovat keskeisessä asemassa tuottamassa albumin melodista ja pehmeää pop-rock-soundia. Yhtyeen jäsen Darren Hayes ja tuottaja Charles Fisher hyödynsivät 90-luvun loppupuolen moderneja kosketinsoittimia luodakseen yhtyeen tunnistettavan äänen. Albumin tunnetuimpiin hitteihin, kuten 'Truly Madly Deeply' ja 'I Want You', kuuluu merkittävä kosketinsoitinten käyttö, joka erottaa sen monista samanaikaisista pop-albumeista. Vaikka myös sähkökitara ja rummut ovat mukana, saksofoni ei ole merkittävässä roolissa tällä levyllä."
         }
@@ -3669,12 +3249,7 @@
         },
         {
           "question": "Kuka oli Savage Garden -yhtyeen toinen jäsen, joka vastasi lauluista ja kosketinsoittimista vuoden 1997 'Savage Garden' -albumilla?",
-          "options": [
-            "Daniel Jones",
-            "Warren McIntyre",
-            "Mark McEntee",
-            "Peter Farnan"
-          ],
+          "options": ["Daniel Jones", "Warren McIntyre", "Mark McEntee", "Peter Farnan"],
           "correctAnswer": "Daniel Jones",
           "trivia": "Savage Garden oli australialainen popduo, jonka muodostivat Darren Hayes ja Daniel Jones. Vuonna 1997 julkaistulla debyyttialbumillaan 'Savage Garden' Daniel Jones vastasi pääasiassa kosketinsoittimista, kitarasta ja taustalauluista, kun taas Darren Hayes oli päälaulaja. Daniel Jonesin rooli yhtyeessä oli keskeinen äänimaailman rakentamisessa ja instrumentaalisessa tuotannossa. Muita muusikoita, kuten Warren McIntyre, Mark McEntee tai Peter Farnan, ei virallisesti lukeutunut bändin jäseniksi kyseisellä albumilla, vaikka studio- ja kiertuemuusikot saattoivat osallistua tuotantoon."
         },
@@ -3735,12 +3310,7 @@
       "easy": [
         {
           "question": "Kuka toimi basistina Sealin vuoden 1991 albumilla 'Seal', jossa yhdistyvät soul, pop ja rock-elementit?",
-          "options": [
-            "Danny Cummings",
-            "Nick Ingman",
-            "John Taylor",
-            "Trevor Horn"
-          ],
+          "options": ["Danny Cummings", "Nick Ingman", "John Taylor", "Trevor Horn"],
           "correctAnswer": "John Taylor",
           "trivia": "Vuoden 1991 albumilla 'Seal' basistina toimi John Taylor, joka tunnetaan myös Duran Duran -yhtyeen jäsenenä. Albumi oli Sealille läpimurto, yhdistäen soulia, poppia ja rockia innovatiivisesti. Trevor Horn toimi albumin tuottajana ja vaikuttajana, mutta ei soittanut bassoa. Danny Cummings oli rumpali ja Nick Ingman vastasi jousiarransemoinneista. Näin John Taylorin panos oli merkittävä levyn rytmipohjan luomisessa."
         },
@@ -3770,12 +3340,7 @@
       "medium": [
         {
           "question": "Millä Euroopan kiertueen kaupungilla Seal esiintyi ensimmäisen kerran albuminsa 'Seal' (1991) julkaisun jälkeen, mikä oli merkittävä osa hänen live-esiintymistään tuona vuonna?",
-          "options": [
-            "Lontoo",
-            "Pariisi",
-            "Berliini",
-            "Amsterdam"
-          ],
+          "options": ["Lontoo", "Pariisi", "Berliini", "Amsterdam"],
           "correctAnswer": "Lontoo",
           "trivia": "Seal julkaisi debyyttialbuminsa 'Seal' vuonna 1991, ja sen julkaisun jälkeen hän teki useita live-esiintymisiä Euroopassa. Ensimmäinen merkittävä live-esiintyminen albumin julkaisun yhteydessä tapahtui Lontoossa, hänen kotikaupungissaan, joka toimi keskeisenä tukikohtana hänen kiertueelleen. Tämä esiintyminen oli tärkeä, koska se vahvisti Sealin asemaa nousevana artistina ja loi pohjan myöhemmille esiintymisille Euroopan suurissa kaupungeissa kuten Pariisissa, Berliinissä ja Amsterdamissa. Live-esiintymiset vuosina 1991–1992 auttoivat levittämään albumin suosiota ja osoittivat Sealin kyvyn yhdistää studioäänityksen intiimiyden ja live-energian."
         },
@@ -3816,12 +3381,7 @@
         },
         {
           "question": "Kuka toimi pääbassistina ja merkittävänä muusikkona Sealin vuoden 1991 albumilla 'Seal'?",
-          "options": [
-            "Pino Palladino",
-            "John Paul Jones",
-            "Nathan East",
-            "Tony Levin"
-          ],
+          "options": ["Pino Palladino", "John Paul Jones", "Nathan East", "Tony Levin"],
           "correctAnswer": "Pino Palladino",
           "trivia": "Sealin vuoden 1991 esikoisalbumilla 'Seal' pääbassistina toimi walesilainen Pino Palladino, joka tunnetaan erityisesti soolona fretless-bassolla. Hänen osallistumisensa toi albumille syvyyttä ja groovea, erityisesti hittisingleissä kuten \"Crazy\". Albumin äänityksissä työskenteli myös tuottaja Trevor Horn, joka tunnetaan monipuolisista tuotantotyyleistään. Palladinon panos oli keskeinen, sillä hän oli tuohon aikaan arvostettu sessiomuusikko, joka oli työskennellyt myös muiden suurten artistien kanssa."
         },
@@ -3847,23 +3407,13 @@
       "easy": [
         {
           "question": "Mikä kappale Sheryl Crow'n vuoden 1993 albumilta 'Tuesday Night Music Club' nousi kansainväliseksi hittisingleksi ja auttoi levyn suosiota maailmalla?",
-          "options": [
-            "All I Wanna Do",
-            "Leaving Las Vegas",
-            "Strong Enough",
-            "Can't Cry Anymore"
-          ],
+          "options": ["All I Wanna Do", "Leaving Las Vegas", "Strong Enough", "Can't Cry Anymore"],
           "correctAnswer": "All I Wanna Do",
           "trivia": "Sheryl Crow'n albumi 'Tuesday Night Music Club' julkaistiin vuonna 1993 ja se saavutti merkittävää kansainvälistä menestystä. Levyn tunnetuin single, 'All I Wanna Do', nousi listaykköseksi useissa maissa, kuten Yhdysvalloissa ja Australiassa, mikä vahvisti Crow'n asemaa kansainvälisenä artistina. Kappaleen kevyt ja tarttuva pop-rock-tyyli teki siitä radiosuosikin, ja se voitti myös Grammy-palkinnon vuonna 1995. Lisäksi albumi myi miljoonia kappaleita ympäri maailmaa, mikä osoittaa sen laajan vaikutuksen musiikkimarkkinoilla."
         },
         {
           "question": "Missä kaupungissa Sheryl Crow teki ensimmäisen suuren kiertueensa tueksi albumia 'Tuesday Night Music Club' vuonna 1994?",
-          "options": [
-            "Seattle",
-            "New York",
-            "Los Angeles",
-            "Nashville"
-          ],
+          "options": ["Seattle", "New York", "Los Angeles", "Nashville"],
           "correctAnswer": "Los Angeles",
           "trivia": "Sheryl Crow aloitti suuren kiertueensa albumin 'Tuesday Night Music Club' julkaisun jälkeen vuonna 1994 Los Angelesista, joka oli myös yksi hänen uransa keskeisistä kaupungeista. Tämä kiertue auttoi levittämään hänen musiikkiaan laajalle yleisölle ja vahvisti hänen asemaansa rock- ja pop-musiikin kentällä. Kiertueella Sheryl esiintyi usein kappaleilla albumilta, kuten 'All I Wanna Do', joka oli suuri hitti. Los Angeles toimi myös monien hänen yhteistyökumppaneidensa kotipaikkana, mikä teki kaupungista luonnollisen lähtöpisteen kiertueelle."
         },
@@ -3904,12 +3454,7 @@
         },
         {
           "question": "Millä vuosikymmenellä Sheryl Crow lähti ensimmäiselle laajalle kiertueelleen albuminsa 'Tuesday Night Music Club' julkaisun jälkeen?",
-          "options": [
-            "1990-luvulla",
-            "2000-luvulla",
-            "1980-luvulla",
-            "2010-luvulla"
-          ],
+          "options": ["1990-luvulla", "2000-luvulla", "1980-luvulla", "2010-luvulla"],
           "correctAnswer": "1990-luvulla",
           "trivia": "Sheryl Crow julkaisi debyyttialbuminsa 'Tuesday Night Music Club' vuonna 1993, ja pian tämän jälkeen hän aloitti ensimmäisen laajan kiertueensa 1990-luvulla. Tämä kiertue oli merkittävä, koska se auttoi vakiinnuttamaan hänen asemansa live-esiintyjänä ja levyn menestys toi hänelle laajempaa kansainvälistä huomiota. Kiertue sisälsi useita esiintymisiä sekä Yhdysvalloissa että Euroopassa, ja se tuki albumin tunnetuimpien kappaleiden, kuten \"All I Wanna Do\", suosiota. Lisäksi tämä kiertue oli tärkeä kokemus Crow'lle live-esiintyjänä, mikä vaikutti hänen myöhempiin keikkoihinsa ja uraansa."
         }
@@ -3959,12 +3504,7 @@
       "easy": [
         {
           "question": "Mikä on Silverchair-yhtyeen 'Frogstomp'-albumin tunnetuin kappale, joka nousi erityisesti radiokanavien soittolistoille vuonna 1995?",
-          "options": [
-            "Tomorrow",
-            "Abuse Me",
-            "Israel's Son",
-            "Pure Massacre"
-          ],
+          "options": ["Tomorrow", "Abuse Me", "Israel's Son", "Pure Massacre"],
           "correctAnswer": "Tomorrow",
           "trivia": "Silverchair julkaisi debyyttialbuminsa 'Frogstomp' vuonna 1995, kun bändin jäsenet olivat vasta teini-ikäisiä. Albumin tunnetuin ja kaupallisesti menestynein kappale oli 'Tomorrow', joka nousi listojen kärkeen Australiassa ja sai paljon radiosoittoa kansainvälisesti. 'Tomorrow' oli myös yhtyeen ensimmäinen single, joka toi heille laajaa huomiota vaihtoehtorockin ystävien keskuudessa. Muita albumin merkittäviä kappaleita ovat esimerkiksi 'Abuse Me' ja 'Pure Massacre', mutta 'Tomorrow' on yhä heidän tunnetuin ja tunnistettavin biisinsä."
         },
@@ -3981,12 +3521,7 @@
         },
         {
           "question": "Missä kaupungissa Silverchair teki ensikiertueensa 'Frogstomp'-albumin julkaisun jälkeen vuonna 1995?",
-          "options": [
-            "Sydney",
-            "Melbourne",
-            "Brisbane",
-            "Adelaide"
-          ],
+          "options": ["Sydney", "Melbourne", "Brisbane", "Adelaide"],
           "correctAnswer": "Sydney",
           "trivia": "Silverchair julkaisi debyyttialbuminsa 'Frogstomp' vuonna 1995, minkä jälkeen yhtye aloitti ensikiertueensa Australiassa. Kiertueen avauskeikka pidettiin kotikaupungissa Sydneyssä, mikä auttoi bändiä rakentamaan vahvan paikallisen fanikunnan. 'Frogstomp' nousi nopeasti suosituksi, ja kiertueen aikana Silverchair esiintyi useilla australialaisilla lavoilla, mukaan lukien Melbourne ja Brisbane. Tämä kiertue oli merkittävä askel nuorelle bändille, jonka jäsenet olivat tuolloin vasta 15-vuotiaita."
         }
@@ -4051,12 +3586,7 @@
         },
         {
           "question": "Kuka toimi Silverchairin basistina ja taustalaulajana vuoden 1995 'Frogstomp'-albumilla, vaikka ei ollut yhtyeen perustajajäsen?",
-          "options": [
-            "Chris Joannou",
-            "Ben Gillies",
-            "Daniel Johns",
-            "Paul Mac"
-          ],
+          "options": ["Chris Joannou", "Ben Gillies", "Daniel Johns", "Paul Mac"],
           "correctAnswer": "Chris Joannou",
           "trivia": "Silverchairin debyyttialbumi 'Frogstomp' julkaistiin vuonna 1995, kun yhtye oli vielä hyvin nuori. Basistina ja taustalaulajana toimi Chris Joannou, joka liittyi yhtyeeseen varhaisessa vaiheessa, vaikka ei ollut alkuperäinen perustajajäsen kuten Daniel Johns ja Ben Gillies. Joannoun bassoääni ja taustalaulu tukivat vahvasti yhtyeen grunge-vaikutteista soundia. Albumi äänitettiin Sydneyssä, ja sen raaka energia kuvastaa nuoren kolmikon yhtenäisyyttä ja musiikillista potentiaalia. Chris Joannou on sittemmin pysynyt yhtyeen jäsenenä ja osa sen tunnistettavaa soundia."
         }
@@ -4071,12 +3601,7 @@
       "easy": [
         {
           "question": "Missä kaupungissa Snoop Doggy Dogg teki suuren osan 'Doggystyle'-albumin kiertueen live-esiintymisistään vuonna 1994?",
-          "options": [
-            "Los Angeles",
-            "Chicago",
-            "Atlanta",
-            "New York"
-          ],
+          "options": ["Los Angeles", "Chicago", "Atlanta", "New York"],
           "correctAnswer": "Los Angeles",
           "trivia": "Snoop Doggy Doggin 'Doggystyle'-albumin julkaisemisen jälkeen vuonna 1993 hän kiersi laajasti Yhdysvalloissa. Merkittävä osa vuoden 1994 live-esiintymisistä pidettiin Los Angelesissa, joka on myös hänen kotikaupunkinsa ja hiphop-kulttuurin keskus. Tämä kiertue oli oleellinen albumin menestykselle, sillä se vahvisti Snoopin asemaa West Coast -rapin kärkinimenä. Lisäksi Los Angelesin konsertit keräsivät laajoja yleisöjä ja toivat esiin albumin tunnetuimmat kappaleet, kuten \"Gin and Juice\" ja \"Who Am I (What's My Name)?\"."
         },
@@ -4218,12 +3743,7 @@
       "medium": [
         {
           "question": "Kuka toimi tuottajana Soul Asylumin vuoden 1992 albumilla 'Grave Dancers Union', joka vaikutti merkittävästi levyn äänimaailman muokkaamiseen?",
-          "options": [
-            "Michael Beinhorn",
-            "Butch Vig",
-            "Rick Rubin",
-            "Steve Albini"
-          ],
+          "options": ["Michael Beinhorn", "Butch Vig", "Rick Rubin", "Steve Albini"],
           "correctAnswer": "Michael Beinhorn",
           "trivia": "Soul Asylumin albumin 'Grave Dancers Union' tuottajana toimi Michael Beinhorn, joka oli tunnettu kyvystään yhdistää rockin raikkaus ja kaupallinen vetovoima. Beinhornin kanssa työskentely auttoi bändiä löytämään selkeämmän ja monipuolisemman soundin, joka näkyi esimerkiksi hittikappaleessa \"Runaway Train\". Albumi äänitettiin pääosin Ardent Studiosilla Memphissä, ja Beinhornin tuottajaote oli keskeinen levyn onnistumisessa, joka nosti Soul Asylumin kansainväliseen suosioon."
         },
@@ -4264,12 +3784,7 @@
         },
         {
           "question": "Mikä kappale Soul Asalumin vuonna 1992 julkaistulta 'Grave Dancers Union' -albumilta sai laajimman radiosoiton Yhdysvalloissa ja nousi Billboardin Alternative Songs -listan kärkeen?",
-          "options": [
-            "Runaway Train",
-            "Somebody to Shove",
-            "Misery",
-            "Black Gold"
-          ],
+          "options": ["Runaway Train", "Somebody to Shove", "Misery", "Black Gold"],
           "correctAnswer": "Runaway Train",
           "trivia": "Soul Asalumin 'Grave Dancers Union' -albumin merkittävin radiosoiton menestys oli kappale 'Runaway Train', joka julkaistiin singlenä vuonna 1993. Tämä kappale nousi Billboardin Alternative Songs -listan ykköseksi ja sai laajaa radiosoittoa ympäri Yhdysvaltoja. 'Runaway Train' tunnetaan myös sen vaikuttavasta musiikkivideosta, joka käsittelee kadonneita nuoria. Albumi itsessään oli Soul Asalumin kaupallinen läpimurto, ja 'Runaway Train' auttoi vahvasti nostamaan yhtyeen laajempaan tietoisuuteen. Tämä kappale on edelleen yksi 1990-luvun vaihtoehtorockin tunnistetuimmista radiohiteistä."
         },
@@ -4352,12 +3867,7 @@
         },
         {
           "question": "Kuka vastasi Soundgardenin 'Superunknown'-albumin kansitaiteen suunnittelusta, joka yhdisteli surrealistisia ja luonnon elementtejä vuonna 1994?",
-          "options": [
-            "Art Chantry",
-            "Andy Jenkins",
-            "Kevin Westenberg",
-            "Gary Burden"
-          ],
+          "options": ["Art Chantry", "Andy Jenkins", "Kevin Westenberg", "Gary Burden"],
           "correctAnswer": "Art Chantry",
           "trivia": "Superunknown-albumin kansitaiteen suunnittelusta vastasi graafinen suunnittelija Art Chantry, joka tunnetaan erityisesti vaihtoehtomusiikin visuaalisesta ilmeestä. Chantryn työ Superunknownin kansikuvassa yhdistää surrealistisia elementtejä ja luonnon kuvia, mikä heijastaa albumin tummasävyistä ja monikerroksista musiikkia. Kansitaiteen visuaalinen tyyli auttoi vahvistamaan Soundgardenin asemaa 1990-luvun grunge-kulttuurissa. Lisäksi kuvien valinta ja sommittelu tukivat albumin tematiikkaa ja tunnelmaa, tehden siitä tunnistettavan ja ajattoman."
         }
@@ -4407,23 +3917,13 @@
       "easy": [
         {
           "question": "Mikä oli Spice Girlsin debyyttialbumin 'Spice' korkein sijoitus Britannian albumilistalla vuonna 1996?",
-          "options": [
-            "Numero 1",
-            "Numero 3",
-            "Numero 5",
-            "Numero 7"
-          ],
+          "options": ["Numero 1", "Numero 3", "Numero 5", "Numero 7"],
           "correctAnswer": "Numero 1",
           "trivia": "Spice Girls julkaisi debyyttialbuminsa 'Spice' vuonna 1996, ja se nousi nopeasti listojen kärkeen. Albumi saavutti ykkössijan Britannian albumilistalla, mikä vahvisti yhtyeen aseman globaalina pop-ilmiönä. 'Spice' myi yli 23 miljoonaa kappaletta maailmanlaajuisesti, ja se sisälsi useita menestyneitä singlejä kuten 'Wannabe' ja 'Say You'll Be There'. Tämä menestys teki Spice Girlsistä yhden 1990-luvun merkittävimmistä tyttöbändeistä."
         },
         {
           "question": "Kuka tuotti pääosin Spice Girlsin vuoden 1996 albumin 'Spice'?",
-          "options": [
-            "Matt Rowe",
-            "Max Martin",
-            "Dr. Luke",
-            "Pharrell Williams"
-          ],
+          "options": ["Matt Rowe", "Max Martin", "Dr. Luke", "Pharrell Williams"],
           "correctAnswer": "Matt Rowe",
           "trivia": "Spice Girlsin debyyttialbumin 'Spice' tuotannosta vastasi pääosin Matt Rowe yhdessä Richard Stannardin kanssa. Albumi julkaistiin vuonna 1996 ja se nousi nopeasti maailmanlaajuiseen suosioon. Rowe ja Stannard olivat vastuussa monista albumin hittisingleistä, kuten \"Wannabe\" ja \"Say You'll Be There\". Max Martin, Dr. Luke ja Pharrell Williams ovat tunnettuja tuottajia, mutta eivät osallistuneet tähän projektiin."
         },
@@ -4477,12 +3977,7 @@
       "hard": [
         {
           "question": "Missä kaupungissa Spice Girls aloittivat 'Spice'-albumin julkaisuun liittyneen ensimmäisen virallisen kiertueensa vuonna 1997, joka kantoi nimeä 'Girl Power! Live in Istanbul Tour'?",
-          "options": [
-            "Lontoo",
-            "Istanbul",
-            "New York",
-            "Sydney"
-          ],
+          "options": ["Lontoo", "Istanbul", "New York", "Sydney"],
           "correctAnswer": "Istanbul",
           "trivia": "Spice Girls käynnistivät ensimmäisen virallisen kiertueensa, 'Girl Power! Live in Istanbul Tourin', toukokuussa 1997 Istanbulissa, Turkissa. Tämä kiertue oli osa albumin 'Spice' julkaisun jälkeistä live-esiintymisvaihetta ja vahvisti yhtyeen maailmanlaajuista suosiota. Kiertueen avaaminen Istanbulissa oli epätavallinen valinta verrattuna perinteisempiin suurkaupunkeihin, mikä korosti yhtyeen halua tavoittaa laaja ja monikulttuurinen yleisö. Lisäksi kiertue oli merkittävä tapahtuma 1990-luvun popmusiikin historiassa, sillä se toi esiin Spice Girlsin energisen lavakarisman ja heidän vahvan live-esiintymistaitonsa."
         },
@@ -4519,12 +4014,7 @@
       "easy": [
         {
           "question": "Millä kitaramerkillä Stone Temple Pilotsin kitaristi Dean DeLeo soitti pääasiassa 'Core'-albumin äänityksissä vuonna 1992?",
-          "options": [
-            "Gibson Les Paul",
-            "Fender Stratocaster",
-            "Ibanez RG",
-            "Rickenbacker 360"
-          ],
+          "options": ["Gibson Les Paul", "Fender Stratocaster", "Ibanez RG", "Rickenbacker 360"],
           "correctAnswer": "Gibson Les Paul",
           "trivia": "Stone Temple Pilotsin debyyttialbumilla 'Core' (1992) kitaristi Dean DeLeo käytti pääasiassa Gibson Les Paul -kitaraa, joka tunnetaan rikkaasta ja lämpimästä soundistaan. Tämä valinta vaikutti albumin raskaan ja täyteläisen kitarasoundin muodostumiseen, joka on yksi Core-albumin tunnusmerkeistä. Vaikka Fender Stratocaster ja Ibanez RG ovat suosittuja kitaramerkkejä rock-musiikissa, DeLeon pääsoitin oli nimenomaan Les Paul. Rickenbacker 360 on puolestaan tunnettu kirkkaasta äänestään, mutta sitä ei käytetty tässä yhteydessä."
         },
@@ -4589,12 +4079,7 @@
       "hard": [
         {
           "question": "Millä sijalla Stone Temple Pilotsin debyyttialbumi 'Core' ylsi Billboard 200 -albumilistan korkeimpana sijoituksena vuonna 1993?",
-          "options": [
-            "Sijalla 3",
-            "Sijalla 1",
-            "Sijalla 10",
-            "Sijalla 7"
-          ],
+          "options": ["Sijalla 3", "Sijalla 1", "Sijalla 10", "Sijalla 7"],
           "correctAnswer": "Sijalla 3",
           "trivia": "Stone Temple Pilotsin 'Core' julkaistiin vuonna 1992, ja se nousi Billboard 200 -listalla korkeimmillaan sijalle 3 vuonna 1993. Albumi saavutti merkittävää kaupallista menestystä, myyden useita miljoonia kappaleita Yhdysvalloissa. 'Core' sisälsi hittejä kuten \"Plush\" ja \"Sex Type Thing\", jotka tukivat albumin korkeaa sijoitusta. Tämä menestys oli erityisen huomattava, koska kyseessä oli yhtyeen debyyttialbumi, joka auttoi määrittelemään 1990-luvun grunge- ja vaihtoehtorock-soundia."
         },
@@ -4631,23 +4116,13 @@
       "easy": [
         {
           "question": "Mikä oli Sublimen albumin 'Sublime' paras sijoitus Billboard 200 -listalla sen julkaisuhetkellä vuonna 1996?",
-          "options": [
-            "Sijoitus 13",
-            "Sijoitus 50",
-            "Sijoitus 85",
-            "Sijoitus 101"
-          ],
+          "options": ["Sijoitus 13", "Sijoitus 50", "Sijoitus 85", "Sijoitus 101"],
           "correctAnswer": "Sijoitus 13",
           "trivia": "Sublimen vuonna 1996 julkaistu albumi 'Sublime' saavutti parhaimmillaan sijan 13 Yhdysvaltain Billboard 200 -listalla. Albumi nousi listalla nopeasti, osittain bändin ainutlaatuisen sekoituksen reggae-, punk- ja ska-elementtejä sisältävän tyylin ansiosta. Lisäksi albumilta julkaistiin useita menestyneitä singlejä, kuten \"What I Got\", jotka auttoivat albumia saavuttamaan pitkäkestoista suosiota. 'Sublime' on sittemmin saanut kulttimainetta ja se on yksi bändin tunnetuimmista teoksista, vaikka laulaja Bradley Nowell menehtyikin ennen albumin julkaisua."
         },
         {
           "question": "Kuka toimi tuottajana Sublimen vuoden 1996 albumilla 'Sublime', joka tunnetaan yhdistelmästään ska-punkkia ja reggae-vaikutteita?",
-          "options": [
-            "David Kahne",
-            "Paul Leary",
-            "Rick Rubin",
-            "Butch Vig"
-          ],
+          "options": ["David Kahne", "Paul Leary", "Rick Rubin", "Butch Vig"],
           "correctAnswer": "Paul Leary",
           "trivia": "Vuonna 1996 julkaistun 'Sublime'-albumin tuottajana toimi Paul Leary, joka tunnetaan myös yhtyeestä Butthole Surfers. Learyn tuotantotyö auttoi yhdistämään albumin ska-, punk- ja reggae-vaikutteet saumattomasti. Sublimen jäsenet halusivat tuottajan, joka ymmärtäisi heidän monipuolisen soundinsa ja Leary täytti tämän roolin. Albumi saavutti kulttimaineen ja myi useita miljoonia kappaleita Yhdysvalloissa. Tämä yhteistyö oli merkittävä osa albumin kestävää suosiota."
         },
@@ -4743,12 +4218,7 @@
       "easy": [
         {
           "question": "Kuka oli yksi TLC-yhtyeen jäsenistä, joka lauloi 'CrazySexyCool'-albumilla vuonna 1994?",
-          "options": [
-            "Tionne 'T-Boz' Watkins",
-            "Beyoncé Knowles",
-            "Mariah Carey",
-            "Janet Jackson"
-          ],
+          "options": ["Tionne 'T-Boz' Watkins", "Beyoncé Knowles", "Mariah Carey", "Janet Jackson"],
           "correctAnswer": "Tionne 'T-Boz' Watkins",
           "trivia": "TLC oli amerikkalainen tyttöbändi, jonka jäsenet olivat Tionne 'T-Boz' Watkins, Rozonda 'Chilli' Thomas ja Lisa 'Left Eye' Lopes. Vuonna 1994 julkaistu albumi 'CrazySexyCool' oli heidän toinen studioalbuminsa ja sisälsi hittejä kuten \"Waterfalls\" ja \"Creep\". Tionne 'T-Boz' Watkins tunnettiin yhtyeen matalasta ja tunnistettavasta äänestään, joka toi albumille oman erityislaatuisen soundinsa. 'CrazySexyCool' saavutti suurta kaupallista menestystä ja on yksi 1990-luvun merkittävimmistä R&B-albumeista."
         },
@@ -4765,12 +4235,7 @@
         },
         {
           "question": "Mikä seuraavista singlestä kuului TLC:n vuonna 1994 julkaistuun albumiin 'CrazySexyCool'?",
-          "options": [
-            "Waterfalls",
-            "No Scrubs",
-            "Creep",
-            "Unpretty"
-          ],
+          "options": ["Waterfalls", "No Scrubs", "Creep", "Unpretty"],
           "correctAnswer": "Waterfalls",
           "trivia": "TLC:n albumi 'CrazySexyCool' julkaistiin vuonna 1994 ja se sisältää useita tunnettuja kappaleita. Yksi albumin suurimmista hiteistä oli 'Waterfalls', joka nousi korkealle listoilla ja sai paljon radiosoittoa. Sen sijaan 'No Scrubs' ja 'Unpretty' ovat peräisin TLC:n myöhemmältä albumilta 'FanMail' vuodelta 1999. 'Creep' puolestaan on myös 'CrazySexyCool'-levyltä ja se oli yksi singlestä, mutta tässä kysymyksessä oikea vastaus on 'Waterfalls', koska se on yleisimmin tunnistettu ja yhdistetty kyseiseen albumiin."
         }
@@ -4824,12 +4289,7 @@
         },
         {
           "question": "Kuka vastasi TLC:n 'CrazySexyCool' -albumin kannen valokuvauksesta, joka tunnetaan sen tyylikkäästä ja ikonista visuaalisesta ilmeestä?",
-          "options": [
-            "Mark Seliger",
-            "Herb Ritts",
-            "Annie Leibovitz",
-            "David LaChapelle"
-          ],
+          "options": ["Mark Seliger", "Herb Ritts", "Annie Leibovitz", "David LaChapelle"],
           "correctAnswer": "Mark Seliger",
           "trivia": "TLC:n 'CrazySexyCool' -albumin kansikuva on otettu valokuvaaja Mark Seligerin toimesta. Seliger tunnetaan erityisesti 1990-luvun musiikkialan kuvaajana, ja hänen tyylinsä yhdistää intiimiä tunnelmaa ja huoliteltua estetiikkaa. Albumin kansi erottui aikakauden hip hop- ja R&B-levyjen joukosta juuri Seligerin kyvystä vangita ryhmän persoonallisuus ja cool-asenne. Tämä kuvaus loi vahvan visuaalisen identiteetin albumille, joka myi yli 11 miljoonaa kappaletta Yhdysvalloissa ja vaikutti merkittävästi TLC:n brändiin."
         },
@@ -4877,12 +4337,7 @@
         },
         {
           "question": "Kuka toimi tuottajana The Cardigansin albumilla 'First Band on the Moon', joka julkaistiin vuonna 1996?",
-          "options": [
-            "Tore Johansson",
-            "Nigel Godrich",
-            "Steve Albini",
-            "Rick Rubin"
-          ],
+          "options": ["Tore Johansson", "Nigel Godrich", "Steve Albini", "Rick Rubin"],
           "correctAnswer": "Tore Johansson",
           "trivia": "The Cardigansin 'First Band on the Moon' -albumin tuottajana toimi Tore Johansson, joka oli keskeinen hahmo bändin äänimaailman muokkaamisessa. Johansson oli tunnettu erityisesti lämminhenkisestä ja selkeästä tuotantotyylistään, joka toi esiin yhtyeen pop- ja rock-vaikutteet. Albumi äänitettiin Ruotsissa ja se on yksi yhtyeen kansainvälisesti menestyneimmistä julkaisuista. Johansson on myös tuottanut useita muita The Cardigansin albumeja, mikä vahvisti heidän pitkäaikaista yhteistyötään. Tämä tuotantoyhteistyö auttoi muokkaamaan yhtyeen tunnistettavan soundin 1990-luvulla."
         }
@@ -4925,12 +4380,7 @@
       "hard": [
         {
           "question": "Kuka ohjasi The Cardigansin musiikkivideon kappaleeseen \"Lovefool\" albumilta \"First Band on the Moon\", joka tunnetaan sen visuaalisesti tyylikkäästä ja elokuvamaisesta ilmeestä?",
-          "options": [
-            "Matt Broadley",
-            "Michel Gondry",
-            "Spike Jonze",
-            "Jonas Åkerlund"
-          ],
+          "options": ["Matt Broadley", "Michel Gondry", "Spike Jonze", "Jonas Åkerlund"],
           "correctAnswer": "Matt Broadley",
           "trivia": "The Cardigansin vuonna 1996 julkaistun \"First Band on the Moon\" -albumin tunnetuin single \"Lovefool\" sai musiikkivideonsa ohjauksen ruotsalaiselta Matt Broadleyltä. Broadleyn työ tunnetaan visuaalisesti selkeistä ja elokuvamaisista ratkaisuista, jotka tukivat kappaleen kepeää ja tarttuvaa tunnelmaa. Tämä video auttoi kappaletta saavuttamaan laajan kansainvälisen suosion, erityisesti Yhdysvalloissa. Vaikka Michel Gondry, Spike Jonze ja Jonas Åkerlund ovat tunnettuja musiikkivideo-ohjaajia, he eivät olleet mukana tässä projektissa. Videon tyyli kuvastaa hyvin 1990-luvun puolivälin eurooppalaista pop-estetiikkaa ja tuki albumin visuaalista ilmettä."
         },
@@ -5136,12 +4586,7 @@
         },
         {
           "question": "Kuka tuotti suurimman osan The Notorious B.I.G.:n vuoden 1994 albumin 'Ready to Die' kappaleista, ja joka tunnetaan erityisesti jazz-vaikutteisesta tuotantotyylistään?",
-          "options": [
-            "DJ Premier",
-            "Easy Mo Bee",
-            "Dr. Dre",
-            "RZA"
-          ],
+          "options": ["DJ Premier", "Easy Mo Bee", "Dr. Dre", "RZA"],
           "correctAnswer": "Easy Mo Bee",
           "trivia": "Easy Mo Bee oli pääasiallinen tuottaja The Notorious B.I.G.:n debyyttialbumilla 'Ready to Die', joka julkaistiin vuonna 1994. Hänen tuotantotyylinsä yhdisti usein jazz-vaikutteita hip hop -rytmeihin, mikä antoi albumille sen tunnistettavan, rikkaan soundin. Easy Mo Been lisäksi albumilla työskenteli myös muita tuottajia, mutta juuri hänen panoksensa oli merkittävä albumin kokonaisuuden kannalta. Tämä yhteistyö auttoi rakentamaan The Notorious B.I.G.:n ikonisen aseman 1990-luvun hip hop -kentällä."
         }
@@ -5191,12 +4636,7 @@
       "easy": [
         {
           "question": "Mikä musiikkivideo The Offspringin vuonna 1994 julkaistulta albumilta 'Smash' oli bändin ensimmäinen, joka sai laajaa näkyvyyttä MTV:ssä?",
-          "options": [
-            "Come Out and Play",
-            "Self Esteem",
-            "Bad Habit",
-            "Gotta Get Away"
-          ],
+          "options": ["Come Out and Play", "Self Esteem", "Bad Habit", "Gotta Get Away"],
           "correctAnswer": "Come Out and Play",
           "trivia": "The Offspringin 'Smash'-albumin kappale 'Come Out and Play' oli bändin läpimurtosinglen musiikkivideo, joka sai laajaa näkyvyyttä MTV-kanavalla vuonna 1994. Tämä video auttoi nostamaan yhtyeen kansainväliseen suosioon ja vahvisti heidän asemaansa 1990-luvun punk rock -kentällä. 'Smash' on myös yksi Fat Wreck Chordsin historian myydyimmistä albumeista, ja sen visuaalinen ilme korosti bändin energistä ja kapinallista tyyliä. Lisäksi 'Come Out and Play'n musiikkivideo on tunnettu tarttuvasta kitarariffistään ja nuorekkaasta tunnelmastaan, mikä teki siitä helposti tunnistettavan ja muistettavan MTV:n katselijoiden keskuudessa."
         },
@@ -5314,12 +4754,7 @@
         },
         {
           "question": "Mikä instrumentti on erityisen keskeisessä roolissa The Rootsin albumilla 'Things Fall Apart' vuodelta 1999?",
-          "options": [
-            "Rummut",
-            "Syntetisaattori",
-            "Kitara",
-            "Piano"
-          ],
+          "options": ["Rummut", "Syntetisaattori", "Kitara", "Piano"],
           "correctAnswer": "Rummut",
           "trivia": "The Roots tunnetaan yhtyeenä, joka käyttää live-instrumentteja hiphop-musiikissaan, ja heidän albumillaan 'Things Fall Apart' vuodelta 1999 rummut ovat erityisen keskeisessä asemassa. Albumilla rumpuja soittaa Questlove, joka on yhtyeen perustajajäsen ja tunnettu tarkasta groove-tajustaan. Rumpujen rooli korostuu albumin rytmisessä monipuolisuudessa ja orgaanisessa soundissa, joka erottuu elektronisesti tuotetusta hiphopista. Lisäksi 'Things Fall Apart' sisältää myös muita live-instrumentteja, mutta rumpujen perinteinen soitto on albumin tunnusmerkki."
         },
@@ -5426,12 +4861,7 @@
         },
         {
           "question": "Mikä oli The Smashing Pumpkinsin 'Siamese Dream' -albumin korkein sijoitus Yhdysvaltain Billboard 200 -listalla, kun albumi julkaistiin vuonna 1993?",
-          "options": [
-            "3. sijalla",
-            "10. sijalla",
-            "1. sijalla",
-            "7. sijalla"
-          ],
+          "options": ["3. sijalla", "10. sijalla", "1. sijalla", "7. sijalla"],
           "correctAnswer": "10. sijalla",
           "trivia": "The Smashing Pumpkinsin 'Siamese Dream' julkaistiin vuonna 1993 ja se saavutti parhaan sijoituksensa Yhdysvaltain Billboard 200 -listalla ollen 10. sijalla. Albumi oli bändin toinen studioalbumi ja se vakiinnutti heidän asemansa vaihtoehtorockin kärkiniminä 1990-luvulla. 'Siamese Dream' sisälsi useita menestyneitä singlejä, kuten \"Today\" ja \"Cherub Rock\", jotka auttoivat albumia nousemaan listoilla. Albumin pitkäkestoinen suosio on näkynyt myös sen myyntiluvuissa, sillä se on myynyt miljoonia kappaleita ympäri maailman."
         },
@@ -5507,12 +4937,7 @@
         },
         {
           "question": "Kuka ohjasi The Smashing Pumpkinsin vuonna 1993 julkaistun albumin 'Siamese Dream' kappaleelle \"Today\" tehdyn musiikkivideon, joka tunnetaan visuaalisesti runsaan ja symbolisen kuvastonsa ansiosta?",
-          "options": [
-            "Samuel Bayer",
-            "Mark Romanek",
-            "Spike Jonze",
-            "Michel Gondry"
-          ],
+          "options": ["Samuel Bayer", "Mark Romanek", "Spike Jonze", "Michel Gondry"],
           "correctAnswer": "Samuel Bayer",
           "trivia": "Musiikkivideo \"Today\" on yksi The Smashing Pumpkinsin tunnetuimmista visuaalisista tuotoksista ja se julkaistiin osana 'Siamese Dream' -albumin markkinointia vuonna 1993. Videon ohjasi Samuel Bayer, joka oli tuolloin suosittu ohjaaja grunge- ja vaihtoehtorock-bändien musiikkivideoissa. Videolle on ominaista sen tumma, unenomaisen symbolinen tyyli, joka heijastaa albumin henkilökohtaista ja emotionaalista syvyyttä. Bayerin työ myöhemmin myös esimerkiksi Nirvanan \"Smells Like Teen Spirit\" -videolla vahvisti hänen asemaansa 1990-luvun rockin visuaalisen ilmeen luojana."
         }
@@ -5538,12 +4963,7 @@
         },
         {
           "question": "Mikä instrumentti on erityisen korostetusti esillä The Verve -yhtyeen albumilla 'Urban Hymns', ja tuo sille tunnistettavan soundin?",
-          "options": [
-            "Saksofoni",
-            "Kitarat",
-            "Syntetisaattorit",
-            "Viulu"
-          ],
+          "options": ["Saksofoni", "Kitarat", "Syntetisaattorit", "Viulu"],
           "correctAnswer": "Kitarat",
           "trivia": "The Verve tunnetaan 'Urban Hymns' -albumillaan erityisesti rikkaista ja kerroksellisista kitarariffeistään, jotka muodostavat albumin tunnistettavan soundin. Albumin tuottajana toimi Chris Potter, joka työsti yhtyeen kitaroiden tekstuuria vahvasti. Vaikka albumilla on myös muita instrumentteja, kuten koskettimia ja jousia, kitarat ovat keskeisessä roolissa esimerkiksi hiteissä \"Bitter Sweet Symphony\" ja \"The Drugs Don't Work\". Tämä kitarakeskeisyys on yksi syy, miksi 'Urban Hymns' erottuu brittiläisen vaihtoehtorockin klassikkona."
         },
@@ -5619,12 +5039,7 @@
         },
         {
           "question": "Mikä seuraavista tuottajista oli päävastuussa The Verven albumin 'Urban Hymns' tuotannosta vuonna 1997?",
-          "options": [
-            "Chris Potter",
-            "Brian Eno",
-            "Nigel Godrich",
-            "Steve Albini"
-          ],
+          "options": ["Chris Potter", "Brian Eno", "Nigel Godrich", "Steve Albini"],
           "correctAnswer": "Chris Potter",
           "trivia": "The Verven albumin 'Urban Hymns' tuotannosta vastasi pääosin Chris Potter, joka tunnetaan tarkasta ja hienostuneesta äänitystyöstään. Potterin yhteistyö yhtyeen kanssa auttoi luomaan albumin lämpimän ja moniulotteisen soundin, joka erottui brittirockin 1990-luvun lopun kentässä. Albumin äänitykset tapahtuivat muun muassa Olympic Studiosissa Lontoossa, ja tuotanto keskittyi korostamaan yhtyeen dynaamista soittoa ja Richard Ashcroftin laulun tunteikasta ilmaisua. Vaikka muut tuottajat, kuten Brian Eno ja Nigel Godrich, olivat tuohon aikaan aktiivisia brittirockin parissa, 'Urban Hymns' on vahvasti liitetty juuri Chris Potterin tuotantotyöhön."
         }
@@ -5639,23 +5054,13 @@
       "easy": [
         {
           "question": "Missä kaupungissa Third Eye Blind aloitti vuoden 1997 'Third Eye Blind' -albuminsa kiertueen, joka oli yhtyeen ensimmäinen laaja live-esiintymissarja?",
-          "options": [
-            "San Francisco",
-            "Seattle",
-            "Los Angeles",
-            "Chicago"
-          ],
+          "options": ["San Francisco", "Seattle", "Los Angeles", "Chicago"],
           "correctAnswer": "San Francisco",
           "trivia": "Third Eye Blind aloitti vuoden 1997 kiertueensa albuminsa 'Third Eye Blind' julkaisun jälkeen San Franciscosta, joka on myös yhtyeen kotikaupunki. Tämä kiertue oli bändin ensimmäinen laaja live-esiintymissarja, jossa he esiintyivät useissa Yhdysvaltojen kaupungeissa. Kiertueen aikana yhtye sai nopeasti suosiota energisistä live-esiintymisistään, ja se vahvisti heidän asemaansa 1990-luvun rock-skenessä. Kiertueen alku San Franciscosta oli luonnollinen valinta, sillä se mahdollisti vahvan paikallisen fanipohjan hyödyntämisen. Lisäksi tämä kiertue tuki tehokkaasti albumin myyntiä ja tunnettuutta."
         },
         {
           "question": "Mikä oli yksi tunnetuimmista singleistä, joita Third Eye Blind julkaisi debyyttialbumiltaan 'Third Eye Blind' vuonna 1997?",
-          "options": [
-            "Semi-Charmed Life",
-            "Jumper",
-            "How's It Going to Be",
-            "Motorcycle Drive By"
-          ],
+          "options": ["Semi-Charmed Life", "Jumper", "How's It Going to Be", "Motorcycle Drive By"],
           "correctAnswer": "Semi-Charmed Life",
           "trivia": "Third Eye Blindin vuonna 1997 julkaistu debyyttialbumi kantoi yhtyeen nimeä ja sisälsi useita suosittuja kappaleita. Albumin tunnetuimpiin singleihin lukeutui \"Semi-Charmed Life\", joka saavutti laajaa radiosoittoa ja sijoittui korkealle listoilla erityisesti Yhdysvalloissa. Lisäksi albumilta julkaistiin menestyksekkäitä singlejä kuten \"Jumper\" ja \"How's It Going to Be\". 'Third Eye Blind' levyn tuotanto tapahtui vuosina 1996–1997, ja se oli merkittävä osa 1990-luvun vaihtoehtorockin kenttää."
         },
@@ -5685,23 +5090,13 @@
         },
         {
           "question": "Mikä musiikkivideo Third Eye Blindin vuoden 1997 albumilta 'Third Eye Blind' sisältää visuaalisesti toistuvan peilikuvan efektin korostaen kappaleen teemaa itsetutkiskelusta?",
-          "options": [
-            "Semi-Charmed Life",
-            "Jumper",
-            "How's It Going to Be",
-            "Graduate"
-          ],
+          "options": ["Semi-Charmed Life", "Jumper", "How's It Going to Be", "Graduate"],
           "correctAnswer": "How's It Going to Be",
           "trivia": "Musiikkivideo kappaleelle \"How's It Going to Be\" julkaistiin vuonna 1997 ja se tunnetaan erityisesti peiliefektin käytöstä, joka korostaa kappaleen pohdiskelevaa ja emotionaalista teemaa itsetutkiskelusta. Third Eye Blindin debyyttialbumi \"Third Eye Blind\" sisältää useita visuaalisesti kiinnostavia videoita, mutta juuri \"How's It Going to Be\" erottuu käyttämällä toistuvia heijastuksia ja peilikuvia luomaan syvällisen tunnelman. Video ohjattiin Jonathan Daytonin ja Valerie Farisin toimesta, jotka myöhemmin tunnettiin elokuvistaan. Tämä visuaalinen tyyli tuki hyvin albumin monipuolista ja introspektiivistä soundia, jota arvostettiin sekä kriitikoiden että fanien keskuudessa."
         },
         {
           "question": "Millä sijalla Third Eye Blindin vuonna 1997 julkaistu albumi 'Third Eye Blind' ylsi Billboard 200 -listalla huipentuneen suosionsa aikana?",
-          "options": [
-            "Sijalle 1",
-            "Sijalle 25",
-            "Sijalle 40",
-            "Sijalle 10"
-          ],
+          "options": ["Sijalle 1", "Sijalle 25", "Sijalle 40", "Sijalle 10"],
           "correctAnswer": "Sijalle 25",
           "trivia": "Third Eye Blindin debyyttialbumi 'Third Eye Blind' julkaistiin vuonna 1997 ja se saavutti parhaan sijoituksensa Billboard 200 -albumilistalla sijalla 25. Albumin suosio kasvoi erityisesti singlensä \"Semi-Charmed Life\" ansiosta, joka toimi playlistojen vetonaulana. Albumi pysyi listalla pitkään, mikä vahvisti Third Eye Blindin asemaa 1990-luvun vaihtoehtorockin merkittävänä yhtyeenä. Tämä sijoitus kuvasti hyvin bändin nousua valtavirran tietoisuuteen ensimmäisellä studiojulkaisullaan."
         }
@@ -5762,12 +5157,7 @@
         },
         {
           "question": "Mikä levy-yhtiö julkaisi Toni Braxtonin vuonna 1996 ilmestyneen albumin 'Secrets'?",
-          "options": [
-            "LaFace Records",
-            "Motown Records",
-            "Atlantic Records",
-            "Virgin Records"
-          ],
+          "options": ["LaFace Records", "Motown Records", "Atlantic Records", "Virgin Records"],
           "correctAnswer": "LaFace Records",
           "trivia": "Toni Braxton julkaisi albuminsa 'Secrets' vuonna 1996 levy-yhtiön LaFace Records kautta. LaFace Records oli tuohon aikaan tunnettu erityisesti R&B- ja soul-artisteistaan, kuten Usherista ja TLC:stä. 'Secrets' nousi merkittävään suosioon, ja levy-yhtiön markkinointiosaaminen auttoi albumia saavuttamaan useita myyntiennätyksiä. Atlantic Records toimi usein yhteistyössä LaFacen kanssa, mutta varsinaisena julkaisijana toimi LaFace Records."
         },
@@ -5786,12 +5176,7 @@
       "medium": [
         {
           "question": "Millä digitaalisella jakelualustalla Toni Braxtonin albumi 'Secrets' julkaistiin ensimmäisen kerran vuoden 1996 jälkeen, kun digitaalinen musiikin jakelu alkoi yleistyä?",
-          "options": [
-            "iTunes Store",
-            "Spotify",
-            "Napster",
-            "Amazon Music"
-          ],
+          "options": ["iTunes Store", "Spotify", "Napster", "Amazon Music"],
           "correctAnswer": "iTunes Store",
           "trivia": "Toni Braxtonin albumi 'Secrets' julkaistiin alun perin fyysisenä levynä vuonna 1996, jolloin digitaalinen musiikin jakelu oli vielä alkutekijöissään. iTunes Store avattiin vuonna 2003, ja 'Secrets' tuli saataville digitaalisesti tämän jälkeen, mikä mahdollisti albumin laajemman saavutettavuuden uudelle digitaaliselle yleisölle. Spotify ja Amazon Music ilmestyivät vasta myöhemmin, ja Napster toimi alun perin tiedostonjakopalveluna, ei virallisena digitaalisen musiikin myyntialustana. iTunesin rooli oli keskeinen 1990-luvun loppupuolella julkaistujen albumien virallisessa digitaalisessa levityksessä."
         },
@@ -5874,23 +5259,13 @@
         },
         {
           "question": "Mikä instrumentti korostuu erityisesti Tonicin 'Lemon Parade' -albumin kappaleissa ja on olennainen osa sen rock-pohjaista soundia?",
-          "options": [
-            "Sähkökitara",
-            "Saksofoni",
-            "Syntetisaattori",
-            "Banjo"
-          ],
+          "options": ["Sähkökitara", "Saksofoni", "Syntetisaattori", "Banjo"],
           "correctAnswer": "Sähkökitara",
           "trivia": "Tonicin vuonna 1996 julkaistu 'Lemon Parade' on tunnettu vahvasta rock-soundistaan, jossa sähkökitara on keskeisessä roolissa. Albumin tuotannossa sähkökitara muodostaa melodisen ja rytmisen perustan useimmille kappaleille, erityisesti tunnetuimmassa singlessä \"If You Could Only See\". Vaikka albumilla hyödynnetään myös muita instrumentteja, kuten bassoa ja rumpuja, sähkökitara on se instrumentti, joka määrittää Tonicin tyylillisen ilmeen tässä pitkäsoitossa."
         },
         {
           "question": "Mikä digitaalinen alusta julkaisi Tonicin vuoden 1996 albumin 'Lemon Parade' digitaalisesti ensimmäisten joukossa?",
-          "options": [
-            "Apple iTunes Store",
-            "Amazon Music",
-            "Napster",
-            "Rhapsody"
-          ],
+          "options": ["Apple iTunes Store", "Amazon Music", "Napster", "Rhapsody"],
           "correctAnswer": "Rhapsody",
           "trivia": "Tonic julkaisi albuminsa 'Lemon Parade' vuonna 1996, jolloin digitaalinen musiikin jakelu oli vielä alkutekijöissään. Rhapsody oli yksi ensimmäisistä laillisista suoratoistopalveluista, joka tarjosi albumin digitaalista jakelua 2000-luvun alkupuolella, mukaan lukien klassikot kuten 'Lemon Parade'. Sen sijaan iTunes Store avattiin vasta vuonna 2003, Amazon Music myöhemmin ja Napster oli alun perin vertaisverkko ilman laillista lisensointia. Näin 'Lemon Parade' saavutti digitaalisen yleisönsä alustoilla kuten Rhapsody ensimmäisten joukossa laillisen digitaalisen jakelun kautta."
         }
@@ -5975,23 +5350,13 @@
       "easy": [
         {
           "question": "Mikä seuraavista kappaleista on Toolin vuonna 1996 julkaistulta albumilta 'Ænima'?",
-          "options": [
-            "Stinkfist",
-            "Schism",
-            "Lateralus",
-            "Vicarious"
-          ],
+          "options": ["Stinkfist", "Schism", "Lateralus", "Vicarious"],
           "correctAnswer": "Stinkfist",
           "trivia": "Tool julkaisi albumin 'Ænima' vuonna 1996, ja se sisälsi useita tunnettuja kappaleita, joista 'Stinkfist' oli yksi. Tämä kappale oli myös albumin ensimmäinen single, joka toi bändille laajempaa näkyvyyttä. Sen jälkeen Tool julkaisi myöhemmin albumit 'Lateralus' (2001) ja '10,000 Days' (2006), joilta löytyvät kappaleet 'Schism' ja 'Vicarious'. 'Ænima' on tunnettu progressiivisesta ja kokeellisesta tyylistään sekä vahvasta visuaalisesta ilmeestään."
         },
         {
           "question": "Mikä seuraavista kappaleista oli Toolin albumin 'Ænima' tunnetuimpia singlejulkaisuja, joka sai myös laajaa mediajulkisuutta vuonna 1996?",
-          "options": [
-            "Stinkfist",
-            "Schism",
-            "Lateralus",
-            "Vicarious"
-          ],
+          "options": ["Stinkfist", "Schism", "Lateralus", "Vicarious"],
           "correctAnswer": "Stinkfist",
           "trivia": "Tool julkaisi albuminsa 'Ænima' vuonna 1996, ja siitä yksi tunnetuimmista singleistä oli 'Stinkfist'. Kappale sai paljon radiosoittoa ja musiikkivideonsa myötä laajaa mediajulkisuutta, mikä auttoi nostamaan yhtyeen tunnettuutta maailmalla. 'Schism', 'Lateralus' ja 'Vicarious' ovat myös Toolin kappaleita, mutta ne ilmestyivät myöhemmillä albumeilla. 'Ænima' oli merkittävä albumi, joka yhdisti progressiivisen rockin ja vaihtoehtometallin elementtejä ja sai paljon huomiota myös musiikkimedioissa 1990-luvun puolivälissä."
         },
@@ -6087,12 +5452,7 @@
       "easy": [
         {
           "question": "Missä kaupungissa U2 aloitti 'Achtung Baby' -albumin promootiokiertueen, joka tunnetaan nimellä Zoo TV Tour?",
-          "options": [
-            "Dublin",
-            "Berliini",
-            "Los Angeles",
-            "Lontoo"
-          ],
+          "options": ["Dublin", "Berliini", "Los Angeles", "Lontoo"],
           "correctAnswer": "Berliini",
           "trivia": "U2 aloitti Achtung Baby -albumin promootiokiertueen, Zoo TV Tourin, Berliinissä vuonna 1992. Berliini oli merkittävä paikka, koska albumin äänitykset tapahtuivat osittain Hansa Studiosilla, joka sijaitsee lähellä entistä Berliinin muuria. Zoo TV Tour tunnettiin innovatiivisista lavaratkaisuistaan ja monikanavaisista videoinstallaatioistaan, jotka toivat täysin uuden ulottuvuuden konserttikokemukseen. Dublin ja Lontoo olivat myös tärkeitä kaupunkeja U2:n historiassa, mutta promootiokiertueen aloituspaikka oli Berliini. Los Angeles on puolestaan ollut keskeinen paikka bändin aiemmissa äänityksissä ja esiintymisissä."
         },
@@ -6122,12 +5482,7 @@
       "medium": [
         {
           "question": "Millä kiertueella U2 esitti suurimman osan 'Achtung Baby' -albumin kappaleista livenä ensimmäistä kertaa?",
-          "options": [
-            "Zoo TV -kiertue",
-            "Lovetown Tour",
-            "PopMart Tour",
-            "Elevation Tour"
-          ],
+          "options": ["Zoo TV -kiertue", "Lovetown Tour", "PopMart Tour", "Elevation Tour"],
           "correctAnswer": "Zoo TV -kiertue",
           "trivia": "U2:n 'Achtung Baby' -albumin kappaleet esitettiin pääosin ensimmäistä kertaa elävästi vuonna 1992 alkaneella Zoo TV -kiertueella. Tämä kiertue oli tunnettu innovatiivisesta visuaalisesta ilmeestään ja monikerroksisesta lavarakenteestaan, jotka tukivat albumin kokeellista soundia. Lovetown Tour toteutui ennen 'Achtung Baby'ta, joten sitä ei käytetty albumin kappaleiden esittelyyn. PopMart Tour puolestaan järjestettiin vasta myöhemmin 1997–1998, ja Elevation Tour alkoi vasta 2001. Zoo TV -kiertue oli merkittävä vaihe U2:n uralla ja vahvisti 'Achtung Baby'n asemaa yhtyeen uudistumisena."
         },
@@ -6179,12 +5534,7 @@
         },
         {
           "question": "Mikä oli korkein sijoitus, jonka U2:n albumi 'Achtung Baby' saavutti Yhdysvaltain Billboard 200 -albumilistalla sen julkaisuvuonna 1991?",
-          "options": [
-            "Ensimmäinen sija",
-            "Toinen sija",
-            "Kolmas sija",
-            "Neljäs sija"
-          ],
+          "options": ["Ensimmäinen sija", "Toinen sija", "Kolmas sija", "Neljäs sija"],
           "correctAnswer": "Toinen sija",
           "trivia": "U2:n albumi 'Achtung Baby' julkaistiin vuonna 1991 ja se saavutti Yhdysvaltain Billboard 200 -albumilistalla korkeimmillaan toisen sijan. Albumi menestyi myös maailmanlaajuisesti, nousten muun muassa Britannian albumilistan kärkeen. 'Achtung Baby' merkitsi U2:lle suunnanmuutosta musiikillisessa ilmaisussa ja kaupallisessa menestyksessä, ja se on usein arvioitu yhtyeen parhaaksi albumiksi. Vaikka albumi ei saavuttanut Yhdysvalloissa listaykköstä, sen kahden sijan sijoitus oli merkittävä saavutus vaihtoehtoisia rockalbumeita esittäville yhtyeille tuolloin."
         }
@@ -6199,12 +5549,7 @@
       "easy": [
         {
           "question": "Mikä Wu-Tang Clanin 'Enter the Wu-Tang (36 Chambers)'-albumin kappaleista toimi heidän ensimmäisen musiikkivideonsa pohjana?",
-          "options": [
-            "Protect Ya Neck",
-            "C.R.E.A.M.",
-            "Method Man",
-            "Da Mystery of Chessboxin'"
-          ],
+          "options": ["Protect Ya Neck", "C.R.E.A.M.", "Method Man", "Da Mystery of Chessboxin'"],
           "correctAnswer": "Protect Ya Neck",
           "trivia": "Wu-Tang Clanin debyyttialbumin 'Enter the Wu-Tang (36 Chambers)' ensimmäinen musiikkivideo tehtiin kappaleelle 'Protect Ya Neck'. Tämä video auttoi ryhmää saamaan laajempaa näkyvyyttä ja nostamaan heidän profiiliaan hiphop-skenessä vuonna 1993. 'Protect Ya Neck' oli yksi albumin tunnetuimmista kappaleista ja videolla nähtiin useita ryhmän jäseniä, mikä vahvisti kollektiivin vahvaa visuaalista identiteettiä. Musiikkivideo oli merkittävä askel Wu-Tang Clanin uralla ja se tuki albumin kaupallista menestystä."
         },
@@ -6221,12 +5566,7 @@
         },
         {
           "question": "Kuka toimi pääasiallisena tuottajana Wu-Tang Clanin vuonna 1993 julkaistulla albumilla 'Enter the Wu-Tang (36 Chambers)'?",
-          "options": [
-            "RZA",
-            "Dr. Dre",
-            "Q-Tip",
-            "DJ Premier"
-          ],
+          "options": ["RZA", "Dr. Dre", "Q-Tip", "DJ Premier"],
           "correctAnswer": "RZA",
           "trivia": "Wu-Tang Clanin debyyttialbumi 'Enter the Wu-Tang (36 Chambers)' julkaistiin vuonna 1993, ja sen tuotannosta vastasi pääasiassa RZA. Hän loi albumin tunnistettavan soundin, joka yhdisteli minimalistisia rumpukuvioita, sampleja ja kung-fu-elokuvista lainattuja ääniä. RZAn tuotanto oli keskeinen albumin ainutlaatuisen tyylin ja vaikutuksen muodostumisessa hiphop-kulttuurissa. Muut vaihtoehdoista, kuten Dr. Dre, Q-Tip ja DJ Premier, ovat tunnettuja tuottajia, mutta eivät osallistuneet tähän Wu-Tang Clanin albumiin."
         }
@@ -6269,12 +5609,7 @@
       "hard": [
         {
           "question": "Kuka vastasi pääasiallisesti Wu-Tang Clanin vuoden 1993 albumin 'Enter the Wu-Tang (36 Chambers)' tuotannosta, luoden sen tunnistettavan raikkaan ja synkän soundin?",
-          "options": [
-            "RZA",
-            "Dr. Dre",
-            "DJ Premier",
-            "Pete Rock"
-          ],
+          "options": ["RZA", "Dr. Dre", "DJ Premier", "Pete Rock"],
           "correctAnswer": "RZA",
           "trivia": "Wu-Tang Clanin albumin 'Enter the Wu-Tang (36 Chambers)' tuotannosta vastasi pääasiassa RZA, joka myös toimi bändin tuottajana. Hänen omintakeinen tuotantotyylinsä yhdisteli synkkää, raakaa ja kokeellista soundia, mikä erotti albumin muista 1990-luvun hiphop-julkaisuista. RZA hyödynsi runsaasti kung-fu-elokuvien näytteitä ja minimalistisia rumpukuvioita, mikä loi albumille sen ikonisen tunnelman. Vaikka DJ Premier ja Pete Rock olivat tuohon aikaan tunnettuja tuottajia, he eivät osallistuneet tähän Wu-Tang Clanin debyyttialbumiin. Dr. Dre oli merkittävä länsirannikon tuottaja, mutta hän ei ollut mukana tässä idänrannikon projektissa."
         },

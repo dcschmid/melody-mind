@@ -231,12 +231,7 @@
       "easy": [
         {
           "question": "在1973年发行的Aerosmith首张同名专辑'Aerosmith'巡回演出中，乐队主要在哪种类型的场地进行现场表演？",
-          "options": [
-            "大型体育场",
-            "俱乐部和小型音乐厅",
-            "露天音乐节",
-            "剧院"
-          ],
+          "options": ["大型体育场", "俱乐部和小型音乐厅", "露天音乐节", "剧院"],
           "correctAnswer": "俱乐部和小型音乐厅",
           "trivia": "Aerosmith在1973年发行首张同名专辑'Aerosmith'后，主要在俱乐部和小型音乐厅进行现场演出，以逐渐积累现场表演经验和扩大粉丝基础。这种选择符合当时摇滚新人乐队的常见做法，他们通过频繁的俱乐部巡演打响名声，而大型体育场和露天音乐节通常只为已成名的乐队开放。剧院场地虽然有一定规模，但Aerosmith在早期巡演中并不常见。通过这些小型巡演，乐队磨炼了现场表演技巧，为之后的成功打下基础。"
         },
@@ -253,12 +248,7 @@
         },
         {
           "question": "在Aerosmith的首张同名专辑《Aerosmith》的词曲创作过程中，哪个成员主要负责了大部分歌曲的歌词创作？",
-          "options": [
-            "Steven Tyler",
-            "Joe Perry",
-            "Tom Hamilton",
-            "Brad Whitford"
-          ],
+          "options": ["Steven Tyler", "Joe Perry", "Tom Hamilton", "Brad Whitford"],
           "correctAnswer": "Steven Tyler",
           "trivia": "在1973年发行的Aerosmith首张同名专辑《Aerosmith》中，主唱Steven Tyler承担了大部分歌词的创作工作。除了演唱外，Tyler还积极参与了歌曲的词曲创作，使得专辑展现了独特的个人风格。吉他手Joe Perry则主要贡献了旋律和吉他部分，两人合作紧密，成为乐队创作的核心。Tom Hamilton和Brad Whitford则更多参与演奏和编曲，而非主要歌词创作。此专辑的成功在很大程度上归功于Tyler和Perry的创作搭档。"
         }
@@ -343,23 +333,13 @@
       "easy": [
         {
           "question": "在Al Green的1972年专辑'Let's Stay Together'的词曲创作过程中，哪位音乐人协助共同制作了专辑中的多首歌曲？",
-          "options": [
-            "Willie Mitchell",
-            "Quincy Jones",
-            "Berry Gordy",
-            "Phil Spector"
-          ],
+          "options": ["Willie Mitchell", "Quincy Jones", "Berry Gordy", "Phil Spector"],
           "correctAnswer": "Willie Mitchell",
           "trivia": "Al Green的经典专辑'Let's Stay Together'于1972年发布，其词曲创作和制作过程得到了著名制作人Willie Mitchell的大力支持。Mitchell不仅参与了歌曲的编排，还帮助塑造了专辑中灵魂乐的温暖音色。专辑中的同名主打歌《Let's Stay Together》正是在Mitchell的指导下录制完成，成为Al Green最著名的作品之一。Quincy Jones、Berry Gordy和Phil Spector都是当时著名的音乐制作人，但他们并未参与这张专辑的制作。"
         },
         {
           "question": "Al Green在录制1972年专辑'Let's Stay Together'时，哪位制作人对他的灵感和音乐风格影响最大？",
-          "options": [
-            "Willie Mitchell",
-            "Quincy Jones",
-            "Phil Spector",
-            "Berry Gordy"
-          ],
+          "options": ["Willie Mitchell", "Quincy Jones", "Phil Spector", "Berry Gordy"],
           "correctAnswer": "Willie Mitchell",
           "trivia": "Willie Mitchell是Al Green在1972年录制'Let's Stay Together'专辑时的主要制作人，他对专辑的灵感和整体音乐风格起到了关键作用。Mitchell以其深厚的灵魂乐和节奏布鲁斯制作经验闻名，帮助Al Green打造出独特而流畅的声音。该专辑中的同名主打歌《Let's Stay Together》也因Mitchell的制作而获得巨大成功，成为灵魂乐经典。此外，Mitchell在Hi Records工作室的专业团队环境进一步激发了Al Green的创作潜力。"
         },
@@ -455,12 +435,7 @@
       "easy": [
         {
           "question": "Bad Company乐队在1974年发行的同名专辑《Bad Company》首次推广时，哪首歌曲被选为主打单曲并广泛用于电台播放？",
-          "options": [
-            "Can't Get Enough",
-            "Ready for Love",
-            "Movin' On",
-            "Rock Steady"
-          ],
+          "options": ["Can't Get Enough", "Ready for Love", "Movin' On", "Rock Steady"],
           "correctAnswer": "Can't Get Enough",
           "trivia": "Bad Company乐队的首张同名专辑《Bad Company》于1974年发布，主打单曲是《Can't Get Enough》。这首歌凭借其朗朗上口的旋律和强劲的节奏，迅速成为电台热门歌曲，并帮助专辑在美国公告牌专辑榜上达到第11位。作为首支单曲，《Can't Get Enough》不仅提升了乐队的知名度，也成为经典摇滚曲目之一。其他曲目如《Ready for Love》等虽然也受欢迎，但没有像《Can't Get Enough》那样得到大规模推广。"
         },
@@ -512,12 +487,7 @@
         },
         {
           "question": "在Bad Company1974年发行的首张同名专辑《Bad Company》中，哪位乐队成员负责主唱并且是该乐队的标志性声音？",
-          "options": [
-            "Paul Rodgers",
-            "Mick Ralphs",
-            "Simon Kirke",
-            "Boz Burrell"
-          ],
+          "options": ["Paul Rodgers", "Mick Ralphs", "Simon Kirke", "Boz Burrell"],
           "correctAnswer": "Paul Rodgers",
           "trivia": "Paul Rodgers是Bad Company乐队的主唱，他以其强大且富有表现力的嗓音成为了乐队的标志性人物。Bad Company的首张专辑《Bad Company》于1974年发布，Paul Rodgers不仅负责演唱，还参与了歌曲的创作。Mick Ralphs担任吉他手，Simon Kirke是鼓手，而Boz Burrell则负责贝斯。Paul Rodgers在摇滚乐界拥有广泛的影响力，他的声音帮助《Bad Company》专辑获得了商业成功和经典地位。"
         }
@@ -613,23 +583,13 @@
         },
         {
           "question": "在Bee Gees于1979年录制专辑'Spirits Having Flown'时，哪位音响工程师负责该专辑的主要录音和混音工作？",
-          "options": [
-            "Karl Richardson",
-            "George Martin",
-            "Alan Parsons",
-            "Bruce Swedien"
-          ],
+          "options": ["Karl Richardson", "George Martin", "Alan Parsons", "Bruce Swedien"],
           "correctAnswer": "Karl Richardson",
           "trivia": "Karl Richardson是Bee Gees的长期合作音响工程师，他在录制1979年的专辑'Spirits Having Flown'中担任主要的录音和混音工程师。该专辑在法国的Criteria Studios录制，Richardson通过细致的多轨录音技术捕捉了Bee Gees标志性的和声和丰富的音色。他与Barry Gibb、Robin Gibb和Maurice Gibb密切合作，确保了专辑的音质和声音层次感。Richardson的工作对专辑的成功起到了关键作用，使得'Spirits Having Flown'在当时的软摇滚和迪斯科音乐领域中脱颖而出。"
         },
         {
           "question": "Bee Gees的专辑《Spirits Having Flown》于1979年发行后，其中哪首歌曲在美国电台播放中表现最为突出，成为该专辑的主打单曲？",
-          "options": [
-            "Too Much Heaven",
-            "Love You Inside Out",
-            "Tragedy",
-            "Spirits Having Flown"
-          ],
+          "options": ["Too Much Heaven", "Love You Inside Out", "Tragedy", "Spirits Having Flown"],
           "correctAnswer": "Too Much Heaven",
           "trivia": "《Spirits Having Flown》是Bee Gees在1979年发行的专辑，其中《Too Much Heaven》被选为主打单曲，在美国电台获得了极高的播放频率，并成功登顶美国Billboard Hot 100排行榜。该曲展现了Bee Gees独特的和声和柔和的节奏，成为当年最受欢迎的电台歌曲之一。另外，尽管《Tragedy》和《Love You Inside Out》后来也成为热门单曲，但《Too Much Heaven》在专辑发行初期的电台播放中占据了主导地位，奠定了专辑的成功基础。"
         }
@@ -701,12 +661,7 @@
         },
         {
           "question": "在制作Billy Joel1973年发行的专辑《Piano Man》时，哪位音响工程师负责了主要的录音和混音工作？",
-          "options": [
-            "Lloyd Ryan",
-            "Phil Ramone",
-            "Bob Clearmountain",
-            "George Martin"
-          ],
+          "options": ["Lloyd Ryan", "Phil Ramone", "Bob Clearmountain", "George Martin"],
           "correctAnswer": "Lloyd Ryan",
           "trivia": "在Billy Joel的首张专辑《Piano Man》中，音响工程师Lloyd Ryan承担了录音和混音的主要工作。Lloyd Ryan在这张专辑的录制过程中，利用当时主流的24轨录音设备，确保了Billy Joel钢琴和人声的清晰度与现场感。Phil Ramone虽然后来与Billy Joel有多次合作，但并未参与《Piano Man》的制作。Bob Clearmountain和George Martin则分别以其他著名艺术家的作品闻名。Lloyd Ryan的工程工作为这张专辑营造了温暖且自然的音质，成为它经典声响的重要基础。"
         }
@@ -714,12 +669,7 @@
       "medium": [
         {
           "question": "Billy Joel的专辑《Piano Man》在美国公告牌200排行榜上的最高排名是多少？",
-          "options": [
-            "第27名",
-            "第5名",
-            "第50名",
-            "未进入前100名"
-          ],
+          "options": ["第27名", "第5名", "第50名", "未进入前100名"],
           "correctAnswer": "第27名",
           "trivia": "Billy Joel的1973年专辑《Piano Man》是他首张获得广泛关注的作品。这张专辑在美国公告牌200排行榜上最高达到第27名，标志着他职业生涯的重要突破。《Piano Man》中的同名主打歌曲也成为了他的代表作，进一步推动了专辑的销量和讨论度。尽管专辑没有达到顶尖榜首位置，但它的成功为Billy Joel之后的作品奠定了坚实基础。此专辑的表现反映了1970年代初期流行音乐市场对叙事型歌词和钢琴摇滚风格的接受度提升。"
         },
@@ -791,12 +741,7 @@
       "easy": [
         {
           "question": "Black Sabbath的专辑《Paranoid》（1970年）在国际音乐界产生了重要影响，其中哪首歌曲最先帮助该专辑在英国和美国的排行榜上取得成功？",
-          "options": [
-            "《Iron Man》",
-            "《War Pigs》",
-            "《Paranoid》",
-            "《Electric Funeral》"
-          ],
+          "options": ["《Iron Man》", "《War Pigs》", "《Paranoid》", "《Electric Funeral》"],
           "correctAnswer": "《Paranoid》",
           "trivia": "《Paranoid》是Black Sabbath于1970年发行的第二张专辑，专辑同名主打歌《Paranoid》成为该专辑最成功的单曲，帮助专辑进入英国和美国的音乐排行榜。该歌曲旋律简洁且节奏强烈，成为重金属音乐的经典代表之一。《Paranoid》单曲在英国单曲榜上最高排名第4，极大提升了Black Sabbath在国际市场的知名度。专辑整体被视为重金属音乐的奠基之作，对后续许多乐队产生了深远影响。"
         },
@@ -861,23 +806,13 @@
       "hard": [
         {
           "question": "在Black Sabbath的1970年专辑《Paranoid》中，哪首歌曲的歌词反映了主唱Ozzy Osbourne当时的心理状态，表达了孤独和内心的挣扎？",
-          "options": [
-            "《War Pigs》",
-            "《Iron Man》",
-            "《Paranoid》",
-            "《Planet Caravan》"
-          ],
+          "options": ["《War Pigs》", "《Iron Man》", "《Paranoid》", "《Planet Caravan》"],
           "correctAnswer": "《Paranoid》",
           "trivia": "《Paranoid》这首歌是Black Sabbath的同名专辑中的主打曲目，也是Ozzy Osbourne当时心理状态的直接反映。歌词表达了孤独、焦虑和精神上的不安，这与当时乐队快速成名带来的压力密切相关。事实上，Ozzy在创作这首歌时正经历情绪低落，乐队成员Tony Iommi也曾表示，这首歌捕捉了他们那段时期的精神状态。此外，《Paranoid》因其简洁有力的歌词和旋律，成为了重金属音乐的经典象征。"
         },
         {
           "question": "在Black Sabbath的1970年专辑《Paranoid》中，哪位成员担任了贝斯手的角色？",
-          "options": [
-            "Geezer Butler",
-            "Tony Iommi",
-            "Ozzy Osbourne",
-            "Bill Ward"
-          ],
+          "options": ["Geezer Butler", "Tony Iommi", "Ozzy Osbourne", "Bill Ward"],
           "correctAnswer": "Geezer Butler",
           "trivia": "Geezer Butler是Black Sabbath的贝斯手，也是乐队的主要歌词作者之一。在1970年发行的标志性专辑《Paranoid》中，Butler的贝斯演奏为乐队沉重的金属声音奠定了基础。Tony Iommi负责吉他，Ozzy Osbourne担任主唱，而Bill Ward则是鼓手。《Paranoid》被认为是重金属音乐的奠基之作，Butler的贝斯线在其中起到了关键作用，尤其是在曲目如《War Pigs》和《Iron Man》中。"
         },
@@ -925,12 +860,7 @@
         },
         {
           "question": "Blondie的1978年专辑《Parallel Lines》的专辑封面设计由谁负责？",
-          "options": [
-            "Peter Corriston",
-            "Andy Warhol",
-            "Robert Mapplethorpe",
-            "Hipgnosis"
-          ],
+          "options": ["Peter Corriston", "Andy Warhol", "Robert Mapplethorpe", "Hipgnosis"],
           "correctAnswer": "Peter Corriston",
           "trivia": "《Parallel Lines》是Blondie于1978年发行的经典专辑，其专辑封面由著名设计师Peter Corriston设计。Corriston以其简洁而富有现代感的风格著称，这张封面采用了鲜明的红、黑、白三色调，突出乐队成员的形象，符合当时朋克与新波音乐的视觉风格。Andy Warhol和Robert Mapplethorpe虽然也是著名艺术家，但并未参与该专辑的包装设计。Hipgnosis则是另一支著名设计团队，曾为Pink Floyd等乐队设计封面，但与Blondie的《Parallel Lines》无关。"
         }
@@ -995,12 +925,7 @@
         },
         {
           "question": "Blondie在1978年录制《Parallel Lines》专辑时，哪位制作人在录音过程中对专辑的声音塑造起到了关键作用？",
-          "options": [
-            "Mike Chapman",
-            "Phil Spector",
-            "Brian Eno",
-            "George Martin"
-          ],
+          "options": ["Mike Chapman", "Phil Spector", "Brian Eno", "George Martin"],
           "correctAnswer": "Mike Chapman",
           "trivia": "《Parallel Lines》专辑的制作人是澳大利亚出生的Mike Chapman，他以打造干净利落且商业化的录音风格闻名。Chapman在录制过程中强调了节奏感和旋律的平衡，使Blondie的朋克和流行元素完美融合。专辑录制于纽约的Record Plant录音室，Chapman的制作手法帮助乐队突破了之前的地下局限，推动了他们的商业成功。此外，他还与工程师Nicky Hopkins合作，提升了录音的细节表现，最终成就了这张1980年代初极具影响力的经典专辑。"
         }
@@ -1026,23 +951,13 @@
         },
         {
           "question": "在Bob Dylan的1975年专辑《Blood on the Tracks》中，哪位音乐家主要负责弹奏钢琴？",
-          "options": [
-            "Russ Kunkel",
-            "Tony Brown",
-            "David Bromberg",
-            "Eric Clapton"
-          ],
+          "options": ["Russ Kunkel", "Tony Brown", "David Bromberg", "Eric Clapton"],
           "correctAnswer": "Tony Brown",
           "trivia": "《Blood on the Tracks》是Bob Dylan在1975年发行的经典专辑，深受乐迷喜爱。专辑的录制过程中，钢琴部分由Tony Brown负责演奏，他是一位知名的键盘手，曾与多位著名歌手合作。Russ Kunkel是专辑中的鼓手，David Bromberg则主要贡献了吉他和小提琴演奏。Eric Clapton虽然是著名吉他手，但并未参与该专辑的录制。Tony Brown的钢琴演奏为这张专辑增添了丰富的音乐层次，成为其中不可或缺的元素。"
         },
         {
           "question": "在Bob Dylan的1975年专辑'Blood on the Tracks'的制作过程中，哪位音乐家因重新录制部分歌曲而被邀请加入？",
-          "options": [
-            "Tony Brown",
-            "Mark Knopfler",
-            "Al Kooper",
-            "David Bromberg"
-          ],
+          "options": ["Tony Brown", "Mark Knopfler", "Al Kooper", "David Bromberg"],
           "correctAnswer": "Tony Brown",
           "trivia": "在制作Bob Dylan的专辑'Blood on the Tracks'时，最初的录音是在纽约完成的，但Dylan后来在明尼阿波利斯重新录制了部分歌曲，以达到更满意的效果。Tony Brown，当时是一位年轻的钢琴家，被邀请参与这次重新录音。David Bromberg也参与了专辑的录制，但并非特别负责重新录制部分。Mark Knopfler和Al Kooper虽然是知名音乐人，但他们并未参与该专辑的制作。Tony Brown的加入为专辑注入了新的音乐元素，帮助这张专辑最终成为Dylan最受赞誉的作品之一。"
         }
@@ -1050,12 +965,7 @@
       "medium": [
         {
           "question": "Bob Dylan的专辑《Blood on the Tracks》在美国公告牌200专辑榜上的最高排名是？",
-          "options": [
-            "第二名",
-            "第一名",
-            "第五名",
-            "第十名"
-          ],
+          "options": ["第二名", "第一名", "第五名", "第十名"],
           "correctAnswer": "第二名",
           "trivia": "1975年发行的《Blood on the Tracks》是Bob Dylan的一张标志性作品，凭借其深刻的歌词和情感表达获得了极大成功。这张专辑在美国公告牌200专辑榜上最高达到第二名，显示了其商业上的广泛认可。虽然未曾登顶榜首，但《Blood on the Tracks》被认为是Dylan职业生涯中的巅峰之作之一。专辑中的歌曲如《Tangled Up in Blue》也成为了经典，帮助推动专辑销量。该专辑的成功不仅体现在排行榜，还奠定了其在摇滚乐历史上的重要地位。"
         },
@@ -1085,12 +995,7 @@
       "hard": [
         {
           "question": "在Bob Dylan的1975年专辑《Blood on the Tracks》的专辑封面设计中，哪位艺术家的摄影作品被采用用以体现专辑的情感内涵？",
-          "options": [
-            "Barry Feinstein",
-            "Annie Leibovitz",
-            "Alfred Wertheimer",
-            "Jim Marshall"
-          ],
+          "options": ["Barry Feinstein", "Annie Leibovitz", "Alfred Wertheimer", "Jim Marshall"],
           "correctAnswer": "Barry Feinstein",
           "trivia": "《Blood on the Tracks》的封面照片由著名摄影师Barry Feinstein拍摄，他是20世纪60年代和70年代多位摇滚传奇艺术家的御用摄影师。Feinstein的作品以其真实且富有情感的风格闻名，这与Bob Dylan当时专辑中表达的复杂情感形成了呼应。专辑封面展示的是Dylan在纽约的一个街头场景，照片采用了柔和的色调，加深了专辑的怀旧与内省氛围。Barry Feinstein曾经为Dylan的其他作品如《Blonde on Blonde》也拍摄过封面照片，这使他与Dylan的合作具有持续性和历史意义。"
         },
@@ -1149,12 +1054,7 @@
         },
         {
           "question": "Bob Marley在1973年发行的专辑《Catch a Fire》中，哪一首歌曲成为该专辑最为知名的代表作？",
-          "options": [
-            "Stir It Up",
-            "No Woman, No Cry",
-            "One Love",
-            "Redemption Song"
-          ],
+          "options": ["Stir It Up", "No Woman, No Cry", "One Love", "Redemption Song"],
           "correctAnswer": "Stir It Up",
           "trivia": "《Catch a Fire》是Bob Marley和The Wailers于1973年发行的开创性专辑，其中《Stir It Up》成为专辑中最具代表性的歌曲之一。这首歌以其轻松的节奏和迷人的旋律，帮助Bob Marley在国际上获得了更广泛的关注。值得注意的是，《No Woman, No Cry》虽然非常著名，但它首次正式发行是在1974年的现场专辑《Live!》。另外，《One Love》和《Redemption Song》分别出现在1977年的《Exodus》和1980年的《Uprising》专辑中。"
         }
@@ -1208,23 +1108,13 @@
         },
         {
           "question": "在Bob Marley的1973年专辑《Catch a Fire》的词曲创作过程中，哪位音乐人对部分歌曲的编曲和制作起到了关键作用？",
-          "options": [
-            "Chris Blackwell",
-            "Lee 'Scratch' Perry",
-            "Phil Spector",
-            "Quincy Jones"
-          ],
+          "options": ["Chris Blackwell", "Lee 'Scratch' Perry", "Phil Spector", "Quincy Jones"],
           "correctAnswer": "Chris Blackwell",
           "trivia": "Chris Blackwell是Island Records的创始人，他在Bob Marley的《Catch a Fire》专辑制作中扮演了重要角色。Blackwell不仅参与了专辑的制作，还对部分歌曲进行了重新编曲，使雷鬼音乐更适合国际听众。相比之下，Lee 'Scratch' Perry虽然是雷鬼制作的重要人物，但并未直接参与该专辑的制作。Phil Spector和Quincy Jones则主要活跃于其他音乐风格和地区，未与Bob Marley合作。因此，Chris Blackwell是该专辑词曲创作和制作过程中最具影响力的音乐人之一。"
         },
         {
           "question": "在Bob Marley的1973年专辑《Catch a Fire》的制作过程中，哪位著名的摇滚乐队成员参与了专辑的混音和后期制作？",
-          "options": [
-            "Chris Blackwell",
-            "Mick Jagger",
-            "Peter Tosh",
-            "Steve Smith"
-          ],
+          "options": ["Chris Blackwell", "Mick Jagger", "Peter Tosh", "Steve Smith"],
           "correctAnswer": "Chris Blackwell",
           "trivia": "Chris Blackwell是Island Records的创始人，也是Bob Marley《Catch a Fire》专辑制作中的关键人物。Blackwell不仅负责了专辑的录制支持，还参与了混音和后期制作，特别引入了摇滚元素以吸引更广泛的西方听众。Peter Tosh是专辑的成员之一，但他并未参与混音制作。Mick Jagger是滚石乐队的主唱，虽然当时对雷鬼音乐感兴趣，但并未参与该专辑制作。Steve Smith是著名的鼓手，但与此专辑无关。Blackwell的制作风格对《Catch a Fire》的国际成功起到了决定性作用。"
         }
@@ -1285,12 +1175,7 @@
         },
         {
           "question": "在Bob Seger的1978年专辑'Stranger in Town'中，哪位音乐家是经常与Seger合作的Silver Bullet Band的核心成员，并在这张专辑中担任吉他手？",
-          "options": [
-            "Chris Campbell",
-            "Glenn Frey",
-            "Mike Campbell",
-            "Tom Hamilton"
-          ],
+          "options": ["Chris Campbell", "Glenn Frey", "Mike Campbell", "Tom Hamilton"],
           "correctAnswer": "Chris Campbell",
           "trivia": "Chris Campbell是Bob Seger长期合作的贝斯手，作为Silver Bullet Band的核心成员，他在'Stranger in Town'专辑中的表现尤为突出。该专辑录制于1978年，Chris Campbell的贝斯演奏为专辑增添了稳健的节奏基础。Glenn Frey和Mike Campbell分别是Eagles和Tom Petty乐队的成员，而Tom Hamilton则是Aerosmith的贝斯手，因此他们并未参与该专辑的录制。Silver Bullet Band的成员阵容帮助Bob Seger打造了富有活力的摇滚声音，这在'Stranger in Town'中得到了淋漓尽致的体现。"
         },
@@ -1386,12 +1271,7 @@
       "medium": [
         {
           "question": "波士顿乐队（Boston）在录制他们1976年的首张同名专辑《Boston》时，哪种乐器的演奏者并非乐队的正式成员，而是由创始人汤姆·肖尔茨亲自担任？",
-          "options": [
-            "主唱",
-            "鼓手",
-            "贝斯手",
-            "键盘手"
-          ],
+          "options": ["主唱", "鼓手", "贝斯手", "键盘手"],
           "correctAnswer": "贝斯手",
           "trivia": "波士顿乐队的首张专辑《Boston》由汤姆·肖尔茨主导制作，他不仅担任吉他和主唱，还亲自录制了贝斯部分，因为当时乐队还没有正式的贝斯手。肖尔茨利用了自己在家中录音室的多轨录音技术，独立完成了大部分乐器的录制工作。专辑中的鼓手吉姆·沃特金斯则是乐队的正式成员之一。这种多重角色的承担体现了肖尔茨对音乐细节的极致追求，也为专辑的独特声音奠定了基础。"
         },
@@ -1408,12 +1288,7 @@
         },
         {
           "question": "波士顿乐队（Boston）在他们1976年发行的首张专辑《Boston》中，哪家品牌的吉他成为他们商品销售推广的显著代表？",
-          "options": [
-            "Gibson",
-            "Fender",
-            "Martin",
-            "Ibanez"
-          ],
+          "options": ["Gibson", "Fender", "Martin", "Ibanez"],
           "correctAnswer": "Gibson",
           "trivia": "波士顿乐队的首张专辑《Boston》发行于1976年，专辑中的吉他音色深受Gibson品牌吉他的影响。主创汤姆·施耐德（Tom Scholz）在录制过程中大量使用了Gibson Les Paul吉他，这使得该品牌的吉他在乐队的形象和商品推广中占据了重要地位。Gibson的经典音色帮助塑造了波士顿独特的摇滚风格，促进了相关音乐设备的销售。虽然Fender和Ibanez也是当时流行的吉他品牌，但波士顿乐队与Gibson的联系最为紧密，成为乐队品牌推广的关键元素。"
         }
@@ -1474,12 +1349,7 @@
         },
         {
           "question": "关于Bruce Springsteen的首张专辑《Greetings from Asbury Park, N.J.》，以下哪首歌曲是该专辑中的热门单曲，曾被媒体广泛报道？",
-          "options": [
-            "Blinded by the Light",
-            "Born to Run",
-            "Thunder Road",
-            "Dancing in the Dark"
-          ],
+          "options": ["Blinded by the Light", "Born to Run", "Thunder Road", "Dancing in the Dark"],
           "correctAnswer": "Blinded by the Light",
           "trivia": "Bruce Springsteen的首张专辑《Greetings from Asbury Park, N.J.》于1973年发行，其中《Blinded by the Light》是专辑中的热门单曲，曾获得媒体的高度关注。这首歌以其复杂的歌词和活力四射的旋律闻名，成为春steen职业生涯的早期代表作。虽然《Born to Run》和《Thunder Road》是他后期更为著名的歌曲，但它们并不属于这张首发专辑。媒体报道中，《Blinded by the Light》帮助Springsteen逐渐建立了自己的音乐名声。"
         },
@@ -1533,23 +1403,13 @@
       "hard": [
         {
           "question": "Bruce Springsteen在1973年发行的专辑'Greetings from Asbury Park, N.J.'中，哪种品牌的吉他最初用于推广并出现在他的早期宣传照片中？",
-          "options": [
-            "Gibson",
-            "Fender",
-            "Martin",
-            "Epiphone"
-          ],
+          "options": ["Gibson", "Fender", "Martin", "Epiphone"],
           "correctAnswer": "Fender",
           "trivia": "Bruce Springsteen在1973年推出他的首张专辑'Greetings from Asbury Park, N.J.'时，使用了Fender品牌的吉他作为他的标志性乐器之一。Fender吉他不仅在他的早期现场演出中频繁出现，也出现在当时的宣传照片中，成为他音乐形象的一部分。虽然Gibson和Martin吉他在摇滚和民谣领域也非常受欢迎，但Springsteen的早期品牌合作和推广更倾向于Fender。这种选择反映了他音乐风格的根源和时代背景，也为后来他的品牌形象奠定了基础。"
         },
         {
           "question": "在Bruce Springsteen录制《Greetings from Asbury Park, N.J.》专辑时，哪位制作人负责了这张专辑的录音制作工作？",
-          "options": [
-            "Mike Appel",
-            "Jon Landau",
-            "Clive Davis",
-            "Tom Dowd"
-          ],
+          "options": ["Mike Appel", "Jon Landau", "Clive Davis", "Tom Dowd"],
           "correctAnswer": "Mike Appel",
           "trivia": "《Greetings from Asbury Park, N.J.》是Bruce Springsteen的首张录音室专辑，发行于1973年。这张专辑的制作人是Mike Appel，他不仅负责制作工作，还在很大程度上影响了专辑的声音和录制过程。Mike Appel后来成为Springsteen早期职业生涯的重要合作伙伴。Jon Landau则是在后期成为Springsteen的制作人和经纪人，而Clive Davis和Tom Dowd虽然是著名音乐制作人，但并未参与此专辑制作。该专辑的录音过程在纽约的914录音室完成，体现了当时纽约音乐场景的独特氛围。"
         },
@@ -1575,12 +1435,7 @@
       "easy": [
         {
           "question": "Carole King在录制1971年专辑'Tapestry'时，哪位著名音乐家参与了钢琴伴奏？",
-          "options": [
-            "James Taylor",
-            "Billy Preston",
-            "Elton John",
-            "Rick Wakeman"
-          ],
+          "options": ["James Taylor", "Billy Preston", "Elton John", "Rick Wakeman"],
           "correctAnswer": "James Taylor",
           "trivia": "Carole King的经典专辑'Tapestry'录制于1970年末至1971年初，期间邀请了多位当时知名的音乐家助阵。著名歌手兼吉他手James Taylor为专辑中的多首歌曲提供了吉他伴奏和和声，而他本人在录音室也参与了钢琴部分。Billy Preston、Elton John和Rick Wakeman虽然都是杰出的键盘手，但并未参与'Tapestry'的录制。该专辑录制于A&M Studios，强调一种温暖且亲密的录音氛围，这也帮助'Tapestry'成为了音乐史上的里程碑之一。"
         },
@@ -1597,12 +1452,7 @@
         },
         {
           "question": "Carole King的专辑'Tapestry'的封面照片是谁拍摄的？",
-          "options": [
-            "Jim McCrary",
-            "Annie Leibovitz",
-            "Henry Diltz",
-            "Linda McCartney"
-          ],
+          "options": ["Jim McCrary", "Annie Leibovitz", "Henry Diltz", "Linda McCartney"],
           "correctAnswer": "Jim McCrary",
           "trivia": "Carole King的1971年专辑'Tapestry'封面是由著名摄影师Jim McCrary拍摄的。McCrary是当时著名的音乐摄影师，曾为多位歌手拍摄专辑封面。'Tapestry'的封面展示了Carole King坐在椅子上，背景温馨自然，成为音乐史上标志性的视觉形象之一。该专辑不仅音乐获得巨大成功，其封面照片也广泛被认可和模仿。Jim McCrary的摄影风格帮助传达了专辑温暖、亲切的氛围。"
         }
@@ -1632,12 +1482,7 @@
         },
         {
           "question": "在Carole King的1971年专辑'Tapestry'制作过程中，哪位著名音乐人参与了贝斯演奏，成为该专辑独特声音的重要组成部分？",
-          "options": [
-            "James Taylor",
-            "Paul McCartney",
-            "Chuck Rainey",
-            "Carol Kaye"
-          ],
+          "options": ["James Taylor", "Paul McCartney", "Chuck Rainey", "Carol Kaye"],
           "correctAnswer": "Chuck Rainey",
           "trivia": "Carole King的经典专辑'Tapestry'录制于1970年末至1971年初，期间邀请了多位杰出的音乐家合作。其中，贝斯手Chuck Rainey以其富有灵魂感的演奏风格，为专辑增添了丰富的低音层次感。James Taylor虽然参与了该专辑的吉他和和声部分演出，但并非贝斯手。Paul McCartney和Carol Kaye均为著名贝斯手，然而并未参与'Tapestry'的录制。Chuck Rainey的加入增强了专辑的音乐质感，帮助Carole King创造了这张广受赞誉的作品。"
         }
@@ -1687,12 +1532,7 @@
       "easy": [
         {
           "question": "在Cat Stevens的1970年专辑'Tea for the Tillerman'中，哪种乐器是他主要用来伴奏的？",
-          "options": [
-            "原声吉他",
-            "电吉他",
-            "钢琴",
-            "口琴"
-          ],
+          "options": ["原声吉他", "电吉他", "钢琴", "口琴"],
           "correctAnswer": "原声吉他",
           "trivia": "Cat Stevens在其标志性专辑'Tea for the Tillerman'中，主要使用原声吉他作为伴奏乐器，这种选择突显了他的民谣风格。专辑录制于1970年，原声吉他的温暖音色与他的嗓音完美融合，使歌曲如《Wild World》和《Father and Son》更具感染力。此外，原声吉他是当时民谣和摇滚音乐中常用的乐器，帮助Cat Stevens塑造了他独特的音乐风格。"
         },
@@ -1709,12 +1549,7 @@
         },
         {
           "question": "在Cat Stevens的1970年专辑《Tea for the Tillerman》的音响工程中，哪位工程师负责了主要的录音和混音工作？",
-          "options": [
-            "Paul Samwell-Smith",
-            "George Martin",
-            "Alan Parsons",
-            "Chris Thomas"
-          ],
+          "options": ["Paul Samwell-Smith", "George Martin", "Alan Parsons", "Chris Thomas"],
           "correctAnswer": "Paul Samwell-Smith",
           "trivia": "《Tea for the Tillerman》这张专辑的音响工程主要由Paul Samwell-Smith负责。他不仅担任了制作人，还亲自参与了录音和混音工作，确保专辑的声音质感温暖且细腻。Paul Samwell-Smith曾是The Yardbirds的贝斯手，后来转型为制作人，参与了多张经典民谣和摇滚专辑的制作。该专辑录制于1969年底至1970年初，采用了当时较为先进的多轨录音技术，突出Cat Stevens的声线和吉他演奏，帮助专辑获得了广泛好评和商业成功。"
         }
@@ -1733,12 +1568,7 @@
         },
         {
           "question": "在录制Cat Stevens的1970年专辑《Tea for the Tillerman》时，哪位音乐家作为主要的鼓手参与了录制过程？",
-          "options": [
-            "Harold McNair",
-            "Harvey Burns",
-            "Alan White",
-            "Nigel Olsson"
-          ],
+          "options": ["Harold McNair", "Harvey Burns", "Alan White", "Nigel Olsson"],
           "correctAnswer": "Harvey Burns",
           "trivia": "《Tea for the Tillerman》是Cat Stevens在1970年录制的标志性专辑，录音于伦敦的Morgan Studios。在这张专辑的录制过程中，鼓手Harvey Burns贡献了稳健且富有节奏感的鼓点，帮助塑造了专辑温暖而流畅的民谣摇滚风格。Harold McNair则主要负责长笛和萨克斯，增加了音乐的丰富层次感。Alan White和Nigel Olsson虽然是著名的鼓手，但并未参与该专辑的录制。"
         },
@@ -1856,12 +1686,7 @@
         },
         {
           "question": "Cheap Trick的专辑《Dream Police》在1979年美国公告牌200专辑排行榜上的最高排名是多少？",
-          "options": [
-            "第6名",
-            "第15名",
-            "第25名",
-            "第40名"
-          ],
+          "options": ["第6名", "第15名", "第25名", "第40名"],
           "correctAnswer": "第6名",
           "trivia": "Cheap Trick的专辑《Dream Police》于1979年发行后，在美国公告牌200专辑排行榜上最高攀升至第6名，标志着乐队商业成功的巅峰之一。这张专辑包含了同名热门单曲《Dream Police》，该曲也成为乐队的代表作之一。此外，专辑的高排名反映了当时摇滚乐市场对Cheap Trick独特结合流行旋律与硬摇滚风格的认可。专辑后来被认为是乐队最具影响力的作品之一。"
         }
@@ -1968,12 +1793,7 @@
         },
         {
           "question": "Chic乐队在1977年发行的首张专辑《Chic》中，哪位传奇艺术家对他们的音乐风格和创作灵感产生了显著影响？",
-          "options": [
-            "James Brown",
-            "Sly Stone",
-            "Stevie Wonder",
-            "Marvin Gaye"
-          ],
+          "options": ["James Brown", "Sly Stone", "Stevie Wonder", "Marvin Gaye"],
           "correctAnswer": "Sly Stone",
           "trivia": "Chic乐队的1977年同名专辑《Chic》融合了放克和迪斯科元素，深受1970年代放克先驱Sly Stone的影响。乐队创始人Nile Rodgers和Bernard Edwards都曾公开表示，Sly Stone在节奏和律动上的创新极大启发了他们的创作思路。Sly Stone以其独特的节奏感和融合多种音乐风格的能力著称，这些特点也在Chic的作品中得到了体现。通过借鉴Sly Stone的音乐精神，Chic成功打造了具有鲜明个人风格且极具舞曲感染力的专辑，使其成为迪斯科时代的重要代表之一。"
         }
@@ -2058,12 +1878,7 @@
       "medium": [
         {
           "question": "在Chicago1970年发行的专辑《Chicago II》中，乐队首次引入了哪种乐器以丰富其标志性的爵士摇滚风格？",
-          "options": [
-            "法语号",
-            "口琴",
-            "长笛",
-            "小提琴"
-          ],
+          "options": ["法语号", "口琴", "长笛", "小提琴"],
           "correctAnswer": "法语号",
           "trivia": "《Chicago II》是乐队Chicago在1970年发布的第二张录音室专辑，以其复杂的编曲和融合爵士、摇滚元素著称。该专辑中，乐队首次在摇滚背景下大规模运用法语号，这种乐器的加入增强了曲目的层次感与独特的铜管音色。Chicago的铜管乐队阵容一直是其音乐特色之一，但法语号的引入使得整体声音更加丰富与多样。此举也反映了乐队对音乐元素探索的勇气和创新精神，成为乐队标志性声音的重要组成部分。"
         },
@@ -2157,12 +1972,7 @@
         },
         {
           "question": "在Creedence Clearwater Revival的1970年专辑《Cosmo's Factory》中，哪位成员担任主唱并且是主要的歌曲创作者？",
-          "options": [
-            "John Fogerty",
-            "Stu Cook",
-            "Doug Clifford",
-            "Tom Fogerty"
-          ],
+          "options": ["John Fogerty", "Stu Cook", "Doug Clifford", "Tom Fogerty"],
           "correctAnswer": "John Fogerty",
           "trivia": "John Fogerty是Creedence Clearwater Revival的主唱和主要歌曲创作者，他在1970年发行的专辑《Cosmo's Factory》中承担了大部分的演唱和作曲工作。这张专辑包含了多首经典曲目，如《Lookin' Out My Back Door》和《Up Around the Bend》，均由John Fogerty创作。除了主唱和吉他手身份，他还在乐队的整体声音塑造中起到了关键作用。其他成员如Stu Cook和Doug Clifford主要负责贝斯和鼓，而Tom Fogerty则是节奏吉他手，较少参与主唱。"
         }
@@ -2192,12 +2002,7 @@
         },
         {
           "question": "Creedence Clearwater Revival的专辑《Cosmo's Factory》（1970年）在美国公告牌200强专辑榜上的最高排名是多少？",
-          "options": [
-            "第一名",
-            "第三名",
-            "第五名",
-            "第十名"
-          ],
+          "options": ["第一名", "第三名", "第五名", "第十名"],
           "correctAnswer": "第一名",
           "trivia": "Creedence Clearwater Revival的《Cosmo's Factory》专辑于1970年发行，凭借其多首热门单曲和融合摇滚与乡村的独特风格，迅速获得巨大成功。该专辑在美国公告牌200强专辑榜上攀升至第一名，成为乐队首张登顶的专辑。除此之外，《Cosmo's Factory》还被认为是乐队最畅销的专辑之一，销量超过了500万张。它的商业成功巩固了Creedence Clearwater Revival在1970年代初期摇滚乐坛的重要地位。"
         }
@@ -2258,23 +2063,13 @@
         },
         {
           "question": "在Crosby, Stills, Nash于1970年发行的专辑'Déjà Vu'中，哪首歌曲体现了乐队对越南战争的社会评论？",
-          "options": [
-            "Wooden Ships",
-            "Carry On",
-            "Teach Your Children",
-            "Almost Cut My Hair"
-          ],
+          "options": ["Wooden Ships", "Carry On", "Teach Your Children", "Almost Cut My Hair"],
           "correctAnswer": "Wooden Ships",
           "trivia": "专辑'Déjà Vu'由Crosby, Stills, Nash于1970年发布，包含多首反映当时社会议题的作品。其中，'Wooden Ships'是一首明显带有反战色彩的歌曲，描绘了越南战争背景下的逃亡和对和平的渴望。这首歌由David Crosby和Stephen Stills共同创作，反映了乐队成员对战争的批判态度。其歌词中充满了对战争破坏的隐喻，与当时美国社会的反战运动紧密相关。'Teach Your Children'和'Almost Cut My Hair'虽也涉及社会主题，但主要关注代际关系和个人自由，而'Carry On'则更偏向于乐观的生活态度。"
         },
         {
           "question": "Crosby, Stills, Nash在1970年发行的专辑'Déjà Vu'中，哪位艺术家的音乐风格对专辑的创作灵感影响最大？",
-          "options": [
-            "Bob Dylan",
-            "Jimi Hendrix",
-            "The Beatles",
-            "Led Zeppelin"
-          ],
+          "options": ["Bob Dylan", "Jimi Hendrix", "The Beatles", "Led Zeppelin"],
           "correctAnswer": "Bob Dylan",
           "trivia": "Crosby, Stills, Nash的专辑'Déjà Vu'深受Bob Dylan的影响，尤其是在歌词和民谣摇滚风格上。Bob Dylan不仅是他们音乐灵感的重要来源，David Crosby本人曾与Dylan合作过，进一步加深了这种影响。专辑中的许多歌曲体现了Dylan式的叙事手法和社会评论，这也帮助他们在1970年取得了商业和艺术上的成功。相比之下，虽然The Beatles、Jimi Hendrix和Led Zeppelin都是那个时代的重要乐队，但在'Déjà Vu'的创作过程中，他们的影响相对较小。"
         }
@@ -2416,12 +2211,7 @@
         },
         {
           "question": "Curtis Mayfield在创作1970年专辑《Curtis》时，受到哪位艺术家的灵感显著影响，从而体现了他对社会问题的关注？",
-          "options": [
-            "Marvin Gaye",
-            "Bob Dylan",
-            "James Brown",
-            "Aretha Franklin"
-          ],
+          "options": ["Marvin Gaye", "Bob Dylan", "James Brown", "Aretha Franklin"],
           "correctAnswer": "Bob Dylan",
           "trivia": "Curtis Mayfield在制作1970年专辑《Curtis》时，深受民谣歌手Bob Dylan的影响，特别是Dylan对社会和政治议题的关注激励Mayfield将类似主题融入自己的音乐中。《Curtis》专辑以其对黑人社区的社会问题的深入探讨而著称，展现了Mayfield作为灵魂乐和节奏蓝调艺术家的独特视角。Bob Dylan的歌词风格和社会意识为Mayfield提供了创作灵感，促使他通过音乐表达抗议和希望，这在《Curtis》中多首歌曲如《Future Shock》和《Move On Up》中体现得淋漓尽致。与此同时，Mayfield也融合了灵魂乐的元素，使专辑成为那个时代具有强烈社会意识的代表作之一。"
         }
@@ -2471,23 +2261,13 @@
       "easy": [
         {
           "question": "在David Bowie的专辑《Hunky Dory》（1971年）的录制过程中，哪位音响工程师负责了该专辑的主要录音和混音工作？",
-          "options": [
-            "Ken Scott",
-            "Tony Visconti",
-            "Glyn Johns",
-            "Alan Parsons"
-          ],
+          "options": ["Ken Scott", "Tony Visconti", "Glyn Johns", "Alan Parsons"],
           "correctAnswer": "Ken Scott",
           "trivia": "Ken Scott是英国著名的音响工程师，他在录制David Bowie的1971年专辑《Hunky Dory》中担任主要录音和混音工程师。Ken Scott此前曾与The Beatles和David Bowie合作，擅长捕捉细腻且富有层次的音效，为专辑带来了清晰且温暖的音质。Tony Visconti虽然是David Bowie其他专辑的重要制作人，但在《Hunky Dory》中主要负责制作而非录音工程师的角色。Glyn Johns和Alan Parsons则分别以其他摇滚乐队的录音工作闻名，如The Rolling Stones和Pink Floyd。"
         },
         {
           "question": "David Bowie在录制1971年专辑《Hunky Dory》时，哪位著名吉他手参与了部分录音？",
-          "options": [
-            "Mick Ronson",
-            "Eric Clapton",
-            "Jimmy Page",
-            "Keith Richards"
-          ],
+          "options": ["Mick Ronson", "Eric Clapton", "Jimmy Page", "Keith Richards"],
           "correctAnswer": "Mick Ronson",
           "trivia": "在录制David Bowie的1971年专辑《Hunky Dory》过程中，吉他手Mick Ronson首次作为主要合作音乐家参与，他后来成为了Bowie重要的长期合作者。专辑的录音主要在伦敦的Trident Studios完成，Ronson的吉他演奏为专辑增添了丰富的层次感。其他选项中的Eric Clapton、Jimmy Page和Keith Richards虽然都是当时著名的吉他手，但并未参与此次专辑的录制。Mick Ronson的加入标志着Bowie音乐风格的重要转变。"
         },
@@ -2517,12 +2297,7 @@
         },
         {
           "question": "David Bowie在录制1971年专辑《Hunky Dory》时，哪位音乐家首次以贝斯手身份参与了录制，从而开启了他后续与Bowie长期合作的关系？",
-          "options": [
-            "Rick Wakeman",
-            "Mick Ronson",
-            "Trevor Bolder",
-            "John Lodge"
-          ],
+          "options": ["Rick Wakeman", "Mick Ronson", "Trevor Bolder", "John Lodge"],
           "correctAnswer": "Trevor Bolder",
           "trivia": "《Hunky Dory》专辑录制期间，David Bowie首次邀请Trevor Bolder担任贝斯手，开启了他与Bolder多年的合作关系。Trevor Bolder后来成为了Bowie后期作品和现场演出的重要成员。Rick Wakeman作为键盘手也参与了专辑录制，但他主要负责钢琴部分而非贝斯。Mick Ronson则是专辑中担任吉他手和编曲的重要音乐家，但并非贝斯手。John Lodge是另一个时代的贝斯手，与Bowie的合作较少。"
         },
@@ -2552,12 +2327,7 @@
         },
         {
           "question": "关于David Bowie的专辑《Hunky Dory》，哪一位著名艺术家在录制过程中以钢琴手身份参与，并对专辑的整体音乐风格产生了重要影响？",
-          "options": [
-            "Rick Wakeman",
-            "Elton John",
-            "Freddie Mercury",
-            "Brian Eno"
-          ],
+          "options": ["Rick Wakeman", "Elton John", "Freddie Mercury", "Brian Eno"],
           "correctAnswer": "Rick Wakeman",
           "trivia": "Rick Wakeman是英国著名键盘手，最为人知的是他在Progressive Rock乐队Yes中的表现。在录制1971年David Bowie的专辑《Hunky Dory》时，Wakeman作为钢琴手加入，参与了多首歌曲的录制，例如《Life on Mars?》。他的钢琴演奏为专辑增添了复杂且富有层次的音乐色彩，显著提升了专辑的艺术水准。Wakeman的参与也反映了当时英国音乐界艺术家间的紧密合作关系，成为《Hunky Dory》独特音响的重要组成部分。"
         },
@@ -2618,12 +2388,7 @@
       "medium": [
         {
           "question": "在Deep Purple于1972年录制专辑'Machine Head'时，他们主要使用了哪种型号的放大器来塑造其标志性的吉他音色？",
-          "options": [
-            "Marshall JTM45",
-            "Fender Twin Reverb",
-            "Vox AC30",
-            "Mesa Boogie Mark I"
-          ],
+          "options": ["Marshall JTM45", "Fender Twin Reverb", "Vox AC30", "Mesa Boogie Mark I"],
           "correctAnswer": "Marshall JTM45",
           "trivia": "Deep Purple在录制1972年的经典专辑'Machine Head'时，吉他手Ritchie Blackmore主要使用了Marshall JTM45放大器来获得其标志性的粗犷而饱满的音色。Marshall放大器在当时广受摇滚音乐人喜爱，尤其适合硬摇滚和重金属的音色需求。相比之下，Fender Twin Reverb和Vox AC30更常见于清晰或颇具复古风格的音色，而Mesa Boogie Mark I则是在稍晚时期才流行起来。'Machine Head'的音色也因此成为许多后续摇滚音乐的典范。"
         },
@@ -2717,12 +2482,7 @@
         },
         {
           "question": "在Derek的专辑《Layla and Other Assorted Love Songs》中，哪位音乐家是该乐队的主唱兼吉他手？",
-          "options": [
-            "Eric Clapton",
-            "Duane Allman",
-            "Gregg Allman",
-            "Bobby Whitlock"
-          ],
+          "options": ["Eric Clapton", "Duane Allman", "Gregg Allman", "Bobby Whitlock"],
           "correctAnswer": "Eric Clapton",
           "trivia": "《Layla and Other Assorted Love Songs》是1970年由乐队Derek发布的著名专辑，Eric Clapton不仅是乐队的主唱，还是主要吉他手之一。Duane Allman作为客座吉他手在专辑中贡献了许多标志性的滑奏吉他段落，但并非主唱。Gregg Allman则是Allman Brothers Band的成员，没有参与该专辑。Bobby Whitlock在专辑中担任键盘和和声，但主唱和吉他手的角色主要由Eric Clapton承担。"
         }
@@ -2765,12 +2525,7 @@
       "hard": [
         {
           "question": "在Derek于1970年发行的专辑《Layla and Other Assorted Love Songs》的制作过程中，哪位音乐制作人负责了录音的混音工作？",
-          "options": [
-            "Tom Dowd",
-            "George Martin",
-            "Phil Spector",
-            "Brian Eno"
-          ],
+          "options": ["Tom Dowd", "George Martin", "Phil Spector", "Brian Eno"],
           "correctAnswer": "Tom Dowd",
           "trivia": "专辑《Layla and Other Assorted Love Songs》由Derek（即Eric Clapton领导的乐队）制作，录制于1969年底至1970年初。著名的录音工程师兼制作人Tom Dowd负责了该专辑的混音工作，他曾与许多传奇艺术家合作，包括艾瑞克·克莱普顿。Tom Dowd采用了多轨录音技术，极大提升了专辑的音质和层次感。George Martin和Phil Spector虽然都是著名制作人，但并未参与该专辑制作。Brian Eno则是在之后的年代才活跃于音乐制作领域。"
         },
@@ -2807,12 +2562,7 @@
       "easy": [
         {
           "question": "在Devo的1978年专辑《Q: Are We Not Men? A: We Are Devo!》中，哪位成员主要负责键盘和合成器演奏？",
-          "options": [
-            "Mark Mothersbaugh",
-            "Gerald Casale",
-            "Bob Mothersbaugh",
-            "Bob Casale"
-          ],
+          "options": ["Mark Mothersbaugh", "Gerald Casale", "Bob Mothersbaugh", "Bob Casale"],
           "correctAnswer": "Mark Mothersbaugh",
           "trivia": "《Q: Are We Not Men? A: We Are Devo!》是Devo的首张录音室专辑，标志着他们独特的合成器和新波音乐风格的奠基。Mark Mothersbaugh作为乐队的主唱之一，同时也是键盘和合成器的主要演奏者，他的电子音效为专辑增添了前卫的科技感。Gerald Casale主要负责贝斯和部分主唱，Bob Mothersbaugh和Bob Casale则主要负责吉他工作。这张专辑由Brian Eno制作，他的参与进一步强化了Devo的实验性声音。"
         },
@@ -2965,12 +2715,7 @@
         },
         {
           "question": "Dire Straits在1978年发行的首张专辑《Dire Straits》发布后，乐队首次进行的现场巡演主要是在哪个地区进行的？",
-          "options": [
-            "英国和欧洲大陆",
-            "美国西海岸",
-            "澳大利亚和新西兰",
-            "南美洲"
-          ],
+          "options": ["英国和欧洲大陆", "美国西海岸", "澳大利亚和新西兰", "南美洲"],
           "correctAnswer": "英国和欧洲大陆",
           "trivia": "Dire Straits在1978年发行了他们的首张同名专辑《Dire Straits》后，最初的现场巡演主要集中在英国国内及欧洲大陆。这次巡演帮助乐队迅速积累了现场表演经验并扩大了他们在欧洲的知名度。虽然后来Dire Straits在全球范围内进行了多次大型巡演，但最早的巡演主要局限于他们的本土和邻近地区。此外，这些早期演出往往以较小型的场地为主，体现了乐队从草根阶段逐步走向国际舞台的历程。"
         },
@@ -2989,23 +2734,13 @@
       "hard": [
         {
           "question": "Dire Straits乐队1978年发行的首张同名专辑《Dire Straits》在英国专辑排行榜上达到了什么最高排名？",
-          "options": [
-            "第4名",
-            "第10名",
-            "第1名",
-            "第7名"
-          ],
+          "options": ["第4名", "第10名", "第1名", "第7名"],
           "correctAnswer": "第4名",
           "trivia": "Dire Straits乐队的首张同名专辑《Dire Straits》于1978年发行后，迅速引起关注，并在英国专辑排行榜中最高达到了第4名的位置。这一成绩对于一个首次发行的摇滚专辑来说相当突出，标志着乐队的商业突破。专辑中的主打曲目《Sultans of Swing》也在英国单曲榜中表现亮眼，进一步提升了专辑的销量和知名度。此专辑的成功为Dire Straits后续的国际发展奠定了坚实基础。"
         },
         {
           "question": "在Dire Straits1978年发行的首张同名专辑《Dire Straits》中，哪位成员既负责主唱又担任了吉他手的角色？",
-          "options": [
-            "Mark Knopfler",
-            "John Illsley",
-            "David Knopfler",
-            "Pick Withers"
-          ],
+          "options": ["Mark Knopfler", "John Illsley", "David Knopfler", "Pick Withers"],
           "correctAnswer": "Mark Knopfler",
           "trivia": "Dire Straits的首张专辑《Dire Straits》于1978年发行，Mark Knopfler不仅是乐队的主唱，同时也是主音吉他手和主要的歌曲创作人。David Knopfler是Mark的弟弟，担任节奏吉他手，但主唱任务主要由Mark承担。John Illsley负责低音吉他，而Pick Withers是鼓手。这张专辑的成功很大程度上归功于Mark Knopfler独特的指弹吉他风格与嗓音，奠定了Dire Straits的音乐特色。"
         },
@@ -3178,23 +2913,13 @@
       "medium": [
         {
           "question": "在Eagles的1972年同名专辑《Eagles》的词曲创作过程中，哪位成员主要负责为歌曲《Take It Easy》贡献了歌词？",
-          "options": [
-            "Glenn Frey",
-            "Don Henley",
-            "Bernie Leadon",
-            "Randy Meisner"
-          ],
+          "options": ["Glenn Frey", "Don Henley", "Bernie Leadon", "Randy Meisner"],
           "correctAnswer": "Glenn Frey",
           "trivia": "《Eagles》专辑中的《Take It Easy》是由Glenn Frey与著名词曲作者Jackson Browne合作创作的。Glenn Frey主要负责了这首歌的歌词创作部分，这首歌后来成为乐队的代表作之一。值得一提的是，Jackson Browne原本是独立创作这首歌，但在Fre的参与下，歌词和旋律得到了完善。另一方面，Don Henley和Bernie Leadon在专辑中也有重要创作贡献，但《Take It Easy》的歌词主要出自Glenn Frey。"
         },
         {
           "question": "在Eagles录制1972年首张同名专辑《Eagles》时，哪位制作人负责了专辑的整体制作工作？",
-          "options": [
-            "Glyn Johns",
-            "Bill Szymczyk",
-            "David Geffen",
-            "George Martin"
-          ],
+          "options": ["Glyn Johns", "Bill Szymczyk", "David Geffen", "George Martin"],
           "correctAnswer": "Glyn Johns",
           "trivia": "Eagles的首张专辑《Eagles》于1972年录制，其制作人是著名的英国录音师兼制作人Glyn Johns。Glyn Johns以其在滚石乐队和The Who等摇滚巨星作品中的工作而闻名，他采用了自然且清晰的录音手法来捕捉乐队的现场感。与制作人Bill Szymczyk不同，后者后来制作了Eagles的多张经典专辑，如《Hotel California》。David Geffen是乐队的签约经理人，而George Martin则是披头士的主要制作人。Glyn Johns的制作风格对《Eagles》的早期声音塑造起到了关键作用。"
         },
@@ -3235,12 +2960,7 @@
         },
         {
           "question": "在Eagles的首张同名专辑《Eagles》中，哪位艺术家对乐队的音乐灵感影响最大，尤其是在融合乡村摇滚元素方面？",
-          "options": [
-            "Gram Parsons",
-            "Bob Dylan",
-            "Joni Mitchell",
-            "Neil Young"
-          ],
+          "options": ["Gram Parsons", "Bob Dylan", "Joni Mitchell", "Neil Young"],
           "correctAnswer": "Gram Parsons",
           "trivia": "Gram Parsons是乡村摇滚风格的重要先驱，他对Eagles的首张专辑《Eagles》产生了深远影响。乐队成员尤其是Glenn Frey和J.D. Souther都受到Parsons将摇滚与乡村音乐融合的创作理念启发。Parsons的音乐风格帮助Eagles形成了标志性的乡村摇滚声音，这在1972年发布的《Eagles》中得到了充分体现。此外，Parsons与The Flying Burrito Brothers乐队的作品也为Eagles提供了重要的艺术灵感来源。"
         }
@@ -3255,12 +2975,7 @@
       "easy": [
         {
           "question": "Earth, Wind在录制1975年专辑'That's the Way of the World'时，哪位音响工程师负责了主要的录音和混音工作？",
-          "options": [
-            "George Massenburg",
-            "Al Schmitt",
-            "Bernie Grundman",
-            "Joe Sidore"
-          ],
+          "options": ["George Massenburg", "Al Schmitt", "Bernie Grundman", "Joe Sidore"],
           "correctAnswer": "Joe Sidore",
           "trivia": "Joe Sidore是Earth, Wind录制'That's the Way of the World'专辑时的主要音响工程师，他负责了该专辑的录音与混音工作。Sidore的专业技术帮助这张专辑实现了清晰且富有层次感的音响效果，这也是专辑获得商业成功和口碑的重要因素之一。此外，专辑录制于1974年末至1975年初，地点包括加州的多个录音室，Sidore的细致调控确保了乐器和人声的完美融合。Bernie Grundman虽然是著名的母带工程师，但他并未参与此专辑的录音过程。"
         },
@@ -3301,23 +3016,13 @@
         },
         {
           "question": "Earth, Wind在创作专辑'That's the Way of the World'时，哪位艺术家的音乐风格对他们融合灵魂乐与爵士乐的灵感影响最大？",
-          "options": [
-            "Stevie Wonder",
-            "Marvin Gaye",
-            "Sly Stone",
-            "Curtis Mayfield"
-          ],
+          "options": ["Stevie Wonder", "Marvin Gaye", "Sly Stone", "Curtis Mayfield"],
           "correctAnswer": "Sly Stone",
           "trivia": "Earth, Wind & Fire在制作1975年的专辑'That's the Way of the World'时，受到了当时著名放克乐队Sly Stone的深刻影响。Sly Stone以其融合灵魂、放克和摇滚的创新风格，启发了Earth, Wind & Fire将多种音乐元素融合到专辑中，形成独特的声音。该专辑因其丰富的编曲和融合多样风格而广受赞誉，体现了当时黑人音乐的创新趋势。与Stevie Wonder和Marvin Gaye等同代艺术家相比，Sly Stone更加强调了放克和节奏的结合，这正是Earth, Wind & Fire在这张专辑中表达的核心元素之一。"
         },
         {
           "question": "Earth, Wind在数字发行版本的专辑'That's the Way of the World'（1975年）中首次采用了哪种数字音频格式？",
-          "options": [
-            "CD（紧凑光盘）",
-            "数字音频磁带（DAT）",
-            "MP3格式",
-            "黑胶唱片数字复制"
-          ],
+          "options": ["CD（紧凑光盘）", "数字音频磁带（DAT）", "MP3格式", "黑胶唱片数字复制"],
           "correctAnswer": "CD（紧凑光盘）",
           "trivia": "Earth, Wind的专辑'That's the Way of the World'最初于1975年以黑胶唱片形式发行。随着数字音乐技术的发展，该专辑在1980年代晚期首次以CD格式重新发行，这标志着数字音频格式首次被用来发行该作品。CD格式因其高保真度和便携性，成为了数字发行的主流选择。相比之下，数字音频磁带（DAT）和MP3格式是在之后的年代才普及，因此未曾作为该专辑的首个数字发行格式。黑胶唱片数字复制虽存在，但并非数字发行格式的定义。"
         }
@@ -3347,12 +3052,7 @@
         },
         {
           "question": "Earth, Wind在1975年发行的专辑'That's the Way of the World'中，哪一首歌曲最明显地反映了当时社会对环境保护和人类与自然关系的关注？",
-          "options": [
-            "That's the Way of the World",
-            "Shining Star",
-            "Reasons",
-            "Africano"
-          ],
+          "options": ["That's the Way of the World", "Shining Star", "Reasons", "Africano"],
           "correctAnswer": "That's the Way of the World",
           "trivia": "Earth, Wind的专辑'That's the Way of the World'不仅以其独特的灵魂乐和放克元素著称，还包含了深刻的社会评论。专辑同名曲目'That's the Way of the World'通过歌词探讨了人与自然的和谐共处，反映了1970年代环保运动兴起的社会背景。这首歌传达了一种接受生活和社会现象的哲学态度，同时呼吁人们关注环境保护。相比之下，'Shining Star'更强调个人自信和奋斗，'Reasons'则是一首爱情情歌，'Africano'则展示了非洲音乐的影响。因此，专辑同名曲目在社会评论主题上最为突出。"
         }
@@ -3367,12 +3067,7 @@
       "easy": [
         {
           "question": "Electric Light Orchestra在1978年巡演支持他们的专辑'Out of the Blue'时，以下哪座城市是他们演出的重要站点？",
-          "options": [
-            "伦敦",
-            "东京",
-            "纽约",
-            "巴黎"
-          ],
+          "options": ["伦敦", "东京", "纽约", "巴黎"],
           "correctAnswer": "伦敦",
           "trivia": "Electric Light Orchestra在1978年展开了支持他们经典专辑'Out of the Blue'的巡演。作为英国乐队，伦敦是他们此次巡演的重要站点之一，举办了多场大型现场演出。该巡演帮助乐队巩固了在英国和国际市场的影响力。'Out of the Blue'专辑发行于1977年，包含多首热门曲目如'Shone on You Crazy Diamond'，巡演现场多次演奏这些歌曲。伦敦演出因其规模和现场效果被乐迷广泛认可，成为乐队历史上的重要回忆。"
         },
@@ -3389,12 +3084,7 @@
         },
         {
           "question": "Electric Light Orchestra的专辑'Out of the Blue'于1977年发行时，是在哪家唱片公司旗下发布的？",
-          "options": [
-            "Jet Records",
-            "Harvest Records",
-            "Island Records",
-            "Chrysalis Records"
-          ],
+          "options": ["Jet Records", "Harvest Records", "Island Records", "Chrysalis Records"],
           "correctAnswer": "Jet Records",
           "trivia": "Electric Light Orchestra的经典专辑'Out of the Blue'于1977年通过Jet Records发行。Jet Records是ELO早期和鼎盛时期的主要唱片公司，负责该乐队多张重要专辑的发行。该唱片公司由乐队经理Don Arden创办，专门推广乐队的作品。'Out of the Blue'作为ELO的巅峰之作，通过Jet Records在全球范围内成功发行，帮助乐队巩固了其在摇滚和交响摇滚领域的地位。这张专辑的发行标志着Jet Records与Electric Light Orchestra紧密的合作关系。"
         }
@@ -3413,12 +3103,7 @@
         },
         {
           "question": "Electric Light Orchestra在1977年发行的专辑《Out of the Blue》中，哪首歌曲通过描绘未来世界的孤独感，反映了当时社会对科技进步和人际疏离的担忧？",
-          "options": [
-            "Mr. Blue Sky",
-            "Steppin' Out",
-            "Turn to Stone",
-            "Sweet Talkin' Woman"
-          ],
+          "options": ["Mr. Blue Sky", "Steppin' Out", "Turn to Stone", "Sweet Talkin' Woman"],
           "correctAnswer": "Steppin' Out",
           "trivia": "《Out of the Blue》是Electric Light Orchestra于1977年发布的一张标志性专辑，融合了摇滚与交响乐元素。歌曲《Steppin' Out》通过其歌词和音乐氛围，表达了对未来科技高速发展所带来的人际关系疏远和孤独感的反思，体现了当时社会对现代化进程的复杂情绪。Jeff Lynne在创作时刻意营造出一种迷离而冷漠的城市景象，象征着人们在技术进步中逐渐失去的情感联系。该曲不仅在音乐上采用了合成器和电子效果增强未来感，也在主题上具备明显的社会评论意义。"
         },
@@ -3479,12 +3164,7 @@
       "easy": [
         {
           "question": "哪首歌曲是Elton John在1972年专辑《Honky Château》中最受电台欢迎并成为热门单曲的？",
-          "options": [
-            "Rocket Man",
-            "Honky Cat",
-            "Candle in the Wind",
-            "Tiny Dancer"
-          ],
+          "options": ["Rocket Man", "Honky Cat", "Candle in the Wind", "Tiny Dancer"],
           "correctAnswer": "Honky Cat",
           "trivia": "《Honky Château》是Elton John于1972年发行的第五张录音室专辑，其中《Honky Cat》是该专辑的主打单曲，并且在当时获得了大量电台播放。该曲以其活泼的节奏和铜管乐器编排受到听众喜爱，成为Elton John在美国单曲排行榜上的热门作品。相比之下，'Rocket Man'、'Candle in the Wind'和'Tiny Dancer'均来自不同的专辑，虽然也极具知名度，但并非《Honky Château》中的曲目。因此，《Honky Cat》是该专辑中最具代表性的电台播放热门歌曲。"
         },
@@ -3525,23 +3205,13 @@
         },
         {
           "question": "在Elton John录制1972年专辑《Honky Château》的词曲创作过程中，哪位长期合作的作词人参与了大部分歌曲的创作？",
-          "options": [
-            "Bernie Taupin",
-            "Tim Rice",
-            "Paul McCartney",
-            "Elton John本人独自完成"
-          ],
+          "options": ["Bernie Taupin", "Tim Rice", "Paul McCartney", "Elton John本人独自完成"],
           "correctAnswer": "Bernie Taupin",
           "trivia": "《Honky Château》是Elton John与作词人Bernie Taupin合作的经典专辑之一。Taupin为专辑中的大多数歌曲撰写了歌词，而Elton John则负责谱曲。这种分工是他们长期合作的标志，始于1967年，两人共同创造了许多经典作品。专辑的录制地点位于法国南部的Château d'Hérouville录音室，这也为创作提供了独特的灵感环境。Bernie Taupin的参与为《Honky Château》的歌词注入了丰富的故事性和情感层次，是专辑成功的重要因素之一。"
         },
         {
           "question": "在Elton John的1972年专辑《Honky Château》中，哪首歌曲最初成为电台播放的热门单曲，帮助专辑获得广泛关注？",
-          "options": [
-            "Rocket Man",
-            "Honky Cat",
-            "Candle in the Wind",
-            "Tiny Dancer"
-          ],
+          "options": ["Rocket Man", "Honky Cat", "Candle in the Wind", "Tiny Dancer"],
           "correctAnswer": "Honky Cat",
           "trivia": "《Honky Château》是Elton John在1972年发行的第五张录音室专辑，其中“Honky Cat”成为该专辑的首支电台热门单曲。这首歌以其充满活力的节奏和融合了摇滚与放克元素的风格，迅速赢得了广泛的电台播放和听众喜爱。相比之下，“Rocket Man”是Elton John早期的另一首经典，但它并不收录在《Honky Château》中，而是出自1972年稍早的专辑《Honky Château》之前的作品。专辑中的其他曲目如“Candle in the Wind”和“Tiny Dancer”都是他日后著名的作品，但均未在该专辑首发时即成为电台热门单曲。"
         }
@@ -3549,12 +3219,7 @@
       "hard": [
         {
           "question": "在Elton John的1972年专辑《Honky Château》的词曲创作过程中，哪位合作者对歌词创作贡献最大？",
-          "options": [
-            "Bernie Taupin",
-            "Gus Dudgeon",
-            "Dee Murray",
-            "Nigel Olsson"
-          ],
+          "options": ["Bernie Taupin", "Gus Dudgeon", "Dee Murray", "Nigel Olsson"],
           "correctAnswer": "Bernie Taupin",
           "trivia": "《Honky Château》是Elton John与词作者Bernie Taupin长期合作的又一重要作品。在这张专辑的创作过程中，Taupin负责了全部歌词的撰写，他的文字风格为Elton John的曲调提供了丰富的叙事和情感层次。制作人Gus Dudgeon虽然在录音和制作上起到了关键作用，但并未参与词曲的创作。乐队成员Dee Murray和Nigel Olsson主要负责贝斯和鼓的演奏，未直接参与歌词创作。Bernie Taupin与Elton John的合作是英国流行音乐创作中最著名的搭档之一，特别是在《Honky Château》这张专辑中表现突出。"
         },
@@ -3613,12 +3278,7 @@
         },
         {
           "question": "在1977年录制Elvis Costello的首张专辑'My Aim Is True'时，哪位音乐家作为主要伴奏乐手参与了制作？",
-          "options": [
-            "Steve Nieve",
-            "Dave Edmunds",
-            "Nick Lowe",
-            "Graham Parker"
-          ],
+          "options": ["Steve Nieve", "Dave Edmunds", "Nick Lowe", "Graham Parker"],
           "correctAnswer": "Dave Edmunds",
           "trivia": "Elvis Costello的专辑'My Aim Is True'是在1977年录制的，制作人是Nick Lowe。虽然Nick Lowe作为制作人参与了专辑的整体制作，但主要的伴奏乐手是Dave Edmunds，他不仅参与了演奏，还帮助完善了专辑的摇滚风格。Steve Nieve后来成为Costello的重要键盘手，但当时并未参与首张专辑的录制。Graham Parker是同一时期的另一位英国摇滚音乐家，但并未参与此专辑制作。Nick Lowe的参与则是在制作和混音层面，而非主要伴奏演奏。"
         }
@@ -3626,12 +3286,7 @@
       "medium": [
         {
           "question": "在Elvis Costello的1977年专辑'My Aim Is True'的录制过程中，以下哪种乐器或设备是Costello本人亲自演奏的？",
-          "options": [
-            "钢琴",
-            "电吉他",
-            "萨克斯风",
-            "贝斯"
-          ],
+          "options": ["钢琴", "电吉他", "萨克斯风", "贝斯"],
           "correctAnswer": "电吉他",
           "trivia": "在录制1977年专辑'My Aim Is True'时，Elvis Costello不仅是主唱，同时亲自演奏了大部分的电吉他部分。该专辑的录制过程相对快速，Costello依靠自己对电吉他的熟练掌握完成了这些曲目。虽然专辑中也有其他乐器如钢琴和贝斯，但这些通常由其他音乐家演奏。萨克斯风在这张专辑中并未使用，这使得电吉他成为Costello亲自参与演奏的关键乐器。"
         },
@@ -3672,12 +3327,7 @@
         },
         {
           "question": "在Elvis Costello的首张专辑《My Aim Is True》发布后，该专辑在英国排行榜上的最高排名是？",
-          "options": [
-            "第14名",
-            "第5名",
-            "第22名",
-            "第30名"
-          ],
+          "options": ["第14名", "第5名", "第22名", "第30名"],
           "correctAnswer": "第14名",
           "trivia": "Elvis Costello于1977年推出的首张专辑《My Aim Is True》在英国专辑排行榜上最高达到第14名。尽管这张专辑没有在美国Billboard 200排行榜上取得高位，但它在英国的成功为Costello赢得了广泛的关注和赞誉。此外，《My Aim Is True》包含了多个后来成为经典的单曲，如“Alison”，这些曲目的表现也间接推动了专辑销量。该专辑的成功奠定了Elvis Costello日后在朋克和新波音乐领域的重要地位。"
         },
@@ -3703,34 +3353,19 @@
       "easy": [
         {
           "question": "在Emerson, Lake于1970年发行的首张专辑《Emerson, Lake & Palmer》中，哪位成员负责演唱和弹奏吉他？",
-          "options": [
-            "Greg Lake",
-            "Keith Emerson",
-            "Carl Palmer",
-            "Rick Wakeman"
-          ],
+          "options": ["Greg Lake", "Keith Emerson", "Carl Palmer", "Rick Wakeman"],
           "correctAnswer": "Greg Lake",
           "trivia": "Greg Lake在Emerson, Lake & Palmer乐队中担任主唱和吉他手，他也是这张1970年发行的首张同名专辑的关键成员之一。Keith Emerson负责键盘演奏，而Carl Palmer则是鼓手。Rick Wakeman虽然是当时著名的键盘手，但并未参与该专辑的录制。Greg Lake此前曾是King Crimson的成员，这些经历为Emerson, Lake & Palmer的音乐风格奠定了基础。"
         },
         {
           "question": "Emerson, Lake的1970年专辑《Emerson, Lake & Palmer》的封面设计中，哪一位著名艺术家负责了独特的插画创作？",
-          "options": [
-            "H.R. Giger",
-            "Roger Dean",
-            "Barry Godber",
-            "Storm Thorgerson"
-          ],
+          "options": ["H.R. Giger", "Roger Dean", "Barry Godber", "Storm Thorgerson"],
           "correctAnswer": "Barry Godber",
           "trivia": "《Emerson, Lake & Palmer》专辑封面由Barry Godber设计，他是一位英国艺术家，同时也是一名程序员。Godber的这幅插画描绘了一幅面部分层剖视图，展现了人类解剖的内部结构，这种设计在当时的摇滚专辑封面中颇具创新性。遗憾的是，Barry Godber在专辑发行后不久因疾病去世，因此这也是他唯一一次专辑封面设计。相比之下，Roger Dean以为Yes和Asia设计专辑封面著称，H.R. Giger以其科幻风格闻名，而Storm Thorgerson则为Pink Floyd等乐队设计封面。"
         },
         {
           "question": "Emerson, Lake的首张专辑《Emerson, Lake & Palmer》于1970年发布后，哪首歌曲在英国单曲排行榜中取得了较好的名次？",
-          "options": [
-            "Lucky Man",
-            "Knife-Edge",
-            "Tarkus",
-            "From the Beginning"
-          ],
+          "options": ["Lucky Man", "Knife-Edge", "Tarkus", "From the Beginning"],
           "correctAnswer": "Lucky Man",
           "trivia": "《Emerson, Lake & Palmer》是Emerson, Lake & Palmer乐队的首张录音室专辑，于1970年发行。专辑中的单曲《Lucky Man》成为乐队的代表作之一，成功进入了英国单曲排行榜，最高排名达到了第48位。这首歌以其简洁的吉他旋律和真诚的歌词，吸引了广泛听众的关注。相比之下，其他选项如《Knife-Edge》和《Tarkus》分别来自不同的专辑，而《From the Beginning》则是后期作品，因此没有出现在该专辑的排行榜表现中。该单曲的成功帮助Emerson, Lake & Palmer在早期确立了他们在进步摇滚领域的地位。"
         }
@@ -3738,12 +3373,7 @@
       "medium": [
         {
           "question": "在1970年发行的专辑《Emerson, Lake & Palmer》中，Emerson, Lake组合成员Keith Emerson主要使用了哪种键盘乐器来塑造专辑的标志性声音？",
-          "options": [
-            "Hammond B3风琴",
-            "Moog合成器",
-            "Fender Rhodes电钢琴",
-            "Mellotron"
-          ],
+          "options": ["Hammond B3风琴", "Moog合成器", "Fender Rhodes电钢琴", "Mellotron"],
           "correctAnswer": "Moog合成器",
           "trivia": "Keith Emerson在《Emerson, Lake & Palmer》专辑中广泛使用了Moog合成器，这种电子键盘乐器在当时非常先进，赋予了专辑独特的前卫摇滚氛围。Moog合成器的加入使Emerson, Lake & Palmer的音乐声音层次更加丰富且富有实验性，同时也帮助推动了合成器在摇滚音乐中的应用。除了Moog合成器，Keith Emerson还使用了Hammond风琴，但Moog是该专辑中最具代表性的键盘设备。"
         },
@@ -3815,12 +3445,7 @@
       "easy": [
         {
           "question": "在Eric Clapton发布专辑《461 Ocean Boulevard》后，他首次主要的现场巡演是在以下哪个地区进行的？",
-          "options": [
-            "美国",
-            "英国",
-            "澳大利亚",
-            "加拿大"
-          ],
+          "options": ["美国", "英国", "澳大利亚", "加拿大"],
           "correctAnswer": "美国",
           "trivia": "Eric Clapton在1974年发行《461 Ocean Boulevard》专辑后，主要在美国展开了他的现场巡演，这是因为该专辑在美国市场取得了巨大成功，尤其是单曲《I Shot the Sheriff》登上了美国公告牌排行榜的高位。此巡演帮助Clapton巩固了他作为独唱艺术家的地位，同时也让更多美国观众现场体验了专辑中的经典曲目。虽然Clapton在英国和其他地区也有演出，但这张专辑的推广和现场演出重心明显倾向于美国市场。此后，他的巡演风格和阵容也受到了《461 Ocean Boulevard》的影响。"
         },
@@ -3837,12 +3462,7 @@
         },
         {
           "question": "Eric Clapton在录制1974年专辑'461 Ocean Boulevard'时，与哪位著名音乐人合作担任制作人？",
-          "options": [
-            "Tom Dowd",
-            "George Martin",
-            "Delaney Bramlett",
-            "Phil Spector"
-          ],
+          "options": ["Tom Dowd", "George Martin", "Delaney Bramlett", "Phil Spector"],
           "correctAnswer": "Tom Dowd",
           "trivia": "Eric Clapton的专辑'461 Ocean Boulevard'于1974年录制，制作人是著名的Tom Dowd。Tom Dowd曾为许多传奇艺人如Aretha Franklin和The Allman Brothers Band制作专辑，他在这张专辑中帮助Clapton实现了更为温暖和自然的声音。Delaney Bramlett虽然是Clapton早期合作的音乐人，但并未担任该专辑制作。George Martin以制作披头士著称，而Phil Spector则以其“墙式声音”闻名，这两者都未参与'461 Ocean Boulevard'的制作。"
         }
@@ -3861,12 +3481,7 @@
         },
         {
           "question": "Eric Clapton在1974年录制专辑'461 Ocean Boulevard'时，主要使用了哪款吉他作为音色的核心设备？",
-          "options": [
-            "Fender Stratocaster",
-            "Gibson Les Paul",
-            "Gibson SG",
-            "Martin D-28"
-          ],
+          "options": ["Fender Stratocaster", "Gibson Les Paul", "Gibson SG", "Martin D-28"],
           "correctAnswer": "Fender Stratocaster",
           "trivia": "在录制1974年的专辑'461 Ocean Boulevard'时，Eric Clapton主要使用了Fender Stratocaster电吉他，这成为了专辑许多经典曲目的核心音色。Fender Stratocaster以其清晰明亮的音色和多样的音色控制著称，适合Clapton融合了布鲁斯和摇滚元素的演奏风格。虽然他在不同阶段也使用过Gibson Les Paul和Gibson SG，但在这张专辑中，Stratocaster的使用最为突出。此外，Martin D-28是一款知名的民谣吉他，主要用于原声录音，与本专辑的电吉他主导风格不符。"
         },
@@ -3896,12 +3511,7 @@
         },
         {
           "question": "Eric Clapton在创作1974年专辑《461 Ocean Boulevard》时，哪位艺术家对他的音乐风格转变产生了关键影响？",
-          "options": [
-            "B.B. King",
-            "J.J. Cale",
-            "George Harrison",
-            "Stevie Ray Vaughan"
-          ],
+          "options": ["B.B. King", "J.J. Cale", "George Harrison", "Stevie Ray Vaughan"],
           "correctAnswer": "J.J. Cale",
           "trivia": "在Eric Clapton的《461 Ocean Boulevard》专辑中，J.J. Cale对他产生了显著的艺术灵感。Clapton深受Cale的低调、节奏感强的写作风格影响，这也体现在专辑的名曲“After Midnight”中，这首歌实际上是翻唱自J.J. Cale的作品。此专辑标志着Clapton从较为激烈的摇滚风格转向更为舒缓的布鲁斯与乡村摇滚融合，体现了Cale音乐对他的启发。此外，Clapton公开表达了对Cale音乐的尊敬，这种灵感成为他复出之作的重要推动力。"
         },
@@ -3984,12 +3594,7 @@
         },
         {
           "question": "1975年Fleetwood Mac发行的专辑《Fleetwood Mac》的封面设计中，哪位艺术家负责了该专辑封面的摄影？",
-          "options": [
-            "Norman Seeff",
-            "Annie Leibovitz",
-            "Bob Seidemann",
-            "Jim Marshall"
-          ],
+          "options": ["Norman Seeff", "Annie Leibovitz", "Bob Seidemann", "Jim Marshall"],
           "correctAnswer": "Norman Seeff",
           "trivia": "Fleetwood Mac的同名专辑《Fleetwood Mac》（1975年）封面由著名摄影师Norman Seeff拍摄。Seeff以其在70年代对摇滚乐队的标志性摄影作品闻名，他捕捉了乐队成员自然且富有表现力的形象，这为专辑增添了独特的视觉吸引力。相比之下，Annie Leibovitz、Bob Seidemann和Jim Marshall虽然都是20世纪著名的音乐摄影师，但并未参与此次专辑的封面设计。此封面也反映了乐队当时的转型和音乐风格的成熟，成为该时期摇滚艺术设计的经典之一。"
         }
@@ -4039,12 +3644,7 @@
       "easy": [
         {
           "question": "在Foreigner于1977年发行的首张同名专辑《Foreigner》中，歌曲《Feels Like the First Time》的词曲创作主要由哪位成员完成？",
-          "options": [
-            "Mick Jones",
-            "Lou Gramm",
-            "Ian McDonald",
-            "Ed Gagliardi"
-          ],
+          "options": ["Mick Jones", "Lou Gramm", "Ian McDonald", "Ed Gagliardi"],
           "correctAnswer": "Mick Jones",
           "trivia": "《Foreigner》是英国-美国摇滚乐队Foreigner的首张专辑，1977年发布。该专辑中的热门单曲《Feels Like the First Time》是由乐队吉他手兼创始人Mick Jones主导词曲创作完成的。Lou Gramm作为主唱，更多负责歌曲的演唱与部分歌词改动，而Ian McDonald和Ed Gagliardi则主要参与乐器演奏。Mick Jones的创作才华为该专辑奠定了坚实的摇滚基础，使其成为乐队最具代表性的作品之一。此歌曲也成为Foreigner成名的标志曲之一。"
         },
@@ -4074,23 +3674,13 @@
       "medium": [
         {
           "question": "在Foreigner乐队1977年发行的首张同名专辑《Foreigner》发布后，他们首次大规模巡演的哪个城市标志着这支乐队开始在现场演出中赢得广泛关注？",
-          "options": [
-            "纽约市",
-            "芝加哥",
-            "波士顿",
-            "洛杉矶"
-          ],
+          "options": ["纽约市", "芝加哥", "波士顿", "洛杉矶"],
           "correctAnswer": "波士顿",
           "trivia": "Foreigner在1977年发行的首张同名专辑《Foreigner》迅速走红，随后乐队展开了首次大规模巡演。波士顿作为乐队成员的部分故乡，成为他们首次大型现场演出的重要城市。该地的现场表现帮助乐队在美国东北部赢得了大量粉丝和媒体关注。波士顿的成功演出为Foreigner后续巡演奠定了坚实的基础，也促进了专辑销量的提升。现场表演中，乐队凭借强劲的摇滚风格和专业的演出水准，逐渐确立了其在70年代后期摇滚界的重要地位。"
         },
         {
           "question": "在1977年，Foreigner乐队录制他们的首张同名专辑《Foreigner》时，哪位著名制作人负责了专辑的制作工作？",
-          "options": [
-            "Mick Jones",
-            "Roy Thomas Baker",
-            "Gary Lyons",
-            "Keith Olsen"
-          ],
+          "options": ["Mick Jones", "Roy Thomas Baker", "Gary Lyons", "Keith Olsen"],
           "correctAnswer": "Gary Lyons",
           "trivia": "Foreigner的首张专辑《Foreigner》于1977年发布，制作人由Gary Lyons担任。Lyons此前曾与Queen等乐队合作，积累了丰富的录音经验，帮助Foreigner打造了清晰且富有力量感的摇滚音效。尽管乐队成员Mick Jones是主要的创作核心，但制作职责由Lyons完成，确保录音质量和整体声音的一致性。此外，制作过程中还邀请了乐队成员参与录音技术细节的讨论，使专辑最终呈现出多层次、细腻的音色。"
         },
@@ -4120,12 +3710,7 @@
         },
         {
           "question": "在Foreigner的1977年首张同名专辑《Foreigner》中，哪位成员负责主唱和部分键盘演奏？",
-          "options": [
-            "Mick Jones",
-            "Lou Gramm",
-            "Ian McDonald",
-            "Ed Gagliardi"
-          ],
+          "options": ["Mick Jones", "Lou Gramm", "Ian McDonald", "Ed Gagliardi"],
           "correctAnswer": "Lou Gramm",
           "trivia": "Foreigner乐队的首张同名专辑《Foreigner》于1977年发行，Lou Gramm作为主唱在专辑中贡献了标志性的嗓音，成为乐队声音的核心。除了担任主唱外，Lou Gramm也参与了部分键盘演奏，这在当时的摇滚乐队中较为少见。Mick Jones则主要负责吉他和部分键盘，Ian McDonald擅长萨克斯和多种乐器，而Ed Gagliardi是贝斯手。Lou Gramm的声音和舞台表现为专辑的成功奠定了坚实基础，帮助专辑在商业上取得显著成绩。"
         },
@@ -4151,23 +3736,13 @@
       "easy": [
         {
           "question": "Free乐队1970年发行的专辑《Fire and Water》是由哪家唱片公司发布的？",
-          "options": [
-            "Island Records",
-            "EMI Records",
-            "Decca Records",
-            "Columbia Records"
-          ],
+          "options": ["Island Records", "EMI Records", "Decca Records", "Columbia Records"],
           "correctAnswer": "Island Records",
           "trivia": "《Fire and Water》是英国摇滚乐队Free于1970年发行的第三张录音室专辑。这张专辑由著名的Island Records发行，该唱片公司在20世纪60年代末和70年代初专注于推广英国的摇滚和民谣艺术家。Island Records同样发行了Free多张其他专辑，如《Free》和《Highway》。这张专辑中的经典单曲《All Right Now》也帮助Island Records进一步巩固了其在摇滚音乐市场的地位。EMI、Decca和Columbia虽然都是历史悠久的唱片公司，但当时并未发行Free的这张专辑。"
         },
         {
           "question": "Free乐队的专辑《Fire and Water》（1970年）中，哪首歌曲成为他们最著名的单曲并登上英国排行榜前10名？",
-          "options": [
-            "All Right Now",
-            "Mr. Big",
-            "Fire and Water",
-            "Be My Friend"
-          ],
+          "options": ["All Right Now", "Mr. Big", "Fire and Water", "Be My Friend"],
           "correctAnswer": "All Right Now",
           "trivia": "《Fire and Water》是Free乐队于1970年发布的第三张录音室专辑。专辑中的单曲《All Right Now》成为乐队最著名的作品之一，并成功进入英国单曲排行榜前10名，具体排名为第4位。这首歌也是他们在美国取得商业突破的重要作品，帮助专辑在英国和美国都获得了较高的销量。《All Right Now》的成功极大提升了Free乐队的知名度，使得《Fire and Water》成为其代表作之一。"
         },
@@ -4186,12 +3761,7 @@
       "medium": [
         {
           "question": "在Free乐队1970年发行的专辑《Fire and Water》中，哪种乐器的演奏成为了该专辑标志性音乐元素之一？",
-          "options": [
-            "保罗·科茨的贝斯",
-            "西蒙·柯克的鼓",
-            "保罗·罗杰斯的主唱",
-            "安迪·弗里曼的键盘"
-          ],
+          "options": ["保罗·科茨的贝斯", "西蒙·柯克的鼓", "保罗·罗杰斯的主唱", "安迪·弗里曼的键盘"],
           "correctAnswer": "保罗·科茨的贝斯",
           "trivia": "《Fire and Water》是Free乐队于1970年发布的经典专辑，其中保罗·科茨（Paul Kossoff）的贝斯演奏尤为突出，成为该专辑标志性的音乐元素之一。贝斯线条深沉且富有律动感，为专辑中的歌曲如“Alright Now”提供了坚实的节奏基础。此外，专辑中西蒙·柯克（Simon Kirke）的鼓和保罗·罗杰斯（Paul Rodgers）的主唱也为整体音色增色，但贝斯的表现尤为关键，体现了Free乐队的布鲁斯摇滚风格。值得一提的是，虽然安迪·弗里曼并未参与该专辑的键盘演奏，键盘并非该专辑的主要音乐元素。"
         },
@@ -4221,12 +3791,7 @@
       "hard": [
         {
           "question": "Free乐队在1970年发行的专辑《Fire and Water》中，哪首歌曲通过歌词反映了当时英国社会阶级和青年反叛的社会评论主题？",
-          "options": [
-            "All Right Now",
-            "Fire and Water",
-            "Mr. Big",
-            "The Stealer"
-          ],
+          "options": ["All Right Now", "Fire and Water", "Mr. Big", "The Stealer"],
           "correctAnswer": "All Right Now",
           "trivia": "《Fire and Water》是Free乐队1970年的重要专辑，其中歌曲《All Right Now》不仅因其旋律广受欢迎，也被视为反映了当时英国社会中青年对传统阶级结构和权威的反叛精神。这首歌的歌词隐含了对自由和个人表达的渴望，体现了当时社会动荡和文化变革的背景。《All Right Now》也成为Free最著名的作品，帮助乐队在国际上获得认可，专辑整体则展示了他们对社会现实的敏锐观察。"
         },
@@ -4274,23 +3839,13 @@
         },
         {
           "question": "Funkadelic在他们1978年的专辑《One Nation Under a Groove》中，哪种音乐设备被广泛用于创造其标志性的放克吉他音色？",
-          "options": [
-            "Wah-wah踏板",
-            "合成器",
-            "口琴",
-            "木琴"
-          ],
+          "options": ["Wah-wah踏板", "合成器", "口琴", "木琴"],
           "correctAnswer": "Wah-wah踏板",
           "trivia": "在《One Nation Under a Groove》专辑中，Funkadelic使用了大量的wah-wah踏板来打造其独特且富有表现力的电吉他音色。wah-wah踏板通过改变吉他的频率响应，产生类似人声“哇哇”效果，成为70年代放克音乐的标志性声音之一。这种效果器极大地丰富了吉他演奏的表现力，使得专辑中的曲目如同标题曲《One Nation Under a Groove》更加富有律动感和感染力。此外，专辑也融合了合成器等其他设备，但wah-wah踏板是塑造Funkadelic经典吉他音色的关键工具。"
         },
         {
           "question": "Funkadelic在制作1978年专辑《One Nation Under a Groove》时，哪位音乐人作为联合制作人参与了该专辑的制作？",
-          "options": [
-            "George Clinton",
-            "Quincy Jones",
-            "Rick Rubin",
-            "Brian Eno"
-          ],
+          "options": ["George Clinton", "Quincy Jones", "Rick Rubin", "Brian Eno"],
           "correctAnswer": "George Clinton",
           "trivia": "《One Nation Under a Groove》是Funkadelic于1978年发行的经典专辑，George Clinton不仅是乐队的主唱，也是该专辑的主要制作人。Clinton在制作过程中融合了放克、摇滚和灵魂音乐元素，推动了放克音乐的发展。虽然其他选项中的制作人如Quincy Jones和Brian Eno都在音乐史上有重要地位，但他们并未参与这张专辑的制作。George Clinton的制作风格赋予了专辑独特的声音，使其成为Funkadelic最具标志性的作品之一。"
         }
@@ -4397,12 +3952,7 @@
         },
         {
           "question": "Gang of Four在1979年发行的专辑《Entertainment!》中，哪首歌曲的歌词主要探讨了消费主义和媒体对社会的影响？",
-          "options": [
-            "Damaged Goods",
-            "Not Great Men",
-            "Natural's Not In It",
-            "Anthrax"
-          ],
+          "options": ["Damaged Goods", "Not Great Men", "Natural's Not In It", "Anthrax"],
           "correctAnswer": "Natural's Not In It",
           "trivia": "《Entertainment!》是Gang of Four于1979年发行的标志性专辑，其中歌曲《Natural's Not In It》的歌词深刻批判了消费主义和媒体对人类行为及社会结构的操纵。该曲通过简洁有力的歌词和紧凑的节奏，反映了乐队对当时资本主义社会的敏锐观察。与此同时，专辑中的其他歌曲如《Damaged Goods》更多聚焦于个人关系和社会问题，而《Natural's Not In It》则特别强调了信息传播和文化控制的主题。这使得这首歌成为理解Gang of Four政治和社会批判风格的关键作品。"
         }
@@ -4410,12 +3960,7 @@
       "medium": [
         {
           "question": "Gang of Four的首张专辑《Entertainment!》最初是由哪家唱片公司发行的？",
-          "options": [
-            "EMI Records",
-            "Warner Bros. Records",
-            "Island Records",
-            "Polydor Records"
-          ],
+          "options": ["EMI Records", "Warner Bros. Records", "Island Records", "Polydor Records"],
           "correctAnswer": "EMI Records",
           "trivia": "《Entertainment!》是英国后朋克乐队Gang of Four于1979年发行的首张专辑。这张专辑最初由英国的EMI Records发行，EMI当时是英国重要的唱片公司之一。专辑发行后获得了广泛关注，成为后朋克风格的经典代表作品。虽然Island Records和Polydor Records在当时也签约了许多摇滚乐队，但这张专辑的首发确实是通过EMI完成的。Warner Bros. Records则更偏重美国市场，与Gang of Four的最初发行无关。"
         },
@@ -4487,23 +4032,13 @@
       "easy": [
         {
           "question": "Genesis的专辑《Foxtrot》（1972年）在英国专辑排行榜的最高排名是多少？",
-          "options": [
-            "第12名",
-            "第5名",
-            "第25名",
-            "第1名"
-          ],
+          "options": ["第12名", "第5名", "第25名", "第1名"],
           "correctAnswer": "第12名",
           "trivia": "Genesis的《Foxtrot》是他们早期最具代表性的作品之一，1972年发布后在英国专辑排行榜上最高攀升至第12名。这个成绩体现了乐队在进步摇滚领域的影响力逐渐扩大。虽然未能突破前十，但《Foxtrot》包含了如《Supper's Ready》等经典曲目，帮助Genesis稳固了他们在英国音乐界的地位。此外，该专辑在美国市场的表现较为平缓，更多的成功主要集中在英国和欧洲地区。"
         },
         {
           "question": "Genesis在1972年发行的专辑《Foxtrot》是通过哪家唱片公司进行市场推广和销售的？",
-          "options": [
-            "Charisma Records",
-            "Harvest Records",
-            "Virgin Records",
-            "Island Records"
-          ],
+          "options": ["Charisma Records", "Harvest Records", "Virgin Records", "Island Records"],
           "correctAnswer": "Charisma Records",
           "trivia": "Genesis的经典专辑《Foxtrot》于1972年发行，该专辑由Charisma Records负责推广和销售。Charisma Records是一家英国独立唱片公司，专注于推广前卫摇滚和进步摇滚乐队。通过Charisma的渠道，Genesis得以在英国和国际市场获得更多曝光。与此同时，Harvest Records和Island Records也曾与其他摇滚艺术家合作，但《Foxtrot》的发行明确归属于Charisma。Virgin Records则是在稍晚时期与Genesis有关联，但并非《Foxtrot》的发行公司。"
         },
@@ -4522,12 +4057,7 @@
       "medium": [
         {
           "question": "在Genesis的1972年专辑《Foxtrot》中，哪种乐器的使用为该专辑的艺术摇滚风格增添了独特的氛围？",
-          "options": [
-            "古典大提琴",
-            "合成器",
-            "萨克斯风",
-            "口琴"
-          ],
+          "options": ["古典大提琴", "合成器", "萨克斯风", "口琴"],
           "correctAnswer": "合成器",
           "trivia": "Genesis在《Foxtrot》专辑中大量使用了合成器，尤其是Tony Banks的Moog合成器，为专辑带来了丰富的层次感和前卫摇滚的氛围。这种电子乐器的应用在当时的艺术摇滚领域仍较为新颖，推动了Genesis声音的多样化。除了合成器，专辑还融合了传统摇滚乐器和古典元素，体现了乐队的创新精神。该专辑的代表作《Supper's Ready》中，合成器的使用尤为突出，增强了曲目的动态变化和戏剧性。"
         },
@@ -4634,34 +4164,19 @@
       "medium": [
         {
           "question": "在George Harrison的1970年专辑《All Things Must Pass》的录制过程中，哪位知名音响工程师负责主要的混音和工程工作？",
-          "options": [
-            "Phil McDonald",
-            "Alan Parsons",
-            "Geoff Emerick",
-            "Glyn Johns"
-          ],
+          "options": ["Phil McDonald", "Alan Parsons", "Geoff Emerick", "Glyn Johns"],
           "correctAnswer": "Phil McDonald",
           "trivia": "George Harrison的《All Things Must Pass》专辑于1970年在伦敦的EMI录音室录制，Phil McDonald担任了主要的音响工程师和混音师。Phil McDonald此前曾参与过Beatles后期多张专辑的录制工作，擅长处理复杂的多轨录音。专辑的制作还涉及多层次的音轨叠加和丰富的管弦乐编排，McDonald的工程技术确保了音质的清晰和空间感。此外，George Harrison与制作人Phil Spector合作，采用了标志性的“墙式声音”（Wall of Sound）混音技术，进一步突出了McDonald的工程贡献。"
         },
         {
           "question": "在George Harrison的1970年专辑《All Things Must Pass》的制作过程中，哪位著名音乐人担任了制作助理并在录音中贡献了钢琴演奏？",
-          "options": [
-            "Phil Spector",
-            "Eric Clapton",
-            "Billy Preston",
-            "Ringo Starr"
-          ],
+          "options": ["Phil Spector", "Eric Clapton", "Billy Preston", "Ringo Starr"],
           "correctAnswer": "Billy Preston",
           "trivia": "在《All Things Must Pass》的制作中，George Harrison邀请了多位音乐家协助录音，其中Billy Preston不仅担任了键盘手，还帮助协调录音过程，成为制作助理。Phil Spector是该专辑的主要制作人，以其“墙形声音”制作风格闻名。Eric Clapton作为吉他手参与了专辑录制，但并未担任制作助理。Ringo Starr则是客串鼓手之一。Billy Preston与Harrison的长期合作为专辑增添了丰富的灵魂和福音元素，这在当时的摇滚录音中较为罕见。"
         },
         {
           "question": "在George Harrison创作并制作1970年专辑'All Things Must Pass'时，哪位音乐家为部分歌曲贡献了著名的滑棒吉他演奏？",
-          "options": [
-            "Eric Clapton",
-            "Duane Allman",
-            "Pete Drake",
-            "Ry Cooder"
-          ],
+          "options": ["Eric Clapton", "Duane Allman", "Pete Drake", "Ry Cooder"],
           "correctAnswer": "Pete Drake",
           "trivia": "在George Harrison的'All Things Must Pass'专辑制作过程中，乡村音乐界著名的滑棒吉他手Pete Drake为多首歌曲添加了独特的滑棒吉他音色。Pete Drake的参与为专辑增添了浓厚的乡村和灵魂风格，增强了整体声音的表现力。虽然Eric Clapton也参与了录制，但他主要贡献的是电吉他部分，而Duane Allman和Ry Cooder则没有参与该专辑的录制。Pete Drake的滑棒吉他演奏成为这张专辑独特音乐质感的重要组成部分。"
         }
@@ -4691,12 +4206,7 @@
         },
         {
           "question": "George Harrison的专辑《All Things Must Pass》在美国Billboard 200排行榜上的最高排名是？",
-          "options": [
-            "第一名",
-            "第三名",
-            "第五名",
-            "第十名"
-          ],
+          "options": ["第一名", "第三名", "第五名", "第十名"],
           "correctAnswer": "第一名",
           "trivia": "George Harrison于1970年发行的三张黑胶唱片专辑《All Things Must Pass》在商业上取得了极大的成功。这张专辑在美国Billboard 200排行榜上最高登顶第一名，并且在英国专辑排行榜中也取得了第三名的好成绩。专辑中的单曲《My Sweet Lord》成为了他的首支个人冠军单曲。此专辑标志着Harrison从披头士乐队主创成员转变为独立艺术家的重要里程碑，展示了他作为词曲创作者和制作人的实力。"
         }
@@ -4711,34 +4221,19 @@
       "easy": [
         {
           "question": "在Grateful Dead推出专辑《American Beauty》后，他们在现场表演中常常演奏哪首专辑中的歌曲，成为巡演时的经典曲目？",
-          "options": [
-            "Box of Rain",
-            "Ripple",
-            "Friend of the Devil",
-            "Sugar Magnolia"
-          ],
+          "options": ["Box of Rain", "Ripple", "Friend of the Devil", "Sugar Magnolia"],
           "correctAnswer": "Friend of the Devil",
           "trivia": "《American Beauty》是Grateful Dead于1970年发行的重要专辑，其中《Friend of the Devil》成为乐队现场表演的常客。这首歌以其民谣摇滚风格深受乐迷喜爱，经常出现在Grateful Dead的巡演曲目中。虽然《Box of Rain》和《Ripple》也是专辑中著名的歌曲，但《Friend of the Devil》更频繁地被用于现场演绎，体现出乐队在演出中对这首曲目的偏好。此外，《Sugar Magnolia》最初出现在随后的专辑《American Beauty》的现场演出中，属于另一时期的作品。"
         },
         {
           "question": "Grateful Dead在1970年发行的专辑'American Beauty'中，哪首歌曲以其悠扬的双吉他和和声而广受欢迎？",
-          "options": [
-            "Sugar Magnolia",
-            "Truckin'",
-            "Casey Jones",
-            "Friend of the Devil"
-          ],
+          "options": ["Sugar Magnolia", "Truckin'", "Casey Jones", "Friend of the Devil"],
           "correctAnswer": "Sugar Magnolia",
           "trivia": "《American Beauty》是Grateful Dead于1970年发行的经典专辑，其中《Sugar Magnolia》以其明快的双吉他旋律和和谐的男女声和声成为乐迷喜爱的作品。这首歌展现了乐队融合摇滚与民谣元素的音乐特色，同时也体现了他们对复杂和声的掌握。除了《Sugar Magnolia》，专辑中的《Friend of the Devil》同样以其民谣风格受欢迎，但《Sugar Magnolia》更突出其丰富的吉他编排和欢快节奏。此专辑标志着Grateful Dead音乐风格的成熟，成为他们最具代表性的作品之一。"
         },
         {
           "question": "在Grateful Dead的1970年专辑《American Beauty》的词曲创作过程中，哪位成员主要负责创作大部分歌词？",
-          "options": [
-            "Robert Hunter",
-            "Jerry Garcia",
-            "Bob Weir",
-            "Phil Lesh"
-          ],
+          "options": ["Robert Hunter", "Jerry Garcia", "Bob Weir", "Phil Lesh"],
           "correctAnswer": "Robert Hunter",
           "trivia": "《American Beauty》是Grateful Dead在1970年发行的一张经典专辑，歌词创作主要由乐队的长期合作者Robert Hunter完成。Hunter与乐队的主音吉他手Jerry Garcia合作紧密，负责为多首歌曲如《Ripple》和《Truckin'》撰写歌词。虽然Jerry Garcia和Bob Weir也参与了曲调创作，但歌词部分大多出自Hunter之手。Phil Lesh作为贝斯手，更多参与音乐演奏而非歌词写作。Robert Hunter的诗意文字为专辑增添了深厚的文学色彩，使《American Beauty》成为Grateful Dead作品中词曲结合最为出色的代表之一。"
         }
@@ -4757,23 +4252,13 @@
         },
         {
           "question": "在Grateful Dead于1970年发行的专辑《American Beauty》中，哪位乐队成员首次在录音中明显担任了主唱和吉他手的双重角色？",
-          "options": [
-            "Jerry Garcia",
-            "Bob Weir",
-            "Ron 'Pigpen' McKernan",
-            "Phil Lesh"
-          ],
+          "options": ["Jerry Garcia", "Bob Weir", "Ron 'Pigpen' McKernan", "Phil Lesh"],
           "correctAnswer": "Bob Weir",
           "trivia": "在Grateful Dead的标志性专辑《American Beauty》中，Bob Weir首次在录音中显著承担了主唱和节奏吉他手的双重职责。虽然Jerry Garcia作为主音吉他手和主要歌手广为人知，但这张专辑中Bob Weir的歌唱能力得到了更多展示。此外，Ron 'Pigpen' McKernan主要负责键盘和口琴，而Phil Lesh则是贝斯手，通常不担任主唱。《American Beauty》以其细腻的声线和丰富的和声著称，Bob Weir的表现为专辑增添了独特的色彩。"
         },
         {
           "question": "在Grateful Dead的1970年专辑《American Beauty》的制作过程中，哪位音乐人作为额外的和声歌手参与录制，显著提升了专辑的和声层次感？",
-          "options": [
-            "David Grisman",
-            "Mickey Hart",
-            "David Crosby",
-            "Phil Lesh"
-          ],
+          "options": ["David Grisman", "Mickey Hart", "David Crosby", "Phil Lesh"],
           "correctAnswer": "David Grisman",
           "trivia": "David Grisman是一位著名的曼陀林演奏家，他在Grateful Dead录制《American Beauty》期间作为额外的音乐人参与，特别贡献了曼陀林的演奏，使得专辑的民谣和乡村风格更加丰富。虽然Mickey Hart和Phil Lesh是Grateful Dead的核心成员，但他们并非额外的和声歌手。David Crosby虽是当时著名的歌手，但未参与该专辑的录制。Grisman的参与体现了乐队对多样化音色的追求，也为这张专辑赢得了更广泛的赞誉。"
         }
@@ -4781,12 +4266,7 @@
       "hard": [
         {
           "question": "在Grateful Dead的1970年专辑《American Beauty》中，哪位乐队成员首次显著担任主唱且在该专辑中对歌曲创作贡献尤为突出？",
-          "options": [
-            "Jerry Garcia",
-            "Bob Weir",
-            "Ron 'Pigpen' McKernan",
-            "Robert Hunter"
-          ],
+          "options": ["Jerry Garcia", "Bob Weir", "Ron 'Pigpen' McKernan", "Robert Hunter"],
           "correctAnswer": "Bob Weir",
           "trivia": "《American Beauty》是Grateful Dead在1970年发行的重要专辑，标志着乐队音乐风格的转变。其中，吉他手兼歌手Bob Weir在这张专辑中首次显著担任主唱，演唱了多首歌曲如《Sugar Magnolia》和《Truckin'》的早期版本。相比之下，Jerry Garcia虽然是主要的主唱和吉他手，但Bob Weir在这张专辑中的声线和创作贡献得到了更多突出展示。此外，Ron 'Pigpen' McKernan的主唱参与较少，而Robert Hunter是乐队的主要歌词作者，但并非乐队成员。该专辑体现了Grateful Dead成员间更为均衡的创作和表演分工。"
         },
@@ -4834,23 +4314,13 @@
         },
         {
           "question": "Jackson 5在录制1970年专辑《ABC》时，哪位主要词曲作者为该专辑创作了多首歌曲？",
-          "options": [
-            "The Corporation",
-            "Stevie Wonder",
-            "Quincy Jones",
-            "Smokey Robinson"
-          ],
+          "options": ["The Corporation", "Stevie Wonder", "Quincy Jones", "Smokey Robinson"],
           "correctAnswer": "The Corporation",
           "trivia": "《ABC》专辑是Jackson 5在1970年发行的重要作品，其中多首歌曲的词曲创作主要由Motown旗下的创作团队The Corporation完成。这个团队由Berry Gordy、Alphonso Mizell、Freeman Wilson和Deke Richards组成，负责打造了Jackson 5多首热门单曲，包括《ABC》和《The Love You Save》。The Corporation的合作为专辑注入了活泼的节奏和朗朗上口的旋律，使Jackson 5迅速走红。其他音乐家如Stevie Wonder和Smokey Robinson虽然也为Motown创作过很多经典作品，但在《ABC》专辑的词曲创作中并非主要贡献者。"
         },
         {
           "question": "Jackson 5的专辑《ABC》（1970年）是在哪家唱片公司发行的？",
-          "options": [
-            "Motown Records",
-            "Atlantic Records",
-            "Columbia Records",
-            "Capitol Records"
-          ],
+          "options": ["Motown Records", "Atlantic Records", "Columbia Records", "Capitol Records"],
           "correctAnswer": "Motown Records",
           "trivia": "Jackson 5的专辑《ABC》于1970年由Motown Records发行。Motown Records是20世纪60年代至70年代美国著名的黑人音乐唱片公司，曾推出许多灵魂乐和节奏蓝调的经典作品。Jackson 5作为Motown旗下的重要艺人，帮助该公司巩固了在流行音乐市场的地位。专辑《ABC》中的同名单曲也成为Motown的代表作之一，进一步推动了该唱片公司的商业成功。"
         }
@@ -4858,23 +4328,13 @@
       "medium": [
         {
           "question": "Jackson 5的专辑《ABC》（1970年）是由哪个唱片公司发行的？",
-          "options": [
-            "Motown Records",
-            "Atlantic Records",
-            "Columbia Records",
-            "Capitol Records"
-          ],
+          "options": ["Motown Records", "Atlantic Records", "Columbia Records", "Capitol Records"],
           "correctAnswer": "Motown Records",
           "trivia": "Jackson 5的专辑《ABC》于1970年发行，隶属于著名的Motown Records唱片公司。Motown Records成立于1959年，是推动黑人音乐和灵魂乐发展的重要厂牌。Jackson 5正是通过Motown的推广迅速走红，专辑《ABC》中的同名主打单曲成为当年热门。该唱片公司以其专业的制作团队和严格的质量控制闻名，帮助Jackson 5塑造了标志性的流行灵魂风格。其他选项如Atlantic、Columbia和Capitol Records虽然都是历史悠久的唱片公司，但并未参与发行《ABC》专辑。"
         },
         {
           "question": "在Jackson 5的1970年专辑《ABC》录制过程中，乐队主要使用了哪种音乐设备来塑造其标志性的莫城（Motown）声音？",
-          "options": [
-            "Fender Rhodes电钢琴",
-            "Hammond B3风琴",
-            "Wurlitzer电钢琴",
-            "Moog合成器"
-          ],
+          "options": ["Fender Rhodes电钢琴", "Hammond B3风琴", "Wurlitzer电钢琴", "Moog合成器"],
           "correctAnswer": "Fender Rhodes电钢琴",
           "trivia": "Jackson 5在录制1970年专辑《ABC》时，使用了Fender Rhodes电钢琴作为核心键盘乐器，这种电钢琴以其温暖而富有弹性的音色成为莫城唱片（Motown）许多作品中的标志性声音。该专辑的制作团队，包括著名制作人Holland-Dozier-Holland，利用Fender Rhodes的音质来增强歌曲的律动感和灵魂气息。虽然当时Moog合成器开始进入流行音乐，但它并未在《ABC》专辑的录制中广泛使用。Hammond B3风琴和Wurlitzer电钢琴虽然也受欢迎，但在这张专辑中并非主要的音乐设备。"
         },
@@ -4935,34 +4395,19 @@
       "easy": [
         {
           "question": "在Jethro Tull的1970年专辑《Benefit》中，谁是负责主唱和长笛演奏的核心成员？",
-          "options": [
-            "Ian Anderson",
-            "Martin Barre",
-            "John Evan",
-            "Glenn Cornick"
-          ],
+          "options": ["Ian Anderson", "Martin Barre", "John Evan", "Glenn Cornick"],
           "correctAnswer": "Ian Anderson",
           "trivia": "Ian Anderson是Jethro Tull的主唱和标志性长笛演奏者，他在1970年发行的专辑《Benefit》中继续担任这一双重角色。作为乐队的创始人之一，Anderson的独特长笛音色和独特的唱腔成为Jethro Tull早期作品的重要特色。专辑《Benefit》是乐队的第三张录音室专辑，体现了他们从布鲁斯摇滚向更复杂的进步摇滚风格转变的过程。除了主唱和长笛，Anderson还参与了歌曲创作，使这张专辑在乐队历史上占据关键地位。"
         },
         {
           "question": "Jethro Tull的专辑《Benefit》（1970年）中，哪种乐器是乐队成员Ian Anderson首次作为主要演奏乐器在专辑中广泛使用的？",
-          "options": [
-            "长笛",
-            "萨克斯管",
-            "钢琴",
-            "小提琴"
-          ],
+          "options": ["长笛", "萨克斯管", "钢琴", "小提琴"],
           "correctAnswer": "长笛",
           "trivia": "在Jethro Tull的专辑《Benefit》中，Ian Anderson首次将长笛作为主要乐器广泛运用，成为乐队标志性的声音元素之一。虽然长笛在摇滚乐中并不常见，但Ian Anderson的技巧赋予了乐队独特的民谣与进步摇滚风格。《Benefit》是Jethro Tull的第二张录音室专辑，发布于1970年，收录了多首融合了摇滚与民谣元素的作品。专辑的制作中，长笛的使用帮助乐队在当时的摇滚乐坛中脱颖而出，并奠定了他们未来音乐方向的基础。"
         },
         {
           "question": "Jethro Tull在1970年发行的专辑'Benefit'中，哪个品牌负责专辑的最初商品销售和推广？",
-          "options": [
-            "Chrysalis Records",
-            "Island Records",
-            "EMI Records",
-            "Harvest Records"
-          ],
+          "options": ["Chrysalis Records", "Island Records", "EMI Records", "Harvest Records"],
           "correctAnswer": "Chrysalis Records",
           "trivia": "Jethro Tull的专辑'Benefit'于1970年发行，最初由Chrysalis Records负责商品销售和品牌推广。Chrysalis Records是当时支持Jethro Tull的重要厂牌，协助乐队在英国及国际市场扩展影响力。尽管Island Records和Harvest Records也在那个时代活跃于英国摇滚乐市场，但'Benefit'专辑的发行和推广明确归属于Chrysalis。EMI Records则主要与其他艺人合作，并非该专辑的发行商。Chrysalis Records的推广策略帮助'Benefit'在英国专辑排行榜中取得了不错的成绩，巩固了Jethro Tull在摇滚乐坛的地位。"
         }
@@ -4970,12 +4415,7 @@
       "medium": [
         {
           "question": "在Jethro Tull的1970年专辑《Benefit》的录制过程中，哪位成员首次参与了键盘乐器的演奏，标志着乐队声音的扩展？",
-          "options": [
-            "John Evan",
-            "Glenn Cornick",
-            "Mick Abrahams",
-            "Clive Bunker"
-          ],
+          "options": ["John Evan", "Glenn Cornick", "Mick Abrahams", "Clive Bunker"],
           "correctAnswer": "John Evan",
           "trivia": "在录制Jethro Tull的专辑《Benefit》时，John Evan首次作为键盘手参与录音，这为乐队的音乐带来了新的层次和质感。此前，乐队的声音主要依赖吉他、贝斯和鼓，而Evan的加入让键盘成为重要的乐器元素。John Evan后来成为乐队的重要成员，参与了多张经典专辑的录制。同时，《Benefit》是乐队逐渐从布鲁斯摇滚向更复杂的进步摇滚风格转变的关键作品，Evan的键盘贡献正体现了这一变化。"
         },
@@ -4992,12 +4432,7 @@
         },
         {
           "question": "Jethro Tull的专辑《Benefit》（1970年）是由哪家唱片公司首次在英国发行的？",
-          "options": [
-            "Chrysalis Records",
-            "Island Records",
-            "Decca Records",
-            "Harvest Records"
-          ],
+          "options": ["Chrysalis Records", "Island Records", "Decca Records", "Harvest Records"],
           "correctAnswer": "Chrysalis Records",
           "trivia": "《Benefit》是Jethro Tull于1970年发行的第三张录音室专辑，它在英国市场首次由Chrysalis Records发行。Chrysalis Records当时是一个新兴的独立唱片公司，后来成为摇滚乐队的重要合作伙伴。虽然Jethro Tull早期的作品曾与Island Records和Decca Records有过关联，但《Benefit》专辑的英国发行标志着他们与Chrysalis的合作正式开始。Harvest Records则是EMI旗下的一个子品牌，与该专辑发行无直接关联。"
         }
@@ -5016,12 +4451,7 @@
         },
         {
           "question": "在Jethro Tull的1970年专辑《Benefit》中，哪种乐器的使用最显著地体现了该专辑在音乐元素上的独特风格？",
-          "options": [
-            "长笛",
-            "萨克斯风",
-            "小提琴",
-            "电吉他合成器"
-          ],
+          "options": ["长笛", "萨克斯风", "小提琴", "电吉他合成器"],
           "correctAnswer": "长笛",
           "trivia": "Jethro Tull的专辑《Benefit》发布于1970年，是乐队早期的重要作品，展示了其独特的融合摇滚与民谣的音乐风格。其中，长笛的使用尤为突出，由主唱兼乐手Ian Anderson演奏，这成为乐队标志性的声音元素。专辑中的长笛不仅在旋律上起到关键作用，也赋予了音乐一种别具一格的质感和氛围。此外，《Benefit》中的长笛演奏融合了复杂的节奏与技巧，反映了乐队对音乐元素的创新和探索。相比之下，萨克斯风、小提琴和电吉他合成器在该专辑中并未作为主要音乐元素出现。"
         },
@@ -5047,34 +4477,19 @@
       "easy": [
         {
           "question": "John Lennon的专辑《Imagine》（1971年）是在哪家唱片公司发行的？",
-          "options": [
-            "Apple Records",
-            "EMI Records",
-            "Capitol Records",
-            "Atlantic Records"
-          ],
+          "options": ["Apple Records", "EMI Records", "Capitol Records", "Atlantic Records"],
           "correctAnswer": "Apple Records",
           "trivia": "John Lennon的《Imagine》专辑于1971年发行，由Apple Records发行，这是披头士成员创办的唱片公司。Apple Records成立于1968年，旨在支持披头士成员及其个人项目。虽然EMI是披头士及其成员的母公司，但《Imagine》的发行直接由Apple Records负责。Capitol Records和Atlantic Records则是其他艺人的主要唱片公司，与John Lennon的这张专辑无关。"
         },
         {
           "question": "在John Lennon的专辑《Imagine》中，哪位音响工程师负责了录音和混音制作？",
-          "options": [
-            "Phil McDonald",
-            "Alan Parsons",
-            "Geoff Emerick",
-            "Eddie Kramer"
-          ],
+          "options": ["Phil McDonald", "Alan Parsons", "Geoff Emerick", "Eddie Kramer"],
           "correctAnswer": "Phil McDonald",
           "trivia": "《Imagine》专辑于1971年录制，Phil McDonald担任音响工程师，他曾经在阿比路录音室工作，参与了多张披头士乐队的专辑制作。Phil McDonald负责了这张专辑的录音和混音，确保了John Lennon作品的清晰与丰富质感。Alan Parsons和Geoff Emerick也都是著名的音响工程师，但他们分别以其他项目闻名。Eddie Kramer则以与Jimi Hendrix的合作著称。McDonald的参与是《Imagine》音响品质的重要保障。"
         },
         {
           "question": "John Lennon的专辑《Imagine》在数字发行方面首次在哪一年通过数字平台正式上线？",
-          "options": [
-            "1990年",
-            "2000年",
-            "2008年",
-            "2015年"
-          ],
+          "options": ["1990年", "2000年", "2008年", "2015年"],
           "correctAnswer": "2008年",
           "trivia": "John Lennon的经典专辑《Imagine》最初发行于1971年，随着数字音乐时代的到来，该专辑于2008年首次通过主要数字音乐平台正式上线。这一数字发行使得新一代听众能够方便地访问这张具有历史意义的作品。《Imagine》的数字化不仅保留了原版的音质，还配备了数字专辑封面和曲目资料，极大丰富了用户体验。该专辑中的主打歌《Imagine》也因此重新获得了全球范围内的关注和播放量。"
         }
@@ -5093,12 +4508,7 @@
         },
         {
           "question": "John Lennon在1971年发行的专辑《Imagine》中，哪种乐器成为了专辑标志性音色的重要组成部分？",
-          "options": [
-            "钢琴",
-            "萨克斯管",
-            "电子合成器",
-            "班卓琴"
-          ],
+          "options": ["钢琴", "萨克斯管", "电子合成器", "班卓琴"],
           "correctAnswer": "钢琴",
           "trivia": "在John Lennon的1971年专辑《Imagine》中，钢琴扮演了核心角色，尤其是在同名主打歌《Imagine》中，钢琴的清晰旋律成为歌曲标志性的音乐元素。John Lennon本人亲自演奏钢琴，这为专辑增添了温暖且富有感染力的音色。此外，钢琴的使用也体现了专辑整体简洁而富有力量的音乐风格，配合Paul McCartney和George Harrison等音乐家的合作，使得《Imagine》在音乐制作上具有深厚的艺术价值。"
         },
@@ -5117,12 +4527,7 @@
       "hard": [
         {
           "question": "在John Lennon的1971年专辑'Imagine'中，哪种乐器的使用最显著地体现了该专辑中和平与理想主义主题的音乐元素？",
-          "options": [
-            "钢琴",
-            "萨克斯风",
-            "电子合成器",
-            "电吉他"
-          ],
+          "options": ["钢琴", "萨克斯风", "电子合成器", "电吉他"],
           "correctAnswer": "钢琴",
           "trivia": "John Lennon在他的1971年专辑'Imagine'中大量使用钢琴，这成为专辑音乐元素的核心。钢琴伴奏不仅在同名歌曲《Imagine》中占据主导地位，也为整张专辑增添了温暖且富有表现力的氛围。该乐器的清晰音色和简洁和弦排列传达出专辑追求和平与理想主义的主题。相比之下，萨克斯风和电子合成器虽然在后期摇滚中常见，但在这张专辑中并不突出。电吉他虽有使用，但更多是作为节奏支持，而非主导乐器。"
         },
@@ -5139,12 +4544,7 @@
         },
         {
           "question": "在John Lennon的1971年专辑《Imagine》中，哪位音乐家作为贝斯手参与了录制，并且与Lennon在披头士乐队时期有过合作？",
-          "options": [
-            "Klaus Voormann",
-            "Paul McCartney",
-            "Jack Bruce",
-            "John Paul Jones"
-          ],
+          "options": ["Klaus Voormann", "Paul McCartney", "Jack Bruce", "John Paul Jones"],
           "correctAnswer": "Klaus Voormann",
           "trivia": "Klaus Voormann不仅是John Lennon的好友，还是披头士早期的支持者和艺术家，他为《Imagine》专辑担任了贝斯手。虽然Paul McCartney同为披头士成员，但他并未参与这张专辑的录制。Jack Bruce和John Paul Jones分别是Cream和Led Zeppelin的成员，他们也未参与该专辑。Voormann的参与为专辑增添了与披头士历史的联系，同时体现了John Lennon在独立音乐生涯中的合作选择。"
         }
@@ -5159,12 +4559,7 @@
       "easy": [
         {
           "question": "Joni Mitchell的专辑《Blue》（1971年）首次以哪种数字格式正式发行，使这张经典专辑得以被更广泛的数字听众接触？",
-          "options": [
-            "紧凑型光盘（CD）",
-            "数字音频磁带（DAT）",
-            "数字下载（MP3）",
-            "数字流媒体"
-          ],
+          "options": ["紧凑型光盘（CD）", "数字音频磁带（DAT）", "数字下载（MP3）", "数字流媒体"],
           "correctAnswer": "紧凑型光盘（CD）",
           "trivia": "Joni Mitchell的《Blue》最初于1971年以黑胶唱片形式发行，后来随着数字音乐的兴起，这张专辑在1980年代末期首次以紧凑型光盘（CD）格式发行。CD格式使得《Blue》能够被更广泛的听众以更高音质数字化的形式聆听。虽然数字音频磁带（DAT）和数字下载（MP3）也曾被用于音乐发行，但它们出现时间晚于CD，而数字流媒体则是在21世纪才普及。CD的引入标志着音乐数字化的重要转折点，也帮助经典专辑如《Blue》得以保存和传播。"
         },
@@ -5229,12 +4624,7 @@
       "hard": [
         {
           "question": "在Joni Mitchell录制1971年专辑《Blue》的过程中，哪位音乐家因其独特的钢琴演奏而对专辑的制作产生了显著影响？",
-          "options": [
-            "Larry Carlton",
-            "James Taylor",
-            "Russ Kunkel",
-            "Jesse Colin Young"
-          ],
+          "options": ["Larry Carlton", "James Taylor", "Russ Kunkel", "Jesse Colin Young"],
           "correctAnswer": "Larry Carlton",
           "trivia": "Larry Carlton是著名的吉他手，但在《Blue》专辑的制作过程中，他以钢琴演奏为Joni Mitchell的作品增添了独特的情感色彩。虽然James Taylor和Russ Kunkel也曾在同一时期与Mitchell合作，但他们主要贡献于吉他和鼓方面。Jesse Colin Young是另一位民谣音乐家，但并未参与《Blue》的录制。Larry Carlton的参与体现了这张专辑在制作上的多样化合作，帮助塑造了《Blue》深刻且细腻的音乐氛围。"
         },
@@ -5282,12 +4672,7 @@
         },
         {
           "question": "Joy Division的专辑《Unknown Pleasures》中哪首歌曲曾在BBC电台的播放中显著提升了乐队的知名度？",
-          "options": [
-            "Disorder",
-            "Transmission",
-            "She's Lost Control",
-            "Atmosphere"
-          ],
+          "options": ["Disorder", "Transmission", "She's Lost Control", "Atmosphere"],
           "correctAnswer": "Transmission",
           "trivia": "《Unknown Pleasures》是Joy Division于1979年发行的首张专辑，其中《Transmission》这首歌在BBC电台的播放频率较高，尤其是在知名DJ如John Peel的节目中多次播出。该曲以其独特的节奏和深沉的歌词，成为乐队的代表作之一，并帮助Joy Division在英国独立音乐场景中迅速崛起。此外，《Transmission》也成为后来后朋克和独立摇滚的重要影响曲目，巩固了专辑在音乐历史中的地位。"
         },
@@ -5352,12 +4737,7 @@
         },
         {
           "question": "关于Joy Division的1979年专辑《Unknown Pleasures》，下列哪家唱片公司负责最初的发行和推广？",
-          "options": [
-            "Factory Records",
-            "Rough Trade Records",
-            "Mute Records",
-            "4AD"
-          ],
+          "options": ["Factory Records", "Rough Trade Records", "Mute Records", "4AD"],
           "correctAnswer": "Factory Records",
           "trivia": "Joy Division的首张专辑《Unknown Pleasures》于1979年由英国独立唱片公司Factory Records发行。Factory Records是曼彻斯特音乐场景的核心厂牌，支持了许多后朋克和独立乐队的发展。与主流厂牌不同，Factory Records以艺术自主权和创新设计著称，这也体现在《Unknown Pleasures》的封面设计上。专辑的发行帮助Joy Division在独立音乐界建立了重要地位，而Factory Records的推广策略也为后来多个独立厂牌树立了范例。该专辑并未由Rough Trade、Mute或4AD最初发行，尽管这些厂牌也在同一时期活跃。"
         },
@@ -5394,23 +4774,13 @@
         },
         {
           "question": "Judas Priest的1978年专辑'Stained Class'是在哪个唱片公司发行的？",
-          "options": [
-            "Columbia Records",
-            "CBS Records",
-            "Vertigo Records",
-            "Atlantic Records"
-          ],
+          "options": ["Columbia Records", "CBS Records", "Vertigo Records", "Atlantic Records"],
           "correctAnswer": "CBS Records",
           "trivia": "Judas Priest的经典专辑'Stained Class'于1978年通过CBS Records发行。CBS Records在当时是许多重金属和摇滚乐队的重要发行平台。该唱片公司后来成为了索尼音乐娱乐的一部分。Vertigo Records虽然也发行过一些重金属作品，但并非'Stained Class'的发行公司。Columbia Records和Atlantic Records则是其他著名的唱片公司，但与该专辑无关。"
         },
         {
           "question": "在Judas Priest的1978年专辑'Stained Class'的词曲创作过程中，哪位成员主要负责了大部分歌曲的创作？",
-          "options": [
-            "Rob Halford",
-            "K.K. Downing",
-            "Ian Hill",
-            "Glenn Tipton"
-          ],
+          "options": ["Rob Halford", "K.K. Downing", "Ian Hill", "Glenn Tipton"],
           "correctAnswer": "Glenn Tipton",
           "trivia": "Judas Priest在1978年发行的专辑'Stained Class'中，吉他手Glenn Tipton承担了大部分的词曲创作任务。Tipton与另一位吉他手K.K. Downing通常共同创作乐曲，但该专辑中特别体现了Tipton在创作上的主导角色。主唱Rob Halford则主要负责歌词的演绎和部分创作。'Stained Class'是乐队风格转变的重要作品，Tipton的创作带来了更为复杂和重金属化的音乐结构，标志着Judas Priest音乐生涯的关键时期。"
         }
@@ -5453,12 +4823,7 @@
       "hard": [
         {
           "question": "Judas Priest的1978年专辑'Stained Class'中哪首歌曲因其歌词涉及社会对暴力和青少年犯罪的反思而被视为具有深刻社会评论意义？",
-          "options": [
-            "Exciter",
-            "Beyond the Realms of Death",
-            "White Heat, Red Hot",
-            "Invader"
-          ],
+          "options": ["Exciter", "Beyond the Realms of Death", "White Heat, Red Hot", "Invader"],
           "correctAnswer": "Beyond the Realms of Death",
           "trivia": "Judas Priest在1978年发行的专辑'Stained Class'包含了多首主题深刻的歌曲，其中'Beyond the Realms of Death'因其对社会中青少年抑郁和暴力倾向的反思而备受关注。该曲通过描绘一个挣扎于精神痛苦中的人物，揭示了社会对心理健康问题的忽视，体现了当时社会环境中的现实困境。歌曲的歌词和情感表达使其成为专辑中最具社会评论性的作品之一。此外，'Stained Class'整张专辑也标志着Judas Priest在音乐和歌词内容上迈向更成熟和深刻的阶段，反映了70年代末英国社会的文化氛围。"
         },
@@ -5506,12 +4871,7 @@
         },
         {
           "question": "Kraftwerk的1974年专辑《Autobahn》是与哪家唱片公司合作发行的？",
-          "options": [
-            "Philips Records",
-            "EMI Records",
-            "RCA Records",
-            "Island Records"
-          ],
+          "options": ["Philips Records", "EMI Records", "RCA Records", "Island Records"],
           "correctAnswer": "Philips Records",
           "trivia": "Kraftwerk的《Autobahn》专辑于1974年通过Philips Records发行，这是一家当时重要的国际唱片公司。Philips Records在20世纪60至70年代支持了许多前卫和电子音乐艺术家，帮助Kraftwerk拓展了国际市场。该专辑的成功部分归功于Philips在欧洲的发行网络，使得这张开创性电子音乐专辑得以广泛传播。与此同时，Kraftwerk与Philips的合作标志着德国电子音乐开始进入主流音乐领域，为后续电子音乐的发展奠定了基础。"
         },
@@ -5530,12 +4890,7 @@
       "medium": [
         {
           "question": "在1974年Kraftwerk录制专辑《Autobahn》时，哪位音乐家作为额外的打击乐手参与了制作？",
-          "options": [
-            "Klaus Dinger",
-            "Andreas Hohmann",
-            "Jaki Liebezeit",
-            "Conny Plank"
-          ],
+          "options": ["Klaus Dinger", "Andreas Hohmann", "Jaki Liebezeit", "Conny Plank"],
           "correctAnswer": "Andreas Hohmann",
           "trivia": "在制作1974年发行的专辑《Autobahn》时，Kraftwerk邀请了打击乐手Andreas Hohmann参与录音，他为专辑增添了丰富的节奏元素。Andreas Hohmann并非乐队正式成员，但他在专辑中的贡献显著，尤其是在打击乐器的演奏上。相比之下，Klaus Dinger和Jaki Liebezeit都是著名的德国鼓手，却未参与本专辑录制。Conny Plank则是著名的制作人，但并未作为打击乐手参与《Autobahn》的制作。此举体现了Kraftwerk在早期制作中对合作音乐家的开放态度。"
         },
@@ -5587,12 +4942,7 @@
         },
         {
           "question": "关于Kraftwerk于1974年发行的专辑《Autobahn》，以下哪一个唱片公司负责其德国本土的发行与推广？",
-          "options": [
-            "Philips Records",
-            "EMI Records",
-            "RCA Victor",
-            "Island Records"
-          ],
+          "options": ["Philips Records", "EMI Records", "RCA Victor", "Island Records"],
           "correctAnswer": "Philips Records",
           "trivia": "Kraftwerk的专辑《Autobahn》于1974年在德国由Philips Records发行，这家公司是当时欧洲重要的唱片公司之一。Philips Records在20世纪70年代支持了大量电子和实验音乐的发展，帮助《Autobahn》在德国市场获得了成功。尽管Kraftwerk在其他国家的发行由不同的唱片公司负责，但Philips作为其德国本土的发行商，起到了关键的推动作用。此外，Philips Records是荷兰飞利浦公司的子公司，拥有丰富的资源和渠道，这为专辑的推广创造了有利条件。"
         }
@@ -5741,12 +5091,7 @@
         },
         {
           "question": "Lou Reed的1972年专辑《Transformer》的封面设计由谁负责？",
-          "options": [
-            "Mick Rock",
-            "Andy Warhol",
-            "David Bowie",
-            "Rei Kawakubo"
-          ],
+          "options": ["Mick Rock", "Andy Warhol", "David Bowie", "Rei Kawakubo"],
           "correctAnswer": "Mick Rock",
           "trivia": "《Transformer》是Lou Reed于1972年发行的经典专辑，其封面由著名摄影师Mick Rock拍摄设计。Mick Rock当时以捕捉摇滚明星独特形象而闻名，封面上的Lou Reed身穿皮夹克，背景简洁，体现了专辑的摇滚气质。虽然Andy Warhol是Lou Reed早期合作的艺术家，但他并未参与《Transformer》的封面设计。David Bowie作为专辑的制片人之一，也没有负责封面艺术。Rei Kawakubo是一位时尚设计师，与该专辑无关。"
         }
@@ -5765,12 +5110,7 @@
         },
         {
           "question": "Lou Reed的专辑'Transformer'（1972年）中，哪位著名音乐人负责了专辑的制作和编曲工作？",
-          "options": [
-            "David Bowie",
-            "Brian Eno",
-            "Phil Spector",
-            "George Martin"
-          ],
+          "options": ["David Bowie", "Brian Eno", "Phil Spector", "George Martin"],
           "correctAnswer": "David Bowie",
           "trivia": "Lou Reed的1972年专辑'Transformer'由David Bowie和Mick Ronson共同制作。David Bowie不仅参与制作，还为专辑编曲，帮助塑造了其独特的艺术摇滚风格。专辑的制作背景与David Bowie当时的音乐实验密切相关，Bowie的参与极大丰富了专辑的音色和表现力。此外，'Transformer'也是Lou Reed在离开The Velvet Underground后，音乐生涯中的重要转折点，David Bowie的支持对这张专辑的成功起到了关键作用。"
         },
@@ -5811,12 +5151,7 @@
         },
         {
           "question": "在Lou Reed1972年发行的专辑'Transformer'中，哪种乐器的使用最显著地体现了这张专辑的摇滚与格莱斯风格融合？",
-          "options": [
-            "大提琴",
-            "萨克斯风",
-            "口琴",
-            "琴键风琴"
-          ],
+          "options": ["大提琴", "萨克斯风", "口琴", "琴键风琴"],
           "correctAnswer": "萨克斯风",
           "trivia": "Lou Reed的专辑'Transformer'由大卫·鲍伊和米克·罗杰斯制作，其中萨克斯风的使用成为这张专辑的标志性音乐元素之一。萨克斯风不仅丰富了专辑的摇滚质感，还融入了格莱斯（glam rock）风格的华丽与前卫，尤其在《Vicious》和《Perfect Day》等曲目中表现突出。相比之下，大提琴和口琴虽在其他作品中常见，但在'Transformer'中并非主要乐器。琴键风琴则较为低调，更多用于填充背景音色。萨克斯风的灵活演奏为该专辑增添了独特的层次感，反映了Lou Reed在音乐风格上的多样探索。"
         }
@@ -5831,12 +5166,7 @@
       "easy": [
         {
           "question": "Lynyrd Skynyrd的首张专辑'Pronounced 'Lĕh-'nérd 'Skin-'nérd'中，哪首歌曲最初在电台播放中大受欢迎，成为该乐队的代表作？",
-          "options": [
-            "Free Bird",
-            "Sweet Home Alabama",
-            "Simple Man",
-            "Gimme Three Steps"
-          ],
+          "options": ["Free Bird", "Sweet Home Alabama", "Simple Man", "Gimme Three Steps"],
           "correctAnswer": "Free Bird",
           "trivia": "《Pronounced 'Lĕh-'nérd 'Skin-'nérd》是Lynyrd Skynyrd于1973年发行的首张专辑，其中《Free Bird》这首歌最初在美国电台播放中迅速走红，成为乐队的标志性作品。该曲以其长达近10分钟的吉他独奏闻名，至今仍是摇滚电台的常青曲目。尽管《Sweet Home Alabama》也极为知名，但它收录于1974年的专辑《Second Helping》中。此专辑的成功帮助Lynyrd Skynyrd在南方摇滚界确立了重要地位。"
         },
@@ -5877,12 +5207,7 @@
         },
         {
           "question": "Lynyrd Skynyrd在1973年发行的专辑'Pronounced 'Lĕh-'nérd 'Skin-'nérd'中，哪种乐器配置成为其标志性的音乐元素，帮助塑造了南方摇滚的独特声音？",
-          "options": [
-            "双电吉他加钢琴",
-            "三电吉他编制",
-            "单电吉他加口琴",
-            "电吉他与萨克斯风"
-          ],
+          "options": ["双电吉他加钢琴", "三电吉他编制", "单电吉他加口琴", "电吉他与萨克斯风"],
           "correctAnswer": "三电吉他编制",
           "trivia": "Lynyrd Skynyrd的专辑'Pronounced 'Lĕh-'nérd 'Skin-'nérd'以其独特的三电吉他配置闻名，这种编制由Gary Rossington、Allen Collins和Ed King共同演奏，赋予了乐队丰富层次的和声与强劲的摇滚节奏。三电吉他编制不仅是该专辑的音乐标志，也成为了南方摇滚风格的典范之一。此外，该专辑中还融合了钢琴和口琴等乐器，但核心特色仍是三把电吉他同时作曲与演奏，形成了其标志性的声音。"
         },
@@ -5901,23 +5226,13 @@
       "hard": [
         {
           "question": "Lynyrd Skynyrd在创作1973年专辑《Pronounced 'Lĕh-'nérd 'Skin-'nérd》时，哪位成员主要负责了歌曲《Free Bird》的词曲创作核心？",
-          "options": [
-            "Ronnie Van Zant",
-            "Allen Collins",
-            "Gary Rossington",
-            "Ed King"
-          ],
+          "options": ["Ronnie Van Zant", "Allen Collins", "Gary Rossington", "Ed King"],
           "correctAnswer": "Ronnie Van Zant",
           "trivia": "在Lynyrd Skynyrd的首张专辑《Pronounced 'Lĕh-'nérd 'Skin-'nérd》中，标志性歌曲《Free Bird》的词曲创作主要由主唱Ronnie Van Zant负责歌词创作，而吉他手Allen Collins参与了主要的吉他旋律创作。Ronnie Van Zant作为乐队的灵魂人物，负责了多数歌曲的歌词，他的叙事式写作风格为这张专辑注入了深厚的南方摇滚文化背景。此外，Gary Rossington和Ed King虽然也参与了多首作品的创作，但在《Free Bird》这首歌中，他们的贡献相对较少。该创作过程体现了乐队成员间的密切合作与分工。"
         },
         {
           "question": "Lynyrd Skynyrd的首张专辑《Pronounced 'Lĕh-'nérd 'Skin-'nérd》于1973年发行时，隶属于哪一家唱片公司？",
-          "options": [
-            "MCA Records",
-            "Atlantic Records",
-            "Capricorn Records",
-            "Epic Records"
-          ],
+          "options": ["MCA Records", "Atlantic Records", "Capricorn Records", "Epic Records"],
           "correctAnswer": "MCA Records",
           "trivia": "Lynyrd Skynyrd的首张专辑《Pronounced 'Lĕh-'nérd 'Skin-'nérd》于1973年由MCA Records发行。MCA Records是当时美国主要的唱片公司之一，负责推广南方摇滚风格的音乐。该专辑的发行帮助Lynyrd Skynyrd在主流市场获得广泛关注。虽然Capricorn Records以推广南方摇滚闻名，但这张专辑并非由其发行，而Atlantic Records和Epic Records则未曾与该专辑直接关联。MCA的发行渠道和市场资源对乐队的早期成功起到了关键作用。"
         },
@@ -5943,23 +5258,13 @@
       "easy": [
         {
           "question": "Madness在推广1979年发行的专辑《One Step Beyond...》时，哪首单曲最先作为主打歌发行并帮助他们打开了英国市场？",
-          "options": [
-            "One Step Beyond",
-            "Night Boat to Cairo",
-            "My Girl",
-            "The Prince"
-          ],
+          "options": ["One Step Beyond", "Night Boat to Cairo", "My Girl", "The Prince"],
           "correctAnswer": "One Step Beyond",
           "trivia": "Madness的专辑《One Step Beyond...》于1979年发行，其中主打单曲《One Step Beyond》是他们推广这张专辑的关键。这首歌改编自Derrick Morgan的同名经典歌曲，具有强烈的斯卡风格，迅速在英国单曲排行榜上获得成功，帮助乐队打开了市场。《One Step Beyond》不仅成为他们标志性的歌曲之一，也奠定了Madness在二级斯卡（2 Tone Ska）运动中的重要地位。随后发行的单曲如《Night Boat to Cairo》和《My Girl》也助力专辑持续热销，但首发主打无疑是《One Step Beyond》。"
         },
         {
           "question": "Madness的专辑《One Step Beyond...》（1979年）是通过哪家唱片公司发行的？",
-          "options": [
-            "Stiff Records",
-            "Island Records",
-            "Virgin Records",
-            "Chrysalis Records"
-          ],
+          "options": ["Stiff Records", "Island Records", "Virgin Records", "Chrysalis Records"],
           "correctAnswer": "Stiff Records",
           "trivia": "《One Step Beyond...》是英国二人组Madness的首张专辑，于1979年发行。这张专辑由独立唱片公司Stiff Records发行，该公司以支持新兴朋克和新浪潮乐队闻名。Madness与Stiff Records的合作帮助他们在英国音乐市场迅速崛起，专辑成功打入英国专辑排行榜前十。Stiff Records成立于1976年，是当时独立音乐的重要推动力量，许多著名艺术家如Elvis Costello和The Damned也曾在该公司发行作品。"
         },
@@ -6055,12 +5360,7 @@
       "easy": [
         {
           "question": "Marvin Gaye的专辑《What's Going On》是在哪个唱片公司发行的？",
-          "options": [
-            "Motown Records",
-            "Atlantic Records",
-            "Columbia Records",
-            "Capitol Records"
-          ],
+          "options": ["Motown Records", "Atlantic Records", "Columbia Records", "Capitol Records"],
           "correctAnswer": "Motown Records",
           "trivia": "《What's Going On》是Marvin Gaye于1971年发行的经典专辑，这张专辑由著名的Motown Records发行。Motown Records是20世纪60年代至70年代美国黑人音乐的重要唱片公司，培养了许多灵魂乐和R&B巨星。Marvin Gaye作为Motown旗下的明星艺人，他的这张专辑在保留了Motown独特的音乐风格同时，也展示了更深刻的社会主题。《What's Going On》在发行后获得了极高的评价，并成为Motown历史上最具影响力的作品之一。"
         },
@@ -6101,12 +5401,7 @@
         },
         {
           "question": "Marvin Gaye的专辑《What's Going On》在国际音乐界产生了深远影响，其中哪一位著名的英国艺术家曾公开表示该专辑对其创作风格有重要启发？",
-          "options": [
-            "David Bowie",
-            "Elton John",
-            "Eric Clapton",
-            "Phil Collins"
-          ],
+          "options": ["David Bowie", "Elton John", "Eric Clapton", "Phil Collins"],
           "correctAnswer": "David Bowie",
           "trivia": "Marvin Gaye的1971年专辑《What's Going On》不仅在美国引发了广泛关注，也深刻影响了国际音乐界。英国传奇音乐人David Bowie曾公开表示，这张专辑对他的音乐创作产生了重要的启发，尤其是在社会议题和情感表达上。该专辑以其融合灵魂乐、爵士和福音音乐的创新风格，拓宽了流行音乐的表达边界。此外，《What's Going On》在英国排行榜取得了显著成绩，进一步证明其全球影响力。Bowie的认可体现了这张专辑跨文化的艺术价值和持久的影响力。"
         },
@@ -6125,12 +5420,7 @@
       "hard": [
         {
           "question": "在Marvin Gaye的1971年专辑《What's Going On》中，哪位音乐家作为贝斯手参与了录制？",
-          "options": [
-            "James Jamerson",
-            "Larry Graham",
-            "Bootsy Collins",
-            "Chuck Rainey"
-          ],
+          "options": ["James Jamerson", "Larry Graham", "Bootsy Collins", "Chuck Rainey"],
           "correctAnswer": "James Jamerson",
           "trivia": "James Jamerson是Motown唱片公司的著名贝斯手，他为Marvin Gaye的《What's Going On》专辑贡献了标志性的贝斯线。Jamerson以其独特的演奏风格和创新的技术闻名，他是Motown的“Funk Brothers”乐队核心成员。Larry Graham和Bootsy Collins虽然也都是著名的贝斯手，但他们主要活动于不同的乐队和音乐风格，而Chuck Rainey则更多参与其他厂牌的录制。《What's Going On》录制于1970年，Jamerson的贝斯为整张专辑增添了深厚的律动感，成为其经典灵魂乐声音的重要组成部分。"
         },
@@ -6437,12 +5727,7 @@
         },
         {
           "question": "在Miles Davis的1970年专辑《Bitches Brew》中，哪位音乐家以其电吉他演奏为这张开创性的融合爵士作品增添了独特的声音色彩？",
-          "options": [
-            "John McLaughlin",
-            "Wayne Shorter",
-            "Chick Corea",
-            "Herbie Hancock"
-          ],
+          "options": ["John McLaughlin", "Wayne Shorter", "Chick Corea", "Herbie Hancock"],
           "correctAnswer": "John McLaughlin",
           "trivia": "《Bitches Brew》是Miles Davis在1970年录制的一张具有里程碑意义的融合爵士专辑，融合了摇滚、爵士和电子元素。John McLaughlin作为电吉他手参与了此次录制，他的独特吉他风格为专辑增添了强烈的现代感和实验性。与此同时，Wayne Shorter作为萨克斯手，Chick Corea和Herbie Hancock则分别在键盘乐器上贡献出色表现，但电吉他的独特声音主要来自John McLaughlin。此专辑的制作过程中，Miles Davis出色地整合了这些音乐家的创新能力，推动了爵士乐的边界。"
         },
@@ -6461,12 +5746,7 @@
       "hard": [
         {
           "question": "在Miles Davis的1970年专辑《Bitches Brew》的制作过程中，哪位录音师负责利用多轨录音技术捕捉了这张专辑标志性的音效？",
-          "options": [
-            "Teo Macero",
-            "Rudy Van Gelder",
-            "Bob Ludwig",
-            "Bruce Swedien"
-          ],
+          "options": ["Teo Macero", "Rudy Van Gelder", "Bob Ludwig", "Bruce Swedien"],
           "correctAnswer": "Teo Macero",
           "trivia": "《Bitches Brew》由Miles Davis与制作人兼录音师Teo Macero合作完成，Macero在录音过程中采用了创新的多轨录音和剪辑技术，使得专辑具有独特的层次感和实验性声音。Teo Macero不仅负责录音，还参与后期剪辑，将现场录音片段拼接成完整作品。Rudy Van Gelder虽然是著名的爵士录音师，但未参与本专辑制作；Bob Ludwig和Bruce Swedien以后期母带制作闻名，但与《Bitches Brew》的录音制作无关。这种多轨录音技术的运用对爵士乐的录制方式产生了深远影响。"
         },
@@ -6514,12 +5794,7 @@
         },
         {
           "question": "Neil Young的专辑《After the Gold Rush》在美国公告牌专辑排行榜上的最高排名是？",
-          "options": [
-            "第8名",
-            "第1名",
-            "第25名",
-            "第50名"
-          ],
+          "options": ["第8名", "第1名", "第25名", "第50名"],
           "correctAnswer": "第8名",
           "trivia": "Neil Young的1970年专辑《After the Gold Rush》在美国公告牌200强专辑榜上最高排名第8位，这使其成为他早期最成功的个人作品之一。该专辑包含多首经典曲目，如《Only Love Can Break Your Heart》和主打歌《After the Gold Rush》，这些歌曲在当时广受欢迎。虽然专辑没有达到榜单冠军，但其持续的影响力和销量证明了Neil Young作为摇滚和民谣音乐重要人物的地位。专辑的成功也为他后续的音乐事业奠定了坚实的基础。"
         },
@@ -6749,12 +6024,7 @@
         },
         {
           "question": "在Patti Smith的1975年专辑《Horses》中，哪首歌曲的歌词灵感来源于她对文学人物的致敬？",
-          "options": [
-            "《Gloria》",
-            "《Land》",
-            "《Birdland》",
-            "《Elegie》"
-          ],
+          "options": ["《Gloria》", "《Land》", "《Birdland》", "《Elegie》"],
           "correctAnswer": "《Birdland》",
           "trivia": "《Birdland》是Patti Smith在《Horses》专辑中一首富有诗意的歌曲，其歌词受到了文学和文化人物的启发，特别是纪念爵士乐作曲家Charlie Parker（昵称Bird），这体现了Patti Smith将文学与音乐融合的艺术风格。《Horses》作为先锋摇滚和朋克摇滚的经典专辑，展示了她独特的诗歌式歌词写作方式。通过《Birdland》，Patti Smith不仅表达了对音乐偶像的敬意，也反映了她对艺术多元性的追求。这首歌在专辑中以其复杂的象征意义和充满象征的歌词，成为理解Patti Smith艺术风格的重要作品之一。"
         }
@@ -6762,23 +6032,13 @@
       "medium": [
         {
           "question": "Patti Smith的专辑《Horses》在1975年发布后，在美国公告牌二百强专辑榜（Billboard 200）上的最高排名是多少？",
-          "options": [
-            "第47名",
-            "第12名",
-            "第75名",
-            "第30名"
-          ],
+          "options": ["第47名", "第12名", "第75名", "第30名"],
           "correctAnswer": "第47名",
           "trivia": "Patti Smith的首张专辑《Horses》于1975年发行，这张专辑被广泛认为是朋克摇滚的奠基之作。在美国公告牌二百强专辑榜上，《Horses》最高达到第47名的成绩，显示出其商业上的成功。虽然没有进入前十名，但这对于当时风格前卫且不主流的艺术家来说已经非常难得。专辑中的歌曲如《Gloria》也获得了较大的关注，进一步推动了Patti Smith的职业生涯。此专辑的影响力远超排行榜表现，成为摇滚历史上的经典作品。"
         },
         {
           "question": "在Patti Smith的1975年专辑'Horses'的音响工程制作过程中，哪位录音师负责捕捉这张专辑独特的现场感和粗犷音质？",
-          "options": [
-            "Jack Douglas",
-            "Tony Bongiovi",
-            "Bob Clearmountain",
-            "Steve Lillywhite"
-          ],
+          "options": ["Jack Douglas", "Tony Bongiovi", "Bob Clearmountain", "Steve Lillywhite"],
           "correctAnswer": "Jack Douglas",
           "trivia": "Jack Douglas是1970年代著名的音响工程师，他负责了Patti Smith在1975年录制的经典专辑'Horses'的录音工作。Douglas以其能够捕捉现场氛围和粗犷音质的能力闻名，这使得'Horses'拥有一种直接且充满能量的声音特色。专辑录制地点位于纽约的电台录音室，Jack Douglas利用简洁的麦克风布置和模拟设备，强化了Patti Smith及其乐队的原始表现力。除此之外，Douglas还曾与Aerosmith和John Lennon等多位艺术家合作，证明了他在摇滚音乐制作中的重要地位。"
         },
@@ -6819,12 +6079,7 @@
         },
         {
           "question": "在Patti Smith的1975年专辑《Horses》中，哪位音乐家负责了贝斯演奏，是该专辑标志性声音的重要贡献者？",
-          "options": [
-            "Ivan Kral",
-            "Lenny Kaye",
-            "Richard Sohl",
-            "Jay Dee Daugherty"
-          ],
+          "options": ["Ivan Kral", "Lenny Kaye", "Richard Sohl", "Jay Dee Daugherty"],
           "correctAnswer": "Ivan Kral",
           "trivia": "Ivan Kral是捷克裔美国音乐家，他在Patti Smith的首张专辑《Horses》中担任贝斯手，帮助塑造了这张专辑独特的朋克摇滚氛围。该专辑于1975年发行，被认为是朋克和另类摇滚的先驱作品之一。除了贝斯，Ivan Kral还参与了吉他演奏，丰富了专辑的音乐层次。其他乐队成员如Lenny Kaye主要负责吉他，Richard Sohl负责键盘，Jay Dee Daugherty则是鼓手。Ivan Kral的贝斯线在专辑中尤为突出，成为Patti Smith标志性声音的重要组成部分。"
         }
@@ -6850,23 +6105,13 @@
         },
         {
           "question": "Paul McCartney的专辑'Band on the Run'于1973年首次数字发行时，哪个数字音乐平台最早提供了该专辑的合法下载？",
-          "options": [
-            "iTunes Store",
-            "Napster",
-            "Spotify",
-            "Amazon Music"
-          ],
+          "options": ["iTunes Store", "Napster", "Spotify", "Amazon Music"],
           "correctAnswer": "iTunes Store",
           "trivia": "Paul McCartney的经典专辑'Band on the Run'最早于1973年以实体唱片形式发行，随着数字音乐的发展，该专辑于2000年代初开始在数字平台上发布。iTunes Store是最早提供合法数字下载的主流平台之一，于2003年上线，之后迅速成为数字音乐销售的领头羊。虽然Napster早期以P2P共享闻名，但并非官方数字发行渠道。Spotify和Amazon Music则是在iTunes之后才推出，提供流媒体服务。'Band on the Run'通过iTunes的数字发行极大地拓宽了其听众基础，使经典作品在数字时代得以传承。"
         },
         {
           "question": "关于Paul McCartney的专辑'Band on the Run'，以下哪首歌曲曾经成为该专辑中的热门单曲并在排行榜上取得成功？",
-          "options": [
-            "Jet",
-            "Live and Let Die",
-            "Maybe I'm Amazed",
-            "Silly Love Songs"
-          ],
+          "options": ["Jet", "Live and Let Die", "Maybe I'm Amazed", "Silly Love Songs"],
           "correctAnswer": "Jet",
           "trivia": "Paul McCartney的1973年专辑'Band on the Run'中，歌曲'Jet'是其中最著名和最受欢迎的单曲之一。这首歌在多个国家的音乐排行榜上都取得了优异成绩，例如在英国和美国都进入了前十名。'Live and Let Die'和'Maybe I'm Amazed'虽然也是McCartney的知名作品，但分别来自其他专辑。'Silly Love Songs'则是McCartney在1976年以Wings乐队名义发行的热门单曲。'Band on the Run'专辑整体获得了极高的评价，并被认为是Paul McCartney职业生涯的高峰之一。"
         }
@@ -6920,12 +6165,7 @@
         },
         {
           "question": "Paul McCartney的专辑《Band on the Run》最初是在哪家唱片公司发行的？",
-          "options": [
-            "Apple Records",
-            "Capitol Records",
-            "EMI Records",
-            "Atlantic Records"
-          ],
+          "options": ["Apple Records", "Capitol Records", "EMI Records", "Atlantic Records"],
           "correctAnswer": "Apple Records",
           "trivia": "《Band on the Run》是Paul McCartney在1973年发行的专辑，当时他仍然隶属于The Beatles成立的Apple Records唱片公司。Apple Records成立于1968年，专门用于发行Beatles及其成员的个人作品。虽然EMI Records是Apple的母公司，负责分销，但这张专辑的正式发行品牌是Apple Records。Capitol Records和Atlantic Records虽然也在当时市场活跃，但并非这张专辑的发行公司。Apple Records的品牌象征着Beatles成员的独立创作阶段，Paul McCartney的《Band on the Run》成为了该公司最成功的个人项目之一。"
         },
@@ -6962,12 +6202,7 @@
         },
         {
           "question": "Peter Gabriel在1977年发行的首张同名专辑《Peter Gabriel》中，哪首歌曲是他自己独立创作并且首次作为单曲发行的？",
-          "options": [
-            "Solsbury Hill",
-            "Here Comes the Flood",
-            "Humdrum",
-            "Slowburn"
-          ],
+          "options": ["Solsbury Hill", "Here Comes the Flood", "Humdrum", "Slowburn"],
           "correctAnswer": "Solsbury Hill",
           "trivia": "《Peter Gabriel》是Peter Gabriel离开Genesis后发行的首张个人专辑，1977年推出。其中《Solsbury Hill》是专辑中最著名的歌曲，也是他第一次以个人身份发行的单曲。这首歌灵感来源于他个人生活的重大转折，表达了他离开乐团的心情和决心。《Here Comes the Flood》虽然也很知名，但并非首支单曲；《Humdrum》和《Slowburn》则是专辑中的其他曲目，但没有作为单曲推出。"
         },
@@ -6997,12 +6232,7 @@
         },
         {
           "question": "关于Peter Gabriel于1977年发行的首张同名专辑《Peter Gabriel》，下列哪一家唱片公司负责了其在英国的发行？",
-          "options": [
-            "Charisma Records",
-            "Virgin Records",
-            "Island Records",
-            "EMI Records"
-          ],
+          "options": ["Charisma Records", "Virgin Records", "Island Records", "EMI Records"],
           "correctAnswer": "Charisma Records",
           "trivia": "Peter Gabriel的1977年首张同名专辑《Peter Gabriel》在英国由Charisma Records发行。Charisma Records是当时以签约前卫摇滚和实验音乐艺术家著称的唱片公司，如Genesis和Peter Gabriel本人。虽然Virgin Records和Island Records在1970年代也非常活跃，但这张专辑并非由他们发行。EMI Records则主要负责其他艺术家的发行工作。Charisma Records的支持对Peter Gabriel早期独立创作风格的推广起到了关键作用。"
         },
@@ -7063,23 +6293,13 @@
       "easy": [
         {
           "question": "在Pink Floyd的1971年专辑'Meddle'中，哪位乐队成员主要负责吉他演奏和部分主唱？",
-          "options": [
-            "David Gilmour",
-            "Roger Waters",
-            "Richard Wright",
-            "Nick Mason"
-          ],
+          "options": ["David Gilmour", "Roger Waters", "Richard Wright", "Nick Mason"],
           "correctAnswer": "David Gilmour",
           "trivia": "David Gilmour是Pink Floyd在'Meddle'专辑录制期间的主要吉他手，同时也承担了部分主唱工作。该专辑中的经典曲目《Echoes》展示了他标志性的吉他技巧和音色。Roger Waters主要负责贝斯和部分主唱，而Richard Wright则专注于键盘演奏。Nick Mason是乐队的鼓手，负责节奏部分。'Meddle'是Pink Floyd音乐风格转变的重要作品，David Gilmour的吉他贡献尤为突出。"
         },
         {
           "question": "Pink Floyd的1971年专辑'Meddle'在英国专辑排行榜上的最高排名是？",
-          "options": [
-            "第3名",
-            "第1名",
-            "第10名",
-            "第5名"
-          ],
+          "options": ["第3名", "第1名", "第10名", "第5名"],
           "correctAnswer": "第3名",
           "trivia": "Pink Floyd的专辑'Meddle'于1971年发行后，在英国专辑排行榜上达到了第3名的高位。这张专辑标志着乐队从迷幻摇滚向更具实验性的音乐风格转变。专辑中的长曲《Echoes》尤其受到乐评人和粉丝的赞赏。虽然'Meddle'没有登顶排行榜，但它为乐队后续作品如《The Dark Side of the Moon》的巨大成功奠定了坚实基础。该专辑在英国和其他国家的销量表现稳定，显示出Pink Floyd逐渐壮大的影响力。"
         },
@@ -7120,12 +6340,7 @@
         },
         {
           "question": "在Pink Floyd的1971年专辑'Meddle'的制作过程中，哪一首曲目以其创新的环绕声录音和现场环境音效而著称？",
-          "options": [
-            "Echoes",
-            "One of These Days",
-            "Fearless",
-            "San Tropez"
-          ],
+          "options": ["Echoes", "One of These Days", "Fearless", "San Tropez"],
           "correctAnswer": "Echoes",
           "trivia": "Pink Floyd的专辑'Meddle'中，曲目《Echoes》因其长达23分钟的结构和创新的环绕声录音技术而备受关注。该曲利用了来自录音室的环境声和海豚声样本，创造出独特的氛围感，展现了乐队在音效实验上的突破。此外，《Echoes》的录制过程花费了大量时间，体现了Pink Floyd对声音细节的极致追求。此曲后来成为乐队现场演出的经典之一，也标志着他们音乐风格向更具实验性的方向转变。"
         }
@@ -7155,12 +6370,7 @@
         },
         {
           "question": "在Pink Floyd的1971年专辑'Meddle'录制过程中，乐队主要使用了哪种模拟合成器设备来创造独特的声音效果？",
-          "options": [
-            "EMS VCS3合成器",
-            "Moog Modular合成器",
-            "ARP 2600合成器",
-            "Oberheim滤波器"
-          ],
+          "options": ["EMS VCS3合成器", "Moog Modular合成器", "ARP 2600合成器", "Oberheim滤波器"],
           "correctAnswer": "EMS VCS3合成器",
           "trivia": "在录制Pink Floyd的1971年专辑'Meddle'时，乐队广泛使用了EMS VCS3模拟合成器，这款英国制造的合成器以其便携和灵活的模块化设计闻名。EMS VCS3帮助他们在专辑中创造了多种空间感和实验性的音效，尤其是在著名曲目《Echoes》中表现突出。虽然Moog Modular和ARP 2600也是当时流行的合成器设备，但'Meddle'的录音团队更倾向于EMS VCS3的声音特质和操作方式。此外，Oberheim滤波器并未在该专辑的制作中被主要采用，这使EMS VCS3成为那个时期Pink Floyd声音实验的标志性设备。"
         }
@@ -7197,12 +6407,7 @@
         },
         {
           "question": "在Prince的1979年同名专辑《Prince》中，哪种乐器是他亲自主要演奏的？",
-          "options": [
-            "电吉他",
-            "萨克斯风",
-            "钢琴",
-            "贝斯"
-          ],
+          "options": ["电吉他", "萨克斯风", "钢琴", "贝斯"],
           "correctAnswer": "电吉他",
           "trivia": "在Prince的首张同名专辑《Prince》中，他展现了多才多艺的音乐才能，尤其以电吉他演奏闻名。Prince不仅是主唱，还亲自演奏了电吉他，展示其标志性的弹奏风格。该专辑录制于1978至1979年间，混合了流行、放克和灵魂元素。虽然他也演奏了键盘和贝斯，但电吉他是专辑中最突出的乐器之一，奠定了他作为全能音乐人的地位。"
         }
@@ -7210,12 +6415,7 @@
       "medium": [
         {
           "question": "在Prince1979年同名专辑《Prince》中，哪种乐器是他亲自演奏并成为专辑音乐元素的重要特点？",
-          "options": [
-            "电吉他",
-            "萨克斯风",
-            "钢琴",
-            "电子鼓机"
-          ],
+          "options": ["电吉他", "萨克斯风", "钢琴", "电子鼓机"],
           "correctAnswer": "电吉他",
           "trivia": "Prince在他的首张同名专辑《Prince》中展示了他多才多艺的音乐能力，尤其以电吉他演奏闻名。专辑中大量采用了Prince亲自演奏的电吉他，体现了他融合摇滚和放克元素的独特风格。尽管专辑中也使用了钢琴和电子鼓机，但电吉他是塑造他早期音乐特色的关键乐器。此外，Prince几乎一人包办了多项乐器的演奏和制作，显示了他的全能音乐才华。"
         },
@@ -7232,12 +6432,7 @@
         },
         {
           "question": "在Prince1979年发行的首张同名专辑《Prince》中，哪位艺术家对Prince的音乐风格和创作灵感产生了显著影响？",
-          "options": [
-            "Jimi Hendrix",
-            "Michael Jackson",
-            "Stevie Wonder",
-            "David Bowie"
-          ],
+          "options": ["Jimi Hendrix", "Michael Jackson", "Stevie Wonder", "David Bowie"],
           "correctAnswer": "Jimi Hendrix",
           "trivia": "Prince在他的首张同名专辑《Prince》中展现了多种音乐元素，其中Jimi Hendrix对他的吉他演奏风格和音乐创新起到了关键作用。Prince本人曾多次公开表示，Hendrix是他最重要的灵感来源之一，尤其是在电吉他表达和舞台表现力方面。1979年发布的《Prince》专辑中，融合了摇滚、放克和灵魂等多种风格，这也反映了Hendrix的跨界影响。除了音乐风格，Prince的创作态度和实验精神也深受Hendrix启发，推动了他后续作品的多样化发展。"
         }
@@ -7287,12 +6482,7 @@
       "easy": [
         {
           "question": "Queen的专辑'Sheer Heart Attack'发行后，哪首歌曲最受粉丝欢迎，成为乐队的经典现场演出曲目？",
-          "options": [
-            "Killer Queen",
-            "Stone Cold Crazy",
-            "Flick of the Wrist",
-            "Brighton Rock"
-          ],
+          "options": ["Killer Queen", "Stone Cold Crazy", "Flick of the Wrist", "Brighton Rock"],
           "correctAnswer": "Killer Queen",
           "trivia": "专辑'Sheer Heart Attack'于1974年发布，其中《Killer Queen》成为Queen最早的商业突破单曲，登上了英国单曲榜的第2位。该曲以其独特的旋律和富有戏剧性的歌词赢得了大量粉丝的喜爱，成为乐队现场表演中的常驻曲目。除此之外，《Killer Queen》还帮助Queen在国际上建立了声誉，推动了专辑的销量。其他曲目如《Stone Cold Crazy》虽然也被乐迷认可，但《Killer Queen》无疑是该专辑在流行文化中的标志性作品。"
         },
@@ -7421,12 +6611,7 @@
         },
         {
           "question": "Ramones乐队1976年发行的首张专辑《Ramones》在美国公告牌专辑排行榜上的最高排名是多少？",
-          "options": [
-            "第111名",
-            "第50名",
-            "第5名",
-            "未进入公告牌排行榜"
-          ],
+          "options": ["第111名", "第50名", "第5名", "未进入公告牌排行榜"],
           "correctAnswer": "第111名",
           "trivia": "Ramones的首张专辑《Ramones》于1976年发行，虽然没有在美国公告牌排行榜上获得极高的名次，但其最高排名达到了第111名。该专辑被认为是朋克摇滚的开山鼻祖，对后来的音乐风格产生了深远影响。尽管商业上的成功有限，《Ramones》在朋克文化中享有崇高地位，成为乐迷和评论家心中的经典。专辑中的歌曲如“Blitzkrieg Bop”也成为乐队最具代表性的作品之一。"
         }
@@ -7445,12 +6630,7 @@
         },
         {
           "question": "在Ramones的1976年同名专辑《Ramones》的制作过程中，哪位制作人负责了该专辑的录音和制作工作？",
-          "options": [
-            "Craig Leon",
-            "Phil Spector",
-            "George Martin",
-            "Brian Eno"
-          ],
+          "options": ["Craig Leon", "Phil Spector", "George Martin", "Brian Eno"],
           "correctAnswer": "Craig Leon",
           "trivia": "Ramones的首张专辑《Ramones》由制作人Craig Leon负责录音和制作，他在当时是一位年轻的制作人，擅长捕捉乐队的原始朋克能量。该专辑录制于1976年，录音过程快速且直接，强调简洁和生猛的音乐风格。Craig Leon的制作帮助塑造了朋克音乐的标志性声音，使《Ramones》成为朋克摇滚的重要里程碑。Phil Spector、George Martin和Brian Eno虽然都是著名制作人，但都未参与该专辑的制作。"
         },
@@ -7522,12 +6702,7 @@
         },
         {
           "question": "Roxy Music乐队于1972年发行的首张同名专辑《Roxy Music》在数字发行方面首次在哪个平台上线？",
-          "options": [
-            "Apple iTunes Store",
-            "Napster",
-            "Spotify",
-            "Amazon Music"
-          ],
+          "options": ["Apple iTunes Store", "Napster", "Spotify", "Amazon Music"],
           "correctAnswer": "Apple iTunes Store",
           "trivia": "《Roxy Music》是英国摇滚乐队Roxy Music于1972年发行的首张专辑。随着数字音乐时代的发展，这张专辑首次在苹果公司的iTunes Store上线，成为数字发行的重要里程碑。iTunes Store于2003年推出，是最早支持主流乐队经典专辑数字发行的平台之一。相比之下，Napster最初以P2P文件共享闻名，Spotify和Amazon Music则是在iTunes之后兴起的流媒体服务。Roxy Music的数字发行通过iTunes Store让更多新一代听众方便地接触到这张经典专辑。"
         },
@@ -7557,12 +6732,7 @@
         },
         {
           "question": "Roxy Music乐队1972年发行的首张同名专辑《Roxy Music》是在哪家唱片公司旗下发布的？",
-          "options": [
-            "Island Records",
-            "E.G. Records",
-            "Vertigo Records",
-            "Harvest Records"
-          ],
+          "options": ["Island Records", "E.G. Records", "Vertigo Records", "Harvest Records"],
           "correctAnswer": "E.G. Records",
           "trivia": "《Roxy Music》是Roxy Music乐队于1972年发行的首张专辑，该专辑由E.G. Records公司发布。E.G. Records成立于1969年，专注于签约和推广前卫摇滚和艺术摇滚乐队。值得一提的是，E.G. Records同时也签约了如King Crimson和Brian Eno等艺术家，这使得Roxy Music的音乐风格得到了很好地支持和推广。专辑的发行帮助乐队迅速在英国及国际舞台上获得关注，奠定了其在艺术摇滚领域的地位。"
         },
@@ -7715,12 +6885,7 @@
         },
         {
           "question": "在Rush乐队1974年发行的首张同名专辑《Rush》的制作过程中，哪位制作人负责了这张专辑的录音和混音工作？",
-          "options": [
-            "Terry Brown",
-            "Bob Ezrin",
-            "Nick Blagona",
-            "Mike Clink"
-          ],
+          "options": ["Terry Brown", "Bob Ezrin", "Nick Blagona", "Mike Clink"],
           "correctAnswer": "Nick Blagona",
           "trivia": "Rush乐队的1974年首张专辑《Rush》录制于加拿大多伦多的Toronto Sound Studios，制作团队由乐队成员自行管理，录音和混音则由工程师Nick Blagona负责。Nick Blagona是当时加拿大知名的录音工程师，曾为多支摇滚乐队工作，因其技术娴熟而受到赞誉。尽管后来Rush的很多专辑由著名制作人Terry Brown制作，首张专辑的制作则完全是由乐队和Blagona合作完成。Bob Ezrin和Mike Clink虽然在摇滚界也极具影响力，但并未参与《Rush》专辑的制作。这张专辑的制作过程较为简朴，体现了乐队早期的原始力量和自我驱动精神。"
         }
@@ -7735,12 +6900,7 @@
       "easy": [
         {
           "question": "Santana的专辑《Abraxas》中，哪首歌曲在美国电台播放量最高，成为他们的代表作之一？",
-          "options": [
-            "Black Magic Woman",
-            "Samba Pa Ti",
-            "Oye Como Va",
-            "Everybody's Everything"
-          ],
+          "options": ["Black Magic Woman", "Samba Pa Ti", "Oye Como Va", "Everybody's Everything"],
           "correctAnswer": "Black Magic Woman",
           "trivia": "《Abraxas》是Santana于1970年发行的第二张专辑，融合了摇滚与拉丁音乐元素。其中，《Black Magic Woman》是专辑中最受欢迎的曲目之一，改编自Peter Green创作的歌曲。该曲在美国电台获得了大量播放，帮助Santana进入主流市场，并成为他们最知名的代表作之一。此外，专辑整体也在Billboard 200排行榜上取得了不错的成绩，进一步巩固了Santana在当时音乐界的重要地位。"
         },
@@ -7770,34 +6930,19 @@
       "medium": [
         {
           "question": "Santana的专辑《Abraxas》在1971年格莱美奖中获得了哪项重要提名？",
-          "options": [
-            "最佳摇滚专辑",
-            "最佳当代器乐演奏专辑",
-            "最佳原创歌曲",
-            "最佳混音工程"
-          ],
+          "options": ["最佳摇滚专辑", "最佳当代器乐演奏专辑", "最佳原创歌曲", "最佳混音工程"],
           "correctAnswer": "最佳当代器乐演奏专辑",
           "trivia": "Santana的《Abraxas》专辑在1971年获得了格莱美奖的最佳当代器乐演奏专辑提名，这体现了其音乐融合了拉丁摇滚和爵士元素的独特风格。《Abraxas》继承了Santana乐队早期作品的创新精神，尤其以其复杂的乐器编排和非凡的演奏技巧闻名。虽然它未能赢得该奖项，但提名本身证明了专辑在当时音乐界的高度认可。此外，《Abraxas》中的经典曲目如“Black Magic Woman”和“Oye Como Va”也极大提升了Santana的国际声誉。"
         },
         {
           "question": "Santana的专辑《Abraxas》在美国《公告牌》200排行榜上的最高排名是多少？",
-          "options": [
-            "第1名",
-            "第5名",
-            "第9名",
-            "第15名"
-          ],
+          "options": ["第1名", "第5名", "第9名", "第15名"],
           "correctAnswer": "第9名",
           "trivia": "Santana的《Abraxas》专辑于1970年发行后，迅速获得商业成功，其在美国《公告牌》200排行榜上的最高排名达到了第9位。这张专辑融合了拉丁摇滚和布鲁斯元素，包含了经典曲目如《Black Magic Woman》和《Oye Como Va》，这些歌曲进一步推动了专辑的流行度。值得一提的是，《Abraxas》不仅在排行榜表现出色，还获得了广泛的赞誉，成为Santana乐队职业生涯中的标志性作品之一。"
         },
         {
           "question": "在Santana的1970年专辑《Abraxas》中，哪位乐手是该专辑中著名的鼓手，因其独特的拉丁节奏风格而备受赞誉？",
-          "options": [
-            "Michael Shrieve",
-            "Buddy Miles",
-            "Ginger Baker",
-            "John Bonham"
-          ],
+          "options": ["Michael Shrieve", "Buddy Miles", "Ginger Baker", "John Bonham"],
           "correctAnswer": "Michael Shrieve",
           "trivia": "Michael Shrieve是Santana乐队在《Abraxas》专辑中的鼓手，他当时只有20岁，却以其融合拉丁和摇滚节奏的鼓技赢得广泛赞誉。Shrieve在1970年的伍德斯托克音乐节上随Santana乐队的精彩表现，更使他声名大噪。《Abraxas》专辑中的许多曲目，如《Samba Pa Ti》和《Black Magic Woman》，都能听到他复杂且富有感染力的打击乐风格，成为专辑成功的重要因素之一。"
         }
@@ -7847,12 +6992,7 @@
       "easy": [
         {
           "question": "Sex Pistols的专辑《Never Mind the Bollocks, Here's the Sex Pistols》首次数字发行是在什么年代？",
-          "options": [
-            "1980年代初期",
-            "1990年代中期",
-            "2000年代初期",
-            "2010年代末期"
-          ],
+          "options": ["1980年代初期", "1990年代中期", "2000年代初期", "2010年代末期"],
           "correctAnswer": "1990年代中期",
           "trivia": "Sex Pistols的经典专辑《Never Mind the Bollocks, Here's the Sex Pistols》最初发行于1977年，属于朋克摇滚的代表作。这张专辑在录制时采用了传统的模拟录音技术，最初仅以黑胶和磁带形式发行。随着数字音乐格式的发展，该专辑在1990年代中期首次以CD形式数字发行，使得更多新一代听众能够接触到这张标志性作品。数字发行极大地拓宽了专辑的传播范围，也帮助Sex Pistols的音乐影响力延续至今。"
         },
@@ -7893,12 +7033,7 @@
         },
         {
           "question": "Sex Pistols在创作专辑《Never Mind the Bollocks, Here's the Sex Pistols》时，哪位艺术家对他们的朋克风格和态度产生了显著影响？",
-          "options": [
-            "The Rolling Stones",
-            "The Clash",
-            "The New York Dolls",
-            "David Bowie"
-          ],
+          "options": ["The Rolling Stones", "The Clash", "The New York Dolls", "David Bowie"],
           "correctAnswer": "The New York Dolls",
           "trivia": "Sex Pistols的专辑《Never Mind the Bollocks, Here's the Sex Pistols》于1977年发行，被视为朋克摇滚的经典之作。乐队受到美国早期朋克乐队The New York Dolls的巨大影响，尤其是在音乐风格和叛逆态度上。The New York Dolls的放纵形象和激烈表演激励了Sex Pistols塑造他们独特的音乐个性。此外，尽管The Clash和David Bowie在当时也对音乐界产生影响，但Sex Pistols更直接地从The New York Dolls汲取灵感。The Rolling Stones则是摇滚历史上的重要乐队，但他们并非Sex Pistols创作此专辑时的主要灵感来源。"
         },
@@ -7928,12 +7063,7 @@
         },
         {
           "question": "Sex Pistols的专辑《Never Mind the Bollocks, Here's the Sex Pistols》是与哪个唱片公司签约发行的，这一选择在当时的朋克摇滚界有何重要意义？",
-          "options": [
-            "Virgin Records",
-            "EMI Records",
-            "A&M Records",
-            "CBS Records"
-          ],
+          "options": ["Virgin Records", "EMI Records", "A&M Records", "CBS Records"],
           "correctAnswer": "Virgin Records",
           "trivia": "《Never Mind the Bollocks, Here's the Sex Pistols》最初由EMI Records签约录制，但因争议性内容，EMI在发行前不久撤销了合同。随后，A&M Records也短暂签约但迅速解约。最终，Sex Pistols与Virgin Records签订协议，Virgin于1977年发行了这张专辑。Virgin Records作为一家新兴的独立唱片公司，敢于支持激进的朋克乐队，这标志着朋克音乐开始进入主流视野。此举不仅巩固了Virgin在音乐产业中的先锋地位，也推动了朋克文化的广泛传播。"
         },
@@ -8040,12 +7170,7 @@
         },
         {
           "question": "在Simon于1970年发行的专辑'Bridge over Troubled Water'的制作背景中，哪位音乐家负责为标题曲提供了标志性的钢琴伴奏？",
-          "options": [
-            "Larry Knechtel",
-            "Paul McCartney",
-            "Billy Preston",
-            "Elton John"
-          ],
+          "options": ["Larry Knechtel", "Paul McCartney", "Billy Preston", "Elton John"],
           "correctAnswer": "Larry Knechtel",
           "trivia": "Larry Knechtel是著名的录音室音乐家，他在Simon的专辑'Bridge over Troubled Water'中负责演奏了那首标志性标题曲的钢琴伴奏。这个钢琴部分为歌曲增添了深厚的情感层次，使其成为20世纪最经典的音乐作品之一。值得注意的是，虽然Paul McCartney和Billy Preston都是杰出的钢琴演奏者，但他们并未参与这张专辑的录制。Elton John当时尚未成名，因此也未参与此项目。Larry Knechtel的贡献体现了这张专辑在音乐制作上的高水准和严谨的录音过程。"
         },
@@ -8229,23 +7354,13 @@
         },
         {
           "question": "Steely Dan的首张专辑\"Can't Buy a Thrill\"在数字发行时代首次以哪种高解析度音频格式正式发布？",
-          "options": [
-            "SACD（超级音频CD）格式",
-            "MP3格式",
-            "FLAC无损格式",
-            "AAC格式"
-          ],
+          "options": ["SACD（超级音频CD）格式", "MP3格式", "FLAC无损格式", "AAC格式"],
           "correctAnswer": "SACD（超级音频CD）格式",
           "trivia": "Steely Dan的1972年专辑\"Can't Buy a Thrill\"最初以模拟黑胶和磁带形式发行。随着数字音乐的发展，这张专辑在2000年代被重新以多种数字格式发布。其首次高解析度数字发行采用的是SACD格式，这种格式支持更高的采样率和动态范围，能更好地再现原始录音的细节。相比之下，MP3和AAC是有损压缩格式，虽然普及但音质不及SACD。FLAC虽然是无损格式，但\"Can't Buy a Thrill\"的高解析度官方数字发行主要是通过SACD完成的。"
         },
         {
           "question": "Steely Dan的首张专辑'Can't Buy a Thrill'是在哪家唱片公司发行的？",
-          "options": [
-            "ABC Records",
-            "Columbia Records",
-            "Atlantic Records",
-            "Capitol Records"
-          ],
+          "options": ["ABC Records", "Columbia Records", "Atlantic Records", "Capitol Records"],
           "correctAnswer": "ABC Records",
           "trivia": "'Can't Buy a Thrill'是Steely Dan于1972年发行的首张录音室专辑。这张专辑由ABC Records发行，这家公司在1970年代活跃于摇滚和流行音乐市场。ABC Records当时支持了多位重要艺术家的早期作品，Steely Dan也借助这张专辑在音乐界奠定了基础。专辑中的热门单曲如《Do It Again》和《Reelin' In the Years》帮助提升了他们的知名度。ABC Records直到1979年被其他公司收购，成为摇滚乐历史上一段重要的唱片公司篇章。"
         }
@@ -8295,23 +7410,13 @@
       "easy": [
         {
           "question": "Stevie Wonder在创作1972年专辑'Talking Book'时，哪位著名音乐家对他的灵感影响最大？",
-          "options": [
-            "Paul McCartney",
-            "Jimi Hendrix",
-            "Elton John",
-            "Marvin Gaye"
-          ],
+          "options": ["Paul McCartney", "Jimi Hendrix", "Elton John", "Marvin Gaye"],
           "correctAnswer": "Paul McCartney",
           "trivia": "Stevie Wonder在制作1972年专辑'Talking Book'期间，受到了Paul McCartney的显著影响。两人在录音室结识，McCartney甚至为Wonder的歌曲《I Believe (When I Fall in Love It Will Be Forever)》贡献了贝斯演奏。Paul McCartney当时是披头士乐队的成员，他的创意和音乐风格激励了Wonder在专辑中尝试更多创新元素。与此同时，虽然Marvin Gaye也是Motown的杰出艺术家，但此次灵感主要来自于跨界合作的McCartney。此专辑被认为是Wonder艺术生涯的转折点，展示了他融合多种音乐风格的能力。"
         },
         {
           "question": "Stevie Wonder发行1972年专辑《Talking Book》时，哪家唱片公司负责该专辑的发行？",
-          "options": [
-            "Motown Records",
-            "Atlantic Records",
-            "Columbia Records",
-            "Capitol Records"
-          ],
+          "options": ["Motown Records", "Atlantic Records", "Columbia Records", "Capitol Records"],
           "correctAnswer": "Motown Records",
           "trivia": "Stevie Wonder的《Talking Book》专辑于1972年通过Motown Records发行，这是他长期合作的唱片公司。Motown Records成立于1959年，是推动黑人音乐文化的重要厂牌，旗下拥有许多著名的灵魂和R&B艺人。该专辑包含了《Superstition》和《You Are the Sunshine of My Life》等经典曲目，均由Motown负责制作和发行。《Talking Book》被认为是Stevie Wonder艺术生涯的里程碑，巩固了他在Motown的核心地位。"
         },
@@ -8407,12 +7512,7 @@
       "easy": [
         {
           "question": "在Supertramp的1974年专辑《Crime of the Century》中，哪首歌曲最早成为电台播放的热门单曲？",
-          "options": [
-            "Dreamer",
-            "Bloody Well Right",
-            "School",
-            "Hide in Your Shell"
-          ],
+          "options": ["Dreamer", "Bloody Well Right", "School", "Hide in Your Shell"],
           "correctAnswer": "Bloody Well Right",
           "trivia": "《Crime of the Century》是Supertramp于1974年发行的突破性专辑，其中多首歌曲成为电台常播的热门曲目。尤其是《Bloody Well Right》这首歌，凭借其独特的摇滚风格和引人注目的歌词，最先在电台获得广泛播放，迅速提升了乐队的知名度。虽然《Dreamer》和《School》也是专辑中的知名曲目，它们在电台播放上的流行度稍晚于《Bloody Well Right》。该专辑标志着Supertramp风格的成熟，融合了摇滚和进步元素，深受70年代听众喜爱。"
         },
@@ -8519,12 +7619,7 @@
       "easy": [
         {
           "question": "在1971年发布专辑《Electric Warrior》后，T. Rex在现场表演和巡演中最早在哪个城市开始推广这张专辑？",
-          "options": [
-            "伦敦",
-            "纽约",
-            "曼彻斯特",
-            "巴黎"
-          ],
+          "options": ["伦敦", "纽约", "曼彻斯特", "巴黎"],
           "correctAnswer": "伦敦",
           "trivia": "T. Rex在1971年发行《Electric Warrior》后，最先在伦敦开始了推广巡演，这也是他们首次大规模展示这张专辑的现场演出。伦敦作为英国音乐的重要中心，为他们带来了广泛的关注和媒体报道。随后，乐队的巡演扩展到其他英国城市和国际舞台，逐渐巩固了他们在早期格拉姆摇滚中的地位。《Electric Warrior》专辑的成功使得T. Rex的现场表演风格更加自信且具有视觉冲击力，进一步提升了他们的音乐影响力。"
         },
@@ -8723,12 +7818,7 @@
         },
         {
           "question": "在Talking Heads的首张专辑《Talking Heads: 77》的词曲创作过程中，哪位成员主要负责了歌曲《Psycho Killer》的歌词创作？",
-          "options": [
-            "David Byrne",
-            "Chris Frantz",
-            "Tina Weymouth",
-            "Jerry Harrison"
-          ],
+          "options": ["David Byrne", "Chris Frantz", "Tina Weymouth", "Jerry Harrison"],
           "correctAnswer": "David Byrne",
           "trivia": "《Talking Heads: 77》是Talking Heads乐队1977年发行的首张专辑，其中《Psycho Killer》是最具代表性的歌曲之一。David Byrne不仅是乐队的主唱，同时也是这首歌的主要词曲作者。歌词反映了他对心理状态和内心冲突的深刻探索，体现了他独特的艺术视角。乐队成员Chris Frantz和Tina Weymouth主要负责节奏部分，Jerry Harrison则参与了编曲和乐器演奏。整体来看，David Byrne在词曲创作中起到了关键作用，奠定了Talking Heads独树一帜的音乐风格。"
         }
@@ -8754,12 +7844,7 @@
         },
         {
           "question": "The Allman Brothers Band在录制1971年现场专辑'At Fillmore East'时，哪位音响工程师负责捕捉他们现场表演的高质量声音？",
-          "options": [
-            "Tom Dowd",
-            "Owsley Stanley",
-            "Bruce Malamut",
-            "Eddie Kramer"
-          ],
+          "options": ["Tom Dowd", "Owsley Stanley", "Bruce Malamut", "Eddie Kramer"],
           "correctAnswer": "Bruce Malamut",
           "trivia": "Bruce Malamut是The Allman Brothers Band在录制'At Fillmore East'时的主要现场音响工程师，他负责确保录音设备能够精准捕捉乐队在Fillmore East剧院的现场表演。该专辑被誉为现场录音的经典之作，部分原因归功于Malamut对声场的细致处理和对乐器音色的平衡。与其他知名工程师如Tom Dowd和Eddie Kramer不同，Malamut专注于现场录音技术，这使得这张专辑的音质在当时的现场专辑中尤为突出。Owsley Stanley则更著名于Grateful Dead的录音工作。"
         },
@@ -8813,23 +7898,13 @@
       "hard": [
         {
           "question": "在1971年The Allman Brothers Band录制现场专辑《At Fillmore East》时，吉他手Dickey Betts主要使用了哪种型号的电吉他来塑造标志性的南方摇滚音色？",
-          "options": [
-            "Gibson Les Paul",
-            "Fender Stratocaster",
-            "Gibson SG",
-            "Fender Telecaster"
-          ],
+          "options": ["Gibson Les Paul", "Fender Stratocaster", "Gibson SG", "Fender Telecaster"],
           "correctAnswer": "Gibson Les Paul",
           "trivia": "在《At Fillmore East》这张经典现场专辑中，The Allman Brothers Band的吉他手Dickey Betts主要使用Gibson Les Paul电吉他，这款吉他以其厚重温暖的音色非常适合南方摇滚风格。Les Paul的双拾音器设计为乐队带来了丰富的音色层次，与Duane Allman的双吉他演奏形成了独特的对话。录制现场时，吉他的音质和演奏细节通过高质量的音响设备被完美捕捉，增强了专辑的现场氛围。Gibson Les Paul在摇滚史上广受推崇，而此专辑则是其经典应用之一。"
         },
         {
           "question": "在The Allman Brothers Band的现场专辑'At Fillmore East'的词曲创作过程中，哪位成员主要负责创作标志性现场即兴曲目《In Memory of Elizabeth Reed》的核心吉他旋律？",
-          "options": [
-            "Dickey Betts",
-            "Duane Allman",
-            "Gregg Allman",
-            "Berry Oakley"
-          ],
+          "options": ["Dickey Betts", "Duane Allman", "Gregg Allman", "Berry Oakley"],
           "correctAnswer": "Dickey Betts",
           "trivia": "《In Memory of Elizabeth Reed》是The Allman Brothers Band在1971年现场专辑'At Fillmore East'中的一首代表性曲目，展示了乐队独特的南方摇滚和即兴演奏风格。该曲的核心吉他旋律主要由Dickey Betts创作，他以其旋律优美且富有爵士风格的吉他演奏闻名。尽管Duane Allman在吉他演奏中贡献巨大，但这首曲目的创作起点是Betts的构思。此外，这首曲目名字源自他在录音期间见过的墓碑名字，体现了乐队在词曲创作中融合个人经历与文化元素的特点。此曲的创作过程反映了乐队成员间紧密合作与现场即兴的结合。"
         },
@@ -8866,12 +7941,7 @@
         },
         {
           "question": "The B-52's的首张同名专辑'The B-52's'中，哪首歌曲在电台播放中最为广泛，成为该专辑的代表单曲？",
-          "options": [
-            "Rock Lobster",
-            "Dance This Mess Around",
-            "Private Idaho",
-            "52 Girls"
-          ],
+          "options": ["Rock Lobster", "Dance This Mess Around", "Private Idaho", "52 Girls"],
           "correctAnswer": "Rock Lobster",
           "trivia": "《The B-52's》是美国摇滚乐队The B-52's于1979年发行的首张专辑，其中“Rock Lobster”成为该专辑最具代表性的单曲。这首歌凭借其独特的节奏和怪诞的歌词赢得了大量电台播放，尤其是在新波音乐电台中大受欢迎。它不仅帮助乐队在音乐圈内迅速崭露头角，也成为了他们的经典标志之一。事实上，“Rock Lobster”在发布时曾一度被认为是另类音乐的代表作品。该曲的成功也促使专辑在当时的独立音乐市场中获得较高的销量和关注度。"
         },
@@ -8901,12 +7971,7 @@
         },
         {
           "question": "在The B-52's于1979年发布的首张同名专辑《The B-52's》中，哪位成员主要负责吉他演奏？",
-          "options": [
-            "Ricky Wilson",
-            "Fred Schneider",
-            "Keith Strickland",
-            "Cindy Wilson"
-          ],
+          "options": ["Ricky Wilson", "Fred Schneider", "Keith Strickland", "Cindy Wilson"],
           "correctAnswer": "Ricky Wilson",
           "trivia": "The B-52's的首张专辑《The B-52's》于1979年发行，展示了他们独特的新浪潮风格和充满活力的声音。Ricky Wilson作为乐队的吉他手，负责专辑中的主要吉他部分，他的演奏风格为乐队的音乐增添了标志性的节奏感和氛围。Fred Schneider主要负责主唱和口琴，Keith Strickland则在后期更多担当鼓手角色，而Cindy Wilson则贡献了和声和打击乐。这张专辑奠定了The B-52's在摇滚和另类音乐领域的重要地位。"
         },
@@ -8967,12 +8032,7 @@
       "easy": [
         {
           "question": "The Beatles的专辑《Let It Be》在商品销售和品牌推广方面，哪种产品与该专辑的推广活动最紧密相关？",
-          "options": [
-            "官方海报和周边T恤",
-            "限量版木吉他",
-            "专辑主题香水",
-            "联名运动鞋"
-          ],
+          "options": ["官方海报和周边T恤", "限量版木吉他", "专辑主题香水", "联名运动鞋"],
           "correctAnswer": "官方海报和周边T恤",
           "trivia": "《Let It Be》是The Beatles于1970年发布的最后一张录音室专辑。为了推广这张专辑，厂牌和经纪团队推出了官方海报及周边T恤等产品，这些商品在当时的市场上广受欢迎。相比之下，限量版木吉他和专辑主题香水并非官方推广产品，而联名运动鞋在当时的音乐品牌推广中尚未普及。官方海报和T恤的推出帮助专辑进一步扩大了影响力，成为当时音乐商品销售的重要组成部分。"
         },
@@ -9048,12 +8108,7 @@
         },
         {
           "question": "在The Beatles录制1970年专辑《Let It Be》的制作过程中，哪位知名音乐制作人最终接手了混音和后期制作工作，替代了原本负责录制的Glyn Johns？",
-          "options": [
-            "Phil Spector",
-            "George Martin",
-            "Brian Epstein",
-            "Jeff Lynne"
-          ],
+          "options": ["Phil Spector", "George Martin", "Brian Epstein", "Jeff Lynne"],
           "correctAnswer": "Phil Spector",
           "trivia": "《Let It Be》最初的录制工作由工程师兼制作人Glyn Johns完成，但最终专辑的混音和后期制作由著名制作人Phil Spector接手，他为专辑增添了丰富的管弦乐编排和合唱，从而赋予专辑更具戏剧性的音效。尽管George Martin是The Beatles多年来的长期制作人，但他并未直接参与《Let It Be》的最终混音。Phil Spector的制作风格在当时引起了乐队成员，尤其是Paul McCartney的争议，因为他认为这种处理方式偏离了乐队原本的意图。该专辑的制作历史反映了The Beatles解散前夕复杂的内部动态和制作决策过程。"
         },
@@ -9090,12 +8145,7 @@
         },
         {
           "question": "The Cars乐队在1978年发行的首张同名专辑《The Cars》中，哪位艺术家被认为对他们的音乐风格产生了显著影响？",
-          "options": [
-            "David Bowie",
-            "Bruce Springsteen",
-            "Elvis Presley",
-            "Jimi Hendrix"
-          ],
+          "options": ["David Bowie", "Bruce Springsteen", "Elvis Presley", "Jimi Hendrix"],
           "correctAnswer": "David Bowie",
           "trivia": "The Cars乐队的首张同名专辑《The Cars》于1978年发行，融合了摇滚与新波风格，深受当时音乐先锋David Bowie的影响。David Bowie以其前卫的音乐和视觉形象激励了许多乐队探索创新声音。The Cars的主唱Ric Ocasek曾公开表示，Bowie的音乐激发了他们对合成器和电子元素的运用。此外，该专辑中的歌曲如《Just What I Needed》和《My Best Friend's Girl》体现了新波与流行摇滚的结合，显示了The Cars在艺术灵感上的多样来源。"
         },
@@ -9125,12 +8175,7 @@
         },
         {
           "question": "在The Cars乐队1978年发行的同名专辑《The Cars》的录制过程中，哪位音响工程师负责了混音和录音工作？",
-          "options": [
-            "Roy Thomas Baker",
-            "Bob Clearmountain",
-            "Bruce Botnick",
-            "Ted Templeman"
-          ],
+          "options": ["Roy Thomas Baker", "Bob Clearmountain", "Bruce Botnick", "Ted Templeman"],
           "correctAnswer": "Roy Thomas Baker",
           "trivia": "《The Cars》专辑由著名制作人Roy Thomas Baker负责制作和混音，他以在Queen等乐队的工作闻名。Baker在录制过程中采用了多轨录音技术，精细调整了吉他和合成器的音效，塑造出独特的电子摇滚风格。该专辑在制作上强调了清晰的吉他音色和合成器层次感，成为1970年代末摇滚制作的代表作之一。这种制作风格帮助The Cars获得了商业成功和广泛认可。"
         },
@@ -9191,12 +8236,7 @@
       "easy": [
         {
           "question": "乐队The Clash在1977年发行的专辑《The Clash》中，哪位艺术家的音乐风格对他们的创作灵感影响最大？",
-          "options": [
-            "Bob Dylan",
-            "Elvis Presley",
-            "The Ramones",
-            "David Bowie"
-          ],
+          "options": ["Bob Dylan", "Elvis Presley", "The Ramones", "David Bowie"],
           "correctAnswer": "The Ramones",
           "trivia": "The Clash的首张专辑《The Clash》发行于1977年，深受当时朋克摇滚先驱The Ramones的影响。The Ramones以其简洁有力的曲风和反叛精神，激励了The Clash在音乐和态度上的表达。事实上，The Clash的成员曾公开表示，The Ramones的音乐是促使他们投身朋克运动的重要动力之一。此外，《The Clash》专辑中的许多歌曲都体现了这种直接且充满能量的朋克风格，反映了他们对The Ramones音乐的敬意。"
         },
@@ -9303,23 +8343,13 @@
       "easy": [
         {
           "question": "The Doors的专辑《L.A. Woman》中，哪首歌曲通过描述洛杉矶的街头生活反映了社会现实？",
-          "options": [
-            "Riders on the Storm",
-            "Love Her Madly",
-            "L.A. Woman",
-            "The Changeling"
-          ],
+          "options": ["Riders on the Storm", "Love Her Madly", "L.A. Woman", "The Changeling"],
           "correctAnswer": "L.A. Woman",
           "trivia": "《L.A. Woman》是The Doors于1971年发布的专辑，其中同名主打歌《L.A. Woman》通过描绘洛杉矶的街头生活和城市氛围，反映了当时社会的复杂现实。这首歌融合了布鲁斯和摇滚元素，表现了对城市生活的感受和批判。专辑是乐队主唱吉姆·莫里森生前最后一张录制的作品，具有重要的历史意义。歌曲《L.A. Woman》在当时的摇滚界被视为对洛杉矶城市文化的深刻社会评论。"
         },
         {
           "question": "在推广The Doors的1971年专辑《L.A. Woman》时，哪首歌曲被选为主打单曲以吸引大众关注？",
-          "options": [
-            "Riders on the Storm",
-            "Love Her Madly",
-            "The Changeling",
-            "L'America"
-          ],
+          "options": ["Riders on the Storm", "Love Her Madly", "The Changeling", "L'America"],
           "correctAnswer": "Love Her Madly",
           "trivia": "《L.A. Woman》是The Doors在1971年发行的标志性专辑，其中“Love Her Madly”被选为主打单曲进行推广。这首歌曲在美国单曲榜上表现出色，成功帮助专辑提升了市场关注度。相比之下，“Riders on the Storm”虽然也是专辑中的著名曲目，但并非首发单曲。选择“Love Her Madly”作为主推单曲是乐队和厂牌营销策略中的关键一步，有效地吸引了更多听众与媒体的关注。"
         },
@@ -9384,23 +8414,13 @@
         },
         {
           "question": "关于The Doors乐队1971年发行的专辑《L.A. Woman》，该专辑是与哪家唱片公司合作发布的？",
-          "options": [
-            "Elektra Records",
-            "Atlantic Records",
-            "Columbia Records",
-            "Reprise Records"
-          ],
+          "options": ["Elektra Records", "Atlantic Records", "Columbia Records", "Reprise Records"],
           "correctAnswer": "Elektra Records",
           "trivia": "《L.A. Woman》是The Doors于1971年发行的第六张录音室专辑，该专辑由Elektra Records公司发布。Elektra Records是The Doors从乐队成立起一直合作的唱片公司，负责发行他们的大部分经典作品。尽管当时有许多大型唱片公司如Atlantic和Columbia活跃于市场，The Doors始终选择继续与Elektra保持合作关系。此外，《L.A. Woman》是乐队主唱吉姆·莫里森去世前的最后一张专辑，这张专辑在Elektra的支持下获得了商业上的成功和艺术上的认可。"
         },
         {
           "question": "在The Doors录制1971年专辑《L.A. Woman》的过程中，哪位乐手实际上接替了已故鼓手John Densmore的部分鼓手工作？",
-          "options": [
-            "Jerry Scheff",
-            "Hal Blaine",
-            "Earl Palmer",
-            "Robby Krieger"
-          ],
+          "options": ["Jerry Scheff", "Hal Blaine", "Earl Palmer", "Robby Krieger"],
           "correctAnswer": "Hal Blaine",
           "trivia": "《L.A. Woman》是The Doors的最后一张录音室专辑，录制时正值主唱Jim Morrison状态不稳。尽管John Densmore是乐队的主要鼓手，但在该专辑的录制过程中，著名的好莱坞录音室鼓手Hal Blaine被邀请参与部分鼓点演奏，以保证录音质量和进度。Hal Blaine是“Wrecking Crew”乐团的重要成员，曾参与大量经典作品的录制。Jerry Scheff则是专辑中负责贝斯演奏的音乐家，Earl Palmer是另一位著名鼓手但未参与本专辑录制，Robby Krieger则是乐队的吉他手。"
         }
@@ -9426,23 +8446,13 @@
         },
         {
           "question": "在媒体报道中，关于The Jam1978年发行的专辑'All Mod Cons'，哪首歌曲被视为该专辑最具代表性的单曲并广受关注？",
-          "options": [
-            "That's Entertainment",
-            "Going Underground",
-            "Town Called Malice",
-            "Start!"
-          ],
+          "options": ["That's Entertainment", "Going Underground", "Town Called Malice", "Start!"],
           "correctAnswer": "That's Entertainment",
           "trivia": "'That's Entertainment'是The Jam在1978年发行的专辑'All Mod Cons'中的一首标志性歌曲。该曲因其生动描绘英国日常生活的歌词和简洁的吉他伴奏而受到媒体的广泛赞誉。虽然'Going Underground'和'Town Called Malice'也是The Jam的热门单曲，但它们分别来自不同专辑。'Start!'则是1980年专辑'Sound Affects'中的作品。'That's Entertainment'经常被视为代表The Jam音乐风格和社会观察力的经典之作。"
         },
         {
           "question": "The Jam的专辑《All Mod Cons》在英国专辑排行榜上的最高排名是？",
-          "options": [
-            "第6名",
-            "第1名",
-            "第10名",
-            "第3名"
-          ],
+          "options": ["第6名", "第1名", "第10名", "第3名"],
           "correctAnswer": "第6名",
           "trivia": "The Jam于1978年发行的专辑《All Mod Cons》在英国专辑排行榜上最高排名第6名，标志着乐队逐渐获得主流认可。这张专辑包含了多首广受欢迎的歌曲，如“Down in the Tube Station at Midnight”。尽管没有登顶榜首，但《All Mod Cons》成功提升了The Jam在英国摇滚乐坛的地位，成为他们职业生涯中的重要里程碑。专辑的成功也为随后发行的作品打下了坚实基础。"
         }
@@ -9472,12 +8482,7 @@
         },
         {
           "question": "在The Jam的1978年专辑《All Mod Cons》中，乐队主要使用了哪种吉他放大器来塑造其标志性的音色？",
-          "options": [
-            "Vox AC30",
-            "Marshall Plexi",
-            "Fender Twin Reverb",
-            "Orange OR120"
-          ],
+          "options": ["Vox AC30", "Marshall Plexi", "Fender Twin Reverb", "Orange OR120"],
           "correctAnswer": "Vox AC30",
           "trivia": "The Jam在录制1978年的《All Mod Cons》专辑时，主要使用了Vox AC30吉他放大器，这种放大器以其明亮且富有穿透力的音色著称。Paul Weller的吉他音色深受60年代英伦摇滚的影响，而Vox AC30正是许多英国摇滚乐队的首选设备。与Marshall Plexi或Fender Twin Reverb相比，Vox AC30提供了一种更为清晰且富有动态的声音，这有助于塑造专辑中特有的锐利和紧凑感。此外，Orange OR120虽然在70年代也被一些乐队使用，但The Jam在这张专辑中并未采用该型号。"
         }
@@ -9573,23 +8578,13 @@
         },
         {
           "question": "在The Kinks的1970年专辑《Lola Versus Powerman and the Moneygoround, Part One》中，哪位成员主要负责吉他演奏并且是该专辑的主要词曲创作者？",
-          "options": [
-            "Ray Davies",
-            "Dave Davies",
-            "Mick Avory",
-            "John Dalton"
-          ],
+          "options": ["Ray Davies", "Dave Davies", "Mick Avory", "John Dalton"],
           "correctAnswer": "Ray Davies",
           "trivia": "Ray Davies不仅是The Kinks的主唱，同时也是《Lola Versus Powerman and the Moneygoround, Part One》专辑的主要词曲创作者和主吉他手。该专辑反映了他对音乐产业的批判态度，尤其针对唱片公司的商业运作。Dave Davies作为乐队的主音吉他手，更多负责独奏和和声部分，而Mick Avory和John Dalton分别担任鼓手和贝斯手的角色。Ray Davies的创作风格和吉他演奏是这张概念专辑的核心，体现了他在乐队中的领导地位。"
         },
         {
           "question": "在The Kinks的专辑《Lola Versus Powerman and the Moneygoround, Part One》中，哪首歌曲的歌词深刻揭示了音乐产业中艺术家与经纪人之间的矛盾与利益冲突？",
-          "options": [
-            "《Get Back in Line》",
-            "《Lola》",
-            "《Powerman》",
-            "《Strangers》"
-          ],
+          "options": ["《Get Back in Line》", "《Lola》", "《Powerman》", "《Strangers》"],
           "correctAnswer": "《Get Back in Line》",
           "trivia": "《Get Back in Line》是The Kinks在1970年发行的专辑《Lola Versus Powerman and the Moneygoround, Part One》中的一首歌曲。这首歌通过讽刺和批判的歌词，反映了乐队与唱片公司、经纪人之间常见的矛盾和经济压力，展现了艺术家在音乐商业体系中的挣扎。专辑整体主题围绕音乐产业的黑暗面展开，被认为是The Kinks对行业现实的深刻洞察。相比之下，歌曲《Lola》则更多聚焦于性别和身份的主题，而《Powerman》与《Strangers》则分别探讨了权力结构和人际关系。"
         }
@@ -9650,23 +8645,13 @@
         },
         {
           "question": "The Police在创作1978年专辑'Outlandos d'Amour'时，哪位艺术家或乐队对他们的音乐风格产生了明显影响？",
-          "options": [
-            "The Clash",
-            "Led Zeppelin",
-            "Pink Floyd",
-            "Bee Gees"
-          ],
+          "options": ["The Clash", "Led Zeppelin", "Pink Floyd", "Bee Gees"],
           "correctAnswer": "The Clash",
           "trivia": "The Police的首张专辑'Outlandos d'Amour'融合了朋克、雷鬼和摇滚元素，其中朋克乐队The Clash对他们的音乐风格有显著影响。The Clash以其激烈的节奏和社会意识的歌词著称，这也启发了The Police在创作时融入更强烈的节奏感与态度。此外，专辑的录制时间正值朋克运动兴起，The Police在伦敦音乐圈中与The Clash同处一时，互相影响。专辑中的多首歌曲都体现了这种朋克精神与雷鬼节奏的结合，使得'Outlandos d'Amour'成为当时创新且受欢迎的作品。"
         },
         {
           "question": "The Police乐队在1978年发行的专辑《Outlandos d'Amour》发布后，乐队首次进行大型巡回演出时，在哪个著名的伦敦音乐场地举办了他们的开场演唱会？",
-          "options": [
-            "Marquee Club",
-            "Royal Albert Hall",
-            "Hammersmith Odeon",
-            "The Roundhouse"
-          ],
+          "options": ["Marquee Club", "Royal Albert Hall", "Hammersmith Odeon", "The Roundhouse"],
           "correctAnswer": "Marquee Club",
           "trivia": "The Police在发行其首张专辑《Outlandos d'Amour》后，迅速获得关注，并于1978年开始进行首次大型巡回演出。他们在伦敦著名的Marquee Club举办了开场演唱会，这个场地以承办摇滚和朋克乐队而闻名，是当时新兴乐队展示实力的重要舞台。Marquee Club在伦敦音乐史上占有重要地位，曾见证过多支著名乐队的早期演出。The Police的选择体现了他们从地下场景走向更广泛听众的转变。"
         }
@@ -9762,12 +8747,7 @@
         },
         {
           "question": "在The Rolling Stones的1971年专辑'Sticky Fingers'中，哪首歌曲以其标志性的滑音吉他开头而闻名？",
-          "options": [
-            "Brown Sugar",
-            "Wild Horses",
-            "Tumbling Dice",
-            "Dead Flowers"
-          ],
+          "options": ["Brown Sugar", "Wild Horses", "Tumbling Dice", "Dead Flowers"],
           "correctAnswer": "Brown Sugar",
           "trivia": "《Sticky Fingers》是The Rolling Stones于1971年发行的经典专辑，其中收录了多首著名歌曲。专辑的开场曲《Brown Sugar》以其标志性的滑音吉他riff著称，这段riff由吉他手Keith Richards演奏，成为摇滚音乐中的经典之一。该曲不仅在排行榜上取得成功，还广泛被视为The Rolling Stones的代表作之一。此外，《Sticky Fingers》是乐队首次在自己的唱片公司Rolling Stones Records发行的专辑，标志着他们音乐生涯的新阶段。"
         },
@@ -9797,12 +8777,7 @@
         },
         {
           "question": "在The Rolling Stones录制1971年专辑'Sticky Fingers'时，哪位著名的制作人首次担任了该专辑的制作工作？",
-          "options": [
-            "Jimmy Miller",
-            "George Martin",
-            "Brian Eno",
-            "Phil Spector"
-          ],
+          "options": ["Jimmy Miller", "George Martin", "Brian Eno", "Phil Spector"],
           "correctAnswer": "Jimmy Miller",
           "trivia": "Jimmy Miller在The Rolling Stones的专辑'Sticky Fingers'中首次担任制作人，这标志着乐队制作风格的一个重要转折。Miller不仅负责整体制作，还参与了鼓点和节奏的细节调整，使得专辑拥有了更加紧凑和富有感染力的声音。此前，这张专辑由乐队自行制作或由其他制作人协助，Jimmy Miller的加入极大提升了录音质量。'Sticky Fingers'录制于1970年末至1971年初，录音场所在伦敦和美国的几处录音室，Miller的制作技巧帮助乐队在声音上实现了复古与现代的完美融合。"
         },
@@ -9821,12 +8796,7 @@
       "hard": [
         {
           "question": "在电台播放历史上，The Rolling Stones的专辑'Sticky Fingers'中哪首歌曲最初因歌词内容被部分电台限制播放？",
-          "options": [
-            "Brown Sugar",
-            "Wild Horses",
-            "Bitch",
-            "Dead Flowers"
-          ],
+          "options": ["Brown Sugar", "Wild Horses", "Bitch", "Dead Flowers"],
           "correctAnswer": "Brown Sugar",
           "trivia": "The Rolling Stones发行于1971年的专辑'Sticky Fingers'中，歌曲《Brown Sugar》因其涉及种族和性暗示的歌词，在当时引起了一些电台的争议。许多美国电台因歌词被认为敏感而限制其播放，尽管这首歌后来成为乐队的经典之一。《Brown Sugar》以其强烈的摇滚节奏和独特的吉他riff广受欢迎，这也使得它在电台播放中极具辨识度。该曲的争议性反映了20世纪70年代初摇滚音乐对社会文化的冲击和挑战。"
         },
@@ -9874,12 +8844,7 @@
         },
         {
           "question": "在The Specials的1979年同名专辑'The Specials'中，哪位成员担任了主唱和吉他手的角色？",
-          "options": [
-            "Terry Hall",
-            "Jerry Dammers",
-            "Lynval Golding",
-            "Neville Staple"
-          ],
+          "options": ["Terry Hall", "Jerry Dammers", "Lynval Golding", "Neville Staple"],
           "correctAnswer": "Terry Hall",
           "trivia": "Terry Hall是The Specials乐队的主唱之一，并在1979年发行的同名专辑'The Specials'中担任了主唱和吉他手的角色。该专辑融合了ska、punk和2 Tone风格，推动了英国的2 Tone运动。Jerry Dammers作为键盘手和乐队的创始人，更多负责作曲和制作，而Lynval Golding则主要担任吉他手和和声歌手，Neville Staple则负责和声和打击乐。Terry Hall的独特嗓音成为该专辑标志性的声音元素之一。"
         },
@@ -9933,12 +8898,7 @@
       "hard": [
         {
           "question": "在1979年The Specials录制其同名专辑《The Specials》时，乐队主要使用了哪种类型的吉他放大器来塑造其标志性的2 Tone音色？",
-          "options": [
-            "Fender Twin Reverb",
-            "Vox AC30",
-            "Marshall JCM800",
-            "Ampeg SVT"
-          ],
+          "options": ["Fender Twin Reverb", "Vox AC30", "Marshall JCM800", "Ampeg SVT"],
           "correctAnswer": "Vox AC30",
           "trivia": "The Specials在1979年录制其首张同名专辑《The Specials》时，采用了Vox AC30吉他放大器来获得其独特的2 Tone摇滚与斯卡混合风格音色。Vox AC30因其明亮且温暖的音质，成为许多英国摇滚乐队的首选设备，包括The Specials。相比之下，Fender Twin Reverb更常见于美国蓝调和摇滚，Marshall JCM800则在80年代硬摇滚中更为流行，而Ampeg SVT主要用于低音放大。The Specials选择Vox AC30有助于突出其音乐中的清晰打击乐和复古韵味，这对2 Tone运动的声音塑造具有重要影响。"
         },
@@ -9975,23 +8935,13 @@
       "easy": [
         {
           "question": "在The Stooges的1970年专辑《Fun House》的录音过程中，哪位音响工程师负责捕捉现场感极强且原始的声音效果？",
-          "options": [
-            "Don Gallucci",
-            "Steve Albini",
-            "Bob Ezrin",
-            "Glyn Johns"
-          ],
+          "options": ["Don Gallucci", "Steve Albini", "Bob Ezrin", "Glyn Johns"],
           "correctAnswer": "Don Gallucci",
           "trivia": "《Fun House》由The Stooges于1970年录制，制作团队特别注重捕捉乐队现场演出的原始能量。担任音响工程师的是Don Gallucci，他以前是The Kingsmen的成员，后来转型为录音师。Galluci采用简洁直接的麦克风布置，减少过多后期处理，使得专辑声音非常生猛且富有现场感。与当时常用的多轨混音技术不同，Galluci的录音方法更强调真实和粗糙，符合The Stooges的朋克前身风格。此录音特色成为《Fun House》被视为经典的重要原因之一。"
         },
         {
           "question": "在录制The Stooges的1970年专辑《Fun House》时，哪位制作人负责指导录音过程？",
-          "options": [
-            "Don Gallucci",
-            "Steve Albini",
-            "Brian Eno",
-            "Phil Spector"
-          ],
+          "options": ["Don Gallucci", "Steve Albini", "Brian Eno", "Phil Spector"],
           "correctAnswer": "Don Gallucci",
           "trivia": "《Fun House》是The Stooges于1970年录制的标志性专辑，该专辑的录音过程由Don Gallucci担任制作人。Gallucci曾是The Kingsmen的成员，后来转型为制作人，他帮助The Stooges捕捉了现场般的粗犷声音。专辑录制地点为加利福尼亚的Cove City Sound Studios。Don Gallucci的制作风格强调乐队的原始能量和即兴表现，这对《Fun House》的声音特色至关重要。"
         },
@@ -10021,12 +8971,7 @@
         },
         {
           "question": "The Stooges在录制1970年专辑《Fun House》时，哪位音乐家作为客座演奏者参与了萨克斯风的录制？",
-          "options": [
-            "Steve Mackay",
-            "John Cale",
-            "Mick Ronson",
-            "Bootsy Collins"
-          ],
+          "options": ["Steve Mackay", "John Cale", "Mick Ronson", "Bootsy Collins"],
           "correctAnswer": "Steve Mackay",
           "trivia": "在The Stooges的经典专辑《Fun House》中，萨克斯风部分由Steve Mackay担任客座演奏。Steve Mackay的加入为专辑增添了独特的前卫摇滚色彩，这种萨克斯风的运用在当时的摇滚乐中较为罕见。录制于1970年，这张专辑由制作人Don Gallucci协助完成，力求捕捉乐队现场狂野的能量。Mackay的表现成为《Fun House》音效的重要标志，与Iggy Pop的狂放演唱形成了鲜明对比，提升了整张专辑的艺术表现力。该专辑被认为是原始朋克和前卫摇滚的开山之作，Steve Mackay的贡献不可忽视。"
         },
@@ -10056,12 +9001,7 @@
         },
         {
           "question": "在The Stooges录制1970年专辑《Fun House》的词曲创作过程中，哪位成员主要负责将Jim Morrison式的即兴诗歌风格融入歌词，塑造了专辑独特的狂野氛围？",
-          "options": [
-            "Iggy Pop",
-            "Ron Asheton",
-            "Scott Asheton",
-            "Dave Alexander"
-          ],
+          "options": ["Iggy Pop", "Ron Asheton", "Scott Asheton", "Dave Alexander"],
           "correctAnswer": "Iggy Pop",
           "trivia": "The Stooges的《Fun House》专辑以其原始且充满爆发力的音乐风格闻名，而其中的歌词创作极大依赖于主唱Iggy Pop的即兴诗歌式表达。Iggy Pop不仅将个人的狂野形象和街头文化融入歌词，还采用了类似Jim Morrison的自由联想和口语化的诗歌手法，使歌词更具现场感和原始冲击力。Ron Asheton和Scott Asheton主要负责吉他和鼓的演奏，Dave Alexander则是贝斯手，他们虽参与音乐编排，但词曲创作的核心是Iggy Pop的独特贡献。这种创作方式帮助《Fun House》成为迷幻朋克和前卫摇滚的重要里程碑。"
         },
@@ -10133,12 +9073,7 @@
         },
         {
           "question": "在The Who的1971年专辑《Who's Next》中，哪种电子乐器被首次大量使用，成为该专辑标志性的音乐元素？",
-          "options": [
-            "Moog合成器",
-            "哈蒙德风琴",
-            "萨克斯风",
-            "电吉他失真效果器"
-          ],
+          "options": ["Moog合成器", "哈蒙德风琴", "萨克斯风", "电吉他失真效果器"],
           "correctAnswer": "Moog合成器",
           "trivia": "《Who's Next》是The Who首张大量采用Moog合成器的专辑，这种电子乐器由Pete Townshend使用，为专辑带来了前所未有的声音质感。Moog合成器在《Baba O'Riley》和《Won't Get Fooled Again》等曲目中尤为突出，创造了标志性的合成音色。该专辑的创新使用合成器对摇滚乐的发展产生了深远影响，成为70年代初电子与摇滚结合的典范之一。这种尝试也体现了The Who对音乐技术的前瞻性探索。"
         },
@@ -10179,12 +9114,7 @@
         },
         {
           "question": "在1971年发行的The Who专辑《Who's Next》中，乐队成员Pete Townshend的灵感主要来源于哪部未完成的摇滚歌剧项目？",
-          "options": [
-            "Lifehouse",
-            "Tommy",
-            "Quadrophenia",
-            "The Rock"
-          ],
+          "options": ["Lifehouse", "Tommy", "Quadrophenia", "The Rock"],
           "correctAnswer": "Lifehouse",
           "trivia": "《Who's Next》专辑中的许多歌曲最初是为Pete Townshend构思的摇滚歌剧项目《Lifehouse》而创作的。尽管《Lifehouse》项目最终未能完成，但其音乐被重新编排并收录在《Who's Next》中。这个项目融合了科技与音乐的创新理念，反映了Townshend对未来社会和音乐表达的探索。《Tommy》和《Quadrophenia》是The Who的其他著名摇滚歌剧，但它们分别在1969年和1973年发行，与《Who's Next》无直接关联。The Rock则是不同艺术家的作品，未曾与The Who合作。"
         }
@@ -10210,23 +9140,13 @@
         },
         {
           "question": "Thin Lizzy的专辑《Jailbreak》（1976年）中哪首歌曲成为了乐队最著名的单曲之一，并且在美国公告牌摇滚榜上取得了显著成绩？",
-          "options": [
-            "The Boys Are Back in Town",
-            "Emerald",
-            "Cowboy Song",
-            "Jailbreak"
-          ],
+          "options": ["The Boys Are Back in Town", "Emerald", "Cowboy Song", "Jailbreak"],
           "correctAnswer": "The Boys Are Back in Town",
           "trivia": "《Jailbreak》是Thin Lizzy于1976年发行的专辑，其中《The Boys Are Back in Town》成为了乐队最具代表性的歌曲之一。这首歌曲在美国公告牌摇滚榜上表现突出，帮助乐队获得了更广泛的国际关注。该曲以其朗朗上口的旋律和双吉他和声而闻名，至今仍被视为经典摇滚曲目。《Emerald》和《Cowboy Song》也收录在专辑中，但影响力和知名度没有《The Boys Are Back in Town》大。《Jailbreak》作为专辑的同名曲，也很受欢迎，但没有达到单曲的高度。"
         },
         {
           "question": "Thin Lizzy在制作1976年专辑《Jailbreak》时，哪位著名制作人负责了该专辑的制作工作？",
-          "options": [
-            "Tony Visconti",
-            "Nick Tauber",
-            "Roy Thomas Baker",
-            "Martin Birch"
-          ],
+          "options": ["Tony Visconti", "Nick Tauber", "Roy Thomas Baker", "Martin Birch"],
           "correctAnswer": "Nick Tauber",
           "trivia": "Nick Tauber是英国著名制作人，他在1976年负责制作Thin Lizzy的专辑《Jailbreak》。这张专辑是Thin Lizzy音乐生涯中的重要作品，含有经典曲目如《The Boys Are Back in Town》。Tauber的制作风格帮助乐队实现了更清晰且富有力量的声音表现。此外，Nick Tauber还曾与其他摇滚乐队合作，如Thin Lizzy的前作《Fighting》和后续作品，体现了他在摇滚制作领域的丰富经验。"
         }
@@ -10322,23 +9242,13 @@
         },
         {
           "question": "Tom Petty在创作1979年专辑《Damn the Torpedoes》时，哪位艺术家对他的音乐风格产生了显著影响？",
-          "options": [
-            "Bob Dylan",
-            "Elvis Presley",
-            "Bruce Springsteen",
-            "Prince"
-          ],
+          "options": ["Bob Dylan", "Elvis Presley", "Bruce Springsteen", "Prince"],
           "correctAnswer": "Bob Dylan",
           "trivia": "Tom Petty在创作《Damn the Torpedoes》专辑过程中，深受Bob Dylan的音乐和歌词风格影响。Petty本人多次提到，Dylan的叙事方式和独特声音启发了他塑造自己的摇滚风格。此外，《Damn the Torpedoes》作为Petty的第三张录音室专辑，标志着他音乐成熟的重要转折点，其结合了传统摇滚与更具个人特色的创作手法。Bob Dylan的影响不仅体现在歌词主题上，也体现在Tom Petty对歌曲结构的把握上，使这张专辑成为了他职业生涯中的经典之作。"
         },
         {
           "question": "Tom Petty在录制1979年专辑'Damn the Torpedoes'时，主导录音过程的制作人是谁？",
-          "options": [
-            "Jimmy Iovine",
-            "Rick Rubin",
-            "Brian Eno",
-            "Quincy Jones"
-          ],
+          "options": ["Jimmy Iovine", "Rick Rubin", "Brian Eno", "Quincy Jones"],
           "correctAnswer": "Jimmy Iovine",
           "trivia": "Tom Petty的专辑'Damn the Torpedoes'于1979年录制，制作人是Jimmy Iovine，他以帮助该专辑获得更干净且富有冲击力的摇滚声音而闻名。Iovine此前曾与著名艺术家合作，带来了丰富的录音室经验。该专辑的录制在加州进行，制作人Jimmy Iovine的参与被认为是专辑成功的重要因素之一。Rick Rubin、Brian Eno和Quincy Jones虽然都是著名制作人，但他们没有参与这张专辑的制作。"
         }
@@ -10346,12 +9256,7 @@
       "medium": [
         {
           "question": "在Tom Petty的1979年专辑《Damn the Torpedoes》的制作过程中，哪位著名制作人负责了这张专辑的联合制作工作？",
-          "options": [
-            "Jimmy Iovine",
-            "Rick Rubin",
-            "Brian Eno",
-            "Quincy Jones"
-          ],
+          "options": ["Jimmy Iovine", "Rick Rubin", "Brian Eno", "Quincy Jones"],
           "correctAnswer": "Jimmy Iovine",
           "trivia": "《Damn the Torpedoes》是Tom Petty与他的乐队The Heartbreakers的第三张录音室专辑，发行于1979年。该专辑的制作由Tom Petty本人和著名制作人Jimmy Iovine联合承担。Jimmy Iovine当时已经因与诸多摇滚艺术家的合作而声名鹊起，他的制作风格帮助该专辑获得了更为清晰、强烈的声音质感。此外，Iovine的参与被认为是这张专辑商业成功的关键因素之一，使得Tom Petty和The Heartbreakers首次进入美国专辑排行榜的前十名。Rick Rubin、Brian Eno和Quincy Jones虽然都是著名制作人，但并未参与此专辑的制作。"
         },
@@ -10403,12 +9308,7 @@
         },
         {
           "question": "在Tom Petty的1979年专辑《Damn the Torpedoes》的制作过程中，哪位著名音乐人担任了制作人，帮助塑造了这张专辑的标志性声音？",
-          "options": [
-            "Jeff Lynne",
-            "Rick Rubin",
-            "George Martin",
-            "Daniel Lanois"
-          ],
+          "options": ["Jeff Lynne", "Rick Rubin", "George Martin", "Daniel Lanois"],
           "correctAnswer": "Jeff Lynne",
           "trivia": "Jeff Lynne是英国摇滚乐队Electric Light Orchestra的领军人物，他在制作Tom Petty的1979年专辑《Damn the Torpedoes》时发挥了关键作用。Lynne不仅担任制作人，还参与了部分乐器演奏和和声编写，极大地影响了专辑的声音质感。这张专辑因其清晰且富有层次感的制作风格而广受好评，帮助Tom Petty和The Heartbreakers在主流市场获得突破。Jeff Lynne的制作风格融合了干净的吉他音色和紧凑的节奏，为专辑增添了浓厚的摇滚氛围。"
         }
@@ -10504,12 +9404,7 @@
         },
         {
           "question": "关于Tubeway Army于1979年发行的专辑'Replicas'，以下哪家唱片公司负责其最初的英国发行？",
-          "options": [
-            "Beggars Banquet Records",
-            "EMI Records",
-            "Virgin Records",
-            "Island Records"
-          ],
+          "options": ["Beggars Banquet Records", "EMI Records", "Virgin Records", "Island Records"],
           "correctAnswer": "Beggars Banquet Records",
           "trivia": "Tubeway Army的专辑'Replicas'最初于1979年由Beggars Banquet Records在英国发行。Beggars Banquet是一家独立唱片公司，专注于推广新兴的另类及电子音乐，这与Tubeway Army的合成器朋克风格十分契合。该公司帮助推动了Gary Numan的早期成功，促成了他后来独立发展的音乐生涯。相比之下，EMI、Virgin和Island Records虽然都是当时重要的唱片公司，但并未参与'Replicas'的首发发行。Beggars Banquet Records的支持对该专辑在英国电子音乐史上的地位具有重要意义。"
         },
@@ -10535,12 +9430,7 @@
       "easy": [
         {
           "question": "Van Halen在录制1978年同名专辑《Van Halen》时，哪位音响工程师负责了主要录音和混音工作？",
-          "options": [
-            "Ted Templeman",
-            "Eddie Kramer",
-            "Bob Rock",
-            "Geoff Emerick"
-          ],
+          "options": ["Ted Templeman", "Eddie Kramer", "Bob Rock", "Geoff Emerick"],
           "correctAnswer": "Ted Templeman",
           "trivia": "Ted Templeman是1978年Van Halen首张同名专辑《Van Halen》的主要制作人兼音响工程师，他在录音和混音过程中发挥了关键作用。Templeman以其清晰且富有冲击力的摇滚制作风格闻名，曾与The Doobie Brothers和Van Halen多次合作。该专辑的录音采用了现场感强烈的录音技术，成功捕捉了乐队的能量与技巧，特别是Eddie Van Halen的吉他声音。Templeman的参与帮助《Van Halen》专辑取得商业和口碑的双重成功，成为摇滚史上的经典之作。"
         },
@@ -10647,12 +9537,7 @@
       "easy": [
         {
           "question": "Van Morrison在1970年录制专辑'Moondance'时，主要使用了哪种乐器作为其标志性的旋律乐器？",
-          "options": [
-            "萨克斯风",
-            "竖琴",
-            "钢琴",
-            "电吉他"
-          ],
+          "options": ["萨克斯风", "竖琴", "钢琴", "电吉他"],
           "correctAnswer": "萨克斯风",
           "trivia": "在Van Morrison的1970年专辑'Moondance'中，萨克斯风是塑造专辑独特爵士与灵魂融合氛围的重要乐器。Van Morrison本人擅长演奏萨克斯风，这使得专辑中的旋律更加丰富且富有表现力。虽然钢琴和电吉他也在录音中出现，但萨克斯风因其温暖且流畅的音色，成为该专辑的标志性声音之一。该专辑录制于纽约的Columbia Studios，制作团队特别强调萨克斯风的录音效果，以体现Van Morrison的音乐风格。Moondance的成功部分归功于这种乐器的巧妙运用，增强了歌曲的爵士与蓝调韵味。"
         },
@@ -10717,12 +9602,7 @@
       "hard": [
         {
           "question": "在Van Morrison的1970年专辑'Moondance'录制过程中，哪种乐器是由使用了Hammond B3风琴而闻名的音乐设备？",
-          "options": [
-            "电子琴",
-            "Hammond B3风琴",
-            "大键琴",
-            "合成器"
-          ],
+          "options": ["电子琴", "Hammond B3风琴", "大键琴", "合成器"],
           "correctAnswer": "Hammond B3风琴",
           "trivia": "Van Morrison的专辑'Moondance'中，Hammond B3风琴的使用极大地丰富了专辑的灵魂和爵士氛围。Hammond B3风琴是一种广泛用于1960年代和1970年代灵魂、爵士及摇滚音乐中的电风琴，因其独特的音色和旋律表达能力而闻名。专辑录制时，键盘手Jef Labes就使用了这款乐器，为多首曲目增添了温暖且富有层次的音色。此外，'Moondance'的录音在纽约的A&R录音室完成，这里的设备支持了包括Hammond B3在内的多种经典乐器的录制，体现了当时音乐制作的专业水平。"
         },
@@ -10781,12 +9661,7 @@
         },
         {
           "question": "在Warren Zevon的1978年专辑《Excitable Boy》的制作过程中，哪位著名音乐人参与了该专辑的和声录制？",
-          "options": [
-            "Linda Ronstadt",
-            "Stevie Nicks",
-            "Joni Mitchell",
-            "Carole King"
-          ],
+          "options": ["Linda Ronstadt", "Stevie Nicks", "Joni Mitchell", "Carole King"],
           "correctAnswer": "Linda Ronstadt",
           "trivia": "Linda Ronstadt是1970年代最著名的歌手之一，她为Warren Zevon的《Excitable Boy》专辑贡献了和声，特别是在多首歌曲中都能听到她的声音。Ronstadt与Zevon在当时的音乐圈里有着良好的合作关系，她的参与为专辑增添了丰富的层次感。此外，专辑由Warren Zevon与制作人Jackson Browne共同制作，整体录制过程在加州进行，汇聚了多位著名音乐人的参与，使《Excitable Boy》成为Zevon职业生涯中的代表作。"
         }
@@ -10794,23 +9669,13 @@
       "medium": [
         {
           "question": "在创作并录制Warren Zevon的1978年专辑《Excitable Boy》时，哪位著名音乐人参与了部分歌曲的钢琴演奏，影响了专辑独特的音乐风格？",
-          "options": [
-            "Jackson Browne",
-            "Bruce Springsteen",
-            "Billy Joel",
-            "Elton John"
-          ],
+          "options": ["Jackson Browne", "Bruce Springsteen", "Billy Joel", "Elton John"],
           "correctAnswer": "Jackson Browne",
           "trivia": "Warren Zevon的专辑《Excitable Boy》录制于1977年至1978年间，期间他得到了好友兼音乐人Jackson Browne的支持。Jackson Browne不仅为专辑部分曲目提供钢琴伴奏，还参与了制作过程，帮助塑造了专辑独特的摇滚与民谣融合风格。Jackson Browne与Zevon的合作提升了专辑的艺术表现力，使其成为经典之作。此外，Warren Zevon与Jackson Browne的长期友谊和音乐合作关系，也反映在这张专辑的整体氛围中。"
         },
         {
           "question": "在Warren Zevon的1978年专辑《Excitable Boy》中，哪位著名音乐家以钢琴演奏的身份参与了该专辑的录制？",
-          "options": [
-            "Jackson Browne",
-            "Elton John",
-            "Billy Joel",
-            "Bruce Springsteen"
-          ],
+          "options": ["Jackson Browne", "Elton John", "Billy Joel", "Bruce Springsteen"],
           "correctAnswer": "Jackson Browne",
           "trivia": "在Warren Zevon的经典专辑《Excitable Boy》中，Jackson Browne不仅担任了制作人之一，还亲自参与了钢琴演奏。Jackson Browne是当时洛杉矶音乐圈的重要人物，他的参与为专辑增添了丰富的音乐质感。《Excitable Boy》以其独特的摇滚和民谣融合风格闻名，Jackson Browne的钢琴贡献帮助塑造了专辑中多首歌曲的氛围。这张专辑同时也标志着Zevon音乐生涯的一个重要转折点。"
         },
@@ -10871,23 +9736,13 @@
       "easy": [
         {
           "question": "XTC在1979年发行的专辑《Drums and Wires》中，乐队主要使用了哪种鼓类乐器来塑造其独特的节奏感？",
-          "options": [
-            "传统声学鼓组",
-            "电子鼓机",
-            "非洲手鼓",
-            "打击垫"
-          ],
+          "options": ["传统声学鼓组", "电子鼓机", "非洲手鼓", "打击垫"],
           "correctAnswer": "传统声学鼓组",
           "trivia": "《Drums and Wires》是XTC于1979年推出的第三张录音室专辑，这张专辑以其明快且富有节奏感的鼓声闻名。乐队鼓手Terry Chambers主要使用传统的声学鼓组进行录制，这种选择帮助塑造了专辑中鲜明的后朋克和新波风格。虽然当时电子鼓逐渐流行，但XTC依然坚持用真实的鼓组来保证自然的打击感和动态表现。此外，专辑制作期间，录音师和乐队注重捕捉鼓组的空间感，以增强整体音效的活力和层次感。这种传统鼓组的使用成为《Drums and Wires》节奏驱动特征的重要基础。"
         },
         {
           "question": "XTC在录制1979年专辑《Drums and Wires》时，哪位制作人负责了专辑的制作工作？",
-          "options": [
-            "Steve Lillywhite",
-            "George Martin",
-            "Brian Eno",
-            "Nigel Godrich"
-          ],
+          "options": ["Steve Lillywhite", "George Martin", "Brian Eno", "Nigel Godrich"],
           "correctAnswer": "Steve Lillywhite",
           "trivia": "专辑《Drums and Wires》由英国制作人Steve Lillywhite担任制作人，他以独特的鼓声处理和空间感著称，这对XTC的音乐风格产生了重要影响。Lillywhite在当时刚开始崭露头角，后来成为许多知名摇滚乐队的合作伙伴。该专辑的制作带来了更紧凑和富有活力的声音，使XTC的音乐更具冲击力和现代感。George Martin和Brian Eno是著名制作人，但他们并未参与该专辑制作，而Nigel Godrich是在后期才开始活跃的制作人。"
         },
@@ -10952,12 +9807,7 @@
         },
         {
           "question": "在XTC创作1979年专辑《Drums and Wires》的词曲时，哪种乐器的使用显著改变了他们的音乐风格？",
-          "options": [
-            "12弦电吉他",
-            "合成器",
-            "萨克斯风",
-            "钢琴"
-          ],
+          "options": ["12弦电吉他", "合成器", "萨克斯风", "钢琴"],
           "correctAnswer": "12弦电吉他",
           "trivia": "XTC在1979年发行的《Drums and Wires》专辑中，12弦电吉他的引入对他们的音乐风格产生了重要影响。这种乐器带来了独特的颤音和层次感，使得他们的摇滚曲风更具实验性和前卫感。专辑制作时，乐队成员Dave Gregory首次作为正式吉他手加入，正是他推动了12弦电吉他的使用。此外，这张专辑的词曲创作更注重结构紧凑和旋律创新，反映了乐队从早期的迷幻风格向更现代化摇滚的转变。12弦电吉他的声音成为该专辑标志性的音乐元素之一。"
         },
@@ -11018,12 +9868,7 @@
       "medium": [
         {
           "question": "在Yes乐队1971年发行的专辑《The Yes Album》发布后，他们首次巡演中哪座城市的现场演出被认为对乐队的早期发展影响最大？",
-          "options": [
-            "伦敦",
-            "纽约",
-            "阿姆斯特丹",
-            "爱丁堡"
-          ],
+          "options": ["伦敦", "纽约", "阿姆斯特丹", "爱丁堡"],
           "correctAnswer": "伦敦",
           "trivia": "Yes乐队在发行《The Yes Album》后，伦敦的现场演出成为他们早期巡演中最具影响力的一站。伦敦作为英国摇滚音乐的重要中心，为他们提供了广泛的观众基础和媒体关注，促进了乐队的知名度提升。此外，这次巡演帮助Yes巩固了他们融合复杂结构与旋律性的现场表演风格。值得一提的是，这次伦敦演出也记录了乐队成员间的默契，为后续专辑的创作和演出奠定了基础。整体来看，伦敦的现场表演对Yes及其《The Yes Album》的成功起到了关键作用。"
         },
@@ -11075,12 +9920,7 @@
         },
         {
           "question": "在Yes乐队1971年发行的专辑《The Yes Album》中，哪位成员主要负责了歌曲《Yours Is No Disgrace》的歌词创作？",
-          "options": [
-            "Jon Anderson",
-            "Chris Squire",
-            "Steve Howe",
-            "Rick Wakeman"
-          ],
+          "options": ["Jon Anderson", "Chris Squire", "Steve Howe", "Rick Wakeman"],
           "correctAnswer": "Jon Anderson",
           "trivia": "在Yes的经典专辑《The Yes Album》中，歌曲《Yours Is No Disgrace》的歌词主要由主唱Jon Anderson创作。作为乐队的灵魂人物，Anderson的歌词常带有哲学和抽象的意味，体现了当时早期前卫摇滚的独特风格。尽管Chris Squire和Steve Howe在音乐创作上贡献巨大，但歌词部分主要是由Anderson完成的。此外，Rick Wakeman在这张专辑中首次作为键盘手亮相，他的加入极大丰富了乐队的音乐层次。"
         }
@@ -11095,12 +9935,7 @@
       "easy": [
         {
           "question": "ZZ Top的专辑《Tres Hombres》（1973年）中，哪首歌曲成为了他们早期最著名的单曲之一？",
-          "options": [
-            "La Grange",
-            "Tush",
-            "Cheap Sunglasses",
-            "Gimme All Your Lovin'"
-          ],
+          "options": ["La Grange", "Tush", "Cheap Sunglasses", "Gimme All Your Lovin'"],
           "correctAnswer": "La Grange",
           "trivia": "《Tres Hombres》是ZZ Top于1973年发行的第三张录音室专辑，其中《La Grange》成为了他们的标志性歌曲之一。该曲以其独特的布鲁斯摇滚风格和标志性的吉他riff闻名，帮助ZZ Top在主流音乐界获得了更广泛的关注。此外，《La Grange》以其致敬德克萨斯州的布鲁斯俱乐部而著称，专辑整体展现了乐队对南方摇滚和布鲁斯音乐的深厚影响。此曲也常被认为是ZZ Top早期最成功的单曲，促进了专辑的商业成功。"
         },
@@ -11117,12 +9952,7 @@
         },
         {
           "question": "ZZ Top的专辑'Tres Hombres'在商品销售和品牌推广方面，哪首歌曲成为他们的标志性单曲并推动了专辑的商业成功？",
-          "options": [
-            "La Grange",
-            "Tush",
-            "Cheap Sunglasses",
-            "Sharp Dressed Man"
-          ],
+          "options": ["La Grange", "Tush", "Cheap Sunglasses", "Sharp Dressed Man"],
           "correctAnswer": "La Grange",
           "trivia": "ZZ Top的1973年专辑'Tres Hombres'中，歌曲'La Grange'成为他们的标志性单曲，极大推动了专辑的销量。这首曲子以其独特的布鲁斯摇滚风格和朗朗上口的吉他riff著称，帮助乐队在美国市场获得更广泛的关注。'Tres Hombres'是ZZ Top首张进入美国专辑排行榜前40名的专辑，部分归功于'La Grange'的成功。此外，乐队通过这首歌巩固了他们在商业品牌推广中的地位，成为70年代南方摇滚的重要代表。"
         }

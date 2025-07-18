@@ -119,7 +119,7 @@ export class AuthService {
   private readonly userCache = new Map<string, UserWithPassword>();
 
   // Constants
-  private readonly RATE_LIMIT_RESET_TIME = 15 * 60 * 1000; // 15 minutes in milliseconds
+  private readonly RATE_LIMIT_RESET_TIME = 0; // 15 minutes in milliseconds
 
   /**
    * Retrieves a user by email from cache or database

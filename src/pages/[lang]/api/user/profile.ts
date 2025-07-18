@@ -119,6 +119,8 @@ interface GameResult {
   category: string;
   /** Difficulty level of the game */
   difficulty: DifficultyLevel;
+  /** Language in which the game was played */
+  language: string;
   /** ISO 8601 formatted date when the game was completed */
   createdAt: string;
 }
@@ -206,7 +208,7 @@ async function fetchUserInfo(
 }
 
 /**
- * Fetches and processes game statistics for a user
+ * Fetches and processes game statistics for a user across all languages
  *
  * @param {UserId} userId - User ID to fetch statistics for
  * @returns {Promise<Record<GameMode, GameModeStats>>} Processed game statistics
@@ -230,11 +232,12 @@ async function fetchGameStats(userId: UserId): Promise<Record<GameMode, GameMode
     sql: `
       SELECT 
         game_mode, 
-        total_score, 
-        games_played, 
-        highest_score
+        SUM(total_score) as total_score, 
+        SUM(games_played) as games_played, 
+        MAX(highest_score) as highest_score
       FROM user_mode_stats
       WHERE user_id = ?
+      GROUP BY game_mode
     `,
     args: [userId],
   });
@@ -270,6 +273,7 @@ async function fetchRecentGames(userId: UserId): Promise<Array<GameResult>> {
         score, 
         category, 
         difficulty, 
+        language,
         created_at
       FROM game_results
       WHERE user_id = ?
@@ -286,6 +290,7 @@ async function fetchRecentGames(userId: UserId): Promise<Array<GameResult>> {
         score: Number(row.score),
         category: row.category as string,
         difficulty: row.difficulty as DifficultyLevel,
+        language: row.language as string,
         createdAt: row.created_at as string,
       }))
     : [];

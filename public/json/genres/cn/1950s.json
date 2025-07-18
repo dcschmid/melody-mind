@@ -7,12 +7,7 @@
       "easy": [
         {
           "question": "Ahmad Jamal的专辑《At the Pershing: But Not for Me》在1958年发布后，哪一首曲目最受听众欢迎，成为该专辑的标志性作品？",
-          "options": [
-            "“Poinciana”",
-            "“But Not for Me”",
-            "“Autumn Leaves”",
-            "“Ahmad's Blues”"
-          ],
+          "options": ["“Poinciana”", "“But Not for Me”", "“Autumn Leaves”", "“Ahmad's Blues”"],
           "correctAnswer": "“Poinciana”",
           "trivia": "《At the Pershing: But Not for Me》是Ahmad Jamal于1958年录制的现场专辑，其中“Poinciana”这首曲目因其独特的节奏和优美的旋律深受听众喜爱。这首曲子不仅成为专辑的标志性作品，还帮助Ahmad Jamal赢得了广泛的流行文化认可。事实上，“Poinciana”在当时的爵士乐界影响深远，经常被其他音乐家翻奏。此外，该专辑在Billboard爵士排行榜上取得了优异成绩，进一步证明了其受欢迎程度。"
         },
@@ -29,12 +24,7 @@
         },
         {
           "question": "Ahmad Jamal在1958年专辑'At the Pershing: But Not for Me'中，哪种乐器是他作为主奏演奏的？",
-          "options": [
-            "钢琴",
-            "萨克斯风",
-            "小号",
-            "吉他"
-          ],
+          "options": ["钢琴", "萨克斯风", "小号", "吉他"],
           "correctAnswer": "钢琴",
           "trivia": "Ahmad Jamal是一位著名的爵士钢琴家，他在1958年录制的现场专辑'At the Pershing: But Not for Me'中，以钢琴为主要乐器。该专辑录制于芝加哥的Pershing Hotel，展现了Ahmad Jamal独特的空间感和节奏感，这张专辑也因其简洁而富有表现力的钢琴演奏而备受赞誉。钢琴作为他的标志性乐器，成为该专辑音乐元素中的核心。"
         }
@@ -88,23 +78,13 @@
         },
         {
           "question": "在Ahmad Jamal的1958年专辑《At the Pershing: But Not for Me》首次电台播放时，哪首曲目最先引起爵士乐电台DJ的广泛关注并频繁播放？",
-          "options": [
-            "“Poinciana”",
-            "“But Not for Me”",
-            "“Autumn Leaves”",
-            "“Billy Boy”"
-          ],
+          "options": ["“Poinciana”", "“But Not for Me”", "“Autumn Leaves”", "“Billy Boy”"],
           "correctAnswer": "“Poinciana”",
           "trivia": "《At the Pershing: But Not for Me》是Ahmad Jamal于1958年在芝加哥Pershing酒店现场录制的专辑，其中“Poinciana”因为其独特的节奏和延展的钢琴演奏成为电台播放的焦点。这首曲目不仅使Ahmad Jamal的三重奏在爵士界声名鹊起，还因其长达十多分钟的现场版本而成为电台DJ喜爱的播放选择。多家爵士乐电台在专辑发布后频繁播出“Poinciana”，推动了该专辑的商业成功和文化影响力。此曲的成功也体现了现场录音在电台播放中的独特魅力，成为那个时代爵士电台播放的重要标杆。"
         },
         {
           "question": "Ahmad Jamal的1958年专辑《At the Pershing: But Not for Me》是由哪家唱片公司发行的？",
-          "options": [
-            "Argo Records",
-            "Blue Note Records",
-            "Prestige Records",
-            "Impulse! Records"
-          ],
+          "options": ["Argo Records", "Blue Note Records", "Prestige Records", "Impulse! Records"],
           "correctAnswer": "Argo Records",
           "trivia": "《At the Pershing: But Not for Me》是Ahmad Jamal于1958年录制并发行的现场专辑，这张专辑由Argo Records发行。Argo Records是芝加哥一家重要的爵士乐唱片公司，隶属于Chess Records旗下。该专辑的成功极大提升了Ahmad Jamal的知名度，并成为他职业生涯的代表作之一。相比之下，Blue Note、Prestige和Impulse!都是同期著名的爵士乐唱片公司，但本专辑并非由它们发行。"
         }
@@ -130,12 +110,7 @@
         },
         {
           "question": "在1957年发行的专辑《Andy Williams Sings Steve Allen》中，Andy Williams与谁合作担任制作人？",
-          "options": [
-            "Steve Allen",
-            "Archie Bleyer",
-            "Chet Atkins",
-            "George Martin"
-          ],
+          "options": ["Steve Allen", "Archie Bleyer", "Chet Atkins", "George Martin"],
           "correctAnswer": "Archie Bleyer",
           "trivia": "《Andy Williams Sings Steve Allen》这张专辑于1957年发行，制作人是Archie Bleyer，他是Cadence唱片公司的创始人之一，也是Andy Williams早期职业生涯的重要合作伙伴。Steve Allen作为作曲家和词作者贡献了多首歌曲，但并未直接参与制作工作。Chet Atkins是一位著名的乡村音乐制作人，主要活跃于RCA唱片公司，而George Martin则是披头士乐队的著名制作人，活跃年代稍晚。这张专辑体现了Andy Williams与Archie Bleyer之间的紧密合作，帮助塑造了他的早期声线与风格。"
         },
@@ -154,12 +129,7 @@
       "medium": [
         {
           "question": "在1957年发行的专辑《Andy Williams Sings Steve Allen》中，Andy Williams演唱的歌曲主要体现了哪位著名电视节目主持人的创作风格？",
-          "options": [
-            "Steve Allen",
-            "Johnny Carson",
-            "Ed Sullivan",
-            "Jack Paar"
-          ],
+          "options": ["Steve Allen", "Johnny Carson", "Ed Sullivan", "Jack Paar"],
           "correctAnswer": "Steve Allen",
           "trivia": "《Andy Williams Sings Steve Allen》是一张专门收录Steve Allen作品的专辑，Andy Williams通过这张专辑向这位著名的电视节目主持人和作曲家致敬。Steve Allen不仅以主持《The Tonight Show》闻名，他同时也是一位多产的作曲家，创作了许多流行歌曲。该专辑展示了Williams对Allen音乐创作的诠释能力，录制于1957年，正值二人风格交汇的黄金时期。通过这张专辑，听众可以感受到那个年代流行文化与电视娱乐的紧密联系。"
         },
@@ -176,12 +146,7 @@
         },
         {
           "question": "媒体报道中，Andy Williams演唱的专辑《Andy Williams Sings Steve Allen》在1957年发布时，哪位著名音乐家为该专辑担任了管弦乐编曲和指挥？",
-          "options": [
-            "Nelson Riddle",
-            "Steve Allen",
-            "Alvy West",
-            "Henry Mancini"
-          ],
+          "options": ["Nelson Riddle", "Steve Allen", "Alvy West", "Henry Mancini"],
           "correctAnswer": "Alvy West",
           "trivia": "《Andy Williams Sings Steve Allen》是Andy Williams于1957年发行的一张专辑，专门演绎了作曲家兼电视主持人Steve Allen的作品。该专辑的管弦乐编曲和指挥由Alvy West负责，他是一位当时活跃的音乐指挥，曾为多位歌手制作伴奏。媒体报道当时特别提到Alvy West为专辑带来的丰富乐器色彩，这使得Andy Williams的声音更加突出且具有表现力。Steve Allen本人并未直接参与该专辑的演奏或指挥工作，而是作为词曲作者身份存在。Nelson Riddle和Henry Mancini虽然是当时知名的编曲家，但并未参与此专辑制作。"
         }
@@ -242,23 +207,13 @@
         },
         {
           "question": "关于1958年发行的专辑《Art Blakey and the Jazz Messengers》，下列哪种数字发行平台最早提供了这张专辑的数字版本？",
-          "options": [
-            "iTunes Store",
-            "Spotify",
-            "Amazon Music",
-            "Tidal"
-          ],
+          "options": ["iTunes Store", "Spotify", "Amazon Music", "Tidal"],
           "correctAnswer": "iTunes Store",
           "trivia": "《Art Blakey and the Jazz Messengers》是Art Blakey于1958年录制的重要硬波普专辑。随着数字音乐的发展，这张专辑最早在iTunes Store上以数字形式发布，使得更多现代听众能够方便地聆听这张经典作品。虽然Spotify、Amazon Music和Tidal也都后来提供了这张专辑的数字版本，但iTunes Store在数字发行中占据了先机。此外，iTunes Store的上线时间较早，为数字音乐的普及做出了重要贡献。"
         },
         {
           "question": "在Art Blakey的1958年专辑《Art Blakey and the Jazz Messengers》中，哪首曲目的主题最能体现硬波普（Hard Bop）风格的情感表达？",
-          "options": [
-            "Moanin'",
-            "Round About Midnight",
-            "Take Five",
-            "So What"
-          ],
+          "options": ["Moanin'", "Round About Midnight", "Take Five", "So What"],
           "correctAnswer": "Moanin'",
           "trivia": "《Moanin'》是Art Blakey and the Jazz Messengers专辑中最具代表性的曲目之一，体现了硬波普风格的灵魂和情感表达。这首曲子由钢琴手Bobby Timmons作曲，以其呼喊般的主题和蓝调元素闻名。硬波普是一种融合了节奏蓝调和福音音乐元素的爵士乐风格，而《Moanin'》完美地展现了这种情感深度和律动感。该曲在Jazz Messengers的1958年专辑中首次录制，后来成为爵士乐经典之一，广受乐迷喜爱。"
         }
@@ -400,12 +355,7 @@
         },
         {
           "question": "Arthur Lyman在1958年发行的专辑'Taboo'中，哪种乐器是其独特南太平洋风格音色的主要来源？",
-          "options": [
-            "马林巴琴",
-            "钢鼓",
-            "木琴",
-            "夏威夷吉他"
-          ],
+          "options": ["马林巴琴", "钢鼓", "木琴", "夏威夷吉他"],
           "correctAnswer": "马林巴琴",
           "trivia": "Arthur Lyman的专辑'Taboo'以其独特的南太平洋热带风情著称，尤其是通过马林巴琴的运用营造出独有的音色。马林巴琴是一种木质打击乐器，能够产生温暖而富有共鸣的音调，这正是Lyman音乐的标志之一。虽然夏威夷吉他和钢鼓也常见于热带音乐，但'Taboo'中最显著的特色乐器是马林巴琴。此外，Arthur Lyman本人是著名的马林巴琴演奏家，这使得此乐器在专辑中的使用尤为突出。此专辑是1950年代末期热带音乐风潮的经典作品。"
         }
@@ -501,23 +451,13 @@
         },
         {
           "question": "在B. B. King的1957年专辑'Singin' the Blues'中，哪种乐器的使用显著增强了专辑的布鲁斯氛围？",
-          "options": [
-            "电吉他",
-            "钢琴",
-            "萨克斯风",
-            "小提琴"
-          ],
+          "options": ["电吉他", "钢琴", "萨克斯风", "小提琴"],
           "correctAnswer": "电吉他",
           "trivia": "B. B. King以其标志性的电吉他演奏闻名，尤其是在1957年发行的专辑'Singin' the Blues'中。该专辑突出了他的电吉他技巧，特别是他富有表现力的弯音和清晰的音色，这些都成为现代布鲁斯音乐的重要特征。虽然钢琴和萨克斯风在布鲁斯音乐中也常见，但这张专辑主要以电吉他为中心，塑造了其独特的音乐元素。小提琴则较少出现在此类作品中，进一步凸显了电吉他的主导地位。"
         },
         {
           "question": "在B. B. King的1957年专辑'Singin' the Blues'的录制过程中，哪位音乐人以其钢琴演奏为专辑增添了独特风格？",
-          "options": [
-            "Piano Red",
-            "Ray Charles",
-            "Otis Spann",
-            "Fats Domino"
-          ],
+          "options": ["Piano Red", "Ray Charles", "Otis Spann", "Fats Domino"],
           "correctAnswer": "Piano Red",
           "trivia": "B. B. King的专辑'Singin' the Blues'于1957年录制，期间邀请了多位杰出的音乐家参与。钢琴手Piano Red的加入，为专辑增添了深厚的蓝调氛围和节奏感。Piano Red以其独特的演奏风格闻名，曾在多个蓝调和节奏布鲁斯项目中合作。该专辑的录音地点位于芝加哥，这座城市是当时蓝调音乐的重要中心。整体制作体现了50年代中期电蓝调的典型特征，具有高度影响力。"
         }
@@ -624,12 +564,7 @@
         },
         {
           "question": "在Bill Evans的专辑《Everybody Digs Bill Evans》中，哪位音乐家作为贝斯手参与了录制？",
-          "options": [
-            "Scott LaFaro",
-            "Paul Chambers",
-            "Ray Brown",
-            "Sam Jones"
-          ],
+          "options": ["Scott LaFaro", "Paul Chambers", "Ray Brown", "Sam Jones"],
           "correctAnswer": "Scott LaFaro",
           "trivia": "《Everybody Digs Bill Evans》是Bill Evans于1959年录制的一张重要专辑，标志着他与贝斯手Scott LaFaro合作的开始。Scott LaFaro以其旋律性和互动性的贝斯演奏风格，极大地丰富了这张专辑的音乐层次。LaFaro的加入推动了Bill Evans三重奏的创新表现形式，后来他们在经典专辑《Sunday at the Village Vanguard》中继续合作。Paul Chambers、Ray Brown和Sam Jones都是当时著名的贝斯手，但并未参与这张专辑的录制。"
         }
@@ -648,12 +583,7 @@
         },
         {
           "question": "在Bill Evans的1959年专辑《Everybody Digs Bill Evans》中，哪位音乐家的演奏对Evans的钢琴风格产生了显著的艺术启发？",
-          "options": [
-            "Lennie Tristano",
-            "Bud Powell",
-            "Thelonious Monk",
-            "Oscar Peterson"
-          ],
+          "options": ["Lennie Tristano", "Bud Powell", "Thelonious Monk", "Oscar Peterson"],
           "correctAnswer": "Bud Powell",
           "trivia": "Bill Evans在其1959年专辑《Everybody Digs Bill Evans》中展现了深受爵士钢琴先驱Bud Powell影响的风格。Powell以其复杂的和声结构和流畅的即兴演奏闻名，这些特质被Evans巧妙地融入自己的演奏中。Evans曾多次公开表示，Powell的音乐启发了他对和声和节奏的独特理解。此外，Evans的抒情风格与Powell的技术深度相结合，成为他个人标志性的钢琴表达方式。专辑中的作品充分体现了这种传承与创新的结合。"
         },
@@ -749,12 +679,7 @@
       "hard": [
         {
           "question": "在Bill Haley于1956年发行的专辑《Rock Around the Clock》中，哪种乐器的使用被认为是推动摇滚乐节奏感和风格形成的关键元素？",
-          "options": [
-            "电吉他",
-            "萨克斯风",
-            "钢琴",
-            "小提琴"
-          ],
+          "options": ["电吉他", "萨克斯风", "钢琴", "小提琴"],
           "correctAnswer": "萨克斯风",
           "trivia": "Bill Haley的专辑《Rock Around the Clock》在1956年发行，是摇滚乐历史上的里程碑。该专辑中，萨克斯风的运用极大地增强了音乐的节奏感和活力，成为早期摇滚乐标志性的声音之一。虽然电吉他也很重要，但在这张专辑中，萨克斯风的旋律线和强烈的吹奏风格为歌曲注入了独特的动感。此外，这种乐器的加入反映了摇摆乐和节奏布鲁斯对Bill Haley音乐风格的影响，推动了摇滚乐向主流的转变。此特点使《Rock Around the Clock》不仅在商业上成功，也在音乐元素上具有深远影响。"
         },
@@ -771,12 +696,7 @@
         },
         {
           "question": "关于Bill Haley于1956年发行的专辑《Rock Around the Clock》，下列哪家唱片公司最初负责该专辑的发行和推广？",
-          "options": [
-            "Decca Records",
-            "Sun Records",
-            "Atlantic Records",
-            "Capitol Records"
-          ],
+          "options": ["Decca Records", "Sun Records", "Atlantic Records", "Capitol Records"],
           "correctAnswer": "Decca Records",
           "trivia": "《Rock Around the Clock》专辑由Bill Haley及其乐队Bill Haley & His Comets录制，最初由Decca Records在1956年发行。Decca Records是当时美国重要的唱片公司，负责推广摇滚乐的商业化进程。该公司在1950年代推动了摇滚乐的发展，使Bill Haley成为第一批将摇滚乐推向主流市场的艺人之一。相比之下，Sun Records虽然对摇滚有影响力，但Bill Haley并未在该厂牌发行主要作品。Atlantic和Capitol Records也在当时活跃，但并非此专辑的发行方。"
         }
@@ -813,12 +733,7 @@
         },
         {
           "question": "在Billie Holiday录制1958年专辑《Lady in Satin》时，哪位著名指挥兼编曲家为这张专辑负责了管弦乐编排？",
-          "options": [
-            "Ray Ellis",
-            "Quincy Jones",
-            "Gordon Jenkins",
-            "Nelson Riddle"
-          ],
+          "options": ["Ray Ellis", "Quincy Jones", "Gordon Jenkins", "Nelson Riddle"],
           "correctAnswer": "Ray Ellis",
           "trivia": "《Lady in Satin》是Billie Holiday职业生涯晚期的重要录音，专辑中她的声音因健康状况有所变化，展现出不同以往的质感。为这张专辑负责管弦乐编排的是Ray Ellis，他以细腻的弦乐编排为专辑增添了丰富的情感层次。Ray Ellis曾与多位知名歌手合作，其管弦乐风格柔和而富有感染力，恰好衬托了Billie Holiday深情而略带沙哑的嗓音。这种合作使得《Lady in Satin》不仅是爵士唱片中的经典，也成为了音乐史上值得纪念的作品。"
         }
@@ -826,12 +741,7 @@
       "medium": [
         {
           "question": "Billie Holiday的专辑《Lady in Satin》于1958年发行，该专辑是由哪家唱片公司制作并发行的？",
-          "options": [
-            "Columbia Records",
-            "Decca Records",
-            "Verve Records",
-            "Capitol Records"
-          ],
+          "options": ["Columbia Records", "Decca Records", "Verve Records", "Capitol Records"],
           "correctAnswer": "Columbia Records",
           "trivia": "《Lady in Satin》是Billie Holiday在1958年由Columbia Records发行的专辑，这也是她职业生涯中最后几张录音之一。Columbia Records作为当时美国最大的唱片公司之一，负责了专辑的制作和发行。Billie Holiday之前曾与Decca Records合作录制多张唱片，但《Lady in Satin》标志着她与Columbia的合作。该专辑以其丰富的编曲和Holiday深情的演绎而闻名，成为爵士乐经典作品。"
         },
@@ -848,12 +758,7 @@
         },
         {
           "question": "关于Billie Holiday的1958年专辑《Lady in Satin》，下列哪位著名指挥兼编曲家负责了该专辑的管弦乐编排？",
-          "options": [
-            "Ray Ellis",
-            "Quincy Jones",
-            "Nelson Riddle",
-            "Gordon Jenkins"
-          ],
+          "options": ["Ray Ellis", "Quincy Jones", "Nelson Riddle", "Gordon Jenkins"],
           "correctAnswer": "Ray Ellis",
           "trivia": "《Lady in Satin》是Billie Holiday晚期的重要录音之一，录制于1958年。该专辑以其丰富的管弦乐编排闻名，这些编排由Ray Ellis担纲，他以细腻的弦乐和柔和的配器为专辑营造出独特的氛围。Ray Ellis的参与使这张专辑与Billie早期的爵士小编制风格形成鲜明对比，展现出更为成熟和感伤的情感表达。此外，这张专辑被认为是Billie Holiday职业生涯中最具情感深度的作品之一，因其录制时她的嗓音带有明显的岁月痕迹。"
         }
@@ -872,12 +777,7 @@
         },
         {
           "question": "在Billie Holiday的1958年专辑《Lady in Satin》中，哪位著名指挥家负责了专辑的管弦乐编排与指挥工作？",
-          "options": [
-            "Ray Ellis",
-            "Quincy Jones",
-            "Nelson Riddle",
-            "Gil Evans"
-          ],
+          "options": ["Ray Ellis", "Quincy Jones", "Nelson Riddle", "Gil Evans"],
           "correctAnswer": "Ray Ellis",
           "trivia": "《Lady in Satin》是Billie Holiday晚期的重要作品，这张专辑以其丰富的管弦乐编排著称。负责这部分工作的正是指挥家兼编曲家Ray Ellis，他以细腻的弦乐和管乐编排为专辑营造出深沉且感伤的氛围。Ray Ellis之前也为其他著名歌手制作过类似风格的专辑，这使得他与Billie Holiday的合作显得尤为契合。Quincy Jones、Nelson Riddle和Gil Evans虽然同为杰出的编曲家，但他们并未参与此专辑的制作。"
         },
@@ -949,23 +849,13 @@
         },
         {
           "question": "在Bing Crosby的1957年专辑《Bing with a Beat》中，他与哪位著名爵士乐队指挥合作，赋予专辑独特的节奏和活力？",
-          "options": [
-            "Benny Goodman",
-            "Louis Armstrong",
-            "Bobby Troup",
-            "Count Basie"
-          ],
+          "options": ["Benny Goodman", "Louis Armstrong", "Bobby Troup", "Count Basie"],
           "correctAnswer": "Bobby Troup",
           "trivia": "《Bing with a Beat》是Bing Crosby于1957年推出的专辑，专门融合了传统流行与节奏蓝调元素。该专辑的特别之处在于Bing Crosby与爵士乐音乐家兼作曲家Bobby Troup的合作，后者不仅是著名的乐队指挥，也为专辑带来了鲜明的节奏感和现代感。Bobby Troup的编曲和指导帮助Bing Crosby实现了风格上的突破，令这张专辑在当时的音乐市场中显得独树一帜。此合作体现了Bing Crosby希望尝试更新鲜、更具活力音乐风格的意图，同时也反映了20世纪50年代音乐风格的多样化。"
         },
         {
           "question": "Bing Crosby在1957年录制专辑'Bing with a Beat'时，与哪位著名乐队指挥合作，为专辑带来了浓厚的爵士乐风格？",
-          "options": [
-            "Benny Goodman",
-            "Buddy Bregman",
-            "Count Basie",
-            "Les Brown"
-          ],
+          "options": ["Benny Goodman", "Buddy Bregman", "Count Basie", "Les Brown"],
           "correctAnswer": "Buddy Bregman",
           "trivia": "'Bing with a Beat'这张专辑是Bing Crosby与年轻的爵士乐编曲家兼指挥Buddy Bregman合作的作品。Bregman当时因在1950年代为多位明星制作新颖的爵士乐编曲而闻名，他为这张专辑引入了活泼且富有节奏感的编曲风格，显著不同于Crosby以往的传统流行曲风格。此外，专辑中还邀请了多位著名的爵士乐手参与录制，使整张专辑充满了当时流行的摇摆乐元素。这种合作为Bing Crosby带来了新的音乐活力，也为他赢得了年轻听众的关注。"
         }
@@ -984,12 +874,7 @@
         },
         {
           "question": "在1957年发行的Bing Crosby专辑'Bing with a Beat'中，哪种乐器的加入最显著地体现了该专辑融合爵士乐和流行元素的音乐特色？",
-          "options": [
-            "萨克斯风",
-            "大提琴",
-            "口琴",
-            "风琴"
-          ],
+          "options": ["萨克斯风", "大提琴", "口琴", "风琴"],
           "correctAnswer": "萨克斯风",
           "trivia": "Bing Crosby在1957年发布的专辑'Bing with a Beat'中，融合了爵士乐和流行音乐元素，特别强调了萨克斯风的使用。萨克斯风作为爵士乐的重要乐器，为专辑带来了强烈的节奏感和即兴氛围。该专辑由Bing与知名编曲家兼管弦乐指挥Buddy Bregman合作，后者以其丰富的爵士乐编排闻名。此外，萨克斯风在那个年代的流行音乐中逐渐普及，成为突出节奏感和氛围的关键乐器，完美契合了专辑名称“Bing with a Beat”的主题。"
         },
@@ -1072,12 +957,7 @@
         },
         {
           "question": "在Bo Diddley1958年发行的首张同名专辑《Bo Diddley》中，哪首歌曲最明显地反映了当时美国社会对非裔美国人自我认同与抗争精神的社会评论？",
-          "options": [
-            "《Who Do You Love?》",
-            "《Bo Diddley》",
-            "《I'm a Man》",
-            "《Say Man》"
-          ],
+          "options": ["《Who Do You Love?》", "《Bo Diddley》", "《I'm a Man》", "《Say Man》"],
           "correctAnswer": "《I'm a Man》",
           "trivia": "Bo Diddley的首张专辑《Bo Diddley》于1958年发行，其中《I'm a Man》不仅以其强烈的节奏和Bo Diddley特有的吉他风格著称，更深刻表达了非裔美国人在当时社会中争取自我认同和尊严的诉求。这首歌通过直接且充满力量的歌词，反映了黑人男性在社会中的定位与抗争。与此同时，Bo Diddley的音乐融合了布鲁斯和节奏蓝调元素，成为当时黑人文化表达的重要载体。专辑整体在音乐史上被视为推动黑人音乐走向主流的里程碑，尤其在社会评论的层面具有深远影响。"
         }
@@ -1085,12 +965,7 @@
       "hard": [
         {
           "question": "Bo Diddley 1958年发行的首张同名专辑“Bo Diddley”，是由哪家唱片公司负责发行的？",
-          "options": [
-            "Checker Records",
-            "Chess Records",
-            "Sun Records",
-            "Atlantic Records"
-          ],
+          "options": ["Checker Records", "Chess Records", "Sun Records", "Atlantic Records"],
           "correctAnswer": "Checker Records",
           "trivia": "Bo Diddley的首张同名专辑于1958年发行，唱片由Checker Records负责发行，Checker是Chess Records旗下的一个子公司，专注于节奏蓝调和早期摇滚乐的推广。Chess Records是当时芝加哥著名的唱片公司，Bo Diddley正是通过Chess及其子公司Checker获得广泛的市场曝光。虽然Sun Records和Atlantic Records在当时也活跃于摇滚与节奏蓝调领域，但Bo Diddley的这张专辑明确由Checker Records发行，这体现了Chess集团在推广黑人摇滚艺术家中发挥的重要作用。"
         },
@@ -1127,23 +1002,13 @@
       "easy": [
         {
           "question": "在数字发行方面，Bobby Darin的专辑'That's All'最初于哪一年以数字格式重新发行？",
-          "options": [
-            "1997年",
-            "2005年",
-            "2010年",
-            "2018年"
-          ],
+          "options": ["1997年", "2005年", "2010年", "2018年"],
           "correctAnswer": "1997年",
           "trivia": "Bobby Darin的经典专辑'That's All'最初发行于1959年，后来在数字音乐兴起后，于1997年首次以数字格式重新发行。这次数字发行使得更多现代听众能够通过CD和数字平台接触到这张标志性的作品。该专辑收录了包括《Mack the Knife》在内的多首热门曲目，成为数字时代重新发现Bobby Darin艺术魅力的桥梁。数字发行不仅提升了音质，也极大地扩展了其市场和影响力。"
         },
         {
           "question": "Bobby Darin的专辑'That's All'（1959年）中的哪首歌曲成为当时广受欢迎并显著提升了他在流行音乐界的知名度？",
-          "options": [
-            "Mack the Knife",
-            "Beyond the Sea",
-            "Splish Splash",
-            "Dream Lover"
-          ],
+          "options": ["Mack the Knife", "Beyond the Sea", "Splish Splash", "Dream Lover"],
           "correctAnswer": "Mack the Knife",
           "trivia": "Bobby Darin的专辑'That's All'中，歌曲'Mack the Knife'成为了他的标志性作品，并在1959年登顶了美国Billboard单曲榜。这首歌不仅提升了他的流行音乐地位，还赢得了格莱美奖最佳年度唱片奖。'Mack the Knife'以其爵士与流行结合的风格吸引了大量听众，成为当时文化现象的一部分。同时，这首歌也帮助专辑获得了商业上的成功，使Bobby Darin成为20世纪50年代末最受欢迎的歌手之一。"
         },
@@ -1208,12 +1073,7 @@
         },
         {
           "question": "在Bobby Darin的1959年专辑'That's All'的封面设计中，哪位艺术家负责了封面摄影，使这张专辑呈现出其标志性的黑白肖像风格？",
-          "options": [
-            "Bob Cato",
-            "William Claxton",
-            "Henry Parker",
-            "Roy DeCarava"
-          ],
+          "options": ["Bob Cato", "William Claxton", "Henry Parker", "Roy DeCarava"],
           "correctAnswer": "Bob Cato",
           "trivia": "Bobby Darin的专辑'That's All'于1959年发行，其封面设计以简洁的黑白肖像照片著称。这张封面摄影由著名设计师兼摄影师Bob Cato操刀，他在当时以其创新的专辑封面设计闻名。Bob Cato不仅负责摄影，还参与了整体的视觉布局，使专辑形象与音乐风格完美契合。相比之下，William Claxton和Roy DeCarava虽然是当时知名的摄影师，但并未参与此专辑的封面制作。Bob Cato对'That's All'的视觉贡献，强化了Bobby Darin作为多才艺人形象的传播，成为音乐与视觉艺术结合的经典案例。"
         },
@@ -1250,23 +1110,13 @@
         },
         {
           "question": "Brenda Lee录制1959年专辑'Grandma, What Great Songs You Sang!'时，哪位制作人负责了这张专辑的制作工作？",
-          "options": [
-            "Owen Bradley",
-            "Chet Atkins",
-            "Sam Phillips",
-            "Milt Gabler"
-          ],
+          "options": ["Owen Bradley", "Chet Atkins", "Sam Phillips", "Milt Gabler"],
           "correctAnswer": "Owen Bradley",
           "trivia": "Brenda Lee的1959年专辑'Grandma, What Great Songs You Sang!'是由著名乡村和流行音乐制作人Owen Bradley制作的。Owen Bradley以其在Nashville的制作工作闻名，曾帮助多位艺术家打造经典作品。与Brenda Lee的合作，体现了他将乡村元素与流行音乐融合的制作风格。此外，Bradley在那个时期推动了所谓的“纳什维尔声音”，这对于Brenda Lee的早期职业发展起到了关键作用。"
         },
         {
           "question": "Brenda Lee在她1959年的专辑《Grandma, What Great Songs You Sang!》中，哪位著名的词曲作者贡献了多首翻唱作品？",
-          "options": [
-            "Johnny Mercer",
-            "Irving Berlin",
-            "Cole Porter",
-            "George Gershwin"
-          ],
+          "options": ["Johnny Mercer", "Irving Berlin", "Cole Porter", "George Gershwin"],
           "correctAnswer": "Johnny Mercer",
           "trivia": "Brenda Lee的1959年专辑《Grandma, What Great Songs You Sang!》主要收录了20世纪早期著名词曲作者的经典作品，其中Johnny Mercer是贡献较多的词曲作者之一。Mercer以其优美的歌词和旋律闻名，创作了大量被多代歌手翻唱的标准曲目。专辑选择这些作品表达了Brenda Lee对传统流行歌曲的敬意，同时也展现了她在流行和乡村音乐之外的多样音乐风格。Irving Berlin、Cole Porter和George Gershwin同样是美国音乐史上的重要作曲家，但在这张专辑中，Johnny Mercer's歌曲被特别强调。"
         }
@@ -1331,12 +1181,7 @@
         },
         {
           "question": "在1959年Brenda Lee发行的专辑《Grandma, What Great Songs You Sang!》的商品销售和品牌推广方面，哪家公司负责该专辑的市场发行和推广？",
-          "options": [
-            "Decca Records",
-            "Capitol Records",
-            "Brunswick Records",
-            "MCA Records"
-          ],
+          "options": ["Decca Records", "Capitol Records", "Brunswick Records", "MCA Records"],
           "correctAnswer": "Decca Records",
           "trivia": "Brenda Lee的专辑《Grandma, What Great Songs You Sang!》于1959年由Decca Records发行。Decca Records当时是美国重要的唱片公司之一，负责该专辑的市场发行和推广。通过Decca的渠道，专辑得以进入广泛的零售市场，并参与当时的品牌推广活动，如广播广告和商店展示。Brenda Lee在该公司旗下的成功发行为她后续的音乐事业奠定了坚实基础，因此Decca Records在专辑的商品销售和品牌推广中起到了关键作用。该专辑的市场表现也反映了Decca Records当时强大的发行和推广能力。"
         }
@@ -1362,12 +1207,7 @@
         },
         {
           "question": "在1958年发行的专辑《Buddy Holly》中，Buddy Holly本人主要负责演奏哪种乐器？",
-          "options": [
-            "吉他",
-            "钢琴",
-            "萨克斯管",
-            "鼓"
-          ],
+          "options": ["吉他", "钢琴", "萨克斯管", "鼓"],
           "correctAnswer": "吉他",
           "trivia": "Buddy Holly是1958年同名专辑《Buddy Holly》的主唱兼主奏吉他手。他以其独特的节奏吉他弹奏风格闻名，对摇滚乐的发展有重要影响。专辑中Buddy Holly的吉他演奏成为了当时摇滚音乐的标志性声音之一。此外，他还参与了歌曲的作曲和制作，体现了多才多艺的音乐才华。"
         },
@@ -1397,23 +1237,13 @@
         },
         {
           "question": "在Buddy Holly于1958年发布的同名专辑《Buddy Holly》中，哪位音乐家是伴随Buddy Holly最著名的吉他手？",
-          "options": [
-            "Tommy Allsup",
-            "Waylon Jennings",
-            "Ritchie Valens",
-            "Carl Perkins"
-          ],
+          "options": ["Tommy Allsup", "Waylon Jennings", "Ritchie Valens", "Carl Perkins"],
           "correctAnswer": "Tommy Allsup",
           "trivia": "在1958年发行的专辑《Buddy Holly》中，Tommy Allsup担任了主要的伴奏吉他手，和Buddy Holly一起塑造了摇滚乐的经典声音。Allsup不仅参与了该专辑的录制，还曾在Buddy Holly巡演中作为吉他手合作。Waylon Jennings虽然曾是Buddy Holly乐队的成员，但他主要担任贝斯手而非吉他手。Ritchie Valens和Carl Perkins则是同时期其他著名的摇滚音乐家，并未参与这张专辑的录制。Tommy Allsup的吉他演奏风格对这张专辑的音乐特色起到了重要作用。"
         },
         {
           "question": "Buddy Holly的1958年同名专辑《Buddy Holly》在美国公告牌专辑排行榜上的最高排名是？",
-          "options": [
-            "第15位",
-            "第30位",
-            "第8位",
-            "第22位"
-          ],
+          "options": ["第15位", "第30位", "第8位", "第22位"],
           "correctAnswer": "第15位",
           "trivia": "Buddy Holly的首张同名专辑《Buddy Holly》于1958年发行，并在美国公告牌专辑排行榜上最高达到第15位。这一成绩体现了他作为摇滚乐先驱的影响力，尤其是在当时摇滚音乐逐渐流行的背景下。专辑中包含了多首经典曲目，如“Peggy Sue”和“Everyday”，这些歌曲也曾在单曲榜上获得良好表现。虽然专辑未能登顶排行榜，但在那个时代的摇滚乐市场中取得第15名已属不俗，巩固了Buddy Holly在音乐史上的重要地位。"
         }
@@ -1432,12 +1262,7 @@
         },
         {
           "question": "在1958年录制Buddy Holly的同名专辑《Buddy Holly》时，艺术家Buddy Holly主要使用的是哪种型号的吉他，这种乐器对他独特的摇滚风格有重要影响？",
-          "options": [
-            "Gibson ES-335",
-            "Fender Stratocaster",
-            "Gibson J-45",
-            "Gibson J-200"
-          ],
+          "options": ["Gibson ES-335", "Fender Stratocaster", "Gibson J-45", "Gibson J-200"],
           "correctAnswer": "Gibson J-45",
           "trivia": "Buddy Holly在其1958年发行的同名专辑《Buddy Holly》中，主要使用了Gibson J-45原声吉他。此款吉他以其温暖而清晰的音色著称，成为Buddy Holly标志性的声音之一。虽然那时电吉他日益流行，Buddy Holly依然坚持使用这款木吉他来增强歌曲的亲和力和旋律感。此外，Gibson J-45因其出色的共鸣性能，帮助他在摇滚和乡村音乐之间实现了独特的融合，使专辑更具时代感和艺术价值。"
         },
@@ -1463,23 +1288,13 @@
       "easy": [
         {
           "question": "在Cannonball Adderley的专辑'Somethin' Else'的词曲创作过程中，哪位艺术家为专辑中的大部分曲目谱写了旋律？",
-          "options": [
-            "Miles Davis",
-            "Cannonball Adderley",
-            "Hank Jones",
-            "Art Blakey"
-          ],
+          "options": ["Miles Davis", "Cannonball Adderley", "Hank Jones", "Art Blakey"],
           "correctAnswer": "Miles Davis",
           "trivia": "专辑'Somethin' Else'于1958年录制，Miles Davis不仅作为小号手参与演出，还为专辑中的多首曲目贡献了旋律创作。事实上，专辑中最著名的曲目之一《Autumn Leaves》的旋律改编以及《One for Daddy-O》等曲目均由Miles Davis谱写。Cannonball Adderley则主要负责即兴演奏部分，而Hank Jones和Art Blakey作为伴奏钢琴和鼓手，参与演奏但并未参与词曲创作。此专辑是Hard Bop风格的经典代表，其词曲创作体现了Miles Davis在当时的音乐影响力和创新精神。"
         },
         {
           "question": "Cannonball Adderley的1958年专辑'Somethin' Else'中，哪位著名音乐家作为钢琴手参与了录制？",
-          "options": [
-            "Miles Davis",
-            "Bill Evans",
-            "Thelonious Monk",
-            "Horace Silver"
-          ],
+          "options": ["Miles Davis", "Bill Evans", "Thelonious Monk", "Horace Silver"],
           "correctAnswer": "Bill Evans",
           "trivia": "专辑'Somethin' Else'是由Cannonball Adderley领衔录制的经典爵士作品，其中钢琴手是Bill Evans，而非其他知名钢琴家如Thelonious Monk或Horace Silver。值得一提的是，Miles Davis不仅参与了这张专辑的录制，还担任了其制作人。Bill Evans的细腻琴风为专辑增添了独特的韵味，使得这张专辑成为了硬波普风格的代表作之一。这张专辑录制于1958年，被广泛认为是爵士史上的经典之作。"
         },
@@ -1509,12 +1324,7 @@
         },
         {
           "question": "关于Cannonball Adderley在1958年录制的专辑'Somethin' Else'，以下哪位音乐家对其国际影响尤为重要，因其在专辑中担任了关键的钢琴伴奏？",
-          "options": [
-            "Miles Davis",
-            "Bill Evans",
-            "Thelonious Monk",
-            "Sonny Rollins"
-          ],
+          "options": ["Miles Davis", "Bill Evans", "Thelonious Monk", "Sonny Rollins"],
           "correctAnswer": "Bill Evans",
           "trivia": "专辑'Somethin' Else'是Cannonball Adderley的一部经典作品，录制于1958年。这张专辑的国际影响力部分源自其合作的音乐家，其中Bill Evans在钢琴上的演奏为作品增添了独特的抒情和和声色彩。Bill Evans当时正处于他与Miles Davis合作的关键时期，也因其独特的演奏风格影响了全球爵士乐的发展。Miles Davis也参与了这张专辑，但他担任的是小号手，而非钢琴手。这样的合作使得'Somethin' Else'不仅成为Cannonball Adderley作品中的经典，同时也显著推动了现代爵士乐的国际传播。"
         },
@@ -1575,12 +1385,7 @@
       "easy": [
         {
           "question": "关于Carl Perkins的专辑'Dance Album of Carl Perkins'，以下哪位国际知名艺术家曾公开表示受到其音乐风格的影响？",
-          "options": [
-            "Elvis Presley",
-            "The Beatles",
-            "Bob Dylan",
-            "Chuck Berry"
-          ],
+          "options": ["Elvis Presley", "The Beatles", "Bob Dylan", "Chuck Berry"],
           "correctAnswer": "The Beatles",
           "trivia": "Carl Perkins被誉为摇滚乐和摇摆节奏的重要先驱，他1957年的专辑'Dance Album of Carl Perkins'展现了其独特的摇滚与乡村融合风格。The Beatles的成员尤其是John Lennon和George Harrison，多次公开表示他们的早期音乐创作深受Carl Perkins的影响。事实上，The Beatles还翻唱过Carl Perkins的多首歌曲，如《Matchbox》和《Honey Don’t》，这体现了Carl Perkins在国际音乐界的重要影响力。相比之下，虽然Elvis Presley和Chuck Berry也是摇滚先驱，但他们与Carl Perkins的直接影响联系不如The Beatles明显。"
         },
@@ -1597,12 +1402,7 @@
         },
         {
           "question": "Carl Perkins的专辑'Dance Album of Carl Perkins'最初是在什么类型的音乐会场地推广和演出？",
-          "options": [
-            "乡村舞厅",
-            "大型体育场",
-            "爵士俱乐部",
-            "室内音乐厅"
-          ],
+          "options": ["乡村舞厅", "大型体育场", "爵士俱乐部", "室内音乐厅"],
           "correctAnswer": "乡村舞厅",
           "trivia": "Carl Perkins的'Dance Album of Carl Perkins'发行于1957年，在当时，这类摇滚与乡村交织的音乐作品通常在乡村舞厅中推广和演出。乡村舞厅是美国南部和中西部地区流行的社交场所，适合现场跳舞和乐队表演。相比之下，大型体育场和室内音乐厅更多用于大型演唱会或古典音乐会，而爵士俱乐部则主要聚焦于爵士音乐。Carl Perkins的音乐风格及其专辑的舞曲性质使乡村舞厅成为主要的表演场地，这也促进了他音乐的传播和影响力。"
         }
@@ -1610,12 +1410,7 @@
       "medium": [
         {
           "question": "在1957年录制专辑'Dance Album of Carl Perkins'时，Carl Perkins与哪位音乐家合作担任钢琴演奏？",
-          "options": [
-            "Quincy Jones",
-            "Wynton Kelly",
-            "Sun Ra",
-            "Thelonious Monk"
-          ],
+          "options": ["Quincy Jones", "Wynton Kelly", "Sun Ra", "Thelonious Monk"],
           "correctAnswer": "Wynton Kelly",
           "trivia": "Carl Perkins的'Dance Album of Carl Perkins'录制于1957年，展现了他独特的钢琴风格。在这张专辑中，著名爵士钢琴家Wynton Kelly参与了录制，担任钢琴演奏。Wynton Kelly以其流畅的节奏和灵活的即兴能力著称，这为专辑增添了丰富的音乐层次。此外，这张专辑由著名制作人Orrin Keepnews监督制作，录音在Riverside Records旗下完成，体现了当时高质量的爵士录音标准。Carl Perkins和Wynton Kelly的合作使得这张专辑成为1950年代西海岸爵士音乐的重要作品之一。"
         },
@@ -1632,12 +1427,7 @@
         },
         {
           "question": "在Carl Perkins的1957年专辑《Dance Album of Carl Perkins》中，哪种乐器最显著地体现了摇摆和节奏感，成为该专辑独特音乐元素的核心？",
-          "options": [
-            "电吉他",
-            "钢琴",
-            "萨克斯风",
-            "小提琴"
-          ],
+          "options": ["电吉他", "钢琴", "萨克斯风", "小提琴"],
           "correctAnswer": "钢琴",
           "trivia": "《Dance Album of Carl Perkins》是Carl Perkins在1957年发行的一张重要专辑，主要以钢琴为主导乐器，展现了摇摆和节奏感的独特融合。Carl Perkins是一位杰出的钢琴家，他在这张专辑中运用了丰富的钢琴技巧，融合了摇摆和早期摇滚元素，使专辑在当时显得非常具有创新性。虽然电吉他和萨克斯风在那个时代很受欢迎，但这张专辑的核心音乐元素依然是钢琴。此专辑不仅体现了1950年代中期美国爵士和摇摆乐的特点，也反映了Carl Perkins作为钢琴家的独特风格和音乐表达。"
         }
@@ -1667,12 +1457,7 @@
         },
         {
           "question": "在商品销售和品牌推广方面，Carl Perkins的专辑'Dance Album of Carl Perkins'于1957年发行时，哪家唱片公司负责在美国市场的推广和发行？",
-          "options": [
-            "Sun Records",
-            "Columbia Records",
-            "Capitol Records",
-            "Atlantic Records"
-          ],
+          "options": ["Sun Records", "Columbia Records", "Capitol Records", "Atlantic Records"],
           "correctAnswer": "Columbia Records",
           "trivia": "Carl Perkins的'Dance Album of Carl Perkins'于1957年由Columbia Records发行，这家唱片公司当时在美国拥有成熟的市场推广网络，帮助这张专辑在摇滚乐和乡村音乐爱好者中获得关注。虽然Carl Perkins早期以Sun Records闻名，但这张专辑标志着他与Columbia Records的合作，体现了品牌推广策略的转变。Columbia Records凭借其广泛的分销渠道和广告资源，提升了专辑的商业表现。此举也反映了20世纪50年代音乐产业中，艺术家与唱片公司合作推广模式的多样化。"
         }
@@ -1687,12 +1472,7 @@
       "easy": [
         {
           "question": "在媒体报道中，Charles Mingus的专辑'Mingus Ah Um'于1959年首次发行后，哪首曲目最广为人知并经常被提及？",
-          "options": [
-            "Goodbye Pork Pie Hat",
-            "So What",
-            "Take Five",
-            "Blue Rondo à la Turk"
-          ],
+          "options": ["Goodbye Pork Pie Hat", "So What", "Take Five", "Blue Rondo à la Turk"],
           "correctAnswer": "Goodbye Pork Pie Hat",
           "trivia": "Charles Mingus的专辑'Mingus Ah Um'于1959年发行后，曲目'Goodbye Pork Pie Hat'因其深情的旋律和对已故萨克斯手 Lester Young的致敬而广受赞誉。媒体报道普遍强调这首曲目作为专辑中的经典作品，体现了Mingus对爵士乐传统的尊重与创新。与其同时代的曲目'So What'是Miles Davis的作品，'Take Five'属于Dave Brubeck，而'Blue Rondo à la Turk'是Brubeck乐队的另一首知名作品，因此它们并非'Mingus Ah Um'中的曲目。该专辑整体被认为是现代爵士乐的重要里程碑，常被媒体称赞为Mingus最具代表性的作品之一。"
         },
@@ -1722,12 +1502,7 @@
       "medium": [
         {
           "question": "在Charles Mingus的1959年专辑'Mingus Ah Um'的录制过程中，哪位音乐家作为主力钢琴手参与了该专辑的制作？",
-          "options": [
-            "Horace Parlan",
-            "Red Garland",
-            "Bill Evans",
-            "Wynton Kelly"
-          ],
+          "options": ["Horace Parlan", "Red Garland", "Bill Evans", "Wynton Kelly"],
           "correctAnswer": "Horace Parlan",
           "trivia": "Charles Mingus的经典专辑'Mingus Ah Um'于1959年录制，Horace Parlan担任了专辑中的主力钢琴手。Parlan因其独特的左手节奏和右手旋律技巧，为专辑增添了丰富的和声层次。虽然Bill Evans和Wynton Kelly都是那个时代著名的钢琴家，但他们并未参与该专辑的制作。Red Garland虽然活跃于1950年代的爵士界，但也未参与'Mingus Ah Um'的录音。这张专辑由Rudy Van Gelder录制，他是当时极具影响力的录音工程师。"
         },
@@ -1768,23 +1543,13 @@
         },
         {
           "question": "在电台播放历史上，Charles Mingus的专辑《Mingus Ah Um》首次被哪家知名广播电台重点推荐，标志着这张1959年发行的专辑在主流爵士乐听众中的突破？",
-          "options": [
-            "纽约的WNEW电台",
-            "芝加哥的WBEZ电台",
-            "旧金山的KQED电台",
-            "波士顿的WBUR电台"
-          ],
+          "options": ["纽约的WNEW电台", "芝加哥的WBEZ电台", "旧金山的KQED电台", "波士顿的WBUR电台"],
           "correctAnswer": "纽约的WNEW电台",
           "trivia": "《Mingus Ah Um》发行于1959年，是Charles Mingus最具代表性的作品之一。纽约的WNEW电台作为当时重要的爵士乐播放电台，首次重点推荐了这张专辑，使其迅速进入主流爵士乐听众视野。WNEW电台在20世纪50年代末至60年代初以推广现代爵士乐闻名，帮助艺术家如Mingus获得更广泛的电台曝光。此外，《Mingus Ah Um》的创新编曲和强烈的表现力也迎合了WNEW电台注重先锋和高质量爵士乐的播放理念，促进了专辑在电台播放上的成功。"
         },
         {
           "question": "关于Charles Mingus于1959年发行的专辑'Mingus Ah Um'，哪家当时的媒体对这张专辑的文化意义和音乐创新进行了深入报道，强调其对现代爵士乐发展的影响？",
-          "options": [
-            "《Down Beat》杂志",
-            "《滚石》杂志",
-            "《纽约时报》",
-            "《时代》杂志"
-          ],
+          "options": ["《Down Beat》杂志", "《滚石》杂志", "《纽约时报》", "《时代》杂志"],
           "correctAnswer": "《Down Beat》杂志",
           "trivia": "《Down Beat》杂志是20世纪中期美国最具影响力的爵士乐媒体之一，曾在1959年对Charles Mingus的专辑'Mingus Ah Um'进行了深入报道。该杂志不仅评价了专辑的音乐创新，如融合了硬波普和福音元素，还强调了Mingus在推动现代爵士乐发展中的重要地位。此外，《Down Beat》的评论帮助该专辑获得了更广泛的认可，巩固了Mingus作为先锋爵士乐作曲家的声誉。与此相比，《滚石》杂志当时尚未专注于爵士乐，而《纽约时报》和《时代》虽然报道音乐，但在爵士乐专业报道上不及《Down Beat》深入。"
         }
@@ -1922,23 +1687,13 @@
         },
         {
           "question": "在Chuck Berry的1957年专辑《After School Session》中，哪首歌曲最早获得美国电台的广泛播放并帮助Chuck Berry打开了知名度？",
-          "options": [
-            "Maybellene",
-            "School Day",
-            "Roll Over Beethoven",
-            "Johnny B. Goode"
-          ],
+          "options": ["Maybellene", "School Day", "Roll Over Beethoven", "Johnny B. Goode"],
           "correctAnswer": "Maybellene",
           "trivia": "《After School Session》是Chuck Berry的首张录音室专辑，其中包含了他早期的代表作《Maybellene》。这首歌曲于1955年发行，成为他第一首在美国电台获得广泛播放的单曲，极大提升了他的知名度。'Maybellene'结合了布鲁斯和乡村音乐元素，被认为是摇滚乐的奠基之作。此外，这首歌在当时的排行榜上表现优异，进入了Billboard R&B和流行榜，促进了Chuck Berry在主流市场的突破。"
         },
         {
           "question": "Chuck Berry在1957年发行的专辑《After School Session》中，哪首歌曲最初是在现场表演中广受欢迎，后来成为他巡演中的经典曲目？",
-          "options": [
-            "Maybellene",
-            "Johnny B. Goode",
-            "Roll Over Beethoven",
-            "School Days"
-          ],
+          "options": ["Maybellene", "Johnny B. Goode", "Roll Over Beethoven", "School Days"],
           "correctAnswer": "Maybellene",
           "trivia": "《After School Session》是Chuck Berry的首张录音室专辑，收录了多首标志性的摇滚曲目。专辑中的《Maybellene》是他早期最成功的单曲之一，最初于1955年发行，凭借其快速的节奏和叙事式歌词在现场演出中非常受欢迎。此曲成为Chuck Berry巡回演出中的必唱曲目，极大地推动了他的现场表演声誉。此外，《Maybellene》在当时的排行榜上表现优异，帮助Chuck Berry奠定了摇滚乐先驱的地位。"
         }
@@ -1957,12 +1712,7 @@
         },
         {
           "question": "在Chuck Berry的1957年专辑《After School Session》的录制过程中，哪位音乐家担任了钢琴演奏？",
-          "options": [
-            "Johnnie Johnson",
-            "Little Richard",
-            "Fats Domino",
-            "Ray Charles"
-          ],
+          "options": ["Johnnie Johnson", "Little Richard", "Fats Domino", "Ray Charles"],
           "correctAnswer": "Johnnie Johnson",
           "trivia": "在录制《After School Session》这张专辑时，Chuck Berry邀请了钢琴家Johnnie Johnson参与录音，他的钢琴演奏为专辑增添了浓厚的节奏与蓝调元素。Johnnie Johnson与Chuck Berry长期合作，被认为是Berry标志性吉他风格的重要支持者。虽然Little Richard、Fats Domino和Ray Charles都是当时著名的钢琴手，但他们并未参与这张专辑的录制。Johnnie Johnson的演奏风格对后来的摇滚乐发展产生了重要影响。"
         },
@@ -2034,12 +1784,7 @@
         },
         {
           "question": "Connie Francis在录制1958年专辑《Who's Sorry Now?》时，哪种乐器是由现场乐队主要伴奏的？",
-          "options": [
-            "钢琴",
-            "电子合成器",
-            "电吉他",
-            "萨克斯风"
-          ],
+          "options": ["钢琴", "电子合成器", "电吉他", "萨克斯风"],
           "correctAnswer": "钢琴",
           "trivia": "Connie Francis的专辑《Who's Sorry Now?》是在1958年录制的，当时的录音多采用现场乐队伴奏的方式。钢琴作为伴奏乐器在该专辑的录制过程中起到了核心作用，营造出当时流行的流行和传统流行音乐风格。电子合成器在上世纪50年代尚未广泛应用，而电吉他和萨克斯风虽然流行，但未成为该专辑的主要伴奏乐器。录音师和制作团队注重保留歌声的纯净与乐器的和谐，确保专辑的声音质感符合当时的录音标准。"
         },
@@ -2093,12 +1838,7 @@
       "hard": [
         {
           "question": "在Connie Francis的1958年专辑《Who's Sorry Now?》的录制过程中，哪位著名的指挥兼编曲家负责乐队的伴奏安排？",
-          "options": [
-            "LeRoy Holmes",
-            "Nelson Riddle",
-            "Quincy Jones",
-            "Henry Mancini"
-          ],
+          "options": ["LeRoy Holmes", "Nelson Riddle", "Quincy Jones", "Henry Mancini"],
           "correctAnswer": "LeRoy Holmes",
           "trivia": "Connie Francis在录制《Who's Sorry Now?》专辑时，LeRoy Holmes担任乐队指挥和编曲工作。Holmes是哥伦比亚唱片旗下著名的编曲家和指挥，他以丰富的管弦乐编排闻名。虽然Nelson Riddle、Quincy Jones和Henry Mancini都是当时极具影响力的编曲家，但他们并未直接参与此专辑的制作。LeRoy Holmes的参与为专辑注入了典雅而富有情感的伴奏风格，这也帮助Connie Francis的演唱更具感染力。此专辑的成功部分归功于Holmes的音乐指导。"
         },
@@ -2192,12 +1932,7 @@
         },
         {
           "question": "Dave Brubeck Quartet的专辑'Time Out'在数字发行时，哪种格式首次使这张专辑能以非模拟方式被广泛传播？",
-          "options": [
-            "CD（紧凑型光盘）格式",
-            "MP3格式",
-            "FLAC无损格式",
-            "数字流媒体格式"
-          ],
+          "options": ["CD（紧凑型光盘）格式", "MP3格式", "FLAC无损格式", "数字流媒体格式"],
           "correctAnswer": "CD（紧凑型光盘）格式",
           "trivia": "Dave Brubeck Quartet的经典专辑'Time Out'最初于1959年以黑胶唱片形式发行。随着数字技术的发展，这张专辑首次以CD格式在1980年代末被再版，使其能够以数字形式被更广泛地传播和保存。CD格式的引入极大地提升了音质的稳定性和便携性，而MP3和数字流媒体格式则是在随后几十年才普及的。FLAC无损格式作为数字音频的高保真选项，也是在21世纪才广泛流行。通过CD的数字发行，'Time Out'得以接触到新一代听众并保持音乐的经典地位。"
         }
@@ -2227,12 +1962,7 @@
         },
         {
           "question": "关于Dave Brubeck Quartet的1959年专辑'Time Out'，以下哪种数字发行格式首次在21世纪得到官方发布，标志着这张经典爵士专辑的数字化转型？",
-          "options": [
-            "CD（紧凑光盘）",
-            "MP3数字下载",
-            "SACD（超音频CD）",
-            "黑胶唱片数字化流媒体"
-          ],
+          "options": ["CD（紧凑光盘）", "MP3数字下载", "SACD（超音频CD）", "黑胶唱片数字化流媒体"],
           "correctAnswer": "MP3数字下载",
           "trivia": "Dave Brubeck Quartet的专辑'Time Out'最初于1959年以黑胶唱片形式发布。随着数字音乐时代的到来，这张专辑在21世纪初通过MP3格式实现了首次官方数字发行，使得更多听众能够方便地在线购买和下载。虽然CD版本较早在1980年代普及，但MP3数字下载标志着这张经典作品真正迈入数字流媒体和便携设备时代。此外，SACD版本虽然存在于某些重制版本中，但并非首次数字发行的形式。黑胶数字化流媒体则是更近期的趋势，属于数字发行的另一种现代形式。"
         }
@@ -2247,12 +1977,7 @@
       "easy": [
         {
           "question": "Dean Martin于1957年发行的专辑《Pretty Baby》是由哪家唱片公司发行的？",
-          "options": [
-            "Capitol Records",
-            "Reprise Records",
-            "RCA Victor",
-            "Dot Records"
-          ],
+          "options": ["Capitol Records", "Reprise Records", "RCA Victor", "Dot Records"],
           "correctAnswer": "Capitol Records",
           "trivia": "Dean Martin的专辑《Pretty Baby》于1957年发行，该专辑由Capitol Records公司发行。Capitol Records是20世纪50年代非常活跃的唱片公司，旗下拥有多位知名艺术家。Dean Martin作为当时的主流歌手，与Capitol Records合作录制了多张专辑。《Pretty Baby》正是他在Capitol时期的重要作品之一。此外，Reprise Records是Frank Sinatra后来创立的唱片公司，而RCA Victor和Dot Records则是当时其他著名的唱片品牌，但都不是该专辑的发行方。"
         },
@@ -2359,23 +2084,13 @@
       "easy": [
         {
           "question": "Dinah Washington的专辑'What a Diff'rence a Day Makes!'主要受到哪种音乐风格的影响？",
-          "options": [
-            "爵士和灵魂乐",
-            "乡村和蓝草音乐",
-            "摇滚和朋克",
-            "雷鬼和拉丁音乐"
-          ],
+          "options": ["爵士和灵魂乐", "乡村和蓝草音乐", "摇滚和朋克", "雷鬼和拉丁音乐"],
           "correctAnswer": "爵士和灵魂乐",
           "trivia": "Dinah Washington是著名的爵士和灵魂乐歌手，她的1959年专辑'What a Diff'rence a Day Makes!'融合了这两种音乐风格。这张专辑展示了她强烈的爵士嗓音和灵魂乐的情感表达，特别是在同名曲目中得到了充分体现。专辑发行后获得了极大成功，使她成为当时最受欢迎的歌手之一。此外，这张专辑还获得了格莱美奖，证明了其音乐风格和艺术表现的高水平。"
         },
         {
           "question": "在Dinah Washington的1959年专辑'What a Diff'rence a Day Makes!'的制作过程中，谁担任了该专辑的指挥和编曲工作？",
-          "options": [
-            "Ralph Burns",
-            "Quincy Jones",
-            "Gil Evans",
-            "Henry Mancini"
-          ],
+          "options": ["Ralph Burns", "Quincy Jones", "Gil Evans", "Henry Mancini"],
           "correctAnswer": "Ralph Burns",
           "trivia": "Dinah Washington的专辑'What a Diff'rence a Day Makes!'于1959年发行，这张专辑的成功部分归功于指挥和编曲家Ralph Burns的贡献。他以其丰富的编曲经验帮助塑造了专辑中融合了爵士与流行元素的独特声音。Ralph Burns曾与多位著名音乐家合作，他在这张专辑中的工作提升了Dinah Washington的演唱表现力。相比之下，Quincy Jones和Gil Evans虽然也是著名编曲家，但并未参与这张专辑的制作。Henry Mancini以电影配乐闻名，也未参与该项目的制作。"
         },
@@ -2394,23 +2109,13 @@
       "medium": [
         {
           "question": "Dinah Washington在她1959年的专辑'What a Diff'rence a Day Makes!'中，哪种乐器的编排最显著地体现了这张作品融合了爵士与流行元素的音乐风格？",
-          "options": [
-            "大提琴",
-            "萨克斯风",
-            "班卓琴",
-            "电子合成器"
-          ],
+          "options": ["大提琴", "萨克斯风", "班卓琴", "电子合成器"],
           "correctAnswer": "萨克斯风",
           "trivia": "Dinah Washington的专辑'What a Diff'rence a Day Makes!'以其独特的爵士与流行音乐融合著称，萨克斯风在编排中占据重要地位，增强了作品的韵味和节奏感。1950年代末，萨克斯风是爵士乐中不可或缺的乐器，常用于表达丰富的情感层次。相比之下，大提琴和班卓琴并非该专辑主要的伴奏乐器，而电子合成器则尚未广泛应用于当时的录音制作中。此专辑的成功部分归功于这种细腻的乐器编排，彰显了Dinah Washington在声音表现上的多样性。"
         },
         {
           "question": "Dinah Washington在录制1959年专辑'What a Diff'rence a Day Makes!'时，哪位著名音乐家担任了该专辑的指挥和编曲？",
-          "options": [
-            "Rudy West",
-            "Quincy Jones",
-            "Clifford Brown",
-            "Max Roach"
-          ],
+          "options": ["Rudy West", "Quincy Jones", "Clifford Brown", "Max Roach"],
           "correctAnswer": "Rudy West",
           "trivia": "专辑'What a Diff'rence a Day Makes!'由Dinah Washington演唱，录制于1959年，指挥和编曲工作由Rudy West负责。Rudy West是一位知名的指挥和编曲家，他为这张专辑带来了丰富的管弦乐编排，增强了歌曲的情感表现力。Quincy Jones虽然是当时著名的编曲家，但并未参与这张专辑的制作。Clifford Brown和Max Roach则是著名的爵士乐手，但未在该专辑中担任制作角色。该专辑因Rudy West的编排而获得了极高的评价，成为Dinah Washington职业生涯的代表作之一。"
         },
@@ -2482,23 +2187,13 @@
         },
         {
           "question": "在1959年Dion发行的专辑'Presenting Dion and the Belmonts'的录音过程中，哪位音响工程师负责了主要的录音和混音工作？",
-          "options": [
-            "Tom Dowd",
-            "Tommy Erdelyi",
-            "Bob Irwin",
-            "Phil Ramone"
-          ],
+          "options": ["Tom Dowd", "Tommy Erdelyi", "Bob Irwin", "Phil Ramone"],
           "correctAnswer": "Tom Dowd",
           "trivia": "Tom Dowd是传奇的音响工程师，他在1959年为Dion和The Belmonts录制的专辑'Presenting Dion and the Belmonts'担任主要的录音和混音工程师。Dowd以其创新的多轨录音技术和对声音细节的精准控制著称，曾为多位著名艺术家工作。该专辑的录音工作在当时的纽约录音室完成，Dowd的技术使得专辑的和声和乐器层次更加分明。Tommy Erdelyi（即后来的鼓手Tommy Ramone）和Phil Ramone均为知名音乐人和工程师，但他们并未参与此专辑的制作。Bob Irwin则是后期的音响工程师，活跃于较晚的年代。"
         },
         {
           "question": "在1959年录制Dion的专辑《Presenting Dion and the Belmonts》时，哪位制作人负责监督这张专辑的制作？",
-          "options": [
-            "Luther Dixon",
-            "George Goldner",
-            "Phil Spector",
-            "Jerry Leiber"
-          ],
+          "options": ["Luther Dixon", "George Goldner", "Phil Spector", "Jerry Leiber"],
           "correctAnswer": "George Goldner",
           "trivia": "《Presenting Dion and the Belmonts》是Dion与The Belmonts合作的首张正式专辑，发行于1959年。这张专辑由著名制作人George Goldner监督制作，他当时是Luna Records和Gee Records的负责人，擅长发掘和推广早期摇滚和Doo-wop音乐。George Goldner的制作风格帮助塑造了该专辑清晰且富有感染力的声音。与此相比，Luther Dixon和Phil Spector也都是当时活跃的制作人，但他们并未参与此专辑的制作。Jerry Leiber虽是重要的作词者和制作人，但与《Presenting Dion and the Belmonts》无关。"
         }
@@ -2563,12 +2258,7 @@
         },
         {
           "question": "在1959年发行的专辑《Presenting Dion and the Belmonts》中，Dion和乐队的哪首歌曲曾在当时的电台播放中引发广泛关注，成为他们早期电台热门单曲？",
-          "options": [
-            "I Wonder Why",
-            "Runaround Sue",
-            "The Wanderer",
-            "Ruby Baby"
-          ],
+          "options": ["I Wonder Why", "Runaround Sue", "The Wanderer", "Ruby Baby"],
           "correctAnswer": "I Wonder Why",
           "trivia": "《Presenting Dion and the Belmonts》是Dion与Belmonts乐队于1959年推出的首张合作专辑，其中收录的单曲《I Wonder Why》在当年获得了大量电台播放，成为他们早期的代表作之一。这首歌不仅展示了Dion标志性的声线，也体现了当时多声部和声的Doo-wop风格，深受听众喜爱。相比于《Runaround Sue》和《The Wanderer》这些Dion后期的热门单曲，《I Wonder Why》更贴合专辑的发行时间及电台推广背景，体现了1950年代末期的流行音乐趋势。该曲在当时的青少年群体中广泛流传，是他们电台播放成功的重要标志。"
         }
@@ -2629,23 +2319,13 @@
         },
         {
           "question": "在Don Gibson的1958年专辑《Oh Lonesome Me》的制作过程中，哪位制片人负责指导录音并对专辑的声音风格产生重要影响？",
-          "options": [
-            "Chet Atkins",
-            "Owen Bradley",
-            "Sam Phillips",
-            "Fred Rose"
-          ],
+          "options": ["Chet Atkins", "Owen Bradley", "Sam Phillips", "Fred Rose"],
           "correctAnswer": "Chet Atkins",
           "trivia": "Don Gibson的专辑《Oh Lonesome Me》于1958年录制，制作人Chet Atkins在专辑制作中扮演了关键角色。作为当时乡村音乐的先锋之一，Atkins采用了“纳什维尔声音”风格，这使专辑声音更加精致、流畅，区别于当时更为朴素的乡村录音方法。Chet Atkins不仅参与了录音指导，还对乐器编排提出了建设性建议，提升了Don Gibson作品的广泛吸引力。此外，Atkins本人也是一位著名的吉他手，他的音乐理念深刻影响了专辑的整体风格和后续乡村音乐的发展。"
         },
         {
           "question": "Don Gibson的1958年专辑《Oh Lonesome Me》是由哪个唱片公司发布的？",
-          "options": [
-            "RCA Victor",
-            "Columbia Records",
-            "RCA Camden",
-            "Decca Records"
-          ],
+          "options": ["RCA Victor", "Columbia Records", "RCA Camden", "Decca Records"],
           "correctAnswer": "RCA Victor",
           "trivia": "《Oh Lonesome Me》是乡村音乐歌手Don Gibson于1958年发行的重要专辑，该专辑由RCA Victor唱片公司发布。RCA Victor当时是乡村音乐领域的主要厂牌之一，支持了许多著名艺术家的录制事业。Don Gibson与RCA Victor的合作始于1950年代初期，这为他提供了高质量的录音环境和广泛的发行渠道。专辑中的多首单曲在乡村音乐排行榜上取得了成功，进一步巩固了RCA Victor在乡村音乐市场的地位。相比之下，Columbia Records和Decca Records也活跃于当时，但并未参与此专辑的发行，RCA Camden是RCA的低价子品牌，未作为该专辑的初次发行渠道。"
         }
@@ -2653,23 +2333,13 @@
       "hard": [
         {
           "question": "在Don Gibson的1958年专辑《Oh Lonesome Me》中，哪位音乐家是主要的钢琴伴奏演奏者？",
-          "options": [
-            "Floyd Cramer",
-            "Hank Garland",
-            "Chet Atkins",
-            "Grady Martin"
-          ],
+          "options": ["Floyd Cramer", "Hank Garland", "Chet Atkins", "Grady Martin"],
           "correctAnswer": "Floyd Cramer",
           "trivia": "在Don Gibson录制1958年专辑《Oh Lonesome Me》时，Floyd Cramer担任了主要的钢琴伴奏演奏者。Floyd Cramer以其独特的“滑音”钢琴风格闻名，这种技巧对乡村音乐产生了深远影响。与此同时，Hank Garland和Grady Martin分别负责吉他部分，而Chet Atkins是该专辑的制作人兼吉他手。Floyd Cramer的参与为专辑增添了温暖且细腻的音色，使其成为当时乡村音乐的经典作品之一。"
         },
         {
           "question": "在Don Gibson的1958年专辑《Oh Lonesome Me》中，哪种乐器的使用最显著地体现了该专辑的乡村布鲁斯风格？",
-          "options": [
-            "钢弦吉他",
-            "曼陀林",
-            "口琴",
-            "班卓琴"
-          ],
+          "options": ["钢弦吉他", "曼陀林", "口琴", "班卓琴"],
           "correctAnswer": "钢弦吉他",
           "trivia": "Don Gibson的《Oh Lonesome Me》专辑录制于1958年，钢弦吉他在其中扮演了关键角色，强化了专辑的乡村布鲁斯风格。该专辑的录音采用了当时流行的单轨录音技术，突出了钢弦吉他的明亮音色，使歌曲如《Oh Lonesome Me》成为经典乡村曲目。相比之下，曼陀林和班卓琴虽然是乡村音乐中常见的乐器，但在这张专辑中并未作为主导乐器使用。口琴则更多出现在蓝调和民谣作品中，但并非本专辑的主要音乐元素。"
         },
@@ -2717,12 +2387,7 @@
         },
         {
           "question": "1956年，Doris Day录制专辑'Day by Day'时，哪位著名音乐家负责为专辑进行编曲和指挥？",
-          "options": [
-            "Paul Weston",
-            "Nelson Riddle",
-            "Quincy Jones",
-            "Henry Mancini"
-          ],
+          "options": ["Paul Weston", "Nelson Riddle", "Quincy Jones", "Henry Mancini"],
           "correctAnswer": "Paul Weston",
           "trivia": "Doris Day的1956年专辑'Day by Day'由Paul Weston担任编曲和指挥。Paul Weston是当时著名的作曲家和指挥家，他与Doris Day有过多次合作，帮助塑造了她柔和且富有感染力的声音风格。Weston的编曲通常融合了流行和大乐队元素，使得专辑呈现出温暖且细腻的听觉体验。此外，Weston也曾为其他知名歌手如Jo Stafford编曲，体现了他在20世纪中期美国流行音乐中的重要地位。"
         }
@@ -2730,23 +2395,13 @@
       "medium": [
         {
           "question": "在1956年Doris Day发行的专辑《Day by Day》中，哪位音乐家担任了专辑的指挥与编曲工作？",
-          "options": [
-            "Paul Weston",
-            "Nelson Riddle",
-            "Billy May",
-            "Johnny Mandel"
-          ],
+          "options": ["Paul Weston", "Nelson Riddle", "Billy May", "Johnny Mandel"],
           "correctAnswer": "Paul Weston",
           "trivia": "Doris Day的专辑《Day by Day》于1956年发行，制作团队中最关键的人物之一是Paul Weston，他负责了专辑的指挥与编曲工作。Paul Weston是20世纪中期著名的编曲家和指挥家，曾与多位著名歌手合作。Weston的编曲风格柔和而富有层次感，完美衬托了Doris Day清新的声线。此专辑的录制体现了当时西海岸流行音乐的典型声音特征，Paul Weston的参与是其成功的重要因素。Weston与Doris Day的合作为这张专辑增添了丰富的音乐质感和制作水准。"
         },
         {
           "question": "在Doris Day的1956年专辑'Day by Day'中，哪位著名的编曲家为专辑贡献了灵感，帮助塑造了其温暖而细腻的音乐风格？",
-          "options": [
-            "Frank De Vol",
-            "Nelson Riddle",
-            "Quincy Jones",
-            "Henry Mancini"
-          ],
+          "options": ["Frank De Vol", "Nelson Riddle", "Quincy Jones", "Henry Mancini"],
           "correctAnswer": "Frank De Vol",
           "trivia": "Doris Day的专辑'Day by Day'发行于1956年，由著名编曲家Frank De Vol负责编排和指导。Frank De Vol以其细腻且温暖的编曲风格闻名，曾与多位知名歌手合作，极大地影响了这张专辑的整体氛围。虽然Nelson Riddle和Henry Mancini也是当时活跃的顶尖编曲家，但他们并未参与这张专辑的制作。Frank De Vol的参与确保了Doris Day的声音与乐器之间完美平衡，体现了1950年代流行音乐的典型制作风格。"
         },
@@ -2807,12 +2462,7 @@
       "easy": [
         {
           "question": "Duane Eddy的专辑《Have \"Twangy\" Guitar Will Travel》中，哪首曲目最初帮助他在排行榜上获得成功？",
-          "options": [
-            "Rebel Rouser",
-            "Peter Gunn",
-            "Ramrod",
-            "Cannonball"
-          ],
+          "options": ["Rebel Rouser", "Peter Gunn", "Ramrod", "Cannonball"],
           "correctAnswer": "Rebel Rouser",
           "trivia": "《Have \"Twangy\" Guitar Will Travel》是Duane Eddy于1958年发布的专辑，其中《Rebel Rouser》这首曲目帮助他首次在排行榜上崭露头角。该曲以其标志性的“twangy”电吉他音色著称，成为Duane Eddy的代表作之一。实际上，《Rebel Rouser》在1958年进入了美国单曲排行榜，极大地提升了他的知名度。此外，这张专辑的录制体现了他与制作人Lee Hazlewood的合作，二人共同打造了独特的西海岸摇滚风格。"
         },
@@ -3112,12 +2762,7 @@
         },
         {
           "question": "在Eddie Cochran的1957年专辑'Singin' to My Baby'中，哪位早期摇滚音乐人对他的音乐风格产生了显著影响？",
-          "options": [
-            "Buddy Holly",
-            "Chuck Berry",
-            "Little Richard",
-            "Bo Diddley"
-          ],
+          "options": ["Buddy Holly", "Chuck Berry", "Little Richard", "Bo Diddley"],
           "correctAnswer": "Chuck Berry",
           "trivia": "Eddie Cochran在创作'Singin' to My Baby'专辑时，深受Chuck Berry的影响，尤其是在吉他演奏和节奏设计上。Chuck Berry被认为是摇滚乐吉他的先驱，他的风格融合了布鲁斯和乡村元素，这也启发了Cochran将多种音乐元素融合进自己的作品中。此外，Cochran的音乐创新，如双音吉他技巧，也体现了对Berry风格的致敬。尽管Buddy Holly和Little Richard对摇滚乐发展同样重要，但在这张专辑中，Chuck Berry对Eddie Cochran的艺术影响尤为突出。"
         },
@@ -3143,12 +2788,7 @@
       "easy": [
         {
           "question": "Eddy Arnold的1956年专辑《Any Time》是由哪家唱片公司发行的？",
-          "options": [
-            "RCA Victor",
-            "Columbia Records",
-            "Decca Records",
-            "Capitol Records"
-          ],
+          "options": ["RCA Victor", "Columbia Records", "Decca Records", "Capitol Records"],
           "correctAnswer": "RCA Victor",
           "trivia": "Eddy Arnold的《Any Time》专辑于1956年发行，隶属于RCA Victor唱片公司。RCA Victor是当时美国最具影响力的唱片公司之一，负责发行许多乡村音乐艺术家的作品。Eddy Arnold作为RCA Victor旗下的重要艺人，凭借其独特的乡村流行风格，获得了广泛的成功。该专辑中多首歌曲都体现了RCA Victor在制作和推广乡村音乐方面的专业经验。"
         },
@@ -3224,12 +2864,7 @@
         },
         {
           "question": "在Eddy Arnold于1956年发行的专辑《Any Time》的词曲创作过程中，下列哪位作曲家对专辑中同名歌曲《Any Time》的旋律创作起到了关键作用？",
-          "options": [
-            "Herbert \"Happy\" Lawson",
-            "Hank Williams",
-            "Johnny Cash",
-            "Merle Travis"
-          ],
+          "options": ["Herbert \"Happy\" Lawson", "Hank Williams", "Johnny Cash", "Merle Travis"],
           "correctAnswer": "Herbert \"Happy\" Lawson",
           "trivia": "专辑《Any Time》由Eddy Arnold于1956年发行，其中同名歌曲《Any Time》的旋律创作主要归功于作曲家Herbert \"Happy\" Lawson。Lawson是一位活跃于20世纪中期的作曲家，他的作品风格深受乡村音乐影响，且多次与Eddy Arnold合作，帮助塑造了Arnold柔和且通俗的音乐风格。与其他乡村音乐巨星如Hank Williams、Johnny Cash和Merle Travis相比，Lawson更专注于旋律的细腻打磨，这为《Any Time》专辑带来了独特的音乐魅力和广泛的听众基础。此曲后来成为Eddy Arnold的代表作之一，充分体现了词曲创作过程中的艺术协作。"
         },
@@ -3277,12 +2912,7 @@
         },
         {
           "question": "Ella Fitzgerald在录制1956年专辑《Ella Fitzgerald Sings the Cole Porter Song Book》时，哪位著名编曲家负责了大部分的曲目编排工作？",
-          "options": [
-            "Nelson Riddle",
-            "Buddy Bregman",
-            "Quincy Jones",
-            "Gordon Jenkins"
-          ],
+          "options": ["Nelson Riddle", "Buddy Bregman", "Quincy Jones", "Gordon Jenkins"],
           "correctAnswer": "Buddy Bregman",
           "trivia": "《Ella Fitzgerald Sings the Cole Porter Song Book》是Ella Fitzgerald于1956年发行的重要专辑，专门演绎了作曲家Cole Porter的经典作品。在这张专辑的制作过程中，年轻的编曲家Buddy Bregman承担了大部分的曲目编排工作。Bregman以其细腻且富有现代感的编排风格，为Ella的演唱提供了理想的伴奏。虽然当时Nelson Riddle、Quincy Jones和Gordon Jenkins都在音乐界非常活跃，但这张专辑的主要编曲者却是Buddy Bregman，这也为他后续的职业生涯奠定了基础。该专辑成为Ella Fitzgerald“Song Book”系列中的开篇之作，广受好评。"
         }
@@ -3325,12 +2955,7 @@
       "hard": [
         {
           "question": "在录制1956年专辑'Ella Fitzgerald Sings the Cole Porter Song Book'时，Ella Fitzgerald与哪位著名指挥家和编曲家合作，负责该专辑的大部分管弦乐编排？",
-          "options": [
-            "Norman Granz",
-            "Buddy Bregman",
-            "Nelson Riddle",
-            "Quincy Jones"
-          ],
+          "options": ["Norman Granz", "Buddy Bregman", "Nelson Riddle", "Quincy Jones"],
           "correctAnswer": "Buddy Bregman",
           "trivia": "Ella Fitzgerald在录制'Ella Fitzgerald Sings the Cole Porter Song Book'时，与年轻的编曲家兼指挥家Buddy Bregman紧密合作。Bregman负责了专辑中大部分管弦乐的编排和指挥，帮助塑造了这张作品的现代爵士管弦声音。Norman Granz是该专辑的制作人，但并未直接参与编曲工作。Nelson Riddle和Quincy Jones虽然都是著名的编曲家，但他们并未参与这张专辑的制作。Buddy Bregman的加入为Ella Fitzgerald的歌唱风格增添了丰富的管弦质感，奠定了这张歌集在爵士历史中的经典地位。"
         },
@@ -3367,12 +2992,7 @@
       "easy": [
         {
           "question": "Elvis Presley的1956年同名专辑'Elvis Presley'是由哪家唱片公司发行的？",
-          "options": [
-            "RCA Victor",
-            "Sun Records",
-            "Columbia Records",
-            "Decca Records"
-          ],
+          "options": ["RCA Victor", "Sun Records", "Columbia Records", "Decca Records"],
           "correctAnswer": "RCA Victor",
           "trivia": "Elvis Presley的首张同名专辑'Elvis Presley'于1956年发行，唱片公司是RCA Victor。这张专辑的发行标志着Elvis从Sun Records转投RCA Victor，后者为他的职业生涯提供了更广泛的推广和分销网络。RCA Victor在当时是美国最大的唱片公司之一，拥有先进的录音设备和强大的市场影响力。虽然Elvis最初在Sun Records获得关注，但正是RCA Victor助推了他的全国乃至全球声誉。该专辑后来成为摇滚史上的经典作品，奠定了Elvis Presley作为“摇滚之王”的地位。"
         },
@@ -3389,12 +3009,7 @@
         },
         {
           "question": "在录制Elvis Presley的1956年同名专辑《Elvis Presley》时，哪位音响工程师负责了主要的录音和混音工作？",
-          "options": [
-            "Bill Porter",
-            "Sam Phillips",
-            "Steve Sholes",
-            "Chet Atkins"
-          ],
+          "options": ["Bill Porter", "Sam Phillips", "Steve Sholes", "Chet Atkins"],
           "correctAnswer": "Bill Porter",
           "trivia": "Bill Porter是这张经典专辑的主要音响工程师，他在录音室中负责捕捉Elvis Presley独特的声音和乐器的平衡。Porter以精准的麦克风摆放和细致的混音著称，这为专辑营造出清晰且具有现场感的音效。尽管Sam Phillips作为Sun Records的创始人曾录制过Elvis的早期作品，但《Elvis Presley》专辑是在RCA Victor录制的，由Bill Porter主导技术工作。此外，制作人Steve Sholes和音乐家Chet Atkins也参与了专辑制作，但音响工程主要由Porter完成。"
         }
@@ -3413,12 +3028,7 @@
         },
         {
           "question": "在Elvis Presley的1956年同名专辑《Elvis Presley》中，哪首歌曲的歌词体现了Elvis独特地将乡村风格与节奏布鲁斯元素融合，表达了对年轻人自由与反叛精神的诉求？",
-          "options": [
-            "Heartbreak Hotel",
-            "Blue Suede Shoes",
-            "Tutti Frutti",
-            "Money Honey"
-          ],
+          "options": ["Heartbreak Hotel", "Blue Suede Shoes", "Tutti Frutti", "Money Honey"],
           "correctAnswer": "Heartbreak Hotel",
           "trivia": "《Elvis Presley》专辑中的《Heartbreak Hotel》歌词描绘了孤独和失落的主题，体现了年轻人对自由和情感挣扎的表达。这首歌融合了乡村音乐的叙事传统和节奏布鲁斯的强烈节奏，成为Elvis Presley突破传统音乐风格的代表作。该曲也是他第一首登顶Billboard单曲榜的作品，标志着他音乐生涯的重要转折点。与此同时，专辑中的其他歌曲虽然也有融合元素，但《Heartbreak Hotel》的歌词和情感深度最能反映Elvis对年轻反叛精神的诠释。"
         },
@@ -3437,12 +3047,7 @@
       "hard": [
         {
           "question": "在1956年Elvis Presley发行同名专辑《Elvis Presley》时，哪一首歌曲成为当时美国电台播放最多的曲目，从而极大提升了Elvis的全国知名度？",
-          "options": [
-            "Heartbreak Hotel",
-            "Blue Suede Shoes",
-            "Hound Dog",
-            "Love Me Tender"
-          ],
+          "options": ["Heartbreak Hotel", "Blue Suede Shoes", "Hound Dog", "Love Me Tender"],
           "correctAnswer": "Heartbreak Hotel",
           "trivia": "《Elvis Presley》专辑于1956年发行，其中《Heartbreak Hotel》是Elvis Presley首支登顶美国Billboard单曲榜的歌曲。这首歌在电台播放频率极高，成为推动他快速走红的重要因素。作为他首张专辑的主打歌，《Heartbreak Hotel》体现了早期摇滚乐风格，融合了布鲁斯与乡村音乐元素，标志着Elvis音乐生涯的一个重要里程碑。该曲的成功也反映了当时美国年轻听众对新兴摇滚乐的热情，促使电台不断加大播放力度，助力Elvis成为摇滚乐先驱。"
         },
@@ -3591,23 +3196,13 @@
       "easy": [
         {
           "question": "在Fats Domino的1956年专辑'This Is Fats Domino!'中，哪首歌曲曾经在当时的电台播放排行榜上取得显著成功？",
-          "options": [
-            "Blueberry Hill",
-            "Ain't That a Shame",
-            "I'm Walkin'",
-            "My Blue Heaven"
-          ],
+          "options": ["Blueberry Hill", "Ain't That a Shame", "I'm Walkin'", "My Blue Heaven"],
           "correctAnswer": "Blueberry Hill",
           "trivia": "Fats Domino的专辑'This Is Fats Domino!'发行于1956年，其中收录的《Blueberry Hill》成为他最著名的歌曲之一。这首歌在当时的电台播放中非常受欢迎，登上了多项排行榜的高位，尤其是在节奏蓝调和流行音乐领域。《Blueberry Hill》帮助Fats Domino巩固了他在摇滚和节奏蓝调音乐中的地位。此外，这首歌也成为了他音乐生涯的代表作，经常被各大电台频繁播放，至今仍是经典曲目。"
         },
         {
           "question": "在1956年录制专辑'This Is Fats Domino!'时，Fats Domino的制作团队中哪位知名制作人负责监督整个录音过程？",
-          "options": [
-            "Dave Bartholomew",
-            "Sam Phillips",
-            "Quincy Jones",
-            "Phil Spector"
-          ],
+          "options": ["Dave Bartholomew", "Sam Phillips", "Quincy Jones", "Phil Spector"],
           "correctAnswer": "Dave Bartholomew",
           "trivia": "Dave Bartholomew是Fats Domino长期的合作伙伴和制作人，他在1956年监督了专辑'This Is Fats Domino!'的录制过程。Bartholomew不仅担任制作人，还参与了编曲和作曲工作，帮助塑造了Fats Domino标志性的节奏与布鲁斯风格。专辑的制作采用了新奥尔良独特的跳跃节奏，这种风格也得益于Bartholomew的音乐指导。Sam Phillips、Quincy Jones和Phil Spector虽然都是著名制作人，但他们并未参与该专辑的制作。"
         },
@@ -3626,23 +3221,13 @@
       "medium": [
         {
           "question": "在1956年发行的专辑'This Is Fats Domino!'中，Fats Domino的音乐风格主要受哪种传统音乐形式的启发？",
-          "options": [
-            "新奥尔良节奏布鲁斯",
-            "芝加哥蓝调",
-            "堪萨斯城爵士",
-            "孟菲斯摇滚"
-          ],
+          "options": ["新奥尔良节奏布鲁斯", "芝加哥蓝调", "堪萨斯城爵士", "孟菲斯摇滚"],
           "correctAnswer": "新奥尔良节奏布鲁斯",
           "trivia": "Fats Domino是新奥尔良节奏布鲁斯的代表人物，他的专辑'This Is Fats Domino!'体现了这种音乐风格的典型特点，如轻快的钢琴节奏和富有感染力的唱腔。新奥尔良节奏布鲁斯融合了传统蓝调与节奏感强烈的跳舞音乐元素，深刻影响了早期摇滚乐的发展。Fats Domino的音乐灵感主要来源于当地丰富的音乐传统，这使得他的作品在1950年代的音乐潮流中独树一帜。"
         },
         {
           "question": "在电台播放方面，Fats Domino的专辑'This Is Fats Domino!'（1956年）中哪首歌曲最先获得广泛电台播放，帮助他获得更大知名度？",
-          "options": [
-            "Blueberry Hill",
-            "Ain't That a Shame",
-            "I'm Walkin'",
-            "My Blue Heaven"
-          ],
+          "options": ["Blueberry Hill", "Ain't That a Shame", "I'm Walkin'", "My Blue Heaven"],
           "correctAnswer": "Ain't That a Shame",
           "trivia": "Fats Domino的1956年专辑'This Is Fats Domino!'收录了多首经典曲目，其中《Ain't That a Shame》是最早通过电台广泛播放的歌曲之一。这首歌最初于1955年发行，迅速登上了R&B排行榜的冠军位置，并突破进入主流电台播放，极大提升了Fats Domino的全国知名度。《Blueberry Hill》虽然后来成为他的代表作，但在专辑发行时电台播放还没有达到同等的广泛度。《I'm Walkin'》和《My Blue Heaven》也都有一定的电台曝光，但不及《Ain't That a Shame》的影响力。电台播放的成功促进了Fats Domino在摇滚和R&B领域的跨界影响。"
         },
@@ -3661,12 +3246,7 @@
       "hard": [
         {
           "question": "在Fats Domino1956年发行的专辑'This Is Fats Domino!'的词曲创作过程中，下列哪位人物最主要地参与了歌曲的联合创作？",
-          "options": [
-            "Dave Bartholomew",
-            "Ahmet Ertegun",
-            "Sam Phillips",
-            "Leiber和Stoller"
-          ],
+          "options": ["Dave Bartholomew", "Ahmet Ertegun", "Sam Phillips", "Leiber和Stoller"],
           "correctAnswer": "Dave Bartholomew",
           "trivia": "Fats Domino与制作人兼作曲家Dave Bartholomew在'This Is Fats Domino!'专辑的词曲创作中建立了密切合作关系。Bartholomew不仅参与了多首歌曲的联合创作，还帮助塑造了Fats Domino标志性的节奏蓝调风格。两人的合作成功地融合了新奥尔良的音乐传统和当时流行的摇滚元素。相较之下，Ahmet Ertegun虽是当时重要的音乐制作人，但并未直接参与本专辑的创作。Sam Phillips主要与乡村和早期摇滚艺术家合作，而Leiber和Stoller则以其他艺人的歌曲创作闻名。此合作关系对Fats Domino的职业生涯和1950年代节奏蓝调的发展具有重要影响。"
         },
@@ -3683,12 +3263,7 @@
         },
         {
           "question": "关于Fats Domino于1956年发行的专辑'This Is Fats Domino!'，以下哪家唱片公司负责发行这张专辑？",
-          "options": [
-            "Imperial Records",
-            "Atlantic Records",
-            "Chess Records",
-            "Sun Records"
-          ],
+          "options": ["Imperial Records", "Atlantic Records", "Chess Records", "Sun Records"],
           "correctAnswer": "Imperial Records",
           "trivia": "Fats Domino的专辑'This Is Fats Domino!'于1956年由Imperial Records发行，这家公司在1950年代致力于推广节奏蓝调和早期摇滚乐，是Fats Domino职业生涯的重要合作伙伴。Imperial Records总部位于加州洛杉矶，曾签约多位知名艺术家如Ruth Brown。相比之下，Atlantic Records和Chess Records虽然在同期也活跃于节奏蓝调领域，但Fats Domino主要通过Imperial Records发布其早期重要作品。Sun Records则更著名于摇滚鼻祖Elvis Presley等人。"
         }
@@ -3703,12 +3278,7 @@
       "easy": [
         {
           "question": "Frank Sinatra的专辑'Songs for Young Lovers'于1954年由哪家唱片公司发行？",
-          "options": [
-            "Columbia Records",
-            "Capitol Records",
-            "Decca Records",
-            "RCA Victor"
-          ],
+          "options": ["Columbia Records", "Capitol Records", "Decca Records", "RCA Victor"],
           "correctAnswer": "Capitol Records",
           "trivia": "Frank Sinatra于1954年发行的专辑'Songs for Young Lovers'是由Capitol Records发布的。这张专辑标志着他与Capitol Records合作的开始，期间他录制了多张经典专辑。此前，Sinatra曾与Columbia Records和Decca Records有过合作，但'Songs for Young Lovers'是他在Capitol的首批作品之一。Capitol Records在当时以支持艺术家创新和高质量录音著称，这也帮助Sinatra确立了他在流行音乐领域的领导地位。"
         },
@@ -3760,12 +3330,7 @@
         },
         {
           "question": "在Frank Sinatra于1954年录制专辑'Songs for Young Lovers'时，哪位著名编曲家负责了专辑的大部分音乐编排工作？",
-          "options": [
-            "Nelson Riddle",
-            "Gordon Jenkins",
-            "Billy May",
-            "Count Basie"
-          ],
+          "options": ["Nelson Riddle", "Gordon Jenkins", "Billy May", "Count Basie"],
           "correctAnswer": "Nelson Riddle",
           "trivia": "Frank Sinatra的专辑'Songs for Young Lovers'于1954年发行，是他与Capitol唱片公司合作期间的重要作品。这张专辑的大部分编曲和指挥工作由Nelson Riddle完成，他因其细腻且富有情感的编曲风格而闻名。Nelson Riddle的加入极大地提升了Sinatra的音乐表现力，为他日后的多张经典专辑奠定了基础。相较之下，Gordon Jenkins和Billy May也曾与Sinatra合作，但他们并非该专辑的主要编曲者。Count Basie则更多以乐队领袖身份出现，未参与该专辑的编排。"
         }
@@ -3837,12 +3402,7 @@
         },
         {
           "question": "1956年Gene Vincent发行的专辑《Bluejean Bop!》中，哪首歌曲成为他最著名的摇滚单曲并帮助他快速走红？",
-          "options": [
-            "Bluejean Bop",
-            "Be-Bop-A-Lula",
-            "Dance to the Bop",
-            "Jezebel"
-          ],
+          "options": ["Bluejean Bop", "Be-Bop-A-Lula", "Dance to the Bop", "Jezebel"],
           "correctAnswer": "Be-Bop-A-Lula",
           "trivia": "《Bluejean Bop!》是Gene Vincent在1956年推出的首张专辑，其中包含了他的代表作《Be-Bop-A-Lula》。这首歌成为了他的成名曲，并在当时的摇滚乐坛引起巨大反响，帮助他迅速获得了广泛关注。事实上，《Be-Bop-A-Lula》不仅在排行榜上取得优异成绩，还被视为摇滚乐早期的经典作品之一。专辑中的其他曲目如《Bluejean Bop》和《Dance to the Bop》虽然也受欢迎，但都无法达到《Be-Bop-A-Lula》的影响力。"
         }
@@ -3896,12 +3456,7 @@
         },
         {
           "question": "在Gene Vincent的1956年专辑《Bluejean Bop!》中，哪首歌曲的歌词反映了当时青少年对自由和叛逆精神的强烈渴望？",
-          "options": [
-            "Bluejean Bop",
-            "Who Slapped John?",
-            "Up a Lazy River",
-            "Jezebel"
-          ],
+          "options": ["Bluejean Bop", "Who Slapped John?", "Up a Lazy River", "Jezebel"],
           "correctAnswer": "Bluejean Bop",
           "trivia": "《Bluejean Bop!》是Gene Vincent在1956年发行的标志性摇滚专辑，其中同名歌曲《Bluejean Bop》以其充满活力的节奏和叛逆的歌词，生动描绘了当时青少年对自由、摇滚生活方式的追求。这首歌通过描写穿着蓝色牛仔裤的年轻人们在舞会上跳舞，象征了50年代美国年轻人摆脱传统束缚、表达个性的一种文化现象。此外，《Bluejean Bop》也体现了早期摇滚乐对社会规范的挑战，与专辑中其他曲目相比，其歌词更直接反映了青春期的冲动和反抗精神。"
         },
@@ -3949,12 +3504,7 @@
         },
         {
           "question": "在1953年录制的专辑'Gerry Mulligan Quartet Volume 1'中，以下哪位音乐家是Gerry Mulligan四重奏的成员？",
-          "options": [
-            "Chet Baker",
-            "Miles Davis",
-            "John Coltrane",
-            "Art Blakey"
-          ],
+          "options": ["Chet Baker", "Miles Davis", "John Coltrane", "Art Blakey"],
           "correctAnswer": "Chet Baker",
           "trivia": "专辑'Gerry Mulligan Quartet Volume 1'是1953年由著名的萨克斯手Gerry Mulligan领导录制的。这张专辑的四重奏成员包括小号手Chet Baker，他在当时因其抒情的演奏风格而闻名。Chet Baker与Gerry Mulligan的合作极大地推动了无钢琴四重奏的冷爵士风格的发展。其他选项中的Miles Davis、John Coltrane和Art Blakey虽然都是著名的爵士音乐家，但他们并未参与这张专辑的录制。"
         }
@@ -4008,12 +3558,7 @@
         },
         {
           "question": "在1953年录制的Gerry Mulligan专辑《Gerry Mulligan Quartet Volume 1》中，哪种乐器的缺席成为该四重奏独特的音乐元素，显著影响了其整体音色和编曲风格？",
-          "options": [
-            "钢琴",
-            "贝斯",
-            "鼓",
-            "小号"
-          ],
+          "options": ["钢琴", "贝斯", "鼓", "小号"],
           "correctAnswer": "钢琴",
           "trivia": "《Gerry Mulligan Quartet Volume 1》是1953年Gerry Mulligan领导的标志性专辑。值得注意的是，该专辑的四重奏阵容中没有钢琴，这在当时的爵士四重奏中非常罕见。Mulligan选择省略钢琴，主要为了突出他自己在次中音萨克斯风上的表现以及Chet Baker的号角，使整体音色更加清晰且富有空间感。此外，这种无钢琴的编制促使贝斯手和鼓手承担更多的和声和节奏责任，形成了独特的“西海岸酷派爵士”风格。这种安排后来被认为是爵士乐史上的创新之一。"
         },
@@ -4074,12 +3619,7 @@
       "medium": [
         {
           "question": "在Hank Williams的1951年专辑'Hank Williams Sings'制作过程中，哪位音乐家以其钢琴演奏为专辑增添了独特风格？",
-          "options": [
-            "Jerry Byrd",
-            "Zeke Turner",
-            "Don Helms",
-            "Felice Bryant"
-          ],
+          "options": ["Jerry Byrd", "Zeke Turner", "Don Helms", "Felice Bryant"],
           "correctAnswer": "Jerry Byrd",
           "trivia": "在'Hank Williams Sings'专辑的录制中，Jerry Byrd作为钢琴演奏者参与，为专辑带来了乡村音乐中少见的细腻钢琴声。Jerry Byrd本身是一位著名的钢琴和夏威夷吉他演奏家，他的加入丰富了Hank Williams的传统乡村风格。相比之下，Zeke Turner和Don Helms主要负责吉他和钢琴之外的乐器演奏，而Felice Bryant则以作词人身份闻名。此专辑的录音于1950年至1951年间完成，录音师Fred Rose也为专辑的整体声音制作起到了关键作用。"
         },
@@ -4232,12 +3772,7 @@
         },
         {
           "question": "在Harry Belafonte的1956年专辑《Calypso》的词曲创作过程中，哪位音乐家对专辑中的传统加勒比海民谣进行了重要的编曲和改编，帮助形成了专辑独特的音乐风格？",
-          "options": [
-            "Milt Gabler",
-            "William Attaway",
-            "Burt Bacharach",
-            "Duke Ellington"
-          ],
+          "options": ["Milt Gabler", "William Attaway", "Burt Bacharach", "Duke Ellington"],
           "correctAnswer": "William Attaway",
           "trivia": "《Calypso》专辑是Harry Belafonte将加勒比海地区传统音乐带入美国主流视野的重要作品。专辑中的许多曲目都基于传统的卡利普索民谣，而William Attaway作为作家和编曲者，参与改编了这些歌曲的歌词和结构，赋予了其更适合录音和商业发行的形式。Milt Gabler是这张专辑的制作人，负责整体录音过程，但并非主要编曲者。Burt Bacharach和Duke Ellington则活跃于不同的音乐领域，未直接参与该专辑的词曲创作。此专辑的成功在于结合了Belafonte的演唱与Attaway的创作改编，推动了卡利普索音乐的国际传播。"
         },
@@ -4274,12 +3809,7 @@
         },
         {
           "question": "Horace Silver在1959年录制专辑'Blowin' the Blues Away'时，哪位音乐家担任了低音提琴手？",
-          "options": [
-            "Doug Watkins",
-            "Paul Chambers",
-            "Charles Mingus",
-            "Ron Carter"
-          ],
+          "options": ["Doug Watkins", "Paul Chambers", "Charles Mingus", "Ron Carter"],
           "correctAnswer": "Doug Watkins",
           "trivia": "在Horace Silver的1959年专辑'Blowin' the Blues Away'中，低音提琴手是Doug Watkins，他是当时硬波普风格中非常重要的贝斯手之一。该专辑录制于1959年，是Horace Silver标志性的作品，强调了硬波普的节奏感和旋律性。除了Doug Watkins，专辑中还有蓝调风格明显的鼓手Louis Hayes和萨克斯手Benny Golson，他们的合作为专辑注入了丰富的表现力。Watkins的低音线条稳健而富有弹性，成为这张专辑成功的重要因素之一。"
         },
@@ -4320,12 +3850,7 @@
         },
         {
           "question": "在Horace Silver的1959年专辑《Blowin' the Blues Away》中，哪位艺术家对Horace Silver的创作灵感影响最大，促使他融合了硬博普和节奏蓝调元素？",
-          "options": [
-            "Art Blakey",
-            "Miles Davis",
-            "John Coltrane",
-            "Thelonious Monk"
-          ],
+          "options": ["Art Blakey", "Miles Davis", "John Coltrane", "Thelonious Monk"],
           "correctAnswer": "Art Blakey",
           "trivia": "Horace Silver在创作《Blowin' the Blues Away》时深受鼓手Art Blakey的影响。两人共同合作于Jazz Messengers乐队，Blakey的强烈节奏感和硬博普风格激励Silver将蓝调和节奏蓝调元素巧妙融合进他的钢琴演奏和作曲中。这张专辑体现了他们合作的默契，成为硬博普经典之作。Miles Davis和John Coltrane虽然是当时重要的爵士音乐家，但他们对这张专辑的风格影响较小，而Thelonious Monk则以其独特的即兴风格闻名，与Silver的创作路径有所不同。"
         }
@@ -4355,12 +3880,7 @@
         },
         {
           "question": "Horace Silver在1959年录制《Blowin' the Blues Away》专辑时，哪位音乐家作为贝斯手参与了录制？",
-          "options": [
-            "Doug Watkins",
-            "Paul Chambers",
-            "Sam Jones",
-            "Ray Brown"
-          ],
+          "options": ["Doug Watkins", "Paul Chambers", "Sam Jones", "Ray Brown"],
           "correctAnswer": "Doug Watkins",
           "trivia": "《Blowin' the Blues Away》是Horace Silver于1959年录制的一张经典硬波普专辑。该专辑由Blue Note唱片发行，录音地点位于纽约的Van Gelder Studio。贝斯手Doug Watkins作为Horace Silver Quintet的定期成员，参与了这张专辑的录制。Doug Watkins以其稳健且富有弹性的低音线条著称，为专辑整体的节奏感和活力贡献良多。值得一提的是，这张专辑还包括了著名的鼓手Louis Hayes，进一步强化了其独特的硬波普风格。"
         }
@@ -4445,12 +3965,7 @@
       "hard": [
         {
           "question": "关于Howlin' Wolf于1959年发行的专辑《Moanin' in the Moonlight》，以下哪种数字发行格式最早采用以便向更广泛的听众推广这张蓝调经典？",
-          "options": [
-            "数字音频磁带（DAT）",
-            "CD（紧凑光盘）",
-            "MP3数字下载",
-            "数字流媒体平台"
-          ],
+          "options": ["数字音频磁带（DAT）", "CD（紧凑光盘）", "MP3数字下载", "数字流媒体平台"],
           "correctAnswer": "CD（紧凑光盘）",
           "trivia": "Howlin' Wolf的《Moanin' in the Moonlight》最初于1959年以黑胶唱片形式发行。随着技术发展，这张专辑首次被广泛数字化发行是在1980年代后期的CD格式，这使得更多听众能够体验其经典蓝调音乐。数字音频磁带（DAT）和数字流媒体平台则是在CD之后才普及，而MP3格式的数字下载则是在1990年代末到2000年代初成为主流。因此，CD是该专辑最早采用的数字发行媒介，标志着传统蓝调音乐向数字时代的转型。"
         },
@@ -4467,12 +3982,7 @@
         },
         {
           "question": "在Howlin' Wolf1959年发行的专辑《Moanin' in the Moonlight》的制作过程中，哪位制作人负责了录音和整体制作工作？",
-          "options": [
-            "Sam Phillips",
-            "Leonard Chess",
-            "Muddy Waters",
-            "Phil Spector"
-          ],
+          "options": ["Sam Phillips", "Leonard Chess", "Muddy Waters", "Phil Spector"],
           "correctAnswer": "Leonard Chess",
           "trivia": "《Moanin' in the Moonlight》是Howlin' Wolf在1959年通过Chess Records发行的重要专辑。该专辑的制作人是Leonard Chess，他是Chess Records的联合创始人，对布鲁斯音乐的推广起到了关键作用。Leonard Chess亲自监督了Howlin' Wolf的录音过程，确保录音能体现出粗犷且富有感染力的布鲁斯风格。Sam Phillips虽然是另一位著名的制作人，但他主要与Sun Records相关。Muddy Waters是当时的另一位布鲁斯巨星，而Phil Spector以其“墙壁般的声音”制作风格闻名，但与这张专辑无关。Leonard Chess的制作为这张专辑奠定了经典布鲁斯专辑的基础。"
         }
@@ -4487,12 +3997,7 @@
       "easy": [
         {
           "question": "关于Jackie Wilson于1958年发行的专辑《He's So Fine》，以下哪种数字发行形式最早被采用？",
-          "options": [
-            "黑胶唱片（LP）",
-            "数字音频磁带（DAT）",
-            "CD光盘",
-            "数字下载（MP3格式）"
-          ],
+          "options": ["黑胶唱片（LP）", "数字音频磁带（DAT）", "CD光盘", "数字下载（MP3格式）"],
           "correctAnswer": "黑胶唱片（LP）",
           "trivia": "Jackie Wilson的《He's So Fine》专辑最初于1958年发行，当时数字发行形式尚未出现。那个时代主要的音乐发行媒介是黑胶唱片（LP），这是当时市场上最常见的实物唱片格式。数字音频磁带（DAT）和CD光盘是在1980年代以后才出现的，而数字下载（MP3格式）则是在1990年代末和2000年代初才开始普及。因此，《He's So Fine》的首次发行必然是通过黑胶唱片进行的。这一事实反映了那个年代音乐发行技术的演变和数字化进程的起点。"
         },
@@ -4533,23 +4038,13 @@
         },
         {
           "question": "在1958年Jackie Wilson发行专辑《He's So Fine》期间，他在哪个城市举行了该专辑推广的主要现场表演巡演？",
-          "options": [
-            "芝加哥",
-            "底特律",
-            "纽约",
-            "洛杉矶"
-          ],
+          "options": ["芝加哥", "底特律", "纽约", "洛杉矶"],
           "correctAnswer": "底特律",
           "trivia": "Jackie Wilson在1958年推出他的专辑《He's So Fine》时，选择了底特律作为主要的现场表演巡演城市。底特律当时是重要的音乐中心，拥有活跃的R&B和灵魂乐市场，这为Wilson的音乐推广提供了理想的环境。此外，他在底特律的多场演出吸引了大量观众，帮助他巩固了在当时音乐界的地位。底特律的音乐氛围和观众反响对专辑的成功起到了关键作用。"
         },
         {
           "question": "Jackie Wilson录制1958年专辑《He's So Fine》时，其音乐风格主要受哪位艺术家的影响？",
-          "options": [
-            "Sam Cooke",
-            "Ray Charles",
-            "Frank Sinatra",
-            "Elvis Presley"
-          ],
+          "options": ["Sam Cooke", "Ray Charles", "Frank Sinatra", "Elvis Presley"],
           "correctAnswer": "Sam Cooke",
           "trivia": "Jackie Wilson在1958年录制专辑《He's So Fine》时，受到了当时灵魂乐先驱Sam Cooke的显著影响。Wilson的演唱风格融合了节奏蓝调与灵魂乐元素，这与Sam Cooke温暖且富有感染力的嗓音有许多相似之处。虽然Ray Charles也是那个时期重要的灵魂乐艺术家，但Wilson更倾向于从Cooke的流畅和抒情风格中汲取灵感。此外，Wilson的作品也体现了他自己独特的舞台魅力和强劲的声线，使其成为那一时代极具影响力的歌手之一。专辑《He's So Fine》正是这一风格融合的典型代表。"
         }
@@ -4579,12 +4074,7 @@
         },
         {
           "question": "在Jackie Wilson的1958年专辑《He's So Fine》的词曲创作过程中，哪位作曲家对该专辑的标题曲贡献了重要的旋律创作？",
-          "options": [
-            "Bobby Darin",
-            "Ronald Mack",
-            "Carl Davis",
-            "Johnny Otis"
-          ],
+          "options": ["Bobby Darin", "Ronald Mack", "Carl Davis", "Johnny Otis"],
           "correctAnswer": "Ronald Mack",
           "trivia": "《He's So Fine》这张专辑中的同名歌曲的旋律是由词曲作家Ronald Mack创作的，他在当时以创作灵魂和节奏蓝调曲目闻名。Jackie Wilson作为演唱者，凭借其强烈的表现力将这首歌演绎得淋漓尽致。Ronald Mack的作品对1950年代末的节奏蓝调音乐发展产生了深远影响。虽然Carl Davis和Johnny Otis都是那一时期知名的制作人和作曲家，且曾与Wilson合作，但标题曲的旋律创作确实归功于Ronald Mack。Bobby Darin则更多以流行及摇滚风格著称，与该专辑关联较少。"
         }
@@ -4599,12 +4089,7 @@
       "easy": [
         {
           "question": "James Brown在创作专辑《Please, Please, Please》时，哪位艺术家对他的音乐风格产生了显著影响？",
-          "options": [
-            "Ray Charles",
-            "Elvis Presley",
-            "Chuck Berry",
-            "Frank Sinatra"
-          ],
+          "options": ["Ray Charles", "Elvis Presley", "Chuck Berry", "Frank Sinatra"],
           "correctAnswer": "Ray Charles",
           "trivia": "James Brown的首张专辑《Please, Please, Please》发行于1959年，这张专辑深受当时灵魂乐先锋Ray Charles的影响。Ray Charles以其融合节奏布鲁斯和福音音乐的独特风格，启发了James Brown在演唱和编曲上的表达方式。事实上，James Brown曾公开表示，Ray Charles的音乐激励他将情感和力量注入到自己的演出中。此外，《Please, Please, Please》中的歌曲展现了James Brown对情感深刻的把握，这与Ray Charles的音乐理念有明显的共鸣。"
         },
@@ -4634,12 +4119,7 @@
       "medium": [
         {
           "question": "关于James Brown 1959年发行的专辑《Please, Please, Please》，以下哪种视觉表现形式最早用于宣传这张专辑？",
-          "options": [
-            "现场演出录影带",
-            "动画短片",
-            "电视音乐表演录像",
-            "照片幻灯片配乐"
-          ],
+          "options": ["现场演出录影带", "动画短片", "电视音乐表演录像", "照片幻灯片配乐"],
           "correctAnswer": "照片幻灯片配乐",
           "trivia": "James Brown的《Please, Please, Please》专辑发行于1959年，当时音乐录像带（Music Video）尚未普及。为了宣传专辑，最早采用的视觉内容形式是将艺术家的现场照片制作成幻灯片，配合专辑歌曲播放，这种方式在当时较为常见。现场演出录影带和电视音乐表演录像虽然存在，但在1959年还不广泛应用于专辑宣传。动画短片作为音乐宣传形式出现较晚，与当时James Brown专辑的推广方式无关。因此，照片幻灯片配乐是该专辑最早使用的视觉表现形式之一。此方法帮助观众通过视觉感官加深对专辑的印象，成为那个时代音乐推广的典型手段。"
         },
@@ -4669,12 +4149,7 @@
       "hard": [
         {
           "question": "James Brown的1959年专辑《Please, Please, Please》是由哪家唱片公司发行的？",
-          "options": [
-            "Federal Records",
-            "King Records",
-            "Atlantic Records",
-            "Motown Records"
-          ],
+          "options": ["Federal Records", "King Records", "Atlantic Records", "Motown Records"],
           "correctAnswer": "King Records",
           "trivia": "James Brown的首张专辑《Please, Please, Please》于1959年发行，当时他与King Records签约。King Records是一家位于辛辛那提的独立唱片公司，以发行节奏蓝调和乡村音乐闻名。Federal Records是King Records的一个子标签，James Brown的一些单曲曾以Federal名义发行，但专辑由King Records正式发布。Atlantic Records和Motown Records虽然在当时也是重要的黑人音乐厂牌，但并未参与这张专辑的发行。"
         },
@@ -4823,12 +4298,7 @@
       "easy": [
         {
           "question": "Jim Reeves的专辑《Girls I Have Known》（1958年）中，哪首歌曲的音乐录影带最早被制作并广泛播放？",
-          "options": [
-            "Anna Marie",
-            "Marie",
-            "Bessie The Heifer",
-            "Mexicali Rose"
-          ],
+          "options": ["Anna Marie", "Marie", "Bessie The Heifer", "Mexicali Rose"],
           "correctAnswer": "Mexicali Rose",
           "trivia": "Jim Reeves在1958年发行的专辑《Girls I Have Known》中，歌曲《Mexicali Rose》是较早伴随视觉内容推广的作品之一。虽然当时音乐录影带尚未普及，但《Mexicali Rose》的视觉演绎通过电视节目等形式广泛传播，帮助Jim Reeves扩大了受众基础。相比之下，其他歌曲如《Anna Marie》和《Bessie The Heifer》虽受欢迎，但并未制作专门的音乐录影带。此外，《Girls I Have Known》专辑体现了Jim Reeves柔和的乡村风格，与视觉内容相辅相成，推动了他的音乐生涯。"
         },
@@ -4858,23 +4328,13 @@
       "medium": [
         {
           "question": "在Jim Reeves的1958年专辑《Girls I Have Known》中，哪首歌曲的歌词反映了对过去恋情的温柔回忆，这也体现了专辑整体主题中的怀旧情感？",
-          "options": [
-            "《Mona Lisa》",
-            "《He'll Have to Go》",
-            "《Blue Moon》",
-            "《Bimbo》"
-          ],
+          "options": ["《Mona Lisa》", "《He'll Have to Go》", "《Blue Moon》", "《Bimbo》"],
           "correctAnswer": "《Mona Lisa》",
           "trivia": "《Girls I Have Known》是Jim Reeves于1958年发行的一张专辑，专辑中多首歌曲以回忆过去的爱情为主题，体现了浓厚的怀旧情绪。其中，《Mona Lisa》这首歌的歌词描述了对一位神秘女子的温柔怀念，完美契合了专辑的主题氛围。值得注意的是，《Mona Lisa》原唱是Nat King Cole，这首歌因其深情且富有画面感的歌词，成为Jim Reeves在这张专辑中表达情感的重要作品。此外，专辑整体采用了柔和的编曲风格，强化了歌词中的温情与回忆感。"
         },
         {
           "question": "Jim Reeves在录制1958年专辑《Girls I Have Known》时，哪位制作人负责了该专辑的录音制作工作？",
-          "options": [
-            "Chet Atkins",
-            "Owen Bradley",
-            "Billy Sherrill",
-            "Felton Jarvis"
-          ],
+          "options": ["Chet Atkins", "Owen Bradley", "Billy Sherrill", "Felton Jarvis"],
           "correctAnswer": "Chet Atkins",
           "trivia": "Jim Reeves的专辑《Girls I Have Known》于1958年录制，由著名制作人Chet Atkins负责制作。Chet Atkins不仅是当时乡村音乐的重要制作人，也因其独特的录音技巧推动了乡村音乐的现代化。该专辑的录制融合了柔和的弦乐和Jim Reeves温暖的歌声，体现了Atkins对声音细节的高度把控。Owen Bradley、Billy Sherrill和Felton Jarvis均为知名制作人，但他们并未参与此专辑的制作。"
         },
@@ -4893,23 +4353,13 @@
       "hard": [
         {
           "question": "Jim Reeves在1958年录制专辑'Girls I Have Known'时，谁担任了这张专辑的制作人？",
-          "options": [
-            "Chet Atkins",
-            "Owen Bradley",
-            "Sam Phillips",
-            "Bill Porter"
-          ],
+          "options": ["Chet Atkins", "Owen Bradley", "Sam Phillips", "Bill Porter"],
           "correctAnswer": "Chet Atkins",
           "trivia": "Jim Reeves的专辑'Girls I Have Known'由Chet Atkins担任制作人，这对专辑的声音风格产生了深远影响。Chet Atkins不仅是这张专辑的制作人，还是乡村音乐界著名的吉他手和制作大师，他在1950年代推动了乡村音乐的'纳什维尔之声'。这张专辑的录制体现了Atkins对细腻编曲和清晰录音的追求，使得Jim Reeves的声音更加柔和并具有广泛的吸引力。Owen Bradley虽是同时代重要制作人，但并未参与此专辑。Sam Phillips更以摇滚和早期布鲁斯录音闻名，而Bill Porter是著名的录音工程师，但不担任本专辑制作人。"
         },
         {
           "question": "在Jim Reeves的1958年专辑《Girls I Have Known》的词曲创作过程中，哪一位著名词曲作者为该专辑的多首歌曲提供了创作灵感或作品？",
-          "options": [
-            "Hank Williams",
-            "Cindy Walker",
-            "Willie Nelson",
-            "Ernest Tubb"
-          ],
+          "options": ["Hank Williams", "Cindy Walker", "Willie Nelson", "Ernest Tubb"],
           "correctAnswer": "Cindy Walker",
           "trivia": "Jim Reeves在《Girls I Have Known》专辑中大量采用了由Cindy Walker创作的歌曲，体现了他对这位著名女词曲作者作品的欣赏。Cindy Walker是当时乡村音乐领域极具影响力的词曲作者，她的作品风格细腻且富有感染力。专辑中的多首曲目，如“Anna Marie”和“Marie”、“Mona Lisa”，均与她有直接关联。Jim Reeves借助这些歌曲，成功塑造了专辑温暖而抒情的风格，进一步巩固了他在乡村音乐界的地位。"
         },
@@ -4946,12 +4396,7 @@
         },
         {
           "question": "在Jimmy Smith的1959年专辑'The Sermon!'中，哪位音乐家是参与录制的萨克斯手？",
-          "options": [
-            "Lou Donaldson",
-            "Stanley Turrentine",
-            "John Coltrane",
-            "Sonny Rollins"
-          ],
+          "options": ["Lou Donaldson", "Stanley Turrentine", "John Coltrane", "Sonny Rollins"],
           "correctAnswer": "Stanley Turrentine",
           "trivia": "Jimmy Smith的专辑'The Sermon!'录制于1957年，最终于1959年发布，是一张经典的蓝调爵士风格作品。专辑中著名的萨克斯手是Stanley Turrentine，他以其温暖而富有感情的音色为专辑增添了独特魅力。Lou Donaldson虽然也是当时著名的萨克斯手，但未参与此专辑录制。John Coltrane和Sonny Rollins是杰出的萨克斯演奏家，但他们没有参与'The Sermon!'的制作。Stanley Turrentine与Jimmy Smith的合作提升了专辑的音乐深度，成为爵士乐历史上的经典搭档之一。"
         },
@@ -5047,12 +4492,7 @@
       "easy": [
         {
           "question": "John Coltrane的专辑《Blue Train》在封面设计上使用了哪种颜色作为主色调？",
-          "options": [
-            "蓝色",
-            "红色",
-            "黄色",
-            "绿色"
-          ],
+          "options": ["蓝色", "红色", "黄色", "绿色"],
           "correctAnswer": "蓝色",
           "trivia": "《Blue Train》是John Coltrane于1957年发行的经典爵士专辑，其封面设计以深蓝色作为主色调，呼应了专辑名称中的“Blue”。封面由著名摄影师Francis Wolff拍摄，他以捕捉爵士音乐家的自然神态闻名。这个蓝色主题不仅反映了专辑的音乐氛围，也成为了该专辑视觉识别的重要元素。专辑封面设计简洁而富有表现力，增强了作品的整体艺术感觉。"
         },
@@ -5069,12 +4509,7 @@
         },
         {
           "question": "John Coltrane在录制1957年专辑《Blue Train》时，哪位音乐家是该专辑的重要合作伙伴并担任了钢琴演奏？",
-          "options": [
-            "Lee Morgan",
-            "McCoy Tyner",
-            "Kenny Drew",
-            "Horace Silver"
-          ],
+          "options": ["Lee Morgan", "McCoy Tyner", "Kenny Drew", "Horace Silver"],
           "correctAnswer": "Kenny Drew",
           "trivia": "《Blue Train》是John Coltrane于1957年录制的一张经典硬波普专辑。专辑的钢琴部分由Kenny Drew演奏，他是该专辑核心的合作音乐家之一。Lee Morgan在这张专辑中担任小号手，Horace Silver虽是知名钢琴家，但未参与这张作品。McCoy Tyner是Coltrane后期经典四重奏的钢琴手，但尚未参与1957年的《Blue Train》。该专辑由Blue Note唱片公司制作，录音场地为纽约的Van Gelder Studio。"
         }
@@ -5093,12 +4528,7 @@
         },
         {
           "question": "John Coltrane的专辑《Blue Train》（1957年）封面设计上，哪位摄影师负责拍摄了这张标志性的蓝色调照片？",
-          "options": [
-            "Francis Wolff",
-            "William Claxton",
-            "Lee Friedlander",
-            "Herman Leonard"
-          ],
+          "options": ["Francis Wolff", "William Claxton", "Lee Friedlander", "Herman Leonard"],
           "correctAnswer": "Francis Wolff",
           "trivia": "《Blue Train》的封面照片由Francis Wolff拍摄，他是蓝调唱片（Blue Note Records）的联合创始人之一，并且以其为爵士乐专辑拍摄的摄影作品闻名。封面采用了强烈的蓝色调，准确传达了专辑名称和音乐氛围。Francis Wolff不仅参与了许多蓝调唱片的制作，还通过这些摄影作品帮助塑造了蓝调唱片的视觉识别。William Claxton和Herman Leonard也是著名的爵士乐摄影师，但他们并未参与《Blue Train》的封面拍摄。"
         },
@@ -5128,12 +4558,7 @@
         },
         {
           "question": "John Coltrane在录制1957年专辑《Blue Train》时，哪位音乐家负责担任钢琴演奏，这一合作对专辑整体风格产生了重要影响？",
-          "options": [
-            "Kenny Drew",
-            "Horace Silver",
-            "McCoy Tyner",
-            "Red Garland"
-          ],
+          "options": ["Kenny Drew", "Horace Silver", "McCoy Tyner", "Red Garland"],
           "correctAnswer": "Kenny Drew",
           "trivia": "John Coltrane的经典专辑《Blue Train》录制于1957年，这张专辑的钢琴手是Kenny Drew，他以其硬波普风格为专辑增添了丰富的和声色彩。Kenny Drew当时正处于职业生涯的早期阶段，他的参与使得《Blue Train》的音乐质感更为明亮和紧凑。值得注意的是，McCoy Tyner后来成为Coltrane的重要合作伙伴，但他并未参与此专辑的录制。Horace Silver和Red Garland虽然都是同一时代的知名钢琴家，却未参与此专辑制作。"
         },
@@ -5216,12 +4641,7 @@
         },
         {
           "question": "在John Lee Hooker的1959年专辑\"I'm John Lee Hooker\"录制过程中，除了他本人之外，哪位音乐家以贝斯手身份参与了录音？",
-          "options": [
-            "Eddie Taylor",
-            "Jimmy Reed",
-            "Willie Dixon",
-            "Muddy Waters"
-          ],
+          "options": ["Eddie Taylor", "Jimmy Reed", "Willie Dixon", "Muddy Waters"],
           "correctAnswer": "Willie Dixon",
           "trivia": "专辑\"I'm John Lee Hooker\"是John Lee Hooker于1959年录制的一张标志性作品。在这张专辑的录制过程中，著名贝斯手Willie Dixon参与了部分曲目的演奏，增强了音乐的节奏感。Willie Dixon不仅是芝加哥蓝调的重要人物，也曾为许多蓝调艺术家做过制作和伴奏。Eddie Taylor和Jimmy Reed都是知名的蓝调音乐家，但他们并未参与此专辑的录制。Muddy Waters虽是同一时期的重要蓝调音乐家，但也未出现在这张专辑中。"
         }
@@ -5282,12 +4702,7 @@
         },
         {
           "question": "Johnny Cash在录制1957年专辑'With His Hot and Blue Guitar!'时，哪位制作人负责该专辑的制作工作？",
-          "options": [
-            "Sam Phillips",
-            "Chet Atkins",
-            "Jack Clement",
-            "Don Law"
-          ],
+          "options": ["Sam Phillips", "Chet Atkins", "Jack Clement", "Don Law"],
           "correctAnswer": "Don Law",
           "trivia": "Johnny Cash的首张专辑'With His Hot and Blue Guitar!'于1957年发行，其制作人是Don Law。Don Law是哥伦比亚唱片公司的著名制作人，曾参与多位乡村音乐巨星的录音项目。该专辑的录制地点是哥伦比亚唱片公司位于纳什维尔的工作室，这帮助Johnny Cash确立了他独特的声音和风格。虽然Sam Phillips是早期Sun Records的制作人，但这张专辑是在Johnny Cash转投哥伦比亚后录制的。Jack Clement和Chet Atkins也都是当时活跃的音乐制作人，但并未参与该专辑的制作。"
         },
@@ -5317,12 +4732,7 @@
         },
         {
           "question": "在媒体报道中，Johnny Cash的首张专辑《With His Hot and Blue Guitar!》于1957年发行时，哪家唱片公司负责推广并使其在乡村音乐界获得关注？",
-          "options": [
-            "Sun Records",
-            "Columbia Records",
-            "Decca Records",
-            "Capitol Records"
-          ],
+          "options": ["Sun Records", "Columbia Records", "Decca Records", "Capitol Records"],
           "correctAnswer": "Sun Records",
           "trivia": "Johnny Cash的首张专辑《With His Hot and Blue Guitar!》于1957年由Sun Records发行。Sun Records是当时推动早期摇滚和乡村音乐发展的重要厂牌，以签约和推广像Elvis Presley和Jerry Lee Lewis这样的艺术家闻名。Sun Records的推广策略帮助Johnny Cash在乡村音乐界迅速获得关注和认可，使他成为20世纪中期美国音乐的重要人物之一。此外，这张专辑的录制体现了Sun Records标志性的简洁而富有感染力的录音风格，这也成为Cash音乐特色的一部分。"
         },
@@ -5394,12 +4804,7 @@
         },
         {
           "question": "Kitty Wells在1956年发行的专辑《Country Hit Parade》中，哪位音乐家是她长期合作的吉他手？",
-          "options": [
-            "Johnny Wright",
-            "Chet Atkins",
-            "Johnnie Dee",
-            "Hank Garland"
-          ],
+          "options": ["Johnny Wright", "Chet Atkins", "Johnnie Dee", "Hank Garland"],
           "correctAnswer": "Johnnie Dee",
           "trivia": "在1956年发行的《Country Hit Parade》专辑中，Kitty Wells的吉他手Johnnie Dee是她长期合作的音乐伙伴。Johnnie Dee以其细腻而富有表现力的吉他演奏，为Kitty Wells的音乐增添了独特的乡村风味。虽然Chet Atkins和Hank Garland同为那个时代著名的吉他手，但他们并非该专辑的主要合作音乐家。Johnny Wright是Kitty Wells的丈夫，主要以歌手身份出现，而非吉他手。Johnnie Dee的参与帮助塑造了这张专辑标志性的传统乡村声音。"
         },
@@ -5429,12 +4834,7 @@
         },
         {
           "question": "在Kitty Wells的1956年专辑《Country Hit Parade》中，哪位音乐家以其钢琴演奏为该专辑增添了独特的乡村风格？",
-          "options": [
-            "Owen Bradley",
-            "Floyd Cramer",
-            "Hank Garland",
-            "Chet Atkins"
-          ],
+          "options": ["Owen Bradley", "Floyd Cramer", "Hank Garland", "Chet Atkins"],
           "correctAnswer": "Owen Bradley",
           "trivia": "Owen Bradley是乡村音乐制作的重要人物，他不仅担任制作人，还为Kitty Wells的1956年专辑《Country Hit Parade》提供了钢琴伴奏，为专辑注入了浓厚的乡村乐特色。Floyd Cramer虽然是著名的钢琴家，但与此专辑关联较少。Hank Garland以吉他演奏闻名，而Chet Atkins则主要以吉他和制作人身份活跃。Bradley的钢琴演奏和制作工作共同塑造了这张专辑的经典声音，推动了Kitty Wells在乡村音乐界的地位。"
         },
@@ -5552,12 +4952,7 @@
         },
         {
           "question": "关于Lefty Frizzell于1951年发行的专辑'Songs of Jimmie Rodgers'，哪家唱片公司负责该专辑的商品销售和品牌推广？",
-          "options": [
-            "Columbia Records",
-            "Decca Records",
-            "MCA Records",
-            "Capitol Records"
-          ],
+          "options": ["Columbia Records", "Decca Records", "MCA Records", "Capitol Records"],
           "correctAnswer": "Columbia Records",
           "trivia": "Lefty Frizzell的专辑'Songs of Jimmie Rodgers'于1951年发行时，由Columbia Records负责商品销售和品牌推广。Columbia Records是当时美国重要的唱片公司之一，拥有强大的市场推广能力，这帮助Lefty Frizzell的作品能够广泛传播。Decca Records和Capitol Records同样活跃于那个时代，但并未参与该专辑的发行。MCA Records则是在后来才成为知名唱片品牌。Columbia Records的支持对巩固Lefty Frizzell在乡村音乐领域的地位起到了关键作用。"
         }
@@ -5576,12 +4971,7 @@
         },
         {
           "question": "在Lefty Frizzell于1951年发行的专辑'Songs of Jimmie Rodgers'的制作过程中，哪位音乐制作人负责指导录音并对专辑的整体声音风格产生了关键影响？",
-          "options": [
-            "Don Law",
-            "Chet Atkins",
-            "Owen Bradley",
-            "Fred Rose"
-          ],
+          "options": ["Don Law", "Chet Atkins", "Owen Bradley", "Fred Rose"],
           "correctAnswer": "Don Law",
           "trivia": "Don Law是1950年代哥伦比亚唱片公司的著名制作人，他负责监督Lefty Frizzell录制'Songs of Jimmie Rodgers'专辑的制作工作。Law以其在乡村音乐领域的专业制作风格闻名，他帮助Frizzell在致敬Jimmie Rodgers的同时，保持了自己的独特声音特色。这张专辑的录音地点通常是在纽约的哥伦比亚录音室完成，Don Law通过精细的录音安排确保了音质的清晰和情感的传达。Frizzell与Law的合作也促进了乡村音乐制作技术的进步，成为当时经典乡村专辑制作的范例。"
         },
@@ -5618,12 +5008,7 @@
         },
         {
           "question": "Les Baxter的专辑《Ritual of the Savage》在商品销售和品牌推广方面，哪一家唱片公司最初发行了这张1951年的著名作品？",
-          "options": [
-            "Capitol Records",
-            "Columbia Records",
-            "Decca Records",
-            "Mercury Records"
-          ],
+          "options": ["Capitol Records", "Columbia Records", "Decca Records", "Mercury Records"],
           "correctAnswer": "Capitol Records",
           "trivia": "《Ritual of the Savage》是Les Baxter于1951年推出的开创性“Exotica”音乐专辑，最初由Capitol Records发行。Capitol Records当时是美国重要的唱片公司，积极推广新兴音乐风格，帮助这张专辑在市场上获得成功。此专辑通过独特的异国情调和丰富的编曲，成为Exotica风格的代表作之一。Capitol Records的推广策略包括精美的专辑封面和广播宣传，显著提升了专辑销量和Les Baxter的市场影响力。"
         },
@@ -5677,12 +5062,7 @@
       "hard": [
         {
           "question": "Les Baxter的1951年专辑《Ritual of the Savage》封面设计中，哪一位艺术家负责了封面插画的创作？",
-          "options": [
-            "Willy Pogany",
-            "David Stone Martin",
-            "Jim Flora",
-            "Norman Rockwell"
-          ],
+          "options": ["Willy Pogany", "David Stone Martin", "Jim Flora", "Norman Rockwell"],
           "correctAnswer": "Willy Pogany",
           "trivia": "《Ritual of the Savage》是Les Baxter于1951年推出的标志性异域风情专辑，其封面插画由著名艺术家Willy Pogany设计。Pogany以擅长细腻的装饰性绘画著称，他的作品为专辑赋予了神秘而古典的视觉氛围。David Stone Martin和Jim Flora同为20世纪中期著名的唱片封面艺术家，但他们并未参与该专辑的设计。Norman Rockwell则以其美国乡村风格插画闻名，风格与《Ritual of the Savage》的异域主题不符。封面设计的独特视觉效果极大增强了专辑的艺术价值和市场吸引力。"
         },
@@ -5719,12 +5099,7 @@
       "easy": [
         {
           "question": "关于1959年发行的专辑《Lightnin' Hopkins》，以下哪种数字发行平台最早将该专辑正式上架？",
-          "options": [
-            "Apple Music",
-            "Spotify",
-            "Amazon Music",
-            "iTunes Store"
-          ],
+          "options": ["Apple Music", "Spotify", "Amazon Music", "iTunes Store"],
           "correctAnswer": "iTunes Store",
           "trivia": "专辑《Lightnin' Hopkins》由布鲁斯音乐传奇人物Lightnin' Hopkins于1959年发行，最初为实体唱片。随着数字音乐的发展，iTunes Store成为最早将许多经典布鲁斯专辑数字化并上架销售的平台之一，包括Lightnin' Hopkins的作品。虽然Apple Music和Spotify后来也提供了这张专辑的流媒体服务，但iTunes Store在数字发行领域起步较早。Amazon Music则较晚开始大规模提供此类经典专辑的数字版本。Lightnin' Hopkins的这张专辑通过数字发行，使得更多新一代听众能够方便地接触和欣赏传统布鲁斯音乐。"
         },
@@ -5741,12 +5116,7 @@
         },
         {
           "question": "在1959年发行的专辑《Lightnin' Hopkins》中，Lightnin' Hopkins主要使用了哪种乐器进行演奏？",
-          "options": [
-            "12弦原声吉他",
-            "电吉他",
-            "口琴",
-            "钢琴"
-          ],
+          "options": ["12弦原声吉他", "电吉他", "口琴", "钢琴"],
           "correctAnswer": "12弦原声吉他",
           "trivia": "Lightnin' Hopkins在他的1959年专辑《Lightnin' Hopkins》中主要使用12弦原声吉他进行演奏，这种乐器为他的布鲁斯音乐增添了丰富而独特的音色。12弦吉他的特点是每根弦由两根弦对奏，产生更为饱满的声音，这与Hopkins标志性的指弹风格完美结合。虽然他偶尔也使用电吉他和口琴，但这张专辑以原声吉他为主，体现了他朴实而深情的布鲁斯根基。钢琴并非此专辑中常见的伴奏乐器。"
         }
@@ -5765,12 +5135,7 @@
         },
         {
           "question": "在1959年发行的专辑《Lightnin' Hopkins》中，除了Lightnin' Hopkins本人外，哪位音乐家最有可能参与了录音会话？",
-          "options": [
-            "B.B. King",
-            "Billy Bizor",
-            "Muddy Waters",
-            "T-Bone Walker"
-          ],
+          "options": ["B.B. King", "Billy Bizor", "Muddy Waters", "T-Bone Walker"],
           "correctAnswer": "Billy Bizor",
           "trivia": "1959年专辑《Lightnin' Hopkins》主要展示了Lightnin' Hopkins的独奏布鲁斯风格，然而在一些录音会话中，Billy Bizor这位口琴手和歌手曾与Hopkins合作。Billy Bizor是Hopkins的堂兄弟，二人曾多次在现场和录音中共同演出。虽然B.B. King、Muddy Waters和T-Bone Walker都是著名的布鲁斯音乐家，但他们并未参与该专辑的录制。Billy Bizor的参与为专辑增添了更丰富的传统德州布鲁斯元素，突显了Hopkins的家族音乐背景。"
         },
@@ -5853,12 +5218,7 @@
         },
         {
           "question": "Little Richard在1957年发行的专辑“Here's Little Richard”中，他最初的现场表演主要是在什么类型的场地进行的？",
-          "options": [
-            "小型俱乐部和剧院",
-            "大型体育馆",
-            "露天音乐节",
-            "电视演播室"
-          ],
+          "options": ["小型俱乐部和剧院", "大型体育馆", "露天音乐节", "电视演播室"],
           "correctAnswer": "小型俱乐部和剧院",
           "trivia": "“Here's Little Richard”专辑发行于1957年，当时Little Richard的现场演出通常在小型俱乐部和剧院中进行，这些场所更适合他的高能量表演和摇滚乐风格。大型体育馆和露天音乐节在当时对摇滚音乐还不是主要的表演场地，电视演播室虽然存在，但更多用于录制节目而非现场演出。小型场地为他提供了亲密的观众互动氛围，这对他的职业早期发展至关重要。Little Richard也因此奠定了摇滚乐的现场表演标准。"
         }
@@ -5943,34 +5303,19 @@
       "easy": [
         {
           "question": "在Lloyd Price的1959年专辑'Mr. Personality'中，哪位乐手以其独特的萨克斯风演奏为专辑增添了标志性的节奏蓝调风格？",
-          "options": [
-            "Red Prysock",
-            "King Curtis",
-            "Cannonball Adderley",
-            "Charlie Parker"
-          ],
+          "options": ["Red Prysock", "King Curtis", "Cannonball Adderley", "Charlie Parker"],
           "correctAnswer": "Red Prysock",
           "trivia": "Lloyd Price的专辑'Mr. Personality'发行于1959年，是其节奏蓝调的重要作品。专辑中，Red Prysock作为萨克斯风手的表现尤为突出，他的演奏风格为专辑注入了强烈的活力和律动感。Red Prysock是当时知名的节奏蓝调萨克斯风演奏家，曾与多个著名歌手合作。相比之下，King Curtis虽然也是优秀的萨克斯风手，但未参与该专辑录制。Charlie Parker和Cannonball Adderley则属于更偏向爵士乐派的萨克斯风大师，风格和合作背景与该专辑不同。"
         },
         {
           "question": "Lloyd Price的1959年专辑'Mr. Personality'中，哪首歌曲成为了他的热门单曲并帮助专辑获得广泛关注？",
-          "options": [
-            "Mr. Personality",
-            "Lawdy Miss Clawdy",
-            "Personality",
-            "Stagger Lee"
-          ],
+          "options": ["Mr. Personality", "Lawdy Miss Clawdy", "Personality", "Stagger Lee"],
           "correctAnswer": "Mr. Personality",
           "trivia": "专辑'Mr. Personality'是Lloyd Price在1959年推出的作品，其中同名歌曲'Mr. Personality'成为了专辑的主打热门单曲。这首歌延续了他早期作品的节奏布鲁斯风格，并在当时的排行榜上获得了一定的成功，进一步巩固了他作为节奏布鲁斯重要歌手的地位。相比之下，'Lawdy Miss Clawdy'是他早期的另一首知名歌曲，而'Personality'和'Stagger Lee'则分别是其他时期的热门曲目。通过'Mr. Personality'这首歌，Lloyd Price成功地将自己的音乐影响力延续到了1950年代末期。"
         },
         {
           "question": "在1959年Lloyd Price推出专辑'Mr. Personality'期间，他最常在哪种场地进行现场表演以推广这张专辑？",
-          "options": [
-            "夜总会和小型俱乐部",
-            "大型体育馆",
-            "音乐节露天舞台",
-            "电视音乐节目现场"
-          ],
+          "options": ["夜总会和小型俱乐部", "大型体育馆", "音乐节露天舞台", "电视音乐节目现场"],
           "correctAnswer": "夜总会和小型俱乐部",
           "trivia": "Lloyd Price在发布1959年专辑'Mr. Personality'时，主要通过夜总会和小型俱乐部进行现场表演来推广他的音乐。这些场所是当时R&B和摇滚乐艺人常用的表演环境，有助于与观众建立亲密互动。相比之下，大型体育馆和音乐节露天舞台在那个年代尚未成为主流的R&B巡演地点。此外，虽然电视音乐节目开始流行，但Lloyd Price更多依赖现场演出提升专辑影响力，这也是他职业早期成功的关键因素之一。"
         }
@@ -6055,12 +5400,7 @@
       "easy": [
         {
           "question": "在Martin Denny的1957年专辑《Exotica》中，哪位音乐家以其独特的打击乐贡献而著称？",
-          "options": [
-            "Augie Colon",
-            "Les Baxter",
-            "Arthur Lyman",
-            "Martin Denny"
-          ],
+          "options": ["Augie Colon", "Les Baxter", "Arthur Lyman", "Martin Denny"],
           "correctAnswer": "Augie Colon",
           "trivia": "《Exotica》是Martin Denny在1957年发行的代表性专辑，开创了异国情调音乐的风格。Augie Colon作为专辑的主要打击乐演奏者，运用了多种热带打击乐器，赋予音乐独特的氛围和节奏感。Arthur Lyman虽然也参与了Martin Denny后期的乐团演出，但在《Exotica》专辑中Augie Colon的打击乐表现尤为突出。Les Baxter是异国情调音乐的另一位重要音乐家，但他并非该专辑的成员。Martin Denny本人主要负责钢琴和编曲工作。"
         },
@@ -6178,12 +5518,7 @@
         },
         {
           "question": "关于Marty Robbins的1959年专辑《Gunfighter Ballads and Trail Songs》，以下哪首歌曲在当时的媒体报道中被特别提及为使专辑大获成功的经典曲目？",
-          "options": [
-            "El Paso",
-            "Cool Water",
-            "Big Iron",
-            "The Hanging Tree"
-          ],
+          "options": ["El Paso", "Cool Water", "Big Iron", "The Hanging Tree"],
           "correctAnswer": "El Paso",
           "trivia": "《Gunfighter Ballads and Trail Songs》是Marty Robbins于1959年发行的一张经典西部民谣专辑。媒体报道普遍赞扬了其中的歌曲《El Paso》，这首叙事性强的歌曲不仅成为专辑的亮点，还帮助专辑获得了极大的商业成功。《El Paso》在当年登上了美国公告牌单曲榜冠军位置，成为Robbins最著名的作品之一。此外，这张专辑整体被视为西部音乐的经典代表，对后来的西部题材音乐产生了深远影响。"
         },
@@ -6213,23 +5548,13 @@
         },
         {
           "question": "在1959年录制Marty Robbins的专辑《Gunfighter Ballads and Trail Songs》时，哪种乐器是该专辑标志性的音乐设备之一，特别突出其西部牛仔叙事风格？",
-          "options": [
-            "古典吉他",
-            "班卓琴",
-            "钢弦原声吉他",
-            "口琴"
-          ],
+          "options": ["古典吉他", "班卓琴", "钢弦原声吉他", "口琴"],
           "correctAnswer": "钢弦原声吉他",
           "trivia": "Marty Robbins的《Gunfighter Ballads and Trail Songs》专辑以其浓厚的西部牛仔风格闻名，钢弦原声吉他是该专辑中标志性的乐器之一。钢弦原声吉他的明亮音色为专辑中的叙事情歌增添了生动的氛围，使牛仔故事更加鲜活。录制时，Robbins与顶尖音乐家合作，利用这种乐器的独特音质强化了歌曲的叙事效果。该乐器的使用也体现了1950年代乡村和民谣音乐的典型制作风格，成为这张经典专辑的重要音乐元素。"
         },
         {
           "question": "Marty Robbins的专辑《Gunfighter Ballads and Trail Songs》在流行文化中因哪首歌曲而被广泛引用和改编，增强了这张1959年专辑的影响力？",
-          "options": [
-            "《El Paso》",
-            "《Cool Water》",
-            "《Big Iron》",
-            "《The Master's Call》"
-          ],
+          "options": ["《El Paso》", "《Cool Water》", "《Big Iron》", "《The Master's Call》"],
           "correctAnswer": "《El Paso》",
           "trivia": "《Gunfighter Ballads and Trail Songs》是Marty Robbins于1959年发行的经典西部音乐专辑，其中《El Paso》成为最著名的曲目。这首歌曲不仅在当年获得了广泛的商业成功，还赢得了格莱美奖，进一步巩固了专辑在流行文化中的地位。此外，《El Paso》被多次翻唱和改编，出现在电影、电视剧以及其他媒体作品中，成为西部题材音乐的代表作之一。该专辑整体以叙事性强的牛仔歌曲闻名，对后来的西部音乐风格产生了深远影响。"
         }
@@ -6279,12 +5604,7 @@
       "easy": [
         {
           "question": "在Miles Davis的1959年专辑《Kind of Blue》中，哪位音乐家担任了钢琴手并对专辑的即兴风格产生了重要影响？",
-          "options": [
-            "Bill Evans",
-            "Herbie Hancock",
-            "Chick Corea",
-            "McCoy Tyner"
-          ],
+          "options": ["Bill Evans", "Herbie Hancock", "Chick Corea", "McCoy Tyner"],
           "correctAnswer": "Bill Evans",
           "trivia": "《Kind of Blue》专辑录制于1959年，Bill Evans作为钢琴手参与了此次录音会，他的演奏风格对专辑的即兴创作和模态爵士风格有显著影响。Bill Evans以其细腻且富有表现力的和声而闻名，他的贡献帮助定义了专辑的整体声音。虽然Herbie Hancock、Chick Corea和McCoy Tyner都是著名的爵士钢琴家，但他们都未参与这张专辑的录制。Miles Davis选择Bill Evans部分是因为他能够完美融入专辑所追求的沉静而深邃的音乐氛围。"
         },
@@ -6325,12 +5645,7 @@
         },
         {
           "question": "在Miles Davis的专辑《Kind of Blue》中，哪一首曲目最能体现专辑整体即兴演奏和模态爵士的主题意义？",
-          "options": [
-            "So What",
-            "Freddie Freeloader",
-            "Blue in Green",
-            "All Blues"
-          ],
+          "options": ["So What", "Freddie Freeloader", "Blue in Green", "All Blues"],
           "correctAnswer": "So What",
           "trivia": "《Kind of Blue》是1959年Miles Davis录制的标志性模态爵士专辑，其中“ So What”作为开篇曲目，最直接体现了专辑采用模态即兴演奏的理念。该曲以Dorian调式为基础，减少和弦变化，给予乐手更多自由发挥的空间，体现了专辑整体的音乐含义和风格。与此同时，“So What”的简洁主题和互动式即兴成为爵士乐史上的经典范例，充分展示了Miles Davis领导下的创新精神和音乐探索。"
         },
@@ -6360,12 +5675,7 @@
         },
         {
           "question": "在Miles Davis的1959年专辑《Kind of Blue》中，哪位音乐家负责演奏钢琴，并以其独特的模态爵士风格对专辑的整体氛围产生了深远影响？",
-          "options": [
-            "Bill Evans",
-            "Herbie Hancock",
-            "Thelonious Monk",
-            "McCoy Tyner"
-          ],
+          "options": ["Bill Evans", "Herbie Hancock", "Thelonious Monk", "McCoy Tyner"],
           "correctAnswer": "Bill Evans",
           "trivia": "《Kind of Blue》是Miles Davis于1959年录制的开创性模态爵士专辑，其中Bill Evans担任钢琴手。Evans以其细腻且富有表现力的钢琴演奏风格，为专辑营造了宁静而深邃的氛围，成为经典模态爵士的代表。虽然Wynton Kelly也参与了部分曲目的钢琴演奏，但Evans是大部分曲目的主力钢琴手，并对专辑的整体音乐方向起到了关键作用。这张专辑不仅是爵士乐历史上的里程碑，也极大影响了后续的钢琴演奏风格。"
         },
@@ -6391,12 +5701,7 @@
       "easy": [
         {
           "question": "在电台播放中，Modern Jazz Quartet的专辑'Django'最著名的曲目是哪一首，经常被用来代表该专辑？",
-          "options": [
-            "Django",
-            "Vendome",
-            "La Ronde",
-            "Bags' Groove"
-          ],
+          "options": ["Django", "Vendome", "La Ronde", "Bags' Groove"],
           "correctAnswer": "Django",
           "trivia": "专辑'Django'由Modern Jazz Quartet于1956年发行，其同名曲目'Django'是专辑中最具代表性和最常在电台播放的作品。该曲由钢琴家约翰·刘易斯创作，向传奇吉他手Django Reinhardt致敬，融合了现代爵士与欧洲古典音乐元素。'Django'这首曲目不仅成为现代爵士四重奏的标志性作品，还广泛出现在1950年代的爵士电台节目中，帮助该专辑获得了持续的关注与认可。其他曲目如'Vendome'、'La Ronde'和'Bags' Groove'虽受欢迎，但'Django'在电台播放率和影响力上更胜一筹。"
         },
@@ -6413,12 +5718,7 @@
         },
         {
           "question": "在Modern Jazz Quartet的1956年专辑'Django'中，哪位音乐家担任钢琴演奏？",
-          "options": [
-            "John Lewis",
-            "Milt Jackson",
-            "Percy Heath",
-            "Connie Kay"
-          ],
+          "options": ["John Lewis", "Milt Jackson", "Percy Heath", "Connie Kay"],
           "correctAnswer": "John Lewis",
           "trivia": "Modern Jazz Quartet成立于1952年，以其融合古典与爵士的独特风格闻名。1956年发行的专辑'Django'是他们的代表作之一，其中John Lewis担任钢琴手。John Lewis不仅是乐队的钢琴家，还是主要的作曲和编曲者。Milt Jackson负责敲击琴（vibraphone），Percy Heath演奏低音提琴，Connie Kay则是鼓手。John Lewis的钢琴演奏为专辑增添了丰富的和声层次，成为该乐队标志性的声音之一。"
         }
@@ -6503,23 +5803,13 @@
       "easy": [
         {
           "question": "Nat King Cole在1957年录制专辑《Love Is the Thing》时，哪位著名指挥兼编曲家负责了专辑的大部分编曲工作？",
-          "options": [
-            "Nelson Riddle",
-            "Gordon Jenkins",
-            "Billy May",
-            "Quincy Jones"
-          ],
+          "options": ["Nelson Riddle", "Gordon Jenkins", "Billy May", "Quincy Jones"],
           "correctAnswer": "Gordon Jenkins",
           "trivia": "专辑《Love Is the Thing》由Nat King Cole演唱，于1957年发行。这张专辑的大部分编曲工作由Gordon Jenkins负责，他以细腻的弦乐编排闻名。Gordon Jenkins曾与多位著名歌手合作，擅长以丰富的管弦乐背景衬托主唱，令Nat King Cole的声音更加温暖动人。Nelson Riddle和Billy May虽然也是那个时代著名的编曲家，但他们并未参与此专辑的制作。Quincy Jones当时刚开始他的职业生涯，还未成为知名编曲家。"
         },
         {
           "question": "关于Nat King Cole的专辑《Love Is the Thing》，哪首歌曲是这张1957年发行专辑中的著名曲目？",
-          "options": [
-            "When I Fall in Love",
-            "Mona Lisa",
-            "Unforgettable",
-            "Nature Boy"
-          ],
+          "options": ["When I Fall in Love", "Mona Lisa", "Unforgettable", "Nature Boy"],
           "correctAnswer": "When I Fall in Love",
           "trivia": "《Love Is the Thing》是Nat King Cole于1957年发行的专辑，其中收录了多首经典情歌。专辑中的《When I Fall in Love》成为了他的代表作之一，广受欢迎。该曲以其浪漫的旋律和深情的演绎被媒体广泛报道，提升了专辑的知名度。相比之下，像《Mona Lisa》和《Unforgettable》是Nat King Cole其他时期的知名曲目，而《Nature Boy》则是另一位艺术家的著名作品。专辑整体展现了Nat King Cole柔和的嗓音和优雅的爵士风格，成为当时流行音乐的重要作品。"
         },
@@ -6538,23 +5828,13 @@
       "medium": [
         {
           "question": "Nat King Cole于1957年发行的专辑《Love Is the Thing》的封面设计由谁负责？",
-          "options": [
-            "Emmett McBain",
-            "Alex Steinweiss",
-            "Reid Miles",
-            "David Stone Martin"
-          ],
+          "options": ["Emmett McBain", "Alex Steinweiss", "Reid Miles", "David Stone Martin"],
           "correctAnswer": "Emmett McBain",
           "trivia": "《Love Is the Thing》这张专辑的封面设计由著名的平面设计师Emmett McBain负责，他当时为Capitol Records设计了许多经典唱片封面。McBain以其现代感和简洁的设计风格闻名，这在1950年代的唱片包装中具有开创意义。Alex Steinweiss虽然是唱片封面设计的先驱，但并未参与这张专辑的设计。Reid Miles和David Stone Martin分别以为Blue Note和其他爵士唱片设计封面著称，但他们也未曾为Nat King Cole的这张专辑工作。McBain的设计帮助《Love Is the Thing》在视觉上与其浪漫的音乐主题相呼应，成为那个时代的标志性作品之一。"
         },
         {
           "question": "在Nat King Cole于1957年录制的专辑《Love Is the Thing》中，哪位著名的指挥家和编曲家负责了这张专辑的管弦乐编排？",
-          "options": [
-            "Nelson Riddle",
-            "Gordon Jenkins",
-            "Billy May",
-            "Quincy Jones"
-          ],
+          "options": ["Nelson Riddle", "Gordon Jenkins", "Billy May", "Quincy Jones"],
           "correctAnswer": "Gordon Jenkins",
           "trivia": "《Love Is the Thing》是Nat King Cole在1957年发行的一张经典专辑，专辑中大量采用了丰富的管弦乐编排。负责这部分工作的正是著名的编曲家兼指挥家Gordon Jenkins，他以细腻的弦乐安排闻名。Gordon Jenkins曾与多位杰出歌手合作，营造出温暖而富有情感的音乐氛围。该专辑的成功很大程度上得益于他对管弦乐细节的用心设计，使Nat King Cole的歌声得以完美衬托。其他选项如Nelson Riddle和Billy May也都是当时著名的编曲家，但他们并未参与此专辑的制作。"
         },
@@ -6626,12 +5906,7 @@
         },
         {
           "question": "Nina Simone的首张专辑《Little Girl Blue》是哪一年发行的？",
-          "options": [
-            "1959年",
-            "1962年",
-            "1955年",
-            "1965年"
-          ],
+          "options": ["1959年", "1962年", "1955年", "1965年"],
           "correctAnswer": "1959年",
           "trivia": "《Little Girl Blue》是Nina Simone的首张录音室专辑，于1959年发行。这张专辑融合了爵士、布鲁斯和古典音乐元素，奠定了她独特的艺术风格。专辑中收录了她著名的歌曲《I Loves You Porgy》，这首歌也成为她的代表作之一。发行当年，《Little Girl Blue》得到了广泛关注，标志着她音乐生涯的正式起步。"
         },
@@ -6762,23 +6037,13 @@
       "medium": [
         {
           "question": "在1956年发行的专辑《Odetta Sings Ballads and Blues》中，封面摄影师是谁？",
-          "options": [
-            "William Gottlieb",
-            "Roy DeCarava",
-            "Lee Friedlander",
-            "Irving Penn"
-          ],
+          "options": ["William Gottlieb", "Roy DeCarava", "Lee Friedlander", "Irving Penn"],
           "correctAnswer": "Roy DeCarava",
           "trivia": "《Odetta Sings Ballads and Blues》是美国民谣和布鲁斯歌手Odetta的首张专辑，1956年由Vanguard Records发行。这张专辑的封面摄影由著名摄影师Roy DeCarava负责，他以捕捉非裔美国人生活的深刻黑白摄影闻名。DeCarava的摄影作品为专辑增添了浓厚的艺术氛围，与Odetta深情的歌曲完美契合。William Gottlieb和Irving Penn也都是著名摄影师，但他们并未参与该专辑的封面制作。Lee Friedlander则是后来活跃的摄影师，风格与此专辑封面不同。"
         },
         {
           "question": "Odetta的专辑'Odetta Sings Ballads and Blues'在国际音乐界产生影响时，哪一位著名音乐家曾公开表示受其启发并推动了民谣复兴运动？",
-          "options": [
-            "Bob Dylan",
-            "Elvis Presley",
-            "Chuck Berry",
-            "Miles Davis"
-          ],
+          "options": ["Bob Dylan", "Elvis Presley", "Chuck Berry", "Miles Davis"],
           "correctAnswer": "Bob Dylan",
           "trivia": "Odetta于1956年发行的专辑'Odetta Sings Ballads and Blues'被认为是民谣和布鲁斯音乐的重要里程碑。这张专辑以其深刻的社会意识和原汁原味的表演风格，对后来的音乐家产生了深远影响。尤其是Bob Dylan，他曾公开承认Odetta是自己早期音乐创作的重要灵感来源之一。Dylan的民谣复兴运动部分得益于Odetta对传统美国歌曲的现代诠释。此外，Odetta的音乐也激励了1960年代的民权运动，通过艺术促进了社会变革。"
         },
@@ -6874,12 +6139,7 @@
       "medium": [
         {
           "question": "Original Broadway Cast录制的1956年专辑'My Fair Lady'中，哪种乐器在音乐伴奏中起到了突出表现，强化了这部音乐剧的英伦氛围？",
-          "options": [
-            "大提琴",
-            "圆号",
-            "钢琴",
-            "曼陀林"
-          ],
+          "options": ["大提琴", "圆号", "钢琴", "曼陀林"],
           "correctAnswer": "圆号",
           "trivia": "在1956年由Original Broadway Cast录制的'My Fair Lady'原声专辑中，圆号作为管弦乐编制中的重要乐器，起到了强调英伦贵族氛围的作用。圆号的温暖而庄重的音色帮助塑造了该音乐剧中上层社会的典雅感。音乐制作人Frederick Dvonch利用圆号的表现力，配合理查德·罗杰斯的配乐，使得专辑整体氛围更富层次感。除了圆号，管弦乐团中还包含了弦乐和木管乐器，但圆号的使用尤为突出，成为该专辑音乐元素的典型代表。"
         },
@@ -6896,12 +6156,7 @@
         },
         {
           "question": "Original Broadway Cast在录制1956年专辑'My Fair Lady'时，谁是负责音乐指导和指挥的核心人物？",
-          "options": [
-            "Frederick Loewe",
-            "Lerner and Loewe",
-            "Herbert Greene",
-            "Moses Gunn"
-          ],
+          "options": ["Frederick Loewe", "Lerner and Loewe", "Herbert Greene", "Moses Gunn"],
           "correctAnswer": "Herbert Greene",
           "trivia": "在1956年，Original Broadway Cast录制的'My Fair Lady'专辑中，Herbert Greene担任了音乐指导和指挥的角色。Frederick Loewe是该音乐剧的作曲家，与Alan Jay Lerner共同创作了该作品，但音乐指导是Herbert Greene负责的。Moses Gunn是一位演员，并未参与该专辑的制作。Herbert Greene在百老汇音乐剧的录制和现场指挥中拥有丰富经验，对确保音乐质量和演出效果起到了关键作用。"
         }
@@ -6962,12 +6217,7 @@
         },
         {
           "question": "Original Soundtrack演唱的1958年专辑'South Pacific'在美国公告牌专辑排行榜上的最高排名是？",
-          "options": [
-            "第一名",
-            "第五名",
-            "第十名",
-            "第二十名"
-          ],
+          "options": ["第一名", "第五名", "第十名", "第二十名"],
           "correctAnswer": "第一名",
           "trivia": "1958年发行的'South Pacific'原声专辑由Original Soundtrack演唱，凭借其受欢迎的音乐和电影的热度，在美国公告牌专辑排行榜上曾达到第一名的位置。这张专辑包含了多首由理查德·罗杰斯和奥斯卡·汉默斯坦创作的经典歌曲，如《Some Enchanted Evening》和《Bali Ha'i》。它不仅反映了当时音乐剧电影的流行趋势，也成为当年最畅销的专辑之一，体现了原声带在排行榜上的强大表现力。"
         },
@@ -7021,12 +6271,7 @@
       "hard": [
         {
           "question": "Original Soundtrack在录制1958年发行的'South Pacific'原声专辑时，哪位著名指挥家负责音乐的制作与指挥工作？",
-          "options": [
-            "Alfred Newman",
-            "Leigh Harline",
-            "Max Steiner",
-            "Bernard Herrmann"
-          ],
+          "options": ["Alfred Newman", "Leigh Harline", "Max Steiner", "Bernard Herrmann"],
           "correctAnswer": "Alfred Newman",
           "trivia": "1958年发行的'South Pacific'原声带由Original Soundtrack录制，音乐制作和指挥由著名电影音乐作曲家兼指挥Alfred Newman负责。Newman是20世纪好莱坞最具影响力的电影音乐家之一，他在这张专辑中运用了丰富的管弦乐编排，完美呈现了罗杰斯和汉默斯坦的经典音乐作品。该专辑荣获奥斯卡最佳原创音乐奖，体现了Newman在电影音乐制作方面的卓越能力。Leigh Harline、Max Steiner和Bernard Herrmann同为同期重要的电影音乐人，但他们并未参与本专辑的制作。"
         },
@@ -7043,12 +6288,7 @@
         },
         {
           "question": "在1958年由Original Soundtrack发行的专辑'South Pacific'中，哪种乐器在配乐中被特别强调以体现南太平洋地区的民族音乐元素？",
-          "options": [
-            "夏威夷吉他",
-            "非洲鼓",
-            "巴松管",
-            "电贝司"
-          ],
+          "options": ["夏威夷吉他", "非洲鼓", "巴松管", "电贝司"],
           "correctAnswer": "夏威夷吉他",
           "trivia": "专辑'South Pacific'（Original Soundtrack，1958年）是根据罗杰斯和汉默斯坦的同名音乐剧改编的。为了捕捉南太平洋地区的地域特色和民族风情，制作团队特别强调了夏威夷吉他的使用，这种乐器以其独特的滑音和旋律色彩增强了音乐的异域感。夏威夷吉他在当时的西方音乐中尚属于较少见的元素，它帮助塑造了专辑的氛围，使听众更容易联想到南太平洋的岛屿文化。相比之下，非洲鼓和巴松管虽然在其他音乐作品中常被采用，但在这张专辑中并未作为主要的音乐元素出现。"
         }
@@ -7309,12 +6549,7 @@
         },
         {
           "question": "在Patsy Cline的1957年专辑《Patsy Cline》的词曲创作过程中，哪位词曲作者对专辑中的多首歌曲贡献最大？",
-          "options": [
-            "Hank Cochran",
-            "Willie Nelson",
-            "Don Gibson",
-            "Boudleaux Bryant"
-          ],
+          "options": ["Hank Cochran", "Willie Nelson", "Don Gibson", "Boudleaux Bryant"],
           "correctAnswer": "Hank Cochran",
           "trivia": "Patsy Cline的1957年同名专辑《Patsy Cline》中，多首歌曲的词曲创作都得益于Hank Cochran的才华。Hank Cochran是当时著名的乡村音乐词曲作者，曾与Cline多次合作，为她创作了诸如《Walkin' After Midnight》等经典曲目。专辑中的歌曲风格融合了乡村和流行元素，体现了Cochran对歌词和旋律的精准把握。虽然Willie Nelson和Don Gibson也是著名的词曲作者，但在该专辑中，Hank Cochran的贡献尤为显著。Boudleaux Bryant则更多活跃于其他歌手的作品中，较少参与Cline的此专辑创作。"
         }
@@ -7322,23 +6557,13 @@
       "medium": [
         {
           "question": "在1957年发行的专辑《Patsy Cline》中，哪位音乐家是该专辑录制过程中主要的钢琴伴奏者？",
-          "options": [
-            "Owen Bradley",
-            "Floyd Cramer",
-            "Bill Pursell",
-            "Hargus \"Pig\" Robbins"
-          ],
+          "options": ["Owen Bradley", "Floyd Cramer", "Bill Pursell", "Hargus \"Pig\" Robbins"],
           "correctAnswer": "Bill Pursell",
           "trivia": "《Patsy Cline》专辑于1957年录制，制作人是著名的Owen Bradley，他在乡村音乐制作中发挥了重要作用。专辑中的钢琴伴奏主要由Bill Pursell完成，他是当时纳什维尔录音棚中备受尊敬的钢琴手。虽然Floyd Cramer和Hargus \"Pig\" Robbins也是那个时代著名的钢琴家，但他们并未参与这张专辑的录制。Bill Pursell的演奏为Patsy Cline的声音增添了丰富的层次感，使这张专辑在乡村音乐史上占有一席之地。"
         },
         {
           "question": "在数字发行方面，Patsy Cline的1957年专辑《Patsy Cline》首次在数字格式上重新发行是哪一年？",
-          "options": [
-            "2003年",
-            "1995年",
-            "2010年",
-            "1988年"
-          ],
+          "options": ["2003年", "1995年", "2010年", "1988年"],
           "correctAnswer": "2003年",
           "trivia": "Patsy Cline的首张同名专辑《Patsy Cline》最初于1957年发行，随着数字音乐的发展，该专辑在2003年首次以数字格式重新发行，使新一代听众能够通过CD和数字下载平台体验这张经典乡村音乐作品。此数字发行版本通常包含了原始录音的数字化处理，提升了音质并保留了Patsy Cline标志性的声音风格。此外，2003年的数字发行帮助这张专辑在现代市场中重新获得关注，推动了对Patsy Cline遗产的持续认可。"
         },
@@ -7480,12 +6705,7 @@
         },
         {
           "question": "在Paul Anka于1958年发行的专辑《Paul Anka》中，哪首歌曲的歌词主题主要反映了青少年对初恋的纯真渴望？",
-          "options": [
-            "《Diana》",
-            "《My Home Town》",
-            "《Lonely Boy》",
-            "《I Miss You So》"
-          ],
+          "options": ["《Diana》", "《My Home Town》", "《Lonely Boy》", "《I Miss You So》"],
           "correctAnswer": "《Diana》",
           "trivia": "Paul Anka的1958年专辑《Paul Anka》中，歌曲《Diana》是他最著名的作品之一，歌词描绘了青少年对初恋的纯真和深切渴望。这首歌曲是他为自己童年朋友Diana写的，表达了年轻爱情的甜蜜与困惑。《Diana》发行后迅速走红，成为青少年文化的象征。该曲不仅在北美获得巨大成功，也帮助Paul Anka奠定了作为青少年偶像的地位。"
         },
@@ -7533,12 +6753,7 @@
         },
         {
           "question": "在Peggy Lee1956年发行的专辑《Black Coffee》中，录制时主要使用了哪种音乐设备来捕捉她的声音？",
-          "options": [
-            "大振膜电容麦克风",
-            "动圈麦克风",
-            "磁带录音机",
-            "留声机唱针"
-          ],
+          "options": ["大振膜电容麦克风", "动圈麦克风", "磁带录音机", "留声机唱针"],
           "correctAnswer": "大振膜电容麦克风",
           "trivia": "在1956年录制Peggy Lee的专辑《Black Coffee》时，录音师主要使用了大振膜电容麦克风来捕捉她温暖且细腻的声线。这种麦克风因其高灵敏度和宽频响应，适合录制人声和爵士音乐，能够呈现出Peggy Lee独特的音色。磁带录音机虽然是当时的主要录音媒介，但它本身不是声音捕捉设备。动圈麦克风更多用于现场和乐器录音，而留声机唱针则是播放设备，不用于录音。《Black Coffee》专辑的录音品质因采用优质麦克风而广受赞誉，成为经典爵士人声唱片之一。"
         }
@@ -7592,23 +6807,13 @@
         },
         {
           "question": "在Peggy Lee1956年发行的专辑《Black Coffee》的录制过程中，哪位钢琴家为该专辑的独特氛围贡献了关键演奏？",
-          "options": [
-            "Russ Freeman",
-            "Oscar Peterson",
-            "Bill Evans",
-            "Thelonious Monk"
-          ],
+          "options": ["Russ Freeman", "Oscar Peterson", "Bill Evans", "Thelonious Monk"],
           "correctAnswer": "Russ Freeman",
           "trivia": "Peggy Lee的《Black Coffee》专辑于1956年录制，Russ Freeman作为钢琴家参与了该专辑的制作，赋予其独特且深沉的爵士氛围。Freeman以细腻而富有表现力的钢琴演奏闻名，这正契合了《Black Coffee》主题中的忧郁与浪漫情调。该专辑由Decca Records发行，展现了Peggy Lee在爵士和流行音乐间的完美融合。Oscar Peterson、Bill Evans和Thelonious Monk虽然都是著名钢琴家，但他们未参与这张专辑的录制。"
         },
         {
           "question": "在Peggy Lee1956年发行的专辑《Black Coffee》中，哪位音乐家负责了钢琴伴奏，这位艺术家以其独特的爵士风格对该专辑的整体氛围产生了重要影响？",
-          "options": [
-            "Carl Perkins",
-            "Oscar Peterson",
-            "Billy Taylor",
-            "Dave Brubeck"
-          ],
+          "options": ["Carl Perkins", "Oscar Peterson", "Billy Taylor", "Dave Brubeck"],
           "correctAnswer": "Carl Perkins",
           "trivia": "专辑《Black Coffee》由Peggy Lee演唱，录制于1956年，Carl Perkins担任钢琴伴奏，为专辑营造出深沉且富有感情的爵士氛围。Carl Perkins是一位著名的爵士钢琴家，以其冷静且细腻的演奏风格闻名，这与Lee的声音完美融合。Oscar Peterson和Dave Brubeck同为著名爵士钢琴家，但他们并未参与此专辑录制。Billy Taylor是另一位杰出的爵士钢琴家，但也未出现在该作品中。Perkins的参与为《Black Coffee》增添了独特的艺术魅力和情感深度。"
         }
@@ -7623,12 +6828,7 @@
       "easy": [
         {
           "question": "在1956年Perez Prado的专辑《Prez》中，哪种乐器是其标志性的音乐元素，体现了该专辑独特的拉丁节奏风格？",
-          "options": [
-            "小号",
-            "萨克斯风",
-            "钢琴",
-            "电子合成器"
-          ],
+          "options": ["小号", "萨克斯风", "钢琴", "电子合成器"],
           "correctAnswer": "小号",
           "trivia": "Perez Prado被誉为“节奏之王”，他在1956年发行的专辑《Prez》中大量使用了小号，赋予了音乐鲜明的拉丁节奏和充满活力的感觉。小号在他的作品中扮演主导角色，成为其独特节奏的标志性乐器。虽然萨克斯风和钢琴在拉丁音乐中也很常见，但在《Prez》专辑中，电子合成器尚未被广泛采用。此专辑是Prado将古巴风格和美国爵士元素结合的典范，展示了他对小号的巧妙运用。"
         },
@@ -7645,12 +6845,7 @@
         },
         {
           "question": "Perez Prado在1956年发行的专辑'Prez'中，主要使用了哪种音乐设备来塑造其标志性的拉丁爵士乐音色？",
-          "options": [
-            "电子管扩音器",
-            "Moog合成器",
-            "电吉他",
-            "大号"
-          ],
+          "options": ["电子管扩音器", "Moog合成器", "电吉他", "大号"],
           "correctAnswer": "电子管扩音器",
           "trivia": "Perez Prado的专辑'Prez'发行于1956年，正值电子管扩音器广泛应用于音乐制作的时代。电子管扩音器能够增强乐器音色的温暖和丰富度，成为当时拉丁爵士乐重要的音响设备。Moog合成器直到1960年代末才出现，电吉他虽常见于摇滚乐，但并非该专辑的核心设备。大号虽是铜管乐器，但Prado更多依赖电子管扩音器来调整他标志性的萨克斯和铜管音色，从而打造出独特的音乐氛围。"
         }
@@ -7669,23 +6864,13 @@
         },
         {
           "question": "Perez Prado在1956年发行的专辑'Prez'中，哪种乐器是他标志性的音乐元素，体现了专辑的独特拉丁爵士风格？",
-          "options": [
-            "萨克斯风",
-            "小号",
-            "长号",
-            "钢琴"
-          ],
+          "options": ["萨克斯风", "小号", "长号", "钢琴"],
           "correctAnswer": "长号",
           "trivia": "Perez Prado被誉为“拉丁爵士之王”，他在1956年的专辑'Prez'中大量使用了长号作为主导乐器，这种选择强化了专辑浓郁的拉丁节奏和热情氛围。长号的强烈铜管音色成为Prado音乐的标志性特点，区别于同时期其他拉丁乐队常用的小号和萨克斯风。专辑中的编曲巧妙地融合了古巴蒙托风格和美国爵士乐元素，长号的运用为作品增添了丰富的层次感和动感，促进了拉丁舞曲在国际上的传播与流行。"
         },
         {
           "question": "Perez Prado于1956年发行的专辑'Prez'是由哪家唱片公司发布的？",
-          "options": [
-            "RCA Victor",
-            "Capitol Records",
-            "Mercury Records",
-            "Columbia Records"
-          ],
+          "options": ["RCA Victor", "Capitol Records", "Mercury Records", "Columbia Records"],
           "correctAnswer": "Mercury Records",
           "trivia": "Perez Prado的专辑'Prez'于1956年由Mercury Records发行。Mercury Records当时因积极推广拉丁音乐艺术家而闻名，帮助普及了Prado的独特玛姆博风格。与其他大唱片公司如RCA Victor和Columbia Records相比，Mercury Records更专注于多样化的音乐类型，这使得Perez Prado的作品能够获得更广泛的市场。此专辑也是Prado在1950年代音乐生涯中的重要里程碑，体现了他与Mercury Records的紧密合作。"
         }
@@ -7735,12 +6920,7 @@
       "easy": [
         {
           "question": "在Perry Como的1955年专辑'So Smooth'中，哪位乐队成员以其指挥和伴奏合唱团而著称？",
-          "options": [
-            "Mitchell Ayres",
-            "Leonard Bernstein",
-            "Glenn Miller",
-            "Tommy Dorsey"
-          ],
+          "options": ["Mitchell Ayres", "Leonard Bernstein", "Glenn Miller", "Tommy Dorsey"],
           "correctAnswer": "Mitchell Ayres",
           "trivia": "Mitchell Ayres是Perry Como在1950年代的重要合作伙伴，他担任了专辑'So Smooth'的乐队指挥，并带领了伴奏合唱团。Ayres以其温和且富有感染力的指挥风格闻名，这与Perry Como平滑的歌声完美契合。Leonard Bernstein、Glenn Miller和Tommy Dorsey虽然都是著名的指挥或乐队领导，但他们并未参与'So Smooth'的制作。Ayres的合作极大丰富了这张专辑的音乐层次，使其成为那个年代的经典作品。"
         },
@@ -7770,23 +6950,13 @@
       "medium": [
         {
           "question": "在Perry Como的1955年专辑'So Smooth'中，哪种乐器的编排最显著地体现了该专辑的柔和音色特色？",
-          "options": [
-            "弦乐四重奏",
-            "铜管乐队",
-            "电吉他",
-            "萨克斯风"
-          ],
+          "options": ["弦乐四重奏", "铜管乐队", "电吉他", "萨克斯风"],
           "correctAnswer": "弦乐四重奏",
           "trivia": "Perry Como的专辑'So Smooth'以其柔和且细腻的音色著称，其中弦乐四重奏的编排尤为突出，增强了专辑整体的温暖与流畅感。1950年代中期，弦乐器常被用于流行音乐中以营造浪漫氛围，Como也借此突出其抒情的歌声。铜管乐队和萨克斯风虽然常见于当时的流行和爵士音乐，但在这张专辑中并未占据主导地位。电吉他在1950年代开始流行，但'So Smooth'更倾向于传统的音色安排。"
         },
         {
           "question": "Perry Como在1955年发行的专辑'So Smooth'是由哪家唱片公司负责发行的？",
-          "options": [
-            "RCA Victor",
-            "Columbia Records",
-            "Decca Records",
-            "Capitol Records"
-          ],
+          "options": ["RCA Victor", "Columbia Records", "Decca Records", "Capitol Records"],
           "correctAnswer": "RCA Victor",
           "trivia": "Perry Como的专辑'So Smooth'于1955年由RCA Victor发行，这家公司是当时美国领先的唱片公司之一。RCA Victor以其高质量的录音和推广能力闻名，曾签约多个著名艺术家。Perry Como长期与RCA Victor合作，这使得他的音乐作品在市场上获得了广泛的传播和认可。Columbia Records、Decca Records和Capitol Records虽然也在那个时代十分活跃，但并非'So Smooth'的发行公司。"
         },
@@ -7805,12 +6975,7 @@
       "hard": [
         {
           "question": "在Perry Como的1955年专辑'So Smooth'发行期间，他曾在以下哪个著名音乐会场地进行现场演出以推广该专辑？",
-          "options": [
-            "纽约卡内基音乐厅",
-            "芝加哥奥尔菲姆剧院",
-            "洛杉矶好莱坞碗",
-            "波士顿交响乐厅"
-          ],
+          "options": ["纽约卡内基音乐厅", "芝加哥奥尔菲姆剧院", "洛杉矶好莱坞碗", "波士顿交响乐厅"],
           "correctAnswer": "纽约卡内基音乐厅",
           "trivia": "Perry Como在1950年代初期凭借其流畅的歌声和亲和力赢得了广泛关注。1955年发行的专辑'So Smooth'强调了他的轻松唱腔和爵士乐元素。为了推广这张专辑，他曾在纽约卡内基音乐厅举办现场演出，这个场地以其优越的音响效果和历史地位而闻名。卡内基音乐厅自1891年开放以来，一直是古典及流行音乐巨星展现才华的重要舞台。Como的演出不仅巩固了他在流行音乐界的地位，也体现了他对高品质音乐会场地的选择。"
         },
@@ -7869,12 +7034,7 @@
         },
         {
           "question": "Ray Charles在1957年发行的同名专辑《Ray Charles》中，哪首歌曲成为了他首次登上美国排行榜的热门单曲？",
-          "options": [
-            "I Got a Woman",
-            "What'd I Say",
-            "Georgia on My Mind",
-            "Hit the Road Jack"
-          ],
+          "options": ["I Got a Woman", "What'd I Say", "Georgia on My Mind", "Hit the Road Jack"],
           "correctAnswer": "I Got a Woman",
           "trivia": "《Ray Charles》是Ray Charles于1957年发行的首张同名专辑，其中包含了他的早期代表作《I Got a Woman》。这首歌融合了福音、爵士和节奏蓝调元素，标志着Ray Charles独特风格的形成。《I Got a Woman》也成为他首次在美国排行榜上取得成功的热门单曲，帮助他在音乐界崭露头角。专辑的发行奠定了Ray Charles在节奏蓝调领域的重要地位，并为他后续的职业生涯奠定了坚实基础。"
         }
@@ -7959,12 +7119,7 @@
       "easy": [
         {
           "question": "在Ray Price于1958年录制专辑'Talk to Your Heart'时，以下哪种乐器是他录音室阵容中不可或缺的部分？",
-          "options": [
-            "钢琴",
-            "曼陀林",
-            "小提琴",
-            "鼓"
-          ],
+          "options": ["钢琴", "曼陀林", "小提琴", "鼓"],
           "correctAnswer": "钢琴",
           "trivia": "Ray Price的专辑'Talk to Your Heart'录制于1958年，体现了当时乡村音乐的典型录音室配置。钢琴作为该专辑录音阵容中的关键乐器，提供了和声和节奏支持，增强了整体音色的丰富性。虽然曼陀林和小提琴在乡村音乐中常见，但'Talk to Your Heart'更突出钢琴的使用。鼓在那个时代的乡村录音中较为少见，更倾向于使用钢琴和吉他等传统乐器。此专辑的录音过程体现了Ray Price对传统与现代乡村元素的融合。"
         },
@@ -7994,34 +7149,19 @@
       "medium": [
         {
           "question": "Ray Price在1958年发行的专辑'Talk to Your Heart'中，哪位音乐家对他的音乐风格产生了重要影响，并促使他采用更丰富的弦乐编排？",
-          "options": [
-            "Hank Williams",
-            "Jim Reeves",
-            "Chet Atkins",
-            "Willie Nelson"
-          ],
+          "options": ["Hank Williams", "Jim Reeves", "Chet Atkins", "Willie Nelson"],
           "correctAnswer": "Chet Atkins",
           "trivia": "在1958年录制'Talk to Your Heart'专辑时，Ray Price受到了吉他手兼制作人Chet Atkins的显著影响。Chet Atkins是乡村音乐中“纳什维尔之声”的重要推动者，他鼓励Ray Price引入更加丰富和精致的弦乐编排，以提升音乐的层次感和商业吸引力。事实上，Chet Atkins不仅参与了该专辑的制作，还影响了Ray Price日后的音乐方向，使其从传统乡村风格逐渐过渡到更为流行和抒情的风格。Hank Williams和Jim Reeves虽然是同时代的著名歌手，但他们对Ray Price在这张专辑中的创作影响较小。Willie Nelson则是在稍后时期才与Ray Price有更多合作。"
         },
         {
           "question": "Ray Price在1958年录制专辑'Talk to Your Heart'时，哪位音响工程师负责该专辑的录音工作？",
-          "options": [
-            "Don Law",
-            "Bill Porter",
-            "Owen Bradley",
-            "Chet Atkins"
-          ],
+          "options": ["Don Law", "Bill Porter", "Owen Bradley", "Chet Atkins"],
           "correctAnswer": "Bill Porter",
           "trivia": "Bill Porter是20世纪50年代著名的音响工程师，他以在纳什维尔录制乡村音乐的高质量录音而闻名。1958年，Ray Price录制专辑'Talk to Your Heart'时，正是由Bill Porter负责录音工程。Porter采用了先进的麦克风摆放和现场混音技术，提升了专辑的音质和空间感。Don Law虽然是一位著名制作人，但在这张专辑中并非音响工程师。Owen Bradley和Chet Atkins则更多以制作人和吉他手身份活跃于乡村音乐界。"
         },
         {
           "question": "在Ray Price的1958年专辑'Talk to Your Heart'中，哪位音乐家以其标志性的钢吉他演奏为专辑增色？",
-          "options": [
-            "Pete Drake",
-            "Chet Atkins",
-            "Grady Martin",
-            "Buddy Emmons"
-          ],
+          "options": ["Pete Drake", "Chet Atkins", "Grady Martin", "Buddy Emmons"],
           "correctAnswer": "Pete Drake",
           "trivia": "Pete Drake是20世纪50年代末至60年代著名的钢吉他手，他在Ray Price的专辑'Talk to Your Heart'中贡献了其标志性的钢吉他演奏。Pete Drake以其创新的钢吉他技巧和独特的声音闻名，对乡村音乐的发展产生了深远影响。专辑录制期间，他的演奏为歌曲增添了丰富的情感层次，与Ray Price的深情嗓音相得益彰。此外，Pete Drake曾与多位乡村音乐大师合作，成为那个时代备受尊敬的音乐家之一。"
         }
@@ -8071,23 +7211,13 @@
       "easy": [
         {
           "question": "在Ricky Nelson的1957年专辑《Ricky》中，哪位词曲作者为他贡献了歌曲《I'm Walkin'》？",
-          "options": [
-            "Fats Domino",
-            "Chuck Berry",
-            "Buddy Holly",
-            "Elvis Presley"
-          ],
+          "options": ["Fats Domino", "Chuck Berry", "Buddy Holly", "Elvis Presley"],
           "correctAnswer": "Fats Domino",
           "trivia": "Ricky Nelson的首张专辑《Ricky》于1957年发行，其中包含了多首经典曲目。《I'm Walkin'》这首歌原本由著名的R&B音乐家Fats Domino和他的搭档Dave Bartholomew创作。Ricky Nelson将这首歌带入了青少年摇滚乐的主流，进一步推动了摇滚乐的发展。该专辑的录制过程体现了50年代摇滚与节奏蓝调的交融，Fats Domino的创作风格对Ricky Nelson有着明显影响。通过演唱这些作品，Ricky Nelson成功地吸引了年轻听众，巩固了他作为早期摇滚明星的地位。"
         },
         {
           "question": "在1957年发行的Ricky Nelson专辑《Ricky》中，哪位音乐家是Ricky Nelson的主要吉他手？",
-          "options": [
-            "James Burton",
-            "Scotty Moore",
-            "Chet Atkins",
-            "Duane Eddy"
-          ],
+          "options": ["James Burton", "Scotty Moore", "Chet Atkins", "Duane Eddy"],
           "correctAnswer": "James Burton",
           "trivia": "James Burton是Ricky Nelson专辑《Ricky》中的主要吉他手，他以清晰的电吉他演奏风格闻名。Burton后来成为摇滚和乡村音乐的传奇吉他手，曾与多位知名艺人合作。专辑《Ricky》于1957年发行，是Ricky Nelson的首张专辑，James Burton的吉他演奏为专辑增添了独特的摇滚和乡村融合音色。这张专辑帮助Ricky Nelson巩固了他作为青年偶像和摇滚歌手的地位。"
         },
@@ -8194,23 +7324,13 @@
         },
         {
           "question": "在1959年发行的专辑《Ritchie Valens》中，哪一位是该专辑的主唱和吉他手？",
-          "options": [
-            "Ritchie Valens",
-            "Buddy Holly",
-            "Eddie Cochran",
-            "Dick Clark"
-          ],
+          "options": ["Ritchie Valens", "Buddy Holly", "Eddie Cochran", "Dick Clark"],
           "correctAnswer": "Ritchie Valens",
           "trivia": "《Ritchie Valens》是1959年由年轻的摇滚歌手Ritchie Valens发行的首张同名专辑。Ritchie Valens不仅是这张专辑的主唱，还是主要的吉他手和创作人之一。专辑中收录了他的代表作《La Bamba》，这首歌曲将墨西哥传统民谣与摇滚乐完美结合。Buddy Holly和Eddie Cochran是同一时代的摇滚音乐家，但并未参与这张专辑的制作，而Dick Clark则是著名的电视主持人，与专辑演出无关。Ritchie Valens的音乐对后来的拉丁摇滚乐产生了深远影响。"
         },
         {
           "question": "在录制1959年专辑《Ritchie Valens》时，Ritchie Valens主要在哪座城市的录音室完成了这张专辑的录制？",
-          "options": [
-            "洛杉矶",
-            "纽约",
-            "芝加哥",
-            "旧金山"
-          ],
+          "options": ["洛杉矶", "纽约", "芝加哥", "旧金山"],
           "correctAnswer": "洛杉矶",
           "trivia": "Ritchie Valens的同名专辑《Ritchie Valens》于1959年录制，主要在加利福尼亚州的洛杉矶完成。当时洛杉矶是摇滚乐和流行音乐的重要录音中心，许多著名艺术家都在这里录制音乐。Valens的这张专辑由Del-Fi唱片公司制作，录音过程采用了当时流行的单轨录音技术。洛杉矶录音室的环境和技术资源为他的音乐风格提供了良好的支持，使曲目如《La Bamba》成为经典。"
         }
@@ -8229,12 +7349,7 @@
         },
         {
           "question": "Ritchie Valens的首张同名专辑'Ritchie Valens'于1959年由哪家唱片公司发行，这家公司在推动早期摇滚乐和拉丁摇滚风格方面具有重要影响？",
-          "options": [
-            "Del-Fi Records",
-            "Sun Records",
-            "Chess Records",
-            "Motown Records"
-          ],
+          "options": ["Del-Fi Records", "Sun Records", "Chess Records", "Motown Records"],
           "correctAnswer": "Del-Fi Records",
           "trivia": "Ritchie Valens的1959年同名专辑由Del-Fi Records发行，这是一家位于加州的独立唱片公司，专注于推广摇滚和拉丁摇滚音乐。Del-Fi由Bob Keane创立，他在发现Valens并签约后，帮助其音乐风格得到广泛传播。相比之下，Sun Records主要以摇滚和乡村音乐闻名，Chess Records则以布鲁斯和节奏蓝调为主，Motown Records专注于灵魂乐和节奏蓝调。Del-Fi Records对Valens的职业生涯起到了关键作用，特别是在发行他的热门单曲《La Bamba》和《Donna》方面。"
         },
@@ -8275,12 +7390,7 @@
         },
         {
           "question": "在Ritchie Valens的1959年同名专辑《Ritchie Valens》中，哪种乐器的使用最显著地体现了他融合墨西哥传统音乐与摇滚元素的音乐风格？",
-          "options": [
-            "电吉他",
-            "曼陀林",
-            "手风琴",
-            "萨克斯管"
-          ],
+          "options": ["电吉他", "曼陀林", "手风琴", "萨克斯管"],
           "correctAnswer": "电吉他",
           "trivia": "Ritchie Valens的同名专辑《Ritchie Valens》于1959年发行，展现了他将墨西哥传统旋律与美国摇滚乐融合的创新尝试。专辑中，电吉他是最为突出的乐器，它不仅推动了摇滚节奏，也通过特定的拨弦技巧模仿了墨西哥民谣的韵味。虽然手风琴和曼陀林在拉丁音乐中常见，但该专辑的编曲主要依赖电吉他和简单的打击乐。萨克斯管虽在当时摇滚乐中流行，但并非这张专辑的核心声音元素。电吉他的使用帮助Valens在摇滚音乐的框架内传达了其拉丁文化背景，成为他音乐风格的标志。"
         }
@@ -8306,12 +7416,7 @@
         },
         {
           "question": "Roy Orbison在1959年录制专辑《At The Rock House》时，哪位著名音乐人参与了制作和合作？",
-          "options": [
-            "Sam Phillips",
-            "Phil Spector",
-            "Brian Wilson",
-            "George Martin"
-          ],
+          "options": ["Sam Phillips", "Phil Spector", "Brian Wilson", "George Martin"],
           "correctAnswer": "Sam Phillips",
           "trivia": "《At The Rock House》是Roy Orbison于1959年在Sun Records录制的专辑，制作人是著名的Sam Phillips。Phillips是Sun Records的创始人，曾发掘并制作过Elvis Presley和Johnny Cash等摇滚乐传奇。Roy Orbison在这张专辑中首次展现了他的摇滚与布鲁斯风格，Sam Phillips的制作风格对专辑的声音有重要影响。Phil Spector和George Martin分别与其他著名艺人合作过，而Brian Wilson则是The Beach Boys的灵魂人物，与这张专辑无关。"
         },
@@ -8365,12 +7470,7 @@
       "hard": [
         {
           "question": "Roy Orbison于1959年发行的专辑《At The Rock House》是在哪家唱片公司旗下发布的？",
-          "options": [
-            "Sun Records",
-            "Monument Records",
-            "RCA Victor",
-            "Decca Records"
-          ],
+          "options": ["Sun Records", "Monument Records", "RCA Victor", "Decca Records"],
           "correctAnswer": "Sun Records",
           "trivia": "《At The Rock House》是Roy Orbison在1959年通过Sun Records发行的首张专辑。在这张专辑发行时，Orbison尚未与后来成名的Monument Records签约。Sun Records是著名的摇滚和乡村音乐发掘厂牌，曾签约过Elvis Presley和Johnny Cash。Orbison的早期作品多在Sun Records录制，这张专辑也体现了他最初的摇滚风格。此后，他才转向Monument Records，并在该厂牌获得更大的商业成功。"
         },
@@ -8429,12 +7529,7 @@
         },
         {
           "question": "Ruth Brown的专辑'Miss Rhythm'于1959年发行，这张专辑最初是在哪个著名唱片公司录制并发布的？",
-          "options": [
-            "Atlantic Records",
-            "Motown Records",
-            "Sun Records",
-            "Chess Records"
-          ],
+          "options": ["Atlantic Records", "Motown Records", "Sun Records", "Chess Records"],
           "correctAnswer": "Atlantic Records",
           "trivia": "Ruth Brown的专辑'Miss Rhythm'是在1959年由Atlantic Records录制和发布的。Atlantic Records在20世纪50年代以推广节奏布鲁斯和灵魂音乐闻名，Ruth Brown因此获得了“Atlantic Records的女王”称号。她的这张专辑集合了她当时最热门的作品，进一步巩固了她在节奏布鲁斯领域的重要地位。Motown Records和Chess Records虽然也很有名，但它们主要专注其他艺术家和音乐风格，而Sun Records则以摇滚乐和乡村音乐更为知名。"
         }
@@ -8453,12 +7548,7 @@
         },
         {
           "question": "在Ruth Brown的1959年专辑《Miss Rhythm》中，哪位知名的萨克斯风演奏家参与了录制，成为专辑中重要的乐队成员之一？",
-          "options": [
-            "King Curtis",
-            "John Coltrane",
-            "Charlie Parker",
-            "Cannonball Adderley"
-          ],
+          "options": ["King Curtis", "John Coltrane", "Charlie Parker", "Cannonball Adderley"],
           "correctAnswer": "King Curtis",
           "trivia": "《Miss Rhythm》是Ruth Brown在1959年发行的专辑，融合了节奏蓝调与流行元素。King Curtis是当时著名的萨克斯风演奏家，他参与了这张专辑的录制，为专辑增添了独特的灵魂和节奏感。King Curtis以其强烈而富有感染力的演奏风格闻名，曾与多位知名艺术家合作。相比之下，John Coltrane和Cannonball Adderley更多活跃于爵士领域，而Charlie Parker早于1950年代初逝世，因此他们不太可能参与此专辑录制。King Curtis的贡献显著提升了《Miss Rhythm》的音乐质感，成为这张作品的重要组成部分。"
         },
@@ -8519,12 +7609,7 @@
       "easy": [
         {
           "question": "在Sam Cooke的1958年专辑'Songs by Sam Cooke'中，哪位音乐家是为这张专辑贡献钢琴演奏的？",
-          "options": [
-            "Cliff White",
-            "Ray Charles",
-            "Billy Preston",
-            "Billy Taylor"
-          ],
+          "options": ["Cliff White", "Ray Charles", "Billy Preston", "Billy Taylor"],
           "correctAnswer": "Cliff White",
           "trivia": "在Sam Cooke的首张专辑'Songs by Sam Cooke'中，钢琴演奏由Cliff White负责，他是当时活跃于芝加哥的一位著名钢琴家。该专辑录制于1957年，Cliff White的钢琴为Sam Cooke的灵魂和节奏布鲁斯曲风增添了丰富的层次感。虽然Ray Charles和Billy Preston也都是著名钢琴手，但他们并未参与此专辑的录制。Billy Taylor以爵士钢琴闻名，且与Sam Cooke的合作较少，因此Cliff White是这张专辑中最合适且真实的钢琴演奏者。"
         },
@@ -8576,12 +7661,7 @@
         },
         {
           "question": "在1958年发布的Sam Cooke专辑'Songs by Sam Cooke'中，哪位音乐家为专辑的制作贡献了钢琴伴奏？",
-          "options": [
-            "Cliff White",
-            "Billy Preston",
-            "Ray Johnson",
-            "Red Callender"
-          ],
+          "options": ["Cliff White", "Billy Preston", "Ray Johnson", "Red Callender"],
           "correctAnswer": "Ray Johnson",
           "trivia": "Sam Cooke的专辑'Songs by Sam Cooke'于1958年发行，展示了他由灵魂乐和节奏布鲁斯风格融合的早期作品。专辑中，钢琴伴奏由音乐家Ray Johnson负责，他的演奏为整张专辑增加了柔和的伴奏层次。值得注意的是，Red Callender在专辑中担任低音提琴手，而Cliff White和Billy Preston则未参与本专辑的录制。Ray Johnson的贡献体现了当时洛杉矶录音场景中优秀的钢琴手在制作节奏布鲁斯唱片中的重要作用。"
         }
@@ -8600,12 +7680,7 @@
         },
         {
           "question": "在1958年发行的Sam Cooke专辑'Songs by Sam Cooke'中，哪一首歌曲最先在美国公告牌R&B排行榜上获得显著成功，帮助Sam Cooke确立了他作为灵魂乐先驱的地位？",
-          "options": [
-            "You Send Me",
-            "Only Sixteen",
-            "Wonderful World",
-            "Chain Gang"
-          ],
+          "options": ["You Send Me", "Only Sixteen", "Wonderful World", "Chain Gang"],
           "correctAnswer": "You Send Me",
           "trivia": "专辑'Songs by Sam Cooke'于1958年发布，其中的歌曲'You Send Me'是Sam Cooke的突破单曲，最先在美国公告牌R&B排行榜上达到榜首。这首歌不仅帮助他确立了作为灵魂乐先驱的地位，还跨越了种族界限，进入主流流行榜Top 10。'You Send Me'的成功也为Sam Cooke后续的作品铺平了道路，成为他职业生涯中的标志性歌曲之一。该曲由Cooke本人创作，展现了他独特的嗓音和情感表达能力，深远影响了后来的流行和灵魂音乐发展。"
         },
@@ -8631,12 +7706,7 @@
       "easy": [
         {
           "question": "在Sarah Vaughan的专辑《Sarah Vaughan with Clifford Brown》的词曲创作过程中，哪位音乐家主要负责为大部分曲目编写伴奏音乐？",
-          "options": [
-            "Clifford Brown",
-            "Jimmy Jones",
-            "Charlie Parker",
-            "Miles Davis"
-          ],
+          "options": ["Clifford Brown", "Jimmy Jones", "Charlie Parker", "Miles Davis"],
           "correctAnswer": "Jimmy Jones",
           "trivia": "在1954年录制的专辑《Sarah Vaughan with Clifford Brown》中，钢琴家Jimmy Jones不仅参与了演奏，还承担了为多首曲目编写伴奏音乐的任务。Clifford Brown作为小号手，主要负责旋律的演奏而非伴奏创作。Charlie Parker和Miles Davis虽然是当时著名的爵士乐手，但并未参与该专辑的词曲创作过程。Jimmy Jones以其细腻且富有表现力的伴奏风格，为Sarah Vaughan的歌声提供了完美的音乐支持，体现了词曲创作与演奏的紧密结合。"
         },
@@ -8653,12 +7723,7 @@
         },
         {
           "question": "Sarah Vaughan在专辑'Sarah Vaughan with Clifford Brown'中受到哪位音乐家的钢琴演奏风格启发，从而影响了她的演唱表达？",
-          "options": [
-            "Oscar Peterson",
-            "Bud Powell",
-            "Thelonious Monk",
-            "Bill Evans"
-          ],
+          "options": ["Oscar Peterson", "Bud Powell", "Thelonious Monk", "Bill Evans"],
           "correctAnswer": "Bud Powell",
           "trivia": "在1954年录制的专辑'Sarah Vaughan with Clifford Brown'中，Sarah Vaughan受到了著名爵士钢琴家Bud Powell的影响。Powell以其复杂而富有表现力的演奏风格著称，这对Vaughan的即兴唱法和节奏感产生了积极的启发。专辑中的钢琴手Richie Powell是Bud Powell的弟弟，也体现了这种风格的延续。此专辑被认为是Vaughan艺术生涯中的重要里程碑，体现了她在技术与情感表达上的成熟。"
         }
@@ -8743,12 +7808,7 @@
       "easy": [
         {
           "question": "Sonny Rollins的专辑《Saxophone Colossus》于1956年发行，哪首曲目的黑白录音视频最为广为流传，成为该专辑视觉内容的代表？",
-          "options": [
-            "《St. Thomas》",
-            "《Blue 7》",
-            "《Tenor Madness》",
-            "《Moritat》"
-          ],
+          "options": ["《St. Thomas》", "《Blue 7》", "《Tenor Madness》", "《Moritat》"],
           "correctAnswer": "《St. Thomas》",
           "trivia": "《Saxophone Colossus》是Sonny Rollins在1956年录制的经典硬波普专辑，其中《St. Thomas》是一首基于加勒比海民谣的曲子，因其欢快节奏和朗朗上口的旋律成为专辑中最著名的曲目。许多音乐录影带和现场录像均以《St. Thomas》作为视觉内容的主要呈现，帮助观众更直观地感受Sonny Rollins的演奏魅力。此外，《St. Thomas》经常出现在爵士乐教学与纪录片中，成为理解Sonny Rollins音乐风格的重要视觉参考。"
         },
@@ -8765,12 +7825,7 @@
         },
         {
           "question": "Sonny Rollins的经典专辑'Saxophone Colossus'于1956年录制，哪首曲目成为这张专辑中最广为人知的标志性作品？",
-          "options": [
-            "St. Thomas",
-            "Giant Steps",
-            "Take Five",
-            "So What"
-          ],
+          "options": ["St. Thomas", "Giant Steps", "Take Five", "So What"],
           "correctAnswer": "St. Thomas",
           "trivia": "Sonny Rollins的专辑'Saxophone Colossus'于1956年录制，其中曲目'St. Thomas'因其朗朗上口的旋律和加勒比海风格而成为这张专辑最具代表性的作品。'St. Thomas'基于加勒比地区的传统旋律，体现了Rollins家乡的文化影响。专辑整体被认为是硬博普（Hard Bop）风格的经典代表，巩固了Sonny Rollins作为萨克斯风大师的地位。该专辑由Prestige Records发行，录音于纽约，是Rollins音乐生涯的重要里程碑。"
         }
@@ -8866,23 +7921,13 @@
         },
         {
           "question": "在Stan Getz的1955年专辑《West Coast Jazz》中，哪首曲目最能体现该专辑标题所表达的西海岸爵士乐风格？",
-          "options": [
-            "“A Night in Tunisia”",
-            "“Coast Hop”",
-            "“Summertime”",
-            "“Lover Man”"
-          ],
+          "options": ["“A Night in Tunisia”", "“Coast Hop”", "“Summertime”", "“Lover Man”"],
           "correctAnswer": "“Coast Hop”",
           "trivia": "Stan Getz的《West Coast Jazz》专辑于1955年发行，代表了西海岸爵士乐的清新和冷静风格。专辑中的“Coast Hop”这首曲目，曲风轻快且充满律动，体现了西海岸爵士乐独特的韵味。相比之下，“A Night in Tunisia”和“Summertime”虽然是知名的爵士标准曲，但并非专辑原创曲目，也不突出西海岸风格。通过“Coast Hop”，听众可以更好地理解Stan Getz在该专辑中对西海岸爵士乐的表达与诠释。"
         },
         {
           "question": "在Stan Getz的1955年专辑《West Coast Jazz》的词曲创作过程中，哪位作曲家为该专辑贡献了多首作品？",
-          "options": [
-            "Bob Cooper",
-            "Dizzy Gillespie",
-            "Thelonious Monk",
-            "Miles Davis"
-          ],
+          "options": ["Bob Cooper", "Dizzy Gillespie", "Thelonious Monk", "Miles Davis"],
           "correctAnswer": "Bob Cooper",
           "trivia": "Stan Getz的专辑《West Coast Jazz》录制于1955年，是他与西海岸爵士乐圈的重要合作之一。专辑中许多曲目由萨克斯手兼作曲家Bob Cooper创作，他也是该专辑的关键音乐贡献者。Bob Cooper作为西海岸爵士乐的重要人物，他的作品风格与Stan Getz的柔和音色相得益彰。Dizzy Gillespie、Thelonious Monk和Miles Davis虽为当时著名的爵士乐作曲家，但并未直接参与此专辑的词曲创作。"
         }
@@ -8901,12 +7946,7 @@
         },
         {
           "question": "在1955年发行的Stan Getz专辑《West Coast Jazz》中，哪位西海岸爵士乐的重要音乐家并未参与录制，显示了这张专辑在国际爵士乐界的独特影响？",
-          "options": [
-            "Gerry Mulligan",
-            "Chet Baker",
-            "Dave Brubeck",
-            "Shorty Rogers"
-          ],
+          "options": ["Gerry Mulligan", "Chet Baker", "Dave Brubeck", "Shorty Rogers"],
           "correctAnswer": "Dave Brubeck",
           "trivia": "Stan Getz的《West Coast Jazz》专辑录制于1955年，展现了当时西海岸爵士乐的清新风格。专辑中邀请了Gerry Mulligan和Shorty Rogers等杰出音乐家助阵，这些都是西海岸爵士的重要代表人物。Chet Baker也是该地区活跃的音乐家，但Dave Brubeck虽然同为西海岸爵士的标志性人物，却未参与本专辑录制。这一事实反映出Getz与特定西海岸音乐家的合作选择，体现了专辑在国际爵士乐风格融合中的独特地位和影响。"
         },
@@ -9090,12 +8130,7 @@
         },
         {
           "question": "The Champs乐队1958年发行的专辑《Go, Champs, Go!》中，哪首歌曲最初引发了粉丝和流行文化的广泛关注？",
-          "options": [
-            "Tequila",
-            "Train to Nowhere",
-            "El Rancho Rock",
-            "Night Walk"
-          ],
+          "options": ["Tequila", "Train to Nowhere", "El Rancho Rock", "Night Walk"],
           "correctAnswer": "Tequila",
           "trivia": "The Champs乐队的专辑《Go, Champs, Go!》于1958年发行，其中最著名的曲目是《Tequila》。这首歌最初作为单曲发布，迅速攀升至美国排行榜的前列，成为当年最受欢迎的器乐摇滚作品之一。《Tequila》凭借其简单的旋律和重复的歌词，激发了大量粉丝的热情，并被广泛引用于电影和广告中，成为流行文化的标志性作品。这首歌的成功也促进了乐队的知名度，推动了专辑的整体销量。"
         },
@@ -9114,12 +8149,7 @@
       "medium": [
         {
           "question": "在制作The Champs于1958年发行的专辑《Go, Champs, Go!》时，哪位音乐家参与了主要的萨克斯风录制，增强了专辑的摇摆感？",
-          "options": [
-            "Dave Burgess",
-            "Max Bennett",
-            "Danny Flores",
-            "Plas Johnson"
-          ],
+          "options": ["Dave Burgess", "Max Bennett", "Danny Flores", "Plas Johnson"],
           "correctAnswer": "Plas Johnson",
           "trivia": "The Champs的专辑《Go, Champs, Go!》于1958年录制，标志着该乐队在摇滚和节奏蓝调领域的融合尝试。Plas Johnson作为著名的萨克斯风手，参与了这张专辑的录制，为多首曲目注入了独特的韵味和摇摆感。相比之下，Danny Flores是该乐队的主唱和萨克斯风手，但在这张专辑中，Johnson的演奏更为突出。Max Bennett和Dave Burgess虽然与乐队成员有合作，但主要负责贝斯和吉他演奏。Plas Johnson的参与提升了专辑的制作水准，使其更具音乐深度。"
         },
@@ -9149,12 +8179,7 @@
       "hard": [
         {
           "question": "关于The Champs于1958年发行的专辑《Go, Champs, Go!》，下列哪种乐器在该专辑的标志性曲目中发挥了关键的旋律作用？",
-          "options": [
-            "萨克斯风",
-            "小号",
-            "口琴",
-            "钢琴"
-          ],
+          "options": ["萨克斯风", "小号", "口琴", "钢琴"],
           "correctAnswer": "小号",
           "trivia": "The Champs的《Go, Champs, Go!》专辑发行于1958年，正值摇摆乐与早期摇滚乐广泛融合的时期。专辑中的多首曲目展现了小号作为旋律主导乐器的典型特征，尤其在标志性的曲调中，小号的明亮音色和穿透力成为乐队声音的核心。乐队成员在录制过程中充分利用了小号的动态范围，使得整体编曲更具活力和感染力。此外，该专辑的录音技术也确保了小号音色的清晰度和空间感，突出表现了1950年代末乐器编制的演变趋势。"
         },
@@ -9202,12 +8227,7 @@
         },
         {
           "question": "The Coasters发行于1957年的专辑'The Coasters'中，哪首歌曲最受粉丝欢迎并且在流行文化中被频繁引用？",
-          "options": [
-            "Yakety Yak",
-            "Blue Suede Shoes",
-            "Heartbreak Hotel",
-            "Great Balls of Fire"
-          ],
+          "options": ["Yakety Yak", "Blue Suede Shoes", "Heartbreak Hotel", "Great Balls of Fire"],
           "correctAnswer": "Yakety Yak",
           "trivia": "专辑'The Coasters'于1957年发行，其中歌曲'Yakety Yak'成为The Coasters最著名的作品之一。这首歌在当时广受欢迎，登上了美国R&B排行榜的榜首，并进入了流行音乐排行榜的前十名。'Yakety Yak'以其幽默诙谐的歌词和朗朗上口的旋律，成为青少年文化的象征，常被电影和广告引用，体现了The Coasters在1950年代流行文化中的重要影响力。"
         },
@@ -9226,12 +8246,7 @@
       "medium": [
         {
           "question": "在数字发行时代，The Coasters的1957年专辑'The Coasters'首次上线数字平台是在哪一年？",
-          "options": [
-            "2003年",
-            "2010年",
-            "2015年",
-            "2020年"
-          ],
+          "options": ["2003年", "2010年", "2015年", "2020年"],
           "correctAnswer": "2010年",
           "trivia": "The Coasters的同名专辑于1957年发行，最初仅限于实体唱片形式。随着数字音乐的发展，这张专辑于2010年首次在数字平台上上线，使得新一代听众能够方便地访问这张经典作品。数字发行不仅保存了原始录音的音质，也帮助这张专辑在网络时代获得了更多关注。2010年数字化的版本通常包含原始曲目，部分版本还附带了数字化的专辑封面与相关信息。"
         },
@@ -9283,12 +8298,7 @@
         },
         {
           "question": "在1957年发行的专辑'The Coasters'中，The Coasters乐队哪首歌曲曾在美国公告牌排行榜上达到最高位置，体现了他们的商业成功？",
-          "options": [
-            "《Yakety Yak》",
-            "《Charlie Brown》",
-            "《Poison Ivy》",
-            "《Searchin'》"
-          ],
+          "options": ["《Yakety Yak》", "《Charlie Brown》", "《Poison Ivy》", "《Searchin'》"],
           "correctAnswer": "《Yakety Yak》",
           "trivia": "专辑'The Coasters'发布于1957年，收录了多首The Coasters的经典作品。其中，《Yakety Yak》成为他们商业上的最大成功之一，这首歌在美国公告牌排行榜上最高达到第1位，表现出其广泛的流行度和影响力。《Charlie Brown》、《Poison Ivy》和《Searchin'》虽然也都取得了不错的成绩，但均未达到《Yakety Yak》的顶峰位置。该专辑的成功不仅巩固了The Coasters在节奏蓝调和摇滚领域的地位，也反映了当时音乐市场对他们幽默风格和创新编曲的高度认可。"
         }
@@ -9349,23 +8359,13 @@
         },
         {
           "question": "在1956年发行的专辑'Clyde McPhatter & The Drifters'中，哪位成员同时担任主唱并对乐队早期灵魂乐风格的发展起到了关键作用？",
-          "options": [
-            "Clyde McPhatter",
-            "Ben E. King",
-            "Rudy Lewis",
-            "Charlie Thomas"
-          ],
+          "options": ["Clyde McPhatter", "Ben E. King", "Rudy Lewis", "Charlie Thomas"],
           "correctAnswer": "Clyde McPhatter",
           "trivia": "Clyde McPhatter不仅是The Drifters在1956年专辑中最显著的主唱，也被广泛认为是推动乐队早期灵魂乐风格的关键人物。作为原The Drifters的领唱，他在该专辑中展现了其独特的高亢嗓音和情感表达，极大影响了后续节奏蓝调和灵魂乐的发展。相比之下，Ben E. King和Rudy Lewis分别在The Drifters的后期加入，而Charlie Thomas则主要作为和声成员活跃。McPhatter的贡献为乐队奠定了坚实的艺术基础，使得这张专辑成为节奏蓝调历史上的经典之作。"
         },
         {
           "question": "在1956年发行的专辑'Clyde McPhatter & The Drifters'中，The Drifters当时隶属于哪家唱片公司？",
-          "options": [
-            "Atlantic Records",
-            "Motown Records",
-            "Sun Records",
-            "Chess Records"
-          ],
+          "options": ["Atlantic Records", "Motown Records", "Sun Records", "Chess Records"],
           "correctAnswer": "Atlantic Records",
           "trivia": "专辑'Clyde McPhatter & The Drifters'发行于1956年，当时The Drifters签约于Atlantic Records。Atlantic Records在1950年代以推广节奏布鲁斯和早期摇滚乐闻名，尤其致力于黑人艺术家的发展。Clyde McPhatter作为The Drifters的主唱，也正是在Atlantic Records的支持下，推动了这张专辑的成功。相较而言，Motown Records成立于1959年，Sun Records主要以摇滚和乡村音乐著称，而Chess Records则以芝加哥蓝调闻名，因此都不是该专辑的唱片公司。"
         }
@@ -9373,12 +8373,7 @@
       "hard": [
         {
           "question": "在1956年发行的The Drifters专辑'Clyde McPhatter & The Drifters'中，哪一家唱片公司负责该专辑的发行？",
-          "options": [
-            "Atlantic Records",
-            "Motown Records",
-            "Sun Records",
-            "Chess Records"
-          ],
+          "options": ["Atlantic Records", "Motown Records", "Sun Records", "Chess Records"],
           "correctAnswer": "Atlantic Records",
           "trivia": "The Drifters的专辑'Clyde McPhatter & The Drifters'于1956年由Atlantic Records发行。Atlantic Records在20世纪50年代是R&B和早期摇滚乐的重要推动者，负责推出许多著名艺术家的作品，包括The Drifters。Motown Records虽然也是重要的黑人音乐厂牌，但它成立于1959年，晚于该专辑发行时间。Sun Records主要以摇滚和乡村音乐闻名，而Chess Records则聚焦于芝加哥布鲁斯，均未发行该专辑。Atlantic Records的支持对The Drifters早期成功起到了关键作用。"
         },
@@ -9496,12 +8491,7 @@
         },
         {
           "question": "在1958年发行的The Everly Brothers专辑《The Everly Brothers》的词曲创作过程中，哪位音乐人对该专辑中多首歌曲的创作贡献最大？",
-          "options": [
-            "Felice Bryant",
-            "Don Everly",
-            "Phil Everly",
-            "Jerry Leiber"
-          ],
+          "options": ["Felice Bryant", "Don Everly", "Phil Everly", "Jerry Leiber"],
           "correctAnswer": "Felice Bryant",
           "trivia": "Felice Bryant与她的丈夫Boudleaux Bryant是The Everly Brothers早期作品中最重要的词曲作者，尤其是在1958年专辑《The Everly Brothers》中，Felice Bryant参与了多首经典歌曲的创作，如《Bye Bye Love》和《Wake Up Little Susie》。这对夫妻创作团队以其独特的旋律感和歌词深度，为The Everly Brothers的和声风格奠定了基础。Don和Phil Everly虽然也参与了表演和部分创作，但主要的词曲贡献来自Bryant夫妇。Jerry Leiber则更多与其他艺人合作，并未直接涉及该专辑的主要词曲创作。"
         },
@@ -9562,12 +8552,7 @@
       "medium": [
         {
           "question": "在The Flamingos录制1959年专辑《Flamingo Serenade》的过程中，哪位制作人负责监督录音，确保专辑的音质和风格？",
-          "options": [
-            "Jerry Wexler",
-            "George Goldner",
-            "Ahmet Ertegun",
-            "Phil Spector"
-          ],
+          "options": ["Jerry Wexler", "George Goldner", "Ahmet Ertegun", "Phil Spector"],
           "correctAnswer": "George Goldner",
           "trivia": "George Goldner是著名的唱片制作人和厂牌老板，他在1950年代积极参与Doo-wop和早期R&B音乐的发展。The Flamingos的专辑《Flamingo Serenade》正是在1959年由Goldner监督录制，他对该专辑的音质和整体风格有重要影响。Goldner曾与多个传奇团体合作，擅长将传统Doo-wop元素与更精致的编曲结合，使得《Flamingo Serenade》成为那个时期的经典作品之一。相比之下，Jerry Wexler和Ahmet Ertegun主要活跃于Atlantic Records，而Phil Spector则以其“墙式声音”著称，稍晚于该专辑的制作时期。"
         },
@@ -9639,12 +8624,7 @@
       "easy": [
         {
           "question": "在电台播放方面，The Four Freshmen的专辑《Four Freshmen and 5 Trombones》于1955年最受欢迎的歌曲是哪一首？",
-          "options": [
-            "It’s a Blue World",
-            "Day by Day",
-            "Don’t Blame Me",
-            "Mood Indigo"
-          ],
+          "options": ["It’s a Blue World", "Day by Day", "Don’t Blame Me", "Mood Indigo"],
           "correctAnswer": "It’s a Blue World",
           "trivia": "《Four Freshmen and 5 Trombones》是The Four Freshmen于1955年发行的经典专辑，其中歌曲“It’s a Blue World”在当时的电台播放中非常受欢迎。这首曲目以细腻的和声和管乐编排著称，帮助乐队在传统流行与爵士领域获得了广泛关注。此外，专辑整体风格影响了后来的多声部合唱团体，强化了The Four Freshmen在1950年代的音乐地位。电台播放的频繁也促使他们的音乐更容易被主流听众接受。"
         },
@@ -9661,12 +8641,7 @@
         },
         {
           "question": "在1955年The Four Freshmen发行的专辑《Four Freshmen and 5 Trombones》中，哪种乐器是专辑名称中特别强调并大量使用的？",
-          "options": [
-            "长号",
-            "萨克斯",
-            "小号",
-            "钢琴"
-          ],
+          "options": ["长号", "萨克斯", "小号", "钢琴"],
           "correctAnswer": "长号",
           "trivia": "《Four Freshmen and 5 Trombones》这张专辑的标题明显指出了“5 Trombones”，即五把长号，是专辑编曲和演奏的特色之一。The Four Freshmen的声音与五把长号的结合创造了一种独特的和声色彩，令这张专辑在1950年代的爵士和人声合唱领域中独树一帜。长号作为铜管乐器，音色温暖且富有表现力，恰好与The Four Freshmen细腻的和声相辅相成。这张专辑的成功也促进了长号在流行和爵士乐编制中的使用。"
         }
@@ -9751,12 +8726,7 @@
       "easy": [
         {
           "question": "在1957年The Hi-Lo's发行的专辑'Suddenly It's the Hi-Lo's!'中，以下哪位成员是该乐队的四重人声之一？",
-          "options": [
-            "Clark Burroughs",
-            "Frank Sinatra",
-            "Nat King Cole",
-            "Mel Tormé"
-          ],
+          "options": ["Clark Burroughs", "Frank Sinatra", "Nat King Cole", "Mel Tormé"],
           "correctAnswer": "Clark Burroughs",
           "trivia": "The Hi-Lo's是一支以复杂四部和声著称的男声四重唱组合，成立于1949年。专辑'Suddenly It's the Hi-Lo's!'发行于1957年，成员包括Clark Burroughs、Bob Strasen、Bob Morse和Gene Puerling。Clark Burroughs不仅是乐队成员，还以其高度的音乐造诣参与了乐队的和声编排。Frank Sinatra、Nat King Cole和Mel Tormé虽然是那个时代著名的歌手，但他们并非The Hi-Lo's的成员。该专辑体现了The Hi-Lo's在爵士和流行音乐融合上的创新，人声编排细腻且富有层次感。"
         },
@@ -9797,12 +8767,7 @@
         },
         {
           "question": "在The Hi-Lo's于1957年发行的专辑'Suddenly It's the Hi-Lo's!'中，哪位成员以其独特的低音声部为四重唱增添了丰富的和声色彩？",
-          "options": [
-            "Clark Burroughs",
-            "Bob Strasen",
-            "Gene Puerling",
-            "Don Shelton"
-          ],
+          "options": ["Clark Burroughs", "Bob Strasen", "Gene Puerling", "Don Shelton"],
           "correctAnswer": "Gene Puerling",
           "trivia": "Gene Puerling是The Hi-Lo's的关键成员，尤其以其复杂且富有创新性的低音和声编写闻名。在1957年发行的'Suddenly It's the Hi-Lo's!'专辑中，他不仅担任低音声部，还负责部分和声编排，这为乐团的四重唱增添了独特的音色。Clark Burroughs、Bob Strasen和Don Shelton分别担任其他声部，但Gene Puerling的贡献尤为突出。Puerling后来还创立了The Singers Unlimited，继续推动多声部和声的发展。"
         },
@@ -9874,23 +8839,13 @@
         },
         {
           "question": "在The Isley Brothers的1959年专辑'Shout!'的音乐录影带或视觉内容中，哪种表现形式最早被用于推广这张专辑？",
-          "options": [
-            "现场表演录影带",
-            "动画短片",
-            "电视节目现场演出",
-            "专辑封面照片"
-          ],
+          "options": ["现场表演录影带", "动画短片", "电视节目现场演出", "专辑封面照片"],
           "correctAnswer": "专辑封面照片",
           "trivia": "The Isley Brothers在1959年发行的专辑'Shout!'当时尚未普及音乐录影带的制作，因此推广主要依赖于专辑封面照片和现场表演。虽然电视节目已有现场演出，但专辑的视觉宣传重点是通过印刷的封面艺术吸引听众。动画短片和现代意义上的现场表演录影带是在后来几十年才逐渐成为音乐推广的主流手段。'Shout!'专辑的封面设计简洁而富有表现力，成为当时吸引粉丝购买的重要视觉元素。"
         },
         {
           "question": "在The Isley Brothers的1959年专辑'Shout!'中，哪位成员以主唱身份最为突出？",
-          "options": [
-            "Ronald Isley",
-            "O'Kelly Isley Jr.",
-            "Rudy Isley",
-            "Ernie Isley"
-          ],
+          "options": ["Ronald Isley", "O'Kelly Isley Jr.", "Rudy Isley", "Ernie Isley"],
           "correctAnswer": "Ronald Isley",
           "trivia": "在The Isley Brothers的首张专辑'Shout!'（1959年）中，Ronald Isley担任了主唱角色，展现了他强有力且富有感染力的嗓音。该专辑以同名歌曲'Shout!'闻名，这首歌后来成为了他们的标志性作品之一。Ronald的演唱风格为乐队奠定了灵魂乐和节奏蓝调的基础。其他成员如O'Kelly和Rudy主要负责和声，Ernie Isley则是在后期加入乐队后才成为重要的乐器演奏者。由此可见，Ronald Isley在这张专辑中的主唱身份至关重要，推动了The Isley Brothers早期的成功。"
         }
@@ -9955,12 +8910,7 @@
         },
         {
           "question": "在The Isley Brothers于1959年发行的专辑'Shout!'中，哪一首歌曲最明显地反映了当时美国社会对非裔美国人文化身份的积极表达与自我肯定？",
-          "options": [
-            "Shout",
-            "Respect",
-            "Twist and Shout",
-            "Stand by Me"
-          ],
+          "options": ["Shout", "Respect", "Twist and Shout", "Stand by Me"],
           "correctAnswer": "Shout",
           "trivia": "The Isley Brothers的专辑'Shout!'中的主打歌《Shout》不仅是一首充满活力的舞曲，更成为非裔美国人文化身份表达的重要象征。该曲通过其激昂的呼喊和互动式的表现形式，体现了黑人社群在1950年代末期寻求社会认可和自我肯定的情绪。虽然《Respect》和《Stand by Me》也是反映社会主题的知名歌曲，但它们分别属于其他艺术家和不同的历史时期。'Twist and Shout'虽然与摇滚和黑人音乐传统有关，但并非The Isley Brothers在'Shout!'专辑中的曲目。这首歌的影响力跨越文化界限，使它在社会评论类别中具有重要地位。"
         }
@@ -10021,12 +8971,7 @@
         },
         {
           "question": "The Kingston Trio的首张同名专辑《The Kingston Trio》在1958年发布后，哪首歌曲最先获得美国电台的广泛播放，成为他们的突破性单曲？",
-          "options": [
-            "Tom Dooley",
-            "Scotch and Soda",
-            "The Tijuana Jail",
-            "M.T.A."
-          ],
+          "options": ["Tom Dooley", "Scotch and Soda", "The Tijuana Jail", "M.T.A."],
           "correctAnswer": "Tom Dooley",
           "trivia": "《The Kingston Trio》是The Kingston Trio于1958年发行的首张专辑，其中《Tom Dooley》这首歌曲成为他们最具代表性的突破性单曲。该曲在发布后迅速获得美国各地电台的广泛播放，帮助专辑在排行榜上取得优异成绩。实际上，《Tom Dooley》还成为了1959年首支获得白金认证的民谣单曲，极大提升了The Kingston Trio的知名度。此外，这首歌也促进了美国民谣音乐在主流电台的流行，从而影响了后续民谣音乐的发展方向。"
         },
@@ -10045,12 +8990,7 @@
       "hard": [
         {
           "question": "在The Kingston Trio于1958年发行的同名专辑'The Kingston Trio'中，哪位成员并非原始三人组合的成员？",
-          "options": [
-            "Dave Guard",
-            "Nick Reynolds",
-            "Bob Shane",
-            "John Stewart"
-          ],
+          "options": ["Dave Guard", "Nick Reynolds", "Bob Shane", "John Stewart"],
           "correctAnswer": "John Stewart",
           "trivia": "The Kingston Trio的1958年同名专辑'The Kingston Trio'由原始三人组合录制，成员包括Dave Guard、Nick Reynolds和Bob Shane。John Stewart并不是最初的成员，他是在1961年接替Dave Guard后加入乐队的。该专辑的成功极大推动了民谣复兴运动，三位原始成员的紧密和声和清晰的吉他演奏成为其标志。John Stewart的加入则标志着乐队风格的进一步演变，但他并未参与这张具有里程碑意义的首张专辑的录制。"
         },
@@ -10087,23 +9027,13 @@
       "easy": [
         {
           "question": "The Louvin Brothers 在1956年发行的专辑《Tragic Songs of Life》首次在以下哪个著名的音乐会场地现场表演了其中的歌曲？",
-          "options": [
-            "Grand Ole Opry",
-            "Carnegie Hall",
-            "The Fillmore",
-            "Hollywood Bowl"
-          ],
+          "options": ["Grand Ole Opry", "Carnegie Hall", "The Fillmore", "Hollywood Bowl"],
           "correctAnswer": "Grand Ole Opry",
           "trivia": "The Louvin Brothers 是1950年代美国乡村音乐的重要代表，他们在1956年发行的专辑《Tragic Songs of Life》收录了许多深情的悲歌。这张专辑中的歌曲首次在享有盛名的Grand Ole Opry音乐会场地现场演出，这个场地是美国乡村音乐的圣地。Grand Ole Opry自1925年起就成为乡村音乐推广的重要平台，帮助艺术家接触更广泛的听众。相比之下，Carnegie Hall 和 Hollywood Bowl 主要以古典音乐和流行音乐演出闻名，而The Fillmore更多与摇滚乐相关。The Louvin Brothers 在Grand Ole Opry的演出进一步巩固了他们在乡村音乐界的地位。"
         },
         {
           "question": "The Louvin Brothers发行1956年专辑'Tragic Songs of Life'时，哪家唱片公司负责该专辑的销售和推广？",
-          "options": [
-            "Capitol Records",
-            "Decca Records",
-            "Columbia Records",
-            "Mercury Records"
-          ],
+          "options": ["Capitol Records", "Decca Records", "Columbia Records", "Mercury Records"],
           "correctAnswer": "Capitol Records",
           "trivia": "The Louvin Brothers的专辑'Tragic Songs of Life'于1956年由Capitol Records发行。Capitol Records当时是美国主要的唱片公司之一，负责推广多种风格的音乐，包括乡村和蓝草。该公司通过广泛的销售网络和广播合作，帮助'Tragic Songs of Life'在乡村音乐爱好者中获得关注。专辑中的经典曲目如《Knoxville Girl》也因Capitol的推广而广为流传。此外，Capitol Records在20世纪50年代对乡村音乐的推广起到了关键作用，提升了艺人和专辑的市场影响力。"
         },
@@ -10210,12 +9140,7 @@
         },
         {
           "question": "The Moonglows的专辑《Look! It's The Moonglows》中的哪首歌曲在1950年代的电台播放中最受欢迎，成为他们的代表作之一？",
-          "options": [
-            "Sincerely",
-            "Ten Commandments of Love",
-            "See Saw",
-            "When I'm With You"
-          ],
+          "options": ["Sincerely", "Ten Commandments of Love", "See Saw", "When I'm With You"],
           "correctAnswer": "Sincerely",
           "trivia": "《Look! It's The Moonglows》是The Moonglows于1959年发行的重要专辑，其中歌曲“Sincerely”在当时的电台播放中非常受欢迎。这首歌最初于1954年发布，后来通过这张专辑重新获得关注，成为他们的代表作之一。它在Billboard R&B排行榜上名列前茅，广泛获得电台DJ的支持和播放。The Moonglows的和声和节奏蓝调风格在这首歌曲中得到了充分展现，也帮助他们在1950年代的音乐市场上赢得了重要地位。"
         },
@@ -10280,12 +9205,7 @@
         },
         {
           "question": "在制作1959年专辑《Look! It's The Moonglows》时，The Moonglows与哪位著名制作人合作，该制作人以其对R&B和早期摇滚音乐的影响而闻名？",
-          "options": [
-            "Harold Battiste",
-            "Clyde Otis",
-            "Alan Freed",
-            "Kenny Gamble"
-          ],
+          "options": ["Harold Battiste", "Clyde Otis", "Alan Freed", "Kenny Gamble"],
           "correctAnswer": "Clyde Otis",
           "trivia": "The Moonglows在录制1959年专辑《Look! It's The Moonglows》时，与制作人Clyde Otis合作。Otis是当时著名的R&B制作人，曾为多位知名艺术家打造畅销作品，推动了早期摇滚和节奏蓝调的发展。Otis的制作风格强调情感表达和细腻的编曲，这对The Moonglows的声音塑造起到了关键作用。专辑的录音过程主要在芝加哥完成，体现了当时R&B音乐的独特魅力。Harold Battiste、Alan Freed和Kenny Gamble虽然在音乐史上有重要地位，但并未参与该专辑的制作。"
         },
@@ -10434,12 +9354,7 @@
         },
         {
           "question": "在1956年发行的专辑'The Teenagers Featuring Frankie Lymon'中，The Teenagers是由谁制作和指导录制的？",
-          "options": [
-            "George Goldner",
-            "Berry Gordy",
-            "Phil Spector",
-            "Sam Phillips"
-          ],
+          "options": ["George Goldner", "Berry Gordy", "Phil Spector", "Sam Phillips"],
           "correctAnswer": "George Goldner",
           "trivia": "专辑'The Teenagers Featuring Frankie Lymon'由The Teenagers演唱，录制于1956年，其制作人是George Goldner。Goldner是当时著名的制作人和唱片公司老板，他对Doo-wop和早期R&B音乐的发展起到了关键作用。Berry Gordy虽后成为Motown的创始人，但与该专辑无关。Phil Spector以其“墙厚音墙”制作技巧著称，但未参与该项目。Sam Phillips则是Sun Records的创始人，主要制作早期摇滚和布鲁斯歌手。George Goldner的制作风格帮助The Teenagers捕捉到了青春活力与和声的完美结合。"
         },
@@ -10458,12 +9373,7 @@
       "medium": [
         {
           "question": "在The Teenagers于1956年发行的专辑'The Teenagers Featuring Frankie Lymon'的录制过程中，乐队主要使用了哪种音乐设备来实现他们标志性的和声效果？",
-          "options": [
-            "立体声磁带录音机",
-            "单轨录音机（单声道）",
-            "电子合成器",
-            "数字多轨录音设备"
-          ],
+          "options": ["立体声磁带录音机", "单轨录音机（单声道）", "电子合成器", "数字多轨录音设备"],
           "correctAnswer": "单轨录音机（单声道）",
           "trivia": "The Teenagers在1956年录制专辑'The Teenagers Featuring Frankie Lymon'时，普遍采用的是单轨录音机，这在当时的录音行业中非常普遍。单轨录音（单声道）设备限制了录音的层次和声道分离，但The Teenagers通过精湛的和声技巧和现场合唱，成功地营造出丰富的声音效果。立体声和多轨录音技术尚未广泛应用于此时期的流行音乐制作。数字多轨录音和电子合成器是后来几十年内才普及的技术，因此在该专辑录制时并未使用。"
         },
@@ -10504,12 +9414,7 @@
         },
         {
           "question": "在1956年发行的专辑'The Teenagers Featuring Frankie Lymon'中，以下哪位成员并非The Teenagers乐队的原始成员？",
-          "options": [
-            "Frankie Lymon",
-            "Herman Santiago",
-            "Joe Negroni",
-            "Sylvester Stewart"
-          ],
+          "options": ["Frankie Lymon", "Herman Santiago", "Joe Negroni", "Sylvester Stewart"],
           "correctAnswer": "Sylvester Stewart",
           "trivia": "The Teenagers是一支成立于1954年的多声部少年歌唱组合，其成员包括Frankie Lymon、Herman Santiago、Joe Negroni、Jimmy Merchant和 Sherman Garnes。Sylvester Stewart并非该乐队成员，他后来以Sly Stone的艺名成为著名的音乐制作人和Sly & the Family Stone的领军人物。专辑'The Teenagers Featuring Frankie Lymon'是他们1956年发行的重要作品，展示了Frankie Lymon作为主唱的独特嗓音和乐队紧密的和声配合。这张专辑在早期摇滚和节奏蓝调音乐史上占有重要地位，反映了当时青少年文化的兴起。"
         },
@@ -10535,12 +9440,7 @@
       "easy": [
         {
           "question": "在Thelonious Monk的1957年专辑《Brilliant Corners》的制作过程中，哪位著名的萨克斯风手参与了录音？",
-          "options": [
-            "Sonny Rollins",
-            "John Coltrane",
-            "Cannonball Adderley",
-            "Dexter Gordon"
-          ],
+          "options": ["Sonny Rollins", "John Coltrane", "Cannonball Adderley", "Dexter Gordon"],
           "correctAnswer": "Sonny Rollins",
           "trivia": "Thelonious Monk的《Brilliant Corners》专辑录制于1956年末至1957年初，Sonny Rollins作为主力萨克斯风手参与了多首曲目的录制。Rollins以其创新的即兴演奏风格为专辑增添了独特的色彩。John Coltrane和Cannonball Adderley虽然是同一时代的顶级萨克斯风手，但并未参与本专辑录音。Dexter Gordon也未参与该专辑制作。该专辑因其复杂的编排和长时间的录音过程而著称，Sonny Rollins的加盟成为其成功的重要因素之一。"
         },
@@ -10581,23 +9481,13 @@
         },
         {
           "question": "在1957年Thelonious Monk录制专辑《Brilliant Corners》时，哪位音乐家参与了该专辑的制作，并在部分曲目中担任贝斯手？",
-          "options": [
-            "Oscar Pettiford",
-            "Charles Mingus",
-            "Paul Chambers",
-            "Ray Brown"
-          ],
+          "options": ["Oscar Pettiford", "Charles Mingus", "Paul Chambers", "Ray Brown"],
           "correctAnswer": "Oscar Pettiford",
           "trivia": "《Brilliant Corners》是Thelonious Monk于1957年录制的一张标志性专辑，其制作过程因此专辑复杂的曲目结构而格外艰难。Oscar Pettiford作为贝斯手参与了这张专辑的录制，尤其在一些曲目中提供了坚实的低音支持。虽然Charles Mingus、Paul Chambers和Ray Brown都是当时著名的贝斯手，但他们并未参与这张专辑的录制。Pettiford的参与给专辑增添了重要的节奏层次，这也是该专辑能够成功诠释Monk复杂作品的关键之一。"
         },
         {
           "question": "Thelonious Monk的专辑《Brilliant Corners》在艺术创作灵感上，哪位著名爵士音乐家的风格对Monk产生了显著影响？",
-          "options": [
-            "Dizzy Gillespie",
-            "Charlie Parker",
-            "Miles Davis",
-            "John Coltrane"
-          ],
+          "options": ["Dizzy Gillespie", "Charlie Parker", "Miles Davis", "John Coltrane"],
           "correctAnswer": "Charlie Parker",
           "trivia": "Thelonious Monk在创作《Brilliant Corners》时深受Charlie Parker的影响，尤其是在复杂和创新的和声结构上。Parker作为bebop的先驱，其即兴演奏和音乐理念对Monk的发展起到了重要推动作用。虽然Monk的风格独树一帜，但他在这张专辑中融合了Parker的即兴技巧和节奏自由度。此外，《Brilliant Corners》录制于1956年，正值bebop风格盛行，Monk通过对Parker风格的借鉴，展现了他独创的音乐语言。"
         }
@@ -10647,12 +9537,7 @@
       "easy": [
         {
           "question": "在Tito Puente的1958年专辑《Dance Mania》中，哪一首曲目最常被用作音乐录影带和现场表演中展示其标志性打击乐技巧？",
-          "options": [
-            "Oye Como Va",
-            "Ran Kan Kan",
-            "El Rey del Timbal",
-            "Mambo Gozón"
-          ],
+          "options": ["Oye Como Va", "Ran Kan Kan", "El Rey del Timbal", "Mambo Gozón"],
           "correctAnswer": "Ran Kan Kan",
           "trivia": "《Dance Mania》是Tito Puente于1958年发行的经典拉丁爵士专辑，其中《Ran Kan Kan》因其充满活力的节奏和复杂的打击乐编排，成为最具代表性的曲目之一。这首曲目经常出现在音乐录影带和现场演出中，突出展示了Puente作为“打击乐之王”的才华。与专辑其他曲目相比，《Ran Kan Kan》在视觉内容中更频繁被采用，体现了Tito Puente对拉丁音乐和打击乐的深远影响。该曲目也帮助专辑获得了广泛的认可，成为拉丁音乐历史上的经典。"
         },
@@ -10669,12 +9554,7 @@
         },
         {
           "question": "在Tito Puente的1958年专辑'Dance Mania'的音响工程中，哪种乐器的录音处理尤为重要，以突出其拉丁打击乐的特色？",
-          "options": [
-            "邦戈鼓（Bongos）",
-            "电吉他",
-            "钢琴",
-            "萨克斯风"
-          ],
+          "options": ["邦戈鼓（Bongos）", "电吉他", "钢琴", "萨克斯风"],
           "correctAnswer": "邦戈鼓（Bongos）",
           "trivia": "Tito Puente的专辑'Dance Mania'被广泛认为是一张拉丁打击乐的经典专辑。在1958年的录音过程中，音响工程师特别注重邦戈鼓的录音，以确保其独特的节奏感和清晰的打击声能够完美呈现。邦戈鼓作为拉丁音乐的核心打击乐器，其声音细节对于整张专辑的活力和节奏感至关重要。此外，录音设备和麦克风的布置都经过精心设计，以捕捉邦戈鼓的质感和动态范围，这也帮助专辑在当时的音响效果中脱颖而出。"
         }
@@ -10728,23 +9608,13 @@
         },
         {
           "question": "在Tito Puente的1958年专辑\"Dance Mania\"发布后，哪首曲目最初因其节奏和旋律而成为美国拉丁电台播放的热门曲目，推动了萨尔萨音乐在主流电台的传播？",
-          "options": [
-            "Oye Como Va",
-            "Para Los Rumberos",
-            "Ran Kan Kan",
-            "Mambo Gozón"
-          ],
+          "options": ["Oye Como Va", "Para Los Rumberos", "Ran Kan Kan", "Mambo Gozón"],
           "correctAnswer": "Ran Kan Kan",
           "trivia": "《Dance Mania》是Tito Puente于1958年发行的一张经典拉丁爵士专辑，其中《Ran Kan Kan》因其强烈的节奏和富有感染力的旋律，成为当时美国拉丁电台播放频率最高的曲目之一。该曲推动了萨尔萨音乐在主流电台的传播，成为拉丁舞曲的重要代表。值得注意的是，虽然《Oye Como Va》是Tito Puente另一首著名作品，但它并不收录在《Dance Mania》中。与此同时，《Para Los Rumberos》和《Mambo Gozón》虽然也是专辑中的曲目，但在电台播放排名上没有达到《Ran Kan Kan》的高度。"
         },
         {
           "question": "在1958年Tito Puente发行的专辑'Dance Mania'中，哪家唱片公司负责该专辑的发行？",
-          "options": [
-            "RCA Victor",
-            "Tico Records",
-            "Columbia Records",
-            "Decca Records"
-          ],
+          "options": ["RCA Victor", "Tico Records", "Columbia Records", "Decca Records"],
           "correctAnswer": "Tico Records",
           "trivia": "Tito Puente的经典专辑'Dance Mania'于1958年由Tico Records发行。Tico Records是一家专注于拉丁音乐的唱片公司，成立于1948年，曾推出大量著名的拉丁爵士和萨尔萨音乐作品。该公司在20世纪中叶对推广拉丁音乐起到了关键作用，Tito Puente作为其签约艺术家，其作品通过Tico Records得以广泛传播。相比之下，RCA Victor、Columbia和Decca虽为大型唱片公司，但并未参与该专辑的发行。"
         }
@@ -10759,12 +9629,7 @@
       "easy": [
         {
           "question": "Tony Bennett的专辑'The Beat of My Heart'于1957年发行时，隶属于哪家唱片公司？",
-          "options": [
-            "Columbia Records",
-            "Decca Records",
-            "Capitol Records",
-            "RCA Victor"
-          ],
+          "options": ["Columbia Records", "Decca Records", "Capitol Records", "RCA Victor"],
           "correctAnswer": "Columbia Records",
           "trivia": "Tony Bennett在1957年发行的专辑'The Beat of My Heart'是由Columbia Records推出的。Columbia Records是当时美国最主要的唱片公司之一，负责推广多位著名歌手的作品。Tony Bennett在1950年代的大部分重要专辑都通过Columbia发行，这也帮助他建立了广泛的听众基础。此外，Columbia Records以其高质量制作和市场推广著称，这对'The Beat of My Heart'的成功起到了关键作用。"
         },
@@ -10871,12 +9736,7 @@
       "easy": [
         {
           "question": "Webb Pierce在1956年的专辑'The Wondering Boy'中，哪首歌曲最初帮助他赢得了乡村音乐界的广泛关注？",
-          "options": [
-            "There Stands the Glass",
-            "Gone",
-            "Slowly",
-            "Wondering"
-          ],
+          "options": ["There Stands the Glass", "Gone", "Slowly", "Wondering"],
           "correctAnswer": "There Stands the Glass",
           "trivia": "专辑'The Wondering Boy'是Webb Pierce在1956年发布的重要作品，其中包含了他的经典曲目'There Stands the Glass'。这首歌成为了他的标志性作品，帮助他在乡村音乐界迅速赢得广泛关注。'There Stands the Glass'不仅在排行榜上取得优异成绩，还被认为是乡村音乐史上的经典之一。此外，专辑收录的其他歌曲如'Gone'和'Slowly'也深受听众喜爱，但'There Stands the Glass'无疑是激发Pierce艺术灵感的关键曲目。"
         },
@@ -10941,12 +9801,7 @@
       "hard": [
         {
           "question": "Webb Pierce的1956年专辑《The Wondering Boy》是在哪家唱片公司发行的？",
-          "options": [
-            "Decca Records",
-            "Columbia Records",
-            "MCA Records",
-            "Sun Records"
-          ],
+          "options": ["Decca Records", "Columbia Records", "MCA Records", "Sun Records"],
           "correctAnswer": "Decca Records",
           "trivia": "《The Wondering Boy》专辑由Webb Pierce于1956年发行，隶属于Decca Records旗下。Decca Records是当时美国乡村音乐领域的重要唱片公司，支持了许多乡村音乐艺术家的发展。Webb Pierce与Decca的合作为他带来了多首热门单曲，使他在20世纪50年代乡村乐坛占据重要地位。虽然Sun Records和Columbia Records也在那个年代活跃，但Webb Pierce的这张专辑明确由Decca发布。MCA Records则是在Decca之后的合并品牌，尚未在1956年使用。"
         },
@@ -10983,12 +9838,7 @@
       "easy": [
         {
           "question": "在媒体报道中，Wes Montgomery的专辑'The Wes Montgomery Trio'于1959年发布时，哪一首曲目被广泛认为是该专辑的代表作？",
-          "options": [
-            "“Mr. Walker”",
-            "“Cariba”",
-            "“Satin Doll”",
-            "“All the Things You Are”"
-          ],
+          "options": ["“Mr. Walker”", "“Cariba”", "“Satin Doll”", "“All the Things You Are”"],
           "correctAnswer": "“Mr. Walker”",
           "trivia": "Wes Montgomery的专辑'The Wes Montgomery Trio'于1959年发行，受到了当时媒体的高度关注。其中，“Mr. Walker”这首曲目因其独特的旋律和Montgomery标志性的拨弦风格被广泛报道为专辑的代表作。媒体评价强调了他在这首曲目中展示出的即兴能力和流畅的演奏技巧。此外，专辑整体捕捉了Montgomery三重奏的紧密合作氛围，成为他早期作品中备受推崇的一张。"
         },
@@ -11117,12 +9967,7 @@
         },
         {
           "question": "Yma Sumac的专辑《Voice of the Xtabay》中哪首歌曲曾在电台播放中广受欢迎，成为她最著名的代表作之一？",
-          "options": [
-            "‘Gopher Mambo’",
-            "‘Ataypura’",
-            "‘Chucuchucu’",
-            "‘Virgin of the Sun God’"
-          ],
+          "options": ["‘Gopher Mambo’", "‘Ataypura’", "‘Chucuchucu’", "‘Virgin of the Sun God’"],
           "correctAnswer": "‘Gopher Mambo’",
           "trivia": "《Voice of the Xtabay》是Yma Sumac于1950年发行的著名专辑，融合了秘鲁传统音乐与现代编曲。专辑中的‘Gopher Mambo’因其活泼的节奏和独特的声乐表现，成为电台播放中的热门曲目，广为人知。事实上，‘Gopher Mambo’帮助Yma Sumac在美国及世界范围内获得了更广泛的听众群体。该专辑整体展现了她超过四个八度的声音范围和秘鲁安第斯文化的音乐魅力，成为当时电台播放的重要音乐作品之一。"
         }

@@ -71,6 +71,7 @@ import ErrorMessage from "@components/Shared/ErrorMessage.astro";
 import ButtonLink from "@components/ButtonLink.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
+import AuthForm from "@components/auth/AuthForm.astro";
 
 // 3. Language and authentication setup
 // Extract language from URL parameters
@@ -161,13 +162,9 @@ const achievementStats = calculateAchievementStats(achievements);
         <div class="achievements__auth-required" role="region" aria-labelledby="auth-title">
           <Headline level="h2" id="auth-title" title={t("auth.required.title")} />
           <Paragraph description={t("auth.required.description")} />
-          <ButtonLink
-            href={`/${langString}/auth/login`}
-            variant="primary"
-            ariaLabel={t("auth.login.submit")}
-          >
-            {t("auth.login.submit")}
-          </ButtonLink>
+          <div class="auth-form-container">
+            <AuthForm initialMode="login" />
+          </div>
         </div>
       )
     }

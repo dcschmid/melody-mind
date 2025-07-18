@@ -63,6 +63,9 @@ export async function handleLoginSubmission(
     const data = await response.json();
 
     if (response.ok) {
+      // Set localStorage for immediate auth status update
+      localStorage.setItem("auth_status", "authenticated");
+      
       // Dispatch auth:login event for other components to react
       const authEvent = new CustomEvent("auth:login", {
         detail: {

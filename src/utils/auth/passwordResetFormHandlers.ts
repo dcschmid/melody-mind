@@ -373,49 +373,7 @@ export function initializeConfirmationForm(translations: Translations): void {
   });
 }
 
-/**
- * Initialize session timeout warning using the standardized utility
- * Implements WCAG 2.2 SC 2.2.6 Timeouts (AAA) compliance
- * @param translations - Translation object
- */
-export async function initializeSessionTimeoutWarning(translations: Translations): Promise<any> {
-  try {
-    // Dynamic import for code splitting
-    const { createSessionTimeoutManager } = await import("../../utils/auth/sessionTimeout.js");
-
-    const sessionManager = createSessionTimeoutManager({
-      sessionTimeout: 20 * 60 * 1000, // 20 minutes
-      warningTime: 2 * 60 * 1000, // 2 minutes warning
-      redirectUrl: `/${document.documentElement.lang || "de"}/auth/login?reason=session_expired`,
-      translations: {
-        title: translations["auth.session.timeout.title"] || "Session Timeout Warning",
-        message: translations["auth.session.timeout.message"] || "Your session will expire soon.",
-        extend: translations["auth.session.timeout.extend"] || "Extend Session",
-        close: translations["auth.session.timeout.close"] || "Close",
-      },
-    });
-
-    // Initialize the session timeout system
-    sessionManager.initialize();
-
-    // Cleanup for page navigation
-    function cleanupSessionManager() {
-      sessionManager.destroy();
-    }
-
-    // Add cleanup for page navigation and beforeunload
-    window.addEventListener("beforeunload", cleanupSessionManager);
-
-    // For Astro page navigation (if using View Transitions)
-    document.addEventListener("astro:before-preparation", cleanupSessionManager);
-    document.addEventListener("astro:page-load", cleanupSessionManager);
-
-    return sessionManager;
-  } catch (error) {
-    console.error("Failed to load session timeout manager:", error);
-    return null;
-  }
-}
+// Session timeout functionality removed - no longer needed with new auth flow
 
 /**
  * Initialize the appropriate form based on mode
@@ -431,12 +389,5 @@ export function initializeForms(config: FormConfig): void {
     initializeConfirmationForm(translations);
   }
 
-  // Initialize session timeout warning
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => {
-      initializeSessionTimeoutWarning(translations);
-    });
-  } else {
-    initializeSessionTimeoutWarning(translations);
-  }
+  // Session timeout removed - no longer needed with new auth flow
 }

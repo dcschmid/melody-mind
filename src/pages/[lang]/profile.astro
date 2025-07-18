@@ -19,6 +19,7 @@ import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 import { formatDate } from "@utils/dateUtils";
 import { checkAuth } from "src/middleware/auth";
+import AuthForm from "@components/auth/AuthForm.astro";
 
 // Disable prerendering since this page requires authentication and cookies
 export const prerender = false;
@@ -74,6 +75,7 @@ interface UserProfile {
     score: number;
     category: string;
     difficulty: "easy" | "medium" | "hard";
+    language: string;
     createdAt: string;
   }>;
 }
@@ -142,6 +144,24 @@ const difficultyNames = {
   medium: t("difficulty.medium"),
   hard: t("difficulty.hard"),
 } as const;
+
+// Language names for display
+const languageNames = {
+  de: "Deutsch",
+  en: "English", 
+  es: "Español",
+  fr: "Français",
+  it: "Italiano",
+  pt: "Português",
+  da: "Dansk",
+  nl: "Nederlands",
+  sv: "Svenska",
+  fi: "Suomi",
+  cn: "中文",
+  ru: "Русский",
+  jp: "日本語",
+  uk: "Українська",
+} as const;
 ---
 
 <Layout title={t("profile.title")} description={t("profile.description")} type="website">
@@ -156,12 +176,7 @@ const difficultyNames = {
             <h2 class="profile__login-title">{t("profile.auth.required.title")}</h2>
             <p class="profile__login-message">{t("profile.auth.required.message")}</p>
             <div class="profile__login-actions">
-              <a
-                href={`/${lang}/auth/login?redirect=${encodeURIComponent(Astro.url.pathname)}`}
-                class="profile__login-button"
-              >
-                {t("profile.auth.login")}
-              </a>
+              <AuthForm initialMode="login" />
             </div>
           </div>
         </div>
@@ -310,6 +325,10 @@ const difficultyNames = {
                           class={`recent-game__difficulty recent-game__difficulty--${game.difficulty}`}
                         >
                           {difficultyNames[game.difficulty]}
+                        </span>
+                        <span class="recent-game__language">
+                          <Icon name="globe" class="recent-game__language-icon" aria-hidden="true" />
+                          {languageNames[game.language as keyof typeof languageNames] || game.language}
                         </span>
                         <time class="recent-game__date" datetime={game.createdAt}>
                           {formatUserDate(game.createdAt)}
@@ -735,6 +754,25 @@ const difficultyNames = {
       &--hard {
         background-color: var(--bg-error-aaa);
         color: var(--text-error-aaa);
+      }
+    }
+
+    &__language {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-sm);
+      background-color: var(--bg-tertiary);
+      border: var(--border-width-thin) solid var(--border-secondary);
+      border-radius: var(--radius-sm);
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+      color: var(--text-secondary);
+
+      &-icon {
+        width: var(--icon-size-xs);
+        height: var(--icon-size-xs);
+        color: var(--interactive-primary);
       }
     }
 

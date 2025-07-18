@@ -39,6 +39,7 @@
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 import ShareOverlay from "./ShareOverlay.astro";
+import AuthForm from "@components/auth/AuthForm.astro";
 
 const lang = String(getLangFromUrl(Astro.url));
 const t = useTranslations(lang);
@@ -92,6 +93,9 @@ const clientTranslations = {
   "game.end.motivation.enthusiast": t("game.end.motivation.enthusiast"),
   "game.end.motivation.lover": t("game.end.motivation.lover"),
   "game.end.motivation.explorer": t("game.end.motivation.explorer"),
+  "game.end.guest.title": t("game.end.guest.title"),
+  "game.end.guest.description": t("game.end.guest.description"),
+  "game.end.guest.alternative": t("game.end.guest.alternative"),
 };
 ---
 
@@ -206,6 +210,28 @@ const clientTranslations = {
         showFallback={true}
         showTitle={false}
       />
+    </div>
+
+    <!-- Guest Login Section - Only shown for non-authenticated users -->
+    <div
+      id="guest-login-section"
+      class="guest-login-section"
+      style="display: none;"
+      aria-live="polite"
+    >
+      <div class="guest-login-content">
+        <div class="guest-login-header">
+          <Icon name="user-plus" width={24} height={24} aria-hidden="true" />
+          <h3 class="guest-login-title">{t("game.end.guest.title")}</h3>
+        </div>
+        <p class="guest-login-description">{t("game.end.guest.description")}</p>
+        <div class="guest-login-form">
+          <AuthForm initialMode="login" />
+        </div>
+        <div class="guest-login-alternative">
+          <p class="guest-login-alternative-text">{t("game.end.guest.alternative")}</p>
+        </div>
+      </div>
     </div>
 
     <div class="button-wrapper">
@@ -915,6 +941,74 @@ const clientTranslations = {
       -webkit-text-fill-color: var(--print-text);
       background: none !important;
       color: var(--print-text) !important;
+    }
+  }
+
+  // =================================================
+  // GUEST LOGIN SECTION
+  // =================================================
+
+  .guest-login-section {
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
+    border: var(--border-width-thin) solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+
+    .guest-login-content {
+      text-align: center;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .guest-login-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+
+      svg {
+        color: var(--color-primary-500);
+      }
+    }
+
+    .guest-login-title {
+      font-size: var(--text-lg);
+      font-weight: var(--font-semibold);
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    .guest-login-description {
+      font-size: var(--text-base);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-lg);
+    }
+
+    .guest-login-form {
+      margin-bottom: var(--space-lg);
+    }
+
+    .guest-login-alternative {
+      padding-top: var(--space-md);
+      border-top: var(--border-width-thin) solid var(--border-subtle);
+
+      .guest-login-alternative-text {
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+        margin: 0;
+        line-height: var(--leading-relaxed);
+      }
+    }
+
+    @include mobile {
+      padding: var(--space-md);
+
+      .guest-login-content {
+        max-width: 100%;
+      }
     }
   }
 </style>

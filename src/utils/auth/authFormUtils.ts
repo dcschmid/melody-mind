@@ -264,6 +264,9 @@ export async function handleLoginSubmit(
         formSuccess.style.display = "block";
       }
 
+      // Set localStorage for immediate auth status update
+      localStorage.setItem("auth_status", "authenticated");
+
       // Dispatch auth event
       document.dispatchEvent(
         new CustomEvent("auth:login", {

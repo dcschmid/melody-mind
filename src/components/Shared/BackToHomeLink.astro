@@ -1,11 +1,11 @@
 ---
 /**
  * BackToHomeLink Component
- * 
+ *
  * A reusable navigation link component that provides consistent back-to-home functionality
  * across authentication pages and other areas. Features responsive design, accessibility
  * enhancements, and performance optimizations.
- * 
+ *
  * @component
  * @example
  * <BackToHomeLink lang="en" />
@@ -66,7 +66,7 @@ const linkText = t("auth.login.back_to_home");
     margin-bottom: var(--space-md);
     text-align: left;
     contain: layout style;
-    
+
     @media (min-width: 48em) {
       margin-bottom: var(--space-lg);
     }
@@ -141,7 +141,7 @@ const linkText = t("auth.login.back_to_home");
       /* High contrast mode support */
       @media (prefers-contrast: high) {
         border: var(--border-width-thick) solid var(--border-primary);
-        
+
         &:hover,
         &:focus-visible {
           background-color: var(--bg-primary);
@@ -202,7 +202,7 @@ const linkText = t("auth.login.back_to_home");
       /* Reduced motion support */
       @media (prefers-reduced-motion: reduce) {
         transition: none;
-        
+
         .back-to-home__link:hover & {
           transform: translate3d(0, 0, 0);
         }
@@ -244,10 +244,10 @@ const linkText = t("auth.login.back_to_home");
 <script>
   /**
    * BackToHomeLink Component Enhancement Script
-   * 
+   *
    * Provides enhanced interaction and accessibility features for the back-to-home link.
    * Features include visual feedback, keyboard support, and smooth focus management.
-   * 
+   *
    * @features
    * - Click interaction with visual feedback
    * - Enhanced keyboard navigation support
@@ -272,7 +272,7 @@ const linkText = t("auth.login.back_to_home");
     /**
      * Handles click interactions with performance-optimized visual feedback
      * Uses requestAnimationFrame for smooth animations
-     * 
+     *
      * @param event - The click event
      */
     const handleLinkInteraction = (event: Event): void => {
@@ -294,7 +294,7 @@ const linkText = t("auth.login.back_to_home");
     /**
      * Enhanced keyboard navigation support for accessibility
      * Supports Enter and Space keys for activation
-     * 
+     *
      * @param event - The keyboard event
      */
     const handleKeyDown = (event: KeyboardEvent): void => {
@@ -310,19 +310,19 @@ const linkText = t("auth.login.back_to_home");
     /**
      * Enhanced focus management with smooth scrolling
      * Ensures focused elements are visible for keyboard users
-     * 
+     *
      * @param event - The focus event
      */
     const handleFocusManagement = (event: FocusEvent): void => {
       const target = event.currentTarget as HTMLAnchorElement;
 
       // Smooth scroll to ensure visibility with reduced motion support
-      const shouldReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      
+      const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
       target.scrollIntoView({
         behavior: shouldReduceMotion ? "auto" : "smooth",
         block: "nearest",
-        inline: "nearest"
+        inline: "nearest",
       });
     };
 
@@ -338,15 +338,23 @@ const linkText = t("auth.login.back_to_home");
       link.addEventListener("focus", handleFocusManagement, { passive: true });
 
       // Add hover state management for performance
-      link.addEventListener("mouseenter", (): void => {
-        // Prepare for potential animation
-        link.style.willChange = "transform, background-color";
-      }, { passive: true });
+      link.addEventListener(
+        "mouseenter",
+        (): void => {
+          // Prepare for potential animation
+          link.style.willChange = "transform, background-color";
+        },
+        { passive: true }
+      );
 
-      link.addEventListener("mouseleave", (): void => {
-        // Clean up performance optimization
-        link.style.willChange = "auto";
-      }, { passive: true });
+      link.addEventListener(
+        "mouseleave",
+        (): void => {
+          // Clean up performance optimization
+          link.style.willChange = "auto";
+        },
+        { passive: true }
+      );
     });
   };
 
