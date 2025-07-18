@@ -361,19 +361,20 @@ export const POST: APIRoute = async ({ request, params }) => {
             game_mode,
             score,
             category,
-            difficulty
-          ) VALUES (?, ?, ?, ?, ?, ?)
+            difficulty,
+            language
+          ) VALUES (?, ?, ?, ?, ?, ?, ?)
         `,
-        args: [id, data.userId, gameMode, data.score, data.categoryName, data.difficulty],
+        args: [id, data.userId, gameMode, data.score, data.categoryName, data.difficulty, lang],
       });
 
       // Execute these operations in parallel for better performance
       await Promise.all([
         // Update user statistics for the game mode
-        updateUserModeStats(data.userId, gameMode, data.score),
+        updateUserModeStats(data.userId, gameMode, data.score, lang),
 
         // Save the highscore entry
-        saveHighscore(data.userId, gameMode, data.score, data.categoryName),
+        saveHighscore(data.userId, gameMode, data.score, data.categoryName, lang),
       ]);
     } catch (dbError) {
       // Handle database errors specifically
@@ -451,10 +452,11 @@ const userStatsCache = new Map<string, boolean>();
  *
  * @param {UserId} userId - The user ID
  * @param {GameMode} gameMode - The game mode
+ * @param {string} language - The language code
  * @returns {string} A unique cache key
  */
-const createStatsCacheKey = (userId: UserId, gameMode: GameMode): string =>
-  `${userId.toString()}_${gameMode}`;
+const createStatsCacheKey = (userId: UserId, gameMode: GameMode, language: string): string =>
+  `${userId.toString()}_${gameMode}_${language}`;
 
 /**
  * Updates user statistics for a specific game mode
@@ -469,18 +471,20 @@ const createStatsCacheKey = (userId: UserId, gameMode: GameMode): string =>
  * @param {UserId} userId - Unique identifier of the user
  * @param {GameMode} gameMode - Game mode played (quiz or chronology)
  * @param {number} score - Score achieved in this game
+ * @param {string} language - Language code for the game
  * @returns {Promise<void>}
  *
  * @example
  * // Update stats for a user who just completed a quiz game
- * await updateUserModeStats('user123', 'quiz', 450);
+ * await updateUserModeStats('user123', 'quiz', 450, 'en');
  */
 async function updateUserModeStats(
   userId: UserId,
   gameMode: GameMode,
-  score: number
+  score: number,
+  language: string
 ): Promise<void> {
-  const cacheKey = createStatsCacheKey(userId, gameMode);
+  const cacheKey = createStatsCacheKey(userId, gameMode, language);
 
   // Check cache first to avoid unnecessary database queries
   let hasStats = userStatsCache.get(cacheKey);
@@ -491,10 +495,10 @@ async function updateUserModeStats(
     const existingStats = await turso.execute({
       sql: `
         SELECT 1 FROM user_mode_stats
-        WHERE user_id = ? AND game_mode = ?
+        WHERE user_id = ? AND game_mode = ? AND language = ?
         LIMIT 1
       `,
-      args: [userId, gameMode],
+      args: [userId, gameMode, language],
     });
 
     hasStats = existingStats.rows.length > 0;
@@ -510,9 +514,9 @@ async function updateUserModeStats(
           total_score = total_score + ?,
           games_played = games_played + 1,
           highest_score = CASE WHEN ? > highest_score THEN ? ELSE highest_score END
-        WHERE user_id = ? AND game_mode = ?
+        WHERE user_id = ? AND game_mode = ? AND language = ?
       `,
-      args: [score, score, score, userId, gameMode],
+      args: [score, score, score, userId, gameMode, language],
     });
   } else {
     // Insert new record
@@ -521,12 +525,13 @@ async function updateUserModeStats(
         INSERT INTO user_mode_stats (
           user_id,
           game_mode,
+          language,
           total_score,
           games_played,
           highest_score
-        ) VALUES (?, ?, ?, ?, ?)
+        ) VALUES (?, ?, ?, ?, ?, ?)
       `,
-      args: [userId, gameMode, score, 1, score],
+      args: [userId, gameMode, language, score, 1, score],
     });
   }
 }
@@ -544,13 +549,15 @@ async function updateUserModeStats(
  * @param {GameMode} gameMode - Game mode played (quiz or chronology)
  * @param {number} score - Score achieved in this game
  * @param {string} category - Music category that was played
+ * @param {string} language - Language code for the game
  * @returns {Promise<void>}
  */
 async function saveHighscore(
   userId: UserId,
   gameMode: GameMode,
   score: number,
-  category: string
+  category: string,
+  language: string
 ): Promise<void> {
   // Generate a unique ID for the highscore
   const id = nanoid();
@@ -563,9 +570,10 @@ async function saveHighscore(
         user_id,
         game_mode,
         score,
-        category
-      ) VALUES (?, ?, ?, ?, ?)
+        category,
+        language
+      ) VALUES (?, ?, ?, ?, ?, ?)
     `,
-    args: [id, userId, gameMode, score, category],
+    args: [id, userId, gameMode, score, category, language],
   });
 }

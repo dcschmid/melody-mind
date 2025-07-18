@@ -163,6 +163,7 @@ function parseQueryParams(url: URL): HighscoreQueryParams {
  * Build SQL query for highscores based on filters
  *
  * @param {HighscoreQueryParams} params - The query parameters
+ * @param {string} language - The language code for filtering
  * @returns {{ sql: string; args: SqlParam[] }} Object containing SQL query and args
  *
  * @example
@@ -170,9 +171,9 @@ function parseQueryParams(url: URL): HighscoreQueryParams {
  * const { sql, args } = buildHighscoreQuery({
  *   category: 'rock',
  *   limit: 5
- * });
+ * }, 'en');
  */
-function buildHighscoreQuery(params: HighscoreQueryParams): { sql: string; args: SqlParam[] } {
+function buildHighscoreQuery(params: HighscoreQueryParams, language: string): { sql: string; args: SqlParam[] } {
   const { gameMode, category, limit } = params;
 
   // Base SQL query
@@ -191,6 +192,10 @@ function buildHighscoreQuery(params: HighscoreQueryParams): { sql: string; args:
   // Add WHERE clauses based on filters
   const whereConditions: string[] = [];
   const args: SqlParam[] = [];
+
+  // Always filter by language
+  whereConditions.push("h.language = ?");
+  args.push(language);
 
   if (gameMode) {
     whereConditions.push("h.game_mode = ?");
@@ -257,7 +262,7 @@ export const GET: APIRoute = async ({ request, params: _params }) => {
     const queryParams = parseQueryParams(url);
 
     // Build the SQL query based on filters
-    const { sql, args } = buildHighscoreQuery(queryParams);
+    const { sql, args } = buildHighscoreQuery(queryParams, lang);
 
     // Execute the query
     const result = await turso.execute(sql, args);
