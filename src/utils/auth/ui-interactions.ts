@@ -691,21 +691,33 @@ function handleLoginResult(result: any, elements: AuthFormElements): void {
     // Update UI state if user data available
     document.body.classList.add("user-authenticated");
 
-    // Redirect after successful login
-    if (result.redirectUrl) {
+    // Check if we're on a category page and should stay here
+    const currentPath = window.location.pathname;
+    const shouldStayOnCurrentPage = currentPath.includes('category') || 
+                                    currentPath.match(/^\/[a-z]{2}\/[^\/]+$/); // matches pattern like /de/1980s
+
+    if (shouldStayOnCurrentPage) {
+      // Instead of redirecting, reload the page to show the game modes
       setTimeout(() => {
-        try {
-          window.location.href = result.redirectUrl;
-        } catch (error) {
-          console.error("Redirect failed:", error);
-          showSuccess(
-            elements.formSuccess,
-            document.documentElement.lang === "de"
-              ? "Anmeldung erfolgreich! Sie können diese Seite jetzt schließen oder aktualisieren."
-              : "Login successful! You can now close or refresh this page."
-          );
-        }
-      }, 300);
+        window.location.reload();
+      }, 500);
+    } else {
+      // Redirect after successful login for other pages
+      if (result.redirectUrl) {
+        setTimeout(() => {
+          try {
+            window.location.href = result.redirectUrl;
+          } catch (error) {
+            console.error("Redirect failed:", error);
+            showSuccess(
+              elements.formSuccess,
+              document.documentElement.lang === "de"
+                ? "Anmeldung erfolgreich! Sie können diese Seite jetzt schließen oder aktualisieren."
+                : "Login successful! You can now close or refresh this page."
+            );
+          }
+        }, 300);
+      }
     }
   } else {
     showError(elements.formError, result.error);
