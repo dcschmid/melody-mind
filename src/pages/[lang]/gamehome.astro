@@ -369,7 +369,7 @@ const clientTranslations = generateClientTranslations(t);
                   subheadline={category.introSubline}
                   image={category.imageUrl}
                   imageAlt={`${category.headline} music category`}
-                  href={category.categoryUrl || "#"}
+                  href={category.categoryUrl ? `/${lang}${category.categoryUrl}` : "#"}
                   isDisabled={!category.isPlayable}
                 />
               ))

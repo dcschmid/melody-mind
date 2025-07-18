@@ -1,43 +1,34 @@
 ---
 /**
- * @component BackToHomeLink
- * @description Reusable back-to-home navigation link component with arrow icon.
- * Provides consistent styling and accessibility for navigation across authentication
- * pages and other areas that need a home link.
- *
- * Features:
- * - Mobile-first responsive design
- * - WCAG AAA compliant with enhanced focus indicators
- * - Performance optimized with CSS containment
- * - Full internationalization support
- * - Consistent styling using global CSS variables
- *
+ * BackToHomeLink Component
+ * 
+ * A reusable navigation link component that provides consistent back-to-home functionality
+ * across authentication pages and other areas. Features responsive design, accessibility
+ * enhancements, and performance optimizations.
+ * 
+ * @component
  * @example
- * ```astro
  * <BackToHomeLink lang="en" />
- * <BackToHomeLink lang="de" className="custom-back-link" />
- * ```
- *
- * @accessibility
- * - Minimum 44×44px touch target
- * - High contrast focus indicators
- * - Screen reader friendly with proper aria-label
- * - Keyboard navigation support
- * - Reduced motion support
+ * <BackToHomeLink lang="de" className="custom-style" />
+ * <BackToHomeLink lang="fr" ariaLabel="Custom accessibility label" />
  */
 
 import { Icon } from "astro-icon/components";
 import { useTranslations } from "@utils/i18n";
 
 /**
- * Props interface for the BackToHomeLink component
+ * Props for the BackToHomeLink component
+ * @interface Props
+ * @property {string} lang - Language code for internationalization (required)
+ * @property {string} [className] - Additional CSS class for custom styling
+ * @property {string} [ariaLabel] - Custom aria-label for accessibility (overrides translation)
  */
 interface Props {
-  /** Language code for internationalization */
+  /** Language code for internationalization (e.g., 'en', 'de', 'fr') */
   lang: string;
   /** Additional CSS class for custom styling */
   className?: string;
-  /** Custom aria-label (overrides default translation) */
+  /** Custom aria-label for accessibility (overrides default translation) */
   ariaLabel?: string;
 }
 
@@ -67,10 +58,23 @@ const linkText = t("auth.login.back_to_home");
    * Mobile-first responsive design using global CSS variables
    * ====================================== */
 
+  /**
+   * Container for the back-to-home link with performance optimizations
+   * Uses CSS containment and hardware acceleration for better performance
+   */
   .back-to-home {
     margin-bottom: var(--space-md);
     text-align: left;
+    contain: layout style;
+    
+    @media (min-width: 48em) {
+      margin-bottom: var(--space-lg);
+    }
 
+    /**
+     * Main link element with enhanced accessibility and performance
+     * Features WCAG AAA compliance and hardware acceleration
+     */
     &__link {
       display: inline-flex;
       align-items: center;
@@ -80,38 +84,42 @@ const linkText = t("auth.login.back_to_home");
       padding: var(--space-sm) var(--space-md);
       border-radius: var(--radius-md);
       font-size: var(--text-sm);
-      font-weight: var(--font-weight-medium);
-      color: var(--color-primary-300);
+      font-weight: var(--font-medium);
+      color: var(--interactive-secondary);
       text-decoration: none;
       transition: all var(--transition-normal);
       letter-spacing: var(--letter-spacing-base);
       background-color: transparent;
       border: none;
       cursor: pointer;
+      font-family: var(--font-family-primary);
 
-      /* Performance optimizations */
-      contain: layout style;
+      /* Performance optimizations with hardware acceleration */
+      contain: layout style paint;
       will-change: transform, background-color;
+      transform: translate3d(0, 0, 0);
 
       /* Enhanced focus styles for WCAG AAA */
       outline: none;
 
-      /* Mobile-first responsive design */
-      @media (min-width: var(--breakpoint-md)) {
+      /* Mobile-first responsive design using hardcoded em breakpoints */
+      @media (min-width: 48em) {
         padding: var(--space-md) var(--space-lg);
         font-size: var(--text-base);
       }
 
-      @media (min-width: var(--breakpoint-lg)) {
+      @media (min-width: 64em) {
         padding: var(--space-md) var(--space-xl);
+        font-size: var(--text-lg);
       }
 
-      /* Hover effects */
+      /* Hover effects with hardware acceleration */
       @media (hover: hover) {
         &:hover {
           background-color: var(--bg-tertiary);
-          color: var(--color-primary-200);
-          transform: translateX(calc(-1 * var(--space-xs)));
+          color: var(--interactive-primary);
+          transform: translate3d(calc(-1 * var(--space-xs)), 0, 0);
+          box-shadow: var(--shadow-sm);
         }
       }
 
@@ -121,57 +129,99 @@ const linkText = t("auth.login.back_to_home");
         outline-offset: var(--focus-ring-offset);
         box-shadow: var(--focus-enhanced-shadow);
         background-color: var(--bg-tertiary);
-        color: var(--color-primary-200);
+        color: var(--interactive-primary);
+      }
+
+      /* Active state for touch feedback */
+      &:active {
+        transform: translate3d(0, 0, 0) scale(var(--animation-scale-hover));
+        transition: transform var(--transition-fast);
       }
 
       /* High contrast mode support */
       @media (prefers-contrast: high) {
         border: var(--border-width-thick) solid var(--border-primary);
+        
+        &:hover,
+        &:focus-visible {
+          background-color: var(--bg-primary);
+          color: var(--text-primary);
+        }
+      }
+
+      /* Reduced motion support */
+      @media (prefers-reduced-motion: reduce) {
+        will-change: auto;
+        transition: none;
+
+        &:hover,
+        &:active {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+      /* Touch device optimizations */
+      @media (pointer: coarse) {
+        min-height: var(--touch-target-enhanced);
+        min-width: var(--touch-target-enhanced);
+        padding: var(--space-md) var(--space-lg);
+        font-size: var(--text-base);
+      }
+    }
+
+    /**
+     * Icon with responsive sizing and performance optimizations
+     * Uses hardware acceleration and proper sizing for different screen sizes
+     */
+    &__icon {
+      width: var(--icon-size-sm);
+      height: var(--icon-size-sm);
+      margin-right: var(--space-xs);
+      color: currentColor;
+      flex-shrink: 0;
+      transform: translate3d(0, 0, 0);
+      transition: transform var(--transition-normal);
+
+      /* Responsive icon sizing using hardcoded breakpoints */
+      @media (min-width: 48em) {
+        width: var(--icon-size-md);
+        height: var(--icon-size-md);
+        margin-right: var(--space-sm);
+      }
+
+      @media (min-width: 64em) {
+        width: var(--icon-size-lg);
+        height: var(--icon-size-lg);
+      }
+
+      /* Icon animation on hover */
+      .back-to-home__link:hover & {
+        transform: translate3d(calc(-1 * var(--space-xs)), 0, 0);
       }
 
       /* Reduced motion support */
       @media (prefers-reduced-motion: reduce) {
         transition: none;
-
-        &:hover {
-          transform: none;
+        
+        .back-to-home__link:hover & {
+          transform: translate3d(0, 0, 0);
         }
-      }
-
-      /* Dark mode support */
-      @media (prefers-color-scheme: dark) {
-        color: var(--color-primary-200);
-
-        &:hover,
-        &:focus-visible {
-          background-color: var(--bg-tertiary-dark);
-          color: var(--color-primary-100);
-        }
-      }
-    }
-
-    &__icon {
-      width: var(--icon-size-md);
-      height: var(--icon-size-md);
-      margin-right: var(--space-xs);
-      color: currentColor;
-      flex-shrink: 0;
-
-      /* Responsive icon sizing */
-      @media (min-width: var(--breakpoint-md)) {
-        width: var(--icon-size-lg);
-        height: var(--icon-size-lg);
-        margin-right: var(--space-sm);
       }
     }
   }
 
-  /* Touch device optimizations */
-  @media (pointer: coarse) {
+  /* High contrast mode support */
+  @media (forced-colors: active) {
     .back-to-home__link {
-      min-height: var(--min-touch-size);
-      min-width: var(--min-touch-size);
-      padding: var(--space-md) var(--space-lg);
+      border: var(--border-width-thick) solid ButtonText;
+      background-color: ButtonFace;
+      color: ButtonText;
+      forced-color-adjust: none;
+
+      &:focus-visible {
+        outline: var(--border-width-enhanced) solid Highlight;
+        outline-offset: var(--focus-ring-offset);
+      }
     }
   }
 
@@ -181,15 +231,35 @@ const linkText = t("auth.login.back_to_home");
       display: none;
     }
   }
+
+  /* Enhanced text spacing support (WCAG 2.2) */
+  .enhanced-text-spacing .back-to-home__link {
+    letter-spacing: var(--text-spacing-letter-2x) !important;
+    word-spacing: var(--text-spacing-word-enhanced) !important;
+    line-height: var(--text-spacing-line-1-5x) !important;
+    padding: calc(var(--space-md) * 1.2) calc(var(--space-lg) * 1.2);
+  }
 </style>
 
 <script>
   /**
-   * BackToHomeLink Component Script
-   * Modern ES6+ features with TypeScript support
+   * BackToHomeLink Component Enhancement Script
+   * 
+   * Provides enhanced interaction and accessibility features for the back-to-home link.
+   * Features include visual feedback, keyboard support, and smooth focus management.
+   * 
+   * @features
+   * - Click interaction with visual feedback
+   * - Enhanced keyboard navigation support
+   * - Smooth focus management with scroll behavior
+   * - Performance optimized with requestAnimationFrame
+   * - Modern ES6+ JavaScript with TypeScript support
    */
 
-  // Enhanced component functionality with modern JavaScript
+  /**
+   * Enhances all back-to-home links on the page with improved interactions
+   * Uses modern JavaScript features and performance optimizations
+   */
   const enhanceBackToHomeLink = (): void => {
     const backToHomeLinks = document.querySelectorAll(
       ".back-to-home__link"
@@ -199,57 +269,104 @@ const linkText = t("auth.login.back_to_home");
       return;
     }
 
-    // Modern arrow function with destructuring
+    /**
+     * Handles click interactions with performance-optimized visual feedback
+     * Uses requestAnimationFrame for smooth animations
+     * 
+     * @param event - The click event
+     */
     const handleLinkInteraction = (event: Event): void => {
       const target = event.currentTarget as HTMLAnchorElement;
 
-      // Add visual feedback for better UX
-      target.style.transform = "scale(0.98)";
+      // Performance-optimized visual feedback using requestAnimationFrame
+      requestAnimationFrame(() => {
+        target.style.transform = "translate3d(0, 0, 0) scale(0.98)";
+      });
 
-      // Reset transform after animation
+      // Reset transform after animation with cleanup
       setTimeout((): void => {
-        target.style.transform = "";
+        requestAnimationFrame(() => {
+          target.style.transform = "";
+        });
       }, 150);
     };
 
-    // Enhanced accessibility with keyboard support
+    /**
+     * Enhanced keyboard navigation support for accessibility
+     * Supports Enter and Space keys for activation
+     * 
+     * @param event - The keyboard event
+     */
     const handleKeyDown = (event: KeyboardEvent): void => {
       const target = event.currentTarget as HTMLAnchorElement;
 
-      // Support for Enter and Space keys
+      // Support for Enter and Space keys (standard accessibility)
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
         target.click();
       }
     };
 
-    // Modern forEach with arrow function
+    /**
+     * Enhanced focus management with smooth scrolling
+     * Ensures focused elements are visible for keyboard users
+     * 
+     * @param event - The focus event
+     */
+    const handleFocusManagement = (event: FocusEvent): void => {
+      const target = event.currentTarget as HTMLAnchorElement;
+
+      // Smooth scroll to ensure visibility with reduced motion support
+      const shouldReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      target.scrollIntoView({
+        behavior: shouldReduceMotion ? "auto" : "smooth",
+        block: "nearest",
+        inline: "nearest"
+      });
+    };
+
+    // Initialize each link with enhanced functionality
     backToHomeLinks.forEach((link: HTMLAnchorElement): void => {
       // Add click handler with modern event handling
-      link.addEventListener("click", handleLinkInteraction);
+      link.addEventListener("click", handleLinkInteraction, { passive: true });
 
-      // Add keyboard support
+      // Add keyboard support for accessibility
       link.addEventListener("keydown", handleKeyDown);
 
-      // Enhanced focus management
-      link.addEventListener("focus", (): void => {
-        // Ensure link is visible when focused
-        link.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-        });
-      });
+      // Enhanced focus management for keyboard users
+      link.addEventListener("focus", handleFocusManagement, { passive: true });
+
+      // Add hover state management for performance
+      link.addEventListener("mouseenter", (): void => {
+        // Prepare for potential animation
+        link.style.willChange = "transform, background-color";
+      }, { passive: true });
+
+      link.addEventListener("mouseleave", (): void => {
+        // Clean up performance optimization
+        link.style.willChange = "auto";
+      }, { passive: true });
     });
   };
 
-  // Initialize when DOM is ready
+  /**
+   * Initialize the component when DOM is ready
+   * Supports both loading and already-loaded states
+   */
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", enhanceBackToHomeLink);
   } else {
     enhanceBackToHomeLink();
   }
 
-  // Export for potential external use
+  // Re-initialize on Astro page transitions
+  document.addEventListener("astro:page-load", enhanceBackToHomeLink);
+
+  /**
+   * Export for potential external use or testing
+   * Makes the function available globally if needed
+   */
   if (typeof window !== "undefined") {
     (
       window as Window & { enhanceBackToHomeLink?: typeof enhanceBackToHomeLink }
