@@ -1,36 +1,20 @@
 ---
 /**
  * ShareOverlay Component
- *
- * A reusable sharing component that provides multiple ways to share game results.
- * Optimized for WCAG AAA accessibility and high performance with advanced share text generation.
- *
- * Features:
- * - Native Web Share API integration (when supported)
- * - Platform-specific sharing (Twitter/X, WhatsApp, Email)
- * - Copy to clipboard functionality with fallback options
- * - Advanced multilingual share text generation (14 languages)
- * - Achievement-based share messages with emojis
- * - Full keyboard accessibility and screen reader support
- * - High contrast mode support
- * - Performance-optimized animations and event handling
- * - Enhanced error recovery and user guidance
- * - Fallback content when game data is unavailable
- * - Responsive design with mobile-first approach
- * - Uses only global CSS variables for all styling
- *
- * Accessibility:
- * - WCAG AAA compliant with proper ARIA attributes
- * - Focus indicators and touch target sizes
- * - High contrast and reduced motion support
- * - Comprehensive ARIA labeling and descriptions
- *
+ * 
+ * A high-performance sharing component that provides multiple ways to share game results
+ * with advanced multilingual support and accessibility features.
+ * 
+ * Features responsive design, native Web Share API integration, platform-specific sharing,
+ * and comprehensive error handling with fallback options.
+ * 
  * @component
  * @example
- * ```astro
  * <ShareOverlay gameData={gameData} />
- * ```
+ * <ShareOverlay gameData={gameData} showTitle={false} />
+ * <ShareOverlay shareGroupLabel="Custom share buttons" showFallback={false} />
  */
+
 import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import type { ShareData } from "@utils/share/shareUtils";
@@ -38,6 +22,14 @@ import type { ShareData } from "@utils/share/shareUtils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+/**
+ * Props for the ShareOverlay component
+ * @interface Props
+ * @property {ShareData} [gameData] - Game data to share (if not provided, component will attempt to extract from DOM)
+ * @property {string} [shareGroupLabel] - Custom aria-label for the share buttons group
+ * @property {boolean} [showFallback] - Whether to show fallback content when no game data is available
+ * @property {boolean} [showTitle] - Whether to show the component title
+ */
 export interface Props {
   /** Game data to share - if not provided, component will attempt to extract from DOM */
   gameData?: ShareData;
@@ -188,95 +180,117 @@ const {
 
 <style lang="scss">
   /* ======================================
-   * SHARED UTILITY CLASSES (DRY OPTIMIZATION)
-   * ====================================== */
-
-  // Shared icon styles to reduce repetition
-  %icon-base {
-    flex-shrink: 0;
-  }
-
-  // Shared button transition styles
-  %button-transitions {
-    transition:
-      transform var(--transition-fast),
-      background-color var(--transition-fast),
-      border-color var(--transition-fast);
-  }
-
-  // Shared button focus styles
-  %button-focus {
-    &:focus-visible {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-    }
-  }
-
-  // Shared button disabled styles
-  %button-disabled {
-    &:disabled {
-      opacity: var(--opacity-disabled);
-      cursor: not-allowed;
-      transform: none;
-    }
-  }
-
-  /* ======================================
    * SHARE OVERLAY COMPONENT STYLES
-   * WCAG AAA COMPLIANT WITH CSS VARIABLES
+   * Optimized for performance with global.css integration
    * ====================================== */
 
+  /**
+   * Main container with performance optimizations
+   * Uses CSS containment and hardware acceleration
+   */
   .share-overlay {
     margin-top: var(--space-xl);
     text-align: center;
+    contain: layout style;
+    
+    @media (min-width: 48em) {
+      margin-top: var(--space-2xl);
+    }
 
+    /**
+     * Component title with responsive typography
+     * Uses global typography scale and color system
+     */
     &__title {
       margin-bottom: var(--space-lg);
       font-size: var(--text-xl);
       font-weight: var(--font-semibold);
       color: var(--text-primary);
+      font-family: var(--font-family-primary);
+      line-height: var(--leading-tight);
+      
+      @media (min-width: 48em) {
+        font-size: var(--text-2xl);
+        margin-bottom: var(--space-xl);
+      }
+      
+      @media (min-width: 64em) {
+        font-size: var(--text-3xl);
+      }
     }
 
+    /**
+     * Share buttons container with responsive flex layout
+     * Uses flexbox for better responsive control and spacing
+     */
     &__buttons-container {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
       gap: var(--space-md);
       margin-top: var(--space-lg);
+      justify-content: center;
+      align-items: center;
+      max-width: 100%;
+      
+      @media (max-width: 47.9375em) {
+        flex-direction: column;
+        gap: var(--space-sm);
+        max-width: 100%;
+        margin: var(--space-lg) auto 0;
+      }
+      
+      @media (min-width: 48em) {
+        flex-direction: row;
+        gap: var(--space-lg);
+        max-width: 600px;
+        margin: var(--space-xl) auto 0;
+      }
+      
+      @media (min-width: 64em) {
+        gap: var(--space-xl);
+        max-width: 700px;
+      }
     }
 
-    // ======================================
-    // ICONS
-    // ======================================
-
+    /**
+     * Icon styles with performance optimizations
+     * Uses global icon sizing variables and hardware acceleration
+     */
     &__icon,
     &__clipboard-icon,
     &__fallback-icon,
     &__fallback-button-icon {
-      @extend %icon-base;
+      flex-shrink: 0;
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+      transition: transform var(--transition-fast);
     }
 
-    &__icon,
-    &__clipboard-icon {
-      width: var(--icon-size-md); // 24px equivalent using existing variables
+    &__icon {
+      width: var(--icon-size-md);
       height: var(--icon-size-md);
+      
+      @media (max-width: 47.9375em) {
+        width: var(--icon-size-sm);
+        height: var(--icon-size-sm);
+      }
     }
 
     &__clipboard-icon {
-      width: var(--icon-size-sm); // 20px equivalent using existing variables
+      width: var(--icon-size-sm);
       height: var(--icon-size-sm);
+      
+      @media (max-width: 47.9375em) {
+        width: 16px;
+        height: 16px;
+      }
     }
 
-    // ======================================
-    // BASE BUTTON STYLES
-    // ======================================
-
+    /**
+     * Base button styles with enhanced performance and accessibility
+     * Uses global design tokens and hardware acceleration
+     */
     &__button {
-      @extend %button-transitions;
-      @extend %button-focus;
-      @extend %button-disabled;
-
       display: flex;
       align-items: center;
       justify-content: center;
@@ -291,30 +305,74 @@ const {
       color: var(--text-primary);
       background: var(--bg-tertiary);
       cursor: pointer;
-      transform: translateZ(0); // GPU acceleration
-      will-change: transform;
+      font-family: var(--font-family-primary);
+      transition: all var(--transition-fast);
+      
+      /* Performance optimizations with hardware acceleration */
+      contain: layout style paint;
+      transform: translate3d(0, 0, 0);
+      will-change: transform, background-color;
       backface-visibility: hidden;
-      perspective: 1000px;
 
-      &:hover {
-        transform: translateY(var(--animation-y-offset-small));
+      /* Enhanced focus styles for WCAG AAA */
+      &:focus-visible {
+        outline: var(--focus-enhanced-outline-dark);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-enhanced-shadow);
+      }
+
+      /* Hover effects with hardware acceleration */
+      &:hover:not(:disabled) {
+        transform: translate3d(0, var(--animation-y-offset-small), 0);
         box-shadow: var(--shadow-lg);
-        will-change: transform, box-shadow;
       }
 
-      &:active {
-        transform: translateY(0);
+      &:active:not(:disabled) {
+        transform: translate3d(0, 0, 0) scale(var(--animation-scale-hover));
+        transition: transform var(--transition-fast);
       }
 
+      /* Disabled state */
+      &:disabled {
+        opacity: var(--opacity-disabled);
+        cursor: not-allowed;
+        transform: translate3d(0, 0, 0);
+      }
+
+      /* Performance cleanup */
       &:not(:hover):not(:focus) {
         will-change: auto;
       }
+      
+      /* Responsive sizing */
+      @media (max-width: 47.9375em) {
+        padding: var(--space-md) var(--space-lg);
+        font-size: var(--text-sm);
+        gap: var(--space-sm);
+        width: 100%;
+        max-width: 280px;
+        min-height: var(--touch-target-enhanced);
+      }
+      
+      @media (min-width: 48em) {
+        padding: var(--space-md) var(--space-lg);
+        min-width: 120px;
+        flex: 1;
+        max-width: 140px;
+      }
+      
+      @media (min-width: 64em) {
+        padding: var(--space-lg) var(--space-xl);
+        min-width: 140px;
+        max-width: 160px;
+      }
 
-      // ======================================
-      // BUTTON VARIANTS
-      // ======================================
-
-      // Native Share Button
+      /**
+       * Button variants with platform-specific styling
+       * Uses global color system for consistency
+       */
+      
+      /* Native Share Button */
       &--native {
         background: var(--interactive-primary);
         color: var(--btn-primary-text);
@@ -336,10 +394,10 @@ const {
         display: none;
       }
 
-      // Twitter/X Button
+      /* Twitter/X Button */
       &--twitter {
         background: var(--color-neutral-800);
-        color: var(--text-primary);
+        color: var(--color-white);
 
         &:hover:not(:disabled) {
           background: var(--color-neutral-700);
@@ -350,10 +408,10 @@ const {
         }
       }
 
-      // WhatsApp Button
+      /* WhatsApp Button */
       &--whatsapp {
         background: var(--color-success-600);
-        color: var(--text-primary);
+        color: var(--color-white);
 
         &:hover:not(:disabled) {
           background: var(--color-success-500);
@@ -364,10 +422,10 @@ const {
         }
       }
 
-      // Email Button
+      /* Email Button */
       &--email {
         background: var(--color-warning-600);
-        color: var(--text-primary);
+        color: var(--color-white);
 
         &:hover:not(:disabled) {
           background: var(--color-warning-500);
@@ -379,19 +437,23 @@ const {
       }
     }
 
-    // ======================================
-    // CLIPBOARD SECTION
-    // ======================================
-
+    /**
+     * Clipboard section with enhanced spacing and responsive layout
+     * Uses global spacing system for consistency
+     */
     &__clipboard-section {
-      margin-top: var(--space-lg);
+      margin-top: var(--space-xl);
+      
+      @media (min-width: 48em) {
+        margin-top: var(--space-2xl);
+      }
     }
 
+    /**
+     * Clipboard button with enhanced accessibility and performance
+     * Features distinct styling and state management
+     */
     &__clipboard-button {
-      @extend %button-transitions;
-      @extend %button-focus;
-      @extend %button-disabled;
-
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -399,58 +461,104 @@ const {
       min-height: var(--min-touch-size);
       min-width: var(--min-touch-size);
       padding: var(--space-md) var(--space-lg);
-      border: var(--border-width-thick) solid var(--color-info-500);
+      border: var(--border-width-thick) solid var(--interactive-secondary);
       border-radius: var(--radius-lg);
       background: transparent;
       font-size: var(--text-base);
       font-weight: var(--font-medium);
-      color: var(--color-info-400);
+      color: var(--interactive-secondary);
       cursor: pointer;
-      will-change: transform;
+      font-family: var(--font-family-primary);
+      transition: all var(--transition-fast);
+      
+      /* Performance optimizations */
+      contain: layout style paint;
+      transform: translate3d(0, 0, 0);
+      will-change: transform, background-color;
       backface-visibility: hidden;
-      perspective: 1000px;
+
+      /* Enhanced focus styles for WCAG AAA */
+      &:focus-visible {
+        outline: var(--focus-enhanced-outline-dark);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-enhanced-shadow);
+      }
 
       &:hover:not(:disabled) {
-        border-color: var(--color-info-400);
-        color: var(--color-info-300);
-        transform: translateY(var(--animation-y-offset-small));
-        will-change: transform, box-shadow;
+        border-color: var(--interactive-primary);
+        color: var(--interactive-primary);
+        background: var(--bg-tertiary);
+        transform: translate3d(0, var(--animation-y-offset-small), 0);
       }
 
       &:active:not(:disabled) {
-        transform: translateY(0);
+        transform: translate3d(0, 0, 0) scale(var(--animation-scale-hover));
+      }
+
+      &:disabled {
+        opacity: var(--opacity-disabled);
+        cursor: not-allowed;
+        transform: translate3d(0, 0, 0);
       }
 
       &:not(:hover):not(:focus) {
         will-change: auto;
       }
 
-      // Success state for clipboard button
+      /* Success state for clipboard button */
       &--success {
         background: var(--bg-success-aaa);
-        border-color: var(--color-success-400);
-        color: var(--text-success-aaa); // Enhanced contrast for AAA compliance
+        border-color: var(--color-success-500);
+        color: var(--text-success-aaa);
       }
 
-      // Error state for clipboard button
+      /* Error state for clipboard button */
       &--error {
         background: var(--bg-error-aaa);
-        border-color: var(--color-error-400);
-        color: var(--text-error-aaa); // Enhanced contrast for AAA compliance
+        border-color: var(--color-error-500);
+        color: var(--text-error-aaa);
+      }
+      
+      /* Responsive sizing */
+      @media (max-width: 47.9375em) {
+        padding: var(--space-md) var(--space-lg);
+        font-size: var(--text-sm);
+        gap: var(--space-sm);
+        width: 100%;
+        max-width: 280px;
+        min-height: var(--touch-target-enhanced);
+      }
+      
+      @media (min-width: 48em) {
+        padding: var(--space-md) var(--space-xl);
+        min-width: 160px;
+        max-width: 200px;
+      }
+      
+      @media (min-width: 64em) {
+        padding: var(--space-lg) var(--space-xl);
+        min-width: 180px;
+        max-width: 220px;
       }
     }
 
-    // ======================================
-    // FALLBACK CONTENT STYLES
-    // ======================================
-
+    /**
+     * Fallback content with enhanced accessibility and responsive design
+     * Provides alternative when game data is unavailable
+     */
     &__fallback {
-      margin-top: var(--space-lg);
+      margin-top: var(--space-xl);
       padding: var(--space-lg);
-      border: var(--border-width-default) solid var(--color-warning-600);
+      border: var(--border-width-thin) solid var(--color-warning-500);
       border-radius: var(--radius-lg);
       background: var(--bg-warning-aaa);
       text-align: center;
+      contain: layout style;
+      
+      @media (min-width: 48em) {
+        margin-top: var(--space-2xl);
+        padding: var(--space-xl);
+      }
 
       &-message {
         display: flex;
@@ -458,20 +566,37 @@ const {
         align-items: center;
         gap: var(--space-md);
         margin-bottom: var(--space-lg);
+        
+        @media (min-width: 48em) {
+          gap: var(--space-lg);
+          margin-bottom: var(--space-xl);
+        }
       }
 
       &-icon {
-        color: var(--color-warning-400);
-        width: var(--icon-size-md); // Using CSS variable instead of hardcoded 24px
+        color: var(--color-warning-600);
+        width: var(--icon-size-md);
         height: var(--icon-size-md);
         flex-shrink: 0;
+        transform: translate3d(0, 0, 0);
+        
+        @media (min-width: 48em) {
+          width: var(--icon-size-lg);
+          height: var(--icon-size-lg);
+        }
       }
 
       &-text {
-        color: var(--text-warning-aaa); // Enhanced contrast for AAA compliance
+        color: var(--text-warning-aaa);
         font-size: var(--text-base);
+        font-family: var(--font-family-primary);
         margin: 0;
-        line-height: var(--leading-enhanced);
+        line-height: var(--leading-relaxed);
+        max-width: 400px;
+        
+        @media (min-width: 48em) {
+          font-size: var(--text-lg);
+        }
       }
 
       &-actions {
@@ -480,42 +605,63 @@ const {
         gap: var(--space-md);
         justify-content: center;
         align-items: center;
+        
+        @media (max-width: 47.9375em) {
+          flex-direction: column;
+          gap: var(--space-sm);
+        }
       }
 
       &-button {
-        @extend %button-transitions;
-        @extend %button-focus;
-        @extend %button-disabled;
-
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: var(--space-sm);
         min-height: var(--min-touch-size);
         padding: var(--space-sm) var(--space-md);
-        border: var(--border-width-default) solid var(--interactive-primary);
+        border: var(--border-width-thin) solid var(--interactive-primary);
         border-radius: var(--radius-md);
         background: var(--interactive-primary);
         color: var(--btn-primary-text);
         font-size: var(--text-sm);
         font-weight: var(--font-medium);
+        font-family: var(--font-family-primary);
         cursor: pointer;
+        transition: all var(--transition-fast);
+        
+        /* Performance optimizations */
+        contain: layout style paint;
+        transform: translate3d(0, 0, 0);
+        will-change: transform, background-color;
+
+        /* Enhanced focus styles for WCAG AAA */
+        &:focus-visible {
+          outline: var(--focus-enhanced-outline-dark);
+          outline-offset: var(--focus-ring-offset);
+          box-shadow: var(--focus-enhanced-shadow);
+        }
 
         &:hover:not(:disabled) {
           background: var(--interactive-primary-hover);
           border-color: var(--interactive-primary-hover);
-          transform: translateY(var(--animation-y-offset-small));
+          transform: translate3d(0, var(--animation-y-offset-small), 0);
         }
 
         &:active:not(:disabled) {
           background: var(--interactive-primary-active);
           border-color: var(--interactive-primary-active);
-          transform: translateY(0);
+          transform: translate3d(0, 0, 0) scale(var(--animation-scale-hover));
+        }
+
+        &:disabled {
+          opacity: var(--opacity-disabled);
+          cursor: not-allowed;
+          transform: translate3d(0, 0, 0);
         }
 
         &--secondary {
           background: transparent;
-          color: var(--color-warning-200); // Enhanced contrast
+          color: var(--color-warning-200);
           border-color: var(--color-warning-500);
 
           &:hover:not(:disabled) {
@@ -530,149 +676,119 @@ const {
         }
 
         &-icon {
-          width: var(--icon-size-sm); // Using CSS variable instead of hardcoded 16px
+          width: var(--icon-size-sm);
           height: var(--icon-size-sm);
           flex-shrink: 0;
+          transform: translate3d(0, 0, 0);
+        }
+        
+        /* Responsive sizing */
+        @media (max-width: 47.9375em) {
+          width: 100%;
+          max-width: 280px;
+          padding: var(--space-md) var(--space-lg);
+          min-height: var(--touch-target-enhanced);
+        }
+        
+        @media (min-width: 48em) {
+          padding: var(--space-sm) var(--space-lg);
+          min-width: 120px;
+          max-width: 140px;
         }
       }
     }
 
-    // ======================================
-    // TEXT STYLES
-    // ======================================
-
+    /**
+     * Text styles with responsive typography
+     * Uses global typography scale for consistency
+     */
     &__button-text,
     &__clipboard-text {
       font-size: var(--text-base);
       white-space: nowrap;
-    }
-
-    // ======================================
-    // RESPONSIVE DESIGN - OPTIMIZED WITH CSS VARIABLES
-    // ======================================
-
-    // Mobile-first responsive design
-    @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
-      &__buttons-container {
-        gap: var(--space-sm);
-        flex-direction: column;
-      }
-
-      &__button,
-      &__clipboard-button {
-        padding: var(--space-sm) var(--space-md);
+      line-height: var(--leading-base);
+      
+      @media (max-width: 47.9375em) {
         font-size: var(--text-sm);
-        width: 100%;
-        max-width: 280px;
-      }
-
-      &__button-text,
-      &__clipboard-text {
-        font-size: var(--text-sm);
-      }
-
-      &__fallback-actions {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      &__fallback-button {
-        width: 100%;
-        max-width: 280px;
-      }
-    }
-
-    // Tablet breakpoint
-    @media (min-width: var(--breakpoint-sm)) and (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
-      &__buttons-container {
-        gap: var(--space-md);
-      }
-
-      &__button,
-      &__clipboard-button {
-        padding: var(--space-md) var(--space-lg);
-      }
-    }
-
-    // Desktop breakpoint
-    @media (min-width: var(--breakpoint-md)) {
-      &__buttons-container {
-        gap: var(--space-lg);
-      }
-
-      &__button,
-      &__clipboard-button {
-        padding: var(--space-md) var(--space-xl);
-      }
-    }
-
-    // Large desktop breakpoint
-    @media (min-width: var(--breakpoint-lg)) {
-      &__buttons-container {
-        gap: var(--space-xl);
-      }
-    }
-
-    // Container queries for responsive optimization
-    @container (min-width: var(--container-query-lg)) {
-      &__buttons-container {
-        gap: var(--space-lg);
-      }
-    }
-
-    // ======================================
-    // ACCESSIBILITY ENHANCEMENTS
-    // ======================================
-
-    // High contrast mode support
-    @media (forced-colors: active) {
-      &__button,
-      &__clipboard-button {
-        border: var(--border-width-thick) solid ButtonText;
-        background-color: ButtonFace;
-        color: ButtonText;
-        forced-color-adjust: none;
-
-        &:focus-visible {
-          outline: var(--border-width-enhanced) solid Highlight;
-        }
-      }
-
-      &__icon,
-      &__clipboard-icon {
-        fill: ButtonText;
-      }
-    }
-
-    // Reduced motion support
-    @media (prefers-reduced-motion: reduce) {
-      &__button,
-      &__clipboard-button,
-      &__fallback-button {
-        transition: none;
-
-        &:hover,
-        &:active {
-          transform: none;
-        }
-      }
-    }
-
-    // High contrast mode
-    @media (prefers-contrast: high) {
-      &__button {
-        border: var(--border-width-thick) solid var(--text-primary);
-      }
-
-      &__clipboard-button {
-        border-width: var(--border-width-enhanced);
       }
     }
   }
 
-  // ======================================
-  // SCREEN READER ONLY UTILITY
-  // ======================================
+  /* ======================================
+   * ACCESSIBILITY ENHANCEMENTS
+   * ====================================== */
+
+  /**
+   * High contrast mode support for Windows High Contrast
+   * Ensures proper visibility and interaction
+   */
+  @media (forced-colors: active) {
+    .share-overlay__button,
+    .share-overlay__clipboard-button,
+    .share-overlay__fallback-button {
+      border: var(--border-width-thick) solid ButtonText;
+      background-color: ButtonFace;
+      color: ButtonText;
+      forced-color-adjust: none;
+
+      &:focus-visible {
+        outline: var(--border-width-enhanced) solid Highlight;
+        outline-offset: var(--focus-ring-offset);
+      }
+    }
+
+    .share-overlay__icon,
+    .share-overlay__clipboard-icon,
+    .share-overlay__fallback-icon {
+      fill: ButtonText;
+    }
+  }
+
+  /**
+   * Reduced motion support - respects user preference
+   * Disables animations and transitions for accessibility
+   */
+  @media (prefers-reduced-motion: reduce) {
+    .share-overlay__button,
+    .share-overlay__clipboard-button,
+    .share-overlay__fallback-button {
+      will-change: auto;
+      transition: none;
+
+      &:hover,
+      &:active {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    .share-overlay__icon,
+    .share-overlay__clipboard-icon,
+    .share-overlay__fallback-icon {
+      transition: none;
+    }
+  }
+
+  /**
+   * High contrast preference support
+   * Enhances borders for better visibility
+   */
+  @media (prefers-contrast: high) {
+    .share-overlay__button {
+      border: var(--border-width-thick) solid var(--text-primary);
+    }
+
+    .share-overlay__clipboard-button {
+      border-width: var(--border-width-enhanced);
+    }
+
+    .share-overlay__fallback {
+      border-width: var(--border-width-thick);
+    }
+  }
+
+  /* ======================================
+   * SCREEN READER ONLY UTILITY
+   * ====================================== */
 
   .sr-only {
     position: absolute;
@@ -681,21 +797,48 @@ const {
     padding: 0;
     margin: var(--sr-only-margin);
     overflow: hidden;
-    clip-path: var(--sr-only-clip-path);
+    clip: rect(0, 0, 0, 0);
     white-space: nowrap;
-    border-width: 0;
+    border: 0;
   }
 
-  // ======================================
-  // ICON OPTIMIZATIONS
-  // ======================================
+  /* ======================================
+   * PERFORMANCE OPTIMIZATIONS
+   * ====================================== */
 
-  // Optimize icon rendering
+  /**
+   * Icon rendering optimizations
+   * Improves visual quality and performance
+   */
   .share-overlay__icon,
-  .share-overlay__clipboard-icon {
+  .share-overlay__clipboard-icon,
+  .share-overlay__fallback-icon {
     will-change: auto;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
+  }
+
+  /* ======================================
+   * ENHANCED TEXT SPACING SUPPORT (WCAG 2.2)
+   * ====================================== */
+
+  .enhanced-text-spacing .share-overlay {
+    .share-overlay__button,
+    .share-overlay__clipboard-button,
+    .share-overlay__fallback-button {
+      letter-spacing: var(--text-spacing-letter-2x) !important;
+      word-spacing: var(--text-spacing-word-enhanced) !important;
+      line-height: var(--text-spacing-line-1-5x) !important;
+      padding: calc(var(--space-md) * 1.2) calc(var(--space-lg) * 1.2);
+    }
+
+    .share-overlay__buttons-container {
+      gap: calc(var(--space-md) * 1.5) !important;
+    }
+
+    .share-overlay__fallback-text {
+      margin-bottom: calc(var(--space-lg) * 1.2) !important;
+    }
   }
 </style>
 
@@ -721,11 +864,27 @@ const {
   }}
 >
   /**
-   * ShareOverlay Component Script (Modern ES6+ Optimized)
-   * Manages sharing game results with modern JavaScript features
+   * ShareOverlay Component Enhancement Script
+   * 
+   * Provides comprehensive sharing functionality with performance optimizations
+   * and accessibility features. Supports native Web Share API, platform-specific
+   * sharing, and clipboard operations with robust error handling.
+   * 
+   * @features
+   * - Native Web Share API integration with fallback support
+   * - Platform-specific sharing (Twitter/X, WhatsApp, Email)
+   * - Advanced clipboard operations with multiple fallback methods
+   * - Comprehensive error handling and user feedback
+   * - Performance-optimized DOM element caching
+   * - Accessibility-first design with screen reader support
+   * - Multilingual share text generation
+   * - Responsive touch and keyboard interaction support
    */
 
-  // Error types constants
+  /**
+   * Error types for comprehensive error handling
+   * @enum {string}
+   */
   const ShareErrorType = {
     NO_DATA: "NO_DATA",
     CLIPBOARD_FAILED: "CLIPBOARD_FAILED",
@@ -735,7 +894,11 @@ const {
     PERMISSION_DENIED: "PERMISSION_DENIED",
   };
 
-  // Store Element References - cached DOM references for performance
+  /**
+   * Cached DOM element references for performance optimization
+   * Prevents repeated DOM queries and improves rendering efficiency
+   * @type {Object}
+   */
   const elements = {
     nativeShareButton: null,
     copyButton: null,
@@ -747,7 +910,10 @@ const {
     manualCopyButton: null,
   };
 
-  // Constants for UI interactions
+  /**
+   * UI interaction constants for consistent behavior
+   * @type {Object}
+   */
   const UI_CONSTANTS = {
     COPY_SUCCESS_DURATION: 2000,
     COPY_ORIGINAL_TEXT: "",
