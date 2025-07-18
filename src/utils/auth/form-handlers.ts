@@ -37,8 +37,15 @@ export async function handleLoginSubmission(
   }
 ): Promise<FormSubmissionResult> {
   const currentLang = document.documentElement.lang || "de";
-  const redirectUrl =
-    new URLSearchParams(window.location.search).get("redirect") || window.location.pathname;
+  
+  // Determine redirect URL - stay on current page if it's a category page
+  const currentPath = window.location.pathname;
+  const redirectUrl = new URLSearchParams(window.location.search).get("redirect") || currentPath;
+  
+  // If we're on a category page, we want to stay there after login
+  // Don't redirect to auth page
+  const shouldStayOnCurrentPage = currentPath.includes('category') || 
+                                  currentPath.match(/^\/[a-z]{2}\/[^\/]+$/); // matches pattern like /de/1980s
 
   try {
     const response = await fetch(`/${currentLang}/api/auth/login`, {
@@ -66,11 +73,24 @@ export async function handleLoginSubmission(
       });
       document.dispatchEvent(authEvent);
 
+      // Determine final redirect URL
+      let finalRedirectUrl = redirectUrl;
+      
+      // If we should stay on current page, use current path
+      if (shouldStayOnCurrentPage) {
+        finalRedirectUrl = currentPath;
+      }
+      
+      // Fallback to language homepage if no valid redirect
+      if (!finalRedirectUrl || finalRedirectUrl === '/') {
+        finalRedirectUrl = `/${currentLang}/gamehome`;
+      }
+
       return {
         success: true,
         message:
           document.documentElement.lang === "de" ? "Anmeldung erfolgreich!" : "Login successful!",
-        redirectUrl: data.redirectUrl || redirectUrl || `/${document.documentElement.lang}`,
+        redirectUrl: finalRedirectUrl,
       };
     } else {
       // Handle specific error cases
