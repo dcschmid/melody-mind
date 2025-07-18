@@ -29,12 +29,7 @@
         },
         {
           "question": "在制作1982年发行的专辑《A Flock of Seagulls》时，著名乐队A Flock of Seagulls主要由谁负责词曲创作？",
-          "options": [
-            "Mike Score",
-            "Ali Score",
-            "Frank Maudsley",
-            "Paul Reynolds"
-          ],
+          "options": ["Mike Score", "Ali Score", "Frank Maudsley", "Paul Reynolds"],
           "correctAnswer": "Mike Score",
           "trivia": "A Flock of Seagulls这张同名专辑的词曲创作主要由主唱兼键盘手Mike Score负责。作为乐队的核心成员，Mike Score不仅参与了大部分歌曲的创作，还塑造了乐队标志性的合成器声音。Ali Score作为鼓手，Frank Maudsley担任贝斯，而Paul Reynolds则负责吉他演奏，但他们在词曲创作中的贡献较少。Mike Score的创作帮助A Flock of Seagulls在80年代初合成器流行音乐浪潮中脱颖而出。"
         }
@@ -88,12 +83,7 @@
         },
         {
           "question": "在A Flock of Seagulls的同名专辑《A Flock of Seagulls》中，哪位成员负责演奏标志性的合成器部分，这一元素成为该专辑声音的核心特征？",
-          "options": [
-            "Paul Reynolds",
-            "Frank Maudsley",
-            "Mike Score",
-            "Ali Score"
-          ],
+          "options": ["Paul Reynolds", "Frank Maudsley", "Mike Score", "Ali Score"],
           "correctAnswer": "Mike Score",
           "trivia": "《A Flock of Seagulls》是1982年英国新浪潮乐队A Flock of Seagulls的首张专辑，其中Mike Score不仅担任主唱，还负责合成器的演奏。合成器的使用是该专辑声音的核心，定义了乐队的标志性电子氛围。Paul Reynolds主要担任吉他手，Frank Maudsley负责贝斯，而Ali Score则是鼓手。Mike Score的合成器演奏和独特音色在1980年代初的新浪潮音乐中极具代表性，尤其是在热门单曲《I Ran (So Far Away)》中表现突出。"
         },
@@ -154,12 +144,7 @@
       "medium": [
         {
           "question": "在AC/DC的1980年专辑《Back in Black》中，吉他手Angus Young主要使用了哪种型号的电吉他来塑造其标志性的硬摇滚音色？",
-          "options": [
-            "Gibson SG",
-            "Fender Stratocaster",
-            "Gibson Les Paul",
-            "Ibanez RG"
-          ],
+          "options": ["Gibson SG", "Fender Stratocaster", "Gibson Les Paul", "Ibanez RG"],
           "correctAnswer": "Gibson SG",
           "trivia": "在录制AC/DC的经典专辑《Back in Black》时，吉他手Angus Young主要使用的是Gibson SG电吉他。这款吉他以其轻盈的机身和明亮的音色闻名，非常适合硬摇滚和布鲁斯风格。Gibson SG的双切角设计和双拾音器配置赋予了Angus独特的穿透力和攻击性音色，这也成为了AC/DC标志性的声音之一。此外，这张专辑的制作团队还特别注重捕捉吉他的自然音质，利用经典设备搭配简单的录音技术，呈现出清晰有力的吉他音色。Fender Stratocaster和Gibson Les Paul虽然也是著名的摇滚吉他，但Angus Young在这张专辑中最常用的还是Gibson SG。"
         },
@@ -253,12 +238,7 @@
         },
         {
           "question": "Aerosmith的专辑《Permanent Vacation》在美国唱片工业协会（RIAA）获得了什么认证？",
-          "options": [
-            "白金认证",
-            "黄金认证",
-            "钻石认证",
-            "银质认证"
-          ],
+          "options": ["白金认证", "黄金认证", "钻石认证", "银质认证"],
           "correctAnswer": "白金认证",
           "trivia": "Aerosmith于1987年发行的专辑《Permanent Vacation》标志着乐队的商业复兴。这张专辑在美国取得了巨大成功，获得了美国唱片工业协会（RIAA）的白金认证，表明其销量超过一百万张。专辑中的热门单曲如“Dude (Looks Like a Lady)”和“Rag Doll”也在排行榜上表现优异，进一步提升了专辑的知名度。白金认证不仅反映了专辑的市场认可度，也代表了Aerosmith在80年代末期重返主流摇滚舞台的重要里程碑。"
         }
@@ -301,23 +281,13 @@
       "hard": [
         {
           "question": "1987年Aerosmith发行专辑《Permanent Vacation》时，哪家唱片公司负责该专辑的发行，标志着乐队与该公司的首次合作？",
-          "options": [
-            "Geffen Records",
-            "Columbia Records",
-            "Atlantic Records",
-            "Epic Records"
-          ],
+          "options": ["Geffen Records", "Columbia Records", "Atlantic Records", "Epic Records"],
           "correctAnswer": "Geffen Records",
           "trivia": "《Permanent Vacation》是Aerosmith在1987年与Geffen Records合作发行的专辑，开启了乐队事业的复兴阶段。此前，Aerosmith长期与Columbia Records签约，但由于创作和商业上的瓶颈，两者关系紧张。Geffen Records当时以签约摇滚和新兴艺术家著称，积极推动乐队的音乐创新与市场推广。此专辑不仅帮助Aerosmith重塑了形象，也奠定了他们后续多张畅销专辑的基础，成为乐队历史上的重要转折点。"
         },
         {
           "question": "Aerosmith在制作1987年专辑《Permanent Vacation》时，哪位音乐人对乐队的创作灵感和声音风格产生了重要影响？",
-          "options": [
-            "Desmond Child",
-            "Quincy Jones",
-            "Rick Rubin",
-            "Mutt Lange"
-          ],
+          "options": ["Desmond Child", "Quincy Jones", "Rick Rubin", "Mutt Lange"],
           "correctAnswer": "Desmond Child",
           "trivia": "在Aerosmith录制《Permanent Vacation》专辑期间，著名歌曲作家Desmond Child对乐队的创作起到了关键作用。他不仅协助创作了多首热门歌曲，如《Dude (Looks Like a Lady)》和《Angel》，还帮助Aerosmith将他们的硬摇滚风格融入更具流行元素的声音，极大地拓宽了乐队的受众。Desmond Child作为80年代流行与摇滚音乐的重要词曲作者，以其独特的旋律和制作理念闻名。相比之下，其他选项中如Quincy Jones和Mutt Lange虽在音乐界有着巨大影响，但并未直接参与《Permanent Vacation》的制作。Rick Rubin虽然是著名制作人，但与该专辑的制作无关联。"
         },
@@ -343,23 +313,13 @@
       "easy": [
         {
           "question": "在Anita Baker 1986年发行的专辑《Rapture》的音响工程制作中，哪位音响工程师负责了主要的录音和混音工作？",
-          "options": [
-            "Michael J. Powell",
-            "Al Schmitt",
-            "Bernie Grundman",
-            "Ray Bardani"
-          ],
+          "options": ["Michael J. Powell", "Al Schmitt", "Bernie Grundman", "Ray Bardani"],
           "correctAnswer": "Ray Bardani",
           "trivia": "Ray Bardani是Anita Baker《Rapture》专辑的主要录音和混音工程师，他在这张专辑的音响工程中发挥了关键作用。该专辑以其干净、温暖且富有层次感的声音著称，部分得益于Bardani采用的专业录音设备和混音技巧。虽然Michael J. Powell是制作人，但主要的工程工作由Bardani负责。此外，Bernie Grundman参与了母带制作，而Al Schmitt则未参与本专辑的制作。Bardani的工作帮助《Rapture》成为了当时R&B和灵魂乐的经典之作。"
         },
         {
           "question": "在Anita Baker的1986年专辑《Rapture》的词曲创作过程中，哪位音乐人是该专辑主要的联合词曲作者之一？",
-          "options": [
-            "Gary Bias",
-            "Michael J. Powell",
-            "David Foster",
-            "Quincy Jones"
-          ],
+          "options": ["Gary Bias", "Michael J. Powell", "David Foster", "Quincy Jones"],
           "correctAnswer": "Michael J. Powell",
           "trivia": "Anita Baker的专辑《Rapture》于1986年发行，成为她职业生涯的突破作品之一。在这张专辑的词曲创作过程中，制作人兼吉他手Michael J. Powell是她的主要合作伙伴之一。Powell不仅参与了歌曲的创作，还帮助塑造了专辑独特的R&B和爵士融合风格。Gary Bias虽然是乐队成员，但并非主要词曲作者；David Foster和Quincy Jones则没有参与这张专辑的制作。Powell与Baker的合作对于《Rapture》获得格莱美奖和商业成功起到了关键作用。"
         },
@@ -378,12 +338,7 @@
       "medium": [
         {
           "question": "在Anita Baker的1986年专辑《Rapture》中，哪种乐器的运用最显著地塑造了专辑柔和而富有灵魂感的音乐氛围？",
-          "options": [
-            "萨克斯风",
-            "电吉他",
-            "钢琴",
-            "合成器"
-          ],
+          "options": ["萨克斯风", "电吉他", "钢琴", "合成器"],
           "correctAnswer": "钢琴",
           "trivia": "在Anita Baker的《Rapture》专辑中，钢琴的演奏起到了关键作用，为整体音乐增添了温暖且富有情感的质感。钢琴伴奏常被用来衬托她独特的深厚嗓音，使歌曲更富层次感。该专辑的制作团队特别注重使用传统乐器，避免过度依赖电子合成器，这也是其区别于当时部分80年代R&B作品的地方。此外，钢琴与贝斯和鼓的紧密配合，构建了《Rapture》专辑柔和爵士灵魂的标志性声音。"
         },
@@ -413,23 +368,13 @@
       "hard": [
         {
           "question": "在Anita Baker于1986年发行的专辑《Rapture》中，哪个品牌的唱片公司负责该专辑的市场推广与销售？",
-          "options": [
-            "Elektra Records",
-            "Blue Note Records",
-            "Atlantic Records",
-            "Arista Records"
-          ],
+          "options": ["Elektra Records", "Blue Note Records", "Atlantic Records", "Arista Records"],
           "correctAnswer": "Elektra Records",
           "trivia": "Anita Baker的《Rapture》专辑是由Elektra Records发行和推广的，这是一家在1980年代以推广灵魂和R&B音乐闻名的唱片公司。Elektra Records通过精心的市场营销策略，帮助《Rapture》在美国取得了极大的商业成功，该专辑最终获得了多项格莱美奖。值得注意的是，虽然Atlantic和Arista也都是当时著名的唱片公司，但《Rapture》专属的推广是由Elektra Records负责。此外，Blue Note Records主要以爵士乐为主，与Anita Baker的这张专辑风格不太相符。"
         },
         {
           "question": "在Anita Baker的1986年专辑《Rapture》的制作过程中，哪位著名音乐人担任了该专辑的联合制作人，帮助塑造了其独特的灵魂爵士风格？",
-          "options": [
-            "Michael J. Powell",
-            "Quincy Jones",
-            "Teddy Riley",
-            "Narada Michael Walden"
-          ],
+          "options": ["Michael J. Powell", "Quincy Jones", "Teddy Riley", "Narada Michael Walden"],
           "correctAnswer": "Michael J. Powell",
           "trivia": "Anita Baker的《Rapture》专辑于1986年发行，这张专辑因其融合了灵魂乐与爵士元素而备受赞誉。Michael J. Powell不仅担任了该专辑的联合制作人，还参与了吉他演奏，极大地影响了专辑的声音质感。Powell与Baker的合作是她音乐风格成熟的重要推动力，帮助她赢得了包括格莱美奖在内的多项荣誉。相比之下，Quincy Jones和Narada Michael Walden虽然是著名制作人，但并未参与《Rapture》的制作；而Teddy Riley主要以新杰克摇摆风格闻名，与这张专辑的风格不符。"
         },
@@ -455,23 +400,13 @@
       "easy": [
         {
           "question": "亚洲乐队（Asia）在1982年同名专辑《Asia》中，灵感主要来源于哪个音乐类型？",
-          "options": [
-            "前卫摇滚",
-            "迪斯科舞曲",
-            "乡村音乐",
-            "雷鬼音乐"
-          ],
+          "options": ["前卫摇滚", "迪斯科舞曲", "乡村音乐", "雷鬼音乐"],
           "correctAnswer": "前卫摇滚",
           "trivia": "亚洲乐队（Asia）成立于1981年，成员均来自著名的前卫摇滚乐队，如Yes、King Crimson和Emerson, Lake & Palmer。1982年发行的首张同名专辑《Asia》融合了前卫摇滚的复杂音乐结构和流行摇滚的易听旋律，体现了他们对前卫摇滚的深厚影响。专辑中的热门单曲《Heat of the Moment》即充分展现了这一音乐风格。虽然乐队尝试融入更大众化的元素，但其灵感根基仍扎根于前卫摇滚传统。"
         },
         {
           "question": "在1982年发行的Asia乐队同名专辑《Asia》的制作过程中，谁担任了该专辑的制作人？",
-          "options": [
-            "Mike Stone",
-            "George Martin",
-            "Quincy Jones",
-            "Bob Ezrin"
-          ],
+          "options": ["Mike Stone", "George Martin", "Quincy Jones", "Bob Ezrin"],
           "correctAnswer": "Mike Stone",
           "trivia": "Asia乐队在1982年发布的首张同名专辑《Asia》由制作人Mike Stone负责制作。Mike Stone是一位经验丰富的音乐制作人，曾与Queen等著名乐队合作。这张专辑在制作中注重了清晰的声音层次和流畅的旋律，帮助Asia赢得了广泛的商业成功。George Martin和Quincy Jones虽然都是著名制作人，但并未参与该专辑制作。Bob Ezrin以制作摇滚专辑闻名，但也未参与《Asia》的制作。"
         },
@@ -536,12 +471,7 @@
         },
         {
           "question": "亚洲乐队（Asia）1982年发行的首张同名专辑《Asia》是由哪家唱片公司首次发行的？",
-          "options": [
-            "Geffen Records",
-            "Atlantic Records",
-            "Polydor Records",
-            "Elektra Records"
-          ],
+          "options": ["Geffen Records", "Atlantic Records", "Polydor Records", "Elektra Records"],
           "correctAnswer": "Geffen Records",
           "trivia": "亚洲乐队（Asia）的首张专辑《Asia》于1982年发行，由Geffen Records首次发行。Geffen Records成立于1980年，是当时崛起的重要独立唱片公司，专注于摇滚和流行音乐。亚洲乐队选择Geffen Records，部分原因是这家公司对摇滚超级组合的支持力度和灵活的市场推广策略。专辑在商业上取得巨大成功，Geffen Records的发行策略被认为是促成这一成功的关键因素之一。此唱片公司的参与帮助《Asia》专辑迅速登顶美国Billboard 200排行榜。"
         },
@@ -567,12 +497,7 @@
       "easy": [
         {
           "question": "在Bananarama的1986年专辑'True Confessions'的音响工程中，哪位制作人负责了这张专辑的大部分录音和混音工作？",
-          "options": [
-            "Steve Jolley",
-            "Tony Swain",
-            "George Martin",
-            "Trevor Horn"
-          ],
+          "options": ["Steve Jolley", "Tony Swain", "George Martin", "Trevor Horn"],
           "correctAnswer": "Steve Jolley",
           "trivia": "Bananarama的专辑'True Confessions'于1986年发行，其音响工程主要由制作人Steve Jolley负责录音和混音。Jolley与Tony Swain是80年代知名的制作组合，但本专辑主要由Jolley单独处理音响工程。George Martin和Trevor Horn虽然是著名制作人，但他们并未参与该专辑的制作。Steve Jolley的工作确保了专辑中歌曲如\"Venus\"的清晰度和流畅感，成为80年代流行音乐的典范之一。"
         },
@@ -679,12 +604,7 @@
       "easy": [
         {
           "question": "Beastie Boys在制作1986年专辑《Licensed to Ill》时，哪位知名制作人参与了这张专辑的制作？",
-          "options": [
-            "Rick Rubin",
-            "Dr. Dre",
-            "Quincy Jones",
-            "George Martin"
-          ],
+          "options": ["Rick Rubin", "Dr. Dre", "Quincy Jones", "George Martin"],
           "correctAnswer": "Rick Rubin",
           "trivia": "Rick Rubin是《Licensed to Ill》专辑的联合制作人，他与Beastie Boys合作将嘻哈和摇滚元素成功融合。Rubin当时是Def Jam唱片公司的重要制作人，因其简洁有力的制作风格而闻名。该专辑是第一张登顶美国公告牌200榜单的嘻哈专辑，部分归功于Rubin的制作。Dr. Dre虽然是著名制作人，但未参与此专辑制作。Quincy Jones和George Martin则主要活跃于其他音乐领域，与Beastie Boys合作的记录不存在。"
         },
@@ -760,12 +680,7 @@
         },
         {
           "question": "在Beastie Boys的1986年专辑《Licensed to Ill》的制作过程中，哪位知名制作人负责了该专辑的混音和制作工作？",
-          "options": [
-            "Rick Rubin",
-            "Dr. Dre",
-            "Quincy Jones",
-            "Timbaland"
-          ],
+          "options": ["Rick Rubin", "Dr. Dre", "Quincy Jones", "Timbaland"],
           "correctAnswer": "Rick Rubin",
           "trivia": "《Licensed to Ill》是Beastie Boys的首张专辑，制作人Rick Rubin在其中发挥了关键作用。Rick Rubin是Def Jam唱片公司的联合创始人，他以将嘻哈与摇滚元素结合的制作风格著称。Rubin为该专辑带来了独特的声音，融合了硬核说唱和重金属元素，使其成为当时极具创新性的作品。此外，Rick Rubin的制作帮助Beastie Boys在嘻哈音乐界树立了强烈的个性和标志性的音效。这个合作对嘻哈音乐的跨界发展产生了深远影响。"
         },
@@ -837,23 +752,13 @@
         },
         {
           "question": "Belinda Carlisle发行的专辑'Heaven on Earth'在1988年的格莱美奖中获得了哪一项提名？",
-          "options": [
-            "最佳女歌手（流行类）",
-            "最佳摇滚专辑",
-            "最佳音乐录影带",
-            "最佳新人"
-          ],
+          "options": ["最佳女歌手（流行类）", "最佳摇滚专辑", "最佳音乐录影带", "最佳新人"],
           "correctAnswer": "最佳女歌手（流行类）",
           "trivia": "Belinda Carlisle的专辑'Heaven on Earth'于1987年发行，其主打单曲“Heaven Is a Place on Earth”取得了巨大成功。该单曲不仅在多个国家排行榜上名列前茅，还为Belinda赢得了1988年格莱美奖的“最佳女歌手（流行类）”提名。虽然专辑本身没有赢得格莱美奖，但这次提名彰显了她作为独唱艺术家的地位。'Heaven on Earth'专辑融合了流行摇滚元素，代表了当时流行音乐的主流趋势。此次提名也帮助Belinda巩固了她在80年代后期音乐界的重要位置。"
         },
         {
           "question": "在Belinda Carlisle的1987年专辑'Heaven on Earth'的词曲创作过程中，哪位著名音乐人对主打歌《Heaven Is a Place on Earth》的共同创作起到了关键作用？",
-          "options": [
-            "Rick Nowels",
-            "Prince",
-            "Billy Steinberg",
-            "Stevie Nicks"
-          ],
+          "options": ["Rick Nowels", "Prince", "Billy Steinberg", "Stevie Nicks"],
           "correctAnswer": "Rick Nowels",
           "trivia": "Rick Nowels是Belinda Carlisle在创作专辑'Heaven on Earth'期间的重要合作伙伴，尤其是在主打单曲《Heaven Is a Place on Earth》的词曲创作中发挥了关键作用。Nowels以其擅长融合流行与摇滚元素而闻名，他与Belinda Carlisle合作创造了这首广受欢迎的歌曲。尽管Billy Steinberg也参与了部分歌曲的写作，但Rick Nowels在这张专辑的整体词曲创作中占据更核心的位置。Prince和Stevie Nicks虽然是当时著名的艺术家，但并未直接参与该专辑的创作过程。"
         }
@@ -903,23 +808,13 @@
       "easy": [
         {
           "question": "Billy Idol的1983年专辑'Rebel Yell'中，哪首歌曲成为了该专辑最著名的单曲之一？",
-          "options": [
-            "Rebel Yell",
-            "White Wedding",
-            "Dancing with Myself",
-            "Eyes Without a Face"
-          ],
+          "options": ["Rebel Yell", "White Wedding", "Dancing with Myself", "Eyes Without a Face"],
           "correctAnswer": "Rebel Yell",
           "trivia": "《Rebel Yell》是Billy Idol于1983年发布的同名专辑中的主打单曲，也是他最具代表性的作品之一。这首歌融合了摇滚和流行元素，成为1980年代摇滚音乐的经典曲目。专辑中虽然也有像《Eyes Without a Face》和《White Wedding》这样的知名歌曲，但《Rebel Yell》凭借其强烈的节奏和标志性的吉他riff，在美国公告牌单曲榜取得了显著成绩，进一步巩固了Billy Idol在摇滚乐坛的地位。"
         },
         {
           "question": "Billy Idol的1983年专辑'Rebel Yell'是由哪家唱片公司发行的？",
-          "options": [
-            "Chrysalis Records",
-            "EMI Records",
-            "Geffen Records",
-            "Virgin Records"
-          ],
+          "options": ["Chrysalis Records", "EMI Records", "Geffen Records", "Virgin Records"],
           "correctAnswer": "Chrysalis Records",
           "trivia": "Billy Idol的'Rebel Yell'专辑于1983年通过Chrysalis Records发行，这家公司在1980年代是英国和美国摇滚艺术家的重要唱片公司。Chrysalis Records成立于1968年，曾签约多位著名摇滚艺人，支持Billy Idol在全球范围内的推广。尽管EMI、Geffen和Virgin Records也都是那个时代知名的唱片公司，但'Rebel Yell'专辑的官方发行方确实是Chrysalis Records。这一发行帮助Billy Idol在美国和欧洲取得了商业成功。"
         },
@@ -984,12 +879,7 @@
         },
         {
           "question": "在Billy Idol的1983年专辑'Rebel Yell'的制作过程中，哪位著名制作人负责了该专辑的总体制作工作？",
-          "options": [
-            "Keith Forsey",
-            "Mutt Lange",
-            "Quincy Jones",
-            "Rick Rubin"
-          ],
+          "options": ["Keith Forsey", "Mutt Lange", "Quincy Jones", "Rick Rubin"],
           "correctAnswer": "Keith Forsey",
           "trivia": "Keith Forsey是'Rebel Yell'专辑的主要制作人，他在1983年为Billy Idol打造了这张标志性的摇滚专辑。Forsey曾是迪斯科和电影配乐领域的著名制作人，他将自己对节奏和声音的敏锐把控带入了Billy Idol的硬摇滚风格中。专辑中的多首热门单曲，比如《Rebel Yell》和《Eyes Without a Face》，都体现了他的制作风格。Mutt Lange、Quincy Jones和Rick Rubin虽然都是传奇制作人，但他们并未参与该专辑的制作。Keith Forsey的制作为Billy Idol奠定了商业和艺术的成功基础。"
         },
@@ -1026,23 +916,13 @@
         },
         {
           "question": "在推广Billy Joel的1983年专辑《An Innocent Man》时，哪首单曲最先被作为主打歌推出，以引起公众关注？",
-          "options": [
-            "Tell Her About It",
-            "Uptown Girl",
-            "The Longest Time",
-            "Keeping the Faith"
-          ],
+          "options": ["Tell Her About It", "Uptown Girl", "The Longest Time", "Keeping the Faith"],
           "correctAnswer": "Tell Her About It",
           "trivia": "Billy Joel在1983年发行的专辑《An Innocent Man》中，首支推广的单曲是《Tell Her About It》。这首歌迅速登上了美国Billboard排行榜的前几名，帮助专辑获得了广泛关注。随后，《Uptown Girl》作为第二支单曲发布，也取得了巨大成功。Billy Joel通过选择《Tell Her About It》作为主打歌，成功地将这张专辑的复古风格和动感节奏传达给了当时的主流听众，推动专辑销量上升。"
         },
         {
           "question": "Billy Joel的专辑《An Innocent Man》中哪首歌曲在美国电台播放排行榜上曾达到最高位置？",
-          "options": [
-            "Tell Her About It",
-            "Uptown Girl",
-            "The Longest Time",
-            "Keeping the Faith"
-          ],
+          "options": ["Tell Her About It", "Uptown Girl", "The Longest Time", "Keeping the Faith"],
           "correctAnswer": "Tell Her About It",
           "trivia": "Billy Joel的1983年专辑《An Innocent Man》包含多首电台热门歌曲，其中《Tell Her About It》在美国公告牌单曲榜上曾达到第1名，这是该专辑在电台播放上表现最突出的单曲。《Uptown Girl》和《The Longest Time》虽然也非常受欢迎，分别达到了排行榜前几名，但未能超越《Tell Her About It》的顶峰位置。《Keeping the Faith》则在榜单上表现稍逊一筹。此专辑整体上向1950年代和1960年代的流行风格致敬，深受电台听众喜爱。"
         }
@@ -1061,12 +941,7 @@
         },
         {
           "question": "Billy Joel的专辑《An Innocent Man》在美国公告牌排行榜上的最高排名是多少？",
-          "options": [
-            "第1名",
-            "第3名",
-            "第5名",
-            "第7名"
-          ],
+          "options": ["第1名", "第3名", "第5名", "第7名"],
           "correctAnswer": "第3名",
           "trivia": "Billy Joel于1983年发行的专辑《An Innocent Man》在美国公告牌200专辑榜（Billboard 200）上最高达到了第3名的位置。该专辑以致敬1950至60年代的流行风格而著称，包含多首热门单曲，如《Uptown Girl》和《Tell Her About It》，这些单曲也在排行榜上表现优异。《An Innocent Man》是Billy Joel职业生涯中极具代表性的作品之一，获得了广泛的商业成功和好评。专辑的高排名体现了其在当时音乐市场上的强大影响力。"
         },
@@ -1127,12 +1002,7 @@
       "easy": [
         {
           "question": "Blondie的专辑《Autoamerican》中哪首歌曲最具代表性的音乐元素是融合了爵士和拉丁音乐风格？",
-          "options": [
-            "The Tide Is High",
-            "Rapture",
-            "Europa",
-            "Accidents Never Happen"
-          ],
+          "options": ["The Tide Is High", "Rapture", "Europa", "Accidents Never Happen"],
           "correctAnswer": "The Tide Is High",
           "trivia": "《Autoamerican》是Blondie于1980年发行的专辑，突出展示了多样化的音乐风格。专辑中的《The Tide Is High》是一首翻唱自The Paragons的歌曲，Blondie将其改编成融合了爵士和拉丁音乐元素的版本，特别是雷鬼和加勒比海节奏的结合，成为专辑中最受欢迎的单曲之一。此外，这首歌也在美国和英国的排行榜上取得了优异成绩，显示了Blondie在音乐元素上的创新和多样性。"
         },
@@ -1162,12 +1032,7 @@
       "medium": [
         {
           "question": "Blondie的专辑《Autoamerican》中融合了多种音乐风格。以下哪种风格并未成为该专辑的显著元素？",
-          "options": [
-            "爵士乐（Jazz）",
-            "嘻哈（Hip hop）",
-            "乡村音乐（Country）",
-            "雷鬼（Reggae）"
-          ],
+          "options": ["爵士乐（Jazz）", "嘻哈（Hip hop）", "乡村音乐（Country）", "雷鬼（Reggae）"],
           "correctAnswer": "乡村音乐（Country）",
           "trivia": "Blondie在1980年的专辑《Autoamerican》中大胆尝试了多种音乐风格，展现了乐队在流派上的多样化探索。专辑中包含了爵士乐元素，尤其是在歌曲《Rapture》中体现了早期嘻哈音乐的融入，被视为摇滚乐与嘻哈文化的结合尝试。此外，专辑还融合了雷鬼节奏，增加了异国风情的感觉。相比之下，乡村音乐并未成为《Autoamerican》的风格组成部分，这也反映了乐队对当时流行与前卫音乐趋势的关注。"
         },
@@ -1274,12 +1139,7 @@
       "medium": [
         {
           "question": "在Bobby Brown的1988年专辑\"Don't Be Cruel\"中，哪首歌曲通过歌词反映了当时社会对年轻人责任感与自我认同的关注？",
-          "options": [
-            "My Prerogative",
-            "Roni",
-            "Rock Wit'cha",
-            "Every Little Step"
-          ],
+          "options": ["My Prerogative", "Roni", "Rock Wit'cha", "Every Little Step"],
           "correctAnswer": "My Prerogative",
           "trivia": "Bobby Brown的专辑\"Don't Be Cruel\"发行于1988年，其中歌曲\"My Prerogative\"以其直白的歌词表达了年轻人对自我掌控和社会期待的反思。该曲成为了一种社会评论，强调个体有权决定自己的生活方式，不应被外界批评所左右。\"My Prerogative\"不仅在排行榜上取得成功，也因其挑战传统社会规范的态度而备受关注。这首歌反映了80年代末年轻一代对自由和身份认同的渴望，是专辑中最具社会意义的作品之一。"
         },
@@ -1309,12 +1169,7 @@
       "hard": [
         {
           "question": "在Bobby Brown的1988年专辑'Don't Be Cruel'的词曲创作过程中，哪位制作人以其创新的节奏编排和合成器运用，对专辑整体声音影响最大？",
-          "options": [
-            "Babyface",
-            "L.A. Reid",
-            "Teddy Riley",
-            "Jimmy Jam"
-          ],
+          "options": ["Babyface", "L.A. Reid", "Teddy Riley", "Jimmy Jam"],
           "correctAnswer": "Teddy Riley",
           "trivia": "Teddy Riley是新杰克摇摆（New Jack Swing）风格的主要创造者，他在Bobby Brown的'Don't Be Cruel'专辑中担任制作人并参与多首歌曲的词曲创作。通过将电子合成器、采样和硬朗的节奏融入传统R&B，Riley为该专辑打造了标志性的现代声音。专辑的成功部分归功于他对节奏编排的独特处理，尤其是在热门曲目如《My Prerogative》中展现得淋漓尽致。除了Teddy Riley，虽然Babyface和L.A. Reid也在当时活跃，但他们并未直接参与该专辑的制作。Jimmy Jam则主要与Janet Jackson合作，未参与'Don't Be Cruel'的制作。"
         },
@@ -1351,12 +1206,7 @@
       "easy": [
         {
           "question": "在Bon Jovi的1986年专辑'Slippery When Wet'的词曲创作过程中，哪位成员主要负责大部分歌曲的词曲创作？",
-          "options": [
-            "Jon Bon Jovi",
-            "Richie Sambora",
-            "David Bryan",
-            "Tico Torres"
-          ],
+          "options": ["Jon Bon Jovi", "Richie Sambora", "David Bryan", "Tico Torres"],
           "correctAnswer": "Jon Bon Jovi",
           "trivia": "在Bon Jovi的标志性专辑'Slippery When Wet'中，主唱Jon Bon Jovi是主要的词曲创作者，他与吉他手Richie Sambora紧密合作完成了大多数歌曲的创作。专辑中的许多热门单曲，如《You Give Love a Bad Name》和《Livin' on a Prayer》，均出自他们的合作。Richie Sambora虽然也参与了创作，但Jon Bon Jovi在整体词曲创作中占据主导地位。David Bryan和Tico Torres主要贡献于乐器演奏和编曲方面。该专辑的成功很大程度上得益于Jon Bon Jovi对词曲的把控和与乐队成员的协作。"
         },
@@ -1373,12 +1223,7 @@
         },
         {
           "question": "Bon Jovi的专辑'Slippery When Wet'（1986年）在哪个平台首次实现了数字发行？",
-          "options": [
-            "Apple iTunes Store",
-            "Amazon Music",
-            "Spotify",
-            "Napster"
-          ],
+          "options": ["Apple iTunes Store", "Amazon Music", "Spotify", "Napster"],
           "correctAnswer": "Apple iTunes Store",
           "trivia": "虽然专辑'Slippery When Wet'最初于1986年以实体唱片和磁带形式发行，但随着数字音乐的发展，这张专辑后来通过Apple iTunes Store首次实现了官方的数字发行。iTunes Store于2003年上线，成为早期数字音乐销售的重要平台，这使得经典摇滚专辑得以在数字时代广泛传播。相比之下，Spotify和Amazon Music等流媒体服务则是在iTunes之后才普及，Napster虽然曾是早期的数字音乐共享平台，但并非正式销售渠道。Bon Jovi的这张专辑凭借多首热门单曲，在数字发行后吸引了新一代听众。"
         }
@@ -1386,23 +1231,13 @@
       "medium": [
         {
           "question": "在Bon Jovi的1986年专辑'Slippery When Wet'的制作过程中，哪位制片人负责了专辑的大部分录音和制作工作？",
-          "options": [
-            "Bruce Fairbairn",
-            "Bob Rock",
-            "Mutt Lange",
-            "Rick Rubin"
-          ],
+          "options": ["Bruce Fairbairn", "Bob Rock", "Mutt Lange", "Rick Rubin"],
           "correctAnswer": "Bruce Fairbairn",
           "trivia": "Bon Jovi的专辑'Slippery When Wet'主要由加拿大制片人Bruce Fairbairn负责制作，他以其清晰且富有冲击力的摇滚制作风格闻名。Fairbairn在录制过程中帮助乐队塑造了更商业化且流行的声音，这也成为专辑成功的重要因素。之前，Bon Jovi与Mutt Lange合作过，但这张专辑是他们首次与Fairbairn合作。该专辑的制作地点主要是在加拿大的Little Mountain Sound Studios完成，该录音室因其高品质的设备和环境而备受摇滚乐队青睐。"
         },
         {
           "question": "在Bon Jovi的1986年专辑'Slippery When Wet'的音响工程制作过程中，哪位制作人负责了专辑的混音工作？",
-          "options": [
-            "Bruce Fairbairn",
-            "Bob Rock",
-            "Mutt Lange",
-            "Rick Rubin"
-          ],
+          "options": ["Bruce Fairbairn", "Bob Rock", "Mutt Lange", "Rick Rubin"],
           "correctAnswer": "Bruce Fairbairn",
           "trivia": "Bruce Fairbairn是1980年代著名的摇滚制作人，他担任了Bon Jovi专辑'Slippery When Wet'的混音工程师和制作人。该专辑的成功部分归功于Fairbairn对音响层次的精心平衡和清晰的混音技术。此外，他在温哥华的Little Mountain声学环境中，利用了先进的录音设备和混音手法，使得专辑的声音既具有商业吸引力又保持了摇滚的原始能量。与此相比，Bob Rock和Mutt Lange虽然也是著名制作人，但他们并未直接参与这张专辑的混音制作。Rick Rubin则以其简约风格闻名，未涉及此专辑。"
         },
@@ -1421,23 +1256,13 @@
       "hard": [
         {
           "question": "在Bon Jovi的1986年专辑'Slippery When Wet'中，哪种乐器的使用为专辑的硬摇滚风格增添了独特的音色，尤其在主打歌《You Give Love a Bad Name》中尤为突出？",
-          "options": [
-            "钢琴",
-            "班卓琴",
-            "口琴",
-            "萨克斯管"
-          ],
+          "options": ["钢琴", "班卓琴", "口琴", "萨克斯管"],
           "correctAnswer": "口琴",
           "trivia": "在Bon Jovi的'Slippery When Wet'专辑中，口琴的使用为专辑的硬摇滚风格增添了独特的层次感。尤其是在热门单曲《You Give Love a Bad Name》中，口琴的旋律为歌曲增添了一种粗犷而富有感染力的氛围。口琴并非摇滚乐中最常见的乐器，但Bon Jovi巧妙地将其融入，丰富了整体声音质感。此外，这种乐器的运用也体现了1980年代摇滚乐对多样化声音探索的趋势，增强了专辑的音乐表现力。"
         },
         {
           "question": "Bon Jovi在创作1986年专辑'Slippery When Wet'时，主唱Jon Bon Jovi的灵感主要来源于哪位艺术家的作品，这位艺术家的音乐风格对专辑的摇滚与流行元素融合起到了关键作用？",
-          "options": [
-            "Bruce Springsteen",
-            "David Bowie",
-            "Aerosmith",
-            "Prince"
-          ],
+          "options": ["Bruce Springsteen", "David Bowie", "Aerosmith", "Prince"],
           "correctAnswer": "Bruce Springsteen",
           "trivia": "Jon Bon Jovi在制作'Slippery When Wet'专辑时，深受Bruce Springsteen音乐的影响，特别是其讲述日常生活与梦想的歌词风格。Springsteen的摇滚与流行元素的结合为Bon Jovi提供了灵感，使他们的音乐既有硬摇滚的力量，也具备流行的亲和力。该专辑中的歌曲如“Livin' on a Prayer”展现了这种风格融合，这也帮助Bon Jovi赢得了更广泛的听众基础。Bruce Springsteen当时已是摇滚界的标杆，Jon Bon Jovi曾公开表示其音乐创作受到Springsteen的启发。"
         },
@@ -1498,34 +1323,19 @@
       "medium": [
         {
           "question": "在Bruce Springsteen录制1984年专辑《Born in the U.S.A.》时，哪位音乐家是E Street Band中首次作为键盘手参与该专辑制作的？",
-          "options": [
-            "Roy Bittan",
-            "Danny Federici",
-            "Garry Tallent",
-            "Max Weinberg"
-          ],
+          "options": ["Roy Bittan", "Danny Federici", "Garry Tallent", "Max Weinberg"],
           "correctAnswer": "Roy Bittan",
           "trivia": "Bruce Springsteen的专辑《Born in the U.S.A.》录制于1982年至1984年间，是E Street Band的经典作品之一。Roy Bittan作为乐队的键盘手，在这张专辑中发挥了重要作用，特别是在钢琴和合成器的演奏上，增强了专辑的音乐层次感。Danny Federici虽然是乐队成员，但主要负责手风琴和风琴，而Garry Tallent和Max Weinberg分别是贝斯和鼓手。该专辑的制作强调了乐队成员的协作，Roy Bittan的键盘贡献为许多歌曲增添了丰富的质感。"
         },
         {
           "question": "在Bruce Springsteen的专辑《Born in the U.S.A.》发行后，哪首歌曲在美国主流电台的播放频率最高，成为该专辑最受欢迎的电台单曲之一？",
-          "options": [
-            "Born in the U.S.A.",
-            "Dancing in the Dark",
-            "Glory Days",
-            "I'm on Fire"
-          ],
+          "options": ["Born in the U.S.A.", "Dancing in the Dark", "Glory Days", "I'm on Fire"],
           "correctAnswer": "Dancing in the Dark",
           "trivia": "《Born in the U.S.A.》专辑于1984年发行，其中《Dancing in the Dark》成为Bruce Springsteen最具代表性的电台热门单曲。该曲不仅在美国Billboard Hot 100排行榜上达到第二名，还因其朗朗上口的旋律和富有感染力的节奏，在当时获得了极高的电台播放频率。相比之下，虽然《Born in the U.S.A.》和《Glory Days》也获得了广泛的播放，但《Dancing in the Dark》凭借其流行元素，成为电台播放最频繁的歌曲。此外，这首歌帮助专辑总体销售达到了数千万张，巩固了Bruce Springsteen在80年代摇滚乐坛的地位。"
         },
         {
           "question": "Bruce Springsteen的专辑《Born in the U.S.A.》在1984年首次数字发行时，以下哪种数字音频格式是最早被广泛采用的？",
-          "options": [
-            "CD（紧凑盘）",
-            "MP3格式",
-            "数字音频磁带（DAT）",
-            "激光唱片（LaserDisc）"
-          ],
+          "options": ["CD（紧凑盘）", "MP3格式", "数字音频磁带（DAT）", "激光唱片（LaserDisc）"],
           "correctAnswer": "CD（紧凑盘）",
           "trivia": "Bruce Springsteen的《Born in the U.S.A.》专辑于1984年发行，正值CD格式开始在市场上普及。作为当时最主流的数字音频载体，CD为专辑提供了更高质量的音频体验，相比传统的黑胶唱片和磁带更耐用且便于携带。MP3格式直到1990年代末才成为主流数字发行格式，而数字音频磁带和激光唱片主要用于专业或视频领域，未广泛用于音乐发行。因此，《Born in the U.S.A.》的数字发行最早是通过CD实现的，这也推动了数字音乐的普及。"
         }
@@ -1533,23 +1343,13 @@
       "hard": [
         {
           "question": "在Bruce Springsteen的1984年专辑《Born in the U.S.A.》的制作过程中，哪位制作人主要负责与Springsteen合作，帮助塑造了专辑独特的声音风格？",
-          "options": [
-            "Jon Landau",
-            "Quincy Jones",
-            "Rick Rubin",
-            "Phil Spector"
-          ],
+          "options": ["Jon Landau", "Quincy Jones", "Rick Rubin", "Phil Spector"],
           "correctAnswer": "Jon Landau",
           "trivia": "《Born in the U.S.A.》专辑的制作过程中，Jon Landau作为主要制作人，与Bruce Springsteen紧密合作，帮助打造了专辑标志性的强烈摇滚和合成器音效。Landau自1970年代末以来一直是Springsteen的重要合作伙伴，对其音乐方向和录音细节有深刻影响。专辑录制于纽约的The Power Station录音室，Landau的制作风格强调清晰且丰满的音质，这也使得《Born in the U.S.A.》成为Springsteen最商业成功的作品之一。其他选项如Quincy Jones、Rick Rubin和Phil Spector虽然都是著名制作人，但并未参与该专辑的制作。"
         },
         {
           "question": "Bruce Springsteen的1984年专辑《Born in the U.S.A.》封面设计中，他身穿蓝色牛仔裤、白色T恤，手持什么物品，象征着美国工人阶级的精神？",
-          "options": [
-            "一只红色棒球棒",
-            "一顶工人安全帽",
-            "一把电动工具电钻",
-            "一面美国国旗"
-          ],
+          "options": ["一只红色棒球棒", "一顶工人安全帽", "一把电动工具电钻", "一面美国国旗"],
           "correctAnswer": "一只红色棒球棒",
           "trivia": "《Born in the U.S.A.》的专辑封面由摄影师Annie Leibovitz拍摄，Bruce Springsteen身穿简单的白色T恤和蓝色牛仔裤，手持一只醒目的红色棒球棒。这一形象象征着普通美国工人的坚韧与力量，呼应专辑中对美国蓝领阶层生活的关注。封面设计简洁而富有力量感，成为80年代最具代表性的摇滚专辑封面之一。棒球棒作为美国文化的象征，与专辑标题共同传递出强烈的民族身份感。"
         },
@@ -1575,12 +1375,7 @@
       "easy": [
         {
           "question": "Bryan Adams的1984年专辑'Reckless'中哪首歌曲最先在全球电台获得广泛播放，成为电台热门单曲？",
-          "options": [
-            "Run to You",
-            "Summer of '69",
-            "Heaven",
-            "Somebody"
-          ],
+          "options": ["Run to You", "Summer of '69", "Heaven", "Somebody"],
           "correctAnswer": "Run to You",
           "trivia": "Bryan Adams的'Reckless'专辑发行于1984年，其中《Run to You》是首支主打单曲，迅速在全球电台获得大量播放，成为热门曲目。这首歌因其鲜明的摇滚风格和朗朗上口的旋律而广受欢迎，帮助专辑在排行榜上取得成功。《Summer of '69》和《Heaven》虽然同样是该专辑的知名单曲，但它们是在《Run to You》之后陆续成为电台热播曲。电台的积极播放对'Reckless'专辑的商业成功起到了关键作用。"
         },
@@ -1610,12 +1405,7 @@
       "medium": [
         {
           "question": "Bryan Adams在1984年发行的专辑'Reckless'中，以下哪支单曲的音乐录影带因其在拍摄风格上采用了大量黑白画面而广受关注？",
-          "options": [
-            "《Run to You》",
-            "《Somebody》",
-            "《Heaven》",
-            "《Summer of '69》"
-          ],
+          "options": ["《Run to You》", "《Somebody》", "《Heaven》", "《Summer of '69》"],
           "correctAnswer": "《Run to You》",
           "trivia": "《Run to You》是Bryan Adams在1984年专辑'Reckless'中的重要单曲，这首歌的音乐录影带以黑白画面为主，营造出强烈的视觉冲击力。导演采用了大量快速剪辑和舞台表演镜头，强化了歌曲的摇滚氛围。相比之下，其他单曲如《Summer of '69》的MV则使用了彩色画面，表现出怀旧和青春的主题。此黑白风格使《Run to You》的视觉内容在当时的MTV播放中脱颖而出，成为Bryan Adams经典视觉形象的一部分。"
         },
@@ -1687,12 +1477,7 @@
       "easy": [
         {
           "question": "在Chicago乐队1984年发行的专辑《Chicago 17》中，哪首歌曲的歌词主要表达了对失去爱情后重新获得信心的主题？",
-          "options": [
-            "Hard Habit to Break",
-            "Stay the Night",
-            "Chicago at Night",
-            "Only You"
-          ],
+          "options": ["Hard Habit to Break", "Stay the Night", "Chicago at Night", "Only You"],
           "correctAnswer": "Hard Habit to Break",
           "trivia": "《Chicago 17》是Chicago乐队在1984年推出的专辑，其中《Hard Habit to Break》是一首著名的抒情摇滚歌，歌词讲述了一个人在结束一段感情后，虽然难以释怀，但最终重新找回自信和希望的故事。这首歌成为该专辑中最成功的单曲之一，并在当年获得了格莱美奖的提名。Chicago乐队以其复杂的管弦乐编排和深情的歌词闻名，《Hard Habit to Break》正体现了他们在情感表达上的成熟与细腻。"
         },
@@ -1810,12 +1595,7 @@
         },
         {
           "question": "Crowded House乐队1986年发行的首张同名专辑《Crowded House》在数字发行平台上首次上线的年份是哪一年？",
-          "options": [
-            "2005年",
-            "1986年",
-            "2010年",
-            "1998年"
-          ],
+          "options": ["2005年", "1986年", "2010年", "1998年"],
           "correctAnswer": "2005年",
           "trivia": "虽然《Crowded House》专辑在1986年首次发行于实体唱片和磁带，但随着数字音乐的兴起，这张专辑首次在数字发行平台上线是在2005年。此举使得这张经典专辑更容易被新一代听众发现和收藏。数字发行的上线时间通常晚于实体版本发行，这也是许多80年代专辑数字化的常见趋势。Crowded House的这张同名专辑包含了乐队最著名的单曲《Don't Dream It's Over》，其数字发行进一步巩固了专辑在现代音乐市场的影响力。"
         },
@@ -1845,12 +1625,7 @@
         },
         {
           "question": "Crowded House在1986年录制其同名专辑《Crowded House》时，谁担任了该专辑的主要录音工程师？",
-          "options": [
-            "Mitchell Froom",
-            "Tchad Blake",
-            "Nick Launay",
-            "Mark Opitz"
-          ],
+          "options": ["Mitchell Froom", "Tchad Blake", "Nick Launay", "Mark Opitz"],
           "correctAnswer": "Tchad Blake",
           "trivia": "Crowded House的首张专辑《Crowded House》于1986年录制时，主要录音工程师是Tchad Blake，他以其独特的现场录音技术和创新的音响处理闻名。Mitchell Froom不仅担任制作人，还带来了独特的音乐编排，但并非工程师。Nick Launay和Mark Opitz则是同时代较为知名的录音工程师，曾与其他澳大利亚及新西兰乐队合作。Tchad Blake的参与为专辑带来了清晰而富有质感的声音特色，使这张专辑在音响工程上获得了高度评价。"
         },
@@ -1946,12 +1721,7 @@
       "medium": [
         {
           "question": "在Culture Club的1983年专辑《Colour by Numbers》的制作过程中，哪位制作人负责了专辑的大部分制作工作？",
-          "options": [
-            "Steve Levine",
-            "Trevor Horn",
-            "Quincy Jones",
-            "Brian Eno"
-          ],
+          "options": ["Steve Levine", "Trevor Horn", "Quincy Jones", "Brian Eno"],
           "correctAnswer": "Steve Levine",
           "trivia": "《Colour by Numbers》是Culture Club于1983年发行的第二张录音室专辑，由英国制作人Steve Levine担任主要制作人。Levine以其在80年代流行音乐制作中的影响力闻名，他也曾与其他知名乐队合作，如Culture Club的同时代乐队The Beach Boys。专辑的成功部分归功于Levine对合成器和传统乐器的巧妙结合，使得专辑在商业和艺术上都取得了成功。此外，Trevor Horn、Quincy Jones和Brian Eno虽然都是著名制作人，但并未参与该专辑的制作。"
         },
@@ -2003,12 +1773,7 @@
         },
         {
           "question": "在Culture Club的1983年专辑《Colour by Numbers》中，哪种乐器的使用最显著地体现了该专辑独特的音乐元素，尤其融合了新浪潮和雷鬼风格？",
-          "options": [
-            "萨克斯风",
-            "合成器",
-            "班卓琴",
-            "小提琴"
-          ],
+          "options": ["萨克斯风", "合成器", "班卓琴", "小提琴"],
           "correctAnswer": "合成器",
           "trivia": "《Colour by Numbers》是Culture Club在1983年发行的代表作，专辑融合了多种音乐风格，其中合成器的使用尤为突出，体现了当时新浪潮音乐的典型元素。合成器为专辑增添了丰富的电子音色，与雷鬼和流行元素相结合，形成了独特的声音特色。乐队成员和制作团队巧妙地利用合成器来加强旋律和氛围，使得专辑在当时的流行音乐中脱颖而出。相比之下，萨克斯风、小提琴和班卓琴虽然在其他作品中出现，但并非该专辑的主要音乐元素。"
         }
@@ -2045,12 +1810,7 @@
         },
         {
           "question": "在录制Cyndi Lauper的1983年专辑《She's So Unusual》时，哪位制作人负责整体制作工作？",
-          "options": [
-            "Rick Chertoff",
-            "Quincy Jones",
-            "Phil Spector",
-            "T Bone Burnett"
-          ],
+          "options": ["Rick Chertoff", "Quincy Jones", "Phil Spector", "T Bone Burnett"],
           "correctAnswer": "Rick Chertoff",
           "trivia": "Rick Chertoff是1983年Cyndi Lauper专辑《She's So Unusual》的主要制作人，他在专辑制作中扮演了关键角色，帮助塑造了专辑独特的声音。Chertoff此前曾与多位艺术家合作，拥有丰富的录音室经验，这对于《She's So Unusual》的成功至关重要。此外，这张专辑的录音过程在纽约多个知名录音棚完成，通过Chertoff的指导，Lauper的多样化风格得以完美展现。"
         }
@@ -2069,23 +1829,13 @@
         },
         {
           "question": "Cyndi Lauper的专辑'She's So Unusual'在格莱美奖中获得了哪项重要提名？",
-          "options": [
-            "最佳新人奖",
-            "年度专辑奖",
-            "最佳摇滚演唱专辑奖",
-            "最佳流行女歌手奖"
-          ],
+          "options": ["最佳新人奖", "年度专辑奖", "最佳摇滚演唱专辑奖", "最佳流行女歌手奖"],
           "correctAnswer": "最佳新人奖",
           "trivia": "Cyndi Lauper的首张专辑'She's So Unusual'于1983年发行后，立即获得了广泛关注和好评。她凭借这张专辑获得了1985年格莱美奖的最佳新人奖提名，这一奖项旨在表彰当年表现突出的新兴艺术家。该专辑中的单曲《Girls Just Want to Have Fun》成为她的代表作，同时也提升了她在流行音乐界的地位。虽然'She's So Unusual'没有赢得年度专辑奖，但它的成功为Cyndi Lauper赢得了多项奖项和认可，奠定了她作为80年代流行偶像的地位。"
         },
         {
           "question": "在Cyndi Lauper的1983年专辑'She's So Unusual'的词曲创作过程中，哪位音乐人对专辑中多首歌曲的共同创作起到了关键作用？",
-          "options": [
-            "Rick Chertoff",
-            "Billy Steinberg",
-            "David Bowie",
-            "Quincy Jones"
-          ],
+          "options": ["Rick Chertoff", "Billy Steinberg", "David Bowie", "Quincy Jones"],
           "correctAnswer": "Billy Steinberg",
           "trivia": "Billy Steinberg是Cyndi Lauper在'She's So Unusual'专辑词曲创作过程中的重要合作伙伴。他和Lauper共同创作了专辑中的多首知名歌曲，包括标志性的单曲《Girls Just Want to Have Fun》和《Time After Time》。Rick Chertoff则担任了该专辑的制作人，但并非词曲创作者。David Bowie和Quincy Jones虽然是著名音乐人，但并未参与这张专辑的词曲写作。Billy Steinberg的参与为专辑带来了鲜明的流行摇滚风格，极大地推动了Cyndi Lauper的音乐事业。"
         }
@@ -2115,12 +1865,7 @@
         },
         {
           "question": "Cyndi Lauper的1983年专辑'She's So Unusual'是由哪家唱片公司首次发行的？",
-          "options": [
-            "Epic Records",
-            "Columbia Records",
-            "Arista Records",
-            "Warner Bros. Records"
-          ],
+          "options": ["Epic Records", "Columbia Records", "Arista Records", "Warner Bros. Records"],
           "correctAnswer": "Epic Records",
           "trivia": "Cyndi Lauper的首张个人专辑'She's So Unusual'于1983年由Epic Records发行，这是一家隶属于CBS唱片集团的知名唱片公司。Epic Records在当时以推出多样化的音乐风格而闻名，帮助Lauper在流行和摇滚市场迅速走红。该专辑的成功也巩固了Epic Records在80年代流行音乐领域的地位。其他选项如Columbia Records和Arista Records虽然在同一时期活跃，但并非该专辑的发行商。Warner Bros. Records则是另一家大型唱片公司，曾签约许多著名艺人，但与Cyndi Lauper的'She's So Unusual'无直接关联。"
         }
@@ -2135,12 +1880,7 @@
       "easy": [
         {
           "question": "1982年Daryl Hall发行的专辑《H2O》中，哪首单曲成为了他的个人代表作并在美国Billboard Hot 100排行榜上取得了高位？",
-          "options": [
-            "《Maneater》",
-            "《Family Man》",
-            "《Dreamtime》",
-            "《Foolish Pride》"
-          ],
+          "options": ["《Maneater》", "《Family Man》", "《Dreamtime》", "《Foolish Pride》"],
           "correctAnswer": "《Maneater》",
           "trivia": "Daryl Hall于1982年发行的专辑《H2O》中，单曲《Maneater》成为他的个人代表作，并且成功登上了美国Billboard Hot 100排行榜的第1名。《Maneater》以其独特的流行摇滚风格和朗朗上口的旋律，成为了1980年代的重要音乐作品。此外，专辑《H2O》也是Daryl Hall在Hall & Oates之外取得商业成功的重要里程碑，进一步巩固了他作为独唱艺术家的地位。"
         },
@@ -2181,12 +1921,7 @@
         },
         {
           "question": "Daryl Hall的专辑'H2O'中哪一首歌曲在美国主流电台播放中达到了最高的榜单位置？",
-          "options": [
-            "《One on One》",
-            "《Family Man》",
-            "《Maneater》",
-            "《Someone Like You》"
-          ],
+          "options": ["《One on One》", "《Family Man》", "《Maneater》", "《Someone Like You》"],
           "correctAnswer": "《Maneater》",
           "trivia": "《Maneater》是Daryl Hall在1982年发行的专辑'H2O'中的主打单曲，这首歌在美国主流电台获得了极高的播放量。它不仅成为专辑最受欢迎的曲目，还在Billboard Hot 100排行榜中攀升至第一位，标志着Hall & Oates音乐生涯中的重要里程碑。相比之下，虽然《One on One》、《Family Man》和《Someone Like You》也获得了一定的电台关注，但都未能达到《Maneater》的播放和排名高度。《Maneater》的成功体现了1980年代早期流行音乐与新浪潮元素的结合，增强了专辑'H2O'的电台影响力。"
         },
@@ -2269,12 +2004,7 @@
         },
         {
           "question": "De La Soul在创作1989年专辑《3 Feet High and Rising》时，哪位成员主要负责制作和采样，塑造了专辑独特的声音风格？",
-          "options": [
-            "Prince Paul",
-            "DJ Premier",
-            "Q-Tip",
-            "Rick Rubin"
-          ],
+          "options": ["Prince Paul", "DJ Premier", "Q-Tip", "Rick Rubin"],
           "correctAnswer": "Prince Paul",
           "trivia": "《3 Feet High and Rising》是De La Soul的首张专辑，由制作人Prince Paul主导制作。Prince Paul以其创新的采样技术和幽默感为专辑注入了独特的风格，使其成为90年代早期嘻哈音乐的经典。专辑中大量使用多样的采样和非传统的音效，展现了他在词曲创作和制作上的独到见解。Prince Paul的贡献被认为是该专辑成功的重要因素之一。"
         }
@@ -2293,12 +2023,7 @@
         },
         {
           "question": "De La Soul的专辑《3 Feet High and Rising》中，哪首歌曲最初因电台播放而帮助该专辑在主流市场获得关注？",
-          "options": [
-            "Me Myself and I",
-            "Say No Go",
-            "Eye Know",
-            "Buddy"
-          ],
+          "options": ["Me Myself and I", "Say No Go", "Eye Know", "Buddy"],
           "correctAnswer": "Me Myself and I",
           "trivia": "《3 Feet High and Rising》是De La Soul于1989年发行的经典专辑，其中单曲《Me Myself and I》因其独特的采样和轻松愉快的节奏，在当时的电台频繁播放，成功引起了主流听众的注意。这首歌成为他们的代表作之一，也是该专辑商业突破的重要推动力。相比之下，其他曲目如《Say No Go》和《Eye Know》虽然也受到好评，但在电台播放量和知名度上均不及《Me Myself and I》。此外，这首歌在Billboard Hot 100排行榜中也取得了不错的成绩，进一步证明了其通过电台传播的影响力。"
         },
@@ -2405,12 +2130,7 @@
         },
         {
           "question": "Debbie Gibson的专辑《Out of the Blue》在1988年美国Billboard 200排行榜上的最高排名是多少？",
-          "options": [
-            "第7名",
-            "第1名",
-            "第15名",
-            "第25名"
-          ],
+          "options": ["第7名", "第1名", "第15名", "第25名"],
           "correctAnswer": "第7名",
           "trivia": "Debbie Gibson的《Out of the Blue》是她1987年发行的第二张录音室专辑，这张专辑在1988年达到了美国Billboard 200排行榜的第7名。这一成绩标志着她作为青少年流行音乐偶像的崛起，专辑中包含了多首热门单曲，如“Shake Your Love”和“Foolish Beat”，都在Billboard Hot 100取得了优异的表现。该专辑的成功不仅巩固了她在80年代末流行音乐界的地位，也使她成为当时最年轻的全方位创作和制作艺人之一。"
         },
@@ -2429,12 +2149,7 @@
       "hard": [
         {
           "question": "Debbie Gibson的1987年专辑'Out of the Blue'最初是由哪家唱片公司发行的？",
-          "options": [
-            "Atlantic Records",
-            "Elektra Records",
-            "Chrysalis Records",
-            "MCA Records"
-          ],
+          "options": ["Atlantic Records", "Elektra Records", "Chrysalis Records", "MCA Records"],
           "correctAnswer": "Chrysalis Records",
           "trivia": "1987年，Debbie Gibson发行了她的首张录音室专辑'Out of the Blue'，该专辑由Chrysalis Records发行。Chrysalis Records是当时一个知名的独立唱片公司，签约了多位流行及摇滚艺人。该唱片公司的支持帮助Debbie Gibson在全球范围内推广她的音乐，专辑内的单曲如\"Only in My Dreams\"和\"Shake Your Love\"均取得了商业成功。此外，Chrysalis Records在80年代中期至90年代初期在流行音乐领域具有显著影响力，这为Debbie Gibson的职业生涯奠定了坚实基础。"
         },
@@ -2493,12 +2208,7 @@
         },
         {
           "question": "Def Leppard的专辑《Hysteria》在1987年发布后，哪首单曲最先成为美国Billboard Hot 100排行榜上的热门单曲？",
-          "options": [
-            "Pour Some Sugar on Me",
-            "Animal",
-            "Love Bites",
-            "Rocket"
-          ],
+          "options": ["Pour Some Sugar on Me", "Animal", "Love Bites", "Rocket"],
           "correctAnswer": "Animal",
           "trivia": "《Hysteria》是Def Leppard于1987年发布的重要专辑，标志着他们商业上的巨大成功。专辑中的单曲《Animal》是该专辑在美国Billboard Hot 100排行榜中首支进入前40名的歌曲，帮助乐队打入主流市场。随后，《Pour Some Sugar on Me》和《Love Bites》等单曲也获得了极大成功，其中《Love Bites》甚至登顶了Billboard Hot 100榜首。《Hysteria》专辑融合了硬摇滚与流行元素，使其成为1980年代最具代表性的摇滚专辑之一。"
         }
@@ -2605,12 +2315,7 @@
         },
         {
           "question": "关于Depeche Mode 1987年专辑'Music for the Masses'，哪首歌曲最先在电台获得广泛播放，成为该专辑的代表单曲？",
-          "options": [
-            "Never Let Me Down Again",
-            "Behind the Wheel",
-            "Strangelove",
-            "Little 15"
-          ],
+          "options": ["Never Let Me Down Again", "Behind the Wheel", "Strangelove", "Little 15"],
           "correctAnswer": "Strangelove",
           "trivia": "Depeche Mode的'Music for the Masses'专辑于1987年发布，其中《Strangelove》是该专辑中最早被电台大量播放的单曲，迅速成为乐队的重要代表作。该曲在英国单曲榜取得了不错的成绩，也帮助扩大了Depeche Mode在欧美地区的影响力。与此同时，《Never Let Me Down Again》和《Behind the Wheel》也获得了电台的关注，但《Strangelove》首发的成功为专辑整体的推广奠定了基础。该专辑的电台播放推动了Depeche Mode从地下电子乐队向主流乐坛的转变，体现了80年代末电子音乐的流行趋势。"
         }
@@ -2629,12 +2334,7 @@
         },
         {
           "question": "Depeche Mode的专辑'Music for the Masses'首次在英国专辑排行榜中达到了什么最高排名？",
-          "options": [
-            "第10名",
-            "第15名",
-            "第5名",
-            "第20名"
-          ],
+          "options": ["第10名", "第15名", "第5名", "第20名"],
           "correctAnswer": "第15名",
           "trivia": "Depeche Mode于1987年发行的专辑'Music for the Masses'在英国专辑排行榜上达到了第15名的最高位置，这标志着乐队在英国主流市场的稳步上升。该专辑包含多首受欢迎的曲目，如\"Never Let Me Down Again\"和\"Strangelove\"。虽然专辑未能突破前十，但它在美国市场表现更为突出，首次进入Billboard 200排行榜并获得了广泛认可。此专辑的成功为Depeche Mode后续作品奠定了坚实的商业基础，尤其是之后的《Violator》专辑。"
         },
@@ -2664,12 +2364,7 @@
         },
         {
           "question": "在数字发行领域，Depeche Mode的专辑'Music for the Masses'于1987年首次以哪种数字格式正式发布？",
-          "options": [
-            "CD（光盘）",
-            "MiniDisc",
-            "数字音频磁带（DAT）",
-            "数字下载（MP3格式）"
-          ],
+          "options": ["CD（光盘）", "MiniDisc", "数字音频磁带（DAT）", "数字下载（MP3格式）"],
           "correctAnswer": "CD（光盘）",
           "trivia": "Depeche Mode的专辑'Music for the Masses'最初于1987年发行时，主要通过模拟黑胶和磁带销售，但其数字发行首次采用的是CD格式，这在当时是音乐数字化的重要里程碑。虽然MiniDisc和数字音频磁带（DAT）技术在80年代后期和90年代初开始出现，但'Music for the Masses'并未在这些格式上首发。数字下载（MP3）则是在1990年代末和2000年代初才普及，因此不可能作为1987年该专辑的首次数字发行形式。CD的普及促进了该专辑音质的提升和更广泛的国际发行。"
         },
@@ -2695,34 +2390,19 @@
       "easy": [
         {
           "question": "Dire Straits的专辑《Brothers in Arms》在全球范围内引起了广泛的粉丝反响，其中哪首歌曲因其深刻的反战主题和广泛的流行文化影响而成为该专辑的代表作？",
-          "options": [
-            "Money for Nothing",
-            "Walk of Life",
-            "Brothers in Arms",
-            "So Far Away"
-          ],
+          "options": ["Money for Nothing", "Walk of Life", "Brothers in Arms", "So Far Away"],
           "correctAnswer": "Brothers in Arms",
           "trivia": "《Brothers in Arms》是Dire Straits在1985年发布的专辑，主打歌曲《Brothers in Arms》以其反战的主题和感人的歌词在全球范围内引发了强烈共鸣。这首歌不仅在多个国家的音乐排行榜上取得优异成绩，还被广泛用于电影和纪录片中，增强了公众对战争题材的关注。该曲的影响力使其成为专辑的标志性作品，与此同时，《Money for Nothing》和《Walk of Life》虽然也十分流行，但更多侧重于社会和生活主题。整体而言，《Brothers in Arms》这首歌象征了专辑的核心精神和文化影响力。"
         },
         {
           "question": "Dire Straits的专辑《Brothers in Arms》中，哪首歌曲以其标志性的电吉他独奏而闻名？",
-          "options": [
-            "Money for Nothing",
-            "Walk of Life",
-            "So Far Away",
-            "Your Latest Trick"
-          ],
+          "options": ["Money for Nothing", "Walk of Life", "So Far Away", "Your Latest Trick"],
           "correctAnswer": "Money for Nothing",
           "trivia": "《Brothers in Arms》是Dire Straits于1985年发行的经典专辑，其中《Money for Nothing》以其开头标志性的电吉他riff和吉他独奏而广受欢迎。这首歌在当时凭借MTV的音乐视频获得巨大成功，并且成为Dire Straits最著名的作品之一。专辑整体融合了摇滚与流行元素，技术上采用了数字录音技术，使得音质清晰且富有层次。《Money for Nothing》也曾登上多国排行榜的前列，进一步巩固了这张专辑的历史地位。"
         },
         {
           "question": "关于Dire Straits的专辑《Brothers in Arms》（1985年），哪首歌曲成为该专辑最著名的单曲并在全球排行榜上取得巨大成功？",
-          "options": [
-            "Money for Nothing",
-            "Walk of Life",
-            "So Far Away",
-            "Your Latest Trick"
-          ],
+          "options": ["Money for Nothing", "Walk of Life", "So Far Away", "Your Latest Trick"],
           "correctAnswer": "Money for Nothing",
           "trivia": "《Brothers in Arms》是Dire Straits于1985年发行的经典专辑，其中《Money for Nothing》成为该专辑的主打单曲，凭借其标志性的吉他riff和对MTV音乐视频的创新使用，迅速占领全球排行榜。该曲在美国Billboard Hot 100排行榜上最高排名第二，同时也在英国单曲榜获得了极高的排名。此外，《Brothers in Arms》专辑是最早完全采用数字录音技术制作的摇滚专辑之一，这也使其在音质上获得了极高评价。"
         }
@@ -2730,34 +2410,19 @@
       "medium": [
         {
           "question": "Dire Straits在录制1985年专辑'Brothers in Arms'时，哪位著名吉他制造商为马克·诺弗勒提供了关键的电吉他？",
-          "options": [
-            "Gibson",
-            "Fender",
-            "Martin",
-            "Yamaha"
-          ],
+          "options": ["Gibson", "Fender", "Martin", "Yamaha"],
           "correctAnswer": "Fender",
           "trivia": "在制作'Brothers in Arms'专辑期间，Dire Straits的主唱兼吉他手马克·诺弗勒主要使用了Fender Stratocaster电吉他，这把吉他成为专辑标志性的音色来源。Fender Stratocaster以其明亮清晰的音质，完美契合了诺弗勒精细的指弹风格。值得注意的是，专辑录制采用了当时最先进的数字录音技术，使得吉他音色更加纯净。由此，'Brothers in Arms'成为了1980年代最具代表性的摇滚作品之一。"
         },
         {
           "question": "Dire Straits的专辑《Brothers in Arms》（1985年）是由哪家唱片公司首次发行的？",
-          "options": [
-            "Vertigo Records",
-            "Island Records",
-            "EMI Records",
-            "Warner Bros. Records"
-          ],
+          "options": ["Vertigo Records", "Island Records", "EMI Records", "Warner Bros. Records"],
           "correctAnswer": "Vertigo Records",
           "trivia": "《Brothers in Arms》是Dire Straits于1985年发布的里程碑式专辑，该专辑首次由Vertigo Records发行，尤其在欧洲市场。Vertigo Records是一个以发行摇滚和前卫音乐著称的唱片品牌，隶属于英国的Phonogram集团。尽管Dire Straits在美国市场也通过Warner Bros. Records发行了该专辑，但最早及主要的发行方是Vertigo。该专辑得益于唱片公司的支持，成为了1980年代最畅销的摇滚专辑之一，全球销量超过3000万张。"
         },
         {
           "question": "Dire Straits在1985年发行的专辑《Brothers in Arms》推出后，乐队为支持该专辑曾选择在哪个著名场地举办了巡回演唱会的开场演出？",
-          "options": [
-            "伦敦威斯敏斯特教堂",
-            "伦敦哈罗德剧院",
-            "伦敦汉普顿宫",
-            "伦敦威尔顿音乐厅"
-          ],
+          "options": ["伦敦威斯敏斯特教堂", "伦敦哈罗德剧院", "伦敦汉普顿宫", "伦敦威尔顿音乐厅"],
           "correctAnswer": "伦敦汉普顿宫",
           "trivia": "Dire Straits为推广1985年发行的专辑《Brothers in Arms》，选择了伦敦汉普顿宫作为其巡回演唱会的开场场地。汉普顿宫是一座历史悠久的皇家宫殿，作为演唱会场地，它为乐队营造了独特的现场氛围。此次演唱会不仅提升了专辑的知名度，也体现了80年代中期摇滚乐队在选择非传统演出场地上的创新尝试。此外，汉普顿宫的户外环境给予了《Brothers in Arms》巡演一种别具一格的视觉和听觉体验。"
         }
@@ -2787,12 +2452,7 @@
         },
         {
           "question": "在1985年Dire Straits发行的专辑《Brothers in Arms》发布后，哪首歌曲因其在电台播放中的频繁使用而成为当时最具代表性的单曲？",
-          "options": [
-            "Money for Nothing",
-            "Walk of Life",
-            "So Far Away",
-            "Your Latest Trick"
-          ],
+          "options": ["Money for Nothing", "Walk of Life", "So Far Away", "Your Latest Trick"],
           "correctAnswer": "Money for Nothing",
           "trivia": "《Brothers in Arms》是Dire Straits于1985年发行的标志性专辑，其中《Money for Nothing》因其独特的吉他riff和反映音乐产业内幕的歌词，在全球电台中频繁播放，成为专辑的代表作。这首歌不仅获得了巨大的商业成功，还赢得了格莱美奖，进一步提升了Dire Straits的国际声誉。与此同时，专辑中的其他单曲如《Walk of Life》和《So Far Away》也受到了电台的关注，但《Money for Nothing》的电台播放量和影响力尤为突出，体现了80年代摇滚音乐在主流媒体中的重要地位。"
         }
@@ -2829,12 +2489,7 @@
         },
         {
           "question": "在Don Henley的1984年专辑《Building the Perfect Beast》的制作过程中，哪位音乐人以键盘演奏者的身份参与了录制？",
-          "options": [
-            "Benmont Tench",
-            "Stevie Nicks",
-            "Mark Knopfler",
-            "David Gilmour"
-          ],
+          "options": ["Benmont Tench", "Stevie Nicks", "Mark Knopfler", "David Gilmour"],
           "correctAnswer": "Benmont Tench",
           "trivia": "Benmont Tench是著名的键盘手，曾长期与Tom Petty and the Heartbreakers合作，他在Don Henley的1984年专辑《Building the Perfect Beast》中贡献了键盘演奏。该专辑融合了摇滚和流行元素，Benmont Tench的键盘为专辑增添了丰富的音色层次。Stevie Nicks作为歌手曾与Don Henley合作过，但并未参与该专辑的键盘制作。Mark Knopfler和David Gilmour都是吉他手，未在此专辑中担任键盘角色。"
         }
@@ -2853,12 +2508,7 @@
         },
         {
           "question": "Don Henley在录制1984年专辑'Building the Perfect Beast'时，哪位著名音乐人作为和声歌手参与了该专辑的制作？",
-          "options": [
-            "Glenn Frey",
-            "Stevie Nicks",
-            "Bruce Springsteen",
-            "Phil Collins"
-          ],
+          "options": ["Glenn Frey", "Stevie Nicks", "Bruce Springsteen", "Phil Collins"],
           "correctAnswer": "Glenn Frey",
           "trivia": "在Don Henley的1984年专辑'Building the Perfect Beast'中，Eagles乐队成员Glenn Frey作为和声歌手参与了部分歌曲的录制，这体现了他们之间持续的音乐合作关系。专辑的制作聚集了多位杰出音乐人，增强了作品的层次感和丰富度。Glenn Frey不仅是Eagles的核心成员，还在Don Henley的个人项目中多次贡献了和声支持。此专辑因其细腻的制作和深刻的歌词受到广泛赞誉，成为Henley职业生涯的重要里程碑。"
         },
@@ -2930,23 +2580,13 @@
         },
         {
           "question": "在Duran Duran的1982年专辑《Rio》中，哪位成员主要负责键盘演奏？",
-          "options": [
-            "Nick Rhodes",
-            "John Taylor",
-            "Simon Le Bon",
-            "Roger Taylor"
-          ],
+          "options": ["Nick Rhodes", "John Taylor", "Simon Le Bon", "Roger Taylor"],
           "correctAnswer": "Nick Rhodes",
           "trivia": "Nick Rhodes是Duran Duran乐队的键盘手，他在1982年发行的专辑《Rio》中承担了主要的键盘演奏工作。该专辑融合了新浪潮和流行元素，键盘成为其标志性的声音之一。John Taylor负责贝斯，Simon Le Bon是主唱，Roger Taylor则是鼓手。Nick Rhodes的合成器演奏为《Rio》专辑中的多首经典曲目，如《Hungry Like the Wolf》和《Save a Prayer》，增添了独特的电子氛围。"
         },
         {
           "question": "在Duran Duran1982年发行的专辑《Rio》中，哪首歌曲以其标志性的贝斯线和鼓点成为乐队的代表作之一？",
-          "options": [
-            "Hungry Like the Wolf",
-            "Girls on Film",
-            "Save a Prayer",
-            "The Chauffeur"
-          ],
+          "options": ["Hungry Like the Wolf", "Girls on Film", "Save a Prayer", "The Chauffeur"],
           "correctAnswer": "Hungry Like the Wolf",
           "trivia": "《Rio》是Duran Duran于1982年发行的经典专辑，其中《Hungry Like the Wolf》因其强烈的贝斯线和醒目的鼓点成为乐队的标志性歌曲。这首歌不仅在英国单曲榜上取得了高位，还帮助乐队打入了美国市场，成为他们的突破单曲之一。专辑整体融合了新浪潮和舞曲元素，体现了当时音乐制作的新潮流。\"Hungry Like the Wolf\"的音乐录像带也因其创新的视觉效果获得了MTV的广泛播放，进一步提升了乐队的国际知名度。"
         }
@@ -3000,12 +2640,7 @@
         },
         {
           "question": "在Duran Duran的1982年专辑《Rio》发行后，该专辑在英国专辑排行榜上的最高排名是多少？",
-          "options": [
-            "第3名",
-            "第1名",
-            "第5名",
-            "第10名"
-          ],
+          "options": ["第3名", "第1名", "第5名", "第10名"],
           "correctAnswer": "第3名",
           "trivia": "Duran Duran的《Rio》专辑于1982年发行后，迅速获得了商业成功，在英国专辑排行榜上最高达到第3名的位置。这一成绩标志着该乐队在英国流行音乐界的崛起。专辑中多首单曲如《Hungry Like the Wolf》和《Rio》也在排行榜上表现优异，进一步推动了专辑销量。虽然《Rio》未能登顶英国排行榜，但其国际影响力和长远的音乐影响力使其成为80年代新浪潮和流行音乐的代表作之一。"
         },
@@ -3031,12 +2666,7 @@
       "easy": [
         {
           "question": "Electric Light Orchestra的专辑'Time'（1981年）在英国音乐排行榜上的最高排名是？",
-          "options": [
-            "第24名",
-            "第1名",
-            "第10名",
-            "第50名"
-          ],
+          "options": ["第24名", "第1名", "第10名", "第50名"],
           "correctAnswer": "第24名",
           "trivia": "Electric Light Orchestra的专辑'Time'于1981年发行后，在英国专辑排行榜上最高排名第24位。虽然这张专辑没有达到榜首位置，但它包含的单曲如“Hold On Tight”在多个国家都取得了较好的成绩。'Time'是一张概念专辑，讲述了未来主题，标志着乐队音乐风格的转变。该专辑的商业表现稳健，巩固了Electric Light Orchestra在80年代初的音乐地位。"
         },
@@ -3143,23 +2773,13 @@
       "easy": [
         {
           "question": "Erasure在1988年发行的专辑'The Innocents'是由哪家唱片公司负责发行的？",
-          "options": [
-            "Mute Records",
-            "Factory Records",
-            "Rough Trade Records",
-            "4AD"
-          ],
+          "options": ["Mute Records", "Factory Records", "Rough Trade Records", "4AD"],
           "correctAnswer": "Mute Records",
           "trivia": "Erasure的专辑'The Innocents'于1988年由Mute Records发行，这是一家英国独立唱片公司，成立于1978年，以支持电子和另类音乐闻名。Mute Records同时也发行了Erasure之前与之后多张专辑，成为他们长期合作的唱片公司。此外，'The Innocents'包括了多首热门单曲，如\"A Little Respect\"，这张专辑帮助Erasure在全球电子流行音乐领域确立了重要地位。"
         },
         {
           "question": "Erasure在录制1988年专辑'The Innocents'时，主要使用了哪种合成器作为音乐制作的核心工具？",
-          "options": [
-            "Yamaha DX7",
-            "Roland Jupiter-8",
-            "Moog Minimoog",
-            "Korg M1"
-          ],
+          "options": ["Yamaha DX7", "Roland Jupiter-8", "Moog Minimoog", "Korg M1"],
           "correctAnswer": "Yamaha DX7",
           "trivia": "Erasure的1988年专辑'The Innocents'在制作过程中，核心合成器之一是Yamaha DX7，这款数字合成器以其清晰的FM合成音色而闻名。主唱Andy Bell和键盘手Vince Clarke利用DX7创造了专辑中标志性的合成音色，使得专辑在80年代电子流行音乐中独树一帜。此外，专辑也使用了Roland和其他模拟合成器，但DX7作为数字合成器代表了当时音乐制作的技术趋势，极大地丰富了Erasure的声音质感。The Innocents成为该乐队的商业突破之一，部分原因正是其精细且创新的录音制作手法。"
         },
@@ -3189,12 +2809,7 @@
         },
         {
           "question": "Erasure在1988年发行的专辑'The Innocents'中，哪种合成器是主导其标志性电子音色的关键设备？",
-          "options": [
-            "Yamaha DX7",
-            "Roland Jupiter-8",
-            "Korg M1",
-            "Sequential Circuits Prophet-5"
-          ],
+          "options": ["Yamaha DX7", "Roland Jupiter-8", "Korg M1", "Sequential Circuits Prophet-5"],
           "correctAnswer": "Yamaha DX7",
           "trivia": "Erasure的专辑'The Innocents'于1988年发布，标志着他们电子合成流行风格的成熟。专辑中大量使用了Yamaha DX7合成器，这款数字FM合成器以其独特且清晰的音色成为80年代电子音乐的重要工具。虽然Roland Jupiter-8和Sequential Circuits Prophet-5也是当时流行的模拟合成器，但Erasure在此专辑的制作中更依赖DX7来塑造明快、富有穿透力的声音。Korg M1则在90年代初才流行，未成为本专辑的核心设备。此合成器的使用帮助'The Innocents'赢得了广泛好评，并推动了Erasure在电子流行领域的地位。"
         },
@@ -3213,23 +2828,13 @@
       "hard": [
         {
           "question": "在Erasure的1988年专辑'The Innocents'中，除了主唱Andy Bell和键盘手Vince Clarke，哪位音乐家作为客座鼓手参与了录制？",
-          "options": [
-            "Dave Bascombe",
-            "John Dent",
-            "Julian Mendelsohn",
-            "Andy Anderson"
-          ],
+          "options": ["Dave Bascombe", "John Dent", "Julian Mendelsohn", "Andy Anderson"],
           "correctAnswer": "Andy Anderson",
           "trivia": "Erasure的专辑'The Innocents'主要由Andy Bell担任主唱，Vince Clarke负责键盘和编曲。虽然Dave Bascombe和Julian Mendelsohn都参与了专辑的制作和混音工作，真正参与录制鼓点的客座鼓手是Andy Anderson。Andy Anderson曾为多个知名乐队担任鼓手，带来了专业的现场和录音经验。此外，John Dent是该专辑的母带工程师，并未直接参与演奏。'The Innocents'因此在制作层面融合了多位音乐人的技术与艺术贡献。"
         },
         {
           "question": "在Erasure于1988年发布的专辑《The Innocents》中，哪种合成器是他们主要使用的音乐设备之一，对专辑的电子音色起到了关键作用？",
-          "options": [
-            "Yamaha DX7",
-            "Moog Minimoog",
-            "Roland Juno-106",
-            "Korg MS-20"
-          ],
+          "options": ["Yamaha DX7", "Moog Minimoog", "Roland Juno-106", "Korg MS-20"],
           "correctAnswer": "Yamaha DX7",
           "trivia": "Erasure在制作1988年发行的《The Innocents》专辑时，广泛使用了Yamaha DX7合成器，这款FM合成器以其清晰明亮的电子音色闻名，成为80年代电子音乐的标志性设备。虽然他们也使用了其他合成器如Roland Juno-106，但DX7在塑造专辑独特的音色氛围中发挥了核心作用。该专辑的制作体现了当时合成器技术的先进应用，DX7的数字合成技术为Erasure的音乐增添了丰富的质感和层次感。这种设备的使用不仅影响了《The Innocents》的声音特征，也反映了80年代电子流行音乐的技术趋势。"
         },
@@ -3277,12 +2882,7 @@
         },
         {
           "question": "Eurythmics的专辑'Sweet Dreams (Are Made of This)'于1983年发行时，哪家唱片公司负责该专辑的发行？",
-          "options": [
-            "RCA Records",
-            "Virgin Records",
-            "EMI Records",
-            "Island Records"
-          ],
+          "options": ["RCA Records", "Virgin Records", "EMI Records", "Island Records"],
           "correctAnswer": "RCA Records",
           "trivia": "Eurythmics的经典专辑'Sweet Dreams (Are Made of This)'于1983年通过RCA Records发行。RCA Records是当时许多著名艺术家的唱片公司，负责推广和发行这张获得广泛认可的专辑。该专辑帮助Eurythmics在国际市场上打开知名度，尤其是凭借同名主打歌曲在排行榜上的成功。Virgin Records、EMI和Island Records虽然也是当时的重要唱片公司，但这张专辑并非由他们发行。RCA的发行策略和资源对Eurythmics的早期事业起到了关键作用。"
         }
@@ -3325,12 +2925,7 @@
       "hard": [
         {
           "question": "在Eurythmics于1983年制作专辑'Sweet Dreams (Are Made of This)'时，哪位制作人或音乐人参与了该专辑的录音和制作工作？",
-          "options": [
-            "Conny Plank",
-            "Brian Eno",
-            "Dave Stewart",
-            "Steve Lillywhite"
-          ],
+          "options": ["Conny Plank", "Brian Eno", "Dave Stewart", "Steve Lillywhite"],
           "correctAnswer": "Dave Stewart",
           "trivia": "Eurythmics的专辑'Sweet Dreams (Are Made of This)'由乐队成员Dave Stewart和Annie Lennox共同制作。Dave Stewart不仅是乐队的吉他手和键盘手，还承担了制作人的职责，负责专辑的录音和合成器编排。该专辑的制作采用了当时流行的合成器和电子节拍技术，体现了新波和合成流行音乐的风格。Conny Plank和Steve Lillywhite虽然是著名制作人，但并未参与该专辑制作；Brian Eno也未与Eurythmics合作制作此专辑。Dave Stewart在这张专辑的制作中起到了核心作用，确保了其独特的声音和创新的音乐风格。"
         },
@@ -3459,12 +3054,7 @@
         },
         {
           "question": "在Fine Young Cannibals的1989年专辑《The Raw & the Cooked》的词曲创作过程中，哪位成员主要负责了大部分歌曲的创作和制作？",
-          "options": [
-            "David Steele",
-            "Andy Cox",
-            "Roland Gift",
-            "Paul Heaton"
-          ],
+          "options": ["David Steele", "Andy Cox", "Roland Gift", "Paul Heaton"],
           "correctAnswer": "David Steele",
           "trivia": "Fine Young Cannibals的1989年专辑《The Raw & the Cooked》的词曲创作主要由乐队成员David Steele负责，他不仅参与了歌曲的写作，还承担了制作工作。David Steele和Andy Cox原本是The Beat的成员，他们在Fine Young Cannibals中继续发挥创作才能。Roland Gift作为主唱，虽然在表演上贡献突出，但词曲创作则更多由Steele和Cox完成。Paul Heaton并非Fine Young Cannibals成员，而是另一个英国乐队The Beautiful South的成员，这一点常被混淆。此专辑因其融合了灵魂、摇滚与放克元素而备受赞誉，David Steele的制作功力是其成功的关键之一。"
         }
@@ -3525,23 +3115,13 @@
         },
         {
           "question": "Foreigner在录制1984年专辑《Agent Provocateur》时，哪位知名音乐制作人参与了制作，提升了专辑的整体音质与市场表现？",
-          "options": [
-            "Alex Sadkin",
-            "Mutt Lange",
-            "Bob Clearmountain",
-            "Quincy Jones"
-          ],
+          "options": ["Alex Sadkin", "Mutt Lange", "Bob Clearmountain", "Quincy Jones"],
           "correctAnswer": "Alex Sadkin",
           "trivia": "《Agent Provocateur》是Foreigner于1984年发行的第五张录音室专辑，其制作人是Alex Sadkin。Sadkin以擅长融合摇滚与流行元素闻名，曾与Duran Duran和Grace Jones等艺术家合作。他在这张专辑中的制作使得Foreigner的声音更加精致且具有现代感，尤其体现在主打单曲《I Want to Know What Love Is》中。此外，专辑录制主要在伦敦进行，Sadkin的参与对专辑的市场成功与音质提升起到了关键作用。Bob Clearmountain负责混音，但制作人是Alex Sadkin，而Mutt Lange和Quincy Jones则未参与此专辑制作。"
         },
         {
           "question": "Foreigner的专辑'Agent Provocateur'在美国Billboard 200专辑排行榜上的最高排名是？",
-          "options": [
-            "第1名",
-            "第4名",
-            "第7名",
-            "第10名"
-          ],
+          "options": ["第1名", "第4名", "第7名", "第10名"],
           "correctAnswer": "第4名",
           "trivia": "Foreigner发行于1984年的专辑'Agent Provocateur'在美国Billboard 200排行榜上最高达到了第4名的位置。这张专辑凭借热门单曲\"I Want to Know What Love Is\"取得了巨大的商业成功，单曲本身也成为了乐队的代表作之一。值得注意的是，虽然专辑没有登顶，但其排名仍显示了Foreigner在80年代中期的强劲市场表现。此外，'Agent Provocateur'在英国专辑排行榜的表现相对较弱，最高只达到第23名，显示出不同市场的接受度差异。"
         }
@@ -3571,12 +3151,7 @@
         },
         {
           "question": "Foreigner的1984年专辑《Agent Provocateur》在美国Billboard 200专辑排行榜上的最高排名是多少？",
-          "options": [
-            "第1名",
-            "第4名",
-            "第7名",
-            "第10名"
-          ],
+          "options": ["第1名", "第4名", "第7名", "第10名"],
           "correctAnswer": "第4名",
           "trivia": "Foreigner的《Agent Provocateur》专辑于1984年发布，在美国Billboard 200专辑排行榜上最高达到第4名的成绩，显示了乐队当时强劲的商业影响力。该专辑因包含热门单曲《I Want to Know What Love Is》而广受欢迎，这首歌更是在排行榜上夺得了第一名。尽管专辑没有登顶Billboard 200，但第4名的排名依然证明了其在80年代摇滚乐坛的重要地位。专辑的成功也帮助Foreigner巩固了其作为经典摇滚乐队的地位。"
         }
@@ -3749,12 +3324,7 @@
         },
         {
           "question": "在录制George Harrison的1987年专辑《Cloud Nine》时，哪位著名制作人负责该专辑的制作工作？",
-          "options": [
-            "Jeff Lynne",
-            "Quincy Jones",
-            "George Martin",
-            "Rick Rubin"
-          ],
+          "options": ["Jeff Lynne", "Quincy Jones", "George Martin", "Rick Rubin"],
           "correctAnswer": "Jeff Lynne",
           "trivia": "George Harrison的《Cloud Nine》专辑是由Jeff Lynne担任制作人，这一合作大大影响了专辑的声音风格。Jeff Lynne是Electric Light Orchestra（ELO）的核心成员，他的制作风格以清晰的编曲和富有层次感的合成器使用闻名。该专辑录制于1987年，标志着Harrison与ELO成员的首次合作，帮助他重新回归主流音乐界。此外，Jeff Lynne的参与也促进了George Harrison与其他艺术家的合作，如与Tom Petty和Roy Orbison组成的Traveling Wilburys。"
         },
@@ -3773,12 +3343,7 @@
       "hard": [
         {
           "question": "George Harrison的专辑《Cloud Nine》于1987年发行，该专辑获得了哪项重要的格莱美奖提名，体现了其在音乐界的认可？",
-          "options": [
-            "最佳摇滚专辑",
-            "年度专辑",
-            "最佳男性摇滚声乐表现",
-            "最佳制作"
-          ],
+          "options": ["最佳摇滚专辑", "年度专辑", "最佳男性摇滚声乐表现", "最佳制作"],
           "correctAnswer": "最佳男性摇滚声乐表现",
           "trivia": "George Harrison的《Cloud Nine》专辑在1988年的格莱美奖中获得了“最佳男性摇滚声乐表现”的提名，特别是凭借其热门单曲“Got My Mind Set on You”。这张专辑标志着Harrison在1980年代的重要回归，展示了他作为独立艺术家的实力。虽然《Cloud Nine》没有获得“年度专辑”或“最佳制作”等其他主要奖项提名，但它的成功帮助Harrison赢得了更广泛的认可。此外，这张专辑也促进了他与制作人Jeff Lynne的合作，后者后来成为Traveling Wilburys乐队的重要成员。"
         },
@@ -3815,12 +3380,7 @@
       "easy": [
         {
           "question": "George Michael在他的1987年专辑'Faith'中，哪首歌曲被认为包含了对社会刻板印象的评论？",
-          "options": [
-            "《I Want Your Sex》",
-            "《Faith》",
-            "《Father Figure》",
-            "《One More Try》"
-          ],
+          "options": ["《I Want Your Sex》", "《Faith》", "《Father Figure》", "《One More Try》"],
           "correctAnswer": "《I Want Your Sex》",
           "trivia": "George Michael的1987年专辑'Faith'不仅在音乐上取得巨大成功，其单曲《I Want Your Sex》也引发了广泛的社会讨论。这首歌突破了当时对性话题的禁忌，挑战了社会对性的保守刻板印象，尤其是在艾滋病危机高峰时期。尽管歌词直白，但它试图传达对性开放和诚实的态度。该曲在多个国家的排行榜上取得优异成绩，并成为专辑中最具争议同时也最具代表性的社会评论作品。"
         },
@@ -3837,12 +3397,7 @@
         },
         {
           "question": "George Michael的专辑《Faith》在美国Billboard 200排行榜上的最高排名是？",
-          "options": [
-            "第一名",
-            "第二名",
-            "第四名",
-            "第十名"
-          ],
+          "options": ["第一名", "第二名", "第四名", "第十名"],
           "correctAnswer": "第一名",
           "trivia": "George Michael的首张个人专辑《Faith》于1987年发行，迅速获得巨大成功。这张专辑在美国Billboard 200排行榜上曾登顶，达到第一名的位置，显示了他从Wham!时期过渡到独唱生涯的强大影响力。《Faith》中的多个单曲如《Faith》和《Father Figure》也在排行榜上表现优异，进一步巩固了George Michael作为80年代顶尖流行艺术家的地位。此外，这张专辑还赢得了包括格莱美最佳男歌手专辑在内的多个奖项，彰显了其商业和艺术的双重成功。"
         }
@@ -3850,12 +3405,7 @@
       "medium": [
         {
           "question": "在George Michael的1987年专辑《Faith》发布后，哪首歌曲最先在美国主流电台获得大量播放，帮助该专辑迅速走红？",
-          "options": [
-            "Faith",
-            "Father Figure",
-            "I Want Your Sex",
-            "One More Try"
-          ],
+          "options": ["Faith", "Father Figure", "I Want Your Sex", "One More Try"],
           "correctAnswer": "I Want Your Sex",
           "trivia": "George Michael的《Faith》专辑于1987年发布后，单曲《I Want Your Sex》成为美国主流电台首批大量播放的歌曲。该曲因其大胆的主题和吸引人的节奏引起了广泛关注，迅速推动专辑销量。尽管《Faith》和《Father Figure》也获得了极高的电台播放率，但《I Want Your Sex》是首个在美国主流电台大范围播放的单曲。此外，这首歌在美国公告牌Hot 100榜单上达到第2名，进一步证明了其在电台的成功。该专辑的整体多样化风格和制作水准也使George Michael获得了更广泛的听众基础。"
         },
@@ -3872,12 +3422,7 @@
         },
         {
           "question": "George Michael在1987年专辑《Faith》中，哪首歌曲的歌词表达了他对爱情中自我保护和独立性的思考？",
-          "options": [
-            "《Faith》",
-            "《Father Figure》",
-            "《I Want Your Sex》",
-            "《One More Try》"
-          ],
+          "options": ["《Faith》", "《Father Figure》", "《I Want Your Sex》", "《One More Try》"],
           "correctAnswer": "《One More Try》",
           "trivia": "《One More Try》是George Michael在专辑《Faith》中一首深情的抒情歌曲，歌词反映了他在爱情中对自我保护和情感独立的探讨。这首歌表现出对过去感情创伤的谨慎态度，表达了不愿轻易再陷入爱河的心理。相比之下，《Faith》更强调自信和决心，《Father Figure》则带有复杂的情感依赖，《I Want Your Sex》则直白探讨性关系。该曲在1988年登上美国告示牌百强单曲榜冠军，显示了其广泛的共鸣和影响力。"
         }
@@ -3927,34 +3472,19 @@
       "easy": [
         {
           "question": "Guns N' Roses在创作1987年专辑'Appetite for Destruction'时，哪位艺术家对他们的音乐风格产生了显著影响？",
-          "options": [
-            "Aerosmith",
-            "The Beatles",
-            "Metallica",
-            "Bob Dylan"
-          ],
+          "options": ["Aerosmith", "The Beatles", "Metallica", "Bob Dylan"],
           "correctAnswer": "Aerosmith",
           "trivia": "Guns N' Roses在创作他们的首张专辑'Appetite for Destruction'时，受到了许多摇滚乐队的启发，其中Aerosmith对他们的硬摇滚风格影响尤为显著。Aerosmith以其充满灵魂的摇滚和重节奏著称，这种风格在Guns N' Roses的音乐中有所体现。事实上，Guns N' Roses的成员曾多次提到Aerosmith是他们成长过程中重要的音乐偶像。此外，专辑中的多首歌曲，如《Paradise City》和《Welcome to the Jungle》，都体现出强烈的硬摇滚元素，这与Aerosmith的风格有一定的共鸣。"
         },
         {
           "question": "在媒体报道中，Guns N' Roses的专辑《Appetite for Destruction》首次登顶美国公告牌200排行榜是在什么时候？",
-          "options": [
-            "1988年1月",
-            "1987年7月",
-            "1989年3月",
-            "1988年10月"
-          ],
+          "options": ["1988年1月", "1987年7月", "1989年3月", "1988年10月"],
           "correctAnswer": "1988年1月",
           "trivia": "Guns N' Roses的首张专辑《Appetite for Destruction》最初于1987年7月发行，但最初销售表现平平。经过几个月的媒体报道和单曲《Sweet Child o' Mine》等的热播，该专辑在1988年1月首次登顶美国公告牌200排行榜，标志着乐队商业上的巨大成功。这一成就也被广泛报道，强调了专辑从不被看好到成为摇滚经典的转变。专辑最终获得多白金认证，成为1980年代最畅销的摇滚专辑之一。"
         },
         {
           "question": "在Guns N' Roses的1987年专辑'Appetite for Destruction'中，谁是主唱？",
-          "options": [
-            "Axl Rose",
-            "Slash",
-            "Duff McKagan",
-            "Izzy Stradlin"
-          ],
+          "options": ["Axl Rose", "Slash", "Duff McKagan", "Izzy Stradlin"],
           "correctAnswer": "Axl Rose",
           "trivia": "Guns N' Roses的经典专辑'Appetite for Destruction'发行于1987年，是乐队的首张录音室专辑。该专辑的主唱是Axl Rose，他以其具有标志性的声线和舞台表现力为这张专辑注入了鲜明的个性。Slash是乐队的主音吉他手，Duff McKagan负责贝斯，而Izzy Stradlin担任节奏吉他手。Axl Rose作为主唱，在这张专辑中的表现帮助乐队赢得了全球范围内的巨大成功，专辑销量超过3000万张。"
         }
@@ -3973,12 +3503,7 @@
         },
         {
           "question": "Guns N' Roses的专辑'Appetite for Destruction'在美国Billboard 200排行榜上的最高排名是多少？",
-          "options": [
-            "第1名",
-            "第6名",
-            "第12名",
-            "第20名"
-          ],
+          "options": ["第1名", "第6名", "第12名", "第20名"],
           "correctAnswer": "第1名",
           "trivia": "Guns N' Roses的首张专辑'Appetite for Destruction'于1987年发行，最初反响平平，但凭借单曲《Sweet Child o' Mine》和《Welcome to the Jungle》的成功，这张专辑逐渐走红。最终，'Appetite for Destruction'在美国Billboard 200排行榜上攀升至第1名位置，成为当年最畅销的摇滚专辑之一。这张专辑累计销量超过3000万张，是美国历史上销量最高的首张专辑之一，显示了其巨大的商业成功和持久影响力。"
         },
@@ -3997,12 +3522,7 @@
       "hard": [
         {
           "question": "关于Guns N' Roses于1987年发行的专辑《Appetite for Destruction》，以下哪一种数字发行格式是该专辑首次公开发行时并未采用的？",
-          "options": [
-            "CD（光盘）",
-            "黑胶唱片",
-            "卡带（磁带）",
-            "数字下载"
-          ],
+          "options": ["CD（光盘）", "黑胶唱片", "卡带（磁带）", "数字下载"],
           "correctAnswer": "数字下载",
           "trivia": "Guns N' Roses的《Appetite for Destruction》专辑最初于1987年发行，当时主要的发行格式包括黑胶唱片、卡带和CD三种。数字下载格式尚未普及，因为互联网和数字音乐市场在1980年代末和1990年代初尚未形成。直到1990年代末和2000年代初，数字下载才成为音乐发行的主流形式。因此，《Appetite for Destruction》最初发行时并没有数字下载版本。该专辑的多种物理格式发行帮助其在全球范围内广泛传播，成为摇滚史上最畅销的专辑之一。"
         },
@@ -4019,12 +3539,7 @@
         },
         {
           "question": "在录制Guns N' Roses的1987年专辑《Appetite for Destruction》时，哪位制作人因其独特的录音风格而被选中，帮助乐队实现了粗犷而富有活力的声音？",
-          "options": [
-            "Mike Clink",
-            "Bob Rock",
-            "Rick Rubin",
-            "Mutt Lange"
-          ],
+          "options": ["Mike Clink", "Bob Rock", "Rick Rubin", "Mutt Lange"],
           "correctAnswer": "Mike Clink",
           "trivia": "Mike Clink是Guns N' Roses选择的制作人，他以细致且注重细节的录音方法著称，帮助《Appetite for Destruction》实现了标志性的粗犷硬摇滚音色。录制过程主要在加州的Rumbo Recorders和Can-Am Studios进行，Clink利用现场录音技术最大限度地保留了乐队的现场能量。与其他著名制作人如Bob Rock或Rick Rubin相比，Clink在这张专辑上的工作更强调捕捉乐队原始的声音和激情，奠定了该专辑成为硬摇滚经典的基础。"
         }
@@ -4039,34 +3554,19 @@
       "easy": [
         {
           "question": "INXS在1987年录制专辑《Kick》时，主要使用了哪种键盘合成器设备？",
-          "options": [
-            "Roland Jupiter-8",
-            "Moog Minimoog",
-            "Yamaha DX7",
-            "Korg M1"
-          ],
+          "options": ["Roland Jupiter-8", "Moog Minimoog", "Yamaha DX7", "Korg M1"],
           "correctAnswer": "Roland Jupiter-8",
           "trivia": "INXS在录制1987年的专辑《Kick》时，Roland Jupiter-8合成器是他们常用的键盘设备之一。Jupiter-8以其丰富的模拟音色和多功能性，广泛应用于80年代的摇滚和流行音乐制作。该合成器帮助乐队创造出专辑中标志性的合成器音色，尤其是在热门单曲《Need You Tonight》中。与此同时，Yamaha DX7和Korg M1虽然在80年代流行，但并非《Kick》制作中的主要合成器。Moog Minimoog更多用于早期的电子音乐，与INXS的制作风格有所不同。"
         },
         {
           "question": "INXS的专辑《Kick》中哪首歌曲在1987年成为美国电台播放最广泛的单曲之一？",
-          "options": [
-            "Need You Tonight",
-            "Love Is (What I Say)",
-            "Shine Like It Does",
-            "Mystify"
-          ],
+          "options": ["Need You Tonight", "Love Is (What I Say)", "Shine Like It Does", "Mystify"],
           "correctAnswer": "Need You Tonight",
           "trivia": "《Kick》是澳大利亚摇滚乐队INXS于1987年发布的专辑，其中单曲《Need You Tonight》在美国电台获得了极高的播放率，成为乐队的代表作之一。这首歌不仅登上了美国Billboard Hot 100榜单的冠军位置，还在全球范围内广受欢迎。《Need You Tonight》的电台成功帮助《Kick》专辑在商业上取得巨大突破，使INXS在国际市场上声名鹊起。相比之下，专辑中的其他曲目如《Love Is (What I Say)》、《Shine Like It Does》和《Mystify》虽受好评，但在电台播放频率上未及《Need You Tonight》高。"
         },
         {
           "question": "INXS乐队1987年发行的专辑《Kick》在哪个国家首次取得了显著的商业成功，标志着他们在国际音乐舞台上的突破？",
-          "options": [
-            "美国",
-            "澳大利亚",
-            "英国",
-            "加拿大"
-          ],
+          "options": ["美国", "澳大利亚", "英国", "加拿大"],
           "correctAnswer": "美国",
           "trivia": "INXS的1987年专辑《Kick》是他们最具代表性的作品之一。虽然INXS来自澳大利亚，但《Kick》专辑首次在美国市场取得了巨大的商业成功，使他们跻身国际知名的摇滚乐队行列。这张专辑包含了多首热门单曲，如《Need You Tonight》和《New Sensation》，这些曲目在美国告示牌排行榜上表现突出。专辑的成功不仅提升了INXS的国际影响力，也推动了澳大利亚摇滚乐在全球范围内的传播。"
         }
@@ -4151,12 +3651,7 @@
       "easy": [
         {
           "question": "Janet Jackson的1986年专辑《Control》是在哪家唱片公司发行的？",
-          "options": [
-            "A&M Records",
-            "Motown Records",
-            "Epic Records",
-            "Def Jam Recordings"
-          ],
+          "options": ["A&M Records", "Motown Records", "Epic Records", "Def Jam Recordings"],
           "correctAnswer": "A&M Records",
           "trivia": "Janet Jackson的《Control》专辑于1986年由A&M Records发行，这家公司当时是美国一家重要的独立唱片公司。该专辑的成功不仅奠定了Janet作为独立女性艺术家的地位，也帮助A&M Records巩固了其在流行和节奏蓝调市场的地位。Epic Records和Motown Records都是当时著名的唱片公司，但Janet的《Control》并非通过这两家发行。Def Jam Recordings主要专注于嘻哈音乐，与Janet的这张专辑发行无关。"
         },
@@ -4186,34 +3681,19 @@
       "medium": [
         {
           "question": "Janet Jackson在1986年发布专辑《Control》后，首次以这张专辑为主题进行的正式巡演名称是什么？",
-          "options": [
-            "Rhythm Nation Tour",
-            "Control Tour",
-            "Janet World Tour",
-            "Velvet Rope Tour"
-          ],
+          "options": ["Rhythm Nation Tour", "Control Tour", "Janet World Tour", "Velvet Rope Tour"],
           "correctAnswer": "Control Tour",
           "trivia": "Janet Jackson在1986年发行《Control》专辑后，于1987年展开了她的首次大型个人巡演，名为“Control Tour”。这次巡演主要宣传这张专辑，展示了她作为独立艺人的新形象和音乐风格。巡演不仅巩固了她在流行和R&B领域的地位，也让她的舞台表演获得广泛认可。相比之下，“Rhythm Nation Tour”是为后续专辑《Rhythm Nation 1814》举办的，而“Velvet Rope Tour”则对应1997年的专辑《The Velvet Rope》。"
         },
         {
           "question": "在Janet Jackson 1986年发行的专辑《Control》中，哪位制作人与音乐家在创作过程中扮演了关键角色，特别以其独特的节奏和合成器编排闻名？",
-          "options": [
-            "Jimmy Jam",
-            "Quincy Jones",
-            "L.A. Reid",
-            "Babyface"
-          ],
+          "options": ["Jimmy Jam", "Quincy Jones", "L.A. Reid", "Babyface"],
           "correctAnswer": "Jimmy Jam",
           "trivia": "Jimmy Jam是Janet Jackson的专辑《Control》的主要制作人之一，他与Terry Lewis共同打造了这张专辑标志性的节奏和合成器声音。Jimmy Jam原是乐队The Time的成员，后来转型为制作人，因其创新的制作风格闻名。专辑《Control》正是通过他们的制作，使Janet Jackson从家族阴影中脱颖而出，展现了更为成熟和自主的音乐形象。此外，Jimmy Jam的编曲和节奏设计为80年代R&B音乐设定了新的标准，影响深远。"
         },
         {
           "question": "Janet Jackson的专辑《Control》（1986年）在制作过程中，哪位制作人对其整体音乐风格和录音过程影响最大？",
-          "options": [
-            "Jimmy Jam和Terry Lewis",
-            "Quincy Jones",
-            "Prince",
-            "L.A. Reid和Babyface"
-          ],
+          "options": ["Jimmy Jam和Terry Lewis", "Quincy Jones", "Prince", "L.A. Reid和Babyface"],
           "correctAnswer": "Jimmy Jam和Terry Lewis",
           "trivia": "Janet Jackson的《Control》专辑由制作人团队Jimmy Jam和Terry Lewis主导制作，他们不仅帮助Janet确立了独立自主的形象，也使专辑在节奏布鲁斯和流行音乐之间取得了完美平衡。Jimmy Jam和Terry Lewis的创新制作手法，如使用合成器和鼓机，赋予专辑独特的80年代都市节奏感。此外，这张专辑标志着Janet从家族阴影中独立出来，展现了她个人的艺术控制力，Jimmy Jam和Terry Lewis的作用不可忽视。"
         }
@@ -4274,12 +3754,7 @@
         },
         {
           "question": "John Mellencamp的专辑'Scarecrow'（1985年）中，哪首歌曲曾在美国公告牌热门100榜单中取得较高排名？",
-          "options": [
-            "Small Town",
-            "Jack & Diane",
-            "Pink Houses",
-            "Hurts So Good"
-          ],
+          "options": ["Small Town", "Jack & Diane", "Pink Houses", "Hurts So Good"],
           "correctAnswer": "Small Town",
           "trivia": "John Mellencamp的专辑'Scarecrow'于1985年发行，其中歌曲《Small Town》成为该专辑的热门单曲之一。这首歌在美国公告牌热门100排行榜上表现优异，最高达到第6名，广为人知。相比之下，《Jack & Diane》和《Hurts So Good》是他早期的作品，分别出现在1982年和1982年的专辑中，而《Pink Houses》则是同一张'Scarecrow'专辑的另一首热门曲目，但其排行略低。'Scarecrow'专辑被认为是Mellencamp音乐生涯中的重要里程碑，反映了他对美国中西部小镇生活的描绘。"
         },
@@ -4320,12 +3795,7 @@
         },
         {
           "question": "关于John Mellencamp的1985年专辑'Scarecrow'，哪首歌曲在当时美国主流摇滚电台获得了显著播放，成为专辑中的热门单曲？",
-          "options": [
-            "Rain on the Scarecrow",
-            "Small Town",
-            "Lonely Ol' Night",
-            "Paper in Fire"
-          ],
+          "options": ["Rain on the Scarecrow", "Small Town", "Lonely Ol' Night", "Paper in Fire"],
           "correctAnswer": "Small Town",
           "trivia": "John Mellencamp的专辑'Scarecrow'发行于1985年，其中《Small Town》成为该专辑在美国主流摇滚电台广泛播放的热门单曲。尽管《Rain on the Scarecrow》和《Paper in Fire》也备受好评并获得一定电台关注，《Small Town》凭借其朗朗上口的旋律和对美国小镇生活的描绘，在摇滚电台的播放量尤为突出，甚至进入了Billboard摇滚图表的高位。此外，这首歌帮助Mellencamp巩固了他作为80年代中期美国心脏地带摇滚代表人物的地位。"
         }
@@ -4333,34 +3803,19 @@
       "hard": [
         {
           "question": "在John Mellencamp的1985年专辑'Scarecrow'发布后，哪首歌曲在美国主流摇滚电台的播放频率最高，成为该专辑中在电台上最受欢迎的单曲？",
-          "options": [
-            "Rumbleseat",
-            "Lonely Ol' Night",
-            "Small Town",
-            "Face of the Nation"
-          ],
+          "options": ["Rumbleseat", "Lonely Ol' Night", "Small Town", "Face of the Nation"],
           "correctAnswer": "Lonely Ol' Night",
           "trivia": "John Mellencamp的专辑'Scarecrow'发布于1985年，其中《Lonely Ol' Night》是该专辑在美国主流摇滚电台播放频率最高的单曲。这首歌凭借其朗朗上口的旋律和深刻的歌词，在当时的摇滚电台中广泛传播，进入Billboard主流摇滚曲目榜的前列。相比之下，虽然《Small Town》和《Rumbleseat》也获得了一定的电台关注，但播放量和受欢迎程度不及《Lonely Ol' Night》。此外，《Face of the Nation》作为专辑中的一首政治色彩较浓的歌曲，电台播放相对较少。这个事实反映了当时摇滚电台倾向于播放具有情感共鸣且旋律鲜明的作品。"
         },
         {
           "question": "在John Mellencamp的1985年专辑'Scarecrow'的音响工程制作过程中，哪位著名工程师负责混音工作？",
-          "options": [
-            "Don Gehman",
-            "Bob Clearmountain",
-            "Ted Jensen",
-            "Jack Joseph Puig"
-          ],
+          "options": ["Don Gehman", "Bob Clearmountain", "Ted Jensen", "Jack Joseph Puig"],
           "correctAnswer": "Don Gehman",
           "trivia": "Don Gehman是John Mellencamp的长期合作伙伴，担任了'Scarecrow'专辑的主要混音和制作工程师。作为一位经验丰富的音响工程师，Gehman以其对摇滚音乐清晰且有力的混音风格闻名，这也显著影响了'Scarecrow'的声音质感。专辑录制于1984-1985年期间，Gehman利用模拟设备和多轨录音技术，确保了Mellencamp标志性的乡村摇滚元素得以充分展现。与此同时，他也曾与众多著名艺术家合作，如John Cougar Mellencamp之前的作品和其他摇滚明星，这使他在当时的音响工程领域极具声望。"
         },
         {
           "question": "关于John Mellencamp于1985年发行的专辑'Scarecrow'，他在该专辑巡演中首次尝试在哪种类型的音乐会场地进行演出，以增强歌曲的社会和政治主题表现？",
-          "options": [
-            "美国乡村小剧场",
-            "工业城市的工厂改建场地",
-            "大型体育馆",
-            "户外音乐节场地"
-          ],
+          "options": ["美国乡村小剧场", "工业城市的工厂改建场地", "大型体育馆", "户外音乐节场地"],
           "correctAnswer": "工业城市的工厂改建场地",
           "trivia": "John Mellencamp在1985年发行的专辑'Scarecrow'以其关注美国中西部工人阶级生活和社会问题而著称。为配合专辑的主题，他在随后的巡演中首次选择了工业城市中的工厂改建场地进行演出，这种选择不仅增强了音乐的现实感，还让现场观众更能感受到专辑传达的社会和政治信息。这种场地类型在当时并不常见，体现了Mellencamp对音乐与环境结合的创新尝试。相比之下，乡村小剧场、大型体育馆和户外音乐节场地虽然常用于巡演，但未能达到他所追求的现场氛围效果。"
         }
@@ -4375,12 +3830,7 @@
       "easy": [
         {
           "question": "Journey的专辑《Escape》中哪首歌曲最先登上美国电台的主流摇滚榜并获得大量播放？",
-          "options": [
-            "Don't Stop Believin'",
-            "Open Arms",
-            "Who's Crying Now",
-            "Stone in Love"
-          ],
+          "options": ["Don't Stop Believin'", "Open Arms", "Who's Crying Now", "Stone in Love"],
           "correctAnswer": "Don't Stop Believin'",
           "trivia": "《Escape》是Journey于1981年发行的经典专辑，其中《Don't Stop Believin'》成为最具代表性的歌曲之一。这首歌不仅登上了美国主流摇滚电台的排行榜，还因其朗朗上口的旋律和鼓舞人心的歌词获得了极高的电台播放量。《Don't Stop Believin'》后来成为Journey最著名的单曲，常被认为是80年代摇滚音乐的标志。专辑中的其他单曲如《Open Arms》和《Who's Crying Now》也有不错的电台表现，但《Don't Stop Believin'》无疑是最早且最广泛被播放的曲目。"
         },
@@ -4410,12 +3860,7 @@
       "medium": [
         {
           "question": "Journey在1981年发行的专辑《Escape》中，哪种乐器的使用成为其标志性的音乐元素，尤其在主唱Steve Perry的声音之外增添了独特的旋律色彩？",
-          "options": [
-            "键盘合成器",
-            "萨克斯风",
-            "小提琴",
-            "电吉他"
-          ],
+          "options": ["键盘合成器", "萨克斯风", "小提琴", "电吉他"],
           "correctAnswer": "键盘合成器",
           "trivia": "在Journey的1981年专辑《Escape》中，键盘合成器是一个关键的音乐元素，为专辑增添了丰富的层次和氛围感。键盘手Jonathan Cain的演奏为许多歌曲，如《Don't Stop Believin'》，提供了标志性的旋律线。尽管电吉他也在专辑中发挥重要作用，但键盘合成器的声音更具辨识度，成为了Journey音乐风格的重要组成部分。此外，当时的摇滚乐队中，合成器的使用开始逐渐普及，Journey成功地将其融入了硬摇滚和流行摇滚元素中，提升了专辑的整体感染力。"
         },
@@ -4544,12 +3989,7 @@
         },
         {
           "question": "在Kid 'n Play1988年发行的专辑《2 Hype》中，哪位音响工程师负责了主要的录音和混音工作？",
-          "options": [
-            "Todd Tracy",
-            "Chris Lord-Alge",
-            "Darryl 'Jazzy Jay' Pierce",
-            "Tony Pizarro"
-          ],
+          "options": ["Todd Tracy", "Chris Lord-Alge", "Darryl 'Jazzy Jay' Pierce", "Tony Pizarro"],
           "correctAnswer": "Todd Tracy",
           "trivia": "Todd Tracy是Kid 'n Play专辑《2 Hype》的主要音响工程师，负责了录音和混音的关键环节。这张专辑于1988年录制，体现了80年代后期嘻哈音乐制作的典型声音风格。Todd Tracy在录音过程中采用了多轨录音技术，确保了Kid 'n Play标志性的清晰人声和节奏感。相比之下，Chris Lord-Alge等工程师虽以混音著称，但并未参与该专辑制作。Darryl 'Jazzy Jay' Pierce则是知名DJ和制作人，但未担任《2 Hype》的工程师工作。Tony Pizarro主要活跃于90年代后期的嘻哈制作，也未参与该专辑的录音混音。"
         }
@@ -4579,12 +4019,7 @@
         },
         {
           "question": "在Kid 'n Play的1988年专辑《2 Hype》中，哪位音乐制作人是该专辑主要的制作成员之一，同时也对其早期东海岸嘻哈风格产生了深远影响？",
-          "options": [
-            "Hurby 'Luv Bug' Azor",
-            "Dr. Dre",
-            "Rick Rubin",
-            "DJ Premier"
-          ],
+          "options": ["Hurby 'Luv Bug' Azor", "Dr. Dre", "Rick Rubin", "DJ Premier"],
           "correctAnswer": "Hurby 'Luv Bug' Azor",
           "trivia": "Hurby 'Luv Bug' Azor是Kid 'n Play的《2 Hype》专辑的主要制作人之一，他以推动80年代后期的东海岸嘻哈音乐而闻名。Azor曾帮助制作了Salt-N-Pepa的多张经典专辑，擅长将流行元素与硬核嘻哈融合，这种风格也显著影响了《2 Hype》的声音特色。与此相对，Dr. Dre主要活跃于西海岸嘻哈，Rick Rubin则以跨流派制作著称，而DJ Premier在90年代的嘻哈制作中更为突出。因此，Hurby 'Luv Bug' Azor的参与是该专辑音乐风格和制作特色的重要保证。"
         }
@@ -4599,12 +4034,7 @@
       "easy": [
         {
           "question": "LL Cool J在1987年发行的专辑'Bigger and Deffer'中，以下哪种音乐设备是他和制作团队广泛使用的节奏机？",
-          "options": [
-            "Roland TR-808",
-            "Akai MPC60",
-            "Yamaha DX7",
-            "Korg M1"
-          ],
+          "options": ["Roland TR-808", "Akai MPC60", "Yamaha DX7", "Korg M1"],
           "correctAnswer": "Roland TR-808",
           "trivia": "LL Cool J的专辑'Bigger and Deffer'由制作人Rick Rubin主导制作，他在这张1987年的经典作品中大量使用了Roland TR-808节奏机。TR-808以其标志性的鼓声成为80年代嘻哈音乐的核心节奏设备，赋予了专辑独特的节拍和声音质感。此外，这张专辑的成功部分归功于这种设备带来的创新节奏，帮助LL Cool J在早期嘻哈界建立了坚实的地位。相比之下，Akai MPC60和Yamaha DX7虽然在当时也很流行，但并不是本专辑的主要节奏机。"
         },
@@ -4656,12 +4086,7 @@
         },
         {
           "question": "在LL Cool J的1987年专辑'Bigger and Deffer'的词曲创作过程中，哪位制作人对该专辑的整体声音风格影响最大？",
-          "options": [
-            "Rick Rubin",
-            "Dr. Dre",
-            "Quincy Jones",
-            "Timbaland"
-          ],
+          "options": ["Rick Rubin", "Dr. Dre", "Quincy Jones", "Timbaland"],
           "correctAnswer": "Rick Rubin",
           "trivia": "Rick Rubin是Def Jam唱片公司的联合创始人，他在LL Cool J的专辑'Bigger and Deffer'中担任主要制作人，塑造了专辑独特的硬派嘻哈风格。Rubin以其简洁而强烈的制作手法闻名，善于将摇滚元素融入嘻哈节奏中，增强了LL Cool J的声音表现力。专辑录制于1986至1987年间，Rick Rubin利用了采样和现场乐器的结合，帮助这张专辑取得了商业和艺术上的成功。相比之下，Dr. Dre和Timbaland在当时还未成为主流制作人，Quincy Jones则主要活跃在其他音乐领域。"
         }
@@ -4669,12 +4094,7 @@
       "hard": [
         {
           "question": "在LL Cool J的1987年专辑'Bigger and Deffer'中，哪首歌曲最初因其频繁的电台播放而成为推动专辑商业成功的关键单曲？",
-          "options": [
-            "I Need Love",
-            "Going Back to Cali",
-            "Rock the Bells",
-            "I'm Bad"
-          ],
+          "options": ["I Need Love", "Going Back to Cali", "Rock the Bells", "I'm Bad"],
           "correctAnswer": "I Need Love",
           "trivia": "LL Cool J的专辑'Bigger and Deffer'中，'I Need Love'是首首创性的说唱情歌，它在电台播放中获得了极高的频率，这不仅帮助这首歌成为了他的首个Top 40单曲，也极大地推动了专辑的整体销量。该曲的柔和节奏和情感表达在当时的说唱音乐中较为罕见，使其在主流电台中获得了跨界的认可。'Going Back to Cali'和'I'm Bad'虽然也在电台有一定的曝光率，但远不及'I Need Love'的影响力。'Rock the Bells'则更多为地下说唱圈所推崇，电台播放较少。因此，'I Need Love'是推动'Bigger and Deffer'电台成功的关键单曲。"
         },
@@ -4691,12 +4111,7 @@
         },
         {
           "question": "在媒体报道中，LL Cool J的专辑'Bigger and Deffer'于1987年发行后，哪家主流音乐杂志首次给予其专辑高度评价并称其为“将硬核说唱推向主流市场的里程碑”？",
-          "options": [
-            "《滚石》杂志",
-            "《Vibe》杂志",
-            "《XXL》杂志",
-            "《Spin》杂志"
-          ],
+          "options": ["《滚石》杂志", "《Vibe》杂志", "《XXL》杂志", "《Spin》杂志"],
           "correctAnswer": "《滚石》杂志",
           "trivia": "《滚石》杂志在1987年对LL Cool J的专辑'Bigger and Deffer'进行了重要评价，称其为“将硬核说唱推向主流市场的里程碑”。作为当时主流摇滚和流行音乐领域权威媒体，《滚石》对说唱专辑的肯定标志着嘻哈音乐开始被更广泛的音乐听众接受。此外，该专辑凭借单曲《I’m Bad》和《Going Back to Cali》赢得了广泛关注，进一步巩固了LL Cool J作为早期黄金时代嘻哈代表人物的地位。相比之下，《Vibe》和《XXL》杂志成立时间较晚，未能在专辑发行当年给予报道。"
         }
@@ -4768,12 +4183,7 @@
         },
         {
           "question": "在Lionel Richie的1983年专辑《Can't Slow Down》中，哪种乐器的使用显著增强了专辑的流行灵魂乐风格？",
-          "options": [
-            "萨克斯风",
-            "小提琴",
-            "口琴",
-            "大提琴"
-          ],
+          "options": ["萨克斯风", "小提琴", "口琴", "大提琴"],
           "correctAnswer": "萨克斯风",
           "trivia": "《Can't Slow Down》是Lionel Richie在1983年发行的著名专辑，融合了流行和灵魂乐元素。专辑中萨克斯风的运用尤为突出，尤其是在像《All Night Long (All Night)》这样的曲目中，萨克斯风为歌曲增添了热情和舞曲感。萨克斯风在当时的流行音乐制作中非常流行，帮助这张专辑获得了广泛认可并赢得了格莱美奖。相比之下，小提琴、口琴和大提琴虽然常见于其他音乐风格，但在这张专辑中并未成为主要特色乐器。"
         }
@@ -4792,12 +4202,7 @@
         },
         {
           "question": "在Lionel Richie的1983年专辑\"Can't Slow Down\"的专辑包装设计中，哪位艺术家负责了封面摄影，这在当时的流行音乐专辑设计中具有重要影响？",
-          "options": [
-            "Norman Seeff",
-            "Annie Leibovitz",
-            "Richard Avedon",
-            "Helmut Newton"
-          ],
+          "options": ["Norman Seeff", "Annie Leibovitz", "Richard Avedon", "Helmut Newton"],
           "correctAnswer": "Norman Seeff",
           "trivia": "Lionel Richie的专辑\"Can't Slow Down\"封面由著名摄影师Norman Seeff拍摄。Seeff以其在1970年代和1980年代为多位著名音乐人拍摄标志性专辑封面闻名，他的作品强调人物的自然表现和动态构图。该专辑封面展示了Richie的亲和力和时尚感，增强了专辑的市场吸引力。与其他选项中的摄影师相比，Annie Leibovitz和Richard Avedon虽然也为多位明星拍摄封面，但并未参与此专辑的包装设计。Helmut Newton主要以时尚摄影著称，风格与该专辑封面有所不同。"
         },
@@ -4880,12 +4285,7 @@
         },
         {
           "question": "在MC Hammer的1988年专辑《Let's Get It Started》的制作过程中，哪位音乐制作人参与了专辑的部分制作工作，帮助塑造了该专辑的独特声音？",
-          "options": [
-            "Felton Pilate",
-            "Dr. Dre",
-            "Rick Rubin",
-            "Quincy Jones"
-          ],
+          "options": ["Felton Pilate", "Dr. Dre", "Rick Rubin", "Quincy Jones"],
           "correctAnswer": "Felton Pilate",
           "trivia": "Felton Pilate是MC Hammer《Let's Get It Started》专辑的主要制作合作伙伴之一，他曾是音乐组合Con Funk Shun的成员，并在该专辑制作中贡献了丰富的乐器演奏和制作经验。Felton Pilate的参与帮助专辑融合了放克和嘻哈元素，塑造了MC Hammer早期标志性的声音。相比之下，Dr. Dre和Rick Rubin虽然是当时著名的制作人，但并未参与该专辑的制作。Quincy Jones更以流行和灵魂音乐制作闻名，未参与MC Hammer的该项目。Felton Pilate的合作是《Let's Get It Started》制作过程中的重要组成部分，推动了MC Hammer的职业发展。"
         }
@@ -4981,12 +4381,7 @@
         },
         {
           "question": "Madonna在1984年发行的专辑'Like a Virgin'是由哪家唱片公司发行的？",
-          "options": [
-            "Sire Records",
-            "Motown Records",
-            "Columbia Records",
-            "Island Records"
-          ],
+          "options": ["Sire Records", "Motown Records", "Columbia Records", "Island Records"],
           "correctAnswer": "Sire Records",
           "trivia": "Madonna的专辑'Like a Virgin'于1984年由Sire Records发行，Sire Records是当时专注于推广新兴流行和摇滚艺术家的独立唱片公司。该公司隶属于华纳音乐集团，正是通过Sire Records的支持，Madonna得以迅速走红国际乐坛。Motown Records主要专注于灵魂乐和R&B，而Columbia Records与Island Records也分别有不同的艺术家和音乐风格。'Like a Virgin'的成功进一步巩固了Sire Records在80年代流行音乐领域的重要地位。"
         },
@@ -5069,12 +4464,7 @@
         },
         {
           "question": "Megadeth的专辑《Peace Sells... but Who's Buying?》在美国Billboard 200排行榜的最高排名是多少？",
-          "options": [
-            "第76名",
-            "第12名",
-            "第45名",
-            "未进入排行榜"
-          ],
+          "options": ["第76名", "第12名", "第45名", "未进入排行榜"],
           "correctAnswer": "第76名",
           "trivia": "Megadeth于1986年发行的专辑《Peace Sells... but Who's Buying?》在美国Billboard 200排行榜上取得了第76名的最佳成绩。这张专辑是Megadeth的第二张录音室专辑，标志着乐队在金属界的崛起。虽然未能进入前十名，但第76名的成绩对于当时的速弹金属乐队来说已属不俗。该专辑中的主打歌曲《Peace Sells》也成为了乐队的经典代表作，进一步提升了他们的知名度。此专辑的成功为Megadeth后续更高的商业成就奠定了基础。"
         }
@@ -5104,12 +4494,7 @@
         },
         {
           "question": "Megadeth于1986年发行的专辑《Peace Sells... but Who's Buying?》首次以数字格式发行是在以下哪个平台？",
-          "options": [
-            "Apple iTunes Store",
-            "Amazon Music",
-            "Napster",
-            "CD Baby"
-          ],
+          "options": ["Apple iTunes Store", "Amazon Music", "Napster", "CD Baby"],
           "correctAnswer": "Apple iTunes Store",
           "trivia": "《Peace Sells... but Who's Buying?》是Megadeth在1986年发布的经典重金属专辑。随着数字音乐的发展，这张专辑最早于2000年代通过Apple iTunes Store实现了数字发行，使得更多现代听众能够方便地在线购买和收听。虽然Amazon Music和其他平台后来也提供了该专辑的数字版本，但Apple iTunes Store是该专辑数字发行的先驱平台之一。Napster在2000年代早期流行，但主要作为点对点共享服务而非官方发行渠道。CD Baby则多为独立音乐人使用，Megadeth的数字发行主要依赖大型主流平台。"
         }
@@ -5117,34 +4502,19 @@
       "hard": [
         {
           "question": "在Megadeth的1986年专辑《Peace Sells... but Who's Buying?》的制作过程中，谁担任了该专辑的制作人？",
-          "options": [
-            "Dave Mustaine",
-            "Randy Burns",
-            "Paul Lani",
-            "Rick Rubin"
-          ],
+          "options": ["Dave Mustaine", "Randy Burns", "Paul Lani", "Rick Rubin"],
           "correctAnswer": "Randy Burns",
           "trivia": "《Peace Sells... but Who's Buying?》是Megadeth的第二张录音室专辑，其制作人是Randy Burns，他以帮助多支金属乐队塑造经典音色著称。虽然Dave Mustaine是乐队的主唱和主要创作人，但制作工作由经验丰富的Randy Burns负责，他曾与其他重要金属乐队合作，如Anthrax。专辑的录制在纽约的Music Grinder工作室完成，Randy Burns的制作风格对专辑的清晰度和激烈感起到了关键作用。这张专辑后来成为极具影响力的速度金属作品之一，制作人对音质的掌控被认为是成功的重要因素。"
         },
         {
           "question": "Megadeth在1986年发行专辑《Peace Sells... but Who's Buying?》后，首次大型巡演中，他们选择了哪个乐队作为北美地区的主要联合巡演伙伴？",
-          "options": [
-            "Anthrax",
-            "Metallica",
-            "Slayer",
-            "Overkill"
-          ],
+          "options": ["Anthrax", "Metallica", "Slayer", "Overkill"],
           "correctAnswer": "Overkill",
           "trivia": "在发行《Peace Sells... but Who's Buying?》专辑后，Megadeth于1986-1987年间展开了北美大型巡演。值得注意的是，他们选择了同样活跃于80年代金属界的Overkill作为主要联合巡演伙伴。这次巡演不仅帮助Megadeth扩大了观众基础，也巩固了Thrash Metal的影响力。虽然Metallica、Anthrax和Slayer与Megadeth被称为四大天王，但在这次特定的巡演中，Overkill才是他们的官方联合巡演乐队。此举进一步体现了当时美国金属圈内部的紧密联系和合作。"
         },
         {
           "question": "在Megadeth 1986年发行的专辑《Peace Sells... but Who's Buying?》的音响工程制作中，哪位音响工程师负责了该专辑的混音工作？",
-          "options": [
-            "Paul Lani",
-            "Dave Mustaine",
-            "Eddie Kramer",
-            "Terry Date"
-          ],
+          "options": ["Paul Lani", "Dave Mustaine", "Eddie Kramer", "Terry Date"],
           "correctAnswer": "Paul Lani",
           "trivia": "《Peace Sells... but Who's Buying?》是Megadeth的重要作品，其混音工程由Paul Lani承担。Paul Lani是一位经验丰富的音响工程师，曾与多支摇滚和金属乐队合作。该专辑在制作时采用了当时先进的多轨录音技术，Lani的混音工作帮助塑造了专辑清晰且层次分明的音响效果。Dave Mustaine虽是乐队核心成员和制片人之一，但实际混音工作由专业工程师完成。Eddie Kramer和Terry Date则分别以与其他摇滚及金属艺人的合作闻名，但未参与本专辑制作。"
         }
@@ -5170,12 +4540,7 @@
         },
         {
           "question": "Men at Work在他们1981年发行的专辑《Business as Usual》中，哪首歌曲的歌词主要表达了对日常生活中孤独和疏离感的感受？",
-          "options": [
-            "Down Under",
-            "Who Can It Be Now?",
-            "Be Good Johnny",
-            "It's a Mistake"
-          ],
+          "options": ["Down Under", "Who Can It Be Now?", "Be Good Johnny", "It's a Mistake"],
           "correctAnswer": "Be Good Johnny",
           "trivia": "《Business as Usual》是Men at Work于1981年发布的首张专辑，其中包含多首广受欢迎的单曲。歌曲《Be Good Johnny》通过歌词描绘了一个孩子在家庭和社会中的孤独感和被误解的状态，反映了日常生活中常见的疏离现象。相比之下，《Down Under》和《Who Can It Be Now?》更多涉及澳大利亚文化和对外界的警惕，而《It's a Mistake》则探讨了战争的主题。因此，《Be Good Johnny》在歌词和主题上更突出对孤独感的表达，符合专辑中对社会和个人经验的深刻描绘。"
         },
@@ -5194,12 +4559,7 @@
       "medium": [
         {
           "question": "Men at Work的专辑《Business as Usual》是在哪家唱片公司的支持下发行的？",
-          "options": [
-            "Columbia Records",
-            "CBS Records",
-            "Atlantic Records",
-            "EMI Records"
-          ],
+          "options": ["Columbia Records", "CBS Records", "Atlantic Records", "EMI Records"],
           "correctAnswer": "Columbia Records",
           "trivia": "Men at Work的首张专辑《Business as Usual》于1981年发行，该专辑由Columbia Records发行。Columbia Records是哥伦比亚广播公司的唱片部门，拥有丰富的推广资源，帮助该专辑在国际市场取得巨大成功。《Business as Usual》不仅在澳大利亚本土热销，还登顶了包括美国Billboard 200在内的多个国家排行榜。虽然当时CBS Records也是一个重要的唱片公司，但Men at Work选择了Columbia Records作为其国际发行的合作伙伴，这为他们的全球知名度奠定了基础。"
         },
@@ -5229,12 +4589,7 @@
       "hard": [
         {
           "question": "在Men at Work的1981年专辑《Business as Usual》中，哪位成员不仅担任主唱，还负责了萨克斯风和长笛的演奏？",
-          "options": [
-            "Colin Hay",
-            "Greg Ham",
-            "Ron Strykert",
-            "John Rees"
-          ],
+          "options": ["Colin Hay", "Greg Ham", "Ron Strykert", "John Rees"],
           "correctAnswer": "Greg Ham",
           "trivia": "Greg Ham是澳大利亚乐队Men at Work的多才多艺成员，在1981年发行的首张专辑《Business as Usual》中，他不仅担任萨克斯风和长笛的演奏，还提供了和声支持。Colin Hay是乐队的主唱和吉他手，但主要负责主唱和吉他部分；Ron Strykert则是吉他手；John Rees负责贝斯演奏。Greg Ham在专辑中以其多种乐器能力，为乐队独特的声音增添了重要元素，使《Business as Usual》成为当时极具辨识度的作品。"
         },
@@ -5282,23 +4637,13 @@
         },
         {
           "question": "Metallica的专辑'Master of Puppets'是在哪家唱片公司发行的？",
-          "options": [
-            "Elektra Records",
-            "Roadrunner Records",
-            "Nuclear Blast",
-            "Sub Pop"
-          ],
+          "options": ["Elektra Records", "Roadrunner Records", "Nuclear Blast", "Sub Pop"],
           "correctAnswer": "Elektra Records",
           "trivia": "Metallica的第三张专辑'Master of Puppets'于1986年发行，标志着乐队职业生涯的一个重要里程碑。这张专辑是由Elektra Records发行的，这家公司是当时美国著名的主流唱片公司之一。Elektra Records支持Metallica将其音乐推广到更广泛的听众，并帮助他们进入主流市场。相比之下，Roadrunner Records曾是早期重金属乐队的主要唱片公司，但Metallica在签约Elektra后获得了更大的资源和宣传支持。Sub Pop和Nuclear Blast则主要聚焦于其他次文化和风格的音乐发行。"
         },
         {
           "question": "Metallica的专辑'Master of Puppets'在美国Billboard 200排行榜上取得了什么最高排名？",
-          "options": [
-            "第29名",
-            "第1名",
-            "第10名",
-            "第50名"
-          ],
+          "options": ["第29名", "第1名", "第10名", "第50名"],
           "correctAnswer": "第29名",
           "trivia": "Metallica的'Master of Puppets'专辑于1986年发行，是乐队的第三张录音室专辑。该专辑在美国Billboard 200排行榜上最高排名第29名，标志着Metallica首次进入美国主流排行榜的前30名。尽管没有登顶，但这张专辑被广泛认为是重金属音乐的经典之作，并为乐队后续的商业成功奠定了基础。'Master of Puppets'也是Metallica首张获得美国唱片工业协会( RIAA )白金认证的专辑，显示了其在市场上的成功。"
         }
@@ -5341,12 +4686,7 @@
       "hard": [
         {
           "question": "在Metallica录制1986年专辑'Master of Puppets'时，哪位著名的录音师负责了这张专辑的混音工作？",
-          "options": [
-            "Flemming Rasmussen",
-            "Bob Rock",
-            "Terry Date",
-            "Rick Rubin"
-          ],
+          "options": ["Flemming Rasmussen", "Bob Rock", "Terry Date", "Rick Rubin"],
           "correctAnswer": "Flemming Rasmussen",
           "trivia": "Metallica的经典专辑'Master of Puppets'于1986年在丹麦的Sweet Silence Studios录制，混音工作由著名录音师Flemming Rasmussen负责。Rasmussen此前曾与Metallica合作录制其早期专辑《Ride the Lightning》和《Kill 'Em All》。他的专业技术帮助乐队在音色和制作细节上达到了更高水平。相比之下，Bob Rock是Metallica稍后专辑的制作人，Terry Date和Rick Rubin则主要活跃于其他乐队和风格的制作领域。因此，Flemming Rasmussen在'Master of Puppets'的录音制作中扮演了关键角色。"
         },
@@ -5394,12 +4734,7 @@
         },
         {
           "question": "Michael Jackson在1982年录制专辑《Thriller》时，主要使用了哪种合成器作为音乐设备？",
-          "options": [
-            "Yamaha CS-80",
-            "Moog Minimoog",
-            "Roland Jupiter-8",
-            "Korg MS-20"
-          ],
+          "options": ["Yamaha CS-80", "Moog Minimoog", "Roland Jupiter-8", "Korg MS-20"],
           "correctAnswer": "Yamaha CS-80",
           "trivia": "在录制1982年专辑《Thriller》时，Michael Jackson及其制作团队广泛使用了Yamaha CS-80合成器，这是一款当时非常先进且音色丰富的多音合成器。该合成器为专辑中的多首曲目带来了独特的声音质感，尤其是在制作电子合成元素时表现突出。Yamaha CS-80以其丰富的模拟音色和表现力被誉为80年代最具代表性的合成器之一。虽然其他合成器如Moog Minimoog和Roland Jupiter-8在同期音乐制作中也很流行，但《Thriller》的主要合成器设备是Yamaha CS-80。"
         },
@@ -5429,12 +4764,7 @@
         },
         {
           "question": "在录制Michael Jackson的专辑'Thriller'时，哪位著名制作人承担了主要的制作工作，并对专辑的音质和风格产生了深远影响？",
-          "options": [
-            "Quincy Jones",
-            "George Martin",
-            "Rick Rubin",
-            "Teddy Riley"
-          ],
+          "options": ["Quincy Jones", "George Martin", "Rick Rubin", "Teddy Riley"],
           "correctAnswer": "Quincy Jones",
           "trivia": "Michael Jackson的专辑'Thriller'由传奇制作人Quincy Jones担任主要制作人。Quincy Jones以其在爵士乐和流行乐领域的丰富经验，为专辑注入了丰富的音乐元素和高品质的录音制作。录制过程在1982年于加利福尼亚的Westlake Recording Studios完成，Quincy Jones通过细致的编曲和精准的音效处理，帮助'Thriller'成为史上最畅销的专辑之一。George Martin主要以制作披头士闻名，Rick Rubin和Teddy Riley虽然各自在音乐制作界著名，但并未参与'Thriller'的制作。"
         },
@@ -5453,34 +4783,19 @@
       "hard": [
         {
           "question": "Michael Jackson的专辑《Thriller》在发行时隶属于哪家唱片公司，这家公司对专辑的全球推广起到了关键作用？",
-          "options": [
-            "Epic Records",
-            "Motown Records",
-            "Columbia Records",
-            "Atlantic Records"
-          ],
+          "options": ["Epic Records", "Motown Records", "Columbia Records", "Atlantic Records"],
           "correctAnswer": "Epic Records",
           "trivia": "《Thriller》专辑于1982年发行时，签约的唱片公司是Epic Records，这是一家隶属于CBS唱片集团的公司。Epic Records在全球范围内负责专辑的发行和推广，帮助Michael Jackson突破种族和市场的界限，成为历史上最畅销的专辑之一。尽管Michael Jackson早期曾与Motown Records合作，但《Thriller》时期已转投Epic。Columbia Records和Atlantic Records虽然在业内同样著名，但与《Thriller》的发行无关。Epic Records的营销策略和资源投入为《Thriller》的巨大成功奠定了基础。"
         },
         {
           "question": "在Michael Jackson的1982年专辑'Thriller'的包装设计中，哪位艺术家负责设计了专辑封面上Michael Jackson穿着红色夹克的形象？",
-          "options": [
-            "Ken Nahoum",
-            "Andy Warhol",
-            "Peter Saville",
-            "Storm Thorgerson"
-          ],
+          "options": ["Ken Nahoum", "Andy Warhol", "Peter Saville", "Storm Thorgerson"],
           "correctAnswer": "Ken Nahoum",
           "trivia": "专辑'Thriller'的封面设计由Ken Nahoum负责，他是一位著名的平面设计师，曾为多位艺术家设计专辑封面。Ken Nahoum设计的封面上，Michael Jackson身穿红色夹克，坐在一个带有黑色背景的椅子上，形象极具标志性。Andy Warhol、Peter Saville和Storm Thorgerson虽然在音乐专辑设计领域也很有名，但他们并未参与'Thriller'的包装设计。Ken Nahoum的设计成功地传达了专辑的神秘和时尚感，成为音乐史上最具辨识度的专辑封面之一。"
         },
         {
           "question": "在Michael Jackson的专辑《Thriller》的词曲创作过程中，哪位著名制作人不仅担任制作人，还亲自为多首歌曲编写了词曲？",
-          "options": [
-            "Quincy Jones",
-            "Teddy Riley",
-            "Rod Temperton",
-            "Prince"
-          ],
+          "options": ["Quincy Jones", "Teddy Riley", "Rod Temperton", "Prince"],
           "correctAnswer": "Rod Temperton",
           "trivia": "Rod Temperton是一位英国词曲作者，他为Michael Jackson的《Thriller》专辑创作了多首经典曲目，包括《Thriller》和《Rock with You》。这张专辑的制作人是Quincy Jones，他负责整体制作和编曲，但Temperton贡献了关键的词曲创作。Teddy Riley虽然以制作新杰克摇摆风格著称，但并未参与《Thriller》的制作。Prince虽然是当时流行音乐的重要人物，但与《Thriller》的词曲创作无关。Temperton的作品深刻影响了专辑的音乐风格，成为80年代流行音乐的重要里程碑。"
         }
@@ -5506,12 +4821,7 @@
         },
         {
           "question": "在Mötley Crüe录制1989年专辑'Dr. Feelgood'时，哪位著名的音响工程师负责了该专辑的混音工作？",
-          "options": [
-            "Bob Rock",
-            "Quincy Jones",
-            "Rick Rubin",
-            "Bruce Fairbairn"
-          ],
+          "options": ["Bob Rock", "Quincy Jones", "Rick Rubin", "Bruce Fairbairn"],
           "correctAnswer": "Bob Rock",
           "trivia": "Mötley Crüe的专辑'Dr. Feelgood'由著名音响工程师Bob Rock负责混音，他以为多张硬摇滚和重金属专辑打造出清晰且有力的音响效果而闻名。Bob Rock此前曾与Metallica等乐队合作，提升了他们的录音质量。'Dr. Feelgood'是Mötley Crüe最成功的专辑之一，Bob Rock的混音工作为专辑的商业成功和声音细节贡献显著。该专辑的录音过程在1988年底开始，最终于1989年发布，成为乐队的代表作。"
         },
@@ -5552,12 +4862,7 @@
         },
         {
           "question": "Mötley Crüe在录制1989年专辑'Dr. Feelgood'时，哪位制作人负责该专辑的制作工作？",
-          "options": [
-            "Bob Rock",
-            "Mutt Lange",
-            "Rick Rubin",
-            "Quincy Jones"
-          ],
+          "options": ["Bob Rock", "Mutt Lange", "Rick Rubin", "Quincy Jones"],
           "correctAnswer": "Bob Rock",
           "trivia": "Mötley Crüe的专辑'Dr. Feelgood'由著名制作人Bob Rock负责制作，他以帮助多支摇滚乐队打造更具力量感的录音而闻名。Bob Rock此前曾与Metallica合作，提升了他们的录音质量。'Dr. Feelgood'是Mötley Crüe最成功的专辑之一，Bob Rock的制作风格被认为极大地增强了专辑的硬摇滚质感和商业吸引力。该专辑的成功也证明了制作人在音乐作品中的关键作用。"
         }
@@ -5642,12 +4947,7 @@
       "medium": [
         {
           "question": "在制作1988年N.W.A的专辑'Straight Outta Compton'时，哪位制作人主要负责整体的录音和混音工作？",
-          "options": [
-            "Dr. Dre",
-            "DJ Yella",
-            "Ice Cube",
-            "Eazy-E"
-          ],
+          "options": ["Dr. Dre", "DJ Yella", "Ice Cube", "Eazy-E"],
           "correctAnswer": "Dr. Dre",
           "trivia": "Dr. Dre是N.W.A的主要制作人，他在专辑'Straight Outta Compton'中承担了大部分录音和混音工作。作为当时西海岸嘻哈的关键人物，Dr. Dre的制作风格为该专辑带来了独特的硬核声音和深厚的节奏感。DJ Yella虽然也参与制作，但更多负责辅助和打碟，而Ice Cube和Eazy-E则主要担任说唱和词曲创作。Dr. Dre后续也成为了嘻哈音乐史上极具影响力的制作人，这张专辑是他早期的重要作品之一。"
         },
@@ -5719,12 +5019,7 @@
       "easy": [
         {
           "question": "New Order在创作1985年专辑《Low-Life》的词曲过程中，哪位成员首次开始更多地参与主唱和歌词创作？",
-          "options": [
-            "Bernard Sumner",
-            "Peter Hook",
-            "Stephen Morris",
-            "Gillian Gilbert"
-          ],
+          "options": ["Bernard Sumner", "Peter Hook", "Stephen Morris", "Gillian Gilbert"],
           "correctAnswer": "Bernard Sumner",
           "trivia": "在New Order的1985年专辑《Low-Life》中，Bernard Sumner不仅继续担任吉他手和键盘手，还开始更多地承担主唱和歌词创作的任务。这标志着乐队在词曲创作上的转变，尤其是在继Joy Division主唱Ian Curtis去世后，Sumner逐渐成为乐队声音的核心。Peter Hook主要负责贝斯演奏，Stephen Morris负责鼓和编程，Gillian Gilbert则参与键盘和吉他演奏。专辑《Low-Life》体现了New Order结合电子与摇滚元素的成熟风格，Sumner的主唱角色为乐队带来了新的表现力。"
         },
@@ -5765,23 +5060,13 @@
         },
         {
           "question": "New Order在1985年发行的专辑《Low-Life》中，哪种品牌的服装成为乐队成员在专辑封面上展示的标志性服饰，体现了他们与时尚品牌的合作推广？",
-          "options": [
-            "Fred Perry",
-            "Ben Sherman",
-            "Lacoste",
-            "Adidas"
-          ],
+          "options": ["Fred Perry", "Ben Sherman", "Lacoste", "Adidas"],
           "correctAnswer": "Fred Perry",
           "trivia": "New Order的《Low-Life》专辑封面由著名摄影师Peter Saville拍摄，乐队成员身穿Fred Perry品牌的服装，这成为了该品牌与独立音乐文化结合的经典案例。Fred Perry以其简约的设计和英国传统风格闻名，早在80年代便与多支英国摇滚乐队有过合作。乐队通过穿着该品牌的服饰，不仅提升了自身形象，也助推了Fred Perry在青年文化中的流行度。这种跨界合作是当时音乐和时尚品牌推广的一种典范。"
         },
         {
           "question": "在New Order录制1985年专辑《Low-Life》的过程中，哪位知名制作人或工程师参与了该专辑的混音工作？",
-          "options": [
-            "Martin Hannett",
-            "John Robie",
-            "Stephen Hague",
-            "Brian Eno"
-          ],
+          "options": ["Martin Hannett", "John Robie", "Stephen Hague", "Brian Eno"],
           "correctAnswer": "Stephen Hague",
           "trivia": "《Low-Life》是New Order于1985年发行的第三张录音室专辑，录制期间他们与制作人Stephen Hague合作完成混音工作。Hague以其对80年代合成器流行音乐的影响而闻名，他的参与为专辑带来了更加细腻和精致的合成器音色。相比之下，Martin Hannett曾为Joy Division制作专辑，但并未直接参与《Low-Life》的制作。John Robie以其在电子舞曲领域的贡献著称，而Brian Eno则是另一位著名制作人，但均未参与该专辑的混音。Stephen Hague的加入标志着New Order在制作风格上的进一步演进。"
         }
@@ -5831,12 +5116,7 @@
       "easy": [
         {
           "question": "Olivia Newton-John的专辑《Physical》在社会评论方面，哪首歌曲最直接反映了当时对健康生活方式和身体意识的关注？",
-          "options": [
-            "《Physical》",
-            "《Make a Move on Me》",
-            "《Falling》",
-            "《Landslide》"
-          ],
+          "options": ["《Physical》", "《Make a Move on Me》", "《Falling》", "《Landslide》"],
           "correctAnswer": "《Physical》",
           "trivia": "Olivia Newton-John的专辑《Physical》于1981年发行，主打歌《Physical》不仅在音乐榜单上取得巨大成功，也成为当时推广健康生活方式和身体意识的象征。这首歌通过其歌词和节奏，强调了身体锻炼和活跃生活的重要性，反映了1980年代初期社会对健身文化的关注上升。该曲在美国Billboard Hot 100榜单上连续十周位居第一，进一步证明了其广泛影响力。相比之下，专辑中的其他歌曲更多聚焦于感情和个人经历，而非直接的社会话题。"
         },
@@ -5888,12 +5168,7 @@
         },
         {
           "question": "Olivia Newton-John的专辑《Physical》在1982年的格莱美奖中获得了哪项主要提名？",
-          "options": [
-            "最佳流行女歌手表演奖",
-            "年度专辑奖",
-            "最佳制作人奖",
-            "最佳音乐录影带奖"
-          ],
+          "options": ["最佳流行女歌手表演奖", "年度专辑奖", "最佳制作人奖", "最佳音乐录影带奖"],
           "correctAnswer": "最佳流行女歌手表演奖",
           "trivia": "Olivia Newton-John的专辑《Physical》于1981年发布后，取得了巨大的商业成功，并在1982年的格莱美奖中为她赢得了“最佳流行女歌手表演奖”的提名。该专辑的同名主打单曲《Physical》更是在美国公告牌百强单曲榜上连续多周占据第一位置。虽然该专辑没有获得年度专辑奖的提名，但其流行音乐的影响力和旋律创新为Olivia Newton-John赢得了广泛的认可。此外，专辑的音乐录影带也因其创意获得了媒体关注，但未获得格莱美的相关奖项提名。"
         }
@@ -5978,23 +5253,13 @@
       "medium": [
         {
           "question": "Pat Benatar的专辑《Crimes of Passion》在美国公告牌二百强专辑榜上的最高排名是多少？",
-          "options": [
-            "第2名",
-            "第5名",
-            "第10名",
-            "第15名"
-          ],
+          "options": ["第2名", "第5名", "第10名", "第15名"],
           "correctAnswer": "第5名",
           "trivia": "Pat Benatar于1980年发行的《Crimes of Passion》专辑在美国公告牌二百强专辑榜上最高达到第5名的成绩，这是她职业生涯中的重要突破。该专辑不仅巩固了她作为摇滚女歌手的地位，也助推了单曲《Hit Me with Your Best Shot》成为经典热门。值得一提的是，这张专辑获得了当年的格莱美提名，进一步证明了其商业和艺术上的成功。专辑中多首歌曲在当时的摇滚电台频繁播放，提高了Pat Benatar在主流乐坛的知名度。"
         },
         {
           "question": "在Pat Benatar的1980年专辑《Crimes of Passion》的录制过程中，哪位著名制作人负责制作该专辑？",
-          "options": [
-            "Keith Olsen",
-            "Mike Chapman",
-            "Bob Ezrin",
-            "Giorgio Moroder"
-          ],
+          "options": ["Keith Olsen", "Mike Chapman", "Bob Ezrin", "Giorgio Moroder"],
           "correctAnswer": "Keith Olsen",
           "trivia": "Pat Benatar的专辑《Crimes of Passion》由制作人Keith Olsen负责制作。Olsen以其在70年代末和80年代初的摇滚制作工作闻名，他曾与Fleetwood Mac和Pat Benatar等多位艺术家合作。该专辑录制于加利福尼亚的音响录音室，Olsen利用当时先进的录音设备，帮助塑造了专辑的清晰且充满力量的声音。Mike Chapman和Bob Ezrin虽然都是著名制作人，但他们并未参与该专辑的制作。Giorgio Moroder则以电子音乐制作著称，与《Crimes of Passion》的摇滚风格不同。"
         },
@@ -6013,23 +5278,13 @@
       "hard": [
         {
           "question": "在Pat Benatar的1980年专辑《Crimes of Passion》的制作过程中，哪位著名制作人负责专辑的制作并对专辑的硬摇滚风格起到了关键作用？",
-          "options": [
-            "Mike Chapman",
-            "Keith Olsen",
-            "Mutt Lange",
-            "Bob Ezrin"
-          ],
+          "options": ["Mike Chapman", "Keith Olsen", "Mutt Lange", "Bob Ezrin"],
           "correctAnswer": "Keith Olsen",
           "trivia": "Pat Benatar的专辑《Crimes of Passion》由资深制作人Keith Olsen制作，他以其对硬摇滚和流行摇滚的精准把控而闻名。Olsen曾参与多张经典摇滚专辑的制作，帮助Benatar打造出清晰且有力的声音质感，这张专辑因此获得了巨大的商业成功。专辑中的热门单曲《Hit Me with Your Best Shot》也体现了Olsen的制作风格，兼具动力感与流畅度。Keith Olsen的制作帮助《Crimes of Passion》确立了Pat Benatar作为80年代顶尖摇滚女歌手的地位。"
         },
         {
           "question": "在Pat Benatar为1980年专辑《Crimes of Passion》展开的首次大型巡演中，哪座城市的现场演出被官方录制并作为后续发行的现场专辑或视频素材？",
-          "options": [
-            "纽约",
-            "洛杉矶",
-            "芝加哥",
-            "迈阿密"
-          ],
+          "options": ["纽约", "洛杉矶", "芝加哥", "迈阿密"],
           "correctAnswer": "洛杉矶",
           "trivia": "Pat Benatar在1980年《Crimes of Passion》专辑发行后，进行了她的首次大型巡演。巡演中洛杉矶的现场演出因其震撼的表现和观众反响，被官方录制并部分用于后续的现场专辑及视频发布。洛杉矶作为她的音乐事业起点城市之一，拥有丰富的摇滚文化氛围，促进了演出的高能量表现。此外，这场巡演帮助Pat Benatar巩固了作为80年代摇滚女声的地位，并让《Crimes of Passion》中的歌曲如《Hit Me with Your Best Shot》在现场获得了极大成功。"
         },
@@ -6055,12 +5310,7 @@
       "easy": [
         {
           "question": "Paul McCartney在1982年的专辑'Tug of War'中，哪位著名艺术家为其中一首歌曲提供了和声支持？",
-          "options": [
-            "Stevie Wonder",
-            "Michael Jackson",
-            "David Bowie",
-            "Eric Clapton"
-          ],
+          "options": ["Stevie Wonder", "Michael Jackson", "David Bowie", "Eric Clapton"],
           "correctAnswer": "Stevie Wonder",
           "trivia": "在Paul McCartney的1982年专辑'Tug of War'中，Stevie Wonder为歌曲《Ebony and Ivory》贡献了标志性的和声。这首歌探讨了种族和谐的主题，成为当年非常受欢迎的单曲，登上了多国排行榜的前列。Stevie Wonder的参与不仅增加了歌曲的灵魂感，也象征了两位音乐巨星的合作。该专辑整体反映了McCartney在失去前Beatles成员John Lennon后，重拾音乐生涯的努力。"
         },
@@ -6077,12 +5327,7 @@
         },
         {
           "question": "在Paul McCartney的1982年专辑'Tug of War'中，哪首歌曲曾在电台获得较高的播放频率，成为该专辑的主打单曲？",
-          "options": [
-            "Ebony and Ivory",
-            "Take It Away",
-            "Here Today",
-            "Wanderlust"
-          ],
+          "options": ["Ebony and Ivory", "Take It Away", "Here Today", "Wanderlust"],
           "correctAnswer": "Ebony and Ivory",
           "trivia": "《Ebony and Ivory》是Paul McCartney与Stevie Wonder合作的单曲，收录在1982年的专辑'Tug of War'中。这首歌因其呼吁种族和谐的主题而广受欢迎，成为电台播放量最高的曲目之一。它在英国单曲排行榜上达到第一位，在美国Billboard Hot 100榜单也进入了前十名。作为专辑的主打歌，《Ebony and Ivory》的成功极大推动了专辑的整体销量和知名度。其电台播放的高频率帮助它成为Paul McCartney1980年代早期最具代表性的作品之一。"
         }
@@ -6136,12 +5381,7 @@
         },
         {
           "question": "在Paul McCartney的1982年专辑'Tug of War'的录制过程中，哪位著名艺术家为专辑的某几首曲目贡献了和声演唱？",
-          "options": [
-            "Stevie Wonder",
-            "Michael Jackson",
-            "Elton John",
-            "David Bowie"
-          ],
+          "options": ["Stevie Wonder", "Michael Jackson", "Elton John", "David Bowie"],
           "correctAnswer": "Stevie Wonder",
           "trivia": "在Paul McCartney录制1982年专辑'Tug of War'时，Stevie Wonder为专辑中的《Ebony and Ivory》提供了和声演唱，这首歌强调了种族和谐的主题。该合作不仅提升了歌曲的社会意义，也使其成为当年最受欢迎的单曲之一。此外，Stevie Wonder的参与体现了Paul McCartney在录音过程中寻求多样化音乐风格和富有感染力的合作伙伴的意图。"
         },
@@ -6178,12 +5418,7 @@
         },
         {
           "question": "Paul Simon在1986年录制专辑《Graceland》时，主要使用了哪种传统乐器来体现专辑的非洲音乐风格？",
-          "options": [
-            "卡林巴（拇指钢琴）",
-            "曼陀林",
-            "钢琴",
-            "萨克斯风"
-          ],
+          "options": ["卡林巴（拇指钢琴）", "曼陀林", "钢琴", "萨克斯风"],
           "correctAnswer": "卡林巴（拇指钢琴）",
           "trivia": "在Paul Simon的1986年专辑《Graceland》中，他融合了南非传统音乐元素，特别是使用了卡林巴（拇指钢琴）这类非洲传统乐器。卡林巴的清脆音色为专辑增添了独特的非洲韵味，这种乐器在南非音乐中极为流行。该专辑的录制过程跨越美国和南非，Paul Simon与多位南非音乐家合作，利用传统乐器打造了创新的音乐风格。《Graceland》因此不仅是一张流行专辑，也成为跨文化音乐融合的经典代表。"
         },
@@ -6202,12 +5437,7 @@
       "medium": [
         {
           "question": "Paul Simon的专辑《Graceland》在1986年取得了显著的商业成功，请问该专辑在美国Billboard 200专辑排行榜上的最高排名是？",
-          "options": [
-            "第3名",
-            "第7名",
-            "第1名",
-            "第10名"
-          ],
+          "options": ["第3名", "第7名", "第1名", "第10名"],
           "correctAnswer": "第3名",
           "trivia": "Paul Simon的《Graceland》专辑于1986年发行后，凭借其融合南非音乐元素的独特风格，受到了广泛好评和商业成功。该专辑在美国Billboard 200排行榜上最高攀升至第3名，这一成绩体现了其在当时流行音乐市场的影响力。除了美国市场，《Graceland》还在英国和其他国家获得了良好的排名和销量，进一步巩固了Paul Simon在世界音乐舞台上的地位。该专辑还赢得了1987年的格莱美最佳专辑奖，证明了其艺术与商业的双重成功。"
         },
@@ -6336,12 +5566,7 @@
         },
         {
           "question": "在Paula Abdul的1988年专辑《Forever Your Girl》中，哪位音乐家以其担任鼓手的身份参与录制？",
-          "options": [
-            "John Robinson",
-            "Steve Gadd",
-            "Jeff Porcaro",
-            "Buddy Rich"
-          ],
+          "options": ["John Robinson", "Steve Gadd", "Jeff Porcaro", "Buddy Rich"],
           "correctAnswer": "John Robinson",
           "trivia": "John Robinson是一位著名的录音室鼓手，他参与了Paula Abdul的首张专辑《Forever Your Girl》的录制工作。该专辑融合了流行和舞曲元素，John Robinson的鼓点为多首热门单曲提供了坚实的节奏基础。与其他知名鼓手如Steve Gadd和Jeff Porcaro相比，John Robinson在这张专辑中担纲主要录音鼓手角色。Buddy Rich则是一位著名的爵士鼓手，并未参与此专辑的制作。"
         }
@@ -6413,12 +5638,7 @@
         },
         {
           "question": "Pet Shop Boys在创作1987年专辑《Actually》时，哪位著名制作人参与了部分歌曲的制作？",
-          "options": [
-            "Stephen Hague",
-            "Trevor Horn",
-            "Brian Eno",
-            "Quincy Jones"
-          ],
+          "options": ["Stephen Hague", "Trevor Horn", "Brian Eno", "Quincy Jones"],
           "correctAnswer": "Stephen Hague",
           "trivia": "Pet Shop Boys的专辑《Actually》由Stephen Hague参与制作，他是80年代著名的流行音乐制作人，曾与众多艺术家合作，如New Order和O.M.D.。Hague制作的风格以清晰的合成器音色和流畅的节奏著称，有助于塑造《Actually》中标志性的电子流行声音。专辑中的热门单曲《What Have I Done to Deserve This?》也体现了他的制作风格。虽然其他制作人如Trevor Horn和Brian Eno在当时也非常活跃，但《Actually》的主要制作人是Stephen Hague。"
         }
@@ -6437,12 +5657,7 @@
         },
         {
           "question": "在Pet Shop Boys的1987年专辑'Actually'的音响工程制作过程中，哪位著名的录音师参与了混音工作？",
-          "options": [
-            "Julian Mendelsohn",
-            "Steve Albini",
-            "Brian Eno",
-            "Bob Clearmountain"
-          ],
+          "options": ["Julian Mendelsohn", "Steve Albini", "Brian Eno", "Bob Clearmountain"],
           "correctAnswer": "Julian Mendelsohn",
           "trivia": "Julian Mendelsohn是Pet Shop Boys在录制1987年专辑'Actually'时的重要录音师和混音师。他曾与多位著名艺术家合作，以其细致且富有层次感的混音风格闻名。'Actually'专辑中，Mendelsohn负责将合成器、人声和鼓机的音色巧妙平衡，创造出专辑标志性的清晰且丰富的电子音效。Steve Albini、Brian Eno和Bob Clearmountain虽然都是著名的录音师，但他们并未参与该专辑的制作。Julian Mendelsohn的专业技巧为'Actually'的音响质感奠定了坚实基础。"
         },
@@ -6514,23 +5729,13 @@
         },
         {
           "question": "在Peter Cetera1986年发行的专辑《Solitude/Solitaire》中，他主要使用哪种乐器来表现他的标志性声音？",
-          "options": [
-            "电贝斯",
-            "电子钢琴",
-            "电吉他",
-            "萨克斯风"
-          ],
+          "options": ["电贝斯", "电子钢琴", "电吉他", "萨克斯风"],
           "correctAnswer": "电吉他",
           "trivia": "Peter Cetera作为前芝加哥乐队的主唱和贝斯手，在他的个人专辑《Solitude/Solitaire》中虽然仍然使用贝斯，但他标志性的声音更多通过电吉他来表现。专辑中融合了80年代流行摇滚的元素，电吉他被用于丰富音色和旋律线。Cetera的唱腔与电吉他旋律相辅相成，使得该专辑中的多首单曲如\"Glory of Love\"成为经典。此外，专辑中的制作团队也大量使用了电子合成器和电子钢琴，但电吉他是最直接展现情感表达的乐器。"
         },
         {
           "question": "在Peter Cetera的1986年专辑《Solitude/Solitaire》的制作过程中，哪位著名音乐人参与了这张专辑的制作？",
-          "options": [
-            "David Foster",
-            "Quincy Jones",
-            "Phil Spector",
-            "T Bone Burnett"
-          ],
+          "options": ["David Foster", "Quincy Jones", "Phil Spector", "T Bone Burnett"],
           "correctAnswer": "David Foster",
           "trivia": "Peter Cetera在他的1986年专辑《Solitude/Solitaire》中与著名制作人David Foster合作。David Foster以其在流行和成人当代音乐领域的制作才华闻名，他曾为许多知名艺术家制作专辑。该专辑中，Foster不仅参与了制作，还贡献了钢琴和合成器演奏。此合作提升了专辑的音质和整体风格，使其成为Peter Cetera个人事业中的重要作品之一。"
         }
@@ -6560,12 +5765,7 @@
         },
         {
           "question": "Peter Cetera的1986年专辑'Solitude/Solitaire'中，哪首歌曲在美国主流电台播放量最高，成为该专辑的主打单曲？",
-          "options": [
-            "Glory of Love",
-            "Big Mistake",
-            "Daddy's Girl",
-            "Happy Man"
-          ],
+          "options": ["Glory of Love", "Big Mistake", "Daddy's Girl", "Happy Man"],
           "correctAnswer": "Glory of Love",
           "trivia": "《Glory of Love》是Peter Cetera在1986年发行的专辑'Solitude/Solitaire'中的主打单曲。这首歌不仅获得了极高的电台播放量，还登上了美国Billboard Hot 100榜单的第二名。它是电影《血战钢锯岭》的主题曲，广为人知，帮助Cetera成功从Chicago乐队的主唱身份转型为独唱艺人。此外，这首歌的广泛播放提升了整个专辑的销量和影响力，成为那个年代电台播放的经典软摇滚曲目。"
         }
@@ -6626,23 +5826,13 @@
         },
         {
           "question": "Peter Gabriel的专辑'So'（1986年）中，哪首歌曲因其音乐录像带在MTV上广受欢迎，极大提升了专辑的流行度？",
-          "options": [
-            "Sledgehammer",
-            "In Your Eyes",
-            "Big Time",
-            "Red Rain"
-          ],
+          "options": ["Sledgehammer", "In Your Eyes", "Big Time", "Red Rain"],
           "correctAnswer": "Sledgehammer",
           "trivia": "Peter Gabriel的专辑'So'发行于1986年，其中单曲《Sledgehammer》的音乐录像带在MTV上获得极大关注，成为当年最受欢迎的视频之一。该录像带采用了创新的定格动画技术，视觉效果新颖，帮助《Sledgehammer》登上了美国Billboard Hot 100排行榜的第一名。此曲的成功不仅提升了'So'专辑的销量，也巩固了Peter Gabriel在流行文化中的重要地位。MTV对这支视频的频繁播放，使得Peter Gabriel吸引了大量新粉丝，进一步扩大了其国际影响力。"
         },
         {
           "question": "Peter Gabriel在录制1986年专辑'So'时，主要在哪个城市的录音室完成了录制工作？",
-          "options": [
-            "伦敦",
-            "纽约",
-            "洛杉矶",
-            "巴黎"
-          ],
+          "options": ["伦敦", "纽约", "洛杉矶", "巴黎"],
           "correctAnswer": "伦敦",
           "trivia": "Peter Gabriel的专辑'So'于1986年录制，主要在伦敦的多个录音室完成，包括著名的亚比路录音室（Abbey Road Studios）。伦敦作为当时音乐制作的中心城市，提供了丰富的录音资源和专业设备，帮助Gabriel实现了专辑独特的声音风格。虽然Peter Gabriel本人曾在世界各地演出和工作，但这张专辑的录制过程主要集中在伦敦，确保了音质和制作的一致性。'So'这张专辑也因为其精湛的制作水准获得了极大的商业成功和好评。"
         }
@@ -6650,12 +5840,7 @@
       "medium": [
         {
           "question": "Peter Gabriel在创作1986年专辑'So'时，哪位艺术家的音乐风格对他的灵感影响最大？",
-          "options": [
-            "Laurie Anderson",
-            "Brian Eno",
-            "Kate Bush",
-            "David Bowie"
-          ],
+          "options": ["Laurie Anderson", "Brian Eno", "Kate Bush", "David Bowie"],
           "correctAnswer": "Kate Bush",
           "trivia": "Peter Gabriel在制作专辑'So'期间，深受英国艺术歌手Kate Bush的影响。两人在音乐表达和声音实验上有许多共通点，Gabriel曾多次公开赞赏Kate Bush在艺术流行音乐领域的创新。实际上，Kate Bush也曾参与Gabriel其他项目的合作，这种互动提升了'So'专辑中融合多元音乐元素的表现力。Brian Eno虽然是著名的制作人和音乐家，但并未直接参与'So'的创作，而Laurie Anderson和David Bowie虽各具特色，但对该专辑的灵感贡献不如Kate Bush明显。"
         },
@@ -6685,12 +5870,7 @@
       "hard": [
         {
           "question": "Peter Gabriel的专辑'So'在1987年格莱美奖中获得了哪项提名？",
-          "options": [
-            "最佳年度专辑",
-            "最佳摇滚专辑",
-            "最佳制作专辑",
-            "最佳流行男歌手"
-          ],
+          "options": ["最佳年度专辑", "最佳摇滚专辑", "最佳制作专辑", "最佳流行男歌手"],
           "correctAnswer": "最佳年度专辑",
           "trivia": "Peter Gabriel的专辑'So'于1986年发行，凭借其创新的融合摇滚和世界音乐元素获得了广泛赞誉。在1987年的第29届格莱美奖中，'So'获得了最佳年度专辑（Album of the Year）的提名，这一奖项是格莱美中最具声望的奖项之一。虽然最终未获奖，但该提名体现了'So'在音乐制作和艺术表现上的高度认可。此外，专辑中的单曲《Sledgehammer》也获得了多个格莱美奖项，进一步巩固了Peter Gabriel在全球音乐界的重要地位。"
         },
@@ -6707,12 +5887,7 @@
         },
         {
           "question": "Peter Gabriel在创作1986年专辑'So'时，哪一位艺术家的音乐对他在该专辑中融合世界音乐元素的灵感影响最大？",
-          "options": [
-            "Fela Kuti",
-            "Youssou N'Dour",
-            "Paul Simon",
-            "King Sunny Adé"
-          ],
+          "options": ["Fela Kuti", "Youssou N'Dour", "Paul Simon", "King Sunny Adé"],
           "correctAnswer": "Youssou N'Dour",
           "trivia": "Peter Gabriel在制作专辑'So'时，深受塞内加尔歌手Youssou N'Dour的影响，尤其是在融合西非传统节奏和世界音乐元素方面。Gabriel早在1980年代初期就开始关注非洲音乐，这种跨文化的音乐探索在'So'专辑中得到了充分体现。专辑中的经典曲目《In Your Eyes》就展示了这种灵感，Gabriel也曾在之后的现场演出中与N'Dour合作。Youssou N'Dour的音乐风格帮助Peter Gabriel拓展了流行音乐的边界，推动了世界音乐在主流市场的接受度。"
         }
@@ -6762,12 +5937,7 @@
       "medium": [
         {
           "question": "Phil Collins的专辑《No Jacket Required》在1986年格莱美奖中获得了哪一项主要奖项？",
-          "options": [
-            "最佳年度专辑",
-            "最佳流行男歌手演唱奖",
-            "最佳节奏蓝调专辑",
-            "最佳摇滚专辑"
-          ],
+          "options": ["最佳年度专辑", "最佳流行男歌手演唱奖", "最佳节奏蓝调专辑", "最佳摇滚专辑"],
           "correctAnswer": "最佳流行男歌手演唱奖",
           "trivia": "Phil Collins的《No Jacket Required》专辑不仅在商业上取得巨大成功，还在1986年格莱美奖中为他赢得了“最佳流行男歌手演唱奖”。这张专辑包含了多首热门单曲，如“Take Me Home”和“Sussudio”，展现了他独特的流行摇滚风格。虽然该专辑未获得“最佳年度专辑”或“最佳摇滚专辑”，但其制作精良和演唱表现使Phil Collins获得了该项个人演唱奖的认可。此外，《No Jacket Required》在全球销量超过千万张，巩固了他作为80年代顶尖艺人的地位。"
         },
@@ -6784,12 +5954,7 @@
         },
         {
           "question": "在Phil Collins的1985年专辑'No Jacket Required'中，哪位著名音乐家作为贝斯手参与了录制？",
-          "options": [
-            "Phil Collins本人",
-            "Nathan East",
-            "John Paul Jones",
-            "Tony Levin"
-          ],
+          "options": ["Phil Collins本人", "Nathan East", "John Paul Jones", "Tony Levin"],
           "correctAnswer": "Nathan East",
           "trivia": "在Phil Collins的专辑'No Jacket Required'中，著名贝斯手Nathan East参与了多首歌曲的录制。Nathan East是当时备受尊敬的会话贝斯手，曾与多位顶级艺人合作。Phil Collins本人主要负责鼓和主唱部分，而John Paul Jones和Tony Levin虽然都是知名贝斯手，但并未参与这张专辑的录制。该专辑融合了多样的音乐元素，Nathan East的加入为专辑的节奏部分增添了丰富的层次感。"
         }
@@ -6861,12 +6026,7 @@
         },
         {
           "question": "在Pixies的1989年专辑'Doolittle'的音响工程制作中，哪位工程师负责了该专辑的录音和混音工作？",
-          "options": [
-            "Gil Norton",
-            "Steve Albini",
-            "Butch Vig",
-            "Brian Eno"
-          ],
+          "options": ["Gil Norton", "Steve Albini", "Butch Vig", "Brian Eno"],
           "correctAnswer": "Gil Norton",
           "trivia": "Gil Norton是负责Pixies1989年专辑'Doolittle'的录音和混音的音响工程师。他与乐队合作，通过精细的录音和混音技术，增强了专辑的动态范围和音色层次，使得'Doolittle'成为独立摇滚的重要作品。Gil Norton后来也与Pixies合作制作了多张专辑，这次合作被认为对专辑的成功起到了关键作用。与此不同，Steve Albini、Butch Vig和Brian Eno虽然都是著名的音乐制作人或工程师，但他们并未参与'Doolittle'的制作。"
         }
@@ -6885,12 +6045,7 @@
         },
         {
           "question": "Pixies在录制1989年专辑'Doolittle'时，哪位制作人负责了专辑的整体制作工作？",
-          "options": [
-            "Gil Norton",
-            "Steve Albini",
-            "Butch Vig",
-            "Brian Eno"
-          ],
+          "options": ["Gil Norton", "Steve Albini", "Butch Vig", "Brian Eno"],
           "correctAnswer": "Gil Norton",
           "trivia": "Pixies的专辑'Doolittle'于1989年录制，由英国制作人Gil Norton担任制作人。Norton此前曾与多支摇滚乐队合作，他为'Doolittle'带来了更加清晰和富有层次感的制作风格，帮助Pixies在制作上达到了新的高度。Steve Albini虽然与Pixies合作过，但主要是在后续专辑中，而Butch Vig和Brian Eno则分别以制作Nirvana和U2等乐队著称。Gil Norton的加入对'Doolittle'的声音质感和结构安排起到了关键作用，使这张专辑成为另类摇滚经典之一。"
         },
@@ -6951,12 +6106,7 @@
       "easy": [
         {
           "question": "Poison发行1988年专辑《Open Up and Say... Ahh!》时，隶属于哪家唱片公司？",
-          "options": [
-            "Enigma Records",
-            "Geffen Records",
-            "Capitol Records",
-            "Atlantic Records"
-          ],
+          "options": ["Enigma Records", "Geffen Records", "Capitol Records", "Atlantic Records"],
           "correctAnswer": "Enigma Records",
           "trivia": "Poison的1988年专辑《Open Up and Say... Ahh!》是在Enigma Records旗下发行的。Enigma Records是一家活跃于1980年代的独立唱片公司，专注于摇滚和金属音乐。该专辑的成功帮助Enigma Records在当时的摇滚乐市场中获得了较高的关注度。该公司也曾发行过其他著名摇滚乐队的作品，如Mötley Crüe和The Smithereens。Poison与Enigma Records的合作是他们早期商业成功的重要组成部分。"
         },
@@ -6973,12 +6123,7 @@
         },
         {
           "question": "在Poison的专辑《Open Up and Say... Ahh!》的词曲创作过程中，哪位成员主要负责了歌曲的歌词创作？",
-          "options": [
-            "Bret Michaels",
-            "C.C. DeVille",
-            "Bobby Dall",
-            "Rikki Rockett"
-          ],
+          "options": ["Bret Michaels", "C.C. DeVille", "Bobby Dall", "Rikki Rockett"],
           "correctAnswer": "Bret Michaels",
           "trivia": "Poison的1988年专辑《Open Up and Say... Ahh!》中，主唱Bret Michaels通常承担了主要的歌词创作任务。作为乐队的主唱和前台人物，Bret Michaels的创作风格深刻影响了专辑的主题和表达。吉他手C.C. DeVille更多参与了音乐编曲和吉他演奏，贝斯手Bobby Dall和鼓手Rikki Rockett则主要专注于乐器演奏。Bret Michaels的词曲贡献帮助专辑包含了多首经典曲目，如《Every Rose Has Its Thorn》。"
         }
@@ -7008,12 +6153,7 @@
         },
         {
           "question": "在Poison的1988年专辑《Open Up and Say... Ahh!》中，哪位成员负责主音吉他演奏并参与了歌曲的创作？",
-          "options": [
-            "C.C. DeVille",
-            "Bret Michaels",
-            "Bobby Dall",
-            "Rikki Rockett"
-          ],
+          "options": ["C.C. DeVille", "Bret Michaels", "Bobby Dall", "Rikki Rockett"],
           "correctAnswer": "C.C. DeVille",
           "trivia": "C.C. DeVille是Poison乐队的主音吉他手，他在1988年发行的专辑《Open Up and Say... Ahh!》中不仅负责关键的吉他演奏，还参与了多首歌曲的创作。该专辑成为了乐队的代表作之一，融合了硬摇滚和华丽金属元素，C.C. DeVille的技术和风格对专辑的整体声音起到了重要作用。此外，Bret Michaels作为主唱，Bobby Dall负责贝斯，而Rikki Rockett则是鼓手，他们共同构成了Poison的经典阵容。"
         }
@@ -7021,12 +6161,7 @@
       "hard": [
         {
           "question": "在Poison的1988年专辑'Open Up and Say... Ahh!'的录制过程中，主音吉他使用了哪种型号的放大器以获得其标志性的硬摇滚音色？",
-          "options": [
-            "Marshall JCM800",
-            "Fender Twin Reverb",
-            "Vox AC30",
-            "Peavey 5150"
-          ],
+          "options": ["Marshall JCM800", "Fender Twin Reverb", "Vox AC30", "Peavey 5150"],
           "correctAnswer": "Marshall JCM800",
           "trivia": "在Poison录制1988年专辑'Open Up and Say... Ahh!'时，主音吉他手C.C. DeVille大量使用Marshall JCM800放大器来塑造其标志性的硬摇滚音色。Marshall JCM800以其强劲的失真效果和高增益著称，非常适合1980年代的摇滚和金属音乐风格。该放大器帮助Poison实现了专辑中诸如《Every Rose Has Its Thorn》和《Nothin' But a Good Time》等热门曲目的丰富吉他声响。相比之下，Fender Twin Reverb更偏向清洁音色，Vox AC30多用于60年代风格，而Peavey 5150则是90年代后期流行的设备。"
         },
@@ -7063,12 +6198,7 @@
       "easy": [
         {
           "question": "Prince在1984年为推广专辑《Purple Rain》举办的巡回演唱会中，哪座城市被认为是他经典现场表演的代表地点？",
-          "options": [
-            "明尼阿波利斯",
-            "纽约",
-            "洛杉矶",
-            "芝加哥"
-          ],
+          "options": ["明尼阿波利斯", "纽约", "洛杉矶", "芝加哥"],
           "correctAnswer": "明尼阿波利斯",
           "trivia": "Prince是明尼阿波利斯出生的艺术家，他的《Purple Rain》巡回演唱会在1984年广受欢迎。作为他的家乡，明尼阿波利斯的现场演出被认为最能体现Prince的音乐魅力和现场能量。该城市的表演吸引了大量粉丝，也成为他职业生涯中的标志性时刻之一。明尼阿波利斯不仅是Prince音乐风格的发源地，也见证了他将《Purple Rain》中的曲目现场演绎得淋漓尽致。"
         },
@@ -7175,12 +6305,7 @@
       "easy": [
         {
           "question": "Public Enemy的专辑'It Takes a Nation of Millions to Hold Us Back'是由哪个唱片公司发行的？",
-          "options": [
-            "Def Jam Recordings",
-            "Mercury Records",
-            "Motown Records",
-            "Island Records"
-          ],
+          "options": ["Def Jam Recordings", "Mercury Records", "Motown Records", "Island Records"],
           "correctAnswer": "Mercury Records",
           "trivia": "Public Enemy的经典专辑'It Takes a Nation of Millions to Hold Us Back'于1988年发行，该专辑由Mercury Records发行。Mercury Records是一个历史悠久的唱片公司，曾发行过多种类型的音乐作品。虽然Def Jam Recordings在80年代是嘻哈音乐的重要厂牌，但这张专辑并非由其发行。Motown Records和Island Records则主要以灵魂乐和摇滚为主，与Public Enemy的发行关系较少。Mercury Records的支持帮助Public Enemy将这张具有强烈政治和社会批判色彩的专辑推向更广泛的听众。"
         },
@@ -7221,12 +6346,7 @@
         },
         {
           "question": "Public Enemy在创作1988年专辑'It Takes a Nation of Millions to Hold Us Back'时，哪位艺术家或团体对他们的音乐灵感影响最大？",
-          "options": [
-            "James Brown",
-            "Run-D.M.C.",
-            "The Beatles",
-            "Bob Marley"
-          ],
+          "options": ["James Brown", "Run-D.M.C.", "The Beatles", "Bob Marley"],
           "correctAnswer": "James Brown",
           "trivia": "Public Enemy的专辑'It Takes a Nation of Millions to Hold Us Back'深受James Brown的音乐和政治风格影响。James Brown被誉为“放克教父”，他的节奏感和社会意识形态启发了Public Enemy在音乐中融合强烈的节奏与政治信息。此外，Public Enemy的制作团队使用了大量采样技术，其中也包含了James Brown的经典鼓点和声音片段。尽管Run-D.M.C.和Bob Marley在嘻哈和政治音乐领域也有重要地位，但James Brown对该专辑的灵感贡献尤为突出。"
         },
@@ -7344,12 +6464,7 @@
         },
         {
           "question": "在Queen录制1980年专辑《The Game》时，哪位著名制作人参与了该专辑的制作过程？",
-          "options": [
-            "Roy Thomas Baker",
-            "Mike Stone",
-            "Brian Eno",
-            "Bob Ezrin"
-          ],
+          "options": ["Roy Thomas Baker", "Mike Stone", "Brian Eno", "Bob Ezrin"],
           "correctAnswer": "Mike Stone",
           "trivia": "Queen的专辑《The Game》于1980年录制，制作团队包括乐队成员和制作人Mike Stone。Mike Stone曾与Queen合作多张专辑，参与了录音和混音工作，帮助塑造了《The Game》的声音。相比之下，Roy Thomas Baker是Queen早期多张专辑的制作人，但并未参与该专辑制作。Brian Eno和Bob Ezrin虽为知名制作人，但并未参与《The Game》的录制。Mike Stone的加入为专辑带来了更加现代和多样的制作风格。"
         }
@@ -7399,12 +6514,7 @@
       "easy": [
         {
           "question": "R.E.M.在1987年录制专辑'Document'时，哪位音响工程师负责了大部分的录音和混音工作？",
-          "options": [
-            "Scott Litt",
-            "Steve Lillywhite",
-            "Brian Eno",
-            "Butch Vig"
-          ],
+          "options": ["Scott Litt", "Steve Lillywhite", "Brian Eno", "Butch Vig"],
           "correctAnswer": "Scott Litt",
           "trivia": "Scott Litt是R.E.M.在1987年录制专辑'Document'时的主要音响工程师，他负责了录音和混音工作。Litt的加入为R.E.M.带来了更加清晰且富有层次感的音效，这也使'Document'成为了乐队商业突破的重要作品。此前，Litt曾与乐队合作制作过部分单曲，之后成为他们长期的合作伙伴。Steve Lillywhite和Brian Eno都是著名制作人，但并未参与'Document'的制作；Butch Vig则是在90年代初期与其他摇滚乐队合作更为知名。"
         },
@@ -7491,12 +6601,7 @@
         },
         {
           "question": "R.E.M.的专辑'Document'在1987年发布后，在美国Billboard 200排行榜上取得的最高排名是？",
-          "options": [
-            "第10名",
-            "第28名",
-            "第50名",
-            "第72名"
-          ],
+          "options": ["第10名", "第28名", "第50名", "第72名"],
           "correctAnswer": "第28名",
           "trivia": "R.E.M.的专辑'Document'是他们首张进入美国Billboard 200前30名的专辑，最高排名达到第28位。这张专辑标志着乐队商业上的突破，帮助他们获得了更广泛的听众基础。除了在美国的成功，'Document'还在英国专辑榜上进入了前20名，显示出其国际影响力。专辑中的单曲《The One I Love》也成为乐队首支进入Billboard Hot 100前10名的歌曲，进一步推动了专辑的销量和知名度。该专辑的商业表现为R.E.M.后续更大规模的成功奠定了基础。"
         }
@@ -7522,12 +6627,7 @@
         },
         {
           "question": "REO Speedwagon的专辑《Hi Infidelity》中，哪首歌曲的歌词主要讲述了因不忠导致感情破裂的主题？",
-          "options": [
-            "Keep On Loving You",
-            "Take It On The Run",
-            "In Your Letter",
-            "Tough Guys"
-          ],
+          "options": ["Keep On Loving You", "Take It On The Run", "In Your Letter", "Tough Guys"],
           "correctAnswer": "Take It On The Run",
           "trivia": "《Hi Infidelity》是REO Speedwagon在1980年发行的畅销专辑，其中《Take It On The Run》这首歌的歌词集中描写了因伴侣的不忠引发的感情危机。歌曲表达了对另一半可能背叛的怀疑和失望，成为专辑中探讨感情复杂性的代表作之一。相比之下，《Keep On Loving You》则更多传达坚定的爱情承诺，而《In Your Letter》和《Tough Guys》则涉及其他主题。这首歌在当时也获得了广泛的电台播放，巩固了乐队在摇滚界的地位。"
         },
@@ -7546,12 +6646,7 @@
       "medium": [
         {
           "question": "在REO Speedwagon的1980年专辑《Hi Infidelity》中，乐队主要使用了哪种品牌的吉他放大器来塑造其标志性的摇滚音色？",
-          "options": [
-            "Marshall",
-            "Fender",
-            "Vox",
-            "Mesa/Boogie"
-          ],
+          "options": ["Marshall", "Fender", "Vox", "Mesa/Boogie"],
           "correctAnswer": "Marshall",
           "trivia": "REO Speedwagon在录制《Hi Infidelity》时，吉他手Gary Richrath主要使用Marshall放大器，这种设备以其强劲而富有攻击性的音色闻名，极大地助力了专辑中经典摇滚的声音特质。Marshall放大器在20世纪70至80年代是许多摇滚乐队的首选，特别是在硬摇滚和重金属领域。相比之下，Fender和Vox虽然也广受欢迎，但在这张专辑的录音过程中并非主力设备。Mesa/Boogie虽然以高增益音色著称，但在REO Speedwagon的这张专辑中使用较少。"
         },
@@ -7603,12 +6698,7 @@
         },
         {
           "question": "在REO Speedwagon的1980年专辑《Hi Infidelity》录制过程中，乐队主要使用了哪种电吉他放大器来塑造其标志性的硬摇滚音色？",
-          "options": [
-            "Marshall JCM800",
-            "Fender Twin Reverb",
-            "Vox AC30",
-            "Mesa/Boogie Mark I"
-          ],
+          "options": ["Marshall JCM800", "Fender Twin Reverb", "Vox AC30", "Mesa/Boogie Mark I"],
           "correctAnswer": "Marshall JCM800",
           "trivia": "REO Speedwagon在录制《Hi Infidelity》专辑时，为了营造强烈且富有冲击力的硬摇滚音色，主吉他手使用了Marshall JCM800放大器。Marshall JCM800以其高增益和丰富的失真效果闻名，成为80年代摇滚乐队常用的设备之一。此外，该放大器帮助乐队在录音中获得了清晰而有力的吉他声，突出专辑中的经典曲目如“Keep on Loving You”。这一设备的选用体现了专辑制作团队对音质细节的高度重视，并在当时的摇滚制作中具有代表性。"
         }
@@ -7715,12 +6805,7 @@
         },
         {
           "question": "在Red Hot Chili Peppers1989年发行的专辑'Mother's Milk'推广期间，哪家品牌成为了该乐队首次正式合作推出的官方商品赞助商？",
-          "options": [
-            "Nike",
-            "Pepsi",
-            "Levi's",
-            "Fender"
-          ],
+          "options": ["Nike", "Pepsi", "Levi's", "Fender"],
           "correctAnswer": "Levi's",
           "trivia": "Red Hot Chili Peppers在推广1989年专辑'Mother's Milk'时，首次与服装品牌Levi's建立了官方商品赞助合作关系。这一合作不仅提升了乐队的品牌形象，还帮助他们打入更多主流市场。Levi's推出了特别设计的牛仔夹克和T恤，成为乐队巡演期间的官方周边产品。相比之下，Fender更多是乐器赞助商，而Nike和Pepsi则尚未与乐队建立正式合作。此举标志着Red Hot Chili Peppers在商品销售和品牌推广领域迈出了重要一步。"
         }
@@ -7746,12 +6831,7 @@
         },
         {
           "question": "Rick Springfield的专辑《Working Class Dog》（1981年）是由哪家唱片公司发行的？",
-          "options": [
-            "RCA Records",
-            "Capitol Records",
-            "Mercury Records",
-            "Elektra Records"
-          ],
+          "options": ["RCA Records", "Capitol Records", "Mercury Records", "Elektra Records"],
           "correctAnswer": "RCA Records",
           "trivia": "Rick Springfield在1981年发行的专辑《Working Class Dog》是由RCA Records推出的。这张专辑帮助他在美国主流市场取得了突破，其中单曲《Jessie's Girl》更是获得了格莱美奖。RCA Records作为一家历史悠久的唱片公司，在当时签约了许多摇滚和流行艺术家，支持了Springfield的音乐事业和专辑的推广。Mercury Records和Elektra Records也都是行业内知名的唱片公司，但并未发行这张专辑。"
         },
@@ -7792,12 +6872,7 @@
         },
         {
           "question": "Rick Springfield在录制1981年专辑《Working Class Dog》时，哪位知名制作人负责了专辑的制作工作？",
-          "options": [
-            "Keith Olsen",
-            "George Martin",
-            "Quincy Jones",
-            "Phil Ramone"
-          ],
+          "options": ["Keith Olsen", "George Martin", "Quincy Jones", "Phil Ramone"],
           "correctAnswer": "Keith Olsen",
           "trivia": "《Working Class Dog》是Rick Springfield于1981年发行的专辑，这张专辑由著名制作人Keith Olsen制作。Olsen以其在70年代和80年代制作多张摇滚和流行专辑的经验闻名，包括与Fleetwood Mac和Pat Benatar的合作。他的制作风格强调清晰的声场和层次丰富的编曲，这对《Working Class Dog》的声音特色起到了关键作用。Keith Olsen的参与帮助Rick Springfield实现了更为成熟和商业化的摇滚声音，专辑因此获得了商业成功和广泛认可。"
         }
@@ -7816,12 +6891,7 @@
         },
         {
           "question": "在Rick Springfield录制1981年专辑《Working Class Dog》的过程中，哪位著名制作人负责了专辑的制作工作？",
-          "options": [
-            "Keith Olsen",
-            "Quincy Jones",
-            "George Martin",
-            "Bob Ezrin"
-          ],
+          "options": ["Keith Olsen", "Quincy Jones", "George Martin", "Bob Ezrin"],
           "correctAnswer": "Keith Olsen",
           "trivia": "Rick Springfield的《Working Class Dog》专辑于1981年录制时，由著名制作人Keith Olsen担任制作人。Olsen以其在1970年代和1980年代与多位摇滚乐队合作的经验而闻名，他曾制作过Fleetwood Mac和Pat Benatar的专辑。其制作风格注重清晰的音质和流畅的摇滚编曲，这也为《Working Class Dog》带来了标志性的声音。该专辑的成功很大程度上归功于Olsen的制作技巧，以及Rick Springfield在录音室里的投入和创作。"
         },
@@ -7847,12 +6917,7 @@
       "easy": [
         {
           "question": "Roxette在1988年制作专辑《Look Sharp!》时，哪位制作人负责了本专辑的制作工作？",
-          "options": [
-            "Clarence Öfwerman",
-            "Max Martin",
-            "Timbaland",
-            "Quincy Jones"
-          ],
+          "options": ["Clarence Öfwerman", "Max Martin", "Timbaland", "Quincy Jones"],
           "correctAnswer": "Clarence Öfwerman",
           "trivia": "Clarence Öfwerman是瑞典制作人，他负责制作了Roxette的1988年专辑《Look Sharp!》。这张专辑包含了多首热门单曲，如《The Look》和《Listen to Your Heart》，在国际上取得了巨大成功。Öfwerman与Roxette的成员Per Gessle和Marie Fredriksson紧密合作，帮助塑造了专辑的流行摇滚风格。Max Martin和Timbaland是后来崛起的制作人，而Quincy Jones则以制作其他类型的音乐闻名。"
         },
@@ -7869,12 +6934,7 @@
         },
         {
           "question": "Roxette的专辑《Look Sharp!》于1988年以数字发行的形式登陆市场时，哪首歌曲作为主打单曲在多个国家的排行榜上取得了显著成功？",
-          "options": [
-            "《The Look》",
-            "《Joyride》",
-            "《Listen to Your Heart》",
-            "《Dangerous》"
-          ],
+          "options": ["《The Look》", "《Joyride》", "《Listen to Your Heart》", "《Dangerous》"],
           "correctAnswer": "《The Look》",
           "trivia": "《Look Sharp!》是瑞典流行摇滚二人组Roxette在1988年发行的第二张录音室专辑。该专辑的主打单曲《The Look》通过数字发行迅速攀升至多国音乐排行榜前列，包括美国公告牌百强单曲榜冠军。值得一提的是，《Joyride》和《Dangerous》是Roxette后续专辑中的知名单曲，而《Listen to Your Heart》虽然同属《Look Sharp!》专辑，但未作为首发主打单曲。此次数字发行的成功极大提升了Roxette在国际音乐市场的影响力。"
         }
@@ -7882,12 +6942,7 @@
       "medium": [
         {
           "question": "在Roxette的1988年专辑《Look Sharp!》中，哪位成员主要负责吉他演奏和伴唱？",
-          "options": [
-            "Per Gessle",
-            "Marie Fredriksson",
-            "Mats Persson",
-            "Staffan Öfwerman"
-          ],
+          "options": ["Per Gessle", "Marie Fredriksson", "Mats Persson", "Staffan Öfwerman"],
           "correctAnswer": "Per Gessle",
           "trivia": "Roxette是瑞典著名的流行摇滚二人组合，成员包括Per Gessle和Marie Fredriksson。在1988年发行的专辑《Look Sharp!》中，Per Gessle不仅担任主唱，还主要负责吉他演奏与伴唱，而Marie Fredriksson则以主唱和钢琴为主。Mats Persson和Staffan Öfwerman虽曾参与制作和现场演出，但并非核心成员。此专辑凭借其精致的制作和流行摇滚风格，奠定了Roxette国际成功的基础。"
         },
@@ -7959,34 +7014,19 @@
       "easy": [
         {
           "question": "Run-D.M.C.在1986年发行的专辑'Raising Hell'中，哪一首歌曲成为他们首支进入美国公告牌百强单曲榜的作品？",
-          "options": [
-            "It's Tricky",
-            "King of Rock",
-            "Walk This Way",
-            "My Adidas"
-          ],
+          "options": ["It's Tricky", "King of Rock", "Walk This Way", "My Adidas"],
           "correctAnswer": "Walk This Way",
           "trivia": "Run-D.M.C.的专辑'Raising Hell'于1986年发行，其中《Walk This Way》是该专辑中最具标志性的歌曲。这首歌是与摇滚乐队Aerosmith合作的翻唱作品，成功将嘻哈与摇滚融合，打破了两种音乐风格的界限。它成为Run-D.M.C.首支进入美国公告牌百强单曲榜的歌曲，最高排名第4位。这一突破性的成功不仅提升了Run-D.M.C.的知名度，也推动了嘻哈音乐在主流市场的普及。专辑整体被认为是嘻哈音乐史上的里程碑之作。"
         },
         {
           "question": "Run-D.M.C.的专辑《Raising Hell》在音响工程制作中，哪位工程师负责了大部分混音工作？",
-          "options": [
-            "Jason Corsaro",
-            "Rick Rubin",
-            "Quincy Jones",
-            "Dr. Dre"
-          ],
+          "options": ["Jason Corsaro", "Rick Rubin", "Quincy Jones", "Dr. Dre"],
           "correctAnswer": "Jason Corsaro",
           "trivia": "《Raising Hell》是Run-D.M.C.于1986年发布的具有划时代意义的专辑，Rick Rubin作为制作人负责整体制作，但具体的混音工程师是Jason Corsaro。Corsaro以其清晰且富有冲击力的混音风格闻名，这为专辑带来了独特的声音质感。专辑的成功也部分归功于他在录音和混音阶段对音响细节的严格把控。Dr. Dre和Quincy Jones虽然都是著名制作人，但他们并未参与该专辑的音响工程。"
         },
         {
           "question": "Run-D.M.C.在制作1986年专辑《Raising Hell》时，哪位著名制作人参与了该专辑的制作？",
-          "options": [
-            "Rick Rubin",
-            "Dr. Dre",
-            "Quincy Jones",
-            "Timbaland"
-          ],
+          "options": ["Rick Rubin", "Dr. Dre", "Quincy Jones", "Timbaland"],
           "correctAnswer": "Rick Rubin",
           "trivia": "《Raising Hell》是Run-D.M.C.于1986年发行的开创性专辑，标志着嘻哈音乐与摇滚元素的融合。该专辑的制作人Rick Rubin是Def Jam唱片公司的联合创始人，他以将硬核摇滚和嘻哈结合的独特风格著称。Rick Rubin的制作帮助Run-D.M.C.打造了经典曲目《Walk This Way》，成功地将Run-D.M.C.推向更广泛的听众。Rubin的参与不仅提升了专辑的制作质量，也促进了嘻哈音乐在主流音乐市场的突破。此专辑后来被认为是嘻哈历史上最具影响力的作品之一。"
         }
@@ -8051,12 +7091,7 @@
         },
         {
           "question": "Run-D.M.C.在1986年发行的专辑《Raising Hell》中，哪种设备被广泛用于制作其标志性的硬核嘻哈鼓点？",
-          "options": [
-            "Oberheim DMX鼓机",
-            "Roland TR-808鼓机",
-            "Linn LM-1鼓机",
-            "Akai MPC60采样器"
-          ],
+          "options": ["Oberheim DMX鼓机", "Roland TR-808鼓机", "Linn LM-1鼓机", "Akai MPC60采样器"],
           "correctAnswer": "Oberheim DMX鼓机",
           "trivia": "Run-D.M.C.的《Raising Hell》专辑在1986年发布时，广泛采用了Oberheim DMX鼓机来制作其具有开创性的硬核嘻哈节奏。Oberheim DMX以其采样真实鼓声和灵活的编程能力而著称，成为80年代早期嘻哈制作的重要设备之一。相比之下，Roland TR-808更多用于电子和舞曲制作，Linn LM-1和Akai MPC60虽然也在同期流行，但并非本专辑的主要鼓机选择。该专辑的节奏感和打击乐效果深刻影响了后来嘻哈音乐的制作风格。"
         }
@@ -8106,12 +7141,7 @@
       "medium": [
         {
           "question": "在Sade的1984年专辑《Diamond Life》中，哪种乐器的使用最显著地体现了专辑独特的爵士和灵魂音乐风格？",
-          "options": [
-            "萨克斯风",
-            "电吉他",
-            "钢琴",
-            "小号"
-          ],
+          "options": ["萨克斯风", "电吉他", "钢琴", "小号"],
           "correctAnswer": "萨克斯风",
           "trivia": "Sade的首张专辑《Diamond Life》以其融合爵士、灵魂和轻柔流行元素的音色著称。萨克斯风在专辑中被频繁使用，特别是在歌曲如《Smooth Operator》中，增添了浓厚的爵士氛围。专辑制作过程中，萨克斯风的旋律线条为整体音乐增添了温暖与浪漫的质感。相比之下，虽然电吉他和钢琴也出现，但并未像萨克斯风那样成为标志性的音乐元素。小号在该专辑中的使用相对较少，因此萨克斯风是体现《Diamond Life》风格的关键乐器。"
         },
@@ -8128,12 +7158,7 @@
         },
         {
           "question": "关于Sade的专辑《Diamond Life》，以下哪位艺术家是该专辑灵感来源之一，影响了Sade在音乐风格上的融合创新？",
-          "options": [
-            "Marvin Gaye",
-            "David Bowie",
-            "Prince",
-            "Stevie Wonder"
-          ],
+          "options": ["Marvin Gaye", "David Bowie", "Prince", "Stevie Wonder"],
           "correctAnswer": "Marvin Gaye",
           "trivia": "Sade的首张专辑《Diamond Life》于1984年发布，其音乐融合了灵魂、爵士和R&B元素，体现了多元化的艺术风格。Marvin Gaye作为灵魂乐的重要人物，对Sade的音乐创作产生了深远影响，尤其是在情感表达和节奏处理上。虽然David Bowie、Prince和Stevie Wonder也是当时极具影响力的音乐人，但Sade更直接受到Marvin Gaye音乐的启发，帮助她打造出独特而柔和的音色。该专辑的成功在一定程度上得益于这种跨界灵感的融合，使得《Diamond Life》在当时的音乐市场中脱颖而出。"
         }
@@ -8152,23 +7177,13 @@
         },
         {
           "question": "在制作Sade的1984年专辑《Diamond Life》时，哪位制作人负责了整体的录音和混音工作？",
-          "options": [
-            "Robin Millar",
-            "Quincy Jones",
-            "Nigel Godrich",
-            "Brian Eno"
-          ],
+          "options": ["Robin Millar", "Quincy Jones", "Nigel Godrich", "Brian Eno"],
           "correctAnswer": "Robin Millar",
           "trivia": "《Diamond Life》是Sade乐队的首张专辑，由制作人Robin Millar主导录音和混音工作。Millar以其对爵士、灵魂和流行音乐的敏锐感知著称，他为专辑营造了清新且带有都市感的音色，这也成为该专辑标志性的制作风格。专辑录制于伦敦的Power Plant录音室，Robin Millar的制作帮助《Diamond Life》获得了商业成功和评论界的高度评价。相比之下，Quincy Jones、Nigel Godrich和Brian Eno虽然都是著名制作人，但并未参与此专辑制作。"
         },
         {
           "question": "在制作Sade的1984年专辑《Diamond Life》时，哪位音响工程师负责主要的混音工作，确保了专辑独特的干净且温暖的声音质感？",
-          "options": [
-            "Mike Pela",
-            "Rupert Hine",
-            "Bob Clearmountain",
-            "Chris Kimsey"
-          ],
+          "options": ["Mike Pela", "Rupert Hine", "Bob Clearmountain", "Chris Kimsey"],
           "correctAnswer": "Mike Pela",
           "trivia": "Mike Pela是Sade的长期合作音响工程师，他负责了《Diamond Life》专辑的录音和混音工作。Pela以其对细致声音层次的把控而闻名，使得专辑呈现出清晰、温暖且富有空间感的音响效果。该专辑录制于英国多个录音室，Pela运用了模拟设备和多轨录音技术，帮助塑造了Sade标志性的柔和爵士灵魂音色。其混音的精准度也促使《Diamond Life》在1980年代成为音响制作的典范。Rupert Hine、Bob Clearmountain和Chris Kimsey虽然都是著名工程师或制作人，但他们并未参与该专辑的主要音响工程工作。"
         }
@@ -8229,23 +7244,13 @@
         },
         {
           "question": "在Salt-N-Pepa的1986年专辑《Hot, Cool & Vicious》的音响工程制作过程中，哪位工程师因其对早期采样技术的运用而受到认可？",
-          "options": [
-            "Hurby 'Luv Bug' Azor",
-            "Chris Lord-Alge",
-            "Dana Dumont",
-            "Bob Power"
-          ],
+          "options": ["Hurby 'Luv Bug' Azor", "Chris Lord-Alge", "Dana Dumont", "Bob Power"],
           "correctAnswer": "Hurby 'Luv Bug' Azor",
           "trivia": "Hurby 'Luv Bug' Azor不仅是Salt-N-Pepa的制作人，还是《Hot, Cool & Vicious》专辑音响工程的关键人物。他在录制过程中巧妙利用了早期采样和编程技术，塑造了专辑独特的声音风格。Hurby Azor的制作手法融合了电子节拍和传统嘻哈元素，推动了1980年代女性说唱音乐的声音创新。Chris Lord-Alge、Dana Dumont和Bob Power虽然都是知名音响工程师，但并未参与该专辑的制作。Azor的贡献对专辑的成功和历史地位起到了决定性作用。"
         },
         {
           "question": "Salt-N-Pepa的首张专辑《Hot, Cool & Vicious》于1986年发行，其中哪首单曲最早获得了美国电台的广泛播放，帮助她们成为首批获得电台认可的女性嘻哈艺人？",
-          "options": [
-            "《Push It》",
-            "《Tramp》",
-            "《My Mic Sounds Nice》",
-            "《The Showstopper》"
-          ],
+          "options": ["《Push It》", "《Tramp》", "《My Mic Sounds Nice》", "《The Showstopper》"],
           "correctAnswer": "《Push It》",
           "trivia": "《Hot, Cool & Vicious》是Salt-N-Pepa的首张专辑，发行于1986年。专辑中的单曲《Push It》最初作为B面曲出现，但后来凭借其独特的电子鼓机节奏和朗朗上口的旋律，成为美国电台热播曲目。这首歌不仅帮助Salt-N-Pepa成为首批在主流电台获得认可的女性嘻哈艺人，也推动了女性在嘻哈音乐领域的地位提升。《Push It》后来成为她们职业生涯的代表作，并进入了美国公告牌百强单曲榜的前20名，进一步巩固了她们在嘻哈音乐界的影响力。"
         }
@@ -8306,12 +7311,7 @@
         },
         {
           "question": "Scorpions在创作1984年专辑《Love at First Sting》时，哪种音乐风格对他们的灵感影响最大？",
-          "options": [
-            "硬摇滚和重金属",
-            "爵士乐和蓝调",
-            "电子音乐和合成器流行",
-            "乡村音乐和民谣"
-          ],
+          "options": ["硬摇滚和重金属", "爵士乐和蓝调", "电子音乐和合成器流行", "乡村音乐和民谣"],
           "correctAnswer": "硬摇滚和重金属",
           "trivia": "Scorpions的《Love at First Sting》专辑发布于1984年，是他们最具代表性的作品之一。该专辑的音乐风格深受硬摇滚和重金属的影响，体现了80年代金属音乐的典型特征，如强烈的吉他riff和高亢的主唱。虽然乐队成员也欣赏其他音乐风格，但在此专辑创作过程中，他们主要专注于强化硬摇滚元素，从而获得了商业上的巨大成功。此外，《Love at First Sting》中的经典曲目如《Rock You Like a Hurricane》就是这种音乐风格的典范。"
         },
@@ -8341,12 +7341,7 @@
         },
         {
           "question": "在1984年发行的Scorpions专辑《Love at First Sting》中，哪位成员担任主唱并参与了大部分歌曲的创作？",
-          "options": [
-            "Klaus Meine",
-            "Rudolf Schenker",
-            "Herman Rarebell",
-            "Matthias Jabs"
-          ],
+          "options": ["Klaus Meine", "Rudolf Schenker", "Herman Rarebell", "Matthias Jabs"],
           "correctAnswer": "Klaus Meine",
           "trivia": "Klaus Meine是德国摇滚乐队Scorpions的主唱，也是《Love at First Sting》专辑中主要的歌曲创作者之一。他以其独特的嗓音和强烈的舞台表现力闻名，该专辑是Scorpions在国际上取得巨大成功的重要作品。除了演唱外，Klaus Meine还参与了多首热门歌曲如《Rock You Like a Hurricane》的歌词创作。与此同时，Rudolf Schenker主要负责吉他和部分作曲，Herman Rarebell是鼓手，Matthias Jabs担任主音吉他手。"
         },
@@ -8453,12 +7448,7 @@
         },
         {
           "question": "在Simple Minds的1985年专辑《Once Upon a Time》中，哪位成员主要负责吉他演奏？",
-          "options": [
-            "Charlie Burchill",
-            "Jim Kerr",
-            "Mick MacNeil",
-            "Mel Gaynor"
-          ],
+          "options": ["Charlie Burchill", "Jim Kerr", "Mick MacNeil", "Mel Gaynor"],
           "correctAnswer": "Charlie Burchill",
           "trivia": "《Once Upon a Time》是Simple Minds于1985年发行的重要专辑，展现了他们标志性的摇滚风格。乐队的吉他手Charlie Burchill在专辑中发挥了关键作用，他的吉他演奏为专辑增添了丰富的旋律和层次感。主唱Jim Kerr则负责主唱部分，Mick MacNeil担任键盘手，而Mel Gaynor是鼓手。Charlie Burchill不仅在《Once Upon a Time》中表现突出，也是Simple Minds早期至今的重要成员。"
         },
@@ -8488,12 +7478,7 @@
         },
         {
           "question": "在Simple Minds1985年发行的专辑《Once Upon a Time》中，哪种键盘乐器的使用最显著，成为该专辑标志性的音乐元素之一？",
-          "options": [
-            "雅马哈DX7合成器",
-            "哈蒙德B3风琴",
-            "库尔特Mellotron",
-            "罗兰Juno-60合成器"
-          ],
+          "options": ["雅马哈DX7合成器", "哈蒙德B3风琴", "库尔特Mellotron", "罗兰Juno-60合成器"],
           "correctAnswer": "雅马哈DX7合成器",
           "trivia": "在Simple Minds的1985年专辑《Once Upon a Time》中，雅马哈DX7合成器被广泛使用，成为专辑独特合成器音色的关键来源。DX7以其数字FM合成技术闻名，为专辑带来了明亮且富有穿透力的电子音效，这对于当时的流行摇滚音乐来说非常前卫。此外，该专辑的制作人Jimmy Iovine和乐队成员密切合作，将DX7的音色巧妙融合于多首歌曲中，增强了整体的氛围感和层次感。雅马哈DX7的使用不仅体现了80年代中期音乐制作的技术趋势，也帮助《Once Upon a Time》在音乐元素上区别于Simple Minds之前的作品。"
         },
@@ -8519,12 +7504,7 @@
       "easy": [
         {
           "question": "Soft Cell的专辑《Non-Stop Erotic Cabaret》在英国专辑排行榜上的最高排名是？",
-          "options": [
-            "第二名",
-            "第一名",
-            "第五名",
-            "第十名"
-          ],
+          "options": ["第二名", "第一名", "第五名", "第十名"],
           "correctAnswer": "第二名",
           "trivia": "Soft Cell的《Non-Stop Erotic Cabaret》发行于1981年，是他们的首张录音室专辑。该专辑在英国专辑排行榜上表现优异，最高达到了第二名的位置，显示了其在当时合成器流行音乐中的重要地位。专辑中包含了著名单曲《Tainted Love》，这首歌也成为了他们最大的商业成功之一。《Non-Stop Erotic Cabaret》的成功帮助Soft Cell巩固了他们在80年代初英国电子音乐界的影响力。"
         },
@@ -8576,12 +7556,7 @@
         },
         {
           "question": "在Soft Cell的1981年专辑《Non-Stop Erotic Cabaret》的制作过程中，哪位音乐制作人负责该专辑的制作？",
-          "options": [
-            "Mike Thorne",
-            "Daniel Miller",
-            "Martin Rushent",
-            "Trevor Horn"
-          ],
+          "options": ["Mike Thorne", "Daniel Miller", "Martin Rushent", "Trevor Horn"],
           "correctAnswer": "Mike Thorne",
           "trivia": "《Non-Stop Erotic Cabaret》是Soft Cell于1981年发行的首张录音室专辑，该专辑由著名制作人Mike Thorne制作。Thorne以其对合成器和电子音乐的掌控而闻名，他曾参与过多位新浪潮及电子音乐艺术家的作品。专辑中融合了新浪潮和电子流行元素，Thorne的制作让Soft Cell的声音更加独特且具有时代感。Daniel Miller是Mute唱片公司的创始人，但并未直接参与该专辑制作。Martin Rushent和Trevor Horn虽是那个时代知名的制作人，但他们并未参与Soft Cell的这张专辑。"
         }
@@ -8589,23 +7564,13 @@
       "hard": [
         {
           "question": "在Soft Cell的1981年专辑《Non-Stop Erotic Cabaret》的制作过程中，哪种合成器被广泛使用以塑造其标志性的电子声音？",
-          "options": [
-            "Roland Jupiter-4",
-            "Moog Minimoog",
-            "Yamaha DX7",
-            "Korg MS-20"
-          ],
+          "options": ["Roland Jupiter-4", "Moog Minimoog", "Yamaha DX7", "Korg MS-20"],
           "correctAnswer": "Roland Jupiter-4",
           "trivia": "在《Non-Stop Erotic Cabaret》的录制中，Soft Cell大量使用了Roland Jupiter-4合成器，这是一款在80年代初非常受欢迎的多声音色模拟合成器。它的丰富音色和多声音区能力帮助塑造了专辑中独特的电子氛围。相比之下，Moog Minimoog更常用于独音合成，Yamaha DX7发布于1983年，晚于该专辑录制时间，而Korg MS-20则以其半模块化设计闻名，但在这张专辑中的使用较少。Roland Jupiter-4的使用体现了当时电子音乐制作的技术趋势和Soft Cell对声音合成的创新探索。"
         },
         {
           "question": "Soft Cell的专辑《Non-Stop Erotic Cabaret》（1981年）是由哪家唱片公司首次发行的？",
-          "options": [
-            "Some Bizzare Records",
-            "Mute Records",
-            "Virgin Records",
-            "Factory Records"
-          ],
+          "options": ["Some Bizzare Records", "Mute Records", "Virgin Records", "Factory Records"],
           "correctAnswer": "Some Bizzare Records",
           "trivia": "《Non-Stop Erotic Cabaret》是英国电子音乐二人组Soft Cell于1981年发行的首张专辑，该专辑首次由Some Bizzare Records发行。Some Bizzare Records是一家专注于推广地下合成器和新浪潮音乐的新兴独立唱片公司，曾推出多位具有实验性质的艺人。虽然Mute Records和Virgin Records在当时也活跃于电子音乐领域，但Soft Cell的这张专辑最初并非由它们发行。此外，Factory Records主要与曼彻斯特的后朋克和独立摇滚乐队合作，与Soft Cell的合成器流派风格不同。Some Bizzare的支持对Soft Cell早期的独立艺术发展起到了关键作用。"
         },
@@ -8631,34 +7596,19 @@
       "easy": [
         {
           "question": "Spandau Ballet在创作1983年专辑《True》时，灵感主要来源于哪种音乐风格？",
-          "options": [
-            "蓝调和灵魂乐",
-            "重金属和硬摇滚",
-            "朋克和新潮音乐",
-            "乡村音乐"
-          ],
+          "options": ["蓝调和灵魂乐", "重金属和硬摇滚", "朋克和新潮音乐", "乡村音乐"],
           "correctAnswer": "蓝调和灵魂乐",
           "trivia": "Spandau Ballet在制作1983年专辑《True》时，受到了蓝调和灵魂乐的深刻影响。这张专辑的同名单曲《True》就体现了这种柔和且富有感情的音乐风格，区别于当时流行的新潮和朋克音乐。乐队成员Gary Kemp曾表示，他们希望通过融合蓝调和灵魂元素，创造出更加成熟和抒情的声音。《True》这张专辑不仅帮助乐队登上了英国和美国的排行榜，也奠定了他们在80年代流行音乐中的地位。"
         },
         {
           "question": "Spandau Ballet在1983年发行的专辑'True'中，哪首歌曲成为了他们最著名的单曲，并广泛代表了该专辑的音乐风格？",
-          "options": [
-            "True",
-            "Gold",
-            "Only When You Leave",
-            "Chant No. 1"
-          ],
+          "options": ["True", "Gold", "Only When You Leave", "Chant No. 1"],
           "correctAnswer": "True",
           "trivia": "Spandau Ballet的1983年专辑'True'以其同名主打单曲《True》而闻名。这首歌曲融合了流行与灵魂音乐元素，展现了80年代柔和的新浪潮风格。《True》在英国单曲排行榜上最高达第4名，成为乐队最具代表性的作品之一。此外，专辑中的其他曲目如《Gold》也获得了较高评价，但《True》无疑是专辑的标志性歌曲，常被视为乐队的经典之作。"
         },
         {
           "question": "Spandau Ballet发行1983年专辑'True'后，哪首歌曲因其浪漫风格和流行文化影响成为该专辑最受粉丝喜爱的代表作？",
-          "options": [
-            "True",
-            "Gold",
-            "Communication",
-            "Lifeline"
-          ],
+          "options": ["True", "Gold", "Communication", "Lifeline"],
           "correctAnswer": "True",
           "trivia": "Spandau Ballet的专辑'True'以其融合了新浪潮与灵魂乐元素的独特风格获得了广泛关注，其中同名主打曲《True》尤为突出。这首歌曲凭借其深情的歌词和优雅的旋律，在全球范围内成为浪漫的经典代表，常被用于电影和电视剧配乐，极大地提升了专辑的流行文化影响力。《True》在英国单曲榜上达到第二名，标志着乐队的商业高峰，同时也成为粉丝心目中不可替代的经典之作。其成功不仅巩固了Spandau Ballet在80年代音乐界的地位，也影响了后续许多流行乐队的创作风格。"
         }
@@ -8723,12 +7673,7 @@
         },
         {
           "question": "Spandau Ballet的专辑'True'于1983年发布时，哪一家唱片公司负责该专辑的发行？",
-          "options": [
-            "Chrysalis Records",
-            "Virgin Records",
-            "Island Records",
-            "EMI Records"
-          ],
+          "options": ["Chrysalis Records", "Virgin Records", "Island Records", "EMI Records"],
           "correctAnswer": "Chrysalis Records",
           "trivia": "Spandau Ballet的专辑'True'是在1983年通过Chrysalis Records发行的。Chrysalis Records是当时英国一家知名的独立唱片公司，支持了许多新波和新浪潮乐队的发展。该唱片公司对True专辑的推广帮助Spandau Ballet在国际市场上取得成功，尤其是在英国和美国。Virgin Records和Island Records同样活跃于80年代，但它们并未负责该专辑的发行。EMI Records则是另一大唱片公司，但与Spandau Ballet的'True'专辑无直接关系。"
         }
@@ -8743,12 +7688,7 @@
       "easy": [
         {
           "question": "Stevie Wonder的专辑《Hotter Than July》（1980年）首次在哪个平台实现了数字发行？",
-          "options": [
-            "CD（紧凑光盘）",
-            "数字下载（如iTunes）",
-            "黑胶唱片",
-            "磁带（卡带）"
-          ],
+          "options": ["CD（紧凑光盘）", "数字下载（如iTunes）", "黑胶唱片", "磁带（卡带）"],
           "correctAnswer": "CD（紧凑光盘）",
           "trivia": "《Hotter Than July》最初于1980年以黑胶唱片和磁带形式发行，当时数字音乐尚未普及。随着技术发展，这张专辑后来被制作成CD格式，实现了数字发行。CD作为1980年代中期开始广泛流行的数字载体，使得音乐能以更高的音质和耐用性被传播。数字下载平台如iTunes则是在1990年代末至2000年代初才兴起，因此《Hotter Than July》最早的数字发行形式是通过CD。Stevie Wonder的这张专辑包含了多首经典曲目，如《Master Blaster (Jammin')》，对数字音乐传播起到了推动作用。"
         },
@@ -8765,12 +7705,7 @@
         },
         {
           "question": "Stevie Wonder在1980年发行的专辑'Hotter Than July'中，哪位著名社会活动家成为他创作灵感的主要来源？",
-          "options": [
-            "马丁·路德·金",
-            "纳尔逊·曼德拉",
-            "马尔科姆·X",
-            "罗莎·帕克斯"
-          ],
+          "options": ["马丁·路德·金", "纳尔逊·曼德拉", "马尔科姆·X", "罗莎·帕克斯"],
           "correctAnswer": "纳尔逊·曼德拉",
           "trivia": "在Stevie Wonder的1980年专辑'Hotter Than July'中，纳尔逊·曼德拉成为了重要的灵感来源。专辑中收录的歌曲'Something to Feel Good About'和'Happy Birthday'表达了对曼德拉争取自由和平等斗争的支持。特别是'Stevie Wonder'借助音乐推动了反种族隔离运动，'Happy Birthday'这首歌后来也成为推动南非释放曼德拉的国际运动的主题曲之一。此举显示了这张专辑不仅仅在音乐上具有影响力，也在社会和政治层面引发了广泛关注。"
         }
@@ -8813,12 +7748,7 @@
       "hard": [
         {
           "question": "在Stevie Wonder录制1980年专辑《Hotter Than July》的过程中，哪种合成器成为他实现独特声音质感的关键设备？",
-          "options": [
-            "Yamaha CS-80",
-            "Moog Minimoog",
-            "ARP Odyssey",
-            "Oberheim OB-X"
-          ],
+          "options": ["Yamaha CS-80", "Moog Minimoog", "ARP Odyssey", "Oberheim OB-X"],
           "correctAnswer": "Yamaha CS-80",
           "trivia": "在Stevie Wonder录制《Hotter Than July》专辑时，他大量使用了Yamaha CS-80合成器，这种设备以其丰富的音色和表达性闻名。CS-80帮助他创造出专辑中标志性的合成音色，尤其在曲目《Master Blaster (Jammin')》中展现得淋漓尽致。与当时流行的Moog和ARP合成器相比，CS-80能提供更宽广的动态控制和更温暖的声音质感。此外，这张专辑的录制融合了传统乐器和电子合成器，展现出Stevie Wonder对技术创新的不断探索。"
         },
@@ -8866,12 +7796,7 @@
         },
         {
           "question": "Talking Heads的专辑'Remain in Light'因其融合了哪种国际音乐风格而广受赞誉？",
-          "options": [
-            "非洲音乐节奏与风格",
-            "拉丁美洲的萨尔萨乐",
-            "日本传统民谣",
-            "印度古典音乐"
-          ],
+          "options": ["非洲音乐节奏与风格", "拉丁美洲的萨尔萨乐", "日本传统民谣", "印度古典音乐"],
           "correctAnswer": "非洲音乐节奏与风格",
           "trivia": "Talking Heads在1980年发布的专辑'Remain in Light'以其融合非洲音乐的节奏和风格著称，特别是借鉴了尼日利亚音乐家Fela Kuti的Afrobeat元素。该专辑由布莱恩·伊诺协助制作，强调多层次的节奏和复杂的打击乐，反映了非洲音乐对西方摇滚的影响。'Remain in Light'对后来的世界音乐融合产生了深远影响，成为跨文化音乐交流的经典范例。"
         },
@@ -8967,12 +7892,7 @@
       "easy": [
         {
           "question": "在Tears for Fears的1985年专辑《Songs from the Big Chair》的制作过程中，哪位制作人对专辑的整体声音塑造起到了关键作用？",
-          "options": [
-            "Chris Hughes",
-            "Trevor Horn",
-            "Brian Eno",
-            "Nigel Godrich"
-          ],
+          "options": ["Chris Hughes", "Trevor Horn", "Brian Eno", "Nigel Godrich"],
           "correctAnswer": "Chris Hughes",
           "trivia": "Chris Hughes是Tears for Fears的主要制作人，他不仅参与了《Songs from the Big Chair》的制作，还对专辑的声音风格产生了重要影响。Hughes此前是乐队Adam and the Ants的鼓手，后来转向制作工作。他擅长将合成器和传统乐器结合，赋予专辑丰富的层次感。《Songs from the Big Chair》正是凭借他细致的制作，使得歌曲如“Shout”和“Everybody Wants to Rule the World”成为了80年代的经典。专辑的成功部分归功于Hughes在录音和混音阶段的专业技巧。"
         },
@@ -8989,12 +7909,7 @@
         },
         {
           "question": "Tears for Fears在录制1985年专辑'Songs from the Big Chair'时，谁担任了主要的混音工程师，负责该专辑的音响工程？",
-          "options": [
-            "Chris Hughes",
-            "Bob Clearmountain",
-            "Nigel Godrich",
-            "Alan Parsons"
-          ],
+          "options": ["Chris Hughes", "Bob Clearmountain", "Nigel Godrich", "Alan Parsons"],
           "correctAnswer": "Chris Hughes",
           "trivia": "Chris Hughes不仅是Tears for Fears的制作人，同时也是'Songs from the Big Chair'专辑的主要混音工程师。他曾是乐队Adam and the Ants的鼓手，后来转型为制作人。Hughes的混音工作帮助塑造了该专辑标志性的清晰且富有层次感的音响风格。该专辑包含了著名单曲如“Shout”和“Everybody Wants to Rule the World”，在全球取得了商业成功。Chris Hughes的音响工程技巧对于这张专辑的流行与影响力起到了关键作用。"
         }
@@ -9002,23 +7917,13 @@
       "medium": [
         {
           "question": "在Tears for Fears于1985年录制专辑'Songs from the Big Chair'时，哪位制作人参与了该专辑的制作工作？",
-          "options": [
-            "Chris Hughes",
-            "Brian Eno",
-            "Steve Lillywhite",
-            "Daniel Lanois"
-          ],
+          "options": ["Chris Hughes", "Brian Eno", "Steve Lillywhite", "Daniel Lanois"],
           "correctAnswer": "Chris Hughes",
           "trivia": "Tears for Fears的专辑'Songs from the Big Chair'由Chris Hughes担任制作人。Chris Hughes此前是乐队Adam and the Ants的鼓手，并以其细腻的制作风格著称。Hughes在这张专辑的制作中运用了多层次的合成器和细致的录音技术，帮助塑造了专辑标志性的音景。相比之下，Brian Eno、Steve Lillywhite和Daniel Lanois虽然都是著名制作人，但并未参与这张专辑的制作。'Songs from the Big Chair'的成功部分归功于Chris Hughes的制作理念和音乐敏感度。"
         },
         {
           "question": "在1985年录制Tears for Fears的专辑'Songs from the Big Chair'时，哪位著名制作人参与了专辑的制作，帮助塑造了其标志性的声音？",
-          "options": [
-            "Chris Hughes",
-            "Brian Eno",
-            "Trevor Horn",
-            "Daniel Lanois"
-          ],
+          "options": ["Chris Hughes", "Brian Eno", "Trevor Horn", "Daniel Lanois"],
           "correctAnswer": "Chris Hughes",
           "trivia": "Tears for Fears的专辑'Songs from the Big Chair'由Chris Hughes担任制作人，他曾是乐队Adam and the Ants的成员。Chris Hughes的制作帮助专辑实现了干净且富有层次感的合成器和鼓声，成为80年代新潮音乐的经典代表。该专辑融合了电子和摇滚元素，制作过程中大量使用了合成器和鼓机技术，Chris Hughes的专业制作经验是塑造该专辑成功的关键因素之一。"
         },
@@ -9079,34 +7984,19 @@
       "easy": [
         {
           "question": "The Alan Parsons Project于1982年发行的专辑'Eye in the Sky'中，哪首歌曲曾在国际音乐排行榜上取得显著成功，成为该专辑最受欢迎的单曲？",
-          "options": [
-            "Eye in the Sky",
-            "Old and Wise",
-            "Sirius",
-            "Psychobabble"
-          ],
+          "options": ["Eye in the Sky", "Old and Wise", "Sirius", "Psychobabble"],
           "correctAnswer": "Eye in the Sky",
           "trivia": "The Alan Parsons Project的专辑'Eye in the Sky'发行于1982年，其中同名主打歌《Eye in the Sky》成为该专辑最知名的单曲。这首歌在美国告示牌热门100单曲榜中最高达到第3名，显示出其在国际市场上的受欢迎程度。相比之下，《Old and Wise》虽然优美，但在排行榜上表现较弱；而《Sirius》主要作为器乐前奏使用，未作为单曲发布。《Psychobabble》则是专辑中的另一首曲目，但未获得同等商业成功。该专辑整体风格融合了进步摇滚与流行元素，助力The Alan Parsons Project在国际音乐界巩固了地位。"
         },
         {
           "question": "The Alan Parsons Project的专辑《Eye in the Sky》中哪首歌曲最直接反映了社会监控和隐私问题？",
-          "options": [
-            "《Eye in the Sky》",
-            "《Sirius》",
-            "《Psychobabble》",
-            "《Old and Wise》"
-          ],
+          "options": ["《Eye in the Sky》", "《Sirius》", "《Psychobabble》", "《Old and Wise》"],
           "correctAnswer": "《Eye in the Sky》",
           "trivia": "《Eye in the Sky》是The Alan Parsons Project在1982年发布的同名专辑中的主打歌曲。这首歌的歌词探讨了监视和社会控制的主题，反映了当时冷战时期公众对隐私权和政府监控的担忧。专辑整体结合了前卫摇滚与流行元素，而《Eye in the Sky》作为标题曲，成为乐队最知名且具有社会评论意义的作品之一。该曲在多国音乐排行榜上取得了优异成绩，进一步加深了其在社会与文化中的影响力。"
         },
         {
           "question": "在The Alan Parsons Project制作1982年专辑《Eye in the Sky》时，哪位歌手为同名主打歌曲提供了主唱？",
-          "options": [
-            "Eric Woolfson",
-            "Alan Parsons",
-            "Lenny Zakatek",
-            "Chris Rainbow"
-          ],
+          "options": ["Eric Woolfson", "Alan Parsons", "Lenny Zakatek", "Chris Rainbow"],
           "correctAnswer": "Lenny Zakatek",
           "trivia": "《Eye in the Sky》是The Alan Parsons Project于1982年发行的经典专辑，其中的同名主打歌由Lenny Zakatek担任主唱。Lenny Zakatek是乐队常用的主唱之一，以其独特的声音为多首歌曲增色。专辑制作中，Alan Parsons担任制作人和音响工程师，Eric Woolfson主要负责作曲和键盘演奏。Chris Rainbow虽然参与了该专辑的和声部分，但主唱位置主要由Lenny Zakatek负责，这也是该曲广为人知的原因之一。"
         }
@@ -9125,12 +8015,7 @@
         },
         {
           "question": "在电台播放方面，The Alan Parsons Project的1982年专辑《Eye in the Sky》中哪首歌曲最广泛获得国际电台的播放和认可？",
-          "options": [
-            "Eye in the Sky",
-            "Sirius",
-            "Old and Wise",
-            "Psychobabble"
-          ],
+          "options": ["Eye in the Sky", "Sirius", "Old and Wise", "Psychobabble"],
           "correctAnswer": "Eye in the Sky",
           "trivia": "《Eye in the Sky》是The Alan Parsons Project于1982年发行的同名专辑中的主打歌曲，也是其最著名的单曲之一。这首歌在全球多个国家的电台频繁播放，尤其是在美国和欧洲，成为他们最具代表性的作品之一。相比之下，'Sirius'虽然作为专辑的开场器乐曲广为人知，但其本身并未作为单曲广泛推广。'Old and Wise'和'Psychobabble'则在电台播放量上相对较少，没有达到《Eye in the Sky》的国际影响力。该曲的旋律优美且制作精良，体现了The Alan Parsons Project典型的艺术摇滚风格。"
         },
@@ -9202,23 +8087,13 @@
         },
         {
           "question": "在媒体报道中，The B-52's的专辑《Cosmic Thing》（1989年）最著名的单曲是哪一首？",
-          "options": [
-            "《Love Shack》",
-            "《Rock Lobster》",
-            "《Roam》",
-            "《Private Idaho》"
-          ],
+          "options": ["《Love Shack》", "《Rock Lobster》", "《Roam》", "《Private Idaho》"],
           "correctAnswer": "《Love Shack》",
           "trivia": "《Cosmic Thing》是The B-52's在1989年发行的一张重要专辑，其中《Love Shack》成为了他们最广为人知的单曲。该曲在Billboard Hot 100排行榜上最高达到第3名，成为他们商业上最大成功的歌曲之一。媒体报道普遍认为《Love Shack》的成功帮助专辑获得了广泛关注并推动了乐队的复兴。与此同时，《Roam》作为另一首热门单曲，也获得了不错的媒体评价和播放量。相比之下，《Rock Lobster》和《Private Idaho》虽然是乐队早期的热门作品，但并非收录于《Cosmic Thing》专辑中。"
         },
         {
           "question": "在The B-52's的1989年专辑《Cosmic Thing》的音响工程制作中，哪位工程师负责了主要的录音和混音工作？",
-          "options": [
-            "Nile Rodgers",
-            "Don Dixon",
-            "Bob Clearmountain",
-            "Daniel Lanois"
-          ],
+          "options": ["Nile Rodgers", "Don Dixon", "Bob Clearmountain", "Daniel Lanois"],
           "correctAnswer": "Don Dixon",
           "trivia": "Don Dixon是The B-52's在录制1989年专辑《Cosmic Thing》时的主要录音和混音工程师。他以细致的音响处理和对乐队独特风格的理解而闻名。Dixon曾与多支摇滚乐队合作，擅长捕捉乐队鲜明的声音特质。《Cosmic Thing》中的代表作品如《Love Shack》和《Roam》都体现了他的工程技巧，使专辑达到了很高的音质标准。该专辑的成功部分归功于他在录音棚中的专业表现。"
         }
@@ -9303,12 +8178,7 @@
       "easy": [
         {
           "question": "The Bangles在创作1986年专辑'Different Light'时，哪位制作人对词曲创作过程影响最大？",
-          "options": [
-            "David Kahne",
-            "Quincy Jones",
-            "Rick Rubin",
-            "Phil Spector"
-          ],
+          "options": ["David Kahne", "Quincy Jones", "Rick Rubin", "Phil Spector"],
           "correctAnswer": "David Kahne",
           "trivia": "David Kahne是The Bangles 1986年专辑'Different Light'的主要制作人，他不仅负责专辑的制作工作，还积极参与了词曲创作和编曲过程。Kahne的制作风格强调清晰的旋律和丰富的和声，这对于The Bangles的流行摇滚风格起到了决定性作用。相比之下，Quincy Jones、Rick Rubin和Phil Spector虽然都是知名制作人，但并未参与该专辑的制作。'Different Light'因此展现了更为成熟的音乐结构，帮助乐队在商业上取得了巨大成功。"
         },
@@ -9325,12 +8195,7 @@
         },
         {
           "question": "The Bangles乐队1986年发行的专辑'Different Light'的封面设计由谁负责？",
-          "options": [
-            "Norman Moore",
-            "Peter Saville",
-            "Andy Warhol",
-            "Reid Miles"
-          ],
+          "options": ["Norman Moore", "Peter Saville", "Andy Warhol", "Reid Miles"],
           "correctAnswer": "Norman Moore",
           "trivia": "The Bangles的专辑'Different Light'于1986年发行，其封面设计由著名的平面设计师Norman Moore完成。Norman Moore以其简洁而富有艺术感的设计风格闻名，曾为多张知名专辑打造包装。专辑封面采用了明亮的色彩和乐队成员的肖像，体现了80年代中期流行音乐的视觉潮流。Peter Saville和Reid Miles虽然都是著名的专辑设计师，但他们的风格和作品主要集中于其他年代和艺人。Andy Warhol则更多活跃于艺术界，而非专辑包装设计。"
         }
@@ -9373,23 +8238,13 @@
       "hard": [
         {
           "question": "在The Bangles录制1986年专辑'Different Light'时，哪位著名制作人负责制作，且以其对80年代流行摇滚声音的深远影响而闻名？",
-          "options": [
-            "David Kahne",
-            "Quincy Jones",
-            "Rick Rubin",
-            "Phil Spector"
-          ],
+          "options": ["David Kahne", "Quincy Jones", "Rick Rubin", "Phil Spector"],
           "correctAnswer": "David Kahne",
           "trivia": "The Bangles的专辑'Different Light'由制作人David Kahne负责制作，他因在1980年代塑造清晰且富有层次感的流行摇滚音色而备受推崇。Kahne此前曾与Paul McCartney等知名艺术家合作，带来了专业且创新的录音技术。专辑中的多首热门单曲如“Walk Like an Egyptian”也体现了他对声音细节的把控。相比之下，Quincy Jones以爵士和流行融合闻名，Rick Rubin更多涉猎摇滚和嘻哈，Phil Spector则是60年代的著名制作人，因此David Kahne是制作'Different Light'的正确选择。"
         },
         {
           "question": "在数字发行时代，The Bangles的专辑《Different Light》（1986年）首次以哪种数字格式正式发布，标志着其在数字音乐市场的开端？",
-          "options": [
-            "紧凑型光盘（CD）",
-            "数字音频磁带（DAT）",
-            "MiniDisc",
-            "数字下载（MP3格式）"
-          ],
+          "options": ["紧凑型光盘（CD）", "数字音频磁带（DAT）", "MiniDisc", "数字下载（MP3格式）"],
           "correctAnswer": "紧凑型光盘（CD）",
           "trivia": "The Bangles的《Different Light》专辑最初于1986年发行，当时紧凑型光盘（CD）正逐渐成为主流的数字音乐载体。《Different Light》作为当时流行摇滚的重要专辑，紧跟时代潮流，发行了CD版本，这标志着乐队作品正式进入数字发行领域。数字音频磁带（DAT）和MiniDisc虽然是随后几年出现的数字格式，但在1986年尚未普及。数字下载（MP3格式）则要等到1990年代末期和2000年代初才开始流行。因此，CD是该专辑最早的数字发行格式，也是那个时代数字音乐转型的重要见证。"
         },
@@ -9415,34 +8270,19 @@
       "easy": [
         {
           "question": "关于The Cars于1984年发行的专辑《Heartbeat City》，以下哪种数字发行格式是该专辑首次被官方推出的？",
-          "options": [
-            "CD（光盘）",
-            "黑胶唱片",
-            "数字音频磁带（DAT）",
-            "8轨磁带"
-          ],
+          "options": ["CD（光盘）", "黑胶唱片", "数字音频磁带（DAT）", "8轨磁带"],
           "correctAnswer": "CD（光盘）",
           "trivia": "《Heartbeat City》是The Cars于1984年发行的重要专辑，这张专辑在当时不仅通过传统的黑胶唱片和磁带发行，还首次在CD格式上发布。CD格式在1980年代初开始流行，专辑《Heartbeat City》成为乐迷能够以更高音质数字化形式体验乐曲的代表作品之一。该专辑包含多首热门单曲，如《Drive》和《You Might Think》，CD的发行使得这些歌曲得以更广泛传播。相比之下，数字音频磁带（DAT）和8轨磁带在当时并未作为该专辑的主要发行格式。"
         },
         {
           "question": "The Cars乐队的专辑《Heartbeat City》（1984年）中，哪首歌曲成为他们首支进入美国Billboard Hot 100前10名的单曲？",
-          "options": [
-            "Drive",
-            "Just What I Needed",
-            "Shake It Up",
-            "You Might Think"
-          ],
+          "options": ["Drive", "Just What I Needed", "Shake It Up", "You Might Think"],
           "correctAnswer": "You Might Think",
           "trivia": "《Heartbeat City》是The Cars在1984年发行的第五张录音室专辑。专辑中的单曲《You Might Think》成为乐队首支进入美国Billboard Hot 100前10名的歌曲，最高排名第7。这首歌曲以其创新的音乐录像带赢得了MTV音乐录像带大奖，推动了乐队的商业成功。除此之外，专辑还包含了其他热门单曲如《Drive》和《Magic》，展现了The Cars结合摇滚与新波音乐风格的独特魅力。"
         },
         {
           "question": "The Cars在他们1984年的专辑《Heartbeat City》中，哪首歌曲的音乐录影带以其独特的视觉效果和频繁在MTV播放而著称？",
-          "options": [
-            "You Might Think",
-            "Drive",
-            "Magic",
-            "Hello Again"
-          ],
+          "options": ["You Might Think", "Drive", "Magic", "Hello Again"],
           "correctAnswer": "You Might Think",
           "trivia": "《Heartbeat City》是The Cars于1984年发行的专辑，其中《You Might Think》的音乐录影带因其创新的视觉效果赢得了广泛关注。该视频由Jeff Stein导演，采用了当时先进的动画和特效技术，使其成为MTV上最受欢迎的音乐视频之一。实际上，《You Might Think》还赢得了1985年MTV音乐录像大奖的最佳音乐录像带奖，进一步证明了其视觉创新的影响力。此外，这首歌也成为了The Cars的代表作之一，极大地提升了专辑的知名度。"
         }
@@ -9507,12 +8347,7 @@
         },
         {
           "question": "在The Cars1984年专辑《Heartbeat City》中，哪支音乐录影带因其融合了前卫艺术风格和电影导演David Fincher的早期作品而广受关注？",
-          "options": [
-            "《You Might Think》",
-            "《Magic》",
-            "《Drive》",
-            "《Hello Again》"
-          ],
+          "options": ["《You Might Think》", "《Magic》", "《Drive》", "《Hello Again》"],
           "correctAnswer": "《You Might Think》",
           "trivia": "《You Might Think》是The Cars专辑《Heartbeat City》中最具标志性的音乐录影带之一，由当时刚崭露头角的导演David Fincher执导。该MV以其融合动画与真人表演的创新手法赢得了1984年MTV音乐录像带大奖。作为Fincher早期的导演作品之一，这支MV不仅推动了音乐视频艺术的发展，也为The Cars带来了显著的视觉曝光。值得一提的是，《You Might Think》的视觉效果在当时被视为前所未有，成为《Heartbeat City》专辑成功的重要组成部分。"
         }
@@ -9527,23 +8362,13 @@
       "easy": [
         {
           "question": "The Clash的1982年专辑《Combat Rock》的封面设计中，哪种动物形象被用作主要视觉元素？",
-          "options": [
-            "狮子",
-            "老虎",
-            "豹子",
-            "鹰"
-          ],
+          "options": ["狮子", "老虎", "豹子", "鹰"],
           "correctAnswer": "豹子",
           "trivia": "《Combat Rock》是英国朋克乐队The Clash于1982年发布的专辑，其封面设计以一只豹子的特写照片为主视觉元素。该封面由设计师Peter Saville负责，他当时以简洁而富有冲击力的设计风格闻名。豹子的形象象征着专辑中充满力量和野性的音乐风格，这也反映了乐队在音乐上的尝试和创新。此外，封面配色主要采用黑白与橙色的对比，增强了视觉冲击力，使专辑在市场上极具辨识度。此设计成为The Clash最具标志性的专辑封面之一，深受乐迷喜爱。"
         },
         {
           "question": "The Clash发行的专辑《Combat Rock》在英国专辑排行榜上的最高排名是多少？",
-          "options": [
-            "第2名",
-            "第5名",
-            "第10名",
-            "第15名"
-          ],
+          "options": ["第2名", "第5名", "第10名", "第15名"],
           "correctAnswer": "第2名",
           "trivia": "The Clash的《Combat Rock》专辑于1982年发行后，成为乐队最成功的专辑之一。在英国专辑排行榜上，这张专辑最高曾达到第2名的位置，显示了其广泛的受欢迎程度。专辑中包含的单曲如《Should I Stay or Should I Go》和《Rock the Casbah》也帮助提升了专辑的销量。此外，《Combat Rock》在美国的表现也相当不错，成为乐队在美国市场的突破。该专辑不仅巩固了The Clash在朋克摇滚界的地位，也使他们获得了更广泛的国际认可。"
         },
@@ -9584,12 +8409,7 @@
         },
         {
           "question": "The Clash在创作1982年专辑'Combat Rock'时，哪种音乐风格对他们的灵感影响最大？",
-          "options": [
-            "雷鬼（Reggae）音乐",
-            "迪斯科（Disco）音乐",
-            "古典音乐",
-            "乡村音乐"
-          ],
+          "options": ["雷鬼（Reggae）音乐", "迪斯科（Disco）音乐", "古典音乐", "乡村音乐"],
           "correctAnswer": "雷鬼（Reggae）音乐",
           "trivia": "The Clash在录制1982年的专辑'Combat Rock'时，受到雷鬼音乐的深刻影响，这种风格在专辑中多次体现，如歌曲《Straight to Hell》。乐队成员尤其是乔·斯特拉默（Joe Strummer）对雷鬼节奏和反抗精神的欣赏，促使他们融合多样的音乐元素以丰富朋克摇滚基础。专辑中还融合了放克和摇滚的元素，但雷鬼音乐的影响尤为显著，这也反映了乐队对不同文化音乐的开放态度。"
         }
@@ -9597,23 +8417,13 @@
       "hard": [
         {
           "question": "在The Clash的1982年专辑《Combat Rock》中，哪位成员首次在录音过程中担任了主唱和制作人双重身份？",
-          "options": [
-            "Mick Jones",
-            "Joe Strummer",
-            "Paul Simonon",
-            "Topper Headon"
-          ],
+          "options": ["Mick Jones", "Joe Strummer", "Paul Simonon", "Topper Headon"],
           "correctAnswer": "Mick Jones",
           "trivia": "《Combat Rock》是The Clash最具代表性的专辑之一，发行于1982年。该专辑中，吉他手兼主唱Mick Jones不仅参与了主要的演奏，还首次承担了制作人的角色，协助塑造专辑的声音风格。Joe Strummer作为主唱和节奏吉他手，也发挥了重要作用，但未担任制作人。Paul Simonon负责贝斯和部分背景声乐，而鼓手Topper Headon则因其多样化的打击乐贡献而闻名。Mick Jones在制作过程中的参与使得《Combat Rock》在音乐编排和录音质量上达到了新的高度。"
         },
         {
           "question": "The Clash的专辑《Combat Rock》封面设计中，哪位艺术家负责了视觉图像的创作，这一设计以其简洁且具有象征性的风格著称？",
-          "options": [
-            "Ray Lowry",
-            "Peter Saville",
-            "Jamie Reid",
-            "Malcolm Garrett"
-          ],
+          "options": ["Ray Lowry", "Peter Saville", "Jamie Reid", "Malcolm Garrett"],
           "correctAnswer": "Ray Lowry",
           "trivia": "《Combat Rock》是The Clash于1982年发行的标志性专辑，其封面设计由英国插画家和漫画家Ray Lowry完成。Lowry以其简洁的黑白线条和具有象征意义的图像风格，为专辑塑造了独特的视觉形象，这与The Clash的音乐主题和政治立场相呼应。Peter Saville和Malcolm Garrett虽然在80年代为其他摇滚乐队设计过著名专辑封面，但他们并未参与该专辑的设计。Jamie Reid以为Sex Pistols设计封面闻名，也未参与《Combat Rock》的视觉创作。Lowry的设计成为朋克文化中极具代表性的艺术作品之一，彰显了该专辑的文化和历史意义。"
         },
@@ -9639,12 +8449,7 @@
       "easy": [
         {
           "question": "The Cure在制作1989年专辑'Disintegration'时，哪位成员主要负责了键盘和合成器的演奏？",
-          "options": [
-            "Roger O'Donnell",
-            "Porl Thompson",
-            "Simon Gallup",
-            "Boris Williams"
-          ],
+          "options": ["Roger O'Donnell", "Porl Thompson", "Simon Gallup", "Boris Williams"],
           "correctAnswer": "Roger O'Donnell",
           "trivia": "在The Cure录制1989年专辑'Disintegration'期间，Roger O'Donnell担任了键盘和合成器的主要演奏者。O'Donnell于1987年加入乐队，为专辑带来了丰富的合成器层次和氛围感，这也是'Disintegration'独特音色的重要组成部分。与此同时，Porl Thompson负责吉他，Simon Gallup演奏贝斯，Boris Williams则是鼓手。Roger O'Donnell的键盘贡献强化了专辑的哥特摇滚和梦幻氛围，使得'Disintegration'成为The Cure最具代表性的作品之一。"
         },
@@ -9661,12 +8466,7 @@
         },
         {
           "question": "The Cure在录制1989年专辑'Disintegration'时，哪位乐队成员首次作为正式键盘手全面参与了录制过程？",
-          "options": [
-            "Roger O'Donnell",
-            "Porl Thompson",
-            "Lol Tolhurst",
-            "Simon Gallup"
-          ],
+          "options": ["Roger O'Donnell", "Porl Thompson", "Lol Tolhurst", "Simon Gallup"],
           "correctAnswer": "Roger O'Donnell",
           "trivia": "在The Cure录制1989年专辑'Disintegration'期间，Roger O'Donnell首次作为正式键盘手加入乐队，并全面参与了专辑的键盘部分录制。之前，Lol Tolhurst主要负责键盘，但在此专辑制作阶段，他逐渐退出了这一角色。Roger的加入为'Disintegration'带来了更加丰富和层次感强烈的合成器音色，这也成为该专辑氛围营造的重要元素。此外，专辑录制于1988年底至1989年初在英国的The Manor Studios完成，这一环境为The Cure创造了独特的梦幻音景提供了支持。"
         }
@@ -9674,12 +8474,7 @@
       "medium": [
         {
           "question": "在The Cure的专辑'Disintegration'（1989年）录制过程中，哪位乐队成员负责主要的键盘演奏和合成器编程？",
-          "options": [
-            "Roger O'Donnell",
-            "Porl Thompson",
-            "Simon Gallup",
-            "Lol Tolhurst"
-          ],
+          "options": ["Roger O'Donnell", "Porl Thompson", "Simon Gallup", "Lol Tolhurst"],
           "correctAnswer": "Roger O'Donnell",
           "trivia": "Roger O'Donnell在The Cure的'Disintegration'专辑录制期间担任主要键盘手，负责大量的合成器编程和键盘演奏。他于1987年加入乐队，带来了丰富的电子音色，为专辑营造出深邃的氛围。Porl Thompson主要负责吉他，Simon Gallup是贝斯手，而Lol Tolhurst虽然是乐队早期成员，但在'Disintegration'时期主要从事鼓机编程工作而非键盘演奏。O'Donnell的加入显著丰富了The Cure的音响层次，使'Disintegration'成为其代表性的哥特摇滚作品之一。"
         },
@@ -9909,12 +8704,7 @@
         },
         {
           "question": "在The Human League于1981年制作专辑《Dare》的词曲创作过程中，哪位成员主要负责大部分的合成器编程和音乐制作？",
-          "options": [
-            "Philip Oakey",
-            "Jo Callis",
-            "Ian Burden",
-            "Martyn Ware"
-          ],
+          "options": ["Philip Oakey", "Jo Callis", "Ian Burden", "Martyn Ware"],
           "correctAnswer": "Jo Callis",
           "trivia": "在The Human League的标志性专辑《Dare》中，Jo Callis承担了大量合成器编程和曲目制作的工作，帮助塑造了这张专辑的标志性电子流行风格。Philip Oakey作为主唱和主要词曲作者，专注于歌唱和歌词创作，而Ian Burden则参与了低音合成器和键盘的演奏。Martyn Ware在乐队早期贡献突出，但在《Dare》制作期间已经离开乐队，因此不参与这张专辑的词曲创作过程。总体来说，Jo Callis的合成器技巧对《Dare》的声音构建至关重要。"
         },
@@ -9933,23 +8723,13 @@
       "hard": [
         {
           "question": "The Human League在1981年发行的专辑'Dare'的封面设计中，哪位设计师或艺术团队负责了这张具有标志性简约风格的专辑封面？",
-          "options": [
-            "Peter Saville",
-            "Malcolm Garrett",
-            "Hipgnosis",
-            "Andy Warhol"
-          ],
+          "options": ["Peter Saville", "Malcolm Garrett", "Hipgnosis", "Andy Warhol"],
           "correctAnswer": "Peter Saville",
           "trivia": "The Human League的专辑'Dare'封面由著名设计师Peter Saville设计，他以其极简主义和现代感著称。Saville同时也是Factory Records多张经典专辑封面的设计师，深刻影响了1980年代英国独立音乐的视觉风格。'Dare'的封面采用了大胆的红色背景和简单的几何构图，体现了当时新浪潮音乐的前卫审美。Malcolm Garrett和Hipgnosis也在当时活跃于设计领域，但他们并未参与'Dare'的设计。Andy Warhol则是美国波普艺术大师，与此专辑风格和制作无关。"
         },
         {
           "question": "在The Human League于1981年发布的专辑'Dare'制作期间，哪位成员主要负责合成器编程和制作，显著影响了这张专辑的电子音乐风格？",
-          "options": [
-            "Philip Oakey",
-            "Jo Callis",
-            "Ian Burden",
-            "Martin Rushent"
-          ],
+          "options": ["Philip Oakey", "Jo Callis", "Ian Burden", "Martin Rushent"],
           "correctAnswer": "Martin Rushent",
           "trivia": "Martin Rushent是The Human League专辑'Dare'的主要制作人，他不仅负责制作，还亲自参与了合成器编程工作，极大地塑造了专辑的标志性电子合成音色。Philip Oakey作为主唱是乐队的核心人物，但在技术制作上并非主导。Jo Callis和Ian Burden则主要负责吉他及贝斯等乐器演奏。Rushent此前参与制作了许多新浪潮与电子音乐作品，他在'Dare'中的创新制作手法帮助专辑取得商业成功并成为80年代电子流行音乐的代表作之一。"
         },
@@ -9986,12 +8766,7 @@
         },
         {
           "question": "在The Police的专辑'Synchronicity'中，哪位乐队成员主要负责主唱和贝斯演奏？",
-          "options": [
-            "Sting",
-            "Andy Summers",
-            "Stewart Copeland",
-            "John Taylor"
-          ],
+          "options": ["Sting", "Andy Summers", "Stewart Copeland", "John Taylor"],
           "correctAnswer": "Sting",
           "trivia": "The Police是一支英国摇滚乐队，1983年的专辑'Synchronicity'是他们的代表作之一。专辑中，Sting不仅担任主唱，还负责贝斯演奏，这也是他在乐队中的主要角色。Andy Summers则是乐队的吉他手，而Stewart Copeland负责鼓点。John Taylor并非The Police的成员，他是另一支乐队Duran Duran的贝斯手。Sting的独特嗓音和贝斯线为'Synchronicity'增添了标志性的音乐色彩。"
         },
@@ -10021,12 +8796,7 @@
         },
         {
           "question": "在The Police于1983年发行的专辑'Synchronicity'的录制过程中，乐队主要使用了哪种键盘乐器来丰富专辑的音色？",
-          "options": [
-            "雅马哈DX7合成器",
-            "罗兰Juno-60合成器",
-            "哈蒙德B3风琴",
-            "库尔特斯电钢琴"
-          ],
+          "options": ["雅马哈DX7合成器", "罗兰Juno-60合成器", "哈蒙德B3风琴", "库尔特斯电钢琴"],
           "correctAnswer": "雅马哈DX7合成器",
           "trivia": "在The Police录制1983年专辑'Synchronicity'时，乐队广泛采用了雅马哈DX7合成器，这是一款当时非常流行的数字合成器。DX7以其独特的FM合成技术著称，能够产生清晰且富有穿透力的音色，极大地丰富了专辑的声音层次。虽然乐队成员也曾使用过其他键盘乐器，比如罗兰Juno-60合成器和哈蒙德风琴，但DX7是这张专辑中最为关键的电子乐器之一。该合成器的使用帮助The Police在流行摇滚的基础上融入了更多电子元素，体现了80年代音乐制作的技术趋势。"
         },
@@ -10067,12 +8837,7 @@
         },
         {
           "question": "在The Police录制1983年专辑'Synchronicity'时，哪位制作人负责该专辑的整体制作工作？",
-          "options": [
-            "Hugh Padgham",
-            "Brian Eno",
-            "Nigel Gray",
-            "Quincy Jones"
-          ],
+          "options": ["Hugh Padgham", "Brian Eno", "Nigel Gray", "Quincy Jones"],
           "correctAnswer": "Hugh Padgham",
           "trivia": "The Police的专辑'Synchronicity'由Hugh Padgham担任制作人，他以与Phil Collins和Genesis的合作闻名。Padgham在录音过程中采用了创新的鼓音效处理技术，提升了专辑的现代感和清晰度。此前，The Police的早期专辑由Nigel Gray制作，但'Synchronicity'选择了更具实验精神的Padgham来推动音质革新。该制作风格对专辑最终获得商业成功和批评好评起到了关键作用。"
         }
@@ -10144,12 +8909,7 @@
         },
         {
           "question": "在制作The Smiths的1986年专辑《The Queen Is Dead》时，以下哪位音乐家参与了键盘的录制？",
-          "options": [
-            "Craig Gannon",
-            "Johnny Marr",
-            "Stephen Street",
-            "Andy Rourke"
-          ],
+          "options": ["Craig Gannon", "Johnny Marr", "Stephen Street", "Andy Rourke"],
           "correctAnswer": "Stephen Street",
           "trivia": "Stephen Street不仅担任了《The Queen Is Dead》的制作助理，还亲自参与了部分键盘演奏。Craig Gannon是该专辑的额外吉他手，而Johnny Marr则是主吉他手。Andy Rourke负责贝斯演奏。Stephen Street后来成为了The Smiths的重要合作制作人，他的键盘贡献为专辑增添了独特的质感，这也是该专辑声音层次丰富的原因之一。"
         }
@@ -10179,12 +8939,7 @@
         },
         {
           "question": "在The Smiths录制1986年专辑'The Queen Is Dead'的制作过程中，哪位制作人对专辑的声音风格和录音效果有着决定性的影响？",
-          "options": [
-            "John Porter",
-            "Stephen Street",
-            "John Leckie",
-            "Martin Hannett"
-          ],
+          "options": ["John Porter", "Stephen Street", "John Leckie", "Martin Hannett"],
           "correctAnswer": "John Porter",
           "trivia": "The Smiths的专辑'The Queen Is Dead'由制作人John Porter负责制作，他在该专辑中帮助乐队实现了更为丰富和清晰的吉他音色，这对于塑造专辑标志性的摇滚风格至关重要。John Porter之前也参与过The Smiths的其他录音项目，熟悉乐队的音乐理念和录音偏好。相比之下，Stephen Street和John Leckie虽然是当时知名的制作人，但并未参与该专辑的制作；Martin Hannett则以制作Joy Division著称，与The Smiths的合作无关。Porter的制作手法提升了专辑中复杂的吉他层次感，使'The Queen Is Dead'成为80年代英国独立摇滚的经典之作。"
         }
@@ -10210,12 +8965,7 @@
         },
         {
           "question": "在Tiffany的1987年同名专辑《Tiffany》中，哪位音乐制作人主要负责了专辑的词曲创作和制作工作？",
-          "options": [
-            "George Tobin",
-            "Quincy Jones",
-            "David Foster",
-            "Rick Rubin"
-          ],
+          "options": ["George Tobin", "Quincy Jones", "David Foster", "Rick Rubin"],
           "correctAnswer": "George Tobin",
           "trivia": "Tiffany的首张同名专辑《Tiffany》于1987年发布，制作人大多由George Tobin负责。Tobin不仅担任专辑的制作人，还参与了词曲创作过程，帮助塑造了专辑的流行风格。George Tobin在1980年代以制作青年流行歌手而闻名，他的工作对Tiffany早期的成功起到了关键作用。相比之下，Quincy Jones、David Foster和Rick Rubin虽然是著名的制作人，但并未参与这张专辑的制作。"
         },
@@ -10245,12 +8995,7 @@
         },
         {
           "question": "在Tiffany1987年同名专辑《Tiffany》的录制过程中，哪位音乐家负责为专辑中的吉他部分贡献了演奏？",
-          "options": [
-            "Steve Lukather",
-            "Eddie Van Halen",
-            "Slash",
-            "Tommy Thayer"
-          ],
+          "options": ["Steve Lukather", "Eddie Van Halen", "Slash", "Tommy Thayer"],
           "correctAnswer": "Steve Lukather",
           "trivia": "Tiffany的首张同名专辑《Tiffany》于1987年发行，录制过程中邀请了多位知名音乐人参与配乐。著名吉他手Steve Lukather是摇滚乐队Toto的成员，他为该专辑贡献了吉他演奏，增添了专业的摇滚元素。Eddie Van Halen和Slash虽然是80年代著名吉他手，但并未参与该专辑制作。Tommy Thayer后来成为Kiss乐队的吉他手，但在此专辑录制时尚未涉足主流录音项目。这些事实体现了当时制作团队对音乐质量的高标准。"
         },
@@ -10333,12 +9078,7 @@
         },
         {
           "question": "在Tom Petty的1989年专辑《Full Moon Fever》中，哪位著名吉他手参与了录制？",
-          "options": [
-            "Jeff Lynne",
-            "Eric Clapton",
-            "George Harrison",
-            "Neil Young"
-          ],
+          "options": ["Jeff Lynne", "Eric Clapton", "George Harrison", "Neil Young"],
           "correctAnswer": "Jeff Lynne",
           "trivia": "《Full Moon Fever》是Tom Petty的首张个人录音室专辑，Jeff Lynne不仅担任了制作人，还参与了吉他演奏和和声录制。Jeff Lynne是Electric Light Orchestra的核心成员，他的加入为专辑带来了独特的合成器和吉他音色。George Harrison虽然是Tom Petty的好友并曾合作，但并未参与此专辑的录制。Eric Clapton和Neil Young都没有参与这张专辑的制作。"
         }
@@ -10357,23 +9097,13 @@
         },
         {
           "question": "Tom Petty的1989年专辑《Full Moon Fever》的封面设计中，哪位艺术家负责了封面照片的拍摄？",
-          "options": [
-            "Linda McCartney",
-            "Annie Leibovitz",
-            "Jim Marshall",
-            "Bob Gruen"
-          ],
+          "options": ["Linda McCartney", "Annie Leibovitz", "Jim Marshall", "Bob Gruen"],
           "correctAnswer": "Jim Marshall",
           "trivia": "《Full Moon Fever》的封面照片由著名摇滚摄影师Jim Marshall拍摄，他以捕捉音乐界标志性瞬间而闻名。Jim Marshall曾为许多传奇音乐人拍摄肖像，具有浓厚的摇滚文化背景。封面上Tom Petty身穿牛仔夹克，背景是简单的黑色，体现了专辑的简洁和经典摇滚风格。该设计与专辑的音乐内容相呼应，强调了Tom Petty的个人魅力和摇滚精神。此封面设计至今仍被视为经典摇滚专辑封面之一。"
         },
         {
           "question": "Tom Petty在1989年发行的专辑《Full Moon Fever》的首发数字发行平台是以下哪一个？",
-          "options": [
-            "iTunes Store",
-            "Amazon Music",
-            "Spotify",
-            "Napster"
-          ],
+          "options": ["iTunes Store", "Amazon Music", "Spotify", "Napster"],
           "correctAnswer": "iTunes Store",
           "trivia": "《Full Moon Fever》最初于1989年发行，那时数字音乐尚未兴起。随着数字音乐的发展，Tom Petty的这张经典专辑在2000年代被多次数字化发行。其首次正式数字发行是在苹果公司的iTunes Store上线后不久，使得更多听众能够便捷地通过数字渠道购买这张专辑。相比之下，Amazon Music和Spotify等平台在iTunes之后才获得版权，而Napster作为早期的P2P音乐共享服务，未曾正式发行该专辑的数字版本。这次数字发行不仅延续了《Full Moon Fever》的影响力，也帮助新一代听众重新发现Tom Petty的音乐魅力。"
         }
@@ -10434,12 +9164,7 @@
         },
         {
           "question": "Tone-Lōc在他的1989年专辑《Lōc-ed After Dark》中，哪位艺术家的音乐风格对他的创作灵感影响最大？",
-          "options": [
-            "James Brown",
-            "Madonna",
-            "Prince",
-            "Michael Jackson"
-          ],
+          "options": ["James Brown", "Madonna", "Prince", "Michael Jackson"],
           "correctAnswer": "James Brown",
           "trivia": "Tone-Lōc的专辑《Lōc-ed After Dark》于1989年发行，其中融合了浓厚的放克和灵魂音乐元素，这些元素主要受到了James Brown的影响。James Brown被誉为“放克之王”，他的节奏和表演风格对许多80年代末的嘻哈艺术家产生了深远影响。Tone-Lōc在制作过程中采样了多首James Brown的经典曲目，使专辑具有鲜明的律动感和复古氛围。此外，《Lōc-ed After Dark》中的热门单曲《Wild Thing》和《Funky Cold Medina》都体现了这种灵感来源。"
         },
@@ -10458,12 +9183,7 @@
       "medium": [
         {
           "question": "Tone-Lōc的1989年专辑《Lōc-ed After Dark》是由哪家唱片公司发行的？",
-          "options": [
-            "Delicious Vinyl",
-            "Def Jam Recordings",
-            "Ruthless Records",
-            "Loud Records"
-          ],
+          "options": ["Delicious Vinyl", "Def Jam Recordings", "Ruthless Records", "Loud Records"],
           "correctAnswer": "Delicious Vinyl",
           "trivia": "《Lōc-ed After Dark》是Tone-Lōc的首张专辑，于1989年发布，由加州的独立唱片公司Delicious Vinyl发行。Delicious Vinyl成立于1987年，专注于推广嘻哈和另类音乐，曾签约多位重要艺人如Young MC。该专辑的发行帮助Delicious Vinyl在主流市场确立了地位，尤其是其中的热门单曲《Wild Thing》和《Funky Cold Medina》获得了巨大的商业成功。这一发行合作也体现了当时独立唱片公司在嘻哈音乐发展中的关键作用。"
         },
@@ -10493,23 +9213,13 @@
       "hard": [
         {
           "question": "Tone-Lōc的专辑《Lōc-ed After Dark》在Billboard 200专辑排行榜上的最高排名是多少？",
-          "options": [
-            "第1名",
-            "第7名",
-            "第15名",
-            "第25名"
-          ],
+          "options": ["第1名", "第7名", "第15名", "第25名"],
           "correctAnswer": "第7名",
           "trivia": "Tone-Lōc的首张专辑《Lōc-ed After Dark》于1989年发行，凭借其独特的低沉嗓音和富有节奏感的说唱风格迅速走红。这张专辑在美国Billboard 200排行榜上最高达到了第7名的成绩，显示了其商业成功。专辑中的热门单曲如“Wild Thing”和“Funky Cold Medina”也分别登上了Billboard Hot 100的前10名。此外，《Lōc-ed After Dark》后来获得了美国唱片工业协会（RIAA）的双白金认证，进一步证明了其市场影响力和流行程度。"
         },
         {
           "question": "在Tone-Lōc的1989年专辑《Lōc-ed After Dark》中，哪种音乐设备是制作其标志性嘻哈节拍时最关键的取样器？",
-          "options": [
-            "Akai MPC60",
-            "E-mu SP-1200",
-            "Roland TR-808",
-            "Korg M1"
-          ],
+          "options": ["Akai MPC60", "E-mu SP-1200", "Roland TR-808", "Korg M1"],
           "correctAnswer": "E-mu SP-1200",
           "trivia": "Tone-Lōc的《Lōc-ed After Dark》专辑录制于1989年，正值采样技术在嘻哈音乐制作中日益普及。该专辑的制作团队广泛使用了E-mu SP-1200取样器，这款设备以其经典的12位采样和独特的音色深受当时嘻哈制作人的喜爱。相比之下，Akai MPC60虽然也在当时被使用，但更多出现在90年代早期的作品中。Roland TR-808是一款经典鼓机，虽常用于嘻哈节拍，但并非该专辑核心的采样设备。Korg M1则是数字合成器，主要用于合成音色而非采样。因此，E-mu SP-1200在《Lōc-ed After Dark》中扮演着关键角色，帮助塑造了专辑标志性的粗糙且充满律动的节奏感。"
         },
@@ -10781,12 +9491,7 @@
         },
         {
           "question": "在Van Halen录制1984专辑时，哪位制作人负责监督整个录音过程？",
-          "options": [
-            "Ted Templeman",
-            "Quincy Jones",
-            "Rick Rubin",
-            "Bob Rock"
-          ],
+          "options": ["Ted Templeman", "Quincy Jones", "Rick Rubin", "Bob Rock"],
           "correctAnswer": "Ted Templeman",
           "trivia": "Ted Templeman是Van Halen1984专辑的制作人，他从第一张专辑开始就与乐队紧密合作。Templeman以其清晰且动态的录音风格著称，帮助乐队在录音室中实现了标志性的声音。1984专辑录制于加州的5150录音室，这也是他们首次使用Eddie Van Halen自建的私人录音空间。Templeman的参与确保了专辑的高品质制作，使得《Jump》等单曲成为了摇滚经典。"
         }
@@ -10816,12 +9521,7 @@
         },
         {
           "question": "在Van Halen的专辑《1984》中，哪首歌曲在美国主流电台播放时成为乐队迄今最受欢迎的单曲之一？",
-          "options": [
-            "《Jump》",
-            "《Panama》",
-            "《Hot for Teacher》",
-            "《I'll Wait》"
-          ],
+          "options": ["《Jump》", "《Panama》", "《Hot for Teacher》", "《I'll Wait》"],
           "correctAnswer": "《Jump》",
           "trivia": "《Jump》是Van Halen在专辑《1984》中发行的主打单曲，凭借其独特的合成器旋律和朗朗上口的节奏，迅速成为美国主流电台的热门歌曲。这首歌在Billboard Hot 100排行榜上登顶，成为乐队历史上首支也是最成功的单曲之一。专辑《1984》整体风格的转变，使得《Jump》在电台播放中获得了广泛的接受度，推动了乐队的商业成功。与此同时，《Panama》和《Hot for Teacher》虽然也在电台获得播放，但影响力和覆盖面不及《Jump》。《I'll Wait》作为专辑中的另一首单曲，也获得了一定的电台关注，但没有达到《Jump》的高度。"
         }
@@ -10917,12 +9617,7 @@
         },
         {
           "question": "Whitney Houston在1987年录制专辑'Whitney'时，哪位著名制作人负责大部分歌曲的制作与编曲？",
-          "options": [
-            "Narada Michael Walden",
-            "Quincy Jones",
-            "L.A. Reid",
-            "Teddy Riley"
-          ],
+          "options": ["Narada Michael Walden", "Quincy Jones", "L.A. Reid", "Teddy Riley"],
           "correctAnswer": "Narada Michael Walden",
           "trivia": "Whitney Houston的1987年专辑'Whitney'主要由制作人Narada Michael Walden负责制作与编曲，他在当时以融合流行、节奏蓝调和舞曲元素闻名。Walden之前也曾参与Whitney Houston首张同名专辑的制作，帮助塑造了她标志性的声音。Quincy Jones虽然是著名制作人，但与Whitney Houston的合作较少，更多活跃于迈克尔·杰克逊的作品。L.A. Reid和Teddy Riley在晚些时候成为重要制作人，但未直接参与'Whitney'专辑的制作。Narada Michael Walden的参与为专辑带来了丰富的音乐层次和商业成功，是专辑制作的关键人物。"
         },
@@ -10941,12 +9636,7 @@
       "hard": [
         {
           "question": "在Whitney Houston的1987年专辑'Whitney'的专辑包装设计中，哪位设计师负责了封面照片的艺术指导和整体视觉风格？",
-          "options": [
-            "Tony Lane",
-            "Lynn Goldsmith",
-            "Norman Seeff",
-            "Herb Ritts"
-          ],
+          "options": ["Tony Lane", "Lynn Goldsmith", "Norman Seeff", "Herb Ritts"],
           "correctAnswer": "Tony Lane",
           "trivia": "Whitney Houston的1987年专辑'Whitney'的封面设计由著名设计师Tony Lane负责，他以其在音乐专辑视觉设计方面的专业而闻名。该专辑的封面采用了简洁而优雅的视觉风格，突出了Whitney Houston的形象，符合当时流行的时尚审美。封面摄影由摄影师Mark Hanauer完成，Tony Lane在艺术指导中确保整体包装与Whitney的音乐风格相契合。这种设计提升了专辑的市场吸引力，也反映了80年代后期音乐产业对视觉表现的重视。"
         },
@@ -10983,12 +9673,7 @@
       "easy": [
         {
           "question": "ZZ Top的专辑《Eliminator》中，哪首歌曲在美国电台播放中成为该专辑最知名的单曲？",
-          "options": [
-            "《Legs》",
-            "《Cheap Sunglasses》",
-            "《La Grange》",
-            "《Tush》"
-          ],
+          "options": ["《Legs》", "《Cheap Sunglasses》", "《La Grange》", "《Tush》"],
           "correctAnswer": "《Legs》",
           "trivia": "《Eliminator》是ZZ Top于1983年发布的标志性专辑，其中《Legs》成为该专辑中最受电台欢迎的单曲之一。这首歌在美国主流摇滚和流行电台频繁播放，帮助专辑获得了巨大的商业成功。实际上，《Legs》在Billboard排行榜上表现优异，推动ZZ Top进入更广泛的听众群体。相比之下，《Cheap Sunglasses》、《La Grange》和《Tush》虽为著名歌曲，但它们并非收录于《Eliminator》专辑中，或者在该专辑的电台播放中不及《Legs》受欢迎。"
         },
@@ -11005,12 +9690,7 @@
         },
         {
           "question": "在制作ZZ Top的1983年专辑《Eliminator》时，哪位制作人负责这张专辑的录音与混音工作？",
-          "options": [
-            "Bill Ham",
-            "Terry Manning",
-            "Rick Rubin",
-            "Quincy Jones"
-          ],
+          "options": ["Bill Ham", "Terry Manning", "Rick Rubin", "Quincy Jones"],
           "correctAnswer": "Bill Ham",
           "trivia": "《Eliminator》是ZZ Top在1983年发行的标志性专辑，这张专辑将他们的布鲁斯摇滚风格与合成器和电子节奏相结合，取得了巨大成功。专辑的制作人是Bill Ham，他长期负责ZZ Top的制作工作，确保了乐队独特音色和风格的延续。录音与混音也主要由Bill Ham监督，帮助专辑实现了干净且具有时代感的声音效果。相比之下，Terry Manning虽然是知名录音师，但并未参与此专辑制作；Rick Rubin和Quincy Jones则与ZZ Top无直接合作。这种制作合作确保了《Eliminator》成为乐队最畅销的专辑之一。"
         }
@@ -11018,12 +9698,7 @@
       "medium": [
         {
           "question": "在ZZ Top的1983年专辑《Eliminator》的制作过程中，哪位制作人负责指导录音和整体音效的塑造？",
-          "options": [
-            "Bill Ham",
-            "Rick Rubin",
-            "Mutt Lange",
-            "Quincy Jones"
-          ],
+          "options": ["Bill Ham", "Rick Rubin", "Mutt Lange", "Quincy Jones"],
           "correctAnswer": "Bill Ham",
           "trivia": "《Eliminator》是ZZ Top与长期合作的制作人Bill Ham共同打造的。这张专辑在制作中强调了电子合成器和鼓机的运用，使乐队的布鲁斯摇滚风格更加现代化。Bill Ham不仅担任制作人，还在帮助乐队实现独特音色方面起到了关键作用。Rick Rubin和Mutt Lange虽然是著名制作人，但并未参与此专辑的制作。Quincy Jones则主要活跃于流行与爵士领域，与ZZ Top的合作无关。"
         },
@@ -11064,23 +9739,13 @@
         },
         {
           "question": "ZZ Top的1983年专辑《Eliminator》在美国Billboard 200专辑排行榜上的最高排名是？",
-          "options": [
-            "第1名",
-            "第3名",
-            "第5名",
-            "第7名"
-          ],
+          "options": ["第1名", "第3名", "第5名", "第7名"],
           "correctAnswer": "第3名",
           "trivia": "ZZ Top的《Eliminator》专辑于1983年发布后迅速获得商业成功。该专辑在美国Billboard 200专辑排行榜上最高达到第3名，这也是乐队历史上最高的专辑排名。除了专辑整体表现优异，《Eliminator》还凭借单曲如《Sharp Dressed Man》和《Legs》在排行榜上获得了广泛关注。专辑的成功推动了乐队在MTV时代的知名度，并成为其职业生涯中的一个重要里程碑。"
         },
         {
           "question": "ZZ Top的1983年专辑《Eliminator》是通过哪家唱片公司发行的？",
-          "options": [
-            "Warner Bros. Records",
-            "Epic Records",
-            "Mercury Records",
-            "Arista Records"
-          ],
+          "options": ["Warner Bros. Records", "Epic Records", "Mercury Records", "Arista Records"],
           "correctAnswer": "Warner Bros. Records",
           "trivia": "《Eliminator》是ZZ Top在1983年发行的具有里程碑意义的专辑，这张专辑由Warner Bros. Records发行。Warner Bros. Records是当时美国最具影响力的唱片公司之一，负责推广和发行了许多摇滚和流行音乐的重要作品。ZZ Top自1980年代初便与Warner Bros.保持合作关系，《Eliminator》的成功部分归功于该公司在市场营销和发行渠道上的强大支持。这张专辑融合了蓝调摇滚和合成器元素，成为ZZ Top职业生涯中最畅销的作品之一。"
         }
@@ -11141,23 +9806,13 @@
         },
         {
           "question": "关于a-ha的1985年专辑《Hunting High and Low》，哪一位著名制作人参与了该专辑的制作并对其音色产生了重要影响？",
-          "options": [
-            "Tore Kroknes",
-            "Alan Tarney",
-            "Morten Harket",
-            "Steve Lillywhite"
-          ],
+          "options": ["Tore Kroknes", "Alan Tarney", "Morten Harket", "Steve Lillywhite"],
           "correctAnswer": "Alan Tarney",
           "trivia": "《Hunting High and Low》是挪威乐队a-ha于1985年发布的首张录音室专辑，制作人Alan Tarney对专辑的整体声音风格有重要贡献。Tarney以其在上世纪80年代流行音乐制作中的影响力著称，他以精致的合成器编排和清晰的吉他声闻名。专辑中的热门单曲《Take On Me》就体现了这种独特的制作风格，使其成为全球范围内的经典之作。该专辑帮助a-ha迅速获得国际关注，成为80年代流行音乐的重要代表。"
         },
         {
           "question": "在a-ha的首张专辑《Hunting High and Low》的制作过程中，哪位著名制作人参与了专辑的大部分录音工作？",
-          "options": [
-            "John Ratcliff",
-            "Morten Harket",
-            "Alan Tarney",
-            "Tore Krogstad"
-          ],
+          "options": ["John Ratcliff", "Morten Harket", "Alan Tarney", "Tore Krogstad"],
           "correctAnswer": "John Ratcliff",
           "trivia": "a-ha的1985年专辑《Hunting High and Low》在制作时，主要由制作人John Ratcliff负责录音和制作工作。Ratcliff与乐队合作密切，帮助塑造了专辑中富有特色的合成器和吉他音效。虽然Alan Tarney后来也为a-ha制作了部分作品，但《Hunting High and Low》的核心制作团队是John Ratcliff。此外，主唱Morten Harket和鼓手Tore Krogstad均为乐队成员，但并未担任制作角色。此专辑的成功部分归功于Ratcliff的制作经验和对80年代流行摇滚声音的把握。"
         }
@@ -11165,12 +9820,7 @@
       "hard": [
         {
           "question": "在a-ha的1985年专辑《Hunting High and Low》中，哪位成员主要负责键盘和合成器的演奏？",
-          "options": [
-            "Magne Furuholmen",
-            "Morten Harket",
-            "Paul Waaktaar-Savoy",
-            "Lars Ulrich"
-          ],
+          "options": ["Magne Furuholmen", "Morten Harket", "Paul Waaktaar-Savoy", "Lars Ulrich"],
           "correctAnswer": "Magne Furuholmen",
           "trivia": "《Hunting High and Low》是挪威乐队a-ha的首张专辑，发行于1985年。Magne Furuholmen作为乐队的键盘手和合成器演奏者，承担了专辑中大量电子音色的制作，这也是该专辑标志性的合成流行风格的重要组成部分。主唱Morten Harket以其高亢的嗓音著称，而Paul Waaktaar-Savoy则主要负责吉他演奏和歌曲创作。Lars Ulrich则是另一挪威乐队Metallica的鼓手，与a-ha无关。这些成员的分工使得《Hunting High and Low》在音乐质感和表现力上都达到了很高的水平。"
         },

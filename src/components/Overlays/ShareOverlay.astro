@@ -1,13 +1,13 @@
 ---
 /**
  * ShareOverlay Component
- * 
+ *
  * A high-performance sharing component that provides multiple ways to share game results
  * with advanced multilingual support and accessibility features.
- * 
+ *
  * Features responsive design, native Web Share API integration, platform-specific sharing,
  * and comprehensive error handling with fallback options.
- * 
+ *
  * @component
  * @example
  * <ShareOverlay gameData={gameData} />
@@ -192,7 +192,7 @@ const {
     margin-top: var(--space-xl);
     text-align: center;
     contain: layout style;
-    
+
     @media (min-width: 48em) {
       margin-top: var(--space-2xl);
     }
@@ -208,12 +208,12 @@ const {
       color: var(--text-primary);
       font-family: var(--font-family-primary);
       line-height: var(--leading-tight);
-      
+
       @media (min-width: 48em) {
         font-size: var(--text-2xl);
         margin-bottom: var(--space-xl);
       }
-      
+
       @media (min-width: 64em) {
         font-size: var(--text-3xl);
       }
@@ -231,21 +231,21 @@ const {
       justify-content: center;
       align-items: center;
       max-width: 100%;
-      
+
       @media (max-width: 47.9375em) {
         flex-direction: column;
         gap: var(--space-sm);
         max-width: 100%;
         margin: var(--space-lg) auto 0;
       }
-      
+
       @media (min-width: 48em) {
         flex-direction: row;
         gap: var(--space-lg);
         max-width: 600px;
         margin: var(--space-xl) auto 0;
       }
-      
+
       @media (min-width: 64em) {
         gap: var(--space-xl);
         max-width: 700px;
@@ -269,7 +269,7 @@ const {
     &__icon {
       width: var(--icon-size-md);
       height: var(--icon-size-md);
-      
+
       @media (max-width: 47.9375em) {
         width: var(--icon-size-sm);
         height: var(--icon-size-sm);
@@ -279,7 +279,7 @@ const {
     &__clipboard-icon {
       width: var(--icon-size-sm);
       height: var(--icon-size-sm);
-      
+
       @media (max-width: 47.9375em) {
         width: 16px;
         height: 16px;
@@ -307,7 +307,7 @@ const {
       cursor: pointer;
       font-family: var(--font-family-primary);
       transition: all var(--transition-fast);
-      
+
       /* Performance optimizations with hardware acceleration */
       contain: layout style paint;
       transform: translate3d(0, 0, 0);
@@ -343,7 +343,7 @@ const {
       &:not(:hover):not(:focus) {
         will-change: auto;
       }
-      
+
       /* Responsive sizing */
       @media (max-width: 47.9375em) {
         padding: var(--space-md) var(--space-lg);
@@ -353,14 +353,14 @@ const {
         max-width: 280px;
         min-height: var(--touch-target-enhanced);
       }
-      
+
       @media (min-width: 48em) {
         padding: var(--space-md) var(--space-lg);
         min-width: 120px;
         flex: 1;
         max-width: 140px;
       }
-      
+
       @media (min-width: 64em) {
         padding: var(--space-lg) var(--space-xl);
         min-width: 140px;
@@ -371,7 +371,7 @@ const {
        * Button variants with platform-specific styling
        * Uses global color system for consistency
        */
-      
+
       /* Native Share Button */
       &--native {
         background: var(--interactive-primary);
@@ -443,7 +443,7 @@ const {
      */
     &__clipboard-section {
       margin-top: var(--space-xl);
-      
+
       @media (min-width: 48em) {
         margin-top: var(--space-2xl);
       }
@@ -470,7 +470,7 @@ const {
       cursor: pointer;
       font-family: var(--font-family-primary);
       transition: all var(--transition-fast);
-      
+
       /* Performance optimizations */
       contain: layout style paint;
       transform: translate3d(0, 0, 0);
@@ -518,7 +518,7 @@ const {
         border-color: var(--color-error-500);
         color: var(--text-error-aaa);
       }
-      
+
       /* Responsive sizing */
       @media (max-width: 47.9375em) {
         padding: var(--space-md) var(--space-lg);
@@ -528,13 +528,13 @@ const {
         max-width: 280px;
         min-height: var(--touch-target-enhanced);
       }
-      
+
       @media (min-width: 48em) {
         padding: var(--space-md) var(--space-xl);
         min-width: 160px;
         max-width: 200px;
       }
-      
+
       @media (min-width: 64em) {
         padding: var(--space-lg) var(--space-xl);
         min-width: 180px;
@@ -554,7 +554,7 @@ const {
       background: var(--bg-warning-aaa);
       text-align: center;
       contain: layout style;
-      
+
       @media (min-width: 48em) {
         margin-top: var(--space-2xl);
         padding: var(--space-xl);
@@ -566,7 +566,7 @@ const {
         align-items: center;
         gap: var(--space-md);
         margin-bottom: var(--space-lg);
-        
+
         @media (min-width: 48em) {
           gap: var(--space-lg);
           margin-bottom: var(--space-xl);
@@ -579,7 +579,7 @@ const {
         height: var(--icon-size-md);
         flex-shrink: 0;
         transform: translate3d(0, 0, 0);
-        
+
         @media (min-width: 48em) {
           width: var(--icon-size-lg);
           height: var(--icon-size-lg);
@@ -593,7 +593,7 @@ const {
         margin: 0;
         line-height: var(--leading-relaxed);
         max-width: 400px;
-        
+
         @media (min-width: 48em) {
           font-size: var(--text-lg);
         }
@@ -605,7 +605,7 @@ const {
         gap: var(--space-md);
         justify-content: center;
         align-items: center;
-        
+
         @media (max-width: 47.9375em) {
           flex-direction: column;
           gap: var(--space-sm);
@@ -628,7 +628,7 @@ const {
         font-family: var(--font-family-primary);
         cursor: pointer;
         transition: all var(--transition-fast);
-        
+
         /* Performance optimizations */
         contain: layout style paint;
         transform: translate3d(0, 0, 0);
@@ -681,7 +681,7 @@ const {
           flex-shrink: 0;
           transform: translate3d(0, 0, 0);
         }
-        
+
         /* Responsive sizing */
         @media (max-width: 47.9375em) {
           width: 100%;
@@ -689,7 +689,7 @@ const {
           padding: var(--space-md) var(--space-lg);
           min-height: var(--touch-target-enhanced);
         }
-        
+
         @media (min-width: 48em) {
           padding: var(--space-sm) var(--space-lg);
           min-width: 120px;
@@ -707,7 +707,7 @@ const {
       font-size: var(--text-base);
       white-space: nowrap;
       line-height: var(--leading-base);
-      
+
       @media (max-width: 47.9375em) {
         font-size: var(--text-sm);
       }
@@ -865,11 +865,11 @@ const {
 >
   /**
    * ShareOverlay Component Enhancement Script
-   * 
+   *
    * Provides comprehensive sharing functionality with performance optimizations
    * and accessibility features. Supports native Web Share API, platform-specific
    * sharing, and clipboard operations with robust error handling.
-   * 
+   *
    * @features
    * - Native Web Share API integration with fallback support
    * - Platform-specific sharing (Twitter/X, WhatsApp, Email)

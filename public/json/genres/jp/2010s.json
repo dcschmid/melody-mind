@@ -701,12 +701,7 @@
         },
         {
           "question": "Big Boiのアルバム'Sir Lucious Left Foot: The Son of Chico Dusty'（2010年）で、リードシングルとして最初にリリースされ、特に注目を浴びた曲はどれでしょうか？",
-          "options": [
-            "Shutterbugg",
-            "Royal Flush",
-            "Fo Yo Sorrows",
-            "Tangerine"
-          ],
+          "options": ["Shutterbugg", "Royal Flush", "Fo Yo Sorrows", "Tangerine"],
           "correctAnswer": "Shutterbugg",
           "trivia": "Big Boiの2010年のアルバム'Sir Lucious Left Foot: The Son of Chico Dusty'から最初にリリースされたリードシングルは「Shutterbugg」です。この曲は強烈なファンクビートと独特のラップスタイルが特徴で、批評家からも高く評価されました。『Shutterbugg』はビルボードのチャートで一定の成功を収め、アルバム全体の注目度を高める役割を果たしました。アルバムはBig Boiのソロデビュー作としても知られており、アウトキャストとしての彼の新たな音楽的表現を示しています。"
         }
@@ -802,23 +797,13 @@
         },
         {
           "question": "Billie Eilishのアルバム'When We All Fall Asleep, Where Do We Go?'のリリース後に行われたライブツアーで、彼女が初めてヘッドライナーとして公演を行った都市はどこでしょうか？",
-          "options": [
-            "ロサンゼルス",
-            "ニューヨーク",
-            "シカゴ",
-            "ロンドン"
-          ],
+          "options": ["ロサンゼルス", "ニューヨーク", "シカゴ", "ロンドン"],
           "correctAnswer": "ロサンゼルス",
           "trivia": "Billie Eilishは2019年にアルバム'When We All Fall Asleep, Where Do We Go?'をリリース後、初のヘッドライナーライブツアーを開始しました。そのツアーの最初の公演は彼女の出身地であるロサンゼルスで行われました。このツアーは全米やヨーロッパを巡り、彼女のライブパフォーマンスの評価を一層高めました。また、ツアー中にはアルバム収録曲のパフォーマンスが多く披露され、ファンから大きな支持を得ています。"
         },
         {
           "question": "Billie Eilishのアルバム『When We All Fall Asleep, Where Do We Go?』には、社会的な不安やメンタルヘルスのテーマが反映されていますが、特にどの曲が若者の不安感を象徴的に表現しているとされていますか？",
-          "options": [
-            "bad guy",
-            "bury a friend",
-            "you should see me in a crown",
-            "xanny"
-          ],
+          "options": ["bad guy", "bury a friend", "you should see me in a crown", "xanny"],
           "correctAnswer": "bury a friend",
           "trivia": "Billie Eilishの2019年のアルバム『When We All Fall Asleep, Where Do We Go?』には、現代社会の若者が抱える不安や孤独感をテーマにした楽曲が多く収録されています。特に「bury a friend」は、恐怖や不安を内面化しながらも向き合う姿勢を象徴的に描写しており、メンタルヘルスの問題に対する社会的な関心を高めました。この曲はビリー自身が『自分の悪夢のような感情を表現したもの』と説明しており、アルバム全体の社会的コメンタリーの中心的な役割を果たしています。"
         }
@@ -960,12 +945,7 @@
         },
         {
           "question": "Bruno Marsのアルバム『Doo-Wops & Hooligans』がアメリカのBillboard 200チャートで達成した最高順位はどれでしょうか？",
-          "options": [
-            "1位",
-            "3位",
-            "5位",
-            "10位"
-          ],
+          "options": ["1位", "3位", "5位", "10位"],
           "correctAnswer": "3位",
           "trivia": "Bruno Marsのデビューアルバム『Doo-Wops & Hooligans』（2010年）は、Billboard 200チャートで最高3位を記録しました。このアルバムはシングル『Just the Way You Are』や『Grenade』の大ヒットにより広く知られ、商業的にも成功を収めました。発売当初から順調にチャートを上昇し、アメリカだけでなく世界各国のチャートでも上位にランクインしました。この成功はBruno Marsのソロアーティストとしての地位確立に大きく貢献しています。"
         }
@@ -1015,23 +995,13 @@
       "easy": [
         {
           "question": "Camila Cabelloの2018年のアルバム『Camila』で、彼女が元メンバーだったグループはどれですか？",
-          "options": [
-            "Fifth Harmony",
-            "Little Mix",
-            "BLACKPINK",
-            "SNSD（少女時代）"
-          ],
+          "options": ["Fifth Harmony", "Little Mix", "BLACKPINK", "SNSD（少女時代）"],
           "correctAnswer": "Fifth Harmony",
           "trivia": "Camila Cabelloは2018年にリリースされたソロアルバム『Camila』で大成功を収めました。彼女はこのアルバムをリリースする前、人気ガールズグループ『Fifth Harmony』のメンバーとして活動していました。グループから脱退した後、ソロ活動に専念し、『Camila』は彼女の音楽的個性を強く打ち出した作品となっています。『Little Mix』や『BLACKPINK』、『SNSD（少女時代）』は、それぞれ別の国や背景を持つ有名なガールズグループですが、Camila Cabelloが所属していたのは『Fifth Harmony』だけです。"
         },
         {
           "question": "Camila Cabelloの2018年のアルバム『Camila』がデジタル配信でリリースされた際、特に注目されたリードシングルはどれでしょうか？",
-          "options": [
-            "Havana",
-            "Never Be the Same",
-            "Crying in the Club",
-            "Real Friends"
-          ],
+          "options": ["Havana", "Never Be the Same", "Crying in the Club", "Real Friends"],
           "correctAnswer": "Havana",
           "trivia": "Camila Cabelloのデビューソロアルバム『Camila』は2018年にリリースされ、そのリードシングル『Havana』は特にデジタル配信プラットフォームで大成功を収めました。この曲はアメリカのビルボードホット100で首位を獲得し、SpotifyやApple Musicなどで高いストリーミング数を記録しました。『Havana』はラテンのリズムとポップを融合させた独特のサウンドで、多くの国でチャート上位に入り、Camila Cabelloのソロアーティストとしての地位を確立しました。なお、他の曲『Never Be the Same』や『Crying in the Club』も人気がありましたが、『Havana』ほどのデジタル配信での成功はありませんでした。"
         },
@@ -1138,23 +1108,13 @@
         },
         {
           "question": "Cardi Bのアルバム'Invasion of Privacy'（2018年）で、メディア報道で特に注目されたシングル曲はどれでしょうか？",
-          "options": [
-            "Bodak Yellow",
-            "Money",
-            "Bartier Cardi",
-            "I Like It"
-          ],
+          "options": ["Bodak Yellow", "Money", "Bartier Cardi", "I Like It"],
           "correctAnswer": "Bodak Yellow",
           "trivia": "Cardi Bのデビューアルバム'Invasion of Privacy'は2018年にリリースされ、特にシングル曲「Bodak Yellow」がメディアで大きな注目を集めました。この曲はBillboard Hot 100チャートで1位を獲得し、Cardi Bを一躍トップスターに押し上げました。また、同アルバムの成功により、彼女はグラミー賞で最優秀ラップアルバム賞を受賞しています。メディア報道ではこの曲の影響力と彼女のキャリアの転機として頻繁に言及されました。"
         },
         {
           "question": "Cardi Bのアルバム'Invasion of Privacy'で主にラップパートを担当し、アルバムの成功に大きく貢献したのは誰ですか？",
-          "options": [
-            "Cardi B自身",
-            "Nicki Minaj",
-            "MigosのQuavo",
-            "Drake"
-          ],
+          "options": ["Cardi B自身", "Nicki Minaj", "MigosのQuavo", "Drake"],
           "correctAnswer": "Cardi B自身",
           "trivia": "Cardi Bは2018年にリリースしたデビューアルバム'Invasion of Privacy'でメインアーティストとしてラップパートを担当し、アルバムはビルボード200チャートで1位を獲得しました。彼女の独特なフロウと率直なリリックが評価され、グラミー賞の最優秀ラップアルバム賞も受賞しました。Nicki MinajやMigosのQuavoはこのアルバムのゲスト参加者として登場しましたが、主要なラップパートはCardi B自身が担当しています。Drakeはこのアルバムには参加していません。"
         }
@@ -1162,12 +1122,7 @@
       "medium": [
         {
           "question": "Cardi Bのアルバム'Invasion of Privacy'に多数のプロデューサーが参加しましたが、以下のうち同アルバムの制作に携わった主要なプロデューサーとして正しいものはどれでしょうか？",
-          "options": [
-            "Mustard",
-            "Pharrell Williams",
-            "Mike Will Made-It",
-            "Dr. Dre"
-          ],
+          "options": ["Mustard", "Pharrell Williams", "Mike Will Made-It", "Dr. Dre"],
           "correctAnswer": "Mustard",
           "trivia": "Cardi Bの2018年のデビューアルバム'Invasion of Privacy'は、多彩なプロデューサー陣によって支えられました。特にDJ Mustardは、アルバム内のヒット曲「Bickenhead」などの制作に関わり、その特徴的な西海岸風ビートで作品を彩りました。Pharrell WilliamsやDr. Dreも著名なプロデューサーですが、このアルバムには関与していません。一方でMike Will Made-Itは他のアーティストの作品で知られていますが、'Invasion of Privacy'のメインプロデューサーには含まれません。Mustardの参加は、アルバムの多様なサウンドメイクに大きく貢献しました。"
         },
@@ -1261,12 +1216,7 @@
         },
         {
           "question": "Chance the Rapperのアルバム'Coloring Book'に最も頻繁に参加しているコラボレーションアーティストは誰ですか？",
-          "options": [
-            "Kanye West",
-            "Justin Bieber",
-            "Childish Gambino",
-            "Lil Wayne"
-          ],
+          "options": ["Kanye West", "Justin Bieber", "Childish Gambino", "Lil Wayne"],
           "correctAnswer": "Lil Wayne",
           "trivia": "Chance the Rapperの2016年のアルバム'Coloring Book'は、多数の著名アーティストとのコラボレーションが特徴です。中でもLil Wayneは複数のトラックに参加しており、特に人気曲「No Problem」では彼の存在感が際立っています。このアルバムはグラミー賞で最優秀ラップアルバムを受賞し、ストリーミング限定リリースながら高い評価を得ました。Kanye WestやChildish Gambinoも参加していますが、Lil Wayneの参加頻度が最も高いことで知られています。"
         }
@@ -1285,12 +1235,7 @@
         },
         {
           "question": "Chance the Rapperの2016年のアルバム'Coloring Book'は、どのデジタル配信プラットフォームで独占的にリリースされ、無料で入手可能となったことで注目されましたか？",
-          "options": [
-            "Apple Music",
-            "Spotify",
-            "SoundCloud",
-            "Tidal"
-          ],
+          "options": ["Apple Music", "Spotify", "SoundCloud", "Tidal"],
           "correctAnswer": "Apple Music",
           "trivia": "Chance the Rapperのアルバム'Coloring Book'は2016年にApple Musicで独占的にリリースされ、無料でストリーミング提供されました。このリリース方法は、メジャーレコード会社に所属しないアーティストがデジタル配信を通じて大きな成功を収めた例として注目されました。また、'Coloring Book'はグラミー賞を受賞した初のストリーミング限定アルバムとしても歴史的意義を持っています。この戦略により、従来の物理メディアやCD販売に頼らない新しい音楽配信の可能性が示されました。"
         },
@@ -1320,12 +1265,7 @@
         },
         {
           "question": "Chance the Rapperのアルバム'Coloring Book'において、ゴスペル音楽の要素を特徴的に取り入れている曲はどれでしょうか？",
-          "options": [
-            "Blessings",
-            "No Problem",
-            "Angels",
-            "Same Drugs"
-          ],
+          "options": ["Blessings", "No Problem", "Angels", "Same Drugs"],
           "correctAnswer": "Blessings",
           "trivia": "Chance the Rapperの2016年リリースのアルバム'Coloring Book'は、ヒップホップとゴスペルの融合が印象的な作品です。特に「Blessings」は、教会の聖歌隊をフィーチャーし、ゴスペルの伝統的なコーラスと祝福のテーマを強調しています。この曲はアルバムの精神的な側面を象徴し、彼のシカゴの宗教的背景を反映しています。一方、「No Problem」や「Same Drugs」は別の音楽的方向性を持ち、「Angels」はよりソウルフルな要素が中心です。'Coloring Book'はストリーミング限定でリリースされ、グラミー賞で史上初めてストリーミングのみのアルバムとして最優秀ラップアルバムを受賞しました。"
         },
@@ -1351,12 +1291,7 @@
       "easy": [
         {
           "question": "Coldplayのアルバム'Mylo Xyloto'（2011年）で、バンドがサウンドに独特のテクスチャーを加えるために多用した音楽機材はどれでしょうか？",
-          "options": [
-            "シンセサイザー",
-            "アコースティックギター",
-            "ハーモニカ",
-            "サックスフォン"
-          ],
+          "options": ["シンセサイザー", "アコースティックギター", "ハーモニカ", "サックスフォン"],
           "correctAnswer": "シンセサイザー",
           "trivia": "Coldplayは2011年のアルバム'Mylo Xyloto'で、シンセサイザーを多用して独特な電子的テクスチャーを作り出しました。このアルバムは従来のギター中心のサウンドから一歩進み、エレクトロニック要素を積極的に取り入れた作品として知られています。プロデューサーのブライアン・イーノも参加し、シンセサイザーを駆使したサウンドデザインに貢献しました。アコースティックギターやハーモニカ、サックスフォンも音楽制作には使われることがありますが、'Mylo Xyloto'の特徴的な音作りにはシンセサイザーが特に重要な役割を果たしました。"
         },
@@ -1485,12 +1420,7 @@
         },
         {
           "question": "Daft Punkのアルバム'Random Access Memories'に収録されたシングルの中で、特徴的なロボットマスクを着用したミュージックビデオが特に有名なのはどの曲ですか？",
-          "options": [
-            "Get Lucky",
-            "Instant Crush",
-            "Lose Yourself to Dance",
-            "The Game of Love"
-          ],
+          "options": ["Get Lucky", "Instant Crush", "Lose Yourself to Dance", "The Game of Love"],
           "correctAnswer": "Instant Crush",
           "trivia": "Daft Punkの2013年のアルバム'Random Access Memories'には、複数のシングルが収録されています。その中でも「Instant Crush」のミュージックビデオは、ロボットマスクを着用したキャラクターが登場することで特に注目されました。このビデオは視覚的に未来的な要素と感情表現を融合させており、アルバムのテーマと調和しています。対して「Get Lucky」や「Lose Yourself to Dance」のビデオはパフォーマンスやダンスに焦点を当てており、「The Game of Love」はアルバムには収録されていない曲名です。これらの特徴から、「Instant Crush」のビデオが視覚的コンテンツの象徴的存在となっています。"
         }
@@ -1520,12 +1450,7 @@
         },
         {
           "question": "Daft Punkのアルバム'Random Access Memories'（2013年）はどのレコードレーベルからリリースされましたか？",
-          "options": [
-            "Columbia Records",
-            "Ed Banger Records",
-            "Because Music",
-            "Virgin Records"
-          ],
+          "options": ["Columbia Records", "Ed Banger Records", "Because Music", "Virgin Records"],
           "correctAnswer": "Columbia Records",
           "trivia": "Daft Punkの2013年のアルバム'Random Access Memories'は、アメリカの大手レーベルColumbia Recordsからリリースされました。このアルバムはフランスのエレクトロニック・ミュージックシーンを代表するDaft Punkにとって、初めてColumbiaと契約を結んだ作品です。以前はフランスのBecause MusicやEd Banger Recordsなど異なるレーベルとの関わりがありましたが、'Random Access Memories'のリリースによって世界的な流通を強化しました。Virgin Recordsは同時代に他の著名アーティストが所属していましたが、Daft Punkのこのアルバムとは直接の関係はありません。"
         }
@@ -1575,12 +1500,7 @@
       "easy": [
         {
           "question": "David Bowieのアルバム『Blackstar』の制作において、共同プロデューサーとして重要な役割を果たしたのは誰でしょうか？",
-          "options": [
-            "Tony Visconti",
-            "Mark Ronson",
-            "Brian Eno",
-            "Rick Rubin"
-          ],
+          "options": ["Tony Visconti", "Mark Ronson", "Brian Eno", "Rick Rubin"],
           "correctAnswer": "Tony Visconti",
           "trivia": "『Blackstar』はDavid Bowieが2016年にリリースした最後のスタジオアルバムであり、プロデューサーとして長年のパートナーTony Viscontiが共同プロデュースを担当しました。ViscontiはBowieのキャリアを通じて多くのアルバム制作に携わっており、『Blackstar』でも彼の豊富な経験が活かされています。また、このアルバムはジャズミュージシャンとのコラボレーションが特徴的で、Viscontiはそのサウンドの統合にも貢献しました。Mark RonsonやBrian Eno、Rick Rubinも著名なプロデューサーですが、『Blackstar』の制作には直接関わっていません。"
         },
@@ -1709,12 +1629,7 @@
         },
         {
           "question": "David Guettaの2011年のアルバム『Nothing but the Beat』で、彼がコラボレーションした有名なR&Bシンガーは誰でしょうか？",
-          "options": [
-            "Usher",
-            "Bruno Mars",
-            "John Legend",
-            "Miguel"
-          ],
+          "options": ["Usher", "Bruno Mars", "John Legend", "Miguel"],
           "correctAnswer": "Usher",
           "trivia": "David Guettaのアルバム『Nothing but the Beat』（2011年）は、多数の著名なアーティストとのコラボレーションが特徴です。その中でも特に注目されたのが、R&BシンガーのUsherとの共作です。Usherは『Without You』などのトラックでボーカルを担当し、世界的なヒットを生み出しました。また、このアルバムはエレクトロニック・ダンスミュージックとR&Bの融合を示し、David Guettaのプロデューサーとしての幅広い才能を証明しました。アルバムには他にもKelly RowlandやSiaなど多彩なゲストが参加しています。"
         }
@@ -1722,12 +1637,7 @@
       "medium": [
         {
           "question": "David Guettaのアルバム'Nothing but the Beat'（2011年）は、アメリカのBillboard 200チャートでどの最高順位を記録しましたか？",
-          "options": [
-            "3位",
-            "1位",
-            "10位",
-            "25位"
-          ],
+          "options": ["3位", "1位", "10位", "25位"],
           "correctAnswer": "3位",
           "trivia": "David Guettaの2011年リリースのアルバム'Nothing but the Beat'は、アメリカのBillboard 200チャートで最高3位を記録しました。このアルバムはエレクトロニック・ダンス・ミュージック（EDM）を世界的に普及させる重要な作品の一つとされており、多数のヒットシングルを含んでいます。特に「Titanium」や「Without You」などの楽曲が国際的に成功を収め、アルバム全体のチャートパフォーマンスに大きく貢献しました。Billboard 200でトップ3入りを果たしたことは、David Guettaのキャリアにおける重要なマイルストーンとなっています。"
         },
@@ -1922,23 +1832,13 @@
         },
         {
           "question": "Drakeの2010年のアルバム'Thank Me Later'がリリースされた直後、多くのファンやメディアはどの曲を特にヒットシングルとして注目し、ポップカルチャーに影響を与えたと評価しましたか？",
-          "options": [
-            "Find Your Love",
-            "Over My Dead Body",
-            "Shut It Down",
-            "Light Up"
-          ],
+          "options": ["Find Your Love", "Over My Dead Body", "Shut It Down", "Light Up"],
           "correctAnswer": "Find Your Love",
           "trivia": "Drakeのデビューアルバム'Thank Me Later'（2010年）からリリースされたシングル『Find Your Love』は、特にファンとメディアから大きな反響を呼びました。この曲はBillboard Hot 100でトップ40入りを果たし、そのメロディアスなR&Bスタイルがポップカルチャーに強い影響を与えました。アルバム全体の成功もあり、『Find Your Love』はDrakeの初期キャリアを象徴する代表曲として認識されています。また、楽曲のビデオも話題となり、Drakeのアーティストとしての知名度を世界的に向上させました。"
         },
         {
           "question": "Drakeのアルバム'Thank Me Later'のスタジオレコーディングにおいて、どの都市で主に録音が行われましたか？",
-          "options": [
-            "トロント",
-            "ロサンゼルス",
-            "ニューヨーク",
-            "シカゴ"
-          ],
+          "options": ["トロント", "ロサンゼルス", "ニューヨーク", "シカゴ"],
           "correctAnswer": "トロント",
           "trivia": "Drakeのデビューアルバム'Thank Me Later'（2010年）は、主に彼の出身地であるカナダのトロントで録音されました。トロントはDrakeの音楽的アイデンティティに深く結びついており、彼のスタジオ作業の中心地でもあります。このアルバムの制作には、地元のプロデューサーやアーティストが多数参加し、トロント独自の音楽シーンを世界にアピールする重要な作品となりました。録音作業は複数のスタジオで行われましたが、トロントでのセッションが最も多く、彼のキャリアの出発点としても象徴的な意味を持ちます。"
         }
@@ -2034,12 +1934,7 @@
         },
         {
           "question": "Dua Lipaのセルフタイトル・アルバム『Dua Lipa』のデジタル配信に関して、どのプラットフォームでリリース当初に最も多くのストリーミング回数を記録したでしょうか？",
-          "options": [
-            "Spotify",
-            "Apple Music",
-            "Amazon Music",
-            "LINE MUSIC"
-          ],
+          "options": ["Spotify", "Apple Music", "Amazon Music", "LINE MUSIC"],
           "correctAnswer": "Spotify",
           "trivia": "2017年にリリースされたDua Lipaのデビューアルバム『Dua Lipa』は、デジタル配信時代の音楽消費を象徴しています。特にSpotifyでのストリーミング数が圧倒的で、アルバム収録曲の多くがプレイリストに取り上げられました。Apple MusicやAmazon Musicも人気のプラットフォームですが、Spotifyが世界的に最大のストリーミング数を誇っています。また、日本国内でもLINE MUSICは注目されていますが、グローバルなリーチとユーザーベースの広さから、Spotifyが主要な配信プラットフォームとして機能しました。"
         },
@@ -2146,23 +2041,13 @@
         },
         {
           "question": "Ed Sheeranの2014年のアルバム'x'は、イギリスの公式アルバムチャートでどの最高順位を記録しましたか？",
-          "options": [
-            "1位",
-            "3位",
-            "5位",
-            "10位"
-          ],
+          "options": ["1位", "3位", "5位", "10位"],
           "correctAnswer": "1位",
           "trivia": "Ed Sheeranのアルバム'x'は2014年にリリースされ、イギリスの公式アルバムチャートで堂々の1位を獲得しました。この成功により、Ed Sheeranは世界的なポップスターとしての地位を確立しました。アルバムには「Sing」や「Don't」などのヒットシングルが含まれており、その多彩な音楽スタイルが高く評価されました。さらに、アルバムはアメリカのビルボード200チャートでもトップ10入りを果たしています。これらのチャート成績は、Ed Sheeranの商業的成功と人気の広がりを示しています。"
         },
         {
           "question": "Ed Sheeranのアルバム'x'（2014年）に収録されている、イギリスのシングルチャートで最高位2位を記録したヒット曲はどれでしょうか？",
-          "options": [
-            "Sing",
-            "Photograph",
-            "Thinking Out Loud",
-            "Lego House"
-          ],
+          "options": ["Sing", "Photograph", "Thinking Out Loud", "Lego House"],
           "correctAnswer": "Sing",
           "trivia": "Ed Sheeranの2014年のアルバム'x'には、複数のヒットシングルが収録されています。その中で「Sing」はイギリスのシングルチャートで最高位2位を記録し、大きな注目を集めました。この曲はファレル・ウィリアムスがプロデュースしており、ファンクやR&Bの要素を取り入れたアップテンポなトラックです。また、「Thinking Out Loud」も後に大ヒットしましたが、リリース当初のチャート最高位は「Sing」ほど高くありませんでした。これらの曲がアルバム'x'の成功を支え、Ed Sheeranの国際的な名声を確立しました。"
         }
@@ -2181,12 +2066,7 @@
         },
         {
           "question": "Ed Sheeranのアルバム'x'（2014年）に収録された楽曲の中で、特にイギリスのラジオ局で最も多くエアプレイされたシングルはどれでしょうか？",
-          "options": [
-            "Thinking Out Loud",
-            "Photograph",
-            "Sing",
-            "Don't"
-          ],
+          "options": ["Thinking Out Loud", "Photograph", "Sing", "Don't"],
           "correctAnswer": "Sing",
           "trivia": "Ed Sheeranのアルバム'x'は2014年にリリースされ、多くのシングルがイギリスのラジオで高いエアプレイを記録しました。特に「Sing」は、Justin Timberlakeのプロデュースを受けており、ファンク要素を取り入れたサウンドが特徴的です。この楽曲はBBCラジオ1をはじめとした主要なラジオ局で頻繁に放送され、他のシングルよりもエアプレイ回数が多かったことが記録されています。一方、「Thinking Out Loud」や「Photograph」も人気でしたが、エアプレイ数では「Sing」が一歩リードしました。これによりEd Sheeranはラジオリスナー層を広げることに成功しました。"
         },
@@ -2247,12 +2127,7 @@
       "easy": [
         {
           "question": "Ellie Gouldingの2012年のアルバム'Halcyon'において、プロデューサーとして最も多く参加し、アルバムの音楽的方向性に大きな影響を与えた人物は誰でしょうか？",
-          "options": [
-            "Jim Eliot",
-            "Calvin Harris",
-            "Max Martin",
-            "Mark Ronson"
-          ],
+          "options": ["Jim Eliot", "Calvin Harris", "Max Martin", "Mark Ronson"],
           "correctAnswer": "Jim Eliot",
           "trivia": "Ellie Gouldingのアルバム'Halcyon'（2012年）では、Jim Eliotが主要なプロデューサーとして多くのトラックに参加しました。彼はイギリスのシンガーソングライター兼プロデューサーで、エレクトロポップとインディーポップの融合を特徴とするサウンド作りに貢献しました。Calvin HarrisやMark Ronsonもイギリスの著名なプロデューサーですが、'Halcyon'の制作には関与していません。一方、Max Martinは主にアメリカ及びスウェーデンのポップシーンで活動しており、このアルバムには参加していません。Jim Eliotのプロダクションは、繊細ながらもエネルギッシュなサウンドを生み出し、Ellie Gouldingの透明感あるボーカルを引き立てています。"
         },
@@ -2370,12 +2245,7 @@
         },
         {
           "question": "Eminemのアルバム'Recovery'（2010年）に収録されたシングルのうち、公式ミュージックビデオで彼が自らボクサー役を演じている曲はどれでしょうか？",
-          "options": [
-            "Not Afraid",
-            "Love the Way You Lie",
-            "No Love",
-            "Space Bound"
-          ],
+          "options": ["Not Afraid", "Love the Way You Lie", "No Love", "Space Bound"],
           "correctAnswer": "Not Afraid",
           "trivia": "Eminemの2010年のアルバム'Recovery'からのシングル'Not Afraid'のミュージックビデオでは、彼自身がボクサー役を演じています。この映像は彼の自己克服と立ち直りを象徴し、アルバムのテーマと強く結びついています。'Not Afraid'はこのアルバムで最初の公式シングルであり、チャートでも大成功を収めました。また、映像はEminemの復活を視覚的に表現した重要な作品として評価されています。"
         },
@@ -2471,12 +2341,7 @@
       "easy": [
         {
           "question": "FKA twigsの2014年のアルバム'LP1'は、どのレコードレーベルからリリースされましたか？",
-          "options": [
-            "Young Turks",
-            "XL Recordings",
-            "Warp Records",
-            "Ninja Tune"
-          ],
+          "options": ["Young Turks", "XL Recordings", "Warp Records", "Ninja Tune"],
           "correctAnswer": "Young Turks",
           "trivia": "FKA twigsのデビューアルバム'LP1'は2014年にYoung Turksレーベルからリリースされました。Young Turksは英国を拠点とするインディペンデントレーベルで、多くの革新的なアーティストを輩出しています。特にエレクトロニックやオルタナティブ系の音楽に強みがあり、FKA twigsの独特なサウンドとマッチしました。'LP1'はこのレーベルからのリリースにより、世界的な注目を集めることとなりました。"
         },
@@ -2528,12 +2393,7 @@
         },
         {
           "question": "FKA twigsの2014年のアルバム'LP1'がリリースされた際に所属していたレコードレーベルはどれでしょうか？",
-          "options": [
-            "Young Turks",
-            "XL Recordings",
-            "Warp Records",
-            "Domino Recording Company"
-          ],
+          "options": ["Young Turks", "XL Recordings", "Warp Records", "Domino Recording Company"],
           "correctAnswer": "Young Turks",
           "trivia": "FKA twigsのデビューアルバム'LP1'は2014年にYoung Turksからリリースされました。Young Turksはインディペンデントなレーベルで、アーティストの個性的な表現を尊重し、多くの革新的なミュージシャンを輩出しています。XL RecordingsやWarp Recordsも英国を拠点とした有名なレーベルですが、LP1のリリースはYoung Turksによるものでした。このレーベルは近年、FKA twigsのような前衛的なポップやエレクトロニックアーティストの支援で知られています。"
         }
@@ -2541,23 +2401,13 @@
       "hard": [
         {
           "question": "FKA twigsのアルバム『LP1』がリリースされた2014年当時、アメリカのラジオエアプレイにおいて特に注目されたシングルはどれでしょうか？",
-          "options": [
-            "Two Weeks",
-            "Pendulum",
-            "Video Girl",
-            "Lights On"
-          ],
+          "options": ["Two Weeks", "Pendulum", "Video Girl", "Lights On"],
           "correctAnswer": "Two Weeks",
           "trivia": "FKA twigsのデビューアルバム『LP1』からのシングル「Two Weeks」は、2014年にアメリカのオルタナティブおよびインディー系ラジオ局で特に多くオンエアされました。この曲はその独特なR&Bとエレクトロニックの融合が評価され、米ビルボードのオルタナティブラジオチャートでも注目されました。一方、「Pendulum」や「Video Girl」もファンの間で人気がありましたが、ラジオエアプレイの面では「Two Weeks」が突出していました。こうしたラジオでの支持は、FKA twigsの革新的なサウンドが広く認知されるきっかけの一つとなりました。"
         },
         {
           "question": "FKA twigsの2014年のアルバム『LP1』におけるプロダクション面で、アルバムの独特なサウンドを形成するために最も貢献したコラボレーターは誰でしょうか？",
-          "options": [
-            "Arca",
-            "Mark Ronson",
-            "Danger Mouse",
-            "Pharrell Williams"
-          ],
+          "options": ["Arca", "Mark Ronson", "Danger Mouse", "Pharrell Williams"],
           "correctAnswer": "Arca",
           "trivia": "FKA twigsのデビューアルバム『LP1』は、革新的で実験的なR&Bサウンドを特徴としており、その独特な音作りに大きく貢献したのがベネズエラ出身のプロデューサーArcaです。Arcaは、BjorkやKanye Westとも仕事をしていることで知られ、彼の前衛的なビートとサウンドデザインは『LP1』の斬新な質感を支えました。実際、Arcaは複数のトラックで共同プロデュースを担当し、FKA twigsの繊細で複雑なボーカル表現と融合した音響空間を創出しています。Mark RonsonやDanger Mouse、Pharrell Williamsも著名なプロデューサーですが、『LP1』の制作には関わっていません。"
         },
@@ -2583,34 +2433,19 @@
       "easy": [
         {
           "question": "2015年のアルバム『Fetty Wap』に収録されたヒット曲『Trap Queen』のプロデューサーとして知られるのは誰でしょうか？",
-          "options": [
-            "Tony Fadd",
-            "Drake",
-            "Metro Boomin",
-            "DJ Khaled"
-          ],
+          "options": ["Tony Fadd", "Drake", "Metro Boomin", "DJ Khaled"],
           "correctAnswer": "Tony Fadd",
           "trivia": "Fetty Wapのセルフタイトルアルバム『Fetty Wap』の代表曲『Trap Queen』は、プロデューサーのTony Faddによって制作されました。Tony Faddはニュージャージー出身のプロデューサーで、この曲のキャッチーなビートとメロディは彼の手腕によるものです。『Trap Queen』は2015年に大ヒットし、Billboard Hot 100で最高2位を記録し、Fetty Wapの名を世に知らしめました。アルバム全体もTony Faddのプロデュースにより一貫したサウンドを持っていることが特徴です。"
         },
         {
           "question": "アルバム『Fetty Wap』（2015年）でメインアーティストとして活躍しているFetty Wapの本名は何でしょうか？",
-          "options": [
-            "Willie Maxwell II",
-            "Khalif Brown",
-            "Jordan Houston",
-            "Antoine McColister"
-          ],
+          "options": ["Willie Maxwell II", "Khalif Brown", "Jordan Houston", "Antoine McColister"],
           "correctAnswer": "Willie Maxwell II",
           "trivia": "『Fetty Wap』は2015年にリリースされたデビューアルバムで、メインアーティストのFetty Wapは本名Willie Maxwell IIとして知られています。彼はニュージャージー州出身のラッパー兼シンガーで、シングル『Trap Queen』が大ヒットし、ビルボードチャートで上位にランクインしました。アルバムには彼の特徴的なメロディアスなラップスタイルとハーモニーが詰まっており、彼自身がほとんどの曲でボーカルとラップの両方を担当しています。これにより、Fetty Wapは2015年のヒップホップシーンで一躍注目を浴びました。"
         },
         {
           "question": "Fetty Wapのセルフタイトルアルバム『Fetty Wap』は、2015年の米ビルボード200チャートでどの最高順位を記録しましたか？",
-          "options": [
-            "1位",
-            "5位",
-            "10位",
-            "20位"
-          ],
+          "options": ["1位", "5位", "10位", "20位"],
           "correctAnswer": "1位",
           "trivia": "Fetty Wapのデビューアルバム『Fetty Wap』（2015年）は、米国のビルボード200チャートで見事に1位を獲得しました。このアルバムにはヒットシングル『Trap Queen』が収録されており、シングルもビルボードホット100でトップ10入りを果たしています。『Fetty Wap』の成功は、Fetty Wapの独特なラップスタイルとメロディックな歌唱が融合したことが大きな要因であり、2015年のヒップホップシーンにおいて重要な位置を占めました。"
         }
@@ -2706,12 +2541,7 @@
         },
         {
           "question": "Florenceの2011年のアルバム『Ceremonials』はどのレコードレーベルからリリースされましたか？",
-          "options": [
-            "Island Records",
-            "Def Jam Recordings",
-            "Sub Pop",
-            "XL Recordings"
-          ],
+          "options": ["Island Records", "Def Jam Recordings", "Sub Pop", "XL Recordings"],
           "correctAnswer": "Island Records",
           "trivia": "Florenceが2011年にリリースしたアルバム『Ceremonials』は、イギリスのメジャーレコードレーベルIsland Recordsから発売されました。Island Recordsは1960年代に設立され、多くの有名アーティストを輩出してきた歴史あるレーベルです。『Ceremonials』はこのレーベルを通じて世界的に配信され、アルバムは英国チャートでトップ5に入る成功を収めました。Florenceの独特なボーカルと荘厳なサウンドスケープはIsland Recordsの支援のもと広く認知されました。"
         },
@@ -2730,12 +2560,7 @@
       "medium": [
         {
           "question": "Florenceのアルバム『Ceremonials』（2011年）は、イギリスのアルバムチャートで最高何位まで達したでしょうか？",
-          "options": [
-            "1位",
-            "3位",
-            "5位",
-            "10位"
-          ],
+          "options": ["1位", "3位", "5位", "10位"],
           "correctAnswer": "3位",
           "trivia": "Florenceが2011年にリリースしたアルバム『Ceremonials』は、イギリスのアルバムチャートで最高3位を記録しました。このアルバムは前作『Lungs』の成功を受けて制作され、より壮大でシンフォニックなサウンドが特徴です。イギリスだけでなく、オーストラリアやアイルランドなど複数の国でもトップ10入りを果たし、商業的にも大きな成功を収めました。特にシングル『Shake It Out』はヒットし、アルバムの人気を牽引しました。こうしたチャートパフォーマンスはFlorenceの国際的な評価を高める役割を果たしました。"
         },
@@ -2829,12 +2654,7 @@
         },
         {
           "question": "Foo Fightersのアルバム『Wasting Light』からのシングルで、アメリカのロックラジオチャートでトップ10入りを果たした曲はどれでしょうか？",
-          "options": [
-            "Walk",
-            "These Days",
-            "Arlandria",
-            "White Limo"
-          ],
+          "options": ["Walk", "These Days", "Arlandria", "White Limo"],
           "correctAnswer": "Walk",
           "trivia": "『Wasting Light』は2011年にリリースされ、Foo Fightersの人気を再び高めたアルバムです。この中でもシングル『Walk』はアメリカのロックラジオチャートでトップ10入りを果たし、多数のラジオ局で頻繁にオンエアされました。『Walk』はキャッチーなメロディとエネルギッシュな演奏で知られ、アルバムの中でも特にラジオでの露出が高かった曲です。その他のシングルも人気はありましたが、『Walk』ほどのラジオエアプレイ数を記録した曲は少なかったです。"
         }
@@ -2888,12 +2708,7 @@
         },
         {
           "question": "Foo Fightersのアルバム'Wasting Light'（2011年）は、どのレコードレーベルからリリースされましたか？特にこの選択はバンドのキャリアにおいてどのような意味を持っていたでしょうか？",
-          "options": [
-            "RCAレコード",
-            "Roswell Records",
-            "Interscope Records",
-            "Columbia Records"
-          ],
+          "options": ["RCAレコード", "Roswell Records", "Interscope Records", "Columbia Records"],
           "correctAnswer": "RCAレコード",
           "trivia": "Foo Fightersのアルバム'Wasting Light'は2011年にRCAレコードからリリースされました。これは、バンドがかつて所属していたRCAの傘下に戻った形であり、前作とは異なる大手レーベルからのリリースとなりました。RCAはSony Music Entertainmentの一部であり、これによりFoo Fightersはより広範な流通ネットワークを活用できたのです。また、Roswell Recordsはデイヴ・グロール自身が設立したレーベルで、Foo Fighters関連の多くの作品で関与していますが、'Wasting Light'に関してはRCAが公式のリリース元でした。InterscopeやColumbiaも有名レーベルですが、このアルバムのリリースには携わっていません。"
         },
@@ -2919,12 +2734,7 @@
       "easy": [
         {
           "question": "Foster the Peopleの2011年のアルバム'Torches'で、バンドが特徴的に使用したシンセサイザーはどれでしょうか？",
-          "options": [
-            "Moogシンセサイザー",
-            "Yamaha DX7",
-            "Roland TR-808",
-            "Korg M1"
-          ],
+          "options": ["Moogシンセサイザー", "Yamaha DX7", "Roland TR-808", "Korg M1"],
           "correctAnswer": "Moogシンセサイザー",
           "trivia": "Foster the Peopleのデビューアルバム'Torches'（2011年）では、Moogシンセサイザーが特徴的な音色を生み出すために使われました。このアナログシンセは、独特の温かみのあるサウンドで知られており、アルバムのインディーポップとエレクトロニックを融合させたスタイルを支えています。特にシングル「Pumped Up Kicks」では、Moogのベースラインが曲の印象を強めました。Yamaha DX7やKorg M1も人気のシンセですが、Torchesでの主要なシンセサイザーはMoogでした。"
         },
@@ -3077,12 +2887,7 @@
         },
         {
           "question": "Frank Oceanのアルバム『Channel Orange』は2012年にリリースされましたが、アメリカのビルボード200チャートでの最高順位はどれでしょうか？",
-          "options": [
-            "1位",
-            "2位",
-            "5位",
-            "10位"
-          ],
+          "options": ["1位", "2位", "5位", "10位"],
           "correctAnswer": "2位",
           "trivia": "Frank Oceanの『Channel Orange』は2012年7月にリリースされ、ビルボード200チャートで最高2位を記録しました。このアルバムは彼のメジャーデビュー作として高い評価を受け、批評家からも絶賛されました。『Pyramids』や『Thinkin Bout You』などのシングルが人気を博し、アルバム全体の売上にも大きく貢献しました。ビルボード200の2位は、当時のR&Bアルバムとして非常に成功した証拠であり、Frank Oceanのキャリアを確立する重要なマイルストーンとなりました。"
         },
@@ -3154,23 +2959,13 @@
         },
         {
           "question": "Fun.のアルバム'Some Nights'はどのレコードレーベルから2012年にリリースされましたか？",
-          "options": [
-            "Fueled by Ramen",
-            "Atlantic Records",
-            "Columbia Records",
-            "Island Records"
-          ],
+          "options": ["Fueled by Ramen", "Atlantic Records", "Columbia Records", "Island Records"],
           "correctAnswer": "Fueled by Ramen",
           "trivia": "Fun.の2012年のアルバム'Some Nights'は、インディーズ系ながらも人気の高いFueled by Ramenレコードレーベルからリリースされました。このレーベルは主にエモやオルタナティブロック系のバンドを多く抱えており、Fun.の独特なポップロックサウンドを広める役割を果たしました。Atlantic RecordsやColumbia Recordsといった大手レーベルとは異なり、Fueled by Ramenは若手バンドの発掘と育成に力を入れていることで知られています。実際、'Some Nights'はこのレーベルからのリリースで大きな商業的成功を収めました。"
         },
         {
           "question": "Fun.のアルバム'Some Nights'（2012年）において、社会的コメンタリーを含む代表的な曲はどれでしょうか？",
-          "options": [
-            "We Are Young",
-            "Carry On",
-            "Some Nights",
-            "All Alone"
-          ],
+          "options": ["We Are Young", "Carry On", "Some Nights", "All Alone"],
           "correctAnswer": "Some Nights",
           "trivia": "Fun.のアルバム'Some Nights'に収録されたタイトル曲『Some Nights』は、自己のアイデンティティや戦争、自己犠牲といった社会的テーマを扱う楽曲として知られています。この曲は、現代社会における葛藤や不確実性を反映し、多くのリスナーに共感を呼びました。アルバム自体も、ポップなサウンドに社会的メッセージを織り交ぜることで高く評価されています。『We Are Young』もヒット曲ですが、社会的コメンタリー色が強いのは『Some Nights』です。"
         }
@@ -3178,12 +2973,7 @@
       "medium": [
         {
           "question": "Fun.のアルバム'Some Nights'（2012年）はどのレコードレーベルからリリースされましたか？",
-          "options": [
-            "Fueled by Ramen",
-            "Atlantic Records",
-            "Columbia Records",
-            "Island Records"
-          ],
+          "options": ["Fueled by Ramen", "Atlantic Records", "Columbia Records", "Island Records"],
           "correctAnswer": "Fueled by Ramen",
           "trivia": "Fun.の代表作であるアルバム'Some Nights'は、2012年にFueled by Ramenからリリースされました。Fueled by Ramenは主にオルタナティブロックやエモを中心としたインディーズ系レーベルで、多くの新進アーティストを輩出しています。Atlantic RecordsやColumbia Recordsなども大手レーベルとして知られていますが、Fun.の'Some Nights'はFueled by Ramenとの契約のもと制作されました。このレーベルからのリリースは、彼らの独特なサウンドと商業的成功を支える重要な要素となりました。"
         },
@@ -3301,12 +3091,7 @@
         },
         {
           "question": "Futureの2015年のアルバム『DS2』において、トラップ音楽の特徴的なサウンドを形成するために多用されたビートメイカーは誰でしょうか？",
-          "options": [
-            "Metro Boomin",
-            "Timbaland",
-            "Pharrell Williams",
-            "Dr. Dre"
-          ],
+          "options": ["Metro Boomin", "Timbaland", "Pharrell Williams", "Dr. Dre"],
           "correctAnswer": "Metro Boomin",
           "trivia": "Futureのアルバム『DS2』はトラップジャンルの象徴的作品の一つであり、その特徴的なビートは主にMetro Boominによってプロデュースされました。Metro Boominは808ドラムマシンを駆使し、重厚かつメロディックなトラップサウンドを構築しています。このアルバムは2015年にリリースされ、Futureのキャリアを代表する作品の一つとされています。また、Metro Boominとのコラボレーションはアルバム全体の統一感と革新性を高め、トラップ音楽の発展に大きく寄与しました。"
         },
@@ -3479,12 +3264,7 @@
       "easy": [
         {
           "question": "2017年にリリースされたGorillazのアルバム'Humanz'のリードシングルとして、メディアで最も広く報じられた曲はどれでしょうか？",
-          "options": [
-            "Saturnz Barz",
-            "Andromeda",
-            "We Got the Power",
-            "Let Me Out"
-          ],
+          "options": ["Saturnz Barz", "Andromeda", "We Got the Power", "Let Me Out"],
           "correctAnswer": "Saturnz Barz",
           "trivia": "Gorillazの2017年のアルバム『Humanz』は、多くのメディアで取り上げられましたが、特にリードシングル『Saturnz Barz』は発売前から話題を集めました。この曲は、UKチャートでトップ40入りを果たし、プロデューサーのDamon AlbarnとPusha Tのコラボレーションが注目されました。また、『Saturnz Barz』のミュージックビデオはVR対応で配信され、メディア報道でもその革新性が強調されました。これらの要素が重なり、同曲は『Humanz』の代表曲として広く認知されています。"
         },
@@ -3591,12 +3371,7 @@
       "easy": [
         {
           "question": "Haimのアルバム『Days Are Gone』に収録されたシングルの中で、ミュージックビデオが最初に公開された曲はどれでしょうか？",
-          "options": [
-            "The Wire",
-            "Forever",
-            "Falling",
-            "Don't Save Me"
-          ],
+          "options": ["The Wire", "Forever", "Falling", "Don't Save Me"],
           "correctAnswer": "Forever",
           "trivia": "Haimのデビューアルバム『Days Are Gone』から最初にミュージックビデオが公開されたシングルは「Forever」です。この曲は2012年にリリースされ、アルバム発売前に注目を集めました。ビデオはLAで撮影され、レトロでキャッチーな映像が特徴的です。『The Wire』や『Falling』も人気シングルですが、ビデオの公開は『Forever』の後となりました。このビデオはHaimの若々しい魅力を視覚的に表現し、彼女たちの知名度向上に貢献しました。"
         },
@@ -3613,12 +3388,7 @@
         },
         {
           "question": "Haimの2013年のアルバム'Days Are Gone'が国際的に注目されたきっかけとなった、アメリカ国外で特に成功したシングルはどれでしょうか？",
-          "options": [
-            "The Wire",
-            "Forever",
-            "Falling",
-            "Don't Save Me"
-          ],
+          "options": ["The Wire", "Forever", "Falling", "Don't Save Me"],
           "correctAnswer": "The Wire",
           "trivia": "Haimのデビューアルバム'Days Are Gone'は2013年にリリースされ、アメリカだけでなくイギリスやオーストラリアなど海外でも高い評価を受けました。特にシングル『The Wire』はイギリスのシングルチャートでトップ40に入り、国際的な成功を収めた楽曲として知られています。この曲の成功により、Haimはアメリカ国外でも注目され、グローバルなファンベースを築きました。アルバム全体もイギリスのアルバムチャートで上位にランクインし、ヨーロッパツアーの機会を増やすきっかけとなりました。"
         }
@@ -3661,12 +3431,7 @@
       "hard": [
         {
           "question": "Haimのアルバム'Days Are Gone'に収録された楽曲の歌詞において、特に“もし過去を変えられるとしたら”というテーマを象徴的に扱っている曲はどれでしょうか？",
-          "options": [
-            "『The Wire』",
-            "『Forever』",
-            "『Falling』",
-            "『Go Slow』"
-          ],
+          "options": ["『The Wire』", "『Forever』", "『Falling』", "『Go Slow』"],
           "correctAnswer": "『The Wire』",
           "trivia": "Haimの2013年デビューアルバム『Days Are Gone』に収録された『The Wire』は、歌詞の中で過去の出来事を変えたいという切実な願望が象徴的に表現されています。この曲は、失われた愛や後悔をテーマにしており、歌詞のなかで過去を振り返りながらもそれを変えられないもどかしさを描写しています。アルバム全体が青春期の感情や人間関係の複雑さを繊細に捉えている中で、『The Wire』はその中心的な役割を果たしています。また、バンドのメンバーであるエスコ・ヘイムが実体験を基に書いたことも知られており、歌詞の深い意味を理解する上で重要な楽曲です。"
         },
@@ -3714,12 +3479,7 @@
         },
         {
           "question": "Harry Stylesの2017年のセルフタイトルアルバム'Harry Styles'が国際的なチャートで特に成功を収めた国はどこですか？",
-          "options": [
-            "イギリス",
-            "ブラジル",
-            "日本",
-            "インド"
-          ],
+          "options": ["イギリス", "ブラジル", "日本", "インド"],
           "correctAnswer": "イギリス",
           "trivia": "Harry Stylesが2017年にリリースしたアルバム'Harry Styles'は、イギリスのアルバムチャートで1位を獲得し、彼のソロデビュー作として大きな国際的成功を収めました。このアルバムはアメリカのBillboard 200チャートでもトップ5入りを果たし、世界中で幅広いファン層を獲得しました。特にイギリスでは彼の出身地ということもあり、強い支持を受けたことが特徴的です。日本やインド、ブラジルでも一定の人気を博しましたが、チャートの頂点に立ったのはイギリスでした。これがHarry Stylesのグローバルな音楽キャリアの礎となっています。"
         },
@@ -3749,23 +3509,13 @@
         },
         {
           "question": "Harry Stylesの2017年セルフタイトルアルバム『Harry Styles』からのシングルのうち、アメリカのラジオで最も早くエアプレイを獲得し、話題となった曲はどれでしょうか？",
-          "options": [
-            "Sign of the Times",
-            "Kiwi",
-            "Two Ghosts",
-            "Carolina"
-          ],
+          "options": ["Sign of the Times", "Kiwi", "Two Ghosts", "Carolina"],
           "correctAnswer": "Sign of the Times",
           "trivia": "『Harry Styles』アルバムのリードシングル『Sign of the Times』は、2017年4月にリリースされるとすぐにアメリカのラジオで幅広くエアプレイされました。この曲は特に大手ラジオ局でのオンエア回数が多く、アルバムの認知度向上に大きく貢献しました。『Kiwi』や『Two Ghosts』、『Carolina』もシングルとして人気を博しましたが、『Sign of the Times』が最初に主要なラジオチャートで注目を集めた点が特徴です。Harry Stylesのソロデビューを象徴する楽曲として、ラジオエアプレイの面で重要な役割を果たしました。"
         },
         {
           "question": "Harry Stylesが2017年のアルバム『Harry Styles』の制作において、プロデューサーとして主に協力した人物は誰でしょうか？",
-          "options": [
-            "Jeff Bhasker",
-            "Mark Ronson",
-            "Greg Kurstin",
-            "Alex Salibian"
-          ],
+          "options": ["Jeff Bhasker", "Mark Ronson", "Greg Kurstin", "Alex Salibian"],
           "correctAnswer": "Jeff Bhasker",
           "trivia": "Harry Stylesの2017年のセルフタイトル・アルバム『Harry Styles』は、Jeff Bhaskerが主なプロデューサーとして携わりました。BhaskerはこれまでにKanye WestやBruno Marsなど多くの著名アーティストと仕事をしてきた実力派で、アルバム全体にレトロで多彩なサウンドをもたらしました。また、Alex Salibianもプロデューサーとして参加しましたが、主要な役割はBhaskerが担っています。Mark RonsonやGreg Kurstinも有名なプロデューサーですが、このアルバムの制作には直接関与していません。"
         }
@@ -3837,12 +3587,7 @@
         },
         {
           "question": "Hozierのデビューアルバム『Hozier』のマーケティング戦略で特に注目されたシングルはどれでしょうか？",
-          "options": [
-            "Take Me to Church",
-            "From Eden",
-            "Work Song",
-            "Cherry Wine"
-          ],
+          "options": ["Take Me to Church", "From Eden", "Work Song", "Cherry Wine"],
           "correctAnswer": "Take Me to Church",
           "trivia": "Hozierのデビューアルバム『Hozier』は、シングル『Take Me to Church』の大ヒットによって国際的な注目を浴びました。この曲はYouTubeのミュージックビデオのバイラル効果を活用し、マーケティング戦略の中心となりました。『Take Me to Church』はアイルランドだけでなくアメリカのチャートでも高順位を記録し、アルバム全体の売り上げに大きく貢献しました。こうしたプロモーションが功を奏し、Hozierは世界的な知名度を獲得しました。"
         }
@@ -3896,12 +3641,7 @@
         },
         {
           "question": "Hozierが2014年のセルフタイトルアルバム'Hozier'をデジタル配信した際、どの主要なストリーミングプラットフォームで最初に配信が開始され、特に注目を集めたのでしょうか？",
-          "options": [
-            "Spotify",
-            "Apple Music",
-            "SoundCloud",
-            "Amazon Music"
-          ],
+          "options": ["Spotify", "Apple Music", "SoundCloud", "Amazon Music"],
           "correctAnswer": "Spotify",
           "trivia": "アルバム'Hozier'は2014年にリリースされると同時に、デジタル配信の中心プラットフォームであるSpotifyで最初に配信が開始されました。Spotifyは当時、世界的に急速にユーザー数を伸ばしており、Hozierの楽曲はプレイリストやレコメンド機能を通じて広く発見されました。これにより、シングル「Take Me to Church」が国際的なヒットとなり、アルバムのデジタル配信戦略の成功例として注目されました。Apple MusicやAmazon Musicは当時まだサービス開始直後であり、SoundCloudは主にインディーズやアマチュアの楽曲配信に強みがありました。"
         },
@@ -3927,34 +3667,19 @@
       "easy": [
         {
           "question": "Imagine Dragonsのアルバム『Night Visions』は、デジタル配信においてどの曲が最も早く注目を集め、米国iTunesチャートでトップ10入りを果たしましたか？",
-          "options": [
-            "Radioactive",
-            "Demons",
-            "It’s Time",
-            "On Top of the World"
-          ],
+          "options": ["Radioactive", "Demons", "It’s Time", "On Top of the World"],
           "correctAnswer": "Radioactive",
           "trivia": "Imagine Dragonsのデビューアルバム『Night Visions』（2012年）からのシングル『Radioactive』は、デジタル配信で特に成功を収めました。この曲は米国iTunesチャートでトップ10に入り、バンドの知名度を大きく押し上げました。『Radioactive』はその後、グラミー賞の最優秀ロックパフォーマンス部門を受賞するなど、商業的かつ批評的にも高い評価を受けています。デジタル配信プラットフォームを通じて広まったことで、Imagine Dragonsの人気は世界的に拡大しました。"
         },
         {
           "question": "Imagine Dragonsの2012年のアルバム'Night Visions'からのシングル曲で、アメリカのラジオエアプレイチャートで最も高い順位を記録したのはどれでしょうか？",
-          "options": [
-            "Radioactive",
-            "Demons",
-            "It's Time",
-            "On Top of the World"
-          ],
+          "options": ["Radioactive", "Demons", "It's Time", "On Top of the World"],
           "correctAnswer": "Radioactive",
           "trivia": "Imagine Dragonsのデビューアルバム'Night Visions'（2012年）からリリースされたシングルの中で、\"Radioactive\"はアメリカのラジオエアプレイチャートで特に大きな成功を収めました。この曲はBillboardのAlternative Songsチャートで長期間1位を獲得し、主流ラジオでも高い回数再生されました。\"Radioactive\"はその独特なエレクトロニックなサウンドと力強い歌詞が特徴で、Imagine Dragonsの知名度を世界的に押し上げた代表曲となっています。その他のシングルも人気がありましたが、ラジオエアプレイの観点では\"Radioactive\"が最も顕著な実績を持っています。"
         },
         {
           "question": "Imagine Dragonsの2012年のアルバム『Night Visions』で最もヒットしたシングル曲はどれでしょうか？",
-          "options": [
-            "Radioactive",
-            "Demons",
-            "On Top of the World",
-            "It's Time"
-          ],
+          "options": ["Radioactive", "Demons", "On Top of the World", "It's Time"],
           "correctAnswer": "Radioactive",
           "trivia": "Imagine Dragonsのデビューアルバム『Night Visions』は2012年にリリースされ、その中でも「Radioactive」は特に大ヒットしました。この曲はアメリカのビルボードHot 100チャートで最高3位に達し、グラミー賞の『最優秀ロックパフォーマンス』にノミネートされました。アルバムからは他にも「Demons」や「It's Time」などの人気シングルがありましたが、「Radioactive」はその独特なエレクトロニック要素と力強いボーカルで最も広く知られています。これによりImagine Dragonsは国際的な成功を収め、アルバムは商業的にも批評的にも高い評価を受けました。"
         }
@@ -4109,12 +3834,7 @@
       "hard": [
         {
           "question": "Janelle Monáeの2010年のアルバム『The ArchAndroid』において、主要な編曲や指揮を担当したミュージシャンは誰でしょうか？",
-          "options": [
-            "Nathaniel Irvin III",
-            "Prince",
-            "Questlove",
-            "Mark Ronson"
-          ],
+          "options": ["Nathaniel Irvin III", "Prince", "Questlove", "Mark Ronson"],
           "correctAnswer": "Nathaniel Irvin III",
           "trivia": "『The ArchAndroid』はJanelle Monáeのコンセプトアルバムで、独特のアフロフューチャリズムと多ジャンルの融合が特徴です。この作品の編曲やオーケストレーションにはNathaniel Irvin IIIが深く関与しており、彼はMonáeの音楽的ビジョンを色濃く反映させる重要な役割を果たしました。PrinceやQuestlove、Mark Ronsonも当時注目されていたアーティストですが、このアルバムの編曲面での主要な貢献者はNathaniel Irvin IIIです。彼のクラシカルな音楽素養とモダンな感覚の融合が、『The ArchAndroid』の壮大なサウンドスケープを作り上げています。"
         },
@@ -4151,12 +3871,7 @@
       "easy": [
         {
           "question": "Jay-ZとKanye Westによる2011年の共同アルバム『Watch the Throne』から、ラジオエアプレイで特に注目され、シングルとして多くの局で頻繁に放送された曲はどれでしょうか？",
-          "options": [
-            "『Otis』",
-            "『No Church in the Wild』",
-            "『H•A•M』",
-            "『Made in America』"
-          ],
+          "options": ["『Otis』", "『No Church in the Wild』", "『H•A•M』", "『Made in America』"],
           "correctAnswer": "『Otis』",
           "trivia": "『Watch the Throne』はJay-ZとKanye Westのコラボレーションアルバムで、2011年にリリースされました。アルバムからのシングル『Otis』は、サンプルにオーティス・レディングの楽曲を使用し、ラジオエアプレイで非常に高い人気を博しました。多くのラジオ局がこの曲を頻繁にオンエアし、ヒップホップチャートでも上位にランクインしています。一方で、『No Church in the Wild』や『H•A•M』も注目されましたが、『Otis』のラジオでの露出が特に顕著でした。この曲はJay-Zの巧みなラップとKanye Westのプロデュースが融合した代表作の一つです。"
         },
@@ -4355,12 +4070,7 @@
         },
         {
           "question": "Jonas Brothersのアルバム『Happiness Begins』に収録されたシングルのうち、アメリカの主要ラジオ局で最も早くトップ10入りを果たした曲はどれでしょうか？",
-          "options": [
-            "Sucker",
-            "Cool",
-            "Only Human",
-            "Hesitate"
-          ],
+          "options": ["Sucker", "Cool", "Only Human", "Hesitate"],
           "correctAnswer": "Sucker",
           "trivia": "Jonas Brothersの2019年のアルバム『Happiness Begins』からリリースされたシングル『Sucker』は、アメリカの主要ラジオ局において最も早くトップ10入りを果たしました。この曲は復活後の彼らの最初のシングルであり、ラジオエアプレイでの成功がアルバム全体の注目を集める大きな要因となりました。『Sucker』は発売直後から多くのポップラジオで頻繁にオンエアされ、Billboard Hot 100でも首位を獲得しました。その他のシングルも人気でしたが、ラジオエアプレイのスピードと規模で『Sucker』が突出していました。"
         }
@@ -4456,12 +4166,7 @@
         },
         {
           "question": "Juice WRLDのアルバム『Goodbye & Good Riddance』がデジタル配信プラットフォームでリリースされた際、最初に公式に配信されたストリーミングサービスはどれだったでしょうか？",
-          "options": [
-            "Spotify",
-            "Apple Music",
-            "SoundCloud",
-            "Tidal"
-          ],
+          "options": ["Spotify", "Apple Music", "SoundCloud", "Tidal"],
           "correctAnswer": "SoundCloud",
           "trivia": "Juice WRLDの2018年のデビューアルバム『Goodbye & Good Riddance』は、特に若いリスナー層に支持され、最初にSoundCloudで公式に公開されました。SoundCloudは、多くの新進アーティストが初期の作品を発表するプラットフォームとして知られており、Juice WRLDもここから注目を集めました。その後、アルバムはSpotifyやApple Musicなどの主要なストリーミングサービスへと配信が拡大しました。特にSpotifyでは、アルバムのヒット曲がプレイリストに掲載され、世界的な知名度向上に寄与しています。Tidalも配信サービスの一つですが、Juice WRLDの初期配信ではSoundCloudの役割が非常に大きかったと言えます。"
         },
@@ -4568,23 +4273,13 @@
         },
         {
           "question": "Justin Bieberの2012年アルバム『Believe』の制作において、主に使用されたシンセサイザーはどれでしょうか？",
-          "options": [
-            "Roland Juno-106",
-            "Moog Voyager",
-            "Korg Triton",
-            "Yamaha DX7"
-          ],
+          "options": ["Roland Juno-106", "Moog Voyager", "Korg Triton", "Yamaha DX7"],
           "correctAnswer": "Roland Juno-106",
           "trivia": "アルバム『Believe』の制作では、特にエレクトロポップの要素を強調するためにRoland Juno-106シンセサイザーが多用されました。このアナログシンセは1980年代の名機で、豊かなパッド音と特徴的なビブラート効果がJustin Bieberのヴォーカルを引き立てています。プロデューサーたちはJuno-106の温かみのある音色を活かしつつ、最新のデジタル録音技術を組み合わせることで、従来のポップサウンドとは一線を画すサウンドスケープを実現しました。また、当時の音楽制作においてアナログシンセの復権が進んでいた背景もあり、『Believe』はその流れを象徴する作品の一つとなっています。"
         },
         {
           "question": "Justin Bieberの2012年のアルバム'Believe'の制作において、プロデューサーとして最も多くの楽曲で参加し、アルバムの音楽的方向性に大きく影響を与えたのは誰でしょうか？",
-          "options": [
-            "The-Dream",
-            "Max Martin",
-            "Kanye West",
-            "Pharrell Williams"
-          ],
+          "options": ["The-Dream", "Max Martin", "Kanye West", "Pharrell Williams"],
           "correctAnswer": "The-Dream",
           "trivia": "アルバム'Believe'では、Justin Bieberがこれまでのポップ寄りのサウンドからR&Bやエレクトロポップの要素を強めた。その中でThe-Dream（クリストファー・トーマス・ドーソン）が主要なプロデューサーとして参加し、数曲の制作を担当した。彼の独特なメロディセンスとリズム感がアルバムの成熟したサウンドに寄与している。また、Max Martinもプロデューサーとして参加したが、The-Dreamが最も多く関わった点が特徴的だ。Pharrell WilliamsやKanye Westも同時期に活躍していたが、このアルバムの主要制作陣ではなかった。"
         }
@@ -4621,12 +4316,7 @@
         },
         {
           "question": "Justin Timberlakeの2013年のアルバム『The 20/20 Experience』はどのレコードレーベルからリリースされましたか？",
-          "options": [
-            "RCAレコード",
-            "Def Jamレコード",
-            "Interscopeレコード",
-            "Motownレコード"
-          ],
+          "options": ["RCAレコード", "Def Jamレコード", "Interscopeレコード", "Motownレコード"],
           "correctAnswer": "RCAレコード",
           "trivia": "『The 20/20 Experience』は、Justin Timberlakeが2013年にリリースしたアルバムで、RCAレコードから発売されました。RCAレコードは長年にわたり多くの著名アーティストを擁しており、Timberlakeのソロ活動においても主要なレーベルです。このアルバムは彼のキャリアの中で商業的に非常に成功し、RCAのサポートのもとで世界的なヒットとなりました。Def JamやInterscope、Motownは有名なレーベルですが、『The 20/20 Experience』のリリース元はRCAレコードです。"
         }
@@ -4645,12 +4335,7 @@
         },
         {
           "question": "Justin Timberlakeのアルバム'The 20/20 Experience'の作詞作曲プロセスにおいて、どのプロデューサーと共同で曲作りを行い、その結果として長尺で複雑な楽曲構成が特徴的となったでしょうか？",
-          "options": [
-            "Timbaland",
-            "Pharrell Williams",
-            "Max Martin",
-            "Rick Rubin"
-          ],
+          "options": ["Timbaland", "Pharrell Williams", "Max Martin", "Rick Rubin"],
           "correctAnswer": "Timbaland",
           "trivia": "Justin Timberlakeは2013年にリリースしたアルバム'The 20/20 Experience'の作詞作曲過程で、長年のコラボレーターであるプロデューサー兼ラッパーのTimbalandと共同作業を行いました。彼らは録音スタジオで即興的に曲を作り上げ、伝統的な3分程度の楽曲構成を超えた10分近い長尺の楽曲が複数収録されました。このプロセスにより、アルバムはソウルやR&Bを基調としつつも革新的な楽曲展開が評価され、商業的にも大成功を収めました。Pharrell WilliamsやMax Martinも著名なプロデューサーですが、この作品での主要な作詞作曲パートナーはTimbalandです。"
         },
@@ -4691,12 +4376,7 @@
         },
         {
           "question": "Justin Timberlakeのアルバム『The 20/20 Experience』において、特に長尺で構成された楽曲が多いことが特徴ですが、これらの曲の平均再生時間はおおよそどれくらいでしょうか？",
-          "options": [
-            "約3分30秒",
-            "約5分",
-            "約7分",
-            "約10分"
-          ],
+          "options": ["約3分30秒", "約5分", "約7分", "約10分"],
           "correctAnswer": "約7分",
           "trivia": "『The 20/20 Experience』（2013年）に収録された楽曲は、一般的なポップソングと比べてかなり長尺で構成されていることが特徴です。平均再生時間は約7分前後で、これは従来のラジオ向けシングルの平均よりもかなり長い長さです。例えば、代表曲『Suit & Tie』は約5分、他にも10分近い曲も存在し、複数のパートに分かれた複雑な構成を持つ楽曲が多く含まれています。この長尺スタイルは、ジャズやソウル、R&Bの影響を受けたアレンジが反映されており、Justin TimberlakeとプロデューサーのTimbalandが意図的に時間をかけて制作した結果です。"
         }
@@ -4893,12 +4573,7 @@
       "hard": [
         {
           "question": "Kanye Westのアルバム『My Beautiful Dark Twisted Fantasy』は批評家から非常に高く評価されましたが、どの著名な音楽メディアがこの作品を「21世紀最高のアルバム」の一つとして位置づけましたか？",
-          "options": [
-            "Pitchfork",
-            "Rolling Stone",
-            "NME",
-            "Billboard"
-          ],
+          "options": ["Pitchfork", "Rolling Stone", "NME", "Billboard"],
           "correctAnswer": "Pitchfork",
           "trivia": "Kanye Westの2010年のアルバム『My Beautiful Dark Twisted Fantasy』は、多くの批評家から絶賛され、特にPitchforkはこの作品を「21世紀最高のアルバム」の一つとして評価しました。Pitchforkはこのアルバムに対し、10点満点中の高得点を与え、革新的なプロダクションと深い歌詞のテーマを称賛しました。また、Rolling Stoneも高評価を与え、同作を2010年代を代表する作品の一つと位置づけていますが、Pitchforkの評価は特に批評的影響力が大きいとされています。この評価はアルバムの歴史的重要性と音楽的完成度を示す代表的な指標となっています。"
         },
@@ -4946,12 +4621,7 @@
         },
         {
           "question": "Katy Perryのアルバム'Teenage Dream'（2010年）から最初にリリースされたシングル曲はどれでしょうか？",
-          "options": [
-            "California Gurls",
-            "Teenage Dream",
-            "Firework",
-            "Peacock"
-          ],
+          "options": ["California Gurls", "Teenage Dream", "Firework", "Peacock"],
           "correctAnswer": "California Gurls",
           "trivia": "Katy Perryのアルバム'Teenage Dream'から最初にリリースされたシングルは「California Gurls」です。この曲は2010年5月にリリースされ、Billboard Hot 100で1位を獲得する大ヒットとなりました。アルバム自体は2010年8月に発売され、ポップでキャッチーな楽曲が多く、Katy Perryの代表作の一つとなっています。「Firework」や「Teenage Dream」も後からシングルカットされ人気を博しましたが、最初のシングルは「California Gurls」でした。"
         },
@@ -5194,12 +4864,7 @@
       "medium": [
         {
           "question": "Kendrick Lamarのデビューアルバム'Section.80'（2011年）において、プロデューサーチームTDEのメンバーであり、複数のトラックの制作を担当したのは誰でしょうか？",
-          "options": [
-            "Sounwave",
-            "Dr. Dre",
-            "Pharrell Williams",
-            "Metro Boomin"
-          ],
+          "options": ["Sounwave", "Dr. Dre", "Pharrell Williams", "Metro Boomin"],
           "correctAnswer": "Sounwave",
           "trivia": "Kendrick Lamarの2011年のアルバム'Section.80'は、TDE（Top Dawg Entertainment）のプロデューサー陣によって支えられており、特にSounwaveは複数のトラックで重要な役割を果たしました。彼はジャズやファンクの要素を取り入れた独特なサウンドを提供し、アルバムの社会的かつ個人的なテーマを強調しています。Dr. DreやPharrell Williamsは別のヒップホップシーンで活躍する著名なプロデューサーですが、'Section.80'の制作には直接関わっていません。また、Metro Boominは後の世代のプロデューサーであり、このアルバムの時点では参加していません。"
         },
@@ -5251,12 +4916,7 @@
         },
         {
           "question": "Kendrick Lamarのアルバム'Section.80'において、アメリカの主要なラジオ局で最も頻繁にエアプレイされたシングルはどれでしょうか？",
-          "options": [
-            "A.D.H.D",
-            "HiiiPoWeR",
-            "Ronald Reagan Era",
-            "No Make-Up (Her Vice)"
-          ],
+          "options": ["A.D.H.D", "HiiiPoWeR", "Ronald Reagan Era", "No Make-Up (Her Vice)"],
           "correctAnswer": "HiiiPoWeR",
           "trivia": "Kendrick Lamarの2011年のアルバム'Section.80'からのシングル「HiiiPoWeR」は、アメリカの主要なラジオ局で最も多くエアプレイされた楽曲です。この曲は、当時の政治的・社会的メッセージを強く打ち出し、ラジオでの放送を通じて広く認知されることとなりました。一方で「A.D.H.D」や「Ronald Reagan Era」も人気曲ではありますが、ラジオエアプレイ数では「HiiiPoWeR」が突出していました。さらに、この曲はKendrickの初期作品の中で彼の思想を象徴するアンセムとしても知られています。"
         }
@@ -5282,12 +4942,7 @@
         },
         {
           "question": "Khalidのアルバム'American Teen'（2017年）に収録されたシングル曲のうち、公式ミュージックビデオで最も早く公開された曲はどれでしょうか？",
-          "options": [
-            "Location",
-            "Young Dumb & Broke",
-            "Saved",
-            "Shot Down"
-          ],
+          "options": ["Location", "Young Dumb & Broke", "Saved", "Shot Down"],
           "correctAnswer": "Location",
           "trivia": "Khalidのデビューアルバム'American Teen'（2017年）からリリースされたシングルの中で、'Location'は最も早く公式ミュージックビデオが公開されました。この曲のビデオは2016年にリリースされ、彼の柔らかく感情的なボーカルと若者の日常を反映した映像で話題となりました。'Location'はアメリカのチャートでも成功し、Khalidの名を広めるきっかけとなった重要なビジュアルコンテンツの一つです。その他のシングルもビデオ化されていますが、公開時期は'Location'より後になります。"
         },
@@ -5317,12 +4972,7 @@
         },
         {
           "question": "Khalidの2017年のアルバム『American Teen』がデジタル配信でリリースされた際、どのプラットフォームがアメリカ国内で最も早く配信開始されたことで話題になりましたか？",
-          "options": [
-            "Spotify",
-            "Apple Music",
-            "Tidal",
-            "Amazon Music"
-          ],
+          "options": ["Spotify", "Apple Music", "Tidal", "Amazon Music"],
           "correctAnswer": "Apple Music",
           "trivia": "Khalidのデビューアルバム『American Teen』は2017年にリリースされ、特にApple Musicでの独占先行配信が話題となりました。Apple Musicは当時、若手R&Bアーティストのプロモーションに積極的であり、Khalidもその恩恵を受けています。この独占配信はアルバムのデジタルリリース戦略の一環で、多くのファンがApple Musicを通じて早期に楽曲を聴くことができました。結果として、アルバムはビルボードチャートでも高い評価を受け、Khalidの名を広める重要な役割を果たしました。"
         },
@@ -5541,12 +5191,7 @@
         },
         {
           "question": "LCD Soundsystemのアルバム'This Is Happening'（2010年）で、主に使用されたアナログ・シンセサイザーはどれでしょうか？",
-          "options": [
-            "Roland SH-101",
-            "Moog Minimoog Model D",
-            "Yamaha DX7",
-            "Korg MS-20"
-          ],
+          "options": ["Roland SH-101", "Moog Minimoog Model D", "Yamaha DX7", "Korg MS-20"],
           "correctAnswer": "Roland SH-101",
           "trivia": "LCD Soundsystemの2010年のアルバム'This Is Happening'では、James MurphyがRoland SH-101を中心にアナログ・シンセサイザーを多用しました。SH-101はそのシンプルながらもパワフルなベース音やリード音で知られており、アルバムのダンス・パンク的なサウンドに大きく寄与しています。Moog MinimoogやKorg MS-20もよく使われるシンセですが、本作の制作ではSH-101が特に際立っていました。また、Yamaha DX7のようなFMシンセサイザーもこの時期には一般的でしたが、LCD Soundsystemの音作りにはあまり重用されていません。"
         },
@@ -5587,12 +5232,7 @@
         },
         {
           "question": "LCD Soundsystemのアルバム'This Is Happening'（2010年）において、アメリカのラジオ局で最も頻繁にエアプレイされたシングルはどれでしょうか？",
-          "options": [
-            "Drunk Girls",
-            "I Can Change",
-            "Dance Yrself Clean",
-            "Pow Pow"
-          ],
+          "options": ["Drunk Girls", "I Can Change", "Dance Yrself Clean", "Pow Pow"],
           "correctAnswer": "Drunk Girls",
           "trivia": "LCD Soundsystemの2010年のアルバム'This Is Happening'から、シングル「Drunk Girls」は特にアメリカのインディーロック系ラジオ局で高頻度にエアプレイされました。この曲はキャッチーなリズムとユーモラスな歌詞が特徴で、同アルバムの中でも商業的に最も注目を集めたトラックの一つです。ほかのシングルである「I Can Change」や「Dance Yrself Clean」もラジオで流されましたが、「Drunk Girls」が特に支持されました。アルバム全体はダンスパンクとポストパンク的要素を融合した作品として評価されています。"
         }
@@ -5866,12 +5506,7 @@
       "medium": [
         {
           "question": "Lana Del Reyのアルバム'Born to Die'（2012年）における作詞作曲プロセスで、彼女が頻繁にコラボレーションした人物は誰でしょうか？",
-          "options": [
-            "Emile Haynie",
-            "Mark Ronson",
-            "Rick Rubin",
-            "Pharrell Williams"
-          ],
+          "options": ["Emile Haynie", "Mark Ronson", "Rick Rubin", "Pharrell Williams"],
           "correctAnswer": "Emile Haynie",
           "trivia": "Lana Del Reyは2012年のアルバム'Born to Die'の制作にあたり、プロデューサー兼共同作曲者のEmile Haynieと密接に協力しました。Haynieは彼女の独特なメランコリックで壮大なサウンドを形作る上で重要な役割を果たし、アルバムの多くのトラックの作詞作曲に関与しています。Mark RonsonやRick Rubin、Pharrell Williamsも著名な音楽プロデューサーですが、本作では特にEmile Haynieとのコラボレーションが顕著でした。この協力体制はLana Del Reyの独自の音楽スタイルを確立するのに寄与し、アルバムの成功につながっています。"
         },
@@ -5943,23 +5578,13 @@
       "easy": [
         {
           "question": "Lil Nas Xの2019年のアルバム『7』から、特にラジオエアプレイで大きな成功を収めたシングルはどれでしょうか？",
-          "options": [
-            "Old Town Road",
-            "Panini",
-            "Rodeo",
-            "Holiday"
-          ],
+          "options": ["Old Town Road", "Panini", "Rodeo", "Holiday"],
           "correctAnswer": "Old Town Road",
           "trivia": "Lil Nas Xのアルバム『7』から最もラジオエアプレイで成功したシングルは『Old Town Road』です。この曲はカントリーとヒップホップを融合させたユニークなスタイルで話題を呼び、Billboard Hot 100で19週連続1位を記録しました。さらに、ラジオ局での頻繁なオンエアにより、幅広いリスナー層に支持されました。『Panini』や『Rodeo』も人気曲ですが、『Old Town Road』のエアプレイ数には及びませんでした。これによりLil Nas Xは一躍世界的なスターとなりました。"
         },
         {
           "question": "Lil Nas Xの2019年のアルバム『7』で、主要なシングルとして大ヒットし、アルバムの知名度を大きく高めた曲はどれでしょうか？",
-          "options": [
-            "Old Town Road",
-            "Montero (Call Me By Your Name)",
-            "Panini",
-            "Holiday"
-          ],
+          "options": ["Old Town Road", "Montero (Call Me By Your Name)", "Panini", "Holiday"],
           "correctAnswer": "Old Town Road",
           "trivia": "Lil Nas Xのアルバム『7』は2019年にリリースされ、その中でも『Old Town Road』が特に有名です。この曲はカントリーとヒップホップを融合させた独特のサウンドで、ビルボードHot 100チャートで19週連続1位を獲得し、史上最長記録を打ち立てました。『Old Town Road』の成功によってLil Nas Xは一躍世界的なスターとなり、アルバム『7』の注目度も飛躍的に向上しました。その他の選択肢の曲も彼の作品に関連していますが、2019年の『7』における最大のヒットは間違いなく『Old Town Road』です。"
         },
@@ -5978,12 +5603,7 @@
       "medium": [
         {
           "question": "Lil Nas Xのデビューアルバム『7』は、Billboard 200チャートで最高何位を記録しましたか？",
-          "options": [
-            "3位",
-            "5位",
-            "1位",
-            "10位"
-          ],
+          "options": ["3位", "5位", "1位", "10位"],
           "correctAnswer": "5位",
           "trivia": "Lil Nas Xの2019年リリースのデビューアルバム『7』は、Billboard 200チャートで最高5位を記録しました。このアルバムには、彼の大ヒット曲『Old Town Road』のリミックス版も収録されており、それがチャートパフォーマンスに大きく貢献しました。『7』はジャンルを超えた多様な音楽スタイルが特徴で、リリース当初から多くの注目を集めました。Billboard 200でのトップ5入りは新人アーティストとして非常に高い評価を示しています。"
         },
@@ -6000,12 +5620,7 @@
         },
         {
           "question": "Lil Nas Xの2019年のアルバム『7』からラジオエアプレイで特に注目された曲はどれでしょうか？",
-          "options": [
-            "Old Town Road (Remix)",
-            "Panini",
-            "Rodeo",
-            "Holiday"
-          ],
+          "options": ["Old Town Road (Remix)", "Panini", "Rodeo", "Holiday"],
           "correctAnswer": "Old Town Road (Remix)",
           "trivia": "Lil Nas Xのアルバム『7』からのシングル『Old Town Road (Remix)』は、2019年にラジオで非常に多く再生され、アメリカの複数のラジオチャートで1位を獲得しました。この曲はカントリーとヒップホップを融合させた斬新なスタイルで話題を呼び、そのラジオエアプレイの成功はLil Nas Xを一躍トップアーティストに押し上げました。他の曲『Panini』『Rodeo』『Holiday』も人気はありましたが、ラジオでの露出度と再生回数では『Old Town Road (Remix)』が群を抜いていました。"
         }
@@ -6055,34 +5670,19 @@
       "easy": [
         {
           "question": "Lil Uzi Vertのアルバム『Luv Is Rage 2』から、ラジオエアプレイで特に人気があり、ビルボードホット100でも高順位を記録したシングルはどれでしょうか？",
-          "options": [
-            "XO TOUR Llif3",
-            "Money Longer",
-            "The Way Life Goes",
-            "Sauce It Up"
-          ],
+          "options": ["XO TOUR Llif3", "Money Longer", "The Way Life Goes", "Sauce It Up"],
           "correctAnswer": "XO TOUR Llif3",
           "trivia": "『Luv Is Rage 2』に収録された「XO TOUR Llif3」は、Lil Uzi Vertの代表曲の一つであり、2017年のリリース後、ラジオエアプレイで非常に高い人気を博しました。この曲はビルボードホット100で最高7位まで上昇し、アルバムの成功に大きく貢献しました。ラジオでの露出が多かったため、広範なファン層に認知され、彼のキャリアを押し上げる重要なトラックとなりました。その他のシングルも人気でしたが、「XO TOUR Llif3」が特にエアプレイでの影響力が強かったことが知られています。"
         },
         {
           "question": "Lil Uzi Vertのアルバム『Luv Is Rage 2』に収録されたシングルのうち、公式ミュージックビデオが最も早く公開された曲はどれでしょうか？",
-          "options": [
-            "XO TOUR Llif3",
-            "The Way Life Goes",
-            "Sauce It Up",
-            "Two®"
-          ],
+          "options": ["XO TOUR Llif3", "The Way Life Goes", "Sauce It Up", "Two®"],
           "correctAnswer": "XO TOUR Llif3",
           "trivia": "『Luv Is Rage 2』は2017年にリリースされ、その中でも『XO TOUR Llif3』はアルバムのリードシングルとして注目を集めました。この曲のミュージックビデオはアルバム発売に先駆けて公開され、Lil Uzi Vertの独特なビジュアルスタイルと感情的な歌詞が印象的です。公式ビデオはYouTubeなどのプラットフォームで多くの再生数を記録し、同時にチャートでも高い順位を獲得しました。『The Way Life Goes』や『Sauce It Up』も後にビデオが制作されましたが、『XO TOUR Llif3』が最初に視覚的コンテンツを伴ってリリースされた曲です。"
         },
         {
           "question": "Lil Uzi Vertのアルバム『Luv Is Rage 2』（2017年）で、主要なプロデューサーとして参加し、多くのトラックのサウンドメイキングに影響を与えた人物は誰でしょうか？",
-          "options": [
-            "Metro Boomin",
-            "Dr. Dre",
-            "Max Martin",
-            "Mark Ronson"
-          ],
+          "options": ["Metro Boomin", "Dr. Dre", "Max Martin", "Mark Ronson"],
           "correctAnswer": "Metro Boomin",
           "trivia": "『Luv Is Rage 2』はLil Uzi Vertの2017年リリースのスタジオアルバムで、彼の特徴的なエモラップとトラップサウンドを融合させた作品です。このアルバムの制作において、Metro Boominは主要なプロデューサーの一人として多くのトラックに参加し、独特のビートと雰囲気作りに貢献しました。Metro Boominは当時ヒップホップシーンで非常に人気のあるプロデューサーで、Futureや21 Savageなど多くのトップラッパーとコラボしています。彼の参加により『Luv Is Rage 2』は商業的にも批評的にも成功を収めました。"
         }
@@ -6090,12 +5690,7 @@
       "medium": [
         {
           "question": "Lil Uzi Vertのアルバム『Luv Is Rage 2』からのシングルで、米国ラジオエアプレイチャートで最も高い順位を記録した曲はどれでしょうか？",
-          "options": [
-            "XO TOUR Llif3",
-            "The Way Life Goes",
-            "Sauce It Up",
-            "Neon Guts"
-          ],
+          "options": ["XO TOUR Llif3", "The Way Life Goes", "Sauce It Up", "Neon Guts"],
           "correctAnswer": "XO TOUR Llif3",
           "trivia": "『Luv Is Rage 2』は2017年にリリースされ、特にシングル『XO TOUR Llif3』が米国のヒップホップラジオで大きな注目を集めました。この曲はラジオエアプレイチャートでトップ10入りを果たし、Lil Uzi Vertの代表曲となりました。対して『The Way Life Goes』も人気がありましたが、エアプレイでの最高順位は『XO TOUR Llif3』には及びませんでした。また、『Sauce It Up』と『Neon Guts』もラジオで流れましたが、エアプレイチャートでのインパクトは限定的でした。この成功がLil Uzi Vertの商業的ブレイクを後押ししています。"
         },
@@ -6167,12 +5762,7 @@
       "easy": [
         {
           "question": "Linkin Parkのアルバム『A Thousand Suns』に収録されている曲の歌詞で、平和や核の脅威をテーマにしているものはどれでしょうか？",
-          "options": [
-            "The Catalyst",
-            "In the End",
-            "Burn It Down",
-            "Numb"
-          ],
+          "options": ["The Catalyst", "In the End", "Burn It Down", "Numb"],
           "correctAnswer": "The Catalyst",
           "trivia": "Linkin Parkの2010年のアルバム『A Thousand Suns』は、核兵器や戦争、平和といったテーマを中心に据えたコンセプトアルバムです。中でも「The Catalyst」は、核の脅威や人類の未来に対する不安を歌詞で描いており、アルバムのメッセージを象徴しています。この曲はシングルとしてもリリースされ、世界中で高い評価を受けました。『A Thousand Suns』はそれまでのLinkin Parkの作品と比べて歌詞の深さと社会的メッセージが強調されている点が特徴です。"
         },
@@ -6237,12 +5827,7 @@
       "hard": [
         {
           "question": "Linkin Parkのアルバム『A Thousand Suns』（2010年）において、バンドメンバーの中でこの作品の制作においてエレクトロニック要素のプログラミングとサウンドデザインに特に深く関わったのは誰でしょうか？",
-          "options": [
-            "マイク・シノダ",
-            "ブラッド・デルソン",
-            "ロブ・ボードン",
-            "ジョー・ハーン"
-          ],
+          "options": ["マイク・シノダ", "ブラッド・デルソン", "ロブ・ボードン", "ジョー・ハーン"],
           "correctAnswer": "マイク・シノダ",
           "trivia": "『A Thousand Suns』はLinkin Parkの中でも実験的かつコンセプチュアルなアルバムとして知られ、メンバーのマイク・シノダはラップだけでなく、エレクトロニックプログラミングやサウンドデザインにも積極的に携わりました。彼はこのアルバムの制作において、従来のロックやヒップホップの枠を超え、シンセサイザーやサンプラーを駆使して音響的なテクスチャーを作り上げています。また、プロデューサーのリック・ルービンと共に、メンバー各自の役割を超えた多彩な音作りに挑戦したことも特筆されます。これに対し、ギタリストのブラッド・デルソンは主にギター演奏に専念し、ロブ・ボードンはドラム、ジョー・ハーンはビジュアルアートやビデオ制作で重要な役割を果たしました。"
         },
@@ -6391,12 +5976,7 @@
       "easy": [
         {
           "question": "国際的に注目を集めたLordeの2013年のアルバム'Pure Heroine'の代表曲で、アメリカのビルボードホット100チャートで最高位3位を記録した曲はどれでしょうか？",
-          "options": [
-            "Royals",
-            "Team",
-            "Tennis Court",
-            "Glory and Gore"
-          ],
+          "options": ["Royals", "Team", "Tennis Court", "Glory and Gore"],
           "correctAnswer": "Royals",
           "trivia": "Lordeのデビューアルバム『Pure Heroine』は、2013年にリリースされ、そのシングル『Royals』が世界的に大ヒットしました。特にアメリカのビルボードホット100チャートで最高3位を記録し、ニュージーランド出身の若いアーティストとして国際的な注目を浴びました。この曲は、消費文化や富裕層の生活を批判的に描く歌詞が特徴で、世界中のリスナーから共感を得ています。また、『Pure Heroine』はそのミニマルでエレクトロニックなサウンドとLordeの独特な歌声が融合し、国際的なポップシーンに新風を吹き込みました。"
         },
@@ -6413,12 +5993,7 @@
         },
         {
           "question": "Lordeの2013年のアルバム『Pure Heroine』のプロダクションにおいて、主な共同プロデューサーとして知られている人物は誰でしょうか？",
-          "options": [
-            "Joel Little",
-            "Mark Ronson",
-            "Max Martin",
-            "Rick Rubin"
-          ],
+          "options": ["Joel Little", "Mark Ronson", "Max Martin", "Rick Rubin"],
           "correctAnswer": "Joel Little",
           "trivia": "Lordeのデビューアルバム『Pure Heroine』のプロダクションはニュージーランド出身のプロデューサー、Joel Littleとのコラボレーションによって特徴付けられています。Joel LittleはLordeの音楽的スタイルを反映したシンプルかつ洗練されたエレクトロポップサウンドを構築し、同アルバムの多くの楽曲でプロデュースと共同作曲を担当しました。彼の貢献により、『Pure Heroine』は世界的な注目を集め、Lordeは若くしてグラミー賞を受賞するなど大きな成功を収めました。Mark RonsonやMax Martin、Rick Rubinは他の著名なプロデューサーですが、『Pure Heroine』の制作には関わっていません。"
         }
@@ -6503,12 +6078,7 @@
       "easy": [
         {
           "question": "Maroon 5のアルバム'V'（2014年）からのシングルで、アメリカのラジオエアプレイチャートで最も高い順位を記録した曲はどれでしょうか？",
-          "options": [
-            "Maps",
-            "Animals",
-            "Sugar",
-            "Sunday Morning"
-          ],
+          "options": ["Maps", "Animals", "Sugar", "Sunday Morning"],
           "correctAnswer": "Animals",
           "trivia": "Maroon 5のアルバム'V'（2014年）からリリースされたシングルの中で、『Animals』はアメリカのラジオエアプレイチャートで非常に高い人気を博しました。特に『Animals』は、ビルボードのホットロックソングチャートで1位を獲得し、ラジオで頻繁にオンエアされました。一方、『Maps』や『Sugar』も成功を収めましたが、『Animals』ほどのエアプレイ記録は残していません。『Sunday Morning』は別のアルバムの曲であり、'V'には収録されていません。これにより、『Animals』が最もラジオエアプレイで注目されたシングルであることがわかります。"
         },
@@ -6549,12 +6119,7 @@
         },
         {
           "question": "Maroon 5のアルバム'V'（2014年）はアメリカのビルボード200チャートでどの最高順位を記録しましたか？",
-          "options": [
-            "1位",
-            "3位",
-            "5位",
-            "10位"
-          ],
+          "options": ["1位", "3位", "5位", "10位"],
           "correctAnswer": "1位",
           "trivia": "Maroon 5のアルバム'V'は2014年にリリースされ、アメリカの主要な音楽チャートであるビルボード200で見事1位を獲得しました。このアルバムは、グループにとって3枚目の全米トップのアルバムとなり、商業的にも成功を収めました。シングル『Maps』や『Animals』のヒットもアルバムのチャートパフォーマンスを支えました。さらに、'V'は全米だけでなく国際的にも高い評価を受け、Maroon 5の世界的な人気を確固たるものにしました。"
         },
@@ -6637,12 +6202,7 @@
         },
         {
           "question": "Megan Thee Stallionの2019年のアルバム『Fever』で、彼女が特にコラボレーションしたことで知られるプロデューサーは誰でしょうか？",
-          "options": [
-            "LilJuMadeDaBeat",
-            "Dr. Dre",
-            "Metro Boomin",
-            "Pharrell Williams"
-          ],
+          "options": ["LilJuMadeDaBeat", "Dr. Dre", "Metro Boomin", "Pharrell Williams"],
           "correctAnswer": "LilJuMadeDaBeat",
           "trivia": "『Fever』はMegan Thee Stallionの2019年リリースのミックステープで、彼女の代表作のひとつとされています。特にプロデューサーのLilJuMadeDaBeatが多くのトラックでプロデュースを担当し、アルバム全体に統一感のあるヒップホップサウンドをもたらしました。LilJuMadeDaBeatはテキサス出身で、Meganの地元ヒューストンの音楽シーンに密接に関わっていることでも知られています。このコラボレーションにより、『Fever』は彼女のブレイクスルーをさらに加速させ、多くのファンから高い評価を受けました。"
         }
@@ -6797,23 +6357,13 @@
       "hard": [
         {
           "question": "Meghan Trainorの2015年のアルバム'Title'は、どのレコードレーベルからリリースされましたか？",
-          "options": [
-            "Epic Records",
-            "Atlantic Records",
-            "Capitol Records",
-            "Columbia Records"
-          ],
+          "options": ["Epic Records", "Atlantic Records", "Capitol Records", "Columbia Records"],
           "correctAnswer": "Epic Records",
           "trivia": "Meghan Trainorのデビューアルバム'Title'は、2015年にEpic Recordsからリリースされました。Epic Recordsはソニー・ミュージックエンタテインメント傘下のレーベルで、ポップやR&Bアーティストを多く抱えています。'Title'の成功により、Epic RecordsはMeghan Trainorを世界的なポップシーンに押し上げる重要な役割を果たしました。なお、他の選択肢のレーベルも大手ですが、彼女のデビューアルバムに関してはEpic Recordsが正しい所属レーベルです。"
         },
         {
           "question": "Meghan Trainorの2015年のアルバム'Title'において、彼女自身が演奏した楽器として正しいものはどれでしょうか？",
-          "options": [
-            "ピアノ",
-            "ギター",
-            "ドラム",
-            "ベースギター"
-          ],
+          "options": ["ピアノ", "ギター", "ドラム", "ベースギター"],
           "correctAnswer": "ギター",
           "trivia": "Meghan Trainorはアルバム'Title'の制作において、主にボーカルだけでなくギターの演奏も担当しました。彼女は自身の音楽スタイルに影響を与えるために、ギターを用いて楽曲のリズムやコード進行を形作っています。このアルバムは彼女のデビューアルバムとして、レトロなドゥーワップやポップの要素が特徴的であり、ギターの使用がそのサウンドに独特の温かみを加えています。ピアノやドラム、ベースギターは主に他のミュージシャンが担当しており、Meghan自身が演奏したのはギターであることが、クレジットからも確認できます。"
         },
@@ -6850,12 +6400,7 @@
         },
         {
           "question": "Metallicaの2016年のアルバム'Hardwired... to Self-Destruct'をプロモーションするために、リリース前に公開されたシングルはどれでしょうか？",
-          "options": [
-            "Hardwired",
-            "Enter Sandman",
-            "Nothing Else Matters",
-            "The Unforgiven"
-          ],
+          "options": ["Hardwired", "Enter Sandman", "Nothing Else Matters", "The Unforgiven"],
           "correctAnswer": "Hardwired",
           "trivia": "Metallicaは2016年にリリースしたアルバム'Hardwired... to Self-Destruct'のプロモーション活動として、同名のシングル'Hardwired'をリリースしました。この曲はアルバム発売の約3か月前に公開され、ファンの期待を高める役割を果たしました。'Enter Sandman'や'Nothing Else Matters'、'The Unforgiven'はMetallicaの過去のヒット曲であり、このアルバムのプロモーションシングルではありません。'Hardwired'のリリースはデジタル配信を通じて行われ、アルバムの注目度向上に大きく貢献しました。"
         },
@@ -6951,23 +6496,13 @@
       "easy": [
         {
           "question": "Migosの2017年のアルバム『Culture』において、彼らのシングル曲として大ヒットし、ビルボードホット100でトップ10入りを果たした曲はどれでしょうか？",
-          "options": [
-            "Bad and Boujee",
-            "T-Shirt",
-            "Walk It Talk It",
-            "Versace"
-          ],
+          "options": ["Bad and Boujee", "T-Shirt", "Walk It Talk It", "Versace"],
           "correctAnswer": "Bad and Boujee",
           "trivia": "Migosのアルバム『Culture』からのシングル『Bad and Boujee』は、2017年にリリースされて大ヒットしました。この曲はビルボードホット100で最高位1位を記録し、グループにとって初のトップ1ヒットとなりました。『T-Shirt』や『Walk It Talk It』も人気曲ですが、これらは別のアルバムや後のリリースです。また、『Versace』はMigosの初期の楽曲で、『Culture』には収録されていません。この成功により、Migosはトラップ音楽のメインストリームへの躍進を果たしました。"
         },
         {
           "question": "Migosのアルバム'Culture'（2017年）で、最もヒットしたシングル曲はどれでしょうか？",
-          "options": [
-            "Bad and Boujee",
-            "T-Shirt",
-            "Slippery",
-            "Out West"
-          ],
+          "options": ["Bad and Boujee", "T-Shirt", "Slippery", "Out West"],
           "correctAnswer": "Bad and Boujee",
           "trivia": "Migosの2017年のアルバム'Culture'からリリースされたシングル『Bad and Boujee』は、米国ビルボードHot 100チャートで初めて1位を獲得した曲です。この曲はトラップミュージックの代表作として広く認知され、プロデューサーのMetro Boominが手掛けました。『Culture』はMigosのメジャーデビューアルバムであり、このヒットシングルの成功がグループの全国的な知名度を大きく高めるきっかけとなりました。その他のシングル曲も人気を博しましたが、『Bad and Boujee』が最も商業的成功を収めています。"
         },
@@ -7032,12 +6567,7 @@
         },
         {
           "question": "Migosの2017年のアルバム'Culture'において、グループの3人のメンバーの中で、ラップスタイルが最も高速で複雑だと一般的に評価されているのは誰ですか？",
-          "options": [
-            "Quavo",
-            "Offset",
-            "Takeoff",
-            "DJ Durel"
-          ],
+          "options": ["Quavo", "Offset", "Takeoff", "DJ Durel"],
           "correctAnswer": "Takeoff",
           "trivia": "Migosのアルバム'Culture'は、2017年にリリースされ、トリオの独特なトラップスタイルを世界に知らしめました。メンバーのTakeoffは、その高速かつ複雑なフロウで特に評価されており、アルバム内でも彼のラップスキルが際立っています。QuavoとOffsetもそれぞれ特徴的なスタイルを持ちますが、Takeoffの技巧的なラップはファンや批評家から高い評価を受けました。DJ Durelはグループの公式DJおよびプロデューサーであり、ラップパートは担当していません。これにより、'Culture'での各メンバーの役割と技術的特徴が明確に区別されます。"
         },
@@ -7120,12 +6650,7 @@
         },
         {
           "question": "Mumfordが2012年のアルバム'Babel'からのシングル曲のうち、日本のラジオエアプレイチャートで特に高い回数放送された曲はどれでしょうか？",
-          "options": [
-            "I Will Wait",
-            "Lover of the Light",
-            "Whispers in the Dark",
-            "Below My Feet"
-          ],
+          "options": ["I Will Wait", "Lover of the Light", "Whispers in the Dark", "Below My Feet"],
           "correctAnswer": "I Will Wait",
           "trivia": "Mumfordの2012年のアルバム'Babel'に収録されたシングル『I Will Wait』は、世界的に大ヒットし、日本のラジオ局でも頻繁にオンエアされました。特に日本のラジオエアプレイチャートでの放送回数が非常に多く、アルバムのプロモーションに大きく貢献しています。『Lover of the Light』や『Whispers in the Dark』もシングルとしてリリースされましたが、『I Will Wait』ほどのラジオ露出はありませんでした。これにより、『I Will Wait』は日本国内でのBabelの成功を象徴する一曲となっています。"
         }
@@ -7221,23 +6746,13 @@
         },
         {
           "question": "Museのアルバム『Drones』（2015年）において、バンドが主要な音楽機材として使用し、アルバムの重厚で攻撃的なサウンドを支えたギターアンプは次のうちどれでしょうか？",
-          "options": [
-            "Marshall JCM800",
-            "Fender Twin Reverb",
-            "Vox AC30",
-            "Mesa/Boogie Mark IV"
-          ],
+          "options": ["Marshall JCM800", "Fender Twin Reverb", "Vox AC30", "Mesa/Boogie Mark IV"],
           "correctAnswer": "Marshall JCM800",
           "trivia": "Museの2015年のアルバム『Drones』では、リードギタリストのマシュー・ベラミーがMarshall JCM800アンプを多用しました。このアンプは70年代から人気の高いモデルで、強烈な歪みとパワフルなサウンドが特徴です。『Drones』の攻撃的かつ重厚なギターサウンドは、このアンプの特性に大きく依存しており、アルバムのテーマである戦争や機械的な冷たさを音響的に表現することに成功しています。ほかの選択肢もクラシックなアンプですが、Marshall JCM800の存在感が特に際立っています。"
         },
         {
           "question": "Museのアルバム『Drones』（2015年）において、どのシングルがイギリスのラジオ局で最も多くオンエアされたことで、アルバムのプロモーションに大きく貢献したでしょうか？",
-          "options": [
-            "Dead Inside",
-            "Mercy",
-            "Reapers",
-            "Psycho"
-          ],
+          "options": ["Dead Inside", "Mercy", "Reapers", "Psycho"],
           "correctAnswer": "Dead Inside",
           "trivia": "『Drones』からのシングル『Dead Inside』は、2015年にリリースされて以来、イギリスの主要なラジオ局で高頻度にオンエアされました。特にBBC Radio 1などでのラジオエアプレイがアルバムの初期プロモーションに大きく寄与し、『Drones』の世界的なヒットに繋がっています。『Dead Inside』はシングルとしてリリースされた最初の曲であり、ミューズのシンセサイザーとロックサウンドの融合が評価されました。その他のシングルも人気がありましたが、ラジオでの露出という観点では『Dead Inside』が突出していました。"
         }
@@ -7267,12 +6782,7 @@
         },
         {
           "question": "Museのアルバム'Drones'（2015年）はイギリスの公式アルバムチャートでどの最高順位を記録しましたか？",
-          "options": [
-            "1位",
-            "3位",
-            "5位",
-            "10位"
-          ],
+          "options": ["1位", "3位", "5位", "10位"],
           "correctAnswer": "1位",
           "trivia": "Museのアルバム'Drones'は2015年にリリースされ、イギリスの公式アルバムチャートで見事に1位を獲得しました。このアルバムはバンドにとって3作目の全英1位アルバムとなり、彼らの商業的成功をさらに確固たるものにしました。また、アメリカのBillboard 200チャートでも最高3位に達しており、国際的な人気も示しています。'Drones'はコンセプトアルバムとしても評価され、チャートパフォーマンスとともに批評家からも高い評価を受けました。"
         }
@@ -7421,12 +6931,7 @@
         },
         {
           "question": "Nicki Minajのアルバム『Pink Friday』（2010年）は、どのデジタル配信プラットフォームでリリース直後にトップチャート入りを果たしましたか？",
-          "options": [
-            "iTunes Store",
-            "Spotify",
-            "Amazon Music",
-            "Google Play Music"
-          ],
+          "options": ["iTunes Store", "Spotify", "Amazon Music", "Google Play Music"],
           "correctAnswer": "iTunes Store",
           "trivia": "Nicki Minajのデビューアルバム『Pink Friday』（2010年）は、リリース当初にiTunes Storeで非常に高いダウンロード数を記録し、トップチャート入りを果たしました。当時Spotifyはまだ世界的に普及しておらず、Amazon MusicやGoogle Play MusicもiTunesほどの市場シェアを持っていませんでした。iTunes Storeは2010年代初頭の主要なデジタル音楽販売プラットフォームであり、多くのアーティストがここでの成功を通じてデジタル配信時代の音楽業界での地位を確立しました。Nicki Minajの『Pink Friday』もこの流れに乗り、デジタル配信での成功がアルバムの商業的成功を後押ししました。"
         }
@@ -7511,12 +7016,7 @@
       "easy": [
         {
           "question": "Of Monstersのアルバム'My Head Is an Animal'（2012年）で特にヒットしたシングル曲はどれでしょうか？",
-          "options": [
-            "Little Talks",
-            "Mountain Sound",
-            "Dirty Paws",
-            "King and Lionheart"
-          ],
+          "options": ["Little Talks", "Mountain Sound", "Dirty Paws", "King and Lionheart"],
           "correctAnswer": "Little Talks",
           "trivia": "Of Monstersはアイスランド出身のインディーフォークバンドで、2012年にリリースされたアルバム'My Head Is an Animal'は国際的に大きな成功を収めました。このアルバムからのシングル『Little Talks』は特にヒットし、ビルボードのチャートでも高い順位を獲得しました。『Little Talks』はバンドの代表曲として知られ、アルバムの人気を押し上げる重要な役割を果たしました。他の曲もファンに支持されていますが、『Little Talks』が最も広く認知されています。"
         },
@@ -7770,12 +7270,7 @@
       "medium": [
         {
           "question": "Panic! at the Discoのアルバム『Death of a Bachelor』はどのレコードレーベルからリリースされましたか？",
-          "options": [
-            "Fueled by Ramen",
-            "Decaydance Records",
-            "DCD2 Records",
-            "Fueled by Fire"
-          ],
+          "options": ["Fueled by Ramen", "Decaydance Records", "DCD2 Records", "Fueled by Fire"],
           "correctAnswer": "DCD2 Records",
           "trivia": "『Death of a Bachelor』は2016年にPanic! at the DiscoがDCD2 Recordsからリリースしたアルバムです。DCD2 Recordsはバンドのフロントマンであるブレンドン・ユーリーと密接に関係しているレーベルで、以前はDecaydance Recordsとして知られていました。このレーベルはPanic! at the DiscoのほかにもFall Out BoyやParamoreなどの人気バンドを輩出しており、ポップパンクやオルタナティブロックシーンにおける重要な役割を果たしています。なお、『Death of a Bachelor』はDCD2 Records名義でのリリース初期の作品のひとつとなっています。"
         },
@@ -8029,12 +7524,7 @@
       "hard": [
         {
           "question": "Pinkの2012年のアルバム『The Truth About Love』の制作において、音楽機材として特に重視されたのはどのシンセサイザーでしたか？",
-          "options": [
-            "Moog Voyager",
-            "Roland Jupiter-8",
-            "Korg Triton",
-            "Yamaha DX7"
-          ],
+          "options": ["Moog Voyager", "Roland Jupiter-8", "Korg Triton", "Yamaha DX7"],
           "correctAnswer": "Moog Voyager",
           "trivia": "Pinkのアルバム『The Truth About Love』の制作では、特にMoog Voyagerシンセサイザーが注目されました。これは、アルバムのポップでエネルギッシュなサウンドを生み出すために使用されたアナログシンセの一つです。Moog Voyagerは豊かなベース音と独特の暖かみを持ち、Pinkのボーカルを際立たせるための音作りに貢献しました。その他にもRoland Jupiter-8やKorg Tritonなどのシンセもスタジオに存在しましたが、制作の中心機材としてはMoog Voyagerが特に重要視されました。この選択は当時のポップミュージックにおけるアナログシンセ復権の潮流とも合致しています。"
         },
@@ -8093,12 +7583,7 @@
         },
         {
           "question": "Post Maloneのアルバム『Beerbongs & Bentleys』の制作において、共同プロデューサーとして参加し、複数のヒット曲の制作に貢献した人物は誰でしょうか？",
-          "options": [
-            "Louis Bell",
-            "Rick Rubin",
-            "Pharrell Williams",
-            "Mark Ronson"
-          ],
+          "options": ["Louis Bell", "Rick Rubin", "Pharrell Williams", "Mark Ronson"],
           "correctAnswer": "Louis Bell",
           "trivia": "Post Maloneの2018年のアルバム『Beerbongs & Bentleys』は、Louis Bellが共同プロデューサーとして大きく関わった作品です。Louis Bellは『Rockstar』や『Psycho』などのヒットシングルの制作にも携わり、Post Maloneの特徴的なサウンド作りに貢献しました。彼の繊細なプロダクション技術とポストプロダクションのスキルにより、アルバムは商業的にも批評的にも成功を収めました。Rick RubinやPharrell Williams、Mark Ronsonも著名なプロデューサーですが、『Beerbongs & Bentleys』の主要なプロダクションパートナーはLouis Bellです。"
         }
@@ -8106,12 +7591,7 @@
       "medium": [
         {
           "question": "Post Maloneの2018年のアルバム『Beerbongs & Bentleys』の制作において、彼が特に多用したシンセサイザーのブランドはどれでしょうか？",
-          "options": [
-            "Moog",
-            "Korg",
-            "Roland",
-            "Yamaha"
-          ],
+          "options": ["Moog", "Korg", "Roland", "Yamaha"],
           "correctAnswer": "Moog",
           "trivia": "『Beerbongs & Bentleys』の制作では、Post MaloneがMoogシンセサイザーを多用したことが知られています。Moogのアナログシンセサイザーは温かみのある豊かな音質が特徴で、このアルバムの独特な雰囲気作りに貢献しました。さらに、彼はトラップビートに伝統的なシンセ音を融合させるためにMoogを選択し、結果として多彩なサウンドテクスチャーを実現しています。制作には著名なプロデューサーのLouis Bellも参加しており、彼の技術的な知見もこの機材選択に影響を与えました。"
         },
@@ -8194,23 +7674,13 @@
         },
         {
           "question": "Radioheadのアルバム『A Moon Shaped Pool』に収録された曲のうち、ツアーで頻繁に演奏され、特に2016年のライブでファンから高い評価を得た曲はどれでしょうか？",
-          "options": [
-            "Burn the Witch",
-            "Daydreaming",
-            "The Numbers",
-            "Present Tense"
-          ],
+          "options": ["Burn the Witch", "Daydreaming", "The Numbers", "Present Tense"],
           "correctAnswer": "Burn the Witch",
           "trivia": "『A Moon Shaped Pool』のリリース後、Radioheadは2016年にいくつかのライブパフォーマンスを行い、中でも「Burn the Witch」は頻繁にセットリストに組み込まれました。この曲は独特なストリングスのアレンジと緊張感のあるリズムが特徴で、ライブでの演奏がファンに特に支持されました。また、同年のグラストンベリー・フェスティバルなどの主要な音楽イベントでも披露され、アルバムの代表曲としての地位を確立しています。ライブでの「Burn the Witch」は、アルバムのスタジオ版よりもエネルギッシュでダイナミックな演奏が評価されています。"
         },
         {
           "question": "Radioheadの2016年アルバム『A Moon Shaped Pool』がリリースされた際に所属していたレコードレーベルはどれでしょうか？",
-          "options": [
-            "XL Recordings",
-            "Parlophone",
-            "Capitol Records",
-            "EMI"
-          ],
+          "options": ["XL Recordings", "Parlophone", "Capitol Records", "EMI"],
           "correctAnswer": "XL Recordings",
           "trivia": "『A Moon Shaped Pool』は2016年にRadioheadがリリースした9作目のスタジオアルバムで、レーベルはイギリスのインディペンデントレーベルであるXL Recordingsから発売されました。Radioheadは2007年のアルバム『In Rainbows』以降、EMIなどのメジャーレーベルから離れ、XL Recordingsと契約しています。XL Recordingsはインディーズながらも大手レーベルに匹敵する影響力を持ち、多くの著名アーティストと契約しています。これにより、Radioheadはより自由な音楽制作環境を得ており、『A Moon Shaped Pool』の独創的なサウンドにも反映されています。"
         }
@@ -8295,12 +7765,7 @@
       "easy": [
         {
           "question": "Rihannaの2010年のアルバム『Loud』に収録されたシングルのうち、アメリカのビルボードHot 100チャートで最高位1位を獲得した曲はどれでしょうか？",
-          "options": [
-            "Only Girl (In the World)",
-            "Man Down",
-            "Cheers (Drink to That)",
-            "Rude Boy"
-          ],
+          "options": ["Only Girl (In the World)", "Man Down", "Cheers (Drink to That)", "Rude Boy"],
           "correctAnswer": "Only Girl (In the World)",
           "trivia": "Rihannaのアルバム『Loud』は2010年にリリースされ、その中のシングル『Only Girl (In the World)』はアメリカのビルボードHot 100チャートで1位を獲得しました。この曲はダンス・ポップの要素が強く、Rihannaの代表曲の一つとなっています。『Rude Boy』も同アルバムからのシングルですが、この曲は後の作品に収録されており、チャート順位は異なります。『Man Down』や『Cheers (Drink to That)』もヒットしましたが、Hot 100のトップには届きませんでした。『Loud』は商業的にも成功し、多数のヒット曲を生み出しました。"
         },
@@ -8352,12 +7817,7 @@
         },
         {
           "question": "Rihannaの2010年アルバム『Loud』のミックス作業において、特にエンジニアリングで重要な役割を果たした人物は誰でしょうか？",
-          "options": [
-            "Phil Tan",
-            "Chris Lord-Alge",
-            "Tom Elmhirst",
-            "Manny Marroquin"
-          ],
+          "options": ["Phil Tan", "Chris Lord-Alge", "Tom Elmhirst", "Manny Marroquin"],
           "correctAnswer": "Phil Tan",
           "trivia": "Rihannaのアルバム『Loud』において、Phil Tanは主なミキシングエンジニアとして重要な役割を担いました。Phil Tanは、豊かな音のバランスとクリアなボーカル表現で知られており、多くのトップチャート作品に携わっています。『Loud』のサウンドは、彼のミキシング技術によってダイナミックで鮮明なサウンドに仕上がりました。また、このアルバムの録音には多くの異なるプロデューサーが関わっていましたが、Phil Tanの統一的なミックスがアルバムの一貫した音響的特徴を支えています。"
         }
@@ -8477,12 +7937,7 @@
       "hard": [
         {
           "question": "Robin Thickeの2013年のアルバム『Blurred Lines』に参加した著名なミュージシャンのうち、ベース演奏を担当したのは誰でしょうか？",
-          "options": [
-            "Pino Palladino",
-            "Flea",
-            "Marcus Miller",
-            "Thundercat"
-          ],
+          "options": ["Pino Palladino", "Flea", "Marcus Miller", "Thundercat"],
           "correctAnswer": "Pino Palladino",
           "trivia": "アルバム『Blurred Lines』の制作において、Robin Thickeは伝説的なベーシストPino Palladinoを起用しました。Pino Palladinoはエリック・クラプトンやジョン・メイヤーの作品にも参加することで知られており、彼のグルーヴ感溢れるベースプレイがアルバムのファンク感を支えています。このアルバムは2013年にリリースされ、ヒップホップやR&Bの要素を取り入れたサウンドが特徴的です。Pino Palladinoの参加は、作品の音楽的深みを増す重要な役割を果たしました。"
         },
@@ -8499,12 +7954,7 @@
         },
         {
           "question": "Robin Thickeのアルバム『Blurred Lines』（2013年）において、タイトル曲『Blurred Lines』の制作に大きな影響を与え、ファンクとソウルのレトロなサウンドを特徴付けた1970年代のアーティストは誰でしょうか？",
-          "options": [
-            "Marvin Gaye",
-            "Stevie Wonder",
-            "James Brown",
-            "Prince"
-          ],
+          "options": ["Marvin Gaye", "Stevie Wonder", "James Brown", "Prince"],
           "correctAnswer": "Marvin Gaye",
           "trivia": "Robin Thickeの2013年のアルバム『Blurred Lines』のタイトル曲は、1970年代のソウルシンガーMarvin Gayeの影響を強く受けています。特にGayeの曲『Got to Give It Up』のリズムや雰囲気が参考にされ、ファンクとソウルのレトロなサウンドを現代に蘇らせました。この曲はPharrell WilliamsとT.I.も共同で制作し、当時のクラシックなグルーヴ感を再現するためにアナログ機材を多用しています。結果的に、この影響は著作権問題に発展しましたが、音楽的には70年代のソウルのエッセンスを現代的なポップに融合した作品として評価されています。"
         }
@@ -8554,12 +8004,7 @@
       "medium": [
         {
           "question": "Robynの2010年のアルバム『Body Talk』は、どのレコードレーベルからリリースされましたか？",
-          "options": [
-            "Konichiwa Records",
-            "Sub Pop Records",
-            "XL Recordings",
-            "Warp Records"
-          ],
+          "options": ["Konichiwa Records", "Sub Pop Records", "XL Recordings", "Warp Records"],
           "correctAnswer": "Konichiwa Records",
           "trivia": "Robynのアルバム『Body Talk』は、彼女自身が設立したスウェーデンのインディペンデントレーベル、Konichiwa Recordsからリリースされました。このレーベルは2005年に設立され、Robynの創造的な自由を確保するための拠点となっています。『Body Talk』はこのレーベルから複数のパートに分けてリリースされ、彼女の音楽スタイルの多様性を反映しています。Konichiwa Recordsは主にエレクトロポップやダンスミュージックに焦点を当て、Robynの活動の中心的役割を果たしています。"
         },
@@ -8600,23 +8045,13 @@
         },
         {
           "question": "Robynの2010年のアルバム『Body Talk』において、主要なプロデューサー兼ミュージシャンとして共同作業を行ったのは誰でしょうか？",
-          "options": [
-            "Klas Åhlund",
-            "Max Martin",
-            "Diplo",
-            "Timbaland"
-          ],
+          "options": ["Klas Åhlund", "Max Martin", "Diplo", "Timbaland"],
           "correctAnswer": "Klas Åhlund",
           "trivia": "『Body Talk』はRobynが自身の音楽性を深化させた作品であり、スウェーデンのプロデューサー兼ギタリストのKlas Åhlundが主要な共同制作を担当しました。彼は以前からRobynとコラボレーションを重ねており、このアルバムでもシンセサイザーやプログラミングを手掛けています。Max MartinやDiplo、Timbalandも有名なプロデューサーですが、『Body Talk』の制作に直接関わったのはKlas Åhlundでした。彼の緻密なサウンドプロダクションが、アルバムのエレクトロポップかつダンス志向の音楽性を支えています。"
         },
         {
           "question": "Robynのアルバム『Body Talk』は国際的なダンスミュージックシーンに大きな影響を与えましたが、特にどの国のクラブ文化において彼女の作品が革新的なエレクトロポップの先駆けとして評価されたでしょうか？",
-          "options": [
-            "アメリカのニューヨーク",
-            "ドイツのベルリン",
-            "日本の東京",
-            "フランスのパリ"
-          ],
+          "options": ["アメリカのニューヨーク", "ドイツのベルリン", "日本の東京", "フランスのパリ"],
           "correctAnswer": "ドイツのベルリン",
           "trivia": "『Body Talk』は2010年にリリースされ、Robynのエレクトロポップサウンドが世界中のクラブシーンに影響を与えました。特にドイツのベルリンは、その当時急成長していたテクノ・エレクトロニックミュージックの中心地として知られており、Robynの作品はベルリンのクラブで高く評価されました。ベルリンのクラブ文化は革新的な音楽を積極的に受け入れることで有名で、『Body Talk』のモダンでダンサブルなトラックは、その影響力を拡大する重要な役割を果たしました。ニューヨークや東京、パリも国際的な音楽シーンで重要ですが、ベルリンのクラブでの支持は特にRobynの音楽的評価を深めたポイントとなっています。"
         }
@@ -8866,23 +8301,13 @@
         },
         {
           "question": "Sam Smithの2014年のアルバム『In the Lonely Hour』で最もヒットしたシングル曲はどれでしょうか？",
-          "options": [
-            "Stay with Me",
-            "Lay Me Down",
-            "I'm Not the Only One",
-            "Like I Can"
-          ],
+          "options": ["Stay with Me", "Lay Me Down", "I'm Not the Only One", "Like I Can"],
           "correctAnswer": "Stay with Me",
           "trivia": "『In the Lonely Hour』はSam Smithのデビューアルバムで、世界的に大ヒットしました。その中でも「Stay with Me」は特に人気が高く、アメリカのBillboard Hot 100チャートで最高2位を記録しました。この曲はアルバムの代表曲として認知され、多くの音楽賞にもノミネートされました。アルバム自体はソウルフルで感情豊かなバラードが特徴で、Sam Smithの繊細な歌声が際立っています。"
         },
         {
           "question": "Sam Smithの2014年のアルバム『In the Lonely Hour』は、どのレコードレーベルからリリースされましたか？",
-          "options": [
-            "Capitol Records",
-            "Columbia Records",
-            "PMR Records",
-            "Virgin Records"
-          ],
+          "options": ["Capitol Records", "Columbia Records", "PMR Records", "Virgin Records"],
           "correctAnswer": "PMR Records",
           "trivia": "『In the Lonely Hour』は2014年にSam Smithによってリリースされたデビューアルバムで、主にイギリスのインディペンデントレーベルであるPMR Recordsから発表されました。PMR Recordsはエレクトロニックやソウル系のアーティストを多く擁し、Sam Smithの繊細なボーカルとポップソウルなサウンドのサポートに貢献しました。同アルバムは世界的に成功し、PMR Recordsの名を広めるきっかけとなりました。他の選択肢であるCapitol RecordsやColumbia Recordsは大手メジャーレーベルであり、Virgin Recordsも有名ですが、Sam Smithのこのアルバムの初リリースはPMR Recordsが担っています。"
         }
@@ -8967,12 +8392,7 @@
       "easy": [
         {
           "question": "Selena Gomezの2015年アルバム'Revival'のスタジオ録音において、どの都市で主にレコーディングが行われましたか？",
-          "options": [
-            "ロサンゼルス",
-            "ニューヨーク",
-            "ナッシュビル",
-            "マイアミ"
-          ],
+          "options": ["ロサンゼルス", "ニューヨーク", "ナッシュビル", "マイアミ"],
           "correctAnswer": "ロサンゼルス",
           "trivia": "Selena Gomezのアルバム'Revival'は主にロサンゼルスのスタジオで録音されました。彼女はこの都市のレコーディング環境を活用し、複数の著名なプロデューサーやソングライターと共同作業を行いました。ロサンゼルスは音楽制作の中心地として知られており、多様な音楽ジャンルの融合が行われる場所としても有名です。録音プロセスでのこの都市の選択は、アルバムの洗練されたポップサウンドに大きく寄与しました。"
         },
@@ -8989,12 +8409,7 @@
         },
         {
           "question": "Selena Gomezの2015年のアルバム'Revival'で、最も成功したシングルはどれでしょうか？",
-          "options": [
-            "Good for You",
-            "Hands to Myself",
-            "Same Old Love",
-            "Kill Em with Kindness"
-          ],
+          "options": ["Good for You", "Hands to Myself", "Same Old Love", "Kill Em with Kindness"],
           "correctAnswer": "Good for You",
           "trivia": "Selena Gomezのアルバム'Revival'（2015年）の中で、'Good for You'は最も注目されたシングルであり、アメリカのBillboard Hot 100チャートでトップ10に入りました。この曲はトロピカルなR&Bサウンドを取り入れ、Selenaの成熟した音楽スタイルの変化を象徴しています。さらに、'Good for You'は彼女が自身の音楽的アイデンティティを新たに定義する重要な一歩となりました。アルバム内の他のシングルも人気を博しましたが、商業的成功では'Good for You'が突出しています。"
         }
@@ -9024,12 +8439,7 @@
         },
         {
           "question": "Selena Gomezの2015年アルバム'Revival'の制作において、どのシンセサイザーが主要な音色作りに使われ、アルバムのモダンで洗練されたサウンドの基盤となったでしょうか？",
-          "options": [
-            "Roland Juno-106",
-            "Moog Minimoog Voyager",
-            "Yamaha DX7",
-            "Korg MS-20"
-          ],
+          "options": ["Roland Juno-106", "Moog Minimoog Voyager", "Yamaha DX7", "Korg MS-20"],
           "correctAnswer": "Roland Juno-106",
           "trivia": "アルバム'Revival'のプロダクションでは、Roland Juno-106シンセサイザーが多用され、特に滑らかで豊かなパッド音が特徴のサウンドデザインに貢献しました。このシンセは1980年代の名機でありながら、モダンなポップサウンドに温かみを加えるために選ばれました。プロデューサーのRock Mafiaをはじめとするチームは、この機材を使い、Selena Gomezのボーカルを引き立てる洗練された音響空間を作り上げています。Yamaha DX7やMoog Minimoog Voyagerも人気のシンセですが、Revivalの制作ではJuno-106の特徴的な音色が際立っています。"
         }
@@ -9079,12 +8489,7 @@
       "easy": [
         {
           "question": "Shawn Mendesの2018年セルフタイトルアルバム『Shawn Mendes』の制作において、彼が主に演奏した楽器はどれでしょうか？",
-          "options": [
-            "アコースティックギター",
-            "シンセサイザー",
-            "ドラムセット",
-            "ピアノ"
-          ],
+          "options": ["アコースティックギター", "シンセサイザー", "ドラムセット", "ピアノ"],
           "correctAnswer": "アコースティックギター",
           "trivia": "Shawn Mendesは2018年のアルバム『Shawn Mendes』で、自身のシンガーソングライターとしてのスタイルを強調するために主にアコースティックギターを演奏しました。彼の繊細なギタープレイは、多くの楽曲でメロディーの基盤となっています。このアルバムは、デジタルサウンドと生楽器のバランスが評価されており、Shawn Mendes自身がギター演奏に深く関与したことで知られています。シンセサイザーやピアノも使用されていますが、彼のギターワークが特に目立つ作品です。"
         },
@@ -9101,12 +8506,7 @@
         },
         {
           "question": "Shawn Mendesの2018年セルフタイトルアルバム『Shawn Mendes』からのシングル曲で、アメリカのラジオ局で最も多くエアプレイされた曲はどれでしょうか？",
-          "options": [
-            "In My Blood",
-            "Lost in Japan",
-            "Youth",
-            "Nervous"
-          ],
+          "options": ["In My Blood", "Lost in Japan", "Youth", "Nervous"],
           "correctAnswer": "In My Blood",
           "trivia": "2018年にリリースされたShawn Mendesのアルバム『Shawn Mendes』からのシングル「In My Blood」は、アメリカのラジオ局で非常に高いエアプレイ回数を記録しました。この曲は、Billboard Hot 100チャートでトップ10入りし、特にポップラジオで頻繁に放送されました。『In My Blood』は、Shawn Mendesが自身の不安と闘う心情を歌詞に込めたパワフルなバラードであり、多くのリスナーから共感を得ています。ラジオエアプレイの面でもこの曲はアルバム内で最も成功したシングルとなっており、Shawn Mendesのキャリアにおける重要な楽曲の一つです。"
         }
@@ -9125,12 +8525,7 @@
         },
         {
           "question": "Shawn Mendesの2018年セルフタイトルアルバム'Shawn Mendes'に収録された楽曲のうち、社会的な不安や自己認識のテーマを強く扱っている曲はどれでしょうか？",
-          "options": [
-            "\"In My Blood\"",
-            "\"Lost in Japan\"",
-            "\"Nervous\"",
-            "\"Youth\""
-          ],
+          "options": ["\"In My Blood\"", "\"Lost in Japan\"", "\"Nervous\"", "\"Youth\""],
           "correctAnswer": "\"In My Blood\"",
           "trivia": "Shawn Mendesの2018年のアルバム'Shawn Mendes'に収録されている\"In My Blood\"は、彼自身が経験した不安症や精神的な葛藤を率直に表現した楽曲です。この曲は、若者のメンタルヘルスに対する社会的な関心を反映しており、彼のキャリアにおいてより成熟したテーマへの移行を示しています。さらに、シングルとしてもヒットし、社会的なコメンタリーを含むポップミュージックの一例として評価されています。アルバム全体が自己認識や内面の葛藤を描いている中で、\"In My Blood\"は特に精神的健康問題に焦点を当てた象徴的な作品です。"
         },
@@ -9160,12 +8555,7 @@
         },
         {
           "question": "Shawn Mendesの2018年アルバム『Shawn Mendes』に収録された楽曲のミュージックビデオで、視覚的に特徴的なモノクローム映像とカメラワークを多用し、アーティストの感情を強調した曲はどれでしょうか？",
-          "options": [
-            "In My Blood",
-            "Lost in Japan",
-            "Youth",
-            "Nervous"
-          ],
+          "options": ["In My Blood", "Lost in Japan", "Youth", "Nervous"],
           "correctAnswer": "In My Blood",
           "trivia": "アルバム『Shawn Mendes』のリードシングル『In My Blood』のミュージックビデオは、モノクローム映像とダイナミックなカメラワークを特徴としており、Shawn Mendesの内面の葛藤や不安を視覚的に表現しています。この映像手法は、作品の感情的な深さを増幅させるために意図的に選ばれました。さらに、ビデオはアルバムのテーマである自己受容と闘いを強調し、視聴者にアーティストの繊細さを伝えています。『Shawn Mendes』というセルフタイトルのアルバムにおいて、このビデオは音楽と映像が融合した重要なビジュアルコンテンツの一つです。"
         },
@@ -9213,12 +8603,7 @@
         },
         {
           "question": "Siaのアルバム'1000 Forms of Fear'がリリースされた2014年、どのシングルが特に大ヒットし、ポップカルチャーに強い影響を与えましたか？",
-          "options": [
-            "Chandelier",
-            "Elastic Heart",
-            "Big Girls Cry",
-            "Eye of the Needle"
-          ],
+          "options": ["Chandelier", "Elastic Heart", "Big Girls Cry", "Eye of the Needle"],
           "correctAnswer": "Chandelier",
           "trivia": "Siaの2014年リリースのアルバム'1000 Forms of Fear'からのシングル『Chandelier』は、世界中で大ヒットし、ポップカルチャーに多大な影響を与えました。この曲はBillboard Hot 100チャートで最高位8位を記録し、その象徴的なミュージックビデオの振付けは多くのファンやアーティストに模倣されました。また、Sia自身はステージ上で顔を隠すスタイルを確立し、個人のプライバシーとパフォーマンスの新しい形を提案しています。『Chandelier』は'1000 Forms of Fear'の成功を牽引し、その後のポップミュージックシーンに独自の影響を残しました。"
         }
@@ -9349,12 +8734,7 @@
         },
         {
           "question": "Solangeのアルバム『A Seat at the Table』が2016年にデジタル配信された際、どのプラットフォームで先行独占配信されたことで話題になりましたか？",
-          "options": [
-            "Apple Music",
-            "Spotify",
-            "Amazon Music",
-            "Tidal"
-          ],
+          "options": ["Apple Music", "Spotify", "Amazon Music", "Tidal"],
           "correctAnswer": "Apple Music",
           "trivia": "Solangeの『A Seat at the Table』は2016年にApple Musicで先行独占配信され、大きな話題を呼びました。この戦略は、Apple Musicが独自コンテンツを強化する狙いの一環であり、同時期に他の主要ストリーミングサービスでは配信されていませんでした。アルバムのリリースは音楽業界におけるデジタル配信の重要性を再確認させるもので、Solangeの繊細で深いテーマ性と共に高く評価されました。また、この配信展開はアルバムのチャート成功にも貢献しました。"
         },
@@ -9426,12 +8806,7 @@
         },
         {
           "question": "St. Vincentが2014年にリリースしたセルフタイトルアルバム'St. Vincent'のリードシングルはどれでしょうか？",
-          "options": [
-            "Digital Witness",
-            "Cruel",
-            "Cheerleader",
-            "Birth in Reverse"
-          ],
+          "options": ["Digital Witness", "Cruel", "Cheerleader", "Birth in Reverse"],
           "correctAnswer": "Birth in Reverse",
           "trivia": "アルバム'St. Vincent'は2014年にリリースされ、アーティストのセルフタイトルアルバムとして話題を集めました。リードシングルとして選ばれた「Birth in Reverse」は、エレクトロニックなサウンドとキャッチーなメロディーが特徴で、この曲がアルバムの先行カットとして注目されました。その他の曲も人気を博しましたが、「Birth in Reverse」が最初に公開されたことでアルバムの世界観を強く印象づけています。これによりSt. Vincentの革新的な音楽性が広く知られるようになりました。"
         },
@@ -9650,12 +9025,7 @@
         },
         {
           "question": "Taylor Swiftのアルバム'Speak Now'に収録された曲の歌詞で、彼女が自分の感情や考えを率直に伝えるテーマが最も強く表れている曲はどれですか？",
-          "options": [
-            "『Back to December』",
-            "『Mean』",
-            "『Dear John』",
-            "『Enchanted』"
-          ],
+          "options": ["『Back to December』", "『Mean』", "『Dear John』", "『Enchanted』"],
           "correctAnswer": "『Dear John』",
           "trivia": "Taylor Swiftの2010年のアルバム'Speak Now'には、自身の過去の恋愛や感情を率直に表現した歌詞が多く含まれています。中でも『Dear John』は、特定の人物に向けた長文の手紙のような形式で、傷ついた心情や裏切りの感覚を正直に綴っています。この曲は、彼女の歌詞の中でも特に個人的で深い意味が込められており、リスナーからも注目されています。アルバム全体がセルフライティングで制作されたため、Taylor Swiftの自己表現が色濃く反映された作品です。"
         },
@@ -9696,12 +9066,7 @@
         },
         {
           "question": "Taylor Swiftの2010年のアルバム'Speak Now'のアートワークに関して、ジャケット写真で彼女が着ているドレスの色はどれでしょうか？",
-          "options": [
-            "紫色のドレス",
-            "赤色のドレス",
-            "青色のドレス",
-            "白色のドレス"
-          ],
+          "options": ["紫色のドレス", "赤色のドレス", "青色のドレス", "白色のドレス"],
           "correctAnswer": "紫色のドレス",
           "trivia": "Taylor Swiftのアルバム'Speak Now'（2010年）では、ジャケット写真で彼女が紫色のロングドレスを着用しています。このドレスは幻想的で夢のような雰囲気を演出し、アルバムのテーマである自己表現や感情の解放を象徴しています。写真は自然の中で撮影されており、彼女の若々しさと繊細さを引き立てるデザインになっています。ジャケットアートはアルバムのコンセプトと密接に関連しており、Taylor Swiftのクリエイティブな世界観を視覚的に表現しています。"
         }
@@ -9863,12 +9228,7 @@
       "easy": [
         {
           "question": "The Black Keysのアルバム'El Camino'（2011年）はどのレコードレーベルからリリースされましたか？",
-          "options": [
-            "Nonesuch Records",
-            "Sub Pop",
-            "Matador Records",
-            "Warp Records"
-          ],
+          "options": ["Nonesuch Records", "Sub Pop", "Matador Records", "Warp Records"],
           "correctAnswer": "Nonesuch Records",
           "trivia": "The Black Keysの2011年のアルバム'El Camino'は、Nonesuch Recordsからリリースされました。Nonesuch Recordsはジャズやワールドミュージックからロックまで多彩なジャンルを扱うレーベルで、The Black Keysはこのレーベルと契約後により幅広いサウンドを追求しています。'El Camino'は同レーベルからの初のフルアルバムとしてリリースされ、商業的にも成功を収めました。このアルバムのリリースを通じて、The Black Keysはインディーロックの枠を超えて世界的な認知度を高めました。"
         },
@@ -9885,12 +9245,7 @@
         },
         {
           "question": "The Black Keysの2011年のアルバム'El Camino'で、最も成功したシングル曲はどれでしょうか？",
-          "options": [
-            "Lonely Boy",
-            "Gold on the Ceiling",
-            "Tighten Up",
-            "Howlin' for You"
-          ],
+          "options": ["Lonely Boy", "Gold on the Ceiling", "Tighten Up", "Howlin' for You"],
           "correctAnswer": "Lonely Boy",
           "trivia": "The Black Keysのアルバム'El Camino'（2011年）からリリースされたシングル曲の中で、'Lonely Boy'は特に大きな成功を収めました。この曲はアメリカのビルボード・ロックチャートでトップ10に入り、バンドの知名度を大きく向上させました。ミュージックビデオのユニークな振り付けも話題となり、YouTubeでの再生回数が非常に高いです。'El Camino'は全体としても商業的に成功し、The Black Keysの代表作として評価されています。"
         }
@@ -9920,12 +9275,7 @@
         },
         {
           "question": "The Black Keysのアルバム'El Camino'（2011年）はどのレコードレーベルからリリースされましたか？",
-          "options": [
-            "Nonesuch Records",
-            "Sub Pop",
-            "Third Man Records",
-            "XL Recordings"
-          ],
+          "options": ["Nonesuch Records", "Sub Pop", "Third Man Records", "XL Recordings"],
           "correctAnswer": "Nonesuch Records",
           "trivia": "The Black Keysのアルバム'El Camino'は2011年にNonesuch Recordsからリリースされました。Nonesuch Recordsはアメリカの老舗レーベルで、多様なジャンルのアーティストを抱えています。'El Camino'はこのレーベルからのリリースによって、より広い市場への展開と高品質なプロダクションを実現しました。一方、Sub PopやThird Man Recordsはインディーズ系のレーベルで、The Black Keysはこれらとは異なる道を選びました。XL Recordingsも有名ですが、'El Camino'のリリース元ではありません。"
         }
@@ -10010,12 +9360,7 @@
       "medium": [
         {
           "question": "The Nationalの2010年のアルバム『High Violet』のリリースに関して、どのレーベルが主に担当していたでしょうか？",
-          "options": [
-            "4AD",
-            "Sub Pop",
-            "Domino Recording Company",
-            "Matador Records"
-          ],
+          "options": ["4AD", "Sub Pop", "Domino Recording Company", "Matador Records"],
           "correctAnswer": "4AD",
           "trivia": "『High Violet』はThe Nationalが2010年にリリースしたアルバムで、アメリカのインディーロックシーンで高い評価を受けました。このアルバムは、イギリスを中心に活動するインディーレーベルの4ADが主にリリースを担当しました。4ADはこれ以前にもThe Nationalの作品を扱っており、バンドの国際的な成功に寄与しています。一方で、Matador Recordsはアメリカ国内でThe Nationalの作品をリリースしていましたが、『High Violet』のグローバル展開における主要なレーベルは4ADでした。Sub PopやDomino Recording Companyは同時期に別のインディバンドと契約していたため、この作品のリリースとは直接関係していません。"
         },
@@ -10109,12 +9454,7 @@
         },
         {
           "question": "The War on Drugsのアルバム『A Deeper Understanding』で、主に使用されたギターアンプの種類はどれでしょうか？",
-          "options": [
-            "Fender Twin Reverb",
-            "Marshall JCM800",
-            "Vox AC30",
-            "Mesa Boogie Mark IV"
-          ],
+          "options": ["Fender Twin Reverb", "Marshall JCM800", "Vox AC30", "Mesa Boogie Mark IV"],
           "correctAnswer": "Fender Twin Reverb",
           "trivia": "『A Deeper Understanding』は2017年にリリースされたThe War on Drugsのアルバムで、彼らの特徴的なシューゲイザー風サウンドを支えるために、多くのギターサウンドにFender Twin Reverbアンプが使われています。このアンプはクリアで豊かなクリーントーンが特徴で、フロントマンのアダム・グランドゥークが愛用していることも知られています。また、アルバムの制作ではアナログ機材を多用し、温かみのある音質を追求している点も注目されます。これにより、The War on Drugsの独特なドリーミーで深みのあるサウンドが実現されました。"
         }
@@ -10168,12 +9508,7 @@
         },
         {
           "question": "The War on Drugsが2017年のアルバム『A Deeper Understanding』で主に使用したギターアンプとして正しいものはどれでしょうか？",
-          "options": [
-            "Fender Twin Reverb",
-            "Marshall JCM800",
-            "Vox AC30",
-            "Mesa/Boogie Mark IV"
-          ],
+          "options": ["Fender Twin Reverb", "Marshall JCM800", "Vox AC30", "Mesa/Boogie Mark IV"],
           "correctAnswer": "Fender Twin Reverb",
           "trivia": "『A Deeper Understanding』の制作において、The War on Drugsは特にギターの音作りにこだわり、フロントマンのアダム・グランドゥーゼはFender Twin Reverbアンプを多用しました。このアンプはクリアでリッチなクリーントーンが特徴であり、アルバム全体のドリーミーかつ広がりのあるサウンドに大きく貢献しています。録音はペンシルベニア州のスタジオで行われ、アナログ機材を活かした温かみのある音像を目指しました。MarshallやVoxアンプも有名ですが、このアルバムのギターサウンドにはFender Twin Reverbの影響が顕著です。"
         },
@@ -10311,12 +9646,7 @@
       "easy": [
         {
           "question": "2019年にリリースされたToolのアルバム『Fear Inoculum』は、どのレコードレーベルから発売されましたか？",
-          "options": [
-            "Rostrum Records",
-            "Epic Records",
-            "Sub Pop",
-            "Matador Records"
-          ],
+          "options": ["Rostrum Records", "Epic Records", "Sub Pop", "Matador Records"],
           "correctAnswer": "Epic Records",
           "trivia": "Toolのアルバム『Fear Inoculum』は2019年にEpic Recordsからリリースされました。Epic Recordsはソニー・ミュージック傘下の大手レーベルであり、多くの著名アーティストを抱えています。ToolはこれまでEpic Recordsを通じて複数のアルバムを発表しており、『Fear Inoculum』も例外ではありません。レーベルの支援により、アルバムは世界中で広く流通し、リリース後すぐに商業的成功を収めました。"
         },
@@ -10333,12 +9663,7 @@
         },
         {
           "question": "Toolのアルバム'Fear Inoculum'（2019年）で、リリースまでにかかった期間はどのくらいですか？",
-          "options": [
-            "約13年",
-            "約5年",
-            "約8年",
-            "約3年"
-          ],
+          "options": ["約13年", "約5年", "約8年", "約3年"],
           "correctAnswer": "約13年",
           "trivia": "Toolのアルバム'Fear Inoculum'は、前作『10,000 Days』（2006年）から約13年ぶりのスタジオアルバムとして2019年にリリースされました。この長いインターバルはバンドメンバーの個人活動や制作過程の緻密さによるもので、ファンから長らく待ち望まれていました。また、アルバムはBillboard 200チャートで初登場3位を記録し、高い評価を受けています。"
         }
@@ -10434,12 +9759,7 @@
         },
         {
           "question": "Travis Scottのアルバム『Astroworld』から、アメリカのラジオ局で最も多くエアプレイされたシングルはどれでしょうか？",
-          "options": [
-            "Sicko Mode",
-            "Stargazing",
-            "Carousel",
-            "Wake Up"
-          ],
+          "options": ["Sicko Mode", "Stargazing", "Carousel", "Wake Up"],
           "correctAnswer": "Sicko Mode",
           "trivia": "『Astroworld』は2018年にリリースされ、Travis Scottの代表作として知られています。このアルバムからのシングル『Sicko Mode』は、アメリカをはじめ多くの国でラジオエアプレイ数が非常に高く、Billboard Hot 100チャートでも最高2位を記録しました。『Sicko Mode』は複数のセクションに分かれた独特の構成と、多様なプロデューサー陣の参加が特徴です。ラジオで頻繁に流れたことで、Travis Scottの知名度をさらに押し上げる大きな要因となりました。"
         },
@@ -10469,12 +9789,7 @@
         },
         {
           "question": "Travis Scottの2018年のアルバム『Astroworld』において、主要な客演アーティストとして参加し、彼の特徴的なボーカルスタイルでアルバムに彩りを加えたのは誰でしょうか？",
-          "options": [
-            "Frank Ocean",
-            "Kendrick Lamar",
-            "Drake",
-            "Post Malone"
-          ],
+          "options": ["Frank Ocean", "Kendrick Lamar", "Drake", "Post Malone"],
           "correctAnswer": "Frank Ocean",
           "trivia": "『Astroworld』はTravis Scottの3rdアルバムで、多数の著名アーティストが参加しています。その中でもFrank Oceanは『Carousel』などのトラックで独特な歌声を披露し、アルバムの夢幻的な雰囲気を強調しました。一方、Kendrick LamarやDrakeは別の作品で頻繁に共演していますが、『Astroworld』には参加していません。Post Maloneも人気の客演アーティストですが、このアルバムには登場しません。Frank Oceanの参加は『Astroworld』の音楽的多様性を象徴しています。"
         },
@@ -10515,12 +9830,7 @@
         },
         {
           "question": "Travis Scottのアルバム『Astroworld』（2018年）から、アメリカのラジオエアプレイチャートで最も長期間トップ10入りしたシングルはどれでしょうか？",
-          "options": [
-            "Sicko Mode",
-            "Stargazing",
-            "Yosemite",
-            "Wake Up"
-          ],
+          "options": ["Sicko Mode", "Stargazing", "Yosemite", "Wake Up"],
           "correctAnswer": "Sicko Mode",
           "trivia": "『Astroworld』に収録されている『Sicko Mode』は、アメリカのラジオエアプレイチャートで特に長期間トップ10に留まりました。この曲は多様なビートチェンジと豪華なゲストラッパーをフィーチャーしており、ラジオでの人気が高く、Billboard Hot 100でも最高2位を記録しました。対して、アルバムの他のシングル『Stargazing』や『Yosemite』はラジオエアプレイでの露出はあったものの、『Sicko Mode』ほどの持続的なトップ10入りは達成していません。こうした実績は『Astroworld』の商業的成功とTravis Scottのメインストリームでの影響力を示しています。"
         }
@@ -10893,12 +10203,7 @@
         },
         {
           "question": "Usherのアルバム『Raymond v. Raymond』で、プロデューサーとして最も多く関わった人物は誰でしょうか？",
-          "options": [
-            "Jermaine Dupri",
-            "Pharrell Williams",
-            "Timbaland",
-            "Max Martin"
-          ],
+          "options": ["Jermaine Dupri", "Pharrell Williams", "Timbaland", "Max Martin"],
           "correctAnswer": "Jermaine Dupri",
           "trivia": "『Raymond v. Raymond』は2010年にリリースされたUsherのアルバムで、Jermaine Dupriが主要なプロデューサーとして多くのトラックに関わりました。DupriはUsherのキャリアを通じて何度もコラボレーションを重ねており、このアルバムでも彼のサウンドが色濃く反映されています。Pharrell WilliamsやTimbalandも参加していますが、Dupriほどの関与はありませんでした。Max Martinはこのアルバムの制作には関与していません。Jermaine Dupriのプロデュースにより、UsherのR&Bとポップの融合がより洗練されました。"
         }
@@ -10941,12 +10246,7 @@
       "hard": [
         {
           "question": "Usherの2010年のアルバム『Raymond v. Raymond』に収録されたシングルの中で、ミュージックビデオが初めて3D技術を用いて制作されたのはどの曲でしょうか？",
-          "options": [
-            "OMG",
-            "There Goes My Baby",
-            "More",
-            "Lil Freak"
-          ],
+          "options": ["OMG", "There Goes My Baby", "More", "Lil Freak"],
           "correctAnswer": "More",
           "trivia": "2010年にリリースされたUsherのアルバム『Raymond v. Raymond』からのシングル『More』は、ミュージックビデオにおいて初めて3D技術が採用されました。この映像は視覚的に斬新で、当時のR&Bミュージックビデオにおいて先駆的な試みとされています。『More』の3Dビデオは、Usherのダンスパフォーマンスと未来的な映像表現を融合させ、視聴者に新しい映像体験を提供しました。同アルバムには『OMG』や『There Goes My Baby』など他のヒット曲も含まれていますが、3D技術を使ったのは『More』だけです。これにより、Usherは映像面でも革新を追求したアーティストとして評価されています。"
         },
@@ -11040,12 +10340,7 @@
         },
         {
           "question": "Vampire Weekendのアルバム'Modern Vampires of the City'は2013年にリリースされましたが、このアルバムのデジタル配信において最初に利用されたストリーミングサービスはどれでしょうか？",
-          "options": [
-            "Spotify",
-            "Apple Music",
-            "Tidal",
-            "Deezer"
-          ],
+          "options": ["Spotify", "Apple Music", "Tidal", "Deezer"],
           "correctAnswer": "Spotify",
           "trivia": "Vampire Weekendの2013年のアルバム'Modern Vampires of the City'は、当時急速に普及し始めたデジタル配信の流れの中で、Spotifyを通じて最初にストリーミング配信が行われました。Spotifyは世界的に広がるストリーミングプラットフォームとして、インディーロックやオルタナティブミュージックの普及に大きく貢献。Apple Musicはその後の2015年にサービス開始されたため、リリース当初の配信には含まれていません。また、TidalやDeezerも存在していましたが、Vampire Weekendの当時の主要な配信パートナーはSpotifyでした。これにより、アルバムはデジタル音楽市場での新たなリスニング体験を提供しました。"
         }

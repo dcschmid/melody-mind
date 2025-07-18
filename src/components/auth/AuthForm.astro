@@ -300,7 +300,6 @@ const t = useTranslations(lang);
 <script>
   import { handleLoginSubmit, handleRegisterSubmit } from "../../utils/auth/authFormUtils";
   import { createFormProgressManager } from "../../utils/auth/formProgressManager";
-  import { createSessionTimeoutManager } from "../../utils/auth/sessionTimeout";
   import { setupTabSwitching, initializeAuthFormElements } from "../../utils/auth/ui-interactions";
   import { useTranslations } from "../../utils/i18n";
 
@@ -400,23 +399,7 @@ const t = useTranslations(lang);
       }
     });
 
-    // Initialize session timeout with optimized config
-    const sessionManager = createSessionTimeoutManager({
-      sessionTimeout: 20 * 60 * 1000, // 20 minutes
-      warningTime: 2 * 60 * 1000, // 2 minutes warning
-      redirectUrl: `/${currentLang}/auth/login?reason=session_expired`,
-      translations: {
-        title: t("auth.session.timeout.title"),
-        message: t("auth.session.timeout.message"),
-        extend: t("auth.session.timeout.extend"),
-        close: t("auth.session.timeout.close"),
-      },
-    });
-    sessionManager.initialize();
-
-    // Store reference for potential cleanup
-    (window as Window & { authSessionManager?: typeof sessionManager }).authSessionManager =
-      sessionManager;
+    // Session timeout functionality removed - no longer needed with new auth flow
 
     // Initialize form progress manager
     const progressManager = createFormProgressManager();

@@ -2,57 +2,16 @@ import { verifyAccessToken } from "../lib/auth/jwt.js";
 
 /**
  * Checks if a valid JWT token is present in the cookies
- * and redirects to the login page if no token is found
- *
+ * @deprecated Use checkAuth instead - no longer redirects
  * @param {Request} request - The Astro request
- * @returns {Promise<{authenticated: boolean, user?: {id: string, email: string}, redirectToLogin?: Response}>} An object with the authentication status and possibly the user information
+ * @returns {Promise<{authenticated: boolean, user?: {id: string, email: string}}>} An object with the authentication status and possibly the user information
  */
 export async function requireAuth(request: Request): Promise<{
   authenticated: boolean;
   user?: { id: string; email: string };
-  redirectToLogin?: Response;
 }> {
-  // Extract cookie header from the request
-  const cookieHeader = request.headers.get("cookie");
-
-  if (!cookieHeader) {
-    // No cookie present, redirect to login page
-    return {
-      authenticated: false,
-      redirectToLogin: createLoginRedirect(request.url),
-    };
-  }
-
-  // Extract access token from cookies
-  const accessToken = extractCookieValue(cookieHeader, "access_token");
-
-  if (!accessToken) {
-    // No access token present, redirect to login page
-    return {
-      authenticated: false,
-      redirectToLogin: createLoginRedirect(request.url),
-    };
-  }
-
-  // Verify token
-  const payload = verifyAccessToken(accessToken);
-
-  if (!payload || !payload.userId) {
-    // Invalid or expired token, redirect to login page
-    return {
-      authenticated: false,
-      redirectToLogin: createLoginRedirect(request.url),
-    };
-  }
-
-  // Authentication successful
-  return {
-    authenticated: true,
-    user: {
-      id: payload.userId,
-      email: payload.email,
-    },
-  };
+  // Just call checkAuth now - no more redirects
+  return checkAuth(request);
 }
 
 /**
@@ -122,18 +81,4 @@ function extractCookieValue(cookieHeader: string, cookieName: string): string | 
   return null;
 }
 
-/**
- * Creates a redirect response to the login page with the current URL as a redirect parameter
- */
-function createLoginRedirect(currentUrl: string): Response {
-  const url = new URL(currentUrl);
-  const lang = url.pathname.split("/")[1] || "de"; // Extract language from URL or use 'de' as fallback
-  const redirectParam = encodeURIComponent(url.pathname);
-
-  return new Response(null, {
-    status: 302,
-    headers: {
-      Location: `/${lang}/auth/login?redirect=${redirectParam}`,
-    },
-  });
-}
+// createLoginRedirect function removed - no longer needed with new auth flow

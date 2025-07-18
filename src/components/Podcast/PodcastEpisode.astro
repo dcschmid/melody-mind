@@ -1,10 +1,10 @@
 ---
 /**
  * PodcastEpisode Component
- * 
+ *
  * Renders a podcast episode with image, description, and custom audio player.
  * Features responsive design, performance optimizations, and accessibility.
- * 
+ *
  * @component
  * @example
  * <PodcastEpisode podcast={podcastData} lang="en" className="featured" />
@@ -183,7 +183,7 @@ const audioId = `podcast-audio-${podcast.id}`;
     @media (prefers-reduced-motion: reduce) {
       will-change: auto;
       transition: none;
-      
+
       &:hover {
         transform: none;
       }
@@ -272,7 +272,7 @@ const audioId = `podcast-audio-${podcast.id}`;
     // Performance optimization for reduced motion
     @media (prefers-reduced-motion: reduce) {
       transition: none;
-      
+
       &:hover {
         transform: translate3d(0, 0, 0);
       }
@@ -301,7 +301,7 @@ const audioId = `podcast-audio-${podcast.id}`;
     @media (prefers-reduced-motion: reduce) {
       will-change: auto;
       transition: none;
-      
+
       .podcast-episode:hover & {
         transform: translate3d(0, 0, 0);
       }
@@ -482,7 +482,7 @@ const audioId = `podcast-audio-${podcast.id}`;
     @media (prefers-reduced-motion: reduce) {
       will-change: auto;
       transition: background-color var(--transition-fast);
-      
+
       &:hover,
       &:active {
         transform: translate3d(0, 0, 0);
@@ -591,7 +591,7 @@ const audioId = `podcast-audio-${podcast.id}`;
     @media (prefers-reduced-motion: reduce) {
       will-change: auto;
       transition: none;
-      
+
       &::after {
         transition: none;
       }

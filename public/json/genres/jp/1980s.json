@@ -130,12 +130,7 @@
         },
         {
           "question": "AC/DCのアルバム'Back in Black'で、バンドのブランディングとして象徴的に使われた色は何でしょうか？",
-          "options": [
-            "黒",
-            "赤",
-            "青",
-            "白"
-          ],
+          "options": ["黒", "赤", "青", "白"],
           "correctAnswer": "黒",
           "trivia": "AC/DCの1980年のアルバム'Back in Black'は、そのタイトル通り黒を基調としたジャケットデザインで知られています。この黒いカバーは、前ボーカリストのボン・スコットの死を悼む意味合いを込めて選ばれました。黒はアルバムのブランディングとして強い印象を与え、バンドのイメージ刷新に大きく貢献しました。結果的に'Back in Black'は世界的に大ヒットし、ロック史上最も売れたアルバムの一つとなっています。"
         },
@@ -242,12 +237,7 @@
         },
         {
           "question": "Aerosmithの1987年のアルバム『Permanent Vacation』に収録されたシングルで、アメリカのビルボードホット100チャートでトップ40入りした曲はどれでしょうか？",
-          "options": [
-            "Dude (Looks Like a Lady)",
-            "Angel",
-            "Crazy",
-            "Love in an Elevator"
-          ],
+          "options": ["Dude (Looks Like a Lady)", "Angel", "Crazy", "Love in an Elevator"],
           "correctAnswer": "Dude (Looks Like a Lady)",
           "trivia": "1987年にリリースされたAerosmithの『Permanent Vacation』は、バンドの復活を象徴する作品として知られています。このアルバムからのシングル『Dude (Looks Like a Lady)』は特に人気が高く、アメリカのビルボードホット100チャートでトップ40入りを果たしました。『Angel』もヒットしましたが、チャート順位は『Dude (Looks Like a Lady)』ほど高くありませんでした。『Permanent Vacation』はMTVなどの音楽メディアでも多く取り上げられ、ファンの間での支持を広げ、ポップカルチャーにおけるAerosmithの地位を再確立しました。"
         },
@@ -301,12 +291,7 @@
       "hard": [
         {
           "question": "Aerosmithのアルバム'Permanent Vacation'（1987年）において、アメリカのラジオエアプレイチャートで最も高い位置を記録したシングルはどれでしょうか？",
-          "options": [
-            "Dude (Looks Like a Lady)",
-            "Rag Doll",
-            "Angel",
-            "Hangman Jury"
-          ],
+          "options": ["Dude (Looks Like a Lady)", "Rag Doll", "Angel", "Hangman Jury"],
           "correctAnswer": "Dude (Looks Like a Lady)",
           "trivia": "Aerosmithの1987年のアルバム『Permanent Vacation』は、バンドの復活を象徴する作品として知られています。その中で『Dude (Looks Like a Lady)』はアメリカのラジオエアプレイチャートで最高位を記録し、彼らのメインストリーム人気を再燃させました。この曲はMTVでも頻繁に流れ、ラジオでの露出がアルバムの成功に大きく寄与しました。『Rag Doll』や『Angel』も人気曲でしたが、ラジオエアプレイのトップは『Dude (Looks Like a Lady)』でした。これによりAerosmithは1980年代後半のロックシーンで再び重要な地位を確立しました。"
         },
@@ -501,12 +486,7 @@
         },
         {
           "question": "1982年にリリースされたAsiaのデビューアルバム'Asia'は、どのレコードレーベルから発売されましたか？",
-          "options": [
-            "Geffen Records",
-            "Atlantic Records",
-            "Virgin Records",
-            "Elektra Records"
-          ],
+          "options": ["Geffen Records", "Atlantic Records", "Virgin Records", "Elektra Records"],
           "correctAnswer": "Geffen Records",
           "trivia": "Asiaのセルフタイトル・デビューアルバムは1982年にGeffen Recordsからリリースされました。Geffen Recordsは当時、ロックバンドのプロモーションに積極的で、Asiaのスーパーグループ的な魅力を最大限に引き出しました。アルバムはアメリカ市場で特に成功し、Geffenの強力な販売網がチャート上昇に貢献しています。また、Asiaは他の有名バンドとは異なり、最初からGeffenと契約していた点も特筆すべきです。"
         },
@@ -578,12 +558,7 @@
         },
         {
           "question": "Bananaramaのアルバム'True Confessions'（1986年）からのシングルで、イギリスのシングルチャートで最高位3位を記録した曲はどれでしょうか？",
-          "options": [
-            "Venus",
-            "More Than Physical",
-            "A Trick of the Night",
-            "True Confessions"
-          ],
+          "options": ["Venus", "More Than Physical", "A Trick of the Night", "True Confessions"],
           "correctAnswer": "Venus",
           "trivia": "Bananaramaの1986年のアルバム'True Confessions'からリリースされたシングル『Venus』は、イギリスのシングルチャートで最高3位を記録し、彼女たちの代表曲の一つとなりました。この曲はオランダのロックバンドShocking Blueのカバーで、アメリカのビルボードホット100でも1位を獲得しています。アルバム全体の成功により、Bananaramaはポップシーンでの地位を確固たるものにしました。"
         },
@@ -624,12 +599,7 @@
         },
         {
           "question": "Bananaramaの1986年のアルバム'True Confessions'は、どのレコードレーベルからリリースされましたか？",
-          "options": [
-            "London Records",
-            "Virgin Records",
-            "EMI",
-            "Polydor Records"
-          ],
+          "options": ["London Records", "Virgin Records", "EMI", "Polydor Records"],
           "correctAnswer": "London Records",
           "trivia": "Bananaramaのアルバム'True Confessions'は1986年にLondon Recordsからリリースされました。London Recordsはイギリスを拠点とするレーベルで、多くのポップアーティストを支えてきました。Bananaramaはこのレーベルと契約しており、彼女たちの代表作の一つである'True Confessions'もこのレーベルから発表されています。レーベルの支援により、アルバムは国際的な成功を収め、「Venus」などのヒット曲を世に送り出しました。London Recordsのプロモーションと流通網は、アルバムの商業的な成功に大きく寄与しました。"
         }
@@ -637,12 +607,7 @@
       "hard": [
         {
           "question": "1986年にリリースされたBananaramaのアルバム'True Confessions'に収録されたシングルのうち、イギリスのラジオエアプレイチャートで最も長期間トップ10にランクインし続けた曲はどれでしょうか？",
-          "options": [
-            "Venus",
-            "More Than Physical",
-            "A Trick of the Night",
-            "True Confessions"
-          ],
+          "options": ["Venus", "More Than Physical", "A Trick of the Night", "True Confessions"],
           "correctAnswer": "Venus",
           "trivia": "Bananaramaの1986年アルバム'True Confessions'からのシングル『Venus』は、イギリスのラジオエアプレイチャートで特に成功を収めました。この曲はリリース後、複数週にわたりトップ10入りし、ラジオでの継続的なオンエアがヒットを支えました。『Venus』はオリジナルのShocking Blueのカバーですが、BananaramaのバージョンはプロデューサーStock Aitken Watermanのダンス・ポップスタイルを取り入れ、1980年代のポップシーンで大きな注目を浴びました。ラジオ局での頻繁な放送は、この曲がアルバム『True Confessions』の代表作となる一因となっています。"
         },
@@ -679,23 +644,13 @@
       "easy": [
         {
           "question": "Beastie Boysのアルバム『Licensed to Ill』は、どのデジタル配信プラットフォームで最初に公式に配信開始されましたか？",
-          "options": [
-            "iTunes Store",
-            "Spotify",
-            "Amazon Music",
-            "Google Play Music"
-          ],
+          "options": ["iTunes Store", "Spotify", "Amazon Music", "Google Play Music"],
           "correctAnswer": "iTunes Store",
           "trivia": "Beastie Boysのデビューアルバム『Licensed to Ill』は、1986年のリリース以来、長らくデジタル配信されていませんでしたが、2000年代後半にiTunes Storeで公式配信が始まりました。iTunes Storeは当時最も普及していたデジタル音楽配信プラットフォームの一つで、多くのクラシックアルバムのデジタル化を牽引しました。この配信開始により、『Licensed to Ill』は新たな世代にもアクセス可能となり、ヒップホップの歴史的名盤としての評価が再確認されました。SpotifyやAmazon Music、Google Play Musicなどの他のプラットフォームでの配信はそれ以降のことです。"
         },
         {
           "question": "Beastie Boysの1986年のアルバム『Licensed to Ill』のジャケットに描かれているのはどのような乗り物でしょうか？",
-          "options": [
-            "飛行機",
-            "バイク",
-            "スポーツカー",
-            "列車"
-          ],
+          "options": ["飛行機", "バイク", "スポーツカー", "列車"],
           "correctAnswer": "飛行機",
           "trivia": "Beastie Boysのデビューアルバム『Licensed to Ill』のジャケットは、飛行機が描かれたデザインで知られています。この飛行機は実際に1970年代のボーイング747をモチーフにしており、アルバムタイトルの『Licensed to Ill』という言葉遊びと関連しています。ジャケットのデザインは、当時のヒップホップシーンにおける大胆で遊び心のあるビジュアル表現の一例として評価されました。アートワークはアルバムのユニークなアイデンティティを強調し、リリース当時からファンや評論家に強い印象を与えました。"
         },
@@ -791,23 +746,13 @@
       "easy": [
         {
           "question": "Belinda Carlisleの1987年のアルバム'Heaven on Earth'のプロデューサーとして、どの人物が主に制作を担当しましたか？",
-          "options": [
-            "Rick Rubin",
-            "Rick Nowels",
-            "Quincy Jones",
-            "Trevor Horn"
-          ],
+          "options": ["Rick Rubin", "Rick Nowels", "Quincy Jones", "Trevor Horn"],
           "correctAnswer": "Rick Nowels",
           "trivia": "Belinda Carlisleのアルバム'Heaven on Earth'（1987年）は、主にプロデューサーのRick Nowelsによって制作されました。彼はキャッチーで洗練されたポップサウンドを生み出すことで知られており、このアルバムのヒット曲「Heaven Is a Place on Earth」などの成功に大きく貢献しました。Rick Nowelsはこの作品のために多くの楽曲を共同で作曲し、当時のポップミュージックシーンにおける重要な存在でした。他の選択肢に挙げられたプロデューサーも有名ですが、'Heaven on Earth'の制作には関わっていません。"
         },
         {
           "question": "Belinda Carlisleのアルバム'Heaven on Earth'は国際的に大ヒットしましたが、その中で特にどの国のチャートで1位を獲得したことで知られていますか？",
-          "options": [
-            "イギリス",
-            "日本",
-            "アメリカ合衆国",
-            "オーストラリア"
-          ],
+          "options": ["イギリス", "日本", "アメリカ合衆国", "オーストラリア"],
           "correctAnswer": "イギリス",
           "trivia": "Belinda Carlisleの1987年のアルバム'Heaven on Earth'は、アメリカのビルボードチャートでトップ10入りを果たしただけでなく、特にイギリスのチャートで1位を獲得したことが国際的な成功を象徴しています。このアルバムからのシングル「Heaven Is a Place on Earth」は、イギリスを含む複数の国で高い評価を受け、世界的なヒットとなりました。日本やオーストラリアでも人気を博しましたが、チャートのトップはイギリスでの達成が特筆されます。これにより、Belinda Carlisleは80年代のポップシーンにおいて国際的な地位を確立しました。"
         },
@@ -826,12 +771,7 @@
       "medium": [
         {
           "question": "Belinda Carlisleの1987年のアルバム'Heaven on Earth'のリリース後に行われたライブツアーに関して、どの都市で彼女が特に話題となった大規模な公演を行いましたか？",
-          "options": [
-            "ロンドン",
-            "ニューヨーク",
-            "東京",
-            "シドニー"
-          ],
+          "options": ["ロンドン", "ニューヨーク", "東京", "シドニー"],
           "correctAnswer": "ロンドン",
           "trivia": "Belinda Carlisleは1987年にリリースしたアルバム'Heaven on Earth'の成功を受けて、同年から翌年にかけて大規模なライブツアーを行いました。特にロンドンでの公演は話題となり、英国のファンベースを拡大する重要な機会となりました。このツアーではアルバムからのヒット曲を中心に演奏され、ライブパフォーマンスの評価が高まりました。また、ロンドン公演は彼女の国際的な人気を確立する上で大きな役割を果たしました。"
         },
@@ -848,12 +788,7 @@
         },
         {
           "question": "Belinda Carlisleのアルバム『Heaven on Earth』（1987年）に参加したバンドメンバーの中で、元The Go-Go'sのメンバーとしても知られ、ギター演奏に貢献したのは誰でしょうか？",
-          "options": [
-            "Charlotte Caffey",
-            "Jane Wiedlin",
-            "Rick Nowels",
-            "Thomas Dolby"
-          ],
+          "options": ["Charlotte Caffey", "Jane Wiedlin", "Rick Nowels", "Thomas Dolby"],
           "correctAnswer": "Charlotte Caffey",
           "trivia": "アルバム『Heaven on Earth』はBelinda Carlisleのソロキャリアを確立した作品で、元The Go-Go'sのギタリストCharlotte Caffeyが参加しています。彼女はThe Go-Go'sの主要メンバーであり、Belinda Carlisleと共にバンドを結成しました。Rick Nowelsはこのアルバムの主要なプロデューサー兼ソングライターとしてクレジットされていますが、バンドメンバーではありません。また、Jane WiedlinもThe Go-Go'sのメンバーですが、このアルバムの録音には参加していません。Thomas Dolbyは当時有名なシンセサイザー奏者ですが、本作での参加はありません。"
         }
@@ -914,12 +849,7 @@
         },
         {
           "question": "Billy Idolの1983年のアルバム'Rebel Yell'のタイトル曲は、主に誰との共作で作詞作曲されましたか？",
-          "options": [
-            "Steve Stevens",
-            "Mick Jones",
-            "Trevor Horn",
-            "Phil Collins"
-          ],
+          "options": ["Steve Stevens", "Mick Jones", "Trevor Horn", "Phil Collins"],
           "correctAnswer": "Steve Stevens",
           "trivia": "アルバム'Rebel Yell'のタイトル曲は、ギタリストのSteve StevensとBilly Idolによって共作されました。Steve Stevensは独特のギタープレイで知られており、彼の作曲参加はアルバム全体のサウンドに大きな影響を与えています。特に'Rebel Yell'の曲は、二人のコラボレーションによるエネルギッシュなリフとメロディーが特徴です。Trevor Hornはプロデューサーを務めましたが、作詞作曲には直接関わっていません。Mick JonesやPhil Collinsは別の音楽シーンの著名なアーティストであり、本アルバムの制作には関与していません。"
         },
@@ -938,12 +868,7 @@
       "medium": [
         {
           "question": "Billy Idolのアルバム'Rebel Yell'は、デジタル配信において特にどのプラットフォームで初期に高音質リマスター版がリリースされ、ファンから評価を受けたでしょうか？",
-          "options": [
-            "iTunes Store",
-            "Spotify",
-            "Amazon Music",
-            "Tidal"
-          ],
+          "options": ["iTunes Store", "Spotify", "Amazon Music", "Tidal"],
           "correctAnswer": "iTunes Store",
           "trivia": "Billy Idolの1983年のアルバム'Rebel Yell'は、デジタル配信が普及し始めた2000年代後半に、iTunes Storeで初めて高音質のリマスター版として配信されました。これにより、オリジナルのアナログ音源からデジタル化されたクリアな音質が一般リスナーにも届き、アルバムの人気が再燃しました。SpotifyやAmazon Music、Tidalなど他のストリーミングサービスでも後に配信されましたが、最初に注目されたのはiTunes Storeでの配信でした。このリマスター版は、オリジナル録音の質を活かしつつデジタル時代に対応した事例として評価されています。"
         },
@@ -973,12 +898,7 @@
       "hard": [
         {
           "question": "Billy Idolの1983年のアルバム'Rebel Yell'は、どのレコードレーベルからリリースされましたか？このレーベルはどのような特徴を持ち、どのようにしてIdolのキャリアに影響を与えたでしょうか？",
-          "options": [
-            "Chrysalis Records",
-            "Virgin Records",
-            "Island Records",
-            "Geffen Records"
-          ],
+          "options": ["Chrysalis Records", "Virgin Records", "Island Records", "Geffen Records"],
           "correctAnswer": "Chrysalis Records",
           "trivia": "Billy Idolの1983年のアルバム'Rebel Yell'はChrysalis Recordsからリリースされました。Chrysalisは1970年代から1980年代にかけて多くのロックアーティストを擁し、特にパンクやニュー・ウェイブ系のアーティストを積極的に支援していたことで知られています。このレーベルはBilly Idolのソロキャリアの立ち上げと成功に重要な役割を果たし、'Rebel Yell'のヒットシングルを効果的にマーケティングしました。Virgin RecordsやIsland Records、Geffen Recordsも当時活発に活動していましたが、Billy IdolのこのアルバムはChrysalisからのリリースが公式記録に残っています。Chrysalisのサポートにより、Billy Idolは国際的な知名度を獲得し、80年代のロックシーンで確固たる地位を築きました。"
         },
@@ -1096,12 +1016,7 @@
         },
         {
           "question": "Billy Joelのアルバム'An Innocent Man'において、ベースギターを演奏したミュージシャンは誰でしょうか？",
-          "options": [
-            "Doug Stegmeyer",
-            "Tony Levin",
-            "John Paul Jones",
-            "Marcus Miller"
-          ],
+          "options": ["Doug Stegmeyer", "Tony Levin", "John Paul Jones", "Marcus Miller"],
           "correctAnswer": "Doug Stegmeyer",
           "trivia": "アルバム'An Innocent Man'（1983年）では、Billy Joelの長年のベーシストであるDoug Stegmeyerがベースを担当しました。Stegmeyerは1970年代からBilly Joelのライブとレコーディングに参加し、彼の安定したベースプレイはアルバムのクラシックなポップ・サウンド形成に貢献しています。Tony LevinやMarcus Millerは他の有名なベーシストですが、このアルバムには参加していません。また、John Paul JonesはLed Zeppelinのベーシストとして知られており、'An Innocent Man'の制作には関わっていません。"
         },
@@ -1127,34 +1042,19 @@
       "easy": [
         {
           "question": "Blondieの1980年のアルバム'Autoamerican'に収録されたヒット曲のうち、どの曲がアメリカのブルースやジャズにインスパイアされて制作されましたか？",
-          "options": [
-            "The Tide Is High",
-            "Rapture",
-            "Call Me",
-            "Heart of Glass"
-          ],
+          "options": ["The Tide Is High", "Rapture", "Call Me", "Heart of Glass"],
           "correctAnswer": "The Tide Is High",
           "trivia": "Blondieのアルバム'Autoamerican'（1980年）には、ジャマイカのレゲエミュージックに加え、アメリカのブルースやジャズの影響を受けた曲が含まれています。その中でも『The Tide Is High』は、元々ジャマイカのグループThe Paragonsの曲ですが、Blondieはこの曲をカバーし、アメリカの音楽シーンにレゲエとブルースの要素を融合させるインスピレーションを得ました。結果的にこの曲は全米チャートで1位を獲得し、グループの多様な音楽的影響を示す代表作となりました。また、アルバム全体もロック、ポップ、レゲエ、ファンクなど多様なジャンルを取り入れており、Blondieの音楽的探求心が反映されています。"
         },
         {
           "question": "Blondieのアルバム『Autoamerican』（1980年）において、マーケティング戦略として特に注目されたシングルはどれでしょうか？",
-          "options": [
-            "『The Tide Is High』",
-            "『Rapture』",
-            "『Call Me』",
-            "『Heart of Glass』"
-          ],
+          "options": ["『The Tide Is High』", "『Rapture』", "『Call Me』", "『Heart of Glass』"],
           "correctAnswer": "『The Tide Is High』",
           "trivia": "Blondieの1980年のアルバム『Autoamerican』からのシングル『The Tide Is High』は、マーケティング面で特に成功を収めました。この曲はもともと1967年にハイ・ナイツがリリースしたレゲエ調のカバーで、Blondieが新しい音楽スタイルとしてレゲエとポップを融合させることで注目を集めました。シングルは全米シングルチャートのトップに立ち、Blondieの商業的成功をさらに押し上げました。『Autoamerican』のマーケティングは、多様な音楽ジャンルを取り入れたことで幅広い層にアピールし、プロモーションにおいてもこのシングルが中心的役割を果たしました。"
         },
         {
           "question": "Blondieの1980年のアルバム『Autoamerican』はどのレコードレーベルからリリースされましたか？",
-          "options": [
-            "Chrysalis Records",
-            "Sire Records",
-            "EMI Records",
-            "Island Records"
-          ],
+          "options": ["Chrysalis Records", "Sire Records", "EMI Records", "Island Records"],
           "correctAnswer": "Chrysalis Records",
           "trivia": "Blondieのアルバム『Autoamerican』は1980年にChrysalis Recordsからリリースされました。Chrysalisは1970年代から1980年代にかけて多くのロックバンドを支えたイギリスのレーベルです。同じ時期のBlondieの作品もこのレーベルから発売されており、彼らの代表的なヒット曲もChrysalisが支えていました。なお、Sire RecordsやIsland Recordsも当時有名なレーベルでしたが、Blondieの『Autoamerican』はChrysalisが担当していました。"
         }
@@ -1162,12 +1062,7 @@
       "medium": [
         {
           "question": "Blondieの1980年のアルバム『Autoamerican』は、どのレコードレーベルからリリースされましたか？",
-          "options": [
-            "Chrysalis Records",
-            "Sire Records",
-            "Island Records",
-            "Virgin Records"
-          ],
+          "options": ["Chrysalis Records", "Sire Records", "Island Records", "Virgin Records"],
           "correctAnswer": "Chrysalis Records",
           "trivia": "Blondieの『Autoamerican』は1980年にChrysalis Recordsからリリースされました。Chrysalisは1970年代後半から1980年代にかけて多くのニューウェーブやパンクバンドを擁し、Blondieもその中核アーティストの一つでした。アルバム『Autoamerican』は、アメリカ音楽の多様性を反映しつつ、Chrysalisのサポートの下で幅広いジャンルに挑戦した作品です。Sire RecordsやIsland Recordsも当時人気のレーベルでしたが、BlondieのメインレーベルはChrysalisでした。"
         },
@@ -1320,23 +1215,13 @@
         },
         {
           "question": "Bobby Brownのアルバム'Don't Be Cruel'において、彼の音楽的インスピレーションとなり、アルバムのサウンドに大きな影響を与えたアーティストは誰でしょうか？",
-          "options": [
-            "Prince",
-            "Michael Jackson",
-            "James Brown",
-            "Stevie Wonder"
-          ],
+          "options": ["Prince", "Michael Jackson", "James Brown", "Stevie Wonder"],
           "correctAnswer": "Prince",
           "trivia": "Bobby Brownの1988年のアルバム'Don't Be Cruel'は、特にプリンスのファンクとR&Bの革新的なサウンドから強く影響を受けています。プリンスの多彩な楽器演奏とプロダクションスタイルは、Brownのアルバム制作において重要なインスピレーション源となりました。また、このアルバムはNew Jack Swingのジャンルを代表する作品であり、プリンスの音楽的アプローチがその進化に寄与しています。Michael JacksonやJames Brownも影響を与えた可能性はありますが、特にプリンスの影響が明確に表れているのが特徴です。"
         },
         {
           "question": "Bobby Brownの1988年のアルバム『Don't Be Cruel』において、音楽的に特徴的な要素の一つである“New Jack Swing”のサウンドを作り出す上で、どのミュージシャンまたはプロデューサーが主に貢献しましたか？",
-          "options": [
-            "Teddy Riley",
-            "Quincy Jones",
-            "Rick Rubin",
-            "Dr. Dre"
-          ],
+          "options": ["Teddy Riley", "Quincy Jones", "Rick Rubin", "Dr. Dre"],
           "correctAnswer": "Teddy Riley",
           "trivia": "1988年にリリースされたBobby Brownのアルバム『Don't Be Cruel』は、New Jack Swingというジャンルを代表する作品として知られています。このジャンルの特徴であるファンクやR&Bのリズムにヒップホップの要素を融合させた音楽スタイルは、プロデューサーのTeddy Rileyが主導して作りあげました。Teddy Rileyはこのアルバムの多くのトラックのプロデュースとサウンドデザインを担当し、彼の革新的なビートメイキングとシンセサウンドの融合がアルバムの成功に大きく寄与しています。Quincy JonesやRick Rubin、Dr. Dreも著名なプロデューサーですが、『Don't Be Cruel』の音楽的核を形成したのはTeddy Rileyでした。"
         }
@@ -1485,12 +1370,7 @@
         },
         {
           "question": "Bruce Springsteenのアルバム'Born in the U.S.A.'リリース後のツアーで、どの都市でのライブパフォーマンスが特に象徴的であり、映像作品『Born in the U.S.A. Live 1984』として公式にリリースされましたか？",
-          "options": [
-            "ニューヨーク",
-            "ロサンゼルス",
-            "シカゴ",
-            "フィラデルフィア"
-          ],
+          "options": ["ニューヨーク", "ロサンゼルス", "シカゴ", "フィラデルフィア"],
           "correctAnswer": "ロサンゼルス",
           "trivia": "Bruce Springsteenの1984年の『Born in the U.S.A.』ツアーは大規模で、全米各地で熱狂的に迎えられました。特にロサンゼルスでのライブは観客動員も多く、エネルギッシュなパフォーマンスが評価されました。この公演は後に『Born in the U.S.A. Live 1984』として映像化され、ファンに広く知られています。ツアーはアルバムの成功とともにBruce Springsteenのステージパフォーマンスの魅力を世界に示す重要な機会となりました。"
         }
@@ -1520,12 +1400,7 @@
         },
         {
           "question": "Bruce Springsteenのアルバム'Born in the U.S.A.'（1984年）は米国ビルボード200チャートでどのくらいの期間トップ10に留まりましたか？",
-          "options": [
-            "約90週",
-            "約30週",
-            "約10週",
-            "約50週"
-          ],
+          "options": ["約90週", "約30週", "約10週", "約50週"],
           "correctAnswer": "約90週",
           "trivia": "Bruce Springsteenの1984年のアルバム'Born in the U.S.A.'は、アメリカのビルボード200チャートで約90週間トップ10に留まりました。この驚異的なチャートパフォーマンスは、アルバムの大ヒットシングルと広範なツアーの成功に支えられています。特に同名曲「Born in the U.S.A.」を含む7枚のシングルがトップ10入りし、1980年代のロックシーンでSpringsteenの地位を確立しました。アルバムは全世界で3,000万枚以上を売り上げ、アメリカだけで1,000万枚以上のセールスを記録しています。"
         }
@@ -1544,23 +1419,13 @@
         },
         {
           "question": "Bruce Springsteenの1984年のアルバム『Born in the U.S.A.』において、Eストリート・バンドのメンバーでありながら、実際の録音にほとんど参加せず、後にバンドを離脱したのは誰でしょうか？",
-          "options": [
-            "David Sancious",
-            "Steven Van Zandt",
-            "Max Weinberg",
-            "Roy Bittan"
-          ],
+          "options": ["David Sancious", "Steven Van Zandt", "Max Weinberg", "Roy Bittan"],
           "correctAnswer": "David Sancious",
           "trivia": "『Born in the U.S.A.』の録音時、キーボーディストであるDavid Sanciousはスタジオセッションにほとんど参加していませんでした。彼はEストリート・バンドの初期メンバーでしたが、1984年のアルバム録音の直前にバンドを離脱しています。そのため、代わりにRoy Bittanがキーボードパートの多くを担当しました。Steven Van ZandtやMax Weinbergは録音とツアーの両方で重要な役割を果たしており、バンドの中心メンバーとして活動を続けました。この状況は、アルバムのサウンドやバンドの編成に影響を与えた歴史的な背景の一つです。"
         },
         {
           "question": "Bruce Springsteenの1984年アルバム『Born in the U.S.A.』からのシングルの中で、アメリカのラジオエアプレイで最も長期間トップ10にランクインした曲はどれでしょうか？",
-          "options": [
-            "Dancing in the Dark",
-            "Glory Days",
-            "Born in the U.S.A.",
-            "I'm on Fire"
-          ],
+          "options": ["Dancing in the Dark", "Glory Days", "Born in the U.S.A.", "I'm on Fire"],
           "correctAnswer": "Dancing in the Dark",
           "trivia": "1984年リリースのBruce Springsteenのアルバム『Born in the U.S.A.』からのシングルの中で、『Dancing in the Dark』はアメリカのラジオエアプレイで特に成功を収めました。この曲はBillboard Hot 100で最高2位に達し、トップ10に長期間留まりました。『Born in the U.S.A.』の他のシングルもラジオで多く流れましたが、『Dancing in the Dark』はそのキャッチーなメロディとエネルギッシュなリズムが広く支持され、1980年代のラジオヒットの代表作の一つとなっています。ラジオ局のプレイリストに頻繁に登場し、アルバム全体の成功を牽引しました。"
         }
@@ -1586,12 +1451,7 @@
         },
         {
           "question": "Bryan Adamsの1984年のアルバム'Reckless'で、プロデューサーとして共同作業を行った人物は誰でしょうか？",
-          "options": [
-            "Bob Clearmountain",
-            "Quincy Jones",
-            "Rick Rubin",
-            "Brian Eno"
-          ],
+          "options": ["Bob Clearmountain", "Quincy Jones", "Rick Rubin", "Brian Eno"],
           "correctAnswer": "Bob Clearmountain",
           "trivia": "Bryan Adamsのアルバム'Reckless'（1984年）は、プロデューサーとしてBob Clearmountainとの共同作業によって制作されました。Clearmountainはミキシングエンジニアとしても有名で、多くのロックアルバムに携わった経験があります。彼の参加により、'Reckless'はクリアで力強いサウンドを実現し、ヒット曲『Summer of '69』などが生まれました。Clearmountainのプロデュースはアルバムの成功に大きく貢献し、その後もBryan Adamsのキャリアに影響を与え続けました。"
         },
@@ -1632,12 +1492,7 @@
         },
         {
           "question": "Bryan Adamsの1984年のアルバム'Reckless'の録音において、サウンドエンジニアとして重要な役割を果たした人物は誰でしょうか？",
-          "options": [
-            "Bob Clearmountain",
-            "Bruce Fairbairn",
-            "Mutt Lange",
-            "Quincy Jones"
-          ],
+          "options": ["Bob Clearmountain", "Bruce Fairbairn", "Mutt Lange", "Quincy Jones"],
           "correctAnswer": "Bob Clearmountain",
           "trivia": "アルバム'Reckless'の録音は主にBob Clearmountainがエンジニアを務めており、その優れたミキシング技術が特徴です。Clearmountainはクリアでパワフルなギターサウンドやボーカルのバランスを実現し、1980年代のロックサウンドの代表格とされています。また、プロデューサーBruce Fairbairnと密接に協力し、Bryan Adamsの音楽的ビジョンを効果的に表現しました。Mutt LangeやQuincy Jonesはそれぞれ別のアーティストやジャンルで著名ですが、'Reckless'の制作には直接関わっていません。"
         }
@@ -1667,12 +1522,7 @@
         },
         {
           "question": "Bryan Adamsの1984年のアルバム'Reckless'のジャケット写真に使われたモノクロ写真は、どの写真家によって撮影されたでしょうか？",
-          "options": [
-            "Norman Seeff",
-            "Annie Leibovitz",
-            "Jim Shea",
-            "Anton Corbijn"
-          ],
+          "options": ["Norman Seeff", "Annie Leibovitz", "Jim Shea", "Anton Corbijn"],
           "correctAnswer": "Norman Seeff",
           "trivia": "アルバム'Reckless'の象徴的なモノクロジャケット写真は、有名な写真家Norman Seeffによって撮影されました。Seeffは1970年代から1980年代にかけて多くのロックミュージシャンのポートレートを手がけており、その自然でダイナミックなスタイルが特徴です。Bryan Adamsのこのアルバムアートワークは、当時のロックアルバムのデザインにおいても斬新で、アーティストの素顔を強調する意図がありました。Annie LeibovitzやAnton Corbijnも著名なミュージシャン写真家ですが、RecklessのジャケットはNorman Seeffの作品として知られています。"
         }
@@ -1698,12 +1548,7 @@
         },
         {
           "question": "1984年にリリースされたChicagoのアルバム『Chicago 17』は、アメリカのBillboard 200チャートでどの最高順位を記録したでしょうか？",
-          "options": [
-            "1位",
-            "3位",
-            "5位",
-            "10位"
-          ],
+          "options": ["1位", "3位", "5位", "10位"],
           "correctAnswer": "3位",
           "trivia": "Chicagoのアルバム『Chicago 17』は1984年にリリースされ、Billboard 200チャートで最高3位を記録しました。このアルバムはバンドにとって最大の商業的成功の一つであり、特にシングル曲『Hard to Say I'm Sorry』や『You're the Inspiration』が大ヒットしました。『Chicago 17』は彼らのキャリアにおいて最も売れたアルバムの一つであり、1980年代のポップロックシーンを代表する作品となっています。"
         },
@@ -1779,12 +1624,7 @@
         },
         {
           "question": "バンドChicagoのアルバム『Chicago 17』（1984年）において、制作面で大きな影響を与え、アルバムのサウンドに決定的な役割を果たしたプロデューサーは誰でしょうか？",
-          "options": [
-            "David Foster",
-            "Quincy Jones",
-            "T Bone Burnett",
-            "Mutt Lange"
-          ],
+          "options": ["David Foster", "Quincy Jones", "T Bone Burnett", "Mutt Lange"],
           "correctAnswer": "David Foster",
           "trivia": "アルバム『Chicago 17』は1984年にリリースされ、バンドChicagoのキャリアで最も商業的に成功した作品の一つです。この成功に大きく寄与したのがプロデューサーのDavid Fosterであり、彼は繊細で洗練されたアレンジメントとシンセサイザーの活用を通じて、アルバムにモダンなサウンドをもたらしました。特にシングル『Hard to Say I'm Sorry』などは彼のプロデュース手腕が色濃く反映されており、アルバムはアメリカでプラチナ認定を獲得しています。Fosterは当時、他のアーティストとも数多く仕事をしており、その制作スタイルが1980年代のポップ・ロックサウンドの象徴となりました。"
         }
@@ -2034,12 +1874,7 @@
         },
         {
           "question": "Cyndi Lauperのアルバム'She's So Unusual'は、デジタル配信が普及する前の1983年にリリースされましたが、どのデジタル音楽プラットフォームで最初に公式配信が始まったことで、新しい世代のリスナーに再び注目されましたか？",
-          "options": [
-            "iTunes Store",
-            "Spotify",
-            "Amazon Music",
-            "Google Play Music"
-          ],
+          "options": ["iTunes Store", "Spotify", "Amazon Music", "Google Play Music"],
           "correctAnswer": "iTunes Store",
           "trivia": "Cyndi Lauperの代表作である1983年のアルバム'She's So Unusual'は、当初はアナログレコードやカセットテープでリリースされましたが、2000年代に入りデジタル音楽配信が普及する中で、iTunes Storeがこのアルバムの公式デジタル配信を開始した最初の主要プラットフォームの一つでした。iTunes Storeは2003年にサービスを開始し、多くのクラシックアルバムのデジタル化と配信を推進しました。これにより、若い世代のリスナーもCyndi Lauperの名曲『Girls Just Want to Have Fun』や『Time After Time』を手軽に楽しめるようになり、アルバムの新たな人気再燃につながりました。SpotifyやAmazon Music、Google Play Musicも後に配信を開始しましたが、iTunesが最初期のデジタル配信プラットフォームとして大きな役割を果たしました。"
         },
@@ -2135,12 +1970,7 @@
       "easy": [
         {
           "question": "Daryl Hallの1982年のアルバム『H2O』で、メインギタリストとして参加し、後にHall & Oatesの公式メンバーとなった人物は誰でしょうか？",
-          "options": [
-            "G.E. Smith",
-            "Steve Lukather",
-            "Eddie Van Halen",
-            "Mark Knopfler"
-          ],
+          "options": ["G.E. Smith", "Steve Lukather", "Eddie Van Halen", "Mark Knopfler"],
           "correctAnswer": "G.E. Smith",
           "trivia": "アルバム『H2O』はDaryl Hallのソロ作品でありながら、Hall & Oatesのサウンドを強く反映しています。特にギタリストのG.E. Smithはこのアルバムで重要な役割を果たし、その後正式にHall & Oatesのバンドメンバーとなりました。G.E. Smithはその卓越したギターテクニックで知られ、後に『Saturday Night Live』の音楽監督も務めています。このアルバムにはヒット曲「Family Man」も収録されており、G.E. Smithのギターサウンドが楽曲の魅力を高めています。"
         },
@@ -2493,12 +2323,7 @@
         },
         {
           "question": "Def Leppardのアルバム'Hysteria'（1987年）は、どのシングルがアメリカのBillboard Hot 100チャートで最高位を記録し、メディア報道で大きな注目を集めましたか？",
-          "options": [
-            "Pour Some Sugar on Me",
-            "Animal",
-            "Love Bites",
-            "Rocket"
-          ],
+          "options": ["Pour Some Sugar on Me", "Animal", "Love Bites", "Rocket"],
           "correctAnswer": "Love Bites",
           "trivia": "Def Leppardのアルバム'Hysteria'（1987年）からリリースされたシングルの中で、『Love Bites』はアメリカのBillboard Hot 100チャートで1位を獲得し、バンドにとって初の全米ナンバーワンシングルとなりました。この成功はメディアで大きく報道され、アルバムの商業的成功を後押ししました。『Pour Some Sugar on Me』や『Animal』もヒットしましたが、チャート順位では『Love Bites』が最も高かったです。アルバム自体は全世界で1200万枚以上を売り上げ、Def Leppardを80年代後半の代表的なロックバンドの一つにしました。"
         }
@@ -2552,12 +2377,7 @@
         },
         {
           "question": "Def Leppardのアルバム'Hysteria'（1987年）は、どのレコードレーベルからリリースされ、バンドの商業的成功に大きく貢献したでしょうか？",
-          "options": [
-            "Mercury Records",
-            "Island Records",
-            "Geffen Records",
-            "Atlantic Records"
-          ],
+          "options": ["Mercury Records", "Island Records", "Geffen Records", "Atlantic Records"],
           "correctAnswer": "Mercury Records",
           "trivia": "Def Leppardの'Hysteria'は1987年にMercury Recordsからリリースされました。Mercury Recordsは、彼らのメジャーデビュー以来のレーベルであり、このアルバムのリリースを通じて世界的な成功を収める重要な役割を果たしました。特に当時の音楽業界において、Mercuryはロックバンドのプロモーションに強みを持っており、シングルの多大なラジオ露出やMTVでのビデオ放映を支援。これにより、'Hysteria'は全米チャートで高順位を獲得し、Def Leppardの代表作となりました。なお、同時期にIsland、Geffen、Atlanticなどのレーベルも有名でしたが、Def Leppardは一貫してMercuryとの契約を続けていました。"
         },
@@ -2594,12 +2414,7 @@
         },
         {
           "question": "Depeche Modeの1987年のアルバム『Music for the Masses』は、どのレコードレーベルからリリースされましたか？",
-          "options": [
-            "Mute Records",
-            "Virgin Records",
-            "EMI Records",
-            "Island Records"
-          ],
+          "options": ["Mute Records", "Virgin Records", "EMI Records", "Island Records"],
           "correctAnswer": "Mute Records",
           "trivia": "Depeche Modeのアルバム『Music for the Masses』は1987年にイギリスのインディペンデント・レーベルであるMute Recordsからリリースされました。Mute Recordsは1980年代のエレクトロニック・ミュージックシーンで重要な役割を果たし、Depeche Modeとは長年にわたり契約を結んでいます。このアルバムはMuteを通じて世界的に広まり、後にVirgin Recordsがアメリカでの流通を担当しましたが、オリジナルのリリースはMute Recordsが主導していました。Mute RecordsはDepeche Modeの独特なサウンドと実験性を支える基盤となったレーベルとして知られています。"
         },
@@ -2664,12 +2479,7 @@
         },
         {
           "question": "Depeche Modeのアルバム'Music for the Masses'（1987年）はどのレコードレーベルからリリースされましたか？",
-          "options": [
-            "Mute Records",
-            "Sire Records",
-            "EMI Records",
-            "Virgin Records"
-          ],
+          "options": ["Mute Records", "Sire Records", "EMI Records", "Virgin Records"],
           "correctAnswer": "Mute Records",
           "trivia": "Depeche Modeのアルバム'Music for the Masses'は1987年にイギリスのインディペンデントレーベルであるMute Recordsからリリースされました。Mute Recordsは1980年代からDepeche Modeを支え続けており、彼らのエレクトロニックサウンドの発展に大きく寄与しました。一方で、アメリカ市場向けにはSire Recordsが流通を担当していましたが、オリジナルリリースはMuteが中心でした。Mute Recordsは革新的なエレクトロニックミュージックに特化したレーベルとして知られ、Depeche Modeの成功の背景にある重要な存在です。"
         },
@@ -2787,12 +2597,7 @@
         },
         {
           "question": "Dire Straitsのアルバム'Brothers in Arms'（1985年）がリリースされた際、どのレコードレーベルが主にこの作品の世界的な配給を担当していたでしょうか？",
-          "options": [
-            "Vertigo Records",
-            "Warner Bros. Records",
-            "Island Records",
-            "EMI Records"
-          ],
+          "options": ["Vertigo Records", "Warner Bros. Records", "Island Records", "EMI Records"],
           "correctAnswer": "Vertigo Records",
           "trivia": "Dire Straitsの'Brothers in Arms'は1985年にVertigo Recordsからリリースされました。Vertigo Recordsは、特にイギリスを中心にロックやプログレッシブロックのアーティストを多く抱えるレーベルで、このアルバムの世界的な成功に大きく寄与しました。アメリカではWarner Bros. Recordsが配給を担当していましたが、オリジナルの主契約レーベルはVertigoでした。'Brothers in Arms'はCDフォーマットの普及を促進したアルバムの一つとしても知られ、Vertigoの戦略的なマーケティングも成功の鍵となりました。"
         }
@@ -2829,12 +2634,7 @@
         },
         {
           "question": "Don Henleyのアルバム『Building the Perfect Beast』が1980年代のポップカルチャーに与えた影響として、最も広く知られているヒット曲はどれでしょうか？",
-          "options": [
-            "The Boys of Summer",
-            "Hotel California",
-            "Take It Easy",
-            "Desperado"
-          ],
+          "options": ["The Boys of Summer", "Hotel California", "Take It Easy", "Desperado"],
           "correctAnswer": "The Boys of Summer",
           "trivia": "Don Henleyの1984年のアルバム『Building the Perfect Beast』からリリースされたシングル『The Boys of Summer』は、アメリカのビルボードチャートでトップ10に入り、1980年代の代表的なヒット曲となりました。この曲は夏の郷愁をテーマにしており、ミュージックビデオもMTVで頻繁に流れたことでポップカルチャーに大きな影響を与えました。『Hotel California』や『Take It Easy』はイーグルスの代表曲ですが、『The Boys of Summer』はDon Henleyのソロ活動で特に有名な楽曲です。これにより、彼のソロキャリアが確立されました。"
         }
@@ -2941,12 +2741,7 @@
         },
         {
           "question": "Duran Duranのアルバム'Rio'（1982年）に収録された曲の中で、バンドが南米のリオデジャネイロの雰囲気からインスピレーションを得たと特に語っている曲はどれですか？",
-          "options": [
-            "Rio",
-            "Hungry Like the Wolf",
-            "Save a Prayer",
-            "The Chauffeur"
-          ],
+          "options": ["Rio", "Hungry Like the Wolf", "Save a Prayer", "The Chauffeur"],
           "correctAnswer": "Rio",
           "trivia": "Duran Duranの1982年のアルバム'Rio'のタイトル曲『Rio』は、バンドが南米のリオデジャネイロのエネルギーと明るい雰囲気からインスピレーションを受けて作られました。シンセポップとファンクの要素を融合させたこの曲は、バンドの代表作として知られています。アルバム全体が80年代のニューウェーブシーンで大きな成功を収め、特に『Rio』は音楽ビデオの影響もあって世界的にヒットしました。メンバーはリオの開放的で陽気なイメージを音楽で表現しようとしたことを公言しています。"
         }
@@ -3011,12 +2806,7 @@
         },
         {
           "question": "1982年リリースのDuran Duranのアルバム『Rio』がリリースされた際、どのレコードレーベルが主にその国際的な発売とプロモーションを担当していたでしょうか？",
-          "options": [
-            "EMIレコード",
-            "Capitolレコード",
-            "Virginレコード",
-            "Islandレコード"
-          ],
+          "options": ["EMIレコード", "Capitolレコード", "Virginレコード", "Islandレコード"],
           "correctAnswer": "EMIレコード",
           "trivia": "Duran Duranの1982年のアルバム『Rio』は、イギリス国内ではEMIレコードからリリースされました。EMIは当時、同バンドの主要なレーベルであり、アルバムの国際的な配給やプロモーションも担当していました。アメリカ市場では、一部のリリースがCapitolレコードを通じても行われましたが、主要なレーベルとしてはEMIの役割が非常に大きかったのです。ちなみに、VirginレコードやIslandレコードは同時期に多くの英国アーティストを抱えていましたが、Duran Duranとは契約していませんでした。EMIの強力なサポートにより、『Rio』は世界的な成功を収めることができました。"
         }
@@ -3154,12 +2944,7 @@
         },
         {
           "question": "1988年にリリースされたErasureのアルバム『The Innocents』はどのレコードレーベルから発売されましたか？",
-          "options": [
-            "Mute Records",
-            "Virgin Records",
-            "EMI Records",
-            "Sire Records"
-          ],
+          "options": ["Mute Records", "Virgin Records", "EMI Records", "Sire Records"],
           "correctAnswer": "Mute Records",
           "trivia": "Erasureのアルバム『The Innocents』は1988年にイギリスのインディペンデントレーベルであるMute Recordsからリリースされました。Mute Recordsは1980年代のシンセポップやエレクトロニックミュージックの重要なレーベルであり、ErasureのほかDepeche ModeやYazooなども所属しています。このレーベルはアーティストの個性を重視し、実験的な音楽を支援したことで知られています。『The Innocents』はMute Recordsからのリリースにより、Erasureの国際的な成功の礎を築きました。"
         },
@@ -3189,12 +2974,7 @@
         },
         {
           "question": "1988年にリリースされたErasureのアルバム'The Innocents'は、国際的なチャート成功を収めましたが、特にどの国で初めてトップ10入りを果たし、ヨーロッパ以外でのErasureの知名度向上に貢献しましたか？",
-          "options": [
-            "アメリカ合衆国",
-            "日本",
-            "オーストラリア",
-            "カナダ"
-          ],
+          "options": ["アメリカ合衆国", "日本", "オーストラリア", "カナダ"],
           "correctAnswer": "オーストラリア",
           "trivia": "Erasureのアルバム'The Innocents'は1988年のリリース当時、イギリス国内で大ヒットし、チャートのトップに輝きました。加えて、オーストラリアでも初めてトップ10入りを果たし、ヨーロッパ外でのErasureの国際的知名度向上に大きく貢献しました。この成功は、シンセポップというジャンルが世界的に広がるきっかけともなり、日本やアメリカでも注目される足がかりとなりました。特にオーストラリアでの成功は、Erasureの海外ツアーやプロモーション活動の拡大にもつながり、彼らの国際的影響力を高めました。"
         },
@@ -3490,12 +3270,7 @@
         },
         {
           "question": "Foreignerの1984年のアルバム'Agent Provocateur'で、キーボードに使用された主要なシンセサイザー機材はどれでしょうか？",
-          "options": [
-            "Yamaha DX7",
-            "Moog Minimoog",
-            "Roland Jupiter-8",
-            "Korg M1"
-          ],
+          "options": ["Yamaha DX7", "Moog Minimoog", "Roland Jupiter-8", "Korg M1"],
           "correctAnswer": "Yamaha DX7",
           "trivia": "Foreignerのアルバム'Agent Provocateur'（1984年）では、当時最新鋭のシンセサイザーであるYamaha DX7がキーボードサウンドの中心として使用されました。DX7はFM音源方式を採用し、独特のクリアで煌びやかな音色が特徴です。この機材は1980年代のポップ・ロックやニューウェーブで多用され、Foreignerのサウンドにもその時代のデジタルシンセサイザーの影響が色濃く反映されています。MoogやRolandのシンセも当時人気でしたが、'Agent Provocateur'のサウンドメイキングには特にDX7が重要な役割を果たしました。"
         },
@@ -3773,12 +3548,7 @@
       "hard": [
         {
           "question": "George Harrisonの1987年アルバム『Cloud Nine』のプロダクションにおいて、最も重要なコラボレーターとしてギターとプロデュースに参加し、アルバムのサウンドに大きく寄与したのは誰でしょうか？",
-          "options": [
-            "Jeff Lynne",
-            "Eric Clapton",
-            "Phil Spector",
-            "Todd Rundgren"
-          ],
+          "options": ["Jeff Lynne", "Eric Clapton", "Phil Spector", "Todd Rundgren"],
           "correctAnswer": "Jeff Lynne",
           "trivia": "George Harrisonのアルバム『Cloud Nine』（1987年）では、Jeff Lynneがプロデューサー兼ギタリストとして重要な役割を果たしました。LynneはELOのリーダーとして知られ、その特徴的な多重録音技術や洗練されたアレンジがアルバムのサウンドに反映されています。また、Eric Claptonもギターで参加していますが、プロデュース面での中心人物はJeff Lynneでした。Phil Spectorはかつてのビートルズ関連作品に関わりましたが、本作には参加していません。Todd Rundgrenは別の音楽界のプロデューサーであり、本アルバムの制作には関与していません。"
         },
@@ -3837,12 +3607,7 @@
         },
         {
           "question": "George Michaelのアルバム'Faith'（1987年）はどのレコードレーベルからリリースされましたか？",
-          "options": [
-            "Columbia Records",
-            "Epic Records",
-            "Virgin Records",
-            "Motown Records"
-          ],
+          "options": ["Columbia Records", "Epic Records", "Virgin Records", "Motown Records"],
           "correctAnswer": "Epic Records",
           "trivia": "George Michaelのソロデビューアルバム'Faith'は1987年にEpic Recordsからリリースされました。Epic Recordsはソニー・ミュージックエンタテインメントの一部であり、その時期に多くの有名アーティストを抱えていました。'Faith'はEpic Recordsの支援のもと、全世界でヒットし、グラミー賞も受賞しています。Epic Recordsは特にポップやロックの分野で強力なレーベルとして知られており、George Michaelの成功に大きく貢献しました。"
         }
@@ -3949,12 +3714,7 @@
         },
         {
           "question": "Guns N' Rosesのアルバム'Appetite for Destruction'からのシングルで、特にアメリカのラジオエアプレイで大ヒットし、バンドの知名度を一気に高めた曲はどれでしょうか？",
-          "options": [
-            "Welcome to the Jungle",
-            "Used to Love Her",
-            "Back Off Bitch",
-            "Patience"
-          ],
+          "options": ["Welcome to the Jungle", "Used to Love Her", "Back Off Bitch", "Patience"],
           "correctAnswer": "Welcome to the Jungle",
           "trivia": "Guns N' Rosesの1987年のデビューアルバム'Appetite for Destruction'からリリースされたシングルの中で、'Welcome to the Jungle'は特にアメリカのラジオ局で頻繁にオンエアされました。この曲はバンドの代表曲となり、ラジオエアプレイの増加によりアルバムの売上も急増しました。実際、'Welcome to the Jungle'はMTVでも多く流され、ハードロックシーンにおけるGuns N' Rosesの地位を確立しました。一方、'Used to Love Her'や'Back Off Bitch'はシングルカットされておらず、'Patience'は後にヒットした曲ですが、ラジオでの注目度は'Welcome to the Jungle'ほど早期ではありませんでした。"
         }
@@ -3997,12 +3757,7 @@
       "hard": [
         {
           "question": "Guns N' Rosesの1987年のアルバム'Appetite for Destruction'のリリース当初、どの曲がアメリカのラジオ局で最も早くエアプレイされ、アルバムの知名度向上に大きく貢献したでしょうか？",
-          "options": [
-            "Welcome to the Jungle",
-            "Sweet Child o' Mine",
-            "Paradise City",
-            "Nightrain"
-          ],
+          "options": ["Welcome to the Jungle", "Sweet Child o' Mine", "Paradise City", "Nightrain"],
           "correctAnswer": "Welcome to the Jungle",
           "trivia": "Guns N' Rosesのデビューアルバム'Appetite for Destruction'（1987年）から、最初にアメリカのラジオで頻繁にエアプレイされた曲は「Welcome to the Jungle」でした。この曲は過激な歌詞と迫力あるギターリフで注目を集め、LAのラジオ局を中心にヘビーローテーションされました。特にKROQ-FMなどの影響力のある局が早期に取り上げたことで、アルバム全体の知名度が急速に上昇しました。後に「Sweet Child o' Mine」や「Paradise City」も人気を博しましたが、最初の突破口となったのは「Welcome to the Jungle」のラジオエアプレイでした。"
         },
@@ -4151,12 +3906,7 @@
       "easy": [
         {
           "question": "Janet Jacksonの1986年のアルバム『Control』のスタジオ録音において、主要なプロデューサーとして制作を担当したのは誰でしょうか？",
-          "options": [
-            "Jimmy JamとTerry Lewis",
-            "Quincy Jones",
-            "Dr. Dre",
-            "Rick Rubin"
-          ],
+          "options": ["Jimmy JamとTerry Lewis", "Quincy Jones", "Dr. Dre", "Rick Rubin"],
           "correctAnswer": "Jimmy JamとTerry Lewis",
           "trivia": "Janet Jacksonのアルバム『Control』は、Jimmy JamとTerry Lewisが主要なプロデューサーとして制作を担当しました。二人は元ミネアポリス・ファンクバンドのThe Timeのメンバーであり、独特のファンクとR&Bを融合させたサウンドでアルバムを特徴付けました。このコラボレーションにより、『Control』はJanet Jacksonのキャリアにおける画期的な作品となり、彼女の音楽的自立を象徴しています。録音は1985年から1986年にかけて行われ、当時の最新技術も取り入れられました。"
         },
@@ -4243,12 +3993,7 @@
         },
         {
           "question": "Janet Jacksonの1986年のアルバム'Control'において、主要なプロデューサーとして楽曲制作に深く関与し、彼女のサウンドに大きな影響を与えた兄弟は誰でしょうか？",
-          "options": [
-            "Jimmy Jam",
-            "Terry Lewis",
-            "Michael Jackson",
-            "Marlon Jackson"
-          ],
+          "options": ["Jimmy Jam", "Terry Lewis", "Michael Jackson", "Marlon Jackson"],
           "correctAnswer": "Jimmy Jam",
           "trivia": "1986年のアルバム'Control'は、Janet Jacksonのキャリアにおける重要な転換点となりました。このアルバムのサウンドを特徴づけたのは、Jimmy JamとTerry Lewisという兄弟デュオのプロデュースです。特にJimmy Jamは、シンセサイザーやドラムマシンを駆使し、ジャンル横断的なファンクやR&Bの革新的な融合を実現しました。Michael JacksonやMarlon JacksonはJanetの兄弟ですが、本作の制作には直接関わっていません。Jimmy JamとTerry Lewisのプロデュースが、Janet Jacksonの独立したアーティストとしての地位を確立するうえで大きな役割を果たしました。"
         }
@@ -4557,12 +4302,7 @@
       "hard": [
         {
           "question": "Kid 'n Playの1988年のアルバム『2 Hype』制作において、彼らが主に使用したサンプラーはどれでしょうか？",
-          "options": [
-            "E-mu SP-1200",
-            "Akai MPC60",
-            "Roland TR-808",
-            "Yamaha DX7"
-          ],
+          "options": ["E-mu SP-1200", "Akai MPC60", "Roland TR-808", "Yamaha DX7"],
           "correctAnswer": "E-mu SP-1200",
           "trivia": "Kid 'n Playのデビューアルバム『2 Hype』は、1988年にリリースされ、ヒップホップ黎明期のサンプリング技術を活用した作品です。特にE-mu SP-1200サンプラーが制作の中心的な機材として使用され、独特の粗めのサウンドとリズムが特徴的でした。この機材は当時の多くのヒップホップアーティストに愛用され、サンプリングの精度と操作性で評価されていました。一方、Akai MPC60も当時注目されていましたが、『2 Hype』の制作では主にE-mu SP-1200が使われたことが知られています。Roland TR-808はドラムマシン、Yamaha DX7はFMシンセサイザーであり、サンプラーとは異なる役割を持ちます。"
         },
@@ -4656,12 +4396,7 @@
         },
         {
           "question": "LL Cool Jのアルバム'Bigger and Deffer'（1987年）からのシングルのうち、アメリカのラジオエアプレイチャートで最も高い順位を記録した曲はどれでしょうか？",
-          "options": [
-            "I'm Bad",
-            "Going Back to Cali",
-            "Rock the Bells",
-            "Mr. Smith"
-          ],
+          "options": ["I'm Bad", "Going Back to Cali", "Rock the Bells", "Mr. Smith"],
           "correctAnswer": "I'm Bad",
           "trivia": "LL Cool Jの1987年アルバム'Bigger and Deffer'は、ヒップホップ界で大きな成功を収めました。その中でもシングル「I'm Bad」はアメリカのラジオエアプレイチャートで特に高い人気を博し、広範なラジオ放送によりLL Cool Jの知名度を大きく向上させました。アルバムの他のシングル「Going Back to Cali」も高い評価を受けましたが、「I'm Bad」のラジオエアプレイは特に顕著でした。この成功は、プロデューサーのRick RubinとLL Cool J自身のスタイルが融合し、当時のラジオリスナーの支持を得た結果です。"
         }
@@ -4803,12 +4538,7 @@
         },
         {
           "question": "Lionel Richieの1983年のアルバム『Can't Slow Down』において、主要なドラマーとして参加したミュージシャンは誰でしょうか？",
-          "options": [
-            "James Stroud",
-            "Steve Gadd",
-            "Jeff Porcaro",
-            "Rick Marotta"
-          ],
+          "options": ["James Stroud", "Steve Gadd", "Jeff Porcaro", "Rick Marotta"],
           "correctAnswer": "James Stroud",
           "trivia": "『Can't Slow Down』でのドラム演奏は主にジェームズ・ストラウドによって担当されました。ストラウドは1980年代の多くのポップおよびR&B作品で活躍したセッションドラマーであり、Lionel Richieのソウルフルなサウンドを支える重要な役割を果たしました。彼の正確でグルーヴ感のあるドラミングはアルバムのヒット曲『All Night Long』や『Hello』のリズムの基盤となっています。また、他の候補者であるスティーブ・ガッドやジェフ・ポーカロ、リック・マロッタも当時著名なドラマーでしたが、このアルバムの主なドラマーとしてはクレジットされていません。"
         }
@@ -4957,12 +4687,7 @@
         },
         {
           "question": "Madonnaのアルバム'Like a Virgin'（1984年）は国際的に大成功を収めましたが、次のうちどの国でこのアルバムが初めて1位を獲得したでしょうか？",
-          "options": [
-            "アメリカ合衆国",
-            "イギリス",
-            "日本",
-            "オーストラリア"
-          ],
+          "options": ["アメリカ合衆国", "イギリス", "日本", "オーストラリア"],
           "correctAnswer": "アメリカ合衆国",
           "trivia": "Madonnaのアルバム'Like a Virgin'は1984年にリリースされ、アメリカのBillboard 200チャートで初めて1位を獲得しました。この成功は彼女の国際的な人気を確立し、アメリカ以外の国々でも高い評価を得ました。例えば、イギリスやオーストラリアでもトップ10入りを果たし、日本でも注目を集めましたが、1位を記録したのはアメリカ合衆国が最初でした。このアルバムのヒットにより、Madonnaは世界的なポップアイコンとなりました。"
         }
@@ -5093,12 +4818,7 @@
         },
         {
           "question": "Megadethの1986年のアルバム'Peace Sells... but Who's Buying?'に収録された楽曲の中で、リーダーのデイヴ・ムステインが政治的および社会的テーマからインスピレーションを得て作詞した代表曲はどれでしょうか？",
-          "options": [
-            "Peace Sells",
-            "Wake Up Dead",
-            "Devils Island",
-            "Good Mourning/Black Friday"
-          ],
+          "options": ["Peace Sells", "Wake Up Dead", "Devils Island", "Good Mourning/Black Friday"],
           "correctAnswer": "Peace Sells",
           "trivia": "Megadethのアルバム'Peace Sells... but Who's Buying?'に収録された「Peace Sells」は、デイヴ・ムステインが冷戦時代の政治的緊張や社会不安からインスピレーションを受けて作詞した代表的な曲です。この楽曲はアメリカの政治への批判を含み、メタルシーンにおける政治意識の高い表現として知られています。また、アルバム自体はThrash Metalの重要作品とされ、プロデューサーのダヴ・マクドネルが録音を手掛け、鮮明なサウンドが評価されました。こうした背景が、曲のメッセージ性とともにアルバムの影響力を高めています。"
         },
@@ -5181,12 +4901,7 @@
         },
         {
           "question": "Men at Workの1981年のアルバム'Business as Usual'のプロデューサーとして共同作業に参加し、バンドの特徴的なサウンド形成に貢献した人物は誰でしょうか？",
-          "options": [
-            "Peter McIan",
-            "George Martin",
-            "Rick Rubin",
-            "Brian Eno"
-          ],
+          "options": ["Peter McIan", "George Martin", "Rick Rubin", "Brian Eno"],
           "correctAnswer": "Peter McIan",
           "trivia": "Men at Workのアルバム'Business as Usual'は、プロデューサーのPeter McIanとのコラボレーションによって完成しました。McIanは録音とミキシングの両方に関わり、バンドのポップでキャッチーなサウンドを引き出す重要な役割を担いました。彼はオーストラリアの音楽シーンで知られるプロデューサーであり、この作品を通じて国際的にも評価されました。アルバムは1981年にリリースされ、シングル「Down Under」などがヒットし、彼のプロダクションが成功に大きく貢献したことが証明されています。"
         }
@@ -5306,12 +5021,7 @@
       "medium": [
         {
           "question": "Metallicaのアルバム'Master of Puppets'リリース後のツアーに関して、どの都市で彼らが最初に大規模なスタジアム公演を開催したでしょうか？",
-          "options": [
-            "ロンドン",
-            "ニューヨーク",
-            "ロサンゼルス",
-            "ベルリン"
-          ],
+          "options": ["ロンドン", "ニューヨーク", "ロサンゼルス", "ベルリン"],
           "correctAnswer": "ロサンゼルス",
           "trivia": "Metallicaのアルバム'Master of Puppets'（1986年）は彼らのキャリアを一気に加速させ、リリース後に行ったツアーで彼らは大規模な会場へと進出しました。特にロサンゼルスでは、1986年に有名なスタジアムであるロサンゼルス・メモリアル・スポーツ・アリーナでの公演が彼らにとって初の大規模スタジアム公演となりました。このツアーはアルバムの高い人気と相まって、バンドのライブパフォーマンスの評価をさらに高めることになりました。ロンドン、ニューヨーク、ベルリンでも重要な公演はありましたが、最初の大規模スタジアム公演はロサンゼルスで行われたことが記録されています。"
         },
@@ -5383,23 +5093,13 @@
       "easy": [
         {
           "question": "Michael Jacksonのアルバム'Thriller'からのシングルの中で、アメリカのラジオで最も多くオンエアされた曲はどれでしょうか？",
-          "options": [
-            "Billie Jean",
-            "Thriller",
-            "Beat It",
-            "Wanna Be Startin' Somethin'"
-          ],
+          "options": ["Billie Jean", "Thriller", "Beat It", "Wanna Be Startin' Somethin'"],
           "correctAnswer": "Billie Jean",
           "trivia": "Michael Jacksonの1982年のアルバム'Thriller'からリリースされたシングルの中で、『Billie Jean』はアメリカのラジオで最も多くオンエアされました。この曲はBillboard Hot 100チャートで7週間連続1位を獲得し、ラジオ局での頻繁な放送がその人気を支えました。『Thriller』や『Beat It』も非常に人気がありましたが、特に『Billie Jean』はその特徴的なベースラインとリズムで多くのジャンルのラジオで広く受け入れられました。ラジオエアプレイの成功は、Michael Jacksonの世界的なスターとしての地位を確立する大きな要因となりました。"
         },
         {
           "question": "Michael Jacksonのアルバム'Thriller'に収録されている、世界的に最も有名なダンス曲はどれでしょうか？",
-          "options": [
-            "Beat It",
-            "Billie Jean",
-            "Human Nature",
-            "The Girl Is Mine"
-          ],
+          "options": ["Beat It", "Billie Jean", "Human Nature", "The Girl Is Mine"],
           "correctAnswer": "Billie Jean",
           "trivia": "Michael Jacksonの1982年のアルバム'Thriller'には、多くのヒット曲が収録されていますが、その中でも'Billie Jean'は特に有名なダンス曲です。この曲は全米シングルチャートで1位を獲得し、Michael Jacksonの代表曲となりました。プロデューサーのクインシー・ジョーンズが手がけ、独特のベースラインとリズムが特徴です。また、'Billie Jean'のミュージックビデオはMTVで頻繁に放映され、Michael Jacksonのダンススタイルを世界に広めるきっかけとなりました。"
         },
@@ -5453,12 +5153,7 @@
       "hard": [
         {
           "question": "Michael Jacksonのアルバム'Thriller'が日本で初めて正式にデジタル配信された際の特徴として、どのプラットフォームが最初に配信を開始したことで知られていますか？",
-          "options": [
-            "iTunes Store",
-            "mora（モーラ）",
-            "レコチョク",
-            "Amazon Music"
-          ],
+          "options": ["iTunes Store", "mora（モーラ）", "レコチョク", "Amazon Music"],
           "correctAnswer": "mora（モーラ）",
           "trivia": "Michael Jacksonのアルバム'Thriller'は1982年のリリース以来、多くのフォーマットで提供されてきましたが、日本で公式に初めてデジタル配信されたのは国内のハイレゾ音源配信プラットフォーム『mora（モーラ）』でした。moraはソニー・ミュージックエンタテインメントが運営するサービスで、日本市場における高音質デジタル配信の先駆け的存在です。iTunes Storeやレコチョク、Amazon Musicもデジタル配信において重要な役割を果たしていますが、Thrillerの高音質デジタル配信開始は特にmoraでの展開が注目されました。これにより、1980年代のアルバムが現代のデジタル音楽環境でも新たな価値を持つこととなりました。"
         },
@@ -5765,12 +5460,7 @@
         },
         {
           "question": "1985年のNew Orderのアルバム『Low-Life』に収録された楽曲の中で、イギリスのラジオ局において特に頻繁にエアプレイされ、バンドのラジオ人気を高めた曲はどれでしょうか？",
-          "options": [
-            "『The Perfect Kiss』",
-            "『Sunrise』",
-            "『Ecstasy』",
-            "『Love Vigilantes』"
-          ],
+          "options": ["『The Perfect Kiss』", "『Sunrise』", "『Ecstasy』", "『Love Vigilantes』"],
           "correctAnswer": "『The Perfect Kiss』",
           "trivia": "New Orderの1985年リリースのアルバム『Low-Life』は、エレクトロニックとロックを融合させたサウンドで高い評価を受けました。その中でも『The Perfect Kiss』は、イギリスのBBCラジオやその他主要ラジオ局で頻繁にオンエアされ、バンドのラジオエアプレイを大きく後押ししました。この曲は複雑なリズムとシンセサイザーの多層的なアレンジが特徴であり、当時のラジオリスナーに強い印象を残しました。『Love Vigilantes』も人気曲ですが、ラジオでのプレイ頻度では『The Perfect Kiss』がリードしていました。これにより『Low-Life』はNew Orderの商業的成功に寄与しました。"
         },
@@ -5811,12 +5501,7 @@
         },
         {
           "question": "1985年にリリースされたNew Orderのアルバム『Low-Life』は、イギリスのアルバムチャートで最高何位を記録したでしょうか？",
-          "options": [
-            "5位",
-            "10位",
-            "3位",
-            "8位"
-          ],
+          "options": ["5位", "10位", "3位", "8位"],
           "correctAnswer": "5位",
           "trivia": "New Orderの1985年発表アルバム『Low-Life』は、イギリスの公式アルバムチャートで最高5位まで上昇しました。このチャート順位は、彼らの前作『Power, Corruption & Lies』の成功を受けて、バンドの人気が確固たるものとなりつつあったことを示しています。アルバムからのシングル『The Perfect Kiss』や『Sub-culture』もイギリスチャート入りを果たし、彼らのエレクトロニックサウンドが商業的にも評価された時期でした。『Low-Life』はまた、バンドのメンバーがアルバムジャケットのデザインに積極的に関わったことでも知られ、その芸術性と音楽性の両方で高い評価を受けています。"
         }
@@ -5877,12 +5562,7 @@
         },
         {
           "question": "Olivia Newton-Johnの1981年のアルバム『Physical』は、アメリカのBillboard 200チャートで最高何位に達しましたか？",
-          "options": [
-            "1位",
-            "3位",
-            "5位",
-            "10位"
-          ],
+          "options": ["1位", "3位", "5位", "10位"],
           "correctAnswer": "3位",
           "trivia": "Olivia Newton-Johnのアルバム『Physical』（1981年）は、アメリカのBillboard 200チャートで最高3位を記録しました。このアルバムはタイトル曲『Physical』の大ヒットにより大きな注目を集め、全米シングルチャートで6週連続1位を獲得しました。アルバム自体も商業的に成功し、グラミー賞の最優秀ポップ・ヴォーカル・アルバムにノミネートされるなど高い評価を得ています。こうしたパフォーマンスは、Olivia Newton-Johnのキャリアの中でも特に成功した時期を象徴しています。"
         },
@@ -6055,12 +5735,7 @@
       "easy": [
         {
           "question": "Paul McCartneyのアルバム'Tug of War'（1982年）に収録されているシングル曲のうち、イギリスのシングルチャートで1位を獲得したのはどれでしょうか？",
-          "options": [
-            "Ebony and Ivory",
-            "Take It Away",
-            "Here Today",
-            "Wanderlust"
-          ],
+          "options": ["Ebony and Ivory", "Take It Away", "Here Today", "Wanderlust"],
           "correctAnswer": "Ebony and Ivory",
           "trivia": "Paul McCartneyの1982年のアルバム『Tug of War』には、スティーヴィー・ワンダーとのデュエット曲『Ebony and Ivory』が収録されています。この曲はイギリスのシングルチャートで1位を獲得し、大ヒットしました。アルバム自体もポールのソロキャリアにおいて重要な作品で、ジョージ・マーティンがプロデュースを担当しています。また、『Ebony and Ivory』は人種の調和をテーマにした歌詞で広く知られており、社会的メッセージも含んでいます。"
         },
@@ -6090,12 +5765,7 @@
       "medium": [
         {
           "question": "Paul McCartneyの1982年のアルバム'Tug of War'に関して、当時のメディア報道で特に注目されたゲストミュージシャンは誰でしたか？",
-          "options": [
-            "Stevie Wonder",
-            "Eric Clapton",
-            "David Bowie",
-            "Bruce Springsteen"
-          ],
+          "options": ["Stevie Wonder", "Eric Clapton", "David Bowie", "Bruce Springsteen"],
           "correctAnswer": "Stevie Wonder",
           "trivia": "Paul McCartneyのアルバム'Tug of War'（1982年）は、メディア報道でStevie Wonderがキーボードとハーモニカで参加したことが大きな話題となりました。特にタイトル曲「Tug of War」にはWonderの特徴的なキーボード演奏がフィーチャーされており、彼の参加はアルバムの音楽的深みを増す要因の一つと評価されています。また、このアルバムはMcCartneyが前作『McCartney II』からの方向転換を図り、伝統的なバンド編成とゲストの協力を重視した作品としても知られています。メディアはこのコラボレーションを、当時の音楽シーンにおける注目のトピックとして大きく取り上げました。"
         },
@@ -6112,12 +5782,7 @@
         },
         {
           "question": "Paul McCartneyのアルバム'Tug of War'（1982年）に参加した著名なドラマーは誰でしょうか？",
-          "options": [
-            "Stevie Wonder",
-            "Ringo Starr",
-            "Jeff Porcaro",
-            "Phil Collins"
-          ],
+          "options": ["Stevie Wonder", "Ringo Starr", "Jeff Porcaro", "Phil Collins"],
           "correctAnswer": "Ringo Starr",
           "trivia": "アルバム'Tug of War'はポール・マッカートニーがジョージ・ハリスン、リンゴ・スターなどの元ビートルズメンバーと再びコラボレーションした作品です。特にドラマーとしてリンゴ・スターが参加しており、彼はビートルズでのキャリア以降も多くのセッションで活動を続けていました。このアルバムではリンゴの特徴的なドラミングがいくつかの楽曲に深みを加えています。Stevie Wonderはキーボード、Jeff PorcaroやPhil Collinsは異なるプロジェクトで有名ですが、ドラマーとして'Tug of War'に参加したのはリンゴ・スターです。"
         }
@@ -6136,12 +5801,7 @@
         },
         {
           "question": "Paul McCartneyの1982年のアルバム'Tug of War'で、彼が使用したシンセサイザーとして最も特徴的だったのはどれでしょうか？",
-          "options": [
-            "Yamaha CS-80",
-            "Moog Minimoog",
-            "Fairlight CMI",
-            "Roland Jupiter-8"
-          ],
+          "options": ["Yamaha CS-80", "Moog Minimoog", "Fairlight CMI", "Roland Jupiter-8"],
           "correctAnswer": "Yamaha CS-80",
           "trivia": "アルバム'Tug of War'において、Paul McCartneyは1970年代後半から1980年代初頭に人気のあったYamaha CS-80シンセサイザーを使用しました。このアナログシンセは豊かなパッド音と表現力豊かな音色が特徴で、特にタイトル曲などでその音色が際立っています。Moog MinimoogやRoland Jupiter-8も同時代に有名でしたが、McCartneyはCS-80の独特な音響効果を好んで選択しました。一方、Fairlight CMIはまだ高価で初期段階のデジタルサンプリングシステムであり、本作の主要な音源としては使われていません。"
         },
@@ -6224,12 +5884,7 @@
         },
         {
           "question": "Paul Simonの1986年のアルバム'Graceland'は、どの国の伝統音楽の影響を受け、その国のミュージシャンとコラボレーションしたことで国際的な音楽交流を象徴しましたか？",
-          "options": [
-            "南アフリカ",
-            "ブラジル",
-            "インド",
-            "ジャマイカ"
-          ],
+          "options": ["南アフリカ", "ブラジル", "インド", "ジャマイカ"],
           "correctAnswer": "南アフリカ",
           "trivia": "Paul Simonのアルバム'Graceland'は、南アフリカの伝統的な音楽、特にムバクンゴと呼ばれるリズムやハーモニーに強く影響を受けています。彼は当時アパルトヘイト政策下にあった南アフリカのミュージシャンたちと直接コラボレーションし、その音楽的スタイルと文化を世界に紹介しました。これにより、国際的な音楽交流の重要な例となり、アルバムは多文化共生の象徴としても評価されています。さらに、'Graceland'はアメリカの音楽シーンに新しいサウンドをもたらし、ワールドミュージックの人気を高める契機にもなりました。"
         }
@@ -6290,12 +5945,7 @@
         },
         {
           "question": "1988年にリリースされたPaula Abdulのアルバム『Forever Your Girl』は、デジタル配信時代において特にどのシングルが最も成功し、複数週にわたりBillboard Hot 100チャートのトップに輝きましたか？",
-          "options": [
-            "Straight Up",
-            "Cold Hearted",
-            "Opposites Attract",
-            "Forever Your Girl"
-          ],
+          "options": ["Straight Up", "Cold Hearted", "Opposites Attract", "Forever Your Girl"],
           "correctAnswer": "Straight Up",
           "trivia": "Paula Abdulのデビューアルバム『Forever Your Girl』（1988年）は、デジタル配信が主流になる以前から多くのヒット曲を生み出しました。その中でも『Straight Up』は最も成功したシングルで、Billboard Hot 100チャートで3週間連続1位を獲得しました。この曲はキャッチーなメロディとダンサブルなリズムで知られ、今でもストリーミングサービスで人気があります。また、『Cold Hearted』や『Opposites Attract』もチャート上位に入り、アルバム全体のデジタル配信での評価を高めています。『Forever Your Girl』というタイトル曲も注目されましたが、シングルとしては他の3曲ほどの成功は収めていません。"
         },
@@ -6391,12 +6041,7 @@
       "easy": [
         {
           "question": "Pet Shop Boysの1987年のアルバム『Actually』のスタジオ録音で、主に使用されたシンセサイザーはどれでしょうか？",
-          "options": [
-            "Yamaha DX7",
-            "Roland Jupiter-8",
-            "Moog Minimoog",
-            "Korg M1"
-          ],
+          "options": ["Yamaha DX7", "Roland Jupiter-8", "Moog Minimoog", "Korg M1"],
           "correctAnswer": "Yamaha DX7",
           "trivia": "Pet Shop Boysのアルバム『Actually』は1987年にリリースされ、その制作過程でYamaha DX7シンセサイザーが中心的に使用されました。このシンセは当時のポップミュージックに広く使われており、独特のデジタル音色がアルバムのサウンドに大きく貢献しています。実際、Yamaha DX7は1980年代の多くのヒット曲でも用いられ、Pet Shop Boysの洗練されたエレクトロポップの基盤を形成しました。Roland Jupiter-8など他のアナログシンセも使われましたが、DX7のデジタルサウンドが特に目立っています。"
         },
@@ -6503,23 +6148,13 @@
       "easy": [
         {
           "question": "Peter Ceteraの1986年のアルバム'Solitude/Solitaire'で、プロデューサーとして全面的に参加した人物は誰でしょうか？",
-          "options": [
-            "Peter Cetera自身",
-            "David Foster",
-            "Quincy Jones",
-            "Phil Ramone"
-          ],
+          "options": ["Peter Cetera自身", "David Foster", "Quincy Jones", "Phil Ramone"],
           "correctAnswer": "Peter Cetera自身",
           "trivia": "アルバム'Solitude/Solitaire'はPeter Ceteraがソロとしてリリースした2枚目のスタジオアルバムであり、彼自身がプロデューサーとして全面的に関わりました。これは彼のキャリアにおいて重要な転機で、バンドチェジャー脱退後の独立した音楽制作の一環でした。また、アルバムにはDavid Fosterが一部プロデュースで参加していないことも特徴的です。全体的に、Peter Ceteraの個人的な音楽性と制作能力が強く反映された作品となっています。"
         },
         {
           "question": "Peter Ceteraが1986年にリリースしたアルバム'Solitude/Solitaire'の最大のヒットシングルはどれでしょうか？",
-          "options": [
-            "Glory of Love",
-            "The Next Time I Fall",
-            "After All",
-            "If You Leave Me Now"
-          ],
+          "options": ["Glory of Love", "The Next Time I Fall", "After All", "If You Leave Me Now"],
           "correctAnswer": "Glory of Love",
           "trivia": "Peter Ceteraの1986年のソロアルバム『Solitude/Solitaire』は、彼のキャリアにおいて重要な転機となりました。このアルバムからの最大のヒットシングルは『Glory of Love』で、映画『ベスト・キッド2』の主題歌としても知られ、アメリカのビルボードチャートで3週連続トップに輝きました。また、『The Next Time I Fall』もこのアルバムからのヒット曲で、Amy Grantとのデュエット曲として人気を博しました。これらの成功により、Peter Ceteraはシカゴ脱退後のソロ活動で確固たる地位を築きました。"
         },
@@ -6584,12 +6219,7 @@
         },
         {
           "question": "Peter Ceteraのアルバム『Solitude/Solitaire』（1986年）において、プロデューサーとして参加し、特にシンセサイザーやプログラミング面で大きな役割を果たしたのは誰でしょうか？",
-          "options": [
-            "Peter Cetera自身",
-            "David Foster",
-            "Michael Omartian",
-            "Randy Goodrum"
-          ],
+          "options": ["Peter Cetera自身", "David Foster", "Michael Omartian", "Randy Goodrum"],
           "correctAnswer": "Michael Omartian",
           "trivia": "『Solitude/Solitaire』はPeter Ceteraがソロアーティストとして大きく飛躍したアルバムであり、Michael Omartianがプロデューサー兼キーボード奏者、プログラマーとして参加しました。Omartianは当時、洗練されたシンセサイザーやドラムマシンの使用で知られており、その技術がこのアルバムの洗練されたサウンドに大きく寄与しています。一方、David FosterはCeteraの別のソロ作品やChicago時代に関わりが深いですが、このアルバムのプロデューサーではありません。Randy Goodrumはソングライターとして関わっていますが、プロダクション面での役割は限定的です。"
         },
@@ -6615,12 +6245,7 @@
       "easy": [
         {
           "question": "Peter Gabrielの1986年のアルバム'So'で、リードボーカル以外にバックグラウンドボーカルを担当した有名なミュージシャンは誰でしょうか？",
-          "options": [
-            "Kate Bush",
-            "Stevie Nicks",
-            "Tina Turner",
-            "Annie Lennox"
-          ],
+          "options": ["Kate Bush", "Stevie Nicks", "Tina Turner", "Annie Lennox"],
           "correctAnswer": "Kate Bush",
           "trivia": "Peter Gabrielのアルバム'So'（1986年）では、彼の特徴的なリードボーカルに加えて、Kate Bushがバックグラウンドボーカルで参加しています。Kate Bushはその独特な歌声と表現力で知られており、特にシングル「Don't Give Up」でデュエットとして共演しました。このコラボレーションはアルバムの中でも非常に評価され、Peter Gabrielのソロ作品の中で際立った要素となっています。Kate Bush以外にも多くの著名ミュージシャンが参加していますが、彼女の参加は特に有名です。"
         },
@@ -6696,12 +6321,7 @@
         },
         {
           "question": "Peter Gabrielのアルバム'So'（1986年）からのシングルの中で、アメリカのラジオエアプレイチャートで最も長期間トップ10入りを果たした曲はどれでしょうか？",
-          "options": [
-            "Sledgehammer",
-            "In Your Eyes",
-            "Big Time",
-            "Don't Give Up"
-          ],
+          "options": ["Sledgehammer", "In Your Eyes", "Big Time", "Don't Give Up"],
           "correctAnswer": "Sledgehammer",
           "trivia": "Peter Gabrielのアルバム'So'に収録された'Sledgehammer'は、1986年にアメリカのラジオエアプレイチャートで非常に高い人気を博しました。この曲はビルボードのホット100で最高位4位を記録し、エアプレイチャートでは複数週間にわたりトップ10に留まりました。革新的なミュージックビデオも相まって、ラジオでの頻繁な放送が功を奏し、Peter Gabrielの商業的成功を大きく後押ししました。対照的に、他のシングルも人気がありましたが、『Sledgehammer』ほど長期にわたるラジオでの支持は得ていません。"
         },
@@ -6738,12 +6358,7 @@
         },
         {
           "question": "Phil Collinsの1985年のアルバム『No Jacket Required』のジャケット写真で、彼が着用していない衣服はどれでしょうか？",
-          "options": [
-            "ジャケット",
-            "白いTシャツ",
-            "サングラス",
-            "ジーンズ"
-          ],
+          "options": ["ジャケット", "白いTシャツ", "サングラス", "ジーンズ"],
           "correctAnswer": "ジャケット",
           "trivia": "Phil Collinsのアルバム『No Jacket Required』のタイトルは、彼がジャケットを必要としないという意味を込めて付けられました。実際にジャケット写真では、Phil Collinsはジャケットを着用せず、白いTシャツにサングラスをかけたシンプルな姿が特徴的です。このシンプルなファッションは、1980年代のポップミュージックシーンにおいても異彩を放ち、アルバムのタイトルとパッケージングが一体となったユニークな印象を与えています。ジャケットを着ていない点がファンの間でもよく話題になります。"
         },
@@ -6784,12 +6399,7 @@
         },
         {
           "question": "Phil Collinsのアルバム'No Jacket Required'（1985年）は国際的な成功を収めましたが、特にどの国でこのアルバムのシングル『Sussudio』が初のナンバーワンヒットとなり、彼のソロキャリアに大きな影響を与えたでしょうか？",
-          "options": [
-            "アメリカ合衆国",
-            "イギリス",
-            "日本",
-            "オーストラリア"
-          ],
+          "options": ["アメリカ合衆国", "イギリス", "日本", "オーストラリア"],
           "correctAnswer": "アメリカ合衆国",
           "trivia": "Phil Collinsのアルバム'No Jacket Required'は1985年にリリースされ、世界的に大ヒットしました。特にシングル『Sussudio』はアメリカのビルボードチャートで初のナンバーワンを記録し、彼のソロアーティストとしての地位を確固たるものにしました。この成功はアメリカ市場での彼の人気を飛躍的に高め、アルバム全体もアメリカでプラチナ認定を受けています。一方、イギリスではチャート上位に入ったもののナンバーワンには至らず、また日本やオーストラリアでも人気はあったものの同様のトップ記録はありませんでした。'"
         }
@@ -6797,12 +6407,7 @@
       "hard": [
         {
           "question": "Phil Collinsの1985年のアルバム'No Jacket Required'に収録された楽曲の中で、アメリカのラジオエアプレイチャートで最も長く1位を獲得した曲はどれでしょうか？",
-          "options": [
-            "Sussudio",
-            "One More Night",
-            "Don't Lose My Number",
-            "Take Me Home"
-          ],
+          "options": ["Sussudio", "One More Night", "Don't Lose My Number", "Take Me Home"],
           "correctAnswer": "Sussudio",
           "trivia": "Phil Collinsのアルバム'No Jacket Required'からのシングル'Sussudio'は、アメリカのラジオエアプレイチャートで特に成功を収めました。この曲は1985年にリリースされ、BillboardのHot 100で6週間連続1位を記録しただけでなく、ラジオでのエアプレイも非常に多く、トップの座を長期間維持しました。『One More Night』もチャートで成功しましたが、ラジオエアプレイの持続期間では'Sussudio'に及びませんでした。'Don't Lose My Number'や'Take Me Home'も人気がありましたが、これらはエアプレイでの首位獲得期間が短かったため、'Sussudio'が最も長く1位を獲得した曲として知られています。"
         },
@@ -6861,12 +6466,7 @@
         },
         {
           "question": "Pixiesのアルバム'Doolittle'リリース後のライブパフォーマンスで、彼らが特に力を入れて演奏した曲はどれでしょうか？",
-          "options": [
-            "Debaser",
-            "Where Is My Mind?",
-            "Monkey Gone to Heaven",
-            "Tame"
-          ],
+          "options": ["Debaser", "Where Is My Mind?", "Monkey Gone to Heaven", "Tame"],
           "correctAnswer": "Debaser",
           "trivia": "Pixiesは1989年にリリースされたアルバム'Doolittle'のツアーで、特に『Debaser』をライブのセットリストの中心として演奏しました。この曲はアルバムのオープニングトラックであり、エネルギッシュなライブパフォーマンスでファンからの人気が高いです。また、『Where Is My Mind?』や『Monkey Gone to Heaven』もライブで頻繁に演奏されましたが、『Debaser』はツアー開始時から観客の盛り上がりを牽引する重要な曲として位置づけられていました。Pixiesのライブは、その独特なサウンドとダイナミックな曲構成で知られており、Doolittleツアーはバンドの評価をさらに高めるきっかけとなりました。"
         }
@@ -6909,12 +6509,7 @@
       "hard": [
         {
           "question": "Pixiesの1989年リリースアルバム『Doolittle』は、その独特な音楽スタイルが後の多くの国際的オルタナティヴロックバンドに影響を与えましたが、特にどのバンドが『Doolittle』をキャリア形成の重要なインスピレーション源として公言しているでしょうか？",
-          "options": [
-            "Nirvana",
-            "Radiohead",
-            "Green Day",
-            "U2"
-          ],
+          "options": ["Nirvana", "Radiohead", "Green Day", "U2"],
           "correctAnswer": "Nirvana",
           "trivia": "Pixiesのアルバム『Doolittle』は、独特のダイナミクスとノイズの使い方で知られ、1990年代のグランジシーンに大きな影響を与えました。特に、Nirvanaのカート・コバーンは『Doolittle』を自身の音楽における重要なインスピレーション源として公言しており、Nirvanaの代表曲『Smells Like Teen Spirit』にも影響を与えたとされています。RadioheadやGreen Dayも90年代の重要なバンドですが、直接的に『Doolittle』をキャリアの基盤として挙げることは少ないです。U2は別の音楽ジャンルの影響を受けており、Pixiesの影響は限定的です。これにより、『Doolittle』の国際的影響力の深さがわかります。"
         },
@@ -6931,12 +6526,7 @@
         },
         {
           "question": "Pixiesの1989年のアルバム『Doolittle』は、どのレコードレーベルからリリースされましたか？",
-          "options": [
-            "4AD",
-            "Matador Records",
-            "Sub Pop",
-            "Rough Trade"
-          ],
+          "options": ["4AD", "Matador Records", "Sub Pop", "Rough Trade"],
           "correctAnswer": "4AD",
           "trivia": "Pixiesの代表作『Doolittle』は1989年にイギリスのインディーズレーベル4ADからリリースされました。4ADは1980年代から1990年代にかけて多くのオルタナティヴロックバンドを輩出しており、Pixiesもその中核的な存在でした。『Doolittle』のリリースにより、4ADは世界的に知名度をさらに高めることとなりました。ちなみに、Matador RecordsやSub Pop、Rough Tradeも当時注目されていたインディーズレーベルですが、Pixiesの『Doolittle』は4ADとの契約下で制作されています。"
         }
@@ -6997,12 +6587,7 @@
         },
         {
           "question": "Poisonの1988年のアルバム'Open Up and Say... Ahh!'のスタジオ録音において、どのプロデューサーが主に録音を担当し、アルバムの特徴的なグラムメタルサウンドを形作ったでしょうか？",
-          "options": [
-            "Tom Werman",
-            "Mutt Lange",
-            "Rick Rubin",
-            "Bob Rock"
-          ],
+          "options": ["Tom Werman", "Mutt Lange", "Rick Rubin", "Bob Rock"],
           "correctAnswer": "Tom Werman",
           "trivia": "アルバム'Open Up and Say... Ahh!'はTom Wermanがプロデュースを担当しました。Wermanは1980年代のグラムメタルやハードロックバンドの録音で有名で、Poisonの特徴的なキャッチーでパワフルなサウンドを引き出しました。このアルバムの録音は1987年に行われ、サウンドの鮮明さとバンドのエネルギーを最大限に活かすために細心の注意が払われました。Tom Wermanの手腕によって、アルバムは商業的成功を収め、Poisonの代表作の一つとなりました。"
         },
@@ -7120,12 +6705,7 @@
         },
         {
           "question": "Princeのアルバム'Purple Rain'に収録された曲のうち、アメリカのラジオ局で最も多くオンエアされた曲はどれでしょうか？",
-          "options": [
-            "When Doves Cry",
-            "Let's Go Crazy",
-            "Purple Rain",
-            "I Would Die 4 U"
-          ],
+          "options": ["When Doves Cry", "Let's Go Crazy", "Purple Rain", "I Would Die 4 U"],
           "correctAnswer": "When Doves Cry",
           "trivia": "Princeの1984年のアルバム'Purple Rain'からリリースされたシングルの中で、『When Doves Cry』はアメリカのラジオ局で最も頻繁にオンエアされました。この曲はビルボードのシングルチャートで6週連続1位を記録し、革新的なドラムマシンとギターリフが特徴です。『Purple Rain』アルバムは映画のサウンドトラックとしても機能し、複数のシングルがラジオヒットとなりましたが、『When Doves Cry』のラジオエアプレイ数は特に突出していました。ラジオでの高頻度放送はこの曲の普及とPrinceの人気をさらに強固にしました。"
         }
@@ -7357,12 +6937,7 @@
       "hard": [
         {
           "question": "Queenが1980年のアルバム『The Game』のリリースに際して契約していたレコードレーベルはどれですか？",
-          "options": [
-            "EMIレコード",
-            "Capitol Records",
-            "Island Records",
-            "Virgin Records"
-          ],
+          "options": ["EMIレコード", "Capitol Records", "Island Records", "Virgin Records"],
           "correctAnswer": "EMIレコード",
           "trivia": "Queenのアルバム『The Game』（1980年）は、イギリスのEMIレコードとアメリカのCapitol Recordsの両方からリリースされました。EMIはイギリス国内でのメインレーベルとして長年Queenと契約しており、『The Game』もこの関係の下で制作・発売されました。Capitol Recordsはアメリカ市場向けの配給を担当し、これは当時の多くのイギリスのロックバンドが採用していた国別レーベル契約の典型例です。Island RecordsやVirgin RecordsはQueenとは契約しておらず、これらのレーベルは主に他のアーティストのリリースに関わっていました。したがって、『The Game』のイギリスにおける公式レーベルはEMIレコードとなります。"
         },
@@ -7592,12 +7167,7 @@
         },
         {
           "question": "REO Speedwagonのアルバム'Hi Infidelity'（1980年）がリリースされた際、どのレコードレーベルから発売されたことが、このアルバムの商業的成功に大きく寄与しましたか？",
-          "options": [
-            "Epic Records",
-            "Capitol Records",
-            "Columbia Records",
-            "Atlantic Records"
-          ],
+          "options": ["Epic Records", "Capitol Records", "Columbia Records", "Atlantic Records"],
           "correctAnswer": "Epic Records",
           "trivia": "REO Speedwagonのアルバム'Hi Infidelity'は1980年にEpic Recordsからリリースされました。Epic Recordsはソニー・ミュージックエンタテインメントの傘下にあるレーベルで、当時多くのロックバンドの成功を支えていました。このレーベルの強力なプロモーション体制と流通ネットワークが、'Hi Infidelity'の全米での大ヒット（ビルボードアルバムチャートで1位獲得）に大きく貢献しました。また、EpicはREO Speedwagonにとって長期的なパートナーシップの基盤となり、バンドのキャリアを支える重要な役割を果たしました。"
         },
@@ -7623,12 +7193,7 @@
       "easy": [
         {
           "question": "Red Hot Chili Peppersの1989年のアルバム'Mother's Milk'の作詞作曲で、バンドが特に影響を受けた音楽ジャンルはどれでしょうか？",
-          "options": [
-            "ファンク",
-            "クラシック",
-            "カントリー",
-            "ヒップホップ"
-          ],
+          "options": ["ファンク", "クラシック", "カントリー", "ヒップホップ"],
           "correctAnswer": "ファンク",
           "trivia": "Red Hot Chili Peppersのアルバム'Mother's Milk'は、彼らのファンク・ロックのスタイルを確立した作品として知られています。特に作詞作曲のプロセスにおいて、バンドはファンクのリズムとグルーヴを取り入れることに重点を置きました。これは、メンバーのフリー(ベース)の影響が色濃く反映されており、アルバムの多くの曲でファンクの要素が顕著です。また、当時のロックシーンにおいてもファンクを融合させたスタイルは斬新であり、'Mother's Milk'はその先駆けとなりました。"
         },
@@ -7658,12 +7223,7 @@
       "medium": [
         {
           "question": "Red Hot Chili Peppersが1989年のアルバム'Mother's Milk'の制作にあたり、プロデューサーとして起用した人物は誰でしょうか？",
-          "options": [
-            "Michael Beinhorn",
-            "Rick Rubin",
-            "Brian Eno",
-            "Butch Vig"
-          ],
+          "options": ["Michael Beinhorn", "Rick Rubin", "Brian Eno", "Butch Vig"],
           "correctAnswer": "Michael Beinhorn",
           "trivia": "Red Hot Chili Peppersのアルバム'Mother's Milk'（1989年）は、プロデューサーにMichael Beinhornを迎えて制作されました。彼は前作と比べてより洗練された音作りに貢献し、バンドのファンク・ロックサウンドを拡大させました。Rick Rubinは後の作品で有名ですが、Mother's Milkでは関与していません。また、Brian EnoやButch Vigはこのアルバムの制作には参加していません。Beinhornのプロデュースにより、Red Hot Chili Peppersはより商業的成功を収める土台を築きました。"
         },
@@ -7904,12 +7464,7 @@
         },
         {
           "question": "Roxetteのアルバム『Look Sharp!』に収録されたシングルのうち、ミュージックビデオでメンバーのペル・グンナール・ヴィルヘルム・ソーンヴァルが特徴的にギターを弾くシーンが多用されたのはどの曲でしょうか？",
-          "options": [
-            "The Look",
-            "Dressed for Success",
-            "Listen to Your Heart",
-            "Dangerous"
-          ],
+          "options": ["The Look", "Dressed for Success", "Listen to Your Heart", "Dangerous"],
           "correctAnswer": "The Look",
           "trivia": "1988年にリリースされたRoxetteのアルバム『Look Sharp!』のシングル『The Look』のミュージックビデオは、メンバーのペル・グンナール・ヴィルヘルム・ソーンヴァルが印象的にエレキギターを演奏するシーンが多く含まれています。この映像は、アメリカのMTVでの大ヒットにより彼らの国際的な知名度を高めました。また、ビデオ監督はスティーヴン・ヘリックで、当時の1980年代後半のポップロックの視覚的表現の典型とされています。『Look Sharp!』の他のシングルのビデオでも演奏シーンはありますが、『The Look』が特にギター演奏に焦点を当てている点が特徴的です。"
         }
@@ -7970,12 +7525,7 @@
         },
         {
           "question": "Run-D.M.C.の1986年のアルバム『Raising Hell』に収録された「Walk This Way」の歌詞は、どの有名なロックバンドの曲の歌詞とコラボレーションしていますか？",
-          "options": [
-            "Aerosmith",
-            "Led Zeppelin",
-            "The Rolling Stones",
-            "Queen"
-          ],
+          "options": ["Aerosmith", "Led Zeppelin", "The Rolling Stones", "Queen"],
           "correctAnswer": "Aerosmith",
           "trivia": "Run-D.M.C.のアルバム『Raising Hell』に収録された「Walk This Way」は、Aerosmithの同名の曲をヒップホップとロックの融合でカバーし、歌詞の一部を取り入れています。このコラボレーションは、ヒップホップとロックのジャンルを超えた大ヒットとなり、MTVでの頻繁な放送も相まって両グループの人気を拡大しました。元のAerosmithの曲は1975年にリリースされ、Run-D.M.C.が1986年に新たな解釈を加えたことで、ヒップホップの主流進出を後押しする重要な役割を果たしました。"
         },
@@ -8275,12 +7825,7 @@
         },
         {
           "question": "Salt-N-Pepaのアルバム'Hot, Cool & Vicious'に収録されたシングルのうち、1980年代後半の米国ラジオエアプレイで最も高頻度で流された曲はどれでしょうか？",
-          "options": [
-            "Push It",
-            "Tramp",
-            "I'll Take Your Man",
-            "My Mic Sounds Nice"
-          ],
+          "options": ["Push It", "Tramp", "I'll Take Your Man", "My Mic Sounds Nice"],
           "correctAnswer": "Push It",
           "trivia": "Salt-N-Pepaの1986年のデビューアルバム'Hot, Cool & Vicious'からのシングル「Push It」は、特に米国のラジオでのエアプレイが非常に多かった曲です。この曲はそのキャッチーなシンセサイザーリフとダンスビートで知られ、1987年にチャート上昇とともに放送回数も急増しました。実際、「Push It」はBillboard Hot 100でトップ20入りを果たし、ラジオ局のプレイリストに頻繁に登場したことで、Salt-N-Pepaの知名度を大きく押し上げました。他のシングルも一定の人気を博しましたが、「Push It」のラジオエアプレイ頻度には及びませんでした。"
         }
@@ -8330,12 +7875,7 @@
       "medium": [
         {
           "question": "1984年のScorpionsのアルバム『Love at First Sting』をリリースしたレコードレーベルはどれでしょうか？",
-          "options": [
-            "Mercury Records",
-            "RCA Records",
-            "Harvest Records",
-            "Vertigo Records"
-          ],
+          "options": ["Mercury Records", "RCA Records", "Harvest Records", "Vertigo Records"],
           "correctAnswer": "Mercury Records",
           "trivia": "Scorpionsの1984年のアルバム『Love at First Sting』は、主にアメリカ市場向けにMercury Recordsからリリースされました。Mercury Recordsは当時、ハードロックやヘヴィメタルのアーティストを数多く抱えており、Scorpionsの国際的な成功に大きく寄与しました。一方、Vertigo RecordsやHarvest Recordsはヨーロッパを中心に活躍するレーベルとして知られており、RCA Recordsも別のジャンルのアーティストを多く抱えていました。このアルバムはMercury Recordsのサポートのもと、世界的にヒットし、バンドのキャリアの中で重要な位置を占めています。"
         },
@@ -8499,12 +8039,7 @@
         },
         {
           "question": "1985年にリリースされたSimple Mindsのアルバム『Once Upon a Time』は、どのレコードレーベルから発売されましたか？",
-          "options": [
-            "Virgin Records",
-            "A&M Records",
-            "Island Records",
-            "EMI Records"
-          ],
+          "options": ["Virgin Records", "A&M Records", "Island Records", "EMI Records"],
           "correctAnswer": "A&M Records",
           "trivia": "Simple Mindsのアルバム『Once Upon a Time』は1985年にA&M Recordsからリリースされました。このレーベルは1970年代から多くのロックやポップ系アーティストを抱え、80年代の音楽シーンに大きな影響を与えました。A&M Recordsはアーティストに比較的自由な制作環境を提供し、『Once Upon a Time』の成功に貢献しています。なお、Virgin RecordsやIsland Recordsも80年代に有名なレーベルですが、Simple MindsのこのアルバムはA&Mからのリリースが正確な事実です。"
         }
@@ -8519,23 +8054,13 @@
       "easy": [
         {
           "question": "Soft Cellの1981年のアルバム『Non-Stop Erotic Cabaret』がデジタル配信された際、最初にリリースされた主要なストリーミングプラットフォームはどれでしょうか？",
-          "options": [
-            "Spotify",
-            "Apple Music",
-            "Amazon Music",
-            "Tidal"
-          ],
+          "options": ["Spotify", "Apple Music", "Amazon Music", "Tidal"],
           "correctAnswer": "Spotify",
           "trivia": "Soft Cellの代表作である1981年のアルバム『Non-Stop Erotic Cabaret』は、デジタル配信時代においても多くのプラットフォームで配信されています。中でもSpotifyは世界最大級の音楽ストリーミングサービスとして、早期からこのアルバムを配信リストに加えました。Apple MusicやAmazon Musicも後に加わりましたが、Spotifyが最初に主要なストリーミングサービスとしてこのアルバムを配信し、1980年代ニュー・ウェイヴの名盤を新たな世代へ届ける役割を果たしました。デジタル配信は1981年当時には存在しませんでしたが、近年のリマスター版や公式配信により、世界中のリスナーがアクセス可能となっています。"
         },
         {
           "question": "Soft Cellのアルバム『Non-Stop Erotic Cabaret』がリリースされた1981年、どの曲が特にファンやポップカルチャーに大きな影響を与え、英国シングルチャートでトップ5入りを果たしましたか？",
-          "options": [
-            "Tainted Love",
-            "Bedsitter",
-            "Say Hello, Wave Goodbye",
-            "Secret Life"
-          ],
+          "options": ["Tainted Love", "Bedsitter", "Say Hello, Wave Goodbye", "Secret Life"],
           "correctAnswer": "Tainted Love",
           "trivia": "Soft Cellの1981年のアルバム『Non-Stop Erotic Cabaret』からリリースされたシングル「Tainted Love」は、特に大きな注目を集めました。この曲は英国シングルチャートで最高2位を記録し、世界中で人気となりました。ファンの間での支持も非常に高く、80年代のシンセポップを代表する楽曲としてポップカルチャーに深い影響を与えました。また、この曲のヒットにより、Soft Cellは一躍有名になり、アルバム自体も高い評価を受けました。"
         },
@@ -8653,12 +8178,7 @@
         },
         {
           "question": "Spandau Balletの1983年のアルバム'True'で、シンセサイザーやキーボードの音作りに大きく貢献した楽器はどれでしょうか？",
-          "options": [
-            "Yamaha DX7",
-            "Moog Minimoog",
-            "Roland TR-808",
-            "Korg M1"
-          ],
+          "options": ["Yamaha DX7", "Moog Minimoog", "Roland TR-808", "Korg M1"],
           "correctAnswer": "Yamaha DX7",
           "trivia": "Spandau Balletのアルバム'True'（1983年）では、Yamaha DX7シンセサイザーがキーボードの多彩な音色を作り出すのに重要な役割を果たしました。このデジタルFMシンセサイザーは当時非常に人気があり、多くの80年代のヒット曲で使用されました。特にタイトル曲'True'の滑らかでリッチなシンセサイザーサウンドは、DX7の独特な音色によるものです。Moog MinimoogやRoland TR-808は当時の他の楽曲で多用されましたが、このアルバムのキーボード音にはDX7が最も影響を与えました。Korg M1は1988年に発売されたため、'True'の制作時には使用されていません。"
         }
@@ -8712,23 +8232,13 @@
         },
         {
           "question": "Spandau Balletの1983年アルバム'True'において、特徴的なシンセサイザーの音色を生み出すために用いられた機材はどれでしょうか？",
-          "options": [
-            "Yamaha DX7",
-            "Roland Jupiter-8",
-            "Moog Minimoog",
-            "Korg MS-20"
-          ],
+          "options": ["Yamaha DX7", "Roland Jupiter-8", "Moog Minimoog", "Korg MS-20"],
           "correctAnswer": "Roland Jupiter-8",
           "trivia": "Spandau Balletのアルバム'True'（1983年）では、当時最先端のシンセサイザーであるRoland Jupiter-8が使用され、特徴的な豊かなパッド音色やリードサウンドを生み出しました。Jupiter-8は多彩な音作りが可能で、多くの80年代のニュー・ウェイヴやポップス作品に採用されています。特に'True'のタイトル曲では、このシンセサイザーの暖かく広がりのある音が楽曲のムード形成に大きく寄与しています。アルバムの音楽的要素として、Jupiter-8の使用はSpandau Balletの洗練されたサウンドを象徴する重要な技術的特徴です。"
         },
         {
           "question": "Spandau Balletのアルバム'True'は1983年にリリースされましたが、イギリスのアルバムチャートにおける最高順位はどれだったでしょうか？",
-          "options": [
-            "1位",
-            "4位",
-            "10位",
-            "15位"
-          ],
+          "options": ["1位", "4位", "10位", "15位"],
           "correctAnswer": "4位",
           "trivia": "Spandau Balletのアルバム'True'は1983年にリリースされ、イギリスのアルバムチャートで最高4位を記録しました。このアルバムには彼らの代表曲である「True」が収録されており、シングルとしてはイギリスだけでなくアメリカでも成功を収めました。チャートでの高順位はバンドの商業的成功を象徴し、ニュー・ロマンティック・ムーブメントの代表作としても知られています。アルバム自体は商業的に最も成功した作品の一つであり、Spandau Balletのキャリアの中で重要な位置を占めています。"
         }
@@ -8754,12 +8264,7 @@
         },
         {
           "question": "Stevie Wonderの1980年のアルバム『Hotter Than July』において、彼が特にフィーチャーした楽器はどれでしょうか？",
-          "options": [
-            "ハーモニカ",
-            "トランペット",
-            "ドラムセット",
-            "バイオリン"
-          ],
+          "options": ["ハーモニカ", "トランペット", "ドラムセット", "バイオリン"],
           "correctAnswer": "ハーモニカ",
           "trivia": "Stevie Wonderは『Hotter Than July』の制作にあたり、自身のトレードマークともいえるハーモニカを多用しました。このアルバムには彼のハーモニカ演奏が際立つ曲がいくつか含まれており、彼の多才なミュージシャンとしての一面を強調しています。Stevie Wonderは幼少期に視力を失ったものの、楽器演奏に長けており、ハーモニカは彼の音楽スタイルの象徴とも言えます。なお、『Hotter Than July』は1980年にリリースされ、アフリカ系アメリカ人の権利運動への応援歌「Happy Birthday」なども収録されています。"
         },
@@ -8866,12 +8371,7 @@
         },
         {
           "question": "Talking Headsのアルバム'Remain in Light'は、アメリカのビルボードアルバムチャートで最高何位まで達したでしょうか？",
-          "options": [
-            "5位",
-            "19位",
-            "35位",
-            "50位"
-          ],
+          "options": ["5位", "19位", "35位", "50位"],
           "correctAnswer": "19位",
           "trivia": "Talking Headsの1980年リリースアルバム'Remain in Light'は、アメリカのビルボード200チャートで最高19位まで上昇しました。このアルバムは独特なアフリカンリズムと実験的なサウンドで高く評価され、シングル『Once in a Lifetime』も大きなヒットとなりました。チャートでの成功はバンドの商業的なブレイクスルーの一つとなり、その後の音楽シーンに多大な影響を与えました。"
         },
@@ -8978,23 +8478,13 @@
         },
         {
           "question": "Tears for Fearsのアルバム'Songs from the Big Chair'（1985年）に収録されているヒット曲の一つで、アメリカのBillboard Hot 100チャートで最高2位を記録した曲はどれでしょうか？",
-          "options": [
-            "Everybody Wants to Rule the World",
-            "Mad World",
-            "Shout",
-            "Pale Shelter"
-          ],
+          "options": ["Everybody Wants to Rule the World", "Mad World", "Shout", "Pale Shelter"],
           "correctAnswer": "Everybody Wants to Rule the World",
           "trivia": "Tears for Fearsの1985年のアルバム'Songs from the Big Chair'には、いくつかのヒット曲が収録されています。その中で「Everybody Wants to Rule the World」は特に成功を収め、アメリカのBillboard Hot 100チャートで最高2位に達しました。この曲はバンドの代表作として知られ、1980年代のシンセポップの象徴的な楽曲の一つです。アルバム自体も全英チャートで3位、全米アルバムチャートで2位を記録し、バンドの国際的な成功を確立しました。"
         },
         {
           "question": "Tears for Fearsのアルバム『Songs from the Big Chair』は、どの国で特に大きな商業的成功を収め、その国のチャートでトップ5入りを果たしましたか？",
-          "options": [
-            "アメリカ合衆国",
-            "日本",
-            "ドイツ",
-            "オーストラリア"
-          ],
+          "options": ["アメリカ合衆国", "日本", "ドイツ", "オーストラリア"],
           "correctAnswer": "アメリカ合衆国",
           "trivia": "Tears for Fearsの1985年のアルバム『Songs from the Big Chair』は、イギリス出身のバンドながらアメリカ合衆国で非常に大きな商業的成功を収めました。このアルバムはアメリカのビルボード200チャートで最高2位を記録し、シングル『Everybody Wants to Rule the World』や『Shout』もアメリカのトップ10に入りました。日本やドイツ、オーストラリアでも評価されましたが、特にアメリカ市場での影響が国際的な成功の象徴となりました。これによりTears for Fearsは1980年代の国際的なポップロックシーンで重要な地位を確立しました。"
         }
@@ -9079,12 +8569,7 @@
       "easy": [
         {
           "question": "The Alan Parsons Projectのアルバム『Eye in the Sky』に収録されたタイトル曲は、どの国のシングルチャートでトップ10入りを果たしましたか？",
-          "options": [
-            "アメリカ合衆国",
-            "イギリス",
-            "日本",
-            "オーストラリア"
-          ],
+          "options": ["アメリカ合衆国", "イギリス", "日本", "オーストラリア"],
           "correctAnswer": "イギリス",
           "trivia": "The Alan Parsons Projectの1982年のアルバム『Eye in the Sky』のタイトル曲は、イギリスのシングルチャートでトップ10入りを果たしました。この曲はバンドにとって最大のヒット曲の一つであり、アメリカのBillboard Hot 100ではトップ5に入るなど国際的にも成功を収めました。また、このアルバムは商業的にも成功し、バンドの知名度を大きく高めることになりました。"
         },
@@ -9114,12 +8599,7 @@
       "medium": [
         {
           "question": "The Alan Parsons Projectのアルバム'Eye in the Sky'は、どのレコードレーベルからリリースされましたか？",
-          "options": [
-            "Arista Records",
-            "Harvest Records",
-            "Virgin Records",
-            "Atlantic Records"
-          ],
+          "options": ["Arista Records", "Harvest Records", "Virgin Records", "Atlantic Records"],
           "correctAnswer": "Arista Records",
           "trivia": "The Alan Parsons Projectの1982年のアルバム『Eye in the Sky』は、アメリカおよび多くの国でArista Recordsからリリースされました。Arista Recordsは1974年に設立され、多くのロックやポップアーティストの作品を扱ってきた有名なレーベルです。『Eye in the Sky』はこのレーベルのもとで商業的に成功を収め、アルバムのタイトル曲もヒットしました。また、アルバムは他の地域ではHarvest Recordsや他のレーベルからリリースされることもありましたが、主要なリリースはArista Recordsによるものです。"
         },
@@ -9338,12 +8818,7 @@
       "medium": [
         {
           "question": "The Banglesのアルバム'Different Light'に収録された楽曲の制作にあたり、彼女たちがインスピレーションを受けた有名なアーティストは誰でしょうか？",
-          "options": [
-            "The Beatles",
-            "Prince",
-            "David Bowie",
-            "Joni Mitchell"
-          ],
+          "options": ["The Beatles", "Prince", "David Bowie", "Joni Mitchell"],
           "correctAnswer": "The Beatles",
           "trivia": "The Banglesの1986年のアルバム'Different Light'では、彼女たちが60年代のポップサウンドに強く影響を受けていることが明らかです。中でもThe Beatlesは、彼女たちのハーモニーやメロディーに大きなインスピレーションを与えました。アルバムのプロデューサーであるDavid Kahneも、バンドの60年代ロックへの敬意を反映させるため、The Beatles風のサウンド作りを意識しました。この影響は、シングル『Manic Monday』や『Walk Like an Egyptian』のキャッチーなメロディーラインに顕著に表れています。The Banglesはその結果、ポップロックシーンでの評価を高めました。"
         },
@@ -9415,12 +8890,7 @@
       "easy": [
         {
           "question": "The Carsのアルバム'Heartbeat City'（1984年）からのシングルの中で、アメリカのBillboard Hot 100チャートで最高位を記録した曲はどれでしょうか？",
-          "options": [
-            "You Might Think",
-            "Magic",
-            "Drive",
-            "Hello Again"
-          ],
+          "options": ["You Might Think", "Magic", "Drive", "Hello Again"],
           "correctAnswer": "Drive",
           "trivia": "The Carsの'Heartbeat City'は1984年にリリースされ、複数のシングルがヒットしました。その中で「Drive」はアメリカのBillboard Hot 100チャートで最高位4位を記録し、バンドにとって最大の商業的成功の一つとなりました。『You Might Think』や『Magic』、『Hello Again』もチャート入りしましたが、『Drive』ほどの高順位には達しませんでした。この曲は特に感情的なバラードとして知られ、アルバムの成功に大きく貢献しました。"
         },
@@ -9450,12 +8920,7 @@
       "medium": [
         {
           "question": "The Carsの1984年のアルバム'Heartbeat City'に収録されたシングルのうち、アメリカのBillboard Hot 100チャートで最高位3位を記録した曲はどれでしょうか？",
-          "options": [
-            "Drive",
-            "You Might Think",
-            "Magic",
-            "Hello Again"
-          ],
+          "options": ["Drive", "You Might Think", "Magic", "Hello Again"],
           "correctAnswer": "You Might Think",
           "trivia": "The Carsのアルバム'Heartbeat City'は1984年にリリースされ、多くのヒットシングルを生み出しました。中でも「You Might Think」はアメリカのBillboard Hot 100チャートで最高3位を記録し、バンドの代表曲の一つとなりました。その他、「Drive」は同アルバムからの感動的なバラードで、チャートでも上位に入っていますが最高位は4位でした。このアルバムはプロデューサーのロイ・トーマス・ベイカーの手腕もあり、洗練されたサウンドとポップなメロディで成功を収めました。"
         },
@@ -9549,12 +9014,7 @@
         },
         {
           "question": "1982年にリリースされたThe Clashのアルバム'Combat Rock'は、デジタル配信開始後にどの音楽配信プラットフォームで特に早期に配信されたことで知られていますか？",
-          "options": [
-            "Apple Music",
-            "Spotify",
-            "iTunes Store",
-            "Amazon Music"
-          ],
+          "options": ["Apple Music", "Spotify", "iTunes Store", "Amazon Music"],
           "correctAnswer": "iTunes Store",
           "trivia": "The Clashの1982年の代表作であるアルバム'Combat Rock'は、デジタル音楽配信が普及し始めた2000年代後半に、特にiTunes Storeで早期に配信が開始されました。iTunesは当時、多くのクラシックロックアルバムのデジタル販売を先駆けて行ったプラットフォームとして知られています。SpotifyやAmazon Musicも後に配信を開始しましたが、iTunes Storeが最初期のデジタル配信の場となりました。この配信により新たな世代のリスナーにも届き、The Clashの音楽が広く再評価されるきっかけとなりました。"
         }
@@ -9650,23 +9110,13 @@
         },
         {
           "question": "The Cureの1989年のアルバム'Disintegration'をリリースしたレコードレーベルはどれでしょうか？",
-          "options": [
-            "Fiction Records",
-            "4AD",
-            "Mute Records",
-            "Rough Trade"
-          ],
+          "options": ["Fiction Records", "4AD", "Mute Records", "Rough Trade"],
           "correctAnswer": "Fiction Records",
           "trivia": "The Cureはアルバム'Disintegration'を1989年にFiction Recordsからリリースしました。Fiction Recordsは1978年に設立され、The Cureの代表的な作品を多く手がけてきたイギリスのレーベルです。'Disintegration'はバンドのゴシックロック的なサウンドを象徴する作品であり、Fiction Recordsとの長年のパートナーシップの中でリリースされた最も成功したアルバムの一つとされています。"
         },
         {
           "question": "The Cureのアルバム『Disintegration』（1989年）がリリースされた際、イギリスのチャートで最高位を記録した順位はどれでしょうか？",
-          "options": [
-            "1位",
-            "3位",
-            "5位",
-            "10位"
-          ],
+          "options": ["1位", "3位", "5位", "10位"],
           "correctAnswer": "3位",
           "trivia": "1989年にリリースされたThe Cureのアルバム『Disintegration』は、イギリスのアルバムチャートで最高3位を記録しました。この作品はバンドの中でも特に評価が高く、そのダークでメランコリックなサウンドが特徴です。アルバムからは「Lovesong」などのシングルもヒットし、全世界での人気を確立しました。メディア報道でもこのアルバムの成功が大きく取り上げられ、The Cureの代表作として語られています。"
         }
@@ -9674,12 +9124,7 @@
       "medium": [
         {
           "question": "The Cureのアルバム『Disintegration』からのシングルのうち、ラジオエアプレイで特に高い支持を得てイギリスのBBCラジオ1で頻繁にオンエアされたのはどの曲でしょうか？",
-          "options": [
-            "Lullaby",
-            "Fascination Street",
-            "Pictures of You",
-            "Lovesong"
-          ],
+          "options": ["Lullaby", "Fascination Street", "Pictures of You", "Lovesong"],
           "correctAnswer": "Lovesong",
           "trivia": "1989年にリリースされたThe Cureのアルバム『Disintegration』は、そのダークでメランコリックなサウンドが特徴です。中でもシングル『Lovesong』は、アメリカだけでなくイギリスのBBCラジオ1でも非常に高いラジオエアプレイを記録しました。この曲はポップなメロディと感情的な歌詞が幅広いリスナー層に支持され、アルバムの中でも最も商業的成功を収めたシングルの一つです。一方、『Fascination Street』や『Pictures of You』もラジオでよく流れましたが、『Lovesong』のエアプレイ頻度には及びませんでした。『Lullaby』は実験的なトラックでありながらもヒットし、ラジオでの注目度も高かったものの、BBCラジオ1でのエアプレイ量では『Lovesong』が突出していました。"
         },
@@ -9997,12 +9442,7 @@
         },
         {
           "question": "The Policeの1983年のアルバム'Synchronicity'は、どの国で特に大ヒットし、国際的な成功を収めたでしょうか？",
-          "options": [
-            "アメリカ合衆国",
-            "イギリス",
-            "日本",
-            "オーストラリア"
-          ],
+          "options": ["アメリカ合衆国", "イギリス", "日本", "オーストラリア"],
           "correctAnswer": "アメリカ合衆国",
           "trivia": "The Policeのアルバム'Synchronicity'は、1983年にリリースされるとアメリカ合衆国で特に大きな成功を収めました。アメリカのBillboard 200チャートで1位を獲得し、シングル『Every Breath You Take』は全米シングルチャートのトップに長期間君臨しました。この成功により、The Policeは国際的なスーパースターとしての地位を確立しました。一方、イギリスやオーストラリア、日本でも人気はありましたが、特にアメリカ市場での反響が大きかったのが特徴です。"
         }
@@ -10032,12 +9472,7 @@
         },
         {
           "question": "The Policeの1983年のアルバム'Synchronicity'がリリースされた際、どのレコードレーベルから発売されたでしょうか？",
-          "options": [
-            "A&Mレコード",
-            "キャピトル・レコード",
-            "アイランド・レコード",
-            "EMIレコード"
-          ],
+          "options": ["A&Mレコード", "キャピトル・レコード", "アイランド・レコード", "EMIレコード"],
           "correctAnswer": "A&Mレコード",
           "trivia": "The Policeのアルバム'Synchronicity'は1983年にA&Mレコードからリリースされました。A&Mレコードは1970年代から1980年代にかけて多くの著名なロックバンドを抱え、The Policeもその中心的なアーティストの一つでした。このレーベルはバンドの国際的な成功を支え、特に'Synchronicity'はA&Mのサポートのもとで全世界で大ヒットを記録しました。ちなみに、キャピトル・レコードやEMIレコードは別の有名なレーベルですが、このアルバムに関しては関与していません。アイランド・レコードは別の英国のレーベルで、多くのロックバンドと契約していましたが、The Policeの'Synchronicity'はA&Mが担当しました。"
         }
@@ -10045,12 +9480,7 @@
       "hard": [
         {
           "question": "The Policeが1983年にリリースしたアルバム'Synchronicity'の日本国内盤は、どのレコードレーベルから発売されましたか？",
-          "options": [
-            "ポリドール・レコード",
-            "CBSソニー",
-            "東芝EMI",
-            "ビクター音楽産業"
-          ],
+          "options": ["ポリドール・レコード", "CBSソニー", "東芝EMI", "ビクター音楽産業"],
           "correctAnswer": "ポリドール・レコード",
           "trivia": "The Policeのアルバム'Synchronicity'は1983年に世界的にA&Mレコードからリリースされましたが、日本国内盤はポリドール・レコードより発売されました。これは当時の日本の音楽流通事情において、海外アーティストの作品を国内で展開する際に国内レーベルがライセンス契約を結ぶ形が一般的だったためです。ポリドールは1980年代に多くの海外ロック作品の日本盤発売を担当しており、The Policeの作品もこの流れに沿って取り扱われました。CBSソニーや東芝EMI、ビクター音楽産業も海外作品の国内盤を出していましたが、Synchronicityの日本盤はポリドールが正式なライセンス元としてリリースしています。"
         },
@@ -10144,12 +9574,7 @@
         },
         {
           "question": "The Smithsのアルバム'The Queen Is Dead'（1986年）はイギリスのアルバムチャートで最高何位を記録しましたか？",
-          "options": [
-            "1位",
-            "2位",
-            "5位",
-            "10位"
-          ],
+          "options": ["1位", "2位", "5位", "10位"],
           "correctAnswer": "2位",
           "trivia": "The Smithsの3rdアルバム『The Queen Is Dead』は、1986年にイギリスのアルバムチャートで最高2位を記録しました。このアルバムはバンドの商業的成功を確固たるものにし、批評的にも高く評価されました。1位は獲得できなかったものの、イギリスの音楽シーンにおいて重要な位置を占めています。アルバムのシングル曲『There Is a Light That Never Goes Out』や『Bigmouth Strikes Again』もヒットし、チャートパフォーマンスに貢献しました。"
         }
@@ -10210,12 +9635,7 @@
         },
         {
           "question": "アルバム『Tiffany』のヒット曲「I Think We're Alone Now」のミュージックビデオで、Tiffanyはどのような場所でパフォーマンスを披露していますか？",
-          "options": [
-            "ショッピングモールの中",
-            "ビーチの砂浜",
-            "高層ビルの屋上",
-            "遊園地の観覧車"
-          ],
+          "options": ["ショッピングモールの中", "ビーチの砂浜", "高層ビルの屋上", "遊園地の観覧車"],
           "correctAnswer": "ショッピングモールの中",
           "trivia": "Tiffanyの1987年のセルフタイトルアルバム『Tiffany』に収録された「I Think We're Alone Now」のミュージックビデオは、彼女がショッピングモール内で若者たちと一緒にパフォーマンスをする様子が特徴的です。この映像は当時のティーンエイジャー文化を反映し、彼女の親しみやすいイメージを強調しました。ショッピングモールは1980年代のアメリカの若者の社交場として象徴的な場所であり、このビデオはその時代背景と密接に結びついています。"
         },
@@ -10269,12 +9689,7 @@
       "hard": [
         {
           "question": "Tiffanyのセルフタイトルアルバム『Tiffany』が1987年にBillboard 200チャートで達成した最高順位はどれでしょうか？",
-          "options": [
-            "3位",
-            "1位",
-            "5位",
-            "10位"
-          ],
+          "options": ["3位", "1位", "5位", "10位"],
           "correctAnswer": "3位",
           "trivia": "Tiffanyのデビューアルバム『Tiffany』は1987年にリリースされ、Billboard 200チャートで最高3位に到達しました。この成功は彼女が1980年代後半の若手女性ポップ歌手として注目されるきっかけとなりました。アルバムからのシングル「I Think We're Alone Now」が全米シングルチャートで1位を獲得したことも、アルバムのチャートパフォーマンスを後押ししました。なお、同アルバムはゴールド認定を受け、商業的に大きな成功を収めています。"
         },
@@ -10322,23 +9737,13 @@
         },
         {
           "question": "Tom Pettyの1989年のアルバム『Full Moon Fever』で特にヒットし、ポップカルチャーにも広く浸透したシングル曲はどれでしょうか？",
-          "options": [
-            "I Won't Back Down",
-            "Free Fallin'",
-            "Runnin' Down a Dream",
-            "Yer So Bad"
-          ],
+          "options": ["I Won't Back Down", "Free Fallin'", "Runnin' Down a Dream", "Yer So Bad"],
           "correctAnswer": "Free Fallin'",
           "trivia": "『Full Moon Fever』はTom Pettyのソロデビューアルバムであり、その中でも「Free Fallin'」は特に大ヒットしたシングルです。この曲はアメリカのビルボードチャートで高い順位を記録し、ラジオで頻繁に流されたため、多くの人々に親しまれました。また、映画やテレビドラマのサウンドトラックにも度々使用され、ポップカルチャーにおける象徴的な楽曲の一つとなっています。アルバム自体も商業的成功を収め、Tom Pettyのソロアーティストとしての地位を確立しました。"
         },
         {
           "question": "Tom Pettyの1989年のアルバム'Full Moon Fever'における作詞作曲の過程で、彼が主に協力したのは誰でしたか？",
-          "options": [
-            "Jeff Lynne",
-            "Stevie Nicks",
-            "George Harrison",
-            "Bob Dylan"
-          ],
+          "options": ["Jeff Lynne", "Stevie Nicks", "George Harrison", "Bob Dylan"],
           "correctAnswer": "Jeff Lynne",
           "trivia": "アルバム'Full Moon Fever'はTom Pettyのソロプロジェクトとして知られていますが、その作詞作曲の過程で最も大きな協力者はJeff Lynneでした。Jeff LynneはElectric Light Orchestraのリーダーであり、プロデューサー兼共作者として多くの曲作りに参加しました。彼の特徴的なサウンドと制作スタイルがアルバム全体に強く影響を与えています。また、George Harrisonも一部のセッションに参加しましたが、作詞作曲の主なパートナーはJeff Lynneでした。"
         }
@@ -10739,12 +10144,7 @@
         },
         {
           "question": "U2の1987年のアルバム『The Joshua Tree』のリリースに際し、どのレコードレーベルがこのアルバムの世界的な配給を担当し、バンドの国際的成功を支えたでしょうか？",
-          "options": [
-            "Island Records",
-            "Columbia Records",
-            "Virgin Records",
-            "EMI Records"
-          ],
+          "options": ["Island Records", "Columbia Records", "Virgin Records", "EMI Records"],
           "correctAnswer": "Island Records",
           "trivia": "『The Joshua Tree』は1987年にU2がIsland Recordsからリリースしたアルバムです。Island Recordsは1960年代創立の英国のレーベルで、U2の初期からの主要な契約先として知られています。このレーベルの強力なプロモーション力と国際的なネットワークが、アルバムの世界的な成功を後押ししました。また、Island Recordsは同時期にボブ・マーリーやスティングなどの著名アーティストも抱えており、音楽業界における確固たる地位を築いていました。これにより、U2はグローバルな市場での認知度を飛躍的に高めることができました。"
         }
@@ -10794,12 +10194,7 @@
       "medium": [
         {
           "question": "Van Halenのアルバム'1984'は、デジタル配信が普及する前にリリースされましたが、後にどのプラットフォームで最も早く公式にデジタル配信されたことで知られていますか？",
-          "options": [
-            "iTunes Store",
-            "Spotify",
-            "Amazon Music",
-            "Napster"
-          ],
+          "options": ["iTunes Store", "Spotify", "Amazon Music", "Napster"],
           "correctAnswer": "iTunes Store",
           "trivia": "Van Halenの1984年リリースのアルバム'1984'は、当初はアナログやCDでの販売が中心でしたが、デジタル配信の時代に入り、特にAppleのiTunes Storeが2000年代後半に公式に配信を開始した主要プラットフォームの一つです。iTunes Storeはデジタル音楽販売の先駆けとして、古典的なロックアルバムの再流通を促進しました。SpotifyやAmazon Musicも後に配信を開始しましたが、最初期のデジタル配信プラットフォームとしてはiTunes Storeが広く認識されています。Napsterは主に違法配信が問題視された初期のファイル共有サービスであり、公式配信とは異なります。"
         },
@@ -10829,12 +10224,7 @@
       "hard": [
         {
           "question": "Van Halenのアルバム'1984'がアメリカのBillboard 200チャートで記録した最高位はどれでしょうか？",
-          "options": [
-            "1位",
-            "2位",
-            "4位",
-            "7位"
-          ],
+          "options": ["1位", "2位", "4位", "7位"],
           "correctAnswer": "2位",
           "trivia": "Van Halenの1984年リリースのアルバム'1984'は、アメリカのBillboard 200チャートで最高2位を記録しました。このアルバムは、シングル「Jump」の大ヒットにより商業的成功を収め、バンドのスタイルを大きく広げる結果となりました。1位にはならなかったものの、1984年当時の激しい競争の中で2位を獲得したのは彼らのキャリアにおける重要なマイルストーンです。アルバムは複数のトップ40ヒットを生み出し、チャートパフォーマンスの面でもVan Halenの代表作として評価されています。"
         },
@@ -10851,12 +10241,7 @@
         },
         {
           "question": "Van Halenのアルバム『1984』からのシングルのうち、アメリカの主要ラジオ局で最も早く広範囲にエアプレイされた曲はどれでしょうか？",
-          "options": [
-            "Jump",
-            "Panama",
-            "Hot for Teacher",
-            "I'll Wait"
-          ],
+          "options": ["Jump", "Panama", "Hot for Teacher", "I'll Wait"],
           "correctAnswer": "Jump",
           "trivia": "Van Halenの『1984』は彼らのキャリアの中でもラジオエアプレイで特に成功したアルバムです。中でも「Jump」は、シンセサイザーを大胆に取り入れたサウンドが斬新で、アメリカの主要ラジオ局で最も早くかつ広範囲にオンエアされました。この曲はBillboard Hot 100で1位を獲得し、ラジオのプレイリストに長期間残ることとなりました。対して「Panama」や「Hot for Teacher」も人気がありましたが、リリース直後のラジオエアプレイ開始時期においては「Jump」が圧倒的に早かったことが知られています。これにより、1984年のロックシーンにおけるラジオの影響力とVan Halenの革新的な音作りの重要性が浮き彫りになりました。"
         }
@@ -10983,12 +10368,7 @@
       "easy": [
         {
           "question": "1983年のZZ Topのアルバム'Eliminator'で、彼らの音楽スタイルに新たな電子的要素を加えたことで特に注目されたのはどの楽器ですか？",
-          "options": [
-            "シンセサイザー",
-            "バンジョー",
-            "アコースティックギター",
-            "サクソフォーン"
-          ],
+          "options": ["シンセサイザー", "バンジョー", "アコースティックギター", "サクソフォーン"],
           "correctAnswer": "シンセサイザー",
           "trivia": "ZZ Topの1983年のアルバム'Eliminator'は、ブルースロックに電子音を融合させた革新的な作品として知られています。特にシンセサイザーの導入により、彼らの伝統的なギターリフに新鮮なサウンドが加わりました。このアルバムからのシングル『Legs』や『Sharp Dressed Man』はヒットし、MTVでも頻繁に流されることでバンドの人気が大幅に向上しました。'Eliminator'は彼らの商業的成功の頂点であり、シンセサイザーの使用がその成功を支えた重要な要素とされています。"
         },
@@ -11141,12 +10521,7 @@
         },
         {
           "question": "a-haの1985年のアルバム『Hunting High and Low』の録音において、シンセサイザーの主要機材として使用されたものはどれですか？",
-          "options": [
-            "Yamaha DX7",
-            "Roland Jupiter-8",
-            "Moog Minimoog",
-            "Korg M1"
-          ],
+          "options": ["Yamaha DX7", "Roland Jupiter-8", "Moog Minimoog", "Korg M1"],
           "correctAnswer": "Roland Jupiter-8",
           "trivia": "a-haが1985年にリリースしたアルバム『Hunting High and Low』のサウンドは、当時の最新シンセサイザー技術を駆使して作られました。特にRoland Jupiter-8は、このアルバムのシンセサイザーサウンドの核となり、多彩なパッドやリードサウンドを生み出しました。Yamaha DX7も1980年代に人気の機材でしたが、『Hunting High and Low』の録音では主にRoland Jupiter-8が使用されていました。Moog MinimoogやKorg M1は同時代のシンセですが、本アルバムの制作ではRoland Jupiter-8の特徴的なアナログサウンドが重要な役割を果たしました。"
         },
