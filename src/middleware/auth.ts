@@ -28,17 +28,32 @@ export async function checkAuth(request: Request): Promise<{
   // Extract cookie header from the request
   const cookieHeader = request.headers.get("cookie");
 
+  console.log('Auth Debug - checkAuth:', {
+    cookieHeader,
+    url: request.url,
+    method: request.method
+  });
+
   if (!cookieHeader) {
+    console.log('Auth Debug - No cookie header');
     // No cookie present, return unauthenticated without redirect
     return {
       authenticated: false,
     };
   }
 
-  // Extract access token from cookies
-  const accessToken = extractCookieValue(cookieHeader, "access_token");
+  // Extract access token from cookies (check both names for compatibility)
+  const accessToken = extractCookieValue(cookieHeader, "access_token") || extractCookieValue(cookieHeader, "auth_token");
+
+  console.log('Auth Debug - Token extraction:', {
+    accessToken: accessToken ? 'Found' : 'Not found',
+    accessTokenExists: !!extractCookieValue(cookieHeader, "access_token"),
+    authTokenExists: !!extractCookieValue(cookieHeader, "auth_token"),
+    allCookies: cookieHeader.split(';').map(c => c.trim().split('=')[0])
+  });
 
   if (!accessToken) {
+    console.log('Auth Debug - No access token found');
     // No access token present, return unauthenticated without redirect
     return {
       authenticated: false,

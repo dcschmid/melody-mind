@@ -465,18 +465,18 @@ export const setupSharingButton = (): void => {
  */
 const isAuthenticated = (): boolean => {
   try {
-    const authStatus = localStorage.getItem('auth_status');
-    const isAuth = authStatus === 'authenticated';
-    
-    console.log('EndOverlay auth check:', {
+    const authStatus = localStorage.getItem("auth_status");
+    const isAuth = authStatus === "authenticated";
+
+    console.log("EndOverlay auth check:", {
       authStatus,
       isAuth,
-      localStorageAvailable: typeof Storage !== 'undefined'
+      localStorageAvailable: typeof Storage !== "undefined",
     });
-    
+
     return isAuth;
   } catch (error) {
-    console.error('Error checking authentication status in EndOverlay:', error);
+    console.error("Error checking authentication status in EndOverlay:", error);
     return false;
   }
 };
@@ -487,14 +487,14 @@ const isAuthenticated = (): boolean => {
  */
 const handleGuestLoginSection = (): void => {
   const guestLoginSection = getElementById<HTMLElement>("guest-login-section");
-  
+
   if (!guestLoginSection) {
     console.log("Guest login section not found in EndOverlay");
     return;
   }
 
   const isUserAuthenticated = isAuthenticated();
-  
+
   if (isUserAuthenticated) {
     // User is authenticated - hide guest login section
     guestLoginSection.style.display = "none";
@@ -503,7 +503,7 @@ const handleGuestLoginSection = (): void => {
     // User is not authenticated - show guest login section
     guestLoginSection.style.display = "block";
     console.log("User is not authenticated - showing guest login section");
-    
+
     // Announce to screen readers
     announceToScreenReader("Login options available to save your score and unlock achievements");
   }
@@ -518,7 +518,7 @@ const setupGuestLoginEventListeners = (): void => {
   const handleAuthLogin = async () => {
     console.log("Authentication login detected in EndOverlay");
     handleGuestLoginSection();
-    
+
     // Save pending game results after login
     await savePendingGameResults();
   };
@@ -527,7 +527,7 @@ const setupGuestLoginEventListeners = (): void => {
   const handleAuthLogout = () => {
     console.log("Authentication logout detected in EndOverlay");
     handleGuestLoginSection();
-    
+
     // Clear any pending results on logout
     localStorage.removeItem("pending_game_result");
   };
@@ -537,7 +537,7 @@ const setupGuestLoginEventListeners = (): void => {
     if (event.key === "auth_status") {
       console.log("Authentication storage change detected in EndOverlay:", event.newValue);
       handleGuestLoginSection();
-      
+
       // If user just logged in, save pending results
       if (event.newValue === "authenticated") {
         await savePendingGameResults();
@@ -550,7 +550,7 @@ const setupGuestLoginEventListeners = (): void => {
     if (document.visibilityState === "visible") {
       console.log("Page became visible, checking auth status in EndOverlay");
       handleGuestLoginSection();
-      
+
       // Check if user logged in elsewhere and save pending results
       if (isAuthenticated()) {
         await savePendingGameResults();
@@ -597,7 +597,7 @@ const savePendingGameResults = async (): Promise<void> => {
 
     // Get current language
     const currentLang = document.documentElement.lang || "en";
-    
+
     // Save to database
     const response = await fetch(`/${currentLang}/api/game/save-result`, {
       method: "POST",
@@ -611,7 +611,7 @@ const savePendingGameResults = async (): Promise<void> => {
       // Remove from localStorage after successful save
       localStorage.removeItem("pending_game_result");
       console.log("Pending game results saved successfully");
-      
+
       // Announce success to screen reader
       announceToScreenReader("Game results saved successfully after login");
     } else {

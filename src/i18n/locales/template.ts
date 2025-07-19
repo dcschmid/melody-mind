@@ -389,7 +389,8 @@ export default {
     "Immediately start a new game round with the same difficulty and category",
   "game.end.restartSameGame": "Restart Game",
   "game.end.restartSameGameDescription": "Start a new game with the same settings",
-  "game.end.restartSameGameHelp": "Start a new game with the same category, difficulty, and game mode",
+  "game.end.restartSameGameHelp":
+    "Start a new game with the same category, difficulty, and game mode",
   "game.end.scoreProgress": "Score progress",
   "game.end.screenReaderDescription": "Game results showing your score and achievement level.",
   "game.end.share": "Share your success!",

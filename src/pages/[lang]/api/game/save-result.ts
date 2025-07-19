@@ -208,10 +208,10 @@ function createErrorResponse(message: string, status: number = 500): Response {
  * @param {string} data.id - ID of the saved game
  * @returns {Response} HTTP response object
  */
-function createSuccessResponse(data: { 
-  gameMode: GameMode; 
-  id: string; 
-  unlockedAchievements?: any[] 
+function createSuccessResponse(data: {
+  gameMode: GameMode;
+  id: string;
+  unlockedAchievements?: any[];
 }): Response {
   return new Response(
     JSON.stringify({

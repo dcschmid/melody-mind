@@ -18,6 +18,7 @@
 import { getLangFromUrl, useTranslations } from "../../utils/i18n";
 import AuthFormField from "./AuthFormField.astro";
 import AuthSubmitButton from "./AuthSubmitButton.astro";
+import OAuthProviders from "./OAuthProviders.astro";
 import Headline from "../Headline.astro";
 import { Icon } from "astro-icon/components";
 
@@ -169,6 +170,11 @@ const t = useTranslations(lang);
       role="alert"
       aria-live="assertive"
     >
+    </div>
+
+    <!-- OAuth Providers Section -->
+    <div class="auth-form__oauth-section">
+      <OAuthProviders />
     </div>
 
     <!-- Login Form -->
@@ -607,6 +613,12 @@ const t = useTranslations(lang);
       border-radius: var(--space-none) var(--space-none) var(--radius-lg) var(--radius-lg);
       z-index: 1;
       padding: var(--space-xl);
+    }
+
+    &__oauth-section {
+      margin-bottom: var(--space-xl);
+      padding-bottom: var(--space-lg);
+      border-bottom: var(--border-width-thin) solid var(--border-secondary);
     }
 
     &__form {

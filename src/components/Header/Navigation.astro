@@ -978,8 +978,32 @@ const stableItemIds = {
         // Get the current language from the centralized utility
         const lang = getCurrentLanguage();
 
-        // 1. Remove authentication status from localStorage
-        removeLocalStorage("auth_status");
+        // 1. Remove ALL authentication data from localStorage
+        const authKeysToRemove = [
+          "auth_status", 
+          "user", 
+          "user_data",
+          "authToken", 
+          "auth_token",
+          "access_token",
+          "isAuthenticated", 
+          "pending_game_result"
+        ];
+        authKeysToRemove.forEach(key => removeLocalStorage(key));
+        
+        // Also clear any other auth-related keys
+        try {
+          Object.keys(localStorage).forEach(key => {
+            if (key.includes("auth") || key.includes("user") || key.includes("token")) {
+              removeLocalStorage(key);
+            }
+          });
+          
+          // Clear sessionStorage as well
+          sessionStorage.clear();
+        } catch (error) {
+          console.warn("Error clearing additional storage:", error);
+        }
 
         // 2. Trigger auth:logout event so other components can react
         const logoutEvent = new CustomEvent("auth:logout", {

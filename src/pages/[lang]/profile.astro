@@ -21,8 +21,8 @@ import { formatDate } from "@utils/dateUtils";
 import { checkAuth } from "src/middleware/auth";
 import AuthForm from "@components/auth/AuthForm.astro";
 
-// Disable prerendering since this page requires authentication and cookies
-export const prerender = false;
+// Enable prerendering - we'll handle auth client-side like category.astro
+export const prerender = true;
 
 /**
  * Generate static paths for all supported languages
@@ -84,44 +84,11 @@ interface UserProfile {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(String(lang));
 
-// Auth check: Check if the user is logged in (optional - no redirect)
-const authResult = await checkAuth(Astro.request);
-
-// Default values for user data
-let profileData: UserProfile | null = null;
-let isLoading = true;
-let error: string | null = null;
-
-// Show login prompt if not authenticated, but don't redirect
-if (!authResult.authenticated) {
-  isLoading = false;
-  // User will see a login prompt in the HTML instead of being redirected
-} else {
-  // Fetch user data from API endpoint only if authenticated
-  try {
-    // No need to pass userId - the API will get it from the JWT token
-    const response = await fetch(`${Astro.url.origin}/${String(lang)}/api/user/profile`, {
-      headers: {
-        "Content-Type": "application/json",
-        Cookie: Astro.request.headers.get("cookie") || "", // Forward cookies for auth
-      },
-      credentials: "include", // Important: Send cookies
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      profileData = data.profile;
-    } else {
-      error = data.error || t("profile.error");
-    }
-  } catch (err) {
-    console.error("Error fetching profile data:", err);
-    error = t("profile.error");
-  } finally {
-    isLoading = false;
-  }
-}
+// Static page - no server-side auth check, will be handled client-side
+const profileData: UserProfile | null = null;
+const isLoading = false;
+const error: string | null = null;
+const authResult = { authenticated: false }; // Will be updated by client-side script
 
 // Format the date for display using modern arrow function
 const formatUserDate = (dateString: string): string => {
@@ -148,7 +115,7 @@ const difficultyNames = {
 // Language names for display
 const languageNames = {
   de: "Deutsch",
-  en: "English", 
+  en: "English",
   es: "Español",
   fr: "Français",
   it: "Italiano",
@@ -327,8 +294,13 @@ const languageNames = {
                           {difficultyNames[game.difficulty]}
                         </span>
                         <span class="recent-game__language">
-                          <Icon name="globe" class="recent-game__language-icon" aria-hidden="true" />
-                          {languageNames[game.language as keyof typeof languageNames] || game.language}
+                          <Icon
+                            name="globe"
+                            class="recent-game__language-icon"
+                            aria-hidden="true"
+                          />
+                          {languageNames[game.language as keyof typeof languageNames] ||
+                            game.language}
                         </span>
                         <time class="recent-game__date" datetime={game.createdAt}>
                           {formatUserDate(game.createdAt)}
@@ -346,7 +318,7 @@ const languageNames = {
   </div>
 </Layout>
 
-<style lang="scss">
+<style lang="scss" is:global>
   /* ===========================================
    * PROFILE PAGE STYLES - WCAG AAA COMPLIANT
    * Using CSS custom properties from global.css
@@ -997,4 +969,345 @@ const languageNames = {
     formatDate,
     announceToScreenReader,
   };
+</script>
+
+<script>
+  // Import auth status utilities - same as category.astro
+  import {
+    isUserAuthenticated,
+    registerAuthEventListeners,
+    initCookieWatcher,
+  } from "../../utils/client/authStatus";
+
+  // Section visibility utility
+  const updateSectionVisibility = (element: HTMLElement, isVisible: boolean): void => {
+    element.style.display = isVisible ? "block" : "none";
+    element.setAttribute("aria-hidden", String(!isVisible));
+  };
+
+  // Main auth status check
+  const checkAuthStatus = (): void => {
+    const isLoggedIn = isUserAuthenticated();
+    const loginPrompt = document.querySelector(".profile__login-prompt") as HTMLElement;
+    const profileContent = document.querySelector(".profile__content") as HTMLElement;
+
+    if (isLoggedIn) {
+      // User is logged in - hide login form, load profile data
+      loginPrompt && updateSectionVisibility(loginPrompt, false);
+      loadProfileData();
+    } else {
+      // User is not logged in - show login form, hide content
+      loginPrompt && updateSectionVisibility(loginPrompt, true);
+      profileContent && updateSectionVisibility(profileContent, false);
+    }
+  };
+
+  // Load profile data client-side
+  const loadProfileData = async (): Promise<void> => {
+    try {
+      // Show loading state
+      showLoadingState();
+
+      // Get current language from URL
+      const currentLang = window.location.pathname.split("/")[1] || "en";
+
+      const response = await fetch(`/${currentLang}/api/user/profile`, {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          displayProfileData(data.profile);
+        } else {
+          showErrorState(data.error || "Failed to load profile");
+        }
+      } else {
+        // If API fails, show basic OAuth data from localStorage
+        showBasicProfileData();
+      }
+    } catch (error) {
+      console.log("API failed, showing basic profile data:", error);
+      showBasicProfileData();
+    }
+  };
+
+  const showLoadingState = (): void => {
+    const container = document.querySelector(".profile");
+    if (!container) {
+      return;
+    }
+
+    // Remove existing content except login prompt
+    const existingContent = container.querySelector(".profile__content");
+    const existingLoading = container.querySelector(".profile__loading");
+    const existingError = container.querySelector(".profile__error");
+
+    if (existingContent) {
+      existingContent.remove();
+    }
+    if (existingLoading) {
+      existingLoading.remove();
+    }
+    if (existingError) {
+      existingError.remove();
+    }
+
+    // Add loading state
+    const loadingDiv = document.createElement("div");
+    loadingDiv.className = "profile__loading";
+    loadingDiv.setAttribute("aria-live", "polite");
+    loadingDiv.innerHTML = `
+      <div class="profile__loading-content">
+        <div class="profile__loading-icon" style="width: 48px; height: 48px; border: 4px solid #f3f3f3; border-top: 4px solid #007acc; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 16px;"></div>
+        <p class="profile__loading-text">Loading profile...</p>
+      </div>
+    `;
+    container.appendChild(loadingDiv);
+  };
+
+  const showErrorState = (errorMessage: string): void => {
+    const container = document.querySelector(".profile");
+    if (!container) {
+      return;
+    }
+
+    // Remove loading state
+    const loadingDiv = container.querySelector(".profile__loading");
+    if (loadingDiv) {
+      loadingDiv.remove();
+    }
+
+    // Add error state
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "profile__error";
+    errorDiv.setAttribute("role", "alert");
+    errorDiv.innerHTML = `
+      <p class="profile__error-message">${errorMessage}</p>
+      <p class="profile__error-help">Please try refreshing the page or contact support.</p>
+    `;
+    container.appendChild(errorDiv);
+  };
+
+  const showBasicProfileData = (): void => {
+    // Get user data from localStorage (fallback)
+    const userData = getUserDataFromStorage();
+
+    if (userData) {
+      const profileData = {
+        user: {
+          username: userData.username || "OAuth User",
+          email: userData.email || "N/A",
+          createdAt: new Date().toISOString(),
+        },
+        stats: {
+          quiz: { totalScore: 0, gamesPlayed: 0, highestScore: 0 },
+          chronology: { totalScore: 0, gamesPlayed: 0, highestScore: 0 },
+        },
+        recentGames: [],
+        linkedProviders: ["spotify"],
+      };
+
+      displayProfileData(profileData);
+    } else {
+      showErrorState("Could not load profile data");
+    }
+  };
+
+  const getUserDataFromStorage = (): any => {
+    try {
+      const userStr = localStorage.getItem("user");
+      if (userStr) {
+        return JSON.parse(userStr);
+      }
+    } catch (error) {
+      console.error("Error getting user data:", error);
+    }
+    return null;
+  };
+
+  const displayProfileData = (profile: any): void => {
+    const container = document.querySelector(".profile");
+    if (!container) {
+      return;
+    }
+
+    // Remove loading/error states
+    const loadingDiv = container.querySelector(".profile__loading");
+    const errorDiv = container.querySelector(".profile__error");
+    if (loadingDiv) {
+      loadingDiv.remove();
+    }
+    if (errorDiv) {
+      errorDiv.remove();
+    }
+
+    // Create or update profile content
+    let contentDiv = container.querySelector(".profile__content") as HTMLElement;
+    if (!contentDiv) {
+      contentDiv = document.createElement("div");
+      contentDiv.className = "profile__content";
+      container.appendChild(contentDiv);
+    }
+
+    // Build the profile content HTML with original beautiful styling
+    contentDiv.innerHTML = `
+      <section class="profile-card" aria-labelledby="user-info-heading">
+        <h2 id="user-info-heading" class="profile-card__title">User Information</h2>
+        <div class="profile-card__user-info">
+          <dl class="profile-card__user-details">
+            <div class="profile-card__user-item">
+              <div class="profile-card__icon" style="width: 24px; height: 24px; background: #007acc; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">👤</div>
+              <div class="profile-card__user-text">
+                <dt class="profile-card__label">Username</dt>
+                <dd class="profile-card__value">${profile.user.username}</dd>
+              </div>
+            </div>
+            <div class="profile-card__user-item">
+              <div class="profile-card__icon" style="width: 24px; height: 24px; background: #007acc; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✉️</div>
+              <div class="profile-card__user-text">
+                <dt class="profile-card__label">Email</dt>
+                <dd class="profile-card__value">${profile.user.email}</dd>
+              </div>
+            </div>
+            <div class="profile-card__user-item">
+              <div class="profile-card__icon" style="width: 24px; height: 24px; background: #007acc; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">📅</div>
+              <div class="profile-card__user-text">
+                <dt class="profile-card__label">Member Since</dt>
+                <dd class="profile-card__value">${new Date(profile.user.createdAt).toLocaleDateString()}</dd>
+              </div>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="profile-card" aria-labelledby="stats-heading">
+        <h2 id="stats-heading" class="profile-card__title">Game Statistics</h2>
+        <div class="profile-card__stats">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <h3 class="stat-card__title">Quiz Mode</h3>
+              <dl class="stat-card__list">
+                <div class="stat-card__item">
+                  <dt class="stat-card__label">Games Played</dt>
+                  <dd class="stat-card__value">${profile.stats.quiz.gamesPlayed}</dd>
+                </div>
+                <div class="stat-card__item">
+                  <dt class="stat-card__label">Total Score</dt>
+                  <dd class="stat-card__value">${profile.stats.quiz.totalScore}</dd>
+                </div>
+                <div class="stat-card__item">
+                  <dt class="stat-card__label">Highest Score</dt>
+                  <dd class="stat-card__value">${profile.stats.quiz.highestScore}</dd>
+                </div>
+              </dl>
+            </div>
+            <div class="stat-card">
+              <h3 class="stat-card__title">Chronology Mode</h3>
+              <dl class="stat-card__list">
+                <div class="stat-card__item">
+                  <dt class="stat-card__label">Games Played</dt>
+                  <dd class="stat-card__value">${profile.stats.chronology.gamesPlayed}</dd>
+                </div>
+                <div class="stat-card__item">
+                  <dt class="stat-card__label">Total Score</dt>
+                  <dd class="stat-card__value">${profile.stats.chronology.totalScore}</dd>
+                </div>
+                <div class="stat-card__item">
+                  <dt class="stat-card__label">Highest Score</dt>
+                  <dd class="stat-card__value">${profile.stats.chronology.highestScore}</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="profile-card" aria-labelledby="recent-games-heading">
+        <h2 id="recent-games-heading" class="profile-card__title">Recent Games</h2>
+        ${
+          profile.recentGames.length === 0
+            ? `
+          <div class="profile-card__empty">
+            <div style="width: 64px; height: 64px; background: #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 24px;">🎮</div>
+            <p class="profile-card__empty-text">No games played yet</p>
+            <p style="font-size: 14px; color: #999;">Start playing to see your game history here!</p>
+          </div>
+        `
+            : `
+          <div class="recent-games">
+            <ul class="recent-games__list">
+              ${profile.recentGames
+                .map(
+                  (game: any) => `
+                <li class="recent-game">
+                  <div class="recent-game__header">
+                    <div class="recent-game__mode">
+                      <span class="recent-game__mode-text">${game.gameMode}</span>
+                    </div>
+                    <div class="recent-game__score">
+                      <span class="recent-game__score-value">${game.score}</span>
+                      <span class="recent-game__score-label">points</span>
+                    </div>
+                  </div>
+                  <div class="recent-game__details">
+                    <span class="recent-game__category">${game.category}</span>
+                    <span class="recent-game__difficulty recent-game__difficulty--${game.difficulty}">${game.difficulty}</span>
+                    <time class="recent-game__date">${new Date(game.createdAt).toLocaleDateString()}</time>
+                  </div>
+                </li>
+              `
+                )
+                .join("")}
+            </ul>
+          </div>
+        `
+        }
+      </section>
+    `;
+
+    updateSectionVisibility(contentDiv, true);
+  };
+
+  // Initialize page when DOM is ready
+  const initializePage = (): void => {
+    checkAuthStatus();
+  };
+
+  // Modern DOM ready check
+  const runWhenReady = (callback: () => void): void => {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", callback, { once: true });
+    } else {
+      requestAnimationFrame(callback);
+    }
+  };
+
+  runWhenReady(initializePage);
+
+  // Register auth event listeners
+  const authListeners = registerAuthEventListeners(checkAuthStatus);
+  const cookieWatcherId = initCookieWatcher(checkAuthStatus, 1000);
+
+  // Cleanup on page unload
+  const cleanup = (): void => {
+    authListeners.remove();
+    clearInterval(cookieWatcherId);
+  };
+
+  document.addEventListener("astro:page-unload", cleanup, { once: true });
+
+  // Add spin animation for loading
+  const style = document.createElement("style");
+  style.textContent = `
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  `;
+  document.head.appendChild(style);
 </script>

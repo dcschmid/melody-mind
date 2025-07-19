@@ -173,7 +173,10 @@ function parseQueryParams(url: URL): HighscoreQueryParams {
  *   limit: 5
  * }, 'en');
  */
-function buildHighscoreQuery(params: HighscoreQueryParams, language: string): { sql: string; args: SqlParam[] } {
+function buildHighscoreQuery(
+  params: HighscoreQueryParams,
+  language: string
+): { sql: string; args: SqlParam[] } {
   const { gameMode, category, limit } = params;
 
   // Base SQL query
