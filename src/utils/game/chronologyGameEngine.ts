@@ -1,6 +1,6 @@
 /**
  * Chronology Game Engine
- * 
+ *
  * Handles chronology game logic with loading state management and proper end game handling
  */
 
@@ -365,7 +365,7 @@ class ChronologyGame {
     } else {
       // Show feedback for intermediate rounds
       this.showFeedback(result);
-      
+
       setTimeout(() => {
         this.round++;
         if (this.roundDisplay) {
@@ -426,7 +426,7 @@ class ChronologyGame {
     console.log("  this.categoryName:", this.categoryName);
     console.log("  this.category:", this.category);
     console.log("  Final category for EndOverlay:", this.categoryName || this.category);
-    
+
     // Use the same end game handling as regular quiz mode with loading spinner and validation
     const endGameConfig = {
       userId: this.userId,
@@ -448,13 +448,13 @@ class ChronologyGame {
           console.log("  category:", this.categoryName || this.category);
           console.log("  difficulty:", this.difficulty);
           console.log("  mode: chronology");
-          
+
           // Set all necessary data attributes for EndOverlay
           popup.dataset.score = score.toString();
           popup.dataset.category = this.categoryName || this.category;
           popup.dataset.difficulty = this.difficulty;
           popup.dataset.mode = "chronology";
-          
+
           // Additional debug: check what's actually set
           console.log("Actual dataset after setting:");
           console.log("  popup.dataset.score:", popup.dataset.score);

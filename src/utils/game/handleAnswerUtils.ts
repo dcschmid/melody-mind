@@ -103,7 +103,7 @@ export function handleAnswer(config: HandleAnswerConfig) {
   const overlayAlbum = document.getElementById("overlay-album");
   const overlayFunfact = document.getElementById("overlay-funfact");
   const overlayYear = document.getElementById("overlay-year");
-  
+
   if (overlayArtist) overlayArtist.textContent = album.artist || "";
   if (overlayAlbum) overlayAlbum.textContent = album.album || "";
   if (overlayFunfact) overlayFunfact.textContent = currentQuestion.trivia || "";

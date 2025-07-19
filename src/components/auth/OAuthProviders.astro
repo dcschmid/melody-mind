@@ -1,0 +1,770 @@
+---
+/**
+ * OAuth Providers Component
+ *
+ * Displays a list of OAuth authentication providers with proper loading states
+ * and accessibility features.
+ *
+ * @component
+ * @accessibility WCAG AAA compliant with proper ARIA labels and regions
+ * @performance Optimized with CSS containment and efficient DOM handling
+ * @responsive Mobile-first design with enhanced touch targets
+ */
+import { getLangFromUrl, useTranslations } from "../../utils/i18n";
+
+interface Props {
+  /** Whether this is for linking to existing account */
+  isLinking?: boolean;
+  /** Additional CSS classes */
+  className?: string;
+}
+
+const { isLinking = false, className = "" } = Astro.props;
+const lang = String(getLangFromUrl(Astro.url));
+const t = useTranslations(lang);
+
+// No default providers - will load from API
+---
+
+<div class={`oauth-providers ${className}`}>
+  <!-- Loading state -->
+  <div class="oauth-providers__loading" aria-hidden="true">
+    <div class="oauth-providers__loading-spinner"></div>
+    <span class="oauth-providers__loading-text">
+      {t("auth.oauth.loading_providers")}
+    </span>
+  </div>
+
+  <!-- Error state -->
+  <div class="oauth-providers__error" role="alert" aria-live="assertive">
+    <span class="oauth-providers__error-text">
+      {t("auth.oauth.providers_error")}
+    </span>
+    <button type="button" class="oauth-providers__retry-button">
+      {t("auth.oauth.retry")}
+    </button>
+  </div>
+
+  <!-- Providers list -->
+  <div class="oauth-providers__list" role="list">
+    <div class="oauth-providers__header">
+      <span class="oauth-providers__divider">
+        <span class="oauth-providers__divider-text">
+          {isLinking ? t("auth.oauth.link_accounts") : t("auth.oauth.continue_with")}
+        </span>
+      </span>
+    </div>
+
+    <!-- Providers will be loaded here by JavaScript -->
+  </div>
+
+  <!-- No providers message -->
+  <div class="oauth-providers__empty">
+    <span class="oauth-providers__empty-text">
+      {t("auth.oauth.no_providers")}
+    </span>
+  </div>
+</div>
+
+<script>
+  import { getLangFromUrl, useTranslations } from "../../utils/i18n";
+
+  /**
+   * OAuth Providers Controller
+   * Manages loading providers from API and handling OAuth authentication
+   */
+  class OAuthProvidersController {
+    private container: HTMLElement;
+    private loadingEl: HTMLElement;
+    private errorEl: HTMLElement;
+    private listEl: HTMLElement;
+    private emptyEl: HTMLElement;
+    private retryButton: HTMLButtonElement;
+    private lang: string;
+    private t: ReturnType<typeof useTranslations>;
+
+    constructor(container: HTMLElement) {
+      this.container = container;
+      this.lang = document.documentElement.lang || "en";
+      this.t = useTranslations(this.lang);
+
+      // Get DOM elements
+      this.loadingEl = container.querySelector(".oauth-providers__loading") as HTMLElement;
+      this.errorEl = container.querySelector(".oauth-providers__error") as HTMLElement;
+      this.listEl = container.querySelector(".oauth-providers__list") as HTMLElement;
+      this.emptyEl = container.querySelector(".oauth-providers__empty") as HTMLElement;
+      this.retryButton = container.querySelector(
+        ".oauth-providers__retry-button"
+      ) as HTMLButtonElement;
+
+      this.initialize();
+    }
+
+    private async initialize(): Promise<void> {
+      this.setupEventListeners();
+      
+      // Skip loading state for faster UI - go directly to loading providers
+      try {
+        // Load providers from API
+        await this.loadProviders();
+      } catch (error) {
+        console.error("Failed to initialize OAuth providers:", error);
+        this.showError();
+      }
+    }
+
+    private setupEventListeners(): void {
+      // Retry button
+      this.retryButton?.addEventListener("click", () => {
+        this.loadProviders();
+      });
+
+      // OAuth button clicks
+      this.listEl?.addEventListener("click", (event: Event) => {
+        const button = (event.target as HTMLElement).closest(".oauth-button") as HTMLButtonElement;
+        if (button) {
+          this.handleOAuthClick(button);
+        }
+      });
+    }
+
+    private async loadProviders(): Promise<void> {
+      try {
+        const response = await fetch(`/api/auth/oauth/providers?lang=${this.lang}`);
+
+        // Debug the response
+        console.log("OAuth providers response status:", response.status);
+        console.log("OAuth providers response headers:", response.headers);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const responseText = await response.text();
+        console.log("OAuth providers response text:", responseText);
+
+        const data = JSON.parse(responseText);
+
+        if (data.success && data.providers?.length > 0) {
+          this.renderProviders(data.providers, data.linkedProviders || []);
+          this.showList();
+        } else {
+          this.showEmpty();
+        }
+      } catch (error) {
+        console.error("Failed to load OAuth providers:", error);
+        this.showError();
+      }
+    }
+
+    private renderProviders(providers: any[], linkedProviders: string[]): void {
+      // Clear existing items except header
+      const items = this.listEl?.querySelectorAll(".oauth-providers__item");
+      items?.forEach((item) => item.remove());
+
+      // Add provider buttons
+      providers.forEach((provider) => {
+        const isLinked = linkedProviders.includes(provider.name);
+        const item = document.createElement("div");
+        item.className = "oauth-providers__item";
+        item.setAttribute("role", "listitem");
+
+        const button = this.createOAuthButton(provider, isLinked);
+        item.appendChild(button);
+        this.listEl?.appendChild(item);
+      });
+    }
+
+    private createOAuthButton(provider: any, isLinked: boolean): HTMLButtonElement {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = `oauth-button oauth-button--${provider.name}`;
+      button.setAttribute("data-provider", provider.name);
+      button.setAttribute("data-action", this.container.dataset.isLinking ? "link" : "auth");
+      button.style.setProperty("--provider-color", provider.color);
+
+      if (isLinked) {
+        button.classList.add("oauth-button--linked");
+        button.disabled = true;
+      }
+
+      const isLinking = this.container.dataset.isLinking === "true";
+      const buttonText = isLinked
+        ? `${provider.displayName} (${this.t("auth.oauth.already_linked")})`
+        : isLinking
+          ? `${this.t("auth.oauth.link")} ${provider.displayName}`
+          : `${this.t("auth.oauth.continue_with")} ${provider.displayName}`;
+
+      // Create proper icon based on provider
+      let iconSvg = "";
+      switch (provider.name) {
+        case "spotify":
+          iconSvg = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/></svg>`;
+          break;
+        case "google":
+          iconSvg = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>`;
+          break;
+        case "discord":
+          iconSvg = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0003 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1568 2.4189Z"/></svg>`;
+          break;
+        case "yahoo":
+          iconSvg = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.19 24c6.627 0 12-5.373 12-12s-5.373-12-12-12-12 5.373-12 12 5.373 12 12 12z" fill="#4B0082"/><path d="M14.29 9.02l-3.28 5.34v2.95h-1.4v-2.93L6.33 9.02h1.61l2.33 3.79 2.35-3.79h1.67z" fill="white"/></svg>`;
+          break;
+        default:
+          iconSvg = `<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>`;
+      }
+
+      button.innerHTML = `
+        <div class="oauth-button__content">
+          <div class="oauth-button__icon">
+            ${iconSvg}
+          </div>
+          <span class="oauth-button__text">${buttonText}</span>
+        </div>
+        <div class="oauth-button__loading" aria-hidden="true">
+          <div class="oauth-button__spinner"></div>
+        </div>
+      `;
+
+      return button;
+    }
+
+    private async handleOAuthClick(button: HTMLButtonElement): Promise<void> {
+      const provider = button.getAttribute("data-provider");
+      const action = button.getAttribute("data-action");
+
+      if (!provider || button.disabled) {
+        return;
+      }
+
+      // Show loading state
+      button.setAttribute("data-loading", "true");
+      button.disabled = true;
+
+      try {
+        const isLinking = action === "link";
+        const params = new URLSearchParams();
+        params.set("lang", this.lang);
+        if (isLinking) {
+          params.set("link", "true");
+        }
+
+        const authUrl = `/api/auth/oauth/authorize/${provider}?${params.toString()}`;
+
+        // Redirect to OAuth provider
+        window.location.href = authUrl;
+      } catch (error) {
+        console.error(`OAuth error for ${provider}:`, error);
+
+        // Reset button state
+        button.setAttribute("data-loading", "false");
+        button.disabled = false;
+
+        // Show error message
+        this.showError();
+      }
+    }
+
+    private showLoading(): void {
+      this.loadingEl?.style.setProperty("display", "flex");
+      this.errorEl?.style.setProperty("display", "none");
+      this.listEl?.style.setProperty("display", "none");
+      this.emptyEl?.style.setProperty("display", "none");
+    }
+
+    private showError(): void {
+      this.loadingEl?.style.setProperty("display", "none");
+      this.errorEl?.style.setProperty("display", "flex");
+      this.listEl?.style.setProperty("display", "none");
+      this.emptyEl?.style.setProperty("display", "none");
+    }
+
+    private showList(): void {
+      this.loadingEl?.style.setProperty("display", "none");
+      this.errorEl?.style.setProperty("display", "none");
+      this.listEl?.style.setProperty("display", "block");
+      this.emptyEl?.style.setProperty("display", "none");
+    }
+
+    private showEmpty(): void {
+      this.loadingEl?.style.setProperty("display", "none");
+      this.errorEl?.style.setProperty("display", "none");
+      this.listEl?.style.setProperty("display", "none");
+      this.emptyEl?.style.setProperty("display", "flex");
+    }
+  }
+
+  // Initialize OAuth providers when DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    const containers = document.querySelectorAll(".oauth-providers");
+    containers.forEach((container) => {
+      new OAuthProvidersController(container as HTMLElement);
+    });
+  });
+</script>
+
+<style lang="scss" is:global>
+  .oauth-providers {
+    width: 100%;
+    position: relative;
+
+    // Performance optimizations
+    contain: layout style;
+
+    &__loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-md);
+      padding: var(--space-xl);
+
+      &-spinner {
+        width: 1.5em;
+        height: 1.5em;
+        border: 2px solid var(--color-neutral-300);
+        border-top: 2px solid var(--interactive-primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      &-text {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+      }
+    }
+
+    &__error {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-xl);
+      background: var(--color-error-50);
+      border: var(--border-width-thin) solid var(--color-error-300);
+      border-radius: var(--radius-md);
+
+      &-text {
+        font-size: var(--text-sm);
+        color: var(--color-error-700);
+        text-align: center;
+      }
+    }
+
+    &__retry-button {
+      padding: var(--space-sm) var(--space-md);
+      background: var(--color-error-600);
+      color: var(--color-white);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+      cursor: pointer;
+      transition: background-color var(--transition-normal);
+
+      &:hover {
+        background: var(--color-error-700);
+      }
+
+      &:focus-visible {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+      }
+    }
+
+    &__list {
+      display: block;
+    }
+
+    &__header {
+      margin-bottom: var(--space-lg);
+    }
+
+    &__divider {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: var(--space-xl) 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          var(--border-secondary) 20%,
+          var(--border-primary) 50%,
+          var(--border-secondary) 80%,
+          transparent 100%
+        );
+        border-radius: 1px;
+      }
+
+      &-text {
+        background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        padding: var(--space-sm) var(--space-lg);
+        font-size: var(--text-sm);
+        color: var(--text-primary);
+        font-weight: var(--font-semibold);
+        position: relative;
+        z-index: 1;
+        border-radius: var(--radius-full);
+        border: var(--border-width-thin) solid var(--border-secondary);
+        box-shadow:
+          0 2px 8px rgba(0, 0, 0, 0.08),
+          0 1px 3px rgba(0, 0, 0, 0.06);
+        letter-spacing: 0.02em;
+      }
+    }
+
+    &__item {
+      margin-bottom: var(--space-lg);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &__empty {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-xl);
+
+      &-text {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        text-align: center;
+      }
+    }
+
+    // Mobile optimizations
+    @media (max-width: 39.9375em) {
+      &__loading,
+      &__error,
+      &__empty {
+        padding: var(--space-lg);
+      }
+
+      &__item {
+        margin-bottom: var(--space-sm);
+      }
+
+      &__divider-text {
+        font-size: var(--text-xs);
+      }
+    }
+
+    // Reduced motion support
+    @media (prefers-reduced-motion: reduce) {
+      &__loading-spinner {
+        animation: none;
+      }
+    }
+  }
+
+  // OAuth Button Styles (matching project's ButtonLink design) - High specificity to override defaults
+  .oauth-providers .oauth-button {
+    // Base button styling using global CSS variables (matching ButtonLink.astro)
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-weight: var(--font-bold);
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    min-width: var(--min-touch-size);
+    min-height: var(--min-touch-size);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--letter-spacing-base);
+    font-family: var(--font-family-primary);
+
+    // OAuth-specific sizing and spacing
+    padding: var(--space-lg) var(--space-xl);
+
+    // Primary button variant styling (matches button-link--primary)
+    background: linear-gradient(135deg, #8b45ff 0%, #7c3aed 100%) !important;
+    color: white !important;
+    border: 2px solid transparent !important;
+    box-shadow:
+      0 4px 12px rgba(139, 69, 255, 0.25),
+      0 2px 6px rgba(139, 69, 255, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+
+    // Performance optimizations (matching ButtonLink)
+    contain: layout style;
+    will-change: transform, background-color;
+    transform: translateZ(0);
+
+    // Smooth transitions (matching ButtonLink)
+    transition: all var(--animation-duration-normal);
+
+    &__content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      width: 100%;
+      z-index: 2;
+      position: relative;
+    }
+
+    &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2em;
+      height: 2em;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-sm);
+      transition: all var(--animation-duration-fast);
+
+      svg {
+        width: 1.5em;
+        height: 1.5em;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+      }
+    }
+
+    &__text {
+      font-weight: var(--font-bold);
+      font-size: var(--text-base);
+      text-align: center;
+      flex: 1;
+    }
+
+    &__loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity var(--transition-normal);
+    }
+
+    &__spinner {
+      width: 1.5em;
+      height: 1.5em;
+      border: 2px solid var(--color-neutral-300);
+      border-top: 2px solid var(--provider-color, var(--interactive-primary));
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    // Hover states (matching ButtonLink primary variant)
+    &:hover:not(:disabled) {
+      background: linear-gradient(
+        135deg,
+        var(--color-primary-700) 0%,
+        var(--color-primary-800) 100%
+      );
+      transform: translateY(var(--animation-y-offset-small));
+      box-shadow:
+        0 6px 20px rgba(139, 69, 255, 0.35),
+        0 3px 8px rgba(139, 69, 255, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+      .oauth-button__icon {
+        background: rgba(255, 255, 255, 0.25);
+        transform: scale(1.05);
+      }
+    }
+
+    // Focus states (WCAG AAA compliant)
+    &:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow:
+        var(--focus-ring),
+        0 6px 20px rgba(139, 69, 255, 0.35),
+        0 3px 8px rgba(139, 69, 255, 0.25);
+    }
+
+    // Active states
+    &:active:not(:disabled) {
+      transform: scale(var(--animation-scale-hover));
+      background: linear-gradient(
+        135deg,
+        var(--color-primary-800) 0%,
+        var(--color-primary-900) 100%
+      );
+      box-shadow:
+        0 2px 8px rgba(139, 69, 255, 0.3),
+        inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    // Loading state
+    &[data-loading="true"] {
+      cursor: not-allowed;
+
+      .oauth-button__content {
+        opacity: 0;
+      }
+
+      .oauth-button__loading {
+        opacity: 1;
+      }
+    }
+
+    // Disabled state
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    // Provider-specific styling (subtle accent overlays)
+    &--spotify {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 6px;
+        height: 6px;
+        background: #1db954;
+        border-radius: 50%;
+        opacity: 0.8;
+        z-index: 3;
+      }
+    }
+
+    &--google {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 6px;
+        height: 6px;
+        background: #4285f4;
+        border-radius: 50%;
+        opacity: 0.8;
+        z-index: 3;
+      }
+    }
+
+
+    &--discord {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 6px;
+        height: 6px;
+        background: #5865f2;
+        border-radius: 50%;
+        opacity: 0.8;
+        z-index: 3;
+      }
+    }
+
+    &--yahoo {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 6px;
+        height: 6px;
+        background: #6001d2;
+        border-radius: 50%;
+        opacity: 0.8;
+        z-index: 3;
+      }
+    }
+
+    // Mobile optimizations (matching ButtonLink responsive design)
+    @media (max-width: 47.9375em) {
+      padding: var(--space-md) var(--space-lg);
+      font-size: var(--text-sm);
+
+      &__content {
+        gap: var(--space-xs);
+      }
+
+      &__icon {
+        width: 1.75em;
+        height: 1.75em;
+
+        svg {
+          width: 1.25em;
+          height: 1.25em;
+        }
+      }
+
+      &__text {
+        font-size: var(--text-sm);
+      }
+    }
+
+    // Touch device optimizations
+    @media (hover: none) and (pointer: coarse) {
+      &:hover:not(:disabled) {
+        transform: none;
+        background: linear-gradient(
+          135deg,
+          var(--color-primary-600) 0%,
+          var(--color-primary-700) 100%
+        );
+      }
+    }
+
+    // Reduced motion support (matching ButtonLink)
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+      transform: none !important;
+      will-change: auto;
+
+      &:hover:not(:disabled),
+      &:active:not(:disabled) {
+        transform: none !important;
+      }
+
+      .oauth-button__spinner {
+        animation: none;
+      }
+
+      .oauth-button__icon {
+        transition: none;
+        transform: none !important;
+      }
+    }
+
+    // High contrast support (WCAG AAA)
+    @media (prefers-contrast: high) {
+      border: 2px solid var(--color-white);
+      background: var(--color-primary-600);
+
+      &:hover:not(:disabled) {
+        border-color: var(--color-white);
+        background: var(--color-primary-700);
+      }
+
+      &:focus-visible {
+        outline-width: 3px;
+        outline-color: var(--color-white);
+      }
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>

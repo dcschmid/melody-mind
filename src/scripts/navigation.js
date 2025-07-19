@@ -58,6 +58,37 @@ async function handleLogout() {
 
     // Redirect to home page on successful response
     if (response.ok) {
+      // Perform complete logout cleanup
+      try {
+        // Clear all localStorage entries related to authentication
+        localStorage.removeItem("auth_status");
+        localStorage.removeItem("user");
+        localStorage.removeItem("user_data");
+        localStorage.removeItem("access_token");
+        localStorage.removeItem("auth_token");
+        
+        // Clear any other potential auth-related localStorage entries
+        Object.keys(localStorage).forEach(key => {
+          if (key.includes("auth") || key.includes("user") || key.includes("token")) {
+            localStorage.removeItem(key);
+          }
+        });
+        
+        // Clear sessionStorage as well
+        sessionStorage.clear();
+        
+        // Trigger logout events for other components
+        window.dispatchEvent(new CustomEvent('auth:logout'));
+        window.dispatchEvent(new StorageEvent('storage', {
+          key: 'auth_status',
+          newValue: null,
+          oldValue: 'authenticated'
+        }));
+      } catch (error) {
+        console.warn("Error during logout cleanup:", error);
+        // Still proceed with redirect even if cleanup fails
+      }
+      
       window.location.href = `/${lang}`;
       return; // Early exit since redirection occurs
     }

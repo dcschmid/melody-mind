@@ -367,8 +367,8 @@ export async function getUserByEmail(email: string): Promise<UserWithPassword | 
 
     // Ensure password_hash is not null or undefined
     if (!row.password_hash) {
-      console.error('getUserByEmail: password_hash is null or undefined for user:', row.email);
-      throw new Error('User data is corrupted - missing password hash');
+      console.error("getUserByEmail: password_hash is null or undefined for user:", row.email);
+      throw new Error("User data is corrupted - missing password hash");
     }
 
     return {
@@ -472,19 +472,19 @@ export async function getUserByUsername(username: string): Promise<UserWithPassw
 export async function verifyPassword(user: UserWithPassword, password: string): Promise<boolean> {
   // Validate inputs
   if (!user.passwordHash) {
-    console.error('verifyPassword: passwordHash is undefined or null for user:', user.email);
+    console.error("verifyPassword: passwordHash is undefined or null for user:", user.email);
     return false;
   }
-  
+
   if (!password) {
-    console.error('verifyPassword: password is undefined or null');
+    console.error("verifyPassword: password is undefined or null");
     return false;
   }
-  
+
   try {
     return await bcrypt.compare(password, user.passwordHash);
   } catch (error) {
-    console.error('verifyPassword: bcrypt.compare failed:', error);
+    console.error("verifyPassword: bcrypt.compare failed:", error);
     return false;
   }
 }

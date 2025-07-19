@@ -11,6 +11,11 @@ export const onRequest = defineMiddleware(async (context, next) => {
     return redirect(`/${defaultLang}`);
   }
 
+  // Skip language redirection for API routes
+  if (pathname.startsWith("/api/")) {
+    return next();
+  }
+
   // Handle missing language prefix
   const [, lang] = pathname.split("/");
   if (!lang || !(lang in languages)) {

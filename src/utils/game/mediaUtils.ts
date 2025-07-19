@@ -3,12 +3,11 @@
  *
  * This module provides utilities for managing media elements in the music quiz game,
  * including streaming service links. Audio previews and album covers are optional
- * for legal compliance. It handles the initialization, updating, and management 
+ * for legal compliance. It handles the initialization, updating, and management
  * of all media-related functionality.
  *
  * @module mediaUtils
  */
-
 
 /**
  * Supported streaming services that can be linked to in the game
@@ -80,7 +79,6 @@ export function updateMedia(album: Album, elements: MediaElements): void {
   console.log("Media update skipped - streaming links removed for legal compliance");
 }
 
-
 /**
  * Updates all streaming service links
  *
@@ -107,7 +105,6 @@ function updateAllStreamingLinks(
     updateStreamingLink(streamingLinks[service as StreamingService], url, album);
   });
 }
-
 
 /**
  * Updates a single streaming service button
@@ -175,4 +172,3 @@ export function initializeMediaElements(): MediaElements | null {
     return null;
   }
 }
-

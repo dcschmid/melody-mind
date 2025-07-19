@@ -54,6 +54,51 @@ export function removeLocalStorage(key: string): boolean {
 }
 
 /**
+ * Performs a complete logout by clearing all authentication data
+ * and triggering auth logout events
+ */
+export function performCompleteLogout(): void {
+  // Clear all authentication-related localStorage entries
+  removeLocalStorage("auth_status");
+  removeLocalStorage("user");
+  removeLocalStorage("user_data");
+  removeLocalStorage("access_token");
+  removeLocalStorage("auth_token");
+  
+  // Clear any other potential auth-related localStorage entries
+  try {
+    Object.keys(localStorage).forEach(key => {
+      if (key.includes("auth") || key.includes("user") || key.includes("token")) {
+        removeLocalStorage(key);
+      }
+    });
+  } catch (error) {
+    console.warn("Error clearing additional localStorage entries:", error);
+  }
+  
+  // Clear sessionStorage as well
+  try {
+    sessionStorage.clear();
+  } catch (error) {
+    console.warn("Error clearing sessionStorage:", error);
+  }
+  
+  // Trigger logout event for other components
+  try {
+    window.dispatchEvent(new CustomEvent('auth:logout'));
+    
+    // Also trigger storage event to notify other tabs/windows
+    window.dispatchEvent(new StorageEvent('storage', {
+      key: 'auth_status',
+      newValue: null,
+      oldValue: 'authenticated'
+    }));
+  } catch (error) {
+    console.warn("Error dispatching logout events:", error);
+  }
+}
+
+/**
  * Aktualisiert die ARIA-Attribute basierend auf Sichtbarkeit
  * Wenn ein Element sichtbar ist, wird aria-hidden="false" gesetzt und Fokus-Navigation aktiviert.
  * Wenn ein Element versteckt ist, wird aria-hidden="true" gesetzt und Fokus-Navigation deaktiviert.
@@ -83,20 +128,58 @@ export function updateAriaVisibility(element: HTMLElement | null, isVisible: boo
 }
 
 /**
+ * Liest einen Cookie-Wert
+ * @param {string} name - Der Name des Cookies
+ * @returns {string | null} - Der Cookie-Wert oder null wenn nicht gefunden
+ */
+function getCookie(name: string): string | null {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) {
+    return parts.pop()?.split(';').shift() || null;
+  }
+  return null;
+}
+
+/**
  * Prüft, ob der Benutzer authentifiziert ist
- * Da das access_token Cookie HttpOnly ist, können wir es nicht direkt lesen
- * Stattdessen verwenden wir den auth_status im localStorage
+ * Prüft sowohl localStorage als auch Cookies für auth_status
  * @returns {boolean} - true wenn der Benutzer authentifiziert ist, sonst false
  */
 export function isUserAuthenticated(): boolean {
   // Primäre Methode: auth_status im localStorage prüfen
-  const isAuthenticated =
-    checkLocalStorage("auth_status") && localStorage.getItem("auth_status") === "authenticated";
+  const localAuthStatus = localStorage.getItem("auth_status");
+  const localIsAuthenticated = localAuthStatus === "authenticated";
+  
+  // Sekundäre Methode: auth_status Cookie prüfen
+  const cookieAuthStatus = getCookie("auth_status");
+  const cookieIsAuthenticated = cookieAuthStatus === "authenticated";
+  
+  // Wenn Cookie gesetzt ist aber localStorage nicht, localStorage aktualisieren
+  if (cookieIsAuthenticated && !localIsAuthenticated) {
+    setLocalStorage("auth_status", "authenticated");
+    
+    // Auch User-Daten aus Cookie in localStorage kopieren
+    const userDataCookie = getCookie("user_data");
+    if (userDataCookie) {
+      try {
+        const userData = JSON.parse(decodeURIComponent(userDataCookie));
+        setLocalStorage("user", JSON.stringify(userData));
+      } catch (error) {
+        console.error("Fehler beim Parsen der User-Daten:", error);
+      }
+    }
+  }
+  
+  const isAuthenticated = localIsAuthenticated || cookieIsAuthenticated;
 
   // Debug-Ausgabe mit sinnvollen Debug-Infos
   if (process.env.NODE_ENV === "development") {
     console.debug("Auth Debug:", {
-      localAuthStatus: localStorage.getItem("auth_status"),
+      localAuthStatus,
+      cookieAuthStatus,
+      localIsAuthenticated,
+      cookieIsAuthenticated,
       isAuthenticated,
       authStatusExists: checkLocalStorage("auth_status"),
     });
@@ -252,7 +335,31 @@ export function registerAuthEventListeners(checkAuthCallback: () => void): { rem
   };
 
   const handleLogout = (): void => {
+    // Clear all authentication-related localStorage entries
     removeLocalStorage("auth_status");
+    removeLocalStorage("user");
+    removeLocalStorage("user_data");
+    removeLocalStorage("access_token");
+    removeLocalStorage("auth_token");
+    
+    // Clear any other potential auth-related localStorage entries
+    try {
+      Object.keys(localStorage).forEach(key => {
+        if (key.includes("auth") || key.includes("user") || key.includes("token")) {
+          removeLocalStorage(key);
+        }
+      });
+    } catch (error) {
+      console.warn("Error clearing additional localStorage entries:", error);
+    }
+    
+    // Clear sessionStorage as well
+    try {
+      sessionStorage.clear();
+    } catch (error) {
+      console.warn("Error clearing sessionStorage:", error);
+    }
+    
     checkAuthCallback();
   };
 

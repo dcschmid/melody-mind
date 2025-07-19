@@ -693,8 +693,8 @@ function handleLoginResult(result: any, elements: AuthFormElements): void {
 
     // Check if we're on a category page and should stay here
     const currentPath = window.location.pathname;
-    const shouldStayOnCurrentPage = currentPath.includes('category') || 
-                                    currentPath.match(/^\/[a-z]{2}\/[^\/]+$/); // matches pattern like /de/1980s
+    const shouldStayOnCurrentPage =
+      currentPath.includes("category") || currentPath.match(/^\/[a-z]{2}\/[^\/]+$/); // matches pattern like /de/1980s
 
     if (shouldStayOnCurrentPage) {
       // Instead of redirecting, reload the page to show the game modes

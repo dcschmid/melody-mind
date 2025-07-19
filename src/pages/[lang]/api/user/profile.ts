@@ -28,6 +28,7 @@ import type { APIRoute } from "astro";
 import { requireAuth } from "../../../../middleware/auth.ts";
 import { turso } from "../../../../turso.ts";
 import { useTranslations } from "../../../../utils/i18n.ts";
+import { oauthService } from "../../../../services/oauthService.ts";
 
 /**
  * Branded UserId type for better type safety and to prevent
@@ -89,6 +90,11 @@ interface UserProfile {
    * Ordered by creation date (newest first)
    */
   recentGames: Array<GameResult>;
+  
+  /**
+   * Array of linked OAuth provider names
+   */
+  linkedProviders: string[];
 }
 
 /**
@@ -297,6 +303,22 @@ async function fetchRecentGames(userId: UserId): Promise<Array<GameResult>> {
 }
 
 /**
+ * Fetches linked OAuth providers for a user
+ *
+ * @param {UserId} userId - User ID to fetch linked providers for
+ * @returns {Promise<string[]>} Array of linked OAuth provider names
+ */
+async function fetchLinkedProviders(userId: UserId): Promise<string[]> {
+  try {
+    const linkedProviders = await oauthService.getUserOAuthProviders(userId);
+    return linkedProviders.map(provider => provider.provider);
+  } catch (error) {
+    console.error('Error fetching linked providers:', error);
+    return [];
+  }
+}
+
+/**
  * Creates a success response with user profile data
  *
  * @param {UserProfile} profile - User profile data
@@ -367,10 +389,11 @@ export const GET: APIRoute = async ({ request, params }) => {
     const userId = authResult.user.id as UserId;
 
     // Fetch all required user data in parallel
-    const [userRow, stats, recentGames] = await Promise.all([
+    const [userRow, stats, recentGames, linkedProviders] = await Promise.all([
       fetchUserInfo(userId, t),
       fetchGameStats(userId),
       fetchRecentGames(userId),
+      fetchLinkedProviders(userId),
     ]);
 
     // Assemble the complete user profile response
@@ -382,6 +405,7 @@ export const GET: APIRoute = async ({ request, params }) => {
       },
       stats,
       recentGames,
+      linkedProviders,
     };
 
     return createSuccessResponse(userProfile);

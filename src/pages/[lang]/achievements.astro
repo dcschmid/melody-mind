@@ -55,20 +55,9 @@ export async function getStaticPaths() {
 // 1. Core imports
 import Layout from "../../layouts/Layout.astro";
 import { useTranslations } from "../../utils/i18n.ts";
-import { getUserAchievements } from "../../services/achievementService.ts";
-import { checkAuth } from "../../middleware/auth.ts";
-import {
-  processAchievements,
-  calculateAchievementStats,
-} from "../../utils/achievements/categorization.ts";
 
 // 2. Component imports
-import type { LocalizedAchievement } from "../../types/achievement.ts";
-import AchievementCard from "@components/Achievements/AchievementCard.astro";
-import AchievementFilter from "@components/Achievements/AchievementFilter.astro";
 import AchievementNotification from "@components/Achievements/AchievementNotification.astro";
-import ErrorMessage from "@components/Shared/ErrorMessage.astro";
-import ButtonLink from "@components/ButtonLink.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import AuthForm from "@components/auth/AuthForm.astro";
@@ -79,31 +68,6 @@ const { lang } = Astro.params;
 // Ensure lang is always a string
 const langString = lang as string;
 const t = useTranslations(langString);
-
-// 4. Authentication check (optional - no redirect)
-const { authenticated, user } = await checkAuth(Astro.request);
-
-// Show achievements based on authentication status
-// If not authenticated, show public achievements only
-
-// 5. Data fetching and error handling
-let achievements: LocalizedAchievement[] = [];
-let error: Error | null = null;
-
-// 6. Data processing and categorization
-if (authenticated && user) {
-  try {
-    achievements = await getUserAchievements(user.id, langString);
-  } catch (e) {
-    console.error("Error retrieving achievements:", e);
-    error = e instanceof Error ? e : new Error(String(e));
-  }
-}
-
-// 7. Achievement categorization and sorting with performance optimization
-// Use existing utility function for efficient categorization and statistics
-const sortedCategories = processAchievements(achievements);
-const achievementStats = calculateAchievementStats(achievements);
 ---
 
 <Layout title={t("achievements.title")} description={t("achievements.description")}>
@@ -155,135 +119,74 @@ const achievementStats = calculateAchievementStats(achievements);
       {/* Dynamic status updates will be announced here */}
     </div>
 
-    {error && <ErrorMessage message={t("achievements.error")} />}
+    <div id="achievements-error-container"></div>
 
-    {
-      !authenticated && (
-        <div class="achievements__auth-required" role="region" aria-labelledby="auth-title">
-          <Headline level="h2" id="auth-title" title={t("auth.required.title")} />
-          <Paragraph description={t("auth.required.description")} />
-          <div class="auth-form-container">
-            <AuthForm initialMode="login" />
-          </div>
+    <!-- Auth required section (shown by default, hidden when authenticated) -->
+    <div
+      class="achievements__auth-required"
+      role="region"
+      aria-labelledby="auth-title"
+      id="auth-required-section"
+    >
+      <Headline level="h2" id="auth-title" title={t("auth.required.title")} />
+      <Paragraph description={t("auth.required.description")} />
+      <div class="auth-form-container">
+        <AuthForm initialMode="login" />
+      </div>
+    </div>
+
+    <!-- Empty achievements (hidden by default) -->
+    <div
+      class="achievements__empty"
+      role="status"
+      id="achievements-empty-section"
+      style="display: none;"
+    >
+      <Paragraph description={t("achievements.empty")} />
+    </div>
+
+    <!-- Main achievements content (hidden by default, shown when authenticated and data loaded) -->
+    <div id="achievements-content" style="display: none;">
+      <div id="achievement-filter-container">
+        <!-- AchievementFilter component will be inserted here -->
+      </div>
+
+      <div class="achievements__list" role="region" aria-labelledby="achievements-categories">
+        <Headline
+          level="h2"
+          id="achievements-categories"
+          className="sr-only"
+          title={t("achievements.categories")}
+        />
+        <div id="achievements-categories-container">
+          <!-- Achievement categories will be dynamically inserted here -->
         </div>
-      )
-    }
+      </div>
 
-    {
-      authenticated && achievements.length === 0 && !error && (
-        <div class="achievements__empty" role="status">
-          <Paragraph description={t("achievements.empty")} />
+      <section class="achievements__summary" aria-labelledby="summary-title">
+        <Headline
+          level="h2"
+          id="summary-title"
+          className="achievements__summary-title"
+          title={t("achievements.summary.title")}
+        />
+        <div
+          class="achievements__summary-stats"
+          role="list"
+          aria-labelledby="summary-title"
+          id="achievements-stats-container"
+        >
+          <!-- Stats will be dynamically inserted here -->
         </div>
-      )
-    }
-
-    {
-      authenticated && achievements.length > 0 && (
-        <>
-          <AchievementFilter lang={langString} />
-
-          <div class="achievements__list" role="region" aria-labelledby="achievements-categories">
-            <Headline
-              level="h2"
-              id="achievements-categories"
-              className="sr-only"
-              title={t("achievements.categories")}
-            />
-            {sortedCategories.map(([categoryId, categoryAchievements]) => {
-              const categoryCode =
-                (categoryAchievements as LocalizedAchievement[])[0]?.category?.code ?? "bronze";
-              const categoryTitle = t(`achievements.category.${categoryCode}`);
-              const achievementCount = (categoryAchievements as LocalizedAchievement[]).length;
-
-              return (
-                <section
-                  class="achievements__category"
-                  data-category-id={categoryId}
-                  aria-labelledby={`category-${categoryId}-title`}
-                >
-                  <Headline
-                    level="h3"
-                    id={`category-${categoryId}-title`}
-                    title={categoryTitle}
-                    className={`achievements__category-title achievements__category-title--${categoryCode}`}
-                    ariaDescribedBy={`category-${categoryId}-count`}
-                  />
-                  <Paragraph
-                    id={`category-${categoryId}-count`}
-                    className="sr-only"
-                    description={t("achievements.category.count", { count: achievementCount })}
-                  />
-                  <div
-                    class="achievements__grid"
-                    role="list"
-                    aria-labelledby={`category-${categoryId}-title`}
-                  >
-                    {(categoryAchievements as LocalizedAchievement[]).map(
-                      (achievement: LocalizedAchievement) => (
-                        <div role="listitem">
-                          <AchievementCard achievement={achievement} lang={langString} />
-                        </div>
-                      )
-                    )}
-                  </div>
-                </section>
-              );
-            })}
-          </div>
-
-          <section class="achievements__summary" aria-labelledby="summary-title">
-            <Headline
-              level="h2"
-              id="summary-title"
-              className="achievements__summary-title"
-              title={t("achievements.summary.title")}
-            />
-            <div class="achievements__summary-stats" role="list" aria-labelledby="summary-title">
-              <div class="achievements__stat" role="listitem">
-                <span class="achievements__stat-label">{t("achievements.summary.total")}</span>
-                <span
-                  class="achievements__stat-value"
-                  aria-label={t("achievements.summary.total-aria", {
-                    count: achievementStats.total,
-                  })}
-                >
-                  {achievementStats.total}
-                </span>
-              </div>
-              <div class="achievements__stat" role="listitem">
-                <span class="achievements__stat-label">{t("achievements.summary.unlocked")}</span>
-                <span
-                  class="achievements__stat-value"
-                  aria-label={t("achievements.summary.unlocked-aria", {
-                    count: achievementStats.unlocked,
-                  })}
-                >
-                  {achievementStats.unlocked}
-                </span>
-              </div>
-              <div class="achievements__stat" role="listitem">
-                <span class="achievements__stat-label">{t("achievements.summary.progress")}</span>
-                <span
-                  class="achievements__stat-value"
-                  aria-label={t("achievements.summary.progress-aria", {
-                    percent: achievementStats.progress,
-                  })}
-                >
-                  {achievementStats.progress}%
-                </span>
-              </div>
-            </div>
-          </section>
-        </>
-      )
-    }
+      </section>
+    </div>
   </main>
 
   <!-- Achievement notification component -->
   <AchievementNotification lang={langString} />
 </Layout>
 
-<style lang="scss">
+<style lang="scss" is:global>
   /**
    * Achievements Page SCSS - WCAG AAA 2.2 Compliant & Performance Optimized
    * 
@@ -354,7 +257,7 @@ const achievementStats = calculateAchievementStats(achievements);
     /* Enhanced content visibility for performance optimization */
     contain: layout style;
 
-    @media (min-width: var(--breakpoint-md)) {
+    @media (min-width: 48em) {
       padding: var(--space-xl) var(--space-lg);
     }
   }
@@ -379,7 +282,7 @@ const achievementStats = calculateAchievementStats(achievements);
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
 
-    @media (min-width: var(--breakpoint-md)) {
+    @media (min-width: 48em) {
       margin-bottom: var(--space-3xl);
       border-radius: var(--radius-2xl);
       padding: var(--space-2xl) var(--space-xl);
@@ -542,12 +445,9 @@ const achievementStats = calculateAchievementStats(achievements);
     /* High-performance responsive grid */
     &__grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-sm), 100%), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
       gap: var(--space-lg);
       max-width: 100%;
-
-      /* CRITICAL: Limit to maximum 3 columns */
-      grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
 
       /* OPTIMIZED: Dense grid packing eliminates gaps from filtered items */
       grid-auto-flow: row dense;
@@ -684,7 +584,7 @@ const achievementStats = calculateAchievementStats(achievements);
    * ====================================== */
 
   .achievements {
-    @media (min-width: var(--breakpoint-md)) {
+    @media (min-width: 48em) {
       padding: var(--space-xl);
 
       /* Enhanced grid for tablets - max 2 columns */
@@ -699,7 +599,7 @@ const achievementStats = calculateAchievementStats(achievements);
       }
     }
 
-    @media (min-width: var(--breakpoint-lg)) {
+    @media (min-width: 64em) {
       padding: var(--space-2xl);
 
       /* Desktop - max 3 columns */
@@ -713,7 +613,7 @@ const achievementStats = calculateAchievementStats(achievements);
       }
     }
 
-    @media (min-width: var(--breakpoint-xl)) {
+    @media (min-width: 80em) {
       /* Keep max 3 columns even on very large screens */
       &__grid {
         grid-template-columns: repeat(auto-fit, minmax(min(24rem, 100%), 1fr));
@@ -727,41 +627,19 @@ const achievementStats = calculateAchievementStats(achievements);
   }
 
   /* ======================================
-   * CONTAINER QUERIES - Modern responsive design using semantic variables
-   * ====================================== */
-
-  @container (min-width: var(--container-query-md)) {
-    .achievements__grid {
-      grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
-    }
-  }
-
-  @container (min-width: var(--container-query-lg)) {
-    .achievements__grid {
-      /* Max 3 columns in large containers */
-      grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
-    }
-
-    .achievements__stat {
-      min-width: var(--stat-width-md);
-      font-size: var(--text-lg);
-    }
-  }
-
-  /* ======================================
    * RESPONSIVE DESIGN ENHANCEMENTS
    * Matching GameHome responsive patterns
    * ====================================== */
 
   .achievements-hero {
     &__title {
-      @media (min-width: var(--breakpoint-lg)) {
+      @media (min-width: 64em) {
         font-size: var(--text-4xl);
       }
     }
 
     &__description {
-      @media (min-width: var(--breakpoint-lg)) {
+      @media (min-width: 64em) {
         font-size: var(--text-2xl);
       }
     }
@@ -838,6 +716,138 @@ const achievementStats = calculateAchievementStats(achievements);
     }
   }
 
+  /* ======================================
+   * ACHIEVEMENT CARD STYLES - For dynamic rendering
+   * ====================================== */
+
+  .achievement-card {
+    background: var(--card-bg);
+    border: var(--border-width-thin) solid var(--border-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    box-shadow: var(--card-shadow);
+    transition: all var(--transition-normal);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    &:hover {
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--border-focus);
+      transform: translateY(-2px);
+    }
+
+    &--unlocked {
+      border-color: var(--achievement-gold);
+      background: linear-gradient(135deg, var(--card-bg) 0%, rgba(255, 215, 0, 0.1) 100%);
+    }
+
+    &--locked {
+      opacity: 0.8;
+    }
+
+    &__content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: var(--space-sm);
+    }
+
+    &__title {
+      font-size: var(--text-lg);
+      font-weight: var(--font-bold);
+      color: var(--text-primary);
+      margin: 0;
+      flex: 1;
+      line-height: var(--leading-tight);
+    }
+
+    &__category {
+      font-size: var(--text-xs);
+      font-weight: var(--font-medium);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-wide);
+      margin-left: var(--space-sm);
+
+      &--bronze {
+        background: rgba(205, 127, 50, 0.2);
+        color: rgb(205, 127, 50);
+        border: 1px solid rgba(205, 127, 50, 0.3);
+      }
+
+      &--silver {
+        background: rgba(192, 192, 192, 0.2);
+        color: rgb(169, 169, 169);
+        border: 1px solid rgba(192, 192, 192, 0.3);
+      }
+
+      &--gold {
+        background: rgba(255, 215, 0, 0.2);
+        color: rgb(255, 193, 7);
+        border: 1px solid rgba(255, 215, 0, 0.3);
+      }
+
+      &--platinum {
+        background: rgba(229, 228, 226, 0.2);
+        color: rgb(229, 228, 226);
+        border: 1px solid rgba(229, 228, 226, 0.3);
+      }
+    }
+
+    &__description {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+      margin: 0;
+      flex-grow: 1;
+    }
+
+    &__progress {
+      margin-top: auto;
+      padding-top: var(--space-sm);
+    }
+
+    &__progress-bar {
+      background: var(--bg-tertiary);
+      border-radius: var(--radius-full);
+      height: var(--space-xs);
+      overflow: hidden;
+      margin-bottom: var(--space-xs);
+
+      .achievement-card__progress-fill {
+        background: linear-gradient(90deg, var(--color-primary-500), var(--achievement-gold));
+        height: 100%;
+        border-radius: var(--radius-full);
+        transition: width var(--transition-normal);
+      }
+    }
+
+    &__progress-text {
+      font-size: var(--text-xs);
+      color: var(--text-secondary);
+      font-weight: var(--font-medium);
+    }
+
+    &__unlock-date {
+      font-size: var(--text-xs);
+      color: var(--achievement-gold);
+      font-weight: var(--font-medium);
+      margin-top: var(--space-sm);
+      padding-top: var(--space-sm);
+      border-top: 1px solid var(--border-primary);
+    }
+  }
+
   /* Print styles - Optimized for printing using semantic print variables */
   @media print {
     .achievements {
@@ -885,47 +895,728 @@ const achievementStats = calculateAchievementStats(achievements);
         text-shadow: none;
       }
     }
+
+    .achievement-card {
+      background: white;
+      border: 1px solid black;
+      box-shadow: none;
+
+      &__title,
+      &__description,
+      &__progress-text {
+        color: black;
+      }
+    }
+  }
+
+  /* ======================================
+   * ACHIEVEMENT FILTER STYLES - Simplified version
+   * ====================================== */
+
+  .achievement-filter {
+    background-color: var(--card-bg);
+    border: var(--border-width-thin) solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    margin-bottom: var(--space-lg);
+    box-shadow: var(--card-shadow);
+
+    &__title {
+      margin-bottom: var(--space-md);
+      font-size: var(--text-xl);
+      font-weight: var(--font-bold);
+      color: var(--text-primary);
+      text-align: center;
+
+      @media (min-width: 48em) {
+        text-align: left;
+      }
+    }
+
+    &__container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+
+      @media (min-width: 48em) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+      }
+    }
+
+    &__field {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    &__label {
+      font-size: var(--text-base);
+      font-weight: var(--font-medium);
+      color: var(--text-primary);
+      margin-bottom: var(--space-xs);
+    }
+
+    &__select {
+      appearance: none;
+      background-color: var(--form-bg);
+      border: var(--border-width-thin) solid var(--border-primary);
+      border-radius: var(--radius-md);
+      padding: var(--space-sm) var(--space-md);
+      font-size: var(--text-base);
+      color: var(--text-primary);
+      cursor: pointer;
+      min-height: var(--min-touch-size);
+
+      /* Custom dropdown arrow */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6,9 12,15 18,9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right var(--space-sm) center;
+      background-size: var(--space-md) var(--space-md);
+      padding-right: calc(var(--space-md) * 2.5);
+
+      &:focus {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+        border-color: var(--border-focus);
+        box-shadow: var(--shadow-sm);
+      }
+
+      &:hover {
+        border-color: var(--border-secondary);
+        background-color: var(--bg-tertiary);
+      }
+    }
+
+    &__count {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      margin-top: var(--space-xs);
+    }
+
+    &__actions {
+      display: flex;
+      gap: var(--space-sm);
+      justify-content: flex-start;
+      padding-top: var(--space-md);
+      border-top: var(--border-width-thin) solid var(--border-primary);
+    }
+
+    &__reset {
+      background: var(--btn-primary-bg);
+      border: none;
+      border-radius: var(--radius-md);
+      color: var(--btn-primary-text);
+      padding: var(--space-sm) var(--space-md);
+      font-size: var(--text-base);
+      font-weight: var(--font-medium);
+      cursor: pointer;
+      min-height: var(--min-touch-size);
+      transition: all var(--transition-normal);
+
+      &:hover {
+        background: var(--btn-primary-hover);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-sm);
+      }
+
+      &:focus {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  /* Filter states */
+  .filtered-hidden {
+    display: none !important;
+  }
+
+  .section-empty {
+    display: none !important;
   }
 </style>
 
 <script>
   /**
-   * Achievement Page - Modern ES6+ Client-Side Enhancement
-   *
-   * Modernized script with ES6+ features:
-   * - Arrow functions for concise syntax
-   * - Async/await for better error handling
-   * - Template literals for string interpolation
-   * - Destructuring for cleaner variable assignment
-   * - Optional chaining for safer property access
-   * - Modern error handling with try-catch
+   * Achievements Page - Client-Side Data Loading with Original Component Rendering
+   * Preserves original design while adding hybrid authentication
    */
 
-  import { initAchievementEventSystem } from "../../utils/achievements/achievementEvents.ts";
+  // DOM elements - will be retrieved when needed to avoid timing issues
 
-  // Modern ES6+ initialization function with arrow function syntax
-  const initializeAchievements = async (): Promise<void> => {
-    try {
-      await initAchievementEventSystem();
-    } catch (error) {
-      console.error("Failed to initialize achievement system:", error);
-    }
-  };
+  // Debug: Check if elements exist (removed console.log for lint compliance)
 
-  // Modern DOM ready check with arrow function
-  const handleDOMReady = (): void => {
-    initializeAchievements();
-  };
-
-  // Initialize on DOM ready with modern event handling
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", handleDOMReady);
-  } else {
-    handleDOMReady();
+  // Type definitions for achievement data
+  interface Achievement {
+    id: string;
+    isUnlocked?: boolean;
+    unlockedAt?: string;
+    progress?: number;
+    translations?: Array<{ name?: string; description?: string }>;
+    name?: string;
+    description?: string;
+    code?: string;
+    category?: { code?: string };
   }
 
-  // Astro page transition support with arrow function
+  // Extract language from URL
+  const currentPath = window.location.pathname;
+  const langMatch = currentPath.match(/^\/([a-z]{2})\//);
+  const currentLang = langMatch ? langMatch[1] : "en";
+
+  /**
+   * Check authentication status
+   */
+  function checkAuthStatus(): { authenticated: boolean; user?: Record<string, unknown> } {
+    const authStatus = localStorage.getItem("auth_status");
+    const userDataStr = localStorage.getItem("user");
+
+    if (authStatus === "authenticated" && userDataStr) {
+      try {
+        const userData = JSON.parse(userDataStr);
+        return { authenticated: true, user: userData };
+      } catch (e) {
+        console.warn("Failed to parse user data:", e);
+        return { authenticated: false };
+      }
+    }
+
+    return { authenticated: false };
+  }
+
+  /**
+   * Load achievements from API
+   */
+  async function loadAchievements(): Promise<Achievement[]> {
+    try {
+      // Include credentials to send cookies with the request
+      const response = await fetch(`/${currentLang}/api/achievements`, {
+        method: "GET",
+        credentials: "include", // This ensures cookies are sent
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+
+      if (data.success && data.achievements) {
+        return data.achievements;
+      } else {
+        throw new Error(data.error || "Failed to load achievements");
+      }
+    } catch (error) {
+      console.warn("Error loading achievements:", error);
+      throw error;
+    }
+  }
+
+  /**
+   * Process achievements into categories (simplified version of original utility)
+   */
+  function processAchievements(achievements: Achievement[]): [string, Achievement[]][] {
+    const categories = new Map();
+
+    achievements.forEach((achievement) => {
+      const categoryCode = achievement.category?.code || "bronze";
+      if (!categories.has(categoryCode)) {
+        categories.set(categoryCode, []);
+      }
+      categories.get(categoryCode).push(achievement);
+    });
+
+    return Array.from(categories.entries());
+  }
+
+  /**
+   * Calculate achievement statistics
+   */
+  function calculateAchievementStats(achievements: Achievement[]): { total: number; unlocked: number; progress: number } {
+    const total = achievements.length;
+    const unlocked = achievements.filter((a) => a.isUnlocked || a.unlockedAt).length;
+    const progress = total > 0 ? Math.round((unlocked / total) * 100) : 0;
+
+    return { total, unlocked, progress };
+  }
+
+  /**
+   * Render achievement categories in original format
+   */
+  function renderAchievements(achievements: Achievement[]): void {
+    const achievementsEmptySection = document.getElementById("achievements-empty-section");
+    const achievementsContent = document.getElementById("achievements-content");
+    const achievementsCategoriesContainer = document.getElementById("achievements-categories-container");
+    const achievementsStatsContainer = document.getElementById("achievements-stats-container");
+    
+    if (!achievements || achievements.length === 0) {
+      if (achievementsEmptySection) {
+        achievementsEmptySection.style.display = "block";
+      }
+      if (achievementsContent) {
+        achievementsContent.style.display = "none";
+      }
+      return;
+    }
+
+    const sortedCategories = processAchievements(achievements);
+    const achievementStats = calculateAchievementStats(achievements);
+
+    // Render categories
+    let categoriesHTML = "";
+    sortedCategories.forEach(([categoryId, categoryAchievements]) => {
+      const categoryCode = categoryAchievements[0]?.category?.code ?? "bronze";
+      const categoryTitle = getCategoryTitle(categoryCode);
+      const achievementCount = categoryAchievements.length;
+
+      categoriesHTML += `
+        <section class="achievements__category" data-category-id="${categoryId}" aria-labelledby="category-${categoryId}-title">
+          <h3 id="category-${categoryId}-title" class="achievements__category-title achievements__category-title--${categoryCode}" aria-describedby="category-${categoryId}-count">
+            ${categoryTitle}
+          </h3>
+          <p id="category-${categoryId}-count" class="sr-only">
+            ${achievementCount} achievements in this category
+          </p>
+          <div class="achievements__grid" role="list" aria-labelledby="category-${categoryId}-title">
+            ${categoryAchievements.map((achievement) => renderAchievementCard(achievement)).join("")}
+          </div>
+        </section>
+      `;
+    });
+
+    if (achievementsCategoriesContainer) {
+      achievementsCategoriesContainer.innerHTML = categoriesHTML;
+    }
+
+    // Render stats
+    const statsHTML = `
+      <div class="achievements__stat" role="listitem">
+        <span class="achievements__stat-label">Total</span>
+        <span class="achievements__stat-value" aria-label="Total ${achievementStats.total} achievements">
+          ${achievementStats.total}
+        </span>
+      </div>
+      <div class="achievements__stat" role="listitem">
+        <span class="achievements__stat-label">Unlocked</span>
+        <span class="achievements__stat-value" aria-label="${achievementStats.unlocked} achievements unlocked">
+          ${achievementStats.unlocked}
+        </span>
+      </div>
+      <div class="achievements__stat" role="listitem">
+        <span class="achievements__stat-label">Progress</span>
+        <span class="achievements__stat-value" aria-label="${achievementStats.progress} percent progress">
+          ${achievementStats.progress}%
+        </span>
+      </div>
+    `;
+
+    if (achievementsStatsContainer) {
+      achievementsStatsContainer.innerHTML = statsHTML;
+    }
+
+    // Show content
+    if (achievementsContent) {
+      achievementsContent.style.display = "block";
+    }
+    if (achievementsEmptySection) {
+      achievementsEmptySection.style.display = "none";
+    }
+  }
+
+  /**
+   * Render achievement card (simplified version maintaining original styling)
+   */
+  function renderAchievementCard(achievement: Achievement): string {
+    const isUnlocked = achievement.isUnlocked || achievement.unlockedAt;
+    const progress = achievement.progress || (isUnlocked ? 100 : 0);
+    const name = achievement.translations?.[0]?.name || achievement.name || achievement.code;
+    const description = achievement.translations?.[0]?.description || achievement.description || "";
+
+    return `
+      <div role="listitem">
+        <article class="achievement-card ${isUnlocked ? "achievement-card--unlocked" : "achievement-card--locked"}" 
+                 aria-labelledby="achievement-${achievement.id}-title">
+          <div class="achievement-card__content">
+            <header class="achievement-card__header">
+              <h4 id="achievement-${achievement.id}-title" class="achievement-card__title">${name}</h4>
+              <div class="achievement-card__category achievement-card__category--${achievement.category?.code || "bronze"}">
+                ${achievement.category?.code || "bronze"}
+              </div>
+            </header>
+            <p class="achievement-card__description">${description}</p>
+            <div class="achievement-card__progress" aria-label="Progress: ${progress} percent">
+              <div class="achievement-card__progress-bar">
+                <div class="achievement-card__progress-fill" style="width: ${progress}%"></div>
+              </div>
+              <span class="achievement-card__progress-text">${progress}%</span>
+            </div>
+            ${
+              isUnlocked
+                ? `<time class="achievement-card__unlock-date" datetime="${achievement.unlockedAt}">
+              Unlocked: ${formatDate(achievement.unlockedAt)}
+            </time>`
+                : ""
+            }
+          </div>
+        </article>
+      </div>
+    `;
+  }
+
+  /**
+   * Get localized category title
+   */
+  function getCategoryTitle(categoryCode: string): string {
+    const titles = {
+      bronze: "Bronze Achievements",
+      silver: "Silver Achievements",
+      gold: "Gold Achievements",
+      platinum: "Platinum Achievements",
+    };
+    return titles[categoryCode] || categoryCode.charAt(0).toUpperCase() + categoryCode.slice(1);
+  }
+
+  /**
+   * Format date for display
+   */
+  function formatDate(dateString: string): string {
+    if (!dateString) {
+      return "";
+    }
+    try {
+      const date = new Date(dateString);
+      return date.toLocaleDateString(currentLang);
+    } catch {
+      return dateString;
+    }
+  }
+
+  /**
+   * Show error message
+   */
+  function showError(message: string): void {
+    const errorContainer = document.getElementById("achievements-error-container");
+    if (errorContainer) {
+      errorContainer.innerHTML = `
+        <div class="error-message" role="alert">
+          <p>${message}</p>
+        </div>
+      `;
+    }
+  }
+
+  /**
+   * Render filter component
+   */
+  function renderFilterComponent(): void {
+    const achievementFilterContainer = document.getElementById("achievement-filter-container");
+    if (!achievementFilterContainer) {
+      return;
+    }
+
+    const filterHTML = `
+      <div class="achievement-filter" data-testid="achievement-filter" role="region" aria-labelledby="filter-heading">
+        <h2 id="filter-heading" class="achievement-filter__title">Filter Achievements</h2>
+        
+        <div class="achievement-filter__container">
+          <div class="achievement-filter__field">
+            <label for="status-filter" class="achievement-filter__label" id="status-filter-label">Status</label>
+            <select id="status-filter" class="achievement-filter__select" aria-labelledby="filter-heading status-filter-label" aria-controls="achievement-list">
+              <option value="all">All</option>
+              <option value="unlocked">Unlocked</option>
+              <option value="locked">Locked</option>
+              <option value="in-progress">In Progress</option>
+            </select>
+            <span class="achievement-filter__count" id="status-count" aria-live="polite"></span>
+          </div>
+
+          <div class="achievement-filter__field">
+            <label for="category-filter" class="achievement-filter__label" id="category-filter-label">Category</label>
+            <select id="category-filter" class="achievement-filter__select" aria-labelledby="filter-heading category-filter-label" aria-controls="achievement-list">
+              <option value="all">All Categories</option>
+              <option value="bronze">Bronze</option>
+              <option value="silver">Silver</option>
+              <option value="gold">Gold</option>
+              <option value="platinum">Platinum</option>
+            </select>
+            <span class="achievement-filter__count" id="category-count" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <div class="achievement-filter__actions">
+          <button type="button" class="achievement-filter__reset" id="reset-filters">Reset Filters</button>
+        </div>
+      </div>
+    `;
+    
+    achievementFilterContainer.innerHTML = filterHTML;
+    initializeFilters();
+  }
+
+  /**
+   * Initialize filter functionality
+   */
+  function initializeFilters(): void {
+    const statusFilter = document.getElementById('status-filter');
+    const categoryFilter = document.getElementById('category-filter');
+    const resetButton = document.getElementById('reset-filters');
+
+    if (statusFilter) {
+      statusFilter.addEventListener('change', applyFilters);
+    }
+    if (categoryFilter) {
+      categoryFilter.addEventListener('change', applyFilters);
+    }
+    if (resetButton) {
+      resetButton.addEventListener('click', resetFilters);
+    }
+
+    // Initial filter application
+    applyFilters();
+  }
+
+  /**
+   * Apply filters to achievements
+   */
+  function applyFilters(): void {
+    const statusFilter = document.getElementById('status-filter');
+    const categoryFilter = document.getElementById('category-filter');
+    
+    if (!statusFilter || !categoryFilter) {
+      return;
+    }
+
+    const selectedStatus = statusFilter.value;
+    const selectedCategory = categoryFilter.value;
+
+    // Get all achievement cards - look for the actual card structure
+    const achievementCards = document.querySelectorAll('.achievement-card');
+    const categories = document.querySelectorAll('.achievements__category');
+
+    let visibleCount = 0;
+
+    achievementCards.forEach((card) => {
+      // The card itself should be the target, not a parent
+      const cardElement = card.closest('[role="listitem"]') || card.parentElement;
+      if (!cardElement) {
+        return;
+      }
+
+      // Determine if unlocked based on CSS classes
+      const isUnlocked = card.classList.contains('achievement-card--unlocked');
+      
+      // Get category from the category badge element
+      const categoryElement = card.querySelector('.achievement-card__category');
+      let cardCategory = 'bronze'; // default
+      if (categoryElement) {
+        const categoryText = categoryElement.textContent?.trim().toLowerCase();
+        cardCategory = categoryText || 'bronze';
+      }
+
+      // Get progress from progress text
+      const progressText = card.querySelector('.achievement-card__progress-text');
+      let progress = 0;
+      if (progressText) {
+        const progressMatch = progressText.textContent?.match(/(\d+)%/);
+        progress = progressMatch ? parseInt(progressMatch[1]) : 0;
+      }
+
+      // Determine status based on unlock state and progress
+      let status = 'locked';
+      if (isUnlocked) {
+        status = 'unlocked';
+      } else if (progress > 0 && progress < 100) {
+        status = 'in-progress';
+      }
+
+      // Check if card matches filters
+      const statusMatch = selectedStatus === 'all' || status === selectedStatus;
+      const categoryMatch = selectedCategory === 'all' || cardCategory === selectedCategory;
+
+      if (statusMatch && categoryMatch) {
+        cardElement.style.display = '';
+        cardElement.classList.remove('filtered-hidden');
+        card.classList.remove('filtered-hidden');
+        visibleCount++;
+      } else {
+        cardElement.style.display = 'none';
+        cardElement.classList.add('filtered-hidden');
+        card.classList.add('filtered-hidden');
+      }
+    });
+
+    // Hide empty categories
+    categories.forEach(category => {
+      const categoryCards = category.querySelectorAll('.achievement-card');
+      const visibleCards = Array.from(categoryCards).filter(card => 
+        !card.classList.contains('filtered-hidden') && 
+        card.closest('[role="listitem"]')?.style.display !== 'none'
+      );
+      
+      if (visibleCards.length === 0) {
+        category.style.display = 'none';
+        category.classList.add('section-empty');
+      } else {
+        category.style.display = 'block';
+        category.classList.remove('section-empty');
+      }
+    });
+
+    // Update counts
+    updateFilterCounts(selectedStatus, selectedCategory, visibleCount);
+  }
+
+  /**
+   * Update filter counts
+   */
+  function updateFilterCounts(selectedStatus: string, selectedCategory: string, visibleCount: number): void {
+    const statusCount = document.getElementById('status-count');
+    const categoryCount = document.getElementById('category-count');
+
+    if (statusCount) {
+      statusCount.textContent = `${visibleCount} achievements`;
+    }
+    if (categoryCount) {
+      categoryCount.textContent = `${visibleCount} achievements`;
+    }
+  }
+
+  /**
+   * Reset all filters
+   */
+  function resetFilters(): void {
+    const statusFilter = document.getElementById('status-filter');
+    const categoryFilter = document.getElementById('category-filter');
+
+    if (statusFilter) {
+      statusFilter.value = 'all';
+    }
+    if (categoryFilter) {
+      categoryFilter.value = 'all';
+    }
+
+    applyFilters();
+  }
+
+  /**
+   * Main initialization function
+   */
+  async function initializeAchievements(): Promise<void> {
+    const authResult = checkAuthStatus();
+    
+    // Get DOM elements when needed
+    const authRequiredSection = document.getElementById("auth-required-section");
+    const achievementsContent = document.getElementById("achievements-content");
+    const achievementsEmptySection = document.getElementById("achievements-empty-section");
+    const errorContainer = document.getElementById("achievements-error-container");
+
+    // Always try to load achievements (API handles auth status)
+    try {
+      // Load achievements
+      const achievements = await loadAchievements();
+
+      if (!authResult.authenticated) {
+        // Show login form for unauthenticated users
+        if (authRequiredSection) {
+          authRequiredSection.style.display = "block";
+        }
+        if (achievementsContent) {
+          achievementsContent.style.display = "none";
+        }
+        if (achievementsEmptySection) {
+          achievementsEmptySection.style.display = "none";
+        }
+        if (errorContainer) {
+          errorContainer.innerHTML = "";
+        }
+        return;
+      }
+
+      // Hide login form for authenticated users
+      if (authRequiredSection) {
+        authRequiredSection.style.display = "none";
+      }
+      if (errorContainer) {
+        errorContainer.innerHTML = "";
+      }
+
+      // Render achievements
+      renderAchievements(achievements);
+      
+      // Add filter component
+      renderFilterComponent();
+    } catch (error) {
+      console.warn("Failed to load achievements:", error);
+
+      if (!authResult.authenticated) {
+        // Show login form if not authenticated and API fails
+        if (authRequiredSection) {
+          authRequiredSection.style.display = "block";
+        }
+        if (achievementsContent) {
+          achievementsContent.style.display = "none";
+        }
+        if (achievementsEmptySection) {
+          achievementsEmptySection.style.display = "none";
+        }
+        if (errorContainer) {
+          errorContainer.innerHTML = "";
+        }
+      } else {
+        // Show error for authenticated users
+        showError("Failed to load achievements. Please try again later.");
+        if (achievementsEmptySection) {
+          achievementsEmptySection.style.display = "block";
+        }
+        if (achievementsContent) {
+          achievementsContent.style.display = "none";
+        }
+      }
+    }
+  }
+
+  // Listen for authentication changes
+  window.addEventListener("storage", (e) => {
+    if (e.key === "auth_status") {
+      initializeAchievements();
+    }
+  });
+
+  // Initialize on DOM ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeAchievements);
+  } else {
+    initializeAchievements();
+  }
+
+  // Astro page transition support
   document.addEventListener("astro:page-load", () => {
     initializeAchievements();
   });
+
+  // Initialize achievement event system
+  import("../../utils/achievements/achievementEvents.ts")
+    .then(async (module) => {
+      if (module.initAchievementEventSystem) {
+        try {
+          await module.initAchievementEventSystem();
+          return;
+        } catch (error) {
+          console.warn(error);
+          return;
+        }
+      }
+      return;
+    })
+    .catch(console.warn);
 </script>

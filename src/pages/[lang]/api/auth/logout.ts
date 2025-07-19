@@ -85,20 +85,44 @@ export const POST: APIRoute = async ({ params }) => {
   const t = useTranslations(lang);
 
   try {
-    // Clear authentication cookies by setting expiration date in the past
+    // Clear ALL authentication cookies by setting expiration date in the past
     const accessTokenExpiry = new Date(0);
 
     // Cookie options with type safety
     const cookieOptions: CookieOptions = {
       httpOnly: true,
       secure: true,
-      sameSite: "Strict",
+      sameSite: "Strict", 
       path: "/",
       expires: accessTokenExpiry,
     };
 
-    // Create the cookie clear header
-    const cookieHeader = createCookieHeader("access_token", "", cookieOptions);
+    // Cookie options for non-HttpOnly cookies (like auth_status)
+    const nonHttpOnlyCookieOptions: CookieOptions = {
+      httpOnly: false,
+      secure: true,
+      sameSite: "Strict",
+      path: "/", 
+      expires: accessTokenExpiry,
+    };
+
+    // Create headers for all authentication cookies
+    const cookiesToClear = [
+      { name: "access_token", options: cookieOptions },
+      { name: "auth_token", options: cookieOptions },
+      { name: "auth_status", options: nonHttpOnlyCookieOptions },
+      { name: "user_data", options: nonHttpOnlyCookieOptions },
+    ];
+
+    const headers = new Headers({
+      "Content-Type": "application/json",
+    });
+
+    // Add all cookie clear headers
+    cookiesToClear.forEach(({ name, options }) => {
+      const cookieHeader = createCookieHeader(name, "", options);
+      headers.append("Set-Cookie", cookieHeader);
+    });
 
     return new Response(
       JSON.stringify({
@@ -107,10 +131,7 @@ export const POST: APIRoute = async ({ params }) => {
       } satisfies LogoutResponse),
       {
         status: 200,
-        headers: {
-          "Content-Type": "application/json",
-          "Set-Cookie": cookieHeader,
-        },
+        headers,
       }
     );
   } catch (error) {

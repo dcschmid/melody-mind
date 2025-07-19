@@ -1,0 +1,706 @@
+---
+/**
+ * OAuth Account Manager Component
+ *
+ * Manages OAuth provider accounts - linking, unlinking, and displaying linked accounts
+ *
+ * @component
+ * @accessibility WCAG AAA compliant with proper ARIA labels and live regions
+ * @performance Optimized with CSS containment and efficient DOM handling
+ * @responsive Mobile-first design with enhanced touch targets
+ */
+
+import { Icon } from "astro-icon/components";
+import { useTranslations } from "../../utils/i18n";
+
+interface Props {
+  /** Current language */
+  lang: string;
+  /** Currently linked OAuth providers */
+  linkedProviders?: string[];
+  /** CSS class name */
+  className?: string;
+}
+
+const { lang, linkedProviders = [], className = "" } = Astro.props;
+const t = useTranslations(lang);
+
+// Available OAuth providers
+const availableProviders = [
+  {
+    name: "spotify",
+    displayName: "Spotify",
+    icon: "music",
+    color: "#1DB954",
+    description: t("auth.oauth.spotify.description"),
+  },
+  {
+    name: "google",
+    displayName: "Google",
+    icon: "search",
+    color: "#4285F4",
+    description: t("auth.oauth.google.description"),
+  },
+  {
+    name: "apple",
+    displayName: "Apple",
+    icon: "apple",
+    color: "#000000",
+    description: t("auth.oauth.apple.description"),
+  },
+  {
+    name: "discord",
+    displayName: "Discord",
+    icon: "gamepad",
+    color: "#5865F2",
+    description: t("auth.oauth.discord.description"),
+  },
+  {
+    name: "yahoo",
+    displayName: "Yahoo",
+    icon: "mail",
+    color: "#6001D2",
+    description: t("auth.oauth.yahoo.description"),
+  },
+];
+---
+
+<div class={`oauth-account-manager ${className}`}>
+  <div class="oauth-account-manager__header">
+    <h3 class="oauth-account-manager__title">
+      <Icon name="link" class="oauth-account-manager__title-icon" aria-hidden="true" />
+      {t("auth.oauth.linked_accounts")}
+    </h3>
+    <p class="oauth-account-manager__description">
+      {t("auth.oauth.linked_accounts_description")}
+    </p>
+  </div>
+
+  <!-- Success/Error messages -->
+  <div class="oauth-account-manager__messages" aria-live="polite">
+    <div class="oauth-account-manager__success" role="alert" style="display: none;">
+      <Icon name="check-circle" class="oauth-account-manager__message-icon" aria-hidden="true" />
+      <span class="oauth-account-manager__message-text"></span>
+    </div>
+    <div class="oauth-account-manager__error" role="alert" style="display: none;">
+      <Icon name="x-circle" class="oauth-account-manager__message-icon" aria-hidden="true" />
+      <span class="oauth-account-manager__message-text"></span>
+    </div>
+  </div>
+
+  <!-- OAuth providers list -->
+  <div class="oauth-account-manager__providers">
+    {
+      availableProviders.map((provider) => {
+        const isLinked = linkedProviders.includes(provider.name);
+        return (
+          <div
+            class={`oauth-provider ${isLinked ? "oauth-provider--linked" : ""}`}
+            data-provider={provider.name}
+            style={`--provider-color: ${provider.color}`}
+          >
+            <div class="oauth-provider__info">
+              <div class="oauth-provider__icon">
+                <Icon name={provider.icon} aria-hidden="true" />
+              </div>
+              <div class="oauth-provider__details">
+                <div class="oauth-provider__name">{provider.displayName}</div>
+                <div class="oauth-provider__description">{provider.description}</div>
+              </div>
+            </div>
+
+            <div class="oauth-provider__status">
+              {isLinked ? (
+                <div class="oauth-provider__linked">
+                  <Icon
+                    name="check-circle"
+                    class="oauth-provider__status-icon"
+                    aria-hidden="true"
+                  />
+                  <span class="oauth-provider__status-text">{t("auth.oauth.linked")}</span>
+                </div>
+              ) : (
+                <div class="oauth-provider__not-linked">
+                  <Icon name="x-circle" class="oauth-provider__status-icon" aria-hidden="true" />
+                  <span class="oauth-provider__status-text">{t("auth.oauth.not_linked")}</span>
+                </div>
+              )}
+            </div>
+
+            <div class="oauth-provider__actions">
+              {isLinked ? (
+                <button
+                  type="button"
+                  class="oauth-provider__button oauth-provider__button--unlink"
+                  data-action="unlink"
+                  data-provider={provider.name}
+                  aria-label={t("auth.oauth.unlink_provider", { provider: provider.displayName })}
+                >
+                  <Icon name="unlink" class="oauth-provider__button-icon" aria-hidden="true" />
+                  <span class="oauth-provider__button-text">{t("auth.oauth.unlink")}</span>
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  class="oauth-provider__button oauth-provider__button--link"
+                  data-action="link"
+                  data-provider={provider.name}
+                  aria-label={t("auth.oauth.link_provider", { provider: provider.displayName })}
+                >
+                  <Icon name="link" class="oauth-provider__button-icon" aria-hidden="true" />
+                  <span class="oauth-provider__button-text">{t("auth.oauth.link")}</span>
+                </button>
+              )}
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</div>
+
+<style lang="scss">
+  .oauth-account-manager {
+    width: 100%;
+    contain: layout style;
+
+    &__header {
+      margin-bottom: var(--space-xl);
+      text-align: center;
+
+      @media (min-width: 48em) {
+        text-align: left;
+      }
+    }
+
+    &__title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      font-size: var(--text-2xl);
+      font-weight: var(--font-bold);
+      color: var(--text-primary);
+      margin-bottom: var(--space-md);
+
+      @media (min-width: 48em) {
+        justify-content: flex-start;
+      }
+    }
+
+    &__title-icon {
+      width: var(--icon-size-lg);
+      height: var(--icon-size-lg);
+      color: var(--interactive-primary);
+    }
+
+    &__description {
+      font-size: var(--text-base);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+      max-width: 60ch;
+      margin: 0 auto;
+
+      @media (min-width: 48em) {
+        margin: 0;
+      }
+    }
+
+    &__messages {
+      margin-bottom: var(--space-lg);
+    }
+
+    &__success,
+    &__error {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-md);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &__success {
+      background-color: var(--bg-success-aaa);
+      color: var(--text-success-aaa);
+      border: var(--border-width-thin) solid var(--border-success);
+    }
+
+    &__error {
+      background-color: var(--bg-error-aaa);
+      color: var(--text-error-aaa);
+      border: var(--border-width-thin) solid var(--border-error);
+    }
+
+    &__message-icon {
+      width: var(--icon-size-md);
+      height: var(--icon-size-md);
+      flex-shrink: 0;
+    }
+
+    &__message-text {
+      font-size: var(--text-base);
+      font-weight: var(--font-medium);
+    }
+
+    &__providers {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+  }
+
+  .oauth-provider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
+    border: var(--border-width-thin) solid var(--border-secondary);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-normal);
+
+    &:hover {
+      border-color: var(--provider-color);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    &--linked {
+      border-color: var(--border-success);
+      background: var(--bg-success-subtle);
+    }
+
+    &__info {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      flex: 1;
+    }
+
+    &__icon {
+      width: var(--icon-size-xl);
+      height: var(--icon-size-xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--provider-color);
+      color: white;
+      border-radius: var(--radius-md);
+      flex-shrink: 0;
+    }
+
+    &__details {
+      flex: 1;
+      min-width: 0;
+    }
+
+    &__name {
+      font-size: var(--text-lg);
+      font-weight: var(--font-semibold);
+      color: var(--text-primary);
+      margin-bottom: var(--space-xs);
+    }
+
+    &__description {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+    }
+
+    &__status {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-right: var(--space-md);
+    }
+
+    &__linked {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      color: var(--text-success);
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+    }
+
+    &__not-linked {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      color: var(--text-secondary);
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+    }
+
+    &__status-icon {
+      width: var(--icon-size-sm);
+      height: var(--icon-size-sm);
+    }
+
+    &__actions {
+      flex-shrink: 0;
+    }
+
+    &__button {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-md);
+      border: var(--border-width-thin) solid;
+      background: transparent;
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+      min-height: var(--touch-target-md);
+
+      &:focus {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+      }
+
+      &--link {
+        color: var(--provider-color);
+        border-color: var(--provider-color);
+
+        &:hover {
+          background: var(--provider-color);
+          color: white;
+        }
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+
+      &--unlink {
+        color: var(--color-error-600);
+        border-color: var(--color-error-600);
+
+        &:hover {
+          background: var(--color-error-600);
+          color: white;
+        }
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    &__button-icon {
+      width: var(--icon-size-sm);
+      height: var(--icon-size-sm);
+    }
+
+    &__button-text {
+      @media (max-width: 47.9375em) {
+        display: none;
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 47.9375em) {
+    .oauth-provider {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-md);
+
+      &__info {
+        justify-content: center;
+      }
+
+      &__status {
+        justify-content: center;
+        margin-right: 0;
+      }
+
+      &__actions {
+        align-self: center;
+      }
+    }
+  }
+
+  // Reduced motion support
+  @media (prefers-reduced-motion: reduce) {
+    .oauth-provider {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+</style>
+
+<script>
+  import { useTranslations } from "../../utils/i18n";
+
+  interface OAuthManagerResponse {
+    success: boolean;
+    message?: string;
+    error?: string;
+  }
+
+  class OAuthAccountManager {
+    private container: HTMLElement;
+    private lang: string;
+    private t: ReturnType<typeof useTranslations>;
+    private successMessage: HTMLElement;
+    private errorMessage: HTMLElement;
+
+    constructor(container: HTMLElement) {
+      this.container = container;
+      this.lang = document.documentElement.lang || "en";
+      this.t = useTranslations(this.lang);
+
+      this.successMessage = container.querySelector(
+        ".oauth-account-manager__success"
+      ) as HTMLElement;
+      this.errorMessage = container.querySelector(".oauth-account-manager__error") as HTMLElement;
+
+      this.init();
+    }
+
+    private init(): void {
+      this.container.addEventListener("click", this.handleButtonClick.bind(this));
+    }
+
+    private async handleButtonClick(event: Event): Promise<void> {
+      const button = (event.target as HTMLElement).closest("[data-action]") as HTMLButtonElement;
+      if (!button) return;
+
+      const action = button.dataset.action;
+      const provider = button.dataset.provider;
+
+      if (!action || !provider) return;
+
+      // Show loading state
+      this.setButtonLoading(button, true);
+      this.hideMessages();
+
+      try {
+        if (action === "link") {
+          await this.linkProvider(provider);
+        } else if (action === "unlink") {
+          await this.unlinkProvider(provider, button);
+        }
+      } catch (error) {
+        console.error("OAuth action failed:", error);
+        this.showError(error.message || this.t("auth.oauth.action_failed"));
+      } finally {
+        this.setButtonLoading(button, false);
+      }
+    }
+
+    private async linkProvider(provider: string): Promise<void> {
+      // Redirect to OAuth authorization
+      const currentUrl = window.location.href;
+      const authUrl = `/api/auth/oauth/authorize/${provider}?lang=${this.lang}&redirect=${encodeURIComponent(currentUrl)}&link=true`;
+
+      window.location.href = authUrl;
+    }
+
+    private async unlinkProvider(provider: string, button: HTMLButtonElement): Promise<void> {
+      // Show confirmation dialog
+      const confirmed = await this.showConfirmDialog(
+        this.t("auth.oauth.unlink_confirm_title"),
+        this.t("auth.oauth.unlink_confirm_message", {
+          provider: provider.charAt(0).toUpperCase() + provider.slice(1),
+        })
+      );
+
+      if (!confirmed) return;
+
+      try {
+        const response = await fetch(`/api/auth/oauth/unlink/${provider}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        });
+
+        const data: OAuthManagerResponse = await response.json();
+
+        if (data.success) {
+          this.showSuccess(
+            data.message || this.t("auth.oauth.unlink_success", { provider: provider })
+          );
+          this.updateProviderStatus(provider, false);
+        } else {
+          this.showError(data.error || this.t("auth.oauth.unlink_failed"));
+        }
+      } catch (error) {
+        console.error("Unlink failed:", error);
+        this.showError(this.t("auth.oauth.unlink_failed"));
+      }
+    }
+
+    private async showConfirmDialog(title: string, message: string): Promise<boolean> {
+      return new Promise((resolve) => {
+        const dialog = document.createElement("div");
+        dialog.className = "oauth-confirm-dialog";
+        dialog.innerHTML = `
+          <div class="oauth-confirm-dialog__backdrop"></div>
+          <div class="oauth-confirm-dialog__content" role="dialog" aria-labelledby="confirm-title" aria-describedby="confirm-message">
+            <h3 id="confirm-title">${title}</h3>
+            <p id="confirm-message">${message}</p>
+            <div class="oauth-confirm-dialog__actions">
+              <button type="button" class="oauth-confirm-dialog__button oauth-confirm-dialog__button--cancel">
+                ${this.t("auth.oauth.cancel")}
+              </button>
+              <button type="button" class="oauth-confirm-dialog__button oauth-confirm-dialog__button--confirm">
+                ${this.t("auth.oauth.confirm")}
+              </button>
+            </div>
+          </div>
+        `;
+
+        document.body.appendChild(dialog);
+
+        const content = dialog.querySelector(".oauth-confirm-dialog__content") as HTMLElement;
+        const cancelBtn = dialog.querySelector(
+          ".oauth-confirm-dialog__button--cancel"
+        ) as HTMLButtonElement;
+        const confirmBtn = dialog.querySelector(
+          ".oauth-confirm-dialog__button--confirm"
+        ) as HTMLButtonElement;
+
+        // Focus the cancel button by default
+        cancelBtn.focus();
+
+        const cleanup = () => {
+          document.body.removeChild(dialog);
+        };
+
+        cancelBtn.addEventListener("click", () => {
+          cleanup();
+          resolve(false);
+        });
+
+        confirmBtn.addEventListener("click", () => {
+          cleanup();
+          resolve(true);
+        });
+
+        dialog.addEventListener("click", (e) => {
+          if (
+            e.target === dialog ||
+            e.target === dialog.querySelector(".oauth-confirm-dialog__backdrop")
+          ) {
+            cleanup();
+            resolve(false);
+          }
+        });
+
+        // Escape key support
+        const handleEscape = (e: KeyboardEvent) => {
+          if (e.key === "Escape") {
+            cleanup();
+            resolve(false);
+            document.removeEventListener("keydown", handleEscape);
+          }
+        };
+        document.addEventListener("keydown", handleEscape);
+      });
+    }
+
+    private updateProviderStatus(provider: string, isLinked: boolean): void {
+      const providerElement = this.container.querySelector(
+        `[data-provider="${provider}"]`
+      ) as HTMLElement;
+      if (!providerElement) return;
+
+      const statusElement = providerElement.querySelector(".oauth-provider__status") as HTMLElement;
+      const actionsElement = providerElement.querySelector(
+        ".oauth-provider__actions"
+      ) as HTMLElement;
+
+      if (isLinked) {
+        providerElement.classList.add("oauth-provider--linked");
+        statusElement.innerHTML = `
+          <div class="oauth-provider__linked">
+            <svg class="oauth-provider__status-icon" aria-hidden="true"><use href="#icon-check-circle"></use></svg>
+            <span class="oauth-provider__status-text">${this.t("auth.oauth.linked")}</span>
+          </div>
+        `;
+        actionsElement.innerHTML = `
+          <button type="button" class="oauth-provider__button oauth-provider__button--unlink" data-action="unlink" data-provider="${provider}">
+            <svg class="oauth-provider__button-icon" aria-hidden="true"><use href="#icon-unlink"></use></svg>
+            <span class="oauth-provider__button-text">${this.t("auth.oauth.unlink")}</span>
+          </button>
+        `;
+      } else {
+        providerElement.classList.remove("oauth-provider--linked");
+        statusElement.innerHTML = `
+          <div class="oauth-provider__not-linked">
+            <svg class="oauth-provider__status-icon" aria-hidden="true"><use href="#icon-x-circle"></use></svg>
+            <span class="oauth-provider__status-text">${this.t("auth.oauth.not_linked")}</span>
+          </div>
+        `;
+        actionsElement.innerHTML = `
+          <button type="button" class="oauth-provider__button oauth-provider__button--link" data-action="link" data-provider="${provider}">
+            <svg class="oauth-provider__button-icon" aria-hidden="true"><use href="#icon-link"></use></svg>
+            <span class="oauth-provider__button-text">${this.t("auth.oauth.link")}</span>
+          </button>
+        `;
+      }
+    }
+
+    private setButtonLoading(button: HTMLButtonElement, loading: boolean): void {
+      button.disabled = loading;
+      if (loading) {
+        button.classList.add("oauth-provider__button--loading");
+      } else {
+        button.classList.remove("oauth-provider__button--loading");
+      }
+    }
+
+    private showSuccess(message: string): void {
+      this.hideMessages();
+      this.successMessage.querySelector(".oauth-account-manager__message-text")!.textContent =
+        message;
+      this.successMessage.style.display = "flex";
+
+      // Auto-hide after 5 seconds
+      setTimeout(() => {
+        this.successMessage.style.display = "none";
+      }, 5000);
+    }
+
+    private showError(message: string): void {
+      this.hideMessages();
+      this.errorMessage.querySelector(".oauth-account-manager__message-text")!.textContent =
+        message;
+      this.errorMessage.style.display = "flex";
+
+      // Auto-hide after 10 seconds
+      setTimeout(() => {
+        this.errorMessage.style.display = "none";
+      }, 10000);
+    }
+
+    private hideMessages(): void {
+      this.successMessage.style.display = "none";
+      this.errorMessage.style.display = "none";
+    }
+  }
+
+  // Initialize OAuth Account Manager
+  document.addEventListener("DOMContentLoaded", () => {
+    const containers = document.querySelectorAll(".oauth-account-manager");
+    containers.forEach((container) => {
+      new OAuthAccountManager(container as HTMLElement);
+    });
+  });
+</script>
