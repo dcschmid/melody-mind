@@ -230,10 +230,10 @@ const languages = Object.fromEntries(
       /* Appearance and positioning */
       cursor: pointer;
       appearance: none;
-      border: none;
+      border: 2px solid var(--interactive-primary);
       border-radius: var(--radius-lg);
 
-      /* Spacing using CSS variables */
+      /* Spacing using CSS variables - match menu button */
       padding: var(--space-sm) var(--space-2xl) var(--space-sm) var(--space-md);
 
       /* Background and colors using semantic CSS variables */
@@ -244,6 +244,10 @@ const languages = Object.fromEntries(
       font-size: var(--text-base);
       font-weight: var(--font-medium);
 
+      /* Visual effects to match menu button */
+      box-shadow: var(--shadow-md);
+      margin: var(--space-xs);
+
       /* Transitions */
       transition:
         background-color var(--animation-duration-normal),
@@ -251,19 +255,20 @@ const languages = Object.fromEntries(
         box-shadow var(--animation-duration-normal),
         color var(--animation-duration-normal);
 
-      /* Hover states */
+      /* Hover states - match menu button */
       &:hover {
         background-color: var(--interactive-primary-hover);
-        transform: translateY(calc(var(--space-micro) * -1));
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-2px);
       }
 
-      /* Focus states */
+      /* Focus states - match menu button */
       &:focus,
       &:focus-visible {
         background-color: var(--interactive-primary-hover);
-        outline: var(--focus-enhanced-outline-dark);
-        outline-offset: var(--focus-ring-offset);
-        box-shadow: var(--focus-enhanced-shadow);
+        outline: 3px solid var(--focus-ring);
+        outline-offset: 2px;
+        box-shadow: var(--shadow-xl);
       }
 
       /* Disabled state */

@@ -2,7 +2,9 @@
 
 ## Übersicht
 
-Diese Anleitung führt Sie durch die Einrichtung von Google OAuth für MelodyMind. Das System ist bereits vollständig implementiert - Sie müssen nur die Google Console konfigurieren und die Umgebungsvariablen setzen.
+Diese Anleitung führt Sie durch die Einrichtung von Google OAuth für MelodyMind. Das System ist
+bereits vollständig implementiert - Sie müssen nur die Google Console konfigurieren und die
+Umgebungsvariablen setzen.
 
 ## Voraussetzungen
 
@@ -28,7 +30,8 @@ Diese Anleitung führt Sie durch die Einrichtung von Google OAuth für MelodyMin
 4. **Erstellen Sie OAuth 2.0 Credentials:**
    - Gehen Sie zu "APIs & Services" → "Credentials"
    - Klicken Sie "Create Credentials" → "OAuth client ID"
-   - Wenn Sie zum ersten Mal Credentials erstellen, müssen Sie zuerst den "OAuth consent screen" konfigurieren
+   - Wenn Sie zum ersten Mal Credentials erstellen, müssen Sie zuerst den "OAuth consent screen"
+     konfigurieren
 
 ### 2. OAuth Consent Screen konfigurieren
 
@@ -59,21 +62,23 @@ Diese Anleitung führt Sie durch die Einrichtung von Google OAuth für MelodyMin
 3. **Name:** "MelodyMind Web Client"
 
 4. **Authorized JavaScript origins:**
+
    ```
    Development:
    http://localhost:4321
    http://localhost:4322
-   
+
    Production:
    https://yourdomain.com
    ```
 
 5. **Authorized redirect URIs:**
+
    ```
    Development:
    http://localhost:4321/api/auth/oauth/callback/google
    http://localhost:4322/api/auth/oauth/callback/google
-   
+
    Production:
    https://yourdomain.com/api/auth/oauth/callback/google
    ```
@@ -83,6 +88,7 @@ Diese Anleitung führt Sie durch die Einrichtung von Google OAuth für MelodyMin
 ### 4. Credentials kopieren
 
 Nach der Erstellung erhalten Sie:
+
 - **Client ID** (beginnt mit etwas wie `123456789-abcdef.apps.googleusercontent.com`)
 - **Client Secret** (zufälliger String)
 
@@ -147,12 +153,14 @@ yarn dev
 ### 1. Domain verifizieren
 
 In der Google Console unter "OAuth consent screen" → "App domains":
+
 - Fügen Sie Ihre Produktions-Domain hinzu
 - Google kann eine Domain-Verifizierung verlangen
 
 ### 2. App Review (Optional)
 
 Für öffentliche Apps mit vielen Benutzern:
+
 - Google kann eine App Review verlangen
 - Dies ist nur nötig wenn Sie bestimmte sensible Scopes verwenden
 - Die Standard Scopes (openid, email, profile) benötigen normalerweise keine Review
@@ -160,6 +168,7 @@ Für öffentliche Apps mit vielen Benutzern:
 ### 3. Redirect URIs aktualisieren
 
 Vergessen Sie nicht, die Redirect URIs in der Google Console zu aktualisieren:
+
 ```
 https://yourdomain.com/api/auth/oauth/callback/google
 ```
@@ -167,10 +176,11 @@ https://yourdomain.com/api/auth/oauth/callback/google
 ## Weitere Provider
 
 Das OAuth-System unterstützt bereits:
+
 - ✅ **Spotify** (implementiert)
 - ✅ **Google** (Sie implementieren gerade)
 - 🔄 **Apple** (konfiguriert, braucht Setup)
-- 🔄 **Discord** (konfiguriert, braucht Setup)  
+- 🔄 **Discord** (konfiguriert, braucht Setup)
 - 🔄 **Yahoo** (konfiguriert, braucht Setup)
 
 Jeder Provider folgt dem gleichen Muster - nur die Konfiguration unterscheidet sich.
@@ -178,9 +188,11 @@ Jeder Provider folgt dem gleichen Muster - nur die Konfiguration unterscheidet s
 ## Support
 
 Bei Problemen:
+
 1. Überprüfen Sie die Server-Logs
 2. Überprüfen Sie die Browser-Konsole
 3. Stellen Sie sicher, dass alle Umgebungsvariablen gesetzt sind
 4. Überprüfen Sie die Google Console Konfiguration
 
-Das OAuth-System ist vollständig implementiert und sollte sofort funktionieren, sobald die Google Console korrekt konfiguriert ist!
+Das OAuth-System ist vollständig implementiert und sollte sofort funktionieren, sobald die Google
+Console korrekt konfiguriert ist!

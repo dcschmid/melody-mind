@@ -333,8 +333,18 @@ const clientTranslations = {
 
   <!-- Enhanced SEO-optimized JavaScript with modern ES6+ features -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Modern ES6+ destructuring and type assertions
+    // Type-safe window extension for translations
+    interface WindowWithTranslations extends Window {
+      knowledgeTranslations: {
+        search: {
+          showingAll: string;
+          articlesFound: string;
+        };
+      };
+    }
+
+    // Initialize search functionality
+    function initializeSearchFunctionality(): void {
       const searchInput = document.querySelector("#searchInput") as HTMLInputElement;
       const resetButton = document.querySelector("#reset-search") as HTMLButtonElement;
       const clearButton = document.querySelector("#clear-search") as HTMLButtonElement;
@@ -342,19 +352,7 @@ const clientTranslations = {
       const noResultsDiv = document.querySelector("#no-results") as HTMLElement;
       const searchStatus = document.querySelector("#search-status") as HTMLElement;
       
-      // Modern variable declarations with let/const
-      let debounceTimer: ReturnType<typeof setTimeout>;
       let currentSearchQuery = "";
-      
-      // Type-safe window extension for translations
-      interface WindowWithTranslations extends Window {
-        knowledgeTranslations: {
-          search: {
-            showingAll: string;
-            articlesFound: string;
-          };
-        };
-      }
       
       const translations = (window as unknown as WindowWithTranslations).knowledgeTranslations;
 
@@ -363,10 +361,8 @@ const clientTranslations = {
         return;
       }
 
-      // Modern array methods
       const allArticles = Array.from(articlesGrid.children) as HTMLElement[];
 
-      // Arrow functions for all methods
       const updateSearchStatus = (count: number, query: string): void => {
         const statusText = query.trim() 
           ? `${count} ${translations.search.articlesFound}`
@@ -384,7 +380,6 @@ const clientTranslations = {
         const searchTerm = query.toLowerCase().trim();
         currentSearchQuery = searchTerm;
         
-        // Modern array methods with arrow functions
         const visibleCount = allArticles.reduce((count, article) => {
           const title = article.querySelector("h3")?.textContent?.toLowerCase() || "";
           const description = article.querySelector("p")?.textContent?.toLowerCase() || "";
@@ -409,7 +404,21 @@ const clientTranslations = {
         searchInput.focus();
       };
 
-      // Enhanced search with debouncing using arrow functions
+      setupSearchEventListeners(searchInput, resetButton, clearButton, performSearch, resetSearch);
+      setupKeyboardNavigation(searchInput, resetSearch, currentSearchQuery);
+      toggleClearButton(false);
+    }
+
+    // Setup search event listeners
+    function setupSearchEventListeners(
+      searchInput: HTMLInputElement,
+      resetButton: HTMLButtonElement,
+      clearButton: HTMLButtonElement,
+      performSearch: (query: string) => void,
+      resetSearch: () => void
+    ): void {
+      let debounceTimer: ReturnType<typeof setTimeout>;
+
       searchInput.addEventListener("input", (e: Event) => {
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(() => {
@@ -420,7 +429,6 @@ const clientTranslations = {
         }, 300);
       });
 
-      // Clear button functionality with arrow functions
       if (clearButton) {
         clearButton.addEventListener("click", () => {
           searchInput.value = "";
@@ -429,12 +437,17 @@ const clientTranslations = {
         });
       }
 
-      // Reset button with arrow function
       if (resetButton) {
         resetButton.addEventListener("click", resetSearch);
       }
+    }
 
-      // Enhanced keyboard navigation with arrow functions
+    // Setup keyboard navigation
+    function setupKeyboardNavigation(
+      searchInput: HTMLInputElement,
+      resetSearch: () => void,
+      currentSearchQuery: string
+    ): void {
       document.addEventListener("keydown", (e: KeyboardEvent) => {
         if (e.key === "Escape" && (document.activeElement === searchInput || currentSearchQuery)) {
           resetSearch();
@@ -445,8 +458,10 @@ const clientTranslations = {
           searchInput.focus();
         }
       });
+    }
 
-      // Improved lazy loading with modern APIs
+    // Initialize lazy loading
+    function initializeLazyLoading(): void {
       if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
@@ -467,20 +482,17 @@ const clientTranslations = {
           imageObserver.observe(img);
         });
       }
+    }
 
-      // Initialize search state
-      toggleClearButton(false);
-
-      // Simple Core Web Vitals monitoring for SEO with modern APIs
+    // Initialize performance monitoring
+    function initializePerformanceMonitoring(): void {
       if ('PerformanceObserver' in window && 'sessionStorage' in window) {
         try {
           new PerformanceObserver((list) => {
             list.getEntries().forEach((entry) => {
-              // Track performance metrics for SEO optimization
               if ('value' in entry) {
                 const value = (entry as {value: number}).value;
                 const metric = `${entry.name}: ${value}`;
-                // Store in sessionStorage for debugging
                 sessionStorage.setItem('lastMetric', metric);
               }
             });
@@ -489,7 +501,16 @@ const clientTranslations = {
           // Silently fail for browsers that don't support certain metrics
         }
       }
-    });
+    }
+
+    // Main initialization function
+    function initializeKnowledgePage(): void {
+      initializeSearchFunctionality();
+      initializeLazyLoading();
+      initializePerformanceMonitoring();
+    }
+
+    document.addEventListener("DOMContentLoaded", initializeKnowledgePage);
   </script>
 </Layout>
 
@@ -990,13 +1011,6 @@ const clientTranslations = {
       gap: var(--space-2xl);
     }
 
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media (min-width: 1280px) {
-      grid-template-columns: repeat(4, 1fr);
-    }
 
     &__item {
       position: relative;

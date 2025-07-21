@@ -1162,7 +1162,7 @@ const breadcrumbSchema = {
   /**
    * Debounced function for performance optimization
    */
-  const debounce = <T extends (...args: any[]) => any>(
+  const debounce = <T extends (...args: unknown[]) => unknown>(
     func: T,
     delay: number
   ): ((...args: Parameters<T>) => void) => {

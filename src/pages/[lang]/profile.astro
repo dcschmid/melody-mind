@@ -18,7 +18,6 @@ import Layout from "@layouts/Layout.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 import { formatDate } from "@utils/dateUtils";
-import { checkAuth } from "src/middleware/auth";
 import AuthForm from "@components/auth/AuthForm.astro";
 
 // Enable prerendering - we'll handle auth client-side like category.astro
@@ -171,149 +170,153 @@ const languageNames = {
     }
 
     {
-      profileData && (
-        <div class="profile__content">
-          <section class="profile-card" aria-labelledby="user-info-heading">
-            <h2 id="user-info-heading" class="profile-card__title">
-              {t("profile.user.info")}
-            </h2>
+      profileData && (() => {
+        // Type assertion to help TypeScript understand profileData is not null here
+        const profile = profileData as UserProfile;
+        return (
+          <div class="profile__content">
+            <section class="profile-card" aria-labelledby="user-info-heading">
+              <h2 id="user-info-heading" class="profile-card__title">
+                {t("profile.user.info")}
+              </h2>
 
-            <div class="profile-card__user-info">
-              <dl class="profile-card__user-details">
-                <div class="profile-card__user-item">
-                  <Icon name="user" class="profile-card__icon" aria-hidden="true" />
-                  <div class="profile-card__user-text">
-                    <dt class="profile-card__label">{t("profile.user.username")}</dt>
-                    <dd class="profile-card__value">{profileData.user.username}</dd>
+              <div class="profile-card__user-info">
+                <dl class="profile-card__user-details">
+                  <div class="profile-card__user-item">
+                    <Icon name="user" class="profile-card__icon" aria-hidden="true" />
+                    <div class="profile-card__user-text">
+                      <dt class="profile-card__label">{t("profile.user.username")}</dt>
+                      <dd class="profile-card__value">{profile.user.username}</dd>
+                    </div>
                   </div>
-                </div>
 
-                <div class="profile-card__user-item">
-                  <Icon name="mail" class="profile-card__icon" aria-hidden="true" />
-                  <div class="profile-card__user-text">
-                    <dt class="profile-card__label">{t("profile.user.email")}</dt>
-                    <dd class="profile-card__value">{profileData.user.email}</dd>
+                  <div class="profile-card__user-item">
+                    <Icon name="mail" class="profile-card__icon" aria-hidden="true" />
+                    <div class="profile-card__user-text">
+                      <dt class="profile-card__label">{t("profile.user.email")}</dt>
+                      <dd class="profile-card__value">{profile.user.email}</dd>
+                    </div>
                   </div>
-                </div>
 
-                <div class="profile-card__user-item">
-                  <Icon name="calendar" class="profile-card__icon" aria-hidden="true" />
-                  <div class="profile-card__user-text">
-                    <dt class="profile-card__label">{t("profile.user.member_since")}</dt>
-                    <dd class="profile-card__value">
-                      {formatUserDate(profileData.user.createdAt)}
-                    </dd>
+                  <div class="profile-card__user-item">
+                    <Icon name="calendar" class="profile-card__icon" aria-hidden="true" />
+                    <div class="profile-card__user-text">
+                      <dt class="profile-card__label">{t("profile.user.member_since")}</dt>
+                      <dd class="profile-card__value">
+                        {formatUserDate(profile.user.createdAt)}
+                      </dd>
+                    </div>
                   </div>
-                </div>
-              </dl>
-            </div>
-          </section>
+                </dl>
+              </div>
+            </section>
 
-          <section class="profile-card" aria-labelledby="stats-heading">
-            <h2 id="stats-heading" class="profile-card__title">
-              {t("profile.stats.title")}
-            </h2>
+            <section class="profile-card" aria-labelledby="stats-heading">
+              <h2 id="stats-heading" class="profile-card__title">
+                {t("profile.stats.title")}
+              </h2>
 
-            <div class="profile-card__stats">
-              <div class="stats-grid">
-                <div class="stat-card">
-                  <h3 class="stat-card__title">{gameModeNames.quiz}</h3>
-                  <dl class="stat-card__list">
-                    <div class="stat-card__item">
-                      <dt class="stat-card__label">{t("profile.stats.games_played")}</dt>
-                      <dd class="stat-card__value">{profileData.stats.quiz.gamesPlayed}</dd>
-                    </div>
-                    <div class="stat-card__item">
-                      <dt class="stat-card__label">{t("profile.stats.total_score")}</dt>
-                      <dd class="stat-card__value">{profileData.stats.quiz.totalScore}</dd>
-                    </div>
-                    <div class="stat-card__item">
-                      <dt class="stat-card__label">{t("profile.stats.highest_score")}</dt>
-                      <dd class="stat-card__value">{profileData.stats.quiz.highestScore}</dd>
-                    </div>
-                  </dl>
-                </div>
+              <div class="profile-card__stats">
+                <div class="stats-grid">
+                  <div class="stat-card">
+                    <h3 class="stat-card__title">{gameModeNames.quiz}</h3>
+                    <dl class="stat-card__list">
+                      <div class="stat-card__item">
+                        <dt class="stat-card__label">{t("profile.stats.games_played")}</dt>
+                        <dd class="stat-card__value">{profile.stats.quiz.gamesPlayed}</dd>
+                      </div>
+                      <div class="stat-card__item">
+                        <dt class="stat-card__label">{t("profile.stats.total_score")}</dt>
+                        <dd class="stat-card__value">{profile.stats.quiz.totalScore}</dd>
+                      </div>
+                      <div class="stat-card__item">
+                        <dt class="stat-card__label">{t("profile.stats.highest_score")}</dt>
+                        <dd class="stat-card__value">{profile.stats.quiz.highestScore}</dd>
+                      </div>
+                    </dl>
+                  </div>
 
-                <div class="stat-card">
-                  <h3 class="stat-card__title">{gameModeNames.chronology}</h3>
-                  <dl class="stat-card__list">
-                    <div class="stat-card__item">
-                      <dt class="stat-card__label">{t("profile.stats.games_played")}</dt>
-                      <dd class="stat-card__value">{profileData.stats.chronology.gamesPlayed}</dd>
-                    </div>
-                    <div class="stat-card__item">
-                      <dt class="stat-card__label">{t("profile.stats.total_score")}</dt>
-                      <dd class="stat-card__value">{profileData.stats.chronology.totalScore}</dd>
-                    </div>
-                    <div class="stat-card__item">
-                      <dt class="stat-card__label">{t("profile.stats.highest_score")}</dt>
-                      <dd class="stat-card__value">{profileData.stats.chronology.highestScore}</dd>
-                    </div>
-                  </dl>
+                  <div class="stat-card">
+                    <h3 class="stat-card__title">{gameModeNames.chronology}</h3>
+                    <dl class="stat-card__list">
+                      <div class="stat-card__item">
+                        <dt class="stat-card__label">{t("profile.stats.games_played")}</dt>
+                        <dd class="stat-card__value">{profile.stats.chronology.gamesPlayed}</dd>
+                      </div>
+                      <div class="stat-card__item">
+                        <dt class="stat-card__label">{t("profile.stats.total_score")}</dt>
+                        <dd class="stat-card__value">{profile.stats.chronology.totalScore}</dd>
+                      </div>
+                      <div class="stat-card__item">
+                        <dt class="stat-card__label">{t("profile.stats.highest_score")}</dt>
+                        <dd class="stat-card__value">{profile.stats.chronology.highestScore}</dd>
+                      </div>
+                    </dl>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <section class="profile-card" aria-labelledby="recent-games-heading">
-            <h2 id="recent-games-heading" class="profile-card__title">
-              {t("profile.recent_games.title")}
-            </h2>
+            <section class="profile-card" aria-labelledby="recent-games-heading">
+              <h2 id="recent-games-heading" class="profile-card__title">
+                {t("profile.recent_games.title")}
+              </h2>
 
-            {profileData.recentGames.length === 0 ? (
-              <div class="profile-card__empty">
-                <Icon name="gamepad" class="profile-card__empty-icon" aria-hidden="true" />
-                <p class="profile-card__empty-text">{t("profile.recent_games.empty")}</p>
-              </div>
-            ) : (
-              <div class="recent-games">
-                <ul class="recent-games__list">
-                  {profileData.recentGames.map((game) => (
-                    <li class="recent-game">
-                      <div class="recent-game__header">
-                        <div class="recent-game__mode">
-                          <Icon
-                            name={game.gameMode === "quiz" ? "brain" : "clock"}
-                            class="recent-game__icon"
-                            aria-hidden="true"
-                          />
-                          <span class="recent-game__mode-text">{gameModeNames[game.gameMode]}</span>
+              {profile.recentGames.length === 0 ? (
+                <div class="profile-card__empty">
+                  <Icon name="gamepad" class="profile-card__empty-icon" aria-hidden="true" />
+                  <p class="profile-card__empty-text">{t("profile.recent_games.empty")}</p>
+                </div>
+              ) : (
+                <div class="recent-games">
+                  <ul class="recent-games__list">
+                    {profile.recentGames.map((game) => (
+                      <li class="recent-game">
+                        <div class="recent-game__header">
+                          <div class="recent-game__mode">
+                            <Icon
+                              name={game.gameMode === "quiz" ? "brain" : "clock"}
+                              class="recent-game__icon"
+                              aria-hidden="true"
+                            />
+                            <span class="recent-game__mode-text">{gameModeNames[game.gameMode]}</span>
+                          </div>
+                          <div class="recent-game__score">
+                            <span class="recent-game__score-value">{game.score}</span>
+                            <span class="recent-game__score-label">
+                              {t("profile.recent_games.points")}
+                            </span>
+                          </div>
                         </div>
-                        <div class="recent-game__score">
-                          <span class="recent-game__score-value">{game.score}</span>
-                          <span class="recent-game__score-label">
-                            {t("profile.recent_games.points")}
+                        <div class="recent-game__details">
+                          <span class="recent-game__category">{game.category}</span>
+                          <span
+                            class={`recent-game__difficulty recent-game__difficulty--${game.difficulty}`}
+                          >
+                            {difficultyNames[game.difficulty]}
                           </span>
+                          <span class="recent-game__language">
+                            <Icon
+                              name="globe"
+                              class="recent-game__language-icon"
+                              aria-hidden="true"
+                            />
+                            {languageNames[game.language as keyof typeof languageNames] ||
+                              game.language}
+                          </span>
+                          <time class="recent-game__date" datetime={game.createdAt}>
+                            {formatUserDate(game.createdAt)}
+                          </time>
                         </div>
-                      </div>
-                      <div class="recent-game__details">
-                        <span class="recent-game__category">{game.category}</span>
-                        <span
-                          class={`recent-game__difficulty recent-game__difficulty--${game.difficulty}`}
-                        >
-                          {difficultyNames[game.difficulty]}
-                        </span>
-                        <span class="recent-game__language">
-                          <Icon
-                            name="globe"
-                            class="recent-game__language-icon"
-                            aria-hidden="true"
-                          />
-                          {languageNames[game.language as keyof typeof languageNames] ||
-                            game.language}
-                        </span>
-                        <time class="recent-game__date" datetime={game.createdAt}>
-                          {formatUserDate(game.createdAt)}
-                        </time>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </section>
-        </div>
-      )
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </section>
+          </div>
+        );
+      })()
     }
   </div>
 </Layout>
@@ -963,7 +966,14 @@ const languageNames = {
   }
 
   // Export for potential external use
-  (window as Window & { profileEnhancements?: any }).profileEnhancements = {
+  interface ProfileEnhancements {
+    enhanceProfilePage: () => void;
+    formatNumber: (num: number) => string;
+    formatDate: (dateString: string) => string;
+    announceToScreenReader: (message: string) => void;
+  }
+
+  (window as Window & { profileEnhancements?: ProfileEnhancements }).profileEnhancements = {
     enhanceProfilePage,
     formatNumber,
     formatDate,
@@ -993,12 +1003,18 @@ const languageNames = {
 
     if (isLoggedIn) {
       // User is logged in - hide login form, load profile data
-      loginPrompt && updateSectionVisibility(loginPrompt, false);
+      if (loginPrompt) {
+        updateSectionVisibility(loginPrompt, false);
+      }
       loadProfileData();
     } else {
       // User is not logged in - show login form, hide content
-      loginPrompt && updateSectionVisibility(loginPrompt, true);
-      profileContent && updateSectionVisibility(profileContent, false);
+      if (loginPrompt) {
+        updateSectionVisibility(loginPrompt, true);
+      }
+      if (profileContent) {
+        updateSectionVisibility(profileContent, false);
+      }
     }
   };
 
@@ -1031,7 +1047,7 @@ const languageNames = {
         showBasicProfileData();
       }
     } catch (error) {
-      console.log("API failed, showing basic profile data:", error);
+      console.warn("API failed, showing basic profile data:", error);
       showBasicProfileData();
     }
   };
@@ -1118,11 +1134,44 @@ const languageNames = {
     }
   };
 
-  const getUserDataFromStorage = (): any => {
+  interface StoredUserData {
+    username?: string;
+    email?: string;
+    [key: string]: unknown;
+  }
+
+  interface DisplayProfile {
+    user: {
+      username: string;
+      email: string;
+      createdAt: string;
+    };
+    stats: {
+      quiz: {
+        totalScore: number;
+        gamesPlayed: number;
+        highestScore: number;
+      };
+      chronology: {
+        totalScore: number;
+        gamesPlayed: number;
+        highestScore: number;
+      };
+    };
+    recentGames: Array<{
+      gameMode: string;
+      score: number;
+      category: string;
+      difficulty: string;
+      createdAt: string;
+    }>;
+  }
+
+  const getUserDataFromStorage = (): StoredUserData | null => {
     try {
       const userStr = localStorage.getItem("user");
       if (userStr) {
-        return JSON.parse(userStr);
+        return JSON.parse(userStr) as StoredUserData;
       }
     } catch (error) {
       console.error("Error getting user data:", error);
@@ -1130,32 +1179,9 @@ const languageNames = {
     return null;
   };
 
-  const displayProfileData = (profile: any): void => {
-    const container = document.querySelector(".profile");
-    if (!container) {
-      return;
-    }
-
-    // Remove loading/error states
-    const loadingDiv = container.querySelector(".profile__loading");
-    const errorDiv = container.querySelector(".profile__error");
-    if (loadingDiv) {
-      loadingDiv.remove();
-    }
-    if (errorDiv) {
-      errorDiv.remove();
-    }
-
-    // Create or update profile content
-    let contentDiv = container.querySelector(".profile__content") as HTMLElement;
-    if (!contentDiv) {
-      contentDiv = document.createElement("div");
-      contentDiv.className = "profile__content";
-      container.appendChild(contentDiv);
-    }
-
-    // Build the profile content HTML with original beautiful styling
-    contentDiv.innerHTML = `
+  // Helper functions for profile display
+  const createUserInfoSection = (user: DisplayProfile['user']): string => {
+    return `
       <section class="profile-card" aria-labelledby="user-info-heading">
         <h2 id="user-info-heading" class="profile-card__title">User Information</h2>
         <div class="profile-card__user-info">
@@ -1164,27 +1190,31 @@ const languageNames = {
               <div class="profile-card__icon" style="width: 24px; height: 24px; background: #007acc; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">👤</div>
               <div class="profile-card__user-text">
                 <dt class="profile-card__label">Username</dt>
-                <dd class="profile-card__value">${profile.user.username}</dd>
+                <dd class="profile-card__value">${user.username}</dd>
               </div>
             </div>
             <div class="profile-card__user-item">
               <div class="profile-card__icon" style="width: 24px; height: 24px; background: #007acc; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✉️</div>
               <div class="profile-card__user-text">
                 <dt class="profile-card__label">Email</dt>
-                <dd class="profile-card__value">${profile.user.email}</dd>
+                <dd class="profile-card__value">${user.email}</dd>
               </div>
             </div>
             <div class="profile-card__user-item">
               <div class="profile-card__icon" style="width: 24px; height: 24px; background: #007acc; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">📅</div>
               <div class="profile-card__user-text">
                 <dt class="profile-card__label">Member Since</dt>
-                <dd class="profile-card__value">${new Date(profile.user.createdAt).toLocaleDateString()}</dd>
+                <dd class="profile-card__value">${new Date(user.createdAt).toLocaleDateString()}</dd>
               </div>
             </div>
           </dl>
         </div>
       </section>
+    `;
+  };
 
+  const createStatsSection = (stats: DisplayProfile['stats']): string => {
+    return `
       <section class="profile-card" aria-labelledby="stats-heading">
         <h2 id="stats-heading" class="profile-card__title">Game Statistics</h2>
         <div class="profile-card__stats">
@@ -1194,15 +1224,15 @@ const languageNames = {
               <dl class="stat-card__list">
                 <div class="stat-card__item">
                   <dt class="stat-card__label">Games Played</dt>
-                  <dd class="stat-card__value">${profile.stats.quiz.gamesPlayed}</dd>
+                  <dd class="stat-card__value">${stats.quiz.gamesPlayed}</dd>
                 </div>
                 <div class="stat-card__item">
                   <dt class="stat-card__label">Total Score</dt>
-                  <dd class="stat-card__value">${profile.stats.quiz.totalScore}</dd>
+                  <dd class="stat-card__value">${stats.quiz.totalScore}</dd>
                 </div>
                 <div class="stat-card__item">
                   <dt class="stat-card__label">Highest Score</dt>
-                  <dd class="stat-card__value">${profile.stats.quiz.highestScore}</dd>
+                  <dd class="stat-card__value">${stats.quiz.highestScore}</dd>
                 </div>
               </dl>
             </div>
@@ -1211,63 +1241,101 @@ const languageNames = {
               <dl class="stat-card__list">
                 <div class="stat-card__item">
                   <dt class="stat-card__label">Games Played</dt>
-                  <dd class="stat-card__value">${profile.stats.chronology.gamesPlayed}</dd>
+                  <dd class="stat-card__value">${stats.chronology.gamesPlayed}</dd>
                 </div>
                 <div class="stat-card__item">
                   <dt class="stat-card__label">Total Score</dt>
-                  <dd class="stat-card__value">${profile.stats.chronology.totalScore}</dd>
+                  <dd class="stat-card__value">${stats.chronology.totalScore}</dd>
                 </div>
                 <div class="stat-card__item">
                   <dt class="stat-card__label">Highest Score</dt>
-                  <dd class="stat-card__value">${profile.stats.chronology.highestScore}</dd>
+                  <dd class="stat-card__value">${stats.chronology.highestScore}</dd>
                 </div>
               </dl>
             </div>
           </div>
         </div>
       </section>
+    `;
+  };
 
+  const createRecentGamesSection = (recentGames: DisplayProfile['recentGames']): string => {
+    const gamesHTML = recentGames.length === 0
+      ? `
+        <div class="profile-card__empty">
+          <div style="width: 64px; height: 64px; background: #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 24px;">🎮</div>
+          <p class="profile-card__empty-text">No games played yet</p>
+          <p style="font-size: 14px; color: #999;">Start playing to see your game history here!</p>
+        </div>
+      `
+      : `
+        <div class="recent-games">
+          <ul class="recent-games__list">
+            ${recentGames.map((game) => `
+              <li class="recent-game">
+                <div class="recent-game__header">
+                  <div class="recent-game__mode">
+                    <span class="recent-game__mode-text">${game.gameMode}</span>
+                  </div>
+                  <div class="recent-game__score">
+                    <span class="recent-game__score-value">${game.score}</span>
+                    <span class="recent-game__score-label">points</span>
+                  </div>
+                </div>
+                <div class="recent-game__details">
+                  <span class="recent-game__category">${game.category}</span>
+                  <span class="recent-game__difficulty recent-game__difficulty--${game.difficulty}">${game.difficulty}</span>
+                  <time class="recent-game__date">${new Date(game.createdAt).toLocaleDateString()}</time>
+                </div>
+              </li>
+            `).join("")}
+          </ul>
+        </div>
+      `;
+
+    return `
       <section class="profile-card" aria-labelledby="recent-games-heading">
         <h2 id="recent-games-heading" class="profile-card__title">Recent Games</h2>
-        ${
-          profile.recentGames.length === 0
-            ? `
-          <div class="profile-card__empty">
-            <div style="width: 64px; height: 64px; background: #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 24px;">🎮</div>
-            <p class="profile-card__empty-text">No games played yet</p>
-            <p style="font-size: 14px; color: #999;">Start playing to see your game history here!</p>
-          </div>
-        `
-            : `
-          <div class="recent-games">
-            <ul class="recent-games__list">
-              ${profile.recentGames
-                .map(
-                  (game: any) => `
-                <li class="recent-game">
-                  <div class="recent-game__header">
-                    <div class="recent-game__mode">
-                      <span class="recent-game__mode-text">${game.gameMode}</span>
-                    </div>
-                    <div class="recent-game__score">
-                      <span class="recent-game__score-value">${game.score}</span>
-                      <span class="recent-game__score-label">points</span>
-                    </div>
-                  </div>
-                  <div class="recent-game__details">
-                    <span class="recent-game__category">${game.category}</span>
-                    <span class="recent-game__difficulty recent-game__difficulty--${game.difficulty}">${game.difficulty}</span>
-                    <time class="recent-game__date">${new Date(game.createdAt).toLocaleDateString()}</time>
-                  </div>
-                </li>
-              `
-                )
-                .join("")}
-            </ul>
-          </div>
-        `
-        }
+        ${gamesHTML}
       </section>
+    `;
+  };
+
+  const clearLoadingAndErrorStates = (container: Element): void => {
+    const loadingDiv = container.querySelector(".profile__loading");
+    const errorDiv = container.querySelector(".profile__error");
+    if (loadingDiv) {
+      loadingDiv.remove();
+    }
+    if (errorDiv) {
+      errorDiv.remove();
+    }
+  };
+
+  const getOrCreateContentDiv = (container: Element): HTMLElement => {
+    let contentDiv = container.querySelector(".profile__content") as HTMLElement;
+    if (!contentDiv) {
+      contentDiv = document.createElement("div");
+      contentDiv.className = "profile__content";
+      container.appendChild(contentDiv);
+    }
+    return contentDiv;
+  };
+
+  const displayProfileData = (profile: DisplayProfile): void => {
+    const container = document.querySelector(".profile");
+    if (!container) {
+      return;
+    }
+
+    clearLoadingAndErrorStates(container);
+    const contentDiv = getOrCreateContentDiv(container);
+
+    // Build the profile content HTML with original beautiful styling
+    contentDiv.innerHTML = `
+      ${createUserInfoSection(profile.user)}
+      ${createStatsSection(profile.stats)}
+      ${createRecentGamesSection(profile.recentGames)}
     `;
 
     updateSectionVisibility(contentDiv, true);

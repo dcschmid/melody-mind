@@ -130,11 +130,13 @@ const validButtons = buttons.filter(({ url }) => Boolean(url));
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t("musicPlatforms.listenOn", { title, platform: label })}
-        className={`music-button-${variant}`}
+        className={`music-button-${variant} music-platform-link`}
         aria-describedby="external-platform-notice"
         variant="primary"
         size="md"
         style={`--btn-primary-bg: var(--color-${variant === "spotify" ? "success" : variant === "deezer" ? "primary" : "secondary"}-600); --btn-primary-hover: var(--color-${variant === "spotify" ? "success" : variant === "deezer" ? "primary" : "secondary"}-700);`}
+        data-platform={type}
+        data-playlist-title={title}
       >
         <Icon name={type} class="music-button__icon" aria-hidden="true" title={`${label} logo`} />
         <span class="music-button__label">{label}</span>
@@ -255,3 +257,50 @@ const validButtons = buttons.filter(({ url }) => Boolean(url));
    * ACCESSIBILITY ENHANCEMENTS - DRY: Reuses ButtonLink patterns
    * ====================================== */
 </style>
+
+<script>
+  /**
+   * Music Platform Link Tracking
+   * Tracks clicks on music platform links for analytics
+   */
+  const initMusicButtonTracking = (): void => {
+    try {
+      // Find all music platform links
+      const musicLinks = document.querySelectorAll('.music-platform-link') as NodeListOf<HTMLAnchorElement>;
+      
+      musicLinks.forEach((link: HTMLAnchorElement) => {
+        link.addEventListener('click', () => {
+          // Track music platform click event with Fathom
+          if (typeof window.fathom === "object" && window.fathom && typeof window.fathom.trackEvent === "function") {
+            try {
+              const platform = link.dataset.platform;
+              const playlistTitle = link.dataset.playlistTitle;
+              
+              if (platform && playlistTitle) {
+                // Create safe event names for different scenarios
+                const generalEvent = `music_${platform}_click`;
+                const specificEvent = `music_${platform}_${playlistTitle}`.replace(/[^a-zA-Z0-9_]/g, '_');
+                
+                // Track both general platform usage and specific playlist access
+                window.fathom.trackEvent(generalEvent);
+                window.fathom.trackEvent(specificEvent);
+              }
+            } catch (error) {
+              console.warn("Failed to track music platform click:", error);
+            }
+          }
+        });
+      });
+    } catch (error) {
+      console.warn("Error initializing music button tracking:", error);
+    }
+  };
+
+  // Initialize tracking when DOM is loaded
+  document.addEventListener("DOMContentLoaded", initMusicButtonTracking);
+
+  // Also run if DOM is already loaded
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    setTimeout(initMusicButtonTracking, 100);
+  }
+</script>
