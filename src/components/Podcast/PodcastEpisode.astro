@@ -83,6 +83,7 @@ const audioId = `podcast-audio-${podcast.id}`;
         preload="none"
         class="podcast-episode__audio"
         data-episode-id={podcast.id}
+        data-episode-title={podcast.title}
         data-audio-url={podcast.audioUrl}
       >
         <source src={podcast.audioUrl} type="audio/mpeg" />
@@ -830,6 +831,30 @@ const audioId = `podcast-audio-${podcast.id}`;
       // Play/Pause button functionality
       cleanPlayButton.addEventListener("click", () => {
         console.log("Play button clicked");
+        
+        // Track podcast episode play event with Fathom
+        if (typeof window.fathom === "object" && window.fathom && typeof window.fathom.trackEvent === "function") {
+          try {
+            const podcastId = audio.dataset.episodeId;
+            const podcastTitle = audio.dataset.episodeTitle;
+            
+            if (podcastId && podcastTitle) {
+              // Create multiple event types for better analytics
+              // 1. General podcast play event
+              window.fathom.trackEvent('podcast_play');
+              
+              // 2. Specific episode by ID (technical identifier)
+              const idEvent = `podcast_play_${podcastId}`.replace(/[^a-zA-Z0-9_]/g, '_');
+              window.fathom.trackEvent(idEvent);
+              
+              // 3. Specific episode by title (human readable)
+              const titleEvent = `podcast_${podcastTitle}`.replace(/[^a-zA-Z0-9_]/g, '_');
+              window.fathom.trackEvent(titleEvent);
+            }
+          } catch (error) {
+            console.warn("Failed to track podcast play event:", error);
+          }
+        }
         const allAudio = document.querySelectorAll(
           ".podcast-episode__audio"
         ) as NodeListOf<HTMLAudioElement>;

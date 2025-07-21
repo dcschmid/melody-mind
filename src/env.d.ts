@@ -1,6 +1,17 @@
 /// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client" />
 
+// Fathom Analytics interface
+interface Fathom {
+  trackEvent: (eventName: string, options?: { _value?: number }) => void;
+  trackPageview: (options?: { url?: string; referrer?: string }) => void;
+}
+
+// Extend the Window interface to include Fathom
+declare interface Window {
+  fathom?: Fathom;
+}
+
 declare namespace App {
   interface Locals {
     // No authentication needed anymore

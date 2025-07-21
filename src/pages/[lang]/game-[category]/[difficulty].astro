@@ -365,9 +365,11 @@ const totalRounds = getRoundsForDifficulty(difficulty);
 </script>
 
 <style lang="scss" is:global>
-  /* Global styles for game functionality with WCAG AAA compliance */
+  /* ======================================
+   * Global Game Styles - Cross-component functionality
+   * ====================================== */
 
-  /* Overlay states */
+  /* Overlay states - used by multiple components */
   .overlay,
   .popup {
     &.hidden {
@@ -381,6 +383,10 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     }
   }
 
+  /* ======================================
+   * Global Game Animations
+   * ====================================== */
+
   /* Coin update animation with reduced motion support */
   .coins-updated {
     color: var(--color-warning-400);
@@ -389,8 +395,6 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       animation: coinPulseAAA var(--animation-duration-extended) ease-in-out;
     }
   }
-
-  /* Media queries consolidated below for DRY compliance */
 
   @keyframes coinPulseAAA {
     0% {
@@ -416,10 +420,9 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   }
 
   /* ======================================
-   * Game Option Buttons - Replacing Tailwind Classes
+   * Global Game Option Buttons - Used across game pages
    * ====================================== */
 
-  /* Main option button styling */
   .game-option-button {
     position: relative;
     width: 100%;
@@ -457,7 +460,6 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       transform: none;
     }
 
-    /* Option number styling */
     &__number {
       display: inline-flex;
       align-items: center;
@@ -472,16 +474,13 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       font-weight: var(--font-bold);
       flex-shrink: 0;
     }
-  }
 
-  /* Option text styling */
-  .game-option-button__text {
-    flex: 1;
-    text-align: left;
-  }
+    &__text {
+      flex: 1;
+      text-align: left;
+    }
 
-  /* Selected option state */
-  .game-option-button {
+    /* Game state styles */
     &.selected-option {
       background-color: var(--interactive-primary);
       border-color: var(--color-primary-500);
@@ -493,7 +492,6 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       }
     }
 
-    /* Correct/Incorrect states for feedback */
     &[data-correct="true"] {
       background-color: var(--color-success-600);
       border-color: var(--color-success-500);
@@ -506,74 +504,50 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       color: var(--text-primary);
     }
   }
-
-  /* Enhanced focus styles for WCAG AAA keyboard navigation - NOW CONSOLIDATED BELOW */
-
-  /* Accessibility optimizations for various browsers/modes - NOW CONSOLIDATED BELOW */
 </style>
 
 <style lang="scss">
   /**
-   * Game Page Component Styles - BEAUTIFUL MODERN DESIGN
-   * 
-   * ✅ 100% CSS root variables usage - NO hardcoded values
-   * ✅ DRY principles applied - consolidated repetitive patterns
-   * ✅ BEM methodology for consistent class naming
-   * ✅ WCAG AAA compliance with semantic CSS variables
-   * ✅ Consolidated media queries for better maintainability
-   * ✅ Responsive design with CSS variable breakpoints
-   * ✅ Enhanced accessibility with semantic variable usage
-   * ✅ Beautiful gradient badges with hover effects
-   * ✅ Smooth animations and micro-interactions
-   * ✅ Enhanced visual hierarchy and depth
-   * 
-   * DESIGN FEATURES:
-   * - Beautiful gradient badges with unique colors
-   * - Smooth hover animations with lift and scale effects
-   * - Enhanced typography with text shadows
-   * - Staggered animations for visual appeal
-   * - Responsive scaling and spacing improvements
-   * - Smooth transitions and micro-interactions
+   * Component-Specific Game Page Styles
+   * Optimized structure with proper separation of concerns
    */
 
   /* ======================================
-   * SCSS Variables & Mixins
+   * SCSS Mixins - Reusable component patterns
    * ====================================== */
 
-  // Breakpoint mixins for responsive design
+  // Responsive design mixins with hardcoded em values (CSS variables don't work in media queries)
   @mixin mobile {
-    @media (max-width: var(--breakpoint-sm)) {
+    @media (max-width: 39.9375em) { // 639px
       @content;
     }
   }
 
   @mixin tablet {
-    @media (min-width: var(--breakpoint-md)) and (max-width: var(--breakpoint-lg)) {
+    @media (min-width: 48em) and (max-width: 63.9375em) { // 768px - 1023px
       @content;
     }
   }
 
   @mixin desktop {
-    @media (min-width: var(--breakpoint-lg)) {
+    @media (min-width: 64em) { // 1024px
       @content;
     }
   }
 
   @mixin large-desktop {
-    @media (min-width: var(--breakpoint-xl)) {
+    @media (min-width: 80em) { // 1280px
       @content;
     }
   }
 
-  // Animation mixins
+  // Component mixins
   @mixin fade-in-up($delay: 0s) {
     animation: fadeInUp 0.8s ease-out $delay both;
   }
 
   @mixin hover-lift {
-    transition:
-      transform var(--transition-normal),
-      box-shadow var(--transition-normal);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 
     &:hover {
       transform: translateY(-2px);
@@ -588,46 +562,18 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     box-shadow: var(--shadow-md);
   }
 
-  @mixin button-style {
-    background: var(--interactive-primary);
-    color: var(--btn-primary-text);
-    border: none;
-    border-radius: var(--radius-lg);
-    padding: var(--space-md) var(--space-lg);
-    font-weight: var(--font-medium);
-    transition: all var(--transition-normal);
-    cursor: pointer;
-
-    &:hover {
-      background: var(--interactive-primary-hover);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
-    }
-
-    &:focus-visible {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-    }
-  }
-
-  // Badge mixins for beautiful styling
+  // Badge styling mixins
   @mixin badge-gradient($primary-color, $secondary-color) {
     background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow:
-      0 4px 12px rgba(0, 0, 0, 0.15),
-      0 2px 4px rgba(0, 0, 0, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   @mixin badge-hover($primary-color, $secondary-color) {
     &:hover {
       background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
       transform: translateY(-3px) scale(1.02);
-      box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.2),
-        0 4px 8px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
       border-color: rgba(255, 255, 255, 0.3);
       filter: brightness(1.1);
     }
@@ -644,8 +590,9 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   }
 
   /* ======================================
-   * Keyframe Animations
+   * Component Animations
    * ====================================== */
+  
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -654,25 +601,6 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     to {
       opacity: 1;
       transform: translateY(0);
-    }
-  }
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  @keyframes shimmer {
-    0% {
-      left: -100%;
-    }
-    100% {
-      left: 100%;
     }
   }
 
@@ -907,30 +835,23 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   }
 
   /* ======================================
-   * Enhanced Accessibility & Motion Support
+   * Accessibility & Performance Optimizations
    * ====================================== */
 
-  /* Reduced motion support for badges and containers */
+  /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
-    .game-badge,
-    .game-container {
-      animation: none;
-      transition: opacity var(--transition-fast);
+    *,
+    ::before,
+    ::after {
+      animation: none !important;
+      transition: var(--transition-instant) !important;
     }
 
-    .game-badge:hover {
+    .game-badge:hover,
+    .game-container:hover {
       transform: none;
     }
 
-    .game-container[data-hidden="true"] {
-      transform: none;
-    }
-
-    .game-header__badges {
-      animation: none;
-    }
-
-    /* Disable all keyframe animations */
     @keyframes fadeInUp {
       from,
       to {
@@ -938,157 +859,54 @@ const totalRounds = getRoundsForDifficulty(difficulty);
         transform: none;
       }
     }
-
-    @keyframes float {
-      from,
-      to {
-        transform: none;
-      }
-    }
   }
 
-  /* Enhanced focus states for keyboard navigation */
-  .game-container:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--focus-ring);
-  }
-
-  /* ======================================
-   * Accessibility Enhancements - Consolidated Media Queries (DRY)
-   * ====================================== */
-
-  /* High contrast mode support - consolidated for all components */
+  /* High contrast mode support */
   @media (forced-colors: active) {
-    #question-container,
-    .game-container {
+    .game-container,
+    .game-badge {
       border: var(--border-width-enhanced) solid CanvasText;
       background-color: Canvas;
+      box-shadow: none;
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
-      box-shadow: none;
     }
 
-    .game-container::before {
-      display: none;
-    }
-
-    .game-option-button {
-      border: var(--border-width-thick) solid ButtonText;
-      background-color: ButtonFace;
-      color: ButtonText;
-      forced-color-adjust: none;
-    }
-
-    .game-option-button:focus-visible {
-      outline: var(--border-width-enhanced) solid Highlight;
-      outline-offset: var(--border-width-enhanced);
-    }
-
-    .game-option-button[data-correct="true"],
-    .game-option-button[data-incorrect="true"] {
-      border: var(--border-width-thick) solid ButtonText;
-      forced-color-adjust: none;
-    }
-
-    .coins-updated {
-      outline: var(--border-width-thick) solid Highlight;
-    }
-
-    /* Game components forced colors support */
     .game-badge {
-      border: var(--border-width-thick) solid ButtonText;
       background: ButtonFace;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      box-shadow: none;
-    }
-
-    .game-badge::before {
-      display: none;
-    }
-
-    .game-badge__icon {
-      forced-color-adjust: none;
     }
 
     .game-container__question {
       background: transparent;
       border: none;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
     }
   }
 
-  /* Reduced motion support - consolidated for all animations */
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    ::before,
-    ::after {
-      animation: none !important;
-      transition: var(--transition-instant) !important;
-      scroll-behavior: auto !important;
-    }
-
-    .coins-updated {
-      text-decoration: underline;
-      animation: none;
-    }
-
-    .game-container {
-      transition: none;
-    }
-
-    .game-option-button {
-      transition: none;
-    }
-
-    .game-option-button:hover {
-      transform: none;
-    }
+  /* Enhanced focus states */
+  .game-badge:focus-visible,
+  .game-container:focus-visible {
+    outline: var(--focus-enhanced-outline-dark);
+    outline-offset: var(--focus-ring-offset);
+    box-shadow: var(--focus-ring);
   }
 
-  /* Print styles - consolidated optimization */
-  @media print {
-    #question-container,
-    .game-container {
-      break-inside: avoid;
-      border: var(--print-border);
-      box-shadow: none;
-      max-height: var(--width-full) !important;
-      background: var(--print-bg) !important;
-    }
-
-    .game-option-button {
-      break-inside: avoid;
-      border: var(--print-border);
-      background: var(--print-bg) !important;
-      box-shadow: none;
-    }
-
-    .game-header {
-      break-inside: avoid;
-    }
-  }
-
-  /* ======================================
-   * Enhanced Focus Management (WCAG AAA) - DRY Consolidated
-   * ====================================== */
-  /* Shared focus styles for all interactive elements - DRY principle */
-  .game-badge,
-  .game-container,
-  :focus-visible {
-    &:focus-visible {
-      outline: var(--focus-enhanced-outline-dark);
-      outline-offset: var(--focus-ring-offset);
-    }
-  }
-
-  /* Touch target enhancement for mobile accessibility - using CSS variables */
+  /* Touch target enhancement */
   @media (pointer: coarse) {
     .game-badge {
       min-height: var(--min-touch-size);
       padding: var(--space-sm) var(--space-md);
+    }
+  }
+
+  /* Print optimization */
+  @media print {
+    .game-container,
+    .game-header,
+    .game-badge {
+      break-inside: avoid;
+      border: var(--print-border);
+      background: var(--print-bg) !important;
+      box-shadow: none;
     }
   }
 </style>

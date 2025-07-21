@@ -343,14 +343,26 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
 
       if (isLoggedIn) {
         // User is logged in - show game modes, hide auth form
-        authSection && updateSectionVisibility(authSection, false);
-        quizSection && updateSectionVisibility(quizSection, true);
-        chronologySection && updateSectionVisibility(chronologySection, true);
+        if (authSection) {
+          updateSectionVisibility(authSection, false);
+        }
+        if (quizSection) {
+          updateSectionVisibility(quizSection, true);
+        }
+        if (chronologySection) {
+          updateSectionVisibility(chronologySection, true);
+        }
       } else {
         // User is not logged in - show auth form, hide game modes
-        authSection && updateSectionVisibility(authSection, true);
-        quizSection && updateSectionVisibility(quizSection, false);
-        chronologySection && updateSectionVisibility(chronologySection, false);
+        if (authSection) {
+          updateSectionVisibility(authSection, true);
+        }
+        if (quizSection) {
+          updateSectionVisibility(quizSection, false);
+        }
+        if (chronologySection) {
+          updateSectionVisibility(chronologySection, false);
+        }
       }
     };
 
