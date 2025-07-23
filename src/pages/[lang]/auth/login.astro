@@ -120,13 +120,21 @@ const { pageTitle, pageDescription, headingText } = translations;
    * Using CSS variables from global.css only
    * ====================================== */
 
-  // SCSS variables for better maintainability
+  // SCSS variables using global.css tokens
   $animation-duration: var(--animation-duration-medium);
   $animation-easing: ease-out;
-  $container-max-width: 28rem;
-  $container-padding: var(--spacing-6);
-  $mobile-padding: var(--spacing-4);
-  $tablet-padding: var(--spacing-5);
+  $container-max-width: var(--form-container-max-width);
+  $container-padding: var(--space-xl);
+  $mobile-padding: var(--space-md);
+  $tablet-padding: var(--space-lg);
+  
+  // Note: Using hardcoded em values in media queries since CSS variables don't work in @media rules
+  // Mobile portrait: 0-479px (< 30em)
+  // Mobile landscape: 480-639px (30em - 39.9375em)  
+  // Small tablet: 640-767px (40em - 47.9375em)
+  // Tablet: 768-1023px (48em - 63.9375em)
+  // Desktop: 1024-1279px (64em - 79.9375em)
+  // Large desktop: 1280px+ (80em+)
 
   /* Fade-in animation for better UX - GPU accelerated */
   @keyframes fadeIn {
@@ -148,11 +156,11 @@ const { pageTitle, pageDescription, headingText } = translations;
     margin: 0 auto;
     padding: $container-padding;
 
-    // Visual styling
+    // Visual styling using global.css variables
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
-    background: var(--color-background);
-    border: var(--border-width-thin) solid var(--border-subtle);
+    background: var(--card-bg);
+    border: var(--border-width-thin) solid var(--card-border);
 
     // Animation and transitions
     transition: all var(--transition-normal);
@@ -162,40 +170,60 @@ const { pageTitle, pageDescription, headingText } = translations;
     contain: layout style;
     will-change: opacity, transform;
 
-    // Mobile-first responsive design
-    @media (max-width: 640px) {
-      padding: $mobile-padding;
-      margin: 0 var(--spacing-4);
+    // Enhanced mobile-first responsive design with comprehensive breakpoints
+    
+    // Mobile portrait (< 480px) - very compact layout
+    @media (max-width: 29.9375em) {
+      padding: var(--space-sm) var(--space-xs);
+      margin: 0 var(--space-xs);
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-md);
+      max-width: calc(100vw - var(--space-lg));
+    }
+    
+    // Mobile landscape (480px - 640px) - balanced layout
+    @media (min-width: 30em) and (max-width: 39.9375em) {
+      padding: $mobile-padding;
+      margin: 0 var(--space-md);
+      border-radius: var(--radius-lg);
+      max-width: calc(var(--container-sm) - var(--space-xl));
     }
 
-    // Tablet responsive design
-    @media (min-width: 641px) and (max-width: 1024px) {
+    // Small tablet (640px - 768px) - enhanced spacing
+    @media (min-width: 40em) and (max-width: 47.9375em) {
       padding: $tablet-padding;
-      margin: 0 var(--spacing-5);
+      margin: 0 var(--space-lg);
+      border-radius: var(--radius-lg);
+      max-width: var(--container-query-lg);
     }
 
-    // Desktop and larger screens
-    @media (min-width: 1025px) {
+    // Tablet (768px - 1024px) - optimal desktop preview
+    @media (min-width: 48em) and (max-width: 63.9375em) {
       padding: $container-padding;
       margin: 0 auto;
+      max-width: var(--form-container-max-width);
+    }
+    
+    // Desktop (1024px - 1280px) - full featured layout
+    @media (min-width: 64em) and (max-width: 79.9375em) {
+      padding: var(--space-2xl);
+      margin: 0 auto;
+      max-width: var(--form-container-max-width);
     }
 
-    // Large screens optimization
-    @media (min-width: 1280px) {
-      max-width: 32rem;
+    // Large desktop (1280px+) - enhanced experience
+    @media (min-width: 80em) {
+      padding: var(--space-2xl) var(--space-3xl);
+      margin: 0 auto;
+      max-width: calc(var(--form-container-max-width) * 1.125);
+      border-radius: var(--radius-xl);
     }
 
-    // Extra large screens
-    @media (min-width: 1536px) {
-      max-width: 36rem;
-    }
-
-    // High contrast mode support
+    // High contrast mode support - enhanced accessibility
     @media (prefers-contrast: high) {
-      border: var(--border-width-thick) solid var(--border-primary);
+      border: var(--border-width-enhanced) solid var(--text-primary);
       box-shadow: var(--shadow-xl);
+      background: var(--bg-primary);
     }
 
     // Reduced motion support
@@ -204,32 +232,34 @@ const { pageTitle, pageDescription, headingText } = translations;
       transition: none;
     }
 
-    // Dark mode adjustments
+    // Dark mode adjustments using global.css system
     @media (prefers-color-scheme: dark) {
-      background: var(--color-background-dark, var(--color-background));
-      border-color: var(--border-subtle-dark, var(--border-subtle));
+      background: var(--bg-secondary);
+      border-color: var(--border-secondary);
+      box-shadow: var(--card-shadow-hover);
     }
 
-    // Focus states for accessibility
+    // Enhanced focus states for WCAG AAA accessibility
     &:focus-within {
-      outline: var(--outline-width-thick) solid var(--color-primary);
-      outline-offset: var(--outline-offset);
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
       box-shadow:
         var(--shadow-lg),
-        0 0 0 var(--outline-width-thick) var(--color-primary);
+        var(--focus-ring);
     }
 
-    // Hover effects for interactive elements
+    // Hover effects with global.css animation values
     &:hover {
-      box-shadow: var(--shadow-xl);
-      transform: translateY(-2px);
+      box-shadow: var(--card-shadow-hover);
+      transform: translateY(var(--animation-y-offset-small));
       transition: all var(--transition-fast);
     }
 
-    // Active state for better feedback
+    // Active state with enhanced feedback using global.css
     &:active {
-      transform: translateY(0);
+      transform: translateY(0) scale(var(--scale-active));
       transition: all var(--transition-fast);
+      box-shadow: var(--shadow-md);
     }
   }
 
@@ -244,22 +274,71 @@ const { pageTitle, pageDescription, headingText } = translations;
     }
   }
 
-  /* Print styles for accessibility */
+  /* Enhanced print styles using global.css print variables */
   @media print {
     .auth-form-container {
       box-shadow: none;
-      border: var(--border-width-thin) solid var(--color-text);
-      background: var(--color-background);
+      border: var(--print-border);
+      background: var(--print-bg);
+      color: var(--print-text);
       animation: none;
       transform: none;
+      max-width: var(--width-full);
+      margin: var(--space-md) 0;
+      padding: var(--space-lg);
     }
   }
 
-  /* Landscape orientation adjustments for mobile */
-  @media (max-width: 640px) and (orientation: landscape) {
+  /* Enhanced landscape orientation adjustments for all mobile devices */
+  @media (max-width: 47.9375em) and (orientation: landscape) {
     .auth-form-container {
-      padding: var(--spacing-3);
-      margin: 0 var(--spacing-2);
+      padding: var(--space-sm);
+      margin: 0 var(--space-sm);
+      max-height: 90vh;
+      overflow-y: auto;
+      
+      // Specific mobile portrait landscape (< 480px)
+      @media (max-width: 29.9375em) {
+        padding: var(--space-xs) var(--space-sm);
+        margin: 0 var(--space-xs);
+      }
+    }
+  }
+  
+  /* Container queries for enhanced responsive behavior */
+  .auth-form-container {
+    container-type: inline-size;
+    
+    // Container query for small containers
+    @container (max-width: #{$container-max-width}) {
+      border-radius: var(--radius-md);
+      
+      @container (max-width: 20rem) {
+        padding: var(--space-sm);
+        border-radius: var(--radius-sm);
+      }
+    }
+  }
+  
+  /* Enhanced accessibility and motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .auth-form-container {
+      &:hover {
+        transform: none;
+      }
+      
+      &:active {
+        transform: none;
+      }
+    }
+  }
+  
+  /* Support for forced colors mode (Windows High Contrast) */
+  @media (forced-colors: active) {
+    .auth-form-container {
+      border: var(--border-width-thick) solid ButtonBorder;
+      background: ButtonFace;
+      forced-color-adjust: none;
     }
   }
 </style>

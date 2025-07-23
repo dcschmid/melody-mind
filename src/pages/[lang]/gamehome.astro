@@ -290,7 +290,7 @@ const clientTranslations = generateClientTranslations(t);
           level="h1"
           className="gamehome-hero__title"
           id="welcome-heading"
-          size="4xl"
+          size="3xl"
         />
         <div class="gamehome-hero__divider"></div>
         <Paragraph className="gamehome-hero__description" align="center">
@@ -401,12 +401,13 @@ const clientTranslations = generateClientTranslations(t);
   // SCSS VARIABLES & MIXINS
   // ======================================
 
-  // Responsive breakpoints using global CSS variables
+  // Responsive breakpoints using hardcoded em values (CSS Custom Properties don't work in media queries)
   $breakpoints: (
-    sm: var(--breakpoint-sm),
-    md: var(--breakpoint-md),
-    lg: var(--breakpoint-lg),
-    xl: var(--breakpoint-xl),
+    xs: 20em,    // 320px
+    sm: 40em,    // 640px  
+    md: 48em,    // 768px
+    lg: 64em,    // 1024px
+    xl: 80em,    // 1280px
   );
 
   // Mixin for responsive design
@@ -450,13 +451,28 @@ const clientTranslations = generateClientTranslations(t);
     width: var(--width-full);
     max-width: var(--container-xl);
     margin: 0 auto;
-    padding: var(--space-lg) var(--space-md);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    
+    // Mobile Portrait (very small screens) - optimized spacing
+    padding: var(--space-md) var(--space-sm);
+    
+    // Mobile Landscape and small tablets 
+    @include respond-to(xs) {
+      padding: var(--space-md) var(--space-md);
+    }
+    
+    @include respond-to(sm) {
+      padding: var(--space-lg) var(--space-md);
+    }
 
     @include respond-to(md) {
       padding: var(--space-xl) var(--space-lg);
+    }
+    
+    @include respond-to(lg) {
+      padding: var(--space-2xl) var(--space-xl);
     }
   }
 
@@ -466,21 +482,34 @@ const clientTranslations = generateClientTranslations(t);
 
   .gamehome-hero {
     position: relative;
-    margin-bottom: var(--space-2xl);
     overflow: hidden;
-    border-radius: var(--radius-xl);
     background: linear-gradient(
       135deg,
       var(--color-primary-900) 0%,
       var(--color-primary-700) 50%,
       var(--color-secondary-800) 100%
     );
-    padding: var(--space-xl);
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
+    
+    // Mobile Portrait - compact spacing and rounded corners
+    margin-bottom: var(--space-lg);
+    padding: var(--space-md) var(--space-sm);
+    border-radius: var(--radius-lg);
+    
+    @include respond-to(xs) {
+      padding: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+    
+    @include respond-to(sm) {
+      padding: var(--space-lg);
+      border-radius: var(--radius-xl);
+    }
 
     @include respond-to(lg) {
-      padding: var(--space-2xl) var(--space-xl);
+      padding: var(--space-xl) var(--space-lg);
+      margin-bottom: var(--space-2xl);
     }
 
     @include reduced-motion {
@@ -530,32 +559,72 @@ const clientTranslations = generateClientTranslations(t);
     }
 
     &__title {
-      margin-bottom: var(--space-lg);
       color: var(--color-white);
-      text-shadow: $hero-shadow;
+      text-shadow: var(--text-shadow-strong);
+      
+      // Mobile Portrait - compact spacing
+      margin-bottom: var(--space-sm);
+      font-size: var(--text-xl);
+      line-height: var(--leading-tight);
+      
+      @include respond-to(xs) {
+        margin-bottom: var(--space-md);
+        font-size: var(--text-2xl);
+        line-height: var(--leading-snug);
+      }
+      
+      @include respond-to(sm) {
+        margin-bottom: var(--space-lg);
+        font-size: var(--text-3xl);
+      }
 
       @include respond-to(lg) {
         font-size: var(--text-4xl);
+        line-height: var(--leading-relaxed);
       }
     }
 
     &__divider {
-      width: var(--icon-size-xl);
-      height: $divider-height;
       background: var(--color-secondary-400);
-      margin: var(--space-lg) auto;
       border-radius: var(--radius-full);
+      
+      // Mobile Portrait - smaller divider
+      width: var(--icon-size-lg);
+      height: var(--border-width-thick);
+      margin: var(--space-md) auto;
+      
+      @include respond-to(xs) {
+        width: var(--icon-size-xl);
+        margin: var(--space-lg) auto;
+      }
+      
+      @include respond-to(sm) {
+        height: var(--border-width-enhanced);
+      }
     }
 
     &__description {
       color: var(--color-neutral-100);
-      font-size: var(--text-xl);
       line-height: var(--leading-relaxed);
-      max-width: $content-max-width;
       margin: 0 auto;
+      
+      // Mobile Portrait - compact text
+      font-size: var(--text-base);
+      max-width: var(--container-xs);
+      
+      @include respond-to(xs) {
+        font-size: var(--text-lg);
+        max-width: var(--container-sm);
+      }
+      
+      @include respond-to(sm) {
+        font-size: var(--text-xl);
+        max-width: var(--container-md);
+      }
 
       @include respond-to(lg) {
         font-size: var(--text-2xl);
+        max-width: var(--container-lg);
       }
     }
   }
@@ -565,40 +634,74 @@ const clientTranslations = generateClientTranslations(t);
   // ======================================
 
   .search-container {
-    margin-bottom: var(--space-xl);
+    // Mobile Portrait - compact margin
+    margin-bottom: var(--space-lg);
+    
+    @include respond-to(sm) {
+      margin-bottom: var(--space-xl);
+    }
 
     &__wrapper {
       position: relative;
-      max-width: $search-max-width;
       margin: 0 auto;
+      
+      // Mobile Portrait - full width with minimal padding
+      max-width: var(--width-full);
+      
+      @include respond-to(xs) {
+        max-width: var(--container-sm);
+      }
+      
+      @include respond-to(sm) {
+        max-width: var(--container-md);
+      }
     }
 
     &__icon {
       position: absolute;
-      left: var(--space-md);
       top: var(--percentage-half);
       transform: translateY(-50%);
       color: var(--text-tertiary);
       pointer-events: none;
-      z-index: 1;
+      z-index: var(--z-dropdown);
+      
+      // Mobile Portrait - adjusted positioning
+      left: var(--space-sm);
+      
+      @include respond-to(xs) {
+        left: var(--space-md);
+      }
 
       &-element {
-        width: var(--icon-size-md);
-        height: var(--icon-size-md);
+        // Mobile Portrait - smaller icon
+        width: var(--icon-size-sm);
+        height: var(--icon-size-sm);
+        
+        @include respond-to(xs) {
+          width: var(--icon-size-md);
+          height: var(--icon-size-md);
+        }
       }
     }
 
     &__input {
       width: var(--width-full);
-      padding: var(--space-md) var(--space-md) var(--space-md) $search-icon-offset;
       border: var(--border-width-thin) solid var(--border-primary);
       border-radius: var(--radius-lg);
       background-color: var(--form-bg);
       color: var(--form-text);
-      font-size: var(--text-lg);
       line-height: var(--leading-normal);
       transition: all var(--transition-normal);
       box-shadow: var(--shadow-sm);
+      
+      // Mobile Portrait - compact input
+      padding: var(--space-sm) var(--space-sm) var(--space-sm) var(--space-2xl);
+      font-size: var(--text-base);
+      
+      @include respond-to(xs) {
+        padding: var(--space-md) var(--space-md) var(--space-md) var(--space-3xl);
+        font-size: var(--text-lg);
+      }
 
       &:focus {
         outline: var(--focus-outline);
@@ -657,12 +760,19 @@ const clientTranslations = generateClientTranslations(t);
 
   .genre-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-width-md), 1fr));
-    gap: var(--space-lg);
     margin-bottom: var(--space-xl);
+    
+    // Mobile Portrait - single column, compact gap
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    
+    @include respond-to(xs) {
+      gap: var(--space-lg);
+      grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-width-xs), 1fr));
+    }
 
     @include respond-to(sm) {
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-width-sm), 1fr));
       gap: var(--space-xl);
     }
 
@@ -687,8 +797,67 @@ const clientTranslations = generateClientTranslations(t);
   }
 
   // ======================================
-  // RESPONSIVE UTILITIES
+  // RESPONSIVE UTILITIES & MOBILE OPTIMIZATIONS
   // ======================================
+  
+  // Extra small screens - Portrait Mobile (below 320px)
+  @media (max-width: 19.9375em) {
+    .gamehome-container {
+      padding: var(--space-sm) var(--space-xs);
+    }
+    
+    .gamehome-hero {
+      padding: var(--space-sm);
+      margin-bottom: var(--space-md);
+      
+      &__title {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-xs);
+      }
+      
+      &__description {
+        font-size: var(--text-sm);
+        line-height: var(--leading-snug);
+      }
+      
+      &__divider {
+        width: var(--icon-size-md);
+        margin: var(--space-sm) auto;
+      }
+    }
+    
+    .search-container {
+      margin-bottom: var(--space-md);
+      
+      &__input {
+        padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-xl);
+        font-size: var(--text-sm);
+      }
+      
+      &__icon {
+        left: var(--space-xs);
+        
+        &-element {
+          width: var(--icon-size-xs);
+          height: var(--icon-size-xs);
+        }
+      }
+    }
+    
+    .genre-grid {
+      gap: var(--space-sm);
+    }
+  }
+
+  // Enhanced text spacing support for WCAG AAA
+  .enhanced-text-spacing {
+    .gamehome-hero__title,
+    .gamehome-hero__description {
+      letter-spacing: var(--letter-spacing-enhanced);
+      word-spacing: var(--word-spacing-enhanced);
+      line-height: var(--leading-enhanced);
+    }
+  }
 
   .sr-only {
     position: absolute;
@@ -823,7 +992,7 @@ const clientTranslations = generateClientTranslations(t);
 
       const message =
         query === ""
-          ? `${this.translations.search.showingAll} (${count})`
+          ? "" // No message when showing all items
           : count === 0
             ? this.translations.search.noResults
             : `${count} ${this.translations.search.resultsFound}`;

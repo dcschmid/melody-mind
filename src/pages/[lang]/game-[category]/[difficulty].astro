@@ -429,7 +429,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     padding: var(--space-md) var(--space-lg);
     border-radius: var(--radius-xl);
     text-align: left;
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     font-weight: var(--font-medium);
     background-color: var(--bg-secondary);
     border: var(--border-width-thin) solid var(--border-primary);
@@ -440,6 +440,16 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     min-height: var(--min-touch-size);
     display: flex;
     align-items: center;
+    
+    // Mobile - reduced horizontal padding
+    @media (max-width: 39.9375em) {
+      padding: var(--space-md) var(--space-sm) !important;
+    }
+    
+    // Mobile portrait - minimal horizontal padding
+    @media (max-width: 29.9375em) {
+      padding: var(--space-md) var(--space-xs) !important;
+    }
 
     &:hover {
       background-color: var(--bg-tertiary);
@@ -461,23 +471,13 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     }
 
     &__number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: var(--space-2xl);
-      height: var(--space-2xl);
-      margin-right: var(--space-md);
-      border-radius: var(--radius-full);
-      background-color: var(--color-neutral-700);
-      color: var(--text-primary);
-      font-size: var(--text-sm);
-      font-weight: var(--font-bold);
-      flex-shrink: 0;
+      display: none;
     }
 
     &__text {
       flex: 1;
       text-align: left;
+      margin-left: 0;
     }
 
     /* Game state styles */
@@ -516,9 +516,35 @@ const totalRounds = getRoundsForDifficulty(difficulty);
    * SCSS Mixins - Reusable component patterns
    * ====================================== */
 
-  // Responsive design mixins with hardcoded em values (CSS variables don't work in media queries)
+  // Enhanced responsive design mixins using hardcoded breakpoints
+  // Note: CSS variables don't work in media queries, so we use hardcoded em values
+  // Mobile portrait: 0-479px (< 30em)
+  // Mobile landscape: 480-639px (30em - 39.9375em)
+  // Small tablet: 640-767px (40em - 47.9375em)
+  // Tablet: 768-1023px (48em - 63.9375em)
+  // Desktop: 1024-1279px (64em - 79.9375em)
+  // Large desktop: 1280px+ (80em+)
+  
+  @mixin mobile-portrait {
+    @media (max-width: 29.9375em) { // < 480px
+      @content;
+    }
+  }
+  
   @mixin mobile {
-    @media (max-width: 39.9375em) { // 639px
+    @media (max-width: 39.9375em) { // < 640px
+      @content;
+    }
+  }
+  
+  @mixin mobile-landscape {
+    @media (min-width: 30em) and (max-width: 39.9375em) { // 480px - 640px
+      @content;
+    }
+  }
+  
+  @mixin small-tablet {
+    @media (min-width: 40em) and (max-width: 47.9375em) { // 640px - 768px
       @content;
     }
   }
@@ -530,62 +556,70 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   }
 
   @mixin desktop {
-    @media (min-width: 64em) { // 1024px
+    @media (min-width: 64em) { // 1024px+
       @content;
     }
   }
 
   @mixin large-desktop {
-    @media (min-width: 80em) { // 1280px
+    @media (min-width: 80em) { // 1280px+
       @content;
     }
   }
 
-  // Component mixins
+  // Enhanced component mixins using global.css variables
   @mixin fade-in-up($delay: 0s) {
-    animation: fadeInUp 0.8s ease-out $delay both;
+    animation: fadeInUp var(--animation-duration-extended) ease-out $delay both;
   }
 
   @mixin hover-lift {
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 
     &:hover {
-      transform: translateY(-2px);
+      transform: translateY(var(--animation-y-offset-small));
       box-shadow: var(--shadow-lg);
     }
   }
 
   @mixin card-style {
-    background: var(--bg-secondary);
-    border: var(--border-width-thin) solid var(--border-primary);
+    background: var(--card-bg);
+    border: var(--border-width-thin) solid var(--card-border);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--card-shadow);
+    contain: layout style;
   }
 
-  // Badge styling mixins
+  // Enhanced badge styling mixins using global.css variables
   @mixin badge-gradient($primary-color, $secondary-color) {
-    background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background: linear-gradient(var(--gradient-angle), $primary-color var(--gradient-start), $secondary-color var(--gradient-end));
+    border: var(--border-width-thin) solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+      var(--shadow-lg),
+      var(--shadow-sm),
+      inset 0 var(--border-width-thin) 0 rgba(255, 255, 255, 0.1);
   }
 
   @mixin badge-hover($primary-color, $secondary-color) {
     &:hover {
-      background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      background: linear-gradient(var(--gradient-angle), $primary-color var(--gradient-start), $secondary-color var(--gradient-end));
+      transform: translateY(calc(-1 * var(--space-xs))) scale(var(--scale-focus));
+      box-shadow: 
+        var(--card-shadow-hover),
+        var(--shadow-md),
+        inset 0 var(--border-width-thin) 0 rgba(255, 255, 255, 0.2);
       border-color: rgba(255, 255, 255, 0.3);
-      filter: brightness(1.1);
+      filter: brightness(var(--filter-brightness-medium));
     }
   }
 
   @mixin badge-icon($color) {
     color: $color;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 var(--border-width-thin) var(--space-micro) rgba(0, 0, 0, var(--shadow-opacity-light)));
+    transition: all var(--transition-fast);
 
     &:hover {
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
-      transform: scale(1.1);
+      filter: drop-shadow(0 var(--space-micro) var(--space-xs) rgba(0, 0, 0, 0.4));
+      transform: scale(var(--animation-scale-medium));
     }
   }
 
@@ -593,13 +627,14 @@ const totalRounds = getRoundsForDifficulty(difficulty);
    * Component Animations
    * ====================================== */
   
+  // Enhanced keyframes using global.css variables
   @keyframes fadeInUp {
     from {
-      opacity: 0;
-      transform: translateY(30px);
+      opacity: var(--animation-opacity-start);
+      transform: translateY(var(--space-xl));
     }
     to {
-      opacity: 1;
+      opacity: var(--animation-opacity-full);
       transform: translateY(0);
     }
   }
@@ -610,13 +645,25 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   .game-header {
     margin-bottom: var(--space-xl);
     position: relative;
-    z-index: 1;
+    z-index: var(--z-sticky);
+    contain: layout;
+    
+    // Mobile portrait - compact header
+    @include mobile-portrait {
+      margin-bottom: var(--space-lg);
+    }
+    
+    // Mobile landscape - balanced spacing
+    @include mobile-landscape {
+      margin-bottom: var(--space-lg);
+    }
 
+    // Desktop - enhanced spacing
     @include desktop {
       margin-bottom: var(--space-2xl);
     }
 
-    /* Game info badges container - Enhanced layout */
+    /* Enhanced game info badges container with horizontal mobile layout */
     &__badges {
       margin-top: var(--space-xl);
       display: flex;
@@ -624,76 +671,185 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       align-items: center;
       justify-content: center;
       gap: var(--space-lg);
+      contain: layout;
       @include fade-in-up;
-
-      @include mobile {
-        flex-direction: column;
-        gap: var(--space-md);
+      
+      // Large desktop - enhanced experience
+      @include large-desktop {
+        gap: var(--space-2xl);
       }
-
+      
+      // Desktop - premium spacing
       @include desktop {
         gap: var(--space-xl);
+        margin-top: var(--space-2xl);
+      }
+      
+      // Small tablet - optimal spacing
+      @include small-tablet {
+        gap: var(--space-lg);
+        flex-direction: row;
+      }
+      
+      // Mobile general - horizontal layout with compact spacing
+      @include mobile {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: var(--space-xs) !important;
+        justify-content: center !important;
+        margin-top: var(--space-md) !important;
+        width: 100% !important;
+        overflow-x: auto !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+        
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+
+      // Mobile portrait - horizontal but very compact
+      @include mobile-portrait {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: var(--space-xs) !important;
+        margin-top: var(--space-sm) !important;
+        justify-content: space-between !important;
+        padding: 0 var(--space-xs) !important;
+      }
+      
+      // Mobile landscape - horizontal with balanced spacing
+      @include mobile-landscape {
+        flex-direction: row !important;
+        gap: var(--space-sm) !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
       }
     }
   }
 
-  /* Individual game badge - Beautiful, modern design */
+  /* Enhanced individual game badge with mobile-first responsive design */
   .game-badge {
     position: relative;
     display: inline-flex;
     align-items: center;
-    min-height: var(--min-touch-size);
-    border-radius: var(--radius-xl);
-    padding: var(--space-md) var(--space-xl);
+    min-height: var(--touch-target-enhanced);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-lg) var(--space-2xl);
     transition: all var(--transition-normal);
     cursor: default;
     overflow: hidden;
+    contain: layout style;
     @include fade-in-up(0.1s);
-
-    @include mobile {
-      width: 100%;
-      justify-content: center;
-      padding: var(--space-lg) var(--space-xl);
-      border-radius: var(--radius-lg);
+    
+    // Large desktop - enhanced badges
+    @include large-desktop {
+      padding: var(--space-xl) var(--space-3xl);
+      min-width: var(--stat-width-sm);
     }
-
+    
+    // Desktop - premium badge experience
     @include desktop {
       padding: var(--space-lg) var(--space-2xl);
+      border-radius: var(--radius-2xl);
+      min-width: var(--stat-width-md);
+    }
+    
+    // Small tablet - balanced layout
+    @include small-tablet {
+      padding: var(--space-md) var(--space-xl);
       border-radius: var(--radius-xl);
     }
+    
+    // Mobile general - horizontal layout with flex (higher specificity)
+    @include mobile {
+      flex: 1 !important;
+      min-height: var(--touch-target-enhanced) !important;
+      padding: var(--space-xs) var(--space-sm) !important;
+      border-radius: var(--radius-md) !important;
+      min-width: auto !important;
+      max-width: calc(33.333% - var(--space-xs)) !important;
+      justify-content: center !important;
+    }
 
-    /* Staggered animation for multiple badges */
+    // Mobile portrait - horizontal compact badges
+    @include mobile-portrait {
+      width: auto !important;
+      flex: 1 !important;
+      justify-content: center;
+      padding: var(--space-xs) var(--space-xs) !important;
+      border-radius: var(--radius-sm) !important;
+      min-height: var(--touch-target-enhanced) !important;
+      font-size: var(--text-xs) !important;
+      max-width: calc(33.333% - var(--space-xs)) !important;
+    }
+    
+    // Mobile landscape - horizontal balanced badges
+    @include mobile-landscape {
+      flex: 1 !important;
+      padding: var(--space-xs) var(--space-sm) !important;
+      border-radius: var(--radius-md) !important;
+      min-width: auto !important;
+      max-width: calc(33.333% - var(--space-sm)) !important;
+    }
+
+    /* Enhanced staggered animation using global.css timing */
     &:first-child {
-      animation-delay: 0.1s;
+      animation-delay: calc(var(--animation-delay-base) * 1ms);
     }
 
     &:nth-child(2) {
-      animation-delay: 0.2s;
+      animation-delay: calc(var(--animation-delay-base) * 2ms);
     }
 
     &:nth-child(3) {
-      animation-delay: 0.3s;
+      animation-delay: calc(var(--animation-delay-base) * 3ms);
     }
 
-    /* Badge icon styling - Beautiful design */
+    /* Badge icon styling - Smaller, refined design with proper mobile priority */
     &__icon {
+      // Default desktop sizing
       margin-right: var(--space-md);
-      height: var(--text-xl);
-      width: var(--text-xl);
+      height: var(--text-lg);
+      width: var(--text-lg);
       flex-shrink: 0;
       transition: all var(--transition-fast);
       z-index: 2;
       position: relative;
-
-      @include mobile {
-        margin-right: var(--space-sm);
+      
+      // Large desktop - enhanced sizing
+      @include large-desktop {
         height: var(--text-lg);
         width: var(--text-lg);
+        margin-right: var(--space-md);
+      }
+      
+      // Small tablet - base sizing
+      @include small-tablet {
+        height: var(--text-base);
+        width: var(--text-base);
+        margin-right: var(--space-sm);
+      }
+      
+      // Mobile - smaller icons (most specific, comes last)
+      @include mobile {
+        margin-right: var(--space-xs) !important;
+        height: var(--text-sm) !important;
+        width: var(--text-sm) !important;
       }
 
-      @include desktop {
-        height: var(--text-2xl);
-        width: var(--text-2xl);
+      // Mobile portrait - ultra compact (highest specificity)
+      @include mobile-portrait {
+        margin-right: var(--space-xs) !important;
+        height: calc(var(--text-sm) * 0.9) !important;
+        width: calc(var(--text-sm) * 0.9) !important;
+      }
+      
+      // Mobile landscape - compact
+      @include mobile-landscape {
+        margin-right: var(--space-xs) !important;
+        height: var(--text-sm) !important;
+        width: var(--text-sm) !important;
       }
 
       &--difficulty {
@@ -709,8 +865,9 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       }
     }
 
-    /* Badge text styling - Enhanced typography */
+    /* Badge text styling - Refined typography with proper mobile priority */
     &__text {
+      // Default desktop sizing
       font-size: var(--text-base);
       font-weight: var(--font-bold);
       color: var(--text-primary);
@@ -719,13 +876,31 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       position: relative;
       transition: all var(--transition-fast);
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-
-      @include mobile {
+      
+      // Large desktop - refined sizing
+      @include large-desktop {
         font-size: var(--text-base);
       }
+      
+      // Small tablet - balanced sizing
+      @include small-tablet {
+        font-size: var(--text-sm);
+      }
+      
+      // Mobile - smaller text for compact badges (most specific)
+      @include mobile {
+        font-size: var(--text-xs) !important;
+      }
 
-      @include desktop {
-        font-size: var(--text-lg);
+      // Mobile portrait - ultra compact text
+      @include mobile-portrait {
+        font-size: calc(var(--text-xs) * 0.9) !important;
+        letter-spacing: 0.01em;
+      }
+      
+      // Mobile landscape - compact text
+      @include mobile-landscape {
+        font-size: var(--text-xs) !important;
       }
     }
 
@@ -758,7 +933,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   }
 
   /* ======================================
-   * Game Container - Clean, classic design
+   * Game Container - Enhanced responsive design with comprehensive breakpoints
    * ====================================== */
   .game-container {
     margin: 0 auto;
@@ -773,72 +948,214 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     transition: all var(--transition-slow);
     position: relative;
     overflow: hidden;
-    animation: fadeInUp 1s ease-out 0.3s both;
+    animation: fadeInUp var(--animation-duration-extended) ease-out calc(var(--animation-delay-medium) * 1ms) both;
+    contain: layout style paint;
 
-    @include mobile {
-      padding: var(--space-xl);
+    // Mobile portrait - ultra compact layout with minimal side margins
+    @include mobile-portrait {
+      padding: var(--space-md) var(--space-xs);
+      margin: 0 var(--space-xs);
+      border-radius: var(--radius-md);
+      max-width: calc(100vw - var(--space-sm));
+    }
+    
+    // Mobile landscape - improved spacing with reduced side padding
+    @include mobile-landscape {
+      padding: var(--space-lg) var(--space-sm);
+      margin: 0 var(--space-xs);
       border-radius: var(--radius-lg);
+      max-width: calc(var(--container-sm) - var(--space-lg));
     }
 
+    // Mobile general - ensure good touch targets with compact horizontal padding
+    @include mobile {
+      padding: var(--space-xl) var(--space-sm) !important;
+      border-radius: var(--radius-lg);
+      max-width: calc(100vw - var(--space-md)) !important;
+      margin: 0 var(--space-xs) !important;
+    }
+    
+    // Small tablet - balanced layout
+    @include small-tablet {
+      padding: var(--space-xl) var(--space-lg);
+      border-radius: var(--radius-lg);
+      max-width: var(--container-md);
+    }
+    
+    // Tablet - enhanced layout
+    @include tablet {
+      padding: var(--space-2xl) var(--space-xl);
+      border-radius: var(--radius-xl);
+      max-width: var(--container-lg);
+    }
+
+    // Desktop - premium experience
     @include desktop {
       padding: var(--space-3xl);
       border-radius: var(--radius-xl);
+      max-width: var(--container-lg);
+    }
+    
+    // Large desktop - enhanced experience
+    @include large-desktop {
+      padding: var(--space-3xl) var(--space-4xl);
+      border-radius: var(--radius-2xl);
+      max-width: calc(var(--container-lg) * 1.125);
     }
 
     &[data-hidden="true"] {
       opacity: var(--animation-opacity-start);
-      transform: translateY(20px) scale(0.98);
+      transform: translateY(var(--animation-y-offset)) scale(var(--animation-scale-start));
+      transition: all var(--transition-normal);
     }
 
-    /* Question text - Clean design */
+    /* Question text - Larger, more prominent design with proper mobile hierarchy */
     &__question {
+      // Default desktop sizing
       margin-bottom: var(--space-2xl);
-      font-size: var(--text-xl);
+      font-size: var(--text-4xl);
       font-weight: var(--font-bold);
       line-height: var(--leading-enhanced);
       color: var(--text-primary);
       position: relative;
       z-index: 1;
-      padding: var(--space-lg);
+      padding: var(--space-xl) var(--space-2xl);
       border-radius: var(--radius-lg);
       background: var(--bg-tertiary);
       border: var(--border-width-thin) solid var(--border-secondary);
-
+      contain: layout style;
+      text-align: center;
+      
+      // Large desktop - enhanced prominence
+      @include large-desktop {
+        font-size: var(--text-5xl);
+        padding: var(--space-2xl) var(--space-3xl);
+        margin-bottom: var(--space-3xl);
+        line-height: var(--leading-tight);
+      }
+      
+      // Tablet - optimal reading experience
+      @include tablet {
+        font-size: var(--text-3xl);
+        padding: var(--space-xl) var(--space-2xl);
+        margin-bottom: var(--space-2xl);
+      }
+      
+      // Small tablet - strong visual hierarchy
+      @include small-tablet {
+        font-size: var(--text-2xl);
+        padding: var(--space-lg) var(--space-xl);
+        margin-bottom: var(--space-xl);
+      }
+      
+      // Mobile general - improved prominence with compact horizontal padding
       @include mobile {
-        font-size: var(--text-lg);
-        padding: var(--space-md);
+        font-size: var(--text-xl) !important;
+        padding: var(--space-md) var(--space-sm) !important;
+        margin-bottom: var(--space-xl) !important;
+        line-height: var(--leading-relaxed) !important;
       }
 
-      @include desktop {
-        font-size: var(--text-2xl);
-        padding: var(--space-xl);
+      // Mobile portrait - readable and prominent with minimal padding
+      @include mobile-portrait {
+        font-size: var(--text-lg) !important;
+        padding: var(--space-sm) var(--space-xs) !important;
+        margin-bottom: var(--space-lg) !important;
+        line-height: var(--leading-normal) !important;
+      }
+      
+      // Mobile landscape - enhanced readability with compact padding
+      @include mobile-landscape {
+        font-size: var(--text-xl) !important;
+        padding: var(--space-md) var(--space-sm) !important;
+        margin-bottom: var(--space-lg) !important;
+        line-height: var(--leading-relaxed) !important;
       }
     }
 
-    /* Options container - Enhanced spacing and styling */
+    /* Options container - Enhanced responsive spacing */
     &__options {
       display: flex;
       flex-direction: column;
       gap: var(--space-lg);
       position: relative;
       z-index: 1;
+      contain: layout;
+      
+      // Mobile portrait - compact option spacing
+      @include mobile-portrait {
+        gap: var(--space-md);
+      }
+      
+      // Mobile landscape - balanced spacing
+      @include mobile-landscape {
+        gap: var(--space-md);
+      }
+      
+      // Small tablet - enhanced spacing
+      @include small-tablet {
+        gap: var(--space-lg);
+      }
+      
+      // Desktop - premium spacing
+      @include desktop {
+        gap: var(--space-xl);
+      }
+      
+      // Large desktop - enhanced experience
+      @include large-desktop {
+        gap: calc(var(--space-xl) + var(--space-sm));
+      }
     }
   }
 
-  /* Game controls area - Enhanced positioning */
+  /* Game controls area - Enhanced responsive positioning */
   .game-controls {
     margin-top: var(--space-xl);
     display: flex;
     justify-content: center;
     position: relative;
     z-index: 2;
+    contain: layout;
+    
+    // Mobile portrait - compact controls
+    @include mobile-portrait {
+      margin-top: var(--space-lg);
+      padding: 0 var(--space-xs);
+    }
+    
+    // Mobile landscape - balanced layout
+    @include mobile-landscape {
+      margin-top: var(--space-lg);
+      padding: 0 var(--space-sm);
+    }
+    
+    // Mobile general
+    @include mobile {
+      margin-top: var(--space-lg);
+    }
+    
+    // Small tablet - enhanced spacing
+    @include small-tablet {
+      margin-top: var(--space-xl);
+    }
+    
+    // Desktop - premium spacing
+    @include desktop {
+      margin-top: var(--space-2xl);
+    }
+    
+    // Large desktop - enhanced experience
+    @include large-desktop {
+      margin-top: var(--space-3xl);
+    }
   }
 
   /* ======================================
-   * Accessibility & Performance Optimizations
+   * Enhanced Accessibility & Performance Optimizations
    * ====================================== */
 
-  /* Reduced motion support */
+  /* Comprehensive reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     *,
     ::before,
@@ -855,13 +1172,22 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     @keyframes fadeInUp {
       from,
       to {
-        opacity: 1;
-        transform: none;
+        opacity: var(--animation-opacity-full);
+        transform: translateY(0) translateZ(0);
+      }
+    }
+    
+    @keyframes coinPulseAAA {
+      from,
+      to {
+        transform: scale(var(--animation-scale-default));
+        text-shadow: none;
+        color: var(--color-warning-400);
       }
     }
   }
 
-  /* High contrast mode support */
+  /* Enhanced high contrast and forced colors mode support */
   @media (forced-colors: active) {
     .game-container,
     .game-badge {
@@ -870,35 +1196,86 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       box-shadow: none;
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
+      forced-color-adjust: none;
     }
 
     .game-badge {
       background: ButtonFace;
+      color: ButtonText;
     }
 
     .game-container__question {
-      background: transparent;
-      border: none;
+      background: Canvas;
+      border: var(--border-width-thin) solid CanvasText;
+      color: CanvasText;
+    }
+    
+    .game-option-button {
+      background: ButtonFace;
+      border: var(--border-width-thin) solid ButtonBorder;
+      color: ButtonText;
+      
+      &:hover,
+      &:focus-visible {
+        background: Highlight;
+        color: HighlightText;
+      }
     }
   }
 
-  /* Enhanced focus states */
+  /* Enhanced focus states with improved accessibility */
   .game-badge:focus-visible,
   .game-container:focus-visible {
     outline: var(--focus-enhanced-outline-dark);
     outline-offset: var(--focus-ring-offset);
     box-shadow: var(--focus-ring);
   }
+  
+  .game-container__question:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-ring-offset);
+    box-shadow: var(--focus-ring);
+  }
 
-  /* Touch target enhancement */
+  /* Enhanced touch target optimization for all pointer types */
   @media (pointer: coarse) {
     .game-badge {
-      min-height: var(--min-touch-size);
-      padding: var(--space-sm) var(--space-md);
+      min-height: var(--touch-target-enhanced);
+      padding: var(--space-md) var(--space-lg);
+      
+      @include mobile-portrait {
+        min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
+      }
+    }
+    
+    .game-option-button {
+      min-height: var(--touch-target-enhanced);
+      padding: var(--space-lg) var(--space-xl);
+      
+      @include mobile-portrait {
+        min-height: calc(var(--touch-target-enhanced) + var(--space-md));
+        padding: var(--space-md) var(--space-lg);
+      }
+    }
+  }
+  
+  /* Enhanced pointer device optimizations */
+  @media (pointer: fine) {
+    .game-badge:hover {
+      cursor: default;
+      transform: translateY(var(--animation-y-offset-micro)) scale(var(--animation-scale-small));
+    }
+    
+    .game-container:hover {
+      cursor: default;
+    }
+    
+    .game-option-button:hover {
+      cursor: pointer;
     }
   }
 
-  /* Print optimization */
+  /* Enhanced print optimization with global.css variables */
   @media print {
     .game-container,
     .game-header,
@@ -906,7 +1283,86 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       break-inside: avoid;
       border: var(--print-border);
       background: var(--print-bg) !important;
+      color: var(--print-text) !important;
       box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+    
+    .game-container__question {
+      background: var(--print-bg) !important;
+      border: var(--print-border);
+    }
+    
+    .game-option-button {
+      background: var(--print-bg) !important;
+      border: var(--print-border);
+      color: var(--print-text) !important;
+    }
+  }
+  
+  /* Enhanced landscape orientation support for all breakpoints */
+  @media (max-width: 63.9375em) and (orientation: landscape) {
+    .game-container {
+      max-height: 90vh;
+      overflow-y: auto;
+      scrollbar-width: var(--scrollbar-thin);
+      scrollbar-color: var(--scrollbar-thumb-bg) var(--scrollbar-track-bg);
+      
+      // Mobile portrait landscape
+      @media (max-width: 29.9375em) {
+        max-height: 85vh;
+        padding: var(--space-sm);
+      }
+      
+      // Mobile landscape specific
+      @media (min-width: 30em) and (max-width: 39.9375em) {
+        max-height: 88vh;
+        padding: var(--space-md);
+      }
+    }
+    
+    .game-header {
+      margin-bottom: var(--space-md);
+      
+      &__badges {
+        gap: var(--space-sm);
+        margin-top: var(--space-md);
+      }
+    }
+  }
+  
+  /* Container queries for enhanced responsive behavior */
+  .game-container {
+    container-type: inline-size;
+    
+    // Container query for very small containers
+    @container (max-width: 20rem) {
+      padding: var(--space-sm);
+      border-radius: var(--radius-sm);
+      
+      .game-container__question {
+        font-size: var(--text-sm);
+        padding: var(--space-xs);
+      }
+    }
+    
+    // Container query for small containers
+    @container (max-width: 28rem) {
+      border-radius: var(--radius-md);
+      
+      .game-container__options {
+        gap: var(--space-sm);
+      }
+    }
+  }
+  
+  /* Enhanced support for different screen densities */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .game-badge,
+    .game-container {
+      -webkit-font-smoothing: var(--font-smoothing-light);
+      -moz-osx-font-smoothing: var(--font-smoothing-grayscale);
     }
   }
 </style>

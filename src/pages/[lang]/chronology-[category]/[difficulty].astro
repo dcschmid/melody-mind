@@ -211,17 +211,21 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
    * Uses CSS variables from global.css for consistent theming
    */
 
-  // SCSS Variables and Mixins
-  $transition-smooth: all 0.2s ease;
-  $border-selected: 2px solid var(--interactive-primary);
-  $border-default: 2px solid var(--border-primary);
-  $hover-transform: translateY(-2px);
+  // SCSS Variables using global.css tokens
+  $transition-smooth: var(--transition-normal);
+  $border-selected: var(--border-width-thick) solid var(--interactive-primary);
+  $border-default: var(--border-width-thick) solid var(--border-primary);
+  $hover-transform: translateY(var(--animation-y-offset-small));
   $shadow-hover: var(--card-shadow-hover);
   $focus-ring: var(--focus-ring);
 
-  // Responsive breakpoints
-  $breakpoint-tablet: 768px;
-  $breakpoint-mobile: 480px;
+  // Note: Using hardcoded em values in media queries since CSS variables don't work in @media rules
+  // Mobile portrait: 0-479px (< 30em)
+  // Mobile landscape: 480-639px (30em - 39.9375em)
+  // Small tablet: 640-767px (40em - 47.9375em)
+  // Tablet: 768-1023px (48em - 63.9375em)
+  // Desktop: 1024-1279px (64em - 79.9375em)
+  // Large desktop: 1280px+ (80em+)
 
   // Mixins for common patterns
   @mixin flex-center($direction: row) {
@@ -272,8 +276,27 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
   }
 
-  @mixin responsive($breakpoint) {
-    @media (max-width: $breakpoint) {
+  // Enhanced responsive design mixins using hardcoded breakpoints
+  @mixin respond-to-mobile {
+    @media (max-width: 29.9375em) {
+      @content;
+    }
+  }
+
+  @mixin respond-to-mobile-landscape {
+    @media (min-width: 30em) and (max-width: 39.9375em) {
+      @content;
+    }
+  }
+
+  @mixin respond-to-tablet {
+    @media (max-width: 47.9375em) {
+      @content;
+    }
+  }
+
+  @mixin respond-to-desktop {
+    @media (min-width: 64em) {
       @content;
     }
   }
@@ -281,40 +304,62 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
   // Keyframes
   @keyframes spin {
     from {
-      transform: rotate(0deg);
+      transform: rotate(var(--rotation-0));
     }
     to {
       transform: rotate(360deg);
     }
   }
 
+  // Enhanced animations using global.css variables
   @keyframes fadeIn {
     from {
-      opacity: 0;
-      transform: translateY(10px);
+      opacity: var(--animation-opacity-start);
+      transform: translateY(var(--animation-y-offset));
     }
     to {
-      opacity: 1;
+      opacity: var(--animation-opacity-full);
       transform: translateY(0);
     }
   }
 
-  // Main game container
+  // Enhanced main game container with comprehensive responsive design
   .chronology-game {
     min-height: 100vh;
     background: var(--bg-primary);
     color: var(--text-primary);
     padding: var(--space-lg);
-    max-width: 1200px;
+    max-width: var(--container-xl);
     margin: 0 auto;
-    animation: fadeIn 0.3s ease-out;
+    animation: fadeIn var(--animation-duration-normal) ease-out;
+    contain: layout style;
 
-    @include responsive($breakpoint-tablet) {
-      padding: var(--space-md);
+    // Mobile portrait (< 480px) - very compact
+    @include respond-to-mobile {
+      padding: var(--space-sm) var(--space-xs);
+      min-height: 100dvh; // Use dynamic viewport height on mobile
     }
 
-    @include responsive($breakpoint-mobile) {
-      padding: var(--space-sm);
+    // Mobile landscape (480px - 640px) - balanced layout
+    @include respond-to-mobile-landscape {
+      padding: var(--space-md) var(--space-sm);
+    }
+
+    // Small tablet (640px - 768px) - enhanced spacing
+    @media (min-width: 40em) and (max-width: 47.9375em) {
+      padding: var(--space-lg) var(--space-md);
+    }
+
+    // Tablet (768px - 1024px) - optimal spacing
+    @media (min-width: 48em) and (max-width: 63.9375em) {
+      padding: var(--space-xl);
+      max-width: var(--container-lg);
+    }
+
+    // Desktop (1024px+) - premium experience
+    @include respond-to-desktop {
+      padding: var(--space-2xl);
+      max-width: var(--container-xl);
     }
   }
 
@@ -334,10 +379,24 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     margin-top: var(--space-md);
     flex-wrap: wrap;
 
-    @include responsive($breakpoint-tablet) {
+    // Mobile portrait - stacked layout
+    @include respond-to-mobile {
       flex-direction: column;
       align-items: center;
+      gap: var(--space-xs);
+      margin-top: var(--space-sm);
+    }
+
+    // Small tablet and up to large mobile
+    @include respond-to-tablet {
+      flex-direction: row;
+      justify-content: center;
       gap: var(--space-sm);
+    }
+
+    // Desktop - optimal spacing
+    @include respond-to-desktop {
+      gap: var(--space-lg);
     }
   }
 
@@ -347,18 +406,20 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     background: var(--bg-secondary);
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--radius-lg);
-    border: 1px solid var(--border-secondary);
+    border: var(--border-width-thin) solid var(--border-secondary);
     transition: $transition-smooth;
-    min-width: 80px;
+    min-width: var(--stat-width-sm);
+    contain: layout style;
 
     &:hover {
       background: var(--bg-tertiary);
-      transform: translateY(-1px);
+      transform: translateY(calc(-1 * var(--space-micro)));
+      box-shadow: var(--shadow-md);
     }
 
     &__icon {
-      width: 16px;
-      height: 16px;
+      width: var(--icon-size-sm);
+      height: var(--icon-size-sm);
       color: var(--interactive-primary);
       flex-shrink: 0;
     }
@@ -367,22 +428,49 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       font-weight: var(--font-medium);
       font-size: var(--text-sm);
       white-space: nowrap;
+      min-width: var(--coin-number-min-width);
     }
 
-    @include responsive($breakpoint-mobile) {
+    // Mobile portrait - compact badges
+    @include respond-to-mobile {
       padding: var(--space-xs) var(--space-sm);
-      min-width: 60px;
+      min-width: calc(var(--stat-width-sm) * 0.75);
+      gap: var(--space-xs);
+
+      &__icon {
+        width: var(--text-sm);
+        height: var(--text-sm);
+      }
 
       &__text {
         font-size: var(--text-xs);
       }
     }
+
+    // Desktop - enhanced badges
+    @include respond-to-desktop {
+      min-width: var(--stat-width-md);
+      padding: var(--space-md) var(--space-lg);
+    }
   }
 
-  // Game Content Section
+  // Enhanced game content section with responsive max-widths
   .game-content {
-    max-width: 800px;
+    max-width: var(--container-md);
     margin: 0 auto;
+    width: var(--width-full);
+    contain: layout;
+
+    // Mobile portrait - full width
+    @include respond-to-mobile {
+      max-width: var(--width-full);
+      margin: 0;
+    }
+
+    // Desktop - optimal reading width
+    @include respond-to-desktop {
+      max-width: var(--container-lg);
+    }
   }
 
   .game-title {
@@ -396,13 +484,29 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     -webkit-text-fill-color: transparent;
     line-height: var(--leading-tight);
 
-    @include responsive($breakpoint-tablet) {
-      font-size: var(--text-xl);
+    // Mobile portrait - very compact
+    @include respond-to-mobile {
+      font-size: var(--text-lg);
+      line-height: var(--leading-normal);
+      margin-bottom: var(--space-xs);
     }
 
-    @include responsive($breakpoint-mobile) {
-      font-size: var(--text-lg);
-      margin-bottom: var(--space-xs);
+    // Mobile landscape - balanced
+    @include respond-to-mobile-landscape {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-sm);
+    }
+
+    // Small tablet - enhanced
+    @media (min-width: 40em) and (max-width: 47.9375em) {
+      font-size: var(--text-2xl);
+    }
+
+    // Desktop - optimal typography
+    @include respond-to-desktop {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-md);
+      line-height: var(--leading-tight);
     }
   }
 
@@ -411,79 +515,136 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     color: var(--text-secondary);
     margin-bottom: var(--space-xl);
     line-height: var(--leading-enhanced);
-    max-width: 600px;
+    max-width: var(--content-readable-width);
     margin-left: auto;
     margin-right: auto;
+    font-size: var(--text-base);
 
-    @include responsive($breakpoint-tablet) {
-      margin-bottom: var(--space-lg);
-      font-size: var(--text-sm);
-    }
-
-    @include responsive($breakpoint-mobile) {
+    // Mobile portrait - compact description
+    @include respond-to-mobile {
       margin-bottom: var(--space-md);
       font-size: var(--text-xs);
+      line-height: var(--leading-relaxed);
+      max-width: var(--width-full);
+      padding: 0 var(--space-sm);
+    }
+
+    // Mobile landscape - improved readability
+    @include respond-to-mobile-landscape {
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    // Tablet - optimal reading
+    @include respond-to-tablet {
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-lg);
+      max-width: var(--motivation-text-max-width);
+    }
+
+    // Desktop - enhanced typography
+    @include respond-to-desktop {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-2xl);
     }
   }
 
-  // Chronology Container
+  // Enhanced chronology container with comprehensive responsive design
   .chronology-container {
-    background: var(--bg-secondary);
+    background: var(--card-bg);
     border-radius: var(--radius-xl);
     padding: var(--space-lg);
     margin-bottom: var(--space-lg);
-    border: 1px solid var(--border-secondary);
-    min-height: 400px;
+    border: var(--border-width-thin) solid var(--card-border);
+    min-height: var(--container-intrinsic-height-card);
     position: relative;
     box-shadow: var(--card-shadow);
+    contain: layout style;
 
-    @include responsive($breakpoint-tablet) {
-      padding: var(--space-md);
-      min-height: 350px;
+    // Mobile portrait - very compact container
+    @include respond-to-mobile {
+      padding: var(--space-sm);
+      min-height: calc(var(--container-intrinsic-height-card) * 0.75);
+      margin-bottom: var(--space-md);
+      border-radius: var(--radius-lg);
     }
 
-    @include responsive($breakpoint-mobile) {
-      padding: var(--space-sm);
-      min-height: 300px;
-      margin-bottom: var(--space-md);
+    // Mobile landscape - balanced spacing
+    @include respond-to-mobile-landscape {
+      padding: var(--space-md);
+      min-height: calc(var(--container-intrinsic-height-card) * 0.875);
+    }
+
+    // Tablet - optimal container size
+    @include respond-to-tablet {
+      padding: var(--space-lg);
+      min-height: calc(var(--container-intrinsic-height-card) * 0.9);
+    }
+
+    // Desktop - premium container experience
+    @include respond-to-desktop {
+      padding: var(--space-xl);
+      margin-bottom: var(--space-2xl);
+      border-radius: var(--radius-2xl);
+      box-shadow: var(--shadow-lg);
     }
   }
 
   .loading-placeholder {
     @include flex-center(column);
-    height: 200px;
+    height: var(--container-intrinsic-height-component);
     color: var(--text-secondary);
     text-align: center;
+    contain: layout style;
 
     p {
       margin-top: var(--space-md);
       font-size: var(--text-sm);
     }
 
-    @include responsive($breakpoint-mobile) {
-      height: 150px;
+    // Mobile portrait - compact loading
+    @include respond-to-mobile {
+      height: calc(var(--container-intrinsic-height-component) * 0.5);
 
       p {
         font-size: var(--text-xs);
+        margin-top: var(--space-sm);
+      }
+    }
+
+    // Desktop - enhanced loading experience
+    @include respond-to-desktop {
+      height: calc(var(--container-intrinsic-height-component) * 0.75);
+
+      p {
+        font-size: var(--text-base);
+        margin-top: var(--space-lg);
       }
     }
   }
 
   .loading-icon {
-    width: 32px;
-    height: 32px;
+    width: var(--icon-size-lg);
+    height: var(--icon-size-lg);
     margin-bottom: var(--space-md);
-    animation: spin 1s linear infinite;
+    animation: spin var(--animation-pulse-duration) linear infinite;
     color: var(--interactive-primary);
 
-    @include responsive($breakpoint-mobile) {
-      width: 24px;
-      height: 24px;
+    // Mobile portrait - smaller icon
+    @include respond-to-mobile {
+      width: var(--icon-size-md);
+      height: var(--icon-size-md);
       margin-bottom: var(--space-sm);
+    }
+
+    // Desktop - larger icon
+    @include respond-to-desktop {
+      width: var(--icon-size-xl);
+      height: var(--icon-size-xl);
     }
   }
 
-  // Chronology Items
+  // Enhanced chronology items with comprehensive responsive design
   .chronology-item {
     display: flex;
     align-items: center;
@@ -497,6 +658,8 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     transition: $transition-smooth;
     position: relative;
     box-shadow: var(--card-shadow);
+    contain: layout style;
+    min-height: var(--touch-target-enhanced);
 
     &:last-child {
       margin-bottom: 0;
@@ -514,28 +677,54 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       border-color: var(--interactive-primary);
       background: var(--bg-tertiary);
       box-shadow: $shadow-hover;
-
+      
       .chronology-item__position {
         background: var(--interactive-secondary);
+        transform: scale(var(--animation-scale-hover-subtle));
       }
+    }
+
+    // Mobile portrait - compact items
+    @include respond-to-mobile {
+      padding: var(--space-sm);
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+      border-radius: var(--radius-md);
+      min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
+    }
+
+    // Desktop - enhanced items
+    @include respond-to-desktop {
+      padding: var(--space-lg);
+      gap: var(--space-lg);
+      border-radius: var(--radius-xl);
     }
 
     &__position {
       @include flex-center;
-      width: 40px;
-      height: 40px;
+      width: var(--min-touch-size);
+      height: var(--min-touch-size);
       background: var(--interactive-primary);
-      color: white;
-      border-radius: 50%;
+      color: var(--color-white);
+      border-radius: var(--radius-full);
       font-weight: var(--font-bold);
       font-size: var(--text-lg);
       flex-shrink: 0;
       transition: $transition-smooth;
+      border: var(--border-width-thin) solid transparent;
 
-      @include responsive($breakpoint-mobile) {
-        width: 32px;
-        height: 32px;
+      // Mobile portrait - compact position indicator
+      @include respond-to-mobile {
+        width: calc(var(--min-touch-size) * 0.75);
+        height: calc(var(--min-touch-size) * 0.75);
         font-size: var(--text-base);
+      }
+
+      // Desktop - enhanced position indicator
+      @include respond-to-desktop {
+        width: calc(var(--min-touch-size) * 1.125);
+        height: calc(var(--min-touch-size) * 1.125);
+        font-size: var(--text-xl);
       }
     }
 
@@ -547,16 +736,25 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     &__title {
       font-weight: var(--font-semibold);
       font-size: var(--text-lg);
-      margin-bottom: 2px;
+      margin-bottom: var(--space-micro);
       color: var(--text-primary);
       line-height: var(--leading-tight);
 
-      @include responsive($breakpoint-tablet) {
+      // Mobile portrait - compact title
+      @include respond-to-mobile {
+        font-size: var(--text-sm);
+        margin-bottom: var(--space-micro);
+      }
+
+      // Tablet - balanced title
+      @include respond-to-tablet {
         font-size: var(--text-base);
       }
 
-      @include responsive($breakpoint-mobile) {
-        font-size: var(--text-sm);
+      // Desktop - enhanced title
+      @include respond-to-desktop {
+        font-size: var(--text-xl);
+        margin-bottom: var(--space-xs);
       }
     }
 
@@ -564,91 +762,203 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       color: var(--text-secondary);
       font-size: var(--text-base);
       line-height: var(--leading-normal);
+      font-weight: var(--font-normal);
 
-      @include responsive($breakpoint-tablet) {
+      // Mobile portrait - compact artist name
+      @include respond-to-mobile {
+        font-size: var(--text-xs);
+        line-height: var(--leading-tight);
+      }
+
+      // Tablet - balanced artist name
+      @include respond-to-tablet {
         font-size: var(--text-sm);
       }
 
-      @include responsive($breakpoint-mobile) {
-        font-size: var(--text-xs);
+      // Desktop - enhanced artist name
+      @include respond-to-desktop {
+        font-size: var(--text-lg);
       }
     }
 
-    @include responsive($breakpoint-tablet) {
+    // Responsive layout adjustments
+    @include respond-to-tablet {
       flex-direction: column;
       text-align: center;
       gap: var(--space-sm);
-      padding: var(--space-sm);
 
       &__content {
         order: -1;
+        margin-bottom: var(--space-sm);
+      }
+      
+      &__position {
+        align-self: center;
       }
     }
 
-    @include responsive($breakpoint-mobile) {
-      padding: var(--space-xs);
+    // Mobile portrait - very compact layout
+    @include respond-to-mobile {
       gap: var(--space-xs);
+      
+      &__content {
+        margin-bottom: var(--space-xs);
+      }
     }
   }
 
-  // Game Controls
+  // Enhanced game controls with comprehensive responsive design
   .game-controls {
     @include flex-center(column);
-    gap: var(--space-md);
+    gap: var(--space-lg);
+    width: var(--width-full);
+    max-width: var(--container-sm);
+    margin: 0 auto;
+    padding: var(--space-2xl);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    backdrop-filter: blur(var(--backdrop-blur)) saturate(180%);
+    border-radius: var(--radius-2xl);
+    border: var(--border-width-thin) solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+      var(--shadow-xl),
+      var(--shadow-md),
+      inset 0 var(--border-width-thin) 0 rgba(255, 255, 255, 0.2);
+    contain: layout style;
 
-    @include responsive($breakpoint-mobile) {
-      gap: var(--space-sm);
+    // Mobile portrait - very compact controls
+    @include respond-to-mobile {
+      gap: var(--space-md);
+      padding: var(--space-xl) var(--space-lg);
+      border-radius: var(--radius-xl);
+      margin: var(--space-lg) auto;
+      max-width: min(var(--width-full), var(--grid-min-width-xl));
+    }
+
+    // Mobile landscape - balanced controls
+    @include respond-to-mobile-landscape {
+      gap: var(--space-lg);
+      padding: var(--space-xl);
+      max-width: var(--container-query-lg);
+    }
+
+    // Tablet - optimal controls layout
+    @include respond-to-tablet {
+      gap: var(--space-xl);
+      max-width: var(--container-query-md);
+      padding: var(--space-2xl) var(--space-3xl);
+    }
+    
+    // Desktop - premium controls experience
+    @include respond-to-desktop {
+      max-width: var(--container-sm);
+      padding: var(--space-3xl);
+      gap: var(--space-2xl);
+      border-radius: var(--radius-3xl);
     }
   }
 
   .move-buttons {
     display: flex;
     gap: var(--space-md);
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: var(--width-full);
 
-    @include responsive($breakpoint-tablet) {
+    // Mobile portrait - stacked layout for better usability
+    @include respond-to-mobile {
       flex-direction: column;
-      width: 100%;
+      width: var(--width-full);
       gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    // Tablet - keep stacked for better touch targets
+    @include respond-to-tablet {
+      flex-direction: column;
+      width: var(--width-full);
+      gap: var(--space-sm);
+    }
+
+    // Desktop - can use horizontal layout if preferred
+    @include respond-to-desktop {
+      flex-direction: row;
+      gap: var(--space-lg);
+      justify-content: center;
     }
   }
 
   .move-button {
     @include button-base;
     background: var(--bg-secondary);
-    border: 2px solid var(--border-secondary);
+    border: var(--border-width-thick) solid var(--border-secondary);
     color: var(--text-primary);
     padding: var(--space-md) var(--space-lg);
-    min-width: 120px;
+    min-width: var(--grid-min-width-sm);
+    text-align: center;
+    min-height: var(--touch-target-enhanced);
+    font-size: var(--text-base);
 
     &:not(:disabled):hover {
       background: var(--interactive-primary);
-      color: white;
+      color: var(--color-white);
+      transform: translateY(var(--animation-y-offset-small)) scale(var(--scale-focus));
+    }
+
+    &:not(:disabled):active {
+      transform: translateY(0) scale(var(--scale-active));
     }
 
     &:disabled {
       background: var(--bg-tertiary);
-      color: var(--text-tertiary);
+      color: var(--text-disabled);
+      opacity: var(--opacity-disabled);
+      cursor: not-allowed;
     }
 
     &__icon {
-      width: 18px;
-      height: 18px;
+      width: var(--icon-size-md);
+      height: var(--icon-size-md);
       flex-shrink: 0;
     }
 
-    @include responsive($breakpoint-tablet) {
-      width: 100%;
+    // Mobile portrait - enhanced touch targets with better accessibility
+    @include respond-to-mobile {
+      width: var(--width-full);
       min-width: auto;
-      padding: var(--space-sm) var(--space-md);
-    }
-
-    @include responsive($breakpoint-mobile) {
-      padding: var(--space-xs) var(--space-sm);
+      min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
+      padding: var(--space-lg) var(--space-md);
       font-size: var(--text-sm);
+      flex-direction: column;
+      gap: var(--space-xs);
 
       &__icon {
-        width: 16px;
-        height: 16px;
+        width: var(--icon-size-sm);
+        height: var(--icon-size-sm);
+      }
+    }
+
+    // Tablet - balanced button layout
+    @include respond-to-tablet {
+      width: var(--width-full);
+      min-width: auto;
+      padding: var(--space-md) var(--space-lg);
+      flex-direction: row;
+    }
+
+    // Desktop - optimal button experience
+    @include respond-to-desktop {
+      min-width: var(--grid-min-width-md);
+      padding: var(--space-lg) var(--space-xl);
+      font-size: var(--text-lg);
+      
+      &__icon {
+        width: var(--icon-size-lg);
+        height: var(--icon-size-lg);
       }
     }
   }
@@ -657,63 +967,130 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     @include button-base;
     background: var(--btn-primary-bg);
     border: none;
-    color: white;
+    color: var(--btn-primary-text);
     padding: var(--space-md) var(--space-xl);
     font-weight: var(--font-semibold);
     font-size: var(--text-lg);
-    min-width: 180px;
+    min-width: var(--grid-min-width-lg);
+    text-align: center;
+    min-height: var(--touch-target-enhanced);
+    box-shadow: var(--shadow-md);
+
+    &:not(:disabled):hover {
+      background: var(--btn-primary-hover);
+      transform: translateY(var(--animation-y-offset-small)) scale(var(--scale-focus));
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    &:not(:disabled):active {
+      transform: translateY(0) scale(var(--scale-active));
+      box-shadow: var(--shadow-sm);
+    }
+
+    &:disabled {
+      opacity: var(--opacity-disabled);
+      cursor: not-allowed;
+      transform: none;
+    }
 
     &__icon {
-      width: 20px;
-      height: 20px;
+      width: var(--icon-size-lg);
+      height: var(--icon-size-lg);
       flex-shrink: 0;
     }
 
-    @include responsive($breakpoint-tablet) {
-      width: 100%;
+    // Mobile portrait - enhanced touch target with full width
+    @include respond-to-mobile {
+      width: var(--width-full);
       min-width: auto;
-      padding: var(--space-sm) var(--space-lg);
-    }
-
-    @include responsive($breakpoint-mobile) {
-      padding: var(--space-xs) var(--space-md);
+      min-height: calc(var(--touch-target-enhanced) + var(--space-md));
+      padding: var(--space-xl) var(--space-lg);
       font-size: var(--text-base);
+      margin-top: var(--space-md);
 
       &__icon {
-        width: 18px;
-        height: 18px;
+        width: var(--icon-size-md);
+        height: var(--icon-size-md);
+      }
+    }
+
+    // Tablet - full width for better usability
+    @include respond-to-tablet {
+      width: var(--width-full);
+      min-width: auto;
+      padding: var(--space-lg) var(--space-xl);
+      font-size: var(--text-lg);
+    }
+
+    // Desktop - optimal submit button
+    @include respond-to-desktop {
+      min-width: var(--grid-min-width-xl);
+      padding: var(--space-xl) var(--space-2xl);
+      font-size: var(--text-xl);
+      
+      &__icon {
+        width: var(--icon-size-xl);
+        height: var(--icon-size-xl);
       }
     }
   }
 
-  // Accessibility Enhancements
+  // Enhanced accessibility support
   @media (prefers-reduced-motion: reduce) {
     .chronology-item,
     .move-button,
     .submit-button,
     .badge {
-      transition: none;
+      transition: var(--transition-instant) !important;
+      
+      &:hover {
+        transform: none !important;
+      }
     }
 
     .loading-icon {
-      animation: none;
+      animation: none !important;
+    }
+    
+    .chronology-game {
+      animation: none !important;
+    }
+    
+    @keyframes fadeIn {
+      from,
+      to {
+        opacity: var(--animation-opacity-full);
+        transform: translateY(0);
+      }
     }
   }
 
-  // High contrast mode support
+  // Enhanced high contrast mode support
   @media (prefers-contrast: high) {
     .chronology-item {
-      border-width: 3px;
-
+      border-width: var(--border-width-enhanced);
+      background: var(--bg-primary);
+      
       &:focus {
-        border-width: 4px;
-        box-shadow: 0 0 0 2px var(--interactive-primary);
+        border-width: calc(var(--border-width-enhanced) + 1px);
+        box-shadow: 0 0 0 var(--focus-ring-offset) var(--interactive-primary);
+      }
+      
+      &--selected {
+        background: var(--bg-secondary);
+        border-color: var(--text-primary);
       }
     }
 
     .move-button,
     .submit-button {
-      border-width: 3px;
+      border-width: var(--border-width-enhanced);
+      font-weight: var(--font-bold);
+    }
+    
+    .badge {
+      border-width: var(--border-width-thick);
+      background: var(--bg-primary);
     }
   }
 
@@ -730,7 +1107,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
   }
 
-  // Print styles
+  // Enhanced print styles using global.css variables
   @media print {
     .game-controls,
     .loading-placeholder {
@@ -738,8 +1115,156 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     .chronology-game {
-      background: white;
-      color: black;
+      background: var(--print-bg) !important;
+      color: var(--print-text) !important;
+      padding: var(--space-md) !important;
+      max-width: var(--width-full) !important;
+      min-height: auto !important;
+      box-shadow: none !important;
+    }
+    
+    .chronology-container {
+      background: var(--print-bg) !important;
+      border: var(--print-border) !important;
+      box-shadow: none !important;
+      page-break-inside: avoid;
+    }
+    
+    .chronology-item {
+      background: var(--print-bg) !important;
+      border: var(--print-border) !important;
+      box-shadow: none !important;
+      page-break-inside: avoid;
+      margin-bottom: var(--space-sm) !important;
+    }
+    
+    .badge {
+      background: var(--print-bg) !important;
+      border: var(--print-border) !important;
+      color: var(--print-text) !important;
+      box-shadow: none !important;
+    }
+  }
+
+  // ======================================
+  // ENHANCED RESPONSIVE FEATURES
+  // ======================================
+
+  /* Container queries for enhanced responsive behavior */
+  .chronology-game {
+    container-type: inline-size;
+    
+    .game-content {
+      container-type: inline-size;
+      
+      // Container query for very small containers
+      @container (max-width: 20rem) {
+        .game-title {
+          font-size: var(--text-base);
+        }
+        
+        .game-description {
+          font-size: var(--text-xs);
+        }
+      }
+      
+      // Container query for medium containers
+      @container (max-width: 40rem) {
+        .chronology-container {
+          padding: var(--space-md);
+          border-radius: var(--radius-lg);
+        }
+      }
+    }
+  }
+  
+  /* Enhanced touch and pointer support */
+  @media (pointer: coarse) {
+    .chronology-item,
+    .move-button,
+    .submit-button {
+      // Enhance touch targets for touch devices
+      min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
+    }
+    
+    .badge {
+      padding: var(--space-md) var(--space-lg);
+    }
+  }
+  
+  @media (pointer: fine) {
+    .chronology-item:hover {
+      box-shadow: var(--card-shadow-hover);
+    }
+    
+    .badge:hover {
+      transform: translateY(var(--animation-y-offset-small)) scale(var(--animation-scale-hover-subtle));
+    }
+  }
+  
+  /* Landscape orientation support for mobile devices */
+  @media (max-width: 47.9375em) and (orientation: landscape) {
+    .chronology-game {
+      padding: var(--space-sm);
+      min-height: 100lvh; // Use logical viewport height for landscape
+    }
+    
+    .game-header {
+      margin-bottom: var(--space-sm);
+    }
+    
+    .game-info {
+      flex-direction: row;
+      gap: var(--space-sm);
+      margin-top: var(--space-sm);
+    }
+    
+    .chronology-container {
+      min-height: calc(var(--container-intrinsic-height-card) * 0.6);
+      padding: var(--space-md);
+    }
+    
+    .game-controls {
+      padding: var(--space-lg);
+      gap: var(--space-md);
+    }
+  }
+  
+  /* Forced colors mode support (Windows High Contrast) */
+  @media (forced-colors: active) {
+    .chronology-item {
+      border: var(--border-width-thick) solid ButtonBorder;
+      background: ButtonFace;
+      forced-color-adjust: none;
+      
+      &--selected {
+        border-color: Highlight;
+        background: HighlightText;
+      }
+    }
+    
+    .move-button,
+    .submit-button {
+      border: var(--border-width-thick) solid ButtonBorder;
+      background: ButtonFace;
+      color: ButtonText;
+      forced-color-adjust: none;
+    }
+    
+    .submit-button {
+      background: Highlight;
+      color: HighlightText;
+    }
+    
+    .badge {
+      border: var(--border-width-thin) solid ButtonBorder;
+      background: ButtonFace;
+      color: ButtonText;
+    }
+    
+    .chronology-container {
+      border: var(--border-width-thick) solid ButtonBorder;
+      background: Canvas;
     }
   }
 </style>

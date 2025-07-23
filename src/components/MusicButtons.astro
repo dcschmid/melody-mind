@@ -266,21 +266,30 @@ const validButtons = buttons.filter(({ url }) => Boolean(url));
   const initMusicButtonTracking = (): void => {
     try {
       // Find all music platform links
-      const musicLinks = document.querySelectorAll('.music-platform-link') as NodeListOf<HTMLAnchorElement>;
-      
+      const musicLinks = document.querySelectorAll(
+        ".music-platform-link"
+      ) as NodeListOf<HTMLAnchorElement>;
+
       musicLinks.forEach((link: HTMLAnchorElement) => {
-        link.addEventListener('click', () => {
+        link.addEventListener("click", () => {
           // Track music platform click event with Fathom
-          if (typeof window.fathom === "object" && window.fathom && typeof window.fathom.trackEvent === "function") {
+          if (
+            typeof window.fathom === "object" &&
+            window.fathom &&
+            typeof window.fathom.trackEvent === "function"
+          ) {
             try {
               const platform = link.dataset.platform;
               const playlistTitle = link.dataset.playlistTitle;
-              
+
               if (platform && playlistTitle) {
                 // Create safe event names for different scenarios
                 const generalEvent = `music_${platform}_click`;
-                const specificEvent = `music_${platform}_${playlistTitle}`.replace(/[^a-zA-Z0-9_]/g, '_');
-                
+                const specificEvent = `music_${platform}_${playlistTitle}`.replace(
+                  /[^a-zA-Z0-9_]/g,
+                  "_"
+                );
+
                 // Track both general platform usage and specific playlist access
                 window.fathom.trackEvent(generalEvent);
                 window.fathom.trackEvent(specificEvent);

@@ -45,7 +45,6 @@ export const oauthProviders: Record<OAuthProvider, OAuthProviderConfig> = {
     usePKCE: true,
   },
 
-
   discord: {
     name: "discord",
     displayName: "Discord",

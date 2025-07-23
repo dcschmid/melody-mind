@@ -67,7 +67,15 @@ const t = useTranslations(lang);
 </div>
 
 <script>
-  import { getLangFromUrl, useTranslations } from "../../utils/i18n";
+  import { useTranslations } from "../../utils/i18n";
+
+  interface OAuthProvider {
+    name: string;
+    displayName: string;
+    color: string;
+    icon?: string;
+    description?: string;
+  }
 
   /**
    * OAuth Providers Controller
@@ -102,7 +110,7 @@ const t = useTranslations(lang);
 
     private async initialize(): Promise<void> {
       this.setupEventListeners();
-      
+
       // Skip loading state for faster UI - go directly to loading providers
       try {
         // Load providers from API
@@ -132,17 +140,11 @@ const t = useTranslations(lang);
       try {
         const response = await fetch(`/api/auth/oauth/providers?lang=${this.lang}`);
 
-        // Debug the response
-        console.log("OAuth providers response status:", response.status);
-        console.log("OAuth providers response headers:", response.headers);
-
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const responseText = await response.text();
-        console.log("OAuth providers response text:", responseText);
-
         const data = JSON.parse(responseText);
 
         if (data.success && data.providers?.length > 0) {
@@ -157,7 +159,7 @@ const t = useTranslations(lang);
       }
     }
 
-    private renderProviders(providers: any[], linkedProviders: string[]): void {
+    private renderProviders(providers: OAuthProvider[], linkedProviders: string[]): void {
       // Clear existing items except header
       const items = this.listEl?.querySelectorAll(".oauth-providers__item");
       items?.forEach((item) => item.remove());
@@ -175,7 +177,7 @@ const t = useTranslations(lang);
       });
     }
 
-    private createOAuthButton(provider: any, isLinked: boolean): HTMLButtonElement {
+    private createOAuthButton(provider: OAuthProvider, isLinked: boolean): HTMLButtonElement {
       const button = document.createElement("button");
       button.type = "button";
       button.className = `oauth-button oauth-button--${provider.name}`;
@@ -653,7 +655,6 @@ const t = useTranslations(lang);
         z-index: 3;
       }
     }
-
 
     &--discord {
       &::after {

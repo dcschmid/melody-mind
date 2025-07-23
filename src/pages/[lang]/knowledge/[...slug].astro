@@ -315,7 +315,7 @@ const articleSchemaData = {
             title={entry.data.title}
             id="article-title"
             className="article__title"
-            size="4xl"
+            size="2xl"
           />
 
           <!-- Meta Information -->
@@ -437,18 +437,30 @@ const articleSchemaData = {
     }
   }
 
-  /* Main layout styles */
+  /* Main layout styles - Better responsive design */
   .article-page {
     margin: 0 auto;
     max-width: var(--container-xl);
-    padding: var(--space-xl) var(--space-lg);
+    padding: var(--space-lg) var(--space-md);
 
-    @media (min-width: var(--breakpoint-sm)) {
-      padding: var(--space-xl) var(--space-md);
+    // Mobile portrait - compact padding
+    @media (max-width: 29.9375em) {
+      padding: var(--space-md) var(--space-sm);
     }
 
-    @media (min-width: var(--breakpoint-md)) {
+    // Mobile landscape and small tablet
+    @media (min-width: 30em) and (max-width: 47.9375em) {
+      padding: var(--space-lg) var(--space-md);
+    }
+
+    // Tablet
+    @media (min-width: 48em) and (max-width: 63.9375em) {
       padding: var(--space-xl) var(--space-lg);
+    }
+
+    // Desktop
+    @media (min-width: 64em) {
+      padding: var(--space-2xl) var(--space-xl);
     }
   }
 
@@ -459,7 +471,7 @@ const articleSchemaData = {
 
   /* Breadcrumb navigation */
   .breadcrumb {
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
 
     &--print-hidden {
       display: block;
@@ -469,11 +481,23 @@ const articleSchemaData = {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: var(--space-sm);
+      gap: var(--space-xs);
       list-style: none;
       padding: 0;
       margin: 0;
-      font-size: var(--text-base);
+      font-size: var(--text-sm);
+      
+      // Mobile portrait
+      @media (max-width: 29.9375em) {
+        font-size: var(--text-xs);
+        gap: var(--space-xs);
+      }
+      
+      // Desktop
+      @media (min-width: 64em) {
+        font-size: var(--text-base);
+        gap: var(--space-sm);
+      }
     }
 
     &__item {
@@ -518,7 +542,7 @@ const articleSchemaData = {
     }
 
     &__current {
-      max-width: var(--stat-width-md);
+      max-width: 200px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -526,9 +550,25 @@ const articleSchemaData = {
       padding: var(--space-xs) var(--space-sm);
       border-radius: var(--radius-md);
       color: var(--text-primary);
+      font-size: var(--text-xs);
 
-      @media (min-width: var(--breakpoint-sm)) {
+      // Mobile portrait - very compact
+      @media (max-width: 29.9375em) {
+        max-width: 120px;
+        font-size: var(--text-xs);
+        padding: 2px var(--space-xs);
+      }
+      
+      // Tablet and up
+      @media (min-width: 48em) {
+        max-width: 300px;
+        font-size: var(--text-sm);
+      }
+      
+      // Desktop
+      @media (min-width: 64em) {
         max-width: unset;
+        font-size: var(--text-base);
       }
     }
   }
@@ -577,44 +617,99 @@ const articleSchemaData = {
     }
   }
 
-  /* Meta information */
+  /* Meta information - Better responsive design */
   .meta-info {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: var(--space-lg);
+    gap: var(--space-sm);
+    
+    // Mobile portrait - stack vertically
+    @media (max-width: 29.9375em) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-xs);
+    }
+    
+    // Desktop
+    @media (min-width: 64em) {
+      gap: var(--space-lg);
+    }
 
     &__item {
       display: flex;
       align-items: center;
-      gap: var(--space-sm);
+      gap: var(--space-xs);
       background-color: var(--card-bg);
-      padding: var(--space-sm) var(--space-lg);
-      border-radius: var(--radius-lg);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-md);
       color: var(--text-secondary);
-      min-height: var(--min-touch-size);
       border: var(--border-width-thin) solid var(--border-primary);
-      contain: layout style; /* Performance optimization */
+      contain: layout style;
+      
+      // Mobile portrait - compact
+      @media (max-width: 29.9375em) {
+        padding: 2px var(--space-xs);
+        width: 100%;
+        justify-content: flex-start;
+      }
+      
+      // Desktop
+      @media (min-width: 64em) {
+        padding: var(--space-sm) var(--space-lg);
+        gap: var(--space-sm);
+      }
     }
 
     &__icon {
-      width: var(--icon-size-md);
-      height: var(--icon-size-md);
+      width: 16px;
+      height: 16px;
       color: var(--interactive-primary);
+      flex-shrink: 0;
+      
+      // Desktop
+      @media (min-width: 64em) {
+        width: var(--icon-size-md);
+        height: var(--icon-size-md);
+      }
     }
 
     &__text {
-      font-size: var(--text-base);
-      line-height: var(--leading-enhanced);
+      font-size: var(--text-xs);
+      line-height: var(--leading-tight);
+      
+      // Tablet
+      @media (min-width: 48em) {
+        font-size: var(--text-sm);
+      }
+      
+      // Desktop
+      @media (min-width: 64em) {
+        font-size: var(--text-base);
+        line-height: var(--leading-enhanced);
+      }
     }
   }
 
-  /* Action buttons */
+  /* Action buttons - Better mobile layout */
   .action-buttons {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: var(--space-lg);
+    gap: var(--space-sm);
+    
+    // Mobile portrait - stack vertically
+    @media (max-width: 29.9375em) {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-xs);
+      width: 100%;
+    }
+    
+    // Desktop
+    @media (min-width: 64em) {
+      gap: var(--space-lg);
+    }
   }
 
   /* Table of contents */
@@ -634,7 +729,7 @@ const articleSchemaData = {
   .article-content {
     color: var(--text-primary);
     line-height: var(--leading-enhanced);
-    font-size: var(--text-xl); /* Increased from --text-lg for better readability */
+    font-size: var(--text-base); /* Reduced from --text-xl for better mobile readability */
 
     /* Enhanced text rendering for better readability */
     text-rendering: optimizeLegibility;
@@ -662,32 +757,93 @@ const articleSchemaData = {
     }
 
     h2 {
-      font-size: var(--text-3xl); /* Increased from --text-2xl */
-      margin-top: var(--space-2xl); /* Increased spacing for better section separation */
-      margin-bottom: var(--space-lg);
+      font-size: var(--text-xl); /* Reduced for mobile readability */
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-md);
+      
+      // Mobile portrait - smaller headings
+      @media (max-width: 29.9375em) {
+        font-size: var(--text-lg);
+      }
+      
+      // Tablet and up
+      @media (min-width: 48em) {
+        font-size: var(--text-2xl);
+      }
+      
+      // Desktop
+      @media (min-width: 64em) {
+        font-size: var(--text-3xl);
+      }
     }
 
     h3 {
-      font-size: var(--text-2xl); /* Increased from --text-xl */
-      margin-top: var(--space-xl);
-      margin-bottom: var(--space-md);
+      font-size: var(--text-lg);
+      margin-top: var(--space-lg);
+      margin-bottom: var(--space-sm);
+      
+      // Mobile portrait
+      @media (max-width: 29.9375em) {
+        font-size: var(--text-base);
+      }
+      
+      // Tablet and up
+      @media (min-width: 48em) {
+        font-size: var(--text-xl);
+      }
+      
+      // Desktop
+      @media (min-width: 64em) {
+        font-size: var(--text-2xl);
+      }
     }
 
     h4 {
-      font-size: var(--text-xl); /* Increased from --text-lg */
-      margin-top: var(--space-lg);
-      margin-bottom: var(--space-md);
+      font-size: var(--text-base);
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-sm);
+      
+      // Mobile portrait
+      @media (max-width: 29.9375em) {
+        font-size: var(--text-sm);
+      }
+      
+      // Tablet and up
+      @media (min-width: 48em) {
+        font-size: var(--text-lg);
+      }
+      
+      // Desktop
+      @media (min-width: 64em) {
+        font-size: var(--text-xl);
+      }
     }
 
     p {
       color: var(--text-primary);
       line-height: var(--leading-enhanced);
-      margin-bottom: var(
-        --space-lg
-      ); /* Increased spacing between paragraphs for better readability */
+      margin-bottom: var(--space-md);
       word-spacing: var(--word-spacing-enhanced);
       letter-spacing: var(--letter-spacing-enhanced);
-      font-size: var(--text-xl); /* Increased paragraph text size for better readability */
+      font-size: var(--text-base);
+      
+      // Mobile portrait - compact
+      @media (max-width: 29.9375em) {
+        font-size: var(--text-sm);
+        margin-bottom: var(--space-sm);
+      }
+      
+      // Tablet
+      @media (min-width: 48em) and (max-width: 63.9375em) {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-lg);
+      }
+      
+      // Desktop
+      @media (min-width: 64em) {
+        font-size: var(--text-xl);
+        margin-bottom: var(--space-lg);
+      }
 
       /* WCAG AAA: Enhanced text readability */
       hyphens: auto;
@@ -813,23 +969,62 @@ const articleSchemaData = {
 
     blockquote {
       border-left: var(--border-width-enhanced) solid var(--interactive-primary);
-      padding-left: var(--space-lg); /* Increased padding for better visual separation */
       color: var(--text-primary);
-      margin: var(--space-xl) 0; /* Increased margin for better spacing */
       background-color: var(--bg-tertiary);
-      padding: var(--space-lg); /* Increased padding for better readability */
+      padding: var(--space-md);
+      margin: var(--space-lg) 0;
       border-radius: var(--radius-md);
-      font-size: var(--text-xl); /* Increased blockquote text size */
+      font-size: var(--text-base);
       line-height: var(--leading-enhanced);
       font-style: italic;
+      
+      // Mobile portrait
+      @media (max-width: 29.9375em) {
+        font-size: var(--text-sm);
+        padding: var(--space-sm);
+        margin: var(--space-md) 0;
+      }
+      
+      // Tablet
+      @media (min-width: 48em) and (max-width: 63.9375em) {
+        font-size: var(--text-lg);
+        padding: var(--space-lg);
+      }
+      
+      // Desktop
+      @media (min-width: 64em) {
+        font-size: var(--text-xl);
+        padding: var(--space-lg);
+        margin: var(--space-xl) 0;
+      }
     }
 
     ul,
     ol {
       list-style-position: outside;
-      margin: var(--space-lg) 0; /* Increased margin for better spacing */
-      padding-left: var(--space-xl); /* Increased padding for better indentation */
-      font-size: var(--text-xl); /* Increased list text size */
+      margin: var(--space-md) 0;
+      padding-left: var(--space-lg);
+      font-size: var(--text-base);
+      
+      // Mobile portrait
+      @media (max-width: 29.9375em) {
+        font-size: var(--text-sm);
+        margin: var(--space-sm) 0;
+        padding-left: var(--space-md);
+      }
+      
+      // Tablet
+      @media (min-width: 48em) and (max-width: 63.9375em) {
+        font-size: var(--text-lg);
+        margin: var(--space-lg) 0;
+      }
+      
+      // Desktop
+      @media (min-width: 64em) {
+        font-size: var(--text-xl);
+        margin: var(--space-lg) 0;
+        padding-left: var(--space-xl);
+      }
     }
 
     li {
@@ -952,48 +1147,14 @@ const articleSchemaData = {
       pointer-events: none;
     }
 
-    /* Responsive typography */
-    @media (min-width: var(--breakpoint-sm)) {
-      font-size: var(--text-2xl); /* Even larger text on tablets and up */
-
-      p {
-        font-size: var(--text-2xl);
-        margin-bottom: var(--space-xl); /* More spacing on larger screens */
-      }
-
-      h2 {
-        font-size: var(--text-4xl); /* Larger headings on tablets */
-      }
-
-      h3 {
-        font-size: var(--text-3xl);
-      }
-
-      h4 {
-        font-size: var(--text-2xl);
-      }
-
-      ul,
-      ol {
-        font-size: var(--text-2xl);
-        margin: var(--space-xl) 0;
-      }
-
-      blockquote {
-        font-size: var(--text-2xl);
-        padding: var(--space-xl);
-        margin: var(--space-2xl) 0;
-      }
+    /* Responsive reading width */
+    @media (min-width: 48em) {
+      max-width: 70ch; /* Optimal reading line length */
+      margin: 0 auto;
     }
-
-    @media (min-width: var(--breakpoint-md)) {
-      font-size: var(--text-2xl);
-      max-width: 75ch; /* Slightly wider on desktop for comfortable reading */
-
-      p {
-        font-size: var(--text-2xl);
-        margin-bottom: var(--space-2xl); /* More generous spacing on desktop */
-      }
+    
+    @media (min-width: 64em) {
+      max-width: 75ch; /* Slightly wider on desktop */
     }
   }
 

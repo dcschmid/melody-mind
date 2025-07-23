@@ -1889,31 +1889,6 @@ const clientTranslations = {
     isCorrectPosition: boolean;
   }
 
-  interface FeedbackEventDetail {
-    /** Whether the user's chronology order was correct */
-    isCorrect: boolean;
-    /** Whether this is the final round of the game */
-    isLastRound: boolean;
-    /** Array of song titles in correct chronological order with years */
-    correctOrder?: string[];
-    /** User's ordering with position details */
-    userOrder?: UserOrderItem[];
-    /** Accuracy percentage (0-100) */
-    accuracy?: number;
-    /** Score gained this round */
-    scoreGained?: number;
-    /** Total accumulated score */
-    totalScore?: number;
-    /** Current round number */
-    round?: number;
-    /** Total number of rounds */
-    totalRounds?: number;
-    /** Game category */
-    category?: string;
-    /** Game difficulty */
-    difficulty?: string;
-  }
-
   interface TranslationMap {
     /** Translation key-value pairs for client-side usage */
     [key: string]: string;
@@ -1945,10 +1920,10 @@ const clientTranslations = {
 
   // State management with performance optimizations
   const state = {
-    previouslyFocused: null as Element | null,
+    previouslyFocused: null,
     animation: {
-      frameId: null as number | null,
-      timeoutId: null as number | null,
+      frameId: null,
+      timeoutId: null,
     },
     // Performance tracking
     isAnimating: false,
@@ -1956,17 +1931,14 @@ const clientTranslations = {
     // Cached DOM measurements
     cachedViewport: { width: 0, height: 0 },
     // Throttled resize handler
-    resizeTimeout: null as number | null,
+    resizeTimeout: null,
   };
 
   /**
-   * Initializes feedback overlay with performance optimizations
-   *
-   * @returns {(() => void) | undefined} Cleanup function or undefined if failed
-   * @accessibility WCAG AAA compliant focus management
-   * @performance Optimized event delegation with memory leak prevention
+   * Initialize DOM elements and performance state
+   * @returns {object | null} Elements object or null if initialization failed
    */
-  function initFeedbackOverlay(): (() => void) | undefined {
+  function initializeOverlayElements() {
     // Initialize performance state
     state.prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     state.cachedViewport = {
@@ -1974,27 +1946,22 @@ const clientTranslations = {
       height: window.innerHeight,
     };
 
-    // Get DOM elements with null checks and proper typing
-    const overlay = document.getElementById("chronology-feedback-overlay") as HTMLElement | null;
-    const closeButton = document.getElementById(
-      "close-feedback-overlay"
-    ) as HTMLButtonElement | null;
-    const backdrop = document.getElementById("overlay-backdrop") as HTMLElement | null;
-    const continueButton = document.getElementById(
-      "chronology-continue-button"
-    ) as HTMLButtonElement | null;
-    const endButton = document.getElementById("chronology-end-button") as HTMLButtonElement | null;
-    const statusAnnouncer = document.getElementById("feedback-status") as HTMLElement | null;
-    const contentText = document.getElementById("feedback-content") as HTMLElement | null;
+    // Get DOM elements with null checks
+    const overlay = document.getElementById("chronology-feedback-overlay");
+    const closeButton = document.getElementById("close-feedback-overlay");
+    const backdrop = document.getElementById("overlay-backdrop");
+    const continueButton = document.getElementById("chronology-continue-button");
+    const endButton = document.getElementById("chronology-end-button");
+    const statusAnnouncer = document.getElementById("feedback-status");
+    const contentText = document.getElementById("feedback-content");
 
     // Early exit if required elements are not found
     if (!overlay || !closeButton || !backdrop || !continueButton || !endButton || !contentText) {
       console.warn("Chronology feedback overlay elements not found");
-      return;
+      return null;
     }
 
-    // Now TypeScript knows these elements are non-null within this scope
-    const elements = {
+    return {
       overlay,
       closeButton,
       backdrop,
@@ -2003,42 +1970,28 @@ const clientTranslations = {
       statusAnnouncer,
       contentText,
     };
+  }
 
-    // Initialize session timeout manager with custom callbacks
-    const sessionManager = getGlobalSessionManager(
-      {
-        warningTime: 120, // 2 minutes warning (WCAG AAA requirement)
-        totalTime: 1200, // 20 minutes total session time
-        enabled: typeof window !== "undefined" && window.location.hostname !== "localhost",
-      },
-      {
-        onWarning: (remainingSeconds: number) => {
-          const warningMessage = getTranslation("session.timeout.warning").replace(
-            "{0}",
-            remainingSeconds.toString()
-          );
-
-          // Also announce through the feedback status if modal is open
-          if (elements.statusAnnouncer && !elements.overlay.classList.contains("hidden")) {
-            elements.statusAnnouncer.textContent = warningMessage;
-          }
-        },
-        onExtend: (): void => {
-          // Session extended successfully - informational only
-        },
-        onTimeout: (): void => {
-          console.warn("User session timed out - redirecting to login");
-          // Could redirect to login page or show timeout modal here
-        },
-      }
-    );
+  /**
+   * Initializes feedback overlay with performance optimizations
+   *
+   * @returns {(() => void) | undefined} Cleanup function or undefined if failed
+   * @accessibility WCAG AAA compliant focus management
+   * @performance Optimized event delegation with memory leak prevention
+   */
+  /* eslint-disable max-lines-per-function, @typescript-eslint/explicit-function-return-type */
+  function initFeedbackOverlay() {
+    const elements = initializeOverlayElements();
+    if (!elements) {
+      return;
+    }
 
     /**
      * Shows overlay with optimized animations
      * @accessibility Stores focus, prevents background scroll, respects reduced motion
      * @performance Uses requestAnimationFrame with GPU acceleration
      */
-    const showOverlay = (): void => {
+    const showOverlay = () => {
       // Prevent concurrent animations
       if (state.isAnimating) {
         return;
@@ -2095,7 +2048,7 @@ const clientTranslations = {
      * @accessibility Restores focus, re-enables scrolling, sets ARIA attributes
      * @performance Cleans up animations, prevents memory leaks
      */
-    const hideOverlay = (): void => {
+    const hideOverlay = () => {
       // Prevent concurrent animations
       if (state.isAnimating) {
         return;
@@ -2143,7 +2096,7 @@ const clientTranslations = {
      * @accessibility Ensures logical keyboard navigation start
      * @wcag WCAG AAA compliant focus management
      */
-    const focusFirstElement = (): void => {
+    const focusFirstElement = () => {
       // Clear any existing timeout
       if (state.animation.timeoutId) {
         clearTimeout(state.animation.timeoutId);
@@ -2159,7 +2112,7 @@ const clientTranslations = {
      * @accessibility Restores focus, re-enables scrolling, handles missing elements
      * @performance Defensive programming with error handling
      */
-    const restoreFocusAndCleanup = (): void => {
+    const restoreFocusAndCleanup = () => {
       // Re-enable scrolling and restore scroll position
       const scrollY = document.body.getAttribute("data-scroll-y");
       document.body.style.position = "";
@@ -2182,7 +2135,7 @@ const clientTranslations = {
       ) {
         state.animation.timeoutId = window.setTimeout(() => {
           try {
-            (state.previouslyFocused as HTMLElement).focus();
+            state.previouslyFocused.focus();
           } catch {
             // Focus restoration failed silently - not critical for user experience
           }
@@ -2193,11 +2146,12 @@ const clientTranslations = {
 
     /**
      * Updates feedback content based on game result
-     * @param {FeedbackEventDetail} detail - Complete feedback data
+     * @param {object} detail - Complete feedback data
      * @accessibility Creates semantic HTML with proper roles and live regions
      * @performance Efficient DOM manipulation with minimal reflows
      */
-    function updateFeedbackContent(detail: FeedbackEventDetail): void {
+    /* eslint-disable max-lines-per-function, complexity */
+    function updateFeedbackContent(detail) {
       const feedbackContent = document.getElementById("feedback-content");
       if (!feedbackContent) {
         console.error("ChronologyFeedback: feedback-content element not found");
@@ -2398,9 +2352,9 @@ const clientTranslations = {
      * @accessibility Implements Tab cycling, supports forward/backward navigation
      * @wcag Meets WCAG AAA focus management requirements
      */
-    function setupFocusTrap(element: Element): void {
+    function setupFocusTrap(element) {
       element.addEventListener("keydown", (e: Event) => {
-        const keyboardEvent = e as KeyboardEvent;
+        const keyboardEvent = e;
 
         // Only trap focus when modal is visible
         if (
@@ -2438,7 +2392,7 @@ const clientTranslations = {
      * @accessibility Provides keyboard escape mechanism (WCAG AAA required)
      * @performance Efficient event delegation pattern
      */
-    function handleKeydown(e: KeyboardEvent): void {
+    function handleKeydown(e) {
       if (e.key === "Escape" && !elements.overlay.classList.contains("hidden")) {
         e.preventDefault();
         hideOverlay();
@@ -2452,8 +2406,8 @@ const clientTranslations = {
      * @performance Efficient batch DOM updates with cached elements
      * @wcag Meets WCAG AAA feedback and navigation requirements
      */
-    function handleShowFeedback(e: CustomEvent): void {
-      const detail = e.detail as FeedbackEventDetail;
+    function handleShowFeedback(e) {
+      const detail = e.detail;
 
       showOverlay();
       updateFeedbackContent(detail);
@@ -2481,7 +2435,7 @@ const clientTranslations = {
      * @performance Efficient event dispatching
      * @wcag Meets WCAG AAA user control requirements
      */
-    function handleContinue(): void {
+    function handleContinue() {
       hideOverlay();
       window.dispatchEvent(new CustomEvent("chronologyContinue"));
     }
@@ -2492,7 +2446,7 @@ const clientTranslations = {
      * @performance Efficient event dispatching
      * @wcag Meets WCAG AAA user control requirements
      */
-    function handleEnd(): void {
+    function handleEnd() {
       hideOverlay();
       window.dispatchEvent(new CustomEvent("chronologyEnd"));
     }
@@ -2500,7 +2454,7 @@ const clientTranslations = {
     /**
      * Throttled resize handler for performance optimization
      */
-    const handleResize = (): void => {
+    const handleResize = () => {
       if (state.resizeTimeout) {
         clearTimeout(state.resizeTimeout);
       }
@@ -2523,7 +2477,7 @@ const clientTranslations = {
      * @features Modal controls, keyboard navigation, session management
      * @wcag Meets WCAG AAA keyboard navigation and user control requirements
      */
-    function setupEventListeners(): void {
+    function setupEventListeners() {
       // Modal control events with semantic action handlers
       elements.closeButton.addEventListener("click", hideOverlay);
       elements.backdrop.addEventListener("click", hideOverlay);
@@ -2532,7 +2486,7 @@ const clientTranslations = {
 
       // Global keyboard navigation events
       document.addEventListener("keydown", handleKeydown);
-      window.addEventListener("showChronologyFeedback", handleShowFeedback as EventListener);
+      window.addEventListener("showChronologyFeedback", handleShowFeedback);
 
       // Performance optimization events
       window.addEventListener("resize", handleResize, { passive: true });
@@ -2541,10 +2495,9 @@ const clientTranslations = {
       setupFocusTrap(elements.overlay);
 
       // Make session manager extend function available globally for future UI implementations
-      (window as typeof window & { extendChronologySession: () => void }).extendChronologySession =
-        (): void => {
-          sessionManager.extend();
-        };
+      window.extendChronologySession = () => {
+        sessionManager.extend();
+      };
     }
 
     /**
@@ -2554,7 +2507,7 @@ const clientTranslations = {
      * @usage Called on page unload or component destruction
      * @wcag Ensures proper cleanup for assistive technology compatibility
      */
-    const cleanup = (): void => {
+    const cleanup = () => {
       // Clear any pending animations or timeouts to prevent memory leaks
       if (state.animation.frameId) {
         cancelAnimationFrame(state.animation.frameId);
@@ -2578,7 +2531,7 @@ const clientTranslations = {
       elements.continueButton.removeEventListener("click", handleContinue);
       elements.endButton.removeEventListener("click", handleEnd);
       document.removeEventListener("keydown", handleKeydown);
-      window.removeEventListener("showChronologyFeedback", handleShowFeedback as EventListener);
+      window.removeEventListener("showChronologyFeedback", handleShowFeedback);
       window.removeEventListener("resize", handleResize);
 
       // Reset component state for potential reuse

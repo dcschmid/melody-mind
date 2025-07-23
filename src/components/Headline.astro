@@ -194,8 +194,77 @@ const wrapperAttrs = generateWrapperAttributes();
      * RESPONSIVE BREAKPOINT ADJUSTMENTS
      * ====================================== */
 
-    /* Tablet breakpoint (48em) */
-    @media (min-width: var(--breakpoint-md)) {
+    /* Small mobile screens - Portrait Mobile (below 480px) - Compact sizes */
+    @media (max-width: 29.9375em) {
+      &--size-base {
+        font-size: var(--text-sm);
+      }
+
+      &--size-lg {
+        font-size: var(--text-base);
+      }
+
+      &--size-xl {
+        font-size: var(--text-lg);
+      }
+
+      &--size-2xl {
+        font-size: var(--text-xl);
+      }
+
+      &--size-3xl {
+        font-size: var(--text-2xl);
+      }
+
+      &--size-4xl {
+        font-size: var(--text-3xl);
+      }
+    }
+
+    /* Medium screens - Tablet Portrait (480px+) - Gradual expansion */
+    @media (min-width: 30em) {
+      &--size-xl {
+        font-size: var(--text-xl);
+      }
+
+      &--size-2xl {
+        font-size: var(--text-2xl);
+      }
+
+      &--size-3xl {
+        font-size: var(--text-3xl);
+      }
+
+      &--size-4xl {
+        font-size: var(--text-4xl);
+      }
+    }
+
+    /* Tablet Landscape (768px - 1024px) - Smaller fonts to fix oversized text */
+    @media (min-width: 48em) and (max-width: 63.9375em) {
+      &--size-lg {
+        font-size: var(--text-base);
+      }
+
+      &--size-xl {
+        font-size: var(--text-lg);
+      }
+
+      &--size-2xl {
+        font-size: var(--text-xl);
+      }
+
+      &--size-3xl {
+        font-size: var(--text-2xl);
+      }
+
+      &--size-4xl {
+        font-size: var(--text-3xl);
+      }
+    }
+
+    /* Desktop breakpoint (64em+) - Balanced sizing */
+    @media (min-width: 64em) {
       &--size-xl {
         font-size: var(--text-2xl);
       }
@@ -213,29 +282,14 @@ const wrapperAttrs = generateWrapperAttributes();
       }
     }
 
-    /* Desktop breakpoint (64em) */
-    @media (min-width: var(--breakpoint-lg)) {
-      &--size-2xl {
-        font-size: var(--text-4xl);
-      }
-
+    /* Large desktop breakpoint (80em+) - Moderate scaling */
+    @media (min-width: 80em) {
       &--size-3xl {
         font-size: calc(var(--text-4xl) * 1.25);
       }
 
       &--size-4xl {
         font-size: calc(var(--text-4xl) * 1.5);
-      }
-    }
-
-    /* Large desktop breakpoint (80em) */
-    @media (min-width: var(--breakpoint-xl)) {
-      &--size-3xl {
-        font-size: calc(var(--text-4xl) * 1.5);
-      }
-
-      &--size-4xl {
-        font-size: calc(var(--text-4xl) * 2);
       }
     }
 
@@ -248,7 +302,7 @@ const wrapperAttrs = generateWrapperAttributes();
       margin-bottom: var(--space-xl);
 
       /* Enhanced spacing for large screens */
-      @media (min-width: var(--breakpoint-lg)) {
+      @media (min-width: 64em) {
         margin-bottom: var(--space-2xl);
       }
     }
@@ -257,7 +311,7 @@ const wrapperAttrs = generateWrapperAttributes();
       font-weight: var(--font-semibold);
       margin-bottom: var(--space-lg);
 
-      @media (min-width: var(--breakpoint-lg)) {
+      @media (min-width: 64em) {
         margin-bottom: var(--space-xl);
       }
     }
@@ -266,7 +320,7 @@ const wrapperAttrs = generateWrapperAttributes();
       font-weight: var(--font-semibold);
       margin-bottom: var(--space-md);
 
-      @media (min-width: var(--breakpoint-lg)) {
+      @media (min-width: 64em) {
         margin-bottom: var(--space-lg);
       }
     }
@@ -277,7 +331,7 @@ const wrapperAttrs = generateWrapperAttributes();
       font-weight: var(--font-medium);
       margin-bottom: var(--space-sm);
 
-      @media (min-width: var(--breakpoint-lg)) {
+      @media (min-width: 64em) {
         margin-bottom: var(--space-md);
       }
     }
@@ -415,7 +469,7 @@ const wrapperAttrs = generateWrapperAttributes();
      * ====================================== */
 
     /* Mobile-first text alignment adjustments */
-    @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
+    @media (max-width: 47.9375em) {
       /* Below md breakpoint */
       &--align-center {
         text-align: left;
@@ -431,7 +485,7 @@ const wrapperAttrs = generateWrapperAttributes();
      * ====================================== */
 
     /* Smaller margins on mobile for better space utilization */
-    @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
+    @media (max-width: 47.9375em) {
       /* Below md breakpoint */
       margin-bottom: var(--space-md);
 
@@ -451,7 +505,7 @@ const wrapperAttrs = generateWrapperAttributes();
       }
     }
 
-    @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+    @media (max-width: 39.9375em) {
       /* Below sm breakpoint */
       margin-bottom: var(--space-sm);
 

@@ -245,7 +245,7 @@ const t = useTranslations(langString);
     width: var(--width-full);
     max-width: var(--container-xl);
     margin: 0 auto;
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-md) var(--space-sm);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -257,8 +257,24 @@ const t = useTranslations(langString);
     /* Enhanced content visibility for performance optimization */
     contain: layout style;
 
-    @media (min-width: 48em) {
+    // Mobile portrait (< 480px) - very compact
+    @media (max-width: 29.9375em) {
+      padding: var(--space-sm) var(--space-xs);
+    }
+
+    // Mobile landscape and small tablet (480px - 768px)
+    @media (min-width: 30em) and (max-width: 47.9375em) {
+      padding: var(--space-lg) var(--space-md);
+    }
+
+    // Tablet (768px - 1024px)
+    @media (min-width: 48em) and (max-width: 63.9375em) {
       padding: var(--space-xl) var(--space-lg);
+    }
+
+    // Desktop (1024px+)
+    @media (min-width: 64em) {
+      padding: var(--space-2xl) var(--space-xl);
     }
   }
 
@@ -269,20 +285,42 @@ const t = useTranslations(langString);
 
   .achievements-hero {
     position: relative;
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
     overflow: hidden;
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     background: linear-gradient(
       135deg,
       var(--color-primary-900) 0%,
       var(--color-primary-700) 50%,
       var(--color-secondary-800) 100%
     );
-    padding: var(--space-xl);
+    padding: var(--space-lg) var(--space-md);
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
 
-    @media (min-width: 48em) {
+    // Mobile portrait (< 480px) - compact hero
+    @media (max-width: 29.9375em) {
+      margin-bottom: var(--space-lg);
+      padding: var(--space-md) var(--space-sm);
+      border-radius: var(--radius-md);
+    }
+
+    // Mobile landscape and small tablet (480px - 768px)
+    @media (min-width: 30em) and (max-width: 47.9375em) {
+      margin-bottom: var(--space-xl);
+      padding: var(--space-lg) var(--space-md);
+      border-radius: var(--radius-lg);
+    }
+
+    // Tablet (768px - 1024px)
+    @media (min-width: 48em) and (max-width: 63.9375em) {
+      margin-bottom: var(--space-2xl);
+      border-radius: var(--radius-xl);
+      padding: var(--space-xl) var(--space-lg);
+    }
+
+    // Desktop (1024px+)
+    @media (min-width: 64em) {
       margin-bottom: var(--space-3xl);
       border-radius: var(--radius-2xl);
       padding: var(--space-2xl) var(--space-xl);
@@ -331,25 +369,75 @@ const t = useTranslations(langString);
     }
 
     &__title {
-      margin-bottom: var(--space-lg);
+      margin-bottom: var(--space-md);
       color: var(--color-white);
       text-shadow: var(--achievements-hero-shadow);
+      
+      // Mobile portrait - smaller title
+      @media (max-width: 29.9375em) {
+        margin-bottom: var(--space-sm);
+        font-size: var(--text-2xl) !important;
+      }
+      
+      // Mobile landscape
+      @media (min-width: 30em) and (max-width: 47.9375em) {
+        font-size: var(--text-3xl) !important;
+      }
+      
+      // Tablet and up
+      @media (min-width: 48em) {
+        margin-bottom: var(--space-lg);
+      }
     }
 
     &__divider {
-      width: var(--space-2xl);
+      width: var(--space-xl);
       height: var(--achievements-divider-height);
       background: var(--color-secondary-400);
-      margin: var(--space-lg) auto;
+      margin: var(--space-md) auto;
       border-radius: var(--radius-full);
+      
+      // Mobile portrait - smaller divider
+      @media (max-width: 29.9375em) {
+        width: var(--space-lg);
+        margin: var(--space-sm) auto;
+      }
+      
+      // Desktop - larger divider
+      @media (min-width: 64em) {
+        width: var(--space-2xl);
+        margin: var(--space-lg) auto;
+      }
     }
 
     &__description {
       color: var(--color-neutral-100);
-      font-size: var(--text-xl);
+      font-size: var(--text-base);
       line-height: var(--leading-relaxed);
       max-width: var(--achievements-content-max-width);
       margin: 0 auto;
+      
+      // Mobile portrait - smaller text
+      @media (max-width: 29.9375em) {
+        font-size: var(--text-sm);
+        line-height: var(--leading-normal);
+        max-width: 100%;
+      }
+      
+      // Mobile landscape
+      @media (min-width: 30em) and (max-width: 47.9375em) {
+        font-size: var(--text-lg);
+      }
+      
+      // Tablet and up
+      @media (min-width: 48em) {
+        font-size: var(--text-xl);
+      }
+      
+      // Desktop
+      @media (min-width: 64em) {
+        font-size: var(--text-2xl);
+      }
     }
 
     &__seo-description {
@@ -368,12 +456,23 @@ const t = useTranslations(langString);
     &__summary {
       /* Shared layout and spacing using design tokens */
       margin-bottom: var(--space-lg);
-      padding: var(--space-lg);
+      padding: var(--space-md);
       border-radius: var(--radius-md);
       text-align: center;
       border: var(--border-width-thin) solid var(--border-primary);
       background-color: var(--card-bg);
       box-shadow: var(--card-shadow);
+      
+      // Mobile portrait - compact padding
+      @media (max-width: 29.9375em) {
+        padding: var(--space-sm);
+        margin-bottom: var(--space-md);
+      }
+      
+      // Tablet and up
+      @media (min-width: 48em) {
+        padding: var(--space-lg);
+      }
 
       /* Enhanced accessibility and UX using existing touch target variable */
       min-height: var(--min-touch-size);
@@ -445,8 +544,8 @@ const t = useTranslations(langString);
     /* High-performance responsive grid */
     &__grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
-      gap: var(--space-lg);
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
       max-width: 100%;
 
       /* OPTIMIZED: Dense grid packing eliminates gaps from filtered items */
@@ -456,6 +555,24 @@ const t = useTranslations(langString);
 
       /* Performance: Optimize grid layout containment */
       contain: layout style;
+      
+      // Mobile landscape - 2 columns on larger phones
+      @media (min-width: 30em) and (max-width: 47.9375em) {
+        grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+        gap: var(--space-md);
+      }
+      
+      // Tablet - 2-3 columns
+      @media (min-width: 48em) and (max-width: 63.9375em) {
+        grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+        gap: var(--space-lg);
+      }
+      
+      // Desktop - up to 3 columns
+      @media (min-width: 64em) {
+        grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+        gap: var(--space-lg);
+      }
 
       /* Utility for empty grids */
       &:empty {
@@ -580,46 +697,73 @@ const t = useTranslations(langString);
   }
 
   /* ======================================
-   * RESPONSIVE DESIGN - Enhanced with comprehensive CSS variables usage
+   * RESPONSIVE DESIGN - Enhanced with comprehensive breakpoints
    * ====================================== */
 
   .achievements {
-    @media (min-width: 48em) {
-      padding: var(--space-xl);
-
-      /* Enhanced grid for tablets - max 2 columns */
-      &__grid {
-        grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
-        gap: var(--space-xl);
+    // Mobile portrait adjustments
+    @media (max-width: 29.9375em) {
+      &__list {
+        gap: var(--space-lg);
       }
+      
+      &__category {
+        margin-bottom: var(--space-sm);
+        
+        &-title {
+          margin-bottom: var(--space-sm);
+          font-size: var(--text-lg) !important;
+        }
+      }
+      
+      &__stat {
+        min-width: calc(var(--stat-width-sm) * 0.8);
+        padding: var(--space-sm);
+        
+        &-label {
+          font-size: var(--text-xs);
+        }
+        
+        &-value {
+          font-size: var(--text-lg);
+        }
+      }
+    }
+    
+    // Mobile landscape and small tablet
+    @media (min-width: 30em) and (max-width: 47.9375em) {
+      &__stat {
+        min-width: var(--stat-width-sm);
+        padding: var(--space-md);
+      }
+    }
 
+    // Tablet adjustments
+    @media (min-width: 48em) and (max-width: 63.9375em) {
+      &__stat {
+        min-width: var(--stat-width-md);
+        padding: var(--space-lg);
+      }
+      
+      &__list {
+        gap: var(--space-2xl);
+      }
+    }
+
+    // Desktop adjustments  
+    @media (min-width: 64em) {
+      &__list {
+        gap: var(--space-3xl);
+      }
+      
       &__stat {
         min-width: var(--stat-width-md);
         padding: var(--space-lg);
       }
     }
 
-    @media (min-width: 64em) {
-      padding: var(--space-2xl);
-
-      /* Desktop - max 3 columns */
-      &__grid {
-        grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
-        gap: var(--space-xl);
-      }
-
-      &__list {
-        gap: var(--space-3xl);
-      }
-    }
-
+    // Large desktop
     @media (min-width: 80em) {
-      /* Keep max 3 columns even on very large screens */
-      &__grid {
-        grid-template-columns: repeat(auto-fit, minmax(min(24rem, 100%), 1fr));
-        gap: var(--space-2xl);
-      }
-
       &__summary-stats {
         gap: var(--space-lg);
       }
@@ -631,19 +775,7 @@ const t = useTranslations(langString);
    * Matching GameHome responsive patterns
    * ====================================== */
 
-  .achievements-hero {
-    &__title {
-      @media (min-width: 64em) {
-        font-size: var(--text-4xl);
-      }
-    }
-
-    &__description {
-      @media (min-width: 64em) {
-        font-size: var(--text-2xl);
-      }
-    }
-  }
+  // Hero responsive styles already handled above in main hero section
 
   /* ======================================
    * ENHANCED ACCESSIBILITY & PRINT STYLES - Maximum DRY optimization using semantic variables
@@ -735,7 +867,7 @@ const t = useTranslations(langString);
     &:hover {
       box-shadow: var(--card-shadow-hover);
       border-color: var(--border-focus);
-      transform: translateY(-2px);
+      transform: translateY(calc(var(--animation-y-offset-small) * 2));
     }
 
     &--unlocked {
@@ -782,25 +914,25 @@ const t = useTranslations(langString);
       &--bronze {
         background: rgba(205, 127, 50, 0.2);
         color: rgb(205, 127, 50);
-        border: 1px solid rgba(205, 127, 50, 0.3);
+        border: var(--border-width-thin) solid rgba(205, 127, 50, 0.3);
       }
 
       &--silver {
         background: rgba(192, 192, 192, 0.2);
         color: rgb(169, 169, 169);
-        border: 1px solid rgba(192, 192, 192, 0.3);
+        border: var(--border-width-thin) solid rgba(192, 192, 192, 0.3);
       }
 
       &--gold {
         background: rgba(255, 215, 0, 0.2);
         color: rgb(255, 193, 7);
-        border: 1px solid rgba(255, 215, 0, 0.3);
+        border: var(--border-width-thin) solid rgba(255, 215, 0, 0.3);
       }
 
       &--platinum {
         background: rgba(229, 228, 226, 0.2);
         color: rgb(229, 228, 226);
-        border: 1px solid rgba(229, 228, 226, 0.3);
+        border: var(--border-width-thin) solid rgba(229, 228, 226, 0.3);
       }
     }
 
@@ -844,7 +976,7 @@ const t = useTranslations(langString);
       font-weight: var(--font-medium);
       margin-top: var(--space-sm);
       padding-top: var(--space-sm);
-      border-top: 1px solid var(--border-primary);
+      border-top: var(--border-width-thin) solid var(--border-primary);
     }
   }
 
@@ -882,8 +1014,8 @@ const t = useTranslations(langString);
 
     .achievements-hero {
       background: none;
-      color: black;
-      border: 1px solid black;
+      color: var(--color-black);
+      border: var(--border-width-thin) solid var(--color-black);
 
       &__decoration {
         display: none;
@@ -891,20 +1023,20 @@ const t = useTranslations(langString);
 
       &__title,
       &__description {
-        color: black;
+        color: var(--color-black);
         text-shadow: none;
       }
     }
 
     .achievement-card {
-      background: white;
-      border: 1px solid black;
+      background: var(--color-white);
+      border: var(--border-width-thin) solid var(--color-black);
       box-shadow: none;
 
       &__title,
       &__description,
       &__progress-text {
-        color: black;
+        color: var(--color-black);
       }
     }
   }
@@ -1017,7 +1149,7 @@ const t = useTranslations(langString);
 
       &:hover {
         background: var(--btn-primary-hover);
-        transform: translateY(-1px);
+        transform: translateY(var(--animation-y-offset-small));
         box-shadow: var(--shadow-sm);
       }
 

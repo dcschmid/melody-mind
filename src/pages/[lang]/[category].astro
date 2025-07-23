@@ -242,10 +242,10 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         <div class="game-icon-badge">
           <Icon name="music" class="icon-large icon-white" />
         </div>
-        <Headline level="h2" id="quiz-heading">
+        <Headline level="h2" id="quiz-heading" textAlign="center">
           {t("category.difficulty.heading")}
         </Headline>
-        <Paragraph textSize="2xl" description={t("knowledge.play.description")} />
+        <Paragraph textSize="2xl" description={t("knowledge.play.description")} align="center" />
 
         <div class="button-group" role="group" aria-labelledby="quiz-heading">
           <ButtonLink
@@ -283,10 +283,10 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         <div class="game-icon-badge chronology-badge">
           <Icon name="clock-history" class="icon-large icon-white" />
         </div>
-        <Headline level="h2" id="chronology-heading">
+        <Headline level="h2" id="chronology-heading" textAlign="center">
           {t("game.chronology.title")}
         </Headline>
-        <Paragraph textSize="2xl" description={t("game.chronology.description")} />
+        <Paragraph textSize="2xl" description={t("game.chronology.description")} align="center" />
 
         <div class="button-group" role="group" aria-labelledby="chronology-heading">
           <ButtonLink
@@ -417,7 +417,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     margin: var(--space-none) auto;
     width: var(--width-full);
     max-width: var(--container-2xl);
-    padding: var(--space-lg);
     min-height: 100vh;
     background: var(--bg-primary);
     color: var(--text-primary);
@@ -425,17 +424,24 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     // Modern CSS containment for better performance
     contain: layout style;
 
-    // Responsive padding with fluid scaling
+    // Mobile Portrait - compact for space efficiency
+    padding: var(--space-md) var(--space-sm);
+
+    // Progressive enhancement with reasonable scaling
+    @media (min-width: 20em) {
+      padding: var(--space-lg) var(--space-md);
+    }
+    
     @media (min-width: 30em) {
-      padding: clamp(var(--space-lg), 4vw, var(--space-xl));
+      padding: var(--space-xl) var(--space-lg);
     }
 
     @media (min-width: 48em) {
-      padding: clamp(var(--space-xl), 5vw, var(--space-2xl));
+      padding: var(--space-2xl);
     }
 
     @media (min-width: 64em) {
-      padding: var(--space-2xl);
+      padding: var(--space-3xl);
     }
   }
 
@@ -628,15 +634,29 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     width: var(--width-full);
     flex-direction: column;
     align-items: center;
-    gap: var(--space-2xl);
-    margin-top: var(--space-2xl);
-    padding: var(--space-2xl);
     border-radius: var(--radius-xl);
     background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
     border: var(--border-width-thin) solid var(--border-primary);
     box-shadow: var(--shadow-lg);
     transition: all var(--transition-normal);
     overflow: hidden;
+    
+    // Mobile Portrait - enhanced breathing room
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+    padding: var(--space-xl);
+    
+    @media (min-width: 20em) {
+      gap: var(--space-xl);
+      margin-top: var(--space-xl);
+      padding: var(--space-xl);
+    }
+    
+    @media (min-width: 30em) {
+      gap: var(--space-2xl);
+      margin-top: var(--space-2xl);
+      padding: var(--space-2xl);
+    }
 
     &::before {
       content: "";
@@ -679,55 +699,91 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     }
   }
 
-  // Button Groups - Modern responsive layout with CSS Grid
+  // Button Groups - Clean, simple and responsive
   .button-group {
-    margin-top: clamp(var(--space-md), 3vw, var(--space-lg));
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-    padding: clamp(var(--space-md), 3vw, var(--space-lg));
-    border-radius: var(--radius-lg);
-    background: rgba(255, 255, 255, var(--color-mix-light));
-    backdrop-filter: blur(var(--space-sm));
-    border: var(--border-width-thin) solid rgba(255, 255, 255, var(--opacity-low));
-    contain: layout style;
-
-    // Modern CSS Grid with auto-fit for responsive behavior
-    @media (min-width: 30em) {
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: clamp(var(--space-sm), 2vw, var(--space-lg));
-      place-items: center;
-      width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-      padding: clamp(var(--space-lg), 4vw, var(--space-xl));
-    }
-
-    @media (min-width: 48em) {
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: clamp(var(--space-md), 3vw, var(--space-xl));
-    }
-
-    @media (min-width: 64em) {
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-2xl);
-      padding: var(--space-2xl);
-      max-width: 600px;
-    }
-  }
-
-  .game-button {
-    min-height: var(--touch-target-enhanced);
-    min-width: var(--touch-target-enhanced);
+    margin: var(--space-xl) auto 0 auto;
     display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    width: 100%;
+    max-width: 400px;
     align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-sm) var(--space-md);
-    transition: var(--transition-normal);
 
-    /* Tablet and above: --breakpoint-md (768px) */
-    @media (min-width: 48em) {
-      padding: var(--space-md) var(--space-lg);
+    // Desktop - horizontal layout
+    @media (min-width: 64em) {
+      flex-direction: row;
+      justify-content: center;
+      max-width: 700px;
+      gap: var(--space-lg);
+    }
+
+    // Button styling
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: var(--touch-target-enhanced);
+      width: 100%;
+      text-align: center;
+      transition: all var(--transition-normal);
+      border-radius: var(--radius-lg);
+      background: var(--btn-primary-bg);
+      border: none;
+      color: var(--color-white);
+      text-decoration: none;
+      
+      // Mobile and tablet - horizontal layout
+      @media (max-width: 63.9375em) {
+        flex-direction: row;
+        padding: var(--space-lg) var(--space-xl);
+        max-width: 360px;
+      }
+      
+      // Desktop - square layout
+      @media (min-width: 64em) {
+        flex-direction: column;
+        padding: var(--space-xl);
+        min-width: 160px;
+        aspect-ratio: 1.1;
+        max-width: 180px;
+      }
+
+      // Icon styling
+      svg {
+        width: 24px;
+        height: 24px;
+        color: var(--color-white);
+        flex-shrink: 0;
+        
+        @media (min-width: 64em) {
+          width: 32px;
+          height: 32px;
+        }
+      }
+      
+      // Text styling
+      span {
+        font-weight: var(--font-bold);
+        font-size: var(--text-base);
+        color: var(--color-white);
+        white-space: nowrap;
+        
+        @media (min-width: 64em) {
+          font-size: var(--text-sm);
+        }
+      }
+
+      // Hover effects
+      &:hover {
+        transform: translateY(-2px);
+        background: var(--btn-primary-hover);
+        box-shadow: 0 8px 20px rgba(138, 43, 226, 0.4);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
     }
   }
 
@@ -944,6 +1000,82 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   }
 
   /* ==============================================
+   * VISUAL ENHANCEMENTS & ANIMATIONS
+   * ============================================== */
+   
+  // Enhanced animation system
+  .button-group {
+    // Staggered animation for buttons
+    a {
+      animation: slideInScale 0.6s ease-out;
+      animation-fill-mode: both;
+      
+      &:nth-child(1) { animation-delay: 0.1s; }
+      &:nth-child(2) { animation-delay: 0.2s; }
+      &:nth-child(3) { animation-delay: 0.3s; }
+    }
+  }
+  
+  @keyframes slideInScale {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  // Container entrance animation
+  .button-group {
+    animation: containerSlideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    animation-delay: 0.1s;
+    animation-fill-mode: both;
+  }
+  
+  @keyframes containerSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+  
+  // Premium micro-interactions
+  .button-group a {
+    // Magnetic effect on hover
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        // Subtle rotation for dynamism
+        transform: translateY(-4px) scale(1.03) rotate(0.5deg);
+      }
+    }
+    
+    // Loading state shimmer effect
+    &.loading {
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+      );
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* ==============================================
    * RESPONSIVE & ACCESSIBILITY FEATURES
    * ============================================== */
 
@@ -951,8 +1083,10 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   @media (prefers-reduced-motion: reduce) {
     .section-container,
     .game-icon-badge,
-    .game-button {
+    .game-button,
+    .button-group {
       transition: var(--transition-instant);
+      animation: none;
     }
 
     .section-container:hover,
@@ -962,6 +1096,12 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
 
     .section-container:hover {
       .game-icon-badge {
+        transform: none;
+      }
+    }
+    
+    .button-group a {
+      &:hover, &:active {
         transform: none;
       }
     }
@@ -984,8 +1124,345 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     .icon-white {
       color: ButtonText;
     }
+    
+    .button-group {
+      background: Canvas;
+      border: var(--border-width-thick) solid CanvasText;
+      
+      a {
+        border: var(--border-width-thin) solid CanvasText;
+        background: ButtonFace;
+        color: ButtonText;
+        
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+  
+  /* ==============================================
+   * ENHANCED BUTTON STYLING
+   * ============================================== */
+   
+  // Enhanced text styling for premium feel
+  @media (min-width: 48em) {
+    .button-group a {
+      span {
+        // High contrast white text with subtle glow
+        color: var(--color-white);
+        text-shadow: 
+          0 1px 2px rgba(0, 0, 0, 0.4),
+          0 0 8px rgba(255, 255, 255, 0.2);
+        font-weight: var(--font-bold);
+        letter-spacing: 0.02em;
+        
+        // Subtle gradient overlay on hover
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0.05) 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        
+        // Fallback for unsupported browsers
+        @supports not (background-clip: text) {
+          background: none;
+          color: var(--color-white);
+        }
+      }
+      
+      // Enhanced hover text effect
+      &:hover span {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.9) 0%,
+          rgba(255, 255, 255, 0.7) 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        text-shadow: 
+          0 2px 4px rgba(0, 0, 0, 0.5),
+          0 0 12px rgba(255, 255, 255, 0.4);
+      }
+    }
+  }
+  
+  // Premium shadow and lighting system
+  .button-group a {
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.1),
+      0 2px 4px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+      
+    &:hover {
+      box-shadow: 
+        0 12px 40px rgba(138, 43, 226, 0.25),
+        0 8px 16px rgba(0, 0, 0, 0.15),
+        0 4px 8px rgba(0, 0, 0, 0.1),
+        inset 0 2px 0 rgba(255, 255, 255, 0.25),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.15),
+        0 0 32px rgba(255, 255, 255, 0.1);
+    }
+    
+    &:active {
+      box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.2),
+        inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
   }
 
+  /* ==============================================
+   * MOBILE PORTRAIT OPTIMIZATIONS
+   * ============================================== */
+   
+  // Small mobile screens - Portrait Mobile (below 480px) - Compact and efficient
+  @media (max-width: 29.9375em) {
+    .page-container {
+      padding: var(--space-sm) var(--space-xs);
+    }
+    
+    .section-header {
+      margin-bottom: var(--space-lg);
+      padding: var(--space-sm);
+    }
+    
+    .header-with-image {
+      margin: var(--space-none) auto var(--space-lg) auto;
+      padding: var(--space-sm) var(--space-xs);
+    }
+    
+    .header-content {
+      gap: var(--space-lg);
+    }
+    
+    .header-text {
+      gap: var(--space-sm);
+    }
+    
+    .header-image {
+      max-width: min(var(--container-xs), 90vw);
+    }
+    
+    .section-container {
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+      padding: var(--space-xl) var(--space-md);
+      border-radius: var(--radius-lg);
+    }
+    
+    .game-icon-badge {
+      width: var(--space-2xl);
+      height: var(--space-2xl);
+      margin-bottom: var(--space-sm);
+    }
+    
+    .alert-box {
+      margin-bottom: var(--space-md);
+      padding: var(--space-sm);
+      font-size: var(--text-sm);
+      border-radius: var(--radius-md);
+    }
+    
+    // Compact typography for mobile portrait - space efficient
+    .headline-primary,
+    h1 {
+      font-size: clamp(var(--text-lg), 5vw, var(--text-xl));
+      line-height: var(--leading-snug);
+      margin-bottom: var(--space-md);
+      letter-spacing: var(--letter-spacing-base);
+      text-align: center;
+    }
+    
+    .paragraph-standard,
+    .paragraph-description,
+    p {
+      font-size: var(--text-sm);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-md);
+      letter-spacing: var(--letter-spacing-base);
+      text-align: center;
+    }
+    
+    .section-heading,
+    h2 {
+      font-size: var(--text-base);
+      margin-bottom: var(--space-md);
+      line-height: var(--leading-snug);
+      letter-spacing: var(--letter-spacing-base);
+      text-align: center;
+    }
+  }
+  
+  /* ==============================================
+   * BUTTON RESPONSIVENESS ENHANCEMENTS
+   * ============================================== */
+   
+  // Extra responsive button behavior
+  @media (max-width: 359px) {
+    .button-group {
+      padding: var(--space-md) var(--space-sm);
+      gap: var(--space-sm);
+      
+      a {
+        min-height: calc(var(--touch-target-enhanced) + var(--space-md));
+        padding: var(--space-md);
+        
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+        
+        span {
+          font-size: var(--text-xs);
+        }
+      }
+    }
+  }
+  
+  // Landscape mobile optimization
+  @media (max-width: 47.9375em) and (orientation: landscape) {
+    .button-group {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: nowrap;
+      gap: var(--space-md);
+      max-width: 100%;
+      
+      a {
+        flex: 1;
+        max-width: 160px;
+        min-height: var(--touch-target-enhanced);
+        flex-direction: row;
+        gap: var(--space-sm);
+        
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+  
+  // Container queries for button groups
+  @container (max-width: 400px) {
+    .button-group {
+      padding: var(--space-md);
+      gap: var(--space-md);
+    }
+  }
+  
+  @container (min-width: 500px) {
+    .button-group {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+  }
+  
+  // Medium screens - Tablet Portrait (480px+) - Gradual expansion
+  @media (min-width: 30em) {
+    .page-container {
+      padding: var(--space-lg) var(--space-md);
+    }
+    
+    .header-with-image {
+      margin: var(--space-none) auto var(--space-xl) auto;
+      padding: var(--space-md);
+    }
+    
+    .header-content {
+      gap: var(--space-xl);
+    }
+    
+    .header-text {
+      gap: var(--space-md);
+    }
+    
+    .section-container {
+      gap: var(--space-xl);
+      margin-top: var(--space-xl);
+      padding: var(--space-2xl);
+    }
+    
+    // Moderate typography sizing
+    h1 {
+      font-size: clamp(var(--text-xl), 4vw, var(--text-2xl));
+      line-height: var(--leading-tight);
+      margin-bottom: var(--space-lg);
+      text-align: center;
+    }
+    
+    h2 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-lg);
+      line-height: var(--leading-snug);
+      text-align: center;
+    }
+    
+    p {
+      font-size: var(--text-base);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-lg);
+      text-align: center;
+    }
+  }
+  
+  // Tablet Landscape (768px - 1024px) - Smaller fonts to fix oversized text
+  @media (min-width: 48em) and (max-width: 63.9375em) {
+    h1 {
+      font-size: clamp(var(--text-lg), 3vw, var(--text-xl)) !important;
+    }
+    
+    h2 {
+      font-size: var(--text-base) !important;
+    }
+    
+    p {
+      font-size: var(--text-sm) !important;
+    }
+    
+    .paragraph {
+      &--size {
+        &-lg {
+          font-size: var(--text-base) !important;
+        }
+        
+        &-xl {
+          font-size: var(--text-lg) !important;
+        }
+        
+        &-2xl {
+          font-size: var(--text-xl) !important;
+        }
+      }
+    }
+    
+    // Button adjustments for tablet landscape - refined proportions
+    .button-group {
+      max-width: 520px;
+      gap: var(--space-lg);
+      padding: var(--space-xl) var(--space-2xl);
+      
+      a {
+        padding: var(--space-lg) var(--space-xl);
+        border-radius: var(--radius-xl);
+        
+        svg {
+          width: 26px;
+          height: 26px;
+        }
+        
+        span {
+          font-size: var(--text-sm);
+          font-weight: var(--font-semibold);
+        }
+      }
+    }
+  }
+  
   /* ==============================================
    * CONTENT BUTTONS (Music Platforms & Knowledge)
    * ============================================== */
@@ -995,13 +1472,43 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
    * Just adds spacing between button groups
    */
   .content-buttons-section {
-    margin-top: var(--space-lg);
+    // Mobile Portrait - compact spacing
+    margin-top: var(--space-md);
+    
+    @media (min-width: 20em) {
+      margin-top: var(--space-lg);
+    }
   }
 
   /* Responsive adjustments for content buttons */
   @media (min-width: 48em) {
     .content-buttons-section {
       margin-top: var(--space-xl);
+    }
+  }
+  
+  /* ==============================================
+   * PERFORMANCE OPTIMIZATIONS
+   * ============================================== */
+   
+  // GPU acceleration for smooth animations
+  .button-group,
+  .button-group a,
+  .section-container {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  // Optimize repaints
+  .button-group a {
+    contain: layout style paint;
+  }
+  
+  // Preload important animations
+  @media (prefers-reduced-motion: no-preference) {
+    .button-group a {
+      transition-property: transform, box-shadow, background-color;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 </style>

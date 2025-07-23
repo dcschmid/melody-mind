@@ -498,8 +498,8 @@ const dnsPrefetch = [
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
 
-        // Responsive layout adjustments using em-based breakpoints
-        @media (min-width: var(--breakpoint-md)) {
+        // Responsive layout adjustments using hardcoded em-based breakpoints
+        @media (min-width: 48em) {
           padding: var(--layout-padding-large);
         }
       }
@@ -526,7 +526,7 @@ const dnsPrefetch = [
         margin: var(--space-xs);
 
         // Responsive positioning for larger screens
-        @media (min-width: var(--breakpoint-sm)) {
+        @media (min-width: 40em) {
           top: var(--layout-padding-large);
           right: var(--layout-padding-large);
         }
@@ -612,7 +612,33 @@ const dnsPrefetch = [
       }
 
       // Responsive design enhancements
-      @media (max-width: var(--breakpoint-sm)) {
+      
+      // Extra small screens - Portrait Mobile (below 320px)
+      @media (max-width: 19.9375em) {
+        .layout__body {
+          padding: var(--space-xs);
+          font-size: var(--text-base);
+          line-height: var(--leading-relaxed);
+        }
+
+        .layout__main {
+          padding: {
+            left: var(--space-xs);
+            right: var(--space-xs);
+            top: var(--space-sm);
+            bottom: var(--space-sm);
+          }
+        }
+        
+        .layout__coins {
+          top: var(--space-xs);
+          right: var(--space-xs);
+          margin: var(--space-xs);
+        }
+      }
+      
+      // Small screens - Mobile Portrait (320px - 640px)
+      @media (max-width: 39.9375em) and (min-width: 20em) {
         .layout__body {
           padding: var(--space-sm);
         }
@@ -625,7 +651,7 @@ const dnsPrefetch = [
         }
       }
 
-      @media (min-width: var(--breakpoint-lg)) {
+      @media (min-width: 64em) {
         .layout__body {
           padding: var(--space-2xl);
         }
@@ -636,6 +662,34 @@ const dnsPrefetch = [
         .layout {
           container-type: inline-size;
           container-name: layout;
+        }
+      }
+      
+      // Enhanced text spacing support for WCAG AAA
+      .enhanced-text-spacing {
+        .layout__body,
+        .layout__main {
+          letter-spacing: var(--letter-spacing-enhanced);
+          word-spacing: var(--word-spacing-enhanced);
+          line-height: var(--leading-enhanced);
+        }
+      }
+      
+      // Touch device optimizations
+      @media (pointer: coarse) {
+        .layout__body {
+          // Larger touch targets for mobile
+          font-size: var(--text-xl);
+        }
+        
+        .layout__main {
+          // Enhanced padding for touch devices
+          padding: {
+            left: var(--space-md);
+            right: var(--space-md);
+            top: var(--space-lg);
+            bottom: var(--space-lg);
+          }
         }
       }
     </style>
