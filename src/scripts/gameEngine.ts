@@ -166,9 +166,25 @@ const initializeGame = async (elements: GameElements) => {
    * These attributes control game configuration and player identification
    */
   const category = elements.container.getAttribute("data-genre");
-  const userId = elements.container.getAttribute("data-userID");
+  let userId = elements.container.getAttribute("data-userID");
   const categoryName = elements.container.getAttribute("data-categoryName");
   const difficulty = elements.container.getAttribute("data-difficulty");
+
+  // Override userId with OAuth data if available in localStorage
+  try {
+    const userDataString = localStorage.getItem("user");
+    if (userDataString) {
+      const userData = JSON.parse(userDataString);
+      if (userData.id && userData.id !== "guest") {
+        userId = userData.id;
+        console.log('🔵 Game Engine: Overriding userId with OAuth data:', userId);
+      }
+    }
+  } catch (error) {
+    console.warn('Game Engine: Error reading OAuth user data:', error);
+  }
+
+  console.log('🔵 Game Engine: Final User ID:', userId);
 
   /**
    * Check for seasonal events based on current date

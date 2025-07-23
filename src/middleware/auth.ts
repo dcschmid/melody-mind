@@ -42,18 +42,45 @@ export async function checkAuth(request: Request): Promise<{
     };
   }
 
-  // Extract access token from cookies (check both names for compatibility)
-  const accessToken = extractCookieValue(cookieHeader, "access_token") || extractCookieValue(cookieHeader, "auth_token");
+  // Extract access token from cookies (check all possible names from OAuth callback)
+  const accessToken = extractCookieValue(cookieHeader, "access_token") || 
+                     extractCookieValue(cookieHeader, "auth_token") ||
+                     extractCookieValue(cookieHeader, "authToken");
 
   console.log('Auth Debug - Token extraction:', {
     accessToken: accessToken ? 'Found' : 'Not found',
     accessTokenExists: !!extractCookieValue(cookieHeader, "access_token"),
     authTokenExists: !!extractCookieValue(cookieHeader, "auth_token"),
-    allCookies: cookieHeader.split(';').map(c => c.trim().split('=')[0])
+    authTokenCamelExists: !!extractCookieValue(cookieHeader, "authToken"),
+    allCookies: cookieHeader.split(';').map(c => c.trim().split('=')[0]),
+    fullCookieHeader: cookieHeader
   });
 
   if (!accessToken) {
-    console.log('Auth Debug - No access token found');
+    console.log('Auth Debug - No access token found, trying user_data cookie fallback');
+    
+    // Fallback: Try to get user data from non-HttpOnly cookie (set by OAuth callback)
+    const userDataCookie = extractCookieValue(cookieHeader, "user_data");
+    if (userDataCookie) {
+      try {
+        const userData = JSON.parse(decodeURIComponent(userDataCookie));
+        console.log('Auth Debug - User data cookie found:', { userId: userData.id, email: userData.email });
+        
+        if (userData.id && userData.email) {
+          // User data available from cookie, consider authenticated
+          return {
+            authenticated: true,
+            user: {
+              id: userData.id,
+              email: userData.email,
+            },
+          };
+        }
+      } catch (error) {
+        console.log('Auth Debug - Error parsing user_data cookie:', error);
+      }
+    }
+    
     // No access token present, return unauthenticated without redirect
     return {
       authenticated: false,

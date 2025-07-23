@@ -71,7 +71,7 @@ export class OAuthService {
       codeVerifier,
       linkingUserId,
       createdAt: new Date().toISOString(),
-      expiresAt: new Date(Date.now() + 10 * 60 * 1000).toISOString() // 10 minutes
+      expiresAt: new Date(Date.now() + 30 * 60 * 1000).toISOString() // 30 minutes für Debug
     });
 
     // Build authorization URL
@@ -127,8 +127,9 @@ export class OAuthService {
     // Handle user account (login, register, or link)
     const result = await this.handleUserAccount(provider, userInfo, tokenResponse, session);
     
-    // Clean up OAuth session
-    await this.deleteOAuthSession(session.id);
+    // Clean up OAuth session (disabled for debugging)
+    console.log('🔍 DEBUG: Keeping OAuth session for inspection:', session.id);
+    // await this.deleteOAuthSession(session.id);
     
     return result;
   }
@@ -215,26 +216,59 @@ export class OAuthService {
    */
 
   private async createOAuthSession(session: OAuthSession): Promise<void> {
-    await turso.execute({
-      sql: `
-        INSERT INTO oauth_sessions (id, state, provider, redirect_uri, code_verifier, linking_user_id, created_at, expires_at)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-      `,
-      args: [
-        session.id,
-        session.state,
-        session.provider,
-        session.redirectUri || null,
-        session.codeVerifier || null,
-        session.linkingUserId || null,
-        session.createdAt,
-        session.expiresAt
-      ]
+    console.log('🔵 Creating OAuth session:', {
+      id: session.id,
+      state: session.state.substring(0, 20) + '...',
+      provider: session.provider,
+      redirectUri: session.redirectUri,
+      linkingUserId: session.linkingUserId,
+      expiresAt: session.expiresAt
     });
+    
+    try {
+      await turso.execute({
+        sql: `
+          INSERT INTO oauth_sessions (id, state, provider, redirect_uri, code_verifier, linking_user_id, created_at, expires_at)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        `,
+        args: [
+          session.id,
+          session.state,
+          session.provider,
+          session.redirectUri || null,
+          session.codeVerifier || null,
+          session.linkingUserId || null,
+          session.createdAt,
+          session.expiresAt
+        ]
+      });
+      
+      console.log('✅ OAuth session created successfully:', session.id);
+      
+      // Verify session was created
+      const verification = await turso.execute({
+        sql: 'SELECT COUNT(*) as count FROM oauth_sessions WHERE id = ?',
+        args: [session.id]
+      });
+      console.log('🔍 Session verification count:', verification.rows[0]);
+      
+    } catch (error) {
+      console.error('❌ Failed to create OAuth session:', error);
+      throw error;
+    }
   }
 
   private async getOAuthSession(state: string): Promise<OAuthSession | null> {
-    console.log('Getting OAuth session for state:', state);
+    console.log('🔍 Getting OAuth session for state:', state.substring(0, 20) + '...');
+    
+    // First, check all sessions regardless of expiry
+    const allSessionsResult = await turso.execute({
+      sql: `SELECT COUNT(*) as total, 
+                   COUNT(CASE WHEN expires_at > datetime('now') THEN 1 END) as active
+            FROM oauth_sessions`,
+      args: []
+    });
+    console.log('📊 Total OAuth sessions in DB:', allSessionsResult.rows[0]);
     
     const result = await turso.execute({
       sql: `
@@ -245,10 +279,30 @@ export class OAuthService {
       args: [state]
     });
 
-    console.log('OAuth session query result:', result.rows);
+    console.log('🔍 OAuth session query result:', {
+      rowCount: result.rows.length,
+      found: result.rows.length > 0
+    });
 
     if (!result.rows || result.rows.length === 0) {
-      console.log('No OAuth session found for state:', state);
+      console.log('❌ No OAuth session found for state. Checking expired sessions...');
+      
+      // Check if session existed but is expired
+      const expiredResult = await turso.execute({
+        sql: `SELECT id, expires_at FROM oauth_sessions WHERE state = ?`,
+        args: [state]
+      });
+      
+      if (expiredResult.rows.length > 0) {
+        console.log('⏰ Found expired session:', {
+          id: expiredResult.rows[0].id,
+          expiresAt: expiredResult.rows[0].expires_at,
+          now: new Date().toISOString()
+        });
+      } else {
+        console.log('🚫 No session found at all for this state');
+      }
+      
       return null;
     }
 
@@ -266,10 +320,23 @@ export class OAuthService {
   }
 
   private async deleteOAuthSession(id: string): Promise<void> {
-    await turso.execute({
-      sql: 'DELETE FROM oauth_sessions WHERE id = ?',
-      args: [id]
-    });
+    console.log('🗑️ Deleting OAuth session:', id);
+    
+    try {
+      const result = await turso.execute({
+        sql: 'DELETE FROM oauth_sessions WHERE id = ?',
+        args: [id]
+      });
+      
+      console.log('✅ OAuth session deleted successfully:', {
+        id,
+        rowsAffected: result.rowsAffected
+      });
+      
+    } catch (error) {
+      console.error('❌ Failed to delete OAuth session:', error);
+      throw error;
+    }
   }
 
   private async exchangeCodeForTokens(

@@ -477,14 +477,14 @@ const enhancedAriaLabel = context
 
   // Enhanced text spacing support for WCAG AAA
   .enhanced-text-spacing .loading-spinner {
+    gap: calc(var(--space-lg) * 1.2);
+    padding: calc(var(--space-lg) * 1.2);
+    
     &__label {
       letter-spacing: var(--letter-spacing-enhanced);
       word-spacing: var(--word-spacing-enhanced);
       line-height: var(--leading-enhanced);
     }
-
-    gap: calc(var(--space-lg) * 1.2);
-    padding: calc(var(--space-lg) * 1.2);
   }
 
   // Print styles

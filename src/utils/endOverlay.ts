@@ -595,6 +595,35 @@ const savePendingGameResults = async (): Promise<void> => {
     const gameData = JSON.parse(pendingResult);
     console.log("Saving pending game results:", gameData);
 
+    // Add user ID from localStorage if available
+    const userDataString = localStorage.getItem("user");
+    let userId = "guest";
+    
+    if (userDataString) {
+      try {
+        const userData = JSON.parse(userDataString);
+        if (userData.id && userData.id !== "guest") {
+          userId = userData.id;
+        }
+      } catch (error) {
+        console.warn("Error parsing user data:", error);
+      }
+    }
+
+    // Add userId to gameData
+    gameData.userId = userId;
+    
+    // Fix legacy data: if we have 'category' but no 'categoryName', clear the pending result
+    // This forces the user to play a new game to get proper data structure
+    if (gameData.category && !gameData.categoryName) {
+      console.log("Found legacy pending result with old data structure - clearing it");
+      localStorage.removeItem("pending_game_result");
+      console.log("Legacy pending result cleared. Please play a new game to save scores.");
+      return;
+    }
+    
+    console.log("Updated game data with userId:", { ...gameData, userId });
+
     // Get current language
     const currentLang = document.documentElement.lang || "en";
 
@@ -615,7 +644,10 @@ const savePendingGameResults = async (): Promise<void> => {
       // Announce success to screen reader
       announceToScreenReader("Game results saved successfully after login");
     } else {
-      console.error("Failed to save pending game results:", await response.text());
+      const errorText = await response.text();
+      console.error("Failed to save pending game results:", errorText);
+      console.error("Response status:", response.status, response.statusText);
+      console.error("Sent data:", gameData);
     }
   } catch (error) {
     console.error("Error saving pending game results:", error);
@@ -645,7 +677,7 @@ export const showEndOverlay = async (config: EndOverlayConfig): Promise<void> =>
   if (!isAuthenticated()) {
     const gameData = {
       score,
-      category: overlay?.getAttribute("data-category") || "",
+      categoryName: overlay?.getAttribute("data-categoryName") || overlay?.getAttribute("data-category") || "",
       difficulty: overlay?.getAttribute("data-difficulty") || "",
       gameMode: overlay?.getAttribute("data-mode") || "normal",
       timestamp: new Date().toISOString(),

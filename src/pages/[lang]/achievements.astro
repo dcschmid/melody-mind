@@ -463,6 +463,13 @@ const t = useTranslations(langString);
       background-color: var(--card-bg);
       box-shadow: var(--card-shadow);
       
+      /* Enhanced accessibility and UX using existing touch target variable */
+      min-height: var(--min-touch-size);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
       // Mobile portrait - compact padding
       @media (max-width: 29.9375em) {
         padding: var(--space-sm);
@@ -473,13 +480,6 @@ const t = useTranslations(langString);
       @media (min-width: 48em) {
         padding: var(--space-lg);
       }
-
-      /* Enhanced accessibility and UX using existing touch target variable */
-      min-height: var(--min-touch-size);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
 
       /* Performance optimizations with CSS containment */
       contain: layout style;

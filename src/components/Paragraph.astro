@@ -132,10 +132,6 @@ const paragraphClasses: string = [
     // Mobile Portrait - generous spacing for readability
     margin: 0 0 var(--space-2xl) 0;
 
-    @media (min-width: 20em) {
-      margin: 0 0 var(--space-3xl) 0;
-    }
-
     // Enhanced text rendering for better readability
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -148,6 +144,10 @@ const paragraphClasses: string = [
     max-width: 100%;
     overflow-wrap: break-word;
     word-wrap: break-word;
+
+    @media (min-width: 20em) {
+      margin: 0 0 var(--space-3xl) 0;
+    }
     hyphens: auto;
     text-wrap: balance;
 

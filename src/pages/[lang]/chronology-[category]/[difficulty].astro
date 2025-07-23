@@ -335,13 +335,13 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     contain: layout style;
 
     // Mobile portrait (< 480px) - very compact
-    @include respond-to-mobile {
+    @media (max-width: 39.9375em) {
       padding: var(--space-sm) var(--space-xs);
       min-height: 100dvh; // Use dynamic viewport height on mobile
     }
 
     // Mobile landscape (480px - 640px) - balanced layout
-    @include respond-to-mobile-landscape {
+    @media (max-width: 47.9375em) and (orientation: landscape) {
       padding: var(--space-md) var(--space-sm);
     }
 
@@ -357,7 +357,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Desktop (1024px+) - premium experience
-    @include respond-to-desktop {
+    @media (min-width: 48em) {
       padding: var(--space-2xl);
       max-width: var(--container-xl);
     }
@@ -368,19 +368,21 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     margin-bottom: var(--space-lg);
     text-align: center;
 
-    @include responsive($breakpoint-mobile) {
+    @media (max-width: 39.9375em) {
       margin-bottom: var(--space-md);
     }
   }
 
   .game-info {
-    @include flex-center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: var(--space-md);
     margin-top: var(--space-md);
     flex-wrap: wrap;
 
     // Mobile portrait - stacked layout
-    @include respond-to-mobile {
+    @media (max-width: 39.9375em) {
       flex-direction: column;
       align-items: center;
       gap: var(--space-xs);
@@ -388,20 +390,22 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Small tablet and up to large mobile
-    @include respond-to-tablet {
+    @media (min-width: 40em) and (max-width: 47.9375em) {
       flex-direction: row;
       justify-content: center;
       gap: var(--space-sm);
     }
 
     // Desktop - optimal spacing
-    @include respond-to-desktop {
+    @media (min-width: 48em) {
       gap: var(--space-lg);
     }
   }
 
   .badge {
-    @include flex-center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: var(--space-sm);
     background: var(--bg-secondary);
     padding: var(--space-sm) var(--space-md);
@@ -432,7 +436,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Mobile portrait - compact badges
-    @include respond-to-mobile {
+    @media (max-width: 39.9375em) {
       padding: var(--space-xs) var(--space-sm);
       min-width: calc(var(--stat-width-sm) * 0.75);
       gap: var(--space-xs);
@@ -448,7 +452,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Desktop - enhanced badges
-    @include respond-to-desktop {
+    @media (min-width: 48em) {
       min-width: var(--stat-width-md);
       padding: var(--space-md) var(--space-lg);
     }
@@ -462,13 +466,13 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     contain: layout;
 
     // Mobile portrait - full width
-    @include respond-to-mobile {
+    @media (max-width: 39.9375em) {
       max-width: var(--width-full);
       margin: 0;
     }
 
     // Desktop - optimal reading width
-    @include respond-to-desktop {
+    @media (min-width: 48em) {
       max-width: var(--container-lg);
     }
   }
@@ -485,14 +489,14 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     line-height: var(--leading-tight);
 
     // Mobile portrait - very compact
-    @include respond-to-mobile {
+    @media (max-width: 39.9375em) {
       font-size: var(--text-lg);
       line-height: var(--leading-normal);
       margin-bottom: var(--space-xs);
     }
 
     // Mobile landscape - balanced
-    @include respond-to-mobile-landscape {
+    @media (max-width: 47.9375em) and (orientation: landscape) {
       font-size: var(--text-xl);
       margin-bottom: var(--space-sm);
     }
@@ -503,7 +507,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Desktop - optimal typography
-    @include respond-to-desktop {
+    @media (min-width: 48em) {
       font-size: var(--text-3xl);
       margin-bottom: var(--space-md);
       line-height: var(--leading-tight);
@@ -521,7 +525,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     font-size: var(--text-base);
 
     // Mobile portrait - compact description
-    @include respond-to-mobile {
+    @media (max-width: 39.9375em) {
       margin-bottom: var(--space-md);
       font-size: var(--text-xs);
       line-height: var(--leading-relaxed);
@@ -530,20 +534,20 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Mobile landscape - improved readability
-    @include respond-to-mobile-landscape {
+    @media (max-width: 47.9375em) and (orientation: landscape) {
       font-size: var(--text-sm);
       margin-bottom: var(--space-lg);
     }
 
     // Tablet - optimal reading
-    @include respond-to-tablet {
+    @media (min-width: 40em) and (max-width: 47.9375em) {
       font-size: var(--text-sm);
       margin-bottom: var(--space-lg);
       max-width: var(--motivation-text-max-width);
     }
 
     // Desktop - enhanced typography
-    @include respond-to-desktop {
+    @media (min-width: 48em) {
       font-size: var(--text-lg);
       margin-bottom: var(--space-2xl);
     }
@@ -562,7 +566,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     contain: layout style;
 
     // Mobile portrait - very compact container
-    @include respond-to-mobile {
+    @media (max-width: 39.9375em) {
       padding: var(--space-sm);
       min-height: calc(var(--container-intrinsic-height-card) * 0.75);
       margin-bottom: var(--space-md);
@@ -570,19 +574,19 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Mobile landscape - balanced spacing
-    @include respond-to-mobile-landscape {
+    @media (max-width: 47.9375em) and (orientation: landscape) {
       padding: var(--space-md);
       min-height: calc(var(--container-intrinsic-height-card) * 0.875);
     }
 
     // Tablet - optimal container size
-    @include respond-to-tablet {
+    @media (min-width: 40em) and (max-width: 47.9375em) {
       padding: var(--space-lg);
       min-height: calc(var(--container-intrinsic-height-card) * 0.9);
     }
 
     // Desktop - premium container experience
-    @include respond-to-desktop {
+    @media (min-width: 48em) {
       padding: var(--space-xl);
       margin-bottom: var(--space-2xl);
       border-radius: var(--radius-2xl);
@@ -591,7 +595,10 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
   }
 
   .loading-placeholder {
-    @include flex-center(column);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     height: var(--container-intrinsic-height-component);
     color: var(--text-secondary);
     text-align: center;
@@ -603,7 +610,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Mobile portrait - compact loading
-    @include respond-to-mobile {
+    @media (max-width: 39.9375em) {
       height: calc(var(--container-intrinsic-height-component) * 0.5);
 
       p {
@@ -613,7 +620,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Desktop - enhanced loading experience
-    @include respond-to-desktop {
+    @media (min-width: 48em) {
       height: calc(var(--container-intrinsic-height-component) * 0.75);
 
       p {
@@ -631,14 +638,14 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     color: var(--interactive-primary);
 
     // Mobile portrait - smaller icon
-    @include respond-to-mobile {
+    @media (max-width: 39.9375em) {
       width: var(--icon-size-md);
       height: var(--icon-size-md);
       margin-bottom: var(--space-sm);
     }
 
     // Desktop - larger icon
-    @include respond-to-desktop {
+    @media (min-width: 48em) {
       width: var(--icon-size-xl);
       height: var(--icon-size-xl);
     }
@@ -685,7 +692,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Mobile portrait - compact items
-    @include respond-to-mobile {
+    @media (max-width: 39.9375em) {
       padding: var(--space-sm);
       gap: var(--space-sm);
       margin-bottom: var(--space-sm);
@@ -694,14 +701,16 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Desktop - enhanced items
-    @include respond-to-desktop {
+    @media (min-width: 48em) {
       padding: var(--space-lg);
       gap: var(--space-lg);
       border-radius: var(--radius-xl);
     }
 
     &__position {
-      @include flex-center;
+      display: flex;
+    align-items: center;
+    justify-content: center;
       width: var(--min-touch-size);
       height: var(--min-touch-size);
       background: var(--interactive-primary);
@@ -714,14 +723,14 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       border: var(--border-width-thin) solid transparent;
 
       // Mobile portrait - compact position indicator
-      @include respond-to-mobile {
+      @media (max-width: 39.9375em) {
         width: calc(var(--min-touch-size) * 0.75);
         height: calc(var(--min-touch-size) * 0.75);
         font-size: var(--text-base);
       }
 
       // Desktop - enhanced position indicator
-      @include respond-to-desktop {
+      @media (min-width: 48em) {
         width: calc(var(--min-touch-size) * 1.125);
         height: calc(var(--min-touch-size) * 1.125);
         font-size: var(--text-xl);
@@ -741,18 +750,18 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       line-height: var(--leading-tight);
 
       // Mobile portrait - compact title
-      @include respond-to-mobile {
+      @media (max-width: 39.9375em) {
         font-size: var(--text-sm);
         margin-bottom: var(--space-micro);
       }
 
       // Tablet - balanced title
-      @include respond-to-tablet {
+      @media (min-width: 40em) and (max-width: 47.9375em) {
         font-size: var(--text-base);
       }
 
       // Desktop - enhanced title
-      @include respond-to-desktop {
+      @media (min-width: 48em) {
         font-size: var(--text-xl);
         margin-bottom: var(--space-xs);
       }
@@ -765,24 +774,24 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       font-weight: var(--font-normal);
 
       // Mobile portrait - compact artist name
-      @include respond-to-mobile {
+      @media (max-width: 39.9375em) {
         font-size: var(--text-xs);
         line-height: var(--leading-tight);
       }
 
       // Tablet - balanced artist name
-      @include respond-to-tablet {
+      @media (min-width: 40em) and (max-width: 47.9375em) {
         font-size: var(--text-sm);
       }
 
       // Desktop - enhanced artist name
-      @include respond-to-desktop {
+      @media (min-width: 48em) {
         font-size: var(--text-lg);
       }
     }
 
     // Responsive layout adjustments
-    @include respond-to-tablet {
+    @media (min-width: 40em) and (max-width: 47.9375em) {
       flex-direction: column;
       text-align: center;
       gap: var(--space-sm);
@@ -798,7 +807,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Mobile portrait - very compact layout
-    @include respond-to-mobile {
+    @media (max-width: 39.9375em) {
       gap: var(--space-xs);
       
       &__content {
@@ -809,7 +818,10 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
 
   // Enhanced game controls with comprehensive responsive design
   .game-controls {
-    @include flex-center(column);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     gap: var(--space-lg);
     width: var(--width-full);
     max-width: var(--container-sm);
@@ -830,7 +842,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     contain: layout style;
 
     // Mobile portrait - very compact controls
-    @include respond-to-mobile {
+    @media (max-width: 39.9375em) {
       gap: var(--space-md);
       padding: var(--space-xl) var(--space-lg);
       border-radius: var(--radius-xl);
@@ -839,21 +851,21 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Mobile landscape - balanced controls
-    @include respond-to-mobile-landscape {
+    @media (max-width: 47.9375em) and (orientation: landscape) {
       gap: var(--space-lg);
       padding: var(--space-xl);
       max-width: var(--container-query-lg);
     }
 
     // Tablet - optimal controls layout
-    @include respond-to-tablet {
+    @media (min-width: 40em) and (max-width: 47.9375em) {
       gap: var(--space-xl);
       max-width: var(--container-query-md);
       padding: var(--space-2xl) var(--space-3xl);
     }
     
     // Desktop - premium controls experience
-    @include respond-to-desktop {
+    @media (min-width: 48em) {
       max-width: var(--container-sm);
       padding: var(--space-3xl);
       gap: var(--space-2xl);
@@ -870,7 +882,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     width: var(--width-full);
 
     // Mobile portrait - stacked layout for better usability
-    @include respond-to-mobile {
+    @media (max-width: 39.9375em) {
       flex-direction: column;
       width: var(--width-full);
       gap: var(--space-sm);
@@ -878,14 +890,14 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Tablet - keep stacked for better touch targets
-    @include respond-to-tablet {
+    @media (min-width: 40em) and (max-width: 47.9375em) {
       flex-direction: column;
       width: var(--width-full);
       gap: var(--space-sm);
     }
 
     // Desktop - can use horizontal layout if preferred
-    @include respond-to-desktop {
+    @media (min-width: 48em) {
       flex-direction: row;
       gap: var(--space-lg);
       justify-content: center;
@@ -927,7 +939,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Mobile portrait - enhanced touch targets with better accessibility
-    @include respond-to-mobile {
+    @media (max-width: 39.9375em) {
       width: var(--width-full);
       min-width: auto;
       min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
@@ -943,7 +955,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Tablet - balanced button layout
-    @include respond-to-tablet {
+    @media (min-width: 40em) and (max-width: 47.9375em) {
       width: var(--width-full);
       min-width: auto;
       padding: var(--space-md) var(--space-lg);
@@ -951,7 +963,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Desktop - optimal button experience
-    @include respond-to-desktop {
+    @media (min-width: 48em) {
       min-width: var(--grid-min-width-md);
       padding: var(--space-lg) var(--space-xl);
       font-size: var(--text-lg);
@@ -1000,7 +1012,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Mobile portrait - enhanced touch target with full width
-    @include respond-to-mobile {
+    @media (max-width: 39.9375em) {
       width: var(--width-full);
       min-width: auto;
       min-height: calc(var(--touch-target-enhanced) + var(--space-md));
@@ -1015,7 +1027,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Tablet - full width for better usability
-    @include respond-to-tablet {
+    @media (min-width: 40em) and (max-width: 47.9375em) {
       width: var(--width-full);
       min-width: auto;
       padding: var(--space-lg) var(--space-xl);
@@ -1023,7 +1035,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
 
     // Desktop - optimal submit button
-    @include respond-to-desktop {
+    @media (min-width: 48em) {
       min-width: var(--grid-min-width-xl);
       padding: var(--space-xl) var(--space-2xl);
       font-size: var(--text-xl);
