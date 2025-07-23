@@ -432,7 +432,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     @media (min-width: 20em) {
       padding: var(--space-lg) var(--space-md);
     }
-    
+
     @media (min-width: 30em) {
       padding: var(--space-xl) var(--space-lg);
     }
@@ -641,18 +641,18 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     box-shadow: var(--shadow-lg);
     transition: all var(--transition-normal);
     overflow: hidden;
-    
+
     // Mobile Portrait - enhanced breathing room
     gap: var(--space-xl);
     margin-top: var(--space-xl);
     padding: var(--space-xl);
-    
+
     @media (min-width: 20em) {
       gap: var(--space-xl);
       margin-top: var(--space-xl);
       padding: var(--space-xl);
     }
-    
+
     @media (min-width: 30em) {
       gap: var(--space-2xl);
       margin-top: var(--space-2xl);
@@ -733,14 +733,14 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       border: none;
       color: var(--color-white);
       text-decoration: none;
-      
+
       // Mobile and tablet - horizontal layout
       @media (max-width: 63.9375em) {
         flex-direction: row;
         padding: var(--space-lg) var(--space-xl);
         max-width: 360px;
       }
-      
+
       // Desktop - square layout
       @media (min-width: 64em) {
         flex-direction: column;
@@ -756,20 +756,20 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         height: 24px;
         color: var(--color-white);
         flex-shrink: 0;
-        
+
         @media (min-width: 64em) {
           width: 32px;
           height: 32px;
         }
       }
-      
+
       // Text styling
       span {
         font-weight: var(--font-bold);
         font-size: var(--text-base);
         color: var(--color-white);
         white-space: nowrap;
-        
+
         @media (min-width: 64em) {
           font-size: var(--text-sm);
         }
@@ -1003,20 +1003,26 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   /* ==============================================
    * VISUAL ENHANCEMENTS & ANIMATIONS
    * ============================================== */
-   
+
   // Enhanced animation system
   .button-group {
     // Staggered animation for buttons
     a {
       animation: slideInScale 0.6s ease-out;
       animation-fill-mode: both;
-      
-      &:nth-child(1) { animation-delay: 0.1s; }
-      &:nth-child(2) { animation-delay: 0.2s; }
-      &:nth-child(3) { animation-delay: 0.3s; }
+
+      &:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.3s;
+      }
     }
   }
-  
+
   @keyframes slideInScale {
     from {
       opacity: 0;
@@ -1027,14 +1033,14 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       transform: translateY(0) scale(1);
     }
   }
-  
+
   // Container entrance animation
   .button-group {
     animation: containerSlideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     animation-delay: 0.1s;
     animation-fill-mode: both;
   }
-  
+
   @keyframes containerSlideIn {
     from {
       opacity: 0;
@@ -1047,7 +1053,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       filter: blur(0);
     }
   }
-  
+
   // Premium micro-interactions
   .button-group a {
     // Magnetic effect on hover
@@ -1057,7 +1063,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         transform: translateY(-4px) scale(1.03) rotate(0.5deg);
       }
     }
-    
+
     // Loading state shimmer effect
     &.loading {
       background: linear-gradient(
@@ -1070,10 +1076,14 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       animation: shimmer 1.5s infinite;
     }
   }
-  
+
   @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
   }
 
   /* ==============================================
@@ -1100,9 +1110,10 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         transform: none;
       }
     }
-    
+
     .button-group a {
-      &:hover, &:active {
+      &:hover,
+      &:active {
         transform: none;
       }
     }
@@ -1125,39 +1136,39 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     .icon-white {
       color: ButtonText;
     }
-    
+
     .button-group {
       background: Canvas;
       border: var(--border-width-thick) solid CanvasText;
-      
+
       a {
         border: var(--border-width-thin) solid CanvasText;
         background: ButtonFace;
         color: ButtonText;
-        
+
         &::before {
           display: none;
         }
       }
     }
   }
-  
+
   /* ==============================================
    * ENHANCED BUTTON STYLING
    * ============================================== */
-   
+
   // Enhanced text styling for premium feel
   @media (min-width: 48em) {
     .button-group a {
       span {
         // High contrast white text with subtle glow
         color: var(--color-white);
-        text-shadow: 
+        text-shadow:
           0 1px 2px rgba(0, 0, 0, 0.4),
           0 0 8px rgba(255, 255, 255, 0.2);
         font-weight: var(--font-bold);
         letter-spacing: 0.02em;
-        
+
         // Subtle gradient overlay on hover
         background: linear-gradient(
           135deg,
@@ -1166,14 +1177,14 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         );
         background-clip: text;
         -webkit-background-clip: text;
-        
+
         // Fallback for unsupported browsers
         @supports not (background-clip: text) {
           background: none;
           color: var(--color-white);
         }
       }
-      
+
       // Enhanced hover text effect
       &:hover span {
         background: linear-gradient(
@@ -1183,23 +1194,23 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         );
         background-clip: text;
         -webkit-background-clip: text;
-        text-shadow: 
+        text-shadow:
           0 2px 4px rgba(0, 0, 0, 0.5),
           0 0 12px rgba(255, 255, 255, 0.4);
       }
     }
   }
-  
+
   // Premium shadow and lighting system
   .button-group a {
-    box-shadow: 
+    box-shadow:
       0 4px 16px rgba(0, 0, 0, 0.1),
       0 2px 4px rgba(0, 0, 0, 0.06),
       inset 0 1px 0 rgba(255, 255, 255, 0.15),
       inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-      
+
     &:hover {
-      box-shadow: 
+      box-shadow:
         0 12px 40px rgba(138, 43, 226, 0.25),
         0 8px 16px rgba(0, 0, 0, 0.15),
         0 4px 8px rgba(0, 0, 0, 0.1),
@@ -1207,9 +1218,9 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         inset 0 -2px 0 rgba(0, 0, 0, 0.15),
         0 0 32px rgba(255, 255, 255, 0.1);
     }
-    
+
     &:active {
-      box-shadow: 
+      box-shadow:
         0 2px 8px rgba(0, 0, 0, 0.2),
         inset 0 2px 4px rgba(0, 0, 0, 0.1);
     }
@@ -1218,55 +1229,55 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   /* ==============================================
    * MOBILE PORTRAIT OPTIMIZATIONS
    * ============================================== */
-   
+
   // Small mobile screens - Portrait Mobile (below 480px) - Compact and efficient
   @media (max-width: 29.9375em) {
     .page-container {
       padding: var(--space-sm) var(--space-xs);
     }
-    
+
     .section-header {
       margin-bottom: var(--space-lg);
       padding: var(--space-sm);
     }
-    
+
     .header-with-image {
       margin: var(--space-none) auto var(--space-lg) auto;
       padding: var(--space-sm) var(--space-xs);
     }
-    
+
     .header-content {
       gap: var(--space-lg);
     }
-    
+
     .header-text {
       gap: var(--space-sm);
     }
-    
+
     .header-image {
       max-width: min(var(--container-xs), 90vw);
     }
-    
+
     .section-container {
       gap: var(--space-lg);
       margin-top: var(--space-lg);
       padding: var(--space-xl) var(--space-md);
       border-radius: var(--radius-lg);
     }
-    
+
     .game-icon-badge {
       width: var(--space-2xl);
       height: var(--space-2xl);
       margin-bottom: var(--space-sm);
     }
-    
+
     .alert-box {
       margin-bottom: var(--space-md);
       padding: var(--space-sm);
       font-size: var(--text-sm);
       border-radius: var(--radius-md);
     }
-    
+
     // Compact typography for mobile portrait - space efficient
     .headline-primary,
     h1 {
@@ -1276,7 +1287,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       letter-spacing: var(--letter-spacing-base);
       text-align: center;
     }
-    
+
     .paragraph-standard,
     .paragraph-description,
     p {
@@ -1286,7 +1297,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       letter-spacing: var(--letter-spacing-base);
       text-align: center;
     }
-    
+
     .section-heading,
     h2 {
       font-size: var(--text-base);
@@ -1296,33 +1307,33 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       text-align: center;
     }
   }
-  
+
   /* ==============================================
    * BUTTON RESPONSIVENESS ENHANCEMENTS
    * ============================================== */
-   
+
   // Extra responsive button behavior
   @media (max-width: 359px) {
     .button-group {
       padding: var(--space-md) var(--space-sm);
       gap: var(--space-sm);
-      
+
       a {
         min-height: calc(var(--touch-target-enhanced) + var(--space-md));
         padding: var(--space-md);
-        
+
         svg {
           width: 20px;
           height: 20px;
         }
-        
+
         span {
           font-size: var(--text-xs);
         }
       }
     }
   }
-  
+
   // Landscape mobile optimization
   @media (max-width: 47.9375em) and (orientation: landscape) {
     .button-group {
@@ -1331,14 +1342,14 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       flex-wrap: nowrap;
       gap: var(--space-md);
       max-width: 100%;
-      
+
       a {
         flex: 1;
         max-width: 160px;
         min-height: var(--touch-target-enhanced);
         flex-direction: row;
         gap: var(--space-sm);
-        
+
         svg {
           width: 20px;
           height: 20px;
@@ -1346,7 +1357,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       }
     }
   }
-  
+
   // Container queries for button groups
   @container (max-width: 400px) {
     .button-group {
@@ -1354,7 +1365,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       gap: var(--space-md);
     }
   }
-  
+
   @container (min-width: 500px) {
     .button-group {
       display: grid;
@@ -1362,32 +1373,32 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       gap: var(--space-lg);
     }
   }
-  
+
   // Medium screens - Tablet Portrait (480px+) - Gradual expansion
   @media (min-width: 30em) {
     .page-container {
       padding: var(--space-lg) var(--space-md);
     }
-    
+
     .header-with-image {
       margin: var(--space-none) auto var(--space-xl) auto;
       padding: var(--space-md);
     }
-    
+
     .header-content {
       gap: var(--space-xl);
     }
-    
+
     .header-text {
       gap: var(--space-md);
     }
-    
+
     .section-container {
       gap: var(--space-xl);
       margin-top: var(--space-xl);
       padding: var(--space-2xl);
     }
-    
+
     // Moderate typography sizing
     h1 {
       font-size: clamp(var(--text-xl), 4vw, var(--text-2xl));
@@ -1395,14 +1406,14 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       margin-bottom: var(--space-lg);
       text-align: center;
     }
-    
+
     h2 {
       font-size: var(--text-lg);
       margin-bottom: var(--space-lg);
       line-height: var(--leading-snug);
       text-align: center;
     }
-    
+
     p {
       font-size: var(--text-base);
       line-height: var(--leading-relaxed);
@@ -1410,52 +1421,52 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       text-align: center;
     }
   }
-  
+
   // Tablet Landscape (768px - 1024px) - Smaller fonts to fix oversized text
   @media (min-width: 48em) and (max-width: 63.9375em) {
     h1 {
       font-size: clamp(var(--text-lg), 3vw, var(--text-xl)) !important;
     }
-    
+
     h2 {
       font-size: var(--text-base) !important;
     }
-    
+
     p {
       font-size: var(--text-sm) !important;
     }
-    
+
     .paragraph {
       &--size {
         &-lg {
           font-size: var(--text-base) !important;
         }
-        
+
         &-xl {
           font-size: var(--text-lg) !important;
         }
-        
+
         &-2xl {
           font-size: var(--text-xl) !important;
         }
       }
     }
-    
+
     // Button adjustments for tablet landscape - refined proportions
     .button-group {
       max-width: 520px;
       gap: var(--space-lg);
       padding: var(--space-xl) var(--space-2xl);
-      
+
       a {
         padding: var(--space-lg) var(--space-xl);
         border-radius: var(--radius-xl);
-        
+
         svg {
           width: 26px;
           height: 26px;
         }
-        
+
         span {
           font-size: var(--text-sm);
           font-weight: var(--font-semibold);
@@ -1463,7 +1474,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       }
     }
   }
-  
+
   /* ==============================================
    * CONTENT BUTTONS (Music Platforms & Knowledge)
    * ============================================== */
@@ -1475,7 +1486,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   .content-buttons-section {
     // Mobile Portrait - compact spacing
     margin-top: var(--space-md);
-    
+
     @media (min-width: 20em) {
       margin-top: var(--space-lg);
     }
@@ -1487,11 +1498,11 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       margin-top: var(--space-xl);
     }
   }
-  
+
   /* ==============================================
    * PERFORMANCE OPTIMIZATIONS
    * ============================================== */
-   
+
   // GPU acceleration for smooth animations
   .button-group,
   .button-group a,
@@ -1499,12 +1510,12 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     transform: translateZ(0);
     will-change: transform;
   }
-  
+
   // Optimize repaints
   .button-group a {
     contain: layout style paint;
   }
-  
+
   // Preload important animations
   @media (prefers-reduced-motion: no-preference) {
     .button-group a {

@@ -684,7 +684,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       border-color: var(--interactive-primary);
       background: var(--bg-tertiary);
       box-shadow: $shadow-hover;
-      
+
       .chronology-item__position {
         background: var(--interactive-secondary);
         transform: scale(var(--animation-scale-hover-subtle));
@@ -709,8 +709,8 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
 
     &__position {
       display: flex;
-    align-items: center;
-    justify-content: center;
+      align-items: center;
+      justify-content: center;
       width: var(--min-touch-size);
       height: var(--min-touch-size);
       background: var(--interactive-primary);
@@ -800,7 +800,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
         order: -1;
         margin-bottom: var(--space-sm);
       }
-      
+
       &__position {
         align-self: center;
       }
@@ -809,7 +809,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     // Mobile portrait - very compact layout
     @media (max-width: 39.9375em) {
       gap: var(--space-xs);
-      
+
       &__content {
         margin-bottom: var(--space-xs);
       }
@@ -835,7 +835,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     backdrop-filter: blur(var(--backdrop-blur)) saturate(180%);
     border-radius: var(--radius-2xl);
     border: var(--border-width-thin) solid rgba(255, 255, 255, 0.2);
-    box-shadow: 
+    box-shadow:
       var(--shadow-xl),
       var(--shadow-md),
       inset 0 var(--border-width-thin) 0 rgba(255, 255, 255, 0.2);
@@ -863,7 +863,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       max-width: var(--container-query-md);
       padding: var(--space-2xl) var(--space-3xl);
     }
-    
+
     // Desktop - premium controls experience
     @media (min-width: 48em) {
       max-width: var(--container-sm);
@@ -967,7 +967,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       min-width: var(--grid-min-width-md);
       padding: var(--space-lg) var(--space-xl);
       font-size: var(--text-lg);
-      
+
       &__icon {
         width: var(--icon-size-lg);
         height: var(--icon-size-lg);
@@ -1039,7 +1039,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       min-width: var(--grid-min-width-xl);
       padding: var(--space-xl) var(--space-2xl);
       font-size: var(--text-xl);
-      
+
       &__icon {
         width: var(--icon-size-xl);
         height: var(--icon-size-xl);
@@ -1054,7 +1054,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     .submit-button,
     .badge {
       transition: var(--transition-instant) !important;
-      
+
       &:hover {
         transform: none !important;
       }
@@ -1063,11 +1063,11 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     .loading-icon {
       animation: none !important;
     }
-    
+
     .chronology-game {
       animation: none !important;
     }
-    
+
     @keyframes fadeIn {
       from,
       to {
@@ -1082,12 +1082,12 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     .chronology-item {
       border-width: var(--border-width-enhanced);
       background: var(--bg-primary);
-      
+
       &:focus {
         border-width: calc(var(--border-width-enhanced) + 1px);
         box-shadow: 0 0 0 var(--focus-ring-offset) var(--interactive-primary);
       }
-      
+
       &--selected {
         background: var(--bg-secondary);
         border-color: var(--text-primary);
@@ -1099,7 +1099,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       border-width: var(--border-width-enhanced);
       font-weight: var(--font-bold);
     }
-    
+
     .badge {
       border-width: var(--border-width-thick);
       background: var(--bg-primary);
@@ -1134,14 +1134,14 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       min-height: auto !important;
       box-shadow: none !important;
     }
-    
+
     .chronology-container {
       background: var(--print-bg) !important;
       border: var(--print-border) !important;
       box-shadow: none !important;
       page-break-inside: avoid;
     }
-    
+
     .chronology-item {
       background: var(--print-bg) !important;
       border: var(--print-border) !important;
@@ -1149,7 +1149,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       page-break-inside: avoid;
       margin-bottom: var(--space-sm) !important;
     }
-    
+
     .badge {
       background: var(--print-bg) !important;
       border: var(--print-border) !important;
@@ -1165,21 +1165,21 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
   /* Container queries for enhanced responsive behavior */
   .chronology-game {
     container-type: inline-size;
-    
+
     .game-content {
       container-type: inline-size;
-      
+
       // Container query for very small containers
       @container (max-width: 20rem) {
         .game-title {
           font-size: var(--text-base);
         }
-        
+
         .game-description {
           font-size: var(--text-xs);
         }
       }
-      
+
       // Container query for medium containers
       @container (max-width: 40rem) {
         .chronology-container {
@@ -1189,7 +1189,7 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       }
     }
   }
-  
+
   /* Enhanced touch and pointer support */
   @media (pointer: coarse) {
     .chronology-item,
@@ -1198,63 +1198,64 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       // Enhance touch targets for touch devices
       min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
     }
-    
+
     .badge {
       padding: var(--space-md) var(--space-lg);
     }
   }
-  
+
   @media (pointer: fine) {
     .chronology-item:hover {
       box-shadow: var(--card-shadow-hover);
     }
-    
+
     .badge:hover {
-      transform: translateY(var(--animation-y-offset-small)) scale(var(--animation-scale-hover-subtle));
+      transform: translateY(var(--animation-y-offset-small))
+        scale(var(--animation-scale-hover-subtle));
     }
   }
-  
+
   /* Landscape orientation support for mobile devices */
   @media (max-width: 47.9375em) and (orientation: landscape) {
     .chronology-game {
       padding: var(--space-sm);
       min-height: 100lvh; // Use logical viewport height for landscape
     }
-    
+
     .game-header {
       margin-bottom: var(--space-sm);
     }
-    
+
     .game-info {
       flex-direction: row;
       gap: var(--space-sm);
       margin-top: var(--space-sm);
     }
-    
+
     .chronology-container {
       min-height: calc(var(--container-intrinsic-height-card) * 0.6);
       padding: var(--space-md);
     }
-    
+
     .game-controls {
       padding: var(--space-lg);
       gap: var(--space-md);
     }
   }
-  
+
   /* Forced colors mode support (Windows High Contrast) */
   @media (forced-colors: active) {
     .chronology-item {
       border: var(--border-width-thick) solid ButtonBorder;
       background: ButtonFace;
       forced-color-adjust: none;
-      
+
       &--selected {
         border-color: Highlight;
         background: HighlightText;
       }
     }
-    
+
     .move-button,
     .submit-button {
       border: var(--border-width-thick) solid ButtonBorder;
@@ -1262,18 +1263,18 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       color: ButtonText;
       forced-color-adjust: none;
     }
-    
+
     .submit-button {
       background: Highlight;
       color: HighlightText;
     }
-    
+
     .badge {
       border: var(--border-width-thin) solid ButtonBorder;
       background: ButtonFace;
       color: ButtonText;
     }
-    
+
     .chronology-container {
       border: var(--border-width-thick) solid ButtonBorder;
       background: Canvas;

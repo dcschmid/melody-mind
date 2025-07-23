@@ -1,6 +1,6 @@
 /**
  * OAuth Provider Types and Interfaces
- * 
+ *
  * This file defines all types related to OAuth authentication,
  * provider management, and account linking functionality.
  */
@@ -8,7 +8,7 @@
 /**
  * Supported OAuth providers
  */
-export type OAuthProvider = 'spotify' | 'google' | 'discord' | 'yahoo';
+export type OAuthProvider = "spotify" | "google" | "discord" | "yahoo";
 
 /**
  * OAuth provider configuration
@@ -111,7 +111,7 @@ export interface OAuthCallbackParams {
  */
 export interface OAuthLinkingResult {
   success: boolean;
-  action: 'login' | 'register' | 'link';
+  action: "login" | "register" | "link";
   user: {
     id: string;
     username: string;
@@ -126,18 +126,18 @@ export interface OAuthLinkingResult {
 /**
  * OAuth error types
  */
-export type OAuthError = 
-  | 'invalid_request'
-  | 'unauthorized_client'
-  | 'access_denied'
-  | 'unsupported_response_type'
-  | 'invalid_scope'
-  | 'server_error'
-  | 'temporarily_unavailable'
-  | 'provider_error'
-  | 'linking_failed'
-  | 'account_exists'
-  | 'session_expired';
+export type OAuthError =
+  | "invalid_request"
+  | "unauthorized_client"
+  | "access_denied"
+  | "unsupported_response_type"
+  | "invalid_scope"
+  | "server_error"
+  | "temporarily_unavailable"
+  | "provider_error"
+  | "linking_failed"
+  | "account_exists"
+  | "session_expired";
 
 /**
  * OAuth error response

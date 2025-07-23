@@ -90,7 +90,7 @@ interface UserProfile {
    * Ordered by creation date (newest first)
    */
   recentGames: Array<GameResult>;
-  
+
   /**
    * Array of linked OAuth provider names
    */
@@ -311,9 +311,9 @@ async function fetchRecentGames(userId: UserId): Promise<Array<GameResult>> {
 async function fetchLinkedProviders(userId: UserId): Promise<string[]> {
   try {
     const linkedProviders = await oauthService.getUserOAuthProviders(userId);
-    return linkedProviders.map(provider => provider.provider);
+    return linkedProviders.map((provider) => provider.provider);
   } catch (error) {
-    console.error('Error fetching linked providers:', error);
+    console.error("Error fetching linked providers:", error);
     return [];
   }
 }

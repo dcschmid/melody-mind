@@ -598,7 +598,7 @@ const savePendingGameResults = async (): Promise<void> => {
     // Add user ID from localStorage if available
     const userDataString = localStorage.getItem("user");
     let userId = "guest";
-    
+
     if (userDataString) {
       try {
         const userData = JSON.parse(userDataString);
@@ -612,7 +612,7 @@ const savePendingGameResults = async (): Promise<void> => {
 
     // Add userId to gameData
     gameData.userId = userId;
-    
+
     // Fix legacy data: if we have 'category' but no 'categoryName', clear the pending result
     // This forces the user to play a new game to get proper data structure
     if (gameData.category && !gameData.categoryName) {
@@ -621,7 +621,7 @@ const savePendingGameResults = async (): Promise<void> => {
       console.log("Legacy pending result cleared. Please play a new game to save scores.");
       return;
     }
-    
+
     console.log("Updated game data with userId:", { ...gameData, userId });
 
     // Get current language
@@ -677,7 +677,8 @@ export const showEndOverlay = async (config: EndOverlayConfig): Promise<void> =>
   if (!isAuthenticated()) {
     const gameData = {
       score,
-      categoryName: overlay?.getAttribute("data-categoryName") || overlay?.getAttribute("data-category") || "",
+      categoryName:
+        overlay?.getAttribute("data-categoryName") || overlay?.getAttribute("data-category") || "",
       difficulty: overlay?.getAttribute("data-difficulty") || "",
       gameMode: overlay?.getAttribute("data-mode") || "normal",
       timestamp: new Date().toISOString(),

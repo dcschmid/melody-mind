@@ -1,146 +1,144 @@
 /**
  * OAuth Callback Endpoint (Language-independent)
- * 
+ *
  * Handles OAuth callback from provider and completes authentication
- * 
+ *
  * Route: GET /api/auth/oauth/callback/[provider]
- * 
+ *
  * Query Parameters:
  * - code: Authorization code from OAuth provider
  * - state: State parameter for security
  * - error: Error from OAuth provider (optional)
- * 
+ *
  * Response:
  * - 302: Redirects to success page with auth cookie set
  * - 400: Invalid request or OAuth error
  * - 500: Server error
  */
 
-import type { APIRoute } from 'astro';
-import { oauthService } from '../../../../../services/oauthService';
-import { generateAccessToken } from '../../../../../lib/auth/jwt';
-import { useTranslations } from '../../../../../utils/i18n';
-import type { OAuthProvider } from '../../../../../types/oauth';
+import type { APIRoute } from "astro";
+import { oauthService } from "../../../../../services/oauthService";
+import { generateAccessToken } from "../../../../../lib/auth/jwt";
+import { useTranslations } from "../../../../../utils/i18n";
+import type { OAuthProvider } from "../../../../../types/oauth";
 
 export const GET: APIRoute = async ({ params, request, url }) => {
   const provider = params.provider as OAuthProvider;
-  
-  console.log('OAuth callback called for provider:', provider);
-  console.log('Full URL:', url.toString());
-  console.log('Search params:', url.searchParams.toString());
-  
+
+  console.log("OAuth callback called for provider:", provider);
+  console.log("Full URL:", url.toString());
+  console.log("Search params:", url.searchParams.toString());
+
   // Extract language from state parameter or use default
-  const state = url.searchParams.get('state');
-  const code = url.searchParams.get('code');
-  const error = url.searchParams.get('error');
-  
-  console.log('OAuth callback - state:', state);
-  console.log('OAuth callback - code:', code ? 'present' : 'missing');
-  console.log('OAuth callback - error:', error);
-  
-  let lang = 'en'; // Default language
-  
+  const state = url.searchParams.get("state");
+  const code = url.searchParams.get("code");
+  const error = url.searchParams.get("error");
+
+  console.log("OAuth callback - state:", state);
+  console.log("OAuth callback - code:", code ? "present" : "missing");
+  console.log("OAuth callback - error:", error);
+
+  let lang = "en"; // Default language
+
   let redirectAfterLogin = null;
-  
+
   try {
     if (state) {
       // The state parameter contains encoded information including language
-      const stateData = JSON.parse(Buffer.from(state, 'base64').toString());
-      lang = stateData.lang || 'en';
+      const stateData = JSON.parse(Buffer.from(state, "base64").toString());
+      lang = stateData.lang || "en";
       redirectAfterLogin = stateData.redirectAfterLogin;
-      console.log('Parsed state data:', stateData);
+      console.log("Parsed state data:", stateData);
     }
   } catch (error) {
-    console.error('Error parsing state parameter:', error);
+    console.error("Error parsing state parameter:", error);
   }
-  
+
   const t = useTranslations(lang);
 
   try {
     // Check for OAuth error
-    const error = url.searchParams.get('error');
+    const error = url.searchParams.get("error");
     if (error) {
-      const errorDescription = url.searchParams.get('error_description');
+      const errorDescription = url.searchParams.get("error_description");
       console.error(`OAuth error from ${provider}:`, error, errorDescription);
-      
-      const errorRedirect = `/${lang}/auth?error=${encodeURIComponent(t('auth.oauth.authorization_failed'))}`;
+
+      const errorRedirect = `/${lang}/auth?error=${encodeURIComponent(t("auth.oauth.authorization_failed"))}`;
       return Response.redirect(new URL(errorRedirect, url.origin), 302);
     }
 
     // Get authorization code
-    const code = url.searchParams.get('code');
+    const code = url.searchParams.get("code");
     if (!code) {
-      console.error('No authorization code received from OAuth provider');
-      const errorRedirect = `/${lang}/auth?error=${encodeURIComponent(t('auth.oauth.invalid_callback'))}`;
+      console.error("No authorization code received from OAuth provider");
+      const errorRedirect = `/${lang}/auth?error=${encodeURIComponent(t("auth.oauth.invalid_callback"))}`;
       return Response.redirect(new URL(errorRedirect, url.origin), 302);
     }
 
     // Complete OAuth flow
-    console.log('Calling oauthService.handleCallback with:', {
+    console.log("Calling oauthService.handleCallback with:", {
       provider,
-      code: code ? 'present' : 'missing',
-      state: state || '',
-      origin: url.origin
+      code: code ? "present" : "missing",
+      state: state || "",
+      origin: url.origin,
     });
-    
-    const result = await oauthService.handleCallback(
-      provider,
-      code,
-      state || '',
-      url.origin
-    );
 
-    console.log('OAuth callback result:', result);
+    const result = await oauthService.handleCallback(provider, code, state || "", url.origin);
+
+    console.log("OAuth callback result:", result);
 
     if (!result.success) {
-      console.error('OAuth callback failed:', result.error);
-      const errorRedirect = `/${lang}/auth?error=${encodeURIComponent(result.error || t('auth.oauth.callback_failed'))}`;
+      console.error("OAuth callback failed:", result.error);
+      const errorRedirect = `/${lang}/auth?error=${encodeURIComponent(result.error || t("auth.oauth.callback_failed"))}`;
       return Response.redirect(new URL(errorRedirect, url.origin), 302);
     }
 
     // Generate access token
     const accessToken = await generateAccessToken(result.user.id);
-    
+
     // Determine redirect URL based on whether this was account linking
-    const baseRedirectUrl = result.action === 'link' 
-      ? `/${lang}/profile?success=${encodeURIComponent(t('auth.oauth.unlink_success', { provider: provider }))}`
-      : (redirectAfterLogin || `/${lang}`);
+    const baseRedirectUrl =
+      result.action === "link"
+        ? `/${lang}/profile?success=${encodeURIComponent(t("auth.oauth.unlink_success", { provider: provider }))}`
+        : redirectAfterLogin || `/${lang}`;
 
     // Determine if we're in development (localhost)
-    const isDevelopment = url.hostname === 'localhost' || url.hostname === '127.0.0.1';
-    
+    const isDevelopment = url.hostname === "localhost" || url.hostname === "127.0.0.1";
+
     // Set secure, httpOnly cookie
     const authCookie = [
       `auth_token=${accessToken}`,
-      'HttpOnly',
-      ...(isDevelopment ? [] : ['Secure']), // Only set Secure in production
-      'SameSite=Lax', // Changed from Strict to Lax for OAuth redirects
-      'Path=/',
-      `Max-Age=${60 * 60 * 24 * 14}` // 14 days
-    ].join('; ');
-    
+      "HttpOnly",
+      ...(isDevelopment ? [] : ["Secure"]), // Only set Secure in production
+      "SameSite=Lax", // Changed from Strict to Lax for OAuth redirects
+      "Path=/",
+      `Max-Age=${60 * 60 * 24 * 14}`, // 14 days
+    ].join("; ");
+
     // Set auth status for frontend (non-httpOnly so JS can read it)
     const statusCookie = [
-      'auth_status=authenticated',
-      ...(isDevelopment ? [] : ['Secure']), // Only set Secure in production
-      'SameSite=Lax', // Changed from Strict to Lax for OAuth redirects
-      'Path=/',
-      `Max-Age=${60 * 60 * 24 * 14}` // 14 days
-    ].join('; ');
-    
+      "auth_status=authenticated",
+      ...(isDevelopment ? [] : ["Secure"]), // Only set Secure in production
+      "SameSite=Lax", // Changed from Strict to Lax for OAuth redirects
+      "Path=/",
+      `Max-Age=${60 * 60 * 24 * 14}`, // 14 days
+    ].join("; ");
+
     // Set user data cookie for frontend (non-httpOnly so JS can read it)
     const userDataCookie = [
-      `user_data=${encodeURIComponent(JSON.stringify({
-        id: result.user.id,
-        username: result.user.username,
-        email: result.user.email,
-        avatarUrl: result.user.avatarUrl || null
-      }))}`,
-      ...(isDevelopment ? [] : ['Secure']), // Only set Secure in production
-      'SameSite=Lax', // Changed from Strict to Lax for OAuth redirects
-      'Path=/',
-      `Max-Age=${60 * 60 * 24 * 14}` // 14 days
-    ].join('; ');
+      `user_data=${encodeURIComponent(
+        JSON.stringify({
+          id: result.user.id,
+          username: result.user.username,
+          email: result.user.email,
+          avatarUrl: result.user.avatarUrl || null,
+        })
+      )}`,
+      ...(isDevelopment ? [] : ["Secure"]), // Only set Secure in production
+      "SameSite=Lax", // Changed from Strict to Lax for OAuth redirects
+      "Path=/",
+      `Max-Age=${60 * 60 * 24 * 14}`, // 14 days
+    ].join("; ");
 
     // Create a temporary HTML page that sets localStorage and then redirects
     const tempPageContent = `
@@ -199,7 +197,7 @@ export const GET: APIRoute = async ({ params, request, url }) => {
         id: '${result.user.id}',
         username: '${result.user.username}',
         email: '${result.user.email}',
-        avatarUrl: '${result.user.avatarUrl || ''}'
+        avatarUrl: '${result.user.avatarUrl || ""}'
       }));
       
       // Dispatch auth event for other components
@@ -209,7 +207,7 @@ export const GET: APIRoute = async ({ params, request, url }) => {
             id: '${result.user.id}',
             username: '${result.user.username}',
             email: '${result.user.email}',
-            avatarUrl: '${result.user.avatarUrl || ''}'
+            avatarUrl: '${result.user.avatarUrl || ""}'
           }
         }
       }));
@@ -241,30 +239,29 @@ export const GET: APIRoute = async ({ params, request, url }) => {
 
     // Return the temporary page with cookies (for server-side auth)
     const headers = new Headers({
-      'Content-Type': 'text/html; charset=utf-8'
+      "Content-Type": "text/html; charset=utf-8",
     });
-    
+
     // Set multiple cookies properly
-    headers.append('Set-Cookie', authCookie);
-    headers.append('Set-Cookie', statusCookie);
-    headers.append('Set-Cookie', userDataCookie);
-    
-    console.log('OAuth Callback - Setting cookies:', {
+    headers.append("Set-Cookie", authCookie);
+    headers.append("Set-Cookie", statusCookie);
+    headers.append("Set-Cookie", userDataCookie);
+
+    console.log("OAuth Callback - Setting cookies:", {
       authCookie,
       statusCookie,
       userDataCookie,
       isDevelopment,
-      hostname: url.hostname
-    });
-    
-    return new Response(tempPageContent, {
-      status: 200,
-      headers
+      hostname: url.hostname,
     });
 
+    return new Response(tempPageContent, {
+      status: 200,
+      headers,
+    });
   } catch (error) {
-    console.error('OAuth callback error:', error);
-    const errorRedirect = `/${lang}/auth?error=${encodeURIComponent(t('auth.oauth.callback_failed'))}`;
+    console.error("OAuth callback error:", error);
+    const errorRedirect = `/${lang}/auth?error=${encodeURIComponent(t("auth.oauth.callback_failed"))}`;
     return Response.redirect(new URL(errorRedirect, url.origin), 302);
   }
 };

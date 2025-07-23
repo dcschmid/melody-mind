@@ -60,42 +60,44 @@ export function removeLocalStorage(key: string): boolean {
 export function performCompleteLogout(): void {
   // PREVENT RECURSIVE CALLS
   if (isLoggingOut) {
-    console.log('🚪 Logout already in progress, skipping');
+    console.log("🚪 Logout already in progress, skipping");
     return;
   }
-  
-  console.log('🚪 Performing complete logout...');
+
+  console.log("🚪 Performing complete logout...");
   isLoggingOut = true; // Set flag to prevent recursive calls
-  
+
   // Reset validation counters and prevent further validations
   validationAttempts = MAX_VALIDATION_ATTEMPTS + 1; // Stop further validations
   validationInProgress = false;
   lastValidationAttempt = 0;
-  
+
   // Call server-side logout to clear HttpOnly cookies
-  fetch('/de/api/auth/logout', {
-    method: 'POST',
-    credentials: 'include'
-  }).then(response => {
-    if (response.ok) {
-      console.log('✅ Server-side logout successful');
-    } else {
-      console.warn('⚠️ Server-side logout failed, but continuing client-side cleanup');
-    }
-  }).catch(error => {
-    console.warn('⚠️ Server-side logout error:', error);
-  });
-  
+  fetch("/de/api/auth/logout", {
+    method: "POST",
+    credentials: "include",
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log("✅ Server-side logout successful");
+      } else {
+        console.warn("⚠️ Server-side logout failed, but continuing client-side cleanup");
+      }
+    })
+    .catch((error) => {
+      console.warn("⚠️ Server-side logout error:", error);
+    });
+
   // Clear all authentication-related localStorage entries
   removeLocalStorage("auth_status");
   removeLocalStorage("user");
   removeLocalStorage("user_data");
   removeLocalStorage("access_token");
   removeLocalStorage("auth_token");
-  
+
   // Clear any other potential auth-related localStorage entries
   try {
-    Object.keys(localStorage).forEach(key => {
+    Object.keys(localStorage).forEach((key) => {
       if (key.includes("auth") || key.includes("user") || key.includes("token")) {
         removeLocalStorage(key);
       }
@@ -103,24 +105,26 @@ export function performCompleteLogout(): void {
   } catch (error) {
     console.warn("Error clearing additional localStorage entries:", error);
   }
-  
+
   // Clear sessionStorage as well
   try {
     sessionStorage.clear();
   } catch (error) {
     console.warn("Error clearing sessionStorage:", error);
   }
-  
+
   // Trigger logout event for other components
   try {
-    window.dispatchEvent(new CustomEvent('auth:logout'));
-    
+    window.dispatchEvent(new CustomEvent("auth:logout"));
+
     // Also trigger storage event to notify other tabs/windows
-    window.dispatchEvent(new StorageEvent('storage', {
-      key: 'auth_status',
-      newValue: null,
-      oldValue: 'authenticated'
-    }));
+    window.dispatchEvent(
+      new StorageEvent("storage", {
+        key: "auth_status",
+        newValue: null,
+        oldValue: "authenticated",
+      })
+    );
   } catch (error) {
     console.warn("Error dispatching logout events:", error);
   }
@@ -164,7 +168,7 @@ function getCookie(name: string): string | null {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${name}=`);
   if (parts.length === 2) {
-    return parts.pop()?.split(';').shift() || null;
+    return parts.pop()?.split(";").shift() || null;
   }
   return null;
 }
@@ -181,7 +185,7 @@ let isLoggingOut = false; // Flag to prevent validation during logout
  * Reset session validation counters (called on successful login)
  */
 export function resetSessionValidation(): void {
-  console.log('🔄 Resetting session validation counters');
+  console.log("🔄 Resetting session validation counters");
   validationAttempts = 0;
   lastValidationAttempt = 0;
   validationInProgress = false;
@@ -196,26 +200,26 @@ export async function validateAndRefreshSession(): Promise<boolean> {
   try {
     // STOP validation if logout is in progress
     if (isLoggingOut) {
-      console.log('🚪 Logout in progress, skipping validation');
+      console.log("🚪 Logout in progress, skipping validation");
       return false;
     }
 
     // Rate limiting: Vermeide zu häufige Validierungen
     const now = Date.now();
     if (now - lastValidationAttempt < VALIDATION_COOLDOWN) {
-      console.log('⏳ Session validation on cooldown, using local status');
+      console.log("⏳ Session validation on cooldown, using local status");
       return isUserAuthenticated();
     }
 
     // Vermeide concurrent validations
     if (validationInProgress) {
-      console.log('⏳ Session validation already in progress');
+      console.log("⏳ Session validation already in progress");
       return isUserAuthenticated();
     }
 
     // Max attempts erreicht - beende Validierung
     if (validationAttempts >= MAX_VALIDATION_ATTEMPTS) {
-      console.log('❌ Max validation attempts reached, forcing logout');
+      console.log("❌ Max validation attempts reached, forcing logout");
       performCompleteLogout();
       return false;
     }
@@ -231,47 +235,49 @@ export async function validateAndRefreshSession(): Promise<boolean> {
       return false;
     }
 
-    console.log(`🔍 Starting session validation (attempt ${validationAttempts}/${MAX_VALIDATION_ATTEMPTS})`);
+    console.log(
+      `🔍 Starting session validation (attempt ${validationAttempts}/${MAX_VALIDATION_ATTEMPTS})`
+    );
 
     // Versuche eine simple API-Anfrage um Session zu testen
-    const testResponse = await fetch('/de/api/user/profile', {
-      method: 'GET',
-      credentials: 'include'
+    const testResponse = await fetch("/de/api/user/profile", {
+      method: "GET",
+      credentials: "include",
     });
 
     if (testResponse.ok) {
       // Session ist gültig - reset counters
-      console.log('✅ Session is valid');
+      console.log("✅ Session is valid");
       validationAttempts = 0;
       validationInProgress = false;
       return true;
     } else if (testResponse.status === 401) {
       // Session abgelaufen, versuche Refresh
-      console.log('🔄 Session expired, attempting refresh...');
-      
-      const refreshResponse = await fetch('/de/api/auth/refresh-token', {
-        method: 'POST',
-        credentials: 'include'
+      console.log("🔄 Session expired, attempting refresh...");
+
+      const refreshResponse = await fetch("/de/api/auth/refresh-token", {
+        method: "POST",
+        credentials: "include",
       });
 
       if (refreshResponse.ok) {
-        console.log('✅ Session successfully refreshed');
+        console.log("✅ Session successfully refreshed");
         validationAttempts = 0; // Reset bei erfolgreichem Refresh
         validationInProgress = false;
         return true;
       } else {
         // Refresh fehlgeschlagen, logout
-        console.log('❌ Session refresh failed, logging out');
+        console.log("❌ Session refresh failed, logging out");
         performCompleteLogout();
         validationInProgress = false;
         return false;
       }
     }
-    
+
     validationInProgress = false;
     return false;
   } catch (error) {
-    console.error('Error validating session:', error);
+    console.error("Error validating session:", error);
     validationInProgress = false;
     return false;
   }
@@ -286,15 +292,15 @@ export function isUserAuthenticated(): boolean {
   // Primäre Methode: auth_status im localStorage prüfen
   const localAuthStatus = localStorage.getItem("auth_status");
   const localIsAuthenticated = localAuthStatus === "authenticated";
-  
+
   // Sekundäre Methode: auth_status Cookie prüfen
   const cookieAuthStatus = getCookie("auth_status");
   const cookieIsAuthenticated = cookieAuthStatus === "authenticated";
-  
+
   // Wenn Cookie gesetzt ist aber localStorage nicht, localStorage aktualisieren
   if (cookieIsAuthenticated && !localIsAuthenticated) {
     setLocalStorage("auth_status", "authenticated");
-    
+
     // Auch User-Daten aus Cookie in localStorage kopieren
     const userDataCookie = getCookie("user_data");
     if (userDataCookie) {
@@ -306,7 +312,7 @@ export function isUserAuthenticated(): boolean {
       }
     }
   }
-  
+
   const isAuthenticated = localIsAuthenticated || cookieIsAuthenticated;
 
   // Debug-Ausgabe mit sinnvollen Debug-Infos
@@ -478,10 +484,10 @@ export function registerAuthEventListeners(checkAuthCallback: () => void): { rem
     removeLocalStorage("user_data");
     removeLocalStorage("access_token");
     removeLocalStorage("auth_token");
-    
+
     // Clear any other potential auth-related localStorage entries
     try {
-      Object.keys(localStorage).forEach(key => {
+      Object.keys(localStorage).forEach((key) => {
         if (key.includes("auth") || key.includes("user") || key.includes("token")) {
           removeLocalStorage(key);
         }
@@ -489,14 +495,14 @@ export function registerAuthEventListeners(checkAuthCallback: () => void): { rem
     } catch (error) {
       console.warn("Error clearing additional localStorage entries:", error);
     }
-    
+
     // Clear sessionStorage as well
     try {
       sessionStorage.clear();
     } catch (error) {
       console.warn("Error clearing sessionStorage:", error);
     }
-    
+
     checkAuthCallback();
   };
 

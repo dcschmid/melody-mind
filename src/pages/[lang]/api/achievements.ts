@@ -58,9 +58,9 @@ export const GET: APIRoute = async ({ request, params }) => {
     } else {
       // Get all achievements without user progress for non-authenticated users
       achievements = await getAllAchievements(lang);
-      
+
       // Add default progress/unlock status for display
-      achievements = achievements.map(achievement => ({
+      achievements = achievements.map((achievement) => ({
         ...achievement,
         isUnlocked: false,
         progress: 0,
@@ -83,7 +83,7 @@ export const GET: APIRoute = async ({ request, params }) => {
     );
   } catch (error: unknown) {
     console.error("Error retrieving achievements:", error);
-    
+
     return new Response(
       JSON.stringify({
         success: false,

@@ -92,7 +92,7 @@ export const POST: APIRoute = async ({ params }) => {
     const cookieOptions: CookieOptions = {
       httpOnly: true,
       secure: true,
-      sameSite: "Strict", 
+      sameSite: "Strict",
       path: "/",
       expires: accessTokenExpiry,
     };
@@ -102,7 +102,7 @@ export const POST: APIRoute = async ({ params }) => {
       httpOnly: false,
       secure: true,
       sameSite: "Strict",
-      path: "/", 
+      path: "/",
       expires: accessTokenExpiry,
     };
 

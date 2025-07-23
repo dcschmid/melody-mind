@@ -294,7 +294,8 @@ export default {
   "auth.oauth.unlink_confirm_message": "Êtes-vous sûr de vouloir déconnecter {{provider}} ?",
   "auth.oauth.cancel": "Annuler",
   "auth.oauth.confirm": "Confirmer",
-  "auth.oauth.cannot_unlink_last_method": "Impossible de déconnecter la dernière méthode d'authentification",
+  "auth.oauth.cannot_unlink_last_method":
+    "Impossible de déconnecter la dernière méthode d'authentification",
   "auth.oauth.action_failed": "Action échouée",
   "auth.session.timeout.close": "Fermer",
   "auth.session.timeout.extend": "Prolonger la session",

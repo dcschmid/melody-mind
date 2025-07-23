@@ -287,7 +287,8 @@ export default {
   "auth.oauth.unlink_confirm_message": "Sei sicuro di voler scollegare {{provider}}?",
   "auth.oauth.cancel": "Annulla",
   "auth.oauth.confirm": "Conferma",
-  "auth.oauth.cannot_unlink_last_method": "Non è possibile scollegare l'ultimo metodo di autenticazione",
+  "auth.oauth.cannot_unlink_last_method":
+    "Non è possibile scollegare l'ultimo metodo di autenticazione",
   "auth.oauth.action_failed": "Azione fallita",
   "auth.session.timeout.close": "Chiudi",
   "auth.session.timeout.extend": "Estendi Sessione",
@@ -663,7 +664,8 @@ export default {
   "podcasts.transcript.loading": "Clicca per caricare la trascrizione...",
   "podcasts.player.transcript.placeholder": "Nessun contenuto di trascrizione ancora disponibile.",
   "profile.auth.required": "Devi effettuare il login per visualizzare il tuo profilo",
-  "profile.description": "Gestisci le tue informazioni personali e visualizza le tue statistiche di gioco",
+  "profile.description":
+    "Gestisci le tue informazioni personali e visualizza le tue statistiche di gioco",
   "profile.error": "Errore nel caricamento dei dati del profilo",
   "profile.loading": "Caricamento dati profilo...",
   "profile.nav.aria": "Navigazione verso il profilo utente",

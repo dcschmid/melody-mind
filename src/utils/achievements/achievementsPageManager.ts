@@ -116,7 +116,7 @@ export class AchievementsPageManager {
       authRequiredSection: document.getElementById("auth-required-section"),
       achievementsContent: document.getElementById("achievements-content"),
       achievementsEmptySection: document.getElementById("achievements-empty-section"),
-      errorContainer: document.getElementById("achievements-error-container")
+      errorContainer: document.getElementById("achievements-error-container"),
     };
   }
 
@@ -124,8 +124,9 @@ export class AchievementsPageManager {
    * Show login form UI state
    */
   private showLoginFormState(elements: AchievementElements): void {
-    const { authRequiredSection, achievementsContent, achievementsEmptySection, errorContainer } = elements;
-    
+    const { authRequiredSection, achievementsContent, achievementsEmptySection, errorContainer } =
+      elements;
+
     if (authRequiredSection) {
       authRequiredSection.style.display = "block";
     }
@@ -145,7 +146,7 @@ export class AchievementsPageManager {
    */
   private showAuthenticatedState(elements: AchievementElements): void {
     const { authRequiredSection, errorContainer } = elements;
-    
+
     if (authRequiredSection) {
       authRequiredSection.style.display = "none";
     }
@@ -159,7 +160,7 @@ export class AchievementsPageManager {
    */
   private showErrorState(elements: AchievementElements): void {
     const { achievementsEmptySection, achievementsContent } = elements;
-    
+
     this.showError("Failed to load achievements. Please try again later.");
     if (achievementsEmptySection) {
       achievementsEmptySection.style.display = "block";
@@ -172,7 +173,11 @@ export class AchievementsPageManager {
   /**
    * Handle successful achievement loading
    */
-  private handleSuccessfulLoad(achievements: Achievement[], authResult: AuthResult, elements: AchievementElements): void {
+  private handleSuccessfulLoad(
+    achievements: Achievement[],
+    authResult: AuthResult,
+    elements: AchievementElements
+  ): void {
     if (!authResult.authenticated) {
       this.showLoginFormState(elements);
       return;
@@ -228,7 +233,11 @@ export class AchievementsPageManager {
   /**
    * Calculate achievement statistics
    */
-  private calculateAchievementStats(achievements: Achievement[]): { total: number; unlocked: number; progress: number } {
+  private calculateAchievementStats(achievements: Achievement[]): {
+    total: number;
+    unlocked: number;
+    progress: number;
+  } {
     const total = achievements.length;
     const unlocked = achievements.filter((a) => a.isUnlocked || a.unlockedAt).length;
     const progress = total > 0 ? Math.round((unlocked / total) * 100) : 0;
@@ -239,7 +248,10 @@ export class AchievementsPageManager {
   /**
    * Get achievement status and progress
    */
-  private getAchievementStatus(achievement: Achievement): { isUnlocked: boolean; progress: number } {
+  private getAchievementStatus(achievement: Achievement): {
+    isUnlocked: boolean;
+    progress: number;
+  } {
     const isUnlocked = Boolean(achievement.isUnlocked || achievement.unlockedAt);
     const progress = achievement.progress || (isUnlocked ? 100 : 0);
     return { isUnlocked, progress };
@@ -248,10 +260,14 @@ export class AchievementsPageManager {
   /**
    * Get achievement display content
    */
-  private getAchievementContent(achievement: Achievement): { name: string; description: string; categoryCode: string } {
-    const name = achievement.translations?.[0]?.name || achievement.name || achievement.code || '';
-    const description = achievement.translations?.[0]?.description || achievement.description || '';
-    const categoryCode = achievement.category?.code || 'bronze';
+  private getAchievementContent(achievement: Achievement): {
+    name: string;
+    description: string;
+    categoryCode: string;
+  } {
+    const name = achievement.translations?.[0]?.name || achievement.name || achievement.code || "";
+    const description = achievement.translations?.[0]?.description || achievement.description || "";
+    const categoryCode = achievement.category?.code || "bronze";
     return { name, description, categoryCode };
   }
 
@@ -260,9 +276,9 @@ export class AchievementsPageManager {
    */
   private generateUnlockDateHTML(achievement: Achievement, isUnlocked: boolean): string {
     if (!isUnlocked || !achievement.unlockedAt) {
-      return '';
+      return "";
     }
-    
+
     return `<time class="achievement-card__unlock-date" datetime="${achievement.unlockedAt}">
       Unlocked: ${this.formatDate(achievement.unlockedAt)}
     </time>`;
@@ -274,7 +290,9 @@ export class AchievementsPageManager {
   private renderAchievementCard(achievement: Achievement): string {
     const { isUnlocked, progress } = this.getAchievementStatus(achievement);
     const { name, description, categoryCode } = this.getAchievementContent(achievement);
-    const unlockStatusClass = isUnlocked ? "achievement-card--unlocked" : "achievement-card--locked";
+    const unlockStatusClass = isUnlocked
+      ? "achievement-card--unlocked"
+      : "achievement-card--locked";
     const unlockDateHTML = this.generateUnlockDateHTML(achievement, isUnlocked);
 
     return `
@@ -336,9 +354,11 @@ export class AchievementsPageManager {
   private renderAchievements(achievements: Achievement[]): void {
     const achievementsEmptySection = document.getElementById("achievements-empty-section");
     const achievementsContent = document.getElementById("achievements-content");
-    const achievementsCategoriesContainer = document.getElementById("achievements-categories-container");
+    const achievementsCategoriesContainer = document.getElementById(
+      "achievements-categories-container"
+    );
     const achievementsStatsContainer = document.getElementById("achievements-stats-container");
-    
+
     if (!achievements || achievements.length === 0) {
       if (achievementsEmptySection) {
         achievementsEmptySection.style.display = "block";
@@ -456,7 +476,7 @@ export class AchievementsPageManager {
         </div>
       </div>
     `;
-    
+
     achievementFilterContainer.innerHTML = filterHTML;
     this.initializeFilters();
   }
@@ -465,18 +485,18 @@ export class AchievementsPageManager {
    * Initialize filter functionality
    */
   private initializeFilters(): void {
-    const statusFilter = document.getElementById('status-filter');
-    const categoryFilter = document.getElementById('category-filter');
-    const resetButton = document.getElementById('reset-filters');
+    const statusFilter = document.getElementById("status-filter");
+    const categoryFilter = document.getElementById("category-filter");
+    const resetButton = document.getElementById("reset-filters");
 
     if (statusFilter) {
-      statusFilter.addEventListener('change', () => this.applyFilters());
+      statusFilter.addEventListener("change", () => this.applyFilters());
     }
     if (categoryFilter) {
-      categoryFilter.addEventListener('change', () => this.applyFilters());
+      categoryFilter.addEventListener("change", () => this.applyFilters());
     }
     if (resetButton) {
-      resetButton.addEventListener('click', () => this.resetFilters());
+      resetButton.addEventListener("click", () => this.resetFilters());
     }
 
     // Initial filter application
@@ -484,24 +504,24 @@ export class AchievementsPageManager {
   }
 
   // Filter-related methods continue in the next part...
-  
+
   /**
    * Get card category from element
    */
   private getCardCategory(card: Element): string {
-    const categoryElement = card.querySelector('.achievement-card__category');
+    const categoryElement = card.querySelector(".achievement-card__category");
     if (!categoryElement) {
-      return 'bronze';
+      return "bronze";
     }
     const categoryText = categoryElement.textContent?.trim().toLowerCase();
-    return categoryText || 'bronze';
+    return categoryText || "bronze";
   }
 
   /**
    * Get card progress from element
    */
   private getCardProgress(card: Element): number {
-    const progressText = card.querySelector('.achievement-card__progress-text');
+    const progressText = card.querySelector(".achievement-card__progress-text");
     if (!progressText) {
       return 0;
     }
@@ -513,29 +533,33 @@ export class AchievementsPageManager {
    * Determine card status
    */
   private getCardStatus(card: Element): string {
-    const isUnlocked = card.classList.contains('achievement-card--unlocked');
+    const isUnlocked = card.classList.contains("achievement-card--unlocked");
     if (isUnlocked) {
-      return 'unlocked';
+      return "unlocked";
     }
-    
+
     const progress = this.getCardProgress(card);
     if (progress > 0 && progress < 100) {
-      return 'in-progress';
+      return "in-progress";
     }
-    
-    return 'locked';
+
+    return "locked";
   }
 
   /**
    * Check if card matches filters
    */
-  private cardMatchesFilters(card: Element, selectedStatus: string, selectedCategory: string): boolean {
+  private cardMatchesFilters(
+    card: Element,
+    selectedStatus: string,
+    selectedCategory: string
+  ): boolean {
     const status = this.getCardStatus(card);
     const cardCategory = this.getCardCategory(card);
-    
-    const statusMatch = selectedStatus === 'all' || status === selectedStatus;
-    const categoryMatch = selectedCategory === 'all' || cardCategory === selectedCategory;
-    
+
+    const statusMatch = selectedStatus === "all" || status === selectedStatus;
+    const categoryMatch = selectedCategory === "all" || cardCategory === selectedCategory;
+
     return statusMatch && categoryMatch;
   }
 
@@ -544,13 +568,13 @@ export class AchievementsPageManager {
    */
   private updateCardVisibility(card: Element, cardElement: Element, isVisible: boolean): void {
     if (isVisible) {
-      (cardElement as HTMLElement).style.display = '';
-      cardElement.classList.remove('filtered-hidden');
-      card.classList.remove('filtered-hidden');
+      (cardElement as HTMLElement).style.display = "";
+      cardElement.classList.remove("filtered-hidden");
+      card.classList.remove("filtered-hidden");
     } else {
-      (cardElement as HTMLElement).style.display = 'none';
-      cardElement.classList.add('filtered-hidden');
-      card.classList.add('filtered-hidden');
+      (cardElement as HTMLElement).style.display = "none";
+      cardElement.classList.add("filtered-hidden");
+      card.classList.add("filtered-hidden");
     }
   }
 
@@ -558,22 +582,23 @@ export class AchievementsPageManager {
    * Update category sections visibility
    */
   private updateCategoryVisibility(): void {
-    const categories = document.querySelectorAll('.achievements__category');
-    
-    categories.forEach(category => {
-      const categoryCards = category.querySelectorAll('.achievement-card');
-      const visibleCards = Array.from(categoryCards).filter(card => 
-        !card.classList.contains('filtered-hidden') && 
-        (card.closest('[role="listitem"]') as HTMLElement)?.style.display !== 'none'
+    const categories = document.querySelectorAll(".achievements__category");
+
+    categories.forEach((category) => {
+      const categoryCards = category.querySelectorAll(".achievement-card");
+      const visibleCards = Array.from(categoryCards).filter(
+        (card) =>
+          !card.classList.contains("filtered-hidden") &&
+          (card.closest('[role="listitem"]') as HTMLElement)?.style.display !== "none"
       );
-      
+
       const categoryElement = category as HTMLElement;
       if (visibleCards.length === 0) {
-        categoryElement.style.display = 'none';
-        category.classList.add('section-empty');
+        categoryElement.style.display = "none";
+        category.classList.add("section-empty");
       } else {
-        categoryElement.style.display = 'block';
-        category.classList.remove('section-empty');
+        categoryElement.style.display = "block";
+        category.classList.remove("section-empty");
       }
     });
   }
@@ -582,16 +607,16 @@ export class AchievementsPageManager {
    * Apply filters to achievements
    */
   private applyFilters(): void {
-    const statusFilter = document.getElementById('status-filter') as HTMLSelectElement;
-    const categoryFilter = document.getElementById('category-filter') as HTMLSelectElement;
-    
+    const statusFilter = document.getElementById("status-filter") as HTMLSelectElement;
+    const categoryFilter = document.getElementById("category-filter") as HTMLSelectElement;
+
     if (!statusFilter || !categoryFilter) {
       return;
     }
 
     const selectedStatus = statusFilter.value;
     const selectedCategory = categoryFilter.value;
-    const achievementCards = document.querySelectorAll('.achievement-card');
+    const achievementCards = document.querySelectorAll(".achievement-card");
 
     let visibleCount = 0;
 
@@ -603,7 +628,7 @@ export class AchievementsPageManager {
 
       const isVisible = this.cardMatchesFilters(card, selectedStatus, selectedCategory);
       this.updateCardVisibility(card, cardElement, isVisible);
-      
+
       if (isVisible) {
         visibleCount++;
       }
@@ -616,9 +641,13 @@ export class AchievementsPageManager {
   /**
    * Update filter counts
    */
-  private updateFilterCounts(selectedStatus: string, selectedCategory: string, visibleCount: number): void {
-    const statusCount = document.getElementById('status-count');
-    const categoryCount = document.getElementById('category-count');
+  private updateFilterCounts(
+    selectedStatus: string,
+    selectedCategory: string,
+    visibleCount: number
+  ): void {
+    const statusCount = document.getElementById("status-count");
+    const categoryCount = document.getElementById("category-count");
 
     if (statusCount) {
       statusCount.textContent = `${visibleCount} achievements`;
@@ -632,14 +661,14 @@ export class AchievementsPageManager {
    * Reset all filters
    */
   private resetFilters(): void {
-    const statusFilter = document.getElementById('status-filter') as HTMLSelectElement;
-    const categoryFilter = document.getElementById('category-filter') as HTMLSelectElement;
+    const statusFilter = document.getElementById("status-filter") as HTMLSelectElement;
+    const categoryFilter = document.getElementById("category-filter") as HTMLSelectElement;
 
     if (statusFilter) {
-      statusFilter.value = 'all';
+      statusFilter.value = "all";
     }
     if (categoryFilter) {
-      categoryFilter.value = 'all';
+      categoryFilter.value = "all";
     }
 
     this.applyFilters();

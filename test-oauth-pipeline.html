@@ -1,300 +1,322 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OAuth Pipeline Test - MelodyMind</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            min-height: 100vh;
-        }
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #fff;
-        }
-        .section {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .section h2 {
-            margin-top: 0;
-            color: #fff;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            padding-bottom: 10px;
-        }
-        .button {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 10px 5px;
-            transition: transform 0.2s;
-        }
-        .button:hover {
-            transform: translateY(-2px);
-        }
-        .test-result {
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 8px;
-            font-weight: bold;
-        }
-        .success {
-            background: rgba(76, 175, 80, 0.2);
-            border: 1px solid #4caf50;
-            color: #4caf50;
-        }
-        .error {
-            background: rgba(244, 67, 54, 0.2);
-            border: 1px solid #f44336;
-            color: #f44336;
-        }
-        .warning {
-            background: rgba(255, 193, 7, 0.2);
-            border: 1px solid #ffc107;
-            color: #ffc107;
-        }
-        .info {
-            background: rgba(33, 150, 243, 0.2);
-            border: 1px solid #2196f3;
-            color: #2196f3;
-        }
-        pre {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 15px;
-            border-radius: 8px;
-            overflow-x: auto;
-            white-space: pre-wrap;
-            font-size: 14px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        .data-item {
-            margin: 10px 0;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-            font-family: 'Courier New', monospace;
-            word-break: break-all;
-        }
-        .data-label {
-            font-weight: bold;
-            color: #ffeb3b;
-        }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        min-height: 100vh;
+      }
+      .container {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #fff;
+      }
+      .section {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .section h2 {
+        margin-top: 0;
+        color: #fff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 10px;
+      }
+      .button {
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 10px 5px;
+        transition: transform 0.2s;
+      }
+      .button:hover {
+        transform: translateY(-2px);
+      }
+      .test-result {
+        margin: 10px 0;
+        padding: 15px;
+        border-radius: 8px;
+        font-weight: bold;
+      }
+      .success {
+        background: rgba(76, 175, 80, 0.2);
+        border: 1px solid #4caf50;
+        color: #4caf50;
+      }
+      .error {
+        background: rgba(244, 67, 54, 0.2);
+        border: 1px solid #f44336;
+        color: #f44336;
+      }
+      .warning {
+        background: rgba(255, 193, 7, 0.2);
+        border: 1px solid #ffc107;
+        color: #ffc107;
+      }
+      .info {
+        background: rgba(33, 150, 243, 0.2);
+        border: 1px solid #2196f3;
+        color: #2196f3;
+      }
+      pre {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        font-size: 14px;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      .data-item {
+        margin: 10px 0;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        font-family: "Courier New", monospace;
+        word-break: break-all;
+      }
+      .data-label {
+        font-weight: bold;
+        color: #ffeb3b;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>🔧 OAuth Pipeline Test Tool</h1>
-        
-        <div class="section">
-            <h2>🔐 1. Auth Status Check</h2>
-            <p>Überprüft den aktuellen Authentifizierungsstatus:</p>
-            <button class="button" onclick="checkAuthStatus()">🔍 Auth Status prüfen</button>
-            <div id="auth-status-result"></div>
+      <h1>🔧 OAuth Pipeline Test Tool</h1>
+
+      <div class="section">
+        <h2>🔐 1. Auth Status Check</h2>
+        <p>Überprüft den aktuellen Authentifizierungsstatus:</p>
+        <button class="button" onclick="checkAuthStatus()">🔍 Auth Status prüfen</button>
+        <div id="auth-status-result"></div>
+      </div>
+
+      <div class="section">
+        <h2>🎮 2. Game Data Simulation</h2>
+        <p>Simuliert das Speichern von Spielergebnissen:</p>
+
+        <div style="margin: 15px 0">
+          <label>Kategorie: </label>
+          <select id="test-category">
+            <option value="Rock Classics">Rock Classics</option>
+            <option value="Pop Hits">Pop Hits</option>
+            <option value="Jazz Standards">Jazz Standards</option>
+          </select>
+
+          <label style="margin-left: 20px">Schwierigkeit: </label>
+          <select id="test-difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
         </div>
 
-        <div class="section">
-            <h2>🎮 2. Game Data Simulation</h2>
-            <p>Simuliert das Speichern von Spielergebnissen:</p>
-            
-            <div style="margin: 15px 0;">
-                <label>Kategorie: </label>
-                <select id="test-category">
-                    <option value="Rock Classics">Rock Classics</option>
-                    <option value="Pop Hits">Pop Hits</option>
-                    <option value="Jazz Standards">Jazz Standards</option>
-                </select>
-                
-                <label style="margin-left: 20px;">Schwierigkeit: </label>
-                <select id="test-difficulty">
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
-                </select>
-            </div>
-            
-            <div style="margin: 15px 0;">
-                <label>Score: </label>
-                <input type="number" id="test-score" value="1250" min="0" max="2000" style="padding: 8px; border-radius: 5px; border: none;">
-                
-                <label style="margin-left: 20px;">Richtige Antworten: </label>
-                <input type="number" id="test-correct" value="18" min="0" max="20" style="padding: 8px; border-radius: 5px; border: none;">
-                
-                <label style="margin-left: 20px;">Gesamt Runden: </label>
-                <input type="number" id="test-total" value="20" min="1" max="20" style="padding: 8px; border-radius: 5px; border: none;">
-            </div>
-            
-            <button class="button" onclick="testGameSaving()">💾 Spielstand speichern</button>
-            <div id="game-save-result"></div>
+        <div style="margin: 15px 0">
+          <label>Score: </label>
+          <input
+            type="number"
+            id="test-score"
+            value="1250"
+            min="0"
+            max="2000"
+            style="padding: 8px; border-radius: 5px; border: none"
+          />
+
+          <label style="margin-left: 20px">Richtige Antworten: </label>
+          <input
+            type="number"
+            id="test-correct"
+            value="18"
+            min="0"
+            max="20"
+            style="padding: 8px; border-radius: 5px; border: none"
+          />
+
+          <label style="margin-left: 20px">Gesamt Runden: </label>
+          <input
+            type="number"
+            id="test-total"
+            value="20"
+            min="1"
+            max="20"
+            style="padding: 8px; border-radius: 5px; border: none"
+          />
         </div>
 
-        <div class="section">
-            <h2>🧪 3. Full Pipeline Test</h2>
-            <p>Testet die komplette OAuth → Game → Save Pipeline:</p>
-            <button class="button" onclick="runFullPipelineTest()">🚀 Vollständiger Test</button>
-            <div id="pipeline-result"></div>
-        </div>
+        <button class="button" onclick="testGameSaving()">💾 Spielstand speichern</button>
+        <div id="game-save-result"></div>
+      </div>
 
-        <div class="section">
-            <h2>🛠️ 4. Debug Information</h2>
-            <button class="button" onclick="showDetailedDebugInfo()">🔍 Detaillierte Debug-Info</button>
-            <div id="debug-info"></div>
-        </div>
+      <div class="section">
+        <h2>🧪 3. Full Pipeline Test</h2>
+        <p>Testet die komplette OAuth → Game → Save Pipeline:</p>
+        <button class="button" onclick="runFullPipelineTest()">🚀 Vollständiger Test</button>
+        <div id="pipeline-result"></div>
+      </div>
 
-        <div class="section">
-            <h2>📊 5. Live Debug Log</h2>
-            <pre id="debug-log">Bereit für Debug-Ausgaben...\n</pre>
-            <button class="button" onclick="clearDebugLog()">🗑️ Log löschen</button>
-        </div>
+      <div class="section">
+        <h2>🛠️ 4. Debug Information</h2>
+        <button class="button" onclick="showDetailedDebugInfo()">🔍 Detaillierte Debug-Info</button>
+        <div id="debug-info"></div>
+      </div>
+
+      <div class="section">
+        <h2>📊 5. Live Debug Log</h2>
+        <pre id="debug-log">Bereit für Debug-Ausgaben...\n</pre>
+        <button class="button" onclick="clearDebugLog()">🗑️ Log löschen</button>
+      </div>
     </div>
 
     <script>
-        // Debug-Log-System
-        function debugLog(message, type = 'info') {
-            const logElement = document.getElementById('debug-log');
-            const timestamp = new Date().toLocaleTimeString();
-            const logEntry = `[${timestamp}] ${type.toUpperCase()}: ${message}\n`;
-            logElement.textContent += logEntry;
-            logElement.scrollTop = logElement.scrollHeight;
-            console.log(`Pipeline Debug: ${message}`);
+      // Debug-Log-System
+      function debugLog(message, type = "info") {
+        const logElement = document.getElementById("debug-log");
+        const timestamp = new Date().toLocaleTimeString();
+        const logEntry = `[${timestamp}] ${type.toUpperCase()}: ${message}\n`;
+        logElement.textContent += logEntry;
+        logElement.scrollTop = logElement.scrollHeight;
+        console.log(`Pipeline Debug: ${message}`);
+      }
+
+      function clearDebugLog() {
+        document.getElementById("debug-log").textContent = "Log gelöscht...\n";
+      }
+
+      // 1. Auth Status Check
+      async function checkAuthStatus() {
+        debugLog("Starte Auth Status Check...");
+        const resultDiv = document.getElementById("auth-status-result");
+
+        // localStorage Check
+        const authToken = localStorage.getItem("authToken");
+        const userData = localStorage.getItem("user");
+        const authStatus = localStorage.getItem("auth_status");
+
+        // Cookie Check
+        const cookies = document.cookie;
+        const hasAuthCookie = cookies.includes("auth_token");
+        const hasUserDataCookie = cookies.includes("user_data");
+
+        let statusHTML = '<div class="test-result info"><strong>🔐 Auth Status:</strong><br><br>';
+
+        statusHTML += `localStorage authToken: ${authToken ? "✅ Vorhanden" : "❌ Fehlt"}<br>`;
+        statusHTML += `localStorage user: ${userData ? "✅ Vorhanden" : "❌ Fehlt"}<br>`;
+        statusHTML += `localStorage auth_status: ${authStatus || "❌ Nicht gesetzt"}<br>`;
+        statusHTML += `Cookie auth_token: ${hasAuthCookie ? "✅ Vorhanden" : "❌ Fehlt"}<br>`;
+        statusHTML += `Cookie user_data: ${hasUserDataCookie ? "✅ Vorhanden" : "❌ Fehlt"}<br><br>`;
+
+        if (userData) {
+          try {
+            const user = JSON.parse(userData);
+            statusHTML += `👤 User ID: ${user.id}<br>`;
+            statusHTML += `📧 Email: ${user.email}<br>`;
+            statusHTML += `👤 Username: ${user.username}<br><br>`;
+
+            debugLog(`User gefunden: ${user.username} (${user.id})`);
+          } catch (e) {
+            statusHTML += `❌ Fehler beim Parsen der User-Daten: ${e.message}<br>`;
+            debugLog(`User-Daten Parse-Fehler: ${e.message}`, "error");
+          }
         }
 
-        function clearDebugLog() {
-            document.getElementById('debug-log').textContent = 'Log gelöscht...\n';
+        // Test profile API
+        try {
+          const profileResponse = await fetch("/de/api/user/profile");
+          if (profileResponse.ok) {
+            const profileData = await profileResponse.json();
+            statusHTML += `✅ Server-Side Auth: Aktiv<br>`;
+            statusHTML += `🆔 Server User ID: ${profileData.user?.id}<br>`;
+            debugLog(`Server-side Auth erfolgreich für User: ${profileData.user?.id}`);
+          } else {
+            statusHTML += `❌ Server-Side Auth: Nicht aktiv<br>`;
+            debugLog("Server-side Auth nicht aktiv", "warning");
+          }
+        } catch (error) {
+          statusHTML += `❌ Server Auth Test Error: ${error.message}<br>`;
+          debugLog(`Server Auth Test Fehler: ${error.message}`, "error");
         }
 
-        // 1. Auth Status Check
-        async function checkAuthStatus() {
-            debugLog('Starte Auth Status Check...');
-            const resultDiv = document.getElementById('auth-status-result');
-            
-            // localStorage Check
-            const authToken = localStorage.getItem('authToken');
-            const userData = localStorage.getItem('user');
-            const authStatus = localStorage.getItem('auth_status');
-            
-            // Cookie Check
-            const cookies = document.cookie;
-            const hasAuthCookie = cookies.includes('auth_token');
-            const hasUserDataCookie = cookies.includes('user_data');
-            
-            let statusHTML = '<div class="test-result info"><strong>🔐 Auth Status:</strong><br><br>';
-            
-            statusHTML += `localStorage authToken: ${authToken ? '✅ Vorhanden' : '❌ Fehlt'}<br>`;
-            statusHTML += `localStorage user: ${userData ? '✅ Vorhanden' : '❌ Fehlt'}<br>`;
-            statusHTML += `localStorage auth_status: ${authStatus || '❌ Nicht gesetzt'}<br>`;
-            statusHTML += `Cookie auth_token: ${hasAuthCookie ? '✅ Vorhanden' : '❌ Fehlt'}<br>`;
-            statusHTML += `Cookie user_data: ${hasUserDataCookie ? '✅ Vorhanden' : '❌ Fehlt'}<br><br>`;
-            
-            if (userData) {
-                try {
-                    const user = JSON.parse(userData);
-                    statusHTML += `👤 User ID: ${user.id}<br>`;
-                    statusHTML += `📧 Email: ${user.email}<br>`;
-                    statusHTML += `👤 Username: ${user.username}<br><br>`;
-                    
-                    debugLog(`User gefunden: ${user.username} (${user.id})`);
-                } catch (e) {
-                    statusHTML += `❌ Fehler beim Parsen der User-Daten: ${e.message}<br>`;
-                    debugLog(`User-Daten Parse-Fehler: ${e.message}`, 'error');
-                }
-            }
-            
-            // Test profile API
-            try {
-                const profileResponse = await fetch('/de/api/user/profile');
-                if (profileResponse.ok) {
-                    const profileData = await profileResponse.json();
-                    statusHTML += `✅ Server-Side Auth: Aktiv<br>`;
-                    statusHTML += `🆔 Server User ID: ${profileData.user?.id}<br>`;
-                    debugLog(`Server-side Auth erfolgreich für User: ${profileData.user?.id}`);
-                } else {
-                    statusHTML += `❌ Server-Side Auth: Nicht aktiv<br>`;
-                    debugLog('Server-side Auth nicht aktiv', 'warning');
-                }
-            } catch (error) {
-                statusHTML += `❌ Server Auth Test Error: ${error.message}<br>`;
-                debugLog(`Server Auth Test Fehler: ${error.message}`, 'error');
-            }
-            
-            statusHTML += '</div>';
-            resultDiv.innerHTML = statusHTML;
+        statusHTML += "</div>";
+        resultDiv.innerHTML = statusHTML;
+      }
+
+      // 2. Game Saving Test
+      async function testGameSaving() {
+        debugLog("Starte Game Saving Test...");
+        const resultDiv = document.getElementById("game-save-result");
+        resultDiv.innerHTML = "";
+
+        // Get user ID
+        let userId = "guest";
+        try {
+          const userStr = localStorage.getItem("user");
+          if (userStr) {
+            const user = JSON.parse(userStr);
+            userId = user.id || "guest";
+            debugLog(`User ID für Test: ${userId}`);
+          }
+        } catch (e) {
+          debugLog(`Fehler beim Ermitteln der User-ID: ${e.message}`, "error");
         }
 
-        // 2. Game Saving Test
-        async function testGameSaving() {
-            debugLog('Starte Game Saving Test...');
-            const resultDiv = document.getElementById('game-save-result');
-            resultDiv.innerHTML = '';
-            
-            // Get user ID
-            let userId = 'guest';
-            try {
-                const userStr = localStorage.getItem('user');
-                if (userStr) {
-                    const user = JSON.parse(userStr);
-                    userId = user.id || 'guest';
-                    debugLog(`User ID für Test: ${userId}`);
-                }
-            } catch (e) {
-                debugLog(`Fehler beim Ermitteln der User-ID: ${e.message}`, 'error');
-            }
-            
-            if (userId === 'guest') {
-                resultDiv.innerHTML = '<div class="test-result error">❌ Kein gültiger OAuth-User gefunden! Bitte melde dich zuerst über OAuth an.</div>';
-                debugLog('Test abgebrochen: Kein gültiger User', 'error');
-                return;
-            }
-            
-            // Collect form data
-            const gameData = {
-                userId: userId,
-                categoryName: document.getElementById('test-category').value,
-                difficulty: document.getElementById('test-difficulty').value,
-                score: parseInt(document.getElementById('test-score').value),
-                correctAnswers: parseInt(document.getElementById('test-correct').value),
-                totalRounds: parseInt(document.getElementById('test-total').value)
-            };
-            
-            debugLog(`Sende Game-Daten: ${JSON.stringify(gameData, null, 2)}`);
-            
-            try {
-                resultDiv.innerHTML = '<div class="test-result info">⏳ Speichere Spielergebnis...</div>';
-                
-                const response = await fetch('/de/api/game/save-result', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(gameData)
-                });
-                
-                const result = await response.json();
-                debugLog(`API Response (${response.status}): ${JSON.stringify(result, null, 2)}`);
-                
-                if (response.ok && result.success) {
-                    resultDiv.innerHTML = `
+        if (userId === "guest") {
+          resultDiv.innerHTML =
+            '<div class="test-result error">❌ Kein gültiger OAuth-User gefunden! Bitte melde dich zuerst über OAuth an.</div>';
+          debugLog("Test abgebrochen: Kein gültiger User", "error");
+          return;
+        }
+
+        // Collect form data
+        const gameData = {
+          userId: userId,
+          categoryName: document.getElementById("test-category").value,
+          difficulty: document.getElementById("test-difficulty").value,
+          score: parseInt(document.getElementById("test-score").value),
+          correctAnswers: parseInt(document.getElementById("test-correct").value),
+          totalRounds: parseInt(document.getElementById("test-total").value),
+        };
+
+        debugLog(`Sende Game-Daten: ${JSON.stringify(gameData, null, 2)}`);
+
+        try {
+          resultDiv.innerHTML = '<div class="test-result info">⏳ Speichere Spielergebnis...</div>';
+
+          const response = await fetch("/de/api/game/save-result", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(gameData),
+          });
+
+          const result = await response.json();
+          debugLog(`API Response (${response.status}): ${JSON.stringify(result, null, 2)}`);
+
+          if (response.ok && result.success) {
+            resultDiv.innerHTML = `
                         <div class="test-result success">✅ Spielergebnis erfolgreich gespeichert!</div>
                         <div class="data-item">
                             <span class="data-label">Game Mode:</span> ${result.gameMode}
@@ -306,199 +328,202 @@
                             <span class="data-label">Achievements:</span> ${result.unlockedAchievements?.length || 0} freigeschaltet
                         </div>
                     `;
-                    debugLog('✅ Spielergebnis erfolgreich gespeichert!');
-                } else {
-                    resultDiv.innerHTML = `
+            debugLog("✅ Spielergebnis erfolgreich gespeichert!");
+          } else {
+            resultDiv.innerHTML = `
                         <div class="test-result error">❌ Fehler beim Speichern!</div>
                         <div class="data-item">
                             <span class="data-label">Status:</span> ${response.status}
                         </div>
                         <div class="data-item">
-                            <span class="data-label">Fehlermeldung:</span> ${result.message || 'Unbekannter Fehler'}
+                            <span class="data-label">Fehlermeldung:</span> ${result.message || "Unbekannter Fehler"}
                         </div>
                     `;
-                    debugLog(`❌ Speichern fehlgeschlagen: ${result.message}`, 'error');
-                }
-            } catch (error) {
-                const errorMsg = `Netzwerk-Fehler: ${error.message}`;
-                resultDiv.innerHTML = `
+            debugLog(`❌ Speichern fehlgeschlagen: ${result.message}`, "error");
+          }
+        } catch (error) {
+          const errorMsg = `Netzwerk-Fehler: ${error.message}`;
+          resultDiv.innerHTML = `
                     <div class="test-result error">❌ ${errorMsg}</div>
                 `;
-                debugLog(errorMsg, 'error');
-            }
+          debugLog(errorMsg, "error");
+        }
+      }
+
+      // 3. Full Pipeline Test
+      async function runFullPipelineTest() {
+        debugLog("Starte Full Pipeline Test...");
+        const resultDiv = document.getElementById("pipeline-result");
+
+        let testResults = [];
+
+        // Test 1: Auth Check
+        debugLog("Pipeline Test 1/4: Auth Check");
+        try {
+          const authToken = localStorage.getItem("authToken");
+          const userData = localStorage.getItem("user");
+
+          if (authToken && userData) {
+            testResults.push("✅ Client-Side Auth: OK");
+            debugLog("✅ Client-Side Auth Check bestanden");
+          } else {
+            testResults.push("❌ Client-Side Auth: FEHLT");
+            debugLog("❌ Client-Side Auth Check fehlgeschlagen", "error");
+          }
+        } catch (error) {
+          testResults.push(`❌ Auth Check Error: ${error.message}`);
+          debugLog(`Auth Check Fehler: ${error.message}`, "error");
         }
 
-        // 3. Full Pipeline Test
-        async function runFullPipelineTest() {
-            debugLog('Starte Full Pipeline Test...');
-            const resultDiv = document.getElementById('pipeline-result');
-            
-            let testResults = [];
-            
-            // Test 1: Auth Check
-            debugLog('Pipeline Test 1/4: Auth Check');
-            try {
-                const authToken = localStorage.getItem('authToken');
-                const userData = localStorage.getItem('user');
-                
-                if (authToken && userData) {
-                    testResults.push('✅ Client-Side Auth: OK');
-                    debugLog('✅ Client-Side Auth Check bestanden');
-                } else {
-                    testResults.push('❌ Client-Side Auth: FEHLT');
-                    debugLog('❌ Client-Side Auth Check fehlgeschlagen', 'error');
-                }
-            } catch (error) {
-                testResults.push(`❌ Auth Check Error: ${error.message}`);
-                debugLog(`Auth Check Fehler: ${error.message}`, 'error');
-            }
-            
-            // Test 2: Server Auth
-            debugLog('Pipeline Test 2/4: Server Auth');
-            try {
-                const profileResponse = await fetch('/de/api/user/profile');
-                if (profileResponse.ok) {
-                    testResults.push('✅ Server-Side Auth: OK');
-                    debugLog('✅ Server-Side Auth Check bestanden');
-                } else {
-                    testResults.push('❌ Server-Side Auth: FEHLT');
-                    debugLog('❌ Server-Side Auth Check fehlgeschlagen', 'error');
-                }
-            } catch (error) {
-                testResults.push(`❌ Server Auth Error: ${error.message}`);
-                debugLog(`Server Auth Fehler: ${error.message}`, 'error');
-            }
-            
-            // Test 3: User ID Validation
-            debugLog('Pipeline Test 3/4: User ID Validation');
-            let validUserId = null;
-            try {
-                const userStr = localStorage.getItem('user');
-                if (userStr) {
-                    const user = JSON.parse(userStr);
-                    if (user.id && user.id !== 'guest') {
-                        validUserId = user.id;
-                        testResults.push(`✅ User ID: ${user.id}`);
-                        debugLog(`✅ Gültige User ID gefunden: ${user.id}`);
-                    } else {
-                        testResults.push('❌ User ID: Invalid oder Guest');
-                        debugLog('❌ User ID ungültig oder Guest', 'error');
-                    }
-                }
-            } catch (error) {
-                testResults.push(`❌ User ID Parse Error: ${error.message}`);
-                debugLog(`User ID Parse Fehler: ${error.message}`, 'error');
-            }
-            
-            // Test 4: Save API Test
-            debugLog('Pipeline Test 4/4: Save API Test');
-            if (validUserId) {
-                try {
-                    const testGameData = {
-                        userId: validUserId,
-                        categoryName: 'Pipeline Test',
-                        difficulty: 'medium',
-                        score: 1337,
-                        correctAnswers: 15,
-                        totalRounds: 20
-                    };
-                    
-                    const saveResponse = await fetch('/de/api/game/save-result', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(testGameData)
-                    });
-                    
-                    const saveResult = await saveResponse.json();
-                    
-                    if (saveResponse.ok && saveResult.success) {
-                        testResults.push('✅ Save API: OK');
-                        debugLog('✅ Save API Test bestanden');
-                    } else {
-                        testResults.push(`❌ Save API: ${saveResult.message}`);
-                        debugLog(`❌ Save API Test fehlgeschlagen: ${saveResult.message}`, 'error');
-                    }
-                } catch (error) {
-                    testResults.push(`❌ Save API Error: ${error.message}`);
-                    debugLog(`Save API Fehler: ${error.message}`, 'error');
-                }
+        // Test 2: Server Auth
+        debugLog("Pipeline Test 2/4: Server Auth");
+        try {
+          const profileResponse = await fetch("/de/api/user/profile");
+          if (profileResponse.ok) {
+            testResults.push("✅ Server-Side Auth: OK");
+            debugLog("✅ Server-Side Auth Check bestanden");
+          } else {
+            testResults.push("❌ Server-Side Auth: FEHLT");
+            debugLog("❌ Server-Side Auth Check fehlgeschlagen", "error");
+          }
+        } catch (error) {
+          testResults.push(`❌ Server Auth Error: ${error.message}`);
+          debugLog(`Server Auth Fehler: ${error.message}`, "error");
+        }
+
+        // Test 3: User ID Validation
+        debugLog("Pipeline Test 3/4: User ID Validation");
+        let validUserId = null;
+        try {
+          const userStr = localStorage.getItem("user");
+          if (userStr) {
+            const user = JSON.parse(userStr);
+            if (user.id && user.id !== "guest") {
+              validUserId = user.id;
+              testResults.push(`✅ User ID: ${user.id}`);
+              debugLog(`✅ Gültige User ID gefunden: ${user.id}`);
             } else {
-                testResults.push('❌ Save API: Übersprungen (keine gültige User ID)');
-                debugLog('Save API Test übersprungen - keine gültige User ID', 'warning');
+              testResults.push("❌ User ID: Invalid oder Guest");
+              debugLog("❌ User ID ungültig oder Guest", "error");
             }
-            
-            // Ergebnisse anzeigen
-            const successCount = testResults.filter(r => r.startsWith('✅')).length;
-            const totalTests = testResults.length;
-            
-            let resultHTML = `<div class="test-result ${successCount === totalTests ? 'success' : 'error'}">`;
-            resultHTML += `<strong>🚀 Pipeline Test Ergebnis: ${successCount}/${totalTests} Tests bestanden</strong><br><br>`;
-            
-            testResults.forEach(result => {
-                resultHTML += `${result}<br>`;
+          }
+        } catch (error) {
+          testResults.push(`❌ User ID Parse Error: ${error.message}`);
+          debugLog(`User ID Parse Fehler: ${error.message}`, "error");
+        }
+
+        // Test 4: Save API Test
+        debugLog("Pipeline Test 4/4: Save API Test");
+        if (validUserId) {
+          try {
+            const testGameData = {
+              userId: validUserId,
+              categoryName: "Pipeline Test",
+              difficulty: "medium",
+              score: 1337,
+              correctAnswers: 15,
+              totalRounds: 20,
+            };
+
+            const saveResponse = await fetch("/de/api/game/save-result", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(testGameData),
             });
-            
-            resultHTML += '</div>';
-            
-            if (successCount === totalTests) {
-                resultHTML += '<div class="test-result success">🎉 Alle Tests bestanden! OAuth-Punktespeicherung sollte funktionieren.</div>';
-                debugLog('🎉 Full Pipeline Test: Alle Tests bestanden!');
+
+            const saveResult = await saveResponse.json();
+
+            if (saveResponse.ok && saveResult.success) {
+              testResults.push("✅ Save API: OK");
+              debugLog("✅ Save API Test bestanden");
             } else {
-                resultHTML += '<div class="test-result error">❌ Einige Tests fehlgeschlagen. Prüfe die Debug-Ausgaben für Details.</div>';
-                debugLog('❌ Full Pipeline Test: Einige Tests fehlgeschlagen', 'error');
+              testResults.push(`❌ Save API: ${saveResult.message}`);
+              debugLog(`❌ Save API Test fehlgeschlagen: ${saveResult.message}`, "error");
             }
-            
-            resultDiv.innerHTML = resultHTML;
+          } catch (error) {
+            testResults.push(`❌ Save API Error: ${error.message}`);
+            debugLog(`Save API Fehler: ${error.message}`, "error");
+          }
+        } else {
+          testResults.push("❌ Save API: Übersprungen (keine gültige User ID)");
+          debugLog("Save API Test übersprungen - keine gültige User ID", "warning");
         }
 
-        // 4. Detailed Debug Info
-        function showDetailedDebugInfo() {
-            debugLog('Sammle detaillierte Debug-Informationen...');
-            const debugDiv = document.getElementById('debug-info');
-            
-            let debugHTML = '<div class="test-result info"><strong>🛠️ Detaillierte Debug-Info:</strong><br><br>';
-            
-            // Browser Info
-            debugHTML += `<strong>🌐 Browser:</strong><br>`;
-            debugHTML += `User Agent: ${navigator.userAgent}<br>`;
-            debugHTML += `URL: ${window.location.href}<br>`;
-            debugHTML += `Host: ${window.location.host}<br><br>`;
-            
-            // localStorage
-            debugHTML += `<strong>💾 localStorage:</strong><br>`;
-            for (let i = 0; i < localStorage.length; i++) {
-                const key = localStorage.key(i);
-                const value = localStorage.getItem(key);
-                debugHTML += `${key}: ${value ? (value.length > 100 ? value.substring(0, 100) + '...' : value) : 'null'}<br>`;
-            }
-            debugHTML += '<br>';
-            
-            // Cookies
-            debugHTML += `<strong>🍪 Cookies:</strong><br>`;
-            const cookies = document.cookie.split(';');
-            cookies.forEach(cookie => {
-                const [name, value] = cookie.trim().split('=');
-                debugHTML += `${name}: ${value ? (value.length > 50 ? value.substring(0, 50) + '...' : value) : 'empty'}<br>`;
-            });
-            debugHTML += '<br>';
-            
-            // Current Time
-            debugHTML += `<strong>🕒 Timestamp:</strong><br>`;
-            debugHTML += `Current Time: ${new Date().toISOString()}<br>`;
-            debugHTML += `Local Time: ${new Date().toString()}<br><br>`;
-            
-            debugHTML += '</div>';
-            
-            debugDiv.innerHTML = debugHTML;
-            debugLog('Debug-Informationen gesammelt');
-        }
+        // Ergebnisse anzeigen
+        const successCount = testResults.filter((r) => r.startsWith("✅")).length;
+        const totalTests = testResults.length;
 
-        // Auto-initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            debugLog('OAuth Pipeline Test Tool geladen');
-            debugLog('Führe automatischen Auth-Check durch...');
-            setTimeout(checkAuthStatus, 1000);
+        let resultHTML = `<div class="test-result ${successCount === totalTests ? "success" : "error"}">`;
+        resultHTML += `<strong>🚀 Pipeline Test Ergebnis: ${successCount}/${totalTests} Tests bestanden</strong><br><br>`;
+
+        testResults.forEach((result) => {
+          resultHTML += `${result}<br>`;
         });
+
+        resultHTML += "</div>";
+
+        if (successCount === totalTests) {
+          resultHTML +=
+            '<div class="test-result success">🎉 Alle Tests bestanden! OAuth-Punktespeicherung sollte funktionieren.</div>';
+          debugLog("🎉 Full Pipeline Test: Alle Tests bestanden!");
+        } else {
+          resultHTML +=
+            '<div class="test-result error">❌ Einige Tests fehlgeschlagen. Prüfe die Debug-Ausgaben für Details.</div>';
+          debugLog("❌ Full Pipeline Test: Einige Tests fehlgeschlagen", "error");
+        }
+
+        resultDiv.innerHTML = resultHTML;
+      }
+
+      // 4. Detailed Debug Info
+      function showDetailedDebugInfo() {
+        debugLog("Sammle detaillierte Debug-Informationen...");
+        const debugDiv = document.getElementById("debug-info");
+
+        let debugHTML =
+          '<div class="test-result info"><strong>🛠️ Detaillierte Debug-Info:</strong><br><br>';
+
+        // Browser Info
+        debugHTML += `<strong>🌐 Browser:</strong><br>`;
+        debugHTML += `User Agent: ${navigator.userAgent}<br>`;
+        debugHTML += `URL: ${window.location.href}<br>`;
+        debugHTML += `Host: ${window.location.host}<br><br>`;
+
+        // localStorage
+        debugHTML += `<strong>💾 localStorage:</strong><br>`;
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          const value = localStorage.getItem(key);
+          debugHTML += `${key}: ${value ? (value.length > 100 ? value.substring(0, 100) + "..." : value) : "null"}<br>`;
+        }
+        debugHTML += "<br>";
+
+        // Cookies
+        debugHTML += `<strong>🍪 Cookies:</strong><br>`;
+        const cookies = document.cookie.split(";");
+        cookies.forEach((cookie) => {
+          const [name, value] = cookie.trim().split("=");
+          debugHTML += `${name}: ${value ? (value.length > 50 ? value.substring(0, 50) + "..." : value) : "empty"}<br>`;
+        });
+        debugHTML += "<br>";
+
+        // Current Time
+        debugHTML += `<strong>🕒 Timestamp:</strong><br>`;
+        debugHTML += `Current Time: ${new Date().toISOString()}<br>`;
+        debugHTML += `Local Time: ${new Date().toString()}<br><br>`;
+
+        debugHTML += "</div>";
+
+        debugDiv.innerHTML = debugHTML;
+        debugLog("Debug-Informationen gesammelt");
+      }
+
+      // Auto-initialize
+      document.addEventListener("DOMContentLoaded", function () {
+        debugLog("OAuth Pipeline Test Tool geladen");
+        debugLog("Führe automatischen Auth-Check durch...");
+        setTimeout(checkAuthStatus, 1000);
+      });
     </script>
-</body>
+  </body>
 </html>

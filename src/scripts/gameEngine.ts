@@ -177,14 +177,14 @@ const initializeGame = async (elements: GameElements) => {
       const userData = JSON.parse(userDataString);
       if (userData.id && userData.id !== "guest") {
         userId = userData.id;
-        console.log('🔵 Game Engine: Overriding userId with OAuth data:', userId);
+        console.log("🔵 Game Engine: Overriding userId with OAuth data:", userId);
       }
     }
   } catch (error) {
-    console.warn('Game Engine: Error reading OAuth user data:', error);
+    console.warn("Game Engine: Error reading OAuth user data:", error);
   }
 
-  console.log('🔵 Game Engine: Final User ID:', userId);
+  console.log("🔵 Game Engine: Final User ID:", userId);
 
   /**
    * Check for seasonal events based on current date

@@ -283,7 +283,8 @@ export default {
   "auth.oauth.link_provider": "Linkitä {{provider}}",
   "auth.oauth.unlink_provider": "Poista linkitys {{provider}}",
   "auth.oauth.unlink_confirm_title": "Poista tilin linkitys",
-  "auth.oauth.unlink_confirm_message": "Oletko varma, että haluat poistaa linkityksen {{provider}}?",
+  "auth.oauth.unlink_confirm_message":
+    "Oletko varma, että haluat poistaa linkityksen {{provider}}?",
   "auth.oauth.cancel": "Peruuta",
   "auth.oauth.confirm": "Vahvista",
   "auth.oauth.cannot_unlink_last_method": "Viimeistä todennusmenetelmää ei voi poistaa linkitystä",

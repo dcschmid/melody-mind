@@ -116,12 +116,17 @@ const imageHeight = 600;
 
   // Responsive breakpoints using hardcoded em values (CSS Custom Properties don't work in media queries)
   $breakpoints: (
-    xs: 20em,    // 320px
-    sm: 40em,    // 640px
-    md: 48em,    // 768px
-    lg: 64em,    // 1024px
-    xl: 80em,    // 1280px
-    2xl: 96em,   // 1536px
+    xs: 20em,
+    // 320px
+    sm: 40em,
+    // 640px
+    md: 48em,
+    // 768px
+    lg: 64em,
+    // 1024px
+    xl: 80em,
+    // 1280px
+    2xl: 96em, // 1536px
   );
 
   // Mixin for responsive media queries
@@ -212,7 +217,7 @@ const imageHeight = 600;
     max-width: var(--container-lg);
     flex-direction: column;
     align-items: center;
-    
+
     // Mobile Portrait - compact padding
     padding: var(--space-md) var(--space-sm);
     text-align: center;
@@ -221,7 +226,7 @@ const imageHeight = 600;
     @include respond-to(xs) {
       padding: var(--space-lg) var(--space-md);
     }
-    
+
     @include respond-to(sm) {
       padding: var(--space-xl) var(--space-lg);
     }
@@ -246,10 +251,10 @@ const imageHeight = 600;
     width: var(--width-full);
     flex-direction: column;
     align-items: center;
-    
+
     // Mobile Portrait - compact spacing
     gap: var(--space-md);
-    
+
     @include respond-to(xs) {
       gap: var(--space-lg);
     }
@@ -272,11 +277,11 @@ const imageHeight = 600;
     position: relative;
     aspect-ratio: 1;
     width: var(--width-full);
-    
+
     // Mobile Portrait - compact sizing and margin
     margin: 0 auto var(--space-lg);
     max-width: var(--container-xs);
-    
+
     @include respond-to(xs) {
       margin: 0 auto var(--space-xl);
       max-width: var(--container-sm);
@@ -332,12 +337,12 @@ const imageHeight = 600;
     width: var(--width-full);
     flex-direction: column;
     align-items: center;
-    
+
     // Mobile Portrait - compact spacing and margin
     margin: var(--space-md) auto 0;
     max-width: var(--container-xs);
     gap: var(--space-sm);
-    
+
     @include respond-to(xs) {
       margin: var(--space-lg) auto 0;
       max-width: var(--container-sm);
@@ -379,14 +384,14 @@ const imageHeight = 600;
 
   .footer-section {
     max-width: var(--content-readable-width);
-    
+
     // Mobile Portrait - compact margin
     margin-top: var(--space-lg);
-    
+
     @include respond-to(xs) {
       margin-top: var(--space-xl);
     }
-    
+
     @include respond-to(sm) {
       margin-top: var(--space-2xl);
     }
@@ -504,42 +509,42 @@ const imageHeight = 600;
   /* ======================================
    * MOBILE PORTRAIT OPTIMIZATIONS
    * ====================================== */
-   
+
   // Extra small screens - Portrait Mobile (below 320px)
   @media (max-width: 19.9375em) {
     .content-container {
       padding: var(--space-sm) var(--space-xs);
     }
-    
+
     .content-wrapper {
       gap: var(--space-sm);
     }
-    
+
     .logo-container {
       margin: 0 auto var(--space-md);
       max-width: calc(100% - var(--space-lg));
     }
-    
+
     .button-container {
       margin: var(--space-sm) auto 0;
       gap: var(--space-xs);
     }
-    
+
     .footer-section {
       margin-top: var(--space-md);
     }
-    
+
     h1 {
       font-size: clamp(var(--text-lg), 4vw, var(--text-xl));
       line-height: var(--leading-snug);
     }
-    
+
     p {
       font-size: clamp(var(--text-sm), 3vw, var(--text-base));
       line-height: var(--leading-normal);
     }
   }
-  
+
   /* ======================================
    * ANIMATION CLASSES
    * ====================================== */
@@ -564,7 +569,7 @@ const imageHeight = 600;
     // Mobile Portrait - smaller starting size
     font-size: clamp(var(--text-xl), 4vw, var(--text-3xl));
     line-height: var(--leading-tight);
-    
+
     @include respond-to(xs) {
       font-size: clamp(var(--text-2xl), 5vw, var(--text-4xl));
     }
@@ -578,7 +583,7 @@ const imageHeight = 600;
     // Mobile Portrait - smaller starting size
     font-size: clamp(var(--text-base), 3vw, var(--text-lg));
     line-height: var(--leading-relaxed);
-    
+
     @include respond-to(xs) {
       font-size: clamp(var(--text-lg), 3vw, var(--text-xl));
     }
