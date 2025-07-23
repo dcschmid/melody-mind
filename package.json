@@ -61,6 +61,7 @@
     "jsonwebtoken": "^9.0.2",
     "marked": "^16.0.0",
     "mdast-util-to-string": "^4.0.0",
+    "node-fetch": "^3.3.2",
     "sharp": "^0.34.1",
     "sortablejs": "^1.15.6",
     "typescript": "^5.8.3",

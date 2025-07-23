@@ -72,25 +72,25 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
     min-width: var(--touch-target-enhanced);
     min-height: var(--touch-target-enhanced);
 
-    /* Container-based responsive scaling */
-    @container (min-width: 20rem) {
-      height: clamp(var(--touch-target-enhanced), 4vw, var(--achievement-badge-size));
-      width: clamp(var(--touch-target-enhanced), 4vw, var(--achievement-badge-size));
-    }
-
     /* Responsive padding with container queries */
     padding: clamp(var(--space-xs), 2vw, var(--space-sm));
-
-    /* Optimize for different screen densities */
-    @media (min-resolution: 2dppx) {
-      padding: clamp(var(--space-xs), 1.5vw, var(--space-sm));
-    }
 
     /* Visual styling */
     border-radius: var(--radius-full);
     background: var(--interactive-secondary);
     color: var(--text-primary);
     box-shadow: var(--shadow-md);
+
+    /* Container-based responsive scaling */
+    @container (min-width: 20rem) {
+      height: clamp(var(--touch-target-enhanced), 4vw, var(--achievement-badge-size));
+      width: clamp(var(--touch-target-enhanced), 4vw, var(--achievement-badge-size));
+    }
+
+    /* Optimize for different screen densities */
+    @media (min-resolution: 2dppx) {
+      padding: clamp(var(--space-xs), 1.5vw, var(--space-sm));
+    }
 
     /* Typography */
     font-size: clamp(var(--text-xs), 3vw, var(--text-sm));

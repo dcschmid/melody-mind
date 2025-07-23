@@ -264,11 +264,64 @@ German (DE), English (EN), Spanish (ES), French (FR), Italian (IT), Portuguese (
 - Em-basierte Breakpoints für bessere Accessibility
 - Touch-Target-Größen: `var(--touch-target-enhanced)`
 
+### SCSS/Sass Best Practices - WICHTIG! 🚨
+
+**SCSS Mixed Declarations (mixed-decls) vermeiden:**
+
+Ab Sass 1.77.0+ müssen CSS-Deklarationen **vor** verschachtelte Regeln (Media Queries, etc.) stehen:
+
+#### ❌ Falsch (verursacht Deprecation Warning):
+```scss
+.component {
+  display: flex;
+  
+  @media (min-width: 48em) {
+    padding: var(--space-lg);
+  }
+  
+  // Diese Deklaration nach Media Query verursacht Warning:
+  align-items: center;
+  justify-content: center;
+}
+```
+
+#### ✅ Richtig:
+```scss
+.component {
+  display: flex;
+  align-items: center;      // Alle Deklarationen VOR Media Queries
+  justify-content: center;
+  
+  @media (min-width: 48em) {
+    padding: var(--space-lg);
+  }
+}
+```
+
+#### 🔧 Alternative mit `& {}`:
+```scss
+.component {
+  display: flex;
+  
+  @media (min-width: 48em) {
+    padding: var(--space-lg);
+  }
+  
+  & {
+    align-items: center;     // In & {} einschließen
+    justify-content: center;
+  }
+}
+```
+
+**Grund:** Zukünftige Sass-Versionen werden CSS-Standards befolgen, wo Deklarationen nach verschachtelten Regeln nicht erlaubt sind.
+
 ### Astro Components
 - **Component Props**: Strongly typed with TypeScript
 - **Accessibility**: ARIA labels and semantic HTML
 - **Performance**: Optimized hydration and loading
 - **Styling**: Scoped styles with global variable usage
+- **SCSS**: Befolge mixed-decls Regeln (siehe oben)
 
 ## Security Considerations
 

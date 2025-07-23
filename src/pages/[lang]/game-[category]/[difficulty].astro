@@ -102,6 +102,12 @@ const { category, difficulty } = Astro.params;
 
 // Auth check: Verify if the user is logged in
 const authResult = await requireAuth(Astro.request);
+console.log('🔍 Game Page Auth Result:', {
+  authenticated: authResult.authenticated,
+  userId: authResult.user?.id,
+  userEmail: authResult.user?.email,
+  url: Astro.request.url
+});
 
 // Dynamic import of categories based on language
 let categories;
@@ -114,6 +120,7 @@ try {
 
 // Default user for game functionality
 const user = { id: authResult.user?.id || "guest" };
+console.log('🔍 Game Page Final User:', user);
 
 // Find current category data for display and metadata - first try from dynamic import, then from props
 const currentCategoryData =
@@ -154,6 +161,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     id="endgame-popup"
     data-score="0"
     data-category={currentCategoryData?.slug || ""}
+    data-categoryName={currentCategoryData?.headline || ""}
     data-difficulty={String(difficulty) || ""}
   />
 

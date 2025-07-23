@@ -49,6 +49,7 @@ interface Props {
   id: string;
   "data-score"?: string;
   "data-category"?: string;
+  "data-categoryName"?: string;
   "data-difficulty"?: string;
   "data-mode"?: string;
 }
@@ -58,6 +59,7 @@ const {
   id,
   "data-score": initialScore = "0",
   "data-category": category = "",
+  "data-categoryName": categoryName = "",
   "data-difficulty": difficulty = "",
   "data-mode": gameMode = "normal",
 } = Astro.props;
@@ -108,6 +110,7 @@ const clientTranslations = {
   aria-modal="true"
   data-score={initialScore}
   data-category={category}
+  data-categoryName={categoryName}
   data-difficulty={difficulty}
   data-mode={gameMode}
   data-translations={JSON.stringify(clientTranslations)}
