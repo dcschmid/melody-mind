@@ -7,6 +7,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { getNewsForLanguage } from "../../services/rssService.ts";
 import { useTranslations } from "../../utils/i18n.ts";
+import { extractKeywords, generateMetaDescription } from "../../utils/seo.ts";
 
 export const prerender = false; // Enable SSR for this page
 
@@ -34,9 +35,92 @@ try {
 
 const pageTitle = t("news.title");
 const pageDescription = t("news.description");
+
+// SEO optimization using existing architecture
+// Generate rich content for SEO using existing utility functions
+const enrichedContent = newsData?.items
+  ? `${pageTitle} ${pageDescription} ${newsData.items
+      .slice(0, 10)
+      .map(item => `${item.title} ${item.description}`)
+      .join(" ")}`
+  : `${pageTitle} ${pageDescription}`;
+
+// Use existing SEO utilities
+const optimizedDescription = generateMetaDescription(enrichedContent, 155);
+const seoKeywords = extractKeywords(enrichedContent, 15, currentLang);
+
+// Enhanced page metadata
+const baseUrl = Astro.site?.toString() || "https://melody-mind.de";
+const currentUrl = `${baseUrl}/${currentLang}/news`;
+
+// Generate NewsArticle structured data using existing patterns
+const newsStructuredData = newsData?.items?.length ? {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": `${pageTitle} - MelodyMind`,
+  "description": optimizedDescription,
+  "url": currentUrl,
+  "inLanguage": currentLang,
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "MelodyMind",
+    "url": baseUrl
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": newsData.items.length,
+    "itemListElement": newsData.items.slice(0, 10).map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "NewsArticle",
+        "headline": item.title,
+        "description": item.description,
+        "url": item.link,
+        "datePublished": item.pubDate,
+        "author": {
+          "@type": "Organization",
+          "name": item.source
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "MelodyMind",
+          "url": baseUrl
+        },
+        "image": item.imageUrl || `${baseUrl}/images/news-fallback.svg`,
+        "genre": "Music",
+        "about": "Music News"
+      }
+    }))
+  }
+} : null;
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout 
+  title={`${pageTitle} - MelodyMind`}
+  description={optimizedDescription}
+  keywords={seoKeywords}
+  image={newsData?.items?.[0]?.imageUrl || "/images/news-fallback.svg"}
+  type="website"
+  publishDate={newsData?.lastUpdated ? new Date(newsData.lastUpdated) : new Date()}
+  modifiedDate={new Date()}
+>
+  <!-- Enhanced structured data for news -->
+  <Fragment slot="head">
+    <link rel="canonical" href={currentUrl} />
+    
+    {newsStructuredData && (
+      <script type="application/ld+json" set:html={JSON.stringify(newsStructuredData)} />
+    )}
+    
+    <!-- News-specific meta tags -->
+    <meta name="news_keywords" content={seoKeywords} />
+    <meta property="article:section" content="Music News" />
+    <meta property="article:tag" content="Music" />
+    <meta property="article:tag" content="News" />
+    <meta property="article:tag" content="Artists" />
+    <meta property="article:tag" content="Entertainment" />
+  </Fragment>
   <main class="news">
     <div class="news__container">
       <!-- Hero Header Section like GameHome -->
@@ -90,9 +174,15 @@ const pageDescription = t("news.description");
               {t("news.articlesList")}
             </h2>
 
-            <div class="news__grid">
+            <div class="news__grid" itemscope itemtype="https://schema.org/ItemList">
               {newsData.items.map((item, index) => (
-                <article class="news__card" aria-labelledby={`news-title-${index}`}>
+                <article 
+                  class="news__card" 
+                  aria-labelledby={`news-title-${index}`}
+                  itemscope 
+                  itemtype="https://schema.org/NewsArticle"
+                  itemprop="itemListElement"
+                >
                   <div class="news__card-image">
                     <img
                       src={item.imageUrl || "/images/news-fallback.svg"}
@@ -108,24 +198,25 @@ const pageDescription = t("news.description");
                   <div class="news__card-content">
                     <header class="news__card-header">
                       <div class="news__card-meta">
-                        <span class="news__card-source">{item.source}</span>
-                        <time class="news__card-date" datetime={item.pubDate}>
+                        <span class="news__card-source" itemprop="author">{item.source}</span>
+                        <time class="news__card-date" datetime={item.pubDate} itemprop="datePublished">
                           {new Date(item.pubDate).toLocaleDateString(currentLang)}
                         </time>
                       </div>
 
-                      <h3 id={`news-title-${index}`} class="news__card-title">
+                      <h3 id={`news-title-${index}`} class="news__card-title" itemprop="headline">
                         <a
                           href={item.link}
                           target="_blank"
                           rel="noopener noreferrer"
                           class="news__card-link"
+                          itemprop="url"
                         >
                           {item.title}
                         </a>
                       </h3>
 
-                      {item.description && <p class="news__card-description">{item.description}</p>}
+                      {item.description && <p class="news__card-description" itemprop="description">{item.description}</p>}
                     </header>
 
                     <footer class="news__card-footer">
