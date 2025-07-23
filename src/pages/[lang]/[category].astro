@@ -338,6 +338,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     };
 
     const checkAuthStatus = (): void => {
+      // Nur lokale Auth-Prüfung auf Category-Seite (keine Server-Validierung)
       const isLoggedIn = isUserAuthenticated();
       const [authSection, quizSection, chronologySection] = getSectionElements();
 

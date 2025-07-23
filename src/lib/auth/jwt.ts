@@ -4,8 +4,8 @@ import type { User } from "./db.js";
 
 // Constants for JWT settings
 const JWT_SECRET = process.env.JWT_SECRET || "melody-mind-jwt-secret"; // In production, this should be a secure environment variable
-const JWT_EXPIRES_IN = "24h"; // Token expires after 24 hours
-const JWT_REFRESH_EXPIRES_IN = "7d"; // Refresh token expires after 7 days
+const JWT_EXPIRES_IN = "14d"; // Token expires after 14 days
+const JWT_REFRESH_EXPIRES_IN = "14d"; // Refresh token expires after 14 days
 
 /**
  * Branded type for token strings to prevent mixing with regular strings

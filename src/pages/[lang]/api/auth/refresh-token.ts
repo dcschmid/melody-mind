@@ -124,8 +124,8 @@ export const POST: APIRoute = async ({ request, params }) => {
       );
     }
 
-    // Set the new access token as a cookie (24 hours validity)
-    const accessTokenExpiry = new Date(Date.now() + 24 * 60 * 60 * 1000);
+    // Set the new access token as a cookie (14 days validity)
+    const accessTokenExpiry = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000);
 
     // Non-null assertion is safe here because we've checked result.success
     const cookieString = createSecureCookie(

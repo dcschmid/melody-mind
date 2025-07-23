@@ -58,6 +58,34 @@ export function removeLocalStorage(key: string): boolean {
  * and triggering auth logout events
  */
 export function performCompleteLogout(): void {
+  // PREVENT RECURSIVE CALLS
+  if (isLoggingOut) {
+    console.log('🚪 Logout already in progress, skipping');
+    return;
+  }
+  
+  console.log('🚪 Performing complete logout...');
+  isLoggingOut = true; // Set flag to prevent recursive calls
+  
+  // Reset validation counters and prevent further validations
+  validationAttempts = MAX_VALIDATION_ATTEMPTS + 1; // Stop further validations
+  validationInProgress = false;
+  lastValidationAttempt = 0;
+  
+  // Call server-side logout to clear HttpOnly cookies
+  fetch('/de/api/auth/logout', {
+    method: 'POST',
+    credentials: 'include'
+  }).then(response => {
+    if (response.ok) {
+      console.log('✅ Server-side logout successful');
+    } else {
+      console.warn('⚠️ Server-side logout failed, but continuing client-side cleanup');
+    }
+  }).catch(error => {
+    console.warn('⚠️ Server-side logout error:', error);
+  });
+  
   // Clear all authentication-related localStorage entries
   removeLocalStorage("auth_status");
   removeLocalStorage("user");
@@ -139,6 +167,114 @@ function getCookie(name: string): string | null {
     return parts.pop()?.split(';').shift() || null;
   }
   return null;
+}
+
+// Rate limiting für Session-Validierung
+let lastValidationAttempt = 0;
+let validationInProgress = false;
+const VALIDATION_COOLDOWN = 10000; // 10 Sekunden Cooldown
+const MAX_VALIDATION_ATTEMPTS = 3;
+let validationAttempts = 0;
+let isLoggingOut = false; // Flag to prevent validation during logout
+
+/**
+ * Reset session validation counters (called on successful login)
+ */
+export function resetSessionValidation(): void {
+  console.log('🔄 Resetting session validation counters');
+  validationAttempts = 0;
+  lastValidationAttempt = 0;
+  validationInProgress = false;
+  isLoggingOut = false; // Reset logout flag
+}
+
+/**
+ * Validiert die Session mit dem Server und erneuert sie bei Bedarf
+ * @returns {Promise<boolean>} - Promise mit dem Authentifizierungsstatus
+ */
+export async function validateAndRefreshSession(): Promise<boolean> {
+  try {
+    // STOP validation if logout is in progress
+    if (isLoggingOut) {
+      console.log('🚪 Logout in progress, skipping validation');
+      return false;
+    }
+
+    // Rate limiting: Vermeide zu häufige Validierungen
+    const now = Date.now();
+    if (now - lastValidationAttempt < VALIDATION_COOLDOWN) {
+      console.log('⏳ Session validation on cooldown, using local status');
+      return isUserAuthenticated();
+    }
+
+    // Vermeide concurrent validations
+    if (validationInProgress) {
+      console.log('⏳ Session validation already in progress');
+      return isUserAuthenticated();
+    }
+
+    // Max attempts erreicht - beende Validierung
+    if (validationAttempts >= MAX_VALIDATION_ATTEMPTS) {
+      console.log('❌ Max validation attempts reached, forcing logout');
+      performCompleteLogout();
+      return false;
+    }
+
+    validationInProgress = true;
+    lastValidationAttempt = now;
+    validationAttempts++;
+
+    // Prüfe zuerst lokalen Auth-Status
+    const localIsAuthenticated = isUserAuthenticated();
+    if (!localIsAuthenticated) {
+      validationInProgress = false;
+      return false;
+    }
+
+    console.log(`🔍 Starting session validation (attempt ${validationAttempts}/${MAX_VALIDATION_ATTEMPTS})`);
+
+    // Versuche eine simple API-Anfrage um Session zu testen
+    const testResponse = await fetch('/de/api/user/profile', {
+      method: 'GET',
+      credentials: 'include'
+    });
+
+    if (testResponse.ok) {
+      // Session ist gültig - reset counters
+      console.log('✅ Session is valid');
+      validationAttempts = 0;
+      validationInProgress = false;
+      return true;
+    } else if (testResponse.status === 401) {
+      // Session abgelaufen, versuche Refresh
+      console.log('🔄 Session expired, attempting refresh...');
+      
+      const refreshResponse = await fetch('/de/api/auth/refresh-token', {
+        method: 'POST',
+        credentials: 'include'
+      });
+
+      if (refreshResponse.ok) {
+        console.log('✅ Session successfully refreshed');
+        validationAttempts = 0; // Reset bei erfolgreichem Refresh
+        validationInProgress = false;
+        return true;
+      } else {
+        // Refresh fehlgeschlagen, logout
+        console.log('❌ Session refresh failed, logging out');
+        performCompleteLogout();
+        validationInProgress = false;
+        return false;
+      }
+    }
+    
+    validationInProgress = false;
+    return false;
+  } catch (error) {
+    console.error('Error validating session:', error);
+    validationInProgress = false;
+    return false;
+  }
 }
 
 /**
@@ -331,6 +467,7 @@ export function stopCookieWatcher(watcherId: number): void {
 export function registerAuthEventListeners(checkAuthCallback: () => void): { remove: () => void } {
   const handleLogin = (): void => {
     setLocalStorage("auth_status", "authenticated");
+    resetSessionValidation(); // Reset validation counters on login
     checkAuthCallback();
   };
 
