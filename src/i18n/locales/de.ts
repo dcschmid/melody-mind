@@ -824,4 +824,21 @@ export default {
   "toc.state.collapsed": "Eingeklappt",
   "toc.state.expanded": "Ausgeklappt",
   "toc.toggle.label": "Inhaltsverzeichnis umschalten",
+  "news.title": "News",
+  "news.description": "Entdecken Sie die neuesten Hits, Künstlernews und Musiktrends aus aller Welt",
+  "news.lastUpdated": "Zuletzt aktualisiert",
+  "news.sourcesCount": "{count} Quellen",
+  "news.trending": "Trending",
+  "news.articlesList": "Artikel-Liste",
+  "news.readMore": "Weiterlesen",
+  "news.relevanceScore": "Relevanz",
+  "news.noNews": "Keine Nachrichten verfügbar",
+  "news.noNewsDescription":
+    "Derzeit sind keine Musik-Nachrichten verfügbar. Versuchen Sie es später erneut.",
+  "news.refresh": "Aktualisieren",
+  "news.disclaimer.title": "Haftungsausschluss",
+  "news.disclaimer.text":
+    "Alle Nachrichten stammen aus externen Quellen. MelodyMind ist nicht für den Inhalt verantwortlich.",
+  "news.legal.attribution": "Nachrichten werden von den folgenden Quellen bereitgestellt:",
+  "news.imageAlt": "Artikelbild",
 };
