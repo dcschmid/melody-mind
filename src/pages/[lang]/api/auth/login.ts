@@ -235,7 +235,7 @@ export const POST: APIRoute = async ({ request, params }) => {
     }
 
     // Set token expiration time for access token
-    const accessTokenExpiry = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
+    const accessTokenExpiry = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000); // 14 days
 
     // Return successful authentication response with secure cookie
     return createResponse({

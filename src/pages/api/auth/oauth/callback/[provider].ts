@@ -116,7 +116,7 @@ export const GET: APIRoute = async ({ params, request, url }) => {
       ...(isDevelopment ? [] : ['Secure']), // Only set Secure in production
       'SameSite=Lax', // Changed from Strict to Lax for OAuth redirects
       'Path=/',
-      `Max-Age=${60 * 60 * 24 * 30}` // 30 days
+      `Max-Age=${60 * 60 * 24 * 14}` // 14 days
     ].join('; ');
     
     // Set auth status for frontend (non-httpOnly so JS can read it)
@@ -125,7 +125,7 @@ export const GET: APIRoute = async ({ params, request, url }) => {
       ...(isDevelopment ? [] : ['Secure']), // Only set Secure in production
       'SameSite=Lax', // Changed from Strict to Lax for OAuth redirects
       'Path=/',
-      `Max-Age=${60 * 60 * 24 * 30}` // 30 days
+      `Max-Age=${60 * 60 * 24 * 14}` // 14 days
     ].join('; ');
     
     // Set user data cookie for frontend (non-httpOnly so JS can read it)
@@ -139,7 +139,7 @@ export const GET: APIRoute = async ({ params, request, url }) => {
       ...(isDevelopment ? [] : ['Secure']), // Only set Secure in production
       'SameSite=Lax', // Changed from Strict to Lax for OAuth redirects
       'Path=/',
-      `Max-Age=${60 * 60 * 24 * 30}` // 30 days
+      `Max-Age=${60 * 60 * 24 * 14}` // 14 days
     ].join('; ');
 
     // Create a temporary HTML page that sets localStorage and then redirects
