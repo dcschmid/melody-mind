@@ -297,7 +297,8 @@ export default {
   "auth.oauth.unlink_confirm_message": "Sind Sie sicher, dass Sie {{provider}} trennen möchten?",
   "auth.oauth.cancel": "Abbrechen",
   "auth.oauth.confirm": "Bestätigen",
-  "auth.oauth.cannot_unlink_last_method": "Können die letzte Authentifizierungsmethode nicht trennen",
+  "auth.oauth.cannot_unlink_last_method":
+    "Können die letzte Authentifizierungsmethode nicht trennen",
   "auth.oauth.action_failed": "Aktion fehlgeschlagen",
   "auth.session.timeout.close": "Schließen",
   "auth.session.timeout.extend": "Sitzung verlängern",

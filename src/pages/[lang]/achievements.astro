@@ -372,18 +372,18 @@ const t = useTranslations(langString);
       margin-bottom: var(--space-md);
       color: var(--color-white);
       text-shadow: var(--achievements-hero-shadow);
-      
+
       // Mobile portrait - smaller title
       @media (max-width: 29.9375em) {
         margin-bottom: var(--space-sm);
         font-size: var(--text-2xl) !important;
       }
-      
+
       // Mobile landscape
       @media (min-width: 30em) and (max-width: 47.9375em) {
         font-size: var(--text-3xl) !important;
       }
-      
+
       // Tablet and up
       @media (min-width: 48em) {
         margin-bottom: var(--space-lg);
@@ -396,13 +396,13 @@ const t = useTranslations(langString);
       background: var(--color-secondary-400);
       margin: var(--space-md) auto;
       border-radius: var(--radius-full);
-      
+
       // Mobile portrait - smaller divider
       @media (max-width: 29.9375em) {
         width: var(--space-lg);
         margin: var(--space-sm) auto;
       }
-      
+
       // Desktop - larger divider
       @media (min-width: 64em) {
         width: var(--space-2xl);
@@ -416,24 +416,24 @@ const t = useTranslations(langString);
       line-height: var(--leading-relaxed);
       max-width: var(--achievements-content-max-width);
       margin: 0 auto;
-      
+
       // Mobile portrait - smaller text
       @media (max-width: 29.9375em) {
         font-size: var(--text-sm);
         line-height: var(--leading-normal);
         max-width: 100%;
       }
-      
+
       // Mobile landscape
       @media (min-width: 30em) and (max-width: 47.9375em) {
         font-size: var(--text-lg);
       }
-      
+
       // Tablet and up
       @media (min-width: 48em) {
         font-size: var(--text-xl);
       }
-      
+
       // Desktop
       @media (min-width: 64em) {
         font-size: var(--text-2xl);
@@ -462,20 +462,20 @@ const t = useTranslations(langString);
       border: var(--border-width-thin) solid var(--border-primary);
       background-color: var(--card-bg);
       box-shadow: var(--card-shadow);
-      
+
       /* Enhanced accessibility and UX using existing touch target variable */
       min-height: var(--min-touch-size);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      
+
       // Mobile portrait - compact padding
       @media (max-width: 29.9375em) {
         padding: var(--space-sm);
         margin-bottom: var(--space-md);
       }
-      
+
       // Tablet and up
       @media (min-width: 48em) {
         padding: var(--space-lg);
@@ -555,19 +555,19 @@ const t = useTranslations(langString);
 
       /* Performance: Optimize grid layout containment */
       contain: layout style;
-      
+
       // Mobile landscape - 2 columns on larger phones
       @media (min-width: 30em) and (max-width: 47.9375em) {
         grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
         gap: var(--space-md);
       }
-      
+
       // Tablet - 2-3 columns
       @media (min-width: 48em) and (max-width: 63.9375em) {
         grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
         gap: var(--space-lg);
       }
-      
+
       // Desktop - up to 3 columns
       @media (min-width: 64em) {
         grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
@@ -706,30 +706,30 @@ const t = useTranslations(langString);
       &__list {
         gap: var(--space-lg);
       }
-      
+
       &__category {
         margin-bottom: var(--space-sm);
-        
+
         &-title {
           margin-bottom: var(--space-sm);
           font-size: var(--text-lg) !important;
         }
       }
-      
+
       &__stat {
         min-width: calc(var(--stat-width-sm) * 0.8);
         padding: var(--space-sm);
-        
+
         &-label {
           font-size: var(--text-xs);
         }
-        
+
         &-value {
           font-size: var(--text-lg);
         }
       }
     }
-    
+
     // Mobile landscape and small tablet
     @media (min-width: 30em) and (max-width: 47.9375em) {
       &__stat {
@@ -744,18 +744,18 @@ const t = useTranslations(langString);
         min-width: var(--stat-width-md);
         padding: var(--space-lg);
       }
-      
+
       &__list {
         gap: var(--space-2xl);
       }
     }
 
-    // Desktop adjustments  
+    // Desktop adjustments
     @media (min-width: 64em) {
       &__list {
         gap: var(--space-3xl);
       }
-      
+
       &__stat {
         min-width: var(--stat-width-md);
         padding: var(--space-lg);

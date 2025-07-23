@@ -127,10 +127,10 @@ const { pageTitle, pageDescription, headingText } = translations;
   $container-padding: var(--space-xl);
   $mobile-padding: var(--space-md);
   $tablet-padding: var(--space-lg);
-  
+
   // Note: Using hardcoded em values in media queries since CSS variables don't work in @media rules
   // Mobile portrait: 0-479px (< 30em)
-  // Mobile landscape: 480-639px (30em - 39.9375em)  
+  // Mobile landscape: 480-639px (30em - 39.9375em)
   // Small tablet: 640-767px (40em - 47.9375em)
   // Tablet: 768-1023px (48em - 63.9375em)
   // Desktop: 1024-1279px (64em - 79.9375em)
@@ -171,7 +171,7 @@ const { pageTitle, pageDescription, headingText } = translations;
     will-change: opacity, transform;
 
     // Enhanced mobile-first responsive design with comprehensive breakpoints
-    
+
     // Mobile portrait (< 480px) - very compact layout
     @media (max-width: 29.9375em) {
       padding: var(--space-sm) var(--space-xs);
@@ -180,7 +180,7 @@ const { pageTitle, pageDescription, headingText } = translations;
       box-shadow: var(--shadow-md);
       max-width: calc(100vw - var(--space-lg));
     }
-    
+
     // Mobile landscape (480px - 640px) - balanced layout
     @media (min-width: 30em) and (max-width: 39.9375em) {
       padding: $mobile-padding;
@@ -203,7 +203,7 @@ const { pageTitle, pageDescription, headingText } = translations;
       margin: 0 auto;
       max-width: var(--form-container-max-width);
     }
-    
+
     // Desktop (1024px - 1280px) - full featured layout
     @media (min-width: 64em) and (max-width: 79.9375em) {
       padding: var(--space-2xl);
@@ -243,9 +243,7 @@ const { pageTitle, pageDescription, headingText } = translations;
     &:focus-within {
       outline: var(--focus-outline);
       outline-offset: var(--focus-ring-offset);
-      box-shadow:
-        var(--shadow-lg),
-        var(--focus-ring);
+      box-shadow: var(--shadow-lg), var(--focus-ring);
     }
 
     // Hover effects with global.css animation values
@@ -296,7 +294,7 @@ const { pageTitle, pageDescription, headingText } = translations;
       margin: 0 var(--space-sm);
       max-height: 90vh;
       overflow-y: auto;
-      
+
       // Specific mobile portrait landscape (< 480px)
       @media (max-width: 29.9375em) {
         padding: var(--space-xs) var(--space-sm);
@@ -304,35 +302,35 @@ const { pageTitle, pageDescription, headingText } = translations;
       }
     }
   }
-  
+
   /* Container queries for enhanced responsive behavior */
   .auth-form-container {
     container-type: inline-size;
-    
+
     // Container query for small containers
     @container (max-width: #{$container-max-width}) {
       border-radius: var(--radius-md);
-      
+
       @container (max-width: 20rem) {
         padding: var(--space-sm);
         border-radius: var(--radius-sm);
       }
     }
   }
-  
+
   /* Enhanced accessibility and motion support */
   @media (prefers-reduced-motion: reduce) {
     .auth-form-container {
       &:hover {
         transform: none;
       }
-      
+
       &:active {
         transform: none;
       }
     }
   }
-  
+
   /* Support for forced colors mode (Windows High Contrast) */
   @media (forced-colors: active) {
     .auth-form-container {

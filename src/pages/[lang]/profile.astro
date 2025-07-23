@@ -170,153 +170,156 @@ const languageNames = {
     }
 
     {
-      profileData && (() => {
-        // Type assertion to help TypeScript understand profileData is not null here
-        const profile = profileData as UserProfile;
-        return (
-          <div class="profile__content">
-            <section class="profile-card" aria-labelledby="user-info-heading">
-              <h2 id="user-info-heading" class="profile-card__title">
-                {t("profile.user.info")}
-              </h2>
+      profileData &&
+        (() => {
+          // Type assertion to help TypeScript understand profileData is not null here
+          const profile = profileData as UserProfile;
+          return (
+            <div class="profile__content">
+              <section class="profile-card" aria-labelledby="user-info-heading">
+                <h2 id="user-info-heading" class="profile-card__title">
+                  {t("profile.user.info")}
+                </h2>
 
-              <div class="profile-card__user-info">
-                <dl class="profile-card__user-details">
-                  <div class="profile-card__user-item">
-                    <Icon name="user" class="profile-card__icon" aria-hidden="true" />
-                    <div class="profile-card__user-text">
-                      <dt class="profile-card__label">{t("profile.user.username")}</dt>
-                      <dd class="profile-card__value">{profile.user.username}</dd>
+                <div class="profile-card__user-info">
+                  <dl class="profile-card__user-details">
+                    <div class="profile-card__user-item">
+                      <Icon name="user" class="profile-card__icon" aria-hidden="true" />
+                      <div class="profile-card__user-text">
+                        <dt class="profile-card__label">{t("profile.user.username")}</dt>
+                        <dd class="profile-card__value">{profile.user.username}</dd>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="profile-card__user-item">
-                    <Icon name="mail" class="profile-card__icon" aria-hidden="true" />
-                    <div class="profile-card__user-text">
-                      <dt class="profile-card__label">{t("profile.user.email")}</dt>
-                      <dd class="profile-card__value">{profile.user.email}</dd>
+                    <div class="profile-card__user-item">
+                      <Icon name="mail" class="profile-card__icon" aria-hidden="true" />
+                      <div class="profile-card__user-text">
+                        <dt class="profile-card__label">{t("profile.user.email")}</dt>
+                        <dd class="profile-card__value">{profile.user.email}</dd>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="profile-card__user-item">
-                    <Icon name="calendar" class="profile-card__icon" aria-hidden="true" />
-                    <div class="profile-card__user-text">
-                      <dt class="profile-card__label">{t("profile.user.member_since")}</dt>
-                      <dd class="profile-card__value">
-                        {formatUserDate(profile.user.createdAt)}
-                      </dd>
+                    <div class="profile-card__user-item">
+                      <Icon name="calendar" class="profile-card__icon" aria-hidden="true" />
+                      <div class="profile-card__user-text">
+                        <dt class="profile-card__label">{t("profile.user.member_since")}</dt>
+                        <dd class="profile-card__value">
+                          {formatUserDate(profile.user.createdAt)}
+                        </dd>
+                      </div>
                     </div>
-                  </div>
-                </dl>
-              </div>
-            </section>
+                  </dl>
+                </div>
+              </section>
 
-            <section class="profile-card" aria-labelledby="stats-heading">
-              <h2 id="stats-heading" class="profile-card__title">
-                {t("profile.stats.title")}
-              </h2>
+              <section class="profile-card" aria-labelledby="stats-heading">
+                <h2 id="stats-heading" class="profile-card__title">
+                  {t("profile.stats.title")}
+                </h2>
 
-              <div class="profile-card__stats">
-                <div class="stats-grid">
-                  <div class="stat-card">
-                    <h3 class="stat-card__title">{gameModeNames.quiz}</h3>
-                    <dl class="stat-card__list">
-                      <div class="stat-card__item">
-                        <dt class="stat-card__label">{t("profile.stats.games_played")}</dt>
-                        <dd class="stat-card__value">{profile.stats.quiz.gamesPlayed}</dd>
-                      </div>
-                      <div class="stat-card__item">
-                        <dt class="stat-card__label">{t("profile.stats.total_score")}</dt>
-                        <dd class="stat-card__value">{profile.stats.quiz.totalScore}</dd>
-                      </div>
-                      <div class="stat-card__item">
-                        <dt class="stat-card__label">{t("profile.stats.highest_score")}</dt>
-                        <dd class="stat-card__value">{profile.stats.quiz.highestScore}</dd>
-                      </div>
-                    </dl>
-                  </div>
+                <div class="profile-card__stats">
+                  <div class="stats-grid">
+                    <div class="stat-card">
+                      <h3 class="stat-card__title">{gameModeNames.quiz}</h3>
+                      <dl class="stat-card__list">
+                        <div class="stat-card__item">
+                          <dt class="stat-card__label">{t("profile.stats.games_played")}</dt>
+                          <dd class="stat-card__value">{profile.stats.quiz.gamesPlayed}</dd>
+                        </div>
+                        <div class="stat-card__item">
+                          <dt class="stat-card__label">{t("profile.stats.total_score")}</dt>
+                          <dd class="stat-card__value">{profile.stats.quiz.totalScore}</dd>
+                        </div>
+                        <div class="stat-card__item">
+                          <dt class="stat-card__label">{t("profile.stats.highest_score")}</dt>
+                          <dd class="stat-card__value">{profile.stats.quiz.highestScore}</dd>
+                        </div>
+                      </dl>
+                    </div>
 
-                  <div class="stat-card">
-                    <h3 class="stat-card__title">{gameModeNames.chronology}</h3>
-                    <dl class="stat-card__list">
-                      <div class="stat-card__item">
-                        <dt class="stat-card__label">{t("profile.stats.games_played")}</dt>
-                        <dd class="stat-card__value">{profile.stats.chronology.gamesPlayed}</dd>
-                      </div>
-                      <div class="stat-card__item">
-                        <dt class="stat-card__label">{t("profile.stats.total_score")}</dt>
-                        <dd class="stat-card__value">{profile.stats.chronology.totalScore}</dd>
-                      </div>
-                      <div class="stat-card__item">
-                        <dt class="stat-card__label">{t("profile.stats.highest_score")}</dt>
-                        <dd class="stat-card__value">{profile.stats.chronology.highestScore}</dd>
-                      </div>
-                    </dl>
+                    <div class="stat-card">
+                      <h3 class="stat-card__title">{gameModeNames.chronology}</h3>
+                      <dl class="stat-card__list">
+                        <div class="stat-card__item">
+                          <dt class="stat-card__label">{t("profile.stats.games_played")}</dt>
+                          <dd class="stat-card__value">{profile.stats.chronology.gamesPlayed}</dd>
+                        </div>
+                        <div class="stat-card__item">
+                          <dt class="stat-card__label">{t("profile.stats.total_score")}</dt>
+                          <dd class="stat-card__value">{profile.stats.chronology.totalScore}</dd>
+                        </div>
+                        <div class="stat-card__item">
+                          <dt class="stat-card__label">{t("profile.stats.highest_score")}</dt>
+                          <dd class="stat-card__value">{profile.stats.chronology.highestScore}</dd>
+                        </div>
+                      </dl>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </section>
+              </section>
 
-            <section class="profile-card" aria-labelledby="recent-games-heading">
-              <h2 id="recent-games-heading" class="profile-card__title">
-                {t("profile.recent_games.title")}
-              </h2>
+              <section class="profile-card" aria-labelledby="recent-games-heading">
+                <h2 id="recent-games-heading" class="profile-card__title">
+                  {t("profile.recent_games.title")}
+                </h2>
 
-              {profile.recentGames.length === 0 ? (
-                <div class="profile-card__empty">
-                  <Icon name="gamepad" class="profile-card__empty-icon" aria-hidden="true" />
-                  <p class="profile-card__empty-text">{t("profile.recent_games.empty")}</p>
-                </div>
-              ) : (
-                <div class="recent-games">
-                  <ul class="recent-games__list">
-                    {profile.recentGames.map((game) => (
-                      <li class="recent-game">
-                        <div class="recent-game__header">
-                          <div class="recent-game__mode">
-                            <Icon
-                              name={game.gameMode === "quiz" ? "brain" : "clock"}
-                              class="recent-game__icon"
-                              aria-hidden="true"
-                            />
-                            <span class="recent-game__mode-text">{gameModeNames[game.gameMode]}</span>
+                {profile.recentGames.length === 0 ? (
+                  <div class="profile-card__empty">
+                    <Icon name="gamepad" class="profile-card__empty-icon" aria-hidden="true" />
+                    <p class="profile-card__empty-text">{t("profile.recent_games.empty")}</p>
+                  </div>
+                ) : (
+                  <div class="recent-games">
+                    <ul class="recent-games__list">
+                      {profile.recentGames.map((game) => (
+                        <li class="recent-game">
+                          <div class="recent-game__header">
+                            <div class="recent-game__mode">
+                              <Icon
+                                name={game.gameMode === "quiz" ? "brain" : "clock"}
+                                class="recent-game__icon"
+                                aria-hidden="true"
+                              />
+                              <span class="recent-game__mode-text">
+                                {gameModeNames[game.gameMode]}
+                              </span>
+                            </div>
+                            <div class="recent-game__score">
+                              <span class="recent-game__score-value">{game.score}</span>
+                              <span class="recent-game__score-label">
+                                {t("profile.recent_games.points")}
+                              </span>
+                            </div>
                           </div>
-                          <div class="recent-game__score">
-                            <span class="recent-game__score-value">{game.score}</span>
-                            <span class="recent-game__score-label">
-                              {t("profile.recent_games.points")}
+                          <div class="recent-game__details">
+                            <span class="recent-game__category">{game.category}</span>
+                            <span
+                              class={`recent-game__difficulty recent-game__difficulty--${game.difficulty}`}
+                            >
+                              {difficultyNames[game.difficulty]}
                             </span>
+                            <span class="recent-game__language">
+                              <Icon
+                                name="globe"
+                                class="recent-game__language-icon"
+                                aria-hidden="true"
+                              />
+                              {languageNames[game.language as keyof typeof languageNames] ||
+                                game.language}
+                            </span>
+                            <time class="recent-game__date" datetime={game.createdAt}>
+                              {formatUserDate(game.createdAt)}
+                            </time>
                           </div>
-                        </div>
-                        <div class="recent-game__details">
-                          <span class="recent-game__category">{game.category}</span>
-                          <span
-                            class={`recent-game__difficulty recent-game__difficulty--${game.difficulty}`}
-                          >
-                            {difficultyNames[game.difficulty]}
-                          </span>
-                          <span class="recent-game__language">
-                            <Icon
-                              name="globe"
-                              class="recent-game__language-icon"
-                              aria-hidden="true"
-                            />
-                            {languageNames[game.language as keyof typeof languageNames] ||
-                              game.language}
-                          </span>
-                          <time class="recent-game__date" datetime={game.createdAt}>
-                            {formatUserDate(game.createdAt)}
-                          </time>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </section>
-          </div>
-        );
-      })()
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </section>
+            </div>
+          );
+        })()
     }
   </div>
 </Layout>
@@ -1180,7 +1183,7 @@ const languageNames = {
   };
 
   // Helper functions for profile display
-  const createUserInfoSection = (user: DisplayProfile['user']): string => {
+  const createUserInfoSection = (user: DisplayProfile["user"]): string => {
     return `
       <section class="profile-card" aria-labelledby="user-info-heading">
         <h2 id="user-info-heading" class="profile-card__title">User Information</h2>
@@ -1213,7 +1216,7 @@ const languageNames = {
     `;
   };
 
-  const createStatsSection = (stats: DisplayProfile['stats']): string => {
+  const createStatsSection = (stats: DisplayProfile["stats"]): string => {
     return `
       <section class="profile-card" aria-labelledby="stats-heading">
         <h2 id="stats-heading" class="profile-card__title">Game Statistics</h2>
@@ -1259,19 +1262,22 @@ const languageNames = {
     `;
   };
 
-  const createRecentGamesSection = (recentGames: DisplayProfile['recentGames']): string => {
-    const gamesHTML = recentGames.length === 0
-      ? `
+  const createRecentGamesSection = (recentGames: DisplayProfile["recentGames"]): string => {
+    const gamesHTML =
+      recentGames.length === 0
+        ? `
         <div class="profile-card__empty">
           <div style="width: 64px; height: 64px; background: #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 24px;">🎮</div>
           <p class="profile-card__empty-text">No games played yet</p>
           <p style="font-size: 14px; color: #999;">Start playing to see your game history here!</p>
         </div>
       `
-      : `
+        : `
         <div class="recent-games">
           <ul class="recent-games__list">
-            ${recentGames.map((game) => `
+            ${recentGames
+              .map(
+                (game) => `
               <li class="recent-game">
                 <div class="recent-game__header">
                   <div class="recent-game__mode">
@@ -1288,7 +1294,9 @@ const languageNames = {
                   <time class="recent-game__date">${new Date(game.createdAt).toLocaleDateString()}</time>
                 </div>
               </li>
-            `).join("")}
+            `
+              )
+              .join("")}
           </ul>
         </div>
       `;

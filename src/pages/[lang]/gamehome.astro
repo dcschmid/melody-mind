@@ -403,11 +403,15 @@ const clientTranslations = generateClientTranslations(t);
 
   // Responsive breakpoints using hardcoded em values (CSS Custom Properties don't work in media queries)
   $breakpoints: (
-    xs: 20em,    // 320px
-    sm: 40em,    // 640px  
-    md: 48em,    // 768px
-    lg: 64em,    // 1024px
-    xl: 80em,    // 1280px
+    xs: 20em,
+    // 320px
+    sm: 40em,
+    // 640px
+    md: 48em,
+    // 768px
+    lg: 64em,
+    // 1024px
+    xl: 80em, // 1280px
   );
 
   // Mixin for responsive design
@@ -454,15 +458,15 @@ const clientTranslations = generateClientTranslations(t);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    
+
     // Mobile Portrait (very small screens) - optimized spacing
     padding: var(--space-md) var(--space-sm);
-    
-    // Mobile Landscape and small tablets 
+
+    // Mobile Landscape and small tablets
     @include respond-to(xs) {
       padding: var(--space-md) var(--space-md);
     }
-    
+
     @include respond-to(sm) {
       padding: var(--space-lg) var(--space-md);
     }
@@ -470,7 +474,7 @@ const clientTranslations = generateClientTranslations(t);
     @include respond-to(md) {
       padding: var(--space-xl) var(--space-lg);
     }
-    
+
     @include respond-to(lg) {
       padding: var(--space-2xl) var(--space-xl);
     }
@@ -491,17 +495,17 @@ const clientTranslations = generateClientTranslations(t);
     );
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
-    
+
     // Mobile Portrait - compact spacing and rounded corners
     margin-bottom: var(--space-lg);
     padding: var(--space-md) var(--space-sm);
     border-radius: var(--radius-lg);
-    
+
     @include respond-to(xs) {
       padding: var(--space-md);
       margin-bottom: var(--space-xl);
     }
-    
+
     @include respond-to(sm) {
       padding: var(--space-lg);
       border-radius: var(--radius-xl);
@@ -561,18 +565,18 @@ const clientTranslations = generateClientTranslations(t);
     &__title {
       color: var(--color-white);
       text-shadow: var(--text-shadow-strong);
-      
+
       // Mobile Portrait - compact spacing
       margin-bottom: var(--space-sm);
       font-size: var(--text-xl);
       line-height: var(--leading-tight);
-      
+
       @include respond-to(xs) {
         margin-bottom: var(--space-md);
         font-size: var(--text-2xl);
         line-height: var(--leading-snug);
       }
-      
+
       @include respond-to(sm) {
         margin-bottom: var(--space-lg);
         font-size: var(--text-3xl);
@@ -587,17 +591,17 @@ const clientTranslations = generateClientTranslations(t);
     &__divider {
       background: var(--color-secondary-400);
       border-radius: var(--radius-full);
-      
+
       // Mobile Portrait - smaller divider
       width: var(--icon-size-lg);
       height: var(--border-width-thick);
       margin: var(--space-md) auto;
-      
+
       @include respond-to(xs) {
         width: var(--icon-size-xl);
         margin: var(--space-lg) auto;
       }
-      
+
       @include respond-to(sm) {
         height: var(--border-width-enhanced);
       }
@@ -607,16 +611,16 @@ const clientTranslations = generateClientTranslations(t);
       color: var(--color-neutral-100);
       line-height: var(--leading-relaxed);
       margin: 0 auto;
-      
+
       // Mobile Portrait - compact text
       font-size: var(--text-base);
       max-width: var(--container-xs);
-      
+
       @include respond-to(xs) {
         font-size: var(--text-lg);
         max-width: var(--container-sm);
       }
-      
+
       @include respond-to(sm) {
         font-size: var(--text-xl);
         max-width: var(--container-md);
@@ -636,7 +640,7 @@ const clientTranslations = generateClientTranslations(t);
   .search-container {
     // Mobile Portrait - compact margin
     margin-bottom: var(--space-lg);
-    
+
     @include respond-to(sm) {
       margin-bottom: var(--space-xl);
     }
@@ -644,14 +648,14 @@ const clientTranslations = generateClientTranslations(t);
     &__wrapper {
       position: relative;
       margin: 0 auto;
-      
+
       // Mobile Portrait - full width with minimal padding
       max-width: var(--width-full);
-      
+
       @include respond-to(xs) {
         max-width: var(--container-sm);
       }
-      
+
       @include respond-to(sm) {
         max-width: var(--container-md);
       }
@@ -664,10 +668,10 @@ const clientTranslations = generateClientTranslations(t);
       color: var(--text-tertiary);
       pointer-events: none;
       z-index: var(--z-dropdown);
-      
+
       // Mobile Portrait - adjusted positioning
       left: var(--space-sm);
-      
+
       @include respond-to(xs) {
         left: var(--space-md);
       }
@@ -676,7 +680,7 @@ const clientTranslations = generateClientTranslations(t);
         // Mobile Portrait - smaller icon
         width: var(--icon-size-sm);
         height: var(--icon-size-sm);
-        
+
         @include respond-to(xs) {
           width: var(--icon-size-md);
           height: var(--icon-size-md);
@@ -693,11 +697,11 @@ const clientTranslations = generateClientTranslations(t);
       line-height: var(--leading-normal);
       transition: all var(--transition-normal);
       box-shadow: var(--shadow-sm);
-      
+
       // Mobile Portrait - compact input
       padding: var(--space-sm) var(--space-sm) var(--space-sm) var(--space-2xl);
       font-size: var(--text-base);
-      
+
       @include respond-to(xs) {
         padding: var(--space-md) var(--space-md) var(--space-md) var(--space-3xl);
         font-size: var(--text-lg);
@@ -761,11 +765,11 @@ const clientTranslations = generateClientTranslations(t);
   .genre-grid {
     display: grid;
     margin-bottom: var(--space-xl);
-    
+
     // Mobile Portrait - single column, compact gap
     grid-template-columns: 1fr;
     gap: var(--space-md);
-    
+
     @include respond-to(xs) {
       gap: var(--space-lg);
       grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-width-xs), 1fr));
@@ -799,51 +803,51 @@ const clientTranslations = generateClientTranslations(t);
   // ======================================
   // RESPONSIVE UTILITIES & MOBILE OPTIMIZATIONS
   // ======================================
-  
+
   // Extra small screens - Portrait Mobile (below 320px)
   @media (max-width: 19.9375em) {
     .gamehome-container {
       padding: var(--space-sm) var(--space-xs);
     }
-    
+
     .gamehome-hero {
       padding: var(--space-sm);
       margin-bottom: var(--space-md);
-      
+
       &__title {
         font-size: var(--text-lg);
         margin-bottom: var(--space-xs);
       }
-      
+
       &__description {
         font-size: var(--text-sm);
         line-height: var(--leading-snug);
       }
-      
+
       &__divider {
         width: var(--icon-size-md);
         margin: var(--space-sm) auto;
       }
     }
-    
+
     .search-container {
       margin-bottom: var(--space-md);
-      
+
       &__input {
         padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-xl);
         font-size: var(--text-sm);
       }
-      
+
       &__icon {
         left: var(--space-xs);
-        
+
         &-element {
           width: var(--icon-size-xs);
           height: var(--icon-size-xs);
         }
       }
     }
-    
+
     .genre-grid {
       gap: var(--space-sm);
     }

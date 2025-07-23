@@ -32,7 +32,14 @@ export type AchievementConditionType =
   | "genre_explorer"
   | "game_series"
   | "quick_answer"
-  | "seasonal_event";
+  | "seasonal_event"
+  | "accuracy_streak"
+  | "speed_master"
+  | "perfect_streak"
+  | "time_based"
+  | "difficulty_master"
+  | "joker_master"
+  | "combo_achievement";
 
 /**
  * Achievement

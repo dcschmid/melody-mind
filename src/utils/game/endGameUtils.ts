@@ -98,11 +98,11 @@ export interface EndGameUI {
 async function saveGameResult(config: EndGameConfig): Promise<string> {
   try {
     // Debug: Log der ausgehenden Daten
-    console.log('🔵 saveGameResult START:', {
+    console.log("🔵 saveGameResult START:", {
       userId: config.userId,
       categoryName: config.categoryName,
       score: config.score,
-      url: `/${config.language}/api/game/save-result`
+      url: `/${config.language}/api/game/save-result`,
     });
 
     // Erstelle das Datenpaket für die API
@@ -124,10 +124,10 @@ async function saveGameResult(config: EndGameConfig): Promise<string> {
       body: JSON.stringify(gameData),
     });
 
-    console.log('🔵 saveGameResult RESPONSE:', {
+    console.log("🔵 saveGameResult RESPONSE:", {
       status: response.status,
       statusText: response.statusText,
-      ok: response.ok
+      ok: response.ok,
     });
 
     if (!response.ok) {
@@ -152,10 +152,10 @@ async function saveGameResult(config: EndGameConfig): Promise<string> {
       throw new Error("Ungültiges JSON-Format in der Server-Antwort");
     }
 
-    console.log('🔵 saveGameResult SUCCESS:', {
+    console.log("🔵 saveGameResult SUCCESS:", {
       gameMode: result.gameMode,
       achievements: result.unlockedAchievements?.length || 0,
-      resultId: result.id
+      resultId: result.id,
     });
 
     // Handle achievements if present
@@ -176,7 +176,7 @@ async function saveGameResult(config: EndGameConfig): Promise<string> {
     console.error("🔴 Config bei Fehler:", {
       userId: config.userId,
       categoryName: config.categoryName,
-      url: window.location.href
+      url: window.location.href,
     });
     // Bestimme den Spielmodus basierend auf dem URL-Pfad als Fallback
     return window.location.pathname.includes("/game-") ? "quiz" : "chronology";

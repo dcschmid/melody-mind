@@ -6,14 +6,14 @@
  * So we need to check column existence manually
  */
 
-import { createClient } from '@libsql/client';
-import dotenv from 'dotenv';
+import { createClient } from "@libsql/client";
+import dotenv from "dotenv";
 
 // Load environment variables
 dotenv.config();
 
 const client = createClient({
-  url: process.env.TURSO_DATABASE_URL || 'file:local.db',
+  url: process.env.TURSO_DATABASE_URL || "file:local.db",
   authToken: process.env.TURSO_AUTH_TOKEN,
 });
 
@@ -23,7 +23,7 @@ const client = createClient({
 async function columnExists(tableName, columnName) {
   try {
     const result = await client.execute(`PRAGMA table_info(${tableName})`);
-    return result.rows.some(row => row.name === columnName);
+    return result.rows.some((row) => row.name === columnName);
   } catch (error) {
     console.error(`Error checking column ${columnName} in table ${tableName}:`, error);
     return false;
@@ -51,16 +51,16 @@ async function addColumnIfNotExists(tableName, columnName, columnDefinition) {
  * Main function to add all OAuth-related columns
  */
 async function addOAuthColumns() {
-  console.log('🔄 Adding OAuth-related columns to users table...');
-  
+  console.log("🔄 Adding OAuth-related columns to users table...");
+
   try {
     // Add OAuth-related columns
-    await addColumnIfNotExists('users', 'email_verified', 'BOOLEAN DEFAULT FALSE');
-    await addColumnIfNotExists('users', 'avatar_url', 'TEXT');
-    await addColumnIfNotExists('users', 'preferred_language', 'TEXT DEFAULT "en"');
-    await addColumnIfNotExists('users', 'last_login_at', 'DATETIME');
-    await addColumnIfNotExists('users', 'login_count', 'INTEGER DEFAULT 0');
-    
+    await addColumnIfNotExists("users", "email_verified", "BOOLEAN DEFAULT FALSE");
+    await addColumnIfNotExists("users", "avatar_url", "TEXT");
+    await addColumnIfNotExists("users", "preferred_language", 'TEXT DEFAULT "en"');
+    await addColumnIfNotExists("users", "last_login_at", "DATETIME");
+    await addColumnIfNotExists("users", "login_count", "INTEGER DEFAULT 0");
+
     // Update existing users to have email_verified = TRUE (since they registered via email)
     try {
       await client.execute(`
@@ -68,14 +68,14 @@ async function addOAuthColumns() {
         SET email_verified = TRUE 
         WHERE email IS NOT NULL AND (email_verified IS NULL OR email_verified = FALSE)
       `);
-      console.log('✅ Updated existing users to have email_verified = TRUE');
+      console.log("✅ Updated existing users to have email_verified = TRUE");
     } catch (error) {
-      console.error('❌ Error updating existing users:', error);
+      console.error("❌ Error updating existing users:", error);
     }
-    
-    console.log('✅ OAuth columns setup completed!');
+
+    console.log("✅ OAuth columns setup completed!");
   } catch (error) {
-    console.error('❌ Error during OAuth columns setup:', error);
+    console.error("❌ Error during OAuth columns setup:", error);
   } finally {
     client.close();
   }
