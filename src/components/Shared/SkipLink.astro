@@ -46,6 +46,21 @@ const t = useTranslations(lang);
 ---
 
 <a href={`#${targetId}`} class="skip-link" data-skip-link aria-label={t("nav.skip.main")}>
+  <svg
+    class="skip-link__icon"
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M7 17L17 7M17 7H8M17 7V16"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+  </svg>
   {t("nav.skip.main")}
 </a>
 
@@ -59,8 +74,8 @@ const t = useTranslations(lang);
   .skip-link {
     // Positioning - optimize using standardized variables
     position: absolute;
-    top: calc(-1 * var(--space-3xl));
-    left: 50%;
+    top: -9999px;
+    left: -9999px;
     z-index: var(--z-modal);
 
     // Layout - use semantic touch target variables consistently
@@ -68,11 +83,18 @@ const t = useTranslations(lang);
     min-height: var(--min-touch-size);
     transform: translate(-50%, 0) translateZ(0);
 
-    // Visual styling - use semantic design tokens
+    // Visual styling - enhanced with gradient background
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-    background-color: var(--interactive-primary);
+    background: linear-gradient(
+      135deg,
+      var(--interactive-primary) 0%,
+      var(--color-primary-600) 100%
+    );
     padding: var(--space-sm) var(--space-xl);
-    box-shadow: var(--shadow-md);
+    box-shadow:
+      var(--shadow-lg),
+      0 4px 20px rgba(139, 69, 255, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
     // Typography - use consistent font variables
     text-align: center;
@@ -96,38 +118,79 @@ const t = useTranslations(lang);
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: var(--space-xs);
+
+    // Icon styling
+    &__icon {
+      flex-shrink: 0;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+      transition: transform var(--animation-duration-fast);
+    }
 
     // Mobile-first responsive design
-    @media (min-width: var(--breakpoint-md)) {
+    @media (min-width: 48em) {
       padding: var(--space-md) var(--space-2xl);
       font-size: var(--text-lg);
     }
 
-    @media (min-width: var(--breakpoint-lg)) {
+    @media (min-width: 64em) {
       padding: var(--space-md) var(--space-3xl);
     }
 
-    // Hover state - use semantic interaction variables
+    // Hover state - enhanced with gradient animation
     @media (hover: hover) {
       &:hover {
-        background-color: var(--interactive-primary-hover);
+        background: linear-gradient(
+          135deg,
+          var(--color-primary-500) 0%,
+          var(--color-primary-700) 100%
+        );
         transform: translate(-50%, 0) translateZ(0) scale(var(--scale-focus));
+        box-shadow:
+          var(--shadow-xl),
+          0 6px 25px rgba(139, 69, 255, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+        .skip-link__icon {
+          transform: translateX(2px) translateY(-2px);
+        }
       }
     }
 
-    // Focus state - use enhanced focus system variables
+    // Focus state - enhanced with beautiful gradient and glow
     &:focus-visible {
       top: 0;
+      left: 50%;
       outline: var(--focus-enhanced-outline-dark);
       outline-offset: var(--focus-ring-offset);
-      box-shadow: var(--focus-enhanced-shadow), var(--shadow-lg);
-      background-color: var(--interactive-primary-hover);
+      background: linear-gradient(
+        135deg,
+        var(--color-primary-400) 0%,
+        var(--color-primary-600) 100%
+      );
+      box-shadow:
+        var(--focus-enhanced-shadow),
+        var(--shadow-xl),
+        0 8px 30px rgba(139, 69, 255, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      transform: translate(-50%, 0) translateZ(0) scale(1.05);
+
+      .skip-link__icon {
+        transform: translateX(3px) translateY(-3px) scale(1.1);
+      }
     }
 
-    // Active state - use semantic scale variable
+    // Active state - enhanced with deeper gradient
     &:active {
       transform: translate(-50%, 0) translateZ(0) scale(var(--scale-active));
-      background-color: var(--interactive-primary-active);
+      background: linear-gradient(
+        135deg,
+        var(--color-primary-600) 0%,
+        var(--color-primary-800) 100%
+      );
+      box-shadow:
+        0 4px 15px rgba(139, 69, 255, 0.3),
+        inset 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     // Touch device optimizations
@@ -208,6 +271,7 @@ const t = useTranslations(lang);
 </style>
 
 <script>
+  /* eslint-disable @typescript-eslint/explicit-function-return-type */
   /**
    * SkipLink Enhancement Script
    *
@@ -231,7 +295,7 @@ const t = useTranslations(lang);
     /**
      * Set up event listeners for the skip link
      */
-    #setupEventListeners = (): void => {
+    #setupEventListeners = () => {
       if (!this.#skipLink) {
         return;
       }
@@ -280,7 +344,7 @@ const t = useTranslations(lang);
      * Check if user prefers reduced motion
      * @returns {boolean} True if reduced motion is preferred
      */
-    #prefersReducedMotion = (): boolean => {
+    #prefersReducedMotion = () => {
       return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     };
 
@@ -289,7 +353,7 @@ const t = useTranslations(lang);
      * @param {string} message - The message to announce
      * @param {string} id - Optional ID for the announcer element
      */
-    #announceToScreenReader = (message: string, id?: string): void => {
+    #announceToScreenReader = (message, id) => {
       const announcer = document.createElement("div");
       announcer.setAttribute("aria-live", "assertive");
       announcer.setAttribute("aria-atomic", "true");
@@ -320,7 +384,7 @@ const t = useTranslations(lang);
   }
 
   // Initialize enhancer when DOM is ready using modern ES6 features
-  const initializeSkipLink = (): void => {
+  const initializeSkipLink = () => {
     new SkipLinkEnhancer();
   };
 

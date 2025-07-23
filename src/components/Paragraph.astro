@@ -127,8 +127,14 @@ const paragraphClasses: string = [
     font-weight: var(--font-normal);
     line-height: var(--leading-relaxed);
     letter-spacing: var(--letter-spacing-base);
-    margin: 0 0 var(--space-xl) 0;
     color: var(--text-secondary);
+
+    // Mobile Portrait - generous spacing for readability
+    margin: 0 0 var(--space-2xl) 0;
+
+    @media (min-width: 20em) {
+      margin: 0 0 var(--space-3xl) 0;
+    }
 
     // Enhanced text rendering for better readability
     text-rendering: optimizeLegibility;
@@ -193,8 +199,8 @@ const paragraphClasses: string = [
     // RESPONSIVE BREAKPOINT ADJUSTMENTS
     // ======================================
 
-    // Tablet breakpoint (md)
-    @media (min-width: var(--breakpoint-md)) {
+    // Tablet breakpoint (md) - Fixed: CSS Custom Properties don't work in media queries
+    @media (min-width: 48em) {
       &--size {
         &-xl {
           font-size: var(--text-2xl);
@@ -214,32 +220,32 @@ const paragraphClasses: string = [
       }
     }
 
-    // Desktop breakpoint (lg)
-    @media (min-width: var(--breakpoint-lg)) {
+    // Desktop breakpoint (lg) - Smaller font sizes for desktop
+    @media (min-width: 64em) {
       &--size {
         &-2xl {
-          font-size: var(--text-4xl);
+          font-size: var(--text-2xl);
         }
 
         &-3xl {
-          font-size: calc(var(--text-4xl) * 1.25);
+          font-size: var(--text-3xl);
         }
 
         &-4xl {
-          font-size: calc(var(--text-4xl) * 1.5);
+          font-size: var(--text-4xl);
         }
       }
     }
 
-    // Large desktop breakpoint (xl)
-    @media (min-width: var(--breakpoint-xl)) {
+    // Large desktop breakpoint (xl) - Moderate scaling
+    @media (min-width: 80em) {
       &--size {
         &-3xl {
-          font-size: calc(var(--text-4xl) * 1.5);
+          font-size: var(--text-4xl);
         }
 
         &-4xl {
-          font-size: calc(var(--text-4xl) * 2);
+          font-size: calc(var(--text-4xl) * 1.25);
         }
       }
     }
@@ -272,12 +278,22 @@ const paragraphClasses: string = [
       font-weight: var(--font-medium);
     }
 
-    // Enhanced text spacing for WCAG 2.2 AAA compliance
+    // Enhanced text spacing for WCAG 2.2 AAA compliance - Mobile optimized
     &--enhanced-spacing {
       letter-spacing: var(--text-spacing-letter-2x);
       line-height: var(--text-spacing-line-1-5x);
-      margin-bottom: calc(var(--space-xl) * 2);
       word-spacing: var(--text-spacing-word-enhanced);
+
+      // Mobile Portrait - luxurious spacing
+      margin-bottom: var(--space-3xl);
+
+      @media (min-width: 20em) {
+        margin-bottom: var(--space-4xl);
+      }
+
+      @media (min-width: 64em) {
+        margin-bottom: calc(var(--space-4xl) * 1.5);
+      }
     }
 
     // ======================================
@@ -322,17 +338,17 @@ const paragraphClasses: string = [
     // RESPONSIVE LAYOUT OPTIMIZATIONS
     // ======================================
 
-    // Optimal reading line length for larger screens
-    @media (min-width: var(--breakpoint-sm)) {
+    // Optimal reading line length for larger screens - Fixed breakpoints
+    @media (min-width: 40em) {
       max-width: var(--content-readable-width);
     }
 
-    // Enhanced spacing for larger screens
-    @media (min-width: var(--breakpoint-lg)) {
-      margin-bottom: var(--space-2xl);
+    // Enhanced spacing for larger screens - Fixed breakpoints
+    @media (min-width: 64em) {
+      margin-bottom: var(--space-3xl);
 
       &--enhanced-spacing {
-        margin-bottom: calc(var(--space-2xl) * 2);
+        margin-bottom: var(--space-5xl);
       }
     }
 
@@ -346,6 +362,93 @@ const paragraphClasses: string = [
     &[style*="word-spacing"] {
       overflow: visible;
       text-overflow: clip;
+    }
+  }
+
+  // ======================================
+  // MOBILE PORTRAIT OPTIMIZATIONS
+  // ======================================
+
+  // Small mobile screens - Portrait Mobile (below 480px) - Compact for space efficiency
+  @media (max-width: 29.9375em) {
+    .paragraph {
+      margin-bottom: var(--space-lg);
+      line-height: var(--leading-snug);
+
+      // SMALLER font sizes to fit more content on tiny screens
+      &--size {
+        &-base {
+          font-size: var(--text-sm);
+        }
+
+        &-lg {
+          font-size: var(--text-base);
+        }
+
+        &-xl {
+          font-size: var(--text-lg);
+        }
+
+        &-2xl {
+          font-size: var(--text-xl);
+        }
+
+        &-3xl {
+          font-size: var(--text-2xl);
+        }
+
+        &-4xl {
+          font-size: var(--text-3xl);
+        }
+      }
+
+      &--enhanced-spacing {
+        margin-bottom: var(--space-xl);
+        line-height: var(--leading-normal);
+      }
+    }
+  }
+
+  // Medium screens - Tablet Portrait (480px+) - Balanced spacing
+  @media (min-width: 30em) {
+    .paragraph {
+      margin-bottom: var(--space-xl);
+      line-height: var(--leading-relaxed);
+
+      &--enhanced-spacing {
+        margin-bottom: var(--space-2xl);
+      }
+    }
+  }
+
+  // Tablet Landscape (768px - 1024px) - Smaller fonts to fix oversized text
+  @media (min-width: 48em) and (max-width: 63.9375em) {
+    .paragraph {
+      &--size {
+        &-base {
+          font-size: var(--text-sm);
+        }
+
+        &-lg {
+          font-size: var(--text-base);
+        }
+
+        &-xl {
+          font-size: var(--text-lg);
+        }
+
+        &-2xl {
+          font-size: var(--text-xl);
+        }
+
+        &-3xl {
+          font-size: var(--text-2xl);
+        }
+
+        &-4xl {
+          font-size: var(--text-3xl);
+        }
+      }
     }
   }
 

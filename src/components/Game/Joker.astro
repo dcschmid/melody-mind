@@ -21,7 +21,6 @@
  * ```
  */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
-import ButtonLink from "@components/ButtonLink.astro";
 
 interface Props {
   /** Initial number of jokers available */
@@ -468,6 +467,7 @@ const dataAttributes = {
 </style>
 
 <script is:inline>
+  /* eslint-disable @typescript-eslint/explicit-function-return-type */
   /**
    * Joker Component Script
    *
@@ -481,18 +481,10 @@ const dataAttributes = {
    * - Multi-language support
    */
 
-  type SupportedLanguage = "de" | "en" | "es" | "fr" | "it" | "pt" | "da" | "nl" | "sv" | "fi";
-
-  interface JokerElements {
-    button: HTMLButtonElement | null;
-    counter: HTMLElement | null;
-    container: HTMLElement | null;
-    announcement: HTMLElement | null;
-  }
-
+  // Supported languages for the joker component
   // Performance optimization: cache announcement texts
-  const createAnnouncementTexts = (lang: SupportedLanguage, currentCount: string): string => {
-    const announcements: Record<SupportedLanguage, string> = {
+  const createAnnouncementTexts = (lang, currentCount) => {
+    const announcements = {
       de: `50:50 Joker verwendet. Noch ${currentCount} Joker verfügbar.`,
       en: `50:50 Joker used. ${currentCount} jokers remaining.`,
       es: `Comodín 50:50 utilizado. Quedan ${currentCount} comodines.`,
@@ -511,7 +503,7 @@ const dataAttributes = {
    * Initializes the Joker component once the DOM is fully loaded
    * Performance optimized with RAF and efficient element queries
    */
-  const initJoker = (): void => {
+  const initJoker = () => {
     requestAnimationFrame(() => {
       const container = document.querySelector('[data-testid="joker-container"]');
       if (!container) {
@@ -520,13 +512,13 @@ const dataAttributes = {
 
       const initialCount = parseInt(container.getAttribute("data-initial-count") || "0", 10);
       const initialDisabled = container.getAttribute("data-initial-disabled") === "true";
-      const lang = (container.getAttribute("data-lang-code") as SupportedLanguage) || "en";
+      const lang = container.getAttribute("data-lang-code") || "en";
 
       // Performance optimization: query elements once and cache them
-      const elements: JokerElements = {
-        button: document.getElementById("joker-button") as HTMLButtonElement,
+      const elements = {
+        button: document.getElementById("joker-button"),
         counter: document.getElementById("joker-count"),
-        container: container as HTMLElement,
+        container: container,
         announcement: document.getElementById("joker-announcement"),
       };
 
@@ -555,16 +547,16 @@ const dataAttributes = {
   /**
    * Sets up event handlers for the joker button with performance optimizations
    */
-  const setupButtonEvents = (elements: JokerElements, lang: SupportedLanguage): void => {
+  const setupButtonEvents = (elements, lang) => {
     if (!elements.button) {
       return;
     }
 
-    let clickTimeout: ReturnType<typeof setTimeout> | null = null;
+    let clickTimeout = null;
     let canTrigger = true;
 
     // Define the click handler function first
-    const handleJokerClick = (_e: Event): void => {
+    const handleJokerClick = (_e) => {
       if (elements.button?.disabled || !canTrigger || clickTimeout) {
         return;
       }
@@ -605,7 +597,7 @@ const dataAttributes = {
   /**
    * Creates and dispatches the jokerUsed custom event
    */
-  const dispatchJokerEvent = (elements: JokerElements, lang: SupportedLanguage): void => {
+  const dispatchJokerEvent = (elements, lang) => {
     const { button } = elements;
     if (!button) {
       return;
@@ -630,7 +622,7 @@ const dataAttributes = {
   /**
    * Sets up mutation observer for joker counter
    */
-  const setupCounterObserver = (elements: JokerElements): void => {
+  const setupCounterObserver = (elements) => {
     const { counter } = elements;
     if (!counter) {
       return;
@@ -647,7 +639,7 @@ const dataAttributes = {
 
     observer.observe(counter);
 
-    const setupMutation = (): void => {
+    const setupMutation = () => {
       const mutationObs = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
           if (mutation.type === "childList" && counter) {
@@ -670,12 +662,12 @@ const dataAttributes = {
    * Creates accessible announcements for screen readers when joker is used
    * Performance optimized with cached announcement texts
    */
-  const announceJokerUsage = (elements: JokerElements, lang: SupportedLanguage): void => {
+  const announceJokerUsage = (elements, lang) => {
     const { counter, announcement } = elements;
 
     const announcementEl =
       announcement ||
-      ((): HTMLElement => {
+      (() => {
         const el = document.createElement("div");
         el.id = "joker-announcement";
         el.setAttribute("aria-live", "assertive");
@@ -698,11 +690,11 @@ const dataAttributes = {
   /**
    * Updates joker count and manages button state with performance optimization
    */
-  const updateJokerCount = (count: number, disable: boolean = false): void => {
+  const updateJokerCount = (count, disable = false) => {
     // Performance optimization: batch DOM updates in RAF
     requestAnimationFrame(() => {
       const counter = document.getElementById("joker-count");
-      const button = document.getElementById("joker-button") as HTMLButtonElement | null;
+      const button = document.getElementById("joker-button");
 
       if (counter) {
         counter.textContent = count.toString();
@@ -725,7 +717,7 @@ const dataAttributes = {
   /**
    * Handles cleanup of component resources when page changes
    */
-  const cleanupJokerComponent = (elements: JokerElements): void => {
+  const cleanupJokerComponent = (elements) => {
     const { announcement } = elements;
 
     if (announcement) {
@@ -742,19 +734,5 @@ const dataAttributes = {
     document.addEventListener("DOMContentLoaded", initJoker);
   } else {
     initJoker();
-  }
-</script>
-
-<!-- Type definitions for global namespace -->
-<script>
-  interface MelodyMindGlobal {
-    updateJokerCount: (count: number, disable?: boolean) => void;
-    [key: string]: unknown;
-  }
-
-  declare global {
-    interface Window {
-      MelodyMind: MelodyMindGlobal;
-    }
   }
 </script>

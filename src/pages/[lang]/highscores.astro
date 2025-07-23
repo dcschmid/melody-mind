@@ -391,32 +391,40 @@ const gameModeNames = {
   $hero-decoration-sm: var(--space-2xl);
   $hero-decoration-md: var(--space-3xl);
   $hero-decoration-lg: calc(var(--space-3xl) * 2);
-  $content-max-width: 28rem;
-  $hero-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  $divider-height: 2px;
+  $content-max-width: var(--form-container-max-width);
+  $hero-shadow: var(--shadow-lg);
+  $divider-height: var(--border-width-thick);
 
-  // Responsive breakpoints using global.css variables
-  $breakpoint-xs: var(--breakpoint-xs);
-  $breakpoint-sm: var(--breakpoint-sm);
-  $breakpoint-md: var(--breakpoint-md);
-  $breakpoint-lg: var(--breakpoint-lg);
-  $breakpoint-xl: var(--breakpoint-xl);
+  // Note: Using hardcoded em values in media queries since CSS variables don't work in @media rules
+  // Mobile portrait: 0-479px (< 30em)
+  // Mobile landscape: 480-639px (30em - 39.9375em)
+  // Small tablet: 640-767px (40em - 47.9375em)
+  // Tablet: 768-1023px (48em - 63.9375em)
+  // Desktop: 1024-1279px (64em - 79.9375em)
+  // Large desktop: 1280px+ (80em+)
 
-  // Breakpoints map for responsive design
-  $breakpoints: (
-    xs: $breakpoint-xs,
-    sm: $breakpoint-sm,
-    md: $breakpoint-md,
-    lg: $breakpoint-lg,
-    xl: $breakpoint-xl,
-  );
+  // Mixins for responsive design using hardcoded breakpoints
+  @mixin respond-to-sm {
+    @media (min-width: 40em) {
+      @content;
+    }
+  }
 
-  // Mixins for responsive design
-  @mixin respond-to($breakpoint) {
-    @if map.has-key($breakpoints, $breakpoint) {
-      @media (min-width: map.get($breakpoints, $breakpoint)) {
-        @content;
-      }
+  @mixin respond-to-md {
+    @media (min-width: 48em) {
+      @content;
+    }
+  }
+
+  @mixin respond-to-lg {
+    @media (min-width: 64em) {
+      @content;
+    }
+  }
+
+  @mixin respond-to-xl {
+    @media (min-width: 80em) {
+      @content;
     }
   }
 
@@ -455,17 +463,34 @@ const gameModeNames = {
     width: var(--width-full);
     max-width: var(--container-xl);
     margin: 0 auto;
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-md) var(--space-sm);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     contain: layout style;
 
-    @include respond-to(md) {
+    // Mobile portrait (< 480px) - very compact
+    @media (max-width: 29.9375em) {
+      padding: var(--space-sm) var(--space-xs);
+    }
+
+    // Mobile landscape (480px - 640px)
+    @media (min-width: 30em) and (max-width: 39.9375em) {
+      padding: var(--space-lg) var(--space-md);
+    }
+
+    // Small tablet (640px - 768px)
+    @media (min-width: 40em) and (max-width: 47.9375em) {
+      padding: var(--space-lg) var(--space-md);
+    }
+
+    // Tablet (768px - 1024px)
+    @media (min-width: 48em) and (max-width: 63.9375em) {
       padding: var(--space-xl) var(--space-lg);
     }
 
-    @include respond-to(lg) {
+    // Desktop (1024px+)
+    @media (min-width: 64em) {
       padding: var(--space-2xl) var(--space-xl);
     }
   }
@@ -477,25 +502,55 @@ const gameModeNames = {
 
   .highscores-hero {
     position: relative;
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
     overflow: hidden;
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     background: linear-gradient(
       135deg,
       var(--color-primary-900) 0%,
       var(--color-primary-700) 50%,
       var(--color-secondary-800) 100%
     );
-    padding: var(--space-xl);
+    padding: var(--space-lg) var(--space-md);
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
     contain: layout style;
 
-    @include respond-to(md) {
-      padding: var(--space-2xl) var(--space-xl);
+    // Mobile portrait (< 480px)
+    @media (max-width: 29.9375em) {
+      margin-bottom: var(--space-lg);
+      padding: var(--space-md) var(--space-sm);
+      border-radius: var(--radius-md);
     }
 
-    @include respond-to(lg) {
+    // Mobile landscape (480px - 640px)
+    @media (min-width: 30em) and (max-width: 39.9375em) {
+      padding: var(--space-lg) var(--space-md);
+      border-radius: var(--radius-lg);
+    }
+
+    // Small tablet (640px - 768px)
+    @media (min-width: 40em) and (max-width: 47.9375em) {
+      padding: var(--space-xl) var(--space-lg);
+      border-radius: var(--radius-xl);
+    }
+
+    // Tablet (768px - 1024px)
+    @media (min-width: 48em) and (max-width: 63.9375em) {
+      margin-bottom: var(--space-2xl);
+      padding: var(--space-xl) var(--space-lg);
+      border-radius: var(--radius-xl);
+    }
+
+    // Desktop (1024px+)
+    @media (min-width: 64em) {
+      margin-bottom: var(--space-3xl);
+      padding: var(--space-2xl) var(--space-xl);
+      border-radius: var(--radius-2xl);
+    }
+
+    // Large desktop (1280px+)
+    @media (min-width: 80em) {
       padding: var(--space-3xl) var(--space-2xl);
     }
 
@@ -518,7 +573,7 @@ const gameModeNames = {
           width: $hero-decoration-md;
           height: $hero-decoration-md;
 
-          @include respond-to(lg) {
+          @include respond-to-lg {
             width: $hero-decoration-lg;
             height: $hero-decoration-lg;
           }
@@ -530,7 +585,7 @@ const gameModeNames = {
           width: $hero-decoration-lg;
           height: $hero-decoration-lg;
 
-          @include respond-to(lg) {
+          @include respond-to-lg {
             width: calc($hero-decoration-lg * 1.5);
             height: calc($hero-decoration-lg * 1.5);
           }
@@ -543,7 +598,7 @@ const gameModeNames = {
           height: $hero-decoration-sm;
           transform: translateY(-50%);
 
-          @include respond-to(md) {
+          @include respond-to-md {
             width: $hero-decoration-md;
             height: $hero-decoration-md;
           }
@@ -560,44 +615,106 @@ const gameModeNames = {
     }
 
     &__title {
-      margin-bottom: var(--space-lg);
+      margin-bottom: var(--space-md);
       color: var(--color-white);
       text-shadow: $hero-shadow;
-      font-size: var(--text-3xl);
+      font-size: var(--text-2xl);
 
-      @include respond-to(md) {
+      // Mobile portrait
+      @media (max-width: 29.9375em) {
+        margin-bottom: var(--space-sm);
+        font-size: var(--text-xl);
+      }
+
+      // Mobile landscape
+      @media (min-width: 30em) and (max-width: 39.9375em) {
+        font-size: var(--text-2xl);
+      }
+
+      // Small tablet
+      @media (min-width: 40em) and (max-width: 47.9375em) {
+        font-size: var(--text-3xl);
+      }
+
+      // Tablet
+      @media (min-width: 48em) and (max-width: 63.9375em) {
+        margin-bottom: var(--space-lg);
+        font-size: var(--text-3xl);
+      }
+
+      // Desktop
+      @media (min-width: 64em) {
+        margin-bottom: var(--space-lg);
         font-size: var(--text-4xl);
       }
 
-      @include respond-to(lg) {
+      // Large desktop
+      @media (min-width: 80em) {
         font-size: var(--text-5xl);
       }
     }
 
     &__divider {
-      width: var(--space-2xl);
-      height: $divider-height;
+      width: var(--space-xl);
+      height: var(--border-width-thick);
       background: var(--color-secondary-400);
-      margin: var(--space-lg) auto;
+      margin: var(--space-md) auto;
       border-radius: var(--radius-full);
 
-      @include respond-to(md) {
+      // Mobile portrait
+      @media (max-width: 29.9375em) {
+        width: var(--space-lg);
+        margin: var(--space-sm) auto;
+      }
+
+      // Desktop
+      @media (min-width: 64em) {
+        width: var(--space-2xl);
+        margin: var(--space-lg) auto;
+      }
+
+      // Large desktop
+      @media (min-width: 80em) {
         width: var(--space-3xl);
       }
     }
 
     &__description {
       color: var(--color-neutral-100);
-      font-size: var(--text-lg);
+      font-size: var(--text-base);
       line-height: var(--leading-relaxed);
       max-width: $content-max-width;
       margin: 0 auto;
 
-      @include respond-to(md) {
+      // Mobile portrait
+      @media (max-width: 29.9375em) {
+        font-size: var(--text-sm);
+        line-height: var(--leading-normal);
+        max-width: 100%;
+      }
+
+      // Mobile landscape
+      @media (min-width: 30em) and (max-width: 39.9375em) {
+        font-size: var(--text-base);
+      }
+
+      // Small tablet
+      @media (min-width: 40em) and (max-width: 47.9375em) {
+        font-size: var(--text-lg);
+      }
+
+      // Tablet
+      @media (min-width: 48em) and (max-width: 63.9375em) {
+        font-size: var(--text-lg);
+      }
+
+      // Desktop
+      @media (min-width: 64em) {
         font-size: var(--text-xl);
       }
 
-      @include respond-to(lg) {
+      // Large desktop
+      @media (min-width: 80em) {
         font-size: var(--text-2xl);
         max-width: calc($content-max-width * 1.2);
       }
@@ -619,7 +736,7 @@ const gameModeNames = {
   }
 
   // Responsive typography using fluid scaling
-  @include respond-to(lg) {
+  @include respond-to-lg {
     .highscores-hero {
       &__title {
         font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
@@ -632,7 +749,7 @@ const gameModeNames = {
   }
 
   // Fluid spacing for better responsive behavior
-  @include respond-to(xl) {
+  @include respond-to-xl {
     .highscores-container {
       padding: clamp(var(--space-lg), 5vw, var(--space-3xl))
         clamp(var(--space-md), 3vw, var(--space-2xl));
@@ -730,7 +847,7 @@ const gameModeNames = {
       color: var(--interactive-primary);
       animation: loading-spin var(--animation-pulse-duration) linear infinite;
 
-      @include respond-to(md) {
+      @include respond-to-md {
         width: var(--icon-size-xl);
         height: var(--icon-size-xl);
       }
@@ -759,7 +876,7 @@ const gameModeNames = {
       transform: rotate(var(--rotation-0));
     }
     to {
-      transform: rotate(var(--rotation-360));
+      transform: rotate(360deg);
     }
   }
 
@@ -813,12 +930,12 @@ const gameModeNames = {
     gap: var(--space-xl);
     margin-top: var(--space-2xl);
 
-    @include respond-to(sm) {
+    @include respond-to-sm {
       grid-template-columns: repeat(2, 1fr);
       gap: var(--space-2xl);
     }
 
-    @include respond-to(lg) {
+    @include respond-to-lg {
       grid-template-columns: repeat(2, 1fr);
       max-width: var(--container-md);
       margin-left: auto;
@@ -839,7 +956,7 @@ const gameModeNames = {
     // Subtle inner glow
     box-shadow:
       var(--card-shadow),
-      inset 0 1px 0 oklch(from var(--interactive-primary) l c h / 0.1);
+      inset 0 var(--border-width-thin) 0 oklch(from var(--interactive-primary) l c h / 0.1);
 
     &:hover {
       transform: translateY(calc(-1 * var(--space-sm)));
@@ -869,7 +986,7 @@ const gameModeNames = {
       opacity: 0.7;
     }
 
-    @include respond-to(md) {
+    @include respond-to-md {
       padding: var(--space-3xl);
     }
   }
@@ -880,7 +997,7 @@ const gameModeNames = {
     gap: var(--space-md);
     margin-bottom: var(--space-xl);
 
-    @include respond-to(md) {
+    @include respond-to-md {
       margin-bottom: var(--space-2xl);
     }
   }
@@ -891,7 +1008,7 @@ const gameModeNames = {
     color: var(--interactive-primary);
     flex-shrink: 0;
 
-    @include respond-to(md) {
+    @include respond-to-md {
       width: var(--icon-size-xl);
       height: var(--icon-size-xl);
     }
@@ -903,7 +1020,7 @@ const gameModeNames = {
     color: var(--text-primary);
     line-height: var(--leading-tight);
 
-    @include respond-to(md) {
+    @include respond-to-md {
       font-size: var(--text-xl);
     }
   }
@@ -943,7 +1060,7 @@ const gameModeNames = {
       background-color: var(--form-bg);
     }
 
-    @include respond-to(md) {
+    @include respond-to-md {
       padding: var(--space-xl) var(--space-2xl);
       font-size: var(--text-lg);
       padding-right: calc(var(--space-2xl) + var(--icon-size-xl) + var(--space-lg));
@@ -959,7 +1076,7 @@ const gameModeNames = {
     pointer-events: none;
     transition: color var(--transition-normal);
 
-    @include respond-to(md) {
+    @include respond-to-md {
       right: var(--space-xl);
       width: var(--icon-size-lg);
       height: var(--icon-size-lg);
@@ -994,42 +1111,59 @@ const gameModeNames = {
     max-width: var(--container-sm);
     animation: fadeIn var(--animation-duration-normal) ease-out;
 
-    @include respond-to(md) {
+    @include respond-to-md {
       padding: var(--space-3xl) var(--space-2xl);
       max-width: var(--container-md);
     }
   }
 
-  // Enhanced cards grid with modern responsive design
+  // Enhanced cards grid with comprehensive responsive design
   .highscores__cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-2xl);
-    margin: var(--space-3xl) auto;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    margin: var(--space-2xl) auto;
     width: var(--width-full);
     max-width: var(--container-2xl);
     contain: layout style;
     animation: fadeIn var(--animation-duration-normal) ease-out;
 
-    // Responsive grid layout with better breakpoints
-    @include respond-to(sm) {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    // Mobile portrait (< 480px) - single column
+    @media (max-width: 29.9375em) {
+      gap: var(--space-md);
+      margin: var(--space-lg) auto;
+    }
+
+    // Mobile landscape (480px - 640px) - 2 columns
+    @media (min-width: 30em) and (max-width: 39.9375em) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-lg);
+    }
+
+    // Small tablet (640px - 768px) - 2 columns
+    @media (min-width: 40em) and (max-width: 47.9375em) {
+      grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-sm), 1fr));
+      gap: var(--space-lg);
+    }
+
+    // Tablet (768px - 1024px) - 2-3 columns
+    @media (min-width: 48em) and (max-width: 63.9375em) {
+      grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-md), 1fr));
       gap: var(--space-xl);
+      margin: var(--space-2xl) auto;
     }
 
-    @include respond-to(md) {
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    // Desktop (1024px - 1280px) - 3 columns
+    @media (min-width: 64em) and (max-width: 79.9375em) {
+      grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-lg), 1fr));
+      gap: var(--space-xl);
+      margin: var(--space-3xl) auto;
+    }
+
+    // Large desktop (1280px+) - up to 4 columns
+    @media (min-width: 80em) {
+      grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-xl), 1fr));
       gap: var(--space-2xl);
-    }
-
-    @include respond-to(lg) {
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: var(--space-2xl);
-    }
-
-    @include respond-to(xl) {
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: var(--space-3xl);
     }
 
     // Container queries for better component isolation
@@ -1064,7 +1198,7 @@ const gameModeNames = {
     display: flex;
     flex-direction: column;
     height: 100%;
-    min-height: 420px;
+    min-height: var(--container-intrinsic-height-card);
     background: var(--card-bg);
     border: var(--border-width-thin) solid var(--card-border);
     border-radius: var(--radius-3xl);
@@ -1091,13 +1225,13 @@ const gameModeNames = {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    font-size: var(--text-2xl);
+    width: calc(var(--min-touch-size) * 1.27);
+    height: calc(var(--min-touch-size) * 1.27);
+    border-radius: var(--radius-full);
+    font-size: var(--text-lg);
     font-weight: var(--font-black);
     background: var(--bg-tertiary);
-    border: 3px solid var(--border-secondary);
+    border: var(--border-width-enhanced) solid var(--border-secondary);
     color: var(--text-primary);
     box-shadow: none !important;
     transition: all var(--transition-normal);
@@ -1106,9 +1240,22 @@ const gameModeNames = {
     text-align: center;
     gap: 0.1em;
 
-    @include respond-to(md) {
-      width: 72px;
-      height: 72px;
+    // Mobile portrait
+    @media (max-width: 29.9375em) {
+      width: var(--min-touch-size);
+      height: var(--min-touch-size);
+      font-size: var(--text-base);
+    }
+
+    // Tablet and up
+    @media (min-width: 48em) {
+      width: calc(var(--min-touch-size) * 1.64);
+      height: calc(var(--min-touch-size) * 1.64);
+      font-size: var(--text-2xl);
+    }
+
+    // Desktop
+    @media (min-width: 64em) {
       font-size: var(--text-3xl);
     }
   }
@@ -1131,7 +1278,7 @@ const gameModeNames = {
     border-color: var(--achievement-silver);
     box-shadow:
       0 0 var(--space-md) oklch(from var(--achievement-silver) l c h / 0.4),
-      inset 0 1px 0 oklch(from var(--color-white) l c h / 0.3);
+      inset 0 var(--border-width-thin) 0 oklch(from var(--color-white) l c h / 0.3);
   }
 
   .highscores__card:nth-child(3) .highscores__rank-badge--medal {
@@ -1143,7 +1290,7 @@ const gameModeNames = {
     border-color: var(--achievement-bronze);
     box-shadow:
       0 0 var(--space-md) oklch(from var(--achievement-bronze) l c h / 0.4),
-      inset 0 1px 0 oklch(from var(--color-white) l c h / 0.3);
+      inset 0 var(--border-width-thin) 0 oklch(from var(--color-white) l c h / 0.3);
   }
 
   /* ======================================
@@ -1159,7 +1306,7 @@ const gameModeNames = {
     position: relative;
     z-index: 1;
 
-    @include respond-to(md) {
+    @include respond-to-md {
       padding: var(--space-2xl);
     }
   }
@@ -1179,7 +1326,7 @@ const gameModeNames = {
     line-height: var(--leading-tight);
     margin: 0;
 
-    @include respond-to(md) {
+    @include respond-to-md {
       font-size: var(--text-xl);
     }
   }
@@ -1190,7 +1337,7 @@ const gameModeNames = {
     gap: var(--space-xs);
     flex-wrap: wrap;
 
-    @include respond-to(md) {
+    @include respond-to-md {
       gap: var(--space-sm);
     }
   }
@@ -1209,7 +1356,7 @@ const gameModeNames = {
     line-height: var(--leading-tight);
     position: relative;
 
-    @include respond-to(md) {
+    @include respond-to-md {
       font-size: var(--text-2xl);
     }
   }
@@ -1219,9 +1366,9 @@ const gameModeNames = {
     color: var(--text-secondary);
     font-weight: var(--font-semibold);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: var(--text-spacing-letter-2x);
 
-    @include respond-to(md) {
+    @include respond-to-md {
       font-size: var(--text-base);
     }
   }
@@ -1237,9 +1384,9 @@ const gameModeNames = {
     gap: var(--space-sm);
     margin-top: auto;
     padding-top: var(--space-md);
-    border-top: 1px solid color-mix(in srgb, var(--border-primary) 30%, transparent 70%);
+    border-top: var(--border-width-thin) solid color-mix(in srgb, var(--border-primary) 30%, transparent 70%);
 
-    @include respond-to(md) {
+    @include respond-to-md {
       flex-direction: row;
       gap: var(--space-md);
       justify-content: space-between;
@@ -1264,16 +1411,16 @@ const gameModeNames = {
 
     // Trennlinie wie gehabt
     & + .highscores__detail-item {
-      border-top: 1px solid color-mix(in srgb, var(--border-primary) 30%, transparent 70%);
+      border-top: var(--border-width-thin) solid color-mix(in srgb, var(--border-primary) 30%, transparent 70%);
       margin-top: var(--space-md);
       padding-top: var(--space-md);
     }
-    @include respond-to(md) {
+    @include respond-to-md {
       & + .highscores__detail-item {
         border-top: none;
         margin-top: 0;
         padding-top: 0;
-        border-left: 1px solid color-mix(in srgb, var(--border-primary) 30%, transparent 70%);
+        border-left: var(--border-width-thin) solid color-mix(in srgb, var(--border-primary) 30%, transparent 70%);
         margin-left: var(--space-xl);
         padding-left: var(--space-xl);
       }
@@ -1295,7 +1442,7 @@ const gameModeNames = {
       font-weight: var(--font-semibold);
       color: var(--text-primary);
       line-height: var(--leading-tight);
-      @include respond-to(md) {
+      @include respond-to-md {
         margin-left: calc(var(--icon-size-lg) + var(--space-xs));
       }
     }
@@ -1306,9 +1453,9 @@ const gameModeNames = {
     height: var(--icon-size-md);
     color: var(--interactive-primary);
     flex-shrink: 0;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, var(--shadow-opacity-light)));
 
-    @include respond-to(md) {
+    @include respond-to-md {
       width: var(--icon-size-lg);
       height: var(--icon-size-lg);
     }
@@ -1320,7 +1467,7 @@ const gameModeNames = {
     gap: var(--space-sm);
     flex: 1;
 
-    @include respond-to(md) {
+    @include respond-to-md {
       gap: var(--space-md);
     }
   }
@@ -1330,10 +1477,10 @@ const gameModeNames = {
     font-weight: var(--font-bold);
     color: var(--text-secondary);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: var(--text-spacing-letter-2x);
     opacity: 0.8;
 
-    @include respond-to(md) {
+    @include respond-to-md {
       font-size: var(--text-sm);
     }
   }
@@ -1344,7 +1491,7 @@ const gameModeNames = {
     font-weight: var(--font-semibold);
     line-height: var(--leading-tight);
 
-    @include respond-to(md) {
+    @include respond-to-md {
       font-size: var(--text-base);
     }
   }
@@ -1363,7 +1510,7 @@ const gameModeNames = {
     -webkit-background-clip: text;
     color: transparent;
 
-    @include respond-to(md) {
+    @include respond-to-md {
       font-size: var(--text-xl);
     }
 
@@ -1377,7 +1524,7 @@ const gameModeNames = {
     color: var(--text-primary);
     font-weight: var(--font-semibold);
 
-    @include respond-to(md) {
+    @include respond-to-md {
       font-size: var(--text-xl);
     }
   }
@@ -1388,7 +1535,7 @@ const gameModeNames = {
     font-variant-numeric: tabular-nums;
     font-weight: var(--font-medium);
 
-    @include respond-to(md) {
+    @include respond-to-md {
       font-size: var(--text-lg);
     }
   }
@@ -1433,14 +1580,14 @@ const gameModeNames = {
   }
 
   // Additional responsive improvements
-  @include respond-to(xl) {
+  @include respond-to-xl {
     .highscores__cards-grid {
       grid-template-columns: repeat(5, 1fr);
     }
   }
 
   // Fluid typography for better responsive behavior
-  @include respond-to(lg) {
+  @include respond-to-lg {
     .highscores__card {
       &-username {
         font-size: clamp(var(--text-xl), 2.5vw, var(--text-3xl));

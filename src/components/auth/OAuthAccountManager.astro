@@ -477,12 +477,16 @@ const availableProviders = [
 
     private async handleButtonClick(event: Event): Promise<void> {
       const button = (event.target as HTMLElement).closest("[data-action]") as HTMLButtonElement;
-      if (!button) return;
+      if (!button) {
+        return;
+      }
 
       const action = button.dataset.action;
       const provider = button.dataset.provider;
 
-      if (!action || !provider) return;
+      if (!action || !provider) {
+        return;
+      }
 
       // Show loading state
       this.setButtonLoading(button, true);
@@ -496,7 +500,7 @@ const availableProviders = [
         }
       } catch (error) {
         console.error("OAuth action failed:", error);
-        this.showError(error.message || this.t("auth.oauth.action_failed"));
+        this.showError((error as Error).message || this.t("auth.oauth.action_failed"));
       } finally {
         this.setButtonLoading(button, false);
       }
@@ -510,7 +514,7 @@ const availableProviders = [
       window.location.href = authUrl;
     }
 
-    private async unlinkProvider(provider: string, button: HTMLButtonElement): Promise<void> {
+    private async unlinkProvider(provider: string, _button: HTMLButtonElement): Promise<void> {
       // Show confirmation dialog
       const confirmed = await this.showConfirmDialog(
         this.t("auth.oauth.unlink_confirm_title"),
@@ -519,7 +523,9 @@ const availableProviders = [
         })
       );
 
-      if (!confirmed) return;
+      if (!confirmed) {
+        return;
+      }
 
       try {
         const response = await fetch(`/api/auth/oauth/unlink/${provider}`, {
@@ -568,7 +574,7 @@ const availableProviders = [
 
         document.body.appendChild(dialog);
 
-        const content = dialog.querySelector(".oauth-confirm-dialog__content") as HTMLElement;
+        // const content = dialog.querySelector(".oauth-confirm-dialog__content") as HTMLElement;
         const cancelBtn = dialog.querySelector(
           ".oauth-confirm-dialog__button--cancel"
         ) as HTMLButtonElement;
@@ -579,7 +585,7 @@ const availableProviders = [
         // Focus the cancel button by default
         cancelBtn.focus();
 
-        const cleanup = () => {
+        const cleanup = (): void => {
           document.body.removeChild(dialog);
         };
 
@@ -604,7 +610,7 @@ const availableProviders = [
         });
 
         // Escape key support
-        const handleEscape = (e: KeyboardEvent) => {
+        const handleEscape = (e: KeyboardEvent): void => {
           if (e.key === "Escape") {
             cleanup();
             resolve(false);
@@ -619,7 +625,9 @@ const availableProviders = [
       const providerElement = this.container.querySelector(
         `[data-provider="${provider}"]`
       ) as HTMLElement;
-      if (!providerElement) return;
+      if (!providerElement) {
+        return;
+      }
 
       const statusElement = providerElement.querySelector(".oauth-provider__status") as HTMLElement;
       const actionsElement = providerElement.querySelector(

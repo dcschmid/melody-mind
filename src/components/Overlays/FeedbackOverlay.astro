@@ -51,6 +51,7 @@
  */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
+import Paragraph from "@components/Paragraph.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -98,17 +99,38 @@ const t = useTranslations(lang);
       </ul>
     </div>
 
-    <p id="feedback" class="feedback" role="status"></p>
+    <Paragraph
+      id="feedback"
+      className="feedback"
+      textSize="xl"
+      align="center"
+      highContrast={true}
+      aria-live="polite"
+      description=""
+    />
 
     <div class="album-info" aria-label={t("game.feedback.media.section")}>
       <div class="album-info__content" role="contentinfo">
         <div class="album-info__header">
           <h3 id="overlay-artist" class="artist-name"></h3>
           <h4 id="overlay-album" class="album-name"></h4>
-          <p id="overlay-year" class="album-year"></p>
+          <Paragraph
+            id="overlay-year"
+            className="album-year"
+            textSize="lg"
+            align="center"
+            description=""
+          />
         </div>
         <div class="album-info__details">
-          <p id="overlay-funfact" class="fun-fact"></p>
+          <Paragraph
+            id="overlay-funfact"
+            className="fun-fact"
+            textSize="lg"
+            align="center"
+            enhancedSpacing={true}
+            description=""
+          />
         </div>
       </div>
     </div>
@@ -124,7 +146,61 @@ const t = useTranslations(lang);
 
 <style lang="scss">
   // ======================================
-  // OVERLAY BASE STYLES - Using Global CSS Variables
+  // ENHANCED RESPONSIVE DESIGN MIXINS
+  // ======================================
+
+  // Note: CSS variables don't work in media queries, so we use hardcoded em values
+  // Mobile portrait: 0-479px (< 30em)
+  // Mobile landscape: 480-639px (30em - 39.9375em)
+  // Small tablet: 640-767px (40em - 47.9375em)
+  // Tablet: 768-1023px (48em - 63.9375em)
+  // Desktop: 1024-1279px (64em - 79.9375em)
+  // Large desktop: 1280px+ (80em+)
+
+  @mixin mobile-portrait {
+    @media (max-width: 29.9375em) {
+      @content;
+    }
+  }
+
+  @mixin mobile-landscape {
+    @media (min-width: 30em) and (max-width: 39.9375em) {
+      @content;
+    }
+  }
+
+  @mixin mobile {
+    @media (max-width: 39.9375em) {
+      @content;
+    }
+  }
+
+  @mixin small-tablet {
+    @media (min-width: 40em) and (max-width: 47.9375em) {
+      @content;
+    }
+  }
+
+  @mixin tablet {
+    @media (min-width: 48em) and (max-width: 63.9375em) {
+      @content;
+    }
+  }
+
+  @mixin desktop {
+    @media (min-width: 64em) and (max-width: 79.9375em) {
+      @content;
+    }
+  }
+
+  @mixin large-desktop {
+    @media (min-width: 80em) {
+      @content;
+    }
+  }
+
+  // ======================================
+  // OVERLAY BASE STYLES - Enhanced with comprehensive breakpoints
   // ======================================
 
   .overlay {
@@ -137,7 +213,7 @@ const t = useTranslations(lang);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--space-md);
+    padding: var(--space-lg);
     background-color: var(--backdrop-overlay-dark);
     backdrop-filter: blur(var(--backdrop-blur));
     -webkit-backdrop-filter: blur(var(--backdrop-blur));
@@ -145,19 +221,49 @@ const t = useTranslations(lang);
       opacity var(--transition-normal),
       visibility var(--transition-normal);
 
-    // Performance optimizations
+    // Performance optimizations with global.css variables
     contain: layout style;
     will-change: opacity, visibility;
+
+    // Large desktop - premium spacing
+    @include large-desktop {
+      padding: var(--space-2xl);
+    }
+
+    // Desktop - enhanced spacing
+    @include desktop {
+      padding: var(--space-xl);
+    }
+
+    // Tablet - optimal spacing
+    @include tablet {
+      padding: var(--space-lg);
+    }
+
+    // Small tablet - balanced spacing
+    @include small-tablet {
+      padding: var(--space-md);
+    }
+
+    // Mobile - minimal outer margins for maximum content space
+    @include mobile {
+      padding: var(--space-xs) !important;
+    }
+
+    // Mobile portrait - ultra minimal margins
+    @include mobile-portrait {
+      padding: var(--space-micro) !important;
+    }
+
+    // Mobile landscape - compact but usable
+    @include mobile-landscape {
+      padding: var(--space-xs) !important;
+    }
 
     &.hidden {
       pointer-events: none;
       visibility: hidden;
       opacity: var(--animation-opacity-end);
-    }
-
-    // Mobile-first responsive design using hardcoded breakpoints
-    @media (max-width: 47.9375em) {
-      padding: var(--space-sm);
     }
   }
 
@@ -171,12 +277,18 @@ const t = useTranslations(lang);
     pointer-events: auto;
     background-color: var(--backdrop-overlay-dark);
 
-    // Performance optimization
+    // Performance optimization with global.css variables
     contain: strict;
+    transition: opacity var(--transition-normal);
+
+    // Enhanced backdrop opacity for better focus on mobile
+    @include mobile {
+      background-color: var(--backdrop-overlay-darker);
+    }
   }
 
   // ======================================
-  // OVERLAY CONTENT - Using Root Variables
+  // OVERLAY CONTENT - Enhanced responsive design with comprehensive breakpoints
   // ======================================
 
   .overlay__content {
@@ -195,27 +307,73 @@ const t = useTranslations(lang);
     scrollbar-gutter: stable;
     pointer-events: auto;
 
-    // Performance optimizations
+    // Performance optimizations with global.css variables
     contain: layout style paint;
     content-visibility: auto;
     contain-intrinsic-size: var(--container-intrinsic-height-modal);
+    transition: all var(--transition-normal);
 
-    // Mobile responsive adjustments using hardcoded breakpoints
-    @media (max-width: 47.9375em) {
+    // Large desktop - keep scrollable
+    @include large-desktop {
+      max-width: min(85vw, calc(var(--container-lg) * 1.1));
+      padding: var(--space-2xl);
+      border-radius: var(--radius-xl);
+      max-height: calc(100vh - var(--space-2xl));
+    }
+
+    // Desktop - keep scrollable
+    @include desktop {
+      max-width: min(90vw, var(--container-lg));
+      padding: var(--space-xl);
+      border-radius: var(--radius-xl);
+      max-height: calc(100vh - var(--space-lg) * 2);
+    }
+
+    // Tablet - scrollable modal
+    @include tablet {
+      max-width: min(90vw, var(--container-md));
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
+      max-height: calc(100vh - var(--space-lg) * 2);
+    }
+
+    // Small tablet - scrollable
+    @include small-tablet {
+      max-width: min(95vw, var(--container-sm));
       padding: var(--space-lg);
       border-radius: var(--radius-lg);
       max-height: calc(100vh - var(--space-md) * 2);
-      max-width: min(95vw, var(--container-sm));
     }
 
-    @media (min-width: 48em) and (max-width: 64em) {
-      max-width: min(85vw, var(--container-md));
-      padding: var(--space-xl);
+    // Mobile - better spacing while keeping compact
+    @include mobile {
+      max-width: calc(100vw - var(--space-md)) !important;
+      padding: var(--space-lg) !important;
+      border-radius: var(--radius-lg) !important;
+      max-height: calc(100vh - var(--space-md)) !important;
+      margin: var(--space-xs) !important;
+    }
+
+    // Mobile portrait - compact but with better breathing room
+    @include mobile-portrait {
+      max-width: calc(100vw - var(--space-sm)) !important;
+      padding: var(--space-md) !important;
+      border-radius: var(--radius-md) !important;
+      max-height: calc(100vh - var(--space-sm)) !important;
+      margin: var(--space-xs) !important;
+    }
+
+    // Mobile landscape - balanced design
+    @include mobile-landscape {
+      max-width: calc(100vw - var(--space-md)) !important;
+      padding: var(--space-lg) var(--space-md) !important;
+      border-radius: var(--radius-lg) !important;
+      max-height: calc(100vh - var(--space-md)) !important;
     }
   }
 
   // ======================================
-  // HEADER SECTION - Using Root Variables
+  // HEADER SECTION - Enhanced responsive design
   // ======================================
 
   .overlay__header {
@@ -225,8 +383,41 @@ const t = useTranslations(lang);
     margin-bottom: var(--space-xl);
     gap: var(--space-md);
 
-    @media (max-width: 47.9375em) {
+    // Large desktop - premium spacing
+    @include large-desktop {
+      margin-bottom: var(--space-2xl);
+      gap: var(--space-lg);
+    }
+
+    // Desktop - enhanced spacing
+    @include desktop {
+      margin-bottom: var(--space-xl);
+      gap: var(--space-lg);
+    }
+
+    // Tablet - optimal spacing
+    @include tablet {
       margin-bottom: var(--space-lg);
+      gap: var(--space-md);
+    }
+
+    // Small tablet - balanced spacing
+    @include small-tablet {
+      margin-bottom: var(--space-lg);
+      gap: var(--space-sm);
+    }
+
+    // Mobile - better spacing for readability
+    @include mobile {
+      margin-bottom: var(--space-lg) !important;
+      gap: var(--space-md) !important;
+    }
+
+    // Mobile portrait - adequate spacing
+    @include mobile-portrait {
+      margin-bottom: var(--space-md) !important;
+      gap: var(--space-sm) !important;
+      flex-wrap: nowrap;
     }
   }
 
@@ -237,13 +428,40 @@ const t = useTranslations(lang);
     color: var(--text-primary);
     margin: 0;
     flex: 1;
+    line-height: var(--leading-tight);
 
-    @media (max-width: 47.9375em) {
-      font-size: var(--text-xl);
+    // Large desktop - premium typography
+    @include large-desktop {
+      font-size: var(--text-4xl);
+      letter-spacing: var(--letter-spacing-tight);
     }
 
-    @media (min-width: 48em) {
+    // Desktop - enhanced typography
+    @include desktop {
       font-size: var(--text-3xl);
+    }
+
+    // Tablet - optimal readability
+    @include tablet {
+      font-size: var(--text-3xl);
+    }
+
+    // Small tablet - balanced size
+    @include small-tablet {
+      font-size: var(--text-2xl);
+    }
+
+    // Mobile - readable title
+    @include mobile {
+      font-size: var(--text-xl) !important;
+      line-height: var(--leading-normal) !important;
+    }
+
+    // Mobile portrait - clear and readable
+    @include mobile-portrait {
+      font-size: var(--text-lg) !important;
+      font-weight: var(--font-semibold) !important;
+      line-height: var(--leading-normal) !important;
     }
   }
 
@@ -258,70 +476,122 @@ const t = useTranslations(lang);
     border-radius: var(--radius-full);
     background-color: var(--bg-tertiary);
     color: var(--text-secondary);
-    border: none;
+    border: var(--border-width-thin) solid var(--border-secondary);
     cursor: pointer;
     flex-shrink: 0;
     transition:
       background-color var(--transition-normal),
       color var(--transition-normal),
-      transform var(--transition-fast);
+      transform var(--transition-fast),
+      border-color var(--transition-normal);
 
-    // Performance optimization
+    // Performance optimization with global.css variables
     contain: layout style;
     will-change: transform, background-color;
+
+    // Large desktop - enhanced close button
+    @include large-desktop {
+      width: calc(var(--touch-target-enhanced) * 1.125);
+      height: calc(var(--touch-target-enhanced) * 1.125);
+      min-width: calc(var(--touch-target-enhanced) * 1.125);
+      min-height: calc(var(--touch-target-enhanced) * 1.125);
+    }
+
+    // Desktop - standard enhanced size
+    @include desktop {
+      width: var(--touch-target-enhanced);
+      height: var(--touch-target-enhanced);
+    }
+
+    // Mobile - compact but touchable
+    @include mobile {
+      width: var(--touch-target-enhanced) !important;
+      height: var(--touch-target-enhanced) !important;
+      min-width: var(--touch-target-enhanced) !important;
+      min-height: var(--touch-target-enhanced) !important;
+    }
+
+    // Mobile portrait - ensure good touch target
+    @include mobile-portrait {
+      width: var(--min-touch-size) !important;
+      height: var(--min-touch-size) !important;
+      min-width: var(--min-touch-size) !important;
+      min-height: var(--min-touch-size) !important;
+    }
 
     &:hover,
     &:focus {
       background-color: var(--interactive-primary);
       color: var(--text-primary);
+      border-color: var(--border-focus);
       transform: scale(var(--animation-scale-hover-subtle));
+      box-shadow: var(--shadow-md);
     }
 
     &:active {
       transform: scale(var(--scale-active));
-    }
-
-    @media (max-width: 47.9375em) {
-      width: calc(var(--touch-target-enhanced) * 0.875);
-      height: calc(var(--touch-target-enhanced) * 0.875);
-      min-width: calc(var(--touch-target-enhanced) * 0.875);
-      min-height: calc(var(--touch-target-enhanced) * 0.875);
+      box-shadow: var(--shadow-sm);
     }
   }
 
   // ======================================
-  // FEEDBACK STYLES - Using Root Variables
+  // FEEDBACK STYLES - Enhanced responsive design with global.css variables
   // ======================================
 
   .feedback {
-    margin: var(--space-xl) 0;
+    // Remove default paragraph margins to use Paragraph component spacing
+    // Paragraph component handles all responsive typography and spacing
+
+    // Only handle state-specific styling (correct/incorrect feedback)
     border-radius: var(--radius-lg);
     padding: var(--space-lg);
-    text-align: center;
-    font-size: var(--text-xl);
-    line-height: var(--leading-relaxed);
-    font-weight: var(--font-semibold);
+    border: var(--border-width-thin) solid transparent;
+    transition: all var(--transition-normal);
 
-    @media (max-width: 47.9375em) {
-      margin: var(--space-lg) 0;
-      padding: var(--space-md);
-      font-size: var(--text-lg);
+    // Responsive padding using global.css variables
+    @include large-desktop {
+      padding: var(--space-xl);
+      border-radius: var(--radius-xl);
     }
 
-    // WCAG AAA 2.2 compliant feedback colors
+    @include desktop {
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
+    }
+
+    @include tablet {
+      padding: var(--space-lg);
+    }
+
+    @include small-tablet {
+      padding: var(--space-md);
+    }
+
+    @include mobile {
+      padding: var(--space-md) !important;
+      border-radius: var(--radius-lg) !important;
+    }
+
+    @include mobile-portrait {
+      padding: var(--space-sm) var(--space-md) !important;
+    }
+
+    // WCAG AAA 2.2 compliant feedback colors with enhanced borders
     &.correct {
-      color: var(--text-success-aaa);
-      background-color: var(--bg-success-aaa);
+      color: var(--text-success-aaa) !important;
+      background-color: var(--bg-success-aaa) !important;
+      border-color: var(--border-success) !important;
     }
 
     &.incorrect {
-      color: var(--text-error-aaa);
-      background-color: var(--bg-error-aaa);
+      color: var(--text-error-aaa) !important;
+      background-color: var(--bg-error-aaa) !important;
+      border-color: var(--border-error) !important;
     }
   }
 
   // ======================================
-  // ALBUM INFO SECTION - Using Root Variables
+  // ALBUM INFO SECTION - Enhanced responsive design with global.css variables
   // ======================================
 
   .album-info {
@@ -329,18 +599,48 @@ const t = useTranslations(lang);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 200px;
+    min-height: calc(var(--container-intrinsic-height-modal) * 0.4);
 
-    // Performance optimization
+    // Performance optimization with global.css variables
     contain: layout;
 
-    @media (max-width: 47.9375em) {
+    // Large desktop - premium album info display
+    @include large-desktop {
+      margin-bottom: var(--space-3xl);
+      min-height: calc(var(--container-intrinsic-height-modal) * 0.5);
+    }
+
+    // Desktop - enhanced display
+    @include desktop {
+      margin-bottom: var(--space-2xl);
+      min-height: calc(var(--container-intrinsic-height-modal) * 0.45);
+    }
+
+    // Tablet - optimal display
+    @include tablet {
       margin-bottom: var(--space-xl);
-      min-height: 160px;
+      min-height: calc(var(--container-intrinsic-height-modal) * 0.4);
+    }
+
+    // Small tablet - balanced display
+    @include small-tablet {
+      margin-bottom: var(--space-lg);
+      min-height: calc(var(--container-intrinsic-height-modal) * 0.35);
+    }
+
+    // Mobile - better spaced display
+    @include mobile {
+      margin-bottom: var(--space-xl) !important;
+      min-height: auto !important;
+    }
+
+    // Mobile portrait - adequate display spacing
+    @include mobile-portrait {
+      margin-bottom: var(--space-lg) !important;
     }
 
     &__content {
-      width: 100%;
+      width: var(--width-full);
       max-width: var(--container-md);
       text-align: center;
       padding: var(--space-xl);
@@ -350,14 +650,52 @@ const t = useTranslations(lang);
       box-shadow: var(--card-shadow);
       transition: all var(--transition-normal);
 
-      @media (max-width: 47.9375em) {
+      // Large desktop - premium content styling
+      @include large-desktop {
+        max-width: calc(var(--container-md) * 1.2);
+        padding: var(--space-2xl);
+        border-radius: var(--radius-2xl);
+        box-shadow: var(--card-shadow-hover);
+      }
+
+      // Desktop - enhanced content
+      @include desktop {
+        padding: var(--space-xl);
+        border-radius: var(--radius-xl);
+      }
+
+      // Tablet - optimal content
+      @include tablet {
         padding: var(--space-lg);
         border-radius: var(--radius-lg);
+      }
+
+      // Small tablet - balanced content
+      @include small-tablet {
+        padding: var(--space-lg);
+        border-radius: var(--radius-lg);
+        max-width: var(--container-sm);
+      }
+
+      // Mobile - well-spaced content
+      @include mobile {
+        padding: var(--space-lg) !important;
+        border-radius: var(--radius-lg) !important;
+        max-width: var(--width-full) !important;
+        box-shadow: var(--shadow-sm) !important;
+      }
+
+      // Mobile portrait - adequate padding
+      @include mobile-portrait {
+        padding: var(--space-md) !important;
+        border-radius: var(--radius-md) !important;
+        margin: 0 !important;
       }
 
       &:hover {
         transform: translateY(var(--animation-y-offset-small));
         box-shadow: var(--card-shadow-hover);
+        border-color: var(--border-focus);
       }
     }
 
@@ -366,17 +704,52 @@ const t = useTranslations(lang);
       padding-bottom: var(--space-md);
       border-bottom: var(--border-width-thin) solid var(--border-secondary);
 
-      @media (max-width: 47.9375em) {
-        margin-bottom: var(--space-md);
-        padding-bottom: var(--space-sm);
+      // Large desktop - premium header spacing
+      @include large-desktop {
+        margin-bottom: var(--space-xl);
+        padding-bottom: var(--space-lg);
+      }
+
+      // Desktop - enhanced header
+      @include desktop {
+        margin-bottom: var(--space-lg);
+        padding-bottom: var(--space-md);
+      }
+
+      // Mobile - better spaced header
+      @include mobile {
+        margin-bottom: var(--space-lg) !important;
+        padding-bottom: var(--space-sm) !important;
+      }
+
+      // Mobile portrait - adequate header spacing
+      @include mobile-portrait {
+        margin-bottom: var(--space-md) !important;
+        padding-bottom: var(--space-sm) !important;
       }
     }
 
     &__details {
       margin-top: var(--space-lg);
 
-      @media (max-width: 47.9375em) {
-        margin-top: var(--space-md);
+      // Large desktop - premium details spacing
+      @include large-desktop {
+        margin-top: var(--space-xl);
+      }
+
+      // Desktop - enhanced details
+      @include desktop {
+        margin-top: var(--space-lg);
+      }
+
+      // Mobile - well-spaced details
+      @include mobile {
+        margin-top: var(--space-lg) !important;
+      }
+
+      // Mobile portrait - adequate details spacing
+      @include mobile-portrait {
+        margin-top: var(--space-md) !important;
       }
     }
   }
@@ -387,13 +760,43 @@ const t = useTranslations(lang);
     font-weight: var(--font-bold);
     color: var(--interactive-primary);
     line-height: var(--leading-tight);
+    letter-spacing: var(--letter-spacing-tight);
 
-    @media (max-width: 47.9375em) {
+    // Large desktop - premium artist display
+    @include large-desktop {
+      font-size: var(--text-5xl);
+      margin-bottom: var(--space-md);
+      letter-spacing: var(--letter-spacing-tighter);
+    }
+
+    // Desktop - enhanced artist name
+    @include desktop {
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-sm);
+    }
+
+    // Tablet - optimal artist display
+    @include tablet {
+      font-size: var(--text-3xl);
+    }
+
+    // Small tablet - balanced artist name
+    @include small-tablet {
       font-size: var(--text-2xl);
     }
 
-    @media (min-width: 64em) {
-      font-size: var(--text-4xl);
+    // Mobile - readable artist name
+    @include mobile {
+      font-size: var(--text-xl) !important;
+      margin-bottom: var(--space-sm) !important;
+      line-height: var(--leading-normal) !important;
+    }
+
+    // Mobile portrait - clear artist name
+    @include mobile-portrait {
+      font-size: var(--text-lg) !important;
+      margin-bottom: var(--space-sm) !important;
+      line-height: var(--leading-normal) !important;
     }
   }
 
@@ -403,13 +806,42 @@ const t = useTranslations(lang);
     font-weight: var(--font-semibold);
     color: var(--text-primary);
     line-height: var(--leading-tight);
+    letter-spacing: var(--letter-spacing-base);
 
-    @media (max-width: 47.9375em) {
+    // Large desktop - premium album display
+    @include large-desktop {
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-md);
+    }
+
+    // Desktop - enhanced album name
+    @include desktop {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-sm);
+    }
+
+    // Tablet - optimal album display
+    @include tablet {
+      font-size: var(--text-2xl);
+    }
+
+    // Small tablet - balanced album name
+    @include small-tablet {
       font-size: var(--text-xl);
     }
 
-    @media (min-width: 64em) {
-      font-size: var(--text-3xl);
+    // Mobile - readable album name
+    @include mobile {
+      font-size: var(--text-lg) !important;
+      margin-bottom: var(--space-sm) !important;
+      line-height: var(--leading-normal) !important;
+    }
+
+    // Mobile portrait - clear album name
+    @include mobile-portrait {
+      font-size: var(--text-base) !important;
+      margin-bottom: var(--space-sm) !important;
+      line-height: var(--leading-normal) !important;
     }
   }
 
@@ -423,10 +855,50 @@ const t = useTranslations(lang);
     background: var(--bg-tertiary);
     border-radius: var(--radius-pill);
     border: var(--border-width-thin) solid var(--border-secondary);
+    transition: all var(--transition-normal);
 
-    @media (max-width: 47.9375em) {
+    // Large desktop - premium year badge
+    @include large-desktop {
+      font-size: var(--text-2xl);
+      padding: var(--space-md) var(--space-lg);
+    }
+
+    // Desktop - enhanced year badge
+    @include desktop {
+      font-size: var(--text-xl);
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    // Tablet - optimal year display
+    @include tablet {
       font-size: var(--text-lg);
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    // Small tablet - balanced year badge
+    @include small-tablet {
+      font-size: var(--text-base);
       padding: var(--space-xs) var(--space-sm);
+    }
+
+    // Mobile - readable year badge
+    @include mobile {
+      font-size: var(--text-sm) !important;
+      padding: var(--space-xs) var(--space-sm) !important;
+      border-radius: var(--radius-lg) !important;
+    }
+
+    // Mobile portrait - clear year badge
+    @include mobile-portrait {
+      font-size: var(--text-xs) !important;
+      padding: var(--space-xs) var(--space-sm) !important;
+      border-radius: var(--radius-md) !important;
+    }
+
+    &:hover {
+      background: var(--interactive-secondary);
+      border-color: var(--border-focus);
+      transform: scale(var(--animation-scale-small));
     }
   }
 
@@ -435,16 +907,61 @@ const t = useTranslations(lang);
     font-size: var(--text-lg);
     line-height: var(--leading-relaxed);
     color: var(--text-secondary);
-    max-width: 100%;
+    max-width: var(--width-full);
     padding: var(--space-lg);
     background: var(--bg-tertiary);
     border-radius: var(--radius-lg);
     border: var(--border-width-thin) solid var(--border-secondary);
     font-style: italic;
+    transition: all var(--transition-normal);
 
-    @media (max-width: 47.9375em) {
+    // Large desktop - premium fun fact display
+    @include large-desktop {
+      font-size: var(--text-xl);
+      padding: var(--space-xl);
+      border-radius: var(--radius-xl);
+      line-height: var(--leading-loose);
+    }
+
+    // Desktop - enhanced fun fact
+    @include desktop {
+      font-size: var(--text-lg);
+      padding: var(--space-lg);
+    }
+
+    // Tablet - optimal readability
+    @include tablet {
       font-size: var(--text-base);
       padding: var(--space-md);
+    }
+
+    // Small tablet - balanced display
+    @include small-tablet {
+      font-size: var(--text-base);
+      padding: var(--space-md);
+      line-height: var(--leading-normal);
+    }
+
+    // Mobile - readable fun fact
+    @include mobile {
+      font-size: var(--text-sm) !important;
+      padding: var(--space-sm) !important;
+      border-radius: var(--radius-lg) !important;
+      line-height: var(--leading-relaxed) !important;
+    }
+
+    // Mobile portrait - clear fun fact
+    @include mobile-portrait {
+      font-size: var(--text-xs) !important;
+      padding: var(--space-sm) !important;
+      border-radius: var(--radius-md) !important;
+      line-height: var(--leading-normal) !important;
+    }
+
+    &:hover {
+      background: var(--interactive-secondary);
+      border-color: var(--border-focus);
+      transform: translateY(var(--animation-y-offset-micro));
     }
 
     // Hide if empty
@@ -454,39 +971,85 @@ const t = useTranslations(lang);
   }
 
   // ======================================
-  // NEXT BUTTON - Using Root Variables
+  // NEXT BUTTON - Enhanced responsive design with global.css variables
   // ======================================
 
   .next-button {
     display: block;
     margin: 0 auto;
-    min-height: var(--min-touch-size);
-    min-width: calc(var(--min-touch-size) * 4.5);
+    min-height: var(--touch-target-enhanced);
+    min-width: calc(var(--touch-target-enhanced) * 4.5);
     border-radius: var(--radius-lg);
     background: var(--btn-primary-bg);
     color: var(--btn-primary-text);
     font-weight: var(--font-semibold);
-    border: none;
+    font-size: var(--text-base);
+    border: var(--border-width-thin) solid var(--btn-primary-border);
     cursor: pointer;
     padding: var(--space-md) var(--space-xl);
     transition:
       background var(--transition-normal),
-      transform var(--transition-fast);
+      transform var(--transition-fast),
+      box-shadow var(--transition-normal),
+      border-color var(--transition-normal);
+    box-shadow: var(--shadow-md);
 
-    @media (max-width: 47.9375em) {
-      min-width: calc(var(--min-touch-size) * 3.5);
-      padding: var(--space-sm) var(--space-lg);
+    // Large desktop - premium button experience
+    @include large-desktop {
+      min-width: calc(var(--touch-target-enhanced) * 5);
+      padding: var(--space-lg) var(--space-2xl);
+      font-size: var(--text-lg);
+      border-radius: var(--radius-xl);
+    }
+
+    // Desktop - enhanced button
+    @include desktop {
+      min-width: calc(var(--touch-target-enhanced) * 4.5);
+      padding: var(--space-md) var(--space-xl);
       font-size: var(--text-base);
     }
 
-    @media (min-width: 48em) and (max-width: 63.9375em) {
-      min-width: calc(var(--min-touch-size) * 4);
+    // Tablet - optimal button size
+    @include tablet {
+      min-width: calc(var(--touch-target-enhanced) * 4);
+      padding: var(--space-md) var(--space-lg);
+    }
+
+    // Small tablet - balanced button
+    @include small-tablet {
+      min-width: calc(var(--touch-target-enhanced) * 3.5);
+      padding: var(--space-sm) var(--space-lg);
+    }
+
+    // Mobile - compact button with good touch target
+    @include mobile {
+      min-width: calc(var(--touch-target-enhanced) * 2.5) !important;
+      padding: var(--space-sm) var(--space-md) !important;
+      font-size: var(--text-sm) !important;
+      border-radius: var(--radius-md) !important;
+      min-height: var(--touch-target-enhanced) !important;
+    }
+
+    // Mobile portrait - minimal button
+    @include mobile-portrait {
+      min-width: calc(var(--touch-target-enhanced) * 2) !important;
+      padding: var(--space-xs) var(--space-sm) !important;
+      font-size: var(--text-xs) !important;
+      border-radius: var(--radius-sm) !important;
+      min-height: var(--min-touch-size) !important;
     }
 
     &:hover,
     &:focus {
       background: var(--btn-primary-hover);
+      border-color: var(--btn-primary-hover-border);
       transform: translateY(var(--animation-y-offset-small));
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    &:active {
+      transform: translateY(0) scale(var(--scale-active));
+      box-shadow: var(--shadow-sm);
     }
 
     &__content {
@@ -495,14 +1058,30 @@ const t = useTranslations(lang);
       justify-content: center;
       gap: var(--space-sm);
 
-      @media (max-width: 47.9375em) {
-        gap: var(--space-xs);
+      // Large desktop - enhanced content spacing
+      @include large-desktop {
+        gap: var(--space-md);
+      }
+
+      // Desktop - optimal spacing
+      @include desktop {
+        gap: var(--space-sm);
+      }
+
+      // Mobile - compact spacing
+      @include mobile {
+        gap: var(--space-xs) !important;
+      }
+
+      // Mobile portrait - minimal spacing
+      @include mobile-portrait {
+        gap: var(--space-micro) !important;
       }
     }
   }
 
   // ======================================
-  // ACCESSIBILITY & FOCUS STYLES - Using Root Variables
+  // ENHANCED ACCESSIBILITY & FOCUS STYLES with global.css variables
   // ======================================
 
   .overlay__content:focus,
@@ -512,6 +1091,17 @@ const t = useTranslations(lang);
     outline: var(--focus-enhanced-outline-dark);
     outline-offset: var(--focus-ring-offset);
     box-shadow: var(--focus-enhanced-shadow);
+    border-color: var(--border-focus);
+  }
+
+  // Enhanced focus states for mobile
+  @include mobile {
+    .overlay__close-button:focus-visible,
+    .next-button:focus-visible {
+      outline-width: var(--focus-outline-width-enhanced);
+      outline-offset: var(--focus-ring-offset-enhanced);
+      box-shadow: var(--focus-ring-enhanced);
+    }
   }
 
   // ======================================
@@ -549,7 +1139,7 @@ const t = useTranslations(lang);
   }
 
   // ======================================
-  // REDUCED MOTION SUPPORT
+  // ENHANCED REDUCED MOTION SUPPORT with global.css variables
   // ======================================
 
   @media (prefers-reduced-motion: reduce) {
@@ -559,9 +1149,17 @@ const t = useTranslations(lang);
     .overlay__close-button,
     .music-button,
     .next-button {
-      animation-duration: 0.001ms !important;
-      transition-duration: 0.001ms !important;
+      animation-duration: var(--transition-instant) !important;
+      transition-duration: var(--transition-instant) !important;
       animation-iteration-count: 1 !important;
+    }
+
+    .album-info__content:hover,
+    .overlay__close-button:hover,
+    .next-button:hover,
+    .album-year:hover,
+    .fun-fact:hover {
+      transform: none !important;
     }
   }
 
@@ -651,29 +1249,189 @@ const t = useTranslations(lang);
   }
 
   // ======================================
-  // PRINT STYLES - Using Root Variables
+  // ENHANCED LANDSCAPE ORIENTATION SUPPORT
+  // ======================================
+
+  /* Enhanced landscape orientation adjustments for all mobile devices */
+  @media (max-width: 63.9375em) and (orientation: landscape) {
+    .overlay {
+      padding: var(--space-micro) !important;
+    }
+
+    .overlay__content {
+      max-height: calc(100vh - var(--space-xs)) !important;
+      padding: var(--space-xs) var(--space-sm) !important;
+      margin: var(--space-micro) !important;
+    }
+
+    .overlay__header {
+      margin-bottom: var(--space-xs) !important;
+    }
+
+    .feedback {
+      margin: var(--space-xs) 0 !important;
+      padding: var(--space-xs) !important;
+      font-size: var(--text-xs) !important;
+    }
+
+    .album-info {
+      margin-bottom: var(--space-xs) !important;
+
+      &__content {
+        padding: var(--space-xs) !important;
+      }
+
+      &__header {
+        margin-bottom: var(--space-micro) !important;
+        padding-bottom: var(--space-micro) !important;
+      }
+
+      &__details {
+        margin-top: var(--space-micro) !important;
+      }
+    }
+
+    .artist-name,
+    .album-name {
+      font-size: var(--text-xs) !important;
+      margin-bottom: var(--space-micro) !important;
+    }
+
+    .album-year,
+    .fun-fact {
+      font-size: calc(var(--text-xs) * 0.8) !important;
+      padding: var(--space-micro) !important;
+    }
+
+    .next-button {
+      min-height: var(--min-touch-size) !important;
+      min-width: calc(var(--min-touch-size) * 2) !important;
+      padding: var(--space-xs) !important;
+      font-size: var(--text-xs) !important;
+    }
+  }
+
+  // ======================================
+  // CONTAINER QUERIES FOR ENHANCED RESPONSIVE BEHAVIOR
+  // ======================================
+
+  .overlay {
+    container-type: inline-size;
+  }
+
+  .overlay__content {
+    container-type: inline-size;
+
+    // Container query for very small containers
+    @container (max-width: 20rem) {
+      padding: var(--space-xs) !important;
+      border-radius: var(--radius-sm) !important;
+
+      .feedback {
+        font-size: var(--text-xs) !important;
+        padding: var(--space-xs) !important;
+      }
+
+      .overlay__title {
+        font-size: var(--text-sm) !important;
+      }
+    }
+
+    // Container query for small containers
+    @container (max-width: 28rem) {
+      border-radius: var(--radius-md) !important;
+
+      .album-info__content {
+        padding: var(--space-sm) !important;
+      }
+
+      .artist-name,
+      .album-name {
+        font-size: var(--text-sm) !important;
+      }
+    }
+  }
+
+  // ======================================
+  // ENHANCED PRINT STYLES with global.css variables
   // ======================================
 
   @media print {
+    .overlay {
+      position: static !important;
+      background: var(--print-bg) !important;
+      padding: var(--space-md) !important;
+    }
+
     .overlay__content {
-      border: var(--border-width-thin) solid var(--print-border);
-      box-shadow: none;
+      border: var(--print-border);
+      box-shadow: none !important;
       max-height: none !important;
-      background: var(--print-bg);
-      color: var(--print-text);
+      background: var(--print-bg) !important;
+      color: var(--print-text) !important;
+      max-width: var(--width-full) !important;
+      margin: 0 !important;
+      page-break-inside: avoid;
     }
 
     .next-button,
     .overlay__close-button {
-      border: var(--border-width-thin) solid var(--print-border);
+      border: var(--print-border);
       background: var(--print-bg) !important;
       color: var(--print-text) !important;
+      box-shadow: none !important;
     }
 
     .album-info__content {
-      border: var(--border-width-thin) solid var(--print-border);
-      background: var(--print-bg);
-      box-shadow: none;
+      border: var(--print-border);
+      background: var(--print-bg) !important;
+      box-shadow: none !important;
+      color: var(--print-text) !important;
+    }
+
+    .feedback {
+      background: var(--print-bg) !important;
+      color: var(--print-text) !important;
+      border: var(--print-border);
+    }
+  }
+
+  // ======================================
+  // ENHANCED TOUCH AND POINTER SUPPORT
+  // ======================================
+
+  @media (pointer: coarse) {
+    .overlay__close-button,
+    .next-button {
+      min-height: var(--touch-target-enhanced) !important;
+      min-width: var(--touch-target-enhanced) !important;
+
+      @include mobile-portrait {
+        min-height: calc(var(--touch-target-enhanced) + var(--space-sm)) !important;
+        min-width: calc(var(--touch-target-enhanced) * 2) !important;
+      }
+    }
+  }
+
+  @media (pointer: fine) {
+    .overlay__close-button:hover,
+    .next-button:hover,
+    .album-info__content:hover {
+      cursor: pointer;
+    }
+  }
+
+  // ======================================
+  // HIGH DPI DISPLAY SUPPORT
+  // ======================================
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .overlay__content,
+    .album-info__content,
+    .next-button,
+    .overlay__close-button {
+      -webkit-font-smoothing: var(--font-smoothing-light);
+      -moz-osx-font-smoothing: var(--font-smoothing-grayscale);
     }
   }
 </style>
