@@ -615,4 +615,21 @@ export default {
     "Натисніть на будь-який сегмент, щоб перейти до цієї позиції в аудіо.",
   "podcasts.transcript.loading": "Натисніть, щоб завантажити транскрипт...",
   "podcasts.player.transcript.placeholder": "Контент транскрипту поки недоступний.",
+
+  // News translations
+  "news.title": "Новини",
+  "news.description": "Відкрийте для себе найновіші хіти, новини артистів та музичні тренди з усього світу",
+  "news.lastUpdated": "Останнє оновлення",
+  "news.sourcesCount": "{count} джерел",
+  "news.trending": "Популярне",
+  "news.articlesList": "Список статей",
+  "news.readMore": "Читати далі",
+  "news.relevanceScore": "Релевантність",
+  "news.noNews": "Новини недоступні",
+  "news.noNewsDescription": "Наразі немає доступних музичних новин. Спробуйте пізніше.",
+  "news.refresh": "Оновити",
+  "news.disclaimer.title": "Застереження",
+  "news.disclaimer.text": "Всі новини надходять із зовнішніх джерел. MelodyMind не несе відповідальності за зміст.",
+  "news.legal.attribution": "Новини надаються наступними джерелами:",
+  "news.imageAlt": "Зображення статті",
 };
