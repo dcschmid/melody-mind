@@ -172,7 +172,7 @@ umsetzbar sind und keine Copyright- oder Lizenzprobleme verursachen.
 - **Educational APIs**: Linking zu Wikipedia, Musik-Lexika
 - **Discord Bot**: Quiz-Commands für Discord-Server
 - **Twitch Chat Integration**: Viewer können Quiz-Fragen beantworten
-- **RSS Feeds**: Musik-News und -Geschichte aus vertrauenswürdigen Quellen
+- ✅ **RSS Feeds**: Musik-News und -Geschichte aus vertrauenswürdigen Quellen (implementiert)
 - **Calendar Integration**: Musikgeschichte-Events im Kalender
 
 #### Export & Sharing
@@ -211,7 +211,7 @@ umsetzbar sind und keine Copyright- oder Lizenzprobleme verursachen.
 ### Phase 1: Sofort umsetzbar (1-4 Wochen)
 
 1. ✅ **Dark Mode & bessere Accessibility**
-2. ✅ **Daily Music History Facts**
+2. ✅ **Daily Music History Facts** (implementiert - Homepage Integration + eigene Seite)
 3. ✅ **Basic Statistics Dashboard**
 4. ✅ **Speed Round Modus**
 5. ✅ **Achievement Sharing (Text/Image)**

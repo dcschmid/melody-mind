@@ -1,0 +1,3697 @@
+{
+  "01-01": {
+    "id": "brahms-violin-concerto-urauffuehrung",
+    "date": "01-01",
+    "title": "Brahms: Uraufführung des Violinkonzerts",
+    "description": "Am 1. Januar 1879 feiert Johannes Brahms' Violinkonzert in Leipzig seine Uraufführung. Solist Joseph Joachim begeistert das Publikum mit einem der bis heute wichtigsten Werke der klassischen Musik.",
+    "category": "premiere",
+    "year": 1879,
+    "artist": "Johannes Brahms",
+    "genre": "Klassik"
+  },
+  "01-02": {
+    "id": "david-bowie-erster-tv-auftritt",
+    "date": "01-02",
+    "title": "David Bowie erster TV-Auftritt",
+    "description": "Am 2. Januar 1964 betritt David Bowie, damals noch als Davie Jones, zum ersten Mal die TV-Bühne – eine vielversprechende Karriere im britischen Pop und Glam-Rock nimmt ihren Anfang.",
+    "category": "debut/tv",
+    "year": 1964,
+    "artist": "David Bowie",
+    "genre": "Pop/Rock"
+  },
+  "01-03": {
+    "id": "please-please-me-beatles-nr1",
+    "date": "01-03",
+    "title": "'Please Please Me': Beatles' erster Nr.1-Hit",
+    "description": "Mit 'Please Please Me' erreichen die Beatles erstmals Platz 1 der britischen Charts – das Startsignal für die 'Beatlemania' und eine neue Pop-Ära.",
+    "category": "charts/release",
+    "year": 1963,
+    "artist": "The Beatles",
+    "genre": "Rock/Pop"
+  },
+  "01-04": {
+    "id": "michael-stipe-rem-geboren",
+    "date": "01-04",
+    "title": "Michael Stipe (R.E.M.) wird geboren",
+    "description": "Der charismatische Frontmann von R.E.M. wird geboren und prägt später den Alternative Rock mit Songs wie 'Losing My Religion'.",
+    "category": "birth",
+    "year": 1960,
+    "artist": "Michael Stipe (R.E.M.)",
+    "genre": "Alternative Rock"
+  },
+  "01-05": {
+    "id": "rock-hall-of-fame-eroeffnung",
+    "date": "01-05",
+    "title": "Eröffnung der 'Rock and Roll Hall of Fame'",
+    "description": "Die berühmte Musik-Institution öffnet erstmals ihre Pforten in Cleveland und wird zum Pilgerort für Musikfans und Musiker aus aller Welt.",
+    "category": "milestone",
+    "year": 1986,
+    "artist": "—",
+    "genre": "Rock/Pop/Kultur"
+  },
+  "01-06": {
+    "id": "led-zeppelin-starten-us-tour",
+    "date": "01-06",
+    "title": "Led Zeppelin starten US-Tour",
+    "description": "Am 6. Januar 1969 beginnt in Denver das allererste Konzert von Led Zeppelin auf US-Boden. Mit energiegeladenem Bluesrock und spektakulären Soli begeistern sie ein ahnungsloses Publikum.",
+    "category": "live-premiere",
+    "year": 1969,
+    "artist": "Led Zeppelin",
+    "genre": "Rock"
+  },
+  "01-07": {
+    "id": "erster-synthesizer-single",
+    "date": "01-07",
+    "title": "Erster Synthesizer auf einer Single",
+    "description": "Wendy Carlos setzt erstmals den Moog-Synthesizer in einer kommerziellen Aufnahme ein – ein Meilenstein für elektronische Musik und Sounddesign.",
+    "category": "technik/release",
+    "year": 1968,
+    "artist": "Wendy Carlos",
+    "genre": "Electronic"
+  },
+  "01-08": {
+    "id": "geburt-elvis-presley",
+    "date": "01-08",
+    "title": "Geburt von Elvis Presley",
+    "description": "Am 8. Januar 1935 wird Elvis Presley geboren. Seine Mischung aus Country, Blues und Rock'n'Roll macht ihn zum globalen Superstar und 'King of Rock'n'Roll'.",
+    "category": "birth",
+    "year": 1935,
+    "artist": "Elvis Presley",
+    "genre": "Rock'n'Roll"
+  },
+  "01-09": {
+    "id": "jimmy-page-led-zeppelin-geboren",
+    "date": "01-09",
+    "title": "Jimmy Page (Led Zeppelin) wird geboren",
+    "description": "Der legendäre Gitarrist und Produzent von Led Zeppelin prägt den Sound der 70er und das Gitarrenspiel vieler Generationen.",
+    "category": "birth",
+    "year": 1944,
+    "artist": "Jimmy Page",
+    "genre": "Rock"
+  },
+  "01-10": {
+    "id": "ymca-village-people-charts",
+    "date": "01-10",
+    "title": "'YMCA' von Village People dominiert Charts",
+    "description": "Die Disco-Hymne wird weltweit ein Kult-Hit und zur inoffiziellen Hymne der LGBTQ-Community, mit einem Mitsing-Refrain, der ganze Stadien vereint.",
+    "category": "charts",
+    "year": 1979,
+    "artist": "Village People",
+    "genre": "Disco/Pop"
+  },
+  "01-11": {
+    "id": "erster-beatles-auftritt-hamburg",
+    "date": "01-11",
+    "title": "Erster Beatles-Auftritt in Hamburg",
+    "description": "Die Beatles spielen ihren ersten Gig im Hamburger 'Top Ten Club' – ein Meilenstein ihrer Entwicklung vom Provinz-Act zu Weltstars.",
+    "category": "live/international",
+    "year": 1961,
+    "artist": "The Beatles",
+    "genre": "Rock'n'Roll"
+  },
+  "01-12": {
+    "id": "super-freak-rick-james",
+    "date": "01-12",
+    "title": "'Super Freak' von Rick James erscheint",
+    "description": "Funk trifft Pop: Rick James landet mit 'Super Freak' einen unwiderstehlichen Dance-Hit, der Jahrzehnte später von MC Hammer gesampelt wird ('U Can't Touch This').",
+    "category": "release/einfluss",
+    "year": 1981,
+    "artist": "Rick James",
+    "genre": "Funk/Pop"
+  },
+  "01-13": {
+    "id": "geburt-trevor-rabin-yes",
+    "date": "01-13",
+    "title": "Geburt von Trevor Rabin (Yes)",
+    "description": "Der südafrikanische Gitarrist und Komponist prägt den Sound der Progrock-Band Yes und zahlreiche Filmmusiken in Hollywood.",
+    "category": "birth",
+    "year": 1954,
+    "artist": "Trevor Rabin (Yes)",
+    "genre": "Progrock/Filmmusik"
+  },
+  "01-14": {
+    "id": "i-want-to-hold-your-hand-beatles-us-charts",
+    "date": "01-14",
+    "title": "'I Want to Hold Your Hand': Beatles stürmen US-Charts",
+    "description": "Die Beatles erreichen erstmals mit 'I Want to Hold Your Hand' Platz 1 der US-Charts und lösen die 'British Invasion' aus.",
+    "category": "charts",
+    "year": 1964,
+    "artist": "The Beatles",
+    "genre": "Rock/Pop"
+  },
+  "01-15": {
+    "id": "wikipedia-geht-online",
+    "date": "01-15",
+    "title": "Wikipedia geht online",
+    "description": "Die freie Wissensplattform revolutioniert auch Musikrecherche und macht Band- und Songwissen global verfügbar.",
+    "category": "milestone",
+    "year": 2001,
+    "artist": "Wikipedia"
+  },
+  "01-16": {
+    "id": "carnegie-hall-jazz-concert-benny-goodman",
+    "date": "01-16",
+    "title": "'Carnegie Hall Jazz Concert' mit Benny Goodman",
+    "description": "Mit einem legendären Auftritt macht Benny Goodman Jazz erstmals in der ehrwürdigen Carnegie Hall salonfähig – der Swing wird 'ernsthafte' Musik.",
+    "category": "konzert/ereignis",
+    "year": 1938,
+    "artist": "Benny Goodman",
+    "genre": "Jazz"
+  },
+  "01-17": {
+    "id": "geburt-kid-rock",
+    "date": "01-17",
+    "title": "Geburt von Kid Rock",
+    "description": "Der Crossover-Künstler kombiniert Rock, Hip-Hop und Country, provoziert und polarisert – und verkauft Millionen Platten.",
+    "category": "birth",
+    "year": 1971,
+    "artist": "Kid Rock",
+    "genre": "Rock/Country/Rap"
+  },
+  "01-18": {
+    "id": "madonna-erstes-live-konzert-solo",
+    "date": "01-18",
+    "title": "Madonna: Erstes Live-Konzert als Solo-Act",
+    "description": "In New York steht Madonna 1982 erstmals solo auf der Bühne – Start einer der größten Popkarrieren aller Zeiten.",
+    "category": "live-debut",
+    "year": 1982,
+    "artist": "Madonna",
+    "genre": "Pop"
+  },
+  "01-19": {
+    "id": "dolly-parton-wird-geboren",
+    "date": "01-19",
+    "title": "Dolly Parton wird geboren",
+    "description": "Mit unverwechselbarer Stimme und Songwriting-Talent prägt sie Country, Pop und Americana und ist eine Ikone für Generationen.",
+    "category": "birth",
+    "year": 1946,
+    "artist": "Dolly Parton",
+    "genre": "Country/Pop"
+  },
+  "01-20": {
+    "id": "paul-simon-lifetime-achievement-grammy",
+    "date": "01-20",
+    "title": "Paul Simon erhält 'Lifetime Achievement Grammy'",
+    "description": "Paul Simon wird für sein Lebenswerk geehrt – von Simon & Garfunkel bis zu seinen Solo-Alben inspiriert er Musiker weltweit.",
+    "category": "auszeichnung",
+    "year": 2003,
+    "artist": "Paul Simon",
+    "genre": "Folk/Pop/World"
+  },
+  "01-21": {
+    "id": "plattenfirma-motown-wird-gegruendet",
+    "date": "01-21",
+    "title": "Plattenfirma Motown wird gegründet",
+    "description": "Berry Gordy eröffnet Motown Records in Detroit: Soul, Funk und Pop für die ganze Welt – Hits am Fließband von Marvin Gaye bis Stevie Wonder.",
+    "category": "gruendung",
+    "year": 1959,
+    "artist": "Motown (Berry Gordy)",
+    "genre": "Soul/Pop"
+  },
+  "01-22": {
+    "id": "steve-perry-journey-geboren",
+    "date": "01-22",
+    "title": "Steve Perry (Journey) wird geboren",
+    "description": "Die Stimme von Journey prägt den Arena-Rock der 80er – 'Don't Stop Believin'' ist ein Dauerbrenner der Popkultur.",
+    "category": "birth",
+    "year": 1949,
+    "artist": "Steve Perry (Journey)",
+    "genre": "Rock/Pop"
+  },
+  "01-23": {
+    "id": "erste-rock-roll-hall-of-fame-induktion",
+    "date": "01-23",
+    "title": "Erste Rock & Roll Hall of Fame-Induktion",
+    "description": "Chuck Berry, Elvis Presley und Little Richard werden als erste Künstler in die Ruhmeshalle aufgenommen – die Rockgeschichte wird geehrt.",
+    "category": "milestone",
+    "year": 1986,
+    "artist": "Diverse (Rock & Roll Hall of Fame)",
+    "genre": "Rock'n'Roll/Pop"
+  },
+  "01-24": {
+    "id": "neil-diamond-wird-geboren",
+    "date": "01-24",
+    "title": "Neil Diamond wird geboren",
+    "description": "Songwriter von Klassikern wie 'Sweet Caroline' – seine Lieder vereinen Pop, Folk und Country und werden weltweit gecovert.",
+    "category": "birth",
+    "year": 1941,
+    "artist": "Neil Diamond",
+    "genre": "Pop/Folk"
+  },
+  "01-25": {
+    "id": "alicia-keys-wird-geboren",
+    "date": "01-25",
+    "title": "Alicia Keys wird geboren",
+    "description": "Mit kraftvoller Stimme und klassischer Ausbildung bringt sie Soul und R&B ins 21. Jahrhundert und wird zu einer der wichtigsten Songwriterinnen ihrer Generation.",
+    "category": "birth",
+    "year": 1981,
+    "artist": "Alicia Keys",
+    "genre": "R&B/Soul"
+  },
+  "01-26": {
+    "id": "grammy-awards-erstmals-tv-uebertragen",
+    "date": "01-26",
+    "title": "Grammy Awards erstmals im TV übertragen",
+    "description": "Die Grammy-Verleihung wird ab jetzt weltweit im Fernsehen übertragen und gewinnt dadurch massiv an Einfluss in der Popkultur.",
+    "category": "milestone",
+    "year": 1971,
+    "artist": "Grammy Awards"
+  },
+  "01-27": {
+    "id": "wolfgang-amadeus-mozart-wird-geboren",
+    "date": "01-27",
+    "title": "Wolfgang Amadeus Mozart wird geboren",
+    "description": "Das Universalgenie der klassischen Musik wird 1756 geboren – seine Werke faszinieren bis heute Klassikfans auf der ganzen Welt.",
+    "category": "birth",
+    "year": 1756,
+    "artist": "Wolfgang Amadeus Mozart",
+    "genre": "Klassik"
+  },
+  "01-28": {
+    "id": "we-are-the-world-aufnahmesession",
+    "date": "01-28",
+    "title": "'We Are The World': Aufnahmesession",
+    "description": "45 US-Superstars singen gemeinsam für Afrika-Hilfe. Der Song wird zum weltweiten Charity-Phänomen und zeigt die verbindende Kraft von Musik.",
+    "category": "event/charity",
+    "year": 1985,
+    "artist": "USA for Africa",
+    "genre": "Pop"
+  },
+  "01-29": {
+    "id": "oprah-winfrey-show-startet",
+    "date": "01-29",
+    "title": "Oprah Winfrey Show startet",
+    "description": "Die Show wird zum Sprungbrett für zahllose Musiker, die dort erstmals einem Millionenpublikum vorgestellt werden.",
+    "category": "milestone",
+    "year": 1986,
+    "artist": "Oprah Winfrey",
+    "genre": "TV/Musik"
+  },
+  "01-30": {
+    "id": "beatles-rooftop-konzert-london",
+    "date": "01-30",
+    "title": "Beatles Rooftop-Konzert in London",
+    "description": "Die Beatles überraschen London mit einem letzten öffentlichen Auftritt auf dem Dach ihres Apple-Gebäudes – legendär!",
+    "category": "live/abschied",
+    "year": 1969,
+    "artist": "The Beatles",
+    "genre": "Rock/Pop"
+  },
+  "01-31": {
+    "id": "justin-timberlake-wird-geboren",
+    "date": "01-31",
+    "title": "Justin Timberlake wird geboren",
+    "description": "Vom Boygroup-Star bei *NSYNC zum globalen Pop- und R&B-Solostar und erfolgreichen Schauspieler – der 'Prince of Pop' der 2000er.",
+    "category": "birth",
+    "year": 1981,
+    "artist": "Justin Timberlake",
+    "genre": "Pop/R&B"
+  },
+  "02-01": {
+    "id": "rick-james-wird-geboren",
+    "date": "02-01",
+    "title": "Rick James wird geboren",
+    "description": "Funk-Ikone Rick James kommt 1948 in Buffalo zur Welt. Mit seinem energiegeladenen Hit 'Super Freak' prägte er die 80er und inspirierte zahlreiche Hip-Hop-Künstler.",
+    "category": "birth",
+    "year": 1948,
+    "artist": "Rick James",
+    "genre": "Funk/Pop"
+  },
+  "02-02": {
+    "id": "shakira-wird-geboren",
+    "date": "02-02",
+    "title": "Shakira wird geboren",
+    "description": "Die kolumbianische Sängerin Shakira wird 1977 geboren. Ihr internationaler Durchbruch gelingt ihr mit 'Whenever, Wherever' – sie wird zur Latin-Pop-Ikone.",
+    "category": "birth",
+    "year": 1977,
+    "artist": "Shakira",
+    "genre": "Latin Pop"
+  },
+  "02-03": {
+    "id": "the-day-the-music-died",
+    "date": "02-03",
+    "title": "The Day the Music Died",
+    "description": "Am 3. Februar 1959 sterben die Rock'n'Roll-Pioniere Buddy Holly, Ritchie Valens und 'The Big Bopper' bei einem Flugzeugabsturz. Der Tag geht als 'The Day the Music Died' in die Musikgeschichte ein und wird später in Don McLeans 'American Pie' besungen.",
+    "category": "death",
+    "year": 1959,
+    "artist": "Buddy Holly, Ritchie Valens u.a.",
+    "genre": "Rock'n'Roll"
+  },
+  "02-04": {
+    "id": "alice-cooper-wird-geboren",
+    "date": "02-04",
+    "title": "Alice Cooper wird geboren",
+    "description": "Der 'Godfather of Shock Rock' inszeniert seine Shows mit Schlangen, Guillotinen und Kunstblut – und schafft damit ein eigenes Genre.",
+    "category": "birth",
+    "year": 1948,
+    "artist": "Alice Cooper",
+    "genre": "Rock/Metal"
+  },
+  "02-05": {
+    "id": "erste-soul-train-ausstrahlung",
+    "date": "02-05",
+    "title": "Erste Soul Train-Ausstrahlung",
+    "description": "Die US-TV-Show 'Soul Train' feiert Premiere. Sie wird zum wichtigsten Schaufenster für afroamerikanische Musik, Mode und Tanz und gibt Soul, Funk, Hip-Hop und R&B eine große Bühne.",
+    "category": "tv/meilenstein",
+    "year": 1971,
+    "artist": "Soul Train",
+    "genre": "Soul/Funk/Hip-Hop"
+  },
+  "02-06": {
+    "id": "bob-marley-wird-geboren",
+    "date": "02-06",
+    "title": "Bob Marley wird geboren",
+    "description": "Reggae-Legende Bob Marley kommt 1945 in Nine Mile, Jamaika zur Welt. Mit Songs wie 'No Woman, No Cry' bringt er Reggae und die Botschaft von Frieden und Gerechtigkeit auf die Weltbühne.",
+    "category": "birth",
+    "year": 1945,
+    "artist": "Bob Marley",
+    "genre": "Reggae"
+  },
+  "02-07": {
+    "id": "die-beatles-landen-in-den-usa",
+    "date": "02-07",
+    "title": "Die Beatles landen in den USA",
+    "description": "Am Flughafen JFK werden die Beatles 1964 von tausenden Fans empfangen. Ihr Besuch markiert den Start der 'British Invasion' in den USA.",
+    "category": "milestone",
+    "year": 1964,
+    "artist": "The Beatles",
+    "genre": "Rock/Pop"
+  },
+  "02-08": {
+    "id": "ccr-proud-mary-release",
+    "date": "02-08",
+    "title": "Creedence Clearwater Revival veröffentlichen 'Proud Mary'",
+    "description": "Mit 'Proud Mary' landen CCR 1969 ihren größten Hit. Der Song wird zu einem der meistgecoverten Stücke der Rockgeschichte.",
+    "category": "release",
+    "year": 1969,
+    "artist": "Creedence Clearwater Revival",
+    "genre": "Rock"
+  },
+  "02-09": {
+    "id": "beatles-ed-sullivan-show",
+    "date": "02-09",
+    "title": "Beatles: Ed Sullivan Show",
+    "description": "1964 sehen über 70 Millionen Amerikaner die Beatles live im Fernsehen – ein Moment, der Popgeschichte schreibt und unzählige junge Bands inspiriert.",
+    "category": "tv/ereignis",
+    "year": 1964,
+    "artist": "The Beatles",
+    "genre": "Rock/Pop"
+  },
+  "02-10": {
+    "id": "roberta-flack-wird-geboren",
+    "date": "02-10",
+    "title": "Roberta Flack wird geboren",
+    "description": "Die Sängerin mit der samtigen Stimme, bekannt durch 'Killing Me Softly With His Song', wird 1937 geboren. Sie gewinnt als erste Künstlerin zweimal in Folge den Grammy für die Platte des Jahres.",
+    "category": "birth",
+    "year": 1937,
+    "artist": "Roberta Flack",
+    "genre": "Soul/Jazz"
+  },
+  "02-11": {
+    "id": "whitney-houston-stirbt",
+    "date": "02-11",
+    "title": "Whitney Houston stirbt",
+    "description": "Mit Hits wie 'I Will Always Love You' ist sie eine der erfolgreichsten Stimmen der Popmusik. Ihr Tod 2012 schockiert die Musikwelt.",
+    "category": "death",
+    "year": 2012,
+    "artist": "Whitney Houston",
+    "genre": "Pop/R&B"
+  },
+  "02-12": {
+    "id": "erste-verleihung-brit-awards",
+    "date": "02-12",
+    "title": "Erste Verleihung der Brit Awards",
+    "description": "Großbritanniens wichtigste Musikpreise werden erstmals vergeben – seitdem das wichtigste Event für britische Pop- und Rockmusik.",
+    "category": "milestone",
+    "year": 1977,
+    "artist": "Brit Awards",
+    "genre": "Pop/Rock/UK"
+  },
+  "02-13": {
+    "id": "black-sabbath-debütalbum-erscheint",
+    "date": "02-13",
+    "title": "Black Sabbath: Debütalbum erscheint",
+    "description": "Das erste Black Sabbath-Album erscheint an einem Freitag, dem 13. – für viele der eigentliche 'Geburtstag' des Heavy Metal.",
+    "category": "release",
+    "year": 1970,
+    "artist": "Black Sabbath",
+    "genre": "Metal"
+  },
+  "02-14": {
+    "id": "frederick-loewe-wird-geboren",
+    "date": "02-14",
+    "title": "Frederick Loewe wird geboren",
+    "description": "Komponist von Musical-Welterfolgen wie 'My Fair Lady' – die Bühnenklassiker werden bis heute auf der ganzen Welt gespielt.",
+    "category": "birth",
+    "year": 1901,
+    "artist": "Frederick Loewe",
+    "genre": "Musical"
+  },
+  "02-15": {
+    "id": "erste-radiosendung-live-jazz",
+    "date": "02-15",
+    "title": "Erste Radiosendung mit Live-Jazz",
+    "description": "Die erste Jazz-Liveübertragung im US-Radio bringt den neuen Sound aus New Orleans in die Wohnzimmer und macht Jazz zum Massenphänomen.",
+    "category": "milestone",
+    "year": 1922,
+    "artist": "King Oliver's Creole Jazz Band",
+    "genre": "Jazz"
+  },
+  "02-16": {
+    "id": "sonny-bono-wird-geboren",
+    "date": "02-16",
+    "title": "Sonny Bono wird geboren",
+    "description": "Teil des Duos Sonny & Cher, das mit 'I Got You Babe' Weltruhm erlangt. Später wird er Bürgermeister und Kongressabgeordneter.",
+    "category": "birth",
+    "year": 1935,
+    "artist": "Sonny Bono",
+    "genre": "Pop"
+  },
+  "02-17": {
+    "id": "billie-joe-armstrong-green-day-geboren",
+    "date": "02-17",
+    "title": "Billie Joe Armstrong (Green Day) wird geboren",
+    "description": "Punkrock, Rebellion und Stadionhits: Der Green Day-Frontmann prägt mit Alben wie 'Dookie' den Sound der 90er und 2000er.",
+    "category": "birth",
+    "year": 1972,
+    "artist": "Billie Joe Armstrong",
+    "genre": "Punkrock"
+  },
+  "02-18": {
+    "id": "erste-mtv-europe-ausstrahlung",
+    "date": "02-18",
+    "title": "Erste reguläre MTV-Europe-Ausstrahlung",
+    "description": "Nach dem Erfolg in den USA startet MTV Europe – Musikvideos werden zum globalen Kult und machen aus Künstlern Superstars.",
+    "category": "milestone",
+    "year": 1987,
+    "artist": "MTV Europe",
+    "genre": "Pop/TV"
+  },
+  "02-19": {
+    "id": "smokey-robinson-wird-geboren",
+    "date": "02-19",
+    "title": "Smokey Robinson wird geboren",
+    "description": "Motown-Legende, Songwriter und Sänger, der Hits wie 'The Tracks of My Tears' schrieb und Soul-Musik mitprägte.",
+    "category": "birth",
+    "year": 1940,
+    "artist": "Smokey Robinson",
+    "genre": "Soul/Motown"
+  },
+  "02-20": {
+    "id": "kurt-cobain-wird-geboren",
+    "date": "02-20",
+    "title": "Kurt Cobain wird geboren",
+    "description": "Der Nirvana-Frontmann wird zur Symbolfigur des Grunge – seine Musik und Haltung beeinflussen Generationen weit über die 90er hinaus.",
+    "category": "birth",
+    "year": 1967,
+    "artist": "Kurt Cobain",
+    "genre": "Grunge"
+  },
+  "02-21": {
+    "id": "nina-simone-wird-geboren",
+    "date": "02-21",
+    "title": "Nina Simone wird geboren",
+    "description": "Die 'High Priestess of Soul' setzt sich mit Musik und Mut für Bürgerrechte ein, verbindet Jazz, Soul, Blues und Klassik einzigartig.",
+    "category": "birth",
+    "year": 1933,
+    "artist": "Nina Simone",
+    "genre": "Soul/Jazz"
+  },
+  "02-22": {
+    "id": "james-blunt-wird-geboren",
+    "date": "02-22",
+    "title": "James Blunt wird geboren",
+    "description": "Mit 'You're Beautiful' wird er zum Star – sein Songwriting ist geprägt von britischem Understatement und Emotionalität.",
+    "category": "birth",
+    "year": 1974,
+    "artist": "James Blunt",
+    "genre": "Pop"
+  },
+  "02-23": {
+    "id": "johnny-winter-wird-geboren",
+    "date": "02-23",
+    "title": "Johnny Winter wird geboren",
+    "description": "Der Blues-Gitarrist bringt elektrisierende Soli und eine markante Stimme auf internationale Bühnen.",
+    "category": "birth",
+    "year": 1944,
+    "artist": "Johnny Winter",
+    "genre": "Blues/Rock"
+  },
+  "02-24": {
+    "id": "uptown-funk-welthit",
+    "date": "02-24",
+    "title": "'Uptown Funk' wird Welthit",
+    "description": "Mark Ronson und Bruno Mars dominieren die Charts mit einer funky Hommage an Prince und James Brown, die weltweit Tanzflächen füllt.",
+    "category": "charts/release",
+    "year": 2015,
+    "artist": "Mark Ronson feat. Bruno Mars",
+    "genre": "Funk/Pop"
+  },
+  "02-25": {
+    "id": "george-harrison-wird-geboren",
+    "date": "02-25",
+    "title": "George Harrison wird geboren",
+    "description": "Als 'der stille Beatle' verbindet er östliche und westliche Musik und schreibt unvergessliche Songs wie 'Here Comes the Sun'.",
+    "category": "birth",
+    "year": 1943,
+    "artist": "George Harrison",
+    "genre": "Rock/Pop"
+  },
+  "02-26": {
+    "id": "fats-domino-wird-geboren",
+    "date": "02-26",
+    "title": "Fats Domino wird geboren",
+    "description": "Der Rock'n'Roll-Pionier bringt New Orleans-Rhythmen in die Popwelt – 'Blueberry Hill' wird ein Welthit.",
+    "category": "birth",
+    "year": 1928,
+    "artist": "Fats Domino",
+    "genre": "Rock'n'Roll"
+  },
+  "02-27": {
+    "id": "erste-grammy-verleihung-hip-hop",
+    "date": "02-27",
+    "title": "Erste Grammy-Verleihung für Hip-Hop",
+    "description": "Mit dem Grammy für DJ Jazzy Jeff & The Fresh Prince wird erstmals Rap als eigene Kategorie bei den Grammys gewürdigt – Hip-Hop wird salonfähig.",
+    "category": "milestone",
+    "year": 1989,
+    "artist": "DJ Jazzy Jeff & The Fresh Prince",
+    "genre": "Hip-Hop"
+  },
+  "02-28": {
+    "id": "michael-jackson-rekord-grammys",
+    "date": "02-28",
+    "title": "Michael Jackson: Rekord bei den Grammys",
+    "description": "'Thriller' sorgt dafür, dass Michael Jackson an einem Abend acht Grammy-Trophäen gewinnt – bis heute ein Rekord.",
+    "category": "milestone",
+    "year": 1984,
+    "artist": "Michael Jackson",
+    "genre": "Pop"
+  },
+  "02-29": {
+    "id": "ja-rule-wird-geboren",
+    "date": "02-29",
+    "title": "Ja Rule wird geboren",
+    "description": "Seltenes Geburtstagskind: Der US-Rapper mit zahlreichen Chart-Hits und Kollaborationen mit Jennifer Lopez & Ashanti wird am Schalttag geboren.",
+    "category": "birth",
+    "year": 1976,
+    "artist": "Ja Rule",
+    "genre": "Hip-Hop"
+  },
+  "03-01": {
+    "id": "pink-floyd-dark-side-moon-release",
+    "date": "03-01",
+    "title": "Veröffentlichung: Pink Floyd 'The Dark Side of the Moon'",
+    "description": "Mit innovativem Sound, sphärischen Synthesizern und sozialkritischen Texten erscheint eines der meistverkauften und einflussreichsten Alben der Musikgeschichte.",
+    "category": "album-release",
+    "year": 1973,
+    "artist": "Pink Floyd",
+    "genre": "Progressive Rock"
+  },
+  "03-02": {
+    "id": "chris-martin-coldplay-geboren",
+    "date": "03-02",
+    "title": "Chris Martin (Coldplay) wird geboren",
+    "description": "Der Frontmann von Coldplay wird 1977 in England geboren und prägt später den Alternative-Rock und weltweite Stadionhymnen wie 'Viva La Vida'.",
+    "category": "birth",
+    "year": 1977,
+    "artist": "Chris Martin (Coldplay)",
+    "genre": "Pop/Rock"
+  },
+  "03-03": {
+    "id": "metallica-master-puppets-release",
+    "date": "03-03",
+    "title": "Metallica veröffentlichen 'Master of Puppets'",
+    "description": "Das bahnbrechende Metal-Album gilt als Meilenstein des Genres, bringt Metallica in den Mainstream und inspiriert Generationen von Musikern.",
+    "category": "album-release",
+    "year": 1986,
+    "artist": "Metallica",
+    "genre": "Metal"
+  },
+  "03-04": {
+    "id": "miriam-makeba-grammy-awards",
+    "date": "03-04",
+    "title": "Miriam Makeba singt bei den Grammy Awards",
+    "description": "Die südafrikanische Sängerin tritt als erste afrikanische Künstlerin bei den Grammys auf – ein Durchbruch für Weltmusik und Anti-Apartheid-Botschaften.",
+    "category": "live-event",
+    "year": 1966,
+    "artist": "Miriam Makeba",
+    "genre": "World/Soul"
+  },
+  "03-05": {
+    "id": "andy-gibb-bee-gees-geboren",
+    "date": "03-05",
+    "title": "Andy Gibb (Bee Gees) wird geboren",
+    "description": "Der jüngste Bruder der Bee Gees feiert Solohits wie 'Shadow Dancing' und steht für den Disco-Sound der späten 70er.",
+    "category": "birth",
+    "year": 1958,
+    "artist": "Andy Gibb",
+    "genre": "Pop/Disco"
+  },
+  "03-06": {
+    "id": "bohemian-rhapsody-musikvideo-premiere",
+    "date": "03-06",
+    "title": "Premiere: 'Bohemian Rhapsody' als Musikvideo",
+    "description": "Queen veröffentlichen als eine der ersten Bands ein aufwendig produziertes Musikvideo zu 'Bohemian Rhapsody' – MTV und YouTube-Ära nehmen ihren Anfang.",
+    "category": "musikvideo-premiere",
+    "year": 1975,
+    "artist": "Queen",
+    "genre": "Rock/Pop"
+  },
+  "03-07": {
+    "id": "rolling-stone-magazin-erste-ausgabe",
+    "date": "03-07",
+    "title": "Erste Ausgabe des Rolling Stone Magazins",
+    "description": "Das legendäre Musikmagazin prägt Generationen von Musikfans, entdeckt Talente und dokumentiert den Wandel der Popkultur.",
+    "category": "milestone",
+    "year": 1967,
+    "artist": "Rolling Stone Magazine",
+    "genre": "Popkultur"
+  },
+  "03-08": {
+    "id": "internationaler-frauentag-musik-emanzipation",
+    "date": "03-08",
+    "title": "Internationaler Frauentag – Musik und Emanzipation",
+    "description": "Weltweit werden Musikerinnen gefeiert, die mit ihren Songs Frauenrechte stärken und gesellschaftliche Debatten anstoßen – von Aretha Franklin bis Beyoncé.",
+    "category": "gedenktag",
+    "year": 1911,
+    "artist": "Diverse",
+    "genre": "Verschiedene"
+  },
+  "03-09": {
+    "id": "notorious-big-erschossen",
+    "date": "03-09",
+    "title": "The Notorious B.I.G. wird in New York erschossen",
+    "description": "Der Mord am legendären Rapper schockiert Hip-Hop und Popkultur – sein Einfluss lebt durch Songs wie 'Juicy' und 'Hypnotize' weiter.",
+    "category": "death",
+    "year": 1997,
+    "artist": "The Notorious B.I.G.",
+    "genre": "Hip-Hop"
+  },
+  "03-10": {
+    "id": "timbaland-wird-geboren",
+    "date": "03-10",
+    "title": "Timbaland wird geboren",
+    "description": "Der visionäre Produzent revolutioniert den R&B- und Pop-Sound der 2000er mit innovativen Beats und Songs für Aaliyah, Missy Elliott, Justin Timberlake und viele mehr.",
+    "category": "birth",
+    "year": 1972,
+    "artist": "Timbaland",
+    "genre": "Hip-Hop/R&B"
+  },
+  "03-11": {
+    "id": "genesis-band-gruendung",
+    "date": "03-11",
+    "title": "Gründung der Band Genesis",
+    "description": "Peter Gabriel, Phil Collins & Co. starten die britische Progrock-Institution, die später Popgeschichte mitgestaltet.",
+    "category": "bandgründung",
+    "year": 1967,
+    "artist": "Genesis",
+    "genre": "Progressive Rock"
+  },
+  "03-12": {
+    "id": "james-taylor-wird-geboren",
+    "date": "03-12",
+    "title": "James Taylor wird geboren",
+    "description": "Mit 'Fire and Rain' und 'You've Got a Friend' wird der Singer-Songwriter zur Ikone des sanften Folk und Classic Rock der 70er.",
+    "category": "birth",
+    "year": 1948,
+    "artist": "James Taylor",
+    "genre": "Folk/Rock"
+  },
+  "03-13": {
+    "id": "neil-sedaka-wird-geboren",
+    "date": "03-13",
+    "title": "Neil Sedaka wird geboren",
+    "description": "Songwriter von Evergreens wie 'Breaking Up Is Hard to Do' und Pionier der Brill-Building-Ära in New York.",
+    "category": "birth",
+    "year": 1939,
+    "artist": "Neil Sedaka",
+    "genre": "Pop"
+  },
+  "03-14": {
+    "id": "quincy-jones-wird-geboren",
+    "date": "03-14",
+    "title": "Quincy Jones wird geboren",
+    "description": "Als Produzent, Arrangeur und Komponist prägt er Jazz, Soul, Pop – und produziert Michael Jacksons 'Thriller'. Rekordhalter mit 28 Grammy-Awards.",
+    "category": "birth",
+    "year": 1933,
+    "artist": "Quincy Jones",
+    "genre": "Pop/Jazz"
+  },
+  "03-15": {
+    "id": "sly-stone-wird-geboren",
+    "date": "03-15",
+    "title": "Sly Stone wird geboren",
+    "description": "Kopf von Sly & The Family Stone, revolutioniert Funk, Soul und Pop mit sozialkritischen Texten und multikultureller Bandbesetzung.",
+    "category": "birth",
+    "year": 1943,
+    "artist": "Sly Stone",
+    "genre": "Funk/Soul"
+  },
+  "03-16": {
+    "id": "jerry-lewis-musik-komiker-geboren",
+    "date": "03-16",
+    "title": "Jerry Lewis (Musik-Komiker) wird geboren",
+    "description": "Entertainer, Schauspieler und Komiker, dessen berühmte Telethons zahlreiche Musikstars zusammenbrachten und Millionen für wohltätige Zwecke sammelten.",
+    "category": "birth/charity",
+    "year": 1926,
+    "artist": "Jerry Lewis",
+    "genre": "Musical/Comedy"
+  },
+  "03-17": {
+    "id": "nat-king-cole-wird-geboren",
+    "date": "03-17",
+    "title": "Nat King Cole wird geboren",
+    "description": "Der Sänger und Pianist vereint Jazz, Pop und Soul – und öffnet als erster Afroamerikaner eigene Fernsehshows für ein US-Massenpublikum.",
+    "category": "birth",
+    "year": 1919,
+    "artist": "Nat King Cole",
+    "genre": "Jazz/Pop"
+  },
+  "03-18": {
+    "id": "adam-levine-maroon5-geboren",
+    "date": "03-18",
+    "title": "Adam Levine (Maroon 5) wird geboren",
+    "description": "Sänger und Songwriter, bekannt für den unverwechselbaren Pop-Rock-Sound von Maroon 5 und Hits wie 'This Love' und 'Sugar'.",
+    "category": "birth",
+    "year": 1979,
+    "artist": "Adam Levine",
+    "genre": "Pop/Rock"
+  },
+  "03-19": {
+    "id": "lady-marmalade-nr1-usa",
+    "date": "03-19",
+    "title": "'Lady Marmalade' erreicht Nr. 1 in den USA",
+    "description": "Der Song über weibliche Selbstbestimmung von Labelle wird zur Hymne der 70er – später ein Welthit in Neuauflage mit Pink, Mya, Lil' Kim & Christina Aguilera.",
+    "category": "charts/release",
+    "year": 1975,
+    "artist": "Labelle u.a.",
+    "genre": "Soul/Pop"
+  },
+  "03-20": {
+    "id": "chester-bennington-wird-geboren",
+    "date": "03-20",
+    "title": "Chester Bennington wird geboren",
+    "description": "Mit Linkin Park, Hybrid Theory und kraftvoller Stimme wird er zur prägenden Figur des 2000er-Alternative-Rock und Nu Metal.",
+    "category": "birth",
+    "year": 1976,
+    "artist": "Chester Bennington",
+    "genre": "Rock/Alternative"
+  },
+  "03-21": {
+    "id": "johann-sebastian-bach-wird-geboren",
+    "date": "03-21",
+    "title": "Johann Sebastian Bach wird geboren",
+    "description": "Das Genie des Barock, dessen Werke wie die Brandenburgischen Konzerte bis heute Klassik und Pop inspirieren, erblickt das Licht der Welt.",
+    "category": "birth",
+    "year": 1685,
+    "artist": "Johann Sebastian Bach",
+    "genre": "Klassik"
+  },
+  "03-22": {
+    "id": "george-benson-wird-geboren",
+    "date": "03-22",
+    "title": "George Benson wird geboren",
+    "description": "Jazz-, Funk- und Soul-Gitarrist, dessen samtweiche Stimme und Hits wie 'Give Me the Night' Crossover-Pop ermöglichen.",
+    "category": "birth",
+    "year": 1943,
+    "artist": "George Benson",
+    "genre": "Jazz/Funk/Pop"
+  },
+  "03-23": {
+    "id": "chaka-khan-wird-geboren",
+    "date": "03-23",
+    "title": "Chaka Khan wird geboren",
+    "description": "Die 'Queen of Funk' prägt Soul, Funk und R&B und gewinnt 10 Grammys – bekannt durch Hits wie 'Ain't Nobody' und 'I'm Every Woman'.",
+    "category": "birth",
+    "year": 1953,
+    "artist": "Chaka Khan",
+    "genre": "Funk/Soul/R&B"
+  },
+  "03-24": {
+    "id": "nick-lowe-wird-geboren",
+    "date": "03-24",
+    "title": "Nick Lowe wird geboren",
+    "description": "Der britische Songwriter, Produzent und Pop-Punk-Pionier wird mit 'Cruel to Be Kind' und '(What's So Funny 'Bout) Peace, Love, and Understanding' bekannt.",
+    "category": "birth",
+    "year": 1949,
+    "artist": "Nick Lowe",
+    "genre": "Rock/Pop"
+  },
+  "03-25": {
+    "id": "michael-jackson-erster-moonwalk-tv",
+    "date": "03-25",
+    "title": "Michael Jackson: Erster Moonwalk im TV",
+    "description": "Beim 'Motown 25'-Special zeigt Michael Jackson zum ersten Mal seinen legendären Moonwalk – ein Meilenstein für Pop, Tanz und TV-Kultur.",
+    "category": "tv-event",
+    "year": 1983,
+    "artist": "Michael Jackson",
+    "genre": "Pop"
+  },
+  "03-26": {
+    "id": "beethoven-stirbt-wien",
+    "date": "03-26",
+    "title": "Beethoven stirbt in Wien",
+    "description": "Mit seinem Tod endet eine Ära – Beethoven bleibt Brücke zwischen Klassik und Romantik und inspiriert alle Musikrichtungen von Jazz bis Rock.",
+    "category": "death",
+    "year": 1827,
+    "artist": "Ludwig van Beethoven",
+    "genre": "Klassik"
+  },
+  "03-27": {
+    "id": "mariah-carey-wird-geboren",
+    "date": "03-27",
+    "title": "Mariah Carey wird geboren",
+    "description": "Sie ist mit 19 Nummer-eins-Hits Rekordhalterin in den USA und prägt mit ihrer Stimme mehrere Jahrzehnte Pop und R&B.",
+    "category": "birth",
+    "year": 1969,
+    "artist": "Mariah Carey",
+    "genre": "Pop/R&B"
+  },
+  "03-28": {
+    "id": "pirate-radio-caroline-start-uk",
+    "date": "03-28",
+    "title": "Pirate Radio: Radio Caroline startet in UK",
+    "description": "Mit Sendungen von internationalen Gewässern revolutioniert Radio Caroline die britische Musiklandschaft – Pop und Rock werden für alle zugänglich.",
+    "category": "medienrevolution",
+    "year": 1964,
+    "artist": "Radio Caroline",
+    "genre": "Pop/Rock"
+  },
+  "03-29": {
+    "id": "pearl-jam-erstes-konzert-seattle",
+    "date": "03-29",
+    "title": "Pearl Jam geben erstes Konzert in Seattle",
+    "description": "Die spätere Grunge-Legende startet 1991 als Live-Band – schon bald gelten sie als eine der größten Stadion-Acts der 90er und 2000er.",
+    "category": "live-debut",
+    "year": 1991,
+    "artist": "Pearl Jam",
+    "genre": "Grunge"
+  },
+  "03-30": {
+    "id": "eric-clapton-wird-geboren",
+    "date": "03-30",
+    "title": "Eric Clapton wird geboren",
+    "description": "Dreimal in die Rock & Roll Hall of Fame aufgenommen: Clapton prägt Blues, Rock und Pop mit Soli und Songs wie 'Layla' und 'Tears in Heaven'.",
+    "category": "birth",
+    "year": 1945,
+    "artist": "Eric Clapton",
+    "genre": "Rock/Blues"
+  },
+  "03-31": {
+    "id": "etta-james-wird-geboren",
+    "date": "03-31",
+    "title": "Etta James wird geboren",
+    "description": "Mit ihrer kräftigen Stimme und Klassikern wie 'At Last' vereint sie Blues, Soul, Gospel und Rock in einer Karriere, die Generationen beeinflusst.",
+    "category": "birth",
+    "year": 1938,
+    "artist": "Etta James",
+    "genre": "Blues/Soul/Gospel"
+  },
+  "04-01": {
+    "id": "marvin-gaye-wird-geboren",
+    "date": "04-01",
+    "title": "Marvin Gaye wird geboren",
+    "description": "Mit seiner unverwechselbaren Stimme und Songs wie 'What's Going On' wird Gaye zur Ikone des Soul, Motown und gesellschaftskritischer Popmusik.",
+    "category": "birth",
+    "year": 1939,
+    "artist": "Marvin Gaye",
+    "genre": "Soul/Motown"
+  },
+  "04-02": {
+    "id": "erste-ausstrahlung-mtv-unplugged",
+    "date": "04-02",
+    "title": "Erste Ausstrahlung von MTV Unplugged",
+    "description": "Das legendäre Akustik-Format bringt ab 1989 Rock, Pop und Hip-Hop-Stars in intimen Settings auf die Bühne – Klassiker wie Nirvana, Clapton, Lauryn Hill entstehen hier neu.",
+    "category": "tv/meilenstein",
+    "year": 1989,
+    "artist": "Diverse",
+    "genre": "Pop/Rock/Unplugged"
+  },
+  "04-03": {
+    "id": "erster-jazz-hit-tiger-rag",
+    "date": "04-03",
+    "title": "Der erste Jazz-'Hit': 'Tiger Rag' (Original Dixieland Jazz Band)",
+    "description": "Mit 'Tiger Rag' landet 1918 die erste Jazz-Platte überhaupt in den US-Charts – Jazz wird zur Popkultur.",
+    "category": "charts/release",
+    "year": 1918,
+    "artist": "Original Dixieland Jazz Band",
+    "genre": "Jazz"
+  },
+  "04-04": {
+    "id": "jesus-christ-superstar-premiere",
+    "date": "04-04",
+    "title": "Das Musical 'Jesus Christ Superstar' feiert Premiere",
+    "description": "Die Rockoper von Andrew Lloyd Webber & Tim Rice bricht 1971 Tabus, verbindet Rock mit Bibelstoff und sorgt weltweit für Diskussionen.",
+    "category": "premiere",
+    "year": 1971,
+    "artist": "Andrew Lloyd Webber, Tim Rice",
+    "genre": "Musical/Rock"
+  },
+  "04-05": {
+    "id": "kurt-cobain-stirbt-seattle",
+    "date": "04-05",
+    "title": "Kurt Cobain stirbt in Seattle",
+    "description": "Der Nirvana-Frontmann wird zur Symbolfigur der Grunge-Ära. Sein früher Tod erschüttert die Musikwelt und beendet ein ganzes Musikzeitalter.",
+    "category": "death",
+    "year": 1994,
+    "artist": "Kurt Cobain",
+    "genre": "Grunge"
+  },
+  "04-06": {
+    "id": "abba-eurovision-waterloo-sieg",
+    "date": "04-06",
+    "title": "ABBA gewinnen Eurovision Song Contest mit 'Waterloo'",
+    "description": "Mit ihrem Sieg in Brighton startet eine der größten Popkarrieren aller Zeiten – die Welt wird ABBA-Fan!",
+    "category": "sieg/meilenstein",
+    "year": 1974,
+    "artist": "ABBA",
+    "genre": "Pop"
+  },
+  "04-07": {
+    "id": "billie-holiday-stirbt",
+    "date": "04-07",
+    "title": "Billie Holiday stirbt",
+    "description": "Die 'Lady Day' prägt Jazz und Blues mit ihrer Stimme und emotionaler Tiefe – sie wird zur Ikone für Musik und Bürgerrechte.",
+    "category": "death",
+    "year": 1959,
+    "artist": "Billie Holiday",
+    "genre": "Jazz/Blues"
+  },
+  "04-08": {
+    "id": "let-it-be-beatles-release",
+    "date": "04-08",
+    "title": "'Let It Be' von den Beatles wird veröffentlicht",
+    "description": "Der letzte Beatles-Song wird ein weltweiter Hit und zur Abschiedshymne einer Generation.",
+    "category": "single-release",
+    "year": 1970,
+    "artist": "The Beatles",
+    "genre": "Rock/Pop"
+  },
+  "04-09": {
+    "id": "gerard-way-my-chemical-romance-geboren",
+    "date": "04-09",
+    "title": "Gerard Way (My Chemical Romance) wird geboren",
+    "description": "Der Frontmann prägt mit theatralischem Emo-Rock und Konzeptalben wie 'The Black Parade' die 2000er und eine neue Subkultur.",
+    "category": "birth",
+    "year": 1977,
+    "artist": "Gerard Way (My Chemical Romance)",
+    "genre": "Alternative/Emo"
+  },
+  "04-10": {
+    "id": "paul-mccartney-beatles-ende",
+    "date": "04-10",
+    "title": "Paul McCartney verkündet das Ende der Beatles",
+    "description": "Mit einer Presseerklärung erklärt McCartney offiziell seinen Ausstieg und beendet damit das Kapitel der erfolgreichsten Band der Popgeschichte.",
+    "category": "milestone",
+    "year": 1970,
+    "artist": "Paul McCartney, The Beatles",
+    "genre": "Rock/Pop"
+  },
+  "04-11": {
+    "id": "we-are-the-world-charts",
+    "date": "04-11",
+    "title": "'We Are The World' erstmals in den Charts",
+    "description": "Das von Michael Jackson & Lionel Richie geschriebene Charity-Lied erreicht Platz 1 der US-Charts und sammelt Millionen für humanitäre Zwecke.",
+    "category": "charity/charts",
+    "year": 1985,
+    "artist": "USA for Africa",
+    "genre": "Pop"
+  },
+  "04-12": {
+    "id": "david-letterman-musikalischer-gast",
+    "date": "04-12",
+    "title": "David Letterman erstmals mit musikalischem Gast",
+    "description": "Die Tonight Show revolutioniert das US-Fernsehen – Musiker von Madonna bis Foo Fighters spielen in legendären Late-Night-Sessions.",
+    "category": "tv/meilenstein",
+    "year": 1982,
+    "artist": "Diverse",
+    "genre": "Pop/Rock/TV"
+  },
+  "04-13": {
+    "id": "urauffuehrung-haendel-messiah",
+    "date": "04-13",
+    "title": "Uraufführung von Händels 'Messiah'",
+    "description": "Das Oratorium wird 1742 in Dublin uraufgeführt – 'Halleluja' wird zu einem der berühmtesten Chorsätze der Weltgeschichte.",
+    "category": "premiere",
+    "year": 1742,
+    "artist": "Georg Friedrich Händel",
+    "genre": "Klassik/Barock"
+  },
+  "04-14": {
+    "id": "loretta-lynn-wird-geboren",
+    "date": "04-14",
+    "title": "Loretta Lynn wird geboren",
+    "description": "Die 'Coal Miner's Daughter' singt sich aus armen Verhältnissen an die Spitze der Country-Welt – sie bricht Tabus und prägt Songwriting bis heute.",
+    "category": "birth",
+    "year": 1932,
+    "artist": "Loretta Lynn",
+    "genre": "Country"
+  },
+  "04-15": {
+    "id": "purple-rain-oscar",
+    "date": "04-15",
+    "title": "'Purple Rain' gewinnt Oscar",
+    "description": "Prince erhält für seinen Film und Soundtrack 'Purple Rain' den Oscar für beste Filmmusik – der Soundtrack wird zum Kultalbum.",
+    "category": "auszeichnung",
+    "year": 1985,
+    "artist": "Prince",
+    "genre": "Pop/Funk"
+  },
+  "04-16": {
+    "id": "selena-wird-geboren",
+    "date": "04-16",
+    "title": "Selena wird geboren",
+    "description": "Die 'Queen of Tejano' bringt mexikanische Musik in den US-Mainstream – nach ihrem frühen Tod wird sie zum Idol der Latin-Community.",
+    "category": "birth",
+    "year": 1971,
+    "artist": "Selena",
+    "genre": "Latin/Tejano"
+  },
+  "04-17": {
+    "id": "jennifer-garner-geboren",
+    "date": "04-17",
+    "title": "Jennifer Garner wird geboren",
+    "description": "Die Schauspielerin spielt in Musikfilmen und -serien mit und fördert Nachwuchsmusiker in den USA.",
+    "category": "birth/medien",
+    "year": 1972,
+    "artist": "Jennifer Garner"
+  },
+  "04-18": {
+    "id": "rick-moranis-blues-brothers-geboren",
+    "date": "04-18",
+    "title": "Rick Moranis (Blues Brothers) wird geboren",
+    "description": "Als Komiker und Schauspieler Teil der legendären Blues Brothers Band – Musik & Comedy werden weltweit Kult.",
+    "category": "birth/comedy",
+    "year": 1953,
+    "artist": "Rick Moranis",
+    "genre": "Blues/Comedy"
+  },
+  "04-19": {
+    "id": "death-metal-print-erstmals-erwaehnt",
+    "date": "04-19",
+    "title": "Death Metal wird erstmals in Print erwähnt",
+    "description": "Die Bezeichnung 'Death Metal' taucht erstmals in einer britischen Musikzeitschrift auf – ein Subgenre ist geboren.",
+    "category": "genre-geschichte",
+    "year": 1983,
+    "artist": "Diverse",
+    "genre": "Metal"
+  },
+  "04-20": {
+    "id": "koenig-der-loewen-soundtrack",
+    "date": "04-20",
+    "title": "'König der Löwen'-Soundtrack erscheint",
+    "description": "Elton John und Hans Zimmer erschaffen eine der erfolgreichsten Filmmusiken der 90er, die mit dem Oscar und Grammy ausgezeichnet wird.",
+    "category": "soundtrack",
+    "year": 1994,
+    "artist": "Elton John, Hans Zimmer",
+    "genre": "Filmmusik/Pop"
+  },
+  "04-21": {
+    "id": "prince-stirbt",
+    "date": "04-21",
+    "title": "Prince stirbt",
+    "description": "Der Multiinstrumentalist und Pop-Genie stirbt 2016 unerwartet. Sein Einfluss auf Pop, Funk, Rock und Mode bleibt unvergessen.",
+    "category": "death",
+    "year": 2016,
+    "artist": "Prince",
+    "genre": "Pop/Funk/Rock"
+  },
+  "04-22": {
+    "id": "earth-day-musik-planet",
+    "date": "04-22",
+    "title": "Earth Day – Musik für den Planeten",
+    "description": "Weltweit finden Konzerte für den Umweltschutz statt – Musiker setzen sich für nachhaltigen Wandel ein, von Billie Eilish bis Neil Young.",
+    "category": "aktionstag",
+    "year": 1970,
+    "artist": "Diverse",
+    "genre": "Verschiedene"
+  },
+  "04-23": {
+    "id": "gnarls-barkley-crazy-release",
+    "date": "04-23",
+    "title": "Gnarls Barkley: 'Crazy' erscheint",
+    "description": "Mit innovativem Retro-Soul und der Stimme von CeeLo Green dominiert 'Crazy' weltweit die Charts – der Song wird zu einem der erfolgreichsten Hits der 2000er.",
+    "category": "release",
+    "year": 2006,
+    "artist": "Gnarls Barkley",
+    "genre": "Soul/Pop"
+  },
+  "04-24": {
+    "id": "kelly-clarkson-american-idol-sieg",
+    "date": "04-24",
+    "title": "Kelly Clarkson gewinnt American Idol",
+    "description": "Die erste Staffel der US-Castingshow macht Clarkson über Nacht zum Superstar und startet das Format international – Castingshows werden Trend.",
+    "category": "tv/meilenstein",
+    "year": 2002,
+    "artist": "Kelly Clarkson",
+    "genre": "Pop"
+  },
+  "04-25": {
+    "id": "ella-fitzgerald-wird-geboren",
+    "date": "04-25",
+    "title": "Ella Fitzgerald wird geboren",
+    "description": "Die 'First Lady of Song' begeistert mit Scat-Gesang und bringt Jazz auf ein neues Level – sie gewinnt 13 Grammys in ihrer Karriere.",
+    "category": "birth",
+    "year": 1917,
+    "artist": "Ella Fitzgerald",
+    "genre": "Jazz"
+  },
+  "04-26": {
+    "id": "pet-sounds-beach-boys-release",
+    "date": "04-26",
+    "title": "'Pet Sounds' von den Beach Boys erscheint",
+    "description": "Brian Wilson und die Beach Boys veröffentlichen ein bahnbrechendes Album, das auch die Beatles inspiriert und als bestes Popalbum aller Zeiten gilt.",
+    "category": "album-release",
+    "year": 1966,
+    "artist": "The Beach Boys",
+    "genre": "Pop"
+  },
+  "04-27": {
+    "id": "casey-kasem-american-top40",
+    "date": "04-27",
+    "title": "Casey Kasem moderiert erstmals American Top 40",
+    "description": "Die legendäre US-Radioshow mit den meistgehörten Songs der Woche wird zur Institution im Radio und inspiriert ähnliche Formate weltweit.",
+    "category": "radio/charts",
+    "year": 1970,
+    "artist": "Casey Kasem",
+    "genre": "Pop/Radio"
+  },
+  "04-28": {
+    "id": "jay-z-def-jam-records",
+    "date": "04-28",
+    "title": "Jay-Z übernimmt Def Jam Records",
+    "description": "Der Rapper wird CEO von Def Jam und fördert Künstler wie Rihanna, Kanye West und Ne-Yo – Hip-Hop wird globales Business.",
+    "category": "karriere/meilenstein",
+    "year": 2004,
+    "artist": "Jay-Z",
+    "genre": "Hip-Hop"
+  },
+  "04-29": {
+    "id": "rod-stewart-rock-hall-of-fame",
+    "date": "04-29",
+    "title": "Rod Stewart wird in die Rock & Roll Hall of Fame aufgenommen",
+    "description": "Der britische Sänger mit der rauen Stimme wird für sein Lebenswerk geehrt – von The Faces bis zur Solokarriere.",
+    "category": "auszeichnung",
+    "year": 1994,
+    "artist": "Rod Stewart",
+    "genre": "Rock/Pop"
+  },
+  "04-30": {
+    "id": "international-jazz-day",
+    "date": "04-30",
+    "title": "International Jazz Day",
+    "description": "Die UNESCO ruft den 30. April zum International Jazz Day aus – auf allen Kontinenten finden große Konzerte und Musikvermittlungsaktionen statt.",
+    "category": "welttag/jazz",
+    "year": 2011,
+    "artist": "Diverse",
+    "genre": "Jazz"
+  },
+  "05-01": {
+    "id": "rolling-stone-magazin-erste-ausgabe",
+    "date": "05-01",
+    "title": "Erste Ausgabe des Rolling Stone Magazins",
+    "description": "Am 1. Mai 1967 erscheint das erste Heft von Rolling Stone – bis heute das einflussreichste Musik- und Popkultur-Magazin der Welt.",
+    "category": "medien/meilenstein",
+    "year": 1967,
+    "artist": "Rolling Stone Magazine",
+    "genre": "Popkultur"
+  },
+  "05-02": {
+    "id": "lily-allen-wird-geboren",
+    "date": "05-02",
+    "title": "Lily Allen wird geboren",
+    "description": "Die britische Sängerin verbindet scharfsinnigen Pop mit ironischem Text und prägt den Sound der 2000er.",
+    "category": "birth",
+    "year": 1985,
+    "artist": "Lily Allen",
+    "genre": "Pop"
+  },
+  "05-03": {
+    "id": "james-brown-papas-got-brand-new-bag",
+    "date": "05-03",
+    "title": "James Brown veröffentlicht 'Papa's Got a Brand New Bag'",
+    "description": "Der Godfather of Soul präsentiert mit diesem Song den Funk-Sound und ebnet den Weg für Hip-Hop und Dance.",
+    "category": "single-release",
+    "year": 1965,
+    "artist": "James Brown",
+    "genre": "Soul/Funk"
+  },
+  "05-04": {
+    "id": "erste-grammy-verleihung",
+    "date": "05-04",
+    "title": "Erste Grammy-Verleihung",
+    "description": "In Los Angeles und New York werden die Grammys zum ersten Mal vergeben. Sie entwickeln sich zum wichtigsten Musikpreis der Welt.",
+    "category": "auszeichnung",
+    "year": 1959,
+    "artist": "Grammy Awards",
+    "genre": "Pop/Jazz/Universal"
+  },
+  "05-05": {
+    "id": "adele-wird-geboren",
+    "date": "05-05",
+    "title": "Adele wird geboren",
+    "description": "Mit ihrer kraftvollen Stimme und tiefgründigen Balladen wird sie zu einer der erfolgreichsten Sängerinnen des 21. Jahrhunderts.",
+    "category": "birth",
+    "year": 1988,
+    "artist": "Adele",
+    "genre": "Pop/Soul"
+  },
+  "05-06": {
+    "id": "bob-seger-night-moves-release",
+    "date": "05-06",
+    "title": "Bob Seger veröffentlicht 'Night Moves'",
+    "description": "Der Song wird zu einem Klassiker des amerikanischen Heartland Rock und verankert Segers Status als 'blue-collar storyteller'.",
+    "category": "single-release",
+    "year": 1976,
+    "artist": "Bob Seger",
+    "genre": "Rock"
+  },
+  "05-07": {
+    "id": "eagle-eye-cherry-wird-geboren",
+    "date": "05-07",
+    "title": "Eagle-Eye Cherry wird geboren",
+    "description": "Mit 'Save Tonight' landet er einen weltweiten Hit und bringt schwedischen Pop-Rock in die 90er Charts.",
+    "category": "birth",
+    "year": 1968,
+    "artist": "Eagle-Eye Cherry",
+    "genre": "Pop/Rock"
+  },
+  "05-08": {
+    "id": "victory-europe-day-musik-strassen",
+    "date": "05-08",
+    "title": "'Victory in Europe Day': Musik auf den Straßen",
+    "description": "1945 feiern Menschen in ganz Europa mit spontanen Konzerten und Gesang das Ende des 2. Weltkriegs – Musik wird Symbol für Hoffnung und Neuanfang.",
+    "category": "historisch",
+    "year": 1945,
+    "artist": "Diverse",
+    "genre": "Verschiedene"
+  },
+  "05-09": {
+    "id": "billy-joel-wird-geboren",
+    "date": "05-09",
+    "title": "Billy Joel wird geboren",
+    "description": "Piano Man, Songwriter, einer der populärsten US-Künstler der 70er und 80er – Songs wie 'Just the Way You Are' werden Klassiker.",
+    "category": "birth",
+    "year": 1949,
+    "artist": "Billy Joel",
+    "genre": "Pop/Rock"
+  },
+  "05-10": {
+    "id": "rock-around-clock-bill-haley",
+    "date": "05-10",
+    "title": "'Rock Around the Clock' erscheint",
+    "description": "Bill Haley & His Comets veröffentlichen den Song, der als Startschuss für den Rock'n'Roll-Boom der 50er gilt.",
+    "category": "single-release",
+    "year": 1954,
+    "artist": "Bill Haley & His Comets",
+    "genre": "Rock'n'Roll"
+  },
+  "05-11": {
+    "id": "bob-marley-stirbt",
+    "date": "05-11",
+    "title": "Bob Marley stirbt",
+    "description": "Die Reggae-Legende und Friedensbotschafter stirbt an Krebs – sein Vermächtnis lebt in Songs wie 'Redemption Song' weiter.",
+    "category": "death",
+    "year": 1981,
+    "artist": "Bob Marley",
+    "genre": "Reggae"
+  },
+  "05-12": {
+    "id": "bb-king-wird-geboren",
+    "date": "05-12",
+    "title": "B.B. King wird geboren",
+    "description": "Der Blues-Gitarrist und 'King of the Blues' beeinflusst Generationen von Musikern mit seinem ausdrucksstarken Spiel.",
+    "category": "birth",
+    "year": 1925,
+    "artist": "B.B. King",
+    "genre": "Blues"
+  },
+  "05-13": {
+    "id": "stevie-wonder-songs-key-life",
+    "date": "05-13",
+    "title": "Stevie Wonder veröffentlicht 'Songs in the Key of Life'",
+    "description": "Das Doppelalbum wird zum Meilenstein für Soul, Funk und Pop und bringt zahlreiche Welthits wie 'Isn't She Lovely'.",
+    "category": "album-release",
+    "year": 1976,
+    "artist": "Stevie Wonder",
+    "genre": "Soul/Funk/Pop"
+  },
+  "05-14": {
+    "id": "david-byrne-talking-heads-geboren",
+    "date": "05-14",
+    "title": "David Byrne (Talking Heads) wird geboren",
+    "description": "Frontmann und Mastermind der Talking Heads, Innovator zwischen Rock, Funk und World Music, gewinnt später auch Oscars und Grammys.",
+    "category": "birth",
+    "year": 1952,
+    "artist": "David Byrne",
+    "genre": "Rock/World"
+  },
+  "05-15": {
+    "id": "another-brick-wall-pink-floyd-charts",
+    "date": "05-15",
+    "title": "'Another Brick in the Wall' dominiert die Charts",
+    "description": "Pink Floyds Protesthymne gegen autoritäre Schulsysteme wird zur Nummer 1 in 15 Ländern.",
+    "category": "charts/release",
+    "year": 1980,
+    "artist": "Pink Floyd",
+    "genre": "Rock"
+  },
+  "05-16": {
+    "id": "janet-jackson-rhythm-nation-tour",
+    "date": "05-16",
+    "title": "Janet Jackson: 'Rhythm Nation 1814'-Tour startet",
+    "description": "Mit der spektakulären Tour bringt sie politische und soziale Themen auf die große Pop-Bühne – ein Meilenstein für Performance und Inszenierung.",
+    "category": "tourstart",
+    "year": 1990,
+    "artist": "Janet Jackson",
+    "genre": "Pop/R&B"
+  },
+  "05-17": {
+    "id": "enya-wird-geboren",
+    "date": "05-17",
+    "title": "Enya wird geboren",
+    "description": "Die irische Sängerin und Komponistin erfindet mit sphärischem New Age-Sound eine eigene Klangwelt und verkauft über 80 Millionen Alben.",
+    "category": "birth",
+    "year": 1961,
+    "artist": "Enya",
+    "genre": "New Age"
+  },
+  "05-18": {
+    "id": "ian-curtis-joy-division-stirbt",
+    "date": "05-18",
+    "title": "Ian Curtis (Joy Division) stirbt",
+    "description": "Mit nur 23 Jahren nimmt sich der Sänger das Leben. Joy Division werden posthum zu Pionieren des Postpunk und Indie-Rock.",
+    "category": "death",
+    "year": 1980,
+    "artist": "Ian Curtis (Joy Division)",
+    "genre": "Postpunk"
+  },
+  "05-19": {
+    "id": "dusty-hill-zz-top-geboren",
+    "date": "05-19",
+    "title": "Dusty Hill (ZZ Top) wird geboren",
+    "description": "Der Bassist prägt mit seinem Bart und Groove den markanten Texas-Boogie-Sound von ZZ Top – 'La Grange' wird zum Klassiker.",
+    "category": "birth",
+    "year": 1949,
+    "artist": "Dusty Hill (ZZ Top)",
+    "genre": "Rock/Blues"
+  },
+  "05-20": {
+    "id": "notorious-big-posthum-platz1",
+    "date": "05-20",
+    "title": "Rapper Notorious B.I.G. posthum auf Platz 1",
+    "description": "Nach seinem Tod erreicht sein Album 'Life After Death' Platz 1 in den US-Charts – ein Symbol für den Einfluss von Hip-Hop weltweit.",
+    "category": "charts/meilenstein",
+    "year": 1997,
+    "artist": "Notorious B.I.G.",
+    "genre": "Hip-Hop"
+  },
+  "05-21": {
+    "id": "fete-musique-erfunden",
+    "date": "05-21",
+    "title": "Fête de la Musique wird erfunden",
+    "description": "Die Idee zum internationalen Tag der Musik entsteht in Frankreich und wird ab 1982 zum weltweiten Straßenmusikfest am 21. Juni.",
+    "category": "kultur-event",
+    "year": 1982,
+    "artist": "Diverse",
+    "genre": "Alle"
+  },
+  "05-22": {
+    "id": "richard-wagner-wird-geboren",
+    "date": "05-22",
+    "title": "Richard Wagner wird geboren",
+    "description": "Der Komponist revolutioniert Oper und Musiktheater, schafft 'Gesamtkunstwerke' und inspiriert auch Pop- und Filmmusik.",
+    "category": "birth",
+    "year": 1813,
+    "artist": "Richard Wagner",
+    "genre": "Klassik"
+  },
+  "05-23": {
+    "id": "eurovision-erstmals-live-tv",
+    "date": "05-23",
+    "title": "Eurovision Song Contest erstmals live im TV",
+    "description": "Der ESC wird 1956 erstmals übertragen und ist heute das größte Musik-Liveevent der Welt, das Millionen vereint und neue Trends setzt.",
+    "category": "tv/meilenstein",
+    "year": 1956,
+    "artist": "Eurovision",
+    "genre": "Pop/Eurovision"
+  },
+  "05-24": {
+    "id": "bob-dylan-wird-geboren",
+    "date": "05-24",
+    "title": "Bob Dylan wird geboren",
+    "description": "Der Poet und Songwriter verändert die Musik mit seinen Texten, erhält als erster Popmusiker den Literaturnobelpreis.",
+    "category": "birth",
+    "year": 1941,
+    "artist": "Bob Dylan",
+    "genre": "Folk/Rock"
+  },
+  "05-25": {
+    "id": "lauryn-hill-wird-geboren",
+    "date": "05-25",
+    "title": "Lauryn Hill wird geboren",
+    "description": "Mit den Fugees und ihrem Soloalbum 'The Miseducation of Lauryn Hill' setzt sie neue Maßstäbe für Hip-Hop, Soul und weibliche Emanzipation.",
+    "category": "birth",
+    "year": 1975,
+    "artist": "Lauryn Hill",
+    "genre": "Hip-Hop/Soul"
+  },
+  "05-26": {
+    "id": "miles-davis-wird-geboren",
+    "date": "05-26",
+    "title": "Miles Davis wird geboren",
+    "description": "Der Trompeter und Innovator prägt die Entwicklung des Jazz vom Bebop über Cool Jazz bis Fusion – 'Kind of Blue' wird zum meistverkauften Jazzalbum.",
+    "category": "birth",
+    "year": 1926,
+    "artist": "Miles Davis",
+    "genre": "Jazz"
+  },
+  "05-27": {
+    "id": "jimi-hendrix-monterey-pop-festival",
+    "date": "05-27",
+    "title": "Jimi Hendrix Experience: Monterey Pop Festival",
+    "description": "Mit der legendären Performance und dem Gitarren-Feuer legt Hendrix das Fundament für die 'Summer of Love'-Ära.",
+    "category": "live/legendär",
+    "year": 1967,
+    "artist": "Jimi Hendrix Experience",
+    "genre": "Rock/Psychedelic"
+  },
+  "05-28": {
+    "id": "kylie-minogue-wird-geboren",
+    "date": "05-28",
+    "title": "Kylie Minogue wird geboren",
+    "description": "Die Australierin startet als Soap-Star und wird später mit Dance-Hits wie 'Can't Get You Out of My Head' zu einer der langlebigsten Pop-Ikonen.",
+    "category": "birth",
+    "year": 1968,
+    "artist": "Kylie Minogue",
+    "genre": "Pop/Dance"
+  },
+  "05-29": {
+    "id": "purple-rain-prince-platz1",
+    "date": "05-29",
+    "title": "'Purple Rain' erreicht Platz 1",
+    "description": "Der Soundtrack von Prince und seinem gleichnamigen Film dominiert die Charts und setzt neue Maßstäbe für Pop und Funk.",
+    "category": "charts/soundtrack",
+    "year": 1984,
+    "artist": "Prince",
+    "genre": "Pop/Funk"
+  },
+  "05-30": {
+    "id": "beatles-letzter-gemeinsamer-song",
+    "date": "05-30",
+    "title": "Beatles: Letzter gemeinsamer Song entsteht",
+    "description": "Mit 'The End' nehmen die Beatles ihren letzten Song als Band auf – ein Abschied und Startschuss für vier Solokarrieren.",
+    "category": "studio/abschied",
+    "year": 1969,
+    "artist": "The Beatles",
+    "genre": "Rock"
+  },
+  "05-31": {
+    "id": "tina-turner-private-dancer-release",
+    "date": "05-31",
+    "title": "Tina Turner veröffentlicht 'Private Dancer'",
+    "description": "Das Album markiert ihr Comeback und macht sie zur Queen of Rock – Hits wie 'What's Love Got to Do with It' begeistern weltweit.",
+    "category": "album-release",
+    "year": 1984,
+    "artist": "Tina Turner",
+    "genre": "Rock/Pop"
+  },
+  "06-01": {
+    "id": "beatles-sgt-peppers-lonely-hearts-club-band",
+    "date": "06-01",
+    "title": "The Beatles veröffentlichen 'Sgt. Pepper's Lonely Hearts Club Band'",
+    "description": "Das Album gilt als Meilenstein der Popgeschichte: Mit Konzeptkunst, innovativem Sound und legendärem Cover prägen die Beatles die 'Summer of Love'-Ära.",
+    "category": "album-release",
+    "year": 1967,
+    "artist": "The Beatles",
+    "genre": "Rock/Pop"
+  },
+  "06-02": {
+    "id": "charlie-watts-rolling-stones-geboren",
+    "date": "06-02",
+    "title": "Charlie Watts (Rolling Stones) wird geboren",
+    "description": "Der ruhige Taktgeber der Stones und einer der einflussreichsten Schlagzeuger der Rockgeschichte kommt 1941 zur Welt.",
+    "category": "birth",
+    "year": 1941,
+    "artist": "Charlie Watts",
+    "genre": "Rock"
+  },
+  "06-03": {
+    "id": "curtis-mayfield-wird-geboren",
+    "date": "06-03",
+    "title": "Curtis Mayfield wird geboren",
+    "description": "Soul, Funk, Polit-Pop: Mit 'People Get Ready' und 'Superfly' wird er zu einem der wichtigsten Songwriter und Produzenten der 70er.",
+    "category": "birth",
+    "year": 1942,
+    "artist": "Curtis Mayfield",
+    "genre": "Soul/Funk"
+  },
+  "06-04": {
+    "id": "erste-hard-rock-cafe-london",
+    "date": "06-04",
+    "title": "Eröffnung des ersten Hard Rock Cafés in London",
+    "description": "Rock-Legenden und Musik-Erinnerungen treffen auf Burger und Fans – das Franchise wird weltweit zum Treffpunkt der Popkultur.",
+    "category": "popkultur",
+    "year": 1971,
+    "artist": "Hard Rock Café",
+    "genre": "Rock/Pop"
+  },
+  "06-05": {
+    "id": "erste-live-uebertragung-rockkonzert-tv",
+    "date": "06-05",
+    "title": "Erste Live-Übertragung eines Rockkonzerts im TV",
+    "description": "Die Rolling Stones werden bei einem Konzert live im britischen Fernsehen übertragen – ein Vorbild für moderne Live-Streams.",
+    "category": "tv/meilenstein",
+    "year": 1964,
+    "artist": "Rolling Stones",
+    "genre": "Rock"
+  },
+  "06-06": {
+    "id": "bjoerk-wird-geboren",
+    "date": "06-06",
+    "title": "Björk wird geboren",
+    "description": "Die isländische Sängerin, Komponistin und Produzentin bricht mit elektronischem Pop und avantgardistischem Sound sämtliche Genre-Grenzen.",
+    "category": "birth",
+    "year": 1965,
+    "artist": "Björk",
+    "genre": "Electronic/Pop"
+  },
+  "06-07": {
+    "id": "prince-wird-geboren",
+    "date": "06-07",
+    "title": "Prince wird geboren",
+    "description": "Der Multiinstrumentalist, Songschreiber und Performer revolutioniert Pop, Funk, Rock und Mode – und bleibt ein Idol für Generationen.",
+    "category": "birth",
+    "year": 1958,
+    "artist": "Prince",
+    "genre": "Pop/Funk/Rock"
+  },
+  "06-08": {
+    "id": "kanye-west-wird-geboren",
+    "date": "06-08",
+    "title": "Kanye West wird geboren",
+    "description": "Mit innovativem Hip-Hop, experimentellen Alben und kontroversen Auftritten prägt er das Musikbild des 21. Jahrhunderts.",
+    "category": "birth",
+    "year": 1977,
+    "artist": "Kanye West",
+    "genre": "Hip-Hop"
+  },
+  "06-09": {
+    "id": "johnny-depp-wird-geboren",
+    "date": "06-09",
+    "title": "Johnny Depp wird geboren",
+    "description": "Nicht nur Schauspieler, sondern auch Musiker – u.a. als Gitarrist der Supergroup 'Hollywood Vampires'.",
+    "category": "birth",
+    "year": 1963,
+    "artist": "Johnny Depp",
+    "genre": "Rock/Pop"
+  },
+  "06-10": {
+    "id": "judy-garland-stirbt",
+    "date": "06-10",
+    "title": "Judy Garland stirbt",
+    "description": "Die legendäre Sängerin aus 'The Wizard of Oz' und Mutter von Liza Minnelli hinterlässt einen zeitlosen Einfluss auf Film- und Popmusik.",
+    "category": "death",
+    "year": 1969,
+    "artist": "Judy Garland",
+    "genre": "Musical/Pop"
+  },
+  "06-11": {
+    "id": "santana-supernatural-release",
+    "date": "06-11",
+    "title": "Santana veröffentlicht 'Supernatural'",
+    "description": "Das Album bringt Carlos Santana nach Jahrzehnten zurück an die Chartspitze und vereint Latin-Rock mit Pop und Hip-Hop-Gästen wie Rob Thomas.",
+    "category": "album-release",
+    "year": 1999,
+    "artist": "Santana",
+    "genre": "Latin Rock/Pop"
+  },
+  "06-12": {
+    "id": "anne-marie-wird-geboren",
+    "date": "06-12",
+    "title": "Anne-Marie wird geboren",
+    "description": "Mit Hits wie '2002' und Kollaborationen mit Marshmello wird sie zur Stimme einer neuen Generation britischer Popmusik.",
+    "category": "birth",
+    "year": 1991,
+    "artist": "Anne-Marie",
+    "genre": "Pop"
+  },
+  "06-13": {
+    "id": "banaroo-dubi-dam-dam-sommerhit",
+    "date": "06-13",
+    "title": "Banaroo: 'Dubi Dam Dam' wird Sommerhit in Europa",
+    "description": "Ein Dancepop-Phänomen aus Deutschland, Österreich und der Schweiz – und heute Kult bei Eurodance-Fans.",
+    "category": "sommerhit/release",
+    "year": 2005,
+    "artist": "Banaroo",
+    "genre": "Dance/Pop"
+  },
+  "06-14": {
+    "id": "boy-george-wird-geboren",
+    "date": "06-14",
+    "title": "Boy George wird geboren",
+    "description": "Exzentrik, Gender-Queerness, Popkultur – mit Culture Club und Solo wird er zum Vorreiter in Mode und Musik.",
+    "category": "birth",
+    "year": 1961,
+    "artist": "Boy George",
+    "genre": "Pop"
+  },
+  "06-15": {
+    "id": "ice-cube-wird-geboren",
+    "date": "06-15",
+    "title": "Ice Cube wird geboren",
+    "description": "Als Mitglied von N.W.A. und erfolgreicher Solo-Künstler ist er einer der Pioniere des Gangsta-Rap und später auch Filmstar.",
+    "category": "birth",
+    "year": 1969,
+    "artist": "Ice Cube",
+    "genre": "Hip-Hop"
+  },
+  "06-16": {
+    "id": "tupac-shakur-wird-geboren",
+    "date": "06-16",
+    "title": "Tupac Shakur wird geboren",
+    "description": "Rapper, Dichter, Schauspieler und Symbolfigur – seine Songs behandeln soziale Ungleichheit und persönliche Geschichten, bis heute bewegt er Fans weltweit.",
+    "category": "birth",
+    "year": 1971,
+    "artist": "Tupac Shakur",
+    "genre": "Hip-Hop"
+  },
+  "06-17": {
+    "id": "mc-hammer-u-cant-touch-this-sommerhit",
+    "date": "06-17",
+    "title": "MC Hammer: 'U Can't Touch This' wird Sommerhit",
+    "description": "Der Dance-Hit bringt Hip-Hop und Pop zusammen und wird mit seinen Tanz-Moves und weiten Hosen unsterblich.",
+    "category": "sommerhit",
+    "year": 1990,
+    "artist": "MC Hammer",
+    "genre": "Hip-Hop/Pop"
+  },
+  "06-18": {
+    "id": "paul-mccartney-wird-geboren",
+    "date": "06-18",
+    "title": "Paul McCartney wird geboren",
+    "description": "Als Bassist, Komponist und Sänger der Beatles, Wings und Solo ist er einer der einflussreichsten Musiker des 20. Jahrhunderts.",
+    "category": "birth",
+    "year": 1942,
+    "artist": "Paul McCartney",
+    "genre": "Rock/Pop"
+  },
+  "06-19": {
+    "id": "i-will-survive-gay-hymne-welthit",
+    "date": "06-19",
+    "title": "'I Will Survive': Gay-Hymne und Welthit",
+    "description": "Gloria Gaynor veröffentlicht einen der größten Disco-Hits, der zur weltweiten Hymne für Selbstbestimmung und die LGBTQ+-Community wird.",
+    "category": "release/meilenstein",
+    "year": 1978,
+    "artist": "Gloria Gaynor",
+    "genre": "Disco/Pop"
+  },
+  "06-20": {
+    "id": "lionel-richie-wird-geboren",
+    "date": "06-20",
+    "title": "Lionel Richie wird geboren",
+    "description": "Soul, Pop und Schmusesongs: Lionel Richie prägt den Sound der 80er mit 'Hello', 'All Night Long' und als Teil der Commodores.",
+    "category": "birth",
+    "year": 1949,
+    "artist": "Lionel Richie",
+    "genre": "Soul/Pop"
+  },
+  "06-21": {
+    "id": "fete-musique-weltweit",
+    "date": "06-21",
+    "title": "Weltweiter 'Fête de la Musique'-Tag",
+    "description": "Überall auf der Welt machen Profis und Amateure kostenlos Musik auf Straßen und Plätzen – ein globales Fest für Vielfalt, Inklusion und Freude.",
+    "category": "musikevent/feiertag",
+    "year": 1982,
+    "artist": "Diverse",
+    "genre": "Alle"
+  },
+  "06-22": {
+    "id": "cyndi-lauper-wird-geboren",
+    "date": "06-22",
+    "title": "Cyndi Lauper wird geboren",
+    "description": "Mit 'Girls Just Want to Have Fun' und 'True Colors' wird sie Pop-Ikone und engagiert sich für LGBTQ+-Rechte.",
+    "category": "birth",
+    "year": 1953,
+    "artist": "Cyndi Lauper",
+    "genre": "Pop/Rock"
+  },
+  "06-23": {
+    "id": "jason-mraz-wird-geboren",
+    "date": "06-23",
+    "title": "Jason Mraz wird geboren",
+    "description": "Singer-Songwriter mit Wohlfühlsound und Hits wie 'I'm Yours', der weltweit zum Soundtrack für gute Laune wird.",
+    "category": "birth",
+    "year": 1977,
+    "artist": "Jason Mraz",
+    "genre": "Pop/Folk"
+  },
+  "06-24": {
+    "id": "i-shot-sheriff-eric-clapton-nr1",
+    "date": "06-24",
+    "title": "'I Shot the Sheriff': Eric Clapton Nummer 1",
+    "description": "Claptons Reggae-Version von Bob Marleys Song erreicht als erste den Spitzenplatz der US-Charts – Crossover aus Rock und Reggae.",
+    "category": "charts/release",
+    "year": 1974,
+    "artist": "Eric Clapton/Bob Marley",
+    "genre": "Rock/Reggae"
+  },
+  "06-25": {
+    "id": "michael-jackson-stirbt",
+    "date": "06-25",
+    "title": "Michael Jackson stirbt",
+    "description": "Der 'King of Pop' stirbt unerwartet in Los Angeles – sein musikalisches Erbe, von 'Thriller' bis 'Billie Jean', bleibt bis heute unübertroffen.",
+    "category": "death",
+    "year": 2009,
+    "artist": "Michael Jackson",
+    "genre": "Pop"
+  },
+  "06-26": {
+    "id": "ariana-grande-wird-geboren",
+    "date": "06-26",
+    "title": "Ariana Grande wird geboren",
+    "description": "Mit vier Oktaven Stimmumfang und Social-Media-Power wird sie zur wichtigsten Popdiva der 2010er Jahre.",
+    "category": "birth",
+    "year": 1993,
+    "artist": "Ariana Grande",
+    "genre": "Pop/R&B"
+  },
+  "06-27": {
+    "id": "beyonce-crazy-love-release",
+    "date": "06-27",
+    "title": "Beyoncé veröffentlicht 'Crazy in Love'",
+    "description": "Mit diesem Song startet Beyoncé ihre Solokarriere und setzt Maßstäbe für Pop, R&B und Female Empowerment.",
+    "category": "single-release",
+    "year": 2003,
+    "artist": "Beyoncé",
+    "genre": "Pop/R&B"
+  },
+  "06-28": {
+    "id": "john-lee-hooker-wird-geboren",
+    "date": "06-28",
+    "title": "John Lee Hooker wird geboren",
+    "description": "Der 'King of the Boogie' prägt mit minimalistischem Blues, rauer Stimme und treibenden Gitarrenlinien Generationen von Musikern.",
+    "category": "birth",
+    "year": 1917,
+    "artist": "John Lee Hooker",
+    "genre": "Blues"
+  },
+  "06-29": {
+    "id": "freddie-mercury-barcelona-olympia",
+    "date": "06-29",
+    "title": "Freddie Mercury performt 'Barcelona' bei Olympischen Spielen",
+    "description": "Die Zusammenarbeit mit Montserrat Caballé verbindet Oper und Pop und setzt ein Zeichen für musikalische Grenzüberschreitungen.",
+    "category": "live-event",
+    "year": 1992,
+    "artist": "Freddie Mercury/Montserrat Caballé",
+    "genre": "Pop/Oper"
+  },
+  "06-30": {
+    "id": "twist-chubby-checker-dance-craze",
+    "date": "06-30",
+    "title": "'The Twist' von Chubby Checker startet den Dance-Craze",
+    "description": "Der Song wird zum größten Tanzhype der 60er und sorgt für einen Generationenwechsel auf den Dancefloors weltweit.",
+    "category": "charts/release",
+    "year": 1960,
+    "artist": "Chubby Checker",
+    "genre": "Rock'n'Roll"
+  },
+
+  "07-01": {
+    "id": "sony-walkman-vorgestellt",
+    "date": "07-01",
+    "title": "Sony stellt den Walkman vor",
+    "description": "Der tragbare Kassettenspieler revolutioniert das Musikhören und macht Musik erstmals überall verfügbar – der Startschuss für die Ära der Mobilmusik.",
+    "category": "technik/meilenstein",
+    "year": 1979,
+    "artist": "Sony",
+    "genre": "Musiktechnik"
+  },
+  "07-02": {
+    "id": "ashley-tisdale-wird-geboren",
+    "date": "07-02",
+    "title": "Ashley Tisdale wird geboren",
+    "description": "Bekannt aus 'High School Musical', verbindet sie Schauspiel und Musik und wird zum Vorbild einer ganzen Teenager-Generation.",
+    "category": "birth",
+    "year": 1985,
+    "artist": "Ashley Tisdale",
+    "genre": "Pop"
+  },
+  "07-03": {
+    "id": "jim-morrison-doors-stirbt-paris",
+    "date": "07-03",
+    "title": "Jim Morrison (The Doors) stirbt in Paris",
+    "description": "Der charismatische Sänger und Dichter wird zum Mythos der Rockgeschichte und Mitglied des 'Club 27'.",
+    "category": "death",
+    "year": 1971,
+    "artist": "Jim Morrison (The Doors)",
+    "genre": "Rock"
+  },
+  "07-04": {
+    "id": "louis-armstrong-wird-geboren",
+    "date": "07-04",
+    "title": "Louis Armstrong wird geboren",
+    "description": "Der 'Satchmo' begeistert mit Trompete und unverwechselbarem Gesang Jazz-, Pop- und Klassikfans weltweit – seine Lebensfreude wird legendär.",
+    "category": "birth",
+    "year": 1901,
+    "artist": "Louis Armstrong",
+    "genre": "Jazz"
+  },
+  "07-05": {
+    "id": "dolly-sheep-musik-klon-geburt",
+    "date": "07-05",
+    "title": "Dolly the Sheep: Musik bei Klon-Geburt live im TV",
+    "description": "Bei der Geburt des ersten Klonschafs läuft im Labor die Melodie von 'Yesterday' – Popkultur und Wissenschaft verschmelzen im Live-TV.",
+    "category": "popkultur/tv",
+    "year": 1996,
+    "artist": "The Beatles",
+    "genre": "Pop"
+  },
+  "07-06": {
+    "id": "john-lennon-paul-mccartney-treffen",
+    "date": "07-06",
+    "title": "John Lennon trifft Paul McCartney",
+    "description": "Auf einem Gemeindefest in Liverpool begegnen sich die beiden zukünftigen Beatles zum ersten Mal – Musikgeschichte nimmt ihren Lauf.",
+    "category": "meilenstein/begegnung",
+    "year": 1957,
+    "artist": "John Lennon, Paul McCartney",
+    "genre": "Rock/Pop"
+  },
+  "07-07": {
+    "id": "ringo-starr-wird-geboren",
+    "date": "07-07",
+    "title": "Ringo Starr wird geboren",
+    "description": "Der Drummer der Beatles bringt Humor und Groove in die Band und prägt ihren Sound nachhaltig.",
+    "category": "birth",
+    "year": 1940,
+    "artist": "Ringo Starr",
+    "genre": "Rock"
+  },
+  "07-08": {
+    "id": "beck-wird-geboren",
+    "date": "07-08",
+    "title": "Beck wird geboren",
+    "description": "Innovator zwischen Alternative, Folk, Hip-Hop und Pop – mit 'Loser' und 'Odelay' wird er zum Kultstar der 90er.",
+    "category": "birth",
+    "year": 1970,
+    "artist": "Beck",
+    "genre": "Alternative/Pop"
+  },
+  "07-09": {
+    "id": "courtney-love-wird-geboren",
+    "date": "07-09",
+    "title": "Courtney Love wird geboren",
+    "description": "Musikerin, Schauspielerin und Grunge-Ikone: Mit Hole und als Witwe von Kurt Cobain prägt sie eine ganze Ära der Rockmusik.",
+    "category": "birth",
+    "year": 1964,
+    "artist": "Courtney Love",
+    "genre": "Rock/Grunge"
+  },
+  "07-10": {
+    "id": "mavis-staples-wird-geboren",
+    "date": "07-10",
+    "title": "Mavis Staples wird geboren",
+    "description": "Die Stimme der Bürgerrechtsbewegung in den USA, Soul- und Gospel-Legende, bringt mit den Staple Singers Hits wie 'Respect Yourself'.",
+    "category": "birth",
+    "year": 1939,
+    "artist": "Mavis Staples",
+    "genre": "Soul/Gospel"
+  },
+  "07-11": {
+    "id": "giorgio-moroder-wird-geboren",
+    "date": "07-11",
+    "title": "Giorgio Moroder wird geboren",
+    "description": "'Godfather of Disco' und Pionier der elektronischen Musik – produziert Donna Summer, Blondie, Daft Punk und revolutioniert den Pop-Sound.",
+    "category": "birth",
+    "year": 1940,
+    "artist": "Giorgio Moroder",
+    "genre": "Disco/Electronic"
+  },
+  "07-12": {
+    "id": "saturday-night-fever-soundtrack-charts",
+    "date": "07-12",
+    "title": "'Saturday Night Fever'-Soundtrack dominiert Charts",
+    "description": "Die Bee Gees sorgen mit dem Soundtrack für den weltweiten Disco-Boom und machen den weißen Anzug zum Kultsymbol der 70er.",
+    "category": "album/meilenstein",
+    "year": 1977,
+    "artist": "Bee Gees",
+    "genre": "Disco/Pop"
+  },
+  "07-13": {
+    "id": "live-aid-weltumspannend-charity",
+    "date": "07-13",
+    "title": "Live Aid: Weltumspannendes Charity-Konzert",
+    "description": "Das größte Benefizkonzert der Musikgeschichte wird zeitgleich in London und Philadelphia veranstaltet – Queen, U2, Bowie & viele mehr spielen für Afrika.",
+    "category": "charity/live",
+    "year": 1985,
+    "artist": "Diverse",
+    "genre": "Rock/Pop"
+  },
+  "07-14": {
+    "id": "tom-jones-wird-geboren",
+    "date": "07-14",
+    "title": "Tom Jones wird geboren",
+    "description": "Der walisische Sänger begeistert seit Jahrzehnten mit Soul, Pop und seiner markanten Stimme – bekannt durch Hits wie 'Sex Bomb'.",
+    "category": "birth",
+    "year": 1940,
+    "artist": "Tom Jones",
+    "genre": "Pop/Soul"
+  },
+  "07-15": {
+    "id": "abba-letztes-konzert-bruessel",
+    "date": "07-15",
+    "title": "Forest National Brüssel: ABBA geben ihr letztes Konzert",
+    "description": "Nach über 10 Jahren auf der Bühne verabschieden sich ABBA mit einer emotionalen Show vor ausverkauftem Haus von ihren Fans.",
+    "category": "abschiedskonzert",
+    "year": 1982,
+    "artist": "ABBA",
+    "genre": "Pop"
+  },
+  "07-16": {
+    "id": "stewart-copeland-wird-geboren",
+    "date": "07-16",
+    "title": "Stewart Copeland wird geboren",
+    "description": "Der Drummer von The Police wird mit Reggae-inspiriertem Rock und komplexen Rhythmen zu einem der besten Schlagzeuger seiner Zeit.",
+    "category": "birth",
+    "year": 1952,
+    "artist": "Stewart Copeland",
+    "genre": "Rock/Pop"
+  },
+  "07-17": {
+    "id": "disneyland-eroeffnet-musik-freizeitpark",
+    "date": "07-17",
+    "title": "Disneyland eröffnet – Musik im Freizeitpark",
+    "description": "Walt Disneys Themenpark wird mit einer großen Parade und Musik von klassischen Disney-Songs bis Big Band eröffnet – ein neuer Ort für Populärmusik.",
+    "category": "meilenstein/event",
+    "year": 1955,
+    "artist": "Disney-Komponisten",
+    "genre": "Soundtrack/Pop"
+  },
+  "07-18": {
+    "id": "billie-jean-michael-jackson-platz1",
+    "date": "07-18",
+    "title": "'Billie Jean' erreicht Platz 1 der US-Charts",
+    "description": "Michael Jacksons ikonischer Hit setzt neue Maßstäbe für Pop, Tanz und Musikvideos – der 'Moonwalk' wird weltbekannt.",
+    "category": "charts/release",
+    "year": 1983,
+    "artist": "Michael Jackson",
+    "genre": "Pop"
+  },
+  "07-19": {
+    "id": "brian-may-queen-geboren",
+    "date": "07-19",
+    "title": "Brian May (Queen) wird geboren",
+    "description": "Der promovierte Astrophysiker und Ausnahmegitarrist verleiht Queen mit seinem Sound einen einzigartigen Wiedererkennungswert.",
+    "category": "birth",
+    "year": 1947,
+    "artist": "Brian May (Queen)",
+    "genre": "Rock"
+  },
+  "07-20": {
+    "id": "carlos-santana-wird-geboren",
+    "date": "07-20",
+    "title": "Carlos Santana wird geboren",
+    "description": "Mit Latin-Rock, Blues und Jazz wird er zur Legende – sein Gitarrensound auf 'Black Magic Woman' und 'Smooth' bleibt unerreicht.",
+    "category": "birth",
+    "year": 1947,
+    "artist": "Carlos Santana",
+    "genre": "Latin Rock"
+  },
+  "07-21": {
+    "id": "cat-stevens-yusuf-islam-geboren",
+    "date": "07-21",
+    "title": "Cat Stevens (Yusuf Islam) wird geboren",
+    "description": "Der Songwriter berührt mit poetischen Folk-Hymnen wie 'Father and Son' oder 'Wild World' Millionen Fans.",
+    "category": "birth",
+    "year": 1948,
+    "artist": "Cat Stevens/Yusuf Islam",
+    "genre": "Folk/Pop"
+  },
+  "07-22": {
+    "id": "selena-gomez-wird-geboren",
+    "date": "07-22",
+    "title": "Selena Gomez wird geboren",
+    "description": "Vom Disney-Star zur erfolgreichen Popmusikerin – als Sängerin, Schauspielerin und Produzentin inspiriert sie Millionen junger Menschen.",
+    "category": "birth",
+    "year": 1992,
+    "artist": "Selena Gomez",
+    "genre": "Pop"
+  },
+  "07-23": {
+    "id": "slash-guns-n-roses-geboren",
+    "date": "07-23",
+    "title": "Slash (Guns N' Roses) wird geboren",
+    "description": "Mit ikonischem Zylinder und virtuosem Gitarrenspiel wird Slash zur Rock-Ikone und prägenden Figur des Hardrock.",
+    "category": "birth",
+    "year": 1965,
+    "artist": "Slash (Guns N' Roses)",
+    "genre": "Rock/Hardrock"
+  },
+  "07-24": {
+    "id": "jennifer-lopez-wird-geboren",
+    "date": "07-24",
+    "title": "Jennifer Lopez wird geboren",
+    "description": "Mit einer einzigartigen Karriere als Sängerin, Tänzerin, Schauspielerin und Produzentin vereint sie Latin, Pop und Hip-Hop auf den Dancefloors der Welt.",
+    "category": "birth",
+    "year": 1969,
+    "artist": "Jennifer Lopez",
+    "genre": "Pop/Latin"
+  },
+  "07-25": {
+    "id": "bob-dylan-newport-folk-festival-skandal",
+    "date": "07-25",
+    "title": "Bob Dylan schockt das Publikum: Newport Folk Festival",
+    "description": "Als Dylan 1965 erstmals elektrisch spielt, wird das zum Eklat – der Beginn von Folk-Rock und ein Wendepunkt in der Musikgeschichte.",
+    "category": "meilenstein/skandal",
+    "year": 1965,
+    "artist": "Bob Dylan",
+    "genre": "Folk/Rock"
+  },
+  "07-26": {
+    "id": "mick-jagger-wird-geboren",
+    "date": "07-26",
+    "title": "Mick Jagger wird geboren",
+    "description": "Frontmann der Rolling Stones, Stilikone und Songwriter – mit Charisma und Ausdauer prägt er Rockmusik und Popkultur seit 60 Jahren.",
+    "category": "birth",
+    "year": 1943,
+    "artist": "Mick Jagger",
+    "genre": "Rock"
+  },
+  "07-27": {
+    "id": "like-virgin-madonna-sommerhit",
+    "date": "07-27",
+    "title": "'Like a Virgin' wird Sommerhit",
+    "description": "Madonna sorgt mit provokantem Image und Ohrwurm-Hits für Aufsehen – der Song wird weltweit ein Chart- und Diskotheken-Klassiker.",
+    "category": "charts/sommerhit",
+    "year": 1984,
+    "artist": "Madonna",
+    "genre": "Pop"
+  },
+  "07-28": {
+    "id": "soulja-boy-wird-geboren",
+    "date": "07-28",
+    "title": "Soul-Legende Soulja Boy wird geboren",
+    "description": "Mit 'Crank That' wird er zum ersten YouTube-Musikstar und ebnet den Weg für virale Tanztrends im Internet-Zeitalter.",
+    "category": "birth/internet",
+    "year": 1990,
+    "artist": "Soulja Boy",
+    "genre": "Hip-Hop/Internet"
+  },
+  "07-29": {
+    "id": "cass-elliot-mama-cass-stirbt",
+    "date": "07-29",
+    "title": "Cass Elliot ('Mama Cass') stirbt",
+    "description": "Die Sängerin der Mamas & the Papas und Stimme von 'California Dreamin'' stirbt jung, bleibt aber bis heute ein Symbol für Flower-Power und 60s-Pop.",
+    "category": "death",
+    "year": 1974,
+    "artist": "Cass Elliot",
+    "genre": "Pop/60s"
+  },
+  "07-30": {
+    "id": "purple-rain-soundtrack-veroeffentlicht",
+    "date": "07-30",
+    "title": "'Purple Rain'-Soundtrack wird veröffentlicht",
+    "description": "Prince' legendärer Soundtrack zum gleichnamigen Film bringt ihm Grammy, Oscar und Platz 1 der US-Charts.",
+    "category": "album/soundtrack",
+    "year": 1984,
+    "artist": "Prince",
+    "genre": "Pop/Funk"
+  },
+  "07-31": {
+    "id": "mtv-startet-sendebetrieb-usa",
+    "date": "07-31",
+    "title": "MTV startet Sendebetrieb in den USA",
+    "description": "Mit 'Video Killed the Radio Star' als erstem Video beginnt der Siegeszug von Musikvideos im Fernsehen – ein neues Zeitalter der Popkultur bricht an.",
+    "category": "tv/meilenstein",
+    "year": 1981,
+    "artist": "MTV/Buggles",
+    "genre": "Pop/TV"
+  },
+  "08-15": {
+    "id": "woodstock-beginnt",
+    "date": "08-15",
+    "title": "Woodstock Festival beginnt",
+    "description": "Am 15. August 1969 beginnt das legendäre Woodstock Festival. Über 400.000 Menschen erleben vier Tage 'Peace, Love and Music' mit Künstlern wie Jimi Hendrix und Janis Joplin.",
+    "category": "event",
+    "year": 1969,
+    "genre": "Rock"
+  },
+  "09-23": {
+    "id": "john-coltrane-geboren",
+    "date": "09-23",
+    "title": "John Coltrane wird geboren",
+    "description": "Am 23. September 1926 wird John Coltrane geboren. Der Saxophonist wird zu einem der wichtigsten Jazz-Innovatoren und beeinflusst mit seinem spirituellen Jazz unzählige Musiker.",
+    "category": "birth",
+    "year": 1926,
+    "artist": "John Coltrane",
+    "genre": "Jazz"
+  },
+  "10-09": {
+    "id": "john-lennon-geboren",
+    "date": "10-09",
+    "title": "John Lennon wird geboren",
+    "description": "Am 9. Oktober 1940 wird John Winston Lennon in Liverpool geboren. Als Gründer und kreativer Kopf der Beatles wird er zu einer der einflussreichsten Figuren der Popmusik.",
+    "category": "birth",
+    "year": 1940,
+    "artist": "John Lennon",
+    "genre": "Rock"
+  },
+  "11-22": {
+    "id": "jfk-ermordet",
+    "date": "11-22",
+    "title": "JFK wird ermordet",
+    "description": "Am 22. November 1963 wird Präsident Kennedy ermordet. Dieses Ereignis inspiriert unzählige Songs, darunter 'Abraham, Martin and John' von Dion und viele Protest-Songs der 60er.",
+    "category": "event",
+    "year": 1963
+  },
+  "12-01": {
+    "id": "golden-gate-quartet-gospel-konzert-europa",
+    "date": "12-01",
+    "title": "Golden Gate Quartet: Erstes Gospel-Konzert in Europa",
+    "description": "Die US-Gospel-Legenden treten erstmals in Paris auf und sorgen damit für einen internationalen Durchbruch der afroamerikanischen Gospelmusik.",
+    "category": "concert/milestone",
+    "year": 1946,
+    "artist": "Golden Gate Quartet",
+    "genre": "Gospel"
+  },
+  "12-02": {
+    "id": "britney-spears-geboren",
+    "date": "12-02",
+    "title": "Britney Spears wird geboren",
+    "description": "Mit \"...Baby One More Time\" bringt sie Teen-Pop ins neue Jahrtausend und wird zur Pop-Ikone – Hits, Skandale und Comebacks inklusive.",
+    "category": "birth",
+    "year": 1981,
+    "artist": "Britney Spears",
+    "genre": "Pop"
+  },
+  "12-03": {
+    "id": "ozzy-osbourne-geboren",
+    "date": "12-03",
+    "title": "Ozzy Osbourne wird geboren",
+    "description": "Vom \"Prince of Darkness\" bei Black Sabbath zum schillernden Solostar und Reality-TV-Pionier – Ikone des Heavy Metal und Popkultur-Exzentrik.",
+    "category": "birth",
+    "year": 1948,
+    "artist": "Ozzy Osbourne",
+    "genre": "Metal/Rock"
+  },
+  "12-04": {
+    "id": "jay-z-geboren",
+    "date": "12-04",
+    "title": "Jay-Z wird geboren",
+    "description": "Rapper, Produzent und Unternehmer, prägt Hip-Hop, Mode und Wirtschaft, gewinnt Grammys und führt Def Jam zum globalen Label.",
+    "category": "birth",
+    "year": 1969,
+    "artist": "Jay-Z",
+    "genre": "Hip-Hop"
+  },
+  "12-05": {
+    "id": "little-richard-geboren",
+    "date": "12-05",
+    "title": "Little Richard wird geboren",
+    "description": "Mit wildem Piano und extrovertiertem Stil bringt er den Rock'n'Roll zum Explodieren – Vorbild für Prince, Bowie & Co.",
+    "category": "birth",
+    "year": 1932,
+    "artist": "Little Richard",
+    "genre": "Rock'n'Roll"
+  },
+  "12-06": {
+    "id": "altamont-free-concert-chaos",
+    "date": "12-06",
+    "title": "\"Altamont Free Concert\" endet im Chaos",
+    "description": "Das kostenlose Rolling Stones-Konzert in Kalifornien wird von Gewalt überschattet – das Ende der \"Hippie-Ära\" und ein Wendepunkt in der Festivalgeschichte.",
+    "category": "festival/event",
+    "year": 1969,
+    "artist": "Rolling Stones, Diverse",
+    "genre": "Rock"
+  },
+  "12-07": {
+    "id": "tom-waits-geboren",
+    "date": "12-07",
+    "title": "Tom Waits wird geboren",
+    "description": "Poet, Geschichtenerzähler und Ausnahmestimme – von \"Jersey Girl\" bis \"Downtown Train\" prägt er die amerikanische Songwriter-Kultur.",
+    "category": "birth",
+    "year": 1949,
+    "artist": "Tom Waits",
+    "genre": "Songwriter/Blues"
+  },
+  "12-08": {
+    "id": "john-lennon-stirbt",
+    "date": "12-08",
+    "title": "John Lennon wird ermordet",
+    "description": "Die Welt trauert um den Ex-Beatle, Friedensaktivisten und Songwriter – sein Tod markiert das Ende einer musikalischen Ära.",
+    "category": "death",
+    "year": 1980,
+    "artist": "John Lennon",
+    "genre": "Rock/Pop"
+  },
+  "12-09": {
+    "id": "jakob-dylan-geboren",
+    "date": "12-09",
+    "title": "Jakob Dylan wird geboren",
+    "description": "Frontmann der Wallflowers und Sohn von Bob Dylan – Songs wie \"One Headlight\" machen ihn zum Grammy-Gewinner.",
+    "category": "birth",
+    "year": 1969,
+    "artist": "Jakob Dylan",
+    "genre": "Rock"
+  },
+  "12-10": {
+    "id": "otis-redding-stirbt-flugzeugabsturz",
+    "date": "12-10",
+    "title": "Otis Redding stirbt bei Flugzeugabsturz",
+    "description": "Der Soul-Sänger, bekannt für "Sittin' On The Dock Of The Bay", stirbt mit nur 26 Jahren – seine Musik lebt als Soul-Erbe weiter.",
+    "category": "death",
+    "year": 1967,
+    "artist": "Otis Redding",
+    "genre": "Soul"
+  },
+  "12-11": {
+    "id": "ha-ash-latin-pop-duo-mexiko-stadion",
+    "date": "12-11",
+    "title": "Ha*Ash: Erstes Latin-Pop-Duo füllt Mexiko-Stadion",
+    "description": "Die Schwestern Hanna und Ashley füllen als erstes rein weibliches Pop-Duo das größte Stadion Mexikos – Symbol für Female Empowerment im Latin-Pop.",
+    "category": "live-event",
+    "year": 2018,
+    "artist": "Ha*Ash",
+    "genre": "Latin Pop"
+  },
+  "12-12": {
+    "id": "frank-sinatra-geboren",
+    "date": "12-12",
+    "title": "Frank Sinatra wird geboren",
+    "description": ""Ol' Blue Eyes" prägt Jazz, Swing, Pop und Hollywood – mit über 150 Millionen verkauften Platten und einer Karriere über sieben Jahrzehnte.",
+    "category": "birth",
+    "year": 1915,
+    "artist": "Frank Sinatra",
+    "genre": "Jazz/Swing/Pop"
+  },
+  "12-13": {
+    "id": "taylor-swift-geboren",
+    "date": "12-13",
+    "title": "Taylor Swift wird geboren",
+    "description": "Mit Songwriting und Innovationskraft wird sie zur wichtigsten Pop-Songwriterin der 2010er Jahre und füllt Stadien weltweit.",
+    "category": "birth",
+    "year": 1989,
+    "artist": "Taylor Swift",
+    "genre": "Pop/Country"
+  },
+  "12-14": {
+    "id": "vanessa-hudgens-geboren",
+    "date": "12-14",
+    "title": "Vanessa Hudgens wird geboren",
+    "description": "Sängerin, Schauspielerin und "High School Musical"-Star, prägt den Disney- und Popkultur-Sound der 2000er Jahre.",
+    "category": "birth",
+    "year": 1988,
+    "artist": "Vanessa Hudgens",
+    "genre": "Pop/Musical"
+  },
+  "12-15": {
+    "id": "bohemian-rhapsody-uk-charts-zweites-mal",
+    "date": "12-15",
+    "title": ""Bohemian Rhapsody" dominiert UK-Charts zum 2. Mal",
+    "description": "Nach Freddie Mercurys Tod wird der Queen-Hit erneut Nummer 1 in England und bleibt dort fünf Wochen lang – einzigartig in der Popgeschichte.",
+    "category": "charts/milestone",
+    "year": 1991,
+    "artist": "Queen",
+    "genre": "Rock/Pop"
+  },
+  "12-16": {
+    "id": "ludwig-van-beethoven-geboren",
+    "date": "12-16",
+    "title": "Ludwig van Beethoven wird geboren",
+    "description": "Revolutionär der klassischen Musik, beeinflusst Generationen von Komponisten und Popkultur von Billy Joel bis Metallica.",
+    "category": "birth",
+    "year": 1770,
+    "artist": "Ludwig van Beethoven",
+    "genre": "Klassik"
+  },
+  "12-17": {
+    "id": "paul-rodgers-free-bad-company-queen-geboren",
+    "date": "12-17",
+    "title": "Paul Rodgers (Free, Bad Company, Queen) wird geboren",
+    "description": "Mit rauer Stimme und Blues-Rock-Hits wie "All Right Now" oder "Feel Like Makin' Love" wird er zum Vorbild für Rocksänger weltweit.",
+    "category": "birth",
+    "year": 1949,
+    "artist": "Paul Rodgers",
+    "genre": "Rock/Blues"
+  },
+  "12-18": {
+    "id": "christina-aguilera-geboren",
+    "date": "12-18",
+    "title": "Christina Aguilera wird geboren",
+    "description": "Als "Voice of a Generation" prägt sie Pop, R&B und Female Empowerment seit den späten 90ern.",
+    "category": "birth",
+    "year": 1980,
+    "artist": "Christina Aguilera",
+    "genre": "Pop/R&B"
+  },
+  "12-19": {
+    "id": "edith-piaf-stirbt-paris",
+    "date": "12-19",
+    "title": "Edith Piaf stirbt in Paris",
+    "description": "Die "Spatz von Paris" hinterlässt mit "La Vie en Rose" und "Non, Je Ne Regrette Rien" ein unvergängliches musikalisches Erbe.",
+    "category": "death",
+    "year": 1963,
+    "artist": "Edith Piaf",
+    "genre": "Chanson"
+  },
+  "12-20": {
+    "id": "billy-bragg-geboren",
+    "date": "12-20",
+    "title": "Billy Bragg wird geboren",
+    "description": "Der britische Songwriter verbindet Folk, Punk und Protest – wird zur Stimme des "Red Wedge" und inspiriert politisches Songwriting bis heute.",
+    "category": "birth",
+    "year": 1957,
+    "artist": "Billy Bragg",
+    "genre": "Folk/Punk"
+  },
+  "12-21": {
+    "id": "frank-zappa-stirbt",
+    "date": "12-21",
+    "title": "Frank Zappa stirbt",
+    "description": "Komponist, Gitarrenvirtuose und Satiriker – prägte Rock, Jazz, Avantgarde und Fusion mit Humor und Experimentierfreude.",
+    "category": "death",
+    "year": 1993,
+    "artist": "Frank Zappa",
+    "genre": "Rock/Jazz"
+  },
+  "12-22": {
+    "id": "robin-maurice-gibb-bee-gees-geboren",
+    "date": "12-22",
+    "title": "Robin und Maurice Gibb (Bee Gees) werden geboren",
+    "description": "Die Zwillinge werden als Teil der Bee Gees zu Meistern des Pop und Disco, schreiben Hits für Generationen.",
+    "category": "birth",
+    "year": 1949,
+    "artist": "Robin & Maurice Gibb (Bee Gees)",
+    "genre": "Pop/Disco"
+  },
+  "12-23": {
+    "id": "eddie-vedder-pearl-jam-geboren",
+    "date": "12-23",
+    "title": "Eddie Vedder (Pearl Jam) wird geboren",
+    "description": "Mit Stimme und Songwriting prägt er Grunge, Alternative Rock und die soziale Verantwortung der US-Musikszene.",
+    "category": "birth",
+    "year": 1964,
+    "artist": "Eddie Vedder",
+    "genre": "Rock/Grunge"
+  },
+  "12-24": {
+    "id": "ricky-martin-geboren",
+    "date": "12-24",
+    "title": "Ricky Martin wird geboren",
+    "description": "Latin-Pop-Weltstar, bringt mit "Livin' la Vida Loca" internationale Rhythmen und Latino-Charme in die globalen Charts.",
+    "category": "birth",
+    "year": 1971,
+    "artist": "Ricky Martin",
+    "genre": "Latin/Pop"
+  },
+  "12-25": {
+    "id": "white-christmas-bing-crosby-rekord",
+    "date": "12-25",
+    "title": ""White Christmas": Bing Crosby sorgt für Rekord",
+    "description": "Der Song wird zur meistverkauften Single aller Zeiten und macht den Soundtrack der Festtage unsterblich.",
+    "category": "charts/milestone",
+    "year": 1942,
+    "artist": "Bing Crosby",
+    "genre": "Pop/Weihnachten"
+  },
+  "12-26": {
+    "id": "jared-leto-geboren",
+    "date": "12-26",
+    "title": "Jared Leto wird geboren",
+    "description": "Schauspieler und Sänger von Thirty Seconds to Mars – verbindet Rock, Alternative und Hollywood mit extravaganten Performances.",
+    "category": "birth",
+    "year": 1971,
+    "artist": "Jared Leto",
+    "genre": "Rock/Alternative"
+  },
+  "12-27": {
+    "id": "last-christmas-wham-charts",
+    "date": "12-27",
+    "title": ""Last Christmas": Wham! erreicht erstmals die Charts",
+    "description": "Der Song von George Michael & Andrew Ridgeley wird zu einem der größten modernen Weihnachtsklassiker weltweit.",
+    "category": "charts/christmas",
+    "year": 1984,
+    "artist": "Wham!",
+    "genre": "Pop/Weihnachten"
+  },
+  "12-28": {
+    "id": "john-legend-geboren",
+    "date": "12-28",
+    "title": "John Legend wird geboren",
+    "description": "Mit gefühlvollem R&B, Soul und politischem Engagement gewinnt er Grammys, Oscars und den Respekt der Musikwelt.",
+    "category": "birth",
+    "year": 1978,
+    "artist": "John Legend",
+    "genre": "R&B/Soul"
+  },
+  "12-29": {
+    "id": "marianne-faithfull-geboren",
+    "date": "12-29",
+    "title": "Marianne Faithfull wird geboren",
+    "description": "Von As Tears Go By bis zur Chanson-Ikone – sie prägt Pop, Rock und Poesie seit den 60er Jahren.",
+    "category": "birth",
+    "year": 1946,
+    "artist": "Marianne Faithfull",
+    "genre": "Pop/Chanson"
+  },
+  "12-30": {
+    "id": "auld-lang-syne-silvesterhymne-klassiker",
+    "date": "12-30",
+    "title": ""Auld Lang Syne": Silvesterhymne wird zum Klassiker",
+    "description": "Millionen Menschen auf der Welt singen am Jahresende das schottische Lied – Popstars wie Mariah Carey und Rod Stewart nehmen eigene Versionen auf.",
+    "category": "tradition/new-year",
+    "year": 1788,
+    "artist": "Robert Burns, Diverse",
+    "genre": "Folk/Tradition"
+  },
+  "12-31": {
+    "id": "donna-summer-silvester-disko-new-york",
+    "date": "12-31",
+    "title": "Donna Summer: Silvester-Disko in New York",
+    "description": "Mit "Last Dance" und "Hot Stuff" wird Donna Summer zum Star der Silvesterpartys – Disco bleibt Soundtrack für den Jahreswechsel.",
+    "category": "charts/milestone",
+    "year": 1978,
+    "artist": "Donna Summer",
+    "genre": "Disco"
+  },
+  "08-01": {
+    "id": "mtv-musikvideos-start",
+    "date": "08-01",
+    "title": "MTV sendet erstmals Musikvideos",
+    "description": "Der Musiksender startet in den USA mit dem Song 'Video Killed the Radio Star' – Musikfernsehen und das Musikvideo werden zu weltweiten Phänomenen.",
+    "category": "tv/meilenstein",
+    "year": 1981,
+    "artist": "MTV / The Buggles",
+    "genre": "Pop/TV"
+  },
+  "08-02": {
+    "id": "charli-xcx-wird-geboren",
+    "date": "08-02",
+    "title": "Charli XCX wird geboren",
+    "description": "Songwriterin, Pop-Innovatorin und Genre-Grenzgängerin: Sie prägt seit den 2010ern den Sound der Hyperpop- und Indiepop-Szene.",
+    "category": "birth",
+    "year": 1992,
+    "artist": "Charli XCX",
+    "genre": "Pop/Hyperpop"
+  },
+  "08-03": {
+    "id": "james-hetfield-metallica-geboren",
+    "date": "08-03",
+    "title": "James Hetfield (Metallica) wird geboren",
+    "description": "Sänger und Gitarrist von Metallica, prägt mit seinem Songwriting und Riffing Metal und Rock seit den 80ern.",
+    "category": "birth",
+    "year": 1963,
+    "artist": "James Hetfield (Metallica)",
+    "genre": "Metal/Rock"
+  },
+  "08-04": {
+    "id": "louis-armstrong-stirbt-ny",
+    "date": "08-04",
+    "title": "Louis Armstrong stirbt in New York",
+    "description": "Der Jazz-Trompeter, Sänger und Entertainer bleibt unsterblich mit 'What a Wonderful World' und beeinflusst Generationen von Musikern.",
+    "category": "death",
+    "year": 1971,
+    "artist": "Louis Armstrong",
+    "genre": "Jazz"
+  },
+  "08-05": {
+    "id": "abbey-road-cover-aufgenommen",
+    "date": "08-05",
+    "title": "'Abbey Road'-Cover wird aufgenommen",
+    "description": "Die Beatles laufen über den Zebrastreifen der Abbey Road in London – das Foto wird zu einem der bekanntesten Albumcover aller Zeiten.",
+    "category": "foto/meilenstein",
+    "year": 1969,
+    "artist": "The Beatles",
+    "genre": "Rock/Pop"
+  },
+  "08-06": {
+    "id": "macarena-sommerhit",
+    "date": "08-06",
+    "title": "'Macarena' wird Sommerhit in Europa und USA",
+    "description": "Der Song der Los Del Río und der dazugehörige Tanz sorgen weltweit für einen der größten Party- und Tanzhypes der 90er.",
+    "category": "charts/sommerhit",
+    "year": 1996,
+    "artist": "Los Del Río",
+    "genre": "Latin/Pop"
+  },
+  "08-07": {
+    "id": "purple-haze-hendrix-release",
+    "date": "08-07",
+    "title": "'Purple Haze' von Jimi Hendrix erscheint",
+    "description": "Mit dem Song und dem legendären Gitarrensound wird Jimi Hendrix zum Rockstar und Gitarrenidol – Psychedelic Rock startet durch.",
+    "category": "single-release",
+    "year": 1967,
+    "artist": "Jimi Hendrix",
+    "genre": "Rock/Psychedelic"
+  },
+  "08-08": {
+    "id": "shawn-mendes-wird-geboren",
+    "date": "08-08",
+    "title": "Shawn Mendes wird geboren",
+    "description": "Singer-Songwriter aus Kanada, der mit seinen Pop-Balladen, Social-Media-Präsenz und seiner Authentizität weltweit Millionen Fans gewinnt.",
+    "category": "birth",
+    "year": 1998,
+    "artist": "Shawn Mendes",
+    "genre": "Pop"
+  },
+  "08-09": {
+    "id": "whitney-houston-i-will-always-love-you",
+    "date": "08-09",
+    "title": "Whitney Houston: 'I Will Always Love You' veröffentlicht",
+    "description": "Ihr Cover des Dolly Parton-Songs wird zur meistverkauften Single einer Sängerin und zum Soundtrack ganzer Generationen.",
+    "category": "single-release",
+    "year": 1992,
+    "artist": "Whitney Houston",
+    "genre": "Pop/Ballade"
+  },
+  "08-10": {
+    "id": "antonio-banderas-wird-geboren",
+    "date": "08-10",
+    "title": "Antonio Banderas wird geboren",
+    "description": "Schauspieler und Musical-Sänger, bekannt aus 'Evita' und 'Desperado', bringt spanisches Flair in Hollywood-Musicals und Soundtracks.",
+    "category": "birth",
+    "year": 1960,
+    "artist": "Antonio Banderas",
+    "genre": "Musical/Film"
+  },
+  "08-11": {
+    "id": "hiphop-bronx-blockparty",
+    "date": "08-11",
+    "title": "Geburtsstunde des Hip-Hop: Blockparty in der Bronx",
+    "description": "DJ Kool Herc veranstaltet im Community Center in der 1520 Sedgwick Avenue eine legendäre Party – Hip-Hop, Breakdance und Rap nehmen ihren Anfang.",
+    "category": "genre-geschichte",
+    "year": 1973,
+    "artist": "DJ Kool Herc",
+    "genre": "Hip-Hop"
+  },
+  "08-12": {
+    "id": "mark-knopfler-dire-straits-geboren",
+    "date": "08-12",
+    "title": "Mark Knopfler (Dire Straits) wird geboren",
+    "description": "Gitarrenvirtuose und Songwriter, bekannt für markanten Sound und Welthits wie 'Sultans of Swing' und 'Money for Nothing'.",
+    "category": "birth",
+    "year": 1949,
+    "artist": "Mark Knopfler",
+    "genre": "Rock"
+  },
+  "08-13": {
+    "id": "gangnam-style-youtube-milliarde",
+    "date": "08-13",
+    "title": "'Gangnam Style' knackt 1 Milliarde YouTube-Views",
+    "description": "PSYs K-Pop-Hit wird zum ersten Video mit über einer Milliarde Klicks – das Internet verändert die globale Poplandschaft.",
+    "category": "meilenstein/internet",
+    "year": 2012,
+    "artist": "PSY",
+    "genre": "K-Pop"
+  },
+  "08-14": {
+    "id": "david-crosby-wird-geboren",
+    "date": "08-14",
+    "title": "David Crosby (The Byrds, Crosby, Stills & Nash) wird geboren",
+    "description": "Singer-Songwriter und Harmonie-Pionier, prägt Folk-Rock und Polit-Pop seit den 60ern.",
+    "category": "birth",
+    "year": 1941,
+    "artist": "David Crosby",
+    "genre": "Folk/Rock"
+  },
+  "08-15": {
+    "id": "woodstock-festival-beginnt",
+    "date": "08-15",
+    "title": "Woodstock Festival beginnt in New York",
+    "description": "Vier Tage 'Peace, Love and Music' mit Hendrix, Janis Joplin, Santana und 400.000 Fans – das berühmteste Festival aller Zeiten startet.",
+    "category": "festival/legendär",
+    "year": 1969,
+    "artist": "Diverse",
+    "genre": "Rock/Hippie"
+  },
+  "08-16": {
+    "id": "madonna-wird-geboren",
+    "date": "08-16",
+    "title": "Madonna wird geboren",
+    "description": "Die 'Queen of Pop' setzt Trends, bricht Tabus und dominiert die Charts mit Stilwechseln, Provokationen und Hits wie 'Like a Prayer'.",
+    "category": "birth",
+    "year": 1958,
+    "artist": "Madonna",
+    "genre": "Pop"
+  },
+  "08-17": {
+    "id": "aretha-franklin-stirbt",
+    "date": "08-17",
+    "title": "Aretha Franklin stirbt",
+    "description": "Die 'Queen of Soul' mit unvergleichlicher Stimme hinterlässt Welthits wie 'Respect' und prägte die Geschichte afroamerikanischer Musik.",
+    "category": "death",
+    "year": 2018,
+    "artist": "Aretha Franklin",
+    "genre": "Soul"
+  },
+  "08-18": {
+    "id": "patrick-swayze-wird-geboren",
+    "date": "08-18",
+    "title": "Patrick Swayze wird geboren",
+    "description": "Schauspieler, Tänzer und Musiker – wird mit 'Dirty Dancing' und dem Song 'She's Like the Wind' zum Popkultur-Phänomen.",
+    "category": "birth",
+    "year": 1952,
+    "artist": "Patrick Swayze",
+    "genre": "Pop/Film"
+  },
+  "08-19": {
+    "id": "gustavo-cerati-wird-geboren",
+    "date": "08-19",
+    "title": "Gustavo Cerati wird geboren",
+    "description": "Argentinischer Musiker, Sänger von Soda Stereo – prägt Rock en Español und wird Ikone für Generationen in Lateinamerika.",
+    "category": "birth",
+    "year": 1959,
+    "artist": "Gustavo Cerati",
+    "genre": "Latin Rock"
+  },
+  "08-20": {
+    "id": "robert-plant-led-zeppelin-geboren",
+    "date": "08-20",
+    "title": "Robert Plant (Led Zeppelin) wird geboren",
+    "description": "Legendärer Sänger, Songwriter und Stimmwunder von Led Zeppelin – prägt Rock, Hardrock und Folk seit den 70ern.",
+    "category": "birth",
+    "year": 1948,
+    "artist": "Robert Plant",
+    "genre": "Rock/Hardrock"
+  },
+  "08-21": {
+    "id": "smells-like-teen-spirit-nirvana",
+    "date": "08-21",
+    "title": "'Smells Like Teen Spirit' erscheint",
+    "description": "Nirvanas Song wird zur Hymne der Generation X, bringt Grunge und Alternative Rock in den Mainstream und verändert Popkultur für immer.",
+    "category": "single-release",
+    "year": 1991,
+    "artist": "Nirvana",
+    "genre": "Grunge"
+  },
+  "08-22": {
+    "id": "tori-amos-wird-geboren",
+    "date": "08-22",
+    "title": "Tori Amos wird geboren",
+    "description": "Die US-Sängerin und Pianistin verbindet Alternative Rock, Klassik und Singer-Songwriter-Kunst, inspiriert Generationen mit persönlichen Texten.",
+    "category": "birth",
+    "year": 1963,
+    "artist": "Tori Amos",
+    "genre": "Alternative/Pop"
+  },
+  "08-23": {
+    "id": "keith-moon-the-who-geboren",
+    "date": "08-23",
+    "title": "Keith Moon (The Who) wird geboren",
+    "description": "Exzentrischer Drummer und Enfant Terrible der Rockmusik, bekannt für wilde Liveshows und Innovation am Schlagzeug.",
+    "category": "birth",
+    "year": 1946,
+    "artist": "Keith Moon",
+    "genre": "Rock"
+  },
+  "08-24": {
+    "id": "stand-by-me-ben-e-king-release",
+    "date": "08-24",
+    "title": "'Stand By Me': Ben E. King veröffentlicht Soul-Klassiker",
+    "description": "Die Ballade wird Welthit, Coverversion und Soundtrack für Generationen und gehört zu den meistgespielten Songs überhaupt.",
+    "category": "single-release",
+    "year": 1961,
+    "artist": "Ben E. King",
+    "genre": "Soul/Ballade"
+  },
+  "08-25": {
+    "id": "gene-simmons-kiss-geboren",
+    "date": "08-25",
+    "title": "Gene Simmons (KISS) wird geboren",
+    "description": "Mit KISS erschafft er eine der spektakulärsten Rockshows der Welt, wird Bassist, Geschäftsmann und Popkultur-Phänomen.",
+    "category": "birth",
+    "year": 1949,
+    "artist": "Gene Simmons (KISS)",
+    "genre": "Rock"
+  },
+  "08-26": {
+    "id": "shirley-manson-garbage-geboren",
+    "date": "08-26",
+    "title": "Shirley Manson (Garbage) wird geboren",
+    "description": "Schottische Sängerin und Ikone des Alternative Rock und der 90er Popkultur – Hits wie 'Stupid Girl' und 'Only Happy When It Rains'.",
+    "category": "birth",
+    "year": 1966,
+    "artist": "Shirley Manson",
+    "genre": "Alternative/Rock"
+  },
+  "08-27": {
+    "id": "stevie-ray-vaughan-stirbt",
+    "date": "08-27",
+    "title": "Stevie Ray Vaughan stirbt bei Helikopterabsturz",
+    "description": "Der Gitarrenvirtuose bringt Blues zurück in die Mainstream-Charts und gilt als einer der besten Bluesrock-Gitarristen aller Zeiten.",
+    "category": "death",
+    "year": 1990,
+    "artist": "Stevie Ray Vaughan",
+    "genre": "Blues/Rock"
+  },
+  "08-28": {
+    "id": "florence-welch-wird-geboren",
+    "date": "08-28",
+    "title": "Florence Welch (Florence + the Machine) wird geboren",
+    "description": "Die britische Indiepop-Sängerin erobert mit kraftvoller Stimme, Theatralik und Hits wie 'Shake It Out' die Bühnen der Welt.",
+    "category": "birth",
+    "year": 1986,
+    "artist": "Florence Welch",
+    "genre": "Indie/Pop"
+  },
+  "08-29": {
+    "id": "michael-jackson-wird-geboren",
+    "date": "08-29",
+    "title": "Michael Jackson wird geboren",
+    "description": "Der 'King of Pop' setzt mit 'Thriller', 'Bad' und revolutionären Musikvideos neue Maßstäbe für Pop, Tanz und Show – Rekordverkäufe inklusive.",
+    "category": "birth",
+    "year": 1958,
+    "artist": "Michael Jackson",
+    "genre": "Pop/R&B"
+  },
+  "08-30": {
+    "id": "david-guetta-wird-geboren",
+    "date": "08-30",
+    "title": "David Guetta wird geboren",
+    "description": "Der DJ und Produzent aus Frankreich bringt Dance, House und Pop zusammen und wird zum weltweiten Star der elektronischen Musik.",
+    "category": "birth",
+    "year": 1967,
+    "artist": "David Guetta",
+    "genre": "EDM/Pop"
+  },
+  "08-31": {
+    "id": "lady-gaga-wird-geboren",
+    "date": "08-31",
+    "title": "Lady Gaga wird geboren",
+    "description": "Mit exzentrischem Stil, Wandelbarkeit und Hits wie 'Poker Face' und 'Bad Romance' wird sie zum Superstar und Vorbild für Diversität und Kreativität.",
+    "category": "birth",
+    "year": 1986,
+    "artist": "Lady Gaga",
+    "genre": "Pop"
+  },
+  "09-01": {
+    "id": "gloria-estefan-wird-geboren",
+    "date": "09-01",
+    "title": "Gloria Estefan wird geboren",
+    "description": "Die 'Queen of Latin Pop' bringt mit Miami Sound Machine Hits wie 'Conga' weltweit in die Charts und prägt die Latin-Crossover-Welle.",
+    "category": "birth",
+    "year": 1957,
+    "artist": "Gloria Estefan",
+    "genre": "Latin/Pop"
+  },
+  "09-02": {
+    "id": "nico-velvet-underground-geboren",
+    "date": "09-02",
+    "title": "Christa Päffgen ('Nico') wird geboren",
+    "description": "Die deutsche Sängerin, Model und Schauspielerin prägt mit The Velvet Underground und Solo den düsteren Sound von Avantgarde, Rock und Chanson.",
+    "category": "birth",
+    "year": 1938,
+    "artist": "Nico (Velvet Underground)",
+    "genre": "Rock/Avantgarde"
+  },
+  "09-03": {
+    "id": "abc-jackson5-nr1",
+    "date": "09-03",
+    "title": "'ABC' von The Jackson 5 wird Nummer 1",
+    "description": "Mit jugendlicher Energie und Soul-Feeling begeistern Michael Jackson und seine Brüder – Motown schreibt Popgeschichte.",
+    "category": "charts/meilenstein",
+    "year": 1970,
+    "artist": "The Jackson 5",
+    "genre": "Soul/Pop"
+  },
+  "09-04": {
+    "id": "beyonce-wird-geboren",
+    "date": "09-04",
+    "title": "Beyoncé wird geboren",
+    "description": "Von Destiny's Child zur globalen Queen of Pop: Sie prägt Generationen mit Musik, Choreografien und Female Empowerment.",
+    "category": "birth",
+    "year": 1981,
+    "artist": "Beyoncé",
+    "genre": "Pop/R&B"
+  },
+  "09-05": {
+    "id": "freddie-mercury-wird-geboren",
+    "date": "09-05",
+    "title": "Freddie Mercury wird geboren",
+    "description": "Mit unvergleichlicher Stimme, Songwriting und Bühnenpräsenz macht der Queen-Sänger Rock-Opern und Stadionhymnen weltberühmt.",
+    "category": "birth",
+    "year": 1946,
+    "artist": "Freddie Mercury (Queen)",
+    "genre": "Rock/Pop"
+  },
+  "09-06": {
+    "id": "roger-waters-pink-floyd-geboren",
+    "date": "09-06",
+    "title": "Roger Waters (Pink Floyd) wird geboren",
+    "description": "Der kreative Kopf hinter vielen Pink Floyd-Konzepten revolutioniert mit 'The Wall' und 'Dark Side of the Moon' den Progressive Rock.",
+    "category": "birth",
+    "year": 1943,
+    "artist": "Roger Waters",
+    "genre": "Progressive Rock"
+  },
+  "09-07": {
+    "id": "buddy-holly-stirbt",
+    "date": "09-07",
+    "title": "Buddy Holly stirbt bei Flugzeugabsturz",
+    "description": "Pionier des Rock'n'Roll, dessen früher Tod Musikgeschichte prägt und in Don McLeans 'American Pie' verewigt wird.",
+    "category": "death",
+    "year": 1959,
+    "artist": "Buddy Holly",
+    "genre": "Rock'n'Roll"
+  },
+  "09-08": {
+    "id": "pink-wird-geboren",
+    "date": "09-08",
+    "title": "Pink wird geboren",
+    "description": "Mit 'Get the Party Started', Punk-Attitüde und Wandelbarkeit wird sie zu einer der erfolgreichsten Pop-Künstlerinnen der 2000er.",
+    "category": "birth",
+    "year": 1979,
+    "artist": "Pink",
+    "genre": "Pop/Rock"
+  },
+  "09-09": {
+    "id": "elvis-presley-erstes-tv-konzert",
+    "date": "09-09",
+    "title": "Elvis Presley: Erstes TV-Konzert in den USA",
+    "description": "Millionen Amerikaner sehen Elvis Presley zum ersten Mal im Fernsehen – seine Performance ist der Durchbruch für Rock'n'Roll im Mainstream.",
+    "category": "tv/meilenstein",
+    "year": 1956,
+    "artist": "Elvis Presley",
+    "genre": "Rock'n'Roll"
+  },
+  "09-10": {
+    "id": "i-shot-the-sheriff-nr1-usa",
+    "date": "09-10",
+    "title": "'I Shot the Sheriff' wird Nummer 1 in den USA",
+    "description": "Eric Claptons Cover von Bob Marleys Reggae-Song dominiert die Charts und bringt jamaikanische Rhythmen ins Popradio.",
+    "category": "charts/meilenstein",
+    "year": 1974,
+    "artist": "Eric Clapton/Bob Marley",
+    "genre": "Reggae/Rock"
+  },
+  "09-11": {
+    "id": "moby-wird-geboren",
+    "date": "09-11",
+    "title": "Moby wird geboren",
+    "description": "Der Elektronik-Pionier bringt mit 'Play' Techno und Ambient in den Mainstream und wird zur Kultfigur der 90er/2000er.",
+    "category": "birth",
+    "year": 1965,
+    "artist": "Moby",
+    "genre": "Electronic"
+  },
+  "09-12": {
+    "id": "barry-white-wird-geboren",
+    "date": "09-12",
+    "title": "Barry White wird geboren",
+    "description": "Der King of Love Songs begeistert mit tiefer Stimme, üppigem Orchester und Soul-Hits wie 'You're the First, the Last, My Everything'.",
+    "category": "birth",
+    "year": 1944,
+    "artist": "Barry White",
+    "genre": "Soul/Disco"
+  },
+  "09-13": {
+    "id": "tupac-shakur-stirbt",
+    "date": "09-13",
+    "title": "Tupac Shakur stirbt nach Schussverletzung",
+    "description": "Der Rapper, Dichter und Schauspieler bleibt Symbolfigur für Hip-Hop, soziale Gerechtigkeit und künstlerische Authentizität.",
+    "category": "death",
+    "year": 1996,
+    "artist": "Tupac Shakur",
+    "genre": "Hip-Hop"
+  },
+  "09-14": {
+    "id": "amy-winehouse-wird-geboren",
+    "date": "09-14",
+    "title": "Amy Winehouse wird geboren",
+    "description": "Mit Soul, Retro-Charme und Songs wie 'Rehab' wird sie zur Stil-Ikone und prägt eine neue Welle britischer Musik.",
+    "category": "birth",
+    "year": 1983,
+    "artist": "Amy Winehouse",
+    "genre": "Soul/Jazz/Pop"
+  },
+  "09-15": {
+    "id": "tommy-lee-jones-wird-geboren",
+    "date": "09-15",
+    "title": "Tommy Lee Jones wird geboren (Film-Musik-Kultur)",
+    "description": "Der Schauspieler prägt viele Musikfilme und Popkultur, etwa in 'The Fugitive' und 'Men in Black', dessen Titelsong zum Welthit wird.",
+    "category": "birth/film",
+    "year": 1946,
+    "artist": "Tommy Lee Jones",
+    "genre": "Film/Pop"
+  },
+  "09-16": {
+    "id": "play-that-funky-music-wild-cherry",
+    "date": "09-16",
+    "title": "'Play That Funky Music': Wild Cherry landet einen Hit",
+    "description": "Die Funk-Rock-Nummer wird ein Disco-Klassiker und ist bis heute aus keiner 70s-Party wegzudenken.",
+    "category": "single-release",
+    "year": 1976,
+    "artist": "Wild Cherry",
+    "genre": "Funk/Rock"
+  },
+  "09-17": {
+    "id": "hank-williams-stirbt",
+    "date": "09-17",
+    "title": "Hank Williams stirbt",
+    "description": "Mit nur 29 Jahren stirbt die Country-Legende – sein Songwriting und Sound beeinflussen Country und Pop über Jahrzehnte.",
+    "category": "death",
+    "year": 1953,
+    "artist": "Hank Williams",
+    "genre": "Country"
+  },
+  "09-18": {
+    "id": "jimi-hendrix-stirbt-london",
+    "date": "09-18",
+    "title": "Jimi Hendrix stirbt in London",
+    "description": "Der Ausnahmegitarrist hinterlässt mit wenigen Jahren Schaffenszeit ein unsterbliches Erbe in Blues, Rock und Popkultur.",
+    "category": "death",
+    "year": 1970,
+    "artist": "Jimi Hendrix",
+    "genre": "Rock/Blues"
+  },
+  "09-19": {
+    "id": "bohemian-rhapsody-charts-revival",
+    "date": "09-19",
+    "title": "'Bohemian Rhapsody' kehrt in die Charts zurück",
+    "description": "Nach Freddie Mercurys Tod 1991 wird Queens Meisterwerk erneut ein weltweiter Nummer-1-Hit und feiert ein Popkultur-Revival.",
+    "category": "charts/meilenstein",
+    "year": 1991,
+    "artist": "Queen",
+    "genre": "Rock/Pop"
+  },
+  "09-20": {
+    "id": "imagine-john-lennon-release",
+    "date": "09-20",
+    "title": "'Imagine' von John Lennon erscheint",
+    "description": "Die Friedenshymne wird zur größten Solo-Single des Ex-Beatle und inspiriert bis heute Protestbewegungen weltweit.",
+    "category": "single-release",
+    "year": 1971,
+    "artist": "John Lennon",
+    "genre": "Pop/Rock"
+  },
+  "09-21": {
+    "id": "september-earth-wind-fire",
+    "date": "09-21",
+    "title": "Earth, Wind & Fire: 'September' wird Disco-Klassiker",
+    "description": "Die Soul- und Funk-Legenden liefern den ultimativen Party- und Hochzeitssong, der Generationen vereint.",
+    "category": "single-release",
+    "year": 1978,
+    "artist": "Earth, Wind & Fire",
+    "genre": "Disco/Funk"
+  },
+  "09-22": {
+    "id": "andrea-bocelli-wird-geboren",
+    "date": "09-22",
+    "title": "Andrea Bocelli wird geboren",
+    "description": "Der italienische Tenor bringt Oper, Pop und Crossover auf die größten Bühnen der Welt und erreicht ein Millionenpublikum.",
+    "category": "birth",
+    "year": 1958,
+    "artist": "Andrea Bocelli",
+    "genre": "Klassik/Pop"
+  },
+  "09-23": {
+    "id": "john-coltrane-geboren",
+    "date": "09-23",
+    "title": "John Coltrane wird geboren",
+    "description": "Jazz-Innovator, Saxophonist und spirituelle Ikone – seine Musik verändert Jazz und beeinflusst Musiker aller Genres.",
+    "category": "birth",
+    "year": 1926,
+    "artist": "John Coltrane",
+    "genre": "Jazz"
+  },
+  "09-24": {
+    "id": "nirvana-nevermind-release",
+    "date": "09-24",
+    "title": "Nirvana veröffentlichen 'Nevermind'",
+    "description": "Das Album mit 'Smells Like Teen Spirit' macht Grunge zum Welthit und stößt Michael Jackson von Platz 1 der US-Charts.",
+    "category": "album-release",
+    "year": 1991,
+    "artist": "Nirvana",
+    "genre": "Grunge/Rock"
+  },
+  "09-25": {
+    "id": "will-smith-wird-geboren",
+    "date": "09-25",
+    "title": "Will Smith wird geboren",
+    "description": "Vom Rapper 'Fresh Prince' über Comedy-Ikone bis Hollywood-Star – als Musiker und Schauspieler international erfolgreich.",
+    "category": "birth",
+    "year": 1968,
+    "artist": "Will Smith",
+    "genre": "Hip-Hop/Pop/Film"
+  },
+  "09-26": {
+    "id": "olivia-newton-john-wird-geboren",
+    "date": "09-26",
+    "title": "Olivia Newton-John wird geboren",
+    "description": "Mit 'Grease' und 'Physical' wird die australische Sängerin und Schauspielerin zur Pop- und Filmikone.",
+    "category": "birth",
+    "year": 1948,
+    "artist": "Olivia Newton-John",
+    "genre": "Pop"
+  },
+  "09-27": {
+    "id": "meat-loaf-wird-geboren",
+    "date": "09-27",
+    "title": "Meat Loaf wird geboren",
+    "description": "Der Rock-Sänger und Schauspieler begeistert mit 'Bat Out of Hell' und legendären Bühnenauftritten.",
+    "category": "birth",
+    "year": 1947,
+    "artist": "Meat Loaf",
+    "genre": "Rock/Musical"
+  },
+  "09-28": {
+    "id": "avril-lavigne-wird-geboren",
+    "date": "09-28",
+    "title": "Avril Lavigne wird geboren",
+    "description": "Mit Punkpop-Attitüde, 'Complicated' und 'Sk8er Boi' prägt sie die 2000er und bleibt Vorbild für junge Songwriterinnen.",
+    "category": "birth",
+    "year": 1984,
+    "artist": "Avril Lavigne",
+    "genre": "Pop/Punk"
+  },
+  "09-29": {
+    "id": "jerry-lee-lewis-wird-geboren",
+    "date": "09-29",
+    "title": "Jerry Lee Lewis wird geboren",
+    "description": "Mit Rock'n'Roll und 'Great Balls of Fire' bringt er Skandal, Virtuosität und Rebellion auf die Bühne – ein Vorbild für viele spätere Stars.",
+    "category": "birth",
+    "year": 1935,
+    "artist": "Jerry Lee Lewis",
+    "genre": "Rock'n'Roll"
+  },
+  "09-30": {
+    "id": "lets-dance-david-bowie-release",
+    "date": "09-30",
+    "title": "'Let's Dance': David Bowies 80s-Hit wird veröffentlicht",
+    "description": "Bowie erfindet sich mit Tanzmusik und Funk neu und landet einen der größten Erfolge seiner Karriere – der Song bleibt Clubklassiker bis heute.",
+    "category": "single-release",
+    "year": 1983,
+    "artist": "David Bowie",
+    "genre": "Pop/Funk"
+  },
+  "10-01": {
+    "id": "julie-andrews-wird-geboren",
+    "date": "10-01",
+    "title": "Julie Andrews wird geboren",
+    "description": "Die britische Sängerin und Schauspielerin begeistert als 'Mary Poppins' und 'The Sound of Music' Generationen von Musical- und Filmfans.",
+    "category": "birth",
+    "year": 1935,
+    "artist": "Julie Andrews",
+    "genre": "Musical/Film"
+  },
+  "10-02": {
+    "id": "sting-wird-geboren",
+    "date": "10-02",
+    "title": "Sting wird geboren",
+    "description": "Frontmann von The Police, Solokünstler, Songwriter und Aktivist – mit Hits wie 'Every Breath You Take' und 'Fields of Gold' prägt er Pop und Rock.",
+    "category": "birth",
+    "year": 1951,
+    "artist": "Sting",
+    "genre": "Pop/Rock"
+  },
+  "10-03": {
+    "id": "gwen-stefani-wird-geboren",
+    "date": "10-03",
+    "title": "Gwen Stefani wird geboren",
+    "description": "Mit No Doubt, Solo und als Modeikone verbindet sie Ska, Pop, Hip-Hop und Fashion zu einem einzigartigen Stil.",
+    "category": "birth",
+    "year": 1969,
+    "artist": "Gwen Stefani",
+    "genre": "Pop/Ska"
+  },
+  "10-04": {
+    "id": "respect-aretha-franklin-nr1",
+    "date": "10-04",
+    "title": "'Respect' von Aretha Franklin wird Nummer 1",
+    "description": "Die Soul-Hymne wird weltweites Symbol für Frauenrechte und afroamerikanische Emanzipation.",
+    "category": "charts/meilenstein",
+    "year": 1967,
+    "artist": "Aretha Franklin",
+    "genre": "Soul"
+  },
+  "10-05": {
+    "id": "love-me-do-beatles-release",
+    "date": "10-05",
+    "title": "'Love Me Do' – Debütsingle der Beatles erscheint",
+    "description": "Mit ihrer ersten offiziellen Single beginnt die internationale Erfolgsgeschichte der Beatles.",
+    "category": "single-release",
+    "year": 1962,
+    "artist": "The Beatles",
+    "genre": "Rock/Pop"
+  },
+  "10-06": {
+    "id": "west-side-story-filmpremiere",
+    "date": "10-06",
+    "title": "'West Side Story' feiert Filmpremiere",
+    "description": "Die Verfilmung des Broadway-Hits begeistert mit innovativer Musik und Choreografie – und bringt Musical und Kino weltweit zusammen.",
+    "category": "filmpremiere",
+    "year": 1961,
+    "artist": "Leonard Bernstein, Stephen Sondheim",
+    "genre": "Musical"
+  },
+  "10-07": {
+    "id": "thom-yorke-radiohead-geboren",
+    "date": "10-07",
+    "title": "Thom Yorke (Radiohead) wird geboren",
+    "description": "Der Sänger und Songwriter wird mit Radiohead zum Innovator des Alternative Rock, von 'Creep' bis 'OK Computer'.",
+    "category": "birth",
+    "year": 1968,
+    "artist": "Thom Yorke (Radiohead)",
+    "genre": "Alternative"
+  },
+  "10-08": {
+    "id": "bruno-mars-wird-geboren",
+    "date": "10-08",
+    "title": "Bruno Mars wird geboren",
+    "description": "Mit Retro-Pop, Funk und spektakulären Live-Shows wird er zum Weltstar, Songwriter und Grammy-Gewinner.",
+    "category": "birth",
+    "year": 1985,
+    "artist": "Bruno Mars",
+    "genre": "Pop/Funk"
+  },
+  "10-09": {
+    "id": "john-lennon-wird-geboren",
+    "date": "10-09",
+    "title": "John Lennon wird geboren",
+    "description": "Als Beatle, Solokünstler und Friedensaktivist bleibt er eine der einflussreichsten Figuren der Popgeschichte.",
+    "category": "birth",
+    "year": 1940,
+    "artist": "John Lennon",
+    "genre": "Rock/Pop"
+  },
+  "10-10": {
+    "id": "giuseppe-verdi-wird-geboren",
+    "date": "10-10",
+    "title": "Giuseppe Verdi wird geboren",
+    "description": "Der italienische Komponist wird mit Opern wie 'La Traviata' und 'Aida' zum Superstar des 19. Jahrhunderts und prägt die Musikwelt bis heute.",
+    "category": "birth",
+    "year": 1813,
+    "artist": "Giuseppe Verdi",
+    "genre": "Klassik/Oper"
+  },
+  "10-11": {
+    "id": "cardi-b-wird-geboren",
+    "date": "10-11",
+    "title": "Cardi B wird geboren",
+    "description": "Rapperin, Entertainerin und Social-Media-Phänomen – sie bricht Rekorde und setzt sich für Frauenrechte im Hip-Hop ein.",
+    "category": "birth",
+    "year": 1992,
+    "artist": "Cardi B",
+    "genre": "Hip-Hop"
+  },
+  "10-12": {
+    "id": "luciano-pavarotti-wird-geboren",
+    "date": "10-12",
+    "title": "Luciano Pavarotti wird geboren",
+    "description": "Als einer der 'Drei Tenöre' bringt er die Oper zu Millionen, begeistert mit Stimmgewalt und Menschlichkeit.",
+    "category": "birth",
+    "year": 1935,
+    "artist": "Luciano Pavarotti",
+    "genre": "Klassik/Oper"
+  },
+  "10-13": {
+    "id": "paul-simon-wird-geboren",
+    "date": "10-13",
+    "title": "Paul Simon wird geboren",
+    "description": "Von Simon & Garfunkel bis zu seinen Soloalben ist er Poet, Songwriter und Wegbereiter für World Music im Pop.",
+    "category": "birth",
+    "year": 1941,
+    "artist": "Paul Simon",
+    "genre": "Folk/Pop/World"
+  },
+  "10-14": {
+    "id": "usher-wird-geboren",
+    "date": "10-14",
+    "title": "Usher wird geboren",
+    "description": "Mit R&B, Hip-Hop, Dance und unzähligen Hits wie 'Yeah!' wird er zum Superstar und Mentor für neue Talente.",
+    "category": "birth",
+    "year": 1978,
+    "artist": "Usher",
+    "genre": "R&B/Pop"
+  },
+  "10-15": {
+    "id": "fela-kuti-wird-geboren",
+    "date": "10-15",
+    "title": "Fela Kuti wird geboren",
+    "description": "Der nigerianische Saxophonist und Aktivist begründet mit Afrobeat einen neuen Musikstil und inspiriert politische Protestbewegungen.",
+    "category": "birth",
+    "year": 1938,
+    "artist": "Fela Kuti",
+    "genre": "Afrobeat"
+  },
+  "10-16": {
+    "id": "john-mayer-wird-geboren",
+    "date": "10-16",
+    "title": "John Mayer wird geboren",
+    "description": "Virtuose an der Gitarre, Grammy-Gewinner und Songwriter – er verbindet Blues, Rock und Pop mit emotionalen Texten.",
+    "category": "birth",
+    "year": 1977,
+    "artist": "John Mayer",
+    "genre": "Rock/Pop/Blues"
+  },
+  "10-17": {
+    "id": "eminem-marshall-mathers-lp-release",
+    "date": "10-17",
+    "title": "Eminem veröffentlicht 'The Marshall Mathers LP'",
+    "description": "Mit seinem kontroversen, stilprägenden Album verändert er Rap weltweit und wird zur Popikone.",
+    "category": "album-release",
+    "year": 2000,
+    "artist": "Eminem",
+    "genre": "Hip-Hop"
+  },
+  "10-18": {
+    "id": "chuck-berry-johnny-b-goode-release",
+    "date": "10-18",
+    "title": "Chuck Berry veröffentlicht 'Johnny B. Goode'",
+    "description": "Die Rock'n'Roll-Hymne wird zu einem der bekanntesten Gitarrenriffs und Vorbild für unzählige Bands und Musiker.",
+    "category": "single-release",
+    "year": 1958,
+    "artist": "Chuck Berry",
+    "genre": "Rock'n'Roll"
+  },
+  "10-19": {
+    "id": "peter-tosh-wailers-geboren",
+    "date": "10-19",
+    "title": "Peter Tosh (The Wailers) wird geboren",
+    "description": "Reggae-Pionier, Solokünstler und politischer Aktivist, der die Botschaft von Freiheit und Gleichheit weltweit verbreitet.",
+    "category": "birth",
+    "year": 1944,
+    "artist": "Peter Tosh (The Wailers)",
+    "genre": "Reggae"
+  },
+  "10-20": {
+    "id": "snoop-dogg-wird-geboren",
+    "date": "10-20",
+    "title": "Snoop Dogg wird geboren",
+    "description": "Als Rapper, Schauspieler und Popkultur-Ikone bleibt er auch nach 30 Jahren eine der bekanntesten Stimmen des Hip-Hop.",
+    "category": "birth",
+    "year": 1971,
+    "artist": "Snoop Dogg",
+    "genre": "Hip-Hop"
+  },
+  "10-21": {
+    "id": "dizzy-gillespie-wird-geboren",
+    "date": "10-21",
+    "title": "Dizzy Gillespie wird geboren",
+    "description": "Innovator des Bebop und Big Band Jazz – mit Trompete und Witz begeistert er von Kuba bis Paris Jazzfans und Kollegen.",
+    "category": "birth",
+    "year": 1917,
+    "artist": "Dizzy Gillespie",
+    "genre": "Jazz"
+  },
+  "10-22": {
+    "id": "franz-liszt-wird-geboren",
+    "date": "10-22",
+    "title": "Franz Liszt wird geboren",
+    "description": "Der ungarische Komponist und Pianist gilt als 'erster Popstar der Musikgeschichte', begeistert mit Virtuosität und Kompositionskunst.",
+    "category": "birth",
+    "year": 1811,
+    "artist": "Franz Liszt",
+    "genre": "Klassik"
+  },
+  "10-23": {
+    "id": "thriller-michael-jackson-video",
+    "date": "10-23",
+    "title": "'Thriller' von Michael Jackson geht um die Welt",
+    "description": "Das legendäre Video zum Song sorgt mit Zombie-Tanz, Pop und Horror für eine weltweite Revolution in Musik und Musikvideo-Kultur.",
+    "category": "video/meilenstein",
+    "year": 1983,
+    "artist": "Michael Jackson",
+    "genre": "Pop"
+  },
+  "10-24": {
+    "id": "drake-wird-geboren",
+    "date": "10-24",
+    "title": "Drake wird geboren",
+    "description": "Vom Kinderstar zum Superstar: Der kanadische Rapper, Sänger und Songwriter dominiert Charts und Streaming-Zahlen weltweit.",
+    "category": "birth",
+    "year": 1986,
+    "artist": "Drake",
+    "genre": "Hip-Hop/Pop"
+  },
+  "10-25": {
+    "id": "katy-perry-wird-geboren",
+    "date": "10-25",
+    "title": "Katy Perry wird geboren",
+    "description": "Mit Hits wie 'Firework' und spektakulären Live-Shows wird sie zur Pop-Ikone der 2010er, gefeiert für Stil und Wandelbarkeit.",
+    "category": "birth",
+    "year": 1984,
+    "artist": "Katy Perry",
+    "genre": "Pop"
+  },
+  "10-26": {
+    "id": "keith-urban-wird-geboren",
+    "date": "10-26",
+    "title": "Keith Urban wird geboren",
+    "description": "Neuseeländischer Country-Star und Gitarrenvirtuose, prägt modernen Country und Pop-Crossover.",
+    "category": "birth",
+    "year": 1967,
+    "artist": "Keith Urban",
+    "genre": "Country/Pop"
+  },
+  "10-27": {
+    "id": "simon-le-bon-duran-duran-geboren",
+    "date": "10-27",
+    "title": "Simon Le Bon (Duran Duran) wird geboren",
+    "description": "Frontmann der New-Wave-Ikone und MTV-Lieblinge, Hits wie 'Hungry Like the Wolf' und 'Ordinary World'.",
+    "category": "birth",
+    "year": 1958,
+    "artist": "Simon Le Bon (Duran Duran)",
+    "genre": "Pop/New Wave"
+  },
+  "10-28": {
+    "id": "frank-ocean-wird-geboren",
+    "date": "10-28",
+    "title": "Frank Ocean wird geboren",
+    "description": "Songwriter, Producer und Stimme einer neuen R&B-Generation, gefeiert für seine Authentizität und Vielschichtigkeit.",
+    "category": "birth",
+    "year": 1987,
+    "artist": "Frank Ocean",
+    "genre": "R&B/Soul"
+  },
+  "10-29": {
+    "id": "rocky-horror-picture-show-filmpremiere",
+    "date": "10-29",
+    "title": "'Rocky Horror Picture Show' feiert Filmpremiere",
+    "description": "Das Kult-Musical bringt Glam, Punk und Pop auf die Leinwand, wird zur Kultparty und Hymne der LGBTQ-Community.",
+    "category": "filmpremiere",
+    "year": 1975,
+    "artist": "Richard O'Brien, Diverse",
+    "genre": "Musical/Pop"
+  },
+  "10-30": {
+    "id": "grace-slick-jefferson-airplane-geboren",
+    "date": "10-30",
+    "title": "Grace Slick (Jefferson Airplane) wird geboren",
+    "description": "Mit ihrer Stimme und Songs wie 'White Rabbit' prägt sie den Soundtrack der Hippie- und Flower-Power-Ära.",
+    "category": "birth",
+    "year": 1939,
+    "artist": "Grace Slick (Jefferson Airplane)",
+    "genre": "Psychedelic/Rock"
+  },
+  "10-31": {
+    "id": "johnny-marr-smiths-geboren",
+    "date": "10-31",
+    "title": "Johnny Marr (The Smiths) wird geboren",
+    "description": "Gitarrist, Songwriter und Produzent – prägt mit seinem Stil Indie und Alternative von den 80ern bis heute.",
+    "category": "birth",
+    "year": 1963,
+    "artist": "Johnny Marr (The Smiths)",
+    "genre": "Indie/Alternative"
+  },
+  "11-01": {
+    "id": "lyle-lovett-wird-geboren",
+    "date": "11-01",
+    "title": "Lyle Lovett wird geboren",
+    "description": "Der US-Singer-Songwriter verbindet Country, Folk, Jazz und Pop – gewinnt Grammys und prägt Americana-Musik über Jahrzehnte.",
+    "category": "birth",
+    "year": 1957,
+    "artist": "Lyle Lovett",
+    "genre": "Country/Folk/Jazz"
+  },
+  "11-02": {
+    "id": "kd-lang-wird-geboren",
+    "date": "11-02",
+    "title": "k.d. lang wird geboren",
+    "description": "Die kanadische Sängerin begeistert mit einzigartiger Stimme und setzt mit 'Constant Craving' neue Akzente im Pop, Country und LGBTQ-Community.",
+    "category": "birth",
+    "year": 1961,
+    "artist": "k.d. lang",
+    "genre": "Pop/Country"
+  },
+  "11-03": {
+    "id": "kendrick-lamar-wird-geboren",
+    "date": "11-03",
+    "title": "Kendrick Lamar wird geboren",
+    "description": "Er bringt Hip-Hop und gesellschaftskritische Lyrik auf ein neues Niveau und wird als erster Rapper mit dem Pulitzer-Preis ausgezeichnet.",
+    "category": "birth",
+    "year": 1987,
+    "artist": "Kendrick Lamar",
+    "genre": "Hip-Hop"
+  },
+  "11-04": {
+    "id": "p-diddy-combs-wird-geboren",
+    "date": "11-04",
+    "title": "Sean 'P. Diddy' Combs wird geboren",
+    "description": "Rapper, Produzent und Mogul – mit Bad Boy Records, Mode und Hits prägt er den US-Hip-Hop und Pop seit den 90ern.",
+    "category": "birth",
+    "year": 1969,
+    "artist": "Sean 'P. Diddy' Combs",
+    "genre": "Hip-Hop/Pop"
+  },
+  "11-05": {
+    "id": "art-garfunkel-wird-geboren",
+    "date": "11-05",
+    "title": "Art Garfunkel wird geboren",
+    "description": "Mit Simon & Garfunkel schafft er Klassiker wie 'Bridge Over Troubled Water' – unverwechselbare Stimme und Harmonien.",
+    "category": "birth",
+    "year": 1941,
+    "artist": "Art Garfunkel",
+    "genre": "Folk/Pop"
+  },
+  "11-06": {
+    "id": "glenn-frey-eagles-geboren",
+    "date": "11-06",
+    "title": "Glenn Frey (Eagles) wird geboren",
+    "description": "Gründungsmitglied und Songwriter der Eagles – prägt mit Songs wie 'Hotel California' den Westcoast- und Country-Rock.",
+    "category": "birth",
+    "year": 1948,
+    "artist": "Glenn Frey (Eagles)",
+    "genre": "Rock/Country"
+  },
+  "11-07": {
+    "id": "joni-mitchell-wird-geboren",
+    "date": "11-07",
+    "title": "Joni Mitchell wird geboren",
+    "description": "Eine der größten Songwriterinnen aller Zeiten – verbindet Folk, Jazz und Pop, wird zur Ikone für Generationen von Künstlerinnen.",
+    "category": "birth",
+    "year": 1943,
+    "artist": "Joni Mitchell",
+    "genre": "Folk/Jazz/Pop"
+  },
+  "11-08": {
+    "id": "bonnie-raitt-wird-geboren",
+    "date": "11-08",
+    "title": "Bonnie Raitt wird geboren",
+    "description": "Slide-Gitarren-Queen, Bluesrock-Legende und Grammy-Gewinnerin, bekannt für Songs wie 'I Can't Make You Love Me'.",
+    "category": "birth",
+    "year": 1949,
+    "artist": "Bonnie Raitt",
+    "genre": "Blues/Rock"
+  },
+  "11-09": {
+    "id": "delta-goodrem-wird-geboren",
+    "date": "11-09",
+    "title": "Delta Goodrem wird geboren",
+    "description": "Australische Pop- und Balladensängerin, die als Teenager mit 'Innocent Eyes' den internationalen Durchbruch feiert.",
+    "category": "birth",
+    "year": 1984,
+    "artist": "Delta Goodrem",
+    "genre": "Pop"
+  },
+  "11-10": {
+    "id": "ennio-morricone-wird-geboren",
+    "date": "11-10",
+    "title": "Ennio Morricone wird geboren",
+    "description": "Der Komponist revolutioniert Filmmusik – Soundtracks zu Western, Dramen und Blockbustern, wie 'Spiel mir das Lied vom Tod', werden legendär.",
+    "category": "birth",
+    "year": 1928,
+    "artist": "Ennio Morricone",
+    "genre": "Soundtrack/Klassik"
+  },
+  "11-11": {
+    "id": "demi-moore-wird-geboren",
+    "date": "11-11",
+    "title": "Demi Moore wird geboren (Musikfilme)",
+    "description": "Schauspielerin, bekannt aus Musikfilmen wie 'Ghost' – die Filmmusik zu 'Unchained Melody' wird zum Evergreen.",
+    "category": "birth/film",
+    "year": 1962,
+    "artist": "Demi Moore",
+    "genre": "Film/Pop"
+  },
+  "11-12": {
+    "id": "neil-young-wird-geboren",
+    "date": "11-12",
+    "title": "Neil Young wird geboren",
+    "description": "Der Kanadier ist mit Folk, Rock, Grunge und sozialkritischen Songs wie 'Rockin' in the Free World' musikalisches Chamäleon und Rebell zugleich.",
+    "category": "birth",
+    "year": 1945,
+    "artist": "Neil Young",
+    "genre": "Folk/Rock"
+  },
+  "11-13": {
+    "id": "whoopi-goldberg-wird-geboren",
+    "date": "11-13",
+    "title": "Whoopi Goldberg wird geboren (Musik/Film)",
+    "description": "Oscar-Gewinnerin, berühmt für Musikfilme wie 'Sister Act', in denen Gospel und Pop eine Renaissance erleben.",
+    "category": "birth/film",
+    "year": 1955,
+    "artist": "Whoopi Goldberg",
+    "genre": "Gospel/Pop/Film"
+  },
+  "11-14": {
+    "id": "bohemian-rhapsody-queen-release",
+    "date": "11-14",
+    "title": "'Bohemian Rhapsody' wird veröffentlicht",
+    "description": "Queen veröffentlicht die sechsminütige Rock-Oper – sie wird zum Welthit und verändert den Umgang mit Songlänge und Songstruktur.",
+    "category": "single-release",
+    "year": 1975,
+    "artist": "Queen",
+    "genre": "Rock"
+  },
+  "11-15": {
+    "id": "frida-lyngstad-abba-geboren",
+    "date": "11-15",
+    "title": "Frida Lyngstad (ABBA) wird geboren",
+    "description": "Die schwedische Sängerin wird als Teil von ABBA zum Weltstar und begeistert später auch mit Solo-Projekten.",
+    "category": "birth",
+    "year": 1945,
+    "artist": "Frida Lyngstad (ABBA)",
+    "genre": "Pop"
+  },
+  "11-16": {
+    "id": "diana-krall-wird-geboren",
+    "date": "11-16",
+    "title": "Diana Krall wird geboren",
+    "description": "Jazzpianistin, Sängerin und Grammy-Gewinnerin, bekannt für lässigen Swing und elegante Balladen.",
+    "category": "birth",
+    "year": 1964,
+    "artist": "Diana Krall",
+    "genre": "Jazz"
+  },
+  "11-17": {
+    "id": "jeff-buckley-wird-geboren",
+    "date": "11-17",
+    "title": "Jeff Buckley wird geboren",
+    "description": "Seine Version von 'Hallelujah' gilt als eine der schönsten der Musikgeschichte – posthum zur Legende geworden.",
+    "category": "birth",
+    "year": 1966,
+    "artist": "Jeff Buckley",
+    "genre": "Singer/Songwriter"
+  },
+  "11-18": {
+    "id": "kim-wilde-wird-geboren",
+    "date": "11-18",
+    "title": "Kim Wilde wird geboren",
+    "description": "Mit 'Kids in America' und ihrem Mix aus Pop, Rock und New Wave wird sie in den 80ern zur Stilikone.",
+    "category": "birth",
+    "year": 1960,
+    "artist": "Kim Wilde",
+    "genre": "Pop/New Wave"
+  },
+  "11-19": {
+    "id": "smooth-santana-rob-thomas-nr1",
+    "date": "11-19",
+    "title": "'Smooth': Santana & Rob Thomas erreichen Platz 1",
+    "description": "Der Crossover-Hit dominiert weltweit die Charts und bringt Carlos Santana zurück an die Chartspitze.",
+    "category": "single/charts",
+    "year": 1999,
+    "artist": "Santana & Rob Thomas",
+    "genre": "Rock/Pop"
+  },
+  "11-20": {
+    "id": "future-wird-geboren",
+    "date": "11-20",
+    "title": "Future wird geboren",
+    "description": "Innovator des Trap, Rapper, Songwriter und Produzent, bekannt für Hits wie 'Mask Off' und Kollaborationen mit Drake und The Weeknd.",
+    "category": "birth",
+    "year": 1983,
+    "artist": "Future",
+    "genre": "Hip-Hop/Trap"
+  },
+  "11-21": {
+    "id": "bjoerk-wird-geboren",
+    "date": "11-21",
+    "title": "Björk wird geboren",
+    "description": "Mit einzigartiger Stimme, Experimentierfreude und visueller Kunst wird sie zur isländischen Pop- und Avantgarde-Ikone.",
+    "category": "birth",
+    "year": 1965,
+    "artist": "Björk",
+    "genre": "Pop/Electronica"
+  },
+  "11-22": {
+    "id": "jfk-ermordet-songs-protest",
+    "date": "11-22",
+    "title": "JFK wird ermordet – Songs und Protestmusik",
+    "description": "Das Attentat inspiriert Generationen von Songwritern, u.a. Dion mit 'Abraham, Martin and John' und zahlreiche Protestlieder der 60er Jahre.",
+    "category": "ereignis/musik",
+    "year": 1963,
+    "artist": "Diverse",
+    "genre": "Folk/Protest"
+  },
+  "11-23": {
+    "id": "miley-cyrus-wird-geboren",
+    "date": "11-23",
+    "title": "Miley Cyrus wird geboren",
+    "description": "Kinderstar, Popikone und Provokateurin – mit 'Wrecking Ball' und 'Flowers' erfindet sie sich musikalisch immer wieder neu.",
+    "category": "birth",
+    "year": 1992,
+    "artist": "Miley Cyrus",
+    "genre": "Pop"
+  },
+  "11-24": {
+    "id": "freddie-mercury-stirbt",
+    "date": "11-24",
+    "title": "Freddie Mercury stirbt",
+    "description": "Queen-Sänger, Ausnahmestimme und Songwriter – sein Tod bewegt Millionen, sein Vermächtnis lebt in Hymnen wie 'We Are The Champions' weiter.",
+    "category": "death",
+    "year": 1991,
+    "artist": "Freddie Mercury",
+    "genre": "Rock/Pop"
+  },
+  "11-25": {
+    "id": "isaac-hayes-wird-geboren",
+    "date": "11-25",
+    "title": "Isaac Hayes wird geboren",
+    "description": "Soul-Architekt, Oscar- und Grammy-Gewinner, bekannt für 'Shaft'-Soundtrack und tiefen, samtigen Gesang.",
+    "category": "birth",
+    "year": 1942,
+    "artist": "Isaac Hayes",
+    "genre": "Soul/Funk"
+  },
+  "11-26": {
+    "id": "tina-turner-abschiedskonzert-zuerich",
+    "date": "11-26",
+    "title": "Tina Turner gibt Abschiedskonzert in Zürich",
+    "description": "Die 'Queen of Rock'n'Roll' verabschiedet sich 2009 auf großer Tour von der Bühne – mit einer der erfolgreichsten Live-Karrieren aller Zeiten.",
+    "category": "live/abschied",
+    "year": 2009,
+    "artist": "Tina Turner",
+    "genre": "Rock/Pop"
+  },
+  "11-27": {
+    "id": "jimi-hendrix-wird-geboren",
+    "date": "11-27",
+    "title": "Jimi Hendrix wird geboren",
+    "description": "Gitarrengenie, Songwriter und Ikone – seine Improvisationen und Sounds revolutionieren Rock, Blues und Pop.",
+    "category": "birth",
+    "year": 1942,
+    "artist": "Jimi Hendrix",
+    "genre": "Rock/Blues"
+  },
+  "11-28": {
+    "id": "my-heart-will-go-on-celine-dion",
+    "date": "11-28",
+    "title": "'My Heart Will Go On' erscheint",
+    "description": "Céline Dions Ballade aus 'Titanic' wird zu einem der meistverkauften Songs aller Zeiten und dominiert monatelang die internationalen Charts.",
+    "category": "soundtrack/charts",
+    "year": 1997,
+    "artist": "Céline Dion",
+    "genre": "Pop/Ballade"
+  },
+  "11-29": {
+    "id": "george-harrison-stirbt",
+    "date": "11-29",
+    "title": "George Harrison stirbt",
+    "description": "Der 'stille Beatle' verbindet Spiritualität, Songwriting und Popkultur – sein Einfluss reicht von den Beatles bis in den 2000er Indie-Rock.",
+    "category": "death",
+    "year": 2001,
+    "artist": "George Harrison",
+    "genre": "Rock/Pop"
+  },
+  "11-30": {
+    "id": "thriller-michael-jackson-album-release",
+    "date": "11-30",
+    "title": "Michael Jackson: 'Thriller'-Album erscheint",
+    "description": "Das erfolgreichste Pop-Album aller Zeiten bricht Rekorde, setzt neue Standards für Musikvideos und bleibt einflussreich bis heute.",
+    "category": "album-release",
+    "year": 1982,
+    "artist": "Michael Jackson",
+    "genre": "Pop/R&B"
+  }
+}

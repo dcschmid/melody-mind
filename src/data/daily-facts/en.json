@@ -1,0 +1,176 @@
+{
+  "01-01": {
+    "id": "neujahr-musik",
+    "date": "01-01",
+    "title": "Hank Williams dies",
+    "description": "On January 1, 1953, country legend Hank Williams dies at the age of just 29. His songs like 'Your Cheatin' Heart' had a lasting impact on country music.",
+    "category": "death",
+    "year": 1953,
+    "artist": "Hank Williams",
+    "genre": "Country"
+  },
+  "01-08": {
+    "id": "elvis-geburtstag",
+    "date": "01-08",
+    "title": "Elvis Presley is born",
+    "description": "On January 8, 1935, Elvis Aaron Presley is born in Tupelo, Mississippi. He would later become known as the 'King of Rock and Roll' and revolutionize popular music.",
+    "category": "birth",
+    "year": 1935,
+    "artist": "Elvis Presley",
+    "genre": "Rock and Roll"
+  },
+  "01-15": {
+    "id": "wikipedia-launch",
+    "date": "01-15",
+    "title": "Wikipedia launches",
+    "description": "On January 15, 2001, Wikipedia goes online. This platform later becomes one of the most important sources for music knowledge and band histories worldwide.",
+    "category": "milestone",
+    "year": 2001
+  },
+  "02-03": {
+    "id": "buddy-holly-stirbt",
+    "date": "02-03",
+    "title": "The Day the Music Died",
+    "description": "On February 3, 1959, Buddy Holly, Ritchie Valens, and J.P. 'The Big Bopper' Richardson die in a plane crash. Don McLean later immortalized this day in the song 'American Pie'.",
+    "category": "death",
+    "year": 1959,
+    "artist": "Buddy Holly",
+    "genre": "Rock and Roll"
+  },
+  "02-09": {
+    "id": "beatles-ed-sullivan",
+    "date": "02-09",
+    "title": "Beatles on The Ed Sullivan Show",
+    "description": "On February 9, 1964, The Beatles make their first appearance on The Ed Sullivan Show. 73 million Americans tune in - the beginning of 'Beatlemania' in the USA.",
+    "category": "breakthrough",
+    "year": 1964,
+    "artist": "The Beatles",
+    "genre": "Rock"
+  },
+  "03-06": {
+    "id": "pink-floyd-gruendung",
+    "date": "03-06",
+    "title": "Pink Floyd forms",
+    "description": "On March 6, 1965, Pink Floyd give their first concert at the Countdown Club in London. The band would later become one of the most influential progressive rock bands.",
+    "category": "formation",
+    "year": 1965,
+    "artist": "Pink Floyd",
+    "genre": "Progressive Rock"
+  },
+  "04-05": {
+    "id": "kurt-cobain-stirbt",
+    "date": "04-05",
+    "title": "Kurt Cobain dies",
+    "description": "On April 5, 1994, Kurt Cobain, frontman of Nirvana, is found dead. His death marks the end of the grunge era of the early 90s.",
+    "category": "death",
+    "year": 1994,
+    "artist": "Kurt Cobain",
+    "genre": "Grunge"
+  },
+  "05-26": {
+    "id": "miles-davis-geboren",
+    "date": "05-26",
+    "title": "Miles Davis is born",
+    "description": "On May 26, 1926, Miles Davis is born. He becomes one of the most influential jazz musicians of all time, shaping various jazz eras from bebop to fusion.",
+    "category": "birth",
+    "year": 1926,
+    "artist": "Miles Davis",
+    "genre": "Jazz"
+  },
+  "06-01": {
+    "id": "sgt-pepper-release",
+    "date": "06-01",
+    "title": "Sgt. Pepper's is released",
+    "description": "On June 1, 1967, The Beatles release 'Sgt. Pepper's Lonely Hearts Club Band'. The album is considered a milestone in popular music and the beginning of the concept album.",
+    "category": "release",
+    "year": 1967,
+    "artist": "The Beatles",
+    "album": "Sgt. Pepper's Lonely Hearts Club Band",
+    "genre": "Rock"
+  },
+  "06-18": {
+    "id": "paul-mccartney-geboren",
+    "date": "06-18",
+    "title": "Paul McCartney is born",
+    "description": "On June 18, 1942, Paul McCartney is born in Liverpool. As bassist and songwriter for The Beatles, he becomes one of the most successful musicians in history.",
+    "category": "birth",
+    "year": 1942,
+    "artist": "Paul McCartney",
+    "genre": "Rock"
+  },
+  "07-06": {
+    "id": "ringo-starr-geboren",
+    "date": "07-06",
+    "title": "Ringo Starr is born",
+    "description": "On July 6, 1940, Richard Starkey, known as Ringo Starr, is born. He becomes The Beatles' drummer in 1962, completing the world's most famous band.",
+    "category": "birth",
+    "year": 1940,
+    "artist": "Ringo Starr",
+    "genre": "Rock"
+  },
+  "07-17": {
+    "id": "disneyland-eroeffnet",
+    "date": "07-17",
+    "title": "Disneyland opens",
+    "description": "On July 17, 1955, Disneyland opens in California. The park later becomes an important venue for film music and Disney songs that shape generations of children.",
+    "category": "milestone",
+    "year": 1955
+  },
+  "08-15": {
+    "id": "woodstock-beginnt",
+    "date": "08-15",
+    "title": "Woodstock Festival begins",
+    "description": "On August 15, 1969, the legendary Woodstock Festival begins. Over 400,000 people experience four days of 'Peace, Love and Music' with artists like Jimi Hendrix and Janis Joplin.",
+    "category": "event",
+    "year": 1969,
+    "genre": "Rock"
+  },
+  "09-23": {
+    "id": "john-coltrane-geboren",
+    "date": "09-23",
+    "title": "John Coltrane is born",
+    "description": "On September 23, 1926, John Coltrane is born. The saxophonist becomes one of the most important jazz innovators, influencing countless musicians with his spiritual jazz.",
+    "category": "birth",
+    "year": 1926,
+    "artist": "John Coltrane",
+    "genre": "Jazz"
+  },
+  "10-09": {
+    "id": "john-lennon-geboren",
+    "date": "10-09",
+    "title": "John Lennon is born",
+    "description": "On October 9, 1940, John Winston Lennon is born in Liverpool. As founder and creative mind of The Beatles, he becomes one of the most influential figures in popular music.",
+    "category": "birth",
+    "year": 1940,
+    "artist": "John Lennon",
+    "genre": "Rock"
+  },
+  "11-22": {
+    "id": "jfk-ermordet",
+    "date": "11-22",
+    "title": "JFK is assassinated",
+    "description": "On November 22, 1963, President Kennedy is assassinated. This event inspires countless songs, including 'Abraham, Martin and John' by Dion and many protest songs of the 60s.",
+    "category": "event",
+    "year": 1963
+  },
+  "12-08": {
+    "id": "john-lennon-stirbt",
+    "date": "12-08",
+    "title": "John Lennon is murdered",
+    "description": "On December 8, 1980, John Lennon is shot outside his apartment in New York. The world mourns the Beatles musician and peace activist.",
+    "category": "death",
+    "year": 1980,
+    "artist": "John Lennon",
+    "genre": "Rock"
+  },
+  "12-25": {
+    "id": "weihnachten-musik",
+    "date": "12-25",
+    "title": "Christmas music history",
+    "description": "Christmas is the day when the most Christmas songs are played worldwide. 'White Christmas' by Bing Crosby is the best-selling single of all time.",
+    "category": "milestone",
+    "year": 1942,
+    "artist": "Bing Crosby",
+    "album": "White Christmas"
+  }
+}

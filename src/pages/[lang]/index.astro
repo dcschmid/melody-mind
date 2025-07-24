@@ -16,6 +16,7 @@ import { extractKeywords, generateMetaDescription } from "@utils/seo";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import ButtonLink from "@components/ButtonLink.astro";
+import DailyFact from "@components/DailyFact.astro";
 
 // Extract language from URL and set up translations
 const lang = getLangFromUrl(Astro.url);
@@ -94,6 +95,19 @@ const imageHeight = 600;
           <ButtonLink href={`/${String(lang)}/gamehome`} aria-label={t("index.start.game.label")}>
             <span>{t("index.continue")}</span>
           </ButtonLink>
+        </div>
+
+        {/* Daily Music Fact Teaser */}
+        <div class="daily-fact-section">
+          <div class="daily-fact-header">
+            <h2 class="daily-fact-title">{t("dailyFacts.title")}</h2>
+            <a href={`/${String(lang)}/daily-facts`} class="daily-fact-link">
+              {t("common.seeMore")} →
+            </a>
+          </div>
+          <div class="daily-fact-container">
+            <DailyFact lang={String(lang)} compact={true} showDate={false} />
+          </div>
         </div>
 
         {/* Footer text with improved contrast ratio */}
@@ -591,6 +605,77 @@ const imageHeight = 600;
     @include respond-to(md) {
       font-size: clamp(var(--text-xl), 2.5vw, var(--text-2xl));
     }
+  }
+
+  /* ======================================
+   * DAILY FACT SECTION
+   * ====================================== */
+
+  .daily-fact-section {
+    width: 100%;
+    max-width: var(--container-lg);
+    margin: var(--space-2xl) auto;
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+
+    @include respond-to(sm) {
+      margin: var(--space-3xl) auto;
+      padding: var(--space-xl);
+    }
+  }
+
+  .daily-fact-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+
+    @media (max-width: 47.9375em) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .daily-fact-title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin: 0;
+
+    @include respond-to(sm) {
+      font-size: var(--text-xl);
+    }
+  }
+
+  .daily-fact-link {
+    color: var(--primary-600);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    transition: color var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+
+    &:hover {
+      color: var(--primary-700);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--primary-500);
+      outline-offset: 2px;
+      border-radius: var(--radius-sm);
+    }
+  }
+
+  .daily-fact-container {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
   }
 </style>
 

@@ -99,6 +99,7 @@ const stableItemIds = {
   knowledge: "nav-knowledge-stable",
   playlists: "nav-playlists-stable",
   podcasts: "nav-podcasts-stable",
+  dailyFacts: "nav-daily-facts-stable",
   highscores: "nav-highscores-stable",
   achievements: "nav-achievements-stable",
   profile: "nav-profile-stable",
@@ -295,6 +296,30 @@ const stableItemIds = {
                       <span class="navigation-link__title">{t("news.title")}</span>
                       <span class="navigation-link__description"
                         >{t("news.description")}</span
+                      >
+                    </div>
+                  </a>
+
+                  <a
+                    href={getRelativeLocaleUrl(lang, "daily-facts")}
+                    class="navigation-link navigation-link--daily-facts"
+                    role="menuitem"
+                    id={stableItemIds.dailyFacts}
+                    data-stable-ref="navigation-daily-facts"
+                  >
+                    <div class="navigation-link__icon-wrapper">
+                      <Icon
+                        name="calendar"
+                        width={28}
+                        height={28}
+                        aria-hidden="true"
+                        class="navigation-link__icon"
+                      />
+                    </div>
+                    <div class="navigation-link__content">
+                      <span class="navigation-link__title">{t("dailyFacts.title")}</span>
+                      <span class="navigation-link__description"
+                        >{t("nav.menu.dailyFacts.desc")}</span
                       >
                     </div>
                   </a>
@@ -1630,19 +1655,23 @@ const stableItemIds = {
     }
 
     &--podcasts &__icon-wrapper {
-      background: linear-gradient(135deg, var(--color-purple-500), var(--color-purple-600));
+      background: linear-gradient(135deg, var(--color-secondary-500), var(--color-secondary-600));
     }
 
     &--news &__icon-wrapper {
-      background: linear-gradient(135deg, var(--color-orange-500), var(--color-orange-600));
+      background: linear-gradient(135deg, var(--color-error-500), var(--color-error-600));
     }
-
-    &--highscores &__icon-wrapper {
+    
+    &--daily-facts &__icon-wrapper {
       background: linear-gradient(135deg, var(--color-warning-500), var(--color-warning-600));
     }
 
+    &--highscores &__icon-wrapper {
+      background: linear-gradient(135deg, var(--color-neutral-600), var(--color-neutral-700));
+    }
+
     &--achievements &__icon-wrapper {
-      background: linear-gradient(135deg, var(--color-secondary-500), var(--color-secondary-600));
+      background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
     }
 
     &--profile &__icon-wrapper {
