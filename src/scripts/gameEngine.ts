@@ -175,13 +175,18 @@ const initializeGame = async (elements: GameElements) => {
     const userDataString = localStorage.getItem("user");
     if (userDataString) {
       const userData = JSON.parse(userDataString);
-      if (userData.id && userData.id !== "guest") {
+      if (userData.id) {
         userId = userData.id;
-        console.log("🔵 Game Engine: Overriding userId with OAuth data:", userId);
+        console.log("🔵 Game Engine: Overriding userId with user data:", userId);
+        
+        // Check if this is a guest user
+        if (userData.isGuest || userData.id.startsWith("guest_")) {
+          console.log("🎮 Game Engine: Guest user detected");
+        }
       }
     }
   } catch (error) {
-    console.warn("Game Engine: Error reading OAuth user data:", error);
+    console.warn("Game Engine: Error reading user data:", error);
   }
 
   console.log("🔵 Game Engine: Final User ID:", userId);

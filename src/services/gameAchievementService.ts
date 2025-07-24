@@ -27,6 +27,12 @@ export async function processAchievementsAfterGame(
 ): Promise<{ unlockedAchievements: any[] }> {
   const unlockedAchievements: any[] = [];
 
+  // Skip achievement processing for guest users
+  if (userId === "guest" || userId.startsWith("guest_")) {
+    console.log("🎮 Achievement Service: Skipping achievements for guest user");
+    return { unlockedAchievements: [] };
+  }
+
   try {
     // Check if it was a perfect game
     const isPerfectGame = isPerfectGameScore(gameState);

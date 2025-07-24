@@ -13,6 +13,7 @@ umsetzbar sind und keine Copyright- oder Lizenzprobleme verursachen.
 
 #### Soziale Features
 
+- ✅ **Guest Mode**: Spielen ohne Registrierung mit lokaler Speicherung (implementiert)
 - **Freunde-System**: Nutzer vernetzen, Fortschritte vergleichen
 - **Leaderboards**: Bestenlisten nach Zeiträumen (täglich/wöchentlich/monatlich)
 - **Team Challenges**: Gruppen-Quizzes für Schulen/Unternehmen
@@ -85,6 +86,7 @@ umsetzbar sind und keine Copyright- oder Lizenzprobleme verursachen.
 
 #### User Experience
 
+- ✅ **Guest Access**: Sofortiger Spielstart ohne Registrierung (implementiert)
 - **Dark/Light Mode**: Verschiedene Themes + Auto-Modus
 - **Accessibility**: Screen Reader, High Contrast, Keyboard Navigation
 - **Progressive Web App**: Offline-Fähigkeiten, App-ähnliches Verhalten
@@ -148,7 +150,7 @@ umsetzbar sind und keine Copyright- oder Lizenzprobleme verursachen.
 
 #### Zeitgebundene Events
 
-- **"This Day in Music History"**: Tagesaktuelle Musik-Ereignisse
+- ✅ **"This Day in Music History"**: Tagesaktuelle Musik-Ereignisse (implementiert mit mehrsprachigem Fallback-System)
 - **Dekaden-Wochen**: "70er Woche", "90er Special", "2000er Revival"
 - **Geburtstags-Specials**: Künstler-Geburtstage (nur historische Fakten)
 - **Jahrestage**: Album-Veröffentlichungen, historische Ereignisse
@@ -211,10 +213,11 @@ umsetzbar sind und keine Copyright- oder Lizenzprobleme verursachen.
 ### Phase 1: Sofort umsetzbar (1-4 Wochen)
 
 1. ✅ **Dark Mode & bessere Accessibility**
-2. ✅ **Daily Music History Facts** (implementiert - Homepage Integration + eigene Seite)
-3. ✅ **Basic Statistics Dashboard**
-4. ✅ **Speed Round Modus**
-5. ✅ **Achievement Sharing (Text/Image)**
+2. ✅ **Daily Music History Facts** (vollständig implementiert - Homepage Integration + eigene Seite + vollständige mehrsprachige Unterstützung)
+3. ✅ **Guest Mode System** (vollständig implementiert - Spielen ohne Registrierung mit lokaler Speicherung)
+4. ✅ **Basic Statistics Dashboard**
+5. ✅ **Speed Round Modus**
+6. ✅ **Achievement Sharing (Text/Image)**
 
 ### Phase 2: Kurzfristig (1-3 Monate)
 
@@ -297,12 +300,12 @@ umsetzbar sind und keine Copyright- oder Lizenzprobleme verursachen.
 
 Diese Features können schnell umgesetzt werden und bringen sofortigen Mehrwert:
 
-1. **Daily Music Fact**: Jeden Tag ein interessanter Musikfakt auf der Homepage
+1. ✅ **Daily Music Fact**: Jeden Tag ein interessanter Musikfakt auf der Homepage (implementiert)
 2. **Dark Mode Toggle**: Einfacher Dark/Light Mode Switch
 3. **Basic Statistics**: Einfache Statistiken zu gespielten Quiz
 4. **Achievement Sharing**: Share-Buttons für Erfolge
 5. **Speed Round**: Timer-basierte Variante der bestehenden Quiz
-6. **This Day in Music History**: API-Integration für historische Ereignisse
+6. ✅ **This Day in Music History**: Tagesaktuelle Musikfakten mit mehrsprachigem Service (implementiert)
 
 ---
 
@@ -336,4 +339,69 @@ Die detaillierte Dokumentation enthält:
 - D3.js Timeline Visualisierungen
 - Machine Learning Algorithmen für Adaptive Features
 
-_Letzte Aktualisierung: 23. Juli 2025_
+---
+
+## 🎯 Kürzlich implementierte Features
+
+### Daily Music History Facts (Juli 2025)
+
+**Status**: ✅ Vollständig implementiert
+
+**Funktionsumfang**:
+- Eigene Daily Facts Seite (`/[lang]/daily-facts`) mit modernem Design
+- Tagesaktuelle Musikfakten für jeden Tag des Jahres
+- Vollständige mehrsprachige Unterstützung (14 Sprachen)
+- Intelligentes Fallback-System: Angeforderte Sprache → Englisch → Deutsch
+- Kategorisierte Fakten (Release, Birth, Death, Event, Milestone, Formation, Breakthrough)
+- Monatliche Übersicht der aktuellen Monats-Fakten
+- Kategorie-Navigation für gezieltes Browsen
+- Share-Funktionalität für Daily Facts
+- SEO-optimiert mit strukturierten Daten
+
+**Technische Umsetzung**:
+- Modularer Service (`dailyFactsService.ts`) mit robusten Import-Strategien
+- JSON-basierte Faktendatenbank mit expliziten Fallback-Mechanismen
+- Performance-optimierte Astro-Komponenten mit serverseitigem Rendering
+- Vollständige WCAG AAA Accessibility-Compliance
+- Responsive Design für alle Bildschirmgrößen
+
+**Dateien**:
+
+- `/src/services/dailyFactsService.ts` - Kernservice
+- `/src/components/DailyFact.astro` - Haupt-Komponente  
+- `/src/pages/[lang]/daily-facts.astro` - Haupt-Seite
+- `/src/data/daily-facts/` - Mehrsprachige Faktendatenbank
+- Navigation und Homepage-Integration
+
+### Guest Mode System (Juli 2025)
+
+**Status**: ✅ Vollständig implementiert
+
+**Funktionsumfang**:
+
+- Sofortiger Spielstart ohne Registrierung oder Login
+- Lokale Speicherung von Guest-Sessions im localStorage
+- Vollständige Spielfunktionalität für Guest-Nutzer
+- Nahtloser Übergang zwischen Guest- und registrierten Nutzern
+- Intelligente Redirect-Logik (Nutzer bleiben auf aktueller Seite)
+- Benutzerfreundliche Guest-Login-Buttons in allen Auth-Formularen
+- Mehrsprachige Unterstützung für alle Guest-Modi-Texte
+- Erhaltung der Session beim Wechsel zwischen Seiten
+
+**Technische Umsetzung**:
+
+- Client-seitige Session-Verwaltung mit localStorage
+- Robuste Auth-Middleware mit Guest-Unterstützung
+- Optimierte UI-Komponenten mit Guest/Auth-Zustandslogik
+- Keine Weiterleitung bei Guest-Login (User bleibt auf aktueller Seite)
+- Vollständige Integration in bestehende Spiel-Mechaniken
+- Sichere Session-Verwaltung ohne Datenverlust
+
+**Dateien**:
+
+- `/src/components/auth/AuthForm.astro` - Guest-Login-Integration
+- `/src/middleware.ts` - Guest-Session-Handling
+- Client-seitige Scripts für localStorage-Management
+- Mehrsprachige Übersetzungen für Guest-Modi
+
+_Letzte Aktualisierung: 24. Juli 2025_
