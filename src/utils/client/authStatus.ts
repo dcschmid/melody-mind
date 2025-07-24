@@ -72,21 +72,26 @@ export function performCompleteLogout(): void {
   validationInProgress = false;
   lastValidationAttempt = 0;
 
-  // Call server-side logout to clear HttpOnly cookies
-  fetch("/de/api/auth/logout", {
-    method: "POST",
-    credentials: "include",
-  })
-    .then((response) => {
-      if (response.ok) {
-        console.log("✅ Server-side logout successful");
-      } else {
-        console.warn("⚠️ Server-side logout failed, but continuing client-side cleanup");
-      }
+  // Only call server-side logout for fully authenticated users, not guests
+  const localAuthStatus = localStorage.getItem("auth_status");
+  if (localAuthStatus === "authenticated") {
+    fetch("/de/api/auth/logout", {
+      method: "POST",
+      credentials: "include",
     })
-    .catch((error) => {
-      console.warn("⚠️ Server-side logout error:", error);
-    });
+      .then((response) => {
+        if (response.ok) {
+          console.log("✅ Server-side logout successful");
+        } else {
+          console.warn("⚠️ Server-side logout failed, but continuing client-side cleanup");
+        }
+      })
+      .catch((error) => {
+        console.warn("⚠️ Server-side logout error:", error);
+      });
+  } else if (localAuthStatus === "guest") {
+    console.log("🚪 Guest user logout - no server-side logout needed");
+  }
 
   // Clear all authentication-related localStorage entries
   removeLocalStorage("auth_status");
@@ -284,14 +289,15 @@ export async function validateAndRefreshSession(): Promise<boolean> {
 }
 
 /**
- * Prüft, ob der Benutzer authentifiziert ist
+ * Prüft, ob der Benutzer authentifiziert ist (inklusive Gastmodus)
  * Prüft sowohl localStorage als auch Cookies für auth_status
- * @returns {boolean} - true wenn der Benutzer authentifiziert ist, sonst false
+ * @returns {boolean} - true wenn der Benutzer authentifiziert ist oder als Gast angemeldet, sonst false
  */
 export function isUserAuthenticated(): boolean {
   // Primäre Methode: auth_status im localStorage prüfen
   const localAuthStatus = localStorage.getItem("auth_status");
   const localIsAuthenticated = localAuthStatus === "authenticated";
+  const localIsGuest = localAuthStatus === "guest";
 
   // Sekundäre Methode: auth_status Cookie prüfen
   const cookieAuthStatus = getCookie("auth_status");
@@ -313,7 +319,7 @@ export function isUserAuthenticated(): boolean {
     }
   }
 
-  const isAuthenticated = localIsAuthenticated || cookieIsAuthenticated;
+  const isAuthenticated = localIsAuthenticated || cookieIsAuthenticated || localIsGuest;
 
   // Debug-Ausgabe mit sinnvollen Debug-Infos
   if (process.env.NODE_ENV === "development") {
@@ -322,12 +328,36 @@ export function isUserAuthenticated(): boolean {
       cookieAuthStatus,
       localIsAuthenticated,
       cookieIsAuthenticated,
+      localIsGuest,
       isAuthenticated,
       authStatusExists: checkLocalStorage("auth_status"),
     });
   }
 
   return isAuthenticated;
+}
+
+/**
+ * Prüft, ob der Benutzer im Gastmodus angemeldet ist
+ * @returns {boolean} - true wenn der Benutzer als Gast angemeldet ist, sonst false
+ */
+export function isGuestUser(): boolean {
+  const localAuthStatus = localStorage.getItem("auth_status");
+  return localAuthStatus === "guest";
+}
+
+/**
+ * Prüft, ob der Benutzer vollständig authentifiziert ist (nicht als Gast)
+ * @returns {boolean} - true wenn der Benutzer vollständig authentifiziert ist, sonst false
+ */
+export function isFullyAuthenticated(): boolean {
+  const localAuthStatus = localStorage.getItem("auth_status");
+  const localIsAuthenticated = localAuthStatus === "authenticated";
+
+  const cookieAuthStatus = getCookie("auth_status");
+  const cookieIsAuthenticated = cookieAuthStatus === "authenticated";
+
+  return localIsAuthenticated || cookieIsAuthenticated;
 }
 
 /**
@@ -477,6 +507,12 @@ export function registerAuthEventListeners(checkAuthCallback: () => void): { rem
     checkAuthCallback();
   };
 
+  const handleGuestLogin = (): void => {
+    // Guest login doesn't need server-side session validation
+    console.log("🎮 Guest login detected");
+    checkAuthCallback();
+  };
+
   const handleLogout = (): void => {
     // Clear all authentication-related localStorage entries
     removeLocalStorage("auth_status");
@@ -514,6 +550,7 @@ export function registerAuthEventListeners(checkAuthCallback: () => void): { rem
 
   // Event-Listener registrieren
   window.addEventListener("auth:login", handleLogin);
+  window.addEventListener("auth:guest-login", handleGuestLogin);
   window.addEventListener("auth:logout", handleLogout);
   document.addEventListener("visibilitychange", handleVisibilityChange);
 
@@ -521,6 +558,7 @@ export function registerAuthEventListeners(checkAuthCallback: () => void): { rem
   return {
     remove: (): void => {
       window.removeEventListener("auth:login", handleLogin);
+      window.removeEventListener("auth:guest-login", handleGuestLogin);
       window.removeEventListener("auth:logout", handleLogout);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     },

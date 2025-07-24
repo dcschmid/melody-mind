@@ -72,23 +72,50 @@ export async function getDailyMusicFact(
  */
 async function loadDailyFacts(lang: string): Promise<DailyFactsData> {
   try {
-    // Import the JSON file for the specific language
-    const factsModule = await import(`../data/daily-facts/${lang}.json`);
-    return (factsModule.default || factsModule) as DailyFactsData;
-  } catch (error) {
-    console.warn(`Failed to load daily facts for language ${lang}:`, error);
+    // Use explicit imports to help with bundling
+    let factsModule;
     
-    // Fallback to German
+    switch (lang) {
+      case 'en':
+        factsModule = await import('../data/daily-facts/en.json');
+        break;
+      case 'de':
+        factsModule = await import('../data/daily-facts/de.json');
+        break;
+      default:
+        // For any other language, try dynamic import first
+        try {
+          factsModule = await import(`../data/daily-facts/${lang}.json`);
+        } catch {
+          // If that fails, fall back to English first, then German
+          try {
+            factsModule = await import('../data/daily-facts/en.json');
+          } catch {
+            factsModule = await import('../data/daily-facts/de.json');
+          }
+        }
+        break;
+    }
+    
+    const facts = (factsModule.default || factsModule) as DailyFactsData;
+    return facts;
+    
+  } catch (error) {
+    console.error(`Failed to load daily facts for language ${lang}:`, error);
+    
+    // Last resort fallback to German
     if (lang !== 'de') {
       try {
-        const factsModule = await import(`../data/daily-facts/de.json`);
-        return (factsModule.default || factsModule) as DailyFactsData;
+        const germanModule = await import('../data/daily-facts/de.json');
+        const germanFacts = (germanModule.default || germanModule) as DailyFactsData;
+        return germanFacts;
       } catch (fallbackError) {
-        console.error('Failed to load fallback German daily facts:', fallbackError);
+        console.error('Failed to load German fallback facts:', fallbackError);
         return {};
       }
     }
     
+    // If German also failed, return empty object
     return {};
   }
 }

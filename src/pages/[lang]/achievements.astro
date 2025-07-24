@@ -71,6 +71,17 @@ const t = useTranslations(langString);
 ---
 
 <Layout title={t("achievements.title")} description={t("achievements.description")}>
+  <!-- Guest user notification -->
+  <div id="guest-user-notice" class="guest-notice" style="display: none;" role="alert">
+    <div class="guest-notice__content">
+      <h2>{t("achievements.guest.title") || "Achievements Not Available"}</h2>
+      <p>{t("achievements.guest.description") || "Achievements are only available for registered users. Create an account to track your progress and unlock achievements."}</p>
+      <a href={`/${langString}/auth/login`} class="guest-notice__button">
+        {t("achievements.guest.login") || "Create Account / Login"}
+      </a>
+    </div>
+  </div>
+  
   <main class="achievements-container" id="main-content" role="main">
     <!-- Hero section styled like GameHome with improved contrast and accessibility -->
     <header class="achievements-hero" aria-labelledby="achievements-heading">
@@ -186,10 +197,106 @@ const t = useTranslations(langString);
   <AchievementNotification lang={langString} />
 </Layout>
 
+<!-- Guest user check script -->
+<script>
+  // Check if user is a guest and show appropriate content
+  const checkGuestUser = () => {
+    const authStatus = localStorage.getItem("auth_status");
+    const isGuest = authStatus === "guest";
+    
+    const guestNotice = document.getElementById("guest-user-notice");
+    const mainContent = document.getElementById("main-content");
+    
+    if (isGuest) {
+      // Show guest notice and hide main content
+      if (guestNotice) guestNotice.style.display = "block";
+      if (mainContent) mainContent.style.display = "none";
+    } else {
+      // Hide guest notice and show main content
+      if (guestNotice) guestNotice.style.display = "none";
+      if (mainContent) mainContent.style.display = "block";
+    }
+  };
+
+  // Check on page load
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", checkGuestUser);
+  } else {
+    checkGuestUser();
+  }
+
+  // Listen for auth changes
+  window.addEventListener("auth:guest-login", checkGuestUser);
+  window.addEventListener("auth:login", checkGuestUser);
+  window.addEventListener("auth:logout", checkGuestUser);
+</script>
+
 <style lang="scss" is:global>
   /**
    * Achievements Page SCSS - WCAG AAA 2.2 Compliant & Performance Optimized
    * 
+
+  // Guest notice styles
+  .guest-notice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: var(--space-xl);
+    background: var(--bg-primary);
+
+    &__content {
+      max-width: var(--container-md);
+      text-align: center;
+      background: var(--bg-secondary);
+      padding: var(--space-2xl);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: var(--border-width-thin) solid var(--border-secondary);
+
+      h2 {
+        color: var(--text-primary);
+        font-size: var(--text-2xl);
+        font-weight: var(--font-bold);
+        margin-bottom: var(--space-lg);
+      }
+
+      p {
+        color: var(--text-secondary);
+        font-size: var(--text-base);
+        line-height: var(--leading-relaxed);
+        margin-bottom: var(--space-xl);
+      }
+    }
+
+    &__button {
+      display: inline-block;
+      padding: var(--space-md) var(--space-xl);
+      background: var(--interactive-primary);
+      color: var(--color-white);
+      text-decoration: none;
+      border-radius: var(--radius-md);
+      font-weight: var(--font-medium);
+      transition: all var(--transition-normal);
+      min-height: var(--touch-target-enhanced);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background: var(--interactive-primary-hover);
+        transform: translateY(calc(-1 * var(--space-micro)));
+      }
+
+      &:focus-visible {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+        box-shadow: var(--focus-ring);
+      }
+    }
+  }
+
+  /**
    * COMPREHENSIVE OPTIMIZATION FEATURES:
    * - Mandatory CSS custom properties from global.css for design consistency
    * - Maximum DRY principles applied with consolidated repetitive patterns

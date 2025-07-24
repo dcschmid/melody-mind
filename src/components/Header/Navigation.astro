@@ -421,6 +421,10 @@ const stableItemIds = {
                   aria-label={t("nav.logout.label")}
                   data-stable-id={stableItemIds.logout}
                   data-stable-ref="navigation-logout"
+                  data-logout-text={t("nav.menu.logout")}
+                  data-logout-desc-text={t("nav.menu.logout.desc")}
+                  data-guest-exit-text={t("nav.menu.guest.exit")}
+                  data-guest-exit-desc-text={t("nav.menu.guest.exit.desc")}
                   type="button"
                 >
                   <div class="navigation-link__icon-wrapper">
@@ -953,13 +957,28 @@ const stableItemIds = {
   };
 
   /**
-   * Checks if the user is authenticated
-   * @returns {boolean} - true if the user is authenticated, false otherwise
+   * Checks if the user is authenticated (includes guest users)
+   * @returns {boolean} - true if the user is authenticated or guest, false otherwise
    */
   const isUserAuthenticated = (): boolean => {
-    return (
-      checkLocalStorage("auth_status") && localStorage.getItem("auth_status") === "authenticated"
-    );
+    const authStatus = localStorage.getItem("auth_status");
+    return checkLocalStorage("auth_status") && (authStatus === "authenticated" || authStatus === "guest");
+  };
+
+  /**
+   * Checks if the user is a guest user
+   * @returns {boolean} - true if the user is a guest, false otherwise
+   */
+  const isGuestUser = (): boolean => {
+    return checkLocalStorage("auth_status") && localStorage.getItem("auth_status") === "guest";
+  };
+
+  /**
+   * Checks if the user is fully authenticated (not guest)
+   * @returns {boolean} - true if the user is fully authenticated, false otherwise
+   */
+  const isFullyAuthenticated = (): boolean => {
+    return checkLocalStorage("auth_status") && localStorage.getItem("auth_status") === "authenticated";
   };
 
   /**
@@ -968,15 +987,51 @@ const stableItemIds = {
    */
   const updateLogoutButtonVisibility = (): void => {
     const userSection = document.getElementById("user-section");
+    const logoutButton = document.getElementById("logout-button");
+    const profileLink = document.querySelector('.navigation-link[href*="profile"]') as HTMLElement;
+
     if (!userSection) {
       return;
     }
 
     const isAuthenticated = isUserAuthenticated();
-    console.warn("Auth Status in Navigation:", isAuthenticated);
+    const isGuest = isGuestUser();
+    const isFullyAuth = isFullyAuthenticated();
+
+    console.warn("Auth Status in Navigation:", { isAuthenticated, isGuest, isFullyAuth });
 
     if (isAuthenticated) {
       userSection.style.display = "block";
+      
+      // For guest users, hide profile link but show logout
+      if (isGuest) {
+        if (profileLink) profileLink.style.display = "none";
+        if (logoutButton) {
+          logoutButton.style.display = "block";
+          // Update logout button text for guest users
+          const logoutTitle = logoutButton.querySelector('.navigation-link__title');
+          const logoutDesc = logoutButton.querySelector('.navigation-link__description');
+          // Use data attributes set by server-side rendering for translations
+          const guestExitText = logoutButton.getAttribute('data-guest-exit-text') || "Exit Guest Mode";
+          const guestExitDescText = logoutButton.getAttribute('data-guest-exit-desc-text') || "Return to login screen";
+          if (logoutTitle) logoutTitle.textContent = guestExitText;
+          if (logoutDesc) logoutDesc.textContent = guestExitDescText;
+        }
+      } else if (isFullyAuth) {
+        // For authenticated users, show both profile and logout
+        if (profileLink) profileLink.style.display = "block";
+        if (logoutButton) {
+          logoutButton.style.display = "block";
+          // Reset logout button text for authenticated users  
+          const logoutTitle = logoutButton.querySelector('.navigation-link__title');
+          const logoutDesc = logoutButton.querySelector('.navigation-link__description');
+          // Use data attributes set by server-side rendering for translations
+          const logoutText = logoutButton.getAttribute('data-logout-text') || "Logout";
+          const logoutDescText = logoutButton.getAttribute('data-logout-desc-text') || "Sign out of your account";
+          if (logoutTitle) logoutTitle.textContent = logoutText;
+          if (logoutDesc) logoutDesc.textContent = logoutDescText;
+        }
+      }
     } else {
       userSection.style.display = "none";
     }

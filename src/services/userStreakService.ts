@@ -33,6 +33,16 @@ export interface DailyActivity {
  * @returns Promise with the updated daily activity
  */
 export async function updateDailyActivity(userId: string): Promise<DailyActivity> {
+  // Skip daily activity tracking for guest users
+  if (userId === "guest" || userId.startsWith("guest_")) {
+    console.log("🎮 User Streak Service: Skipping daily activity for guest user");
+    return {
+      userId,
+      date: new Date().toISOString().split("T")[0],
+      activityCount: 1
+    };
+  }
+
   const today = new Date().toISOString().split("T")[0]; // Format: YYYY-MM-DD
   const now = new Date().toISOString();
 

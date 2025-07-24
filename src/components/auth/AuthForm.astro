@@ -177,6 +177,51 @@ const t = useTranslations(lang);
       <OAuthProviders />
     </div>
 
+    <!-- Guest Mode Section -->
+    <div class="auth-form__guest-section">
+      <div class="auth-form__guest-divider">
+        <span class="auth-form__guest-divider-text">{t("auth.guest.or")}</span>
+      </div>
+      
+      <div class="auth-form__guest-content">
+        <button 
+          id="guestModeButton"
+          class="auth-form__guest-button"
+          type="button"
+          aria-describedby="guestDescription guestBenefits"
+        >
+          <Icon name="user-check" class="auth-form__guest-icon" aria-hidden="true" />
+          {t("auth.guest.button")}
+        </button>
+        
+        <p id="guestDescription" class="auth-form__guest-description">
+          {t("auth.guest.description")}
+        </p>
+        
+        <div id="guestBenefits" class="auth-form__guest-benefits">
+          <p class="auth-form__guest-benefits-title">{t("auth.guest.benefits")}</p>
+          <ul class="auth-form__guest-benefits-list">
+            <li class="auth-form__guest-benefit">
+              <Icon name="save" class="auth-form__guest-benefit-icon" aria-hidden="true" />
+              {t("auth.guest.benefit.progress")}
+            </li>
+            <li class="auth-form__guest-benefit">
+              <Icon name="trophy" class="auth-form__guest-benefit-icon" aria-hidden="true" />  
+              {t("auth.guest.benefit.achievements")}
+            </li>
+            <li class="auth-form__guest-benefit">
+              <Icon name="chart-bar" class="auth-form__guest-benefit-icon" aria-hidden="true" />
+              {t("auth.guest.benefit.leaderboard")} 
+            </li>
+            <li class="auth-form__guest-benefit">
+              <Icon name="analytics" class="auth-form__guest-benefit-icon" aria-hidden="true" />
+              {t("auth.guest.benefit.stats")}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <!-- Login Form -->
     <form
       id="loginForm"
@@ -419,6 +464,95 @@ const t = useTranslations(lang);
     elements.registerForm?.addEventListener("submit", (event: Event) => {
       handleRegisterSubmit(event);
     });
+
+    // Guest mode button handler
+    const guestButton = document.getElementById("guestModeButton");
+    if (guestButton) {
+      guestButton.addEventListener("click", () => {
+        handleGuestMode();
+      });
+    }
+  };
+
+  /**
+   * Handle guest mode login
+   * Sets guest user in localStorage and redirects to game selection
+   */
+  const handleGuestMode = (): void => {
+    try {
+      // Set guest user in localStorage
+      const guestUser = {
+        id: 'guest_' + Date.now(),
+        username: 'Guest',
+        email: null,
+        isGuest: true,
+        created_at: new Date().toISOString()
+      };
+
+      // Use existing auth utilities to set localStorage
+      import("../../utils/client/authStatus").then(({ setLocalStorage }) => {
+        setLocalStorage("auth_status", "guest");
+        setLocalStorage("user", JSON.stringify(guestUser));
+        
+        // Trigger login event for UI updates
+        window.dispatchEvent(new CustomEvent("auth:guest-login"));
+        
+        // Smart handling - don't redirect unless absolutely necessary
+        const currentPath = window.location.pathname;
+        const currentLang = document.documentElement.lang || "de";
+        
+        // Check if there's a returnTo parameter in URL or sessionStorage
+        const urlParams = new URLSearchParams(window.location.search);
+        const returnTo = urlParams.get('returnTo') || sessionStorage.getItem('returnTo');
+        
+        if (returnTo) {
+          // Clear returnTo from sessionStorage and redirect
+          sessionStorage.removeItem('returnTo');
+          window.location.href = returnTo;
+        } else if (currentPath.includes('/auth/login')) {
+          // Only redirect if we're on a dedicated login page
+          window.location.href = `/${currentLang}/`;
+        } else {
+          // For embedded auth forms (like on game pages), just update the UI
+          console.log('🎮 Guest login: Updating UI without redirect');
+          
+          // Close any auth modals/overlays
+          const authModal = document.querySelector('.auth-modal, .auth-overlay, .auth-form-container');
+          if (authModal) {
+            // Try different ways to close/hide the auth form
+            if (authModal.style) {
+              authModal.style.display = 'none';
+            }
+            authModal.classList?.add('hidden');
+            
+            // Look for close buttons and trigger them
+            const closeBtn = authModal.querySelector('[data-closes], .close, .modal-close');
+            if (closeBtn && typeof closeBtn.click === 'function') {
+              closeBtn.click();
+            }
+          }
+          
+          // Update any auth-dependent UI elements immediately
+          setTimeout(() => {
+            // Trigger auth status update events
+            window.dispatchEvent(new CustomEvent("auth:ui-update"));
+            window.dispatchEvent(new CustomEvent("storage", {
+              detail: { key: "auth_status", newValue: "guest" }
+            }));
+          }, 100);
+        }
+      });
+
+    } catch (error) {
+      console.error("Error setting up guest mode:", error);
+      
+      // Show error message
+      const errorEl = document.getElementById("formError");
+      if (errorEl) {
+        errorEl.textContent = "Fehler beim Einrichten des Gastmodus";
+        errorEl.style.display = "block";
+      }
+    }
   };
 
   // Performance: Optimized initialization
@@ -621,6 +755,165 @@ const t = useTranslations(lang);
       border-bottom: var(--border-width-thin) solid var(--border-secondary);
     }
 
+    &__guest-section {
+      margin-bottom: var(--space-xl);
+      padding: var(--space-lg) 0;
+    }
+
+    &__guest-divider {
+      position: relative;
+      text-align: center;
+      margin-bottom: var(--space-lg);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: var(--border-width-thin);
+        background: var(--border-secondary);
+        z-index: 1;
+      }
+
+      &-text {
+        position: relative;
+        z-index: 2;
+        background: var(--bg-secondary);
+        padding: 0 var(--space-md);
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        font-weight: var(--font-medium);
+      }
+    }
+
+    &__guest-content {
+      text-align: center;
+    }
+
+    &__guest-button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      user-select: none;
+
+      width: var(--width-full);
+      min-height: var(--touch-target-enhanced);
+
+      gap: clamp(var(--space-sm), 3vw, var(--space-md));
+      padding: clamp(var(--space-md), 4vw, var(--space-lg))
+        clamp(var(--space-lg), 5vw, var(--space-xl));
+      margin-bottom: var(--space-md);
+
+      background: var(--color-neutral-600);
+      color: var(--color-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+
+      font-size: clamp(var(--text-base), 3vw, var(--text-lg));
+      font-weight: var(--font-semibold);
+      line-height: var(--leading-normal);
+      letter-spacing: var(--letter-spacing-base);
+
+      // Performance optimizations
+      contain: layout style paint;
+      content-visibility: auto;
+      contain-intrinsic-size: var(--container-intrinsic-height-component);
+      transform: translateZ(0);
+      will-change: transform, background-color, box-shadow;
+
+      transition:
+        background-color var(--transition-normal),
+        box-shadow var(--transition-normal),
+        transform var(--transition-fast);
+
+      // Container query support
+      container-type: inline-size;
+      container-name: auth-guest-button;
+
+      &:hover:not(:disabled) {
+        background: var(--color-neutral-500);
+        transform: translateY(calc(-1 * var(--space-xs))) translateZ(0);
+        box-shadow: var(--shadow-lg);
+      }
+
+      &:focus-visible {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
+        background: var(--color-neutral-500);
+        box-shadow: var(--shadow-lg), var(--focus-ring);
+      }
+
+      &:active:not(:disabled) {
+        transform: translateY(0) translateZ(0);
+        background: var(--color-neutral-700);
+        box-shadow: var(--shadow-sm);
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        opacity: var(--opacity-disabled);
+        transform: none;
+        background: var(--color-neutral-300);
+      }
+    }
+
+    &__guest-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: currentColor;
+      flex-shrink: 0;
+    }
+
+    &__guest-description {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+      line-height: var(--leading-relaxed);
+    }
+
+    &__guest-benefits {
+      text-align: left;
+      background: var(--color-info-50);
+      border: var(--border-width-thin) solid var(--color-info-200);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+
+      &-title {
+        font-size: var(--text-sm);
+        font-weight: var(--font-semibold);
+        color: var(--color-info-800);
+        margin-bottom: var(--space-md);
+      }
+
+      &-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
+    }
+
+    &__guest-benefit {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: var(--text-sm);
+      color: var(--color-info-700);
+
+      &-icon {
+        width: 1rem;
+        height: 1rem;
+        color: var(--color-info-600);
+        flex-shrink: 0;
+      }
+    }
+
     &__form {
       display: none;
       opacity: var(--animation-opacity-start);
@@ -705,7 +998,8 @@ const t = useTranslations(lang);
       &__tab,
       &__forgot-password,
       &__progress-fill,
-      &__indicator {
+      &__indicator,
+      &__guest-button {
         transition: var(--transition-instant);
         transform: none;
         animation: none;
@@ -713,6 +1007,13 @@ const t = useTranslations(lang);
       }
 
       &__tab {
+        &:hover,
+        &:active {
+          transform: none;
+        }
+      }
+
+      &__guest-button {
         &:hover,
         &:active {
           transform: none;
@@ -735,6 +1036,13 @@ const t = useTranslations(lang);
 
       &__forms-container {
         padding: var(--space-lg);
+      }
+
+      &__guest-button {
+        min-height: var(--touch-target-enhanced);
+        font-size: var(--text-sm);
+        padding: var(--space-md) var(--space-lg);
+        gap: var(--space-sm);
       }
 
       &__progress {
@@ -806,6 +1114,18 @@ const t = useTranslations(lang);
 
       &__indicator--completed {
         border: var(--border-width-thin) solid var(--color-success-600);
+      }
+
+      &__guest-button {
+        border: var(--border-width-thick) solid var(--border-primary);
+        background: var(--color-neutral-800);
+        color: var(--color-white);
+
+        &:hover:not(:disabled),
+        &:focus-visible {
+          background: var(--color-neutral-700);
+          border-color: var(--interactive-primary);
+        }
       }
     }
 

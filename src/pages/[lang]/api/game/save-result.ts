@@ -340,7 +340,7 @@ export const POST: APIRoute = async ({ request, params }) => {
     const gameMode: GameMode = referer.includes("/game-") ? "quiz" : "chronology";
 
     // Skip saving for guest users (not authenticated)
-    if (data.userId === "guest") {
+    if (data.userId === "guest" || data.userId.startsWith("guest_")) {
       console.warn("Guest user detected, skipping database save");
 
       // Return a successful response without actually saving to database
