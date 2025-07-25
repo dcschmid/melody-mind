@@ -87,7 +87,14 @@ console.log("Chronology page - category:", category);
 console.log("Chronology page - difficulty:", difficulty);
 
 // 3. Authentifizierung prüfen
-const authResult = await requireAuth(Astro.request);
+// Check if Astro.request is available (for SSR compatibility)
+let authResult: { authenticated: boolean; user?: { id: string; email: string } } = {
+  authenticated: false,
+  user: undefined,
+};
+if (Astro.request) {
+  authResult = await requireAuth(Astro.request);
+}
 const user = { id: authResult.user?.id || "guest" };
 
 // 4. Meta-Daten für SEO

@@ -1619,6 +1619,436 @@
     "artist": "Destiny's Child",
     "genre": "R&B/Pop"
   },
+  "06-11": {
+    "id": "shia-labeouf-born",
+    "date": "06-11",
+    "title": "Born: Shia LaBeouf (Music in Film & Pop Culture)",
+    "description": "On June 11, 1986, Shia LaBeouf was born in Los Angeles, California. While best known as an actor, LaBeouf has appeared in music videos for artists like Sia and has influenced pop culture through collaborations. His performances in visually rich music projects have blended film and music worlds. LaBeouf's creative choices often spark conversation about the intersection of art, music, and celebrity. His impact extends beyond cinema to music and multimedia projects.",
+    "category": "birth",
+    "year": 1986,
+    "artist": "Shia LaBeouf (Film/Music)",
+    "genre": "Pop Culture/Soundtrack"
+  },
+  "06-12": {
+    "id": "alicia-keys-if-i-aint-got-you-release",
+    "date": "06-12",
+    "title": "Alicia Keys releases \"If I Ain't Got You\"",
+    "description": "On June 12, 2004, Alicia Keys released \"If I Ain't Got You,\" a soulful ballad from her album \"The Diary of Alicia Keys.\" The song's heartfelt lyrics and stirring piano performance resonated worldwide. It became one of Keys's signature hits, earning a Grammy nomination and heavy radio rotation. \"If I Ain't Got You\" is now considered a modern classic in R&B. Keys's emotional delivery continues to inspire musicians and fans.",
+    "category": "release",
+    "year": 2004,
+    "artist": "Alicia Keys",
+    "genre": "R&B/Soul"
+  },
+  "06-13": {
+    "id": "kings-of-leon-formation",
+    "date": "06-13",
+    "title": "Formation of Kings of Leon",
+    "description": "On June 13, 1999, Kings of Leon formed in Nashville, Tennessee. The band, made up of brothers and a cousin, brought Southern rock and garage influences into the 2000s indie scene. Their breakthrough came with hits like \"Sex on Fire\" and \"Use Somebody,\" which won them international acclaim and Grammy Awards. Kings of Leon's raw sound and energetic live shows earned them a dedicated following. They remain a staple of rock festivals and alternative charts.",
+    "category": "formation",
+    "year": 1999,
+    "artist": "Kings of Leon",
+    "genre": "Rock/Alternative/Southern Rock"
+  },
+  "06-14": {
+    "id": "david-bowie-space-oddity-release",
+    "date": "06-14",
+    "title": "David Bowie releases \"Space Oddity\"",
+    "description": "On June 14, 1969, David Bowie released \"Space Oddity,\" introducing the world to the character Major Tom. The song's haunting melody and innovative production captured the spirit of the space age. \"Space Oddity\" marked Bowie's first major success and set the stage for his legendary, ever-changing career. The track remains a symbol of musical experimentation and imagination. Bowie's legacy as an innovator began with this iconic single.",
+    "category": "release",
+    "year": 1969,
+    "artist": "David Bowie",
+    "genre": "Rock/Glam/Experimental"
+  },
+  "06-15": {
+    "id": "ice-cube-born",
+    "date": "06-15",
+    "title": "Born: Ice Cube",
+    "description": "On June 15, 1969, O'Shea Jackson—known as Ice Cube—was born in Los Angeles, California. As a founding member of N.W.A., Ice Cube helped pioneer gangsta rap and gave voice to social realities in America. His solo work further cemented his reputation as a fearless storyteller and cultural commentator. Beyond music, Ice Cube became a successful actor, writer, and producer. He remains one of hip-hop's most respected and influential figures.",
+    "category": "birth",
+    "year": 1969,
+    "artist": "Ice Cube",
+    "genre": "Hip-Hop/Rap"
+  },
+  "06-16": {
+    "id": "tupac-shakur-all-eyez-on-me-release",
+    "date": "06-16",
+    "title": "Tupac Shakur releases \"All Eyez on Me\"",
+    "description": "On June 16, 1996, Tupac Shakur released \"All Eyez on Me,\" his first double album and a landmark in hip-hop. The record's raw lyrics, autobiographical storytelling, and West Coast beats made it a commercial and critical triumph. Featuring hits like \"California Love\" and \"How Do U Want It,\" the album defined 1990s rap. Tupac's complex persona and activism continue to spark debate and admiration. \"All Eyez on Me\" is hailed as a classic of the genre.",
+    "category": "release",
+    "year": 1996,
+    "artist": "Tupac Shakur",
+    "genre": "Hip-Hop/Rap"
+  },
+  "06-17": {
+    "id": "bonnaroo-music-arts-festival-first-edition",
+    "date": "06-17",
+    "title": "Event: Bonnaroo Music & Arts Festival—first edition",
+    "description": "On June 17, 2002, the Bonnaroo Music & Arts Festival kicked off its inaugural edition in Manchester, Tennessee. The multi-day event quickly gained fame for its eclectic lineups, ranging from rock and hip-hop to jazz and electronic. Bonnaroo's laid-back, community-focused atmosphere draws tens of thousands of fans each year. The festival has hosted legendary acts and groundbreaking collaborations. Bonnaroo remains a highlight of the global festival calendar.",
+    "category": "event",
+    "year": 2002,
+    "artist": "Various Artists",
+    "genre": "All Genres"
+  },
+  "06-18": {
+    "id": "paul-mccartney-born",
+    "date": "06-18",
+    "title": "Born: Paul McCartney",
+    "description": "On June 18, 1942, Paul McCartney was born in Liverpool, England. As a member of The Beatles and a prolific solo artist, McCartney's songwriting shaped the sound of modern music. His melodic genius, versatility, and collaborative spirit have produced countless classics. From \"Yesterday\" to \"Band on the Run,\" McCartney's influence crosses generations and genres. He is regarded as one of the most successful musicians of all time.",
+    "category": "birth",
+    "year": 1942,
+    "artist": "Paul McCartney/The Beatles",
+    "genre": "Rock/Pop"
+  },
+  "06-19": {
+    "id": "jay-z-blueprint-release",
+    "date": "06-19",
+    "title": "Jay-Z releases \"The Blueprint\"",
+    "description": "On June 19, 2001, Jay-Z released \"The Blueprint,\" a landmark album in hip-hop production and lyricism. Working with producers like Kanye West and Just Blaze, Jay-Z blended soulful samples with clever, autobiographical lyrics. The album's influence can be heard in countless rap records that followed. \"The Blueprint\" solidified Jay-Z's status as a top-tier rapper and entrepreneur. Its tracks remain staples in the hip-hop canon.",
+    "category": "release",
+    "year": 2001,
+    "artist": "Jay-Z",
+    "genre": "Hip-Hop/Rap"
+  },
+  "06-20": {
+    "id": "lionel-richie-born",
+    "date": "06-20",
+    "title": "Born: Lionel Richie",
+    "description": "On June 20, 1949, Lionel Richie was born in Tuskegee, Alabama. Starting out with the Commodores and then as a solo artist, Richie created timeless hits blending soul, pop, and R&B. His smooth vocals and heartfelt ballads like \"Hello\" and \"Endless Love\" made him a global superstar. Richie's songwriting helped define the sound of the 1980s. His music continues to be celebrated by new generations around the world.",
+    "category": "birth",
+    "year": 1949,
+    "artist": "Lionel Richie/Commodores",
+    "genre": "Soul/Pop/R&B"
+  },
+  "06-21": {
+    "id": "fete-de-la-musique-world-music-day",
+    "date": "06-21",
+    "title": "Event: Fête de la Musique (World Music Day)",
+    "description": "On June 21, musicians and music lovers celebrate Fête de la Musique, or World Music Day, in over 120 countries. Streets, parks, and public spaces fill with free concerts and performances of every genre. The event began in France in 1982 and has since become a global phenomenon, encouraging both amateurs and professionals to share their passion. World Music Day fosters cultural exchange, creativity, and community spirit. It's a joyful celebration of the universal language of music.",
+    "category": "event",
+    "year": 0,
+    "artist": "Various Artists",
+    "genre": "All Genres"
+  },
+  "06-22": {
+    "id": "whitney-houston-i-wanna-dance-with-somebody-release",
+    "date": "06-22",
+    "title": "Whitney Houston releases \"I Wanna Dance with Somebody\"",
+    "description": "On June 22, 1987, Whitney Houston released \"I Wanna Dance with Somebody (Who Loves Me).\" The song's exuberant energy and Houston's powerhouse vocals made it an instant dance-pop classic. The track topped charts worldwide and won a Grammy for Best Female Pop Vocal Performance. \"I Wanna Dance with Somebody\" remains a staple at parties and celebrations everywhere. Houston's voice and charisma continue to inspire new generations of artists.",
+    "category": "release",
+    "year": 1987,
+    "artist": "Whitney Houston",
+    "genre": "Pop/Dance"
+  },
+  "06-23": {
+    "id": "jason-mraz-born",
+    "date": "06-23",
+    "title": "Born: Jason Mraz",
+    "description": "On June 23, 1977, Jason Mraz was born in Mechanicsville, Virginia. With his laid-back style and optimistic lyrics, Mraz gained fame with hits like \"I'm Yours\" and \"Lucky.\" His fusion of pop, folk, and reggae creates a feel-good sound beloved by fans worldwide. Mraz's music often explores themes of love, hope, and gratitude. He is celebrated for his live performances and positive influence on contemporary pop.",
+    "category": "birth",
+    "year": 1977,
+    "artist": "Jason Mraz",
+    "genre": "Pop/Folk/Reggae"
+  },
+  "06-24": {
+    "id": "solange-seat-at-the-table-release",
+    "date": "06-24",
+    "title": "Solange releases \"A Seat at the Table\"",
+    "description": "On June 24, 2016, Solange Knowles released \"A Seat at the Table,\" an album that explored identity, empowerment, and Black womanhood. With a mix of neo-soul, R&B, and experimental sounds, Solange received critical acclaim for her artistry and honesty. Tracks like \"Cranes in the Sky\" became modern classics. The album's visual and musical storytelling sparked important cultural conversations. Solange established herself as a bold, innovative voice in contemporary music.",
+    "category": "release",
+    "year": 2016,
+    "artist": "Solange",
+    "genre": "R&B/Neo-Soul/Alternative"
+  },
+  "06-25": {
+    "id": "george-michael-born",
+    "date": "06-25",
+    "title": "Born: George Michael",
+    "description": "On June 25, 1963, George Michael was born in London, England. As a member of Wham! and later a solo artist, Michael's soulful voice and pop sensibility produced hits like \"Careless Whisper\" and \"Faith.\" He became an icon for his musical talent and advocacy for LGBTQ+ rights. Michael's blend of pop, soul, and dance music left a lasting legacy. His influence is still felt in modern pop and R&B.",
+    "category": "birth",
+    "year": 1963,
+    "artist": "George Michael/Wham!",
+    "genre": "Pop/Soul/Dance"
+  },
+  "06-26": {
+    "id": "dave-matthews-band-formation",
+    "date": "06-26",
+    "title": "Formation of The Dave Matthews Band",
+    "description": "On June 26, 1991, The Dave Matthews Band was formed in Charlottesville, Virginia. Fusing rock, jazz, and folk, the band quickly built a loyal following with energetic live shows and improvisational style. Their debut album \"Under the Table and Dreaming\" launched them to national fame. The group's mix of intricate musicianship and heartfelt lyrics set them apart. The Dave Matthews Band remains a favorite on the festival circuit and among jam band fans.",
+    "category": "formation",
+    "year": 1991,
+    "artist": "Dave Matthews Band",
+    "genre": "Rock/Jazz/Folk/Jam Band"
+  },
+  "06-27": {
+    "id": "michael-jackson-bad-release",
+    "date": "06-27",
+    "title": "Michael Jackson releases \"Bad\"",
+    "description": "On June 27, 1987, Michael Jackson released \"Bad,\" his highly anticipated follow-up to \"Thriller.\" The album produced five consecutive number-one singles in the U.S., including \"Man in the Mirror\" and \"Smooth Criminal.\" Jackson's innovative videos and dynamic performances set new standards for pop stardom. \"Bad\" cemented his legacy as the \"King of Pop.\" Its influence can be seen in artists across genres to this day.",
+    "category": "release",
+    "year": 1987,
+    "artist": "Michael Jackson",
+    "genre": "Pop/Funk/R&B"
+  },
+  "06-28": {
+    "id": "kathy-bates-born",
+    "date": "06-28",
+    "title": "Born: Kathy Bates (Music in Film & Culture)",
+    "description": "On June 28, 1948, Kathy Bates was born in Memphis, Tennessee. Best known as an Oscar-winning actress, Bates's work includes memorable roles in musical films like \"Annie\" and \"Titanic.\" Her performances and collaborations with composers have enriched both the film and music worlds. Bates's contributions to stage and screen highlight the interplay between storytelling, acting, and song. She remains an influential figure in the cultural landscape.",
+    "category": "birth",
+    "year": 1948,
+    "artist": "Kathy Bates (Film/Music)",
+    "genre": "Soundtrack/Pop Culture"
+  },
+  "06-29": {
+    "id": "florence-machine-lungs-release",
+    "date": "06-29",
+    "title": "Florence + The Machine release \"Lungs\"",
+    "description": "On June 29, 2009, Florence + The Machine released their debut album \"Lungs.\" The album's fusion of indie rock, baroque pop, and soul, anchored by Florence Welch's powerful vocals, earned widespread critical acclaim. Songs like \"Dog Days Are Over\" and \"Cosmic Love\" became festival favorites. \"Lungs\" set the stage for the band's continued success and influence on the alternative music scene. Florence's theatrical performances continue to captivate audiences worldwide.",
+    "category": "release",
+    "year": 2009,
+    "artist": "Florence + The Machine",
+    "genre": "Indie Rock/Pop/Soul"
+  },
+  "06-30": {
+    "id": "postal-service-formation",
+    "date": "06-30",
+    "title": "Formation of The Postal Service",
+    "description": "On June 30, 2001, The Postal Service was formed as a side project between Ben Gibbard of Death Cab for Cutie and Jimmy Tamborello. Their only album, \"Give Up,\" mixed indie pop with electronic beats, gaining cult status and influencing a wave of electro-pop artists. Songs like \"Such Great Heights\" remain beloved staples of early 2000s indie playlists. The Postal Service's success showed the power of musical collaboration across genres and distance. The group's legacy endures despite their brief run.",
+    "category": "formation",
+    "year": 2001,
+    "artist": "The Postal Service",
+    "genre": "Indie Pop/Electronic"
+  },
+  "07-01": {
+    "id": "missy-elliott-get-ur-freak-on-release",
+    "date": "07-01",
+    "title": "Missy Elliott releases \"Get Ur Freak On\"",
+    "description": "On July 1, 2001, Missy Elliott released \"Get Ur Freak On,\" a groundbreaking single that fused hip-hop with South Asian influences. The track's innovative beats, playful lyrics, and bold production set new standards for rap and pop music. Its music video, full of futuristic and surreal visuals, became iconic. \"Get Ur Freak On\" has been praised for its originality and remains a staple in clubs and on playlists worldwide. Missy Elliott's creativity and vision have inspired countless artists.",
+    "category": "release",
+    "year": 2001,
+    "artist": "Missy Elliott",
+    "genre": "Hip-Hop/Rap"
+  },
+  "07-02": {
+    "id": "live-8-global-concerts",
+    "date": "07-02",
+    "title": "Event: Live 8 global concerts",
+    "description": "On July 2, 2005, Live 8 concerts were held simultaneously in cities across the globe to raise awareness about poverty and urge G8 leaders to take action. Featuring stars like U2, Madonna, and Pink Floyd's reunion, Live 8 reached billions via broadcast. The event built on the legacy of Live Aid, combining music and activism on an unprecedented scale. Performances and messages united people around a common humanitarian cause. Live 8 remains a milestone in music's power to drive social change.",
+    "category": "event",
+    "year": 2005,
+    "artist": "Various Artists",
+    "genre": "All Genres"
+  },
+  "07-03": {
+    "id": "franz-kafka-born",
+    "date": "07-03",
+    "title": "Born: Franz Kafka (Music & Culture)",
+    "description": "On July 3, 1883, Franz Kafka was born in Prague. While best known as a writer, Kafka's works have inspired operas, musicals, and songs in many languages. From Philip Glass's chamber opera to countless indie and rock tributes, Kafka's surreal tales have had a broad cultural impact. His exploration of alienation and modernity continues to influence songwriters and composers. Kafka's legacy lives on not only in literature but also in music and the arts.",
+    "category": "birth",
+    "year": 1883,
+    "artist": "Franz Kafka (influence on music)",
+    "genre": "Soundtrack/Pop Culture"
+  },
+  "07-04": {
+    "id": "bruce-springsteen-born-in-the-usa-release",
+    "date": "07-04",
+    "title": "Bruce Springsteen releases \"Born in the U.S.A.\"",
+    "description": "On July 4, 1984, Bruce Springsteen released \"Born in the U.S.A.,\" an album that captured the spirit and struggles of American life. Its anthemic title track, along with hits like \"Dancing in the Dark,\" made Springsteen a household name worldwide. The album's blend of heartland rock and socially conscious lyrics struck a chord across generations. \"Born in the U.S.A.\" sold over 30 million copies and influenced rock, pop, and even political campaigns. Springsteen's storytelling continues to define American music.",
+    "category": "release",
+    "year": 1984,
+    "artist": "Bruce Springsteen",
+    "genre": "Rock/Heartland Rock"
+  },
+  "07-05": {
+    "id": "huey-lewis-and-the-news-formation",
+    "date": "07-05",
+    "title": "Formation of Huey Lewis and the News",
+    "description": "On July 5, 1979, Huey Lewis and the News formed in San Francisco. The band's upbeat blend of rock, soul, and pop produced timeless hits like \"The Power of Love\" and \"Hip to Be Square.\" Their catchy hooks and energetic performances made them a staple of 1980s radio and soundtracks. Huey Lewis and the News helped shape the sound of the decade with their fun, approachable style. The band remains a favorite for fans of feel-good classic rock.",
+    "category": "formation",
+    "year": 1979,
+    "artist": "Huey Lewis and the News",
+    "genre": "Rock/Pop/Soul"
+  },
+  "07-06": {
+    "id": "50-cent-born",
+    "date": "07-06",
+    "title": "Born: 50 Cent (Curtis Jackson)",
+    "description": "On July 6, 1975, Curtis Jackson—better known as 50 Cent—was born in Queens, New York. Rising from adversity, 50 Cent became a dominant force in hip-hop with his debut album \"Get Rich or Die Tryin'.\" Hits like \"In Da Club\" and \"21 Questions\" propelled him to international fame. His business ventures and acting career have expanded his influence beyond music. 50 Cent's story and sound remain iconic in rap history.",
+    "category": "birth",
+    "year": 1975,
+    "artist": "50 Cent",
+    "genre": "Hip-Hop/Rap"
+  },
+  "07-07": {
+    "id": "shania-twain-come-on-over-release",
+    "date": "07-07",
+    "title": "Shania Twain releases \"Come On Over\"",
+    "description": "On July 7, 1997, Shania Twain released \"Come On Over,\" an album that blended country with pop and rock elements. With hits like \"Man! I Feel Like a Woman!\" and \"You're Still the One,\" the record became the best-selling studio album by a female artist. Twain's crossover appeal brought country music to new international audiences. Her confident image and catchy songwriting helped redefine the genre. \"Come On Over\" remains a milestone in country-pop history.",
+    "category": "release",
+    "year": 1997,
+    "artist": "Shania Twain",
+    "genre": "Country/Pop/Rock"
+  },
+  "07-08": {
+    "id": "bastille-formation",
+    "date": "07-08",
+    "title": "Formation of Bastille",
+    "description": "On July 8, 2010, Bastille was formed in London, England. The band gained international recognition with their debut album \"Bad Blood,\" featuring the hit single \"Pompeii.\" Their unique blend of indie pop, alternative rock, and electronic sounds resonated with a wide audience. Bastille's cinematic style and anthemic choruses continue to captivate festival crowds. They remain at the forefront of modern British alternative music.",
+    "category": "formation",
+    "year": 2010,
+    "artist": "Bastille",
+    "genre": "Indie Pop/Alternative/Electronic"
+  },
+  "07-09": {
+    "id": "lauryn-hill-doo-wop-that-thing-release",
+    "date": "07-09",
+    "title": "Lauryn Hill releases \"Doo Wop (That Thing)\"",
+    "description": "On July 9, 1998, Lauryn Hill released \"Doo Wop (That Thing),\" a single that showcased her ability to blend soulful melodies with hip-hop rhythms and sharp social commentary. The track debuted at number one on the Billboard Hot 100, a rare feat for a debut solo single. \"Doo Wop\" became an anthem for empowerment and authenticity. Hill's artistry on the track earned her widespread acclaim and multiple Grammy Awards. The song's influence endures in hip-hop and R&B today.",
+    "category": "release",
+    "year": 1998,
+    "artist": "Lauryn Hill",
+    "genre": "Hip-Hop/Soul/R&B"
+  },
+  "07-10": {
+    "id": "jessica-simpson-born",
+    "date": "07-10",
+    "title": "Born: Jessica Simpson",
+    "description": "On July 10, 1980, Jessica Simpson was born in Abilene, Texas. Rising to fame in the late 1990s, Simpson became a pop sensation with her powerhouse vocals and relatable persona. Her debut album \"Sweet Kisses\" spawned hits like \"I Wanna Love You Forever.\" Simpson's reality TV appearances further cemented her status as a pop culture icon. She continues to influence music, television, and fashion.",
+    "category": "birth",
+    "year": 1980,
+    "artist": "Jessica Simpson",
+    "genre": "Pop/R&B/Country"
+  },
+  "07-11": {
+    "id": "daft-punk-discovery-release",
+    "date": "07-11",
+    "title": "Daft Punk releases \"Discovery\"",
+    "description": "On July 11, 2001, Daft Punk released \"Discovery,\" an album that transformed electronic dance music worldwide. With hits like \"One More Time\" and \"Harder, Better, Faster, Stronger,\" the record blended house, disco, and rock influences. Its futuristic sound and visual storytelling set a new standard for concept albums. \"Discovery\" inspired countless artists and helped bring electronic music into the mainstream. Daft Punk's creativity redefined the possibilities of modern pop and dance.",
+    "category": "release",
+    "year": 2001,
+    "artist": "Daft Punk",
+    "genre": "Electronic/House/Pop"
+  },
+  "07-12": {
+    "id": "christine-mcvie-born",
+    "date": "07-12",
+    "title": "Born: Christine McVie (Fleetwood Mac)",
+    "description": "On July 12, 1943, Christine McVie was born in Bouth, England. As a songwriter, vocalist, and keyboardist for Fleetwood Mac, McVie contributed to classics like \"Songbird,\" \"Everywhere,\" and \"Little Lies.\" Her warm voice and melodic sensibility played a key role in the band's enduring appeal. McVie's artistry helped bridge pop, rock, and blues influences. She is remembered as one of the most beloved figures in British-American music.",
+    "category": "birth",
+    "year": 1943,
+    "artist": "Christine McVie/Fleetwood Mac",
+    "genre": "Rock/Pop/Blues"
+  },
+  "07-13": {
+    "id": "live-aid-benefit-concerts",
+    "date": "07-13",
+    "title": "Event: Live Aid benefit concerts",
+    "description": "On July 13, 1985, Live Aid concerts were held in London and Philadelphia to raise funds for Ethiopian famine relief. The historic event featured performances by Queen, U2, David Bowie, and more, broadcast live to over a billion viewers. Live Aid's powerful mix of music and activism set a precedent for future benefit concerts. Iconic performances—like Queen's legendary set—are still celebrated today. The event proved music's power to inspire global action and unity.",
+    "category": "event",
+    "year": 1985,
+    "artist": "Various Artists",
+    "genre": "Rock/Pop/All Genres"
+  },
+  "07-14": {
+    "id": "bastille-bad-blood-release",
+    "date": "07-14",
+    "title": "Bastille releases \"Bad Blood\"",
+    "description": "On July 14, 2013, Bastille released their debut album \"Bad Blood,\" which quickly achieved global success. Featuring the anthem \"Pompeii,\" the album combined indie pop, electronic, and rock influences with cinematic storytelling. Bastille's sound was both fresh and accessible, earning them a devoted international fanbase. \"Bad Blood\" helped define the early 2010s indie pop movement. The record's atmospheric production and heartfelt lyrics still resonate with listeners.",
+    "category": "release",
+    "year": 2013,
+    "artist": "Bastille",
+    "genre": "Indie Pop/Alternative/Electronic"
+  },
+  "07-15": {
+    "id": "linda-ronstadt-born",
+    "date": "07-15",
+    "title": "Born: Linda Ronstadt",
+    "description": "On July 15, 1946, Linda Ronstadt was born in Tucson, Arizona. Her powerful voice and genre-spanning career made her one of America's most versatile singers. From country and rock to Mexican folk and jazz, Ronstadt's work has earned her ten Grammy Awards and global acclaim. Hits like \"You're No Good\" and \"Blue Bayou\" remain radio staples. She is celebrated as a trailblazer for women in music and a champion of cultural diversity.",
+    "category": "birth",
+    "year": 1946,
+    "artist": "Linda Ronstadt",
+    "genre": "Rock/Country/Pop/Folk"
+  },
+  "07-16": {
+    "id": "billie-eilish-when-we-all-fall-asleep-release",
+    "date": "07-16",
+    "title": "Billie Eilish releases \"When We All Fall Asleep, Where Do We Go?\"",
+    "description": "On July 16, 2019, Billie Eilish released her debut album \"When We All Fall Asleep, Where Do We Go?\" The record's minimalist production, haunting melodies, and introspective lyrics redefined pop for a new generation. Singles like \"bad guy\" and \"bury a friend\" became international hits, earning Eilish multiple Grammy Awards. Her unique style and DIY approach have inspired young artists worldwide. Eilish's breakthrough proved that vulnerability and innovation can captivate the mainstream.",
+    "category": "release",
+    "year": 2019,
+    "artist": "Billie Eilish",
+    "genre": "Pop/Electronic/Alternative"
+  },
+  "07-17": {
+    "id": "who-formation",
+    "date": "07-17",
+    "title": "Formation of The Who",
+    "description": "On July 17, 1964, The Who formed in London, pioneering the British rock explosion of the 1960s. Known for their explosive live shows, windmill guitar moves, and anthems like \"My Generation\" and \"Baba O'Riley,\" The Who became legends. Their influence spans punk, hard rock, and even opera with works like \"Tommy.\" The band's innovation in both sound and stagecraft set new standards for rock performance. The Who's legacy continues to shape music decades later.",
+    "category": "formation",
+    "year": 1964,
+    "artist": "The Who",
+    "genre": "Rock/Hard Rock/Classic Rock"
+  },
+  "07-18": {
+    "id": "nirvana-in-utero-release",
+    "date": "07-18",
+    "title": "Nirvana releases \"In Utero\"",
+    "description": "On July 18, 1993, Nirvana released \"In Utero,\" their third and final studio album. Produced by Steve Albini, the record returned to the band's raw, unpolished roots while tackling heavy themes of fame and alienation. Songs like \"Heart-Shaped Box\" and \"All Apologies\" showcased Kurt Cobain's lyrical depth and emotional intensity. \"In Utero\" received critical acclaim and cemented Nirvana's place in rock history. The album is remembered as a bold, uncompromising farewell.",
+    "category": "release",
+    "year": 1993,
+    "artist": "Nirvana",
+    "genre": "Grunge/Alternative Rock"
+  },
+  "07-19": {
+    "id": "brian-may-born",
+    "date": "07-19",
+    "title": "Born: Brian May (Queen)",
+    "description": "On July 19, 1947, Brian May was born in London, England. As the lead guitarist of Queen, May's distinctive sound and innovative solos have made him one of rock's greatest musicians. His work on classics like \"Bohemian Rhapsody,\" \"We Will Rock You,\" and \"Somebody to Love\" helped define Queen's legacy. Beyond music, May is an astrophysicist and animal rights advocate. His artistry continues to inspire guitarists and fans around the world.",
+    "category": "birth",
+    "year": 1947,
+    "artist": "Brian May/Queen",
+    "genre": "Rock/Classic Rock"
+  },
+  "07-20": {
+    "id": "amy-winehouse-back-to-black-release",
+    "date": "07-20",
+    "title": "Amy Winehouse releases \"Back to Black\"",
+    "description": "On July 20, 2006, Amy Winehouse released \"Back to Black,\" an album that revived interest in soul, jazz, and Motown sounds for a new generation. Winehouse's deeply personal lyrics and unique voice won universal acclaim, earning five Grammy Awards. The album's singles, including \"Rehab\" and the title track, remain modern classics. \"Back to Black\" influenced countless artists and reshaped pop and R&B. Winehouse's artistry and tragic story continue to resonate worldwide.",
+    "category": "release",
+    "year": 2006,
+    "artist": "Amy Winehouse",
+    "genre": "Soul/Jazz/R&B/Pop"
+  },
+  "07-21": {
+    "id": "gorillaz-formation",
+    "date": "07-21",
+    "title": "Formation of Gorillaz",
+    "description": "On July 21, 1998, the virtual band Gorillaz was formed by musician Damon Albarn and artist Jamie Hewlett. Fusing alternative rock, hip-hop, and electronic music with animated visuals, Gorillaz redefined what a band could be. Their debut album introduced characters like 2-D and Murdoc, and tracks such as \"Clint Eastwood\" became instant hits. Gorillaz's genre-blending sound and multimedia artistry inspired a new wave of creative collaborations. The project remains one of the most innovative acts in modern music.",
+    "category": "formation",
+    "year": 1998,
+    "artist": "Gorillaz",
+    "genre": "Alternative/Electronic/Hip-Hop"
+  },
+  "07-22": {
+    "id": "selena-gomez-revival-release",
+    "date": "07-22",
+    "title": "Selena Gomez releases \"Revival\"",
+    "description": "On July 22, 2015, Selena Gomez released her album \"Revival,\" marking a new chapter in her career with a more mature sound and personal lyrics. The record's mix of pop, dance, and R&B produced hits like \"Good for You\" and \"Hands to Myself.\" Gomez's vulnerability and confidence resonated with fans and critics alike. \"Revival\" showcased her growth as both an artist and a public figure. The album's success cemented Gomez's place in contemporary pop music.",
+    "category": "release",
+    "year": 2015,
+    "artist": "Selena Gomez",
+    "genre": "Pop/R&B/Dance"
+  },
+  "07-23": {
+    "id": "alison-krauss-born",
+    "date": "07-23",
+    "title": "Born: Alison Krauss",
+    "description": "On July 23, 1971, Alison Krauss was born in Decatur, Illinois. A virtuoso fiddle player and singer, Krauss helped bring bluegrass into the mainstream with her band Union Station. She has won more Grammy Awards than any other female artist, recognized for her pure voice and skillful musicianship. Krauss's collaborations, from Robert Plant to James Taylor, span genres and generations. She remains a leading figure in American roots music.",
+    "category": "birth",
+    "year": 1971,
+    "artist": "Alison Krauss/Union Station",
+    "genre": "Bluegrass/Country/Folk"
+  },
   "07-24": {
     "id": "jennifer-lopez-on-the-floor-release",
     "date": "07-24",
@@ -1628,5 +2058,1505 @@
     "year": 2011,
     "artist": "Jennifer Lopez/Pitbull",
     "genre": "Dance/Latin/Pop"
+  },
+  "07-25": {
+    "id": "verve-formation",
+    "date": "07-25",
+    "title": "Formation of The Verve",
+    "description": "On July 25, 1990, The Verve formed in Wigan, England. The band became one of the defining acts of British alternative rock, best known for the anthemic \"Bitter Sweet Symphony.\" Their lush, swirling sound combined shoegaze, psychedelia, and Britpop influences. The Verve's music captured the highs and lows of 1990s British youth culture. They remain icons of the era, inspiring countless indie bands that followed.",
+    "category": "formation",
+    "year": 1990,
+    "artist": "The Verve",
+    "genre": "Alternative/Britpop/Psychedelic"
+  },
+  "07-26": {
+    "id": "destinys-child-bootylicious-release",
+    "date": "07-26",
+    "title": "Destiny's Child releases \"Bootylicious\"",
+    "description": "On July 26, 2001, Destiny's Child released \"Bootylicious,\" a single that celebrated body confidence and self-expression. The song's funky guitar riff, sampled from Stevie Nicks's \"Edge of Seventeen,\" and infectious hook made it a summer anthem. \"Bootylicious\" topped charts worldwide and further established Destiny's Child as leaders in pop and R&B. The track helped change conversations about body image in popular culture. It remains a fun and empowering party classic.",
+    "category": "release",
+    "year": 2001,
+    "artist": "Destiny's Child",
+    "genre": "Pop/R&B/Funk"
+  },
+  "07-27": {
+    "id": "norman-cook-fatboy-slim-born",
+    "date": "07-27",
+    "title": "Born: Norman Cook (Fatboy Slim)",
+    "description": "On July 27, 1963, Norman Cook—better known as Fatboy Slim—was born in Bromley, England. A pioneer of big beat and electronic music, Fatboy Slim achieved global fame with tracks like \"Praise You\" and \"The Rockafeller Skank.\" His energetic DJ sets and inventive videos helped make electronic dance music a mainstream phenomenon. Fatboy Slim's influence is still felt at clubs and festivals around the world. He remains one of the genre's most charismatic figures.",
+    "category": "birth",
+    "year": 1963,
+    "artist": "Fatboy Slim (Norman Cook)",
+    "genre": "Electronic/Big Beat/House"
+  },
+  "07-28": {
+    "id": "lana-del-rey-born-to-die-release",
+    "date": "07-28",
+    "title": "Lana Del Rey releases \"Born to Die\"",
+    "description": "On July 28, 2012, Lana Del Rey released her breakthrough album \"Born to Die\" in the U.S., after its international success earlier that year. The album's cinematic sound, melancholic lyrics, and haunting vocals created a new blueprint for alternative pop. Hits like \"Video Games\" and \"Summertime Sadness\" captivated listeners and critics. \"Born to Die\" cemented Del Rey's status as a cultural and musical icon. Her style continues to influence pop and indie artists worldwide.",
+    "category": "release",
+    "year": 2012,
+    "artist": "Lana Del Rey",
+    "genre": "Alternative Pop/Indie"
+  },
+  "07-29": {
+    "id": "earth-wind-fire-formation",
+    "date": "07-29",
+    "title": "Formation of Earth, Wind & Fire",
+    "description": "On July 29, 1970, Earth, Wind & Fire formed in Chicago, led by Maurice White. The band's innovative blend of funk, soul, jazz, and R&B produced classics like \"September\" and \"Let's Groove.\" Their spectacular live shows and uplifting songs became legendary. Earth, Wind & Fire broke barriers for Black musicians and inspired generations of artists across genres. They remain one of the most celebrated bands in music history.",
+    "category": "formation",
+    "year": 1970,
+    "artist": "Earth, Wind & Fire",
+    "genre": "Funk/Soul/R&B/Jazz"
+  },
+  "07-30": {
+    "id": "avicii-wake-me-up-release",
+    "date": "07-30",
+    "title": "Avicii releases \"Wake Me Up\"",
+    "description": "On July 30, 2013, Swedish DJ and producer Avicii released \"Wake Me Up,\" a groundbreaking track that fused electronic dance music with folk and country influences. Featuring Aloe Blacc on vocals, the song became a global anthem and topped charts in over 20 countries. \"Wake Me Up\" expanded the possibilities for EDM and introduced a new sound to mainstream radio. Avicii's work continues to shape electronic music after his untimely passing. The song remains a festival and club favorite worldwide.",
+    "category": "release",
+    "year": 2013,
+    "artist": "Avicii (feat. Aloe Blacc)",
+    "genre": "EDM/Folk/Pop"
+  },
+  "07-31": {
+    "id": "zac-brown-born",
+    "date": "07-31",
+    "title": "Born: Zac Brown",
+    "description": "On July 31, 1978, Zac Brown was born in Atlanta, Georgia. As the frontman of the Zac Brown Band, he led the group to success with their fusion of country, rock, and folk influences. Hits like \"Chicken Fried\" and \"Colder Weather\" showcased Brown's warm vocals and authentic songwriting. The band's genre-blending style attracted a diverse fanbase and multiple Grammy Awards. Zac Brown remains a key figure in the evolution of contemporary country music.",
+    "category": "birth",
+    "year": 1978,
+    "artist": "Zac Brown/Zac Brown Band",
+    "genre": "Country/Rock/Folk"
+  },
+  "08-01": {
+    "id": "mtv-launches-on-cable-tv",
+    "date": "08-01",
+    "title": "Event: MTV launches on cable TV",
+    "description": "On August 1, 1981, MTV (Music Television) began broadcasting in the United States, revolutionizing how music was consumed and promoted. The channel's debut with \"Video Killed the Radio Star\" by The Buggles symbolized a new era of visual music culture. MTV gave rise to the modern music video and helped launch the careers of countless artists. Iconic shows and video countdowns became daily rituals for millions of viewers. MTV's influence on pop, fashion, and youth culture is still felt today.",
+    "category": "event",
+    "year": 1981,
+    "artist": "The Buggles/Various Artists",
+    "genre": "Pop/Rock/All Genres"
+  },
+  "08-02": {
+    "id": "myrna-loy-born",
+    "date": "08-02",
+    "title": "Born: Myrna Loy (Music & Film)",
+    "description": "On August 2, 1905, Myrna Loy was born in Helena, Montana. Best known as an actress, Loy appeared in numerous musical films and inspired songs by jazz and pop composers. Her charisma and elegance influenced movie soundtracks and stage musicals throughout the Golden Age of Hollywood. Loy's work helped shape the link between music and the silver screen. She is remembered as a pioneer of the musical film genre.",
+    "category": "birth",
+    "year": 1905,
+    "artist": "Myrna Loy",
+    "genre": "Soundtrack/Pop Culture"
+  },
+  "08-03": {
+    "id": "metallica-enter-sandman-release",
+    "date": "08-03",
+    "title": "Metallica releases \"Enter Sandman\"",
+    "description": "On August 3, 1991, Metallica released \"Enter Sandman,\" the lead single from their self-titled \"Black Album.\" The song's powerful riffs, dark lyrics, and anthemic chorus propelled Metallica into global superstardom. \"Enter Sandman\" redefined metal for the 1990s, becoming a stadium and sports arena staple. Its influence is heard in rock, metal, and pop culture worldwide. The track remains one of the most iconic metal songs of all time.",
+    "category": "release",
+    "year": 1991,
+    "artist": "Metallica",
+    "genre": "Heavy Metal/Hard Rock"
+  },
+  "08-04": {
+    "id": "turtles-formation",
+    "date": "08-04",
+    "title": "Formation of The Turtles",
+    "description": "On August 4, 1965, The Turtles formed in Los Angeles, California. Known for their folk-rock and pop sound, the band rose to fame with hits like \"Happy Together.\" Their playful harmonies and catchy melodies made them favorites of the 1960s music scene. The Turtles influenced the rise of sunshine pop and inspired future power pop acts. Their timeless tunes continue to feature in movies and commercials today.",
+    "category": "formation",
+    "year": 1965,
+    "artist": "The Turtles",
+    "genre": "Pop/Folk Rock"
+  },
+  "08-05": {
+    "id": "rolling-stones-satisfaction-release",
+    "date": "08-05",
+    "title": "The Rolling Stones release \"(I Can't Get No) Satisfaction\"",
+    "description": "On August 5, 1965, The Rolling Stones released \"(I Can't Get No) Satisfaction\" in the UK, following its explosive U.S. success. The song's raw guitar riff and rebellious lyrics captured the spirit of a generation. It topped charts worldwide and became an anthem of youthful defiance. \"Satisfaction\" solidified the Stones' reputation as icons of rock and roll. The song's influence stretches across genres and decades.",
+    "category": "release",
+    "year": 1965,
+    "artist": "The Rolling Stones",
+    "genre": "Rock and Roll"
+  },
+  "08-06": {
+    "id": "geri-halliwell-born",
+    "date": "08-06",
+    "title": "Born: Geri Halliwell (Spice Girls)",
+    "description": "On August 6, 1972, Geri Halliwell was born in Watford, England. As \"Ginger Spice\" of the Spice Girls, Halliwell helped spark a global pop phenomenon in the 1990s. Her bold personality, fashion sense, and empowering lyrics inspired millions of fans. The Spice Girls became icons of girl power and cultural unity. Halliwell's solo career further cemented her influence in pop music.",
+    "category": "birth",
+    "year": 1972,
+    "artist": "Geri Halliwell/Spice Girls",
+    "genre": "Pop"
+  },
+  "08-07": {
+    "id": "taylor-swift-red-release",
+    "date": "08-07",
+    "title": "Taylor Swift releases \"Red\"",
+    "description": "On August 7, 2012, Taylor Swift released \"Red,\" an album that showcased her transition from country to pop music. Featuring hits like \"We Are Never Ever Getting Back Together\" and \"I Knew You Were Trouble,\" the record expanded her international appeal. Swift's honest songwriting and catchy melodies resonated with fans worldwide. \"Red\" earned critical acclaim and multiple Grammy nominations. The album marked a turning point in Swift's musical journey.",
+    "category": "release",
+    "year": 2012,
+    "artist": "Taylor Swift",
+    "genre": "Pop/Country"
+  },
+  "08-08": {
+    "id": "wilco-formation",
+    "date": "08-08",
+    "title": "Formation of Wilco",
+    "description": "On August 8, 1994, Wilco was formed in Chicago following the breakup of alt-country pioneers Uncle Tupelo. Blending rock, folk, and experimental sounds, Wilco gained acclaim for albums like \"Yankee Hotel Foxtrot.\" Their willingness to take risks made them leaders in American indie and alternative music. Wilco's influence extends from roots rock to avant-garde pop. They remain festival favorites and respected innovators.",
+    "category": "formation",
+    "year": 1994,
+    "artist": "Wilco",
+    "genre": "Indie Rock/Alternative/Country"
+  },
+  "08-09": {
+    "id": "whitney-houston-greatest-love-of-all-release",
+    "date": "08-09",
+    "title": "Whitney Houston releases \"Greatest Love of All\"",
+    "description": "On August 9, 1986, Whitney Houston's \"Greatest Love of All\" reached number one in multiple countries. The powerful ballad's message of self-acceptance and resilience struck a chord with listeners. Houston's soaring vocals and emotional delivery made the song an enduring classic. \"Greatest Love of All\" remains a staple at graduations and inspirational events. Whitney Houston's legacy as one of the greatest vocalists in history continues to shine.",
+    "category": "release",
+    "year": 1986,
+    "artist": "Whitney Houston",
+    "genre": "Pop/R&B"
+  },
+  "08-10": {
+    "id": "ian-anderson-born",
+    "date": "08-10",
+    "title": "Born: Ian Anderson (Jethro Tull)",
+    "description": "On August 10, 1947, Ian Anderson was born in Dunfermline, Scotland. As the frontman and flautist for Jethro Tull, Anderson blended rock with classical, folk, and jazz elements. His theatrical performances and songwriting made Jethro Tull one of the most unique acts in progressive rock. Anderson's innovative use of the flute influenced generations of musicians. He remains an iconic figure in British rock history.",
+    "category": "birth",
+    "year": 1947,
+    "artist": "Ian Anderson/Jethro Tull",
+    "genre": "Progressive Rock/Folk"
+  },
+  "08-11": {
+    "id": "dj-kool-herc-historic-bronx-party",
+    "date": "08-11",
+    "title": "Event: DJ Kool Herc's historic Bronx party",
+    "description": "On August 11, 1973, DJ Kool Herc hosted a back-to-school party at 1520 Sedgwick Avenue in the Bronx, New York. Using two turntables to extend the breakbeats, Herc pioneered the technique that would become the foundation of hip-hop. This night is now widely considered the birth of hip-hop culture, including breakdancing and rap. Herc's innovative DJing inspired generations of MCs, DJs, and producers. The event marks a defining moment in the history of modern music and urban culture.",
+    "category": "event",
+    "year": 1973,
+    "artist": "DJ Kool Herc",
+    "genre": "Hip-Hop/DJ Culture"
+  },
+  "08-12": {
+    "id": "mark-knopfler-born",
+    "date": "08-12",
+    "title": "Born: Mark Knopfler (Dire Straits)",
+    "description": "On August 12, 1949, Mark Knopfler was born in Glasgow, Scotland. As the frontman and guitarist for Dire Straits, Knopfler's fingerstyle playing and storytelling lyrics led the band to worldwide fame with hits like \"Sultans of Swing.\" Knopfler's solo career continued to explore roots rock, blues, and Americana influences. His soundtracks for film and collaborations with other artists showcase his versatility. Knopfler remains one of the most respected guitarists and songwriters of his generation.",
+    "category": "birth",
+    "year": 1949,
+    "artist": "Mark Knopfler/Dire Straits",
+    "genre": "Rock/Roots/Americana"
+  },
+  "08-13": {
+    "id": "spice-girls-wannabe-release",
+    "date": "08-13",
+    "title": "Spice Girls release \"Wannabe\"",
+    "description": "On August 13, 1996, the Spice Girls released their debut single \"Wannabe,\" which topped charts in 37 countries and sparked a global pop phenomenon. The song's message of friendship, fun, and female empowerment resonated with a new generation. \"Wannabe\" became an anthem for girl power, helping the Spice Girls become the best-selling girl group in history. Its infectious energy and playful style influenced countless artists. \"Wannabe\" remains a staple of 1990s pop culture and party playlists.",
+    "category": "release",
+    "year": 1996,
+    "artist": "Spice Girls",
+    "genre": "Pop"
+  },
+  "08-14": {
+    "id": "crosby-stills-nash-young-formation",
+    "date": "08-14",
+    "title": "Formation of Crosby, Stills, Nash & Young",
+    "description": "On August 14, 1969, Crosby, Stills, Nash & Young played their first concert together at the Auditorium Theatre in Chicago. The group's blend of folk, rock, and tight harmonies became a defining sound of the late 1960s and early 1970s. Their socially conscious lyrics addressed issues from war to civil rights. Songs like \"Teach Your Children\" and \"Ohio\" became generational anthems. CSNY's influence on songwriting and harmony continues today.",
+    "category": "formation",
+    "year": 1969,
+    "artist": "Crosby, Stills, Nash & Young",
+    "genre": "Folk Rock/Classic Rock"
+  },
+  "08-15": {
+    "id": "woodstock-festival-begins",
+    "date": "08-15",
+    "title": "Event: Woodstock Festival begins",
+    "description": "On August 15, 1969, the legendary Woodstock Festival opened on a farm in Bethel, New York, drawing over 400,000 people for three days of peace, love, and music. Performances by Jimi Hendrix, Janis Joplin, and Santana became legendary. Woodstock embodied the spirit of the 1960s counterculture and changed the history of live music festivals. Its peaceful atmosphere and iconic moments have inspired generations of artists and fans. Woodstock's legacy endures as a symbol of music's power to unite.",
+    "category": "event",
+    "year": 1969,
+    "artist": "Various Artists",
+    "genre": "Rock/Folk/Psychedelic"
+  },
+  "08-16": {
+    "id": "madonna-like-a-virgin-release",
+    "date": "08-16",
+    "title": "Madonna releases \"Like a Virgin\"",
+    "description": "On August 16, 1984, Madonna released her breakthrough album \"Like a Virgin.\" The title track and hits like \"Material Girl\" made Madonna a global superstar and a symbol of female empowerment. Her provocative style and boundary-pushing visuals set new trends in pop culture. \"Like a Virgin\" sold millions of copies and inspired generations of artists. Madonna's influence on fashion, music videos, and performance art remains unmatched.",
+    "category": "release",
+    "year": 1984,
+    "artist": "Madonna",
+    "genre": "Pop/Dance"
+  },
+  "08-17": {
+    "id": "belinda-carlisle-born",
+    "date": "08-17",
+    "title": "Born: Belinda Carlisle (The Go-Go's)",
+    "description": "On August 17, 1958, Belinda Carlisle was born in Los Angeles, California. As the lead singer of The Go-Go's, Carlisle helped bring all-female bands to the mainstream with hits like \"We Got the Beat.\" Her solo career, highlighted by \"Heaven Is a Place on Earth,\" brought her global fame. Carlisle's vibrant voice and pop sensibility have made her a beloved figure in 1980s and 1990s music. She remains an advocate for artists' rights and animal welfare.",
+    "category": "birth",
+    "year": 1958,
+    "artist": "Belinda Carlisle/The Go-Go's",
+    "genre": "Pop/Rock"
+  },
+  "08-18": {
+    "id": "u2-joshua-tree-release",
+    "date": "08-18",
+    "title": "U2 releases \"The Joshua Tree\"",
+    "description": "On August 18, 1987, U2 released \"The Joshua Tree,\" an album that elevated them to global superstardom. With anthems like \"With or Without You\" and \"I Still Haven't Found What I'm Looking For,\" the album explored themes of faith, hope, and American landscapes. \"The Joshua Tree\" won the Grammy for Album of the Year and became one of the best-selling albums ever. U2's passionate performances and activism inspired millions. The record's sound continues to influence rock and pop music today.",
+    "category": "release",
+    "year": 1987,
+    "artist": "U2",
+    "genre": "Rock/Alternative"
+  },
+  "08-19": {
+    "id": "rage-against-the-machine-formation",
+    "date": "08-19",
+    "title": "Formation of Rage Against the Machine",
+    "description": "On August 19, 1991, Rage Against the Machine was formed in Los Angeles, California. The band's fusion of rock, rap, and political activism shook up the music world. Their debut album and singles like \"Killing in the Name\" became anthems for rebellion and protest. Rage's intense live shows and uncompromising message inspired a generation of socially conscious artists. They remain a powerful force in music and activism.",
+    "category": "formation",
+    "year": 1991,
+    "artist": "Rage Against the Machine",
+    "genre": "Alternative Rock/Rap Metal"
+  },
+  "08-20": {
+    "id": "outkast-hey-ya-release",
+    "date": "08-20",
+    "title": "Outkast releases \"Hey Ya!\"",
+    "description": "On August 20, 2003, Outkast released \"Hey Ya!,\" a genre-defying single from their double album \"Speakerboxxx/The Love Below.\" The song's infectious beat, playful lyrics, and unique video helped it become a worldwide hit. \"Hey Ya!\" blurred the lines between hip-hop, funk, and pop, showcasing Outkast's creative brilliance. The track received Grammy Awards and remains a party classic. Outkast's influence on modern music and culture is still felt today.",
+    "category": "release",
+    "year": 2003,
+    "artist": "Outkast",
+    "genre": "Hip-Hop/Funk/Pop"
+  },
+  "08-21": {
+    "id": "kenny-rogers-born",
+    "date": "08-21",
+    "title": "Born: Kenny Rogers",
+    "description": "On August 21, 1938, Kenny Rogers was born in Houston, Texas. His storytelling, smooth voice, and crossover hits made him a country legend, with classics like \"The Gambler\" and \"Islands in the Stream.\" Rogers' ability to blend country, pop, and folk brought him fans around the world. His career spanned over six decades, earning him countless awards and a spot in the Country Music Hall of Fame. Rogers remains a beloved figure in American music history.",
+    "category": "birth",
+    "year": 1938,
+    "artist": "Kenny Rogers",
+    "genre": "Country/Pop/Folk"
+  },
+  "08-22": {
+    "id": "nirvana-come-as-you-are-release",
+    "date": "08-22",
+    "title": "Nirvana releases \"Come as You Are\"",
+    "description": "On August 22, 1991, Nirvana released \"Come as You Are,\" the second single from their breakthrough album \"Nevermind.\" The song's hypnotic riff and introspective lyrics captured the spirit of the grunge movement. \"Come as You Are\" became one of the band's most popular tracks and a staple of 1990s alternative radio. Nirvana's unique blend of melody and angst influenced countless bands. The song remains a symbol of authenticity in rock music.",
+    "category": "release",
+    "year": 1991,
+    "artist": "Nirvana",
+    "genre": "Grunge/Alternative Rock"
+  },
+  "08-23": {
+    "id": "depeche-mode-formation",
+    "date": "08-23",
+    "title": "Formation of Depeche Mode",
+    "description": "On August 23, 1980, Depeche Mode formed in Basildon, England. Their innovative use of synthesizers and dark, atmospheric lyrics made them pioneers of electronic and new wave music. Albums like \"Violator\" and \"Songs of Faith and Devotion\" propelled them to global stardom. Depeche Mode's influence can be heard in genres ranging from alternative rock to EDM. The band remains one of the most successful electronic acts in history.",
+    "category": "formation",
+    "year": 1980,
+    "artist": "Depeche Mode",
+    "genre": "Synthpop/Electronic/New Wave"
+  },
+  "08-24": {
+    "id": "doors-light-my-fire-release",
+    "date": "08-24",
+    "title": "The Doors release \"Light My Fire\"",
+    "description": "On August 24, 1967, The Doors released \"Light My Fire,\" which quickly soared to the top of the charts. Jim Morrison's poetic lyrics and Ray Manzarek's iconic organ riff helped the song become a defining track of the psychedelic era. \"Light My Fire\" introduced The Doors to a worldwide audience and became a staple of classic rock radio. The band's blend of rock, blues, and poetry influenced generations of musicians. The song is still recognized as one of the great classics of the 1960s.",
+    "category": "release",
+    "year": 1967,
+    "artist": "The Doors",
+    "genre": "Rock/Psychedelic/Blues"
+  },
+  "08-25": {
+    "id": "gene-simmons-born",
+    "date": "08-25",
+    "title": "Born: Gene Simmons (KISS)",
+    "description": "On August 25, 1949, Gene Simmons was born in Haifa, Israel. As bassist and co-lead singer of KISS, Simmons became famous for his theatrical stage presence and trademark makeup. KISS's explosive live shows and anthems like \"Rock and Roll All Nite\" made them icons of glam rock. Simmons's business savvy turned KISS into a global brand. He remains a larger-than-life figure in rock and entertainment.",
+    "category": "birth",
+    "year": 1949,
+    "artist": "Gene Simmons/KISS",
+    "genre": "Rock/Hard Rock/Glam Rock"
+  },
+  "08-26": {
+    "id": "bts-dynamite-release",
+    "date": "08-26",
+    "title": "BTS release \"Dynamite\"",
+    "description": "On August 26, 2020, South Korean superstars BTS released \"Dynamite,\" their first fully English-language single. The disco-pop track shattered streaming records and topped charts around the world. \"Dynamite\" introduced millions to K-pop and marked a major breakthrough for Asian artists in the Western music market. The upbeat sound and colorful video brought joy during a challenging year. BTS's success with \"Dynamite\" confirmed their global cultural impact.",
+    "category": "release",
+    "year": 2020,
+    "artist": "BTS",
+    "genre": "K-Pop/Pop/Disco"
+  },
+  "08-27": {
+    "id": "reading-festival-annual-uk-tradition",
+    "date": "08-27",
+    "title": "Event: Reading Festival—annual UK tradition",
+    "description": "On August 27 (date varies), the Reading Festival opens in England, one of the world's oldest popular music festivals. It has hosted legendary performances by artists from Nirvana and Arctic Monkeys to The Rolling Stones and Stormzy. Reading Festival is known for its eclectic lineups spanning rock, indie, punk, and hip-hop. The festival's energetic crowds and iconic sets have made it a rite of passage for fans and musicians alike. Reading remains a highlight of the summer music calendar.",
+    "category": "event",
+    "year": 0,
+    "artist": "Various Artists",
+    "genre": "Rock/Indie/Punk/Hip-Hop"
+  },
+  "08-28": {
+    "id": "rihanna-umbrella-release",
+    "date": "08-28",
+    "title": "Rihanna releases \"Umbrella\"",
+    "description": "On August 28, 2007, Rihanna released \"Umbrella\" featuring Jay-Z, a song that catapulted her to global superstardom. The catchy hook, polished production, and iconic \"ella-ella\" refrain became cultural phenomena. \"Umbrella\" topped charts in over 20 countries and won numerous awards, including a Grammy. The track's success marked the beginning of Rihanna's reign as a pop and R&B icon. \"Umbrella\" remains one of the most recognizable songs of the 2000s.",
+    "category": "release",
+    "year": 2007,
+    "artist": "Rihanna (feat. Jay-Z)",
+    "genre": "Pop/R&B/Hip-Hop"
+  },
+  "08-29": {
+    "id": "michael-jackson-born",
+    "date": "08-29",
+    "title": "Born: Michael Jackson",
+    "description": "On August 29, 1958, Michael Jackson was born in Gary, Indiana. Known as the \"King of Pop,\" Jackson's groundbreaking music, dance, and visuals revolutionized the entertainment industry. From the Jackson 5 to solo albums like \"Thriller\" and \"Bad,\" his impact is unrivaled. Jackson broke records and racial barriers, influencing generations of artists. His legacy continues through music, fashion, and humanitarian efforts.",
+    "category": "birth",
+    "year": 1958,
+    "artist": "Michael Jackson",
+    "genre": "Pop/Soul/Funk"
+  },
+  "08-30": {
+    "id": "queen-bohemian-rhapsody-release",
+    "date": "08-30",
+    "title": "Queen release \"Bohemian Rhapsody\"",
+    "description": "On August 30, 1975, Queen released \"Bohemian Rhapsody,\" a six-minute epic that defied pop music conventions with its operatic sections and shifting styles. Initially met with skepticism, the song became a massive hit and is now regarded as one of the greatest rock songs ever recorded. Freddie Mercury's vision and the band's musicianship made it a timeless classic. \"Bohemian Rhapsody\" remains a favorite at concerts and singalongs worldwide. The song's legacy was further immortalized by the 2018 biopic.",
+    "category": "release",
+    "year": 1975,
+    "artist": "Queen",
+    "genre": "Rock/Opera/Progressive"
+  },
+  "08-31": {
+    "id": "van-morrison-born",
+    "date": "08-31",
+    "title": "Born: Van Morrison",
+    "description": "On August 31, 1945, Van Morrison was born in Belfast, Northern Ireland. The singer-songwriter's blend of soul, jazz, folk, and rock produced timeless hits like \"Brown Eyed Girl\" and \"Moondance.\" Morrison's poetic lyrics and passionate vocals made him a favorite among critics and fans alike. His career spans over six decades and countless genres. Van Morrison remains a revered figure in both popular and roots music.",
+    "category": "birth",
+    "year": 1945,
+    "artist": "Van Morrison",
+    "genre": "Rock/Soul/Folk/Jazz"
+  },
+  "09-01": {
+    "id": "gloria-estefan-conga-release",
+    "date": "09-01",
+    "title": "Gloria Estefan releases \"Conga\"",
+    "description": "On September 1, 1985, Gloria Estefan and Miami Sound Machine released \"Conga,\" blending Latin rhythms with pop hooks. The infectious song helped popularize Latin music in the English-speaking world. \"Conga\" became a dance floor staple and international hit, earning Estefan global recognition. Its vibrant energy inspired a new wave of cross-cultural musical collaborations. Gloria Estefan's pioneering role opened doors for countless Latin artists.",
+    "category": "release",
+    "year": 1985,
+    "artist": "Gloria Estefan/Miami Sound Machine",
+    "genre": "Latin Pop/Dance"
+  },
+  "09-02": {
+    "id": "billy-preston-born",
+    "date": "09-02",
+    "title": "Born: Billy Preston",
+    "description": "On September 2, 1946, Billy Preston was born in Houston, Texas. A virtuoso keyboardist, Preston worked with the Beatles, Rolling Stones, and countless others. His soulful playing graced hits like \"Get Back\" and his own singles \"Nothing from Nothing\" and \"Will It Go Round in Circles.\" Preston's ability to bridge gospel, soul, rock, and funk made him a session legend. He's often called the \"Fifth Beatle\" for his contributions to classic rock history.",
+    "category": "birth",
+    "year": 1946,
+    "artist": "Billy Preston",
+    "genre": "Soul/Rock/Funk/Gospel"
+  },
+  "09-03": {
+    "id": "xx-formation",
+    "date": "09-03",
+    "title": "Formation of The xx",
+    "description": "On September 3, 2005, The xx formed in London, England. Their minimalist sound, marked by hushed vocals and sparse guitar, brought a new mood to indie music. The band's debut album won the Mercury Prize and influenced a generation of alternative artists. The xx's blend of indie pop and electronic elements set them apart on the global stage. Their style has become synonymous with atmospheric, intimate music.",
+    "category": "formation",
+    "year": 2005,
+    "artist": "The xx",
+    "genre": "Indie Pop/Electronic"
+  },
+  "09-04": {
+    "id": "beyonce-bday-release",
+    "date": "09-04",
+    "title": "Beyoncé releases \"B'Day\"",
+    "description": "On September 4, 2006, Beyoncé released her second solo album \"B'Day\" on her 25th birthday. Featuring hits like \"Irreplaceable\" and \"Déjà Vu,\" the album showcased Beyoncé's vocal power and artistic growth. \"B'Day\" won multiple awards and solidified her status as a pop and R&B superstar. Its energetic blend of styles reflected Beyoncé's versatility and creativity. The album remains a defining work in her illustrious career.",
+    "category": "release",
+    "year": 2006,
+    "artist": "Beyoncé",
+    "genre": "Pop/R&B"
+  },
+  "09-05": {
+    "id": "freddie-mercury-born",
+    "date": "09-05",
+    "title": "Born: Freddie Mercury (Queen)",
+    "description": "On September 5, 1946, Farrokh Bulsara—known as Freddie Mercury—was born in Zanzibar. As Queen's charismatic frontman, Mercury's dynamic vocals and theatrical flair defined a new era of rock performance. He wrote and performed classics like \"Bohemian Rhapsody,\" \"We Are the Champions,\" and \"Don't Stop Me Now.\" Mercury's legacy continues to inspire musicians, fans, and LGBTQ+ communities worldwide. He remains one of the most celebrated figures in music history.",
+    "category": "birth",
+    "year": 1946,
+    "artist": "Freddie Mercury/Queen",
+    "genre": "Rock/Pop/Opera"
+  },
+  "09-06": {
+    "id": "outkast-ms-jackson-release",
+    "date": "09-06",
+    "title": "Outkast releases \"Ms. Jackson\"",
+    "description": "On September 6, 2000, Outkast released \"Ms. Jackson,\" a soulful hip-hop single that topped charts around the world. The song's heartfelt lyrics, catchy chorus, and innovative production made it a defining track of the 2000s. \"Ms. Jackson\" won a Grammy Award and solidified Outkast's reputation as hip-hop pioneers. The song's influence can be heard in modern rap and R&B. Its blend of storytelling and emotion continues to resonate with listeners.",
+    "category": "release",
+    "year": 2000,
+    "artist": "Outkast",
+    "genre": "Hip-Hop/Rap/Soul"
+  },
+  "09-07": {
+    "id": "buddy-holly-born",
+    "date": "09-07",
+    "title": "Born: Buddy Holly",
+    "description": "On September 7, 1936, Buddy Holly was born in Lubbock, Texas. His innovative songwriting and energetic performances helped shape the sound of early rock and roll. Hits like \"Peggy Sue\" and \"That'll Be the Day\" influenced generations of musicians from The Beatles to Bruce Springsteen. Holly's career was tragically cut short at 22, but his impact remains profound. He is remembered as a founding father of rock music.",
+    "category": "birth",
+    "year": 1936,
+    "artist": "Buddy Holly",
+    "genre": "Rock and Roll/Pop"
+  },
+  "09-08": {
+    "id": "avicii-wake-me-up-release",
+    "date": "09-08",
+    "title": "Avicii releases \"Wake Me Up\"",
+    "description": "On September 8, 2013, Avicii released \"Wake Me Up,\" a genre-blending anthem that brought EDM and folk together. The song's infectious energy and Aloe Blacc's vocals helped it top charts in more than 20 countries. \"Wake Me Up\" broke records for digital sales and radio airplay, introducing a new sound to mainstream pop. Avicii's innovative style paved the way for other electronic artists. The track remains a festival and radio favorite.",
+    "category": "release",
+    "year": 2013,
+    "artist": "Avicii (feat. Aloe Blacc)",
+    "genre": "EDM/Folk/Pop"
+  },
+  "09-09": {
+    "id": "bbc-proms-finale",
+    "date": "09-09",
+    "title": "Event: BBC Proms finale—Royal Albert Hall, London",
+    "description": "On September 9 (date varies), the BBC Proms concludes with the famous \"Last Night of the Proms\" at London's Royal Albert Hall. The concert blends classical masterpieces with patriotic and popular tunes, creating a festive, unifying atmosphere. Broadcast across the UK and worldwide, the event celebrates the enduring power of orchestral music. Audiences wave flags and sing along, making it a highlight of the British cultural calendar. The Proms' legacy connects generations through music.",
+    "category": "event",
+    "year": 0,
+    "artist": "BBC Symphony Orchestra/Various Artists",
+    "genre": "Classical/Orchestral"
+  },
+  "09-10": {
+    "id": "janet-jackson-rhythm-nation-release",
+    "date": "09-10",
+    "title": "Janet Jackson releases \"Rhythm Nation 1814\"",
+    "description": "On September 10, 1989, Janet Jackson released \"Rhythm Nation 1814,\" an album fusing pop, R&B, and socially conscious lyrics. Its themes addressed racism, poverty, and unity, making it a landmark in popular music. Singles like \"Miss You Much\" and \"Escapade\" topped charts, and the album's choreography set new standards for music videos. \"Rhythm Nation 1814\" remains one of the best-selling albums by a female artist. Jackson's work inspired generations of performers and activists.",
+    "category": "release",
+    "year": 1989,
+    "artist": "Janet Jackson",
+    "genre": "Pop/R&B/New Jack Swing"
+  },
+  "09-11": {
+    "id": "moby-born",
+    "date": "09-11",
+    "title": "Born: Moby",
+    "description": "On September 11, 1965, Moby was born in Harlem, New York. As a pioneer of electronic and dance music, Moby gained worldwide fame with his 1999 album \"Play,\" blending gospel, blues, and techno. His tracks \"Porcelain\" and \"Natural Blues\" became radio staples and helped bring electronica into the mainstream. Moby is also known for his activism in animal rights and environmental causes. His innovative style continues to influence electronic musicians globally.",
+    "category": "birth",
+    "year": 1965,
+    "artist": "Moby",
+    "genre": "Electronic/Dance/Pop"
+  },
+  "09-12": {
+    "id": "killers-mr-brightside-release",
+    "date": "09-12",
+    "title": "The Killers release \"Mr. Brightside\"",
+    "description": "On September 12, 2003, The Killers released \"Mr. Brightside,\" a single that would become an enduring anthem of the 21st century. With its driving beat, emotional lyrics, and infectious chorus, the song remains a staple at parties, sports events, and festivals. \"Mr. Brightside\" charted for years in the UK, breaking records for its longevity. The track helped define the 2000s indie rock movement. The Killers' influence extends across genres and generations.",
+    "category": "release",
+    "year": 2003,
+    "artist": "The Killers",
+    "genre": "Indie Rock/Alternative"
+  },
+  "09-13": {
+    "id": "sugarhill-gang-formation",
+    "date": "09-13",
+    "title": "Formation of Sugarhill Gang",
+    "description": "On September 13, 1979, the Sugarhill Gang was formed in Englewood, New Jersey. Their debut single \"Rapper's Delight\" became the first hip-hop track to enter the US Top 40, introducing rap to a global audience. The song's funky bassline and playful rhymes made hip-hop accessible to millions. Sugarhill Gang paved the way for generations of MCs and producers. Their legacy is recognized as foundational in the history of hip-hop.",
+    "category": "formation",
+    "year": 1979,
+    "artist": "Sugarhill Gang",
+    "genre": "Hip-Hop/Rap"
+  },
+  "09-14": {
+    "id": "sam-smith-stay-with-me-release",
+    "date": "09-14",
+    "title": "Sam Smith releases \"Stay With Me\"",
+    "description": "On September 14, 2014, Sam Smith released \"Stay With Me,\" a soul-baring ballad that resonated with listeners around the world. The song's emotional lyrics, gospel influences, and Smith's vulnerable vocals brought them critical acclaim. \"Stay With Me\" won Grammys for Record and Song of the Year, establishing Smith as a major force in modern pop and soul. Its heartfelt message continues to connect with fans. The song remains one of the defining hits of the decade.",
+    "category": "release",
+    "year": 2014,
+    "artist": "Sam Smith",
+    "genre": "Pop/Soul/Gospel"
+  },
+  "09-15": {
+    "id": "tommy-lee-jones-born",
+    "date": "09-15",
+    "title": "Born: Tommy Lee Jones (Film & Music Influence)",
+    "description": "On September 15, 1946, Tommy Lee Jones was born in San Saba, Texas. While best known as an Oscar-winning actor, Jones's roles in films like \"Coal Miner's Daughter\" and \"The Fugitive\" have intertwined with iconic soundtracks. His work has influenced the portrayal of musicians and music culture in Hollywood. Jones's collaborations and biopic roles help bridge music and cinema. He remains a respected figure across both industries.",
+    "category": "birth",
+    "year": 1946,
+    "artist": "Tommy Lee Jones",
+    "genre": "Film/Music/Soundtrack"
+  },
+  "09-16": {
+    "id": "sia-chandelier-release",
+    "date": "09-16",
+    "title": "Sia releases \"Chandelier\"",
+    "description": "On September 16, 2014, Sia released \"Chandelier,\" a soaring pop single that showcased her powerful voice and raw lyricism. The song's haunting video, featuring dancer Maddie Ziegler, became a viral sensation and cultural touchstone. \"Chandelier\" earned Grammy nominations and topped charts worldwide. Sia's songwriting and emotive delivery inspired a wave of confessional pop. The track remains a modern classic, frequently covered and performed globally.",
+    "category": "release",
+    "year": 2014,
+    "artist": "Sia",
+    "genre": "Pop/Indie/Electronic"
+  },
+  "09-17": {
+    "id": "arcade-fire-formation",
+    "date": "09-17",
+    "title": "Formation of Arcade Fire",
+    "description": "On September 17, 2001, Arcade Fire formed in Montreal, Canada. The band's orchestral approach to indie rock, epic arrangements, and emotional lyrics won them a devoted fanbase. Albums like \"Funeral\" and \"The Suburbs\" received widespread critical acclaim, earning Grammy Awards and reshaping indie music. Arcade Fire's influence can be seen in alternative and pop bands around the world. They remain celebrated for their ambitious, genre-defying work.",
+    "category": "formation",
+    "year": 2001,
+    "artist": "Arcade Fire",
+    "genre": "Indie Rock/Baroque Pop"
+  },
+  "09-18": {
+    "id": "pink-floyd-wish-you-were-here-release",
+    "date": "09-18",
+    "title": "Pink Floyd releases \"Wish You Were Here\"",
+    "description": "On September 18, 1975, Pink Floyd released \"Wish You Were Here,\" a haunting album reflecting on absence and the pressures of fame. The title track became one of rock's most beloved songs, expressing longing and camaraderie. The record's themes and atmospheric soundscapes helped it become a classic of progressive rock. \"Wish You Were Here\" is still cited as a masterpiece by musicians and critics alike. Pink Floyd's artistry continues to inspire generations.",
+    "category": "release",
+    "year": 1975,
+    "artist": "Pink Floyd",
+    "genre": "Progressive Rock/Psychedelic"
+  },
+  "09-19": {
+    "id": "nile-rodgers-born",
+    "date": "09-19",
+    "title": "Born: Nile Rodgers",
+    "description": "On September 19, 1952, Nile Rodgers was born in New York City. As co-founder of Chic and a prolific producer, Rodgers's funky guitar work powered hits like \"Le Freak\" and \"Good Times.\" His influence stretches across disco, pop, and hip-hop, including collaborations with David Bowie, Madonna, and Daft Punk. Rodgers's music has kept people dancing for decades. He remains a key architect of groove and modern pop production.",
+    "category": "birth",
+    "year": 1952,
+    "artist": "Nile Rodgers/Chic",
+    "genre": "Funk/Disco/Pop"
+  },
+  "09-20": {
+    "id": "david-bowie-lets-dance-release",
+    "date": "09-20",
+    "title": "David Bowie releases \"Let's Dance\"",
+    "description": "On September 20, 1983, David Bowie released \"Let's Dance,\" marking a bold move into pop and dance music. Produced by Nile Rodgers, the album featured the smash hit title track and hits like \"China Girl.\" Bowie's blend of rock, funk, and dance reached new audiences worldwide. \"Let's Dance\" became one of his biggest commercial successes. Its stylish sound continues to influence pop and electronic musicians.",
+    "category": "release",
+    "year": 1983,
+    "artist": "David Bowie",
+    "genre": "Pop/Rock/Funk/Dance"
+  },
+  "10-01": {
+    "id": "janet-jackson-control-release",
+    "date": "10-01",
+    "title": "Janet Jackson releases \"Control\"",
+    "description": "On October 1, 1986, Janet Jackson released \"Control,\" a groundbreaking album that redefined pop and R&B for a new generation. The record, produced by Jimmy Jam and Terry Lewis, established Jackson as a powerful, independent artist. Hits like \"What Have You Done for Me Lately\" and \"Nasty\" set new standards for production, dance, and female empowerment. \"Control\" inspired countless artists and remains a touchstone for pop and R&B. Its success marked the beginning of Jackson's legendary career.",
+    "category": "release",
+    "year": 1986,
+    "artist": "Janet Jackson",
+    "genre": "Pop/R&B/New Jack Swing"
+  },
+  "10-02": {
+    "id": "sting-born",
+    "date": "10-02",
+    "title": "Born: Sting (The Police)",
+    "description": "On October 2, 1951, Gordon Sumner—better known as Sting—was born in Wallsend, England. As the frontman of The Police and later a solo artist, Sting blended rock, reggae, jazz, and world music to create a signature sound. With hits like \"Roxanne,\" \"Every Breath You Take,\" and \"Fields of Gold,\" his poetic lyrics and melodic bass lines earned global acclaim. Sting's humanitarian work and musical exploration have influenced generations. He remains one of the most versatile and respected musicians of his era.",
+    "category": "birth",
+    "year": 1951,
+    "artist": "Sting/The Police",
+    "genre": "Rock/Pop/World Music"
+  },
+  "10-03": {
+    "id": "adele-someone-like-you-release",
+    "date": "10-03",
+    "title": "Adele releases \"Someone Like You\"",
+    "description": "On October 3, 2011, Adele released \"Someone Like You,\" a heartfelt ballad that captured the world's attention with its emotional honesty and powerful vocals. The song topped charts in multiple countries and became an anthem of heartbreak and resilience. Adele's intimate performance at the BRIT Awards helped solidify her reputation as one of her generation's greatest voices. \"Someone Like You\" inspired countless covers and remains a favorite for listeners facing lost love. The track helped Adele's album \"21\" become a record-breaker.",
+    "category": "release",
+    "year": 2011,
+    "artist": "Adele",
+    "genre": "Pop/Soul/Ballad"
+  },
+  "10-04": {
+    "id": "fleetwood-mac-formation",
+    "date": "10-04",
+    "title": "Formation of Fleetwood Mac",
+    "description": "On October 4, 1967, Fleetwood Mac was formed in London by Peter Green, Mick Fleetwood, and John McVie. Originally rooted in blues rock, the band later evolved into a global pop phenomenon with the addition of Christine McVie, Stevie Nicks, and Lindsey Buckingham. Their classic album \"Rumours\" sold over 40 million copies and remains a staple of 1970s rock. Fleetwood Mac's music has inspired generations of artists and continues to resonate with fans worldwide. Their blend of harmonies and emotional storytelling is timeless.",
+    "category": "formation",
+    "year": 1967,
+    "artist": "Fleetwood Mac",
+    "genre": "Rock/Pop/Blues Rock"
+  },
+  "10-05": {
+    "id": "beatles-love-me-do-release",
+    "date": "10-05",
+    "title": "The Beatles release \"Love Me Do\"",
+    "description": "On October 5, 1962, The Beatles released their debut single \"Love Me Do,\" marking the beginning of their historic career. The song's simple, catchy melody introduced the world to John, Paul, George, and Ringo. \"Love Me Do\" laid the groundwork for the Beatles' rise to global superstardom and the British Invasion of the 1960s. Its release signaled a shift in pop music and inspired future generations. The Beatles' debut remains a milestone in rock history.",
+    "category": "release",
+    "year": 1962,
+    "artist": "The Beatles",
+    "genre": "Rock/Pop"
+  },
+  "10-06": {
+    "id": "thomas-anders-born",
+    "date": "10-06",
+    "title": "Born: Thomas Anders (Modern Talking)",
+    "description": "On October 6, 1963, Thomas Anders was born in Koblenz, Germany. As one half of Modern Talking, Anders became an international pop sensation in the 1980s with hits like \"You're My Heart, You're My Soul.\" The duo's catchy melodies, synth-driven sound, and glamorous image captured audiences from Europe to Asia. Anders' career continued as a solo artist, TV host, and cultural figure. He remains a beloved icon in the world of Euro-pop.",
+    "category": "birth",
+    "year": 1963,
+    "artist": "Thomas Anders/Modern Talking",
+    "genre": "Pop/Euro-Disco"
+  },
+  "10-07": {
+    "id": "radiohead-ok-computer-release",
+    "date": "10-07",
+    "title": "Radiohead releases \"OK Computer\"",
+    "description": "On October 7, 1997, Radiohead released \"OK Computer,\" an album that revolutionized alternative rock with its experimental sound and dystopian themes. The record's tracks, like \"Paranoid Android\" and \"Karma Police,\" earned critical acclaim and cult status. \"OK Computer\" explored alienation in the digital age and influenced a generation of musicians. Its blend of guitar rock and electronic textures set a new standard for ambitious albums. Radiohead's masterpiece remains essential listening for music fans.",
+    "category": "release",
+    "year": 1997,
+    "artist": "Radiohead",
+    "genre": "Alternative Rock/Experimental"
+  },
+  "10-08": {
+    "id": "bruno-mars-born",
+    "date": "10-08",
+    "title": "Born: Bruno Mars",
+    "description": "On October 8, 1985, Peter Gene Hernandez—known as Bruno Mars—was born in Honolulu, Hawaii. Mars's charismatic performances and genre-blending hits made him a superstar of the 2010s. His chart-topping singles like \"Just the Way You Are,\" \"Uptown Funk,\" and \"24K Magic\" showcase his range across pop, funk, soul, and R&B. Mars's throwback style and infectious hooks earned him multiple Grammys and worldwide acclaim. He remains one of the most dynamic entertainers of his generation.",
+    "category": "birth",
+    "year": 1985,
+    "artist": "Bruno Mars",
+    "genre": "Pop/Funk/Soul/R&B"
+  },
+  "10-09": {
+    "id": "john-lennon-imagine-release",
+    "date": "10-09",
+    "title": "John Lennon releases \"Imagine\"",
+    "description": "On October 9, 1971, John Lennon released \"Imagine,\" a song and album that would become symbols of peace and hope. The title track's gentle piano and universal message resonated with listeners around the world. \"Imagine\" became an anthem for social movements and remains a touchstone in Lennon's solo career. The album's introspective songs explored love, activism, and personal growth. Lennon's work continues to inspire dreamers, artists, and activists everywhere.",
+    "category": "release",
+    "year": 1971,
+    "artist": "John Lennon",
+    "genre": "Rock/Pop"
+  },
+  "10-10": {
+    "id": "austin-city-limits-music-festival-begins",
+    "date": "10-10",
+    "title": "Event: Austin City Limits Music Festival begins",
+    "description": "On October 10 (date varies), the Austin City Limits Music Festival kicks off in Austin, Texas. Inspired by the long-running PBS show, the festival brings together artists from rock, country, hip-hop, and indie. Its relaxed atmosphere, food culture, and local pride have made it a favorite among musicians and fans alike. Major acts and rising stars share the stage, highlighting Austin's rich musical heritage. The event stands as a testament to the city's status as the \"Live Music Capital of the World.\"",
+    "category": "event",
+    "year": 0,
+    "artist": "Various Artists",
+    "genre": "Rock/Country/Hip-Hop/Indie"
+  },
+  "10-11": {
+    "id": "cardi-b-bodak-yellow-release",
+    "date": "10-11",
+    "title": "Cardi B releases \"Bodak Yellow\"",
+    "description": "On October 11, 2017, Cardi B released \"Bodak Yellow,\" a song that catapulted her from reality TV star to global rap sensation. The track's hard-hitting beat, sharp lyrics, and Cardi's charismatic delivery topped the Billboard Hot 100, making her the first solo female rapper to reach No. 1 in nearly 20 years. \"Bodak Yellow\" became an anthem of empowerment and hustle. The song's success broke barriers for women in hip-hop. Cardi B's rise from the Bronx to worldwide fame inspired millions.",
+    "category": "release",
+    "year": 2017,
+    "artist": "Cardi B",
+    "genre": "Hip-Hop/Rap"
+  },
+  "10-12": {
+    "id": "hugh-jackman-born",
+    "date": "10-12",
+    "title": "Born: Hugh Jackman (Musicals & Film)",
+    "description": "On October 12, 1968, Hugh Jackman was born in Sydney, Australia. While best known as Wolverine in the \"X-Men\" series, Jackman has also become a celebrated musical performer, starring in films like \"Les Misérables\" and \"The Greatest Showman.\" His performances have brought classic and original songs to global audiences, bridging Hollywood and Broadway. Jackman's stage charisma and vocal prowess have inspired a new generation of musical fans. He remains an ambassador for music in film and theater.",
+    "category": "birth",
+    "year": 1968,
+    "artist": "Hugh Jackman",
+    "genre": "Musicals/Soundtrack/Pop Culture"
+  },
+  "10-13": {
+    "id": "stevie-wonder-songs-in-the-key-of-life-release",
+    "date": "10-13",
+    "title": "Stevie Wonder releases \"Songs in the Key of Life\"",
+    "description": "On October 13, 1976, Stevie Wonder released the landmark double album \"Songs in the Key of Life.\" The record featured genre-defining tracks like \"Sir Duke,\" \"Isn't She Lovely,\" and \"Pastime Paradise.\" Wonder's virtuosic songwriting, social commentary, and innovative production made the album a timeless classic. \"Songs in the Key of Life\" won Album of the Year at the Grammys and influenced countless musicians. Its celebration of love, life, and humanity endures across generations.",
+    "category": "release",
+    "year": 1976,
+    "artist": "Stevie Wonder",
+    "genre": "Soul/Funk/Pop"
+  },
+  "10-14": {
+    "id": "the-hollies-formation",
+    "date": "10-14",
+    "title": "Formation of The Hollies",
+    "description": "On October 14, 1962, The Hollies formed in Manchester, England. Known for their tight harmonies and catchy pop-rock hits, The Hollies helped shape the sound of the British Invasion. Songs like \"He Ain't Heavy, He's My Brother\" and \"Long Cool Woman (In a Black Dress)\" became international classics. Their melodic style influenced bands from The Byrds to Oasis. The Hollies are still celebrated for their contributions to pop and rock history.",
+    "category": "formation",
+    "year": 1962,
+    "artist": "The Hollies",
+    "genre": "Pop/Rock/British Invasion"
+  },
+  "10-15": {
+    "id": "madonna-ray-of-light-release",
+    "date": "10-15",
+    "title": "Madonna releases \"Ray of Light\"",
+    "description": "On October 15, 1998, Madonna released \"Ray of Light,\" marking a bold transformation in her sound and image. Collaborating with producer William Orbit, she blended electronic music, ambient textures, and spiritual themes. The album won four Grammy Awards and spawned hits like \"Frozen\" and the title track. \"Ray of Light\" is often hailed as a creative peak for Madonna, influencing pop and dance music for years to come. Its introspective lyrics and innovative production are still celebrated today.",
+    "category": "release",
+    "year": 1998,
+    "artist": "Madonna",
+    "genre": "Pop/Electronic"
+  },
+  "10-16": {
+    "id": "john-mayer-born",
+    "date": "10-16",
+    "title": "Born: John Mayer",
+    "description": "On October 16, 1977, John Mayer was born in Bridgeport, Connecticut. Renowned for his bluesy guitar skills, introspective songwriting, and pop-rock hits, Mayer quickly rose to fame in the early 2000s. Songs like \"Gravity,\" \"Your Body Is a Wonderland,\" and \"Slow Dancing in a Burning Room\" highlight his versatility. Mayer's collaborations span blues legends to modern pop stars. He remains a respected artist across genres and generations.",
+    "category": "birth",
+    "year": 1977,
+    "artist": "John Mayer",
+    "genre": "Rock/Blues/Pop"
+  },
+  "10-17": {
+    "id": "beach-boys-good-vibrations-release",
+    "date": "10-17",
+    "title": "The Beach Boys release \"Good Vibrations\"",
+    "description": "On October 17, 1966, The Beach Boys released \"Good Vibrations,\" a groundbreaking single known for its innovative production and lush harmonies. Brian Wilson's studio mastery and the song's modular recording technique changed pop music forever. \"Good Vibrations\" became a worldwide hit and is considered one of the greatest singles in music history. Its influence stretches from psychedelic rock to modern pop. The track embodies the creative spirit of the 1960s.",
+    "category": "release",
+    "year": 1966,
+    "artist": "The Beach Boys",
+    "genre": "Pop/Rock/Psychedelic"
+  },
+  "10-18": {
+    "id": "the-jam-formation",
+    "date": "10-18",
+    "title": "Formation of The Jam",
+    "description": "On October 18, 1972, The Jam formed in Woking, England. With sharp lyrics and energetic performances, they became leaders of the British punk and mod revival. Albums like \"All Mod Cons\" and hits such as \"Going Underground\" captured youth angst and urban life. The Jam's blend of punk energy and melodic songwriting left a lasting mark on British music. Their influence can be heard in alternative and indie bands to this day.",
+    "category": "formation",
+    "year": 1972,
+    "artist": "The Jam",
+    "genre": "Punk/Mod/Alternative"
+  },
+  "10-19": {
+    "id": "taylor-swift-1989-release",
+    "date": "10-19",
+    "title": "Taylor Swift releases \"1989\"",
+    "description": "On October 19, 2014, Taylor Swift released \"1989,\" her first fully pop album after her country roots. The record included massive hits like \"Shake It Off\" and \"Blank Space,\" signaling a bold new direction for Swift's career. \"1989\" earned three Grammy Awards, including Album of the Year, and inspired a wave of synth-pop and retro influences in pop music. Swift's personal lyrics and savvy marketing made her a cultural force. The album's success solidified her position as a pop superstar.",
+    "category": "release",
+    "year": 2014,
+    "artist": "Taylor Swift",
+    "genre": "Pop/Synth-Pop"
+  },
+  "10-20": {
+    "id": "snoop-dogg-born",
+    "date": "10-20",
+    "title": "Born: Snoop Dogg",
+    "description": "On October 20, 1971, Calvin Broadus Jr.—better known as Snoop Dogg—was born in Long Beach, California. With his laid-back flow and distinctive voice, Snoop became a leading figure in West Coast hip-hop. Debuting on Dr. Dre's \"The Chronic\" and launching his solo career with \"Doggystyle,\" he's remained a pop culture icon for decades. Snoop's music, media presence, and business ventures span genres and generations. He continues to shape hip-hop and global entertainment.",
+    "category": "birth",
+    "year": 1971,
+    "artist": "Snoop Dogg",
+    "genre": "Hip-Hop/Rap/West Coast"
+  },
+  "10-21": {
+    "id": "elton-john-goodbye-yellow-brick-road-release",
+    "date": "10-21",
+    "title": "Elton John releases \"Goodbye Yellow Brick Road\"",
+    "description": "On October 21, 1973, Elton John released \"Goodbye Yellow Brick Road,\" a double album considered one of the greatest in pop and rock history. The title track, along with hits like \"Candle in the Wind\" and \"Bennie and the Jets,\" showcased John's songwriting partnership with Bernie Taupin. The album blended glam, rock, and ballads, earning critical and commercial acclaim. \"Goodbye Yellow Brick Road\" has been celebrated for its lush arrangements and timeless appeal. Elton John's influence on popular music is immeasurable.",
+    "category": "release",
+    "year": 1973,
+    "artist": "Elton John",
+    "genre": "Pop/Rock/Ballad"
+  },
+  "10-22": {
+    "id": "shaggy-born",
+    "date": "10-22",
+    "title": "Born: Shaggy",
+    "description": "On October 22, 1968, Orville Richard Burrell—known as Shaggy—was born in Kingston, Jamaica. Blending reggae with pop and dancehall, Shaggy achieved international fame with hits like \"Boombastic\" and \"It Wasn't Me.\" His catchy hooks and charismatic style helped bring Jamaican music to global audiences. Shaggy has won Grammy Awards and collaborated with artists from every genre. He remains a key figure in the worldwide popularity of reggae and dancehall.",
+    "category": "birth",
+    "year": 1968,
+    "artist": "Shaggy",
+    "genre": "Reggae/Dancehall/Pop"
+  },
+  "10-23": {
+    "id": "lana-del-rey-born-to-die-release",
+    "date": "10-23",
+    "title": "Lana Del Rey releases \"Born to Die\"",
+    "description": "On October 23, 2011, Lana Del Rey released \"Born to Die\" in the UK, establishing her as a unique voice in alternative pop. The album's cinematic sound, nostalgic lyrics, and Del Rey's smoky vocals captivated listeners worldwide. Songs like \"Video Games\" and \"Summertime Sadness\" became modern classics, influencing a generation of artists. \"Born to Die\" introduced a moody, atmospheric style to pop music. Del Rey's visual storytelling continues to shape indie and mainstream aesthetics.",
+    "category": "release",
+    "year": 2011,
+    "artist": "Lana Del Rey",
+    "genre": "Alternative Pop/Indie"
+  },
+  "10-24": {
+    "id": "jimi-hendrix-experience-formation",
+    "date": "10-24",
+    "title": "Formation of The Jimi Hendrix Experience",
+    "description": "On October 24, 1966, The Jimi Hendrix Experience formed in London, bringing together American guitarist Jimi Hendrix, British bassist Noel Redding, and drummer Mitch Mitchell. Their explosive fusion of blues, rock, and psychedelia set new standards for musical creativity. The band's albums, including \"Are You Experienced\" and \"Axis: Bold as Love,\" are regarded as milestones in rock history. Hendrix's virtuosity and showmanship redefined the electric guitar. The group's influence can be heard in countless rock and blues acts.",
+    "category": "formation",
+    "year": 1966,
+    "artist": "The Jimi Hendrix Experience",
+    "genre": "Rock/Psychedelic/Blues"
+  },
+  "10-25": {
+    "id": "kanye-west-graduation-release",
+    "date": "10-25",
+    "title": "Kanye West releases \"Graduation\"",
+    "description": "On October 25, 2007, Kanye West released \"Graduation,\" an album that pushed hip-hop into new sonic territories. With electronic influences, bold samples, and tracks like \"Stronger,\" West reshaped rap for the digital era. The album's success marked a turning point in hip-hop's mainstream sound. \"Graduation\" was both a commercial hit and a cultural moment, influencing artists across genres. West's innovation on this record is still discussed and celebrated.",
+    "category": "release",
+    "year": 2007,
+    "artist": "Kanye West",
+    "genre": "Hip-Hop/Electronic/Pop"
+  },
+  "10-26": {
+    "id": "keith-urban-born",
+    "date": "10-26",
+    "title": "Born: Keith Urban",
+    "description": "On October 26, 1967, Keith Urban was born in Whangarei, New Zealand. Urban rose to fame as a country star in both Australia and the United States, known for his guitar skills and heartfelt songwriting. With hits like \"Somebody Like You\" and \"Blue Ain't Your Color,\" he has won multiple Grammy and CMA awards. Urban's cross-genre collaborations and energetic performances have broadened the appeal of country music. He is celebrated as one of the leading voices in modern country.",
+    "category": "birth",
+    "year": 1967,
+    "artist": "Keith Urban",
+    "genre": "Country/Pop/Rock"
+  },
+  "10-27": {
+    "id": "pink-try-release",
+    "date": "10-27",
+    "title": "Pink releases \"Try\"",
+    "description": "On October 27, 2012, Pink released \"Try,\" a powerful ballad about resilience and emotional courage. The song's soaring chorus and raw lyrics resonated with listeners facing life's challenges. \"Try\" became an anthem of self-empowerment and one of Pink's signature hits. Its visually stunning music video showcased Pink's strength and creativity. The track remains a favorite at concerts and on radio playlists.",
+    "category": "release",
+    "year": 2012,
+    "artist": "Pink",
+    "genre": "Pop/Rock"
+  },
+  "10-28": {
+    "id": "cmj-music-marathon-event",
+    "date": "10-28",
+    "title": "Event: CMJ Music Marathon—NYC indie festival",
+    "description": "On October 28 (date varies), the CMJ Music Marathon opens in New York City, spotlighting emerging talent from indie, rock, electronic, and hip-hop scenes. For decades, the festival served as a launchpad for artists who later became global stars. Showcases, panels, and parties drew industry leaders and fans alike. CMJ's legacy is remembered for fostering innovation and networking in the independent music world. The event is an iconic part of New York's musical history.",
+    "category": "event",
+    "year": 0,
+    "artist": "Various Artists",
+    "genre": "Indie/Rock/Electronic/Hip-Hop"
+  },
+  "10-29": {
+    "id": "frank-ocean-blonde-release",
+    "date": "10-29",
+    "title": "Frank Ocean releases \"Blonde\"",
+    "description": "On October 29, 2016, Frank Ocean released \"Blonde,\" a genre-defying album that blurred the lines between R&B, pop, and experimental music. With introspective lyrics and innovative production, \"Blonde\" received critical acclaim and quickly gained a cult following. Tracks like \"Nights\" and \"Ivy\" explored love, identity, and self-reflection. Ocean's artistry inspired a new generation of singer-songwriters and producers. The album's influence can still be heard across modern music.",
+    "category": "release",
+    "year": 2016,
+    "artist": "Frank Ocean",
+    "genre": "R&B/Alternative/Experimental"
+  },
+  "10-30": {
+    "id": "grace-slick-born",
+    "date": "10-30",
+    "title": "Born: Grace Slick",
+    "description": "On October 30, 1939, Grace Slick was born in Evanston, Illinois. As lead singer of Jefferson Airplane, Slick became an icon of the psychedelic era with songs like \"White Rabbit\" and \"Somebody to Love.\" Her powerful vocals and rebellious spirit helped define San Francisco's counterculture movement. Slick's work extended into Jefferson Starship and solo projects. She remains a trailblazer for women in rock and a symbol of 1960s revolution.",
+    "category": "birth",
+    "year": 1939,
+    "artist": "Grace Slick/Jefferson Airplane",
+    "genre": "Rock/Psychedelic"
+  },
+  "10-31": {
+    "id": "michael-jackson-thriller-release",
+    "date": "10-31",
+    "title": "Michael Jackson releases \"Thriller\"",
+    "description": "On October 31, 1982, Michael Jackson released \"Thriller,\" an album that changed the music industry forever. Its innovative blend of pop, funk, and rock, combined with groundbreaking music videos, set new standards for the genre. \"Thriller\" became the best-selling album of all time, featuring iconic tracks like \"Billie Jean,\" \"Beat It,\" and the title track. The album's influence can still be seen in music, fashion, and video production. Jackson's legacy as the King of Pop remains unparalleled.",
+    "category": "release",
+    "year": 1982,
+    "artist": "Michael Jackson",
+    "genre": "Pop/Funk/Rock"
+  },
+  "11-01": {
+    "id": "u2-war-release",
+    "date": "11-01",
+    "title": "U2 releases \"War\"",
+    "description": "On November 1, 1983, U2 released their third album \"War,\" featuring politically charged anthems like \"Sunday Bloody Sunday\" and \"New Year's Day.\" The record's urgent sound and bold lyrics marked a turning point in U2's career. \"War\" became a global hit, establishing the band as leaders of socially conscious rock. Its blend of post-punk energy and heartfelt activism resonated worldwide. The album remains one of U2's most influential works.",
+    "category": "release",
+    "year": 1983,
+    "artist": "U2",
+    "genre": "Rock/Post-Punk"
+  },
+  "11-02": {
+    "id": "kd-lang-born",
+    "date": "11-02",
+    "title": "Born: k.d. lang",
+    "description": "On November 2, 1961, Kathryn Dawn Lang—known as k.d. lang—was born in Edmonton, Canada. Her emotive voice and fusion of country, pop, and torch songs won her international acclaim. With hits like \"Constant Craving\" and a fearless approach to genre, lang broke boundaries in music and culture. Her advocacy for LGBTQ+ rights and animal welfare has made her a respected public figure. k.d. lang's artistry and courage continue to inspire audiences worldwide.",
+    "category": "birth",
+    "year": 1961,
+    "artist": "k.d. lang",
+    "genre": "Country/Pop"
+  },
+  "11-03": {
+    "id": "drake-take-care-release",
+    "date": "11-03",
+    "title": "Drake releases \"Take Care\"",
+    "description": "On November 3, 2011, Drake released \"Take Care,\" his influential second studio album. Blending rap, R&B, and atmospheric production, the record featured hits like \"Headlines\" and \"Marvins Room.\" Drake's introspective lyrics and emotional vulnerability redefined hip-hop for a new generation. \"Take Care\" won the Grammy for Best Rap Album and influenced countless artists in rap and pop. It remains a landmark release in 21st-century music.",
+    "category": "release",
+    "year": 2011,
+    "artist": "Drake",
+    "genre": "Hip-Hop/Rap/R&B"
+  },
+  "11-04": {
+    "id": "linkin-park-formation",
+    "date": "11-04",
+    "title": "Formation of Linkin Park",
+    "description": "On November 4, 1996, Linkin Park formed in Agoura Hills, California. The band's blend of nu-metal, rap, and electronic elements brought a fresh sound to rock music. Their debut album \"Hybrid Theory\" became one of the best-selling albums of the 2000s. Linkin Park's introspective lyrics and genre-crossing approach influenced a generation of artists. Their legacy endures in the world of alternative and mainstream music.",
+    "category": "formation",
+    "year": 1996,
+    "artist": "Linkin Park",
+    "genre": "Alternative Rock/Nu Metal/Electronic"
+  },
+  "11-05": {
+    "id": "enya-orinoco-flow-release",
+    "date": "11-05",
+    "title": "Enya releases \"Orinoco Flow\"",
+    "description": "On November 5, 1988, Enya released \"Orinoco Flow,\" a New Age anthem that introduced millions to her ethereal soundscapes. The song topped charts across Europe and helped define Enya's style of layered vocals and lush production. \"Orinoco Flow\" became a signature track and remains beloved for its calming, dreamlike quality. Enya's influence can be heard in ambient, pop, and film music. Her artistry continues to enchant listeners worldwide.",
+    "category": "release",
+    "year": 1988,
+    "artist": "Enya",
+    "genre": "New Age/Pop"
+  },
+  "11-06": {
+    "id": "glenn-frey-born",
+    "date": "11-06",
+    "title": "Born: Glenn Frey (Eagles)",
+    "description": "On November 6, 1948, Glenn Frey was born in Detroit, Michigan. As a founding member of the Eagles, Frey co-wrote classics like \"Take It Easy\" and \"Hotel California.\" His solo hits and work as a producer and actor showcased his versatility. Frey's blend of rock, country, and pop helped shape the Southern California sound of the 1970s. He is remembered as a key figure in American music history.",
+    "category": "birth",
+    "year": 1948,
+    "artist": "Glenn Frey/Eagles",
+    "genre": "Rock/Country Rock"
+  },
+  "11-07": {
+    "id": "lorde-royals-release",
+    "date": "11-07",
+    "title": "Lorde releases \"Royals\"",
+    "description": "On November 7, 2013, Lorde released \"Royals,\" a minimalist pop single that made her an international star at just sixteen. The song's critique of luxury culture, paired with Lorde's haunting voice, resonated with young audiences worldwide. \"Royals\" topped charts in more than 20 countries and won Song of the Year at the Grammys. Lorde's success opened doors for a new generation of alternative pop artists. The track remains a defining hit of the 2010s.",
+    "category": "release",
+    "year": 2013,
+    "artist": "Lorde",
+    "genre": "Pop/Alternative"
+  },
+  "11-08": {
+    "id": "mtv-europe-music-awards-event",
+    "date": "11-08",
+    "title": "Event: MTV Europe Music Awards",
+    "description": "On November 8 (date varies), the MTV Europe Music Awards (EMAs) celebrate global talent with live performances and honors for artists across genres. Launched in 1994, the EMAs highlight both international superstars and rising stars from around the world. Iconic moments—like performances by Beyoncé, Eminem, and BTS—draw millions of viewers each year. The show's focus on fan voting and global reach reflects the diversity of contemporary music. The EMAs have become a staple of the international music calendar.",
+    "category": "event",
+    "year": 0,
+    "artist": "Various Artists",
+    "genre": "All Genres"
+  },
+  "11-09": {
+    "id": "alanis-morissette-jagged-little-pill-release",
+    "date": "11-09",
+    "title": "Alanis Morissette releases \"Jagged Little Pill\"",
+    "description": "On November 9, 1995, Alanis Morissette released \"Jagged Little Pill,\" a confessional rock album that became an anthem of the 1990s. With raw lyrics and hits like \"You Oughta Know,\" \"Ironic,\" and \"Hand in My Pocket,\" Morissette captured the complexities of young adulthood. The album won multiple Grammys and sold over 30 million copies worldwide. \"Jagged Little Pill\" inspired a wave of female singer-songwriters. Its influence continues in music, theater, and pop culture.",
+    "category": "release",
+    "year": 1995,
+    "artist": "Alanis Morissette",
+    "genre": "Rock/Alternative/Pop"
+  },
+  "11-10": {
+    "id": "miranda-lambert-born",
+    "date": "11-10",
+    "title": "Born: Miranda Lambert",
+    "description": "On November 10, 1983, Miranda Lambert was born in Longview, Texas. Known for her powerful voice and honest songwriting, Lambert became a leading figure in modern country music. Her albums \"Revolution\" and \"The Weight of These Wings\" earned her critical acclaim and multiple awards. Lambert's blend of traditional and contemporary styles appeals to country fans of all ages. She is celebrated for championing women in country and staying true to her roots.",
+    "category": "birth",
+    "year": 1983,
+    "artist": "Miranda Lambert",
+    "genre": "Country"
+  },
+  "11-11": {
+    "id": "coldplay-a-rush-of-blood-to-the-head-release",
+    "date": "11-11",
+    "title": "Coldplay releases \"A Rush of Blood to the Head\"",
+    "description": "On November 11, 2002, Coldplay released \"A Rush of Blood to the Head,\" their critically acclaimed second album. Featuring hits like \"The Scientist\" and \"Clocks,\" the record showcased the band's atmospheric sound and introspective lyrics. The album won Grammy Awards and solidified Coldplay's status as global rock superstars. Its emotional depth and melodic hooks resonated with fans worldwide. \"A Rush of Blood to the Head\" remains a modern classic in alternative rock.",
+    "category": "release",
+    "year": 2002,
+    "artist": "Coldplay",
+    "genre": "Rock/Alternative"
+  },
+  "11-12": {
+    "id": "neil-young-born",
+    "date": "11-12",
+    "title": "Born: Neil Young",
+    "description": "On November 12, 1945, Neil Young was born in Toronto, Canada. As a prolific singer-songwriter and guitarist, Young has influenced folk, rock, and country music for over five decades. His work with Buffalo Springfield, Crosby, Stills, Nash & Young, and as a solo artist produced classics like \"Heart of Gold\" and \"Rockin' in the Free World.\" Young's passionate advocacy for social and environmental causes is as renowned as his music. He is often called the \"Godfather of Grunge.\"",
+    "category": "birth",
+    "year": 1945,
+    "artist": "Neil Young",
+    "genre": "Folk/Rock/Country"
+  },
+  "11-13": {
+    "id": "the-weeknd-starboy-release",
+    "date": "11-13",
+    "title": "The Weeknd releases \"Starboy\"",
+    "description": "On November 13, 2016, The Weeknd released \"Starboy,\" an album that blended R&B, pop, and electronic influences. The title track, featuring Daft Punk, became an international hit, and the album won the Grammy for Best Urban Contemporary Album. \"Starboy\" showcased The Weeknd's evolving sound and moody lyricism. The record's success confirmed his status as a leading voice in modern pop and R&B. Its blend of retro vibes and futuristic production still inspires new artists.",
+    "category": "release",
+    "year": 2016,
+    "artist": "The Weeknd",
+    "genre": "R&B/Pop/Electronic"
+  },
+  "11-14": {
+    "id": "run-dmc-formation",
+    "date": "11-14",
+    "title": "Formation of Run-D.M.C.",
+    "description": "On November 14, 1981, Run-D.M.C. formed in Hollis, Queens, New York. The trio became pioneers of hip-hop, bringing the genre into the mainstream with their innovative beats and streetwise style. Hits like \"It's Tricky\" and their collaboration with Aerosmith on \"Walk This Way\" bridged rock and rap. Run-D.M.C.'s influence is still felt in music, fashion, and culture. They remain one of the most important groups in hip-hop history.",
+    "category": "formation",
+    "year": 1981,
+    "artist": "Run-D.M.C.",
+    "genre": "Hip-Hop/Rap"
+  },
+  "11-15": {
+    "id": "britney-spears-baby-one-more-time-release",
+    "date": "11-15",
+    "title": "Britney Spears releases \"...Baby One More Time\"",
+    "description": "On November 15, 1998, Britney Spears released her debut single \"...Baby One More Time,\" launching her into global superstardom. The song's catchy hook, unforgettable music video, and Spears's youthful energy redefined teen pop for a new era. It topped charts in over 20 countries and became one of the best-selling singles of all time. The track's impact on pop culture and music videos remains significant. Britney's debut marked the dawn of the late-90s pop explosion.",
+    "category": "release",
+    "year": 1998,
+    "artist": "Britney Spears",
+    "genre": "Pop/Dance"
+  },
+  "11-16": {
+    "id": "oksana-baiul-born",
+    "date": "11-16",
+    "title": "Born: Oksana Baiul (Music in Ice Dance)",
+    "description": "On November 16, 1977, Oksana Baiul was born in Dnipro, Ukraine. While best known as an Olympic gold medalist figure skater, Baiul's routines have helped popularize the use of pop and classical music in ice dance worldwide. Her performances have introduced millions to songs from Tchaikovsky to Elton John. Baiul's artistry on ice continues to inspire dancers and musicians. She remains an influential figure at the intersection of music and sport.",
+    "category": "birth",
+    "year": 1977,
+    "artist": "Oksana Baiul",
+    "genre": "Soundtrack/Pop/Classical"
+  },
+  "11-17": {
+    "id": "pearl-jam-ten-release",
+    "date": "11-17",
+    "title": "Pearl Jam releases \"Ten\"",
+    "description": "On November 17, 1991, Pearl Jam released \"Ten,\" their debut album and a landmark in grunge and alternative rock. With anthems like \"Alive,\" \"Even Flow,\" and \"Jeremy,\" the record became one of the best-selling rock albums of the 1990s. Pearl Jam's passionate performances and socially conscious lyrics resonated with a generation. \"Ten\" helped define the Seattle sound and continues to influence rock bands worldwide. The album remains a cornerstone of modern rock.",
+    "category": "release",
+    "year": 1991,
+    "artist": "Pearl Jam",
+    "genre": "Grunge/Alternative Rock"
+  },
+  "11-18": {
+    "id": "american-music-awards-event",
+    "date": "11-18",
+    "title": "Event: American Music Awards (AMA) ceremony",
+    "description": "On November 18 (date varies), the American Music Awards (AMAs) honor the most popular artists and albums of the year. Established in 1973, the AMAs are determined by public vote, reflecting fan preferences across genres. Iconic performances and surprise collaborations are a hallmark of the show. The AMAs have spotlighted legends and emerging stars alike, from Michael Jackson to Taylor Swift. The event remains a key moment in the global music calendar.",
+    "category": "event",
+    "year": 0,
+    "artist": "Various Artists",
+    "genre": "All Genres"
+  },
+  "11-19": {
+    "id": "david-bowie-heroes-release",
+    "date": "11-19",
+    "title": "David Bowie releases \"Heroes\"",
+    "description": "On November 19, 1977, David Bowie released \"Heroes,\" a song and album that became a timeless anthem of hope and resilience. Recorded in Berlin, the track captured the spirit of a divided city and remains one of Bowie's most celebrated works. Its soaring chorus and emotional depth inspired countless artists. \"Heroes\" is often performed at events symbolizing unity and overcoming adversity. Bowie's legacy as a musical innovator endures.",
+    "category": "release",
+    "year": 1977,
+    "artist": "David Bowie",
+    "genre": "Rock/Art Rock"
+  },
+  "11-20": {
+    "id": "future-born",
+    "date": "11-20",
+    "title": "Born: Future",
+    "description": "On November 20, 1983, Nayvadius Wilburn—known as Future—was born in Atlanta, Georgia. As a pioneer of trap music, Future's melodic flows and innovative use of Auto-Tune changed the landscape of hip-hop. His prolific output and chart-topping hits like \"Mask Off\" and \"March Madness\" earned him global recognition. Future's influence can be heard in modern rap, R&B, and pop. He remains a key figure in contemporary music.",
+    "category": "birth",
+    "year": 1983,
+    "artist": "Future",
+    "genre": "Hip-Hop/Trap"
+  },
+  "11-21": {
+    "id": "rolling-stones-let-it-bleed-release",
+    "date": "11-21",
+    "title": "The Rolling Stones release \"Let It Bleed\"",
+    "description": "On November 21, 1969, The Rolling Stones released \"Let It Bleed,\" an album featuring classics like \"Gimme Shelter\" and \"You Can't Always Get What You Want.\" The record's gritty sound and dark themes reflected the tumultuous end of the 1960s. \"Let It Bleed\" is widely regarded as a rock masterpiece, showcasing the Stones' versatility and songwriting. Its influence reaches across generations and genres. The album remains a defining work in the band's storied career.",
+    "category": "release",
+    "year": 1969,
+    "artist": "The Rolling Stones",
+    "genre": "Rock/Blues/Rock & Roll"
+  },
+  "11-22": {
+    "id": "jamie-lee-curtis-born",
+    "date": "11-22",
+    "title": "Born: Jamie Lee Curtis (Music in Film & Culture)",
+    "description": "On November 22, 1958, Jamie Lee Curtis was born in Los Angeles, California. While best known for her film career, Curtis has appeared in musicals, inspired soundtracks, and advocated for music education in schools. Her presence in films like \"A Fish Called Wanda\" and \"Freaky Friday\" connected her to pop and rock soundtracks. Curtis's cultural influence spans genres, and she's a champion of creative arts. She remains a beloved figure in both the movie and music communities.",
+    "category": "birth",
+    "year": 1958,
+    "artist": "Jamie Lee Curtis (Film/Music)",
+    "genre": "Soundtrack/Pop Culture"
+  },
+  "11-23": {
+    "id": "miley-cyrus-wrecking-ball-release",
+    "date": "11-23",
+    "title": "Miley Cyrus releases \"Wrecking Ball\"",
+    "description": "On November 23, 2013, Miley Cyrus released \"Wrecking Ball,\" a pop ballad that became a global sensation. The song's powerful vocals and emotional vulnerability showcased Cyrus's evolution as an artist. Its controversial music video made headlines and sparked debates about image and artistry in pop. \"Wrecking Ball\" topped charts worldwide and won the MTV Video Music Award for Video of the Year. The track remains a signature moment in Cyrus's career.",
+    "category": "release",
+    "year": 2013,
+    "artist": "Miley Cyrus",
+    "genre": "Pop/Ballad"
+  },
+  "11-24": {
+    "id": "genesis-formation",
+    "date": "11-24",
+    "title": "Formation of Genesis",
+    "description": "On November 24, 1967, Genesis was formed in Surrey, England, by schoolmates Peter Gabriel, Tony Banks, and Mike Rutherford. The band became pioneers of progressive rock, later achieving mainstream pop success with Phil Collins as lead singer. Genesis's complex compositions and theatrical performances influenced countless musicians. Albums like \"Selling England by the Pound\" and \"Invisible Touch\" are regarded as genre classics. The group's legacy endures across prog and pop music.",
+    "category": "formation",
+    "year": 1967,
+    "artist": "Genesis",
+    "genre": "Progressive Rock/Pop"
+  },
+  "11-25": {
+    "id": "tina-turner-private-dancer-release",
+    "date": "11-25",
+    "title": "Tina Turner releases \"Private Dancer\"",
+    "description": "On November 25, 1984, Tina Turner released \"Private Dancer,\" her comeback album after years away from the spotlight. Hits like \"What's Love Got to Do with It\" revived her career, earning multiple Grammys and worldwide acclaim. The album's mix of rock, pop, and soul highlighted Turner's powerful voice and indomitable spirit. \"Private Dancer\" remains a landmark in pop music history. Turner's resilience inspired millions and redefined what was possible for women in music.",
+    "category": "release",
+    "year": 1984,
+    "artist": "Tina Turner",
+    "genre": "Pop/Rock/Soul"
+  },
+  "11-26": {
+    "id": "tina-turner-born",
+    "date": "11-26",
+    "title": "Born: Tina Turner",
+    "description": "On November 26, 1939, Anna Mae Bullock—known as Tina Turner—was born in Nutbush, Tennessee. Turner rose from humble beginnings to become the \"Queen of Rock 'n' Roll,\" known for her electrifying stage presence and dynamic vocals. With hits like \"Proud Mary\" and \"The Best,\" she inspired generations of musicians and fans. Her life story became the subject of the hit musical \"TINA.\" Turner's enduring influence stretches across genres and continents.",
+    "category": "birth",
+    "year": 1939,
+    "artist": "Tina Turner",
+    "genre": "Rock/Soul/Pop"
+  },
+  "11-27": {
+    "id": "nirvana-mtv-unplugged-release",
+    "date": "11-27",
+    "title": "Nirvana releases \"MTV Unplugged in New York\"",
+    "description": "On November 27, 1994, Nirvana released \"MTV Unplugged in New York,\" a live album capturing their iconic acoustic performance. The set included haunting renditions of \"About a Girl,\" \"All Apologies,\" and covers of Lead Belly and David Bowie. The album showcased Kurt Cobain's vulnerability and the band's musical depth. It received critical acclaim and won the Grammy for Best Alternative Music Album. \"MTV Unplugged in New York\" remains a poignant farewell to Nirvana's career.",
+    "category": "release",
+    "year": 1994,
+    "artist": "Nirvana",
+    "genre": "Rock/Alternative/Acoustic"
+  },
+  "11-28": {
+    "id": "nobel-prize-ceremony-music-peace-event",
+    "date": "11-28",
+    "title": "Event: Nobel Prize Ceremony—music & peace",
+    "description": "On November 28 (date varies), the Nobel Prize Ceremony in Sweden and Norway often highlights musicians and works that promote peace and cultural dialogue. Laureates and performers have included Bob Dylan, who won the Nobel Prize for Literature, and orchestras playing at the Peace Prize event. The ceremony underscores the role of music in fostering understanding and celebrating humanity's highest ideals. Musical tributes reach audiences around the globe. The Nobel Prize continues to honor the intersection of music and social progress.",
+    "category": "event",
+    "year": 0,
+    "artist": "Bob Dylan, Various Artists",
+    "genre": "Classical/Folk/All Genres"
+  },
+  "11-29": {
+    "id": "george-harrison-all-things-must-pass-release",
+    "date": "11-29",
+    "title": "George Harrison releases \"All Things Must Pass\"",
+    "description": "On November 29, 1970, George Harrison released \"All Things Must Pass,\" his triple solo album after the Beatles' breakup. The record's spiritual themes, lush production, and tracks like \"My Sweet Lord\" earned widespread acclaim. \"All Things Must Pass\" established Harrison as a formidable songwriter in his own right. Its influence can be heard in rock, folk, and spiritual music worldwide. The album remains a touchstone for artists seeking personal and musical transcendence.",
+    "category": "release",
+    "year": 1970,
+    "artist": "George Harrison",
+    "genre": "Rock/Folk/Spiritual"
+  },
+  "11-30": {
+    "id": "billy-idol-born",
+    "date": "11-30",
+    "title": "Born: Billy Idol",
+    "description": "On November 30, 1955, Billy Idol was born in Middlesex, England. As a pioneer of punk and new wave, Idol's sneering voice and rebellious image brought hits like \"White Wedding\" and \"Rebel Yell\" to the charts. His blend of rock and pop, along with his signature snarl, made him a staple of 1980s MTV culture. Idol's energetic performances and iconic style inspired a new generation of rockers. He remains a beloved figure in rock and pop history.",
+    "category": "birth",
+    "year": 1955,
+    "artist": "Billy Idol",
+    "genre": "Rock/Punk/New Wave"
+  },
+  "12-01": {
+    "id": "bob-marley-exodus-release",
+    "date": "12-01",
+    "title": "Bob Marley & The Wailers release \"Exodus\"",
+    "description": "On December 1, 1977, Bob Marley & The Wailers released \"Exodus,\" an album that fused reggae, rock, and soul with themes of freedom and hope. Featuring classics like \"One Love,\" \"Jamming,\" and the title track, \"Exodus\" became a global anthem for peace and resistance. The album was named Time magazine's Album of the Century. Marley's music continues to inspire movements for justice and unity. \"Exodus\" remains a timeless symbol of reggae's power and Marley's enduring legacy.",
+    "category": "release",
+    "year": 1977,
+    "artist": "Bob Marley & The Wailers",
+    "genre": "Reggae/Rock/Soul"
+  },
+  "12-02": {
+    "id": "britney-spears-born",
+    "date": "12-02",
+    "title": "Born: Britney Spears",
+    "description": "On December 2, 1981, Britney Spears was born in McComb, Mississippi. Spears rose to fame as a teen pop icon in the late 1990s and early 2000s, revolutionizing the genre with hits like \"…Baby One More Time.\" Her energetic performances and media presence helped define the era's pop culture. Despite personal struggles, Spears' influence on music, fashion, and entertainment is immense. She remains one of the best-selling female artists in history.",
+    "category": "birth",
+    "year": 1981,
+    "artist": "Britney Spears",
+    "genre": "Pop/Dance/Electropop"
+  },
+  "12-03": {
+    "id": "dido-no-angel-release",
+    "date": "12-03",
+    "title": "Dido releases \"No Angel\"",
+    "description": "On December 3, 1999, Dido released \"No Angel,\" her debut album blending pop, folk, and electronica. The record included global hits like \"Thank You\" and \"Here with Me,\" propelling Dido to international fame. Her soothing voice and relatable lyrics struck a chord with listeners. \"No Angel\" sold over 20 million copies worldwide and earned critical acclaim. The album remains a favorite for fans of chill, melodic pop.",
+    "category": "release",
+    "year": 1999,
+    "artist": "Dido",
+    "genre": "Pop/Folk/Electronica"
+  },
+  "12-04": {
+    "id": "beach-boys-formation",
+    "date": "12-04",
+    "title": "Formation of The Beach Boys",
+    "description": "On December 4, 1961, The Beach Boys were formed in Hawthorne, California, by brothers Brian, Dennis, and Carl Wilson, their cousin Mike Love, and friend Al Jardine. Known for their lush harmonies and surf-inspired sound, The Beach Boys became icons of American pop. Their hits like \"Good Vibrations\" and \"California Girls\" defined the sound of the 1960s. The band's influence extended far beyond the beach, inspiring artists worldwide. The Beach Boys remain one of the most innovative and beloved groups in music history.",
+    "category": "formation",
+    "year": 1961,
+    "artist": "The Beach Boys",
+    "genre": "Pop/Rock/Surf Music"
+  },
+  "12-05": {
+    "id": "jay-z-black-album-release",
+    "date": "12-05",
+    "title": "Jay-Z releases \"The Black Album\"",
+    "description": "On December 5, 2003, Jay-Z released \"The Black Album,\" which was initially intended as his retirement record. The album featured chart-topping singles like \"99 Problems\" and \"Dirt Off Your Shoulder.\" Its ambitious production included collaborations with Kanye West, Pharrell Williams, and Rick Rubin. \"The Black Album\" was praised for its introspection and lyrical depth, cementing Jay-Z's legacy as one of hip-hop's greatest. The album is regarded as a classic in modern rap history.",
+    "category": "release",
+    "year": 2003,
+    "artist": "Jay-Z",
+    "genre": "Hip-Hop/Rap"
+  },
+  "12-06": {
+    "id": "steven-wright-born",
+    "date": "12-06",
+    "title": "Born: Steven Wright (Music & Comedy)",
+    "description": "On December 6, 1955, Steven Wright was born in Cambridge, Massachusetts. The deadpan comedian's surreal jokes and monotone delivery influenced a generation of stand-up performers. Wright's work frequently references music, and he's contributed to film soundtracks and musical comedy. He's cited by musicians and comedians alike for his unique approach. Wright's intersection of music and comedy continues to inspire creative artists worldwide.",
+    "category": "birth",
+    "year": 1955,
+    "artist": "Steven Wright (Comedy/Music)",
+    "genre": "Soundtrack/Comedy/Pop Culture"
+  },
+  "12-07": {
+    "id": "sara-bareilles-love-song-release",
+    "date": "12-07",
+    "title": "Sara Bareilles releases \"Love Song\"",
+    "description": "On December 7, 2007, Sara Bareilles released \"Love Song,\" a witty and empowering single that became an international hit. The track's catchy piano hook and honest lyrics struck a chord with listeners and critics alike. \"Love Song\" earned multiple Grammy nominations and remains a signature tune for Bareilles. Her success paved the way for a new wave of female singer-songwriters. The song is still a favorite on pop radio and playlists.",
+    "category": "release",
+    "year": 2007,
+    "artist": "Sara Bareilles",
+    "genre": "Pop/Singer-Songwriter"
+  },
+  "12-08": {
+    "id": "john-lennon-death-remembered-event",
+    "date": "12-08",
+    "title": "Event: John Lennon's death remembered worldwide",
+    "description": "On December 8, 1980, John Lennon was tragically shot and killed outside his New York City apartment. The world mourned the loss of the legendary Beatle, peace activist, and songwriter. Lennon's music and message of love and unity live on through tributes and annual remembrances. Songs like \"Imagine\" and \"Give Peace a Chance\" continue to inspire movements for peace. Lennon's legacy is honored each year with vigils and concerts across the globe.",
+    "category": "event",
+    "year": 1980,
+    "artist": "John Lennon",
+    "genre": "Rock/Pop"
+  },
+  "12-09": {
+    "id": "daft-punk-discovery-release",
+    "date": "12-09",
+    "title": "Daft Punk releases \"Discovery\"",
+    "description": "On December 9, 2001, French electronic duo Daft Punk released \"Discovery,\" a landmark album that redefined the boundaries of dance and pop music. Featuring hits like \"One More Time\" and \"Harder, Better, Faster, Stronger,\" the album mixed house, disco, and rock influences. \"Discovery\" became a global phenomenon, influencing producers and artists in all genres. Daft Punk's innovative visuals and sound set a new standard for electronic music. The record remains a touchstone in club culture and beyond.",
+    "category": "release",
+    "year": 2001,
+    "artist": "Daft Punk",
+    "genre": "Electronic/House/Pop"
+  },
+  "12-10": {
+    "id": "nobel-prize-concert-music-peace-event",
+    "date": "12-10",
+    "title": "Event: Nobel Prize Concert (Music for Peace)",
+    "description": "On December 10 (date varies), the Nobel Prize Concert is held in Stockholm to honor the Nobel laureates. The event features performances by some of the world's leading orchestras and musicians, symbolizing the power of music to unite people. Over the years, the concert has included classical masterpieces and contemporary works, reaching global audiences. It serves as a reminder of music's role in fostering peace and cultural exchange. The concert is broadcast internationally each year.",
+    "category": "event",
+    "year": 0,
+    "artist": "Various Artists",
+    "genre": "Classical/World/All Genres"
+  },
+  "12-11": {
+    "id": "alicia-keys-songs-in-a-minor-release",
+    "date": "12-11",
+    "title": "Alicia Keys releases \"Songs in A Minor\"",
+    "description": "On December 11, 2001, Alicia Keys released her debut album \"Songs in A Minor,\" which blended soul, jazz, R&B, and classical influences. Her piano-driven hit \"Fallin'\" topped charts around the world and introduced a fresh, authentic voice to contemporary music. The album won five Grammy Awards, making Keys a global star at just 21. Keys' musicianship and songwriting inspired a new wave of singer-songwriters. \"Songs in A Minor\" remains a touchstone for 21st-century R&B and soul.",
+    "category": "release",
+    "year": 2001,
+    "artist": "Alicia Keys",
+    "genre": "R&B/Soul/Pop"
+  },
+  "12-12": {
+    "id": "frank-sinatra-born",
+    "date": "12-12",
+    "title": "Born: Frank Sinatra",
+    "description": "On December 12, 1915, Frank Sinatra was born in Hoboken, New Jersey. Nicknamed \"Ol' Blue Eyes,\" Sinatra's velvety voice and charismatic style made him one of the most influential singers of the 20th century. His interpretations of classics like \"My Way\" and \"Fly Me to the Moon\" set new standards for vocal performance. Sinatra also enjoyed a prolific film career and helped shape the image of the American entertainer. His legacy endures through music, film, and cultural history.",
+    "category": "birth",
+    "year": 1915,
+    "artist": "Frank Sinatra",
+    "genre": "Jazz/Pop/Vocal Standards"
+  },
+  "12-13": {
+    "id": "taylor-swift-red-taylors-version-release",
+    "date": "12-13",
+    "title": "Taylor Swift releases \"Red\" (Deluxe Edition)",
+    "description": "On December 13, 2021, Taylor Swift released the deluxe edition of \"Red (Taylor's Version),\" revisiting her classic 2012 album with new recordings and bonus tracks. The project featured reimagined hits like \"All Too Well\" and \"22,\" as well as never-before-heard \"From The Vault\" songs. Swift's move to reclaim her masters inspired discussions about artists' rights in the industry. The release broke streaming records and delighted longtime fans. \"Red (Taylor's Version)\" reinforced Swift's role as a master storyteller and businesswoman.",
+    "category": "release",
+    "year": 2021,
+    "artist": "Taylor Swift",
+    "genre": "Pop/Country/Folk"
+  },
+  "12-14": {
+    "id": "alabama-shakes-formation",
+    "date": "12-14",
+    "title": "Formation of Alabama Shakes",
+    "description": "On December 14, 2009, Alabama Shakes formed in Athens, Alabama. The band's mix of Southern rock, blues, and soul, driven by Brittany Howard's powerful vocals, quickly earned critical acclaim. Their debut album \"Boys & Girls\" was nominated for multiple Grammys and featured the hit \"Hold On.\" Alabama Shakes brought a raw, rootsy energy back to American rock. The group's music continues to resonate with fans of all ages.",
+    "category": "formation",
+    "year": 2009,
+    "artist": "Alabama Shakes",
+    "genre": "Rock/Blues/Soul"
+  },
+  "12-15": {
+    "id": "ed-sheeran-divide-release",
+    "date": "12-15",
+    "title": "Ed Sheeran releases \"÷ (Divide)\"",
+    "description": "On December 15, 2017, Ed Sheeran released \"÷ (Divide),\" which quickly became one of the best-selling albums of the decade. The record included chart-topping singles like \"Shape of You,\" \"Castle on the Hill,\" and \"Perfect.\" Sheeran's blend of pop, folk, and acoustic sounds captivated listeners worldwide. The album broke records for digital sales and streaming, earning Sheeran multiple Grammy Awards. \"Divide\" solidified Ed Sheeran's status as a global pop phenomenon.",
+    "category": "release",
+    "year": 2017,
+    "artist": "Ed Sheeran",
+    "genre": "Pop/Folk/Acoustic"
+  },
+  "12-16": {
+    "id": "ludwig-van-beethoven-born",
+    "date": "12-16",
+    "title": "Born: Ludwig van Beethoven",
+    "description": "On December 16, 1770, Ludwig van Beethoven was born in Bonn, Germany. One of the greatest composers of all time, Beethoven bridged the Classical and Romantic eras with symphonies, sonatas, and chamber works. His music—ranging from the \"Moonlight Sonata\" to the \"Ninth Symphony\"—continues to move audiences centuries later. Beethoven overcame deafness to compose some of his most enduring masterpieces. His legacy is foundational to Western classical music.",
+    "category": "birth",
+    "year": 1770,
+    "artist": "Ludwig van Beethoven",
+    "genre": "Classical"
+  },
+  "12-17": {
+    "id": "missy-elliott-supa-dupa-fly-release",
+    "date": "12-17",
+    "title": "Missy Elliott releases \"Supa Dupa Fly\"",
+    "description": "On December 17, 1997, Missy Elliott released her debut album \"Supa Dupa Fly,\" produced by Timbaland. The record's futuristic beats, playful lyrics, and innovative videos broke new ground for hip-hop and R&B. Hits like \"The Rain (Supa Dupa Fly)\" showcased Elliott's unique flow and creativity. The album is widely regarded as a milestone for women in hip-hop. Missy Elliott's debut continues to influence artists across genres.",
+    "category": "release",
+    "year": 1997,
+    "artist": "Missy Elliott",
+    "genre": "Hip-Hop/R&B/Pop"
+  },
+  "12-18": {
+    "id": "christina-aguilera-born",
+    "date": "12-18",
+    "title": "Born: Christina Aguilera",
+    "description": "On December 18, 1980, Christina Aguilera was born in Staten Island, New York. Known for her powerful voice and dynamic range, Aguilera became one of the leading pop divas of her generation. Her hits include \"Genie in a Bottle,\" \"Beautiful,\" and \"Fighter,\" earning her multiple Grammy Awards. Aguilera's music and image helped redefine pop for the new millennium. She remains an influential figure in music, television, and fashion.",
+    "category": "birth",
+    "year": 1980,
+    "artist": "Christina Aguilera",
+    "genre": "Pop/R&B/Soul"
+  },
+  "12-19": {
+    "id": "sia-chandelier-release",
+    "date": "12-19",
+    "title": "Sia releases \"Chandelier\"",
+    "description": "On December 19, 2014, Sia released \"Chandelier,\" a soaring pop anthem that captivated listeners worldwide. The song's emotive lyrics and Sia's distinctive vocals were matched by an iconic music video featuring dancer Maddie Ziegler. \"Chandelier\" received Grammy nominations and became a signature track for Sia. Its success solidified her as one of pop's most innovative voices. The song remains a staple in contemporary music.",
+    "category": "release",
+    "year": 2014,
+    "artist": "Sia",
+    "genre": "Pop/Electronic/Alternative"
+  },
+  "12-20": {
+    "id": "z100-jingle-ball-nyc-holiday-pop-festival-event",
+    "date": "12-20",
+    "title": "Event: Z100 Jingle Ball—NYC holiday pop festival",
+    "description": "On December 20 (date varies), Z100's Jingle Ball lights up Madison Square Garden with performances from the biggest names in pop, hip-hop, and R&B. The star-studded holiday concert has featured artists from Mariah Carey to Billie Eilish. Broadcast nationwide, the event kicks off the festive season for millions of fans. Jingle Ball is known for surprise collaborations and show-stopping sets. It remains a highlight of New York City's holiday music calendar.",
+    "category": "event",
+    "year": 0,
+    "artist": "Various Artists",
+    "genre": "Pop/Hip-Hop/R&B/All Genres"
+  },
+  "12-21": {
+    "id": "mariah-carey-merry-christmas-release",
+    "date": "12-21",
+    "title": "Mariah Carey releases \"Merry Christmas\"",
+    "description": "On December 21, 1994, Mariah Carey released \"Merry Christmas,\" an album that became a holiday classic thanks to hits like \"All I Want for Christmas Is You.\" The song's joyful energy and Carey's powerful vocals helped it become one of the best-selling singles of all time. The album blends traditional carols with original pop and R&B tracks. Carey's influence has made the song a perennial favorite, topping charts every December. \"Merry Christmas\" is now a cornerstone of modern holiday music.",
+    "category": "release",
+    "year": 1994,
+    "artist": "Mariah Carey",
+    "genre": "Pop/R&B/Holiday Music"
+  },
+  "12-22": {
+    "id": "robin-maurice-gibb-born",
+    "date": "12-22",
+    "title": "Born: Robin and Maurice Gibb (Bee Gees)",
+    "description": "On December 22, 1949, twins Robin and Maurice Gibb were born on the Isle of Man. Along with their brother Barry, they formed the Bee Gees, who became icons of pop and disco. Their harmonies powered hits like \"Stayin' Alive\" and \"How Deep Is Your Love,\" defining the sound of the 1970s. The Bee Gees' songwriting and production work influenced generations of musicians. Robin and Maurice's legacy continues through timeless music and cultural impact.",
+    "category": "birth",
+    "year": 1949,
+    "artist": "Robin & Maurice Gibb/Bee Gees",
+    "genre": "Pop/Disco/Rock"
+  },
+  "12-23": {
+    "id": "eminem-marshall-mathers-lp-release",
+    "date": "12-23",
+    "title": "Eminem releases \"The Marshall Mathers LP\"",
+    "description": "On December 23, 2000, Eminem released \"The Marshall Mathers LP,\" an album that pushed boundaries with its raw, controversial lyrics and rapid-fire delivery. Hits like \"The Real Slim Shady\" and \"Stan\" catapulted Eminem to superstardom and sparked debates about censorship and free speech in music. The album broke sales records and won multiple Grammy Awards. Its dark humor, storytelling, and production set new standards for hip-hop. \"The Marshall Mathers LP\" remains a defining record in rap history.",
+    "category": "release",
+    "year": 2000,
+    "artist": "Eminem",
+    "genre": "Hip-Hop/Rap"
+  },
+  "12-24": {
+    "id": "the-pogues-formation",
+    "date": "12-24",
+    "title": "Formation of The Pogues",
+    "description": "On December 24, 1982, The Pogues formed in London, blending traditional Irish folk music with the energy and attitude of punk. Their unique sound produced cult favorites like \"Fairytale of New York,\" a holiday staple in the UK and Ireland. The band's raw storytelling and eclectic influences made them stand out in the alternative music scene. The Pogues inspired a wave of folk-punk bands worldwide. Their spirited performances are still celebrated every December.",
+    "category": "formation",
+    "year": 1982,
+    "artist": "The Pogues",
+    "genre": "Folk/Punk/Alternative"
+  },
+  "12-25": {
+    "id": "christmas-day-music-global-tradition-event",
+    "date": "12-25",
+    "title": "Event: Christmas Day—music's global tradition",
+    "description": "On December 25, Christmas Day is celebrated around the world with carols, hymns, and festive songs in countless languages and styles. Classics like \"Silent Night,\" \"Jingle Bells,\" and \"Feliz Navidad\" bring people together regardless of culture or creed. Christmas music ranges from ancient choral works to modern pop hits. Artists from Bing Crosby to Wham! have shaped the holiday soundtrack for generations. Music remains central to the warmth and joy of the season.",
+    "category": "event",
+    "year": 0,
+    "artist": "Various Artists",
+    "genre": "All Genres/Holiday"
+  },
+  "12-26": {
+    "id": "lars-ulrich-born",
+    "date": "12-26",
+    "title": "Born: Lars Ulrich (Metallica)",
+    "description": "On December 26, 1963, Lars Ulrich was born in Gentofte, Denmark. As co-founder and drummer of Metallica, Ulrich played a crucial role in bringing thrash metal to mainstream audiences. His powerful drumming and organizational skills helped make Metallica one of the most successful rock bands of all time. Ulrich's influence goes beyond music, shaping concert culture and the business side of the industry. He remains a driving force in heavy metal's evolution.",
+    "category": "birth",
+    "year": 1963,
+    "artist": "Lars Ulrich/Metallica",
+    "genre": "Metal/Rock"
+  },
+  "12-27": {
+    "id": "outkast-speakerboxxx-love-below-release",
+    "date": "12-27",
+    "title": "Outkast releases \"Speakerboxxx/The Love Below\"",
+    "description": "On December 27, 2003, Outkast released their double album \"Speakerboxxx/The Love Below,\" a genre-bending project that fused hip-hop, funk, soul, and pop. The album spawned the global hit \"Hey Ya!\" and earned Outkast the Grammy for Album of the Year. André 3000 and Big Boi's creative chemistry pushed the boundaries of rap and popular music. The record's diversity influenced countless artists and remains a blueprint for innovation. \"Speakerboxxx/The Love Below\" is hailed as one of the most ambitious albums in hip-hop.",
+    "category": "release",
+    "year": 2003,
+    "artist": "Outkast",
+    "genre": "Hip-Hop/Funk/Pop/Soul"
+  },
+  "12-28": {
+    "id": "john-legend-born",
+    "date": "12-28",
+    "title": "Born: John Legend",
+    "description": "On December 28, 1978, John Legend was born in Springfield, Ohio. The singer-songwriter and pianist rose to fame with his soulful voice and thoughtful lyrics, winning multiple Grammys and an Academy Award. Legend's hits like \"All of Me\" and collaborations with artists from Kanye West to Alicia Keys showcase his versatility. He's known for activism and philanthropy alongside his music. Legend's artistry continues to inspire and unite audiences worldwide.",
+    "category": "birth",
+    "year": 1978,
+    "artist": "John Legend",
+    "genre": "Soul/R&B/Pop"
+  },
+  "12-29": {
+    "id": "beatles-i-want-to-hold-your-hand-release",
+    "date": "12-29",
+    "title": "The Beatles release \"I Want to Hold Your Hand\"",
+    "description": "On December 29, 1963, The Beatles released \"I Want to Hold Your Hand\" in the United States, sparking Beatlemania across the country. The song's infectious melody and harmonies helped launch the British Invasion, changing American pop culture forever. Its success paved the way for The Beatles' historic arrival in New York and their iconic Ed Sullivan Show performance. The single remains a cornerstone of the group's catalog. \"I Want to Hold Your Hand\" endures as a joyful symbol of 1960s pop.",
+    "category": "release",
+    "year": 1963,
+    "artist": "The Beatles",
+    "genre": "Pop/Rock"
+  },
+  "12-30": {
+    "id": "ellie-goulding-born",
+    "date": "12-30",
+    "title": "Born: Ellie Goulding",
+    "description": "On December 30, 1986, Ellie Goulding was born in Hereford, England. Her unique blend of electro-pop and indie-folk, paired with an ethereal voice, earned her global recognition. Goulding's breakout hit \"Lights\" and albums like \"Halcyon\" brought her chart success and critical acclaim. She has collaborated with artists across genres and performed at major global events. Goulding's work continues to shape modern pop and electronic music.",
+    "category": "birth",
+    "year": 1986,
+    "artist": "Ellie Goulding",
+    "genre": "Pop/Electronic/Indie"
+  },
+  "12-31": {
+    "id": "new-years-eve-music-global-celebrations-event",
+    "date": "12-31",
+    "title": "Event: New Year's Eve—music and global celebrations",
+    "description": "On December 31, New Year's Eve is celebrated around the world with music, dance, and spectacular concerts. From Times Square in New York to fireworks in Sydney, musicians help usher in the new year with hope and unity. Classic songs like \"Auld Lang Syne\" and modern party anthems are sung in every language. Television specials feature performances from top artists, uniting audiences globally. Music is at the heart of New Year's Eve's festive spirit and new beginnings.",
+    "category": "event",
+    "year": 0,
+    "artist": "Various Artists",
+    "genre": "All Genres/Holiday"
   }
 }

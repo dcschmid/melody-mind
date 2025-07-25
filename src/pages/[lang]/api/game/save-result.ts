@@ -28,7 +28,7 @@ type UserId = string & { readonly __brand: unique symbol };
  * Literal types for game-specific enums
  */
 type DifficultyLevel = "easy" | "medium" | "hard";
-type GameMode = "quiz" | "chronology";
+type GameMode = "quiz" | "chronology" | "time-pressure";
 
 /**
  * Interface representing the game result data submitted to the API
@@ -337,7 +337,18 @@ export const POST: APIRoute = async ({ request, params }) => {
 
     // Determine the game mode based on the referer URL
     const referer = request.headers.get("referer") || "";
-    const gameMode: GameMode = referer.includes("/game-") ? "quiz" : "chronology";
+    const isTimePressure = referer.includes("/time-pressure-");
+    const actualGameMode: GameMode = isTimePressure
+      ? "time-pressure"
+      : referer.includes("/game-") 
+        ? "quiz" 
+        : "chronology";
+    
+    // For database storage, map time-pressure to quiz until schema is updated
+    const dbGameMode: GameMode = isTimePressure ? "quiz" : actualGameMode;
+
+    // For time-pressure mode, prefix the category to distinguish it
+    const categoryName = isTimePressure ? `time-pressure-${data.categoryName}` : data.categoryName;
 
     // Skip saving for guest users (not authenticated)
     if (data.userId === "guest" || data.userId.startsWith("guest_")) {
@@ -345,7 +356,7 @@ export const POST: APIRoute = async ({ request, params }) => {
 
       // Return a successful response without actually saving to database
       // This prevents FOREIGN KEY constraint errors while maintaining game flow
-      return createSuccessResponse({ gameMode, id: "guest-session" });
+      return createSuccessResponse({ gameMode: actualGameMode, id: "guest-session" });
     }
 
     // Generate a unique ID for the game result using nanoid
@@ -365,16 +376,16 @@ export const POST: APIRoute = async ({ request, params }) => {
             language
           ) VALUES (?, ?, ?, ?, ?, ?, ?)
         `,
-        args: [id, data.userId, gameMode, data.score, data.categoryName, data.difficulty, lang],
+        args: [id, data.userId, dbGameMode, data.score, categoryName, data.difficulty, lang],
       });
 
       // Execute these operations in parallel for better performance
       await Promise.all([
         // Update user statistics for the game mode
-        updateUserModeStats(data.userId, gameMode, data.score, lang),
+        updateUserModeStats(data.userId, dbGameMode, data.score, lang),
 
         // Save the highscore entry
-        saveHighscore(data.userId, gameMode, data.score, data.categoryName, lang),
+        saveHighscore(data.userId, dbGameMode, data.score, categoryName, lang),
       ]);
     } catch (dbError) {
       // Handle database errors specifically
@@ -393,7 +404,7 @@ export const POST: APIRoute = async ({ request, params }) => {
       category: data.genreId
         ? {
             id: data.genreId,
-            name: data.categoryName,
+            name: categoryName,
           }
         : undefined,
       lastAnswerTime: typeof data.lastAnswerTime === "number" ? data.lastAnswerTime : undefined,
@@ -421,7 +432,7 @@ export const POST: APIRoute = async ({ request, params }) => {
       // Continue without achievements if they fail to process
     }
 
-    return createSuccessResponse({ gameMode, id, unlockedAchievements });
+    return createSuccessResponse({ gameMode: actualGameMode, id, unlockedAchievements });
   } catch (error) {
     console.error(t("errors.gameResult.log.api"), error);
 
