@@ -51,9 +51,17 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
   <main class="daily-facts-page">
     <div class="daily-facts-page__container">
       <!-- Hero Section -->
-      <header class="daily-facts-page__hero">
+      <header class="daily-facts-page__hero" aria-labelledby="hero-title">
+        <!-- Decorative background elements with aria-hidden -->
+        <div class="daily-facts-page__hero-decoration" aria-hidden="true">
+          <div class="daily-facts-page__hero-decoration-item daily-facts-page__hero-decoration-item--top-right"></div>
+          <div class="daily-facts-page__hero-decoration-item daily-facts-page__hero-decoration-item--bottom-left"></div>
+          <div class="daily-facts-page__hero-decoration-item daily-facts-page__hero-decoration-item--center-right"></div>
+        </div>
+        
         <div class="daily-facts-page__hero-content">
-          <h1 class="daily-facts-page__title">{pageTitle}</h1>
+          <h1 id="hero-title" class="daily-facts-page__title">{pageTitle}</h1>
+          <div class="daily-facts-page__divider"></div>
           <p class="daily-facts-page__subtitle">{pageDescription}</p>
           <div class="daily-facts-page__date">
             <time class="daily-facts-page__current-date" datetime={new Date().toISOString()}>
@@ -194,28 +202,131 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
 
   // Hero Section
   .daily-facts-page__hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-900) 0%,
+      var(--color-primary-700) 50%,
+      var(--color-secondary-800) 100%
+    );
+    box-shadow: var(--shadow-xl);
+    border: var(--border-width-thin) solid var(--border-primary);
     text-align: center;
     margin-bottom: var(--space-2xl);
-    padding: var(--space-xl) 0;
-    background: linear-gradient(135deg, var(--primary-900), var(--secondary-800));
+    padding: var(--space-xl) var(--space-lg);
     border-radius: var(--radius-xl);
     color: var(--color-white);
+
+    @media (max-width: 39.9375em) {
+      padding: var(--space-lg) var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    @media (max-width: 19.9375em) {
+      padding: var(--space-md) var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      background: var(--color-primary-800);
+    }
+  }
+
+  .daily-facts-page__hero-decoration {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  .daily-facts-page__hero-decoration-item {
+    position: absolute;
+    border-radius: var(--radius-full);
+    background: var(--color-white);
+
+    &--top-right {
+      top: calc(-1 * var(--space-xl));
+      right: calc(-1 * var(--space-xl));
+      width: var(--space-3xl);
+      height: var(--space-3xl);
+    }
+
+    &--bottom-left {
+      bottom: calc(-1 * var(--space-2xl));
+      left: calc(-1 * var(--space-2xl));
+      width: calc(var(--space-3xl) * 2);
+      height: calc(var(--space-3xl) * 2);
+    }
+
+    &--center-right {
+      top: var(--percentage-half);
+      right: calc(-1 * var(--space-md));
+      width: var(--space-2xl);
+      height: var(--space-2xl);
+      transform: translateY(-50%);
+    }
+  }
+
+  .daily-facts-page__hero-content {
+    position: relative;
+    z-index: 1;
   }
 
   .daily-facts-page__title {
+    color: var(--color-white);
+    text-shadow: var(--text-shadow-strong);
     font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
     font-weight: var(--font-bold);
     margin-bottom: var(--space-md);
-    text-shadow: var(--text-shadow-strong);
+    line-height: var(--leading-tight);
+
+    @media (max-width: 39.9375em) {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-sm);
+    }
+
+    @media (max-width: 19.9375em) {
+      font-size: var(--text-xl);
+    }
+  }
+
+  .daily-facts-page__divider {
+    background: var(--color-secondary-400);
+    border-radius: var(--radius-full);
+    width: var(--icon-size-xl);
+    height: var(--border-width-thick);
+    margin: var(--space-lg) auto;
+
+    @media (max-width: 39.9375em) {
+      width: var(--icon-size-lg);
+      margin: var(--space-md) auto;
+    }
+
+    @media (min-width: 40em) {
+      height: var(--border-width-enhanced);
+    }
   }
 
   .daily-facts-page__subtitle {
+    color: var(--color-neutral-100);
     font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
     opacity: 0.9;
     margin-bottom: var(--space-lg);
-    max-width: 600px;
+    max-width: var(--container-md);
     margin-left: auto;
     margin-right: auto;
+
+    @media (max-width: 39.9375em) {
+      font-size: var(--text-base);
+      max-width: var(--container-sm);
+    }
+
+    @media (min-width: 64em) {
+      font-size: var(--text-xl);
+      max-width: var(--container-lg);
+    }
   }
 
   .daily-facts-page__current-date {
@@ -225,6 +336,11 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
     padding: var(--space-sm) var(--space-lg);
     border-radius: var(--radius-full);
     backdrop-filter: blur(10px);
+
+    @media (max-width: 39.9375em) {
+      font-size: var(--text-sm);
+      padding: var(--space-xs) var(--space-md);
+    }
   }
 
   // Content Layout

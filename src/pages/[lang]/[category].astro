@@ -275,6 +275,32 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       </section>
 
       <section
+        id="time-pressure-section"
+        class="section-container time-pressure-section"
+        aria-labelledby="time-pressure-heading"
+        aria-hidden="true"
+      >
+        <div class="game-icon-badge time-pressure-badge">
+          <Icon name="timer" class="icon-large icon-white" />
+        </div>
+        <Headline level="h2" id="time-pressure-heading" textAlign="center">
+          {t("game.timepressure.title")}
+        </Headline>
+        <Paragraph textSize="2xl" description={t("game.timepressure.description").replace('{category}', currentCategory?.headline)} align="center" />
+
+        <div class="button-group single-button-group" role="group" aria-labelledby="time-pressure-heading">
+          <ButtonLink
+            href={getRelativeLocaleUrl(lang, `time-pressure-${currentCategory?.slug}`)}
+            aria-label={`${t("game.timepressure.title")} - ${currentCategory?.headline}`}
+            icon="zap"
+            variant="primary"
+          >
+            <span>{t("game.start.now")}</span>
+          </ButtonLink>
+        </div>
+      </section>
+
+      <section
         id="chronology-section"
         class="section-container chronology-section"
         aria-labelledby="chronology-heading"
@@ -328,7 +354,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     const sectionStates = new WeakMap();
 
     const getSectionElements = (): HTMLElement[] => {
-      const sections = ["auth-section", "quiz-section", "chronology-section"];
+      const sections = ["auth-section", "quiz-section", "time-pressure-section", "chronology-section"];
       return sections.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
     };
 
@@ -340,7 +366,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     const checkAuthStatus = (): void => {
       // Nur lokale Auth-Prüfung auf Category-Seite (keine Server-Validierung)
       const isLoggedIn = isUserAuthenticated();
-      const [authSection, quizSection, chronologySection] = getSectionElements();
+      const [authSection, quizSection, timePressureSection, chronologySection] = getSectionElements();
 
       if (isLoggedIn) {
         // User is logged in - show game modes, hide auth form
@@ -349,6 +375,9 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         }
         if (quizSection) {
           updateSectionVisibility(quizSection, true);
+        }
+        if (timePressureSection) {
+          updateSectionVisibility(timePressureSection, true);
         }
         if (chronologySection) {
           updateSectionVisibility(chronologySection, true);
@@ -691,6 +720,16 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     }
   }
 
+  .time-pressure-section {
+    margin-top: var(--space-3xl);
+    background: linear-gradient(135deg, var(--color-warning-50) 0%, var(--color-error-50) 100%);
+    border: 2px solid var(--color-warning);
+
+    &::before {
+      background: linear-gradient(90deg, var(--color-warning), var(--color-error));
+    }
+  }
+
   .chronology-section {
     margin-top: var(--space-3xl);
     background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
@@ -876,6 +915,39 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       var(--interactive-primary) 0%,
       var(--color-primary-600) 100%
     );
+  }
+
+  .time-pressure-badge {
+    background: linear-gradient(
+      135deg,
+      var(--color-warning) 0%,
+      var(--color-error) 100%
+    );
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse-glow {
+    from {
+      box-shadow: 
+        var(--shadow-xl),
+        inset 0 1px 0 rgba(255, 255, 255, var(--color-mix-dark));
+    }
+    to {
+      box-shadow: 
+        var(--shadow-xl),
+        0 0 20px rgba(255, 193, 7, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, var(--color-mix-dark));
+    }
+  }
+
+  .single-button-group {
+    justify-content: center;
+  }
+
+  .single-button-group .button-link {
+    min-width: 200px;
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
   }
 
   /* ==============================================

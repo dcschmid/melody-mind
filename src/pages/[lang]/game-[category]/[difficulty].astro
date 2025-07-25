@@ -101,7 +101,14 @@ const t = useTranslations(lang);
 const { category, difficulty } = Astro.params;
 
 // Auth check: Verify if the user is logged in
-const authResult = await requireAuth(Astro.request);
+// Check if Astro.request is available (for SSR compatibility)
+let authResult: { authenticated: boolean; user?: { id: string; email: string } } = {
+  authenticated: false,
+  user: undefined,
+};
+if (Astro.request) {
+  authResult = await requireAuth(Astro.request);
+}
 console.log("🔍 Game Page Auth Result:", {
   authenticated: authResult.authenticated,
   userId: authResult.user?.id,
