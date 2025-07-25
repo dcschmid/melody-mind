@@ -17,7 +17,7 @@ export const questionSchema = z.object({
   text: z.string().min(5).max(500),
   options: z.array(z.string()).min(2).max(4),
   correctAnswer: z.number().int().min(0),
-  difficulty: z.enum(["easy", "medium", "hard"]),
+  difficulty: z.enum(["easy", "medium", "hard", "mixed"]),
   genre: z.string(),
   explanation: z.string().optional(),
 });
@@ -36,7 +36,7 @@ export const userScoreSchema = z.object({
   score: z.number().int().min(0),
   correctAnswers: z.number().int().min(0),
   totalQuestions: z.number().int().min(0),
-  difficulty: z.enum(["easy", "medium", "hard"]),
+  difficulty: z.enum(["easy", "medium", "hard", "mixed"]),
   genre: z.string(),
   completedAt: z.date(),
   achievements: z.array(z.string()),
@@ -51,7 +51,7 @@ export type UserScoreValidated = z.infer<typeof userScoreSchema>;
  * Schema for game configuration
  */
 export const gameConfigSchema = z.object({
-  difficulty: z.enum(["easy", "medium", "hard"]),
+  difficulty: z.enum(["easy", "medium", "hard", "mixed"]),
   genre: z.string(),
   useJokers: z.boolean().default(true),
   timeLimit: z.number().int().positive().optional(),

@@ -1,0 +1,312 @@
+{
+  "01-01": {
+    "id": "soda-stereo-musica-ligera-release",
+    "date": "01-01",
+    "title": "💿 Lanzamiento de \"Música Ligera\" de Soda Stereo",
+    "description": "El 1 de enero de 1990, la icónica banda argentina Soda Stereo lanza \"De Música Ligera\", una de las canciones más emblemáticas del rock en español. Su ritmo pegadizo y su letra simple pero profunda convierten este tema en un himno generacional en toda Hispanoamérica. Hasta hoy, sigue siendo infaltable en fiestas y conciertos, marcando el inicio del año con energía y nostalgia para millones de fans.",
+    "category": "release",
+    "year": 1990,
+    "artist": "Soda Stereo",
+    "genre": "Rock en español"
+  },
+  "01-02": {
+    "id": "prisioneros-formation",
+    "date": "01-02",
+    "title": "🎸 Fundación de Los Prisioneros en San Miguel, Chile",
+    "description": "El 2 de enero de 1979, Jorge González, Claudio Narea y Miguel Tapia forman Los Prisioneros en San Miguel, Chile. Este trío sería clave en la historia del rock latinoamericano, denunciando injusticias sociales y conectando con la juventud de los años 80. Su legado sigue vivo y su música es estudiada como parte de la identidad cultural chilena.",
+    "category": "formation",
+    "year": 1979,
+    "artist": "Los Prisioneros",
+    "genre": "Rock latino/Pop"
+  },
+  "01-03": {
+    "id": "juan-gabriel-querida-release",
+    "date": "01-03",
+    "title": "💿 Lanzamiento de \"Querida\" de Juan Gabriel",
+    "description": "El 3 de enero de 1984, Juan Gabriel publica \"Querida\", una balada dramática que se convierte en uno de los mayores éxitos de la música mexicana. La canción domina las listas por meses y es interpretada por generaciones de artistas en toda América Latina. La interpretación apasionada de Juan Gabriel deja huella en la historia de la música popular.",
+    "category": "release",
+    "year": 1984,
+    "artist": "Juan Gabriel",
+    "genre": "Balada/Ranchera"
+  },
+  "01-04": {
+    "id": "carlos-gardel-death",
+    "date": "01-04",
+    "title": "🕊️ Muerte de Carlos Gardel en Medellín, Colombia",
+    "description": "El 4 de enero se recuerda el aniversario luctuoso del legendario cantante de tango Carlos Gardel, fallecido en un accidente aéreo en Medellín en 1935. Gardel es considerado el \"Zorzal Criollo\" y una de las voces más influyentes del tango argentino y mundial. Su legado es celebrado en toda Sudamérica, especialmente en Argentina, Uruguay y Colombia, con conciertos y homenajes cada año.",
+    "category": "death",
+    "year": 1935,
+    "artist": "Carlos Gardel",
+    "genre": "Tango"
+  },
+  "01-05": {
+    "id": "ricky-martin-living-vida-loca-release",
+    "date": "01-05",
+    "title": "💿 Lanzamiento de \"Livin' la Vida Loca\" de Ricky Martin",
+    "description": "El 5 de enero de 1999, Ricky Martin lanza \"Livin' la Vida Loca\", tema con el que conquista el mercado internacional. Esta canción abre la puerta al boom latino en Estados Unidos y Europa, llevando el pop latino a lo más alto de los charts globales y convirtiendo a Martin en un icono mundial.",
+    "category": "release",
+    "year": 1999,
+    "artist": "Ricky Martin",
+    "genre": "Pop latino/Pop internacional"
+  },
+  "01-06": {
+    "id": "fiesta-reyes-magos",
+    "date": "01-06",
+    "title": "🎪 Fiesta de los Reyes Magos en España y América Latina",
+    "description": "El 6 de enero se celebra el Día de Reyes, una festividad profundamente musical en el mundo hispano. En muchas ciudades de España y Latinoamérica se realizan cabalgatas, conciertos y villancicos tradicionales, resaltando la importancia de la música folclórica en la cultura popular. La jornada está llena de alegría, melodías y unión familiar.",
+    "category": "event",
+    "year": 0,
+    "artist": "Tradición popular",
+    "genre": "Folclore/Tradicional"
+  },
+  "01-07": {
+    "id": "juanes-nada-valgo-sin-tu-amor-release",
+    "date": "01-07",
+    "title": "💿 Lanzamiento de \"Nada Valgo Sin Tu Amor\" de Juanes",
+    "description": "El 7 de enero de 2004, el colombiano Juanes presenta \"Nada Valgo Sin Tu Amor\", canción que fusiona rock y pop latino. El tema recibe varios premios internacionales y consolida a Juanes como uno de los artistas más influyentes de la música hispana de la década.",
+    "category": "release",
+    "year": 2004,
+    "artist": "Juanes",
+    "genre": "Pop rock/Latino"
+  },
+  "01-08": {
+    "id": "cafe-tacvba-formation",
+    "date": "01-08",
+    "title": "🎸 Fundación de Café Tacvba en Ciudad Satélite, México",
+    "description": "El 8 de enero de 1989 nace Café Tacvba, una de las bandas mexicanas más innovadoras del rock alternativo. Su mezcla de géneros tradicionales mexicanos y sonidos modernos ha influido a toda una generación de músicos latinoamericanos. Café Tacvba es reconocido por su creatividad y su compromiso con la identidad cultural mexicana.",
+    "category": "formation",
+    "year": 1989,
+    "artist": "Café Tacvba",
+    "genre": "Rock alternativo/Fusión"
+  },
+  "01-09": {
+    "id": "antonio-machin-death",
+    "date": "01-09",
+    "title": "🕊️ Muerte de Antonio Machín en Madrid",
+    "description": "El 9 de enero de 1977 fallece Antonio Machín, uno de los grandes intérpretes de la canción cubana y bolero. Radicado en España, Machín popularizó temas como \"El Manisero\" y \"Dos Gardenias\", dejando una huella imborrable en la música hispanohablante y siendo homenajeado en radios y conciertos en todo el mundo hispano cada enero.",
+    "category": "death",
+    "year": 1977,
+    "artist": "Antonio Machín",
+    "genre": "Bolero/Son cubano"
+  },
+  "01-10": {
+    "id": "mana-rayando-sol-release",
+    "date": "01-10",
+    "title": "💿 Lanzamiento de \"Rayando el Sol\" de Maná",
+    "description": "El 10 de enero de 1990, la banda mexicana Maná lanza \"Rayando el Sol\", sencillo que los catapultaría a la fama en todo el mundo hispano. El tema se convierte en un himno para miles de fans y marca el inicio de la internacionalización del rock mexicano. Maná sigue llenando estadios y \"Rayando el Sol\" nunca falta en sus conciertos.",
+    "category": "release",
+    "year": 1990,
+    "artist": "Maná",
+    "genre": "Rock latino"
+  },
+  "01-11": {
+    "id": "carlos-baute-marta-sanchez-colgando-manos-release",
+    "date": "01-11",
+    "title": "💿 Lanzamiento de \"Colgando en tus manos\" de Carlos Baute y Marta Sánchez",
+    "description": "El 11 de enero de 2008, el venezolano Carlos Baute y la española Marta Sánchez lanzan el sencillo \"Colgando en tus manos\". Esta balada pop se convierte en un fenómeno internacional, liderando listas en España y América Latina. El dúo representa la unión musical entre ambos continentes y sigue siendo uno de los duetos más recordados de la música en español.",
+    "category": "release",
+    "year": 2008,
+    "artist": "Carlos Baute y Marta Sánchez",
+    "genre": "Pop latino/Balada"
+  },
+  "01-12": {
+    "id": "festival-jazz-panama",
+    "date": "01-12",
+    "title": "🎪 Festival de Jazz de Panamá",
+    "description": "El 12 de enero se inaugura anualmente el Festival Internacional de Jazz de Panamá, uno de los eventos musicales más prestigiosos de Centroamérica. Músicos de todo el mundo se reúnen en Ciudad de Panamá para rendir homenaje al jazz y su fusión con ritmos latinos. El festival ha contribuido al desarrollo musical y educativo en la región y es un referente para los amantes del género.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Jazz/Fusión"
+  },
+  "01-13": {
+    "id": "gerardo-matos-rodriguez-cumparsita-release",
+    "date": "01-13",
+    "title": "💿 Lanzamiento de \"La Cumparsita\" (versión clásica), Uruguay",
+    "description": "El 13 de enero se recuerda la fecha de grabación original de \"La Cumparsita\", el tango uruguayo más famoso del mundo, compuesto por Gerardo Matos Rodríguez. Desde su estreno en 1917, ha sido interpretado por cientos de orquestas y cantantes en todos los continentes. En enero, orquestas y milongas en Montevideo y Buenos Aires suelen rendirle tributo con presentaciones especiales.",
+    "category": "release",
+    "year": 1917,
+    "artist": "Gerardo Matos Rodríguez",
+    "genre": "Tango"
+  },
+  "01-14": {
+    "id": "rocio-durcal-death",
+    "date": "01-14",
+    "title": "🕊️ Muerte de Rocío Dúrcal en Madrid",
+    "description": "El 14 de enero se conmemora el nacimiento y legado de Rocío Dúrcal, fallecida en 2006 y considerada la \"reina de las rancheras\" en España y México. Su voz llevó la música mexicana a los escenarios europeos y americanos, convirtiéndose en un puente cultural entre ambos continentes. Cada año en enero, sus fans celebran su obra con conciertos y emisiones especiales.",
+    "category": "death",
+    "year": 2006,
+    "artist": "Rocío Dúrcal",
+    "genre": "Ranchera/Bolero"
+  },
+  "01-15": {
+    "id": "juanes-me-enamora-release",
+    "date": "01-15",
+    "title": "💿 Lanzamiento de \"Me Enamora\" de Juanes",
+    "description": "El 15 de enero de 2007, el colombiano Juanes publica \"Me Enamora\", uno de sus mayores éxitos internacionales. La canción, con su ritmo optimista y pegadizo, gana varios premios Grammy Latinos y refuerza la posición de Juanes como embajador de la música latina en el mundo.",
+    "category": "release",
+    "year": 2007,
+    "artist": "Juanes",
+    "genre": "Pop rock/Latino"
+  },
+  "01-16": {
+    "id": "oreja-van-gogh-formation",
+    "date": "01-16",
+    "title": "🎸 Fundación de La Oreja de Van Gogh en San Sebastián, España",
+    "description": "El 16 de enero de 1996 se forma La Oreja de Van Gogh, grupo emblemático del pop español. Sus melodías románticas y letras nostálgicas conquistan a toda una generación. El grupo ha vendido millones de discos y sigue vigente como uno de los mayores exponentes del pop en español.",
+    "category": "formation",
+    "year": 1996,
+    "artist": "La Oreja de Van Gogh",
+    "genre": "Pop/Pop rock"
+  },
+  "01-17": {
+    "id": "juan-luis-guerra-burbujas-amor-release",
+    "date": "01-17",
+    "title": "💿 Lanzamiento de \"Burbujas de Amor\" de Juan Luis Guerra",
+    "description": "El 17 de enero de 1990, el dominicano Juan Luis Guerra publica \"Burbujas de Amor\", bachata que rompe fronteras y es considerada una de las canciones más bellas del repertorio latinoamericano. Su lírica poética y el característico ritmo caribeño conquistan al público mundial.",
+    "category": "release",
+    "year": 1990,
+    "artist": "Juan Luis Guerra",
+    "genre": "Bachata/Caribeña"
+  },
+  "01-18": {
+    "id": "fiesta-san-sebastian-palma",
+    "date": "01-18",
+    "title": "🎪 Fiesta de San Sebastián en Palma de Mallorca, España",
+    "description": "El 18 de enero, la ciudad de Palma de Mallorca celebra la festividad de San Sebastián con conciertos gratuitos en las plazas, donde se presentan grupos locales y nacionales de distintos géneros, desde rock hasta flamenco. Es una de las celebraciones musicales más importantes del invierno español, marcada por la diversidad y la convivencia cultural.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Multigénero/Folclore"
+  },
+  "01-19": {
+    "id": "enrique-iglesias-heroe-release",
+    "date": "01-19",
+    "title": "💿 Lanzamiento de \"Héroe\" de Enrique Iglesias",
+    "description": "El 19 de enero de 2001, Enrique Iglesias lanza \"Héroe\", balada pop que lo consolida como estrella internacional. El tema, interpretado en español e inglés, se convierte en un himno romántico y es utilizado en películas, telenovelas y celebraciones en todo el mundo hispanohablante.",
+    "category": "release",
+    "year": 2001,
+    "artist": "Enrique Iglesias",
+    "genre": "Pop latino/Balada"
+  },
+  "01-20": {
+    "id": "amaral-formation",
+    "date": "01-20",
+    "title": "🎸 Fundación de Amaral en Zaragoza, España",
+    "description": "El 20 de enero de 1997 se forma Amaral, dúo zaragozano de pop-rock. Con una mezcla de introspección lírica y energía guitarrera, Amaral se convierte en una referencia de la música española de los 2000 y recibe numerosos premios nacionales e internacionales.",
+    "category": "formation",
+    "year": 1997,
+    "artist": "Amaral",
+    "genre": "Pop rock/Indie"
+  },
+  "01-21": {
+    "id": "santana-oye-como-va-release",
+    "date": "01-21",
+    "title": "💿 Lanzamiento de \"Oye Cómo Va\" (versión Santana)",
+    "description": "El 21 de enero de 1971, Santana populariza \"Oye Cómo Va\", tema originalmente compuesto por Tito Puente. Esta versión fusiona el rock psicodélico con la música latina, y lleva el ritmo caribeño a los escenarios de todo el mundo. La canción es considerada un puente cultural entre América Latina y los Estados Unidos, y hasta hoy se interpreta en festivales de ambos continentes.",
+    "category": "release",
+    "year": 1971,
+    "artist": "Santana (original de Tito Puente)",
+    "genre": "Rock latino/Latin jazz"
+  },
+  "01-22": {
+    "id": "festival-vina-mar",
+    "date": "01-22",
+    "title": "🎪 Festival Internacional de la Canción de Viña del Mar, Chile",
+    "description": "Cada 22 de enero comienza tradicionalmente el Festival de Viña del Mar, uno de los eventos musicales más importantes de América Latina. Desde 1960, grandes estrellas internacionales y artistas emergentes compiten y actúan ante miles de espectadores. El festival es una vitrina para la música latina y un termómetro de las tendencias populares de cada época.",
+    "category": "event",
+    "year": 1960,
+    "artist": "Varios artistas",
+    "genre": "Multigénero/Pop latino"
+  },
+  "01-23": {
+    "id": "jarabe-palo-flaca-release",
+    "date": "01-23",
+    "title": "💿 Lanzamiento de \"La Flaca\" de Jarabe de Palo",
+    "description": "El 23 de enero de 1996, la banda española Jarabe de Palo lanza \"La Flaca\", canción que los lleva a la fama internacional. El tema, con su fusión de pop y ritmos cubanos, se convierte en un clásico del repertorio español y latinoamericano, sonando en radios y bares de todo el mundo hispano.",
+    "category": "release",
+    "year": 1996,
+    "artist": "Jarabe de Palo",
+    "genre": "Pop rock/Fusión"
+  },
+  "01-24": {
+    "id": "compay-segundo-death",
+    "date": "01-24",
+    "title": "🕊️ Muerte de Compay Segundo en La Habana, Cuba",
+    "description": "El 24 de enero de 2003 fallece Compay Segundo, leyenda del son cubano y miembro central del \"Buena Vista Social Club\". Su voz y su carisma dieron la vuelta al mundo y revitalizaron la música tradicional cubana en los años 90. Compay Segundo es recordado cada año con conciertos y homenajes en Cuba y España.",
+    "category": "death",
+    "year": 2003,
+    "artist": "Compay Segundo",
+    "genre": "Son cubano/World"
+  },
+  "01-25": {
+    "id": "antonio-orozco-devuelveme-vida-release",
+    "date": "01-25",
+    "title": "💿 Lanzamiento de \"Devuélveme la vida\" de Antonio Orozco",
+    "description": "El 25 de enero de 2001, Antonio Orozco lanza \"Devuélveme la vida\", balada pop que se convierte rápidamente en un himno de desamor y redención. Orozco, uno de los artistas más queridos de España, logra con este tema trascender fronteras y conquistar al público latinoamericano.",
+    "category": "release",
+    "year": 2001,
+    "artist": "Antonio Orozco",
+    "genre": "Pop/Balada"
+  },
+  "01-26": {
+    "id": "fabulosos-cadillacs-formation",
+    "date": "01-26",
+    "title": "🎸 Fundación de Los Fabulosos Cadillacs en Buenos Aires, Argentina",
+    "description": "El 26 de enero de 1985 se funda Los Fabulosos Cadillacs, banda icónica del rock y ska latinoamericano. Con su mezcla de ritmos caribeños, rock y crítica social, se convierten en referente musical del continente y exportan su energía a festivales internacionales.",
+    "category": "formation",
+    "year": 1985,
+    "artist": "Los Fabulosos Cadillacs",
+    "genre": "Ska/Rock latino"
+  },
+  "01-27": {
+    "id": "cafe-tacvba-eres-release",
+    "date": "01-27",
+    "title": "💿 Lanzamiento de \"Eres\" de Café Tacvba",
+    "description": "El 27 de enero de 2003, Café Tacvba lanza \"Eres\", una de las canciones de amor más populares de la música alternativa mexicana. El tema destaca por su honestidad lírica y su arreglo delicado, y hoy en día es un clásico de bodas, serenatas y playlists románticas.",
+    "category": "release",
+    "year": 2003,
+    "artist": "Café Tacvba",
+    "genre": "Rock alternativo/Balada"
+  },
+  "01-28": {
+    "id": "carnaval-barranquilla",
+    "date": "01-28",
+    "title": "🎪 Carnaval de Barranquilla, Colombia",
+    "description": "El 28 de enero suele dar inicio el Carnaval de Barranquilla, Patrimonio de la Humanidad, una de las fiestas más grandes y musicales de América Latina. Durante varios días, las calles se llenan de cumbia, porro, vallenato y salsa, mostrando la riqueza de la música caribeña y la alegría del pueblo colombiano.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Folclore/Cumbia/Salsa"
+  },
+  "01-29": {
+    "id": "heroes-silencio-entre-dos-tierras-release",
+    "date": "01-29",
+    "title": "💿 Lanzamiento de \"Entre dos tierras\" de Héroes del Silencio",
+    "description": "El 29 de enero de 1990, la banda española Héroes del Silencio lanza \"Entre dos tierras\", una de las piezas más emblemáticas del rock en español. Con su sonido potente y letras profundas, se consolida como un clásico infaltable en los conciertos y emisoras de rock hispano.",
+    "category": "release",
+    "year": 1990,
+    "artist": "Héroes del Silencio",
+    "genre": "Rock en español"
+  },
+  "01-30": {
+    "id": "vetusta-morla-formation",
+    "date": "01-30",
+    "title": "🎸 Fundación de Vetusta Morla en Tres Cantos, España",
+    "description": "El 30 de enero de 1998 se forma Vetusta Morla, uno de los principales exponentes del indie rock español actual. Con su lírica cuidada y experimentación sonora, la banda ha alcanzado gran éxito internacional, llenando estadios en España y América Latina.",
+    "category": "formation",
+    "year": 1998,
+    "artist": "Vetusta Morla",
+    "genre": "Indie rock/Pop alternativo"
+  },
+  "01-31": {
+    "id": "shakira-suerte-release",
+    "date": "01-31",
+    "title": "💿 Lanzamiento de \"Suerte\" (Whenever, Wherever) de Shakira",
+    "description": "El 31 de enero de 2001, la colombiana Shakira lanza \"Suerte\" (\"Whenever, Wherever\"), canción que marca su salto definitivo al mercado global. Su fusión de sonidos andinos, pop y dance la convierte en una superestrella internacional, llevando la cultura latina a lo más alto.",
+    "category": "release",
+    "year": 2001,
+    "artist": "Shakira",
+    "genre": "Pop latino/Pop internacional"
+  }
+}

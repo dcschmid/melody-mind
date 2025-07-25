@@ -109,9 +109,9 @@ const DEFAULT_CONFIG: TimePressureConfig = {
     hard: 20     // 20% of questions
   },
   timeLimits: {
-    easy: 8,     // 8 seconds for easy questions
-    medium: 12,  // 12 seconds for medium questions
-    hard: 15     // 15 seconds for hard questions
+    easy: 20,    // 20 seconds for easy questions - comfortable reading time
+    medium: 25,  // 25 seconds for medium questions - more complex content
+    hard: 30     // 30 seconds for hard questions - most complex content
   },
   basePoints: {
     easy: 50,    // 50 base points

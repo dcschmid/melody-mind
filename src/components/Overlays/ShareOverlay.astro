@@ -1031,7 +1031,7 @@ const {
       return false;
     }
 
-    const validDifficulties = ["easy", "medium", "hard"];
+    const validDifficulties = ["easy", "medium", "hard", "mixed"];
     if (data.difficulty && !validDifficulties.includes(data.difficulty.toLowerCase())) {
       console.log("ShareOverlay: Invalid difficulty value:", data.difficulty);
       return false;

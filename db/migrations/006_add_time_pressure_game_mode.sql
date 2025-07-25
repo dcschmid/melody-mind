@@ -17,18 +17,23 @@ CREATE TABLE game_results_new (
   user_id TEXT NOT NULL,
   score INTEGER NOT NULL,
   category TEXT NOT NULL,
-  difficulty TEXT NOT NULL CHECK (difficulty IN ('easy', 'medium', 'hard')),
+  difficulty TEXT NOT NULL CHECK (difficulty IN ('easy', 'medium', 'hard', 'mixed')),
   game_mode TEXT NOT NULL CHECK (game_mode IN ('quiz', 'chronology', 'time-pressure')),
   language TEXT NOT NULL DEFAULT 'en',
   created_at TEXT NOT NULL DEFAULT (datetime('now')),
   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
 
--- Step 2: Copy data from old table to new table
-INSERT INTO game_results_new SELECT * FROM game_results;
+-- Step 2: Copy data from old table to new table (only if table exists)
+INSERT INTO game_results_new 
+SELECT id, user_id, score, category, difficulty, game_mode, 
+       COALESCE(language, 'en') as language, 
+       created_at 
+FROM game_results 
+WHERE 1=1;
 
--- Step 3: Drop old table and rename new table
-DROP TABLE game_results;
+-- Step 3: Drop old table and rename new table (only if it exists)
+DROP TABLE IF EXISTS game_results;
 ALTER TABLE game_results_new RENAME TO game_results;
 
 -- Step 4: Create new user_mode_stats table with time-pressure support
@@ -45,8 +50,10 @@ CREATE TABLE user_mode_stats_new (
   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
 
--- Copy data from old table to new table
-INSERT INTO user_mode_stats_new SELECT * FROM user_mode_stats;
+-- Copy data from old table to new table (only if table exists)
+INSERT INTO user_mode_stats_new 
+SELECT * FROM user_mode_stats 
+WHERE 1=1;
 
 -- Drop old table and rename new table
 DROP TABLE user_mode_stats;
@@ -64,8 +71,10 @@ CREATE TABLE highscores_new (
   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
 
--- Copy data from old table to new table
-INSERT INTO highscores_new SELECT * FROM highscores;
+-- Copy data from old table to new table (only if table exists)
+INSERT INTO highscores_new 
+SELECT * FROM highscores 
+WHERE 1=1;
 
 -- Drop old table and rename new table
 DROP TABLE highscores;
