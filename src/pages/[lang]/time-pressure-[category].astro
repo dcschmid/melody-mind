@@ -162,9 +162,6 @@ const structuredData = {
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <meta name="robots" content="noindex, nofollow" />
-    <link rel="preload" href="/sounds/correct.mp3" as="audio" />
-    <link rel="preload" href="/sounds/wrong.mp3" as="audio" />
-    <link rel="preload" href="/sounds/tick.mp3" as="audio" />
   </Fragment>
 
   <main 
@@ -306,48 +303,6 @@ const structuredData = {
       data-mode="time-pressure"
     />
     <AchievementNotification {lang} />
-
-    <!-- Audio Elements -->
-    <audio id="correct-sound" preload="auto">
-      <track
-        kind="captions"
-        label="Correct answer sound"
-        src="/public/sounds/correct-sound.vtt"
-        srclang="en"
-        default
-      />
-      <source src="/sounds/correct.mp3" type="audio/mpeg" />
-    </audio>
-    <audio id="wrong-sound" preload="auto">
-      <track
-        kind="captions"
-        label="Wrong answer sound"
-        src="/public/sounds/wrong-sound.vtt"
-        srclang="en"
-        default
-      />
-      <source src="/sounds/wrong.mp3" type="audio/mpeg" />
-    </audio>
-    <audio id="tick-sound" preload="auto">
-      <track
-        kind="captions"
-        label="Timer tick sound"
-        src="/public/sounds/tick-sound.vtt"
-        srclang="en"
-        default
-      />
-      <source src="/sounds/tick.mp3" type="audio/mpeg" />
-    </audio>
-    <audio id="timeout-sound" preload="auto">
-      <track
-        kind="captions"
-        label="Timeout sound"
-        src="/public/sounds/timeout-sound.vtt"
-        srclang="en"
-        default
-      />
-      <source src="/sounds/timeout.mp3" type="audio/mpeg" />
-    </audio>
   </main>
 </Layout>
 

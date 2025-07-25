@@ -261,17 +261,6 @@ const {
 
 // 8. Reactive variables and helper functions with performance optimizations
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-
-// Prepare translations for client-side usage
-const clientTranslations = {
-  systemError: t("layout.error.system"),
-  errorTracking: t("layout.error.tracking"),
-  errorTrackingFailed: t("layout.error.tracking.failed"),
-  motionReduced: t("layout.accessibility.motion.reduced"),
-  darkTheme: t("layout.accessibility.theme.dark"),
-  analyticsInitFailed: t("layout.analytics.init.failed"),
-};
 
 // Performance optimization: Critical resource preloading following Astro standards
 const preloadedResources = [
@@ -426,25 +415,6 @@ const dnsPrefetch = [
        * - Line height minimum 1.8 for optimal readability
        */
 
-      // Layout-specific SCSS custom properties using global design tokens
-      .layout {
-        // Container and spacing variables derived from global.css design system
-        --layout-max-width: var(--container-xl);
-        --layout-padding-small: var(--space-md);
-        --layout-padding-large: var(--space-xl);
-
-        // WCAG AAA touch target compliance following accessibility standards
-        --layout-min-touch-target: var(--min-touch-size);
-
-        // Focus management for enhanced keyboard navigation accessibility
-        --layout-focus-outline: var(--focus-outline);
-        --layout-focus-offset: var(--focus-ring-offset);
-
-        // Modern CSS features for enhanced performance and maintainability
-        container-type: inline-size;
-        container-name: layout;
-      }
-
       // HTML root element styling with accessibility foundations and modern features
       .layout__html {
         margin: var(--space-none);
@@ -474,7 +444,7 @@ const dnsPrefetch = [
         display: flex;
         min-height: 100vh;
         width: var(--width-full);
-        max-width: var(--layout-max-width);
+        max-width: var(--container-xl);
         flex-direction: column;
 
         // Prevent horizontal overflow and scrolling
@@ -486,7 +456,7 @@ const dnsPrefetch = [
         color: var(--text-primary);
 
         // Responsive padding using global spacing tokens
-        padding: var(--layout-padding-small);
+        padding: var(--space-md);
 
         // Enhanced typography for better readability
         font-size: var(--text-lg);
@@ -500,7 +470,7 @@ const dnsPrefetch = [
 
         // Responsive layout adjustments using hardcoded em-based breakpoints
         @media (min-width: 48em) {
-          padding: var(--layout-padding-large);
+          padding: var(--space-xl);
         }
       }
 
@@ -514,21 +484,18 @@ const dnsPrefetch = [
       // Coin counter overlay with WCAG AAA touch target compliance
       .layout__coins {
         position: absolute;
-        top: var(--layout-padding-small);
-        right: var(--layout-padding-small);
+        top: var(--space-md);
+        right: var(--space-md);
         z-index: var(--z-fixed);
 
         // WCAG AAA minimum touch target size
-        min-height: var(--layout-min-touch-target);
-        min-width: var(--layout-min-touch-target);
-
-        // Ensure proper spacing for touch targets
-        margin: var(--space-xs);
+        min-height: var(--min-touch-size);
+        min-width: var(--min-touch-size);
 
         // Responsive positioning for larger screens
         @media (min-width: 40em) {
-          top: var(--layout-padding-large);
-          right: var(--layout-padding-large);
+          top: var(--space-xl);
+          right: var(--space-xl);
         }
       }
 
@@ -544,12 +511,7 @@ const dnsPrefetch = [
         width: var(--width-full);
 
         // Content spacing for optimal reading experience
-        padding: {
-          left: var(--space-none);
-          right: var(--space-none);
-          top: var(--layout-padding-large);
-          bottom: var(--layout-padding-large);
-        }
+        padding: var(--space-xl) 0;
 
         // Enhanced typography for content readability
         font-size: var(--text-lg);
@@ -558,8 +520,8 @@ const dnsPrefetch = [
 
         // Enhanced focus indicators for keyboard navigation
         &:focus {
-          outline: var(--layout-focus-outline);
-          outline-offset: var(--layout-focus-offset);
+          outline: var(--focus-outline);
+          outline-offset: var(--focus-ring-offset);
         }
       }
 
@@ -613,55 +575,38 @@ const dnsPrefetch = [
 
       // Responsive design enhancements
 
-      // Extra small screens - Portrait Mobile (below 320px)
+      // Extra small screens - Portrait Mobile (below 320px) - Maximize screen usage
       @media (max-width: 19.9375em) {
         .layout__body {
-          padding: var(--space-xs);
+          padding: 4px; // Minimal padding for maximum screen usage
           font-size: var(--text-base);
           line-height: var(--leading-relaxed);
         }
 
         .layout__main {
-          padding: {
-            left: var(--space-xs);
-            right: var(--space-xs);
-            top: var(--space-sm);
-            bottom: var(--space-sm);
-          }
+          padding: 8px 4px; // Minimal content padding
         }
 
         .layout__coins {
-          top: var(--space-xs);
-          right: var(--space-xs);
-          margin: var(--space-xs);
+          top: 4px;
+          right: 4px;
         }
       }
 
-      // Small screens - Mobile Portrait (320px - 640px)
+      // Small screens - Mobile Portrait (320px - 640px) - Optimized spacing
       @media (max-width: 39.9375em) and (min-width: 20em) {
         .layout__body {
-          padding: var(--space-sm);
+          padding: 8px; // Minimal mobile padding
         }
 
         .layout__main {
-          padding: {
-            top: var(--space-md);
-            bottom: var(--space-md);
-          }
+          padding: var(--space-md) 0;
         }
       }
 
       @media (min-width: 64em) {
         .layout__body {
           padding: var(--space-2xl);
-        }
-      }
-
-      // Container query support for modern browsers
-      @supports (container-type: inline-size) {
-        .layout {
-          container-type: inline-size;
-          container-name: layout;
         }
       }
 
@@ -684,12 +629,7 @@ const dnsPrefetch = [
 
         .layout__main {
           // Enhanced padding for touch devices
-          padding: {
-            left: var(--space-md);
-            right: var(--space-md);
-            top: var(--space-lg);
-            bottom: var(--space-lg);
-          }
+          padding: var(--space-lg) var(--space-md);
         }
       }
     </style>
@@ -722,178 +662,24 @@ const dnsPrefetch = [
     <!-- Footer area -->
     <Footer />
 
-    <!-- Deferred script execution for performance with enhanced error handling -->
-    <script define:vars={{ clientTranslations }}>
-      /**
-       * Enhanced error boundary handling for layout-level errors
-       * Implements proper error logging and user feedback with modern ES6+ features
-       */
-      const handleLayoutError = (error, context) => {
-        console.error(`Layout Error in ${context}:`, error);
-
-        // Notify screen readers of critical errors
-        const statusElement = document.getElementById("a11y-status");
-        if (statusElement) {
-          statusElement.textContent = clientTranslations.systemError;
+    <!-- Minimal layout initialization -->
+    <script is:inline>
+      // Essential layout initialization
+      document.addEventListener("DOMContentLoaded", () => {
+        // Set reduced motion class if preferred
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.documentElement.classList.add("motion-reduce");
         }
 
-        // Optional: Send error to monitoring service
-        if (
-          typeof window.fathom === "object" &&
-          window.fathom &&
-          typeof window.fathom.trackPageview === "function"
-        ) {
-          try {
-            // Track error events for monitoring (non-blocking)
-            console.warn(`${clientTranslations.errorTracking}: ${context}`);
-          } catch (trackingError) {
-            // Fail silently for tracking errors
-            console.warn(clientTranslations.errorTrackingFailed, trackingError);
-          }
+        // Set dark theme for WCAG AAA compliance
+        document.body.dataset.theme = "dark";
+        document.documentElement.classList.add("dark");
+
+        // Initialize analytics if available
+        if (window.fathom?.trackPageview) {
+          window.fathom.trackPageview();
         }
-      };
-
-      /**
-       * Check if reduced motion is preferred and add appropriate class
-       * Enhanced with error handling and better accessibility announcements
-       */
-      const setReducedMotionClass = () => {
-        try {
-          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-            document.documentElement.classList.add("motion-reduce");
-            // Announce to screen readers that reduced motion is active
-            const statusElement =
-              document.getElementById("a11y-status") || document.createElement("div");
-            if (!document.getElementById("a11y-status")) {
-              statusElement.id = "a11y-status";
-              statusElement.setAttribute("aria-live", "polite");
-              statusElement.setAttribute("aria-atomic", "true");
-              statusElement.className = "sr-only";
-              statusElement.style.cssText = `
-                position: absolute !important;
-                width: var(--sr-only-width) !important;
-                height: var(--sr-only-height) !important;
-                padding: var(--space-none) !important;
-                margin: var(--sr-only-margin) !important;
-                overflow: hidden !important;
-                clip: rect(0, 0, 0, 0) !important;
-                white-space: nowrap !important;
-                border: var(--space-none) !important;
-              `;
-              document.body.appendChild(statusElement);
-            }
-            statusElement.textContent = clientTranslations.motionReduced;
-          } else {
-            document.documentElement.classList.remove("motion-reduce");
-          }
-        } catch (error) {
-          handleLayoutError(error, "setReducedMotionClass");
-        }
-      };
-
-      /**
-       * Handle theme switching with WCAG AAA compliance and enhanced error handling
-       * Implements consistent dark theme for optimal contrast ratios
-       */
-      const updateThemePreference = () => {
-        try {
-          // Set dark theme for WCAG AAA conformity and optimal contrast
-          document.body.dataset.theme = "dark";
-          document.documentElement.classList.add("dark");
-          document.documentElement.classList.remove("light");
-
-          // Notify screen readers about theme changes for accessibility
-          const statusElement = document.getElementById("a11y-status");
-          if (statusElement) {
-            statusElement.textContent = clientTranslations.darkTheme;
-          }
-        } catch (error) {
-          handleLayoutError(error, "updateThemePreference");
-        }
-      };
-
-      /**
-       * Initialize analytics with enhanced error handling and privacy considerations
-       */
-      const initializeAnalytics = () => {
-        try {
-          // Initialize analytics only if available and user hasn't opted out
-          if (
-            typeof window.fathom === "object" &&
-            window.fathom &&
-            typeof window.fathom.trackPageview === "function"
-          ) {
-            window.fathom.trackPageview({
-              url: window.location.href,
-              referrer: document.referrer || undefined,
-            });
-          }
-        } catch (error) {
-          // Analytics errors should not break the application
-          console.warn(clientTranslations.analyticsInitFailed, error);
-        }
-      };
-
-      /**
-       * Enhanced initialization function with modern ES6+ features
-       */
-      const initializeLayout = () => {
-        try {
-          // Initial setup when DOM is loaded
-          setReducedMotionClass();
-          updateThemePreference();
-          initializeAnalytics();
-        } catch (error) {
-          handleLayoutError(error, "initializeLayout");
-        }
-      };
-
-      /**
-       * Enhanced visibility change handler with modern features
-       */
-      const handleVisibilityChange = () => {
-        try {
-          if (document.visibilityState === "visible") {
-            // Re-evaluate accessibility preferences when page becomes visible
-            setReducedMotionClass();
-            updateThemePreference();
-          }
-        } catch (error) {
-          handleLayoutError(error, "handleVisibilityChange");
-        }
-      };
-
-      /**
-       * Enhanced error handlers with modern ES6+ features
-       */
-      const handleGlobalError = (event) => {
-        handleLayoutError(event.error, "Global error handler");
-      };
-
-      const handleUnhandledRejection = (event) => {
-        handleLayoutError(new Error(event.reason), "Unhandled promise rejection");
-      };
-
-      // Register document-level events with enhanced error handling
-      document.addEventListener("DOMContentLoaded", initializeLayout);
-
-      // Listen for reduced motion preference changes with error handling
-      try {
-        window
-          .matchMedia("(prefers-reduced-motion: reduce)")
-          .addEventListener("change", setReducedMotionClass);
-      } catch (error) {
-        handleLayoutError(error, "matchMedia event listener");
-      }
-
-      // Handle page visibility for better performance and accessibility
-      document.addEventListener("visibilitychange", handleVisibilityChange);
-
-      // Enhanced error handling for unhandled errors
-      window.addEventListener("error", handleGlobalError);
-
-      // Enhanced error handling for unhandled promise rejections
-      window.addEventListener("unhandledrejection", handleUnhandledRejection);
+      });
     </script>
   </body>
 </html>

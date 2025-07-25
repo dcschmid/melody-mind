@@ -61,6 +61,10 @@ import AchievementNotification from "@components/Achievements/AchievementNotific
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import AuthForm from "@components/auth/AuthForm.astro";
+import { requireAuth } from "../../middleware/auth.js";
+
+// Enable server-side rendering for authentication
+export const prerender = false;
 
 // 3. Language and authentication setup
 // Extract language from URL parameters
@@ -68,21 +72,33 @@ const { lang } = Astro.params;
 // Ensure lang is always a string
 const langString = lang as string;
 const t = useTranslations(langString);
+
+// Check authentication server-side
+let authResult: { authenticated: boolean; user?: { id: string; email: string } } = {
+  authenticated: false,
+  user: undefined,
+};
+if (Astro.request) {
+  authResult = await requireAuth(Astro.request);
+}
 ---
 
 <Layout title={t("achievements.title")} description={t("achievements.description")}>
-  <!-- Guest user notification -->
-  <div id="guest-user-notice" class="guest-notice" style="display: none;" role="alert">
-    <div class="guest-notice__content">
-      <h2>{t("achievements.guest.title") || "Achievements Not Available"}</h2>
-      <p>{t("achievements.guest.description") || "Achievements are only available for registered users. Create an account to track your progress and unlock achievements."}</p>
-      <a href={`/${langString}/auth/login`} class="guest-notice__button">
-        {t("achievements.guest.login") || "Create Account / Login"}
-      </a>
+  {!authResult.authenticated && (
+    <!-- Guest user notification -->
+    <div class="guest-notice" role="alert">
+      <div class="guest-notice__content">
+        <h2>{t("achievements.guest.title") || "Achievements Not Available"}</h2>
+        <p>{t("achievements.guest.description") || "Achievements are only available for registered users. Create an account to track your progress and unlock achievements."}</p>
+        <a href={`/${langString}/auth/login`} class="guest-notice__button">
+          {t("achievements.guest.login") || "Create Account / Login"}
+        </a>
+      </div>
     </div>
-  </div>
+  )}
   
-  <main class="achievements-container" id="main-content" role="main">
+  {authResult.authenticated && (
+    <main class="achievements-container" id="main-content" role="main">
     <!-- Hero section styled like GameHome with improved contrast and accessibility -->
     <header class="achievements-hero" aria-labelledby="achievements-heading">
       <!-- Decorative background elements with aria-hidden -->
@@ -132,12 +148,13 @@ const t = useTranslations(langString);
 
     <div id="achievements-error-container"></div>
 
-    <!-- Auth required section (shown by default, hidden when authenticated) -->
+    <!-- Auth required section (only shown when not authenticated) -->
     <div
       class="achievements__auth-required"
       role="region"
       aria-labelledby="auth-title"
       id="auth-required-section"
+      style="display: none;"
     >
       <Headline level="h2" id="auth-title" title={t("auth.required.title")} />
       <Paragraph description={t("auth.required.description")} />
@@ -156,8 +173,8 @@ const t = useTranslations(langString);
       <Paragraph description={t("achievements.empty")} />
     </div>
 
-    <!-- Main achievements content (hidden by default, shown when authenticated and data loaded) -->
-    <div id="achievements-content" style="display: none;">
+    <!-- Main achievements content (shown when authenticated) -->
+    <div id="achievements-content">
       <div id="achievement-filter-container">
         <!-- AchievementFilter component will be inserted here -->
       </div>
@@ -191,45 +208,20 @@ const t = useTranslations(langString);
         </div>
       </section>
     </div>
-  </main>
+    </main>
+  )}
 
   <!-- Achievement notification component -->
   <AchievementNotification lang={langString} />
 </Layout>
 
-<!-- Guest user check script -->
-<script>
-  // Check if user is a guest and show appropriate content
-  const checkGuestUser = () => {
-    const authStatus = localStorage.getItem("auth_status");
-    const isGuest = authStatus === "guest";
-    
-    const guestNotice = document.getElementById("guest-user-notice");
-    const mainContent = document.getElementById("main-content");
-    
-    if (isGuest) {
-      // Show guest notice and hide main content
-      if (guestNotice) guestNotice.style.display = "block";
-      if (mainContent) mainContent.style.display = "none";
-    } else {
-      // Hide guest notice and show main content
-      if (guestNotice) guestNotice.style.display = "none";
-      if (mainContent) mainContent.style.display = "block";
-    }
-  };
-
-  // Check on page load
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", checkGuestUser);
-  } else {
-    checkGuestUser();
-  }
-
-  // Listen for auth changes
-  window.addEventListener("auth:guest-login", checkGuestUser);
-  window.addEventListener("auth:login", checkGuestUser);
-  window.addEventListener("auth:logout", checkGuestUser);
-</script>
+<!-- Achievement functionality script - only load if authenticated -->
+{authResult.authenticated && (
+  <script>
+    // Achievement page functionality for authenticated users
+    console.log("Achievement page loaded for authenticated user");
+  </script>
+)}
 
 <style lang="scss" is:global>
   /**

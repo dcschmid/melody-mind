@@ -428,7 +428,7 @@ export default {
   "game.submit.answer": "检查答案",
   "game.submit.answer.aria": "检查当前顺序并进入下一轮",
   "game.timepressure.title": "时间压力模式",
-  "game.timepressure.description": "在{category}中以时间限制和混合难度级别进行游戏",
+  "game.timepressure.description": "⚡ 成为闪电音乐大师！在时间压力下证明你是真正的冠军，在{category}中挑战混合难度级别。每一秒都很重要——同时展示你的速度和知识！🏆",
   "game.timepressure.instructions": "尽快回答问题。每个问题的时间都有限。",
   "game.timepressure.controls": "使用1-4键回答，空格键暂停，S键跳过",
   "game.timepressure.streak": "连击",
@@ -551,6 +551,7 @@ export default {
   "nav.logout.label": "退出应用程序",
   "nav.menu.achievements": "成就",
   "nav.menu.achievements.desc": "查看您已解锁的成就和进度",
+  "nav.menu.profile.desc": "管理您的个人资料和设置",
   "nav.menu.close": "关闭菜单",
   "nav.menu.dailyFacts": "每日事实",
   "nav.menu.dailyFacts.desc": "每天发现新的音乐事实",
@@ -719,4 +720,5 @@ export default {
   "dailyFacts.categories.milestone": "里程碑",
   "dailyFacts.categories.formation": "成立",
   "dailyFacts.categories.breakthrough": "突破",
+  "profile.desc": "管理您的个人信息和游戏统计",
 };

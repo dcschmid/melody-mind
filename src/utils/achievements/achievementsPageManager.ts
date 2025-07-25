@@ -45,7 +45,7 @@ export class AchievementsPageManager {
    * Initialize achievements page
    */
   async initialize(): Promise<void> {
-    const authResult = this.checkAuthStatus();
+    const authResult = await this.checkAuthStatus();
     const elements = this.getAchievementElements();
 
     try {
@@ -60,7 +60,43 @@ export class AchievementsPageManager {
   /**
    * Check authentication status
    */
-  private checkAuthStatus(): AuthResult {
+  private async checkAuthStatus(): Promise<AuthResult> {
+    // First check if server-side auth is already handled
+    const authRequiredSection = document.getElementById("auth-required-section");
+    const achievementsContent = document.getElementById("achievements-content");
+    
+    // If auth-required is hidden and content is visible, server-side auth succeeded
+    if (authRequiredSection && achievementsContent) {
+      const authSectionStyle = window.getComputedStyle(authRequiredSection);
+      const contentSectionStyle = window.getComputedStyle(achievementsContent);
+      
+      if (authSectionStyle.display === "none" && contentSectionStyle.display !== "none") {
+        return { authenticated: true };
+      }
+    }
+
+    // Fallback to API check for authentication
+    try {
+      const response = await fetch(`/${this.currentLang}/api/user/profile`, {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success && data.profile) {
+          return { authenticated: true, user: data.profile.user };
+        }
+      }
+    } catch (error) {
+      console.warn("Auth check failed:", error);
+    }
+
+    // Final fallback to localStorage
     const authStatus = localStorage.getItem("auth_status");
     const userDataStr = localStorage.getItem("user");
 
@@ -694,15 +730,19 @@ export function setupAchievementsEventListeners(): void {
     }
   });
 
-  // Initialize on DOM ready
+  // Initialize on DOM ready with delay to ensure server-side rendering is complete
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeAchievementsPage);
+    document.addEventListener("DOMContentLoaded", () => {
+      // Small delay to let server-side auth complete
+      setTimeout(initializeAchievementsPage, 100);
+    });
   } else {
-    initializeAchievementsPage();
+    // Small delay to let server-side auth complete
+    setTimeout(initializeAchievementsPage, 100);
   }
 
   // Astro page transition support
   document.addEventListener("astro:page-load", () => {
-    initializeAchievementsPage();
+    setTimeout(initializeAchievementsPage, 100);
   });
 }

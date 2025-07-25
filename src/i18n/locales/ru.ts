@@ -464,7 +464,7 @@ export default {
   "game.submit.answer": "Проверить ответ",
   "game.submit.answer.aria": "Проверить текущий порядок и перейти к следующему раунду",
   "game.timepressure.title": "Режим временного давления",
-  "game.timepressure.description": "Играйте под временными ограничениями со смешанными уровнями сложности в {category}",
+  "game.timepressure.description": "⚡ Станьте молниеносным мастером музыки! Докажите, что вы настоящий чемпион даже под временным давлением со смешанными уровнями сложности в {category}. Каждая секунда на счету — покажите свою скорость и знания одновременно! 🏆",
   "game.timepressure.instructions": "Отвечайте на вопросы как можно быстрее. У вас ограниченное время на каждый вопрос.",
   "game.timepressure.controls": "Используйте клавиши 1-4 для ответов, Пробел для паузы, S для пропуска",
   "game.timepressure.streak": "Серия",
@@ -592,6 +592,7 @@ export default {
   "nav.logout.label": "Выйти из приложения",
   "nav.menu.achievements": "Достижения",
   "nav.menu.achievements.desc": "Просмотрите ваши разблокированные достижения и прогресс",
+  "nav.menu.profile.desc": "Управляйте вашим профилем и настройками",
   "nav.menu.close": "Закрыть меню",
   "nav.menu.dailyFacts": "Ежедневные факты",
   "nav.menu.dailyFacts.desc": "Узнавайте новые музыкальные факты каждый день",
@@ -772,4 +773,5 @@ export default {
   "dailyFacts.categories.milestone": "Веха",
   "dailyFacts.categories.formation": "Формирование",
   "dailyFacts.categories.breakthrough": "Прорыв",
+  "profile.desc": "Управляйте вашей личной информацией и статистикой игры",
 };

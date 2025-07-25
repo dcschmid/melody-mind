@@ -263,7 +263,8 @@ function validateGameResultData(
   if (
     gameData.difficulty !== "easy" &&
     gameData.difficulty !== "medium" &&
-    gameData.difficulty !== "hard"
+    gameData.difficulty !== "hard" &&
+    gameData.difficulty !== "mixed"
   ) {
     throw new ValidationError(t("errors.gameResult.validation.invalidDifficulty"));
   }
@@ -321,6 +322,7 @@ export const POST: APIRoute = async ({ request, params }) => {
   const t = useTranslations(lang);
   try {
     const rawData = await request.json();
+    console.log("Received game result data:", JSON.stringify(rawData, null, 2));
 
     // Validate the input data with our type assertion function
     try {
@@ -344,11 +346,11 @@ export const POST: APIRoute = async ({ request, params }) => {
         ? "quiz" 
         : "chronology";
     
-    // For database storage, map time-pressure to quiz until schema is updated
-    const dbGameMode: GameMode = isTimePressure ? "quiz" : actualGameMode;
+    // Use the actual game mode for database storage (time-pressure is now supported)
+    const dbGameMode: GameMode = actualGameMode;
 
-    // For time-pressure mode, prefix the category to distinguish it
-    const categoryName = isTimePressure ? `time-pressure-${data.categoryName}` : data.categoryName;
+    // Use the original category name without prefix (game_mode already distinguishes the mode)
+    const categoryName = data.categoryName;
 
     // Skip saving for guest users (not authenticated)
     if (data.userId === "guest" || data.userId.startsWith("guest_")) {
@@ -363,6 +365,27 @@ export const POST: APIRoute = async ({ request, params }) => {
     const id = nanoid();
 
     try {
+      console.log("Attempting database insert with data:", {
+        id,
+        userId: data.userId,
+        gameMode: dbGameMode,
+        score: data.score,
+        categoryName,
+        difficulty: data.difficulty,
+        lang
+      });
+
+      // First, verify the user exists
+      const userExists = await turso.execute({
+        sql: "SELECT id FROM users WHERE id = ?",
+        args: [data.userId]
+      });
+
+      if (userExists.rows.length === 0) {
+        console.error(`User with ID ${data.userId} not found in database`);
+        throw new DatabaseError(`User not found: ${data.userId}`);
+      }
+
       // Save the game result to the database
       await turso.execute({
         sql: `
@@ -435,6 +458,12 @@ export const POST: APIRoute = async ({ request, params }) => {
     return createSuccessResponse({ gameMode: actualGameMode, id, unlockedAchievements });
   } catch (error) {
     console.error(t("errors.gameResult.log.api"), error);
+    console.error("Detailed error info:", {
+      name: error.name,
+      message: error.message,
+      stack: error.stack,
+      cause: error.cause
+    });
 
     if (isApiError(error)) {
       return createErrorResponse(error.message, error.statusCode);

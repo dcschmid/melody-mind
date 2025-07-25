@@ -462,7 +462,7 @@ export default {
   "game.submit.answer": "Перевірити відповідь",
   "game.submit.answer.aria": "Перевірити поточний порядок і перейти до наступного раунду",
   "game.timepressure.title": "Режим тиску часу",
-  "game.timepressure.description": "Грайте під часовими обмеженнями зі змішаними рівнями складності в {category}",
+  "game.timepressure.description": "⚡ Станьте блискавичним майстром музики! Доведіть, що ви справжній чемпіон навіть під часовим тиском зі змішаними рівнями складності в {category}. Кожна секунда на рахунку — покажіть свою швидкість і знання одночасно! 🏆",
   "game.timepressure.instructions": "Відповідайте на запитання якнайшвидше. У вас обмежений час на кожне запитання.",
   "game.timepressure.controls": "Використовуйте клавіші 1-4 для відповідей, Пробіл для паузи, S для пропуску",
   "game.timepressure.streak": "Серія",
@@ -591,6 +591,7 @@ export default {
   "nav.logout.label": "Вийти з додатка",
   "nav.menu.achievements": "Досягнення",
   "nav.menu.achievements.desc": "Переглянути ваші розблоковані досягнення та прогрес",
+  "nav.menu.profile.desc": "Керувати вашим профілем та налаштуваннями",
   "nav.menu.close": "Закрити меню",
   "nav.menu.dailyFacts": "Щоденні факти",
   "nav.menu.dailyFacts.desc": "Щодня відкривайте нові музичні факти",
@@ -682,4 +683,5 @@ export default {
   "dailyFacts.categories.milestone": "Віха",
   "dailyFacts.categories.formation": "Формування",
   "dailyFacts.categories.breakthrough": "Прорив",
+  "profile.desc": "Керувати вашою особистою інформацією та статистикою гри",
 };

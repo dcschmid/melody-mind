@@ -49,7 +49,7 @@ class NewsCache {
   set(key: string, data: NewsResponse): void {
     this.cache.set(key, {
       data,
-      timestamp: Date.now()
+      timestamp: Date.now(),
     });
   }
 
@@ -68,66 +68,92 @@ function extractImageFromRssItem(itemXml: string, description: string): string |
   const extractionMethods = [
     // 1. RSS enclosure tag (highest priority for RSS feeds)
     () => {
-      const enclosureMatch = itemXml.match(/<enclosure[^>]+url=["']([^"']+)["'][^>]*type=["'][^"']*image[^"']*["'][^>]*>/i);
-      if (enclosureMatch) return enclosureMatch[1];
-      
+      const enclosureMatch = itemXml.match(
+        /<enclosure[^>]+url=["']([^"']+)["'][^>]*type=["'][^"']*image[^"']*["'][^>]*>/i
+      );
+      if (enclosureMatch) {
+        return enclosureMatch[1];
+      }
+
       // Try enclosure with any type if it's an image URL
-      const anyEnclosureMatch = itemXml.match(/<enclosure[^>]+url=["']([^"']+\.(jpg|jpeg|png|gif|webp|svg))["'][^>]*>/i);
-      if (anyEnclosureMatch) return anyEnclosureMatch[1];
-      
+      const anyEnclosureMatch = itemXml.match(
+        /<enclosure[^>]+url=["']([^"']+\.(jpg|jpeg|png|gif|webp|svg))["'][^>]*>/i
+      );
+      if (anyEnclosureMatch) {
+        return anyEnclosureMatch[1];
+      }
+
       return null;
     },
-    
+
     // 2. Media RSS namespace
     () => {
       const mediaContentMatch = itemXml.match(/<media:content[^>]+url=["']([^"']+)["'][^>]*>/i);
-      if (mediaContentMatch) return mediaContentMatch[1];
-      
+      if (mediaContentMatch) {
+        return mediaContentMatch[1];
+      }
+
       const mediaThumbnailMatch = itemXml.match(/<media:thumbnail[^>]+url=["']([^"']+)["'][^>]*>/i);
-      if (mediaThumbnailMatch) return mediaThumbnailMatch[1];
-      
+      if (mediaThumbnailMatch) {
+        return mediaThumbnailMatch[1];
+      }
+
       return null;
     },
-    
+
     // 3. OpenGraph and Twitter meta tags
     () => {
-      const ogImageMatch = itemXml.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["'][^>]*>/i);
-      if (ogImageMatch) return ogImageMatch[1];
-      
-      const twitterImageMatch = itemXml.match(/<meta[^>]+name=["']twitter:image["'][^>]+content=["']([^"']+)["'][^>]*>/i);
-      if (twitterImageMatch) return twitterImageMatch[1];
-      
+      const ogImageMatch = itemXml.match(
+        /<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["'][^>]*>/i
+      );
+      if (ogImageMatch) {
+        return ogImageMatch[1];
+      }
+
+      const twitterImageMatch = itemXml.match(
+        /<meta[^>]+name=["']twitter:image["'][^>]+content=["']([^"']+)["'][^>]*>/i
+      );
+      if (twitterImageMatch) {
+        return twitterImageMatch[1];
+      }
+
       return null;
     },
-    
+
     // 4. Extract from description/content
     () => extractImageFromDescription(description),
-    
+
     // 5. Look for img tags in the item content
     () => {
       const imgMatch = itemXml.match(/<img[^>]+src=["']([^"']+)["'][^>]*>/i);
-      if (imgMatch) return imgMatch[1];
-      
+      if (imgMatch) {
+        return imgMatch[1];
+      }
+
       return null;
     },
-    
+
     // 6. iTunes image (for podcast feeds)
     () => {
       const itunesImageMatch = itemXml.match(/<itunes:image[^>]+href=["']([^"']+)["'][^>]*>/i);
-      if (itunesImageMatch) return itunesImageMatch[1];
-      
+      if (itunesImageMatch) {
+        return itunesImageMatch[1];
+      }
+
       return null;
     },
-    
+
     // 7. Look for any image URL in the entire content
     () => {
-      const urlMatch = itemXml.match(/https?:\/\/[^"'\s<>]+\.(jpg|jpeg|png|gif|webp|svg)(\?[^"'\s<>]*)?["']?/i);
+      const urlMatch = itemXml.match(
+        /https?:\/\/[^"'\s<>]+\.(jpg|jpeg|png|gif|webp|svg)(\?[^"'\s<>]*)?["']?/i
+      );
       if (urlMatch) {
         return urlMatch[0].replace(/["']$/, "");
       }
-      
+
       return null;
-    }
+    },
   ];
 
   // Try extraction methods in priority order
@@ -144,7 +170,7 @@ function extractImageFromRssItem(itemXml: string, description: string): string |
     }
   }
 
-  console.log('No valid image found for RSS item');
+  console.log("No valid image found for RSS item");
   return undefined;
 }
 
@@ -154,24 +180,25 @@ function extractImageFromRssItem(itemXml: string, description: string): string |
 function isValidImageUrl(url: string): boolean {
   try {
     const parsed = new URL(url);
-    
+
     // Must be HTTP or HTTPS
-    if (!['http:', 'https:'].includes(parsed.protocol)) {
+    if (!["http:", "https:"].includes(parsed.protocol)) {
       return false;
     }
-    
+
     // Check for image file extensions
     const path = parsed.pathname.toLowerCase();
     const hasImageExtension = /\.(jpg|jpeg|png|gif|webp|svg)(\?|$)/i.test(path);
-    
+
     // Check for common image hosting patterns
-    const isImageHost = /\.(jpg|jpeg|png|gif|webp|svg)(\?|$)/i.test(url) ||
-                       url.includes('image') ||
-                       url.includes('photo') ||
-                       url.includes('picture') ||
-                       url.includes('thumbnail') ||
-                       url.includes('avatar');
-    
+    const isImageHost =
+      /\.(jpg|jpeg|png|gif|webp|svg)(\?|$)/i.test(url) ||
+      url.includes("image") ||
+      url.includes("photo") ||
+      url.includes("picture") ||
+      url.includes("thumbnail") ||
+      url.includes("avatar");
+
     return hasImageExtension || isImageHost;
   } catch {
     return false;
@@ -183,10 +210,10 @@ function isValidImageUrl(url: string): boolean {
  */
 function cleanImageUrl(url: string): string {
   // Remove common tracking parameters
-  const cleanUrl = url.replace(/[?&](utm_[^&]*|fbclid|gclid|_ga|_gl)/g, '');
-  
+  const cleanUrl = url.replace(/[?&](utm_[^&]*|fbclid|gclid|_ga|_gl)/g, "");
+
   // Remove trailing query parameters that are just ?
-  return cleanUrl.replace(/\?$/, '');
+  return cleanUrl.replace(/\?$/, "");
 }
 
 /**
@@ -323,63 +350,64 @@ function extractXmlContent(xml: string, tagName: string): string | null {
 function decodeHtmlEntities(text: string): string {
   // Common HTML entities mapping
   const htmlEntities: Record<string, string> = {
-    '&amp;': '&',
-    '&lt;': '<',
-    '&gt;': '>',
-    '&quot;': '"',
-    '&apos;': "'",
-    '&#39;': "'",
-    '&#x27;': "'",
-    '&#8217;': "'", // Right single quotation mark
-    '&#8216;': "'", // Left single quotation mark
-    '&#8220;': '"', // Left double quotation mark
-    '&#8221;': '"', // Right double quotation mark
-    '&#8211;': '–', // En dash
-    '&#8212;': '—', // Em dash
-    '&#8230;': '…', // Horizontal ellipsis
-    '&#8482;': '™', // Trade mark sign
-    '&#169;': '©',  // Copyright sign
-    '&#174;': '®',  // Registered sign
-    '&#8364;': '€', // Euro sign
-    '&#163;': '£',  // Pound sign
-    '&#165;': '¥',  // Yen sign
-    '&#8804;': '≤', // Less-than or equal to
-    '&#8805;': '≥', // Greater-than or equal to
-    '&#8800;': '≠', // Not equal to
-    '&#8734;': '∞', // Infinity
-    '&#8594;': '→', // Rightwards arrow
-    '&#8592;': '←', // Leftwards arrow
-    '&nbsp;': ' ',  // Non-breaking space
-    '&hellip;': '…',
-    '&mdash;': '—',
-    '&ndash;': '–',
-    '&lsquo;': "'",
-    '&rsquo;': "'",
-    '&ldquo;': '"',
-    '&rdquo;': '"',
-    '&trade;': '™',
-    '&copy;': '©',
-    '&reg;': '®',
-    '&euro;': '€',
-    '&pound;': '£',
-    '&yen;': '¥'
+    "&amp;": "&",
+    "&lt;": "<",
+    "&gt;": ">",
+    "&quot;": '"',
+    "&apos;": "'",
+    "&#39;": "'",
+    "&#x27;": "'",
+    "&#8217;": "'", // Right single quotation mark
+    "&#8216;": "'", // Left single quotation mark
+    "&#8220;": '"', // Left double quotation mark
+    "&#8221;": '"', // Right double quotation mark
+    "&#8211;": "–", // En dash
+    "&#8212;": "—", // Em dash
+    "&#8230;": "…", // Horizontal ellipsis
+    "&#8482;": "™", // Trade mark sign
+    "&#169;": "©", // Copyright sign
+    "&#174;": "®", // Registered sign
+    "&#8364;": "€", // Euro sign
+    "&#163;": "£", // Pound sign
+    "&#165;": "¥", // Yen sign
+    "&#8804;": "≤", // Less-than or equal to
+    "&#8805;": "≥", // Greater-than or equal to
+    "&#8800;": "≠", // Not equal to
+    "&#8734;": "∞", // Infinity
+    "&#8594;": "→", // Rightwards arrow
+    "&#8592;": "←", // Leftwards arrow
+    "&nbsp;": " ", // Non-breaking space
+    "&hellip;": "…",
+    "&mdash;": "—",
+    "&ndash;": "–",
+    "&lsquo;": "'",
+    "&rsquo;": "'",
+    "&ldquo;": '"',
+    "&rdquo;": '"',
+    "&trade;": "™",
+    "&copy;": "©",
+    "&reg;": "®",
+    "&euro;": "€",
+    "&pound;": "£",
+    "&yen;": "¥",
   };
 
   // Replace common entities first
   let decoded = text;
   for (const [entity, replacement] of Object.entries(htmlEntities)) {
-    decoded = decoded.replace(new RegExp(entity, 'g'), replacement);
+    decoded = decoded.replace(new RegExp(entity, "g"), replacement);
   }
 
   // Handle numeric character references (&#123; and &#xAB;)
   decoded = decoded.replace(/&#(\d+);/g, (match, code) => {
     try {
       const charCode = parseInt(code, 10);
-      if (charCode > 0 && charCode < 1114112) { // Valid Unicode range
+      if (charCode > 0 && charCode < 1114112) {
+        // Valid Unicode range
         return String.fromCharCode(charCode);
       }
     } catch (e) {
-      console.warn('Invalid numeric entity:', match);
+      console.warn("Invalid numeric entity:", match);
     }
     return match; // Return original if conversion fails
   });
@@ -388,11 +416,12 @@ function decodeHtmlEntities(text: string): string {
   decoded = decoded.replace(/&#x([0-9a-fA-F]+);/g, (match, code) => {
     try {
       const charCode = parseInt(code, 16);
-      if (charCode > 0 && charCode < 1114112) { // Valid Unicode range
+      if (charCode > 0 && charCode < 1114112) {
+        // Valid Unicode range
         return String.fromCharCode(charCode);
       }
     } catch (e) {
-      console.warn('Invalid hex entity:', match);
+      console.warn("Invalid hex entity:", match);
     }
     return match; // Return original if conversion fails
   });
@@ -420,11 +449,13 @@ function generateItemId(link: string, title: string): string {
  * Extract image URL from HTML description content
  */
 function extractImageFromDescription(description: string): string | undefined {
-  if (!description) return undefined;
-  
+  if (!description) {
+    return undefined;
+  }
+
   // Decode HTML entities in description first
   const decodedDescription = decodeHtmlEntities(description);
-  
+
   const extractionMethods = [
     // 1. IMG tags with src attribute
     () => {
@@ -440,7 +471,7 @@ function extractImageFromDescription(description: string): string | undefined {
       }
       return null;
     },
-    
+
     // 2. Background images in style attributes
     () => {
       const bgMatch = decodedDescription.match(/background-image:\s*url\(["']?([^"')]+)["']?\)/i);
@@ -449,38 +480,44 @@ function extractImageFromDescription(description: string): string | undefined {
       }
       return null;
     },
-    
+
     // 3. Figure/picture elements
     () => {
-      const figureMatch = decodedDescription.match(/<figure[^>]*>[\s\S]*?<img[^>]+src=["']([^"']+)["'][^>]*>[\s\S]*?<\/figure>/i);
+      const figureMatch = decodedDescription.match(
+        /<figure[^>]*>[\s\S]*?<img[^>]+src=["']([^"']+)["'][^>]*>[\s\S]*?<\/figure>/i
+      );
       if (figureMatch && isValidImageUrl(figureMatch[1])) {
         return figureMatch[1];
       }
       return null;
     },
-    
+
     // 4. Data attributes (data-src, data-lazy-src, etc.)
     () => {
-      const dataSrcMatch = decodedDescription.match(/<img[^>]+data-(?:src|lazy-src|original)=["']([^"']+)["'][^>]*>/i);
+      const dataSrcMatch = decodedDescription.match(
+        /<img[^>]+data-(?:src|lazy-src|original)=["']([^"']+)["'][^>]*>/i
+      );
       if (dataSrcMatch && isValidImageUrl(dataSrcMatch[1])) {
         return dataSrcMatch[1];
       }
       return null;
     },
-    
+
     // 5. Any direct image URLs in text
     () => {
-      const urlMatches = decodedDescription.match(/https?:\/\/[^"'\s<>]+\.(jpg|jpeg|png|gif|webp|svg)(\?[^"'\s<>]*)?/gi);
+      const urlMatches = decodedDescription.match(
+        /https?:\/\/[^"'\s<>]+\.(jpg|jpeg|png|gif|webp|svg)(\?[^"'\s<>]*)?/gi
+      );
       if (urlMatches) {
         for (const url of urlMatches) {
-          const cleanUrl = url.replace(/["'\s<>].*$/, '');
+          const cleanUrl = url.replace(/["'\s<>].*$/, "");
           if (isValidImageUrl(cleanUrl)) {
             return cleanUrl;
           }
         }
       }
       return null;
-    }
+    },
   ];
 
   // Try extraction methods in priority order
@@ -491,7 +528,7 @@ function extractImageFromDescription(description: string): string | undefined {
         return cleanImageUrl(result);
       }
     } catch (error) {
-      console.warn('Error in description image extraction method:', error);
+      console.warn("Error in description image extraction method:", error);
     }
   }
 
@@ -502,37 +539,39 @@ function extractImageFromDescription(description: string): string | undefined {
  * Clean and normalize text content
  */
 function cleanText(text: string): string {
-  if (!text) return '';
-  
+  if (!text) {
+    return "";
+  }
+
   // First decode HTML entities
   let cleaned = decodeHtmlEntities(text);
-  
+
   // Remove HTML tags
-  cleaned = cleaned.replace(/<[^>]*>/g, ' ');
-  
+  cleaned = cleaned.replace(/<[^>]*>/g, " ");
+
   // Remove extra whitespace and normalize
   cleaned = cleaned
-    .replace(/\s+/g, ' ')
-    .replace(/[\r\n\t]/g, ' ')
+    .replace(/\s+/g, " ")
+    .replace(/[\r\n\t]/g, " ")
     .trim();
-  
+
   // Remove common unwanted phrases
   cleaned = cleaned
-    .replace(/^(Read more|Continue reading|Click here|More info)[:\s]*/i, '')
-    .replace(/\[…\]$/, '…')
-    .replace(/\s*\.\.\.\s*$/, '…');
-  
+    .replace(/^(Read more|Continue reading|Click here|More info)[:\s]*/i, "")
+    .replace(/\[…\]$/, "…")
+    .replace(/\s*\.\.\.\s*$/, "…");
+
   // Limit length but try to break at word boundaries
   if (cleaned.length > 500) {
     const truncated = cleaned.substring(0, 500);
-    const lastSpace = truncated.lastIndexOf(' ');
+    const lastSpace = truncated.lastIndexOf(" ");
     if (lastSpace > 400) {
-      cleaned = truncated.substring(0, lastSpace) + '…';
+      cleaned = `${truncated.substring(0, lastSpace)}…`;
     } else {
-      cleaned = truncated + '…';
+      cleaned = `${truncated}…`;
     }
   }
-  
+
   return cleaned;
 }
 
@@ -590,8 +629,8 @@ export async function getNewsForLanguage(language: string): Promise<NewsResponse
     return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
   });
 
-  // Limit to top 20 most relevant items
-  const topItems = allItems.slice(0, 20);
+  // Limit to top 50 most relevant items
+  const topItems = allItems.slice(0, 50);
 
   const newsResponse: NewsResponse = {
     items: topItems,

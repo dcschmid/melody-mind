@@ -72,13 +72,7 @@ export class TimePressureGameEngine {
     this.questionText = null;
     this.answerOptions = null;
 
-    // Audio elements
-    this.sounds = {
-      correct: null,
-      wrong: null,
-      tick: null,
-      timeout: null,
-    };
+    // Audio elements removed for better user experience
 
     // Bind methods
     this.handleAnswerClick = this.handleAnswerClick.bind(this);
@@ -101,9 +95,6 @@ export class TimePressureGameEngine {
 
       // Initialize DOM elements
       this.initializeDOMElements();
-
-      // Initialize audio
-      this.initializeAudio();
 
       // Set up event listeners
       this.setupEventListeners();
@@ -203,15 +194,6 @@ export class TimePressureGameEngine {
     }
   }
 
-  /**
-   * Initialize audio elements
-   */
-  initializeAudio() {
-    this.sounds.correct = document.getElementById("correct-sound");
-    this.sounds.wrong = document.getElementById("wrong-sound");
-    this.sounds.tick = document.getElementById("tick-sound");
-    this.sounds.timeout = document.getElementById("timeout-sound");
-  }
 
   /**
    * Set up event listeners
@@ -423,11 +405,6 @@ export class TimePressureGameEngine {
     }
 
     this.updateCountdownDisplay();
-
-    // Play tick sound in urgency zone
-    if (this.timeRemaining <= this.urgencyThreshold && this.timeRemaining % 1 < 0.1) {
-      this.playSound("tick");
-    }
   }
 
   /**
@@ -540,10 +517,8 @@ export class TimePressureGameEngine {
 
       this.score += totalPoints;
 
-      this.playSound("correct");
-
       // Show feedback
-      this.showAnswerFeedback(true, totalPoints, {
+      await this.showAnswerFeedback(true, totalPoints, {
         base: this.currentBasePoints,
         time: timeBonus,
         streak: streakBonus,
@@ -551,10 +526,9 @@ export class TimePressureGameEngine {
       });
     } else {
       this.streak = 0; // Reset streak on incorrect answer
-      this.playSound("wrong");
 
       // Show feedback
-      this.showAnswerFeedback(false, 0, {
+      await this.showAnswerFeedback(false, 0, {
         correctAnswer: this.currentQuestion.correctAnswer,
         answerTime: answerTime,
       });
@@ -565,17 +539,6 @@ export class TimePressureGameEngine {
 
     // Record for achievements
     window.lastAnswerTime = answerTime;
-
-    // Show feedback overlay and wait for user interaction
-    // Timer is automatically paused during feedback display
-    await this.showAnswerFeedback(isCorrect, totalPoints || 0, {
-      base: this.currentBasePoints,
-      time: timeBonus || 0,
-      streak: streakBonus || 0,
-      answerTime: answerTime,
-      correctAnswer: this.currentQuestion.correctAnswer,
-      timeout: false
-    });
   }
 
   /**
@@ -589,8 +552,6 @@ export class TimePressureGameEngine {
 
     this.questionsAnswered++;
     this.streak = 0; // Reset streak on timeout
-
-    this.playSound("timeout");
 
     // Update displays
     this.updateGameStats();
@@ -872,6 +833,10 @@ export class TimePressureGameEngine {
       this.countdownTimer = null;
     }
 
+    // Show loading screen while processing results
+    const { showEndGameLoading, hideEndGameLoading } = await import("../utils/game/endGameUtils.js");
+    showEndGameLoading();
+
     // Calculate final statistics
     const gameTime = (Date.now() - this.gameStartTime) / 1000;
     const accuracy =
@@ -892,10 +857,16 @@ export class TimePressureGameEngine {
 
     // Save results and check achievements
     try {
+      console.log("Attempting to save game results...");
       await this.saveGameResults(gameStats);
+      console.log("Game results saved successfully, checking achievements...");
       await this.checkGameAchievements(gameStats);
+      console.log("All post-game processing completed successfully");
     } catch (error) {
-      console.error("Error saving game results:", error);
+      console.error("Error in post-game processing:", error);
+      console.error("Stack trace:", error.stack);
+      // Don't continue if save failed - this is critical
+      return;
     }
 
     // Show end game overlay
@@ -909,36 +880,48 @@ export class TimePressureGameEngine {
     try {
       // Get user ID from container data attribute (set by server-side session)
       let userId = this.gameContainer.getAttribute("data-userID");
+      console.log("Raw userId from container:", userId);
       
       // Fallback to guest if no user ID is found
       if (!userId || userId === "null" || userId === "undefined") {
+        console.log("No valid userId found, using guest");
         userId = "guest"; 
+      } else {
+        console.log("Using userId:", userId);
       }
       
       // Time pressure mode uses mixed difficulties
       const difficulty = "mixed";
+      
+      const requestData = {
+        userId: userId,
+        categoryName: this.category,
+        difficulty: difficulty,
+        score: gameStats.score,
+        correctAnswers: gameStats.correctAnswers,
+        totalRounds: gameStats.totalQuestions,
+        // Additional time pressure specific data
+        genreId: this.category,
+        gameTime: gameStats.gameTime,
+        endOfSession: true,
+      };
+      
+      console.log("Sending game result data:", requestData);
+      console.log("Request URL:", `/${this.lang}/api/game/save-result`);
       
       const response = await fetch(`/${this.lang}/api/game/save-result`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          userId: userId,
-          categoryName: this.category,
-          difficulty: difficulty,
-          score: gameStats.score,
-          correctAnswers: gameStats.correctAnswers,
-          totalRounds: gameStats.totalQuestions,
-          // Additional time pressure specific data
-          genreId: this.category,
-          gameTime: gameStats.gameTime,
-          endOfSession: true,
-        }),
+        body: JSON.stringify(requestData),
       });
 
       if (!response.ok) {
-        throw new Error("Failed to save game results");
+        const errorText = await response.text();
+        console.error("Save failed with status:", response.status);
+        console.error("Error response:", errorText);
+        throw new Error(`Failed to save game results: ${response.status} - ${errorText}`);
       }
 
       const result = await response.json();
@@ -947,6 +930,9 @@ export class TimePressureGameEngine {
       return result;
     } catch (error) {
       console.error("Error saving game results:", error);
+      console.error("Error details:", error.message);
+      // Show user-friendly error message
+      alert("Fehler beim Speichern der Spielergebnisse. Bitte versuche es erneut.");
       throw error;
     }
   }
@@ -989,6 +975,12 @@ export class TimePressureGameEngine {
       // Import and use the showEndOverlay utility
       const { showEndOverlay } = await import("../utils/endOverlay.js");
       
+      // Hide loading screen before showing end overlay
+      hideEndGameLoading();
+      
+      // Small delay to ensure loading screen is hidden
+      await new Promise(resolve => setTimeout(resolve, 300));
+      
       // Show the overlay with the score
       await showEndOverlay({
         score: gameStats.score,
@@ -1008,25 +1000,15 @@ export class TimePressureGameEngine {
       console.log("End game overlay displayed successfully");
     } catch (error) {
       console.error("Error showing end game overlay:", error);
+      
+      // Hide loading screen in case of error
+      hideEndGameLoading();
+      
       // Fallback: just show basic stats
       alert(`Game Complete!\nScore: ${gameStats.score}\nAccuracy: ${Math.round(gameStats.accuracy)}%\nTime: ${Math.round(gameStats.gameTime)}s`);
     }
   }
 
-  /**
-   * Play sound effect
-   */
-  playSound(soundName) {
-    try {
-      const sound = this.sounds[soundName];
-      if (sound) {
-        sound.currentTime = 0;
-        sound.play().catch((e) => console.warn("Could not play sound:", e));
-      }
-    } catch (error) {
-      console.warn("Error playing sound:", error);
-    }
-  }
 
   /**
    * Show error message

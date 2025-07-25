@@ -43,7 +43,7 @@ type UserId = string & { readonly __brand: unique symbol };
  *
  * @category Types
  */
-type GameMode = "quiz" | "chronology";
+type GameMode = "quiz" | "chronology" | "time-pressure";
 
 /**
  * Difficulty levels available in the game
@@ -84,6 +84,10 @@ interface UserProfile {
      * Chronology mode statistics
      */
     chronology: GameModeStats;
+    /**
+     * Time-pressure mode statistics
+     */
+    "time-pressure": GameModeStats;
   };
   /**
    * Array of recent game results limited to 5 entries
@@ -232,6 +236,11 @@ async function fetchGameStats(userId: UserId): Promise<Record<GameMode, GameMode
       gamesPlayed: 0,
       highestScore: 0,
     },
+    "time-pressure": {
+      totalScore: 0,
+      gamesPlayed: 0,
+      highestScore: 0,
+    },
   };
 
   const statsResult = await turso.execute({
@@ -252,7 +261,7 @@ async function fetchGameStats(userId: UserId): Promise<Record<GameMode, GameMode
   if (statsResult.rows && statsResult.rows.length > 0) {
     for (const row of statsResult.rows) {
       const gameMode = row.game_mode as GameMode;
-      if (gameMode === "quiz" || gameMode === "chronology") {
+      if (gameMode === "quiz" || gameMode === "chronology" || gameMode === "time-pressure") {
         stats[gameMode] = {
           totalScore: Number(row.total_score),
           gamesPlayed: Number(row.games_played),

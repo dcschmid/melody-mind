@@ -451,7 +451,7 @@ export default {
   "game.submit.answer": "回答を確認",
   "game.submit.answer.aria": "現在の順序を確認し、次のラウンドに進む",
   "game.timepressure.title": "タイムプレッシャーモード",
-  "game.timepressure.description": "{category}で時間制限と混合難易度レベルでプレイ",
+  "game.timepressure.description": "⚡ 雷のような音楽マスターになろう！{category}で混合難易度レベルの時間的プレッシャーの下でも真のチャンピオンであることを証明しよう。すべての秒が重要だ——スピードと知識を同時に示そう！🏆",
   "game.timepressure.instructions": "できるだけ早く質問に答えてください。各質問には制限時間があります。",
   "game.timepressure.controls": "回答にはキー1-4、一時停止にはスペース、スキップにはSを使用",
   "game.timepressure.streak": "連続",
@@ -577,6 +577,7 @@ export default {
   "nav.logout.label": "アプリケーションからログアウト",
   "nav.menu.achievements": "達成",
   "nav.menu.achievements.desc": "解除した達成と進捗を表示",
+  "nav.menu.profile.desc": "プロフィールと設定を管理",
   "nav.menu.close": "メニューを閉じる",
   "nav.menu.dailyFacts": "デイリー事実",
   "nav.menu.dailyFacts.desc": "毎日新しい音楽事実を発見",
@@ -757,4 +758,5 @@ export default {
   "dailyFacts.categories.milestone": "マイルストーン",
   "dailyFacts.categories.formation": "結成",
   "dailyFacts.categories.breakthrough": "ブレイクスルー",
+  "profile.desc": "個人情報とゲーム統計を管理",
 };
