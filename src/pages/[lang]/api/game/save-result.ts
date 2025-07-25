@@ -27,7 +27,7 @@ type UserId = string & { readonly __brand: unique symbol };
 /**
  * Literal types for game-specific enums
  */
-type DifficultyLevel = "easy" | "medium" | "hard";
+type DifficultyLevel = "easy" | "medium" | "hard" | "mixed";
 type GameMode = "quiz" | "chronology" | "time-pressure";
 
 /**

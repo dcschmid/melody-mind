@@ -15,7 +15,7 @@ export type SharingPlatform = "twitter" | "whatsapp" | "email" | string;
 /**
  * Supported difficulty levels for the game
  */
-export type GameDifficulty = "easy" | "medium" | "hard" | string;
+export type GameDifficulty = "easy" | "medium" | "hard" | "mixed" | string;
 
 /**
  * The data structure required for sharing game results

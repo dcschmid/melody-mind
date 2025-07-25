@@ -152,9 +152,15 @@ async function executeSqlStatements(sql: string): Promise<void> {
     try {
       await turso.execute({ sql: stmt });
     } catch (error: any) {
-      console.error(`Error executing: ${stmt}`);
-      console.error("Error details:", error?.message || String(error));
-      throw error;
+      const errorMsg = error?.message || String(error);
+      // Ignore errors when trying to select from non-existent tables during migrations
+      if (errorMsg.includes("no such table") && stmt.includes("INSERT INTO") && stmt.includes("SELECT")) {
+        console.log(`Info: Skipping INSERT statement for non-existent table: ${stmt.substring(0, 80)}...`);
+      } else {
+        console.error(`Error executing: ${stmt}`);
+        console.error("Error details:", errorMsg);
+        throw error;
+      }
     }
   }
 }

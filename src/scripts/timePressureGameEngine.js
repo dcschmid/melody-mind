@@ -49,6 +49,7 @@ export class TimePressureGameEngine {
     this.currentTimeLimit = 0;
     this.urgencyThreshold = 3; // Start urgency effects at 3 seconds
     this.warningThreshold = 5; // Start warning effects at 5 seconds
+    this.isFeedbackShowing = false; // Track if feedback overlay is shown
 
     // Current question data
     this.currentQuestion = null;
@@ -339,13 +340,14 @@ export class TimePressureGameEngine {
       const button = document.createElement("button");
       button.type = "button";
       button.className = "answer-btn";
-      button.textContent = option;
       button.setAttribute("data-answer", option);
       button.setAttribute("aria-describedby", "question-text");
 
       // Keyboard shortcuts
       const shortcut = String(index + 1);
       button.setAttribute("data-shortcut", shortcut);
+      
+      // Set innerHTML with proper structure - don't use textContent after this
       button.innerHTML = `<span class="answer-shortcut">${shortcut}</span><span class="answer-text">${option}</span>`;
 
       button.addEventListener("click", this.handleAnswerClick);
@@ -408,7 +410,7 @@ export class TimePressureGameEngine {
    * Update countdown timer (called every 100ms for smooth animation)
    */
   updateCountdown() {
-    if (this.isPaused || !this.isGameActive) {
+    if (this.isPaused || !this.isGameActive || this.isFeedbackShowing) {
       return;
     }
 
@@ -564,11 +566,16 @@ export class TimePressureGameEngine {
     // Record for achievements
     window.lastAnswerTime = answerTime;
 
-    // Move to next question after brief delay
-    setTimeout(async () => {
-      this.currentRound++;
-      await this.nextQuestion();
-    }, 2000);
+    // Show feedback overlay and wait for user interaction
+    // Timer is automatically paused during feedback display
+    await this.showAnswerFeedback(isCorrect, totalPoints || 0, {
+      base: this.currentBasePoints,
+      time: timeBonus || 0,
+      streak: streakBonus || 0,
+      answerTime: answerTime,
+      correctAnswer: this.currentQuestion.correctAnswer,
+      timeout: false
+    });
   }
 
   /**
@@ -585,19 +592,14 @@ export class TimePressureGameEngine {
 
     this.playSound("timeout");
 
+    // Update displays
+    this.updateGameStats();
+
     // Show timeout feedback
-    this.showAnswerFeedback(false, 0, {
+    await this.showAnswerFeedback(false, 0, {
       timeout: true,
       correctAnswer: this.currentQuestion.correctAnswer,
     });
-
-    this.updateGameStats();
-
-    // Move to next question
-    setTimeout(async () => {
-      this.currentRound++;
-      await this.nextQuestion();
-    }, 2500);
   }
 
   /**
@@ -626,21 +628,126 @@ export class TimePressureGameEngine {
   }
 
   /**
-   * Show answer feedback
+   * Show answer feedback using the FeedbackOverlay component
    */
-  showAnswerFeedback(isCorrect, points, details) {
-    // This would integrate with the existing FeedbackOverlay component
-    // For now, show simple feedback
-    const feedbackMsg = isCorrect
-      ? `Correct! +${points} points`
-      : details.timeout
-        ? `Time's up! Correct answer: ${details.correctAnswer}`
-        : `Wrong! Correct answer: ${details.correctAnswer}`;
+  async showAnswerFeedback(isCorrect, points, details) {
+    try {
+      // Pause the timer during feedback
+      this.isFeedbackShowing = true;
+      
+      // Get the overlay elements
+      const overlay = document.getElementById("overlay");
+      let feedback = document.getElementById("feedback");
+      
+      // If feedback element is not found, try to find the paragraph element
+      if (!feedback) {
+        feedback = overlay?.querySelector(".feedback");
+      }
+      
+      if (!overlay) {
+        console.warn("FeedbackOverlay not found");
+        this.isFeedbackShowing = false; // Reset flag if overlay not found
+        return;
+      }
 
-    console.log(feedbackMsg);
+      // Create feedback message
+      let feedbackMsg;
+      if (isCorrect) {
+        feedbackMsg = `Richtig! +${points} Punkte`;
+        if (details.time > 0) {
+          feedbackMsg += ` (Zeit-Bonus: +${details.time})`;
+        }
+        if (details.streak > 0) {
+          feedbackMsg += ` (Serie-Bonus: +${details.streak})`;
+        }
+      } else if (details.timeout) {
+        feedbackMsg = `Zeit abgelaufen! Die richtige Antwort war: ${details.correctAnswer}`;
+      } else if (details.skipped) {
+        feedbackMsg = `Frage übersprungen! -${details.penalty} Punkte. Die richtige Antwort war: ${details.correctAnswer}`;
+      } else {
+        feedbackMsg = `Falsch! Die richtige Antwort war: ${details.correctAnswer}`;
+      }
 
-    // Update UI to show feedback
-    // This would be enhanced with the FeedbackOverlay component
+      // Update feedback content - handle both direct element and Paragraph component
+      if (feedback) {
+        // If it's a paragraph component, update its text content
+        const textElement = feedback.querySelector('p') || feedback;
+        textElement.textContent = feedbackMsg;
+        
+        // Add appropriate classes
+        feedback.classList.remove('correct', 'incorrect');
+        feedback.classList.add(isCorrect ? 'correct' : 'incorrect');
+      } else {
+        // Fallback: create a feedback element
+        const feedbackDiv = document.createElement('div');
+        feedbackDiv.id = 'feedback';
+        feedbackDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+        feedbackDiv.innerHTML = `<p>${feedbackMsg}</p>`;
+        overlay.querySelector('.overlay__content')?.insertBefore(feedbackDiv, overlay.querySelector('.album-info'));
+      }
+
+      // Show album info section like in normal mode
+      const albumInfo = overlay.querySelector('.album-info');
+      if (albumInfo && this.currentAlbum) {
+        albumInfo.style.display = 'block';
+        
+        // Update album information
+        const artistElement = overlay.querySelector('#overlay-artist');
+        const albumElement = overlay.querySelector('#overlay-album');
+        const yearElement = overlay.querySelector('#overlay-year');
+        const funFactElement = overlay.querySelector('#overlay-funfact');
+        
+        if (artistElement) artistElement.textContent = this.currentAlbum.artist || '';
+        if (albumElement) albumElement.textContent = this.currentAlbum.album || '';
+        if (yearElement) yearElement.textContent = this.currentAlbum.year || '';
+        
+        // Display funFact from the current question's trivia
+        if (funFactElement) {
+          const funFactText = this.currentQuestion?.trivia || this.currentAlbum.funFact || '';
+          // Handle both direct text and Paragraph component
+          const textElement = funFactElement.querySelector('p') || funFactElement;
+          textElement.textContent = funFactText;
+          
+          // Show the fun fact section if there's content
+          if (funFactText) {
+            funFactElement.style.display = 'block';
+          } else {
+            funFactElement.style.display = 'none';
+          }
+        }
+      }
+
+      // Show the overlay
+      overlay.classList.remove("hidden");
+      overlay.setAttribute("aria-hidden", "false");
+
+      // Set up the next round handler
+      const nextRoundButton = document.getElementById("next-round-button");
+      if (nextRoundButton) {
+        nextRoundButton.onclick = () => {
+          overlay.classList.add("hidden");
+          overlay.setAttribute("aria-hidden", "true");
+          
+          // Resume timer and continue to next question
+          this.isFeedbackShowing = false;
+          
+          // Continue with next question
+          setTimeout(async () => {
+            this.currentRound++;
+            await this.nextQuestion();
+          }, 100);
+        };
+      }
+
+      // No auto-hide - user must click to continue
+
+      // Feedback shown successfully
+    } catch (error) {
+      console.error("Error showing feedback overlay:", error);
+      // Reset feedback flag on error
+      this.isFeedbackShowing = false;
+      // Fallback feedback displayed
+    }
   }
 
   /**
@@ -700,7 +807,10 @@ export class TimePressureGameEngine {
     // Update pause button text
     const pauseBtn = document.getElementById("pause-btn");
     if (pauseBtn) {
-      pauseBtn.innerHTML = "<svg>...</svg> Resume";
+      const iconSpan = pauseBtn.querySelector('.icon');
+      const textSpan = pauseBtn.querySelector('.text');
+      if (textSpan) textSpan.textContent = 'Fortsetzen';
+      pauseBtn.setAttribute('aria-label', 'Spiel fortsetzen');
     }
 
     // Show pause overlay (would integrate with existing overlay system)
@@ -716,7 +826,10 @@ export class TimePressureGameEngine {
     // Update pause button text
     const pauseBtn = document.getElementById("pause-btn");
     if (pauseBtn) {
-      pauseBtn.innerHTML = "<svg>...</svg> Pause";
+      const iconSpan = pauseBtn.querySelector('.icon');
+      const textSpan = pauseBtn.querySelector('.text');
+      if (textSpan) textSpan.textContent = 'Pause';
+      pauseBtn.setAttribute('aria-label', 'Spiel pausieren');
     }
 
     console.log("Game resumed");
@@ -739,13 +852,11 @@ export class TimePressureGameEngine {
     this.updateGameStats();
 
     // Show skip feedback
-    console.log(`Question skipped! -${penalty} points`);
-
-    // Move to next question
-    setTimeout(async () => {
-      this.currentRound++;
-      await this.nextQuestion();
-    }, 1000);
+    await this.showAnswerFeedback(false, 0, {
+      skipped: true,
+      penalty: penalty,
+      correctAnswer: this.currentQuestion?.correctAnswer || "Unknown",
+    });
   }
 
   /**
@@ -796,12 +907,16 @@ export class TimePressureGameEngine {
    */
   async saveGameResults(gameStats) {
     try {
-      // Get user ID from session/auth (placeholder for now)
-      const userId = "guest"; // TODO: Get actual user ID from authentication
+      // Get user ID from container data attribute (set by server-side session)
+      let userId = this.gameContainer.getAttribute("data-userID");
       
-      // Time pressure mode uses mixed difficulties, so we'll use "medium" as default
-      // since it's a balanced representation of the mixed difficulty approach
-      const difficulty = "medium";
+      // Fallback to guest if no user ID is found
+      if (!userId || userId === "null" || userId === "undefined") {
+        userId = "guest"; 
+      }
+      
+      // Time pressure mode uses mixed difficulties
+      const difficulty = "mixed";
       
       const response = await fetch(`/${this.lang}/api/game/save-result`, {
         method: "POST",
