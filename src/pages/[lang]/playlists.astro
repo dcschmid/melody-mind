@@ -76,7 +76,7 @@ interface Playlist {
 }
 
 // Helper function for decade extraction (moved up)
-function getDecadeFromHeadline(headline: string): string {
+function getDecadeFromHeadline(headline) {
   const yearMatch = headline.match(/\b(\d{4})\b/);
   if (yearMatch) {
     return `${yearMatch[1].substring(0, 3)}0s`;
@@ -249,48 +249,6 @@ const breadcrumbSchema = {
     </section>
 
     <main class="playlist-selection" role="main">
-      <!-- Search input with improved accessibility -->
-      <section class="search-section" role="search" aria-labelledby="search-heading">
-        <Headline
-          title={t("playlist.search.heading")}
-          level="h2"
-          size="base"
-          className="sr-only"
-          id="search-heading"
-        />
-        <div class="search-container">
-          <div class="search-container__icon" aria-hidden="true">
-            <Icon name="search" class="search-container__icon-element" />
-          </div>
-          <label for="playlist-search" class="sr-only">
-            {t("playlist.search.aria.label")}
-          </label>
-          <input
-            class="search-container__input"
-            type="search"
-            id="playlist-search"
-            placeholder={t("playlist.search.placeholder")}
-            aria-label={t("playlist.search.aria.label")}
-            autocomplete="off"
-          />
-        </div>
-      </section>
-
-      <!-- No results message with improved accessibility -->
-      <div id="no-results" class="no-results" role="status" aria-live="polite">
-        <Headline
-          title={t("playlist.no.results.heading")}
-          level="h3"
-          size="2xl"
-          className="no-results__heading"
-        />
-        <Paragraph className="no-results__text">
-          {t("playlist.no.results")}
-        </Paragraph>
-        <button id="reset-search" class="no-results__button">
-          {t("playlist.reset.search")}
-        </button>
-      </div>
 
       <!-- Enhanced Playlist Grid with semantic markup and microdata -->
       <section aria-labelledby="playlists-heading">
@@ -307,8 +265,6 @@ const breadcrumbSchema = {
               <li
                 class="playlist-card"
                 id={`playlist-${index}`}
-                data-searchable={`${playlist.headline.toLowerCase()} ${playlist.introSubline.toLowerCase()}`}
-                data-decade={getDecadeFromHeadline(playlist.headline)}
                 itemscope
                 itemtype="https://schema.org/MusicPlaylist"
               >
@@ -654,94 +610,6 @@ const breadcrumbSchema = {
     }
   }
 
-  // ======================================
-  // SEARCH CONTAINER
-  // ======================================
-
-  .search-section {
-    margin-bottom: var(--space-lg);
-
-    @include desktop {
-      margin-bottom: var(--space-xl);
-    }
-  }
-
-  .search-container {
-    position: relative;
-    margin: 0 auto;
-    max-width: var(--container-sm);
-    display: flex;
-    align-items: center;
-    border-radius: var(--radius-full);
-    background-color: var(--bg-secondary);
-    box-shadow: var(--shadow-lg);
-    transition: box-shadow var(--transition-base);
-
-    &:focus-within {
-      box-shadow: var(--shadow-xl);
-
-      .search-container__icon {
-        color: var(--interactive-primary);
-      }
-    }
-
-    &__icon {
-      position: absolute;
-      left: var(--space-md);
-      z-index: var(--z-10);
-      color: var(--text-tertiary);
-      transition: color var(--transition-fast);
-
-      @include tablet {
-        left: var(--space-lg);
-      }
-
-      &-element {
-        width: var(--icon-size-md);
-        height: var(--icon-size-md);
-
-        @include tablet {
-          width: var(--icon-size-lg);
-          height: var(--icon-size-lg);
-        }
-      }
-    }
-
-    &__input {
-      width: 100%;
-      min-width: 0;
-      max-width: 100%;
-      padding: var(--space-md) var(--space-md) var(--space-md)
-        calc(var(--space-2xl) + var(--space-sm));
-      border: none;
-      border-radius: var(--radius-full);
-      background-color: transparent;
-      color: var(--text-primary);
-      font-size: var(--text-base);
-      transition: all var(--transition-base);
-      box-sizing: border-box;
-      overflow: hidden;
-      text-overflow: ellipsis;
-
-      @include tablet {
-        padding: var(--space-lg) var(--space-lg) var(--space-lg)
-          calc(var(--space-3xl) + var(--space-sm));
-        font-size: var(--text-lg);
-      }
-
-      &::placeholder {
-        color: var(--text-tertiary);
-      }
-
-      &:focus {
-        outline: none;
-      }
-    }
-
-    @include mobile {
-      margin: 0 var(--space-xs);
-    }
-  }
 
   // ======================================
   // PLAYLIST GRID - Enhanced Responsive Auto-Fill Pattern
@@ -830,80 +698,6 @@ const breadcrumbSchema = {
     }
   }
 
-  // ======================================
-  // NO RESULTS
-  // ======================================
-
-  .no-results {
-    display: none;
-    text-align: center;
-    padding: var(--space-lg);
-    color: var(--text-secondary);
-
-    @include desktop {
-      padding: var(--space-2xl);
-    }
-
-    &.show {
-      display: block;
-    }
-
-    &__heading {
-      margin-bottom: var(--space-sm);
-      font-size: var(--text-xl);
-      font-weight: var(--font-semibold);
-      color: var(--text-primary);
-
-      @include tablet {
-        margin-bottom: var(--space-md);
-        font-size: var(--text-2xl);
-      }
-    }
-
-    &__text {
-      margin-bottom: var(--space-md);
-      font-size: var(--text-base);
-
-      @include tablet {
-        margin-bottom: var(--space-lg);
-        font-size: var(--text-lg);
-      }
-    }
-
-    &__button {
-      padding: var(--space-sm) var(--space-md);
-      border: none;
-      border-radius: var(--radius-lg);
-      background-color: var(--interactive-primary);
-      color: var(--color-neutral-100);
-      font-size: var(--text-sm);
-      font-weight: var(--font-medium);
-      cursor: pointer;
-      transition: all var(--transition-base);
-      min-height: var(--touch-target);
-
-      @include tablet {
-        padding: var(--space-md) var(--space-lg);
-        font-size: var(--text-base);
-      }
-
-      // Enhanced touch targets
-      @include touch-device {
-        min-height: var(--touch-target-enhanced);
-        padding: var(--space-md) var(--space-xl);
-      }
-
-      &:hover,
-      &:focus {
-        background-color: var(--interactive-primary-hover);
-        transform: translateY(calc(-1 * var(--space-xs)));
-      }
-
-      &:active {
-        transform: scale(0.98);
-      }
-    }
-  }
 
   // ======================================
   // CONTAINER QUERIES FOR MODERN RESPONSIVE DESIGN
@@ -1089,271 +883,46 @@ const breadcrumbSchema = {
 
 <script>
   // ======================================
-  // MODERN ES6+ JAVASCRIPT WITH TYPE SAFETY
-  // ======================================
-
-  // Type definitions for better type safety
-  interface WindowWithTimeouts extends Window {
-    searchTimeout?: number;
-    filterTimeout?: number;
-  }
-
-  interface SearchAnnouncement {
-    visibleCount: number;
-    searchTerm: string;
-  }
-
-  interface PlaylistCard extends HTMLElement {
-    dataset: {
-      searchable: string;
-      decade: string;
-    };
-  }
-
-  // Global timeout management with proper typing
-  declare const window: WindowWithTimeouts;
-
-  // ======================================
-  // UTILITY FUNCTIONS
-  // ======================================
-
-  /**
-   * Announces search results to screen readers for accessibility
-   */
-  const announceSearchResults = ({ visibleCount, searchTerm }: SearchAnnouncement): void => {
-    const announcement = document.createElement("div");
-    announcement.setAttribute("aria-live", "polite");
-    announcement.setAttribute("aria-atomic", "true");
-    announcement.className = "sr-only";
-
-    const message =
-      searchTerm === ""
-        ? "Showing all playlists"
-        : visibleCount === 0
-          ? `No playlists found for "${searchTerm}"`
-          : `Found ${visibleCount} playlist${visibleCount === 1 ? "" : "s"} for "${searchTerm}"`;
-
-    announcement.textContent = message;
-    document.body.appendChild(announcement);
-
-    // Clean up after announcement
-    setTimeout(() => {
-      if (document.body.contains(announcement)) {
-        document.body.removeChild(announcement);
-      }
-    }, 1000);
-  };
-
-  /**
-   * Updates the browser URL with search parameters
-   */
-  const updateSearchUrl = (searchTerm: string, visibleCount: number): void => {
-    const url = new URL(window.location.href);
-
-    if (searchTerm && visibleCount > 0) {
-      url.searchParams.set("search", searchTerm);
-    } else if (!searchTerm) {
-      url.searchParams.delete("search");
-    }
-
-    window.history.replaceState(null, "", url.toString());
-  };
-
-  /**
-   * Debounced function for performance optimization
-   */
-  const debounce = <T extends (...args: unknown[]) => unknown>(
-    func: T,
-    delay: number
-  ): ((...args: Parameters<T>) => void) => {
-    let timeoutId: number;
-
-    return (...args: Parameters<T>) => {
-      clearTimeout(timeoutId);
-      timeoutId = window.setTimeout(() => func(...args), delay);
-    };
-  };
-
-  // ======================================
-  // SEARCH FUNCTIONALITY
-  // ======================================
-
-  /**
-   * Filters playlist cards based on search term
-   */
-  const filterPlaylists = (): void => {
-    const searchInput = document.getElementById("playlist-search") as HTMLInputElement | null;
-    const playlistCards = document.querySelectorAll(".playlist-card") as NodeListOf<PlaylistCard>;
-    const noResultsElement = document.getElementById("no-results") as HTMLElement | null;
-    const playlistGrid = document.getElementById("playlist-grid") as HTMLElement | null;
-
-    if (!searchInput) {
-      return;
-    }
-
-    const searchTerm = searchInput.value.toLowerCase().trim();
-    let visibleCount = 0;
-
-    playlistCards.forEach((card) => {
-      const searchableText = card.dataset.searchable || "";
-      const decade = card.dataset.decade || "";
-      const isVisible =
-        searchableText.includes(searchTerm) || decade.toLowerCase().includes(searchTerm);
-
-      card.style.display = isVisible ? "" : "none";
-      if (isVisible) {
-        visibleCount++;
-      }
-    });
-
-    // Update grid busy state
-    if (playlistGrid) {
-      playlistGrid.setAttribute("aria-busy", "false");
-    }
-
-    // Handle no results
-    if (noResultsElement) {
-      const shouldShow = visibleCount === 0 && searchTerm !== "";
-      noResultsElement.classList.toggle("show", shouldShow);
-
-      if (shouldShow) {
-        noResultsElement.focus();
-      }
-    }
-
-    // Debounced announcement and URL update
-    if (window.searchTimeout) {
-      clearTimeout(window.searchTimeout);
-    }
-
-    window.searchTimeout = window.setTimeout(() => {
-      announceSearchResults({ visibleCount, searchTerm });
-    }, 500);
-
-    updateSearchUrl(searchTerm, visibleCount);
-  };
-
-  // ======================================
-  // EVENT LISTENERS SETUP
-  // ======================================
-
-  /**
-   * Sets up search input event listeners
-   */
-  const setupSearchListeners = (): void => {
-    const searchInput = document.getElementById("playlist-search") as HTMLInputElement | null;
-    const playlistGrid = document.getElementById("playlist-grid") as HTMLElement | null;
-
-    if (!searchInput) {
-      return;
-    }
-
-    // Debounced filter function
-    const debouncedFilter = debounce(filterPlaylists, 200);
-
-    searchInput.addEventListener("input", () => {
-      if (playlistGrid) {
-        playlistGrid.setAttribute("aria-busy", "true");
-      }
-      debouncedFilter();
-    });
-
-    searchInput.addEventListener("keydown", (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        searchInput.value = "";
-        filterPlaylists();
-        searchInput.blur();
-      }
-    });
-
-    searchInput.addEventListener("focus", () => {
-      searchInput.setAttribute("aria-expanded", "true");
-    });
-
-    searchInput.addEventListener("blur", () => {
-      searchInput.setAttribute("aria-expanded", "false");
-    });
-  };
-
-  /**
-   * Sets up keyboard navigation and reset button
-   */
-  const setupAdditionalListeners = (): void => {
-    const resetButton = document.getElementById("reset-search") as HTMLButtonElement | null;
-    const searchInput = document.getElementById("playlist-search") as HTMLInputElement | null;
-
-    if (resetButton) {
-      resetButton.addEventListener("click", () => {
-        if (searchInput) {
-          searchInput.value = "";
-          searchInput.focus();
-        }
-        filterPlaylists();
-      });
-    }
-
-    // Global keyboard shortcuts
-    document.addEventListener("keydown", (e: KeyboardEvent) => {
-      if (e.altKey && e.key === "/") {
-        e.preventDefault();
-        if (searchInput) {
-          searchInput.focus();
-        }
-      }
-    });
-  };
-
-  // ======================================
   // INTERSECTION OBSERVER FOR ANIMATIONS
   // ======================================
 
   /**
    * Sets up intersection observer for card animations
    */
-  const setupIntersectionObserver = (): void => {
+  function setupIntersectionObserver() {
     const playlistCards = document.querySelectorAll(".playlist-card");
 
-    const observerOptions: IntersectionObserverInit = {
+    const observerOptions = {
       root: null,
       rootMargin: "50px",
       threshold: 0.1,
     };
 
-    const cardObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const cardObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add("in-view");
         }
       });
     }, observerOptions);
 
-    playlistCards.forEach((card) => cardObserver.observe(card));
-  };
+    playlistCards.forEach(function(card) {
+      cardObserver.observe(card);
+    });
+  }
 
   // ======================================
   // INITIALIZATION
   // ======================================
 
   /**
-   * Initialize all functionality
+   * Initialize playlist page
    */
-  const initializePlaylistPage = (): void => {
-    const searchInput = document.getElementById("playlist-search") as HTMLInputElement | null;
-
-    // Initialize search from URL parameter
-    const urlParams = new URLSearchParams(window.location.search);
-    const initialSearch = urlParams.get("search");
-
-    if (initialSearch && searchInput) {
-      searchInput.value = initialSearch;
-      filterPlaylists();
-    }
-
-    // Setup all functionality
-    setupSearchListeners();
-    setupAdditionalListeners();
+  function initializePlaylistPage() {
+    console.log("Initializing playlist page");
     setupIntersectionObserver();
-  };
+    console.log("Playlist page initialized successfully");
+  }
 
   // Initialize when DOM is ready
   document.addEventListener("DOMContentLoaded", initializePlaylistPage);

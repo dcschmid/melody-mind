@@ -1256,6 +1256,23 @@ const languageNames = {
                 </div>
               </dl>
             </div>
+            <div class="stat-card">
+              <h3 class="stat-card__title">Time-Pressure Mode</h3>
+              <dl class="stat-card__list">
+                <div class="stat-card__item">
+                  <dt class="stat-card__label">Games Played</dt>
+                  <dd class="stat-card__value">${stats.timePressure?.gamesPlayed || 0}</dd>
+                </div>
+                <div class="stat-card__item">
+                  <dt class="stat-card__label">Total Score</dt>
+                  <dd class="stat-card__value">${stats.timePressure?.totalScore || 0}</dd>
+                </div>
+                <div class="stat-card__item">
+                  <dt class="stat-card__label">Highest Score</dt>
+                  <dd class="stat-card__value">${stats.timePressure?.highestScore || 0}</dd>
+                </div>
+              </dl>
+            </div>
           </div>
         </div>
       </section>

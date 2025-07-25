@@ -144,7 +144,8 @@ export async function processAchievementsAfterGame(
  * @returns true if it's a perfect game, otherwise false
  */
 function isPerfectGameScore(gameState: GameState): boolean {
-  // For Quiz and Chronology: 10 points = perfect game
+  // For Quiz, Chronology, and Time-Pressure: 10 points = perfect game
+  // All game modes use 10 as the maximum score
   return gameState.score === 10;
 }
 

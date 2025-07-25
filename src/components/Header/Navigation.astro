@@ -1592,6 +1592,7 @@ const stableItemIds = {
       color: var(--interactive-primary);
       border-bottom-color: var(--interactive-primary);
     }
+
   }
 
   /* ======================================
@@ -1599,8 +1600,9 @@ const stableItemIds = {
    * ====================================== */
 
   .navigation-link {
-    display: flex;
-    align-items: center;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
     gap: var(--space-lg);
     padding: var(--space-lg);
     border-radius: var(--radius-xl);
@@ -1649,14 +1651,14 @@ const stableItemIds = {
     /* Icon Wrapper */
     &__icon-wrapper {
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
       width: calc(var(--icon-size-xl) + var(--space-sm));
       height: calc(var(--icon-size-xl) + var(--space-sm));
       border-radius: var(--radius-lg);
       background: linear-gradient(135deg, var(--interactive-primary), var(--color-secondary-500));
-      flex-shrink: 0;
+      flex-shrink: 0 !important;
       box-shadow: var(--shadow-md);
     }
 
@@ -1675,10 +1677,10 @@ const stableItemIds = {
 
     /* Content Area */
     &__content {
-      display: flex;
-      flex-direction: column;
+      display: flex !important;
+      flex-direction: column !important;
       gap: var(--space-xs);
-      flex: 1;
+      flex: 1 !important;
       z-index: 1;
     }
 
@@ -1730,18 +1732,46 @@ const stableItemIds = {
     }
 
     &--profile &__icon-wrapper {
-      background: linear-gradient(135deg, var(--color-neutral-600), var(--color-neutral-700));
+      background: linear-gradient(135deg, var(--color-info-500), var(--color-info-600));
     }
 
     &--logout {
-      background: none;
-      border: 2px solid var(--color-error-500);
       font-family: inherit;
       font-size: inherit;
+      // Force standard navigation link styling 
+      background: var(--card-bg) !important;
+      border: 1px solid var(--border-primary) !important;
+      box-shadow: var(--shadow-sm) !important;
 
       &:hover {
-        background: var(--color-error-50);
-        border-color: var(--color-error-600);
+        transform: translateY(calc(var(--animation-y-offset-small) * 4)) !important;
+        box-shadow: var(--shadow-xl) !important;
+        border-color: var(--interactive-primary) !important;
+        background: var(--card-bg) !important;
+      }
+
+      &:focus-visible {
+        outline: var(--border-width-enhanced) solid var(--focus-ring) !important;
+        outline-offset: var(--space-xs) !important;
+        transform: translateY(calc(var(--animation-y-offset-small) * 2)) !important;
+      }
+
+      // Ensure hover gradient works
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(var(--color-primary-500), 0.1) 0%,
+          rgba(var(--color-secondary-500), 0.05) 100%
+        );
+        opacity: 0;
+        transition: opacity var(--transition-normal);
+      }
+
+      &:hover::before {
+        opacity: 1;
       }
 
       .navigation-link__icon-wrapper {

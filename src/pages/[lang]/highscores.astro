@@ -33,7 +33,7 @@ import Paragraph from "@components/Paragraph.astro";
 interface HighscoreEntry {
   id: string;
   username: string;
-  gameMode: "quiz" | "chronology";
+  gameMode: "quiz" | "chronology" | "time-pressure";
   score: number;
   category: string;
   createdAt: string;
@@ -108,6 +108,7 @@ const categories = [...new Set(highscores.map((score) => score.category))];
 const gameModeNames = {
   quiz: t("profile.stats.quiz"),
   chronology: t("profile.stats.chronology"),
+  "time-pressure": t("profile.stats.timePressure"),
 };
 ---
 
@@ -196,6 +197,9 @@ const gameModeNames = {
                       </option>
                       <option value="chronology" selected={selectedGameMode === "chronology"}>
                         {gameModeNames.chronology}
+                      </option>
+                      <option value="time-pressure" selected={selectedGameMode === "time-pressure"}>
+                        {gameModeNames["time-pressure"]}
                       </option>
                     </select>
                     <Icon name="chevron-down" class="highscores__select-arrow" aria-hidden="true" />
@@ -468,6 +472,11 @@ const gameModeNames = {
     display: flex;
     flex-direction: column;
     contain: layout style;
+    scroll-behavior: smooth;
+    
+    @media (prefers-reduced-motion: reduce) {
+      scroll-behavior: auto;
+    }
 
     // Mobile portrait (< 480px) - very compact
     @media (max-width: 29.9375em) {
@@ -730,10 +739,6 @@ const gameModeNames = {
    * Enhanced with modern SCSS and container queries
    * ====================================== */
 
-  // Container queries for better component isolation
-  .highscores-container {
-    container-type: inline-size;
-  }
 
   // Responsive typography using fluid scaling
   @include respond-to-lg {
@@ -927,19 +932,15 @@ const gameModeNames = {
   .highscores__filter-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
     margin-top: var(--space-2xl);
-
-    @include respond-to-sm {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    @media (min-width: 48em) {
       grid-template-columns: repeat(2, 1fr);
       gap: var(--space-2xl);
-    }
-
-    @include respond-to-lg {
-      grid-template-columns: repeat(2, 1fr);
-      max-width: var(--container-md);
-      margin-left: auto;
-      margin-right: auto;
     }
   }
 
@@ -1060,6 +1061,24 @@ const gameModeNames = {
       background-color: var(--form-bg);
     }
 
+    // Enhanced mobile styling
+    @media (max-width: 29.9375em) {
+      appearance: none;
+      background-image: 
+        linear-gradient(45deg, transparent 50%, var(--text-secondary) 50%),
+        linear-gradient(135deg, var(--text-secondary) 50%, transparent 50%);
+      background-position: 
+        calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px);
+      background-size: 5px 5px, 5px 5px;
+      background-repeat: no-repeat;
+    }
+    
+    // Enhanced focus for mobile
+    @media (pointer: coarse) {
+      min-height: calc(var(--min-touch-size) * 1.2);
+    }
+
     @include respond-to-md {
       padding: var(--space-xl) var(--space-2xl);
       font-size: var(--text-lg);
@@ -1094,6 +1113,7 @@ const gameModeNames = {
 
   .highscores__list {
     margin-top: var(--space-3xl);
+    scroll-margin-top: var(--space-2xl);
   }
 
   .highscores__list-title {
@@ -1117,74 +1137,24 @@ const gameModeNames = {
     }
   }
 
-  // Enhanced cards grid with comprehensive responsive design
   .highscores__cards-grid {
     display: grid;
-    grid-template-columns: 1fr;
     gap: var(--space-lg);
     margin: var(--space-2xl) auto;
-    width: var(--width-full);
-    max-width: var(--container-2xl);
-    contain: layout style;
-    animation: fadeIn var(--animation-duration-normal) ease-out;
+    max-width: 1400px;
+    padding: 0 var(--space-md);
+    grid-template-columns: 1fr;
 
-    // Mobile portrait (< 480px) - single column
-    @media (max-width: 29.9375em) {
-      gap: var(--space-md);
-      margin: var(--space-lg) auto;
-    }
-
-    // Mobile landscape (480px - 640px) - 2 columns
-    @media (min-width: 30em) and (max-width: 39.9375em) {
+    // Tablet: 2 columns (768px+)
+    @media (min-width: 48em) {
       grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-lg);
-    }
-
-    // Small tablet (640px - 768px) - 2 columns
-    @media (min-width: 40em) and (max-width: 47.9375em) {
-      grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-sm), 1fr));
-      gap: var(--space-lg);
-    }
-
-    // Tablet (768px - 1024px) - 2-3 columns
-    @media (min-width: 48em) and (max-width: 63.9375em) {
-      grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-md), 1fr));
       gap: var(--space-xl);
-      margin: var(--space-2xl) auto;
     }
 
-    // Desktop (1024px - 1280px) - 3 columns
-    @media (min-width: 64em) and (max-width: 79.9375em) {
-      grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-lg), 1fr));
-      gap: var(--space-xl);
-      margin: var(--space-3xl) auto;
-    }
-
-    // Large desktop (1280px+) - up to 4 columns
-    @media (min-width: 80em) {
-      grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-xl), 1fr));
-      gap: var(--space-2xl);
-    }
-
-    // Container queries for better component isolation
-    @include container-query(20rem) {
-      grid-template-columns: repeat(1, 1fr);
-    }
-
-    @include container-query(30rem) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include container-query(40rem) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include container-query(50rem) {
+    // Desktop: 3 columns (1024px+)
+    @media (min-width: 64em) {
       grid-template-columns: repeat(3, 1fr);
-    }
-
-    @include container-query(60rem) {
-      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-2xl);
     }
   }
 
@@ -1195,19 +1165,19 @@ const gameModeNames = {
 
   .highscores__card {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    min-height: var(--container-intrinsic-height-card);
     background: var(--card-bg);
     border: var(--border-width-thin) solid var(--card-border);
-    border-radius: var(--radius-3xl);
-    box-shadow: none;
-    transition: none;
-    overflow: hidden;
-    contain: layout style;
-    animation: none;
-    padding-bottom: var(--space-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--card-shadow);
+    padding: var(--space-xl);
+    transition: all var(--transition-normal);
+    min-height: 200px;
+    
+    &:hover {
+      transform: translateY(calc(-1 * var(--space-xs)));
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--interactive-primary);
+    }
   }
 
   .highscores__card-badge {
@@ -1215,49 +1185,21 @@ const gameModeNames = {
     top: var(--space-lg);
     right: var(--space-lg);
     z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .highscores__rank-badge {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: calc(var(--min-touch-size) * 1.27);
-    height: calc(var(--min-touch-size) * 1.27);
+    width: 48px;
+    height: 48px;
     border-radius: var(--radius-full);
-    font-size: var(--text-lg);
+    font-size: var(--text-xl);
     font-weight: var(--font-black);
-    background: var(--bg-tertiary);
-    border: var(--border-width-enhanced) solid var(--border-secondary);
-    color: var(--text-primary);
-    box-shadow: none !important;
-    transition: all var(--transition-normal);
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    gap: 0.1em;
+    background: var(--interactive-primary);
+    color: var(--color-white);
+    box-shadow: var(--shadow-md);
 
-    // Mobile portrait
-    @media (max-width: 29.9375em) {
-      width: var(--min-touch-size);
-      height: var(--min-touch-size);
-      font-size: var(--text-base);
-    }
-
-    // Tablet and up
-    @media (min-width: 48em) {
-      width: calc(var(--min-touch-size) * 1.64);
-      height: calc(var(--min-touch-size) * 1.64);
-      font-size: var(--text-2xl);
-    }
-
-    // Desktop
-    @media (min-width: 64em) {
-      font-size: var(--text-3xl);
-    }
   }
 
   .highscores__rank-badge--medal {
@@ -1299,16 +1241,9 @@ const gameModeNames = {
    * ====================================== */
 
   .highscores__card-content {
-    padding: var(--space-xl);
     display: flex;
     flex-direction: column;
     height: 100%;
-    position: relative;
-    z-index: 1;
-
-    @include respond-to-md {
-      padding: var(--space-2xl);
-    }
   }
 
   .highscores__card-main {
@@ -1320,14 +1255,18 @@ const gameModeNames = {
   }
 
   .highscores__card-username {
-    font-size: var(--text-lg);
+    font-size: clamp(
+      var(--text-base), 
+      calc(var(--text-base) + 0.5vw + 0.5vh), 
+      var(--text-2xl)
+    );
     font-weight: var(--font-bold);
     color: var(--text-primary);
-    line-height: var(--leading-tight);
+    line-height: clamp(1.2, 1.35, 1.5);
     margin: 0;
 
     @include respond-to-md {
-      font-size: var(--text-xl);
+      font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl));
     }
   }
 
@@ -1381,74 +1320,16 @@ const gameModeNames = {
   .highscores__card-details {
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
-    margin-top: auto;
-    padding-top: var(--space-md);
-    border-top: var(--border-width-thin) solid
-      color-mix(in srgb, var(--border-primary) 30%, transparent 70%);
-
-    @include respond-to-md {
-      flex-direction: row;
-      gap: var(--space-md);
-      justify-content: space-between;
-      align-items: flex-start;
-    }
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: var(--border-width-thin) solid var(--border-secondary);
   }
 
   .highscores__detail-item {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    background: none;
-    border: none;
-    border-radius: 0;
-    padding: 0;
-    min-height: unset;
-    margin-bottom: 0;
-    position: static;
-    overflow: visible;
-    box-shadow: none;
-
-    // Trennlinie wie gehabt
-    & + .highscores__detail-item {
-      border-top: var(--border-width-thin) solid
-        color-mix(in srgb, var(--border-primary) 30%, transparent 70%);
-      margin-top: var(--space-md);
-      padding-top: var(--space-md);
-    }
-    @include respond-to-md {
-      & + .highscores__detail-item {
-        border-top: none;
-        margin-top: 0;
-        padding-top: 0;
-        border-left: var(--border-width-thin) solid
-          color-mix(in srgb, var(--border-primary) 30%, transparent 70%);
-        margin-left: var(--space-xl);
-        padding-left: var(--space-xl);
-      }
-    }
-
-    // Icon + Label in eine Zeile
-    .highscores__detail-header {
-      display: flex;
-      align-items: center;
-      gap: var(--space-xs);
-      margin-bottom: 0.1em;
-    }
-
-    // Value darunter, leicht eingerückt
-    .highscores__detail-value {
-      margin-left: calc(var(--icon-size-md) + var(--space-xs));
-      margin-top: 0.1em;
-      font-size: var(--text-base);
-      font-weight: var(--font-semibold);
-      color: var(--text-primary);
-      line-height: var(--leading-tight);
-      @include respond-to-md {
-        margin-left: calc(var(--icon-size-lg) + var(--space-xs));
-      }
-    }
+    align-items: center;
+    gap: var(--space-sm);
   }
 
   .highscores__detail-icon {
@@ -1489,10 +1370,11 @@ const gameModeNames = {
   }
 
   .highscores__detail-value {
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     color: var(--text-primary);
     font-weight: var(--font-semibold);
     line-height: var(--leading-tight);
+    word-break: break-word;
 
     @include respond-to-md {
       font-size: var(--text-base);
@@ -1548,46 +1430,7 @@ const gameModeNames = {
    * Enhanced with modern SCSS and better responsive design
    * ====================================== */
 
-  // Container queries for enhanced responsive cards
-  @include container-query(20rem) {
-    .highscores__card-content {
-      padding: var(--space-lg);
-    }
 
-    .highscores__card-header {
-      margin-bottom: var(--space-lg);
-      padding-bottom: var(--space-md);
-    }
-  }
-
-  @include container-query(24rem) {
-    .highscores__card-content {
-      padding: var(--space-xl);
-    }
-
-    .highscores__card-header {
-      margin-bottom: var(--space-xl);
-      padding-bottom: var(--space-lg);
-    }
-  }
-
-  @include container-query(30rem) {
-    .highscores__card-content {
-      padding: var(--space-2xl);
-    }
-
-    .highscores__card-header {
-      margin-bottom: var(--space-2xl);
-      padding-bottom: var(--space-xl);
-    }
-  }
-
-  // Additional responsive improvements
-  @include respond-to-xl {
-    .highscores__cards-grid {
-      grid-template-columns: repeat(5, 1fr);
-    }
-  }
 
   // Fluid typography for better responsive behavior
   @include respond-to-lg {

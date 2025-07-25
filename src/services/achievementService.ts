@@ -684,6 +684,7 @@ export async function checkAchievementsAfterGame(
       CASE
         WHEN game_mode = 'quiz' THEN 10
         WHEN game_mode = 'chronology' THEN 10
+        WHEN game_mode = 'time-pressure' THEN 10
         ELSE 0
       END
     )
