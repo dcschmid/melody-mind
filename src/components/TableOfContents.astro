@@ -120,63 +120,34 @@ const tocTitle = title || t("toc.nav.label");
 }
 
 <script>
-  /**
-   * JavaScript functionality for the dropdown table of contents
-   * - Handles toggle functionality
-   * - Manages keyboard accessibility
-   * - Sets up proper focus management
-   * - Handles translations for screen readers
-   */
-  document.addEventListener("DOMContentLoaded", () => {
-    // Cache DOM elements using destructuring
-    const { tocToggle, tocContent, tocIcon, tocState } = {
-      tocToggle: document.getElementById("toc-toggle"),
-      tocContent: document.getElementById("toc-content"),
-      tocIcon: document.querySelector(".toc__icon--chevron"),
-      tocState: document.querySelector(".toc__state"),
-    };
+  document.addEventListener("DOMContentLoaded", (): void => {
+    const tocToggle = document.getElementById("toc-toggle") as HTMLButtonElement | null;
+    const tocContent = document.getElementById("toc-content") as HTMLElement | null;
+    const tocIcon = document.querySelector(".toc__icon--chevron") as HTMLElement | null;
+    const tocState = document.querySelector(".toc__state") as HTMLElement | null;
 
-    // Early return if essential elements are missing
     if (!tocToggle || !tocContent || !tocIcon || !tocState) {
       return;
     }
 
-    /**
-     * Updates the visual state of the table of contents
-     * @param {boolean} isExpanded - Whether the TOC should be expanded
-     */
     const updateVisualState = (isExpanded: boolean): void => {
       const stateText = isExpanded
         ? tocState.getAttribute("data-expanded") || "Expanded"
         : tocState.getAttribute("data-collapsed") || "Collapsed";
 
-      // Update visual state
       tocContent.classList.toggle("toc__content--hidden", !isExpanded);
       tocIcon.classList.toggle("toc__icon--rotated", isExpanded);
       tocState.textContent = stateText;
     };
 
-    /**
-     * Toggles the table of contents dropdown visibility
-     * - Updates ARIA attributes for accessibility
-     * - Updates visual state (icon rotation, text)
-     * - Handles screen reader announcements
-     */
     const toggleToc = (): void => {
       const isExpanded = tocToggle.getAttribute("aria-expanded") === "true";
       const newState = !isExpanded;
 
-      // Update ARIA attributes
       tocToggle.setAttribute("aria-expanded", newState.toString());
-
-      // Update visual state
       updateVisualState(newState);
     };
 
-    /**
-     * Handles keyboard navigation for toggle button
-     * @param {KeyboardEvent} e - The keyboard event
-     */
     const handleToggleKeydown = (e: KeyboardEvent): void => {
       if (e.key === " " || e.key === "Enter") {
         e.preventDefault();
@@ -184,10 +155,6 @@ const tocTitle = title || t("toc.nav.label");
       }
     };
 
-    /**
-     * Sets focus on target heading and manages tabindex
-     * @param {string} targetId - The ID of the target element
-     */
     const focusTargetHeading = (targetId: string): void => {
       if (targetId === "article-content") {
         return;
@@ -201,16 +168,11 @@ const tocTitle = title || t("toc.nav.label");
       targetElement.setAttribute("tabindex", "-1");
       targetElement.focus();
 
-      // Remove tabindex after blur using arrow function
       targetElement.addEventListener("blur", () => targetElement.removeAttribute("tabindex"), {
         once: true,
       });
     };
 
-    /**
-     * Handles clicks on TOC links for proper focus management
-     * @param {Event} e - The click event
-     */
     const handleLinkClick = (e: Event): void => {
       const link = e.target as HTMLAnchorElement;
       const targetId = link.getAttribute("href")?.substring(1);
@@ -223,11 +185,11 @@ const tocTitle = title || t("toc.nav.label");
     // Initialize the component in collapsed state
     updateVisualState(false);
 
-    // Set up event listeners using arrow functions
+    // Set up event listeners
     tocToggle.addEventListener("click", toggleToc);
     tocToggle.addEventListener("keydown", handleToggleKeydown);
 
-    // Set up event listeners for TOC links using modern forEach
+    // Set up event listeners for TOC links
     const tocLinks = tocContent.querySelectorAll("a");
     tocLinks.forEach((link) => link.addEventListener("click", handleLinkClick));
 
@@ -388,7 +350,7 @@ const tocTitle = title || t("toc.nav.label");
       box-shadow: var(--shadow-lg);
       backdrop-filter: blur(var(--space-sm));
       max-height: var(--modal-content-max-height);
-      opacity: var(--animation-opacity-full);
+      opacity: 1;
       transition:
         max-height var(--transition-normal),
         opacity var(--transition-fast);
@@ -406,7 +368,7 @@ const tocTitle = title || t("toc.nav.label");
 
       &--hidden {
         max-height: var(--space-none);
-        opacity: var(--animation-opacity-end);
+        opacity: 0;
         border: none;
         box-shadow: none;
       }

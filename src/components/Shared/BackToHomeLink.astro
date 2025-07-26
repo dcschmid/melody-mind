@@ -65,7 +65,6 @@ const linkText = t("auth.login.back_to_home");
   .back-to-home {
     margin-bottom: var(--space-md);
     text-align: left;
-    contain: layout style;
 
     @media (min-width: 48em) {
       margin-bottom: var(--space-lg);
@@ -94,11 +93,6 @@ const linkText = t("auth.login.back_to_home");
       cursor: pointer;
       font-family: var(--font-family-primary);
 
-      /* Performance optimizations with hardware acceleration */
-      contain: layout style paint;
-      will-change: transform, background-color;
-      transform: translate3d(0, 0, 0);
-
       /* Enhanced focus styles for WCAG AAA */
       outline: none;
 
@@ -118,7 +112,7 @@ const linkText = t("auth.login.back_to_home");
         &:hover {
           background-color: var(--bg-tertiary);
           color: var(--interactive-primary);
-          transform: translate3d(calc(-1 * var(--space-xs)), 0, 0);
+          transform: translateX(-4px);
           box-shadow: var(--shadow-sm);
         }
       }
@@ -134,7 +128,7 @@ const linkText = t("auth.login.back_to_home");
 
       /* Active state for touch feedback */
       &:active {
-        transform: translate3d(0, 0, 0) scale(var(--animation-scale-hover));
+        transform: scale(0.98);
         transition: transform var(--transition-fast);
       }
 
@@ -151,12 +145,11 @@ const linkText = t("auth.login.back_to_home");
 
       /* Reduced motion support */
       @media (prefers-reduced-motion: reduce) {
-        will-change: auto;
         transition: none;
 
         &:hover,
         &:active {
-          transform: translate3d(0, 0, 0);
+          transform: none;
         }
       }
 
@@ -179,7 +172,6 @@ const linkText = t("auth.login.back_to_home");
       margin-right: var(--space-xs);
       color: currentColor;
       flex-shrink: 0;
-      transform: translate3d(0, 0, 0);
       transition: transform var(--transition-normal);
 
       /* Responsive icon sizing using hardcoded breakpoints */
@@ -196,7 +188,7 @@ const linkText = t("auth.login.back_to_home");
 
       /* Icon animation on hover */
       .back-to-home__link:hover & {
-        transform: translate3d(calc(-1 * var(--space-xs)), 0, 0);
+        transform: translateX(-4px);
       }
 
       /* Reduced motion support */
@@ -204,7 +196,7 @@ const linkText = t("auth.login.back_to_home");
         transition: none;
 
         .back-to-home__link:hover & {
-          transform: translate3d(0, 0, 0);
+          transform: none;
         }
       }
     }
@@ -231,14 +223,6 @@ const linkText = t("auth.login.back_to_home");
       display: none;
     }
   }
-
-  /* Enhanced text spacing support (WCAG 2.2) */
-  .enhanced-text-spacing .back-to-home__link {
-    letter-spacing: var(--text-spacing-letter-2x) !important;
-    word-spacing: var(--text-spacing-word-enhanced) !important;
-    line-height: var(--text-spacing-line-1-5x) !important;
-    padding: calc(var(--space-md) * 1.2) calc(var(--space-lg) * 1.2);
-  }
 </style>
 
 <script>
@@ -247,13 +231,6 @@ const linkText = t("auth.login.back_to_home");
    *
    * Provides enhanced interaction and accessibility features for the back-to-home link.
    * Features include visual feedback, keyboard support, and smooth focus management.
-   *
-   * @features
-   * - Click interaction with visual feedback
-   * - Enhanced keyboard navigation support
-   * - Smooth focus management with scroll behavior
-   * - Performance optimized with requestAnimationFrame
-   * - Modern ES6+ JavaScript with TypeScript support
    */
 
   /**
@@ -270,24 +247,19 @@ const linkText = t("auth.login.back_to_home");
     }
 
     /**
-     * Handles click interactions with performance-optimized visual feedback
-     * Uses requestAnimationFrame for smooth animations
+     * Handles click interactions with visual feedback
      *
      * @param event - The click event
      */
     const handleLinkInteraction = (event: Event): void => {
       const target = event.currentTarget as HTMLAnchorElement;
 
-      // Performance-optimized visual feedback using requestAnimationFrame
-      requestAnimationFrame(() => {
-        target.style.transform = "translate3d(0, 0, 0) scale(0.98)";
-      });
+      // Visual feedback
+      target.style.transform = "scale(0.98)";
 
-      // Reset transform after animation with cleanup
+      // Reset transform after animation
       setTimeout((): void => {
-        requestAnimationFrame(() => {
-          target.style.transform = "";
-        });
+        target.style.transform = "";
       }, 150);
     };
 
@@ -328,33 +300,14 @@ const linkText = t("auth.login.back_to_home");
 
     // Initialize each link with enhanced functionality
     backToHomeLinks.forEach((link: HTMLAnchorElement): void => {
-      // Add click handler with modern event handling
-      link.addEventListener("click", handleLinkInteraction, { passive: true });
+      // Add click handler
+      link.addEventListener("click", handleLinkInteraction);
 
       // Add keyboard support for accessibility
       link.addEventListener("keydown", handleKeyDown);
 
       // Enhanced focus management for keyboard users
-      link.addEventListener("focus", handleFocusManagement, { passive: true });
-
-      // Add hover state management for performance
-      link.addEventListener(
-        "mouseenter",
-        (): void => {
-          // Prepare for potential animation
-          link.style.willChange = "transform, background-color";
-        },
-        { passive: true }
-      );
-
-      link.addEventListener(
-        "mouseleave",
-        (): void => {
-          // Clean up performance optimization
-          link.style.willChange = "auto";
-        },
-        { passive: true }
-      );
+      link.addEventListener("focus", handleFocusManagement);
     });
   };
 
@@ -370,14 +323,4 @@ const linkText = t("auth.login.back_to_home");
 
   // Re-initialize on Astro page transitions
   document.addEventListener("astro:page-load", enhanceBackToHomeLink);
-
-  /**
-   * Export for potential external use or testing
-   * Makes the function available globally if needed
-   */
-  if (typeof window !== "undefined") {
-    (
-      window as Window & { enhanceBackToHomeLink?: typeof enhanceBackToHomeLink }
-    ).enhanceBackToHomeLink = enhanceBackToHomeLink;
-  }
 </script>

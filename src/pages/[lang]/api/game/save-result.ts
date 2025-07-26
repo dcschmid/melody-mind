@@ -322,7 +322,6 @@ export const POST: APIRoute = async ({ request, params }) => {
   const t = useTranslations(lang);
   try {
     const rawData = await request.json();
-    console.log("Received game result data:", JSON.stringify(rawData, null, 2));
 
     // Validate the input data with our type assertion function
     try {
@@ -365,15 +364,6 @@ export const POST: APIRoute = async ({ request, params }) => {
     const id = nanoid();
 
     try {
-      console.log("Attempting database insert with data:", {
-        id,
-        userId: data.userId,
-        gameMode: dbGameMode,
-        score: data.score,
-        categoryName,
-        difficulty: data.difficulty,
-        lang
-      });
 
       // First, verify the user exists
       const userExists = await turso.execute({

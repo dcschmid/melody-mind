@@ -275,7 +275,7 @@ const t = useTranslations(lang);
    * 
    * @version 3.0.0
    * @accessibility WCAG AAA 2.2 compliant with 7:1 contrast ratios
-   * @performance CSS containment and optimized animations
+   * @performance Optimized animations
    * @responsive Mobile-first design with touch-friendly targets
    * @i18n Supports all MelodyMind languages through semantic classes
    */
@@ -291,10 +291,6 @@ const t = useTranslations(lang);
     width: var(--width-full);
     max-width: var(--container-sm);
 
-    // Modern CSS performance optimization using global variables
-    content-visibility: auto;
-    contain-intrinsic-size: var(--container-intrinsic-height-component);
-
     &__container {
       position: relative;
       isolation: isolate;
@@ -304,16 +300,12 @@ const t = useTranslations(lang);
       box-shadow: var(--shadow-lg);
       transition: all var(--transition-normal);
 
-      // Performance optimizations
-      contain: layout style paint;
-      will-change: transform, box-shadow;
-
       &:hover {
-        transform: translateY(calc(-1 * var(--space-xs)));
+        transform: translateY(-4px);
         box-shadow: var(--shadow-xl);
 
         .audio-player__cover {
-          transform: scale(var(--animation-scale-medium));
+          transform: scale(1.05);
         }
       }
     }
@@ -341,11 +333,6 @@ const t = useTranslations(lang);
       width: var(--width-full);
       object-fit: cover;
       transition: transform var(--transition-slow) ease-in-out;
-
-      // Performance optimizations using global variables
-      transform: translateZ(var(--space-none));
-      will-change: transform;
-      backface-visibility: hidden;
     }
 
     /* ======================================
@@ -405,15 +392,10 @@ const t = useTranslations(lang);
       cursor: pointer;
       border: none;
       transition: all var(--transition-fast);
-      contain: layout;
-
-      // Performance optimizations
-      transform: translateZ(var(--space-none));
-      will-change: transform, box-shadow;
 
       &:hover {
-        background-color: rgba(255, 255, 255, var(--animation-opacity-full));
-        transform: scale(var(--animation-scale-hover-subtle));
+        background-color: rgba(255, 255, 255, 1);
+        transform: scale(1.05);
         box-shadow: var(--shadow-lg);
       }
 
@@ -495,12 +477,11 @@ const t = useTranslations(lang);
     cursor: pointer;
     border: none;
     transition: all var(--transition-fast);
-    contain: layout;
 
     // Consolidated focus states for all interactive buttons
     &:focus-visible {
-      outline: var(--focus-enhanced-outline)-dark;
-      outline-offset: var(--focus-ring)-offset;
+      outline: var(--focus-enhanced-outline-dark);
+      outline-offset: var(--focus-ring-offset);
     }
   }
 
@@ -513,8 +494,8 @@ const t = useTranslations(lang);
   // Consolidated focus for progress and volume elements
   .progress-bar-container:focus-visible,
   .volume-slider:focus-visible {
-    outline: var(--focus-enhanced-outline)-dark;
-    outline-offset: var(--focus-ring)-offset;
+    outline: var(--focus-enhanced-outline-dark);
+    outline-offset: var(--focus-ring-offset);
   }
 
   /* ======================================
@@ -535,8 +516,8 @@ const t = useTranslations(lang);
   }
 
   .pause-icon {
-    opacity: var(--animation-opacity-end);
-    transform: scale(var(--animation-scale-hover));
+    opacity: 0;
+    transform: scale(1.1);
   }
 
   /* ======================================
@@ -551,10 +532,6 @@ const t = useTranslations(lang);
     background-color: rgba(255, 255, 255, var(--opacity-low));
     flex-grow: 1;
     min-width: calc(var(--space-2xl) + var(--space-sm));
-
-    // Performance optimizations
-    contain: layout style;
-    will-change: contents;
 
     &:focus-visible {
       outline: var(--focus-enhanced-outline);
@@ -581,9 +558,6 @@ const t = useTranslations(lang);
     z-index: 1;
     height: var(--width-full);
     width: var(--width-full);
-
-    // Performance optimization
-    contain: strict;
   }
 
   .progress-bar {
@@ -593,11 +567,7 @@ const t = useTranslations(lang);
     width: var(--space-none);
     border-radius: var(--radius-sm);
     background-color: var(--color-primary-500);
-    transition: width var(--animation-duration-fast) linear;
-
-    // Performance optimization using global variables
-    contain: strict;
-    will-change: width;
+    transition: width var(--transition-fast) linear;
   }
 
   .waveform-container {
@@ -607,11 +577,7 @@ const t = useTranslations(lang);
     z-index: 0;
     height: var(--width-full);
     width: var(--width-full);
-    opacity: var(--animation-opacity-start);
-
-    // Performance optimization using global variables
-    contain: strict;
-    will-change: contents;
+    opacity: 0;
   }
 
   /* ======================================
@@ -655,8 +621,8 @@ const t = useTranslations(lang);
   }
 
   .mute-icon {
-    opacity: var(--animation-opacity-end);
-    transform: scale(var(--animation-scale-hover));
+    opacity: 0;
+    transform: scale(1.1);
   }
 
   .volume-slider-container {
@@ -666,10 +632,6 @@ const t = useTranslations(lang);
     align-items: center;
     overflow: hidden;
     transition: width var(--transition-normal);
-
-    // Performance optimization
-    contain: layout size;
-    will-change: width;
 
     @media (max-width: 350px) {
       display: none; // Hide volume slider on very small screens
@@ -702,7 +664,7 @@ const t = useTranslations(lang);
       transition: transform var(--transition-fast);
 
       &:hover {
-        transform: scale(var(--animation-scale-enhanced));
+        transform: scale(1.2);
       }
     }
 
@@ -716,17 +678,17 @@ const t = useTranslations(lang);
       transition: transform var(--transition-fast);
 
       &:hover {
-        transform: scale(var(--animation-scale-enhanced));
+        transform: scale(1.2);
       }
     }
 
     &:active {
       &::-webkit-slider-thumb {
-        transform: scale(var(--animation-scale-enhanced));
+        transform: scale(1.2);
       }
 
       &::-moz-range-thumb {
-        transform: scale(var(--animation-scale-enhanced));
+        transform: scale(1.2);
       }
     }
   }
@@ -743,10 +705,10 @@ const t = useTranslations(lang);
     background: transparent;
     color: var(--text-primary);
     border-radius: var(--radius-sm);
-    opacity: var(--animation-opacity-start);
+    opacity: 0.5;
 
     &:hover {
-      opacity: var(--animation-opacity-full);
+      opacity: 1;
       background-color: var(--bg-secondary);
     }
   }
@@ -942,66 +904,6 @@ const t = useTranslations(lang);
   }
 
   /* ======================================
-   * CONTAINER QUERIES FOR ADVANCED RESPONSIVENESS
-   * ====================================== */
-
-  @supports (container-type: inline-size) {
-    .audio-player {
-      container-type: inline-size;
-      container-name: audio-player;
-    }
-
-    // Ultra-narrow container: Stack controls
-    @container audio-player (max-width: 350px) {
-      .audio-player__controls {
-        flex-direction: row;
-        gap: var(--space-sm);
-      }
-
-      .audio-player__progress-container {
-        width: 100%;
-      }
-
-      .volume-slider-container {
-        display: none;
-      }
-    }
-
-    // Narrow container: Compact horizontal
-    @container audio-player (min-width: 351px) and (max-width: 500px) {
-      .audio-player__controls {
-        gap: var(--space-sm);
-      }
-
-      .volume-slider-container {
-        width: var(--space-2xl);
-      }
-    }
-
-    // Medium container: Standard layout
-    @container audio-player (min-width: 501px) and (max-width: 700px) {
-      .audio-player__controls {
-        gap: var(--space-md);
-      }
-
-      .volume-slider-container {
-        width: var(--space-3xl);
-      }
-    }
-
-    // Large container: Full layout
-    @container audio-player (min-width: 701px) {
-      .audio-player__controls {
-        gap: var(--space-lg);
-      }
-
-      .volume-slider-container {
-        width: var(--space-3xl);
-      }
-    }
-  }
-
-  /* ======================================
    * TOUCH DEVICE OPTIMIZATIONS
    * ====================================== */
 
@@ -1065,191 +967,134 @@ const t = useTranslations(lang);
 
 <!-- Enhanced Audio Player Script with Modern ES6/TypeScript Features -->
 <script>
-  // Type definitions for better type safety
-  interface AudioPlayerElements {
-    audio: HTMLAudioElement;
-    playButton: HTMLButtonElement;
-    playIcon: HTMLElement;
-    pauseIcon: HTMLElement;
-    progressBar: HTMLElement;
-    currentTimeEl: HTMLElement;
-    durationEl: HTMLElement;
-    volumeSlider: HTMLInputElement;
-    volumeBtn: HTMLButtonElement;
-    volumeIcon: HTMLElement;
-    muteIcon: HTMLElement;
-  }
+  /**
+   * AudioPlayer Component Script
+   *
+   * Simplified implementation with basic audio player functionality.
+   */
+  document.addEventListener("DOMContentLoaded", (): void => {
+    const players = document.querySelectorAll('[id^="audio-player-"]') as NodeListOf<HTMLElement>;
 
-  // Utility functions
-  const formatTime = (seconds: number): string => {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = Math.floor(seconds % 60);
-    return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
-  };
+    players.forEach((player: HTMLElement): void => {
+      const audio = player.querySelector("audio") as HTMLAudioElement;
+      const playButton = player.querySelector(".audio-player__play-button") as HTMLButtonElement;
+      const playIcon = player.querySelector(".play-icon") as HTMLElement;
+      const pauseIcon = player.querySelector(".pause-icon") as HTMLElement;
+      const progressBar = player.querySelector(".progress-bar") as HTMLElement;
+      const currentTimeEl = player.querySelector(".current-time") as HTMLElement;
+      const durationEl = player.querySelector(".duration") as HTMLElement;
+      const volumeSlider = player.querySelector(".volume-slider") as HTMLInputElement;
+      const volumeBtn = player.querySelector(".volume-btn") as HTMLButtonElement;
+      const volumeIcon = player.querySelector(".volume-icon") as HTMLElement;
+      const muteIcon = player.querySelector(".mute-icon") as HTMLElement;
 
-  const getElements = (player: HTMLElement): AudioPlayerElements => ({
-    audio: player.querySelector("audio") as HTMLAudioElement,
-    playButton: player.querySelector(".audio-player__play-button") as HTMLButtonElement,
-    playIcon: player.querySelector(".play-icon") as HTMLElement,
-    pauseIcon: player.querySelector(".pause-icon") as HTMLElement,
-    progressBar: player.querySelector(".progress-bar") as HTMLElement,
-    currentTimeEl: player.querySelector(".current-time") as HTMLElement,
-    durationEl: player.querySelector(".duration") as HTMLElement,
-    volumeSlider: player.querySelector(".volume-slider") as HTMLInputElement,
-    volumeBtn: player.querySelector(".volume-btn") as HTMLButtonElement,
-    volumeIcon: player.querySelector(".volume-icon") as HTMLElement,
-    muteIcon: player.querySelector(".mute-icon") as HTMLElement,
-  });
-
-  // Audio player class for better organization
-  class AudioPlayerController {
-    private elements: AudioPlayerElements;
-
-    constructor(private player: HTMLElement) {
-      this.elements = getElements(player);
-      this.initialize();
-    }
-
-    private initialize(): void {
-      if (!this.elements.audio || !this.elements.playButton) {
+      if (!audio || !playButton) {
         console.warn("Audio player elements not found");
         return;
       }
 
-      this.setupEventListeners();
-      this.initializeVolume();
-    }
-
-    private setupEventListeners(): void {
-      const { audio, playButton, volumeSlider, volumeBtn } = this.elements;
+      // Utility function to format time
+      const formatTime = (seconds: number): string => {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = Math.floor(seconds % 60);
+        return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
+      };
 
       // Play/pause functionality
-      playButton.addEventListener("click", () => this.togglePlayPause());
+      playButton.addEventListener("click", (): void => {
+        if (audio.paused) {
+          audio.play().catch((error: Error) => {
+            console.warn("Failed to play audio:", error);
+          });
+        } else {
+          audio.pause();
+        }
+      });
 
       // Audio event listeners
-      audio.addEventListener("play", () => this.updatePlayPauseIcons(true));
-      audio.addEventListener("pause", () => this.updatePlayPauseIcons(false));
-      audio.addEventListener("timeupdate", () => this.updateProgress());
-      audio.addEventListener("loadedmetadata", () => this.updateDuration());
+      audio.addEventListener("play", (): void => {
+        if (playIcon) {
+          playIcon.style.opacity = "0";
+        }
+        if (pauseIcon) {
+          pauseIcon.style.opacity = "1";
+        }
+      });
+
+      audio.addEventListener("pause", (): void => {
+        if (playIcon) {
+          playIcon.style.opacity = "1";
+        }
+        if (pauseIcon) {
+          pauseIcon.style.opacity = "0";
+        }
+      });
+
+      audio.addEventListener("timeupdate", (): void => {
+        if (!audio.duration) {
+          return;
+        }
+
+        const progressPercent = (audio.currentTime / audio.duration) * 100;
+        if (progressBar) {
+          progressBar.style.width = `${progressPercent}%`;
+        }
+
+        if (currentTimeEl) {
+          currentTimeEl.textContent = formatTime(audio.currentTime);
+        }
+      });
+
+      audio.addEventListener("loadedmetadata", (): void => {
+        if (durationEl && audio.duration) {
+          durationEl.textContent = formatTime(audio.duration);
+        }
+      });
 
       // Volume control
       if (volumeSlider) {
-        volumeSlider.addEventListener("input", (e) => {
+        volumeSlider.addEventListener("input", (e: Event): void => {
           const target = e.target as HTMLInputElement;
-          this.updateVolume(parseFloat(target.value));
+          audio.volume = parseFloat(target.value);
+          audio.muted = false;
         });
       }
 
       // Volume button toggle
       if (volumeBtn) {
-        volumeBtn.addEventListener("click", () => this.toggleMute());
+        volumeBtn.addEventListener("click", (): void => {
+          audio.muted = !audio.muted;
+
+          if (volumeIcon) {
+            volumeIcon.style.opacity = audio.muted ? "0" : "1";
+          }
+          if (muteIcon) {
+            muteIcon.style.opacity = audio.muted ? "1" : "0";
+          }
+        });
       }
 
       // Progress bar click
-      const progressContainer = this.player.querySelector(".progress-bar-container");
+      const progressContainer = player.querySelector(".progress-bar-container");
       if (progressContainer) {
-        progressContainer.addEventListener("click", (e) =>
-          this.handleProgressClick(e as MouseEvent)
-        );
-      }
-    }
+        progressContainer.addEventListener("click", (e: Event): void => {
+          const event = e as MouseEvent;
+          const rect = progressContainer.getBoundingClientRect();
+          const clickX = event.clientX - rect.left;
+          const width = rect.width;
+          const clickPercent = clickX / width;
 
-    private togglePlayPause(): void {
-      const { audio } = this.elements;
-
-      if (audio.paused) {
-        audio.play().catch((error) => {
-          console.warn("Failed to play audio:", error);
+          if (audio.duration) {
+            audio.currentTime = clickPercent * audio.duration;
+          }
         });
-      } else {
-        audio.pause();
-      }
-    }
-
-    private updatePlayPauseIcons(isPlaying: boolean): void {
-      const { playIcon, pauseIcon } = this.elements;
-
-      if (playIcon) {
-        playIcon.style.opacity = isPlaying ? "0" : "1";
-      }
-      if (pauseIcon) {
-        pauseIcon.style.opacity = isPlaying ? "1" : "0";
-      }
-    }
-
-    private updateProgress(): void {
-      const { audio, progressBar, currentTimeEl } = this.elements;
-
-      if (!audio.duration) {
-        return;
       }
 
-      const progressPercent = (audio.currentTime / audio.duration) * 100;
-
-      if (progressBar) {
-        progressBar.style.width = `${progressPercent}%`;
-      }
-
-      if (currentTimeEl) {
-        currentTimeEl.textContent = formatTime(audio.currentTime);
-      }
-    }
-
-    private updateDuration(): void {
-      const { audio, durationEl } = this.elements;
-
-      if (durationEl && audio.duration) {
-        durationEl.textContent = formatTime(audio.duration);
-      }
-    }
-
-    private updateVolume(volume: number): void {
-      const { audio } = this.elements;
-      audio.volume = volume;
-      audio.muted = false;
-    }
-
-    private toggleMute(): void {
-      const { audio, volumeIcon, muteIcon } = this.elements;
-      audio.muted = !audio.muted;
-
-      if (volumeIcon) {
-        volumeIcon.style.opacity = audio.muted ? "0" : "1";
-      }
-      if (muteIcon) {
-        muteIcon.style.opacity = audio.muted ? "1" : "0";
-      }
-    }
-
-    private handleProgressClick(event: MouseEvent): void {
-      const { audio } = this.elements;
-      const progressContainer = event.currentTarget as HTMLElement;
-      const rect = progressContainer.getBoundingClientRect();
-      const clickX = event.clientX - rect.left;
-      const width = rect.width;
-      const clickPercent = clickX / width;
-
-      if (audio.duration) {
-        audio.currentTime = clickPercent * audio.duration;
-      }
-    }
-
-    private initializeVolume(): void {
-      const { audio, volumeSlider } = this.elements;
-
+      // Initialize volume
       if (volumeSlider) {
         audio.volume = 0.7;
         volumeSlider.value = "0.7";
       }
-    }
-  }
-
-  // Initialize all audio players when DOM is ready
-  document.addEventListener("DOMContentLoaded", () => {
-    const players = document.querySelectorAll('[id^="audio-player-"]') as NodeListOf<HTMLElement>;
-
-    players.forEach((player) => {
-      new AudioPlayerController(player);
     });
   });
 </script>

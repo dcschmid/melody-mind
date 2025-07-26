@@ -5,23 +5,17 @@
  * Features:
  * - Three verification states with smooth transitions
  * - WCAG AAA compliant with enhanced accessibility
- * - Performance optimized with CSS containment
- * - Full responsive design with container queries
+ * - Full responsive design
  * - Timeout handling with robust error management
  * - Internationalization support
- *
- * @component
- * @accessibility WCAG AAA compliant with focus management and live regions
- * @performance CSS containment, GPU acceleration, efficient state management
- * @responsive Mobile-first design with container queries and fluid scaling
  */
+
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 
 export interface Props {
-  /** Email verification token from URL */
   token: string;
 }
 
@@ -37,12 +31,10 @@ const t = useTranslations(String(lang));
   data-verification-token={token}
   {lang}
 >
-  <!-- Skip link for screen readers -->
   <a href="#verification-container" class="sr-only-focusable sr-only">
     {t("auth.skip_to_verification")}
   </a>
 
-  <!-- Loading state -->
   <div
     id="loadingState"
     class="email-verification__state"
@@ -140,106 +132,74 @@ const t = useTranslations(String(lang));
 </div>
 
 <style lang="scss">
-  /**
-   * EmailVerification Component Styles
-   * 
-   * ✅ 100% global.css variables integration
-   * ✅ Performance optimized with CSS containment
-   * ✅ WCAG AAA compliant styling
-   * ✅ Responsive design with container queries
-   * ✅ GPU acceleration for smooth animations
-   */
-
   .email-verification {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     min-height: 50vh;
     max-width: var(--container-sm);
-    margin: var(--space-none) auto;
-    padding: clamp(var(--space-lg), 4vw, var(--space-2xl));
-
+    margin: 0 auto;
+    padding: var(--space-lg);
     background: var(--bg-secondary);
     border: var(--border-width-thin) solid var(--border-primary);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
-
     text-align: center;
-    isolation: isolate;
-
-    // Performance optimizations
-    contain: layout style paint;
-    content-visibility: auto;
-    contain-intrinsic-size: var(--container-intrinsic-height-form);
-
-    transform: translateZ(0);
-    will-change: box-shadow;
-
     transition: box-shadow var(--transition-normal);
 
-    // Container query support
-    container-type: inline-size;
-    container-name: email-verification;
+    @media (min-width: 30em) {
+      padding: var(--space-2xl);
+    }
 
     &:hover {
       box-shadow: var(--shadow-xl);
     }
 
-    // State management with smooth transitions
     &__state {
       display: flex;
       flex-direction: column;
       align-items: center;
-
-      gap: clamp(var(--space-lg), 4vw, var(--space-2xl));
+      gap: var(--space-lg);
       width: var(--width-full);
-
-      opacity: var(--animation-opacity-full);
-      transform: translateY(var(--space-none));
-
-      // Performance optimizations
-      contain: layout style;
-      transform: translateZ(0);
-      will-change: opacity, transform, visibility;
-
+      opacity: 1;
+      transform: translateY(0);
       transition:
         opacity var(--transition-normal),
         transform var(--transition-normal),
         visibility var(--transition-normal);
-
       visibility: visible;
+
+      @media (min-width: 30em) {
+        gap: var(--space-2xl);
+      }
 
       &--hidden {
         display: none;
-        opacity: var(--animation-opacity-start);
-        transform: translateY(var(--space-md)) translateZ(0);
+        opacity: 0;
+        transform: translateY(var(--space-md));
         visibility: hidden;
       }
     }
 
-    // Icon styling with enhanced accessibility
     &__icon {
       display: flex;
       align-items: center;
       justify-content: center;
-
-      width: clamp(var(--icon-size-xl), 8vw, var(--icon-size-2xl));
-      height: clamp(var(--icon-size-xl), 8vw, var(--icon-size-2xl));
-
+      width: var(--icon-size-xl);
+      height: var(--icon-size-xl);
       border-radius: var(--radius-full);
-      margin-bottom: clamp(var(--space-md), 3vw, var(--space-lg));
+      margin-bottom: var(--space-md);
+      transition: transform var(--transition-normal);
 
-      // Performance optimizations
-      contain: layout style;
-      transform: translateZ(0);
-      will-change: transform;
-
-      transition: transform var(--transition-fast);
+      @media (min-width: 30em) {
+        width: var(--icon-size-2xl);
+        height: var(--icon-size-2xl);
+        margin-bottom: var(--space-lg);
+      }
 
       &:hover {
-        transform: scale(1.05) translateZ(0);
+        transform: scale(1.05);
       }
 
       &--success {
@@ -256,130 +216,88 @@ const t = useTranslations(String(lang));
     }
 
     &__svg {
-      width: clamp(var(--icon-size-lg), 6vw, var(--icon-size-xl));
-      height: clamp(var(--icon-size-lg), 6vw, var(--icon-size-xl));
-
+      width: var(--icon-size-lg);
+      height: var(--icon-size-lg);
       filter: drop-shadow(var(--shadow-text));
 
-      // Performance optimizations
-      contain: layout style;
-      transform: translateZ(0);
+      @media (min-width: 30em) {
+        width: var(--icon-size-xl);
+        height: var(--icon-size-xl);
+      }
     }
 
-    // Enhanced spinner animation
     &__spinner {
-      width: clamp(var(--icon-size-lg), 6vw, var(--icon-size-xl));
-      height: clamp(var(--icon-size-lg), 6vw, var(--icon-size-xl));
-
+      width: var(--icon-size-lg);
+      height: var(--icon-size-lg);
       border: var(--border-width-thick) solid var(--border-primary);
       border-top: var(--border-width-thick) solid var(--interactive-primary);
       border-radius: var(--radius-full);
-
       box-shadow: var(--shadow-primary);
+      animation: email-spinner-rotate 1s linear infinite;
 
-      // Performance optimizations
-      contain: layout style;
-      transform: translateZ(0);
-      will-change: transform;
-
-      animation: email-spinner-rotate var(--animation-duration-normal) linear infinite;
+      @media (min-width: 30em) {
+        width: var(--icon-size-xl);
+        height: var(--icon-size-xl);
+      }
     }
 
-    // Modern button styling with enhanced interactions
     &__button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
       min-height: var(--touch-target-enhanced);
       min-width: var(--touch-target-enhanced);
-      padding: clamp(var(--space-md), 3vw, var(--space-lg))
-        clamp(var(--space-xl), 4vw, var(--space-2xl));
-
+      padding: var(--space-md) var(--space-xl);
       background: var(--interactive-primary);
       color: var(--btn-primary-text);
       border: none;
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-md);
-
-      font-size: clamp(var(--text-base), 3vw, var(--text-lg));
+      font-size: var(--text-base);
       font-weight: var(--font-medium);
       line-height: var(--leading-normal);
       letter-spacing: var(--letter-spacing-base);
       text-decoration: none;
-
       cursor: pointer;
-      position: relative;
-      overflow: hidden;
-
-      // Performance optimizations
-      contain: layout style;
-      transform: translateZ(0);
-      will-change: transform, background-color, box-shadow;
-
       transition:
         background-color var(--transition-normal),
         box-shadow var(--transition-normal),
-        transform var(--transition-fast);
+        transform var(--transition-normal);
 
-      // Hover effect with transform
+      @media (min-width: 30em) {
+        padding: var(--space-lg) var(--space-2xl);
+        font-size: var(--text-lg);
+      }
+
       &:hover:not(:disabled) {
         background: var(--interactive-primary-hover);
-        transform: translateY(calc(-1 * var(--space-xs))) translateZ(0);
+        transform: translateY(-2px);
         box-shadow: var(--shadow-lg);
       }
 
-      // Focus states for accessibility
       &:focus-visible {
         outline: var(--focus-outline);
         outline-offset: var(--focus-ring-offset);
         box-shadow: var(--focus-ring), var(--shadow-lg);
       }
 
-      // Active state
       &:active:not(:disabled) {
-        transform: translateY(var(--space-none)) scale(0.98) translateZ(0);
+        transform: translateY(0);
         background: var(--interactive-primary-hover);
         box-shadow: var(--shadow-md);
       }
-
-      // Ripple effect for modern feel
-      &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-
-        width: var(--space-none);
-        height: var(--space-none);
-
-        border-radius: var(--radius-full);
-        background: var(--color-white-alpha-30);
-        transform: translate(-50%, -50%) translateZ(0);
-
-        transition:
-          width var(--transition-slow),
-          height var(--transition-slow);
-      }
-
-      &:active::before {
-        width: 300px;
-        height: 300px;
-      }
     }
   }
 
-  // Spinner animation with smooth rotation
   @keyframes email-spinner-rotate {
     0% {
-      transform: translateZ(0) rotate(0deg);
+      transform: rotate(0deg);
     }
     100% {
-      transform: translateZ(0) rotate(360deg);
+      transform: rotate(360deg);
     }
   }
 
-  // Responsive design
   @media (max-width: 39.9375em) {
     .email-verification {
       min-height: 40vh;
@@ -410,7 +328,6 @@ const t = useTranslations(String(lang));
     }
   }
 
-  // High contrast mode support
   @media (prefers-contrast: high) {
     .email-verification {
       border: var(--border-width-thick) solid var(--border-primary);
@@ -438,7 +355,6 @@ const t = useTranslations(String(lang));
     }
   }
 
-  // Reduced motion support for accessibility
   @media (prefers-reduced-motion: reduce) {
     .email-verification {
       &__state,
@@ -447,7 +363,6 @@ const t = useTranslations(String(lang));
       &__spinner {
         transition: var(--transition-instant);
         animation: none;
-        will-change: auto;
       }
 
       &__spinner {
@@ -456,21 +371,16 @@ const t = useTranslations(String(lang));
 
       &__button {
         &:hover {
-          transform: translateZ(0);
-        }
-
-        &::before {
-          display: none;
+          transform: none;
         }
       }
 
       &__icon:hover {
-        transform: translateZ(0);
+        transform: none;
       }
     }
   }
 
-  // Touch device optimization
   @media (hover: none) and (pointer: coarse) {
     .email-verification {
       &__button {
@@ -479,19 +389,18 @@ const t = useTranslations(String(lang));
         font-size: var(--text-lg);
 
         &:hover {
-          transform: translateZ(0);
+          transform: none;
           box-shadow: var(--shadow-md);
           background: var(--interactive-primary);
         }
       }
 
       &__icon:hover {
-        transform: translateZ(0);
+        transform: none;
       }
     }
   }
 
-  // Dark mode enhancements
   @media (prefers-color-scheme: dark) {
     .email-verification {
       background: var(--bg-tertiary);
@@ -499,7 +408,6 @@ const t = useTranslations(String(lang));
     }
   }
 
-  // Print styles
   @media print {
     .email-verification {
       box-shadow: none;
@@ -520,57 +428,35 @@ const t = useTranslations(String(lang));
     }
   }
 
-  // Container queries for component-specific responsiveness
-  @container email-verification (max-width: 20em) {
-    .email-verification {
-      padding: var(--space-sm);
-
-      &__button {
-        font-size: var(--text-sm);
-        padding: var(--space-sm) var(--space-md);
-        min-height: var(--touch-target-enhanced);
-      }
-    }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
-  @container email-verification (min-width: 30em) {
-    .email-verification {
-      padding: var(--space-2xl);
-
-      &__button {
-        font-size: var(--text-xl);
-        padding: var(--space-lg) var(--space-2xl);
-        min-height: calc(var(--touch-target-enhanced) + var(--space-md));
-      }
-    }
+  .sr-only-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
   }
 </style>
 
 <script>
-  /**
-   * Email Verification - Modern ES6+ Implementation
-   *
-   * Handles email verification flow with enhanced error handling,
-   * accessibility features, and modern JavaScript patterns.
-   * Performance optimized with efficient DOM handling.
-   */
+  const VERIFICATION_TIMEOUT = 30000;
 
-  // Type definitions for better type safety
-  type VerificationState = "loading" | "success" | "error";
-  type VerificationResult = { success: boolean; message?: string };
+  const showState = (state: string) => {
+    const states = ["loading", "success", "error"];
 
-  // Constants
-  const VERIFICATION_TIMEOUT = 30000; // 30 seconds
-  const STATES: VerificationState[] = ["loading", "success", "error"];
-
-  /**
-   * Display verification state with enhanced accessibility
-   * @param {VerificationState} state - The state to display
-   * @returns {void}
-   */
-  const showState = (state: VerificationState): void => {
-    // Hide all states first with proper ARIA management
-    STATES.forEach((stateName) => {
+    states.forEach((stateName) => {
       const element = document.getElementById(`${stateName}State`);
       if (element) {
         element.classList.add("email-verification__state--hidden");
@@ -578,56 +464,25 @@ const t = useTranslations(String(lang));
       }
     });
 
-    // Show the requested state
     const targetElement = document.getElementById(`${state}State`);
     if (targetElement) {
       targetElement.classList.remove("email-verification__state--hidden");
       targetElement.setAttribute("aria-hidden", "false");
 
-      // Set focus to title for screen readers
       const title = targetElement.querySelector("h1");
       if (title && typeof title.focus === "function") {
         title.focus();
       }
-
-      // Announce state change to screen readers
-      const announcement = document.createElement("div");
-      announcement.setAttribute("aria-live", "assertive");
-      announcement.setAttribute("aria-label", `Verification ${state}`);
-      announcement.className = "sr-only";
-      document.body.appendChild(announcement);
-
-      setTimeout(() => {
-        document.body.removeChild(announcement);
-      }, 1000);
     }
   };
 
-  /**
-   * Extract language from URL path
-   * @returns {string} The language code or 'en' as default
-   */
-  const getLanguageFromUrl = (): string => {
+  const getLanguageFromUrl = () => {
     const path = window.location.pathname;
     const langMatch = path.match(/^\/([a-z]{2})\//);
     return langMatch ? langMatch[1] : "en";
   };
 
-  /**
-   * Create timeout promise for verification
-   * @returns {Promise<never>} Promise that rejects after timeout
-   */
-  const createTimeoutPromise = (): Promise<never> =>
-    new Promise((_resolve, reject) => {
-      setTimeout(() => reject(new Error("Verification timeout")), VERIFICATION_TIMEOUT);
-    });
-
-  /**
-   * Verify email token with enhanced error handling
-   * @param {string} token - The verification token
-   * @returns {Promise<VerificationResult>} Promise with verification result
-   */
-  const verifyEmailToken = async (token: string): Promise<VerificationResult> => {
+  const verifyEmailToken = async (token: string) => {
     const lang = getLanguageFromUrl();
 
     const response = await fetch(`/${lang}/api/auth/verify-email`, {
@@ -646,10 +501,7 @@ const t = useTranslations(String(lang));
     return await response.json();
   };
 
-  /**
-   * Main verification process with timeout and error handling
-   */
-  const performVerification = async (): Promise<void> => {
+  const performVerification = async () => {
     const container = document.getElementById("verification-container");
     const token = container?.dataset.verificationToken;
 
@@ -660,11 +512,11 @@ const t = useTranslations(String(lang));
     }
 
     try {
-      // Race between verification and timeout
-      const result = (await Promise.race([
-        verifyEmailToken(token),
-        createTimeoutPromise(),
-      ])) as VerificationResult;
+      const timeoutPromise = new Promise((_resolve, reject) => {
+        setTimeout(() => reject(new Error("Verification timeout")), VERIFICATION_TIMEOUT);
+      });
+
+      const result = await Promise.race([verifyEmailToken(token), timeoutPromise]);
 
       if (result.success) {
         showState("success");
@@ -677,17 +529,12 @@ const t = useTranslations(String(lang));
     }
   };
 
-  /**
-   * Initialize email verification when DOM is ready
-   */
-  const initializeEmailVerification = (): void => {
-    // Add loading state management
+  const initializeEmailVerification = () => {
     const loadingState = document.getElementById("loadingState");
     if (loadingState) {
       loadingState.setAttribute("aria-busy", "true");
     }
 
-    // Start verification process
     performVerification()
       .finally(() => {
         if (loadingState) {
@@ -699,20 +546,9 @@ const t = useTranslations(String(lang));
       });
   };
 
-  // Modern DOM ready check with fallback
-  const isDOMReady = (): boolean => (document.readyState === "loading" ? false : true);
-
-  // Initialize when DOM is ready
-  if (isDOMReady()) {
-    initializeEmailVerification();
-  } else {
+  if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initializeEmailVerification, { once: true });
+  } else {
+    initializeEmailVerification();
   }
-
-  // Export for potential external use
-  (window as Window & { emailVerification?: unknown }).emailVerification = {
-    showState,
-    performVerification,
-    initializeEmailVerification,
-  };
 </script>

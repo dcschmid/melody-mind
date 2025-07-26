@@ -10,7 +10,6 @@
  * <PodcastEpisode podcast={podcastData} lang="en" className="featured" />
  */
 import type { PodcastData } from "../../types/podcast";
-import { useTranslations } from "../../utils/i18n";
 import Headline from "../Headline.astro";
 import Paragraph from "../Paragraph.astro";
 
@@ -28,10 +27,6 @@ interface Props {
 }
 
 const { podcast, lang, className = "" } = Astro.props;
-const t = useTranslations(lang);
-
-// Generate unique ID for this episode instance
-const audioId = `podcast-audio-${podcast.id}`;
 ---
 
 <article class={`podcast-episode ${className}`} data-podcast-id={podcast.id}>
@@ -77,29 +72,17 @@ const audioId = `podcast-audio-${podcast.id}`;
   <!-- Audio Player -->
   <div class="podcast-episode__player-wrapper">
     <div class="podcast-episode__player">
-      <!-- Hidden native audio element -->
-      <audio
-        id={audioId}
-        preload="none"
-        class="podcast-episode__audio"
+      <!-- Audio data for JavaScript -->
+      <div
+        class="podcast-episode__audio-data"
         data-episode-id={podcast.id}
         data-episode-title={podcast.title}
         data-audio-url={podcast.audioUrl}
+        data-subtitle-url={podcast.subtitleUrl || ""}
+        data-language={podcast.language || lang}
+        style="display: none;"
       >
-        <source src={podcast.audioUrl} type="audio/mpeg" />
-        {
-          podcast.subtitleUrl && (
-            <track
-              kind="captions"
-              src={podcast.subtitleUrl}
-              srclang={podcast.language || lang}
-              label={t("podcasts.captions")}
-              default
-            />
-          )
-        }
-        {t("podcasts.audio.not_supported")}
-      </audio>
+      </div>
 
       <!-- Custom player controls -->
       <div class="podcast-episode__custom-player">
@@ -156,14 +139,10 @@ const audioId = `podcast-audio-${podcast.id}`;
     border: var(--border-width-thin) solid var(--border-primary);
     margin-bottom: var(--space-lg);
     transition: all var(--transition-normal);
-    container-type: inline-size;
-    container-name: podcast-episode;
     width: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    contain: layout style paint;
-    will-change: transform, box-shadow;
 
     @media (min-width: 48em) {
       margin-bottom: var(--space-xl);
@@ -171,7 +150,7 @@ const audioId = `podcast-audio-${podcast.id}`;
 
     &:hover {
       box-shadow: var(--card-shadow-hover);
-      transform: translateY(var(--animation-y-offset-small));
+      transform: translateY(-2px);
     }
 
     &:focus-within {
@@ -182,7 +161,6 @@ const audioId = `podcast-audio-${podcast.id}`;
 
     // Performance optimization for reduced motion
     @media (prefers-reduced-motion: reduce) {
-      will-change: auto;
       transition: none;
 
       &:hover {
@@ -253,15 +231,12 @@ const audioId = `podcast-audio-${podcast.id}`;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
     background: var(--bg-tertiary);
-    transform: translate3d(0, 0, 0); // Hardware acceleration
     transition:
       transform var(--transition-normal),
       box-shadow var(--transition-normal);
-    content-visibility: auto;
-    contain: layout style paint;
 
     &:hover {
-      transform: translate3d(0, 0, 0) scale(var(--animation-scale-hover-subtle));
+      transform: scale(1.02);
       box-shadow: var(--shadow-xl);
     }
 
@@ -275,7 +250,7 @@ const audioId = `podcast-audio-${podcast.id}`;
       transition: none;
 
       &:hover {
-        transform: translate3d(0, 0, 0);
+        transform: none;
       }
     }
   }
@@ -290,21 +265,17 @@ const audioId = `podcast-audio-${podcast.id}`;
     object-fit: cover;
     display: block;
     transition: transform var(--transition-slow);
-    // Performance optimization
-    transform: translate3d(0, 0, 0);
-    will-change: transform;
 
     .podcast-episode:hover & {
-      transform: translate3d(0, 0, 0) scale(var(--animation-scale-medium));
+      transform: scale(1.05);
     }
 
     // Performance optimization for reduced motion
     @media (prefers-reduced-motion: reduce) {
-      will-change: auto;
       transition: none;
 
       .podcast-episode:hover & {
-        transform: translate3d(0, 0, 0);
+        transform: none;
       }
     }
   }
@@ -423,8 +394,6 @@ const audioId = `podcast-audio-${podcast.id}`;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     margin: var(--space-md) 0;
-    contain: layout style;
-    content-visibility: auto;
 
     @media (max-width: 39.9375em) {
       grid-template-columns: auto 1fr;
@@ -452,19 +421,17 @@ const audioId = `podcast-audio-${podcast.id}`;
     box-shadow: var(--shadow-lg);
     position: relative;
     z-index: 2;
-    transform: translate3d(0, 0, 0); // Hardware acceleration
-    will-change: transform, background-color;
     // Enhanced touch target
     min-width: var(--min-touch-size);
     min-height: var(--min-touch-size);
 
     &:hover {
       background: var(--color-primary-600);
-      transform: translate3d(0, 0, 0) scale(var(--animation-scale-hover-subtle));
+      transform: scale(1.05);
     }
 
     &:active {
-      transform: translate3d(0, 0, 0) scale(var(--animation-scale-hover));
+      transform: scale(0.98);
     }
 
     &:focus-visible {
@@ -481,12 +448,11 @@ const audioId = `podcast-audio-${podcast.id}`;
 
     // Performance optimization for reduced motion
     @media (prefers-reduced-motion: reduce) {
-      will-change: auto;
       transition: background-color var(--transition-fast);
 
       &:hover,
       &:active {
-        transform: translate3d(0, 0, 0);
+        transform: none;
       }
     }
   }
@@ -528,8 +494,6 @@ const audioId = `podcast-audio-${podcast.id}`;
     cursor: pointer;
     width: 100%;
     transition: all var(--transition-normal);
-    contain: layout style paint;
-    transform: translate3d(0, 0, 0); // Hardware acceleration
     // Enhanced touch target
     min-height: var(--min-touch-size);
 
@@ -566,8 +530,6 @@ const audioId = `podcast-audio-${podcast.id}`;
     transition: all var(--transition-normal);
     position: relative;
     box-shadow: var(--shadow-sm);
-    transform: translate3d(0, 0, 0); // Hardware acceleration
-    will-change: transform;
 
     &::after {
       content: "";
@@ -578,19 +540,18 @@ const audioId = `podcast-audio-${podcast.id}`;
       bottom: 0;
       background: linear-gradient(to top, var(--color-primary-400), var(--color-primary-500));
       border-radius: var(--radius-sm);
-      transform: translate3d(0, 0, 0) scaleY(0);
+      transform: scaleY(0);
       transform-origin: bottom;
       transition: transform var(--transition-normal);
     }
 
     &.active::after {
-      transform: translate3d(0, 0, 0) scaleY(1);
+      transform: scaleY(1);
       background: linear-gradient(to top, var(--color-primary-500), var(--color-primary-600));
     }
 
     // Performance optimization for reduced motion
     @media (prefers-reduced-motion: reduce) {
-      will-change: auto;
       transition: none;
 
       &::after {
@@ -618,17 +579,6 @@ const audioId = `podcast-audio-${podcast.id}`;
   // Active state when playing
   .is-playing .podcast-episode__waveform-bar.active::after {
     background: linear-gradient(to top, var(--color-primary-500), var(--color-primary-600));
-    animation: pulse var(--animation-pulse-duration) infinite;
-  }
-
-  @keyframes pulse {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.8;
-    }
   }
 
   // Loading state
@@ -637,7 +587,7 @@ const audioId = `podcast-audio-${podcast.id}`;
   }
 
   .is-loading .podcast-episode__waveform-bar {
-    animation: loading-wave var(--animation-duration-slow) infinite;
+    animation: loading-wave 2s infinite;
   }
 
   @keyframes loading-wave {
@@ -688,7 +638,6 @@ const audioId = `podcast-audio-${podcast.id}`;
   // Loading State
   .is-loading .podcast-episode__play-button {
     opacity: var(--opacity-medium);
-    animation: pulse var(--animation-pulse-duration) infinite;
   }
 
   // Error State
@@ -749,12 +698,28 @@ const audioId = `podcast-audio-${podcast.id}`;
   };
 
   // Initialize a single audio player with custom UI
-  const initSingleAudioPlayer = (audio: HTMLAudioElement): void => {
+  const initSingleAudioPlayer = (audioData: HTMLElement): void => {
     try {
-      const episodeElement = findParentEpisode(audio);
+      const episodeElement = findParentEpisode(audioData);
       if (!episodeElement) {
         console.error("No parent episode found");
         return;
+      }
+
+      // Create audio element dynamically
+      const audio = document.createElement("audio");
+      audio.preload = "none";
+      audio.src = audioData.dataset.audioUrl || "";
+
+      // Add subtitle track if available
+      const subtitleUrl = audioData.dataset.subtitleUrl;
+      if (subtitleUrl) {
+        const track = document.createElement("track");
+        track.kind = "captions";
+        track.src = subtitleUrl;
+        track.srclang = audioData.dataset.language || "en";
+        track.label = "Captions";
+        audio.appendChild(track);
       }
 
       // Get custom player elements
@@ -785,20 +750,11 @@ const audioId = `podcast-audio-${podcast.id}`;
         return;
       }
 
-      // Remove existing event listeners to prevent duplicates
-      const newPlayButton = playButton.cloneNode(true) as HTMLButtonElement;
-      playButton.parentNode?.replaceChild(newPlayButton, playButton);
-
-      // Get the new button reference
-      const cleanPlayButton = episodeElement.querySelector(
-        ".podcast-episode__play-button"
-      ) as HTMLButtonElement;
-
       // Reset audio state
       audio.pause();
       audio.currentTime = 0;
       episodeElement.classList.remove("is-playing", "is-loading", "has-error");
-      cleanPlayButton.setAttribute("aria-label", "Play audio");
+      playButton.setAttribute("aria-label", "Play audio");
 
       // Helper function to actually play the audio
       const playAudio = async (): Promise<void> => {
@@ -811,7 +767,7 @@ const audioId = `podcast-audio-${podcast.id}`;
           await audio.play();
           console.log("Audio started successfully");
           episodeElement.classList.add("is-playing");
-          cleanPlayButton.setAttribute("aria-label", "Pause audio");
+          playButton.setAttribute("aria-label", "Pause audio");
         } catch (error: unknown) {
           console.error("Error playing audio:", error);
 
@@ -829,45 +785,17 @@ const audioId = `podcast-audio-${podcast.id}`;
       };
 
       // Play/Pause button functionality
-      cleanPlayButton.addEventListener("click", () => {
+      playButton.addEventListener("click", () => {
         console.log("Play button clicked");
 
-        // Track podcast episode play event with Fathom
-        if (
-          typeof window.fathom === "object" &&
-          window.fathom &&
-          typeof window.fathom.trackEvent === "function"
-        ) {
-          try {
-            const podcastId = audio.dataset.episodeId;
-            const podcastTitle = audio.dataset.episodeTitle;
-
-            if (podcastId && podcastTitle) {
-              // Create multiple event types for better analytics
-              // 1. General podcast play event
-              window.fathom.trackEvent("podcast_play");
-
-              // 2. Specific episode by ID (technical identifier)
-              const idEvent = `podcast_play_${podcastId}`.replace(/[^a-zA-Z0-9_]/g, "_");
-              window.fathom.trackEvent(idEvent);
-
-              // 3. Specific episode by title (human readable)
-              const titleEvent = `podcast_${podcastTitle}`.replace(/[^a-zA-Z0-9_]/g, "_");
-              window.fathom.trackEvent(titleEvent);
-            }
-          } catch (error) {
-            console.warn("Failed to track podcast play event:", error);
-          }
-        }
-        const allAudio = document.querySelectorAll(
-          ".podcast-episode__audio"
-        ) as NodeListOf<HTMLAudioElement>;
+        const allAudioData = document.querySelectorAll(
+          ".podcast-episode__audio-data"
+        ) as NodeListOf<HTMLElement>;
 
         // Pause all other audio players
-        allAudio.forEach((otherAudio: HTMLAudioElement) => {
-          if (otherAudio !== audio && !otherAudio.paused) {
-            otherAudio.pause();
-            const otherEpisode = findParentEpisode(otherAudio);
+        allAudioData.forEach((otherAudioData: HTMLElement) => {
+          if (otherAudioData !== audioData) {
+            const otherEpisode = findParentEpisode(otherAudioData);
             if (otherEpisode) {
               otherEpisode.classList.remove("is-playing");
               const otherButton = otherEpisode.querySelector(
@@ -913,7 +841,7 @@ const audioId = `podcast-audio-${podcast.id}`;
           console.log("Pausing audio...");
           audio.pause();
           episodeElement.classList.remove("is-playing");
-          cleanPlayButton.setAttribute("aria-label", "Play audio");
+          playButton.setAttribute("aria-label", "Play audio");
         }
       });
 
@@ -956,17 +884,17 @@ const audioId = `podcast-audio-${podcast.id}`;
       // Update play button state
       audio.addEventListener("play", () => {
         episodeElement.classList.add("is-playing");
-        cleanPlayButton.setAttribute("aria-label", "Pause audio");
+        playButton.setAttribute("aria-label", "Pause audio");
       });
 
       audio.addEventListener("pause", () => {
         episodeElement.classList.remove("is-playing");
-        cleanPlayButton.setAttribute("aria-label", "Play audio");
+        playButton.setAttribute("aria-label", "Play audio");
       });
 
       audio.addEventListener("ended", () => {
         episodeElement.classList.remove("is-playing");
-        cleanPlayButton.setAttribute("aria-label", "Play audio");
+        playButton.setAttribute("aria-label", "Play audio");
         progressIndicator.style.width = "0%";
         audio.currentTime = 0;
       });
@@ -1001,10 +929,10 @@ const audioId = `podcast-audio-${podcast.id}`;
       });
 
       // Add keyboard accessibility
-      cleanPlayButton.addEventListener("keydown", (event: KeyboardEvent) => {
+      playButton.addEventListener("keydown", (event: KeyboardEvent) => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
-          cleanPlayButton.click();
+          playButton.click();
         }
       });
 
@@ -1017,14 +945,14 @@ const audioId = `podcast-audio-${podcast.id}`;
   // Initialize all audio players on the page
   const initAllAudioPlayers = (): void => {
     try {
-      const audioElements = document.querySelectorAll(
-        ".podcast-episode__audio"
-      ) as NodeListOf<HTMLAudioElement>;
-      console.log(`Found ${audioElements.length} audio players`);
+      const audioDataElements = document.querySelectorAll(
+        ".podcast-episode__audio-data"
+      ) as NodeListOf<HTMLElement>;
+      console.log(`Found ${audioDataElements.length} audio players`);
 
-      audioElements.forEach((audio: HTMLAudioElement) => {
-        console.log(`Initializing audio player for: ${audio.dataset.audioUrl}`);
-        initSingleAudioPlayer(audio);
+      audioDataElements.forEach((audioData: HTMLElement) => {
+        console.log(`Initializing audio player for: ${audioData.dataset.audioUrl}`);
+        initSingleAudioPlayer(audioData);
       });
     } catch (err) {
       console.error("Error initializing audio players:", err);

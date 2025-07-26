@@ -4,24 +4,17 @@
  *
  * Displays new achievement count with WCAG AAA compliance
  * Uses global.css variables for consistent theming
- *
- * @param {string} lang - Language code for translations (e.g., 'en', 'de')
  */
 
-/* Imports */
 import { useTranslations } from "@utils/i18n";
 
-/* Props */
 interface Props {
-  /** Language code for translations (e.g., 'en', 'de') */
   lang: string;
 }
 
-/* Props processing */
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-/* Client-side variables */
 const newLabel = t("achievements.badge.new");
 const newLabelWithCount = t("achievements.badge.new_with_count");
 const fallbackLabel = t("achievements.badge.fallback_text");
@@ -29,7 +22,6 @@ const contextDescription = t("achievements.badge.context_description");
 const keyboardInstructions = t("achievements.badge.keyboard_instructions");
 ---
 
-<!-- Component template -->
 <span
   id="achievement-badge"
   class="achievement-badge"
@@ -49,99 +41,54 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
   </span>
 </span>
 
-<!-- Component styles -->
 <style lang="scss">
-  /* AchievementBadge - responsive notification badge */
-  /* Uses global.css variables, WCAG AAA compliant, performance optimized */
-
   .achievement-badge {
-    /* Positioning with logical properties */
     position: absolute;
-    inset-block-start: var(--space-xs);
-    inset-inline-end: var(--space-xs);
-
-    /* Flexbox layout */
+    top: var(--space-xs);
+    right: var(--space-xs);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-
-    /* Responsive sizing with clamp() and container queries */
-    height: clamp(var(--touch-target-enhanced), 5vw, var(--achievement-badge-size));
-    width: clamp(var(--touch-target-enhanced), 5vw, var(--achievement-badge-size));
+    height: var(--achievement-badge-size);
+    width: var(--achievement-badge-size);
     min-width: var(--touch-target-enhanced);
     min-height: var(--touch-target-enhanced);
-
-    /* Responsive padding with container queries */
-    padding: clamp(var(--space-xs), 2vw, var(--space-sm));
-
-    /* Visual styling */
+    padding: var(--space-xs);
     border-radius: var(--radius-full);
     background: var(--interactive-secondary);
     color: var(--text-primary);
     box-shadow: var(--shadow-md);
-
-    /* Container-based responsive scaling */
-    @container (min-width: 20rem) {
-      height: clamp(var(--touch-target-enhanced), 4vw, var(--achievement-badge-size));
-      width: clamp(var(--touch-target-enhanced), 4vw, var(--achievement-badge-size));
-    }
-
-    /* Optimize for different screen densities */
-    @media (min-resolution: 2dppx) {
-      padding: clamp(var(--space-xs), 1.5vw, var(--space-sm));
-    }
-
-    /* Typography */
-    font-size: clamp(var(--text-xs), 3vw, var(--text-sm));
+    font-size: var(--text-xs);
     font-weight: var(--font-bold);
     line-height: var(--leading-tight);
-
-    /* Animation */
     opacity: 0;
-    transform: scale(var(--animation-scale-start)) translateZ(0);
+    transform: scale(0.8);
     transition:
-      opacity var(--animation-duration-normal) cubic-bezier(0.4, 0, 0.2, 1),
-      transform var(--animation-duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
-
-    /* Interaction */
+      opacity var(--transition-normal),
+      transform var(--transition-normal);
     pointer-events: none;
-
-    /* Performance optimizations */
-    contain: layout style paint;
-    content-visibility: auto;
-    contain-intrinsic-size: var(--achievement-badge-size) var(--achievement-badge-size);
-    will-change: transform, opacity;
-
-    /* WCAG AAA text spacing */
     letter-spacing: var(--letter-spacing-base);
     word-spacing: var(--word-spacing-enhanced);
-    line-height: max(var(--leading-tight), var(--line-height-enhanced));
 
-    /* Responsive breakpoints */
-    @media (min-width: 40em) {
-      inset-block-start: var(--space-sm);
-      inset-inline-end: var(--space-sm);
-      font-size: clamp(var(--text-sm), 2.5vw, var(--text-base));
+    @media (min-width: 30em) {
+      top: var(--space-sm);
+      right: var(--space-sm);
+      font-size: var(--text-sm);
     }
 
-    @media (min-width: 64em) {
-      inset-block-start: var(--space-md);
-      inset-inline-end: var(--space-md);
-      height: var(--achievement-badge-size);
-      width: var(--achievement-badge-size);
+    @media (min-width: 48em) {
+      top: var(--space-md);
+      right: var(--space-md);
       font-size: var(--text-base);
     }
 
-    /* Visible state with performance optimization */
     &.visible {
-      opacity: var(--animation-opacity-full);
-      transform: scale(var(--animation-scale-end)) translateZ(0);
+      opacity: 1;
+      transform: scale(1);
       pointer-events: auto;
-      will-change: auto; /* Remove will-change when visible */
     }
 
-    /* Enhanced focus state */
     &:focus-visible {
       outline: var(--focus-outline);
       outline-offset: var(--focus-ring-offset);
@@ -149,27 +96,21 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
       z-index: var(--z-notification);
     }
 
-    /* Counter text */
     &__count {
       display: block;
       width: var(--width-full);
       line-height: 1;
-      contain: layout style;
     }
 
-    /* Reduced motion support */
     @media (prefers-reduced-motion: reduce) {
       transition-duration: var(--transition-instant);
-      transform: scale(var(--animation-scale-end)) translateZ(0);
-      will-change: auto;
+      transform: scale(1);
     }
 
-    /* Print optimization */
     @media print {
       display: none;
     }
 
-    /* High contrast mode */
     @media (forced-colors: active) {
       border: var(--border-width-thick) solid CanvasText;
       background-color: Highlight;
@@ -177,7 +118,6 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
       forced-color-adjust: none;
     }
 
-    /* Enhanced contrast support */
     @media (prefers-contrast: high) {
       border: var(--border-width-thick) solid var(--text-primary);
       background-color: var(--bg-primary);
@@ -185,7 +125,6 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
       box-shadow: var(--shadow-xl);
     }
 
-    /* Dark mode optimization */
     @media (prefers-color-scheme: dark) {
       background-color: var(--color-primary-600);
       color: var(--color-white);
@@ -194,10 +133,8 @@ const keyboardInstructions = t("achievements.badge.keyboard_instructions");
   }
 </style>
 
-<!-- Client-side interactivity -->
 <script>
   import { initializeAchievementBadge } from "../../utils/achievements/achievementBadge.ts";
 
-  /* Initialize badge */
   document.addEventListener("DOMContentLoaded", initializeAchievementBadge);
 </script>

@@ -191,7 +191,6 @@ const {
   .share-overlay {
     margin-top: var(--space-xl);
     text-align: center;
-    contain: layout style;
 
     @media (min-width: 48em) {
       margin-top: var(--space-2xl);
@@ -261,8 +260,6 @@ const {
     &__fallback-icon,
     &__fallback-button-icon {
       flex-shrink: 0;
-      transform: translate3d(0, 0, 0);
-      will-change: transform;
       transition: transform var(--transition-fast);
     }
 
@@ -308,12 +305,6 @@ const {
       font-family: var(--font-family-primary);
       transition: all var(--transition-fast);
 
-      /* Performance optimizations with hardware acceleration */
-      contain: layout style paint;
-      transform: translate3d(0, 0, 0);
-      will-change: transform, background-color;
-      backface-visibility: hidden;
-
       /* Enhanced focus styles for WCAG AAA */
       &:focus-visible {
         outline: var(--focus-enhanced-outline-dark);
@@ -323,12 +314,12 @@ const {
 
       /* Hover effects with hardware acceleration */
       &:hover:not(:disabled) {
-        transform: translate3d(0, var(--animation-y-offset-small), 0);
+        transform: translateY(-2px);
         box-shadow: var(--shadow-lg);
       }
 
       &:active:not(:disabled) {
-        transform: translate3d(0, 0, 0) scale(var(--animation-scale-hover));
+        transform: scale(0.98);
         transition: transform var(--transition-fast);
       }
 
@@ -336,12 +327,6 @@ const {
       &:disabled {
         opacity: var(--opacity-disabled);
         cursor: not-allowed;
-        transform: translate3d(0, 0, 0);
-      }
-
-      /* Performance cleanup */
-      &:not(:hover):not(:focus) {
-        will-change: auto;
       }
 
       /* Responsive sizing */
@@ -471,12 +456,6 @@ const {
       font-family: var(--font-family-primary);
       transition: all var(--transition-fast);
 
-      /* Performance optimizations */
-      contain: layout style paint;
-      transform: translate3d(0, 0, 0);
-      will-change: transform, background-color;
-      backface-visibility: hidden;
-
       /* Enhanced focus styles for WCAG AAA */
       &:focus-visible {
         outline: var(--focus-enhanced-outline-dark);
@@ -488,21 +467,16 @@ const {
         border-color: var(--interactive-primary);
         color: var(--interactive-primary);
         background: var(--bg-tertiary);
-        transform: translate3d(0, var(--animation-y-offset-small), 0);
+        transform: translateY(-2px);
       }
 
       &:active:not(:disabled) {
-        transform: translate3d(0, 0, 0) scale(var(--animation-scale-hover));
+        transform: scale(0.98);
       }
 
       &:disabled {
         opacity: var(--opacity-disabled);
         cursor: not-allowed;
-        transform: translate3d(0, 0, 0);
-      }
-
-      &:not(:hover):not(:focus) {
-        will-change: auto;
       }
 
       /* Success state for clipboard button */
@@ -553,7 +527,6 @@ const {
       border-radius: var(--radius-lg);
       background: var(--bg-warning-aaa);
       text-align: center;
-      contain: layout style;
 
       @media (min-width: 48em) {
         margin-top: var(--space-2xl);
@@ -578,7 +551,6 @@ const {
         width: var(--icon-size-md);
         height: var(--icon-size-md);
         flex-shrink: 0;
-        transform: translate3d(0, 0, 0);
 
         @media (min-width: 48em) {
           width: var(--icon-size-lg);
@@ -629,11 +601,6 @@ const {
         cursor: pointer;
         transition: all var(--transition-fast);
 
-        /* Performance optimizations */
-        contain: layout style paint;
-        transform: translate3d(0, 0, 0);
-        will-change: transform, background-color;
-
         /* Enhanced focus styles for WCAG AAA */
         &:focus-visible {
           outline: var(--focus-enhanced-outline-dark);
@@ -644,19 +611,18 @@ const {
         &:hover:not(:disabled) {
           background: var(--interactive-primary-hover);
           border-color: var(--interactive-primary-hover);
-          transform: translate3d(0, var(--animation-y-offset-small), 0);
+          transform: translateY(-2px);
         }
 
         &:active:not(:disabled) {
           background: var(--interactive-primary-active);
           border-color: var(--interactive-primary-active);
-          transform: translate3d(0, 0, 0) scale(var(--animation-scale-hover));
+          transform: scale(0.98);
         }
 
         &:disabled {
           opacity: var(--opacity-disabled);
           cursor: not-allowed;
-          transform: translate3d(0, 0, 0);
         }
 
         &--secondary {
@@ -679,7 +645,6 @@ const {
           width: var(--icon-size-sm);
           height: var(--icon-size-sm);
           flex-shrink: 0;
-          transform: translate3d(0, 0, 0);
         }
 
         /* Responsive sizing */
@@ -752,12 +717,11 @@ const {
     .share-overlay__button,
     .share-overlay__clipboard-button,
     .share-overlay__fallback-button {
-      will-change: auto;
       transition: none;
 
       &:hover,
       &:active {
-        transform: translate3d(0, 0, 0);
+        transform: none;
       }
     }
 
@@ -801,45 +765,6 @@ const {
     white-space: nowrap;
     border: 0;
   }
-
-  /* ======================================
-   * PERFORMANCE OPTIMIZATIONS
-   * ====================================== */
-
-  /**
-   * Icon rendering optimizations
-   * Improves visual quality and performance
-   */
-  .share-overlay__icon,
-  .share-overlay__clipboard-icon,
-  .share-overlay__fallback-icon {
-    will-change: auto;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-  }
-
-  /* ======================================
-   * ENHANCED TEXT SPACING SUPPORT (WCAG 2.2)
-   * ====================================== */
-
-  .enhanced-text-spacing .share-overlay {
-    .share-overlay__button,
-    .share-overlay__clipboard-button,
-    .share-overlay__fallback-button {
-      letter-spacing: var(--text-spacing-letter-2x) !important;
-      word-spacing: var(--text-spacing-word-enhanced) !important;
-      line-height: var(--text-spacing-line-1-5x) !important;
-      padding: calc(var(--space-md) * 1.2) calc(var(--space-lg) * 1.2);
-    }
-
-    .share-overlay__buttons-container {
-      gap: calc(var(--space-md) * 1.5) !important;
-    }
-
-    .share-overlay__fallback-text {
-      margin-bottom: calc(var(--space-lg) * 1.2) !important;
-    }
-  }
 </style>
 
 <script
@@ -866,19 +791,8 @@ const {
   /**
    * ShareOverlay Component Enhancement Script
    *
-   * Provides comprehensive sharing functionality with performance optimizations
-   * and accessibility features. Supports native Web Share API, platform-specific
-   * sharing, and clipboard operations with robust error handling.
-   *
-   * @features
-   * - Native Web Share API integration with fallback support
-   * - Platform-specific sharing (Twitter/X, WhatsApp, Email)
-   * - Advanced clipboard operations with multiple fallback methods
-   * - Comprehensive error handling and user feedback
-   * - Performance-optimized DOM element caching
-   * - Accessibility-first design with screen reader support
-   * - Multilingual share text generation
-   * - Responsive touch and keyboard interaction support
+   * Provides comprehensive sharing functionality with accessibility features.
+   * Supports native Web Share API, platform-specific sharing, and clipboard operations.
    */
 
   /**
@@ -896,7 +810,6 @@ const {
 
   /**
    * Cached DOM element references for performance optimization
-   * Prevents repeated DOM queries and improves rendering efficiency
    * @type {Object}
    */
   const elements = {
@@ -935,7 +848,6 @@ const {
     initializeClipboardCopy();
     initializePlatformSharing();
     initializeFallbackHandlers();
-    setupCleanupHandlers();
 
     // Try to validate game data with retries
     await validateGameDataWithRetries();
@@ -943,13 +855,11 @@ const {
 
   // Validate game data with retries
   const validateGameDataWithRetries = async () => {
-    const maxRetries = 10;
-    const retryDelay = 500; // 500ms
+    const maxRetries = 5;
+    const retryDelay = 500;
 
     for (let i = 0; i < maxRetries; i++) {
       const gameData = getGameDataFromProps() || getGameDataFromPopup();
-
-      console.log(`ShareOverlay: Validation attempt ${i + 1}/${maxRetries}:`, gameData);
 
       if (gameData && isValidShareData(gameData)) {
         console.log("ShareOverlay: Game data validation successful");
@@ -957,7 +867,6 @@ const {
       }
 
       if (i < maxRetries - 1) {
-        console.log(`ShareOverlay: Retrying in ${retryDelay}ms...`);
         await new Promise((resolve) => setTimeout(resolve, retryDelay));
       }
     }
@@ -1005,19 +914,16 @@ const {
   // Validate share data
   const isValidShareData = (data) => {
     if (!data || typeof data !== "object") {
-      console.log("ShareOverlay: Invalid data - not an object:", data);
       return false;
     }
 
     // Check score
     if (typeof data.score !== "number" || data.score < 0) {
-      console.log("ShareOverlay: Invalid score:", data.score);
       return false;
     }
 
     // Check category
     if (!data.category || typeof data.category !== "string" || data.category.trim().length === 0) {
-      console.log("ShareOverlay: Invalid category:", data.category);
       return false;
     }
 
@@ -1027,17 +933,14 @@ const {
       typeof data.difficulty !== "string" ||
       data.difficulty.trim().length === 0
     ) {
-      console.log("ShareOverlay: Invalid difficulty:", data.difficulty);
       return false;
     }
 
     const validDifficulties = ["easy", "medium", "hard", "mixed"];
     if (data.difficulty && !validDifficulties.includes(data.difficulty.toLowerCase())) {
-      console.log("ShareOverlay: Invalid difficulty value:", data.difficulty);
       return false;
     }
 
-    console.log("ShareOverlay: Data validation successful:", data);
     return true;
   };
 
@@ -1622,28 +1525,6 @@ const {
       console.warn("ShareOverlay: Error extracting game data from popup:", error);
       return null;
     }
-  };
-
-  // Setup cleanup handlers
-  const setupCleanupHandlers = () => {
-    const eventHandlers = new Map();
-
-    const cleanup = () => {
-      eventHandlers.forEach((handlers, element) => {
-        handlers.forEach(({ event, handler }) => {
-          element.removeEventListener(event, handler);
-        });
-      });
-      eventHandlers.clear();
-
-      Object.keys(elements).forEach((key) => {
-        elements[key] = null;
-      });
-    };
-
-    document.addEventListener("astro:before-swap", cleanup);
-    document.addEventListener("astro:after-swap", cleanup);
-    window.addEventListener("beforeunload", cleanup);
   };
 
   // Initialize sharing features when the EndOverlay is actually shown

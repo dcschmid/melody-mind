@@ -88,8 +88,7 @@ export class TimePressureGameEngine {
    */
   async initialize() {
     try {
-      console.log("Initializing Time Pressure Game Engine...");
-
+      
       // Load albums for the category
       await this.loadAlbums();
 
@@ -112,36 +111,29 @@ export class TimePressureGameEngine {
    */
   async loadAlbums() {
     try {
-      console.log(`Attempting to load albums for category: ${this.category}, language: ${this.lang}`);
       
       // Try to load the specific language first
       let albumData;
       let loadUrl = `/json/genres/${this.lang}/${this.category}.json`;
       
       try {
-        console.log(`Fetching: ${loadUrl}`);
         const response = await fetch(loadUrl);
-        console.log(`Response status: ${response.status}, ok: ${response.ok}`);
         
         if (!response.ok) {
           throw new Error(`Failed to fetch category data: ${response.status} ${response.statusText}`);
         }
         albumData = await response.json();
-        console.log(`Successfully loaded ${this.lang} data, albums count: ${albumData?.length || 0}`);
       } catch (langError) {
         console.warn(`Category not available in ${this.lang}, falling back to German. Error:`, langError.message);
         
         try {
           const fallbackUrl = `/json/genres/de/${this.category}.json`;
-          console.log(`Fetching fallback: ${fallbackUrl}`);
           const fallbackResponse = await fetch(fallbackUrl);
-          console.log(`Fallback response status: ${fallbackResponse.status}, ok: ${fallbackResponse.ok}`);
           
           if (!fallbackResponse.ok) {
             throw new Error(`Failed to fetch fallback category data: ${fallbackResponse.status} ${fallbackResponse.statusText}`);
           }
           albumData = await fallbackResponse.json();
-          console.log(`Successfully loaded German fallback data, albums count: ${albumData?.length || 0}`);
         } catch (fallbackError) {
           console.error("Failed to load fallback data:", fallbackError);
           throw new Error(`Category '${this.category}' not found in any language. Available categories might be: 1950s, 1960s, 1970s, 1980s, 1990s, 2000s, 2010s`);
@@ -154,7 +146,6 @@ export class TimePressureGameEngine {
         throw new Error(`No albums found for category '${this.category}'. Data loaded but empty.`);
       }
 
-      console.log(`Successfully loaded ${this.albums.length} albums for time pressure mode`);
     } catch (error) {
       console.error("Error loading albums:", error);
       throw error; // Re-throw the original error with more context
@@ -225,7 +216,6 @@ export class TimePressureGameEngine {
    * Start the time pressure game
    */
   async startGame() {
-    console.log("Starting time pressure game...");
 
     // Reset game state
     this.currentRound = 1;
@@ -775,7 +765,6 @@ export class TimePressureGameEngine {
     }
 
     // Show pause overlay (would integrate with existing overlay system)
-    console.log("Game paused");
   }
 
   /**
@@ -793,7 +782,6 @@ export class TimePressureGameEngine {
       pauseBtn.setAttribute('aria-label', 'Spiel pausieren');
     }
 
-    console.log("Game resumed");
   }
 
   /**
@@ -824,7 +812,6 @@ export class TimePressureGameEngine {
    * End the game and show results
    */
   async endGame() {
-    console.log("Time pressure game ended");
 
     this.isGameActive = false;
 
@@ -853,15 +840,11 @@ export class TimePressureGameEngine {
       difficultyStats: getTimePressureStats(),
     };
 
-    console.log("Final game stats:", gameStats);
 
     // Save results and check achievements
     try {
-      console.log("Attempting to save game results...");
       await this.saveGameResults(gameStats);
-      console.log("Game results saved successfully, checking achievements...");
       await this.checkGameAchievements(gameStats);
-      console.log("All post-game processing completed successfully");
     } catch (error) {
       console.error("Error in post-game processing:", error);
       console.error("Stack trace:", error.stack);
@@ -880,14 +863,11 @@ export class TimePressureGameEngine {
     try {
       // Get user ID from container data attribute (set by server-side session)
       let userId = this.gameContainer.getAttribute("data-userID");
-      console.log("Raw userId from container:", userId);
       
       // Fallback to guest if no user ID is found
       if (!userId || userId === "null" || userId === "undefined") {
-        console.log("No valid userId found, using guest");
         userId = "guest"; 
       } else {
-        console.log("Using userId:", userId);
       }
       
       // Time pressure mode uses mixed difficulties
@@ -906,8 +886,6 @@ export class TimePressureGameEngine {
         endOfSession: true,
       };
       
-      console.log("Sending game result data:", requestData);
-      console.log("Request URL:", `/${this.lang}/api/game/save-result`);
       
       const response = await fetch(`/${this.lang}/api/game/save-result`, {
         method: "POST",
@@ -925,7 +903,6 @@ export class TimePressureGameEngine {
       }
 
       const result = await response.json();
-      console.log("Game results saved successfully:", result);
       
       return result;
     } catch (error) {
@@ -943,7 +920,6 @@ export class TimePressureGameEngine {
   async checkGameAchievements(gameStats) {
     try {
       // TODO: Implement time pressure specific achievements
-      console.log("Time pressure achievements check - TODO", gameStats);
       
       // For now, just log that we would check achievements
       // await checkAchievementsAfterGame(...);
@@ -997,7 +973,6 @@ export class TimePressureGameEngine {
       // Focus the overlay for accessibility
       endOverlay.focus();
 
-      console.log("End game overlay displayed successfully");
     } catch (error) {
       console.error("Error showing end game overlay:", error);
       

@@ -4,15 +4,12 @@
  *
  * Shows animated notification when achievements are unlocked
  * WCAG AAA compliant with sound support and accessibility features
- *
- * @param {string} lang - Language code for translations (e.g., 'en', 'de')
  */
 
 import { useTranslations } from "../../utils/i18n.ts";
 import { Icon } from "astro-icon/components";
 
 interface Props {
-  /** Language code for translations (e.g., 'en', 'de') */
   lang: string;
 }
 
@@ -40,12 +37,10 @@ const t = useTranslations(lang);
       <p id="achievement-description" class="achievement-notification__description">
         {t("achievements.notification.progress")}
       </p>
-      <!-- Additional hidden information for screen readers -->
       <span id="sr-notification-type" class="sr-only">
         {t("achievements.notification.new_achievement")}
       </span>
     </div>
-    <!-- Notification controls -->
     <div class="achievement-notification__controls">
       <button
         id="achievement-pause"
@@ -74,13 +69,11 @@ const t = useTranslations(lang);
   </div>
   <div id="achievement-category" class="achievement-notification__category"></div>
 
-  <!-- Notification timer -->
   <div class="achievement-notification__timer" aria-hidden="true">
     <div class="achievement-notification__timer-progress" id="notification-timer"></div>
   </div>
 </div>
 
-<!-- Audio for notifications with enhanced accessibility -->
 <audio id="achievement-sound" preload="none">
   <source src="/sounds/achievement-unlocked.mp3" type="audio/mpeg" />
   <source src="/sounds/achievement-unlocked.ogg" type="audio/ogg" />
@@ -93,7 +86,6 @@ const t = useTranslations(lang);
   />
 </audio>
 
-<!-- Accessibility settings (loaded dynamically with JavaScript) -->
 <div
   id="achievement-a11y-settings"
   class="sr-only"
@@ -107,144 +99,128 @@ const t = useTranslations(lang);
 </div>
 
 <style lang="scss">
-  /* AchievementNotification - responsive toast notification */
-  /* Uses global.css variables, WCAG AAA compliant, performance optimized */
-
-  /* Achievement notification main container */
   .achievement-notification {
     position: fixed;
-    right: clamp(var(--space-sm), 3vw, var(--space-lg));
-    bottom: clamp(var(--space-sm), 3vw, var(--space-lg));
+    right: var(--space-sm);
+    bottom: var(--space-sm);
     z-index: var(--z-notification);
-
-    /* Responsive width */
-    max-width: clamp(var(--grid-min-width-lg), 90vw, var(--modal-content-max-width));
-    min-width: var(--grid-min-width-sm);
-
-    /* Transform with GPU acceleration */
-    transform: translateY(150%) translateZ(0);
-
+    max-width: 400px;
+    min-width: 280px;
+    transform: translateY(150%);
     overflow: hidden;
     border-radius: var(--radius-lg);
     background-color: var(--card-bg);
     border: var(--border-width-thin) solid var(--border-primary);
-
-    /* Responsive padding */
-    padding: clamp(var(--space-sm), 3vw, var(--space-md));
-
+    padding: var(--space-sm);
     color: var(--text-primary);
     opacity: 0;
     box-shadow: var(--shadow-lg);
     outline: none;
-
-    /* Performance optimizations */
-    contain: layout style paint;
-    content-visibility: auto;
-    contain-intrinsic-size: var(--container-intrinsic-height-component);
-    will-change: transform, opacity;
-
     transition:
-      transform var(--animation-duration-normal) cubic-bezier(0.4, 0, 0.2, 1),
-      opacity var(--animation-duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
-
-    isolation: isolate;
+      transform var(--transition-normal),
+      opacity var(--transition-normal);
     line-height: var(--leading-relaxed);
     letter-spacing: var(--letter-spacing-base);
     overflow-wrap: break-word;
-    font-size: clamp(var(--text-sm), 3vw, var(--text-base));
+    font-size: var(--text-sm);
 
-    /* Responsive positioning */
     @media (min-width: 30em) {
-      right: clamp(var(--space-md), 4vw, var(--space-xl));
-      bottom: clamp(var(--space-md), 4vw, var(--space-xl));
-      max-width: clamp(var(--grid-min-width-md), 80vw, var(--modal-content-max-width));
+      right: var(--space-md);
+      bottom: var(--space-md);
+      max-width: 450px;
+      font-size: var(--text-base);
     }
 
     @media (min-width: 48em) {
-      right: var(--space-2xl);
-      bottom: var(--space-2xl);
-      max-width: var(--modal-content-max-width);
+      right: var(--space-lg);
+      bottom: var(--space-lg);
+      max-width: 500px;
     }
 
-    /* Visible state */
+    @media (min-width: 64em) {
+      right: var(--space-xl);
+      bottom: var(--space-xl);
+      max-width: 550px;
+    }
+
     &--visible {
-      transform: translateY(var(--space-none)) translateZ(0);
-      opacity: var(--animation-opacity-full);
+      transform: translateY(0);
+      opacity: 1;
     }
 
-    /* Container for notification content */
     &__container {
       position: relative;
       display: flex;
       align-items: flex-start;
-      gap: clamp(var(--space-sm), 3vw, var(--space-md));
-      contain: layout style;
+      gap: var(--space-sm);
+
+      @media (min-width: 30em) {
+        gap: var(--space-md);
+      }
     }
 
-    /* Icon container */
     &__icon {
       display: flex;
-      height: clamp(var(--space-2xl), 8vw, var(--space-3xl));
-      width: clamp(var(--space-2xl), 8vw, var(--space-3xl));
+      height: var(--space-2xl);
+      width: var(--space-2xl);
       flex-shrink: 0;
       align-items: center;
       justify-content: center;
       border-radius: var(--radius-full);
       background-color: var(--interactive-primary);
-      padding: clamp(var(--space-xs), 2vw, var(--space-sm));
+      padding: var(--space-xs);
       color: var(--text-primary);
-
-      /* Enhanced shadow */
       box-shadow: 0 0 0 var(--interactive-primary);
 
-      /* Animation */
-      animation: pulse var(--animation-pulse-duration) ease-in-out infinite;
+      @media (min-width: 30em) {
+        height: var(--space-3xl);
+        width: var(--space-3xl);
+        padding: var(--space-sm);
+      }
 
-      /* Performance optimizations */
-      contain: layout style;
-      will-change: transform, box-shadow;
-      transform: translateZ(0);
-
-      /* Disable animation for users with reduced motion */
       @media (prefers-reduced-motion: reduce) {
-        animation: none;
         box-shadow: 0 0 0 var(--border-width-thick) var(--interactive-primary);
-        will-change: auto;
       }
     }
 
-    /* Content area */
     &__content {
       flex-grow: 1;
-      padding-right: clamp(var(--space-md), 4vw, var(--space-lg));
-      contain: layout style;
+      padding-right: var(--space-md);
+
+      @media (min-width: 30em) {
+        padding-right: var(--space-lg);
+      }
     }
 
-    /* Title */
     &__title {
-      margin: var(--space-none);
-      margin-bottom: clamp(var(--space-xs), 2vw, var(--space-sm));
-      font-size: clamp(var(--text-base), 4vw, var(--text-lg));
+      margin: 0;
+      margin-bottom: var(--space-xs);
+      font-size: var(--text-base);
       font-weight: var(--font-semibold);
       color: inherit;
       line-height: var(--leading-tight);
+
+      @media (min-width: 30em) {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-sm);
+      }
     }
 
-    /* Description */
     &__description {
-      margin: var(--space-none);
-      font-size: clamp(var(--text-xs), 3vw, var(--text-sm));
-      opacity: var(--opacity-medium);
+      margin: 0;
+      font-size: var(--text-xs);
+      opacity: 0.7;
       line-height: var(--leading-normal);
       max-width: var(--width-full);
       word-wrap: break-word;
-
-      /* Better text spacing for accessibility */
       letter-spacing: var(--letter-spacing-base);
       word-spacing: normal;
+
+      @media (min-width: 30em) {
+        font-size: var(--text-sm);
+      }
     }
 
-    /* Common properties for buttons */
     &__close,
     &__control-button {
       display: flex;
@@ -255,30 +231,18 @@ const t = useTranslations(lang);
       border: none;
       border-radius: var(--radius-sm);
       cursor: pointer;
-
-      /* Performance optimizations */
-      contain: layout style;
-      transform: translateZ(0);
-      will-change: transform, color, background-color;
-
       transition:
-        color var(--animation-duration-fast) cubic-bezier(0.4, 0, 0.2, 1),
-        background-color var(--animation-duration-fast) cubic-bezier(0.4, 0, 0.2, 1),
-        outline var(--animation-duration-fast) cubic-bezier(0.4, 0, 0.2, 1),
-        transform var(--animation-duration-fast) cubic-bezier(0.4, 0, 0.2, 1);
-
-      /* Touch-friendly sizing */
+        color var(--transition-normal),
+        background-color var(--transition-normal),
+        outline var(--transition-normal);
       min-height: var(--touch-target-enhanced);
       min-width: var(--touch-target-enhanced);
 
-      /* Combined hover/focus states */
       &:hover,
       &:focus-visible {
         color: var(--text-primary);
-        transform: scale(var(--animation-scale-hover-subtle)) translateZ(0);
       }
 
-      /* Focus style according to WCAG 2.2 */
       &:focus-visible {
         outline: var(--focus-outline);
         outline-offset: var(--focus-ring-offset);
@@ -288,33 +252,25 @@ const t = useTranslations(lang);
         min-height: var(--touch-target-enhanced);
         box-shadow: var(--focus-ring);
       }
-
-      /* Active state */
-      &:active {
-        transform: scale(var(--scale-active)) translateZ(0);
-      }
     }
 
-    /* Specific properties for close button */
     &__close {
       position: absolute;
-      top: var(--space-none);
-      right: var(--space-none);
+      top: 0;
+      right: 0;
       height: calc(var(--touch-target-enhanced) - var(--space-sm));
       width: calc(var(--touch-target-enhanced) - var(--space-sm));
-      padding: var(--space-none);
+      padding: 0;
     }
 
-    /* Specific properties for control buttons */
     &__control-button {
       height: var(--space-xl);
       width: var(--space-xl);
     }
 
-    /* Category */
     &__category {
       margin-top: var(--space-sm);
-      padding: var(--space-xs) var(--space-none) var(--space-none) var(--space-none);
+      padding: var(--space-xs) 0 0 0;
       text-align: center;
       font-size: var(--text-sm);
       font-weight: var(--font-semibold);
@@ -323,20 +279,18 @@ const t = useTranslations(lang);
       border-top: var(--border-width-thin) solid var(--border-primary);
     }
 
-    /* Notification controls */
     &__controls {
       position: absolute;
-      top: var(--space-none);
-      right: var(--space-none);
+      top: 0;
+      right: 0;
       display: flex;
       gap: var(--space-xs);
     }
 
-    /* Timer for notification */
     &__timer {
       position: absolute;
-      bottom: var(--space-none);
-      left: var(--space-none);
+      bottom: 0;
+      left: 0;
       width: var(--width-full);
       height: var(--space-xs);
       background-color: var(--color-neutral-700);
@@ -347,66 +301,41 @@ const t = useTranslations(lang);
         width: var(--width-full);
         background-color: var(--interactive-primary);
         transform-origin: left;
-        transform: translateZ(0);
-        will-change: transform;
       }
     }
 
-    /* Responsive adjustments with mobile-first approach */
-    @media (min-width: 40em) {
-      max-width: calc(var(--space-3xl) * 6);
-      bottom: var(--space-xl);
-      right: var(--space-xl);
-    }
-
-    @media (min-width: 48em) {
-      max-width: calc(var(--space-3xl) * 7.5);
-      bottom: var(--space-2xl);
-      right: var(--space-2xl);
-    }
-
-    @media (min-width: 64em) {
-      max-width: calc(var(--space-3xl) * 9);
-    }
-
-    /* Reduced motion support */
     @media (prefers-reduced-motion: reduce) {
       transition-duration: var(--transition-instant);
-      will-change: auto;
 
       &--visible {
         transition: none;
       }
 
-      /* Disable button animations for reduced motion users */
-      #{&}__close,
-      #{&}__control-button {
+      &__close,
+      &__control-button {
         transition: var(--transition-instant);
-        will-change: auto;
 
         &:hover,
-        &:focus-visible,
-        &:active {
-          transform: translateZ(0);
+        &:focus-visible {
+          transform: none;
         }
       }
     }
 
-    /* Support for High Contrast Mode */
     @media (forced-colors: active) {
       border: var(--border-width-thin) solid CanvasText;
 
-      #{&}__icon {
+      &__icon {
         background-color: Highlight;
         color: HighlightText;
         border: var(--border-width-thin) solid CanvasText;
       }
 
-      #{&}__category {
+      &__category {
         border-top: var(--border-width-thin) solid CanvasText;
       }
 
-      #{&}__timer {
+      &__timer {
         background-color: Canvas;
         border-bottom: var(--border-width-thin) solid CanvasText;
 
@@ -415,74 +344,34 @@ const t = useTranslations(lang);
         }
       }
 
-      /* Button styles for High Contrast Mode */
-      #{&}__control-button {
+      &__control-button {
         border: var(--border-width-thin) solid CanvasText;
       }
 
-      #{&}__close:focus-visible,
-      #{&}__control-button:focus-visible {
+      &__close:focus-visible,
+      &__control-button:focus-visible {
         outline: var(--border-width-enhanced) solid CanvasText;
       }
     }
   }
 
-  /* Animations with CSS variables and GPU acceleration */
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 var(--interactive-primary);
-      transform: scale(var(--animation-scale-default)) translateZ(0);
-    }
-    70% {
-      box-shadow: 0 0 0 var(--space-xs) transparent;
-      transform: scale(var(--animation-scale-hover-subtle)) translateZ(0);
-    }
-    100% {
-      box-shadow: 0 0 0 0 transparent;
-      transform: scale(var(--animation-scale-default)) translateZ(0);
-    }
-  }
-
-  @keyframes timer-countdown {
-    from {
-      transform: translateX(var(--space-none)) translateZ(0);
-    }
-    to {
-      transform: translateX(-100%) translateZ(0);
-    }
-  }
-
-  /* Slide-in animation for notification */
-  @keyframes slide-in {
-    0% {
-      transform: translateY(150%) translateZ(0);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(var(--space-none)) translateZ(0);
-      opacity: var(--animation-opacity-full);
-    }
-  }
-
-  @keyframes slide-out {
-    0% {
-      transform: translateY(var(--space-none)) translateZ(0);
-      opacity: var(--animation-opacity-full);
-    }
-    100% {
-      transform: translateY(150%) translateZ(0);
-      opacity: 0;
-    }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 </style>
 
 <script>
   import { setupAchievementNotificationSystem } from "../../utils/achievements/achievementNotification";
 
-  /* Initialize notification system when document is ready */
   const cleanupFunction = setupAchievementNotificationSystem();
 
-  /* Execute cleanup function when component is removed */
   document.addEventListener("beforeunload", () => {
     if (typeof cleanupFunction === "function") {
       cleanupFunction();

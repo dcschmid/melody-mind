@@ -99,7 +99,6 @@ const stableItemIds = {
   knowledge: "nav-knowledge-stable",
   playlists: "nav-playlists-stable",
   podcasts: "nav-podcasts-stable",
-  dailyFacts: "nav-daily-facts-stable",
   highscores: "nav-highscores-stable",
   achievements: "nav-achievements-stable",
   profile: "nav-profile-stable",
@@ -294,35 +293,10 @@ const stableItemIds = {
                     </div>
                     <div class="navigation-link__content">
                       <span class="navigation-link__title">{t("news.title")}</span>
-                      <span class="navigation-link__description"
-                        >{t("news.description")}</span
-                      >
+                      <span class="navigation-link__description">{t("news.description")}</span>
                     </div>
                   </a>
 
-                  <a
-                    href={getRelativeLocaleUrl(lang, "daily-facts")}
-                    class="navigation-link navigation-link--daily-facts"
-                    role="menuitem"
-                    id={stableItemIds.dailyFacts}
-                    data-stable-ref="navigation-daily-facts"
-                  >
-                    <div class="navigation-link__icon-wrapper">
-                      <Icon
-                        name="calendar"
-                        width={28}
-                        height={28}
-                        aria-hidden="true"
-                        class="navigation-link__icon"
-                      />
-                    </div>
-                    <div class="navigation-link__content">
-                      <span class="navigation-link__title">{t("dailyFacts.title")}</span>
-                      <span class="navigation-link__description"
-                        >{t("nav.menu.dailyFacts.desc")}</span
-                      >
-                    </div>
-                  </a>
                 </nav>
               </div>
 
@@ -962,7 +936,9 @@ const stableItemIds = {
    */
   const isUserAuthenticated = (): boolean => {
     const authStatus = localStorage.getItem("auth_status");
-    return checkLocalStorage("auth_status") && (authStatus === "authenticated" || authStatus === "guest");
+    return (
+      checkLocalStorage("auth_status") && (authStatus === "authenticated" || authStatus === "guest")
+    );
   };
 
   /**
@@ -978,7 +954,9 @@ const stableItemIds = {
    * @returns {boolean} - true if the user is fully authenticated, false otherwise
    */
   const isFullyAuthenticated = (): boolean => {
-    return checkLocalStorage("auth_status") && localStorage.getItem("auth_status") === "authenticated";
+    return (
+      checkLocalStorage("auth_status") && localStorage.getItem("auth_status") === "authenticated"
+    );
   };
 
   /**
@@ -1002,34 +980,49 @@ const stableItemIds = {
 
     if (isAuthenticated) {
       userSection.style.display = "block";
-      
+
       // For guest users, hide profile link but show logout
       if (isGuest) {
-        if (profileLink) profileLink.style.display = "none";
+        if (profileLink) {
+          profileLink.style.display = "none";
+        }
         if (logoutButton) {
           logoutButton.style.display = "block";
           // Update logout button text for guest users
-          const logoutTitle = logoutButton.querySelector('.navigation-link__title');
-          const logoutDesc = logoutButton.querySelector('.navigation-link__description');
+          const logoutTitle = logoutButton.querySelector(".navigation-link__title");
+          const logoutDesc = logoutButton.querySelector(".navigation-link__description");
           // Use data attributes set by server-side rendering for translations
-          const guestExitText = logoutButton.getAttribute('data-guest-exit-text') || "Exit Guest Mode";
-          const guestExitDescText = logoutButton.getAttribute('data-guest-exit-desc-text') || "Return to login screen";
-          if (logoutTitle) logoutTitle.textContent = guestExitText;
-          if (logoutDesc) logoutDesc.textContent = guestExitDescText;
+          const guestExitText =
+            logoutButton.getAttribute("data-guest-exit-text") || "Exit Guest Mode";
+          const guestExitDescText =
+            logoutButton.getAttribute("data-guest-exit-desc-text") || "Return to login screen";
+          if (logoutTitle) {
+            logoutTitle.textContent = guestExitText;
+          }
+          if (logoutDesc) {
+            logoutDesc.textContent = guestExitDescText;
+          }
         }
       } else if (isFullyAuth) {
         // For authenticated users, show both profile and logout
-        if (profileLink) profileLink.style.display = "block";
+        if (profileLink) {
+          profileLink.style.display = "block";
+        }
         if (logoutButton) {
           logoutButton.style.display = "block";
-          // Reset logout button text for authenticated users  
-          const logoutTitle = logoutButton.querySelector('.navigation-link__title');
-          const logoutDesc = logoutButton.querySelector('.navigation-link__description');
+          // Reset logout button text for authenticated users
+          const logoutTitle = logoutButton.querySelector(".navigation-link__title");
+          const logoutDesc = logoutButton.querySelector(".navigation-link__description");
           // Use data attributes set by server-side rendering for translations
-          const logoutText = logoutButton.getAttribute('data-logout-text') || "Logout";
-          const logoutDescText = logoutButton.getAttribute('data-logout-desc-text') || "Sign out of your account";
-          if (logoutTitle) logoutTitle.textContent = logoutText;
-          if (logoutDesc) logoutDesc.textContent = logoutDescText;
+          const logoutText = logoutButton.getAttribute("data-logout-text") || "Logout";
+          const logoutDescText =
+            logoutButton.getAttribute("data-logout-desc-text") || "Sign out of your account";
+          if (logoutTitle) {
+            logoutTitle.textContent = logoutText;
+          }
+          if (logoutDesc) {
+            logoutDesc.textContent = logoutDescText;
+          }
         }
       }
     } else {
@@ -1370,7 +1363,6 @@ const stableItemIds = {
     &:hover {
       background: var(--interactive-primary-hover);
       box-shadow: var(--shadow-lg);
-      transform: translateY(calc(var(--animation-y-offset-small) * 2));
     }
 
     &:focus-visible {
@@ -1482,7 +1474,6 @@ const stableItemIds = {
       &:hover {
         background: var(--interactive-primary);
         color: var(--btn-primary-text);
-        transform: rotate(var(--rotation-90)) scale(var(--animation-scale-medium));
         box-shadow: var(--shadow-xl);
       }
 
@@ -1592,7 +1583,6 @@ const stableItemIds = {
       color: var(--interactive-primary);
       border-bottom-color: var(--interactive-primary);
     }
-
   }
 
   /* ======================================
@@ -1619,7 +1609,6 @@ const stableItemIds = {
 
     /* Hover Effects */
     &:hover {
-      transform: translateY(calc(var(--animation-y-offset-small) * 4));
       box-shadow: var(--shadow-xl);
       border-color: var(--interactive-primary);
     }
@@ -1627,7 +1616,6 @@ const stableItemIds = {
     &:focus-visible {
       outline: var(--border-width-enhanced) solid var(--focus-ring);
       outline-offset: var(--space-xs);
-      transform: translateY(calc(var(--animation-y-offset-small) * 2));
     }
 
     /* Gradient Background on Hover */
@@ -1718,10 +1706,7 @@ const stableItemIds = {
     &--news &__icon-wrapper {
       background: linear-gradient(135deg, var(--color-error-500), var(--color-error-600));
     }
-    
-    &--daily-facts &__icon-wrapper {
-      background: linear-gradient(135deg, var(--color-warning-500), var(--color-warning-600));
-    }
+
 
     &--highscores &__icon-wrapper {
       background: linear-gradient(135deg, var(--color-neutral-600), var(--color-neutral-700));
@@ -1738,13 +1723,12 @@ const stableItemIds = {
     &--logout {
       font-family: inherit;
       font-size: inherit;
-      // Force standard navigation link styling 
+      // Force standard navigation link styling
       background: var(--card-bg) !important;
       border: 1px solid var(--border-primary) !important;
       box-shadow: var(--shadow-sm) !important;
 
       &:hover {
-        transform: translateY(calc(var(--animation-y-offset-small) * 4)) !important;
         box-shadow: var(--shadow-xl) !important;
         border-color: var(--interactive-primary) !important;
         background: var(--card-bg) !important;
@@ -1753,7 +1737,6 @@ const stableItemIds = {
       &:focus-visible {
         outline: var(--border-width-enhanced) solid var(--focus-ring) !important;
         outline-offset: var(--space-xs) !important;
-        transform: translateY(calc(var(--animation-y-offset-small) * 2)) !important;
       }
 
       // Ensure hover gradient works
@@ -1821,7 +1804,6 @@ const stableItemIds = {
       box-shadow: var(--shadow-sm);
 
       &:hover {
-        transform: translateY(calc(var(--animation-y-offset-small) * 2));
         box-shadow: var(--shadow-md);
       }
 
@@ -2121,7 +2103,7 @@ const stableItemIds = {
       min-height: 80px;
 
       &:hover {
-        transform: translateY(-4px) scale(1.02);
+        box-shadow: var(--shadow-lg);
       }
     }
   }
@@ -2154,11 +2136,12 @@ const stableItemIds = {
     }
 
     .navigation-link:hover {
-      transform: none;
+      box-shadow: var(--shadow-lg);
     }
 
     .navigation-overlay__close:hover {
-      transform: none;
+      background: var(--interactive-primary);
+      color: var(--btn-primary-text);
     }
   }
 

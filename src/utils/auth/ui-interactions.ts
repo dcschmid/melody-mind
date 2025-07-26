@@ -162,7 +162,6 @@ export function initializeAuthFormElements(): AuthFormElements | null {
     !elements.loginForm ||
     !elements.registerForm
   ) {
-    console.error("Required form elements not found");
     return null;
   }
 
@@ -708,7 +707,6 @@ function handleLoginResult(result: any, elements: AuthFormElements): void {
           try {
             window.location.href = result.redirectUrl;
           } catch (error) {
-            console.error("Redirect failed:", error);
             showSuccess(
               elements.formSuccess,
               document.documentElement.lang === "de"

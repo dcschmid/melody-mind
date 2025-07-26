@@ -123,53 +123,6 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
    * WCAG AAA compliant - Zero hardcoded values
    * ====================================== */
 
-  // SCSS Variables for better maintainability
-  $button-transition-duration: var(--animation-duration-normal);
-  $button-transform-duration: var(--animation-duration-fast);
-  $button-bg-duration: var(--animation-duration-fast);
-  $button-hover-transform: translateY(var(--animation-y-offset-small));
-  $button-active-transform: scale(var(--animation-scale-hover));
-  $button-focus-ring: var(--focus-ring);
-  $button-focus-outline: var(--focus-outline);
-  $button-focus-offset: var(--focus-ring-offset);
-
-  // Breakpoint mixins for responsive design
-  @mixin mobile-up {
-    @media (min-width: 48em) {
-      @content;
-    }
-  }
-
-  @mixin mobile-only {
-    @media (max-width: 47.9375em) {
-      @content;
-    }
-  }
-
-  @mixin touch-device {
-    @media (hover: none) and (pointer: coarse) {
-      @content;
-    }
-  }
-
-  @mixin high-contrast {
-    @media (prefers-contrast: high) {
-      @content;
-    }
-  }
-
-  @mixin reduced-motion {
-    @media (prefers-reduced-motion: reduce) {
-      @content;
-    }
-  }
-
-  @mixin container-query {
-    @container (min-width: 20rem) {
-      @content;
-    }
-  }
-
   .button-link {
     // Base button styling using global CSS variables
     display: inline-flex;
@@ -187,24 +140,15 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
     letter-spacing: var(--letter-spacing-base);
     font-family: var(--font-family-primary);
 
-    // Performance optimizations
-    contain: layout style;
-    will-change: transform, background-color;
-    transform: translateZ(0);
-
     // Smooth transitions
-    transition: {
-      all: $button-transition-duration;
-      transform: $button-transform-duration;
-      background-color: $button-bg-duration;
-    }
+    transition: all var(--transition-normal);
 
     // Size variants with responsive adjustments
     &--sm {
       padding: var(--space-sm) var(--space-md);
       font-size: var(--text-sm);
 
-      @include mobile-up {
+      @media (min-width: 48em) {
         padding: var(--space-md) var(--space-lg);
         font-size: var(--text-base);
       }
@@ -214,7 +158,7 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
       padding: var(--space-md) var(--space-lg);
       font-size: var(--text-base);
 
-      @include mobile-up {
+      @media (min-width: 48em) {
         padding: var(--space-lg) var(--space-xl);
         font-size: var(--text-lg);
       }
@@ -224,7 +168,7 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
       padding: var(--space-lg) var(--space-xl);
       font-size: var(--text-lg);
 
-      @include mobile-up {
+      @media (min-width: 48em) {
         padding: var(--space-xl) var(--space-2xl);
         font-size: var(--text-xl);
       }
@@ -240,12 +184,12 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
       &:hover:not([aria-disabled="true"]) {
         background: var(--btn-primary-hover);
         box-shadow: var(--card-shadow-hover);
-        transform: $button-hover-transform;
+        transform: translateY(-2px);
       }
 
       &:active:not([aria-disabled="true"]) {
-        transform: $button-active-transform;
-        transition: all $button-transform-duration;
+        transform: scale(0.98);
+        transition: all var(--transition-fast);
       }
     }
 
@@ -258,12 +202,12 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
       &:hover:not([aria-disabled="true"]) {
         background: var(--btn-secondary-hover);
         border-color: var(--border-focus);
-        transform: $button-hover-transform;
+        transform: translateY(-2px);
       }
 
       &:active:not([aria-disabled="true"]) {
-        transform: $button-active-transform;
-        transition: all $button-transform-duration;
+        transform: scale(0.98);
+        transition: all var(--transition-fast);
       }
     }
 
@@ -277,12 +221,12 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
         background: var(--bg-tertiary);
         border-color: var(--border-focus);
         color: var(--interactive-primary);
-        transform: $button-hover-transform;
+        transform: translateY(-2px);
       }
 
       &:active:not([aria-disabled="true"]) {
-        transform: $button-active-transform;
-        transition: all $button-transform-duration;
+        transform: scale(0.98);
+        transition: all var(--transition-fast);
       }
     }
 
@@ -298,13 +242,13 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
       &:hover:not([aria-disabled="true"]) {
         color: var(--interactive-primary-hover);
         text-decoration-color: var(--interactive-primary-hover);
-        transform: $button-hover-transform;
+        transform: translateY(-2px);
       }
 
       &:active:not([aria-disabled="true"]) {
         color: var(--interactive-primary-active);
-        transform: $button-active-transform;
-        transition: all $button-transform-duration;
+        transform: scale(0.98);
+        transition: all var(--transition-fast);
       }
     }
 
@@ -324,7 +268,7 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
       flex-shrink: 0;
       margin-right: var(--space-md);
 
-      @include mobile-up {
+      @media (min-width: 48em) {
         width: var(--icon-size-md);
         height: var(--icon-size-md);
       }
@@ -332,13 +276,13 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
 
     // Enhanced focus state for WCAG AAA
     &:focus-visible {
-      outline: $button-focus-outline;
-      outline-offset: $button-focus-offset;
-      box-shadow: $button-focus-ring;
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--focus-ring);
     }
 
     // High contrast mode support
-    @include high-contrast {
+    @media (prefers-contrast: high) {
       border-width: var(--border-width-enhanced);
 
       &:focus-visible {
@@ -347,7 +291,7 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
     }
 
     // Reduced motion support
-    @include reduced-motion {
+    @media (prefers-reduced-motion: reduce) {
       transition: none;
 
       &:hover,
@@ -357,14 +301,14 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
     }
 
     // Touch device optimization
-    @include touch-device {
+    @media (hover: none) and (pointer: coarse) {
       &:hover {
         transform: none;
       }
     }
 
     // Mobile responsive width adjustments
-    @include mobile-only {
+    @media (max-width: 47.9375em) {
       width: 100%;
       max-width: 100%;
 
@@ -373,12 +317,6 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
         min-width: auto;
         padding: var(--space-xs) var(--space-sm);
       }
-    }
-
-    // Container query support for better responsive behavior
-    @include container-query {
-      width: auto;
-      max-width: none;
     }
   }
 

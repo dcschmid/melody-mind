@@ -42,6 +42,8 @@
   },
   "chat.promptFiles": true,
   "chat.promptFilesDirectories": [".github/prompts"],
+  "chat.tools.autoApprove": true,
+  "chat.agent.maxRequests": 100,
   "github.copilot.chat.reviewSelection.instructions": [
     {
       "text": "Resolve all TODO tasks."
