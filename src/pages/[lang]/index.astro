@@ -16,7 +16,6 @@ import { extractKeywords, generateMetaDescription } from "@utils/seo";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import ButtonLink from "@components/ButtonLink.astro";
-import DailyFact from "@components/DailyFact.astro";
 
 // Extract language from URL and set up translations
 const lang = getLangFromUrl(Astro.url);
@@ -97,22 +96,9 @@ const imageHeight = 600;
           </ButtonLink>
         </div>
 
-        {/* Daily Music Fact Teaser */}
-        <div class="daily-fact-section">
-          <div class="daily-fact-header">
-            <h2 class="daily-fact-title">{t("dailyFacts.title")}</h2>
-            <a href={`/${String(lang)}/daily-facts`} class="daily-fact-link">
-              {t("common.seeMore")} →
-            </a>
-          </div>
-          <div class="daily-fact-container">
-            <DailyFact lang={String(lang)} compact={true} showDate={false} />
-          </div>
-        </div>
-
         {/* Footer text with improved contrast ratio */}
         <div class="footer-section">
-          <Paragraph textSize="xl" ariaLive="polite">
+          <Paragraph textSize="xl" ariaLive="polite" align="center">
             {t("index.welcome.footnote")}
           </Paragraph>
         </div>
@@ -122,92 +108,9 @@ const imageHeight = 600;
 </Layout>
 
 <style lang="scss">
-  @use "sass:map";
-
   /* ======================================
-   * SCSS VARIABLES & MIXINS
-   * ====================================== */
-
-  // Responsive breakpoints using hardcoded em values (CSS Custom Properties don't work in media queries)
-  $breakpoints: (
-    xs: 20em,
-    // 320px
-    sm: 40em,
-    // 640px
-    md: 48em,
-    // 768px
-    lg: 64em,
-    // 1024px
-    xl: 80em,
-    // 1280px
-    2xl: 96em, // 1536px
-  );
-
-  // Mixin for responsive media queries
-  @mixin respond-to($breakpoint) {
-    @if map.has-key($breakpoints, $breakpoint) {
-      @media (min-width: map.get($breakpoints, $breakpoint)) {
-        @content;
-      }
-    }
-  }
-
-  // Mixin for reduced motion support
-  @mixin reduced-motion {
-    @media (prefers-reduced-motion: reduce) {
-      @content;
-    }
-  }
-
-  // Mixin for high contrast mode
-  @mixin high-contrast {
-    @media (prefers-contrast: high) {
-      @content;
-    }
-  }
-
-  // Mixin for print styles
-  @mixin print {
-    @media print {
-      @content;
-    }
-  }
-
-  // Mixin for focus styles (WCAG AAA compliant)
-  @mixin focus-visible {
-    &:focus-visible {
-      outline: var(--focus-enhanced-outline-dark);
-      outline-offset: var(--focus-ring-offset);
-      box-shadow: var(--focus-enhanced-shadow);
-    }
-  }
-
-  // Mixin for smooth transitions
-  @mixin smooth-transition($property: all, $duration: var(--transition-normal)) {
-    transition: $property $duration;
-
-    @include reduced-motion {
-      transition: none;
-    }
-  }
-
-  // Mixin for hover effects
-  @mixin hover-effect($scale: var(--animation-scale-hover-subtle)) {
-    @include smooth-transition(transform);
-
-    &:hover {
-      transform: scale($scale);
-    }
-
-    @include reduced-motion {
-      &:hover {
-        transform: none;
-      }
-    }
-  }
-
-  /* ======================================
-   * MAIN LAYOUT
+   * INDEX PAGE STYLES - OPTIMIZED FOR STYLE GUARDIAN
+   * BEM Methodology + Global Variables + Mobile-First
    * ====================================== */
 
   .main-content {
@@ -217,8 +120,8 @@ const imageHeight = 600;
     justify-content: center;
     color: var(--text-primary);
     background-color: var(--bg-primary);
+    contain: layout style paint;
 
-    // Enhanced focus management
     &:focus {
       outline: none;
     }
@@ -231,32 +134,24 @@ const imageHeight = 600;
     max-width: var(--container-lg);
     flex-direction: column;
     align-items: center;
-
-    // Mobile Portrait - compact padding
-    padding: var(--space-md) var(--space-sm);
+    contain: layout style;
+    padding: var(--space-md) var(--space-xs); // Mobile: minimal horizontal spacing
     text-align: center;
 
-    // Mobile Landscape and small tablets
-    @include respond-to(xs) {
-      padding: var(--space-lg) var(--space-md);
+    @media (min-width: 20em) {
+      padding: var(--space-lg) var(--space-sm);
     }
 
-    @include respond-to(sm) {
-      padding: var(--space-xl) var(--space-lg);
+    @media (min-width: 48em) {
+      padding: var(--space-xl) var(--space-md);
     }
 
-    // Responsive padding adjustments
-    @include respond-to(md) {
+    @media (min-width: 64em) {
       padding: var(--space-2xl) var(--space-lg);
     }
 
-    @include respond-to(lg) {
+    @media (min-width: 80em) {
       padding: var(--space-3xl) var(--space-xl);
-    }
-
-    // Container query support for smaller screens
-    @container (max-width: 400px) {
-      padding: var(--space-lg) var(--space-md);
     }
   }
 
@@ -265,61 +160,50 @@ const imageHeight = 600;
     width: var(--width-full);
     flex-direction: column;
     align-items: center;
+    contain: layout style;
+    gap: var(--space-md); // Mobile: compact spacing
 
-    // Mobile Portrait - compact spacing
-    gap: var(--space-md);
-
-    @include respond-to(xs) {
+    @media (min-width: 20em) {
       gap: var(--space-lg);
     }
 
-    // Enhanced spacing for larger screens
-    @include respond-to(md) {
+    @media (min-width: 48em) {
       gap: var(--space-xl);
     }
 
-    @include respond-to(lg) {
+    @media (min-width: 64em) {
       gap: var(--space-2xl);
     }
   }
 
   /* ======================================
-   * LOGO SECTION
+   * LOGO SECTION - SIMPLIFIED DESIGN
    * ====================================== */
-
   .logo-container {
     position: relative;
     aspect-ratio: 1;
     width: var(--width-full);
-
-    // Mobile Portrait - compact sizing and margin
-    margin: 0 auto var(--space-lg);
+    contain: layout style paint;
+    margin: 0 auto var(--space-lg); // Mobile: compact margin
     max-width: var(--container-xs);
 
-    @include respond-to(xs) {
+    @media (min-width: 20em) {
       margin: 0 auto var(--space-xl);
       max-width: var(--container-sm);
     }
 
-    // Responsive sizing
-    @include respond-to(sm) {
+    @media (min-width: 48em) {
       margin: 0 auto var(--space-2xl);
       max-width: var(--container-md);
     }
 
-    @include respond-to(md) {
+    @media (min-width: 64em) {
       margin: 0 auto var(--space-3xl);
       max-width: 25rem; // 400px
     }
 
-    @include respond-to(lg) {
+    @media (min-width: 80em) {
       max-width: 30rem; // 480px
-    }
-
-    // Container query for very small screens
-    @container (max-width: 320px) {
-      max-width: 100%;
-      margin-bottom: var(--space-md);
     }
   }
 
@@ -327,55 +211,55 @@ const imageHeight = 600;
     height: auto;
     width: var(--width-full);
     border-radius: var(--radius-lg);
+    contain: layout style paint;
+    transition: transform var(--transition-base);
 
-    @include hover-effect();
-
-    // Enhanced accessibility for high contrast
-    @include high-contrast {
-      border: 2px solid var(--text-primary);
+    &:hover {
+      transform: scale(var(--animation-scale-hover-subtle));
     }
 
-    // Print optimization
-    @include print {
+    @media (prefers-reduced-motion: reduce) {
+      &:hover {
+        transform: none;
+      }
+    }
+
+    @media (prefers-contrast: high) {
+      border: var(--border-width-thick) solid var(--text-primary);
+    }
+
+    @media print {
       filter: grayscale(100%);
       max-width: 200px;
     }
   }
 
   /* ======================================
-   * BUTTON SECTION
+   * BUTTON SECTION - SIMPLIFIED DESIGN
    * ====================================== */
-
   .button-container {
     display: flex;
     width: var(--width-full);
     flex-direction: column;
     align-items: center;
-
-    // Mobile Portrait - compact spacing and margin
-    margin: var(--space-md) auto 0;
+    contain: layout style;
+    margin: var(--space-md) auto 0; // Mobile: compact margin
     max-width: var(--container-xs);
     gap: var(--space-sm);
 
-    @include respond-to(xs) {
+    @media (min-width: 20em) {
       margin: var(--space-lg) auto 0;
       max-width: var(--container-sm);
       gap: var(--space-md);
     }
 
-    // Responsive adjustments
-    @include respond-to(sm) {
+    @media (min-width: 48em) {
       max-width: var(--container-md);
       gap: var(--space-lg);
     }
 
-    @include respond-to(md) {
+    @media (min-width: 64em) {
       max-width: 28rem; // 448px
-    }
-
-    // Container query for small screens
-    @container (max-width: 400px) {
-      gap: var(--space-md);
     }
 
     // Enhanced touch targets for mobile
@@ -383,8 +267,8 @@ const imageHeight = 600;
       gap: var(--space-lg);
 
       a {
-        min-height: var(--min-touch-size);
-        min-width: var(--min-touch-size);
+        min-height: var(--touch-target-enhanced);
+        min-width: var(--touch-target-enhanced);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -393,43 +277,29 @@ const imageHeight = 600;
   }
 
   /* ======================================
-   * FOOTER SECTION
+   * FOOTER SECTION - SIMPLIFIED DESIGN
    * ====================================== */
-
   .footer-section {
     max-width: var(--content-readable-width);
+    contain: layout style;
+    margin-top: var(--space-lg); // Mobile: compact margin
 
-    // Mobile Portrait - compact margin
-    margin-top: var(--space-lg);
-
-    @include respond-to(xs) {
+    @media (min-width: 20em) {
       margin-top: var(--space-xl);
     }
 
-    @include respond-to(sm) {
+    @media (min-width: 48em) {
       margin-top: var(--space-2xl);
     }
 
-    // Responsive margin adjustments
-    @include respond-to(md) {
-      margin-top: var(--space-2xl);
-    }
-
-    @include respond-to(lg) {
+    @media (min-width: 64em) {
       margin-top: var(--space-3xl);
-    }
-
-    // Container query for small screens
-    @container (max-width: 500px) {
-      margin-top: var(--space-xl);
     }
   }
 
   /* ======================================
    * ACCESSIBILITY ENHANCEMENTS
    * ====================================== */
-
-  // Screen reader utilities
   .sr-only {
     position: absolute;
     width: var(--sr-only-width);
@@ -437,28 +307,30 @@ const imageHeight = 600;
     padding: 0;
     margin: var(--sr-only-margin);
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    clip: var(--sr-only-clip-path);
     white-space: nowrap;
     border: 0;
-    clip-path: var(--sr-only-clip-path);
   }
 
   // Enhanced focus styles for all interactive elements
   a,
   button,
   [tabindex] {
-    @include focus-visible;
+    &:focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-ring-offset);
+    }
   }
 
   // High contrast mode enhancements
-  @include high-contrast {
+  @media (prefers-contrast: high) {
     .main-content {
       background-color: var(--color-black);
       color: var(--color-white);
     }
 
     .logo-image {
-      border: 3px solid var(--color-white);
+      border: var(--border-width-enhanced) solid var(--color-white);
     }
   }
 
@@ -470,60 +342,13 @@ const imageHeight = 600;
     }
 
     .logo-image {
-      border: 2px solid CanvasText;
-    }
-  }
-
-  /* ======================================
-   * PERFORMANCE OPTIMIZATIONS
-   * ====================================== */
-
-  // Content visibility optimization
-  .content-wrapper {
-    content-visibility: auto;
-    contain-intrinsic-size: 0 500px;
-  }
-
-  // Will-change hints for animations
-  .logo-image {
-    will-change: transform;
-
-    @include reduced-motion {
-      will-change: auto;
-    }
-  }
-
-  /* ======================================
-   * PRINT STYLES
-   * ====================================== */
-
-  @include print {
-    .main-content {
-      background: var(--print-bg);
-      color: var(--print-text);
-      min-height: auto;
-      padding: var(--space-lg);
-    }
-
-    .content-container {
-      max-width: none;
-      padding: 0;
-    }
-
-    .button-container {
-      display: none;
-    }
-
-    .footer-section {
-      margin-top: var(--space-lg);
-      font-size: var(--text-sm);
+      border: var(--border-width-thick) solid CanvasText;
     }
   }
 
   /* ======================================
    * MOBILE PORTRAIT OPTIMIZATIONS
    * ====================================== */
-
   // Extra small screens - Portrait Mobile (below 320px)
   @media (max-width: 19.9375em) {
     .content-container {
@@ -547,177 +372,106 @@ const imageHeight = 600;
     .footer-section {
       margin-top: var(--space-md);
     }
+  }
 
-    h1 {
-      font-size: clamp(var(--text-lg), 4vw, var(--text-xl));
-      line-height: var(--leading-snug);
+  /* ======================================
+   * RESPONSIVE TYPOGRAPHY - SIMPLIFIED
+   * ====================================== */
+  h1 {
+    font-size: var(--text-xl);
+    line-height: var(--leading-tight);
+
+    @media (min-width: 20em) {
+      font-size: var(--text-2xl);
     }
 
-    p {
-      font-size: clamp(var(--text-sm), 3vw, var(--text-base));
+    @media (min-width: 48em) {
+      font-size: var(--text-3xl);
+    }
+
+    @media (min-width: 64em) {
+      font-size: var(--text-4xl);
+    }
+
+    // Extra small screens
+    @media (max-width: 19.9375em) {
+      font-size: var(--text-lg);
+      line-height: var(--leading-snug);
+    }
+  }
+
+  p {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+
+    @media (min-width: 20em) {
+      font-size: var(--text-lg);
+    }
+
+    @media (min-width: 48em) {
+      font-size: var(--text-xl);
+    }
+
+    @media (min-width: 64em) {
+      font-size: var(--text-2xl);
+    }
+
+    // Extra small screens
+    @media (max-width: 19.9375em) {
+      font-size: var(--text-sm);
       line-height: var(--leading-normal);
     }
   }
 
   /* ======================================
-   * ANIMATION CLASSES
+   * PRINT STYLES
    * ====================================== */
-
-  .animate-on-view {
-    opacity: 0;
-    transform: translateY(var(--animation-y-offset));
-    @include smooth-transition(opacity transform);
-
-    &.animate-in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* ======================================
-   * RESPONSIVE TYPOGRAPHY
-   * ====================================== */
-
-  // Fluid typography for better responsive design
-  h1 {
-    // Mobile Portrait - smaller starting size
-    font-size: clamp(var(--text-xl), 4vw, var(--text-3xl));
-    line-height: var(--leading-tight);
-
-    @include respond-to(xs) {
-      font-size: clamp(var(--text-2xl), 5vw, var(--text-4xl));
+  @media print {
+    .main-content {
+      background: var(--print-bg);
+      color: var(--print-text);
+      min-height: auto;
+      padding: var(--space-lg);
     }
 
-    @include respond-to(md) {
-      font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
-    }
-  }
-
-  p {
-    // Mobile Portrait - smaller starting size
-    font-size: clamp(var(--text-base), 3vw, var(--text-lg));
-    line-height: var(--leading-relaxed);
-
-    @include respond-to(xs) {
-      font-size: clamp(var(--text-lg), 3vw, var(--text-xl));
+    .content-container {
+      max-width: none;
+      padding: 0;
     }
 
-    @include respond-to(md) {
-      font-size: clamp(var(--text-xl), 2.5vw, var(--text-2xl));
-    }
-  }
-
-  /* ======================================
-   * DAILY FACT SECTION
-   * ====================================== */
-
-  .daily-fact-section {
-    width: 100%;
-    max-width: var(--container-lg);
-    margin: var(--space-2xl) auto;
-    padding: var(--space-lg);
-    background: var(--bg-secondary);
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-
-    @include respond-to(sm) {
-      margin: var(--space-3xl) auto;
-      padding: var(--space-xl);
-    }
-  }
-
-  .daily-fact-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--space-lg);
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-
-    @media (max-width: 47.9375em) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
-
-  .daily-fact-title {
-    font-size: var(--text-lg);
-    font-weight: var(--font-bold);
-    color: var(--text-primary);
-    margin: 0;
-
-    @include respond-to(sm) {
-      font-size: var(--text-xl);
-    }
-  }
-
-  .daily-fact-link {
-    color: var(--primary-600);
-    text-decoration: none;
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
-    transition: color var(--transition-fast);
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-
-    &:hover {
-      color: var(--primary-700);
+    .button-container {
+      display: none;
     }
 
-    &:focus-visible {
-      outline: 2px solid var(--primary-500);
-      outline-offset: 2px;
-      border-radius: var(--radius-sm);
+    .footer-section {
+      margin-top: var(--space-lg);
+      font-size: var(--text-sm);
     }
-  }
-
-  .daily-fact-container {
-    border-radius: var(--radius-lg);
-    overflow: hidden;
   }
 </style>
 
 <script>
   /**
-   * Performance-optimized client-side enhancements
-   * Uses modern ES6+ features and TypeScript for better type safety
+   * Simplified client-side enhancements
+   * Focus on essential functionality without over-engineering
    */
 
-  // Type definitions for better type safety
-  interface AnimationConfig {
-    rootMargin: string;
-    threshold: number;
-  }
-
-  interface IdleCallbackOptions {
-    timeout?: number;
-  }
-
-  // Modern ES6+ class for animation management
-  class AnimationManager {
+  // Simple animation manager
+  class SimpleAnimationManager {
     private observer: IntersectionObserver | null = null;
-    private idleCallback: (callback: () => void, options?: IdleCallbackOptions) => number;
 
     constructor() {
-      // Modern idle callback with fallback
-      this.idleCallback =
-        window.requestIdleCallback ||
-        ((callback: () => void): number => window.setTimeout(callback, 50));
+      this.initializeObserver();
     }
 
-    /**
-     * Initialize intersection observer for animation elements
-     */
     private initializeObserver(): void {
-      const config: AnimationConfig = {
+      const config = {
         rootMargin: "0px",
         threshold: 0.1,
       };
 
-      this.observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
-        entries.forEach((entry: IntersectionObserverEntry) => {
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animate-in");
             this.observer?.unobserve(entry.target);
@@ -726,30 +480,13 @@ const imageHeight = 600;
       }, config);
     }
 
-    /**
-     * Observe animatable elements
-     */
-    private observeElements(): void {
+    public initialize(): void {
       const animatableElements = document.querySelectorAll(".animate-on-view");
-
-      animatableElements.forEach((element: Element) => {
+      animatableElements.forEach((element) => {
         this.observer?.observe(element);
       });
     }
 
-    /**
-     * Initialize animations with performance optimization
-     */
-    public initialize(): void {
-      this.idleCallback(() => {
-        this.initializeObserver();
-        this.observeElements();
-      });
-    }
-
-    /**
-     * Cleanup observer on component unmount
-     */
     public destroy(): void {
       if (this.observer) {
         this.observer.disconnect();
@@ -758,83 +495,49 @@ const imageHeight = 600;
     }
   }
 
-  // Modern event handling with arrow functions and optional chaining
-  const initializePage = (): void => {
-    const animationManager = new AnimationManager();
-
-    // Initialize animations when DOM is ready
-    if (document.readyState === "loading") {
-      document.addEventListener(
-        "DOMContentLoaded",
-        () => {
-          animationManager.initialize();
-        },
-        { passive: true }
-      );
-    } else {
-      animationManager.initialize();
-    }
-
-    // Cleanup on page unload
-    window.addEventListener(
-      "beforeunload",
-      () => {
-        animationManager.destroy();
-      },
-      { passive: true }
-    );
-  };
-
-  // Performance monitoring with modern APIs
-  const monitorPerformance = (): void => {
-    // Use Performance Observer for monitoring if available
-    if ("PerformanceObserver" in window) {
-      const observer = new PerformanceObserver((list) => {
-        list.getEntries().forEach((entry) => {
-          if (entry.entryType === "navigation") {
-            const navEntry = entry as PerformanceNavigationTiming;
-            console.log(`Page load time: ${navEntry.loadEventEnd - navEntry.loadEventStart}ms`);
-          }
-        });
-      });
-
-      observer.observe({ entryTypes: ["navigation"] });
-    }
-  };
-
-  // Enhanced accessibility with modern event handling
+  // Enhanced accessibility
   const enhanceAccessibility = (): void => {
     // Skip to main content functionality
     const skipLink = document.querySelector('[href="#main-content"]') as HTMLAnchorElement;
 
     if (skipLink) {
-      skipLink.addEventListener("click", (event: Event) => {
+      skipLink.addEventListener("click", (event) => {
         event.preventDefault();
-
         const mainContent = document.getElementById("main-content");
         mainContent?.focus();
-
-        // Announce focus to screen readers
         mainContent?.setAttribute("aria-live", "polite");
       });
     }
 
     // Enhanced keyboard navigation
-    document.addEventListener(
-      "keydown",
-      (event: KeyboardEvent) => {
-        // Escape key handling
-        if (event.key === "Escape") {
-          const focusedElement = document.activeElement as HTMLElement;
-          focusedElement?.blur();
-        }
-      },
-      { passive: true }
-    );
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        const focusedElement = document.activeElement as HTMLElement;
+        focusedElement?.blur();
+      }
+    });
   };
 
-  // Initialize all functionality
+  // Initialize when DOM is ready
+  const initializePage = (): void => {
+    const animationManager = new SimpleAnimationManager();
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => {
+        animationManager.initialize();
+        enhanceAccessibility();
+      });
+    } else {
+      animationManager.initialize();
+      enhanceAccessibility();
+    }
+
+    // Cleanup on page unload
+    window.addEventListener("beforeunload", () => {
+      animationManager.destroy();
+    });
+  };
+
+  // Initialize
   initializePage();
-  monitorPerformance();
-  enhanceAccessibility();
 </script>

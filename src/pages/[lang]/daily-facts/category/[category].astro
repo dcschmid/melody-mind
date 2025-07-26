@@ -5,24 +5,31 @@
  */
 
 import Layout from "../../../../layouts/Layout.astro";
-import DailyFact from "../../../../components/DailyFact.astro";
 import { getFactsByCategory, type MusicFact } from "../../../../services/dailyFactsService.ts";
 import { useTranslations } from "../../../../utils/i18n.ts";
 import { extractKeywords, generateMetaDescription } from "../../../../utils/seo.ts";
 
 export async function getStaticPaths() {
-  const categories = ['birth', 'death', 'release', 'event', 'milestone', 'formation', 'breakthrough'];
-  const languages = ['de', 'en', 'es', 'fr', 'it', 'pt', 'da', 'nl', 'sv', 'fi'];
-  
+  const categories = [
+    "birth",
+    "death",
+    "release",
+    "event",
+    "milestone",
+    "formation",
+    "breakthrough",
+  ];
+  const languages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"];
+
   const paths = [];
   for (const lang of languages) {
     for (const category of categories) {
       paths.push({
-        params: { lang, category }
+        params: { lang, category },
       });
     }
   }
-  
+
   return paths;
 }
 
@@ -31,13 +38,21 @@ const currentLang = lang || "de";
 const t = useTranslations(currentLang);
 
 // Validate category
-const validCategories = ['birth', 'death', 'release', 'event', 'milestone', 'formation', 'breakthrough'];
+const validCategories = [
+  "birth",
+  "death",
+  "release",
+  "event",
+  "milestone",
+  "formation",
+  "breakthrough",
+];
 if (!validCategories.includes(category as string)) {
   return Astro.redirect(`/${currentLang}/daily-facts`);
 }
 
 // Get facts for this category
-const categoryFacts = await getFactsByCategory(category as MusicFact['category'], currentLang);
+const categoryFacts = await getFactsByCategory(category as MusicFact["category"], currentLang);
 
 // Category display data
 const categoryData = {
@@ -47,7 +62,7 @@ const categoryData = {
   event: { icon: "🎪", color: "var(--color-purple-500)" },
   milestone: { icon: "🏆", color: "var(--color-yellow-500)" },
   formation: { icon: "🎸", color: "var(--color-indigo-500)" },
-  breakthrough: { icon: "⭐", color: "var(--color-pink-500)" }
+  breakthrough: { icon: "⭐", color: "var(--color-pink-500)" },
 };
 
 const currentCategory = categoryData[category as keyof typeof categoryData];
@@ -56,7 +71,7 @@ const currentCategory = categoryData[category as keyof typeof categoryData];
 const categoryName = t(`dailyFacts.categories.${category}` as any);
 const pageTitle = `${categoryName} - ${t("dailyFacts.categories")}`;
 const pageDescription = `Alle Musikfakten in der Kategorie ${categoryName}. ${categoryFacts.length} Fakten verfügbar.`;
-const enrichedContent = `${pageTitle} ${pageDescription} ${categoryFacts.map(f => f.title).join(' ')}`;
+const enrichedContent = `${pageTitle} ${pageDescription} ${categoryFacts.map((f) => f.title).join(" ")}`;
 const optimizedDescription = generateMetaDescription(enrichedContent, 155);
 const seoKeywords = extractKeywords(enrichedContent, 15, currentLang);
 
@@ -64,7 +79,7 @@ const baseUrl = Astro.site?.toString() || "https://melody-mind.de";
 const currentUrl = `${baseUrl}/${currentLang}/daily-facts/category/${category}`;
 ---
 
-<Layout 
+<Layout
   title={`${pageTitle} - MelodyMind`}
   description={optimizedDescription}
   keywords={seoKeywords}
@@ -123,7 +138,7 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts/category/${category}`;
           <h2 id="facts-title" class="category-page__section-title">
             Alle {categoryName} Fakten
           </h2>
-          
+
           <div class="category-page__sort-options">
             <label for="sort-select" class="category-page__sort-label">Sortieren:</label>
             <select id="sort-select" class="category-page__sort-select">
@@ -134,39 +149,54 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts/category/${category}`;
           </div>
         </div>
 
-        {categoryFacts.length > 0 ? (
-          <div class="category-page__facts-grid" id="facts-grid">
-            {categoryFacts.map((fact, index) => (
-              <div class="category-page__fact-item" data-fact-id={fact.id} data-fact-date={fact.date} data-fact-title={fact.title} data-fact-artist={fact.artist || ''} data-fact-category={fact.category}>
-                <div class="category-page__fact-date-badge">
-                  {new Date(fact.year || 2024, parseInt(fact.date.split('-')[0]) - 1, parseInt(fact.date.split('-')[1])).toLocaleDateString(currentLang, { day: 'numeric', month: 'short' })}
-                  {fact.year && <span class="category-page__fact-year">{fact.year}</span>}
+        {
+          categoryFacts.length > 0 ? (
+            <div class="category-page__facts-grid" id="facts-grid">
+              {categoryFacts.map((fact) => (
+                <div
+                  class="category-page__fact-item"
+                  data-fact-id={fact.id}
+                  data-fact-date={fact.date}
+                  data-fact-title={fact.title}
+                  data-fact-artist={fact.artist || ""}
+                  data-fact-category={fact.category}
+                >
+                  <div class="category-page__fact-date-badge">
+                    {new Date(
+                      fact.year || 2024,
+                      parseInt(fact.date.split("-")[0]) - 1,
+                      parseInt(fact.date.split("-")[1])
+                    ).toLocaleDateString(currentLang, { day: "numeric", month: "short" })}
+                    {fact.year && <span class="category-page__fact-year">{fact.year}</span>}
+                  </div>
+                  <div class="category-page__fact-content">
+                    <h3 class="category-page__fact-title">{fact.title}</h3>
+                    <p class="category-page__fact-description">{fact.description}</p>
+                    {fact.artist && (
+                      <div class="category-page__fact-meta">
+                        <span class="category-page__fact-artist">🎤 {fact.artist}</span>
+                        {fact.genre && (
+                          <span class="category-page__fact-genre">🎵 {fact.genre}</span>
+                        )}
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div class="category-page__fact-content">
-                  <h3 class="category-page__fact-title">{fact.title}</h3>
-                  <p class="category-page__fact-description">{fact.description}</p>
-                  {fact.artist && (
-                    <div class="category-page__fact-meta">
-                      <span class="category-page__fact-artist">🎤 {fact.artist}</span>
-                      {fact.genre && <span class="category-page__fact-genre">🎵 {fact.genre}</span>}
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div class="category-page__empty" role="status">
-            <div class="category-page__empty-icon">😔</div>
-            <h3 class="category-page__empty-title">Keine Fakten gefunden</h3>
-            <p class="category-page__empty-message">
-              In der Kategorie "{categoryName}" sind derzeit keine Fakten verfügbar.
-            </p>
-            <a href={`/${currentLang}/daily-facts`} class="category-page__back-link">
-              ← Zurück zu den täglichen Fakten
-            </a>
-          </div>
-        )}
+              ))}
+            </div>
+          ) : (
+            <div class="category-page__empty" role="status">
+              <div class="category-page__empty-icon">😔</div>
+              <h3 class="category-page__empty-title">Keine Fakten gefunden</h3>
+              <p class="category-page__empty-message">
+                In der Kategorie "{categoryName}" sind derzeit keine Fakten verfügbar.
+              </p>
+              <a href={`/${currentLang}/daily-facts`} class="category-page__back-link">
+                ← Zurück zu den täglichen Fakten
+              </a>
+            </div>
+          )
+        }
       </section>
 
       <!-- Other Categories -->
@@ -174,24 +204,25 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts/category/${category}`;
         <h3 id="other-categories-title" class="category-page__section-title">
           Andere Kategorien erkunden
         </h3>
-        
+
         <div class="category-page__categories-grid">
-          {Object.entries(categoryData)
-            .filter(([cat]) => cat !== category)
-            .map(([cat, data]) => (
-              <a 
-                href={`/${currentLang}/daily-facts/category/${cat}`} 
-                class="category-page__category-card"
-                style={`--category-color: ${data.color}`}
-              >
-                <span class="category-page__category-icon" aria-hidden="true">
-                  {data.icon}
-                </span>
-                <span class="category-page__category-name">
-                  {t(`dailyFacts.categories.${cat}` as any)}
-                </span>
-              </a>
-            ))
+          {
+            Object.entries(categoryData)
+              .filter(([cat]) => cat !== category)
+              .map(([cat, data]) => (
+                <a
+                  href={`/${currentLang}/daily-facts/category/${cat}`}
+                  class="category-page__category-card"
+                  style={`--category-color: ${data.color}`}
+                >
+                  <span class="category-page__category-icon" aria-hidden="true">
+                    {data.icon}
+                  </span>
+                  <span class="category-page__category-name">
+                    {t(`dailyFacts.categories.${cat}` as any)}
+                  </span>
+                </a>
+              ))
           }
         </div>
       </section>
@@ -201,24 +232,42 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts/category/${category}`;
 
 <style lang="scss">
   /* ======================================
-   * CATEGORY PAGE STYLES
-   * Using global.css variables for consistency
+   * CATEGORY PAGE STYLES - OPTIMIZED FOR STYLE GUARDIAN
+   * BEM Methodology + Global Variables + Mobile-First
    * ====================================== */
 
   .category-page {
     min-height: 100vh;
     background: var(--bg-primary);
     color: var(--text-primary);
-    padding: var(--space-lg) 0;
+    padding: var(--space-xs) 0; // Mobile: minimal horizontal spacing
+    contain: layout style paint;
+
+    @media (min-width: 20em) {
+      padding: var(--space-sm) 0;
+    }
+
+    @media (min-width: 48em) {
+      padding: var(--space-lg) 0;
+    }
+
+    @media (min-width: 64em) {
+      padding: var(--space-xl) 0;
+    }
   }
 
   .category-page__container {
     max-width: var(--container-xl);
     margin: 0 auto;
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-xs); // Mobile: minimal horizontal spacing
+    contain: layout style;
 
-    @media (max-width: 19.9375em) {
+    @media (min-width: 20em) {
       padding: 0 var(--space-sm);
+    }
+
+    @media (min-width: 48em) {
+      padding: 0 var(--space-md);
     }
 
     @media (min-width: 64em) {
@@ -226,9 +275,16 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts/category/${category}`;
     }
   }
 
-  // Breadcrumb Navigation (same as archive)
+  /* ======================================
+   * BREADCRUMB NAVIGATION
+   * ====================================== */
   .category-page__breadcrumb {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      margin-bottom: var(--space-lg);
+    }
   }
 
   .category-page__breadcrumb-list {
@@ -238,11 +294,17 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts/category/${category}`;
     margin: 0;
     gap: var(--space-sm);
     align-items: center;
+    contain: layout style;
   }
 
   .category-page__breadcrumb-item {
-    font-size: var(--text-sm);
-    
+    font-size: var(--text-xs);
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      font-size: var(--text-sm);
+    }
+
     &:not(:last-child)::after {
       content: "→";
       margin-left: var(--space-sm);
@@ -258,51 +320,94 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts/category/${category}`;
   .category-page__breadcrumb-link {
     color: var(--primary-600);
     text-decoration: none;
-    transition: color var(--transition-fast);
+    transition: color var(--transition-base);
+    contain: layout style;
 
     &:hover {
       color: var(--primary-700);
     }
   }
 
-  // Hero Section with Category Theme
+  /* ======================================
+   * HERO SECTION
+   * ====================================== */
   .category-page__hero {
     text-align: center;
-    margin-bottom: var(--space-2xl);
-    padding: var(--space-xl) 0;
+    margin-bottom: var(--space-lg);
+    padding: var(--space-md) 0;
     background: linear-gradient(135deg, var(--category-color), var(--secondary-800));
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     color: var(--color-white);
+    contain: layout style paint;
+
+    @media (min-width: 48em) {
+      margin-bottom: var(--space-2xl);
+      padding: var(--space-xl) 0;
+      border-radius: var(--radius-xl);
+    }
   }
 
   .category-page__hero-icon {
-    font-size: 4rem;
-    margin-bottom: var(--space-md);
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
     line-height: 1;
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      font-size: 4rem;
+      margin-bottom: var(--space-md);
+    }
   }
 
   .category-page__title {
-    font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+    font-size: var(--text-xl);
     font-weight: var(--font-bold);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
     text-shadow: var(--text-shadow-strong);
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-md);
+    }
+
+    @media (min-width: 64em) {
+      font-size: var(--text-3xl);
+    }
+
+    @media (min-width: 80em) {
+      font-size: var(--text-4xl);
+    }
   }
 
   .category-page__subtitle {
-    font-size: var(--text-lg);
+    font-size: var(--text-sm);
     opacity: 0.9;
     max-width: 600px;
     margin: 0 auto;
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      font-size: var(--text-lg);
+    }
   }
 
-  // Content Header
+  /* ======================================
+   * CONTENT HEADER
+   * ====================================== */
   .category-page__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
     flex-wrap: wrap;
-    gap: var(--space-md);
+    gap: var(--space-sm);
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      margin-bottom: var(--space-lg);
+      gap: var(--space-md);
+    }
 
     @media (max-width: 47.9375em) {
       flex-direction: column;
@@ -311,22 +416,33 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts/category/${category}`;
   }
 
   .category-page__section-title {
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
     font-weight: var(--font-bold);
     color: var(--text-primary);
     margin: 0;
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      font-size: var(--text-xl);
+    }
   }
 
   .category-page__sort-options {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
+    contain: layout style;
   }
 
   .category-page__sort-label {
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     font-weight: var(--font-medium);
     color: var(--text-primary);
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      font-size: var(--text-sm);
+    }
   }
 
   .category-page__sort-select {
@@ -335,33 +451,47 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts/category/${category}`;
     border-radius: var(--radius-md);
     background: var(--bg-secondary);
     color: var(--text-primary);
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
+    contain: layout style paint;
+
+    @media (min-width: 48em) {
+      font-size: var(--text-sm);
+    }
   }
 
-  // Facts Grid
+  /* ======================================
+   * FACTS GRID
+   * ====================================== */
   .category-page__facts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: var(--space-lg);
-    margin-bottom: var(--space-2xl);
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+    contain: layout style;
 
-    @media (max-width: 47.9375em) {
-      grid-template-columns: 1fr;
+    @media (min-width: 48em) {
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: var(--space-lg);
+      margin-bottom: var(--space-2xl);
     }
   }
 
   .category-page__fact-item {
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-base);
     position: relative;
+    contain: layout style paint;
+
+    @media (min-width: 48em) {
+      border-radius: var(--radius-xl);
+    }
 
     &:hover {
       box-shadow: var(--shadow-lg);
-      transform: translateY(-4px);
       border-color: var(--category-color);
     }
   }
@@ -379,6 +509,7 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts/category/${category}`;
     text-align: center;
     line-height: 1;
     z-index: 2;
+    contain: layout style paint;
   }
 
   .category-page__fact-year {
@@ -386,129 +517,217 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts/category/${category}`;
     font-size: var(--text-xs);
     opacity: 0.8;
     margin-top: var(--space-xs);
+    contain: layout style;
   }
 
   .category-page__fact-content {
-    padding: var(--space-lg);
+    padding: var(--space-md);
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      padding: var(--space-lg);
+    }
   }
 
   .category-page__fact-title {
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     font-weight: var(--font-bold);
     color: var(--text-primary);
     margin-bottom: var(--space-sm);
     line-height: var(--leading-tight);
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      font-size: var(--text-lg);
+    }
   }
 
   .category-page__fact-description {
     color: var(--text-secondary);
     line-height: var(--leading-relaxed);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      margin-bottom: var(--space-md);
+    }
   }
 
   .category-page__fact-meta {
     display: flex;
-    gap: var(--space-md);
+    gap: var(--space-sm);
     flex-wrap: wrap;
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      gap: var(--space-md);
+    }
   }
 
   .category-page__fact-artist,
   .category-page__fact-genre {
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     color: var(--text-tertiary);
     background: var(--bg-tertiary);
     padding: var(--space-xs) var(--space-sm);
     border-radius: var(--radius-md);
+    contain: layout style paint;
+
+    @media (min-width: 48em) {
+      font-size: var(--text-sm);
+    }
   }
 
-  // Empty State
+  /* ======================================
+   * EMPTY STATE
+   * ====================================== */
   .category-page__empty {
     text-align: center;
-    padding: var(--space-3xl) var(--space-lg);
+    padding: var(--space-xl) var(--space-md);
     background: var(--bg-secondary);
-    border-radius: var(--radius-xl);
-    margin-bottom: var(--space-2xl);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-lg);
+    contain: layout style paint;
+
+    @media (min-width: 48em) {
+      padding: var(--space-2xl) var(--space-lg);
+      border-radius: var(--radius-xl);
+      margin-bottom: var(--space-2xl);
+    }
+
+    @media (min-width: 64em) {
+      padding: var(--space-3xl) var(--space-lg);
+    }
   }
 
   .category-page__empty-icon {
-    font-size: 4rem;
-    margin-bottom: var(--space-lg);
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      font-size: 4rem;
+      margin-bottom: var(--space-lg);
+    }
   }
 
   .category-page__empty-title {
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
     font-weight: var(--font-bold);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
     color: var(--text-primary);
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-md);
+    }
   }
 
   .category-page__empty-message {
     color: var(--text-secondary);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      margin-bottom: var(--space-lg);
+    }
   }
 
   .category-page__back-link {
     display: inline-flex;
     align-items: center;
-    padding: var(--space-sm) var(--space-lg);
+    padding: var(--space-sm) var(--space-md);
     background: var(--primary-600);
     color: var(--color-white);
     text-decoration: none;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     font-weight: var(--font-medium);
-    transition: all var(--transition-fast);
+    transition: all var(--transition-base);
+    contain: layout style paint;
+
+    @media (min-width: 48em) {
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--radius-lg);
+    }
 
     &:hover {
       background: var(--primary-700);
-      transform: translateY(-2px);
     }
   }
 
-  // Other Categories Grid
+  /* ======================================
+   * OTHER CATEGORIES
+   * ====================================== */
   .category-page__categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: var(--space-md);
-    margin-bottom: var(--space-2xl);
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: var(--space-md);
+      margin-bottom: var(--space-2xl);
+    }
   }
 
   .category-page__category-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: var(--space-lg);
+    padding: var(--space-md);
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     text-decoration: none;
     transition: all var(--transition-base);
     text-align: center;
+    contain: layout style paint;
+
+    @media (min-width: 48em) {
+      padding: var(--space-lg);
+      border-radius: var(--radius-xl);
+    }
 
     &:hover {
-      transform: translateY(-4px);
       box-shadow: var(--shadow-lg);
       border-color: var(--category-color);
     }
   }
 
   .category-page__category-icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: var(--space-sm);
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      font-size: 2rem;
+    }
   }
 
   .category-page__category-name {
     font-weight: var(--font-semibold);
     color: var(--text-primary);
+    font-size: var(--text-xs);
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      font-size: var(--text-sm);
+    }
   }
 
-  // Responsive adjustments
+  /* ======================================
+   * ACCESSIBILITY
+   * ====================================== */
   @media (prefers-reduced-motion: reduce) {
     .category-page__fact-item:hover,
     .category-page__category-card:hover,
@@ -516,120 +735,164 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts/category/${category}`;
       transform: none;
     }
   }
+
+  /* ======================================
+   * FOCUS STYLES
+   * ====================================== */
+  :focus {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+
+    &:not(:focus-visible) {
+      outline: none;
+    }
+  }
+
+  :focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
 </style>
 
 <script>
-/**
- * Category Page - Sorting Functionality
- */
-class CategoryFactsSorter {
-  constructor() {
-    this.facts = [];
-    this.currentSort = 'date';
-    
-    this.initializeElements();
-    this.loadFacts();
-    this.setupEventListeners();
+  /**
+   * Category Page - Sorting Functionality
+   */
+  interface FactItem {
+    id: string;
+    date: string;
+    title: string;
+    artist: string;
+    category: string;
+    element: HTMLElement;
   }
 
-  initializeElements() {
-    this.sortSelect = document.getElementById('sort-select');
-    this.factsGrid = document.getElementById('facts-grid');
-  }
+  class CategoryFactsSorter {
+    private facts: FactItem[] = [];
+    private currentSort: string = "date";
+    private sortSelect: HTMLSelectElement | null = null;
+    private factsGrid: HTMLElement | null = null;
 
-  loadFacts() {
-    if (this.factsGrid) {
-      const factItems = this.factsGrid.querySelectorAll('.category-page__fact-item');
-      this.facts = Array.from(factItems).map(item => ({
-        id: item.dataset.factId,
-        date: item.dataset.factDate,
-        title: item.dataset.factTitle,
-        artist: item.dataset.factArtist,
-        category: item.dataset.factCategory,
-        element: item
-      }));
+    constructor() {
+      this.initializeElements();
+      this.loadFacts();
+      this.setupEventListeners();
     }
-  }
 
-  setupEventListeners() {
-    if (this.sortSelect) {
-      this.sortSelect.addEventListener('change', (e) => {
-        this.currentSort = e.target.value;
-        this.sortFacts();
-      });
+    private initializeElements(): void {
+      this.sortSelect = document.getElementById("sort-select") as HTMLSelectElement;
+      this.factsGrid = document.getElementById("facts-grid");
     }
-  }
 
-  sortFacts() {
-    // Sort the facts array
-    this.facts.sort((a, b) => {
-      switch (this.currentSort) {
-        case 'title':
-          return a.title.localeCompare(b.title);
-        case 'artist':
-          const artistA = a.artist || '';
-          const artistB = b.artist || '';
-          if (!artistA && !artistB) return 0;
-          if (!artistA) return 1;
-          if (!artistB) return -1;
-          return artistA.localeCompare(artistB);
-        case 'date':
-        default:
-          // Sort by date (month-day)
-          const [monthA, dayA] = a.date.split('-').map(Number);
-          const [monthB, dayB] = b.date.split('-').map(Number);
-          
-          if (monthA !== monthB) return monthA - monthB;
-          return dayA - dayB;
+    private loadFacts(): void {
+      if (this.factsGrid) {
+        const factItems = this.factsGrid.querySelectorAll(".category-page__fact-item");
+        this.facts = Array.from(factItems).map((item) => ({
+          id: (item as HTMLElement).dataset.factId || "",
+          date: (item as HTMLElement).dataset.factDate || "",
+          title: (item as HTMLElement).dataset.factTitle || "",
+          artist: (item as HTMLElement).dataset.factArtist || "",
+          category: (item as HTMLElement).dataset.factCategory || "",
+          element: item as HTMLElement,
+        }));
       }
-    });
+    }
 
-    // Re-arrange DOM elements
-    this.updateDisplay();
-  }
+    private setupEventListeners(): void {
+      if (this.sortSelect) {
+        this.sortSelect.addEventListener("change", (e: Event) => {
+          const target = e.target as HTMLSelectElement;
+          this.currentSort = target.value;
+          this.sortFacts();
+        });
+      }
+    }
 
-  updateDisplay() {
-    if (this.factsGrid) {
-      // Create document fragment for better performance
-      const fragment = document.createDocumentFragment();
-      
-      // Append sorted elements to fragment
-      this.facts.forEach(fact => {
-        fragment.appendChild(fact.element);
+    private sortFacts(): void {
+      // Sort the facts array
+      this.facts.sort((a: FactItem, b: FactItem) => {
+        switch (this.currentSort) {
+          case "title":
+            return a.title.localeCompare(b.title);
+          case "artist": {
+            const artistA = a.artist || "";
+            const artistB = b.artist || "";
+            if (!artistA && !artistB) {
+              return 0;
+            }
+            if (!artistA) {
+              return 1;
+            }
+            if (!artistB) {
+              return -1;
+            }
+            return artistA.localeCompare(artistB);
+          }
+          case "date":
+          default: {
+            // Sort by date (month-day)
+            const [monthA, dayA] = a.date.split("-").map(Number);
+            const [monthB, dayB] = b.date.split("-").map(Number);
+
+            if (monthA !== monthB) {
+              return monthA - monthB;
+            }
+            return dayA - dayB;
+          }
+        }
       });
-      
-      // Clear grid and append sorted elements
-      this.factsGrid.innerHTML = '';
-      this.factsGrid.appendChild(fragment);
-      
-      // Add animation class for visual feedback
-      this.factsGrid.classList.add('category-page__facts-grid--updating');
-      setTimeout(() => {
-        this.factsGrid.classList.remove('category-page__facts-grid--updating');
-      }, 300);
+
+      // Re-arrange DOM elements
+      this.updateDisplay();
+    }
+
+    private updateDisplay(): void {
+      if (this.factsGrid) {
+        // Create document fragment for better performance
+        const fragment = document.createDocumentFragment();
+
+        // Append sorted elements to fragment
+        this.facts.forEach((fact: FactItem) => {
+          fragment.appendChild(fact.element);
+        });
+
+        // Clear grid and append sorted elements
+        this.factsGrid.innerHTML = "";
+        this.factsGrid.appendChild(fragment);
+
+        // Add animation class for visual feedback
+        this.factsGrid.classList.add("category-page__facts-grid--updating");
+        setTimeout(() => {
+          this.factsGrid?.classList.remove("category-page__facts-grid--updating");
+        }, 300);
+      }
+    }
+
+    // Public method for external sorting
+    public sortBy(method: string): void {
+      this.currentSort = method;
+      if (this.sortSelect) {
+        this.sortSelect.value = method;
+      }
+      this.sortFacts();
     }
   }
 
-  // Public method for external sorting
-  sortBy(method) {
-    this.currentSort = method;
-    if (this.sortSelect) {
-      this.sortSelect.value = method;
-    }
-    this.sortFacts();
-  }
-}
-
-// Initialize when DOM is ready
-let categoryFactsSorter;
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
+  // Initialize when DOM is ready
+  let categoryFactsSorter: CategoryFactsSorter | undefined;
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      categoryFactsSorter = new CategoryFactsSorter();
+    });
+  } else {
     categoryFactsSorter = new CategoryFactsSorter();
-  });
-} else {
-  categoryFactsSorter = new CategoryFactsSorter();
-}
+  }
 
-// Make it globally accessible
-window.categoryFactsSorter = categoryFactsSorter;
+  // Make it globally accessible
+  declare global {
+    interface Window {
+      categoryFactsSorter: CategoryFactsSorter | undefined;
+    }
+  }
+  window.categoryFactsSorter = categoryFactsSorter;
 </script>

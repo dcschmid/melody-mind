@@ -395,61 +395,10 @@ const clientTranslations = generateClientTranslations(t);
 </Layout>
 
 <style lang="scss">
-  @use "sass:map";
-
-  // ======================================
-  // SCSS VARIABLES & MIXINS
-  // ======================================
-
-  // Responsive breakpoints using hardcoded em values (CSS Custom Properties don't work in media queries)
-  $breakpoints: (
-    xs: 20em,
-    // 320px
-    sm: 40em,
-    // 640px
-    md: 48em,
-    // 768px
-    lg: 64em,
-    // 1024px
-    xl: 80em, // 1280px
-  );
-
-  // Mixin for responsive design
-  @mixin respond-to($breakpoint) {
-    @if map.has-key($breakpoints, $breakpoint) {
-      @media (min-width: map.get($breakpoints, $breakpoint)) {
-        @content;
-      }
-    }
-  }
-
-  // Mixin for reduced motion
-  @mixin reduced-motion {
-    @media (prefers-reduced-motion: reduce) {
-      @content;
-    }
-  }
-
-  // Mixin for high contrast
-  @mixin high-contrast {
-    @media (prefers-contrast: high) {
-      @content;
-    }
-  }
-
-  // Component-specific variables
-  $hero-decoration-sm: var(--space-2xl);
-  $hero-decoration-md: var(--space-3xl);
-  $hero-decoration-lg: calc(var(--space-3xl) * 2);
-  $content-max-width: calc(var(--container-md) * 0.6);
-  $search-max-width: var(--container-sm);
-  $hero-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  $divider-height: var(--border-width-thin);
-  $search-icon-offset: calc(var(--space-md) + var(--icon-size-md) + var(--space-md));
-
-  // ======================================
-  // GAMEHOME CONTAINER LAYOUT
-  // ======================================
+  /* ======================================
+   * GAMEHOME PAGE STYLES - OPTIMIZED FOR STYLE GUARDIAN
+   * BEM Methodology + Global Variables + Mobile-First
+   * ====================================== */
 
   .gamehome-container {
     width: var(--width-full);
@@ -458,32 +407,29 @@ const clientTranslations = generateClientTranslations(t);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    contain: layout style paint;
+    padding: var(--space-md) var(--space-xs); // Mobile: minimal horizontal spacing
 
-    // Mobile Portrait (very small screens) - optimized spacing
-    padding: var(--space-md) var(--space-sm);
-
-    // Mobile Landscape and small tablets
-    @include respond-to(xs) {
-      padding: var(--space-md) var(--space-md);
+    @media (min-width: 20em) {
+      padding: var(--space-md) var(--space-sm);
     }
 
-    @include respond-to(sm) {
+    @media (min-width: 48em) {
       padding: var(--space-lg) var(--space-md);
     }
 
-    @include respond-to(md) {
+    @media (min-width: 64em) {
       padding: var(--space-xl) var(--space-lg);
     }
 
-    @include respond-to(lg) {
+    @media (min-width: 80em) {
       padding: var(--space-2xl) var(--space-xl);
     }
   }
 
-  // ======================================
-  // HERO SECTION STYLING
-  // ======================================
-
+  /* ======================================
+   * HERO SECTION - SIMPLIFIED DESIGN
+   * ====================================== */
   .gamehome-hero {
     position: relative;
     overflow: hidden;
@@ -495,28 +441,27 @@ const clientTranslations = generateClientTranslations(t);
     );
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
-
-    // Mobile Portrait - compact spacing and rounded corners
+    contain: layout style paint;
     margin-bottom: var(--space-lg);
-    padding: var(--space-md) var(--space-sm);
+    padding: var(--space-md) var(--space-sm); // Mobile: compact spacing
     border-radius: var(--radius-lg);
 
-    @include respond-to(xs) {
+    @media (min-width: 20em) {
       padding: var(--space-md);
       margin-bottom: var(--space-xl);
     }
 
-    @include respond-to(sm) {
+    @media (min-width: 48em) {
       padding: var(--space-lg);
       border-radius: var(--radius-xl);
     }
 
-    @include respond-to(lg) {
+    @media (min-width: 64em) {
       padding: var(--space-xl) var(--space-lg);
       margin-bottom: var(--space-2xl);
     }
 
-    @include reduced-motion {
+    @media (prefers-reduced-motion: reduce) {
       background: var(--color-primary-800);
     }
 
@@ -525,33 +470,35 @@ const clientTranslations = generateClientTranslations(t);
       inset: 0;
       opacity: 0.1;
       pointer-events: none;
-    }
+      contain: layout style paint;
 
-    &__decoration-item {
-      position: absolute;
-      border-radius: var(--radius-full);
-      background: var(--color-white);
+      &-item {
+        position: absolute;
+        border-radius: var(--radius-full);
+        background: var(--color-white);
+        contain: layout style paint;
 
-      &--top-right {
-        top: calc(-1 * var(--space-xl));
-        right: calc(-1 * var(--space-xl));
-        width: $hero-decoration-md;
-        height: $hero-decoration-md;
-      }
+        &--top-right {
+          top: calc(-1 * var(--space-xl));
+          right: calc(-1 * var(--space-xl));
+          width: var(--space-3xl);
+          height: var(--space-3xl);
+        }
 
-      &--bottom-left {
-        bottom: calc(-1 * var(--space-2xl));
-        left: calc(-1 * var(--space-2xl));
-        width: $hero-decoration-lg;
-        height: $hero-decoration-lg;
-      }
+        &--bottom-left {
+          bottom: calc(-1 * var(--space-2xl));
+          left: calc(-1 * var(--space-2xl));
+          width: calc(var(--space-3xl) * 2);
+          height: calc(var(--space-3xl) * 2);
+        }
 
-      &--center-right {
-        top: var(--percentage-half);
-        right: calc(-1 * var(--space-md));
-        width: $hero-decoration-sm;
-        height: $hero-decoration-sm;
-        transform: translateY(-50%);
+        &--center-right {
+          top: 50%;
+          right: calc(-1 * var(--space-md));
+          width: var(--space-2xl);
+          height: var(--space-2xl);
+          transform: translateY(-50%);
+        }
       }
     }
 
@@ -560,29 +507,29 @@ const clientTranslations = generateClientTranslations(t);
       z-index: 1;
       text-align: center;
       color: var(--color-white);
+      contain: layout style;
     }
 
     &__title {
       color: var(--color-white);
-      text-shadow: var(--text-shadow-strong);
-
-      // Mobile Portrait - compact spacing
+      text-shadow: var(--shadow-lg);
       margin-bottom: var(--space-sm);
       font-size: var(--text-xl);
       line-height: var(--leading-tight);
+      contain: layout style;
 
-      @include respond-to(xs) {
+      @media (min-width: 20em) {
         margin-bottom: var(--space-md);
         font-size: var(--text-2xl);
         line-height: var(--leading-snug);
       }
 
-      @include respond-to(sm) {
+      @media (min-width: 48em) {
         margin-bottom: var(--space-lg);
         font-size: var(--text-3xl);
       }
 
-      @include respond-to(lg) {
+      @media (min-width: 64em) {
         font-size: var(--text-4xl);
         line-height: var(--leading-relaxed);
       }
@@ -591,18 +538,17 @@ const clientTranslations = generateClientTranslations(t);
     &__divider {
       background: var(--color-secondary-400);
       border-radius: var(--radius-full);
-
-      // Mobile Portrait - smaller divider
+      contain: layout style paint;
       width: var(--icon-size-lg);
       height: var(--border-width-thick);
       margin: var(--space-md) auto;
 
-      @include respond-to(xs) {
+      @media (min-width: 20em) {
         width: var(--icon-size-xl);
         margin: var(--space-lg) auto;
       }
 
-      @include respond-to(sm) {
+      @media (min-width: 48em) {
         height: var(--border-width-enhanced);
       }
     }
@@ -611,77 +557,72 @@ const clientTranslations = generateClientTranslations(t);
       color: var(--color-neutral-100);
       line-height: var(--leading-relaxed);
       margin: 0 auto;
-
-      // Mobile Portrait - compact text
+      contain: layout style;
       font-size: var(--text-base);
       max-width: var(--container-xs);
 
-      @include respond-to(xs) {
+      @media (min-width: 20em) {
         font-size: var(--text-lg);
         max-width: var(--container-sm);
       }
 
-      @include respond-to(sm) {
+      @media (min-width: 48em) {
         font-size: var(--text-xl);
         max-width: var(--container-md);
       }
 
-      @include respond-to(lg) {
+      @media (min-width: 64em) {
         font-size: var(--text-2xl);
         max-width: var(--container-lg);
       }
     }
   }
 
-  // ======================================
-  // SEARCH CONTAINER
-  // ======================================
-
+  /* ======================================
+   * SEARCH CONTAINER - SIMPLIFIED DESIGN
+   * ====================================== */
   .search-container {
-    // Mobile Portrait - compact margin
+    contain: layout style paint;
     margin-bottom: var(--space-lg);
 
-    @include respond-to(sm) {
+    @media (min-width: 48em) {
       margin-bottom: var(--space-xl);
     }
 
     &__wrapper {
       position: relative;
       margin: 0 auto;
-
-      // Mobile Portrait - full width with minimal padding
+      contain: layout style;
       max-width: var(--width-full);
 
-      @include respond-to(xs) {
+      @media (min-width: 20em) {
         max-width: var(--container-sm);
       }
 
-      @include respond-to(sm) {
+      @media (min-width: 48em) {
         max-width: var(--container-md);
       }
     }
 
     &__icon {
       position: absolute;
-      top: var(--percentage-half);
+      top: 50%;
       transform: translateY(-50%);
       color: var(--text-tertiary);
       pointer-events: none;
       z-index: var(--z-dropdown);
-
-      // Mobile Portrait - adjusted positioning
+      contain: layout style paint;
       left: var(--space-sm);
 
-      @include respond-to(xs) {
+      @media (min-width: 20em) {
         left: var(--space-md);
       }
 
       &-element {
-        // Mobile Portrait - smaller icon
         width: var(--icon-size-sm);
         height: var(--icon-size-sm);
 
-        @include respond-to(xs) {
+        @media (min-width: 20em) {
           width: var(--icon-size-md);
           height: var(--icon-size-md);
         }
@@ -695,20 +636,19 @@ const clientTranslations = generateClientTranslations(t);
       background-color: var(--form-bg);
       color: var(--form-text);
       line-height: var(--leading-normal);
-      transition: all var(--transition-normal);
+      transition: all var(--transition-base);
       box-shadow: var(--shadow-sm);
-
-      // Mobile Portrait - compact input
+      contain: layout style paint;
       padding: var(--space-sm) var(--space-sm) var(--space-sm) var(--space-2xl);
       font-size: var(--text-base);
 
-      @include respond-to(xs) {
+      @media (min-width: 20em) {
         padding: var(--space-md) var(--space-md) var(--space-md) var(--space-3xl);
         font-size: var(--text-lg);
       }
 
       &:focus {
-        outline: var(--focus-outline);
+        outline: var(--focus-ring);
         outline-offset: var(--focus-ring-offset);
         border-color: var(--interactive-primary);
         box-shadow: var(--shadow-md);
@@ -718,7 +658,7 @@ const clientTranslations = generateClientTranslations(t);
         color: var(--text-tertiary);
       }
 
-      @include high-contrast {
+      @media (prefers-contrast: high) {
         border-width: var(--border-width-thick);
       }
     }
@@ -726,7 +666,7 @@ const clientTranslations = generateClientTranslations(t);
     &__clear {
       position: absolute;
       right: var(--space-md);
-      top: var(--percentage-half);
+      top: 50%;
       transform: translateY(-50%);
       padding: var(--space-xs);
       border: none;
@@ -735,13 +675,14 @@ const clientTranslations = generateClientTranslations(t);
       cursor: pointer;
       border-radius: var(--radius-sm);
       transition: color var(--transition-fast);
+      contain: layout style paint;
 
       &:hover {
         color: var(--text-primary);
       }
 
       &:focus {
-        outline: var(--focus-outline);
+        outline: var(--focus-ring);
         outline-offset: var(--focus-ring-offset);
       }
     }
@@ -751,59 +692,57 @@ const clientTranslations = generateClientTranslations(t);
       margin-top: var(--space-md);
       color: var(--text-secondary);
       font-size: var(--text-base);
+      contain: layout style;
     }
   }
 
-  // ======================================
-  // GENRE GRID STYLING
-  // ======================================
-
+  /* ======================================
+   * GENRE GRID - SIMPLIFIED DESIGN
+   * ====================================== */
   .genre-content {
     flex-grow: 1;
+    contain: layout style;
   }
 
   .genre-grid {
     display: grid;
     margin-bottom: var(--space-xl);
-
-    // Mobile Portrait - single column, compact gap
+    contain: layout style paint;
     grid-template-columns: 1fr;
     gap: var(--space-md);
 
-    @include respond-to(xs) {
+    @media (min-width: 20em) {
       gap: var(--space-lg);
-      grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-width-xs), 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     }
 
-    @include respond-to(sm) {
-      grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-width-sm), 1fr));
+    @media (min-width: 48em) {
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: var(--space-xl);
     }
 
-    @include respond-to(md) {
+    @media (min-width: 64em) {
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     }
 
-    @include respond-to(lg) {
+    @media (min-width: 80em) {
       grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
     }
   }
 
-  // ======================================
-  // ACCESSIBILITY ENHANCEMENTS
-  // ======================================
-
-  @include reduced-motion {
+  /* ======================================
+   * ACCESSIBILITY ENHANCEMENTS
+   * ====================================== */
+  @media (prefers-reduced-motion: reduce) {
     .loading-state__spinner {
       animation: none;
       border: var(--border-width-thick) solid var(--interactive-primary);
     }
   }
 
-  // ======================================
-  // RESPONSIVE UTILITIES & MOBILE OPTIMIZATIONS
-  // ======================================
-
+  /* ======================================
+   * MOBILE PORTRAIT OPTIMIZATIONS
+   * ====================================== */
   // Extra small screens - Portrait Mobile (below 320px)
   @media (max-width: 19.9375em) {
     .gamehome-container {
@@ -853,24 +792,14 @@ const clientTranslations = generateClientTranslations(t);
     }
   }
 
-  // Enhanced text spacing support for WCAG AAA
-  .enhanced-text-spacing {
-    .gamehome-hero__title,
-    .gamehome-hero__description {
-      letter-spacing: var(--letter-spacing-enhanced);
-      word-spacing: var(--word-spacing-enhanced);
-      line-height: var(--leading-enhanced);
-    }
-  }
-
   .sr-only {
     position: absolute;
-    width: 1px;
-    height: 1px;
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
     padding: 0;
-    margin: -1px;
+    margin: var(--sr-only-margin);
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    clip: var(--sr-only-clip-path);
     white-space: nowrap;
     border: 0;
   }
@@ -878,7 +807,7 @@ const clientTranslations = generateClientTranslations(t);
 
 <!-- Enhanced client-side functionality with modern ES6+ features -->
 <script>
-  // TypeScript interfaces for type safety
+  // Type declarations for translations
   interface GameTranslations {
     search: {
       placeholder: string;
@@ -893,27 +822,23 @@ const clientTranslations = generateClientTranslations(t);
     };
   }
 
-  // Global type declarations
+  // Extend Window interface
   declare global {
     interface Window {
-      gameHomeTranslations: GameTranslations;
+      gameHomeTranslations?: GameTranslations;
     }
   }
 
-  /**
-   * Modern search functionality using ES6+ features
-   * Implements progressive enhancement and accessibility best practices
-   */
+  // Simple search functionality for game home page
   class GameHomeSearch {
-    private readonly searchInput: HTMLInputElement | null;
-    private readonly clearButton: HTMLButtonElement | null;
-    private readonly gridContainer: HTMLElement | null;
-    private readonly resultsInfo: HTMLElement | null;
-    private readonly allItems: NodeListOf<Element>;
-    private readonly translations: GameTranslations;
+    private searchInput: HTMLInputElement | null;
+    private clearButton: HTMLButtonElement | null;
+    private gridContainer: HTMLElement | null;
+    private resultsInfo: HTMLElement | null;
+    private allItems: NodeListOf<Element>;
+    private translations: GameTranslations;
 
     constructor() {
-      // Initialize elements with modern querySelector syntax
       this.searchInput = document.getElementById("filter-input") as HTMLInputElement;
       this.clearButton = document.querySelector(".search-container__clear") as HTMLButtonElement;
       this.gridContainer = document.getElementById("playlist-grid");
@@ -921,7 +846,6 @@ const clientTranslations = generateClientTranslations(t);
       this.allItems = document.querySelectorAll("#playlist-grid > *");
       this.translations = window.gameHomeTranslations ?? this.getDefaultTranslations();
 
-      // Only initialize if required elements exist
       if (this.searchInput && this.gridContainer) {
         this.init();
       }
@@ -942,7 +866,6 @@ const clientTranslations = generateClientTranslations(t);
     });
 
     private init = (): void => {
-      // Add event listeners with arrow functions for better binding
       this.searchInput!.addEventListener("input", this.handleSearch);
       this.searchInput!.addEventListener("keydown", this.handleKeydown);
 
@@ -950,7 +873,6 @@ const clientTranslations = generateClientTranslations(t);
         this.clearButton.addEventListener("click", this.clearSearch);
       }
 
-      // Set initial results info
       this.updateResultsInfo(this.allItems.length, "");
     };
 
@@ -971,7 +893,6 @@ const clientTranslations = generateClientTranslations(t);
     private filterItems = (query: string): void => {
       let visibleCount = 0;
 
-      // Use modern forEach with arrow function
       this.allItems.forEach((item) => {
         const textContent = item.textContent?.toLowerCase() ?? "";
         const isVisible = query === "" || textContent.includes(query);
@@ -996,7 +917,7 @@ const clientTranslations = generateClientTranslations(t);
 
       const message =
         query === ""
-          ? "" // No message when showing all items
+          ? ""
           : count === 0
             ? this.translations.search.noResults
             : `${count} ${this.translations.search.resultsFound}`;
@@ -1025,12 +946,12 @@ const clientTranslations = generateClientTranslations(t);
     };
   }
 
-  // Modern initialization using arrow functions and optional chaining
+  // Initialize search functionality
   const initSearch = (): void => {
     new GameHomeSearch();
   };
 
-  // Initialize search functionality when DOM is ready
+  // Initialize when DOM is ready
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initSearch);
   } else {

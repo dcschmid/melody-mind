@@ -212,171 +212,47 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
 </script>
 
 <style lang="scss" is:global>
-  /**
-   * Chronology Game Styles
-   * Modern SCSS implementation with responsive design
-   * Uses CSS variables from global.css for consistent theming
-   */
+  /* ======================================
+   * CHRONOLOGY GAME STYLES - OPTIMIZED FOR STYLE GUARDIAN
+   * BEM Methodology + Global Variables + Mobile-First
+   * ====================================== */
 
-  // SCSS Variables using global.css tokens
-  $transition-smooth: var(--transition-normal);
-  $border-selected: var(--border-width-thick) solid var(--interactive-primary);
-  $border-default: var(--border-width-thick) solid var(--border-primary);
-  $hover-transform: translateY(var(--animation-y-offset-small));
-  $shadow-hover: var(--card-shadow-hover);
-  $focus-ring: var(--focus-ring);
-
-  // Note: Using hardcoded em values in media queries since CSS variables don't work in @media rules
-  // Mobile portrait: 0-479px (< 30em)
-  // Mobile landscape: 480-639px (30em - 39.9375em)
-  // Small tablet: 640-767px (40em - 47.9375em)
-  // Tablet: 768-1023px (48em - 63.9375em)
-  // Desktop: 1024-1279px (64em - 79.9375em)
-  // Large desktop: 1280px+ (80em+)
-
-  // Mixins for common patterns
-  @mixin flex-center($direction: row) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: $direction;
-  }
-
-  @mixin button-base {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    border-radius: var(--radius-lg);
-    font-weight: var(--font-medium);
-    cursor: pointer;
-    transition: $transition-smooth;
-    justify-content: center;
-    border: none;
-    outline: none;
-
-    &:not(:disabled):hover {
-      transform: $hover-transform;
-      box-shadow: $shadow-hover;
-    }
-
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    &:focus-visible {
-      outline: 3px solid var(--interactive-primary);
-      outline-offset: 2px;
-    }
-  }
-
-  @mixin focus-styles {
-    &:focus {
-      outline: none;
-      border-color: var(--interactive-primary);
-      box-shadow: $focus-ring;
-    }
-
-    &:focus-visible {
-      outline: 3px solid var(--interactive-primary);
-      outline-offset: 2px;
-    }
-  }
-
-  // Enhanced responsive design mixins using hardcoded breakpoints
-  @mixin respond-to-mobile {
-    @media (max-width: 29.9375em) {
-      @content;
-    }
-  }
-
-  @mixin respond-to-mobile-landscape {
-    @media (min-width: 30em) and (max-width: 39.9375em) {
-      @content;
-    }
-  }
-
-  @mixin respond-to-tablet {
-    @media (max-width: 47.9375em) {
-      @content;
-    }
-  }
-
-  @mixin respond-to-desktop {
-    @media (min-width: 64em) {
-      @content;
-    }
-  }
-
-  // Keyframes
-  @keyframes spin {
-    from {
-      transform: rotate(var(--rotation-0));
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  // Enhanced animations using global.css variables
-  @keyframes fadeIn {
-    from {
-      opacity: var(--animation-opacity-start);
-      transform: translateY(var(--animation-y-offset));
-    }
-    to {
-      opacity: var(--animation-opacity-full);
-      transform: translateY(0);
-    }
-  }
-
-  // Enhanced main game container with comprehensive responsive design
   .chronology-game {
     min-height: 100vh;
     background: var(--bg-primary);
     color: var(--text-primary);
-    padding: var(--space-lg);
+    padding: var(--space-xs); // Mobile: minimal horizontal spacing
     max-width: var(--container-xl);
     margin: 0 auto;
-    animation: fadeIn var(--animation-duration-normal) ease-out;
-    contain: layout style;
+    contain: layout style paint;
 
-    // Mobile portrait (< 480px) - very compact
-    @media (max-width: 39.9375em) {
-      padding: var(--space-sm) var(--space-xs);
-      min-height: 100dvh; // Use dynamic viewport height on mobile
+    @media (min-width: 20em) {
+      padding: var(--space-sm);
     }
 
-    // Mobile landscape (480px - 640px) - balanced layout
-    @media (max-width: 47.9375em) and (orientation: landscape) {
-      padding: var(--space-md) var(--space-sm);
-    }
-
-    // Small tablet (640px - 768px) - enhanced spacing
-    @media (min-width: 40em) and (max-width: 47.9375em) {
-      padding: var(--space-lg) var(--space-md);
-    }
-
-    // Tablet (768px - 1024px) - optimal spacing
-    @media (min-width: 48em) and (max-width: 63.9375em) {
-      padding: var(--space-xl);
-      max-width: var(--container-lg);
-    }
-
-    // Desktop (1024px+) - premium experience
     @media (min-width: 48em) {
+      padding: var(--space-lg);
+    }
+
+    @media (min-width: 64em) {
+      padding: var(--space-xl);
+    }
+
+    @media (min-width: 80em) {
       padding: var(--space-2xl);
-      max-width: var(--container-xl);
     }
   }
 
-  // Game Header Section
+  /* ======================================
+   * GAME HEADER
+   * ====================================== */
   .game-header {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
     text-align: center;
+    contain: layout style;
 
-    @media (max-width: 39.9375em) {
-      margin-bottom: var(--space-md);
+    @media (min-width: 48em) {
+      margin-bottom: var(--space-lg);
     }
   }
 
@@ -384,28 +260,20 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--space-md);
-    margin-top: var(--space-md);
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
     flex-wrap: wrap;
+    contain: layout style;
 
-    // Mobile portrait - stacked layout
-    @media (max-width: 39.9375em) {
+    @media (min-width: 48em) {
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+
+    @media (max-width: 47.9375em) {
       flex-direction: column;
       align-items: center;
       gap: var(--space-xs);
-      margin-top: var(--space-sm);
-    }
-
-    // Small tablet and up to large mobile
-    @media (min-width: 40em) and (max-width: 47.9375em) {
-      flex-direction: row;
-      justify-content: center;
-      gap: var(--space-sm);
-    }
-
-    // Desktop - optimal spacing
-    @media (min-width: 48em) {
-      gap: var(--space-lg);
     }
   }
 
@@ -415,16 +283,21 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     justify-content: center;
     gap: var(--space-sm);
     background: var(--bg-secondary);
-    padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-lg);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
     border: var(--border-width-thin) solid var(--border-secondary);
-    transition: $transition-smooth;
+    transition: all var(--transition-base);
     min-width: var(--stat-width-sm);
-    contain: layout style;
+    contain: layout style paint;
+
+    @media (min-width: 48em) {
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-lg);
+      min-width: var(--stat-width-md);
+    }
 
     &:hover {
       background: var(--bg-tertiary);
-      transform: translateY(calc(-1 * var(--space-micro)));
       box-shadow: var(--shadow-md);
     }
 
@@ -433,167 +306,119 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       height: var(--icon-size-sm);
       color: var(--interactive-primary);
       flex-shrink: 0;
+      contain: layout style paint;
+
+      @media (min-width: 48em) {
+        width: var(--icon-size-md);
+        height: var(--icon-size-md);
+      }
     }
 
     &__text {
       font-weight: var(--font-medium);
-      font-size: var(--text-sm);
+      font-size: var(--text-xs);
       white-space: nowrap;
       min-width: var(--coin-number-min-width);
-    }
+      contain: layout style;
 
-    // Mobile portrait - compact badges
-    @media (max-width: 39.9375em) {
-      padding: var(--space-xs) var(--space-sm);
-      min-width: calc(var(--stat-width-sm) * 0.75);
-      gap: var(--space-xs);
-
-      &__icon {
-        width: var(--text-sm);
-        height: var(--text-sm);
+      @media (min-width: 48em) {
+        font-size: var(--text-sm);
       }
-
-      &__text {
-        font-size: var(--text-xs);
-      }
-    }
-
-    // Desktop - enhanced badges
-    @media (min-width: 48em) {
-      min-width: var(--stat-width-md);
-      padding: var(--space-md) var(--space-lg);
     }
   }
 
-  // Enhanced game content section with responsive max-widths
+  /* ======================================
+   * GAME CONTENT
+   * ====================================== */
   .game-content {
     max-width: var(--container-md);
     margin: 0 auto;
     width: var(--width-full);
-    contain: layout;
+    contain: layout style;
 
-    // Mobile portrait - full width
-    @media (max-width: 39.9375em) {
-      max-width: var(--width-full);
-      margin: 0;
-    }
-
-    // Desktop - optimal reading width
     @media (min-width: 48em) {
       max-width: var(--container-lg);
     }
   }
 
   .game-title {
-    font-size: var(--text-2xl);
+    font-size: var(--text-lg);
     font-weight: var(--font-bold);
     text-align: center;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
     background: var(--btn-primary-bg);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: var(--leading-tight);
+    contain: layout style;
 
-    // Mobile portrait - very compact
-    @media (max-width: 39.9375em) {
-      font-size: var(--text-lg);
-      line-height: var(--leading-normal);
-      margin-bottom: var(--space-xs);
-    }
-
-    // Mobile landscape - balanced
-    @media (max-width: 47.9375em) and (orientation: landscape) {
-      font-size: var(--text-xl);
+    @media (min-width: 48em) {
+      font-size: var(--text-2xl);
       margin-bottom: var(--space-sm);
     }
 
-    // Small tablet - enhanced
-    @media (min-width: 40em) and (max-width: 47.9375em) {
-      font-size: var(--text-2xl);
-    }
-
-    // Desktop - optimal typography
-    @media (min-width: 48em) {
+    @media (min-width: 64em) {
       font-size: var(--text-3xl);
       margin-bottom: var(--space-md);
-      line-height: var(--leading-tight);
+    }
+
+    @media (max-width: 19.9375em) {
+      font-size: var(--text-base);
+      line-height: var(--leading-normal);
     }
   }
 
   .game-description {
     text-align: center;
     color: var(--text-secondary);
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
     line-height: var(--leading-enhanced);
     max-width: var(--content-readable-width);
     margin-left: auto;
     margin-right: auto;
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
+    contain: layout style;
 
-    // Mobile portrait - compact description
-    @media (max-width: 39.9375em) {
-      margin-bottom: var(--space-md);
+    @media (min-width: 48em) {
+      font-size: var(--text-base);
+      margin-bottom: var(--space-xl);
+    }
+
+    @media (min-width: 64em) {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-2xl);
+    }
+
+    @media (max-width: 19.9375em) {
       font-size: var(--text-xs);
       line-height: var(--leading-relaxed);
       max-width: var(--width-full);
       padding: 0 var(--space-sm);
     }
-
-    // Mobile landscape - improved readability
-    @media (max-width: 47.9375em) and (orientation: landscape) {
-      font-size: var(--text-sm);
-      margin-bottom: var(--space-lg);
-    }
-
-    // Tablet - optimal reading
-    @media (min-width: 40em) and (max-width: 47.9375em) {
-      font-size: var(--text-sm);
-      margin-bottom: var(--space-lg);
-      max-width: var(--motivation-text-max-width);
-    }
-
-    // Desktop - enhanced typography
-    @media (min-width: 48em) {
-      font-size: var(--text-lg);
-      margin-bottom: var(--space-2xl);
-    }
   }
 
-  // Enhanced chronology container with comprehensive responsive design
+  /* ======================================
+   * CHRONOLOGY CONTAINER
+   * ====================================== */
   .chronology-container {
     background: var(--card-bg);
-    border-radius: var(--radius-xl);
-    padding: var(--space-lg);
-    margin-bottom: var(--space-lg);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
     border: var(--border-width-thin) solid var(--card-border);
     min-height: var(--container-intrinsic-height-card);
     position: relative;
     box-shadow: var(--card-shadow);
-    contain: layout style;
+    contain: layout style paint;
 
-    // Mobile portrait - very compact container
-    @media (max-width: 39.9375em) {
-      padding: var(--space-sm);
-      min-height: calc(var(--container-intrinsic-height-card) * 0.75);
-      margin-bottom: var(--space-md);
-      border-radius: var(--radius-lg);
-    }
-
-    // Mobile landscape - balanced spacing
-    @media (max-width: 47.9375em) and (orientation: landscape) {
-      padding: var(--space-md);
-      min-height: calc(var(--container-intrinsic-height-card) * 0.875);
-    }
-
-    // Tablet - optimal container size
-    @media (min-width: 40em) and (max-width: 47.9375em) {
-      padding: var(--space-lg);
-      min-height: calc(var(--container-intrinsic-height-card) * 0.9);
-    }
-
-    // Desktop - premium container experience
     @media (min-width: 48em) {
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+      border-radius: var(--radius-xl);
+    }
+
+    @media (min-width: 64em) {
       padding: var(--space-xl);
       margin-bottom: var(--space-2xl);
       border-radius: var(--radius-2xl);
@@ -612,68 +437,81 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     contain: layout style;
 
     p {
-      margin-top: var(--space-md);
+      margin-top: var(--space-sm);
       font-size: var(--text-sm);
-    }
+      contain: layout style;
 
-    // Mobile portrait - compact loading
-    @media (max-width: 39.9375em) {
-      height: calc(var(--container-intrinsic-height-component) * 0.5);
-
-      p {
-        font-size: var(--text-xs);
-        margin-top: var(--space-sm);
-      }
-    }
-
-    // Desktop - enhanced loading experience
-    @media (min-width: 48em) {
-      height: calc(var(--container-intrinsic-height-component) * 0.75);
-
-      p {
+      @media (min-width: 48em) {
+        margin-top: var(--space-md);
         font-size: var(--text-base);
+      }
+
+      @media (min-width: 64em) {
         margin-top: var(--space-lg);
       }
+    }
+
+    @media (max-width: 47.9375em) {
+      height: calc(var(--container-intrinsic-height-component) * 0.5);
+    }
+
+    @media (min-width: 48em) {
+      height: calc(var(--container-intrinsic-height-component) * 0.75);
     }
   }
 
   .loading-icon {
-    width: var(--icon-size-lg);
-    height: var(--icon-size-lg);
-    margin-bottom: var(--space-md);
+    width: var(--icon-size-md);
+    height: var(--icon-size-md);
+    margin-bottom: var(--space-sm);
     animation: spin var(--animation-pulse-duration) linear infinite;
     color: var(--interactive-primary);
+    contain: layout style paint;
 
-    // Mobile portrait - smaller icon
-    @media (max-width: 39.9375em) {
-      width: var(--icon-size-md);
-      height: var(--icon-size-md);
-      margin-bottom: var(--space-sm);
+    @media (min-width: 48em) {
+      width: var(--icon-size-lg);
+      height: var(--icon-size-lg);
+      margin-bottom: var(--space-md);
     }
 
-    // Desktop - larger icon
-    @media (min-width: 48em) {
+    @media (min-width: 64em) {
       width: var(--icon-size-xl);
       height: var(--icon-size-xl);
     }
   }
 
-  // Enhanced chronology items with comprehensive responsive design
+  /* ======================================
+   * CHRONOLOGY ITEMS
+   * ====================================== */
   .chronology-item {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
+    gap: var(--space-sm);
     background: var(--card-bg);
-    border: $border-default;
-    border-radius: var(--radius-lg);
-    padding: var(--space-md);
-    margin-bottom: var(--space-md);
+    border: var(--border-width-thick) solid var(--border-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm);
+    margin-bottom: var(--space-sm);
     cursor: pointer;
-    transition: $transition-smooth;
+    transition: all var(--transition-base);
     position: relative;
     box-shadow: var(--card-shadow);
-    contain: layout style;
-    min-height: var(--touch-target-enhanced);
+    contain: layout style paint;
+    min-height: var(--touch-target-standard);
+
+    @media (min-width: 48em) {
+      gap: var(--space-md);
+      padding: var(--space-md);
+      margin-bottom: var(--space-md);
+      border-radius: var(--radius-lg);
+      min-height: var(--touch-target-enhanced);
+    }
+
+    @media (min-width: 64em) {
+      padding: var(--space-lg);
+      gap: var(--space-lg);
+      border-radius: var(--radius-xl);
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -681,63 +519,53 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
 
     &:hover {
       border-color: var(--interactive-primary);
-      transform: $hover-transform;
-      box-shadow: $shadow-hover;
+      box-shadow: var(--card-shadow-hover);
     }
 
-    @include focus-styles;
+    &:focus {
+      outline: none;
+      border-color: var(--interactive-primary);
+      box-shadow: var(--focus-ring);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--interactive-primary);
+      outline-offset: 2px;
+    }
 
     &--selected {
       border-color: var(--interactive-primary);
       background: var(--bg-tertiary);
-      box-shadow: $shadow-hover;
+      box-shadow: var(--card-shadow-hover);
 
       .chronology-item__position {
         background: var(--interactive-secondary);
-        transform: scale(var(--animation-scale-hover-subtle));
       }
-    }
-
-    // Mobile portrait - compact items
-    @media (max-width: 39.9375em) {
-      padding: var(--space-sm);
-      gap: var(--space-sm);
-      margin-bottom: var(--space-sm);
-      border-radius: var(--radius-md);
-      min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
-    }
-
-    // Desktop - enhanced items
-    @media (min-width: 48em) {
-      padding: var(--space-lg);
-      gap: var(--space-lg);
-      border-radius: var(--radius-xl);
     }
 
     &__position {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: var(--min-touch-size);
-      height: var(--min-touch-size);
+      width: 32px;
+      height: 32px;
       background: var(--interactive-primary);
       color: var(--color-white);
       border-radius: var(--radius-full);
       font-weight: var(--font-bold);
-      font-size: var(--text-lg);
+      font-size: var(--text-base);
       flex-shrink: 0;
-      transition: $transition-smooth;
+      transition: all var(--transition-base);
       border: var(--border-width-thin) solid transparent;
+      contain: layout style paint;
 
-      // Mobile portrait - compact position indicator
-      @media (max-width: 39.9375em) {
-        width: calc(var(--min-touch-size) * 0.75);
-        height: calc(var(--min-touch-size) * 0.75);
-        font-size: var(--text-base);
+      @media (min-width: 48em) {
+        width: var(--min-touch-size);
+        height: var(--min-touch-size);
+        font-size: var(--text-lg);
       }
 
-      // Desktop - enhanced position indicator
-      @media (min-width: 48em) {
+      @media (min-width: 64em) {
         width: calc(var(--min-touch-size) * 1.125);
         height: calc(var(--min-touch-size) * 1.125);
         font-size: var(--text-xl);
@@ -747,74 +575,44 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     &__content {
       flex: 1;
       min-width: 0;
+      contain: layout style;
     }
 
     &__title {
       font-weight: var(--font-semibold);
-      font-size: var(--text-lg);
+      font-size: var(--text-sm);
       margin-bottom: var(--space-micro);
       color: var(--text-primary);
       line-height: var(--leading-tight);
+      contain: layout style;
 
-      // Mobile portrait - compact title
-      @media (max-width: 39.9375em) {
-        font-size: var(--text-sm);
-        margin-bottom: var(--space-micro);
-      }
-
-      // Tablet - balanced title
-      @media (min-width: 40em) and (max-width: 47.9375em) {
-        font-size: var(--text-base);
-      }
-
-      // Desktop - enhanced title
       @media (min-width: 48em) {
-        font-size: var(--text-xl);
+        font-size: var(--text-base);
         margin-bottom: var(--space-xs);
+      }
+
+      @media (min-width: 64em) {
+        font-size: var(--text-xl);
       }
     }
 
     &__artist {
       color: var(--text-secondary);
-      font-size: var(--text-base);
+      font-size: var(--text-xs);
       line-height: var(--leading-normal);
       font-weight: var(--font-normal);
+      contain: layout style;
 
-      // Mobile portrait - compact artist name
-      @media (max-width: 39.9375em) {
-        font-size: var(--text-xs);
-        line-height: var(--leading-tight);
-      }
-
-      // Tablet - balanced artist name
-      @media (min-width: 40em) and (max-width: 47.9375em) {
+      @media (min-width: 48em) {
         font-size: var(--text-sm);
       }
 
-      // Desktop - enhanced artist name
-      @media (min-width: 48em) {
+      @media (min-width: 64em) {
         font-size: var(--text-lg);
       }
     }
 
-    // Responsive layout adjustments
-    @media (min-width: 40em) and (max-width: 47.9375em) {
-      flex-direction: column;
-      text-align: center;
-      gap: var(--space-sm);
-
-      &__content {
-        order: -1;
-        margin-bottom: var(--space-sm);
-      }
-
-      &__position {
-        align-self: center;
-      }
-    }
-
-    // Mobile portrait - very compact layout
-    @media (max-width: 39.9375em) {
+    @media (max-width: 47.9375em) {
       gap: var(--space-xs);
 
       &__content {
@@ -823,113 +621,114 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
   }
 
-  // Enhanced game controls with comprehensive responsive design
+  /* ======================================
+   * GAME CONTROLS
+   * ====================================== */
   .game-controls {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: var(--space-lg);
+    gap: var(--space-md);
     width: var(--width-full);
     max-width: var(--container-sm);
     margin: 0 auto;
-    padding: var(--space-2xl);
+    padding: var(--space-lg);
     background: linear-gradient(
       135deg,
       rgba(255, 255, 255, 0.1) 0%,
       rgba(255, 255, 255, 0.05) 100%
     );
     backdrop-filter: blur(var(--backdrop-blur)) saturate(180%);
-    border-radius: var(--radius-2xl);
+    border-radius: var(--radius-xl);
     border: var(--border-width-thin) solid rgba(255, 255, 255, 0.2);
-    box-shadow:
-      var(--shadow-xl),
-      var(--shadow-md),
-      inset 0 var(--border-width-thin) 0 rgba(255, 255, 255, 0.2);
-    contain: layout style;
+    box-shadow: var(--shadow-xl);
+    contain: layout style paint;
 
-    // Mobile portrait - very compact controls
-    @media (max-width: 39.9375em) {
-      gap: var(--space-md);
-      padding: var(--space-xl) var(--space-lg);
-      border-radius: var(--radius-xl);
-      margin: var(--space-lg) auto;
-      max-width: min(var(--width-full), var(--grid-min-width-xl));
-    }
-
-    // Mobile landscape - balanced controls
-    @media (max-width: 47.9375em) and (orientation: landscape) {
+    @media (min-width: 48em) {
       gap: var(--space-lg);
       padding: var(--space-xl);
-      max-width: var(--container-query-lg);
+      border-radius: var(--radius-2xl);
     }
 
-    // Tablet - optimal controls layout
-    @media (min-width: 40em) and (max-width: 47.9375em) {
-      gap: var(--space-xl);
-      max-width: var(--container-query-md);
-      padding: var(--space-2xl) var(--space-3xl);
-    }
-
-    // Desktop - premium controls experience
-    @media (min-width: 48em) {
-      max-width: var(--container-sm);
-      padding: var(--space-3xl);
+    @media (min-width: 64em) {
       gap: var(--space-2xl);
+      padding: var(--space-2xl);
       border-radius: var(--radius-3xl);
+    }
+
+    @media (max-width: 47.9375em) {
+      padding: var(--space-md);
+      border-radius: var(--radius-lg);
+      margin: var(--space-md) auto;
     }
   }
 
   .move-buttons {
     display: flex;
-    gap: var(--space-md);
+    gap: var(--space-sm);
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     width: var(--width-full);
+    contain: layout style;
 
-    // Mobile portrait - stacked layout for better usability
-    @media (max-width: 39.9375em) {
+    @media (min-width: 48em) {
+      gap: var(--space-md);
+    }
+
+    @media (min-width: 64em) {
+      gap: var(--space-lg);
+    }
+
+    @media (max-width: 47.9375em) {
       flex-direction: column;
-      width: var(--width-full);
       gap: var(--space-sm);
       margin-bottom: var(--space-md);
-    }
-
-    // Tablet - keep stacked for better touch targets
-    @media (min-width: 40em) and (max-width: 47.9375em) {
-      flex-direction: column;
-      width: var(--width-full);
-      gap: var(--space-sm);
-    }
-
-    // Desktop - can use horizontal layout if preferred
-    @media (min-width: 48em) {
-      flex-direction: row;
-      gap: var(--space-lg);
-      justify-content: center;
     }
   }
 
   .move-button {
-    @include button-base;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
     background: var(--bg-secondary);
     border: var(--border-width-thick) solid var(--border-secondary);
+    border-radius: var(--radius-md);
     color: var(--text-primary);
-    padding: var(--space-md) var(--space-lg);
+    padding: var(--space-sm) var(--space-md);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    justify-content: center;
     min-width: var(--grid-min-width-sm);
     text-align: center;
-    min-height: var(--touch-target-enhanced);
-    font-size: var(--text-base);
+    min-height: var(--touch-target-standard);
+    font-size: var(--text-sm);
+    contain: layout style paint;
+
+    @media (min-width: 48em) {
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--radius-lg);
+      min-width: var(--grid-min-width-md);
+      min-height: var(--touch-target-enhanced);
+      font-size: var(--text-base);
+    }
+
+    @media (min-width: 64em) {
+      padding: var(--space-lg) var(--space-xl);
+      font-size: var(--text-lg);
+      min-width: var(--grid-min-width-lg);
+    }
 
     &:not(:disabled):hover {
       background: var(--interactive-primary);
       color: var(--color-white);
-      transform: translateY(var(--animation-y-offset-small)) scale(var(--scale-focus));
+      box-shadow: var(--card-shadow-hover);
     }
 
     &:not(:disabled):active {
-      transform: translateY(0) scale(var(--scale-active));
+      box-shadow: var(--shadow-sm);
     }
 
     &:disabled {
@@ -939,19 +738,33 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
       cursor: not-allowed;
     }
 
-    &__icon {
-      width: var(--icon-size-md);
-      height: var(--icon-size-md);
-      flex-shrink: 0;
+    &:focus {
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-ring-offset);
     }
 
-    // Mobile portrait - enhanced touch targets with better accessibility
-    @media (max-width: 39.9375em) {
+    &__icon {
+      width: var(--icon-size-sm);
+      height: var(--icon-size-sm);
+      flex-shrink: 0;
+      contain: layout style paint;
+
+      @media (min-width: 48em) {
+        width: var(--icon-size-md);
+        height: var(--icon-size-md);
+      }
+
+      @media (min-width: 64em) {
+        width: var(--icon-size-lg);
+        height: var(--icon-size-lg);
+      }
+    }
+
+    @media (max-width: 47.9375em) {
       width: var(--width-full);
       min-width: auto;
-      min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
-      padding: var(--space-lg) var(--space-md);
-      font-size: var(--text-sm);
+      min-height: calc(var(--touch-target-standard) + var(--space-sm));
+      padding: var(--space-md);
       flex-direction: column;
       gap: var(--space-xs);
 
@@ -960,70 +773,83 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
         height: var(--icon-size-sm);
       }
     }
-
-    // Tablet - balanced button layout
-    @media (min-width: 40em) and (max-width: 47.9375em) {
-      width: var(--width-full);
-      min-width: auto;
-      padding: var(--space-md) var(--space-lg);
-      flex-direction: row;
-    }
-
-    // Desktop - optimal button experience
-    @media (min-width: 48em) {
-      min-width: var(--grid-min-width-md);
-      padding: var(--space-lg) var(--space-xl);
-      font-size: var(--text-lg);
-
-      &__icon {
-        width: var(--icon-size-lg);
-        height: var(--icon-size-lg);
-      }
-    }
   }
 
   .submit-button {
-    @include button-base;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
     background: var(--btn-primary-bg);
     border: none;
+    border-radius: var(--radius-md);
     color: var(--btn-primary-text);
-    padding: var(--space-md) var(--space-xl);
+    padding: var(--space-sm) var(--space-lg);
     font-weight: var(--font-semibold);
-    font-size: var(--text-lg);
-    min-width: var(--grid-min-width-lg);
+    font-size: var(--text-base);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    justify-content: center;
+    min-width: var(--grid-min-width-md);
     text-align: center;
-    min-height: var(--touch-target-enhanced);
+    min-height: var(--touch-target-standard);
     box-shadow: var(--shadow-md);
+    contain: layout style paint;
+
+    @media (min-width: 48em) {
+      padding: var(--space-md) var(--space-xl);
+      border-radius: var(--radius-lg);
+      font-size: var(--text-lg);
+      min-width: var(--grid-min-width-lg);
+      min-height: var(--touch-target-enhanced);
+    }
+
+    @media (min-width: 64em) {
+      padding: var(--space-lg) var(--space-2xl);
+      font-size: var(--text-xl);
+      min-width: var(--grid-min-width-xl);
+    }
 
     &:not(:disabled):hover {
       background: var(--btn-primary-hover);
-      transform: translateY(var(--animation-y-offset-small)) scale(var(--scale-focus));
       box-shadow: var(--card-shadow-hover);
     }
 
     &:not(:disabled):active {
-      transform: translateY(0) scale(var(--scale-active));
       box-shadow: var(--shadow-sm);
     }
 
     &:disabled {
       opacity: var(--opacity-disabled);
       cursor: not-allowed;
-      transform: none;
+    }
+
+    &:focus {
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-ring-offset);
     }
 
     &__icon {
-      width: var(--icon-size-lg);
-      height: var(--icon-size-lg);
+      width: var(--icon-size-md);
+      height: var(--icon-size-md);
       flex-shrink: 0;
+      contain: layout style paint;
+
+      @media (min-width: 48em) {
+        width: var(--icon-size-lg);
+        height: var(--icon-size-lg);
+      }
+
+      @media (min-width: 64em) {
+        width: var(--icon-size-xl);
+        height: var(--icon-size-xl);
+      }
     }
 
-    // Mobile portrait - enhanced touch target with full width
-    @media (max-width: 39.9375em) {
+    @media (max-width: 47.9375em) {
       width: var(--width-full);
       min-width: auto;
-      min-height: calc(var(--touch-target-enhanced) + var(--space-md));
-      padding: var(--space-xl) var(--space-lg);
+      min-height: calc(var(--touch-target-standard) + var(--space-md));
+      padding: var(--space-lg);
       font-size: var(--text-base);
       margin-top: var(--space-md);
 
@@ -1032,59 +858,40 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
         height: var(--icon-size-md);
       }
     }
+  }
 
-    // Tablet - full width for better usability
-    @media (min-width: 40em) and (max-width: 47.9375em) {
-      width: var(--width-full);
-      min-width: auto;
-      padding: var(--space-lg) var(--space-xl);
-      font-size: var(--text-lg);
+  /* ======================================
+   * ANIMATIONS
+   * ====================================== */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
     }
-
-    // Desktop - optimal submit button
-    @media (min-width: 48em) {
-      min-width: var(--grid-min-width-xl);
-      padding: var(--space-xl) var(--space-2xl);
-      font-size: var(--text-xl);
-
-      &__icon {
-        width: var(--icon-size-xl);
-        height: var(--icon-size-xl);
-      }
+    to {
+      transform: rotate(360deg);
     }
   }
 
-  // Enhanced accessibility support
+  /* ======================================
+   * ACCESSIBILITY
+   * ====================================== */
   @media (prefers-reduced-motion: reduce) {
     .chronology-item,
     .move-button,
     .submit-button,
     .badge {
-      transition: var(--transition-instant) !important;
+      transition: none;
 
       &:hover {
-        transform: none !important;
+        transform: none;
       }
     }
 
     .loading-icon {
-      animation: none !important;
-    }
-
-    .chronology-game {
-      animation: none !important;
-    }
-
-    @keyframes fadeIn {
-      from,
-      to {
-        opacity: var(--animation-opacity-full);
-        transform: translateY(0);
-      }
+      animation: none;
     }
   }
 
-  // Enhanced high contrast mode support
   @media (prefers-contrast: high) {
     .chronology-item {
       border-width: var(--border-width-enhanced);
@@ -1113,178 +920,20 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     }
   }
 
-  // Dark mode optimizations
-  @media (prefers-color-scheme: dark) {
-    .chronology-container {
-      background: var(--bg-secondary);
-      border-color: var(--border-secondary);
-    }
+  /* ======================================
+   * FOCUS STYLES
+   * ====================================== */
+  :focus {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
 
-    .chronology-item {
-      background: var(--card-bg);
-      border-color: var(--border-primary);
-    }
-  }
-
-  // Enhanced print styles using global.css variables
-  @media print {
-    .game-controls,
-    .loading-placeholder {
-      display: none;
-    }
-
-    .chronology-game {
-      background: var(--print-bg) !important;
-      color: var(--print-text) !important;
-      padding: var(--space-md) !important;
-      max-width: var(--width-full) !important;
-      min-height: auto !important;
-      box-shadow: none !important;
-    }
-
-    .chronology-container {
-      background: var(--print-bg) !important;
-      border: var(--print-border) !important;
-      box-shadow: none !important;
-      page-break-inside: avoid;
-    }
-
-    .chronology-item {
-      background: var(--print-bg) !important;
-      border: var(--print-border) !important;
-      box-shadow: none !important;
-      page-break-inside: avoid;
-      margin-bottom: var(--space-sm) !important;
-    }
-
-    .badge {
-      background: var(--print-bg) !important;
-      border: var(--print-border) !important;
-      color: var(--print-text) !important;
-      box-shadow: none !important;
+    &:not(:focus-visible) {
+      outline: none;
     }
   }
 
-  // ======================================
-  // ENHANCED RESPONSIVE FEATURES
-  // ======================================
-
-  /* Container queries for enhanced responsive behavior */
-  .chronology-game {
-    container-type: inline-size;
-
-    .game-content {
-      container-type: inline-size;
-
-      // Container query for very small containers
-      @container (max-width: 20rem) {
-        .game-title {
-          font-size: var(--text-base);
-        }
-
-        .game-description {
-          font-size: var(--text-xs);
-        }
-      }
-
-      // Container query for medium containers
-      @container (max-width: 40rem) {
-        .chronology-container {
-          padding: var(--space-md);
-          border-radius: var(--radius-lg);
-        }
-      }
-    }
-  }
-
-  /* Enhanced touch and pointer support */
-  @media (pointer: coarse) {
-    .chronology-item,
-    .move-button,
-    .submit-button {
-      // Enhance touch targets for touch devices
-      min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
-    }
-
-    .badge {
-      padding: var(--space-md) var(--space-lg);
-    }
-  }
-
-  @media (pointer: fine) {
-    .chronology-item:hover {
-      box-shadow: var(--card-shadow-hover);
-    }
-
-    .badge:hover {
-      transform: translateY(var(--animation-y-offset-small))
-        scale(var(--animation-scale-hover-subtle));
-    }
-  }
-
-  /* Landscape orientation support for mobile devices */
-  @media (max-width: 47.9375em) and (orientation: landscape) {
-    .chronology-game {
-      padding: var(--space-sm);
-      min-height: 100lvh; // Use logical viewport height for landscape
-    }
-
-    .game-header {
-      margin-bottom: var(--space-sm);
-    }
-
-    .game-info {
-      flex-direction: row;
-      gap: var(--space-sm);
-      margin-top: var(--space-sm);
-    }
-
-    .chronology-container {
-      min-height: calc(var(--container-intrinsic-height-card) * 0.6);
-      padding: var(--space-md);
-    }
-
-    .game-controls {
-      padding: var(--space-lg);
-      gap: var(--space-md);
-    }
-  }
-
-  /* Forced colors mode support (Windows High Contrast) */
-  @media (forced-colors: active) {
-    .chronology-item {
-      border: var(--border-width-thick) solid ButtonBorder;
-      background: ButtonFace;
-      forced-color-adjust: none;
-
-      &--selected {
-        border-color: Highlight;
-        background: HighlightText;
-      }
-    }
-
-    .move-button,
-    .submit-button {
-      border: var(--border-width-thick) solid ButtonBorder;
-      background: ButtonFace;
-      color: ButtonText;
-      forced-color-adjust: none;
-    }
-
-    .submit-button {
-      background: Highlight;
-      color: HighlightText;
-    }
-
-    .badge {
-      border: var(--border-width-thin) solid ButtonBorder;
-      background: ButtonFace;
-      color: ButtonText;
-    }
-
-    .chronology-container {
-      border: var(--border-width-thick) solid ButtonBorder;
-      background: Canvas;
-    }
+  :focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
   }
 </style>

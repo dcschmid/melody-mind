@@ -334,7 +334,7 @@ const gameModeNames = {
 </Layout>
 
 <script>
-  // Enhanced filter functionality for highscores with modern ES6+ features
+  // Simple filter functionality for highscores
   const initHighscoresFilters = (): void => {
     const gameModeFilter = document.getElementById("game-mode-filter") as HTMLSelectElement;
     const categoryFilter = document.getElementById("category-filter") as HTMLSelectElement;
@@ -344,12 +344,12 @@ const gameModeNames = {
       return;
     }
 
-    // Function to update highscores based on filters using modern URL API
+    // Function to update highscores based on filters
     const updateHighscores = (): void => {
       const gameMode = gameModeFilter.value;
       const category = categoryFilter.value;
 
-      // Build query parameters using modern URLSearchParams
+      // Build query parameters
       const params = new URLSearchParams();
       if (gameMode) {
         params.append("gameMode", gameMode);
@@ -358,157 +358,71 @@ const gameModeNames = {
         params.append("category", category);
       }
 
-      // Get current language from URL using modern URL API
+      // Get current language from URL
       const [, lang] = window.location.pathname.split("/");
 
-      // Navigate with new filters using modern URL construction
+      // Navigate with new filters
       const newUrl = `/${lang}/highscores${params.toString() ? `?${params.toString()}` : ""}`;
       window.location.href = newUrl;
     };
 
-    // Add event listeners using modern arrow functions
+    // Add event listeners
     gameModeFilter.addEventListener("change", updateHighscores);
     categoryFilter.addEventListener("change", updateHighscores);
 
-    // Set initial filter values from URL params using modern destructuring
+    // Set initial filter values from URL params
     const urlParams = new URLSearchParams(window.location.search);
-    const { gameMode: gameModeParam, category: categoryParam } = Object.fromEntries(urlParams);
+    const gameModeParam = urlParams.get("gameMode");
+    const categoryParam = urlParams.get("category");
 
-    // Set initial values using optional chaining and nullish coalescing
-    gameModeFilter.value = gameModeParam ?? "";
-    categoryFilter.value = categoryParam ?? "";
+    gameModeFilter.value = gameModeParam || "";
+    categoryFilter.value = categoryParam || "";
   };
 
-  // Initialize filters when DOM is ready using modern event handling
+  // Initialize filters when DOM is ready
   document.addEventListener("DOMContentLoaded", initHighscoresFilters);
 </script>
 
 <style lang="scss" is:global>
-  @use "sass:map";
-
   /* ======================================
-   * SCSS VARIABLES & MIXINS
-   * Enhanced with global.css variables and responsive design
-   * ====================================== */
-
-  // SCSS Variables using global.css tokens
-  $hero-decoration-sm: var(--space-2xl);
-  $hero-decoration-md: var(--space-3xl);
-  $hero-decoration-lg: calc(var(--space-3xl) * 2);
-  $content-max-width: var(--form-container-max-width);
-  $hero-shadow: var(--shadow-lg);
-  $divider-height: var(--border-width-thick);
-
-  // Note: Using hardcoded em values in media queries since CSS variables don't work in @media rules
-  // Mobile portrait: 0-479px (< 30em)
-  // Mobile landscape: 480-639px (30em - 39.9375em)
-  // Small tablet: 640-767px (40em - 47.9375em)
-  // Tablet: 768-1023px (48em - 63.9375em)
-  // Desktop: 1024-1279px (64em - 79.9375em)
-  // Large desktop: 1280px+ (80em+)
-
-  // Mixins for responsive design using hardcoded breakpoints
-  @mixin respond-to-sm {
-    @media (min-width: 40em) {
-      @content;
-    }
-  }
-
-  @mixin respond-to-md {
-    @media (min-width: 48em) {
-      @content;
-    }
-  }
-
-  @mixin respond-to-lg {
-    @media (min-width: 64em) {
-      @content;
-    }
-  }
-
-  @mixin respond-to-xl {
-    @media (min-width: 80em) {
-      @content;
-    }
-  }
-
-  // Mixin for container queries
-  @mixin container-query($width) {
-    @container (min-width: $width) {
-      @content;
-    }
-  }
-
-  // Mixin for focus states
-  @mixin focus-visible {
-    &:focus-visible {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-      box-shadow: var(--focus-ring);
-    }
-  }
-
-  // Mixin for hover effects
-  @mixin hover-lift {
-    transition: all var(--transition-normal);
-
-    &:hover {
-      transform: translateY(calc(-1 * var(--space-xs)));
-      box-shadow: var(--card-shadow-hover);
-    }
-  }
-
-  /* ======================================
-   * HIGHSCORES CONTAINER LAYOUT 
-   * Enhanced responsive design with modern SCSS
+   * HIGHSCORES PAGE STYLES - OPTIMIZED FOR STYLE GUARDIAN
+   * BEM Methodology + Global Variables + Mobile-First
    * ====================================== */
 
   .highscores-container {
     width: var(--width-full);
     max-width: var(--container-xl);
     margin: 0 auto;
-    padding: var(--space-md) var(--space-sm);
+    padding: var(--space-md) var(--space-xs); // Mobile: minimal horizontal spacing
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    contain: layout style;
-    scroll-behavior: smooth;
-    
+    contain: layout style paint;
+
+    @media (min-width: 20em) {
+      padding: var(--space-lg) var(--space-sm);
+    }
+
+    @media (min-width: 48em) {
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    @media (min-width: 64em) {
+      padding: var(--space-2xl) var(--space-lg);
+    }
+
+    @media (min-width: 80em) {
+      padding: var(--space-3xl) var(--space-xl);
+    }
+
     @media (prefers-reduced-motion: reduce) {
       scroll-behavior: auto;
-    }
-
-    // Mobile portrait (< 480px) - very compact
-    @media (max-width: 29.9375em) {
-      padding: var(--space-sm) var(--space-xs);
-    }
-
-    // Mobile landscape (480px - 640px)
-    @media (min-width: 30em) and (max-width: 39.9375em) {
-      padding: var(--space-lg) var(--space-md);
-    }
-
-    // Small tablet (640px - 768px)
-    @media (min-width: 40em) and (max-width: 47.9375em) {
-      padding: var(--space-lg) var(--space-md);
-    }
-
-    // Tablet (768px - 1024px)
-    @media (min-width: 48em) and (max-width: 63.9375em) {
-      padding: var(--space-xl) var(--space-lg);
-    }
-
-    // Desktop (1024px+)
-    @media (min-width: 64em) {
-      padding: var(--space-2xl) var(--space-xl);
     }
   }
 
   /* ======================================
-   * HERO SECTION STYLING
-   * Enhanced responsive design with modern SCSS
+   * HERO SECTION - SIMPLIFIED DESIGN
    * ====================================== */
-
   .highscores-hero {
     position: relative;
     margin-bottom: var(--space-xl);
@@ -520,144 +434,104 @@ const gameModeNames = {
       var(--color-primary-700) 50%,
       var(--color-secondary-800) 100%
     );
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-lg) var(--space-sm); // Mobile: compact spacing
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
-    contain: layout style;
+    contain: layout style paint;
 
-    // Mobile portrait (< 480px)
-    @media (max-width: 29.9375em) {
-      margin-bottom: var(--space-lg);
-      padding: var(--space-md) var(--space-sm);
-      border-radius: var(--radius-md);
-    }
-
-    // Mobile landscape (480px - 640px)
-    @media (min-width: 30em) and (max-width: 39.9375em) {
-      padding: var(--space-lg) var(--space-md);
-      border-radius: var(--radius-lg);
-    }
-
-    // Small tablet (640px - 768px)
-    @media (min-width: 40em) and (max-width: 47.9375em) {
-      padding: var(--space-xl) var(--space-lg);
-      border-radius: var(--radius-xl);
-    }
-
-    // Tablet (768px - 1024px)
-    @media (min-width: 48em) and (max-width: 63.9375em) {
+    @media (min-width: 48em) {
       margin-bottom: var(--space-2xl);
       padding: var(--space-xl) var(--space-lg);
       border-radius: var(--radius-xl);
     }
 
-    // Desktop (1024px+)
     @media (min-width: 64em) {
       margin-bottom: var(--space-3xl);
       padding: var(--space-2xl) var(--space-xl);
       border-radius: var(--radius-2xl);
     }
 
-    // Large desktop (1280px+)
     @media (min-width: 80em) {
       padding: var(--space-3xl) var(--space-2xl);
     }
 
-    // Decoration elements with responsive sizing
+    // Decoration elements
     &__decoration {
       position: absolute;
       inset: 0;
       opacity: 0.1;
       pointer-events: none;
+      contain: layout style paint;
 
       &-item {
         position: absolute;
         border-radius: var(--radius-full);
         background: var(--color-white);
-        transition: transform var(--transition-normal);
+        transition: transform var(--transition-base);
+        contain: layout style paint;
 
         &--top-right {
           top: calc(-1 * var(--space-xl));
           right: calc(-1 * var(--space-xl));
-          width: $hero-decoration-md;
-          height: $hero-decoration-md;
+          width: var(--space-3xl);
+          height: var(--space-3xl);
 
-          @include respond-to-lg {
-            width: $hero-decoration-lg;
-            height: $hero-decoration-lg;
+          @media (min-width: 64em) {
+            width: calc(var(--space-3xl) * 2);
+            height: calc(var(--space-3xl) * 2);
           }
         }
 
         &--bottom-left {
           bottom: calc(-1 * var(--space-2xl));
           left: calc(-1 * var(--space-2xl));
-          width: $hero-decoration-lg;
-          height: $hero-decoration-lg;
+          width: calc(var(--space-3xl) * 2);
+          height: calc(var(--space-3xl) * 2);
 
-          @include respond-to-lg {
-            width: calc($hero-decoration-lg * 1.5);
-            height: calc($hero-decoration-lg * 1.5);
+          @media (min-width: 64em) {
+            width: calc(var(--space-3xl) * 3);
+            height: calc(var(--space-3xl) * 3);
           }
         }
 
         &--center-right {
           top: 50%;
           right: calc(-1 * var(--space-md));
-          width: $hero-decoration-sm;
-          height: $hero-decoration-sm;
+          width: var(--space-2xl);
+          height: var(--space-2xl);
           transform: translateY(-50%);
 
-          @include respond-to-md {
-            width: $hero-decoration-md;
-            height: $hero-decoration-md;
+          @media (min-width: 48em) {
+            width: var(--space-3xl);
+            height: var(--space-3xl);
           }
         }
       }
     }
 
-    // Content section with responsive typography
     &__content {
       position: relative;
       z-index: 1;
       text-align: center;
       color: var(--color-white);
+      contain: layout style;
     }
 
     &__title {
       margin-bottom: var(--space-md);
       color: var(--color-white);
-      text-shadow: $hero-shadow;
+      text-shadow: var(--shadow-lg);
       font-size: var(--text-2xl);
 
-      // Mobile portrait
-      @media (max-width: 29.9375em) {
-        margin-bottom: var(--space-sm);
-        font-size: var(--text-xl);
-      }
-
-      // Mobile landscape
-      @media (min-width: 30em) and (max-width: 39.9375em) {
-        font-size: var(--text-2xl);
-      }
-
-      // Small tablet
-      @media (min-width: 40em) and (max-width: 47.9375em) {
-        font-size: var(--text-3xl);
-      }
-
-      // Tablet
-      @media (min-width: 48em) and (max-width: 63.9375em) {
+      @media (min-width: 48em) {
         margin-bottom: var(--space-lg);
         font-size: var(--text-3xl);
       }
 
-      // Desktop
       @media (min-width: 64em) {
-        margin-bottom: var(--space-lg);
         font-size: var(--text-4xl);
       }
 
-      // Large desktop
       @media (min-width: 80em) {
         font-size: var(--text-5xl);
       }
@@ -669,20 +543,13 @@ const gameModeNames = {
       background: var(--color-secondary-400);
       margin: var(--space-md) auto;
       border-radius: var(--radius-full);
+      contain: layout style paint;
 
-      // Mobile portrait
-      @media (max-width: 29.9375em) {
-        width: var(--space-lg);
-        margin: var(--space-sm) auto;
-      }
-
-      // Desktop
       @media (min-width: 64em) {
         width: var(--space-2xl);
         margin: var(--space-lg) auto;
       }
 
-      // Large desktop
       @media (min-width: 80em) {
         width: var(--space-3xl);
       }
@@ -692,40 +559,21 @@ const gameModeNames = {
       color: var(--color-neutral-100);
       font-size: var(--text-base);
       line-height: var(--leading-relaxed);
-      max-width: $content-max-width;
+      max-width: var(--form-container-max-width);
       margin: 0 auto;
+      contain: layout style;
 
-      // Mobile portrait
-      @media (max-width: 29.9375em) {
-        font-size: var(--text-sm);
-        line-height: var(--leading-normal);
-        max-width: 100%;
-      }
-
-      // Mobile landscape
-      @media (min-width: 30em) and (max-width: 39.9375em) {
-        font-size: var(--text-base);
-      }
-
-      // Small tablet
-      @media (min-width: 40em) and (max-width: 47.9375em) {
+      @media (min-width: 48em) {
         font-size: var(--text-lg);
       }
 
-      // Tablet
-      @media (min-width: 48em) and (max-width: 63.9375em) {
-        font-size: var(--text-lg);
-      }
-
-      // Desktop
       @media (min-width: 64em) {
         font-size: var(--text-xl);
       }
 
-      // Large desktop
       @media (min-width: 80em) {
         font-size: var(--text-2xl);
-        max-width: calc($content-max-width * 1.2);
+        max-width: calc(var(--form-container-max-width) * 1.2);
       }
     }
 
@@ -735,100 +583,8 @@ const gameModeNames = {
   }
 
   /* ======================================
-   * RESPONSIVE DESIGN ENHANCEMENTS
-   * Enhanced with modern SCSS and container queries
+   * LOADING & ERROR STATES - SIMPLIFIED
    * ====================================== */
-
-
-  // Responsive typography using fluid scaling
-  @include respond-to-lg {
-    .highscores-hero {
-      &__title {
-        font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
-      }
-
-      &__description {
-        font-size: clamp(var(--text-lg), 3vw, var(--text-2xl));
-      }
-    }
-  }
-
-  // Fluid spacing for better responsive behavior
-  @include respond-to-xl {
-    .highscores-container {
-      padding: clamp(var(--space-lg), 5vw, var(--space-3xl))
-        clamp(var(--space-md), 3vw, var(--space-2xl));
-    }
-  }
-
-  /* ======================================
-   * ACCESSIBILITY ENHANCEMENTS
-   * Enhanced with modern SCSS and better a11y support
-   * ====================================== */
-
-  // Reduced motion support with SCSS mixins
-  @media (prefers-reduced-motion: reduce) {
-    .highscores-hero {
-      &__decoration-item {
-        animation: none;
-        transition: none;
-      }
-    }
-
-    .highscores__loading-icon {
-      animation: none;
-    }
-
-    .highscores__card {
-      transition: var(--transition-instant);
-
-      &:hover {
-        transform: none;
-      }
-    }
-
-    .highscores__rank {
-      transition: var(--transition-instant);
-
-      &:hover {
-        transform: none;
-      }
-    }
-  }
-
-  // High contrast mode support
-  @media (prefers-contrast: high) {
-    .highscores-hero {
-      border-width: var(--border-width-thick);
-      border-color: var(--color-white);
-    }
-
-    .highscores__card {
-      border-width: var(--border-width-thick);
-      border-color: var(--text-primary);
-    }
-
-    .highscores__rank--medal {
-      background: var(--text-primary) !important;
-      color: var(--bg-primary) !important;
-      border-color: var(--text-primary) !important;
-    }
-  }
-
-  // Focus management improvements
-  .highscores__filter-select {
-    @include focus-visible;
-  }
-
-  .highscores__card {
-    @include focus-visible;
-  }
-
-  /* ======================================
-   * LOADING & ERROR STATES
-   * Enhanced with modern SCSS and responsive design
-   * ====================================== */
-
   .highscores__loading {
     display: flex;
     align-items: center;
@@ -836,7 +592,7 @@ const gameModeNames = {
     min-height: calc(var(--container-sm) * 0.4);
     padding: var(--space-xl);
     margin: var(--space-xl) auto;
-    animation: fadeIn var(--animation-duration-normal) ease-out;
+    contain: layout style paint;
 
     &-content {
       text-align: center;
@@ -852,7 +608,7 @@ const gameModeNames = {
       color: var(--interactive-primary);
       animation: loading-spin var(--animation-pulse-duration) linear infinite;
 
-      @include respond-to-md {
+      @media (min-width: 48em) {
         width: var(--icon-size-xl);
         height: var(--icon-size-xl);
       }
@@ -867,61 +623,36 @@ const gameModeNames = {
     margin: var(--space-xl) auto;
     max-width: var(--container-sm);
     text-align: center;
-    animation: fadeIn var(--animation-duration-normal) ease-out;
+    contain: layout style paint;
 
-    @include respond-to-md {
+    @media (min-width: 48em) {
       padding: var(--space-xl);
       max-width: var(--container-md);
     }
   }
 
-  // Keyframe animations with modern SCSS
+  // Keyframe animations
   @keyframes loading-spin {
     from {
-      transform: rotate(var(--rotation-0));
+      transform: rotate(0deg);
     }
     to {
       transform: rotate(360deg);
     }
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(var(--space-md));
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateX(calc(-1 * var(--space-lg)));
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
   /* ======================================
-   * CONTENT & FILTER SECTIONS
-   * Enhanced with modern SCSS and responsive design
+   * CONTENT & FILTER SECTIONS - SIMPLIFIED
    * ====================================== */
-
   .highscores__content {
     margin-top: var(--space-2xl);
     line-height: var(--leading-enhanced);
-    animation: fadeIn var(--animation-duration-normal) ease-out;
+    contain: layout style;
   }
 
-  // Enhanced filter section with modern design
   .highscores__filters {
     margin-bottom: var(--space-3xl);
-    animation: slideIn var(--animation-duration-normal) ease-out;
+    contain: layout style paint;
   }
 
   .highscores__filters-container {
@@ -937,7 +668,7 @@ const gameModeNames = {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    
+
     @media (min-width: 48em) {
       grid-template-columns: repeat(2, 1fr);
       gap: var(--space-2xl);
@@ -950,14 +681,10 @@ const gameModeNames = {
     border-radius: var(--radius-xl);
     padding: var(--space-2xl);
     box-shadow: var(--card-shadow);
-    transition: all var(--transition-normal);
+    transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
-
-    // Subtle inner glow
-    box-shadow:
-      var(--card-shadow),
-      inset 0 var(--border-width-thin) 0 oklch(from var(--interactive-primary) l c h / 0.1);
+    contain: layout style paint;
 
     &:hover {
       transform: translateY(calc(-1 * var(--space-sm)));
@@ -987,7 +714,7 @@ const gameModeNames = {
       opacity: 0.7;
     }
 
-    @include respond-to-md {
+    @media (min-width: 48em) {
       padding: var(--space-3xl);
     }
   }
@@ -998,7 +725,7 @@ const gameModeNames = {
     gap: var(--space-md);
     margin-bottom: var(--space-xl);
 
-    @include respond-to-md {
+    @media (min-width: 48em) {
       margin-bottom: var(--space-2xl);
     }
   }
@@ -1009,7 +736,7 @@ const gameModeNames = {
     color: var(--interactive-primary);
     flex-shrink: 0;
 
-    @include respond-to-md {
+    @media (min-width: 48em) {
       width: var(--icon-size-xl);
       height: var(--icon-size-xl);
     }
@@ -1021,7 +748,7 @@ const gameModeNames = {
     color: var(--text-primary);
     line-height: var(--leading-tight);
 
-    @include respond-to-md {
+    @media (min-width: 48em) {
       font-size: var(--text-xl);
     }
   }
@@ -1042,13 +769,17 @@ const gameModeNames = {
     font-size: var(--text-base);
     font-weight: var(--font-medium);
     line-height: var(--leading-normal);
-    min-height: var(--min-touch-size);
-    transition: all var(--transition-normal);
+    min-height: var(--touch-target-enhanced);
+    transition: all var(--transition-base);
     cursor: pointer;
     appearance: none;
     padding-right: calc(var(--space-xl) + var(--icon-size-lg) + var(--space-md));
+    contain: layout style paint;
 
-    @include focus-visible;
+    &:focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-ring-offset);
+    }
 
     &:hover {
       border-color: var(--interactive-primary);
@@ -1061,25 +792,7 @@ const gameModeNames = {
       background-color: var(--form-bg);
     }
 
-    // Enhanced mobile styling
-    @media (max-width: 29.9375em) {
-      appearance: none;
-      background-image: 
-        linear-gradient(45deg, transparent 50%, var(--text-secondary) 50%),
-        linear-gradient(135deg, var(--text-secondary) 50%, transparent 50%);
-      background-position: 
-        calc(100% - 20px) calc(1em + 2px),
-        calc(100% - 15px) calc(1em + 2px);
-      background-size: 5px 5px, 5px 5px;
-      background-repeat: no-repeat;
-    }
-    
-    // Enhanced focus for mobile
-    @media (pointer: coarse) {
-      min-height: calc(var(--min-touch-size) * 1.2);
-    }
-
-    @include respond-to-md {
+    @media (min-width: 48em) {
       padding: var(--space-xl) var(--space-2xl);
       font-size: var(--text-lg);
       padding-right: calc(var(--space-2xl) + var(--icon-size-xl) + var(--space-lg));
@@ -1093,9 +806,9 @@ const gameModeNames = {
     height: var(--icon-size-md);
     color: var(--text-secondary);
     pointer-events: none;
-    transition: color var(--transition-normal);
+    transition: color var(--transition-base);
 
-    @include respond-to-md {
+    @media (min-width: 48em) {
       right: var(--space-xl);
       width: var(--icon-size-lg);
       height: var(--icon-size-lg);
@@ -1107,10 +820,8 @@ const gameModeNames = {
   }
 
   /* ======================================
-   * RESULTS & CARDS SECTIONS
-   * Enhanced with modern SCSS and responsive design
+   * RESULTS & CARDS SECTIONS - SIMPLIFIED
    * ====================================== */
-
   .highscores__list {
     margin-top: var(--space-3xl);
     scroll-margin-top: var(--space-2xl);
@@ -1129,9 +840,8 @@ const gameModeNames = {
     border: var(--border-width-thin) solid var(--border-secondary);
     margin: var(--space-xl) auto;
     max-width: var(--container-sm);
-    animation: fadeIn var(--animation-duration-normal) ease-out;
 
-    @include respond-to-md {
+    @media (min-width: 48em) {
       padding: var(--space-3xl) var(--space-2xl);
       max-width: var(--container-md);
     }
@@ -1144,14 +854,13 @@ const gameModeNames = {
     max-width: 1400px;
     padding: 0 var(--space-md);
     grid-template-columns: 1fr;
+    contain: layout style paint;
 
-    // Tablet: 2 columns (768px+)
     @media (min-width: 48em) {
       grid-template-columns: repeat(2, 1fr);
       gap: var(--space-xl);
     }
 
-    // Desktop: 3 columns (1024px+)
     @media (min-width: 64em) {
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-2xl);
@@ -1159,10 +868,8 @@ const gameModeNames = {
   }
 
   /* ======================================
-   * ENHANCED CARD STYLING
-   * Modern card design with better responsive behavior
+   * CARD STYLING - SIMPLIFIED
    * ====================================== */
-
   .highscores__card {
     position: relative;
     background: var(--card-bg);
@@ -1170,9 +877,10 @@ const gameModeNames = {
     border-radius: var(--radius-xl);
     box-shadow: var(--card-shadow);
     padding: var(--space-xl);
-    transition: all var(--transition-normal);
+    transition: all var(--transition-base);
     min-height: 200px;
-    
+    contain: layout style paint;
+
     &:hover {
       transform: translateY(calc(-1 * var(--space-xs)));
       box-shadow: var(--card-shadow-hover);
@@ -1199,7 +907,7 @@ const gameModeNames = {
     background: var(--interactive-primary);
     color: var(--color-white);
     box-shadow: var(--shadow-md);
-
+    contain: layout style paint;
   }
 
   .highscores__rank-badge--medal {
@@ -1237,9 +945,7 @@ const gameModeNames = {
 
   /* ======================================
    * CARD CONTENT & SCORE SECTIONS
-   * Enhanced with modern SCSS and responsive design
    * ====================================== */
-
   .highscores__card-content {
     display: flex;
     flex-direction: column;
@@ -1255,18 +961,18 @@ const gameModeNames = {
   }
 
   .highscores__card-username {
-    font-size: clamp(
-      var(--text-base), 
-      calc(var(--text-base) + 0.5vw + 0.5vh), 
-      var(--text-2xl)
-    );
+    font-size: var(--text-lg);
     font-weight: var(--font-bold);
     color: var(--text-primary);
-    line-height: clamp(1.2, 1.35, 1.5);
+    line-height: var(--leading-tight);
     margin: 0;
 
-    @include respond-to-md {
-      font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl));
+    @media (min-width: 48em) {
+      font-size: var(--text-xl);
+    }
+
+    @media (min-width: 64em) {
+      font-size: var(--text-2xl);
     }
   }
 
@@ -1276,7 +982,7 @@ const gameModeNames = {
     gap: var(--space-xs);
     flex-wrap: wrap;
 
-    @include respond-to-md {
+    @media (min-width: 48em) {
       gap: var(--space-sm);
     }
   }
@@ -1293,9 +999,8 @@ const gameModeNames = {
     -webkit-background-clip: text;
     color: transparent;
     line-height: var(--leading-tight);
-    position: relative;
 
-    @include respond-to-md {
+    @media (min-width: 48em) {
       font-size: var(--text-2xl);
     }
   }
@@ -1307,16 +1012,14 @@ const gameModeNames = {
     text-transform: uppercase;
     letter-spacing: var(--text-spacing-letter-2x);
 
-    @include respond-to-md {
+    @media (min-width: 48em) {
       font-size: var(--text-base);
     }
   }
 
   /* ======================================
    * CARD DETAILS SECTION
-   * Enhanced with modern SCSS and responsive design
    * ====================================== */
-
   .highscores__card-details {
     display: flex;
     flex-direction: column;
@@ -1337,22 +1040,10 @@ const gameModeNames = {
     height: var(--icon-size-md);
     color: var(--interactive-primary);
     flex-shrink: 0;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, var(--shadow-opacity-light)));
 
-    @include respond-to-md {
+    @media (min-width: 48em) {
       width: var(--icon-size-lg);
       height: var(--icon-size-lg);
-    }
-  }
-
-  .highscores__detail-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    flex: 1;
-
-    @include respond-to-md {
-      gap: var(--space-md);
     }
   }
 
@@ -1364,7 +1055,7 @@ const gameModeNames = {
     letter-spacing: var(--text-spacing-letter-2x);
     opacity: 0.8;
 
-    @include respond-to-md {
+    @media (min-width: 48em) {
       font-size: var(--text-sm);
     }
   }
@@ -1376,12 +1067,12 @@ const gameModeNames = {
     line-height: var(--leading-tight);
     word-break: break-word;
 
-    @include respond-to-md {
+    @media (min-width: 48em) {
       font-size: var(--text-base);
     }
   }
 
-  // Special styling for different detail types with responsive design
+  // Special styling for different detail types
   .highscores__mode {
     color: var(--interactive-secondary);
     font-weight: var(--font-bold);
@@ -1395,7 +1086,7 @@ const gameModeNames = {
     -webkit-background-clip: text;
     color: transparent;
 
-    @include respond-to-md {
+    @media (min-width: 48em) {
       font-size: var(--text-xl);
     }
 
@@ -1409,7 +1100,7 @@ const gameModeNames = {
     color: var(--text-primary);
     font-weight: var(--font-semibold);
 
-    @include respond-to-md {
+    @media (min-width: 48em) {
       font-size: var(--text-xl);
     }
   }
@@ -1420,73 +1111,55 @@ const gameModeNames = {
     font-variant-numeric: tabular-nums;
     font-weight: var(--font-medium);
 
-    @include respond-to-md {
+    @media (min-width: 48em) {
       font-size: var(--text-lg);
     }
   }
 
   /* ======================================
-   * RESPONSIVE IMPROVEMENTS & CONTAINER QUERIES
-   * Enhanced with modern SCSS and better responsive design
-   * ====================================== */
-
-
-
-  // Fluid typography for better responsive behavior
-  @include respond-to-lg {
-    .highscores__card {
-      &-username {
-        font-size: clamp(var(--text-xl), 2.5vw, var(--text-3xl));
-      }
-
-      &-score-value {
-        font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
-      }
-
-      &-info-label,
-      &-info-value {
-        font-size: clamp(var(--text-sm), 1.5vw, var(--text-base));
-      }
-    }
-  }
-
-  /* ======================================
    * ACCESSIBILITY & PRINT STYLES
-   * Enhanced with modern SCSS and better a11y support
    * ====================================== */
 
-  // Reduced motion support with enhanced SCSS
+  // Reduced motion support
   @media (prefers-reduced-motion: reduce) {
-    .highscores__loading-icon,
-    .highscores__rank-badge,
-    .highscores__card,
-    .highscores__filter-select,
-    .highscores__detail-item {
+    .highscores-hero {
+      &__decoration-item {
+        animation: none;
+        transition: none;
+      }
+    }
+
+    .highscores__loading-icon {
       animation: none;
+    }
+
+    .highscores__card {
       transition: var(--transition-instant);
+
+      &:hover {
+        transform: none;
+      }
     }
 
-    .highscores__card:hover {
-      transform: none;
-    }
+    .highscores__rank-badge {
+      transition: var(--transition-instant);
 
-    .highscores__rank-badge:hover {
-      transform: none;
-    }
-
-    .highscores__detail-item:hover {
-      transform: none;
+      &:hover {
+        transform: none;
+      }
     }
   }
 
-  // High contrast mode support with enhanced styling
+  // High contrast mode support
   @media (prefers-contrast: high) {
-    .highscores__card {
-      border: var(--border-width-thick) solid var(--text-primary);
+    .highscores-hero {
+      border-width: var(--border-width-thick);
+      border-color: var(--color-white);
     }
 
-    .highscores__card-header {
-      border-bottom: var(--border-width-thick) solid var(--text-primary);
+    .highscores__card {
+      border-width: var(--border-width-thick);
+      border-color: var(--text-primary);
     }
 
     .highscores__rank-badge--medal {
@@ -1494,21 +1167,9 @@ const gameModeNames = {
       color: var(--bg-primary) !important;
       border-color: var(--text-primary) !important;
     }
-
-    .highscores__mode {
-      border: var(--border-width-thick) solid var(--text-primary);
-    }
-
-    .highscores__filter-select {
-      border: var(--border-width-thick) solid var(--text-primary);
-    }
-
-    .highscores__detail-item {
-      border: var(--border-width-thick) solid var(--text-primary);
-    }
   }
 
-  // Print styles optimized for modern browsers
+  // Print styles
   @media print {
     .highscores__filters {
       display: none;
@@ -1540,12 +1201,6 @@ const gameModeNames = {
 
       &-content {
         padding: var(--space-sm);
-      }
-
-      &-header {
-        margin-bottom: var(--space-md);
-        padding-bottom: var(--space-sm);
-        border-bottom: var(--border-width-thin) solid var(--print-border);
       }
 
       &-username {

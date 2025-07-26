@@ -286,9 +286,20 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         <Headline level="h2" id="time-pressure-heading" textAlign="center">
           {t("game.timepressure.title")}
         </Headline>
-        <Paragraph textSize="2xl" description={t("game.timepressure.description").replace('{category}', currentCategory?.headline)} align="center" />
+        <Paragraph
+          textSize="2xl"
+          description={t("game.timepressure.description").replace(
+            "{category}",
+            currentCategory?.headline
+          )}
+          align="center"
+        />
 
-        <div class="button-group single-button-group" role="group" aria-labelledby="time-pressure-heading">
+        <div
+          class="button-group single-button-group"
+          role="group"
+          aria-labelledby="time-pressure-heading"
+        >
           <ButtonLink
             href={getRelativeLocaleUrl(lang, `time-pressure-${currentCategory?.slug}`)}
             aria-label={`${t("game.timepressure.title")} - ${currentCategory?.headline}`}
@@ -350,11 +361,14 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       initCookieWatcher,
     } from "../../utils/client/authStatus";
 
-    // Modern section management with WeakMap for better performance
-    const sectionStates = new WeakMap();
-
+    // Simple section management
     const getSectionElements = (): HTMLElement[] => {
-      const sections = ["auth-section", "quiz-section", "time-pressure-section", "chronology-section"];
+      const sections = [
+        "auth-section",
+        "quiz-section",
+        "time-pressure-section",
+        "chronology-section",
+      ];
       return sections.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
     };
 
@@ -364,9 +378,9 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     };
 
     const checkAuthStatus = (): void => {
-      // Nur lokale Auth-Prüfung auf Category-Seite (keine Server-Validierung)
       const isLoggedIn = isUserAuthenticated();
-      const [authSection, quizSection, timePressureSection, chronologySection] = getSectionElements();
+      const [authSection, quizSection, timePressureSection, chronologySection] =
+        getSectionElements();
 
       if (isLoggedIn) {
         // User is logged in - show game modes, hide auth form
@@ -397,12 +411,11 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     };
 
     const initializePage = (): void => {
-      // Initially hide all sections with performance optimization
+      // Initially hide all sections
       const sections = getSectionElements();
       sections.forEach((section) => {
         if (section) {
           updateSectionVisibility(section, false);
-          sectionStates.set(section, { initialized: true });
         }
       });
 
@@ -410,7 +423,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       checkAuthStatus();
     };
 
-    // Modern DOM ready check with performance optimization
+    // Initialize page when DOM is loaded
     const runWhenReady = (callback: () => void): void => {
       if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", callback, { once: true });
@@ -419,82 +432,74 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       }
     };
 
-    // Initialize page when DOM is loaded
+    // Initialize page
     runWhenReady(initializePage);
 
-    // Register auth event listeners with cleanup tracking
+    // Register auth event listeners
     const authListeners = registerAuthEventListeners(checkAuthStatus);
     const cookieWatcherId = initCookieWatcher(checkAuthStatus, 1000);
 
-    // Modern cleanup with AbortController for better performance
+    // Cleanup on page unload
     const cleanup = (): void => {
       authListeners.remove();
       clearInterval(cookieWatcherId);
     };
 
-    // Cleanup on page unload
     document.addEventListener("astro:page-unload", cleanup, { once: true });
   </script>
 </Layout>
 
 <style lang="scss">
-  /* ==============================================
-   * KATEGORIE-SEITE STYLES - MODERN & RESPONSIVE
-   * Using CSS variables from global.css for optimal maintainability
-   * ============================================== */
+  /* ======================================
+   * CATEGORY PAGE STYLES - OPTIMIZED FOR STYLE GUARDIAN
+   * BEM Methodology + Global Variables + Mobile-First
+   * ====================================== */
 
   .page-container {
-    margin: var(--space-none) auto;
+    margin: 0 auto;
     width: var(--width-full);
     max-width: var(--container-2xl);
     min-height: 100vh;
     background: var(--bg-primary);
     color: var(--text-primary);
+    contain: layout style paint;
+    padding: var(--space-xs); // Mobile: minimal horizontal spacing
 
-    // Modern CSS containment for better performance
-    contain: layout style;
-
-    // Mobile Portrait - compact for space efficiency
-    padding: var(--space-md) var(--space-sm);
-
-    // Progressive enhancement with reasonable scaling
     @media (min-width: 20em) {
-      padding: var(--space-lg) var(--space-md);
-    }
-
-    @media (min-width: 30em) {
-      padding: var(--space-xl) var(--space-lg);
+      padding: var(--space-sm);
     }
 
     @media (min-width: 48em) {
-      padding: var(--space-2xl);
+      padding: var(--space-lg);
     }
 
     @media (min-width: 64em) {
-      padding: var(--space-3xl);
+      padding: var(--space-xl);
     }
   }
 
-  /* ==============================================
-   * HEADER & LAYOUT SECTIONS - MODERN RESPONSIVE
-   * ============================================== */
-
-  // Header Section with improved performance
+  /* ======================================
+   * HEADER & LAYOUT SECTIONS
+   * ====================================== */
   .section-header {
     text-align: center;
-    margin-bottom: clamp(var(--space-2xl), 6vw, var(--space-3xl));
-    padding: clamp(var(--space-lg), 4vw, var(--space-xl));
-    contain: layout style;
+    margin-bottom: var(--space-xl);
+    padding: var(--space-md);
+    contain: layout style paint;
+
+    @media (min-width: 48em) {
+      margin-bottom: var(--space-2xl);
+      padding: var(--space-lg);
+    }
   }
 
-  // Modern Header with integrated image and fluid design
   .header-with-image {
-    margin: var(--space-none) auto var(--space-3xl) auto;
-    padding: clamp(var(--space-lg), 4vw, var(--space-2xl));
+    margin: 0 auto var(--space-2xl) auto;
+    padding: var(--space-sm);
     text-align: center;
     width: var(--width-full);
     max-width: var(--container-xl);
-    contain: layout style;
+    contain: layout style paint;
 
     @media (min-width: 48em) {
       text-align: left;
@@ -505,14 +510,14 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(var(--space-2xl), 5vw, var(--space-3xl));
+    gap: var(--space-xl);
     width: var(--width-full);
+    contain: layout style;
 
-    // Modern CSS Grid for better control on larger screens
     @media (min-width: 48em) {
       display: grid;
       grid-template-columns: 1fr 0.8fr;
-      gap: clamp(var(--space-2xl), 4vw, var(--space-3xl));
+      gap: var(--space-2xl);
       align-items: center;
     }
 
@@ -527,7 +532,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: clamp(var(--space-sm), 3vw, var(--space-lg));
+    gap: var(--space-md);
     flex: 1;
     min-width: 0;
 
@@ -547,7 +552,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     }
   }
 
-  // Header Image Styling with modern approach
   .header-image-container {
     position: relative;
     width: var(--width-full);
@@ -556,12 +560,8 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
+    contain: layout style paint;
 
-    // Modern CSS transforms for better performance
-    transform: translateZ(0);
-    will-change: transform;
-
-    // Responsive aspect ratio
     @media (max-width: 30em) {
       aspect-ratio: 4 / 3;
     }
@@ -571,16 +571,11 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     height: var(--width-full);
     width: var(--width-full);
     object-fit: cover;
-    transition: transform var(--transition-normal);
+    transition: transform var(--transition-base);
+    contain: layout style paint;
 
-    // Performance optimization
-    transform: translateZ(0);
-    will-change: transform;
-  }
-
-  .header-with-image:hover {
-    .header-responsive-image {
-      transform: scale(var(--animation-scale-hover-subtle)) translateZ(0);
+    &:hover {
+      transform: scale(1.02);
     }
   }
 
@@ -613,23 +608,23 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     background: var(--interactive-primary);
   }
 
-  /* Article Container */
+  /* ======================================
+   * ARTICLE CONTAINER
+   * ====================================== */
   .article-container {
-    margin: var(--space-none) auto;
+    margin: 0 auto;
     width: var(--width-full);
     max-width: var(--container-xl);
     display: flex;
     flex-direction: column;
-    gap: var(--space-3xl);
+    gap: var(--space-2xl);
   }
 
-  /* ==============================================
+  /* ======================================
    * CONTENT SECTIONS
-   * ============================================== */
-
-  /* Description Section - Modern styling matching game sections */
+   * ====================================== */
   .description-container {
-    /* Remove old styles - now uses section-container base styles */
+    /* Uses section-container base styles */
   }
 
   .description-badge {
@@ -640,7 +635,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     }
   }
 
-  /* Header Badge - Modern styling with secondary color gradient */
   .header-badge {
     background: linear-gradient(
       135deg,
@@ -653,11 +647,9 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     }
   }
 
-  /* ==============================================
-   * INTERACTIVE SECTIONS & COMPONENTS
-   * ============================================== */
-
-  /* Section Containers - Modern styling for game sections */
+  /* ======================================
+   * SECTION CONTAINERS
+   * ====================================== */
   .section-container {
     position: relative;
     display: flex;
@@ -668,24 +660,17 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
     border: var(--border-width-thin) solid var(--border-primary);
     box-shadow: var(--shadow-lg);
-    transition: all var(--transition-normal);
+    transition: all var(--transition-base);
     overflow: hidden;
+    contain: layout style paint;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    padding: var(--space-sm);
 
-    // Mobile Portrait - enhanced breathing room
-    gap: var(--space-xl);
-    margin-top: var(--space-xl);
-    padding: var(--space-xl);
-
-    @media (min-width: 20em) {
+    @media (min-width: 48em) {
       gap: var(--space-xl);
       margin-top: var(--space-xl);
-      padding: var(--space-xl);
-    }
-
-    @media (min-width: 30em) {
-      gap: var(--space-2xl);
-      margin-top: var(--space-2xl);
-      padding: var(--space-2xl);
+      padding: var(--space-lg);
     }
 
     &::before {
@@ -697,10 +682,11 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       height: var(--border-width-thick);
       background: linear-gradient(90deg, var(--interactive-primary), var(--color-secondary-500));
       opacity: var(--opacity-high);
+      contain: layout style paint;
     }
 
     &:hover {
-      transform: translateY(var(--animation-x-offset-small));
+      transform: translateY(-2px);
       box-shadow: var(--shadow-xl);
       border-color: var(--interactive-primary);
     }
@@ -708,12 +694,11 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     &:focus-within {
       box-shadow: var(--focus-ring), var(--shadow-xl);
       border-color: var(--border-focus);
-      transform: translateY(var(--animation-x-offset-small));
+      transform: translateY(-2px);
     }
 
-    /* Tablet and above: --breakpoint-md (768px) */
     @media (min-width: 48em) {
-      padding: var(--space-3xl);
+      padding: var(--space-2xl);
       margin-left: auto;
       margin-right: auto;
       border-radius: var(--radius-2xl);
@@ -721,7 +706,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   }
 
   .time-pressure-section {
-    margin-top: var(--space-3xl);
+    margin-top: var(--space-lg);
     background: linear-gradient(135deg, var(--color-warning-50) 0%, var(--color-error-50) 100%);
 
     &::before {
@@ -730,7 +715,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   }
 
   .chronology-section {
-    margin-top: var(--space-3xl);
+    margin-top: var(--space-lg);
     background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
 
     &::before {
@@ -738,7 +723,9 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     }
   }
 
-  // Button Groups - Clean, simple and responsive
+  /* ======================================
+   * BUTTON GROUPS
+   * ====================================== */
   .button-group {
     margin: var(--space-xl) auto 0 auto;
     display: flex;
@@ -747,8 +734,8 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     width: 100%;
     max-width: 400px;
     align-items: center;
+    contain: layout style;
 
-    // Desktop - horizontal layout
     @media (min-width: 64em) {
       flex-direction: row;
       justify-content: center;
@@ -756,7 +743,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       gap: var(--space-lg);
     }
 
-    // Button styling
     a {
       display: flex;
       align-items: center;
@@ -765,21 +751,20 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       min-height: var(--touch-target-enhanced);
       width: 100%;
       text-align: center;
-      transition: all var(--transition-normal);
+      transition: all var(--transition-base);
       border-radius: var(--radius-lg);
       background: var(--btn-primary-bg);
       border: none;
       color: var(--color-white);
       text-decoration: none;
+      contain: layout style paint;
 
-      // Mobile and tablet - horizontal layout
       @media (max-width: 63.9375em) {
         flex-direction: row;
         padding: var(--space-lg) var(--space-xl);
         max-width: 360px;
       }
 
-      // Desktop - square layout
       @media (min-width: 64em) {
         flex-direction: column;
         padding: var(--space-xl);
@@ -788,7 +773,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         max-width: 180px;
       }
 
-      // Icon styling
       svg {
         width: 24px;
         height: 24px;
@@ -801,7 +785,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         }
       }
 
-      // Text styling
       span {
         font-weight: var(--font-bold);
         font-size: var(--text-base);
@@ -813,7 +796,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         }
       }
 
-      // Hover effects
       &:hover {
         transform: translateY(-2px);
         background: var(--btn-primary-hover);
@@ -826,11 +808,9 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     }
   }
 
-  /* ==============================================
+  /* ======================================
    * ICON SYSTEM
-   * ============================================== */
-
-  /* Consolidated icon sizing system */
+   * ====================================== */
   .icon-small {
     height: var(--icon-size-sm);
     width: var(--icon-size-sm);
@@ -840,7 +820,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     height: var(--icon-size-sm);
     width: var(--icon-size-sm);
 
-    /* Tablet and above: --breakpoint-md (768px) */
     @media (min-width: 48em) {
       height: var(--icon-size-md);
       width: var(--icon-size-md);
@@ -856,7 +835,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     color: var(--color-white);
   }
 
-  /* Game Icon Badge - Modern circular design */
   .game-icon-badge {
     position: relative;
     display: flex;
@@ -874,8 +852,9 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     box-shadow:
       var(--shadow-lg),
       inset 0 1px 0 rgba(255, 255, 255, var(--opacity-low));
-    transition: all var(--transition-normal);
+    transition: all var(--transition-base);
     margin-bottom: var(--space-md);
+    contain: layout style paint;
 
     &::before {
       content: "";
@@ -885,10 +864,9 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       background: linear-gradient(135deg, var(--interactive-primary), var(--color-secondary-500));
       z-index: -1;
       opacity: 0;
-      transition: opacity var(--transition-normal);
+      transition: opacity var(--transition-base);
     }
 
-    /* Tablet and above: --breakpoint-md (768px) */
     @media (min-width: 48em) {
       width: var(--space-3xl);
       height: var(--space-3xl);
@@ -901,7 +879,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         opacity: var(--opacity-medium);
       }
 
-      transform: scale(var(--animation-scale-hover-subtle));
+      transform: scale(1.05);
       box-shadow:
         var(--shadow-xl),
         inset 0 1px 0 rgba(255, 255, 255, var(--color-mix-dark));
@@ -917,22 +895,18 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   }
 
   .time-pressure-badge {
-    background: linear-gradient(
-      135deg,
-      var(--color-warning) 0%,
-      var(--color-error) 100%
-    );
+    background: linear-gradient(135deg, var(--color-warning) 0%, var(--color-error) 100%);
     animation: pulse-glow 2s ease-in-out infinite alternate;
   }
 
   @keyframes pulse-glow {
     from {
-      box-shadow: 
+      box-shadow:
         var(--shadow-xl),
         inset 0 1px 0 rgba(255, 255, 255, var(--color-mix-dark));
     }
     to {
-      box-shadow: 
+      box-shadow:
         var(--shadow-xl),
         0 0 20px rgba(255, 193, 7, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, var(--color-mix-dark));
@@ -949,11 +923,9 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     font-weight: var(--font-bold);
   }
 
-  /* ==============================================
+  /* ======================================
    * TYPOGRAPHY SYSTEM
-   * ============================================== */
-
-  /* Consolidated typography with consistent patterns */
+   * ====================================== */
   .headline-primary {
     margin-bottom: var(--space-md);
     font-size: var(--text-3xl);
@@ -961,7 +933,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     color: var(--text-primary);
     text-align: center;
 
-    /* Tablet and above: --breakpoint-md (768px) */
     @media (min-width: 48em) {
       font-size: var(--text-4xl);
     }
@@ -973,7 +944,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     color: var(--text-secondary);
     text-align: center;
     max-width: var(--container-md);
-    margin: var(--space-none) auto;
+    margin: 0 auto;
   }
 
   .paragraph-description {
@@ -981,10 +952,9 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     color: var(--text-primary);
     text-align: center;
     max-width: var(--container-md);
-    margin: var(--space-none) auto;
+    margin: 0 auto;
     line-height: var(--leading-enhanced);
 
-    /* Small tablet and above: --breakpoint-sm (640px) */
     @media (min-width: 40em) {
       font-size: var(--text-lg);
     }
@@ -997,7 +967,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     font-weight: var(--font-bold);
     color: var(--text-primary);
 
-    /* Tablet and above: --breakpoint-md (768px) */
     @media (min-width: 48em) {
       font-size: var(--text-3xl);
     }
@@ -1011,25 +980,21 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     color: var(--text-secondary);
     line-height: var(--leading-enhanced);
 
-    /* Tablet and above: --breakpoint-md (768px) */
     @media (min-width: 48em) {
       font-size: var(--text-xl);
       margin-bottom: var(--space-2xl);
     }
   }
 
-  /* ==============================================
+  /* ======================================
    * FORM & INTERACTION COMPONENTS
-   * ============================================== */
-
-  /* Auth Form */
+   * ====================================== */
   .auth-form-container {
-    margin: var(--space-none) auto;
+    margin: 0 auto;
     width: var(--width-full);
     max-width: var(--form-container-max-width);
   }
 
-  /* Alert Box */
   .alert-box {
     margin-bottom: var(--space-lg);
     padding: var(--space-md);
@@ -1046,126 +1011,48 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     gap: var(--space-sm);
   }
 
-  /* ==============================================
+  /* ======================================
    * ACCESSIBILITY & UTILITY CLASSES
-   * ============================================== */
-
-  /* Screen Reader Only */
+   * ====================================== */
   .sr-only {
     position: absolute;
     width: var(--sr-only-width);
     height: var(--sr-only-height);
-    padding: var(--space-none);
+    padding: 0;
     margin: var(--sr-only-margin);
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    clip-path: var(--sr-only-clip-path);
+    clip: var(--sr-only-clip-path);
     white-space: nowrap;
-    border-width: var(--space-none);
+    border-width: 0;
   }
 
-  /* Enhanced Focus Styles */
   :global(a:focus-visible),
   :global(button:focus-visible) {
-    outline: var(--focus-outline);
+    outline: var(--focus-ring);
     outline-offset: var(--focus-ring-offset);
   }
 
-  /* ==============================================
-   * VISUAL ENHANCEMENTS & ANIMATIONS
-   * ============================================== */
+  /* ======================================
+   * CONTENT BUTTONS
+   * ====================================== */
+  .content-buttons-section {
+    margin-top: var(--space-md);
 
-  // Enhanced animation system
-  .button-group {
-    // Staggered animation for buttons
-    a {
-      animation: slideInScale 0.6s ease-out;
-      animation-fill-mode: both;
+    @media (min-width: 20em) {
+      margin-top: var(--space-lg);
+    }
 
-      &:nth-child(1) {
-        animation-delay: 0.1s;
-      }
-      &:nth-child(2) {
-        animation-delay: 0.2s;
-      }
-      &:nth-child(3) {
-        animation-delay: 0.3s;
-      }
+    @media (min-width: 48em) {
+      margin-top: var(--space-xl);
     }
   }
 
-  @keyframes slideInScale {
-    from {
-      opacity: 0;
-      transform: translateY(30px) scale(0.8);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
-  // Container entrance animation
-  .button-group {
-    animation: containerSlideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    animation-delay: 0.1s;
-    animation-fill-mode: both;
-  }
-
-  @keyframes containerSlideIn {
-    from {
-      opacity: 0;
-      transform: translateY(40px) scale(0.95);
-      filter: blur(4px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0);
-    }
-  }
-
-  // Premium micro-interactions
-  .button-group a {
-    // Magnetic effect on hover
-    @media (hover: hover) and (pointer: fine) {
-      &:hover {
-        // Subtle rotation for dynamism
-        transform: translateY(-4px) scale(1.03) rotate(0.5deg);
-      }
-    }
-
-    // Loading state shimmer effect
-    &.loading {
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.3) 50%,
-        rgba(255, 255, 255, 0.1) 100%
-      );
-      background-size: 200% 100%;
-      animation: shimmer 1.5s infinite;
-    }
-  }
-
-  @keyframes shimmer {
-    0% {
-      background-position: -200% 0;
-    }
-    100% {
-      background-position: 200% 0;
-    }
-  }
-
-  /* ==============================================
-   * RESPONSIVE & ACCESSIBILITY FEATURES
-   * ============================================== */
-
-  /* Reduced Motion Support */
+  /* ======================================
+   * ACCESSIBILITY ENHANCEMENTS
+   * ====================================== */
   @media (prefers-reduced-motion: reduce) {
     .section-container,
     .game-icon-badge,
-    .game-button,
     .button-group {
       transition: var(--transition-instant);
       animation: none;
@@ -1190,7 +1077,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     }
   }
 
-  /* High Contrast Mode Support */
   @media (forced-colors: active) {
     .section-container,
     .description-container,
@@ -1224,84 +1110,9 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     }
   }
 
-  /* ==============================================
-   * ENHANCED BUTTON STYLING
-   * ============================================== */
-
-  // Enhanced text styling for premium feel
-  @media (min-width: 48em) {
-    .button-group a {
-      span {
-        // High contrast white text with subtle glow
-        color: var(--color-white);
-        text-shadow:
-          0 1px 2px rgba(0, 0, 0, 0.4),
-          0 0 8px rgba(255, 255, 255, 0.2);
-        font-weight: var(--font-bold);
-        letter-spacing: 0.02em;
-
-        // Subtle gradient overlay on hover
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.1) 0%,
-          rgba(255, 255, 255, 0.05) 100%
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-
-        // Fallback for unsupported browsers
-        @supports not (background-clip: text) {
-          background: none;
-          color: var(--color-white);
-        }
-      }
-
-      // Enhanced hover text effect
-      &:hover span {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.9) 0%,
-          rgba(255, 255, 255, 0.7) 100%
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-        text-shadow:
-          0 2px 4px rgba(0, 0, 0, 0.5),
-          0 0 12px rgba(255, 255, 255, 0.4);
-      }
-    }
-  }
-
-  // Premium shadow and lighting system
-  .button-group a {
-    box-shadow:
-      0 4px 16px rgba(0, 0, 0, 0.1),
-      0 2px 4px rgba(0, 0, 0, 0.06),
-      inset 0 1px 0 rgba(255, 255, 255, 0.15),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-
-    &:hover {
-      box-shadow:
-        0 12px 40px rgba(138, 43, 226, 0.25),
-        0 8px 16px rgba(0, 0, 0, 0.15),
-        0 4px 8px rgba(0, 0, 0, 0.1),
-        inset 0 2px 0 rgba(255, 255, 255, 0.25),
-        inset 0 -2px 0 rgba(0, 0, 0, 0.15),
-        0 0 32px rgba(255, 255, 255, 0.1);
-    }
-
-    &:active {
-      box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.2),
-        inset 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-  }
-
-  /* ==============================================
+  /* ======================================
    * MOBILE PORTRAIT OPTIMIZATIONS
-   * ============================================== */
-
-  // Small mobile screens - Portrait Mobile (below 480px) - Compact and efficient
+   * ====================================== */
   @media (max-width: 29.9375em) {
     .page-container {
       padding: var(--space-sm) var(--space-xs);
@@ -1313,7 +1124,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     }
 
     .header-with-image {
-      margin: var(--space-none) auto var(--space-lg) auto;
+      margin: 0 auto var(--space-lg) auto;
       padding: var(--space-sm) var(--space-xs);
     }
 
@@ -1349,13 +1160,11 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       border-radius: var(--radius-md);
     }
 
-    // Compact typography for mobile portrait - space efficient
     .headline-primary,
     h1 {
-      font-size: clamp(var(--text-lg), 5vw, var(--text-xl));
+      font-size: var(--text-lg);
       line-height: var(--leading-snug);
-      margin-bottom: var(--space-md);
-      letter-spacing: var(--letter-spacing-base);
+      margin-bottom: var(--space-sm);
       text-align: center;
     }
 
@@ -1365,7 +1174,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       font-size: var(--text-sm);
       line-height: var(--leading-relaxed);
       margin-bottom: var(--space-md);
-      letter-spacing: var(--letter-spacing-base);
       text-align: center;
     }
 
@@ -1374,16 +1182,10 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       font-size: var(--text-base);
       margin-bottom: var(--space-md);
       line-height: var(--leading-snug);
-      letter-spacing: var(--letter-spacing-base);
       text-align: center;
     }
   }
 
-  /* ==============================================
-   * BUTTON RESPONSIVENESS ENHANCEMENTS
-   * ============================================== */
-
-  // Extra responsive button behavior
   @media (max-width: 359px) {
     .button-group {
       padding: var(--space-md) var(--space-sm);
@@ -1405,7 +1207,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     }
   }
 
-  // Landscape mobile optimization
   @media (max-width: 47.9375em) and (orientation: landscape) {
     .button-group {
       flex-direction: row;
@@ -1429,30 +1230,13 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     }
   }
 
-  // Container queries for button groups
-  @container (max-width: 400px) {
-    .button-group {
-      padding: var(--space-md);
-      gap: var(--space-md);
-    }
-  }
-
-  @container (min-width: 500px) {
-    .button-group {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-lg);
-    }
-  }
-
-  // Medium screens - Tablet Portrait (480px+) - Gradual expansion
   @media (min-width: 30em) {
     .page-container {
       padding: var(--space-lg) var(--space-md);
     }
 
     .header-with-image {
-      margin: var(--space-none) auto var(--space-xl) auto;
+      margin: 0 auto var(--space-xl) auto;
       padding: var(--space-md);
     }
 
@@ -1470,7 +1254,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       padding: var(--space-2xl);
     }
 
-    // Moderate typography sizing
     h1 {
       font-size: clamp(var(--text-xl), 4vw, var(--text-2xl));
       line-height: var(--leading-tight);
@@ -1493,7 +1276,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
     }
   }
 
-  // Tablet Landscape (768px - 1024px) - Smaller fonts to fix oversized text
   @media (min-width: 48em) and (max-width: 63.9375em) {
     h1 {
       font-size: clamp(var(--text-lg), 3vw, var(--text-xl)) !important;
@@ -1523,7 +1305,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       }
     }
 
-    // Button adjustments for tablet landscape - refined proportions
     .button-group {
       max-width: 520px;
       gap: var(--space-lg);
@@ -1543,55 +1324,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
           font-weight: var(--font-semibold);
         }
       }
-    }
-  }
-
-  /* ==============================================
-   * CONTENT BUTTONS (Music Platforms & Knowledge)
-   * ============================================== */
-
-  /**
-   * Simple content button sections within description container
-   * Just adds spacing between button groups
-   */
-  .content-buttons-section {
-    // Mobile Portrait - compact spacing
-    margin-top: var(--space-md);
-
-    @media (min-width: 20em) {
-      margin-top: var(--space-lg);
-    }
-  }
-
-  /* Responsive adjustments for content buttons */
-  @media (min-width: 48em) {
-    .content-buttons-section {
-      margin-top: var(--space-xl);
-    }
-  }
-
-  /* ==============================================
-   * PERFORMANCE OPTIMIZATIONS
-   * ============================================== */
-
-  // GPU acceleration for smooth animations
-  .button-group,
-  .button-group a,
-  .section-container {
-    transform: translateZ(0);
-    will-change: transform;
-  }
-
-  // Optimize repaints
-  .button-group a {
-    contain: layout style paint;
-  }
-
-  // Preload important animations
-  @media (prefers-reduced-motion: no-preference) {
-    .button-group a {
-      transition-property: transform, box-shadow, background-color;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 </style>

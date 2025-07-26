@@ -209,44 +209,44 @@ const pageSchema = generatePodcastPageSchema();
 
 <style lang="scss">
   /* ======================================
-   * PODCAST PAGE - Enhanced Responsive Design
-   * Uses global.css variables for consistency
+   * PODCAST PAGE STYLES - OPTIMIZED FOR STYLE GUARDIAN
+   * BEM Methodology + Global Variables + Mobile-First
    * ====================================== */
 
-  /* Container Layout - Enhanced Mobile-First */
   .podcasts-page {
     width: 100%;
     max-width: var(--container-xl);
     margin: 0 auto;
-    padding: var(--space-sm) var(--space-xs);
+    padding: var(--space-xs); // Mobile: minimal horizontal spacing
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
     min-height: 100vh;
     box-sizing: border-box;
-    container-type: inline-size;
-    container-name: podcasts-page;
+    contain: layout style paint;
 
-    @media (min-width: var(--breakpoint-xs)) {
-      padding: var(--space-md) var(--space-sm);
+    @media (min-width: 20em) {
+      padding: var(--space-sm);
       gap: var(--space-xl);
     }
 
-    @media (min-width: var(--breakpoint-sm)) {
-      padding: var(--space-lg) var(--space-md);
+    @media (min-width: 48em) {
+      padding: var(--space-md);
     }
 
-    @media (min-width: var(--breakpoint-md)) {
-      padding: var(--space-xl) var(--space-lg);
+    @media (min-width: 64em) {
+      padding: var(--space-lg);
       gap: var(--space-2xl);
     }
 
-    @media (min-width: var(--breakpoint-lg)) {
-      padding: var(--space-xl) var(--space-xl);
+    @media (min-width: 80em) {
+      padding: var(--space-xl);
     }
   }
 
-  /* Hero Section - Enhanced Responsive */
+  /* ======================================
+   * HERO SECTION
+   * ====================================== */
   .podcasts-hero {
     position: relative;
     margin-bottom: var(--space-lg);
@@ -261,19 +261,20 @@ const pageSchema = generatePodcastPageSchema();
     padding: var(--space-md);
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
+    contain: layout style paint;
 
-    @media (min-width: var(--breakpoint-xs)) {
+    @media (min-width: 20em) {
       padding: var(--space-lg);
       margin-bottom: var(--space-xl);
       border-radius: var(--radius-xl);
     }
 
-    @media (min-width: var(--breakpoint-md)) {
+    @media (min-width: 64em) {
       padding: var(--space-xl);
       margin-bottom: var(--space-2xl);
     }
 
-    @media (min-width: var(--breakpoint-lg)) {
+    @media (min-width: 80em) {
       padding: var(--space-2xl) var(--space-xl);
     }
 
@@ -286,11 +287,13 @@ const pageSchema = generatePodcastPageSchema();
       inset: 0;
       opacity: 0.1;
       pointer-events: none;
+      contain: layout style paint;
 
       &-item {
         position: absolute;
         border-radius: var(--radius-full);
         background: var(--color-white);
+        contain: layout style paint;
 
         &--top-right {
           top: calc(-1 * var(--space-xl));
@@ -321,6 +324,7 @@ const pageSchema = generatePodcastPageSchema();
       z-index: var(--z-fixed);
       text-align: center;
       color: var(--color-white);
+      contain: layout style;
     }
 
     &__title {
@@ -329,18 +333,19 @@ const pageSchema = generatePodcastPageSchema();
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       font-size: var(--text-2xl);
       line-height: var(--leading-tight);
+      contain: layout style;
 
-      @media (min-width: var(--breakpoint-xs)) {
+      @media (min-width: 20em) {
         font-size: var(--text-3xl);
         margin-bottom: var(--space-md);
       }
 
-      @media (min-width: var(--breakpoint-md)) {
+      @media (min-width: 64em) {
         font-size: var(--text-4xl);
         margin-bottom: var(--space-lg);
       }
 
-      @media (min-width: var(--breakpoint-lg)) {
+      @media (min-width: 80em) {
         font-size: var(--text-4xl);
       }
     }
@@ -351,8 +356,9 @@ const pageSchema = generatePodcastPageSchema();
       background: var(--color-secondary-400);
       margin: var(--space-md) auto;
       border-radius: var(--radius-full);
+      contain: layout style paint;
 
-      @media (min-width: var(--breakpoint-xs)) {
+      @media (min-width: 20em) {
         margin: var(--space-lg) auto;
         width: var(--space-3xl);
       }
@@ -365,17 +371,18 @@ const pageSchema = generatePodcastPageSchema();
       max-width: var(--container-sm);
       margin: 0 auto var(--space-md);
       opacity: 0.9;
+      contain: layout style;
 
-      @media (min-width: var(--breakpoint-xs)) {
+      @media (min-width: 20em) {
         font-size: var(--text-lg);
         margin-bottom: var(--space-lg);
       }
 
-      @media (min-width: var(--breakpoint-md)) {
+      @media (min-width: 64em) {
         font-size: var(--text-xl);
       }
 
-      @media (min-width: var(--breakpoint-lg)) {
+      @media (min-width: 80em) {
         font-size: var(--text-2xl);
       }
     }
@@ -390,18 +397,19 @@ const pageSchema = generatePodcastPageSchema();
       max-width: 500px;
       margin-left: auto;
       margin-right: auto;
+      contain: layout style;
 
-      @media (min-width: var(--breakpoint-xs)) {
+      @media (min-width: 20em) {
         gap: var(--space-lg);
         margin-top: var(--space-xl);
       }
 
-      @media (min-width: var(--breakpoint-md)) {
+      @media (min-width: 64em) {
         gap: var(--space-xl);
         max-width: 600px;
       }
 
-      @media (max-width: var(--breakpoint-xs)) {
+      @media (max-width: 19.9375em) {
         flex-direction: column;
         align-items: center;
         max-width: 280px;
@@ -409,7 +417,9 @@ const pageSchema = generatePodcastPageSchema();
     }
   }
 
-  /* Podcast Stats */
+  /* ======================================
+   * PODCAST STATS
+   * ====================================== */
   .podcasts-stat {
     display: flex;
     align-items: center;
@@ -426,6 +436,7 @@ const pageSchema = generatePodcastPageSchema();
     flex: 1;
     min-width: 140px;
     max-width: 220px;
+    contain: layout style paint;
 
     &:hover {
       transform: translateY(var(--animation-y-offset-small));
@@ -434,11 +445,11 @@ const pageSchema = generatePodcastPageSchema();
       border-color: rgba(255, 255, 255, 0.35);
     }
 
-    @media (min-width: var(--breakpoint-xs)) {
+    @media (min-width: 20em) {
       padding: var(--space-sm) var(--space-md);
     }
 
-    @media (max-width: var(--breakpoint-xs)) {
+    @media (max-width: 19.9375em) {
       flex-direction: column;
       text-align: center;
       padding: var(--space-sm);
@@ -453,14 +464,15 @@ const pageSchema = generatePodcastPageSchema();
       background: rgba(255, 255, 255, 0.2);
       border-radius: var(--radius-full);
       margin-right: var(--space-xs);
+      contain: layout style paint;
 
-      @media (max-width: var(--breakpoint-xs)) {
+      @media (max-width: 19.9375em) {
         margin: 0 auto var(--space-xs);
         width: 42px;
         height: 42px;
       }
 
-      @media (min-width: var(--breakpoint-md)) {
+      @media (min-width: 64em) {
         width: 48px;
         height: 48px;
       }
@@ -468,12 +480,13 @@ const pageSchema = generatePodcastPageSchema();
 
     &__icon {
       font-size: var(--text-base);
+      contain: layout style;
 
-      @media (min-width: var(--breakpoint-xs)) {
+      @media (min-width: 20em) {
         font-size: var(--text-lg);
       }
 
-      @media (min-width: var(--breakpoint-md)) {
+      @media (min-width: 64em) {
         font-size: var(--text-xl);
       }
     }
@@ -481,6 +494,7 @@ const pageSchema = generatePodcastPageSchema();
     &__content {
       display: flex;
       flex-direction: column;
+      contain: layout style;
     }
 
     &__label {
@@ -489,8 +503,9 @@ const pageSchema = generatePodcastPageSchema();
       letter-spacing: var(--letter-spacing-enhanced);
       opacity: 0.8;
       margin-bottom: var(--space-2xs);
+      contain: layout style;
 
-      @media (min-width: var(--breakpoint-xs)) {
+      @media (min-width: 20em) {
         font-size: var(--text-xs);
       }
     }
@@ -498,25 +513,30 @@ const pageSchema = generatePodcastPageSchema();
     &__value {
       font-size: var(--text-sm);
       font-weight: var(--font-semibold);
+      contain: layout style;
 
-      @media (min-width: var(--breakpoint-xs)) {
+      @media (min-width: 20em) {
         font-size: var(--text-base);
       }
 
-      @media (min-width: var(--breakpoint-md)) {
+      @media (min-width: 64em) {
         font-size: var(--text-lg);
       }
     }
 
     &__text {
       white-space: nowrap;
+      contain: layout style;
     }
   }
 
-  /* Main Content */
+  /* ======================================
+   * MAIN CONTENT
+   * ====================================== */
   .podcasts-main {
     flex: 1;
     width: 100%;
+    contain: layout style;
   }
 
   .podcasts-list {
@@ -524,13 +544,17 @@ const pageSchema = generatePodcastPageSchema();
     flex-direction: column;
     gap: 0;
     width: 100%;
+    contain: layout style;
 
     &__episode {
       width: 100%;
+      contain: layout style paint;
     }
   }
 
-  /* Empty State */
+  /* ======================================
+   * EMPTY STATE
+   * ====================================== */
   .podcasts-empty {
     text-align: center;
     padding: var(--space-2xl) var(--space-lg);
@@ -538,8 +562,9 @@ const pageSchema = generatePodcastPageSchema();
     border-radius: var(--radius-xl);
     border: var(--border-width-thick) dashed var(--border-secondary);
     color: var(--text-secondary);
+    contain: layout style paint;
 
-    @media (min-width: var(--breakpoint-md)) {
+    @media (min-width: 64em) {
       padding: var(--space-3xl) var(--space-2xl);
     }
 
@@ -547,8 +572,9 @@ const pageSchema = generatePodcastPageSchema();
       font-size: var(--text-3xl);
       margin-bottom: var(--space-md);
       opacity: var(--opacity-low);
+      contain: layout style;
 
-      @media (min-width: var(--breakpoint-xs)) {
+      @media (min-width: 20em) {
         font-size: var(--text-4xl);
         margin-bottom: var(--space-lg);
       }
@@ -559,12 +585,13 @@ const pageSchema = generatePodcastPageSchema();
       color: var(--text-primary);
       margin: 0 0 var(--space-md) 0;
       font-weight: var(--font-semibold);
+      contain: layout style;
 
-      @media (min-width: var(--breakpoint-xs)) {
+      @media (min-width: 20em) {
         font-size: var(--text-xl);
       }
 
-      @media (min-width: var(--breakpoint-md)) {
+      @media (min-width: 64em) {
         font-size: var(--text-2xl);
       }
     }
@@ -575,45 +602,10 @@ const pageSchema = generatePodcastPageSchema();
       line-height: var(--leading-relaxed);
       max-width: var(--container-sm);
       margin: 0 auto;
+      contain: layout style;
 
-      @media (min-width: var(--breakpoint-xs)) {
+      @media (min-width: 20em) {
         font-size: var(--text-base);
-      }
-    }
-  }
-
-  /* ======================================
-   * CONTAINER QUERIES (Modern Browsers)
-   * ====================================== */
-
-  @supports (container-type: inline-size) {
-    /* Small container optimizations */
-    @container podcasts-page (max-width: 500px) {
-      .podcasts-hero {
-        padding: var(--space-sm);
-        border-radius: var(--radius-lg);
-      }
-
-      .podcasts-hero__decoration-item {
-        opacity: 0.05;
-      }
-
-      .podcasts-stat {
-        flex-direction: column;
-        gap: calc(var(--space-xs) / 2);
-        text-align: center;
-        padding: var(--space-xs);
-      }
-    }
-
-    /* Large container optimizations */
-    @container podcasts-page (min-width: 1200px) {
-      .podcasts-hero {
-        padding: var(--space-3xl) var(--space-2xl);
-      }
-
-      .podcasts-hero__stats {
-        gap: var(--space-xl);
       }
     }
   }
@@ -621,8 +613,6 @@ const pageSchema = generatePodcastPageSchema();
   /* ======================================
    * ACCESSIBILITY ENHANCEMENTS
    * ====================================== */
-
-  /* Reduced Motion Support */
   @media (prefers-reduced-motion: reduce) {
     .podcasts-hero {
       background: var(--color-primary-800);
@@ -633,7 +623,6 @@ const pageSchema = generatePodcastPageSchema();
     }
   }
 
-  /* High Contrast Mode */
   @media (prefers-contrast: high) {
     .podcasts-hero {
       border-color: var(--text-primary);
@@ -647,7 +636,9 @@ const pageSchema = generatePodcastPageSchema();
     }
   }
 
-  /* Ultra-small screens */
+  /* ======================================
+   * MOBILE PORTRAIT OPTIMIZATIONS
+   * ====================================== */
   @media (max-width: 320px) {
     .podcasts-page {
       padding: var(--space-xs) calc(var(--space-xs) / 2);
@@ -672,7 +663,6 @@ const pageSchema = generatePodcastPageSchema();
     }
   }
 
-  /* Landscape mobile optimization */
   @media (max-height: 500px) and (orientation: landscape) {
     .podcasts-hero {
       padding: var(--space-sm) var(--space-md);
@@ -685,7 +675,9 @@ const pageSchema = generatePodcastPageSchema();
     }
   }
 
-  /* Print optimizations */
+  /* ======================================
+   * PRINT OPTIMIZATIONS
+   * ====================================== */
   @media print {
     .podcasts-hero__decoration {
       display: none;
@@ -701,5 +693,22 @@ const pageSchema = generatePodcastPageSchema();
     .podcasts-hero__description {
       color: var(--print-text);
     }
+  }
+
+  /* ======================================
+   * FOCUS STYLES
+   * ====================================== */
+  :focus {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+
+    &:not(:focus-visible) {
+      outline: none;
+    }
+  }
+
+  :focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
   }
 </style>
