@@ -65,62 +65,40 @@ const {
 const Tag = level;
 const WrapperTag = wrapper === "none" ? "div" : wrapper;
 
-/**
- * Generate optimized CSS classes following BEM methodology
- */
-const generateClasses = (): string => {
-  const classes = [
-    "headline",
-    `headline--${level}`,
-    size && `headline--size-${size}`,
-    variant !== "default" && `headline--${variant}`,
-    focusable && "headline--focusable",
-    textAlign !== "left" && `headline--align-${textAlign}`,
-    skipTarget && "headline--skip-target",
-    interactive && "headline--interactive",
-    className,
-  ].filter(Boolean);
+// Simple class generation
+const classes = [
+  "headline",
+  `headline--${level}`,
+  size && `headline--size-${size}`,
+  variant !== "default" && `headline--${variant}`,
+  focusable && "headline--focusable",
+  textAlign !== "left" && `headline--align-${textAlign}`,
+  skipTarget && "headline--skip-target",
+  interactive && "headline--interactive",
+  className,
+]
+  .filter(Boolean)
+  .join(" ")
+  .trim();
 
-  return classes.join(" ").trim();
+// Simple attributes
+const attributes: Record<string, any> = {
+  id,
+  "aria-label": ariaLabel,
+  "aria-describedby": ariaDescribedBy,
+  class: classes,
+  ...(focusable && { tabindex: "-1" }),
+  ...(interactive && { role: "button" }),
+  ...(interactive && onClick && { onclick: onClick }),
 };
 
-// Optimized attributes for better accessibility and performance
-const generateAttributes = () => {
-  const baseAttrs: Record<string, any> = {
-    id,
-    "aria-label": ariaLabel,
-    "aria-describedby": ariaDescribedBy,
-    class: generateClasses(),
-  };
-
-  if (focusable) {
-    baseAttrs.tabindex = "-1";
-    if (interactive) {
-      baseAttrs.role = "button";
-    }
-  }
-
-  if (interactive && onClick) {
-    baseAttrs.onclick = onClick;
-  }
-
-  return baseAttrs;
-};
-
-// Wrapper attributes for semantic structure
-const generateWrapperAttributes = () => {
-  if (wrapper === "none") {
-    return null;
-  }
-
-  return {
-    class: "headline-wrapper",
-    role: wrapper === "div" ? "region" : undefined,
-  } as const;
-};
-
-const headlineAttrs = generateAttributes();
-const wrapperAttrs = generateWrapperAttributes();
+const wrapperAttributes: Record<string, any> | null =
+  wrapper !== "none"
+    ? {
+        class: "headline-wrapper",
+        role: wrapper === "div" ? "region" : undefined,
+      }
+    : null;
 ---
 
 <style lang="scss">
@@ -146,12 +124,7 @@ const wrapperAttrs = generateWrapperAttributes();
     hyphens: auto;
 
     /* Smooth transitions for interactive states */
-    transition: all var(--animation-duration-normal);
-
-    /* Enhanced text spacing support (WCAG 2.2) */
-    letter-spacing: max(var(--letter-spacing-base), var(--letter-spacing-enhanced));
-    line-height: max(var(--leading-tight), var(--line-height-enhanced));
-    word-spacing: max(normal, var(--word-spacing-enhanced));
+    transition: all var(--transition-normal);
 
     /* ======================================
      * SIZE VARIANTS - RESPONSIVE TYPOGRAPHY
@@ -240,29 +213,6 @@ const wrapperAttrs = generateWrapperAttributes();
       }
     }
 
-    /* Tablet Landscape (768px - 1024px) - Smaller fonts to fix oversized text */
-    @media (min-width: 48em) and (max-width: 63.9375em) {
-      &--size-lg {
-        font-size: var(--text-base);
-      }
-
-      &--size-xl {
-        font-size: var(--text-lg);
-      }
-
-      &--size-2xl {
-        font-size: var(--text-xl);
-      }
-
-      &--size-3xl {
-        font-size: var(--text-2xl);
-      }
-
-      &--size-4xl {
-        font-size: var(--text-3xl);
-      }
-    }
-
     /* Desktop breakpoint (64em+) - Balanced sizing */
     @media (min-width: 64em) {
       &--size-xl {
@@ -279,17 +229,6 @@ const wrapperAttrs = generateWrapperAttributes();
 
       &--size-4xl {
         font-size: calc(var(--text-4xl) * 1.25);
-      }
-    }
-
-    /* Large desktop breakpoint (80em+) - Moderate scaling */
-    @media (min-width: 80em) {
-      &--size-3xl {
-        font-size: calc(var(--text-4xl) * 1.25);
-      }
-
-      &--size-4xl {
-        font-size: calc(var(--text-4xl) * 1.5);
       }
     }
 
@@ -351,8 +290,6 @@ const wrapperAttrs = generateWrapperAttributes();
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-size: 200% 200%;
-      animation: gradient-shift var(--animation-duration-slow) ease-in-out infinite;
-      will-change: background-position;
 
       /* Fallback for browsers that don't support background-clip: text */
       @supports not (background-clip: text) {
@@ -394,20 +331,20 @@ const wrapperAttrs = generateWrapperAttributes();
         /* Enhanced focus appearance */
         background-color: var(--focus-bg-overlay);
         border-radius: var(--radius-sm);
-        transition: all var(--animation-duration-fast);
+        transition: all var(--transition-fast);
       }
     }
 
     /* Interactive modifier for clickable headlines */
     &--interactive {
       cursor: pointer;
-      transition: all var(--animation-duration-normal);
+      transition: all var(--transition-normal);
 
       &:hover {
         text-decoration: underline;
         text-decoration-thickness: var(--text-decoration-thickness);
         text-underline-offset: var(--text-underline-offset);
-        transform: translateY(var(--animation-y-offset-small));
+        transform: translateY(-2px);
       }
 
       &:active {
@@ -439,7 +376,7 @@ const wrapperAttrs = generateWrapperAttributes();
         right: 0;
         height: var(--border-width-thick);
         background-color: transparent;
-        transition: background-color var(--animation-duration-fast);
+        transition: background-color var(--transition-fast);
       }
 
       &:target {
@@ -447,8 +384,6 @@ const wrapperAttrs = generateWrapperAttributes();
           background-color: var(--interactive-primary);
           box-shadow: 0 0 var(--space-sm) var(--interactive-primary);
         }
-
-        animation: skip-highlight var(--animation-duration-medium) ease-in-out;
       }
     }
 
@@ -470,7 +405,6 @@ const wrapperAttrs = generateWrapperAttributes();
 
     /* Mobile-first text alignment adjustments */
     @media (max-width: 47.9375em) {
-      /* Below md breakpoint */
       &--align-center {
         text-align: left;
       }
@@ -486,7 +420,6 @@ const wrapperAttrs = generateWrapperAttributes();
 
     /* Smaller margins on mobile for better space utilization */
     @media (max-width: 47.9375em) {
-      /* Below md breakpoint */
       margin-bottom: var(--space-md);
 
       &--h1 {
@@ -506,7 +439,6 @@ const wrapperAttrs = generateWrapperAttributes();
     }
 
     @media (max-width: 39.9375em) {
-      /* Below sm breakpoint */
       margin-bottom: var(--space-sm);
 
       &--h1 {
@@ -516,35 +448,6 @@ const wrapperAttrs = generateWrapperAttributes();
       &--h2 {
         margin-bottom: var(--space-sm);
       }
-    }
-  }
-
-  /* ======================================
-   * ANIMATIONS
-   * ====================================== */
-
-  /* Gradient animation optimized for performance */
-  @keyframes gradient-shift {
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  /* Skip navigation highlight animation */
-  @keyframes skip-highlight {
-    0% {
-      background-color: transparent;
-    }
-    10%,
-    90% {
-      background-color: var(--focus-bg-overlay);
-    }
-    100% {
-      background-color: transparent;
     }
   }
 
@@ -563,22 +466,15 @@ const wrapperAttrs = generateWrapperAttributes();
   /* Enhanced support for reduced motion (WCAG 2.2) */
   @media (prefers-reduced-motion: reduce) {
     .headline {
-      /* Reset enhanced spacing to standard for reduced motion */
-      letter-spacing: var(--letter-spacing-base);
-      line-height: var(--leading-tight);
-
       &--primary {
         /* Reset gradient animation */
         background: none;
         -webkit-text-fill-color: initial;
         color: var(--interactive-primary);
-        will-change: auto;
         animation: none;
       }
 
       &--skip-target {
-        animation: none;
-
         &:target {
           /* Static highlight for reduced motion users */
           background-color: var(--focus-bg-overlay);
@@ -621,10 +517,10 @@ const wrapperAttrs = generateWrapperAttributes();
 
 {
   wrapper !== "none" ? (
-    <WrapperTag {...wrapperAttrs}>
-      <Tag {...headlineAttrs}>{title || <slot />}</Tag>
+    <WrapperTag {...wrapperAttributes}>
+      <Tag {...attributes}>{title || <slot />}</Tag>
     </WrapperTag>
   ) : (
-    <Tag {...headlineAttrs}>{title || <slot />}</Tag>
+    <Tag {...attributes}>{title || <slot />}</Tag>
   )
 }

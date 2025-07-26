@@ -4,8 +4,6 @@
  *
  * Filters achievements by status and category with keyboard shortcuts
  * WCAG AAA compliant with performance optimizations
- *
- * @param {string} lang - Language code for translations (e.g., 'en', 'de')
  */
 
 import { useTranslations } from "../../utils/i18n.ts";
@@ -13,14 +11,12 @@ import Headline from "../Headline.astro";
 import ButtonLink from "../ButtonLink.astro";
 
 interface Props {
-  /** Language code for translations (e.g., 'en', 'de') */
   lang: string;
 }
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-/* Filter options */
 const statusOptions = [
   { value: "all", label: t("achievements.filter.all") },
   { value: "unlocked", label: t("achievements.status.unlocked") },
@@ -152,128 +148,30 @@ const categoryOptions = [
     </dl>
   </div>
 
-  <!-- ARIA live region for announcing filter changes -->
   <div id="filter-announcements" aria-live="polite" aria-atomic="true" class="sr-only"></div>
 </div>
 
 <style lang="scss">
-  /* AchievementFilter - responsive achievement filter */
-  /* Uses global.css variables, WCAG AAA compliant, performance optimized */
-
-  /* Responsive mixins with hardcoded breakpoints */
-  @mixin mobile {
-    @media (max-width: 39.9375em) {
-      @content;
-    }
-  }
-
-  @mixin tablet {
-    @media (min-width: 40em) {
-      @content;
-    }
-  }
-
-  @mixin desktop {
-    @media (min-width: 48em) {
-      @content;
-    }
-  }
-
-  @mixin large-desktop {
-    @media (min-width: 64em) {
-      @content;
-    }
-  }
-
-  /* Button base styles */
-  @mixin button-base {
-    font-size: clamp(var(--text-sm), 3vw, var(--text-base));
-    font-weight: var(--font-medium);
-    line-height: var(--leading-normal);
-    letter-spacing: var(--letter-spacing-base);
-    border-radius: var(--radius-md);
-    min-height: var(--touch-target-enhanced);
-    min-width: var(--touch-target-enhanced);
-    cursor: pointer;
-
-    /* Performance optimizations */
-    contain: layout style;
-    content-visibility: auto;
-    transform: translateZ(0);
-    will-change: transform, box-shadow;
-
-    transition:
-      border-color var(--animation-duration-normal),
-      background-color var(--animation-duration-normal),
-      box-shadow var(--animation-duration-normal),
-      color var(--animation-duration-normal),
-      transform var(--animation-duration-fast);
-
-    &:hover {
-      transform: translateY(var(--animation-y-offset-small)) translateZ(0);
-      box-shadow: var(--shadow-md);
-    }
-
-    &:focus-visible {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-    }
-
-    &:active {
-      transform: translateY(var(--space-none)) translateZ(0);
-    }
-  }
-
-  /* Form field base styles */
-  @mixin form-field-base {
-    font-size: clamp(var(--text-sm), 3vw, var(--text-base));
-    font-weight: var(--font-medium);
-    line-height: var(--leading-normal);
-    letter-spacing: var(--letter-spacing-base);
-    border-radius: var(--radius-md);
-    min-height: var(--touch-target-enhanced);
-    min-width: var(--touch-target-enhanced);
-    cursor: pointer;
-
-    /* Performance optimizations */
-    contain: layout style;
-    content-visibility: auto;
-    transform: translateZ(0);
-    will-change: transform, box-shadow;
-
-    transition:
-      border-color var(--animation-duration-normal),
-      background-color var(--animation-duration-normal),
-      box-shadow var(--animation-duration-normal),
-      color var(--animation-duration-normal),
-      transform var(--animation-duration-fast);
-  }
-
   .achievement-filter {
     background-color: var(--card-bg);
     border: var(--border-width-thin) solid var(--card-border);
     border-radius: var(--radius-lg);
-
-    /* Responsive padding */
-    padding: clamp(var(--space-sm), 4vw, var(--space-md));
-    margin-bottom: clamp(var(--space-md), 5vw, var(--space-lg));
-
+    padding: var(--space-sm);
+    margin-bottom: var(--space-md);
     box-shadow: var(--card-shadow);
-    transition: box-shadow var(--animation-duration-normal);
+    transition: box-shadow var(--transition-normal);
 
-    /* Performance optimizations */
-    contain: layout style paint;
-    content-visibility: auto;
-    contain-intrinsic-size: var(--container-intrinsic-height-component);
-    transform: translateZ(0);
-    will-change: box-shadow;
-
-    @include tablet {
-      padding: clamp(var(--space-md), 5vw, var(--space-lg));
-      margin-bottom: clamp(var(--space-lg), 6vw, var(--space-xl));
+    @media (min-width: 30em) {
+      padding: var(--space-md);
+      margin-bottom: var(--space-lg);
     }
 
-    @include desktop {
+    @media (min-width: 48em) {
+      padding: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+
+    @media (min-width: 64em) {
       padding: var(--space-xl);
       margin-bottom: var(--space-2xl);
     }
@@ -282,73 +180,76 @@ const categoryOptions = [
       box-shadow: var(--card-shadow-hover);
     }
 
-    /* Title styling */
     &__title {
       margin-bottom: var(--space-md);
       text-align: center;
 
-      @include tablet {
+      @media (min-width: 30em) {
         margin-bottom: var(--space-lg);
         text-align: left;
       }
     }
 
-    /* Container layout with CSS Grid */
     &__container {
       display: grid;
       grid-template-columns: 1fr;
-      gap: clamp(var(--space-sm), 3vw, var(--space-md));
-      margin-bottom: clamp(var(--space-sm), 3vw, var(--space-md));
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
 
-      /* Performance optimizations */
-      contain: layout style;
-      content-visibility: auto;
-
-      @include tablet {
-        grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width-sm), 1fr));
-        gap: clamp(var(--space-md), 4vw, var(--space-lg));
-        margin-bottom: clamp(var(--space-md), 4vw, var(--space-lg));
+      @media (min-width: 30em) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+        margin-bottom: var(--space-md);
       }
 
-      @include desktop {
+      @media (min-width: 48em) {
+        gap: var(--space-lg);
+        margin-bottom: var(--space-lg);
+      }
+
+      @media (min-width: 64em) {
         gap: var(--space-xl);
         margin-bottom: var(--space-xl);
       }
     }
 
-    /* Form field styling */
     &__field {
       display: flex;
       flex-direction: column;
       gap: var(--space-xs);
       position: relative;
 
-      @include tablet {
+      @media (min-width: 30em) {
         gap: var(--space-sm);
       }
     }
 
-    /* Label styling */
     &__label {
       color: var(--text-primary);
       letter-spacing: var(--letter-spacing-base);
       text-wrap: balance;
-      margin: var(--space-none);
+      margin: 0;
       font-size: var(--text-base);
       font-weight: var(--font-medium);
       line-height: var(--leading-normal);
       margin-bottom: var(--space-xs);
       display: block;
 
-      @include tablet {
+      @media (min-width: 30em) {
         font-size: var(--text-lg);
         margin-bottom: var(--space-sm);
       }
     }
 
-    /* Select dropdown styling */
     &__select {
-      @include form-field-base;
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+      line-height: var(--leading-normal);
+      letter-spacing: var(--letter-spacing-base);
+      border-radius: var(--radius-md);
+      min-height: var(--touch-target-enhanced);
+      min-width: var(--touch-target-enhanced);
+      cursor: pointer;
       appearance: none;
       background-color: var(--form-bg);
       border: var(--border-width-thick) solid var(--form-border);
@@ -356,16 +257,18 @@ const categoryOptions = [
       padding: var(--space-sm) var(--space-md);
       width: var(--width-full);
       position: relative;
-      cursor: pointer;
+      transition:
+        border-color var(--transition-normal),
+        background-color var(--transition-normal),
+        box-shadow var(--transition-normal);
 
-      /* Custom dropdown arrow using CSS */
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6,9 12,15 18,9'%3E%3C/polyline%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right var(--space-md) center;
       background-size: var(--space-md) var(--space-md);
       padding-right: calc(var(--space-md) * 2 + var(--space-md));
 
-      @include tablet {
+      @media (min-width: 30em) {
         font-size: var(--text-lg);
         padding: var(--space-md) var(--space-lg);
         background-position: right var(--space-lg) center;
@@ -373,7 +276,7 @@ const categoryOptions = [
         padding-right: calc(var(--space-lg) * 2 + var(--space-lg));
       }
 
-      @include desktop {
+      @media (min-width: 48em) {
         padding: var(--space-lg) var(--space-xl);
         background-position: right var(--space-xl) center;
         background-size: var(--space-lg) var(--space-lg);
@@ -383,7 +286,6 @@ const categoryOptions = [
       &:hover:not(:focus) {
         border-color: var(--border-secondary);
         background-color: var(--bg-tertiary);
-        transform: translateY(calc(-1 * var(--space-xs)));
         box-shadow: var(--shadow-sm);
       }
 
@@ -395,20 +297,13 @@ const categoryOptions = [
         box-shadow: var(--shadow-md);
       }
 
-      /* Active state when dropdown is open */
-      &:active {
-        transform: translateY(var(--space-none));
-      }
-
-      /* Disabled state */
       &:disabled {
-        opacity: var(--opacity-disabled);
+        opacity: 0.6;
         cursor: not-allowed;
         background-color: var(--bg-secondary);
         color: var(--text-disabled);
       }
 
-      /* Custom styling for options */
       option {
         background-color: var(--form-bg);
         color: var(--form-text);
@@ -427,18 +322,17 @@ const categoryOptions = [
       }
     }
 
-    /* Count display styling */
     &__count {
       color: var(--text-secondary);
       letter-spacing: var(--letter-spacing-base);
       text-wrap: balance;
-      margin: var(--space-none);
+      margin: 0;
       font-size: var(--text-sm);
       font-weight: var(--font-medium);
       margin-top: var(--space-xs);
       line-height: var(--leading-normal);
 
-      @include tablet {
+      @media (min-width: 30em) {
         font-size: var(--text-base);
         margin-top: var(--space-sm);
       }
@@ -448,7 +342,6 @@ const categoryOptions = [
       }
     }
 
-    /* Actions container styling */
     &__actions {
       display: flex;
       flex-wrap: wrap;
@@ -459,34 +352,51 @@ const categoryOptions = [
       padding-top: var(--space-md);
       border-top: var(--border-width-thin) solid var(--border-primary);
 
-      @include tablet {
-        gap: var(--space-md);
-        margin-top: var(--space-lg);
-        padding-top: var(--space-lg);
-      }
-
-      @include mobile {
+      @media (max-width: 39.9375em) {
         flex-direction: column;
         align-items: stretch;
         gap: var(--space-md);
       }
+
+      @media (min-width: 30em) {
+        gap: var(--space-md);
+        margin-top: var(--space-lg);
+        padding-top: var(--space-lg);
+      }
     }
 
-    /* Button styling */
     &__reset,
     &__help-button {
-      @include button-base;
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+      line-height: var(--leading-normal);
+      letter-spacing: var(--letter-spacing-base);
+      border-radius: var(--radius-md);
+      min-height: var(--touch-target-enhanced);
+      min-width: var(--touch-target-enhanced);
+      cursor: pointer;
       background: var(--btn-primary-bg);
       border: none;
       color: var(--btn-primary-text);
       padding: var(--space-sm) var(--space-md);
-      min-width: var(--touch-target-enhanced);
+      transition:
+        background-color var(--transition-normal),
+        box-shadow var(--transition-normal);
 
-      @include mobile {
+      @media (max-width: 39.9375em) {
         width: var(--width-full);
         text-align: center;
         min-height: var(--touch-target-enhanced);
         padding: var(--space-md) var(--space-lg);
+      }
+
+      &:hover {
+        box-shadow: var(--shadow-md);
+      }
+
+      &:focus-visible {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-ring-offset);
       }
     }
 
@@ -507,7 +417,6 @@ const categoryOptions = [
       }
     }
 
-    /* Keyboard shortcuts panel */
     &__keyboard-shortcuts {
       background-color: var(--bg-tertiary);
       border: var(--border-width-thin) solid var(--border-primary);
@@ -515,17 +424,11 @@ const categoryOptions = [
       margin-top: var(--space-md);
       padding: var(--space-md);
       overflow: hidden;
-
-      /* Performance optimizations */
-      contain: layout style;
-      content-visibility: auto;
-
       transition:
-        max-height var(--animation-duration-normal),
-        opacity var(--animation-duration-normal),
-        padding var(--animation-duration-normal);
+        max-height var(--transition-normal),
+        opacity var(--transition-normal);
 
-      @include tablet {
+      @media (min-width: 30em) {
         margin-top: var(--space-lg);
         padding: var(--space-lg);
       }
@@ -538,25 +441,25 @@ const categoryOptions = [
     &__shortcuts-title {
       margin-bottom: var(--space-sm);
 
-      @include tablet {
+      @media (min-width: 30em) {
         margin-bottom: var(--space-md);
       }
     }
 
     &__shortcuts-list {
-      margin: var(--space-none);
+      margin: 0;
       display: grid;
       gap: var(--space-xs);
       font-size: var(--text-sm);
       line-height: var(--leading-relaxed);
 
-      @include tablet {
+      @media (min-width: 30em) {
         font-size: var(--text-base);
         gap: var(--space-md);
         grid-template-columns: repeat(2, 1fr);
       }
 
-      @include desktop {
+      @media (min-width: 48em) {
         gap: var(--space-lg);
       }
     }
@@ -567,12 +470,12 @@ const categoryOptions = [
       gap: var(--space-sm);
       align-items: baseline;
 
-      @include mobile {
+      @media (max-width: 39.9375em) {
         grid-template-columns: 1fr;
         gap: var(--space-xs);
       }
 
-      @include tablet {
+      @media (min-width: 30em) {
         gap: var(--space-md);
       }
     }
@@ -591,7 +494,7 @@ const categoryOptions = [
         color: var(--text-primary);
         margin: 0 var(--space-xs);
 
-        @include tablet {
+        @media (min-width: 30em) {
           font-size: var(--text-sm);
           padding: var(--space-sm) var(--space-md);
         }
@@ -599,32 +502,27 @@ const categoryOptions = [
     }
 
     &__shortcut-description {
-      margin: var(--space-none);
+      margin: 0;
       color: var(--text-secondary);
       margin-bottom: var(--space-xs);
 
-      @include tablet {
+      @media (min-width: 30em) {
         margin-bottom: var(--space-sm);
       }
     }
   }
 
-  /* Screen reader only utility */
   .sr-only {
     position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    margin: var(--sr-only-margin);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
     overflow: hidden;
-    clip: var(--sr-only-clip-path);
+    clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
   }
 
-  /* FILTER UTILITIES - Gap-free grid layout optimization */
-
-  /* Complete removal from layout flow instead of display: none */
-  /* This prevents grid gaps by removing filtered items from the layout entirely */
   .filtered-hidden {
     position: absolute !important;
     left: -10000px !important;
@@ -639,93 +537,71 @@ const categoryOptions = [
     pointer-events: none;
   }
 
-  /* Enhanced CSS Grid Layout - Auto-collapse for filtered content */
   .achievements__grid {
     display: grid;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(var(--grid-min-width-sm), var(--percentage-full)), 1fr)
-    );
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--space-md);
     width: var(--width-full);
     grid-auto-flow: row dense;
     align-items: start;
     justify-items: stretch;
-    transition:
-      grid-template-columns var(--animation-duration-normal),
-      gap var(--animation-duration-normal);
-    contain: layout style;
 
-    @include tablet {
+    @media (min-width: 30em) {
       gap: var(--space-lg);
     }
 
-    @include desktop {
+    @media (min-width: 48em) {
       gap: var(--space-xl);
     }
 
-    /* Target only visible achievement cards to prevent gaps */
     > *:not(.filtered-hidden) {
       position: relative;
       display: block;
     }
 
-    /* Enhanced visual feedback when filtering is active */
     &:has(.filtered-hidden) {
-      filter: brightness(var(--filter-brightness-medium));
+      filter: brightness(0.95);
     }
 
-    /* Responsive grid behavior */
     @media (min-width: 48em) {
-      grid-template-columns: repeat(
-        auto-fit,
-        minmax(min(var(--grid-min-width-md), var(--percentage-half)), 1fr)
-      );
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     }
 
     @media (min-width: 64em) {
-      grid-template-columns: repeat(
-        auto-fit,
-        minmax(min(var(--grid-min-width-sm), var(--percentage-third)), 1fr)
-      );
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
     @media (min-width: 80em) {
-      grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width-md), 28%), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 28%));
     }
   }
 
-  /* Auto-hide empty category sections when all achievements are filtered */
   .achievements__category {
     transition:
-      opacity var(--animation-duration-normal),
-      margin var(--animation-duration-normal),
-      padding var(--animation-duration-normal);
-    contain: layout style;
+      opacity var(--transition-normal),
+      margin var(--transition-normal),
+      padding var(--transition-normal);
 
-    /* Hide empty sections using modern CSS */
     &:has(.achievements__grid:empty),
     &:has(.achievements__grid > *:not(.filtered-hidden):empty) {
       display: none;
-      margin: var(--space-none);
-      padding: var(--space-none);
+      margin: 0;
+      padding: 0;
     }
 
     &:has(.achievements__grid:not(:has(*:not(.filtered-hidden)))) {
       display: none;
     }
 
-    /* Section animations for empty state */
     &.section-empty {
       opacity: 0;
       transform: translateY(calc(-1 * var(--space-lg)));
-      margin: var(--space-none);
-      padding: var(--space-none);
+      margin: 0;
+      padding: 0;
       max-height: 0;
       overflow: hidden;
     }
 
-    /* Fallback for browsers without :has() support */
     @supports not selector(:has(*)) {
       &.all-filtered {
         display: none;
@@ -734,46 +610,11 @@ const categoryOptions = [
     }
   }
 
-  /* KEYFRAME ANIMATIONS - Reusable animations using CSS variables for timing */
-
-  .achievement-card-entering {
-    animation: cardEnter var(--animation-duration-slow) ease-out forwards;
-  }
-
-  .achievement-card-leaving {
-    animation: cardLeave var(--animation-duration-normal) ease-in forwards;
-  }
-
-  @keyframes cardEnter {
-    from {
-      opacity: 0;
-      transform: translateY(var(--space-lg)) scale(var(--scale-hover));
-    }
-    to {
-      opacity: var(--animation-opacity-full);
-      transform: translateY(var(--space-none)) scale(var(--animation-scale-end));
-    }
-  }
-
-  @keyframes cardLeave {
-    from {
-      opacity: var(--animation-opacity-full);
-      transform: translateY(var(--space-none)) scale(var(--animation-scale-end));
-    }
-    to {
-      opacity: 0;
-      transform: translateY(calc(-1 * var(--space-sm))) scale(var(--scale-hover));
-    }
-  }
-
-  /* ENHANCED ACCESSIBILITY SUPPORT (WCAG AAA) */
-
-  /* High contrast mode support */
   @media (prefers-contrast: high) {
     .achievement-filter {
       border-width: var(--border-width-thick);
       border-color: var(--text-primary);
-      filter: contrast(2) saturate(var(--filter-saturate-high));
+      filter: contrast(2) saturate(1.5);
 
       &__select {
         border-width: var(--border-width-enhanced);
@@ -786,63 +627,25 @@ const categoryOptions = [
     }
   }
 
-  /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     .achievement-filter {
       transition: none;
-      will-change: auto;
 
       &__select,
       &__reset,
       &__help-button,
       &__keyboard-shortcuts {
         transition: none;
-        will-change: auto;
       }
 
       &__reset:hover,
       &__help-button:hover {
         transform: none;
-        filter: brightness(var(--filter-brightness-medium));
-      }
-    }
-
-    @keyframes cardEnter {
-      from,
-      to {
-        opacity: var(--animation-opacity-full);
-        transform: none;
-      }
-    }
-
-    @keyframes cardLeave {
-      from,
-      to {
-        opacity: var(--animation-opacity-full);
-        transform: none;
+        filter: brightness(1.1);
       }
     }
   }
 
-  /* Enhanced text spacing support (WCAG 2.2) */
-  @supports (letter-spacing: var(--letter-spacing-enhanced)) {
-    .enhanced-text-spacing {
-      .achievement-filter__label,
-      .achievement-filter__select {
-        letter-spacing: var(--letter-spacing-enhanced);
-        word-spacing: var(--word-spacing-enhanced);
-        line-height: var(--line-height-enhanced);
-      }
-
-      .achievement-filter__shortcut-description {
-        letter-spacing: var(--letter-spacing-enhanced);
-        word-spacing: var(--word-spacing-enhanced);
-        line-height: var(--line-height-enhanced);
-      }
-    }
-  }
-
-  /* Forced colors mode support (Windows High Contrast) */
   @media (forced-colors: active) {
     .achievement-filter {
       border-color: ButtonBorder;
@@ -868,53 +671,49 @@ const categoryOptions = [
     }
   }
 
-  /* PRINT STYLES */
   @media print {
     .achievement-filter {
-      background-color: var(--print-bg);
-      border: var(--print-border);
+      background-color: white;
+      border: 1px solid #000;
       box-shadow: none;
-      color: var(--print-text);
+      color: #000;
       page-break-inside: avoid;
-      filter: contrast(var(--filter-contrast)) brightness(var(--filter-brightness-high));
 
       &__label {
-        color: var(--print-text);
-        text-rendering: optimizeLegibility;
-        -webkit-print-color-adjust: exact;
+        color: #000;
       }
 
       &__select {
-        background-color: var(--print-bg);
-        border: var(--print-border);
-        color: var(--print-text);
+        background-color: white;
+        border: 1px solid #000;
+        color: #000;
         padding: var(--space-sm) var(--space-md);
       }
 
       &__reset,
       &__help-button {
-        background-color: var(--print-bg);
-        border: var(--print-border);
-        color: var(--print-text);
+        background-color: white;
+        border: 1px solid #000;
+        color: #000;
         box-shadow: none;
         padding: var(--space-sm) var(--space-md);
       }
 
       &__keyboard-shortcuts {
-        background-color: var(--print-bg);
-        border: var(--print-border);
-        color: var(--print-text);
+        background-color: white;
+        border: 1px solid #000;
+        color: #000;
         margin-top: var(--space-md);
         padding: var(--space-md);
       }
 
       &__shortcut-key {
-        color: var(--print-text);
+        color: #000;
         font-weight: var(--font-bold);
       }
 
       &__shortcut-description {
-        color: var(--print-text);
+        color: #000;
         font-size: var(--text-sm);
       }
     }
@@ -933,12 +732,10 @@ const categoryOptions = [
 <script>
   import { initializeAchievementFilter } from "../../utils/achievements/achievementFilter.ts";
 
-  /* Initialize achievement filter */
   const initFilter = (): void => {
     initializeAchievementFilter();
   };
 
-  /* DOM ready check */
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initFilter, { once: true });
   } else {

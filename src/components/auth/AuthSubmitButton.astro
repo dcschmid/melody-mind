@@ -5,31 +5,19 @@
  * Features:
  * - Loading spinner with smooth animations
  * - WCAG AAA compliance with focus management
- * - Performance optimized with CSS containment
  * - Full responsive design with touch optimization
  * - Keyboard navigation support
- *
- * @component
- * @accessibility WCAG AAA compliant with enhanced focus indicators
- * @performance CSS containment, GPU acceleration, optimized transitions
- * @responsive Mobile-first design with container queries
  */
+
 import { Icon } from "astro-icon/components";
 
 export interface Props {
-  /** Button element ID */
   id: string;
-  /** Text span ID for accessibility */
   textId: string;
-  /** Spinner element ID */
   spinnerId: string;
-  /** Button display text */
   buttonText: string;
-  /** Additional CSS classes */
   class?: string;
-  /** Button type */
   type?: "submit" | "button";
-  /** Disabled state */
   disabled?: boolean;
 }
 
@@ -60,16 +48,6 @@ const {
 </button>
 
 <style lang="scss">
-  /**
-   * AuthSubmitButton Component Styles
-   * 
-   * ✅ 100% global.css variables integration
-   * ✅ Performance optimized with CSS containment
-   * ✅ WCAG AAA compliant styling
-   * ✅ Responsive design with container queries
-   * ✅ GPU acceleration for smooth animations
-   */
-
   .auth-form {
     &__submit-button {
       position: relative;
@@ -79,43 +57,36 @@ const {
       cursor: pointer;
       border: none;
       user-select: none;
-
       width: var(--width-full);
       min-height: var(--touch-target-enhanced);
-
-      gap: clamp(var(--space-sm), 3vw, var(--space-md));
-      padding: clamp(var(--space-md), 4vw, var(--space-lg))
-        clamp(var(--space-lg), 5vw, var(--space-xl));
-
+      gap: var(--space-sm);
+      padding: var(--space-md) var(--space-lg);
       background: var(--interactive-primary);
       color: var(--btn-primary-text);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-md);
-
-      font-size: clamp(var(--text-base), 3vw, var(--text-lg));
+      font-size: var(--text-base);
       font-weight: var(--font-semibold);
       line-height: var(--leading-normal);
       letter-spacing: var(--letter-spacing-base);
-
-      // Performance optimizations
-      contain: layout style paint;
-      content-visibility: auto;
-      contain-intrinsic-size: var(--container-intrinsic-height-component);
-      transform: translateZ(0);
-      will-change: transform, background-color, box-shadow;
-
       transition:
         background-color var(--transition-normal),
         box-shadow var(--transition-normal),
-        transform var(--transition-fast);
+        transform var(--transition-normal);
 
-      // Container query support
-      container-type: inline-size;
-      container-name: auth-submit-button;
+      @media (min-width: 30em) {
+        gap: var(--space-md);
+        padding: var(--space-lg) var(--space-xl);
+        font-size: var(--text-lg);
+      }
+
+      @media (min-width: 48em) {
+        min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
+      }
 
       &:hover:not(:disabled) {
         background: var(--interactive-primary-hover);
-        transform: translateY(calc(-1 * var(--space-xs))) translateZ(0);
+        transform: translateY(-2px);
         box-shadow: var(--shadow-lg);
       }
 
@@ -126,13 +97,13 @@ const {
       }
 
       &:active:not(:disabled) {
-        transform: translateY(var(--space-none)) scale(0.98) translateZ(0);
+        transform: translateY(0);
         background: var(--interactive-primary-hover);
         box-shadow: var(--shadow-md);
       }
 
       &:disabled {
-        opacity: var(--opacity-disabled);
+        opacity: 0.6;
         cursor: not-allowed;
         transform: none;
         box-shadow: none;
@@ -143,10 +114,8 @@ const {
         pointer-events: none;
 
         .auth-form__submit-text {
-          opacity: var(--animation-opacity-start);
-          transform: translateZ(0);
-          will-change: opacity;
-          transition: opacity var(--transition-fast);
+          opacity: 0;
+          transition: opacity var(--transition-normal);
         }
 
         .auth-form__spinner {
@@ -159,12 +128,7 @@ const {
       font-weight: inherit;
       color: inherit;
       user-select: none;
-
-      contain: layout style;
-
-      transition: opacity var(--transition-fast);
-      will-change: opacity;
-
+      transition: opacity var(--transition-normal);
       text-wrap: balance;
     }
 
@@ -175,45 +139,28 @@ const {
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%) translateZ(0);
-
-      contain: layout style;
+      transform: translate(-50%, -50%);
 
       &-icon {
-        height: clamp(var(--text-base), 4vw, var(--text-lg));
-        width: clamp(var(--text-base), 4vw, var(--text-lg));
-
+        height: var(--text-base);
+        width: var(--text-base);
         color: var(--btn-primary-text);
-        animation: auth-spinner-rotate var(--animation-duration-normal) linear infinite;
-        transform: translateZ(0);
-        will-change: transform;
+        animation: auth-spinner-rotate 1s linear infinite;
+
+        @media (min-width: 30em) {
+          height: var(--text-lg);
+          width: var(--text-lg);
+        }
       }
     }
   }
 
   @keyframes auth-spinner-rotate {
     0% {
-      transform: translateZ(0) rotate(0deg);
+      transform: rotate(0deg);
     }
     100% {
-      transform: translateZ(0) rotate(360deg);
-    }
-  }
-
-  @keyframes auth-spinner-pulse {
-    0%,
-    100% {
-      opacity: var(--opacity-medium);
-    }
-    50% {
-      opacity: var(--opacity-low);
-    }
-  }
-
-  // Responsive design
-  @media (min-width: 48em) {
-    .auth-form__submit-button {
-      min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
+      transform: rotate(360deg);
     }
   }
 
@@ -223,7 +170,6 @@ const {
     }
   }
 
-  // High contrast mode support
   @media (prefers-contrast: high) {
     .auth-form__submit-button {
       border: var(--border-width-thick) solid var(--border-primary);
@@ -236,33 +182,40 @@ const {
     }
   }
 
-  // Reduced motion support
   @media (prefers-reduced-motion: reduce) {
     .auth-form__submit-button,
     .auth-form__spinner-icon,
     .auth-form__submit-text {
       transition: var(--transition-instant);
       animation: none;
-      will-change: auto;
     }
 
     .auth-form__submit-button:hover:not(:disabled) {
-      transform: translateZ(0);
+      transform: none;
     }
 
     .auth-form__spinner-icon {
-      animation: auth-spinner-pulse var(--animation-duration-slow) ease-in-out infinite;
+      animation: auth-spinner-pulse 2s ease-in-out infinite;
     }
   }
 
-  // Touch device support
+  @keyframes auth-spinner-pulse {
+    0%,
+    100% {
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+
   @media (hover: none) and (pointer: coarse) {
     .auth-form__submit-button {
       min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
       padding: var(--space-lg) var(--space-xl);
 
       &:hover {
-        transform: translateZ(0);
+        transform: none;
         box-shadow: var(--shadow-md);
         background: var(--interactive-primary);
       }
@@ -289,47 +242,15 @@ const {
       display: none !important;
     }
   }
-
-  // Container queries for component-specific responsiveness
-  @container auth-submit-button (max-width: 20em) {
-    .auth-form__submit-button {
-      padding: var(--space-sm) var(--space-md);
-      font-size: var(--text-sm);
-      min-height: var(--touch-target-enhanced);
-
-      .auth-form__spinner-icon {
-        height: var(--text-sm);
-        width: var(--text-sm);
-      }
-    }
-  }
-
-  @container auth-submit-button (min-width: 30em) {
-    .auth-form__submit-button {
-      padding: var(--space-lg) var(--space-2xl);
-      font-size: var(--text-xl);
-      min-height: calc(var(--touch-target-enhanced) + var(--space-md));
-
-      .auth-form__spinner-icon {
-        height: var(--text-xl);
-        width: var(--text-xl);
-      }
-    }
-  }
 </style>
 
 <script>
-  /**
-   * AuthSubmitButton Accessibility Script
-   */
   import { initializeAuthButtonAccessibility } from "../../utils/auth/authSubmitButton";
 
-  // Initialize accessibility features when DOM is ready
   const initButton = (): void => {
     initializeAuthButtonAccessibility();
   };
 
-  // DOM ready check with cleanup
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initButton, { once: true });
   } else {

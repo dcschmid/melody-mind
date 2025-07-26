@@ -286,44 +286,8 @@ const clientTranslations = {
   $modal-max-height: var(--modal-content-max-height);
   $modal-padding: var(--modal-padding);
 
-  // Mixins for responsive design
-  @mixin mobile {
-    @media (max-width: var(--breakpoint-sm)) {
-      @content;
-    }
-  }
+  // Entfernte Mixins und ersetze Media Queries durch direkte Werte
 
-  @mixin tablet {
-    @media (min-width: var(--breakpoint-sm)) and (max-width: var(--breakpoint-lg)) {
-      @content;
-    }
-  }
-
-  @mixin desktop {
-    @media (min-width: var(--breakpoint-lg)) {
-      @content;
-    }
-  }
-
-  @mixin reduced-motion {
-    @media (prefers-reduced-motion: reduce) {
-      @content;
-    }
-  }
-
-  @mixin high-contrast {
-    @media (prefers-contrast: high) {
-      @content;
-    }
-  }
-
-  @mixin forced-colors {
-    @media (forced-colors: active) {
-      @content;
-    }
-  }
-
-  // Base popup container
   .popup {
     position: fixed;
     inset: 0;
@@ -331,10 +295,8 @@ const clientTranslations = {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: $modal-padding;
+    padding: var(--space-lg);
     background-color: var(--backdrop-overlay-dark);
-    backdrop-filter: blur(var(--backdrop-blur));
-    -webkit-backdrop-filter: blur(var(--backdrop-blur));
     transition: opacity var(--transition-normal);
 
     &.hidden {
@@ -343,91 +305,60 @@ const clientTranslations = {
       opacity: 0;
 
       .popup__content {
-        transform: translateY(var(--space-lg)) scale(0.98);
         opacity: 0;
       }
     }
 
-    // Backdrop for click-to-close
     &__backdrop {
       position: absolute;
       inset: 0;
       z-index: $backdrop-z-index;
     }
 
-    // Main popup content
     &__content {
       position: relative;
       width: 100%;
       max-width: $modal-max-width;
       max-height: $modal-max-height;
       overflow-y: auto;
-      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+      background: var(--bg-secondary);
       border: var(--border-width-thin) solid var(--border-primary);
       border-radius: var(--radius-xl);
       padding: var(--space-2xl);
       box-shadow: var(--shadow-xl);
-      transform: translateY(0) scale(1);
-      transition:
-        transform var(--transition-normal),
-        opacity var(--transition-normal);
       z-index: $content-z-index;
-
-      // Enhanced focus styles
+      transition: opacity var(--transition-normal);
       &:focus-visible {
         outline: var(--focus-enhanced-outline-dark);
         outline-offset: var(--space-xs);
       }
-
-      // Scrollbar styling
       &::-webkit-scrollbar {
         width: var(--scrollbar-thin);
         height: var(--scrollbar-thin);
       }
-
       &::-webkit-scrollbar-track {
         background: var(--scrollbar-track-bg);
         border-radius: var(--scrollbar-track-radius);
       }
-
       &::-webkit-scrollbar-thumb {
         background: var(--scrollbar-thumb-bg);
         border-radius: var(--scrollbar-thumb-radius);
-
         &:hover {
           background: var(--scrollbar-thumb-hover);
         }
       }
     }
-
-    // Title with enhanced gradient text
     &__title {
       font-size: var(--text-3xl);
       font-weight: var(--font-bold);
       text-align: center;
       margin-bottom: var(--space-lg);
       word-spacing: var(--word-spacing-enhanced);
-
-      // Enhanced gradient with better contrast for WCAG AAA
-      background: linear-gradient(
-        135deg,
-        var(--color-primary-300) 0%,
-        var(--color-secondary-300) 100%
-      );
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       color: var(--color-primary-300);
       line-height: var(--leading-enhanced);
       letter-spacing: var(--letter-spacing-enhanced);
       text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
-
-      @include mobile {
-        font-size: var(--text-2xl);
-      }
     }
-
-    // Button styles
     &__btn {
       display: flex;
       align-items: center;
@@ -437,63 +368,42 @@ const clientTranslations = {
       font-size: var(--text-base);
       font-weight: var(--font-medium);
       cursor: pointer;
-      transition: all var(--transition-normal);
+      transition:
+        background var(--transition-normal),
+        box-shadow var(--transition-normal);
       text-decoration: none;
       border: none;
       min-height: var(--touch-target-enhanced);
       min-width: var(--touch-target-enhanced);
       line-height: var(--leading-enhanced);
       letter-spacing: var(--letter-spacing-enhanced);
-      padding-top: max(var(--space-md), 12px);
-      padding-bottom: max(var(--space-md), 12px);
-      padding-left: max(var(--space-xl), 16px);
-      padding-right: max(var(--space-xl), 16px);
-
       &:hover {
-        transform: translateY(var(--animation-y-offset-small));
+        background: var(--color-primary-700);
       }
-
       &:focus-visible {
         outline: var(--focus-outline);
         outline-offset: var(--focus-ring-offset);
       }
-
       &--primary {
-        background: linear-gradient(
-          135deg,
-          var(--color-primary-600) 0%,
-          var(--color-primary-700) 100%
-        );
+        background: var(--color-primary-600);
         color: var(--color-white);
-
         &:hover {
-          background: linear-gradient(
-            135deg,
-            var(--color-primary-700) 0%,
-            var(--color-primary-800) 100%
-          );
+          background: var(--color-primary-700);
         }
       }
-
       &--secondary {
         background-color: transparent;
         color: var(--text-primary);
         border: var(--border-width-thin) solid var(--border-primary);
-
         &:hover {
           background-color: var(--bg-tertiary);
           border-color: var(--border-secondary);
         }
       }
-
-      @include mobile {
-        width: 100%;
-        justify-content: center;
-      }
     }
   }
 
-  // Achievement badge with trophy
+  // Achievement badge
   .achievement-badge {
     display: flex;
     align-items: center;
@@ -501,10 +411,9 @@ const clientTranslations = {
     width: $achievement-badge-size;
     height: $achievement-badge-size;
     margin: 0 auto var(--space-lg);
-    background: linear-gradient(135deg, var(--color-warning-400) 0%, var(--color-warning-500) 100%);
+    background: var(--color-warning-400);
     border-radius: var(--radius-full);
     color: var(--color-black);
-    animation: pulse-glow var(--animation-pulse-duration) infinite;
   }
 
   // Progress bar container
@@ -517,38 +426,15 @@ const clientTranslations = {
     margin-bottom: var(--space-xl);
     overflow: hidden;
     position: relative;
-
     &__bar {
       height: 100%;
       width: 100%;
-      background: linear-gradient(
-        90deg,
-        var(--color-primary-500) 0%,
-        var(--color-secondary-500) 50%,
-        var(--color-primary-600) 100%
-      );
+      background: var(--color-primary-500);
       border-radius: var(--radius-lg);
       position: relative;
       transform: scaleX(0);
       transform-origin: left center;
       transition: transform var(--transition-slow);
-      will-change: transform;
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-          90deg,
-          transparent 0%,
-          rgba(255, 255, 255, 0.2) 50%,
-          transparent 100%
-        );
-        animation: shimmer var(--animation-shimmer-duration) infinite;
-      }
     }
   }
 
@@ -564,7 +450,6 @@ const clientTranslations = {
     max-width: var(--motivation-text-max-width);
     margin-left: auto;
     margin-right: auto;
-    text-spacing: var(--text-spacing-enhanced);
   }
 
   // Score section
@@ -578,7 +463,6 @@ const clientTranslations = {
     border: var(--border-width-thin) solid var(--border-primary);
     border-radius: var(--radius-lg);
     margin-bottom: var(--space-lg);
-
     &__label {
       font-size: var(--text-sm);
       font-weight: var(--font-medium);
@@ -586,29 +470,13 @@ const clientTranslations = {
       text-transform: uppercase;
       letter-spacing: var(--letter-spacing-enhanced);
     }
-
     &__value {
       font-size: var(--text-4xl);
       font-weight: var(--font-bold);
       color: var(--text-primary);
-
-      // Enhanced gradient text
-      background: linear-gradient(
-        135deg,
-        var(--color-primary-300) 0%,
-        var(--color-secondary-300) 100%
-      );
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: var(--color-primary-300);
       line-height: var(--leading-enhanced);
       letter-spacing: var(--letter-spacing-enhanced);
       text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
-
-      @include mobile {
-        font-size: var(--text-3xl);
-      }
     }
   }
 
@@ -631,7 +499,6 @@ const clientTranslations = {
   // Achievements section
   .achievements-section {
     margin-bottom: var(--space-xl);
-
     &__title {
       font-size: var(--text-lg);
       font-weight: var(--font-semibold);
@@ -639,7 +506,6 @@ const clientTranslations = {
       text-align: center;
       margin-bottom: var(--space-lg);
     }
-
     &__container {
       display: flex;
       flex-wrap: wrap;
@@ -657,38 +523,32 @@ const clientTranslations = {
     background-color: var(--bg-tertiary);
     border: var(--border-width-thin) solid var(--border-primary);
     border-radius: var(--radius-lg);
-    transition: transform var(--transition-normal);
+    transition: box-shadow var(--transition-normal);
     text-align: center;
-
     &:hover {
-      transform: translateY(calc(-1 * var(--space-micro)));
+      box-shadow: var(--shadow-md);
     }
-
     &__icon {
       font-size: var(--text-2xl);
       margin-bottom: var(--space-sm);
-
       img {
         width: var(--space-2xl);
         height: var(--space-2xl);
         border-radius: var(--radius-md);
       }
     }
-
     &__content {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: var(--space-xs);
     }
-
     &__name {
       font-size: var(--text-base);
       font-weight: var(--font-semibold);
       color: var(--text-primary);
       margin: 0;
     }
-
     &__description {
       font-size: var(--text-sm);
       color: var(--text-secondary);
@@ -703,7 +563,6 @@ const clientTranslations = {
     padding: var(--space-lg) 0;
     border-top: var(--border-width-thin) solid var(--border-subtle);
     border-bottom: var(--border-width-thin) solid var(--border-subtle);
-
     &__title {
       margin-bottom: var(--space-lg);
       font-size: var(--text-lg);
@@ -722,52 +581,37 @@ const clientTranslations = {
     font-size: var(--text-base);
     font-weight: var(--font-medium);
     cursor: pointer;
-    transition: all var(--transition-normal);
+    transition:
+      background var(--transition-normal),
+      box-shadow var(--transition-normal);
     text-decoration: none;
     border: none;
     min-height: var(--touch-target-enhanced);
     min-width: var(--touch-target-enhanced);
     line-height: var(--leading-enhanced);
     letter-spacing: var(--letter-spacing-enhanced);
-    padding-top: max(var(--space-md), 12px);
-    padding-bottom: max(var(--space-md), 12px);
-    padding-left: max(var(--space-xl), 16px);
-    padding-right: max(var(--space-xl), 16px);
-    background: linear-gradient(
-      135deg,
-      var(--color-secondary-600) 0%,
-      var(--color-secondary-700) 100%
-    );
+    background: var(--color-secondary-600);
     color: var(--color-white);
-
     &:hover {
-      background: linear-gradient(
-        135deg,
-        var(--color-secondary-700) 0%,
-        var(--color-secondary-800) 100%
-      );
-      transform: translateY(var(--animation-y-offset-small));
+      background: var(--color-secondary-700);
     }
-
     &:focus-visible {
       outline: var(--focus-outline);
       outline-offset: var(--focus-ring-offset);
     }
   }
 
-  // Button wrapper
   .button-wrapper {
     display: flex;
     gap: var(--space-md);
     justify-content: center;
     flex-wrap: wrap;
-
-    @include mobile {
+    @media (max-width: 48em) {
       flex-direction: column;
+      gap: var(--space-sm);
     }
   }
 
-  // Screen reader only content
   .sr-only {
     position: absolute;
     width: 1px;
@@ -780,60 +624,13 @@ const clientTranslations = {
     border: 0;
   }
 
-  // =================================================
-  // ANIMATIONS
-  // =================================================
-
-  @keyframes pulse-glow {
-    0% {
-      transform: scale(var(--animation-scale-start));
-      box-shadow: 0 0 0 0 rgba(251, 191, 36, var(--animation-opacity-start));
-    }
-    70% {
-      transform: scale(var(--animation-scale-end));
-      box-shadow: 0 0 0 var(--glow-distance) rgba(251, 191, 36, var(--animation-opacity-end));
-    }
-    100% {
-      transform: scale(var(--animation-scale-start));
-      box-shadow: 0 0 0 0 rgba(251, 191, 36, var(--animation-opacity-end));
-    }
-  }
-
-  @keyframes shimmer {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
-
-  @keyframes fade-in-up {
-    from {
-      transform: translateY(var(--animation-y-offset)) scale(var(--animation-scale-hover));
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0) scale(var(--animation-scale-end));
-      opacity: 1;
-    }
-  }
-
-  .popup:not(.hidden) .popup__content {
-    animation: fade-in-up var(--transition-slow) ease-out;
-  }
-
-  // =================================================
-  // RESPONSIVE DESIGN
-  // =================================================
-
-  @include mobile {
+  // Responsive Design
+  @media (max-width: 48em) {
     .popup {
-      padding: var(--space-md);
+      padding: var(--space-xs);
     }
-
     .popup__content {
-      padding: var(--space-xl);
+      padding: var(--space-lg);
       max-width: 100%;
     }
   }
@@ -843,7 +640,7 @@ const clientTranslations = {
   // =================================================
 
   // High contrast mode support
-  @include forced-colors {
+  @media (forced-colors: active) {
     .popup__content {
       border: var(--border-width-enhanced) solid CanvasText;
       background: Canvas;
@@ -882,7 +679,7 @@ const clientTranslations = {
   }
 
   // Reduced motion preferences
-  @include reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
     .popup__content,
     .achievement-badge,
     .achievement-progress__bar,
@@ -909,12 +706,10 @@ const clientTranslations = {
   }
 
   // Enhanced motion sensitivity support
-  @include reduced-motion {
-    @include high-contrast {
-      .popup__content {
-        border-width: var(--border-width-enhanced);
-        box-shadow: 0 0 0 2px var(--color-primary-400);
-      }
+  @media (prefers-contrast: high) {
+    .popup__content {
+      border-width: var(--border-width-enhanced);
+      box-shadow: 0 0 0 2px var(--color-primary-400);
     }
   }
 
@@ -1006,7 +801,7 @@ const clientTranslations = {
       }
     }
 
-    @include mobile {
+    @media (max-width: 48em) {
       padding: var(--space-md);
 
       .guest-login-content {

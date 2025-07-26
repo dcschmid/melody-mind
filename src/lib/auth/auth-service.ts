@@ -224,7 +224,6 @@ export class AuthService {
         csrfToken,
       };
     } catch (error) {
-      console.error("Error during user login:", error);
       return {
         success: false,
         error: "auth.api.general_error",
@@ -294,9 +293,6 @@ export class AuthService {
       const verificationToken = await generateEmailVerificationToken(userId);
 
       // In a real application, an email with the verification link would be sent here
-      console.warn(
-        `Verification link: https://example.com/verify-email?token=${verificationToken}`
-      );
 
       // Return user without password hash
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -307,7 +303,6 @@ export class AuthService {
         user: userWithoutPassword,
       };
     } catch (error) {
-      console.error("Error during user registration:", error);
       throw new AuthError("An error occurred during registration", "auth.api.general_error");
     }
   }
@@ -346,7 +341,6 @@ export class AuthService {
 
       return !!verified;
     } catch (error) {
-      console.error("Error during email verification:", error);
       return false;
     }
   }
@@ -380,13 +374,9 @@ export class AuthService {
       }
 
       // In a real application, an email with the reset link would be sent here
-      console.warn(
-        `Password reset link (development only): https://example.com/reset-password?token=${resetToken}`
-      );
 
       return true;
     } catch (error) {
-      console.error("Error during password reset request:", error);
       return false;
     }
   }
@@ -439,7 +429,6 @@ export class AuthService {
         success: true,
       };
     } catch (error) {
-      console.error("Error during password reset:", error);
       return {
         success: false,
         error: "auth.api.general_error",
@@ -525,7 +514,6 @@ export class AuthService {
         success: true,
       };
     } catch (error) {
-      console.error("Error during password change:", error);
       return {
         success: false,
         error: "auth.api.general_error",
@@ -595,7 +583,6 @@ export class AuthService {
         accessToken,
       };
     } catch (error) {
-      console.error("Error during token refresh:", error);
       return {
         success: false,
         error: "auth.api.general_error",

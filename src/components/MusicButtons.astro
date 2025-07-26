@@ -152,31 +152,14 @@ const validButtons = buttons.filter(({ url }) => Boolean(url));
   /* ======================================
    * MUSIC BUTTONS COMPONENT STYLES
    * WCAG AAA 2.2 compliant with CSS variables only
-   * 
-   * @version 3.0.0
-   * @accessibility WCAG AAA 2.2 compliant with 7:1 contrast ratios
-   * @performance CSS containment and optimized animations
-   * @responsive Mobile-first design with touch-friendly targets
-   * @i18n Supports all MelodyMind languages through semantic classes
    * ====================================== */
 
-  /**
-   * Main container for music platform buttons
-   * Uses flexbox for responsive layout with consistent spacing from CSS variables
-   * 
-   * @performance CSS containment optimizes rendering performance
-   * @responsive Flexible layout adapts to different screen sizes
-   * @accessibility Maintains proper spacing for touch targets
-   */
   .music-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-sm);
     align-items: center;
     justify-content: flex-start;
-
-    /* Performance optimizations for container */
-    contain: layout style;
 
     /* Responsive gap adjustments */
     @media (min-width: 480px) {
@@ -188,14 +171,7 @@ const validButtons = buttons.filter(({ url }) => Boolean(url));
     }
   }
 
-  /**
-   * Screen Reader Only Content - DRY: Reuses global pattern from ButtonLink
-   * Hides content visually while keeping it accessible to assistive technologies
-   * 
-   * @accessibility Essential for screen reader users - provides context without visual clutter
-   * @wcag Meets WCAG 2.2 guidelines for hidden content (Technique C7)
-   * @performance Minimal impact on layout with absolute positioning
-   */
+  /* Screen Reader Only Content */
   .sr-only {
     position: absolute;
     width: var(--sr-only-width);
@@ -208,23 +184,12 @@ const validButtons = buttons.filter(({ url }) => Boolean(url));
     border: var(--space-none);
   }
 
-  /**
-   * Instructions for keyboard users (screen reader only)
-   * Provides context for screen reader users about keyboard navigation
-   * 
-   * @accessibility Helps users understand available interactions
-   * @aria Uses aria-live="polite" for dynamic updates
-   * @i18n Content is localized through the translation system
-   */
+  /* Instructions for keyboard users (screen reader only) */
   .music-buttons-instructions {
-    /* Positioned for screen readers but not visible - DRY: Uses CSS variable */
     clip-path: var(--sr-only-clip-path);
   }
 
-  /**
-   * Music Button Icon Styling
-   * Ensures proper sizing and alignment of platform icons
-   */
+  /* Music Button Icon Styling */
   :global(.music-button__icon) {
     width: var(--icon-size-sm);
     height: var(--icon-size-sm);
@@ -239,10 +204,7 @@ const validButtons = buttons.filter(({ url }) => Boolean(url));
     }
   }
 
-  /**
-   * Music Button Label Styling
-   * Platform name text styling with proper typography
-   */
+  /* Music Button Label Styling */
   :global(.music-button__label) {
     font-size: var(--text-xs);
     font-weight: var(--font-medium);
@@ -252,64 +214,39 @@ const validButtons = buttons.filter(({ url }) => Boolean(url));
       font-size: var(--text-sm);
     }
   }
-
-  /* ======================================
-   * ACCESSIBILITY ENHANCEMENTS - DRY: Reuses ButtonLink patterns
-   * ====================================== */
 </style>
 
 <script>
-  /**
-   * Music Platform Link Tracking
-   * Tracks clicks on music platform links for analytics
-   */
-  const initMusicButtonTracking = (): void => {
-    try {
-      // Find all music platform links
-      const musicLinks = document.querySelectorAll(
-        ".music-platform-link"
-      ) as NodeListOf<HTMLAnchorElement>;
+  document.addEventListener("DOMContentLoaded", (): void => {
+    const musicLinks = document.querySelectorAll(
+      ".music-platform-link"
+    ) as NodeListOf<HTMLAnchorElement>;
 
-      musicLinks.forEach((link: HTMLAnchorElement) => {
-        link.addEventListener("click", () => {
-          // Track music platform click event with Fathom
-          if (
-            typeof window.fathom === "object" &&
-            window.fathom &&
-            typeof window.fathom.trackEvent === "function"
-          ) {
-            try {
-              const platform = link.dataset.platform;
-              const playlistTitle = link.dataset.playlistTitle;
+    musicLinks.forEach((link: HTMLAnchorElement) => {
+      link.addEventListener("click", () => {
+        const platform = link.dataset.platform;
+        const playlistTitle = link.dataset.playlistTitle;
 
-              if (platform && playlistTitle) {
-                // Create safe event names for different scenarios
-                const generalEvent = `music_${platform}_click`;
-                const specificEvent = `music_${platform}_${playlistTitle}`.replace(
-                  /[^a-zA-Z0-9_]/g,
-                  "_"
-                );
+        if (
+          platform &&
+          playlistTitle &&
+          typeof window.fathom === "object" &&
+          window.fathom?.trackEvent
+        ) {
+          try {
+            const generalEvent = `music_${platform}_click`;
+            const specificEvent = `music_${platform}_${playlistTitle}`.replace(
+              /[^a-zA-Z0-9_]/g,
+              "_"
+            );
 
-                // Track both general platform usage and specific playlist access
-                window.fathom.trackEvent(generalEvent);
-                window.fathom.trackEvent(specificEvent);
-              }
-            } catch (error) {
-              console.warn("Failed to track music platform click:", error);
-            }
+            window.fathom.trackEvent(generalEvent);
+            window.fathom.trackEvent(specificEvent);
+          } catch (error) {
+            console.warn("Failed to track music platform click:", error);
           }
-        });
+        }
       });
-    } catch (error) {
-      console.warn("Error initializing music button tracking:", error);
-    }
-  };
-
-  // Initialize tracking when DOM is loaded
-  document.addEventListener("DOMContentLoaded", initMusicButtonTracking);
-
-  // Also run if DOM is already loaded
-  if (document.readyState === "complete" || document.readyState === "interactive") {
-    setTimeout(initMusicButtonTracking, 100);
-  }
+    });
+  });
 </script>

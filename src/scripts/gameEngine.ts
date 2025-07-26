@@ -148,7 +148,6 @@ const initializeGame = async (elements: GameElements) => {
       "../utils/achievements/achievementEvents.js"
     );
     initAchievementEventSystem();
-    console.log("Achievement Event System initialized for Game Mode");
   } catch (error) {
     console.error("Error initializing Achievement Event System:", error);
   }
@@ -177,11 +176,9 @@ const initializeGame = async (elements: GameElements) => {
       const userData = JSON.parse(userDataString);
       if (userData.id) {
         userId = userData.id;
-        console.log("🔵 Game Engine: Overriding userId with user data:", userId);
         
         // Check if this is a guest user
         if (userData.isGuest || userData.id.startsWith("guest_")) {
-          console.log("🎮 Game Engine: Guest user detected");
         }
       }
     }
@@ -189,7 +186,6 @@ const initializeGame = async (elements: GameElements) => {
     console.warn("Game Engine: Error reading user data:", error);
   }
 
-  console.log("🔵 Game Engine: Final User ID:", userId);
 
   /**
    * Check for seasonal events based on current date
@@ -246,7 +242,6 @@ const initializeGame = async (elements: GameElements) => {
       albumsData = await response.json();
     } catch (langError) {
       // Fallback to German if the specific language file doesn't exist
-      console.log(`No albums found for ${lang}/${category}, falling back to German`);
 
       const fallbackResponse = await fetch(`/json/genres/de/${category}.json`);
 

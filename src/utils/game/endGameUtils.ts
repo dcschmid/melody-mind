@@ -98,12 +98,6 @@ export interface EndGameUI {
 async function saveGameResult(config: EndGameConfig): Promise<string> {
   try {
     // Debug: Log der ausgehenden Daten
-    console.log("🔵 saveGameResult START:", {
-      userId: config.userId,
-      categoryName: config.categoryName,
-      score: config.score,
-      url: `/${config.language}/api/game/save-result`,
-    });
 
     // Erstelle das Datenpaket für die API
     const gameData: any = {
@@ -124,11 +118,6 @@ async function saveGameResult(config: EndGameConfig): Promise<string> {
       body: JSON.stringify(gameData),
     });
 
-    console.log("🔵 saveGameResult RESPONSE:", {
-      status: response.status,
-      statusText: response.statusText,
-      ok: response.ok,
-    });
 
     if (!response.ok) {
       // Verbesserte Fehlerbehandlung
@@ -152,15 +141,9 @@ async function saveGameResult(config: EndGameConfig): Promise<string> {
       throw new Error("Ungültiges JSON-Format in der Server-Antwort");
     }
 
-    console.log("🔵 saveGameResult SUCCESS:", {
-      gameMode: result.gameMode,
-      achievements: result.unlockedAchievements?.length || 0,
-      resultId: result.id,
-    });
 
     // Handle achievements if present
     if (result.unlockedAchievements && result.unlockedAchievements.length > 0) {
-      console.info("Achievements unlocked:", result.unlockedAchievements);
 
       // Trigger custom event for EndOverlay to display achievements
       document.dispatchEvent(
@@ -443,7 +426,6 @@ async function waitForDataValidation(config: EndGameConfig): Promise<void> {
             document.querySelector("#end-overlay") ||
             document.querySelector(".popup[data-score]");
           const exists = popup !== null;
-          if (!exists) console.log("Validation failed: popup element not found");
           return exists;
         },
 
@@ -458,10 +440,6 @@ async function waitForDataValidation(config: EndGameConfig): Promise<void> {
           const scoreAttr = popup.getAttribute("data-score");
           const score = parseInt(scoreAttr || "0", 10);
           const isValid = !isNaN(score) && score >= 0; // Allow 0 score
-          if (!isValid)
-            console.log(
-              `Validation failed: score invalid. Expected: ${config.score}, Got: ${score}`
-            );
           return isValid;
         },
 
@@ -477,10 +455,6 @@ async function waitForDataValidation(config: EndGameConfig): Promise<void> {
           const difficulty = popup.getAttribute("data-difficulty");
           const isValid =
             category && difficulty && category.trim().length > 0 && difficulty.trim().length > 0;
-          if (!isValid)
-            console.log(
-              `Validation failed: category/difficulty invalid. Category: ${category}, Difficulty: ${difficulty}`
-            );
           return isValid;
         },
       ];
@@ -500,14 +474,9 @@ async function waitForDataValidation(config: EndGameConfig): Promise<void> {
 
       // Log failed checks for debugging
       if (!allValid) {
-        const failedChecks = checkResults.filter(({ result }) => !result);
-        console.log(
-          `Validation failed for checks: ${failedChecks.map(({ index }) => index).join(", ")}`
-        );
       }
 
       if (allValid) {
-        console.log("All data validation checks passed");
         updateLoadingText(texts.finalizing);
         // Small delay to show finalizing message
         setTimeout(() => resolve(), 200);
@@ -528,7 +497,6 @@ async function waitForDataValidation(config: EndGameConfig): Promise<void> {
 function hideEndGameLoading(): void {
   const loadingOverlay = document.getElementById("endgame-loading-overlay");
   if (loadingOverlay) {
-    console.log("Hiding loading overlay");
 
     // Try smooth animation first
     try {
@@ -547,7 +515,6 @@ function hideEndGameLoading(): void {
       setTimeout(() => {
         if (loadingOverlay.parentNode) {
           loadingOverlay.remove();
-          console.log("Loading overlay removed successfully");
         }
       }, 300);
     } catch (error) {
@@ -556,7 +523,6 @@ function hideEndGameLoading(): void {
       loadingOverlay.remove();
     }
   } else {
-    console.log("No loading overlay found to hide");
   }
 }
 
@@ -576,14 +542,6 @@ export async function handleEndGame(
     const achievementRate = Math.round((config.correctAnswers / config.totalRounds) * 100);
 
     // Log game results for analytics/debugging
-    console.info("Game completed:", {
-      category: config.categoryName,
-      difficulty: config.difficulty,
-      score: config.score,
-      correctAnswers: config.correctAnswers,
-      totalRounds: config.totalRounds,
-      achievementRate: `${achievementRate}%`,
-    });
 
     // Save game result to the database via API
     // Der API-Endpunkt kümmert sich jetzt um alle Datenbankoperationen

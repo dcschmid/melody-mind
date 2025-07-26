@@ -150,13 +150,11 @@ const linkClasses = "footer-link";
 
     // Responsive padding adjustments
     @media (max-width: 47.9375em) {
-      // Below md breakpoint
       padding: var(--space-md) 0;
       margin-top: var(--space-2xl);
     }
 
     @media (max-width: 39.9375em) {
-      // Below sm breakpoint
       padding: var(--space-sm) 0;
       margin-top: var(--space-xl);
     }
@@ -169,7 +167,6 @@ const linkClasses = "footer-link";
 
       // Responsive container padding
       @media (max-width: 47.9375em) {
-        // Below md breakpoint
         padding: 0 var(--space-sm);
       }
     }
@@ -183,7 +180,6 @@ const linkClasses = "footer-link";
 
       // Responsive layout - side by side on larger screens
       @media (min-width: 48em) {
-        // md breakpoint
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -192,7 +188,6 @@ const linkClasses = "footer-link";
 
       // Responsive gap adjustments
       @media (max-width: 39.9375em) {
-        // Below sm breakpoint
         gap: var(--space-sm);
       }
     }
@@ -205,13 +200,11 @@ const linkClasses = "footer-link";
       align-items: center;
 
       @media (min-width: 48em) {
-        // md breakpoint
         align-items: flex-start;
       }
 
       // Responsive gap adjustments
       @media (max-width: 39.9375em) {
-        // Below sm breakpoint
         gap: var(--space-xs);
       }
     }
@@ -223,13 +216,11 @@ const linkClasses = "footer-link";
       text-align: center;
 
       @media (min-width: 48em) {
-        // md breakpoint
         text-align: left;
       }
 
       // Responsive font size
       @media (max-width: 39.9375em) {
-        // Below sm breakpoint
         font-size: var(--text-xs);
       }
     }
@@ -242,13 +233,11 @@ const linkClasses = "footer-link";
       justify-content: center;
 
       @media (min-width: 48em) {
-        // md breakpoint
         justify-content: flex-start;
       }
 
       // Responsive gap adjustments
       @media (max-width: 39.9375em) {
-        // Below sm breakpoint
         gap: var(--space-sm);
       }
     }
@@ -260,7 +249,7 @@ const linkClasses = "footer-link";
       font-weight: var(--font-medium);
       padding: var(--space-xs) var(--space-sm);
       border-radius: var(--radius-sm);
-      transition: color var(--animation-duration-fast);
+      transition: color var(--transition-fast);
       min-height: var(--min-touch-size);
       display: inline-flex;
       align-items: center;
@@ -277,7 +266,6 @@ const linkClasses = "footer-link";
 
       // Responsive font size
       @media (max-width: 39.9375em) {
-        // Below sm breakpoint
         font-size: var(--text-xs);
         padding: var(--space-xs);
       }
@@ -293,7 +281,7 @@ const linkClasses = "footer-link";
 
       // Reduced motion support
       @media (prefers-reduced-motion: reduce) {
-        transition-duration: var(--animation-duration-fast) !important;
+        transition-duration: var(--transition-fast) !important;
       }
     }
 
@@ -305,13 +293,11 @@ const linkClasses = "footer-link";
       justify-content: center;
 
       @media (min-width: 48em) {
-        // md breakpoint
         justify-content: flex-end;
       }
 
       // Responsive gap adjustments
       @media (max-width: 39.9375em) {
-        // Below sm breakpoint
         gap: var(--space-sm);
       }
     }
@@ -329,8 +315,8 @@ const linkClasses = "footer-link";
       border-radius: var(--radius-sm);
       min-height: var(--min-touch-size);
       transition:
-        color var(--animation-duration-fast),
-        background-color var(--animation-duration-fast);
+        color var(--transition-fast),
+        background-color var(--transition-fast);
 
       // Simple hover states
       &:hover {
@@ -348,7 +334,6 @@ const linkClasses = "footer-link";
 
       // Responsive adjustments
       @media (max-width: 39.9375em) {
-        // Below sm breakpoint
         font-size: var(--text-xs);
         padding: var(--space-xs);
         gap: var(--space-xs);
@@ -356,7 +341,7 @@ const linkClasses = "footer-link";
 
       // Reduced motion support
       @media (prefers-reduced-motion: reduce) {
-        transition-duration: var(--animation-duration-fast) !important;
+        transition-duration: var(--transition-fast) !important;
       }
 
       // High contrast mode support
@@ -417,36 +402,11 @@ const linkClasses = "footer-link";
 
 <script>
   /**
-   * Footer Performance Optimization Script
-   * Optimizes footer links for better performance and accessibility
-   * Modern ES6+ implementation with arrow functions and const/let
+   * Footer Component Script
+   * Simplified implementation with basic functionality
    */
-  document.addEventListener("DOMContentLoaded", () => {
-    const footerLinks = document.querySelectorAll(".footer-link");
-
-    // Use arrow function for forEach
-    footerLinks.forEach((linkElement) => {
-      const link = linkElement as HTMLElement;
-
-      // Add passive touch event listeners for better scroll performance
-      const addPassiveListener = (eventType: string) => {
-        link.addEventListener(eventType, () => {}, { passive: true });
-      };
-
-      addPassiveListener("touchstart");
-      addPassiveListener("touchend");
-
-      // Dynamic will-change optimization with arrow functions
-      const handleMouseEnter = () => {
-        link.style.willChange = "transform, background-color";
-      };
-
-      const handleMouseLeave = () => {
-        link.style.willChange = "auto";
-      };
-
-      link.addEventListener("mouseenter", handleMouseEnter);
-      link.addEventListener("mouseleave", handleMouseLeave);
-    });
+  document.addEventListener("DOMContentLoaded", (): void => {
+    // Footer links are handled by CSS hover states
+    // No additional JavaScript needed for basic functionality
   });
 </script>

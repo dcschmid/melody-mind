@@ -28,14 +28,8 @@ export async function checkAuth(request: Request): Promise<{
   // Extract cookie header from the request
   const cookieHeader = request.headers.get("cookie");
 
-  console.log("Auth Debug - checkAuth:", {
-    cookieHeader,
-    url: request.url,
-    method: request.method,
-  });
 
   if (!cookieHeader) {
-    console.log("Auth Debug - No cookie header");
     // No cookie present, return unauthenticated without redirect
     return {
       authenticated: false,
@@ -48,27 +42,14 @@ export async function checkAuth(request: Request): Promise<{
     extractCookieValue(cookieHeader, "auth_token") ||
     extractCookieValue(cookieHeader, "authToken");
 
-  console.log("Auth Debug - Token extraction:", {
-    accessToken: accessToken ? "Found" : "Not found",
-    accessTokenExists: !!extractCookieValue(cookieHeader, "access_token"),
-    authTokenExists: !!extractCookieValue(cookieHeader, "auth_token"),
-    authTokenCamelExists: !!extractCookieValue(cookieHeader, "authToken"),
-    allCookies: cookieHeader.split(";").map((c) => c.trim().split("=")[0]),
-    fullCookieHeader: cookieHeader,
-  });
 
   if (!accessToken) {
-    console.log("Auth Debug - No access token found, trying user_data cookie fallback");
 
     // Fallback: Try to get user data from non-HttpOnly cookie (set by OAuth callback)
     const userDataCookie = extractCookieValue(cookieHeader, "user_data");
     if (userDataCookie) {
       try {
         const userData = JSON.parse(decodeURIComponent(userDataCookie));
-        console.log("Auth Debug - User data cookie found:", {
-          userId: userData.id,
-          email: userData.email,
-        });
 
         if (userData.id && userData.email) {
           // User data available from cookie, consider authenticated
@@ -81,7 +62,7 @@ export async function checkAuth(request: Request): Promise<{
           };
         }
       } catch (error) {
-        console.log("Auth Debug - Error parsing user_data cookie:", error);
+        // Error parsing user_data cookie - ignore silently
       }
     }
 

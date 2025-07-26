@@ -23,11 +23,7 @@ export const GET: APIRoute = async ({ request, url }) => {
   const lang = url.searchParams.get("lang") || "en";
   const t = useTranslations(lang);
 
-  console.log("OAuth providers API called with lang:", lang);
-
   try {
-    console.log("oauthProviders loaded:", Object.keys(oauthProviders));
-
     // Get enabled providers
     const enabledProviders = Object.values(oauthProviders).map((provider) => ({
       name: provider.name,
@@ -36,8 +32,6 @@ export const GET: APIRoute = async ({ request, url }) => {
       color: provider.color,
       enabled: true,
     }));
-
-    console.log("enabledProviders:", enabledProviders);
 
     // Check authentication status to get linked providers
     let linkedProviders: string[] = [];

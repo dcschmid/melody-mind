@@ -1,6 +1,6 @@
 ---
 /**
- * @component FeedbackOverlay
+ * @component FeedbacknOverlay
  * @description A modal overlay that displays feedback after each game round, showing
  * album information, media preview, and streaming links. This component is optimized for
  * WCAG AAA accessibility standards and high performance.
@@ -91,7 +91,7 @@ const t = useTranslations(lang);
 
     <!-- Keyboard shortcuts documentation for screen readers -->
     <div class="sr-only" id="keyboard-shortcuts">
-      <h4>{t("general.keyboard.shortcuts")}</h4>
+      <h4>Keyboard Shortcuts (Tastaturkürzel)</h4>
       <ul>
         <li>{t("general.keyboard.escape")}: {t("general.close")}</li>
         <li>{t("general.keyboard.enter")}: {t("game.feedback.next.round")}</li>
@@ -112,8 +112,8 @@ const t = useTranslations(lang);
     <div class="album-info" aria-label={t("game.feedback.media.section")}>
       <div class="album-info__content" role="contentinfo">
         <div class="album-info__header">
-          <h3 id="overlay-artist" class="artist-name"></h3>
-          <h4 id="overlay-album" class="album-name"></h4>
+          <h3 id="overlay-artist" class="artist-name">Artist</h3>
+          <h4 id="overlay-album" class="album-name">Album</h4>
           <Paragraph
             id="overlay-year"
             className="album-year"
@@ -205,85 +205,100 @@ const t = useTranslations(lang);
 
   .overlay {
     position: fixed;
-    top: var(--space-none);
-    left: var(--space-none);
-    width: var(--width-full);
-    height: var(--width-full);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: var(--z-modal);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: var(--space-lg);
     background-color: var(--backdrop-overlay-dark);
-    backdrop-filter: blur(var(--backdrop-blur));
-    -webkit-backdrop-filter: blur(var(--backdrop-blur));
     transition:
       opacity var(--transition-normal),
       visibility var(--transition-normal);
 
-    // Performance optimizations with global.css variables
-    contain: layout style;
-    will-change: opacity, visibility;
-
-    // Large desktop - premium spacing
-    @include large-desktop {
-      padding: var(--space-2xl);
-    }
-
-    // Desktop - enhanced spacing
-    @include desktop {
-      padding: var(--space-xl);
-    }
-
-    // Tablet - optimal spacing
-    @include tablet {
-      padding: var(--space-lg);
-    }
-
-    // Small tablet - balanced spacing
-    @include small-tablet {
-      padding: var(--space-md);
-    }
-
-    // Mobile - minimal outer margins for maximum content space
-    @include mobile {
-      padding: var(--space-xs) !important;
-    }
-
-    // Mobile portrait - ultra minimal margins
-    @include mobile-portrait {
-      padding: var(--space-micro) !important;
-    }
-
-    // Mobile landscape - compact but usable
-    @include mobile-landscape {
-      padding: var(--space-xs) !important;
-    }
-
     &.hidden {
       pointer-events: none;
       visibility: hidden;
-      opacity: var(--animation-opacity-end);
+      opacity: 0;
     }
   }
 
   .overlay__backdrop {
     position: absolute;
-    top: var(--space-none);
-    left: var(--space-none);
-    width: var(--width-full);
-    height: var(--width-full);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: var(--z-backdrop);
     pointer-events: auto;
     background-color: var(--backdrop-overlay-dark);
-
-    // Performance optimization with global.css variables
-    contain: strict;
     transition: opacity var(--transition-normal);
+  }
 
-    // Enhanced backdrop opacity for better focus on mobile
-    @include mobile {
-      background-color: var(--backdrop-overlay-darker);
+  .overlay__content {
+    position: relative;
+    z-index: var(--z-modal-content);
+    max-height: calc(100vh - var(--space-lg) * 2);
+    width: 100vw;
+    max-width: min(90vw, var(--container-lg));
+    overflow-y: auto;
+    border-radius: var(--radius-xl);
+    border: var(--border-width-thin) solid var(--border-primary);
+    background-color: var(--card-bg);
+    padding: var(--space-xl);
+    box-shadow: var(--card-shadow);
+    pointer-events: auto;
+    transition: opacity var(--transition-normal);
+  }
+
+  // Responsive Design
+  @media (max-width: 80em) {
+    .overlay {
+      padding: var(--space-xl);
+    }
+    .overlay__content {
+      max-width: min(95vw, var(--container-md));
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
+      max-height: calc(100vh - var(--space-lg) * 2);
+    }
+  }
+  @media (max-width: 64em) {
+    .overlay {
+      padding: var(--space-lg);
+    }
+    .overlay__content {
+      max-width: min(98vw, var(--container-sm));
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
+      max-height: calc(100vh - var(--space-md) * 2);
+    }
+  }
+  @media (max-width: 48em) {
+    .overlay {
+      padding: var(--space-xs);
+    }
+    .overlay__content {
+      max-width: 100vw;
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
+      max-height: calc(100vh - var(--space-md));
+      margin: var(--space-xs);
+    }
+  }
+  @media (max-width: 30em) {
+    .overlay {
+      padding: var(--space-micro);
+    }
+    .overlay__content {
+      max-width: 100vw;
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      max-height: calc(100vh - var(--space-sm));
+      margin: var(--space-xs);
     }
   }
 

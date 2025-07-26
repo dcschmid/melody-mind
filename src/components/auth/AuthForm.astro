@@ -6,15 +6,10 @@
  * - Tab-based navigation between login and registration
  * - Real-time form validation with accessibility announcements
  * - WCAG AAA compliant with keyboard navigation and screen reader support
- * - Performance optimized with CSS containment and efficient DOM handling
- * - Full responsive design with container queries
+ * - Full responsive design
  * - Internationalization support for all languages
- *
- * @component
- * @accessibility WCAG AAA compliant with focus management and live regions
- * @performance CSS containment, GPU acceleration, efficient event handling
- * @responsive Mobile-first design with container queries and fluid scaling
  */
+
 import { getLangFromUrl, useTranslations } from "../../utils/i18n";
 import AuthFormField from "./AuthFormField.astro";
 import AuthSubmitButton from "./AuthSubmitButton.astro";
@@ -23,7 +18,6 @@ import Headline from "../Headline.astro";
 import { Icon } from "astro-icon/components";
 
 interface Props {
-  /** Initial form mode - "login" or "register" */
   initialMode?: "login" | "register";
 }
 
@@ -32,12 +26,9 @@ const lang = String(getLangFromUrl(Astro.url));
 const t = useTranslations(lang);
 ---
 
-<!-- Main auth form container -->
 <div class="auth-form__container">
-  <!-- Enhanced live region for tab switching announcements -->
   <div id="tabSwitchAnnouncer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
-  <!-- Form Progress Indicator -->
   <div class="auth-form__progress" aria-labelledby="progressTitle">
     <Headline
       level="h3"
@@ -48,7 +39,6 @@ const t = useTranslations(lang);
       className="auth-form__progress-title sr-only"
     />
 
-    <!-- Visual Progress Bar -->
     <div
       class="auth-form__progress-bar"
       role="progressbar"
@@ -60,19 +50,15 @@ const t = useTranslations(lang);
       <div class="auth-form__progress-fill"></div>
     </div>
 
-    <!-- Progress Status Text -->
     <div
       id="progressStatus"
       class="auth-form__progress-status"
       aria-live="polite"
       aria-atomic="true"
     >
-      <!-- Will be populated by JavaScript -->
     </div>
 
-    <!-- Field Completion Indicators -->
     <div class="auth-form__field-indicators" aria-label={t("auth.form.progress.title")}>
-      <!-- Login form indicators -->
       <div
         id="loginFieldIndicators"
         class="auth-form__indicators auth-form__indicators--login"
@@ -94,7 +80,6 @@ const t = useTranslations(lang);
         </div>
       </div>
 
-      <!-- Registration form indicators -->
       <div
         id="registerFieldIndicators"
         class="auth-form__indicators auth-form__indicators--register"
@@ -132,7 +117,6 @@ const t = useTranslations(lang);
     </div>
   </div>
 
-  <!-- Tab navigation for switching between login and registration -->
   <div class="auth-form__tabs">
     <button
       id="loginTab"
@@ -155,7 +139,6 @@ const t = useTranslations(lang);
   </div>
 
   <div class="auth-form__forms-container">
-    <!-- Error message display area -->
     <div
       id="formError"
       class="auth-form__message auth-form__message--error"
@@ -163,7 +146,6 @@ const t = useTranslations(lang);
       aria-live="assertive"
     >
     </div>
-    <!-- Success message display area -->
     <div
       id="formSuccess"
       class="auth-form__message auth-form__message--success"
@@ -172,19 +154,17 @@ const t = useTranslations(lang);
     >
     </div>
 
-    <!-- OAuth Providers Section -->
     <div class="auth-form__oauth-section">
       <OAuthProviders />
     </div>
 
-    <!-- Guest Mode Section -->
     <div class="auth-form__guest-section">
       <div class="auth-form__guest-divider">
         <span class="auth-form__guest-divider-text">{t("auth.guest.or")}</span>
       </div>
-      
+
       <div class="auth-form__guest-content">
-        <button 
+        <button
           id="guestModeButton"
           class="auth-form__guest-button"
           type="button"
@@ -193,11 +173,11 @@ const t = useTranslations(lang);
           <Icon name="user-check" class="auth-form__guest-icon" aria-hidden="true" />
           {t("auth.guest.button")}
         </button>
-        
+
         <p id="guestDescription" class="auth-form__guest-description">
           {t("auth.guest.description")}
         </p>
-        
+
         <div id="guestBenefits" class="auth-form__guest-benefits">
           <p class="auth-form__guest-benefits-title">{t("auth.guest.benefits")}</p>
           <ul class="auth-form__guest-benefits-list">
@@ -206,12 +186,12 @@ const t = useTranslations(lang);
               {t("auth.guest.benefit.progress")}
             </li>
             <li class="auth-form__guest-benefit">
-              <Icon name="trophy" class="auth-form__guest-benefit-icon" aria-hidden="true" />  
+              <Icon name="trophy" class="auth-form__guest-benefit-icon" aria-hidden="true" />
               {t("auth.guest.benefit.achievements")}
             </li>
             <li class="auth-form__guest-benefit">
               <Icon name="chart-bar" class="auth-form__guest-benefit-icon" aria-hidden="true" />
-              {t("auth.guest.benefit.leaderboard")} 
+              {t("auth.guest.benefit.leaderboard")}
             </li>
             <li class="auth-form__guest-benefit">
               <Icon name="analytics" class="auth-form__guest-benefit-icon" aria-hidden="true" />
@@ -222,7 +202,6 @@ const t = useTranslations(lang);
       </div>
     </div>
 
-    <!-- Login Form -->
     <form
       id="loginForm"
       class={`auth-form__form ${initialMode === "login" ? "auth-form__form--active" : ""}`}
@@ -240,7 +219,6 @@ const t = useTranslations(lang);
         className="sr-only"
       />
 
-      <!-- Email field for login -->
       <AuthFormField
         id="loginEmail"
         name="email"
@@ -251,7 +229,6 @@ const t = useTranslations(lang);
         autocomplete="email"
       />
 
-      <!-- Password field for login with reset link -->
       <AuthFormField
         id="loginPassword"
         name="password"
@@ -264,7 +241,6 @@ const t = useTranslations(lang);
         labelSuffix={`<a href="/${String(lang)}/auth/reset-password" class="auth-form__forgot-password">${t("auth.login.forgot_password")}</a>`}
       />
 
-      <!-- Submit button for login -->
       <AuthSubmitButton
         id="loginSubmit"
         textId="loginSubmitText"
@@ -273,7 +249,6 @@ const t = useTranslations(lang);
       />
     </form>
 
-    <!-- Registration Form -->
     <form
       id="registerForm"
       class={`auth-form__form ${initialMode === "register" ? "auth-form__form--active" : ""}`}
@@ -291,7 +266,6 @@ const t = useTranslations(lang);
         className="sr-only"
       />
 
-      <!-- Email field for registration -->
       <AuthFormField
         id="registerEmail"
         name="email"
@@ -302,7 +276,6 @@ const t = useTranslations(lang);
         autocomplete="email"
       />
 
-      <!-- Username field (optional) -->
       <AuthFormField
         id="registerUsername"
         name="username"
@@ -313,7 +286,6 @@ const t = useTranslations(lang);
         autocomplete="username"
       />
 
-      <!-- Password field for registration -->
       <AuthFormField
         id="registerPassword"
         name="password"
@@ -325,7 +297,6 @@ const t = useTranslations(lang);
         showPasswordToggle={true}
       />
 
-      <!-- Password confirmation field -->
       <AuthFormField
         id="registerPasswordConfirm"
         name="passwordConfirm"
@@ -337,7 +308,6 @@ const t = useTranslations(lang);
         showPasswordToggle={true}
       />
 
-      <!-- Submit button for registration -->
       <AuthSubmitButton
         id="registerSubmit"
         textId="registerSubmitText"
@@ -354,20 +324,10 @@ const t = useTranslations(lang);
   import { setupTabSwitching, initializeAuthFormElements } from "../../utils/auth/ui-interactions";
   import { useTranslations } from "../../utils/i18n";
 
-  /**
-   * Initialize the authentication form when DOM is loaded.
-   * Optimized for performance with minimal inline code and efficient utilities.
-   *
-   * @accessibility WCAG AAA compliant with reduced motion and enhanced spacing support
-   * @i18n Internationalization support for all user feedback
-   * @performance Optimized event handling and DOM queries
-   */
   const setupAuthForm = (): void => {
-    // Performance: Single media query check with caching
     const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     const isTouchDevice = window.matchMedia?.("(any-hover: none)").matches;
 
-    // Apply accessibility preferences
     if (prefersReducedMotion) {
       document.documentElement.classList.add("reduced-motion");
     }
@@ -376,7 +336,6 @@ const t = useTranslations(lang);
       document.documentElement.classList.add("enhanced-text-spacing");
     }
 
-    // Initialize translations once
     const currentLang = document.documentElement.lang || "en";
     const t = useTranslations(currentLang);
 
@@ -390,14 +349,12 @@ const t = useTranslations(lang);
       successMessageDismissed: t("auth.accessibility.success_message_dismissed"),
     };
 
-    // Initialize DOM elements with error handling
     const elements = initializeAuthFormElements();
     if (!elements) {
       console.error(translations.initError);
       return;
     }
 
-    // Setup tab switching with announcements
     setupTabSwitching(
       elements.loginTab,
       elements.registerTab,
@@ -407,7 +364,6 @@ const t = useTranslations(lang);
       elements.formSuccess
     );
 
-    // Performance: Efficient event delegation for tab announcements
     const announcer = document.getElementById("tabSwitchAnnouncer");
     if (announcer && elements.loginTab && elements.registerTab) {
       elements.loginTab.addEventListener("click", () => {
@@ -419,7 +375,6 @@ const t = useTranslations(lang);
       });
     }
 
-    // Performance: Single keyboard event listener with efficient handling
     document.addEventListener("keydown", (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         const errorEl = document.getElementById("formError");
@@ -450,13 +405,9 @@ const t = useTranslations(lang);
       }
     });
 
-    // Session timeout functionality removed - no longer needed with new auth flow
-
-    // Initialize form progress manager
     const progressManager = createFormProgressManager();
     progressManager.initialize();
 
-    // Performance: Optimized form submission handlers
     elements.loginForm?.addEventListener("submit", (event: Event) => {
       handleLoginSubmit(event, translations);
     });
@@ -465,7 +416,6 @@ const t = useTranslations(lang);
       handleRegisterSubmit(event);
     });
 
-    // Guest mode button handler
     const guestButton = document.getElementById("guestModeButton");
     if (guestButton) {
       guestButton.addEventListener("click", () => {
@@ -474,79 +424,66 @@ const t = useTranslations(lang);
     }
   };
 
-  /**
-   * Handle guest mode login
-   * Sets guest user in localStorage and redirects to game selection
-   */
   const handleGuestMode = (): void => {
     try {
-      // Set guest user in localStorage
       const guestUser = {
-        id: 'guest_' + Date.now(),
-        username: 'Guest',
+        id: `guest_${Date.now()}`,
+        username: "Guest",
         email: null,
         isGuest: true,
-        created_at: new Date().toISOString()
+        created_at: new Date().toISOString(),
       };
 
-      // Use existing auth utilities to set localStorage
-      import("../../utils/client/authStatus").then(({ setLocalStorage }) => {
-        setLocalStorage("auth_status", "guest");
-        setLocalStorage("user", JSON.stringify(guestUser));
-        
-        // Trigger login event for UI updates
-        window.dispatchEvent(new CustomEvent("auth:guest-login"));
-        
-        // Smart handling - don't redirect unless absolutely necessary
-        const currentPath = window.location.pathname;
-        const currentLang = document.documentElement.lang || "de";
-        
-        // Check if there's a returnTo parameter in URL or sessionStorage
-        const urlParams = new URLSearchParams(window.location.search);
-        const returnTo = urlParams.get('returnTo') || sessionStorage.getItem('returnTo');
-        
-        if (returnTo) {
-          // Clear returnTo from sessionStorage and redirect
-          sessionStorage.removeItem('returnTo');
-          window.location.href = returnTo;
-        } else if (currentPath.includes('/auth/login')) {
-          // Only redirect if we're on a dedicated login page
-          window.location.href = `/${currentLang}/`;
-        } else {
-          // For embedded auth forms (like on game pages), just update the UI
-          console.log('🎮 Guest login: Updating UI without redirect');
-          
-          // Close any auth modals/overlays
-          const authModal = document.querySelector('.auth-modal, .auth-overlay, .auth-form-container');
-          if (authModal) {
-            // Try different ways to close/hide the auth form
-            if (authModal.style) {
-              authModal.style.display = 'none';
-            }
-            authModal.classList?.add('hidden');
-            
-            // Look for close buttons and trigger them
-            const closeBtn = authModal.querySelector('[data-closes], .close, .modal-close');
-            if (closeBtn && typeof closeBtn.click === 'function') {
-              closeBtn.click();
-            }
-          }
-          
-          // Update any auth-dependent UI elements immediately
-          setTimeout(() => {
-            // Trigger auth status update events
-            window.dispatchEvent(new CustomEvent("auth:ui-update"));
-            window.dispatchEvent(new CustomEvent("storage", {
-              detail: { key: "auth_status", newValue: "guest" }
-            }));
-          }, 100);
-        }
-      });
+      import("../../utils/client/authStatus")
+        .then(({ setLocalStorage }) => {
+          setLocalStorage("auth_status", "guest");
+          setLocalStorage("user", JSON.stringify(guestUser));
 
+          window.dispatchEvent(new CustomEvent("auth:guest-login"));
+
+          const currentPath = window.location.pathname;
+          const currentLang = document.documentElement.lang || "de";
+
+          const urlParams = new URLSearchParams(window.location.search);
+          const returnTo = urlParams.get("returnTo") || sessionStorage.getItem("returnTo");
+
+          if (returnTo) {
+            sessionStorage.removeItem("returnTo");
+            window.location.href = returnTo;
+          } else if (currentPath.includes("/auth/login")) {
+            window.location.href = `/${currentLang}/`;
+          } else {
+            const authModal = document.querySelector(
+              ".auth-modal, .auth-overlay, .auth-form-container"
+            );
+            if (authModal) {
+              if ((authModal as HTMLElement).style) {
+                (authModal as HTMLElement).style.display = "none";
+              }
+              authModal.classList?.add("hidden");
+
+              const closeBtn = authModal.querySelector("[data-closes], .close, .modal-close");
+              if (closeBtn && typeof (closeBtn as HTMLElement).click === "function") {
+                (closeBtn as HTMLElement).click();
+              }
+            }
+
+            setTimeout(() => {
+              window.dispatchEvent(new CustomEvent("auth:ui-update"));
+              window.dispatchEvent(
+                new CustomEvent("storage", {
+                  detail: { key: "auth_status", newValue: "guest" },
+                })
+              );
+            }, 100);
+          }
+        })
+        .catch((error) => {
+          console.error("Error in guest mode setup:", error);
+        });
     } catch (error) {
       console.error("Error setting up guest mode:", error);
-      
-      // Show error message
+
       const errorEl = document.getElementById("formError");
       if (errorEl) {
         errorEl.textContent = "Fehler beim Einrichten des Gastmodus";
@@ -555,7 +492,6 @@ const t = useTranslations(lang);
     }
   };
 
-  // Performance: Optimized initialization
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", setupAuthForm);
   } else {
@@ -564,40 +500,15 @@ const t = useTranslations(lang);
 </script>
 
 <style lang="scss">
-  /**
-   * AuthForm Component Styles
-   * 
-   * ✅ 100% global.css variables integration
-   * ✅ Performance optimized with CSS containment
-   * ✅ WCAG AAA compliant colors and spacing
-   * ✅ Responsive design with container queries
-   * ✅ GPU acceleration for smooth animations
-   */
-
   .auth-form {
     &__container {
       max-width: var(--container-md);
-      margin: var(--space-none) auto;
-
+      margin: 0 auto;
       background: transparent;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
       position: relative;
-      isolation: isolate;
-
-      // Performance optimizations
-      contain: layout style paint;
-      content-visibility: auto;
-      contain-intrinsic-size: var(--container-intrinsic-height-form);
-
-      transform: translateZ(0);
-      will-change: box-shadow;
-
       transition: box-shadow var(--transition-normal);
-
-      // Container query support
-      container-type: inline-size;
-      container-name: auth-form;
 
       &:hover {
         box-shadow: var(--shadow-xl);
@@ -607,7 +518,6 @@ const t = useTranslations(lang);
     &__message {
       padding: var(--space-md);
       margin-bottom: var(--space-lg);
-
       border-radius: var(--radius-md);
       font-size: var(--text-sm);
       font-weight: var(--font-medium);
@@ -615,11 +525,6 @@ const t = useTranslations(lang);
       display: none;
       border-width: var(--border-width-thin);
       border-style: solid;
-
-      // Performance optimizations
-      contain: layout style;
-      transform: translateZ(0);
-
       transition: opacity var(--transition-normal);
 
       &--error {
@@ -641,47 +546,31 @@ const t = useTranslations(lang);
 
     &__tabs {
       display: flex;
-      flex-direction: row; // Explicitly set tabs side by side
+      flex-direction: row;
       background: transparent;
-
-      margin: var(--space-none);
-      padding: var(--space-none);
+      margin: 0;
+      padding: 0;
       gap: var(--space-xs);
-
       position: relative;
-      role: tablist;
-
-      // Performance optimizations
-      contain: layout style;
-      transform: translateZ(0);
-
       transition: background-color var(--transition-normal);
     }
 
     &__tab {
       flex: 1;
       padding: var(--space-md) var(--space-xl);
-
       background: var(--color-neutral-700);
       border: var(--border-width-thin) solid var(--border-secondary);
       border-bottom: none;
-      border-radius: var(--radius-lg) var(--radius-lg) var(--space-none) var(--space-none);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
       color: var(--color-neutral-300);
-
       font-size: var(--text-base);
       font-weight: var(--font-medium);
       line-height: var(--leading-normal);
       cursor: pointer;
-
-      // Performance optimizations
-      contain: layout style;
-      transform: translateZ(0);
-      will-change: transform, background-color, color;
-
       transition:
         background-color var(--transition-normal),
         color var(--transition-normal),
-        transform var(--transition-fast),
+        transform var(--transition-normal),
         box-shadow var(--transition-normal);
       position: relative;
       min-height: var(--touch-target-enhanced);
@@ -690,7 +579,6 @@ const t = useTranslations(lang);
       justify-content: center;
       text-align: center;
 
-      // Tab design with proper borders
       &:first-child {
         border-top-left-radius: var(--radius-lg);
         border-top-right-radius: var(--radius-lg);
@@ -704,7 +592,7 @@ const t = useTranslations(lang);
       &:hover {
         background: var(--color-neutral-600);
         color: var(--color-neutral-200);
-        transform: translateY(calc(-1 * var(--space-micro)));
+        transform: translateY(-1px);
       }
 
       &:focus-visible {
@@ -715,7 +603,7 @@ const t = useTranslations(lang);
       }
 
       &:active {
-        transform: translateY(var(--space-none));
+        transform: translateY(0);
       }
 
       &--active {
@@ -744,7 +632,7 @@ const t = useTranslations(lang);
       background: var(--bg-secondary);
       border: var(--border-width-thin) solid var(--border-secondary);
       border-top: none;
-      border-radius: var(--space-none) var(--space-none) var(--radius-lg) var(--radius-lg);
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
       z-index: 1;
       padding: var(--space-xl);
     }
@@ -799,44 +687,33 @@ const t = useTranslations(lang);
       cursor: pointer;
       border: none;
       user-select: none;
-
       width: var(--width-full);
       min-height: var(--touch-target-enhanced);
-
-      gap: clamp(var(--space-sm), 3vw, var(--space-md));
-      padding: clamp(var(--space-md), 4vw, var(--space-lg))
-        clamp(var(--space-lg), 5vw, var(--space-xl));
+      gap: var(--space-sm);
+      padding: var(--space-md) var(--space-lg);
       margin-bottom: var(--space-md);
-
       background: var(--color-neutral-600);
       color: var(--color-white);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-md);
-
-      font-size: clamp(var(--text-base), 3vw, var(--text-lg));
+      font-size: var(--text-base);
       font-weight: var(--font-semibold);
       line-height: var(--leading-normal);
       letter-spacing: var(--letter-spacing-base);
-
-      // Performance optimizations
-      contain: layout style paint;
-      content-visibility: auto;
-      contain-intrinsic-size: var(--container-intrinsic-height-component);
-      transform: translateZ(0);
-      will-change: transform, background-color, box-shadow;
-
       transition:
         background-color var(--transition-normal),
         box-shadow var(--transition-normal),
-        transform var(--transition-fast);
+        transform var(--transition-normal);
 
-      // Container query support
-      container-type: inline-size;
-      container-name: auth-guest-button;
+      @media (min-width: 30em) {
+        gap: var(--space-md);
+        padding: var(--space-lg) var(--space-xl);
+        font-size: var(--text-lg);
+      }
 
       &:hover:not(:disabled) {
         background: var(--color-neutral-500);
-        transform: translateY(calc(-1 * var(--space-xs))) translateZ(0);
+        transform: translateY(-2px);
         box-shadow: var(--shadow-lg);
       }
 
@@ -848,14 +725,14 @@ const t = useTranslations(lang);
       }
 
       &:active:not(:disabled) {
-        transform: translateY(0) translateZ(0);
+        transform: translateY(0);
         background: var(--color-neutral-700);
         box-shadow: var(--shadow-sm);
       }
 
       &:disabled {
         cursor: not-allowed;
-        opacity: var(--opacity-disabled);
+        opacity: 0.6;
         transform: none;
         background: var(--color-neutral-300);
       }
@@ -916,20 +793,19 @@ const t = useTranslations(lang);
 
     &__form {
       display: none;
-      opacity: var(--animation-opacity-start);
+      opacity: 0;
       transform: translateX(var(--space-md));
       transition:
-        opacity var(--transition-slow),
-        transform var(--transition-slow);
+        opacity var(--transition-normal),
+        transform var(--transition-normal);
 
       &--active {
         display: block !important;
-        opacity: var(--animation-opacity-full);
-        transform: translateX(var(--space-none));
+        opacity: 1;
+        transform: translateX(0);
       }
     }
 
-    // Ensure only one form is visible at a time
     &__forms-container {
       .auth-form__form:not(.auth-form__form--active) {
         display: none !important;
@@ -963,7 +839,6 @@ const t = useTranslations(lang);
       }
     }
 
-    // Enhanced text spacing support (WCAG 2.2)
     .enhanced-text-spacing & {
       &__container * {
         letter-spacing: var(--letter-spacing-enhanced) !important;
@@ -981,18 +856,6 @@ const t = useTranslations(lang);
       }
     }
 
-    // Responsive text handling
-    @supports (font-size: clamp(1rem, 4vw, 1.5rem)) {
-      &__tab {
-        font-size: clamp(var(--text-sm), 3vw, var(--text-lg));
-      }
-
-      .enhanced-text-spacing &__tab {
-        font-size: clamp(var(--text-xs), 3vw, var(--text-base));
-      }
-    }
-
-    // Reduced motion support
     @media (prefers-reduced-motion: reduce) {
       &__form,
       &__tab,
@@ -1003,7 +866,6 @@ const t = useTranslations(lang);
         transition: var(--transition-instant);
         transform: none;
         animation: none;
-        will-change: auto;
       }
 
       &__tab {
@@ -1021,7 +883,6 @@ const t = useTranslations(lang);
       }
     }
 
-    // Responsive design
     @media (max-width: 39.9375em) {
       &__container {
         margin: var(--space-md);
@@ -1080,7 +941,6 @@ const t = useTranslations(lang);
       }
     }
 
-    // High contrast mode support
     @media (prefers-contrast: high) {
       &__container {
         border: var(--border-width-thick) solid var(--border-primary);
@@ -1129,7 +989,6 @@ const t = useTranslations(lang);
       }
     }
 
-    // Print styles
     @media print {
       &__container {
         box-shadow: none;
@@ -1156,15 +1015,14 @@ const t = useTranslations(lang);
       }
     }
 
-    // Form progress indicator
     &__progress {
       margin-bottom: var(--space-lg);
       padding: var(--space-md);
       background: var(--color-neutral-100);
       border-radius: var(--radius-md);
       border: var(--border-width-thin) solid var(--border-secondary);
-      order: -1; // Ensure it appears first in flex layout
-      display: none; // Hide by default to avoid confusion
+      order: -1;
+      display: none;
 
       &-title {
         margin-bottom: var(--space-sm);
@@ -1192,7 +1050,7 @@ const t = useTranslations(lang);
         );
         border-radius: var(--radius-full);
         transition: width var(--transition-normal);
-        width: var(--width-none);
+        width: 0;
       }
 
       &-status {
@@ -1203,7 +1061,6 @@ const t = useTranslations(lang);
       }
     }
 
-    // Field completion indicators
     &__field-indicators {
       display: flex;
       flex-direction: column;
@@ -1263,84 +1120,14 @@ const t = useTranslations(lang);
     }
   }
 
-  // Responsive Form Progress
-  @media (max-width: 39.9375em) {
-    .auth-form__progress {
-      padding: var(--space-sm);
-      margin-bottom: var(--space-md);
-    }
-
-    .auth-form__field-indicators {
-      gap: var(--space-xs);
-    }
-
-    .auth-form__indicator {
-      padding: var(--space-xs);
-      font-size: var(--text-xs);
-    }
-  }
-
-  // Container queries for component-specific responsiveness
-  @container auth-form (max-width: 64em) {
-    .auth-form {
-      &__tabs {
-        // Keep tabs side by side
-        flex-direction: row;
-        gap: var(--space-xs);
-      }
-
-      &__tab {
-        // Tabs share available width
-        flex: 1;
-      }
-
-      &__progress {
-        padding: var(--space-sm);
-      }
-
-      &__field-indicators {
-        gap: var(--space-xs);
-      }
-    }
-  }
-
-  @container auth-form (max-width: 48em) {
-    .auth-form {
-      &__container {
-        padding: var(--space-sm);
-      }
-
-      &__message {
-        padding: var(--space-sm);
-        font-size: var(--text-xs);
-      }
-
-      &__tabs {
-        padding: var(--space-xs);
-      }
-
-      &__tab {
-        padding: var(--space-xs) var(--space-sm);
-        font-size: var(--text-xs);
-      }
-    }
-  }
-
-  @container auth-form (max-width: 32em) {
-    .auth-form {
-      &__progress {
-        padding: var(--space-xs);
-        margin-bottom: var(--space-sm);
-      }
-
-      &__indicator {
-        padding: calc(var(--space-xs) * 0.75);
-        font-size: calc(var(--text-xs) * 0.9);
-      }
-
-      &__progress-bar {
-        height: calc(var(--space-sm) * 0.75);
-      }
-    }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 </style>

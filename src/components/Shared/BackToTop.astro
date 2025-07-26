@@ -87,10 +87,6 @@ const screenReaderText = t("common.back.to.top");
     transition: var(--transition-normal);
     cursor: pointer;
 
-    // Performance optimizations
-    contain: layout style;
-    will-change: transform, opacity, background-color;
-
     // Enhanced focus styles for WCAG AAA
     outline: none;
 
@@ -113,7 +109,7 @@ const screenReaderText = t("common.back.to.top");
     // Hover effects
     &:hover {
       background: var(--btn-primary-hover);
-      transform: translateY(calc(-1 * var(--space-xs)));
+      transform: translateY(-4px);
       box-shadow: var(--shadow-xl);
     }
 
@@ -127,7 +123,7 @@ const screenReaderText = t("common.back.to.top");
 
     // Active state
     &:active {
-      transform: translateY(var(--space-xs));
+      transform: translateY(2px);
       transition-duration: var(--transition-instant);
     }
 
@@ -219,15 +215,6 @@ const screenReaderText = t("common.back.to.top");
       padding: var(--space-sm);
     }
   }
-
-  /* High DPI displays */
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .back-to-top {
-      // Ensure crisp rendering on high DPI displays
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: crisp-edges;
-    }
-  }
 </style>
 
 <script>
@@ -255,56 +242,19 @@ const screenReaderText = t("common.back.to.top");
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Check if device supports touch
-    const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-
     /**
-     * Announces a message to screen readers
+     * Handles scroll visibility
      */
-    const announceToScreenReader = (message: string): void => {
-      let announcer = document.getElementById("back-to-top-announcer");
-      if (!announcer) {
-        announcer = document.createElement("div");
-        announcer.id = "back-to-top-announcer";
-        announcer.className = "sr-only";
-        announcer.setAttribute("aria-live", "polite");
-        announcer.setAttribute("aria-atomic", "true");
-        document.body.appendChild(announcer);
-      }
-
-      // Clear and set new message with timing
-      announcer.textContent = "";
-      setTimeout(() => {
-        if (announcer) {
-          announcer.textContent = message;
-        }
-      }, 100);
-    };
-
-    /**
-     * Handles scroll visibility with performance optimization
-     */
-    let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
-
     const handleScroll = (): void => {
-      // Throttle scroll events for performance
-      if (scrollTimeout) {
-        return;
+      const shouldShow = window.scrollY > scrollThreshold;
+
+      if (shouldShow) {
+        backToTopButton.style.display = "block";
+        backToTopButton.setAttribute("aria-hidden", "false");
+      } else {
+        backToTopButton.style.display = "none";
+        backToTopButton.setAttribute("aria-hidden", "true");
       }
-
-      scrollTimeout = setTimeout(() => {
-        const shouldShow = window.scrollY > scrollThreshold;
-
-        if (shouldShow) {
-          backToTopButton.style.display = "block";
-          backToTopButton.setAttribute("aria-hidden", "false");
-        } else {
-          backToTopButton.style.display = "none";
-          backToTopButton.setAttribute("aria-hidden", "true");
-        }
-
-        scrollTimeout = null;
-      }, 16); // ~60fps throttling
     };
 
     /**
@@ -329,23 +279,10 @@ const screenReaderText = t("common.back.to.top");
         },
         prefersReducedMotion ? 50 : 500
       );
-
-      // Screen reader announcement
-      const message = backToTopButton.getAttribute("aria-label") || "Scrolled to top of page";
-      announceToScreenReader(message);
-
-      // Haptic feedback for touch devices
-      if (isTouchDevice && "vibrate" in navigator) {
-        try {
-          navigator.vibrate(15);
-        } catch {
-          // Ignore vibration errors
-        }
-      }
     };
 
     // Event listeners with modern syntax
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll);
     backToTopButton.addEventListener("click", handleBackToTop);
 
     // Keyboard navigation enhancement
@@ -353,13 +290,6 @@ const screenReaderText = t("common.back.to.top");
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         handleBackToTop();
-      }
-    });
-
-    // Clean up on page unload
-    window.addEventListener("beforeunload", () => {
-      if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
       }
     });
   });

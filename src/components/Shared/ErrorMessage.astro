@@ -143,7 +143,7 @@ const contextText = errorContext || t(`error.context.${priority}`);
     top: var(--space-lg);
     left: 50%;
     z-index: var(--z-notification);
-    transform: translate(-50%, 0) translateZ(0);
+    transform: translate(-50%, 0);
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
@@ -155,7 +155,6 @@ const contextText = errorContext || t(`error.context.${priority}`);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thick) solid var(--border-error);
-    will-change: transform, opacity;
     transition:
       visibility 0s,
       opacity var(--error-animation-duration, var(--transition-normal)),
@@ -175,28 +174,26 @@ const contextText = errorContext || t(`error.context.${priority}`);
       background-color: var(--color-error-700);
       border-color: var(--color-error-600);
       color: var(--text-error-aaa);
-      animation: pulse-high var(--transition-slow) infinite;
     }
     &.errorMessage--critical {
       background-color: var(--color-error-800);
       border-color: var(--color-error-700);
       color: var(--text-error-aaa);
-      animation: pulse-critical var(--transition-slow) infinite;
       box-shadow:
         var(--shadow-xl),
         0 0 var(--space-lg) var(--color-error-500);
     }
     &:not(.hidden) {
       visibility: visible;
-      opacity: var(--animation-opacity-full);
+      opacity: 1;
       pointer-events: auto;
-      transform: translate(-50%, 0) translateZ(0);
+      transform: translate(-50%, 0);
     }
     &.hidden {
       visibility: hidden;
-      opacity: var(--animation-opacity-end);
+      opacity: 0;
       pointer-events: none;
-      transform: translate(-50%, calc(-1 * var(--space-xl))) translateZ(0);
+      transform: translate(-50%, calc(-1 * var(--space-xl)));
       transition:
         visibility 0s linear var(--transition-normal),
         opacity var(--transition-normal),
@@ -345,22 +342,22 @@ const contextText = errorContext || t(`error.context.${priority}`);
         transform var(--transition-fast);
       @media (hover: hover) {
         &:hover {
-          opacity: var(--animation-opacity-full);
+          opacity: 1;
           border-color: var(--border-secondary);
           background-color: var(--bg-tertiary);
-          transform: scale(var(--scale-focus));
+          transform: scale(1.05);
         }
       }
       &:focus-visible {
         outline: var(--focus-enhanced-outline-light);
         outline-offset: var(--focus-ring-offset);
         box-shadow: var(--focus-enhanced-shadow);
-        opacity: var(--animation-opacity-full);
+        opacity: 1;
         border-color: var(--border-secondary);
         background-color: var(--bg-tertiary);
       }
       &:active {
-        transform: scale(var(--scale-active));
+        transform: scale(0.95);
       }
     }
     .extendButton {
@@ -386,52 +383,19 @@ const contextText = errorContext || t(`error.context.${priority}`);
       transition: opacity var(--transition-fast);
       &.hidden,
       &:not(.hidden) {
-        transform: translate(-50%, 0) translateZ(0);
+        transform: translate(-50%, 0);
       }
       .interactiveButton,
       .closeButton {
         transition: none;
       }
-      &.errorMessage--high,
-      &.errorMessage--critical {
-        animation: none;
-      }
-    }
-    // Pulse animations for high/critical priority
-    @keyframes pulse-high {
-      0%,
-      100% {
-        opacity: var(--animation-opacity-full);
-        transform: translate(-50%, 0) scale(var(--animation-scale-default)) translateZ(0);
-      }
-      50% {
-        opacity: var(--opacity-medium);
-        transform: translate(-50%, 0) scale(var(--scale-focus)) translateZ(0);
-      }
-    }
-    @keyframes pulse-critical {
-      0%,
-      100% {
-        opacity: var(--animation-opacity-full);
-        transform: translate(-50%, 0) scale(var(--animation-scale-default)) translateZ(0);
-        box-shadow:
-          var(--shadow-xl),
-          0 0 var(--glow-distance) var(--color-error-500);
-      }
-      50% {
-        opacity: var(--opacity-medium);
-        transform: translate(-50%, 0) scale(var(--scale-focus)) translateZ(0);
-        box-shadow:
-          var(--shadow-xl),
-          0 0 var(--glow-distance-large) var(--color-error-400);
-      }
     }
     @keyframes countdown-progress {
       from {
-        transform: scaleX(var(--animation-scale-end));
+        transform: scaleX(1);
       }
       to {
-        transform: scaleX(var(--animation-opacity-end));
+        transform: scaleX(0);
       }
     }
   }
@@ -439,377 +403,118 @@ const contextText = errorContext || t(`error.context.${priority}`);
 
 <script>
   /**
-   * Enhanced ErrorMessage Custom Element
-   * Modernisiert: ES6+, Arrow Functions, class fields
+   * ErrorMessage Component Script
+   *
+   * Simplified implementation with basic error message functionality.
    */
-  class ErrorMessage extends HTMLElement {
-    closeButton: HTMLElement | null = null;
-    extendButton: HTMLElement | null = null;
-    countdownBar: HTMLElement | null = null;
-    countdownText: HTMLElement | null = null;
-    autoHideTimeout: ReturnType<typeof setTimeout> | null = null;
-    countdownInterval: ReturnType<typeof setInterval> | null = null;
-    isAnimating = false;
-    isPaused = false;
-    remainingTime = 0;
-    startTime = 0;
-    audioContext: AudioContext | null = null;
+  document.addEventListener("DOMContentLoaded", (): void => {
+    const errorMessages = document.querySelectorAll(".errorMessage") as NodeListOf<HTMLElement>;
 
-    keydownHandler = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && !this.classList.contains("hidden")) {
-        e.preventDefault();
-        this.hide();
-      }
-    };
-    clickHandler = (e: MouseEvent) => {
-      e.preventDefault();
-      this.hide();
-    };
-    extendHandler = (e: MouseEvent) => {
-      e.preventDefault();
-      this.extendTimeout();
-    };
-    mouseEnterHandler = () => {
-      if (this.dataset.pauseOnHover === "true") {
-        this.pauseTimeout();
-      }
-    };
-    mouseLeaveHandler = () => {
-      if (this.dataset.pauseOnHover === "true") {
-        this.resumeTimeout();
-      }
-    };
-    focusHandler = () => {
-      if (this.dataset.pauseOnHover === "true") {
-        this.pauseTimeout();
-      }
-    };
-    blurHandler = () => {
-      if (this.dataset.pauseOnHover === "true") {
-        this.resumeTimeout();
-      }
-    };
+    errorMessages.forEach((errorMessage: HTMLElement): void => {
+      const closeButton = errorMessage.querySelector(".closeButton") as HTMLElement | null;
+      const extendButton = errorMessage.querySelector(".extendButton") as HTMLElement | null;
+      const autoHideAfter = parseInt(errorMessage.dataset.autoHide || "0", 10);
+      let autoHideTimeout: ReturnType<typeof setTimeout> | null = null;
 
-    constructor() {
-      super();
-      this.initialize();
-    }
-
-    initialize = () => {
-      this.closeButton = this.querySelector(".closeButton") as HTMLElement | null;
-      this.extendButton = this.querySelector(".extendButton") as HTMLElement | null;
-      this.countdownBar = this.querySelector(".countdownBar") as HTMLElement | null;
-      this.countdownText = this.querySelector(".countdownText") as HTMLElement | null;
-
-      if (this.closeButton) {
-        this.closeButton.addEventListener("click", this.clickHandler);
-      }
-      if (this.extendButton) {
-        this.extendButton.addEventListener("click", this.extendHandler);
-      }
-
-      if (this.dataset.pauseOnHover === "true") {
-        this.addEventListener("mouseenter", this.mouseEnterHandler);
-        this.addEventListener("mouseleave", this.mouseLeaveHandler);
-        this.addEventListener("focusin", this.focusHandler);
-        this.addEventListener("focusout", this.blurHandler);
-      }
-
-      if (this.dataset.enableSound === "true") {
-        this.initializeAudio();
-      }
-
-      const autoHideAfter = this.dataset.autoHide ? parseInt(this.dataset.autoHide, 10) : 0;
-      this.remainingTime = autoHideAfter;
-      if (autoHideAfter > 0 && !isNaN(autoHideAfter)) {
-        this.startAutoHide();
-      }
-
-      document.addEventListener("keydown", this.keydownHandler);
-      if (this.dataset.enableSound === "true") {
-        this.playNotificationSound();
-      }
-      if (!this.classList.contains("hidden")) {
-        this.announceToScreenReaders();
-      }
-    };
-
-    initializeAudio = () => {
-      try {
-        this.audioContext = typeof AudioContext !== "undefined" ? new AudioContext() : null;
-      } catch (error) {
-        console.warn("Failed to initialize audio context:", error);
-        this.audioContext = null;
-      }
-    };
-
-    startAutoHide = () => {
-      if (this.remainingTime <= 0) {
-        return;
-      }
-      this.clearTimers();
-      this.startTime = Date.now();
-      this.autoHideTimeout = setTimeout(() => {
-        if (!this.isPaused) {
-          this.hide();
-        }
-      }, this.remainingTime);
-      if (this.countdownBar && this.countdownText) {
-        this.updateCountdown();
-        const rootStyles = getComputedStyle(document.documentElement);
-        const updateInterval =
-          parseInt(rootStyles.getPropertyValue("--error-countdown-update-interval")) || 100;
-        this.countdownInterval = setInterval(this.updateCountdown, updateInterval);
-      }
-    };
-
-    updateCountdown = () => {
-      if (!this.countdownText || this.isPaused) {
-        return;
-      }
-      const elapsed = Date.now() - this.startTime;
-      const remaining = Math.max(0, this.remainingTime - elapsed);
-      const seconds = Math.ceil(remaining / 1000);
-      this.countdownText.textContent = seconds.toString();
-      const progress = (this.remainingTime - remaining) / this.remainingTime;
-      if (this.countdownBar) {
-        this.countdownBar.style.setProperty("--countdown-progress", `${progress * 100}%`);
-      }
-      if (remaining <= 0) {
-        this.hide();
-      }
-    };
-
-    getAudioConfig = (priority: string) => {
-      const rootStyles = getComputedStyle(document.documentElement);
-      return (
-        {
-          low: {
-            frequency: parseInt(rootStyles.getPropertyValue("--audio-frequency-low")) || 400,
-            duration: parseFloat(rootStyles.getPropertyValue("--audio-duration-low")) || 0.1,
-            volume: parseFloat(rootStyles.getPropertyValue("--audio-volume-low")) || 0.1,
-          },
-          medium: {
-            frequency: parseInt(rootStyles.getPropertyValue("--audio-frequency-medium")) || 600,
-            duration: parseFloat(rootStyles.getPropertyValue("--audio-duration-medium")) || 0.2,
-            volume: parseFloat(rootStyles.getPropertyValue("--audio-volume-medium")) || 0.15,
-          },
-          high: {
-            frequency: parseInt(rootStyles.getPropertyValue("--audio-frequency-high")) || 800,
-            duration: parseFloat(rootStyles.getPropertyValue("--audio-duration-high")) || 0.3,
-            volume: parseFloat(rootStyles.getPropertyValue("--audio-volume-high")) || 0.2,
-          },
-          critical: {
-            frequency: parseInt(rootStyles.getPropertyValue("--audio-frequency-critical")) || 1000,
-            duration: parseFloat(rootStyles.getPropertyValue("--audio-duration-critical")) || 0.5,
-            volume: parseFloat(rootStyles.getPropertyValue("--audio-volume-critical")) || 0.3,
-          },
-        }[priority] || {
-          frequency: 600,
-          duration: 0.2,
-          volume: 0.15,
-        }
-      );
-    };
-
-    playNotificationSound = () => {
-      if (!this.audioContext) {
-        return;
-      }
-      try {
-        if (this.audioContext.state === "suspended") {
-          this.audioContext.resume();
-        }
-        const priority = this.dataset.priority || "medium";
-        const config = this.getAudioConfig(priority);
-        const oscillator = this.audioContext.createOscillator();
-        const gainNode = this.audioContext.createGain();
-        oscillator.connect(gainNode);
-        gainNode.connect(this.audioContext.destination);
-        oscillator.frequency.setValueAtTime(config.frequency, this.audioContext.currentTime);
-        oscillator.type = "sine";
-        gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
-        gainNode.gain.linearRampToValueAtTime(config.volume, this.audioContext.currentTime + 0.01);
-        gainNode.gain.exponentialRampToValueAtTime(
-          0.001,
-          this.audioContext.currentTime + config.duration
-        );
-        oscillator.start(this.audioContext.currentTime);
-        oscillator.stop(this.audioContext.currentTime + config.duration);
-      } catch (error) {
-        console.warn("Failed to play notification sound:", error);
-      }
-    };
-
-    pauseTimeout = () => {
-      if (this.isPaused || !this.autoHideTimeout) {
-        return;
-      }
-      this.isPaused = true;
-      const elapsed = Date.now() - this.startTime;
-      this.remainingTime = Math.max(0, this.remainingTime - elapsed);
-      this.clearTimers();
-      if (this.countdownBar) {
-        this.countdownBar.style.animationPlayState = "paused";
-      }
-    };
-
-    resumeTimeout = () => {
-      if (!this.isPaused || this.remainingTime <= 0) {
-        return;
-      }
-      this.isPaused = false;
-      this.startTime = Date.now();
-      if (this.countdownBar) {
-        this.countdownBar.style.animationPlayState = "running";
-      }
-      this.startAutoHide();
-    };
-
-    extendTimeout = () => {
-      const rootStyles = getComputedStyle(document.documentElement);
-      const extensionTime =
-        parseInt(rootStyles.getPropertyValue("--error-extension-duration")) || 5000;
-      if (this.isPaused) {
-        this.remainingTime += extensionTime;
-        this.updateCountdown();
-      } else {
-        this.pauseTimeout();
-        this.remainingTime += extensionTime;
-        this.resumeTimeout();
-      }
-      this.notifyScreenReaders(`Timeout extended by ${extensionTime / 1000} seconds`);
-    };
-
-    clearTimers = () => {
-      if (this.autoHideTimeout) {
-        clearTimeout(this.autoHideTimeout);
-        this.autoHideTimeout = null;
-      }
-      if (this.countdownInterval) {
-        clearInterval(this.countdownInterval);
-        this.countdownInterval = null;
-      }
-    };
-
-    hide = () => {
-      if (this.isAnimating || this.classList.contains("hidden")) {
-        return;
-      }
-      this.isAnimating = true;
-      this.classList.add("hidden");
-      const messageElement = this.querySelector(".errorText");
-      if (messageElement && messageElement.textContent) {
-        this.notifyScreenReaders(`Alert dismissed: ${messageElement.textContent}`);
-      }
-      if (this.autoHideTimeout) {
-        clearTimeout(this.autoHideTimeout);
-        this.autoHideTimeout = null;
-      }
-      const transitionDuration = parseInt(
-        getComputedStyle(this).getPropertyValue("--error-animation-duration") || "300",
-        10
-      );
-      setTimeout(() => {
-        this.isAnimating = false;
-      }, transitionDuration);
-    };
-
-    show = () => {
-      if (this.isAnimating) {
-        return;
-      }
-      this.classList.remove("hidden");
-      this.announceToScreenReaders();
-      const autoHideAfter = this.dataset.autoHide ? parseInt(this.dataset.autoHide, 10) : 0;
-      if (autoHideAfter > 0 && !isNaN(autoHideAfter)) {
-        if (this.autoHideTimeout) {
-          clearTimeout(this.autoHideTimeout);
-        }
-        window.requestAnimationFrame(() => {
-          this.autoHideTimeout = setTimeout(() => this.hide(), autoHideAfter);
+      // Handle close button click
+      if (closeButton) {
+        closeButton.addEventListener("click", (): void => {
+          hideErrorMessage(errorMessage);
         });
       }
-    };
 
-    updateMessage = (message: string, announceChange = true) => {
-      const messageElement = this.querySelector(".errorText");
-      if (messageElement) {
-        messageElement.textContent = message;
-        if (announceChange && !this.classList.contains("hidden")) {
-          this.announceToScreenReaders();
+      // Handle extend button click
+      if (extendButton) {
+        extendButton.addEventListener("click", (): void => {
+          extendTimeout(errorMessage, autoHideAfter);
+        });
+      }
+
+      // Handle Escape key
+      const handleKeydown = (e: KeyboardEvent): void => {
+        if (e.key === "Escape" && !errorMessage.classList.contains("hidden")) {
+          hideErrorMessage(errorMessage);
         }
-      }
-    };
+      };
 
-    notifyScreenReaders = (message: string, priority = "assertive") => {
-      const rootStyles = getComputedStyle(document.documentElement);
-      const srWidth = rootStyles.getPropertyValue("--sr-only-width") || "1px";
-      const srHeight = rootStyles.getPropertyValue("--sr-only-height") || "1px";
-      const srMargin = rootStyles.getPropertyValue("--sr-only-margin") || "-1px";
-      const announcementDelay = parseInt(rootStyles.getPropertyValue("--announcement-delay")) || 50;
-      const cleanupDelay = parseInt(rootStyles.getPropertyValue("--announcement-cleanup")) || 3000;
-      const announcer = document.createElement("div");
-      announcer.setAttribute("aria-live", priority);
-      announcer.setAttribute("aria-atomic", "true");
-      announcer.style.position = "absolute";
-      announcer.style.width = srWidth;
-      announcer.style.height = srHeight;
-      announcer.style.padding = "0";
-      announcer.style.margin = srMargin;
-      announcer.style.overflow = "hidden";
-      announcer.style.clip = "rect(0, 0, 0, 0)";
-      announcer.style.whiteSpace = "nowrap";
-      announcer.style.border = "0";
-      document.body.appendChild(announcer);
-      setTimeout(() => {
-        announcer.textContent = message;
-        setTimeout(() => {
-          document.body.removeChild(announcer);
-        }, cleanupDelay);
-      }, announcementDelay);
-    };
+      document.addEventListener("keydown", handleKeydown);
 
-    announceToScreenReaders = () => {
-      const messageElement = this.querySelector(".errorText");
-      if (messageElement && messageElement.textContent) {
-        this.notifyScreenReaders(messageElement.textContent);
+      // Auto-hide functionality
+      if (autoHideAfter > 0) {
+        autoHideTimeout = setTimeout(() => {
+          hideErrorMessage(errorMessage);
+        }, autoHideAfter);
       }
-    };
 
-    disconnectedCallback() {
-      document.removeEventListener("keydown", this.keydownHandler);
-      if (this.closeButton) {
-        this.closeButton.removeEventListener("click", this.clickHandler);
-      }
-      if (this.autoHideTimeout) {
-        clearTimeout(this.autoHideTimeout);
-      }
+      // Cleanup function
+      const cleanup = (): void => {
+        document.removeEventListener("keydown", handleKeydown);
+        if (autoHideTimeout) {
+          clearTimeout(autoHideTimeout);
+        }
+      };
+
+      // Store cleanup function for later use
+      (errorMessage as HTMLElement & { cleanup?: () => void }).cleanup = cleanup;
+    });
+  });
+
+  /**
+   * Hide error message with animation
+   */
+  const hideErrorMessage = (errorMessage: HTMLElement): void => {
+    if (errorMessage.classList.contains("hidden")) {
+      return;
     }
-  }
 
-  customElements.define("error-message", ErrorMessage);
+    errorMessage.classList.add("hidden");
+
+    // Cleanup after animation
+    setTimeout(() => {
+      const errorMessageWithCleanup = errorMessage as HTMLElement & { cleanup?: () => void };
+      if (errorMessageWithCleanup.cleanup) {
+        errorMessageWithCleanup.cleanup();
+      }
+    }, 300);
+  };
+
+  /**
+   * Extend timeout for error message
+   */
+  const extendTimeout = (errorMessage: HTMLElement, duration: number): void => {
+    const errorMessageWithTimeout = errorMessage as HTMLElement & {
+      autoHideTimeout?: ReturnType<typeof setTimeout> | null;
+    };
+    const currentTimeout = errorMessageWithTimeout.autoHideTimeout;
+    if (currentTimeout) {
+      clearTimeout(currentTimeout);
+    }
+
+    errorMessageWithTimeout.autoHideTimeout = setTimeout(() => {
+      hideErrorMessage(errorMessage);
+    }, duration);
+  };
 
   /**
    * Global function to show error messages
-   * @param {string} message - Error message to display
-   * @param {number=} autoHideAfter - Time in milliseconds to auto-hide (optional)
-   * @returns {ErrorMessage}
    */
-  (window as any).showError = (message: string, autoHideAfter?: number) => {
-    if (typeof autoHideAfter === "undefined") {
-      const rootStyles = getComputedStyle(document.documentElement);
-      autoHideAfter = parseInt(rootStyles.getPropertyValue("--error-auto-hide-duration")) || 5000;
-    }
+  (window as Window & { showError?: (message: string, autoHideAfter?: number) => void }).showError =
+    (message: string, autoHideAfter?: number): void => {
+      const errorMessage = document.querySelector(".errorMessage") as HTMLElement;
+      if (errorMessage) {
+        const messageElement = errorMessage.querySelector(".errorText");
+        if (messageElement) {
+          messageElement.textContent = message;
+        }
 
-    const errorMessageElement = document.querySelector("error-message") as any;
-    if (errorMessageElement) {
-      const errorMessageTyped = errorMessageElement;
-      errorMessageTyped.updateMessage(message, false);
-      errorMessageTyped.dataset.autoHide = String(autoHideAfter);
-      errorMessageTyped.show();
-      return errorMessageTyped;
-    }
-    return null;
-  };
+        errorMessage.classList.remove("hidden");
+        errorMessage.dataset.autoHide = String(autoHideAfter || 5000);
+
+        if (autoHideAfter && autoHideAfter > 0) {
+          setTimeout(() => {
+            hideErrorMessage(errorMessage);
+          }, autoHideAfter);
+        }
+      }
+    };
 </script>

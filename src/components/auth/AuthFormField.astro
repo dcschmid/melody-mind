@@ -6,24 +6,17 @@
  * - Email, password, text, tel, url, search, and number input support
  * - Built-in validation with error messages and password toggle
  * - WCAG AAA compliant with proper focus management
- * - Performance optimized with CSS containment
  * - Full responsive design with touch optimization
  * - Internationalization support
- *
- * @component
- * @accessibility WCAG AAA compliant with enhanced focus indicators
- * @performance CSS containment, GPU acceleration, optimized transitions
- * @responsive Mobile-first design with touch-friendly sizing
  */
+
 import PasswordToggleButton from "./PasswordToggleButton.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Paragraph from "../Paragraph.astro";
 
-// Get current language and translations for client-side scripts
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Prepare translations for client-side validation
 const clientTranslations = {
   "auth.form.email_invalid": t("auth.form.email_invalid"),
   "auth.form.password_min_length": t("auth.form.password_min_length"),
@@ -32,31 +25,18 @@ const clientTranslations = {
 };
 
 export interface Props {
-  /** Unique input identifier */
   id: string;
-  /** Form input name */
   name: string;
-  /** Input type */
   type: "email" | "password" | "text" | "tel" | "url" | "search" | "number";
-  /** Input label text */
   label: string;
-  /** Placeholder text */
   placeholder?: string;
-  /** Required field flag */
   required?: boolean;
-  /** Autocomplete attribute */
   autocomplete?: string;
-  /** Additional CSS classes */
   class?: string;
-  /** Content after label (e.g., forgot password link) */
   labelSuffix?: string;
-  /** Show password toggle button */
   showPasswordToggle?: boolean;
-  /** Password toggle accessibility label */
   passwordToggleLabel?: string;
-  /** Additional input attributes */
   inputAttributes?: Record<string, string | number | boolean>;
-  /** Optional help text */
   helpText?: string;
 }
 
@@ -81,7 +61,6 @@ const errorId = `${id}Error`;
 const helpId = helpText ? `${id}Help` : undefined;
 const toggleId = `toggle${id.charAt(0).toUpperCase() + id.slice(1)}`;
 
-// Build aria-describedby attribute - combine help text and error IDs
 const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
 ---
 
@@ -138,7 +117,6 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
   </div>
 </div>
 
-<!-- Progressive Enhancement: NoScript fallback for error states -->
 <noscript>
   <style>
     .auth-form-field__input--error {
@@ -153,41 +131,21 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
   </style>
 </noscript>
 
-<!-- Setup client-side translations for validation messages -->
 <script type="module" define:vars={{ translations: clientTranslations }} is:inline>
-  // Make translations available to the client-side validation
   window.authTranslations = translations;
 </script>
 
 <script type="module" is:inline>
-  // Import the auth form field functionality
   import("/src/utils/authFormField.ts");
 </script>
 
 <style lang="scss">
-  /**
-   * AuthFormField Component Styles
-   * 
-   * ✅ 100% global.css variables integration
-   * ✅ Performance optimized with CSS containment
-   * ✅ WCAG AAA compliant styling
-   * ✅ Responsive design with fluid scaling
-   * ✅ GPU acceleration for smooth interactions
-   */
-
   .auth-form-field {
-    margin-bottom: clamp(var(--space-md), 4vw, var(--space-lg));
+    margin-bottom: var(--space-md);
 
-    // Performance optimizations
-    contain: layout style paint;
-    content-visibility: auto;
-    contain-intrinsic-size: var(--container-intrinsic-height-component);
-
-    transform: translateZ(0);
-
-    // Container query support
-    container-type: inline-size;
-    container-name: auth-form-field;
+    @media (min-width: 30em) {
+      margin-bottom: var(--space-lg);
+    }
 
     * {
       box-sizing: border-box;
@@ -197,11 +155,13 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-bottom: var(--space-sm);
+      gap: var(--space-sm);
 
-      margin-bottom: clamp(var(--space-sm), 3vw, var(--space-md));
-      gap: clamp(var(--space-sm), 3vw, var(--space-md));
-
-      contain: layout style;
+      @media (min-width: 30em) {
+        margin-bottom: var(--space-md);
+        gap: var(--space-md);
+      }
 
       @media (max-width: 39.9375em) {
         flex-direction: column;
@@ -212,115 +172,124 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
 
     &__label {
       display: block;
-
-      font-size: clamp(var(--text-base), 3vw, var(--text-lg));
+      font-size: var(--text-base);
       font-weight: var(--font-semibold);
       color: var(--text-primary);
       line-height: var(--leading-relaxed);
       letter-spacing: var(--letter-spacing-base);
-
       text-wrap: balance;
-      contain: layout style;
+
+      @media (min-width: 30em) {
+        font-size: var(--text-lg);
+      }
+
+      @media (min-width: 48em) {
+        font-size: var(--text-xl);
+      }
     }
 
     &__required-mark {
       color: var(--color-error-600);
       margin-left: var(--space-xs);
       font-weight: var(--font-bold);
+      font-size: var(--text-lg);
 
-      font-size: clamp(var(--text-lg), 4vw, var(--text-xl));
-
-      text-shadow: 0 0 var(--space-micro) var(--bg-primary);
+      @media (min-width: 30em) {
+        font-size: var(--text-xl);
+      }
     }
 
     &__label-suffix {
-      font-size: clamp(var(--text-sm), 3vw, var(--text-base));
+      font-size: var(--text-sm);
       color: var(--text-secondary);
       line-height: var(--leading-relaxed);
-
       text-wrap: balance;
+
+      @media (min-width: 30em) {
+        font-size: var(--text-base);
+      }
     }
 
     &__input-wrapper {
       position: relative;
       display: flex;
       flex-direction: column;
+      gap: var(--space-xs);
 
-      gap: clamp(var(--space-xs), 2vw, var(--space-sm));
-
-      contain: layout style;
+      @media (min-width: 30em) {
+        gap: var(--space-sm);
+      }
     }
 
     &__help-text {
-      font-size: clamp(var(--text-sm), 3vw, var(--text-base));
+      font-size: var(--text-sm);
       color: var(--text-secondary);
       line-height: var(--leading-relaxed);
       letter-spacing: var(--letter-spacing-base);
-
-      padding: clamp(var(--space-xs), 2vw, var(--space-sm))
-        clamp(var(--space-sm), 3vw, var(--space-md));
-
+      padding: var(--space-xs) var(--space-sm);
       background-color: var(--color-blue-50);
       border: var(--border-width-thin) solid var(--color-blue-200);
       border-radius: var(--radius-sm);
-
-      contain: layout style;
-      transform: translateZ(0);
-      will-change: opacity;
-
       transition: opacity var(--transition-normal);
-
       text-wrap: balance;
 
-      // Remove default paragraph margins from nested Paragraph component
+      @media (min-width: 30em) {
+        font-size: var(--text-base);
+        padding: var(--space-sm) var(--space-md);
+      }
+
+      @media (min-width: 48em) {
+        font-size: var(--text-base);
+        padding: var(--space-sm) var(--space-lg);
+      }
+
       :global(p) {
-        margin: var(--space-none);
+        margin: 0;
       }
     }
 
     &__input {
       width: var(--width-full);
       min-height: var(--touch-target-enhanced);
-
-      padding: clamp(var(--space-md), 4vw, var(--space-lg));
-
+      padding: var(--space-md) var(--space-lg);
       background-color: var(--bg-tertiary);
       border: var(--border-width-thick) solid var(--border-secondary);
       border-radius: var(--radius-md);
       color: var(--text-primary);
-
-      font-size: clamp(var(--text-base), 3vw, var(--text-lg));
+      font-size: var(--text-base);
       line-height: var(--leading-relaxed);
       letter-spacing: var(--letter-spacing-base);
-
       appearance: none;
-
-      contain: layout style;
-      transform: translateZ(0);
-      will-change: border-color, background-color, box-shadow, transform;
-
       touch-action: manipulation;
-
       transition:
         border-color var(--transition-normal),
         background-color var(--transition-normal),
-        box-shadow var(--transition-normal),
-        transform var(--transition-fast);
+        box-shadow var(--transition-normal);
+
+      @media (min-width: 30em) {
+        padding: var(--space-lg) var(--space-xl);
+        font-size: var(--text-lg);
+      }
+
+      @media (min-width: 48em) {
+        min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
+      }
 
       &::placeholder {
         color: var(--text-muted);
-        opacity: var(--opacity-medium);
-
-        font-size: clamp(var(--text-base), 3vw, var(--text-lg));
-
+        opacity: 0.7;
+        font-size: var(--text-base);
         text-wrap: balance;
+
+        @media (min-width: 30em) {
+          font-size: var(--text-lg);
+        }
       }
 
       &:focus,
       &:focus-visible {
         border-color: var(--interactive-primary);
         background-color: var(--bg-secondary);
-        transform: translateY(calc(-1 * var(--space-micro))) translateZ(0);
         outline: none;
         box-shadow: var(--focus-ring);
       }
@@ -339,64 +308,36 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
       &--error {
         border-color: var(--color-error-500);
         background-color: var(--color-error-50);
-        animation: error-shake var(--transition-normal) ease-in-out;
-        will-change: transform;
 
         &:focus {
           border-color: var(--color-error-500);
           box-shadow: var(--focus-ring);
-          transform: translateY(calc(-1 * var(--space-micro))) translateZ(0);
         }
       }
     }
 
     &__error-message {
       display: none;
-
-      margin-top: clamp(var(--space-sm), 3vw, var(--space-md));
-      padding: clamp(var(--space-sm), 3vw, var(--space-md))
-        clamp(var(--space-md), 4vw, var(--space-lg));
-
-      font-size: clamp(var(--text-sm), 3vw, var(--text-base));
+      margin-top: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      font-size: var(--text-sm);
       color: var(--color-error-800);
       background-color: var(--color-error-50);
       border: var(--border-width-thick) solid var(--color-error-300);
       border-radius: var(--radius-sm);
       line-height: var(--leading-relaxed);
       font-weight: var(--font-medium);
-
-      contain: layout style;
-      transform: translateZ(0);
-
       text-wrap: balance;
-
       transition: opacity var(--transition-normal);
+
+      @media (min-width: 30em) {
+        margin-top: var(--space-md);
+        padding: var(--space-md) var(--space-lg);
+        font-size: var(--text-base);
+      }
 
       &:not(:empty) {
         display: block;
-      }
-    }
-  }
-
-  // Error shake animation
-  @keyframes error-shake {
-    0%,
-    100% {
-      transform: translateX(var(--space-none)) translateZ(0);
-    }
-    25% {
-      transform: translateX(calc(-1 * var(--space-xs))) translateZ(0);
-    }
-    75% {
-      transform: translateX(var(--space-xs)) translateZ(0);
-    }
-  }
-
-  // Responsive design
-  @media (min-width: 48em) {
-    .auth-form-field {
-      &__input {
-        min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
       }
     }
   }
@@ -409,7 +350,6 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
     }
   }
 
-  // High contrast mode support
   @media (prefers-contrast: high) {
     .auth-form-field {
       &__input {
@@ -428,10 +368,6 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
         font-weight: var(--font-bold);
       }
 
-      &__required-mark {
-        text-shadow: var(--space-micro) var(--space-micro) var(--space-xs) var(--bg-primary);
-      }
-
       &__error-message {
         background-color: var(--color-error-50);
         border-width: var(--border-width-thick);
@@ -440,32 +376,16 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
     }
   }
 
-  // Reduced motion support
   @media (prefers-reduced-motion: reduce) {
     .auth-form-field {
       &__input,
       &__help-text,
       &__error-message {
         transition: var(--transition-instant);
-        will-change: auto;
-        animation: none;
-
-        &--error {
-          transition: var(--transition-instant);
-          animation: none;
-        }
-      }
-    }
-
-    @keyframes error-shake {
-      0%,
-      100% {
-        transform: none;
       }
     }
   }
 
-  // Touch device support
   @media (hover: none) and (pointer: coarse) {
     .auth-form-field {
       &__input {
@@ -473,11 +393,6 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
         padding: var(--space-lg);
         font-size: var(--text-lg);
         touch-action: manipulation;
-
-        &:focus {
-          transform: scale(1.02) translateZ(0);
-          transition: transform var(--transition-fast);
-        }
       }
 
       &__help-text {
@@ -492,42 +407,14 @@ const describedByIds = [helpId, errorId].filter(Boolean).join(" ");
     }
   }
 
-  // Container queries for component-specific responsiveness
-  @container auth-form-field (max-width: 20em) {
-    .auth-form-field {
-      &__label-group {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-xs);
-      }
-
-      &__input {
-        font-size: var(--text-base);
-        padding: var(--space-sm) var(--space-md);
-      }
-
-      &__help-text {
-        font-size: var(--text-sm);
-        padding: var(--space-xs) var(--space-sm);
-      }
-    }
-  }
-
-  @container auth-form-field (min-width: 30em) {
-    .auth-form-field {
-      &__input {
-        padding: var(--space-lg) var(--space-xl);
-        font-size: var(--text-lg);
-      }
-
-      &__label {
-        font-size: var(--text-xl);
-      }
-
-      &__help-text {
-        font-size: var(--text-base);
-        padding: var(--space-sm) var(--space-lg);
-      }
-    }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 </style>

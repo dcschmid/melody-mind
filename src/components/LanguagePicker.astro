@@ -201,7 +201,7 @@ const languages = Object.fromEntries(
     font-family: var(--font-family-primary);
 
     /* Enhanced focus-within state for WCAG AAA compliance */
-    transition: box-shadow var(--animation-duration-normal);
+    transition: box-shadow var(--transition-normal);
 
     &:focus-within {
       box-shadow: var(--focus-ring);
@@ -250,10 +250,10 @@ const languages = Object.fromEntries(
 
       /* Transitions */
       transition:
-        background-color var(--animation-duration-normal),
-        transform var(--animation-duration-normal),
-        box-shadow var(--animation-duration-normal),
-        color var(--animation-duration-normal);
+        background-color var(--transition-normal),
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal),
+        color var(--transition-normal);
 
       /* Hover states - match menu button */
       &:hover {
@@ -279,19 +279,16 @@ const languages = Object.fromEntries(
 
       /* Responsive design */
       @media (min-width: 48em) {
-        /* md breakpoint */
         min-width: calc(var(--min-touch-size) * 1.5);
       }
 
       @media (max-width: 47.9375em) {
-        /* Below md breakpoint */
         min-width: var(--min-touch-size);
         padding: var(--space-xs) var(--space-xl) var(--space-xs) var(--space-sm);
         font-size: var(--text-sm);
       }
 
       @media (max-width: 39.9375em) {
-        /* Below sm breakpoint */
         min-width: auto;
         padding: var(--space-xs) var(--space-lg) var(--space-xs) var(--space-xs);
         font-size: var(--text-xs);
@@ -323,7 +320,7 @@ const languages = Object.fromEntries(
 
       /* Reduced motion support */
       @media (prefers-reduced-motion: reduce) {
-        transition-duration: var(--animation-duration-fast) !important;
+        transition-duration: var(--transition-fast) !important;
 
         &:hover {
           transform: none;
@@ -381,7 +378,6 @@ const languages = Object.fromEntries(
 
       /* Responsive adjustments */
       @media (max-width: 47.9375em) {
-        /* Below md breakpoint */
         padding: var(--space-none) var(--space-xs);
       }
     }
@@ -395,14 +391,13 @@ const languages = Object.fromEntries(
       fill: currentColor;
 
       transition:
-        background-color var(--animation-duration-normal),
-        transform var(--animation-duration-normal),
-        box-shadow var(--animation-duration-normal),
-        color var(--animation-duration-normal);
+        background-color var(--transition-normal),
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal),
+        color var(--transition-normal);
 
       /* Responsive icon sizing */
       @media (max-width: 39.9375em) {
-        /* Below sm breakpoint */
         height: var(--icon-size-sm);
         width: var(--icon-size-sm);
       }
@@ -414,14 +409,14 @@ const languages = Object.fromEntries(
 
       /* Reduced motion support */
       @media (prefers-reduced-motion: reduce) {
-        transition-duration: var(--animation-duration-fast) !important;
+        transition-duration: var(--transition-fast) !important;
       }
     }
 
     /* Arrow rotation states for enhanced UX */
     &__select:focus + &__arrow-container &__arrow,
     &__select:active + &__arrow-container &__arrow {
-      transform: rotate(var(--rotation-180));
+      transform: rotate(180deg);
     }
 
     &__select:focus + &__arrow-container,
@@ -452,12 +447,10 @@ const languages = Object.fromEntries(
 
     /* Mobile-first responsive design */
     @media (max-width: 47.9375em) {
-      /* Below md breakpoint */
       gap: var(--space-xs);
     }
 
     @media (max-width: 39.9375em) {
-      /* Below sm breakpoint */
       gap: var(--space-xs);
     }
   }
@@ -475,134 +468,77 @@ const languages = Object.fromEntries(
 
     /* Enhanced text spacing support for better accessibility */
     @media (min-width: 48em) {
-      /* md breakpoint */
       padding-top: calc(var(--space-md) * 1.1);
       padding-bottom: calc(var(--space-md) * 1.1);
     }
   }
 </style>
 
-<script type="module">
-  /**
-   * LanguagePicker Component Script
-   * Enhanced language picker implementation with modern ES6+ features
-   */
+<script>
+  document.addEventListener("DOMContentLoaded", (): void => {
+    const selectElement = document.getElementById("language-select") as HTMLSelectElement | null;
+    const arrowElement = document.getElementById("language-arrow") as HTMLElement | null;
+    const arrowContainer = document.getElementById("arrow-container") as HTMLElement | null;
+    const statusElement = document.getElementById("language-status") as HTMLElement | null;
 
-  // Modern ES6+ class with arrow functions and destructuring
-  class LanguagePicker {
-    #selectElement = null;
-    #arrowElement = null;
-    #arrowContainer = null;
-    #statusElement = null;
-    #abortController = null;
-    #eventHandlers = new Map();
-    #translations = {};
-
-    constructor(config = {}) {
-      const {
-        selectElementId = "language-select",
-        arrowElementId = "language-arrow",
-        arrowContainerId = "arrow-container",
-        statusElementId = "language-status",
-      } = config;
-
-      this.#abortController = new AbortController();
-      this.#initializeElements(selectElementId, arrowElementId, arrowContainerId, statusElementId);
-      this.#loadTranslations();
-
-      if (this.#isValid()) {
-        this.#initialize();
-      } else {
-        console.warn("Language picker initialization skipped - required elements not found");
-      }
+    if (!selectElement || !arrowElement || !arrowContainer || !statusElement) {
+      console.warn("Language picker elements not found");
+      return;
     }
 
-    #initializeElements = (selectId, arrowId, arrowContainerId, statusId) => {
-      this.#selectElement = document.getElementById(selectId);
-      this.#arrowElement = document.getElementById(arrowId);
-      this.#arrowContainer = document.getElementById(arrowContainerId);
-      this.#statusElement = document.getElementById(statusId);
-    };
+    // Set initial ARIA attributes
+    selectElement.setAttribute("aria-expanded", "false");
+    selectElement.setAttribute("aria-haspopup", "listbox");
 
-    #loadTranslations = () => {
-      if (!this.#selectElement) {
-        this.#translations = {
-          focusAnnounce: "Language selector focused. Use arrow keys to navigate options.",
-          changeSuccess: "Language changed to {language}",
-          changeError: "Language change failed. Please try again.",
-          preferenceRestored: "Language preference restored: {language}",
-        };
-        return;
-      }
-
-      const { dataset } = this.#selectElement;
-      this.#translations = {
-        focusAnnounce:
-          dataset.focusAnnounce || "Language selector focused. Use arrow keys to navigate options.",
-        changeSuccess: dataset.changeSuccess || "Language changed to {language}",
-        changeError: dataset.changeError || "Language change failed. Please try again.",
-        preferenceRestored:
-          dataset.preferenceRestored || "Language preference restored: {language}",
-      };
-    };
-
-    #isValid = () => {
-      return !!(
-        this.#selectElement &&
-        this.#arrowElement &&
-        this.#arrowContainer &&
-        this.#statusElement
-      );
-    };
-
-    #initialize = () => {
-      try {
-        // Set initial ARIA attributes
-        this.#selectElement.setAttribute("aria-expanded", "false");
-        this.#selectElement.setAttribute("aria-haspopup", "listbox");
-
-        const { signal } = this.#abortController;
-
-        // Event listeners with modern arrow functions
-        this.#selectElement.addEventListener("focus", this.#handleFocus, { signal });
-        this.#selectElement.addEventListener("blur", this.#handleBlur, { signal });
-        this.#selectElement.addEventListener("mousedown", this.#handleMouseDown, { signal });
-        this.#selectElement.addEventListener("mouseup", this.#handleMouseUp, { signal });
-        this.#selectElement.addEventListener("change", this.#handleLanguageChange, { signal });
-        this.#selectElement.addEventListener("keydown", this.#handleKeyDown, { signal });
-        this.#selectElement.addEventListener("keyup", this.#handleKeyUp, { signal });
-
-        this.#resetArrow();
-        console.log("LanguagePicker initialized successfully with modern ES6+ features");
-      } catch (error) {
-        console.error("Error initializing LanguagePicker:", error);
+    const rotateArrow = (): void => {
+      if (arrowElement) {
+        arrowElement.style.transform = "rotate(180deg)";
       }
     };
 
-    #handleFocus = () => {
-      this.#arrowContainer.classList.add("focused");
-      this.#announceToScreenReader(this.#translations.focusAnnounce);
+    const resetArrow = (): void => {
+      if (arrowElement) {
+        arrowElement.style.transform = "rotate(0deg)";
+      }
     };
 
-    #handleBlur = () => {
-      this.#arrowContainer.classList.remove("focused");
-      this.#resetArrow();
+    const announceToScreenReader = (message: string): void => {
+      if (statusElement) {
+        statusElement.textContent = message;
+        setTimeout(() => {
+          statusElement.textContent = "";
+        }, 1000);
+      }
     };
 
-    #handleMouseDown = () => {
-      this.#rotateArrow();
-      this.#selectElement.setAttribute("aria-expanded", "true");
-    };
+    // Event listeners
+    selectElement.addEventListener("focus", (): void => {
+      arrowContainer.classList.add("focused");
+      const focusAnnounce =
+        selectElement.dataset.focusAnnounce ||
+        "Language selector focused. Use arrow keys to navigate options.";
+      announceToScreenReader(focusAnnounce);
+    });
 
-    #handleMouseUp = () => {
+    selectElement.addEventListener("blur", (): void => {
+      arrowContainer.classList.remove("focused");
+      resetArrow();
+    });
+
+    selectElement.addEventListener("mousedown", (): void => {
+      rotateArrow();
+      selectElement.setAttribute("aria-expanded", "true");
+    });
+
+    selectElement.addEventListener("mouseup", (): void => {
       setTimeout(() => {
-        this.#resetArrow();
-        this.#selectElement.setAttribute("aria-expanded", "false");
+        resetArrow();
+        selectElement.setAttribute("aria-expanded", "false");
       }, 150);
-    };
+    });
 
-    #handleLanguageChange = (event) => {
-      const target = event.target;
+    selectElement.addEventListener("change", (event: Event): void => {
+      const target = event.target as HTMLSelectElement;
       const selectedValue = target.value;
       const selectedText = target.options[target.selectedIndex].text;
 
@@ -616,70 +552,33 @@ const languages = Object.fromEntries(
         localStorage.setItem("preferred-language", newLang);
 
         // Announce success
-        const successMessage = this.#translations.changeSuccess.replace("{language}", selectedText);
-        this.#announceToScreenReader(successMessage);
+        const changeSuccess =
+          selectElement.dataset.changeSuccess || "Language changed to {language}";
+        const successMessage = changeSuccess.replace("{language}", selectedText);
+        announceToScreenReader(successMessage);
 
         // Navigate to new URL
         window.location.href = selectedValue;
       } catch (error) {
         console.error("Language change error:", error);
-        this.#announceToScreenReader(this.#translations.changeError);
+        const changeError =
+          selectElement.dataset.changeError || "Language change failed. Please try again.";
+        announceToScreenReader(changeError);
       }
-    };
-
-    #handleKeyDown = (event) => {
-      const { key } = event;
-      if (["ArrowUp", "ArrowDown", "Enter", " "].includes(key)) {
-        this.#rotateArrow();
-      }
-    };
-
-    #handleKeyUp = (event) => {
-      const { key } = event;
-      if (["ArrowUp", "ArrowDown", "Enter", " "].includes(key)) {
-        setTimeout(() => this.#resetArrow(), 150);
-      }
-    };
-
-    #rotateArrow = () => {
-      if (this.#arrowElement) {
-        this.#arrowElement.style.transform = "rotate(180deg)";
-      }
-    };
-
-    #resetArrow = () => {
-      if (this.#arrowElement) {
-        this.#arrowElement.style.transform = "rotate(0deg)";
-      }
-    };
-
-    #announceToScreenReader = (message) => {
-      if (this.#statusElement) {
-        this.#statusElement.textContent = message;
-        setTimeout(() => {
-          this.#statusElement.textContent = "";
-        }, 1000);
-      }
-    };
-
-    // Public methods
-    cleanup = () => {
-      this.#abortController.abort();
-      this.#eventHandlers.clear();
-    };
-
-    getPerformanceMetrics = () => ({
-      eventListenerCount: this.#eventHandlers.size,
-      memoryUsage: performance.memory?.usedJSHeapSize || null,
-      isAborted: this.#abortController.signal.aborted,
-      hasValidElements: this.#isValid(),
     });
 
-    // Static factory methods
-    static create = (config) => new LanguagePicker(config);
-    static init = (config) => new LanguagePicker(config);
-  }
+    selectElement.addEventListener("keydown", (event: KeyboardEvent): void => {
+      const { key } = event;
+      if (["ArrowUp", "ArrowDown", "Enter", " "].includes(key)) {
+        rotateArrow();
+      }
+    });
 
-  // Initialize with modern ES6+ syntax
-  LanguagePicker.init();
+    selectElement.addEventListener("keyup", (event: KeyboardEvent): void => {
+      const { key } = event;
+      if (["ArrowUp", "ArrowDown", "Enter", " "].includes(key)) {
+        setTimeout(() => resetArrow(), 150);
+      }
+    });
+  });
 </script>

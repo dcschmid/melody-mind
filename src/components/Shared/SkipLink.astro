@@ -81,20 +81,13 @@ const t = useTranslations(lang);
     // Layout - use semantic touch target variables consistently
     min-width: var(--min-touch-size);
     min-height: var(--min-touch-size);
-    transform: translate(-50%, 0) translateZ(0);
+    transform: translate(-50%, 0);
 
     // Visual styling - enhanced with gradient background
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-    background: linear-gradient(
-      135deg,
-      var(--interactive-primary) 0%,
-      var(--color-primary-600) 100%
-    );
+    background: var(--interactive-primary);
     padding: var(--space-sm) var(--space-xl);
-    box-shadow:
-      var(--shadow-lg),
-      0 4px 20px rgba(139, 69, 255, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-lg);
 
     // Typography - use consistent font variables
     text-align: center;
@@ -108,11 +101,10 @@ const t = useTranslations(lang);
     cursor: pointer;
 
     // Performance optimization
-    will-change: top, background-color, transform;
     transition:
-      top var(--animation-duration-normal) cubic-bezier(0.16, 1, 0.3, 1),
-      background-color var(--animation-duration-fast),
-      transform var(--animation-duration-fast);
+      top var(--transition-normal),
+      background-color var(--transition-fast),
+      transform var(--transition-fast);
 
     // Layout optimization
     display: flex;
@@ -124,7 +116,7 @@ const t = useTranslations(lang);
     &__icon {
       flex-shrink: 0;
       filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
-      transition: transform var(--animation-duration-fast);
+      transition: transform var(--transition-fast);
     }
 
     // Mobile-first responsive design
@@ -140,16 +132,9 @@ const t = useTranslations(lang);
     // Hover state - enhanced with gradient animation
     @media (hover: hover) {
       &:hover {
-        background: linear-gradient(
-          135deg,
-          var(--color-primary-500) 0%,
-          var(--color-primary-700) 100%
-        );
-        transform: translate(-50%, 0) translateZ(0) scale(var(--scale-focus));
-        box-shadow:
-          var(--shadow-xl),
-          0 6px 25px rgba(139, 69, 255, 0.4),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        background: var(--interactive-primary-hover);
+        transform: translate(-50%, 0) scale(1.05);
+        box-shadow: var(--shadow-xl);
 
         .skip-link__icon {
           transform: translateX(2px) translateY(-2px);
@@ -163,17 +148,9 @@ const t = useTranslations(lang);
       left: 50%;
       outline: var(--focus-enhanced-outline-dark);
       outline-offset: var(--focus-ring-offset);
-      background: linear-gradient(
-        135deg,
-        var(--color-primary-400) 0%,
-        var(--color-primary-600) 100%
-      );
-      box-shadow:
-        var(--focus-enhanced-shadow),
-        var(--shadow-xl),
-        0 8px 30px rgba(139, 69, 255, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25);
-      transform: translate(-50%, 0) translateZ(0) scale(1.05);
+      background: var(--interactive-primary-focus);
+      box-shadow: var(--focus-enhanced-shadow), var(--shadow-xl);
+      transform: translate(-50%, 0) scale(1.05);
 
       .skip-link__icon {
         transform: translateX(3px) translateY(-3px) scale(1.1);
@@ -182,15 +159,9 @@ const t = useTranslations(lang);
 
     // Active state - enhanced with deeper gradient
     &:active {
-      transform: translate(-50%, 0) translateZ(0) scale(var(--scale-active));
-      background: linear-gradient(
-        135deg,
-        var(--color-primary-600) 0%,
-        var(--color-primary-800) 100%
-      );
-      box-shadow:
-        0 4px 15px rgba(139, 69, 255, 0.3),
-        inset 0 2px 4px rgba(0, 0, 0, 0.1);
+      transform: translate(-50%, 0) scale(0.95);
+      background: var(--interactive-primary-active);
+      box-shadow: var(--shadow-md);
     }
 
     // Touch device optimizations
@@ -220,7 +191,7 @@ const t = useTranslations(lang);
   // Reduced Motion Support - use semantic animation variables
   @media (prefers-reduced-motion: reduce) {
     .skip-link {
-      transition-duration: var(--animation-duration-fast) !important;
+      transition-duration: var(--transition-fast) !important;
       transform: translate(-50%, 0);
     }
 
@@ -271,7 +242,6 @@ const t = useTranslations(lang);
 </style>
 
 <script>
-  /* eslint-disable @typescript-eslint/explicit-function-return-type */
   /**
    * SkipLink Enhancement Script
    *
@@ -280,117 +250,88 @@ const t = useTranslations(lang);
    * - Proper keyboard navigation
    * - Announcements for screen readers
    */
-  class SkipLinkEnhancer {
-    /** The skip link element */
-    #skipLink: HTMLAnchorElement | null = null;
+  document.addEventListener("DOMContentLoaded", (): void => {
+    const skipLink = document.querySelector("[data-skip-link]") as HTMLAnchorElement | null;
 
-    /**
-     * Initialize the enhancer
-     */
-    constructor() {
-      this.#skipLink = document.querySelector("[data-skip-link]");
-      this.#setupEventListeners();
+    if (!skipLink) {
+      return;
     }
 
-    /**
-     * Set up event listeners for the skip link
-     */
-    #setupEventListeners = () => {
-      if (!this.#skipLink) {
+    // Add click handler with proper focus management
+    skipLink.addEventListener("click", (e: Event): void => {
+      e.preventDefault();
+
+      const targetId = skipLink.getAttribute("href")?.substring(1);
+      if (!targetId) {
         return;
       }
 
-      // Add click handler with proper focus management
-      this.#skipLink.addEventListener("click", (e) => {
-        e.preventDefault();
+      const targetElement = document.getElementById(targetId);
 
-        const targetId = this.#skipLink?.getAttribute("href")?.substring(1);
-        if (!targetId) {
-          return;
+      if (targetElement) {
+        // Set tabindex to make non-interactive elements focusable
+        if (!targetElement.getAttribute("tabindex")) {
+          targetElement.setAttribute("tabindex", "-1");
         }
 
-        const targetElement = document.getElementById(targetId);
+        // Focus the target and scroll into view
+        targetElement.focus({ preventScroll: true });
+        targetElement.scrollIntoView({
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "auto"
+            : "smooth",
+        });
 
-        if (targetElement) {
-          // Set tabindex to make non-interactive elements focusable
-          if (!targetElement.getAttribute("tabindex")) {
-            targetElement.setAttribute("tabindex", "-1");
-          }
-
-          // Enhanced accessibility: Associate skip link with target element
-          const announcementId = `skip-link-announcement-${targetId}`;
-          targetElement.setAttribute("aria-describedby", announcementId);
-
-          // Focus the target and scroll into view
-          targetElement.focus({ preventScroll: true });
-          targetElement.scrollIntoView({
-            behavior: this.#prefersReducedMotion() ? "auto" : "smooth",
-          });
-
-          // Announce to screen readers with enhanced context
-          this.#announceToScreenReader(`Skipped to ${targetId}`, announcementId);
-        }
-      });
-
-      // Monitor for page changes in SPA context
-      document.addEventListener("astro:page-load", () => {
-        // Re-acquire skip link reference after page changes
-        this.#skipLink = document.querySelector("[data-skip-link]");
-        this.#setupEventListeners();
-      });
-    };
-
-    /**
-     * Check if user prefers reduced motion
-     * @returns {boolean} True if reduced motion is preferred
-     */
-    #prefersReducedMotion = () => {
-      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    };
-
-    /**
-     * Announce a message to screen readers
-     * @param {string} message - The message to announce
-     * @param {string} id - Optional ID for the announcer element
-     */
-    #announceToScreenReader = (message, id) => {
-      const announcer = document.createElement("div");
-      announcer.setAttribute("aria-live", "assertive");
-      announcer.setAttribute("aria-atomic", "true");
-      announcer.className = "sr-only";
-      announcer.textContent = message;
-
-      // Set ID if provided for aria-describedby relationship
-      if (id) {
-        announcer.id = id;
+        // Announce to screen readers
+        announceToScreenReader(`Skipped to ${targetId}`);
       }
+    });
 
-      document.body.appendChild(announcer);
+    // Monitor for page changes in SPA context
+    document.addEventListener("astro:page-load", (): void => {
+      // Re-acquire skip link reference after page changes
+      const newSkipLink = document.querySelector("[data-skip-link]") as HTMLAnchorElement | null;
+      if (newSkipLink) {
+        newSkipLink.addEventListener("click", (e: Event): void => {
+          e.preventDefault();
+          const targetId = newSkipLink.getAttribute("href")?.substring(1);
+          if (targetId) {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              if (!targetElement.getAttribute("tabindex")) {
+                targetElement.setAttribute("tabindex", "-1");
+              }
+              targetElement.focus({ preventScroll: true });
+              targetElement.scrollIntoView({
+                behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+                  ? "auto"
+                  : "smooth",
+              });
+              announceToScreenReader(`Skipped to ${targetId}`);
+            }
+          }
+        });
+      }
+    });
+  });
 
-      // Remove after announcement is likely complete - use semantic timeout from CSS variable
-      const cleanupDelay =
-        parseInt(
-          getComputedStyle(document.documentElement)
-            .getPropertyValue("--announcement-cleanup")
-            .replace("ms", "")
-        ) || 3000;
+  /**
+   * Announce a message to screen readers
+   */
+  const announceToScreenReader = (message: string): void => {
+    const announcer = document.createElement("div");
+    announcer.setAttribute("aria-live", "assertive");
+    announcer.setAttribute("aria-atomic", "true");
+    announcer.className = "sr-only";
+    announcer.textContent = message;
 
-      setTimeout(() => {
-        if (document.body.contains(announcer)) {
-          document.body.removeChild(announcer);
-        }
-      }, cleanupDelay);
-    };
-  }
+    document.body.appendChild(announcer);
 
-  // Initialize enhancer when DOM is ready using modern ES6 features
-  const initializeSkipLink = () => {
-    new SkipLinkEnhancer();
+    // Remove after announcement is likely complete
+    setTimeout(() => {
+      if (document.body.contains(announcer)) {
+        document.body.removeChild(announcer);
+      }
+    }, 3000);
   };
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeSkipLink);
-  } else {
-    initializeSkipLink();
-  }
 </script>

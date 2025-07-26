@@ -3,29 +3,20 @@
  * OAuth Account Manager Component
  *
  * Manages OAuth provider accounts - linking, unlinking, and displaying linked accounts
- *
- * @component
- * @accessibility WCAG AAA compliant with proper ARIA labels and live regions
- * @performance Optimized with CSS containment and efficient DOM handling
- * @responsive Mobile-first design with enhanced touch targets
  */
 
 import { Icon } from "astro-icon/components";
 import { useTranslations } from "../../utils/i18n";
 
 interface Props {
-  /** Current language */
   lang: string;
-  /** Currently linked OAuth providers */
   linkedProviders?: string[];
-  /** CSS class name */
   className?: string;
 }
 
 const { lang, linkedProviders = [], className = "" } = Astro.props;
 const t = useTranslations(lang);
 
-// Available OAuth providers
 const availableProviders = [
   {
     name: "spotify",
@@ -76,7 +67,6 @@ const availableProviders = [
     </p>
   </div>
 
-  <!-- Success/Error messages -->
   <div class="oauth-account-manager__messages" aria-live="polite">
     <div class="oauth-account-manager__success" role="alert" style="display: none;">
       <Icon name="check-circle" class="oauth-account-manager__message-icon" aria-hidden="true" />
@@ -88,7 +78,6 @@ const availableProviders = [
     </div>
   </div>
 
-  <!-- OAuth providers list -->
   <div class="oauth-account-manager__providers">
     {
       availableProviders.map((provider) => {
@@ -162,7 +151,6 @@ const availableProviders = [
 <style lang="scss">
   .oauth-account-manager {
     width: 100%;
-    contain: layout style;
 
     &__header {
       margin-bottom: var(--space-xl);
@@ -262,11 +250,12 @@ const availableProviders = [
     background: var(--bg-secondary);
     border: var(--border-width-thin) solid var(--border-secondary);
     border-radius: var(--radius-lg);
-    transition: all var(--transition-normal);
+    transition:
+      border-color var(--transition-normal),
+      box-shadow var(--transition-normal);
 
     &:hover {
       border-color: var(--provider-color);
-      transform: translateY(-2px);
       box-shadow: var(--shadow-lg);
     }
 
@@ -355,12 +344,14 @@ const availableProviders = [
       border: var(--border-width-thin) solid;
       background: transparent;
       cursor: pointer;
-      transition: all var(--transition-normal);
+      transition:
+        background-color var(--transition-normal),
+        color var(--transition-normal);
       font-size: var(--text-sm);
       font-weight: var(--font-medium);
       min-height: var(--touch-target-md);
 
-      &:focus {
+      &:focus-visible {
         outline: var(--focus-outline);
         outline-offset: var(--focus-ring-offset);
       }
@@ -408,7 +399,6 @@ const availableProviders = [
     }
   }
 
-  // Responsive adjustments
   @media (max-width: 47.9375em) {
     .oauth-provider {
       flex-direction: column;
@@ -430,7 +420,6 @@ const availableProviders = [
     }
   }
 
-  // Reduced motion support
   @media (prefers-reduced-motion: reduce) {
     .oauth-provider {
       transition: none;
@@ -445,270 +434,166 @@ const availableProviders = [
 <script>
   import { useTranslations } from "../../utils/i18n";
 
-  interface OAuthManagerResponse {
-    success: boolean;
-    message?: string;
-    error?: string;
-  }
+  const initOAuthManager = () => {
+    const containers = document.querySelectorAll(".oauth-account-manager");
 
-  class OAuthAccountManager {
-    private container: HTMLElement;
-    private lang: string;
-    private t: ReturnType<typeof useTranslations>;
-    private successMessage: HTMLElement;
-    private errorMessage: HTMLElement;
-
-    constructor(container: HTMLElement) {
-      this.container = container;
-      this.lang = document.documentElement.lang || "en";
-      this.t = useTranslations(this.lang);
-
-      this.successMessage = container.querySelector(
+    containers.forEach((container) => {
+      const successMessage = container.querySelector(
         ".oauth-account-manager__success"
       ) as HTMLElement;
-      this.errorMessage = container.querySelector(".oauth-account-manager__error") as HTMLElement;
+      const errorMessage = container.querySelector(".oauth-account-manager__error") as HTMLElement;
+      const lang = document.documentElement.lang || "en";
+      const t = useTranslations(lang);
 
-      this.init();
-    }
-
-    private init(): void {
-      this.container.addEventListener("click", this.handleButtonClick.bind(this));
-    }
-
-    private async handleButtonClick(event: Event): Promise<void> {
-      const button = (event.target as HTMLElement).closest("[data-action]") as HTMLButtonElement;
-      if (!button) {
-        return;
-      }
-
-      const action = button.dataset.action;
-      const provider = button.dataset.provider;
-
-      if (!action || !provider) {
-        return;
-      }
-
-      // Show loading state
-      this.setButtonLoading(button, true);
-      this.hideMessages();
-
-      try {
-        if (action === "link") {
-          await this.linkProvider(provider);
-        } else if (action === "unlink") {
-          await this.unlinkProvider(provider, button);
+      const showSuccess = (message: string) => {
+        hideMessages();
+        const messageText = successMessage.querySelector(".oauth-account-manager__message-text");
+        if (messageText) {
+          messageText.textContent = message;
         }
-      } catch (error) {
-        console.error("OAuth action failed:", error);
-        this.showError((error as Error).message || this.t("auth.oauth.action_failed"));
-      } finally {
-        this.setButtonLoading(button, false);
-      }
-    }
+        successMessage.style.display = "flex";
+        setTimeout(() => {
+          successMessage.style.display = "none";
+        }, 5000);
+      };
 
-    private async linkProvider(provider: string): Promise<void> {
-      // Redirect to OAuth authorization
-      const currentUrl = window.location.href;
-      const authUrl = `/api/auth/oauth/authorize/${provider}?lang=${this.lang}&redirect=${encodeURIComponent(currentUrl)}&link=true`;
+      const showError = (message: string) => {
+        hideMessages();
+        const messageText = errorMessage.querySelector(".oauth-account-manager__message-text");
+        if (messageText) {
+          messageText.textContent = message;
+        }
+        errorMessage.style.display = "flex";
+        setTimeout(() => {
+          errorMessage.style.display = "none";
+        }, 10000);
+      };
 
-      window.location.href = authUrl;
-    }
+      const hideMessages = () => {
+        successMessage.style.display = "none";
+        errorMessage.style.display = "none";
+      };
 
-    private async unlinkProvider(provider: string, _button: HTMLButtonElement): Promise<void> {
-      // Show confirmation dialog
-      const confirmed = await this.showConfirmDialog(
-        this.t("auth.oauth.unlink_confirm_title"),
-        this.t("auth.oauth.unlink_confirm_message", {
-          provider: provider.charAt(0).toUpperCase() + provider.slice(1),
-        })
-      );
-
-      if (!confirmed) {
-        return;
-      }
-
-      try {
-        const response = await fetch(`/api/auth/oauth/unlink/${provider}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        });
-
-        const data: OAuthManagerResponse = await response.json();
-
-        if (data.success) {
-          this.showSuccess(
-            data.message || this.t("auth.oauth.unlink_success", { provider: provider })
-          );
-          this.updateProviderStatus(provider, false);
+      const setButtonLoading = (button: HTMLButtonElement, loading: boolean) => {
+        button.disabled = loading;
+        if (loading) {
+          button.classList.add("oauth-provider__button--loading");
         } else {
-          this.showError(data.error || this.t("auth.oauth.unlink_failed"));
+          button.classList.remove("oauth-provider__button--loading");
         }
-      } catch (error) {
-        console.error("Unlink failed:", error);
-        this.showError(this.t("auth.oauth.unlink_failed"));
-      }
-    }
+      };
 
-    private async showConfirmDialog(title: string, message: string): Promise<boolean> {
-      return new Promise((resolve) => {
-        const dialog = document.createElement("div");
-        dialog.className = "oauth-confirm-dialog";
-        dialog.innerHTML = `
-          <div class="oauth-confirm-dialog__backdrop"></div>
-          <div class="oauth-confirm-dialog__content" role="dialog" aria-labelledby="confirm-title" aria-describedby="confirm-message">
-            <h3 id="confirm-title">${title}</h3>
-            <p id="confirm-message">${message}</p>
-            <div class="oauth-confirm-dialog__actions">
-              <button type="button" class="oauth-confirm-dialog__button oauth-confirm-dialog__button--cancel">
-                ${this.t("auth.oauth.cancel")}
-              </button>
-              <button type="button" class="oauth-confirm-dialog__button oauth-confirm-dialog__button--confirm">
-                ${this.t("auth.oauth.confirm")}
-              </button>
+      const updateProviderStatus = (provider: string, isLinked: boolean) => {
+        const providerElement = container.querySelector(
+          `[data-provider="${provider}"]`
+        ) as HTMLElement;
+        if (!providerElement) {
+          return;
+        }
+
+        const statusElement = providerElement.querySelector(
+          ".oauth-provider__status"
+        ) as HTMLElement;
+        const actionsElement = providerElement.querySelector(
+          ".oauth-provider__actions"
+        ) as HTMLElement;
+
+        if (isLinked) {
+          providerElement.classList.add("oauth-provider--linked");
+          statusElement.innerHTML = `
+            <div class="oauth-provider__linked">
+              <svg class="oauth-provider__status-icon" aria-hidden="true"><use href="#icon-check-circle"></use></svg>
+              <span class="oauth-provider__status-text">${t("auth.oauth.linked")}</span>
             </div>
-          </div>
-        `;
+          `;
+          actionsElement.innerHTML = `
+            <button type="button" class="oauth-provider__button oauth-provider__button--unlink" data-action="unlink" data-provider="${provider}">
+              <svg class="oauth-provider__button-icon" aria-hidden="true"><use href="#icon-unlink"></use></svg>
+              <span class="oauth-provider__button-text">${t("auth.oauth.unlink")}</span>
+            </button>
+          `;
+        } else {
+          providerElement.classList.remove("oauth-provider--linked");
+          statusElement.innerHTML = `
+            <div class="oauth-provider__not-linked">
+              <svg class="oauth-provider__status-icon" aria-hidden="true"><use href="#icon-x-circle"></use></svg>
+              <span class="oauth-provider__status-text">${t("auth.oauth.not_linked")}</span>
+            </div>
+          `;
+          actionsElement.innerHTML = `
+            <button type="button" class="oauth-provider__button oauth-provider__button--link" data-action="link" data-provider="${provider}">
+              <svg class="oauth-provider__button-icon" aria-hidden="true"><use href="#icon-link"></use></svg>
+              <span class="oauth-provider__button-text">${t("auth.oauth.link")}</span>
+            </button>
+          `;
+        }
+      };
 
-        document.body.appendChild(dialog);
+      const handleButtonClick = async (event: Event) => {
+        const button = (event.target as HTMLElement).closest("[data-action]") as HTMLButtonElement;
+        if (!button) {
+          return;
+        }
 
-        // const content = dialog.querySelector(".oauth-confirm-dialog__content") as HTMLElement;
-        const cancelBtn = dialog.querySelector(
-          ".oauth-confirm-dialog__button--cancel"
-        ) as HTMLButtonElement;
-        const confirmBtn = dialog.querySelector(
-          ".oauth-confirm-dialog__button--confirm"
-        ) as HTMLButtonElement;
+        const action = button.dataset.action;
+        const provider = button.dataset.provider;
 
-        // Focus the cancel button by default
-        cancelBtn.focus();
+        if (!action || !provider) {
+          return;
+        }
 
-        const cleanup = (): void => {
-          document.body.removeChild(dialog);
-        };
+        setButtonLoading(button, true);
+        hideMessages();
 
-        cancelBtn.addEventListener("click", () => {
-          cleanup();
-          resolve(false);
-        });
+        try {
+          if (action === "link") {
+            const currentUrl = window.location.href;
+            const authUrl = `/api/auth/oauth/authorize/${provider}?lang=${lang}&redirect=${encodeURIComponent(currentUrl)}&link=true`;
+            window.location.href = authUrl;
+          } else if (action === "unlink") {
+            const confirmed = confirm(
+              t("auth.oauth.unlink_confirm_message", {
+                provider: provider.charAt(0).toUpperCase() + provider.slice(1),
+              })
+            );
 
-        confirmBtn.addEventListener("click", () => {
-          cleanup();
-          resolve(true);
-        });
+            if (!confirmed) {
+              setButtonLoading(button, false);
+              return;
+            }
 
-        dialog.addEventListener("click", (e) => {
-          if (
-            e.target === dialog ||
-            e.target === dialog.querySelector(".oauth-confirm-dialog__backdrop")
-          ) {
-            cleanup();
-            resolve(false);
+            const response = await fetch(`/api/auth/oauth/unlink/${provider}`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              credentials: "include",
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+              showSuccess(data.message || t("auth.oauth.unlink_success", { provider: provider }));
+              updateProviderStatus(provider, false);
+            } else {
+              showError(data.error || t("auth.oauth.unlink_failed"));
+            }
           }
-        });
+        } catch (error) {
+          console.error("OAuth action failed:", error);
+          showError((error as Error).message || t("auth.oauth.action_failed"));
+        } finally {
+          setButtonLoading(button, false);
+        }
+      };
 
-        // Escape key support
-        const handleEscape = (e: KeyboardEvent): void => {
-          if (e.key === "Escape") {
-            cleanup();
-            resolve(false);
-            document.removeEventListener("keydown", handleEscape);
-          }
-        };
-        document.addEventListener("keydown", handleEscape);
-      });
-    }
-
-    private updateProviderStatus(provider: string, isLinked: boolean): void {
-      const providerElement = this.container.querySelector(
-        `[data-provider="${provider}"]`
-      ) as HTMLElement;
-      if (!providerElement) {
-        return;
-      }
-
-      const statusElement = providerElement.querySelector(".oauth-provider__status") as HTMLElement;
-      const actionsElement = providerElement.querySelector(
-        ".oauth-provider__actions"
-      ) as HTMLElement;
-
-      if (isLinked) {
-        providerElement.classList.add("oauth-provider--linked");
-        statusElement.innerHTML = `
-          <div class="oauth-provider__linked">
-            <svg class="oauth-provider__status-icon" aria-hidden="true"><use href="#icon-check-circle"></use></svg>
-            <span class="oauth-provider__status-text">${this.t("auth.oauth.linked")}</span>
-          </div>
-        `;
-        actionsElement.innerHTML = `
-          <button type="button" class="oauth-provider__button oauth-provider__button--unlink" data-action="unlink" data-provider="${provider}">
-            <svg class="oauth-provider__button-icon" aria-hidden="true"><use href="#icon-unlink"></use></svg>
-            <span class="oauth-provider__button-text">${this.t("auth.oauth.unlink")}</span>
-          </button>
-        `;
-      } else {
-        providerElement.classList.remove("oauth-provider--linked");
-        statusElement.innerHTML = `
-          <div class="oauth-provider__not-linked">
-            <svg class="oauth-provider__status-icon" aria-hidden="true"><use href="#icon-x-circle"></use></svg>
-            <span class="oauth-provider__status-text">${this.t("auth.oauth.not_linked")}</span>
-          </div>
-        `;
-        actionsElement.innerHTML = `
-          <button type="button" class="oauth-provider__button oauth-provider__button--link" data-action="link" data-provider="${provider}">
-            <svg class="oauth-provider__button-icon" aria-hidden="true"><use href="#icon-link"></use></svg>
-            <span class="oauth-provider__button-text">${this.t("auth.oauth.link")}</span>
-          </button>
-        `;
-      }
-    }
-
-    private setButtonLoading(button: HTMLButtonElement, loading: boolean): void {
-      button.disabled = loading;
-      if (loading) {
-        button.classList.add("oauth-provider__button--loading");
-      } else {
-        button.classList.remove("oauth-provider__button--loading");
-      }
-    }
-
-    private showSuccess(message: string): void {
-      this.hideMessages();
-      this.successMessage.querySelector(".oauth-account-manager__message-text")!.textContent =
-        message;
-      this.successMessage.style.display = "flex";
-
-      // Auto-hide after 5 seconds
-      setTimeout(() => {
-        this.successMessage.style.display = "none";
-      }, 5000);
-    }
-
-    private showError(message: string): void {
-      this.hideMessages();
-      this.errorMessage.querySelector(".oauth-account-manager__message-text")!.textContent =
-        message;
-      this.errorMessage.style.display = "flex";
-
-      // Auto-hide after 10 seconds
-      setTimeout(() => {
-        this.errorMessage.style.display = "none";
-      }, 10000);
-    }
-
-    private hideMessages(): void {
-      this.successMessage.style.display = "none";
-      this.errorMessage.style.display = "none";
-    }
-  }
-
-  // Initialize OAuth Account Manager
-  document.addEventListener("DOMContentLoaded", () => {
-    const containers = document.querySelectorAll(".oauth-account-manager");
-    containers.forEach((container) => {
-      new OAuthAccountManager(container as HTMLElement);
+      container.addEventListener("click", handleButtonClick);
     });
-  });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initOAuthManager);
+  } else {
+    initOAuthManager();
+  }
 </script>

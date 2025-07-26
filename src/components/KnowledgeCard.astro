@@ -230,24 +230,23 @@ const imageAltText = title ? `Cover image for ${title}` : "";
     border: var(--border-width-thin) solid var(--card-border);
     background-color: var(--card-bg);
     box-shadow: var(--card-shadow);
-    transition: all var(--animation-duration-normal);
-    contain: layout style;
+    transition: all var(--transition-normal);
     font-family: var(--font-family-primary);
 
     /* Enhanced hover states using semantic interactive colors */
     &:hover {
       border-color: var(--interactive-primary);
       box-shadow: var(--card-shadow-hover);
-      transform: translateY(calc(-1 * var(--space-xs)));
+      transform: translateY(-4px);
 
       .knowledge-card__title {
         color: var(--color-primary-400);
-        transition: color var(--animation-duration-fast);
+        transition: color var(--transition-fast);
       }
 
       .knowledge-card__accent-line {
         height: calc(var(--space-xs) * 1.5);
-        transition: height var(--animation-duration-fast);
+        transition: height var(--transition-fast);
       }
     }
 
@@ -260,7 +259,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       border-radius: var(--radius-xl);
       color: inherit;
       text-decoration: none;
-      transition: all var(--animation-duration-normal);
+      transition: all var(--transition-normal);
 
       /* Focus states using semantic focus system */
       &:focus-visible {
@@ -268,14 +267,14 @@ const imageAltText = title ? `Cover image for ${title}` : "";
         outline-offset: var(--focus-ring-offset);
         box-shadow: var(--focus-enhanced-shadow);
         border-radius: var(--radius-xl);
-        transform: translateY(calc(-1 * var(--space-xs)));
-        transition: all var(--animation-duration-fast) ease-out;
+        transform: translateY(-4px);
+        transition: all var(--transition-fast) ease-out;
       }
 
       &:hover,
       &:focus-visible {
         .knowledge-card__image {
-          transform: scale(var(--animation-scale-large));
+          transform: scale(1.1);
         }
       }
     }
@@ -315,7 +314,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       height: 100%;
       width: 100%;
       object-fit: cover;
-      transition: transform var(--animation-duration-slow);
+      transition: transform var(--transition-slow);
     }
 
     /* Overlay gradient using CSS variables for consistency */
@@ -328,7 +327,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
         rgba(0, 0, 0, 0.75) calc(var(--gradient-start) + 50%),
         transparent var(--gradient-end)
       );
-      opacity: var(--animation-opacity-start);
+      opacity: 0;
     }
 
     /* Body content with semantic spacing */
@@ -339,12 +338,12 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       justify-content: flex-start;
       padding: var(--space-lg) var(--space-lg) var(--space-md);
 
-      /* Responsive padding adjustments using breakpoint variables */
-      @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
+      /* Responsive padding adjustments */
+      @media (max-width: 47.9375em) {
         padding: var(--space-md) var(--space-md) var(--space-sm);
       }
 
-      @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+      @media (max-width: 39.9375em) {
         padding: var(--space-sm) var(--space-sm) var(--space-xs);
       }
     }
@@ -365,13 +364,13 @@ const imageAltText = title ? `Cover image for ${title}` : "";
         overflow: hidden;
       }
 
-      /* Responsive typography using breakpoint variables */
-      @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
+      /* Responsive typography */
+      @media (max-width: 47.9375em) {
         font-size: var(--text-xl);
         margin-bottom: var(--space-sm);
       }
 
-      @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+      @media (max-width: 39.9375em) {
         font-size: var(--text-lg);
         margin-bottom: var(--space-xs);
       }
@@ -391,13 +390,13 @@ const imageAltText = title ? `Cover image for ${title}` : "";
         overflow: hidden;
       }
 
-      /* Responsive typography using breakpoint variables */
-      @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
+      /* Responsive typography */
+      @media (max-width: 47.9375em) {
         font-size: var(--text-base);
         margin-bottom: var(--space-md);
       }
 
-      @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+      @media (max-width: 39.9375em) {
         font-size: var(--text-sm);
         margin-bottom: var(--space-sm);
       }
@@ -413,13 +412,13 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       justify-content: space-between;
       gap: var(--space-md);
 
-      /* Responsive layout adjustments using breakpoint variables */
-      @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
+      /* Responsive layout adjustments */
+      @media (max-width: 47.9375em) {
         padding-top: var(--space-sm);
         gap: var(--space-sm);
       }
 
-      @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+      @media (max-width: 39.9375em) {
         flex-direction: column;
         align-items: flex-start;
         gap: var(--space-xs);
@@ -434,12 +433,12 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       font-size: var(--text-base);
       color: var(--text-tertiary);
 
-      /* Responsive typography using breakpoint variables */
-      @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
+      /* Responsive typography */
+      @media (max-width: 47.9375em) {
         font-size: var(--text-sm);
       }
 
-      @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+      @media (max-width: 39.9375em) {
         font-size: var(--text-xs);
       }
     }
@@ -452,16 +451,16 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       color: var(--color-primary-400);
       flex-shrink: 0;
 
-      /* Responsive icon sizing using breakpoint variables */
-      @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+      /* Responsive icon sizing */
+      @media (max-width: 39.9375em) {
         width: var(--icon-size-sm);
         height: var(--icon-size-sm);
         margin-right: var(--space-xs);
       }
     }
 
-    /* Responsive card adjustments using breakpoint variables */
-    @media (max-width: calc(var(--breakpoint-md) - var(--breakpoint-offset))) {
+    /* Responsive card adjustments */
+    @media (max-width: 47.9375em) {
       border-radius: var(--radius-lg);
 
       &__link {
@@ -469,7 +468,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       }
     }
 
-    @media (max-width: calc(var(--breakpoint-sm) - var(--breakpoint-offset))) {
+    @media (max-width: 39.9375em) {
       border-radius: var(--radius-md);
 
       &__link {

@@ -60,11 +60,8 @@ export function removeLocalStorage(key: string): boolean {
 export function performCompleteLogout(): void {
   // PREVENT RECURSIVE CALLS
   if (isLoggingOut) {
-    console.log("🚪 Logout already in progress, skipping");
     return;
   }
-
-  console.log("🚪 Performing complete logout...");
   isLoggingOut = true; // Set flag to prevent recursive calls
 
   // Reset validation counters and prevent further validations
@@ -80,17 +77,11 @@ export function performCompleteLogout(): void {
       credentials: "include",
     })
       .then((response) => {
-        if (response.ok) {
-          console.log("✅ Server-side logout successful");
-        } else {
-          console.warn("⚠️ Server-side logout failed, but continuing client-side cleanup");
-        }
+        // Silent success/failure handling
       })
-      .catch((error) => {
-        console.warn("⚠️ Server-side logout error:", error);
+      .catch(() => {
+        // Silent error handling
       });
-  } else if (localAuthStatus === "guest") {
-    console.log("🚪 Guest user logout - no server-side logout needed");
   }
 
   // Clear all authentication-related localStorage entries
@@ -108,14 +99,14 @@ export function performCompleteLogout(): void {
       }
     });
   } catch (error) {
-    console.warn("Error clearing additional localStorage entries:", error);
+    // Silent error handling
   }
 
   // Clear sessionStorage as well
   try {
     sessionStorage.clear();
   } catch (error) {
-    console.warn("Error clearing sessionStorage:", error);
+    // Silent error handling
   }
 
   // Trigger logout event for other components
@@ -131,7 +122,7 @@ export function performCompleteLogout(): void {
       })
     );
   } catch (error) {
-    console.warn("Error dispatching logout events:", error);
+    // Silent error handling
   }
 }
 
@@ -190,7 +181,6 @@ let isLoggingOut = false; // Flag to prevent validation during logout
  * Reset session validation counters (called on successful login)
  */
 export function resetSessionValidation(): void {
-  console.log("🔄 Resetting session validation counters");
   validationAttempts = 0;
   lastValidationAttempt = 0;
   validationInProgress = false;
@@ -205,26 +195,22 @@ export async function validateAndRefreshSession(): Promise<boolean> {
   try {
     // STOP validation if logout is in progress
     if (isLoggingOut) {
-      console.log("🚪 Logout in progress, skipping validation");
       return false;
     }
 
     // Rate limiting: Vermeide zu häufige Validierungen
     const now = Date.now();
     if (now - lastValidationAttempt < VALIDATION_COOLDOWN) {
-      console.log("⏳ Session validation on cooldown, using local status");
       return isUserAuthenticated();
     }
 
     // Vermeide concurrent validations
     if (validationInProgress) {
-      console.log("⏳ Session validation already in progress");
       return isUserAuthenticated();
     }
 
     // Max attempts erreicht - beende Validierung
     if (validationAttempts >= MAX_VALIDATION_ATTEMPTS) {
-      console.log("❌ Max validation attempts reached, forcing logout");
       performCompleteLogout();
       return false;
     }
@@ -240,9 +226,7 @@ export async function validateAndRefreshSession(): Promise<boolean> {
       return false;
     }
 
-    console.log(
-      `🔍 Starting session validation (attempt ${validationAttempts}/${MAX_VALIDATION_ATTEMPTS})`
-    );
+    // Starting session validation
 
     // Versuche eine simple API-Anfrage um Session zu testen
     const testResponse = await fetch("/de/api/user/profile", {
@@ -252,13 +236,11 @@ export async function validateAndRefreshSession(): Promise<boolean> {
 
     if (testResponse.ok) {
       // Session ist gültig - reset counters
-      console.log("✅ Session is valid");
       validationAttempts = 0;
       validationInProgress = false;
       return true;
     } else if (testResponse.status === 401) {
       // Session abgelaufen, versuche Refresh
-      console.log("🔄 Session expired, attempting refresh...");
 
       const refreshResponse = await fetch("/de/api/auth/refresh-token", {
         method: "POST",
@@ -266,13 +248,11 @@ export async function validateAndRefreshSession(): Promise<boolean> {
       });
 
       if (refreshResponse.ok) {
-        console.log("✅ Session successfully refreshed");
         validationAttempts = 0; // Reset bei erfolgreichem Refresh
         validationInProgress = false;
         return true;
       } else {
         // Refresh fehlgeschlagen, logout
-        console.log("❌ Session refresh failed, logging out");
         performCompleteLogout();
         validationInProgress = false;
         return false;
@@ -282,7 +262,6 @@ export async function validateAndRefreshSession(): Promise<boolean> {
     validationInProgress = false;
     return false;
   } catch (error) {
-    console.error("Error validating session:", error);
     validationInProgress = false;
     return false;
   }
@@ -321,18 +300,7 @@ export function isUserAuthenticated(): boolean {
 
   const isAuthenticated = localIsAuthenticated || cookieIsAuthenticated || localIsGuest;
 
-  // Debug-Ausgabe mit sinnvollen Debug-Infos
-  if (process.env.NODE_ENV === "development") {
-    console.debug("Auth Debug:", {
-      localAuthStatus,
-      cookieAuthStatus,
-      localIsAuthenticated,
-      cookieIsAuthenticated,
-      localIsGuest,
-      isAuthenticated,
-      authStatusExists: checkLocalStorage("auth_status"),
-    });
-  }
+  // Debug removed for production
 
   return isAuthenticated;
 }
@@ -472,9 +440,6 @@ export function initCookieWatcher(checkAuthCallback: () => void, interval = 1000
 
     cookieCheckTimeout = setTimeout(() => {
       if (document.cookie !== previousCookieValue) {
-        if (process.env.NODE_ENV === "development") {
-          console.warn("Cookie-Änderung erkannt");
-        }
         previousCookieValue = document.cookie;
         checkAuthCallback();
       }
@@ -509,7 +474,6 @@ export function registerAuthEventListeners(checkAuthCallback: () => void): { rem
 
   const handleGuestLogin = (): void => {
     // Guest login doesn't need server-side session validation
-    console.log("🎮 Guest login detected");
     checkAuthCallback();
   };
 

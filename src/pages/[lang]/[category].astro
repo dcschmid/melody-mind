@@ -50,7 +50,6 @@ export async function getStaticPaths() {
         const fallbackData = await import(`../../../public/json/categories/en_categories.json`);
         categories = fallbackData.default || [];
       } catch {
-        console.error(`Failed to load categories for ${lang} and fallback`);
         categories = [];
       }
     }

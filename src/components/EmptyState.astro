@@ -95,13 +95,11 @@ const headlineId = `empty-state-${Math.random().toString(36).substr(2, 9)}`;
 
     /* Responsive padding adjustments */
     @media (max-width: 47.9375em) {
-      /* Below md breakpoint */
       padding: var(--space-lg);
       min-height: 20rem;
     }
 
     @media (max-width: 39.9375em) {
-      /* Below sm breakpoint */
       padding: var(--space-md);
       min-height: 16rem;
     }
@@ -113,7 +111,6 @@ const headlineId = `empty-state-${Math.random().toString(36).substr(2, 9)}`;
 
       /* Responsive width adjustments */
       @media (max-width: 47.9375em) {
-        /* Below md breakpoint */
         max-width: 100%;
         padding: 0 var(--space-md);
       }
@@ -127,14 +124,12 @@ const headlineId = `empty-state-${Math.random().toString(36).substr(2, 9)}`;
 
       /* Responsive icon sizing */
       @media (max-width: 47.9375em) {
-        /* Below md breakpoint */
         width: var(--icon-size-lg);
         height: var(--icon-size-lg);
         margin-bottom: var(--space-md);
       }
 
       @media (max-width: 39.9375em) {
-        /* Below sm breakpoint */
         width: var(--icon-size-md);
         height: var(--icon-size-md);
         margin-bottom: var(--space-sm);
@@ -147,7 +142,6 @@ const headlineId = `empty-state-${Math.random().toString(36).substr(2, 9)}`;
 
       /* Responsive title spacing */
       @media (max-width: 47.9375em) {
-        /* Below md breakpoint */
         margin-bottom: var(--space-sm);
       }
     }
@@ -158,37 +152,11 @@ const headlineId = `empty-state-${Math.random().toString(36).substr(2, 9)}`;
 
       /* Responsive text spacing */
       @media (max-width: 47.9375em) {
-        /* Below md breakpoint */
         margin-bottom: var(--space-md);
       }
 
       @media (max-width: 39.9375em) {
-        /* Below sm breakpoint */
         margin-bottom: var(--space-sm);
-      }
-    }
-
-    /* Support for custom CSS properties */
-    &.custom-spacing {
-      --space-custom: var(--space-2xl);
-      gap: var(--space-custom);
-
-      /* Responsive custom spacing */
-      @media (max-width: 47.9375em) {
-        /* Below md breakpoint */
-        --space-custom: var(--space-xl);
-      }
-
-      @media (max-width: 39.9375em) {
-        /* Below sm breakpoint */
-        --space-custom: var(--space-lg);
-      }
-    }
-
-    /* Container query support for better responsive behavior */
-    @container (min-width: 20rem) {
-      &__content {
-        max-width: 100%;
       }
     }
   }
