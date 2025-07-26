@@ -8,51 +8,20 @@
  *
  * The page extracts the verification token from the URL query parameters.
  * If no token is present, the user is redirected to the login page.
- *
- * The page is optimized according to WCAG AAA standards for maximum accessibility.
- *
- * @file Processes email verification tokens and renders verification UI
- * @see EmailVerification.astro - Component that handles the verification logic
- * @see Layout.astro - Main layout component used for consistent page structure
  */
 
-// 1. Imports
 import EmailVerification from "@components/auth/EmailVerification.astro";
 import Layout from "@layouts/Layout.astro";
 import { getLangFromUrl, useTranslations, getRelativeLocaleUrl } from "@utils/i18n";
 
-/**
- * Type-safe language codes using template literal types
- */
-type SupportedLanguage =
-  | "de"
-  | "en"
-  | "fr"
-  | "es"
-  | "it"
-  | "pt"
-  | "da"
-  | "nl"
-  | "sv"
-  | "fi"
-  | "ru"
-  | "uk"
-  | "jp"
-  | "cn";
-
-// 2. Data processing and prop preparation
-// Extract language from URL for internationalization
-const lang = getLangFromUrl(Astro.url) as SupportedLanguage;
+const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Extract verification token from URL query parameters
 const url = new URL(Astro.request.url);
 const token = url.searchParams.get("token");
 
-// Generate login URL for redirection
 const loginUrl = getRelativeLocaleUrl(lang, "auth/login");
 
-// Redirect to login page if no token is provided
 if (!token) {
   return Astro.redirect(loginUrl);
 }

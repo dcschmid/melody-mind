@@ -6,7 +6,7 @@
 
 import Layout from "../../layouts/Layout.astro";
 import DailyFact from "../../components/DailyFact.astro";
-import { getDailyMusicFact, getFactsForMonth, getFactsByCategory } from "../../services/dailyFactsService.ts";
+import { getDailyMusicFact, getFactsForMonth } from "../../services/dailyFactsService.ts";
 import { useTranslations } from "../../utils/i18n.ts";
 import { extractKeywords, generateMetaDescription } from "../../utils/seo.ts";
 
@@ -32,7 +32,7 @@ const baseUrl = Astro.site?.toString() || "https://melody-mind.de";
 const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
 ---
 
-<Layout 
+<Layout
   title={`${pageTitle} - MelodyMind`}
   description={optimizedDescription}
   keywords={seoKeywords}
@@ -54,23 +54,34 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
       <header class="daily-facts-page__hero" aria-labelledby="hero-title">
         <!-- Decorative background elements with aria-hidden -->
         <div class="daily-facts-page__hero-decoration" aria-hidden="true">
-          <div class="daily-facts-page__hero-decoration-item daily-facts-page__hero-decoration-item--top-right"></div>
-          <div class="daily-facts-page__hero-decoration-item daily-facts-page__hero-decoration-item--bottom-left"></div>
-          <div class="daily-facts-page__hero-decoration-item daily-facts-page__hero-decoration-item--center-right"></div>
+          <div
+            class="daily-facts-page__hero-decoration-item daily-facts-page__hero-decoration-item--top-right"
+          >
+          </div>
+          <div
+            class="daily-facts-page__hero-decoration-item daily-facts-page__hero-decoration-item--bottom-left"
+          >
+          </div>
+          <div
+            class="daily-facts-page__hero-decoration-item daily-facts-page__hero-decoration-item--center-right"
+          >
+          </div>
         </div>
-        
+
         <div class="daily-facts-page__hero-content">
           <h1 id="hero-title" class="daily-facts-page__title">{pageTitle}</h1>
           <div class="daily-facts-page__divider"></div>
           <p class="daily-facts-page__subtitle">{pageDescription}</p>
           <div class="daily-facts-page__date">
             <time class="daily-facts-page__current-date" datetime={new Date().toISOString()}>
-              {new Date().toLocaleDateString(currentLang, { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-              })}
+              {
+                new Date().toLocaleDateString(currentLang, {
+                  weekday: "long",
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })
+              }
             </time>
           </div>
         </div>
@@ -82,7 +93,7 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
           <h2 id="todays-fact-title" class="daily-facts-page__section-title">
             🎵 {t("dailyFacts.title")}
           </h2>
-          
+
           <div class="daily-facts-page__featured-fact">
             <DailyFact lang={currentLang} showDate={true} compact={false} />
           </div>
@@ -93,21 +104,27 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
           <h3 id="this-month-title" class="daily-facts-page__sidebar-title">
             📅 {t("dailyFacts.thisMonth")}
           </h3>
-          
+
           <div class="daily-facts-page__monthly-facts">
-            {monthlyFacts.slice(0, 5).map((fact) => (
-              <article class="daily-facts-page__mini-fact">
-                <div class="daily-facts-page__mini-fact-date">
-                  {new Date(2024, parseInt(fact.date.split('-')[0]) - 1, parseInt(fact.date.split('-')[1])).toLocaleDateString(currentLang, { day: 'numeric', month: 'short' })}
-                </div>
-                <div class="daily-facts-page__mini-fact-content">
-                  <h4 class="daily-facts-page__mini-fact-title">{fact.title}</h4>
-                  <p class="daily-facts-page__mini-fact-description">
-                    {fact.description.substring(0, 100)}...
-                  </p>
-                </div>
-              </article>
-            ))}
+            {
+              monthlyFacts.slice(0, 5).map((fact) => (
+                <article class="daily-facts-page__mini-fact">
+                  <div class="daily-facts-page__mini-fact-date">
+                    {new Date(
+                      2024,
+                      parseInt(fact.date.split("-")[0]) - 1,
+                      parseInt(fact.date.split("-")[1])
+                    ).toLocaleDateString(currentLang, { day: "numeric", month: "short" })}
+                  </div>
+                  <div class="daily-facts-page__mini-fact-content">
+                    <h4 class="daily-facts-page__mini-fact-title">{fact.title}</h4>
+                    <p class="daily-facts-page__mini-fact-description">
+                      {fact.description.substring(0, 100)}...
+                    </p>
+                  </div>
+                </article>
+              ))
+            }
           </div>
 
           <div class="daily-facts-page__sidebar-actions">
@@ -123,36 +140,59 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
         <h3 id="categories-title" class="daily-facts-page__section-title">
           🏷️ {t("dailyFacts.categories")}
         </h3>
-        
+
         <div class="daily-facts-page__category-grid">
-          <a href={`/${currentLang}/daily-facts/category/birth`} class="daily-facts-page__category-card">
+          <a
+            href={`/${currentLang}/daily-facts/category/birth`}
+            class="daily-facts-page__category-card"
+          >
             <span class="daily-facts-page__category-icon">🎂</span>
             <span class="daily-facts-page__category-name">{t("dailyFacts.categories.birth")}</span>
           </a>
-          
-          <a href={`/${currentLang}/daily-facts/category/death`} class="daily-facts-page__category-card">
+
+          <a
+            href={`/${currentLang}/daily-facts/category/death`}
+            class="daily-facts-page__category-card"
+          >
             <span class="daily-facts-page__category-icon">🕊️</span>
             <span class="daily-facts-page__category-name">{t("dailyFacts.categories.death")}</span>
           </a>
-          
-          <a href={`/${currentLang}/daily-facts/category/release`} class="daily-facts-page__category-card">
+
+          <a
+            href={`/${currentLang}/daily-facts/category/release`}
+            class="daily-facts-page__category-card"
+          >
             <span class="daily-facts-page__category-icon">💿</span>
-            <span class="daily-facts-page__category-name">{t("dailyFacts.categories.release")}</span>
+            <span class="daily-facts-page__category-name">{t("dailyFacts.categories.release")}</span
+            >
           </a>
-          
-          <a href={`/${currentLang}/daily-facts/category/event`} class="daily-facts-page__category-card">
+
+          <a
+            href={`/${currentLang}/daily-facts/category/event`}
+            class="daily-facts-page__category-card"
+          >
             <span class="daily-facts-page__category-icon">🎪</span>
             <span class="daily-facts-page__category-name">{t("dailyFacts.categories.event")}</span>
           </a>
-          
-          <a href={`/${currentLang}/daily-facts/category/milestone`} class="daily-facts-page__category-card">
+
+          <a
+            href={`/${currentLang}/daily-facts/category/milestone`}
+            class="daily-facts-page__category-card"
+          >
             <span class="daily-facts-page__category-icon">🏆</span>
-            <span class="daily-facts-page__category-name">{t("dailyFacts.categories.milestone")}</span>
+            <span class="daily-facts-page__category-name"
+              >{t("dailyFacts.categories.milestone")}</span
+            >
           </a>
-          
-          <a href={`/${currentLang}/daily-facts/category/formation`} class="daily-facts-page__category-card">
+
+          <a
+            href={`/${currentLang}/daily-facts/category/formation`}
+            class="daily-facts-page__category-card"
+          >
             <span class="daily-facts-page__category-icon">🎸</span>
-            <span class="daily-facts-page__category-name">{t("dailyFacts.categories.formation")}</span>
+            <span class="daily-facts-page__category-name"
+              >{t("dailyFacts.categories.formation")}</span
+            >
           </a>
         </div>
       </section>
@@ -162,9 +202,13 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
         <h3 id="random-fact-title" class="daily-facts-page__section-title">
           🎲 {t("dailyFacts.randomFact")}
         </h3>
-        
+
         <div class="daily-facts-page__random-fact">
-          <button type="button" class="daily-facts-page__random-btn" onclick="window.location.reload()">
+          <button
+            type="button"
+            class="daily-facts-page__random-btn"
+            onclick="window.location.reload()"
+          >
             🎯 {t("dailyFacts.loadNewFact")}
           </button>
         </div>
@@ -175,8 +219,8 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
 
 <style lang="scss">
   /* ======================================
-   * DAILY FACTS PAGE STYLES
-   * Using global.css variables for consistency
+   * DAILY FACTS PAGE STYLES - OPTIMIZED FOR STYLE GUARDIAN
+   * BEM Methodology + Global Variables + Mobile-First
    * ====================================== */
 
   .daily-facts-page {
@@ -184,15 +228,21 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
     background: var(--bg-primary);
     color: var(--text-primary);
     padding: var(--space-lg) 0;
+    contain: layout style paint;
   }
 
   .daily-facts-page__container {
     max-width: var(--container-xl);
     margin: 0 auto;
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-xs); // Mobile: minimal horizontal spacing
+    contain: layout style;
 
-    @media (max-width: 19.9375em) {
+    @media (min-width: 20em) {
       padding: 0 var(--space-sm);
+    }
+
+    @media (min-width: 48em) {
+      padding: 0 var(--space-md);
     }
 
     @media (min-width: 64em) {
@@ -200,7 +250,9 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
     }
   }
 
-  // Hero Section
+  /* ======================================
+   * HERO SECTION - SIMPLIFIED DESIGN
+   * ====================================== */
   .daily-facts-page__hero {
     position: relative;
     overflow: hidden;
@@ -213,19 +265,19 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
     text-align: center;
-    margin-bottom: var(--space-2xl);
-    padding: var(--space-xl) var(--space-lg);
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg) var(--space-sm); // Mobile: compact spacing
     border-radius: var(--radius-xl);
     color: var(--color-white);
+    contain: layout style paint;
 
-    @media (max-width: 39.9375em) {
+    @media (min-width: 20em) {
       padding: var(--space-lg) var(--space-md);
-      margin-bottom: var(--space-xl);
+      margin-bottom: var(--space-2xl);
     }
 
-    @media (max-width: 19.9375em) {
-      padding: var(--space-md) var(--space-sm);
-      margin-bottom: var(--space-lg);
+    @media (min-width: 48em) {
+      padding: var(--space-xl) var(--space-lg);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -238,89 +290,94 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
     inset: 0;
     opacity: 0.1;
     pointer-events: none;
-  }
+    contain: layout style paint;
 
-  .daily-facts-page__hero-decoration-item {
-    position: absolute;
-    border-radius: var(--radius-full);
-    background: var(--color-white);
+    &-item {
+      position: absolute;
+      border-radius: var(--radius-full);
+      background: var(--color-white);
+      contain: layout style paint;
 
-    &--top-right {
-      top: calc(-1 * var(--space-xl));
-      right: calc(-1 * var(--space-xl));
-      width: var(--space-3xl);
-      height: var(--space-3xl);
-    }
+      &--top-right {
+        top: calc(-1 * var(--space-xl));
+        right: calc(-1 * var(--space-xl));
+        width: var(--space-3xl);
+        height: var(--space-3xl);
+      }
 
-    &--bottom-left {
-      bottom: calc(-1 * var(--space-2xl));
-      left: calc(-1 * var(--space-2xl));
-      width: calc(var(--space-3xl) * 2);
-      height: calc(var(--space-3xl) * 2);
-    }
+      &--bottom-left {
+        bottom: calc(-1 * var(--space-2xl));
+        left: calc(-1 * var(--space-2xl));
+        width: calc(var(--space-3xl) * 2);
+        height: calc(var(--space-3xl) * 2);
+      }
 
-    &--center-right {
-      top: var(--percentage-half);
-      right: calc(-1 * var(--space-md));
-      width: var(--space-2xl);
-      height: var(--space-2xl);
-      transform: translateY(-50%);
+      &--center-right {
+        top: 50%;
+        right: calc(-1 * var(--space-md));
+        width: var(--space-2xl);
+        height: var(--space-2xl);
+        transform: translateY(-50%);
+      }
     }
   }
 
   .daily-facts-page__hero-content {
     position: relative;
     z-index: 1;
+    contain: layout style;
   }
 
   .daily-facts-page__title {
     color: var(--color-white);
-    text-shadow: var(--text-shadow-strong);
-    font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+    text-shadow: var(--shadow-lg);
+    font-size: var(--text-2xl);
     font-weight: var(--font-bold);
     margin-bottom: var(--space-md);
     line-height: var(--leading-tight);
+    contain: layout style;
 
-    @media (max-width: 39.9375em) {
-      font-size: var(--text-2xl);
-      margin-bottom: var(--space-sm);
+    @media (min-width: 20em) {
+      font-size: var(--text-3xl);
     }
 
-    @media (max-width: 19.9375em) {
-      font-size: var(--text-xl);
+    @media (min-width: 48em) {
+      font-size: var(--text-4xl);
     }
   }
 
   .daily-facts-page__divider {
     background: var(--color-secondary-400);
     border-radius: var(--radius-full);
-    width: var(--icon-size-xl);
+    width: var(--icon-size-lg);
     height: var(--border-width-thick);
-    margin: var(--space-lg) auto;
+    margin: var(--space-md) auto;
+    contain: layout style paint;
 
-    @media (max-width: 39.9375em) {
-      width: var(--icon-size-lg);
-      margin: var(--space-md) auto;
+    @media (min-width: 20em) {
+      width: var(--icon-size-xl);
+      margin: var(--space-lg) auto;
     }
 
-    @media (min-width: 40em) {
+    @media (min-width: 48em) {
       height: var(--border-width-enhanced);
     }
   }
 
   .daily-facts-page__subtitle {
     color: var(--color-neutral-100);
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     line-height: var(--leading-relaxed);
     opacity: 0.9;
     margin-bottom: var(--space-lg);
-    max-width: var(--container-md);
+    max-width: var(--container-sm);
     margin-left: auto;
     margin-right: auto;
+    contain: layout style;
 
-    @media (max-width: 39.9375em) {
-      font-size: var(--text-base);
-      max-width: var(--container-sm);
+    @media (min-width: 20em) {
+      font-size: var(--text-lg);
+      max-width: var(--container-md);
     }
 
     @media (min-width: 64em) {
@@ -330,53 +387,65 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
   }
 
   .daily-facts-page__current-date {
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     font-weight: var(--font-medium);
     background: rgba(255, 255, 255, 0.1);
-    padding: var(--space-sm) var(--space-lg);
+    padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
     backdrop-filter: blur(10px);
+    contain: layout style;
 
-    @media (max-width: 39.9375em) {
-      font-size: var(--text-sm);
-      padding: var(--space-xs) var(--space-md);
+    @media (min-width: 20em) {
+      font-size: var(--text-base);
+      padding: var(--space-sm) var(--space-lg);
     }
   }
 
-  // Content Layout
+  /* ======================================
+   * CONTENT LAYOUT - SIMPLIFIED DESIGN
+   * ====================================== */
   .daily-facts-page__content {
     display: grid;
-    gap: var(--space-2xl);
-    margin-bottom: var(--space-2xl);
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+    contain: layout style paint;
 
     @media (min-width: 64em) {
       grid-template-columns: 2fr 1fr;
-      gap: var(--space-3xl);
+      gap: var(--space-2xl);
     }
   }
 
   .daily-facts-page__section-title {
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
     font-weight: var(--font-bold);
     margin-bottom: var(--space-lg);
     color: var(--text-primary);
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      font-size: var(--text-xl);
+    }
   }
 
-  // Featured Fact
   .daily-facts-page__featured-fact {
     background: var(--bg-secondary);
     border-radius: var(--radius-xl);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
+    contain: layout style paint;
   }
 
-  // Sidebar
+  /* ======================================
+   * SIDEBAR - SIMPLIFIED DESIGN
+   * ====================================== */
   .daily-facts-page__sidebar {
     background: var(--bg-secondary);
     border-radius: var(--radius-xl);
     padding: var(--space-lg);
     height: fit-content;
     box-shadow: var(--shadow-sm);
+    contain: layout style paint;
   }
 
   .daily-facts-page__sidebar-title {
@@ -390,6 +459,7 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
+    contain: layout style;
   }
 
   .daily-facts-page__mini-fact {
@@ -400,10 +470,12 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
     background: var(--bg-tertiary);
     border: 1px solid var(--border-color);
     transition: all var(--transition-fast);
+    contain: layout style paint;
 
     &:hover {
       background: var(--bg-primary);
       border-color: var(--primary-400);
+      transform: translateY(-1px);
     }
   }
 
@@ -443,6 +515,7 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
     font-weight: var(--font-medium);
     margin-top: var(--space-lg);
     transition: all var(--transition-fast);
+    contain: layout style paint;
 
     &:hover {
       background: var(--primary-700);
@@ -450,12 +523,19 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
     }
   }
 
-  // Categories Grid
+  /* ======================================
+   * CATEGORIES GRID - SIMPLIFIED DESIGN
+   * ====================================== */
   .daily-facts-page__category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: var(--space-md);
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+    contain: layout style paint;
+
+    @media (min-width: 48em) {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
   }
 
   .daily-facts-page__category-card {
@@ -469,6 +549,7 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
     text-decoration: none;
     transition: all var(--transition-base);
     text-align: center;
+    contain: layout style paint;
 
     &:hover {
       transform: translateY(-4px);
@@ -487,7 +568,9 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
     color: var(--text-primary);
   }
 
-  // Random Section
+  /* ======================================
+   * RANDOM SECTION - SIMPLIFIED DESIGN
+   * ====================================== */
   .daily-facts-page__random-btn {
     display: block;
     width: 100%;
@@ -500,6 +583,7 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
     font-weight: var(--font-medium);
     cursor: pointer;
     transition: all var(--transition-fast);
+    contain: layout style paint;
 
     &:hover {
       background: linear-gradient(135deg, var(--secondary-700), var(--secondary-800));
@@ -508,23 +592,77 @@ const currentUrl = `${baseUrl}/${currentLang}/daily-facts`;
     }
   }
 
-  // Responsive adjustments
+  /* ======================================
+   * RESPONSIVE ADJUSTMENTS
+   * ====================================== */
   @media (max-width: 63.9375em) {
     .daily-facts-page__content {
       grid-template-columns: 1fr;
     }
+  }
 
-    .daily-facts-page__category-grid {
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  /* ======================================
+   * ACCESSIBILITY ENHANCEMENTS
+   * ====================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .daily-facts-page__category-card,
+    .daily-facts-page__random-btn,
+    .daily-facts-page__archive-link,
+    .daily-facts-page__mini-fact {
+      transition: none;
+      transform: none !important;
+
+      &:hover {
+        transform: none !important;
+      }
+    }
+
+    .daily-facts-page__hero-decoration-item {
+      animation: none;
+      transform: none !important;
     }
   }
 
-  // Accessibility improvements
-  @media (prefers-reduced-motion: reduce) {
-    .daily-facts-page__category-card:hover,
-    .daily-facts-page__random-btn:hover,
-    .daily-facts-page__archive-link:hover {
-      transform: none;
+  /* ======================================
+   * MOBILE PORTRAIT OPTIMIZATIONS
+   * ====================================== */
+  // Extra small screens - Portrait Mobile (below 320px)
+  @media (max-width: 19.9375em) {
+    .daily-facts-page__container {
+      padding: 0 var(--space-xs);
+    }
+
+    .daily-facts-page__hero {
+      padding: var(--space-md) var(--space-sm);
+      margin-bottom: var(--space-lg);
+
+      &__title {
+        font-size: var(--text-xl);
+        margin-bottom: var(--space-sm);
+      }
+
+      &__subtitle {
+        font-size: var(--text-sm);
+        max-width: var(--container-xs);
+      }
+
+      &__divider {
+        width: var(--icon-size-md);
+        margin: var(--space-sm) auto;
+      }
+    }
+
+    .daily-facts-page__category-grid {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: var(--space-sm);
+    }
+
+    .daily-facts-page__category-card {
+      padding: var(--space-md);
+    }
+
+    .daily-facts-page__category-icon {
+      font-size: 1.5rem;
     }
   }
 </style>

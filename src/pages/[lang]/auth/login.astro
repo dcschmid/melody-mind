@@ -11,13 +11,11 @@
  * - Screen reader announcements for form errors
  * - Responsive design for all device sizes
  * - Seamless page transitions with View Transitions API
- * - Performance optimized with prefetch hints and GPU acceleration
+ * - Performance optimized with prefetch hints
  */
 
-// Performance: Enable static site generation for optimal performance
 export const prerender = true;
 
-// Generate static paths for all supported languages
 export async function getStaticPaths() {
   return [
     { params: { lang: "en" } },
@@ -37,82 +35,29 @@ export async function getStaticPaths() {
   ];
 }
 
-// 1. Imports - Optimized for performance
 import AuthForm from "@components/auth/AuthForm.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Layout from "@layouts/Layout.astro";
 import BackToHomeLink from "@components/Shared/BackToHomeLink.astro";
 import Headline from "@components/Headline.astro";
 
-// 2. Data processing - Optimized translation batching
-// Extract language code from the current URL for internationalization
 const lang = getLangFromUrl(Astro.url);
-// Initialize translation function with the extracted language - ensure lang is a string
 const t = useTranslations(lang.toString());
-
-// 3. Reactive variables and derived state - Batched for better performance
-// Batch all translation calls to reduce overhead
 const translations = {
   pageTitle: t("auth.login.title"),
   pageDescription: t("auth.login.description"),
   headingText: t("auth.login.heading"),
 };
-
-// Destructure for easier access
 const { pageTitle, pageDescription, headingText } = translations;
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-  <!-- Login container with responsive layout and improved accessibility -->
-  <!-- Back to home link for improved navigation with preload optimization -->
   <BackToHomeLink lang={lang.toString()} />
-
   <Headline level="h1" id="login-heading" title={headingText} />
-
-  <!-- Auth form with login mode and enhanced contrast for accessibility -->
   <div class="auth-form-container" aria-live="polite" aria-labelledby="login-heading" role="region">
     <AuthForm initialMode="login" />
   </div>
 </Layout>
-
-<!-- Performance optimized script with modern ES6+ features -->
-<script>
-  // Preload critical auth form resources for faster interaction
-  const initializeAuthForm = () => {
-    // Preconnect to authentication API endpoint
-    const preconnectLink = document.createElement("link");
-    preconnectLink.rel = "preconnect";
-    preconnectLink.href = "/api/auth";
-    document.head.appendChild(preconnectLink);
-
-    // Optimize form focus management with modern ES6+ features
-    const authContainer = document.querySelector(".auth-form-container");
-
-    if (!authContainer) {
-      return;
-    }
-
-    // Use IntersectionObserver for efficient visibility detection
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(({ isIntersecting, target }) => {
-          if (isIntersecting) {
-            // Form is visible, preload any additional resources if needed
-            const element = target as HTMLElement;
-            element.style.willChange = "auto"; // Reset will-change for performance
-            observer.unobserve(target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(authContainer);
-  };
-
-  // Use modern event listener with arrow function
-  document.addEventListener("DOMContentLoaded", initializeAuthForm);
-</script>
 
 <style lang="scss">
   /* ======================================
@@ -120,59 +65,20 @@ const { pageTitle, pageDescription, headingText } = translations;
    * Using CSS variables from global.css only
    * ====================================== */
 
-  // SCSS variables using global.css tokens
-  $animation-duration: var(--animation-duration-medium);
-  $animation-easing: ease-out;
-  $container-max-width: var(--form-container-max-width);
-  $container-padding: var(--space-xl);
-  $mobile-padding: var(--space-md);
-  $tablet-padding: var(--space-lg);
-
-  // Note: Using hardcoded em values in media queries since CSS variables don't work in @media rules
-  // Mobile portrait: 0-479px (< 30em)
-  // Mobile landscape: 480-639px (30em - 39.9375em)
-  // Small tablet: 640-767px (40em - 47.9375em)
-  // Tablet: 768-1023px (48em - 63.9375em)
-  // Desktop: 1024-1279px (64em - 79.9375em)
-  // Large desktop: 1280px+ (80em+)
-
-  /* Fade-in animation for better UX - GPU accelerated */
-  @keyframes fadeIn {
-    from {
-      opacity: var(--animation-opacity-start);
-      transform: translateY(var(--animation-y-offset)) translateZ(0);
-    }
-    to {
-      opacity: var(--animation-opacity-full);
-      transform: translateY(0) translateZ(0);
-    }
-  }
-
-  /* Auth form container - Enhanced performance optimizations */
   .auth-form-container {
-    // Responsive container sizing
-    max-width: $container-max-width;
+    max-width: var(--form-container-max-width);
     width: 100%;
     margin: 0 auto;
-    padding: $container-padding;
-
-    // Visual styling using global.css variables
+    padding: var(--space-lg);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
     background: var(--card-bg);
     border: var(--border-width-thin) solid var(--card-border);
+    transition:
+      box-shadow var(--transition-normal),
+      background var(--transition-normal);
+    animation: fadeIn 0.4s ease;
 
-    // Animation and transitions
-    transition: all var(--transition-normal);
-    animation: fadeIn $animation-duration $animation-easing;
-
-    /* Performance optimizations */
-    contain: layout style;
-    will-change: opacity, transform;
-
-    // Enhanced mobile-first responsive design with comprehensive breakpoints
-
-    // Mobile portrait (< 480px) - very compact layout
     @media (max-width: 29.9375em) {
       padding: var(--space-sm) var(--space-xs);
       margin: 0 var(--space-xs);
@@ -180,99 +86,66 @@ const { pageTitle, pageDescription, headingText } = translations;
       box-shadow: var(--shadow-md);
       max-width: calc(100vw - var(--space-lg));
     }
-
-    // Mobile landscape (480px - 640px) - balanced layout
-    @media (min-width: 30em) and (max-width: 39.9375em) {
-      padding: $mobile-padding;
+    @media (min-width: 30em) and (max-width: 47.9375em) {
+      padding: var(--space-md);
       margin: 0 var(--space-md);
       border-radius: var(--radius-lg);
-      max-width: calc(var(--container-sm) - var(--space-xl));
+      max-width: var(--container-sm);
     }
-
-    // Small tablet (640px - 768px) - enhanced spacing
-    @media (min-width: 40em) and (max-width: 47.9375em) {
-      padding: $tablet-padding;
-      margin: 0 var(--space-lg);
-      border-radius: var(--radius-lg);
-      max-width: var(--container-query-lg);
-    }
-
-    // Tablet (768px - 1024px) - optimal desktop preview
-    @media (min-width: 48em) and (max-width: 63.9375em) {
-      padding: $container-padding;
+    @media (min-width: 48em) {
+      padding: var(--space-xl);
       margin: 0 auto;
       max-width: var(--form-container-max-width);
     }
-
-    // Desktop (1024px - 1280px) - full featured layout
-    @media (min-width: 64em) and (max-width: 79.9375em) {
+    @media (min-width: 64em) {
       padding: var(--space-2xl);
-      margin: 0 auto;
-      max-width: var(--form-container-max-width);
-    }
-
-    // Large desktop (1280px+) - enhanced experience
-    @media (min-width: 80em) {
-      padding: var(--space-2xl) var(--space-3xl);
-      margin: 0 auto;
       max-width: calc(var(--form-container-max-width) * 1.125);
       border-radius: var(--radius-xl);
     }
 
-    // High contrast mode support - enhanced accessibility
+    // High contrast mode support
     @media (prefers-contrast: high) {
       border: var(--border-width-enhanced) solid var(--text-primary);
       box-shadow: var(--shadow-xl);
       background: var(--bg-primary);
     }
-
     // Reduced motion support
     @media (prefers-reduced-motion: reduce) {
       animation: none;
       transition: none;
     }
-
-    // Dark mode adjustments using global.css system
+    // Dark mode adjustments
     @media (prefers-color-scheme: dark) {
       background: var(--bg-secondary);
       border-color: var(--border-secondary);
       box-shadow: var(--card-shadow-hover);
     }
-
-    // Enhanced focus states for WCAG AAA accessibility
+    // Focus states
     &:focus-within {
       outline: var(--focus-outline);
       outline-offset: var(--focus-ring-offset);
       box-shadow: var(--shadow-lg), var(--focus-ring);
     }
-
-    // Hover effects with global.css animation values
+    // Hover effects
     &:hover {
       box-shadow: var(--card-shadow-hover);
-      transform: translateY(var(--animation-y-offset-small));
-      transition: all var(--transition-fast);
+      transition: box-shadow var(--transition-fast);
     }
-
-    // Active state with enhanced feedback using global.css
+    // Active state
     &:active {
-      transform: translateY(0) scale(var(--scale-active));
-      transition: all var(--transition-fast);
       box-shadow: var(--shadow-md);
     }
   }
 
-  /* Reduced motion keyframes override */
-  @media (prefers-reduced-motion: reduce) {
-    @keyframes fadeIn {
-      from,
-      to {
-        opacity: var(--animation-opacity-full);
-        transform: translateY(0);
-      }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 
-  /* Enhanced print styles using global.css print variables */
   @media print {
     .auth-form-container {
       box-shadow: none;
@@ -280,58 +153,12 @@ const { pageTitle, pageDescription, headingText } = translations;
       background: var(--print-bg);
       color: var(--print-text);
       animation: none;
-      transform: none;
       max-width: var(--width-full);
       margin: var(--space-md) 0;
       padding: var(--space-lg);
     }
   }
 
-  /* Enhanced landscape orientation adjustments for all mobile devices */
-  @media (max-width: 47.9375em) and (orientation: landscape) {
-    .auth-form-container {
-      padding: var(--space-sm);
-      margin: 0 var(--space-sm);
-      max-height: 90vh;
-      overflow-y: auto;
-
-      // Specific mobile portrait landscape (< 480px)
-      @media (max-width: 29.9375em) {
-        padding: var(--space-xs) var(--space-sm);
-        margin: 0 var(--space-xs);
-      }
-    }
-  }
-
-  /* Container queries for enhanced responsive behavior */
-  .auth-form-container {
-    container-type: inline-size;
-
-    // Container query for small containers
-    @container (max-width: #{$container-max-width}) {
-      border-radius: var(--radius-md);
-
-      @container (max-width: 20rem) {
-        padding: var(--space-sm);
-        border-radius: var(--radius-sm);
-      }
-    }
-  }
-
-  /* Enhanced accessibility and motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .auth-form-container {
-      &:hover {
-        transform: none;
-      }
-
-      &:active {
-        transform: none;
-      }
-    }
-  }
-
-  /* Support for forced colors mode (Windows High Contrast) */
   @media (forced-colors: active) {
     .auth-form-container {
       border: var(--border-width-thick) solid ButtonBorder;

@@ -215,20 +215,13 @@ if (Astro.request) {
   <AchievementNotification lang={langString} />
 </Layout>
 
-<!-- Achievement functionality script - only load if authenticated -->
-{authResult.authenticated && (
-  <script>
-    // Achievement page functionality for authenticated users
-    console.log("Achievement page loaded for authenticated user");
-  </script>
-)}
-
 <style lang="scss" is:global>
   /**
-   * Achievements Page SCSS - WCAG AAA 2.2 Compliant & Performance Optimized
+   * CSS STYLE GUARDIAN SUB RUNNER - ACHIEVEMENTS PAGE OPTIMIZATION
+   * Advanced performance patterns with GPU acceleration and containment
    * 
 
-  // Guest notice styles
+  // CSS Style Guardian Sub Runner - Guest notice optimization
   .guest-notice {
     display: flex;
     align-items: center;
@@ -236,6 +229,12 @@ if (Astro.request) {
     min-height: 60vh;
     padding: var(--space-xl);
     background: var(--bg-primary);
+
+    // CSS Style Guardian Sub Runner - Performance layer
+    contain: layout style paint;
+    content-visibility: auto;
+    transform: translateZ(0);
+    will-change: auto;
 
     &__content {
       max-width: var(--container-md);
@@ -245,6 +244,11 @@ if (Astro.request) {
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
       border: var(--border-width-thin) solid var(--border-secondary);
+
+      // CSS Style Guardian Sub Runner - Content containment
+      contain: layout style paint;
+      transform: translateZ(0);
+      backface-visibility: hidden;
 
       h2 {
         color: var(--text-primary);
@@ -349,12 +353,16 @@ if (Astro.request) {
     display: flex;
     flex-direction: column;
 
-    /* Performance: Enable GPU acceleration for smooth scrolling */
+    /* CSS Style Guardian Sub Runner - Advanced GPU acceleration */
     transform: translateZ(0);
-    will-change: auto; /* Reset after initial render */
+    will-change: auto;
+    backface-visibility: hidden;
+    perspective: 1000px;
 
-    /* Enhanced content visibility for performance optimization */
-    contain: layout style;
+    /* CSS Style Guardian Sub Runner - Enhanced containment pattern */
+    contain: layout style paint;
+    content-visibility: auto;
+    contain-intrinsic-size: 100vh;
 
     // Mobile portrait (< 480px) - very compact
     @media (max-width: 29.9375em) {
@@ -397,6 +405,13 @@ if (Astro.request) {
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
 
+    // CSS Style Guardian Sub Runner - Hero section optimization
+    contain: layout style paint;
+    content-visibility: auto;
+    transform: translateZ(0);
+    will-change: auto;
+    isolation: isolate;
+
     // Mobile portrait (< 480px) - compact hero
     @media (max-width: 29.9375em) {
       margin-bottom: var(--space-lg);
@@ -431,10 +446,20 @@ if (Astro.request) {
       opacity: 0.1;
       pointer-events: none;
 
+      // CSS Style Guardian Sub Runner - Decoration performance
+      contain: layout style paint;
+      transform: translateZ(0);
+      will-change: auto;
+
       &-item {
         position: absolute;
         border-radius: var(--radius-full);
         background: var(--color-white);
+
+        // CSS Style Guardian Sub Runner - Decoration item optimization
+        contain: layout style paint;
+        transform: translateZ(0);
+        backface-visibility: hidden;
 
         &--top-right {
           top: calc(-1 * var(--space-xl));
@@ -548,7 +573,7 @@ if (Astro.request) {
    * SHARED COMPONENT STYLES - Maximum DRY optimization using semantic CSS variables
    * ====================================== */
 
-  /* Consolidated card-like components using semantic variables */
+  /* CSS Style Guardian Sub Runner - Card components optimization */
   .achievements {
     &__auth-required,
     &__empty,
@@ -569,6 +594,12 @@ if (Astro.request) {
       justify-content: center;
       align-items: center;
 
+      // CSS Style Guardian Sub Runner - Card performance
+      contain: layout style paint;
+      content-visibility: auto;
+      transform: translateZ(0);
+      will-change: auto;
+
       // Mobile portrait - compact padding
       @media (max-width: 29.9375em) {
         padding: var(--space-sm);
@@ -580,14 +611,16 @@ if (Astro.request) {
         padding: var(--space-lg);
       }
 
-      /* Performance optimizations with CSS containment */
-      contain: layout style;
+      /* CSS Style Guardian Sub Runner - Advanced performance optimization */
+      contain: layout style paint;
+      backface-visibility: hidden;
 
-      /* Smooth hover effect using semantic transition variables */
+      /* CSS Style Guardian Sub Runner - Enhanced transition performance */
       transition:
         box-shadow var(--transition-normal),
         border-color var(--transition-fast),
-        background-color var(--transition-fast);
+        background-color var(--transition-fast),
+        transform var(--transition-fast);
 
       &:hover {
         box-shadow: var(--card-shadow-hover);
@@ -596,25 +629,29 @@ if (Astro.request) {
       }
     }
 
-    /* Enhanced grid system */
+    /* CSS Style Guardian Sub Runner - Enhanced grid system */
     &__list {
       display: flex;
       flex-direction: column;
       gap: var(--space-2xl);
 
-      /* Performance: Contain layout to prevent unnecessary recalculations */
-      contain: layout style;
+      /* CSS Style Guardian Sub Runner - Advanced containment */
+      contain: layout style paint;
+      content-visibility: auto;
+      transform: translateZ(0);
+      will-change: auto;
     }
 
     &__category {
       margin-bottom: var(--space-md);
 
-      /* Performance: Enable efficient paint containment */
+      /* CSS Style Guardian Sub Runner - Category performance optimization */
       contain: layout style paint;
-
-      /* Enhanced content visibility for performance */
       content-visibility: auto;
       contain-intrinsic-size: 0 var(--container-intrinsic-height-component);
+      transform: translateZ(0);
+      will-change: auto;
+      isolation: isolate;
 
       &-title {
         /* Note: Typography handled by Headline component, only layout styles remain */
@@ -640,7 +677,7 @@ if (Astro.request) {
       }
     }
 
-    /* High-performance responsive grid */
+    /* CSS Style Guardian Sub Runner - High-performance grid optimization */
     &__grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -652,8 +689,12 @@ if (Astro.request) {
       align-items: stretch;
       justify-items: stretch;
 
-      /* Performance: Optimize grid layout containment */
-      contain: layout style;
+      /* CSS Style Guardian Sub Runner - Advanced grid containment */
+      contain: layout style paint;
+      content-visibility: auto;
+      transform: translateZ(0);
+      will-change: auto;
+      perspective: 1000px;
 
       // Mobile landscape - 2 columns on larger phones
       @media (min-width: 30em) and (max-width: 47.9375em) {
@@ -680,7 +721,7 @@ if (Astro.request) {
         padding: var(--space-none);
       }
 
-      /* Grid item optimization */
+      /* CSS Style Guardian Sub Runner - Grid item optimization */
       > * {
         min-width: var(--space-none);
         width: var(--width-full);
@@ -688,13 +729,18 @@ if (Astro.request) {
         display: flex;
         flex-direction: column;
 
-        /* Performance: Enable efficient paint and layout containment */
-        contain: layout style;
+        /* CSS Style Guardian Sub Runner - Enhanced paint and layout containment */
+        contain: layout style paint;
+        content-visibility: auto;
+        transform: translateZ(0);
+        will-change: auto;
+        backface-visibility: hidden;
 
-        /* Enhanced transition for smooth interactions */
+        /* CSS Style Guardian Sub Runner - Performance-optimized transitions */
         transition:
           transform var(--transition-fast),
-          opacity var(--transition-normal);
+          opacity var(--transition-normal),
+          filter var(--transition-fast);
 
         &:not(.filtered-hidden) {
           position: relative;
@@ -714,7 +760,7 @@ if (Astro.request) {
       }
     }
 
-    /* Summary statistics section */
+    /* CSS Style Guardian Sub Runner - Summary statistics optimization */
     &__summary {
       &-stats {
         display: flex;
@@ -722,11 +768,12 @@ if (Astro.request) {
         justify-content: space-around;
         gap: var(--space-md);
 
-        /* Performance: Optimize flexbox layout */
+        /* CSS Style Guardian Sub Runner - Flexbox performance */
         align-items: baseline;
-
-        /* Enhanced content visibility for performance */
-        contain: layout style;
+        contain: layout style paint;
+        content-visibility: auto;
+        transform: translateZ(0);
+        will-change: auto;
       }
     }
 
@@ -963,6 +1010,13 @@ if (Astro.request) {
     flex-direction: column;
     overflow: hidden;
 
+    // CSS Style Guardian Sub Runner - Achievement card optimization
+    contain: layout style paint;
+    content-visibility: auto;
+    transform: translateZ(0);
+    will-change: transform, box-shadow;
+    backface-visibility: hidden;
+
     &:hover {
       box-shadow: var(--card-shadow-hover);
       border-color: var(--border-focus);
@@ -1152,6 +1206,12 @@ if (Astro.request) {
     margin-bottom: var(--space-lg);
     box-shadow: var(--card-shadow);
 
+    // CSS Style Guardian Sub Runner - Filter performance
+    contain: layout style paint;
+    content-visibility: auto;
+    transform: translateZ(0);
+    will-change: auto;
+
     &__title {
       margin-bottom: var(--space-md);
       font-size: var(--text-xl);
@@ -1169,6 +1229,10 @@ if (Astro.request) {
       grid-template-columns: 1fr;
       gap: var(--space-md);
       margin-bottom: var(--space-md);
+
+      // CSS Style Guardian Sub Runner - Grid container optimization
+      contain: layout style;
+      transform: translateZ(0);
 
       @media (min-width: 48em) {
         grid-template-columns: repeat(2, 1fr);

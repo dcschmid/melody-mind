@@ -1718,5 +1718,925 @@
     "year": 1987,
     "artist": "Los Tres",
     "genre": "Rock alternativo/Fusión"
+  },
+  "06-21": {
+    "id": "don-omar-lucenzo-danza-kuduro-release",
+    "date": "06-21",
+    "title": "💿 Lanzamiento de \"Danza Kuduro\" de Don Omar & Lucenzo",
+    "description": "El 21 de junio de 2010, Don Omar y Lucenzo lanzan \"Danza Kuduro\", canción que fusiona reggaetón y ritmos africanos. El tema se convierte en éxito global, llegando a los primeros lugares de listas en Europa y América Latina y revolucionando las pistas de baile.",
+    "category": "release",
+    "year": 2010,
+    "artist": "Don Omar & Lucenzo",
+    "genre": "Reggaetón/World music"
+  },
+  "06-22": {
+    "id": "aterciopelados-formation",
+    "date": "06-22",
+    "title": "🎸 Fundación de Los Aterciopelados en Bogotá, Colombia",
+    "description": "El 22 de junio de 1992 se forma Aterciopelados, banda emblemática del rock alternativo colombiano. Su fusión de rock, folclore y letras comprometidas los hace pioneros y referentes en la escena latinoamericana y mundial.",
+    "category": "formation",
+    "year": 1992,
+    "artist": "Aterciopelados",
+    "genre": "Rock alternativo/Fusión"
+  },
+  "06-23": {
+    "id": "david-bisbal-ave-maria-release",
+    "date": "06-23",
+    "title": "💿 Lanzamiento de \"Ave María\" de David Bisbal",
+    "description": "El 23 de junio de 2002, el español David Bisbal publica \"Ave María\", uno de los mayores éxitos del pop latino de principios de siglo. La energía y carisma de Bisbal lo llevan a la fama internacional y consolidan su carrera como solista.",
+    "category": "release",
+    "year": 2002,
+    "artist": "David Bisbal",
+    "genre": "Pop latino/Pop"
+  },
+  "06-24": {
+    "id": "fiesta-san-juan",
+    "date": "06-24",
+    "title": "🎪 Fiesta de San Juan en España y América Latina",
+    "description": "El 24 de junio se celebra la Noche de San Juan, una de las festividades más musicales y simbólicas de la cultura hispana. Conciertos, verbenas y fogatas acompañan esta noche mágica, en la que se interpretan canciones populares, flamenco, cumbia y rock en distintos países.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Multigénero/Tradicional"
+  },
+  "06-25": {
+    "id": "juan-luis-guerra-llave-corazon-release",
+    "date": "06-25",
+    "title": "💿 Lanzamiento de \"La llave de mi corazón\" de Juan Luis Guerra",
+    "description": "El 25 de junio de 2007, el dominicano Juan Luis Guerra publica \"La llave de mi corazón\", bachata-pop que obtiene premios internacionales y se convierte en éxito en América Latina y España. La canción mezcla romanticismo y alegría, y es símbolo de la versatilidad de Guerra.",
+    "category": "release",
+    "year": 2007,
+    "artist": "Juan Luis Guerra",
+    "genre": "Bachata/Pop latino"
+  },
+  "06-26": {
+    "id": "cuarteto-nos-formation",
+    "date": "06-26",
+    "title": "🎸 Fundación de El Cuarteto de Nos en Montevideo, Uruguay",
+    "description": "El 26 de junio de 1984 se forma El Cuarteto de Nos, banda uruguaya de rock alternativo y pop experimental. Su humor ácido y letras irónicas los diferencian en el panorama latino, ganando seguidores en todo el continente.",
+    "category": "formation",
+    "year": 1984,
+    "artist": "El Cuarteto de Nos",
+    "genre": "Rock alternativo/Pop rock"
+  },
+  "06-27": {
+    "id": "enrique-iglesias-bailando-release",
+    "date": "06-27",
+    "title": "💿 Lanzamiento de \"Bailando\" de Enrique Iglesias con Gente de Zona y Descemer Bueno",
+    "description": "El 27 de junio de 2014, Enrique Iglesias publica \"Bailando\", que rápidamente se convierte en un fenómeno global. La colaboración con artistas cubanos y la mezcla de flamenco, pop y reggaetón rompen récords de streaming y ventas.",
+    "category": "release",
+    "year": 2014,
+    "artist": "Enrique Iglesias, Gente de Zona, Descemer Bueno",
+    "genre": "Pop latino/Reggaetón"
+  },
+  "06-28": {
+    "id": "festival-rock-al-parque",
+    "date": "06-28",
+    "title": "🎪 Festival Rock al Parque, Bogotá, Colombia",
+    "description": "El 28 de junio inicia Rock al Parque, el festival gratuito más grande de América Latina dedicado al rock y géneros alternativos. Reúne a miles de jóvenes y a bandas consagradas y emergentes de toda Iberoamérica, convirtiéndose en plataforma clave para la música alternativa.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Rock/Alternativo/Festival"
+  },
+  "06-29": {
+    "id": "alejandro-sanz-corazon-partio-release",
+    "date": "06-29",
+    "title": "💿 Lanzamiento de \"Corazón partío\" de Alejandro Sanz",
+    "description": "El 29 de junio de 1997, Alejandro Sanz publica \"Corazón partío\", tema emblemático de su carrera. La canción, que mezcla flamenco y pop, marca un antes y un después en la música española y conquista al público internacional.",
+    "category": "release",
+    "year": 1997,
+    "artist": "Alejandro Sanz",
+    "genre": "Pop/Flamenco fusión"
+  },
+  "06-30": {
+    "id": "bersuit-vergarabat-formation",
+    "date": "06-30",
+    "title": "🎸 Fundación de Bersuit Vergarabat en Buenos Aires, Argentina",
+    "description": "El 30 de junio de 1988 se forma Bersuit Vergarabat, banda argentina que fusiona rock, cumbia, tango y murga. Su estilo irreverente y experimental la hace única, influyendo en el rock latino y llenando estadios en todo el continente.",
+    "category": "formation",
+    "year": 1988,
+    "artist": "Bersuit Vergarabat",
+    "genre": "Rock fusión/Alternativo"
+  },
+  "07-01": {
+    "id": "jarabe-palo-flaca-release",
+    "date": "07-01",
+    "title": "💿 Lanzamiento de \"La Flaca\" de Jarabe de Palo",
+    "description": "El 1 de julio de 1996, la banda española Jarabe de Palo publica \"La Flaca\", canción que mezcla pop, rock y ritmos caribeños. El tema se convierte en éxito internacional y es parte fundamental del repertorio musical español y latinoamericano.",
+    "category": "release",
+    "year": 1996,
+    "artist": "Jarabe de Palo",
+    "genre": "Pop rock/Fusión"
+  },
+  "07-02": {
+    "id": "prisioneros-formation",
+    "date": "07-02",
+    "title": "🎸 Fundación de Los Prisioneros en San Miguel, Chile",
+    "description": "El 2 de julio de 1979 se forma Los Prisioneros, trío chileno fundamental para el desarrollo del rock latino. Su música denuncia injusticias sociales y conecta con la juventud de los años 80, dejando un legado de himnos que siguen vigentes.",
+    "category": "formation",
+    "year": 1979,
+    "artist": "Los Prisioneros",
+    "genre": "Rock latino/Pop"
+  },
+  "07-03": {
+    "id": "cafe-tacvba-eres-release",
+    "date": "07-03",
+    "title": "💿 Lanzamiento de \"Eres\" de Café Tacvba",
+    "description": "El 3 de julio de 2003, Café Tacvba publica \"Eres\", balada alternativa que se convierte en una de las canciones más queridas de la música mexicana. El tema es un clásico en bodas, serenatas y playlists románticas de toda Hispanoamérica.",
+    "category": "release",
+    "year": 2003,
+    "artist": "Café Tacvba",
+    "genre": "Rock alternativo/Balada"
+  },
+  "07-04": {
+    "id": "festival-jazz-montreux",
+    "date": "07-04",
+    "title": "🎪 Festival Internacional de Jazz de Montreux, Suiza",
+    "description": "El 4 de julio inicia el Festival de Jazz de Montreux, uno de los más prestigiosos del mundo. Artistas hispanos como Paco de Lucía y Chucho Valdés han sido protagonistas, mostrando el cruce entre la tradición latina y la escena internacional.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Jazz/World music"
+  },
+  "07-05": {
+    "id": "ricky-martin-livin-vida-loca-release",
+    "date": "07-05",
+    "title": "💿 Lanzamiento de \"Livin' la Vida Loca\" de Ricky Martin",
+    "description": "El 5 de julio de 1999, Ricky Martin publica \"Livin' la Vida Loca\", tema con el que revoluciona el pop internacional. La canción alcanza el número uno en más de 20 países y marca el inicio del boom latino en el mercado anglosajón.",
+    "category": "release",
+    "year": 1999,
+    "artist": "Ricky Martin",
+    "genre": "Pop latino/Pop internacional"
+  },
+  "07-06": {
+    "id": "rata-blanca-formation",
+    "date": "07-06",
+    "title": "🎸 Fundación de Rata Blanca en Buenos Aires, Argentina",
+    "description": "El 6 de julio de 1985 se forma Rata Blanca, banda icónica del heavy metal latinoamericano. Su virtuosismo y sus letras épicas los convierten en referentes del género, y llenan estadios en toda la región con himnos como \"Mujer amante\".",
+    "category": "formation",
+    "year": 1985,
+    "artist": "Rata Blanca",
+    "genre": "Heavy metal/Rock"
+  },
+  "07-07": {
+    "id": "soda-stereo-cuando-pase-temblor-release",
+    "date": "07-07",
+    "title": "💿 Lanzamiento de \"Cuando pase el temblor\" de Soda Stereo",
+    "description": "El 7 de julio de 1986, Soda Stereo publica \"Cuando pase el temblor\", canción que fusiona rock, new wave y música andina. El videoclip es pionero en la región y la canción sigue siendo favorita en festivales y fiestas latinoamericanas.",
+    "category": "release",
+    "year": 1986,
+    "artist": "Soda Stereo",
+    "genre": "Rock en español/New wave"
+  },
+  "07-08": {
+    "id": "sanfermines-pamplona",
+    "date": "07-08",
+    "title": "🎪 Sanfermines, Pamplona, España",
+    "description": "El 8 de julio comienzan los Sanfermines en Pamplona, fiestas tradicionales mundialmente famosas. Además de los encierros, la música tiene gran protagonismo: bandas, charangas y grupos de música popular animan calles y plazas durante toda la semana.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Música tradicional/Folklore"
+  },
+  "07-09": {
+    "id": "hombres-g-devuelveme-chica-release",
+    "date": "07-09",
+    "title": "💿 Lanzamiento de \"Devuélveme a mi chica\" de Hombres G",
+    "description": "El 9 de julio de 1985, la banda española Hombres G publica \"Devuélveme a mi chica\", sencillo que se convierte en himno juvenil en España y América Latina. Su estribillo pegajoso y su irreverencia la mantienen vigente décadas después.",
+    "category": "release",
+    "year": 1985,
+    "artist": "Hombres G",
+    "genre": "Pop rock/Pop español"
+  },
+  "07-10": {
+    "id": "cafe-tacvba-formation",
+    "date": "07-10",
+    "title": "🎸 Fundación de Café Tacvba en Ciudad Satélite, México",
+    "description": "El 10 de julio de 1989 se forma Café Tacvba, banda mexicana clave para el desarrollo del rock alternativo. Con su fusión de géneros tradicionales y modernos, se vuelven referentes de la creatividad musical en español.",
+    "category": "formation",
+    "year": 1989,
+    "artist": "Café Tacvba",
+    "genre": "Rock alternativo/Fusión"
+  },
+  "07-11": {
+    "id": "juanes-nada-valgo-sin-tu-amor-release",
+    "date": "07-11",
+    "title": "💿 Lanzamiento de \"Nada Valgo Sin Tu Amor\" de Juanes",
+    "description": "El 11 de julio de 2004, el colombiano Juanes publica \"Nada Valgo Sin Tu Amor\", canción que combina pop rock con ritmos latinos. El tema alcanza los primeros lugares en las listas de varios países y gana premios internacionales, consolidando a Juanes como uno de los artistas más influyentes de la música hispana.",
+    "category": "release",
+    "year": 2004,
+    "artist": "Juanes",
+    "genre": "Pop rock/Latino"
+  },
+  "07-12": {
+    "id": "jaivas-formation",
+    "date": "07-12",
+    "title": "🎸 Fundación de Los Jaivas en Viña del Mar, Chile",
+    "description": "El 12 de julio de 1963 se forma Los Jaivas, banda fundamental del rock progresivo y folclore andino en América Latina. Su fusión de géneros y su experimentación los hace referentes de la música popular sudamericana durante más de cinco décadas.",
+    "category": "formation",
+    "year": 1963,
+    "artist": "Los Jaivas",
+    "genre": "Rock progresivo/Folklore"
+  },
+  "07-13": {
+    "id": "hombres-g-te-quiero-release",
+    "date": "07-13",
+    "title": "💿 Lanzamiento de \"Te Quiero\" de Hombres G",
+    "description": "El 13 de julio de 1986, la banda española Hombres G publica \"Te Quiero\", tema pop que rápidamente conquista a la juventud hispana. Su melodía pegadiza y la sencillez de la letra la mantienen viva en celebraciones, fiestas y karaokes de España y Latinoamérica.",
+    "category": "release",
+    "year": 1986,
+    "artist": "Hombres G",
+    "genre": "Pop rock/Pop español"
+  },
+  "07-14": {
+    "id": "fiesta-nacional-francia",
+    "date": "07-14",
+    "title": "🎪 Fiesta Nacional de Francia – Conciertos y celebraciones",
+    "description": "El 14 de julio se celebra la Fiesta Nacional de Francia (Bastilla), con conciertos multitudinarios en París y otras ciudades. La música latina y española suele tener presencia destacada, mostrando la influencia hispana en la escena europea y el cruce de culturas en el arte.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Multigénero/Internacional"
+  },
+  "07-15": {
+    "id": "pablo-alboran-solamente-tu-release",
+    "date": "07-15",
+    "title": "💿 Lanzamiento de \"Solamente tú\" de Pablo Alborán",
+    "description": "El 15 de julio de 2010, el malagueño Pablo Alborán publica \"Solamente tú\", canción con la que se da a conocer en España y América Latina. Su interpretación sensible y su letra romántica la convierten en un himno de la nueva balada española.",
+    "category": "release",
+    "year": 2010,
+    "artist": "Pablo Alborán",
+    "genre": "Balada/Pop"
+  },
+  "07-16": {
+    "id": "secretos-formation",
+    "date": "07-16",
+    "title": "🎸 Fundación de Los Secretos en Madrid, España",
+    "description": "El 16 de julio de 1980 se forma Los Secretos, banda clave de la movida madrileña y el pop español. Sus canciones de amor, melancolía y cotidianidad marcan a varias generaciones y su música sigue sonando en conciertos y festivales.",
+    "category": "formation",
+    "year": 1980,
+    "artist": "Los Secretos",
+    "genre": "Pop rock/Pop español"
+  },
+  "07-17": {
+    "id": "diego-torres-color-esperanza-release",
+    "date": "07-17",
+    "title": "💿 Lanzamiento de \"Color Esperanza\" de Diego Torres",
+    "description": "El 17 de julio de 2001, el argentino Diego Torres publica \"Color Esperanza\", tema que se convierte en himno de optimismo y solidaridad en toda Hispanoamérica. La canción suena en campañas benéficas, protestas y celebraciones, siendo parte del repertorio esencial del pop latino.",
+    "category": "release",
+    "year": 2001,
+    "artist": "Diego Torres",
+    "genre": "Pop latino/Música inspiracional"
+  },
+  "07-18": {
+    "id": "festival-jazz-san-sebastian",
+    "date": "07-18",
+    "title": "🎪 Festival Internacional de Jazz de San Sebastián, España",
+    "description": "El 18 de julio inicia el Festival de Jazz de San Sebastián (Jazzaldia), uno de los más antiguos de Europa. Artistas de todo el mundo y músicos españoles y latinoamericanos actúan en este escenario emblemático, que destaca por su diversidad y calidad.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Jazz/World music"
+  },
+  "07-19": {
+    "id": "aventura-obsesion-release",
+    "date": "07-19",
+    "title": "💿 Lanzamiento de \"Obsesión\" de Aventura",
+    "description": "El 19 de julio de 2002, Aventura publica \"Obsesión\", bachata que rompe fronteras y lleva el género a las listas de éxitos internacionales. Su ritmo bailable y su temática de amor no correspondido la convierten en un fenómeno global.",
+    "category": "release",
+    "year": 2002,
+    "artist": "Aventura",
+    "genre": "Bachata/Pop latino"
+  },
+  "07-20": {
+    "id": "ley-formation",
+    "date": "07-20",
+    "title": "🎸 Fundación de La Ley en Santiago de Chile",
+    "description": "El 20 de julio de 1987 se funda La Ley, banda chilena pionera del rock alternativo latinoamericano. Su música fusiona pop, rock y sonidos electrónicos, y ganan varios Grammy Latinos, consolidando su influencia continental.",
+    "category": "formation",
+    "year": 1987,
+    "artist": "La Ley",
+    "genre": "Rock alternativo/Pop rock"
+  },
+  "07-21": {
+    "id": "juan-luis-guerra-bachata-rosa-release",
+    "date": "07-21",
+    "title": "💿 Lanzamiento de \"Bachata Rosa\" de Juan Luis Guerra",
+    "description": "El 21 de julio de 1990, el dominicano Juan Luis Guerra publica \"Bachata Rosa\", álbum revolucionario que lleva la bachata al público internacional. Sus letras románticas y arreglos innovadores abren el camino para la bachata moderna y marcan una nueva era en la música latina.",
+    "category": "release",
+    "year": 1990,
+    "artist": "Juan Luis Guerra",
+    "genre": "Bachata/Tropical"
+  },
+  "07-22": {
+    "id": "enanitos-verdes-formation",
+    "date": "07-22",
+    "title": "🎸 Fundación de Los Enanitos Verdes en Mendoza, Argentina",
+    "description": "El 22 de julio de 1979 se funda Los Enanitos Verdes, banda fundamental del rock argentino. Con canciones como \"Lamento boliviano\" y \"La muralla verde\", conquistan América Latina y España, y siguen activos más de cuatro décadas después.",
+    "category": "formation",
+    "year": 1979,
+    "artist": "Los Enanitos Verdes",
+    "genre": "Rock en español"
+  },
+  "07-23": {
+    "id": "jarabe-palo-agua-release",
+    "date": "07-23",
+    "title": "💿 Lanzamiento de \"Agua\" de Jarabe de Palo",
+    "description": "El 23 de julio de 1998, Jarabe de Palo publica \"Agua\", sencillo que fusiona pop y rock con letras profundas y poéticas. La canción se convierte en uno de los temas emblemáticos del grupo y sigue siendo interpretada en conciertos y versiones acústicas.",
+    "category": "release",
+    "year": 1998,
+    "artist": "Jarabe de Palo",
+    "genre": "Pop rock/Fusión"
+  },
+  "07-24": {
+    "id": "feria-julio-valencia",
+    "date": "07-24",
+    "title": "🎪 Feria de Julio, Valencia, España",
+    "description": "El 24 de julio se celebra la Feria de Julio en Valencia, uno de los eventos culturales más antiguos de España. Durante todo el mes, la ciudad acoge conciertos de pop, flamenco, rock y música tradicional, reuniendo a artistas locales e internacionales en un ambiente festivo único.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Multigénero/Festival"
+  },
+  "07-25": {
+    "id": "cumparsita-gerardo-matos-rodriguez-release",
+    "date": "07-25",
+    "title": "💿 Lanzamiento de \"La Cumparsita\" (versión popularizada), Uruguay",
+    "description": "El 25 de julio se conmemora el éxito mundial de \"La Cumparsita\", tango uruguayo compuesto por Gerardo Matos Rodríguez. Interpretada en todos los continentes, es la pieza más emblemática del género y símbolo cultural de Montevideo y Buenos Aires.",
+    "category": "release",
+    "year": 1917,
+    "artist": "Gerardo Matos Rodríguez",
+    "genre": "Tango"
+  },
+  "07-26": {
+    "id": "pericos-formation",
+    "date": "07-26",
+    "title": "🎸 Fundación de Los Pericos en Buenos Aires, Argentina",
+    "description": "El 26 de julio de 1986 se funda Los Pericos, banda pionera del reggae y ska latinoamericano. Su estilo alegre y enérgico ha influido en músicos de todo el continente y sus temas siguen sonando en festivales internacionales.",
+    "category": "formation",
+    "year": 1986,
+    "artist": "Los Pericos",
+    "genre": "Reggae/Ska"
+  },
+  "07-27": {
+    "id": "david-bisbal-digale-release",
+    "date": "07-27",
+    "title": "💿 Lanzamiento de \"Dígale\" de David Bisbal",
+    "description": "El 27 de julio de 2002, el español David Bisbal lanza \"Dígale\", balada pop incluida en su álbum debut. La emotividad de la interpretación y la fuerza de la melodía hacen de este tema uno de los más populares del pop latino en la primera década del siglo XXI.",
+    "category": "release",
+    "year": 2002,
+    "artist": "David Bisbal",
+    "genre": "Pop latino/Balada"
+  },
+  "07-28": {
+    "id": "fiesta-independencia-peru",
+    "date": "07-28",
+    "title": "🎪 Fiesta Nacional del Perú – Música criolla y desfiles musicales",
+    "description": "El 28 de julio se celebra la Independencia del Perú con desfiles y música criolla en plazas y teatros de todo el país. Artistas de vals, marinera, afroperuano y rock nacional actúan en eventos multitudinarios, mostrando la diversidad cultural peruana.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Música criolla/Multigénero"
+  },
+  "07-29": {
+    "id": "quinta-estacion-sol-no-regresa-release",
+    "date": "07-29",
+    "title": "💿 Lanzamiento de \"El Sol No Regresa\" de La Quinta Estación",
+    "description": "El 29 de julio de 2004, La Quinta Estación publica \"El Sol No Regresa\", tema de pop rock que obtiene éxito en España, México y Estados Unidos. Su energía y letras de desamor la convierten en uno de los grandes himnos del pop hispano contemporáneo.",
+    "category": "release",
+    "year": 2004,
+    "artist": "La Quinta Estación",
+    "genre": "Pop rock/Balada"
+  },
+  "07-30": {
+    "id": "nocheros-formation",
+    "date": "07-30",
+    "title": "🎸 Fundación de Los Nocheros en Salta, Argentina",
+    "description": "El 30 de julio de 1986 se forma Los Nocheros, grupo clave del folclore romántico argentino. Su fusión de zamba, balada y pop los convierte en referentes del género y llenan estadios en toda América Latina.",
+    "category": "formation",
+    "year": 1986,
+    "artist": "Los Nocheros",
+    "genre": "Folclore/Balada/Pop"
+  },
+  "07-31": {
+    "id": "enrique-iglesias-heroe-release",
+    "date": "07-31",
+    "title": "💿 Lanzamiento de \"Héroe\" de Enrique Iglesias",
+    "description": "El 31 de julio de 2001, Enrique Iglesias lanza \"Héroe\", balada pop que conquista el mercado global. El tema se convierte en un himno romántico y es utilizado en películas, novelas y celebraciones de bodas en todo el mundo hispano.",
+    "category": "release",
+    "year": 2001,
+    "artist": "Enrique Iglesias",
+    "genre": "Pop/Balada romántica"
+  },
+  "08-01": {
+    "id": "mana-mariposa-traicionera-release",
+    "date": "08-01",
+    "title": "💿 Lanzamiento de \"Mariposa traicionera\" de Maná",
+    "description": "El 1 de agosto de 2002, la banda mexicana Maná publica \"Mariposa traicionera\", balada de ritmo suave y letra melancólica. El tema rápidamente se convierte en un éxito internacional y se mantiene hasta hoy como uno de los grandes himnos románticos del pop-rock latino.",
+    "category": "release",
+    "year": 2002,
+    "artist": "Maná",
+    "genre": "Pop rock/Latino"
+  },
+  "08-02": {
+    "id": "amigos-invisibles-formation",
+    "date": "08-02",
+    "title": "🎸 Fundación de Los Amigos Invisibles en Caracas, Venezuela",
+    "description": "El 2 de agosto de 1991 se funda Los Amigos Invisibles, grupo que revoluciona la escena musical venezolana fusionando funk, disco, acid jazz y ritmos latinos. Su creatividad los lleva a escenarios de Europa y América, influyendo en la música alternativa hispana.",
+    "category": "formation",
+    "year": 1991,
+    "artist": "Los Amigos Invisibles",
+    "genre": "Funk/Disco/Fusión"
+  },
+  "08-03": {
+    "id": "hernaldo-zuniga-procuro-olvidarte-release",
+    "date": "08-03",
+    "title": "💿 Lanzamiento de \"Procuro olvidarte\" de Hernaldo Zúñiga",
+    "description": "El 3 de agosto de 1980, el nicaragüense Hernaldo Zúñiga publica \"Procuro olvidarte\", balada de desamor que se convierte en un clásico de la música romántica en español. La canción es versionada por artistas de diferentes países y sigue siendo infaltable en playlists nostálgicas.",
+    "category": "release",
+    "year": 1980,
+    "artist": "Hernaldo Zúñiga",
+    "genre": "Balada/Pop romántico"
+  },
+  "08-04": {
+    "id": "festival-folklore-cosquin",
+    "date": "08-04",
+    "title": "🎪 Festival Internacional de Folklore de Cosquín, Argentina",
+    "description": "El 4 de agosto inicia el Festival de Folklore de Cosquín, uno de los más importantes de América Latina. Durante días, artistas de música tradicional y popular de todo el continente se presentan ante miles de personas, celebrando la identidad y la diversidad cultural latinoamericana.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Folklore/Música tradicional"
+  },
+  "08-05": {
+    "id": "julieta-venegas-limon-sal-release",
+    "date": "08-05",
+    "title": "💿 Lanzamiento de \"Limón y sal\" de Julieta Venegas",
+    "description": "El 5 de agosto de 2006, la mexicana Julieta Venegas publica el álbum \"Limón y sal\", que incluye éxitos como \"Me voy\" y el tema titular. La fusión de pop alternativo, acordeón y letras honestas conecta con el público joven y adulto, convirtiéndose en un referente continental.",
+    "category": "release",
+    "year": 2006,
+    "artist": "Julieta Venegas",
+    "genre": "Pop alternativo/Pop latino"
+  },
+  "08-06": {
+    "id": "tres-formation",
+    "date": "08-06",
+    "title": "🎸 Fundación de Los Tres en Concepción, Chile",
+    "description": "El 6 de agosto de 1987 se forma Los Tres, banda fundamental para el rock chileno y sudamericano. Su fusión de jazz, rock y folclore nacional los hace íconos musicales y su legado sigue vigente en la escena alternativa latinoamericana.",
+    "category": "formation",
+    "year": 1987,
+    "artist": "Los Tres",
+    "genre": "Rock alternativo/Fusión"
+  },
+  "08-07": {
+    "id": "juan-luis-guerra-burbujas-amor-release",
+    "date": "08-07",
+    "title": "💿 Lanzamiento de \"Burbujas de amor\" de Juan Luis Guerra",
+    "description": "El 7 de agosto de 1990, el dominicano Juan Luis Guerra lanza \"Burbujas de amor\", bachata poética que traspasa fronteras y es reconocida como una de las canciones más bellas de la música latina. Su éxito la convierte en clásico obligado en radios y fiestas.",
+    "category": "release",
+    "year": 1990,
+    "artist": "Juan Luis Guerra",
+    "genre": "Bachata/Tropical"
+  },
+  "08-08": {
+    "id": "festival-mariachi-guadalajara",
+    "date": "08-08",
+    "title": "🎪 Fiesta de la Cosecha y Festival del Mariachi, Guadalajara, México",
+    "description": "El 8 de agosto se celebra en Guadalajara el Festival del Mariachi, donde agrupaciones de todo México y el mundo llenan de música y color las calles y plazas. Es un evento clave para la preservación y difusión del mariachi, declarado Patrimonio Inmaterial de la Humanidad.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Mariachi/Folklore"
+  },
+  "08-09": {
+    "id": "juanes-dios-pido-release",
+    "date": "08-09",
+    "title": "💿 Lanzamiento de \"A Dios le pido\" de Juanes",
+    "description": "El 9 de agosto de 2002, Juanes publica \"A Dios le pido\", tema que mezcla rock y pop con mensaje social y esperanza. El sencillo triunfa en América y Europa y se convierte en símbolo de unidad y paz para toda una generación.",
+    "category": "release",
+    "year": 2002,
+    "artist": "Juanes",
+    "genre": "Pop rock/Latino"
+  },
+  "08-10": {
+    "id": "autenticos-decadentes-formation",
+    "date": "08-10",
+    "title": "🎸 Fundación de Los Auténticos Decadentes en Buenos Aires, Argentina",
+    "description": "El 10 de agosto de 1986 se forma Los Auténticos Decadentes, banda argentina que mezcla rock, cumbia y ska. Su estilo festivo y humorístico los convierte en uno de los grupos más populares y longevos del rock latino.",
+    "category": "formation",
+    "year": 1986,
+    "artist": "Los Auténticos Decadentes",
+    "genre": "Rock/Cumbia/Ska"
+  },
+  "08-11": {
+    "id": "juanes-nada-valgo-sin-tu-amor-release",
+    "date": "08-11",
+    "title": "💿 Lanzamiento de \"Nada Valgo Sin Tu Amor\" de Juanes",
+    "description": "El 11 de agosto de 2004, el colombiano Juanes publica \"Nada Valgo Sin Tu Amor\", tema de pop-rock que logra gran éxito en América Latina y España. La canción se convierte en himno romántico y es galardonada con varios premios internacionales, consolidando a Juanes en la escena global.",
+    "category": "release",
+    "year": 2004,
+    "artist": "Juanes",
+    "genre": "Pop rock/Latino"
+  },
+  "08-12": {
+    "id": "rabanes-formation",
+    "date": "08-12",
+    "title": "🎸 Fundación de Los Rabanes en Chitré, Panamá",
+    "description": "El 12 de agosto de 1992 se forma Los Rabanes, grupo pionero del rock mestizo en Panamá. Fusionando reggae, punk, ska y sonidos latinos, se convierten en embajadores musicales del país, ganando un Grammy Latino y reconocimiento internacional.",
+    "category": "formation",
+    "year": 1992,
+    "artist": "Los Rabanes",
+    "genre": "Rock mestizo/Reggae/Ska"
+  },
+  "08-13": {
+    "id": "pablo-alboran-solamente-tu-release",
+    "date": "08-13",
+    "title": "💿 Lanzamiento de \"Solamente tú\" de Pablo Alborán",
+    "description": "El 13 de agosto de 2010, Pablo Alborán publica \"Solamente tú\", canción con la que se da a conocer en España y América Latina. Su interpretación sensible y su letra romántica la convierten en un himno de la nueva balada española.",
+    "category": "release",
+    "year": 2010,
+    "artist": "Pablo Alborán",
+    "genre": "Balada/Pop"
+  },
+  "08-14": {
+    "id": "fiesta-asuncion-espana",
+    "date": "08-14",
+    "title": "🎪 Fiesta de la Asunción y festivales de música tradicional en España",
+    "description": "El 14 de agosto, en vísperas de la Asunción, se celebran festivales de música folclórica, conciertos y verbenas en pueblos y ciudades españolas. Destacan las jotas, sevillanas y música regional, fomentando la conservación de tradiciones musicales.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Folklore/Tradicional"
+  },
+  "08-15": {
+    "id": "soda-stereo-musica-ligera-release",
+    "date": "08-15",
+    "title": "💿 Lanzamiento de \"De música ligera\" de Soda Stereo",
+    "description": "El 15 de agosto de 1990, la banda argentina Soda Stereo publica \"De música ligera\", himno absoluto del rock latino. Su riff inconfundible y su mensaje generacional hacen de la canción una de las más interpretadas y coreadas en conciertos de todo el continente.",
+    "category": "release",
+    "year": 1990,
+    "artist": "Soda Stereo",
+    "genre": "Rock en español"
+  },
+  "08-16": {
+    "id": "amaral-formation",
+    "date": "08-16",
+    "title": "🎸 Fundación de Amaral en Zaragoza, España",
+    "description": "El 16 de agosto de 1992 se forma Amaral, dúo aragonés que fusiona pop rock y letras poéticas. Amaral se convierte en referente de la música española moderna y lleva sus melodías a escenarios internacionales, especialmente en América Latina.",
+    "category": "formation",
+    "year": 1992,
+    "artist": "Amaral",
+    "genre": "Pop rock/Indie"
+  },
+  "08-17": {
+    "id": "juanes-camisa-negra-release",
+    "date": "08-17",
+    "title": "💿 Lanzamiento de \"La Camisa Negra\" de Juanes",
+    "description": "El 17 de agosto de 2005, el colombiano Juanes publica \"La Camisa Negra\", tema que fusiona pop-rock y cumbia. Su éxito internacional la convierte en una de las canciones más reconocidas del pop latino, llegando a los primeros lugares en América, Europa y Asia.",
+    "category": "release",
+    "year": 2005,
+    "artist": "Juanes",
+    "genre": "Pop rock/Cumbia/Latino"
+  },
+  "08-18": {
+    "id": "festival-tango-buenos-aires",
+    "date": "08-18",
+    "title": "🎪 Festival Internacional de Tango de Buenos Aires, Argentina",
+    "description": "El 18 de agosto inicia el Festival Internacional de Tango en Buenos Aires, uno de los más prestigiosos del mundo. Miles de parejas y músicos de todas las edades participan en conciertos, milongas y competencias, celebrando el tango como Patrimonio de la Humanidad.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Tango/World music"
+  },
+  "08-19": {
+    "id": "enrique-iglesias-heroe-release",
+    "date": "08-19",
+    "title": "💿 Lanzamiento de \"Héroe\" de Enrique Iglesias",
+    "description": "El 19 de agosto de 2001, Enrique Iglesias lanza \"Héroe\", balada pop que conquista el mercado global. La canción se convierte en un himno romántico y es utilizada en películas, novelas y celebraciones de bodas en todo el mundo hispano.",
+    "category": "release",
+    "year": 2001,
+    "artist": "Enrique Iglesias",
+    "genre": "Pop/Balada romántica"
+  },
+  "08-20": {
+    "id": "vetusta-morla-formation",
+    "date": "08-20",
+    "title": "🎸 Fundación de Vetusta Morla en Tres Cantos, España",
+    "description": "El 20 de agosto de 1998 se forma Vetusta Morla, banda que lidera la escena indie española. Con su estilo introspectivo y letras profundas, Vetusta Morla alcanza reconocimiento en festivales internacionales y es referente de la música alternativa.",
+    "category": "formation",
+    "year": 1998,
+    "artist": "Vetusta Morla",
+    "genre": "Indie rock/Alternativo"
+  },
+  "08-21": {
+    "id": "mana-rayando-sol-release",
+    "date": "08-21",
+    "title": "💿 Lanzamiento de \"Rayando el sol\" de Maná",
+    "description": "El 21 de agosto de 1990, la banda mexicana Maná publica oficialmente \"Rayando el sol\", tema que marca el inicio de su proyección internacional. La canción se convierte en uno de los himnos del rock en español, acompañando a varias generaciones en todo el continente.",
+    "category": "release",
+    "year": 1990,
+    "artist": "Maná",
+    "genre": "Rock latino"
+  },
+  "08-22": {
+    "id": "babasonicos-formation",
+    "date": "08-22",
+    "title": "🎸 Fundación de Babasónicos en Buenos Aires, Argentina",
+    "description": "El 22 de agosto de 1991 se forma Babasónicos, grupo emblemático del rock alternativo argentino. Su creatividad, letras provocadoras y evolución musical los han convertido en referentes del movimiento indie en Hispanoamérica.",
+    "category": "formation",
+    "year": 1991,
+    "artist": "Babasónicos",
+    "genre": "Rock alternativo/Indie"
+  },
+  "08-23": {
+    "id": "mana-clavado-bar-release",
+    "date": "08-23",
+    "title": "💿 Lanzamiento de \"Clavado en un bar\" de Maná",
+    "description": "El 23 de agosto de 1997, Maná publica \"Clavado en un bar\", sencillo que mezcla rock, reggae y pop latino. El tema se convierte en favorito en bares y fiestas de habla hispana, consolidando a Maná como una de las bandas más queridas del género.",
+    "category": "release",
+    "year": 1997,
+    "artist": "Maná",
+    "genre": "Rock latino/Reggae/Pop"
+  },
+  "08-24": {
+    "id": "festival-vina-del-mar",
+    "date": "08-24",
+    "title": "🎪 Festival Internacional de la Canción de Viña del Mar, Chile",
+    "description": "El 24 de agosto se conmemora uno de los festivales más importantes y longevos de América Latina: Viña del Mar. Por su escenario han pasado figuras legendarias de la música latina e internacional, y cada año se transforma en punto de encuentro cultural para millones de espectadores.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Multigénero/Festival"
+  },
+  "08-25": {
+    "id": "juanes-me-enamora-release",
+    "date": "08-25",
+    "title": "💿 Lanzamiento de \"Me enamora\" de Juanes",
+    "description": "El 25 de agosto de 2007, el colombiano Juanes publica \"Me enamora\", sencillo que mezcla pop rock y ritmos latinos. La canción se convierte en éxito internacional y recibe premios Grammy Latinos, consolidando a Juanes como referente del pop latino.",
+    "category": "release",
+    "year": 2007,
+    "artist": "Juanes",
+    "genre": "Pop rock/Latino"
+  },
+  "08-26": {
+    "id": "secretos-formation",
+    "date": "08-26",
+    "title": "🎸 Fundación de Los Secretos en Madrid, España",
+    "description": "El 26 de agosto de 1980 se forma Los Secretos, banda fundamental del pop español. Con su estilo melódico y letras emotivas, Los Secretos marcan la movida madrileña y siguen siendo populares en festivales y conciertos de toda España.",
+    "category": "formation",
+    "year": 1980,
+    "artist": "Los Secretos",
+    "genre": "Pop rock/Pop español"
+  },
+  "08-27": {
+    "id": "alejandro-sanz-marc-anthony-deja-bese-release",
+    "date": "08-27",
+    "title": "💿 Lanzamiento de \"Deja que te bese\" de Alejandro Sanz & Marc Anthony",
+    "description": "El 27 de agosto de 2016, Alejandro Sanz y Marc Anthony lanzan \"Deja que te bese\", colaboración que fusiona el pop español con la salsa latina. La canción alcanza gran éxito en América y Europa, destacando la química y el talento de ambos artistas.",
+    "category": "release",
+    "year": 2016,
+    "artist": "Alejandro Sanz & Marc Anthony",
+    "genre": "Pop/Salsa/Latin pop"
+  },
+  "08-28": {
+    "id": "fiesta-san-agustin-lima",
+    "date": "08-28",
+    "title": "🎪 Fiesta de San Agustín, Lima, Perú",
+    "description": "El 28 de agosto se celebra San Agustín en Lima y otras ciudades peruanas, con procesiones, música criolla y conciertos de vals, marinera y afroperuano. Es una jornada para exaltar la identidad y la riqueza de la música tradicional peruana.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Música criolla/Tradicional"
+  },
+  "08-29": {
+    "id": "fonseca-te-envio-flores-release",
+    "date": "08-29",
+    "title": "💿 Lanzamiento de \"Te envío flores\" de Fonseca",
+    "description": "El 29 de agosto de 2005, el colombiano Fonseca publica \"Te envío flores\", vallenato pop que obtiene reconocimiento internacional y premios. La canción marca el auge del pop colombiano fusionado con sonidos tradicionales y modernos.",
+    "category": "release",
+    "year": 2005,
+    "artist": "Fonseca",
+    "genre": "Vallenato/Pop latino"
+  },
+  "08-30": {
+    "id": "planetas-formation",
+    "date": "08-30",
+    "title": "🎸 Fundación de Los Planetas en Granada, España",
+    "description": "El 30 de agosto de 1991 se forma Los Planetas, banda pionera del indie español. Su sonido experimental, letras profundas y constante innovación los convierten en referentes de la música alternativa en España y América Latina.",
+    "category": "formation",
+    "year": 1991,
+    "artist": "Los Planetas",
+    "genre": "Indie rock/Rock alternativo"
+  },
+  "08-31": {
+    "id": "aventura-obsesion-release",
+    "date": "08-31",
+    "title": "💿 Lanzamiento de \"Obsesión\" de Aventura",
+    "description": "El 31 de agosto de 2002, el grupo estadounidense-dominicano Aventura lanza \"Obsesión\", bachata que rompe récords y populariza el género a nivel global. La canción llega a los primeros lugares de listas europeas y es considerada un fenómeno mundial del siglo XXI.",
+    "category": "release",
+    "year": 2002,
+    "artist": "Aventura",
+    "genre": "Bachata/Pop latino"
+  },
+  "09-01": {
+    "id": "mana-labios-compartidos-release",
+    "date": "09-01",
+    "title": "💿 Lanzamiento de \"Labios compartidos\" de Maná",
+    "description": "El 1 de septiembre de 2006, la banda mexicana Maná publica \"Labios compartidos\", una de sus baladas más intensas y populares. Su letra de amor no correspondido y melodía inconfundible ocupan los primeros lugares de popularidad en radios de toda Iberoamérica.",
+    "category": "release",
+    "year": 2006,
+    "artist": "Maná",
+    "genre": "Pop rock/Balada"
+  },
+  "09-02": {
+    "id": "ley-formation",
+    "date": "09-02",
+    "title": "🎸 Fundación de La Ley en Santiago de Chile",
+    "description": "El 2 de septiembre de 1987 se funda La Ley, banda chilena que se convertirá en pionera del rock alternativo latinoamericano. Su música fusiona pop, rock y sonidos electrónicos y recibe premios Grammy Latinos por su innovación.",
+    "category": "formation",
+    "year": 1987,
+    "artist": "La Ley",
+    "genre": "Rock alternativo/Pop rock"
+  },
+  "09-03": {
+    "id": "diego-torres-color-esperanza-release",
+    "date": "09-03",
+    "title": "💿 Lanzamiento de \"Color Esperanza\" de Diego Torres",
+    "description": "El 3 de septiembre de 2001, el argentino Diego Torres publica \"Color Esperanza\", canción que se convierte en himno de optimismo en toda América Latina. Su mensaje positivo resuena en campañas solidarias y celebraciones multitudinarias.",
+    "category": "release",
+    "year": 2001,
+    "artist": "Diego Torres",
+    "genre": "Pop latino/Música inspiracional"
+  },
+  "09-04": {
+    "id": "festival-petronio-alvarez-cali",
+    "date": "09-04",
+    "title": "🎪 Festival de Música del Pacífico Petronio Álvarez, Cali, Colombia",
+    "description": "El 4 de septiembre inicia el Festival Petronio Álvarez, el evento de música del Pacífico colombiano más importante. Reúne a grupos de marimba, chirimía y cantos tradicionales, promoviendo la diversidad afrocolombiana y sus raíces musicales.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Folklore/Música tradicional"
+  },
+  "09-05": {
+    "id": "coti-paulina-julieta-nada-error-release",
+    "date": "09-05",
+    "title": "💿 Lanzamiento de \"Nada fue un error\" de Coti, Paulina Rubio y Julieta Venegas",
+    "description": "El 5 de septiembre de 2002, Coti junto a Paulina Rubio y Julieta Venegas publican \"Nada fue un error\", tema pop que triunfa en España y América Latina y se mantiene como una de las canciones más emblemáticas del pop latino del siglo XXI.",
+    "category": "release",
+    "year": 2002,
+    "artist": "Coti, Paulina Rubio, Julieta Venegas",
+    "genre": "Pop latino/Pop rock"
+  },
+  "09-06": {
+    "id": "fabulosos-cadillacs-formation",
+    "date": "09-06",
+    "title": "🎸 Fundación de Los Fabulosos Cadillacs en Buenos Aires, Argentina",
+    "description": "El 6 de septiembre de 1985 se forma Los Fabulosos Cadillacs, grupo pionero en mezclar ska, rock y ritmos latinos. Su creatividad los convierte en referencia de la música hispana y su legado sigue vigente tras décadas de actividad.",
+    "category": "formation",
+    "year": 1985,
+    "artist": "Los Fabulosos Cadillacs",
+    "genre": "Ska/Rock latino"
+  },
+  "09-07": {
+    "id": "gipsy-kings-bamboleo-release",
+    "date": "09-07",
+    "title": "💿 Lanzamiento de \"Bamboleo\" de Gipsy Kings",
+    "description": "El 7 de septiembre de 1987, los Gipsy Kings lanzan \"Bamboleo\", rumba flamenca que triunfa a nivel global. Su ritmo festivo y universal lleva la música española a escenarios de todo el mundo y convierte a la banda en embajadores del género.",
+    "category": "release",
+    "year": 1987,
+    "artist": "Gipsy Kings",
+    "genre": "Rumba/Flamenco"
+  },
+  "09-08": {
+    "id": "virgen-caridad-cobre-cuba",
+    "date": "09-08",
+    "title": "🎪 Día de la Virgen de la Caridad del Cobre, Cuba – Música y cultura afrocubana",
+    "description": "El 8 de septiembre se celebra en Cuba la fiesta de la Virgen de la Caridad, con procesiones, conciertos de música tradicional, son, rumba y bolero. Es uno de los eventos más significativos para la cultura y la fe popular cubana.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Son/Bolero/Rumba"
+  },
+  "09-09": {
+    "id": "marc-anthony-vivir-mi-vida-release",
+    "date": "09-09",
+    "title": "💿 Lanzamiento de \"Vivir mi vida\" de Marc Anthony",
+    "description": "El 9 de septiembre de 2013, Marc Anthony publica \"Vivir mi vida\", versión salsera de \"C'est la vie\". La canción se convierte en himno de alegría y superación, siendo interpretada en fiestas, eventos deportivos y campañas de optimismo en toda América Latina y España.",
+    "category": "release",
+    "year": 2013,
+    "artist": "Marc Anthony",
+    "genre": "Salsa/Pop latino"
+  },
+  "09-10": {
+    "id": "hombres-g-formation",
+    "date": "09-10",
+    "title": "🎸 Fundación de Hombres G en Madrid, España",
+    "description": "El 10 de septiembre de 1982 se forma Hombres G, banda emblemática del pop rock español. Con éxitos juveniles y actitud desenfadada, se convierten en referentes de la música en España y América Latina, con fans de varias generaciones.",
+    "category": "formation",
+    "year": 1982,
+    "artist": "Hombres G",
+    "genre": "Pop rock/Pop español"
+  },
+  "09-11": {
+    "id": "oreja-van-gogh-vuelvo-comenzar-release",
+    "date": "09-11",
+    "title": "💿 Lanzamiento de \"Vuelvo a comenzar\" de La Oreja de Van Gogh",
+    "description": "El 11 de septiembre de 2006, la banda española La Oreja de Van Gogh publica \"Vuelvo a comenzar\", canción que marca la nueva etapa del grupo tras la salida de Amaia Montero. El tema destaca por su letra introspectiva y su sonido pop melódico, conectando con fans en España y Latinoamérica.",
+    "category": "release",
+    "year": 2006,
+    "artist": "La Oreja de Van Gogh",
+    "genre": "Pop rock/Pop español"
+  },
+  "09-12": {
+    "id": "nocheros-formation",
+    "date": "09-12",
+    "title": "🎸 Fundación de Los Nocheros en Salta, Argentina",
+    "description": "El 12 de septiembre de 1986 se forma Los Nocheros, grupo clave del folclore romántico argentino. Su fusión de zamba, balada y pop los convierte en referentes del género, llenando estadios y conquistando seguidores en toda América Latina.",
+    "category": "formation",
+    "year": 1986,
+    "artist": "Los Nocheros",
+    "genre": "Folclore/Balada/Pop"
+  },
+  "09-13": {
+    "id": "pablo-alboran-solamente-tu-release",
+    "date": "09-13",
+    "title": "💿 Lanzamiento de \"Solamente tú\" de Pablo Alborán",
+    "description": "El 13 de septiembre de 2010, Pablo Alborán lanza \"Solamente tú\", tema con el que debuta y rápidamente conquista las listas en España y América Latina. Su interpretación delicada y su estilo romántico renuevan la balada pop en español.",
+    "category": "release",
+    "year": 2010,
+    "artist": "Pablo Alborán",
+    "genre": "Balada/Pop"
+  },
+  "09-14": {
+    "id": "festival-musica-morelia-mexico",
+    "date": "09-14",
+    "title": "🎪 Festival de Música de Morelia, Michoacán, México",
+    "description": "El 14 de septiembre comienza el Festival de Música de Morelia, reconocido por reunir a grandes exponentes de la música clásica, tradicional y contemporánea en México. El evento destaca por sus conciertos en espacios históricos y por impulsar a jóvenes talentos.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Multigénero/Clásica/Tradicional"
+  },
+  "09-15": {
+    "id": "selena-como-la-flor-release",
+    "date": "09-15",
+    "title": "💿 Lanzamiento de \"Como la flor\" de Selena",
+    "description": "El 15 de septiembre de 1992, la estadounidense-mexicana Selena Quintanilla publica \"Como la flor\", una de las canciones más emblemáticas del tex-mex y la música latina. Su mensaje de desamor y esperanza la convierte en favorita en celebraciones y homenajes.",
+    "category": "release",
+    "year": 1992,
+    "artist": "Selena",
+    "genre": "Tex-Mex/Cumbia"
+  },
+  "09-16": {
+    "id": "tipitos-formation",
+    "date": "09-16",
+    "title": "🎸 Fundación de Los Tipitos en Mar del Plata, Argentina",
+    "description": "El 16 de septiembre de 1994 se forma Los Tipitos, banda de rock nacional argentino con influencias de pop internacional. Su éxito se extiende por toda Argentina, participando en festivales y presentándose en escenarios de gran relevancia.",
+    "category": "formation",
+    "year": 1994,
+    "artist": "Los Tipitos",
+    "genre": "Rock nacional/Pop rock"
+  },
+  "09-17": {
+    "id": "juanes-nada-valgo-sin-tu-amor-release",
+    "date": "09-17",
+    "title": "💿 Lanzamiento de \"Nada Valgo Sin Tu Amor\" de Juanes",
+    "description": "El 17 de septiembre de 2004, el colombiano Juanes publica \"Nada Valgo Sin Tu Amor\", canción que gana premios internacionales y es coreada por miles de fans en toda Iberoamérica. Su mezcla de pop, rock y sensibilidad romántica la mantiene vigente hasta hoy.",
+    "category": "release",
+    "year": 2004,
+    "artist": "Juanes",
+    "genre": "Pop rock/Latino"
+  },
+  "09-18": {
+    "id": "independencia-chile-musica",
+    "date": "09-18",
+    "title": "🎪 Día de la Independencia de Chile – Cuecas, música folclórica y rock nacional",
+    "description": "El 18 de septiembre, Día de la Independencia de Chile, se celebran conciertos de cueca, folclore, pop y rock nacional en todo el país. Artistas de todas las generaciones participan en eventos multitudinarios y la música es protagonista de las Fiestas Patrias chilenas.",
+    "category": "event",
+    "year": 0,
+    "artist": "Varios artistas",
+    "genre": "Folklore/Rock/Popular"
+  },
+  "09-19": {
+    "id": "sergio-dalma-bailar-pegados-release",
+    "date": "09-19",
+    "title": "💿 Lanzamiento de \"Bailar pegados\" de Sergio Dalma",
+    "description": "El 19 de septiembre de 1991, el español Sergio Dalma publica \"Bailar pegados\", balada que representa a España en Eurovisión y se convierte en éxito en toda Europa y América Latina. El tema sigue siendo infaltable en celebraciones y playlists románticas.",
+    "category": "release",
+    "year": 1991,
+    "artist": "Sergio Dalma",
+    "genre": "Balada/Pop romántico"
+  },
+  "09-20": {
+    "id": "amigos-invisibles-formation",
+    "date": "09-20",
+    "title": "🎸 Fundación de Los Amigos Invisibles en Caracas, Venezuela",
+    "description": "El 20 de septiembre de 1991 se forma Los Amigos Invisibles, banda venezolana pionera en fusionar funk, disco, acid jazz y ritmos latinos. Han llevado su música a escenarios internacionales y su creatividad les ha hecho ganar premios y el reconocimiento global.",
+    "category": "formation",
+    "year": 1991,
+    "artist": "Los Amigos Invisibles",
+    "genre": "Funk/Disco/Fusión"
   }
 }

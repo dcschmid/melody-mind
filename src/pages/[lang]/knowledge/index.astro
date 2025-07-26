@@ -331,7 +331,7 @@ const clientTranslations = {
     </div>
   </main>
 
-  <!-- Enhanced SEO-optimized JavaScript with modern ES6+ features -->
+  <!-- Simplified JavaScript -->
   <script>
     // Type-safe window extension for translations
     interface WindowWithTranslations extends Window {
@@ -404,19 +404,7 @@ const clientTranslations = {
         searchInput.focus();
       };
 
-      setupSearchEventListeners(searchInput, resetButton, clearButton, performSearch, resetSearch);
-      setupKeyboardNavigation(searchInput, resetSearch, currentSearchQuery);
-      toggleClearButton(false);
-    }
-
-    // Setup search event listeners
-    function setupSearchEventListeners(
-      searchInput: HTMLInputElement,
-      resetButton: HTMLButtonElement,
-      clearButton: HTMLButtonElement,
-      performSearch: (query: string) => void,
-      resetSearch: () => void
-    ): void {
+      // Setup event listeners
       let debounceTimer: ReturnType<typeof setTimeout>;
 
       searchInput.addEventListener("input", (e: Event) => {
@@ -440,14 +428,8 @@ const clientTranslations = {
       if (resetButton) {
         resetButton.addEventListener("click", resetSearch);
       }
-    }
 
-    // Setup keyboard navigation
-    function setupKeyboardNavigation(
-      searchInput: HTMLInputElement,
-      resetSearch: () => void,
-      currentSearchQuery: string
-    ): void {
+      // Keyboard navigation
       document.addEventListener("keydown", (e: KeyboardEvent) => {
         if (e.key === "Escape" && (document.activeElement === searchInput || currentSearchQuery)) {
           resetSearch();
@@ -458,59 +440,12 @@ const clientTranslations = {
           searchInput.focus();
         }
       });
+
+      toggleClearButton(false);
     }
 
-    // Initialize lazy loading
-    function initializeLazyLoading(): void {
-      if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const img = entry.target as HTMLImageElement;
-              if (img.dataset.src) {
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                imageObserver.unobserve(img);
-              }
-            }
-          });
-        }, {
-          rootMargin: '50px'
-        });
-
-        document.querySelectorAll('img[data-src]').forEach((img) => {
-          imageObserver.observe(img);
-        });
-      }
-    }
-
-    // Initialize performance monitoring
-    function initializePerformanceMonitoring(): void {
-      if ('PerformanceObserver' in window && 'sessionStorage' in window) {
-        try {
-          new PerformanceObserver((list) => {
-            list.getEntries().forEach((entry) => {
-              if ('value' in entry) {
-                const value = (entry as {value: number}).value;
-                const metric = `${entry.name}: ${value}`;
-                sessionStorage.setItem('lastMetric', metric);
-              }
-            });
-          }).observe({ entryTypes: ['largest-contentful-paint', 'first-input'] as const });
-        } catch {
-          // Silently fail for browsers that don't support certain metrics
-        }
-      }
-    }
-
-    // Main initialization function
-    function initializeKnowledgePage(): void {
-      initializeSearchFunctionality();
-      initializeLazyLoading();
-      initializePerformanceMonitoring();
-    }
-
-    document.addEventListener("DOMContentLoaded", initializeKnowledgePage);
+    // Initialize on DOM ready
+    document.addEventListener("DOMContentLoaded", initializeSearchFunctionality);
   </script>
 </Layout>
 
@@ -524,15 +459,17 @@ const clientTranslations = {
   .knowledge-page {
     max-width: var(--container-xl);
     margin: 0 auto;
-    padding: var(--space-lg);
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
+    padding: var(--space-md);
 
-    @media (min-width: 768px) {
+    @media (min-width: 30em) {
+      padding: var(--space-lg);
+    }
+
+    @media (min-width: 48em) {
       padding: var(--space-xl);
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 64em) {
       padding: var(--space-2xl);
     }
 
@@ -546,32 +483,31 @@ const clientTranslations = {
    * ====================================== */
   .knowledge-hero {
     position: relative;
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
     overflow: hidden;
-    border-radius: var(--radius-xl);
-    background: linear-gradient(
-      135deg,
-      var(--color-primary-900) 0%,
-      var(--color-primary-700) 50%,
-      var(--color-secondary-800) 100%
-    );
-    padding: var(--space-xl);
-    box-shadow: var(--shadow-xl);
+    border-radius: var(--radius-lg);
+    background: var(--bg-secondary);
+    padding: var(--space-lg);
     border: var(--border-width-thin) solid var(--border-primary);
 
-    @media (min-width: 768px) {
+    @media (min-width: 30em) {
+      padding: var(--space-xl);
+      margin-bottom: var(--space-2xl);
+    }
+
+    @media (min-width: 48em) {
       padding: var(--space-2xl);
       margin-bottom: var(--space-3xl);
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 64em) {
       padding: var(--space-3xl) var(--space-2xl);
     }
 
     &__decoration {
       position: absolute;
       inset: 0;
-      opacity: 0.1;
+      opacity: 0.05;
       pointer-events: none;
 
       &-item {
@@ -580,39 +516,39 @@ const clientTranslations = {
         background: var(--color-white);
 
         &--top-left {
-          top: calc(-1 * var(--space-xl));
-          left: calc(-1 * var(--space-xl));
+          top: calc(-1 * var(--space-lg));
+          left: calc(-1 * var(--space-lg));
+          width: var(--space-2xl);
+          height: var(--space-2xl);
+
+          @media (min-width: 48em) {
+            width: var(--space-3xl);
+            height: var(--space-3xl);
+          }
+        }
+
+        &--bottom-right {
+          bottom: calc(-1 * var(--space-lg));
+          right: calc(-1 * var(--space-lg));
           width: var(--space-3xl);
           height: var(--space-3xl);
 
-          @media (min-width: 768px) {
+          @media (min-width: 48em) {
             width: calc(var(--space-3xl) * 1.5);
             height: calc(var(--space-3xl) * 1.5);
           }
         }
 
-        &--bottom-right {
-          bottom: calc(-1 * var(--space-2xl));
-          right: calc(-1 * var(--space-2xl));
-          width: calc(var(--space-3xl) * 2);
-          height: calc(var(--space-3xl) * 2);
-
-          @media (min-width: 768px) {
-            width: calc(var(--space-3xl) * 2.5);
-            height: calc(var(--space-3xl) * 2.5);
-          }
-        }
-
         &--center-left {
           top: 50%;
-          left: calc(-1 * var(--space-md));
-          width: var(--space-2xl);
-          height: var(--space-2xl);
+          left: calc(-1 * var(--space-sm));
+          width: var(--space-xl);
+          height: var(--space-xl);
           transform: translateY(-50%);
 
-          @media (min-width: 768px) {
-            width: calc(var(--space-2xl) * 1.5);
-            height: calc(var(--space-2xl) * 1.5);
+          @media (min-width: 48em) {
+            width: var(--space-2xl);
+            height: var(--space-2xl);
           }
         }
       }
@@ -622,40 +558,43 @@ const clientTranslations = {
       position: relative;
       z-index: 1;
       text-align: center;
-      color: var(--color-white);
+      color: var(--text-primary);
       margin: 0 auto;
     }
 
     &__title {
-      margin-bottom: var(--space-lg);
-      color: var(--color-white);
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      margin-bottom: var(--space-md);
+      color: var(--text-primary);
 
-      @media (min-width: 768px) {
-        margin-bottom: var(--space-xl);
+      @media (min-width: 30em) {
+        margin-bottom: var(--space-lg);
       }
     }
 
     &__divider {
-      width: var(--icon-size-xl);
-      height: var(--border-width-thick);
+      width: var(--icon-size-lg);
+      height: var(--border-width-thin);
       background: var(--color-secondary-400);
-      margin: var(--space-lg) auto;
+      margin: var(--space-md) auto;
       border-radius: var(--radius-full);
 
-      @media (min-width: 768px) {
-        width: calc(var(--icon-size-xl) * 1.5);
-        margin: var(--space-xl) auto;
+      @media (min-width: 30em) {
+        width: var(--icon-size-xl);
+        margin: var(--space-lg) auto;
       }
     }
 
     &__description {
-      color: var(--color-neutral-100);
-      font-size: var(--text-lg);
+      color: var(--text-secondary);
+      font-size: var(--text-base);
       line-height: var(--leading-relaxed);
       text-align: center;
 
-      @media (min-width: 768px) {
+      @media (min-width: 30em) {
+        font-size: var(--text-lg);
+      }
+
+      @media (min-width: 48em) {
         font-size: var(--text-xl);
         max-width: 600px;
         margin: 0 auto;
@@ -667,9 +606,13 @@ const clientTranslations = {
    * BREADCRUMBS
    * ====================================== */
   .breadcrumb {
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
 
-    @media (min-width: 768px) {
+    @media (min-width: 30em) {
+      margin-bottom: var(--space-xl);
+    }
+
+    @media (min-width: 48em) {
       margin-bottom: var(--space-2xl);
     }
 
@@ -709,8 +652,9 @@ const clientTranslations = {
         background-color: var(--bg-secondary);
       }
 
-      &:focus {
-        outline: var(--focus-outline);
+      &:focus-visible {
+        outline: var(--focus-enhanced-outline-dark);
+        outline-offset: var(--focus-ring-offset);
         border-radius: var(--radius-sm);
       }
     }
@@ -730,75 +674,65 @@ const clientTranslations = {
    * ====================================== */
   .search-container {
     position: relative;
-    margin-bottom: var(--space-3xl);
-    padding: var(--space-xl);
-    background: linear-gradient(
-      135deg,
-      var(--bg-secondary) 0%,
-      rgba(139, 92, 246, 0.05) 100%
-    );
+    margin-bottom: var(--space-2xl);
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
     border: var(--border-width-thin) solid var(--border-primary);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl);
-    overflow: hidden;
+    border-radius: var(--radius-lg);
 
-    @media (min-width: 768px) {
-      padding: var(--space-2xl);
+    @media (min-width: 30em) {
+      padding: var(--space-xl);
     }
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(
-        90deg,
-        var(--color-primary-500),
-        var(--color-secondary-500)
-      );
+    @media (min-width: 48em) {
+      padding: var(--space-2xl);
     }
 
     &__header {
       text-align: center;
-      margin-bottom: var(--space-xl);
+      margin-bottom: var(--space-lg);
 
-      @media (min-width: 768px) {
+      @media (min-width: 30em) {
+        margin-bottom: var(--space-xl);
+      }
+
+      @media (min-width: 48em) {
         margin-bottom: var(--space-2xl);
       }
     }
 
     &__heading {
       margin-bottom: var(--space-sm);
-      background: linear-gradient(
-        135deg,
-        var(--color-primary-600),
-        var(--color-secondary-600)
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--text-primary);
     }
 
     &__subtitle {
       color: var(--text-secondary);
-      font-size: var(--text-base);
-      max-width: 500px;
-      margin: 0 auto;
+      font-size: var(--text-sm);
 
-      @media (min-width: 768px) {
+      @media (min-width: 30em) {
+        font-size: var(--text-base);
+      }
+
+      @media (min-width: 48em) {
         font-size: var(--text-lg);
+        max-width: 500px;
+        margin: 0 auto;
       }
     }
 
     &__form {
       display: flex;
       flex-direction: column;
-      gap: var(--space-lg);
-      margin-bottom: var(--space-xl);
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
 
-      @media (min-width: 768px) {
+      @media (min-width: 30em) {
+        gap: var(--space-lg);
+        margin-bottom: var(--space-xl);
+      }
+
+      @media (min-width: 48em) {
         flex-direction: row;
         align-items: flex-end;
         gap: var(--space-xl);
@@ -817,58 +751,59 @@ const clientTranslations = {
       display: flex;
       align-items: center;
       background-color: var(--form-bg);
-      border: var(--border-width-thick) solid var(--border-primary);
-      border-radius: var(--radius-lg);
-      transition: all var(--transition-normal);
+      border: var(--border-width-thin) solid var(--border-primary);
+      border-radius: var(--radius-md);
+      transition: border-color var(--transition-normal);
       overflow: hidden;
 
       &:focus-within {
         border-color: var(--interactive-primary);
-        box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
-        transform: translateY(calc(-1 * var(--space-xs)));
       }
     }
 
     &__icon-wrapper {
       position: absolute;
-      left: var(--space-lg);
+      left: var(--space-md);
       z-index: 2;
       pointer-events: none;
     }
 
     &__icon {
-      width: var(--space-lg);
-      height: var(--space-lg);
+      width: var(--space-md);
+      height: var(--space-md);
       color: var(--interactive-primary);
-      transition: color var(--transition-normal);
     }
 
     &__input {
       flex: 1;
       width: 100%;
-      padding: var(--space-lg) var(--space-3xl) var(--space-lg) var(--space-3xl);
+      padding: var(--space-md) var(--space-2xl) var(--space-md) var(--space-2xl);
       background: transparent;
       border: none;
       color: var(--text-primary);
-      font-size: var(--text-lg);
+      font-size: var(--text-base);
       font-weight: var(--font-medium);
       outline: none;
-      transition: all var(--transition-normal);
 
       &::placeholder {
         color: var(--text-tertiary);
         font-weight: var(--font-normal);
       }
 
-      @media (min-width: 768px) {
+      @media (min-width: 30em) {
+        font-size: var(--text-lg);
+        padding: var(--space-lg) var(--space-2xl) var(--space-lg) var(--space-2xl);
+      }
+
+      @media (min-width: 48em) {
         font-size: var(--text-xl);
-        padding: var(--space-xl) var(--space-3xl) var(--space-xl) var(--space-3xl);
+        padding: var(--space-xl) var(--space-2xl) var(--space-xl) var(--space-2xl);
       }
     }
 
     &__clear-wrapper {
       position: absolute;
-      right: var(--space-md);
+      right: var(--space-sm);
       z-index: 2;
     }
 
@@ -876,27 +811,27 @@ const clientTranslations = {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: var(--space-xl);
-      height: var(--space-xl);
+      width: var(--space-lg);
+      height: var(--space-lg);
       background-color: var(--color-neutral-200);
       border: none;
       border-radius: var(--radius-full);
       cursor: pointer;
-      transition: all var(--transition-fast);
+      transition: background-color var(--transition-normal);
 
       &:hover {
         background-color: var(--color-neutral-300);
-        transform: scale(1.1);
       }
 
-      &:focus {
-        outline: var(--focus-outline);
+      &:focus-visible {
+        outline: var(--focus-enhanced-outline-dark);
+        outline-offset: var(--focus-ring-offset);
       }
     }
 
     &__clear-icon {
-      width: var(--space-md);
-      height: var(--space-md);
+      width: var(--space-sm);
+      height: var(--space-sm);
       color: var(--text-secondary);
     }
 
@@ -905,58 +840,40 @@ const clientTranslations = {
       align-items: center;
       justify-content: center;
       gap: var(--space-sm);
-      padding: var(--space-lg) var(--space-xl);
-      background: linear-gradient(
-        135deg,
-        var(--interactive-primary),
-        var(--interactive-secondary)
-      );
+      padding: var(--space-md) var(--space-lg);
+      background: var(--btn-primary-bg);
       color: var(--btn-primary-text);
       border: none;
-      border-radius: var(--radius-lg);
-      font-size: var(--text-lg);
+      border-radius: var(--radius-md);
+      font-size: var(--text-base);
       font-weight: var(--font-semibold);
       cursor: pointer;
-      transition: all var(--transition-normal);
+      transition: background-color var(--transition-normal);
       min-width: 120px;
 
       &:hover {
-        transform: translateY(calc(-1 * var(--space-xs)));
-        box-shadow: var(--shadow-lg);
+        background: var(--btn-primary-hover);
       }
 
-      &:focus {
-        outline: var(--focus-outline);
+      &:focus-visible {
+        outline: var(--focus-enhanced-outline-dark);
+        outline-offset: var(--focus-ring-offset);
       }
 
-      @media (min-width: 768px) {
+      @media (min-width: 30em) {
+        padding: var(--space-lg) var(--space-xl);
+        font-size: var(--text-lg);
+      }
+
+      @media (min-width: 48em) {
         padding: var(--space-xl) var(--space-2xl);
         font-size: var(--text-xl);
       }
     }
 
     &__reset-icon {
-      width: var(--space-lg);
-      height: var(--space-lg);
-    }
-  }
-
-  /* Dark mode enhancements */
-  :global(.dark) {
-    .search-container {
-      background: linear-gradient(
-        135deg,
-        var(--bg-secondary) 0%,
-        rgba(139, 92, 246, 0.08) 100%
-      );
-
-      &__clear-button {
-        background-color: var(--color-neutral-700);
-
-        &:hover {
-          background-color: var(--color-neutral-600);
-        }
-      }
+      width: var(--space-md);
+      height: var(--space-md);
     }
   }
 
@@ -965,10 +882,14 @@ const clientTranslations = {
    * ====================================== */
   .no-results {
     text-align: center;
-    padding: var(--space-2xl);
-    margin-bottom: var(--space-xl);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-lg);
 
-    @media (min-width: 768px) {
+    @media (min-width: 30em) {
+      padding: var(--space-2xl);
+    }
+
+    @media (min-width: 48em) {
       padding: var(--space-3xl);
     }
 
@@ -976,7 +897,7 @@ const clientTranslations = {
       max-width: 400px;
       margin: 0 auto;
 
-      @media (min-width: 768px) {
+      @media (min-width: 48em) {
         max-width: 500px;
       }
     }
@@ -991,9 +912,13 @@ const clientTranslations = {
    * ARTICLES GRID
    * ====================================== */
   .articles-section {
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
 
-    @media (min-width: 768px) {
+    @media (min-width: 30em) {
+      margin-bottom: var(--space-2xl);
+    }
+
+    @media (min-width: 48em) {
       margin-bottom: var(--space-3xl);
     }
   }
@@ -1001,16 +926,19 @@ const clientTranslations = {
   .articles-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
     list-style: none;
     margin: 0;
     padding: 0;
 
-    @media (min-width: 768px) {
+    @media (min-width: 48em) {
       grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-2xl);
+      gap: var(--space-xl);
     }
 
+    @media (min-width: 64em) {
+      gap: var(--space-2xl);
+    }
 
     &__item {
       position: relative;
@@ -1019,9 +947,13 @@ const clientTranslations = {
     &__empty {
       grid-column: 1 / -1;
       text-align: center;
-      padding: var(--space-2xl);
+      padding: var(--space-xl);
 
-      @media (min-width: 768px) {
+      @media (min-width: 30em) {
+        padding: var(--space-2xl);
+      }
+
+      @media (min-width: 48em) {
         padding: var(--space-3xl);
       }
 
@@ -1029,7 +961,7 @@ const clientTranslations = {
         max-width: 400px;
         margin: 0 auto;
 
-        @media (min-width: 768px) {
+        @media (min-width: 48em) {
           max-width: 500px;
         }
       }
@@ -1066,8 +998,8 @@ const clientTranslations = {
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     * {
-      animation-duration: 0.01ms !important;
-      transition-duration: 0.01ms !important;
+      animation-duration: var(--transition-instant) !important;
+      transition-duration: var(--transition-instant) !important;
       scroll-behavior: auto !important;
     }
   }
@@ -1088,5 +1020,6 @@ const clientTranslations = {
   .search-container__clear-button:focus-visible,
   .search-container__reset-button:focus-visible {
     outline: var(--focus-enhanced-outline-dark);
+    outline-offset: var(--focus-ring-offset);
   }
 </style>

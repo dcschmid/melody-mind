@@ -41,7 +41,7 @@ const pageDescription = t("news.description");
 const enrichedContent = newsData?.items
   ? `${pageTitle} ${pageDescription} ${newsData.items
       .slice(0, 10)
-      .map(item => `${item.title} ${item.description}`)
+      .map((item) => `${item.title} ${item.description}`)
       .join(" ")}`
   : `${pageTitle} ${pageDescription}`;
 
@@ -54,49 +54,51 @@ const baseUrl = Astro.site?.toString() || "https://melody-mind.de";
 const currentUrl = `${baseUrl}/${currentLang}/news`;
 
 // Generate NewsArticle structured data using existing patterns
-const newsStructuredData = newsData?.items?.length ? {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": `${pageTitle} - MelodyMind`,
-  "description": optimizedDescription,
-  "url": currentUrl,
-  "inLanguage": currentLang,
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "MelodyMind",
-    "url": baseUrl
-  },
-  "mainEntity": {
-    "@type": "ItemList",
-    "numberOfItems": newsData.items.length,
-    "itemListElement": newsData.items.slice(0, 10).map((item, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "item": {
-        "@type": "NewsArticle",
-        "headline": item.title,
-        "description": item.description,
-        "url": item.link,
-        "datePublished": item.pubDate,
-        "author": {
-          "@type": "Organization",
-          "name": item.source
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "MelodyMind",
-          "url": baseUrl
-        },
-        "image": item.imageUrl || `${baseUrl}/images/news-fallback.svg`,
-        "genre": "Music",
-        "about": "Music News"
-      }
-    }))
-  }
-} : null;
+const newsStructuredData = newsData?.items?.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: `${pageTitle} - MelodyMind`,
+      description: optimizedDescription,
+      url: currentUrl,
+      inLanguage: currentLang,
+      isPartOf: {
+        "@type": "WebSite",
+        name: "MelodyMind",
+        url: baseUrl,
+      },
+      mainEntity: {
+        "@type": "ItemList",
+        numberOfItems: newsData.items.length,
+        itemListElement: newsData.items.slice(0, 10).map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item: {
+            "@type": "NewsArticle",
+            headline: item.title,
+            description: item.description,
+            url: item.link,
+            datePublished: item.pubDate,
+            author: {
+              "@type": "Organization",
+              name: item.source,
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "MelodyMind",
+              url: baseUrl,
+            },
+            image: item.imageUrl || `${baseUrl}/images/news-fallback.svg`,
+            genre: "Music",
+            about: "Music News",
+          },
+        })),
+      },
+    }
+  : null;
 ---
 
-<Layout 
+<Layout
   title={`${pageTitle} - MelodyMind`}
   description={optimizedDescription}
   keywords={seoKeywords}
@@ -108,11 +110,13 @@ const newsStructuredData = newsData?.items?.length ? {
   <!-- Enhanced structured data for news -->
   <Fragment slot="head">
     <link rel="canonical" href={currentUrl} />
-    
-    {newsStructuredData && (
-      <script type="application/ld+json" set:html={JSON.stringify(newsStructuredData)} />
-    )}
-    
+
+    {
+      newsStructuredData && (
+        <script type="application/ld+json" set:html={JSON.stringify(newsStructuredData)} />
+      )
+    }
+
     <!-- News-specific meta tags -->
     <meta name="news_keywords" content={seoKeywords} />
     <meta property="article:section" content="Music News" />
@@ -136,7 +140,7 @@ const newsStructuredData = newsData?.items?.length ? {
           <h1 id="news-heading" class="news__hero-title">{pageTitle}</h1>
           <div class="news__hero-divider"></div>
           <p class="news__hero-description">{pageDescription}</p>
-          
+
           {
             newsData && (
               <div class="news__hero-meta">
@@ -147,7 +151,9 @@ const newsStructuredData = newsData?.items?.length ? {
                   </time>
                 </div>
                 <div class="news__hero-meta-item">
-                  <span class="news__hero-meta-label">{t("news.sourcesCount", { count: newsData.totalSources })}</span>
+                  <span class="news__hero-meta-label">
+                    {t("news.sourcesCount", { count: newsData.totalSources })}
+                  </span>
                 </div>
               </div>
             )
@@ -176,10 +182,10 @@ const newsStructuredData = newsData?.items?.length ? {
 
             <div class="news__grid" itemscope itemtype="https://schema.org/ItemList">
               {newsData.items.map((item, index) => (
-                <article 
-                  class="news__card" 
+                <article
+                  class="news__card"
                   aria-labelledby={`news-title-${index}`}
-                  itemscope 
+                  itemscope
                   itemtype="https://schema.org/NewsArticle"
                   itemprop="itemListElement"
                 >
@@ -198,8 +204,14 @@ const newsStructuredData = newsData?.items?.length ? {
                   <div class="news__card-content">
                     <header class="news__card-header">
                       <div class="news__card-meta">
-                        <span class="news__card-source" itemprop="author">{item.source}</span>
-                        <time class="news__card-date" datetime={item.pubDate} itemprop="datePublished">
+                        <span class="news__card-source" itemprop="author">
+                          {item.source}
+                        </span>
+                        <time
+                          class="news__card-date"
+                          datetime={item.pubDate}
+                          itemprop="datePublished"
+                        >
                           {new Date(item.pubDate).toLocaleDateString(currentLang)}
                         </time>
                       </div>
@@ -216,7 +228,11 @@ const newsStructuredData = newsData?.items?.length ? {
                         </a>
                       </h3>
 
-                      {item.description && <p class="news__card-description" itemprop="description">{item.description}</p>}
+                      {item.description && (
+                        <p class="news__card-description" itemprop="description">
+                          {item.description}
+                        </p>
+                      )}
                     </header>
 
                     <footer class="news__card-footer">
@@ -283,8 +299,8 @@ const newsStructuredData = newsData?.items?.length ? {
 
 <style lang="scss">
   /* ======================================
-   * NEWS PAGE STYLES - FOLLOWING GAMEHOME CARD DESIGN
-   * Using global.css variables for consistency
+   * NEWS PAGE STYLES - OPTIMIZED FOR STYLE GUARDIAN
+   * BEM Methodology + Global Variables + Mobile-First
    * ====================================== */
 
   .news {
@@ -297,14 +313,13 @@ const newsStructuredData = newsData?.items?.length ? {
   .news__container {
     max-width: var(--container-xl);
     margin: 0 auto;
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-xs); // Mobile: minimal horizontal spacing
 
-    // Mobile Portrait - compact padding
-    @media (max-width: 19.9375em) {
+    @media (min-width: 20em) {
       padding: 0 var(--space-sm);
     }
 
-    @media (min-width: 20em) {
+    @media (min-width: 48em) {
       padding: 0 var(--space-lg);
     }
 
@@ -314,7 +329,7 @@ const newsStructuredData = newsData?.items?.length ? {
   }
 
   /* ======================================
-   * HERO SECTION - LIKE GAMEHOME DESIGN
+   * HERO SECTION - SIMPLIFIED DESIGN
    * ====================================== */
   .news__hero {
     position: relative;
@@ -326,19 +341,13 @@ const newsStructuredData = newsData?.items?.length ? {
       var(--color-secondary-800) 100%
     );
     box-shadow: var(--shadow-xl);
-    border: 1px solid var(--border-color);
+    border: var(--border-width-thin) solid var(--border-primary);
     margin-bottom: var(--space-2xl);
     border-radius: var(--radius-xl);
+    padding: var(--space-lg) var(--space-sm); // Mobile: compact spacing
 
-    // Mobile Portrait - compact spacing
-    padding: var(--space-lg) var(--space-md);
-
-    @media (min-width: 20em) {
-      padding: var(--space-xl) var(--space-lg);
-    }
-
-    @media (min-width: 40em) {
-      padding: var(--space-2xl) var(--space-xl);
+    @media (min-width: 48em) {
+      padding: var(--space-2xl) var(--space-lg);
       border-radius: var(--radius-2xl);
     }
 
@@ -396,25 +405,22 @@ const newsStructuredData = newsData?.items?.length ? {
 
   .news__hero-title {
     color: var(--color-white);
-    text-shadow: var(--text-shadow-strong);
-
-    // Mobile Portrait - compact spacing
+    text-shadow: var(--shadow-lg);
     margin-bottom: var(--space-sm);
     font-size: var(--text-xl);
     line-height: var(--leading-tight);
 
-    @media (min-width: 20em) {
+    @media (min-width: 48em) {
       margin-bottom: var(--space-md);
       font-size: var(--text-2xl);
-      line-height: var(--leading-snug);
     }
 
-    @media (min-width: 40em) {
+    @media (min-width: 64em) {
       margin-bottom: var(--space-lg);
       font-size: var(--text-3xl);
     }
 
-    @media (min-width: 64em) {
+    @media (min-width: 80em) {
       font-size: var(--text-4xl);
       line-height: var(--leading-relaxed);
     }
@@ -423,19 +429,17 @@ const newsStructuredData = newsData?.items?.length ? {
   .news__hero-divider {
     background: var(--color-secondary-400);
     border-radius: var(--radius-full);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
-    // Mobile Portrait - smaller divider
+    box-shadow: var(--shadow-md);
     width: var(--icon-size-lg);
     height: var(--border-width-thick);
     margin: var(--space-md) auto;
 
-    @media (min-width: 20em) {
+    @media (min-width: 48em) {
       width: var(--icon-size-xl);
       margin: var(--space-lg) auto;
     }
 
-    @media (min-width: 40em) {
+    @media (min-width: 64em) {
       height: var(--border-width-enhanced);
     }
   }
@@ -444,23 +448,21 @@ const newsStructuredData = newsData?.items?.length ? {
     color: var(--color-neutral-100);
     line-height: var(--leading-relaxed);
     margin: 0 auto var(--space-xl);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-
-    // Mobile Portrait - compact text
+    text-shadow: var(--shadow-sm);
     font-size: var(--text-base);
     max-width: var(--container-xs);
 
-    @media (min-width: 20em) {
+    @media (min-width: 48em) {
       font-size: var(--text-lg);
       max-width: var(--container-sm);
     }
 
-    @media (min-width: 40em) {
+    @media (min-width: 64em) {
       font-size: var(--text-xl);
       max-width: var(--container-md);
     }
 
-    @media (min-width: 64em) {
+    @media (min-width: 80em) {
       font-size: var(--text-2xl);
       max-width: var(--container-lg);
     }
@@ -486,7 +488,7 @@ const newsStructuredData = newsData?.items?.length ? {
     background: rgba(255, 255, 255, 0.1);
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--radius-full);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: var(--border-width-thin) solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     font-size: var(--text-sm);
 
@@ -516,12 +518,12 @@ const newsStructuredData = newsData?.items?.length ? {
     padding: var(--space-2xl);
     background: var(--bg-secondary);
     border-radius: var(--radius-xl);
-    border: 1px solid var(--border-color);
+    border: var(--border-width-thin) solid var(--border-primary);
     margin: var(--space-xl) 0;
   }
 
   .news__error {
-    border-color: var(--error-500);
+    border-color: var(--color-error-500);
     background: var(--bg-error-aaa);
   }
 
@@ -534,7 +536,7 @@ const newsStructuredData = newsData?.items?.length ? {
 
   .news__retry-btn,
   .news__refresh-btn {
-    background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
     color: var(--color-white);
     border: none;
     border-radius: var(--radius-lg);
@@ -544,9 +546,10 @@ const newsStructuredData = newsData?.items?.length ? {
     font-weight: var(--font-medium);
     transition: all var(--transition-base);
     margin-top: var(--space-md);
+    min-height: var(--touch-target-enhanced);
 
     &:hover {
-      background: linear-gradient(135deg, var(--primary-700), var(--primary-800));
+      background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-800));
       transform: translateY(-2px);
       box-shadow: var(--shadow-lg);
     }
@@ -554,53 +557,41 @@ const newsStructuredData = newsData?.items?.length ? {
     &:active {
       transform: translateY(0);
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      &:hover {
+        transform: none;
+      }
+    }
   }
 
   /* ======================================
-   * NEWS GRID - CARD LAYOUT LIKE GAMEHOME
+   * NEWS GRID - SIMPLIFIED LAYOUT
    * ====================================== */
   .news__grid {
     display: grid;
     margin-bottom: var(--space-2xl);
-    gap: var(--space-lg);
+    gap: var(--space-md); // Mobile: smaller gaps
+    grid-template-columns: 1fr; // Mobile: single column
 
-    // Mobile Portrait - single column
-    grid-template-columns: 1fr;
-
-    // Mobile Landscape
-    @media (min-width: 20em) {
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: var(--space-xl);
-    }
-
-    // Small Tablet
-    @media (min-width: 40em) {
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    }
-
-    // Medium Tablet
     @media (min-width: 48em) {
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-lg);
     }
 
-    // Desktop
     @media (min-width: 64em) {
-      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-    }
-
-    // Large Desktop
-    @media (min-width: 80em) {
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
     }
   }
 
   /* ======================================
-   * NEWS CARDS - FOLLOWING GAMEHOME DESIGN
+   * NEWS CARDS - SIMPLIFIED DESIGN
    * ====================================== */
   .news__card {
     background: var(--bg-secondary);
     border-radius: var(--radius-xl);
-    border: 1px solid var(--border-color);
+    border: var(--border-width-thin) solid var(--border-primary);
     transition: all var(--transition-base);
     display: flex;
     flex-direction: column;
@@ -612,14 +603,13 @@ const newsStructuredData = newsData?.items?.length ? {
     &:hover {
       transform: translateY(-8px);
       box-shadow: var(--shadow-2xl);
-      border-color: var(--primary-500);
+      border-color: var(--color-primary-500);
 
       .news__card-img {
         transform: scale(1.05);
       }
     }
 
-    // Reduced motion support
     @media (prefers-reduced-motion: reduce) {
       &:hover {
         transform: none;
@@ -638,8 +628,8 @@ const newsStructuredData = newsData?.items?.length ? {
     overflow: hidden;
     background: linear-gradient(
       135deg,
-      var(--primary-900),
-      var(--secondary-900),
+      var(--color-primary-900),
+      var(--color-secondary-900),
       var(--bg-tertiary)
     );
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
@@ -648,11 +638,7 @@ const newsStructuredData = newsData?.items?.length ? {
       height: 160px;
     }
 
-    @media (min-width: 20em) and (max-width: 39.9375em) {
-      height: 180px;
-    }
-
-    @media (min-width: 40em) {
+    @media (min-width: 48em) {
       height: 220px;
     }
   }
@@ -687,7 +673,7 @@ const newsStructuredData = newsData?.items?.length ? {
   .news__card-image-icon {
     font-size: 3rem;
     color: var(--color-white);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: var(--shadow-md);
   }
 
   // Show overlay when image fails to load or is fallback image
@@ -749,13 +735,13 @@ const newsStructuredData = newsData?.items?.length ? {
 
   /* Card Content */
   .news__card-content {
-    padding: var(--space-lg);
+    padding: var(--space-md); // Mobile: compact padding
     flex: 1;
     display: flex;
     flex-direction: column;
 
-    @media (max-width: 19.9375em) {
-      padding: var(--space-md);
+    @media (min-width: 48em) {
+      padding: var(--space-lg);
     }
   }
 
@@ -783,12 +769,12 @@ const newsStructuredData = newsData?.items?.length ? {
 
   .news__card-source {
     font-weight: var(--font-semibold);
-    color: var(--primary-400);
+    color: var(--color-primary-400);
     background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
     padding: var(--space-xs) var(--space-sm);
     border-radius: var(--radius-full);
     font-size: var(--text-xs);
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    border: var(--border-width-thin) solid rgba(139, 92, 246, 0.2);
   }
 
   .news__card-date {
@@ -797,14 +783,14 @@ const newsStructuredData = newsData?.items?.length ? {
   }
 
   .news__card-title {
-    font-size: clamp(var(--text-lg), 2vw, var(--text-xl));
+    font-size: var(--text-lg);
     font-weight: var(--font-bold);
     margin-bottom: var(--space-md);
     line-height: var(--leading-tight);
     color: var(--text-primary);
 
-    @media (max-width: 19.9375em) {
-      margin-bottom: var(--space-sm);
+    @media (min-width: 48em) {
+      font-size: var(--text-xl);
     }
   }
 
@@ -814,12 +800,12 @@ const newsStructuredData = newsData?.items?.length ? {
     transition: color var(--transition-fast);
 
     &:hover {
-      color: var(--primary-400);
+      color: var(--color-primary-400);
     }
 
     &:focus-visible {
-      outline: 2px solid var(--primary-500);
-      outline-offset: 2px;
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-ring-offset);
       border-radius: var(--radius-sm);
     }
   }
@@ -838,8 +824,8 @@ const newsStructuredData = newsData?.items?.length ? {
       line-height: var(--leading-normal);
       -webkit-line-clamp: 3;
     }
-    
-    @media (min-width: 20em) and (max-width: 39.9375em) {
+
+    @media (min-width: 48em) {
       -webkit-line-clamp: 4;
     }
   }
@@ -853,7 +839,7 @@ const newsStructuredData = newsData?.items?.length ? {
   }
 
   .news__card-read-more {
-    color: var(--primary-400);
+    color: var(--color-primary-400);
     text-decoration: none;
     font-size: var(--text-sm);
     font-weight: var(--font-semibold);
@@ -864,18 +850,25 @@ const newsStructuredData = newsData?.items?.length ? {
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--radius-lg);
     background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    border: var(--border-width-thin) solid rgba(139, 92, 246, 0.2);
+    min-height: var(--touch-target-enhanced);
 
     &:hover {
-      background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+      background: linear-gradient(135deg, var(--color-primary-600), var(--color-secondary-600));
       color: var(--color-white);
       transform: translateY(-2px);
       box-shadow: var(--shadow-lg);
     }
 
     &:focus-visible {
-      outline: 2px solid var(--primary-500);
-      outline-offset: 2px;
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-ring-offset);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &:hover {
+        transform: none;
+      }
     }
   }
 
@@ -894,7 +887,7 @@ const newsStructuredData = newsData?.items?.length ? {
   .news__footer {
     margin-top: var(--space-2xl);
     padding-top: var(--space-xl);
-    border-top: 1px solid var(--border-color);
+    border-top: var(--border-width-thin) solid var(--border-primary);
   }
 
   .news__disclaimer {
@@ -902,7 +895,7 @@ const newsStructuredData = newsData?.items?.length ? {
     padding: var(--space-lg);
     background: var(--bg-secondary);
     border-radius: var(--radius-lg);
-    border: 1px solid var(--border-color);
+    border: var(--border-width-thin) solid var(--border-primary);
   }
 
   .news__disclaimer-title {
@@ -939,26 +932,26 @@ const newsStructuredData = newsData?.items?.length ? {
     padding: var(--space-xs) var(--space-sm);
     background: var(--bg-tertiary);
     border-radius: var(--radius-md);
-    border: 1px solid var(--border-color);
+    border: var(--border-width-thin) solid var(--border-primary);
   }
 
   /* ======================================
    * ACCESSIBILITY & FOCUS STYLES
    * ====================================== */
   .news__card:focus-within {
-    outline: 2px solid var(--primary-500);
-    outline-offset: 2px;
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
   }
 
   // Screen reader only class
   .sr-only {
     position: absolute;
-    width: 1px;
-    height: 1px;
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
     padding: 0;
-    margin: -1px;
+    margin: var(--sr-only-margin);
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    clip: var(--sr-only-clip-path);
     white-space: nowrap;
     border: 0;
   }
@@ -966,12 +959,12 @@ const newsStructuredData = newsData?.items?.length ? {
   // High contrast mode support
   @media (prefers-contrast: high) {
     .news__card {
-      border-width: 2px;
+      border-width: var(--border-width-thick);
     }
 
     .news__card-source,
     .news__card-read-more {
-      border-width: 2px;
+      border-width: var(--border-width-thick);
     }
   }
 
@@ -980,7 +973,7 @@ const newsStructuredData = newsData?.items?.length ? {
     .news__card {
       break-inside: avoid;
       box-shadow: none;
-      border: 1px solid var(--color-black);
+      border: var(--border-width-thin) solid var(--color-black);
     }
 
     .news__card-read-more {

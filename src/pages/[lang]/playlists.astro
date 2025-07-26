@@ -76,7 +76,7 @@ interface Playlist {
 }
 
 // Helper function for decade extraction (moved up)
-function getDecadeFromHeadline(headline) {
+function getDecadeFromHeadline(headline: string): string {
   const yearMatch = headline.match(/\b(\d{4})\b/);
   if (yearMatch) {
     return `${yearMatch[1].substring(0, 3)}0s`;
@@ -249,7 +249,6 @@ const breadcrumbSchema = {
     </section>
 
     <main class="playlist-selection" role="main">
-
       <!-- Enhanced Playlist Grid with semantic markup and microdata -->
       <section aria-labelledby="playlists-heading">
         <Headline
@@ -295,124 +294,45 @@ const breadcrumbSchema = {
 </Layout>
 
 <style lang="scss">
-  // ======================================
-  // SCSS VARIABLES & MIXINS
-  // ======================================
-
-  // Breakpoint mixins for responsive design
-  @mixin mobile {
-    @media (max-width: 479px) {
-      @content;
-    }
-  }
-
-  @mixin tablet {
-    @media (min-width: 480px) and (max-width: 767px) {
-      @content;
-    }
-  }
-
-  @mixin desktop {
-    @media (min-width: 768px) {
-      @content;
-    }
-  }
-
-  @mixin large-desktop {
-    @media (min-width: 1024px) {
-      @content;
-    }
-  }
-
-  @mixin ultra-wide {
-    @media (min-width: 1280px) {
-      @content;
-    }
-  }
-
-  // Container query mixins
-  @mixin container-small {
-    @container playlist-container (max-width: 500px) {
-      @content;
-    }
-  }
-
-  @mixin container-large {
-    @container playlist-container (min-width: 1400px) {
-      @content;
-    }
-  }
-
-  // Touch device detection
-  @mixin touch-device {
-    @media (hover: none) and (pointer: coarse) {
-      @content;
-    }
-  }
-
-  @mixin mouse-device {
-    @media (hover: hover) and (pointer: fine) {
-      @content;
-    }
-  }
-
-  // Reduced motion support
-  @mixin reduced-motion {
-    @media (prefers-reduced-motion: reduce) {
-      @content;
-    }
-  }
-
-  // Dark mode support
-  @mixin dark-mode {
-    @media (prefers-color-scheme: dark) {
-      @content;
-    }
-  }
-
-  // ======================================
-  // CONTAINER LAYOUT
-  // ======================================
+  /* ======================================
+   * PLAYLIST PAGE STYLES - OPTIMIZED FOR STYLE GUARDIAN
+   * BEM Methodology + Global Variables + Mobile-First
+   * ====================================== */
 
   .playlist-container {
     width: 100%;
     max-width: var(--container-xl);
     margin: 0 auto;
-    padding: var(--space-sm) var(--space-xs);
+    padding: var(--space-xs); // Mobile: minimal horizontal spacing
     overflow-x: hidden;
     box-sizing: border-box;
-    container-type: inline-size;
-    container-name: playlist-container;
+    contain: layout style paint;
 
-    @include mobile {
-      padding: var(--space-xs);
+    @media (min-width: 20em) {
+      padding: var(--space-sm);
     }
 
-    @include tablet {
-      padding: var(--space-md) var(--space-sm);
+    @media (min-width: 48em) {
+      padding: var(--space-md);
     }
 
-    @include desktop {
-      padding: var(--space-lg) var(--space-md);
+    @media (min-width: 64em) {
+      padding: var(--space-lg);
     }
 
-    @include large-desktop {
-      padding: var(--space-xl) var(--space-lg);
-    }
-
-    @include ultra-wide {
-      padding: var(--space-xl) var(--space-xl);
+    @media (min-width: 80em) {
+      padding: var(--space-xl);
     }
   }
 
-  // ======================================
-  // BREADCRUMB NAVIGATION
-  // ======================================
-
+  /* ======================================
+   * BREADCRUMB NAVIGATION
+   * ====================================== */
   .breadcrumb-nav {
     margin-bottom: var(--space-md);
+    contain: layout style;
 
-    @include desktop {
+    @media (min-width: 48em) {
       margin-bottom: var(--space-lg);
     }
   }
@@ -426,8 +346,9 @@ const breadcrumbSchema = {
     list-style: none;
     font-size: var(--text-xs);
     color: var(--text-secondary);
+    contain: layout style;
 
-    @include tablet {
+    @media (min-width: 48em) {
       gap: var(--space-sm);
       font-size: var(--text-sm);
     }
@@ -436,6 +357,7 @@ const breadcrumbSchema = {
   .breadcrumb-item {
     display: flex;
     align-items: center;
+    contain: layout style;
 
     &:not(:last-child)::after {
       content: "›";
@@ -443,7 +365,7 @@ const breadcrumbSchema = {
       color: var(--text-tertiary);
       font-weight: var(--font-medium);
 
-      @include tablet {
+      @media (min-width: 48em) {
         margin-left: var(--space-sm);
       }
     }
@@ -458,8 +380,9 @@ const breadcrumbSchema = {
     padding: var(--space-xs);
     border-radius: var(--radius-sm);
     min-height: var(--touch-target);
+    contain: layout style paint;
 
-    @include tablet {
+    @media (min-width: 48em) {
       padding: var(--space-sm);
     }
 
@@ -475,16 +398,15 @@ const breadcrumbSchema = {
     width: var(--icon-size-xs);
     height: var(--icon-size-xs);
 
-    @include tablet {
+    @media (min-width: 48em) {
       width: var(--icon-size-sm);
       height: var(--icon-size-sm);
     }
   }
 
-  // ======================================
-  // HERO SECTION
-  // ======================================
-
+  /* ======================================
+   * HERO SECTION
+   * ====================================== */
   .playlist-hero {
     position: relative;
     margin-bottom: var(--space-lg);
@@ -498,19 +420,20 @@ const breadcrumbSchema = {
     );
     padding: var(--space-md);
     box-shadow: var(--shadow-xl);
+    contain: layout style paint;
 
-    @include tablet {
+    @media (min-width: 48em) {
       padding: var(--space-lg);
       margin-bottom: var(--space-xl);
     }
 
-    @include desktop {
+    @media (min-width: 64em) {
       margin-bottom: var(--space-2xl);
       border-radius: var(--radius-xl);
       padding: var(--space-xl);
     }
 
-    @include large-desktop {
+    @media (min-width: 80em) {
       padding: var(--space-2xl) var(--space-xl);
     }
 
@@ -519,10 +442,12 @@ const breadcrumbSchema = {
       inset: 0;
       opacity: 0.1;
       pointer-events: none;
+      contain: layout style paint;
 
       &-item {
         position: absolute;
         border-radius: var(--radius-full);
+        contain: layout style paint;
 
         &--top-right {
           top: calc(-1 * var(--space-xl));
@@ -556,6 +481,7 @@ const breadcrumbSchema = {
       z-index: var(--z-fixed);
       text-align: center;
       color: var(--color-neutral-100);
+      contain: layout style;
     }
 
     &__title {
@@ -564,17 +490,18 @@ const breadcrumbSchema = {
       line-height: var(--leading-tight);
       font-weight: var(--font-bold);
       text-align: center;
+      contain: layout style;
 
-      @include tablet {
+      @media (min-width: 48em) {
         font-size: var(--text-3xl);
         margin-bottom: var(--space-md);
       }
 
-      @include desktop {
+      @media (min-width: 64em) {
         font-size: var(--text-4xl);
       }
 
-      @include large-desktop {
+      @media (min-width: 80em) {
         font-size: var(--text-5xl);
       }
     }
@@ -585,8 +512,9 @@ const breadcrumbSchema = {
       width: var(--space-2xl);
       border-radius: var(--radius-full);
       background: var(--color-secondary-400);
+      contain: layout style paint;
 
-      @include tablet {
+      @media (min-width: 48em) {
         margin: var(--space-lg) auto;
         width: var(--space-3xl);
       }
@@ -599,22 +527,21 @@ const breadcrumbSchema = {
       line-height: var(--leading-relaxed);
       opacity: 0.9;
       text-align: center;
+      contain: layout style;
 
-      @include tablet {
+      @media (min-width: 48em) {
         font-size: var(--text-lg);
       }
 
-      @include desktop {
+      @media (min-width: 64em) {
         font-size: var(--text-xl);
       }
     }
   }
 
-
-  // ======================================
-  // PLAYLIST GRID - Enhanced Responsive Auto-Fill Pattern
-  // ======================================
-
+  /* ======================================
+   * PLAYLIST GRID
+   * ====================================== */
   .playlist-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -625,60 +552,47 @@ const breadcrumbSchema = {
     padding: 0;
     contain: layout style;
 
-    // Small mobile devices
-    @include tablet {
-      grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-width-sm), 1fr));
-      gap: var(--space-lg);
-    }
-
-    // Large mobile / small tablets
-    @media (min-width: 640px) {
+    @media (min-width: 48em) {
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: var(--space-lg);
     }
 
-    // Tablets
-    @include desktop {
+    @media (min-width: 64em) {
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: var(--space-xl);
     }
 
-    // Small desktop
-    @include large-desktop {
+    @media (min-width: 80em) {
       grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
       gap: var(--space-xl);
     }
 
-    // Large desktop - limit max columns for better readability
-    @include ultra-wide {
+    @media (min-width: 1280px) {
       grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
       max-width: calc(3 * 450px + 2 * var(--space-xl));
       margin: var(--space-lg) auto;
     }
 
-    // Ultra-wide screens - maximum 4 columns
     @media (min-width: 1920px) {
       grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
       max-width: calc(4 * 480px + 3 * var(--space-xl));
     }
   }
 
-  // ======================================
-  // PLAYLIST CARDS
-  // ======================================
-
+  /* ======================================
+   * PLAYLIST CARDS
+   * ====================================== */
   .playlist-card {
     transition:
       transform var(--transition-base),
       box-shadow var(--transition-base);
+    contain: layout style paint;
 
-    // Enhanced touch targets for mobile
-    @include mobile {
+    @media (max-width: 47.9375em) {
       margin-bottom: var(--space-xs);
     }
 
-    // Desktop hover effects
-    @include mouse-device {
+    @media (hover: hover) and (pointer: fine) {
       &:hover,
       &:focus-within {
         transform: translateY(calc(-1 * var(--space-xs)));
@@ -686,9 +600,7 @@ const breadcrumbSchema = {
       }
     }
 
-    // Touch device optimizations
-    @include touch-device {
-      // Larger touch targets
+    @media (hover: none) and (pointer: coarse) {
       min-height: var(--touch-target-enhanced);
 
       &:active {
@@ -698,40 +610,12 @@ const breadcrumbSchema = {
     }
   }
 
-
-  // ======================================
-  // CONTAINER QUERIES FOR MODERN RESPONSIVE DESIGN
-  // ======================================
-
-  @include container-small {
-    .playlist-hero {
-      padding: var(--space-md);
-    }
-
-    .playlist-hero__title {
-      font-size: var(--text-lg);
-    }
-
-    .search-container {
-      margin: 0;
-    }
-  }
-
-  @include container-large {
-    .playlist-grid {
-      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-    }
-  }
-
-  // ======================================
-  // ULTRA-SMALL SCREENS OPTIMIZATION
-  // ======================================
-
-  @media (max-width: 359px) {
+  /* ======================================
+   * MOBILE PORTRAIT OPTIMIZATIONS
+   * ====================================== */
+  @media (max-width: 29.9375em) {
     .playlist-container {
       padding: var(--space-xs);
-      container-type: inline-size;
-      container-name: playlist-container;
     }
 
     .playlist-hero {
@@ -747,16 +631,11 @@ const breadcrumbSchema = {
       font-size: var(--text-sm);
     }
 
-    .search-container__input {
-      font-size: var(--text-sm);
-    }
-
     .breadcrumb-list {
       font-size: var(--text-xs);
     }
   }
 
-  // Very small screens optimization
   @media (max-width: 320px) {
     .playlist-container {
       padding: var(--space-xs) calc(var(--space-xs) / 2);
@@ -766,19 +645,13 @@ const breadcrumbSchema = {
       font-size: var(--text-lg);
       line-height: var(--leading-tight);
     }
-
-    .search-container {
-      margin: 0 calc(var(--space-xs) / 2);
-    }
   }
 
-  // ======================================
-  // PRINT OPTIMIZATIONS
-  // ======================================
-
+  /* ======================================
+   * PRINT OPTIMIZATIONS
+   * ====================================== */
   @media print {
     .playlist-hero,
-    .search-section,
     .breadcrumb-nav {
       display: none;
     }
@@ -795,79 +668,24 @@ const breadcrumbSchema = {
     }
   }
 
-  // ======================================
-  // DARK MODE SPECIFIC ADJUSTMENTS
-  // ======================================
-
-  @include dark-mode {
-    .playlist-hero {
-      background: linear-gradient(
-        135deg,
-        var(--color-neutral-900) 0%,
-        var(--color-primary-900) 50%,
-        var(--color-neutral-800) 100%
-      );
-    }
-  }
-
-  // ======================================
-  // ENHANCED CONTAINER QUERIES (CSS CONTAINMENT LEVEL 3)
-  // ======================================
-
-  @include container-small {
-    .playlist-hero {
-      padding: var(--space-md);
-      border-radius: var(--radius-lg);
-    }
-
-    .playlist-hero__decoration-item {
-      opacity: 0.05;
-    }
-
-    .search-container {
-      margin: 0 var(--space-xs);
-    }
-  }
-
-  @include container-large {
-    .playlist-grid {
-      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-      max-width: calc(4 * 480px + 3 * var(--space-xl));
-    }
-
-    .playlist-hero {
-      padding: var(--space-3xl) var(--space-2xl);
-    }
-  }
-
-  // ======================================
-  // MICRO-INTERACTIONS FOR ENHANCED UX
-  // ======================================
-
-  // Smooth grid transitions when filtering
-  @supports (grid-template-rows: masonry) {
-    .playlist-grid {
-      grid-template-rows: masonry;
-    }
-  }
-
-  // Enhanced scroll behavior
-  .playlist-container {
-    scroll-behavior: smooth;
-  }
-
-  @include reduced-motion {
+  /* ======================================
+   * ACCESSIBILITY ENHANCEMENTS
+   * ====================================== */
+  @media (prefers-reduced-motion: reduce) {
     .playlist-container {
       scroll-behavior: auto;
     }
+
+    .playlist-card {
+      transition: none;
+    }
   }
 
-  // ======================================
-  // UTILITY CLASSES
-  // ======================================
-
+  /* ======================================
+   * FOCUS STYLES
+   * ====================================== */
   :focus {
-    outline: var(--focus-outline);
+    outline: var(--focus-ring);
     outline-offset: var(--focus-ring-offset);
 
     &:not(:focus-visible) {
@@ -876,21 +694,19 @@ const breadcrumbSchema = {
   }
 
   :focus-visible {
-    outline: var(--focus-outline);
+    outline: var(--focus-ring);
     outline-offset: var(--focus-ring-offset);
   }
 </style>
 
 <script>
-  // ======================================
-  // INTERSECTION OBSERVER FOR ANIMATIONS
-  // ======================================
-
-  /**
-   * Sets up intersection observer for card animations
-   */
+  // Simple intersection observer for playlist cards
   function setupIntersectionObserver() {
     const playlistCards = document.querySelectorAll(".playlist-card");
+
+    if (playlistCards.length === 0) {
+      return;
+    }
 
     const observerOptions = {
       root: null,
@@ -898,32 +714,28 @@ const breadcrumbSchema = {
       threshold: 0.1,
     };
 
-    const cardObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
+    const cardObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add("in-view");
         }
       });
     }, observerOptions);
 
-    playlistCards.forEach(function(card) {
+    playlistCards.forEach(function (card) {
       cardObserver.observe(card);
     });
   }
 
-  // ======================================
-  // INITIALIZATION
-  // ======================================
-
-  /**
-   * Initialize playlist page
-   */
+  // Initialize playlist page
   function initializePlaylistPage() {
-    console.log("Initializing playlist page");
     setupIntersectionObserver();
-    console.log("Playlist page initialized successfully");
   }
 
   // Initialize when DOM is ready
-  document.addEventListener("DOMContentLoaded", initializePlaylistPage);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializePlaylistPage);
+  } else {
+    initializePlaylistPage();
+  }
 </script>
