@@ -85,6 +85,7 @@ const { category, title } = Astro.props;
 import { Icon } from "astro-icon/components";
 import ButtonLink from "./ButtonLink.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import Headline from "@components/Headline.astro";
 
 // Get current language and translations using modern ES6+ destructuring
 const lang = getLangFromUrl(Astro.url);
@@ -117,9 +118,9 @@ const validButtons = buttons.filter(({ url }) => Boolean(url));
 ---
 
 <div class="music-buttons" role="group" aria-labelledby="music-platforms-heading">
-  <h3 id="music-platforms-heading" class="sr-only">
+  <Headline level="h3" size="base" id="music-platforms-heading" className="sr-only">
     {title} - {t("musicPlatforms.heading")}
-  </h3>
+  </Headline>
   <div class="music-buttons-instructions sr-only" aria-live="polite">
     {t("musicPlatforms.keyboardInstructions")}
   </div>

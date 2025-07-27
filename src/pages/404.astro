@@ -6,6 +6,8 @@
 
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
+import Headline from "../components/Headline.astro";
+import Paragraph from "../components/Paragraph.astro";
 
 export const prerender = true;
 
@@ -25,15 +27,15 @@ const description =
         </div>
 
         <div class="error-page__text">
-          <h1 class="error-page__title">Page Not Found</h1>
-          <p class="error-page__description">
+          <Headline level="h1" size="3xl" className="error-page__title">Page Not Found</Headline>
+          <Paragraph className="error-page__description" textSize="lg" align="center">
             Oops! The page you're looking for doesn't exist. It might have been moved, deleted, or
             you entered the wrong URL.
-          </p>
-          <p class="error-page__suggestion">
+          </Paragraph>
+          <Paragraph className="error-page__suggestion" textSize="base" align="center">
             Don't worry though, there's plenty of music to discover! Try one of the options below to
             get back on track.
-          </p>
+          </Paragraph>
         </div>
 
         <div class="error-page__actions">
@@ -48,7 +50,9 @@ const description =
         </div>
 
         <div class="error-page__help">
-          <h2 class="error-page__help-title">What would you like to do?</h2>
+          <Headline level="h2" size="xl" className="error-page__help-title"
+            >What would you like to do?</Headline
+          >
           <ul class="error-page__help-list">
             <li>
               <a href="/playlists" class="help-link">
@@ -178,7 +182,7 @@ const description =
   .btn-primary:hover {
     background-color: var(--btn-primary-hover);
     border-color: var(--btn-primary-hover);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
   }
 
   .btn-secondary {
@@ -190,7 +194,7 @@ const description =
   .btn-secondary:hover {
     background-color: var(--bg-secondary);
     border-color: var(--border-secondary);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
   }
 
   .btn-icon {
@@ -235,7 +239,7 @@ const description =
   .help-link:hover {
     background-color: var(--bg-tertiary);
     border-color: var(--border-focus);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
   }
 
   .help-icon {

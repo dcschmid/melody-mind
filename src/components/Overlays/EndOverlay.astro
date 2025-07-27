@@ -40,6 +40,8 @@ import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 import ShareOverlay from "./ShareOverlay.astro";
 import AuthForm from "@components/auth/AuthForm.astro";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
 
 const lang = String(getLangFromUrl(Astro.url));
 const t = useTranslations(lang);
@@ -124,14 +126,14 @@ const clientTranslations = {
       <Icon name="trophy" width={42} height={42} aria-hidden="true" />
     </div>
 
-    <h2 id="popup-title" class="popup__title">
+    <Headline level="h2" size="3xl" id="popup-title" className="popup__title">
       {title}
-    </h2>
+    </Headline>
 
     <!-- Hidden description for screen readers -->
-    <p id="popup-description" class="sr-only">
+    <Paragraph id="popup-description" className="sr-only">
       {t("game.end.screenReaderDescription")}
-    </p>
+    </Paragraph>
 
     <!-- Status announcer for screen readers with enhanced timeout management -->
     <div
@@ -162,9 +164,9 @@ const clientTranslations = {
     </div>
 
     <!-- Dynamic motivation text -->
-    <p id="motivation-text" class="motivation-text" aria-live="polite">
+    <Paragraph id="motivation-text" className="motivation-text" aria-live="polite">
       {t("game.end.defaultMotivation")}
-    </p>
+    </Paragraph>
 
     <div class="score-section">
       <span class="score-section__label">{t("game.end.finalScore")}</span>
@@ -189,9 +191,9 @@ const clientTranslations = {
       role="region"
       aria-labelledby="achievements-title"
     >
-      <h3 id="achievements-title" class="achievements-section__title">
+      <Headline level="h3" size="lg" id="achievements-title" className="achievements-section__title">
         {t("achievements.unlocked")}
-      </h3>
+      </Headline>
       <div id="unlocked-achievements" class="achievements-section__container" role="list">
         <!-- Achievements will be populated by JavaScript -->
       </div>
@@ -199,9 +201,9 @@ const clientTranslations = {
 
     <!-- Share Section with comprehensive sharing options -->
     <div class="share-section" role="region" aria-labelledby="share-section-heading">
-      <h3 id="share-section-heading" class="share-section__title">
+      <Headline level="h3" size="lg" id="share-section-heading" className="share-section__title">
         {t("game.end.shareSection")}
-      </h3>
+      </Headline>
       <ShareOverlay
         gameData={{
           score: parseInt(initialScore, 10),
@@ -225,14 +227,14 @@ const clientTranslations = {
       <div class="guest-login-content">
         <div class="guest-login-header">
           <Icon name="user-plus" width={24} height={24} aria-hidden="true" />
-          <h3 class="guest-login-title">{t("game.end.guest.title")}</h3>
+          <Headline level="h3" size="lg" className="guest-login-title">{t("game.end.guest.title")}</Headline>
         </div>
-        <p class="guest-login-description">{t("game.end.guest.description")}</p>
+        <Paragraph className="guest-login-description">{t("game.end.guest.description")}</Paragraph>
         <div class="guest-login-form">
           <AuthForm initialMode="login" />
         </div>
         <div class="guest-login-alternative">
-          <p class="guest-login-alternative-text">{t("game.end.guest.alternative")}</p>
+          <Paragraph className="guest-login-alternative-text">{t("game.end.guest.alternative")}</Paragraph>
         </div>
       </div>
     </div>

@@ -58,44 +58,30 @@ type NotificationHandlers = {
 };
 
 /**
- * SVG icons for notifications
- * Pre-generated for better performance
+ * Icon names for astro-icon components
+ * Using centralized icon system for better maintainability
  */
-const SVG_ICONS = {
-  pause:
-    '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M10 4H6v16h4V4zm8 0h-4v16h4V4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
-  play: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M5 3l14 9-14 9V3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
-  volume:
-    '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M11 5L6 9H2v6h4l5 4V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
-  mute: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+const ICON_NAMES = {
+  pause: "pause",
+  play: "play", 
+  volume: "volume-2",
+  mute: "volume-x",
 };
 
 /**
- * Creates a DocumentFragment from an SVG string
- * More performant than innerHTML
- */
-function createSVGFragment(svgString: string): DocumentFragment {
-  const template = document.createElement("template");
-  template.innerHTML = svgString.trim();
-  return template.content;
-}
-
-/**
- * Creates an optimized batch DOM update for SVG icons
+ * Updates icon using data attribute for astro-icon integration
  * @param {HTMLElement} element - Target element to update
- * @param {string} svgString - SVG markup to insert
+ * @param {string} iconName - Icon name from the icon set
  * @returns {void}
  */
-function updateSvgIcon(element: HTMLElement, svgString: string): void {
-  const fragment = createSVGFragment(svgString);
-
-  // Clear existing content
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
+function updateIcon(element: HTMLElement, iconName: string): void {
+  // Update the data-icon attribute for astro-icon components
+  element.setAttribute("data-icon", iconName);
+  
+  // If the element has astro-icon class, trigger re-render
+  if (element.classList.contains("astro-icon")) {
+    element.setAttribute("name", iconName);
   }
-
-  // Insert new content
-  element.appendChild(fragment);
 }
 
 /**
@@ -564,9 +550,9 @@ function createTogglePauseHandler(
         state.hideTimeout = null;
       }
 
-      // Update pause button icon using the optimized SVG update function
+      // Update pause button icon using the optimized icon update function
       if (elements.pauseButton) {
-        updateSvgIcon(elements.pauseButton, SVG_ICONS.play);
+        updateIcon(elements.pauseButton, ICON_NAMES.play);
         elements.pauseButton.setAttribute("aria-label", t("achievements.notification.resume"));
         elements.pauseButton.setAttribute("title", t("achievements.notification.resume_title"));
       }
@@ -586,9 +572,9 @@ function createTogglePauseHandler(
         }, remainingTime);
       }
 
-      // Update pause button icon using the optimized SVG update function
+      // Update pause button icon using the optimized icon update function
       if (elements.pauseButton) {
-        updateSvgIcon(elements.pauseButton, SVG_ICONS.pause);
+        updateIcon(elements.pauseButton, ICON_NAMES.pause);
         elements.pauseButton.setAttribute("aria-label", t("achievements.notification.pause"));
         elements.pauseButton.setAttribute("title", t("achievements.notification.pause_title"));
       }
@@ -613,9 +599,9 @@ function createToggleSoundHandler(
   return (): void => {
     state.isMuted = !state.isMuted;
 
-    // Update icon and status using optimized SVG update function
+    // Update icon and status using optimized icon update function
     if (elements.soundToggleButton) {
-      updateSvgIcon(elements.soundToggleButton, state.isMuted ? SVG_ICONS.mute : SVG_ICONS.volume);
+      updateIcon(elements.soundToggleButton, state.isMuted ? ICON_NAMES.mute : ICON_NAMES.volume);
 
       elements.soundToggleButton.setAttribute(
         "aria-label",

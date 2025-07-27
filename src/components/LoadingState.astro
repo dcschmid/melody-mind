@@ -12,6 +12,7 @@
  * <LoadingState text="Please wait..." size="sm" />
  * ```
  */
+import Paragraph from "./Paragraph.astro";
 export interface Props {
   /** The loading message text */
   text?: string;
@@ -49,9 +50,9 @@ const loadingId = generateUniqueId();
       style={`--loading-state-min-height: ${minHeight};`}
     >
       <div class="loading-state__spinner" aria-label={text} />
-      <p id={loadingId} class="loading-state__text">
+      <Paragraph id={loadingId} className="loading-state__text">
         {text}
-      </p>
+      </Paragraph>
       <span class="sr-only">Loading content, please wait...</span>
     </div>
   )

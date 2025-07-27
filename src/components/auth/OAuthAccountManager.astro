@@ -7,6 +7,8 @@
 
 import { Icon } from "astro-icon/components";
 import { useTranslations } from "../../utils/i18n";
+import Headline from "../Headline.astro";
+import Paragraph from "../Paragraph.astro";
 
 interface Props {
   lang: string;
@@ -58,13 +60,13 @@ const availableProviders = [
 
 <div class={`oauth-account-manager ${className}`}>
   <div class="oauth-account-manager__header">
-    <h3 class="oauth-account-manager__title">
+    <Headline level="h3" size="lg" className="oauth-account-manager__title">
       <Icon name="link" class="oauth-account-manager__title-icon" aria-hidden="true" />
       {t("auth.oauth.linked_accounts")}
-    </h3>
-    <p class="oauth-account-manager__description">
+    </Headline>
+    <Paragraph className="oauth-account-manager__description">
       {t("auth.oauth.linked_accounts_description")}
-    </p>
+    </Paragraph>
   </div>
 
   <div class="oauth-account-manager__messages" aria-live="polite">

@@ -88,7 +88,7 @@ if (Astro.request) {
     <!-- Guest user notification -->
     <div class="guest-notice" role="alert">
       <div class="guest-notice__content">
-        <h2>{t("achievements.guest.title") || "Achievements Not Available"}</h2>
+        <Headline level="h2" size="2xl">{t("achievements.guest.title") || "Achievements Not Available"}</Headline>
         <p>{t("achievements.guest.description") || "Achievements are only available for registered users. Create an account to track your progress and unlock achievements."}</p>
         <a href={`/${langString}/auth/login`} class="guest-notice__button">
           {t("achievements.guest.login") || "Create Account / Login"}
@@ -135,9 +135,9 @@ if (Astro.request) {
         />
 
         <!-- Additional descriptive content for SEO -->
-        <p class="achievements-hero__seo-description sr-only">
+        <Paragraph className="achievements-hero__seo-description sr-only">
           {t("achievements.seo.description")}
-        </p>
+        </Paragraph>
       </div>
     </header>
 
