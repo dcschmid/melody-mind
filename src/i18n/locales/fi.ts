@@ -667,6 +667,10 @@ export default {
   // Podcast page translations
   "podcast.title": "Podcastit",
   "podcast.description": "Löydä musiikki-oivalluksia podcast-sarjamme kautta",
+  "podcast.rss.description": "Tutustu musiikin historiaan mukaansatempaavien podcast-jaksojen kautta, jotka kattavat eri aikakausia, genrejä ja musiikillisia liikkeitä.",
+  "podcast.rss.subscribe": "Tilaa RSS-syöte",
+  "podcast.rss.subscribe.title": "Tilaa podcastimme",
+  "podcast.rss.subscribe.description": "Pysy ajan tasalla uusista jaksoista",
   "podcasts.episode.singular": "Jakso",
   "podcasts.episode.plural": "Jaksot",
   "podcasts.empty.title": "Ei podcasteja saatavilla",

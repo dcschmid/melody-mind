@@ -697,6 +697,10 @@ export default {
   // Podcast page translations
   "podcast.title": "Podcasts",
   "podcast.description": "Découvrez des perspectives musicales à travers notre série de podcasts",
+  "podcast.rss.description": "Découvrez l'histoire de la musique à travers des épisodes de podcast captivants couvrant différentes époques, genres et mouvements musicaux.",
+  "podcast.rss.subscribe": "S'abonner au flux RSS",
+  "podcast.rss.subscribe.title": "Abonnez-vous à notre Podcast",
+  "podcast.rss.subscribe.description": "Restez informé des nouveaux épisodes",
   "podcasts.episode.singular": "Épisode",
   "podcasts.episode.plural": "Épisodes",
   "podcasts.empty.title": "Aucun podcast disponible",

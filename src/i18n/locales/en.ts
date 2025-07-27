@@ -672,6 +672,10 @@ export default {
   // Podcast page translations
   "podcast.title": "Podcasts",
   "podcast.description": "Discover music insights through our podcast series",
+  "podcast.rss.description": "Discover the history of music through engaging podcast episodes covering different eras, genres, and musical movements.",
+  "podcast.rss.subscribe": "Subscribe to RSS Feed",
+  "podcast.rss.subscribe.title": "Subscribe to our Podcast",
+  "podcast.rss.subscribe.description": "Stay updated with new episodes",
   "podcasts.title": "Podcasts",
   "podcasts.cover_alt": "Cover image for",
   "podcasts.category": "Category",
