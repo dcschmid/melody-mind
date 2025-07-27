@@ -6,6 +6,7 @@
 /* ======================================
  * CUSTOM PROPERTIES (VARIABLES)
  * WCAG 2.2 AAA COMPLIANT DARK THEME
+ * PERFORMANCE OPTIMIZED
  * ====================================== */
 
 :root {
@@ -98,6 +99,30 @@
   --text-error-aaa: var(--color-error-50); /* Enhanced error text for 7:1 ratio */
   --text-success-aaa: var(--color-success-50); /* Enhanced success text for 7:1 ratio */
   --text-warning-aaa: var(--color-warning-50); /* Enhanced warning text for 7:1 ratio */
+
+  /* ======================================
+   * PERFORMANCE OPTIMIZATION VARIABLES
+   * ====================================== */
+
+  /* Hardware acceleration and containment */
+  --contain-layout: layout;
+  --contain-style: style;
+  --contain-paint: paint;
+  --contain-strict: strict;
+
+  /* Animation optimization */
+  --will-change-transform: transform;
+  --will-change-opacity: opacity;
+  --will-change-scroll: scroll-position;
+
+  /* Scroll optimization */
+  --scroll-behavior-smooth: smooth;
+  --scroll-behavior-auto: auto;
+
+  /* Font loading optimization */
+  --font-display-swap: swap;
+  --font-display-fallback: fallback;
+  --font-display-optional: optional;
 
   /* Border Colors */
   --border-primary: var(--color-neutral-700);
@@ -584,12 +609,15 @@ html {
   word-spacing: var(--word-spacing-enhanced);
 
   /* Smooth scrolling for better user experience */
-  scroll-behavior: smooth;
+  scroll-behavior: var(--scroll-behavior-smooth);
 
   /* Optimized text rendering */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Performance optimizations - minimal containment for critical elements */
+  will-change: var(--will-change-scroll);
 }
 
 body {
@@ -625,6 +653,9 @@ body {
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
+
+  /* Performance optimizations - minimal containment for critical elements */
+  will-change: var(--will-change-scroll);
 }
 
 /* Universal box-sizing and overflow control for responsive design */
@@ -636,10 +667,15 @@ body {
   max-width: 100%;
 }
 
+/* Performance optimizations - exclude critical UI elements */
+*:not(nav):not(header):not(.navigation-*):not(.header-*):not(.menu-*):not(.nav-*):not(.game-*):not(.quiz-*):not(.chronology-*):not(.time-pressure-*):not(.section-container):not(.button-group):not(.gamehome-*) {
+  contain: var(--contain-layout);
+}
+
 /* Accessibility: Support for user preferences */
 @media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: var(--scroll-behavior-auto);
   }
 
   *,
