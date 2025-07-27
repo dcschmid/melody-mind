@@ -14,6 +14,7 @@
  */
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { Icon } from "astro-icon/components";
 
 // Get current language and translations
 const lang = getLangFromUrl(Astro.url);
@@ -166,18 +167,13 @@ const languages = Object.fromEntries(
     </select>
 
     <div class="language-picker__arrow-container" id="arrow-container">
-      <svg
+      <Icon
+        name="chevron-down"
         id="language-arrow"
         class="language-picker__arrow"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 20 20"
         aria-hidden="true"
-      >
-        <title>{t("language.dropdown.arrow")}</title>
-        <path
-          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-        ></path>
-      </svg>
+        title={t("language.dropdown.arrow")}
+      />
     </div>
   </div>
 

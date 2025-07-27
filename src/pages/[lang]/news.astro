@@ -8,6 +8,8 @@ import Layout from "../../layouts/Layout.astro";
 import { getNewsForLanguage } from "../../services/rssService.ts";
 import { useTranslations } from "../../utils/i18n.ts";
 import { extractKeywords, generateMetaDescription } from "../../utils/seo.ts";
+import Headline from "../../components/Headline.astro";
+import Paragraph from "../../components/Paragraph.astro";
 
 export const prerender = false; // Enable SSR for this page
 
@@ -137,9 +139,9 @@ const newsStructuredData = newsData?.items?.length
         </div>
 
         <div class="news__hero-content">
-          <h1 id="news-heading" class="news__hero-title">{pageTitle}</h1>
+          <Headline level="h1" size="4xl" id="news-heading" className="news__hero-title">{pageTitle}</Headline>
           <div class="news__hero-divider"></div>
-          <p class="news__hero-description">{pageDescription}</p>
+          <Paragraph className="news__hero-description">{pageDescription}</Paragraph>
 
           {
             newsData && (
@@ -164,8 +166,8 @@ const newsStructuredData = newsData?.items?.length
       {
         error && (
           <div class="news__error" role="alert">
-            <h2 class="news__error-title">{t("errors.loadingError")}</h2>
-            <p class="news__error-message">{error}</p>
+            <Headline level="h2" size="2xl" className="news__error-title">{t("errors.loadingError")}</Headline>
+            <Paragraph className="news__error-message">{error}</Paragraph>
             <button type="button" class="news__retry-btn" onclick="window.location.reload()">
               {t("common.retry")}
             </button>
@@ -176,9 +178,9 @@ const newsStructuredData = newsData?.items?.length
       {
         !error && newsData.items.length > 0 && (
           <section class="news__content" aria-labelledby="news-list-title">
-            <h2 id="news-list-title" class="sr-only">
+            <Headline level="h2" size="2xl" id="news-list-title" className="sr-only">
               {t("news.articlesList")}
-            </h2>
+            </Headline>
 
             <div class="news__grid" itemscope itemtype="https://schema.org/ItemList">
               {newsData.items.map((item, index) => (
@@ -216,7 +218,7 @@ const newsStructuredData = newsData?.items?.length
                         </time>
                       </div>
 
-                      <h3 id={`news-title-${index}`} class="news__card-title" itemprop="headline">
+                      <Headline level="h3" size="lg" id={`news-title-${index}`} className="news__card-title" itemprop="headline">
                         <a
                           href={item.link}
                           target="_blank"
@@ -226,12 +228,12 @@ const newsStructuredData = newsData?.items?.length
                         >
                           {item.title}
                         </a>
-                      </h3>
+                      </Headline>
 
                       {item.description && (
-                        <p class="news__card-description" itemprop="description">
+                        <Paragraph className="news__card-description" itemprop="description">
                           {item.description}
-                        </p>
+                        </Paragraph>
                       )}
                     </header>
 
@@ -260,8 +262,8 @@ const newsStructuredData = newsData?.items?.length
       {
         !error && newsData.items.length === 0 && (
           <section class="news__empty" role="status">
-            <h2 class="news__empty-title">{t("news.noNews")}</h2>
-            <p class="news__empty-message">{t("news.noNewsDescription")}</p>
+            <Headline level="h2" size="2xl" className="news__empty-title">{t("news.noNews")}</Headline>
+            <Paragraph className="news__empty-message">{t("news.noNewsDescription")}</Paragraph>
             <button type="button" class="news__refresh-btn" onclick="window.location.reload()">
               {t("news.refresh")}
             </button>
@@ -272,16 +274,16 @@ const newsStructuredData = newsData?.items?.length
       <!-- Footer Info -->
       <footer class="news__footer">
         <div class="news__disclaimer">
-          <h3 class="news__disclaimer-title">{t("news.disclaimer.title")}</h3>
-          <p class="news__disclaimer-text">
+          <Headline level="h3" size="lg" className="news__disclaimer-title">{t("news.disclaimer.title")}</Headline>
+          <Paragraph className="news__disclaimer-text">
             {t("news.disclaimer.text")}
-          </p>
+          </Paragraph>
         </div>
 
         <div class="news__legal">
-          <p class="news__legal-text">
+          <Paragraph className="news__legal-text">
             {t("news.legal.attribution")}
-          </p>
+          </Paragraph>
           <ul class="news__sources-list">
             {
               newsData &&

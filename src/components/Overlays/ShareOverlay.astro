@@ -18,6 +18,8 @@
 import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import type { ShareData } from "@utils/share/shareUtils";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -50,7 +52,7 @@ const {
 ---
 
 <div class="share-overlay" data-game-data={gameData ? JSON.stringify(gameData) : ""}>
-  {showTitle && <h3 class="share-overlay__title">{t("share.title")}</h3>}
+  {showTitle && <Headline level="h3" size="lg" className="share-overlay__title">{t("share.title")}</Headline>}
 
   <!-- Status announcer for screen readers -->
   <div id="share-status-announcer" aria-live="polite" aria-atomic="true" class="sr-only"></div>
@@ -139,7 +141,7 @@ const {
             class="share-overlay__fallback-icon"
             aria-hidden="true"
           />
-          <p class="share-overlay__fallback-text">{t("share.fallback.message")}</p>
+          <Paragraph className="share-overlay__fallback-text">{t("share.fallback.message")}</Paragraph>
         </div>
         <div class="share-overlay__fallback-actions">
           <button

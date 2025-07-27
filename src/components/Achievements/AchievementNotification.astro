@@ -8,6 +8,8 @@
 
 import { useTranslations } from "../../utils/i18n.ts";
 import { Icon } from "astro-icon/components";
+import Headline from "../Headline.astro";
+import Paragraph from "../Paragraph.astro";
 
 interface Props {
   lang: string;
@@ -31,12 +33,12 @@ const t = useTranslations(lang);
       <Icon name="trophy" width="24" height="24" aria-hidden="true" />
     </div>
     <div class="achievement-notification__content">
-      <h3 id="achievement-title" class="achievement-notification__title">
+      <Headline level="h3" size="lg" id="achievement-title" className="achievement-notification__title">
         {t("achievements.notification.unlocked")}
-      </h3>
-      <p id="achievement-description" class="achievement-notification__description">
+      </Headline>
+      <Paragraph id="achievement-description" className="achievement-notification__description">
         {t("achievements.notification.progress")}
-      </p>
+      </Paragraph>
       <span id="sr-notification-type" class="sr-only">
         {t("achievements.notification.new_achievement")}
       </span>

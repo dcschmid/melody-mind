@@ -19,6 +19,8 @@ import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 import { formatDate } from "@utils/dateUtils";
 import AuthForm from "@components/auth/AuthForm.astro";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
 
 // Enable prerendering - we'll handle auth client-side like category.astro
 export const prerender = true;
@@ -132,15 +134,15 @@ const languageNames = {
 
 <Layout title={t("profile.title")} description={t("profile.description")} type="website">
   <div class="profile">
-    <h1 class="profile__title">{t("profile.title")}</h1>
+    <Headline level="h1" size="3xl" className="profile__title">{t("profile.title")}</Headline>
 
     {
       !authResult.authenticated && (
         <div class="profile__login-prompt" role="alert">
           <div class="profile__login-content">
             <Icon name="user-lock" class="profile__login-icon" aria-hidden="true" />
-            <h2 class="profile__login-title">{t("profile.auth.required.title")}</h2>
-            <p class="profile__login-message">{t("profile.auth.required.message")}</p>
+            <Headline level="h2" size="2xl" className="profile__login-title">{t("profile.auth.required.title")}</Headline>
+            <Paragraph className="profile__login-message">{t("profile.auth.required.message")}</Paragraph>
             <div class="profile__login-actions">
               <AuthForm initialMode="login" />
             </div>
@@ -154,7 +156,7 @@ const languageNames = {
         <div class="profile__loading" aria-live="polite">
           <div class="profile__loading-content">
             <Icon name="loader" class="profile__loading-icon" aria-hidden="true" />
-            <p class="profile__loading-text">{t("profile.loading")}</p>
+            <Paragraph className="profile__loading-text">{t("profile.loading")}</Paragraph>
           </div>
         </div>
       )
@@ -163,8 +165,8 @@ const languageNames = {
     {
       error && authResult.authenticated && (
         <div class="profile__error" role="alert">
-          <p class="profile__error-message">{error}</p>
-          <p class="profile__error-help">{t("profile.auth.required")}</p>
+          <Paragraph className="profile__error-message">{error}</Paragraph>
+          <Paragraph className="profile__error-help">{t("profile.auth.required")}</Paragraph>
         </div>
       )
     }
@@ -177,9 +179,9 @@ const languageNames = {
           return (
             <div class="profile__content">
               <section class="profile-card" aria-labelledby="user-info-heading">
-                <h2 id="user-info-heading" class="profile-card__title">
+                <Headline level="h2" size="2xl" id="user-info-heading" className="profile-card__title">
                   {t("profile.user.info")}
-                </h2>
+                </Headline>
 
                 <div class="profile-card__user-info">
                   <dl class="profile-card__user-details">
@@ -213,14 +215,14 @@ const languageNames = {
               </section>
 
               <section class="profile-card" aria-labelledby="stats-heading">
-                <h2 id="stats-heading" class="profile-card__title">
+                <Headline level="h2" size="2xl" id="stats-heading" className="profile-card__title">
                   {t("profile.stats.title")}
-                </h2>
+                </Headline>
 
                 <div class="profile-card__stats">
                   <div class="stats-grid">
                     <div class="stat-card">
-                      <h3 class="stat-card__title">{gameModeNames.quiz}</h3>
+                      <Headline level="h3" size="lg" className="stat-card__title">{gameModeNames.quiz}</Headline>
                       <dl class="stat-card__list">
                         <div class="stat-card__item">
                           <dt class="stat-card__label">{t("profile.stats.games_played")}</dt>
@@ -238,7 +240,7 @@ const languageNames = {
                     </div>
 
                     <div class="stat-card">
-                      <h3 class="stat-card__title">{gameModeNames.chronology}</h3>
+                      <Headline level="h3" size="lg" className="stat-card__title">{gameModeNames.chronology}</Headline>
                       <dl class="stat-card__list">
                         <div class="stat-card__item">
                           <dt class="stat-card__label">{t("profile.stats.games_played")}</dt>
@@ -259,14 +261,14 @@ const languageNames = {
               </section>
 
               <section class="profile-card" aria-labelledby="recent-games-heading">
-                <h2 id="recent-games-heading" class="profile-card__title">
+                <Headline level="h2" size="2xl" id="recent-games-heading" className="profile-card__title">
                   {t("profile.recent_games.title")}
-                </h2>
+                </Headline>
 
                 {profile.recentGames.length === 0 ? (
                   <div class="profile-card__empty">
                     <Icon name="gamepad" class="profile-card__empty-icon" aria-hidden="true" />
-                    <p class="profile-card__empty-text">{t("profile.recent_games.empty")}</p>
+                    <Paragraph className="profile-card__empty-text">{t("profile.recent_games.empty")}</Paragraph>
                   </div>
                 ) : (
                   <div class="recent-games">

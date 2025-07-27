@@ -31,6 +31,7 @@
  */
 
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   /**
@@ -46,21 +47,7 @@ const t = useTranslations(lang);
 ---
 
 <a href={`#${targetId}`} class="skip-link" data-skip-link aria-label={t("nav.skip.main")}>
-  <svg
-    class="skip-link__icon"
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="none"
-    aria-hidden="true"
-  >
-    <path
-      d="M7 17L17 7M17 7H8M17 7V16"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"></path>
-  </svg>
+  <Icon name="external-link" class="skip-link__icon" aria-hidden="true" />
   {t("nav.skip.main")}
 </a>
 

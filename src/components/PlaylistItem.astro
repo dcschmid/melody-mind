@@ -22,6 +22,8 @@
  */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Picture } from "astro:assets";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
 
 /**
  * Props for the PlaylistItem component
@@ -119,15 +121,15 @@ const statusAnnouncementText = isDisabled
   </div>
 
   <div class="content-container">
-    <h2 id={headlineId} class="playlist-headline">
+    <Headline level="h2" size="2xl" id={headlineId} className="playlist-headline">
       {headline}
-    </h2>
+    </Headline>
 
     {
       subheadline && (
         <div id={descriptionId} class="subheadline-container">
           <div class="subheadline-divider" />
-          <p class="playlist-subheadline">{subheadline}</p>
+          <Paragraph className="playlist-subheadline">{subheadline}</Paragraph>
         </div>
       )
     }

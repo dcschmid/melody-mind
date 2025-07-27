@@ -12,6 +12,7 @@
 import type { PodcastData } from "../../types/podcast";
 import Headline from "../Headline.astro";
 import Paragraph from "../Paragraph.astro";
+import { Icon } from "astro-icon/components";
 
 /**
  * Props for the PodcastEpisode component
@@ -87,12 +88,8 @@ const { podcast, lang, className = "" } = Astro.props;
       <!-- Custom player controls -->
       <div class="podcast-episode__custom-player">
         <button class="podcast-episode__play-button" aria-label="Play audio" type="button">
-          <svg class="podcast-episode__play-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8 5v14l11-7z"></path>
-          </svg>
-          <svg class="podcast-episode__pause-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
-          </svg>
+          <Icon name="play" class="podcast-episode__play-icon" />
+          <Icon name="pause" class="podcast-episode__pause-icon" />
         </button>
 
         <div class="podcast-episode__progress-container">

@@ -35,6 +35,7 @@
  */
 
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import Paragraph from "../Paragraph.astro";
 
 interface Props {
   message?: string;
@@ -100,7 +101,7 @@ const contextText = errorContext || t(`error.context.${priority}`);
   <div class="errorContent">
     <span class="errorIcon" aria-hidden="true">⚠️</span>
     <div class="errorTextContainer">
-      <p class="errorText">{message}</p>
+      <Paragraph className="errorText">{message}</Paragraph>
       {
         showCountdown && (
           <div class="countdownContainer" aria-live="polite">

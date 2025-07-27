@@ -58,6 +58,8 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import LanguagePicker from "@components/LanguagePicker.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import AchievementBadge from "../Achievements/AchievementBadge.astro";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
 
 /**
  * Props interface for the Navigation component
@@ -156,12 +158,12 @@ const stableItemIds = {
         <div class="navigation-overlay__content">
           <!-- Menu title with enhanced typography -->
           <div class="navigation-overlay__header">
-            <h2 id="menu-title" class="navigation-overlay__title">
+            <Headline level="h2" size="xl" id="menu-title" className="navigation-overlay__title">
               {t("nav.title")}
-            </h2>
-            <p class="navigation-overlay__subtitle">
+            </Headline>
+            <Paragraph className="navigation-overlay__subtitle">
               {t("nav.subtitle")}
-            </p>
+            </Paragraph>
           </div>
 
           <!-- Status announcer for screen readers -->
@@ -172,7 +174,7 @@ const stableItemIds = {
           <div class="navigation-overlay__sections">
             <!-- Home section -->
             <div class="navigation-section navigation-section--primary">
-              <h3 class="navigation-section__title">{t("nav.section.main")}</h3>
+              <Headline level="h3" size="lg" className="navigation-section__title">{t("nav.section.main")}</Headline>
               <nav class="navigation-section__nav">
                 <a
                   href={getRelativeLocaleUrl(lang, "gamehome")}
@@ -202,7 +204,7 @@ const stableItemIds = {
             <When test={showHeaderIcons}>
               <!-- Discover section -->
               <div class="navigation-section">
-                <h3 class="navigation-section__title">{t("nav.section.discover")}</h3>
+                <Headline level="h3" size="lg" className="navigation-section__title">{t("nav.section.discover")}</Headline>
                 <nav class="navigation-section__nav">
                   <a
                     href={getRelativeLocaleUrl(lang, "knowledge")}
@@ -302,7 +304,7 @@ const stableItemIds = {
 
               <!-- Competition section -->
               <div class="navigation-section">
-                <h3 class="navigation-section__title">{t("nav.section.compete")}</h3>
+                <Headline level="h3" size="lg" className="navigation-section__title">{t("nav.section.compete")}</Headline>
                 <nav class="navigation-section__nav">
                   <a
                     href={getRelativeLocaleUrl(lang, "highscores")}
@@ -363,7 +365,7 @@ const stableItemIds = {
               id="user-section"
               style="display: none;"
             >
-              <h3 class="navigation-section__title">{t("nav.section.account")}</h3>
+              <Headline level="h3" size="lg" className="navigation-section__title">{t("nav.section.account")}</Headline>
               <nav class="navigation-section__nav">
                 <a
                   href={getRelativeLocaleUrl(lang, "profile")}
@@ -421,7 +423,7 @@ const stableItemIds = {
 
           <!-- Support section -->
           <div class="navigation-section">
-            <h3 class="navigation-section__title">{t("nav.donate.heading")}</h3>
+            <Headline level="h3" size="lg" className="navigation-section__title">{t("nav.donate.heading")}</Headline>
             <nav class="navigation-section__nav">
               <a
                 href="https://www.paypal.me/dcschmid"

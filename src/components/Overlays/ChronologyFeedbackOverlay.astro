@@ -20,6 +20,7 @@
  */
 import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import Headline from "@components/Headline.astro";
 
 export interface Props {
   /**
@@ -77,9 +78,9 @@ const clientTranslations = {
       <Icon name="close" width={24} height={24} aria-hidden="true" class="close-icon" />
     </button>
 
-    <h2 id="feedback-title" class="modal-title">
+    <Headline level="h2" size="2xl" id="feedback-title" className="modal-title">
       {t("game.chronology.result")}
-    </h2>
+    </Headline>
 
     <!-- Status announcer for screen readers -->
     <div id="feedback-status" aria-live="polite" aria-atomic="true" class="sr-only"></div>

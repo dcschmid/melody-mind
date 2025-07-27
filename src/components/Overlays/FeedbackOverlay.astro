@@ -52,6 +52,7 @@
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 import Paragraph from "@components/Paragraph.astro";
+import Headline from "@components/Headline.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -71,9 +72,9 @@ const t = useTranslations(lang);
 
   <div class="overlay__content" role="document" tabindex="-1">
     <div class="overlay__header">
-      <h2 id="overlay-title" class="overlay__title">
+      <Headline level="h2" size="2xl" id="overlay-title" className="overlay__title">
         {t("game.feedback.resolution")}
-      </h2>
+      </Headline>
 
       <!-- Close button for enhanced accessibility -->
       <button
@@ -91,7 +92,7 @@ const t = useTranslations(lang);
 
     <!-- Keyboard shortcuts documentation for screen readers -->
     <div class="sr-only" id="keyboard-shortcuts">
-      <h4>Keyboard Shortcuts (Tastaturkürzel)</h4>
+      <Headline level="h4" size="base">Keyboard Shortcuts (Tastaturkürzel)</Headline>
       <ul>
         <li>{t("general.keyboard.escape")}: {t("general.close")}</li>
         <li>{t("general.keyboard.enter")}: {t("game.feedback.next.round")}</li>
@@ -112,8 +113,8 @@ const t = useTranslations(lang);
     <div class="album-info" aria-label={t("game.feedback.media.section")}>
       <div class="album-info__content" role="contentinfo">
         <div class="album-info__header">
-          <h3 id="overlay-artist" class="artist-name">Artist</h3>
-          <h4 id="overlay-album" class="album-name">Album</h4>
+          <Headline level="h3" size="3xl" id="overlay-artist" className="artist-name">Artist</Headline>
+          <Headline level="h4" size="2xl" id="overlay-album" className="album-name">Album</Headline>
           <Paragraph
             id="overlay-year"
             className="album-year"

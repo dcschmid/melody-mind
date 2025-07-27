@@ -35,6 +35,8 @@ import { format } from "date-fns";
 import { de, enUS as en } from "date-fns/locale";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
 
 export const prerender = true;
 
@@ -124,13 +126,13 @@ const imageAltText = title ? `Cover image for ${title}` : "";
           </div>
 
           <div class="knowledge-card__body">
-            <h3 id={cardId} class="knowledge-card__title">
+            <Headline level="h3" size="2xl" id={cardId} className="knowledge-card__title">
               {title}
-            </h3>
+            </Headline>
 
-            <p id={`${cardId}-desc`} class="knowledge-card__description">
+            <Paragraph id={`${cardId}-desc`} className="knowledge-card__description">
               {description}
-            </p>
+            </Paragraph>
 
             <div class="knowledge-card__footer" id={metaId}>
               <span
@@ -175,16 +177,16 @@ const imageAltText = title ? `Cover image for ${title}` : "";
         </div>
 
         <div class="knowledge-card__body">
-          <h3 id={cardId} class="knowledge-card__title knowledge-card__title--clamp">
+          <Headline level="h3" size="2xl" id={cardId} className="knowledge-card__title knowledge-card__title--clamp">
             {title}
-          </h3>
+          </Headline>
 
-          <p
+          <Paragraph
             id={`${cardId}-desc`}
-            class="knowledge-card__description knowledge-card__description--clamp"
+            className="knowledge-card__description knowledge-card__description--clamp"
           >
             {description}
-          </p>
+          </Paragraph>
 
           <div class="knowledge-card__footer" id={metaId}>
             <span

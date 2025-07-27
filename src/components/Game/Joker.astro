@@ -14,6 +14,8 @@
  * - Internationalization support
  */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { Icon } from "astro-icon/components";
+import Headline from "@components/Headline.astro";
 
 interface Props {
   initialCount?: number;
@@ -45,9 +47,9 @@ const dataAttributes = {
   data-testid="joker-container"
   {...dataAttributes}
 >
-  <h2 id="joker-title" class="joker-title">
+  <Headline level="h2" size="2xl" id="joker-title" className="joker-title">
     {jokerTitle}
-  </h2>
+  </Headline>
 
   <div class="joker-button-wrapper" data-joker-button-wrapper>
     <button
@@ -59,11 +61,7 @@ const dataAttributes = {
       data-joker-type="fifty-fifty"
       {disabled}
     >
-      <svg class="button-link__icon" width="24" height="24" viewBox="0 0 24 24">
-        <path
-          d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"
-          fill="currentColor"></path>
-      </svg>
+      <Icon name="star" class="button-link__icon" aria-hidden="true" />
       {jokerText}
     </button>
   </div>

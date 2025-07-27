@@ -15,6 +15,7 @@ import AuthFormField from "./AuthFormField.astro";
 import AuthSubmitButton from "./AuthSubmitButton.astro";
 import OAuthProviders from "./OAuthProviders.astro";
 import Headline from "../Headline.astro";
+import Paragraph from "../Paragraph.astro";
 import { Icon } from "astro-icon/components";
 
 interface Props {
@@ -174,12 +175,12 @@ const t = useTranslations(lang);
           {t("auth.guest.button")}
         </button>
 
-        <p id="guestDescription" class="auth-form__guest-description">
+        <Paragraph id="guestDescription" className="auth-form__guest-description">
           {t("auth.guest.description")}
-        </p>
+        </Paragraph>
 
         <div id="guestBenefits" class="auth-form__guest-benefits">
-          <p class="auth-form__guest-benefits-title">{t("auth.guest.benefits")}</p>
+          <Paragraph className="auth-form__guest-benefits-title">{t("auth.guest.benefits")}</Paragraph>
           <ul class="auth-form__guest-benefits-list">
             <li class="auth-form__guest-benefit">
               <Icon name="save" class="auth-form__guest-benefit-icon" aria-hidden="true" />

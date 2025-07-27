@@ -2,6 +2,7 @@
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
 import PodcastEpisode from "@components/Podcast/PodcastEpisode.astro";
 import type { PodcastData } from "../../types/podcast";
 import dePodcastsJson from "../../data/podcasts/de.json" assert { type: "json" };
@@ -143,9 +144,9 @@ const pageSchema = generatePodcastPageSchema();
 
         <div class="podcasts-hero__divider"></div>
 
-        <p class="podcasts-hero__description">
+        <Paragraph className="podcasts-hero__description">
           {description}
-        </p>
+        </Paragraph>
 
         {
           episodes.length > 0 && (
@@ -186,8 +187,8 @@ const pageSchema = generatePodcastPageSchema();
         episodes.length === 0 ? (
           <div class="podcasts-empty">
             <div class="podcasts-empty__icon">🎙️</div>
-            <h2 class="podcasts-empty__title">{t("podcasts.empty.title")}</h2>
-            <p class="podcasts-empty__text">{t("podcasts.empty.text")}</p>
+            <Headline level="h2" size="2xl" className="podcasts-empty__title">{t("podcasts.empty.title")}</Headline>
+            <Paragraph className="podcasts-empty__text">{t("podcasts.empty.text")}</Paragraph>
           </div>
         ) : (
           <div class="podcasts-list">
