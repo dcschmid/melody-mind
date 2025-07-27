@@ -615,6 +615,10 @@ export default {
   // Podcast page translations
   "podcast.title": "ポッドキャスト",
   "podcast.description": "当社のポッドキャストシリーズを通じて音楽の洞察を発見",
+  "podcast.rss.description": "魅力的なポッドキャストエピソードで音楽の歴史を発見し、異なる時代、ジャンル、音楽運動をカバーします。",
+  "podcast.rss.subscribe": "RSSフィードを購読",
+  "podcast.rss.subscribe.title": "ポッドキャストを購読",
+  "podcast.rss.subscribe.description": "新しいエピソードの最新情報を入手",
   "podcasts.episode.singular": "エピソード",
   "podcasts.episode.plural": "エピソード",
   "podcasts.empty.title": "利用可能なポッドキャストはありません",

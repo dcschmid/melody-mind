@@ -123,6 +123,19 @@ const pageSchema = generatePodcastPageSchema();
 <Layout {title} {description} type="website" image="/social-share.jpg">
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+    
+    <!-- RSS Feed Discovery -->
+    <link rel="alternate" type="application/rss+xml" 
+          title={`MelodyMind Podcast - ${t(`language.${String(lang)}`) || String(lang).toUpperCase()}`}
+          href={`/${lang}/podcasts/rss.xml`} />
+    
+    <!-- Podcast Platform Meta Tags -->
+    <meta name="apple-itunes-app" content="app-id=525463029" />
+    <meta name="google-play-app" content="app-id=com.google.android.apps.podcasts" />
+    
+    <!-- Open Graph for Podcasts -->
+    <meta property="og:type" content="music.playlist" />
+    <meta property="music:creator" content="MelodyMind" />
   </Fragment>
 
   <div class="podcasts-page">
@@ -175,6 +188,23 @@ const pageSchema = generatePodcastPageSchema();
                   </span>
                 </div>
               </div>
+
+              <!-- RSS Subscribe Button in Stats -->
+              <a 
+                href={`/${lang}/podcasts/rss.xml`}
+                class="podcasts-stat podcasts-stat--rss"
+                title={t("podcast.rss.subscribe.title")}
+                aria-label={`${t("podcast.rss.subscribe")} - ${t("podcast.rss.subscribe.description")}`}
+              >
+                <div class="podcasts-stat__icon-wrapper">
+                  <span class="podcasts-stat__icon">📡</span>
+                </div>
+                <div class="podcasts-stat__content">
+                  <span class="podcasts-stat__value">
+                    {t("podcast.rss.subscribe")}
+                  </span>
+                </div>
+              </a>
             </div>
           )
         }
@@ -529,6 +559,38 @@ const pageSchema = generatePodcastPageSchema();
       white-space: nowrap;
       contain: layout style;
     }
+
+    &--rss {
+      text-decoration: none;
+      color: var(--color-neutral-200);
+      transition: all var(--transition-base);
+
+      &:hover {
+        background: linear-gradient(135deg, rgba(255, 165, 0, 0.3), rgba(255, 140, 0, 0.4));
+        border-color: rgba(255, 165, 0, 0.6);
+        transform: translateY(var(--animation-y-offset-small));
+        box-shadow: 0 6px 20px rgba(255, 165, 0, 0.3);
+
+        .podcasts-stat__icon-wrapper {
+          background: rgba(255, 165, 0, 0.4);
+        }
+
+        .podcasts-stat__value {
+          color: var(--color-white);
+        }
+      }
+
+      &:focus {
+        outline: var(--focus-ring);
+        outline-offset: var(--focus-ring-offset);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        &:hover {
+          transform: none;
+        }
+      }
+    }
   }
 
   /* ======================================
@@ -663,6 +725,7 @@ const pageSchema = generatePodcastPageSchema();
       align-items: center;
     }
   }
+
 
   @media (max-height: 500px) and (orientation: landscape) {
     .podcasts-hero {

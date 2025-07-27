@@ -589,6 +589,10 @@ export default {
   // Podcast page translations
   "podcast.title": "播客",
   "podcast.description": "通过我们的播客系列发现音乐见解",
+  "podcast.rss.description": "通过引人入胜的播客剧集探索音乐历史，涵盖不同时代、流派和音乐运动。",
+  "podcast.rss.subscribe": "订阅RSS源",
+  "podcast.rss.subscribe.title": "订阅我们的播客",
+  "podcast.rss.subscribe.description": "及时了解新剧集",
   "podcasts.episode.singular": "集",
   "podcasts.episode.plural": "集",
   "podcasts.empty.title": "没有可用的播客",

@@ -659,6 +659,10 @@ export default {
   // Podcast page translations
   "podcast.title": "Podcasts",
   "podcast.description": "Oplev musikindsigt gennem vores podcastserie",
+  "podcast.rss.description": "Oplev musikhistorien gennem engagerende podcast-episoder der dækker forskellige epoker, genrer og musikalske bevægelser.",
+  "podcast.rss.subscribe": "Abonner på RSS Feed",
+  "podcast.rss.subscribe.title": "Abonner på vores Podcast",
+  "podcast.rss.subscribe.description": "Hold dig opdateret med nye episoder",
   "podcasts.episode.singular": "Episode",
   "podcasts.episode.plural": "Episoder",
   "podcasts.empty.title": "Ingen podcasts tilgængelige",

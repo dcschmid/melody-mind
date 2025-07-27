@@ -629,6 +629,10 @@ export default {
   // Podcast page translations
   "podcast.title": "Подкасти",
   "podcast.description": "Відкрийте для себе музичні знання через нашу серію подкастів",
+  "podcast.rss.description": "Відкрийте для себе історію музики через захоплюючі подкаст-епізоди, що охоплюють різні епохи, жанри та музичні рухи.",
+  "podcast.rss.subscribe": "Підписатися на RSS канал",
+  "podcast.rss.subscribe.title": "Підписатися на наш подкаст",
+  "podcast.rss.subscribe.description": "Будьте в курсі нових епізодів",
   "podcasts.episode.singular": "Епізод",
   "podcasts.episode.plural": "Епізоди",
   "podcasts.empty.title": "Подкасти недоступні",

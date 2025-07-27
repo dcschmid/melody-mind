@@ -673,6 +673,10 @@ export default {
   // Podcast page translations
   "podcast.title": "Podcasts",
   "podcast.description": "Ontdek muziekinzichten door onze podcastserie",
+  "podcast.rss.description": "Ontdek de geschiedenis van muziek door boeiende podcast-afleveringen die verschillende tijdperken, genres en muzikale bewegingen behandelen.",
+  "podcast.rss.subscribe": "Abonneren op RSS Feed",
+  "podcast.rss.subscribe.title": "Abonneer op onze Podcast",
+  "podcast.rss.subscribe.description": "Blijf op de hoogte van nieuwe afleveringen",
   "podcasts.episode.singular": "Aflevering",
   "podcasts.episode.plural": "Afleveringen",
   "podcasts.empty.title": "Geen podcasts beschikbaar",
