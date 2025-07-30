@@ -499,9 +499,12 @@ export default {
   "game.submit.answer": "Tarkista vastaus",
   "game.submit.answer.aria": "Tarkista nykyinen järjestys ja siirry seuraavaan kierrokseen",
   "game.timepressure.title": "Aikapainetila",
-  "game.timepressure.description": "⚡ Ryhdy salamamestariksi musiikissa! Todista olevasi todellinen mestari aikapaineen alla sekoitetuilla vaikeusasteilla kategoriassa {category}. Jokainen sekunti laskee – näytä nopeutesi ja tietosi yhtä aikaa! 🏆",
-  "game.timepressure.instructions": "Vastaa kysymyksiin mahdollisimman nopeasti. Sinulla on rajattu aika jokaiseen kysymykseen.",
-  "game.timepressure.controls": "Käytä näppäimiä 1-4 vastauksiin, välilyönti taukoon, S ohittamiseen",
+  "game.timepressure.description":
+    "⚡ Ryhdy salamamestariksi musiikissa! Todista olevasi todellinen mestari aikapaineen alla sekoitetuilla vaikeusasteilla kategoriassa {category}. Jokainen sekunti laskee – näytä nopeutesi ja tietosi yhtä aikaa! 🏆",
+  "game.timepressure.instructions":
+    "Vastaa kysymyksiin mahdollisimman nopeasti. Sinulla on rajattu aika jokaiseen kysymykseen.",
+  "game.timepressure.controls":
+    "Käytä näppäimiä 1-4 vastauksiin, välilyönti taukoon, S ohittamiseen",
   "game.timepressure.streak": "Putki",
   "game.timepressure.seconds": "Sek",
   "game.timepressure.countdown": "Laskuriajastin",
@@ -667,7 +670,8 @@ export default {
   // Podcast page translations
   "podcast.title": "Podcastit",
   "podcast.description": "Löydä musiikki-oivalluksia podcast-sarjamme kautta",
-  "podcast.rss.description": "Tutustu musiikin historiaan mukaansatempaavien podcast-jaksojen kautta, jotka kattavat eri aikakausia, genrejä ja musiikillisia liikkeitä.",
+  "podcast.rss.description":
+    "Tutustu musiikin historiaan mukaansatempaavien podcast-jaksojen kautta, jotka kattavat eri aikakausia, genrejä ja musiikillisia liikkeitä.",
   "podcast.rss.subscribe": "Tilaa RSS-syöte",
   "podcast.rss.subscribe.title": "Tilaa podcastimme",
   "podcast.rss.subscribe.description": "Pysy ajan tasalla uusista jaksoista",
@@ -788,10 +792,11 @@ export default {
   "news.readMore": "Lue lisää",
   "news.relevanceScore": "Relevanssi",
   "news.noNews": "Ei uutisia saatavilla",
-  "news.noNewsDescription": "Musiikkiuutisia ei ole tällä hetkellä saatavilla. Yritä myöhemmin uudelleen.",
+  "news.noNewsDescription":
+    "Musiikkiuutisia ei ole tällä hetkellä saatavilla. Yritä myöhemmin uudelleen.",
   "news.refresh": "Päivitä",
   "news.disclaimer.title": "Vastuuvapauslauseke",
-  "news.disclaimer.text": "Kaikki uutissisältö tulee ulkoisilta palveluntarjoajilta. MelodyMind ei ole vastuussa sisällöstä.",
+  "news.disclaimer.text":
+    "Kaikki uutissisältö tulee ulkoisilta palveluntarjoajilta. MelodyMind ei ole vastuussa sisällöstä.",
   "news.legal.attribution": "Uutiset tarjoavat seuraavat lähteet:",
-
 };

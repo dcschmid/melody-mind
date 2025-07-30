@@ -190,7 +190,8 @@ export default {
   "auth.login.unauthorized": "Accès non autorisé",
   "auth.login.unexpected_error": "Une erreur inattendue s'est produite",
   "auth.guest.button": "Jouer en Invité",
-  "auth.guest.description": "Jouez instantanément sans vous inscrire. Le progrès ne sera pas sauvegardé.",
+  "auth.guest.description":
+    "Jouez instantanément sans vous inscrire. Le progrès ne sera pas sauvegardé.",
   "auth.guest.benefits": "Avec un compte vous pouvez :",
   "auth.guest.benefit.progress": "Sauvegarder le progrès du jeu",
   "auth.guest.benefit.achievements": "Débloquer des succès",
@@ -512,9 +513,12 @@ export default {
   "game.submit.answer": "Vérifier la réponse",
   "game.submit.answer.aria": "Vérifier l'ordre actuel et passer au tour suivant",
   "game.timepressure.title": "Mode Pression Temporelle",
-  "game.timepressure.description": "⚡ Devenez le maître éclair de la musique ! Prouvez que vous êtes un vrai champion même sous la pression du temps avec des niveaux de difficulté mixtes dans {category}. Chaque seconde compte – montrez votre vitesse et vos connaissances à la fois ! 🏆",
-  "game.timepressure.instructions": "Répondez aux questions le plus rapidement possible. Vous avez un temps limité pour chaque question.",
-  "game.timepressure.controls": "Utilisez les touches 1-4 pour les réponses, Espace pour pauser, S pour passer",
+  "game.timepressure.description":
+    "⚡ Devenez le maître éclair de la musique ! Prouvez que vous êtes un vrai champion même sous la pression du temps avec des niveaux de difficulté mixtes dans {category}. Chaque seconde compte – montrez votre vitesse et vos connaissances à la fois ! 🏆",
+  "game.timepressure.instructions":
+    "Répondez aux questions le plus rapidement possible. Vous avez un temps limité pour chaque question.",
+  "game.timepressure.controls":
+    "Utilisez les touches 1-4 pour les réponses, Espace pour pauser, S pour passer",
   "game.timepressure.streak": "Série",
   "game.timepressure.seconds": "Sec",
   "game.timepressure.countdown": "Minuteur de compte à rebours",
@@ -697,7 +701,8 @@ export default {
   // Podcast page translations
   "podcast.title": "Podcasts",
   "podcast.description": "Découvrez des perspectives musicales à travers notre série de podcasts",
-  "podcast.rss.description": "Découvrez l'histoire de la musique à travers des épisodes de podcast captivants couvrant différentes époques, genres et mouvements musicaux.",
+  "podcast.rss.description":
+    "Découvrez l'histoire de la musique à travers des épisodes de podcast captivants couvrant différentes époques, genres et mouvements musicaux.",
   "podcast.rss.subscribe": "S'abonner au flux RSS",
   "podcast.rss.subscribe.title": "Abonnez-vous à notre Podcast",
   "podcast.rss.subscribe.description": "Restez informé des nouveaux épisodes",
@@ -738,7 +743,8 @@ export default {
   "profile.oauth_accounts.title": "Comptes Connectés",
   "profile.desc": "Gérer vos informations personnelles et statistiques de jeu",
   "news.title": "Actualités",
-  "news.description": "Découvrez les derniers hits, actualités d'artistes et tendances musicales du monde entier",
+  "news.description":
+    "Découvrez les derniers hits, actualités d'artistes et tendances musicales du monde entier",
   "news.lastUpdated": "Dernière mise à jour",
   "news.sourcesCount": "{count} sources",
   "news.trending": "Tendances",
@@ -746,10 +752,11 @@ export default {
   "news.readMore": "Lire la suite",
   "news.relevanceScore": "Pertinence",
   "news.noNews": "Aucune actualité disponible",
-  "news.noNewsDescription": "Aucune actualité musicale n'est actuellement disponible. Veuillez réessayer plus tard.",
+  "news.noNewsDescription":
+    "Aucune actualité musicale n'est actuellement disponible. Veuillez réessayer plus tard.",
   "news.refresh": "Actualiser",
   "news.disclaimer.title": "Avis de non-responsabilité",
-  "news.disclaimer.text": "Tout le contenu d'actualités provient de fournisseurs externes. MelodyMind n'est pas responsable du contenu.",
+  "news.disclaimer.text":
+    "Tout le contenu d'actualités provient de fournisseurs externes. MelodyMind n'est pas responsable du contenu.",
   "news.legal.attribution": "Actualités fournies par les sources suivantes :",
-
 };

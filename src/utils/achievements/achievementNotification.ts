@@ -63,7 +63,7 @@ type NotificationHandlers = {
  */
 const ICON_NAMES = {
   pause: "pause",
-  play: "play", 
+  play: "play",
   volume: "volume-2",
   mute: "volume-x",
 };
@@ -77,7 +77,7 @@ const ICON_NAMES = {
 function updateIcon(element: HTMLElement, iconName: string): void {
   // Update the data-icon attribute for astro-icon components
   element.setAttribute("data-icon", iconName);
-  
+
   // If the element has astro-icon class, trigger re-render
   if (element.classList.contains("astro-icon")) {
     element.setAttribute("name", iconName);

@@ -186,7 +186,8 @@ export default {
   "auth.login.unauthorized": "Accesso non autorizzato",
   "auth.login.unexpected_error": "Si è verificato un errore imprevisto",
   "auth.guest.button": "Gioca come Ospite",
-  "auth.guest.description": "Gioca immediatamente senza registrarti. I progressi non verranno salvati.",
+  "auth.guest.description":
+    "Gioca immediatamente senza registrarti. I progressi non verranno salvati.",
   "auth.guest.benefits": "Con un account puoi:",
   "auth.guest.benefit.progress": "Salvare i progressi del gioco",
   "auth.guest.benefit.achievements": "Sbloccare risultati",
@@ -500,9 +501,12 @@ export default {
   "game.submit.answer": "Controlla Risposta",
   "game.submit.answer.aria": "Controlla ordine attuale e procedi al prossimo round",
   "game.timepressure.title": "Modalità Pressione Temporale",
-  "game.timepressure.description": "⚡ Diventa il maestro fulmine della musica! Dimostra di essere un vero campione anche sotto pressione temporale con livelli di difficoltà misti in {category}. Ogni secondo conta – mostra la tua velocità e conoscenza allo stesso tempo! 🏆",
-  "game.timepressure.instructions": "Rispondi alle domande il più velocemente possibile. Hai tempo limitato per ogni domanda.",
-  "game.timepressure.controls": "Usa i tasti 1-4 per le risposte, Spazio per mettere in pausa, S per saltare",
+  "game.timepressure.description":
+    "⚡ Diventa il maestro fulmine della musica! Dimostra di essere un vero campione anche sotto pressione temporale con livelli di difficoltà misti in {category}. Ogni secondo conta – mostra la tua velocità e conoscenza allo stesso tempo! 🏆",
+  "game.timepressure.instructions":
+    "Rispondi alle domande il più velocemente possibile. Hai tempo limitato per ogni domanda.",
+  "game.timepressure.controls":
+    "Usa i tasti 1-4 per le risposte, Spazio per mettere in pausa, S per saltare",
   "game.timepressure.streak": "Serie",
   "game.timepressure.seconds": "Sec",
   "game.timepressure.countdown": "Timer del conto alla rovescia",
@@ -676,7 +680,8 @@ export default {
   // Podcast page translations
   "podcast.title": "Podcast",
   "podcast.description": "Scopri approfondimenti musicali attraverso la nostra serie di podcast",
-  "podcast.rss.description": "Scopri la storia della musica attraverso episodi di podcast coinvolgenti che coprono diverse epoche, generi e movimenti musicali.",
+  "podcast.rss.description":
+    "Scopri la storia della musica attraverso episodi di podcast coinvolgenti che coprono diverse epoche, generi e movimenti musicali.",
   "podcast.rss.subscribe": "Iscriviti al Feed RSS",
   "podcast.rss.subscribe.title": "Iscriviti al nostro Podcast",
   "podcast.rss.subscribe.description": "Rimani aggiornato con nuovi episodi",
@@ -717,7 +722,8 @@ export default {
   "profile.oauth_accounts.title": "Account Collegati",
   "profile.desc": "Gestisci le tue informazioni personali e le statistiche di gioco",
   "news.title": "Notizie",
-  "news.description": "Scopri gli ultimi successi, notizie di artisti e tendenze musicali da tutto il mondo",
+  "news.description":
+    "Scopri gli ultimi successi, notizie di artisti e tendenze musicali da tutto il mondo",
   "news.lastUpdated": "Ultimo aggiornamento",
   "news.sourcesCount": "{count} fonti",
   "news.trending": "Di tendenza",
@@ -728,7 +734,7 @@ export default {
   "news.noNewsDescription": "Al momento non sono disponibili notizie musicali. Riprova più tardi.",
   "news.refresh": "Aggiorna",
   "news.disclaimer.title": "Disclaimer",
-  "news.disclaimer.text": "Tutti i contenuti delle notizie provengono da fornitori esterni. MelodyMind non è responsabile del contenuto.",
+  "news.disclaimer.text":
+    "Tutti i contenuti delle notizie provengono da fornitori esterni. MelodyMind non è responsabile del contenuto.",
   "news.legal.attribution": "Notizie fornite dalle seguenti fonti:",
-
 };

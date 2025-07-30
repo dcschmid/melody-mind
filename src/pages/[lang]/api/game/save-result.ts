@@ -341,10 +341,10 @@ export const POST: APIRoute = async ({ request, params }) => {
     const isTimePressure = referer.includes("/time-pressure-");
     const actualGameMode: GameMode = isTimePressure
       ? "time-pressure"
-      : referer.includes("/game-") 
-        ? "quiz" 
+      : referer.includes("/game-")
+        ? "quiz"
         : "chronology";
-    
+
     // Use the actual game mode for database storage (time-pressure is now supported)
     const dbGameMode: GameMode = actualGameMode;
 
@@ -364,11 +364,10 @@ export const POST: APIRoute = async ({ request, params }) => {
     const id = nanoid();
 
     try {
-
       // First, verify the user exists
       const userExists = await turso.execute({
         sql: "SELECT id FROM users WHERE id = ?",
-        args: [data.userId]
+        args: [data.userId],
       });
 
       if (userExists.rows.length === 0) {
@@ -452,7 +451,7 @@ export const POST: APIRoute = async ({ request, params }) => {
       name: error.name,
       message: error.message,
       stack: error.stack,
-      cause: error.cause
+      cause: error.cause,
     });
 
     if (isApiError(error)) {

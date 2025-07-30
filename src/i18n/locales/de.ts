@@ -193,7 +193,8 @@ export default {
   "auth.login.unauthorized": "Nicht autorisierter Zugriff",
   "auth.login.unexpected_error": "Ein unerwarteter Fehler ist aufgetreten",
   "auth.guest.button": "Als Gast spielen",
-  "auth.guest.description": "Spielen Sie sofort ohne Anmeldung. Fortschritt wird nicht gespeichert.",
+  "auth.guest.description":
+    "Spielen Sie sofort ohne Anmeldung. Fortschritt wird nicht gespeichert.",
   "auth.guest.benefits": "Mit einem Account können Sie:",
   "auth.guest.benefit.progress": "Spielfortschritt speichern",
   "auth.guest.benefit.achievements": "Erfolge freischalten",
@@ -524,9 +525,12 @@ export default {
   "game.submit.answer": "Antwort prüfen",
   "game.submit.answer.aria": "Aktuelle Reihenfolge prüfen und zur nächsten Runde fortfahren",
   "game.timepressure.title": "Zeitdruck-Modus",
-  "game.timepressure.description": "⚡ Werden Sie zum Blitz-Musikmeister! Beweisen Sie unter Zeitdruck, dass Sie selbst bei gemischten Schwierigkeitsgraden in {category} ein wahrer Champion sind. Jede Sekunde zählt – zeigen Sie Ihre Schnelligkeit und Ihr Wissen gleichzeitig! 🏆",
-  "game.timepressure.instructions": "Beantworte Fragen so schnell wie möglich. Du hast begrenzte Zeit für jede Frage.",
-  "game.timepressure.controls": "Verwende Tasten 1-4 für Antworten, Leertaste zum Pausieren, S zum Überspringen",
+  "game.timepressure.description":
+    "⚡ Werden Sie zum Blitz-Musikmeister! Beweisen Sie unter Zeitdruck, dass Sie selbst bei gemischten Schwierigkeitsgraden in {category} ein wahrer Champion sind. Jede Sekunde zählt – zeigen Sie Ihre Schnelligkeit und Ihr Wissen gleichzeitig! 🏆",
+  "game.timepressure.instructions":
+    "Beantworte Fragen so schnell wie möglich. Du hast begrenzte Zeit für jede Frage.",
+  "game.timepressure.controls":
+    "Verwende Tasten 1-4 für Antworten, Leertaste zum Pausieren, S zum Überspringen",
   "game.timepressure.intense": "Intensiv",
   "game.timepressure.relaxed": "Entspannt",
   "game.timepressure.standard": "Standard",
@@ -714,7 +718,8 @@ export default {
   // Podcast page translations
   "podcast.title": "Podcasts",
   "podcast.description": "Entdecken Sie Musikeinblicke durch unsere Podcast-Serie",
-  "podcast.rss.description": "Entdecken Sie die Geschichte der Musik durch spannende Podcast-Episoden, die verschiedene Epochen, Genres und musikalische Bewegungen abdecken.",
+  "podcast.rss.description":
+    "Entdecken Sie die Geschichte der Musik durch spannende Podcast-Episoden, die verschiedene Epochen, Genres und musikalische Bewegungen abdecken.",
   "podcast.rss.subscribe": "RSS Feed abonnieren",
   "podcast.rss.subscribe.title": "Abonnieren Sie unseren Podcast",
   "podcast.rss.subscribe.description": "Bleiben Sie auf dem Laufenden mit neuen Episoden",
@@ -860,7 +865,8 @@ export default {
   "toc.state.expanded": "Ausgeklappt",
   "toc.toggle.label": "Inhaltsverzeichnis umschalten",
   "news.title": "News",
-  "news.description": "Entdecken Sie die neuesten Hits, Künstlernews und Musiktrends aus aller Welt",
+  "news.description":
+    "Entdecken Sie die neuesten Hits, Künstlernews und Musiktrends aus aller Welt",
   "news.lastUpdated": "Zuletzt aktualisiert",
   "news.sourcesCount": "{count} Quellen",
   "news.trending": "Trending",
@@ -876,5 +882,4 @@ export default {
     "Alle Nachrichten stammen aus externen Quellen. MelodyMind ist nicht für den Inhalt verantwortlich.",
   "news.legal.attribution": "Nachrichten werden von den folgenden Quellen bereitgestellt:",
   "news.imageAlt": "Artikelbild",
-
 };

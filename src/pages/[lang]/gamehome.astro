@@ -285,19 +285,13 @@ const clientTranslations = generateClientTranslations(t);
       </div>
 
       <div class="gamehome-hero__content">
-        <Headline
-          title={`${t("game.welcome")}`}
-          level="h1"
-          className="gamehome-hero__title"
-          id="welcome-heading"
-          size="3xl"
-        />
+        <Headline title={`${t("game.welcome")}`} level="h1" id="welcome-heading" size="2xl" />
         <div class="gamehome-hero__divider"></div>
-        <Paragraph className="gamehome-hero__description" align="center">
+        <Paragraph align="center" textSize="lg">
           {t("game.select")}
         </Paragraph>
         <!-- Additional descriptive content for SEO -->
-        <Paragraph className="gamehome-hero__seo-description sr-only">
+        <Paragraph className="sr-only">
           {t("game.genre.selection.description")}
         </Paragraph>
       </div>
@@ -408,23 +402,7 @@ const clientTranslations = generateClientTranslations(t);
     display: flex;
     flex-direction: column;
     contain: layout style paint;
-    padding: var(--space-md) var(--space-xs); // Mobile: minimal horizontal spacing
-
-    @media (min-width: 20em) {
-      padding: var(--space-md) var(--space-sm);
-    }
-
-    @media (min-width: 48em) {
-      padding: var(--space-lg) var(--space-md);
-    }
-
-    @media (min-width: 64em) {
-      padding: var(--space-xl) var(--space-lg);
-    }
-
-    @media (min-width: 80em) {
-      padding: var(--space-2xl) var(--space-xl);
-    }
+    padding: var(--space-md) var(--space-sm); // Mobile: minimal horizontal spacing
   }
 
   /* ======================================
@@ -445,21 +423,6 @@ const clientTranslations = generateClientTranslations(t);
     margin-bottom: var(--space-lg);
     padding: var(--space-md) var(--space-sm); // Mobile: compact spacing
     border-radius: var(--radius-lg);
-
-    @media (min-width: 20em) {
-      padding: var(--space-md);
-      margin-bottom: var(--space-xl);
-    }
-
-    @media (min-width: 48em) {
-      padding: var(--space-lg);
-      border-radius: var(--radius-xl);
-    }
-
-    @media (min-width: 64em) {
-      padding: var(--space-xl) var(--space-lg);
-      margin-bottom: var(--space-2xl);
-    }
 
     @media (prefers-reduced-motion: reduce) {
       background: var(--color-primary-800);
@@ -508,31 +471,7 @@ const clientTranslations = generateClientTranslations(t);
       text-align: center;
       color: var(--color-white);
       contain: layout style;
-    }
-
-    &__title {
-      color: var(--color-white);
-      text-shadow: var(--shadow-lg);
-      margin-bottom: var(--space-sm);
-      font-size: var(--text-xl);
-      line-height: var(--leading-tight);
-      contain: layout style;
-
-      @media (min-width: 20em) {
-        margin-bottom: var(--space-md);
-        font-size: var(--text-2xl);
-        line-height: var(--leading-snug);
-      }
-
-      @media (min-width: 48em) {
-        margin-bottom: var(--space-lg);
-        font-size: var(--text-3xl);
-      }
-
-      @media (min-width: 64em) {
-        font-size: var(--text-4xl);
-        line-height: var(--leading-relaxed);
-      }
+      width: var(--width-full);
     }
 
     &__divider {
@@ -541,40 +480,7 @@ const clientTranslations = generateClientTranslations(t);
       contain: layout style paint;
       width: var(--icon-size-lg);
       height: var(--border-width-thick);
-      margin: var(--space-md) auto;
-
-      @media (min-width: 20em) {
-        width: var(--icon-size-xl);
-        margin: var(--space-lg) auto;
-      }
-
-      @media (min-width: 48em) {
-        height: var(--border-width-enhanced);
-      }
-    }
-
-    &__description {
-      color: var(--color-neutral-100);
-      line-height: var(--leading-relaxed);
-      margin: 0 auto;
-      contain: layout style;
-      font-size: var(--text-base);
-      max-width: var(--container-xs);
-
-      @media (min-width: 20em) {
-        font-size: var(--text-lg);
-        max-width: var(--container-sm);
-      }
-
-      @media (min-width: 48em) {
-        font-size: var(--text-xl);
-        max-width: var(--container-md);
-      }
-
-      @media (min-width: 64em) {
-        font-size: var(--text-2xl);
-        max-width: var(--container-lg);
-      }
+      margin: var(--space-sm) auto;
     }
   }
 
@@ -723,10 +629,6 @@ const clientTranslations = generateClientTranslations(t);
 
     @media (min-width: 64em) {
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    }
-
-    @media (min-width: 80em) {
-      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
     }
   }
 

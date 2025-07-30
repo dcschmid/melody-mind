@@ -84,132 +84,134 @@ if (Astro.request) {
 ---
 
 <Layout title={t("achievements.title")} description={t("achievements.description")}>
-  {!authResult.authenticated && (
-    <!-- Guest user notification -->
-    <div class="guest-notice" role="alert">
-      <div class="guest-notice__content">
-        <Headline level="h2" size="2xl">{t("achievements.guest.title") || "Achievements Not Available"}</Headline>
-        <p>{t("achievements.guest.description") || "Achievements are only available for registered users. Create an account to track your progress and unlock achievements."}</p>
-        <a href={`/${langString}/auth/login`} class="guest-notice__button">
-          {t("achievements.guest.login") || "Create Account / Login"}
-        </a>
-      </div>
-    </div>
-  )}
-  
-  {authResult.authenticated && (
-    <main class="achievements-container" id="main-content" role="main">
-    <!-- Hero section styled like GameHome with improved contrast and accessibility -->
-    <header class="achievements-hero" aria-labelledby="achievements-heading">
-      <!-- Decorative background elements with aria-hidden -->
-      <div class="achievements-hero__decoration" aria-hidden="true">
+  {
+    !authResult.authenticated && (
+      <>
+        {/* Guest user notification */}
+        <div class="guest-notice" role="alert">
+          <div class="guest-notice__content">
+            <Headline level="h2" size="2xl">
+              {t("achievements.guest.title") || "Achievements Not Available"}
+            </Headline>
+            <p>
+              {t("achievements.guest.description") ||
+                "Achievements are only available for registered users. Create an account to track your progress and unlock achievements."}
+            </p>
+            <a href={`/${langString}/auth/login`} class="guest-notice__button">
+              {t("achievements.guest.login") || "Create Account / Login"}
+            </a>
+          </div>
+        </div>
+      </>
+    )
+  }
+
+  {
+    authResult.authenticated && (
+      <main class="achievements-container" id="main-content" role="main">
+        {/* Hero section styled like GameHome with improved contrast and accessibility */}
+        <header class="achievements-hero" aria-labelledby="achievements-heading">
+          {/* Decorative background elements with aria-hidden */}
+          <div class="achievements-hero__decoration" aria-hidden="true">
+            <div class="achievements-hero__decoration-item achievements-hero__decoration-item--top-right"></div>
+            <div class="achievements-hero__decoration-item achievements-hero__decoration-item--bottom-left"></div>
+            <div class="achievements-hero__decoration-item achievements-hero__decoration-item--center-right"></div>
+          </div>
+
+          <div class="achievements-hero__content">
+            <Headline
+              level="h1"
+              title={t("achievements.title")}
+              className="achievements-hero__title"
+              id="achievements-heading"
+              size="4xl"
+            />
+
+            <div class="achievements-hero__divider" />
+
+            <Paragraph
+              description={t("achievements.description")}
+              className="achievements-hero__description"
+              align="center"
+            />
+
+            {/* Additional descriptive content for SEO */}
+            <Paragraph className="achievements-hero__seo-description sr-only">
+              {t("achievements.seo.description")}
+            </Paragraph>
+          </div>
+        </header>
+
+        {/* Live region for dynamic content updates */}
+        <div aria-live="polite" aria-atomic="true" class="sr-only" id="achievements-status">
+          {/* Dynamic status updates will be announced here */}
+        </div>
+
+        <div id="achievements-error-container" />
+
+        {/* Auth required section (only shown when not authenticated) */}
         <div
-          class="achievements-hero__decoration-item achievements-hero__decoration-item--top-right"
+          class="achievements__auth-required"
+          role="region"
+          aria-labelledby="auth-title"
+          id="auth-required-section"
+          style="display: none;"
         >
+          <Headline level="h2" id="auth-title" title={t("auth.required.title")} />
+          <Paragraph description={t("auth.required.description")} />
+          <div class="auth-form-container">
+            <AuthForm initialMode="login" />
+          </div>
         </div>
+
+        {/* Empty achievements (hidden by default) */}
         <div
-          class="achievements-hero__decoration-item achievements-hero__decoration-item--bottom-left"
+          class="achievements__empty"
+          role="status"
+          id="achievements-empty-section"
+          style="display: none;"
         >
+          <Paragraph description={t("achievements.empty")} />
         </div>
-        <div
-          class="achievements-hero__decoration-item achievements-hero__decoration-item--center-right"
-        >
+
+        {/* Main achievements content (shown when authenticated) */}
+        <div id="achievements-content">
+          <div id="achievement-filter-container">
+            {/* AchievementFilter component will be inserted here */}
+          </div>
+
+          <div class="achievements__list" role="region" aria-labelledby="achievements-categories">
+            <Headline
+              level="h2"
+              id="achievements-categories"
+              className="sr-only"
+              title={t("achievements.categories")}
+            />
+            <div id="achievements-categories-container">
+              {/* Achievement categories will be dynamically inserted here */}
+            </div>
+          </div>
+
+          <section class="achievements__summary" aria-labelledby="summary-title">
+            <Headline
+              level="h2"
+              id="summary-title"
+              className="achievements__summary-title"
+              title={t("achievements.summary.title")}
+            />
+            <div
+              class="achievements__summary-stats"
+              role="list"
+              aria-labelledby="summary-title"
+              id="achievements-stats-container"
+            >
+              {/* Stats will be dynamically inserted here */}
+            </div>
+          </section>
         </div>
-      </div>
-
-      <div class="achievements-hero__content">
-        <Headline
-          level="h1"
-          title={t("achievements.title")}
-          className="achievements-hero__title"
-          id="achievements-heading"
-          size="4xl"
-        />
-
-        <div class="achievements-hero__divider"></div>
-
-        <Paragraph
-          description={t("achievements.description")}
-          className="achievements-hero__description"
-          align="center"
-        />
-
-        <!-- Additional descriptive content for SEO -->
-        <Paragraph className="achievements-hero__seo-description sr-only">
-          {t("achievements.seo.description")}
-        </Paragraph>
-      </div>
-    </header>
-
-    <!-- Live region for dynamic content updates -->
-    <div aria-live="polite" aria-atomic="true" class="sr-only" id="achievements-status">
-      {/* Dynamic status updates will be announced here */}
-    </div>
-
-    <div id="achievements-error-container"></div>
-
-    <!-- Auth required section (only shown when not authenticated) -->
-    <div
-      class="achievements__auth-required"
-      role="region"
-      aria-labelledby="auth-title"
-      id="auth-required-section"
-      style="display: none;"
-    >
-      <Headline level="h2" id="auth-title" title={t("auth.required.title")} />
-      <Paragraph description={t("auth.required.description")} />
-      <div class="auth-form-container">
-        <AuthForm initialMode="login" />
-      </div>
-    </div>
-
-    <!-- Empty achievements (hidden by default) -->
-    <div
-      class="achievements__empty"
-      role="status"
-      id="achievements-empty-section"
-      style="display: none;"
-    >
-      <Paragraph description={t("achievements.empty")} />
-    </div>
-
-    <!-- Main achievements content (shown when authenticated) -->
-    <div id="achievements-content">
-      <div id="achievement-filter-container">
-        <!-- AchievementFilter component will be inserted here -->
-      </div>
-
-      <div class="achievements__list" role="region" aria-labelledby="achievements-categories">
-        <Headline
-          level="h2"
-          id="achievements-categories"
-          className="sr-only"
-          title={t("achievements.categories")}
-        />
-        <div id="achievements-categories-container">
-          <!-- Achievement categories will be dynamically inserted here -->
-        </div>
-      </div>
-
-      <section class="achievements__summary" aria-labelledby="summary-title">
-        <Headline
-          level="h2"
-          id="summary-title"
-          className="achievements__summary-title"
-          title={t("achievements.summary.title")}
-        />
-        <div
-          class="achievements__summary-stats"
-          role="list"
-          aria-labelledby="summary-title"
-          id="achievements-stats-container"
-        >
-          <!-- Stats will be dynamically inserted here -->
-        </div>
-      </section>
-    </div>
-    </main>
-  )}
+      </main>
+    )
+  }
 
   <!-- Achievement notification component -->
   <AchievementNotification lang={langString} />

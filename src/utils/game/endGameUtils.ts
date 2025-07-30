@@ -118,7 +118,6 @@ async function saveGameResult(config: EndGameConfig): Promise<string> {
       body: JSON.stringify(gameData),
     });
 
-
     if (!response.ok) {
       // Verbesserte Fehlerbehandlung
       try {
@@ -141,10 +140,8 @@ async function saveGameResult(config: EndGameConfig): Promise<string> {
       throw new Error("Ungültiges JSON-Format in der Server-Antwort");
     }
 
-
     // Handle achievements if present
     if (result.unlockedAchievements && result.unlockedAchievements.length > 0) {
-
       // Trigger custom event for EndOverlay to display achievements
       document.dispatchEvent(
         new CustomEvent("achievementsUpdated", {
@@ -497,7 +494,6 @@ async function waitForDataValidation(config: EndGameConfig): Promise<void> {
 function hideEndGameLoading(): void {
   const loadingOverlay = document.getElementById("endgame-loading-overlay");
   if (loadingOverlay) {
-
     // Try smooth animation first
     try {
       loadingOverlay.style.animation = "fadeOut 0.3s ease-out forwards";

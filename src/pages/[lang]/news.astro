@@ -139,7 +139,9 @@ const newsStructuredData = newsData?.items?.length
         </div>
 
         <div class="news__hero-content">
-          <Headline level="h1" size="4xl" id="news-heading" className="news__hero-title">{pageTitle}</Headline>
+          <Headline level="h1" size="4xl" id="news-heading" className="news__hero-title"
+            >{pageTitle}</Headline
+          >
           <div class="news__hero-divider"></div>
           <Paragraph className="news__hero-description">{pageDescription}</Paragraph>
 
@@ -166,7 +168,9 @@ const newsStructuredData = newsData?.items?.length
       {
         error && (
           <div class="news__error" role="alert">
-            <Headline level="h2" size="2xl" className="news__error-title">{t("errors.loadingError")}</Headline>
+            <Headline level="h2" size="2xl" className="news__error-title">
+              {t("errors.loadingError")}
+            </Headline>
             <Paragraph className="news__error-message">{error}</Paragraph>
             <button type="button" class="news__retry-btn" onclick="window.location.reload()">
               {t("common.retry")}
@@ -218,7 +222,13 @@ const newsStructuredData = newsData?.items?.length
                         </time>
                       </div>
 
-                      <Headline level="h3" size="lg" id={`news-title-${index}`} className="news__card-title" itemprop="headline">
+                      <Headline
+                        level="h3"
+                        size="lg"
+                        id={`news-title-${index}`}
+                        className="news__card-title"
+                        itemprop="headline"
+                      >
                         <a
                           href={item.link}
                           target="_blank"
@@ -262,7 +272,9 @@ const newsStructuredData = newsData?.items?.length
       {
         !error && newsData.items.length === 0 && (
           <section class="news__empty" role="status">
-            <Headline level="h2" size="2xl" className="news__empty-title">{t("news.noNews")}</Headline>
+            <Headline level="h2" size="2xl" className="news__empty-title">
+              {t("news.noNews")}
+            </Headline>
             <Paragraph className="news__empty-message">{t("news.noNewsDescription")}</Paragraph>
             <button type="button" class="news__refresh-btn" onclick="window.location.reload()">
               {t("news.refresh")}
@@ -274,7 +286,9 @@ const newsStructuredData = newsData?.items?.length
       <!-- Footer Info -->
       <footer class="news__footer">
         <div class="news__disclaimer">
-          <Headline level="h3" size="lg" className="news__disclaimer-title">{t("news.disclaimer.title")}</Headline>
+          <Headline level="h3" size="lg" className="news__disclaimer-title"
+            >{t("news.disclaimer.title")}</Headline
+          >
           <Paragraph className="news__disclaimer-text">
             {t("news.disclaimer.text")}
           </Paragraph>

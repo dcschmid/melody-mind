@@ -1,13 +1,3 @@
-/**
- * Advanced Accessibility Options
- * 
- * Diese Datei enthält erweiterte Zugänglichkeitsoptionen für die MelodyMind App:
- * - Benutzerdefinierte Text-Spacing-Einstellungen 
- * - Erweiterte Animationskontrolle jenseits der Betriebssystemeinstellungen
- * - Höherer Kontrast für Textlesbarkeit
- */
-
-/* Text-Spacing-Klassen zur Verbesserung der Lesbarkeit */
 :root {
   --letter-spacing-increased: 0.12em;
   --word-spacing-increased: 0.16em;

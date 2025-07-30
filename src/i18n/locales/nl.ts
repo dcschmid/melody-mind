@@ -186,7 +186,8 @@ export default {
   "auth.login.unauthorized": "Ongeautoriseerde toegang",
   "auth.login.unexpected_error": "Er is een onverwachte fout opgetreden",
   "auth.guest.button": "Speel als Gast",
-  "auth.guest.description": "Speel direct zonder je aan te melden. Voortgang wordt niet opgeslagen.",
+  "auth.guest.description":
+    "Speel direct zonder je aan te melden. Voortgang wordt niet opgeslagen.",
   "auth.guest.benefits": "Met een account kun je:",
   "auth.guest.benefit.progress": "Spelvoortgang opslaan",
   "auth.guest.benefit.achievements": "Prestaties ontgrendelen",
@@ -498,9 +499,12 @@ export default {
   "game.submit.answer": "Antwoord Controleren",
   "game.submit.answer.aria": "Controleer huidige volgorde en ga naar volgende ronde",
   "game.timepressure.title": "Tijdsdruk Modus",
-  "game.timepressure.description": "⚡ Word de bliksem-muziekmeester! Bewijs dat je een echte kampioen bent zelfs onder tijdsdruk met gemengde moeilijkheidsgraden in {category}. Elke seconde telt – toon je snelheid en kennis tegelijkertijd! 🏆",
-  "game.timepressure.instructions": "Beantwoord vragen zo snel mogelijk. Je hebt beperkte tijd voor elke vraag.",
-  "game.timepressure.controls": "Gebruik toetsen 1-4 voor antwoorden, Spatiebalk om te pauzeren, S om over te slaan",
+  "game.timepressure.description":
+    "⚡ Word de bliksem-muziekmeester! Bewijs dat je een echte kampioen bent zelfs onder tijdsdruk met gemengde moeilijkheidsgraden in {category}. Elke seconde telt – toon je snelheid en kennis tegelijkertijd! 🏆",
+  "game.timepressure.instructions":
+    "Beantwoord vragen zo snel mogelijk. Je hebt beperkte tijd voor elke vraag.",
+  "game.timepressure.controls":
+    "Gebruik toetsen 1-4 voor antwoorden, Spatiebalk om te pauzeren, S om over te slaan",
   "game.timepressure.streak": "Reeks",
   "game.timepressure.seconds": "Sec",
   "game.timepressure.countdown": "Afteltimer",
@@ -634,7 +638,7 @@ export default {
   "nav.home": "Startpagina",
   "nav.logout.label": "Uitloggen van de applicatie",
   "nav.menu.close": "Menu sluiten",
-  "nav.menu.highscores": "Highscores", 
+  "nav.menu.highscores": "Highscores",
   "nav.menu.highscores.desc": "Bekijk ranglijsten en rankings",
   "nav.menu.home": "Startpagina",
   "nav.menu.home.desc": "Terug naar de hoofdpagina",
@@ -673,7 +677,8 @@ export default {
   // Podcast page translations
   "podcast.title": "Podcasts",
   "podcast.description": "Ontdek muziekinzichten door onze podcastserie",
-  "podcast.rss.description": "Ontdek de geschiedenis van muziek door boeiende podcast-afleveringen die verschillende tijdperken, genres en muzikale bewegingen behandelen.",
+  "podcast.rss.description":
+    "Ontdek de geschiedenis van muziek door boeiende podcast-afleveringen die verschillende tijdperken, genres en muzikale bewegingen behandelen.",
   "podcast.rss.subscribe": "Abonneren op RSS Feed",
   "podcast.rss.subscribe.title": "Abonneer op onze Podcast",
   "podcast.rss.subscribe.description": "Blijf op de hoogte van nieuwe afleveringen",
@@ -712,7 +717,8 @@ export default {
   "profile.oauth_accounts.title": "Gekoppelde Accounts",
   "profile.desc": "Beheer je persoonlijke informatie en spelstatistieken",
   "news.title": "Nieuws",
-  "news.description": "Ontdek de nieuwste hits, artiesten nieuws en muziektrends van over de hele wereld",
+  "news.description":
+    "Ontdek de nieuwste hits, artiesten nieuws en muziektrends van over de hele wereld",
   "news.lastUpdated": "Laatst bijgewerkt",
   "news.sourcesCount": "{count} bronnen",
   "news.trending": "Trending",
@@ -720,10 +726,11 @@ export default {
   "news.readMore": "Lees meer",
   "news.relevanceScore": "Relevantie",
   "news.noNews": "Geen nieuws beschikbaar",
-  "news.noNewsDescription": "Er is momenteel geen muzieknieuws beschikbaar. Probeer het later opnieuw.",
+  "news.noNewsDescription":
+    "Er is momenteel geen muzieknieuws beschikbaar. Probeer het later opnieuw.",
   "news.refresh": "Vernieuwen",
   "news.disclaimer.title": "Disclaimer",
-  "news.disclaimer.text": "Alle nieuwsinhoud wordt geleverd door externe providers. MelodyMind is niet verantwoordelijk voor de inhoud.",
+  "news.disclaimer.text":
+    "Alle nieuwsinhoud wordt geleverd door externe providers. MelodyMind is niet verantwoordelijk voor de inhoud.",
   "news.legal.attribution": "Nieuws geleverd door de volgende bronnen:",
-
 };

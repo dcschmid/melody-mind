@@ -28,7 +28,6 @@ export async function checkAuth(request: Request): Promise<{
   // Extract cookie header from the request
   const cookieHeader = request.headers.get("cookie");
 
-
   if (!cookieHeader) {
     // No cookie present, return unauthenticated without redirect
     return {
@@ -42,9 +41,7 @@ export async function checkAuth(request: Request): Promise<{
     extractCookieValue(cookieHeader, "auth_token") ||
     extractCookieValue(cookieHeader, "authToken");
 
-
   if (!accessToken) {
-
     // Fallback: Try to get user data from non-HttpOnly cookie (set by OAuth callback)
     const userDataCookie = extractCookieValue(cookieHeader, "user_data");
     if (userDataCookie) {

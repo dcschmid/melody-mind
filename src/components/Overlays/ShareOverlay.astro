@@ -52,7 +52,13 @@ const {
 ---
 
 <div class="share-overlay" data-game-data={gameData ? JSON.stringify(gameData) : ""}>
-  {showTitle && <Headline level="h3" size="lg" className="share-overlay__title">{t("share.title")}</Headline>}
+  {
+    showTitle && (
+      <Headline level="h3" size="lg" className="share-overlay__title">
+        {t("share.title")}
+      </Headline>
+    )
+  }
 
   <!-- Status announcer for screen readers -->
   <div id="share-status-announcer" aria-live="polite" aria-atomic="true" class="sr-only"></div>
@@ -141,7 +147,9 @@ const {
             class="share-overlay__fallback-icon"
             aria-hidden="true"
           />
-          <Paragraph className="share-overlay__fallback-text">{t("share.fallback.message")}</Paragraph>
+          <Paragraph className="share-overlay__fallback-text">
+            {t("share.fallback.message")}
+          </Paragraph>
         </div>
         <div class="share-overlay__fallback-actions">
           <button

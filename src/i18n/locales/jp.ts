@@ -451,8 +451,10 @@ export default {
   "game.submit.answer": "回答を確認",
   "game.submit.answer.aria": "現在の順序を確認し、次のラウンドに進む",
   "game.timepressure.title": "タイムプレッシャーモード",
-  "game.timepressure.description": "⚡ 雷のような音楽マスターになろう！{category}で混合難易度レベルの時間的プレッシャーの下でも真のチャンピオンであることを証明しよう。すべての秒が重要だ——スピードと知識を同時に示そう！🏆",
-  "game.timepressure.instructions": "できるだけ早く質問に答えてください。各質問には制限時間があります。",
+  "game.timepressure.description":
+    "⚡ 雷のような音楽マスターになろう！{category}で混合難易度レベルの時間的プレッシャーの下でも真のチャンピオンであることを証明しよう。すべての秒が重要だ——スピードと知識を同時に示そう！🏆",
+  "game.timepressure.instructions":
+    "できるだけ早く質問に答えてください。各質問には制限時間があります。",
   "game.timepressure.controls": "回答にはキー1-4、一時停止にはスペース、スキップにはSを使用",
   "game.timepressure.streak": "連続",
   "game.timepressure.seconds": "秒",
@@ -615,7 +617,8 @@ export default {
   // Podcast page translations
   "podcast.title": "ポッドキャスト",
   "podcast.description": "当社のポッドキャストシリーズを通じて音楽の洞察を発見",
-  "podcast.rss.description": "魅力的なポッドキャストエピソードで音楽の歴史を発見し、異なる時代、ジャンル、音楽運動をカバーします。",
+  "podcast.rss.description":
+    "魅力的なポッドキャストエピソードで音楽の歴史を発見し、異なる時代、ジャンル、音楽運動をカバーします。",
   "podcast.rss.subscribe": "RSSフィードを購読",
   "podcast.rss.subscribe.title": "ポッドキャストを購読",
   "podcast.rss.subscribe.description": "新しいエピソードの最新情報を入手",
@@ -735,7 +738,8 @@ export default {
   "news.noNewsDescription": "現在、音楽ニュースは利用できません。後でもう一度お試しください。",
   "news.refresh": "更新",
   "news.disclaimer.title": "免責事項",
-  "news.disclaimer.text": "すべてのニュースコンテンツは外部プロバイダーから提供されています。MelodyMindはコンテンツに責任を負いません。",
+  "news.disclaimer.text":
+    "すべてのニュースコンテンツは外部プロバイダーから提供されています。MelodyMindはコンテンツに責任を負いません。",
   "news.legal.attribution": "ニュースは以下のソースから提供されています：",
   "news.imageAlt": "記事画像",
 

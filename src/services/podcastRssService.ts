@@ -1,9 +1,9 @@
 /**
  * Podcast RSS Feed Generation Service
- * 
+ *
  * Generates RFC-compliant RSS 2.0 feeds for MelodyMind podcasts
  * with iTunes, Spotify, and Google Podcasts compatibility.
- * 
+ *
  * @author Daniel Schmid <dcschmid@murena.io>
  * @version 1.0.0
  */
@@ -40,7 +40,7 @@ export interface RSSChannelMeta {
   managingEditor: string;
   imageUrl: string;
   category: string;
-  explicit: 'yes' | 'no' | 'clean';
+  explicit: "yes" | "no" | "clean";
   author: string;
   ownerName: string;
   ownerEmail: string;
@@ -64,9 +64,9 @@ export class PodcastRSSGenerator {
   public generateFeed(lang: string, episodes: PodcastData[]): string {
     const channelMeta = this.generateChannelMeta(lang);
     const items = episodes
-      .filter(episode => episode.isAvailable)
+      .filter((episode) => episode.isAvailable)
       .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
-      .map(episode => this.generateItem(episode, lang));
+      .map((episode) => this.generateItem(episode, lang));
 
     return this.buildRSSXML(channelMeta, items);
   }
@@ -76,29 +76,31 @@ export class PodcastRSSGenerator {
    */
   private generateChannelMeta(lang: string): RSSChannelMeta {
     const t = useTranslations(lang);
-    
+
     const languageNames: Record<string, string> = {
       de: "Deutsch",
-      en: "English", 
+      en: "English",
       es: "Español",
       fr: "Français",
       it: "Italiano",
       pt: "Português",
       da: "Dansk",
-      nl: "Nederlands", 
+      nl: "Nederlands",
       sv: "Svenska",
       fi: "Suomi",
       cn: "中文",
       ru: "Русский",
       jp: "日本語",
-      uk: "Українська"
+      uk: "Українська",
     };
 
     const languageName = languageNames[lang] || lang.toUpperCase();
 
     return {
       title: `MelodyMind Podcast - ${languageName}`,
-      description: t("podcast.rss.description") || "Discover the history of music through engaging podcast episodes covering different eras, genres, and musical movements.",
+      description:
+        t("podcast.rss.description") ||
+        "Discover the history of music through engaging podcast episodes covering different eras, genres, and musical movements.",
       link: `${this.baseUrl}/${lang}/podcasts`,
       language: lang,
       copyright: `© ${new Date().getFullYear()} MelodyMind`,
@@ -109,7 +111,7 @@ export class PodcastRSSGenerator {
       explicit: "clean",
       author: "MelodyMind",
       ownerName: "Daniel Schmid",
-      ownerEmail: this.contactEmail
+      ownerEmail: this.contactEmail,
     };
   }
 
@@ -119,7 +121,7 @@ export class PodcastRSSGenerator {
   private generateItem(episode: PodcastData, lang: string): RSSPodcastItem {
     const episodeLink = `${this.baseUrl}/${lang}/podcasts#${episode.id}`;
     const pubDate = this.formatRFC822Date(new Date(episode.publishedAt));
-    
+
     return {
       title: this.escapeXML(episode.title),
       description: this.escapeXML(episode.description),
@@ -130,7 +132,7 @@ export class PodcastRSSGenerator {
       audioLength: this.getEstimatedAudioSize(),
       duration: this.getEstimatedDuration(),
       imageUrl: episode.imageUrl ? `${this.baseUrl}${episode.imageUrl}` : undefined,
-      categories: ["Music", "Education", "History"]
+      categories: ["Music", "Education", "History"],
     };
   }
 
@@ -139,7 +141,7 @@ export class PodcastRSSGenerator {
    */
   private buildRSSXML(channelMeta: RSSChannelMeta, items: RSSPodcastItem[]): string {
     const lastBuildDate = this.formatRFC822Date(new Date());
-    
+
     return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" 
      xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
@@ -189,7 +191,7 @@ export class PodcastRSSGenerator {
     <spotify:countryOfOrigin>DE</spotify:countryOfOrigin>
     
     <!-- Episodes -->
-${items.map(item => this.buildItemXML(item)).join('\n')}
+${items.map((item) => this.buildItemXML(item)).join("\n")}
   </channel>
 </rss>`;
   }
@@ -198,10 +200,12 @@ ${items.map(item => this.buildItemXML(item)).join('\n')}
    * Build RSS item XML
    */
   private buildItemXML(item: RSSPodcastItem): string {
-    const imageTag = item.imageUrl ? `    <itunes:image href="${item.imageUrl}"/>` : '';
-    const durationTag = item.duration ? `    <itunes:duration>${item.duration}</itunes:duration>` : '';
-    const lengthAttr = item.audioLength ? ` length="${item.audioLength}"` : '';
-    
+    const imageTag = item.imageUrl ? `    <itunes:image href="${item.imageUrl}"/>` : "";
+    const durationTag = item.duration
+      ? `    <itunes:duration>${item.duration}</itunes:duration>`
+      : "";
+    const lengthAttr = item.audioLength ? ` length="${item.audioLength}"` : "";
+
     return `    <item>
       <title>${item.title}</title>
       <description>${item.description}</description>
@@ -211,7 +215,7 @@ ${items.map(item => this.buildItemXML(item)).join('\n')}
       <enclosure url="${item.audioUrl}" type="audio/mpeg"${lengthAttr}/>
       
       <!-- Categories -->
-${item.categories.map(cat => `      <category>${cat}</category>`).join('\n')}
+${item.categories.map((cat) => `      <category>${cat}</category>`).join("\n")}
       
       <!-- iTunes -->
       <itunes:title>${item.title}</itunes:title>
@@ -235,11 +239,11 @@ ${durationTag}
    */
   private escapeXML(text: string): string {
     return text
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
   }
 
   /**
@@ -265,13 +269,14 @@ ${durationTag}
     try {
       // Basic validation - check if it's valid XML structure
       const hasRSSRoot = xmlContent.includes('<rss version="2.0"');
-      const hasChannel = xmlContent.includes('<channel>') && xmlContent.includes('</channel>');
-      const hasTitle = xmlContent.includes('<title>') && xmlContent.includes('</title>');
-      const hasDescription = xmlContent.includes('<description>') && xmlContent.includes('</description>');
-      
+      const hasChannel = xmlContent.includes("<channel>") && xmlContent.includes("</channel>");
+      const hasTitle = xmlContent.includes("<title>") && xmlContent.includes("</title>");
+      const hasDescription =
+        xmlContent.includes("<description>") && xmlContent.includes("</description>");
+
       return hasRSSRoot && hasChannel && hasTitle && hasDescription;
     } catch (error) {
-      console.error('RSS XML validation failed:', error);
+      console.error("RSS XML validation failed:", error);
       return false;
     }
   }
