@@ -94,18 +94,6 @@ const screenReaderText = t("common.back.to.top");
     right: var(--space-md);
     bottom: var(--space-md);
 
-    // Tablet and desktop positioning
-    @media (min-width: 48em) {
-      right: var(--space-xl);
-      bottom: var(--space-xl);
-    }
-
-    // Large desktop positioning
-    @media (min-width: 80em) {
-      right: var(--space-2xl);
-      bottom: var(--space-2xl);
-    }
-
     // Hover effects
     &:hover {
       background: var(--btn-primary-hover);
@@ -138,81 +126,6 @@ const screenReaderText = t("common.back.to.top");
         width: var(--icon-size-lg);
         height: var(--icon-size-lg);
       }
-    }
-
-    // Responsive sizing for different screen sizes
-    @media (min-width: 48em) {
-      min-width: calc(var(--min-touch-size) + var(--space-sm));
-      min-height: calc(var(--min-touch-size) + var(--space-sm));
-      padding: var(--space-lg);
-    }
-
-    @media (min-width: 80em) {
-      min-width: calc(var(--min-touch-size) + var(--space-md));
-      min-height: calc(var(--min-touch-size) + var(--space-md));
-      padding: var(--space-xl);
-    }
-  }
-
-  /* Screen reader only content */
-  .sr-only {
-    position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    padding: var(--space-none);
-    margin: var(--sr-only-margin);
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: var(--space-none);
-  }
-
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .back-to-top {
-      transition-duration: var(--transition-instant) !important;
-
-      &:hover {
-        transform: none;
-      }
-
-      &:active {
-        transform: none;
-      }
-    }
-  }
-
-  /* High contrast mode support */
-  @media (forced-colors: active) {
-    .back-to-top {
-      border: var(--border-width-thin) solid ButtonBorder;
-      background: ButtonFace;
-      color: ButtonText;
-
-      &:hover,
-      &:focus {
-        border-color: Highlight;
-        background: Highlight;
-        color: HighlightText;
-      }
-    }
-  }
-
-  /* Print styles - hide back to top button */
-  @media print {
-    .back-to-top {
-      display: none !important;
-    }
-  }
-
-  /* Landscape orientation adjustments for mobile */
-  @media (orientation: landscape) and (max-width: 47.9375em) {
-    .back-to-top {
-      right: var(--space-sm);
-      bottom: var(--space-sm);
-      min-width: var(--min-touch-size);
-      min-height: var(--min-touch-size);
-      padding: var(--space-sm);
     }
   }
 </style>

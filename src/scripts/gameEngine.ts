@@ -176,7 +176,7 @@ const initializeGame = async (elements: GameElements) => {
       const userData = JSON.parse(userDataString);
       if (userData.id) {
         userId = userData.id;
-        
+
         // Check if this is a guest user
         if (userData.isGuest || userData.id.startsWith("guest_")) {
         }
@@ -185,7 +185,6 @@ const initializeGame = async (elements: GameElements) => {
   } catch (error) {
     console.warn("Game Engine: Error reading user data:", error);
   }
-
 
   /**
    * Check for seasonal events based on current date

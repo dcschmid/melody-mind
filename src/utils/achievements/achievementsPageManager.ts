@@ -64,12 +64,12 @@ export class AchievementsPageManager {
     // First check if server-side auth is already handled
     const authRequiredSection = document.getElementById("auth-required-section");
     const achievementsContent = document.getElementById("achievements-content");
-    
+
     // If auth-required is hidden and content is visible, server-side auth succeeded
     if (authRequiredSection && achievementsContent) {
       const authSectionStyle = window.getComputedStyle(authRequiredSection);
       const contentSectionStyle = window.getComputedStyle(achievementsContent);
-      
+
       if (authSectionStyle.display === "none" && contentSectionStyle.display !== "none") {
         return { authenticated: true };
       }

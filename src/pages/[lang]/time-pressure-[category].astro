@@ -172,21 +172,21 @@ const structuredData = {
     data-categoryName={categoryData?.headline}
     data-genre={String(category)}
   >
-    <!-- Screen Reader Only Game Instructions -->
+    {/* Screen Reader Only Game Instructions */}
     <div class="sr-only" id="game-instructions">
       <h1>{gameTitle}</h1>
       <p>{t("game.timepressure.instructions")}</p>
       <p>{t("game.timepressure.controls")}</p>
     </div>
 
-    <!-- Loading State -->
+    {/* Loading State */}
     <div id="loading-container" class="game-loading" aria-label={t("game.loading")}>
       <LoadingSpinner label={t("game.loading.questions")} />
     </div>
 
-    <!-- Game UI Container -->
+    {/* Game UI Container */}
     <div id="game-ui" class="game-ui" style="display: none;" aria-labelledby="question-text">
-      <!-- Time Pressure Header -->
+      {/* Time Pressure Header */}
       <header class="time-pressure-header">
         <div class="game-stats">
           <div class="stat-item">
@@ -249,7 +249,7 @@ const structuredData = {
         </div>
       </header>
 
-      <!-- Question Display -->
+      {/* Question Display */}
       <div class="question-container">
         <div id="question-text" class="question-text" aria-live="assertive"></div>
         <div id="question-image" class="question-image" style="display: none;">
@@ -257,17 +257,17 @@ const structuredData = {
         </div>
       </div>
 
-      <!-- Answer Options -->
+      {/* Answer Options */}
       <div
         id="answer-options"
         class="answer-options"
         role="radiogroup"
         aria-labelledby="question-text"
       >
-        <!-- Answer buttons will be dynamically generated -->
+        {/* Answer buttons will be dynamically generated */}
       </div>
 
-      <!-- Game Controls -->
+      {/* Game Controls */}
       <div class="game-controls">
         <button
           type="button"
@@ -292,7 +292,7 @@ const structuredData = {
       </div>
     </div>
 
-    <!-- Overlays -->
+    {/* Overlays */}
     <FeedbackOverlay />
     <EndOverlay
       id="end-overlay"

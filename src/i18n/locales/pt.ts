@@ -498,9 +498,12 @@ export default {
   "game.submit.answer": "Verificar Resposta",
   "game.submit.answer.aria": "Verificar ordem atual e proceder para a próxima rodada",
   "game.timepressure.title": "Modo Pressão de Tempo",
-  "game.timepressure.description": "⚡ Torne-se o mestre relâmpago da música! Prove que é um verdadeiro campeão mesmo sob pressão de tempo com níveis de dificuldade mistos em {category}. Cada segundo conta – mostre sua velocidade e conhecimento ao mesmo tempo! 🏆",
-  "game.timepressure.instructions": "Responda às perguntas o mais rápido possível. Você tem tempo limitado para cada pergunta.",
-  "game.timepressure.controls": "Use as teclas 1-4 para respostas, Espaço para pausar, S para pular",
+  "game.timepressure.description":
+    "⚡ Torne-se o mestre relâmpago da música! Prove que é um verdadeiro campeão mesmo sob pressão de tempo com níveis de dificuldade mistos em {category}. Cada segundo conta – mostre sua velocidade e conhecimento ao mesmo tempo! 🏆",
+  "game.timepressure.instructions":
+    "Responda às perguntas o mais rápido possível. Você tem tempo limitado para cada pergunta.",
+  "game.timepressure.controls":
+    "Use as teclas 1-4 para respostas, Espaço para pausar, S para pular",
   "game.timepressure.streak": "Sequência",
   "game.timepressure.seconds": "Seg",
   "game.timepressure.countdown": "Cronômetro de contagem regressiva",
@@ -671,7 +674,8 @@ export default {
   // Podcast page translations
   "podcast.title": "Podcasts",
   "podcast.description": "Descubra insights musicais através da nossa série de podcasts",
-  "podcast.rss.description": "Descubra a história da música através de episódios de podcast envolventes que cobrem diferentes épocas, géneros e movimentos musicais.",
+  "podcast.rss.description":
+    "Descubra a história da música através de episódios de podcast envolventes que cobrem diferentes épocas, géneros e movimentos musicais.",
   "podcast.rss.subscribe": "Assinar Feed RSS",
   "podcast.rss.subscribe.title": "Inscreva-se no nosso Podcast",
   "podcast.rss.subscribe.description": "Mantenha-se atualizado com novos episódios",
@@ -710,7 +714,8 @@ export default {
   "profile.oauth_accounts.title": "Contas Conectadas",
   "profile.desc": "Gerenciar suas informações pessoais e estatísticas de jogo",
   "news.title": "Notícias",
-  "news.description": "Descubra os últimos sucessos, notícias de artistas e tendências musicais de todo o mundo",
+  "news.description":
+    "Descubra os últimos sucessos, notícias de artistas e tendências musicais de todo o mundo",
   "news.lastUpdated": "Última atualização",
   "news.sourcesCount": "{count} fontes",
   "news.trending": "Em alta",
@@ -718,10 +723,11 @@ export default {
   "news.readMore": "Ler mais",
   "news.relevanceScore": "Relevância",
   "news.noNews": "Nenhuma notícia disponível",
-  "news.noNewsDescription": "Nenhuma notícia musical está disponível no momento. Tente novamente mais tarde.",
+  "news.noNewsDescription":
+    "Nenhuma notícia musical está disponível no momento. Tente novamente mais tarde.",
   "news.refresh": "Atualizar",
   "news.disclaimer.title": "Aviso legal",
-  "news.disclaimer.text": "Todo o conteúdo de notícias é fornecido por provedores externos. MelodyMind não é responsável pelo conteúdo.",
+  "news.disclaimer.text":
+    "Todo o conteúdo de notícias é fornecido por provedores externos. MelodyMind não é responsável pelo conteúdo.",
   "news.legal.attribution": "Notícias fornecidas pelas seguintes fontes:",
-
 };

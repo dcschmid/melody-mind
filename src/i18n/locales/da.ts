@@ -182,7 +182,8 @@ export default {
   "auth.login.unauthorized": "Uautoriseret adgang",
   "auth.login.unexpected_error": "En uventet fejl opstod",
   "auth.guest.button": "Spil som Gæst",
-  "auth.guest.description": "Spil øjeblikkeligt uden at registrere dig. Fremskridt vil ikke blive gemt.",
+  "auth.guest.description":
+    "Spil øjeblikkeligt uden at registrere dig. Fremskridt vil ikke blive gemt.",
   "auth.guest.benefits": "Med en konto kan du:",
   "auth.guest.benefit.progress": "Gemme spilfremskridt",
   "auth.guest.benefit.achievements": "Låse præstationer op",
@@ -489,9 +490,12 @@ export default {
   "game.submit.answer": "Tjek svar",
   "game.submit.answer.aria": "Tjek nuværende rækkefølge og fortsæt til næste runde",
   "game.timepressure.title": "Tidspres-tilstand",
-  "game.timepressure.description": "⚡ Bliv lynmusikmestreren! Bevis at du er en sand mester selv under tidspres med blandede sværhedsgrader i {category}. Hvert sekund tæller – vis din hastighed og viden på samme tid! 🏆",
-  "game.timepressure.instructions": "Besvar spørgsmål så hurtigt som muligt. Du har begrænset tid til hvert spørgsmål.",
-  "game.timepressure.controls": "Brug tasterne 1-4 til svar, Mellemrum til pause, S til at springe over",
+  "game.timepressure.description":
+    "⚡ Bliv lynmusikmestreren! Bevis at du er en sand mester selv under tidspres med blandede sværhedsgrader i {category}. Hvert sekund tæller – vis din hastighed og viden på samme tid! 🏆",
+  "game.timepressure.instructions":
+    "Besvar spørgsmål så hurtigt som muligt. Du har begrænset tid til hvert spørgsmål.",
+  "game.timepressure.controls":
+    "Brug tasterne 1-4 til svar, Mellemrum til pause, S til at springe over",
   "game.timepressure.streak": "Stribe",
   "game.timepressure.seconds": "Sek",
   "game.timepressure.countdown": "Nedtællingstimer",
@@ -659,7 +663,8 @@ export default {
   // Podcast page translations
   "podcast.title": "Podcasts",
   "podcast.description": "Oplev musikindsigt gennem vores podcastserie",
-  "podcast.rss.description": "Oplev musikhistorien gennem engagerende podcast-episoder der dækker forskellige epoker, genrer og musikalske bevægelser.",
+  "podcast.rss.description":
+    "Oplev musikhistorien gennem engagerende podcast-episoder der dækker forskellige epoker, genrer og musikalske bevægelser.",
   "podcast.rss.subscribe": "Abonner på RSS Feed",
   "podcast.rss.subscribe.title": "Abonner på vores Podcast",
   "podcast.rss.subscribe.description": "Hold dig opdateret med nye episoder",
@@ -706,10 +711,11 @@ export default {
   "news.readMore": "Læs mere",
   "news.relevanceScore": "Relevans",
   "news.noNews": "Ingen nyheder tilgængelige",
-  "news.noNewsDescription": "Der er ingen musiknyheder tilgængelige i øjeblikket. Prøv igen senere.",
+  "news.noNewsDescription":
+    "Der er ingen musiknyheder tilgængelige i øjeblikket. Prøv igen senere.",
   "news.refresh": "Opdater",
   "news.disclaimer.title": "Ansvarsfralæggelse",
-  "news.disclaimer.text": "Alt nyhedsindhold kommer fra eksterne udbydere. MelodyMind er ikke ansvarlig for indholdet.",
+  "news.disclaimer.text":
+    "Alt nyhedsindhold kommer fra eksterne udbydere. MelodyMind er ikke ansvarlig for indholdet.",
   "news.legal.attribution": "Nyheder leveret af følgende kilder:",
-
 };

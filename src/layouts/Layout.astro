@@ -440,7 +440,7 @@ const dnsPrefetch = [
 
       // Main body container with flexbox layout and WCAG AAA colors
       .layout__body {
-        margin: var(--space-none) auto;
+        margin: 0 auto;
         display: flex;
         min-height: 100vh;
         width: var(--width-full);
@@ -455,11 +455,8 @@ const dnsPrefetch = [
         background-color: var(--bg-primary);
         color: var(--text-primary);
 
-        // Responsive padding using global spacing tokens
-        padding: var(--space-md);
-
         // Enhanced typography for better readability
-        font-size: var(--text-lg);
+        font-size: var(--text-base);
         line-height: var(--leading-enhanced);
         letter-spacing: var(--letter-spacing-base);
         text-wrap: wrap;
@@ -467,11 +464,6 @@ const dnsPrefetch = [
         // Font rendering optimization
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-
-        // Responsive layout adjustments using hardcoded em-based breakpoints
-        @media (min-width: 48em) {
-          padding: var(--space-xl);
-        }
       }
 
       // Header section with full width and semantic structure
@@ -509,9 +501,6 @@ const dnsPrefetch = [
         overflow-x: hidden;
         box-sizing: border-box;
         width: var(--width-full);
-
-        // Content spacing for optimal reading experience
-        padding: var(--space-xl) 0;
 
         // Enhanced typography for content readability
         font-size: var(--text-lg);
@@ -598,16 +587,6 @@ const dnsPrefetch = [
         .layout__body {
           padding: 8px; // Minimal mobile padding
         }
-
-        .layout__main {
-          padding: var(--space-md) 0;
-        }
-      }
-
-      @media (min-width: 64em) {
-        .layout__body {
-          padding: var(--space-2xl);
-        }
       }
 
       // Enhanced text spacing support for WCAG AAA
@@ -644,22 +623,22 @@ const dnsPrefetch = [
       is:inline></script>
   </head>
   <body class="layout__body" data-theme="dark">
-    <!-- Skip link for keyboard navigation -->
+    {/* Skip link for keyboard navigation */}
     <SkipLink />
 
-    <!-- Conditional header/navigation based on page type -->
+    {/* Conditional header/navigation based on page type */}
     <When test={showHeader && !showCoins}>
       <header role="banner" class="layout__header">
         <Navigation {showHeaderIcons} />
       </header>
     </When>
 
-    <!-- Main content area -->
+    {/* Main content area */}
     <main id="main-content" class="layout__main" tabindex="-1" role="main">
       <slot />
     </main>
 
-    <!-- Footer area -->
+    {/* Footer area */}
     <Footer />
 
     <!-- Minimal layout initialization -->

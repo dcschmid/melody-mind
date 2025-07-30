@@ -47,13 +47,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
 const pageType = "website";
 const publishDate = new Date("2024-01-01");
 const modifiedDate = new Date();
-
-/**
- * Define main logo image optimization parameters
- * This improves performance by loading appropriately sized images
- */
-const imageWidth = 600;
-const imageHeight = 600;
 ---
 
 <Layout
@@ -72,20 +65,19 @@ const imageHeight = 600;
         <div class="logo-container" aria-hidden="true">
           <Image
             src="/melody-mind.png"
-            width={imageWidth}
-            height={imageHeight}
+            width={300}
+            height={300}
             alt="Melody Mind Logo - Music Quiz App Logo"
             loading="eager"
-            class="logo-image"
             fetchpriority="high"
           />
         </div>
 
         {/* Semantic heading with proper hierarchy */}
-        <Headline level="h1" {title} size="4xl" />
+        <Headline level="h1" {title} size="2xl" />
 
         {/* Description with enhanced contrast for AAA compliance */}
-        <Paragraph align="center" textSize="2xl">
+        <Paragraph align="center" textSize="lg">
           {description}
         </Paragraph>
 
@@ -98,7 +90,7 @@ const imageHeight = 600;
 
         {/* Footer text with improved contrast ratio */}
         <div class="footer-section">
-          <Paragraph textSize="xl" ariaLive="polite" align="center">
+          <Paragraph textSize="base" ariaLive="polite" align="center">
             {t("index.welcome.footnote")}
           </Paragraph>
         </div>
@@ -114,10 +106,7 @@ const imageHeight = 600;
    * ====================================== */
 
   .main-content {
-    display: flex;
     min-height: 100vh;
-    align-items: center;
-    justify-content: center;
     color: var(--text-primary);
     background-color: var(--bg-primary);
     contain: layout style paint;
@@ -135,24 +124,7 @@ const imageHeight = 600;
     flex-direction: column;
     align-items: center;
     contain: layout style;
-    padding: var(--space-md) var(--space-xs); // Mobile: minimal horizontal spacing
     text-align: center;
-
-    @media (min-width: 20em) {
-      padding: var(--space-lg) var(--space-sm);
-    }
-
-    @media (min-width: 48em) {
-      padding: var(--space-xl) var(--space-md);
-    }
-
-    @media (min-width: 64em) {
-      padding: var(--space-2xl) var(--space-lg);
-    }
-
-    @media (min-width: 80em) {
-      padding: var(--space-3xl) var(--space-xl);
-    }
   }
 
   .content-wrapper {
@@ -161,77 +133,6 @@ const imageHeight = 600;
     flex-direction: column;
     align-items: center;
     contain: layout style;
-    gap: var(--space-md); // Mobile: compact spacing
-
-    @media (min-width: 20em) {
-      gap: var(--space-lg);
-    }
-
-    @media (min-width: 48em) {
-      gap: var(--space-xl);
-    }
-
-    @media (min-width: 64em) {
-      gap: var(--space-2xl);
-    }
-  }
-
-  /* ======================================
-   * LOGO SECTION - SIMPLIFIED DESIGN
-   * ====================================== */
-  .logo-container {
-    position: relative;
-    aspect-ratio: 1;
-    width: var(--width-full);
-    contain: layout style paint;
-    margin: 0 auto var(--space-lg); // Mobile: compact margin
-    max-width: var(--container-xs);
-
-    @media (min-width: 20em) {
-      margin: 0 auto var(--space-xl);
-      max-width: var(--container-sm);
-    }
-
-    @media (min-width: 48em) {
-      margin: 0 auto var(--space-2xl);
-      max-width: var(--container-md);
-    }
-
-    @media (min-width: 64em) {
-      margin: 0 auto var(--space-3xl);
-      max-width: 25rem; // 400px
-    }
-
-    @media (min-width: 80em) {
-      max-width: 30rem; // 480px
-    }
-  }
-
-  .logo-image {
-    height: auto;
-    width: var(--width-full);
-    border-radius: var(--radius-lg);
-    contain: layout style paint;
-    transition: transform var(--transition-base);
-
-    &:hover {
-      transform: scale(var(--animation-scale-hover-subtle));
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      &:hover {
-        transform: none;
-      }
-    }
-
-    @media (prefers-contrast: high) {
-      border: var(--border-width-thick) solid var(--text-primary);
-    }
-
-    @media print {
-      filter: grayscale(100%);
-      max-width: 200px;
-    }
   }
 
   /* ======================================
@@ -243,12 +144,11 @@ const imageHeight = 600;
     flex-direction: column;
     align-items: center;
     contain: layout style;
-    margin: var(--space-md) auto 0; // Mobile: compact margin
+    margin: 0 auto 0; // Mobile: compact margin
     max-width: var(--container-xs);
     gap: var(--space-sm);
 
     @media (min-width: 20em) {
-      margin: var(--space-lg) auto 0;
       max-width: var(--container-sm);
       gap: var(--space-md);
     }
@@ -283,33 +183,6 @@ const imageHeight = 600;
     max-width: var(--content-readable-width);
     contain: layout style;
     margin-top: var(--space-lg); // Mobile: compact margin
-
-    @media (min-width: 20em) {
-      margin-top: var(--space-xl);
-    }
-
-    @media (min-width: 48em) {
-      margin-top: var(--space-2xl);
-    }
-
-    @media (min-width: 64em) {
-      margin-top: var(--space-3xl);
-    }
-  }
-
-  /* ======================================
-   * ACCESSIBILITY ENHANCEMENTS
-   * ====================================== */
-  .sr-only {
-    position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    padding: 0;
-    margin: var(--sr-only-margin);
-    overflow: hidden;
-    clip: var(--sr-only-clip-path);
-    white-space: nowrap;
-    border: 0;
   }
 
   // Enhanced focus styles for all interactive elements
@@ -371,55 +244,6 @@ const imageHeight = 600;
 
     .footer-section {
       margin-top: var(--space-md);
-    }
-  }
-
-  /* ======================================
-   * RESPONSIVE TYPOGRAPHY - SIMPLIFIED
-   * ====================================== */
-  h1 {
-    font-size: var(--text-xl);
-    line-height: var(--leading-tight);
-
-    @media (min-width: 20em) {
-      font-size: var(--text-2xl);
-    }
-
-    @media (min-width: 48em) {
-      font-size: var(--text-3xl);
-    }
-
-    @media (min-width: 64em) {
-      font-size: var(--text-4xl);
-    }
-
-    // Extra small screens
-    @media (max-width: 19.9375em) {
-      font-size: var(--text-lg);
-      line-height: var(--leading-snug);
-    }
-  }
-
-  p {
-    font-size: var(--text-base);
-    line-height: var(--leading-relaxed);
-
-    @media (min-width: 20em) {
-      font-size: var(--text-lg);
-    }
-
-    @media (min-width: 48em) {
-      font-size: var(--text-xl);
-    }
-
-    @media (min-width: 64em) {
-      font-size: var(--text-2xl);
-    }
-
-    // Extra small screens
-    @media (max-width: 19.9375em) {
-      font-size: var(--text-sm);
-      line-height: var(--leading-normal);
     }
   }
 

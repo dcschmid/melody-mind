@@ -141,8 +141,12 @@ const languageNames = {
         <div class="profile__login-prompt" role="alert">
           <div class="profile__login-content">
             <Icon name="user-lock" class="profile__login-icon" aria-hidden="true" />
-            <Headline level="h2" size="2xl" className="profile__login-title">{t("profile.auth.required.title")}</Headline>
-            <Paragraph className="profile__login-message">{t("profile.auth.required.message")}</Paragraph>
+            <Headline level="h2" size="2xl" className="profile__login-title">
+              {t("profile.auth.required.title")}
+            </Headline>
+            <Paragraph className="profile__login-message">
+              {t("profile.auth.required.message")}
+            </Paragraph>
             <div class="profile__login-actions">
               <AuthForm initialMode="login" />
             </div>
@@ -179,7 +183,12 @@ const languageNames = {
           return (
             <div class="profile__content">
               <section class="profile-card" aria-labelledby="user-info-heading">
-                <Headline level="h2" size="2xl" id="user-info-heading" className="profile-card__title">
+                <Headline
+                  level="h2"
+                  size="2xl"
+                  id="user-info-heading"
+                  className="profile-card__title"
+                >
                   {t("profile.user.info")}
                 </Headline>
 
@@ -222,7 +231,9 @@ const languageNames = {
                 <div class="profile-card__stats">
                   <div class="stats-grid">
                     <div class="stat-card">
-                      <Headline level="h3" size="lg" className="stat-card__title">{gameModeNames.quiz}</Headline>
+                      <Headline level="h3" size="lg" className="stat-card__title">
+                        {gameModeNames.quiz}
+                      </Headline>
                       <dl class="stat-card__list">
                         <div class="stat-card__item">
                           <dt class="stat-card__label">{t("profile.stats.games_played")}</dt>
@@ -240,7 +251,9 @@ const languageNames = {
                     </div>
 
                     <div class="stat-card">
-                      <Headline level="h3" size="lg" className="stat-card__title">{gameModeNames.chronology}</Headline>
+                      <Headline level="h3" size="lg" className="stat-card__title">
+                        {gameModeNames.chronology}
+                      </Headline>
                       <dl class="stat-card__list">
                         <div class="stat-card__item">
                           <dt class="stat-card__label">{t("profile.stats.games_played")}</dt>
@@ -261,14 +274,21 @@ const languageNames = {
               </section>
 
               <section class="profile-card" aria-labelledby="recent-games-heading">
-                <Headline level="h2" size="2xl" id="recent-games-heading" className="profile-card__title">
+                <Headline
+                  level="h2"
+                  size="2xl"
+                  id="recent-games-heading"
+                  className="profile-card__title"
+                >
                   {t("profile.recent_games.title")}
                 </Headline>
 
                 {profile.recentGames.length === 0 ? (
                   <div class="profile-card__empty">
                     <Icon name="gamepad" class="profile-card__empty-icon" aria-hidden="true" />
-                    <Paragraph className="profile-card__empty-text">{t("profile.recent_games.empty")}</Paragraph>
+                    <Paragraph className="profile-card__empty-text">
+                      {t("profile.recent_games.empty")}
+                    </Paragraph>
                   </div>
                 ) : (
                   <div class="recent-games">

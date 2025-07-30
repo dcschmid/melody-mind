@@ -121,7 +121,7 @@ const statusAnnouncementText = isDisabled
   </div>
 
   <div class="content-container">
-    <Headline level="h2" size="2xl" id={headlineId} className="playlist-headline">
+    <Headline level="h2" size="xl" id={headlineId} textAlign="center" className="playlist-headline">
       {headline}
     </Headline>
 
@@ -129,7 +129,9 @@ const statusAnnouncementText = isDisabled
       subheadline && (
         <div id={descriptionId} class="subheadline-container">
           <div class="subheadline-divider" />
-          <Paragraph className="playlist-subheadline">{subheadline}</Paragraph>
+          <Paragraph className="playlist-subheadline" textSize="base" align="center">
+            {subheadline}
+          </Paragraph>
         </div>
       )
     }
@@ -235,21 +237,6 @@ const statusAnnouncementText = isDisabled
       scroll-snap-align: start;
       scroll-margin-top: var(--space-xl);
     }
-
-    @media (forced-colors: active) {
-      border: var(--border-width-thick) solid ButtonText;
-      background: Canvas;
-      forced-color-adjust: none;
-    }
-
-    @media print {
-      break-inside: avoid;
-      page-break-inside: avoid;
-      border: var(--border-width-thin) solid var(--print-border);
-      background: var(--print-bg) !important;
-      transform: none !important;
-      box-shadow: none !important;
-    }
   }
 
   /* Disabled overlay */
@@ -281,16 +268,6 @@ const statusAnnouncementText = isDisabled
     transition:
       background var(--transition-fast),
       border-color var(--transition-fast);
-
-    @media (forced-colors: active) {
-      background: ButtonFace;
-      color: ButtonText;
-      border: var(--border-width-thin) solid ButtonText;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      transition: none !important;
-    }
   }
 
   /* Top accent line */
@@ -307,16 +284,6 @@ const statusAnnouncementText = isDisabled
       var(--color-primary-500) 50%,
       var(--color-primary-700) var(--gradient-end)
     );
-
-    /* Fallback for high contrast mode */
-    @media (forced-colors: active) {
-      background: Highlight;
-      display: none;
-    }
-
-    @media print {
-      display: none !important;
-    }
   }
 
   /* Image container */
@@ -346,22 +313,6 @@ const statusAnnouncementText = isDisabled
       font-size: var(--text-sm);
       padding: var(--space-sm) var(--space-md);
     }
-
-    @media (forced-colors: active) {
-      background: ButtonFace;
-      color: ButtonText;
-      border: var(--border-width-thin) solid ButtonText;
-    }
-
-    @media print {
-      background: var(--print-bg) !important;
-      color: var(--print-text) !important;
-      border: var(--border-width-thin) solid var(--print-border) !important;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      transition: none !important;
-    }
   }
 
   /* Playlist image */
@@ -384,62 +335,11 @@ const statusAnnouncementText = isDisabled
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    padding: var(--space-md);
-
-    /* Responsive padding */
-    @media (min-width: 640px) {
-      padding: var(--space-lg);
-    }
-
-    @media (min-width: 1024px) {
-      padding: var(--space-xl);
-    }
-  }
-
-  /* Headline */
-  .playlist-headline {
-    margin: 0;
-    text-align: center;
-    font-family: inherit;
-    font-size: var(--text-base);
-    font-weight: var(--font-semibold);
-    line-height: var(--leading-enhanced);
-    letter-spacing: var(--letter-spacing-enhanced);
-    color: var(--text-primary);
-    word-break: break-word;
-    hyphens: auto;
-
-    /* Responsive typography */
-    @media (min-width: 640px) {
-      font-size: var(--text-lg);
-    }
-
-    @media (min-width: 1024px) {
-      font-size: var(--text-xl);
-    }
-
-    @media (forced-colors: active) {
-      color: CanvasText;
-    }
-
-    @media print {
-      color: var(--print-text) !important;
-    }
   }
 
   /* Subheadline container */
   .subheadline-container {
     position: relative;
-    margin-top: var(--space-sm);
-
-    /* Responsive spacing */
-    @media (min-width: 640px) {
-      margin-top: var(--space-md);
-    }
-
-    @media (min-width: 1024px) {
-      margin-top: var(--space-lg);
-    }
   }
 
   /* Subheadline divider */
@@ -453,38 +353,6 @@ const statusAnnouncementText = isDisabled
     /* Responsive spacing */
     @media (min-width: 640px) {
       margin-bottom: var(--space-md);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      transition: none !important;
-    }
-  }
-
-  .playlist-subheadline {
-    margin: 0;
-    text-align: center;
-    font-size: var(--text-sm);
-    line-height: var(--leading-enhanced);
-    letter-spacing: var(--letter-spacing-enhanced);
-    word-spacing: var(--word-spacing-enhanced);
-    color: var(--text-primary);
-    transition: color var(--transition-fast);
-
-    /* Responsive typography */
-    @media (min-width: 640px) {
-      font-size: var(--text-base);
-    }
-
-    @media (min-width: 1024px) {
-      font-size: var(--text-lg);
-    }
-
-    @media (forced-colors: active) {
-      color: CanvasText;
-    }
-
-    @media print {
-      color: var(--print-text) !important;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -509,21 +377,6 @@ const statusAnnouncementText = isDisabled
     transform: scaleX(0);
     transform-origin: left;
     transition: transform var(--transition-normal);
-
-    /* Fallback for high contrast mode */
-    @media (forced-colors: active) {
-      background: Highlight;
-      display: none;
-    }
-
-    @media print {
-      display: none !important;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      transition: none !important;
-      transform: none !important;
-    }
   }
 
   /* Priority 2: Enhanced Screen Reader Support */
@@ -538,43 +391,5 @@ const statusAnnouncementText = isDisabled
     clip-path: var(--sr-only-clip-path);
     white-space: nowrap;
     border: 0;
-  }
-
-  /* Screen reader only utility */
-  .sr-only {
-    position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    margin: var(--sr-only-margin);
-    padding: 0;
-    overflow: hidden;
-    clip-path: var(--sr-only-clip-path);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  /* Reduced Motion Support */
-  @media (prefers-reduced-motion: reduce) {
-    .playlist-item,
-    .playlist-image,
-    .image-overlay,
-    .bottom-accent,
-    .status-badge,
-    .coming-soon-badge {
-      transition: none !important;
-      transform: none !important;
-      animation: none !important;
-    }
-
-    .playlist-item--interactive:hover {
-      transform: none !important;
-    }
-  }
-
-  /* Touch Optimizations */
-  @media (hover: none) {
-    .playlist-item--interactive:hover {
-      transform: none; /* Disable hover on touch devices */
-    }
   }
 </style>

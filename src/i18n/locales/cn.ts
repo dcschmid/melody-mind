@@ -428,7 +428,8 @@ export default {
   "game.submit.answer": "检查答案",
   "game.submit.answer.aria": "检查当前顺序并进入下一轮",
   "game.timepressure.title": "时间压力模式",
-  "game.timepressure.description": "⚡ 成为闪电音乐大师！在时间压力下证明你是真正的冠军，在{category}中挑战混合难度级别。每一秒都很重要——同时展示你的速度和知识！🏆",
+  "game.timepressure.description":
+    "⚡ 成为闪电音乐大师！在时间压力下证明你是真正的冠军，在{category}中挑战混合难度级别。每一秒都很重要——同时展示你的速度和知识！🏆",
   "game.timepressure.instructions": "尽快回答问题。每个问题的时间都有限。",
   "game.timepressure.controls": "使用1-4键回答，空格键暂停，S键跳过",
   "game.timepressure.streak": "连击",
@@ -557,7 +558,7 @@ export default {
   "nav.menu.highscores.desc": "查看高分榜并与其他玩家竞争",
   "nav.menu.home": "首页",
   "nav.menu.home.desc": "返回主页",
-  "nav.menu.knowledge": "知识库",  
+  "nav.menu.knowledge": "知识库",
   "nav.menu.knowledge.desc": "探索文章并深入了解音乐历史",
   "nav.menu.logout": "退出登录",
   "nav.menu.logout.desc": "退出您的账户",

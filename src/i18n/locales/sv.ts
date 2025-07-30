@@ -489,9 +489,12 @@ export default {
   "game.submit.answer": "Kontrollera svar",
   "game.submit.answer.aria": "Kontrollera nuvarande ordning och fortsätt till nästa runda",
   "game.timepressure.title": "Tidspressläge",
-  "game.timepressure.description": "⚡ Bli blixt-musikmästaren! Bevisa att du är en sann mästare även under tidspress med blandade svårighetsgrader i {category}. Varje sekund räknas – visa din hastighet och kunskap samtidigt! 🏆",
-  "game.timepressure.instructions": "Svara på frågor så snabbt som möjligt. Du har begränsad tid för varje fråga.",
-  "game.timepressure.controls": "Använd tangenterna 1-4 för svar, Mellanslag för att pausa, S för att hoppa över",
+  "game.timepressure.description":
+    "⚡ Bli blixt-musikmästaren! Bevisa att du är en sann mästare även under tidspress med blandade svårighetsgrader i {category}. Varje sekund räknas – visa din hastighet och kunskap samtidigt! 🏆",
+  "game.timepressure.instructions":
+    "Svara på frågor så snabbt som möjligt. Du har begränsad tid för varje fråga.",
+  "game.timepressure.controls":
+    "Använd tangenterna 1-4 för svar, Mellanslag för att pausa, S för att hoppa över",
   "game.timepressure.streak": "Svit",
   "game.timepressure.seconds": "Sek",
   "game.timepressure.countdown": "Nedräkningstimer",
@@ -658,7 +661,8 @@ export default {
   // Podcast page translations
   "podcast.title": "Podcasts",
   "podcast.description": "Upptäck musikinsikter genom vår podcastserie",
-  "podcast.rss.description": "Upptäck musikhistorien genom engagerande podcast-avsnitt som täcker olika epoker, genrer och musikaliska rörelser.",
+  "podcast.rss.description":
+    "Upptäck musikhistorien genom engagerande podcast-avsnitt som täcker olika epoker, genrer och musikaliska rörelser.",
   "podcast.rss.subscribe": "Prenumerera på RSS Feed",
   "podcast.rss.subscribe.title": "Prenumerera på vår Podcast",
   "podcast.rss.subscribe.description": "Håll dig uppdaterad med nya avsnitt",
@@ -706,10 +710,11 @@ export default {
   "news.readMore": "Läs mer",
   "news.relevanceScore": "Relevans",
   "news.noNews": "Inga nyheter tillgängliga",
-  "news.noNewsDescription": "Det finns för närvarande inga musiknyheter tillgängliga. Försök igen senare.",
+  "news.noNewsDescription":
+    "Det finns för närvarande inga musiknyheter tillgängliga. Försök igen senare.",
   "news.refresh": "Uppdatera",
   "news.disclaimer.title": "Ansvarsfriskrivning",
-  "news.disclaimer.text": "Allt nyhetsinnehåll kommer från externa leverantörer. MelodyMind ansvarar inte för innehållet.",
+  "news.disclaimer.text":
+    "Allt nyhetsinnehåll kommer från externa leverantörer. MelodyMind ansvarar inte för innehållet.",
   "news.legal.attribution": "Nyheter tillhandahållna av följande källor:",
-
 };

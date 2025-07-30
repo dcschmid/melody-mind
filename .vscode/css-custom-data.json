@@ -1,0 +1,132 @@
+{
+  "version": 1.1,
+  "properties": [
+    {
+      "name": "--space-xs",
+      "description": "Extra small spacing (0.25rem / 4px)"
+    },
+    {
+      "name": "--space-sm",
+      "description": "Small spacing (0.5rem / 8px)"
+    },
+    {
+      "name": "--space-md",
+      "description": "Medium spacing (1rem / 16px)"
+    },
+    {
+      "name": "--space-lg",
+      "description": "Large spacing (1.5rem / 24px)"
+    },
+    {
+      "name": "--space-xl",
+      "description": "Extra large spacing (2rem / 32px)"
+    },
+    {
+      "name": "--space-2xl",
+      "description": "2x extra large spacing (3rem / 48px)"
+    },
+    {
+      "name": "--space-3xl",
+      "description": "3x extra large spacing (4rem / 64px)"
+    },
+    {
+      "name": "--text-xs",
+      "description": "Extra small text (0.75rem / 12px)"
+    },
+    {
+      "name": "--text-sm",
+      "description": "Small text (0.875rem / 14px)"
+    },
+    {
+      "name": "--text-base",
+      "description": "Base text size (1rem / 16px)"
+    },
+    {
+      "name": "--text-lg",
+      "description": "Large text (1.125rem / 18px)"
+    },
+    {
+      "name": "--text-xl",
+      "description": "Extra large text (1.25rem / 20px)"
+    },
+    {
+      "name": "--text-2xl",
+      "description": "2x extra large text (1.5rem / 24px)"
+    },
+    {
+      "name": "--text-3xl",
+      "description": "3x extra large text (1.875rem / 30px)"
+    },
+    {
+      "name": "--text-4xl",
+      "description": "4x extra large text (2.25rem / 36px)"
+    },
+    {
+      "name": "--color-primary-500",
+      "description": "Primary brand color (Purple #8b5cf6)"
+    },
+    {
+      "name": "--color-secondary-500",
+      "description": "Secondary brand color (Pink #ec4899)"
+    },
+    {
+      "name": "--bg-primary",
+      "description": "Primary background color"
+    },
+    {
+      "name": "--bg-secondary",
+      "description": "Secondary background color"
+    },
+    {
+      "name": "--text-primary",
+      "description": "Primary text color"
+    },
+    {
+      "name": "--text-secondary",
+      "description": "Secondary text color"
+    },
+    {
+      "name": "--border-primary",
+      "description": "Primary border color"
+    },
+    {
+      "name": "--radius-sm",
+      "description": "Small border radius (0.25rem / 4px)"
+    },
+    {
+      "name": "--radius-md",
+      "description": "Medium border radius (0.375rem / 6px)"
+    },
+    {
+      "name": "--radius-lg",
+      "description": "Large border radius (0.5rem / 8px)"
+    },
+    {
+      "name": "--radius-full",
+      "description": "Full border radius (9999px / circular)"
+    },
+    {
+      "name": "--transition-fast",
+      "description": "Fast transition (150ms ease)"
+    },
+    {
+      "name": "--transition-normal",
+      "description": "Normal transition (250ms ease)"
+    },
+    {
+      "name": "--focus-outline",
+      "description": "Accessible focus outline"
+    },
+    {
+      "name": "--focus-ring",
+      "description": "Accessible focus ring shadow"
+    },
+    {
+      "name": "--min-touch-size",
+      "description": "WCAG AAA minimum touch target size (44px)"
+    }
+  ],
+  "atDirectives": [],
+  "pseudoClasses": [],
+  "pseudoElements": []
+}

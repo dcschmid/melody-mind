@@ -23,26 +23,26 @@ const oauthProviders = [
     name: "google",
     displayName: "Google",
     icon: "google",
-    color: "#4285F4"
+    color: "#4285F4",
   },
   {
-    name: "spotify", 
+    name: "spotify",
     displayName: "Spotify",
     icon: "spotify",
-    color: "#1DB954"
+    color: "#1DB954",
   },
   {
     name: "discord",
-    displayName: "Discord", 
+    displayName: "Discord",
     icon: "discord",
-    color: "#5865F2"
+    color: "#5865F2",
   },
   {
     name: "github",
     displayName: "GitHub",
-    icon: "github", 
-    color: "#333"
-  }
+    icon: "github",
+    color: "#333",
+  },
 ];
 ---
 
@@ -71,35 +71,37 @@ const oauthProviders = [
         </span>
       </span>
     </div>
-    
-    {oauthProviders.map(provider => (
-      <button 
-        type="button"
-        class={`oauth-button oauth-button--${provider.name}`}
-        data-provider={provider.name}
-        data-action={isLinking ? "link" : "auth"}
-        style={`--provider-color: ${provider.color}`}
-        aria-label={isLinking 
-          ? `${t("auth.oauth.link")} ${provider.displayName}` 
-          : `${t("auth.oauth.continue_with")} ${provider.displayName}`
-        }
-      >
-        <div class="oauth-button__content">
-          <div class="oauth-button__icon">
-            <Icon name={provider.icon} width="24" height="24" aria-hidden="true" />
-          </div>
-          <span class="oauth-button__text">
-            {isLinking 
+
+    {
+      oauthProviders.map((provider) => (
+        <button
+          type="button"
+          class={`oauth-button oauth-button--${provider.name}`}
+          data-provider={provider.name}
+          data-action={isLinking ? "link" : "auth"}
+          style={`--provider-color: ${provider.color}`}
+          aria-label={
+            isLinking
               ? `${t("auth.oauth.link")} ${provider.displayName}`
               : `${t("auth.oauth.continue_with")} ${provider.displayName}`
-            }
-          </span>
-        </div>
-        <div class="oauth-button__loading" aria-hidden="true">
-          <div class="oauth-button__spinner"></div>
-        </div>
-      </button>
-    ))}
+          }
+        >
+          <div class="oauth-button__content">
+            <div class="oauth-button__icon">
+              <Icon name={provider.icon} width="24" height="24" aria-hidden="true" />
+            </div>
+            <span class="oauth-button__text">
+              {isLinking
+                ? `${t("auth.oauth.link")} ${provider.displayName}`
+                : `${t("auth.oauth.continue_with")} ${provider.displayName}`}
+            </span>
+          </div>
+          <div class="oauth-button__loading" aria-hidden="true">
+            <div class="oauth-button__spinner" />
+          </div>
+        </button>
+      ))
+    }
   </div>
 
   <div class="oauth-providers__empty">
@@ -118,7 +120,9 @@ const oauthProviders = [
       const errorEl = container.querySelector(".oauth-providers__error") as HTMLElement;
       const listEl = container.querySelector(".oauth-providers__list") as HTMLElement;
       const emptyEl = container.querySelector(".oauth-providers__empty") as HTMLElement;
-      const retryButton = container.querySelector(".oauth-providers__retry-button") as HTMLButtonElement;
+      const retryButton = container.querySelector(
+        ".oauth-providers__retry-button"
+      ) as HTMLButtonElement;
       const lang = document.documentElement.lang || "en";
 
       const showError = (): void => {
@@ -402,7 +406,8 @@ const oauthProviders = [
       border-radius: var(--radius-sm);
       transition: background-color var(--transition-normal);
 
-      svg, .astro-icon {
+      svg,
+      .astro-icon {
         width: 1.5em;
         height: 1.5em;
         color: currentColor;

@@ -5,49 +5,6 @@
  * album information, media preview, and streaming links. This component is optimized for
  * WCAG AAA accessibility standards and high performance.
  *
- * @props This component does not accept props - it's controlled via JavaScript
- * and populated dynamically by the game engine (gameEngine.ts).
- *
- * @usage
- * ```astro
- * <FeedbackOverlay />
- * ```
- *
- * @features
- * - Keyboard navigation with focus trap (Tab, Shift+Tab, Arrow keys)
- * - Screen reader announcements with live regions
- * - High contrast mode support (forced-colors media query)
- * - Optimized animations with reduced motion support
- * - Performance-optimized interactions (CSS containment, content-visibility)
- * - Uses CSS variables from global.css for WCAG AAA 2.2 compliance
- * - Responsive design with mobile-first approach
- * - Touch-friendly interface with 44px minimum touch targets
- *
- * @accessibility
- * - WCAG 2.2 AAA compliant (7:1 contrast ratios)
- * - Focus management with proper focus trap
- * - Screen reader compatible with ARIA labels and live regions
- * - Keyboard navigation support (Escape, Enter, Space, Tab, Arrow keys)
- * - Enhanced text spacing support for accessibility
- * - Reduced motion preferences respected
- *
- * @performance
- * - CSS containment for layout isolation
- * - Content-visibility for rendering optimization
- * - Will-change properties for animation performance
- * - Modern ES6+ JavaScript with efficient event handling
- * - Optimized scrolling with overscroll-behavior
- *
- * @responsive
- * - Mobile-first design with breakpoints at 48em, 64em
- * - Adaptive layout for different screen sizes
- * - Touch-optimized button sizing on mobile
- * - Responsive typography scaling
- *
- * @integration
- * - Controlled by gameEngine.ts for dynamic content population
- * - Uses i18n system for multilingual support
- * - Connects to streaming services (Spotify, Deezer, Apple Music)
  */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
@@ -72,7 +29,7 @@ const t = useTranslations(lang);
 
   <div class="overlay__content" role="document" tabindex="-1">
     <div class="overlay__header">
-      <Headline level="h2" size="2xl" id="overlay-title" className="overlay__title">
+      <Headline level="h2" size="xl" id="overlay-title" textAlign="center">
         {t("game.feedback.resolution")}
       </Headline>
 
@@ -103,7 +60,7 @@ const t = useTranslations(lang);
     <Paragraph
       id="feedback"
       className="feedback"
-      textSize="xl"
+      textSize="lg"
       align="center"
       highContrast={true}
       aria-live="polite"
@@ -113,15 +70,15 @@ const t = useTranslations(lang);
     <div class="album-info" aria-label={t("game.feedback.media.section")}>
       <div class="album-info__content" role="contentinfo">
         <div class="album-info__header">
-          <Headline level="h3" size="3xl" id="overlay-artist" className="artist-name">Artist</Headline>
-          <Headline level="h4" size="2xl" id="overlay-album" className="album-name">Album</Headline>
-          <Paragraph
-            id="overlay-year"
-            className="album-year"
-            textSize="lg"
-            align="center"
-            description=""
-          />
+          <Headline level="h3" size="xl" id="overlay-artist">Artist</Headline>
+          <Headline
+            level="h4"
+            size="lg"
+            textAlign="center"
+            id="overlay-album"
+            className="album-name">Album</Headline
+          >
+          <Paragraph id="overlay-year" textSize="base" align="center" description="" />
         </div>
         <div class="album-info__details">
           <Paragraph
@@ -146,60 +103,6 @@ const t = useTranslations(lang);
 </div>
 
 <style lang="scss">
-  // ======================================
-  // ENHANCED RESPONSIVE DESIGN MIXINS
-  // ======================================
-
-  // Note: CSS variables don't work in media queries, so we use hardcoded em values
-  // Mobile portrait: 0-479px (< 30em)
-  // Mobile landscape: 480-639px (30em - 39.9375em)
-  // Small tablet: 640-767px (40em - 47.9375em)
-  // Tablet: 768-1023px (48em - 63.9375em)
-  // Desktop: 1024-1279px (64em - 79.9375em)
-  // Large desktop: 1280px+ (80em+)
-
-  @mixin mobile-portrait {
-    @media (max-width: 29.9375em) {
-      @content;
-    }
-  }
-
-  @mixin mobile-landscape {
-    @media (min-width: 30em) and (max-width: 39.9375em) {
-      @content;
-    }
-  }
-
-  @mixin mobile {
-    @media (max-width: 39.9375em) {
-      @content;
-    }
-  }
-
-  @mixin small-tablet {
-    @media (min-width: 40em) and (max-width: 47.9375em) {
-      @content;
-    }
-  }
-
-  @mixin tablet {
-    @media (min-width: 48em) and (max-width: 63.9375em) {
-      @content;
-    }
-  }
-
-  @mixin desktop {
-    @media (min-width: 64em) and (max-width: 79.9375em) {
-      @content;
-    }
-  }
-
-  @mixin large-desktop {
-    @media (min-width: 80em) {
-      @content;
-    }
-  }
-
   // ======================================
   // OVERLAY BASE STYLES - Enhanced with comprehensive breakpoints
   // ======================================
@@ -244,63 +147,15 @@ const t = useTranslations(lang);
     z-index: var(--z-modal-content);
     max-height: calc(100vh - var(--space-lg) * 2);
     width: 100vw;
-    max-width: min(90vw, var(--container-lg));
+    max-width: min(100vw, var(--container-lg));
     overflow-y: auto;
     border-radius: var(--radius-xl);
     border: var(--border-width-thin) solid var(--border-primary);
     background-color: var(--card-bg);
-    padding: var(--space-xl);
+    padding: var(--space-sm);
     box-shadow: var(--card-shadow);
     pointer-events: auto;
     transition: opacity var(--transition-normal);
-  }
-
-  // Responsive Design
-  @media (max-width: 80em) {
-    .overlay {
-      padding: var(--space-xl);
-    }
-    .overlay__content {
-      max-width: min(95vw, var(--container-md));
-      padding: var(--space-lg);
-      border-radius: var(--radius-lg);
-      max-height: calc(100vh - var(--space-lg) * 2);
-    }
-  }
-  @media (max-width: 64em) {
-    .overlay {
-      padding: var(--space-lg);
-    }
-    .overlay__content {
-      max-width: min(98vw, var(--container-sm));
-      padding: var(--space-lg);
-      border-radius: var(--radius-lg);
-      max-height: calc(100vh - var(--space-md) * 2);
-    }
-  }
-  @media (max-width: 48em) {
-    .overlay {
-      padding: var(--space-xs);
-    }
-    .overlay__content {
-      max-width: 100vw;
-      padding: var(--space-lg);
-      border-radius: var(--radius-lg);
-      max-height: calc(100vh - var(--space-md));
-      margin: var(--space-xs);
-    }
-  }
-  @media (max-width: 30em) {
-    .overlay {
-      padding: var(--space-micro);
-    }
-    .overlay__content {
-      max-width: 100vw;
-      padding: var(--space-md);
-      border-radius: var(--radius-md);
-      max-height: calc(100vh - var(--space-sm));
-      margin: var(--space-xs);
-    }
   }
 
   // ======================================
@@ -312,13 +167,13 @@ const t = useTranslations(lang);
     z-index: var(--z-modal-content);
     max-height: calc(100vh - var(--space-lg) * 2);
     width: var(--width-full);
-    max-width: min(90vw, var(--container-lg));
+    max-width: min(100vw, var(--container-lg));
     overflow-y: auto;
     overscroll-behavior: contain;
     border-radius: var(--radius-xl);
     border: var(--border-width-thin) solid var(--border-primary);
     background-color: var(--card-bg);
-    padding: var(--space-xl);
+    padding: var(--space-sm);
     box-shadow: var(--card-shadow);
     scrollbar-gutter: stable;
     pointer-events: auto;
@@ -328,64 +183,6 @@ const t = useTranslations(lang);
     content-visibility: auto;
     contain-intrinsic-size: var(--container-intrinsic-height-modal);
     transition: all var(--transition-normal);
-
-    // Large desktop - keep scrollable
-    @include large-desktop {
-      max-width: min(85vw, calc(var(--container-lg) * 1.1));
-      padding: var(--space-2xl);
-      border-radius: var(--radius-xl);
-      max-height: calc(100vh - var(--space-2xl));
-    }
-
-    // Desktop - keep scrollable
-    @include desktop {
-      max-width: min(90vw, var(--container-lg));
-      padding: var(--space-xl);
-      border-radius: var(--radius-xl);
-      max-height: calc(100vh - var(--space-lg) * 2);
-    }
-
-    // Tablet - scrollable modal
-    @include tablet {
-      max-width: min(90vw, var(--container-md));
-      padding: var(--space-lg);
-      border-radius: var(--radius-lg);
-      max-height: calc(100vh - var(--space-lg) * 2);
-    }
-
-    // Small tablet - scrollable
-    @include small-tablet {
-      max-width: min(95vw, var(--container-sm));
-      padding: var(--space-lg);
-      border-radius: var(--radius-lg);
-      max-height: calc(100vh - var(--space-md) * 2);
-    }
-
-    // Mobile - better spacing while keeping compact
-    @include mobile {
-      max-width: calc(100vw - var(--space-md)) !important;
-      padding: var(--space-lg) !important;
-      border-radius: var(--radius-lg) !important;
-      max-height: calc(100vh - var(--space-md)) !important;
-      margin: var(--space-xs) !important;
-    }
-
-    // Mobile portrait - compact but with better breathing room
-    @include mobile-portrait {
-      max-width: calc(100vw - var(--space-sm)) !important;
-      padding: var(--space-md) !important;
-      border-radius: var(--radius-md) !important;
-      max-height: calc(100vh - var(--space-sm)) !important;
-      margin: var(--space-xs) !important;
-    }
-
-    // Mobile landscape - balanced design
-    @include mobile-landscape {
-      max-width: calc(100vw - var(--space-md)) !important;
-      padding: var(--space-lg) var(--space-md) !important;
-      border-radius: var(--radius-lg) !important;
-      max-height: calc(100vh - var(--space-md)) !important;
-    }
   }
 
   // ======================================
@@ -398,87 +195,6 @@ const t = useTranslations(lang);
     justify-content: space-between;
     margin-bottom: var(--space-xl);
     gap: var(--space-md);
-
-    // Large desktop - premium spacing
-    @include large-desktop {
-      margin-bottom: var(--space-2xl);
-      gap: var(--space-lg);
-    }
-
-    // Desktop - enhanced spacing
-    @include desktop {
-      margin-bottom: var(--space-xl);
-      gap: var(--space-lg);
-    }
-
-    // Tablet - optimal spacing
-    @include tablet {
-      margin-bottom: var(--space-lg);
-      gap: var(--space-md);
-    }
-
-    // Small tablet - balanced spacing
-    @include small-tablet {
-      margin-bottom: var(--space-lg);
-      gap: var(--space-sm);
-    }
-
-    // Mobile - better spacing for readability
-    @include mobile {
-      margin-bottom: var(--space-lg) !important;
-      gap: var(--space-md) !important;
-    }
-
-    // Mobile portrait - adequate spacing
-    @include mobile-portrait {
-      margin-bottom: var(--space-md) !important;
-      gap: var(--space-sm) !important;
-      flex-wrap: nowrap;
-    }
-  }
-
-  .overlay__title {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-bold);
-    letter-spacing: var(--letter-spacing-base);
-    color: var(--text-primary);
-    margin: 0;
-    flex: 1;
-    line-height: var(--leading-tight);
-
-    // Large desktop - premium typography
-    @include large-desktop {
-      font-size: var(--text-4xl);
-      letter-spacing: var(--letter-spacing-tight);
-    }
-
-    // Desktop - enhanced typography
-    @include desktop {
-      font-size: var(--text-3xl);
-    }
-
-    // Tablet - optimal readability
-    @include tablet {
-      font-size: var(--text-3xl);
-    }
-
-    // Small tablet - balanced size
-    @include small-tablet {
-      font-size: var(--text-2xl);
-    }
-
-    // Mobile - readable title
-    @include mobile {
-      font-size: var(--text-xl) !important;
-      line-height: var(--leading-normal) !important;
-    }
-
-    // Mobile portrait - clear and readable
-    @include mobile-portrait {
-      font-size: var(--text-lg) !important;
-      font-weight: var(--font-semibold) !important;
-      line-height: var(--leading-normal) !important;
-    }
   }
 
   .overlay__close-button {
@@ -504,36 +220,6 @@ const t = useTranslations(lang);
     // Performance optimization with global.css variables
     contain: layout style;
     will-change: transform, background-color;
-
-    // Large desktop - enhanced close button
-    @include large-desktop {
-      width: calc(var(--touch-target-enhanced) * 1.125);
-      height: calc(var(--touch-target-enhanced) * 1.125);
-      min-width: calc(var(--touch-target-enhanced) * 1.125);
-      min-height: calc(var(--touch-target-enhanced) * 1.125);
-    }
-
-    // Desktop - standard enhanced size
-    @include desktop {
-      width: var(--touch-target-enhanced);
-      height: var(--touch-target-enhanced);
-    }
-
-    // Mobile - compact but touchable
-    @include mobile {
-      width: var(--touch-target-enhanced) !important;
-      height: var(--touch-target-enhanced) !important;
-      min-width: var(--touch-target-enhanced) !important;
-      min-height: var(--touch-target-enhanced) !important;
-    }
-
-    // Mobile portrait - ensure good touch target
-    @include mobile-portrait {
-      width: var(--min-touch-size) !important;
-      height: var(--min-touch-size) !important;
-      min-width: var(--min-touch-size) !important;
-      min-height: var(--min-touch-size) !important;
-    }
 
     &:hover,
     &:focus {
@@ -563,35 +249,6 @@ const t = useTranslations(lang);
     padding: var(--space-lg);
     border: var(--border-width-thin) solid transparent;
     transition: all var(--transition-normal);
-
-    // Responsive padding using global.css variables
-    @include large-desktop {
-      padding: var(--space-xl);
-      border-radius: var(--radius-xl);
-    }
-
-    @include desktop {
-      padding: var(--space-lg);
-      border-radius: var(--radius-lg);
-    }
-
-    @include tablet {
-      padding: var(--space-lg);
-    }
-
-    @include small-tablet {
-      padding: var(--space-md);
-    }
-
-    @include mobile {
-      padding: var(--space-md) !important;
-      border-radius: var(--radius-lg) !important;
-    }
-
-    @include mobile-portrait {
-      padding: var(--space-sm) var(--space-md) !important;
-    }
-
     // WCAG AAA 2.2 compliant feedback colors with enhanced borders
     &.correct {
       color: var(--text-success-aaa) !important;
@@ -611,7 +268,6 @@ const t = useTranslations(lang);
   // ======================================
 
   .album-info {
-    margin-bottom: var(--space-2xl);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -620,301 +276,22 @@ const t = useTranslations(lang);
     // Performance optimization with global.css variables
     contain: layout;
 
-    // Large desktop - premium album info display
-    @include large-desktop {
-      margin-bottom: var(--space-3xl);
-      min-height: calc(var(--container-intrinsic-height-modal) * 0.5);
-    }
-
-    // Desktop - enhanced display
-    @include desktop {
-      margin-bottom: var(--space-2xl);
-      min-height: calc(var(--container-intrinsic-height-modal) * 0.45);
-    }
-
-    // Tablet - optimal display
-    @include tablet {
-      margin-bottom: var(--space-xl);
-      min-height: calc(var(--container-intrinsic-height-modal) * 0.4);
-    }
-
-    // Small tablet - balanced display
-    @include small-tablet {
-      margin-bottom: var(--space-lg);
-      min-height: calc(var(--container-intrinsic-height-modal) * 0.35);
-    }
-
-    // Mobile - better spaced display
-    @include mobile {
-      margin-bottom: var(--space-xl) !important;
-      min-height: auto !important;
-    }
-
-    // Mobile portrait - adequate display spacing
-    @include mobile-portrait {
-      margin-bottom: var(--space-lg) !important;
-    }
-
     &__content {
       width: var(--width-full);
       max-width: var(--container-md);
       text-align: center;
-      padding: var(--space-xl);
       background: var(--bg-secondary);
-      border-radius: var(--radius-xl);
-      border: var(--border-width-thin) solid var(--border-primary);
-      box-shadow: var(--card-shadow);
       transition: all var(--transition-normal);
-
-      // Large desktop - premium content styling
-      @include large-desktop {
-        max-width: calc(var(--container-md) * 1.2);
-        padding: var(--space-2xl);
-        border-radius: var(--radius-2xl);
-        box-shadow: var(--card-shadow-hover);
-      }
-
-      // Desktop - enhanced content
-      @include desktop {
-        padding: var(--space-xl);
-        border-radius: var(--radius-xl);
-      }
-
-      // Tablet - optimal content
-      @include tablet {
-        padding: var(--space-lg);
-        border-radius: var(--radius-lg);
-      }
-
-      // Small tablet - balanced content
-      @include small-tablet {
-        padding: var(--space-lg);
-        border-radius: var(--radius-lg);
-        max-width: var(--container-sm);
-      }
-
-      // Mobile - well-spaced content
-      @include mobile {
-        padding: var(--space-lg) !important;
-        border-radius: var(--radius-lg) !important;
-        max-width: var(--width-full) !important;
-        box-shadow: var(--shadow-sm) !important;
-      }
-
-      // Mobile portrait - adequate padding
-      @include mobile-portrait {
-        padding: var(--space-md) !important;
-        border-radius: var(--radius-md) !important;
-        margin: 0 !important;
-      }
-
-      &:hover {
-        transform: translateY(var(--animation-y-offset-small));
-        box-shadow: var(--card-shadow-hover);
-        border-color: var(--border-focus);
-      }
     }
 
     &__header {
       margin-bottom: var(--space-lg);
       padding-bottom: var(--space-md);
       border-bottom: var(--border-width-thin) solid var(--border-secondary);
-
-      // Large desktop - premium header spacing
-      @include large-desktop {
-        margin-bottom: var(--space-xl);
-        padding-bottom: var(--space-lg);
-      }
-
-      // Desktop - enhanced header
-      @include desktop {
-        margin-bottom: var(--space-lg);
-        padding-bottom: var(--space-md);
-      }
-
-      // Mobile - better spaced header
-      @include mobile {
-        margin-bottom: var(--space-lg) !important;
-        padding-bottom: var(--space-sm) !important;
-      }
-
-      // Mobile portrait - adequate header spacing
-      @include mobile-portrait {
-        margin-bottom: var(--space-md) !important;
-        padding-bottom: var(--space-sm) !important;
-      }
     }
 
     &__details {
       margin-top: var(--space-lg);
-
-      // Large desktop - premium details spacing
-      @include large-desktop {
-        margin-top: var(--space-xl);
-      }
-
-      // Desktop - enhanced details
-      @include desktop {
-        margin-top: var(--space-lg);
-      }
-
-      // Mobile - well-spaced details
-      @include mobile {
-        margin-top: var(--space-lg) !important;
-      }
-
-      // Mobile portrait - adequate details spacing
-      @include mobile-portrait {
-        margin-top: var(--space-md) !important;
-      }
-    }
-  }
-
-  .artist-name {
-    margin: 0 0 var(--space-sm) 0;
-    font-size: var(--text-3xl);
-    font-weight: var(--font-bold);
-    color: var(--interactive-primary);
-    line-height: var(--leading-tight);
-    letter-spacing: var(--letter-spacing-tight);
-
-    // Large desktop - premium artist display
-    @include large-desktop {
-      font-size: var(--text-5xl);
-      margin-bottom: var(--space-md);
-      letter-spacing: var(--letter-spacing-tighter);
-    }
-
-    // Desktop - enhanced artist name
-    @include desktop {
-      font-size: var(--text-4xl);
-      margin-bottom: var(--space-sm);
-    }
-
-    // Tablet - optimal artist display
-    @include tablet {
-      font-size: var(--text-3xl);
-    }
-
-    // Small tablet - balanced artist name
-    @include small-tablet {
-      font-size: var(--text-2xl);
-    }
-
-    // Mobile - readable artist name
-    @include mobile {
-      font-size: var(--text-xl) !important;
-      margin-bottom: var(--space-sm) !important;
-      line-height: var(--leading-normal) !important;
-    }
-
-    // Mobile portrait - clear artist name
-    @include mobile-portrait {
-      font-size: var(--text-lg) !important;
-      margin-bottom: var(--space-sm) !important;
-      line-height: var(--leading-normal) !important;
-    }
-  }
-
-  .album-name {
-    margin: 0 0 var(--space-sm) 0;
-    font-size: var(--text-2xl);
-    font-weight: var(--font-semibold);
-    color: var(--text-primary);
-    line-height: var(--leading-tight);
-    letter-spacing: var(--letter-spacing-base);
-
-    // Large desktop - premium album display
-    @include large-desktop {
-      font-size: var(--text-4xl);
-      margin-bottom: var(--space-md);
-    }
-
-    // Desktop - enhanced album name
-    @include desktop {
-      font-size: var(--text-3xl);
-      margin-bottom: var(--space-sm);
-    }
-
-    // Tablet - optimal album display
-    @include tablet {
-      font-size: var(--text-2xl);
-    }
-
-    // Small tablet - balanced album name
-    @include small-tablet {
-      font-size: var(--text-xl);
-    }
-
-    // Mobile - readable album name
-    @include mobile {
-      font-size: var(--text-lg) !important;
-      margin-bottom: var(--space-sm) !important;
-      line-height: var(--leading-normal) !important;
-    }
-
-    // Mobile portrait - clear album name
-    @include mobile-portrait {
-      font-size: var(--text-base) !important;
-      margin-bottom: var(--space-sm) !important;
-      line-height: var(--leading-normal) !important;
-    }
-  }
-
-  .album-year {
-    margin: 0;
-    font-size: var(--text-xl);
-    font-weight: var(--font-medium);
-    color: var(--text-secondary);
-    display: inline-block;
-    padding: var(--space-sm) var(--space-md);
-    background: var(--bg-tertiary);
-    border-radius: var(--radius-pill);
-    border: var(--border-width-thin) solid var(--border-secondary);
-    transition: all var(--transition-normal);
-
-    // Large desktop - premium year badge
-    @include large-desktop {
-      font-size: var(--text-2xl);
-      padding: var(--space-md) var(--space-lg);
-    }
-
-    // Desktop - enhanced year badge
-    @include desktop {
-      font-size: var(--text-xl);
-      padding: var(--space-sm) var(--space-md);
-    }
-
-    // Tablet - optimal year display
-    @include tablet {
-      font-size: var(--text-lg);
-      padding: var(--space-sm) var(--space-md);
-    }
-
-    // Small tablet - balanced year badge
-    @include small-tablet {
-      font-size: var(--text-base);
-      padding: var(--space-xs) var(--space-sm);
-    }
-
-    // Mobile - readable year badge
-    @include mobile {
-      font-size: var(--text-sm) !important;
-      padding: var(--space-xs) var(--space-sm) !important;
-      border-radius: var(--radius-lg) !important;
-    }
-
-    // Mobile portrait - clear year badge
-    @include mobile-portrait {
-      font-size: var(--text-xs) !important;
-      padding: var(--space-xs) var(--space-sm) !important;
-      border-radius: var(--radius-md) !important;
-    }
-
-    &:hover {
-      background: var(--interactive-secondary);
-      border-color: var(--border-focus);
-      transform: scale(var(--animation-scale-small));
     }
   }
 
@@ -928,51 +305,7 @@ const t = useTranslations(lang);
     background: var(--bg-tertiary);
     border-radius: var(--radius-lg);
     border: var(--border-width-thin) solid var(--border-secondary);
-    font-style: italic;
     transition: all var(--transition-normal);
-
-    // Large desktop - premium fun fact display
-    @include large-desktop {
-      font-size: var(--text-xl);
-      padding: var(--space-xl);
-      border-radius: var(--radius-xl);
-      line-height: var(--leading-loose);
-    }
-
-    // Desktop - enhanced fun fact
-    @include desktop {
-      font-size: var(--text-lg);
-      padding: var(--space-lg);
-    }
-
-    // Tablet - optimal readability
-    @include tablet {
-      font-size: var(--text-base);
-      padding: var(--space-md);
-    }
-
-    // Small tablet - balanced display
-    @include small-tablet {
-      font-size: var(--text-base);
-      padding: var(--space-md);
-      line-height: var(--leading-normal);
-    }
-
-    // Mobile - readable fun fact
-    @include mobile {
-      font-size: var(--text-sm) !important;
-      padding: var(--space-sm) !important;
-      border-radius: var(--radius-lg) !important;
-      line-height: var(--leading-relaxed) !important;
-    }
-
-    // Mobile portrait - clear fun fact
-    @include mobile-portrait {
-      font-size: var(--text-xs) !important;
-      padding: var(--space-sm) !important;
-      border-radius: var(--radius-md) !important;
-      line-height: var(--leading-normal) !important;
-    }
 
     &:hover {
       background: var(--interactive-secondary);
@@ -1010,51 +343,6 @@ const t = useTranslations(lang);
       border-color var(--transition-normal);
     box-shadow: var(--shadow-md);
 
-    // Large desktop - premium button experience
-    @include large-desktop {
-      min-width: calc(var(--touch-target-enhanced) * 5);
-      padding: var(--space-lg) var(--space-2xl);
-      font-size: var(--text-lg);
-      border-radius: var(--radius-xl);
-    }
-
-    // Desktop - enhanced button
-    @include desktop {
-      min-width: calc(var(--touch-target-enhanced) * 4.5);
-      padding: var(--space-md) var(--space-xl);
-      font-size: var(--text-base);
-    }
-
-    // Tablet - optimal button size
-    @include tablet {
-      min-width: calc(var(--touch-target-enhanced) * 4);
-      padding: var(--space-md) var(--space-lg);
-    }
-
-    // Small tablet - balanced button
-    @include small-tablet {
-      min-width: calc(var(--touch-target-enhanced) * 3.5);
-      padding: var(--space-sm) var(--space-lg);
-    }
-
-    // Mobile - compact button with good touch target
-    @include mobile {
-      min-width: calc(var(--touch-target-enhanced) * 2.5) !important;
-      padding: var(--space-sm) var(--space-md) !important;
-      font-size: var(--text-sm) !important;
-      border-radius: var(--radius-md) !important;
-      min-height: var(--touch-target-enhanced) !important;
-    }
-
-    // Mobile portrait - minimal button
-    @include mobile-portrait {
-      min-width: calc(var(--touch-target-enhanced) * 2) !important;
-      padding: var(--space-xs) var(--space-sm) !important;
-      font-size: var(--text-xs) !important;
-      border-radius: var(--radius-sm) !important;
-      min-height: var(--min-touch-size) !important;
-    }
-
     &:hover,
     &:focus {
       background: var(--btn-primary-hover);
@@ -1073,26 +361,6 @@ const t = useTranslations(lang);
       align-items: center;
       justify-content: center;
       gap: var(--space-sm);
-
-      // Large desktop - enhanced content spacing
-      @include large-desktop {
-        gap: var(--space-md);
-      }
-
-      // Desktop - optimal spacing
-      @include desktop {
-        gap: var(--space-sm);
-      }
-
-      // Mobile - compact spacing
-      @include mobile {
-        gap: var(--space-xs) !important;
-      }
-
-      // Mobile portrait - minimal spacing
-      @include mobile-portrait {
-        gap: var(--space-micro) !important;
-      }
     }
   }
 
@@ -1108,113 +376,6 @@ const t = useTranslations(lang);
     outline-offset: var(--focus-ring-offset);
     box-shadow: var(--focus-enhanced-shadow);
     border-color: var(--border-focus);
-  }
-
-  // Enhanced focus states for mobile
-  @include mobile {
-    .overlay__close-button:focus-visible,
-    .next-button:focus-visible {
-      outline-width: var(--focus-outline-width-enhanced);
-      outline-offset: var(--focus-ring-offset-enhanced);
-      box-shadow: var(--focus-ring-enhanced);
-    }
-  }
-
-  // ======================================
-  // ANIMATIONS & MOTION - Performance Optimized with Root Variables
-  // ======================================
-
-  @media (prefers-reduced-motion: no-preference) {
-    .album-cover {
-      &:hover {
-        will-change: transform, box-shadow;
-        transform: scale(var(--scale-focus)) translateZ(0);
-        box-shadow: var(--shadow-xl);
-      }
-
-      &:not(:hover) {
-        will-change: auto;
-      }
-    }
-
-    .overlay:not(.hidden) .overlay__content {
-      animation: fade-in var(--transition-normal) cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-    }
-
-    @keyframes fade-in {
-      from {
-        opacity: 0;
-        transform: translateY(var(--animation-y-offset)) scale(var(--animation-scale-start))
-          translateZ(0);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(var(--animation-scale-end)) translateZ(0);
-      }
-    }
-  }
-
-  // ======================================
-  // ENHANCED REDUCED MOTION SUPPORT with global.css variables
-  // ======================================
-
-  @media (prefers-reduced-motion: reduce) {
-    .overlay,
-    .overlay__content,
-    .album-info__content,
-    .overlay__close-button,
-    .music-button,
-    .next-button {
-      animation-duration: var(--transition-instant) !important;
-      transition-duration: var(--transition-instant) !important;
-      animation-iteration-count: 1 !important;
-    }
-
-    .album-info__content:hover,
-    .overlay__close-button:hover,
-    .next-button:hover,
-    .album-year:hover,
-    .fun-fact:hover {
-      transform: none !important;
-    }
-  }
-
-  // ======================================
-  // HIGH CONTRAST MODE SUPPORT
-  // ======================================
-
-  @media (forced-colors: active) {
-    .overlay__content {
-      border: var(--border-width-enhanced) solid CanvasText;
-      background-color: Canvas;
-    }
-
-    .next-button,
-    .overlay__close-button {
-      border: var(--border-width-thick) solid ButtonText;
-      background-color: ButtonFace;
-      color: ButtonText;
-      forced-color-adjust: none;
-
-      &:focus-visible {
-        outline: var(--border-width-enhanced) solid Highlight;
-        outline-offset: var(--focus-ring-offset);
-      }
-    }
-
-    .feedback {
-      &.correct,
-      &.incorrect {
-        border: var(--border-width-thick) solid CanvasText;
-        background-color: Canvas;
-        color: CanvasText;
-      }
-    }
-
-    .overlay__backdrop {
-      background: Canvas;
-      opacity: 0.8;
-    }
   }
 
   // ======================================
@@ -1246,209 +407,11 @@ const t = useTranslations(lang);
   }
 
   // ======================================
-  // ENHANCED TEXT SPACING SUPPORT (WCAG 2.2) - Using Root Variables
-  // ======================================
-
-  .enhanced-text-spacing .overlay__content * {
-    letter-spacing: var(--text-spacing-letter-2x) !important;
-    word-spacing: var(--text-spacing-word-enhanced) !important;
-    line-height: var(--text-spacing-line-1-5x) !important;
-  }
-
-  .enhanced-text-spacing .overlay__content p,
-  .enhanced-text-spacing .overlay__content .feedback {
-    margin-bottom: var(--text-spacing-paragraph-2x) !important;
-  }
-
-  .enhanced-text-spacing .overlay__content .next-button {
-    padding: calc(var(--space-lg) * 1.2) calc(var(--space-xl) * 1.2);
-  }
-
-  // ======================================
-  // ENHANCED LANDSCAPE ORIENTATION SUPPORT
-  // ======================================
-
-  /* Enhanced landscape orientation adjustments for all mobile devices */
-  @media (max-width: 63.9375em) and (orientation: landscape) {
-    .overlay {
-      padding: var(--space-micro) !important;
-    }
-
-    .overlay__content {
-      max-height: calc(100vh - var(--space-xs)) !important;
-      padding: var(--space-xs) var(--space-sm) !important;
-      margin: var(--space-micro) !important;
-    }
-
-    .overlay__header {
-      margin-bottom: var(--space-xs) !important;
-    }
-
-    .feedback {
-      margin: var(--space-xs) 0 !important;
-      padding: var(--space-xs) !important;
-      font-size: var(--text-xs) !important;
-    }
-
-    .album-info {
-      margin-bottom: var(--space-xs) !important;
-
-      &__content {
-        padding: var(--space-xs) !important;
-      }
-
-      &__header {
-        margin-bottom: var(--space-micro) !important;
-        padding-bottom: var(--space-micro) !important;
-      }
-
-      &__details {
-        margin-top: var(--space-micro) !important;
-      }
-    }
-
-    .artist-name,
-    .album-name {
-      font-size: var(--text-xs) !important;
-      margin-bottom: var(--space-micro) !important;
-    }
-
-    .album-year,
-    .fun-fact {
-      font-size: calc(var(--text-xs) * 0.8) !important;
-      padding: var(--space-micro) !important;
-    }
-
-    .next-button {
-      min-height: var(--min-touch-size) !important;
-      min-width: calc(var(--min-touch-size) * 2) !important;
-      padding: var(--space-xs) !important;
-      font-size: var(--text-xs) !important;
-    }
-  }
-
-  // ======================================
   // CONTAINER QUERIES FOR ENHANCED RESPONSIVE BEHAVIOR
   // ======================================
 
   .overlay {
     container-type: inline-size;
-  }
-
-  .overlay__content {
-    container-type: inline-size;
-
-    // Container query for very small containers
-    @container (max-width: 20rem) {
-      padding: var(--space-xs) !important;
-      border-radius: var(--radius-sm) !important;
-
-      .feedback {
-        font-size: var(--text-xs) !important;
-        padding: var(--space-xs) !important;
-      }
-
-      .overlay__title {
-        font-size: var(--text-sm) !important;
-      }
-    }
-
-    // Container query for small containers
-    @container (max-width: 28rem) {
-      border-radius: var(--radius-md) !important;
-
-      .album-info__content {
-        padding: var(--space-sm) !important;
-      }
-
-      .artist-name,
-      .album-name {
-        font-size: var(--text-sm) !important;
-      }
-    }
-  }
-
-  // ======================================
-  // ENHANCED PRINT STYLES with global.css variables
-  // ======================================
-
-  @media print {
-    .overlay {
-      position: static !important;
-      background: var(--print-bg) !important;
-      padding: var(--space-md) !important;
-    }
-
-    .overlay__content {
-      border: var(--print-border);
-      box-shadow: none !important;
-      max-height: none !important;
-      background: var(--print-bg) !important;
-      color: var(--print-text) !important;
-      max-width: var(--width-full) !important;
-      margin: 0 !important;
-      page-break-inside: avoid;
-    }
-
-    .next-button,
-    .overlay__close-button {
-      border: var(--print-border);
-      background: var(--print-bg) !important;
-      color: var(--print-text) !important;
-      box-shadow: none !important;
-    }
-
-    .album-info__content {
-      border: var(--print-border);
-      background: var(--print-bg) !important;
-      box-shadow: none !important;
-      color: var(--print-text) !important;
-    }
-
-    .feedback {
-      background: var(--print-bg) !important;
-      color: var(--print-text) !important;
-      border: var(--print-border);
-    }
-  }
-
-  // ======================================
-  // ENHANCED TOUCH AND POINTER SUPPORT
-  // ======================================
-
-  @media (pointer: coarse) {
-    .overlay__close-button,
-    .next-button {
-      min-height: var(--touch-target-enhanced) !important;
-      min-width: var(--touch-target-enhanced) !important;
-
-      @include mobile-portrait {
-        min-height: calc(var(--touch-target-enhanced) + var(--space-sm)) !important;
-        min-width: calc(var(--touch-target-enhanced) * 2) !important;
-      }
-    }
-  }
-
-  @media (pointer: fine) {
-    .overlay__close-button:hover,
-    .next-button:hover,
-    .album-info__content:hover {
-      cursor: pointer;
-    }
-  }
-
-  // ======================================
-  // HIGH DPI DISPLAY SUPPORT
-  // ======================================
-
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .overlay__content,
-    .album-info__content,
-    .next-button,
-    .overlay__close-button {
-      -webkit-font-smoothing: var(--font-smoothing-light);
-      -moz-osx-font-smoothing: var(--font-smoothing-grayscale);
-    }
   }
 </style>
 

@@ -104,22 +104,22 @@ export interface TimePressureConfig {
  */
 const DEFAULT_CONFIG: TimePressureConfig = {
   difficultyWeights: {
-    easy: 40,    // 40% of questions
-    medium: 40,  // 40% of questions  
-    hard: 20     // 20% of questions
+    easy: 40, // 40% of questions
+    medium: 40, // 40% of questions
+    hard: 20, // 20% of questions
   },
   timeLimits: {
-    easy: 20,    // 20 seconds for easy questions - comfortable reading time
-    medium: 25,  // 25 seconds for medium questions - more complex content
-    hard: 30     // 30 seconds for hard questions - most complex content
+    easy: 20, // 20 seconds for easy questions - comfortable reading time
+    medium: 25, // 25 seconds for medium questions - more complex content
+    hard: 30, // 30 seconds for hard questions - most complex content
   },
   basePoints: {
-    easy: 50,    // 50 base points
-    medium: 75,  // 75 base points
-    hard: 100    // 100 base points
+    easy: 50, // 50 base points
+    medium: 75, // 75 base points
+    hard: 100, // 100 base points
   },
   totalRounds: 20,
-  progressiveDifficulty: true
+  progressiveDifficulty: true,
 };
 
 /**
@@ -129,7 +129,7 @@ let difficultyTracker = {
   easy: 0,
   medium: 0,
   hard: 0,
-  totalQuestions: 0
+  totalQuestions: 0,
 };
 
 /**
@@ -167,7 +167,7 @@ export function getTimePressureQuestion(
     ...customConfig,
     difficultyWeights: { ...DEFAULT_CONFIG.difficultyWeights, ...customConfig.difficultyWeights },
     timeLimits: { ...DEFAULT_CONFIG.timeLimits, ...customConfig.timeLimits },
-    basePoints: { ...DEFAULT_CONFIG.basePoints, ...customConfig.basePoints }
+    basePoints: { ...DEFAULT_CONFIG.basePoints, ...customConfig.basePoints },
   };
 
   // Validate input parameters
@@ -177,7 +177,9 @@ export function getTimePressureQuestion(
   }
 
   if (currentRound < 1 || currentRound > config.totalRounds) {
-    console.warn(`Invalid round number: ${currentRound}, should be between 1 and ${config.totalRounds}`);
+    console.warn(
+      `Invalid round number: ${currentRound}, should be between 1 and ${config.totalRounds}`
+    );
     return null;
   }
 
@@ -190,10 +192,10 @@ export function getTimePressureQuestion(
   try {
     // Determine target difficulty based on weights and progression
     const targetDifficulty = selectTargetDifficulty(config, currentRound);
-    
+
     // Create a copy of the albums array to avoid mutation
     const albumsCopy = [...albums];
-    
+
     // Manual shuffle for randomness
     for (let i = albumsCopy.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -203,7 +205,7 @@ export function getTimePressureQuestion(
     // Create a flat list of available questions for target difficulty
     const availableQuestions = albumsCopy.flatMap((album: Album) => {
       const questionsForDifficulty = album.questions[targetDifficulty] || [];
-      
+
       return questionsForDifficulty
         .filter((question: Question) => !usedTimePressureQuestions.has(question.question))
         .map((question: Question) => ({
@@ -211,21 +213,22 @@ export function getTimePressureQuestion(
           randomAlbum: album,
           difficulty: targetDifficulty,
           timeLimit: config.timeLimits[targetDifficulty],
-          basePoints: config.basePoints[targetDifficulty]
+          basePoints: config.basePoints[targetDifficulty],
         }));
     });
 
     // If no questions available for target difficulty, try other difficulties
     if (availableQuestions.length === 0) {
       console.warn(`No questions available for ${targetDifficulty}, trying fallbacks`);
-      
-      const fallbackDifficulties: Difficulty[] = ["easy", "medium", "hard"]
-        .filter(d => d !== targetDifficulty) as Difficulty[];
-      
+
+      const fallbackDifficulties: Difficulty[] = ["easy", "medium", "hard"].filter(
+        (d) => d !== targetDifficulty
+      ) as Difficulty[];
+
       for (const fallbackDifficulty of fallbackDifficulties) {
         const fallbackQuestions = albumsCopy.flatMap((album: Album) => {
           const questionsForDifficulty = album.questions[fallbackDifficulty] || [];
-          
+
           return questionsForDifficulty
             .filter((question: Question) => !usedTimePressureQuestions.has(question.question))
             .map((question: Question) => ({
@@ -233,19 +236,19 @@ export function getTimePressureQuestion(
               randomAlbum: album,
               difficulty: fallbackDifficulty,
               timeLimit: config.timeLimits[fallbackDifficulty],
-              basePoints: config.basePoints[fallbackDifficulty]
+              basePoints: config.basePoints[fallbackDifficulty],
             }));
         });
-        
+
         if (fallbackQuestions.length > 0) {
           const randomIndex = Math.floor(Math.random() * fallbackQuestions.length);
           const result = fallbackQuestions[randomIndex];
-          
+
           // Mark question as used and update tracking
           usedTimePressureQuestions.add(result.randomQuestion.question);
           difficultyTracker[result.difficulty]++;
           difficultyTracker.totalQuestions++;
-          
+
           return result;
         }
       }
@@ -255,12 +258,12 @@ export function getTimePressureQuestion(
     if (availableQuestions.length > 0) {
       const randomIndex = Math.floor(Math.random() * availableQuestions.length);
       const result = availableQuestions[randomIndex];
-      
+
       // Mark question as used and update tracking
       usedTimePressureQuestions.add(result.randomQuestion.question);
       difficultyTracker[result.difficulty]++;
       difficultyTracker.totalQuestions++;
-      
+
       return result;
     }
 
@@ -284,11 +287,11 @@ export function getTimePressureQuestion(
  */
 function selectTargetDifficulty(config: TimePressureConfig, currentRound: number): Difficulty {
   let weights = { ...config.difficultyWeights };
-  
+
   // Apply progressive difficulty if enabled
   if (config.progressiveDifficulty) {
     const progressRatio = currentRound / config.totalRounds;
-    
+
     // Increase hard questions and decrease easy questions as game progresses
     if (progressRatio > 0.66) {
       // Final third: more hard questions
@@ -303,38 +306,38 @@ function selectTargetDifficulty(config: TimePressureConfig, currentRound: number
     }
     // First third: use default weights
   }
-  
+
   // Ensure weights are non-negative
   weights.easy = Math.max(0, weights.easy);
   weights.medium = Math.max(0, weights.medium);
   weights.hard = Math.max(0, weights.hard);
-  
+
   // Adjust for current distribution to maintain balance
   const totalTracked = difficultyTracker.totalQuestions;
   if (totalTracked > 0) {
     const easyRatio = difficultyTracker.easy / totalTracked;
     const mediumRatio = difficultyTracker.medium / totalTracked;
     const hardRatio = difficultyTracker.hard / totalTracked;
-    
+
     const targetEasyRatio = weights.easy / 100;
     const targetMediumRatio = weights.medium / 100;
     const targetHardRatio = weights.hard / 100;
-    
+
     // Boost under-represented difficulties
     if (easyRatio < targetEasyRatio - 0.1) weights.easy += 30;
     if (mediumRatio < targetMediumRatio - 0.1) weights.medium += 30;
     if (hardRatio < targetHardRatio - 0.1) weights.hard += 30;
-    
+
     // Reduce over-represented difficulties
     if (easyRatio > targetEasyRatio + 0.1) weights.easy = Math.max(5, weights.easy - 20);
     if (mediumRatio > targetMediumRatio + 0.1) weights.medium = Math.max(5, weights.medium - 20);
     if (hardRatio > targetHardRatio + 0.1) weights.hard = Math.max(5, weights.hard - 20);
   }
-  
+
   // Random selection based on weights
   const totalWeight = weights.easy + weights.medium + weights.hard;
   const random = Math.random() * totalWeight;
-  
+
   if (random < weights.easy) {
     return "easy";
   } else if (random < weights.easy + weights.medium) {
@@ -370,13 +373,19 @@ export function getTimePressureStats() {
     usedQuestionsCount: usedTimePressureQuestions.size,
     difficultyDistribution: { ...difficultyTracker },
     difficultyRatios: {
-      easy: difficultyTracker.totalQuestions > 0 ? 
-        (difficultyTracker.easy / difficultyTracker.totalQuestions * 100).toFixed(1) + '%' : '0%',
-      medium: difficultyTracker.totalQuestions > 0 ? 
-        (difficultyTracker.medium / difficultyTracker.totalQuestions * 100).toFixed(1) + '%' : '0%',
-      hard: difficultyTracker.totalQuestions > 0 ? 
-        (difficultyTracker.hard / difficultyTracker.totalQuestions * 100).toFixed(1) + '%' : '0%'
-    }
+      easy:
+        difficultyTracker.totalQuestions > 0
+          ? ((difficultyTracker.easy / difficultyTracker.totalQuestions) * 100).toFixed(1) + "%"
+          : "0%",
+      medium:
+        difficultyTracker.totalQuestions > 0
+          ? ((difficultyTracker.medium / difficultyTracker.totalQuestions) * 100).toFixed(1) + "%"
+          : "0%",
+      hard:
+        difficultyTracker.totalQuestions > 0
+          ? ((difficultyTracker.hard / difficultyTracker.totalQuestions) * 100).toFixed(1) + "%"
+          : "0%",
+    },
   };
 }
 
@@ -387,12 +396,14 @@ export function getTimePressureStats() {
  * @param {Partial<TimePressureConfig>} newConfig - Configuration updates
  * @returns {TimePressureConfig} Updated configuration
  */
-export function updateTimePressureConfig(newConfig: Partial<TimePressureConfig>): TimePressureConfig {
+export function updateTimePressureConfig(
+  newConfig: Partial<TimePressureConfig>
+): TimePressureConfig {
   return {
     ...DEFAULT_CONFIG,
     ...newConfig,
     difficultyWeights: { ...DEFAULT_CONFIG.difficultyWeights, ...newConfig.difficultyWeights },
     timeLimits: { ...DEFAULT_CONFIG.timeLimits, ...newConfig.timeLimits },
-    basePoints: { ...DEFAULT_CONFIG.basePoints, ...newConfig.basePoints }
+    basePoints: { ...DEFAULT_CONFIG.basePoints, ...newConfig.basePoints },
   };
 }

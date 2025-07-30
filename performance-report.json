@@ -1,0 +1,157 @@
+{
+  "timestamp": "2025-07-27T14:42:03.399Z",
+  "bundleAnalysis": {
+    "totalAssets": 2434,
+    "totalSize": 842876071,
+    "jsSize": 802429,
+    "cssSize": 505677,
+    "imageSize": 88683278,
+    "htmlSize": 333834112,
+    "assets": [
+      {
+        "path": "/home/daniel/projects/github/melody-mind/dist/server/chunks/_astro_data-layer-content_s1bJCrba.mjs",
+        "size": 283765309,
+        "relativePath": "server/chunks/_astro_data-layer-content_s1bJCrba.mjs"
+      },
+      {
+        "path": "/home/daniel/projects/github/melody-mind/dist/server/chunks/Layout_5f3iWgCS.mjs",
+        "size": 3036719,
+        "relativePath": "server/chunks/Layout_5f3iWgCS.mjs"
+      },
+      {
+        "path": "/home/daniel/projects/github/melody-mind/dist/client/favicon.svg",
+        "size": 1978205,
+        "relativePath": "client/favicon.svg"
+      },
+      {
+        "path": "/home/daniel/projects/github/melody-mind/dist/client/json/genres/ru/1960s.json",
+        "size": 1780772,
+        "relativePath": "client/json/genres/ru/1960s.json"
+      },
+      {
+        "path": "/home/daniel/projects/github/melody-mind/dist/client/json/genres/ru/1950s.json",
+        "size": 1765104,
+        "relativePath": "client/json/genres/ru/1950s.json"
+      },
+      {
+        "path": "/home/daniel/projects/github/melody-mind/dist/client/json/genres/ru/1970s.json",
+        "size": 1720940,
+        "relativePath": "client/json/genres/ru/1970s.json"
+      },
+      {
+        "path": "/home/daniel/projects/github/melody-mind/dist/client/json/genres/uk/1960s.json",
+        "size": 1699699,
+        "relativePath": "client/json/genres/uk/1960s.json"
+      },
+      {
+        "path": "/home/daniel/projects/github/melody-mind/dist/client/json/genres/uk/1950s.json",
+        "size": 1681891,
+        "relativePath": "client/json/genres/uk/1950s.json"
+      },
+      {
+        "path": "/home/daniel/projects/github/melody-mind/dist/client/json/genres/ru/1990s.json",
+        "size": 1676123,
+        "relativePath": "client/json/genres/ru/1990s.json"
+      },
+      {
+        "path": "/home/daniel/projects/github/melody-mind/dist/client/json/genres/ru/1980s.json",
+        "size": 1672409,
+        "relativePath": "client/json/genres/ru/1980s.json"
+      }
+    ]
+  },
+  "issues": [
+    {
+      "type": "bundle-size",
+      "severity": "high",
+      "message": "JavaScript bundle is too large: 783.62 KB",
+      "recommendation": "Consider code splitting and lazy loading"
+    },
+    {
+      "type": "image-size",
+      "severity": "medium",
+      "message": "Images are too large: 84.57 MB",
+      "recommendation": "Optimize images and use WebP format"
+    },
+    {
+      "type": "large-file",
+      "severity": "medium",
+      "message": "Large file detected: server/chunks/_astro_data-layer-content_s1bJCrba.mjs (270.62 MB)",
+      "recommendation": "Consider splitting or optimizing this file"
+    },
+    {
+      "type": "large-file",
+      "severity": "medium",
+      "message": "Large file detected: server/chunks/Layout_5f3iWgCS.mjs (2.9 MB)",
+      "recommendation": "Consider splitting or optimizing this file"
+    },
+    {
+      "type": "large-file",
+      "severity": "medium",
+      "message": "Large file detected: client/favicon.svg (1.89 MB)",
+      "recommendation": "Consider splitting or optimizing this file"
+    },
+    {
+      "type": "large-file",
+      "severity": "medium",
+      "message": "Large file detected: client/json/genres/ru/1960s.json (1.7 MB)",
+      "recommendation": "Consider splitting or optimizing this file"
+    },
+    {
+      "type": "large-file",
+      "severity": "medium",
+      "message": "Large file detected: client/json/genres/ru/1950s.json (1.68 MB)",
+      "recommendation": "Consider splitting or optimizing this file"
+    },
+    {
+      "type": "large-file",
+      "severity": "medium",
+      "message": "Large file detected: client/json/genres/ru/1970s.json (1.64 MB)",
+      "recommendation": "Consider splitting or optimizing this file"
+    },
+    {
+      "type": "large-file",
+      "severity": "medium",
+      "message": "Large file detected: client/json/genres/uk/1960s.json (1.62 MB)",
+      "recommendation": "Consider splitting or optimizing this file"
+    },
+    {
+      "type": "large-file",
+      "severity": "medium",
+      "message": "Large file detected: client/json/genres/uk/1950s.json (1.6 MB)",
+      "recommendation": "Consider splitting or optimizing this file"
+    },
+    {
+      "type": "large-file",
+      "severity": "medium",
+      "message": "Large file detected: client/json/genres/ru/1990s.json (1.6 MB)",
+      "recommendation": "Consider splitting or optimizing this file"
+    },
+    {
+      "type": "large-file",
+      "severity": "medium",
+      "message": "Large file detected: client/json/genres/ru/1980s.json (1.59 MB)",
+      "recommendation": "Consider splitting or optimizing this file"
+    }
+  ],
+  "recommendations": [
+    "✅ Use Astro's built-in image optimization",
+    "✅ Enable CSS containment for better performance",
+    "✅ Use requestAnimationFrame for animations",
+    "✅ Implement lazy loading for non-critical resources",
+    "✅ Optimize font loading with font-display: swap",
+    "✅ Use passive event listeners where possible",
+    "✅ Implement proper caching strategies",
+    "✅ Consider using a CDN for static assets",
+    "⚠️ Consider code splitting for JavaScript bundles",
+    "⚠️ Optimize images and use modern formats (WebP, AVIF)"
+  ],
+  "summary": {
+    "totalSize": "803.83 MB",
+    "jsSize": "783.62 KB",
+    "cssSize": "493.83 KB",
+    "imageSize": "84.57 MB",
+    "issueCount": 12,
+    "criticalIssues": 1
+  }
+}

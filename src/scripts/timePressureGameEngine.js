@@ -88,7 +88,6 @@ export class TimePressureGameEngine {
    */
   async initialize() {
     try {
-      
       // Load albums for the category
       await this.loadAlbums();
 
@@ -111,32 +110,40 @@ export class TimePressureGameEngine {
    */
   async loadAlbums() {
     try {
-      
       // Try to load the specific language first
       let albumData;
       let loadUrl = `/json/genres/${this.lang}/${this.category}.json`;
-      
+
       try {
         const response = await fetch(loadUrl);
-        
+
         if (!response.ok) {
-          throw new Error(`Failed to fetch category data: ${response.status} ${response.statusText}`);
+          throw new Error(
+            `Failed to fetch category data: ${response.status} ${response.statusText}`
+          );
         }
         albumData = await response.json();
       } catch (langError) {
-        console.warn(`Category not available in ${this.lang}, falling back to German. Error:`, langError.message);
-        
+        console.warn(
+          `Category not available in ${this.lang}, falling back to German. Error:`,
+          langError.message
+        );
+
         try {
           const fallbackUrl = `/json/genres/de/${this.category}.json`;
           const fallbackResponse = await fetch(fallbackUrl);
-          
+
           if (!fallbackResponse.ok) {
-            throw new Error(`Failed to fetch fallback category data: ${fallbackResponse.status} ${fallbackResponse.statusText}`);
+            throw new Error(
+              `Failed to fetch fallback category data: ${fallbackResponse.status} ${fallbackResponse.statusText}`
+            );
           }
           albumData = await fallbackResponse.json();
         } catch (fallbackError) {
           console.error("Failed to load fallback data:", fallbackError);
-          throw new Error(`Category '${this.category}' not found in any language. Available categories might be: 1950s, 1960s, 1970s, 1980s, 1990s, 2000s, 2010s`);
+          throw new Error(
+            `Category '${this.category}' not found in any language. Available categories might be: 1950s, 1960s, 1970s, 1980s, 1990s, 2000s, 2010s`
+          );
         }
       }
 
@@ -145,7 +152,6 @@ export class TimePressureGameEngine {
       if (this.albums.length === 0) {
         throw new Error(`No albums found for category '${this.category}'. Data loaded but empty.`);
       }
-
     } catch (error) {
       console.error("Error loading albums:", error);
       throw error; // Re-throw the original error with more context
@@ -185,7 +191,6 @@ export class TimePressureGameEngine {
     }
   }
 
-
   /**
    * Set up event listeners
    */
@@ -216,7 +221,6 @@ export class TimePressureGameEngine {
    * Start the time pressure game
    */
   async startGame() {
-
     // Reset game state
     this.currentRound = 1;
     this.score = 0;
@@ -318,7 +322,7 @@ export class TimePressureGameEngine {
       // Keyboard shortcuts
       const shortcut = String(index + 1);
       button.setAttribute("data-shortcut", shortcut);
-      
+
       // Set innerHTML with proper structure - don't use textContent after this
       button.innerHTML = `<span class="answer-shortcut">${shortcut}</span><span class="answer-text">${option}</span>`;
 
@@ -343,8 +347,8 @@ export class TimePressureGameEngine {
     }
 
     // Find the timer stat element
-    const timerStat = document.querySelector('.timer-stat');
-    
+    const timerStat = document.querySelector(".timer-stat");
+
     if (timerStat) {
       // Remove previous difficulty classes from timer stat
       timerStat.classList.remove("easy", "medium", "hard");
@@ -585,16 +589,16 @@ export class TimePressureGameEngine {
     try {
       // Pause the timer during feedback
       this.isFeedbackShowing = true;
-      
+
       // Get the overlay elements
       const overlay = document.getElementById("overlay");
       let feedback = document.getElementById("feedback");
-      
+
       // If feedback element is not found, try to find the paragraph element
       if (!feedback) {
         feedback = overlay?.querySelector(".feedback");
       }
-      
+
       if (!overlay) {
         console.warn("FeedbackOverlay not found");
         this.isFeedbackShowing = false; // Reset flag if overlay not found
@@ -622,48 +626,50 @@ export class TimePressureGameEngine {
       // Update feedback content - handle both direct element and Paragraph component
       if (feedback) {
         // If it's a paragraph component, update its text content
-        const textElement = feedback.querySelector('p') || feedback;
+        const textElement = feedback.querySelector("p") || feedback;
         textElement.textContent = feedbackMsg;
-        
+
         // Add appropriate classes
-        feedback.classList.remove('correct', 'incorrect');
-        feedback.classList.add(isCorrect ? 'correct' : 'incorrect');
+        feedback.classList.remove("correct", "incorrect");
+        feedback.classList.add(isCorrect ? "correct" : "incorrect");
       } else {
         // Fallback: create a feedback element
-        const feedbackDiv = document.createElement('div');
-        feedbackDiv.id = 'feedback';
-        feedbackDiv.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+        const feedbackDiv = document.createElement("div");
+        feedbackDiv.id = "feedback";
+        feedbackDiv.className = `feedback ${isCorrect ? "correct" : "incorrect"}`;
         feedbackDiv.innerHTML = `<p>${feedbackMsg}</p>`;
-        overlay.querySelector('.overlay__content')?.insertBefore(feedbackDiv, overlay.querySelector('.album-info'));
+        overlay
+          .querySelector(".overlay__content")
+          ?.insertBefore(feedbackDiv, overlay.querySelector(".album-info"));
       }
 
       // Show album info section like in normal mode
-      const albumInfo = overlay.querySelector('.album-info');
+      const albumInfo = overlay.querySelector(".album-info");
       if (albumInfo && this.currentAlbum) {
-        albumInfo.style.display = 'block';
-        
+        albumInfo.style.display = "block";
+
         // Update album information
-        const artistElement = overlay.querySelector('#overlay-artist');
-        const albumElement = overlay.querySelector('#overlay-album');
-        const yearElement = overlay.querySelector('#overlay-year');
-        const funFactElement = overlay.querySelector('#overlay-funfact');
-        
-        if (artistElement) artistElement.textContent = this.currentAlbum.artist || '';
-        if (albumElement) albumElement.textContent = this.currentAlbum.album || '';
-        if (yearElement) yearElement.textContent = this.currentAlbum.year || '';
-        
+        const artistElement = overlay.querySelector("#overlay-artist");
+        const albumElement = overlay.querySelector("#overlay-album");
+        const yearElement = overlay.querySelector("#overlay-year");
+        const funFactElement = overlay.querySelector("#overlay-funfact");
+
+        if (artistElement) artistElement.textContent = this.currentAlbum.artist || "";
+        if (albumElement) albumElement.textContent = this.currentAlbum.album || "";
+        if (yearElement) yearElement.textContent = this.currentAlbum.year || "";
+
         // Display funFact from the current question's trivia
         if (funFactElement) {
-          const funFactText = this.currentQuestion?.trivia || this.currentAlbum.funFact || '';
+          const funFactText = this.currentQuestion?.trivia || this.currentAlbum.funFact || "";
           // Handle both direct text and Paragraph component
-          const textElement = funFactElement.querySelector('p') || funFactElement;
+          const textElement = funFactElement.querySelector("p") || funFactElement;
           textElement.textContent = funFactText;
-          
+
           // Show the fun fact section if there's content
           if (funFactText) {
-            funFactElement.style.display = 'block';
+            funFactElement.style.display = "block";
           } else {
-            funFactElement.style.display = 'none';
+            funFactElement.style.display = "none";
           }
         }
       }
@@ -678,10 +684,10 @@ export class TimePressureGameEngine {
         nextRoundButton.onclick = () => {
           overlay.classList.add("hidden");
           overlay.setAttribute("aria-hidden", "true");
-          
+
           // Resume timer and continue to next question
           this.isFeedbackShowing = false;
-          
+
           // Continue with next question
           setTimeout(async () => {
             this.currentRound++;
@@ -758,10 +764,10 @@ export class TimePressureGameEngine {
     // Update pause button text
     const pauseBtn = document.getElementById("pause-btn");
     if (pauseBtn) {
-      const iconSpan = pauseBtn.querySelector('.icon');
-      const textSpan = pauseBtn.querySelector('.text');
-      if (textSpan) textSpan.textContent = 'Fortsetzen';
-      pauseBtn.setAttribute('aria-label', 'Spiel fortsetzen');
+      const iconSpan = pauseBtn.querySelector(".icon");
+      const textSpan = pauseBtn.querySelector(".text");
+      if (textSpan) textSpan.textContent = "Fortsetzen";
+      pauseBtn.setAttribute("aria-label", "Spiel fortsetzen");
     }
 
     // Show pause overlay (would integrate with existing overlay system)
@@ -776,12 +782,11 @@ export class TimePressureGameEngine {
     // Update pause button text
     const pauseBtn = document.getElementById("pause-btn");
     if (pauseBtn) {
-      const iconSpan = pauseBtn.querySelector('.icon');
-      const textSpan = pauseBtn.querySelector('.text');
-      if (textSpan) textSpan.textContent = 'Pause';
-      pauseBtn.setAttribute('aria-label', 'Spiel pausieren');
+      const iconSpan = pauseBtn.querySelector(".icon");
+      const textSpan = pauseBtn.querySelector(".text");
+      if (textSpan) textSpan.textContent = "Pause";
+      pauseBtn.setAttribute("aria-label", "Spiel pausieren");
     }
-
   }
 
   /**
@@ -812,7 +817,6 @@ export class TimePressureGameEngine {
    * End the game and show results
    */
   async endGame() {
-
     this.isGameActive = false;
 
     if (this.countdownTimer) {
@@ -821,7 +825,9 @@ export class TimePressureGameEngine {
     }
 
     // Show loading screen while processing results
-    const { showEndGameLoading, hideEndGameLoading } = await import("../utils/game/endGameUtils.js");
+    const { showEndGameLoading, hideEndGameLoading } = await import(
+      "../utils/game/endGameUtils.js"
+    );
     showEndGameLoading();
 
     // Calculate final statistics
@@ -839,7 +845,6 @@ export class TimePressureGameEngine {
       gameMode: "time-pressure",
       difficultyStats: getTimePressureStats(),
     };
-
 
     // Save results and check achievements
     try {
@@ -863,16 +868,16 @@ export class TimePressureGameEngine {
     try {
       // Get user ID from container data attribute (set by server-side session)
       let userId = this.gameContainer.getAttribute("data-userID");
-      
+
       // Fallback to guest if no user ID is found
       if (!userId || userId === "null" || userId === "undefined") {
-        userId = "guest"; 
+        userId = "guest";
       } else {
       }
-      
+
       // Time pressure mode uses mixed difficulties
       const difficulty = "mixed";
-      
+
       const requestData = {
         userId: userId,
         categoryName: this.category,
@@ -885,8 +890,7 @@ export class TimePressureGameEngine {
         gameTime: gameStats.gameTime,
         endOfSession: true,
       };
-      
-      
+
       const response = await fetch(`/${this.lang}/api/game/save-result`, {
         method: "POST",
         headers: {
@@ -903,7 +907,7 @@ export class TimePressureGameEngine {
       }
 
       const result = await response.json();
-      
+
       return result;
     } catch (error) {
       console.error("Error saving game results:", error);
@@ -920,7 +924,6 @@ export class TimePressureGameEngine {
   async checkGameAchievements(gameStats) {
     try {
       // TODO: Implement time pressure specific achievements
-      
       // For now, just log that we would check achievements
       // await checkAchievementsAfterGame(...);
     } catch (error) {
@@ -950,13 +953,13 @@ export class TimePressureGameEngine {
 
       // Import and use the showEndOverlay utility
       const { showEndOverlay } = await import("../utils/endOverlay.js");
-      
+
       // Hide loading screen before showing end overlay
       hideEndGameLoading();
-      
+
       // Small delay to ensure loading screen is hidden
-      await new Promise(resolve => setTimeout(resolve, 300));
-      
+      await new Promise((resolve) => setTimeout(resolve, 300));
+
       // Show the overlay with the score
       await showEndOverlay({
         score: gameStats.score,
@@ -965,25 +968,25 @@ export class TimePressureGameEngine {
 
       // Hide the game UI
       this.gameUI.style.display = "none";
-      
+
       // Show the overlay by removing the hidden class
       endOverlay.classList.remove("hidden");
       endOverlay.setAttribute("aria-hidden", "false");
-      
+
       // Focus the overlay for accessibility
       endOverlay.focus();
-
     } catch (error) {
       console.error("Error showing end game overlay:", error);
-      
+
       // Hide loading screen in case of error
       hideEndGameLoading();
-      
+
       // Fallback: just show basic stats
-      alert(`Game Complete!\nScore: ${gameStats.score}\nAccuracy: ${Math.round(gameStats.accuracy)}%\nTime: ${Math.round(gameStats.gameTime)}s`);
+      alert(
+        `Game Complete!\nScore: ${gameStats.score}\nAccuracy: ${Math.round(gameStats.accuracy)}%\nTime: ${Math.round(gameStats.gameTime)}s`
+      );
     }
   }
-
 
   /**
    * Show error message

@@ -494,8 +494,10 @@ export default {
   "game.submit.answer": "Check Answer",
   "game.submit.answer.aria": "Check current order and proceed to next round",
   "game.timepressure.title": "Time Pressure Mode",
-  "game.timepressure.description": "⚡ Become the lightning music master! Prove you're a true champion even under time pressure with mixed difficulty levels in {category}. Every second counts – show your speed and knowledge simultaneously! 🏆",
-  "game.timepressure.instructions": "Answer questions as quickly as possible. You have limited time for each question.",
+  "game.timepressure.description":
+    "⚡ Become the lightning music master! Prove you're a true champion even under time pressure with mixed difficulty levels in {category}. Every second counts – show your speed and knowledge simultaneously! 🏆",
+  "game.timepressure.instructions":
+    "Answer questions as quickly as possible. You have limited time for each question.",
   "game.timepressure.controls": "Use keys 1-4 for answers, Space to pause, S to skip",
   "game.timepressure.streak": "Streak",
   "game.timepressure.seconds": "Sec",
@@ -636,7 +638,7 @@ export default {
   "nav.menu.home.desc": "Return to the main page",
   "nav.menu.logout": "Logout",
   "nav.menu.logout.desc": "Sign out of your account",
-  "nav.menu.guest.exit": "Exit Guest Mode", 
+  "nav.menu.guest.exit": "Exit Guest Mode",
   "nav.menu.guest.exit.desc": "Return to login screen",
   "nav.menu.open": "Open menu",
   "nav.menu.knowledge": "Knowledge Base",
@@ -672,7 +674,8 @@ export default {
   // Podcast page translations
   "podcast.title": "Podcasts",
   "podcast.description": "Discover music insights through our podcast series",
-  "podcast.rss.description": "Discover the history of music through engaging podcast episodes covering different eras, genres, and musical movements.",
+  "podcast.rss.description":
+    "Discover the history of music through engaging podcast episodes covering different eras, genres, and musical movements.",
   "podcast.rss.subscribe": "Subscribe to RSS Feed",
   "podcast.rss.subscribe.title": "Subscribe to our Podcast",
   "podcast.rss.subscribe.description": "Stay updated with new episodes",
@@ -811,7 +814,8 @@ export default {
   "toc.state.expanded": "Expanded",
   "toc.toggle.label": "Toggle table of contents",
   "news.title": "News",
-  "news.description": "Discover the latest hits, artist news and music trends from around the world",
+  "news.description":
+    "Discover the latest hits, artist news and music trends from around the world",
   "news.lastUpdated": "Last updated",
   "news.sourcesCount": "{count} sources",
   "news.trending": "Trending",
@@ -826,5 +830,4 @@ export default {
     "All news content is sourced from external providers. MelodyMind is not responsible for the content.",
   "news.legal.attribution": "News provided by the following sources:",
   "news.imageAlt": "Article image",
-
 };

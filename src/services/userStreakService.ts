@@ -39,7 +39,7 @@ export async function updateDailyActivity(userId: string): Promise<DailyActivity
     return {
       userId,
       date: new Date().toISOString().split("T")[0],
-      activityCount: 1
+      activityCount: 1,
     };
   }
 

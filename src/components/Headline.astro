@@ -114,7 +114,6 @@ const wrapperAttributes: Record<string, any> | null =
     font-weight: var(--font-bold);
     line-height: var(--leading-tight);
     letter-spacing: var(--letter-spacing-base);
-    margin-bottom: var(--space-lg);
     color: var(--text-primary);
 
     /* Enhanced text wrapping and accessibility */
@@ -238,41 +237,20 @@ const wrapperAttributes: Record<string, any> | null =
 
     &--h1 {
       font-weight: var(--font-bold);
-      margin-bottom: var(--space-xl);
-
-      /* Enhanced spacing for large screens */
-      @media (min-width: 64em) {
-        margin-bottom: var(--space-2xl);
-      }
     }
 
     &--h2 {
       font-weight: var(--font-semibold);
-      margin-bottom: var(--space-lg);
-
-      @media (min-width: 64em) {
-        margin-bottom: var(--space-xl);
-      }
     }
 
     &--h3 {
       font-weight: var(--font-semibold);
-      margin-bottom: var(--space-md);
-
-      @media (min-width: 64em) {
-        margin-bottom: var(--space-lg);
-      }
     }
 
     &--h4,
     &--h5,
     &--h6 {
       font-weight: var(--font-medium);
-      margin-bottom: var(--space-sm);
-
-      @media (min-width: 64em) {
-        margin-bottom: var(--space-md);
-      }
     }
 
     /* ======================================
@@ -397,21 +375,6 @@ const wrapperAttributes: Record<string, any> | null =
 
     &--align-right {
       text-align: right;
-    }
-
-    /* ======================================
-     * RESPONSIVE TEXT ALIGNMENT
-     * ====================================== */
-
-    /* Mobile-first text alignment adjustments */
-    @media (max-width: 47.9375em) {
-      &--align-center {
-        text-align: left;
-      }
-
-      &--align-right {
-        text-align: left;
-      }
     }
 
     /* ======================================

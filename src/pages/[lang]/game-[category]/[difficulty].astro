@@ -109,12 +109,6 @@ let authResult: { authenticated: boolean; user?: { id: string; email: string } }
 if (Astro.request) {
   authResult = await requireAuth(Astro.request);
 }
-console.log("🔍 Game Page Auth Result:", {
-  authenticated: authResult.authenticated,
-  userId: authResult.user?.id,
-  userEmail: authResult.user?.email,
-  url: Astro.request.url,
-});
 
 // Dynamic import of categories based on language
 let categories;
@@ -127,7 +121,6 @@ try {
 
 // Default user for game functionality
 const user = { id: authResult.user?.id || "guest" };
-console.log("🔍 Game Page Final User:", user);
 
 // Find current category data for display and metadata - first try from dynamic import, then from props
 const currentCategoryData =
@@ -444,9 +437,9 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     padding: var(--space-md) var(--space-lg);
     border-radius: var(--radius-xl);
     text-align: left;
-    font-size: var(--text-base);
-    font-weight: var(--font-medium);
-    background-color: var(--bg-secondary);
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    background: var(--btn-primary-bg);
     border: var(--border-width-thin) solid var(--border-primary);
     color: var(--text-primary);
     transition: all var(--transition-normal);
@@ -455,16 +448,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     min-height: var(--min-touch-size);
     display: flex;
     align-items: center;
-
-    // Mobile - reduced horizontal padding
-    @media (max-width: 39.9375em) {
-      padding: var(--space-md) var(--space-sm) !important;
-    }
-
-    // Mobile portrait - minimal horizontal padding
-    @media (max-width: 29.9375em) {
-      padding: var(--space-md) var(--space-xs) !important;
-    }
+    padding: var(--space-lg) var(--space-lg);
 
     &:hover {
       background-color: var(--bg-tertiary);
@@ -553,55 +537,6 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       justify-content: center;
       gap: var(--space-sm);
       contain: layout;
-
-      @media (min-width: 48em) {
-        gap: var(--space-lg);
-        margin-top: var(--space-xl);
-      }
-
-      @media (min-width: 64em) {
-        gap: var(--space-xl);
-        margin-top: var(--space-2xl);
-      }
-
-      @media (min-width: 80em) {
-        gap: var(--space-2xl);
-      }
-
-      // Mobile general - horizontal layout with compact spacing
-      @media (max-width: 47.9375em) {
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        gap: var(--space-xs) !important;
-        justify-content: center !important;
-        margin-top: var(--space-md) !important;
-        width: 100% !important;
-        overflow-x: auto !important;
-        scrollbar-width: none !important;
-        -ms-overflow-style: none !important;
-
-        &::-webkit-scrollbar {
-          display: none;
-        }
-      }
-
-      // Mobile portrait - horizontal but very compact
-      @media (max-width: 29.9375em) {
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        gap: var(--space-xs) !important;
-        margin-top: var(--space-sm) !important;
-        justify-content: space-between !important;
-        padding: 0 var(--space-xs) !important;
-      }
-
-      // Mobile landscape - horizontal with balanced spacing
-      @media (min-width: 30em) and (max-width: 39.9375em) {
-        flex-direction: row !important;
-        gap: var(--space-sm) !important;
-        flex-wrap: nowrap !important;
-        justify-content: center !important;
-      }
     }
   }
 
@@ -611,60 +546,12 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     display: inline-flex;
     align-items: center;
     min-height: var(--touch-target-enhanced);
-    border-radius: var(--radius-lg);
-    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-xl);
+    padding: var(--space-sm) var(--space-sm);
     transition: all var(--transition-base);
     cursor: default;
     overflow: hidden;
     contain: layout style;
-
-    @media (min-width: 48em) {
-      padding: var(--space-md) var(--space-lg);
-      border-radius: var(--radius-xl);
-      min-width: var(--stat-width-md);
-    }
-
-    @media (min-width: 64em) {
-      padding: var(--space-lg) var(--space-2xl);
-      border-radius: var(--radius-2xl);
-    }
-
-    @media (min-width: 80em) {
-      padding: var(--space-xl) var(--space-3xl);
-      min-width: var(--stat-width-sm);
-    }
-
-    // Mobile general - horizontal layout with flex (higher specificity)
-    @media (max-width: 47.9375em) {
-      flex: 1 !important;
-      min-height: var(--touch-target-enhanced) !important;
-      padding: var(--space-xs) var(--space-sm) !important;
-      border-radius: var(--radius-md) !important;
-      min-width: auto !important;
-      max-width: calc(33.333% - var(--space-xs)) !important;
-      justify-content: center !important;
-    }
-
-    // Mobile portrait - horizontal compact badges
-    @media (max-width: 29.9375em) {
-      width: auto !important;
-      flex: 1 !important;
-      justify-content: center;
-      padding: var(--space-xs) var(--space-xs) !important;
-      border-radius: var(--radius-sm) !important;
-      min-height: var(--touch-target-enhanced) !important;
-      font-size: var(--text-xs) !important;
-      max-width: calc(33.333% - var(--space-xs)) !important;
-    }
-
-    // Mobile landscape - horizontal balanced badges
-    @media (min-width: 30em) and (max-width: 39.9375em) {
-      flex: 1 !important;
-      padding: var(--space-xs) var(--space-sm) !important;
-      border-radius: var(--radius-md) !important;
-      min-width: auto !important;
-      max-width: calc(33.333% - var(--space-sm)) !important;
-    }
 
     /* Badge icon styling - Smaller, refined design with proper mobile priority */
     &__icon {
@@ -677,69 +564,22 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       z-index: 2;
       position: relative;
 
-      @media (min-width: 48em) {
-        height: var(--text-lg);
-        width: var(--text-lg);
-        margin-right: var(--space-md);
-      }
-
-      @media (min-width: 64em) {
-        height: var(--text-lg);
-        width: var(--text-lg);
-      }
-
-      // Mobile - smaller icons (most specific, comes last)
-      @media (max-width: 47.9375em) {
-        margin-right: var(--space-xs) !important;
-        height: var(--text-sm) !important;
-        width: var(--text-sm) !important;
-      }
-
-      // Mobile portrait - ultra compact (highest specificity)
-      @media (max-width: 29.9375em) {
-        margin-right: var(--space-xs) !important;
-        height: calc(var(--text-sm) * 0.9) !important;
-        width: calc(var(--text-sm) * 0.9) !important;
-      }
-
-      // Mobile landscape - compact
-      @media (min-width: 30em) and (max-width: 39.9375em) {
-        margin-right: var(--space-xs) !important;
-        height: var(--text-sm) !important;
-        width: var(--text-sm) !important;
-      }
-
       &--difficulty {
         color: #fbbf24;
         filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
         transition: all var(--transition-base);
-
-        &:hover {
-          filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
-          transform: scale(1.1);
-        }
       }
 
       &--rounds {
         color: #93c5fd;
         filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
         transition: all var(--transition-base);
-
-        &:hover {
-          filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
-          transform: scale(1.1);
-        }
       }
 
       &--coins {
         color: #fbbf24;
         filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
         transition: all var(--transition-base);
-
-        &:hover {
-          filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
-          transform: scale(1.1);
-        }
       }
     }
 
@@ -754,30 +594,6 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       position: relative;
       transition: all var(--transition-base);
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-
-      @media (min-width: 48em) {
-        font-size: var(--text-base);
-      }
-
-      @media (min-width: 64em) {
-        font-size: var(--text-base);
-      }
-
-      // Mobile - smaller text for compact badges (most specific)
-      @media (max-width: 47.9375em) {
-        font-size: var(--text-xs) !important;
-      }
-
-      // Mobile portrait - ultra compact text
-      @media (max-width: 29.9375em) {
-        font-size: calc(var(--text-xs) * 0.9) !important;
-        letter-spacing: 0.01em;
-      }
-
-      // Mobile landscape - compact text
-      @media (min-width: 30em) and (max-width: 39.9375em) {
-        font-size: var(--text-xs) !important;
-      }
     }
 
     /* Difficulty badge - Purple gradient */
@@ -788,17 +604,6 @@ const totalRounds = getRoundsForDifficulty(difficulty);
         var(--shadow-lg),
         var(--shadow-sm),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
-
-      &:hover {
-        background: linear-gradient(135deg, #7c3aed, #6d28d9);
-        transform: translateY(-2px) scale(1.02);
-        box-shadow:
-          var(--card-shadow-hover),
-          var(--shadow-md),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.3);
-        filter: brightness(1.1);
-      }
     }
 
     /* Rounds badge - Blue gradient */
@@ -809,17 +614,6 @@ const totalRounds = getRoundsForDifficulty(difficulty);
         var(--shadow-lg),
         var(--shadow-sm),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
-
-      &:hover {
-        background: linear-gradient(135deg, #2563eb, #1d4ed8);
-        transform: translateY(-2px) scale(1.02);
-        box-shadow:
-          var(--card-shadow-hover),
-          var(--shadow-md),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.3);
-        filter: brightness(1.1);
-      }
     }
 
     /* Coins badge - Gold gradient */
@@ -830,26 +624,6 @@ const totalRounds = getRoundsForDifficulty(difficulty);
         var(--shadow-lg),
         var(--shadow-sm),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
-
-      &:hover {
-        background: linear-gradient(135deg, #ca8a04, #a16207);
-        transform: translateY(-2px) scale(1.02);
-        box-shadow:
-          var(--card-shadow-hover),
-          var(--shadow-md),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.3);
-        filter: brightness(1.1);
-      }
-    }
-
-    /* Enhanced focus states for keyboard navigation */
-    &:focus-visible {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-      box-shadow:
-        var(--focus-ring),
-        0 8px 25px rgba(0, 0, 0, 0.2);
     }
   }
 
@@ -861,62 +635,12 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     width: var(--width-full);
     max-width: var(--container-lg);
     border-radius: var(--radius-lg);
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    box-shadow: var(--card-shadow);
     contain: layout style;
-    padding: var(--space-lg);
     text-align: center;
     opacity: var(--animation-opacity-full);
     transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
-
-    @media (min-width: 48em) {
-      padding: var(--space-xl);
-      border-radius: var(--radius-xl);
-      max-width: var(--container-lg);
-    }
-
-    @media (min-width: 64em) {
-      padding: var(--space-2xl);
-      border-radius: var(--radius-xl);
-      max-width: var(--container-lg);
-    }
-
-    @media (min-width: 80em) {
-      padding: var(--space-3xl);
-      border-radius: var(--radius-2xl);
-      max-width: calc(var(--container-lg) * 1.125);
-    }
-
-    // Mobile portrait - ultra compact layout with minimal side margins
-    @media (max-width: 29.9375em) {
-      padding: var(--space-md) var(--space-xs);
-      margin: 0 var(--space-xs);
-      border-radius: var(--radius-md);
-      max-width: calc(100vw - var(--space-sm));
-    }
-
-    // Mobile landscape - improved spacing with reduced side padding
-    @media (min-width: 30em) and (max-width: 39.9375em) {
-      padding: var(--space-lg) var(--space-sm);
-      margin: 0 var(--space-xs);
-      border-radius: var(--radius-lg);
-      max-width: calc(var(--container-sm) - var(--space-lg));
-    }
-
-    // Mobile general - ensure good touch targets with compact horizontal padding
-    @media (max-width: 47.9375em) {
-      padding: var(--space-xl) var(--space-sm) !important;
-      border-radius: var(--radius-lg);
-      max-width: calc(100vw - var(--space-md)) !important;
-      margin: 0 var(--space-xs) !important;
-    }
-
-    &:hover {
-      box-shadow: var(--shadow-lg);
-    }
 
     &[data-hidden="true"] {
       opacity: 0.3;
@@ -928,7 +652,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     &__question {
       // Default desktop sizing
       margin-bottom: var(--space-lg);
-      font-size: var(--text-2xl);
+      font-size: var(--text-lg);
       font-weight: var(--font-bold);
       line-height: var(--leading-enhanced);
       color: var(--text-primary);
@@ -940,49 +664,6 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       border: 1px solid var(--border-secondary);
       contain: layout style;
       text-align: center;
-
-      @media (min-width: 48em) {
-        font-size: var(--text-3xl);
-        padding: var(--space-xl) var(--space-2xl);
-        margin-bottom: var(--space-2xl);
-      }
-
-      @media (min-width: 64em) {
-        font-size: var(--text-4xl);
-        padding: var(--space-xl) var(--space-2xl);
-        margin-bottom: var(--space-2xl);
-      }
-
-      @media (min-width: 80em) {
-        font-size: var(--text-5xl);
-        padding: var(--space-2xl) var(--space-3xl);
-        margin-bottom: var(--space-3xl);
-        line-height: var(--leading-tight);
-      }
-
-      // Mobile general - improved prominence with compact horizontal padding
-      @media (max-width: 47.9375em) {
-        font-size: var(--text-xl) !important;
-        padding: var(--space-md) var(--space-sm) !important;
-        margin-bottom: var(--space-xl) !important;
-        line-height: var(--leading-relaxed) !important;
-      }
-
-      // Mobile portrait - readable and prominent with minimal padding
-      @media (max-width: 29.9375em) {
-        font-size: var(--text-lg) !important;
-        padding: var(--space-sm) var(--space-xs) !important;
-        margin-bottom: var(--space-lg) !important;
-        line-height: var(--leading-normal) !important;
-      }
-
-      // Mobile landscape - enhanced readability with compact padding
-      @media (min-width: 30em) and (max-width: 39.9375em) {
-        font-size: var(--text-xl) !important;
-        padding: var(--space-md) var(--space-sm) !important;
-        margin-bottom: var(--space-lg) !important;
-        line-height: var(--leading-relaxed) !important;
-      }
     }
 
     /* Options container - Enhanced responsive spacing */
@@ -993,28 +674,6 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       position: relative;
       z-index: 1;
       contain: layout;
-
-      @media (min-width: 48em) {
-        gap: var(--space-lg);
-      }
-
-      @media (min-width: 64em) {
-        gap: var(--space-xl);
-      }
-
-      @media (min-width: 80em) {
-        gap: calc(var(--space-xl) + var(--space-sm));
-      }
-
-      // Mobile portrait - compact option spacing
-      @media (max-width: 29.9375em) {
-        gap: var(--space-md);
-      }
-
-      // Mobile landscape - balanced spacing
-      @media (min-width: 30em) and (max-width: 39.9375em) {
-        gap: var(--space-md);
-      }
     }
   }
 
@@ -1026,99 +685,6 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     position: relative;
     z-index: 2;
     contain: layout;
-
-    @media (min-width: 48em) {
-      margin-top: var(--space-xl);
-    }
-
-    @media (min-width: 64em) {
-      margin-top: var(--space-2xl);
-    }
-
-    @media (min-width: 80em) {
-      margin-top: var(--space-3xl);
-    }
-
-    // Mobile portrait - compact controls
-    @media (max-width: 29.9375em) {
-      margin-top: var(--space-lg);
-      padding: 0 var(--space-xs);
-    }
-
-    // Mobile landscape - balanced layout
-    @media (min-width: 30em) and (max-width: 39.9375em) {
-      margin-top: var(--space-lg);
-      padding: 0 var(--space-sm);
-    }
-
-    // Mobile general
-    @media (max-width: 47.9375em) {
-      margin-top: var(--space-lg);
-    }
-  }
-
-  /* ======================================
-   * Enhanced Accessibility & Performance Optimizations
-   * ====================================== */
-
-  /* Comprehensive reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    ::before,
-    ::after {
-      animation: none !important;
-      transition: var(--transition-instant) !important;
-    }
-
-    .game-badge:hover,
-    .game-container:hover {
-      transform: none;
-    }
-
-    @keyframes coinPulseAAA {
-      from,
-      to {
-        transform: scale(var(--animation-scale-default));
-        text-shadow: none;
-        color: var(--color-warning-400);
-      }
-    }
-  }
-
-  /* Enhanced high contrast and forced colors mode support */
-  @media (forced-colors: active) {
-    .game-container,
-    .game-badge {
-      border: 2px solid CanvasText;
-      background-color: Canvas;
-      box-shadow: none;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      forced-color-adjust: none;
-    }
-
-    .game-badge {
-      background: ButtonFace;
-      color: ButtonText;
-    }
-
-    .game-container__question {
-      background: Canvas;
-      border: 1px solid CanvasText;
-      color: CanvasText;
-    }
-
-    .game-option-button {
-      background: ButtonFace;
-      border: 1px solid ButtonBorder;
-      color: ButtonText;
-
-      &:hover,
-      &:focus-visible {
-        background: Highlight;
-        color: HighlightText;
-      }
-    }
   }
 
   /* Enhanced focus states with improved accessibility */
@@ -1133,109 +699,5 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     outline: 2px solid var(--border-focus);
     outline-offset: 2px;
     box-shadow: var(--focus-ring);
-  }
-
-  /* Enhanced touch target optimization for all pointer types */
-  @media (pointer: coarse) {
-    .game-badge {
-      min-height: var(--touch-target-enhanced);
-      padding: var(--space-md) var(--space-lg);
-
-      @media (max-width: 29.9375em) {
-        min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
-      }
-    }
-
-    .game-option-button {
-      min-height: var(--touch-target-enhanced);
-      padding: var(--space-lg) var(--space-xl);
-
-      @media (max-width: 29.9375em) {
-        min-height: calc(var(--touch-target-enhanced) + var(--space-md));
-        padding: var(--space-md) var(--space-lg);
-      }
-    }
-  }
-
-  /* Enhanced pointer device optimizations */
-  @media (pointer: fine) {
-    .game-badge:hover {
-      cursor: default;
-      transform: translateY(-1px) scale(1.02);
-    }
-
-    .game-container:hover {
-      cursor: default;
-    }
-
-    .game-option-button:hover {
-      cursor: pointer;
-    }
-  }
-
-  /* Enhanced print optimization with global.css variables */
-  @media print {
-    .game-container,
-    .game-header,
-    .game-badge {
-      break-inside: avoid;
-      border: 1px solid #000;
-      background: #fff !important;
-      color: #000 !important;
-      box-shadow: none;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-    }
-
-    .game-container__question {
-      background: #fff !important;
-      border: 1px solid #000;
-    }
-
-    .game-option-button {
-      background: #fff !important;
-      border: 1px solid #000;
-      color: #000 !important;
-    }
-  }
-
-  /* Enhanced landscape orientation support for all breakpoints */
-  @media (max-width: 63.9375em) and (orientation: landscape) {
-    .game-container {
-      max-height: 90vh;
-      overflow-y: auto;
-      scrollbar-width: thin;
-      scrollbar-color: var(--scrollbar-thumb-bg) var(--scrollbar-track-bg);
-
-      // Mobile portrait landscape
-      @media (max-width: 29.9375em) {
-        max-height: 85vh;
-        padding: var(--space-sm);
-      }
-
-      // Mobile landscape specific
-      @media (min-width: 30em) and (max-width: 39.9375em) {
-        max-height: 88vh;
-        padding: var(--space-md);
-      }
-    }
-
-    .game-header {
-      margin-bottom: var(--space-md);
-
-      &__badges {
-        gap: var(--space-sm);
-        margin-top: var(--space-md);
-      }
-    }
-  }
-
-  /* Enhanced support for different screen densities */
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .game-badge,
-    .game-container {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
   }
 </style>

@@ -5,90 +5,128 @@
  */
 
 const supportedLanguages = [
-  'de', 'en', 'es', 'fr', 'it', 'pt', 
-  'da', 'nl', 'sv', 'fi', 'cn', 'ru', 'jp', 'uk'
+  "de",
+  "en",
+  "es",
+  "fr",
+  "it",
+  "pt",
+  "da",
+  "nl",
+  "sv",
+  "fi",
+  "cn",
+  "ru",
+  "jp",
+  "uk",
 ];
 
 // Simple test data
-const testResults = supportedLanguages.map(lang => ({
+const testResults = supportedLanguages.map((lang) => ({
   lang,
-  status: 'available',
+  status: "available",
   sampleUrl: `/${lang}/podcasts/rss.xml`,
-  podcastPageUrl: `/${lang}/podcasts`
+  podcastPageUrl: `/${lang}/podcasts`,
 }));
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RSS Feed Test Results</title>
-  <style>
-    body {
-      font-family: monospace;
-      margin: 2rem;
-      background: #1a1a1a;
-      color: #00ff00;
-    }
-    .test-result {
-      border: 1px solid #333;
-      margin: 1rem 0;
-      padding: 1rem;
-      border-radius: 4px;
-    }
-    .success { border-color: #00ff00; }
-    .error { border-color: #ff0000; color: #ff0000; }
-    .feed-links { margin: 2rem 0; }
-    .feed-links a {
-      color: #00aaff;
-      display: block;
-      margin: 0.5rem 0;
-    }
-  </style>
-</head>
-<body>
-  <h1>🎙️ MelodyMind RSS Feed Test Results</h1>
-  
-  <div class="feed-links">
-    <h2>📡 Available RSS Feeds:</h2>
-    <a href="/de/podcasts/rss.xml" target="_blank">/de/podcasts/rss.xml</a>
-    <a href="/en/podcasts/rss.xml" target="_blank">/en/podcasts/rss.xml</a>
-    <a href="/es/podcasts/rss.xml" target="_blank">/es/podcasts/rss.xml</a>
-    <a href="/fr/podcasts/rss.xml" target="_blank">/fr/podcasts/rss.xml</a>
-    <a href="/it/podcasts/rss.xml" target="_blank">/it/podcasts/rss.xml</a>
-    <a href="/pt/podcasts/rss.xml" target="_blank">/pt/podcasts/rss.xml</a>
-    <a href="/da/podcasts/rss.xml" target="_blank">/da/podcasts/rss.xml</a>
-    <a href="/nl/podcasts/rss.xml" target="_blank">/nl/podcasts/rss.xml</a>
-    <a href="/sv/podcasts/rss.xml" target="_blank">/sv/podcasts/rss.xml</a>
-    <a href="/fi/podcasts/rss.xml" target="_blank">/fi/podcasts/rss.xml</a>
-    <a href="/cn/podcasts/rss.xml" target="_blank">/cn/podcasts/rss.xml</a>
-    <a href="/ru/podcasts/rss.xml" target="_blank">/ru/podcasts/rss.xml</a>
-    <a href="/jp/podcasts/rss.xml" target="_blank">/jp/podcasts/rss.xml</a>
-    <a href="/uk/podcasts/rss.xml" target="_blank">/uk/podcasts/rss.xml</a>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RSS Feed Test Results</title>
+    <style>
+      body {
+        font-family: monospace;
+        margin: 2rem;
+        background: #1a1a1a;
+        color: #00ff00;
+      }
+      .test-result {
+        border: 1px solid #333;
+        margin: 1rem 0;
+        padding: 1rem;
+        border-radius: 4px;
+      }
+      .success {
+        border-color: #00ff00;
+      }
+      .error {
+        border-color: #ff0000;
+        color: #ff0000;
+      }
+      .feed-links {
+        margin: 2rem 0;
+      }
+      .feed-links a {
+        color: #00aaff;
+        display: block;
+        margin: 0.5rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎙️ MelodyMind RSS Feed Test Results</h1>
 
-  <h2>🧪 Test Results:</h2>
-  
-  {testResults.map(result => (
-    <div class={`test-result ${result.status}`}>
-      <h3>Language: {result.lang.toUpperCase()}</h3>
-      <p><strong>Status:</strong> {result.status}</p>
-      <p><strong>RSS Feed:</strong> <a href={result.sampleUrl} target="_blank">{result.sampleUrl}</a></p>
-      <p><strong>Podcast Page:</strong> <a href={result.podcastPageUrl} target="_blank">{result.podcastPageUrl}</a></p>
-      <p><strong>Test:</strong> <button onclick={`window.open('${result.sampleUrl}', '_blank')`}>🧪 Test RSS Feed</button></p>
+    <div class="feed-links">
+      <h2>📡 Available RSS Feeds:</h2>
+      <a href="/de/podcasts/rss.xml" target="_blank">/de/podcasts/rss.xml</a>
+      <a href="/en/podcasts/rss.xml" target="_blank">/en/podcasts/rss.xml</a>
+      <a href="/es/podcasts/rss.xml" target="_blank">/es/podcasts/rss.xml</a>
+      <a href="/fr/podcasts/rss.xml" target="_blank">/fr/podcasts/rss.xml</a>
+      <a href="/it/podcasts/rss.xml" target="_blank">/it/podcasts/rss.xml</a>
+      <a href="/pt/podcasts/rss.xml" target="_blank">/pt/podcasts/rss.xml</a>
+      <a href="/da/podcasts/rss.xml" target="_blank">/da/podcasts/rss.xml</a>
+      <a href="/nl/podcasts/rss.xml" target="_blank">/nl/podcasts/rss.xml</a>
+      <a href="/sv/podcasts/rss.xml" target="_blank">/sv/podcasts/rss.xml</a>
+      <a href="/fi/podcasts/rss.xml" target="_blank">/fi/podcasts/rss.xml</a>
+      <a href="/cn/podcasts/rss.xml" target="_blank">/cn/podcasts/rss.xml</a>
+      <a href="/ru/podcasts/rss.xml" target="_blank">/ru/podcasts/rss.xml</a>
+      <a href="/jp/podcasts/rss.xml" target="_blank">/jp/podcasts/rss.xml</a>
+      <a href="/uk/podcasts/rss.xml" target="_blank">/uk/podcasts/rss.xml</a>
     </div>
-  ))}
-  
-  <div style="margin-top: 3rem; padding: 1rem; border: 1px solid #555;">
-    <h3>📋 Manual Testing Steps:</h3>
-    <ol>
-      <li>Click on RSS feed links above to view XML</li>
-      <li>Validate XML with online validators</li>
-      <li>Test in podcast clients (Apple Podcasts, Spotify, etc.)</li>
-      <li>Check meta tags on podcast pages</li>
-      <li>Verify feed discovery works in browsers</li>
-    </ol>
-  </div>
-</body>
+
+    <h2>🧪 Test Results:</h2>
+
+    {
+      testResults.map((result) => (
+        <div class={`test-result ${result.status}`}>
+          <h3>Language: {result.lang.toUpperCase()}</h3>
+          <p>
+            <strong>Status:</strong> {result.status}
+          </p>
+          <p>
+            <strong>RSS Feed:</strong>{" "}
+            <a href={result.sampleUrl} target="_blank">
+              {result.sampleUrl}
+            </a>
+          </p>
+          <p>
+            <strong>Podcast Page:</strong>{" "}
+            <a href={result.podcastPageUrl} target="_blank">
+              {result.podcastPageUrl}
+            </a>
+          </p>
+          <p>
+            <strong>Test:</strong>{" "}
+            <button onclick={`window.open('${result.sampleUrl}', '_blank')`}>
+              🧪 Test RSS Feed
+            </button>
+          </p>
+        </div>
+      ))
+    }
+
+    <div style="margin-top: 3rem; padding: 1rem; border: 1px solid #555;">
+      <h3>📋 Manual Testing Steps:</h3>
+      <ol>
+        <li>Click on RSS feed links above to view XML</li>
+        <li>Validate XML with online validators</li>
+        <li>Test in podcast clients (Apple Podcasts, Spotify, etc.)</li>
+        <li>Check meta tags on podcast pages</li>
+        <li>Verify feed discovery works in browsers</li>
+      </ol>
+    </div>
+  </body>
 </html>
