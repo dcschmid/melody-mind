@@ -4,6 +4,7 @@ import node from "@astrojs/node";
 import path from "path";
 
 import sitemap from "@astrojs/sitemap";
+import robotsTxt from "astro-robots-txt";
 
 import metaTags from "astro-meta-tags";
 
@@ -24,6 +25,13 @@ export default defineConfig({
   },
   integrations: [
     icon(),
+    robotsTxt({
+      sitemap: [
+        "https://melody-mind.de/sitemap-index.xml",
+        "https://melody-mind.de/sitemap.xml"
+      ],
+      host: "melody-mind.de"
+    }),
     sitemap({
       filter: (page) =>
         // Exclude our custom sitemap files from the default sitemap

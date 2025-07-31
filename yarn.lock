@@ -2059,6 +2059,13 @@ ast-v8-to-istanbul@^0.3.3:
     estree-walker "^3.0.3"
     js-tokens "^9.0.1"
 
+astro-capo@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/astro-capo/-/astro-capo-0.0.1.tgz#61c8291e9a0df6ecc84ad579b1831b8f5fb31ed7"
+  integrity sha512-KyQD1mzgEQnbqrKpYdoIZMAYejkOcIJocdGuQBH9Yzr4KqGzIR8P2DDNbV/FQXaSyq900lCZwWJH45tBIQCG8w==
+  dependencies:
+    ultrahtml "^1.3.0"
+
 astro-eslint-parser@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/astro-eslint-parser/-/astro-eslint-parser-1.0.2.tgz#045ddc3378f679b80b58afd58cca738859cdc11e"
@@ -2091,6 +2098,14 @@ astro-meta-tags@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/astro-meta-tags/-/astro-meta-tags-0.4.0.tgz#eb3ad75c64d6949854f8b31c9b00822d10cbedca"
   integrity sha512-SWUyZbu0sgdkMYpG5J8mBH61oLTco2bZmixYHg6mqAgEFjc4P+urP+IG2TkfQxq4LEYnyyxcXxwnuSLleMIJ2Q==
+
+astro-robots-txt@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/astro-robots-txt/-/astro-robots-txt-1.0.0.tgz#d5e47c03e7b3d6b070d75eb470dd3661fa19fe96"
+  integrity sha512-6JQSLid4gMhoWjOm85UHLkgrw0+hHIjnJVIUqxjU2D6feKlVyYukMNYjH44ZDZBK1P8hNxd33PgWlHzCASvedA==
+  dependencies:
+    valid-filename "^4.0.0"
+    zod "^3.22.2"
 
 astro@^5.12.6:
   version "5.12.6"
@@ -3743,6 +3758,11 @@ file-entry-cache@^8.0.0:
   integrity sha512-XXTUwCvisa5oacNGRP9SfNtYBNAMi+RPwBFmblZEF7N7swHYQS6/Zfk7SRwx4D5j3CH211YNRco1DEMNVfZCnQ==
   dependencies:
     flat-cache "^4.0.0"
+
+filename-reserved-regex@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/filename-reserved-regex/-/filename-reserved-regex-3.0.0.tgz#3d5dd6d4e2d73a3fed2ebc4cd0b3448869a081f7"
+  integrity sha512-hn4cQfU6GOT/7cFHXBqeBg2TbrMBgdD0kcjLhvSQYYwm3s4B6cjvBfb7nBALJLAXqmU5xajSa7X2NnUud/VCdw==
 
 fill-range@^7.1.1:
   version "7.1.1"
@@ -7743,7 +7763,7 @@ ufo@^1.5.3, ufo@^1.5.4:
   resolved "https://registry.yarnpkg.com/ufo/-/ufo-1.5.4.tgz#16d6949674ca0c9e0fbbae1fa20a71d7b1ded754"
   integrity sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==
 
-ultrahtml@^1.6.0:
+ultrahtml@^1.3.0, ultrahtml@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/ultrahtml/-/ultrahtml-1.6.0.tgz#0d1aad7bbfeae512438d30e799c11622127a1ac8"
   integrity sha512-R9fBn90VTJrqqLDwyMph+HGne8eqY1iPfYhPzZrvKpIfwkWZbcYlfpsb8B9dTvBfpy1/hqAD7Wi8EKfP9e8zdw==
@@ -7922,6 +7942,13 @@ v8-compile-cache-lib@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/v8-compile-cache-lib/-/v8-compile-cache-lib-3.0.1.tgz#6336e8d71965cb3d35a1bbb7868445a7c05264bf"
   integrity sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==
+
+valid-filename@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/valid-filename/-/valid-filename-4.0.0.tgz#64f1528cffa0725491de84bf1a65733c6125ab06"
+  integrity sha512-VEYTpTVPMgO799f2wI7zWf0x2C54bPX6NAfbZ2Z8kZn76p+3rEYCTYVYzMUcVSMvakxMQTriBf24s3+WeXJtEg==
+  dependencies:
+    filename-reserved-regex "^3.0.0"
 
 vfile-location@^5.0.0:
   version "5.0.3"
@@ -8499,7 +8526,7 @@ zod-to-ts@^1.2.0:
   resolved "https://registry.yarnpkg.com/zod-to-ts/-/zod-to-ts-1.2.0.tgz#873a2fd8242d7b649237be97e0c64d7954ae0c51"
   integrity sha512-x30XE43V+InwGpvTySRNz9kB7qFU8DlyEy7BsSTCHPH1R0QasMmHWZDCzYm6bVXtj/9NNJAZF3jW8rzFvH5OFA==
 
-zod@^3.24.4:
+zod@^3.22.2, zod@^3.24.4:
   version "3.25.76"
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.25.76.tgz#26841c3f6fd22a6a2760e7ccb719179768471e34"
   integrity sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==

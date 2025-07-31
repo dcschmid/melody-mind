@@ -97,6 +97,7 @@
  */
 // 1. External library imports
 import { When } from "@astropub/flow";
+import { Head } from "astro-capo";
 
 // 2. Font imports with display=swap for performance optimization
 // Primary accessible font: Atkinson Hyperlegible for improved readability
@@ -268,19 +269,22 @@ const preloadedResources = [
   { href: "/styles/global.css", as: "style" as const },
 ];
 
-// Font preloading for critical web fonts with proper CORS and performance optimization
+// Font preloading optimization with @fontsource integration
+// @fontsource automatically handles font loading with display:swap
+// We enhance this with strategic preloading for better Core Web Vitals
 const fontPreloads = [
-  // Primary accessible font: Atkinson Hyperlegible for enhanced readability
+  // Critical: Primary body font - highest priority for FCP
   {
-    href: "/fonts/atkinson-hyperlegible-latin-400-normal.woff2",
+    href: "/fonts/atkinson-hyperlegible-regular.woff2",
     as: "font" as const,
     type: "font/woff2",
     crossorigin: "anonymous",
   },
+  // Fallback: Inter Regular for UI consistency
   {
-    href: "/fonts/atkinson-hyperlegible-latin-700-normal.woff2",
-    as: "font" as const,
-    type: "font/woff2",
+    href: "/fonts/Inter-Regular.ttf",
+    as: "font" as const, 
+    type: "font/ttf",
     crossorigin: "anonymous",
   },
 ];
@@ -295,7 +299,7 @@ const dnsPrefetch = [
 
 <!doctype html>
 <html lang={String(lang)} class="layout__html" dir="ltr">
-  <head>
+  <Head>
     <!-- Character set and viewport configuration for mobile optimization -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -621,7 +625,7 @@ const dnsPrefetch = [
       data-auto="false"
       defer
       is:inline></script>
-  </head>
+  </Head>
   <body class="layout__body" data-theme="dark">
     {/* Skip link for keyboard navigation */}
     <SkipLink />
