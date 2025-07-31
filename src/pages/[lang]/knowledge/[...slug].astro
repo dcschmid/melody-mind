@@ -296,15 +296,15 @@ const articleSchemaData = {
             src={imageSource}
             width={1200}
             height={675}
-            formats={["avif", "webp"]}
+            formats={["avif", "webp", "jpg"]}
             class="article__image"
             loading="eager"
             fetchpriority="high"
             alt={`Cover image for article "${entry.data.title}" - Music knowledge on Melody Mind`}
             decoding="async"
-            sizes="(min-width: 1280px) 1200px, (min-width: 768px) 100vw, 100vw"
+            sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1200px"
             quality={90}
-            widths={[640, 750, 1080, 1200]}
+            widths={[400, 600, 800, 1200]}
           />
         </div>
 

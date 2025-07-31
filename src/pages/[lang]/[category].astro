@@ -134,8 +134,8 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
                 <Picture
                   class="header-responsive-image"
                   src={currentCategory.imageUrl}
-                  widths={[400, 600, 800, 1000]}
-                  sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1000px"
+                  widths={[400, 600, 800, 1200]}
+                  sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1200px"
                   formats={["avif", "webp", "jpg"]}
                   alt={`${currentCategory.headline} ${t("category.image.alt")}`}
                   loading="eager"
