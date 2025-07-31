@@ -10,6 +10,7 @@
  * <PodcastEpisode podcast={podcastData} lang="en" className="featured" />
  */
 import type { PodcastData } from "../../types/podcast";
+import { Picture } from "astro:assets";
 import Headline from "../Headline.astro";
 import Paragraph from "../Paragraph.astro";
 import { Icon } from "astro-icon/components";
@@ -33,15 +34,19 @@ const { podcast, lang, className = "" } = Astro.props;
 <article class={`podcast-episode ${className}`} data-podcast-id={podcast.id}>
   <!-- Episode Header -->
   <div class="podcast-episode__header">
-    <!-- Episode Image -->
+    <!-- Episode Image - Optimized with Astro Picture -->
     <div class="podcast-episode__image-wrapper">
-      <img
+      <Picture
         src={podcast.imageUrl}
         alt={podcast.title}
         class="podcast-episode__image"
+        widths={[400, 600, 800, 1200]}
+        sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1200px"
+        formats={["avif", "webp", "jpg"]}
         loading="lazy"
-        width="800"
-        height="450"
+        width={800}
+        height={450}
+        decoding="async"
       />
       <div class="podcast-episode__image-overlay">
         <span class="podcast-episode__badge">Podcast</span>
