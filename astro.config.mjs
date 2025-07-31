@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 import node from "@astrojs/node";
-import compressor from "astro-compressor";
+import compress from "@playform/compress";
 import path from "path";
 
 import sitemap from "@astrojs/sitemap";
@@ -14,7 +14,7 @@ export default defineConfig({
   output: "server",
   integrations: [
     icon(),
-    compressor(),
+    compress(),
     sitemap({
       filter: (page) =>
         // Exclude our custom sitemap files from the default sitemap
