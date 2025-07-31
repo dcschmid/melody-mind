@@ -13,10 +13,16 @@ import metaTags from "astro-meta-tags";
 export default defineConfig({
   site: "https://melody-mind.de",
   output: "server",
+  // Prefetch for instant navigation
+  prefetch: {
+    defaultStrategy: 'viewport',
+    prefetchAll: true
+  },
   // Astro 5.0+ optimizations
   build: {
     inlineStylesheets: "auto",
     assets: "_astro",
+    concurrency: 4, // Parallel page rendering for faster builds
   },
   // Image optimization (Astro 5.0+ uses Sharp by default)
   image: {
@@ -100,6 +106,12 @@ export default defineConfig({
     optimizeDeps: {
       include: ["@astrojs/node", "sharp"],
       exclude: ["@fontsource/atkinson-hyperlegible", "@fontsource/source-sans-pro"],
+    },
+    // Performance optimizations
+    server: {
+      hmr: {
+        port: 4321,
+      },
     },
   },
 });
