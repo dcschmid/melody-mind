@@ -15,6 +15,7 @@
     "build:fast": "NODE_OPTIONS='--max-old-space-size=4096' astro build --remote",
     "install:production": "yarn install --production --frozen-lockfile",
     "build:production": "yarn install:sharp && NODE_ENV=production NODE_OPTIONS='--max-old-space-size=6144' astro build --remote",
+    "build:preview": "yarn build && astro preview",
     "deploy": "yarn build:production && yarn install:production",
     "preview": "astro preview",
     "astro": "astro",
