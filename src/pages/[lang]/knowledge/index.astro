@@ -174,15 +174,15 @@ const clientTranslations = {
         <Headline
           title={ui[uiLang]["knowledge.title"]}
           level="h1"
-          className="knowledge-hero__title"
           id="page-heading"
-          size="4xl"
+          size="xl"
         />
         <div class="knowledge-hero__divider" aria-hidden="true"></div>
         <Paragraph
           description={ui[uiLang]["knowledge.description"]}
-          className="knowledge-hero__description"
-        />
+          align="center"
+          textSize="lg"
+          />
       </div>
     </header>
 
@@ -193,9 +193,12 @@ const clientTranslations = {
           <Headline
             title={ui[uiLang]["knowledge.search.title"] || "Search Articles"}
             level="h2"
+            size="xl"
             className="search-container__heading"
           />
           <Paragraph
+            textSize="lg"
+            align="center"
             description={ui[uiLang]["knowledge.search.subtitle"] || "Find articles by title, description, or keywords"}
             className="search-container__subtitle"
           />
@@ -262,9 +265,13 @@ const clientTranslations = {
           <Headline
             title={ui[uiLang]["knowledge.no.results"] || "No articles found"}
             level="h2"
+            size="lg"
+            textAlign="center"
             className="no-results__title"
           />
           <Paragraph
+            align="center"
+            textSize="lg"
             description={ui[uiLang]["knowledge.no.results.help"] ||
               "Try different search terms or reset your search"}
             className="no-results__description"
@@ -460,22 +467,6 @@ const clientTranslations = {
     max-width: var(--container-xl);
     margin: 0 auto;
     padding: var(--space-md);
-
-    @media (min-width: 30em) {
-      padding: var(--space-lg);
-    }
-
-    @media (min-width: 48em) {
-      padding: var(--space-xl);
-    }
-
-    @media (min-width: 64em) {
-      padding: var(--space-2xl);
-    }
-
-    &__content {
-      // Add specific content styling if needed
-    }
   }
 
   /* ======================================
@@ -489,20 +480,6 @@ const clientTranslations = {
     background: var(--bg-secondary);
     padding: var(--space-lg);
     border: var(--border-width-thin) solid var(--border-primary);
-
-    @media (min-width: 30em) {
-      padding: var(--space-xl);
-      margin-bottom: var(--space-2xl);
-    }
-
-    @media (min-width: 48em) {
-      padding: var(--space-2xl);
-      margin-bottom: var(--space-3xl);
-    }
-
-    @media (min-width: 64em) {
-      padding: var(--space-3xl) var(--space-2xl);
-    }
 
     &__decoration {
       position: absolute;
@@ -520,11 +497,6 @@ const clientTranslations = {
           left: calc(-1 * var(--space-lg));
           width: var(--space-2xl);
           height: var(--space-2xl);
-
-          @media (min-width: 48em) {
-            width: var(--space-3xl);
-            height: var(--space-3xl);
-          }
         }
 
         &--bottom-right {
@@ -532,11 +504,6 @@ const clientTranslations = {
           right: calc(-1 * var(--space-lg));
           width: var(--space-3xl);
           height: var(--space-3xl);
-
-          @media (min-width: 48em) {
-            width: calc(var(--space-3xl) * 1.5);
-            height: calc(var(--space-3xl) * 1.5);
-          }
         }
 
         &--center-left {
@@ -545,11 +512,6 @@ const clientTranslations = {
           width: var(--space-xl);
           height: var(--space-xl);
           transform: translateY(-50%);
-
-          @media (min-width: 48em) {
-            width: var(--space-2xl);
-            height: var(--space-2xl);
-          }
         }
       }
     }
@@ -565,10 +527,6 @@ const clientTranslations = {
     &__title {
       margin-bottom: var(--space-md);
       color: var(--text-primary);
-
-      @media (min-width: 30em) {
-        margin-bottom: var(--space-lg);
-      }
     }
 
     &__divider {
@@ -577,11 +535,6 @@ const clientTranslations = {
       background: var(--color-secondary-400);
       margin: var(--space-md) auto;
       border-radius: var(--radius-full);
-
-      @media (min-width: 30em) {
-        width: var(--icon-size-xl);
-        margin: var(--space-lg) auto;
-      }
     }
 
     &__description {
@@ -589,16 +542,6 @@ const clientTranslations = {
       font-size: var(--text-base);
       line-height: var(--leading-relaxed);
       text-align: center;
-
-      @media (min-width: 30em) {
-        font-size: var(--text-lg);
-      }
-
-      @media (min-width: 48em) {
-        font-size: var(--text-xl);
-        max-width: 600px;
-        margin: 0 auto;
-      }
     }
   }
 
@@ -607,14 +550,6 @@ const clientTranslations = {
    * ====================================== */
   .breadcrumb {
     margin-bottom: var(--space-lg);
-
-    @media (min-width: 30em) {
-      margin-bottom: var(--space-xl);
-    }
-
-    @media (min-width: 48em) {
-      margin-bottom: var(--space-2xl);
-    }
 
     &__list {
       display: flex;
@@ -680,14 +615,6 @@ const clientTranslations = {
     border: var(--border-width-thin) solid var(--border-primary);
     border-radius: var(--radius-lg);
 
-    @media (min-width: 30em) {
-      padding: var(--space-xl);
-    }
-
-    @media (min-width: 48em) {
-      padding: var(--space-2xl);
-    }
-
     &__header {
       text-align: center;
       margin-bottom: var(--space-lg);
@@ -709,16 +636,6 @@ const clientTranslations = {
     &__subtitle {
       color: var(--text-secondary);
       font-size: var(--text-sm);
-
-      @media (min-width: 30em) {
-        font-size: var(--text-base);
-      }
-
-      @media (min-width: 48em) {
-        font-size: var(--text-lg);
-        max-width: 500px;
-        margin: 0 auto;
-      }
     }
 
     &__form {
@@ -726,17 +643,6 @@ const clientTranslations = {
       flex-direction: column;
       gap: var(--space-md);
       margin-bottom: var(--space-lg);
-
-      @media (min-width: 30em) {
-        gap: var(--space-lg);
-        margin-bottom: var(--space-xl);
-      }
-
-      @media (min-width: 48em) {
-        flex-direction: row;
-        align-items: flex-end;
-        gap: var(--space-xl);
-      }
     }
 
     &__input-group {
@@ -788,16 +694,6 @@ const clientTranslations = {
       &::placeholder {
         color: var(--text-tertiary);
         font-weight: var(--font-normal);
-      }
-
-      @media (min-width: 30em) {
-        font-size: var(--text-lg);
-        padding: var(--space-lg) var(--space-2xl) var(--space-lg) var(--space-2xl);
-      }
-
-      @media (min-width: 48em) {
-        font-size: var(--text-xl);
-        padding: var(--space-xl) var(--space-2xl) var(--space-xl) var(--space-2xl);
       }
     }
 
@@ -859,16 +755,6 @@ const clientTranslations = {
         outline: var(--focus-enhanced-outline-dark);
         outline-offset: var(--focus-ring-offset);
       }
-
-      @media (min-width: 30em) {
-        padding: var(--space-lg) var(--space-xl);
-        font-size: var(--text-lg);
-      }
-
-      @media (min-width: 48em) {
-        padding: var(--space-xl) var(--space-2xl);
-        font-size: var(--text-xl);
-      }
     }
 
     &__reset-icon {
@@ -885,21 +771,9 @@ const clientTranslations = {
     padding: var(--space-xl);
     margin-bottom: var(--space-lg);
 
-    @media (min-width: 30em) {
-      padding: var(--space-2xl);
-    }
-
-    @media (min-width: 48em) {
-      padding: var(--space-3xl);
-    }
-
     &__content {
       max-width: 400px;
       margin: 0 auto;
-
-      @media (min-width: 48em) {
-        max-width: 500px;
-      }
     }
 
     &__icon {
@@ -913,14 +787,6 @@ const clientTranslations = {
    * ====================================== */
   .articles-section {
     margin-bottom: var(--space-xl);
-
-    @media (min-width: 30em) {
-      margin-bottom: var(--space-2xl);
-    }
-
-    @media (min-width: 48em) {
-      margin-bottom: var(--space-3xl);
-    }
   }
 
   .articles-grid {
@@ -933,11 +799,10 @@ const clientTranslations = {
 
     @media (min-width: 48em) {
       grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-xl);
     }
 
     @media (min-width: 64em) {
-      gap: var(--space-2xl);
+      grid-template-columns: repeat(3, 1fr);
     }
 
     &__item {
@@ -948,14 +813,6 @@ const clientTranslations = {
       grid-column: 1 / -1;
       text-align: center;
       padding: var(--space-xl);
-
-      @media (min-width: 30em) {
-        padding: var(--space-2xl);
-      }
-
-      @media (min-width: 48em) {
-        padding: var(--space-3xl);
-      }
 
       &-content {
         max-width: 400px;

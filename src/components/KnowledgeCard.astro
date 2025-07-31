@@ -126,11 +126,11 @@ const imageAltText = title ? `Cover image for ${title}` : "";
           </div>
 
           <div class="knowledge-card__body">
-            <Headline level="h3" size="2xl" id={cardId} className="knowledge-card__title">
+            <Headline level="h3" size="xl" id={cardId} textAlign="center">
               {title}
             </Headline>
 
-            <Paragraph id={`${cardId}-desc`} className="knowledge-card__description">
+            <Paragraph id={`${cardId}-desc`} textSize="lg" align="center">
               {description}
             </Paragraph>
 
@@ -177,19 +177,11 @@ const imageAltText = title ? `Cover image for ${title}` : "";
         </div>
 
         <div class="knowledge-card__body">
-          <Headline
-            level="h3"
-            size="2xl"
-            id={cardId}
-            className="knowledge-card__title knowledge-card__title--clamp"
-          >
+          <Headline level="h3" size="xl" id={cardId} textAlign="center">
             {title}
           </Headline>
 
-          <Paragraph
-            id={`${cardId}-desc`}
-            className="knowledge-card__description knowledge-card__description--clamp"
-          >
+          <Paragraph id={`${cardId}-desc`} textSize="lg" align="center">
             {description}
           </Paragraph>
 
@@ -344,21 +336,12 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       flex-direction: column;
       justify-content: flex-start;
       padding: var(--space-lg) var(--space-lg) var(--space-md);
-
-      /* Responsive padding adjustments */
-      @media (max-width: 47.9375em) {
-        padding: var(--space-md) var(--space-md) var(--space-sm);
-      }
-
-      @media (max-width: 39.9375em) {
-        padding: var(--space-sm) var(--space-sm) var(--space-xs);
-      }
     }
 
     /* Title styling with semantic typography */
     &__title {
       margin-bottom: var(--space-md);
-      font-size: var(--text-2xl);
+      font-size: var(--text-xl);
       font-weight: var(--font-bold);
       letter-spacing: var(--letter-spacing-base);
       line-height: var(--leading-tight);
@@ -369,17 +352,6 @@ const imageAltText = title ? `Cover image for ${title}` : "";
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         overflow: hidden;
-      }
-
-      /* Responsive typography */
-      @media (max-width: 47.9375em) {
-        font-size: var(--text-xl);
-        margin-bottom: var(--space-sm);
-      }
-
-      @media (max-width: 39.9375em) {
-        font-size: var(--text-lg);
-        margin-bottom: var(--space-xs);
       }
     }
 
@@ -396,17 +368,6 @@ const imageAltText = title ? `Cover image for ${title}` : "";
         -webkit-line-clamp: 3;
         overflow: hidden;
       }
-
-      /* Responsive typography */
-      @media (max-width: 47.9375em) {
-        font-size: var(--text-base);
-        margin-bottom: var(--space-md);
-      }
-
-      @media (max-width: 39.9375em) {
-        font-size: var(--text-sm);
-        margin-bottom: var(--space-sm);
-      }
     }
 
     /* Footer with semantic border and spacing */
@@ -418,19 +379,6 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       align-items: center;
       justify-content: space-between;
       gap: var(--space-md);
-
-      /* Responsive layout adjustments */
-      @media (max-width: 47.9375em) {
-        padding-top: var(--space-sm);
-        gap: var(--space-sm);
-      }
-
-      @media (max-width: 39.9375em) {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-xs);
-        padding-top: var(--space-xs);
-      }
     }
 
     /* Meta information styling with CSS variables */
@@ -439,15 +387,6 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       align-items: center;
       font-size: var(--text-base);
       color: var(--text-tertiary);
-
-      /* Responsive typography */
-      @media (max-width: 47.9375em) {
-        font-size: var(--text-sm);
-      }
-
-      @media (max-width: 39.9375em) {
-        font-size: var(--text-xs);
-      }
     }
 
     /* Icon styling with semantic sizing */
@@ -457,101 +396,6 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       margin-right: var(--space-sm);
       color: var(--color-primary-400);
       flex-shrink: 0;
-
-      /* Responsive icon sizing */
-      @media (max-width: 39.9375em) {
-        width: var(--icon-size-sm);
-        height: var(--icon-size-sm);
-        margin-right: var(--space-xs);
-      }
     }
-
-    /* Responsive card adjustments */
-    @media (max-width: 47.9375em) {
-      border-radius: var(--radius-lg);
-
-      &__link {
-        border-radius: var(--radius-lg);
-      }
-    }
-
-    @media (max-width: 39.9375em) {
-      border-radius: var(--radius-md);
-
-      &__link {
-        border-radius: var(--radius-md);
-      }
-    }
-  }
-
-  /* ======================================
-   * ACCESSIBILITY OPTIMIZATIONS
-   * ====================================== */
-
-  /* Print styles using semantic variables */
-  @media print {
-    .knowledge-card {
-      page-break-inside: avoid;
-      break-inside: avoid;
-      border: var(--border-width-thin) solid var(--print-border);
-      background-color: var(--print-bg);
-      color: var(--print-text);
-      box-shadow: none;
-
-      &__title,
-      &__description,
-      &__meta {
-        color: var(--print-text);
-      }
-
-      &__image {
-        max-height: 3in;
-      }
-    }
-  }
-
-  /* High contrast mode using enhanced variables */
-  @media (forced-colors: active) {
-    .knowledge-card {
-      border: var(--border-width-thick) solid CanvasText;
-
-      &__link:focus-visible {
-        outline: var(--border-width-thick) solid CanvasText;
-      }
-    }
-  }
-
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .knowledge-card {
-      &,
-      &__link,
-      &__image {
-        transition: none;
-        transform: none;
-      }
-
-      &:hover {
-        transform: none;
-      }
-
-      &__link:hover .knowledge-card__image,
-      &__link:focus-visible .knowledge-card__image {
-        transform: none;
-      }
-    }
-  }
-
-  /* Screen Reader Only utility class */
-  .sr-only {
-    position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    padding: 0;
-    margin: var(--sr-only-margin);
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
   }
 </style>
