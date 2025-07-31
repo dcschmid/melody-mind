@@ -113,9 +113,9 @@ if (Astro.request) {
         <header class="achievements-hero" aria-labelledby="achievements-heading">
           {/* Decorative background elements with aria-hidden */}
           <div class="achievements-hero__decoration" aria-hidden="true">
-            <div class="achievements-hero__decoration-item achievements-hero__decoration-item--top-right"></div>
-            <div class="achievements-hero__decoration-item achievements-hero__decoration-item--bottom-left"></div>
-            <div class="achievements-hero__decoration-item achievements-hero__decoration-item--center-right"></div>
+            <div class="achievements-hero__decoration-item achievements-hero__decoration-item--top-right" />
+            <div class="achievements-hero__decoration-item achievements-hero__decoration-item--bottom-left" />
+            <div class="achievements-hero__decoration-item achievements-hero__decoration-item--center-right" />
           </div>
 
           <div class="achievements-hero__content">
@@ -601,6 +601,14 @@ if (Astro.request) {
       content-visibility: auto;
       transform: translateZ(0);
       will-change: auto;
+      backface-visibility: hidden;
+
+      /* CSS Style Guardian Sub Runner - Enhanced transition performance */
+      transition:
+        box-shadow var(--transition-normal),
+        border-color var(--transition-fast),
+        background-color var(--transition-fast),
+        transform var(--transition-fast);
 
       // Mobile portrait - compact padding
       @media (max-width: 29.9375em) {
@@ -612,17 +620,6 @@ if (Astro.request) {
       @media (min-width: 48em) {
         padding: var(--space-lg);
       }
-
-      /* CSS Style Guardian Sub Runner - Advanced performance optimization */
-      contain: layout style paint;
-      backface-visibility: hidden;
-
-      /* CSS Style Guardian Sub Runner - Enhanced transition performance */
-      transition:
-        box-shadow var(--transition-normal),
-        border-color var(--transition-fast),
-        background-color var(--transition-fast),
-        transform var(--transition-fast);
 
       &:hover {
         box-shadow: var(--card-shadow-hover);

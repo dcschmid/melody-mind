@@ -118,6 +118,7 @@ const paragraphClasses: string = [
     line-height: var(--leading-relaxed);
     letter-spacing: var(--letter-spacing-base);
     color: var(--text-secondary);
+    word-spacing: normal;
 
     // Mobile Portrait - generous spacing for readability
     margin: 0 0 var(--space-2xl) 0;
@@ -135,16 +136,12 @@ const paragraphClasses: string = [
     overflow-wrap: break-word;
     word-wrap: break-word;
 
-    @media (min-width: 20em) {
-      margin: 0 0 var(--space-3xl) 0;
-    }
     hyphens: auto;
     text-wrap: balance;
 
-    // Enhanced text spacing support (WCAG 2.2)
-    letter-spacing: var(--letter-spacing-base);
-    line-height: var(--leading-relaxed);
-    word-spacing: normal;
+    @media (min-width: 20em) {
+      margin: 0 0 var(--space-3xl) 0;
+    }
 
     // ======================================
     // SIZE VARIANTS - RESPONSIVE TYPOGRAPHY
