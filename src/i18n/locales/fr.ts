@@ -759,4 +759,8 @@ export default {
   "news.disclaimer.text":
     "Tout le contenu d'actualités provient de fournisseurs externes. MelodyMind n'est pas responsable du contenu.",
   "news.legal.attribution": "Actualités fournies par les sources suivantes :",
+  "podcasts.language_restriction.title": "Podcasts Disponibles Uniquement en Allemand et Anglais",
+  "podcasts.language_restriction.description": "Nos épisodes de podcast sont actuellement disponibles uniquement en allemand et en anglais. Veuillez passer à l'une de ces langues pour découvrir notre contenu.",
+  "podcasts.language_restriction.switch_to_german": "Passer à l'Allemand",
+  "podcasts.language_restriction.switch_to_english": "Passer à l'Anglais",
 };

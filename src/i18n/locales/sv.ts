@@ -717,4 +717,8 @@ export default {
   "news.disclaimer.text":
     "Allt nyhetsinnehåll kommer från externa leverantörer. MelodyMind ansvarar inte för innehållet.",
   "news.legal.attribution": "Nyheter tillhandahållna av följande källor:",
+  "podcasts.language_restriction.title": "Podcasts Tillgängliga Endast på Tyska och Engelska",
+  "podcasts.language_restriction.description": "Våra podcast-avsnitt är för närvarande endast tillgängliga på tyska och engelska. Vänligen byt till ett av dessa språk för att upptäcka vårt innehåll.",
+  "podcasts.language_restriction.switch_to_german": "Byt till Tyska",
+  "podcasts.language_restriction.switch_to_english": "Byt till Engelska",
 };

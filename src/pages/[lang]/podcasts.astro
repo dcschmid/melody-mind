@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { getLangFromUrl, useTranslations, getLocalizedURL } from "@utils/i18n";
 import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
@@ -7,19 +7,6 @@ import PodcastEpisode from "@components/Podcast/PodcastEpisode.astro";
 import type { PodcastData } from "../../types/podcast";
 import dePodcastsJson from "../../data/podcasts/de.json" assert { type: "json" };
 import enPodcastsJson from "../../data/podcasts/en.json" assert { type: "json" };
-import frPodcastsJson from "../../data/podcasts/fr.json" assert { type: "json" };
-import itPodcastsJson from "../../data/podcasts/it.json" assert { type: "json" };
-import esPodcastsJson from "../../data/podcasts/es.json" assert { type: "json" };
-import ptPodcastsJson from "../../data/podcasts/pt.json" assert { type: "json" };
-import daPodcastsJson from "../../data/podcasts/da.json" assert { type: "json" };
-import nlPodcastsJson from "../../data/podcasts/nl.json" assert { type: "json" };
-import svPodcastsJson from "../../data/podcasts/sv.json" assert { type: "json" };
-import fiPodcastsJson from "../../data/podcasts/fi.json" assert { type: "json" };
-import cnPodcastsJson from "../../data/podcasts/cn.json" assert { type: "json" };
-import ruPodcastsJson from "../../data/podcasts/ru.json" assert { type: "json" };
-import jpPodcastsJson from "../../data/podcasts/jp.json" assert { type: "json" };
-import ukPodcastsJson from "../../data/podcasts/uk.json" assert { type: "json" };
-
 /**
  * Static path generation for internationalization
  * Required for Astro dynamic routes to work properly
@@ -66,18 +53,6 @@ const loadPodcastsForLanguage = async (language: string): Promise<PodcastData[]>
   const podcastDataMap = {
     en: enPodcastsJson.podcasts,
     de: dePodcastsJson.podcasts,
-    fr: frPodcastsJson.podcasts,
-    it: itPodcastsJson.podcasts,
-    es: esPodcastsJson.podcasts,
-    pt: ptPodcastsJson.podcasts,
-    da: daPodcastsJson.podcasts,
-    nl: nlPodcastsJson.podcasts,
-    sv: svPodcastsJson.podcasts,
-    fi: fiPodcastsJson.podcasts,
-    cn: cnPodcastsJson.podcasts,
-    ru: ruPodcastsJson.podcasts,
-    jp: jpPodcastsJson.podcasts,
-    uk: ukPodcastsJson.podcasts,
   };
 
   const podcasts = podcastDataMap[language as keyof typeof podcastDataMap];
@@ -86,6 +61,9 @@ const loadPodcastsForLanguage = async (language: string): Promise<PodcastData[]>
 
 // Load podcast data
 const episodes = await loadPodcastsForLanguage(lang);
+
+// Check if current language has podcast restrictions
+const hasRestrictedPodcasts = !['de', 'en'].includes(lang);
 
 // SEO and page metadata
 const title = t("podcast.title");
@@ -189,7 +167,7 @@ const pageSchema = generatePodcastPageSchema();
                 </div>
               </div>
 
-              <!-- RSS Subscribe Button in Stats -->
+              {/* RSS Subscribe Button in Stats */}
               <a 
                 href={`/${lang}/podcasts/rss.xml`}
                 class="podcasts-stat podcasts-stat--rss"
@@ -214,7 +192,31 @@ const pageSchema = generatePodcastPageSchema();
     <!-- Episodes List -->
     <main class="podcasts-main">
       {
-        episodes.length === 0 ? (
+        hasRestrictedPodcasts ? (
+          <div class="podcasts-restriction">
+            <div class="podcasts-restriction__icon">🚫</div>
+            <Headline level="h2" size="2xl" className="podcasts-restriction__title">
+              {t("podcasts.language_restriction.title")}
+            </Headline>
+            <Paragraph className="podcasts-restriction__description">
+              {t("podcasts.language_restriction.description")}
+            </Paragraph>
+            <div class="podcasts-restriction__actions">
+              <a 
+                href={getLocalizedURL('de', '/podcasts')}
+                class="podcasts-restriction__button podcasts-restriction__button--german"
+              >
+                🇩🇪 {t("podcasts.language_restriction.switch_to_german")}
+              </a>
+              <a 
+                href={getLocalizedURL('en', '/podcasts')}
+                class="podcasts-restriction__button podcasts-restriction__button--english"
+              >
+                🇬🇧 {t("podcasts.language_restriction.switch_to_english")}
+              </a>
+            </div>
+          </div>
+        ) : episodes.length === 0 ? (
           <div class="podcasts-empty">
             <div class="podcasts-empty__icon">🎙️</div>
             <Headline level="h2" size="2xl" className="podcasts-empty__title">{t("podcasts.empty.title")}</Headline>
@@ -616,6 +618,145 @@ const pageSchema = generatePodcastPageSchema();
   }
 
   /* ======================================
+   * LANGUAGE RESTRICTION NOTICE
+   * ====================================== */
+  .podcasts-restriction {
+    text-align: center; 
+    padding: var(--space-2xl) var(--space-lg);
+    background: linear-gradient(
+      135deg,
+      var(--color-warning-50) 0%,
+      var(--color-warning-100) 100%
+    );
+    border-radius: var(--radius-xl);
+    border: var(--border-width-thick) solid var(--color-warning-200);
+    color: var(--color-warning-800);
+    contain: layout style paint;
+
+    @media (min-width: 64em) {
+      padding: var(--space-3xl) var(--space-2xl);
+    }
+
+    &__icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-md);
+      opacity: var(--opacity-medium);
+      contain: layout style;
+
+      @media (min-width: 20em) {
+        font-size: var(--text-4xl);
+        margin-bottom: var(--space-lg);
+      }
+    }
+
+    &__title {
+      font-size: var(--text-lg);
+      color: var(--color-warning-900);
+      margin: 0 0 var(--space-md) 0;
+      font-weight: var(--font-semibold);
+      contain: layout style;
+
+      @media (min-width: 20em) {
+        font-size: var(--text-xl);
+      }
+
+      @media (min-width: 64em) {
+        font-size: var(--text-2xl);
+      }
+    }
+
+    &__description {
+      color: var(--color-warning-700);
+      font-size: var(--text-sm);
+      line-height: var(--leading-relaxed);
+      max-width: var(--container-sm);
+      margin: 0 auto var(--space-lg);
+      contain: layout style;
+
+      @media (min-width: 20em) {
+        font-size: var(--text-base);
+        margin-bottom: var(--space-xl);
+      }
+    }
+
+    &__actions {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      contain: layout style;
+
+      @media (min-width: 20em) {
+        gap: var(--space-lg);
+      }
+
+      @media (max-width: 19.9375em) {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    &__button {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      background: var(--color-white);
+      color: var(--color-neutral-700);
+      text-decoration: none;
+      border-radius: var(--radius-lg);
+      border: var(--border-width-thin) solid var(--color-neutral-300);
+      font-weight: var(--font-semibold);
+      font-size: var(--text-sm);
+      min-height: var(--touch-target-enhanced);
+      transition: all var(--transition-normal);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      contain: layout style paint;
+
+      &:hover {
+        transform: translateY(var(--animation-y-offset-small));
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        background: var(--color-neutral-50);
+        border-color: var(--color-neutral-400);
+      }
+
+      &:focus {
+        outline: var(--focus-ring);
+        outline-offset: var(--focus-ring-offset);
+      }
+
+      @media (min-width: 20em) {
+        padding: var(--space-md) var(--space-lg);
+        font-size: var(--text-base);
+      }
+
+      @media (max-width: 19.9375em) {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+
+      &--german:hover {
+        background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+        border-color: #ffd700;
+        color: var(--color-neutral-800);
+      }
+
+      &--english:hover {
+        background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        border-color: #3b82f6;
+        color: var(--color-blue-800);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        &:hover {
+          transform: none;
+        }
+      }
+    }
+  }
+
+  /* ======================================
    * EMPTY STATE
    * ====================================== */
   .podcasts-empty {
@@ -693,6 +834,18 @@ const pageSchema = generatePodcastPageSchema();
     }
 
     .podcasts-stat {
+      border-color: var(--text-primary);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    .podcasts-restriction {
+      border-color: var(--text-primary);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    .podcasts-restriction__button {
       border-color: var(--text-primary);
       background: var(--bg-primary);
       color: var(--text-primary);

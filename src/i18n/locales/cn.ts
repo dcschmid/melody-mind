@@ -701,6 +701,10 @@ export default {
   "news.disclaimer.title": "免责声明",
   "news.disclaimer.text": "所有新闻内容均来自外部提供商。MelodyMind对内容不承担责任。",
   "news.legal.attribution": "新闻由以下来源提供：",
+  "podcasts.language_restriction.title": "播客仅提供德语和英语版本",
+  "podcasts.language_restriction.description": "我们的播客节目目前仅提供德语和英语版本。请切换到其中一种语言来发现我们的内容。",
+  "podcasts.language_restriction.switch_to_german": "切换到德语",
+  "podcasts.language_restriction.switch_to_english": "切换到英语",
 
   "profile.desc": "管理您的个人信息和游戏统计",
 };
