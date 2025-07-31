@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 import node from "@astrojs/node";
-import compress from "@playform/compress";
 import path from "path";
 
 import sitemap from "@astrojs/sitemap";
@@ -12,9 +11,12 @@ import metaTags from "astro-meta-tags";
 export default defineConfig({
   site: "https://melody-mind.de",
   output: "server",
+  // Simple build optimizations
+  build: {
+    inlineStylesheets: 'auto',
+  },
   integrations: [
     icon(),
-    compress(),
     sitemap({
       filter: (page) =>
         // Exclude our custom sitemap files from the default sitemap
@@ -78,6 +80,10 @@ export default defineConfig({
         "@types": path.resolve("./src/types"),
         "@lib": path.resolve("./src/lib"),
       },
+    },
+    build: {
+      minify: 'esbuild',
+      chunkSizeWarningLimit: 1000,
     },
   },
 });
