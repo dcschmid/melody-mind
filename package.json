@@ -51,7 +51,6 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/uuid": "^10.0.0",
     "astro": "^5.12.6",
-    "astro-compressor": "^1.1.1",
     "astro-icon": "^1.1.5",
     "astro-meta-tags": "^0.4.0",
     "bcryptjs": "^3.0.2",
