@@ -687,7 +687,8 @@ function validateElements(elements: GameElements): boolean {
  * Main entry point for game initialization
  */
 export function initGameEngine(): void {
-  document.addEventListener("DOMContentLoaded", () => {
+  // Function to initialize game elements
+  const initGame = () => {
     const elements = cacheElements();
     if (!validateElements(elements)) {
       console.error("Required DOM elements not found");
@@ -726,5 +727,8 @@ export function initGameEngine(): void {
       },
       lang: getLangFromUrl(new URL(window.location.pathname, window.location.origin)),
     });
-  });
+  };
+
+  // Initialize on DOM ready
+  document.addEventListener("DOMContentLoaded", initGame);
 }

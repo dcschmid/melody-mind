@@ -726,6 +726,10 @@ export default {
   "navigation.home": "Home",
   "navigation.back_to": "Back to",
   "navigation.back_to_podcasts": "Back to Podcasts",
+  "podcasts.language_restriction.title": "Podcasts Available Only in German and English",
+  "podcasts.language_restriction.description": "Our podcast episodes are currently available only in German and English. Please switch to one of these languages to discover our content.",
+  "podcasts.language_restriction.switch_to_german": "Switch to German",
+  "podcasts.language_restriction.switch_to_english": "Switch to English",
   "notice.fallback_content": "Fallback content available",
   "playlist.accessibility.info": "Playlist accessibility information",
   "playlist.accessibility.public":

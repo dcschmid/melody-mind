@@ -669,6 +669,10 @@ export default {
     "Всі новини надходять із зовнішніх джерел. MelodyMind не несе відповідальності за зміст.",
   "news.legal.attribution": "Новини надаються наступними джерелами:",
   "news.imageAlt": "Зображення статті",
+  "podcasts.language_restriction.title": "Подкасти Доступні Лише Німецькою та Англійською",
+  "podcasts.language_restriction.description": "Наші подкаст-епізоди наразі доступні лише німецькою та англійською мовами. Будь ласка, перемкніться на одну з цих мов, щоб відкрити наш контент.",
+  "podcasts.language_restriction.switch_to_german": "Перемкнутися на Німецьку",
+  "podcasts.language_restriction.switch_to_english": "Перемкнутися на Англійську",
 
   "profile.desc": "Керувати вашою особистою інформацією та статистикою гри",
 };

@@ -799,4 +799,8 @@ export default {
   "news.disclaimer.text":
     "Kaikki uutissisältö tulee ulkoisilta palveluntarjoajilta. MelodyMind ei ole vastuussa sisällöstä.",
   "news.legal.attribution": "Uutiset tarjoavat seuraavat lähteet:",
+  "podcasts.language_restriction.title": "Podcastit Saatavilla Vain Saksaksi ja Englanniksi",
+  "podcasts.language_restriction.description": "Podcast-jaksomme ovat tällä hetkellä saatavilla vain saksaksi ja englanniksi. Vaihda toiseen näistä kielistä löytääksesi sisältömme.",
+  "podcasts.language_restriction.switch_to_german": "Vaihda Saksan kieleen",
+  "podcasts.language_restriction.switch_to_english": "Vaihda Englannin kieleen",
 };

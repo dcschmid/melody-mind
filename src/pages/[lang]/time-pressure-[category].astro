@@ -998,8 +998,10 @@ const structuredData = {
 
 <!-- Time Pressure Game Engine Script -->
 <script type="module" is:inline>
-  // Import and initialize the time pressure game engine
-  import("/src/scripts/timePressureGameEngine.js")
+  // Function to initialize Time Pressure Game Engine
+  const initTimePressureGame = () => {
+    // Import and initialize the time pressure game engine
+    import("/src/scripts/timePressureGameEngine.js")
     .then(({ TimePressureGameEngine }) => {
       const gameContainer = document.getElementById("game-container");
       const loadingContainer = document.getElementById("loading-container");
@@ -1044,4 +1046,12 @@ const structuredData = {
       }
       throw err;
     });
+  };
+
+  // Initialize on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTimePressureGame);
+  } else {
+    initTimePressureGame();
+  }
 </script>

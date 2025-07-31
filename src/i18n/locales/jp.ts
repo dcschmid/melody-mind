@@ -742,6 +742,10 @@ export default {
     "すべてのニュースコンテンツは外部プロバイダーから提供されています。MelodyMindはコンテンツに責任を負いません。",
   "news.legal.attribution": "ニュースは以下のソースから提供されています：",
   "news.imageAlt": "記事画像",
+  "podcasts.language_restriction.title": "ポッドキャストはドイツ語と英語のみ利用可能",
+  "podcasts.language_restriction.description": "現在、私たちのポッドキャストエピソードはドイツ語と英語でのみ利用可能です。コンテンツを見つけるために、これらの言語のいずれかに切り替えてください。",
+  "podcasts.language_restriction.switch_to_german": "ドイツ語に切り替え",
+  "podcasts.language_restriction.switch_to_english": "英語に切り替え",
 
   "profile.desc": "個人情報とゲーム統計を管理",
 };

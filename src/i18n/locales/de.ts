@@ -772,6 +772,10 @@ export default {
   "navigation.home": "Startseite",
   "navigation.back_to": "Zurück zu",
   "navigation.back_to_podcasts": "Zurück zu Podcasts",
+  "podcasts.language_restriction.title": "Podcasts nur auf Deutsch und Englisch verfügbar",
+  "podcasts.language_restriction.description": "Unsere Podcast-Episoden sind derzeit nur auf Deutsch und Englisch verfügbar. Wechseln Sie zu einer dieser Sprachen, um unsere Inhalte zu entdecken.",
+  "podcasts.language_restriction.switch_to_german": "Zu Deutsch wechseln",
+  "podcasts.language_restriction.switch_to_english": "Zu Englisch wechseln",
   "notice.fallback_content": "Fallback-Inhalt verfügbar",
   "playlist.accessibility.info": "Playlist-Barrierefreiheitsinformationen",
   "playlist.accessibility.public":

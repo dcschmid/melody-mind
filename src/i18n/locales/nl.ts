@@ -733,4 +733,8 @@ export default {
   "news.disclaimer.text":
     "Alle nieuwsinhoud wordt geleverd door externe providers. MelodyMind is niet verantwoordelijk voor de inhoud.",
   "news.legal.attribution": "Nieuws geleverd door de volgende bronnen:",
+  "podcasts.language_restriction.title": "Podcasts Alleen Beschikbaar in Duits en Engels",
+  "podcasts.language_restriction.description": "Onze podcast-afleveringen zijn momenteel alleen beschikbaar in het Duits en Engels. Schakel over naar een van deze talen om onze content te ontdekken.",
+  "podcasts.language_restriction.switch_to_german": "Overschakelen naar Duits",
+  "podcasts.language_restriction.switch_to_english": "Overschakelen naar Engels",
 };
