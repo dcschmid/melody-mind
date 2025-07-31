@@ -5,6 +5,7 @@ import path from "path";
 
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
+import minify from "astro-minify-html-swc";
 
 import metaTags from "astro-meta-tags";
 
@@ -56,6 +57,8 @@ export default defineConfig({
       customPages: ["https://melody-mind.de/sitemap-index.xml"],
     }),
     metaTags(),
+    // SWC-based HTML minification - place at end of integrations
+    minify(),
   ],
   adapter: node({
     mode: "standalone",
