@@ -31,6 +31,8 @@ const knowledgeCollection = defineCollection({
 
 // Define collections
 export const collections = {
+  "knowledge-cn": knowledgeCollection,
+  "knowledge-jp": knowledgeCollection,
   "knowledge-de": knowledgeCollection,
   "knowledge-en": knowledgeCollection,
   "knowledge-es": knowledgeCollection,
@@ -41,6 +43,7 @@ export const collections = {
   "knowledge-nl": knowledgeCollection,
   "knowledge-sv": knowledgeCollection,
   "knowledge-fi": knowledgeCollection,
+  "knowledge-ru": knowledgeCollection,
 } as const;
 
 // Type definitions
