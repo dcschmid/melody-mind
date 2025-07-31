@@ -5,7 +5,6 @@ import path from "path";
 
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
-import compressor from "astro-compressor";
 
 import metaTags from "astro-meta-tags";
 
@@ -15,29 +14,20 @@ export default defineConfig({
   output: "server",
   // Astro 5.0+ optimizations
   build: {
-    inlineStylesheets: 'auto',
-    assets: '_astro',
+    inlineStylesheets: "auto",
+    assets: "_astro",
   },
   // Image optimization (Astro 5.0+ uses Sharp by default)
   image: {
     service: {
-      entrypoint: 'astro/assets/services/sharp',
+      entrypoint: "astro/assets/services/sharp",
     },
   },
   integrations: [
     icon(),
     robotsTxt({
-      sitemap: [
-        "https://melody-mind.de/sitemap-index.xml",
-        "https://melody-mind.de/sitemap.xml"
-      ],
-      host: "melody-mind.de"
-    }),
-    compressor({
-      gzip: true,
-      brotli: true,
-      // Optimize for music game assets
-      fileExtensions: ["css", "js", "html", "svg", "json", "xml"],
+      sitemap: ["https://melody-mind.de/sitemap-index.xml", "https://melody-mind.de/sitemap.xml"],
+      host: "melody-mind.de",
     }),
     sitemap({
       filter: (page) =>
@@ -103,30 +93,10 @@ export default defineConfig({
         "@lib": path.resolve("./src/lib"),
       },
     },
-    build: {
-      // Astro 5.0+ optimized build settings
-      minify: 'esbuild',
-      chunkSizeWarningLimit: 1000,
-      target: ['es2022', 'chrome89', 'firefox89', 'safari15'],
-      rollupOptions: {
-        output: {
-          // Better chunk splitting for caching
-          manualChunks: (id) => {
-            if (id.includes('node_modules')) {
-              if (id.includes('astro')) return 'astro-vendor';
-              if (id.includes('@astrojs')) return 'astro-integrations';
-              return 'vendor';
-            }
-            if (id.includes('/src/scripts/')) return 'game-scripts';
-            if (id.includes('/src/utils/')) return 'utils';
-          },
-        },
-      },
-    },
     // Astro 5.0+ dependency optimization
     optimizeDeps: {
-      include: ['@astrojs/node', 'sharp'],
-      exclude: ['@fontsource/atkinson-hyperlegible', '@fontsource/source-sans-pro'],
+      include: ["@astrojs/node", "sharp"],
+      exclude: ["@fontsource/atkinson-hyperlegible", "@fontsource/source-sans-pro"],
     },
   },
 });

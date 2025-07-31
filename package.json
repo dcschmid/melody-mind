@@ -60,7 +60,6 @@
     "@types/uuid": "^10.0.0",
     "astro": "^5.12.6",
     "astro-capo": "^0.0.1",
-    "astro-compressor": "^1.1.1",
     "astro-icon": "^1.1.5",
     "astro-meta-tags": "^0.4.0",
     "astro-robots-txt": "^1.0.0",
