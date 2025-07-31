@@ -5,6 +5,7 @@ import path from "path";
 
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
+import compressor from "astro-compressor";
 
 import metaTags from "astro-meta-tags";
 
@@ -31,6 +32,12 @@ export default defineConfig({
         "https://melody-mind.de/sitemap.xml"
       ],
       host: "melody-mind.de"
+    }),
+    compressor({
+      gzip: true,
+      brotli: true,
+      // Optimize for music game assets
+      fileExtensions: ["css", "js", "html", "svg", "json", "xml"],
     }),
     sitemap({
       filter: (page) =>
