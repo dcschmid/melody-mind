@@ -55,6 +55,8 @@ export interface PodcastData {
   title: string;
   /** Brief description of the podcast content */
   description: string;
+  /** Optional rich HTML show notes for the episode */
+  showNotesHtml?: string;
   /** URL to the audio file */
   audioUrl: string;
   /** URL to the VTT subtitle file */

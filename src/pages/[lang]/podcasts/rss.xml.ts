@@ -8,24 +8,12 @@
  */
 
 import type { APIRoute } from "astro";
+
+import enPodcastsJson from "../../../data/podcasts/en.json";
 import { generatePodcastRSSFeed } from "../../../services/podcastRssService";
 import type { PodcastData } from "../../../types/podcast";
 
 // Import all podcast data
-import dePodcastsJson from "../../../data/podcasts/de.json";
-import enPodcastsJson from "../../../data/podcasts/en.json";
-import frPodcastsJson from "../../../data/podcasts/fr.json";
-import itPodcastsJson from "../../../data/podcasts/it.json";
-import esPodcastsJson from "../../../data/podcasts/es.json";
-import ptPodcastsJson from "../../../data/podcasts/pt.json";
-import daPodcastsJson from "../../../data/podcasts/da.json";
-import nlPodcastsJson from "../../../data/podcasts/nl.json";
-import svPodcastsJson from "../../../data/podcasts/sv.json";
-import fiPodcastsJson from "../../../data/podcasts/fi.json";
-import cnPodcastsJson from "../../../data/podcasts/cn.json";
-import ruPodcastsJson from "../../../data/podcasts/ru.json";
-import jpPodcastsJson from "../../../data/podcasts/jp.json";
-import ukPodcastsJson from "../../../data/podcasts/uk.json";
 
 /**
  * Load podcast data for a specific language with fallback
@@ -33,19 +21,6 @@ import ukPodcastsJson from "../../../data/podcasts/uk.json";
 async function loadPodcastsForLanguage(language: string): Promise<PodcastData[]> {
   const podcastDataMap = {
     en: enPodcastsJson.podcasts,
-    de: dePodcastsJson.podcasts,
-    fr: frPodcastsJson.podcasts,
-    it: itPodcastsJson.podcasts,
-    es: esPodcastsJson.podcasts,
-    pt: ptPodcastsJson.podcasts,
-    da: daPodcastsJson.podcasts,
-    nl: nlPodcastsJson.podcasts,
-    sv: svPodcastsJson.podcasts,
-    fi: fiPodcastsJson.podcasts,
-    cn: cnPodcastsJson.podcasts,
-    ru: ruPodcastsJson.podcasts,
-    jp: jpPodcastsJson.podcasts,
-    uk: ukPodcastsJson.podcasts,
   };
 
   const podcasts = podcastDataMap[language as keyof typeof podcastDataMap];
@@ -55,23 +30,8 @@ async function loadPodcastsForLanguage(language: string): Promise<PodcastData[]>
 /**
  * Generate static paths for all supported languages
  */
-export async function getStaticPaths() {
-  const supportedLanguages = [
-    "de",
-    "en",
-    "es",
-    "fr",
-    "it",
-    "pt",
-    "da",
-    "nl",
-    "sv",
-    "fi",
-    "cn",
-    "ru",
-    "jp",
-    "uk",
-  ];
+export async function getStaticPaths(): Promise<{ params: { lang: string } }[]> {
+  const supportedLanguages = ["en"];
 
   return supportedLanguages.map((lang) => ({
     params: { lang },
@@ -86,22 +46,7 @@ export const GET: APIRoute = async ({ params, request }) => {
     const lang = params.lang as string;
 
     // Validate language parameter
-    const supportedLanguages = [
-      "de",
-      "en",
-      "es",
-      "fr",
-      "it",
-      "pt",
-      "da",
-      "nl",
-      "sv",
-      "fi",
-      "cn",
-      "ru",
-      "jp",
-      "uk",
-    ];
+    const supportedLanguages = ["en"];
 
     if (!supportedLanguages.includes(lang)) {
       return new Response("Language not supported", {
@@ -115,10 +60,14 @@ export const GET: APIRoute = async ({ params, request }) => {
 
     if (episodes.length === 0) {
       // Return empty but valid RSS feed if no episodes
+      const titleByLang: Record<string, string> = {
+        en: "The Melody Mind Podcast",
+      };
+
       const emptyRSS = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>MelodyMind Podcast - ${lang.toUpperCase()}</title>
+    <title>${titleByLang[lang] || `MelodyMind Podcast - ${lang.toUpperCase()}`}</title>
     <description>No episodes available yet</description>
     <link>https://melody-mind.de/${lang}/podcasts</link>
     <language>${lang}</language>

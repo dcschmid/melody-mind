@@ -25,6 +25,8 @@ export interface RSSPodcastItem {
   duration?: string;
   imageUrl?: string;
   categories: string[];
+  /** Optional rich HTML content for show notes */
+  contentHtml?: string;
 }
 
 /**
@@ -54,6 +56,11 @@ export class PodcastRSSGenerator {
   private readonly contactEmail = "dcschmid@murena.io";
   private readonly podcastImageUrl = "/images/podcast-cover.jpg";
 
+  /**
+   * Creates a new RSS generator instance.
+   *
+   * @param {string} baseUrl - Absolute base URL used to build canonical links in the feed
+   */
   constructor(baseUrl: string = "https://melody-mind.de") {
     this.baseUrl = baseUrl.replace(/\/$/, ""); // Remove trailing slash
   }
@@ -96,8 +103,13 @@ export class PodcastRSSGenerator {
 
     const languageName = languageNames[lang] || lang.toUpperCase();
 
+    const channelTitleByLang: Record<string, string> = {
+      de: "Der Melody Mind Podcast",
+      en: "The Melody Mind Podcast",
+    };
+
     return {
-      title: `MelodyMind Podcast - ${languageName}`,
+      title: channelTitleByLang[lang] || `MelodyMind Podcast - ${languageName}`,
       description:
         t("podcast.rss.description") ||
         "Discover the history of music through engaging podcast episodes covering different eras, genres, and musical movements.",
@@ -133,6 +145,9 @@ export class PodcastRSSGenerator {
       duration: this.getEstimatedDuration(),
       imageUrl: episode.imageUrl ? `${this.baseUrl}${episode.imageUrl}` : undefined,
       categories: ["Music", "Education", "History"],
+      contentHtml: episode.showNotesHtml
+        ? this.appendDefaultFooter(episode.showNotesHtml)
+        : undefined,
     };
   }
 
@@ -205,10 +220,14 @@ ${items.map((item) => this.buildItemXML(item)).join("\n")}
       ? `    <itunes:duration>${item.duration}</itunes:duration>`
       : "";
     const lengthAttr = item.audioLength ? ` length="${item.audioLength}"` : "";
+    const contentEncoded = item.contentHtml
+      ? `\n      <content:encoded><![CDATA[${item.contentHtml}]]></content:encoded>`
+      : "";
 
     return `    <item>
       <title>${item.title}</title>
       <description>${item.description}</description>
+      <itunes:subtitle>${item.title}</itunes:subtitle>
       <link>${item.link}</link>
       <guid isPermaLink="false">${item.guid}</guid>
       <pubDate>${item.pubDate}</pubDate>
@@ -224,7 +243,26 @@ ${imageTag}
 ${durationTag}
       <itunes:explicit>clean</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
+${contentEncoded}
     </item>`;
+  }
+
+  /**
+   * Ensure a default footer attribution is present at the end of show notes.
+   * Avoids duplication by checking for existing Transistor.fm references.
+   */
+  private appendDefaultFooter(html: string): string {
+    const alreadyHasFooter = /transistor\.fm/i.test(html) && /how-to-start-a-podcast/i.test(html);
+    if (alreadyHasFooter) {
+      return html;
+    }
+
+    const footer =
+      '<p><small>Podcast theme music by <a href="https://transistor.fm" target="_blank" rel="noopener">Transistor.fm</a>. Learn how to start a podcast <a href="https://transistor.fm/how-to-start-a-podcast/" target="_blank" rel="noopener">here</a>.</small></p>';
+
+    // If HTML already ends with a closing tag, just append. Otherwise, add a separator newline.
+    const needsNewline = !/>\s*$/.test(html);
+    return `${html}${needsNewline ? "\n" : ""}${footer}`;
   }
 
   /**

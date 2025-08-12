@@ -675,7 +675,7 @@ export default {
   "podcast.title": "Podcasts",
   "podcast.description": "Discover music insights through our podcast series",
   "podcast.rss.description":
-    "Discover the history of music through engaging podcast episodes covering different eras, genres, and musical movements.",
+    "MelodyMind is your audio guide through music history: compelling storytelling, curated listening examples, and background on artists, genres, and eras—from the 1950s to today. Each episode brings context, aha moments, and reliable sources so you don’t just hear music—you understand it.",
   "podcast.rss.subscribe": "Subscribe to RSS Feed",
   "podcast.rss.subscribe.title": "Subscribe to our Podcast",
   "podcast.rss.subscribe.description": "Stay updated with new episodes",
@@ -727,7 +727,8 @@ export default {
   "navigation.back_to": "Back to",
   "navigation.back_to_podcasts": "Back to Podcasts",
   "podcasts.language_restriction.title": "Podcasts Available Only in German and English",
-  "podcasts.language_restriction.description": "Our podcast episodes are currently available only in German and English. Please switch to one of these languages to discover our content.",
+  "podcasts.language_restriction.description":
+    "Our podcast episodes are currently available only in German and English. Please switch to one of these languages to discover our content.",
   "podcasts.language_restriction.switch_to_german": "Switch to German",
   "podcasts.language_restriction.switch_to_english": "Switch to English",
   "notice.fallback_content": "Fallback content available",

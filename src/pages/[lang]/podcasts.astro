@@ -1,11 +1,10 @@
 ---
-import { getLangFromUrl, useTranslations, getLocalizedURL } from "@utils/i18n";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import PodcastEpisode from "@components/Podcast/PodcastEpisode.astro";
 import type { PodcastData } from "../../types/podcast";
-import dePodcastsJson from "../../data/podcasts/de.json" assert { type: "json" };
 import enPodcastsJson from "../../data/podcasts/en.json" assert { type: "json" };
 /**
  * Static path generation for internationalization
@@ -46,24 +45,19 @@ const lang = String(getLangFromUrl(Astro.url));
 const t = useTranslations(String(lang));
 
 /**
- * Load podcast data for the current language with fallback to English
+ * Load English podcast data regardless of site language
  * Uses static data to avoid build issues
  */
-const loadPodcastsForLanguage = async (language: string): Promise<PodcastData[]> => {
-  const podcastDataMap = {
-    en: enPodcastsJson.podcasts,
-    de: dePodcastsJson.podcasts,
-  };
-
-  const podcasts = podcastDataMap[language as keyof typeof podcastDataMap];
+const loadPodcastsForLanguage = async (_language: string): Promise<PodcastData[]> => {
+  const podcasts = enPodcastsJson.podcasts;
   return Array.isArray(podcasts) ? podcasts : [];
 };
 
-// Load podcast data
-const episodes = await loadPodcastsForLanguage(lang);
+// Load English podcast data regardless of current language
+const episodes = await loadPodcastsForLanguage("en");
 
-// Check if current language has podcast restrictions
-const hasRestrictedPodcasts = !['de', 'en'].includes(lang);
+// Show a notice when site language is not English
+const showEnglishOnlyNotice = lang !== "en";
 
 // SEO and page metadata
 const title = t("podcast.title");
@@ -101,16 +95,19 @@ const pageSchema = generatePodcastPageSchema();
 <Layout {title} {description} type="website" image="/social-share.jpg">
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
-    
-    <!-- RSS Feed Discovery -->
-    <link rel="alternate" type="application/rss+xml" 
-          title={`MelodyMind Podcast - ${t(`language.${String(lang)}`) || String(lang).toUpperCase()}`}
-          href={`/${lang}/podcasts/rss.xml`} />
-    
+
+    <!-- RSS Feed Discovery (English-only) -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={`MelodyMind Podcast - English`}
+      href={`/en/podcasts/rss.xml`}
+    />
+
     <!-- Podcast Platform Meta Tags -->
     <meta name="apple-itunes-app" content="app-id=525463029" />
     <meta name="google-play-app" content="app-id=com.google.android.apps.podcasts" />
-    
+
     <!-- Open Graph for Podcasts -->
     <meta property="og:type" content="music.playlist" />
     <meta property="music:creator" content="MelodyMind" />
@@ -161,15 +158,13 @@ const pageSchema = generatePodcastPageSchema();
                   <span class="podcasts-stat__icon">🌐</span>
                 </div>
                 <div class="podcasts-stat__content">
-                  <span class="podcasts-stat__value">
-                    {t(`language.${String(lang)}`) || String(lang).toUpperCase()}
-                  </span>
+                  <span class="podcasts-stat__value">English</span>
                 </div>
               </div>
 
-              {/* RSS Subscribe Button in Stats */}
-              <a 
-                href={`/${lang}/podcasts/rss.xml`}
+              {/* RSS Subscribe Button in Stats (English-only) */}
+              <a
+                href={`/en/podcasts/rss.xml`}
                 class="podcasts-stat podcasts-stat--rss"
                 title={t("podcast.rss.subscribe.title")}
                 aria-label={`${t("podcast.rss.subscribe")} - ${t("podcast.rss.subscribe.description")}`}
@@ -178,9 +173,7 @@ const pageSchema = generatePodcastPageSchema();
                   <span class="podcasts-stat__icon">📡</span>
                 </div>
                 <div class="podcasts-stat__content">
-                  <span class="podcasts-stat__value">
-                    {t("podcast.rss.subscribe")}
-                  </span>
+                  <span class="podcasts-stat__value">{t("podcast.rss.subscribe")}</span>
                 </div>
               </a>
             </div>
@@ -192,34 +185,26 @@ const pageSchema = generatePodcastPageSchema();
     <!-- Episodes List -->
     <main class="podcasts-main">
       {
-        hasRestrictedPodcasts ? (
-          <div class="podcasts-restriction">
-            <div class="podcasts-restriction__icon">🚫</div>
-            <Headline level="h2" size="2xl" className="podcasts-restriction__title">
-              {t("podcasts.language_restriction.title")}
+        showEnglishOnlyNotice && (
+          <div class="podcasts-restriction" role="region" aria-label="English only notice">
+            <div class="podcasts-restriction__icon">ℹ️</div>
+            <Headline level="h2" size="xl" className="podcasts-restriction__title">
+              Note: Podcasts are currently available only in English.
             </Headline>
             <Paragraph className="podcasts-restriction__description">
-              {t("podcasts.language_restriction.description")}
+              We’re working on adding more languages soon. Thanks for your understanding.
             </Paragraph>
-            <div class="podcasts-restriction__actions">
-              <a 
-                href={getLocalizedURL('de', '/podcasts')}
-                class="podcasts-restriction__button podcasts-restriction__button--german"
-              >
-                🇩🇪 {t("podcasts.language_restriction.switch_to_german")}
-              </a>
-              <a 
-                href={getLocalizedURL('en', '/podcasts')}
-                class="podcasts-restriction__button podcasts-restriction__button--english"
-              >
-                🇬🇧 {t("podcasts.language_restriction.switch_to_english")}
-              </a>
-            </div>
           </div>
-        ) : episodes.length === 0 ? (
+        )
+      }
+
+      {
+        episodes.length === 0 ? (
           <div class="podcasts-empty">
             <div class="podcasts-empty__icon">🎙️</div>
-            <Headline level="h2" size="2xl" className="podcasts-empty__title">{t("podcasts.empty.title")}</Headline>
+            <Headline level="h2" size="2xl" className="podcasts-empty__title">
+              {t("podcasts.empty.title")}
+            </Headline>
             <Paragraph className="podcasts-empty__text">{t("podcasts.empty.text")}</Paragraph>
           </div>
         ) : (
@@ -257,24 +242,6 @@ const pageSchema = generatePodcastPageSchema();
     min-height: 100vh;
     box-sizing: border-box;
     contain: layout style paint;
-
-    @media (min-width: 20em) {
-      padding: var(--space-sm);
-      gap: var(--space-xl);
-    }
-
-    @media (min-width: 48em) {
-      padding: var(--space-md);
-    }
-
-    @media (min-width: 64em) {
-      padding: var(--space-lg);
-      gap: var(--space-2xl);
-    }
-
-    @media (min-width: 80em) {
-      padding: var(--space-xl);
-    }
   }
 
   /* ======================================
@@ -295,25 +262,6 @@ const pageSchema = generatePodcastPageSchema();
     box-shadow: var(--shadow-xl);
     border: var(--border-width-thin) solid var(--border-primary);
     contain: layout style paint;
-
-    @media (min-width: 20em) {
-      padding: var(--space-lg);
-      margin-bottom: var(--space-xl);
-      border-radius: var(--radius-xl);
-    }
-
-    @media (min-width: 64em) {
-      padding: var(--space-xl);
-      margin-bottom: var(--space-2xl);
-    }
-
-    @media (min-width: 80em) {
-      padding: var(--space-2xl) var(--space-xl);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      background: var(--color-primary-800);
-    }
 
     &__decoration {
       position: absolute;
@@ -367,20 +315,6 @@ const pageSchema = generatePodcastPageSchema();
       font-size: var(--text-2xl);
       line-height: var(--leading-tight);
       contain: layout style;
-
-      @media (min-width: 20em) {
-        font-size: var(--text-3xl);
-        margin-bottom: var(--space-md);
-      }
-
-      @media (min-width: 64em) {
-        font-size: var(--text-4xl);
-        margin-bottom: var(--space-lg);
-      }
-
-      @media (min-width: 80em) {
-        font-size: var(--text-4xl);
-      }
     }
 
     &__divider {
@@ -390,11 +324,6 @@ const pageSchema = generatePodcastPageSchema();
       margin: var(--space-md) auto;
       border-radius: var(--radius-full);
       contain: layout style paint;
-
-      @media (min-width: 20em) {
-        margin: var(--space-lg) auto;
-        width: var(--space-3xl);
-      }
     }
 
     &__description {
@@ -405,19 +334,6 @@ const pageSchema = generatePodcastPageSchema();
       margin: 0 auto var(--space-md);
       opacity: 0.9;
       contain: layout style;
-
-      @media (min-width: 20em) {
-        font-size: var(--text-lg);
-        margin-bottom: var(--space-lg);
-      }
-
-      @media (min-width: 64em) {
-        font-size: var(--text-xl);
-      }
-
-      @media (min-width: 80em) {
-        font-size: var(--text-2xl);
-      }
     }
 
     &__stats {
@@ -431,22 +347,6 @@ const pageSchema = generatePodcastPageSchema();
       margin-left: auto;
       margin-right: auto;
       contain: layout style;
-
-      @media (min-width: 20em) {
-        gap: var(--space-lg);
-        margin-top: var(--space-xl);
-      }
-
-      @media (min-width: 64em) {
-        gap: var(--space-xl);
-        max-width: 600px;
-      }
-
-      @media (max-width: 19.9375em) {
-        flex-direction: column;
-        align-items: center;
-        max-width: 280px;
-      }
     }
   }
 
@@ -478,16 +378,6 @@ const pageSchema = generatePodcastPageSchema();
       border-color: rgba(255, 255, 255, 0.35);
     }
 
-    @media (min-width: 20em) {
-      padding: var(--space-sm) var(--space-md);
-    }
-
-    @media (max-width: 19.9375em) {
-      flex-direction: column;
-      text-align: center;
-      padding: var(--space-sm);
-    }
-
     &__icon-wrapper {
       display: flex;
       align-items: center;
@@ -498,30 +388,11 @@ const pageSchema = generatePodcastPageSchema();
       border-radius: var(--radius-full);
       margin-right: var(--space-xs);
       contain: layout style paint;
-
-      @media (max-width: 19.9375em) {
-        margin: 0 auto var(--space-xs);
-        width: 42px;
-        height: 42px;
-      }
-
-      @media (min-width: 64em) {
-        width: 48px;
-        height: 48px;
-      }
     }
 
     &__icon {
       font-size: var(--text-base);
       contain: layout style;
-
-      @media (min-width: 20em) {
-        font-size: var(--text-lg);
-      }
-
-      @media (min-width: 64em) {
-        font-size: var(--text-xl);
-      }
     }
 
     &__content {
@@ -537,24 +408,12 @@ const pageSchema = generatePodcastPageSchema();
       opacity: 0.8;
       margin-bottom: var(--space-2xs);
       contain: layout style;
-
-      @media (min-width: 20em) {
-        font-size: var(--text-xs);
-      }
     }
 
     &__value {
       font-size: var(--text-sm);
       font-weight: var(--font-semibold);
       contain: layout style;
-
-      @media (min-width: 20em) {
-        font-size: var(--text-base);
-      }
-
-      @media (min-width: 64em) {
-        font-size: var(--text-lg);
-      }
     }
 
     &__text {
@@ -586,12 +445,6 @@ const pageSchema = generatePodcastPageSchema();
         outline: var(--focus-ring);
         outline-offset: var(--focus-ring-offset);
       }
-
-      @media (prefers-reduced-motion: reduce) {
-        &:hover {
-          transform: none;
-        }
-      }
     }
   }
 
@@ -621,32 +474,19 @@ const pageSchema = generatePodcastPageSchema();
    * LANGUAGE RESTRICTION NOTICE
    * ====================================== */
   .podcasts-restriction {
-    text-align: center; 
+    text-align: center;
     padding: var(--space-2xl) var(--space-lg);
-    background: linear-gradient(
-      135deg,
-      var(--color-warning-50) 0%,
-      var(--color-warning-100) 100%
-    );
+    background: linear-gradient(135deg, var(--color-warning-50) 0%, var(--color-warning-100) 100%);
     border-radius: var(--radius-xl);
     border: var(--border-width-thick) solid var(--color-warning-200);
     color: var(--color-warning-800);
     contain: layout style paint;
-
-    @media (min-width: 64em) {
-      padding: var(--space-3xl) var(--space-2xl);
-    }
 
     &__icon {
       font-size: var(--text-3xl);
       margin-bottom: var(--space-md);
       opacity: var(--opacity-medium);
       contain: layout style;
-
-      @media (min-width: 20em) {
-        font-size: var(--text-4xl);
-        margin-bottom: var(--space-lg);
-      }
     }
 
     &__title {
@@ -655,14 +495,6 @@ const pageSchema = generatePodcastPageSchema();
       margin: 0 0 var(--space-md) 0;
       font-weight: var(--font-semibold);
       contain: layout style;
-
-      @media (min-width: 20em) {
-        font-size: var(--text-xl);
-      }
-
-      @media (min-width: 64em) {
-        font-size: var(--text-2xl);
-      }
     }
 
     &__description {
@@ -672,11 +504,6 @@ const pageSchema = generatePodcastPageSchema();
       max-width: var(--container-sm);
       margin: 0 auto var(--space-lg);
       contain: layout style;
-
-      @media (min-width: 20em) {
-        font-size: var(--text-base);
-        margin-bottom: var(--space-xl);
-      }
     }
 
     &__actions {
@@ -685,15 +512,6 @@ const pageSchema = generatePodcastPageSchema();
       gap: var(--space-md);
       flex-wrap: wrap;
       contain: layout style;
-
-      @media (min-width: 20em) {
-        gap: var(--space-lg);
-      }
-
-      @media (max-width: 19.9375em) {
-        flex-direction: column;
-        align-items: center;
-      }
     }
 
     &__button {
@@ -725,17 +543,6 @@ const pageSchema = generatePodcastPageSchema();
         outline-offset: var(--focus-ring-offset);
       }
 
-      @media (min-width: 20em) {
-        padding: var(--space-md) var(--space-lg);
-        font-size: var(--text-base);
-      }
-
-      @media (max-width: 19.9375em) {
-        width: 100%;
-        max-width: 280px;
-        justify-content: center;
-      }
-
       &--german:hover {
         background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
         border-color: #ffd700;
@@ -746,12 +553,6 @@ const pageSchema = generatePodcastPageSchema();
         background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
         border-color: #3b82f6;
         color: var(--color-blue-800);
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        &:hover {
-          transform: none;
-        }
       }
     }
   }
@@ -768,20 +569,11 @@ const pageSchema = generatePodcastPageSchema();
     color: var(--text-secondary);
     contain: layout style paint;
 
-    @media (min-width: 64em) {
-      padding: var(--space-3xl) var(--space-2xl);
-    }
-
     &__icon {
       font-size: var(--text-3xl);
       margin-bottom: var(--space-md);
       opacity: var(--opacity-low);
       contain: layout style;
-
-      @media (min-width: 20em) {
-        font-size: var(--text-4xl);
-        margin-bottom: var(--space-lg);
-      }
     }
 
     &__title {
@@ -790,14 +582,6 @@ const pageSchema = generatePodcastPageSchema();
       margin: 0 0 var(--space-md) 0;
       font-weight: var(--font-semibold);
       contain: layout style;
-
-      @media (min-width: 20em) {
-        font-size: var(--text-xl);
-      }
-
-      @media (min-width: 64em) {
-        font-size: var(--text-2xl);
-      }
     }
 
     &__text {
@@ -807,125 +591,6 @@ const pageSchema = generatePodcastPageSchema();
       max-width: var(--container-sm);
       margin: 0 auto;
       contain: layout style;
-
-      @media (min-width: 20em) {
-        font-size: var(--text-base);
-      }
     }
-  }
-
-  /* ======================================
-   * ACCESSIBILITY ENHANCEMENTS
-   * ====================================== */
-  @media (prefers-reduced-motion: reduce) {
-    .podcasts-hero {
-      background: var(--color-primary-800);
-    }
-
-    .podcasts-stat:hover {
-      transform: none;
-    }
-  }
-
-  @media (prefers-contrast: high) {
-    .podcasts-hero {
-      border-color: var(--text-primary);
-      border-width: var(--border-width-thick);
-    }
-
-    .podcasts-stat {
-      border-color: var(--text-primary);
-      background: var(--bg-primary);
-      color: var(--text-primary);
-    }
-
-    .podcasts-restriction {
-      border-color: var(--text-primary);
-      background: var(--bg-primary);
-      color: var(--text-primary);
-    }
-
-    .podcasts-restriction__button {
-      border-color: var(--text-primary);
-      background: var(--bg-primary);
-      color: var(--text-primary);
-    }
-  }
-
-  /* ======================================
-   * MOBILE PORTRAIT OPTIMIZATIONS
-   * ====================================== */
-  @media (max-width: 320px) {
-    .podcasts-page {
-      padding: var(--space-xs) calc(var(--space-xs) / 2);
-    }
-
-    .podcasts-hero {
-      padding: var(--space-sm);
-    }
-
-    .podcasts-hero__title {
-      font-size: var(--text-lg);
-    }
-
-    .podcasts-hero__description {
-      font-size: var(--text-sm);
-    }
-
-    .podcasts-hero__stats {
-      flex-direction: column;
-      gap: var(--space-xs);
-      align-items: center;
-    }
-  }
-
-
-  @media (max-height: 500px) and (orientation: landscape) {
-    .podcasts-hero {
-      padding: var(--space-sm) var(--space-md);
-      margin-bottom: var(--space-md);
-    }
-
-    .podcasts-hero__title {
-      font-size: var(--text-xl);
-      margin-bottom: var(--space-sm);
-    }
-  }
-
-  /* ======================================
-   * PRINT OPTIMIZATIONS
-   * ====================================== */
-  @media print {
-    .podcasts-hero__decoration {
-      display: none;
-    }
-
-    .podcasts-hero {
-      background: var(--print-bg);
-      color: var(--print-text);
-      border: var(--print-border);
-    }
-
-    .podcasts-hero__title,
-    .podcasts-hero__description {
-      color: var(--print-text);
-    }
-  }
-
-  /* ======================================
-   * FOCUS STYLES
-   * ====================================== */
-  :focus {
-    outline: var(--focus-ring);
-    outline-offset: var(--focus-ring-offset);
-
-    &:not(:focus-visible) {
-      outline: none;
-    }
-  }
-
-  :focus-visible {
-    outline: var(--focus-ring);
-    outline-offset: var(--focus-ring-offset);
   }
 </style>
