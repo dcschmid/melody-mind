@@ -18,10 +18,7 @@ export default defineConfig({
     defaultStrategy: "viewport",
     prefetchAll: true,
   },
-  // Experimental features for better caching
-  experimental: {
-    contentCollectionCache: true,
-  },
+
   // Astro 5.0+ optimizations
   build: {
     inlineStylesheets: "auto",
