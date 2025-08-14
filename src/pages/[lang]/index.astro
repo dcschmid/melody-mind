@@ -147,33 +147,6 @@ const modifiedDate = new Date();
     margin: 0 auto 0; // Mobile: compact margin
     max-width: var(--container-xs);
     gap: var(--space-sm);
-
-    @media (min-width: 20em) {
-      max-width: var(--container-sm);
-      gap: var(--space-md);
-    }
-
-    @media (min-width: 48em) {
-      max-width: var(--container-md);
-      gap: var(--space-lg);
-    }
-
-    @media (min-width: 64em) {
-      max-width: 28rem; // 448px
-    }
-
-    // Enhanced touch targets for mobile
-    @media (max-width: 47.9375em) {
-      gap: var(--space-lg);
-
-      a {
-        min-height: var(--touch-target-enhanced);
-        min-width: var(--touch-target-enhanced);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
   }
 
   /* ======================================
@@ -192,84 +165,6 @@ const modifiedDate = new Date();
     &:focus-visible {
       outline: var(--focus-ring);
       outline-offset: var(--focus-ring-offset);
-    }
-  }
-
-  // High contrast mode enhancements
-  @media (prefers-contrast: high) {
-    .main-content {
-      background-color: var(--color-black);
-      color: var(--color-white);
-    }
-
-    .logo-image {
-      border: var(--border-width-enhanced) solid var(--color-white);
-    }
-  }
-
-  // Forced colors mode support
-  @media (forced-colors: active) {
-    .main-content {
-      background-color: Canvas;
-      color: CanvasText;
-    }
-
-    .logo-image {
-      border: var(--border-width-thick) solid CanvasText;
-    }
-  }
-
-  /* ======================================
-   * MOBILE PORTRAIT OPTIMIZATIONS
-   * ====================================== */
-  // Extra small screens - Portrait Mobile (below 320px)
-  @media (max-width: 19.9375em) {
-    .content-container {
-      padding: var(--space-sm) var(--space-xs);
-    }
-
-    .content-wrapper {
-      gap: var(--space-sm);
-    }
-
-    .logo-container {
-      margin: 0 auto var(--space-md);
-      max-width: calc(100% - var(--space-lg));
-    }
-
-    .button-container {
-      margin: var(--space-sm) auto 0;
-      gap: var(--space-xs);
-    }
-
-    .footer-section {
-      margin-top: var(--space-md);
-    }
-  }
-
-  /* ======================================
-   * PRINT STYLES
-   * ====================================== */
-  @media print {
-    .main-content {
-      background: var(--print-bg);
-      color: var(--print-text);
-      min-height: auto;
-      padding: var(--space-lg);
-    }
-
-    .content-container {
-      max-width: none;
-      padding: 0;
-    }
-
-    .button-container {
-      display: none;
-    }
-
-    .footer-section {
-      margin-top: var(--space-lg);
-      font-size: var(--text-sm);
     }
   }
 </style>

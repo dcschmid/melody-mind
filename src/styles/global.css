@@ -1,24 +1,26 @@
-/* 
- * filepath: /home/daniel/projects/melody-mind/src/styles/global.css 
+/*
+ * filepath: /home/daniel/projects/melody-mind/src/styles/global.css
  * Global stylesheet for MelodyMind
  */
 
+/* Import Tailwind CSS */
+@import "tailwindcss";
+
 /* ======================================
- * CUSTOM PROPERTIES (VARIABLES)
- * WCAG 2.2 AAA COMPLIANT DARK THEME
- * PERFORMANCE OPTIMIZED
+ * TAILWIND THEME CONFIGURATION
+ * Converting existing CSS variables to Tailwind theme tokens
  * ====================================== */
 
-:root {
+@theme {
   /* ======================================
-   * CORE COLOR SYSTEM
+   * COLOR SYSTEM - Tailwind Compatible
    * ====================================== */
 
   /* Base Colors */
   --color-white: #ffffff;
   --color-black: #000000;
 
-  /* Primary Brand Colors (Purple) */
+  /* Primary Brand Colors (Purple) - Available as bg-primary-*, text-primary-*, etc. */
   --color-primary-50: #f5f3ff;
   --color-primary-100: #ede9fe;
   --color-primary-200: #ddd6fe;
@@ -30,7 +32,7 @@
   --color-primary-800: #5b21b6;
   --color-primary-900: #4c1d95;
 
-  /* Secondary Brand Colors (Pink) */
+  /* Secondary Brand Colors (Pink) - Available as bg-secondary-*, text-secondary-*, etc. */
   --color-secondary-50: #fdf2f8;
   --color-secondary-100: #fce7f3;
   --color-secondary-200: #fbcfe8;
@@ -42,7 +44,7 @@
   --color-secondary-800: #9d174d;
   --color-secondary-900: #831843;
 
-  /* Neutral Colors (Dark Theme Optimized) */
+  /* Neutral Colors (Dark Theme Optimized) - Available as bg-neutral-*, text-neutral-*, etc. */
   --color-neutral-50: #fafafa;
   --color-neutral-100: #f5f5f5;
   --color-neutral-200: #e5e5e5;
@@ -55,24 +57,126 @@
   --color-neutral-900: #171717;
   --color-neutral-950: #0a0a0a;
 
-  /* State Colors (WCAG AAA Compliant) */
+  /* State Colors (WCAG AAA Compliant) - Available as bg-success-*, text-error-*, etc. */
   --color-success-400: #4ade80;
   --color-success-500: #22c55e;
   --color-success-600: #16a34a;
+  --color-success-900: #365314;
+  --color-success-950: #1a2e05;
+
   --color-warning-400: #facc15;
   --color-warning-500: #eab308;
   --color-warning-600: #ca8a04;
+  --color-warning-900: #ca8a04;
+
+  --color-error-50: #fef2f2;
+  --color-error-200: #fecaca;
   --color-error-400: #f87171;
   --color-error-500: #ef4444;
   --color-error-600: #dc2626;
+  --color-error-950: #450a0a;
+
   --color-info-400: #60a5fa;
   --color-info-500: #3b82f6;
   --color-info-600: #2563eb;
+  --color-info-950: #1e3a8a;
 
   /* ======================================
-   * SEMANTIC COLOR SYSTEM
+   * TYPOGRAPHY SYSTEM - Tailwind Compatible
    * ====================================== */
 
+  /* Font Families - Available as font-primary, font-mono, etc. */
+  --font-primary:
+    "Atkinson Hyperlegible", "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-fallback:
+    "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-system: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono:
+    "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+
+  /* Font Sizes - Available as text-xs, text-sm, etc. */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  /* Font Weights - Available as font-normal, font-medium, etc. */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Line Heights - Available as leading-tight, leading-normal, etc. */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+  --leading-enhanced: 1.8;
+
+  /* Letter Spacing - Available as tracking-normal, tracking-enhanced, etc. */
+  --tracking-normal: 0.025em;
+  --tracking-enhanced: 0.12em;
+
+  /* ======================================
+   * SPACING SYSTEM - Tailwind Compatible
+   * ====================================== */
+
+  /* Available as p-xs, m-sm, gap-md, etc. */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 3rem; /* 48px */
+  --spacing-3xl: 4rem; /* 64px */
+
+  /* ======================================
+   * BORDER RADIUS SYSTEM - Tailwind Compatible
+   * ====================================== */
+
+  /* Available as rounded-sm, rounded-md, etc. */
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.75rem; /* 12px */
+  --radius-xl: 1rem; /* 16px */
+  --radius-full: 9999px; /* Full circle */
+
+  /* ======================================
+   * SHADOW SYSTEM - Tailwind Compatible
+   * ====================================== */
+
+  /* Available as shadow-sm, shadow-md, etc. */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* ======================================
+   * TRANSITION SYSTEM - Tailwind Compatible
+   * ====================================== */
+
+  /* Available as duration-fast, duration-normal, etc. */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  /* Available as ease-in, ease-out, etc. */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ======================================
+ * CUSTOM PROPERTIES (VARIABLES)
+ * WCAG 2.2 AAA COMPLIANT DARK THEME
+ * PERFORMANCE OPTIMIZED
+ * ====================================== */
+
+:root {
   /* Background Colors */
   --bg-primary: var(--color-neutral-950);
   --bg-secondary: var(--color-neutral-900);
@@ -246,17 +350,6 @@
    * LAYOUT SYSTEM
    * ====================================== */
 
-  /* Spacing Scale */
-  --space-none: 0; /* 0px - for border/padding reset */
-  --space-micro: 0.0625rem; /* 1px - for micro-movements like hover effects */
-  --space-xs: 0.25rem; /* 4px */
-  --space-sm: 0.5rem; /* 8px */
-  --space-md: 1rem; /* 16px */
-  --space-lg: 1.5rem; /* 24px */
-  --space-xl: 2rem; /* 32px */
-  --space-2xl: 3rem; /* 48px */
-  --space-3xl: 4rem; /* 64px */
-
   /* Scrollbar System - Consistent scrollbar styling across components */
   --scrollbar-thin: var(--space-sm); /* 8px - Standard thin scrollbar */
   --scrollbar-track-bg: var(--bg-tertiary); /* Track background color */
@@ -392,22 +485,6 @@
    * TYPOGRAPHY SYSTEM
    * ====================================== */
 
-  /* Font Sizes */
-  --text-xs: 0.75rem; /* 12px */
-  --text-sm: 0.875rem; /* 14px */
-  --text-base: 1rem; /* 16px */
-  --text-lg: 1.125rem; /* 18px */
-  --text-xl: 1.25rem; /* 20px */
-  --text-2xl: 1.5rem; /* 24px */
-  --text-3xl: 1.875rem; /* 30px */
-  --text-4xl: 2.25rem; /* 36px */
-
-  /* Font Weights */
-  --font-normal: 400;
-  --font-medium: 500;
-  --font-semibold: 600;
-  --font-bold: 700;
-
   /* Line Heights */
   --leading-tight: 1.25;
   --leading-normal: 1.5;
@@ -439,23 +516,6 @@
    * FONT FAMILY SYSTEM
    * Enhanced typography with accessibility focus
    * ====================================== */
-
-  /* Primary font stack with Atkinson Hyperlegible for maximum accessibility */
-  --font-family-primary:
-    "Atkinson Hyperlegible", "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
-
-  /* Fallback font stack (maintains current Source Sans Pro as primary fallback) */
-  --font-family-fallback:
-    "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-
-  /* System font stack for optimal performance */
-  --font-family-system: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-
-  /* Monospace font stack for code */
-  --font-family-mono:
-    "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
-
   /* ======================================
    * TRANSITION SYSTEM
    * ====================================== */
@@ -668,7 +728,11 @@ body {
 }
 
 /* Performance optimizations - exclude critical UI elements */
-*:not(nav):not(header):not(.navigation-*):not(.header-*):not(.menu-*):not(.nav-*):not(.game-*):not(.quiz-*):not(.chronology-*):not(.time-pressure-*):not(.section-container):not(.button-group):not(.gamehome-*) {
+*:not(nav):not(header):not(.navigation-*):not(.header-*):not(.menu-*):not(.nav-*):not(.game-*):not(
+    .quiz-*
+  ):not(.chronology-*):not(.time-pressure-*):not(.section-container):not(.button-group):not(
+    .gamehome-*
+  ) {
   contain: var(--contain-layout);
 }
 
