@@ -396,7 +396,7 @@ function getTranslation(lang, key) {
 }
 
 // Hintergrundmuster für zusätzliche Textur
-function addTextureToBackground(ctx) {
+function _addTextureToBackground(ctx) {
   const pattern = addNoisyTexture(ctx);
   ctx.fillStyle = pattern;
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
