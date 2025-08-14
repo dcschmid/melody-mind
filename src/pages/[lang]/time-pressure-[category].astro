@@ -865,7 +865,7 @@ const structuredData = {
       await gameEngine.initialize();
 
       // Store reference globally for cleanup if needed
-      window.currentGameEngine = gameEngine;
+      (window as any)['currentGameEngine'] = gameEngine;
 
       console.warn("Time Pressure Game Engine initialized successfully");
     } catch (err: unknown) {
