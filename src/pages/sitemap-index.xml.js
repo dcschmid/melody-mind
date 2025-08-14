@@ -4,6 +4,13 @@
  * This file generates a sitemap index that references language-specific sitemaps.
  * It helps search engines discover and crawl all pages of the website efficiently.
  */
+
+// Enable static generation for better caching
+export const prerender = true;
+
+/**
+ *
+ */
 export async function get() {
   // Base URL from environment or fallback
   const siteUrl = import.meta.env.SITE || "https://melodymind.app";
@@ -47,7 +54,8 @@ export async function get() {
     body: sitemapIndex,
     headers: {
       "Content-Type": "application/xml",
-      "Cache-Control": "max-age=3600",
+      "Cache-Control": "public, max-age=86400, stale-while-revalidate=3600",
+      "CDN-Cache-Control": "public, max-age=86400",
     },
   };
 }

@@ -6,6 +6,52 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const { url, redirect } = context;
   const pathname = url.pathname;
 
+  // Add Cache-Control headers for static assets to optimize edge caching
+  const staticAssetExtensions = [
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".gif",
+    ".webp",
+    ".avif",
+    ".svg",
+    ".ico",
+    ".css",
+    ".js",
+    ".woff",
+    ".woff2",
+    ".ttf",
+    ".otf",
+    ".eot",
+    ".pdf",
+    ".zip",
+    ".mp3",
+    ".mp4",
+    ".webm",
+    ".ogg",
+  ];
+
+  const isStaticAsset = staticAssetExtensions.some((ext) => pathname.toLowerCase().endsWith(ext));
+
+  if (isStaticAsset) {
+    const response = await next();
+
+    // Set aggressive caching for static assets (1 year)
+    response.headers.set("Cache-Control", "public, max-age=31536000, immutable");
+
+    // Add additional headers for better edge caching
+    response.headers.set("CDN-Cache-Control", "public, max-age=31536000");
+
+    return response;
+  }
+
+  // Set shorter cache for HTML pages (5 minutes with stale-while-revalidate)
+  if (pathname.endsWith("/") || (!pathname.includes(".") && !pathname.startsWith("/api/"))) {
+    const response = await next();
+    response.headers.set("Cache-Control", "public, max-age=300, stale-while-revalidate=60");
+    return response;
+  }
+
   // Redirect root to default language
   if (pathname === "/") {
     return redirect(`/${defaultLang}`);

@@ -15,14 +15,20 @@ export default defineConfig({
   output: "server",
   // Prefetch for instant navigation
   prefetch: {
-    defaultStrategy: 'viewport',
-    prefetchAll: true
+    defaultStrategy: "viewport",
+    prefetchAll: true,
+  },
+  // Experimental features for better caching
+  experimental: {
+    contentCollectionCache: true,
   },
   // Astro 5.0+ optimizations
   build: {
     inlineStylesheets: "auto",
     assets: "_astro",
     concurrency: 4, // Parallel page rendering for faster builds
+    // Split chunks for better caching
+    splitting: true,
   },
   // Image optimization (Astro 5.0+ uses Sharp by default)
   image: {
