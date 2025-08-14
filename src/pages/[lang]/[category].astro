@@ -42,14 +42,34 @@ export async function getStaticPaths() {
     let usedFallback = false;
 
     try {
-      const categoryData = await import(`../../../public/json/categories/${lang}_categories.json`);
-      categories = categoryData.default || [];
-    } catch {
+      // First try using the alias path
+      categories = await import(`@json/${lang}_categories.json`)
+        .then((module) => module.default)
+        .catch(async () => {
+          // Fallback to relative path if alias fails
+          console.warn(`Attempting to load ${lang}_categories.json using relative path`);
+          return await import(`../../json/${lang}_categories.json`)
+            .then((module) => module.default)
+            .catch((_err) => {
+              return [];
+            });
+        });
+    } catch (error) {
+      console.error(`Error loading categories for ${lang}:`, error);
       usedFallback = true;
       try {
-        const fallbackData = await import(`../../../public/json/categories/en_categories.json`);
-        categories = fallbackData.default || [];
-      } catch {
+        // Load English fallback using same pattern
+        categories = await import(`@json/en_categories.json`)
+          .then((module) => module.default)
+          .catch(async () => {
+            return await import(`../../json/en_categories.json`)
+              .then((module) => module.default)
+              .catch((_err) => {
+                return [];
+              });
+          });
+      } catch (fallbackError) {
+        console.error("Failed to load fallback categories:", fallbackError);
         categories = [];
       }
     }

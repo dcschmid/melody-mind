@@ -253,4 +253,60 @@ export default [
       complexity: ["warn", 15],
     },
   },
+
+  // Spezielle Konfiguration für Node.js ES Module Script-Dateien (muss nach allgemeinen Regeln kommen)
+  {
+    files: ["scripts/**/*.js"],
+    languageOptions: {
+      globals: {
+        process: "readonly",
+        console: "readonly",
+        __dirname: "readonly",
+        __filename: "readonly",
+        Buffer: "readonly",
+        global: "readonly",
+      },
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
+    },
+    rules: {
+      "no-console": "off", // Allow all console methods for scripts
+      "max-depth": ["warn", 5], // Allow one extra level for scripts
+      "max-lines-per-function": ["warn", { max: 150, skipBlankLines: true, skipComments: true }],
+    },
+  },
+
+  // Spezielle Konfiguration für Node.js CommonJS Script-Dateien
+  {
+    files: ["scripts/**/*.cjs"],
+    languageOptions: {
+      globals: {
+        require: "readonly",
+        module: "readonly",
+        exports: "readonly",
+        process: "readonly",
+        console: "readonly",
+        __dirname: "readonly",
+        __filename: "readonly",
+        Buffer: "readonly",
+        global: "readonly",
+      },
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "commonjs",
+      },
+    },
+    rules: {
+      "no-console": "off", // Allow all console methods for scripts
+      "max-depth": ["warn", 5], // Allow one extra level for scripts
+      "max-lines-per-function": ["warn", { max: 150, skipBlankLines: true, skipComments: true }],
+      "@typescript-eslint/no-require-imports": "off", // Allow require() in CommonJS
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
+    },
+  },
 ];

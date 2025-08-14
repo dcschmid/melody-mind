@@ -2294,7 +2294,7 @@ const ui = {
     "playlist.decade.filter": "Suodata vuosikymmenen mukaan",
   },
 };
-const fs = require("fs");
+import fs from "fs";
 fs.writeFileSync(
   "/home/daniel/projects/melody-mind/scripts/temp-translations.json",
   JSON.stringify(ui, null, 2)

@@ -9,7 +9,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { execSync } = require("child_process");
+const { execSync: _execSync } = require("child_process");
 
 class PerformanceOptimizer {
   constructor() {
@@ -157,7 +157,7 @@ class PerformanceOptimizer {
   /**
    * Generate optimization recommendations
    */
-  generateRecommendations(bundleAnalysis, issues) {
+  generateRecommendations(bundleAnalysis, _issues) {
     console.log("\n💡 Performance Recommendations:");
 
     const recommendations = [
