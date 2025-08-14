@@ -83,6 +83,7 @@
   "devDependencies": {
     "@axe-core/cli": "^4.10.2",
     "@eslint/js": "^9.33.0",
+    "@tailwindcss/vite": "^4.1.11",
     "@testing-library/jest-dom": "^6.6.4",
     "@types/sortablejs": "^1.15.8",
     "@typescript-eslint/parser": "^8.39.0",
@@ -103,6 +104,7 @@
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
     "sass": "^1.90.0",
+    "tailwindcss": "^4.1.11",
     "ts-node": "^10.9.2",
     "typescript-eslint": "^8.39.0",
     "vitest": "^3.1.4"

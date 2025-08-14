@@ -1,0 +1,287 @@
+---
+/**
+ * Tailwind Theme Test Page
+ * Demonstrates the integration of existing CSS variables with Tailwind CSS 4 @theme directive
+ */
+
+import Layout from "../../layouts/Layout.astro";
+import ThemeExampleCard from "../../components/ThemeExampleCard.astro";
+---
+
+<Layout
+  title="Tailwind Theme Integration Test"
+  description="Test page showing how MelodyMind's existing CSS variables work with Tailwind CSS 4 theme system"
+  keywords="tailwind, theme, css variables, melody-mind, integration"
+>
+  <main class="min-h-screen bg-gradient-to-br from-primary-900 via-neutral-900 to-secondary-900">
+    <!-- Hero Section -->
+    <div class="container mx-auto px-spacing-md py-spacing-2xl">
+      <div class="text-center mb-spacing-2xl">
+        <h1 class="text-4xl md:text-6xl font-bold font-primary text-white mb-spacing-lg">
+          🎨 Theme Integration
+          <span
+            class="bg-gradient-to-r from-secondary-400 to-primary-600 bg-clip-text text-transparent block"
+          >
+            Success!
+          </span>
+        </h1>
+
+        <p class="text-xl text-neutral-300 max-w-4xl mx-auto leading-relaxed">
+          Your existing CSS variables from <code
+            class="bg-neutral-800 px-2 py-1 rounded text-primary-400">global.css</code
+          >
+          are now available as Tailwind utility classes through the <code
+            class="bg-neutral-800 px-2 py-1 rounded text-primary-400">@theme</code
+          > directive!
+        </p>
+      </div>
+
+      <!-- Quick Reference Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-spacing-lg mb-spacing-2xl">
+        <!-- Colors -->
+        <div
+          class="bg-neutral-900/80 backdrop-blur-sm rounded-xl p-spacing-lg border border-neutral-700"
+        >
+          <h2 class="text-2xl font-semibold text-white mb-spacing-md flex items-center">
+            <span class="w-6 h-6 bg-gradient-to-r from-primary-500 to-secondary-500 rounded mr-3"
+            ></span>
+            Colors Available
+          </h2>
+          <div class="space-y-spacing-sm text-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-neutral-300">Primary Colors:</span>
+              <code class="text-primary-400">bg-primary-*</code>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-neutral-300">Secondary Colors:</span>
+              <code class="text-secondary-400">bg-secondary-*</code>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-neutral-300">Neutral Grays:</span>
+              <code class="text-neutral-400">bg-neutral-*</code>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-neutral-300">State Colors:</span>
+              <code class="text-success-400">bg-success-*</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Typography -->
+        <div
+          class="bg-neutral-900/80 backdrop-blur-sm rounded-xl p-spacing-lg border border-neutral-700"
+        >
+          <h2 class="text-2xl font-semibold text-white mb-spacing-md flex items-center">
+            <span class="text-2xl mr-3">Aa</span>
+            Typography System
+          </h2>
+          <div class="space-y-spacing-sm text-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-neutral-300">Font Families:</span>
+              <code class="text-primary-400">font-primary</code>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-neutral-300">Font Sizes:</span>
+              <code class="text-secondary-400">text-xs to text-4xl</code>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-neutral-300">Font Weights:</span>
+              <code class="text-neutral-400">font-normal to font-bold</code>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-neutral-300">Line Heights:</span>
+              <code class="text-success-400">leading-*</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spacing & Layout -->
+        <div
+          class="bg-neutral-900/80 backdrop-blur-sm rounded-xl p-spacing-lg border border-neutral-700"
+        >
+          <h2 class="text-2xl font-semibold text-white mb-spacing-md flex items-center">
+            <span class="text-2xl mr-3">📏</span>
+            Layout System
+          </h2>
+          <div class="space-y-spacing-sm text-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-neutral-300">Spacing:</span>
+              <code class="text-primary-400">p-xs to p-3xl</code>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-neutral-300">Border Radius:</span>
+              <code class="text-secondary-400">rounded-sm to rounded-xl</code>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-neutral-300">Shadows:</span>
+              <code class="text-neutral-400">shadow-sm to shadow-xl</code>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-neutral-300">Transitions:</span>
+              <code class="text-success-400">duration-fast</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Example Card -->
+      <ThemeExampleCard />
+
+      <!-- Comparison Section -->
+      <section class="mt-spacing-2xl">
+        <h2 class="text-3xl font-bold text-white text-center mb-spacing-xl">
+          Before vs. After Comparison
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-spacing-lg">
+          <!-- Before -->
+          <div class="bg-neutral-900/60 rounded-xl p-spacing-lg border border-neutral-700">
+            <h3 class="text-xl font-semibold text-error-400 mb-spacing-md">
+              ❌ Before (CSS Variables Only)
+            </h3>
+            <div class="bg-neutral-950 rounded-lg p-spacing-md mb-spacing-md">
+              <code class="text-sm text-neutral-300 block leading-relaxed">
+                &lt;div style="background-color: var(--bg-secondary);"&gt;<br />
+                &nbsp;&nbsp;&lt;p style="color: var(--text-primary);"&gt;<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;Long verbose syntax<br />
+                &nbsp;&nbsp;&lt;/p&gt;<br />
+                &lt;/div&gt;
+              </code>
+            </div>
+            <p class="text-neutral-400 text-sm">
+              Required inline styles or custom CSS classes for every use.
+            </p>
+          </div>
+
+          <!-- After -->
+          <div class="bg-neutral-900/60 rounded-xl p-spacing-lg border border-neutral-700">
+            <h3 class="text-xl font-semibold text-success-400 mb-spacing-md">
+              ✅ After (Tailwind Theme Integration)
+            </h3>
+            <div class="bg-neutral-950 rounded-lg p-spacing-md mb-spacing-md">
+              <code class="text-sm text-neutral-300 block leading-relaxed">
+                &lt;div class="bg-neutral-900 text-neutral-50<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p-lg rounded-lg"&gt;<br
+                />
+                &nbsp;&nbsp;&lt;p&gt;Clean utility classes!&lt;/p&gt;<br />
+                &lt;/div&gt;
+              </code>
+            </div>
+            <p class="text-neutral-400 text-sm">
+              Clean, consistent utility classes with your exact color values.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Benefits Section -->
+      <section class="mt-spacing-2xl text-center">
+        <h2 class="text-3xl font-bold text-white mb-spacing-xl">
+          🚀 Benefits of Theme Integration
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-spacing-md">
+          <div class="bg-success-500/10 border border-success-500/20 rounded-lg p-spacing-lg">
+            <div class="text-success-400 text-2xl mb-spacing-sm">⚡</div>
+            <h3 class="font-semibold text-white mb-spacing-sm">Performance</h3>
+            <p class="text-neutral-300 text-sm">
+              No runtime CSS variable lookups, everything compiled at build time.
+            </p>
+          </div>
+
+          <div class="bg-primary-500/10 border border-primary-500/20 rounded-lg p-spacing-lg">
+            <div class="text-primary-400 text-2xl mb-spacing-sm">🎨</div>
+            <h3 class="font-semibold text-white mb-spacing-sm">Consistency</h3>
+            <p class="text-neutral-300 text-sm">
+              Same colors, same names, now available as utility classes.
+            </p>
+          </div>
+
+          <div class="bg-secondary-500/10 border border-secondary-500/20 rounded-lg p-spacing-lg">
+            <div class="text-secondary-400 text-2xl mb-spacing-sm">🔧</div>
+            <h3 class="font-semibold text-white mb-spacing-sm">Developer UX</h3>
+            <p class="text-neutral-300 text-sm">
+              Faster development with autocomplete and shorter class names.
+            </p>
+          </div>
+
+          <div class="bg-info-500/10 border border-info-500/20 rounded-lg p-spacing-lg">
+            <div class="text-info-400 text-2xl mb-spacing-sm">🔄</div>
+            <h3 class="font-semibold text-white mb-spacing-sm">Backward Compatible</h3>
+            <p class="text-neutral-300 text-sm">All existing CSS variables still work perfectly!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Usage Examples -->
+      <section class="mt-spacing-2xl">
+        <h2 class="text-3xl font-bold text-white text-center mb-spacing-xl">💡 Usage Examples</h2>
+
+        <div class="bg-neutral-900/80 rounded-xl p-spacing-xl border border-neutral-700">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-spacing-xl">
+            <!-- Pure Tailwind -->
+            <div>
+              <h3 class="text-xl font-semibold text-primary-400 mb-spacing-md">
+                Pure Tailwind Utilities
+              </h3>
+              <div class="space-y-spacing-md">
+                <div class="bg-primary-600 text-white p-spacing-md rounded-lg">
+                  <p class="font-semibold">class="bg-primary-600 text-white p-md rounded-lg"</p>
+                </div>
+                <div class="bg-secondary-500 text-white p-spacing-md rounded-lg">
+                  <p class="font-semibold">class="bg-secondary-500 text-white p-md rounded-lg"</p>
+                </div>
+                <div class="bg-success-600 text-white p-spacing-md rounded-lg">
+                  <p class="font-semibold">class="bg-success-600 text-white p-md rounded-lg"</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mixed Approach -->
+            <div>
+              <h3 class="text-xl font-semibold text-secondary-400 mb-spacing-md">
+                Mixed with CSS Variables
+              </h3>
+              <div class="space-y-spacing-md">
+                <div class="bg-[var(--interactive-primary)] text-white p-spacing-md rounded-lg">
+                  <p class="font-semibold">class="bg-[var(--interactive-primary)]"</p>
+                </div>
+                <div
+                  class="border border-[var(--border-focus)] bg-neutral-800 text-[var(--text-primary)] p-spacing-md rounded-lg"
+                >
+                  <p class="font-semibold">Mixed CSS variables + Tailwind spacing</p>
+                </div>
+                <div
+                  class="bg-gradient-to-r from-primary-500 to-secondary-500 text-white p-spacing-md rounded-lg"
+                >
+                  <p class="font-semibold">Gradient with theme colors</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Status Footer -->
+      <footer class="text-center mt-spacing-2xl">
+        <div
+          class="inline-flex items-center gap-spacing-md bg-success-500/20 border border-success-500/30
+                   rounded-full px-spacing-xl py-spacing-lg backdrop-blur-sm"
+        >
+          <div class="w-4 h-4 bg-success-400 rounded-full animate-pulse"></div>
+          <span class="text-success-300 font-medium text-lg">
+            ✅ Tailwind CSS 4 Theme Integration Complete!
+          </span>
+        </div>
+
+        <p class="text-neutral-400 mt-spacing-md">
+          All your existing CSS variables are now available as Tailwind utility classes.
+          <br />
+          Visit <code class="bg-neutral-800 px-2 py-1 rounded text-primary-400"
+            >/tailwind-theme-test</code
+          > to see this page.
+        </p>
+      </footer>
+    </div>
+  </main>
+</Layout>

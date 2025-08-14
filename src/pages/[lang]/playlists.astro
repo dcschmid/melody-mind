@@ -167,8 +167,12 @@ const breadcrumbSchema = {
 >
   <!-- Enhanced SEO structured data -->
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(playlistCollectionSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(playlistCollectionSchema)}
+    />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="googlebot" content="index, follow" />
     <link rel="canonical" href={currentUrl} />
@@ -199,33 +203,6 @@ const breadcrumbSchema = {
   </Fragment>
 
   <div class="playlist-container">
-    <!-- Breadcrumb Navigation for SEO -->
-    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
-      <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
-        <li
-          class="breadcrumb-item"
-          itemprop="itemListElement"
-          itemscope
-          itemtype="https://schema.org/ListItem"
-        >
-          <a href={`/${lang}/`} itemprop="item" class="breadcrumb-link">
-            <Icon name="home" class="breadcrumb-icon" aria-hidden="true" />
-            <span itemprop="name" class="sr-only">{t("nav.home")}</span>
-          </a>
-          <meta itemprop="position" content="1" />
-        </li>
-        <li
-          class="breadcrumb-item"
-          itemprop="itemListElement"
-          itemscope
-          itemtype="https://schema.org/ListItem"
-          aria-current="page"
-        >
-          <span itemprop="name">{title}</span>
-          <meta itemprop="position" content="2" />
-        </li>
-      </ol>
-    </nav>
     <!-- Hero section -->
     <section class="playlist-hero" aria-labelledby="playlist-heading">
       <div class="playlist-hero__decoration" aria-hidden="true">
@@ -547,101 +524,6 @@ const breadcrumbSchema = {
     overflow-x: hidden;
     box-sizing: border-box;
     contain: layout style paint;
-
-    @media (min-width: 20em) {
-      padding: var(--space-sm);
-    }
-
-    @media (min-width: 48em) {
-      padding: var(--space-md);
-    }
-
-    @media (min-width: 64em) {
-      padding: var(--space-lg);
-    }
-
-    @media (min-width: 80em) {
-      padding: var(--space-xl);
-    }
-  }
-
-  /* ======================================
-   * BREADCRUMB NAVIGATION
-   * ====================================== */
-  .breadcrumb-nav {
-    margin-bottom: var(--space-md);
-    contain: layout style;
-
-    @media (min-width: 48em) {
-      margin-bottom: var(--space-lg);
-    }
-  }
-
-  .breadcrumb-list {
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-size: var(--text-xs);
-    color: var(--text-secondary);
-    contain: layout style;
-
-    @media (min-width: 48em) {
-      gap: var(--space-sm);
-      font-size: var(--text-sm);
-    }
-  }
-
-  .breadcrumb-item {
-    display: flex;
-    align-items: center;
-    contain: layout style;
-
-    &:not(:last-child)::after {
-      content: "›";
-      margin-left: var(--space-xs);
-      color: var(--text-tertiary);
-      font-weight: var(--font-medium);
-
-      @media (min-width: 48em) {
-        margin-left: var(--space-sm);
-      }
-    }
-  }
-
-  .breadcrumb-link {
-    display: inline-flex;
-    align-items: center;
-    color: var(--interactive-primary);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-    padding: var(--space-xs);
-    border-radius: var(--radius-sm);
-    min-height: var(--touch-target);
-    contain: layout style paint;
-
-    @media (min-width: 48em) {
-      padding: var(--space-sm);
-    }
-
-    &:hover,
-    &:focus {
-      color: var(--interactive-primary-hover);
-      text-decoration: underline;
-      background-color: var(--bg-secondary);
-    }
-  }
-
-  .breadcrumb-icon {
-    width: var(--icon-size-xs);
-    height: var(--icon-size-xs);
-
-    @media (min-width: 48em) {
-      width: var(--icon-size-sm);
-      height: var(--icon-size-sm);
-    }
   }
 
   /* ======================================
@@ -661,21 +543,6 @@ const breadcrumbSchema = {
     padding: var(--space-md);
     box-shadow: var(--shadow-xl);
     contain: layout style paint;
-
-    @media (min-width: 48em) {
-      padding: var(--space-lg);
-      margin-bottom: var(--space-xl);
-    }
-
-    @media (min-width: 64em) {
-      margin-bottom: var(--space-2xl);
-      border-radius: var(--radius-xl);
-      padding: var(--space-xl);
-    }
-
-    @media (min-width: 80em) {
-      padding: var(--space-2xl) var(--space-xl);
-    }
 
     &__decoration {
       position: absolute;
@@ -731,19 +598,6 @@ const breadcrumbSchema = {
       font-weight: var(--font-bold);
       text-align: center;
       contain: layout style;
-
-      @media (min-width: 48em) {
-        font-size: var(--text-3xl);
-        margin-bottom: var(--space-md);
-      }
-
-      @media (min-width: 64em) {
-        font-size: var(--text-4xl);
-      }
-
-      @media (min-width: 80em) {
-        font-size: var(--text-5xl);
-      }
     }
 
     &__divider {
@@ -753,11 +607,6 @@ const breadcrumbSchema = {
       border-radius: var(--radius-full);
       background: var(--color-secondary-400);
       contain: layout style paint;
-
-      @media (min-width: 48em) {
-        margin: var(--space-lg) auto;
-        width: var(--space-3xl);
-      }
     }
 
     &__description {
@@ -768,14 +617,6 @@ const breadcrumbSchema = {
       opacity: 0.9;
       text-align: center;
       contain: layout style;
-
-      @media (min-width: 48em) {
-        font-size: var(--text-lg);
-      }
-
-      @media (min-width: 64em) {
-        font-size: var(--text-xl);
-      }
     }
   }
 
@@ -822,27 +663,6 @@ const breadcrumbSchema = {
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: var(--space-lg);
     }
-
-    @media (min-width: 64em) {
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: var(--space-xl);
-    }
-
-    @media (min-width: 80em) {
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-      gap: var(--space-xl);
-    }
-
-    @media (min-width: 1280px) {
-      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-      max-width: calc(3 * 450px + 2 * var(--space-xl));
-      margin: var(--space-lg) auto;
-    }
-
-    @media (min-width: 1920px) {
-      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-      max-width: calc(4 * 480px + 3 * var(--space-xl));
-    }
   }
 
   /* ======================================
@@ -853,27 +673,6 @@ const breadcrumbSchema = {
       transform var(--transition-base),
       box-shadow var(--transition-base);
     contain: layout style paint;
-
-    @media (max-width: 47.9375em) {
-      margin-bottom: var(--space-xs);
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      &:hover,
-      &:focus-within {
-        transform: translateY(calc(-1 * var(--space-xs)));
-        box-shadow: var(--shadow-xl);
-      }
-    }
-
-    @media (hover: none) and (pointer: coarse) {
-      min-height: var(--touch-target-enhanced);
-
-      &:active {
-        transform: scale(0.98);
-        transition: transform 0.1s ease-out;
-      }
-    }
   }
 
   /* ======================================
@@ -900,68 +699,6 @@ const breadcrumbSchema = {
     .breadcrumb-list {
       font-size: var(--text-xs);
     }
-  }
-
-  @media (max-width: 320px) {
-    .playlist-container {
-      padding: var(--space-xs) calc(var(--space-xs) / 2);
-    }
-
-    .playlist-hero__title {
-      font-size: var(--text-lg);
-      line-height: var(--leading-tight);
-    }
-  }
-
-  /* ======================================
-   * PRINT OPTIMIZATIONS
-   * ====================================== */
-  @media print {
-    .playlist-hero,
-    .breadcrumb-nav {
-      display: none;
-    }
-
-    .playlist-grid {
-      display: block;
-      columns: 2;
-      column-gap: var(--space-lg);
-    }
-
-    .playlist-card {
-      break-inside: avoid;
-      margin-bottom: var(--space-md);
-    }
-  }
-
-  /* ======================================
-   * ACCESSIBILITY ENHANCEMENTS
-   * ====================================== */
-  @media (prefers-reduced-motion: reduce) {
-    .playlist-container {
-      scroll-behavior: auto;
-    }
-
-    .playlist-card {
-      transition: none;
-    }
-  }
-
-  /* ======================================
-   * FOCUS STYLES
-   * ====================================== */
-  :focus {
-    outline: var(--focus-ring);
-    outline-offset: var(--focus-ring-offset);
-
-    &:not(:focus-visible) {
-      outline: none;
-    }
-  }
-
-  :focus-visible {
-    outline: var(--focus-ring);
-    outline-offset: var(--focus-ring-offset);
   }
 </style>
 

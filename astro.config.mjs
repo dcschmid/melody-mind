@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 import node from "@astrojs/node";
 import path from "path";
+import tailwindcss from "@tailwindcss/vite";
 
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
@@ -93,6 +94,7 @@ export default defineConfig({
     },
   },
   vite: {
+    plugins: [tailwindcss()],
     resolve: {
       alias: {
         "@json": path.resolve("./src/json"),
