@@ -13,20 +13,20 @@
  *
  * @module MelodyMindGameEngine
  */
-import { initKeyboardShortcuts } from "../utils/accessibility/keyboardShortcuts";
-import { startSpeedBonusTimer, clearSpeedBonusTimers } from "../utils/accessibility/timerAnnouncer";
-import { stopAudio } from "../utils/audio/audioControls";
-import { ErrorHandler } from "../utils/error/errorHandler";
-import { handleEndGame, restartGame } from "../utils/game/endGameUtils";
-import { getRandomQuestion } from "../utils/game/getRandomQuestion";
-import type { Album } from "../utils/game/getRandomQuestion";
-import { handleAnswer } from "../utils/game/handleAnswerUtils";
-import { JokerManager } from "../utils/game/jokerManager";
-import { Difficulty } from "../utils/game/jokerUtils";
-import { loadQuestion } from "../utils/game/loadQuestionUtils";
-import { initializeMediaElements } from "../utils/game/mediaUtils";
-import { getLangFromUrl, useTranslations } from "../utils/i18n";
-import { QueueManager } from "../utils/queue/queueManager";
+import { initKeyboardShortcuts } from "../accessibility/keyboardShortcuts";
+import { startSpeedBonusTimer, clearSpeedBonusTimers } from "../accessibility/timerAnnouncer";
+import { stopAudio } from "../audio/audioControls";
+import { ErrorHandler } from "../error/errorHandler";
+import { handleEndGame, restartGame } from "./endGameUtils";
+import { getRandomQuestion } from "./getRandomQuestion";
+import type { Album } from "./getRandomQuestion";
+import { handleAnswer } from "./handleAnswerUtils";
+import { JokerManager } from "./jokerManager";
+import { Difficulty } from "./jokerUtils";
+import { loadQuestion } from "./loadQuestionUtils";
+import { initializeMediaElements } from "./mediaUtils";
+import { getLangFromUrl, useTranslations } from "../i18n";
+import { QueueManager } from "../queue/queueManager";
 
 // Dynamically imported to avoid issues with SSR
 let achievementEventSystem: any;
@@ -144,9 +144,7 @@ const initializeGame = async (elements: GameElements) => {
   // Dynamically import achievement event system
   try {
     // Use dynamic import to avoid SSR issues
-    const { initAchievementEventSystem } = await import(
-      "../utils/achievements/achievementEvents.js"
-    );
+    const { initAchievementEventSystem } = await import("../achievements/achievementEvents.js");
     initAchievementEventSystem();
   } catch (error) {
     console.error("Error initializing Achievement Event System:", error);

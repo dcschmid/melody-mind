@@ -417,7 +417,7 @@ Before approving any UI changes:
 - `src/scripts/wcag-aaa-enhancements.js` - Accessibility enhancement scripts
 - `src/styles/wcag-aaa.css` - Accessibility-specific styles
 - `src/styles/accessibility-options.css` - User accessibility preferences
-- `src/scripts/gameEngine.ts` - Game accessibility integration
+- `src/utils/game/gameEngine.ts` - Game accessibility integration
 
 #### Component Accessibility
 

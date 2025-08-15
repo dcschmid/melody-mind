@@ -31,7 +31,7 @@ You are a specialized performance optimization expert for the MelodyMind music t
 
 ### Bundle & Build Optimization
 - **Astro Build Analysis**: Monitor bundle sizes, check for unnecessary imports, optimize static generation
-- **JavaScript Performance**: Analyze client-side scripts (gameEngine.ts, timePressureGameEngine.js) for performance bottlenecks
+- **JavaScript Performance**: Analyze client-side scripts (gameEngine.ts, timePressureGameEngine.ts) for performance bottlenecks
 - **CSS Optimization**: Ensure efficient CSS delivery, check for unused styles, optimize critical CSS
 - **Asset Optimization**: Verify image loading strategies, font loading performance, and resource prefetching
 
@@ -56,8 +56,8 @@ You are a specialized performance optimization expert for the MelodyMind music t
 ## Key Files to Monitor
 
 ### Critical Performance Files
-- `src/scripts/gameEngine.ts` - Core game loop optimization
-- `src/scripts/timePressureGameEngine.js` - Time pressure mode performance
+- `src/utils/game/gameEngine.ts` - Core game loop optimization
+- `src/utils/game/timePressureGameEngine.ts` - Time pressure mode performance
 - `astro.config.mjs` - Build configuration and optimizations
 - `src/turso.ts` - Database connection and query optimization
 - `src/styles/global.css` - CSS performance and critical path

@@ -295,7 +295,7 @@ const structuredData = {
     {/* Overlays */}
     <FeedbackOverlay />
     <EndOverlay
-      id="end-overlay"
+      id="endgame-popup"
       data-score="0"
       data-category={category}
       data-categoryName={categoryData.headline}
@@ -997,12 +997,14 @@ const structuredData = {
 </style>
 
 <!-- Time Pressure Game Engine Script -->
-<script type="module" is:inline>
+<script>
+  import { TimePressureGameEngine } from "../../utils/game/timePressureGameEngine";
+
   // Function to initialize Time Pressure Game Engine
-  const initTimePressureGame = () => {
-    // Import and initialize the time pressure game engine
-    import("/src/scripts/timePressureGameEngine.js")
-    .then(({ TimePressureGameEngine }) => {
+  const initTimePressureGame = async (): Promise<void> => {
+    try {
+      console.warn("Starting TimePressureGameEngine initialization...");
+
       const gameContainer = document.getElementById("game-container");
       const loadingContainer = document.getElementById("loading-container");
       const gameUI = document.getElementById("game-ui");
@@ -1024,8 +1026,9 @@ const structuredData = {
         ? categoryPart.replace("time-pressure-", "")
         : categoryPart;
 
-      // Initializing Time Pressure Game with lang, category, and pathname
+      console.warn("Initializing game:", { category, lang });
 
+      // Initialize Time Pressure Game with lang, category, and pathname
       const gameEngine = new TimePressureGameEngine({
         category,
         lang,
@@ -1033,24 +1036,27 @@ const structuredData = {
         loadingContainer,
         gameUI,
       });
-      gameEngine.initialize();
-      return gameEngine;
-    })
-    .catch((err) => {
+
+      await gameEngine.initialize();
+
+      // Store reference globally for cleanup if needed
+      window.currentGameEngine = gameEngine;
+
+      console.warn("Time Pressure Game Engine initialized successfully");
+    } catch (err) {
       console.error("Failed to load TimePressureGameEngine:", err);
-      // Optionale Fehleranzeige im UI
       const loadingContainer = document.getElementById("loading-container");
       if (loadingContainer) {
         loadingContainer.innerHTML =
           '<div class="error-state">Failed to load game. Please refresh the page.</div>';
       }
       throw err;
-    });
+    }
   };
 
-  // Initialize on DOM ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initTimePressureGame);
+  // Initialize when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initTimePressureGame);
   } else {
     initTimePressureGame();
   }

@@ -58,7 +58,7 @@ vite: {
       output: {
         manualChunks: {
           vendor: ['astro'],
-          game: ['./src/scripts/gameEngine.ts'],
+          game: ['./src/utils/game/gameEngine.ts'],
         }
       }
     },
