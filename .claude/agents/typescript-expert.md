@@ -397,7 +397,7 @@ type AsyncResult<T, E = Error> = Promise<Result<T, E>>;
 ### Critical Standalone TypeScript Files
 - `src/types/` - All type definitions for extraction
 - `tsconfig.json` - TypeScript configuration for standalone modules
-- `src/scripts/gameEngine.ts` - Pure TypeScript game logic
+- `src/utils/game/gameEngine.ts` - Pure TypeScript game logic
 - `src/services/` - Framework-agnostic service types
 - `src/utils/` - Utility function types for reuse
 

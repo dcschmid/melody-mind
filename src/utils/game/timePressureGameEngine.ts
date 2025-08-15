@@ -14,63 +14,120 @@ import {
   getTimePressureQuestion,
   resetTimePressureQuestions,
   getTimePressureStats,
-} from "../utils/game/getTimePressureQuestion.js";
+  type Question,
+  type Album,
+} from "./getTimePressureQuestion";
+import { showEndOverlay, setupEndOverlay } from "../endOverlay";
+
+interface GameStats {
+  score: number;
+  correctAnswers: number;
+  totalQuestions: number;
+  accuracy: number;
+  gameTime: number;
+  category: string;
+  gameMode: string;
+  difficultyStats?: any;
+}
+
+interface SaveGameResult {
+  success: boolean;
+  data?: any;
+}
+
+interface TimePressureGameOptions {
+  category: string;
+  lang: string;
+  gameContainer: HTMLElement;
+  loadingContainer: HTMLElement;
+  gameUI: HTMLElement;
+}
+
+interface FeedbackDetails {
+  timeout?: boolean;
+  correctAnswer?: string;
+  answerTime?: number;
+  streak?: number;
+  skipped?: boolean;
+  penalty?: number;
+  base?: number;
+  time?: number;
+}
 
 /**
- *
+ * Time Pressure Game Engine for MelodyMind
  */
 export class TimePressureGameEngine {
+  private category: string;
+  private lang: string;
+  private gameContainer: HTMLElement;
+  private loadingContainer: HTMLElement;
+  private gameUI: HTMLElement;
+  private currentQuestion: Question | null = null;
+  private currentQuestionIndex: number = 0;
+  private totalQuestions: number = 0;
+  private correctAnswers: number = 0;
+  private incorrectAnswers: number = 0;
+  private totalScore: number = 0;
+  private streakCount: number = 0;
+  private maxStreak: number = 0;
+  private timeLeft: number = 0;
+  private countdownTimer: number | null = null;
+  private isGameActive: boolean = false;
+  private isPaused: boolean = false;
+  private gameStartTime: number = 0;
+  private questionStartTime: number = 0;
+  private albums: Album[] = [];
+
+  // Game state properties
+  private streak: number = 0;
+  private timeRemaining: number = 0;
+  private currentTimeLimit: number = 0;
+  private score: number = 0;
+  private currentRound: number = 1;
+  private totalRounds: number = 20;
+  private questionsAnswered: number = 0;
+  private currentBasePoints: number = 0;
+  private currentAlbum: Album | null = null;
+  private currentDifficulty: "easy" | "medium" | "hard" | null = null;
+
+  // Game mechanics properties
+  private urgencyThreshold: number = 3;
+  private warningThreshold: number = 5;
+  private isFeedbackShowing: boolean = false;
+
+  // DOM Elements
+  private scoreDisplay: HTMLElement | null = null;
+  private streakDisplay: HTMLElement | null = null;
+  private accuracyDisplay: HTMLElement | null = null;
+  private currentRoundDisplay: HTMLElement | null = null;
+  private totalRoundsDisplay: HTMLElement | null = null;
+  private progressFill: HTMLElement | null = null;
+  private countdownCircle: HTMLElement | null = null;
+  private countdownProgress: HTMLElement | null = null;
+  private countdownTime: HTMLElement | null = null;
+  private difficultyIndicator: HTMLElement | null = null;
+  private difficultyText: HTMLElement | null = null;
+  private questionText: HTMLElement | null = null;
+  private answerOptions: HTMLElement | null = null;
+
   /**
-   *
+   * Constructor for TimePressureGameEngine
    */
-  constructor(options) {
+  constructor(options: TimePressureGameOptions) {
     this.category = options.category;
     this.lang = options.lang;
     this.gameContainer = options.gameContainer;
     this.loadingContainer = options.loadingContainer;
     this.gameUI = options.gameUI;
 
-    // Game state
-    this.albums = [];
-    this.currentRound = 1;
-    this.totalRounds = 20;
-    this.score = 0;
-    this.streak = 0;
-    this.correctAnswers = 0;
-    this.questionsAnswered = 0;
-    this.gameStartTime = null;
-    this.questionStartTime = null;
-    this.isGameActive = false;
-    this.isPaused = false;
+    // Initialize game state (properties already declared above)
+    this.gameStartTime = 0;
+    this.questionStartTime = 0;
 
-    // Timer state
+    // Initialize timer state
     this.countdownTimer = null;
-    this.timeRemaining = 0;
-    this.currentTimeLimit = 0;
-    this.urgencyThreshold = 3; // Start urgency effects at 3 seconds
-    this.warningThreshold = 5; // Start warning effects at 5 seconds
-    this.isFeedbackShowing = false; // Track if feedback overlay is shown
-
-    // Current question data
-    this.currentQuestion = null;
-    this.currentAlbum = null;
-    this.currentDifficulty = null;
-    this.currentBasePoints = 0;
-
-    // DOM elements
-    this.scoreDisplay = null;
-    this.streakDisplay = null;
-    this.accuracyDisplay = null;
-    this.currentRoundDisplay = null;
-    this.totalRoundsDisplay = null;
-    this.progressFill = null;
-    this.countdownCircle = null;
-    this.countdownProgress = null;
-    this.countdownTime = null;
-    this.difficultyIndicator = null;
-    this.difficultyText = null;
-    this.questionText = null;
-    this.answerOptions = null;
+    // DOM elements will be initialized in initializeDOMElements()
 
     // Audio elements removed for better user experience
 
@@ -86,8 +143,11 @@ export class TimePressureGameEngine {
   /**
    * Initialize the time pressure game
    */
-  async initialize() {
+  async initialize(): Promise<void> {
     try {
+      // Setup EndOverlay functionality
+      await setupEndOverlay();
+
       // Load albums for the category
       await this.loadAlbums();
 
@@ -108,11 +168,11 @@ export class TimePressureGameEngine {
   /**
    * Load album data for the selected category
    */
-  async loadAlbums() {
+  async loadAlbums(): Promise<void> {
     try {
       // Try to load the specific language first
       let albumData;
-      let loadUrl = `/json/genres/${this.lang}/${this.category}.json`;
+      const loadUrl = `/json/genres/${this.lang}/${this.category}.json`;
 
       try {
         const response = await fetch(loadUrl);
@@ -123,10 +183,10 @@ export class TimePressureGameEngine {
           );
         }
         albumData = await response.json();
-      } catch (langError) {
+      } catch (langError: unknown) {
         console.warn(
           `Category not available in ${this.lang}, falling back to German. Error:`,
-          langError.message
+          (langError as Error).message
         );
 
         try {
@@ -153,7 +213,7 @@ export class TimePressureGameEngine {
         throw new Error(`No albums found for category '${this.category}'. Data loaded but empty.`);
       }
     } catch (error) {
-      console.error("Error loading albums:", error);
+      console.error("Error loading albums:", error as Error);
       throw error; // Re-throw the original error with more context
     }
   }
@@ -161,7 +221,7 @@ export class TimePressureGameEngine {
   /**
    * Initialize DOM element references
    */
-  initializeDOMElements() {
+  initializeDOMElements(): void {
     // Statistics displays
     this.scoreDisplay = document.getElementById("score-display");
     this.streakDisplay = document.getElementById("streak-display");
@@ -187,14 +247,14 @@ export class TimePressureGameEngine {
 
     // Update total rounds display
     if (this.totalRoundsDisplay) {
-      this.totalRoundsDisplay.textContent = this.totalRounds;
+      this.totalRoundsDisplay.textContent = this.totalRounds.toString();
     }
   }
 
   /**
    * Set up event listeners
    */
-  setupEventListeners() {
+  setupEventListeners(): void {
     // Keyboard navigation
     document.addEventListener("keydown", this.handleKeyPress);
 
@@ -220,7 +280,7 @@ export class TimePressureGameEngine {
   /**
    * Start the time pressure game
    */
-  async startGame() {
+  async startGame(): Promise<void> {
     // Reset game state
     this.currentRound = 1;
     this.score = 0;
@@ -248,7 +308,7 @@ export class TimePressureGameEngine {
   /**
    * Load and display the next question
    */
-  async nextQuestion() {
+  async nextQuestion(): Promise<void> {
     if (this.currentRound > this.totalRounds) {
       await this.endGame();
       return;
@@ -287,9 +347,12 @@ export class TimePressureGameEngine {
       this.questionStartTime = Date.now();
       window.questionStartTime = this.questionStartTime;
 
-      console.log(
-        `Round ${this.currentRound}: ${this.currentDifficulty} question, ${this.currentTimeLimit}s limit`
-      );
+      // Debug info for development
+      if (process.env.NODE_ENV === "development") {
+        console.warn(
+          `Round ${this.currentRound}: ${this.currentDifficulty} question, ${this.currentTimeLimit}s limit`
+        );
+      }
     } catch (error) {
       console.error("Error loading next question:", error);
       await this.endGame();
@@ -299,25 +362,26 @@ export class TimePressureGameEngine {
   /**
    * Display the current question
    */
-  displayQuestion() {
-    if (!this.currentQuestion) {
+  displayQuestion(): void {
+    if (!this.questionText || !this.currentQuestion) {
       return;
     }
 
-    // Update question text
     this.questionText.textContent = this.currentQuestion.question;
     this.questionText.setAttribute("aria-live", "assertive");
 
     // Clear previous answer options
-    this.answerOptions.innerHTML = "";
+    if (this.answerOptions) {
+      this.answerOptions.innerHTML = "";
+    }
 
     // Create answer buttons
+    if (!this.answerOptions) return;
+
     this.currentQuestion.options.forEach((option, index) => {
       const button = document.createElement("button");
-      button.type = "button";
-      button.className = "answer-btn";
+      button.classList.add("answer-btn");
       button.setAttribute("data-answer", option);
-      button.setAttribute("aria-describedby", "question-text");
 
       // Keyboard shortcuts
       const shortcut = String(index + 1);
@@ -327,28 +391,32 @@ export class TimePressureGameEngine {
       button.innerHTML = `<span class="answer-shortcut">${shortcut}</span><span class="answer-text">${option}</span>`;
 
       button.addEventListener("click", this.handleAnswerClick);
-      this.answerOptions.appendChild(button);
+      this.answerOptions!.appendChild(button);
     });
 
-    // Focus first answer for accessibility
-    const firstAnswer = this.answerOptions.querySelector(".answer-btn");
-    if (firstAnswer) {
-      // Small delay to ensure screen reader announces the question first
-      setTimeout(() => firstAnswer.focus(), 100);
+    // Focus first answer button for accessibility
+    if (this.answerOptions) {
+      const firstButton = this.answerOptions.querySelector(".answer-btn") as HTMLButtonElement;
+      if (firstButton) {
+        // Small delay to ensure screen reader announces the question first
+        setTimeout(() => firstButton.focus(), 100);
+      }
     }
   }
 
   /**
    * Update difficulty indicator
    */
-  updateDifficultyIndicator() {
-    if (!this.difficultyIndicator || !this.difficultyText) {
+  updateDifficultyIndicator(): void {
+    if (!this.difficultyIndicator || !this.difficultyText || !this.currentDifficulty) {
       return;
     }
 
-    // Find the timer stat element
-    const timerStat = document.querySelector(".timer-stat");
+    // Update difficulty display
+    this.difficultyIndicator.className = `difficulty ${this.currentDifficulty}`;
 
+    // Update countdown circle with difficulty class
+    const timerStat = document.querySelector(".timer-stat") as HTMLElement;
     if (timerStat) {
       // Remove previous difficulty classes from timer stat
       timerStat.classList.remove("easy", "medium", "hard");
@@ -356,10 +424,9 @@ export class TimePressureGameEngine {
       timerStat.classList.add(this.currentDifficulty);
     }
 
-    // Update text
     const difficultyLabels = {
       easy: "Easy",
-      medium: "Med",
+      medium: "Medium",
       hard: "Hard",
     };
 
@@ -369,7 +436,7 @@ export class TimePressureGameEngine {
   /**
    * Start countdown timer with visual effects
    */
-  startCountdown() {
+  startCountdown(): void {
     // Clear any existing timer
     if (this.countdownTimer) {
       clearInterval(this.countdownTimer);
@@ -379,13 +446,13 @@ export class TimePressureGameEngine {
     this.updateCountdownDisplay();
 
     // Start countdown
-    this.countdownTimer = setInterval(this.updateCountdown, 100);
+    this.countdownTimer = setInterval(() => this.updateCountdown(), 100) as unknown as number;
   }
 
   /**
    * Update countdown timer (called every 100ms for smooth animation)
    */
-  updateCountdown() {
+  updateCountdown(): void {
     if (this.isPaused || !this.isGameActive || this.isFeedbackShowing) {
       return;
     }
@@ -404,52 +471,64 @@ export class TimePressureGameEngine {
   /**
    * Update countdown visual display
    */
-  updateCountdownDisplay() {
+  updateCountdownDisplay(): void {
     if (!this.countdownTime || !this.countdownProgress) {
       return;
     }
 
     // Update time text
     const displayTime = Math.ceil(this.timeRemaining);
-    this.countdownTime.textContent = displayTime;
+    if (this.countdownTime) {
+      this.countdownTime.textContent = displayTime.toString();
+    }
 
     // Update progress circle (stat timer has radius = 18)
     const progress = this.timeRemaining / this.currentTimeLimit;
     const circumference = 2 * Math.PI * 18; // radius = 18 for stat timer
     const offset = circumference * (1 - progress);
 
-    this.countdownProgress.style.strokeDashoffset = offset;
+    if (this.countdownProgress) {
+      this.countdownProgress.style.strokeDashoffset = offset.toString();
+    }
 
     // Apply urgency classes (for compact timer)
-    this.countdownProgress.classList.remove("warning", "urgent");
+    if (this.countdownProgress) {
+      this.countdownProgress.classList.remove("warning", "urgent");
 
-    if (this.timeRemaining <= this.urgencyThreshold) {
-      this.countdownProgress.classList.add("urgent");
-      this.countdownCircle.classList.add("urgent");
-    } else if (this.timeRemaining <= this.warningThreshold) {
-      this.countdownProgress.classList.add("warning");
-      this.countdownCircle.classList.add("warning");
-    } else {
-      this.countdownCircle.classList.remove("urgent", "warning");
+      if (progress <= this.urgencyThreshold) {
+        this.countdownProgress.classList.add("urgent");
+      } else if (progress <= this.warningThreshold) {
+        this.countdownProgress.classList.add("warning");
+      }
+    }
+
+    if (this.countdownCircle) {
+      if (progress <= this.urgencyThreshold) {
+        this.countdownCircle.classList.add("urgent");
+      } else if (progress <= this.warningThreshold) {
+        this.countdownCircle.classList.add("warning");
+      } else {
+        this.countdownCircle.classList.remove("urgent", "warning");
+      }
     }
   }
 
   /**
    * Handle answer button click
    */
-  async handleAnswerClick(event) {
+  async handleAnswerClick(event: Event): Promise<void> {
     if (!this.isGameActive || this.isPaused) {
       return;
     }
 
-    const selectedAnswer = event.currentTarget.getAttribute("data-answer");
+    const selectedAnswer = (event.currentTarget as HTMLElement).getAttribute("data-answer");
     await this.processAnswer(selectedAnswer);
   }
 
   /**
    * Handle keyboard input
    */
-  async handleKeyPress(event) {
+  async handleKeyPress(event: KeyboardEvent): Promise<void> {
     if (!this.isGameActive || this.isPaused) {
       return;
     }
@@ -457,11 +536,14 @@ export class TimePressureGameEngine {
     // Number keys 1-4 for answer selection
     if (event.key >= "1" && event.key <= "4") {
       event.preventDefault();
+      if (!this.answerOptions) return;
       const answerButtons = this.answerOptions.querySelectorAll(".answer-btn");
       const buttonIndex = parseInt(event.key) - 1;
 
       if (answerButtons[buttonIndex]) {
-        const selectedAnswer = answerButtons[buttonIndex].getAttribute("data-answer");
+        const selectedAnswer = (answerButtons[buttonIndex] as HTMLElement).getAttribute(
+          "data-answer"
+        );
         await this.processAnswer(selectedAnswer);
       }
     }
@@ -482,7 +564,7 @@ export class TimePressureGameEngine {
   /**
    * Process the selected answer
    */
-  async processAnswer(selectedAnswer) {
+  async processAnswer(selectedAnswer: string | null): Promise<void> {
     if (!this.currentQuestion) {
       return;
     }
@@ -495,6 +577,7 @@ export class TimePressureGameEngine {
 
     // Calculate answer time
     const answerTime = (Date.now() - this.questionStartTime) / 1000;
+    if (!selectedAnswer || !this.currentQuestion) return;
     const isCorrect = selectedAnswer === this.currentQuestion.correctAnswer;
 
     // Update statistics
@@ -538,12 +621,13 @@ export class TimePressureGameEngine {
   /**
    * Handle timeout when time runs out
    */
-  async handleTimeout() {
+  async handleTimeout(): Promise<void> {
     if (this.countdownTimer) {
       clearInterval(this.countdownTimer);
       this.countdownTimer = null;
     }
 
+    // Apply timeout penalty
     this.questionsAnswered++;
     this.streak = 0; // Reset streak on timeout
 
@@ -551,17 +635,19 @@ export class TimePressureGameEngine {
     this.updateGameStats();
 
     // Show timeout feedback
-    await this.showAnswerFeedback(false, 0, {
-      timeout: true,
-      correctAnswer: this.currentQuestion.correctAnswer,
-    });
+    if (this.currentQuestion) {
+      await this.showAnswerFeedback(false, 0, {
+        timeout: true,
+        correctAnswer: this.currentQuestion.correctAnswer,
+      });
+    }
   }
 
   /**
    * Calculate time bonus based on remaining time
    */
-  calculateTimeBonus() {
-    const timeUsed = this.currentTimeLimit - this.timeRemaining;
+  calculateTimeBonus(): number {
+    // const timeUsed = this.currentTimeLimit - this.timeRemaining;
     const timeRatio = Math.max(0, this.timeRemaining / this.currentTimeLimit);
 
     // More bonus for faster answers, scaled by difficulty
@@ -572,7 +658,7 @@ export class TimePressureGameEngine {
   /**
    * Calculate streak bonus
    */
-  calculateStreakBonus() {
+  calculateStreakBonus(): number {
     if (this.streak < 3) {
       return 0;
     }
@@ -585,21 +671,27 @@ export class TimePressureGameEngine {
   /**
    * Show answer feedback using the FeedbackOverlay component
    */
-  async showAnswerFeedback(isCorrect, points, details) {
+  async showAnswerFeedback(
+    isCorrect: boolean,
+    points: number,
+    details: FeedbackDetails
+  ): Promise<void> {
     try {
       // Pause the timer during feedback
       this.isFeedbackShowing = true;
 
       // Get the overlay elements
-      const overlay = document.getElementById("overlay");
+      const overlay = document.getElementById("overlay") as HTMLElement | null;
+      if (!overlay) return;
+
       let feedback = document.getElementById("feedback");
 
       // If feedback element is not found, try to find the paragraph element
       if (!feedback) {
-        feedback = overlay?.querySelector(".feedback");
+        feedback = overlay.querySelector("p") as HTMLElement;
       }
 
-      if (!overlay) {
+      if (!feedback) {
         console.warn("FeedbackOverlay not found");
         this.isFeedbackShowing = false; // Reset flag if overlay not found
         return;
@@ -644,23 +736,29 @@ export class TimePressureGameEngine {
       }
 
       // Show album info section like in normal mode
-      const albumInfo = overlay.querySelector(".album-info");
+      const albumInfo = overlay.querySelector(".album-info") as HTMLElement;
       if (albumInfo && this.currentAlbum) {
-        albumInfo.style.display = "block";
+        (albumInfo as HTMLElement).style.display = "block";
 
         // Update album information
-        const artistElement = overlay.querySelector("#overlay-artist");
-        const albumElement = overlay.querySelector("#overlay-album");
-        const yearElement = overlay.querySelector("#overlay-year");
-        const funFactElement = overlay.querySelector("#overlay-funfact");
+        const artistElement = overlay.querySelector("#overlay-artist") as HTMLElement;
+        const albumElement = overlay.querySelector("#overlay-album") as HTMLElement;
+        const yearElement = overlay.querySelector("#overlay-year") as HTMLElement;
+        const funFactElement = overlay.querySelector("#overlay-funfact") as HTMLElement;
 
-        if (artistElement) artistElement.textContent = this.currentAlbum.artist || "";
-        if (albumElement) albumElement.textContent = this.currentAlbum.album || "";
-        if (yearElement) yearElement.textContent = this.currentAlbum.year || "";
+        if (artistElement) {
+          artistElement.textContent = this.currentAlbum.artist || "";
+        }
+        if (albumElement) {
+          albumElement.textContent = this.currentAlbum.title || "";
+        }
+        if (yearElement) {
+          yearElement.textContent = "";
+        }
 
         // Display funFact from the current question's trivia
         if (funFactElement) {
-          const funFactText = this.currentQuestion?.trivia || this.currentAlbum.funFact || "";
+          const funFactText = this.currentQuestion?.trivia || "";
           // Handle both direct text and Paragraph component
           const textElement = funFactElement.querySelector("p") || funFactElement;
           textElement.textContent = funFactText;
@@ -710,13 +808,13 @@ export class TimePressureGameEngine {
   /**
    * Update game statistics display
    */
-  updateGameStats() {
+  updateGameStats(): void {
     if (this.scoreDisplay) {
       this.scoreDisplay.textContent = this.score.toLocaleString();
     }
 
     if (this.streakDisplay) {
-      this.streakDisplay.textContent = this.streak;
+      this.streakDisplay.textContent = this.streak.toString();
     }
 
     if (this.accuracyDisplay) {
@@ -728,7 +826,7 @@ export class TimePressureGameEngine {
     }
 
     if (this.currentRoundDisplay) {
-      this.currentRoundDisplay.textContent = this.currentRound;
+      this.currentRoundDisplay.textContent = this.currentRound.toString();
     }
 
     if (this.progressFill) {
@@ -740,7 +838,7 @@ export class TimePressureGameEngine {
   /**
    * Handle pause/resume
    */
-  handlePause() {
+  handlePause(): void {
     if (!this.isGameActive) {
       return;
     }
@@ -757,16 +855,18 @@ export class TimePressureGameEngine {
   /**
    * Pause the game
    */
-  pauseGame() {
+  pauseGame(): void {
     this.isPaused = true;
 
     // The countdown timer automatically handles pause state
     // Update pause button text
     const pauseBtn = document.getElementById("pause-btn");
     if (pauseBtn) {
-      const iconSpan = pauseBtn.querySelector(".icon");
-      const textSpan = pauseBtn.querySelector(".text");
-      if (textSpan) textSpan.textContent = "Fortsetzen";
+      // const iconSpan = pauseButton.querySelector("span");
+      const textSpan = pauseBtn.querySelector(".text") as HTMLElement;
+      if (textSpan) {
+        textSpan.textContent = "Fortsetzen";
+      }
       pauseBtn.setAttribute("aria-label", "Spiel fortsetzen");
     }
 
@@ -776,15 +876,17 @@ export class TimePressureGameEngine {
   /**
    * Resume the game
    */
-  resumeGame() {
+  resumeGame(): void {
     this.isPaused = false;
 
     // Update pause button text
     const pauseBtn = document.getElementById("pause-btn");
     if (pauseBtn) {
-      const iconSpan = pauseBtn.querySelector(".icon");
-      const textSpan = pauseBtn.querySelector(".text");
-      if (textSpan) textSpan.textContent = "Pause";
+      // const iconSpan = pauseBtn.querySelector(".icon");
+      const textSpan = pauseBtn.querySelector(".text") as HTMLElement;
+      if (textSpan) {
+        textSpan.textContent = "Pause";
+      }
       pauseBtn.setAttribute("aria-label", "Spiel pausieren");
     }
   }
@@ -792,7 +894,7 @@ export class TimePressureGameEngine {
   /**
    * Handle skip question (with point penalty)
    */
-  async handleSkip() {
+  async handleSkip(): Promise<void> {
     if (!this.isGameActive || this.isPaused) {
       return;
     }
@@ -816,7 +918,7 @@ export class TimePressureGameEngine {
   /**
    * End the game and show results
    */
-  async endGame() {
+  async endGame(): Promise<void> {
     this.isGameActive = false;
 
     if (this.countdownTimer) {
@@ -825,10 +927,10 @@ export class TimePressureGameEngine {
     }
 
     // Show loading screen while processing results
-    const { showEndGameLoading, hideEndGameLoading } = await import(
-      "../utils/game/endGameUtils.js"
-    );
-    showEndGameLoading();
+    // Note: showEndGameLoading is not exported, so we'll handle loading display manually
+    if (this.loadingContainer) {
+      this.loadingContainer.style.display = "block";
+    }
 
     // Calculate final statistics
     const gameTime = (Date.now() - this.gameStartTime) / 1000;
@@ -864,10 +966,10 @@ export class TimePressureGameEngine {
   /**
    * Save game results to database
    */
-  async saveGameResults(gameStats) {
+  async saveGameResults(gameStats: GameStats): Promise<SaveGameResult> {
     try {
       // Get user ID from container data attribute (set by server-side session)
-      let userId = this.gameContainer.getAttribute("data-userID");
+      let userId = this.gameContainer.getAttribute("data-userID") || undefined;
 
       // Fallback to guest if no user ID is found
       if (!userId || userId === "null" || userId === "undefined") {
@@ -908,10 +1010,10 @@ export class TimePressureGameEngine {
 
       const result = await response.json();
 
-      return result;
+      return { success: true, data: result };
     } catch (error) {
-      console.error("Error saving game results:", error);
-      console.error("Error details:", error.message);
+      console.error("Error saving game results:", error as Error);
+      console.error("Error details:", (error as Error).message);
       // Show user-friendly error message
       alert("Fehler beim Speichern der Spielergebnisse. Bitte versuche es erneut.");
       throw error;
@@ -921,28 +1023,33 @@ export class TimePressureGameEngine {
   /**
    * Check for achievements
    */
-  async checkGameAchievements(gameStats) {
+  async checkGameAchievements(gameStats: GameStats): Promise<void> {
     try {
       // TODO: Implement time pressure specific achievements
-      // For now, just log that we would check achievements
-      // await checkAchievementsAfterGame(...);
+      // Skip achievement checking for now to avoid database import issues in client
+      console.warn("Time pressure game completed:", {
+        score: gameStats.score,
+        correctAnswers: gameStats.correctAnswers,
+        totalQuestions: gameStats.totalQuestions,
+        accuracy: gameStats.accuracy,
+      });
     } catch (error) {
-      console.error("Error checking achievements:", error);
+      console.error("Error in achievement check:", error as Error);
     }
   }
 
   /**
    * Show end game overlay
    */
-  async showEndGameOverlay(gameStats) {
-    try {
-      // Get the end overlay element
-      const endOverlay = document.getElementById("end-overlay");
-      if (!endOverlay) {
-        console.error("End overlay element not found");
-        return;
-      }
+  async showEndGameOverlay(gameStats: GameStats): Promise<void> {
+    // Get the end overlay element
+    const endOverlay = document.getElementById("endgame-popup") as HTMLElement | null;
+    if (!endOverlay) {
+      console.error("End overlay element not found");
+      return;
+    }
 
+    try {
       // Set data attributes for the overlay
       endOverlay.setAttribute("data-score", gameStats.score.toString());
       endOverlay.setAttribute("data-category", gameStats.category);
@@ -951,47 +1058,58 @@ export class TimePressureGameEngine {
       endOverlay.setAttribute("data-accuracy", Math.round(gameStats.accuracy).toString());
       endOverlay.setAttribute("data-game-time", Math.round(gameStats.gameTime).toString());
 
-      // Import and use the showEndOverlay utility
-      const { showEndOverlay } = await import("../utils/endOverlay.js");
-
       // Hide loading screen before showing end overlay
-      hideEndGameLoading();
+      if (this.loadingContainer) {
+        this.loadingContainer.style.display = "none";
+      }
 
       // Small delay to ensure loading screen is hidden
       await new Promise((resolve) => setTimeout(resolve, 300));
 
-      // Show the overlay with the score
+      // Use the imported showEndOverlay function
       await showEndOverlay({
         score: gameStats.score,
-        maxScore: 1000, // Standard max score for comparison
+        maxScore: 1000,
       });
+
+      // Manually show the overlay by removing hidden class and setting proper modal styles
+      endOverlay.classList.remove("hidden");
+      endOverlay.style.display = "flex";
+      endOverlay.style.position = "fixed";
+      endOverlay.style.top = "0";
+      endOverlay.style.left = "0";
+      endOverlay.style.width = "100vw";
+      endOverlay.style.height = "100vh";
+      endOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+      endOverlay.style.zIndex = "9999";
+      endOverlay.style.justifyContent = "center";
+      endOverlay.style.alignItems = "center";
+      endOverlay.setAttribute("aria-hidden", "false");
+
+      // Focus for accessibility
+      endOverlay.focus();
 
       // Hide the game UI
       this.gameUI.style.display = "none";
-
-      // Show the overlay by removing the hidden class
-      endOverlay.classList.remove("hidden");
-      endOverlay.setAttribute("aria-hidden", "false");
-
-      // Focus the overlay for accessibility
-      endOverlay.focus();
     } catch (error) {
-      console.error("Error showing end game overlay:", error);
+      console.error("Error showing end game overlay:", error as Error);
 
       // Hide loading screen in case of error
-      hideEndGameLoading();
+      if (this.loadingContainer) {
+        this.loadingContainer.style.display = "none";
+      }
 
-      // Fallback: just show basic stats
-      alert(
-        `Game Complete!\nScore: ${gameStats.score}\nAccuracy: ${Math.round(gameStats.accuracy)}%\nTime: ${Math.round(gameStats.gameTime)}s`
-      );
+      // Fallback: show overlay manually
+      endOverlay.classList.remove("hidden");
+      endOverlay.setAttribute("aria-hidden", "false");
+      endOverlay.focus();
     }
   }
 
   /**
    * Show error message
    */
-  showError(message) {
+  showError(message: string): void {
     if (this.loadingContainer) {
       this.loadingContainer.innerHTML = `
         <div class="error-state">
@@ -1006,7 +1124,7 @@ export class TimePressureGameEngine {
   /**
    * Cleanup when leaving the page
    */
-  destroy() {
+  destroy(): void {
     if (this.countdownTimer) {
       clearInterval(this.countdownTimer);
     }
