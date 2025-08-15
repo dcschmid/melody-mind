@@ -28,9 +28,13 @@ interface GameStats {
   gameTime: number;
   category: string;
   gameMode: string;
-  difficultyStats?: any;
+  difficultyStats?: Record<string, unknown>;
 }
 
+interface SaveGameResult {
+  success: boolean;
+  data?: Record<string, unknown>;
+}
 interface TimePressureGameOptions {
   category: string;
   lang: string;
@@ -705,10 +709,10 @@ export class TimePressureGameEngine {
       let feedbackMsg;
       if (isCorrect) {
         feedbackMsg = `Richtig! +${points} Punkte`;
-        if (details.time > 0) {
+        if (details.time && details.time > 0) {
           feedbackMsg += ` (Zeit-Bonus: +${details.time})`;
         }
-        if (details.streak > 0) {
+        if (details.streak && details.streak > 0) {
           feedbackMsg += ` (Serie-Bonus: +${details.streak})`;
         }
       } else if (details.timeout) {
@@ -961,6 +965,62 @@ export class TimePressureGameEngine {
 
     // Show end game overlay
     await this.showEndGameOverlay(gameStats);
+  }
+
+  /**
+   * Save game results to database
+   */
+  async saveGameResults(gameStats: GameStats): Promise<SaveGameResult> {
+    try {
+      // Get user ID from container data attribute (set by server-side session)
+      let userId = this.gameContainer.getAttribute("data-userID") || undefined;
+
+      // Fallback to guest if no user ID is found
+      if (!userId || userId === "null" || userId === "undefined") {
+        userId = "guest";
+      }
+
+      // Time pressure mode uses mixed difficulties
+      const difficulty = "mixed";
+
+      const requestData = {
+        userId: userId,
+        categoryName: this.category,
+        difficulty: difficulty,
+        score: gameStats.score,
+        correctAnswers: gameStats.correctAnswers,
+        totalRounds: gameStats.totalQuestions,
+        // Additional time pressure specific data
+        genreId: this.category,
+        gameTime: gameStats.gameTime,
+        endOfSession: true,
+      };
+
+      const response = await fetch(`/${this.lang}/api/game/save-result`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestData),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("Save failed with status:", response.status);
+        console.error("Error response:", errorText);
+        throw new Error(`Failed to save game results: ${response.status} - ${errorText}`);
+      }
+
+      const result = await response.json();
+
+      return { success: true, data: result };
+    } catch (error) {
+      console.error("Error saving game results:", error as Error);
+      console.error("Error details:", (error as Error).message);
+      // Show user-friendly error message
+      alert("Fehler beim Speichern der Spielergebnisse. Bitte versuche es erneut.");
+      throw error;
+    }
   }
 
   /**
