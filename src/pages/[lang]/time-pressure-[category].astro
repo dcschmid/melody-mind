@@ -819,6 +819,12 @@ const structuredData = {
 <script>
   import { TimePressureGameEngine } from "../../utils/game/timePressureGameEngine";
 
+  // Extend Window interface to include our game engine
+  declare global {
+    interface Window {
+      currentGameEngine?: TimePressureGameEngine;
+    }
+  }
   // Function to initialize Time Pressure Game Engine
   const initTimePressureGame = async (): Promise<void> => {
     try {
@@ -859,7 +865,7 @@ const structuredData = {
       await gameEngine.initialize();
 
       // Store reference globally for cleanup if needed
-      (window as { currentGameEngine?: typeof gameEngine }).currentGameEngine = gameEngine;
+      window.currentGameEngine = gameEngine;
 
       console.warn("Time Pressure Game Engine initialized successfully");
     } catch (err: unknown) {
