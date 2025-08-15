@@ -27,6 +27,9 @@ export interface RSSPodcastItem {
   categories: string[];
   /** Optional rich HTML content for show notes */
   contentHtml?: string;
+  /** Optional transcript (PSP-1) */
+  transcriptUrl?: string;
+  transcriptLanguage?: string;
 }
 
 /**
@@ -54,7 +57,7 @@ export interface RSSChannelMeta {
 export class PodcastRSSGenerator {
   private readonly baseUrl: string;
   private readonly contactEmail = "dcschmid@murena.io";
-  private readonly podcastImageUrl = "/images/podcast-cover.jpg";
+  private readonly podcastImageUrl = "/the-melody-mind-podcast.png";
 
   /**
    * Creates a new RSS generator instance.
@@ -68,12 +71,15 @@ export class PodcastRSSGenerator {
   /**
    * Generate complete RSS feed for a language
    */
-  public generateFeed(lang: string, episodes: PodcastData[]): string {
+  public async generateFeed(lang: string, episodes: PodcastData[]): Promise<string> {
     const channelMeta = this.generateChannelMeta(lang);
-    const items = episodes
+    const sortedEpisodes = episodes
       .filter((episode) => episode.isAvailable)
-      .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
-      .map((episode) => this.generateItem(episode, lang));
+      .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+
+    const items = await Promise.all(
+      sortedEpisodes.map((episode) => this.generateItem(episode, lang))
+    );
 
     return this.buildRSSXML(channelMeta, items);
   }
@@ -120,7 +126,7 @@ export class PodcastRSSGenerator {
       managingEditor: this.contactEmail,
       imageUrl: `${this.baseUrl}${this.podcastImageUrl}`,
       category: "Music",
-      explicit: "clean",
+      explicit: "no",
       author: "MelodyMind",
       ownerName: "Daniel Schmid",
       ownerEmail: this.contactEmail,
@@ -130,9 +136,13 @@ export class PodcastRSSGenerator {
   /**
    * Generate RSS item from podcast episode
    */
-  private generateItem(episode: PodcastData, lang: string): RSSPodcastItem {
+  private async generateItem(episode: PodcastData, lang: string): Promise<RSSPodcastItem> {
     const episodeLink = `${this.baseUrl}/${lang}/podcasts#${episode.id}`;
     const pubDate = this.formatRFC822Date(new Date(episode.publishedAt));
+    const contentLength = await this.fetchContentLength(episode.audioUrl);
+    const computedDuration = episode.subtitleUrl
+      ? await this.computeDurationFromWebVTT(episode.subtitleUrl)
+      : undefined;
 
     return {
       title: this.escapeXML(episode.title),
@@ -141,13 +151,15 @@ export class PodcastRSSGenerator {
       guid: `melody-mind-${lang}-${episode.id}`,
       pubDate,
       audioUrl: episode.audioUrl,
-      audioLength: this.getEstimatedAudioSize(),
-      duration: this.getEstimatedDuration(),
+      audioLength: contentLength ?? this.getEstimatedAudioSize(),
+      duration: computedDuration ?? this.getEstimatedDuration(),
       imageUrl: episode.imageUrl ? `${this.baseUrl}${episode.imageUrl}` : undefined,
       categories: ["Music", "Education", "History"],
       contentHtml: episode.showNotesHtml
         ? this.appendDefaultFooter(episode.showNotesHtml)
         : undefined,
+      transcriptUrl: episode.subtitleUrl,
+      transcriptLanguage: episode.language || lang,
     };
   }
 
@@ -162,7 +174,8 @@ export class PodcastRSSGenerator {
      xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
      xmlns:spotify="https://developers.spotify.com/documentation/podcasts"
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
-     xmlns:atom="http://www.w3.org/2005/Atom">
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:podcast="https://podcastindex.org/namespace/1.0">
   <channel>
     <!-- Basic Channel Info -->
     <title>${channelMeta.title}</title>
@@ -196,10 +209,14 @@ export class PodcastRSSGenerator {
     </itunes:owner>
     <itunes:image href="${channelMeta.imageUrl}"/>
     <itunes:category text="${channelMeta.category}">
-      <itunes:category text="History"/>
+      <itunes:category text="Music History"/>
     </itunes:category>
     <itunes:explicit>${channelMeta.explicit}</itunes:explicit>
     <itunes:type>episodic</itunes:type>
+
+    <!-- Podcast Standards Project (PSP-1) -->
+    <podcast:guid>3f8d5b27-3f1e-4b62-9f0d-9b2c8d1a7c52</podcast:guid>
+    <podcast:locked owner="${channelMeta.ownerEmail}">yes</podcast:locked>
     
     <!-- Spotify -->
     <spotify:limit>50</spotify:limit>
@@ -224,6 +241,10 @@ ${items.map((item) => this.buildItemXML(item)).join("\n")}
       ? `\n      <content:encoded><![CDATA[${item.contentHtml}]]></content:encoded>`
       : "";
 
+    const transcriptTag = item.transcriptUrl
+      ? `\n      <podcast:transcript url="${item.transcriptUrl}" type="text/vtt" language="${item.transcriptLanguage || "en"}"/>`
+      : "";
+
     return `    <item>
       <title>${item.title}</title>
       <description>${item.description}</description>
@@ -241,9 +262,10 @@ ${item.categories.map((cat) => `      <category>${cat}</category>`).join("\n")}
       <itunes:summary>${item.description}</itunes:summary>
 ${imageTag}
 ${durationTag}
-      <itunes:explicit>clean</itunes:explicit>
+      <itunes:explicit>no</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
 ${contentEncoded}
+${transcriptTag}
     </item>`;
   }
 
@@ -293,6 +315,97 @@ ${contentEncoded}
   }
 
   /**
+   * Compute duration from a WebVTT subtitle file by reading the last cue end time.
+   * Returns an iTunes-compatible HH:MM:SS string when possible.
+   */
+  private async computeDurationFromWebVTT(vttUrl: string): Promise<string | undefined> {
+    try {
+      const response = await fetch(vttUrl, { method: "GET" });
+      if (!response.ok) {
+        return undefined;
+      }
+      const text = await response.text();
+      const lines = text.split(/\r?\n/);
+      let lastEndSeconds = 0;
+
+      // Match lines that contain a VTT time range, e.g.: 00:01:23.456 --> 00:01:25.789
+      const timeRangeRegex =
+        /(\d{1,2}:)?\d{1,2}:\d{2}\.\d{3}\s+-->\s+(\d{1,2}:)?\d{1,2}:\d{2}\.\d{3}/;
+
+      for (const line of lines) {
+        if (timeRangeRegex.test(line)) {
+          const parts = line.split(/\s+-->\s+/);
+          const endTs = parts[1];
+          const seconds = this.parseVttTimestampToSeconds(endTs);
+          if (seconds > lastEndSeconds) {
+            lastEndSeconds = seconds;
+          }
+        }
+      }
+
+      if (lastEndSeconds > 0) {
+        return this.formatSecondsToHMS(lastEndSeconds);
+      }
+      return undefined;
+    } catch {
+      return undefined;
+    }
+  }
+
+  /** Convert WebVTT timestamp (H:MM:SS.mmm or MM:SS.mmm) to seconds */
+  private parseVttTimestampToSeconds(ts: string): number {
+    const main = ts.trim().split(".")[0];
+    const parts = main.split(":").map((p) => Number(p));
+    if (parts.some((n) => !Number.isFinite(n))) {
+      return 0;
+    }
+    let hours = 0,
+      minutes = 0,
+      seconds = 0;
+    if (parts.length === 3) {
+      [hours, minutes, seconds] = parts;
+    } else if (parts.length === 2) {
+      [minutes, seconds] = parts;
+    } else {
+      return 0;
+    }
+    return hours * 3600 + minutes * 60 + seconds;
+  }
+
+  /** Format seconds to HH:MM:SS */
+  private formatSecondsToHMS(totalSeconds: number): string {
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = Math.floor(totalSeconds % 60);
+    const hh = hours.toString().padStart(2, "0");
+    const mm = minutes.toString().padStart(2, "0");
+    const ss = seconds.toString().padStart(2, "0");
+    return `${hh}:${mm}:${ss}`;
+  }
+
+  /**
+   * Attempt to fetch the real Content-Length of the audio file via HTTP HEAD.
+   * Falls back to undefined if not available or request fails.
+   */
+  private async fetchContentLength(url: string): Promise<number | undefined> {
+    try {
+      const response = await fetch(url, { method: "HEAD" });
+      if (!response.ok) {
+        return undefined;
+      }
+      const header =
+        response.headers.get("content-length") || response.headers.get("Content-Length");
+      if (!header) {
+        return undefined;
+      }
+      const parsed = Number(header);
+      return Number.isFinite(parsed) && parsed > 0 ? parsed : undefined;
+    } catch {
+      return undefined;
+    }
+  }
+
+  /**
    * Get estimated audio duration
    */
   private getEstimatedDuration(): string {
@@ -323,7 +436,10 @@ ${contentEncoded}
 /**
  * Helper function to generate RSS feed for a specific language
  */
-export function generatePodcastRSSFeed(lang: string, episodes: PodcastData[]): string {
+export async function generatePodcastRSSFeed(
+  lang: string,
+  episodes: PodcastData[]
+): Promise<string> {
   const generator = new PodcastRSSGenerator();
   return generator.generateFeed(lang, episodes);
 }
