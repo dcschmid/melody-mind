@@ -84,8 +84,8 @@ export const GET: APIRoute = async ({ params, request }) => {
       });
     }
 
-    // Generate RSS feed
-    const rssXML = generatePodcastRSSFeed(lang, episodes);
+    // Generate RSS feed (async)
+    const rssXML = await generatePodcastRSSFeed(lang, episodes);
 
     // Get base URL from request
     const url = new URL(request.url);
