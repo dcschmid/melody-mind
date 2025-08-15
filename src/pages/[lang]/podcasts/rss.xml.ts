@@ -65,12 +65,27 @@ export const GET: APIRoute = async ({ params, request }) => {
       };
 
       const emptyRSS = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${titleByLang[lang] || `MelodyMind Podcast - ${lang.toUpperCase()}`}</title>
     <description>No episodes available yet</description>
     <link>https://melody-mind.de/${lang}/podcasts</link>
     <language>${lang}</language>
+    <itunes:author>MelodyMind</itunes:author>
+    <itunes:summary>No episodes available yet</itunes:summary>
+    <itunes:owner>
+      <itunes:name>Daniel Schmid</itunes:name>
+      <itunes:email>dcschmid@murena.io</itunes:email>
+    </itunes:owner>
+    <itunes:image href="https://melody-mind.de/the-melody-mind-podcast.png"/>
+    <itunes:category text="Music">
+      <itunes:category text="Music History"/>
+    </itunes:category>
+    <itunes:explicit>no</itunes:explicit>
+    <itunes:type>episodic</itunes:type>
+    <atom:link href="https://melody-mind.de/${lang}/podcasts/rss.xml" rel="self" type="application/rss+xml"/>
   </channel>
 </rss>`;
 
