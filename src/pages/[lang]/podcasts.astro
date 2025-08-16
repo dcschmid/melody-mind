@@ -136,6 +136,42 @@ const pageSchema = generatePodcastPageSchema();
           {description}
         </Paragraph>
 
+        {/* Podcast Platform Links */}
+        <div class="podcasts-hero__platforms">
+          <a
+            href="https://podcasts.apple.com/us/podcast/the-melody-mind-podcast/id1833549333"
+            class="podcast-platform-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Listen on Apple Podcasts"
+          >
+            <span class="podcast-platform-icon">🍎</span>
+            <span class="podcast-platform-text">Apple Podcasts</span>
+          </a>
+
+          <a
+            href="https://www.deezer.com/de/show/1002117431"
+            class="podcast-platform-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Listen on Deezer"
+          >
+            <span class="podcast-platform-icon">🎵</span>
+            <span class="podcast-platform-text">Deezer</span>
+          </a>
+
+          <a
+            href="https://open.spotify.com/show/6nBTNqNNYXbFsJW42QnFTN"
+            class="podcast-platform-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Listen on Spotify"
+          >
+            <span class="podcast-platform-icon">🎧</span>
+            <span class="podcast-platform-text">Spotify</span>
+          </a>
+        </div>
+
         {
           episodes.length > 0 && (
             <div class="podcasts-hero__stats">
@@ -336,6 +372,17 @@ const pageSchema = generatePodcastPageSchema();
       contain: layout style;
     }
 
+    &__platforms {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      margin: var(--space-lg) auto;
+      width: 100%;
+      max-width: 600px;
+      contain: layout style;
+    }
+
     &__stats {
       display: flex;
       justify-content: center;
@@ -445,6 +492,50 @@ const pageSchema = generatePodcastPageSchema();
         outline: var(--focus-ring);
         outline-offset: var(--focus-ring-offset);
       }
+    }
+  }
+
+  /* ======================================
+   * PODCAST PLATFORM LINKS
+   * ====================================== */
+  .podcast-platform-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-white);
+    background: rgba(255, 255, 255, 0.15);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    border: var(--border-width-thin) solid rgba(255, 255, 255, 0.25);
+    min-height: var(--touch-target-enhanced);
+    transition: all var(--transition-normal);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    contain: layout style paint;
+
+    &:hover {
+      transform: translateY(var(--animation-y-offset-small));
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    &:focus {
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-ring-offset);
+    }
+
+    .podcast-platform-icon {
+      font-size: var(--text-lg);
+      contain: layout style;
+    }
+
+    .podcast-platform-text {
+      font-size: var(--text-sm);
+      font-weight: var(--font-semibold);
+      white-space: nowrap;
+      contain: layout style;
     }
   }
 
