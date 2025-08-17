@@ -19,9 +19,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3nFTAFGgsvshezDcKsSq6i"
+  deezerPlaylist: "https://link.deezer.com/s/30xs5KNV4HF7pFCCya8fq"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-vaporwave/pl.u-mJy3vNECNVL5Jl5"
 isPlayable: false
 ---
 

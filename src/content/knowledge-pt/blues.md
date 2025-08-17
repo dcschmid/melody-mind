@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: pt
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/2TUj2c6v93zh6pVbxAIgYD"
+  deezerPlaylist: "https://link.deezer.com/s/30xlFj6PoctkfhYGaIu05"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-blues/pl.u-9N9L49bI1mlEboE"
 isPlayable: false
 ---
 

@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: sv
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3t1JDSI6929WEPA9dmoHpq"
+  deezerPlaylist: "https://link.deezer.com/s/30xlyoIImz6xSliVDNwKZ"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-black-metal/pl.u-d2b0VkXsLJaz6dz"
 isPlayable: false
 ---
 

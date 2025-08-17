@@ -20,9 +20,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7BdGibPQvtAHfJ0LyEraal"
+  deezerPlaylist: "https://link.deezer.com/s/30xs1izPScHE34KVjUZbE"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-turkish/pl.u-DdAvkmPt01PVbgV"
 isPlayable: false
 ---
 

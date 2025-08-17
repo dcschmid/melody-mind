@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: pt
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0IPy4N81f7oDRCEzakCOaO"
+  deezerPlaylist: "https://link.deezer.com/s/30xrpuaKVKZFSPY7LCx5g"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-romantic/pl.u-V9Dg55Jh3MGpZPp"
 isPlayable: false
 ---
 

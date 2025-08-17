@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4eOe4pPoE9AHg6hmU8MzYF"
+  deezerPlaylist: "https://link.deezer.com/s/30xpcGNerScswaXIzV4YU"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-future-bass/pl.u-aZb02o5C1xpM8zM"
 isPlayable: false
 ---
 

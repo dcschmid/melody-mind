@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: da
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0JGIo1JwkMqNT2KyKQQL0D"
+  deezerPlaylist: "https://link.deezer.com/s/30xrJjXm8LnZN2TMgqIxg"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-soul/pl.u-JPADj0VuL2NZeJZ"
 isPlayable: false
 ---
 

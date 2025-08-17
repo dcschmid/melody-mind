@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7budQtbbHyyZhm2TmAuC0D"
+  deezerPlaylist: "https://link.deezer.com/s/30xjut1TifuThr8v8KpS2"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-bachata/pl.u-11zBoGmhNP6EVjE"
 isPlayable: false
 ---
 

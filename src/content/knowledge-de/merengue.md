@@ -19,9 +19,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6U18UCuDdVqDGfgQIz9oDJ"
+  deezerPlaylist: "https://link.deezer.com/s/30xquEmfeb06B1QjOdeYd"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-merengue/pl.u-38o9VPyIYMoD7qD"
 isPlayable: false
 ---
 

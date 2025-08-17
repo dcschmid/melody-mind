@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: fr
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4AnWV282ELJ8f4IRXbAAju"
+  deezerPlaylist: "https://link.deezer.com/s/30xq8DZJS2S51jCxw90wO"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-house/pl.u-aZbgmG6C1xpM8zM"
 isPlayable: false
 ---
 

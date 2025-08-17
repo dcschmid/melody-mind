@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0Di8ef8PTSHMhvdZbolOrL"
+  deezerPlaylist: "https://link.deezer.com/s/30xn802fHrESW217n2CP7"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-cumbia-2025/pl.u-e98lbqKTa8XvYev"
 isPlayable: false
 ---
 

@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: da
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4dRTL2qENCBqVnK9KzVEaY"
+  deezerPlaylist: "https://link.deezer.com/s/30xg6oYpCMQzU4AqYTgzo"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-ambient-metal/pl.u-JPAZ2PGIL2NZeJZ"
 isPlayable: false
 ---
 

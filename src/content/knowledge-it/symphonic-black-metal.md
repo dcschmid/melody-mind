@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: it
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/45A0CjBgozkoqk5crQu8Fl"
+  deezerPlaylist: "https://link.deezer.com/s/30xrTFjrxnufkoeVfRu6B"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-symphonic-black-metal/pl.u-11zPLamCNP6EVjE"
 isPlayable: false
 ---
 

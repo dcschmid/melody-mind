@@ -19,9 +19,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0B1lCvZ39NNGfYurue3SVj"
+  deezerPlaylist: "https://www.deezer.com/de/playlist/14071303901"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-experimental-metal/pl.u-mJy8lq0INVL5Jl5"
 isPlayable: false
 ---
 

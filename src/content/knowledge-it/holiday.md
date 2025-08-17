@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: it
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/11JTx6nOpXkjC3cNounsp4"
+  deezerPlaylist: "https://link.deezer.com/s/30xq2EbrHl3EQAleXVPR6"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-holiday/pl.u-JPADXRZFL2NZeJZ"
 isPlayable: false
 ---
 

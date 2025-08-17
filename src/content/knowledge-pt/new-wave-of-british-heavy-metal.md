@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: pt
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7Cmskvn1Yk55nq4loBu2lO"
+  deezerPlaylist: "https://link.deezer.com/s/30xqzS82cEYHQr78k4TgD"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-new-wave-of-british-heavy-metal/pl.u-JPADPN3IL2NZeJZ"
 isPlayable: false
 ---
 

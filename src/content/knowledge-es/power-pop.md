@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/76cMqFShrxpPQTVE03RIx1"
+  deezerPlaylist: "https://link.deezer.com/s/30xqJs72GZnEFRvXpFyyK"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-power-pop/pl.u-11zP1EocNP6EVjE"
 isPlayable: false
 ---
 

@@ -39,7 +39,8 @@
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest --watch",
-    "sync:categories": "node scripts/sync-categories.cjs"
+    "sync:categories": "node scripts/sync-categories.cjs",
+    "sync:knowledge-playlists": "node scripts/sync-knowledge-playlists.cjs"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,astro}": "eslint --fix",

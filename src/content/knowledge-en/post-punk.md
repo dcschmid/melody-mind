@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/35cauzKE45zF3z5iCEzr8F"
+  deezerPlaylist: "https://link.deezer.com/s/30xqIXjBieylFDzsgXOpP"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-post-punk-2025/pl.u-JPADPK3uL2NZeJZ"
 isPlayable: false
 ---
 

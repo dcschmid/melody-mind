@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0ZzpQgAoDwvWrmkYGGPGvR"
+  deezerPlaylist: "https://link.deezer.com/s/30xcfCEootRWiv9o3bt2f"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-acid-jazz/pl.u-76oNKqNuvedXrZX"
 isPlayable: false
 ---
 

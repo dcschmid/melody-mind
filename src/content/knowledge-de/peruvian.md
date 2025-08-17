@@ -20,9 +20,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7t71PSanUIVjSE3Ka7kANm"
+  deezerPlaylist: "https://link.deezer.com/s/30xqEzqmDZVjBpVH5dxFX"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-peruvian/pl.u-JPADP99CL2NZeJZ"
 isPlayable: false
 ---
 

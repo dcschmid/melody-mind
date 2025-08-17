@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6I6MVL5BAvkWr7SzLWpjZy"
+  deezerPlaylist: "https://link.deezer.com/s/30xqIFU6JnnPAc1PvWoiR"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-post-metal/pl.u-e98M9dlca8XvYev"
 isPlayable: false
 ---
 

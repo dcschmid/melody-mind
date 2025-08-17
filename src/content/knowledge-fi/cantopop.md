@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0KXxwQ4ZMTiaFlo3kk0V07"
+  deezerPlaylist: "https://open.spotify.com/playlist/0KXxwQ4ZMTiaFlo3kk0V07"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-cantopop/pl.u-9N9L4lJF1mlEboE"
 isPlayable: false
 ---
 

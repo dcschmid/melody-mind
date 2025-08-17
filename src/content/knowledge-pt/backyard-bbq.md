@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: pt
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/5sfGr39G8N2zgxOR8RuxqK"
+  deezerPlaylist: "https://link.deezer.com/s/30xl7p55CQS4f9s8OyscB"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-backyard-bbq/pl.u-d2b0V1ZCLJaz6dz"
 isPlayable: false
 ---
 

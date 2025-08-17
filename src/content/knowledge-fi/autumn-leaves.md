@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7HthpvZP7RfoCatmuntbYs"
+  deezerPlaylist: "https://link.deezer.com/s/30xifpUnJxuxtEoa0Je0b"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-autumn-leaves/pl.u-DdANPNBC01PVbgV"
 isPlayable: false
 ---
 

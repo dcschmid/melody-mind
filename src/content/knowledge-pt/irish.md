@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: pt
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3RkS3Fm7QTlGKT2Ayh6g5F"
+  deezerPlaylist: "https://link.deezer.com/s/30xqeDfe56zJiGNHtNQ6S"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-irish/pl.u-JPADXomTL2NZeJZ"
 isPlayable: false
 ---
 

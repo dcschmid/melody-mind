@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: pt
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6800utEb8RlDXYP09crhN9"
+  deezerPlaylist: "https://link.deezer.com/s/30xs6FJFUVrm32uUfahmF"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-workout-motivation/pl.u-9N9vP1Jt1mlEboE"
 isPlayable: false
 ---
 

@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0OmOcSWDXKzhBujV4Wr0y3"
+  deezerPlaylist: "https://link.deezer.com/s/30xp540bJ7I3wdbd7PoRB"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-festival-season/pl.u-76oNvl7TvedXrZX"
 isPlayable: false
 ---
 

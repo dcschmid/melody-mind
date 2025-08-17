@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: nl
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7bL3cyFzcYbBxnYfupsJkA"
+  deezerPlaylist: "https://link.deezer.com/s/30xqeZQ7hFb4BUvvKyLPY"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-j-dance/pl.u-aZbgmKvC1xpM8zM"
 isPlayable: false
 ---
 

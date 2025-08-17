@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3EZ2AZNQNB4V5vSI07WvRh"
+  deezerPlaylist: "https://link.deezer.com/s/30xlGzsQoRrMpYd2CC6Sb"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-brazilian/pl.u-V9D7KDNF3MGpZPp"
 isPlayable: false
 ---
 

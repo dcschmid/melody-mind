@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7g7LqnJcAoOIGRzsGDrGRQ"
+  deezerPlaylist: "https://link.deezer.com/s/30xrILzsWdfSrZXEPjWAf"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-smooth-jazz/pl.u-V9Dg5Ldt3MGpZPp"
 isPlayable: false
 ---
 

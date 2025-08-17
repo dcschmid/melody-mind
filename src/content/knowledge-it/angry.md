@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: it
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6Q1l7d7Siu3l2TGtF0tZgk"
+  deezerPlaylist: "https://link.deezer.com/s/30xgkqdmsLuhRNxfNVZIS"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-angry/pl.u-aZb06Z0F1xpM8zM"
 isPlayable: false
 ---
 

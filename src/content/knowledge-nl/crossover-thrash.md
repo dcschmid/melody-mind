@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: nl
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/13E7zxBDCoUkft4xmUF9EG"
+  deezerPlaylist: "https://link.deezer.com/s/30xn6YBNN15Q4vKuCmSwQ"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-crossover-thrash/pl.u-11zB2myhNP6EVjE"
 isPlayable: false
 ---
 

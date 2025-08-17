@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: it
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/15PdpwfohtGuNwRSkCW2zt"
+  deezerPlaylist: "https://link.deezer.com/s/30xnAeSrfGA8TJolNBgve"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-dreamy/pl.u-9N9Lx5dt1mlEboE"
 isPlayable: false
 ---
 

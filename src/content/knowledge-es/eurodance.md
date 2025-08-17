@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4pHIQ9gXOn2VayV4tsfHzd"
+  deezerPlaylist: "https://link.deezer.com/s/30xodEcLPkDA49E8QTUXE"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-eurodance/pl.u-9N9LxMyu1mlEboE"
 isPlayable: false
 ---
 

@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/39TB2ZnA4wd7mdKFWYfCN3"
+  deezerPlaylist: "https://link.deezer.com/s/30xlGjv2cst5Qsauh0f36"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-bossa-nova/pl.u-mJy8PyEtNVL5Jl5"
 isPlayable: false
 ---
 

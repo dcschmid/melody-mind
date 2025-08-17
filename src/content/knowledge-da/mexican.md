@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: da
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/1HqbRGD7DPGNm3ZltyTfjV"
+  deezerPlaylist: "https://link.deezer.com/s/30xqv6oHQupqPL3OFBBZA"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-mexican/pl.u-9N9vkAdC1mlEboE"
 isPlayable: false
 ---
 

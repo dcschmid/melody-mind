@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4sToyECqnzA2wNpdtCgy2X"
+  deezerPlaylist: "https://link.deezer.com/s/30xlKcTrzIS2gvHtJUQah"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-caribbean-music/pl.u-mJy8PprFNVL5Jl5"
 isPlayable: false
 ---
 

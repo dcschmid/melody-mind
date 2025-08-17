@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: sv
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7siFYMf4AhOFwNx7TxKa4e"
+  deezerPlaylist: "https://link.deezer.com/s/30xpkJzwUD4sZnrol3Apv"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-gothic-metal/pl.u-9N9LAy3F1mlEboE"
 isPlayable: false
 ---
 

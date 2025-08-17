@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6hbfyh7YZbUsqFZwv9yb9h"
+  deezerPlaylist: "https://link.deezer.com/s/30xn8ygAtTTgRA3wx4hsc"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-czech/pl.u-aZb0AaDu1xpM8zM"
 isPlayable: false
 ---
 

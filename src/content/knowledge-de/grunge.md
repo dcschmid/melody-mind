@@ -20,9 +20,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/18Uaj4qO6Qw2KF9Z7AgaHS"
+  deezerPlaylist: "https://link.deezer.com/s/30xpPHQt7UbTxESQWapyG"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-grunge/pl.u-9N9LAGbt1mlEboE"
 isPlayable: false
 ---
 

@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: pt
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/1UMWzBdirV95SVtBvvFXxH"
+  deezerPlaylist: "https://link.deezer.com/s/30xq1mAO2rbAJHV5cs9HW"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-heavy-psych/pl.u-V9DgeRki3MGpZPp"
 isPlayable: false
 ---
 

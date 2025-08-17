@@ -19,9 +19,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6PGeWzmR5iTs313qxqoA4X"
+  deezerPlaylist: "https://link.deezer.com/s/30xln0GYSDeYwyCCGy2un"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-bass-music/pl.u-11zBoX3INP6EVjE"
 isPlayable: false
 ---
 

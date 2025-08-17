@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: sv
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/785Bq7kLE2w4leydZKOgH3"
+  deezerPlaylist: "https://link.deezer.com/s/30xpiZ9j0LHMsrgl8vA6Z"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-gospel/pl.u-38oWPybTYMoD7qD"
 isPlayable: false
 ---
 

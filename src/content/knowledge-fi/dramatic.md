@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/2i3yAprKjaL3rqVAYpncd0"
+  deezerPlaylist: "https://link.deezer.com/s/30xnzrVoHawVe0BxFaubs"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-dramatic/pl.u-DdANzY3C01PVbgV"
 isPlayable: false
 ---
 

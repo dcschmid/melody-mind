@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0Q6E1aPOdo01IKjc7WqrKj"
+  deezerPlaylist: "https://link.deezer.com/s/30xpS0AuQQzbYQ4jYZn0V"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-hair-metal/pl.u-9N9LA4ps1mlEboE"
 isPlayable: false
 ---
 

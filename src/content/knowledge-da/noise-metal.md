@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: da
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0qy89AG4JgYQf4RCLCDeHh"
+  deezerPlaylist: "https://link.deezer.com/s/30xqApugv9bxAWdiJBcCr"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-noise-metal/pl.u-mJy3Jg8FNVL5Jl5"
 isPlayable: false
 ---
 

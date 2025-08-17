@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3vt5S7fxcnUricoSekV5yw"
+  deezerPlaylist: "https://link.deezer.com/s/30xrNubcedY5RjgNleaPj"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-study-session/pl.u-aZbgevrT1xpM8zM"
 isPlayable: false
 ---
 

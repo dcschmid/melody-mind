@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/5LtF3hUBgVoEujidhoJOiN"
+  deezerPlaylist: "https://link.deezer.com/s/30xqAE3q9VHR4mgHnERnx"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-nordic-folk/pl.u-V9Dg9vGf3MGpZPp"
 isPlayable: false
 ---
 

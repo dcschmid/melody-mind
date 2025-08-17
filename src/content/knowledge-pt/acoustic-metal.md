@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: pt
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7cXLMbmpOBvv659xZ98hmk"
+  deezerPlaylist: "https://link.deezer.com/s/30xcibCdwzuTgelHP8sg6"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-acoustic-metal/pl.u-e98lL1Eha8XvYev"
 isPlayable: false
 ---
 

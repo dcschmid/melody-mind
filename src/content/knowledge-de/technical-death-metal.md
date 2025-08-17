@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/5mOCxy0gxRORaMmuMHdTlX"
+  deezerPlaylist: "https://link.deezer.com/s/30xrVSP3inkPRfgDj3gwe"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-technical-death-metal/pl.u-38o9zP8FYMoD7qD"
 isPlayable: false
 ---
 

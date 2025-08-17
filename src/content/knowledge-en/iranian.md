@@ -20,9 +20,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6z7DRN2ZuavJIyOdRydkoU"
+  deezerPlaylist: "https://link.deezer.com/s/30xqeaRImQC4u2KSgoln2"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-iranian/pl.u-76oPxEpuvedXrZX"
 isPlayable: false
 ---
 

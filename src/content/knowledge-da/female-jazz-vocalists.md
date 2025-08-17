@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: da
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6qXhNB2hp262T8JkJDfr3a"
+  deezerPlaylist: "https://link.deezer.com/s/30xonk04ewq4y75XSQCb6"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-female-jazz-vocalists/pl.u-76oNvx3TvedXrZX"
 isPlayable: false
 ---
 

@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7m2sSqiwom9QG4gYAkW21l"
+  deezerPlaylist: "https://link.deezer.com/s/30xqNvQSgVTY6so5Av4dh"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-progressive-metal/pl.u-d2bM2GWsLJaz6dzZ"
 isPlayable: false
 ---
 

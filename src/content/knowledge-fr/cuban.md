@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: fr
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/5pj8MUa9jYfeWhooXmoZCT"
+  deezerPlaylist: "https://link.deezer.com/s/30xn7jsMjgBoEhVujYnCv"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-cuban/pl.u-d2b0eBYsLJaz6dz"
 isPlayable: false
 ---
 

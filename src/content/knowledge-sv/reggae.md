@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: sv
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/5gPfjoIW0lPm77jWpzfm3T"
+  deezerPlaylist: "https://link.deezer.com/s/30xretuHirr4O95rOZILs"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-reggae/pl.u-d2bM2DlCLJaz6dz"
 isPlayable: false
 ---
 

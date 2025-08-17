@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3hTGYmG9Z4vgBON8vCPhh1"
+  deezerPlaylist: "https://link.deezer.com/s/30xrCttYfMaElbs4VPNL8"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-sertanejo/pl.u-V9Dg57aU3MGpZPp"
 isPlayable: false
 ---
 

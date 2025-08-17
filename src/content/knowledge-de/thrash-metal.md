@@ -19,9 +19,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0EoKqucRw2t86e64fVq0f9"
+  deezerPlaylist: "https://link.deezer.com/s/30xrZHzjM90RalgiwxlIV"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-thrash-metal/pl.u-9N9vDAWs1mlEboE"
 isPlayable: false
 ---
 

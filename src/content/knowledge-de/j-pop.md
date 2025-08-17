@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7qfOQGqN2y9Zkhye6pirBE"
+  deezerPlaylist: "https://link.deezer.com/s/30xqfdu2SvRubr91bGuWd"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-j-pop/pl.u-11zPlDyuNP6EVjE"
 isPlayable: false
 ---
 

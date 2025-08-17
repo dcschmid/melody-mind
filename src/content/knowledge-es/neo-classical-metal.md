@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6UBNq8zfkQizih1X8PMfHR"
+  deezerPlaylist: "https://link.deezer.com/s/30xqzie4CgH5DZwfByq7o"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-neo-classical-metal/pl.u-V9Dg9kpf3MGpZPp"
 isPlayable: false
 ---
 

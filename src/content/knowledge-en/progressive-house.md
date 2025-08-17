@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/57netDHfsmQPVT3aeQ1jLz"
+  deezerPlaylist: "https://link.deezer.com/s/30xqNdAVT661hN0EO6tQS"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-progressive-house/pl.u-e98M9pjca8XvYev"
 isPlayable: false
 ---
 

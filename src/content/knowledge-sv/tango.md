@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: sv
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/5go8Ph0tk2lmHgPkrgyOWe"
+  deezerPlaylist: "https://link.deezer.com/s/30xrVbtwBkEL8zMru5FBt"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-tango/pl.u-e98M2bLIa8XvYev"
 isPlayable: false
 ---
 

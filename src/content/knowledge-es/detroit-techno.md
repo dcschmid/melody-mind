@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0BOek8nkdJePER61FHiFuX"
+  deezerPlaylist: "https://link.deezer.com/s/30xneecrhgxMAFM6G1L49"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-detroit-techno/pl.u-9N9LxeeT1mlEboE"
 isPlayable: false
 ---
 

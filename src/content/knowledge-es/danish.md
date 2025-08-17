@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/78uUwN6op6fn7SlxOXGhcg"
+  deezerPlaylist: "https://link.deezer.com/s/30xncrcl4nTweqAA941UP"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-danish/pl.u-d2b0e8WCLJaz6dz"
 isPlayable: false
 ---
 

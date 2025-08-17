@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6ZqCxShXksfmDN47FF8hTP"
+  deezerPlaylist: "https://link.deezer.com/s/30xs6rud4zeS1X4c6sZyX"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-winter-wonderland/pl.u-JPADRM2TL2NZeJZ"
 isPlayable: false
 ---
 

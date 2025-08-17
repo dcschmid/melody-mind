@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3d41QlFGGnEGLXcQqVtIvx"
+  deezerPlaylist: "https://link.deezer.com/s/30xs6e2mPKI7YF7TQGQP6"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-winter-vibes/pl.u-76oPDWMsvedXrZX"
 isPlayable: false
 ---
 

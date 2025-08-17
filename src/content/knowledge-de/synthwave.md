@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7wIiHR0dfzCARbLg4UXVk7"
+  deezerPlaylist: "https://link.deezer.com/s/30xrUUyQ2nBloAvFSb7FH"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-synthwave/pl.u-38o9zEetYMoD7qD"
 isPlayable: false
 ---
 

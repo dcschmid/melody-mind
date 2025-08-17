@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: nl
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3ZCEzhyEjElIXJFDHL69Ej"
+  deezerPlaylist: "https://link.deezer.com/s/30xrAVLtOp3Tls9hY2Rmu"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-salsa/pl.u-V9Dg5q7h3MGpZPp"
 isPlayable: false
 ---
 

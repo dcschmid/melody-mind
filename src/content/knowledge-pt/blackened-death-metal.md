@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: pt
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4S3th2E2If9oJsiRXIUvYr"
+  deezerPlaylist: "https://link.deezer.com/s/30xlB9UPTLQGbNJnBPxsW"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-blackened-death-metal/pl.u-e98lLkLha8XvYev"
 isPlayable: false
 ---
 

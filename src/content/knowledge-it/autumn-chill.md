@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: it
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/1pFI14ZmdSlNA8tBEXRW6p"
+  deezerPlaylist: "https://link.deezer.com/s/30xi52bYKnNyHXPfnkPsn"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-autumn-chill/pl.u-76oNm5muvedXrZX"
 isPlayable: false
 ---
 

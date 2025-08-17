@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7hwkzKsziipMaoPEXJQnMX"
+  deezerPlaylist: "https://link.deezer.com/s/30xqvm85OyAWJ3BD2LbTi"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-middle-eastern-music/pl.u-mJy3kmPsNVL5Jl5"
 isPlayable: false
 ---
 

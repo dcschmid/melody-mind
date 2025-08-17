@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/1hvpcgziaOBBhSVroK0efm"
+  deezerPlaylist: "https://link.deezer.com/s/30xrPHLAp3iXarZdIuRN1"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-swing/pl.u-38o9zqysYMoD7qD"
 isPlayable: false
 ---
 

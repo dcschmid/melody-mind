@@ -19,9 +19,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3ixldRBs2uol4n0aoUENpM"
+  deezerPlaylist: "https://link.deezer.com/s/30xqoih99m7o6x3bXMLpr"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-mambo/pl.u-DdAvLYat01PVbgV"
 isPlayable: false
 ---
 

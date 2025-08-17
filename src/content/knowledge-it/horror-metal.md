@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: it
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/57MwyyeiNGygObQDbxNFOe"
+  deezerPlaylist: "https://link.deezer.com/s/30xq4yzd2zj2gGMO0CBwF"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-horror-metal/pl.u-JPADX7VsL2NZeJZ"
 isPlayable: false
 ---
 

@@ -15,9 +15,9 @@ keywords:
 author: MelodyMind
 locale: nl
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6zxqnfIxjU1DOw4lRpr0dL"
+  deezerPlaylist: "https://link.deezer.com/s/30xro8k905gdsWK4g4zz7"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-road-trip/pl.u-DdAvd95t01PVbgV"
 isPlayable: false
 ---
 

@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: nl
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/53Z1KfIjm71tNrZ9gDNl4u"
+  deezerPlaylist: "https://link.deezer.com/s/30xgy5OMTfQIMHhRWTTWW"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-argentinian/pl.u-11zBo1VCNP6EVjE"
 isPlayable: false
 ---
 

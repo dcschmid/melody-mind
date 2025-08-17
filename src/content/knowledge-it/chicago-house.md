@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: it
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/1UCfIchg3CGhuocB6ojeIh"
+  deezerPlaylist: "https://link.deezer.com/s/30xmVc8xUghJvDyZr0LVZ"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-chicago-house/pl.u-76oNmaBtvedXrZX"
 isPlayable: false
 ---
 

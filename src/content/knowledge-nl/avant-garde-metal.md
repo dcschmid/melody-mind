@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: nl
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/1T2PgmMMHhq7hBetwtwLr2"
+  deezerPlaylist: "https://link.deezer.com/s/30xjsdkiyeY0Eyv8ge6Zj"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-avant-garde-metal/pl.u-aZb06E9F1xpM8zM"
 isPlayable: false
 ---
 

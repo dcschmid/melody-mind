@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: nl
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/40Lkg8ZtakbXt83Xs9CTsM"
+  deezerPlaylist: "https://link.deezer.com/s/30xp5EQPbTkE7ODkf95Ty"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-focus-concentration/pl.u-aZb02k0u1xpM8zM"
 isPlayable: false
 ---
 

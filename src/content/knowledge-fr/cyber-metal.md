@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: fr
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/65Zqa3rGN55eC5f9REKiIK"
+  deezerPlaylist: "https://link.deezer.com/s/30xn8g7z8IBohZcPHvrFs"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-cyber-metal/pl.u-JPAZ4zZuL2NZeJZ"
 isPlayable: false
 ---
 

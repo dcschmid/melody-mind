@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4y5C0ZUw18vNLwB74DwKug"
+  deezerPlaylist: "https://www.deezer.com/de/playlist/14071209941"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-dubstep-2025/pl.u-V9D7rN9I3MGpZPp"
 isPlayable: false
 ---
 

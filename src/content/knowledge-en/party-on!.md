@@ -19,9 +19,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/5jZFPGsvqGGoR2AI8XWlmq"
+  deezerPlaylist: "https://link.deezer.com/s/30xqEbxDOw0Hbq5rwsdJe"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-party-on/pl.u-aZbgZD7T1xpM8zM"
 isPlayable: false
 ---
 

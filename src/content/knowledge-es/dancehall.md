@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/2yxV3b2iEqG0YHKzWJCWC0"
+  deezerPlaylist: "https://link.deezer.com/s/30xn8YNgHXGH8OQLiJQGe"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-dancehall/pl.u-11zB29YsNP6EVjE"
 isPlayable: false
 ---
 

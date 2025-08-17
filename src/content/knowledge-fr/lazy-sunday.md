@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: fr
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/40ifRaHr1AZgaKrO0xt14n"
+  deezerPlaylist: "https://link.deezer.com/s/30xqnNBjmWwbEIVLrksPj"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-lazy-sunday/pl.u-e98MvXqta8XvYev"
 isPlayable: false
 ---
 
