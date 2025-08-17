@@ -678,6 +678,51 @@ const { podcast, lang, className = "" } = Astro.props;
 </style>
 
 <script>
+  // Global audio manager to prevent multiple audio playback
+  class AudioManager {
+    private static instance: AudioManager;
+    private currentAudio: HTMLAudioElement | null = null;
+    private currentEpisodeId: string | null = null;
+
+    static getInstance(): AudioManager {
+      if (!AudioManager.instance) {
+        AudioManager.instance = new AudioManager();
+      }
+      return AudioManager.instance;
+    }
+
+    playAudio(audio: HTMLAudioElement, episodeId: string): Promise<void> {
+      // Stop any currently playing audio
+      if (this.currentAudio && this.currentAudio !== audio) {
+        this.currentAudio.pause();
+        this.currentAudio.currentTime = 0;
+      }
+
+      // Update current audio reference
+      this.currentAudio = audio;
+      this.currentEpisodeId = episodeId;
+
+      return audio.play();
+    }
+
+    stopAllAudio(): void {
+      if (this.currentAudio) {
+        this.currentAudio.pause();
+        this.currentAudio.currentTime = 0;
+        this.currentAudio = null;
+        this.currentEpisodeId = null;
+      }
+    }
+
+    isCurrentAudio(audio: HTMLAudioElement): boolean {
+      return this.currentAudio === audio;
+    }
+
+    getCurrentEpisodeId(): string | null {
+      return this.currentEpisodeId;
+    }
+  }
+
   // Format time in MM:SS format
   const formatTime = (seconds: number): string => {
     if (isNaN(seconds) || !isFinite(seconds)) {
@@ -707,6 +752,15 @@ const { podcast, lang, className = "" } = Astro.props;
         console.error("No parent episode found");
         return;
       }
+
+      // Check if this player is already initialized
+      if (episodeElement.hasAttribute("data-audio-initialized")) {
+        console.log("Player already initialized, skipping...");
+        return;
+      }
+
+      // Mark as initialized
+      episodeElement.setAttribute("data-audio-initialized", "true");
 
       // Create audio element dynamically
       const audio = document.createElement("audio");
@@ -752,6 +806,9 @@ const { podcast, lang, className = "" } = Astro.props;
         return;
       }
 
+      // Get audio manager instance
+      const audioManager = AudioManager.getInstance();
+
       // Reset audio state
       audio.pause();
       audio.currentTime = 0;
@@ -766,7 +823,8 @@ const { podcast, lang, className = "" } = Astro.props;
         }
 
         try {
-          await audio.play();
+          const episodeId = audioData.dataset.episodeId || "";
+          await audioManager.playAudio(audio, episodeId);
           console.log("Audio started successfully");
           episodeElement.classList.add("is-playing");
           playButton.setAttribute("aria-label", "Pause audio");
@@ -789,26 +847,6 @@ const { podcast, lang, className = "" } = Astro.props;
       // Play/Pause button functionality
       playButton.addEventListener("click", () => {
         console.log("Play button clicked");
-
-        const allAudioData = document.querySelectorAll(
-          ".podcast-episode__audio-data"
-        ) as NodeListOf<HTMLElement>;
-
-        // Pause all other audio players
-        allAudioData.forEach((otherAudioData: HTMLElement) => {
-          if (otherAudioData !== audioData) {
-            const otherEpisode = findParentEpisode(otherAudioData);
-            if (otherEpisode) {
-              otherEpisode.classList.remove("is-playing");
-              const otherButton = otherEpisode.querySelector(
-                ".podcast-episode__play-button"
-              ) as HTMLButtonElement;
-              if (otherButton) {
-                otherButton.setAttribute("aria-label", "Play audio");
-              }
-            }
-          }
-        });
 
         if (audio.paused) {
           console.log("Attempting to play audio...");
@@ -964,8 +1002,9 @@ const { podcast, lang, className = "" } = Astro.props;
   // Initialize custom audio players when DOM is loaded
   document.addEventListener("DOMContentLoaded", initAllAudioPlayers);
 
-  // Also run if DOM is already loaded
+  // Also run if DOM is already loaded (but only once)
   if (document.readyState === "complete" || document.readyState === "interactive") {
+    // Use a simple timeout to prevent double initialization
     setTimeout(initAllAudioPlayers, 100);
   }
 </script>
