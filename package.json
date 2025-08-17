@@ -38,7 +38,8 @@
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "sync:categories": "node scripts/sync-categories.cjs"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,astro}": "eslint --fix",
