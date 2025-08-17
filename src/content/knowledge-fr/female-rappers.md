@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: fr
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4MPwwjf3lUpKaByZGGZqAM"
+  deezerPlaylist: "https://link.deezer.com/s/30xoqzIRBYiHYHV91wXwk"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-female-rappers/pl.u-JPAZa59uL2NZeJZ"
 isPlayable: false
 ---
 

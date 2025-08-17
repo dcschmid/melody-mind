@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/5p3aOy51iYBkB8sGfrQarC"
+  deezerPlaylist: "https://link.deezer.com/s/30xrngnvqx0n8KZzUIlSN"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-reggaeton/pl.u-e98M9B5Fa8XvYev"
 isPlayable: false
 ---
 

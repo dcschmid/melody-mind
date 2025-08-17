@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/5NDS6IVBZr5W9hK7uKxhZM"
+  deezerPlaylist: "https://link.deezer.com/s/30xcoTWyK4YYBEpaohBM7"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-african-music/pl.u-aZb0Rz4F1xpM8zM"
 isPlayable: false
 ---
 

@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: it
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3cobkZQnDtKau02phMvPT1"
+  deezerPlaylist: "https://link.deezer.com/s/30xpiucjktB341IGyl5Rl"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-german-schlager-2025/pl.u-38oWPo8IYMoD7qD"
 isPlayable: false
 ---
 

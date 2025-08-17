@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: sv
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6RNI0E8ASUQmwzZ1dWxsIj"
+  deezerPlaylist: "https://link.deezer.com/s/30xqDzXLVttCK1qW1vZzz"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-opera/pl.u-aZbgZN5C1xpM8zM"
 isPlayable: false
 ---
 

@@ -20,9 +20,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/555tC6ebt2aciAGX2Rpja1"
+  deezerPlaylist: "https://link.deezer.com/s/30xrWdaDSutNnO4cksom4"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-techno/pl.u-DdAvpVBC01PVbgV"
 isPlayable: false
 ---
 

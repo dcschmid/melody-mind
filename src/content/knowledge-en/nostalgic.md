@@ -20,9 +20,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/1HSRBpAxVLD4515o4Nzdit"
+  deezerPlaylist: "https://link.deezer.com/s/30xqD2y7USlRuC3ZshEkZ"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-nostalgic/pl.u-76oP6ketvedXrZX"
 isPlayable: false
 ---
 

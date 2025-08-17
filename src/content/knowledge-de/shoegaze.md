@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0ihiWbH2Y06pJq02KMvw3d"
+  deezerPlaylist: "https://link.deezer.com/s/30xrCUiYPNxAK13y1xeaL"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-shoegaze/pl.u-76oPjNmFvedXrZX"
 isPlayable: false
 ---
 

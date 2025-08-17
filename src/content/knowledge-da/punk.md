@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: da
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/1k07FnMmoqpofksK4ESdJJ"
+  deezerPlaylist: "https://link.deezer.com/s/30xrdhidZEjZYMPV4I3WG"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-punk/pl.u-38o9803CYMoD7qD"
 isPlayable: false
 ---
 

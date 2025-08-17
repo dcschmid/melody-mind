@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: da
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3dvVawXWiSUO2XIKQ2CN51"
+  deezerPlaylist: "https://link.deezer.com/s/30xnj4cw13wE5ujrizZIw"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-disco-fever/pl.u-38oWvKgTYMoD7qD"
 isPlayable: false
 ---
 

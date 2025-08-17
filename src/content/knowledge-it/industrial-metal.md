@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: it
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0n9jkqASZkyiQrRgWfGg6H"
+  deezerPlaylist: "https://link.deezer.com/s/30xqapmKkCqo6qJ2NoYqp"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-industrial-metal/pl.u-11zPlPaTNP6EVjE"
 isPlayable: false
 ---
 

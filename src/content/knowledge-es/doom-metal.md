@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3vh5TYe4kSx5CvDT2Hy7Ei"
+  deezerPlaylist: "https://link.deezer.com/s/30xnjxSsmvS9hmF0chDu7"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-doom-metal/pl.u-DdANz76t01PVbgV"
 isPlayable: false
 ---
 

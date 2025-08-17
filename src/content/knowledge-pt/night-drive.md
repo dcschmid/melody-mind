@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: pt
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/01DZzC8qCI2By3PsRfOUc1"
+  deezerPlaylist: "https://link.deezer.com/s/30xqAaH4JMZKo68Rjtf5m"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-night-drive/pl.u-aZbgZ9xC1xpM8zM"
 isPlayable: false
 ---
 

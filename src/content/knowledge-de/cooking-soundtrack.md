@@ -20,9 +20,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/2l45RZD5WYpRd1EhUhj9tq"
+  deezerPlaylist: "https://link.deezer.com/s/30xn3zdvtRdi3KVNY8U49"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-cooking-soundtrack/pl.u-JPAZ4R2CL2NZeJZ"
 isPlayable: false
 ---
 

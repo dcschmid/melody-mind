@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/5pNPoAdn9cN3AEGHcJ7SRw"
+  deezerPlaylist: "https://link.deezer.com/s/30xmXNgBq8eNYpRvaq1J6"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-christian-metal/pl.u-mJy8PP4CNVL5Jl5"
 isPlayable: false
 ---
 

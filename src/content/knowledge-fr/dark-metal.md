@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: fr
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4kLxAZTwwRQZywq46DoKXx"
+  deezerPlaylist: "https://link.deezer.com/s/30xncJoXSiYV1EG6uw2WB"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-dark-metal/pl.u-e98lb3pia8XvYev"
 isPlayable: false
 ---
 

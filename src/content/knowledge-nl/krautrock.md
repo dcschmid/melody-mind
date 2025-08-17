@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: nl
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/2eYaccfsfhafaoo5meenGV"
+  deezerPlaylist: "https://link.deezer.com/s/30xqlXTEbBS5iSJ2msPK6"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-krautrock/pl.u-DdAvLMoC01PVbgV"
 isPlayable: false
 ---
 

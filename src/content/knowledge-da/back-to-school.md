@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: da
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/1m5eAVpIeI5CXqjnBsrQoe"
+  deezerPlaylist: "https://link.deezer.com/s/30xjxb5lvfZ5juXuq85xX"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-back-to-school/pl.u-38oWlW8sYMoD7qD"
 isPlayable: false
 ---
 

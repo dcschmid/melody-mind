@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/5p2vX24aHMdLoKV6LbO9I2"
+  deezerPlaylist: "https://link.deezer.com/s/30xn3Sm8fukzKkTFf5sOt"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-coregrind/pl.u-aZb0AjZF1xpM8zM"
 isPlayable: false
 ---
 

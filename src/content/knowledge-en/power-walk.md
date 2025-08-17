@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/76U2UipcYhQ1MDTmJSegrQ"
+  deezerPlaylist: "https://link.deezer.com/s/30xqMVAoKSHzgSmZ8NKEj"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-power-walk/pl.u-d2bM2Z2CLJaz6dz"
 isPlayable: false
 ---
 

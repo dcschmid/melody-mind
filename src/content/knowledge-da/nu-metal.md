@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: da
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0I9y33ifhPHpTEj3ogwbIw"
+  deezerPlaylist: "https://link.deezer.com/s/30xqD2y7USlRuC3ZshEkZ"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-nu-metal/pl.u-JPADPbqtL2NZeJZ"
 isPlayable: false
 ---
 

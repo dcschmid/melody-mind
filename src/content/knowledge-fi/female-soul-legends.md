@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6fao1R0YMUKcnlfDo48tuK"
+  deezerPlaylist: "https://link.deezer.com/s/30xor6gTwWBcBphStoNyI"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-female-soul-legends/pl.u-11zBZebtNP6EVjE"
 isPlayable: false
 ---
 

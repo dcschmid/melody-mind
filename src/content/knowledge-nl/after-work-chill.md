@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: nl
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4kS3J37MezYFMTkCLYOvxK"
+  deezerPlaylist: "https://www.deezer.com/de/playlist/14069008281"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-after-work-chill/pl.u-76oNKqbuvedXrZX"
 isPlayable: false
 ---
 

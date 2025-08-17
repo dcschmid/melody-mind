@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: it
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6gw9nQdKvyaQyeETvgit2H"
+  deezerPlaylist: "https://link.deezer.com/s/30xs1P7nosbJ1sZv9QThY"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-uplifting/pl.u-mJy3vRRINVL5Jl5"
 isPlayable: false
 ---
 

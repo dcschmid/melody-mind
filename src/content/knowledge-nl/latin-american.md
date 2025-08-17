@@ -15,9 +15,9 @@ keywords:
 author: MelodyMind
 locale: nl
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0CoVTOelzqsqMPQpZLxw2R"
+  deezerPlaylist: "https://link.deezer.com/s/30xqmfvwzQtPGQ0wCtmmI"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-latin-american/pl.u-11zPlq1TNP6EVjE"
 isPlayable: false
 ---
 

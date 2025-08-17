@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: sv
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/44jaxuuX5dGy4vYpgAC7kq"
+  deezerPlaylist: "https://link.deezer.com/s/30xrZZnXspJjvHtmu2uHH"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-trance/pl.u-mJy36m8FNVL5Jl5"
 isPlayable: false
 ---
 

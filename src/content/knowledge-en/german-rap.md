@@ -19,9 +19,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3yjO2aMoJ6VqB103MXovYF"
+  deezerPlaylist: "https://link.deezer.com/s/30xpidMej4gway7u2iRw4"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-german-rap/pl.u-e98lxdLfa8XvYev"
 isPlayable: false
 ---
 

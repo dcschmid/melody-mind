@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: nl
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0OTG3TxHPRdIi0MeBVQUk8"
+  deezerPlaylist: "https://link.deezer.com/s/30xonRnzqJODqhk6EkgWv"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-female-pop-superstars/pl.u-V9D7BVEh3MGpZPp"
 isPlayable: false
 ---
 

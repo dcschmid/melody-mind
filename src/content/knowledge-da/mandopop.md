@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: da
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3LCEvhfcaNfremB4dBJZsT"
+  deezerPlaylist: "https://link.deezer.com/s/30xqoEgBuDo8NcTGx1ft1"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-mandopop/pl.u-38o9VEEuYMoD7qD"
 isPlayable: false
 ---
 

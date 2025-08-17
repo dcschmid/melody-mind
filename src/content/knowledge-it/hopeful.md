@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: it
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4xsenmnKLMkNFhJw0rCicV"
+  deezerPlaylist: "https://link.deezer.com/s/30xq4aUkDynsUQg092PL8"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-hopeful/pl.u-76oPx23svedXrZX"
 isPlayable: false
 ---
 

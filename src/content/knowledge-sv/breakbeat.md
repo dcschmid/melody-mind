@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: sv
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6tUYCnSGq2SspsKec8FMHI"
+  deezerPlaylist: "https://link.deezer.com/s/30xlHKxwJZmrIkNuEqKbD"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-breakbeat/pl.u-38oWlD4sYMoD7qD"
 isPlayable: false
 ---
 

@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4c29q4bAaHry6hjTlRh3me"
+  deezerPlaylist: "https://link.deezer.com/s/30xqz4iB6q7dM8NSssw3t"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-morning-coffee/pl.u-mJy3JRrTNVL5Jl5"
 isPlayable: false
 ---
 

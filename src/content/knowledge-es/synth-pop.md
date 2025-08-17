@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4zg5LoGCcBYzo1y3A9VScs"
+  deezerPlaylist: "https://link.deezer.com/s/30xrUvwXaTaO1swLGlG9m"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-synth-pop/pl.u-e98M2KDSa8XvYev"
 isPlayable: false
 ---
 

@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: da
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7uV35irgq5EcDPiZqijeGK"
+  deezerPlaylist: "https://link.deezer.com/s/30xrefEG3IaCUSsoSLEa7"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-rainy-day/pl.u-9N9vNq4u1mlEboE"
 isPlayable: false
 ---
 

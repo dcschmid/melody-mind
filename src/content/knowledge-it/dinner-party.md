@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: it
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/1MXL5jkBocvGOcs8Ykel3A"
+  deezerPlaylist: "https://link.deezer.com/s/30xniMYeoV2EWvyw559NT"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-dinner-party/pl.u-e98lbA9Ta8XvYev"
 isPlayable: false
 ---
 

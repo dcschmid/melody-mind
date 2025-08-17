@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: da
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/48UEHKFT7ibAyQkjbPsbZz"
+  deezerPlaylist: "https://link.deezer.com/s/30xndZZjulU0HkuNStwsG"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-desert-rock/pl.u-DdANzeaC01PVbgV"
 isPlayable: false
 ---
 

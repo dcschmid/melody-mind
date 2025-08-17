@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: sv
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3MQSUoijej25f4IvRcNFuu"
+  deezerPlaylist: "https://link.deezer.com/s/30xrMZ3bVAQANzrNNbdVq"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-spring-awakening/pl.u-76oPjbbTvedXrZX"
 isPlayable: false
 ---
 

@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: fr
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/5cSR9zgjs7z4qQAH2bDx7s"
+  deezerPlaylist: "https://link.deezer.com/s/30xq13SjcTQnlRQWezWki"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-heavy-metal/pl.u-mJy3kvJtNVL5Jl5"
 isPlayable: false
 ---
 

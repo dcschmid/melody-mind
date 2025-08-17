@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4U5LB1XOwvS1sG3F8c8z8Y"
+  deezerPlaylist: "https://link.deezer.com/s/30xoml3lyya1YCjrGHsIU"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-female-grunge-artists/pl.u-JPAZaXqCL2NZeJZ"
 isPlayable: false
 ---
 

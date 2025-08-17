@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: nl
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0VlTb0z56ti1huWjLVizq7"
+  deezerPlaylist: "https://link.deezer.com/s/30xphzpel1hyP1hitcOV2"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-garage/pl.u-d2b0AdXCLJaz6dz"
 isPlayable: false
 ---
 

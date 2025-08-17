@@ -19,9 +19,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7pJnAa3cTUaKb8LgudSekp"
+  deezerPlaylist: "https://link.deezer.com/s/30xolMe3YtTBWnc0FQFDZ"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-female-country-stars/pl.u-V9D7BeGh3MGpZPp"
 isPlayable: false
 ---
 

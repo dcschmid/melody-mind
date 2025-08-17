@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/14Co12mZWx9jgHEKulsSBK"
+  deezerPlaylist: "https://link.deezer.com/s/30xn27jZ8rTEOD2jNY0wV"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-colombian/pl.u-aZb0Ayru1xpM8zM"
 isPlayable: false
 ---
 

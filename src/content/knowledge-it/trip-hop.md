@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: it
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3X8NoU1NLB21tRWNfj6152"
+  deezerPlaylist: "https://link.deezer.com/s/30xs0CSQWNYNsyA9Fpwpa"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-trip-hop/pl.u-38o9BGEsYMoD7qD"
 isPlayable: false
 ---
 

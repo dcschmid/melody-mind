@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: nl
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3YxmVJTv0OBE5pnBMI7moN"
+  deezerPlaylist: "https://link.deezer.com/s/30xq9alupoIFe5R5XC2P3"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-indian/pl.u-JPADXGNuL2NZeJZ"
 isPlayable: false
 ---
 

@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/1Vb4Gy3vBTiXTjJXoNGiyx"
+  deezerPlaylist: "https://link.deezer.com/s/30xnk5cE1L62RqzHXNFti"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-downtempo/pl.u-9N9LxBLT1mlEboE"
 isPlayable: false
 ---
 

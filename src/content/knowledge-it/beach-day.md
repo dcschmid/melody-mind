@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: it
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3uz3NhNxjPWzRQvI5Oiw3s"
+  deezerPlaylist: "https://link.deezer.com/s/30xlpOVIT7k3AuSIgYVsb"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-beach-day/pl.u-DdANPxPt01PVbgV"
 isPlayable: false
 ---
 

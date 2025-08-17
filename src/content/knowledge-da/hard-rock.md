@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: da
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/63XydkRj7fZpayJPB7HK8R"
+  deezerPlaylist: "https://link.deezer.com/s/30xpSVrRxJElvSfEr1zao"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-hard-rock/pl.u-76oNvmpsvedXrZX"
 isPlayable: false
 ---
 

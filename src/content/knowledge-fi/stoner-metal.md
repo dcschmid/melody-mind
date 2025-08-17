@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/2qSbx9BAX2u6uvW8AIKqEN"
+  deezerPlaylist: "https://link.deezer.com/s/30xrNePoWpFyXorddvVTo"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-stoner-metal/pl.u-JPADjqJsL2NZeJZ"
 isPlayable: false
 ---
 

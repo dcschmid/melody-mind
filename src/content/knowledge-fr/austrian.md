@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: fr
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/2azjaIZIUNQ1Xq8Mbo49MX"
+  deezerPlaylist: "https://link.deezer.com/s/30xgBmbg9JpjYTECXB6KM"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-austrian/pl.u-d2b0V2LsLJaz6dz"
 isPlayable: false
 ---
 

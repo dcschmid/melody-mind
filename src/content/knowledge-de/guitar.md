@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4H3AxtCWqQgf4qGEL77u2s"
+  deezerPlaylist: "https://link.deezer.com/s/30xpQHGyDFplW5Y9pcSJb"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-guitar/pl.u-mJy8mdETNVL5Jl5"
 isPlayable: false
 ---
 

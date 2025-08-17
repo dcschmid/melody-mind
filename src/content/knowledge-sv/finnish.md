@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: sv
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7KY8Hb1H55zZGezrxoGo6v"
+  deezerPlaylist: "https://link.deezer.com/s/30xp5mJ4VOf47qOE3Vb4x"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-finnish/pl.u-JPAZaEGsL2NZeJZ"
 isPlayable: false
 ---
 

@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: sv
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/5gTccByda9bdZN9LHJaV4N"
+  deezerPlaylist: "https://link.deezer.com/s/30xoqRk3sYUw5SaGI2Fxm"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-female-rock-metal-vocalists/pl.u-aZb0234u1xpM8zM"
 isPlayable: false
 ---
 

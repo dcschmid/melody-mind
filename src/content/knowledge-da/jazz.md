@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: da
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3JwxUOwU34kAXCuewyhRiG"
+  deezerPlaylist: "https://link.deezer.com/s/30xqg8t7i5BL8E0OdXau1"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-jazz/pl.u-e98MvNDUa8XvYev"
 isPlayable: false
 ---
 

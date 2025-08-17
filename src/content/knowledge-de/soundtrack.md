@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0GRfN2yjDpRdtTs7BRutfS"
+  deezerPlaylist: "https://link.deezer.com/s/30xrJCAGScRE2k4EYahOo"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-soundtrack/pl.u-aZbgeB6T1xpM8zM"
 isPlayable: false
 ---
 

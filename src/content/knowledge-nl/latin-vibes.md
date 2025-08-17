@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: nl
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/1TnPoppl7YNwO1X3ciulqy"
+  deezerPlaylist: "https://link.deezer.com/s/30xqmuGNbmsMGMoozU4U0"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-latin-vibes/pl.u-d2bMpyjCLJaz6dz"
 isPlayable: false
 ---
 

@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/21nF5x3t6PpLOBiVmZCsTx"
+  deezerPlaylist: "https://link.deezer.com/s/30xpP8DZmI4lm6CUT6hRj"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-groove/pl.u-DdANVEet01PVbgV"
 isPlayable: false
 ---
 

@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0dY7hTfT8xLixqDmuTsSe7"
+  deezerPlaylist: "https://link.deezer.com/s/30xqzv5gysrOWcSAHPf5s"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-new-age/pl.u-76oP67ytvedXrZX"
 isPlayable: false
 ---
 

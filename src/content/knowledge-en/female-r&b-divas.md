@@ -20,9 +20,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7bFTsjuZPbCMupw8n9aTs0"
+  deezerPlaylist: "https://link.deezer.com/s/30xoq8sEJFZWqQaKAbK3r"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-female-r-b-divas/pl.u-76oNv5NTvedXrZX"
 isPlayable: false
 ---
 

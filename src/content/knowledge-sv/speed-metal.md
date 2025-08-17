@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: sv
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/2GKZ1b1EGrUeoNjNUMSmhD"
+  deezerPlaylist: "https://link.deezer.com/s/30xrK1J6I3P9Epg0BkiIp"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-speed-metal/pl.u-aZbgev4F1xpM8zM"
 isPlayable: false
 ---
 

@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3es0xOlJewTjMoru2YwAxA"
+  deezerPlaylist: "https://link.deezer.com/s/30xq0OHkRpIx16wdIBSgl"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-hawaiian/pl.u-9N9vkD4T1mlEboE"
 isPlayable: false
 ---
 

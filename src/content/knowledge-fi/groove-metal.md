@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/1MnijGQ8PPUl64RjKZBY0j"
+  deezerPlaylist: "https://link.deezer.com/s/30xpPn0t6oNfOWWaRGzPX"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-groove-metal/pl.u-38oWP65uYMoD7qD"
 isPlayable: false
 ---
 

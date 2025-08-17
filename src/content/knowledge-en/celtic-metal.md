@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/5Rx08qQTBlYlFd6QHzixxP"
+  deezerPlaylist: "https://link.deezer.com/s/30xlMmOZDy2T7RMImL02T"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-celtic-metal/pl.u-V9D7KYpF3MGpZPp"
 isPlayable: false
 ---
 

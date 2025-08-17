@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6944WLwTzLxB7kQK7jOAbU"
+  deezerPlaylist: "https://link.deezer.com/s/30xqJfRRMJYel3tuSABAu"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-power-metal/pl.u-aZbgZpxT1xpM8zM"
 isPlayable: false
 ---
 

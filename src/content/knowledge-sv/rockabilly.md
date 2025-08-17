@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: sv
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/556VDLysUKkswai3seOpKW"
+  deezerPlaylist: "https://link.deezer.com/s/30xrp9DFtMS0XmcYP032M"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-rockabilly/pl.u-9N9vDDLT1mlEboE"
 isPlayable: false
 ---
 

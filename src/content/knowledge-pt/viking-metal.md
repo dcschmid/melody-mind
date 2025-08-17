@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: pt
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0OjibyRFWJjYqe9YAKRuBb"
+  deezerPlaylist: "https://link.deezer.com/s/30xs5YHW93SiX0jhaRRWW"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-viking-metal/pl.u-V9DgRzNc3MGpZPp"
 isPlayable: false
 ---
 

@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: it
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/1IYMMI3F3zgGqlMPMTjbKu"
+  deezerPlaylist: "https://link.deezer.com/s/30xrNKCKckqBhsNaCvji9"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-summer-hits/pl.u-11zPLbahNP6EVjE"
 isPlayable: false
 ---
 

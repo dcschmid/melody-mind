@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: fr
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/2RvZ9AlHnhPOYRL6nNbvGm"
+  deezerPlaylist: "https://link.deezer.com/s/30xqtZAcqxYNKPDaugId4"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-melodic-death-metal/pl.u-V9DgePEu3MGpZPp"
 isPlayable: false
 ---
 

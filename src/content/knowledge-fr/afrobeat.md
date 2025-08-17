@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: fr
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/29mXorpfIu5oh5KscLq5W9"
+  deezerPlaylist: "https://link.deezer.com/s/30xfhjzRimDDH9rheEnUq"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-afrobeat/pl.u-11zBoMbfNP6EVjE"
 isPlayable: false
 ---
 

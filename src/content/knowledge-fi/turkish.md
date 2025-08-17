@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6h7qPSuiI8Wx3dfpMzKSRP"
+  deezerPlaylist: "https://link.deezer.com/s/30xs140nW7UBaaMNIMkhH"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-turkish/pl.u-DdAvkmPt01PVbgV"
 isPlayable: false
 ---
 

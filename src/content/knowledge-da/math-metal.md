@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: da
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/1NwtA5C8GbRopgvvnvqDrQ"
+  deezerPlaylist: "https://link.deezer.com/s/30xqtjh6DoSz7KXyRaQQ8"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-math-metal/pl.u-DdAvLqPC01PVbgV"
 isPlayable: false
 ---
 

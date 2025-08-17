@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: nl
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0EaNvDdyth2iYz3yx8hH0i"
+  deezerPlaylist: "https://link.deezer.com/s/30xlD8nQW7xGMymaLFcsg"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-bluegrass/pl.u-DdANPAeC01PVbgV"
 isPlayable: false
 ---
 

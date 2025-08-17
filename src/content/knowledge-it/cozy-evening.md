@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: it
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7sjaWu1uWwHRn3nTyNbV3s"
+  deezerPlaylist: "https://link.deezer.com/s/30xn6I6QxAb9O0Mys7Clp"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-cozy-evening/pl.u-aZb0A7vu1xpM8zM"
 isPlayable: false
 ---
 

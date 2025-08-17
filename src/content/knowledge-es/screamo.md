@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7gUWpIJPdTrL0Y43ovrp7N"
+  deezerPlaylist: "https://link.deezer.com/s/30xrBQgez4FrsyXdprkwq"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-screamo/pl.u-76oPj2pTvedXrZX"
 isPlayable: false
 ---
 

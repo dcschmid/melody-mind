@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: es
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3mHg5M8yUwAlRs0uvDvrVZ"
+  deezerPlaylist: "https://link.deezer.com/s/30xpl4UVdSVjp5Ow5L4x8"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-grindcore/pl.u-e98lxalsa8XvYev"
 isPlayable: false
 ---
 

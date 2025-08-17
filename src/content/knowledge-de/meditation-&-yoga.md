@@ -19,9 +19,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/5WSNj9MxcAayhCDRhKfvV7"
+  deezerPlaylist: "https://link.deezer.com/s/30xqtwmkB7Vp4STzn58eE"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-meditation-yoga/pl.u-9N9vkMNC1mlEboE"
 isPlayable: false
 ---
 

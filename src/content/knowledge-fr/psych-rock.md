@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: fr
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/2JcvD7e7uqgHuYBF5qgcUa"
+  deezerPlaylist: "https://link.deezer.com/s/30xqNLqdFdTOar8Y47jkU"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-psych-rock/pl.u-e98M97pHa8XvYev"
 isPlayable: false
 ---
 

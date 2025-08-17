@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6dWrzgn8cZBbx2B4TLC1ot"
+  deezerPlaylist: "https://link.deezer.com/s/30xlcwMdbGk77WcCDQgDv"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-balkan-music-2025/pl.u-d2b0Vq0CLJaz6dz"
 isPlayable: false
 ---
 

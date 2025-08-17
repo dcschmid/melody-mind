@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: fr
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/46JP4chUP0hnmrMIFQBHU0"
+  deezerPlaylist: "https://link.deezer.com/s/30xquUKtBZfKX9yAXJ59e"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-metalcore/pl.u-DdAvLV3t01PVbgV"
 isPlayable: false
 ---
 

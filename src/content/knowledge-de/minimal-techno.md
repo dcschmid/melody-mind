@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/2wrtCEG49n7pe4pnL9DTOP"
+  deezerPlaylist: "https://link.deezer.com/s/30xqyOsM1apDJx3pAXJKr"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-minimal-techno/pl.u-V9Dg9e9H3MGpZPp"
 isPlayable: false
 ---
 

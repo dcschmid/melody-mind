@@ -19,9 +19,9 @@ keywords:
 author: MelodyMind
 locale: en
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/0EM4XAOI6HmzCM7LnmkSmG"
+  deezerPlaylist: "https://link.deezer.com/s/30xrOLNSX6zA7c2Dw5lB4"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-sunset-vibes/pl.u-aZbgeP0I1xpM8zM"
 isPlayable: false
 ---
 

@@ -16,9 +16,9 @@ keywords:
 author: MelodyMind
 locale: sv
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/7BkXp7SjOXPpLfKDkzlMKN"
+  deezerPlaylist: "https://link.deezer.com/s/30xrHXifv8QEwCMKOSlhJ"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-sludge-metal/pl.u-76oPjPBTvedXrZX"
 isPlayable: false
 ---
 

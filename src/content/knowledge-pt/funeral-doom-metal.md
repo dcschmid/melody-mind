@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: pt
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/31CHA2qjP90IXcLUbUg6ce"
+  deezerPlaylist: "https://link.deezer.com/s/30xpcf6vZ8CVwPTZQsH2q"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-funeral-doom-metal/pl.u-e98lx1jfa8XvYev"
 isPlayable: false
 ---
 

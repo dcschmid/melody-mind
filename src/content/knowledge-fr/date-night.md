@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: fr
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/17qLsk8c4KXYmCvW7ADlCz"
+  deezerPlaylist: "https://link.deezer.com/s/30xncXTrcoTFwg9M6Wh0O"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-date-night/pl.u-d2b0eLjsLJaz6dz"
 isPlayable: false
 ---
 

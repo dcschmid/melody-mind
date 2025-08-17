@@ -15,9 +15,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4M4VdveKKRReQ3Rxah3yQH"
+  deezerPlaylist: "https://link.deezer.com/s/30xmY7Ls2iMlMENT92IgK"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-christmas-classics/pl.u-V9D7KKKH3MGpZPp"
 isPlayable: false
 ---
 

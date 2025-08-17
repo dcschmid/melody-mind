@@ -17,9 +17,9 @@ keywords:
 author: MelodyMind
 locale: fi
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/4zYM1OGrfifAjTJ7DcZNTL"
+  deezerPlaylist: "https://link.deezer.com/s/30xnABtUuw7FmQd27uM81"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-drum-and-bass/pl.u-mJy8lXPFNVL5Jl5"
 isPlayable: false
 ---
 

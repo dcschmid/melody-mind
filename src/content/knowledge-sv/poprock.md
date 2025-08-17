@@ -18,9 +18,9 @@ keywords:
 author: MelodyMind
 locale: sv
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3HoVFg1PP3d0ae3iHkGOsH"
+  deezerPlaylist: "https://link.deezer.com/s/30xqHHKIgCORYFQGIRUn2"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-pop-rock-2025/pl.u-11zP17gUNP6EVjE"
 isPlayable: false
 ---
 
