@@ -1,0 +1,188 @@
+---
+export interface Props {
+  categories: Array<{
+    type: string;
+    title: string;
+    icon: string;
+  }>;
+  selectedValue?: string;
+  className?: string;
+}
+
+const { categories, selectedValue = "all", className = "" } = Astro.props;
+---
+
+<div class={`filter-container ${className}`} role="search">
+  <div class="filter-dropdown">
+    <label for="category-filter" class="filter-label"> Filter by category: </label>
+    <select
+      id="category-filter"
+      class="filter-select"
+      name="category-filter"
+      aria-label="Filter by category:"
+      aria-controls="genre-content"
+      data-selected={selectedValue}
+    >
+      <option value="all">All Categories</option>
+      {categories.map((category) => <option value={category.type}>{category.title}</option>)}
+    </select>
+  </div>
+</div>
+
+<style lang="scss">
+  /* ======================================
+   * FILTER CONTAINER - DROPDOWN DESIGN
+   * ====================================== */
+  .filter-container {
+    contain: layout style paint;
+    margin-bottom: var(--space-lg);
+
+    @media (min-width: 48em) {
+      margin-bottom: var(--space-xl);
+    }
+  }
+
+  .filter-dropdown {
+    position: relative;
+    margin: 0 auto;
+    contain: layout style;
+    max-width: var(--width-full);
+
+    @media (min-width: 20em) {
+      max-width: var(--container-sm);
+    }
+
+    @media (min-width: 48em) {
+      max-width: var(--container-md);
+    }
+  }
+
+  .filter-label {
+    display: block;
+    margin-bottom: var(--space-sm);
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+
+    @media (min-width: 48em) {
+      font-size: var(--text-base);
+      margin-bottom: var(--space-md);
+    }
+  }
+
+  .filter-select {
+    width: var(--width-full);
+    border: var(--border-width-thin) solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    background-color: var(--form-bg);
+    color: var(--form-text);
+    line-height: var(--leading-normal);
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm);
+    contain: layout style paint;
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-base);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right var(--space-sm) center;
+    background-size: var(--icon-size-sm);
+    padding-right: var(--space-3xl);
+
+    @media (min-width: 20em) {
+      padding: var(--space-md) var(--space-lg);
+      font-size: var(--text-lg);
+      padding-right: var(--space-4xl);
+    }
+
+    &:focus {
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-ring-offset);
+      border-color: var(--interactive-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    &:hover {
+      border-color: var(--border-secondary);
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (prefers-contrast: high) {
+      border-width: var(--border-width-thick);
+    }
+
+    /* Custom styling for options */
+    option {
+      background-color: var(--form-bg);
+      color: var(--form-text);
+      padding: var(--space-sm);
+    }
+  }
+</style>
+
+<script>
+  // Category filter functionality - reusable across pages
+  class CategoryFilter {
+    private filterSelect: HTMLSelectElement | null;
+    private categoryGroups: NodeListOf<Element>;
+    private targetSelector: string;
+
+    constructor(targetSelector: string = ".category-group") {
+      this.filterSelect = document.getElementById("category-filter") as HTMLSelectElement;
+      this.categoryGroups = document.querySelectorAll(targetSelector);
+      this.targetSelector = targetSelector;
+
+      if (this.filterSelect) {
+        this.init();
+      }
+    }
+
+    private init = (): void => {
+      this.filterSelect!.addEventListener("change", this.handleFilterChange);
+
+      // Set initial state based on data-selected attribute
+      const initialValue = this.filterSelect!.getAttribute("data-selected") || "all";
+      this.filterSelect!.value = initialValue;
+      this.filterCategories(initialValue);
+    };
+
+    private handleFilterChange = (event: Event): void => {
+      const target = event.target as HTMLSelectElement;
+      const selectedValue = target.value;
+      this.filterCategories(selectedValue);
+    };
+
+    private filterCategories = (selectedType: string): void => {
+      this.categoryGroups.forEach((group) => {
+        if (group instanceof HTMLElement) {
+          if (selectedType === "all") {
+            // Show all category groups
+            group.style.display = "";
+            group.setAttribute("aria-hidden", "false");
+          } else {
+            // Check if this group has the matching data-category-type attribute
+            const groupCategoryType = group.getAttribute("data-category-type");
+            const shouldShow = groupCategoryType === selectedType;
+
+            group.style.display = shouldShow ? "" : "none";
+            group.setAttribute("aria-hidden", (!shouldShow).toString());
+          }
+        }
+      });
+    };
+  }
+
+  // Initialize filter functionality
+  const initFilter = (): void => {
+    new CategoryFilter();
+  };
+
+  // Initialize when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initFilter);
+  } else {
+    initFilter();
+  }
+</script>
