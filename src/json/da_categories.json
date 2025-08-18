@@ -10,7 +10,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/5K9w1qBruSoCY0XCHyKq2a",
     "deezerPlaylist": "https://link.deezer.com/s/30x5aOVgrllLx9ch4NUX5",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-1950s/pl.u-76oNK0muvedXrZX",
-    "knowledgeUrl": "/da/knowledge/1950s"
+    "knowledgeUrl": "/da/knowledge/1950s",
+    "categoryType": "decade"
   },
   {
     "categoryUrl": "/1960s",
@@ -23,7 +24,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/2zapTa5myPEQ5W7iBF271h",
     "deezerPlaylist": "https://link.deezer.com/s/30x5bKWXuO3BM1KexrSo9",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-1960s/pl.u-JPAZpKPTL2NZeJZ",
-    "knowledgeUrl": "/da/knowledge/1960s"
+    "knowledgeUrl": "/da/knowledge/1960s",
+    "categoryType": "decade"
   },
   {
     "categoryUrl": "/1970s",
@@ -36,7 +38,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/0w349iRF4OnsL4Qd42Zk8A",
     "deezerPlaylist": "https://link.deezer.com/s/30x5pb2EmiWzKWMok2BqA",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-1970s/pl.u-9N9LR3et1mlEboE",
-    "knowledgeUrl": "/da/knowledge/1970s"
+    "knowledgeUrl": "/da/knowledge/1970s",
+    "categoryType": "decade"
   },
   {
     "categoryUrl": "/1980s",
@@ -49,7 +52,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/6t92knmmCDH2URtMZypbsp",
     "deezerPlaylist": "https://link.deezer.com/s/30x5wBZhKzHbt79KEPcY9",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-1980s/pl.u-mJy8L07sNVL5Jl5",
-    "knowledgeUrl": "/da/knowledge/1980s"
+    "knowledgeUrl": "/da/knowledge/1980s",
+    "categoryType": "decade"
   },
   {
     "categoryUrl": "/1990s",
@@ -62,7 +66,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/7sw4ATjkuUrrcE38oHPVfu",
     "deezerPlaylist": "https://link.deezer.com/s/30x5XBT5yEUSSfi9Y221i",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-1990s/pl.u-V9D7MNdU3MGpZPp",
-    "knowledgeUrl": "/da/knowledge/1990s"
+    "knowledgeUrl": "/da/knowledge/1990s",
+    "categoryType": "decade"
   },
   {
     "categoryUrl": "/2000s",
@@ -75,7 +80,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/6IY7RnLIlr9PuAWTfRU2jf",
     "deezerPlaylist": "https://link.deezer.com/s/30x64RRNK0zeeTvbIxNIt",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-2000s/pl.u-76oNK33uvedXrZX",
-    "knowledgeUrl": "/da/knowledge/2000s"
+    "knowledgeUrl": "/da/knowledge/2000s",
+    "categoryType": "decade"
   },
   {
     "categoryUrl": "/2010s",
@@ -88,7 +94,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/19awPEqnAcGPSt0tASDvFu",
     "deezerPlaylist": "https://link.deezer.com/s/30x6gZge1Bc4ghYAC6Xbb",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-2010s/pl.u-JPAZp3VFL2NZeJZ",
-    "knowledgeUrl": "/da/knowledge/2010s"
+    "knowledgeUrl": "/da/knowledge/2010s",
+    "categoryType": "decade"
   },
   {
     "categoryUrl": "/female-blues-legends",
@@ -101,7 +108,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/0B1lCvZ39NNGfYurue3SVj",
     "deezerPlaylist": "https://www.deezer.com/de/playlist/14071303901",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-experimental-metal/pl.u-mJy8lq0INVL5Jl5",
-    "knowledgeUrl": "/da/knowledge/female-blues-legends"
+    "knowledgeUrl": "/da/knowledge/female-blues-legends",
+    "categoryType": "female"
   },
   {
     "categoryUrl": "/female-country-stars",
@@ -114,7 +122,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/7pJnAa3cTUaKb8LgudSekp",
     "deezerPlaylist": "https://link.deezer.com/s/30xolMe3YtTBWnc0FQFDZ",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-country-stars/pl.u-V9D7BeGh3MGpZPp",
-    "knowledgeUrl": "/da/knowledge/female-country-stars"
+    "knowledgeUrl": "/da/knowledge/female-country-stars",
+    "categoryType": "female"
   },
   {
     "categoryUrl": "/female-djs",
@@ -127,7 +136,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/6G0z7MeFF9le1mHhAylvIu",
     "deezerPlaylist": "https://link.deezer.com/s/30xom0b0AbVFqvPmKYyIN",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-djs/pl.u-76oNvxeTvedXrZX",
-    "knowledgeUrl": "/da/knowledge/female-djs"
+    "knowledgeUrl": "/da/knowledge/female-djs",
+    "categoryType": "female"
   },
   {
     "categoryUrl": "/female-grunge-artists",
@@ -140,7 +150,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/4U5LB1XOwvS1sG3F8c8z8Y",
     "deezerPlaylist": "https://link.deezer.com/s/30xoml3lyya1YCjrGHsIU",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-grunge-artists/pl.u-JPAZaXqCL2NZeJZ",
-    "knowledgeUrl": "/da/knowledge/female-grunge-artists"
+    "knowledgeUrl": "/da/knowledge/female-grunge-artists",
+    "categoryType": "female"
   },
   {
     "categoryUrl": "/female-hip-hop-artists",
@@ -153,7 +164,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/5uQxagiQxkL0yY48y9tsxd",
     "deezerPlaylist": "https://link.deezer.com/s/30xomCVcQGXOJD6tGQHdS",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-hip-hop-artists/pl.u-aZb02m5u1xpM8zM",
-    "knowledgeUrl": "/da/knowledge/female-hip-hop-artists"
+    "knowledgeUrl": "/da/knowledge/female-hip-hop-artists",
+    "categoryType": "female"
   },
   {
     "categoryUrl": "/female-jazz-vocalists",
@@ -166,7 +178,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/6qXhNB2hp262T8JkJDfr3a",
     "deezerPlaylist": "https://link.deezer.com/s/30xonk04ewq4y75XSQCb6",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-jazz-vocalists/pl.u-76oNvx3TvedXrZX",
-    "knowledgeUrl": "/da/knowledge/female-jazz-vocalists"
+    "knowledgeUrl": "/da/knowledge/female-jazz-vocalists",
+    "categoryType": "female"
   },
   {
     "categoryUrl": "/female-pop-superstars",
@@ -179,7 +192,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/0OTG3TxHPRdIi0MeBVQUk8",
     "deezerPlaylist": "https://link.deezer.com/s/30xonRnzqJODqhk6EkgWv",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-pop-superstars/pl.u-V9D7BVEh3MGpZPp",
-    "knowledgeUrl": "/da/knowledge/female-pop-superstars"
+    "knowledgeUrl": "/da/knowledge/female-pop-superstars",
+    "categoryType": "female"
   },
   {
     "categoryUrl": "/female-rappers",
@@ -192,7 +206,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/4MPwwjf3lUpKaByZGGZqAM",
     "deezerPlaylist": "https://link.deezer.com/s/30xoqzIRBYiHYHV91wXwk",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-rappers/pl.u-JPAZa59uL2NZeJZ",
-    "knowledgeUrl": "/da/knowledge/female-rappers"
+    "knowledgeUrl": "/da/knowledge/female-rappers",
+    "categoryType": "female"
   },
   {
     "categoryUrl": "/female-rb-divas",
@@ -205,7 +220,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/7bFTsjuZPbCMupw8n9aTs0",
     "deezerPlaylist": "https://link.deezer.com/s/30xoq8sEJFZWqQaKAbK3r",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-r-b-divas/pl.u-76oNv5NTvedXrZX",
-    "knowledgeUrl": "/da/knowledge/female-rb-divas"
+    "knowledgeUrl": "/da/knowledge/female-rb-divas",
+    "categoryType": "female"
   },
   {
     "categoryUrl": "/female-rockmetal-vocalists",
@@ -218,7 +234,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/5gTccByda9bdZN9LHJaV4N",
     "deezerPlaylist": "https://link.deezer.com/s/30xoqRk3sYUw5SaGI2Fxm",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-rock-metal-vocalists/pl.u-aZb0234u1xpM8zM",
-    "knowledgeUrl": "/da/knowledge/female-rockmetal-vocalists"
+    "knowledgeUrl": "/da/knowledge/female-rockmetal-vocalists",
+    "categoryType": "female"
   },
   {
     "categoryUrl": "/female-soul-legends",
@@ -231,7 +248,8 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/6fao1R0YMUKcnlfDo48tuK",
     "deezerPlaylist": "https://link.deezer.com/s/30xor6gTwWBcBphStoNyI",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-soul-legends/pl.u-11zBZebtNP6EVjE",
-    "knowledgeUrl": "/da/knowledge/female-soul-legends"
+    "knowledgeUrl": "/da/knowledge/female-soul-legends",
+    "categoryType": "female"
   },
   {
     "categoryUrl": "/female-vocal-icons",
@@ -244,6 +262,7 @@
     "spotifyPlaylist": "https://open.spotify.com/playlist/6ClyY4xbhg17BvxvETMY5k",
     "deezerPlaylist": "https://link.deezer.com/s/30xp4Mo1bvPl3Vej7hSU9",
     "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-vocal-icons/pl.u-aZb02kZC1xpM8zM",
-    "knowledgeUrl": "/da/knowledge/female-vocal-icons"
+    "knowledgeUrl": "/da/knowledge/female-vocal-icons",
+    "categoryType": "female"
   }
 ]

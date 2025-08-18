@@ -5,7 +5,8 @@ import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
-import { Icon } from "astro-icon/components";
+import CategoryFilter from "@components/CategoryFilter.astro";
+
 import EmptyState from "@components/EmptyState.astro";
 import LoadingState from "@components/LoadingState.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
@@ -60,6 +61,31 @@ interface Category {
   introSubline: string;
   slug: string;
   text: string;
+  categoryType:
+    | "decade"
+    | "female"
+    | "genre"
+    | "other"
+    | "classic-rock"
+    | "metal-classic"
+    | "metal-modern"
+    | "metal-avantgarde"
+    | "mainstream-pop"
+    | "indie-alternative"
+    | "global-pop"
+    | "jazz-soul-funk"
+    | "hip-hop-rap"
+    | "house-techno"
+    | "club-sounds"
+    | "breaks-experimental"
+    | "latin-vibes"
+    | "caribbean-afro"
+    | "folk-regional"
+    | "classical-orchestral"
+    | "countries-regional"
+    | "emotional"
+    | "seasonal"
+    | "situational";
 }
 
 /**
@@ -182,6 +208,7 @@ function isPlayableCategory(item: any): item is Category & { categoryUrl: string
     typeof item.slug === "string" &&
     typeof item.text === "string" &&
     typeof item.categoryUrl === "string" &&
+    typeof item.categoryType === "string" &&
     Boolean(item.categoryUrl)
   );
 }
@@ -190,8 +217,56 @@ function isPlayableCategory(item: any): item is Category & { categoryUrl: string
 const playableCategories = categories.filter(isPlayableCategory);
 const nonPlayableCategories = categories.filter((item) => item && !item.isPlayable);
 
-// Combined categories with playable ones first
-const sortedCategories = [...playableCategories, ...nonPlayableCategories];
+// Sort categories by type and then by name within each type
+function sortCategoriesByType(categories: Category[]): Category[] {
+  const typeOrder = {
+    decade: 1,
+    female: 2,
+    "classic-rock": 3,
+    "metal-classic": 4,
+    "metal-modern": 5,
+    "metal-avantgarde": 6,
+    "mainstream-pop": 7,
+    "indie-alternative": 8,
+    "global-pop": 9,
+    "jazz-soul-funk": 10,
+    "hip-hop-rap": 11,
+    "house-techno": 12,
+    "club-sounds": 13,
+    "breaks-experimental": 14,
+    "latin-vibes": 15,
+    "caribbean-afro": 16,
+    "folk-regional": 17,
+    "classical-orchestral": 18,
+    "countries-regional": 19,
+    emotional: 20,
+    seasonal: 21,
+    situational: 22,
+    genre: 23,
+    other: 24,
+  };
+
+  return categories.sort((a, b) => {
+    // First sort by type
+    if (typeOrder[a.categoryType] !== typeOrder[b.categoryType]) {
+      return typeOrder[a.categoryType] - typeOrder[b.categoryType];
+    }
+
+    // Within same type, sort decades chronologically, others alphabetically
+    if (a.categoryType === "decade") {
+      return a.slug.localeCompare(b.slug);
+    }
+
+    return a.headline.localeCompare(b.headline);
+  });
+}
+
+// Sort categories by type and playability
+const sortedPlayableCategories = sortCategoriesByType(playableCategories);
+const sortedNonPlayableCategories = sortCategoriesByType(nonPlayableCategories);
+
+// Combined categories with playable ones first, sorted by type
+const sortedCategories = [...sortedPlayableCategories, ...sortedNonPlayableCategories];
 
 // Enhanced SEO content generation for better search visibility
 const title = t("game.select");
@@ -298,44 +373,103 @@ const clientTranslations = generateClientTranslations(t);
     </header>
 
     <section class="genre-selection" aria-labelledby="playlist-heading">
-      <!-- Enhanced search input with better a11y and SEO -->
-      <div class="search-container" role="search">
-        <div class="search-container__wrapper">
-          <div class="search-container__icon" aria-hidden="true">
-            <Icon name="search" class="search-container__icon-element" />
-          </div>
-          <label for="filter-input" class="search-container__label sr-only">
-            {t("game.search.label")}
-          </label>
-          <input
-            class="search-container__input"
-            type="search"
-            id="filter-input"
-            name="genre-search"
-            placeholder={t("game.search.label")}
-            aria-label={t("game.search.label")}
-            aria-controls="playlist-grid"
-            aria-describedby="search-description"
-            spellcheck="false"
-            autocomplete="off"
-            enterkeyhint="search"
-          />
-          <button
-            type="button"
-            class="search-container__clear"
-            aria-label={t("game.search.clear")}
-            hidden
-          >
-            <Icon name="x" aria-hidden="true" />
-          </button>
-          <span id="search-description" class="sr-only">
-            {t("game.search.help")}
-          </span>
-        </div>
-        <div class="search-container__results-info" aria-live="polite" aria-atomic="true">
-          <!-- Results information will be populated by JavaScript -->
-        </div>
-      </div>
+      <!-- Category Filter Dropdown -->
+      <CategoryFilter
+        categories={[
+          { type: "decade", title: t("game.filter.decades") || "Decades", icon: "📅" },
+          { type: "female", title: t("game.filter.female") || "Female Artists", icon: "👩‍🎤" },
+          {
+            type: "classic-rock",
+            title: t("game.filter.classic-rock") || "Classic Rock & Hard Rock",
+            icon: "🎸",
+          },
+          {
+            type: "metal-classic",
+            title: t("game.filter.metal-classic") || "Metal – Klassiker",
+            icon: "⚡",
+          },
+          {
+            type: "metal-modern",
+            title: t("game.filter.metal-modern") || "Modern Metal",
+            icon: "🔥",
+          },
+          {
+            type: "metal-avantgarde",
+            title: t("game.filter.metal-avantgarde") || "Avantgarde & Extreme Metal",
+            icon: "🎭",
+          },
+          {
+            type: "mainstream-pop",
+            title: t("game.filter.mainstream-pop") || "Mainstream Pop",
+            icon: "🎤",
+          },
+          {
+            type: "indie-alternative",
+            title: t("game.filter.indie-alternative") || "Indie & Alternative",
+            icon: "🎶",
+          },
+          {
+            type: "global-pop",
+            title: t("game.filter.global-pop") || "Global Pop Scenes",
+            icon: "🌏",
+          },
+          {
+            type: "jazz-soul-funk",
+            title: t("game.filter.jazz-soul-funk") || "Jazz, Soul & Funk",
+            icon: "🎷",
+          },
+          {
+            type: "hip-hop-rap",
+            title: t("game.filter.hip-hop-rap") || "Hip Hop & Rap",
+            icon: "🎤",
+          },
+          {
+            type: "house-techno",
+            title: t("game.filter.house-techno") || "House & Techno",
+            icon: "🎛️",
+          },
+          { type: "club-sounds", title: t("game.filter.club-sounds") || "Club Sounds", icon: "🎚️" },
+          {
+            type: "breaks-experimental",
+            title: t("game.filter.breaks-experimental") || "Breaks & Experimental",
+            icon: "🌀",
+          },
+          { type: "latin-vibes", title: t("game.filter.latin-vibes") || "Latin Vibes", icon: "🎺" },
+          {
+            type: "caribbean-afro",
+            title: t("game.filter.caribbean-afro") || "Caribbean & Afro",
+            icon: "🌴",
+          },
+          {
+            type: "folk-regional",
+            title: t("game.filter.folk-regional") || "Folk & Regional",
+            icon: "🪕",
+          },
+          {
+            type: "classical-orchestral",
+            title: t("game.filter.classical-orchestral") || "Classical & Orchestral",
+            icon: "🎼",
+          },
+          {
+            type: "countries-regional",
+            title: t("game.filter.countries-regional") || "Countries & Regional",
+            icon: "🌍",
+          },
+          {
+            type: "emotional",
+            title: t("game.filter.emotional") || "Emotional Genres",
+            icon: "💫",
+          },
+          { type: "seasonal", title: t("game.filter.seasonal") || "Seasonal Genres", icon: "❄️" },
+          {
+            type: "situational",
+            title: t("game.filter.situational") || "Situational & Activity-Based",
+            icon: "🎉",
+          },
+          { type: "other", title: t("game.filter.other") || "Other Categories", icon: "📚" },
+        ]}
+        selectedValue="all"
+      />
 
       <!-- Enhanced genre grid with semantic markup -->
       <div class="genre-content">
@@ -346,37 +480,180 @@ const clientTranslations = generateClientTranslations(t);
           id="playlist-heading"
         />
 
-        <div
-          id="playlist-grid"
-          class="genre-grid"
-          role="list"
-          aria-label={t("game.genre.list")}
-          aria-live="polite"
-          itemscope
-          itemtype="https://schema.org/ItemList"
-        >
-          {
-            categories && categories.length > 0 ? (
-              sortedCategories.map((category, _index) => (
-                <PlaylistItem
-                  headline={category.headline}
-                  subheadline={category.introSubline}
-                  image={category.imageUrl}
-                  imageAlt={`${category.headline} music category`}
-                  href={category.categoryUrl ? `/${lang}${category.categoryUrl}` : "#"}
-                  isDisabled={!category.isPlayable}
-                />
-              ))
-            ) : (
+        {
+          categories && categories.length > 0 ? (
+            <>
+              {/* Dynamic Category Groups */}
+              {(() => {
+                const categoryGroups = [
+                  { type: "decade", title: t("game.categories.decades") || "Decades", icon: "📅" },
+                  {
+                    type: "female",
+                    title: t("game.categories.female") || "Female Artists",
+                    icon: "👩‍🎤",
+                  },
+                  {
+                    type: "classic-rock",
+                    title: t("game.filter.classic-rock") || "Classic Rock & Hard Rock",
+                    icon: "🎸",
+                  },
+                  {
+                    type: "metal-classic",
+                    title: t("game.filter.metal-classic") || "Metal – Classics",
+                    icon: "⚡",
+                  },
+                  {
+                    type: "metal-modern",
+                    title: t("game.filter.metal-modern") || "Modern Metal",
+                    icon: "🔥",
+                  },
+                  {
+                    type: "metal-avantgarde",
+                    title: t("game.filter.metal-avantgarde") || "Avantgarde & Extreme Metal",
+                    icon: "🎭",
+                  },
+                  {
+                    type: "mainstream-pop",
+                    title: t("game.filter.mainstream-pop") || "Mainstream Pop",
+                    icon: "🎤",
+                  },
+                  {
+                    type: "indie-alternative",
+                    title: t("game.filter.indie-alternative") || "Indie & Alternative",
+                    icon: "🎶",
+                  },
+                  {
+                    type: "global-pop",
+                    title: t("game.filter.global-pop") || "Global Pop Scenes",
+                    icon: "🌏",
+                  },
+                  {
+                    type: "jazz-soul-funk",
+                    title: t("game.filter.jazz-soul-funk") || "Jazz, Soul & Funk",
+                    icon: "🎷",
+                  },
+                  {
+                    type: "hip-hop-rap",
+                    title: t("game.filter.hip-hop-rap") || "Hip Hop & Rap",
+                    icon: "🎤",
+                  },
+                  {
+                    type: "house-techno",
+                    title: t("game.filter.house-techno") || "House & Techno",
+                    icon: "🎛️",
+                  },
+                  {
+                    type: "club-sounds",
+                    title: t("game.filter.club-sounds") || "Club Sounds",
+                    icon: "🎚️",
+                  },
+                  {
+                    type: "breaks-experimental",
+                    title: t("game.filter.breaks-experimental") || "Breaks & Experimental",
+                    icon: "🌀",
+                  },
+                  {
+                    type: "latin-vibes",
+                    title: t("game.filter.latin-vibes") || "Latin Vibes",
+                    icon: "🎺",
+                  },
+                  {
+                    type: "caribbean-afro",
+                    title: t("game.filter.caribbean-afro") || "Caribbean & Afro",
+                    icon: "🌴",
+                  },
+                  {
+                    type: "folk-regional",
+                    title: t("game.filter.folk-regional") || "Folk & Regional",
+                    icon: "🪕",
+                  },
+                  {
+                    type: "classical-orchestral",
+                    title: t("game.filter.classical-orchestral") || "Classical & Orchestral",
+                    icon: "🎼",
+                  },
+                  {
+                    type: "countries-regional",
+                    title: t("game.filter.countries-regional") || "Countries & Regional",
+                    icon: "🌍",
+                  },
+                  {
+                    type: "emotional",
+                    title: t("game.filter.emotional") || "Emotional Genres",
+                    icon: "💫",
+                  },
+                  {
+                    type: "seasonal",
+                    title: t("game.filter.seasonal") || "Seasonal Genres",
+                    icon: "❄️",
+                  },
+                  {
+                    type: "situational",
+                    title: t("game.filter.situational") || "Situational & Activity-Based",
+                    icon: "🎉",
+                  },
+                  {
+                    type: "other",
+                    title: t("game.categories.other") || "Other Categories",
+                    icon: "📚",
+                  },
+                ];
+
+                return categoryGroups.map((group) => {
+                  const groupCategories = sortedCategories.filter(
+                    (cat) => cat.categoryType === group.type
+                  );
+                  if (groupCategories.length === 0) {
+                    return null;
+                  }
+
+                  return (
+                    <div class="category-group" data-category-type={group.type}>
+                      <h3 class="category-group__title">
+                        {group.icon} {group.title}
+                      </h3>
+                      <div
+                        class="genre-grid"
+                        role="list"
+                        aria-label={t("game.genre.list")}
+                        aria-live="polite"
+                        itemscope
+                        itemtype="https://schema.org/ItemList"
+                      >
+                        {groupCategories.map((category) => (
+                          <PlaylistItem
+                            headline={category.headline}
+                            subheadline={category.introSubline}
+                            image={category.imageUrl}
+                            imageAlt={`${category.headline} music category`}
+                            href={category.categoryUrl ? `/${lang}${category.categoryUrl}` : "#"}
+                            isDisabled={!category.isPlayable}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  );
+                });
+              })()}
+            </>
+          ) : (
+            <div
+              class="genre-grid"
+              role="list"
+              aria-label={t("game.genre.list")}
+              aria-live="polite"
+              itemscope
+              itemtype="https://schema.org/ItemList"
+            >
               <EmptyState
                 headline={emptyCategoriesHeadline}
                 text={emptyCategoriesText}
                 iconName="music-note"
                 className="genre-grid__empty"
               />
-            )
-          }
-        </div>
+            </div>
+          )
+        }
       </div>
 
       <!-- Loading state for better UX -->
@@ -485,124 +762,6 @@ const clientTranslations = generateClientTranslations(t);
   }
 
   /* ======================================
-   * SEARCH CONTAINER - SIMPLIFIED DESIGN
-   * ====================================== */
-  .search-container {
-    contain: layout style paint;
-    margin-bottom: var(--space-lg);
-
-    @media (min-width: 48em) {
-      margin-bottom: var(--space-xl);
-    }
-
-    &__wrapper {
-      position: relative;
-      margin: 0 auto;
-      contain: layout style;
-      max-width: var(--width-full);
-
-      @media (min-width: 20em) {
-        max-width: var(--container-sm);
-      }
-
-      @media (min-width: 48em) {
-        max-width: var(--container-md);
-      }
-    }
-
-    &__icon {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-tertiary);
-      pointer-events: none;
-      z-index: var(--z-dropdown);
-      contain: layout style paint;
-      left: var(--space-sm);
-
-      @media (min-width: 20em) {
-        left: var(--space-md);
-      }
-
-      &-element {
-        width: var(--icon-size-sm);
-        height: var(--icon-size-sm);
-
-        @media (min-width: 20em) {
-          width: var(--icon-size-md);
-          height: var(--icon-size-md);
-        }
-      }
-    }
-
-    &__input {
-      width: var(--width-full);
-      border: var(--border-width-thin) solid var(--border-primary);
-      border-radius: var(--radius-lg);
-      background-color: var(--form-bg);
-      color: var(--form-text);
-      line-height: var(--leading-normal);
-      transition: all var(--transition-base);
-      box-shadow: var(--shadow-sm);
-      contain: layout style paint;
-      padding: var(--space-sm) var(--space-sm) var(--space-sm) var(--space-2xl);
-      font-size: var(--text-base);
-
-      @media (min-width: 20em) {
-        padding: var(--space-md) var(--space-md) var(--space-md) var(--space-3xl);
-        font-size: var(--text-lg);
-      }
-
-      &:focus {
-        outline: var(--focus-ring);
-        outline-offset: var(--focus-ring-offset);
-        border-color: var(--interactive-primary);
-        box-shadow: var(--shadow-md);
-      }
-
-      &::placeholder {
-        color: var(--text-tertiary);
-      }
-
-      @media (prefers-contrast: high) {
-        border-width: var(--border-width-thick);
-      }
-    }
-
-    &__clear {
-      position: absolute;
-      right: var(--space-md);
-      top: 50%;
-      transform: translateY(-50%);
-      padding: var(--space-xs);
-      border: none;
-      background: none;
-      color: var(--text-secondary);
-      cursor: pointer;
-      border-radius: var(--radius-sm);
-      transition: color var(--transition-fast);
-      contain: layout style paint;
-
-      &:hover {
-        color: var(--text-primary);
-      }
-
-      &:focus {
-        outline: var(--focus-ring);
-        outline-offset: var(--focus-ring-offset);
-      }
-    }
-
-    &__results-info {
-      text-align: center;
-      margin-top: var(--space-md);
-      color: var(--text-secondary);
-      font-size: var(--text-base);
-      contain: layout style;
-    }
-  }
-
-  /* ======================================
    * GENRE GRID - SIMPLIFIED DESIGN
    * ====================================== */
   .genre-content {
@@ -706,157 +865,3 @@ const clientTranslations = generateClientTranslations(t);
     border: 0;
   }
 </style>
-
-<!-- Enhanced client-side functionality with modern ES6+ features -->
-<script>
-  // Type declarations for translations
-  interface GameTranslations {
-    search: {
-      placeholder: string;
-      showingAll: string;
-      resultsFound: string;
-      noResults: string;
-      clear: string;
-    };
-    accessibility: {
-      skipToContent: string;
-      searchLabel: string;
-    };
-  }
-
-  // Extend Window interface
-  declare global {
-    interface Window {
-      gameHomeTranslations?: GameTranslations;
-    }
-  }
-
-  // Simple search functionality for game home page
-  class GameHomeSearch {
-    private searchInput: HTMLInputElement | null;
-    private clearButton: HTMLButtonElement | null;
-    private gridContainer: HTMLElement | null;
-    private resultsInfo: HTMLElement | null;
-    private allItems: NodeListOf<Element>;
-    private translations: GameTranslations;
-
-    constructor() {
-      this.searchInput = document.getElementById("filter-input") as HTMLInputElement;
-      this.clearButton = document.querySelector(".search-container__clear") as HTMLButtonElement;
-      this.gridContainer = document.getElementById("playlist-grid");
-      this.resultsInfo = document.querySelector(".search-container__results-info");
-      this.allItems = document.querySelectorAll("#playlist-grid > *");
-      this.translations = window.gameHomeTranslations ?? this.getDefaultTranslations();
-
-      if (this.searchInput && this.gridContainer) {
-        this.init();
-      }
-    }
-
-    private getDefaultTranslations = (): GameTranslations => ({
-      search: {
-        placeholder: "Search genres...",
-        showingAll: "Showing all genres",
-        resultsFound: "genres found",
-        noResults: "No genres found matching your search",
-        clear: "Clear search",
-      },
-      accessibility: {
-        skipToContent: "Skip to main content",
-        searchLabel: "Search music genres",
-      },
-    });
-
-    private init = (): void => {
-      this.searchInput!.addEventListener("input", this.handleSearch);
-      this.searchInput!.addEventListener("keydown", this.handleKeydown);
-
-      if (this.clearButton) {
-        this.clearButton.addEventListener("click", this.clearSearch);
-      }
-
-      this.updateResultsInfo(this.allItems.length, "");
-    };
-
-    private handleSearch = (event: Event): void => {
-      const target = event.target as HTMLInputElement;
-      const query = target.value.toLowerCase().trim();
-
-      this.filterItems(query);
-      this.updateClearButton(query);
-    };
-
-    private handleKeydown = (event: KeyboardEvent): void => {
-      if (event.key === "Escape") {
-        this.clearSearch();
-      }
-    };
-
-    private filterItems = (query: string): void => {
-      let visibleCount = 0;
-
-      this.allItems.forEach((item) => {
-        const textContent = item.textContent?.toLowerCase() ?? "";
-        const isVisible = query === "" || textContent.includes(query);
-
-        if (item instanceof HTMLElement) {
-          item.style.display = isVisible ? "" : "none";
-          item.setAttribute("aria-hidden", (!isVisible).toString());
-        }
-
-        if (isVisible) {
-          visibleCount++;
-        }
-      });
-
-      this.updateResultsInfo(visibleCount, query);
-    };
-
-    private updateResultsInfo = (count: number, query: string): void => {
-      if (!this.resultsInfo) {
-        return;
-      }
-
-      const message =
-        query === ""
-          ? ""
-          : count === 0
-            ? this.translations.search.noResults
-            : `${count} ${this.translations.search.resultsFound}`;
-
-      this.resultsInfo.textContent = message;
-    };
-
-    private updateClearButton = (query: string): void => {
-      if (!this.clearButton) {
-        return;
-      }
-
-      const hasQuery = query.length > 0;
-      this.clearButton.toggleAttribute("hidden", !hasQuery);
-    };
-
-    private clearSearch = (): void => {
-      if (!this.searchInput) {
-        return;
-      }
-
-      this.searchInput.value = "";
-      this.filterItems("");
-      this.updateClearButton("");
-      this.searchInput.focus();
-    };
-  }
-
-  // Initialize search functionality
-  const initSearch = (): void => {
-    new GameHomeSearch();
-  };
-
-  // Initialize when DOM is ready
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initSearch);
-  } else {
-    initSearch();
-  }
-</script>
