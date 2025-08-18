@@ -5,7 +5,8 @@
     "introSubline": "Træd ind i rockens elektriserende oprindelse! Lad Elvis, Chuck Berry og Buddy Holly inspirere dig med energien der tændte en kulturel revolution. Føl kraften i musik der formede generationer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5K9w1qBruSoCY0XCHyKq2a",
     "deezerPlaylist": "https://link.deezer.com/s/30x5aOVgrllLx9ch4NUX5",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-1950s/pl.u-76oNK0muvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-1950s/pl.u-76oNK0muvedXrZX",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Føl 1960'ernes kraft: Musik der inspirerede en generation",
@@ -13,7 +14,8 @@
     "introSubline": "Oplev The Beatles' magi, The Rolling Stones' frækhed og Jimi Hendrix' geni. Lad 1960'ernes lyde vække din kreativitet og passion for forandring.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2zapTa5myPEQ5W7iBF271h",
     "deezerPlaylist": "https://link.deezer.com/s/30x5bKWXuO3BM1KexrSo9",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-1960s/pl.u-JPAZpKPTL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-1960s/pl.u-JPAZpKPTL2NZeJZ",
+    "categoryType": "other"
   },
   {
     "headline": "Skin med 1970'erne: Fra discofeber til rockmesterværker",
@@ -21,7 +23,8 @@
     "introSubline": "Dans til ABBAs smittende beats og mist dig selv i Pink Floyds visionære lydlandskaber. Opdag hvordan 1970'erne inviterer dig til at fejre mangfoldighed og drømme stort.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0w349iRF4OnsL4Qd42Zk8A",
     "deezerPlaylist": "https://link.deezer.com/s/30x5pb2EmiWzKWMok2BqA",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-1970s/pl.u-9N9LR3et1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-1970s/pl.u-9N9LR3et1mlEboE",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Tænd dine sanser i 1980'erne: Et årti af overflod, innovation og ikoniske lyde",
@@ -29,7 +32,8 @@
     "introSubline": "Genoplev synthesizerernes eksplosion, MTVs fødsel og Hair Metals herredømme. 1980'erne inviterer dig til en verden hvor musikvideoer og elektriserende lyde definerede en generation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6t92knmmCDH2URtMZypbsp",
     "deezerPlaylist": "https://link.deezer.com/s/30x5wBZhKzHbt79KEPcY9",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-1980s/pl.u-mJy8L07sNVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-1980s/pl.u-mJy8L07sNVL5Jl5",
+    "categoryType": "other"
   },
   {
     "headline": "Revolutionære lyde fra 1990'erne: Hvor alternativ blev mainstream",
@@ -37,7 +41,8 @@
     "introSubline": "Fra grunge-eksplosionen i Seattle til hip-hops opstigen og Britpop. 1990'erne omformede det musikalske landskab. Opdag årtiet der bragte undergrundsmusik i forgrunden og gav stemme til en generation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7sw4ATjkuUrrcE38oHPVfu",
     "deezerPlaylist": "https://link.deezer.com/s/30x5XBT5yEUSSfi9Y221i",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-1990s/pl.u-V9D7MNdU3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-1990s/pl.u-V9D7MNdU3MGpZPp",
+    "categoryType": "other"
   },
   {
     "headline": "Digitale drømme og pop-perfektion: 2000'ernes musikalske revolution",
@@ -45,7 +50,8 @@
     "introSubline": "Træd ind i en verden hvor pop mødte teknologi. 2000'erne bragte auto-tune, digitale downloads og en ny bølge af R&B. Oplev årtiet der forvandlede musikproduktion og lancerede globale superstjerner.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6IY7RnLIlr9PuAWTfRU2jf",
     "deezerPlaylist": "https://link.deezer.com/s/30x64RRNK0zeeTvbIxNIt",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-2000s/pl.u-76oNK33uvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-2000s/pl.u-76oNK33uvedXrZX",
+    "categoryType": "mainstream-pop"
   },
   {
     "headline": "Streaming-giganter og genre-brydere: 2010'ernes musikalske landskab",
@@ -53,7 +59,8 @@
     "introSubline": "Oplev årtiet hvor musik blev tilgængelig for alle. Streaming-tjenester lancerede ukendte kunstnere til berømmelse, og genrer blandede sig som aldrig før. Dyk ned i lyderne der definerede en generation og fortsætter med at forme musikkens fremtid.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/19awPEqnAcGPSt0tASDvFu",
     "deezerPlaylist": "https://link.deezer.com/s/30x6gZge1Bc4ghYAC6Xbb",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-2010s/pl.u-JPAZp3VFL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-2010s/pl.u-JPAZp3VFL2NZeJZ",
+    "categoryType": "other"
   },
   {
     "headline": "Føl grooven: Acid Jazz's opløftende fusion af funk, soul og jazz",
@@ -61,7 +68,8 @@
     "introSubline": "Lad levende rytmer og kreativ improvisation give dig energi. Opdag kunstnerne der blander genrer for at skabe en lyd der bevæger både hjerte og fødder.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0ZzpQgAoDwvWrmkYGGPGvR",
     "deezerPlaylist": "https://link.deezer.com/s/30xcfCEootRWiv9o3bt2f",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-acid-jazz/pl.u-76oNKqNuvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-acid-jazz/pl.u-76oNKqNuvedXrZX",
+    "categoryType": "jazz-soul-funk"
   },
   {
     "headline": "Uforstyrret kraft: Acoustic Metals følelsesmæssige side",
@@ -69,7 +77,8 @@
     "introSubline": "Oplev metals rå intensitet i sin reneste form. Lad akustiske versioner afsløre de hjertelige historier og musikalskhed bag de tunge riffs.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7cXLMbmpOBvv659xZ98hmk",
     "deezerPlaylist": "https://link.deezer.com/s/30xcibCdwzuTgelHP8sg6",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-acoustic-metal/pl.u-e98lL1Eha8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-acoustic-metal/pl.u-e98lL1Eha8XvYev",
+    "categoryType": "metal-avantgarde"
   },
   {
     "headline": "Akustisk pop-magi: Hjertelige melodier for hvert øjeblik",
@@ -77,7 +86,8 @@
     "introSubline": "Slap af og lad dig oplade med afstrippede hits og singer-songwriter-perler. Lad disse akustiske melodier inspirere dine følelser og lysne dit humør.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7sneli803LUJcPLI0uy4pO",
     "deezerPlaylist": "https://link.deezer.com/s/30xcmbWCgSEfLWmRboak2",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-acoustic-pop/pl.u-JPAZ21PTL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-acoustic-pop/pl.u-JPAZ21PTL2NZeJZ",
+    "categoryType": "mainstream-pop"
   },
   {
     "headline": "Fejr mangfoldighed: Afrikansk musiks rytmer og traditioner",
@@ -85,7 +95,8 @@
     "introSubline": "Føl hjerteslaget fra et kontinent! Fra traditionelle trommer til moderne Afropop forener og inspirerer disse lyde på tværs af kulturer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5NDS6IVBZr5W9hK7uKxhZM",
     "deezerPlaylist": "https://link.deezer.com/s/30xcoTWyK4YYBEpaohBM7",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-african-music/pl.u-aZb0Rz4F1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-african-music/pl.u-aZb0Rz4F1xpM8zM",
+    "categoryType": "other"
   },
   {
     "headline": "Afrobeat-energi: Fela Kutis arv og globale inspiration",
@@ -93,7 +104,8 @@
     "introSubline": "Bevæg dig til hypnotiske rytmer og modige budskaber. Afrobeats fusion af tradition, jazz og funk styrker og opløfter verden over.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/29mXorpfIu5oh5KscLq5W9",
     "deezerPlaylist": "https://link.deezer.com/s/30xfhjzRimDDH9rheEnUq",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-afrobeat/pl.u-11zBoMbfNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-afrobeat/pl.u-11zBoMbfNP6EVjE",
+    "categoryType": "caribbean-afro"
   },
   {
     "headline": "Efter-arbejds-lykke: Slap af og lad dig oplade med aften-chill",
@@ -101,7 +113,8 @@
     "introSubline": "Forvandl dine timer efter arbejde til et fredeligt tilflugtssted. Lad bløde rytmer og beroligende melodier hjælpe dig med at slappe af og finde din balance.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4kS3J37MezYFMTkCLYOvxK",
     "deezerPlaylist": "https://www.deezer.com/de/playlist/14069008281",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-after-work-chill/pl.u-76oNKqbuvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-after-work-chill/pl.u-76oNKqbuvedXrZX",
+    "categoryType": "other"
   },
   {
     "headline": "Bryd mønsteret: Alternative Metals kreative kraft",
@@ -109,7 +122,8 @@
     "introSubline": "Oplev friheden i tung musik uden grænser. Disse numre blander kraft, innovation og følelse for en virkelig unik lyd.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/42DFYQCLpTMRmLB5E9ye8d",
     "deezerPlaylist": "https://link.deezer.com/s/30xfQA0IApPl8WwcxMJGt",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-alternative-metal/pl.u-JPAZpY9sL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-alternative-metal/pl.u-JPAZpY9sL2NZeJZ",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Rebel-ånd: Alternative Rocks rejse fra undergrund til ikonisk",
@@ -117,7 +131,8 @@
     "introSubline": "Lad alternative rocks DIY-ånd og kreative mod inspirere dig. Disse sange beviser at autenticitet og passion kan ændre verden.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3mTLFYda4zfnWtnRWrqMQm",
     "deezerPlaylist": "https://link.deezer.com/s/30xfBPcBrhDVbSbFPYyXM",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-alternative-rock/pl.u-JPAZpYJuL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-alternative-rock/pl.u-JPAZpYJuL2NZeJZ",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Atmosfærisk kraft: Ambient Metals inspirerende lydlandskaber",
@@ -125,7 +140,8 @@
     "introSubline": "Lad dig bære væk af en unik blanding af tunghed og æterisk lyd. Disse numre inviterer dig til at udforske nye musikalske horisonter og finde inspiration i kontraster.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4dRTL2qENCBqVnK9KzVEaY",
     "deezerPlaylist": "https://link.deezer.com/s/30xg6oYpCMQzU4AqYTgzo",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-ambient-metal/pl.u-JPAZ2PGIL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-ambient-metal/pl.u-JPAZ2PGIL2NZeJZ",
+    "categoryType": "metal-avantgarde"
   },
   {
     "headline": "Find din ro: Ambient fred for sind og sjæl",
@@ -133,7 +149,8 @@
     "introSubline": "Forvandl ethvert øjeblik til et fredeligt tilflugtssted. Disse ambient-stykker hjælper dig med at slappe af, meditere og oplade din ånd.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4MAptafzBpcWkBmTQ2G40b",
     "deezerPlaylist": "https://link.deezer.com/s/30xfYLfWAQHjvvyGKZ74A",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-ambient/pl.u-76oNm67uvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-ambient/pl.u-76oNm67uvedXrZX",
+    "categoryType": "breaks-experimental"
   },
   {
     "headline": "Frigør din energi: Vrede hymner til motivation og styrke",
@@ -141,7 +158,8 @@
     "introSubline": "Kanaliser dine følelser og forvandl frustration til kraft. Disse intense numre brænder dit drive og hjælper dig med at overvinde enhver udfordring.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6Q1l7d7Siu3l2TGtF0tZgk",
     "deezerPlaylist": "https://link.deezer.com/s/30xgkqdmsLuhRNxfNVZIS",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-angry/pl.u-aZb06Z0F1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-angry/pl.u-aZb06Z0F1xpM8zM",
+    "categoryType": "other"
   },
   {
     "headline": "Passion og fremskridt: Argentinsk souls inspirerende rejse",
@@ -149,7 +167,8 @@
     "introSubline": "Føl tangoens ild og moderne fusions kreativitet. Disse sange fejrer Argentinas ånd og musikkens evolutions kraft.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/53Z1KfIjm71tNrZ9gDNl4u",
     "deezerPlaylist": "https://link.deezer.com/s/30xgy5OMTfQIMHhRWTTWW",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-argentinian/pl.u-11zBo1VCNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-argentinian/pl.u-11zBo1VCNP6EVjE",
+    "categoryType": "jazz-soul-funk"
   },
   {
     "headline": "Tidsløs brillans: Østrigske lydlandskaber fra Mozart til i dag",
@@ -157,7 +176,8 @@
     "introSubline": "Rejs gennem århundreder af musikalsk ekspertise. Lad Østrigs klassiske rødder og moderne kreativitet inspirere din egen kunstneriske rejse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2azjaIZIUNQ1Xq8Mbo49MX",
     "deezerPlaylist": "https://link.deezer.com/s/30xgBmbg9JpjYTECXB6KM",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-austrian/pl.u-d2b0V2LsLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-austrian/pl.u-d2b0V2LsLJaz6dz",
+    "categoryType": "other"
   },
   {
     "headline": "Gyldne øjeblikke: Efterår-chill til hyggelig inspiration",
@@ -165,7 +185,8 @@
     "introSubline": "Omfavn efterårets skønhed med bløde lyde der varmer dit hjerte. Disse numre gør hver efterårsdag til et gyldent minde.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1pFI14ZmdSlNA8tBEXRW6p",
     "deezerPlaylist": "https://link.deezer.com/s/30xi52bYKnNyHXPfnkPsn",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-autumn-chill/pl.u-76oNm5muvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-autumn-chill/pl.u-76oNm5muvedXrZX",
+    "categoryType": "other"
   },
   {
     "headline": "Magiske farver: Efterårsløv og lyden af forandring",
@@ -173,7 +194,8 @@
     "introSubline": "Lad musik male billederne af efterårets pragt. Disse numre fanger sæsonens magi og forvandling.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7HthpvZP7RfoCatmuntbYs",
     "deezerPlaylist": "https://link.deezer.com/s/30xifpUnJxuxtEoa0Je0b",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-autumn-leaves/pl.u-DdANPNBC01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-autumn-leaves/pl.u-DdANPNBC01PVbgV",
+    "categoryType": "other"
   },
   {
     "headline": "Bryd grænser: Avant-garde metals kunstneriske innovation",
@@ -181,7 +203,8 @@
     "introSubline": "Oplev eksperimenteringens spænding og modig kreativitet. Disse sange viser hvordan metal kan være visionær og inspirerende.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1T2PgmMMHhq7hBetwtwLr2",
     "deezerPlaylist": "https://link.deezer.com/s/30xjsdkiyeY0Eyv8ge6Zj",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-avant-garde-metal/pl.u-aZb06E9F1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-avant-garde-metal/pl.u-aZb06E9F1xpM8zM",
+    "categoryType": "metal-avantgarde"
   },
   {
     "headline": "Dans med hjerte: Bachatas romantiske rytmer",
@@ -189,7 +212,8 @@
     "introSubline": "Lad passionerede tekster og smittende guitar-melodier bevæge dig. Bachata bringer glæde, kærlighed og energi til hvert øjeblik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7budQtbbHyyZhm2TmAuC0D",
     "deezerPlaylist": "https://link.deezer.com/s/30xjut1TifuThr8v8KpS2",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-bachata/pl.u-11zBoGmhNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-bachata/pl.u-11zBoGmhNP6EVjE",
+    "categoryType": "latin-vibes"
   },
   {
     "headline": "Studiekraft: Back-to-school beats til fokus og succes",
@@ -197,7 +221,8 @@
     "introSubline": "Boost din koncentration og motivation med musik designet til læring. Disse numre hjælper dig med at nå dine akademiske mål med energi og stil.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1m5eAVpIeI5CXqjnBsrQoe",
     "deezerPlaylist": "https://link.deezer.com/s/30xjxb5lvfZ5juXuq85xX",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-back-to-school/pl.u-38oWlW8sYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-back-to-school/pl.u-38oWlW8sYMoD7qD",
+    "categoryType": "seasonal"
   },
   {
     "headline": "Fejr sammen: Backyard BBQ-vibes til hver sammenkomst",
@@ -205,7 +230,8 @@
     "introSubline": "Tænd grillen og lad de gode tider rulle! Disse solbeskinnede hymner skaber den perfekte atmosfære til sjov, latter og uforglemmelige sommerfester.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5sfGr39G8N2zgxOR8RuxqK",
     "deezerPlaylist": "https://link.deezer.com/s/30xl7p55CQS4f9s8OyscB",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-backyard-bbq/pl.u-d2b0V1ZCLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-backyard-bbq/pl.u-d2b0V1ZCLJaz6dz",
+    "categoryType": "situational"
   },
   {
     "headline": "Balkan-musik: Energisk folk og dans fra Sydøsteuropa",
@@ -213,7 +239,8 @@
     "introSubline": "Opdag Balkan-musikkens livlige rytmer og unikke instrumenter, perfekt til dans og fejring.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6dWrzgn8cZBbx2B4TLC1ot",
     "deezerPlaylist": "https://link.deezer.com/s/30xlcwMdbGk77WcCDQgDv",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-balkan-music-2025/pl.u-d2b0Vq0CLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-balkan-music-2025/pl.u-d2b0Vq0CLJaz6dz",
+    "categoryType": "folk-regional"
   },
   {
     "headline": "Bass-musik: Dybe frekvenser og club-hymner",
@@ -221,7 +248,8 @@
     "introSubline": "Føl kraften i bass-drevet musik, fra dubstep til drum & bass. Disse numre er lavet til at bevæge dig.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6PGeWzmR5iTs313qxqoA4X",
     "deezerPlaylist": "https://link.deezer.com/s/30xln0GYSDeYwyCCGy2un",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-bass-music/pl.u-11zBoX3INP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-bass-music/pl.u-11zBoX3INP6EVjE",
+    "categoryType": "mainstream-pop"
   },
   {
     "headline": "Stranddag-lykke: Dit strand-escape i lyd",
@@ -229,7 +257,8 @@
     "introSubline": "Transport dig selv til sandede kyster og rullende bølger med denne samling af solbeskinnede melodier. Fra afslappet reggae til kystpop-perler fanger disse numre den sorgløse ånd og uendelige muligheder i en perfekt dag ved havet.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3uz3NhNxjPWzRQvI5Oiw3s",
     "deezerPlaylist": "https://link.deezer.com/s/30xlpOVIT7k3AuSIgYVsb",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-beach-day/pl.u-DdANPxPt01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-beach-day/pl.u-DdANPxPt01PVbgV",
+    "categoryType": "other"
   },
   {
     "headline": "Belgiske beats: Hvor europæisk pop møder elektronisk innovation",
@@ -237,7 +266,8 @@
     "introSubline": "Udforsk Belgiens rige musikalske landskab, fra chart-topping pop-sensationer til banebrydende elektroniske pionerer. Oplev hvordan dette kulturelle krydsvej skaber unikke lyde der fortsætter med at påvirke globale musiktrender.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0uXsyiU5ridTJAe9K9p8j4",
     "deezerPlaylist": "https://link.deezer.com/s/30xluN3c8HQVCTNhM09NO",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-belgian/pl.u-38oWlo5FYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-belgian/pl.u-38oWlo5FYMoD7qD",
+    "categoryType": "mainstream-pop"
   },
   {
     "headline": "Black Metal: Rejs ind i metals mest atmosfæriske og primitive rige",
@@ -245,7 +275,8 @@
     "introSubline": "Ventur ind i black metals intense, atmosfæriske verden, hvor rå intensitet møder mørk kunst. Oplev genrens signatur-blanding af hjemsøgende melodier, vild intensitet og kompromisløs følelsesmæssig dybde.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3t1JDSI6929WEPA9dmoHpq",
     "deezerPlaylist": "https://link.deezer.com/s/30xlyoIImz6xSliVDNwKZ",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-black-metal/pl.u-d2b0VkXsLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-black-metal/pl.u-d2b0VkXsLJaz6dz",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Blackened Death Metal: Hvor Black Metals mørke møder Death Metals brutalitet",
@@ -253,7 +284,8 @@
     "introSubline": "Stig ned i den ultimative ekstreme metal-fusion, hvor black metals atmosfæriske mørke kolliderer med death metals tekniske brutalitet. Oplev hvordan denne hybrid-genre skubber musikalske grænser for at skabe noget unikt intens.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4S3th2E2If9oJsiRXIUvYr",
     "deezerPlaylist": "https://link.deezer.com/s/30xlB9UPTLQGbNJnBPxsW",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-blackened-death-metal/pl.u-e98lLkLha8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-blackened-death-metal/pl.u-e98lLkLha8XvYev",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Bluegrass-legender: Amerikas bjergmusik-revolution",
@@ -261,7 +293,8 @@
     "introSubline": "Rejs gennem amerikansk roots-musiks hjerte, fra pioner-legender til moderne innovatører. Oplev hvordan lynhurtig plukning, himmelske harmonier og tidsløs historiefortælling fortsætter med at fængsle publikum på tværs af generationer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0EaNvDdyth2iYz3yx8hH0i",
     "deezerPlaylist": "https://link.deezer.com/s/30xlD8nQW7xGMymaLFcsg",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-bluegrass/pl.u-DdANPAeC01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-bluegrass/pl.u-DdANPAeC01PVbgV",
+    "categoryType": "folk-regional"
   },
   {
     "headline": "Blues-mestre: De sjælfulde pionerer der formede moderne musik",
@@ -269,7 +302,8 @@
     "introSubline": "Oplev den rå følelse og autentiske historiefortælling der fødte moderne populærmusik. Fra Delta-krydsveje til Chicagos elektriske evolution viser disse numre hvordan blues-mestre forvandlede livets kampe til tidsløs kunst.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2TUj2c6v93zh6pVbxAIgYD",
     "deezerPlaylist": "https://link.deezer.com/s/30xlFj6PoctkfhYGaIu05",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-blues/pl.u-9N9L49bI1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-blues/pl.u-9N9L49bI1mlEboE",
+    "categoryType": "jazz-soul-funk"
   },
   {
     "headline": "Bossa Nova: Brasiliens sofistikerede sjæl og kyst-cool",
@@ -277,7 +311,8 @@
     "introSubline": "Svæv væk på bløde rytmer der blander jazz-sophistication med brasiliansk sjæl. Fra Rios gyldne æra til moderne fortolkninger oplever du hvordan bossa novas subtile kompleksitet og ubesværet ynde fortsætter med at fortrylle lyttere verden over.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/39TB2ZnA4wd7mdKFWYfCN3",
     "deezerPlaylist": "https://link.deezer.com/s/30xlGjv2cst5Qsauh0f36",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-bossa-nova/pl.u-mJy8PyEtNVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-bossa-nova/pl.u-mJy8PyEtNVL5Jl5",
+    "categoryType": "latin-vibes"
   },
   {
     "headline": "Brasilianske beats: En rejse gennem Sydamerikas musikalske paradis",
@@ -285,7 +320,8 @@
     "introSubline": "Fordyb dig i Brasiliens kaleidoskop af rytmer, fra sambas karnevalsånd til MPBs poetiske sjæl. Oplev hvordan denne musikalske kraftcentrale blander afrikanske rytmer, europæiske melodier og indfødte traditioner til unikt brasiliansk magi.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3EZ2AZNQNB4V5vSI07WvRh",
     "deezerPlaylist": "https://link.deezer.com/s/30xlGzsQoRrMpYd2CC6Sb",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-brazilian/pl.u-V9D7KDNF3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-brazilian/pl.u-V9D7KDNF3MGpZPp",
+    "categoryType": "other"
   },
   {
     "headline": "Breakbeat: Hvor Hip-Hops sjæl møder elektronisk musiks fremtid",
@@ -293,7 +329,8 @@
     "introSubline": "Oplev genren der revolutionerede dansemusik ved at hakke funk og soul op i fremdriftende nye former. Fra jungles intensitet til big beats stadium-størrelse lyde opdager du hvordan breakbeat-kulturen fortsætter med at udvikle elektronisk musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6tUYCnSGq2SspsKec8FMHI",
     "deezerPlaylist": "https://link.deezer.com/s/30xlHKxwJZmrIkNuEqKbD",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-breakbeat/pl.u-38oWlD4sYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-breakbeat/pl.u-38oWlD4sYMoD7qD",
+    "categoryType": "hip-hop-rap"
   },
   {
     "headline": "British Invasion: Da britisk rock erobrede Amerika og ændrede musik for evigt",
@@ -301,7 +338,8 @@
     "introSubline": "Rejs tilbage til 1960'ernes musikalske revolution da britiske bands stormede amerikanske kyster. Fra The Beatles' banebrydende harmonier til The Rolling Stones' rå energi oplever du lyderne der forvandlede popkultur på begge sider af Atlanten.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2p5MpIewAEBSYykG3LL8yk",
     "deezerPlaylist": "https://link.deezer.com/s/30xlI4I64HjbhPHyue49D",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-british/pl.u-DdANPWNt01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-british/pl.u-DdANPWNt01PVbgV",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Cantopop: Hong Kongs glitrende pop-univers",
@@ -309,7 +347,8 @@
     "introSubline": "Fordyb dig i Hong Kongs strålende popkultur gennem dens mest elskede musikalske eksport. Fra følelsesmæssige ballader til højenergi-dansenumre oplever du hvordan Cantopop blander øst og vest for at skabe Asiens mest særprægede pop-lyd.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0KXxwQ4ZMTiaFlo3kk0V07",
     "deezerPlaylist": "https://open.spotify.com/playlist/0KXxwQ4ZMTiaFlo3kk0V07",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-cantopop/pl.u-9N9L4lJF1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-cantopop/pl.u-9N9L4lJF1mlEboE",
+    "categoryType": "mainstream-pop"
   },
   {
     "headline": "Caribbean-musik: Ø-vibes og tropiske grooves",
@@ -317,7 +356,8 @@
     "introSubline": "Svaj til reggae, soca og calypso rytmer. Caribbean-musik bringer solskin og glæde til hver playlist.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4sToyECqnzA2wNpdtCgy2X",
     "deezerPlaylist": "https://link.deezer.com/s/30xlKcTrzIS2gvHtJUQah",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-caribbean-music/pl.u-mJy8PprFNVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-caribbean-music/pl.u-mJy8PprFNVL5Jl5",
+    "categoryType": "other"
   },
   {
     "headline": "Celtic Metal: Hvor gamle melodier møder moderne metals kraft",
@@ -325,7 +365,8 @@
     "introSubline": "Rejs ind i en unik fusion hvor keltiske folk-traditioner kolliderer med heavy metals kraft. Oplev hvordan bands kombinerer traditionelle instrumenter, gamle melodier og knusende riffs for at skabe en episk lyd der bygger bro mellem århundreder af musikalsk evolution.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5Rx08qQTBlYlFd6QHzixxP",
     "deezerPlaylist": "https://link.deezer.com/s/30xlMmOZDy2T7RMImL02T",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-celtic-metal/pl.u-V9D7KYpF3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-celtic-metal/pl.u-V9D7KYpF3MGpZPp",
+    "categoryType": "folk-regional"
   },
   {
     "headline": "Chamber Metal: Klassisk raffinering møder metals rå kraft",
@@ -333,7 +374,8 @@
     "introSubline": "Oplev en innovativ fusion hvor kammermusikkens elegance omfavner metals intensitet. Fra strygekvartetter til elektriske guitarer opdager du hvordan denne genre skaber sofistikerede tung musik der udfordrer både klassiske og metal-konventioner.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/11CEvVHIy8D1du1MC0yMmu",
     "deezerPlaylist": "https://link.deezer.com/s/30xlOxhAALbzc5G9V3GZN",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-chamber-metal/pl.u-mJy8PoJsNVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-chamber-metal/pl.u-mJy8PoJsNVL5Jl5",
+    "categoryType": "metal-avantgarde"
   },
   {
     "headline": "Kammermusik: Intime klassiske ensembler",
@@ -341,7 +383,8 @@
     "introSubline": "Oplev kammermusikkens elegance, hvor små ensembler skaber rige, udtryksfulde lydlandskaber.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5nVzxaAcgnAla4QKGiERny",
     "deezerPlaylist": "https://link.deezer.com/s/30xmUxySzwpOkerTSl0lb",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-chamber-music/pl.u-V9D7KjkH3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-chamber-music/pl.u-V9D7KjkH3MGpZPp",
+    "categoryType": "other"
   },
   {
     "headline": "Chicago House: Hvordan Windy Citys undergrundsscene ændrede dansemusik for evigt",
@@ -349,7 +392,8 @@
     "introSubline": "Træd tilbage til lagerhuse hvor house-musik blev født. Fra Frankie Knuckles' pioner-sæt til de ikoniske trommemaskiner der formede lyden oplever du hvordan Chicagos undergrundsklubber lancerede en global danserevolution.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1UCfIchg3CGhuocB6ojeIh",
     "deezerPlaylist": "https://link.deezer.com/s/30xmVc8xUghJvDyZr0LVZ",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-chicago-house/pl.u-76oNmaBtvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-chicago-house/pl.u-76oNmaBtvedXrZX",
+    "categoryType": "house-techno"
   },
   {
     "headline": "Børnefavoritter: Magiske musikalske eventyr for unge sind",
@@ -357,7 +401,8 @@
     "introSubline": "Gå på en musikalsk rejse designet til at tænde fantasi og glæde i unge hjerter. Fra elskede klassikere til pædagogiske melodier skaber disse omhyggeligt udvalgte numre magiske øjeblikke af læring, dans og ren barndomsundren.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3nMN0JsqBlZHbEF8vCyRwm",
     "deezerPlaylist": "https://link.deezer.com/s/30xmWkgsdQtDBBDsDcCA5",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-children/pl.u-JPAZ2WZIL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-children/pl.u-JPAZ2WZIL2NZeJZ",
+    "categoryType": "other"
   },
   {
     "headline": "Chiptune: 8-bit nostalgi og retro spil-lyde",
@@ -365,7 +410,8 @@
     "introSubline": "Genoplev klassiske videospils magi med chiptune, en genre bygget på vintage computer- og konsol-lyde.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5xDKFpwmUZqmEVJayXfq6n",
     "deezerPlaylist": "https://link.deezer.com/s/30xmWyWUYjxPzouj461LT",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-chiptune/pl.u-aZb06MDF1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-chiptune/pl.u-aZb06MDF1xpM8zM",
+    "categoryType": "breaks-experimental"
   },
   {
     "headline": "Christian Metal: Hvor guddommeligt budskab møder metals kraft",
@@ -373,7 +419,8 @@
     "introSubline": "Opdag hvordan metals kraft bliver et køretøj for åndelig udtryk. Fra pioner-bands som Stryper til moderne worship-metal fusion oplever du hvordan kunstnere kombinerer teologisk dybde med teknisk dygtighed for at skabe opløftende tung musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5pNPoAdn9cN3AEGHcJ7SRw",
     "deezerPlaylist": "https://link.deezer.com/s/30xmXNgBq8eNYpRvaq1J6",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-christian-metal/pl.u-mJy8PP4CNVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-christian-metal/pl.u-mJy8PP4CNVL5Jl5",
+    "categoryType": "metal-classic"
   },
   {
     "headline": "Juleklassikere: Tidsløse sange der definerer julemagien",
@@ -381,7 +428,8 @@
     "introSubline": "Fordyb dig i sæsonens hjertevarme soundtrack. Fra århundrede-gamle julesange til elskede moderne standarder fanger disse omhyggeligt udvalgte numre den perfekte blanding af nostalgi, fejring og vinterundren der gør julemusik særlig.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4M4VdveKKRReQ3Rxah3yQH",
     "deezerPlaylist": "https://link.deezer.com/s/30xmY7Ls2iMlMENT92IgK",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-christmas-classics/pl.u-V9D7KKKH3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-christmas-classics/pl.u-V9D7KKKH3MGpZPp",
+    "categoryType": "other"
   },
   {
     "headline": "Klassisk Heavy Metal: Metals gyldne æras tordnende begyndelse",
@@ -389,7 +437,8 @@
     "introSubline": "Rejs tilbage til da heavy metal først rystede jorden, fra Black Sabbaths doom-ladede riffs til Iron Maidens galopperende episke sange. Oplev de revolutionære lyde der etablerede metals kerne-elementer og fortsætter med at påvirke generationer af headbangers.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6z3knFleaOUHd7M4aH8NIo",
     "deezerPlaylist": "https://link.deezer.com/s/30xmZ85sQ1MuP2BVP9jph",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-classic-heavy-metal/pl.u-76oNmA6tvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-classic-heavy-metal/pl.u-76oNmA6tvedXrZX",
+    "categoryType": "metal-classic"
   },
   {
     "headline": "Klassisk Rock: De tidsløse hymner der formede moderne musik",
@@ -397,7 +446,8 @@
     "introSubline": "Rejs gennem rocks gyldne æra, da guitar-guder herskede over jorden og album-orienteret rock regerede. Fra arena-fyldende hymner til banebrydende kompositioner oplever du sangene der definerede generationer og fortsætter med at påvirke kunstnere i dag.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/58tOzgAXjry6NG85cpwlMo",
     "deezerPlaylist": "https://link.deezer.com/s/30xmZ85sQ1MuP2BVP9jph",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-classic-rock/pl.u-JPAZ24NtL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-classic-rock/pl.u-JPAZ24NtL2NZeJZ",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Klassiske mesterværker: En rejse gennem århundreder af musikalsk geni",
@@ -405,7 +455,8 @@
     "introSubline": "Oplev klassisk musiks største præstationers dybe skønhed, fra Bachs indviklede kontrapunkt til Beethovens revolutionære symfonier. Lad disse tidsløse mesterværker transportere dig gennem historiens mest brillante musikalske sind.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/434kID2hF3NVLqbQDjiPB8",
     "deezerPlaylist": "https://link.deezer.com/s/30xn0GpbOPGTvHWJI9CLp",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-classical/pl.u-aZb06A7F1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-classical/pl.u-aZb06A7F1xpM8zM",
+    "categoryType": "other"
   },
   {
     "headline": "Club-hits: Den ultimative dansegulv-energi-ignition",
@@ -413,7 +464,8 @@
     "introSubline": "Forvandl ethvert rum til en øjeblikkelig natklub med disse certificerede floor-fillers. Fra euforiske EDM-drops til uimodståelige pop-remixes leverer denne samling den perfekte blanding af energi og rytme for at holde festen på toppunkt.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1ZbPYkUWN0BukD8JhYgW8O",
     "deezerPlaylist": "https://link.deezer.com/s/30xn0Wy7jcyhUMQOCKrFD",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-club/pl.u-JPAZ4RJTL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-club/pl.u-JPAZ4RJTL2NZeJZ",
+    "categoryType": "mainstream-pop"
   },
   {
     "headline": "Colombianske rytmer: Hvor Cumbia, Vallenato og moderne lyde kolliderer",
@@ -421,7 +473,8 @@
     "introSubline": "Dyk ned i Colombias mangfoldige musikalske landskab, fra vallenatos harmonika-drevne passion til cumbias smittende tropiske groove. Oplev hvordan traditionelle rytmer blander sig med moderne stile for at skabe det levende soundtrack til moderne Colombia.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/14Co12mZWx9jgHEKulsSBK",
     "deezerPlaylist": "https://link.deezer.com/s/30xn27jZ8rTEOD2jNY0wV",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-colombian/pl.u-aZb0Ayru1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-colombian/pl.u-aZb0Ayru1xpM8zM",
+    "categoryType": "latin-vibes"
   },
   {
     "headline": "Pendler-ven: Forvandl din daglige rejse til et musikalskt eventyr",
@@ -429,7 +482,8 @@
     "introSubline": "Forvandl trafik til triumf med denne omhyggeligt kuraterede blanding af energigivende og afslappende numre. Uanset om du navigerer gennem morgentrafik eller slapper af på aftenkørslen, gør disse sange hver pendlertur til en personlig koncert.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6QessAsjZ05dfOHVzoCJYH",
     "deezerPlaylist": "https://link.deezer.com/s/30xn2pwNP07fSrmzqhHNd",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-commute-companion/pl.u-76oNADMIvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-commute-companion/pl.u-76oNADMIvedXrZX",
+    "categoryType": "other"
   },
   {
     "headline": "Madlavnings-soundtrack: Din perfekte køkken-ven til kulinariske eventyr",
@@ -437,7 +491,8 @@
     "introSubline": "Forvandl dit køkken til et musikalskt tilflugtssted med denne kuraterede samling af opløftende numre. Fra hakning af grøntsager til simring af saucer lad disse rytmer inspirere din kulinariske kreativitet og gøre madlavning til en glædelig oplevelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2l45RZD5WYpRd1EhUhj9tq",
     "deezerPlaylist": "https://link.deezer.com/s/30xn3zdvtRdi3KVNY8U49",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-cooking-soundtrack/pl.u-JPAZ4R2CL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-cooking-soundtrack/pl.u-JPAZ4R2CL2NZeJZ",
+    "categoryType": "classical-orchestral"
   },
   {
     "headline": "Coregrind: Metals mest ekstreme evolutions ultimative udtryk",
@@ -445,7 +500,8 @@
     "introSubline": "Dyk ned i metals mest kompromisløse grænse, hvor grindcore møder hardcores intensitet. Oplev hvordan musikere skubber lydgrænser for at skabe en unikt ødelæggende form for ekstrem musik der udfordrer konventionelle sangstrukturer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5p2vX24aHMdLoKV6LbO9I2",
     "deezerPlaylist": "https://link.deezer.com/s/30xn3Sm8fukzKkTFf5sOt",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-coregrind/pl.u-aZb0AjZF1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-coregrind/pl.u-aZb0AjZF1xpM8zM",
+    "categoryType": "metal-avantgarde"
   },
   {
     "headline": "Country-klassikere: De tidsløse historier og lyde fra Amerikas hjerteland",
@@ -453,7 +509,8 @@
     "introSubline": "Rejs gennem country-musikkens gyldne æra, hvor autentisk historiefortælling møder mesterlig musikalskhed. Fra honky-tonk helte til Nashville-legender oplever du sangene der fanger Amerikas livs ånd, kampe og triumfer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3FcVkRJjFiZ3EfVKbMPWGl",
     "deezerPlaylist": "https://link.deezer.com/s/30xn6snmJVM2NIWbp2X0B",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-country/pl.u-JPAZ4GmFL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-country/pl.u-JPAZ4GmFL2NZeJZ",
+    "categoryType": "folk-regional"
   },
   {
     "headline": "Hyggelig aften: Dit musikalske tilflugtssted til perfekte aften-hjemme-øjeblikke",
@@ -461,7 +518,8 @@
     "introSubline": "Forvandl dit rum til et blødt tilflugtssted med omhyggeligt udvalgte numre der omfavner dig som et varmt tæppe. Lad disse beroligende melodier hjælpe dig med at slappe af og skabe den perfekte soundtrack til stille eftertanke eller fredelig afslapning.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7sjaWu1uWwHRn3nTyNbV3s",
     "deezerPlaylist": "https://link.deezer.com/s/30xn6I6QxAb9O0Mys7Clp",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-cozy-evening/pl.u-aZb0A7vu1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-cozy-evening/pl.u-aZb0A7vu1xpM8zM",
+    "categoryType": "other"
   },
   {
     "headline": "Crossover Thrash: Hvor punks attitude møder metals kraft",
@@ -469,7 +527,8 @@
     "introSubline": "Dyk ned i den eksplosive fusion hvor punks rå energi kolliderer med metals tekniske præcision. Fra mosh pit-hymner til hastigheds-drevne ragers oplever du hvordan denne hybrid-genre skabte en unik lyd der revolutionerede begge scener.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/13E7zxBDCoUkft4xmUF9EG",
     "deezerPlaylist": "https://link.deezer.com/s/30xn6YBNN15Q4vKuCmSwQ",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-crossover-thrash/pl.u-11zB2myhNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-crossover-thrash/pl.u-11zB2myhNP6EVjE",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Cubanske rytmer: Caribbean-musikkulturs pulserende hjerte",
@@ -477,7 +536,8 @@
     "introSubline": "Rejs gennem Cubas musikalske sjæl, hvor afrikanske rytmer møder spanske melodier. Fra tidsløs son cubano til moderne salsa-innovationer oplever du hvordan øens passionerede ånd skaber musik der bevæger både krop og sjæl.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5pj8MUa9jYfeWhooXmoZCT",
     "deezerPlaylist": "https://link.deezer.com/s/30xn7jsMjgBoEhVujYnCv",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-cuban/pl.u-d2b0eBYsLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-cuban/pl.u-d2b0eBYsLJaz6dz",
+    "categoryType": "countries-regional"
   },
   {
     "headline": "Cumbia: Latinamerikas dansegulv-staple",
@@ -485,7 +545,8 @@
     "introSubline": "Bevæg dig til cumbias smittende rytmer, en genre der forener Latinamerika med sine glade beats.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0Di8ef8PTSHMhvdZbolOrL",
     "deezerPlaylist": "https://link.deezer.com/s/30xn802fHrESW217n2CP7",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-cumbia-2025/pl.u-e98lbqKTa8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-cumbia-2025/pl.u-e98lbqKTa8XvYev",
+    "categoryType": "latin-vibes"
   },
   {
     "headline": "Cyber Metal: Hvor digital innovation møder metals rå kraft",
@@ -493,7 +554,8 @@
     "introSubline": "Træd ind i et lydrige hvor industriel præcision møder metallisk raseri. Oplev hvordan kunstnere blander banebrydende elektroniske elementer med traditionel metal-intensitet for at skabe en unikt futuristisk form for tung musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/65Zqa3rGN55eC5f9REKiIK",
     "deezerPlaylist": "https://link.deezer.com/s/30xn8g7z8IBohZcPHvrFs",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-cyber-metal/pl.u-JPAZ4zZuL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-cyber-metal/pl.u-JPAZ4zZuL2NZeJZ",
+    "categoryType": "metal-avantgarde"
   },
   {
     "headline": "Tjekkiske melodier: Fra bøhmiske folk-traditioner til moderne innovation",
@@ -501,7 +563,8 @@
     "introSubline": "Rejs gennem århundreder af tjekkisk musikalsk evolution, fra traditionelle folkemelodier til moderne kunstneriske udtryk. Oplev hvordan gamle bøhmiske rytmer og harmonier fortsætter med at påvirke og inspirere dagens kreative stemmer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6hbfyh7YZbUsqFZwv9yb9h",
     "deezerPlaylist": "https://link.deezer.com/s/30xn8ygAtTTgRA3wx4hsc",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-czech/pl.u-aZb0AaDu1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-czech/pl.u-aZb0AaDu1xpM8zM",
+    "categoryType": "folk-regional"
   },
   {
     "headline": "Dancehall-vibes: Jamaicas urbane puls og kulturel revolution",
@@ -509,7 +572,8 @@
     "introSubline": "Dyk ned i dancehalls dynamiske verden, hvor Kingstons gadekultur møder smittende rytmer. Fra foundation deejays til moderne stjerner oplever du hvordan denne genre revolutionerede Caribbean-musik og påvirkede global popkultur.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2yxV3b2iEqG0YHKzWJCWC0",
     "deezerPlaylist": "https://link.deezer.com/s/30xn8YNgHXGH8OQLiJQGe",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-dancehall/pl.u-11zB29YsNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-dancehall/pl.u-11zB29YsNP6EVjE",
+    "categoryType": "club-sounds"
   },
   {
     "headline": "Danske perler: Skandinavisk pop-ekspertise møder nordisk rock-innovation",
@@ -517,7 +581,8 @@
     "introSubline": "Oplev Danmarks unikke musikalske identitet, hvor ren pop-produktion møder alternativ rocks kant. Fra Københavns undergrundsscene til internationale hits opdager du hvordan danske kunstnere skaber deres særprægede nordiske lyd.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/78uUwN6op6fn7SlxOXGhcg",
     "deezerPlaylist": "https://link.deezer.com/s/30xncrcl4nTweqAA941UP",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-danish/pl.u-d2b0e8WCLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-danish/pl.u-d2b0e8WCLJaz6dz",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Dark Metal: Hvor atmosfærisk mørke møder primitiv intensitet",
@@ -525,7 +590,8 @@
     "introSubline": "Rejs ind i metals mest skyggefulde rige, hvor hjemsøgende atmosfærer smelter sammen med knusende tunghed. Oplev hvordan dark metal-kunstnere skaber intense lydlandskaber der udforsker menneskets følelses dybder gennem kraftfuld musikalsk mørke.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4kLxAZTwwRQZywq46DoKXx",
     "deezerPlaylist": "https://link.deezer.com/s/30xncJoXSiYV1EG6uw2WB",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-dark-metal/pl.u-e98lb3pia8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-dark-metal/pl.u-e98lb3pia8XvYev",
+    "categoryType": "metal-avantgarde"
   },
   {
     "headline": "Date Night: Din perfekte soundtrack til romantiske øjeblikke",
@@ -533,7 +599,8 @@
     "introSubline": "Skab en fortryllende atmosfære med omhyggeligt udvalgte romantiske numre der forbedrer hvert særligt øjeblik. Fra intime middage til hyggelige aftener lad disse sange give den perfekte baggrund til forbindelse og romantik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/17qLsk8c4KXYmCvW7ADlCz",
     "deezerPlaylist": "https://link.deezer.com/s/30xncXTrcoTFwg9M6Wh0O",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-date-night/pl.u-d2b0eLjsLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-date-night/pl.u-d2b0eLjsLJaz6dz",
+    "categoryType": "classical-orchestral"
   },
   {
     "headline": "Death Metal: Det ultimative udtryk for musikalsk ekstremitet",
@@ -541,7 +608,8 @@
     "introSubline": "Dyk ned i metals mest kompromisløse rige, hvor teknisk præcision møder rå aggression. Oplev hvordan pioner-kunstnere skubbede musikalske grænser for at skabe en genre der omdefinerede grænserne for tung musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7yyTs4WubcRhvYcyM1rWQo",
     "deezerPlaylist": "https://link.deezer.com/s/30xndlMEgZip91uS4xkg3",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-death-metal/pl.u-e98lb5qca8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-death-metal/pl.u-e98lb5qca8XvYev",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Deep House: Rejs gennem elektronisk musiks mest sofistikerede genre",
@@ -549,7 +617,8 @@
     "introSubline": "Svæv væk på bølger af sofistikerede elektroniske lydlandskaber, hvor sjælfulde melodier møder hypnotiske rytmer. Oplev hvordan deep house skaber en fordybende atmosfære der både er intellektuelt engagerende og uimodståelig dansbar.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5ge5xOchRYWDJtYJ8memGJ",
     "deezerPlaylist": "https://link.deezer.com/s/30xndGEj3bSAMNACP8cIs",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-deep-house/pl.u-38oWveWtYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-deep-house/pl.u-38oWveWtYMoD7qD",
+    "categoryType": "house-techno"
   },
   {
     "headline": "Desert Rock: Hvor tunge riffs møder det amerikanske sydvests ånd",
@@ -557,7 +626,8 @@
     "introSubline": "Rejs ind i desert rocks solbagte lydlandskaber, hvor fuzzy guitarer og hypnotiske grooves fanger de vidtstrakte ørkenlandskaber. Oplev hvordan denne genre forvandler stoner rocks råhed til et unikt lydudtryk for ørkenkultur.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/48UEHKFT7ibAyQkjbPsbZz",
     "deezerPlaylist": "https://link.deezer.com/s/30xndZZjulU0HkuNStwsG",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-desert-rock/pl.u-DdANzeaC01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-desert-rock/pl.u-DdANzeaC01PVbgV",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Detroit Techno: Amerikas Motor Citys mekaniserede sjæl",
@@ -565,7 +635,8 @@
     "introSubline": "Oplev den revolutionære lyd der opstod fra Detroits industrielle landskab. Fra Belleville Three til moderne innovatører opdager du hvordan denne genre forvandlede elektronisk musik ved at fusionere mekanisk præcision med sjælfuld menneskelighed.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0BOek8nkdJePER61FHiFuX",
     "deezerPlaylist": "https://link.deezer.com/s/30xneecrhgxMAFM6G1L49",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-detroit-techno/pl.u-9N9LxeeT1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-detroit-techno/pl.u-9N9LxeeT1mlEboE",
+    "categoryType": "house-techno"
   },
   {
     "headline": "Deutschrock: Tysk rocks rå kraft og poetiske sjæl",
@@ -573,7 +644,8 @@
     "introSubline": "Oplev Tysklands særprægede rock-evolution, hvor kraftfulde riffs møder tankevækkende tekster på modersmålet. Fra undergrundsoprør til stadium-hymner opdager du hvordan Deutschrock skabte sin egen unikke stemme i rockhistorien.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1bhuZ8aTGSZs6E2bsqyMpb",
     "deezerPlaylist": "https://link.deezer.com/s/30xnezAmfIyGxsbX5RXK5",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-deutschrock/pl.u-d2b0e4VCLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-deutschrock/pl.u-d2b0e4VCLJaz6dz",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Middagsselskab: Kuraterede lyde til sofistikerede sociale sammenkomster",
@@ -581,7 +653,8 @@
     "introSubline": "Forvandl dit middagsselskab til en elegant soirée med perfekt udvalgte numre der forbedrer samtalen uden at overdøve den. Fra jazz-sophistication til moderne atmosfære skab den perfekte baggrund til mindeværdige spiseoplevelser.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1MXL5jkBocvGOcs8Ykel3A",
     "deezerPlaylist": "https://link.deezer.com/s/30xniMYeoV2EWvyw559NT",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-dinner-party/pl.u-e98lbA9Ta8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-dinner-party/pl.u-e98lbA9Ta8XvYev",
+    "categoryType": "other"
   },
   {
     "headline": "Disco-fever: Dansemusikkens gyldne æras glitrende arv",
@@ -589,7 +662,8 @@
     "introSubline": "Træd ind i en æra af spejlkugler og platformsko, hvor dansemusik nåede nye højder af glamour og groove. Oplev hvordan disco-kultur forvandlede natteliv og skabte tidsløse hymner der stadig tænder dansegulve i dag.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3dvVawXWiSUO2XIKQ2CN51",
     "deezerPlaylist": "https://link.deezer.com/s/30xnj4cw13wE5ujrizZIw",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-disco-fever/pl.u-38oWvKgTYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-disco-fever/pl.u-38oWvKgTYMoD7qD",
+    "categoryType": "situational"
   },
   {
     "headline": "Doom Metal: Hvor tiden sænker farten og riffs regerer",
@@ -597,7 +671,8 @@
     "introSubline": "Stig ned i metals mest monolitiske rige, hvor knusende riffs bevæger sig som gletsjere og følelser løber dybe som kløfter. Fra Sabbath-dyrkelse til moderne innovation oplever du hvordan doom metal forvandler tunghed til høj kunst.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3vh5TYe4kSx5CvDT2Hy7Ei",
     "deezerPlaylist": "https://link.deezer.com/s/30xnjxSsmvS9hmF0chDu7",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-doom-metal/pl.u-DdANz76t01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-doom-metal/pl.u-DdANz76t01PVbgV",
+    "categoryType": "metal-classic"
   },
   {
     "headline": "Downtempo: Afslappede grooves til afslapning",
@@ -605,7 +680,8 @@
     "introSubline": "Slap af med downtempo-numre, der blander elektroniske lyde med chill-atmosfærer til den perfekte baggrundsvibe.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1Vb4Gy3vBTiXTjJXoNGiyx",
     "deezerPlaylist": "https://link.deezer.com/s/30xnk5cE1L62RqzHXNFti",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-downtempo/pl.u-9N9LxBLT1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-downtempo/pl.u-9N9LxBLT1mlEboE",
+    "categoryType": "breaks-experimental"
   },
   {
     "headline": "Dramatiske scores: Episke musikalske narrativer der transporterer og forvandler",
@@ -613,7 +689,8 @@
     "introSubline": "Rejs gennem fejende orkestrale landskaber der maler historier i lyd. Fra hjertebankende action-temaer til ømme følelsesmæssige øjeblikke skaber disse dramatiske scores levende verdener og vækker dybe følelser.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2i3yAprKjaL3rqVAYpncd0",
     "deezerPlaylist": "https://link.deezer.com/s/30xnzrVoHawVe0BxFaubs",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-dramatic/pl.u-DdANzY3C01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-dramatic/pl.u-DdANzY3C01PVbgV",
+    "categoryType": "other"
   },
   {
     "headline": "Drømmende lydlandskaber: Rejs gennem æteriske musikalske landskaber",
@@ -621,7 +698,8 @@
     "introSubline": "Svæv væk på skyer af ambient-lyd skabt til at transportere dig til rolige riger. Disse omhyggeligt kuraterede atmosfæriske stykker skaber den perfekte soundtrack til meditation, afslapning eller fredelig drømmeri.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/15PdpwfohtGuNwRSkCW2zt",
     "deezerPlaylist": "https://link.deezer.com/s/30xnAeSrfGA8TJolNBgve",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-dreamy/pl.u-9N9Lx5dt1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-dreamy/pl.u-9N9Lx5dt1mlEboE",
+    "categoryType": "other"
   },
   {
     "headline": "Drum & Bass: Elektronisk musiks lynhurtige evolution",
@@ -629,7 +707,8 @@
     "introSubline": "Oplev genren der forvandlede breakbeat-videnskab til lydkunst. Fra jungles rå energi til liquids sjælfulde flow opdager du hvordan drum & bass skubber rytmens grænser og forvandler dansemusikkens DNA.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4zYM1OGrfifAjTJ7DcZNTL",
     "deezerPlaylist": "https://link.deezer.com/s/30xnABtUuw7FmQd27uM81",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-drum-and-bass/pl.u-mJy8lXPFNVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-drum-and-bass/pl.u-mJy8lXPFNVL5Jl5",
+    "categoryType": "other"
   },
   {
     "headline": "Dubstep: Tunge drops og futuristiske basslines",
@@ -637,7 +716,8 @@
     "introSubline": "Få energi af dubsteps signatur-wobbles og drops, en genre der omdefinerede elektronisk dansemusik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4y5C0ZUw18vNLwB74DwKug",
     "deezerPlaylist": "https://www.deezer.com/de/playlist/14071209941",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-dubstep-2025/pl.u-V9D7rN9I3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-dubstep-2025/pl.u-V9D7rN9I3MGpZPp",
+    "categoryType": "club-sounds"
   },
   {
     "headline": "Hollandske perler: Hvor elektronisk innovation møder pop-perfektion",
@@ -645,7 +725,8 @@
     "introSubline": "Rejs gennem Hollands særprægede musikalske landskab, hvor EDM-pionerer møder chart-topping talent. Oplev hvordan hollandske kunstnere blander teknisk præcision med uimodståelige hooks for at skabe globale danse-hymner.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/51lhPhTRmWbmyLDsdw0wEm",
     "deezerPlaylist": "https://link.deezer.com/s/30xod7DaUFSmC7lZ30Plk",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-dutch/pl.u-76oNA37TvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-dutch/pl.u-76oNA37TvedXrZX",
+    "categoryType": "mainstream-pop"
   },
   {
     "headline": "Energetiske hymner: Din ultimative motivations-soundtrack",
@@ -653,7 +734,8 @@
     "introSubline": "Forvandl ethvert øjeblik til en mulighed for triumf med disse omhyggeligt udvalgte power-numre. Fra trænings-intensificerere til selvtillids-boostere giver disse sange den perfekte lydbrændstof til at give dig energi og tænde dit indre ild.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2kzteEmMVydWhpKXpE0NwA",
     "deezerPlaylist": "https://link.deezer.com/s/30xodrzw68uslito6XkVW",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-energetic/pl.u-DdANzRot01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-energetic/pl.u-DdANzRot01PVbgV",
+    "categoryType": "classical-orchestral"
   },
   {
     "headline": "Eurodance: Lyden der forenede Europas dansegulve",
@@ -661,7 +743,8 @@
     "introSubline": "Rejs tilbage til den kontinentale klubkulturs gyldne æra, da synthesizere og vokale harmonier skabte ren eufori. Oplev hvordan Eurodance fusionerede hi-NRG beats med pop-hooks for at skabe en uimodståelig bølge af dansemusik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4pHIQ9gXOn2VayV4tsfHzd",
     "deezerPlaylist": "https://link.deezer.com/s/30xodEcLPkDA49E8QTUXE",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-eurodance/pl.u-9N9LxMyu1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-eurodance/pl.u-9N9LxMyu1mlEboE",
+    "categoryType": "club-sounds"
   },
   {
     "headline": "Experimental Metal: Hvor musikalske konventioner knuses og genopbygges",
@@ -669,7 +752,8 @@
     "introSubline": "Ventur ind i metals mest eventyrlige territorium, hvor frygtløse kunstnere omskriver reglerne for tung musik. Oplev hvordan innovative teknikker og ukonventionelle strukturer skaber modige nye lydlandskaber der udfordrer og udvider metals muligheder.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3wvp9nAuQJBgkDX1ZpM3YG",
     "deezerPlaylist": "https://link.deezer.com/s/30xoe5D1jetIYlpx4B5Q0",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-experimental-metal/pl.u-mJy8lq0INVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-experimental-metal/pl.u-mJy8lq0INVL5Jl5",
+    "categoryType": "metal-avantgarde"
   },
   {
     "headline": "Experimental: Skubber lydens grænser",
@@ -677,7 +761,8 @@
     "introSubline": "Udforsk musik der trodser konventioner, hvor kunstnere eksperimenterer med nye former, teksturer og idéer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3WbaKfdb2dDOG4VPbu1D1S",
     "deezerPlaylist": "https://link.deezer.com/s/30xoine2tP3SUaVITZB4D",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-experimental/pl.u-V9D7rPaS3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-experimental/pl.u-V9D7rPaS3MGpZPp",
+    "categoryType": "breaks-experimental"
   },
   {
     "headline": "Kvindelige blues-legender: De kraftfulde stemmer der formede amerikansk musik",
@@ -685,7 +770,8 @@
     "introSubline": "Ær de pioner-kvinder der gav blues dens sjæl, fra Ma Raineys rå kraft til Billie Holidays følelsesmæssige dybde. Oplev hvordan disse legendariske kunstnere forvandlede personlige kampe til tidsløs kunst der påvirkede generationer af musikere.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0B1lCvZ39NNGfYurue3SVj",
     "deezerPlaylist": "https://www.deezer.com/de/playlist/14071303901",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-experimental-metal/pl.u-mJy8lq0INVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-experimental-metal/pl.u-mJy8lq0INVL5Jl5",
+    "categoryType": "jazz-soul-funk"
   },
   {
     "headline": "Kvindelige country-stjerner: Nashvilles mest kraftfulde historiefortællere",
@@ -693,7 +779,8 @@
     "introSubline": "Rejs gennem country-musikkens mest fængende kvindelige stemmer, fra Patsy Clines følelsesmæssige ærlighed til dagens banebrydende kunstnere. Oplev hvordan disse kvinder kombinerer autentisk historiefortælling med musikalsk brillans for at skabe varige country-klassikere.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7pJnAa3cTUaKb8LgudSekp",
     "deezerPlaylist": "https://link.deezer.com/s/30xolMe3YtTBWnc0FQFDZ",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-country-stars/pl.u-V9D7BeGh3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-country-stars/pl.u-V9D7BeGh3MGpZPp",
+    "categoryType": "folk-regional"
   },
   {
     "headline": "Kvindelige DJs: De revolutionære kvinder der omformer elektronisk musik",
@@ -701,7 +788,8 @@
     "introSubline": "Oplev kvinders innovative kraft der forvandler elektronisk musik fra undergrundsklubber til festival-hovedscener. Fra techno-pionerer til moderne smagsdannere opdager du hvordan kvindelige DJs blander teknisk mesterlighed med kreativ vision.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6G0z7MeFF9le1mHhAylvIu",
     "deezerPlaylist": "https://link.deezer.com/s/30xom0b0AbVFqvPmKYyIN",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-djs/pl.u-76oNvxeTvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-djs/pl.u-76oNvxeTvedXrZX",
+    "categoryType": "other"
   },
   {
     "headline": "Kvindelige grunge-kunstnere: Kvinders rå kraft i 90'ernes alternative",
@@ -709,7 +797,8 @@
     "introSubline": "Dyk ned i kvindernes vilde verden der hjalp med at definere grunges lyd og attitude. Fra Holes viscerale intensitet til L7s kompromisløse kant oplever du hvordan kvindelige kunstnere bragte unikke perspektiver og kraftfulde stemmer til alternativ rocks revolution.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4U5LB1XOwvS1sG3F8c8z8Y",
     "deezerPlaylist": "https://link.deezer.com/s/30xoml3lyya1YCjrGHsIU",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-grunge-artists/pl.u-JPAZaXqCL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-grunge-artists/pl.u-JPAZaXqCL2NZeJZ",
+    "categoryType": "indie-alternative"
   },
   {
     "headline": "Kvindelige hip-hop-kunstnere: Revolutionære der omformer raps landskab",
@@ -717,7 +806,8 @@
     "introSubline": "Rejs gennem hip-hops mest kraftfulde kvindelige stemmer, fra pioner-MCs til dagens hitliste-dominerende kunstnere. Oplev hvordan disse modige innovatører kombinerer raskarp ordleg med genre-skubbende produktion for at skabe deres egen unikke bane i raps historie.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5uQxagiQxkL0yY48y9tsxd",
     "deezerPlaylist": "https://link.deezer.com/s/30xomCVcQGXOJD6tGQHdS",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-hip-hop-artists/pl.u-aZb02m5u1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-hip-hop-artists/pl.u-aZb02m5u1xpM8zM",
+    "categoryType": "hip-hop-rap"
   },
   {
     "headline": "Kvindelige jazz-vokalister: De fortryllende stemmer der definerede en æra",
@@ -725,7 +815,8 @@
     "introSubline": "Oplev jazzens mest fængende stemmers tidsløse kunstneri, fra Ella Fitzgeralds virtuose scatting til Sarah Vaughans fløjlsstemmer. Opdag hvordan disse legendariske kunstnere forvandlede American Songbook gennem uovertruffen vokal mesterlighed.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6qXhNB2hp262T8JkJDfr3a",
     "deezerPlaylist": "https://link.deezer.com/s/30xonk04ewq4y75XSQCb6",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-jazz-vocalists/pl.u-76oNvx3TvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-jazz-vocalists/pl.u-76oNvx3TvedXrZX",
+    "categoryType": "jazz-soul-funk"
   },
   {
     "headline": "Kvindelige pop-superstjerner: Stemmerne der definerer generationer",
@@ -733,7 +824,8 @@
     "introSubline": "Dyk ned i pop-musikkens mest indflydelsesrige kvindelige stemmer, hvor kraftfulde optrædener møder kulturelle fænomener. Fra Madonnas genopfindelser til Beyoncés spilændrende kunstneri oplever du hvordan disse ikoner former ikke bare musik, men populærkulturen selv.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0OTG3TxHPRdIi0MeBVQUk8",
     "deezerPlaylist": "https://link.deezer.com/s/30xonRnzqJODqhk6EkgWv",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-pop-superstars/pl.u-V9D7BVEh3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-pop-superstars/pl.u-V9D7BVEh3MGpZPp",
+    "categoryType": "mainstream-pop"
   },
   {
     "headline": "Kvindelige R&B-divaer: Souls mest kraftfulde stemmer og deres varige arv",
@@ -741,7 +833,8 @@
     "introSubline": "Oplev de storslåede stemmer der formede R&Bs følelsesmæssige landskab, fra Whitney Houstons svævende kraft til Mary J. Bliges rå ærlighed. Opdag hvordan disse ekstraordinære kunstnere kombinerer teknisk brillans med dyb sjæl for at skabe tidsløs musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7bFTsjuZPbCMupw8n9aTs0",
     "deezerPlaylist": "https://link.deezer.com/s/30xoq8sEJFZWqQaKAbK3r",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-r-b-divas/pl.u-76oNv5NTvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-r-b-divas/pl.u-76oNv5NTvedXrZX",
+    "categoryType": "jazz-soul-funk"
   },
   {
     "headline": "Kvindelige rappere: Bryder barrierer og omdefinerer hip-hops fremtid",
@@ -749,7 +842,8 @@
     "introSubline": "Rejs gennem hip-hops revolutionære kvindelige stemmer, fra Queen Latifahs pioner-flow til Nicki Minajs genre-bøjende innovation. Oplev hvordan disse frygtløse kunstnere kombinerer lyrisk dygtighed med magnetisk charisma for at forvandle raps landskab.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4MPwwjf3lUpKaByZGGZqAM",
     "deezerPlaylist": "https://link.deezer.com/s/30xoqzIRBYiHYHV91wXwk",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-rappers/pl.u-JPAZa59uL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-rappers/pl.u-JPAZa59uL2NZeJZ",
+    "categoryType": "hip-hop-rap"
   },
   {
     "headline": "Kvindelige rock- og metal-vokalister: De kraftfulde stemmer der omdefinerer tung musik",
@@ -757,7 +851,8 @@
     "introSubline": "Rejs gennem udviklingen af kvindeførte rock og metal, fra Hearts passionerede kraft til Nightwishs operatiske storhed. Oplev hvordan disse ekstraordinære vokalister kombinerer teknisk mesterlighed med rå følelse for at skubbe musikalske grænser.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5gTccByda9bdZN9LHJaV4N",
     "deezerPlaylist": "https://link.deezer.com/s/30xoqRk3sYUw5SaGI2Fxm",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-rock-metal-vocalists/pl.u-aZb0234u1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-rock-metal-vocalists/pl.u-aZb0234u1xpM8zM",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Kvindelige soul-legender: Stemmerne der definerede moderne musiks følelsesmæssige kerne",
@@ -765,7 +860,8 @@
     "introSubline": "Oplev souls største kvindelige stemmers transcendentale kunstneri, fra Aretha Franklins gospel-drevne autoritet til Diana Rosss elegante alsidighed. Opdag hvordan disse legendariske kunstnere formede populærmusikkens lyd gennem uovertruffen følelsesmæssig udtryk.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6fao1R0YMUKcnlfDo48tuK",
     "deezerPlaylist": "https://link.deezer.com/s/30xor6gTwWBcBphStoNyI",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-soul-legends/pl.u-11zBZebtNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-soul-legends/pl.u-11zBZebtNP6EVjE",
+    "categoryType": "jazz-soul-funk"
   },
   {
     "headline": "Kvindelige vokal-ikoner: De mest indflydelsesrige stemmer i musikkens historie",
@@ -773,7 +869,8 @@
     "introSubline": "Rejs gennem de mest bemærkelsesværdige stemmer der ændrede musik for evigt, fra Édith Piafs passionerede intensitet til Céline Dions forbløffende kraft. Oplev hvordan disse legendariske kunstnere omdefinerede hvad der er muligt med den menneskelige stemme.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6ClyY4xbhg17BvxvETMY5k",
     "deezerPlaylist": "https://link.deezer.com/s/30xp4Mo1bvPl3Vej7hSU9",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-vocal-icons/pl.u-aZb02kZC1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-female-vocal-icons/pl.u-aZb02kZC1xpM8zM",
+    "categoryType": "other"
   },
   {
     "headline": "Festivalsæson: Din ultimative guide til sommerens største musikalske fejringer",
@@ -781,7 +878,8 @@
     "introSubline": "Fang den elektriske atmosfære fra verdens største musikfestivaler, fra Glastonburys mudrede marker til Coachellas ørken-vibes. Disse hymniske numre legemliggør den fællesskabsånd og euforiske energi der gør festivalsæsonen magisk.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0OmOcSWDXKzhBujV4Wr0y3",
     "deezerPlaylist": "https://link.deezer.com/s/30xp540bJ7I3wdbd7PoRB",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-festival-season/pl.u-76oNvl7TvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-festival-season/pl.u-76oNvl7TvedXrZX",
+    "categoryType": "other"
   },
   {
     "headline": "Finske melodier: Hvor arktisk mystik møder moderne innovation",
@@ -789,7 +887,8 @@
     "introSubline": "Rejs gennem Finlands fortryllende musikalske landskab, fra ældgammel Kalevala-inspireret folk til moderne elektroniske pionerer. Oplev hvordan finske kunstnere blander mystiske traditioner med banebrydende kreativitet for at skabe unikt nordiske lyde.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7KY8Hb1H55zZGezrxoGo6v",
     "deezerPlaylist": "https://link.deezer.com/s/30xp5mJ4VOf47qOE3Vb4x",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-finnish/pl.u-JPAZaEGsL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-finnish/pl.u-JPAZaEGsL2NZeJZ",
+    "categoryType": "other"
   },
   {
     "headline": "Fokus og koncentration: Din ultimative produktivitets-soundtrack",
@@ -797,7 +896,8 @@
     "introSubline": "Optimer din mentale præstation med omhyggeligt udvalgte numre der forbedrer koncentration uden afbrydelser. Fra ambient lydlandskaber til minimale klaverstykker finder du din perfekte fokus-flow til studietimer og dybt arbejde.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/40Lkg8ZtakbXt83Xs9CTsM",
     "deezerPlaylist": "https://link.deezer.com/s/30xp5EQPbTkE7ODkf95Ty",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-focus-concentration/pl.u-aZb02k0u1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-focus-concentration/pl.u-aZb02k0u1xpM8zM",
+    "categoryType": "classical-orchestral"
   },
   {
     "headline": "Folk Metal: Hvor ældgamle traditioner møder moderne metals kraft",
@@ -805,7 +905,8 @@
     "introSubline": "Rejs gennem metals mest unikke fusion, hvor traditionelle instrumenter og ældgamle melodier kolliderer med knusende riffs. Oplev hvordan bands fra hele verden blander deres kulturelle arv med heavy metals kraft for at skabe episk musikalsk historiefortælling.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4Cb7fACOotyo3kXfqZ19aL",
     "deezerPlaylist": "https://link.deezer.com/s/30xpbaU77eag4t9pBetsR",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-folk-metal/pl.u-11zBZXVSNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-folk-metal/pl.u-11zBZXVSNP6EVjE",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Folk-favoritter: Den tidsløse stemme af traditionel historiefortælling",
@@ -813,7 +914,8 @@
     "introSubline": "Oplev folk-musikkens autentiske sjæl, fra Woody Guthries arbejderklasse-hymner til Joan Baez krystalklare protestsange. Rejs gennem årtier af mesterlig historiefortælling der fanger den menneskelige oplevelse i dens reneste musikalske form.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4j8iacXWVSLcT85sQUBQad",
     "deezerPlaylist": "https://link.deezer.com/s/30xpaO9bCb4NzxjqigycN",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-folk/pl.u-aZb02DxC1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-folk/pl.u-aZb02DxC1xpM8zM",
+    "categoryType": "folk-regional"
   },
   {
     "headline": "Forró: Den passionerede puls af Brasiliens nordøst",
@@ -821,7 +923,8 @@
     "introSubline": "Dyk ned i Brasiliens mest elskede dansemusik, hvor harmonika-melodier og smittende rytmer skaber ren glæde. Oplev hvordan forró udviklede sig fra landlige festligheder til at blive en national skat der holder millioner dansende hele natten.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1lIwMwXDqqxQp6C6uo3F31",
     "deezerPlaylist": "https://link.deezer.com/s/30xpboyJgl5xCXxctcfLz",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-forr%C3%B3/pl.u-11zBZVosNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-forr%C3%B3/pl.u-11zBZVosNP6EVjE",
+    "categoryType": "other"
   },
   {
     "headline": "Franske melodier: Fra chansons poesi til moderne innovation",
@@ -829,7 +932,8 @@
     "introSubline": "Rejs gennem Frankrigs sofistikerede musikalske landskab, fra Edith Piafs tidsløse følelse til moderne elektroniske pionerer. Oplev hvordan franske kunstnere blander poetisk tradition med avant-garde kreativitet for at skabe unikt elegante udtryk.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7vWunbCSOI7hLDJmfl5C3p",
     "deezerPlaylist": "https://link.deezer.com/s/30xpbFaBBA9FAD3F5v4jm",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-french/pl.u-d2b0A12sLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-french/pl.u-d2b0A12sLJaz6dz",
+    "categoryType": "other"
   },
   {
     "headline": "Funeral Doom Metal: Hvor tid strækker sig ind i uendelig mørke",
@@ -837,7 +941,8 @@
     "introSubline": "Stig ned i metals mest tunge dybder, hvor glaciære riffs og huleagtige atmosfærer skaber overvældende følelsesmæssig vægt. Oplev hvordan denne genre forvandler sorg og kontemplation til monumentale lydarkitektur.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/31CHA2qjP90IXcLUbUg6ce",
     "deezerPlaylist": "https://link.deezer.com/s/30xpcf6vZ8CVwPTZQsH2q",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-funeral-doom-metal/pl.u-e98lx1jfa8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-funeral-doom-metal/pl.u-e98lx1jfa8XvYev",
+    "categoryType": "metal-classic"
   },
   {
     "headline": "Funk-grooves: Den uimodståelige kraft der revolutionerede dansemusik",
@@ -845,7 +950,8 @@
     "introSubline": "Dyk ned i genren der fik verden til at bevæge sig anderledes, fra James Browns eksplosive innovation til Parliaments kosmiske vision. Oplev hvordan funks revolutionære rytmer og modige attitude forvandlede populærmusik for evigt.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2MCxX9WbghzMzwl7MhjgOi",
     "deezerPlaylist": "https://link.deezer.com/s/30xpcsZWFrfE57IpmICPX",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-funk/pl.u-38oWPM4uYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-funk/pl.u-38oWPM4uYMoD7qD",
+    "categoryType": "jazz-soul-funk"
   },
   {
     "headline": "Future Bass: Melodiske drops og frodige synths",
@@ -853,7 +959,8 @@
     "introSubline": "Dyk ned i future bass-verdenen, hvor levende synths og fængende melodier skaber opløftende elektroniske hymner.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4eOe4pPoE9AHg6hmU8MzYF",
     "deezerPlaylist": "https://link.deezer.com/s/30xpcGNerScswaXIzV4YU",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-future-bass/pl.u-aZb02o5C1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-future-bass/pl.u-aZb02o5C1xpM8zM",
+    "categoryType": "club-sounds"
   },
   {
     "headline": "Gaming-session: Din ultimative soundtrack til virtuelle eventyr",
@@ -861,7 +968,8 @@
     "introSubline": "Level op din gaming-oplevelse med omhyggeligt kuraterede numre der forbedrer hvert øjeblik. Fra episke boss-kampe til atmosfæriske udforskninger forstærker disse stykker den følelsesmæssige påvirkning af dine virtuelle rejser.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/41D1xrilBOk8H4o3S0LAMK",
     "deezerPlaylist": "https://link.deezer.com/s/30xpcYs82VqiERfQ9qLbG",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-gaming-session/pl.u-11zBZ73HNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-gaming-session/pl.u-11zBZ73HNP6EVjE",
+    "categoryType": "classical-orchestral"
   },
   {
     "headline": "Garage Rock: Den rå ånd af rocks mest autentiske revolution",
@@ -869,7 +977,8 @@
     "introSubline": "Rejs tilbage til forstads-garager hvor teenagere bevæbnet med fuzzy guitars tændte en musikalsk revolution. Fra The Sonics primitive energi til The White Stripes moderne genopvågning oplever du hvordan DIY-ånd og rå passion skabte rocks mest viscerale bevægelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0VlTb0z56ti1huWjLVizq7",
     "deezerPlaylist": "https://link.deezer.com/s/30xphzpel1hyP1hitcOV2",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-garage/pl.u-d2b0AdXCLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-garage/pl.u-d2b0AdXCLJaz6dz",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Tysk rap: Fra undergrundsbevægelse til kulturelt fænomen",
@@ -877,7 +986,8 @@
     "introSubline": "Rejs gennem tysk hip-hops udvikling, fra dens rå begyndelse til dens nuværende kulturelle dominans. Oplev hvordan kunstnere blander skarp ordleg med innovativ produktion for at skabe et unikt tysk take på rap-musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3yjO2aMoJ6VqB103MXovYF",
     "deezerPlaylist": "https://link.deezer.com/s/30xpidMej4gway7u2iRw4",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-german-rap/pl.u-e98lxdLfa8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-german-rap/pl.u-e98lxdLfa8XvYev",
+    "categoryType": "other"
   },
   {
     "headline": "Tysk schlager: Hjerteslaget af Tysklands føl-dig-god musik-kultur",
@@ -885,7 +995,8 @@
     "introSubline": "Fordyb dig i Tysklands mest elskede musikalske tradition, hvor fængende melodier møder hjertelig historiefortælling. Fra vintage-klassikere til moderne hits oplever du hvordan Schlager fortsætter med at bringe glæde til millioner.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3cobkZQnDtKau02phMvPT1",
     "deezerPlaylist": "https://link.deezer.com/s/30xpiucjktB341IGyl5Rl",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-german-schlager-2025/pl.u-38oWPo8IYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-german-schlager-2025/pl.u-38oWPo8IYMoD7qD",
+    "categoryType": "other"
   },
   {
     "headline": "Tyske melodier: Fra Krautrocks innovation til moderne pop-excellence",
@@ -893,7 +1004,8 @@
     "introSubline": "Rejs gennem Tysklands rige musikalske landskab, fra eksperimentelle Krautrock-pionerer til moderne hitliste-toppere. Oplev hvordan tyske kunstnere blander præcision og passion for at skabe fængende lyde der resonerer verden over.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3PwKqOo9jTOHwJSTAsOW32",
     "deezerPlaylist": "https://link.deezer.com/s/30xphRClkH7DflltmBNMN",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-german-music/pl.u-e98lxp5Sa8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-german-music/pl.u-e98lxp5Sa8XvYev",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Gospel: Hvor hellig ånd møder musikalsk transcendens",
@@ -901,7 +1013,8 @@
     "introSubline": "Oplev gospel-musikkens transformative kraft, fra Mahalia Jacksons sjæl-rørende stemme til moderne kor-innovationer. Føl hvordan denne genre løfter ånder og rører hjerter gennem dens perfekte blanding af åndelig dybde og musikalsk excellence.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/785Bq7kLE2w4leydZKOgH3",
     "deezerPlaylist": "https://link.deezer.com/s/30xpiZ9j0LHMsrgl8vA6Z",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-gospel/pl.u-38oWPybTYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-gospel/pl.u-38oWPybTYMoD7qD",
+    "categoryType": "jazz-soul-funk"
   },
   {
     "headline": "Gothic Metal: Hvor mørk romantik møder symfonisk kraft",
@@ -909,7 +1022,8 @@
     "introSubline": "Rejs ind i metals mest teatralske rige, hvor orkestral storhed møder mørk passion. Fra Type O Negatives mørke mesterlighed til Nightwishs operatiske brillans oplever du hvordan gothic metal forvandler melankoli til majestætisk kunst.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7siFYMf4AhOFwNx7TxKa4e",
     "deezerPlaylist": "https://link.deezer.com/s/30xpkJzwUD4sZnrol3Apv",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-gothic-metal/pl.u-9N9LAy3F1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-gothic-metal/pl.u-9N9LAy3F1mlEboE",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Gothic: Den mørke elegance af post-punks mest varige bevægelse",
@@ -917,7 +1031,8 @@
     "introSubline": "Træd ind i skyggerne hvor skønhed møder mørke. Fra Bauhaus pioner-vision til moderne darkwave-innovation opdager du hvordan gothic-musik skaber hjemsøgende atmosfærer der fanger nattens romantiske ånd.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/54H7CjlCR2SEuhSQuzKVtv",
     "deezerPlaylist": "https://link.deezer.com/s/30xpjXX9nVEzOK0HWzOWQ",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-gothic/pl.u-mJy8mE4CNVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-gothic/pl.u-mJy8mE4CNVL5Jl5",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Grindcore: Den ekstreme kant af metals lyd-revolution",
@@ -925,7 +1040,8 @@
     "introSubline": "Dyk ned i metals mest intense grænse, hvor hastighed møder rå aggression. Fra Napalm Deaths pioner-raseri til moderne ekstremitet oplever du hvordan grindcore skubber grænserne for hvad der er muligt i tung musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3mHg5M8yUwAlRs0uvDvrVZ",
     "deezerPlaylist": "https://link.deezer.com/s/30xpl4UVdSVjp5Ow5L4x8",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-grindcore/pl.u-e98lxalsa8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-grindcore/pl.u-e98lxalsa8XvYev",
+    "categoryType": "metal-avantgarde"
   },
   {
     "headline": "Groove Metal: Hvor tunge riffs møder uimodståelige rytmer",
@@ -933,7 +1049,8 @@
     "introSubline": "Oplev genren der fik metal til at bevæge sig anderledes, fra Panteras revolutionære swagger til Machine Heads knusende præcision. Opdag hvordan groove metal kombinerer knusende tunghed med smittende rytmer der kommanderer kroppe i bevægelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1MnijGQ8PPUl64RjKZBY0j",
     "deezerPlaylist": "https://link.deezer.com/s/30xpPn0t6oNfOWWaRGzPX",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-groove-metal/pl.u-38oWP65uYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-groove-metal/pl.u-38oWP65uYMoD7qD",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Groove: Den uimodståelige puls af moderne dansemusik",
@@ -941,7 +1058,8 @@
     "introSubline": "Dyk ned i grooves smittende verden, hvor præcise rytmer møder sjælfuldt udtryk. Fra funks gyldne æra til moderne klub-beats oplever du hvordan den perfekte groove skaber en uimodståelig trang til at bevæge sig.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/21nF5x3t6PpLOBiVmZCsTx",
     "deezerPlaylist": "https://link.deezer.com/s/30xpP8DZmI4lm6CUT6hRj",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-groove/pl.u-DdANVEet01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-groove/pl.u-DdANVEet01PVbgV",
+    "categoryType": "other"
   },
   {
     "headline": "Grunge: Da Seattles undergrund blev en global revolution",
@@ -949,7 +1067,8 @@
     "introSubline": "Rejs til de regnfulde gader hvor flannel-klædte revolutionære skabte et nyt rock-paradigme. Fra Nirvanas eksplosive angst til Pearl Jams indadvendte kraft oplever du hvordan grunge fangede Generation Xs ånd og ændrede musik for evigt.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/18Uaj4qO6Qw2KF9Z7AgaHS",
     "deezerPlaylist": "https://link.deezer.com/s/30xpPHQt7UbTxESQWapyG",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-grunge/pl.u-9N9LAGbt1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-grunge/pl.u-9N9LAGbt1mlEboE",
+    "categoryType": "indie-alternative"
   },
   {
     "headline": "Guitar Heroes: Virtuoserne der omdefinerede hvad der er muligt på seks strenge",
@@ -957,7 +1076,8 @@
     "introSubline": "Oplev historiens største guitaristers sindsforvirrende mesterlighed, fra Hendrixs revolutionære ild til Van Halens tekniske brillans. Opdag hvordan disse legendariske spillere skubbede grænserne for deres instrument og inspirerede generationer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4H3AxtCWqQgf4qGEL77u2s",
     "deezerPlaylist": "https://link.deezer.com/s/30xpQHGyDFplW5Y9pcSJb",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-guitar/pl.u-mJy8mdETNVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-guitar/pl.u-mJy8mdETNVL5Jl5",
+    "categoryType": "folk-regional"
   },
   {
     "headline": "Hair Metal: Da rock omfavnede glamour og overflod i 1980'erne",
@@ -965,7 +1085,8 @@
     "introSubline": "Træd ind i den spektakulære verden hvor store riffs mødte større hår. Fra Mötley Crües vilde attitude til Bon Jovis arena-størrelse hooks oplever du hvordan hair metal kombinerede teatralsk overflod med ægte musikalsk håndværk for at definere en æra.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0Q6E1aPOdo01IKjc7WqrKj",
     "deezerPlaylist": "https://link.deezer.com/s/30xpS0AuQQzbYQ4jYZn0V",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-hair-metal/pl.u-9N9LA4ps1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-hair-metal/pl.u-9N9LA4ps1mlEboE",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Halloween uhyggelige melodier: Den ultimative soundtrack til dine hjemsøgte fejringer",
@@ -973,7 +1094,8 @@
     "introSubline": "Forvandl ethvert rum til et frydeligt uhyggeligt rige med disse omhyggeligt udvalgte Halloween-klassikere. Fra monster-mash hymner til ryggekildrende instrumentaler skaber disse numre den perfekte balance mellem uhyggelig atmosfære og festlig sjov.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5FiK0ew1TjggEpqmKjB2ei",
     "deezerPlaylist": "https://link.deezer.com/s/30xpSixqrmvzpN0Zq8FXh",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-halloween-spooky-tunes/pl.u-mJy8mPBINVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-halloween-spooky-tunes/pl.u-mJy8mPBINVL5Jl5",
+    "categoryType": "classical-orchestral"
   },
   {
     "headline": "Glade vibes: Din soundtrack til ren glæde og positiv energi",
@@ -981,7 +1103,8 @@
     "introSubline": "Fyld din verden med ren musikalsk solskin gennem disse omhyggeligt udvalgte humør-løftende numre. Fra smittende pop-hymner til føl-dig-god klassikere er disse sange garanteret at bringe smil og positiv energi til ethvert øjeblik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5UMZW1qpv7asuM01SJT23z",
     "deezerPlaylist": "https://link.deezer.com/s/30xpSBAGHBgIDr1QiALfV",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-happy/pl.u-V9D7BK7i3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-happy/pl.u-V9D7BK7i3MGpZPp",
+    "categoryType": "classical-orchestral"
   },
   {
     "headline": "Hard Rock-hymner: Power chords og rå energi der definerede en genre",
@@ -989,7 +1112,8 @@
     "introSubline": "Oplev hard rocks største øjeblikkes rå kraft og smittende energi. Fra stadium-rystende klassikere til moderne kraftværker viser disse numre den perfekte blanding af tunge riffs og uforglemmelige hooks.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/63XydkRj7fZpayJPB7HK8R",
     "deezerPlaylist": "https://link.deezer.com/s/30xpSVrRxJElvSfEr1zao",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-hard-rock/pl.u-76oNvmpsvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-hard-rock/pl.u-76oNvmpsvedXrZX",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Hardstyle: Hvor elektronisk musik møder rå kraft",
@@ -997,7 +1121,8 @@
     "introSubline": "Dyk ned i hardstyles høj-energi verden, hvor hamrende kicks møder opløftende melodier. Oplev hvordan denne intense elektroniske genre skaber euforiske øjeblikke gennem dens unikke blanding af kraft og følelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0rYICwtok0m9vcZ3GeyLCq",
     "deezerPlaylist": "https://link.deezer.com/s/30xq0vEyIOLO8fpwy3dOc",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-hardstyle/pl.u-JPAZa2mTL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-hardstyle/pl.u-JPAZa2mTL2NZeJZ",
+    "categoryType": "club-sounds"
   },
   {
     "headline": "Hawaiianske melodier: Paradis fundet i traditionelle og moderne ø-lyde",
@@ -1005,7 +1130,8 @@
     "introSubline": "Lad Hawaiis bløde rytmer og varme melodier transportere dig til tropiske kyster. Fra traditionel slack-key guitar til moderne ø-pop oplever du den fredelige skønhed af stillehavets musikalske traditioner.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3es0xOlJewTjMoru2YwAxA",
     "deezerPlaylist": "https://link.deezer.com/s/30xq0OHkRpIx16wdIBSgl",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-hawaiian/pl.u-9N9vkD4T1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-hawaiian/pl.u-9N9vkD4T1mlEboE",
+    "categoryType": "countries-regional"
   },
   {
     "headline": "Heavy Metal torden: Genren der ændrede rock for evigt",
@@ -1013,7 +1139,8 @@
     "introSubline": "Oplev den rå kraft og tekniske mesterlighed der definerede heavy metals udvikling. Fra tidlige pionerer til moderne titaner viser disse numre hvordan metal skubbede grænserne for hvad der er muligt i tung musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5cSR9zgjs7z4qQAH2bDx7s",
     "deezerPlaylist": "https://link.deezer.com/s/30xq13SjcTQnlRQWezWki",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-heavy-metal/pl.u-mJy3kvJtNVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-heavy-metal/pl.u-mJy3kvJtNVL5Jl5",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Heavy Psych: Da rock udvidede sind og skubbede grænser",
@@ -1021,7 +1148,8 @@
     "introSubline": "Rejs ind i det eksperimentelle rige hvor tunge riffs møder psykedelisk udforskning. Oplev hvordan kunstnere kombinerer knusende kraft med sinds-udvidende lyd-eventyr for at skabe unikt trippy tung musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1UMWzBdirV95SVtBvvFXxH",
     "deezerPlaylist": "https://link.deezer.com/s/30xq1mAO2rbAJHV5cs9HW",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-heavy-psych/pl.u-V9DgeRki3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-heavy-psych/pl.u-V9DgeRki3MGpZPp",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Hip-Hop evolution: Fra blok-fester til global kulturel kraft",
@@ -1029,7 +1157,8 @@
     "introSubline": "Spor hip-hops utrolige rejse fra Bronx-begyndelser til verdensomspændende fænomen. Oplev hvordan innovative producere og dygtige MCs skabte en revolutionær kunstform der fortsætter med at forme global kultur.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0heQdhNkhpdK3zciPuspBF",
     "deezerPlaylist": "https://link.deezer.com/s/30xq1TIwhmzf2Wym1TvhT",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-hip-hop/pl.u-76oPxDBuvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-hip-hop/pl.u-76oPxDBuvedXrZX",
+    "categoryType": "hip-hop-rap"
   },
   {
     "headline": "Helligdag magi: Festlige lyde til hver fejring",
@@ -1037,7 +1166,8 @@
     "introSubline": "Skab den perfekte atmosfære til enhver helligdag-fejring med disse omhyggeligt udvalgte sæson-favoritter. Fra traditionelle klassikere til moderne festlige hits fanger disse numre glæden og varmen af særlige lejligheder.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/11JTx6nOpXkjC3cNounsp4",
     "deezerPlaylist": "https://link.deezer.com/s/30xq2EbrHl3EQAleXVPR6",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-holiday/pl.u-JPADXRZFL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-holiday/pl.u-JPADXRZFL2NZeJZ",
+    "categoryType": "other"
   },
   {
     "headline": "Håbefulde horisonter: Musik til at inspirere og løfte din ånd",
@@ -1045,7 +1175,8 @@
     "introSubline": "Fyld din verden med optimisme gennem disse omhyggeligt udvalgte numre af håb og inspiration. Fra bløde akustiske stykker til svævende hymner giver disse sange den perfekte soundtrack til nye begyndelser og lyse morgendage.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4xsenmnKLMkNFhJw0rCicV",
     "deezerPlaylist": "https://link.deezer.com/s/30xq4aUkDynsUQg092PL8",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-hopeful/pl.u-76oPx23svedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-hopeful/pl.u-76oPx23svedXrZX",
+    "categoryType": "other"
   },
   {
     "headline": "Horror Metal: Hvor gothic teatralitet møder metals mørke",
@@ -1053,7 +1184,8 @@
     "introSubline": "Ventur ind i metals mest teatralske mareridt, hvor horror-cinema møder tunge riffs. Fra King Diamonds ryggekildrende fortællinger til moderne horror metal-innovatører oplever du hvordan genren forvandler frygt til fascinerende musikalsk kunst.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/57MwyyeiNGygObQDbxNFOe",
     "deezerPlaylist": "https://link.deezer.com/s/30xq4yzd2zj2gGMO0CBwF",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-horror-metal/pl.u-JPADX7VsL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-horror-metal/pl.u-JPADX7VsL2NZeJZ",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "House Music: Fire-på-gulvet revolutionen der forenede global dans-kultur",
@@ -1061,7 +1193,8 @@
     "introSubline": "Rejs gennem house-musikkens udvikling fra Chicagos undergrundsklubber til globalt fænomen. Fra dybe, sjælfulde vokaler til euforiske klaver-hymner oplever du hvordan denne genres smittende rytmer og opløftende ånd skabte et universelt sprog for dans.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4AnWV282ELJ8f4IRXbAAju",
     "deezerPlaylist": "https://link.deezer.com/s/30xq8DZJS2S51jCxw90wO",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-house/pl.u-aZbgmG6C1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-house/pl.u-aZbgmG6C1xpM8zM",
+    "categoryType": "house-techno"
   },
   {
     "headline": "Islandske melodier: Hvor vikinge-arven møder æterisk innovation",
@@ -1069,7 +1202,8 @@
     "introSubline": "Svæv gennem ild og is-landets mystiske lydlandskaber. Fra ældgamle vikinge-sange til Björks avant-garde visioner opdager du hvordan Islands overjordiske landskab og rige mytologi inspirerer nogle af musikkens mest innovative og atmosfæriske skabelser.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3algpKoy2EhwYlUgwGTsh0",
     "deezerPlaylist": "https://link.deezer.com/s/30xq8TzntD0AzT3HYemFU",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-icelandic/pl.u-76oPxB6uvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-icelandic/pl.u-76oPxB6uvedXrZX",
+    "categoryType": "other"
   },
   {
     "headline": "Indiske melodier: Hvor hellige traditioner danser med moderne innovation",
@@ -1077,7 +1211,8 @@
     "introSubline": "Rejs gennem Indiens musikalske univers sjæl, fra mystiske Veda-sange til Bollywoods blendende spektakler. Oplev hvordan ældgamle ragas, devotional bhajans og moderne fusion skaber et transcendent lyd-tapet der spænder over årtusinder.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3YxmVJTv0OBE5pnBMI7moN",
     "deezerPlaylist": "https://link.deezer.com/s/30xq9alupoIFe5R5XC2P3",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-indian/pl.u-JPADXGNuL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-indian/pl.u-JPADXGNuL2NZeJZ",
+    "categoryType": "other"
   },
   {
     "headline": "Indie Folk: Moderne historiefortælling med akustiske rødder",
@@ -1085,7 +1220,8 @@
     "introSubline": "Nyd hjertelige tekster og organiske lyde i indie folk, en genre der brobygger tradition og innovation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4K5UxtoQOfFQIkwasxzpBU",
     "deezerPlaylist": "https://link.deezer.com/s/30xq9obZDr32ApGW3igXl",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-indie-folk/pl.u-76oPxPbsvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-indie-folk/pl.u-76oPxPbsvedXrZX",
+    "categoryType": "indie-alternative"
   },
   {
     "headline": "Indie Pop: Hvor soveværelse-drømme bliver hitliste-toppende realiteter",
@@ -1093,7 +1229,8 @@
     "introSubline": "Opdag den magiske verden hvor DIY-autenticitet møder pop-perfektion. Fra lo-fi soveværelse-optagelser til gennembruds festival-hymner oplever du hvordan uafhængige kunstnere skaber intime, ærlige sange der fanger hjerter verden over mens de bevarer deres unikke vision.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7hwfFvRnTlTRC5TAGJRacp",
     "deezerPlaylist": "https://link.deezer.com/s/30xq9PTcM911M0j90Lxas",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-indie-pop/pl.u-JPADXDJIL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-indie-pop/pl.u-JPADXDJIL2NZeJZ",
+    "categoryType": "mainstream-pop"
   },
   {
     "headline": "Indie Rock: Lyden af musikalsk uafhængighed og kreativ frihed",
@@ -1101,7 +1238,8 @@
     "introSubline": "Dyk ned i verdenen hvor kunstnerisk vision trumfer kommercielle bekymringer. Fra lo-fi perler til gennembruds hymner oplever du hvordan uafhængige kunstnere skaber fængende musik på deres egne vilkår.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5zSgYiov7zyQsWaFpfSn8d",
     "deezerPlaylist": "https://link.deezer.com/s/30xqa7wxFEiK7kN1bAL7v",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-indie/pl.u-aZbgmgrC1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-indie/pl.u-aZbgmgrC1xpM8zM",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Industrial Metal: Hvor maskine møder metal i perfekt dystopisk harmoni",
@@ -1109,7 +1247,8 @@
     "introSubline": "Træd ind i et lydrige hvor mekanisk præcision kolliderer med metallisk raseri. Fra Ministrys aggressive innovation til Rammsteins teatralske kraft oplever du hvordan industrial metal forvandler teknologisk fremmedgørelse til viscerale kunst.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0n9jkqASZkyiQrRgWfGg6H",
     "deezerPlaylist": "https://link.deezer.com/s/30xqapmKkCqo6qJ2NoYqp",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-industrial-metal/pl.u-11zPlPaTNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-industrial-metal/pl.u-11zPlPaTNP6EVjE",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Intense hymner: Frigør din indre kraft gennem musikalsk energi",
@@ -1117,7 +1256,8 @@
     "introSubline": "Tænd din kriger-ånd med en eksplosiv samling af høj-intensitet numre. Fra jord-rystende beats til adrenalin-pumpende crescendoer skaber disse omhyggeligt udvalgte hymner den ultimative soundtrack til at bryde barrierer og overvinde udfordringer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2osFffetnJN6pCGw0ELQLB",
     "deezerPlaylist": "https://link.deezer.com/s/30xqaFIljmSOhUcFnpn1Q",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-intense/pl.u-d2bMpMVsLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-intense/pl.u-d2bMpMVsLJaz6dz",
+    "categoryType": "emotional"
   },
   {
     "headline": "Iranske melodier: Fra ældgammel persisk kunst til moderne innovation",
@@ -1125,7 +1265,8 @@
     "introSubline": "Rejs gennem årtusinder af persisk musikalsk tradition, fra klassisk dastgah til moderne fusion. Oplev hvordan iranske kunstnere bevarer deres rige arv mens de skaber modige nye udtryk for den moderne verden.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6z7DRN2ZuavJIyOdRydkoU",
     "deezerPlaylist": "https://link.deezer.com/s/30xqeaRImQC4u2KSgoln2",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-iranian/pl.u-76oPxEpuvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-iranian/pl.u-76oPxEpuvedXrZX",
+    "categoryType": "other"
   },
   {
     "headline": "Irske melodier: Den smaragdgrønne øs musikalske rejse gennem tiden",
@@ -1133,7 +1274,8 @@
     "introSubline": "Rejs gennem Irlands fortryllende musikalske landskab, fra ældgamle keltiske ballader til moderne folk-rock revolution. Oplev hvordan århundreder af historiefortælling, oprør og fejring blander sig til kraftfulde sange der fanger den uovervindelige irske ånd.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3RkS3Fm7QTlGKT2Ayh6g5F",
     "deezerPlaylist": "https://link.deezer.com/s/30xqeDfe56zJiGNHtNQ6S",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-irish/pl.u-JPADXomTL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-irish/pl.u-JPADXomTL2NZeJZ",
+    "categoryType": "other"
   },
   {
     "headline": "J-Dance: Da Tokyos gader tændte en elektronisk revolution",
@@ -1141,7 +1283,8 @@
     "introSubline": "Træd ind i Japans elektriserende dans-kultur, hvor futuristisk produktion møder kawaii energi. Fra Para Paras synkroniserede spektakler til Shibuyas neon-lys klub-hymner oplever du hvordan japansk innovation skabte en unikt spændende dans-bevægelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7bL3cyFzcYbBxnYfupsJkA",
     "deezerPlaylist": "https://link.deezer.com/s/30xqeZQ7hFb4BUvvKyLPY",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-j-dance/pl.u-aZbgmKvC1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-j-dance/pl.u-aZbgmKvC1xpM8zM",
+    "categoryType": "global-pop"
   },
   {
     "headline": "J-Pop: Det blendende univers af japansk pop-perfektion",
@@ -1149,7 +1292,8 @@
     "introSubline": "Rejs ind i Japans kaleidoskopiske pop-eventyrland, hvor præcisions-optreden møder ren lyd-glæde. Fra arena-fyldende idol-grupper til hitliste-toppende solo-kunstnere oplever du hvordan J-Pops magiske blanding af innovation og tradition fanger millioner verden over.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7qfOQGqN2y9Zkhye6pirBE",
     "deezerPlaylist": "https://link.deezer.com/s/30xqfdu2SvRubr91bGuWd",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-j-pop/pl.u-11zPlDyuNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-j-pop/pl.u-11zPlDyuNP6EVjE",
+    "categoryType": "mainstream-pop"
   },
   {
     "headline": "J-Rock: Japans dynamiske fusion af østlig tradition og vestlig kant",
@@ -1157,7 +1301,8 @@
     "introSubline": "Rejs gennem Japans eksplosive rock-scene, hvor traditionel æstetik møder moderne intensitet. Fra Visual Keis teatralske kraft til alternative pionerer oplever du hvordan japanske kunstnere skaber deres unikke take på rocks rå energi.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7AAZ8eHpg66UR8ZUBtXOsW",
     "deezerPlaylist": "https://link.deezer.com/s/30xqfP2QF7p8jmIcRvn4m",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-j-rock/pl.u-d2bMpKYCLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-j-rock/pl.u-d2bMpKYCLJaz6dz",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Jazz Fusion: Virtuositet og genre-blandende innovation",
@@ -1165,7 +1310,8 @@
     "introSubline": "Oplev jazz fusions tekniske brillans, hvor jazz møder rock, funk og verdensmusik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1rXtme27uW3uwSk7kNt3gH",
     "deezerPlaylist": "https://link.deezer.com/s/30xqhumKx906gW9W1EYlL",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-j-rock/pl.u-d2bMpKYCLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-j-rock/pl.u-d2bMpKYCLJaz6dz",
+    "categoryType": "jazz-soul-funk"
   },
   {
     "headline": "Jazz Metal: Hvor improvisation møder tung innovation",
@@ -1173,7 +1319,8 @@
     "introSubline": "Oplev den banebrydende fusion hvor jazz-kompleksitet møder metals kraft. Fra teknisk virtuositet til atmosfærisk udforskning opdager du hvordan innovative kunstnere blander disse tilsyneladende modsatte genrer til noget helt nyt.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3sZP8vE08NQt3Q8HL4s0Pm",
     "deezerPlaylist": "https://link.deezer.com/s/30xqgBuNheHuK2Rby9Cgg",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-jazz-metal/pl.u-d2bMp40sLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-jazz-metal/pl.u-d2bMp40sLJaz6dz",
+    "categoryType": "metal-avantgarde"
   },
   {
     "headline": "Jazz: Amerikas klassiske musik og dens globale evolution",
@@ -1181,7 +1328,8 @@
     "introSubline": "Rejs gennem jazzens revolutionære historie, fra New Orleans åndfulde rødder til moderne innovation. Oplev hvordan denne unikt amerikanske kunstform kombinerer improvisation, virtuositet og endeløs kreativitet for at skabe tidsløs musikalsk magi.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3JwxUOwU34kAXCuewyhRiG",
     "deezerPlaylist": "https://link.deezer.com/s/30xqg8t7i5BL8E0OdXau1",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-jazz/pl.u-e98MvNDUa8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-jazz/pl.u-e98MvNDUa8XvYev",
+    "categoryType": "jazz-soul-funk"
   },
   {
     "headline": "K-Pop: Hvordan Sydkoreas pop-revolution erobrede verden",
@@ -1189,7 +1337,8 @@
     "introSubline": "Træd ind i Koreas blendende pop-univers, hvor præcisions-optreden møder banebrydende innovation. Fra BTSs rekord-knusende succes til BLACKPINKS globale dominans oplever du hvordan K-Pops perfekte blanding af talent, teknologi og vision revolutionerede moderne underholdning.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6PymlkH5bpxNpb1oYkgs0d",
     "deezerPlaylist": "https://link.deezer.com/s/30xqlJYWPb4n90wDV8iHZ",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-k-pop/pl.u-38o9VLeIYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-k-pop/pl.u-38o9VLeIYMoD7qD",
+    "categoryType": "mainstream-pop"
   },
   {
     "headline": "Krautrock: Den eksperimentelle revolution der omdefinerede musikalsk mulighed",
@@ -1197,7 +1346,8 @@
     "introSubline": "Udforsk 1970'ernes Tysklands radikale lyd-laboratorier, hvor frygtløse musikere skubbede musik ind i uudforsket territorium. Fra Cans hypnotiske grooves til Kraftwerks elektroniske profetier oplever du hvordan Krautrocks grænseløse eksperimentering formede årtier af alternativ, elektronisk og avant-garde musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2eYaccfsfhafaoo5meenGV",
     "deezerPlaylist": "https://link.deezer.com/s/30xqlXTEbBS5iSJ2msPK6",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-krautrock/pl.u-DdAvLMoC01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-krautrock/pl.u-DdAvLMoC01PVbgV",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Latinamerikanske rytmer: En levende rejse gennem århundreder af musikalsk magi",
@@ -1205,7 +1355,8 @@
     "introSubline": "Fordyb dig i Latinamerikas kaleidoskopiske musikalske univers, fra mystiske andes-fløjter til moderne urbane beats. Oplev hvordan indfødt visdom, afrikanske rytmer og europæiske melodier blander sig til en uimodståelig kulturel kraft der rører hjerter verden over.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0CoVTOelzqsqMPQpZLxw2R",
     "deezerPlaylist": "https://link.deezer.com/s/30xqmfvwzQtPGQ0wCtmmI",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-latin-american/pl.u-11zPlq1TNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-latin-american/pl.u-11zPlq1TNP6EVjE",
+    "categoryType": "other"
   },
   {
     "headline": "Latin Vibes: Moderne rytme-revolution fra barrio til Billboard",
@@ -1213,7 +1364,8 @@
     "introSubline": "Dyk ned i den pulserende verden af moderne latin-musik, hvor reggaetons urbane swagger møder tropical houses elektroniske sofistikation. Oplev hvordan dagens innovative kunstnere forvandler traditionelle rytmer til hitliste-toppende fænomener der tænder dansegulve verden over.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1TnPoppl7YNwO1X3ciulqy",
     "deezerPlaylist": "https://link.deezer.com/s/30xqmuGNbmsMGMoozU4U0",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-latin-vibes/pl.u-d2bMpyjCLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-latin-vibes/pl.u-d2bMpyjCLJaz6dz",
+    "categoryType": "latin-vibes"
   },
   {
     "headline": "Dovne søndag: Din perfekte soundtrack til langsomme livs-øjeblikke",
@@ -1221,7 +1373,8 @@
     "introSubline": "Skab din perfekte hviledag med omhyggeligt udvalgte numre der forbedrer hvert fredeligt øjeblik. Fra bløde akustiske melodier til bløde jazz-teksturer lader disse sange din søndag forvandle sig til et gendannende tilflugtssted.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/40ifRaHr1AZgaKrO0xt14n",
     "deezerPlaylist": "https://link.deezer.com/s/30xqnNBjmWwbEIVLrksPj",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-lazy-sunday/pl.u-e98MvXqta8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-lazy-sunday/pl.u-e98MvXqta8XvYev",
+    "categoryType": "classical-orchestral"
   },
   {
     "headline": "Lo-Fi: Chill beats til studie og afslapning",
@@ -1229,7 +1382,8 @@
     "introSubline": "Slap af med lo-fi beats, den perfekte soundtrack til fokus, kreativitet eller at slappe af.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5onpE0qVRbGsfghVNSFyls",
     "deezerPlaylist": "https://link.deezer.com/s/30xqo5taU5w6rwnNqvCyK",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-lo-fi/pl.u-38o9VmWCYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-lo-fi/pl.u-38o9VmWCYMoD7qD",
+    "categoryType": "breaks-experimental"
   },
   {
     "headline": "Mambo: Latin dans-energi og big band flair",
@@ -1237,7 +1391,8 @@
     "introSubline": "Føl spændingen af mambo, en genre der bringer levende rytmer og modige messing-sektioner sammen.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3ixldRBs2uol4n0aoUENpM",
     "deezerPlaylist": "https://link.deezer.com/s/30xqoih99m7o6x3bXMLpr",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-mambo/pl.u-DdAvLYat01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-mambo/pl.u-DdAvLYat01PVbgV",
+    "categoryType": "latin-vibes"
   },
   {
     "headline": "Mandopop: Kinas pop-revolution erobrer hjerter verden over",
@@ -1245,7 +1400,8 @@
     "introSubline": "Træd ind i Kinas blendende pop-univers, hvor ældgamle melodier møder banebrydende produktion. Fra hjerte-svævende power ballader til elektriserende dans-hymner oplever du hvordan Mandopop-kunstnere skaber en perfekt fusion af kulturel arv og moderne innovation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3LCEvhfcaNfremB4dBJZsT",
     "deezerPlaylist": "https://link.deezer.com/s/30xqoEgBuDo8NcTGx1ft1",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-mandopop/pl.u-38o9VEEuYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-mandopop/pl.u-38o9VEEuYMoD7qD",
+    "categoryType": "mainstream-pop"
   },
   {
     "headline": "Math Metal: Den sindsforvirrende fusion af matematisk kompleksitet og rå kraft",
@@ -1253,7 +1409,8 @@
     "introSubline": "Udforsk metals mest matematisk indviklede grænse, hvor komplekse tids-signaturer og polyrytmisk mesterlighed skaber blendende lydarkitektur. Oplev hvordan virtuose musikere forvandler matematisk præcision til en spændende form for musikalsk udforskning.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1NwtA5C8GbRopgvvnvqDrQ",
     "deezerPlaylist": "https://link.deezer.com/s/30xqtjh6DoSz7KXyRaQQ8",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-math-metal/pl.u-DdAvLqPC01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-math-metal/pl.u-DdAvLqPC01PVbgV",
+    "categoryType": "metal-avantgarde"
   },
   {
     "headline": "Meditation og yoga: Ældgammel visdom møder moderne mindfulness gennem lyd",
@@ -1261,7 +1418,8 @@
     "introSubline": "Løft din praksis med et helligt lydlandskab designet til dyb indre forbindelse. Fra transcendentale mantraer til æteriske ambient-kompositioner skaber disse omhyggeligt udvalgte stykker den perfekte atmosfære til meditation, mindful bevægelse og åndelig opvågning.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5WSNj9MxcAayhCDRhKfvV7",
     "deezerPlaylist": "https://link.deezer.com/s/30xqtwmkB7Vp4STzn58eE",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-meditation-yoga/pl.u-9N9vkMNC1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-meditation-yoga/pl.u-9N9vkMNC1mlEboE",
+    "categoryType": "other"
   },
   {
     "headline": "Melankolske melodier: Når skønhed opstår fra livets dybere følelser",
@@ -1269,7 +1427,8 @@
     "introSubline": "Fordyb dig i musikkens mest dybe følelsesmæssige landskaber, hvor sorg forvandler sig til transcendent skønhed. Fra sjæl-rørende ballader til æteriske instrumentaler ærer disse omhyggeligt udvalgte stykker dybden af menneskelig følelse og giver trøst gennem kunstnerisk udtryk.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7oMNXWpZhm77Z2G7WwkO3i",
     "deezerPlaylist": "https://link.deezer.com/s/30xqtKnFdWts3Jfc9SlAr",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-melancholic/pl.u-mJy3kqRuNVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-melancholic/pl.u-mJy3kqRuNVL5Jl5",
+    "categoryType": "other"
   },
   {
     "headline": "Melodic Death Metal: Da brutal intensitet opdager sin kunstneriske sjæl",
@@ -1277,7 +1436,8 @@
     "introSubline": "Rejs gennem metals mest sofistikerede evolution, hvor death metals rå kraft møder svævende melodisk storhed. Fra At The Gates revolutionære vision til moderne mesterværker oplever du hvordan denne genre forvandler aggressiv intensitet til episk musikalsk kunst.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2RvZ9AlHnhPOYRL6nNbvGm",
     "deezerPlaylist": "https://link.deezer.com/s/30xqtZAcqxYNKPDaugId4",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-melodic-death-metal/pl.u-V9DgePEu3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-melodic-death-metal/pl.u-V9DgePEu3MGpZPp",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Merengue: Hurtige rytmer fra Caribien",
@@ -1285,7 +1445,8 @@
     "introSubline": "Dans til merengues energiske beats, en genre der fylder dansegulve med glæde og bevægelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6U18UCuDdVqDGfgQIz9oDJ",
     "deezerPlaylist": "https://link.deezer.com/s/30xquEmfeb06B1QjOdeYd",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-merengue/pl.u-38o9VPyIYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-merengue/pl.u-38o9VPyIYMoD7qD",
+    "categoryType": "latin-vibes"
   },
   {
     "headline": "Metalcore: Da hardcore aggression mødte metals tekniske sofistikation",
@@ -1293,7 +1454,8 @@
     "introSubline": "Oplev den revolutionære fusion hvor hardcores passionerede raseri kolliderer med metals tekniske præcision. Fra Killswitch Engages melodiske innovationer til Architects progressive kompleksitet opdager du hvordan metalcore skabte et nyt sprog for tung musiks evolution.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/46JP4chUP0hnmrMIFQBHU0",
     "deezerPlaylist": "https://link.deezer.com/s/30xquUKtBZfKX9yAXJ59e",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-metalcore/pl.u-DdAvLV3t01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-metalcore/pl.u-DdAvLV3t01PVbgV",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Mexicanske melodier: Hvor mariachis sjæl møder moderne musikalsk magi",
@@ -1301,7 +1463,8 @@
     "introSubline": "Fordyb dig i Mexicos rige lyd-tapet, fra mariachis hjerte-rørende serenader til moderne latin pop-brilliance. Oplev hvordan århundreder af indfødt visdom, spansk romantik og moderne kreativitet blander sig til en af verdens mest farverige musikalske kulturer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1HqbRGD7DPGNm3ZltyTfjV",
     "deezerPlaylist": "https://link.deezer.com/s/30xqv6oHQupqPL3OFBBZA",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-mexican/pl.u-9N9vkAdC1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-mexican/pl.u-9N9vkAdC1mlEboE",
+    "categoryType": "countries-regional"
   },
   {
     "headline": "Mellemøstlig musik: Ældgamle traditioner og moderne fusioner",
@@ -1309,7 +1472,8 @@
     "introSubline": "Opdag de rige melodier og rytmer i mellemøstlig musik, fra klassisk maqam til moderne pop.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7hwkzKsziipMaoPEXJQnMX",
     "deezerPlaylist": "https://link.deezer.com/s/30xqvm85OyAWJ3BD2LbTi",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-middle-eastern-music/pl.u-mJy3kmPsNVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-middle-eastern-music/pl.u-mJy3kmPsNVL5Jl5",
+    "categoryType": "other"
   },
   {
     "headline": "Minimal Techno: Hypnotiske grooves og subtil progression",
@@ -1317,7 +1481,8 @@
     "introSubline": "Fordyb dig i minimal techno, hvor gentagelse og subtile ændringer skaber en hypnotiserende danseoplevelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2wrtCEG49n7pe4pnL9DTOP",
     "deezerPlaylist": "https://link.deezer.com/s/30xqyOsM1apDJx3pAXJKr",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-minimal-techno/pl.u-V9Dg9e9H3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-minimal-techno/pl.u-V9Dg9e9H3MGpZPp",
+    "categoryType": "house-techno"
   },
   {
     "headline": "Morgenkaffe: Kuraterede lyde til din perfekte daggry-ritual",
@@ -1325,7 +1490,8 @@
     "introSubline": "Start hver dag med et ekspert-skabt soundtrack der forvandler din morgenrutine til en mindful oplevelse. Fra sjælfuld jazz til milde akustiske melodier hjælper disse omhyggeligt udvalgte numre dig med at omfavne dagens første øjeblikke med nærvær og positivitet.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4c29q4bAaHry6hjTlRh3me",
     "deezerPlaylist": "https://link.deezer.com/s/30xqz4iB6q7dM8NSssw3t",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-morning-coffee/pl.u-mJy3JRrTNVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-morning-coffee/pl.u-mJy3JRrTNVL5Jl5",
+    "categoryType": "other"
   },
   {
     "headline": "Neo-Classical Metal: Da barok virtuositet tænder metals kraft",
@@ -1333,7 +1499,8 @@
     "introSubline": "Rejs ind i et ekstraordinært rige hvor klassisk mesterlighed møder metals torden. Fra Yngwie Malmsteens revolutionære shred til moderne virtuoser oplever du hvordan denne genre forvandler århundreder af musikteori til en blændende ny form for kunstnerisk udtryk.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6UBNq8zfkQizih1X8PMfHR",
     "deezerPlaylist": "https://link.deezer.com/s/30xqzie4CgH5DZwfByq7o",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-neo-classical-metal/pl.u-V9Dg9kpf3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-neo-classical-metal/pl.u-V9Dg9kpf3MGpZPp",
+    "categoryType": "metal-avantgarde"
   },
   {
     "headline": "New Age: Hellige lydlandskaber til åndelig opvågning",
@@ -1341,7 +1508,8 @@
     "introSubline": "Gå på en transformerende lydrejse hvor jordiske lyde møder himmelske harmonier. Fra æteriske ambient-landskaber til verdensmusik-fusion skaber disse omhyggeligt kuraterede stykker dybe rum til meditation, helbredelse og åndelig opdagelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0dY7hTfT8xLixqDmuTsSe7",
     "deezerPlaylist": "https://link.deezer.com/s/30xqzv5gysrOWcSAHPf5s",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-new-age/pl.u-76oP67ytvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-new-age/pl.u-76oP67ytvedXrZX",
+    "categoryType": "classical-orchestral"
   },
   {
     "headline": "NWOBHM: Den britiske metal-revolution der erobrede verden",
@@ -1349,7 +1517,8 @@
     "introSubline": "Genoplev det seismiske skift da arbejderklassens britiske bands smedede en ny metal-identitet. Fra Iron Maidens episke fortælling til Diamond Heads intense riffing oplever du hvordan denne DIY-bevægelse forvandlede metals lyd og ånd for evigt.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7Cmskvn1Yk55nq4loBu2lO",
     "deezerPlaylist": "https://link.deezer.com/s/30xqzS82cEYHQr78k4TgD",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-new-wave-of-british-heavy-metal/pl.u-JPADPN3IL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-new-wave-of-british-heavy-metal/pl.u-JPADPN3IL2NZeJZ",
+    "categoryType": "other"
   },
   {
     "headline": "Natteture: Lydmæssige eventyr til din mørke rejse",
@@ -1357,7 +1526,8 @@
     "introSubline": "Forvandl hver natteture til en uforglemmelig filmisk oplevelse. Fra neon-lys synthwave til mystiske ambient grooves forvandler disse omhyggeligt udvalgte numre tomme gader til din personlige musikvideo og gør hver kilometer til et mindeværdigt øjeblik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/01DZzC8qCI2By3PsRfOUc1",
     "deezerPlaylist": "https://link.deezer.com/s/30xqAaH4JMZKo68Rjtf5m",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-night-drive/pl.u-aZbgZ9xC1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-night-drive/pl.u-aZbgZ9xC1xpM8zM",
+    "categoryType": "other"
   },
   {
     "headline": "Noise Metal: Da lydmæssig kaos bliver revolutionær kunst",
@@ -1365,7 +1535,8 @@
     "introSubline": "Udforsk metals mest radikale grænse, hvor konventionelle strukturer splintres til ren lydmæssig eksperimentation. Fra Merzbows lydmur til Today Is The Days kontrollerede kaos oplever du hvordan kunstnere forvandler støj til et visceralt nyt sprog for tung musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0qy89AG4JgYQf4RCLCDeHh",
     "deezerPlaylist": "https://link.deezer.com/s/30xqApugv9bxAWdiJBcCr",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-noise-metal/pl.u-mJy3Jg8FNVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-noise-metal/pl.u-mJy3Jg8FNVL5Jl5",
+    "categoryType": "metal-avantgarde"
   },
   {
     "headline": "Nordisk folkemusik: Mystiske lyde fra nord",
@@ -1373,7 +1544,8 @@
     "introSubline": "Rejs til de nordiske lande med folkemusik der fremkalder ældgamle myter og naturlig skønhed.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5LtF3hUBgVoEujidhoJOiN",
     "deezerPlaylist": "https://link.deezer.com/s/30xqAE3q9VHR4mgHnERnx",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-nordic-folk/pl.u-V9Dg9vGf3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-nordic-folk/pl.u-V9Dg9vGf3MGpZPp",
+    "categoryType": "folk-regional"
   },
   {
     "headline": "Nostalgiske melodier: De tidløse sange der definerede generationer",
@@ -1381,7 +1553,8 @@
     "introSubline": "Tag en følelsesmæssig rejse gennem dit livs soundtrack. Fra elskede barndomshymner til milepæls-minder skaber disse omhyggeligt udvalgte klassikere en varm musikalsk favn der brobygger fortid og nutid mens den genopvækker livets mest kostbare øjeblikke.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1HSRBpAxVLD4515o4Nzdit",
     "deezerPlaylist": "https://link.deezer.com/s/30xqD2y7USlRuC3ZshEkZ",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-nostalgic/pl.u-76oP6ketvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-nostalgic/pl.u-76oP6ketvedXrZX",
+    "categoryType": "other"
   },
   {
     "headline": "Nu-Metal: Genren der omdefinerede tung musik for en ny generation",
@@ -1389,7 +1562,8 @@
     "introSubline": "Dyk ned i det kulturelle fænomen der brobyggede mellem hip-hop og metal. Fra Korns banebrydende angst til Linkin Parks genre-trotsende kunstneri oplever du hvordan nu-metals modige fusion fangede millennial-opprør og ændrede rock for evigt.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0I9y33ifhPHpTEj3ogwbIw",
     "deezerPlaylist": "https://link.deezer.com/s/30xqD2y7USlRuC3ZshEkZ",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-nu-metal/pl.u-JPADPbqtL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-nu-metal/pl.u-JPADPbqtL2NZeJZ",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Opera: Da menneskestemmen bliver ren dramatisk magi",
@@ -1397,7 +1571,8 @@
     "introSubline": "Fordyb dig i musikkens mest dramatiske kunstform, hvor sublime stemmer fortæller episke historier. Fra Maria Callas transcendentale passion til moderne mesterværker oplever du hvordan opera kombinerer teatralsk storhed, orkestral kraft og vokal brillans til at skabe uforglemmelige følelsesmæssige rejser.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6RNI0E8ASUQmwzZ1dWxsIj",
     "deezerPlaylist": "https://link.deezer.com/s/30xqDzXLVttCK1qW1vZzz",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-opera/pl.u-aZbgZN5C1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-opera/pl.u-aZbgZN5C1xpM8zM",
+    "categoryType": "classical-orchestral"
   },
   {
     "headline": "Orkestral: Store symfonier og episke arrangementer",
@@ -1405,7 +1580,8 @@
     "introSubline": "Oplev orkestral musiks majestæt, fra klassiske mesterværker til moderne filmiske partiturer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6MtZNTD22gZxvAUfE0fPg3",
     "deezerPlaylist": "https://link.deezer.com/s/30xqDPFj8Ij2vPj1hSors",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-orchestral/pl.u-JPADP9NTL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-orchestral/pl.u-JPADP9NTL2NZeJZ",
+    "categoryType": "other"
   },
   {
     "headline": "Party On!: Det ultimative soundtrack til livets største fejringer",
@@ -1413,7 +1589,8 @@
     "introSubline": "Forvandl ethvert sammenkomster til en episk fejring med denne mesterligt kuraterede samling af ren festkraft. Fra throwback med-sang til moderne klub-bangers holder disse garanterede crowd-pleasers energien svævende og dansegulvet pakket hele natten lang.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5jZFPGsvqGGoR2AI8XWlmq",
     "deezerPlaylist": "https://link.deezer.com/s/30xqEbxDOw0Hbq5rwsdJe",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-party-on/pl.u-aZbgZD7T1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-party-on/pl.u-aZbgZD7T1xpM8zM",
+    "categoryType": "classical-orchestral"
   },
   {
     "headline": "Fredelige melodier: Hvor musikalsk ro skaber dit perfekte tilflugtssted",
@@ -1421,7 +1598,8 @@
     "introSubline": "Opdag din personlige oase af ro gennem ekspert-udvalgte stykker der nærer indre fred. Fra æteriske klaver-kompositioner til milde ambient-landskaber skaber disse transformerende numre hellige rum til meditation, helbredelse og dyb afslapning.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2pvkHH9au0R8EKVCsK0GJv",
     "deezerPlaylist": "https://link.deezer.com/s/30xqEoS56gm94AYDhg5Cl",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-peaceful/pl.u-76oP6pNtvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-peaceful/pl.u-76oP6pNtvedXrZX",
+    "categoryType": "other"
   },
   {
     "headline": "Peruanske melodier: Ældgammel Andes-magi møder moderne sjæl",
@@ -1429,7 +1607,8 @@
     "introSubline": "Svæv gennem Perus mystiske musikalske riger, fra hellige bjerg-ceremonier til moderne urban fusion. Oplev hvordan ældgammel inkavisdom og traditionelle pan-fløjter blander sig med moderne kreativitet til at skabe musik der overskrider tid og rører sjæle.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7t71PSanUIVjSE3Ka7kANm",
     "deezerPlaylist": "https://link.deezer.com/s/30xqEzqmDZVjBpVH5dxFX",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-peruvian/pl.u-JPADP99CL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-peruvian/pl.u-JPADP99CL2NZeJZ",
+    "categoryType": "other"
   },
   {
     "headline": "Klaver: Århundreder af musikalsk magi gennem 88 tangenter",
@@ -1437,7 +1616,8 @@
     "introSubline": "Rejs gennem klavermusikkens storslåede verden, fra Bachs indviklede kontrapunkt til moderne minimalisme. Oplev hvordan dette bemærkelsesværdige instrument fortsætter med at inspirere grænseløs kreativitet og udtrykker alt fra tordnende kraft til æterisk finhed.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/76uaIrzY1nwb3dJm5c08gI",
     "deezerPlaylist": "https://link.deezer.com/s/30xqEM7Ob0YoQbBRzOOU6",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-piano/pl.u-aZbgZD4C1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-piano/pl.u-aZbgZD4C1xpM8zM",
+    "categoryType": "other"
   },
   {
     "headline": "Polske melodier: Fra Chopins poetiske sjæl til moderne kulturel renaissance",
@@ -1445,7 +1625,8 @@
     "introSubline": "Udforsk Polens ekstraordinære musikalske rejse, fra Chopins revolutionære romantik til dagens dynamiske fusion-scene. Oplev hvordan polske kunstnere forvandler århundreder af passion, modstand og kulturel stolthed til kraftfulde lydudtryk der brobygger klassisk mesterlighed og moderne innovation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7g6nIUiBRNU6L7o1cqK7Uu",
     "deezerPlaylist": "https://link.deezer.com/s/30xqHgRNNambym44fEtlu",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-polish/pl.u-JPADPy2FL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-polish/pl.u-JPADPy2FL2NZeJZ",
+    "categoryType": "other"
   },
   {
     "headline": "Pop: Det universelle melodisprog der forener verden",
@@ -1453,7 +1634,8 @@
     "introSubline": "Rejs gennem populærmusikkens evigt udviklende landskab, hvor innovation møder masse-appel. Fra stadium-fyldende hymner til intime ballader oplever du hvordan popmusiks perfekte blanding af fængende melodier, følelse og banebrydende produktion skaber kulturelle øjeblikke der definerer generationer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1MPEVNNpYlJx7AidRFMq3E",
     "deezerPlaylist": "https://link.deezer.com/s/30xqHvcwLgLtuJpEoZeLK",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-pop/pl.u-aZbgZoZT1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-pop/pl.u-aZbgZoZT1xpM8zM",
+    "categoryType": "mainstream-pop"
   },
   {
     "headline": "Poprock: Det perfekte ægteskab mellem melodi og elektrisk energi",
@@ -1461,7 +1643,8 @@
     "introSubline": "Oplev den eksplosive fusion hvor pops uimodståelige hooks møder rocks forstærkede attitude. Fra Foreigners arena-klare klassikere til Avril Lavignes moderne kant opdager du hvordan poprock-kunstnere kombinerer fængende omkvæd og elektrisk energi til at skabe tidsløse hymner der dominerer både radio og stadioner.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3HoVFg1PP3d0ae3iHkGOsH",
     "deezerPlaylist": "https://link.deezer.com/s/30xqHHKIgCORYFQGIRUn2",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-pop-rock-2025/pl.u-11zP17gUNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-pop-rock-2025/pl.u-11zP17gUNP6EVjE",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Post-Hardcore: Den revolutionære evolution af punks kunstneriske sjæl",
@@ -1469,7 +1652,8 @@
     "introSubline": "Oplev hardcores modige forvandling, hvor primitiv intensitet møder kunstnerisk ambition. Fra Fugazis revolutionære eksperimentering til Thursdays følelsesmæssige katharsis opdager du hvordan post-hardcore-kunstnere udvidede punks ordforråd til at skabe musik af hidtil uset dybde og kraft.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/44kO9r9cfyEW7xtARL6C7r",
     "deezerPlaylist": "https://link.deezer.com/s/30xqHVdPlnr5JBNIBhJx6",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-post-hardcore/pl.u-d2bM2dBsLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-post-hardcore/pl.u-d2bM2dBsLJaz6dz",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Post-Metal: Den atmosfæriske revolution der omdefinerede tung musik",
@@ -1477,7 +1661,8 @@
     "introSubline": "Rejs ind i metals mest ekspansive grænse, hvor monolitiske tunghed opløses til kosmisk atmosfære. Fra Neurosis' genre-definerende vision til Cult of Lunas arkitektoniske lydlandskaber oplever du hvordan post-metal forvandler traditionel tunghed til transcendentale lydrejser.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6I6MVL5BAvkWr7SzLWpjZy",
     "deezerPlaylist": "https://link.deezer.com/s/30xqIFU6JnnPAc1PvWoiR",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-post-metal/pl.u-e98M9dlca8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-post-metal/pl.u-e98M9dlca8XvYev",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Post-Punk: Rå energi og kunstnerisk innovation",
@@ -1485,7 +1670,8 @@
     "introSubline": "Udforsk post-punks kantede lyde, hvor bands skubbede grænser med eksperimentelle tilgange og modige tekster.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/35cauzKE45zF3z5iCEzr8F",
     "deezerPlaylist": "https://link.deezer.com/s/30xqIXjBieylFDzsgXOpP",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-post-punk-2025/pl.u-JPADPK3uL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-post-punk-2025/pl.u-JPADPK3uL2NZeJZ",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Power Metal: Den majestætiske fusion af fantasi, historie og heavy metal torden",
@@ -1493,7 +1679,8 @@
     "introSubline": "Gå på en episk rejse hvor svævende vokaler og lynhurtige guitarer fortæller historier om heroisk storhed. Fra Helloweens banebrydende hastighed til Sabatons historiske episke sange oplever du hvordan power metal forvandler mytologi, fantasi og historie til triumferende musikalske eventyr.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6944WLwTzLxB7kQK7jOAbU",
     "deezerPlaylist": "https://link.deezer.com/s/30xqJfRRMJYel3tuSABAu",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-power-metal/pl.u-aZbgZpxT1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-power-metal/pl.u-aZbgZpxT1xpM8zM",
+    "categoryType": "metal-classic"
   },
   {
     "headline": "Power Pop: Den perfekte fusion af rocks rå energi og pops melodiske magi",
@@ -1501,7 +1688,8 @@
     "introSubline": "Dyk ned i musikkens mest vanedannende hybrid, hvor crunchy guitarer møder uimodståelige hooks. Fra Big Stars banebrydende brillans til Cheap Tricks arena-fyldende hymner opdager du hvordan power pop-kunstnere blander rocks elektriserende energi med pops perfekte melodier til at skabe tidsløs lydsolskin.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/76cMqFShrxpPQTVE03RIx1",
     "deezerPlaylist": "https://link.deezer.com/s/30xqJs72GZnEFRvXpFyyK",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-power-pop/pl.u-11zP1EocNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-power-pop/pl.u-11zP1EocNP6EVjE",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Power Walk: Din høj-energi soundtrack til fitness-succes",
@@ -1509,7 +1697,8 @@
     "introSubline": "Forvandl hvert skridt til en triumf med perfekt tempo-satte numre der forbedrer din gang-træning. Fra energiske klassikere til moderne motivatorer holder disse omhyggeligt udvalgte sange det ideelle gang-tempo mens de holder din energi og humør højt.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/76U2UipcYhQ1MDTmJSegrQ",
     "deezerPlaylist": "https://link.deezer.com/s/30xqMVAoKSHzgSmZ8NKEj",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-power-walk/pl.u-d2bM2Z2CLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-power-walk/pl.u-d2bM2Z2CLJaz6dz",
+    "categoryType": "classical-orchestral"
   },
   {
     "headline": "Progressive House: Euforiske builds og dansegulv-hymner",
@@ -1517,7 +1706,8 @@
     "introSubline": "Føl energien af progressive house, en genre kendt for sine opløftende melodier og drivende beats.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/57netDHfsmQPVT3aeQ1jLz",
     "deezerPlaylist": "https://link.deezer.com/s/30xqNdAVT661hN0EO6tQS",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-progressive-house/pl.u-e98M9pjca8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-progressive-house/pl.u-e98M9pjca8XvYev",
+    "categoryType": "house-techno"
   },
   {
     "headline": "Progressive Metal: Genren der forvandlede tung musik gennem virtuos innovation",
@@ -1525,7 +1715,8 @@
     "introSubline": "Træd ind i metals mest sofistikerede rige, hvor teknisk mesterlighed møder kunstnerisk ambition. Fra Dream Theaters sindsforvirrende kompositioner til Tools filosofiske dybde opdager du hvordan progressive metal-kunstnere skubber musikalske grænser gennem komplekse arrangementer og konceptuel brillans.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7m2sSqiwom9QG4gYAkW21l",
     "deezerPlaylist": "https://link.deezer.com/s/30xqNvQSgVTY6so5Av4dh",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-progressive-metal/pl.u-d2bM2GWsLJaz6dzZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-progressive-metal/pl.u-d2bM2GWsLJaz6dzZ",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Psych Rock: Den sindsforvirrende rejse der revolutionerede rocks grænser",
@@ -1533,7 +1724,8 @@
     "introSubline": "Gå på en kosmisk rejse gennem rocks mest eksperimentelle grænse. Fra Pink Floyds transcendentale lydlandskaber til Tame Impalas moderne psykedeli oplever du hvordan visionære kunstnere blander hvirvlende effekter, innovativ produktion og eventyrlig sangskrivning til at skabe musik der udvider bevidstheden og trodser konventioner.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2JcvD7e7uqgHuYBF5qgcUa",
     "deezerPlaylist": "https://link.deezer.com/s/30xqNLqdFdTOar8Y47jkU",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-psych-rock/pl.u-e98M97pHa8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-psych-rock/pl.u-e98M97pHa8XvYev",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Punk: Tre akkorder og sandheden der tændte en kulturel revolution",
@@ -1541,7 +1733,8 @@
     "introSubline": "Oplev den rå kraft af musikkens mest trodsige bevægelse. Fra The Ramones' tre-akkord angreb til The Clashs politiske hymner opdager du hvordan punks DIY-ånd og kompromisløse attitude skabte en kunstnerisk revolution der forvandlede kulturen for evigt.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1k07FnMmoqpofksK4ESdJJ",
     "deezerPlaylist": "https://link.deezer.com/s/30xrdhidZEjZYMPV4I3WG",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-punk/pl.u-38o9803CYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-punk/pl.u-38o9803CYMoD7qD",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "R&B: Det følelsesmæssige hjerte af sort amerikansk musikalsk innovation",
@@ -1549,7 +1742,8 @@
     "introSubline": "Fordyb dig i genren der forvandlede følelse til rent musikalsk guld. Fra Sam Cookes himmelske stemme til moderne innovation opdager du hvordan R&B-kunstnere blander sofistikerede musikalskhed med rå følelse til at skabe tidsløse udtryk for kærlighed, kamp og triumf.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3bYWZsBEFua8dA8za2br4D",
     "deezerPlaylist": "https://link.deezer.com/s/30xrdSvnRX0cgGVPHZE5Y",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-r-b/pl.u-DdAvdZqC01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-r-b/pl.u-DdAvdZqC01PVbgV",
+    "categoryType": "other"
   },
   {
     "headline": "Regnvejrsdag: Forvandl stormvejr til hyggelig musikalsk magi",
@@ -1557,7 +1751,8 @@
     "introSubline": "Forvandl regndråber til musikalske diamanter med denne perfekt kuraterede samling af atmosfæriske numre. Fra bløde jazz-melodier til ambient lydlandskaber skaber disse sange et varmt asyl der gør hvert regnfuldt øjeblik til en gave af fredelig kontemplation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7uV35irgq5EcDPiZqijeGK",
     "deezerPlaylist": "https://link.deezer.com/s/30xrefEG3IaCUSsoSLEa7",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-rainy-day/pl.u-9N9vNq4u1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-rainy-day/pl.u-9N9vNq4u1mlEboE",
+    "categoryType": "other"
   },
   {
     "headline": "Reggae: The Jamaican Sound That United the World Through One Love",
@@ -1565,7 +1760,8 @@
     "introSubline": "Experience the revolutionary rhythms that transformed Jamaican roots music into a global force for change. From Bob Marley's conscious anthems to modern innovations, discover how reggae's hypnotic grooves and spiritual message created a worldwide movement of peace, love, and resistance.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5gPfjoIW0lPm77jWpzfm3T",
     "deezerPlaylist": "https://link.deezer.com/s/30xretuHirr4O95rOZILs",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-reggae/pl.u-d2bM2DlCLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-reggae/pl.u-d2bM2DlCLJaz6dz",
+    "categoryType": "caribbean-afro"
   },
   {
     "headline": "Reggaeton: From San Juan Streets to Global Pop Phenomenon",
@@ -1573,7 +1769,8 @@
     "introSubline": "Journey through reggaeton's explosive evolution from Puerto Rican underground to worldwide cultural force. Experience how the genre's infectious dembow rhythm and urban poetry created a new musical language that revolutionized global pop.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5p3aOy51iYBkB8sGfrQarC",
     "deezerPlaylist": "https://link.deezer.com/s/30xrngnvqx0n8KZzUIlSN",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-reggaeton/pl.u-e98M9B5Fa8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-reggaeton/pl.u-e98M9B5Fa8XvYev",
+    "categoryType": "mainstream-pop"
   },
   {
     "headline": "Relaxed Vibes: Create Your Perfect Moment of Musical Tranquility",
@@ -1581,7 +1778,8 @@
     "introSubline": "Let stress melt away with this thoughtfully curated collection of gentle sonic treasures. From peaceful piano pieces to soothing acoustic melodies, these tracks transform any space into your personal haven of calm and contentment.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1ciG5uIJSoSxBzqZRyuLdF",
     "deezerPlaylist": "https://link.deezer.com/s/30xrnD7QAW6feyFCXrUKq",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-relaxed/pl.u-38o98xbFYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-relaxed/pl.u-38o98xbFYMoD7qD",
+    "categoryType": "emotional"
   },
   {
     "headline": "Road Trip: Transform Every Mile into a Musical Memory",
@@ -1589,7 +1787,8 @@
     "introSubline": "Hit the highway with the perfect mix of energy-lifting anthems and cruising classics. From windows-down singalongs to sunset-chasing soundscapes, these carefully chosen tracks turn every journey into an unforgettable adventure filled with freedom and possibility.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6zxqnfIxjU1DOw4lRpr0dL",
     "deezerPlaylist": "https://link.deezer.com/s/30xro8k905gdsWK4g4zz7",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-road-trip/pl.u-DdAvd95t01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-road-trip/pl.u-DdAvd95t01PVbgV",
+    "categoryType": "situational"
   },
   {
     "headline": "Rock 'n' Roll: The Electric Birth of Youth Culture's Musical Revolution",
@@ -1597,7 +1796,8 @@
     "introSubline": "Journey back to the explosive moment when teenagers found their voice and music changed forever. From Elvis's scandalous hips to Chuck Berry's blazing guitar, experience how rock 'n' roll's raw rebellion ignited a cultural revolution that still shapes our world.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4HdGdJ1a12xMRHJKwbwm9d",
     "deezerPlaylist": "https://link.deezer.com/s/30xrooWNCB7i0U0Cu0tzc",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-rock-n-roll/pl.u-9N9vNR3u1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-rock-n-roll/pl.u-9N9vNR3u1mlEboE",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Rock: The Electric Evolution That Shaped Modern Music's DNA",
@@ -1605,7 +1805,8 @@
     "introSubline": "Journey through rock's revolutionary history, from garage band rebellion to stadium-filling spectacle. Experience how distorted guitars, thunderous drums, and passionate vocals created not just a genre, but a cultural force that continues to inspire and evolve.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2ngLFPTon3HP9Yqoy2Abo1",
     "deezerPlaylist": "https://link.deezer.com/s/30xroIwUFuF3F7cz7JBoi",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-rock/pl.u-DdAvpp6C01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-rock/pl.u-DdAvpp6C01PVbgV",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Rockabilly: The Wild Birth of Rock's First Rebellion",
@@ -1613,7 +1814,8 @@
     "introSubline": "Step back to the moment when country swagger collided with rock 'n' roll attitude in Sun Studio's hallowed walls. From Elvis's revolutionary twang to modern torch-bearers, experience how rockabilly's untamed energy and virtuosic musicianship created rock's first true fusion.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/556VDLysUKkswai3seOpKW",
     "deezerPlaylist": "https://link.deezer.com/s/30xrp9DFtMS0XmcYP032M",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-rockabilly/pl.u-9N9vDDLT1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-rockabilly/pl.u-9N9vDDLT1mlEboE",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Romantic Melodies: Love Stories Told Through Music's Most Beautiful Language",
@@ -1621,7 +1823,8 @@
     "introSubline": "Surrender to the power of pure romance with songs that touch the deepest chambers of the heart. From soul-stirring ballads to passionate serenades, these timeless pieces weave an enchanting atmosphere perfect for love's most precious moments.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0IPy4N81f7oDRCEzakCOaO",
     "deezerPlaylist": "https://link.deezer.com/s/30xrpuaKVKZFSPY7LCx5g",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-romantic/pl.u-V9Dg55Jh3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-romantic/pl.u-V9Dg55Jh3MGpZPp",
+    "categoryType": "emotional"
   },
   {
     "headline": "Running Playlist: The Ultimate Sonic Fuel for Your Personal Best",
@@ -1629,7 +1832,8 @@
     "introSubline": "Push your limits with precision-crafted tracks that sync perfectly with your stride. From energizing warm-ups to triumphant finish lines, this carefully paced selection keeps your motivation soaring and your rhythm strong through every mile.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0hySblikw1i9A1UCmgyS31",
     "deezerPlaylist": "https://link.deezer.com/s/30xrpNcWN4MfOizuredSy",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-running-playlist/pl.u-76oPjjbFvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-running-playlist/pl.u-76oPjjbFvedXrZX",
+    "categoryType": "situational"
   },
   {
     "headline": "Russian Melodies: Where Ancient Slavic Soul Meets Modern Musical Power",
@@ -1637,7 +1841,8 @@
     "introSubline": "Journey through Russia's majestic musical landscape, from haunting folk melodies to avant-garde innovation. Experience how centuries of cultural tradition, from ethereal Orthodox chants to mighty classical orchestras, merge with contemporary creativity to forge uniquely powerful expressions.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4pmPjZr7CCHw3vFhOXE02U",
     "deezerPlaylist": "https://link.deezer.com/s/30xrAqUeJ6jDwXGrZKjAR",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-russian/pl.u-DdAvp1dt01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-russian/pl.u-DdAvp1dt01PVbgV",
+    "categoryType": "jazz-soul-funk"
   },
   {
     "headline": "Sad Melodies: Finding Beauty in Music's Most Profound Emotional Depths",
@@ -1645,7 +1850,8 @@
     "introSubline": "Discover the transformative power of musical melancholy through masterfully chosen songs that honor life's deeper emotions. From soul-stirring piano ballads to poetic expressions of yearning, these tracks create a sacred space for healing, reflection, and emotional authenticity.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/77zWl8jXChMcaRiPdCWg9j",
     "deezerPlaylist": "https://link.deezer.com/s/30xrAJgNPJrwgHUuYXa2a",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-sad/pl.u-9N9vD7pI1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-sad/pl.u-9N9vD7pI1mlEboE",
+    "categoryType": "emotional"
   },
   {
     "headline": "Salsa: The Fiery Heart of Caribbean Dance Revolution",
@@ -1653,7 +1859,8 @@
     "introSubline": "Surrender to the seductive rhythms that transformed Latin dance forever. From Fania All-Stars' revolutionary sound to modern innovations, experience how salsa's passionate fusion of Afro-Cuban rhythms and jazz sophistication ignites dance floors and hearts worldwide.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3ZCEzhyEjElIXJFDHL69Ej",
     "deezerPlaylist": "https://link.deezer.com/s/30xrAVLtOp3Tls9hY2Rmu",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-salsa/pl.u-V9Dg5q7h3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-salsa/pl.u-V9Dg5q7h3MGpZPp",
+    "categoryType": "latin-vibes"
   },
   {
     "headline": "Samba: The Unstoppable Rhythm of Brazil's Carnival Soul",
@@ -1661,7 +1868,8 @@
     "introSubline": "Feel the pulsating heart of Brazilian celebration through samba's euphoric rhythms. From the thunderous power of carnival batucada to intimate roda de samba gatherings, experience how this revolutionary art form transforms pure rhythm into collective joy and cultural pride.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7EWRUTlDklYpO8vtIAIRJx",
     "deezerPlaylist": "https://link.deezer.com/s/30xrBbiMfnLErMqdVhssK",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-samba/pl.u-mJy365BCNVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-samba/pl.u-mJy365BCNVL5Jl5",
+    "categoryType": "jazz-soul-funk"
   },
   {
     "headline": "Screamo: When Hardcore's Heart Exploded into Pure Emotional Catharsis",
@@ -1669,7 +1877,8 @@
     "introSubline": "Venture into hardcore's most emotionally raw territory, where primal screams meet intricate musical architecture. From Orchid's pioneering intensity to modern evolution, experience how screamo artists transform personal anguish into transcendent sonic art that pushes both emotional and musical boundaries.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7gUWpIJPdTrL0Y43ovrp7N",
     "deezerPlaylist": "https://link.deezer.com/s/30xrBQgez4FrsyXdprkwq",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-screamo/pl.u-76oPj2pTvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-screamo/pl.u-76oPj2pTvedXrZX",
+    "categoryType": "other"
   },
   {
     "headline": "Sertanejo: How Brazil's Country Music Became a Modern Pop Phenomenon",
@@ -1677,7 +1886,8 @@
     "introSubline": "Journey through Brazil's unstoppable musical evolution, where rustic violin duos transformed into stadium-filling spectacles. From romantic power ballads to electronic-infused hits, discover how sertanejo blends traditional countryside soul with contemporary production to create Latin America's most successful fusion.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3hTGYmG9Z4vgBON8vCPhh1",
     "deezerPlaylist": "https://link.deezer.com/s/30xrCttYfMaElbs4VPNL8",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-sertanejo/pl.u-V9Dg57aU3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-sertanejo/pl.u-V9Dg57aU3MGpZPp",
+    "categoryType": "mainstream-pop"
   },
   {
     "headline": "Shoegaze: Dreamy Soundscapes and Ethereal Vocals",
@@ -1685,7 +1895,8 @@
     "introSubline": "Lose yourself in shoegaze, where lush guitars and reverb-drenched vocals create a wall of sound.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0ihiWbH2Y06pJq02KMvw3d",
     "deezerPlaylist": "https://link.deezer.com/s/30xrCUiYPNxAK13y1xeaL",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-shoegaze/pl.u-76oPjNmFvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-shoegaze/pl.u-76oPjNmFvedXrZX",
+    "categoryType": "indie-alternative"
   },
   {
     "headline": "Ska: When Kingston's Streets Invented Dance Music's Happiest Revolution",
@@ -1693,7 +1904,8 @@
     "introSubline": "Dive into the genre that made Jamaica dance before reggae, where sharp suits met sharper rhythms. From the Skatalites' pioneering horn sections to Two-Tone's multicultural vision, experience how ska's infectious upstrokes and driving basslines created one of music's most joyful movements.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/77G1DC8kGF29epUmCAQ2xt",
     "deezerPlaylist": "https://link.deezer.com/s/30xrDEvr61zSTvD2ktVGF",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-ska/pl.u-JPADjDPCL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-ska/pl.u-JPADjDPCL2NZeJZ",
+    "categoryType": "other"
   },
   {
     "headline": "Sleep Soundly: Transform Your Nights with Nature's Most Peaceful Lullabies",
@@ -1701,7 +1913,8 @@
     "introSubline": "Create your perfect pathway to restorative rest through scientifically chosen sounds for optimal sleep. From ethereal ambient landscapes to gentle binaural frequencies, these carefully crafted soundscapes guide you naturally into deep, rejuvenating slumber.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5lGpp9BwDZ5gvi6UDo3sVU",
     "deezerPlaylist": "https://link.deezer.com/s/30xrHyzhm3xuyRveJhsgg",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-sleep-soundly/pl.u-aZbgeg9T1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-sleep-soundly/pl.u-aZbgeg9T1xpM8zM",
+    "categoryType": "emotional"
   },
   {
     "headline": "Sludge Metal: When Southern Swamps Birthed Metal's Heaviest Evolution",
@@ -1709,7 +1922,8 @@
     "introSubline": "Sink into metal's most massive sonic marshland, where doom's glacial pace meets hardcore's raw aggression. From the Melvins' groundbreaking heaviness to Eyehategod's tortured soul, experience how New Orleans transformed metal's harshest elements into a uniquely powerful form of musical catharsis.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7BkXp7SjOXPpLfKDkzlMKN",
     "deezerPlaylist": "https://link.deezer.com/s/30xrHXifv8QEwCMKOSlhJ",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-sludge-metal/pl.u-76oPjPBTvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-sludge-metal/pl.u-76oPjPBTvedXrZX",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Smooth Jazz: Relaxed Grooves and Sophisticated Sounds",
@@ -1717,7 +1931,8 @@
     "introSubline": "Unwind with smooth jazz, a genre that blends jazz improvisation with mellow, easy-listening vibes.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7g7LqnJcAoOIGRzsGDrGRQ",
     "deezerPlaylist": "https://link.deezer.com/s/30xrILzsWdfSrZXEPjWAf",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-smooth-jazz/pl.u-V9Dg5Ldt3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-smooth-jazz/pl.u-V9Dg5Ldt3MGpZPp",
+    "categoryType": "jazz-soul-funk"
   },
   {
     "headline": "Songwriter: The Intimate Art of Turning Life into Lyrical Poetry",
@@ -1725,7 +1940,8 @@
     "introSubline": "Enter the intimate world of musical storytelling masters, where personal truth meets universal emotion. From Leonard Cohen's poetic wisdom to Carole King's heartfelt confessions, witness how great songwriters transform their deepest experiences into art that speaks to millions.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0grCN6K8sWlKHFa1ncK6Zt",
     "deezerPlaylist": "https://link.deezer.com/s/30xrIZ4J7onIdFeVEBhY3",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-songwriter/pl.u-76oPjJ3FvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-songwriter/pl.u-76oPjJ3FvedXrZX",
+    "categoryType": "folk-regional"
   },
   {
     "headline": "Soul Music: The Sacred Spirit That Transformed Modern Music Through Raw Emotion",
@@ -1733,7 +1949,8 @@
     "introSubline": "Journey through music's most powerful emotional landscape, from Ray Charles' revolutionary fusion to Aretha Franklin's transcendent power. Experience how soul music blended gospel's spiritual fire with R&B's earthly passion to create timeless expressions of the human heart.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0JGIo1JwkMqNT2KyKQQL0D",
     "deezerPlaylist": "https://link.deezer.com/s/30xrJjXm8LnZN2TMgqIxg",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-soul/pl.u-JPADj0VuL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-soul/pl.u-JPADj0VuL2NZeJZ",
+    "categoryType": "jazz-soul-funk"
   },
   {
     "headline": "Soundtrack: Music That Tells a Story",
@@ -1741,7 +1958,8 @@
     "introSubline": "Experience the power of soundtracks, from epic film scores to memorable TV themes that bring stories to life.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0GRfN2yjDpRdtTs7BRutfS",
     "deezerPlaylist": "https://link.deezer.com/s/30xrJCAGScRE2k4EYahOo",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-soundtrack/pl.u-aZbgeB6T1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-soundtrack/pl.u-aZbgeB6T1xpM8zM",
+    "categoryType": "classical-orchestral"
   },
   {
     "headline": "Spanish Melodies: Where Flamenco's Primal Fire Ignites Modern Musical Magic",
@@ -1749,7 +1967,8 @@
     "introSubline": "Immerse yourself in Spain's passionate musical soul, from flamenco's raw duende to contemporary fusion's sophisticated innovation. Experience how centuries of Moorish mystery, Romani spirit, and Mediterranean warmth blend into one of Europe's most captivating musical traditions.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7t3FUUWjXokKqHdQraCgPN",
     "deezerPlaylist": "https://link.deezer.com/s/30xrJOK1gpJi66ABuzI20",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-spanish/pl.u-11zPLD1CNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-spanish/pl.u-11zPLD1CNP6EVjE",
+    "categoryType": "countries-regional"
   },
   {
     "headline": "Speed Metal: The Lightning-Fast Revolution That Pushed Metal to Its Limits",
@@ -1757,7 +1976,8 @@
     "introSubline": "Enter metal's most velocity-obsessed realm, where superhuman precision meets unrelenting aggression. From Exciter's pioneering sonic assaults to modern speed demons, experience how this genre transforms technical mastery into an adrenaline-fueled art form.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2GKZ1b1EGrUeoNjNUMSmhD",
     "deezerPlaylist": "https://link.deezer.com/s/30xrK1J6I3P9Epg0BkiIp",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-speed-metal/pl.u-aZbgev4F1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-speed-metal/pl.u-aZbgev4F1xpM8zM",
+    "categoryType": "metal-classic"
   },
   {
     "headline": "Spring Awakening: Musical Celebration of Nature's Most Beautiful Renaissance",
@@ -1765,7 +1985,8 @@
     "introSubline": "Embrace the magical transformation of winter into spring through music that captures nature's reawakening spirit. From delicate morning birdsong to joyful seasonal anthems, these carefully chosen tracks paint a vibrant soundscape of renewal, hope, and blossoming possibility.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3MQSUoijej25f4IvRcNFuu",
     "deezerPlaylist": "https://link.deezer.com/s/30xrMZ3bVAQANzrNNbdVq",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-spring-awakening/pl.u-76oPjbbTvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-spring-awakening/pl.u-76oPjbbTvedXrZX",
+    "categoryType": "seasonal"
   },
   {
     "headline": "Stoner Metal: Where Desert Sand and Cosmic Fuzz Create Heavy Music's Most Hypnotic Realm",
@@ -1773,7 +1994,8 @@
     "introSubline": "Descend into the smoke-filled soundscapes where mammoth riffs meet psychedelic exploration. From Sleep's hour-long odysseys to Electric Wizard's cosmic doom, discover how stoner metal transforms heavy amplification and lysergic atmosphere into transcendent sonic rituals.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2qSbx9BAX2u6uvW8AIKqEN",
     "deezerPlaylist": "https://link.deezer.com/s/30xrNePoWpFyXorddvVTo",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-stoner-metal/pl.u-JPADjqJsL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-stoner-metal/pl.u-JPADjqJsL2NZeJZ",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Study Session: Scientifically Curated Sounds for Maximum Mental Focus",
@@ -1781,7 +2003,8 @@
     "introSubline": "Elevate your learning potential with precision-engineered soundscapes designed to enhance cognitive function. From alpha wave-inducing ambient pieces to focus-optimizing minimal compositions, discover the perfect audio environment for peak academic performance.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3vt5S7fxcnUricoSekV5yw",
     "deezerPlaylist": "https://link.deezer.com/s/30xrNubcedY5RjgNleaPj",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-study-session/pl.u-aZbgevrT1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-study-session/pl.u-aZbgevrT1xpM8zM",
+    "categoryType": "situational"
   },
   {
     "headline": "Summer Hits: Your Musical Passport to Endless Sunshine and Joy",
@@ -1789,7 +2012,8 @@
     "introSubline": "Let the sunshine in with the year's most vibrant collection of warm-weather anthems. From beachside bossa nova to poolside party bangers, these carefully chosen tracks bottle summer's euphoric energy into pure musical magic that makes every day feel like vacation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1IYMMI3F3zgGqlMPMTjbKu",
     "deezerPlaylist": "https://link.deezer.com/s/30xrNKCKckqBhsNaCvji9",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-summer-hits/pl.u-11zPLbahNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-summer-hits/pl.u-11zPLbahNP6EVjE",
+    "categoryType": "seasonal"
   },
   {
     "headline": "Solnedgangs-vibes: Forvandl tusmørke til ren musikalsk magi",
@@ -1797,7 +2021,8 @@
     "introSubline": "Forbedr naturens smukkeste lysshow med lyde der perfekt fanger dagens mest fortryllende øjeblikke. Fra varme lo-fi beats til atmosfæriske ambient-perler forvandler denne omhyggeligt kuraterede samling hver solnedgang til en transcendent audio-visuel oplevelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0EM4XAOI6HmzCM7LnmkSmG",
     "deezerPlaylist": "https://link.deezer.com/s/30xrOLNSX6zA7c2Dw5lB4",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-sunset-vibes/pl.u-aZbgeP0I1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-sunset-vibes/pl.u-aZbgeP0I1xpM8zM",
+    "categoryType": "other"
   },
   {
     "headline": "Surf Rock: Reverb-gennemtrængte guitarer og strandfest-vibes",
@@ -1805,7 +2030,8 @@
     "introSubline": "Fang bølgen med surf rock, en genre defineret af twangy guitarer og solbadede melodier.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7sNs0KKuLW9HhSq9jx34Wa",
     "deezerPlaylist": "https://link.deezer.com/s/30xrP75nfneZHodqgXRQd",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-surf-rock/pl.u-11zPLxVINP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-surf-rock/pl.u-11zPLxVINP6EVjE",
+    "categoryType": "classic-rock"
   },
   {
     "headline": "Svenske melodier: Hvor middelalderlig mystik møder moderne musiks guldstandard",
@@ -1813,7 +2039,8 @@
     "introSubline": "Rejs gennem Sveriges fortryllede musikalske landskab, fra ældgamle nordiske ballader til ABBAs pop-perfektion. Oplev hvordan svenske kunstnere forvandler århundreder af nordisk fortællekunst og ren produktion til ren lydperfektion der fanger lyttere verden over.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3MXG9u3IM4cF9PJG7EkK9i",
     "deezerPlaylist": "https://link.deezer.com/s/30xrPpRnMH7D89HT5xSRy",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-swedish/pl.u-e98M2YmSa8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-swedish/pl.u-e98M2YmSa8XvYev",
+    "categoryType": "other"
   },
   {
     "headline": "Swing: Big Band-energi og dansegulv-klassikere",
@@ -1821,7 +2048,8 @@
     "introSubline": "Træd tilbage i tiden med swing, hvor big bands og livlige rytmer får alle til at bevæge sig.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1hvpcgziaOBBhSVroK0efm",
     "deezerPlaylist": "https://link.deezer.com/s/30xrPHLAp3iXarZdIuRN1",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-swing/pl.u-38o9zqysYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-swing/pl.u-38o9zqysYMoD7qD",
+    "categoryType": "jazz-soul-funk"
   },
   {
     "headline": "Schweiziske melodier: Hvor alpinsk magi møder urban elektronisk innovation",
@@ -1829,7 +2057,8 @@
     "introSubline": "Svæv gennem Schweiz' mangfoldige musikalske toppe og dale, fra æteriske alpine horn til Zürichs banebrydende elektroniske scene. Oplev hvordan schweizisk præcision skaber en unik lydfusion hvor bjergtradition møder metropolitan sofistikation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/00hWefOrbUp2KO9Mty4lmp",
     "deezerPlaylist": "https://link.deezer.com/s/30xrTnkRePgkEVlWXoxvH",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-swiss/pl.u-aZbgex9I1xpM8zM"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-swiss/pl.u-aZbgex9I1xpM8zM",
+    "categoryType": "other"
   },
   {
     "headline": "Symfonisk black metal: Når helvedes kor mødte klassisk orkesters majestæt",
@@ -1837,7 +2066,8 @@
     "introSubline": "Vidne til den storslåede kollision mellem operatisk storhed og black metals helvedes raseri. Fra Dimmu Borgirs diaboliske symfonier til Emperors orkestrale mørke, oplev hvordan denne genre forvandler klassisk sofistikation og ekstrem metal til gotisk perfektion.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/45A0CjBgozkoqk5crQu8Fl",
     "deezerPlaylist": "https://link.deezer.com/s/30xrTFjrxnufkoeVfRu6B",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-symphonic-black-metal/pl.u-11zPLamCNP6EVjE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-symphonic-black-metal/pl.u-11zPLamCNP6EVjE",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Symfonisk metal: Når Wagners drøm mødte heavy metals torden",
@@ -1845,7 +2075,8 @@
     "introSubline": "Stig op til musikkens mest majestætiske rige, hvor orkestral drama møder metallisk kraft. Fra Nightwishs operatiske mesterværker til Epicas filosofiske storhed, oplev hvordan symfonisk metal forvandler klassisk sofistikation og tunge riffs til ren lydteater.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7CeQA72edBlaN9vrSUrjNS",
     "deezerPlaylist": "https://link.deezer.com/s/30xrTSXRwRpY9noTdCECV",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-symphonic-metal/pl.u-d2bMoX0CLJaz6dz"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-symphonic-metal/pl.u-d2bMoX0CLJaz6dz",
+    "categoryType": "metal-classic"
   },
   {
     "headline": "Synth-Pop: Den neon-revolution der elektriserede pops fremtid",
@@ -1853,7 +2084,8 @@
     "introSubline": "Træd ind i det digitale drømmeland hvor synthesizere omskrev pops regelbog for evigt. Fra Depeche Modes stemningsfulde mesterværker til Pet Shop Boys elektroniske elegance, vidne til hvordan visionære kunstnere forvandlede kredsløb og sequencers til rent følelsesmæssigt guld.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4zg5LoGCcBYzo1y3A9VScs",
     "deezerPlaylist": "https://link.deezer.com/s/30xrUvwXaTaO1swLGlG9m",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-synth-pop/pl.u-e98M2KDSa8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-synth-pop/pl.u-e98M2KDSa8XvYev",
+    "categoryType": "mainstream-pop"
   },
   {
     "headline": "Synthwave: Retro-futuristiske lyde og neon-drømme",
@@ -1861,7 +2093,8 @@
     "introSubline": "Fordyb dig i synthwave, en genre inspireret af 1980'ernes popkultur, vintage synthesizere og filmatisk nostalgi.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7wIiHR0dfzCARbLg4UXVk7",
     "deezerPlaylist": "https://link.deezer.com/s/30xrUUyQ2nBloAvFSb7FH",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-synthwave/pl.u-38o9zEetYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-synthwave/pl.u-38o9zEetYMoD7qD",
+    "categoryType": "breaks-experimental"
   },
   {
     "headline": "Tango: Når Buenos Aires' gader tændte en global danseromance",
@@ -1869,7 +2102,8 @@
     "introSubline": "Træd ind i den sanselige verden hvor passion tænder hver bevægelse. Fra milongas intime poesi til nuevo tangos dristige evolution, oplev hvordan Argentinas mest forførende kunstform forvandlede to kroppe der bevæger sig som én til ren musikalsk historiefortælling.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5go8Ph0tk2lmHgPkrgyOWe",
     "deezerPlaylist": "https://link.deezer.com/s/30xrVbtwBkEL8zMru5FBt",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-tango/pl.u-e98M2bLIa8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-tango/pl.u-e98M2bLIa8XvYev",
+    "categoryType": "latin-vibes"
   },
   {
     "headline": "Technical Death Metal: Når matematisk præcision mødte metals ultimative raseri",
@@ -1877,7 +2111,8 @@
     "introSubline": "Stig ned i metals mest indviklede labyrint, hvor overmenneskelig musikalskhed møder ødelæggende lydkraft. Fra Deaths revolutionære vision til moderne mestre, vidne til hvordan technical death metal forvandler musikalsk kompleksitet til en kunstform af kontrolleret kaos.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5mOCxy0gxRORaMmuMHdTlX",
     "deezerPlaylist": "https://link.deezer.com/s/30xrVSP3inkPRfgDj3gwe",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-technical-death-metal/pl.u-38o9zP8FYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-technical-death-metal/pl.u-38o9zP8FYMoD7qD",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Techno: Når Detroits samlebånd skabte elektronisk musiks fremtid",
@@ -1885,7 +2120,8 @@
     "introSubline": "Træd ind i det hypnotiske rige hvor industriel præcision møder åndelig befrielse. Fra Detroits undergrundsrevolution til Berlins techno-templer, oplev hvordan mekaniske rytmer og syntetiske teksturer skabte dansemusikkens mest transformerende bevægelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/555tC6ebt2aciAGX2Rpja1",
     "deezerPlaylist": "https://link.deezer.com/s/30xrWdaDSutNnO4cksom4",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-techno/pl.u-DdAvpVBC01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-techno/pl.u-DdAvpVBC01PVbgV",
+    "categoryType": "house-techno"
   },
   {
     "headline": "Thrash Metal: Bay Area-stormen der revolutionerede tung musik for evigt",
@@ -1893,7 +2129,8 @@
     "introSubline": "Dyk ned i metals mest eksplosive evolution, hvor punks hastighed kolliderede med metals præcision. Fra Metallicas tekniske mesterskab til Slayers dæmoniske intensitet, vidne til hvordan San Franciscos thrash-revolution skabte tung musiks mest intense og indflydelsesrige bevægelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0EoKqucRw2t86e64fVq0f9",
     "deezerPlaylist": "https://link.deezer.com/s/30xrZHzjM90RalgiwxlIV",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-thrash-metal/pl.u-9N9vDAWs1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-thrash-metal/pl.u-9N9vDAWs1mlEboE",
+    "categoryType": "metal-classic"
   },
   {
     "headline": "Trance: Når elektronisk musik opdagede sin åndelige sjæl",
@@ -1901,7 +2138,8 @@
     "introSubline": "Træd ind i et rige af ren elektronisk transcendens, hvor hypnotiske rytmer låser op for højere bevidsthedstilstande. Fra Paul van Dyks opløftende hymner til Armin van Buurens følelsesmæssige rejser, oplev hvordan trance-musik forvandler dansegulve til templer for euforisk åbenbaring.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/44jaxuuX5dGy4vYpgAC7kq",
     "deezerPlaylist": "https://link.deezer.com/s/30xrZZnXspJjvHtmu2uHH",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-trance/pl.u-mJy36m8FNVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-trance/pl.u-mJy36m8FNVL5Jl5",
+    "categoryType": "club-sounds"
   },
   {
     "headline": "Trap: Moderne hip-hop med hårdtslående beats",
@@ -1909,7 +2147,8 @@
     "introSubline": "Føl intensiteten af trap, en genre der dominerer hitlister med bragende bass og hurtigskydende hi-hats.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3wa2i99eDnHaocsEPMiWLV",
     "deezerPlaylist": "https://link.deezer.com/s/30xs0emgf7X1iDdoUUWN0",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-trap/pl.u-e98MVPEIa8XvYev"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-trap/pl.u-e98MVPEIa8XvYev",
+    "categoryType": "hip-hop-rap"
   },
   {
     "headline": "Trip-Hop: Når Bristols gader skabte elektronisk musiks mest atmosfæriske revolution",
@@ -1917,7 +2156,8 @@
     "introSubline": "Rejs gennem de røgfyldte lydlandskaber af Bristols musikalske oprør, hvor hip-hops urbane kant opløstes i æterisk elektronik. Fra Massive Attacks revolutionære noir til Portisheads filmatiske melankoli, vidne til hvordan trip-hop forvandlede urban grus til hypnotisk kunst.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3X8NoU1NLB21tRWNfj6152",
     "deezerPlaylist": "https://link.deezer.com/s/30xs0CSQWNYNsyA9Fpwpa",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-trip-hop/pl.u-38o9BGEsYMoD7qD"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-trip-hop/pl.u-38o9BGEsYMoD7qD",
+    "categoryType": "breaks-experimental"
   },
   {
     "headline": "Tyrkiske melodier: Den lydmæssige bro mellem ældgammel mystik og moderne innovation",
@@ -1925,7 +2165,8 @@
     "introSubline": "Svæv gennem Tyrkiets fortryllede musikalske vejkryds, hvor sufisk mystik danser med elektronisk innovation. Fra hvirvlende dervish-ceremonier til moderne urban fusion, oplev hvordan tyrkiske kunstnere forvandler årtusinders kulturel udveksling til kraftfulde nye udtryk.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6h7qPSuiI8Wx3dfpMzKSRP",
     "deezerPlaylist": "https://link.deezer.com/s/30xs140nW7UBaaMNIMkhH",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-turkish/pl.u-DdAvkmPt01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-turkish/pl.u-DdAvkmPt01PVbgV",
+    "categoryType": "other"
   },
   {
     "headline": "Ukrainske melodier: Hvor ældgamle bandura-sange møder moderne musikalsk modstand",
@@ -1933,7 +2174,8 @@
     "introSubline": "Rejs gennem Ukrainens modstandsdygtige musikalske sjæl, hvor århundreders folkelig visdom møder revolutionært udtryk. Fra hjemsøgende karpatske sange til moderne urbane beats, oplev hvordan ukrainske kunstnere forvandler deres rige kulturelle arv til kraftfulde udsagn om national identitet.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7BdGibPQvtAHfJ0LyEraal",
     "deezerPlaylist": "https://link.deezer.com/s/30xs1izPScHE34KVjUZbE",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-turkish/pl.u-DdAvkmPt01PVbgV"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-turkish/pl.u-DdAvkmPt01PVbgV",
+    "categoryType": "other"
   },
   {
     "headline": "Opløftende hymner: Når musik bliver ren motivationsmagisk",
@@ -1941,7 +2183,8 @@
     "introSubline": "Lås op for dit højeste potentiale gennem musikalsk inspirations transcendente kraft. Fra stadionrystende hymner til intime sejre skaber disse omhyggeligt udvalgte numre en uimodståelig lydkraft der forvandler udfordringer til triumfer og drømme til virkelighed.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6oDXghROdNxPkK716UXCtP",
     "deezerPlaylist": "https://link.deezer.com/s/30xs1xqePhVC3t2tysJQt",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-uplifting/pl.u-mJy3vRRINVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-uplifting/pl.u-mJy3vRRINVL5Jl5",
+    "categoryType": "other"
   },
   {
     "headline": "Valentinsdag: Musikalske kærlighedsbreve der taler lige til hjertet",
@@ -1949,7 +2192,8 @@
     "introSubline": "Fejr årets mest elskede festdag med sange der fanger romantikkens uendelige magi. Fra tidsløse ballader der definerede generationer til moderne erklæringer om hengivenhed, skaber disse omhyggeligt udvalgte numre den perfekte atmosfære til at dele hjerter og skabe minder.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6gw9nQdKvyaQyeETvgit2H",
     "deezerPlaylist": "https://link.deezer.com/s/30xs1P7nosbJ1sZv9QThY",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-uplifting/pl.u-mJy3vRRINVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-uplifting/pl.u-mJy3vRRINVL5Jl5",
+    "categoryType": "other"
   },
   {
     "headline": "Vaporwave: Internet-æstetik og drømmelignende lydlandskaber",
@@ -1957,7 +2201,8 @@
     "introSubline": "Udforsk vaporwave, en genre der remixer nostalgi, digital kunst og surrealistiske lyde for en unik lytteoplevelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3nFTAFGgsvshezDcKsSq6i",
     "deezerPlaylist": "https://link.deezer.com/s/30xs5KNV4HF7pFCCya8fq",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-vaporwave/pl.u-mJy3vNECNVL5Jl5"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-vaporwave/pl.u-mJy3vNECNVL5Jl5",
+    "categoryType": "breaks-experimental"
   },
   {
     "headline": "Viking Metal: Når ældgamle nordiske sagaer blev torden og stål",
@@ -1965,7 +2210,8 @@
     "introSubline": "Sejl gennem de tågede riger af nordisk mytologi på bølger af knusende metal. Fra Amon Amarths kampfyldte episke værker til Enslaveds mystiske rejser, opdag hvordan viking metal forvandler ældgamle historier om guder og krigere til kraftfulde lydceremonier.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0OjibyRFWJjYqe9YAKRuBb",
     "deezerPlaylist": "https://link.deezer.com/s/30xs5YHW93SiX0jhaRRWW",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-viking-metal/pl.u-V9DgRzNc3MGpZPp"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-viking-metal/pl.u-V9DgRzNc3MGpZPp",
+    "categoryType": "metal-modern"
   },
   {
     "headline": "Vinter-vibes: Hvor frostig magi bliver til musikalsk varme",
@@ -1973,7 +2219,8 @@
     "introSubline": "Forvandl vinterens krystalklare skønhed til et fortryllende lydasyl. Fra klaverstykker der glimter som friske sne til ambient landskaber der driver som milde snefygninger, skaber disse omhyggeligt udvalgte numre dit perfekte musikalske tilflugtssted fra kulden.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3d41QlFGGnEGLXcQqVtIvx",
     "deezerPlaylist": "https://link.deezer.com/s/30xs6e2mPKI7YF7TQGQP6",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-winter-vibes/pl.u-76oPDWMsvedXrZX"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-winter-vibes/pl.u-76oPDWMsvedXrZX",
+    "categoryType": "other"
   },
   {
     "headline": "Vinter-underland: Musikalske skatte fra sne og stjerners sæson",
@@ -1981,7 +2228,8 @@
     "introSubline": "Træd ind i et glitrende rige hvor vinterens magi kommer til live gennem musik. Fra frostkysste melodier til varme pejsebåde serenader, fanger disse fortryllende numre hvert magisk øjeblik af sæsonen, fra sneeventyr til hyggelige aftener under stjernelyse himle.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6ZqCxShXksfmDN47FF8hTP",
     "deezerPlaylist": "https://link.deezer.com/s/30xs6rud4zeS1X4c6sZyX",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-winter-wonderland/pl.u-JPADRM2TL2NZeJZ"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-winter-wonderland/pl.u-JPADRM2TL2NZeJZ",
+    "categoryType": "other"
   },
   {
     "headline": "Træningsmotivation: Din ultimative træningspartner i musikalsk form",
@@ -1989,6 +2237,7 @@
     "introSubline": "Forvandl dine træningssessioner med perfekt tempoerede numre der skubber dig til nye højder. Fra højenergi beats til inspirerende hymner, holder denne omhyggeligt sammensatte mix din motivation flyvende og din præstation toppende fra opvarmning til afkøling.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6800utEb8RlDXYP09crhN9",
     "deezerPlaylist": "https://link.deezer.com/s/30xs6FJFUVrm32uUfahmF",
-    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-workout-motivation/pl.u-9N9vP1Jt1mlEboE"
+    "appleMusicPlaylist": "https://music.apple.com/de/playlist/top-workout-motivation/pl.u-9N9vP1Jt1mlEboE",
+    "categoryType": "other"
   }
 ]
