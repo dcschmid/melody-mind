@@ -5,6 +5,7 @@ import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import PlaylistCard from "@components/PlaylistCard.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
+import CategoryFilter from "@components/CategoryFilter.astro";
 import { Icon } from "astro-icon/components";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
 
@@ -73,6 +74,7 @@ interface Playlist {
   spotifyPlaylist: string;
   deezerPlaylist: string;
   appleMusicPlaylist: string;
+  categoryType?: string;
 }
 
 // Helper function for decade extraction (moved up)
@@ -249,6 +251,104 @@ const breadcrumbSchema = {
     </section>
 
     <main class="playlist-selection" role="main">
+      <!-- Category Filter Dropdown -->
+      <CategoryFilter
+        categories={[
+          { type: "decade", title: t("game.filter.decades") || "Decades", icon: "📅" },
+          { type: "female", title: t("game.filter.female") || "Female Artists", icon: "👩‍🎤" },
+          {
+            type: "classic-rock",
+            title: t("game.filter.classic-rock") || "Classic Rock & Hard Rock",
+            icon: "🎸",
+          },
+          {
+            type: "metal-classic",
+            title: t("game.filter.metal-classic") || "Metal – Classics",
+            icon: "⚡",
+          },
+          {
+            type: "metal-modern",
+            title: t("game.filter.metal-modern") || "Modern Metal",
+            icon: "🔥",
+          },
+          {
+            type: "metal-avantgarde",
+            title: t("game.filter.metal-avantgarde") || "Avantgarde & Extreme Metal",
+            icon: "🎭",
+          },
+          {
+            type: "mainstream-pop",
+            title: t("game.filter.mainstream-pop") || "Mainstream Pop",
+            icon: "🎤",
+          },
+          {
+            type: "indie-alternative",
+            title: t("game.filter.indie-alternative") || "Indie & Alternative",
+            icon: "🎶",
+          },
+          {
+            type: "global-pop",
+            title: t("game.filter.global-pop") || "Global Pop Scenes",
+            icon: "🌏",
+          },
+          {
+            type: "jazz-soul-funk",
+            title: t("game.filter.jazz-soul-funk") || "Jazz, Soul & Funk",
+            icon: "🎷",
+          },
+          {
+            type: "hip-hop-rap",
+            title: t("game.filter.hip-hop-rap") || "Hip Hop & Rap",
+            icon: "🎤",
+          },
+          {
+            type: "house-techno",
+            title: t("game.filter.house-techno") || "House & Techno",
+            icon: "🎛️",
+          },
+          { type: "club-sounds", title: t("game.filter.club-sounds") || "Club Sounds", icon: "🎚️" },
+          {
+            type: "breaks-experimental",
+            title: t("game.filter.breaks-experimental") || "Breaks & Experimental",
+            icon: "🌀",
+          },
+          { type: "latin-vibes", title: t("game.filter.latin-vibes") || "Latin Vibes", icon: "🎺" },
+          {
+            type: "caribbean-afro",
+            title: t("game.filter.caribbean-afro") || "Caribbean & Afro",
+            icon: "🌴",
+          },
+          {
+            type: "folk-regional",
+            title: t("game.filter.folk-regional") || "Folk & Regional",
+            icon: "🪕",
+          },
+          {
+            type: "classical-orchestral",
+            title: t("game.filter.classical-orchestral") || "Classical & Orchestral",
+            icon: "🎼",
+          },
+          {
+            type: "countries-regional",
+            title: t("game.filter.countries-regional") || "Countries & Regional",
+            icon: "🌍",
+          },
+          {
+            type: "emotional",
+            title: t("game.filter.emotional") || "Emotional Genres",
+            icon: "💫",
+          },
+          { type: "seasonal", title: t("game.filter.seasonal") || "Seasonal Genres", icon: "❄️" },
+          {
+            type: "situational",
+            title: t("game.filter.situational") || "Situational & Activity-Based",
+            icon: "🎉",
+          },
+          { type: "other", title: t("game.filter.other") || "Other Categories", icon: "📚" },
+        ]}
+        selectedValue="all"
+      />
+
       <!-- Enhanced Playlist Grid with semantic markup and microdata -->
       <section aria-labelledby="playlists-heading">
         <Headline
@@ -258,33 +358,173 @@ const breadcrumbSchema = {
           className="sr-only"
           id="playlists-heading"
         />
-        <ul id="playlist-grid" class="playlist-grid">
-          {
-            sortedPlaylists.map((playlist, index) => (
-              <li
-                class="playlist-card"
-                id={`playlist-${index}`}
-                itemscope
-                itemtype="https://schema.org/MusicPlaylist"
-              >
-                <meta itemprop="name" content={playlist.headline} />
-                <meta itemprop="description" content={playlist.introSubline || playlist.headline} />
-                <meta itemprop="genre" content={getDecadeFromHeadline(playlist.headline)} />
-                <meta itemprop="inLanguage" content={lang} />
-                <PlaylistCard
-                  headline={playlist.headline}
-                  imageUrl={playlist.imageUrl}
-                  introSubline={playlist.introSubline}
-                  spotifyPlaylist={playlist.spotifyPlaylist}
-                  deezerPlaylist={playlist.deezerPlaylist}
-                  appleMusicPlaylist={playlist.appleMusicPlaylist}
-                  index={index}
-                  lang={lang}
-                />
-              </li>
-            ))
-          }
-        </ul>
+
+        {/* Dynamic Category Groups */}
+        {
+          (() => {
+            // Define category group configurations
+            const categoryGroups = [
+              { type: "decade", title: t("game.filter.decades") || "Decades", icon: "📅" },
+              { type: "female", title: t("game.filter.female") || "Female Artists", icon: "👩‍🎤" },
+              {
+                type: "classic-rock",
+                title: t("game.filter.classic-rock") || "Classic Rock & Hard Rock",
+                icon: "🎸",
+              },
+              {
+                type: "metal-classic",
+                title: t("game.filter.metal-classic") || "Metal – Classics",
+                icon: "⚡",
+              },
+              {
+                type: "metal-modern",
+                title: t("game.filter.metal-modern") || "Modern Metal",
+                icon: "🔥",
+              },
+              {
+                type: "metal-avantgarde",
+                title: t("game.filter.metal-avantgarde") || "Avantgarde & Extreme Metal",
+                icon: "🎭",
+              },
+              {
+                type: "mainstream-pop",
+                title: t("game.filter.mainstream-pop") || "Mainstream Pop",
+                icon: "🎤",
+              },
+              {
+                type: "indie-alternative",
+                title: t("game.filter.indie-alternative") || "Indie & Alternative",
+                icon: "🎶",
+              },
+              {
+                type: "global-pop",
+                title: t("game.filter.global-pop") || "Global Pop Scenes",
+                icon: "🌏",
+              },
+              {
+                type: "jazz-soul-funk",
+                title: t("game.filter.jazz-soul-funk") || "Jazz, Soul & Funk",
+                icon: "🎷",
+              },
+              {
+                type: "hip-hop-rap",
+                title: t("game.filter.hip-hop-rap") || "Hip Hop & Rap",
+                icon: "🎤",
+              },
+              {
+                type: "house-techno",
+                title: t("game.filter.house-techno") || "House & Techno",
+                icon: "🎛️",
+              },
+              {
+                type: "club-sounds",
+                title: t("game.filter.club-sounds") || "Club Sounds",
+                icon: "🎚️",
+              },
+              {
+                type: "breaks-experimental",
+                title: t("game.filter.breaks-experimental") || "Breaks & Experimental",
+                icon: "🌀",
+              },
+              {
+                type: "latin-vibes",
+                title: t("game.filter.latin-vibes") || "Latin Vibes",
+                icon: "🎺",
+              },
+              {
+                type: "caribbean-afro",
+                title: t("game.filter.caribbean-afro") || "Caribbean & Afro",
+                icon: "🌴",
+              },
+              {
+                type: "folk-regional",
+                title: t("game.filter.folk-regional") || "Folk & Regional",
+                icon: "🪕",
+              },
+              {
+                type: "classical-orchestral",
+                title: t("game.filter.classical-orchestral") || "Classical & Orchestral",
+                icon: "🎼",
+              },
+              {
+                type: "countries-regional",
+                title: t("game.filter.countries-regional") || "Countries & Regional",
+                icon: "🌍",
+              },
+              {
+                type: "emotional",
+                title: t("game.filter.emotional") || "Emotional Genres",
+                icon: "💫",
+              },
+              {
+                type: "seasonal",
+                title: t("game.filter.seasonal") || "Seasonal Genres",
+                icon: "❄️",
+              },
+              {
+                type: "situational",
+                title: t("game.filter.situational") || "Situational & Activity-Based",
+                icon: "🎉",
+              },
+              { type: "other", title: t("game.filter.other") || "Other Categories", icon: "📚" },
+            ];
+
+            // Generate category groups dynamically
+            return categoryGroups.map((group) => {
+              const groupPlaylists = sortedPlaylists.filter(
+                (playlist) => playlist.categoryType === group.type
+              );
+              if (groupPlaylists.length === 0) {
+                return null;
+              }
+
+              return (
+                <div class="category-group" data-category-type={group.type}>
+                  <h3 class="category-group__title">
+                    {group.icon} {group.title}
+                  </h3>
+                  <ul
+                    class="playlist-grid"
+                    aria-label={`${group.title} playlists`}
+                    aria-live="polite"
+                  >
+                    {groupPlaylists.map((playlist, index) => (
+                      <li
+                        class="playlist-card"
+                        id={`playlist-${group.type}-${index}`}
+                        itemscope
+                        itemtype="https://schema.org/MusicPlaylist"
+                      >
+                        <meta itemprop="name" content={playlist.headline} />
+                        <meta
+                          itemprop="description"
+                          content={playlist.introSubline || playlist.headline}
+                        />
+                        <meta
+                          itemprop="genre"
+                          content={
+                            playlist.categoryType || getDecadeFromHeadline(playlist.headline)
+                          }
+                        />
+                        <meta itemprop="inLanguage" content={lang} />
+                        <PlaylistCard
+                          headline={playlist.headline}
+                          imageUrl={playlist.imageUrl}
+                          introSubline={playlist.introSubline}
+                          spotifyPlaylist={playlist.spotifyPlaylist}
+                          deezerPlaylist={playlist.deezerPlaylist}
+                          appleMusicPlaylist={playlist.appleMusicPlaylist}
+                          index={index}
+                          lang={lang}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            });
+          })()
+        }
       </section>
     </main>
   </div>
@@ -536,6 +776,32 @@ const breadcrumbSchema = {
       @media (min-width: 64em) {
         font-size: var(--text-xl);
       }
+    }
+  }
+
+  /* ======================================
+   * CATEGORY GROUPS
+   * ====================================== */
+  .category-group {
+    margin-bottom: var(--space-xl);
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      margin-bottom: var(--space-2xl);
+    }
+  }
+
+  .category-group__title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+    contain: layout style;
+
+    @media (min-width: 48em) {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-xl);
     }
   }
 
