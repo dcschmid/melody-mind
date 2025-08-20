@@ -3,7 +3,7 @@ import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
-import PodcastEpisode from "@components/Podcast/PodcastEpisode.astro";
+
 import type { PodcastData } from "../../types/podcast";
 import enPodcastsJson from "../../data/podcasts/en.json" assert { type: "json" };
 /**
@@ -228,7 +228,7 @@ const pageSchema = generatePodcastPageSchema();
               Note: Podcasts are currently available only in English.
             </Headline>
             <Paragraph className="podcasts-restriction__description">
-              We’re working on adding more languages soon. Thanks for your understanding.
+              We're working on adding more languages soon. Thanks for your understanding.
             </Paragraph>
           </div>
         )
@@ -248,11 +248,54 @@ const pageSchema = generatePodcastPageSchema();
             {episodes
               .filter((episode: PodcastData) => episode.isAvailable)
               .map((episode: PodcastData) => (
-                <PodcastEpisode
-                  podcast={episode}
-                  lang={String(lang)}
-                  className="podcasts-list__episode"
-                />
+                <article class="podcast-episode-card">
+                  <div class="podcast-episode-card__header">
+                    <div class="podcast-episode-card__image">
+                      <img
+                        src={episode.imageUrl}
+                        alt={episode.title}
+                        loading="lazy"
+                        width="120"
+                        height="120"
+                      />
+                    </div>
+                    <div class="podcast-episode-card__meta">
+                      <Headline level="h2" size="lg" className="podcast-episode-card__title">
+                        {episode.title}
+                      </Headline>
+                      <p class="podcast-episode-card__description">{episode.description}</p>
+                      <div class="podcast-episode-card__details">
+                        <time class="podcast-episode-card__date" datetime={episode.publishedAt}>
+                          {new Date(episode.publishedAt).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}
+                        </time>
+                        <span class="podcast-episode-card__duration">🎙️ Episode</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="podcast-episode-card__actions">
+                    <a
+                      href={`/${lang}/podcasts/${episode.id}`}
+                      class="podcast-episode-card__read-more"
+                    >
+                      📖 Read Full Episode Notes
+                    </a>
+                    {episode.audioUrl && (
+                      <a
+                        href={episode.audioUrl}
+                        class="podcast-episode-card__listen"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        🎧 Listen Now
+                      </a>
+                    )}
+                  </div>
+                </article>
               ))}
           </div>
         )
@@ -551,13 +594,147 @@ const pageSchema = generatePodcastPageSchema();
   .podcasts-list {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: var(--space-md);
     width: 100%;
     contain: layout style;
+  }
 
-    &__episode {
-      width: 100%;
+  /* ======================================
+   * PODCAST EPISODE CARDS
+   * ====================================== */
+  .podcast-episode-card {
+    background: var(--bg-primary);
+    border: var(--border-width-thin) solid var(--border-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    contain: layout style paint;
+
+    &:hover {
+      transform: translateY(var(--animation-y-offset-small));
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-primary-hover);
+    }
+
+    &__header {
+      display: flex;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
+      contain: layout style;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    &__image {
+      flex-shrink: 0;
       contain: layout style paint;
+
+      img {
+        width: 120px;
+        height: 120px;
+        border-radius: var(--radius-lg);
+        object-fit: cover;
+        box-shadow: var(--shadow-md);
+        contain: layout style paint;
+      }
+    }
+
+    &__meta {
+      flex: 1;
+      contain: layout style;
+    }
+
+    &__title {
+      margin: 0 0 var(--space-sm) 0;
+      color: var(--text-primary);
+      contain: layout style;
+    }
+
+    &__description {
+      color: var(--text-secondary);
+      font-size: var(--text-base);
+      line-height: var(--leading-relaxed);
+      margin: 0 0 var(--space-md) 0;
+      contain: layout style;
+    }
+
+    &__details {
+      display: flex;
+      gap: var(--space-md);
+      align-items: center;
+      contain: layout style;
+
+      @media (max-width: 768px) {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+
+    &__date {
+      color: var(--text-tertiary);
+      font-size: var(--text-sm);
+      contain: layout style;
+    }
+
+    &__duration {
+      color: var(--text-tertiary);
+      font-size: var(--text-sm);
+      contain: layout style;
+    }
+
+    &__actions {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: flex-start;
+      contain: layout style;
+
+      @media (max-width: 768px) {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+
+    &__read-more,
+    &__listen {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      font-weight: var(--font-semibold);
+      font-size: var(--text-sm);
+      min-height: var(--touch-target-enhanced);
+      transition: all var(--transition-normal);
+      contain: layout style paint;
+    }
+
+    &__read-more {
+      background: var(--color-primary-600);
+      color: var(--color-white);
+      border: var(--border-width-thin) solid var(--color-primary-600);
+
+      &:hover {
+        background: var(--color-primary-700);
+        border-color: var(--color-primary-700);
+        transform: translateY(var(--animation-y-offset-small));
+      }
+    }
+
+    &__listen {
+      background: var(--color-secondary-600);
+      color: var(--color-white);
+      border: var(--border-width-thin) solid var(--color-secondary-600);
+
+      &:hover {
+        background: var(--color-secondary-700);
+        border-color: var(--color-secondary-700);
+        transform: translateY(var(--animation-y-offset-small));
+      }
     }
   }
 
