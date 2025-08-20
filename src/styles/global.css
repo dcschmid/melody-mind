@@ -95,15 +95,6 @@
   --font-mono:
     "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
 
-  /* Font Sizes - Available as text-xs, text-sm, etc. */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
-  --text-4xl: 2.25rem;
 
   /* Font Weights - Available as font-normal, font-medium, etc. */
   --font-weight-normal: 400;
@@ -177,34 +168,6 @@
  * ====================================== */
 
 :root {
-  /* Background Colors */
-  --bg-primary: var(--color-neutral-950);
-  --bg-secondary: var(--color-neutral-900);
-  --bg-tertiary: var(--color-neutral-800);
-  --bg-error: var(--color-error-950); /* Error state background */
-
-  /* Enhanced AAA Background Colors (7:1 contrast) */
-  --bg-error-aaa: var(--color-error-950); /* Enhanced error background for 7:1 ratio */
-  --bg-success-aaa: var(--color-success-900); /* Enhanced success background for 7:1 ratio */
-  --bg-success-subtle: var(--color-success-950); /* Subtle success background */
-  --bg-warning-aaa: var(--color-warning-900); /* Enhanced warning background for 7:1 ratio */
-  --bg-help-info: var(--color-info-950); /* Help text background for accessibility */
-
-  /* Text Colors - WCAG AAA Compliant (7:1 ratio) */
-  --text-primary: var(--color-neutral-50); /* 18.7:1 on dark bg */
-  --text-secondary: var(--color-neutral-300); /* 7.5:1 on dark bg */
-  --text-tertiary: var(--color-neutral-400); /* 4.8:1 on dark bg */
-  --text-muted: var(--color-neutral-500); /* Muted text for optional indicators */
-  --text-disabled: var(--color-neutral-600);
-  --text-inverse: var(--color-neutral-950);
-  --text-error: var(--color-error-200); /* Error state text */
-
-  /* Enhanced AAA Text Colors (7:1 contrast) */
-  --text-error-aaa: var(--color-error-50); /* Enhanced error text for 7:1 ratio */
-  --text-success-aaa: var(--color-success-50); /* Enhanced success text for 7:1 ratio */
-  --text-warning-aaa: var(--color-warning-50); /* Enhanced warning text for 7:1 ratio */
-
-  /* ======================================
    * PERFORMANCE OPTIMIZATION VARIABLES
    * ====================================== */
 
@@ -649,109 +612,6 @@
  * ====================================== */
 
 /* ======================================
- * BASE STYLES & ACCESSIBILITY
- * Enhanced typography with Atkinson Hyperlegible for maximum accessibility
- * ====================================== */
-
-/* HTML and Body base styles with accessibility enhancements */
-html {
-  /* Enhanced base font size for better readability (WCAG AAA) */
-  font-size: 18px; /* Base 18px instead of 16px for better accessibility */
-  line-height: var(--leading-enhanced); /* 1.8 for optimal readability */
-
-  /* Prevent horizontal scrolling globally */
-  overflow-x: hidden;
-  width: 100%;
-  box-sizing: border-box;
-
-  /* Enhanced text spacing for WCAG 2.2 AAA compliance */
-  letter-spacing: var(--letter-spacing-enhanced);
-  word-spacing: var(--word-spacing-enhanced);
-
-  /* Smooth scrolling for better user experience */
-  scroll-behavior: var(--scroll-behavior-smooth);
-
-  /* Optimized text rendering */
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Performance optimizations - minimal containment for critical elements */
-  will-change: var(--will-change-scroll);
-}
-
-body {
-  /* Primary font family with Atkinson Hyperlegible for accessibility */
-  font-family: var(--font-family-primary);
-
-  /* Base typography settings */
-  font-size: var(--text-lg); /* 18px for better readability */
-  font-weight: var(--font-normal);
-  line-height: var(--leading-enhanced);
-
-  /* Enhanced text spacing for accessibility */
-  letter-spacing: var(--letter-spacing-base);
-  word-spacing: var(--word-spacing-enhanced);
-
-  /* Color and background using CSS variables */
-  color: var(--text-primary);
-  background-color: var(--bg-primary);
-
-  /* Layout and spacing with overflow control */
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  box-sizing: border-box;
-  overflow-x: hidden;
-
-  /* Enhanced font rendering for better readability */
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for text resizing up to 400% (WCAG AAA) */
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  hyphens: auto;
-
-  /* Performance optimizations - minimal containment for critical elements */
-  will-change: var(--will-change-scroll);
-}
-
-/* Universal box-sizing and overflow control for responsive design */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  /* Prevent individual elements from causing horizontal overflow */
-  max-width: 100%;
-}
-
-/* Performance optimizations - exclude critical UI elements */
-*:not(nav):not(header):not(.navigation-*):not(.header-*):not(.menu-*):not(.nav-*):not(.game-*):not(
-    .quiz-*
-  ):not(.chronology-*):not(.time-pressure-*):not(.section-container):not(.button-group):not(
-    .gamehome-*
-  ) {
-  contain: var(--contain-layout);
-}
-
-/* Accessibility: Support for user preferences */
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: var(--scroll-behavior-auto);
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* ======================================
  * UTILITY CLASSES
  * ====================================== */
 
@@ -773,31 +633,4 @@ body {
   clip-path: var(--sr-only-clip-path);
   white-space: nowrap;
   border: 0;
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  body {
-    font-weight: var(--font-medium);
-    text-shadow: none;
-  }
-}
-
-/* Forced colors mode support (Windows High Contrast) */
-@media (forced-colors: active) {
-  body {
-    forced-color-adjust: none;
-    font-family: var(--font-family-system); /* Use system fonts for better compatibility */
-  }
-}
-
-/* Print styles for better document printing */
-@media print {
-  body {
-    font-family: var(--font-family-fallback); /* Use fallback fonts for print */
-    font-size: 12pt;
-    line-height: 1.6;
-    color: black !important;
-    background: white !important;
-  }
 }

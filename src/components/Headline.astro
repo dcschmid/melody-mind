@@ -1,18 +1,20 @@
 ---
 /**
- * Headline Component - Responsive & Accessible
+ * Headline Component - Simple & Clean
  *
- * A versatile heading component with different levels, custom styling, and semantic hierarchy.
- * Fully responsive with WCAG AAA compliance and optimized for all screen sizes.
+ * A clean heading component with different levels and basic styling.
+ * Using Tailwind CSS 4 with tailwind-variants for maintainability.
  *
  * @component
  * @example
  * ```astro
- * <Headline level="h1" size="2xl" variant="primary">
+ * <Headline level="h1" variant="primary">
  *   Welcome to MelodyMind
  * </Headline>
  * ```
  */
+import { tv } from "tailwind-variants";
+
 interface Props {
   /** Text content of the heading (can also use slot content instead) */
   title?: string;
@@ -21,469 +23,80 @@ interface Props {
   /** Additional CSS classes to apply */
   className?: string;
   /** Optional ID for direct linking and document structure */
-  id?: string;
-  /** Adds tabindex="-1" to make the heading programmatically focusable when needed */
-  focusable?: boolean;
-  /** Optional ARIA label for improved screen reader context */
   ariaLabel?: string;
-  /** ARIA describedby for additional context */
-  ariaDescribedBy?: string;
-  /** Semantic wrapper element for better document structure */
-  wrapper?: "section" | "header" | "article" | "div" | "none";
-  /** Text size using CSS custom properties (xs, sm, base, lg, xl, 2xl, 3xl, 4xl) */
-  size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
-  /** Style variant for visual appearance (default uses standard colors, primary uses gradient) */
+  /** Style variant for visual appearance */
   variant?: "default" | "primary";
-  /** Text alignment option for different layout needs */
+  /** Text alignment option */
   textAlign?: "left" | "center" | "right";
-  /** Indicates this heading is a skip navigation target */
-  skipTarget?: boolean;
-  /** Makes the heading clickable with proper button semantics */
-  interactive?: boolean;
-  /** Click handler for interactive headlines */
-  onClick?: string;
 }
 
 const {
   title,
   level = "h1",
   className = "",
-  id,
-  focusable = false,
   ariaLabel,
-  ariaDescribedBy,
-  wrapper = "none",
-  size = "xl",
   variant = "default",
   textAlign = "left",
-  skipTarget = false,
-  interactive = false,
-  onClick,
 } = Astro.props;
 
 // Dynamic heading tag based on level prop
 const Tag = level;
-const WrapperTag = wrapper === "none" ? "div" : wrapper;
 
-// Simple class generation
-const classes = [
-  "headline",
-  `headline--${level}`,
-  size && `headline--size-${size}`,
-  variant !== "default" && `headline--${variant}`,
-  focusable && "headline--focusable",
-  textAlign !== "left" && `headline--align-${textAlign}`,
-  skipTarget && "headline--skip-target",
-  interactive && "headline--interactive",
+// Tailwind Variants configuration for the headline component
+const headlineVariants = tv({
+  base: [
+    // Base typography
+    "font-primary mb-md leading-tight font-bold",
+    // Enhanced text wrapping
+    "text-balance break-words",
+  ].join(" "),
+
+  variants: {
+    level: {
+      h1: "text-6xl font-bold",
+      h2: "text-5xl font-semibold",
+      h3: "text-4xl font-semibold",
+      h4: "text-3xl font-medium",
+      h5: "text-2xl font-medium",
+      h6: "text-xl font-medium",
+    },
+
+    variant: {
+      default: "text-text-primary",
+      primary: [
+        "text-interactive-primary",
+        "from-primary-500 to-secondary-500 bg-gradient-to-br",
+        "bg-clip-text text-transparent",
+      ].join(" "),
+    },
+
+    textAlign: {
+      left: "text-left",
+      center: "text-center",
+      right: "text-right",
+    },
+  },
+
+  defaultVariants: {
+    level: "h1",
+    size: undefined,
+    variant: "default",
+    textAlign: "left",
+  },
+});
+
+// Generate classes using tailwind-variants
+const classes = headlineVariants({
+  level,
+  variant,
+  textAlign,
   className,
-]
-  .filter(Boolean)
-  .join(" ")
-  .trim();
+});
 
 // Simple attributes
 const attributes: Record<string, any> = {
-  id,
-  "aria-label": ariaLabel,
-  "aria-describedby": ariaDescribedBy,
   class: classes,
-  ...(focusable && { tabindex: "-1" }),
-  ...(interactive && { role: "button" }),
-  ...(interactive && onClick && { onclick: onClick }),
 };
-
-const wrapperAttributes: Record<string, any> | null =
-  wrapper !== "none"
-    ? {
-        class: "headline-wrapper",
-        role: wrapper === "div" ? "region" : undefined,
-      }
-    : null;
 ---
 
-<style lang="scss">
-  /* ======================================
-   * HEADLINE COMPONENT STYLES
-   * Responsive design with global.css variables
-   * WCAG AAA compliant - Zero hardcoded values
-   * ====================================== */
-
-  .headline {
-    /* Base typography using global CSS variables */
-    font-family: var(--font-family-primary);
-    font-weight: var(--font-bold);
-    line-height: var(--leading-tight);
-    letter-spacing: var(--letter-spacing-base);
-    color: var(--text-primary);
-
-    /* Enhanced text wrapping and accessibility */
-    text-wrap: balance;
-    word-break: break-words;
-    overflow-wrap: break-word;
-    hyphens: auto;
-
-    /* Smooth transitions for interactive states */
-    transition: all var(--transition-normal);
-
-    /* ======================================
-     * SIZE VARIANTS - RESPONSIVE TYPOGRAPHY
-     * ====================================== */
-
-    /* Mobile-first responsive sizing */
-    &--size-xs {
-      font-size: var(--text-xs);
-    }
-
-    &--size-sm {
-      font-size: var(--text-sm);
-    }
-
-    &--size-base {
-      font-size: var(--text-base);
-    }
-
-    &--size-lg {
-      font-size: var(--text-lg);
-    }
-
-    &--size-xl {
-      font-size: var(--text-xl);
-    }
-
-    &--size-2xl {
-      font-size: var(--text-2xl);
-    }
-
-    &--size-3xl {
-      font-size: var(--text-3xl);
-    }
-
-    &--size-4xl {
-      font-size: var(--text-4xl);
-    }
-
-    /* ======================================
-     * RESPONSIVE BREAKPOINT ADJUSTMENTS
-     * ====================================== */
-
-    /* Small mobile screens - Portrait Mobile (below 480px) - Compact sizes */
-    @media (max-width: 29.9375em) {
-      &--size-base {
-        font-size: var(--text-sm);
-      }
-
-      &--size-lg {
-        font-size: var(--text-base);
-      }
-
-      &--size-xl {
-        font-size: var(--text-lg);
-      }
-
-      &--size-2xl {
-        font-size: var(--text-xl);
-      }
-
-      &--size-3xl {
-        font-size: var(--text-2xl);
-      }
-
-      &--size-4xl {
-        font-size: var(--text-3xl);
-      }
-    }
-
-    /* Medium screens - Tablet Portrait (480px+) - Gradual expansion */
-    @media (min-width: 30em) {
-      &--size-xl {
-        font-size: var(--text-xl);
-      }
-
-      &--size-2xl {
-        font-size: var(--text-2xl);
-      }
-
-      &--size-3xl {
-        font-size: var(--text-3xl);
-      }
-
-      &--size-4xl {
-        font-size: var(--text-4xl);
-      }
-    }
-
-    /* Desktop breakpoint (64em+) - Balanced sizing */
-    @media (min-width: 64em) {
-      &--size-xl {
-        font-size: var(--text-2xl);
-      }
-
-      &--size-2xl {
-        font-size: var(--text-3xl);
-      }
-
-      &--size-3xl {
-        font-size: var(--text-4xl);
-      }
-
-      &--size-4xl {
-        font-size: calc(var(--text-4xl) * 1.25);
-      }
-    }
-
-    /* ======================================
-     * LEVEL-SPECIFIC TYPOGRAPHY
-     * ====================================== */
-
-    &--h1 {
-      font-weight: var(--font-bold);
-    }
-
-    &--h2 {
-      font-weight: var(--font-semibold);
-    }
-
-    &--h3 {
-      font-weight: var(--font-semibold);
-    }
-
-    &--h4,
-    &--h5,
-    &--h6 {
-      font-weight: var(--font-medium);
-    }
-
-    /* ======================================
-     * STYLE VARIANTS
-     * ====================================== */
-
-    /* Primary variant with gradient */
-    &--primary {
-      /* WCAG AAA compliant fallback color (7:1 contrast ratio) */
-      color: var(--interactive-primary);
-
-      /* Enhanced gradient text with accessibility considerations */
-      background: linear-gradient(135deg, var(--color-primary-500), var(--color-secondary-500));
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-size: 200% 200%;
-
-      /* Fallback for browsers that don't support background-clip: text */
-      @supports not (background-clip: text) {
-        background: none;
-        -webkit-text-fill-color: initial;
-        color: var(--interactive-primary);
-      }
-
-      /* High contrast mode support */
-      @media (prefers-contrast: high) {
-        background: none;
-        -webkit-text-fill-color: initial;
-        color: var(--text-primary);
-        font-weight: var(--font-bold);
-      }
-
-      /* Ensure proper contrast in forced colors mode */
-      @media (forced-colors: active) {
-        background: none;
-        -webkit-text-fill-color: initial;
-        color: ButtonText;
-        forced-color-adjust: none;
-      }
-    }
-
-    /* ======================================
-     * INTERACTIVE STATES
-     * ====================================== */
-
-    /* Focusable modifier for accessibility (WCAG 2.2 AAA) */
-    &--focusable {
-      &:focus {
-        outline: var(--focus-outline);
-        outline-offset: var(--focus-ring-offset);
-        box-shadow: var(--focus-ring);
-        /* Minimum touch target size (WCAG 2.2) */
-        min-height: var(--min-touch-size);
-        min-width: var(--min-touch-size);
-        /* Enhanced focus appearance */
-        background-color: var(--focus-bg-overlay);
-        border-radius: var(--radius-sm);
-        transition: all var(--transition-fast);
-      }
-    }
-
-    /* Interactive modifier for clickable headlines */
-    &--interactive {
-      cursor: pointer;
-      transition: all var(--transition-normal);
-
-      &:hover {
-        text-decoration: underline;
-        text-decoration-thickness: var(--text-decoration-thickness);
-        text-underline-offset: var(--text-underline-offset);
-        transform: translateY(-2px);
-      }
-
-      &:active {
-        transform: translateY(0);
-      }
-
-      &:focus {
-        outline: var(--focus-outline);
-        outline-offset: var(--focus-ring-offset);
-        box-shadow: var(--focus-ring);
-        background-color: var(--focus-bg-overlay);
-        border-radius: var(--radius-sm);
-      }
-    }
-
-    /* ======================================
-     * SKIP NAVIGATION TARGET
-     * ====================================== */
-
-    &--skip-target {
-      scroll-margin-top: var(--space-xl);
-      position: relative;
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: calc(-1 * var(--space-lg));
-        left: 0;
-        right: 0;
-        height: var(--border-width-thick);
-        background-color: transparent;
-        transition: background-color var(--transition-fast);
-      }
-
-      &:target {
-        &::before {
-          background-color: var(--interactive-primary);
-          box-shadow: 0 0 var(--space-sm) var(--interactive-primary);
-        }
-      }
-    }
-
-    /* ======================================
-     * TEXT ALIGNMENT
-     * ====================================== */
-
-    &--align-center {
-      text-align: center;
-    }
-
-    &--align-right {
-      text-align: right;
-    }
-
-    /* ======================================
-     * RESPONSIVE MARGIN ADJUSTMENTS
-     * ====================================== */
-
-    /* Smaller margins on mobile for better space utilization */
-    @media (max-width: 47.9375em) {
-      margin-bottom: var(--space-md);
-
-      &--h1 {
-        margin-bottom: var(--space-lg);
-      }
-
-      &--h2 {
-        margin-bottom: var(--space-md);
-      }
-
-      &--h3,
-      &--h4,
-      &--h5,
-      &--h6 {
-        margin-bottom: var(--space-sm);
-      }
-    }
-
-    @media (max-width: 39.9375em) {
-      margin-bottom: var(--space-sm);
-
-      &--h1 {
-        margin-bottom: var(--space-md);
-      }
-
-      &--h2 {
-        margin-bottom: var(--space-sm);
-      }
-    }
-  }
-
-  /* ======================================
-   * WRAPPER ELEMENT
-   * ====================================== */
-
-  .headline-wrapper {
-    display: contents; /* Maintains layout flow */
-  }
-
-  /* ======================================
-   * ACCESSIBILITY ENHANCEMENTS
-   * ====================================== */
-
-  /* Enhanced support for reduced motion (WCAG 2.2) */
-  @media (prefers-reduced-motion: reduce) {
-    .headline {
-      &--primary {
-        /* Reset gradient animation */
-        background: none;
-        -webkit-text-fill-color: initial;
-        color: var(--interactive-primary);
-        animation: none;
-      }
-
-      &--skip-target {
-        &:target {
-          /* Static highlight for reduced motion users */
-          background-color: var(--focus-bg-overlay);
-          border-radius: var(--radius-sm);
-          padding: var(--space-xs);
-          margin: calc(-1 * var(--space-xs));
-        }
-      }
-
-      &--interactive {
-        &:hover {
-          transform: none;
-        }
-
-        &:active {
-          transform: none;
-        }
-      }
-    }
-  }
-
-  /* ======================================
-   * PRINT STYLES
-   * ====================================== */
-
-  @media print {
-    .headline {
-      color: var(--print-text) !important;
-      background: none !important;
-      -webkit-text-fill-color: initial !important;
-
-      &--primary {
-        color: var(--print-text) !important;
-        background: none !important;
-        -webkit-text-fill-color: initial !important;
-      }
-    }
-  }
-</style>
-
-{
-  wrapper !== "none" ? (
-    <WrapperTag {...wrapperAttributes}>
-      <Tag {...attributes}>{title || <slot />}</Tag>
-    </WrapperTag>
-  ) : (
-    <Tag {...attributes}>{title || <slot />}</Tag>
-  )
-}
+<Tag {...attributes}>{title || <slot />}</Tag>
