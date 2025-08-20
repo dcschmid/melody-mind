@@ -115,7 +115,7 @@ import SkipLink from "@components/Shared/SkipLink.astro";
 import Footer from "@components/Footer.astro";
 
 // 4. Utility imports
-import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { getLangFromUrl } from "@utils/i18n";
 
 // 5. Global styles import
 import "../styles/global.css";
@@ -283,7 +283,7 @@ const fontPreloads = [
   // Fallback: Inter Regular for UI consistency
   {
     href: "/fonts/Inter-Regular.ttf",
-    as: "font" as const, 
+    as: "font" as const,
     type: "font/ttf",
     crossorigin: "anonymous",
   },

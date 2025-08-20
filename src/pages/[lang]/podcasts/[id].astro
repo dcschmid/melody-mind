@@ -1,0 +1,707 @@
+---
+import { getLangFromUrl } from "@utils/i18n";
+import Layout from "@layouts/Layout.astro";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
+import type { PodcastData } from "../../../types/podcast";
+import enPodcastsJson from "../../../data/podcasts/en.json" assert { type: "json" };
+
+/**
+ * Static path generation for internationalization
+ * Generates paths for all supported languages and podcast IDs
+ */
+export const getStaticPaths = async () => {
+  const supportedLanguages = [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt",
+    "da",
+    "nl",
+    "sv",
+    "fi",
+    "cn",
+    "ru",
+    "jp",
+    "uk",
+  ];
+
+  const podcasts = enPodcastsJson.podcasts;
+  const paths = [];
+
+  // Generate paths for all languages and all podcast IDs
+  supportedLanguages.forEach((lang) => {
+    podcasts.forEach((podcast) => {
+      paths.push({
+        params: { lang, id: podcast.id },
+      });
+    });
+  });
+
+  return paths;
+};
+
+/**
+ * Enable static site generation for this page
+ */
+export const prerender = true;
+
+/**
+ * Language and translation setup
+ */
+const lang = String(getLangFromUrl(Astro.url));
+const podcastId = Astro.params.id;
+
+/**
+ * Find the specific podcast by ID
+ */
+const findPodcastById = (id: string): PodcastData | null => {
+  const podcasts = enPodcastsJson.podcasts;
+  return podcasts.find((podcast) => podcast.id === id) || null;
+};
+
+const podcast = findPodcastById(podcastId || "");
+
+// If podcast not found, return 404
+if (!podcast) {
+  return Astro.redirect("/404");
+}
+
+// SEO and page metadata
+const title = podcast.title;
+const description = podcast.description;
+const currentUrl = new URL(Astro.url.pathname, Astro.site);
+const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "";
+
+/**
+ * Generate PodcastEpisode schema for SEO
+ */
+const generatePodcastSchema = () => ({
+  "@context": "https://schema.org",
+  "@type": "PodcastEpisode",
+  name: podcast.title,
+  description: podcast.description,
+  url: currentUrl.toString(),
+  inLanguage: lang,
+  datePublished: podcast.publishedAt,
+  image: {
+    "@type": "ImageObject",
+    url: new URL(podcast.imageUrl, baseUrl).toString(),
+  },
+  isPartOf: {
+    "@type": "PodcastSeries",
+    name: "MelodyMind Podcast",
+    url: `${baseUrl}/${lang}/podcasts`,
+  },
+  ...(podcast.audioUrl && {
+    audio: {
+      "@type": "AudioObject",
+      url: podcast.audioUrl,
+      encodingFormat: "audio/mpeg",
+    },
+  }),
+});
+
+const pageSchema = generatePodcastSchema();
+
+/**
+ * Format the published date
+ */
+const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
+
+/**
+ * Get the previous and next podcast for navigation
+ */
+const getNavigationPodcasts = () => {
+  const podcasts = enPodcastsJson.podcasts.filter((p) => p.isAvailable);
+  const currentIndex = podcasts.findIndex((p) => p.id === podcastId);
+
+  if (currentIndex === -1) {
+    return { prev: null, next: null };
+  }
+
+  const prev = currentIndex > 0 ? podcasts[currentIndex - 1] : null;
+  const next = currentIndex < podcasts.length - 1 ? podcasts[currentIndex + 1] : null;
+
+  return { prev, next };
+};
+
+const { prev, next } = getNavigationPodcasts();
+---
+
+<Layout {title} {description} type="article" image={podcast.imageUrl}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+
+    <!-- Open Graph for Podcast Episode -->
+    <meta property="og:type" content="music.song" />
+    <meta property="music:creator" content="MelodyMind" />
+    <meta property="article:published_time" content={podcast.publishedAt} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={podcast.title} />
+    <meta name="twitter:description" content={podcast.description} />
+    <meta name="twitter:image" content={new URL(podcast.imageUrl, baseUrl).toString()} />
+  </Fragment>
+
+  <div class="podcast-detail-page">
+    <!-- Navigation Back -->
+    <nav class="podcast-navigation" aria-label="Podcast navigation">
+      <a href={`/${lang}/podcasts`} class="podcast-navigation__back"> ← Back to All Podcasts </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="podcast-hero" aria-labelledby="podcast-title">
+      <div class="podcast-hero__content">
+        <div class="podcast-hero__image">
+          <img
+            src={podcast.imageUrl}
+            alt={podcast.title}
+            width="200"
+            height="200"
+            loading="eager"
+          />
+        </div>
+
+        <div class="podcast-hero__meta">
+          <Headline level="h1" size="3xl" className="podcast-hero__title" id="podcast-title">
+            {podcast.title}
+          </Headline>
+
+          <Paragraph className="podcast-hero__description">
+            {podcast.description}
+          </Paragraph>
+
+          <div class="podcast-hero__details">
+            <time class="podcast-hero__date" datetime={podcast.publishedAt}>
+              📅 {formatDate(podcast.publishedAt)}
+            </time>
+            <span class="podcast-hero__episode">🎙️ Episode</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Audio Player */}
+      {
+        podcast.audioUrl && (
+          <div class="podcast-audio-player">
+            <h2 class="podcast-audio-player__title">Listen to Episode</h2>
+            {/* eslint-disable-next-line astro/jsx-a11y/media-has-caption */}
+            <audio controls class="podcast-audio-player__controls" preload="metadata">
+              <source src={podcast.audioUrl} type="audio/mpeg" />
+              {podcast.subtitleUrl && (
+                <track kind="captions" src={podcast.subtitleUrl} label="English" />
+              )}
+              Your browser does not support the audio element.
+            </audio>
+            <div class="podcast-audio-player__links">
+              <a
+                href={podcast.audioUrl}
+                class="podcast-audio-player__download"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                📥 Download Audio
+              </a>
+              {podcast.subtitleUrl && (
+                <a
+                  href={podcast.subtitleUrl}
+                  class="podcast-audio-player__subtitles"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  📝 View Subtitles
+                </a>
+              )}
+            </div>
+          </div>
+        )
+      }
+    </header>
+
+    <!-- Main Content -->
+    <main class="podcast-main">
+      <article class="podcast-content">
+        <div class="podcast-content__body" set:html={podcast.showNotesHtml} />
+      </article>
+    </main>
+
+    <!-- Navigation Between Episodes -->
+    {
+      (prev || next) && (
+        <nav class="podcast-episode-navigation" aria-label="Episode navigation">
+          {prev && (
+            <a href={`/${lang}/podcasts/${prev.id}`} class="podcast-episode-navigation__prev">
+              <span class="podcast-episode-navigation__arrow">←</span>
+              <div class="podcast-episode-navigation__content">
+                <span class="podcast-episode-navigation__label">Previous Episode</span>
+                <span class="podcast-episode-navigation__title">{prev.title}</span>
+              </div>
+            </a>
+          )}
+
+          {next && (
+            <a href={`/${lang}/podcasts/${next.id}`} class="podcast-episode-navigation__next">
+              <div class="podcast-episode-navigation__content">
+                <span class="podcast-episode-navigation__label">Next Episode</span>
+                <span class="podcast-episode-navigation__title">{next.title}</span>
+              </div>
+              <span class="podcast-episode-navigation__arrow">→</span>
+            </a>
+          )}
+        </nav>
+      )
+    }
+
+    <!-- Call to Action -->
+    <div class="podcast-cta">
+      <Headline level="h2" size="xl" className="podcast-cta__title">
+        Want More Music Stories?
+      </Headline>
+      <Paragraph className="podcast-cta__description">
+        Explore our complete collection of podcast episodes and discover the fascinating world of
+        music history, culture, and innovation.
+      </Paragraph>
+      <a href={`/${lang}/podcasts`} class="podcast-cta__button"> Browse All Episodes </a>
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  /* ======================================
+   * PODCAST DETAIL PAGE STYLES
+   * BEM Methodology + Global Variables + Mobile-First
+   * ====================================== */
+
+  .podcast-detail-page {
+    width: 100%;
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: var(--space-xs);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    min-height: 100vh;
+    box-sizing: border-box;
+    contain: layout style paint;
+  }
+
+  /* ======================================
+   * NAVIGATION BACK
+   * ====================================== */
+  .podcast-navigation {
+    contain: layout style;
+
+    &__back {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      color: var(--color-primary-600);
+      text-decoration: none;
+      font-weight: var(--font-semibold);
+      font-size: var(--text-sm);
+      padding: var(--space-sm);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition-normal);
+      contain: layout style paint;
+
+      &:hover {
+        color: var(--color-primary-700);
+        background: var(--color-primary-50);
+        transform: translateX(-2px);
+      }
+
+      &:focus {
+        outline: var(--focus-ring);
+        outline-offset: var(--focus-ring-offset);
+      }
+    }
+  }
+
+  /* ======================================
+   * HERO SECTION
+   * ====================================== */
+  .podcast-hero {
+    background: var(--bg-primary);
+    border: var(--border-width-thin) solid var(--border-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-lg);
+    contain: layout style paint;
+
+    &__content {
+      display: flex;
+      gap: var(--space-xl);
+      margin-bottom: var(--space-xl);
+      contain: layout style;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    &__image {
+      flex-shrink: 0;
+      contain: layout style paint;
+
+      img {
+        width: 200px;
+        height: 200px;
+        border-radius: var(--radius-xl);
+        object-fit: cover;
+        box-shadow: var(--shadow-lg);
+        contain: layout style paint;
+      }
+    }
+
+    &__meta {
+      flex: 1;
+      contain: layout style;
+    }
+
+    &__title {
+      margin: 0 0 var(--space-md) 0;
+      color: var(--text-primary);
+      line-height: var(--leading-tight);
+      contain: layout style;
+    }
+
+    &__description {
+      color: var(--text-secondary);
+      font-size: var(--text-lg);
+      line-height: var(--leading-relaxed);
+      margin: 0 0 var(--space-lg) 0;
+      contain: layout style;
+    }
+
+    &__details {
+      display: flex;
+      gap: var(--space-lg);
+      align-items: center;
+      contain: layout style;
+
+      @media (max-width: 768px) {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+
+    &__date,
+    &__episode {
+      color: var(--text-tertiary);
+      font-size: var(--text-sm);
+      contain: layout style;
+    }
+  }
+
+  /* ======================================
+   * AUDIO PLAYER
+   * ====================================== */
+  .podcast-audio-player {
+    background: var(--bg-secondary);
+    border: var(--border-width-thin) solid var(--border-secondary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    text-align: center;
+    contain: layout style paint;
+
+    &__title {
+      margin: 0 0 var(--space-md) 0;
+      color: var(--text-primary);
+      font-size: var(--text-lg);
+      contain: layout style;
+    }
+
+    &__controls {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto var(--space-lg);
+      contain: layout style paint;
+    }
+
+    &__links {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      contain: layout style;
+    }
+
+    &__download,
+    &__subtitles {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      font-weight: var(--font-semibold);
+      font-size: var(--text-sm);
+      min-height: var(--touch-target-enhanced);
+      transition: all var(--transition-normal);
+      contain: layout style paint;
+    }
+
+    &__download {
+      background: var(--color-primary-600);
+      color: var(--color-white);
+      border: var(--border-width-thin) solid var(--color-primary-600);
+
+      &:hover {
+        background: var(--color-primary-700);
+        border-color: var(--color-primary-700);
+        transform: translateY(var(--animation-y-offset-small));
+      }
+    }
+
+    &__subtitles {
+      background: var(--color-secondary-600);
+      color: var(--color-white);
+      border: var(--border-width-thin) solid var(--color-secondary-600);
+
+      &:hover {
+        background: var(--color-secondary-700);
+        border-color: var(--color-secondary-700);
+        transform: translateY(var(--animation-y-offset-small));
+      }
+    }
+  }
+
+  /* ======================================
+   * MAIN CONTENT
+   * ====================================== */
+  .podcast-main {
+    flex: 1;
+    contain: layout style;
+  }
+
+  .podcast-content {
+    background: var(--bg-primary);
+    border: var(--border-width-thin) solid var(--border-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-md);
+    contain: layout style paint;
+
+    &__body {
+      color: var(--text-primary);
+      line-height: var(--leading-relaxed);
+      contain: layout style;
+
+      /* Style the HTML content from showNotesHtml */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: var(--text-primary);
+        margin: var(--space-lg) 0 var(--space-md) 0;
+        font-weight: var(--font-semibold);
+        contain: layout style;
+      }
+
+      h2 {
+        font-size: var(--text-xl);
+        border-bottom: var(--border-width-thin) solid var(--border-secondary);
+        padding-bottom: var(--space-sm);
+      }
+
+      h3 {
+        font-size: var(--text-lg);
+      }
+
+      p {
+        margin: 0 0 var(--space-md) 0;
+        contain: layout style;
+      }
+
+      ul,
+      ol {
+        margin: 0 0 var(--space-md) 0;
+        padding-left: var(--space-lg);
+        contain: layout style;
+      }
+
+      li {
+        margin: 0 0 var(--space-sm) 0;
+        contain: layout style;
+      }
+
+      a {
+        color: var(--color-primary-600);
+        text-decoration: underline;
+        transition: color var(--transition-normal);
+        contain: layout style;
+
+        &:hover {
+          color: var(--color-primary-700);
+        }
+      }
+
+      strong,
+      b {
+        font-weight: var(--font-semibold);
+        contain: layout style;
+      }
+
+      em,
+      i {
+        font-style: italic;
+        contain: layout style;
+      }
+
+      small {
+        font-size: var(--text-sm);
+        color: var(--text-tertiary);
+        contain: layout style;
+      }
+
+      blockquote {
+        border-left: var(--border-width-thick) solid var(--color-primary-400);
+        padding-left: var(--space-lg);
+        margin: var(--space-lg) 0;
+        font-style: italic;
+        color: var(--text-secondary);
+        contain: layout style;
+      }
+    }
+  }
+
+  /* ======================================
+   * EPISODE NAVIGATION
+   * ====================================== */
+  .podcast-episode-navigation {
+    display: flex;
+    gap: var(--space-md);
+    contain: layout style;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    &__prev,
+    &__next {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-lg);
+      background: var(--bg-primary);
+      border: var(--border-width-thin) solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all var(--transition-normal);
+      box-shadow: var(--shadow-md);
+      contain: layout style paint;
+
+      &:hover {
+        transform: translateY(var(--animation-y-offset-small));
+        box-shadow: var(--shadow-lg);
+        border-color: var(--border-primary-hover);
+        background: var(--bg-secondary);
+      }
+    }
+
+    &__next {
+      text-align: right;
+      justify-content: flex-end;
+    }
+
+    &__arrow {
+      font-size: var(--text-xl);
+      font-weight: var(--font-bold);
+      color: var(--color-primary-600);
+      contain: layout style;
+    }
+
+    &__content {
+      flex: 1;
+      contain: layout style;
+    }
+
+    &__label {
+      display: block;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-enhanced);
+      color: var(--text-tertiary);
+      margin-bottom: var(--space-2xs);
+      contain: layout style;
+    }
+
+    &__title {
+      display: block;
+      font-weight: var(--font-semibold);
+      font-size: var(--text-sm);
+      line-height: var(--leading-tight);
+      contain: layout style;
+    }
+  }
+
+  /* ======================================
+   * CALL TO ACTION
+   * ====================================== */
+  .podcast-cta {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-lg);
+    background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-primary-100) 100%);
+    border-radius: var(--radius-xl);
+    border: var(--border-width-thick) solid var(--color-primary-200);
+    contain: layout style paint;
+
+    &__title {
+      color: var(--color-primary-900);
+      margin: 0 0 var(--space-md) 0;
+      contain: layout style;
+    }
+
+    &__description {
+      color: var(--color-primary-700);
+      font-size: var(--text-lg);
+      line-height: var(--leading-relaxed);
+      max-width: var(--container-sm);
+      margin: 0 auto var(--space-lg);
+      contain: layout style;
+    }
+
+    &__button {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-md) var(--space-xl);
+      background: var(--color-primary-600);
+      color: var(--color-white);
+      text-decoration: none;
+      border-radius: var(--radius-lg);
+      font-weight: var(--font-semibold);
+      font-size: var(--text-base);
+      min-height: var(--touch-target-enhanced);
+      transition: all var(--transition-normal);
+      box-shadow: var(--shadow-md);
+      contain: layout style paint;
+
+      &:hover {
+        background: var(--color-primary-700);
+        transform: translateY(var(--animation-y-offset-small));
+        box-shadow: var(--shadow-lg);
+      }
+
+      &:focus {
+        outline: var(--focus-ring);
+        outline-offset: var(--focus-ring-offset);
+      }
+    }
+  }
+</style>
