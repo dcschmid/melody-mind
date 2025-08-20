@@ -21,7 +21,7 @@ export default defineConfig({
   },
   // Experimental features for better caching
   experimental: {
-    contentCollectionCache: true,
+    // contentCollectionCache: true, // Removed - not a valid experimental feature
   },
   // Astro 5.0+ optimizations
   build: {

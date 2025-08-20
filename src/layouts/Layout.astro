@@ -6,48 +6,6 @@
  * including reduced motion support, proper document structure, optimized resource loading,
  * and mobile-friendly viewport configurations.
  *
- * @features
- * - Complete semantic document structure with proper landmarks (main, header, nav)
- * - Optimized font loading strategy with preload directives and display=swap
- * - High contrast mode compatibility for better visual accessibility
- * - Reduced motion support for vestibular disorders (prefers-reduced-motion)
- * - Screen reader announcements for preference changes via aria-live regions
- * - Enhanced focus indicators for keyboard navigation (3px solid outline)
- * - Print-specific styles for better document printing accessibility
- * - Touch-friendly targets (minimum 44x44px WCAG AAA compliance)
- * - View Transitions for smooth page navigation
- * - Forced colors mode support for Windows High Contrast
- * - Container queries and responsive design with em-based breakpoints
- * - Static site generation (SSG) optimization with prerender directive
- * - Modern CSS features (Grid, Flexbox, CSS custom properties)
- * - Pure CSS implementation following MelodyMind style guide
- * - BEM methodology for consistent and maintainable class naming
- * - Performance-optimized resource loading and DNS prefetching
- *
- * @accessibility WCAG 2.2 AAA Compliance
- * - Color contrast ratios: 7:1 for normal text, 4.5:1 for large text
- * - Touch targets: minimum 44x44px with proper spacing
- * - Focus indicators: 3px solid outline with 2px offset
- * - Screen reader support: proper semantic structure and announcements
- * - Keyboard navigation: full functionality without mouse dependency
- * - Text spacing: supports 2x letter spacing, 1.5x line height
- * - Motion preferences: respects prefers-reduced-motion settings
- * - High contrast support: adapts to prefers-contrast: high
- * - Forced colors support: compatible with Windows High Contrast mode
- * - Print accessibility: optimized styles for document printing
- * - Base font size: minimum 18px for improved readability
- * - Line height: minimum 1.8 for optimal reading experience
- *
- * @performance Optimization Features
- * - Static site generation (SSG) with prerender directive
- * - Critical resource preloading (fonts, stylesheets, scripts)
- * - DNS prefetching for external domains
- * - Optimized font loading with display=swap
- * - Deferred analytics loading for better Core Web Vitals
- * - Minimal client-side JavaScript usage
- * - Responsive image support with modern formats
- * - CSS-only animations and interactions where possible
- *
  * @param {string} title - Page title displayed in browser tab and meta tags
  * @param {string} [description] - Page meta description for SEO and social sharing
  * @param {string} [keywords] - Page meta keywords for SEO optimization
@@ -95,11 +53,9 @@
  * </Layout>
  * ```
  */
-// 1. External library imports
 import { When } from "@astropub/flow";
 import { Head } from "astro-capo";
 
-// 2. Font imports with display=swap for performance optimization
 // Primary accessible font: Atkinson Hyperlegible for improved readability
 import "@fontsource/atkinson-hyperlegible/400.css";
 import "@fontsource/atkinson-hyperlegible/700.css";
@@ -108,7 +64,6 @@ import "@fontsource/source-sans-pro/400.css";
 import "@fontsource/source-sans-pro/700.css";
 import "@fontsource/source-sans-pro/900.css";
 
-// 3. Component imports following established project structure
 import Navigation from "@components/Header/Navigation.astro";
 import SEO from "@components/SEO.astro";
 import SkipLink from "@components/Shared/SkipLink.astro";
@@ -117,10 +72,7 @@ import Footer from "@components/Footer.astro";
 // 4. Utility imports
 import { getLangFromUrl } from "@utils/i18n";
 
-// 5. Global styles import
 import "../styles/global.css";
-
-// 6. TypeScript interface definition with comprehensive documentation following MelodyMind standards
 interface Props {
   /**
    * The page title displayed in browser tab and meta tags
@@ -143,7 +95,6 @@ interface Props {
    * Page meta keywords for SEO optimization (legacy support)
    * @type {string}
    * @optional
-   * @deprecated Modern SEO doesn't heavily rely on keywords, use sparingly
    * @example "music quiz, trivia game, rock music, pop music"
    */
   keywords?: string;
@@ -245,7 +196,6 @@ interface Props {
   };
 }
 
-// 7. Props destructuring with explicit defaults
 const {
   title,
   description,
@@ -260,7 +210,6 @@ const {
   ogMusic,
 } = Astro.props;
 
-// 8. Reactive variables and helper functions with performance optimizations
 const lang = getLangFromUrl(Astro.url);
 
 // Performance optimization: Critical resource preloading following Astro standards
@@ -298,7 +247,11 @@ const dnsPrefetch = [
 ---
 
 <!doctype html>
-<html lang={String(lang)} class="layout__html" dir="ltr">
+<html
+  lang={String(lang)}
+  class="font-primary scroll-behavior-auto mx-auto box-border w-full max-w-7xl overflow-x-hidden bg-neutral-950 antialiased"
+  dir="ltr"
+>
   <Head>
     <!-- Character set and viewport configuration for mobile optimization -->
     <meta charset="UTF-8" />
@@ -357,266 +310,6 @@ const dnsPrefetch = [
     <meta name="google-site-verification" content="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M" />
     <SEO {title} {description} {keywords} {image} {type} {publishDate} {modifiedDate} {ogMusic} />
 
-    <!-- Critical CSS inline for performance mit WCAG AAA Farben -->
-    <style is:inline>
-      /* Print styles for better document printing mit WCAG AAA Konformität */
-      @media print {
-        body {
-          background-color: var(--print-bg) !important;
-          color: var(--print-text) !important;
-        }
-
-        .no-print {
-          display: none !important;
-        }
-
-        main {
-          width: var(--width-full);
-          padding: var(--space-none);
-          margin: var(--space-none);
-        }
-
-        a::after {
-          content: " (" attr(href) ")";
-          font-size: var(--text-sm);
-          color: var(--color-neutral-700);
-        }
-
-        /* Sicherstellen, dass der Kontrast beim Drucken stimmt */
-        * {
-          background-color: var(--print-bg) !important;
-          color: var(--print-text) !important;
-          border-color: var(--color-neutral-700) !important;
-        }
-      }
-    </style>
-
-    <!-- Layout-specific SCSS following BEM methodology and WCAG 2.2 AAA standards -->
-    <style lang="scss">
-      /**
-       * Layout Component SCSS - WCAG 2.2 AAA Compliant
-       * 
-       * This SCSS follows the MelodyMind style guide with:
-       * - Pure SCSS implementation (no external CSS frameworks)
-       * - BEM methodology for class naming consistency
-       * - Global CSS variables from global.css for design tokens
-       * - WCAG 2.2 AAA accessibility standards compliance
-       * - Modern CSS features (Grid, Flexbox, Container Queries)
-       * - Performance optimization with logical sections
-       * - Responsive design with em-based breakpoints
-       * 
-       * ACCESSIBILITY COMPLIANCE:
-       * - 7:1 contrast ratios for normal text (WCAG AAA)
-       * - 4.5:1 contrast ratios for large text (≥18pt or ≥14pt bold)
-       * - Touch targets minimum 44x44px (mobile accessibility)
-       * - Focus indicators with 3px solid outline and 2px offset
-       * - High contrast mode support (prefers-contrast: high)
-       * - Forced colors mode support (Windows High Contrast)
-       * - Reduced motion support (prefers-reduced-motion: reduce)
-       * - Semantic color usage beyond color alone
-       * - Text spacing support (2x letter, 1.5x line height)
-       * - Base font size 18px minimum for improved readability
-       * - Line height minimum 1.8 for optimal readability
-       */
-
-      // HTML root element styling with accessibility foundations and modern features
-      .layout__html {
-        margin: var(--space-none);
-        padding: var(--space-none);
-        box-sizing: border-box;
-        height: var(--width-full);
-        // Prevent horizontal scrolling
-        overflow-x: hidden;
-        width: var(--width-full);
-        // Smooth scrolling only when motion is not reduced (progressive enhancement)
-        scroll-behavior: auto;
-        // Modern CSS logical properties for better internationalization support
-        block-size: var(--width-full);
-        inline-size: var(--width-full);
-      }
-
-      // Progressive enhancement for smooth scrolling
-      @media (prefers-reduced-motion: no-preference) {
-        .layout__html {
-          scroll-behavior: smooth;
-        }
-      }
-
-      // Main body container with flexbox layout and WCAG AAA colors
-      .layout__body {
-        margin: 0 auto;
-        display: flex;
-        min-height: 100vh;
-        width: var(--width-full);
-        max-width: var(--container-xl);
-        flex-direction: column;
-
-        // Prevent horizontal overflow and scrolling
-        overflow-x: hidden;
-        box-sizing: border-box;
-
-        // WCAG AAA compliant background and text colors
-        background-color: var(--bg-primary);
-        color: var(--text-primary);
-
-        // Enhanced typography for better readability
-        font-size: var(--text-base);
-        line-height: var(--leading-enhanced);
-        letter-spacing: var(--letter-spacing-base);
-        text-wrap: wrap;
-
-        // Font rendering optimization
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-
-      // Header section with full width and semantic structure
-      .layout__header {
-        width: var(--width-full);
-        // Ensure header doesn't interfere with main content flow
-        flex-shrink: 0;
-      }
-
-      // Coin counter overlay with WCAG AAA touch target compliance
-      .layout__coins {
-        position: absolute;
-        top: var(--space-md);
-        right: var(--space-md);
-        z-index: var(--z-fixed);
-
-        // WCAG AAA minimum touch target size
-        min-height: var(--min-touch-size);
-        min-width: var(--min-touch-size);
-
-        // Responsive positioning for larger screens
-        @media (min-width: 40em) {
-          top: var(--space-xl);
-          right: var(--space-xl);
-        }
-      }
-
-      // Main content area with enhanced accessibility
-      .layout__main {
-        margin: var(--space-none) auto;
-        max-width: var(--width-full);
-        flex-grow: 1;
-
-        // Prevent overflow from child elements
-        overflow-x: hidden;
-        box-sizing: border-box;
-        width: var(--width-full);
-
-        // Enhanced typography for content readability
-        font-size: var(--text-lg);
-        line-height: var(--leading-enhanced);
-        text-wrap: pretty;
-
-        // Enhanced focus indicators for keyboard navigation
-        &:focus {
-          outline: var(--focus-outline);
-          outline-offset: var(--focus-ring-offset);
-        }
-      }
-
-      // High Contrast Mode support for improved visibility
-      @media (prefers-contrast: high) {
-        .layout__body {
-          background-color: var(--color-black);
-          color: var(--color-white);
-          border: var(--border-width-enhanced) solid var(--color-white);
-        }
-
-        .layout__header,
-        .layout__main {
-          border: var(--border-width-thin) solid var(--color-white);
-          padding: var(--space-md);
-        }
-      }
-
-      // Forced Colors Mode for Windows High Contrast support
-      @media (forced-colors: active) {
-        .layout__body {
-          background-color: Canvas;
-          color: CanvasText;
-          border: var(--border-width-thin) solid ButtonText;
-        }
-
-        .layout__header,
-        .layout__main {
-          border: var(--border-width-thin) solid ButtonText;
-          background-color: Field;
-          color: FieldText;
-        }
-
-        .layout__coins {
-          background-color: ButtonFace;
-          border: var(--border-width-thin) solid ButtonText;
-        }
-      }
-
-      // Support for reduced motion preferences
-      @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-          animation-duration: var(--transition-instant) !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: var(--transition-instant) !important;
-          scroll-behavior: auto !important;
-        }
-      }
-
-      // Responsive design enhancements
-
-      // Extra small screens - Portrait Mobile (below 320px) - Maximize screen usage
-      @media (max-width: 19.9375em) {
-        .layout__body {
-          padding: 4px; // Minimal padding for maximum screen usage
-          font-size: var(--text-base);
-          line-height: var(--leading-relaxed);
-        }
-
-        .layout__main {
-          padding: 8px 4px; // Minimal content padding
-        }
-
-        .layout__coins {
-          top: 4px;
-          right: 4px;
-        }
-      }
-
-      // Small screens - Mobile Portrait (320px - 640px) - Optimized spacing
-      @media (max-width: 39.9375em) and (min-width: 20em) {
-        .layout__body {
-          padding: 8px; // Minimal mobile padding
-        }
-      }
-
-      // Enhanced text spacing support for WCAG AAA
-      .enhanced-text-spacing {
-        .layout__body,
-        .layout__main {
-          letter-spacing: var(--letter-spacing-enhanced);
-          word-spacing: var(--word-spacing-enhanced);
-          line-height: var(--leading-enhanced);
-        }
-      }
-
-      // Touch device optimizations
-      @media (pointer: coarse) {
-        .layout__body {
-          // Larger touch targets for mobile
-          font-size: var(--text-xl);
-        }
-
-        .layout__main {
-          // Enhanced padding for touch devices
-          padding: var(--space-lg) var(--space-md);
-        }
-      }
-    </style>
-
     <!-- Analytics with performance and privacy optimizations -->
     <script
       src="https://cdn.usefathom.com/script.js"
@@ -626,7 +319,10 @@ const dnsPrefetch = [
       defer
       is:inline></script>
   </Head>
-  <body class="layout__body" data-theme="dark">
+  <body
+    class="margin-auto text-primary text-wrap-pretty min-h-screen w-full overflow-x-hidden p-4 text-lg leading-normal"
+    data-theme="dark"
+  >
     {/* Skip link for keyboard navigation */}
     <SkipLink />
 
@@ -638,7 +334,7 @@ const dnsPrefetch = [
     </When>
 
     {/* Main content area */}
-    <main id="main-content" class="layout__main" tabindex="-1" role="main">
+    <main id="main-content" class="my-8" tabindex="-1" role="main">
       <slot />
     </main>
 
