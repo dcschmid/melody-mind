@@ -9,7 +9,6 @@
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 import ShareOverlay from "./ShareOverlay.astro";
-import AuthForm from "@components/auth/AuthForm.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 
@@ -67,6 +66,11 @@ const clientTranslations = {
   "game.end.motivation.enthusiast": t("game.end.motivation.enthusiast"),
   "game.end.motivation.lover": t("game.end.motivation.lover"),
   "game.end.motivation.explorer": t("game.end.motivation.explorer"),
+  // Add fallback for simplified levels too
+  "game.end.motivation.excellent": t("game.end.motivation.genius"),
+  "game.end.motivation.good": t("game.end.motivation.pro"),
+  "game.end.motivation.average": t("game.end.motivation.enthusiast"),
+  "game.end.motivation.beginner": t("game.end.motivation.explorer"),
   "game.end.guest.title": t("game.end.guest.title"),
   "game.end.guest.description": t("game.end.guest.description"),
   "game.end.guest.alternative": t("game.end.guest.alternative"),
@@ -154,27 +158,6 @@ const clientTranslations = {
       {t("game.end.difficultyDescription")}
     </div>
 
-    <!-- Achievement Section -->
-    <div
-      id="achievements-section"
-      class="achievements-section"
-      role="region"
-      aria-labelledby="achievements-title"
-    >
-      <Headline
-        level="h3"
-        size="lg"
-        id="achievements-title"
-        textAlign="center"
-        className="achievements-section__title"
-      >
-        {t("achievements.unlocked")}
-      </Headline>
-      <div id="unlocked-achievements" class="achievements-section__container" role="list">
-        <!-- Achievements will be populated by JavaScript -->
-      </div>
-    </div>
-
     <!-- Share Section with comprehensive sharing options -->
     <div class="share-section" role="region" aria-labelledby="share-section-heading">
       <Headline
@@ -197,34 +180,6 @@ const clientTranslations = {
         showFallback={true}
         showTitle={false}
       />
-    </div>
-
-    <!-- Guest Login Section - Only shown for non-authenticated users -->
-    <div
-      id="guest-login-section"
-      class="guest-login-section"
-      style="display: none;"
-      aria-live="polite"
-    >
-      <div class="guest-login-content">
-        <div class="guest-login-header">
-          <Icon name="user-plus" width={24} height={24} aria-hidden="true" />
-          <Headline level="h3" size="lg" textAlign="center" className="guest-login-title"
-            >{t("game.end.guest.title")}</Headline
-          >
-        </div>
-        <Paragraph className="guest-login-description" textSize="lg" align="center"
-          >{t("game.end.guest.description")}</Paragraph
-        >
-        <div class="guest-login-form">
-          <AuthForm initialMode="login" />
-        </div>
-        <div class="guest-login-alternative">
-          <Paragraph textSize="lg" align="center" className="guest-login-alternative-text"
-            >{t("game.end.guest.alternative")}</Paragraph
-          >
-        </div>
-      </div>
     </div>
 
     <div class="button-wrapper">

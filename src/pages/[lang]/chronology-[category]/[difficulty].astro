@@ -21,7 +21,7 @@ import LoadingSpinner from "@components/Game/LoadingSpinner.astro";
 import ChronologyFeedbackOverlay from "@components/Overlays/ChronologyFeedbackOverlay.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
-import { requireAuth } from "../../../middleware/auth.js";
+
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 
@@ -90,9 +90,11 @@ let authResult: { authenticated: boolean; user?: { id: string; email: string } }
   user: undefined,
 };
 
-if (Astro.request) {
-  authResult = await requireAuth(Astro.request);
-}
+const guestId = `guest_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+authResult = {
+  authenticated: true,
+  user: { id: guestId, email: "guest@melodymind.app" },
+};
 const user = { id: authResult.user?.id || "guest" };
 
 // 4. Meta-Daten für SEO

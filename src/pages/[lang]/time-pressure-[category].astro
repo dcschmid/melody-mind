@@ -14,10 +14,9 @@ import Layout from "@layouts/Layout.astro";
 import FeedbackOverlay from "@components/Overlays/FeedbackOverlay.astro";
 import EndOverlay from "@components/Overlays/EndOverlay.astro";
 import LoadingSpinner from "@components/Game/LoadingSpinner.astro";
-import AchievementNotification from "@components/Achievements/AchievementNotification.astro";
+
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
-import { requireAuth } from "../../middleware/auth.js";
 
 // Server-side rendering for cookie-based authentication
 export const prerender = false;
@@ -90,15 +89,12 @@ const { categoryData: propsCategoryData } = Astro.props;
 const lang = String(getLangFromUrl(Astro.url));
 const t = useTranslations(lang);
 
-// Require authentication for game play
-// Check if Astro.request is available (for SSR compatibility)
-let authResult: { authenticated: boolean; user?: { id: string; email: string } } = {
-  authenticated: false,
-  user: undefined,
+// Guest session for game play
+const guestId = `guest_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+const authResult = {
+  authenticated: true,
+  user: { id: guestId, email: "guest@melodymind.app" },
 };
-if (Astro.request) {
-  authResult = await requireAuth(Astro.request);
-}
 
 const { category } = Astro.params;
 
@@ -302,7 +298,6 @@ const structuredData = {
       data-difficulty="mixed"
       data-mode="time-pressure"
     />
-    <AchievementNotification {lang} />
   </main>
 </Layout>
 

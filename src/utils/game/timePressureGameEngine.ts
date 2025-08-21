@@ -10,6 +10,8 @@
  */
 
 // import { checkAchievementsAfterGame } from "../services/achievementService.js";
+import { showEndOverlay, setupEndOverlay } from "../endOverlay";
+
 import {
   getTimePressureQuestion,
   resetTimePressureQuestions,
@@ -17,7 +19,6 @@ import {
   type Question,
   type Album,
 } from "./getTimePressureQuestion";
-import { showEndOverlay, setupEndOverlay } from "../endOverlay";
 
 interface GameStats {
   score: number;
@@ -28,11 +29,6 @@ interface GameStats {
   category: string;
   gameMode: string;
   difficultyStats?: any;
-}
-
-interface SaveGameResult {
-  success: boolean;
-  data?: any;
 }
 
 interface TimePressureGameOptions {
@@ -376,7 +372,9 @@ export class TimePressureGameEngine {
     }
 
     // Create answer buttons
-    if (!this.answerOptions) return;
+    if (!this.answerOptions) {
+      return;
+    }
 
     this.currentQuestion.options.forEach((option, index) => {
       const button = document.createElement("button");
@@ -536,7 +534,9 @@ export class TimePressureGameEngine {
     // Number keys 1-4 for answer selection
     if (event.key >= "1" && event.key <= "4") {
       event.preventDefault();
-      if (!this.answerOptions) return;
+      if (!this.answerOptions) {
+        return;
+      }
       const answerButtons = this.answerOptions.querySelectorAll(".answer-btn");
       const buttonIndex = parseInt(event.key) - 1;
 
@@ -577,7 +577,9 @@ export class TimePressureGameEngine {
 
     // Calculate answer time
     const answerTime = (Date.now() - this.questionStartTime) / 1000;
-    if (!selectedAnswer || !this.currentQuestion) return;
+    if (!selectedAnswer || !this.currentQuestion) {
+      return;
+    }
     const isCorrect = selectedAnswer === this.currentQuestion.correctAnswer;
 
     // Update statistics
@@ -682,7 +684,9 @@ export class TimePressureGameEngine {
 
       // Get the overlay elements
       const overlay = document.getElementById("overlay") as HTMLElement | null;
-      if (!overlay) return;
+      if (!overlay) {
+        return;
+      }
 
       let feedback = document.getElementById("feedback");
 
@@ -948,76 +952,15 @@ export class TimePressureGameEngine {
       difficultyStats: getTimePressureStats(),
     };
 
-    // Save results and check achievements
+    // Check achievements (no database saving in guest mode)
     try {
-      await this.saveGameResults(gameStats);
       await this.checkGameAchievements(gameStats);
     } catch (error) {
-      console.error("Error in post-game processing:", error);
-      console.error("Stack trace:", error.stack);
-      // Don't continue if save failed - this is critical
-      return;
+      console.error("Error in achievement check:", error);
     }
 
     // Show end game overlay
     await this.showEndGameOverlay(gameStats);
-  }
-
-  /**
-   * Save game results to database
-   */
-  async saveGameResults(gameStats: GameStats): Promise<SaveGameResult> {
-    try {
-      // Get user ID from container data attribute (set by server-side session)
-      let userId = this.gameContainer.getAttribute("data-userID") || undefined;
-
-      // Fallback to guest if no user ID is found
-      if (!userId || userId === "null" || userId === "undefined") {
-        userId = "guest";
-      } else {
-      }
-
-      // Time pressure mode uses mixed difficulties
-      const difficulty = "mixed";
-
-      const requestData = {
-        userId: userId,
-        categoryName: this.category,
-        difficulty: difficulty,
-        score: gameStats.score,
-        correctAnswers: gameStats.correctAnswers,
-        totalRounds: gameStats.totalQuestions,
-        // Additional time pressure specific data
-        genreId: this.category,
-        gameTime: gameStats.gameTime,
-        endOfSession: true,
-      };
-
-      const response = await fetch(`/${this.lang}/api/game/save-result`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestData),
-      });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error("Save failed with status:", response.status);
-        console.error("Error response:", errorText);
-        throw new Error(`Failed to save game results: ${response.status} - ${errorText}`);
-      }
-
-      const result = await response.json();
-
-      return { success: true, data: result };
-    } catch (error) {
-      console.error("Error saving game results:", error as Error);
-      console.error("Error details:", (error as Error).message);
-      // Show user-friendly error message
-      alert("Fehler beim Speichern der Spielergebnisse. Bitte versuche es erneut.");
-      throw error;
-    }
   }
 
   /**

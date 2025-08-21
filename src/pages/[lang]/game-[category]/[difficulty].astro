@@ -16,11 +16,10 @@ import FeedbackOverlay from "@components/Overlays/FeedbackOverlay.astro";
 import EndOverlay from "@components/Overlays/EndOverlay.astro";
 import LoadingSpinner from "@components/Game/LoadingSpinner.astro";
 import Joker from "@components/Game/Joker.astro";
-import AchievementNotification from "@components/Achievements/AchievementNotification.astro";
+
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import type { Difficulty as GameDifficulty } from "@utils/game/jokerUtils";
 import { Icon } from "astro-icon/components";
-import { requireAuth } from "../../../middleware/auth.js";
 
 // Server-side rendering for cookie-based authentication
 export const prerender = false;
@@ -102,13 +101,11 @@ const { category, difficulty } = Astro.params;
 
 // Auth check: Verify if the user is logged in
 // Check if Astro.request is available (for SSR compatibility)
-let authResult: { authenticated: boolean; user?: { id: string; email: string } } = {
-  authenticated: false,
-  user: undefined,
+const guestId = `guest_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+const authResult = {
+  authenticated: true,
+  user: { id: guestId, email: "guest@melodymind.app" },
 };
-if (Astro.request) {
-  authResult = await requireAuth(Astro.request);
-}
 
 // Dynamic import of categories based on language
 let categories;
@@ -231,7 +228,6 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   </div>
 
   <!-- Achievement notification component -->
-  <AchievementNotification {lang} />
 </Layout>
 
 <script>
