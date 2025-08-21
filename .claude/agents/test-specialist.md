@@ -225,7 +225,6 @@ describe('GameResultService', () => {
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { expect, test, describe, beforeEach } from 'vitest';
 import GameQuestion from '../src/components/Game/GameQuestion.astro';
-import AchievementBadge from '../src/components/Achievements/AchievementBadge.astro';
 
 describe('GameQuestion Component', () => {
   let container: AstroContainer;

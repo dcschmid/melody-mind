@@ -14,7 +14,6 @@ import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
-import AuthForm from "@components/auth/AuthForm.astro";
 
 export const prerender = true;
 
@@ -244,21 +243,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       </section>
 
       <section
-        id="auth-section"
-        class="section-container"
-        aria-labelledby="auth-heading"
-        aria-hidden="true"
-      >
-        <Headline level="h2" id="auth-heading">
-          {t("auth.required.title")}
-        </Headline>
-        <Paragraph description={t("auth.required.description")} />
-        <div class="auth-form-container">
-          <AuthForm initialMode="login" />
-        </div>
-      </section>
-
-      <section
         id="quiz-section"
         class="section-container"
         aria-labelledby="quiz-heading"
@@ -378,100 +362,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       </section>
     </article>
   </div>
-
-  <script>
-    import {
-      isUserAuthenticated,
-      registerAuthEventListeners,
-      initCookieWatcher,
-    } from "../../utils/client/authStatus";
-
-    // Simple section management
-    const getSectionElements = (): HTMLElement[] => {
-      const sections = [
-        "auth-section",
-        "quiz-section",
-        "time-pressure-section",
-        "chronology-section",
-      ];
-      return sections.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
-    };
-
-    const updateSectionVisibility = (element: HTMLElement, isVisible: boolean): void => {
-      element.style.display = isVisible ? "flex" : "none";
-      element.setAttribute("aria-hidden", String(!isVisible));
-    };
-
-    const checkAuthStatus = (): void => {
-      const isLoggedIn = isUserAuthenticated();
-      const [authSection, quizSection, timePressureSection, chronologySection] =
-        getSectionElements();
-
-      if (isLoggedIn) {
-        // User is logged in - show game modes, hide auth form
-        if (authSection) {
-          updateSectionVisibility(authSection, false);
-        }
-        if (quizSection) {
-          updateSectionVisibility(quizSection, true);
-        }
-        if (timePressureSection) {
-          updateSectionVisibility(timePressureSection, true);
-        }
-        if (chronologySection) {
-          updateSectionVisibility(chronologySection, true);
-        }
-      } else {
-        // User is not logged in - show auth form, hide game modes
-        if (authSection) {
-          updateSectionVisibility(authSection, true);
-        }
-        if (quizSection) {
-          updateSectionVisibility(quizSection, false);
-        }
-        if (chronologySection) {
-          updateSectionVisibility(chronologySection, false);
-        }
-      }
-    };
-
-    const initializePage = (): void => {
-      // Initially hide all sections
-      const sections = getSectionElements();
-      sections.forEach((section) => {
-        if (section) {
-          updateSectionVisibility(section, false);
-        }
-      });
-
-      // Check auth status
-      checkAuthStatus();
-    };
-
-    // Initialize page when DOM is loaded
-    const runWhenReady = (callback: () => void): void => {
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", callback, { once: true });
-      } else {
-        requestAnimationFrame(callback);
-      }
-    };
-
-    // Initialize page
-    runWhenReady(initializePage);
-
-    // Register auth event listeners
-    const authListeners = registerAuthEventListeners(checkAuthStatus);
-    const cookieWatcherId = initCookieWatcher(checkAuthStatus, 1000);
-
-    // Cleanup on page unload
-    const cleanup = (): void => {
-      authListeners.remove();
-      clearInterval(cookieWatcherId);
-    };
-
-    document.addEventListener("astro:page-unload", cleanup, { once: true });
-  </script>
 </Layout>
 
 <style lang="scss">

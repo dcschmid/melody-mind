@@ -11,7 +11,6 @@
  * @since 2025-06-03
  */
 
-import { getAchievementLevel } from "./achievements/achievementUtils";
 import { updateScoreDisplay } from "./game/scoreUtils";
 
 // Type definitions for better type safety
@@ -90,7 +89,9 @@ export const updateMotivationText = async (score: number): Promise<void> => {
 
   console.log("Available translations:", Object.keys(translations));
 
-  const achievementLevel = getAchievementLevel(score);
+  // Simplified achievement level based on score
+  const achievementLevel =
+    score >= 80 ? "excellent" : score >= 60 ? "good" : score >= 40 ? "average" : "beginner";
   console.log("Achievement level for score", score, ":", achievementLevel);
 
   const motivationKey = getMotivationKey(achievementLevel);
@@ -249,7 +250,6 @@ const generateShareText = (
   difficulty: string,
   translations?: TranslationData
 ): string => {
-  const achievementLevel = getAchievementLevel(score);
   const categoryDisplay = category ? category.charAt(0).toUpperCase() + category.slice(1) : "Music";
   const difficultyDisplay = difficulty
     ? difficulty.charAt(0).toUpperCase() + difficulty.slice(1)
@@ -278,7 +278,10 @@ const generateShareText = (
  * @param translations - Available translations
  * @returns void
  */
-export const displayAchievements = (achievements: any[], translations?: TranslationData): void => {
+export const displayAchievements = (
+  achievements: unknown[],
+  translations?: TranslationData
+): void => {
   const achievementsContainer = getElementById<HTMLElement>("unlocked-achievements");
   const achievementsSection = getElementById<HTMLElement>("achievements-section");
 

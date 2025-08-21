@@ -141,15 +141,6 @@ function cacheElements(): GameElements {
  * @param {GameElements} elements - Cached DOM elements required for the game
  */
 const initializeGame = async (elements: GameElements) => {
-  // Dynamically import achievement event system
-  try {
-    // Use dynamic import to avoid SSR issues
-    const { initAchievementEventSystem } = await import("../achievements/achievementEvents.js");
-    initAchievementEventSystem();
-  } catch (error) {
-    console.error("Error initializing Achievement Event System:", error);
-  }
-
   // Start processing any queued operations
   QueueManager.startProcessing();
 

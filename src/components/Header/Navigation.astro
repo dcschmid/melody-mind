@@ -57,7 +57,6 @@ import { When } from "@astropub/flow";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import LanguagePicker from "@components/LanguagePicker.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
-import AchievementBadge from "../Achievements/AchievementBadge.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 
@@ -300,64 +299,6 @@ const stableItemIds = {
                     <div class="navigation-link__content">
                       <span class="navigation-link__title">{t("news.title")}</span>
                       <span class="navigation-link__description">{t("news.description")}</span>
-                    </div>
-                  </a>
-                </nav>
-              </div>
-
-              <!-- Competition section -->
-              <div class="navigation-section">
-                <Headline level="h3" size="lg" className="navigation-section__title"
-                  >{t("nav.section.compete")}</Headline
-                >
-                <nav class="navigation-section__nav">
-                  <a
-                    href={getRelativeLocaleUrl(lang, "highscores")}
-                    class="navigation-link navigation-link--highscores"
-                    role="menuitem"
-                    id={stableItemIds.highscores}
-                    data-stable-ref="navigation-highscores"
-                  >
-                    <div class="navigation-link__icon-wrapper">
-                      <Icon
-                        name="trophy"
-                        width={28}
-                        height={28}
-                        aria-hidden="true"
-                        class="navigation-link__icon"
-                      />
-                    </div>
-                    <div class="navigation-link__content">
-                      <span class="navigation-link__title">{t("nav.menu.highscores")}</span>
-                      <span class="navigation-link__description"
-                        >{t("nav.menu.highscores.desc")}</span
-                      >
-                    </div>
-                  </a>
-
-                  <a
-                    href={getRelativeLocaleUrl(lang, "achievements")}
-                    class="navigation-link navigation-link--achievements"
-                    role="menuitem"
-                    aria-label={t("achievements.nav.aria")}
-                    id={stableItemIds.achievements}
-                    data-stable-ref="navigation-achievements"
-                  >
-                    <div class="navigation-link__icon-wrapper">
-                      <Icon
-                        name="award"
-                        width={28}
-                        height={28}
-                        aria-hidden="true"
-                        class="navigation-link__icon"
-                      />
-                      <AchievementBadge {lang} />
-                    </div>
-                    <div class="navigation-link__content">
-                      <span class="navigation-link__title">{t("achievements.nav.link")}</span>
-                      <span class="navigation-link__description"
-                        >{t("nav.menu.achievements.desc")}</span
-                      >
                     </div>
                   </a>
                 </nav>
