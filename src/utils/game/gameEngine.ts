@@ -18,7 +18,7 @@ import { startSpeedBonusTimer, clearSpeedBonusTimers } from "../accessibility/ti
 import { stopAudio } from "../audio/audioControls";
 import { ErrorHandler } from "../error/errorHandler";
 import { getLangFromUrl, useTranslations } from "../i18n";
-import { QueueManager } from "../queue/queueManager";
+// import { QueueManager } from "../queue/queueManager"; // Removed unused import
 
 import { handleEndGame, restartGame } from "./endGameUtils";
 import { getRandomQuestion } from "./getRandomQuestion";
@@ -143,8 +143,7 @@ function cacheElements(): GameElements {
  */
 const initializeGame = async (elements: GameElements) => {
   // Achievement system removed - no longer needed
-  // Start processing any queued operations
-  QueueManager.startProcessing();
+  // QueueManager functionality removed - no longer needed
 
   if (!elements.container) {
     console.error("Game container element not found");
@@ -535,11 +534,12 @@ const initializeGame = async (elements: GameElements) => {
    * Warn before leaving if there's unsaved data
    * Prevents accidental data loss when navigating away
    */
-  window.addEventListener("beforeunload", (e) => {
-    if (QueueManager.hasUnsavedData()) {
-      e.preventDefault();
-    }
-  });
+  // QueueManager functionality removed - no longer needed
+  // window.addEventListener("beforeunload", (e) => {
+  //   if (QueueManager.hasUnsavedData()) {
+  //     e.preventDefault();
+  //   }
+  // });
 
   /**
    * Clean up resources when the page unloads
@@ -548,7 +548,7 @@ const initializeGame = async (elements: GameElements) => {
   // Clean up resources when the page unloads
   const cleanup = () => {
     stopAudio();
-    QueueManager.stopProcessing();
+    // QueueManager.stopProcessing(); // Removed - no longer needed
     jokerManager.cleanup();
     clearSpeedBonusTimers();
     elements.restartButton?.removeEventListener("click", restartGame);
