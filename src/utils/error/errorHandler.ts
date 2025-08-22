@@ -242,7 +242,7 @@ export class ErrorHandler {
    * @param {any} data - The data that failed to save
    * @returns {Promise<void>} Promise resolving when the operation completes
    */
-  static async handleSaveError(error: Error, type: "score" | "goldenLP", data: any): Promise<void> {
+  static async handleSaveError(error: Error, type: "score" | "goldenLP", data: { userId: string; score: number; category: string }): Promise<void> {
     // Add the operation to the queue for later processing
     await QueueManager.addToQueue(type, data);
 

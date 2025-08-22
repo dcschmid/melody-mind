@@ -32,7 +32,7 @@ export interface Question {
   /** Additional information shown after answering */
   trivia: string;
   /** Any additional properties */
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**
@@ -52,7 +52,7 @@ export interface Album {
     [key in Difficulty]: Question[];
   };
   /** Any additional properties */
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**
@@ -324,14 +324,26 @@ function selectTargetDifficulty(config: TimePressureConfig, currentRound: number
     const targetHardRatio = weights.hard / 100;
 
     // Boost under-represented difficulties
-    if (easyRatio < targetEasyRatio - 0.1) {weights.easy += 30;}
-    if (mediumRatio < targetMediumRatio - 0.1) {weights.medium += 30;}
-    if (hardRatio < targetHardRatio - 0.1) {weights.hard += 30;}
+    if (easyRatio < targetEasyRatio - 0.1) {
+      weights.easy += 30;
+    }
+    if (mediumRatio < targetMediumRatio - 0.1) {
+      weights.medium += 30;
+    }
+    if (hardRatio < targetHardRatio - 0.1) {
+      weights.hard += 30;
+    }
 
     // Reduce over-represented difficulties
-    if (easyRatio > targetEasyRatio + 0.1) {weights.easy = Math.max(5, weights.easy - 20);}
-    if (mediumRatio > targetMediumRatio + 0.1) {weights.medium = Math.max(5, weights.medium - 20);}
-    if (hardRatio > targetHardRatio + 0.1) {weights.hard = Math.max(5, weights.hard - 20);}
+    if (easyRatio > targetEasyRatio + 0.1) {
+      weights.easy = Math.max(5, weights.easy - 20);
+    }
+    if (mediumRatio > targetMediumRatio + 0.1) {
+      weights.medium = Math.max(5, weights.medium - 20);
+    }
+    if (hardRatio > targetHardRatio + 0.1) {
+      weights.hard = Math.max(5, weights.hard - 20);
+    }
   }
 
   // Random selection based on weights
@@ -375,15 +387,15 @@ export function getTimePressureStats() {
     difficultyRatios: {
       easy:
         difficultyTracker.totalQuestions > 0
-          ? `${((difficultyTracker.easy / difficultyTracker.totalQuestions) * 100).toFixed(1)  }%`
+          ? `${((difficultyTracker.easy / difficultyTracker.totalQuestions) * 100).toFixed(1)}%`
           : "0%",
       medium:
         difficultyTracker.totalQuestions > 0
-          ? `${((difficultyTracker.medium / difficultyTracker.totalQuestions) * 100).toFixed(1)  }%`
+          ? `${((difficultyTracker.medium / difficultyTracker.totalQuestions) * 100).toFixed(1)}%`
           : "0%",
       hard:
         difficultyTracker.totalQuestions > 0
-          ? `${((difficultyTracker.hard / difficultyTracker.totalQuestions) * 100).toFixed(1)  }%`
+          ? `${((difficultyTracker.hard / difficultyTracker.totalQuestions) * 100).toFixed(1)}%`
           : "0%",
     },
   };

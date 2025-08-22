@@ -31,7 +31,7 @@ export interface Question {
   /** Additional information shown after answering */
   trivia: string;
   /** Any additional properties */
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**
@@ -51,7 +51,7 @@ export interface Album {
     [key in Difficulty]: Question[];
   };
   /** Any additional properties */
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**

@@ -99,7 +99,14 @@ async function saveGameResult(config: EndGameConfig): Promise<string> {
     // Debug: Log der ausgehenden Daten
 
     // Erstelle das Datenpaket für die API
-    const gameData: any = {
+    const gameData: {
+      userId: string;
+      categoryName: string;
+      difficulty: string;
+      score: number;
+      correctAnswers: number;
+      totalRounds: number;
+    } = {
       userId: config.userId,
       categoryName: config.categoryName,
       difficulty: config.difficulty,
@@ -330,7 +337,7 @@ function updateLoadingText(text: string): void {
 /**
  * Wait for all data to be properly validated before showing EndOverlay
  */
-async function waitForDataValidation(config: EndGameConfig): Promise<void> {
+async function waitForDataValidation(_config: EndGameConfig): Promise<void> {
   const maxWaitTime = 5000; // Maximum wait time: 5 seconds
   const checkInterval = 200; // Check every 200ms
   const startTime = Date.now();
@@ -393,7 +400,7 @@ async function waitForDataValidation(config: EndGameConfig): Promise<void> {
   const texts = validationTexts[currentLang] || validationTexts.en;
   updateLoadingText(texts.validating);
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, _reject) => {
     const checkData = () => {
       const elapsed = Date.now() - startTime;
 
@@ -614,8 +621,8 @@ export async function handleEndGame(
  */
 export function showEndgamePopup(score: number): void {
   // Get current language for localized messages
-  const url = new URL(window.location.pathname, window.location.origin);
-  const lang = getLangFromUrl(url);
+  // const url = new URL(window.location.pathname, window.location.origin);
+  // const _lang = getLangFromUrl(url); // Removed unused variable
   // Explicitly cast lang to string to satisfy TypeScript
   // const t = useTranslations(String(lang));
 
