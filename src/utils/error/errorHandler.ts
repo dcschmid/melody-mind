@@ -15,7 +15,7 @@
  * @module errorHandler
  */
 
-import { QueueManager } from "../queue/queueManager";
+// import { QueueManager } from "../queue/queueManager"; // Removed unused import
 
 /**
  * Defines available options for error display customization
@@ -242,9 +242,13 @@ export class ErrorHandler {
    * @param {any} data - The data that failed to save
    * @returns {Promise<void>} Promise resolving when the operation completes
    */
-  static async handleSaveError(error: Error, type: "score" | "goldenLP", data: { userId: string; score: number; category: string }): Promise<void> {
-    // Add the operation to the queue for later processing
-    await QueueManager.addToQueue(type, data);
+  static async handleSaveError(
+    error: Error,
+    type: "score" | "goldenLP",
+    data: { userId: string; score: number; category: string }
+  ): Promise<void> {
+    // QueueManager functionality removed - no longer needed
+    // await QueueManager.addToQueue(type, data);
 
     // Show an informative message to the user
     this.showError(ERROR_MESSAGES.OFFLINE_SYNC, {

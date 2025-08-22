@@ -70,8 +70,8 @@ export default defineConfig({
       customPages: ["https://melody-mind.de/sitemap-index.xml"],
     }),
     metaTags(),
-    // SWC-based HTML minification - place at end of integrations
-    minify(),
+    // HTML minification disabled due to memory issues with large projects
+    // minify(),
   ],
   adapter: node({
     mode: "standalone",

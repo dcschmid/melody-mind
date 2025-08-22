@@ -6,7 +6,7 @@ import Paragraph from "@components/Paragraph.astro";
 import PlaylistCard from "@components/PlaylistCard.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
 
-import { extractKeywords, generateMetaDescription } from "@utils/seo";
+// import { extractKeywords, generateMetaDescription } from "@utils/seo"; // Removed unused import
 
 /**
  * Enable static site generation for all supported languages.
@@ -103,8 +103,11 @@ const playlistDecades = [
 const playlistCount = playlists.length;
 const enrichedContent = `${title} ${description} Explore ${playlistCount} carefully curated music playlists spanning decades including ${playlistDecades}. Each playlist features authentic tracks from legendary artists and iconic albums. Perfect for music enthusiasts, trivia players, and anyone looking to discover classic hits from different musical eras.`;
 
-const optimizedDescription = generateMetaDescription(enrichedContent, 158);
-const keywords = extractKeywords(enrichedContent, 12, lang);
+// const optimizedDescription = generateMetaDescription(enrichedContent, 158); // Removed - function no longer exists
+// const keywords = extractKeywords(enrichedContent, 12, lang); // Removed - function no longer exists
+const optimizedDescription =
+  enrichedContent.substring(0, 158) + (enrichedContent.length > 158 ? "..." : "");
+const keywords = "music playlists, music history, classic hits, music discovery, music trivia";
 
 // SEO-optimized URL and canonical setup
 const baseUrl = Astro.site?.toString() || "https://melody-mind.de";
