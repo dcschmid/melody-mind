@@ -89,22 +89,22 @@ export function updateMedia(album: Album, elements: MediaElements): void {
  * @param {MediaElements['streamingLinks']} streamingLinks - Collection of streaming link elements
  * @private
  */
-function updateAllStreamingLinks(
-  album: Album,
-  streamingLinks: MediaElements["streamingLinks"]
-): void {
-  // Create a mapping of services to their URLs
-  const linkMap = {
-    [StreamingService.SPOTIFY]: album.spotify_link,
-    [StreamingService.DEEZER]: album.deezer_link,
-    [StreamingService.APPLE]: album.apple_music_link,
-  };
+// function updateAllStreamingLinks(
+//   album: Album,
+//   streamingLinks: MediaElements["streamingLinks"]
+// ): void {
+//   // Create a mapping of services to their URLs
+//   const linkMap = {
+//     [StreamingService.SPOTIFY]: album.spotify_link,
+//   [StreamingService.DEEZER]: album.deezer_link,
+//   [StreamingService.APPLE]: album.apple_music_link,
+// };
 
-  // Update each service link
-  Object.entries(linkMap).forEach(([service, url]) => {
-    updateStreamingLink(streamingLinks[service as StreamingService], url, album);
-  });
-}
+//   // Update each service link
+//   Object.entries(linkMap).forEach(([service, url]) => {
+//     updateStreamingLink(streamingLinks[service as StreamingService], url, album);
+//   });
+// }
 
 /**
  * Updates a single streaming service button

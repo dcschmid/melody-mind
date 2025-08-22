@@ -18,17 +18,17 @@ const description =
 ---
 
 <Layout {title} {description} type="website" showHeader={true} showHeaderIcons={true}>
-  <main class="legal-page">
-    <div class="container">
-      <header class="legal-page__header">
+  <main class="min-h-screen bg-slate-50 py-16 dark:bg-slate-900">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <header class="mb-16 text-center">
         <Headline level="h1" title="Impressum" />
-        <Paragraph description="Angaben gemäß § 5 TMG" />
+        <Paragraph>Angaben gemäß § 5 TMG</Paragraph>
       </header>
 
-      <div class="legal-page__content">
-        <section class="legal-section">
+      <div class="rounded-xl bg-white p-8 shadow-lg dark:bg-slate-800 dark:shadow-xl">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="Verantwortlich für den Inhalt" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Paragraph>
               <strong>Daniel Schmid</strong><br />
               Hiltenspergerstr. 78<br />
@@ -38,19 +38,23 @@ const description =
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="Kontakt" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Paragraph>
               <strong>E-Mail:</strong>
-              <a href="mailto:dcschmid@murena.io" class="legal-link">dcschmid@murena.io</a><br />
+              <a
+                href="mailto:dcschmid@murena.io"
+                class="text-blue-600 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+                >dcschmid@murena.io</a
+              ><br />
             </Paragraph>
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="Redaktionell verantwortlich" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Paragraph>
               Daniel Schmid<br />
               Hiltenspergerstr. 78<br />
@@ -60,15 +64,15 @@ const description =
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="EU-Streitschlichtung" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Paragraph>
               Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)
               bereit:
               <a
                 href="https://ec.europa.eu/consumers/odr/"
-                class="legal-link"
+                class="text-blue-600 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -79,9 +83,9 @@ const description =
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="Verbraucherstreitbeilegung/Universalschlichtungsstelle" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Paragraph>
               Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
               Verbraucherschlichtungsstelle teilzunehmen.
@@ -89,9 +93,9 @@ const description =
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="Haftung für Inhalte" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Paragraph>
               Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten
               nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
@@ -109,9 +113,9 @@ const description =
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="Haftung für Links" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Paragraph>
               Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen
               Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr
@@ -128,9 +132,9 @@ const description =
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="Urheberrecht" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Paragraph>
               Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
               unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung
@@ -148,9 +152,9 @@ const description =
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="Musik-Content und Lizenzen" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Paragraph>
               Die in MelodyMind verwendeten Musik-Previews und Album-Cover werden über lizenzierte
               APIs bereitgestellt. Alle Rechte an den Musikstücken und Bildern liegen bei den
@@ -166,102 +170,3 @@ const description =
     </div>
   </main>
 </Layout>
-
-<style>
-  .legal-page {
-    min-height: 100vh;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    padding: var(--space-xl) 0;
-  }
-
-  .container {
-    max-width: 48rem;
-    margin: 0 auto;
-    padding: 0 var(--space-md);
-  }
-
-  .legal-page__header {
-    text-align: center;
-    margin-bottom: var(--space-3xl);
-  }
-
-  .legal-page__content {
-    background-color: var(--card-bg);
-    border-radius: var(--radius-lg);
-    padding: var(--space-2xl);
-    border: 1px solid var(--border-primary);
-    box-shadow: var(--shadow-md);
-  }
-
-  .legal-section {
-    margin-bottom: var(--space-2xl);
-  }
-
-  .legal-section:last-child {
-    margin-bottom: 0;
-  }
-
-  .legal-section__content {
-    padding-top: var(--space-md);
-  }
-
-  .legal-link {
-    color: var(--interactive-primary);
-    text-decoration: underline;
-    font-weight: var(--font-medium);
-    transition: color var(--transition-fast);
-  }
-
-  .legal-link:hover {
-    color: var(--interactive-primary-hover);
-  }
-
-  .legal-link:focus {
-    outline: 2px solid var(--focus-ring);
-    outline-offset: 2px;
-    border-radius: var(--radius-sm);
-  }
-
-  .legal-page__footer {
-    margin-top: var(--space-2xl);
-    padding: var(--space-lg);
-    background-color: var(--color-warning-50);
-    border: 1px solid var(--color-warning-200);
-    border-radius: var(--radius-md);
-  }
-
-  /* Responsive Design */
-  @media (min-width: 48em) {
-    .legal-page {
-      padding: var(--space-3xl) 0;
-    }
-
-    .container {
-      padding: 0 var(--space-lg);
-    }
-
-    .legal-page__content {
-      padding: var(--space-3xl);
-    }
-  }
-
-  /* Print Styles */
-  @media print {
-    .legal-page {
-      background: white;
-      color: black;
-    }
-
-    .legal-page__content {
-      background: white;
-      border: none;
-      box-shadow: none;
-    }
-
-    .legal-link {
-      color: black;
-      text-decoration: underline;
-    }
-  }
-</style>

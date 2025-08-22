@@ -127,14 +127,14 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   {keywords}
   image={currentCategory?.imageUrl || "/social-share-categories.jpg"}
 >
-  <div class="min-h-screen bg-gray-900 text-white px-4 py-8">
-    <div class="max-w-7xl mx-auto">
+  <div class="min-h-screen bg-gray-900 px-4 py-8 text-white">
+    <div class="mx-auto max-w-7xl">
       <div class="sr-only" aria-live="polite" id="dynamic-announcements"></div>
 
       {
         usedFallback && (
           <div
-            class="mb-6 p-4 rounded-lg bg-yellow-900/20 border border-yellow-600/30 text-yellow-200 shadow-sm"
+            class="mb-6 rounded-lg border border-yellow-600/30 bg-yellow-900/20 p-4 text-yellow-200 shadow-sm"
             role="alert"
             aria-live="polite"
           >
@@ -148,14 +148,14 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
 
       <!-- Header Section with Image -->
       <header class="mb-16 text-center">
-        <div class="flex flex-col lg:grid lg:grid-cols-[1fr_0.8fr] lg:gap-16 lg:items-center">
+        <div class="flex flex-col lg:grid lg:grid-cols-[1fr_0.8fr] lg:items-center lg:gap-16">
           <!-- Image Section -->
-          <div class="w-full max-w-md mx-auto lg:max-w-none">
+          <div class="mx-auto w-full max-w-md lg:max-w-none">
             {
               currentCategory?.imageUrl ? (
-                <div class="relative w-full aspect-[5/3] overflow-hidden rounded-2xl shadow-2xl border border-gray-600">
+                <div class="relative aspect-[5/3] w-full overflow-hidden rounded-2xl border border-gray-600 shadow-2xl">
                   <Picture
-                    class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                     src={currentCategory.imageUrl}
                     widths={[400, 600, 800, 1200]}
                     sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1200px"
@@ -170,7 +170,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
                 </div>
               ) : (
                 <div
-                  class="flex aspect-[5/3] w-full items-center justify-center rounded-2xl bg-gray-800 p-8 text-center text-gray-400 border-2 border-dashed border-gray-600"
+                  class="flex aspect-[5/3] w-full items-center justify-center rounded-2xl border-2 border-dashed border-gray-600 bg-gray-800 p-8 text-center text-gray-400"
                   role="img"
                   aria-label={t("category.no_image_available")}
                 >
@@ -184,15 +184,15 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
           </div>
 
           <!-- Text Section -->
-          <div class="flex flex-col items-center gap-6 mt-8 lg:mt-0">
+          <div class="mt-8 flex flex-col items-center gap-6 lg:mt-0">
             <div
-              class="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600 border-4 border-white shadow-2xl scale-105"
+              class="relative flex h-16 w-16 scale-105 items-center justify-center rounded-full border-4 border-white bg-gradient-to-br from-blue-500 to-purple-600 shadow-2xl"
             >
               <div
                 class="absolute inset-1 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 opacity-50"
               >
               </div>
-              <Icon name="music-note" class="h-8 w-8 text-white relative z-10" />
+              <Icon name="music-note" class="relative z-10 h-8 w-8 text-white" />
             </div>
 
             <Headline level="h1" textSize="3xl" textAlign="center">
@@ -207,28 +207,28 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
       </header>
 
       <article
-        class="max-w-4xl mx-auto space-y-12"
+        class="mx-auto max-w-4xl space-y-12"
         data-category={currentCategory?.slug}
         id="main-content"
         tabindex="-1"
       >
         <!-- About Section -->
         <section
-          class="relative flex w-full flex-col items-center rounded-2xl bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 shadow-lg overflow-hidden p-6 gap-4"
+          class="relative flex w-full flex-col items-center gap-4 overflow-hidden rounded-2xl border border-gray-600 bg-gradient-to-br from-gray-800 to-gray-700 p-6 shadow-lg"
         >
           <div
-            class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-blue-500 opacity-80"
+            class="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-purple-500 to-blue-500 opacity-80"
           >
           </div>
 
           <div
-            class="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-purple-600 border-4 border-white shadow-2xl scale-105 mt-4"
+            class="relative mt-4 flex h-16 w-16 scale-105 items-center justify-center rounded-full border-4 border-white bg-gradient-to-br from-purple-500 to-purple-600 shadow-2xl"
           >
             <div
               class="absolute inset-1 rounded-full bg-gradient-to-br from-purple-400 to-purple-500 opacity-50"
             >
             </div>
-            <Icon name="info-circle" class="h-8 w-8 text-white relative z-10" />
+            <Icon name="info-circle" class="relative z-10 h-8 w-8 text-white" />
           </div>
 
           <Headline level="h2" textSize="2xl" textAlign="center">
@@ -270,22 +270,22 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         <!-- Quiz Section -->
         <section
           id="quiz-section"
-          class="relative flex w-full flex-col items-center rounded-2xl bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 shadow-lg overflow-hidden p-6 gap-4"
+          class="relative flex w-full flex-col items-center gap-4 overflow-hidden rounded-2xl border border-gray-600 bg-gradient-to-br from-gray-800 to-gray-700 p-6 shadow-lg"
           aria-hidden="true"
         >
           <div
-            class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-blue-500 opacity-80"
+            class="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-purple-500 to-blue-500 opacity-80"
           >
           </div>
 
           <div
-            class="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-purple-600 border-4 border-white shadow-2xl scale-105 mt-4"
+            class="relative mt-4 flex h-16 w-16 scale-105 items-center justify-center rounded-full border-4 border-white bg-gradient-to-br from-purple-500 to-purple-600 shadow-2xl"
           >
             <div
               class="absolute inset-1 rounded-full bg-gradient-to-br from-purple-400 to-purple-500 opacity-50"
             >
             </div>
-            <Icon name="music" class="h-8 w-8 text-white relative z-10" />
+            <Icon name="music" class="relative z-10 h-8 w-8 text-white" />
           </div>
 
           <Headline level="h2" textSize="2xl" textAlign="center">
@@ -297,7 +297,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
           </Paragraph>
 
           <div
-            class="flex flex-col lg:flex-row lg:justify-center lg:gap-6 mt-8 w-full"
+            class="mt-8 flex w-full flex-col lg:flex-row lg:justify-center lg:gap-6"
             role="group"
           >
             <ButtonLink
@@ -329,22 +329,22 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         <!-- Time Pressure Section -->
         <section
           id="time-pressure-section"
-          class="relative flex w-full flex-col items-center rounded-2xl bg-gradient-to-br from-yellow-900/20 to-red-900/20 border border-yellow-600/30 shadow-lg overflow-hidden p-6 gap-4"
+          class="relative flex w-full flex-col items-center gap-4 overflow-hidden rounded-2xl border border-yellow-600/30 bg-gradient-to-br from-yellow-900/20 to-red-900/20 p-6 shadow-lg"
           aria-hidden="true"
         >
           <div
-            class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 to-red-500 opacity-80"
+            class="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-yellow-500 to-red-500 opacity-80"
           >
           </div>
 
           <div
-            class="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-yellow-500 to-red-500 border-4 border-white shadow-2xl scale-105 mt-4"
+            class="relative mt-4 flex h-16 w-16 scale-105 items-center justify-center rounded-full border-4 border-white bg-gradient-to-br from-yellow-500 to-red-500 shadow-2xl"
           >
             <div
               class="absolute inset-1 rounded-full bg-gradient-to-br from-yellow-400 to-red-500 opacity-50"
             >
             </div>
-            <Icon name="timer" class="h-8 w-8 text-white relative z-10" />
+            <Icon name="timer" class="relative z-10 h-8 w-8 text-white" />
           </div>
 
           <Headline level="h2" textSize="2xl" textAlign="center">
@@ -355,7 +355,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
             {t("game.timepressure.description").replace("{category}", currentCategory?.headline)}
           </Paragraph>
 
-          <div class="flex justify-center mt-8 w-full" role="group">
+          <div class="mt-8 flex w-full justify-center" role="group">
             <ButtonLink
               href={getRelativeLocaleUrl(lang, `time-pressure-${currentCategory?.slug}`)}
               aria-label={`${t("game.timepressure.title")} - ${currentCategory?.headline}`}
@@ -370,22 +370,22 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
         <!-- Chronology Section -->
         <section
           id="chronology-section"
-          class="relative flex w-full flex-col items-center rounded-2xl bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 shadow-lg overflow-hidden p-6 gap-4"
+          class="relative flex w-full flex-col items-center gap-4 overflow-hidden rounded-2xl border border-gray-600 bg-gradient-to-br from-gray-800 to-gray-700 p-6 shadow-lg"
           aria-hidden="true"
         >
           <div
-            class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-blue-500 opacity-80"
+            class="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-purple-500 to-blue-500 opacity-80"
           >
           </div>
 
           <div
-            class="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600 border-4 border-white shadow-2xl scale-105 mt-4"
+            class="relative mt-4 flex h-16 w-16 scale-105 items-center justify-center rounded-full border-4 border-white bg-gradient-to-br from-blue-500 to-purple-600 shadow-2xl"
           >
             <div
               class="absolute inset-1 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 opacity-50"
             >
             </div>
-            <Icon name="clock-history" class="h-8 w-8 text-white relative z-10" />
+            <Icon name="clock-history" class="relative z-10 h-8 w-8 text-white" />
           </div>
 
           <Headline level="h2" textSize="2xl" textAlign="center">
@@ -397,7 +397,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
           </Paragraph>
 
           <div
-            class="flex flex-col lg:flex-row lg:justify-center lg:gap-6 mt-8 w-full"
+            class="mt-8 flex w-full flex-col lg:flex-row lg:justify-center lg:gap-6"
             role="group"
           >
             <ButtonLink

@@ -68,14 +68,14 @@ const languages = {
 ---
 
 <div
-  class="flex items-center gap-2 rounded-lg font-primary"
+  class="font-primary flex items-center gap-2 rounded-lg"
   role="navigation"
   aria-label={t("language.picker.label")}
 >
   <div class="relative flex items-center">
     <select
       id="language-select"
-      class="min-h-[44px] w-full min-w-[44px] cursor-pointer appearance-none border-2 border-purple-500 rounded-xl px-4 py-2 pr-10 bg-gradient-to-r from-purple-600 to-purple-700 text-white text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:from-purple-700 hover:to-purple-800 hover:-translate-y-1 focus:from-purple-700 focus:to-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 focus:ring-offset-2 active:scale-95 md:min-w-[72px] md:px-5 md:py-3 sm:px-3 sm:py-2 sm:text-sm sm:pr-8"
+      class="min-h-[44px] w-full min-w-[44px] cursor-pointer appearance-none rounded-xl border-2 border-purple-500 bg-gradient-to-r from-purple-600 to-purple-700 px-4 py-2 pr-10 text-base font-semibold text-white shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 hover:from-purple-700 hover:to-purple-800 hover:shadow-xl focus:from-purple-700 focus:to-purple-800 focus:ring-4 focus:ring-purple-300 focus:ring-offset-2 focus:outline-none active:scale-95 sm:px-3 sm:py-2 sm:pr-8 sm:text-sm md:min-w-[72px] md:px-5 md:py-3"
       value={getRelativeLocaleUrl(String(lang), cleanPath)}
       aria-label={t("language.select.label")}
       onchange="
@@ -97,7 +97,7 @@ const languages = {
     </select>
 
     <div
-      class="absolute top-0 bottom-0 right-0 flex items-center justify-center px-3 pointer-events-none text-white/90 transition-all duration-300 sm:px-2"
+      class="pointer-events-none absolute top-0 right-0 bottom-0 flex items-center justify-center px-3 text-white/90 transition-all duration-300 sm:px-2"
     >
       <Icon
         name="chevron-down"
@@ -108,7 +108,7 @@ const languages = {
   </div>
 
   <div
-    class="absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0"
+    class="absolute -m-px h-px w-px overflow-hidden border-0 p-0 whitespace-nowrap"
     aria-live="polite"
   >
     {t("language.selected", { language: languages[lang as keyof typeof languages]?.name || lang })}

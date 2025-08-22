@@ -236,7 +236,7 @@ export class JokerManager {
       if (hiddenCount === 0) {
         this.tryAlternativeHiding(allButtons, normalizedCorrectAnswer, normalizedToHide);
       }
-    } catch (error) {
+    } catch {
       // Silent error handling to prevent game disruption
     }
 
@@ -285,7 +285,7 @@ export class JokerManager {
   private tryAlternativeHiding(
     buttons: HTMLButtonElement[],
     normalizedCorrectAnswer: string,
-    normalizedToHide: string[]
+    _normalizedToHide: string[]
   ): void {
     // Text normalization helper
     function normalizeText(text: string): string {

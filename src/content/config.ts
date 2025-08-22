@@ -1,8 +1,8 @@
 import { defineCollection, type SchemaContext, z } from "astro:content";
 
-const difficultyEnum = ["easy", "medium", "hard"] as const;
+// const difficultyEnum = ["easy", "medium", "hard"] as const;
 
-const getKnowledgeSchema = ({ image }: SchemaContext) =>
+const getKnowledgeSchema = ({ _image }: SchemaContext): z.ZodObject<z.ZodRawShape> =>
   z.object({
     title: z.string(),
     description: z.string(),

@@ -18,18 +18,18 @@ const description =
 ---
 
 <Layout {title} {description} type="website" showHeader={true} showHeaderIcons={true}>
-  <main class="legal-page">
-    <div class="container">
-      <header class="legal-page__header">
+  <main class="min-h-screen bg-slate-50 py-16 dark:bg-slate-900">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <header class="mb-16 text-center">
         <Headline level="h1" title="Datenschutzerklärung" />
-        <Paragraph description="Informationen zur Verarbeitung Ihrer personenbezogenen Daten" />
+        <Paragraph>Informationen zur Verarbeitung Ihrer personenbezogenen Daten</Paragraph>
         <Paragraph>Stand: {new Date().toLocaleDateString("de-DE")}</Paragraph>
       </header>
 
-      <div class="legal-page__content">
-        <section class="legal-section">
+      <div class="rounded-xl bg-white p-8 shadow-lg dark:bg-slate-800 dark:shadow-xl">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="1. Datenschutz auf einen Blick" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Headline level="h3" title="Allgemeine Hinweise" />
             <Paragraph>
               Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren
@@ -62,9 +62,9 @@ const description =
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="2. Hosting" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Headline level="h3" title="Hosting bei Render" />
             <Paragraph>
               Wir hosten die Inhalte unserer Website bei Render Services Inc., 525 Brannan Street,
@@ -75,7 +75,7 @@ const description =
               IP-Adressen. Details entnehmen Sie der Datenschutzerklärung von Render:
               <a
                 href="https://render.com/privacy"
-                class="legal-link"
+                class="text-blue-600 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -89,9 +89,9 @@ const description =
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="3. Allgemeine Hinweise und Pflichtinformationen" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Headline level="h3" title="Datenschutz" />
             <Paragraph>
               Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir
@@ -103,7 +103,7 @@ const description =
             <Paragraph
               >Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</Paragraph
             >
-            <div class="contact-info">
+            <div class="mt-4 rounded-lg bg-slate-100 p-6 dark:bg-slate-700">
               <Paragraph>
                 <strong>Daniel Schmid</strong><br />
                 Hiltenspergerstr. 78<br />
@@ -112,7 +112,11 @@ const description =
               </Paragraph>
               <Paragraph>
                 <strong>E-Mail:</strong>
-                <a href="mailto:dcschmid@murena.io" class="legal-link">dcschmid@murena.io</a>
+                <a
+                  href="mailto:dcschmid@murena.io"
+                  class="text-blue-600 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+                  >dcschmid@murena.io</a
+                >
               </Paragraph>
             </div>
 
@@ -125,15 +129,15 @@ const description =
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="4. Datenerfassung auf dieser Website" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Headline level="h3" title="Server-Log-Dateien" />
             <Paragraph>
               Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten
               Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:
             </Paragraph>
-            <ul class="legal-list">
+            <ul class="mt-4 ml-6 list-disc space-y-2">
               <li>Browsertyp und Browserversion</li>
               <li>verwendetes Betriebssystem</li>
               <li>Referrer URL</li>
@@ -151,7 +155,7 @@ const description =
               Wenn Sie MelodyMind spielen, werden folgende Daten in unserer TursoDB-Datenbank
               gespeichert:
             </Paragraph>
-            <ul class="legal-list">
+            <ul class="mt-4 ml-6 list-disc space-y-2">
               <li>Ihr gewählter Benutzername</li>
               <li>Ihre Spielergebnisse und Punktestände</li>
               <li>Spielstatistiken (gespielte Runden, Kategorien, Schwierigkeitsgrade)</li>
@@ -162,7 +166,11 @@ const description =
               Diese Daten werden sicher in unserer TursoDB-Datenbank gespeichert, um Ihnen
               persistenten Spielfortschritt zu ermöglichen und Features wie Highscores und
               Achievements anzubieten. Sie können die Löschung Ihrer Daten jederzeit per E-Mail an
-              <a href="mailto:dcschmid@murena.io" class="legal-link">dcschmid@murena.io</a> beantragen.
+              <a
+                href="mailto:dcschmid@murena.io"
+                class="text-blue-600 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+                >dcschmid@murena.io</a
+              > beantragen.
             </Paragraph>
             <Paragraph>
               Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO
@@ -176,11 +184,11 @@ const description =
               von Musik-Previews oder beim Klick auf Streaming-Links werden Sie zu externen Diensten
               weitergeleitet:
             </Paragraph>
-            <ul class="legal-list">
+            <ul class="mt-4 ml-6 list-disc space-y-2">
               <li>
                 <strong>Spotify:</strong> Datenschutzerklärung unter <a
                   href="https://www.spotify.com/de/privacy/"
-                  class="legal-link"
+                  class="text-blue-600 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                   target="_blank"
                   rel="noopener">spotify.com/privacy</a
                 >
@@ -188,7 +196,7 @@ const description =
               <li>
                 <strong>Apple Music:</strong> Datenschutzerklärung unter <a
                   href="https://www.apple.com/de/privacy/"
-                  class="legal-link"
+                  class="text-blue-600 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                   target="_blank"
                   rel="noopener">apple.com/privacy</a
                 >
@@ -196,7 +204,7 @@ const description =
               <li>
                 <strong>Deezer:</strong> Datenschutzerklärung unter <a
                   href="https://www.deezer.com/de/legal/personal-datas"
-                  class="legal-link"
+                  class="text-blue-600 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                   target="_blank"
                   rel="noopener">deezer.com/legal/personal-datas</a
                 >
@@ -205,15 +213,15 @@ const description =
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="5. Cookies und lokale Speicherung" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Headline level="h3" title="Cookies" />
             <Paragraph>
               Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Browser auf
               Ihrem Gerät speichert. Wir verwenden ausschließlich technisch notwendige Cookies für:
             </Paragraph>
-            <ul class="legal-list">
+            <ul class="mt-4 ml-6 list-disc space-y-2">
               <li>Speicherung Ihrer Spracheinstellung</li>
               <li>Erhaltung Ihrer Spielsitzung</li>
               <li>Funktionalität des Spiels</li>
@@ -231,12 +239,12 @@ const description =
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="6. Ihre Rechte" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Paragraph>Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:</Paragraph
             >
-            <ul class="legal-list">
+            <ul class="mt-4 ml-6 list-disc space-y-2">
               <li><strong>Recht auf Auskunft</strong> (Art. 15 DSGVO)</li>
               <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO)</li>
               <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO)</li>
@@ -250,15 +258,16 @@ const description =
             <Paragraph>
               Wenn Sie von diesen Rechten Gebrauch machen möchten, kontaktieren Sie uns bitte unter: <a
                 href="mailto:dcschmid@murena.io"
-                class="legal-link">dcschmid@murena.io</a
+                class="text-blue-600 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+                >dcschmid@murena.io</a
               >
             </Paragraph>
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="7. Analyse-Tools" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Headline level="h3" title="Fathom Analytics" />
             <Paragraph>
               Wir verwenden Fathom Analytics, einen datenschutzfreundlichen Analysedienst, um besser
@@ -267,7 +276,7 @@ const description =
               Daten.
             </Paragraph>
             <Paragraph>Fathom Analytics erfasst anonymisierte Daten, einschließlich:</Paragraph>
-            <ul class="legal-list">
+            <ul class="mt-4 ml-6 list-disc space-y-2">
               <li>Seitenaufrufe und Besucherzahlen</li>
               <li>Referrer-Informationen (von welcher Website Sie kommen)</li>
               <li>Allgemeine Standortinformationen (nur auf Länderebene)</li>
@@ -279,7 +288,7 @@ const description =
               von Fathom:
               <a
                 href="https://usefathom.com/privacy"
-                class="legal-link"
+                class="text-blue-600 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -293,17 +302,20 @@ const description =
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="8. Kontakt und Beschwerden" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Paragraph>
               Bei Fragen zum Datenschutz, zur Geltendmachung Ihrer Rechte oder bei Beschwerden
               können Sie sich jederzeit an uns wenden:
             </Paragraph>
-            <div class="contact-info">
+            <div class="mt-4 rounded-lg bg-slate-100 p-6 dark:bg-slate-700">
               <Paragraph>
                 <strong>Datenschutzkontakt:</strong><br />
-                E-Mail: <a href="mailto:dcschmid@murena.io" class="legal-link">dcschmid@murena.io</a
+                E-Mail: <a
+                  href="mailto:dcschmid@murena.io"
+                  class="text-blue-600 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+                  >dcschmid@murena.io</a
                 ><br />
                 Adresse: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland
               </Paragraph>
@@ -315,9 +327,9 @@ const description =
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="9. Sicherheit" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Paragraph>
               Wir verwenden geeignete technische und organisatorische Sicherheitsmaßnahmen, um Ihre
               Daten gegen zufällige oder vorsätzliche Manipulationen, teilweisen oder vollständigen
@@ -330,9 +342,9 @@ const description =
           </div>
         </section>
 
-        <section class="legal-section">
+        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="10. Änderungen dieser Datenschutzerklärung" />
-          <div class="legal-section__content">
+          <div class="mt-6">
             <Paragraph>
               Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den
               aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen
@@ -348,125 +360,3 @@ const description =
     </div>
   </main>
 </Layout>
-
-<style>
-  .legal-page {
-    min-height: 100vh;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    padding: var(--space-xl) 0;
-  }
-
-  .container {
-    max-width: 50rem;
-    margin: 0 auto;
-    padding: 0 var(--space-md);
-  }
-
-  .legal-page__header {
-    text-align: center;
-    margin-bottom: var(--space-3xl);
-  }
-
-  .legal-page__content {
-    background-color: var(--card-bg);
-    border-radius: var(--radius-lg);
-    padding: var(--space-2xl);
-    border: 1px solid var(--border-primary);
-    box-shadow: var(--shadow-md);
-  }
-
-  .legal-section {
-    margin-bottom: var(--space-2xl);
-  }
-
-  .legal-section:last-child {
-    margin-bottom: 0;
-  }
-
-  .legal-section__content {
-    padding-top: var(--space-md);
-  }
-
-  .legal-list {
-    margin: var(--space-md) 0;
-    padding-left: var(--space-lg);
-  }
-
-  .legal-list li {
-    margin-bottom: var(--space-sm);
-    line-height: var(--leading-relaxed);
-    color: var(--text-primary);
-  }
-
-  .contact-info {
-    background-color: var(--bg-secondary);
-    padding: var(--space-lg);
-    border-radius: var(--radius-md);
-    border-left: 4px solid var(--interactive-primary);
-    margin: var(--space-md) 0;
-  }
-
-  .legal-link {
-    color: var(--interactive-primary);
-    text-decoration: underline;
-    font-weight: var(--font-medium);
-    transition: color var(--transition-fast);
-  }
-
-  .legal-link:hover {
-    color: var(--interactive-primary-hover);
-  }
-
-  .legal-link:focus {
-    outline: 2px solid var(--focus-ring);
-    outline-offset: 2px;
-    border-radius: var(--radius-sm);
-  }
-
-  .legal-page__footer {
-    margin-top: var(--space-2xl);
-    padding: var(--space-lg);
-    background-color: var(--color-warning-50);
-    border: 1px solid var(--color-warning-200);
-    border-radius: var(--radius-md);
-  }
-
-  /* Responsive Design */
-  @media (min-width: 48em) {
-    .legal-page {
-      padding: var(--space-3xl) 0;
-    }
-
-    .container {
-      padding: 0 var(--space-lg);
-    }
-
-    .legal-page__content {
-      padding: var(--space-3xl);
-    }
-  }
-
-  /* Print Styles */
-  @media print {
-    .legal-page {
-      background: white;
-      color: black;
-    }
-
-    .legal-page__content {
-      background: white;
-      border: none;
-      box-shadow: none;
-    }
-
-    .legal-link {
-      color: black;
-      text-decoration: underline;
-    }
-
-    .legal-list {
-      list-style-type: disc;
-    }
-  }
-</style>

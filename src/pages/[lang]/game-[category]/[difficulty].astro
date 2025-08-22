@@ -163,49 +163,49 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   />
 
   <!-- Improved game header section with better visual distinction -->
-  <div class="mb-6 relative z-[var(--z-sticky)] md:mb-8 lg:mb-12">
+  <div class="relative z-[var(--z-sticky)] mb-6 md:mb-8 lg:mb-12">
     <!-- Game info badges -->
     <div class="mt-4 flex flex-wrap items-center justify-center gap-3" aria-live="polite">
       <div
-        class="relative inline-flex items-center min-h-[var(--touch-target-enhanced)] rounded-[var(--radius-xl)] p-3 transition-all duration-200 cursor-default overflow-hidden bg-gradient-to-br from-purple-600 to-purple-700 border border-white/20 shadow-[var(--shadow-lg)] shadow-[var(--shadow-sm)] shadow-inset-white/10"
+        class="shadow-inset-white/10 relative inline-flex min-h-[var(--touch-target-enhanced)] cursor-default items-center overflow-hidden rounded-[var(--radius-xl)] border border-white/20 bg-gradient-to-br from-purple-600 to-purple-700 p-3 shadow-[var(--shadow-lg)] shadow-[var(--shadow-sm)] transition-all duration-200"
       >
         <Icon
           name="difficulty"
-          class="mr-3 h-4 w-4 flex-shrink-0 transition-all duration-200 z-10 relative text-amber-400 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]"
+          class="relative z-10 mr-3 h-4 w-4 flex-shrink-0 text-amber-400 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] transition-all duration-200"
           aria-hidden="true"
         />
         <span
-          class="text-sm font-bold text-[var(--text-primary)] tracking-[0.02em] z-10 relative transition-all duration-200 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]"
+          class="relative z-10 text-sm font-bold tracking-[0.02em] text-[var(--text-primary)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] transition-all duration-200"
         >
           {t(`difficulty.${String(difficulty)}`)}
         </span>
       </div>
 
       <div
-        class="relative inline-flex items-center min-h-[var(--touch-target-enhanced)] rounded-[var(--radius-xl)] p-3 transition-all duration-200 cursor-default overflow-hidden bg-gradient-to-br from-blue-600 to-blue-700 border border-white/20 shadow-[var(--shadow-lg)] shadow-[var(--shadow-sm)] shadow-inset-white/10"
+        class="shadow-inset-white/10 relative inline-flex min-h-[var(--touch-target-enhanced)] cursor-default items-center overflow-hidden rounded-[var(--radius-xl)] border border-white/20 bg-gradient-to-br from-blue-600 to-blue-700 p-3 shadow-[var(--shadow-lg)] shadow-[var(--shadow-sm)] transition-all duration-200"
       >
         <Icon
           name="round"
-          class="mr-3 h-4 w-4 flex-shrink-0 transition-all duration-200 z-10 relative text-blue-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]"
+          class="relative z-10 mr-3 h-4 w-4 flex-shrink-0 text-blue-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] transition-all duration-200"
           aria-hidden="true"
         />
         <span
-          class="text-sm font-bold text-[var(--text-primary)] tracking-[0.02em] z-10 relative transition-all duration-200 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]"
+          class="relative z-10 text-sm font-bold tracking-[0.02em] text-[var(--text-primary)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] transition-all duration-200"
         >
           <span id="round-display" class="round">1/{totalRounds}</span>
         </span>
       </div>
 
       <div
-        class="relative inline-flex items-center min-h-[var(--touch-target-enhanced)] rounded-[var(--radius-xl)] p-3 transition-all duration-200 cursor-default overflow-hidden bg-gradient-to-br from-amber-600 to-amber-700 border border-white/20 shadow-[var(--shadow-lg)] shadow-[var(--shadow-sm)] shadow-inset-white/10"
+        class="shadow-inset-white/10 relative inline-flex min-h-[var(--touch-target-enhanced)] cursor-default items-center overflow-hidden rounded-[var(--radius-xl)] border border-white/20 bg-gradient-to-br from-amber-600 to-amber-700 p-3 shadow-[var(--shadow-lg)] shadow-[var(--shadow-sm)] transition-all duration-200"
       >
         <Icon
           name="coins"
-          class="mr-3 h-4 w-4 flex-shrink-0 transition-all duration-200 z-10 relative text-amber-400 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]"
+          class="relative z-10 mr-3 h-4 w-4 flex-shrink-0 text-amber-400 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] transition-all duration-200"
           aria-hidden="true"
         />
         <span
-          class="text-sm font-bold text-[var(--text-primary)] tracking-[0.02em] z-10 relative transition-all duration-200 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]"
+          class="relative z-10 text-sm font-bold tracking-[0.02em] text-[var(--text-primary)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] transition-all duration-200"
         >
           <span id="coins-display" class="coinsCount">0</span>
         </span>
@@ -221,7 +221,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   <!-- Main game container with improved styling and accessibility -->
   <div
     id="question-container"
-    class="mx-auto w-full max-w-[var(--container-lg)] rounded-[var(--radius-lg)] text-center opacity-[var(--animation-opacity-full)] transition-all duration-200 relative overflow-hidden"
+    class="relative mx-auto w-full max-w-[var(--container-lg)] overflow-hidden rounded-[var(--radius-lg)] text-center opacity-[var(--animation-opacity-full)] transition-all duration-200"
     role="main"
     aria-label={t("game.area.label")}
     aria-live="polite"
@@ -232,7 +232,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   >
     <div
       id="question"
-      class="mb-6 text-lg font-bold leading-[var(--leading-enhanced)] text-[var(--text-primary)] relative z-10 p-6 rounded-[var(--radius-lg)] bg-[var(--bg-tertiary)] border border-[var(--border-secondary)] text-center"
+      class="relative z-10 mb-6 rounded-[var(--radius-lg)] border border-[var(--border-secondary)] bg-[var(--bg-tertiary)] p-6 text-center text-lg leading-[var(--leading-enhanced)] font-bold text-[var(--text-primary)]"
       role="heading"
       aria-level="2"
     >
@@ -240,7 +240,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
 
     <div
       id="options"
-      class="flex flex-col gap-4 relative z-10"
+      class="relative z-10 flex flex-col gap-4"
       role="radiogroup"
       aria-label={t("game.options.label")}
     >
@@ -249,7 +249,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   </div>
 
   <!-- Joker and game controls with improved accessibility -->
-  <div class="mt-6 flex justify-center relative z-20">
+  <div class="relative z-20 mt-6 flex justify-center">
     <Joker />
   </div>
 

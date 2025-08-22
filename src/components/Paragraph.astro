@@ -30,7 +30,7 @@ const { textSize = "xl", className = "", textAlign = "left" } = Astro.props;
 const paragraphVariants = tv({
   base: [
     // Base typography
-    "font-primary font-normal leading-relaxed tracking-base text-secondary",
+    "font-primary tracking-base text-secondary leading-relaxed font-normal",
     // Responsive margin - besser für mobile
     "mb-4 sm:mb-6 md:mb-8 lg:mb-12",
     // Enhanced text rendering
@@ -38,7 +38,7 @@ const paragraphVariants = tv({
     // Smooth transitions
     "transition-all duration-300",
     // Text wrapping and balance
-    "max-w-full break-words hyphens-auto text-balance",
+    "max-w-full text-balance break-words hyphens-auto",
     // Responsive line height
     "leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed",
   ].join(" "),

@@ -113,72 +113,72 @@ const pageSchema = generatePodcastPageSchema();
     <meta property="music:creator" content="MelodyMind" />
   </Fragment>
 
-  <main class="min-h-screen bg-gray-900 text-white py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <main class="min-h-screen bg-gray-900 py-8 text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Hero Section -->
       <section
-        class="relative overflow-hidden bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 rounded-3xl shadow-2xl border border-purple-500/30 mb-16 p-8 sm:p-12 lg:p-16"
+        class="relative mb-16 overflow-hidden rounded-3xl border border-purple-500/30 bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 p-8 shadow-2xl sm:p-12 lg:p-16"
         aria-labelledby="podcast-heading"
       >
         <!-- Decorative background elements -->
-        <div class="absolute inset-0 opacity-10 pointer-events-none" aria-hidden="true">
-          <div class="absolute -top-8 -right-8 w-32 h-32 bg-white rounded-full"></div>
-          <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-white rounded-full"></div>
-          <div class="absolute top-1/2 right-4 w-16 h-16 bg-white rounded-full"></div>
+        <div class="pointer-events-none absolute inset-0 opacity-10" aria-hidden="true">
+          <div class="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white"></div>
+          <div class="absolute -bottom-8 -left-8 h-24 w-24 rounded-full bg-white"></div>
+          <div class="absolute top-1/2 right-4 h-16 w-16 rounded-full bg-white"></div>
         </div>
 
-        <div class="relative z-10 text-center text-white w-full">
+        <div class="relative z-10 w-full text-center text-white">
           <Headline level="h1" textSize="3xl" textAlign="center" className="mb-4">
             🎙️ {title}
           </Headline>
 
-          <div class="bg-blue-400 rounded-full w-12 h-1 mx-auto my-8"></div>
+          <div class="mx-auto my-8 h-1 w-12 rounded-full bg-blue-400"></div>
 
           <Paragraph textAlign="center" textSize="lg" className="mb-8">
             {description}
           </Paragraph>
 
           {/* Podcast Platform Links */}
-          <div class="flex justify-center gap-4 flex-wrap mb-8">
+          <div class="mb-8 flex flex-wrap justify-center gap-4">
             <a
               href="https://podcasts.apple.com/us/podcast/the-melody-mind-podcast/id1833549333"
-              class="flex items-center gap-3 px-4 py-3 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl text-white hover:bg-white/25 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+              class="flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/25 hover:shadow-xl"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Listen on Apple Podcasts"
             >
               <span class="text-xl">🍎</span>
-              <span class="font-semibold text-sm">Apple Podcasts</span>
+              <span class="text-sm font-semibold">Apple Podcasts</span>
             </a>
 
             <a
               href="https://www.deezer.com/de/show/1002117431"
-              class="flex items-center gap-3 px-4 py-3 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl text-white hover:bg-white/25 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+              class="flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/25 hover:shadow-xl"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Listen on Deezer"
             >
               <span class="text-xl">🎵</span>
-              <span class="font-semibold text-sm">Deezer</span>
+              <span class="text-sm font-semibold">Deezer</span>
             </a>
 
             <a
               href="https://open.spotify.com/show/6nBTNqNNYXbFsJW42QnFTN"
-              class="flex items-center gap-3 px-4 py-3 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl text-white hover:bg-white/25 hover:border-white/40 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+              class="flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/25 hover:shadow-xl"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Listen on Spotify"
             >
               <span class="text-xl">🎧</span>
-              <span class="font-semibold text-sm">Spotify</span>
+              <span class="text-sm font-semibold">Spotify</span>
             </a>
           </div>
 
           {
             episodes.length > 0 && (
-              <div class="flex justify-center gap-4 flex-wrap">
-                <div class="flex items-center gap-3 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl px-4 py-3 min-w-[140px] max-w-[220px]">
-                  <div class="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center">
+              <div class="flex flex-wrap justify-center gap-4">
+                <div class="flex max-w-[220px] min-w-[140px] items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 backdrop-blur-md">
+                  <div class="flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
                     <span class="text-base">📚</span>
                   </div>
                   <div class="text-sm font-semibold text-gray-200">
@@ -189,8 +189,8 @@ const pageSchema = generatePodcastPageSchema();
                   </div>
                 </div>
 
-                <div class="flex items-center gap-3 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl px-4 py-3 min-w-[140px] max-w-[220px]">
-                  <div class="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center">
+                <div class="flex max-w-[220px] min-w-[140px] items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 backdrop-blur-md">
+                  <div class="flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
                     <span class="text-base">🌐</span>
                   </div>
                   <div class="text-sm font-semibold text-gray-200">English</div>
@@ -199,11 +199,11 @@ const pageSchema = generatePodcastPageSchema();
                 {/* RSS Subscribe Button in Stats (English-only) */}
                 <a
                   href={`/en/podcasts/rss.xml`}
-                  class="flex items-center gap-3 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl px-4 py-3 min-w-[140px] max-w-[220px] hover:bg-orange-500/30 hover:border-orange-500/60 hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-orange-500/30"
+                  class="flex max-w-[220px] min-w-[140px] items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/60 hover:bg-orange-500/30 hover:shadow-orange-500/30"
                   title={t("podcast.rss.subscribe.title")}
                   aria-label={`${t("podcast.rss.subscribe")} - ${t("podcast.rss.subscribe.description")}`}
                 >
-                  <div class="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center">
+                  <div class="flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
                     <span class="text-base">📡</span>
                   </div>
                   <div class="text-sm font-semibold text-gray-200">
@@ -219,7 +219,7 @@ const pageSchema = generatePodcastPageSchema();
       {/* Language Restriction Notice */}
       {
         showEnglishOnlyNotice && (
-          <div class="w-full bg-gradient-to-r from-blue-50 to-indigo-100 border border-blue-200 rounded-xl p-4 mb-8">
+          <div class="mb-8 w-full rounded-xl border border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-100 p-4">
             <div class="flex items-center justify-center gap-3 text-blue-800">
               <div class="text-blue-500">ℹ️</div>
               <div class="text-center">
@@ -235,8 +235,8 @@ const pageSchema = generatePodcastPageSchema();
       <section>
         {
           episodes.length === 0 ? (
-            <div class="text-center p-16 bg-gray-800 rounded-2xl border-2 border-dashed border-gray-600 text-gray-400">
-              <div class="text-4xl mb-4">🎙️</div>
+            <div class="rounded-2xl border-2 border-dashed border-gray-600 bg-gray-800 p-16 text-center text-gray-400">
+              <div class="mb-4 text-4xl">🎙️</div>
               <Headline level="h2" textSize="2xl" className="mb-4 text-gray-300">
                 {t("podcasts.empty.title")}
               </Headline>
@@ -249,8 +249,8 @@ const pageSchema = generatePodcastPageSchema();
               {episodes
                 .filter((episode: PodcastData) => episode.isAvailable)
                 .map((episode: PodcastData) => (
-                  <article class="bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                    <div class="flex gap-6 mb-6 md:flex-row flex-col md:text-left text-center">
+                  <article class="rounded-2xl border border-gray-700 bg-gray-800 p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                    <div class="mb-6 flex flex-col gap-6 text-center md:flex-row md:text-left">
                       <div class="flex-shrink-0">
                         <img
                           src={episode.imageUrl}
@@ -258,7 +258,7 @@ const pageSchema = generatePodcastPageSchema();
                           loading="lazy"
                           width="120"
                           height="120"
-                          class="w-30 h-30 rounded-xl shadow-md"
+                          class="h-30 w-30 rounded-xl shadow-md"
                         />
                       </div>
                       <div class="flex-1">
@@ -268,30 +268,30 @@ const pageSchema = generatePodcastPageSchema();
                         <Paragraph textSize="base" className="text-gray-300 mb-4">
                           {episode.description}
                         </Paragraph>
-                        <div class="flex gap-4 items-center md:justify-start justify-center flex-wrap">
-                          <time class="text-gray-400 text-sm" datetime={episode.publishedAt}>
+                        <div class="flex flex-wrap items-center justify-center gap-4 md:justify-start">
+                          <time class="text-sm text-gray-400" datetime={episode.publishedAt}>
                             {new Date(episode.publishedAt).toLocaleDateString("en-US", {
                               year: "numeric",
                               month: "long",
                               day: "numeric",
                             })}
                           </time>
-                          <span class="text-gray-400 text-sm">🎙️ Episode</span>
+                          <span class="text-sm text-gray-400">🎙️ Episode</span>
                         </div>
                       </div>
                     </div>
 
-                    <div class="flex gap-4 md:justify-start justify-center flex-wrap">
+                    <div class="flex flex-wrap justify-center gap-4 md:justify-start">
                       <a
                         href={`/${lang}/podcasts/${episode.id}`}
-                        class="inline-flex items-center gap-2 px-4 py-3 bg-purple-600 text-white rounded-xl font-semibold text-sm hover:bg-purple-700 transition-colors duration-300"
+                        class="inline-flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-purple-700"
                       >
                         📖 Read Full Episode Notes
                       </a>
                       {episode.audioUrl && (
                         <a
                           href={episode.audioUrl}
-                          class="inline-flex items-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-xl font-semibold text-sm hover:bg-blue-700 transition-colors duration-300"
+                          class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-blue-700"
                           target="_blank"
                           rel="noopener noreferrer"
                         >

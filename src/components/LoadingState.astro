@@ -40,14 +40,14 @@ const {
 {
   visible && (
     <div
-      class={`flex flex-col items-center justify-center gap-4 p-6 font-primary min-h-[12rem] sm:gap-3 sm:p-4 md:gap-6 md:p-6 ${className}`}
+      class={`font-primary flex min-h-[12rem] flex-col items-center justify-center gap-4 p-6 sm:gap-3 sm:p-4 md:gap-6 md:p-6 ${className}`}
       role="status"
       aria-live="polite"
       style={`min-height: ${minHeight};`}
     >
       <div
-        class={`rounded-full border-2 border-gray-700 border-t-purple-500 animate-spin ${
-          size === "sm" ? "w-6 h-6" : size === "md" ? "w-8 h-8" : "w-12 h-12"
+        class={`animate-spin rounded-full border-2 border-gray-700 border-t-purple-500 ${
+          size === "sm" ? "h-6 w-6" : size === "md" ? "h-8 w-8" : "h-12 w-12"
         }`}
         aria-label={text}
       />

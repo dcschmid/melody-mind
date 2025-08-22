@@ -2,199 +2,57 @@
 /**
  * EmptyState Component - Responsive & Accessible
  *
- * Displays an empty state message with icon and optional action button.
- * Fully responsive with WCAG AAA compliance and optimized for all screen sizes.
+ * A comprehensive empty state component for displaying when there's no content
+ * to show. Fully responsive with WCAG AAA compliance and optimized for all screen sizes.
  *
  * @component
  * @example
  * ```astro
  * <EmptyState
- *   headline="No games found"
- *   text="Try adjusting your search criteria"
- *   iconName="mdi:gamepad-variant"
- * >
- *   <ButtonLink href="/games" slot="action">
- *     Browse Games
- *   </ButtonLink>
- * </EmptyState>
+ *   icon="music"
+ *   title="No playlists found"
+ *   description="Create your first playlist to get started"
+ *   action={<Button>Create Playlist</Button>}
+ * />
  * ```
  */
-
 import { Icon } from "astro-icon/components";
-import Headline from "@components/Headline.astro";
-import Paragraph from "@components/Paragraph.astro";
+import Headline from "./Headline.astro";
+import Paragraph from "./Paragraph.astro";
 
-export interface Props {
-  /** The main headline text */
-  headline: string;
-  /** The descriptive text below the headline */
-  text: string;
+export interface EmptyStateProps {
   /** The icon name to display (from astro-icon) */
-  iconName?: string;
-  /** Additional CSS class for styling customization */
+  icon: string;
+  /** The main title text */
+  title: string;
+  /** The description text below the title */
+  description: string;
+  /** Optional action button or content (slotted) */
+  action?: any;
+  /** Optional custom CSS classes */
   className?: string;
-  /** The heading level for the headline (default: h3) */
-  headingLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  /** Maximum width constraint for the content */
-  maxWidth?: string;
-  /** Minimum height for the empty state container */
-  minHeight?: string;
 }
 
-const {
-  headline,
-  text,
-  iconName = "alert-circle",
-  className = "",
-  headingLevel = "h3",
-  maxWidth = "28rem",
-  minHeight = "24rem",
-} = Astro.props;
-
-// Generate unique IDs for accessibility
-const headlineId = `empty-state-${Math.random().toString(36).substr(2, 9)}`;
+const { icon, title, description, className = "" } = Astro.props;
 ---
 
 <div
-  class={`empty-state ${className}`}
-  role="status"
-  aria-live="polite"
-  aria-labelledby={headlineId}
-  style={`--empty-state-max-width: ${maxWidth}; --empty-state-min-height: ${minHeight};`}
+  class={`flex justify-center items-center min-h-96 sm:min-h-80 md:min-h-64 p-8 sm:p-6 md:p-4 grid-col-span-full font-sans ${className}`}
 >
-  <div class="empty-state__content">
-    {iconName && <Icon name={iconName} class="empty-state__icon" aria-hidden="true" />}
-    <Headline
-      title={headline}
-      level={headingLevel}
-      className="empty-state__title"
-      id={headlineId}
+  <div class="text-center max-w-2xl sm:max-w-full sm:px-4 w-full">
+    <Icon
+      name={icon}
+      class="w-16 h-16 sm:w-12 sm:h-12 md:w-10 md:h-10 text-slate-400 mb-6 sm:mb-4 md:mb-3 mx-auto"
+      aria-hidden="true"
     />
-    <Paragraph className="empty-state__text">
-      {text}
+    <Headline
+      level="h2"
+      {title}
+      className="mb-4 sm:mb-3 md:mb-2 text-slate-600 dark:text-slate-300"
+    />
+    <Paragraph className="mb-6 sm:mb-4 md:mb-3 text-slate-500 dark:text-slate-400">
+      {description}
     </Paragraph>
     <slot name="action" />
   </div>
 </div>
-
-<style lang="scss">
-  /* ======================================
-   * EMPTY STATE COMPONENT STYLES
-   * Responsive design with global.css variables
-   * WCAG AAA compliant - Zero hardcoded values
-   * ====================================== */
-
-  .empty-state {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: var(--empty-state-min-height, 24rem);
-    padding: var(--space-xl);
-    grid-column: 1 / -1;
-    font-family: var(--font-family-primary);
-
-    /* Responsive padding adjustments */
-    @media (max-width: 47.9375em) {
-      padding: var(--space-lg);
-      min-height: 20rem;
-    }
-
-    @media (max-width: 39.9375em) {
-      padding: var(--space-md);
-      min-height: 16rem;
-    }
-
-    &__content {
-      text-align: center;
-      max-width: var(--empty-state-max-width, 28rem);
-      width: 100%;
-
-      /* Responsive width adjustments */
-      @media (max-width: 47.9375em) {
-        max-width: 100%;
-        padding: 0 var(--space-md);
-      }
-    }
-
-    &__icon {
-      width: var(--icon-size-xl);
-      height: var(--icon-size-xl);
-      color: var(--text-tertiary);
-      margin-bottom: var(--space-lg);
-
-      /* Responsive icon sizing */
-      @media (max-width: 47.9375em) {
-        width: var(--icon-size-lg);
-        height: var(--icon-size-lg);
-        margin-bottom: var(--space-md);
-      }
-
-      @media (max-width: 39.9375em) {
-        width: var(--icon-size-md);
-        height: var(--icon-size-md);
-        margin-bottom: var(--space-sm);
-      }
-    }
-
-    &__title {
-      margin-bottom: var(--space-md);
-      color: var(--text-secondary);
-
-      /* Responsive title spacing */
-      @media (max-width: 47.9375em) {
-        margin-bottom: var(--space-sm);
-      }
-    }
-
-    &__text {
-      color: var(--text-tertiary);
-      margin-bottom: var(--space-lg);
-
-      /* Responsive text spacing */
-      @media (max-width: 47.9375em) {
-        margin-bottom: var(--space-md);
-      }
-
-      @media (max-width: 39.9375em) {
-        margin-bottom: var(--space-sm);
-      }
-    }
-  }
-
-  /* High contrast mode support */
-  @media (prefers-contrast: high) {
-    .empty-state {
-      &__icon {
-        color: var(--text-secondary);
-      }
-
-      &__title {
-        color: var(--text-primary);
-      }
-    }
-  }
-
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .empty-state {
-      transition: none;
-    }
-  }
-
-  /* Forced colors mode support */
-  @media (forced-colors: active) {
-    .empty-state {
-      &__icon {
-        color: CanvasText;
-      }
-
-      &__title {
-        color: CanvasText;
-      }
-
-      &__text {
-        color: CanvasText;
-      }
-    }
-  }
-</style>

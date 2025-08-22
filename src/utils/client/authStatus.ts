@@ -76,7 +76,7 @@ export function performCompleteLogout(): void {
       method: "POST",
       credentials: "include",
     })
-      .then((response) => {
+      .then(() => {
         // Silent success/failure handling
       })
       .catch(() => {
