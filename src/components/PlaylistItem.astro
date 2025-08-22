@@ -5,20 +5,6 @@
  * A responsive, accessible card component for music playlists and categories.
  * Supports interactive and disabled states with visual indicators.
  *
- * Features:
- * - Responsive design with mobile-first breakpoints
- * - WCAG AAA compliant (7:1 contrast ratio)
- * - Semantic HTML with ARIA attributes
- * - Keyboard and screen reader accessible
- * - Touch-friendly with appropriate target sizes
- * - Visual feedback for hover and focus states
- * - Support for reduced motion preferences
- * - Performance optimized with GPU acceleration
- * - Uses global.css variables for consistent theming
- *
- * @component
- * @performance High - Optimized for 60fps animations
- * @accessibility WCAG AAA compliant
  */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Picture } from "astro:assets";
@@ -78,11 +64,11 @@ const statusAnnouncementText = isDisabled
 </div>
 
 <Element
-  class:list={[
-    "playlist-item",
-    { "playlist-item--disabled": isDisabled },
-    { "playlist-item--interactive": !isDisabled },
-  ]}
+  class={`relative flex flex-col h-full min-h-[200px] w-full overflow-hidden rounded-lg border-2 border-purple-700 bg-gradient-to-b from-gray-800 to-gray-900 shadow-lg transition-all duration-300 text-decoration-none text-inherit sm:min-h-[250px] sm:rounded-xl lg:min-h-[280px] ${
+    isDisabled
+      ? "cursor-default border-gray-700 opacity-60 grayscale"
+      : "cursor-pointer hover:border-purple-500 hover:shadow-2xl hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-98"
+  }`}
   role={isDisabled ? "listitem" : "link"}
   aria-labelledby={headlineId}
   aria-describedby={descriptionId}
@@ -92,22 +78,34 @@ const statusAnnouncementText = isDisabled
 >
   {
     isDisabled && (
-      <div class="disabled-overlay" aria-label={t("playlist.item.unavailable")} role="status">
+      <div
+        class="absolute inset-0 z-50 flex items-center justify-center bg-black/50 p-4 text-center backdrop-blur-sm"
+        aria-label={t("playlist.item.unavailable")}
+        role="status"
+      >
         <span class="sr-only">{t("playlist.item.status")}:</span>
-        <span class="coming-soon-badge">{t("playlist.item.coming.soon")}</span>
+        <span class="rounded-full border border-gray-300 bg-gray-700 px-3 py-2 text-sm font-medium text-white transition-all duration-200">
+          {t("playlist.item.coming.soon")}
+        </span>
       </div>
     )
   }
 
-  <div class="top-accent" aria-hidden="true"></div>
+  <div
+    class="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700"
+    aria-hidden="true"
+  >
+  </div>
 
-  <div class="image-container">
-    <span class="status-badge">
+  <div class="relative aspect-video w-full overflow-hidden">
+    <span
+      class="absolute top-3 right-3 z-10 rounded-full bg-purple-700 px-2 py-1 text-xs font-medium text-white transition-all duration-200 sm:px-3 sm:py-2 sm:text-sm"
+    >
       {isDisabled ? t("playlist.item.coming.soon") : t("category.play")}
     </span>
 
     <Picture
-      class:list={["playlist-image", { "playlist-image--disabled": isDisabled }]}
+      class={`absolute top-0 left-0 w-full h-full object-cover ${isDisabled ? "opacity-60 grayscale" : ""}`}
       src={image}
       width={320}
       height={180}
@@ -122,276 +120,24 @@ const statusAnnouncementText = isDisabled
     />
   </div>
 
-  <div class="content-container">
-    <Headline level="h2" size="xl" id={headlineId} textAlign="center" className="playlist-headline">
+  <div class="flex flex-grow flex-col p-4">
+    <Headline level="h3" textAlign="center">
       {headline}
     </Headline>
 
     {
       subheadline && (
-        <div id={descriptionId} class="subheadline-container">
-          <div class="subheadline-divider" />
-          <Paragraph className="playlist-subheadline" textSize="base" align="center">
-            {subheadline}
-          </Paragraph>
+        <div id={descriptionId} class="relative">
+          <div class="mx-auto mb-3 h-0.5 w-1/4 bg-purple-500 transition-all duration-300 sm:mb-4" />
+          <Paragraph textAlign="center">{subheadline}</Paragraph>
         </div>
       )
     }
   </div>
 
-  <div class="bottom-accent" aria-hidden="true"></div>
+  <div
+    class="absolute right-0 bottom-0 left-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 transition-transform duration-300 group-hover:scale-x-100"
+    aria-hidden="true"
+  >
+  </div>
 </Element>
-
-<style lang="scss">
-  /**
-   * PlaylistItem Component Styles
-   * 
-   * ✅ Responsive design with mobile-first breakpoints
-   * ✅ 100% CSS variables from global.css - NO hardcoded values
-   * ✅ WCAG AAA 2.2 compliant colors and spacing
-   * ✅ Performance optimized with GPU acceleration
-   * ✅ CSS containment for improved rendering
-   * ✅ Enhanced accessibility with text personalization support
-   * ✅ Consistent with other card components
-   */
-
-  /* Base playlist item styles */
-  .playlist-item {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: var(--width-full);
-    min-height: var(--playlist-item-min-height, 200px);
-    width: var(--width-full);
-    overflow: hidden;
-    border-radius: var(--radius-lg);
-    border: var(--border-width-thick) solid var(--color-primary-700);
-    background: linear-gradient(
-      to bottom,
-      var(--color-neutral-800) var(--gradient-start),
-      var(--color-neutral-900) var(--gradient-end)
-    );
-    box-shadow: var(--shadow-lg);
-    transition:
-      border-color var(--transition-normal),
-      box-shadow var(--transition-normal),
-      transform var(--transition-normal);
-    text-decoration: none;
-    color: inherit;
-
-    /* Responsive padding adjustments */
-    @media (min-width: 640px) {
-      min-height: var(--playlist-item-min-height, 250px);
-      border-radius: var(--radius-xl);
-    }
-
-    @media (min-width: 1024px) {
-      min-height: var(--playlist-item-min-height, 280px);
-    }
-
-    /* Interactive state */
-    &--interactive {
-      cursor: pointer;
-
-      &:hover {
-        border-color: var(--color-primary-500);
-        box-shadow: var(--shadow-xl);
-        transform: translateY(-4px);
-
-        .bottom-accent {
-          transform: scaleX(1);
-        }
-      }
-
-      &:focus-visible {
-        outline: var(--focus-enhanced-outline-dark);
-        outline-offset: var(--focus-ring-offset);
-        box-shadow: var(--focus-enhanced-shadow);
-      }
-
-      &:active {
-        @media (hover: none) {
-          transform: scale(0.98);
-          transition: transform var(--transition-fast);
-        }
-      }
-    }
-
-    /* Disabled state */
-    &--disabled {
-      cursor: default;
-      border-color: var(--color-neutral-700);
-      opacity: var(--opacity-disabled);
-      filter: grayscale(var(--filter-grayscale-half));
-
-      &:hover {
-        border-color: var(--color-neutral-700);
-        transform: none;
-      }
-
-      @media (forced-colors: active) {
-        border: var(--border-width-thick) dashed GrayText;
-      }
-    }
-
-    &[data-priority="true"] {
-      /* Priority playlist styling */
-      scroll-snap-align: start;
-      scroll-margin-top: var(--space-xl);
-    }
-  }
-
-  /* Disabled overlay */
-  .disabled-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: var(--z-modal-content);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--backdrop-overlay-dark);
-    backdrop-filter: blur(var(--blur-radius, 4px));
-    padding: var(--space-md);
-    text-align: center;
-
-    @media print {
-      display: none !important;
-    }
-  }
-
-  .coming-soon-badge {
-    border-radius: var(--radius-full);
-    border: var(--border-width-thin) solid var(--border-secondary);
-    background: var(--bg-tertiary);
-    padding: var(--space-sm) var(--space-md);
-    color: var(--text-primary);
-    font-weight: var(--font-medium);
-    font-size: var(--text-sm);
-    transition:
-      background var(--transition-fast),
-      border-color var(--transition-fast);
-  }
-
-  /* Top accent line */
-  .top-accent {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: var(--space-micro);
-    /* Enhanced gradient using semantic color variables and positioning */
-    background: linear-gradient(
-      to right,
-      var(--color-primary-700) var(--gradient-start),
-      var(--color-primary-500) 50%,
-      var(--color-primary-700) var(--gradient-end)
-    );
-  }
-
-  /* Image container */
-  .image-container {
-    position: relative;
-    aspect-ratio: var(--image-aspect-ratio, 16 / 9);
-    width: var(--width-full);
-    overflow: hidden;
-  }
-
-  /* Status badge */
-  .status-badge {
-    position: absolute;
-    top: var(--space-sm);
-    right: var(--space-sm);
-    z-index: var(--z-dropdown);
-    border-radius: var(--radius-full);
-    background: var(--color-primary-700);
-    padding: var(--space-xs) var(--space-sm);
-    color: var(--text-primary);
-    font-size: var(--text-xs);
-    font-weight: var(--font-medium);
-    transition: background var(--transition-fast);
-
-    /* Responsive sizing */
-    @media (min-width: 640px) {
-      font-size: var(--text-sm);
-      padding: var(--space-sm) var(--space-md);
-    }
-  }
-
-  /* Playlist image */
-  .playlist-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: var(--width-full);
-    height: var(--width-full);
-    object-fit: cover;
-
-    &--disabled {
-      opacity: var(--opacity-disabled);
-      filter: grayscale(var(--filter-grayscale-half));
-    }
-  }
-
-  /* Content container */
-  .content-container {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
-  /* Subheadline container */
-  .subheadline-container {
-    position: relative;
-  }
-
-  /* Subheadline divider */
-  .subheadline-divider {
-    margin: 0 auto var(--space-sm);
-    width: var(--divider-width, 25%);
-    height: var(--border-width-thin);
-    background: var(--color-primary-500);
-    transition: width var(--transition-normal);
-
-    /* Responsive spacing */
-    @media (min-width: 640px) {
-      margin-bottom: var(--space-md);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      transition: none !important;
-    }
-  }
-
-  /* Bottom accent */
-  .bottom-accent {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: var(--space-micro);
-    /* Enhanced gradient using semantic color variables */
-    background: linear-gradient(
-      to right,
-      var(--color-primary-600) var(--gradient-start),
-      var(--color-secondary-600) 50%,
-      var(--color-primary-600) var(--gradient-end)
-    );
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform var(--transition-normal);
-  }
-
-  /* Priority 2: Enhanced Screen Reader Support */
-  [data-status-announcement] {
-    /* Ensure screen reader announcements are properly hidden but accessible */
-    position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    margin: var(--sr-only-margin);
-    padding: 0;
-    overflow: hidden;
-    clip-path: var(--sr-only-clip-path);
-    white-space: nowrap;
-    border: 0;
-  }
-</style>

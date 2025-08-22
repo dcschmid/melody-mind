@@ -98,9 +98,9 @@ export async function get({ params }) {
         priority: "0.7",
       });
     });
-  } catch (error) {
+  } catch {
     // Collection might not exist for this language
-    console.warn(`No knowledge collection found for language: ${lang}`);
+    // Silently continue if collection doesn't exist
   }
 
   // Generate sitemap XML

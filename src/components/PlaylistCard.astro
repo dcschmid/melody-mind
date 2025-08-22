@@ -72,7 +72,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
 ---
 
 <article
-  class="playlist-card"
+  class="relative isolate flex h-full w-full max-w-full flex-col overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 shadow-lg transition-all duration-300 focus-within:ring-2 focus-within:ring-purple-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-900 focus-within:outline-none hover:-translate-y-1 hover:shadow-xl"
   itemscope
   itemtype="https://schema.org/MusicPlaylist"
   aria-labelledby={`playlist-title-${index}`}
@@ -81,15 +81,20 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
   data-genre={decade}
   data-content-type="playlist"
   data-index={index}
-  style={`scroll-margin-top: var(--space-lg, 1rem);`}
 >
-  <div class="playlist-card__border" aria-hidden="true"></div>
+  <!-- Decade indicator bar -->
+  <div
+    class="mb-3 h-1 w-16 rounded-full bg-gradient-to-r from-purple-400 to-blue-400"
+    aria-hidden="true"
+  >
+  </div>
 
-  <div class="playlist-card__image-container">
+  <!-- Image container -->
+  <div class="relative aspect-video overflow-hidden rounded-t-2xl">
     <Picture
       src={imageUrl || "/default-cover.jpg"}
       alt={t("playlist.image.alt", { headline, introSubline, decade })}
-      class="playlist-card__image"
+      class="h-full w-full object-cover"
       loading={loadingStrategy}
       widths={[400, 600, 800, 1200]}
       sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1200px"
@@ -102,7 +107,6 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
       decoding="async"
       aria-describedby={`playlist-detailed-desc-${index}`}
     />
-    <div class="playlist-card__image-overlay" aria-hidden="true"></div>
 
     {/* Enhanced image description for WCAG 2.2 AAA */}
     <div id={`playlist-detailed-desc-${index}`} class="sr-only">
@@ -110,18 +114,17 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
     </div>
   </div>
 
-  <div class="playlist-card__content">
+  <!-- Content area -->
+  <div class="flex flex-1 flex-col gap-4 bg-gradient-to-b from-gray-800 to-gray-900 p-6">
     <div itemprop="name">
-      <Headline
-        title={headline}
-        level="h2"
-        id={`playlist-title-${index}`}
-        size="2xl"
-        variant="default"
-      />
+      <Headline level="h2" textSize="xl" variant="default">
+        {headline}
+      </Headline>
     </div>
     <div itemprop="description">
-      <Paragraph description={introSubline} id={`playlist-desc-${index}`} textSize="xl" />
+      <Paragraph textSize="xl">
+        {introSubline}
+      </Paragraph>
     </div>
 
     {
@@ -144,7 +147,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
   </div>
 
   {/* Public playlist information for authentication-free access */}
-  <div class="playlist-card__public-info sr-only" aria-label={t("playlist.accessibility.info")}>
+  <div class="sr-only" aria-label={t("playlist.accessibility.info")}>
     {t("playlist.accessibility.public")}
   </div>
 
@@ -160,320 +163,19 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
   }
 </article>
 
-<!-- Modern ES6+ script with arrow functions and modern features -->
+<!-- Simple script for image fallback -->
 <script>
-  document.addEventListener("DOMContentLoaded", (): void => {
-    const playlistCards = document.querySelectorAll<HTMLElement>(".playlist-card");
+  document.addEventListener("DOMContentLoaded", () => {
+    const playlistCards = document.querySelectorAll(".playlist-card");
 
-    playlistCards.forEach((card: HTMLElement) => {
-      const image = card.querySelector<HTMLImageElement>(".playlist-card__image");
+    playlistCards.forEach((card) => {
+      const image = card.querySelector("img");
 
       if (image) {
-        image.addEventListener("error", (): void => {
+        image.addEventListener("error", () => {
           image.src = "/default-cover.jpg";
-          console.warn("Playlist image failed to load, using fallback");
         });
       }
     });
   });
 </script>
-
-<style lang="scss">
-  /* ======================================
-   * PLAYLIST CARD COMPONENT STYLES
-   * Responsive design with global.css variables
-   * WCAG AAA compliant - Zero hardcoded values
-   * ====================================== */
-
-  .playlist-card {
-    position: relative;
-    isolation: isolate;
-    display: flex;
-    height: 100%;
-    width: 100%;
-    max-width: 100%;
-    flex-direction: column;
-    overflow: hidden;
-    border-radius: var(--radius-xl);
-    border: var(--border-width-thin) solid var(--border-primary);
-    background-color: var(--card-bg);
-    box-shadow: var(--card-shadow);
-    transition:
-      transform var(--transition-normal),
-      box-shadow var(--transition-normal);
-    box-sizing: border-box;
-    scroll-margin-top: var(--space-lg);
-    scroll-margin-bottom: var(--space-lg);
-    font-family: var(--font-family-primary);
-
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--card-shadow-hover);
-    }
-
-    &:focus-within {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-      box-shadow: var(--focus-ring), var(--card-shadow-hover);
-    }
-
-    &:focus {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-      box-shadow: var(--focus-ring), var(--card-shadow-hover);
-      transform: translateY(-4px);
-    }
-
-    // Card border accent using semantic primary colors
-    &__border {
-      height: var(--space-xs);
-      background: linear-gradient(to right, var(--interactive-primary), var(--color-secondary-500));
-    }
-
-    // Image container with optimized aspect ratio
-    &__image-container {
-      position: relative;
-      aspect-ratio: 16/9;
-      overflow: hidden;
-      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    }
-
-    &__image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      image-rendering: high-quality;
-      color-rendering: optimizeQuality;
-    }
-
-    // Image overlay using semantic background variables
-    &__image-overlay {
-      position: absolute;
-      inset: 0;
-    }
-
-    // Content area with enhanced spacing
-    &__content {
-      padding: var(--space-lg);
-      background: linear-gradient(
-        to bottom,
-        var(--bg-secondary),
-        color-mix(in srgb, var(--bg-secondary) 95%, var(--bg-primary))
-      );
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-      flex-grow: 1;
-
-      // Responsive padding adjustments
-      @media (max-width: 47.9375em) {
-        padding: var(--space-md);
-        gap: var(--space-sm);
-      }
-
-      @media (max-width: 39.9375em) {
-        padding: var(--space-sm);
-        gap: var(--space-xs);
-      }
-    }
-
-    // Decade indicator using primary color gradients
-    &__decade {
-      height: var(--space-xs);
-      width: var(--touch-target-enhanced);
-      border-radius: var(--radius-full);
-      background: linear-gradient(to right, var(--color-primary-400), var(--color-secondary-400));
-      margin-bottom: var(--space-sm);
-
-      // Responsive sizing
-      @media (max-width: 47.9375em) {
-        width: var(--space-xl);
-        margin-bottom: var(--space-xs);
-      }
-
-      @media (max-width: 39.9375em) {
-        width: var(--space-lg);
-        margin-bottom: var(--space-xs);
-      }
-    }
-
-    // Data attribute selectors for enhanced functionality
-    &[data-index="0"],
-    &[data-index="1"] {
-      scroll-snap-align: start;
-      scroll-margin-top: var(--space-xl);
-    }
-
-    // Responsive border radius adjustments
-    @media (max-width: 47.9375em) {
-      border-radius: var(--radius-lg);
-    }
-
-    @media (max-width: 39.9375em) {
-      border-radius: var(--radius-md);
-    }
-  }
-
-  /* ======================================
-   * RESPONSIVE DESIGN - Enhanced Mobile-First Approach
-   * ====================================== */
-
-  // Mobile First - Base Styles
-  .playlist-card {
-    &__content {
-      padding: var(--space-md);
-      gap: var(--space-sm);
-    }
-
-    &__decade {
-      width: var(--space-xl);
-      margin-bottom: var(--space-xs);
-    }
-  }
-
-  // Small Mobile (480px+)
-  @media (min-width: 48em) {
-    .playlist-card {
-      &__content {
-        padding: var(--space-lg);
-        gap: var(--space-md);
-      }
-
-      &__decade {
-        width: var(--space-2xl);
-        margin-bottom: var(--space-sm);
-      }
-    }
-  }
-
-  // Desktop (1024px+)
-  @media (min-width: 64em) {
-    .playlist-card {
-      &__content {
-        padding: var(--space-xl) var(--space-2xl);
-      }
-    }
-  }
-
-  // Large Desktop (1280px+)
-  @media (min-width: 80em) {
-    .playlist-card {
-      &__content {
-        padding: var(--space-2xl);
-      }
-    }
-  }
-
-  // Enhanced aspect ratio support
-  @supports (aspect-ratio: 16/9) {
-    .playlist-card__image-container {
-      aspect-ratio: 16/9;
-    }
-  }
-
-  // Fallback for older browsers
-  @supports not (aspect-ratio: 16/9) {
-    .playlist-card__image-container {
-      position: relative;
-      width: 100%;
-      height: 0;
-      padding-bottom: 56.25%; // 16:9 aspect ratio
-    }
-
-    .playlist-card__image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  /* ======================================
-   * ACCESSIBILITY ENHANCEMENTS
-   * ====================================== */
-
-  // Reduced Motion Support
-  @media (prefers-reduced-motion: reduce) {
-    .playlist-card {
-      transition: none;
-
-      &:hover {
-        transform: none;
-      }
-    }
-  }
-
-  // High Contrast Mode
-  @media (prefers-contrast: high) {
-    .playlist-card {
-      border-color: var(--text-primary);
-      border-width: var(--border-width-thick);
-    }
-  }
-
-  // Forced Colors Mode (Windows High Contrast)
-  @media (forced-colors: active) {
-    .playlist-card {
-      border-color: ButtonBorder;
-      background-color: ButtonFace;
-    }
-  }
-
-  // Touch Device Optimizations
-  @media (hover: none) and (pointer: coarse) {
-    .playlist-card {
-      // Ensure adequate touch targets
-      min-height: var(--touch-target-enhanced);
-
-      // Larger content areas for better touch interaction
-      &__content {
-        padding: var(--space-lg) var(--space-md);
-        min-height: var(--touch-target-enhanced);
-      }
-
-      // Remove hover effects and add touch feedback
-      &:hover {
-        transform: none;
-        box-shadow: var(--card-shadow);
-      }
-
-      &:active {
-        transform: scale(0.98);
-        transition: transform 0.1s ease-out;
-      }
-    }
-  }
-
-  // Desktop Hover Effects
-  @media (hover: hover) and (pointer: fine) {
-    .playlist-card {
-      &:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--card-shadow-hover);
-      }
-    }
-  }
-
-  // Print Styles
-  @media print {
-    .playlist-card {
-      border: var(--border-width-thin) solid var(--print-border, #000);
-      box-shadow: none;
-      background: var(--print-bg, #fff);
-    }
-  }
-
-  // Screen reader only content
-  .sr-only {
-    position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    padding: 0;
-    margin: var(--sr-only-margin);
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-</style>

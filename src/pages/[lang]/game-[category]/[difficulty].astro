@@ -163,30 +163,50 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   />
 
   <!-- Improved game header section with better visual distinction -->
-  <div class="game-header">
+  <div class="relative z-[var(--z-sticky)] mb-6 md:mb-8 lg:mb-12">
     <!-- Game info badges -->
-    <div class="game-header__badges" aria-live="polite">
-      <div class="game-badge">
+    <div class="mt-4 flex flex-wrap items-center justify-center gap-3" aria-live="polite">
+      <div
+        class="shadow-inset-white/10 relative inline-flex min-h-[var(--touch-target-enhanced)] cursor-default items-center overflow-hidden rounded-[var(--radius-xl)] border border-white/20 bg-gradient-to-br from-purple-600 to-purple-700 p-3 shadow-[var(--shadow-lg)] shadow-[var(--shadow-sm)] transition-all duration-200"
+      >
         <Icon
           name="difficulty"
-          class="game-badge__icon game-badge__icon--difficulty"
+          class="relative z-10 mr-3 h-4 w-4 flex-shrink-0 text-amber-400 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] transition-all duration-200"
           aria-hidden="true"
         />
-        <span class="game-badge__text">
+        <span
+          class="relative z-10 text-sm font-bold tracking-[0.02em] text-[var(--text-primary)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] transition-all duration-200"
+        >
           {t(`difficulty.${String(difficulty)}`)}
         </span>
       </div>
 
-      <div class="game-badge">
-        <Icon name="round" class="game-badge__icon game-badge__icon--rounds" aria-hidden="true" />
-        <span class="game-badge__text">
+      <div
+        class="shadow-inset-white/10 relative inline-flex min-h-[var(--touch-target-enhanced)] cursor-default items-center overflow-hidden rounded-[var(--radius-xl)] border border-white/20 bg-gradient-to-br from-blue-600 to-blue-700 p-3 shadow-[var(--shadow-lg)] shadow-[var(--shadow-sm)] transition-all duration-200"
+      >
+        <Icon
+          name="round"
+          class="relative z-10 mr-3 h-4 w-4 flex-shrink-0 text-blue-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] transition-all duration-200"
+          aria-hidden="true"
+        />
+        <span
+          class="relative z-10 text-sm font-bold tracking-[0.02em] text-[var(--text-primary)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] transition-all duration-200"
+        >
           <span id="round-display" class="round">1/{totalRounds}</span>
         </span>
       </div>
 
-      <div class="game-badge">
-        <Icon name="coins" class="game-badge__icon game-badge__icon--coins" aria-hidden="true" />
-        <span class="game-badge__text">
+      <div
+        class="shadow-inset-white/10 relative inline-flex min-h-[var(--touch-target-enhanced)] cursor-default items-center overflow-hidden rounded-[var(--radius-xl)] border border-white/20 bg-gradient-to-br from-amber-600 to-amber-700 p-3 shadow-[var(--shadow-lg)] shadow-[var(--shadow-sm)] transition-all duration-200"
+      >
+        <Icon
+          name="coins"
+          class="relative z-10 mr-3 h-4 w-4 flex-shrink-0 text-amber-400 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] transition-all duration-200"
+          aria-hidden="true"
+        />
+        <span
+          class="relative z-10 text-sm font-bold tracking-[0.02em] text-[var(--text-primary)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] transition-all duration-200"
+        >
           <span id="coins-display" class="coinsCount">0</span>
         </span>
       </div>
@@ -201,7 +221,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   <!-- Main game container with improved styling and accessibility -->
   <div
     id="question-container"
-    class="game-container"
+    class="relative mx-auto w-full max-w-[var(--container-lg)] overflow-hidden rounded-[var(--radius-lg)] text-center opacity-[var(--animation-opacity-full)] transition-all duration-200"
     role="main"
     aria-label={t("game.area.label")}
     aria-live="polite"
@@ -210,11 +230,17 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     data-userID={user.id}
     data-difficulty={String(difficulty)}
   >
-    <div id="question" class="game-container__question" role="heading" aria-level="2"></div>
+    <div
+      id="question"
+      class="relative z-10 mb-6 rounded-[var(--radius-lg)] border border-[var(--border-secondary)] bg-[var(--bg-tertiary)] p-6 text-center text-lg leading-[var(--leading-enhanced)] font-bold text-[var(--text-primary)]"
+      role="heading"
+      aria-level="2"
+    >
+    </div>
 
     <div
       id="options"
-      class="game-container__options"
+      class="relative z-10 flex flex-col gap-4"
       role="radiogroup"
       aria-label={t("game.options.label")}
     >
@@ -223,7 +249,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   </div>
 
   <!-- Joker and game controls with improved accessibility -->
-  <div class="game-controls">
+  <div class="relative z-20 mt-6 flex justify-center">
     <Joker />
   </div>
 
@@ -367,333 +393,3 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     });
   };
 </script>
-
-<style lang="scss" is:global>
-  /* ======================================
-   * Global Game Styles - Cross-component functionality
-   * ====================================== */
-
-  /* Overlay states - used by multiple components */
-  .overlay,
-  .popup {
-    &.hidden {
-      display: none;
-    }
-  }
-
-  #question-container {
-    &[data-hidden="true"] {
-      display: none;
-    }
-  }
-
-  /* ======================================
-   * Global Game Animations
-   * ====================================== */
-
-  /* Coin update animation with reduced motion support */
-  .coins-updated {
-    color: var(--color-warning-400);
-
-    @media (prefers-reduced-motion: no-preference) {
-      animation: coinPulseAAA var(--animation-duration-extended) ease-in-out;
-    }
-  }
-
-  @keyframes coinPulseAAA {
-    0% {
-      transform: scale(var(--animation-scale-default));
-      text-shadow: none;
-    }
-    15% {
-      transform: scale(var(--animation-scale-medium));
-    }
-    30% {
-      transform: scale(var(--animation-scale-enhanced));
-      color: var(--color-warning-500);
-      text-shadow: var(--animation-glow-spread) var(--animation-glow-spread)
-        var(--animation-glow-size) var(--color-warning-500);
-    }
-    45% {
-      transform: scale(var(--animation-scale-medium));
-    }
-    100% {
-      transform: scale(var(--animation-scale-default));
-      text-shadow: none;
-    }
-  }
-
-  /* ======================================
-   * Global Game Option Buttons - Used across game pages
-   * ====================================== */
-
-  .game-option-button {
-    position: relative;
-    width: 100%;
-    padding: var(--space-md) var(--space-lg);
-    border-radius: var(--radius-xl);
-    text-align: left;
-    font-size: var(--text-lg);
-    font-weight: var(--font-bold);
-    background: var(--btn-primary-bg);
-    border: var(--border-width-thin) solid var(--border-primary);
-    color: var(--text-primary);
-    transition: all var(--transition-normal);
-    box-shadow: var(--shadow-sm);
-    cursor: pointer;
-    min-height: var(--min-touch-size);
-    display: flex;
-    align-items: center;
-    padding: var(--space-lg) var(--space-lg);
-
-    &:hover {
-      background-color: var(--bg-tertiary);
-      border-color: var(--border-secondary);
-      box-shadow: var(--shadow-md);
-      transform: translateY(-1px);
-    }
-
-    &:focus-visible {
-      outline: 2px solid var(--border-focus);
-      outline-offset: 2px;
-      box-shadow: var(--focus-ring);
-    }
-
-    &:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    &__number {
-      display: none;
-    }
-
-    &__text {
-      flex: 1;
-      text-align: left;
-      margin-left: 0;
-    }
-
-    /* Game state styles */
-    &.selected-option {
-      background-color: var(--interactive-primary);
-      border-color: var(--color-primary-500);
-      color: var(--btn-primary-text);
-
-      .game-option-button__number {
-        background-color: var(--color-primary-600);
-        color: var(--btn-primary-text);
-      }
-    }
-
-    &[data-correct="true"] {
-      background-color: var(--color-success-600);
-      border-color: var(--color-success-500);
-      color: var(--text-primary);
-    }
-
-    &[data-incorrect="true"] {
-      background-color: var(--color-error-600);
-      border-color: var(--color-error-500);
-      color: var(--text-primary);
-    }
-  }
-</style>
-
-<style lang="scss">
-  /**
-   * Component-Specific Game Page Styles
-   * Optimized structure with proper separation of concerns
-   */
-
-  /* ======================================
-   * Game Header - Enhanced visual hierarchy
-   * ====================================== */
-  .game-header {
-    margin-bottom: var(--space-lg);
-    position: relative;
-    z-index: var(--z-sticky);
-    contain: layout;
-
-    @media (min-width: 48em) {
-      margin-bottom: var(--space-xl);
-    }
-
-    @media (min-width: 64em) {
-      margin-bottom: var(--space-2xl);
-    }
-
-    /* Enhanced game info badges container with horizontal mobile layout */
-    &__badges {
-      margin-top: var(--space-md);
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-sm);
-      contain: layout;
-    }
-  }
-
-  /* Enhanced individual game badge with mobile-first responsive design */
-  .game-badge {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    min-height: var(--touch-target-enhanced);
-    border-radius: var(--radius-xl);
-    padding: var(--space-sm) var(--space-sm);
-    transition: all var(--transition-base);
-    cursor: default;
-    overflow: hidden;
-    contain: layout style;
-
-    /* Badge icon styling - Smaller, refined design with proper mobile priority */
-    &__icon {
-      // Default desktop sizing
-      margin-right: var(--space-sm);
-      height: var(--text-base);
-      width: var(--text-base);
-      flex-shrink: 0;
-      transition: all var(--transition-base);
-      z-index: 2;
-      position: relative;
-
-      &--difficulty {
-        color: #fbbf24;
-        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
-        transition: all var(--transition-base);
-      }
-
-      &--rounds {
-        color: #93c5fd;
-        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
-        transition: all var(--transition-base);
-      }
-
-      &--coins {
-        color: #fbbf24;
-        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
-        transition: all var(--transition-base);
-      }
-    }
-
-    /* Badge text styling - Refined typography with proper mobile priority */
-    &__text {
-      // Default desktop sizing
-      font-size: var(--text-sm);
-      font-weight: var(--font-bold);
-      color: var(--text-primary);
-      letter-spacing: 0.02em;
-      z-index: 2;
-      position: relative;
-      transition: all var(--transition-base);
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Difficulty badge - Purple gradient */
-    &:first-child {
-      background: linear-gradient(135deg, #7c3aed, #6d28d9);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow:
-        var(--shadow-lg),
-        var(--shadow-sm),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    }
-
-    /* Rounds badge - Blue gradient */
-    &:nth-child(2) {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow:
-        var(--shadow-lg),
-        var(--shadow-sm),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    }
-
-    /* Coins badge - Gold gradient */
-    &:nth-child(3) {
-      background: linear-gradient(135deg, #ca8a04, #a16207);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow:
-        var(--shadow-lg),
-        var(--shadow-sm),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    }
-  }
-
-  /* ======================================
-   * Game Container - Enhanced responsive design with comprehensive breakpoints
-   * ====================================== */
-  .game-container {
-    margin: 0 auto;
-    width: var(--width-full);
-    max-width: var(--container-lg);
-    border-radius: var(--radius-lg);
-    contain: layout style;
-    text-align: center;
-    opacity: var(--animation-opacity-full);
-    transition: all var(--transition-base);
-    position: relative;
-    overflow: hidden;
-
-    &[data-hidden="true"] {
-      opacity: 0.3;
-      transform: translateY(10px) scale(0.98);
-      transition: all var(--transition-base);
-    }
-
-    /* Question text - Larger, more prominent design with proper mobile hierarchy */
-    &__question {
-      // Default desktop sizing
-      margin-bottom: var(--space-lg);
-      font-size: var(--text-lg);
-      font-weight: var(--font-bold);
-      line-height: var(--leading-enhanced);
-      color: var(--text-primary);
-      position: relative;
-      z-index: 1;
-      padding: var(--space-lg) var(--space-xl);
-      border-radius: var(--radius-lg);
-      background: var(--bg-tertiary);
-      border: 1px solid var(--border-secondary);
-      contain: layout style;
-      text-align: center;
-    }
-
-    /* Options container - Enhanced responsive spacing */
-    &__options {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-      position: relative;
-      z-index: 1;
-      contain: layout;
-    }
-  }
-
-  /* Game controls area - Enhanced responsive positioning */
-  .game-controls {
-    margin-top: var(--space-lg);
-    display: flex;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
-    contain: layout;
-  }
-
-  /* Enhanced focus states with improved accessibility */
-  .game-badge:focus-visible,
-  .game-container:focus-visible {
-    outline: 2px solid var(--border-focus);
-    outline-offset: 2px;
-    box-shadow: var(--focus-ring);
-  }
-
-  .game-container__question:focus-visible {
-    outline: 2px solid var(--border-focus);
-    outline-offset: 2px;
-    box-shadow: var(--focus-ring);
-  }
-</style>

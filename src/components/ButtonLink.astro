@@ -1,9 +1,9 @@
 ---
 /**
- * ButtonLink Component - Responsive & Accessible
+ * ButtonLink Component - Simple & Clean
  *
  * A versatile component that renders either a button or link with consistent styling.
- * Fully responsive with WCAG AAA compliance and optimized for all screen sizes.
+ * Using Tailwind CSS 4 with tailwind-variants for maintainability.
  *
  * @component
  * @example
@@ -22,6 +22,7 @@
  * <ButtonLink href="/settings" icon="mdi:settings" ariaLabel="Open settings" />
  * ```
  */
+import { tv } from "tailwind-variants";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 
@@ -44,11 +45,11 @@ interface Props {
   target?: "_blank" | "_self" | "_parent" | "_top";
   /** Relationship attribute for links */
   rel?: string;
-  /** Visual variant style - all WCAG AAA compliant */
+  /** Visual variant style */
   variant?: "primary" | "secondary" | "outline" | "text";
   /** Size with minimum touch targets for accessibility */
   size?: "sm" | "md" | "lg";
-  /** Inline style attribute for dynamic styling with CSS variables */
+  /** Inline style attribute for dynamic styling */
   style?: string;
   /** Optional icon name for astro-icon (e.g., "mdi:home", "heroicons:star") */
   icon?: string;
@@ -59,7 +60,7 @@ const {
   type = "button",
   disabled = false,
   ariaLabel,
-  className: extraClasses = "",
+  className = "",
   target = "_self",
   rel,
   variant = "primary",
@@ -75,21 +76,84 @@ const finalRel = isExternal ? `noopener noreferrer ${rel || ""}`.trim() : rel;
 // Get translated text for external link indicator
 const externalLinkText = t("nav.openNewWindow");
 
-// Build CSS classes with BEM methodology using modern array methods
-const baseClass = "button-link";
-const variantClass = `${baseClass}--${variant}`;
-const sizeClass = `${baseClass}--${size}`;
-const disabledClass = disabled ? `${baseClass}--disabled` : "";
-const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraClasses]
-  .filter(Boolean)
-  .join(" ");
+// Tailwind Variants configuration for the button component
+const buttonVariants = tv({
+  base: [
+    // Base button styling
+    "inline-flex items-center justify-center rounded-lg border-none font-bold",
+    "text-decoration-none relative min-h-[44px] min-w-[44px] cursor-pointer",
+    "tracking-base font-primary leading-normal transition-all duration-300",
+    // Focus states
+    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500",
+    // Disabled state
+    "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
+    // Mobile responsive
+    "w-full max-w-full sm:w-auto sm:max-w-none",
+  ].join(" "),
+
+  variants: {
+    size: {
+      sm: ["px-3 py-2 text-sm sm:px-4 sm:py-3 sm:text-base", "min-h-[44px] min-w-[44px]"].join(" "),
+      md: ["px-4 py-3 text-base sm:px-6 sm:py-4 sm:text-lg", "min-h-[48px] min-w-[48px]"].join(" "),
+      lg: ["px-6 py-4 text-lg sm:px-8 sm:py-6 sm:text-xl", "min-h-[52px] min-w-[52px]"].join(" "),
+    },
+
+    variant: {
+      primary: [
+        "border border-transparent bg-blue-600 text-white shadow-lg",
+        "hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-xl",
+        "active:scale-95 active:transition-transform active:duration-100",
+        "disabled:hover:translate-y-0 disabled:hover:bg-blue-600 disabled:hover:shadow-lg",
+      ].join(" "),
+      secondary: [
+        "border border-gray-300 bg-gray-200 text-gray-800",
+        "hover:-translate-y-0.5 hover:border-blue-500 hover:bg-gray-300",
+        "active:scale-95 active:transition-transform active:duration-100",
+        "disabled:hover:translate-y-0 disabled:hover:border-gray-300 disabled:hover:bg-gray-200",
+      ].join(" "),
+      outline: [
+        "border-2 border-gray-600 bg-transparent text-gray-900",
+        "hover:-translate-y-0.5 hover:border-blue-500 hover:bg-gray-100 hover:text-blue-600",
+        "active:scale-95 active:transition-transform active:duration-100",
+        "disabled:hover:translate-y-0 disabled:hover:border-gray-600 disabled:hover:bg-transparent disabled:hover:text-gray-900",
+      ].join(" "),
+      text: [
+        "border-none bg-transparent text-blue-600 underline underline-offset-2",
+        "hover:-translate-y-0.5 hover:text-blue-700 hover:underline-offset-4",
+        "active:scale-95 active:transition-transform active:duration-100",
+        "disabled:hover:translate-y-0 disabled:hover:text-blue-600 disabled:hover:underline-offset-2",
+      ].join(" "),
+    },
+  },
+
+  defaultVariants: {
+    size: "md",
+    variant: "primary",
+  },
+});
+
+// Generate classes using tailwind-variants
+const classes = buttonVariants({
+  size,
+  variant,
+  className,
+});
+
+// Icon classes
+const iconClasses = ["size-5 sm:size-6 flex-shrink-0 mr-3", "text-current"].join(" ");
+
+// Screen reader only classes
+const srOnlyClasses = [
+  "absolute w-px h-px p-0 -m-px overflow-hidden",
+  "whitespace-nowrap border-0",
+].join(" ");
 ---
 
 {
   href ? (
     <a
       href={href}
-      class={finalClasses}
+      class={classes}
       aria-label={
         ariaLabel ? `${ariaLabel}${isExternal ? ` (${externalLinkText})` : ""}` : undefined
       }
@@ -98,238 +162,14 @@ const finalClasses = [baseClass, variantClass, sizeClass, disabledClass, extraCl
       style={style}
       {...(disabled ? { "aria-disabled": "true", tabindex: "-1" } : {})}
     >
-      {icon && <Icon name={icon} class="button-link__icon" />}
+      {icon && <Icon name={icon} class={iconClasses} />}
       <slot />
-      {isExternal && <span class="sr-only"> ({externalLinkText})</span>}
+      {isExternal && <span class={srOnlyClasses}> ({externalLinkText})</span>}
     </a>
   ) : (
-    <button
-      type={type}
-      disabled={disabled}
-      class={finalClasses}
-      aria-label={ariaLabel}
-      style={style}
-    >
-      {icon && <Icon name={icon} class="button-link__icon" />}
+    <button type={type} disabled={disabled} class={classes} aria-label={ariaLabel} style={style}>
+      {icon && <Icon name={icon} class={iconClasses} />}
       <slot />
     </button>
   )
 }
-
-<style lang="scss">
-  /* ======================================
-   * BUTTON LINK COMPONENT STYLES
-   * Responsive design with global.css variables
-   * WCAG AAA compliant - Zero hardcoded values
-   * ====================================== */
-
-  .button-link {
-    // Base button styling using global CSS variables
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    border-radius: var(--radius-lg);
-    font-weight: var(--font-bold);
-    text-decoration: none;
-    cursor: pointer;
-    position: relative;
-    min-width: var(--min-touch-size);
-    min-height: var(--min-touch-size);
-    line-height: var(--leading-normal);
-    letter-spacing: var(--letter-spacing-base);
-    font-family: var(--font-family-primary);
-
-    // Smooth transitions
-    transition: all var(--transition-normal);
-
-    // Size variants with responsive adjustments
-    &--sm {
-      padding: var(--space-sm) var(--space-md);
-      font-size: var(--text-sm);
-
-      @media (min-width: 48em) {
-        padding: var(--space-md) var(--space-lg);
-        font-size: var(--text-base);
-      }
-    }
-
-    &--md {
-      padding: var(--space-md) var(--space-lg);
-      font-size: var(--text-base);
-
-      @media (min-width: 48em) {
-        padding: var(--space-lg) var(--space-xl);
-        font-size: var(--text-lg);
-      }
-    }
-
-    &--lg {
-      padding: var(--space-lg) var(--space-xl);
-      font-size: var(--text-lg);
-
-      @media (min-width: 48em) {
-        padding: var(--space-xl) var(--space-2xl);
-        font-size: var(--text-xl);
-      }
-    }
-
-    // Primary variant
-    &--primary {
-      background: var(--btn-primary-bg);
-      color: var(--btn-primary-text);
-      border: var(--border-width-thin) solid transparent;
-      box-shadow: var(--card-shadow);
-
-      &:hover:not([aria-disabled="true"]) {
-        background: var(--btn-primary-hover);
-        box-shadow: var(--card-shadow-hover);
-        transform: translateY(-2px);
-      }
-
-      &:active:not([aria-disabled="true"]) {
-        transform: scale(0.98);
-        transition: all var(--transition-fast);
-      }
-    }
-
-    // Secondary variant
-    &--secondary {
-      background: var(--btn-secondary-bg);
-      color: var(--btn-secondary-text);
-      border: var(--border-width-thin) solid var(--btn-secondary-border);
-
-      &:hover:not([aria-disabled="true"]) {
-        background: var(--btn-secondary-hover);
-        border-color: var(--border-focus);
-        transform: translateY(-2px);
-      }
-
-      &:active:not([aria-disabled="true"]) {
-        transform: scale(0.98);
-        transition: all var(--transition-fast);
-      }
-    }
-
-    // Outline variant
-    &--outline {
-      background: transparent;
-      color: var(--text-primary);
-      border: var(--border-width-thick) solid var(--border-primary);
-
-      &:hover:not([aria-disabled="true"]) {
-        background: var(--bg-tertiary);
-        border-color: var(--border-focus);
-        color: var(--interactive-primary);
-        transform: translateY(-2px);
-      }
-
-      &:active:not([aria-disabled="true"]) {
-        transform: scale(0.98);
-        transition: all var(--transition-fast);
-      }
-    }
-
-    // Text variant
-    &--text {
-      background: transparent;
-      color: var(--interactive-primary);
-      border: none;
-      text-decoration: underline;
-      text-decoration-thickness: var(--text-decoration-thickness);
-      text-underline-offset: var(--text-underline-offset);
-
-      &:hover:not([aria-disabled="true"]) {
-        color: var(--interactive-primary-hover);
-        text-decoration-color: var(--interactive-primary-hover);
-        transform: translateY(-2px);
-      }
-
-      &:active:not([aria-disabled="true"]) {
-        color: var(--interactive-primary-active);
-        transform: scale(0.98);
-        transition: all var(--transition-fast);
-      }
-    }
-
-    // Disabled state
-    &--disabled,
-    &[aria-disabled="true"] {
-      opacity: var(--opacity-disabled);
-      cursor: not-allowed;
-      pointer-events: none;
-      filter: grayscale(var(--filter-grayscale-half));
-    }
-
-    // Icon styling with responsive sizing
-    &__icon {
-      width: var(--icon-size-sm);
-      height: var(--icon-size-sm);
-      flex-shrink: 0;
-      margin-right: var(--space-md);
-
-      @media (min-width: 48em) {
-        width: var(--icon-size-md);
-        height: var(--icon-size-md);
-      }
-    }
-
-    // Enhanced focus state for WCAG AAA
-    &:focus-visible {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-      box-shadow: var(--focus-ring);
-    }
-
-    // High contrast mode support
-    @media (prefers-contrast: high) {
-      border-width: var(--border-width-enhanced);
-
-      &:focus-visible {
-        outline-width: var(--border-width-enhanced);
-      }
-    }
-
-    // Reduced motion support
-    @media (prefers-reduced-motion: reduce) {
-      transition: none;
-
-      &:hover,
-      &:active {
-        transform: none;
-      }
-    }
-
-    // Touch device optimization
-    @media (hover: none) and (pointer: coarse) {
-      &:hover {
-        transform: none;
-      }
-    }
-
-    // Mobile responsive width adjustments
-    @media (max-width: 47.9375em) {
-      width: 100%;
-      max-width: 100%;
-
-      // Allow smaller buttons on very small screens
-      &--sm {
-        min-width: auto;
-        padding: var(--space-xs) var(--space-sm);
-      }
-    }
-  }
-
-  // Screen reader only content
-  .sr-only {
-    position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    padding: 0;
-    margin: var(--sr-only-margin);
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-</style>

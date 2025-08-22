@@ -145,16 +145,16 @@ export interface MusicButtonsProps {
  *
  * @internal
  */
-interface MusicButtonConfig {
-  /** Platform type for icon selection */
-  type: MusicPlatform;
-  /** Platform URL (may be undefined) */
-  url?: string;
-  /** Platform display label */
-  label: string;
-  /** CSS variant class modifier */
-  variant: PlatformVariant;
-}
+// interface MusicButtonConfig {
+//   /** Platform type for icon selection */
+//   type: MusicPlatform;
+//   /** Platform URL (may be undefined) */
+//   url?: string;
+//   /** Platform display label */
+//   label: string;
+//   /** CSS variant class modifier */
+//   variant: PlatformVariant;
+// }
 
 /**
  * Translation keys used by the MusicButtons component
@@ -341,7 +341,7 @@ export interface MusicButtonsVersionInfo {
  * }
  * ```
  */
-export function isCategoryWithPlaylists(obj: any): obj is CategoryWithPlaylists {
+export function isCategoryWithPlaylists(obj: unknown): obj is CategoryWithPlaylists {
   return (
     typeof obj === "object" &&
     obj !== null &&

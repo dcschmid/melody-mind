@@ -17,6 +17,9 @@ import { initKeyboardShortcuts } from "../accessibility/keyboardShortcuts";
 import { startSpeedBonusTimer, clearSpeedBonusTimers } from "../accessibility/timerAnnouncer";
 import { stopAudio } from "../audio/audioControls";
 import { ErrorHandler } from "../error/errorHandler";
+import { getLangFromUrl, useTranslations } from "../i18n";
+// import { QueueManager } from "../queue/queueManager"; // Removed unused import
+
 import { handleEndGame, restartGame } from "./endGameUtils";
 import { getRandomQuestion } from "./getRandomQuestion";
 import type { Album } from "./getRandomQuestion";
@@ -25,11 +28,9 @@ import { JokerManager } from "./jokerManager";
 import { Difficulty } from "./jokerUtils";
 import { loadQuestion } from "./loadQuestionUtils";
 import { initializeMediaElements } from "./mediaUtils";
-import { getLangFromUrl, useTranslations } from "../i18n";
-import { QueueManager } from "../queue/queueManager";
 
 // Dynamically imported to avoid issues with SSR
-let achievementEventSystem: any;
+// let achievementEventSystem: any;
 
 // For achievement tracking
 declare global {
@@ -38,24 +39,24 @@ declare global {
     lastAnswerTime?: number;
     lastAnswerCorrect?: boolean;
     currentEventId?: string;
-    speedBonusTimer?: number;
-    speedBonusThresholds?: {
-      high: number; // Time in ms for high bonus (e.g., 10s)
-      medium: number; // Time in ms for medium bonus (e.g., 15s)
-    };
+    // speedBonusTimer?: number;
+    // speedBonusThresholds?: {
+    //   high: number; // Time in ms for high bonus (e.g., 10s)
+    //   medium: number; // Time in ms for medium bonus (e.g., 15s)
+    // };
   }
 }
 
 // Speed bonus thresholds in milliseconds
-const SPEED_BONUS_HIGH = 10000; // 10 seconds
-const SPEED_BONUS_MEDIUM = 15000; // 15 seconds
+// const SPEED_BONUS_HIGH = 10000; // 10 seconds
+// const SPEED_BONUS_MEDIUM = 15000; // 15 seconds
 
 // TimeoutID for the speed bonus timer
-const speedBonusTimerId: number | null = null;
+// const speedBonusTimerId: number | null = null;
 
 // TimeoutIDs for the speed bonus announcements
-const speedBonusWarningTimerId: number | null = null;
-const speedBonusExpiredTimerId: number | null = null;
+// const speedBonusWarningTimerId: number | null = null;
+// const speedBonusExpiredTimerId: number | null = null;
 
 /**
  * Configuration constants for number of rounds based on difficulty level
@@ -141,8 +142,8 @@ function cacheElements(): GameElements {
  * @param {GameElements} elements - Cached DOM elements required for the game
  */
 const initializeGame = async (elements: GameElements) => {
-  // Start processing any queued operations
-  QueueManager.startProcessing();
+  // Achievement system removed - no longer needed
+  // QueueManager functionality removed - no longer needed
 
   if (!elements.container) {
     console.error("Game container element not found");
@@ -168,6 +169,7 @@ const initializeGame = async (elements: GameElements) => {
 
         // Check if this is a guest user
         if (userData.isGuest || userData.id.startsWith("guest_")) {
+          // Guest user detected - no additional processing needed
         }
       }
     }
@@ -228,7 +230,7 @@ const initializeGame = async (elements: GameElements) => {
       }
 
       albumsData = await response.json();
-    } catch (langError) {
+    } catch {
       // Fallback to German if the specific language file doesn't exist
 
       const fallbackResponse = await fetch(`/json/genres/de/${category}.json`);
@@ -263,7 +265,7 @@ const initializeGame = async (elements: GameElements) => {
     return;
   }
 
-  let currentQuestion: any = null;
+  // let currentQuestion: any = null;
 
   /**
    * Initialize joker system based on the difficulty level
@@ -328,8 +330,8 @@ const initializeGame = async (elements: GameElements) => {
    * @param {object} album - The album associated with the current question
    */
   function handleAnswerWrapper(
-    option: any,
-    correctAnswer: any,
+    option: string,
+    correctAnswer: string,
     currentQuestion: { trivia: string },
     album: { coverSrc: string; artist: string; album: string; year: string }
   ) {
@@ -475,7 +477,7 @@ const initializeGame = async (elements: GameElements) => {
    * @param {object} question - The question object to display
    * @param {object} album - The album associated with the question
    */
-  function loadNewQuestion(question: any, album: any) {
+  function loadNewQuestion(question: Question, album: Album) {
     if (!question || !question.options) {
       console.error(t("error.invalid.question"));
       return;
@@ -532,11 +534,12 @@ const initializeGame = async (elements: GameElements) => {
    * Warn before leaving if there's unsaved data
    * Prevents accidental data loss when navigating away
    */
-  window.addEventListener("beforeunload", (e) => {
-    if (QueueManager.hasUnsavedData()) {
-      e.preventDefault();
-    }
-  });
+  // QueueManager functionality removed - no longer needed
+  // window.addEventListener("beforeunload", (e) => {
+  //   if (QueueManager.hasUnsavedData()) {
+  //     e.preventDefault();
+  //   }
+  // });
 
   /**
    * Clean up resources when the page unloads
@@ -545,7 +548,7 @@ const initializeGame = async (elements: GameElements) => {
   // Clean up resources when the page unloads
   const cleanup = () => {
     stopAudio();
-    QueueManager.stopProcessing();
+    // QueueManager.stopProcessing(); // Removed - no longer needed
     jokerManager.cleanup();
     clearSpeedBonusTimers();
     elements.restartButton?.removeEventListener("click", restartGame);

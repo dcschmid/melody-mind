@@ -56,7 +56,7 @@ export interface Album {
   /** Album title (for accessibility) */
   album?: string;
   /** Any additional properties */
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**
@@ -89,24 +89,24 @@ export function updateMedia(album: Album, elements: MediaElements): void {
  * @param {MediaElements['streamingLinks']} streamingLinks - Collection of streaming link elements
  * @private
  */
-function updateAllStreamingLinks(
-  album: Album,
-  streamingLinks: MediaElements["streamingLinks"]
-): void {
-  // Create a mapping of services to their URLs
-  const linkMap = {
-    [StreamingService.SPOTIFY]: album.spotify_link,
-    [StreamingService.DEEZER]: album.deezer_link,
-    [StreamingService.APPLE]: album.apple_music_link,
-  };
+// function updateAllStreamingLinks(
+//   album: Album,
+//   streamingLinks: MediaElements["streamingLinks"]
+// ): void {
+//   // Create a mapping of services to their URLs
+//   const linkMap = {
+//     [StreamingService.SPOTIFY]: album.spotify_link,
+//   [StreamingService.DEEZER]: album.deezer_link,
+//   [StreamingService.APPLE]: album.apple_music_link,
+// };
 
-  // Update each service link
-  Object.entries(linkMap).forEach(([service, url]) => {
-    updateStreamingLink(streamingLinks[service as StreamingService], url, album);
-  });
-}
+//   // Update each service link
+//   Object.entries(linkMap).forEach(([service, url]) => {
+//     updateStreamingLink(streamingLinks[service as StreamingService], url, album);
+//   });
+// }
 
-/**
+/*
  * Updates a single streaming service button
  *
  * Sets the URL and visibility of a streaming service button element based
@@ -117,7 +117,8 @@ function updateAllStreamingLinks(
  * @param {Album} album - Album data for accessibility information
  * @private
  */
-function updateStreamingLink(linkElement?: HTMLButtonElement, url?: string, album?: Album): void {
+/*
+function _updateStreamingLink(linkElement?: HTMLButtonElement, url?: string, album?: Album): void {
   if (!linkElement) {
     return;
   }
@@ -150,6 +151,7 @@ function updateStreamingLink(linkElement?: HTMLButtonElement, url?: string, albu
     linkElement.onclick = null;
   }
 }
+*/
 
 /**
  * Initializes and collects all media elements from the DOM

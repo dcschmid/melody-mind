@@ -3,7 +3,7 @@
  * MusicButtons Component
  *
  * Displays interactive buttons for different music streaming platforms with WCAG AAA 2.2 compliant styling.
- * Uses CSS variables from global.css for consistency and accessibility. Supports keyboard navigation,
+ * Uses Tailwind CSS for consistency and accessibility. Supports keyboard navigation,
  * screen readers, and multiple languages through the i18n system.
  *
  * @component MusicButtons
@@ -27,40 +27,11 @@
  *   title="Rock Music Playlist"
  * />
  * ```
- *
- * @accessibility
- * - WCAG AAA 2.2 compliant with 7:1 color contrast ratio
- * - Full keyboard navigation support with visible focus indicators
- * - Screen reader optimized with proper ARIA attributes
- * - Supports reduced motion preferences
- * - Touch-friendly targets (minimum 44×44px)
- * - Semantic HTML structure with proper heading hierarchy
- *
- * @i18n
- * - Supports multiple languages through the i18n system
- * - Dynamic aria-labels based on current language
- * - Localized platform descriptions and instructions
- * - Uses translation keys: musicPlatforms.heading, musicPlatforms.listenOn, etc.
- *
- * @performance
- * - Uses CSS containment for optimal rendering performance
- * - Minimal JavaScript footprint with static rendering
- * - Optimized for Core Web Vitals metrics
- * - Efficient icon loading with astro-icon components
  */
 interface Props {
   /**
    * Category object containing optional playlist URLs for different music platforms.
    * Only platforms with valid URLs will be displayed as buttons.
-   *
-   * @example
-   * ```typescript
-   * const category = {
-   *   spotifyPlaylist: "https://open.spotify.com/playlist/37i9dQZF1DX0XUsuxWHRQd",
-   *   deezerPlaylist: "https://www.deezer.com/playlist/123456789",
-   *   appleMusicPlaylist: "https://music.apple.com/playlist/pl.abc123"
-   * };
-   * ```
    */
   category: {
     /** Spotify playlist URL - if provided, Spotify button will be displayed */
@@ -73,9 +44,6 @@ interface Props {
 
   /**
    * Title of the music collection/playlist used for accessibility labels and descriptions.
-   * This title is used in aria-label attributes to provide context for screen readers.
-   *
-   * @example "Pop Music Playlist", "Rock Hits Collection", "Jazz Standards"
    */
   title: string;
 }
@@ -87,11 +55,11 @@ import ButtonLink from "./ButtonLink.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 
-// Get current language and translations using modern ES6+ destructuring
+// Get current language and translations
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(String(lang));
 
-// Define platform buttons with modern ES6+ const assertion and arrow functions
+// Define platform buttons
 const buttons = [
   {
     type: "spotify",
@@ -113,34 +81,42 @@ const buttons = [
   },
 ] as const;
 
-// Filter buttons to only show those with valid URLs using modern ES6+ features
+// Filter buttons to only show those with valid URLs
 const validButtons = buttons.filter(({ url }) => Boolean(url));
 ---
 
-<div class="music-buttons" role="group" aria-labelledby="music-platforms-heading">
-  <Headline level="h3" size="base" id="music-platforms-heading" className="sr-only">
+<div
+  class="flex flex-wrap items-center justify-start gap-3 sm:gap-4 md:gap-6"
+  role="group"
+  aria-labelledby="music-platforms-heading"
+>
+  <Headline level="h3" textSize="base" className="sr-only">
     {title} - {t("musicPlatforms.heading")}
   </Headline>
-  <div class="music-buttons-instructions sr-only" aria-live="polite">
+  <div class="sr-only" aria-live="polite">
     {t("musicPlatforms.keyboardInstructions")}
   </div>
   {
-    validButtons.map(({ type, url, label, variant }) => (
+    validButtons.map(({ type, url, label }) => (
       <ButtonLink
         href={url!}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t("musicPlatforms.listenOn", { title, platform: label })}
-        className={`music-button-${variant} music-platform-link`}
+        className="music-platform-link"
         aria-describedby="external-platform-notice"
         variant="primary"
         size="md"
-        style={`--btn-primary-bg: var(--color-${variant === "spotify" ? "success" : variant === "deezer" ? "primary" : "secondary"}-600); --btn-primary-hover: var(--color-${variant === "spotify" ? "success" : variant === "deezer" ? "primary" : "secondary"}-700);`}
         data-platform={type}
         data-playlist-title={title}
       >
-        <Icon name={type} class="music-button__icon" aria-hidden="true" title={`${label} logo`} />
-        <span class="music-button__label">{label}</span>
+        <Icon
+          name={type}
+          class="mr-2 h-4 w-4 flex-shrink-0 fill-current sm:mr-3 sm:h-5 sm:w-5"
+          aria-hidden="true"
+          title={`${label} logo`}
+        />
+        <span class="text-xs font-medium whitespace-nowrap sm:text-sm">{label}</span>
       </ButtonLink>
     ))
   }
@@ -149,84 +125,14 @@ const validButtons = buttons.filter(({ url }) => Boolean(url));
   </div>
 </div>
 
-<style lang="scss">
-  /* ======================================
-   * MUSIC BUTTONS COMPONENT STYLES
-   * WCAG AAA 2.2 compliant with CSS variables only
-   * ====================================== */
-
-  .music-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-    align-items: center;
-    justify-content: flex-start;
-
-    /* Responsive gap adjustments */
-    @media (min-width: 480px) {
-      gap: var(--space-md);
-    }
-
-    @media (min-width: 768px) {
-      gap: var(--space-lg);
-    }
-  }
-
-  /* Screen Reader Only Content */
-  .sr-only {
-    position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    padding: var(--space-none);
-    margin: var(--sr-only-margin);
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: var(--space-none);
-  }
-
-  /* Instructions for keyboard users (screen reader only) */
-  .music-buttons-instructions {
-    clip-path: var(--sr-only-clip-path);
-  }
-
-  /* Music Button Icon Styling */
-  :global(.music-button__icon) {
-    width: var(--icon-size-sm);
-    height: var(--icon-size-sm);
-    margin-right: var(--space-xs);
-    flex-shrink: 0;
-    fill: currentColor;
-
-    @media (min-width: 480px) {
-      width: var(--icon-size-md);
-      height: var(--icon-size-md);
-      margin-right: var(--space-sm);
-    }
-  }
-
-  /* Music Button Label Styling */
-  :global(.music-button__label) {
-    font-size: var(--text-xs);
-    font-weight: var(--font-medium);
-    white-space: nowrap;
-
-    @media (min-width: 480px) {
-      font-size: var(--text-sm);
-    }
-  }
-</style>
-
 <script>
-  document.addEventListener("DOMContentLoaded", (): void => {
-    const musicLinks = document.querySelectorAll(
-      ".music-platform-link"
-    ) as NodeListOf<HTMLAnchorElement>;
+  document.addEventListener("DOMContentLoaded", () => {
+    const musicLinks = document.querySelectorAll(".music-platform-link");
 
-    musicLinks.forEach((link: HTMLAnchorElement) => {
+    musicLinks.forEach((link) => {
       link.addEventListener("click", () => {
-        const platform = link.dataset.platform;
-        const playlistTitle = link.dataset.playlistTitle;
+        const platform = (link as HTMLElement).dataset.platform;
+        const playlistTitle = (link as HTMLElement).dataset.playlistTitle;
 
         if (
           platform &&

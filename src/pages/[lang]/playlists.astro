@@ -5,9 +5,8 @@ import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import PlaylistCard from "@components/PlaylistCard.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
-import CategoryFilter from "@components/CategoryFilter.astro";
-import { Icon } from "astro-icon/components";
-import { extractKeywords, generateMetaDescription } from "@utils/seo";
+
+// import { extractKeywords, generateMetaDescription } from "@utils/seo"; // Removed unused import
 
 /**
  * Enable static site generation for all supported languages.
@@ -104,8 +103,11 @@ const playlistDecades = [
 const playlistCount = playlists.length;
 const enrichedContent = `${title} ${description} Explore ${playlistCount} carefully curated music playlists spanning decades including ${playlistDecades}. Each playlist features authentic tracks from legendary artists and iconic albums. Perfect for music enthusiasts, trivia players, and anyone looking to discover classic hits from different musical eras.`;
 
-const optimizedDescription = generateMetaDescription(enrichedContent, 158);
-const keywords = extractKeywords(enrichedContent, 12, lang);
+// const optimizedDescription = generateMetaDescription(enrichedContent, 158); // Removed - function no longer exists
+// const keywords = extractKeywords(enrichedContent, 12, lang); // Removed - function no longer exists
+const optimizedDescription =
+  enrichedContent.substring(0, 158) + (enrichedContent.length > 158 ? "..." : "");
+const keywords = "music playlists, music history, classic hits, music discovery, music trivia";
 
 // SEO-optimized URL and canonical setup
 const baseUrl = Astro.site?.toString() || "https://melody-mind.de";
@@ -167,8 +169,12 @@ const breadcrumbSchema = {
 >
   <!-- Enhanced SEO structured data -->
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(playlistCollectionSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(playlistCollectionSchema)}
+    />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="googlebot" content="index, follow" />
     <link rel="canonical" href={currentUrl} />
@@ -198,810 +204,453 @@ const breadcrumbSchema = {
     <meta name="twitter:creator" content="@melodymind" />
   </Fragment>
 
-  <div class="playlist-container">
-    <!-- Breadcrumb Navigation for SEO -->
-    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
-      <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
-        <li
-          class="breadcrumb-item"
-          itemprop="itemListElement"
-          itemscope
-          itemtype="https://schema.org/ListItem"
-        >
-          <a href={`/${lang}/`} itemprop="item" class="breadcrumb-link">
-            <Icon name="home" class="breadcrumb-icon" aria-hidden="true" />
-            <span itemprop="name" class="sr-only">{t("nav.home")}</span>
-          </a>
-          <meta itemprop="position" content="1" />
-        </li>
-        <li
-          class="breadcrumb-item"
-          itemprop="itemListElement"
-          itemscope
-          itemtype="https://schema.org/ListItem"
-          aria-current="page"
-        >
-          <span itemprop="name">{title}</span>
-          <meta itemprop="position" content="2" />
-        </li>
-      </ol>
-    </nav>
-    <!-- Hero section -->
-    <section class="playlist-hero" aria-labelledby="playlist-heading">
-      <div class="playlist-hero__decoration" aria-hidden="true">
-        <div class="playlist-hero__decoration-item playlist-hero__decoration-item--top-right"></div>
-        <div class="playlist-hero__decoration-item playlist-hero__decoration-item--bottom-left">
+  <main class="min-h-screen bg-gray-900 py-8 text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <!-- Hero section -->
+      <section
+        class="relative mb-16 overflow-hidden rounded-3xl border border-purple-500/30 bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 p-8 shadow-2xl sm:p-12 lg:p-16"
+        aria-labelledby="playlist-heading"
+      >
+        <!-- Decorative background elements -->
+        <div class="pointer-events-none absolute inset-0 opacity-10" aria-hidden="true">
+          <div class="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white"></div>
+          <div class="absolute -bottom-8 -left-8 h-24 w-24 rounded-full bg-white"></div>
+          <div class="absolute top-1/2 right-4 h-16 w-16 rounded-full bg-white"></div>
         </div>
-        <div class="playlist-hero__decoration-item playlist-hero__decoration-item--center-right">
+
+        <div class="relative z-10 w-full text-center text-white">
+          <Headline level="h1" textSize="3xl" textAlign="center">
+            {t("playlist.page.heading")}
+          </Headline>
+          <div class="mx-auto my-8 h-1 w-12 rounded-full bg-blue-400"></div>
+          <Paragraph textAlign="center" textSize="lg">
+            {t("playlist.page.description")}
+          </Paragraph>
         </div>
-      </div>
+      </section>
 
-      <div class="playlist-hero__content">
-        <Headline
-          title={t("playlist.page.heading")}
-          level="h1"
-          size="4xl"
-          className="playlist-hero__title"
-        />
-        <div class="playlist-hero__divider" aria-hidden="true"></div>
-        <Paragraph className="playlist-hero__description" align="center">
-          {t("playlist.page.description")}
-        </Paragraph>
-      </div>
-    </section>
+      <!-- Enhanced Search Section - Much Wider & Better Looking -->
+      <section class="mb-16" aria-labelledby="search-heading">
+        <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <!-- Search Heading -->
+          <div class="mb-10 text-center">
+            <Headline level="h2" textSize="2xl" textAlign="center">
+              {t("playlist.search.heading") || "Playlists durchsuchen"}
+            </Headline>
+            <Paragraph textAlign="center" textSize="lg">
+              Finde deine Lieblingsmusik nach Künstler, Stil, Epoche oder Genre
+            </Paragraph>
+          </div>
 
-    <main class="playlist-selection" role="main">
-      <!-- Category Filter Dropdown -->
-      <CategoryFilter
-        categories={[
-          { type: "decade", title: t("game.filter.decades") || "Decades", icon: "📅" },
-          { type: "female", title: t("game.filter.female") || "Female Artists", icon: "👩‍🎤" },
-          {
-            type: "classic-rock",
-            title: t("game.filter.classic-rock") || "Classic Rock & Hard Rock",
-            icon: "🎸",
-          },
-          {
-            type: "metal-classic",
-            title: t("game.filter.metal-classic") || "Metal – Classics",
-            icon: "⚡",
-          },
-          {
-            type: "metal-modern",
-            title: t("game.filter.metal-modern") || "Modern Metal",
-            icon: "🔥",
-          },
-          {
-            type: "metal-avantgarde",
-            title: t("game.filter.metal-avantgarde") || "Avantgarde & Extreme Metal",
-            icon: "🎭",
-          },
-          {
-            type: "mainstream-pop",
-            title: t("game.filter.mainstream-pop") || "Mainstream Pop",
-            icon: "🎤",
-          },
-          {
-            type: "indie-alternative",
-            title: t("game.filter.indie-alternative") || "Indie & Alternative",
-            icon: "🎶",
-          },
-          {
-            type: "global-pop",
-            title: t("game.filter.global-pop") || "Global Pop Scenes",
-            icon: "🌏",
-          },
-          {
-            type: "jazz-soul-funk",
-            title: t("game.filter.jazz-soul-funk") || "Jazz, Soul & Funk",
-            icon: "🎷",
-          },
-          {
-            type: "hip-hop-rap",
-            title: t("game.filter.hip-hop-rap") || "Hip Hop & Rap",
-            icon: "🎤",
-          },
-          {
-            type: "house-techno",
-            title: t("game.filter.house-techno") || "House & Techno",
-            icon: "🎛️",
-          },
-          { type: "club-sounds", title: t("game.filter.club-sounds") || "Club Sounds", icon: "🎚️" },
-          {
-            type: "breaks-experimental",
-            title: t("game.filter.breaks-experimental") || "Breaks & Experimental",
-            icon: "🌀",
-          },
-          { type: "latin-vibes", title: t("game.filter.latin-vibes") || "Latin Vibes", icon: "🎺" },
-          {
-            type: "caribbean-afro",
-            title: t("game.filter.caribbean-afro") || "Caribbean & Afro",
-            icon: "🌴",
-          },
-          {
-            type: "folk-regional",
-            title: t("game.filter.folk-regional") || "Folk & Regional",
-            icon: "🪕",
-          },
-          {
-            type: "classical-orchestral",
-            title: t("game.filter.classical-orchestral") || "Classical & Orchestral",
-            icon: "🎼",
-          },
-          {
-            type: "countries-regional",
-            title: t("game.filter.countries-regional") || "Countries & Regional",
-            icon: "🌍",
-          },
-          {
-            type: "emotional",
-            title: t("game.filter.emotional") || "Emotional Genres",
-            icon: "💫",
-          },
-          { type: "seasonal", title: t("game.filter.seasonal") || "Seasonal Genres", icon: "❄️" },
-          {
-            type: "situational",
-            title: t("game.filter.situational") || "Situational & Activity-Based",
-            icon: "🎉",
-          },
-          { type: "other", title: t("game.filter.other") || "Other Categories", icon: "📚" },
-        ]}
-        selectedValue="all"
-      />
+          <!-- Enhanced Search Field - Much Wider -->
+          <div class="relative mx-auto w-full max-w-5xl">
+            <label for="playlist-search" class="sr-only">
+              {t("playlist.search.aria.label") || "Musik-Playlists durchsuchen"}
+            </label>
+
+            <!-- Search Input with Glassmorphism - Full Width -->
+            <div class="relative">
+              <div
+                class="pointer-events-none absolute inset-y-0 left-0 z-10 flex items-center pl-6"
+              >
+                <svg
+                  class="h-7 w-7 text-purple-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+              </div>
+
+              <input
+                type="text"
+                id="playlist-search"
+                class="block w-full rounded-3xl border-2 border-purple-500/40 bg-gray-800/90 py-5 pr-20 pl-16 text-xl font-medium text-white placeholder-gray-400 shadow-2xl backdrop-blur-md transition-all duration-300 hover:shadow-purple-500/20 focus:border-purple-400 focus:ring-4 focus:ring-purple-500/60 focus:outline-none"
+                placeholder={t("playlist.search.placeholder") ||
+                  "Suchen nach Künstler oder Stil..."}
+                aria-describedby="search-examples"
+              />
+
+              <!-- Clear Button -->
+              <button
+                type="button"
+                id="clear-search"
+                class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-6 text-gray-400 opacity-0 transition-colors duration-200 hover:text-purple-400"
+                aria-label="Suche löschen"
+              >
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- Enhanced Playlist Grid with semantic markup and microdata -->
       <section aria-labelledby="playlists-heading">
-        <Headline
-          title={t("playlist.grid.heading", { count: playlistCount })}
-          level="h2"
-          size="base"
-          className="sr-only"
-          id="playlists-heading"
-        />
+        <Headline level="h2" textSize="base" className="sr-only">
+          {t("playlist.grid.heading", { count: playlistCount })}
+        </Headline>
 
-        {/* Dynamic Category Groups */}
-        {
-          (() => {
-            // Define category group configurations
-            const categoryGroups = [
-              { type: "decade", title: t("game.filter.decades") || "Decades", icon: "📅" },
-              { type: "female", title: t("game.filter.female") || "Female Artists", icon: "👩‍🎤" },
-              {
-                type: "classic-rock",
-                title: t("game.filter.classic-rock") || "Classic Rock & Hard Rock",
-                icon: "🎸",
-              },
-              {
-                type: "metal-classic",
-                title: t("game.filter.metal-classic") || "Metal – Classics",
-                icon: "⚡",
-              },
-              {
-                type: "metal-modern",
-                title: t("game.filter.metal-modern") || "Modern Metal",
-                icon: "🔥",
-              },
-              {
-                type: "metal-avantgarde",
-                title: t("game.filter.metal-avantgarde") || "Avantgarde & Extreme Metal",
-                icon: "🎭",
-              },
-              {
-                type: "mainstream-pop",
-                title: t("game.filter.mainstream-pop") || "Mainstream Pop",
-                icon: "🎤",
-              },
-              {
-                type: "indie-alternative",
-                title: t("game.filter.indie-alternative") || "Indie & Alternative",
-                icon: "🎶",
-              },
-              {
-                type: "global-pop",
-                title: t("game.filter.global-pop") || "Global Pop Scenes",
-                icon: "🌏",
-              },
-              {
-                type: "jazz-soul-funk",
-                title: t("game.filter.jazz-soul-funk") || "Jazz, Soul & Funk",
-                icon: "🎷",
-              },
-              {
-                type: "hip-hop-rap",
-                title: t("game.filter.hip-hop-rap") || "Hip Hop & Rap",
-                icon: "🎤",
-              },
-              {
-                type: "house-techno",
-                title: t("game.filter.house-techno") || "House & Techno",
-                icon: "🎛️",
-              },
-              {
-                type: "club-sounds",
-                title: t("game.filter.club-sounds") || "Club Sounds",
-                icon: "🎚️",
-              },
-              {
-                type: "breaks-experimental",
-                title: t("game.filter.breaks-experimental") || "Breaks & Experimental",
-                icon: "🌀",
-              },
-              {
-                type: "latin-vibes",
-                title: t("game.filter.latin-vibes") || "Latin Vibes",
-                icon: "🎺",
-              },
-              {
-                type: "caribbean-afro",
-                title: t("game.filter.caribbean-afro") || "Caribbean & Afro",
-                icon: "🌴",
-              },
-              {
-                type: "folk-regional",
-                title: t("game.filter.folk-regional") || "Folk & Regional",
-                icon: "🪕",
-              },
-              {
-                type: "classical-orchestral",
-                title: t("game.filter.classical-orchestral") || "Classical & Orchestral",
-                icon: "🎼",
-              },
-              {
-                type: "countries-regional",
-                title: t("game.filter.countries-regional") || "Countries & Regional",
-                icon: "🌍",
-              },
-              {
-                type: "emotional",
-                title: t("game.filter.emotional") || "Emotional Genres",
-                icon: "💫",
-              },
-              {
-                type: "seasonal",
-                title: t("game.filter.seasonal") || "Seasonal Genres",
-                icon: "❄️",
-              },
-              {
-                type: "situational",
-                title: t("game.filter.situational") || "Situational & Activity-Based",
-                icon: "🎉",
-              },
-              { type: "other", title: t("game.filter.other") || "Other Categories", icon: "📚" },
-            ];
-
-            // Generate category groups dynamically
-            return categoryGroups.map((group) => {
-              const groupPlaylists = sortedPlaylists.filter(
-                (playlist) => playlist.categoryType === group.type
-              );
-              if (groupPlaylists.length === 0) {
-                return null;
-              }
-
-              return (
-                <div class="category-group" data-category-type={group.type}>
-                  <h3 class="category-group__title">
-                    {group.icon} {group.title}
-                  </h3>
-                  <ul
-                    class="playlist-grid"
-                    aria-label={`${group.title} playlists`}
-                    aria-live="polite"
-                  >
-                    {groupPlaylists.map((playlist, index) => (
-                      <li
-                        class="playlist-card"
-                        id={`playlist-${group.type}-${index}`}
-                        itemscope
-                        itemtype="https://schema.org/MusicPlaylist"
-                      >
-                        <meta itemprop="name" content={playlist.headline} />
-                        <meta
-                          itemprop="description"
-                          content={playlist.introSubline || playlist.headline}
-                        />
-                        <meta
-                          itemprop="genre"
-                          content={
-                            playlist.categoryType || getDecadeFromHeadline(playlist.headline)
-                          }
-                        />
-                        <meta itemprop="inLanguage" content={lang} />
-                        <PlaylistCard
-                          headline={playlist.headline}
-                          imageUrl={playlist.imageUrl}
-                          introSubline={playlist.introSubline}
-                          spotifyPlaylist={playlist.spotifyPlaylist}
-                          deezerPlaylist={playlist.deezerPlaylist}
-                          appleMusicPlaylist={playlist.appleMusicPlaylist}
-                          index={index}
-                          lang={lang}
-                        />
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            });
-          })()
-        }
+        {/* Simple sorted playlist grid */}
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" id="playlist-grid">
+          {
+            sortedPlaylists.map((playlist, index) => (
+              <div
+                class="playlist-item overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                itemscope
+                itemtype="https://schema.org/MusicPlaylist"
+                data-search-text={`${playlist.headline} ${playlist.introSubline || ""} ${playlist.categoryType || ""}`.toLowerCase()}
+              >
+                <meta itemprop="name" content={playlist.headline} />
+                <meta itemprop="description" content={playlist.introSubline || playlist.headline} />
+                <meta
+                  itemprop="genre"
+                  content={playlist.categoryType || getDecadeFromHeadline(playlist.headline)}
+                />
+                <meta itemprop="inLanguage" content={lang} />
+                <PlaylistCard
+                  headline={playlist.headline}
+                  imageUrl={playlist.imageUrl}
+                  introSubline={playlist.introSubline}
+                  spotifyPlaylist={playlist.spotifyPlaylist}
+                  deezerPlaylist={playlist.deezerPlaylist}
+                  appleMusicPlaylist={playlist.appleMusicPlaylist}
+                  index={index}
+                  lang={lang}
+                />
+              </div>
+            ))
+          }
+        </div>
       </section>
-    </main>
-  </div>
+    </div>
+  </main>
 
   <!-- Back to Top Button -->
   <BackToTop {lang} />
 </Layout>
 
-<style lang="scss">
-  /* ======================================
-   * PLAYLIST PAGE STYLES - OPTIMIZED FOR STYLE GUARDIAN
-   * BEM Methodology + Global Variables + Mobile-First
-   * ====================================== */
-
-  .playlist-container {
-    width: 100%;
-    max-width: var(--container-xl);
-    margin: 0 auto;
-    padding: var(--space-xs); // Mobile: minimal horizontal spacing
-    overflow-x: hidden;
-    box-sizing: border-box;
-    contain: layout style paint;
-
-    @media (min-width: 20em) {
-      padding: var(--space-sm);
-    }
-
-    @media (min-width: 48em) {
-      padding: var(--space-md);
-    }
-
-    @media (min-width: 64em) {
-      padding: var(--space-lg);
-    }
-
-    @media (min-width: 80em) {
-      padding: var(--space-xl);
-    }
-  }
-
-  /* ======================================
-   * BREADCRUMB NAVIGATION
-   * ====================================== */
-  .breadcrumb-nav {
-    margin-bottom: var(--space-md);
-    contain: layout style;
-
-    @media (min-width: 48em) {
-      margin-bottom: var(--space-lg);
-    }
-  }
-
-  .breadcrumb-list {
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-size: var(--text-xs);
-    color: var(--text-secondary);
-    contain: layout style;
-
-    @media (min-width: 48em) {
-      gap: var(--space-sm);
-      font-size: var(--text-sm);
-    }
-  }
-
-  .breadcrumb-item {
-    display: flex;
-    align-items: center;
-    contain: layout style;
-
-    &:not(:last-child)::after {
-      content: "›";
-      margin-left: var(--space-xs);
-      color: var(--text-tertiary);
-      font-weight: var(--font-medium);
-
-      @media (min-width: 48em) {
-        margin-left: var(--space-sm);
-      }
-    }
-  }
-
-  .breadcrumb-link {
-    display: inline-flex;
-    align-items: center;
-    color: var(--interactive-primary);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-    padding: var(--space-xs);
-    border-radius: var(--radius-sm);
-    min-height: var(--touch-target);
-    contain: layout style paint;
-
-    @media (min-width: 48em) {
-      padding: var(--space-sm);
-    }
-
-    &:hover,
-    &:focus {
-      color: var(--interactive-primary-hover);
-      text-decoration: underline;
-      background-color: var(--bg-secondary);
-    }
-  }
-
-  .breadcrumb-icon {
-    width: var(--icon-size-xs);
-    height: var(--icon-size-xs);
-
-    @media (min-width: 48em) {
-      width: var(--icon-size-sm);
-      height: var(--icon-size-sm);
-    }
-  }
-
-  /* ======================================
-   * HERO SECTION
-   * ====================================== */
-  .playlist-hero {
-    position: relative;
-    margin-bottom: var(--space-lg);
-    overflow: hidden;
-    border-radius: var(--radius-lg);
-    background: linear-gradient(
-      135deg,
-      var(--color-primary-800) 0%,
-      var(--color-primary-900) 50%,
-      var(--color-neutral-900) 100%
-    );
-    padding: var(--space-md);
-    box-shadow: var(--shadow-xl);
-    contain: layout style paint;
-
-    @media (min-width: 48em) {
-      padding: var(--space-lg);
-      margin-bottom: var(--space-xl);
-    }
-
-    @media (min-width: 64em) {
-      margin-bottom: var(--space-2xl);
-      border-radius: var(--radius-xl);
-      padding: var(--space-xl);
-    }
-
-    @media (min-width: 80em) {
-      padding: var(--space-2xl) var(--space-xl);
-    }
-
-    &__decoration {
-      position: absolute;
-      inset: 0;
-      opacity: 0.1;
-      pointer-events: none;
-      contain: layout style paint;
-
-      &-item {
-        position: absolute;
-        border-radius: var(--radius-full);
-        contain: layout style paint;
-
-        &--top-right {
-          top: calc(-1 * var(--space-xl));
-          right: calc(-1 * var(--space-xl));
-          width: var(--space-3xl);
-          height: var(--space-3xl);
-          background-color: var(--color-primary-500);
-        }
-
-        &--bottom-left {
-          bottom: var(--space-md);
-          left: var(--space-md);
-          width: var(--space-2xl);
-          height: var(--space-2xl);
-          background-color: var(--color-secondary-500);
-        }
-
-        &--center-right {
-          top: 50%;
-          right: var(--space-lg);
-          transform: translateY(-50%);
-          width: var(--space-lg);
-          height: var(--space-lg);
-          background-color: var(--color-primary-400);
-        }
-      }
-    }
-
-    &__content {
-      position: relative;
-      z-index: var(--z-fixed);
-      text-align: center;
-      color: var(--color-neutral-100);
-      contain: layout style;
-    }
-
-    &__title {
-      margin-bottom: var(--space-sm);
-      font-size: var(--text-2xl);
-      line-height: var(--leading-tight);
-      font-weight: var(--font-bold);
-      text-align: center;
-      contain: layout style;
-
-      @media (min-width: 48em) {
-        font-size: var(--text-3xl);
-        margin-bottom: var(--space-md);
-      }
-
-      @media (min-width: 64em) {
-        font-size: var(--text-4xl);
-      }
-
-      @media (min-width: 80em) {
-        font-size: var(--text-5xl);
-      }
-    }
-
-    &__divider {
-      margin: var(--space-md) auto;
-      height: var(--border-width-thick);
-      width: var(--space-2xl);
-      border-radius: var(--radius-full);
-      background: var(--color-secondary-400);
-      contain: layout style paint;
-
-      @media (min-width: 48em) {
-        margin: var(--space-lg) auto;
-        width: var(--space-3xl);
-      }
-    }
-
-    &__description {
-      margin: 0 auto;
-      max-width: var(--container-sm);
-      font-size: var(--text-base);
-      line-height: var(--leading-relaxed);
-      opacity: 0.9;
-      text-align: center;
-      contain: layout style;
-
-      @media (min-width: 48em) {
-        font-size: var(--text-lg);
-      }
-
-      @media (min-width: 64em) {
-        font-size: var(--text-xl);
-      }
-    }
-  }
-
-  /* ======================================
-   * CATEGORY GROUPS
-   * ====================================== */
-  .category-group {
-    margin-bottom: var(--space-xl);
-    contain: layout style;
-
-    @media (min-width: 48em) {
-      margin-bottom: var(--space-2xl);
-    }
-  }
-
-  .category-group__title {
-    font-size: var(--text-xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--text-primary);
-    margin-bottom: var(--space-lg);
-    text-align: center;
-    contain: layout style;
-
-    @media (min-width: 48em) {
-      font-size: var(--text-2xl);
-      margin-bottom: var(--space-xl);
-    }
-  }
-
-  /* ======================================
-   * PLAYLIST GRID
-   * ====================================== */
-  .playlist-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-    margin: var(--space-lg) auto;
-    width: 100%;
-    list-style: none;
-    padding: 0;
-    contain: layout style;
-
-    @media (min-width: 48em) {
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: var(--space-lg);
-    }
-
-    @media (min-width: 64em) {
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: var(--space-xl);
-    }
-
-    @media (min-width: 80em) {
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-      gap: var(--space-xl);
-    }
-
-    @media (min-width: 1280px) {
-      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-      max-width: calc(3 * 450px + 2 * var(--space-xl));
-      margin: var(--space-lg) auto;
-    }
-
-    @media (min-width: 1920px) {
-      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-      max-width: calc(4 * 480px + 3 * var(--space-xl));
-    }
-  }
-
-  /* ======================================
-   * PLAYLIST CARDS
-   * ====================================== */
-  .playlist-card {
-    transition:
-      transform var(--transition-base),
-      box-shadow var(--transition-base);
-    contain: layout style paint;
-
-    @media (max-width: 47.9375em) {
-      margin-bottom: var(--space-xs);
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      &:hover,
-      &:focus-within {
-        transform: translateY(calc(-1 * var(--space-xs)));
-        box-shadow: var(--shadow-xl);
-      }
-    }
-
-    @media (hover: none) and (pointer: coarse) {
-      min-height: var(--touch-target-enhanced);
-
-      &:active {
-        transform: scale(0.98);
-        transition: transform 0.1s ease-out;
-      }
-    }
-  }
-
-  /* ======================================
-   * MOBILE PORTRAIT OPTIMIZATIONS
-   * ====================================== */
-  @media (max-width: 29.9375em) {
-    .playlist-container {
-      padding: var(--space-xs);
-    }
-
-    .playlist-hero {
-      padding: var(--space-sm);
-      margin-bottom: var(--space-md);
-    }
-
-    .playlist-hero__title {
-      font-size: var(--text-xl);
-    }
-
-    .playlist-hero__description {
-      font-size: var(--text-sm);
-    }
-
-    .breadcrumb-list {
-      font-size: var(--text-xs);
-    }
-  }
-
-  @media (max-width: 320px) {
-    .playlist-container {
-      padding: var(--space-xs) calc(var(--space-xs) / 2);
-    }
-
-    .playlist-hero__title {
-      font-size: var(--text-lg);
-      line-height: var(--leading-tight);
-    }
-  }
-
-  /* ======================================
-   * PRINT OPTIMIZATIONS
-   * ====================================== */
-  @media print {
-    .playlist-hero,
-    .breadcrumb-nav {
-      display: none;
-    }
-
-    .playlist-grid {
-      display: block;
-      columns: 2;
-      column-gap: var(--space-lg);
-    }
-
-    .playlist-card {
-      break-inside: avoid;
-      margin-bottom: var(--space-md);
-    }
-  }
-
-  /* ======================================
-   * ACCESSIBILITY ENHANCEMENTS
-   * ====================================== */
-  @media (prefers-reduced-motion: reduce) {
-    .playlist-container {
-      scroll-behavior: auto;
-    }
-
-    .playlist-card {
-      transition: none;
-    }
-  }
-
-  /* ======================================
-   * FOCUS STYLES
-   * ====================================== */
-  :focus {
-    outline: var(--focus-ring);
-    outline-offset: var(--focus-ring-offset);
-
-    &:not(:focus-visible) {
-      outline: none;
-    }
-  }
-
-  :focus-visible {
-    outline: var(--focus-ring);
-    outline-offset: var(--focus-ring-offset);
-  }
-</style>
-
 <script>
-  // Simple intersection observer for playlist cards
-  function setupIntersectionObserver() {
-    const playlistCards = document.querySelectorAll(".playlist-card");
+  // Enhanced playlist search functionality
+  document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("playlist-search") as HTMLInputElement;
+    const clearButton = document.getElementById("clear-search") as HTMLButtonElement;
+    const playlistItems = document.querySelectorAll(".playlist-item");
+    const searchExamples = document.getElementById("search-examples") as HTMLElement;
+    const searchExampleButtons = document.querySelectorAll(
+      ".search-example"
+    ) as NodeListOf<HTMLButtonElement>;
 
-    if (playlistCards.length === 0) {
+    if (!searchInput || !clearButton) {
       return;
     }
 
-    const observerOptions = {
-      root: null,
-      rootMargin: "50px",
-      threshold: 0.1,
-    };
+    // Show/hide clear button based on input
+    function toggleClearButton() {
+      if (searchInput.value.trim()) {
+        clearButton.classList.remove("opacity-0", "pointer-events-none");
+        clearButton.classList.add("opacity-100", "pointer-events-auto");
+      } else {
+        clearButton.classList.add("opacity-0", "pointer-events-none");
+        clearButton.classList.remove("opacity-100", "pointer-events-auto");
+      }
+    }
 
-    const cardObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
+    // Clear search functionality
+    clearButton.addEventListener("click", () => {
+      searchInput.value = "";
+      searchInput.focus();
+      toggleClearButton();
+      showAllPlaylists();
+      showSearchExamples();
+    });
+
+    // Calculate search score for an element
+    function calculateScore(
+      element: HTMLElement,
+      searchWords: string[],
+      searchTerm: string
+    ): number {
+      const searchText = element.getAttribute("data-search-text") || "";
+      const headline = element.querySelector('[itemprop="name"]')?.getAttribute("content") || "";
+      const description =
+        element.querySelector('[itemprop="description"]')?.getAttribute("content") || "";
+      const genre = element.querySelector('[itemprop="genre"]')?.getAttribute("content") || "";
+
+      let score = 0;
+      const fullText = `${headline} ${description} ${genre} ${searchText}`.toLowerCase();
+
+      searchWords.forEach((word) => {
+        if (headline.toLowerCase().includes(word)) {
+          score += 10;
+        }
+        if (description.toLowerCase().includes(word)) {
+          score += 8;
+        }
+        if (genre.toLowerCase().includes(word)) {
+          score += 6;
+        }
+        if (searchText.toLowerCase().includes(word)) {
+          score += 4;
+        }
+        if (fullText.includes(word)) {
+          score += 2;
+        }
+
+        const wordBoundaryRegex = new RegExp(`\\b${word}`, "i");
+        if (wordBoundaryRegex.test(fullText)) {
+          score += 3;
         }
       });
-    }, observerOptions);
 
-    playlistCards.forEach(function (card) {
-      cardObserver.observe(card);
+      if (headline.toLowerCase().startsWith(searchTerm.toLowerCase())) {
+        score += 5;
+      }
+      if (genre.toLowerCase() === searchTerm.toLowerCase()) {
+        score += 8;
+      }
+
+      return score;
+    }
+
+    // Enhanced search functionality with fuzzy matching and scoring
+    function performSearch(searchTerm: string) {
+      if (!searchTerm.trim()) {
+        showAllPlaylists();
+        showSearchExamples();
+        return;
+      }
+
+      const searchWords = searchTerm
+        .toLowerCase()
+        .split(/\s+/)
+        .filter((word) => word.length > 0);
+      let hasResults = false;
+      const bestMatches: Array<{ element: HTMLElement; score: number; searchText: string }> = [];
+
+      playlistItems.forEach((item) => {
+        const element = item as HTMLElement;
+        const score = calculateScore(element, searchWords, searchTerm);
+
+        if (score > 0) {
+          hasResults = true;
+          bestMatches.push({
+            element,
+            score,
+            searchText: element.getAttribute("data-search-text") || "",
+          });
+          element.style.display = "block";
+          element.style.opacity = "1";
+          element.style.transform = "scale(1)";
+        } else {
+          element.style.display = "none";
+          element.style.opacity = "0";
+          element.style.transform = "scale(0.95)";
+        }
+      });
+
+      if (bestMatches.length > 1) {
+        bestMatches.sort((a, b) => b.score - a.score);
+        const playlistGrid = document.getElementById("playlist-grid");
+        if (playlistGrid) {
+          bestMatches.forEach(({ element }) => playlistGrid.appendChild(element));
+        }
+      }
+
+      showNoResultsMessage(hasResults, searchTerm);
+    }
+
+    // Show all playlists
+    function showAllPlaylists() {
+      playlistItems.forEach((item) => {
+        (item as HTMLElement).style.display = "block";
+        (item as HTMLElement).style.opacity = "1";
+        (item as HTMLElement).style.transform = "scale(1)";
+      });
+    }
+
+    // Show/hide search examples
+    function showSearchExamples() {
+      if (searchExamples) {
+        searchExamples.style.display = "block";
+      }
+    }
+
+    // function _hideSearchExamples() {
+    //   if (searchExamples) {
+    //     searchExamples.style.display = "none";
+    //   }
+    // }
+
+    // Show no results message with search suggestions
+    function showNoResultsMessage(hasResults: boolean, searchTerm: string) {
+      let noResultsElement = document.getElementById("no-results-message");
+
+      if (!hasResults && searchTerm.trim()) {
+        if (!noResultsElement) {
+          // Generate search suggestions based on available content
+          const suggestions = generateSearchSuggestions(searchTerm);
+
+          noResultsElement = document.createElement("div");
+          noResultsElement.id = "no-results-message";
+          noResultsElement.className = "text-center py-12";
+          noResultsElement.innerHTML = `
+            <div class="text-gray-400 mb-6">
+              <svg class="mx-auto h-16 w-16 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.47-.881-6.08-2.33" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-300 mb-3">Keine Ergebnisse gefunden</h3>
+            <p class="text-gray-400 mb-6">Für "${searchTerm}" wurden keine Playlists gefunden.</p>
+            
+            ${
+              suggestions.length > 0
+                ? `
+              <div class="mb-6">
+                <p class="text-sm text-gray-400 mb-3">Vielleicht meintest du:</p>
+                <div class="flex flex-wrap justify-center gap-2">
+                  ${suggestions
+                    .map(
+                      (suggestion) => `
+                    <button
+                      type="button"
+                      class="px-3 py-1 bg-purple-500/30 border border-purple-500/50 rounded-full text-purple-200 hover:bg-purple-500/40 transition-colors duration-200 cursor-pointer text-sm"
+                      onclick="document.getElementById('playlist-search').value='${suggestion}'; document.getElementById('playlist-search').dispatchEvent(new Event('input'));"
+                    >
+                      ${suggestion}
+                    </button>
+                  `
+                    )
+                    .join("")}
+                </div>
+              </div>
+            `
+                : ""
+            }
+            
+            <div class="flex flex-wrap justify-center gap-3 text-sm">
+              <span class="px-4 py-2 bg-purple-500/20 border border-purple-500/30 rounded-full text-purple-300">
+                Versuche andere Begriffe
+              </span>
+              <span class="px-4 py-2 bg-blue-500/20 border border-blue-500/30 rounded-full text-blue-300">
+                Oder lösche die Suche
+              </span>
+            </div>
+          `;
+
+          const playlistGrid = document.getElementById("playlist-grid");
+          if (playlistGrid) {
+            playlistGrid.parentNode?.insertBefore(noResultsElement, playlistGrid.nextSibling);
+          }
+        }
+      } else if (noResultsElement) {
+        noResultsElement.remove();
+      }
+    }
+
+    // Generate search suggestions based on available content
+    function generateSearchSuggestions(searchTerm: string): string[] {
+      const suggestions: string[] = [];
+      const searchWords = searchTerm.toLowerCase().split(/\s+/);
+
+      // Common music terms that might be similar
+      const musicTerms = [
+        "rock",
+        "pop",
+        "jazz",
+        "disco",
+        "blues",
+        "country",
+        "electronic",
+        "folk",
+        "reggae",
+        "hip-hop",
+      ];
+      const decades = ["1950s", "1960s", "1970s", "1980s", "1990s", "2000s", "2010s"];
+
+      searchWords.forEach((word) => {
+        // Check for similar music terms
+        musicTerms.forEach((term) => {
+          if (
+            term.includes(word) ||
+            word.includes(term) ||
+            (word.length > 2 && term.includes(word.substring(0, 3)))
+          ) {
+            if (!suggestions.includes(term)) {
+              suggestions.push(term);
+            }
+          }
+        });
+
+        // Check for similar decades
+        decades.forEach((decade) => {
+          if (decade.includes(word) || word.includes(decade)) {
+            if (!suggestions.includes(decade)) {
+              suggestions.push(decade);
+            }
+          }
+        });
+      });
+
+      return suggestions.slice(0, 4); // Limit to 4 suggestions
+    }
+
+    // Debounced search function for better performance
+    let searchTimeout: NodeJS.Timeout;
+
+    function debouncedSearch(searchTerm: string) {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        performSearch(searchTerm);
+      }, 300); // 300ms delay for better UX
+    }
+
+    // Search input event listener with debouncing
+    searchInput.addEventListener("input", (e) => {
+      const target = e.target as HTMLInputElement;
+      const searchTerm = target.value.toLowerCase().trim();
+
+      toggleClearButton();
+      debouncedSearch(searchTerm);
     });
-  }
 
-  // Initialize playlist page
-  function initializePlaylistPage() {
-    setupIntersectionObserver();
-  }
+    // Search on Enter key
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        searchInput.blur();
+      }
+    });
 
-  // Initialize when DOM is ready
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializePlaylistPage);
-  } else {
-    initializePlaylistPage();
-  }
+    // Add click handlers for search example buttons
+    searchExampleButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const searchTerm = button.getAttribute("data-search") || "";
+        searchInput.value = searchTerm;
+        searchInput.focus();
+        toggleClearButton();
+        performSearch(searchTerm);
+
+        // Add visual feedback
+        button.classList.add("ring-2", "ring-purple-500", "ring-opacity-50");
+        setTimeout(() => {
+          button.classList.remove("ring-2", "ring-purple-500", "ring-opacity-50");
+        }, 500);
+      });
+    });
+
+    // Initial state
+    toggleClearButton();
+  });
 </script>

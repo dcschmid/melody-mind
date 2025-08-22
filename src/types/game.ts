@@ -38,7 +38,7 @@ export interface Album {
    */
   questions: {
     [key: string]: {
-      [key: string]: any;
+      [key: string]: unknown;
       question: string;
     }[];
   };

@@ -15,6 +15,9 @@ export class GamePerformanceOptimizer {
     // Performance monitoring removed - focus on core optimizations
   }
 
+  /**
+   *
+   */
   public static getInstance(): GamePerformanceOptimizer {
     if (!GamePerformanceOptimizer.instance) {
       GamePerformanceOptimizer.instance = new GamePerformanceOptimizer();
@@ -42,7 +45,7 @@ export class GamePerformanceOptimizer {
   /**
    * Debounce function calls for better performance
    */
-  public static debounce<T extends (...args: any[]) => any>(
+  public static debounce<T extends (...args: unknown[]) => unknown>(
     func: T,
     wait: number
   ): (...args: Parameters<T>) => void {
@@ -59,7 +62,7 @@ export class GamePerformanceOptimizer {
   /**
    * Throttle function calls for better performance
    */
-  public static throttle<T extends (...args: any[]) => any>(
+  public static throttle<T extends (...args: unknown[]) => unknown>(
     func: T,
     limit: number
   ): (...args: Parameters<T>) => void {
@@ -85,7 +88,9 @@ export class GamePerformanceOptimizer {
     let startTime: number | null = null;
 
     const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
+      if (!startTime) {
+        startTime = timestamp;
+      }
       const elapsed = timestamp - startTime;
 
       if (elapsed < duration) {
@@ -108,7 +113,11 @@ export class GamePerformanceOptimizer {
    */
   public static getMemoryUsage(): { used: number; total: number } | null {
     if ("memory" in performance) {
-      const memory = (performance as any).memory;
+      const memory = (
+        performance as Performance & {
+          memory?: { usedJSHeapSize: number; totalJSHeapSize: number };
+        }
+      ).memory;
       return {
         used: memory.usedJSHeapSize,
         total: memory.totalJSHeapSize,
@@ -234,12 +243,12 @@ export class GamePerformanceUtils {
   /**
    * Optimize question loading
    */
-  public static async preloadQuestions(questions: any[]): Promise<void> {
+  public static async preloadQuestions(questions: Array<{ coverSrc?: string }>): Promise<void> {
     const preloadPromises = questions.map(async (question) => {
       if (question.coverSrc) {
         try {
           await GamePerformanceOptimizer.preloadImage(question.coverSrc);
-        } catch (error) {
+        } catch {
           console.warn("Failed to preload image:", question.coverSrc);
         }
       }
@@ -255,7 +264,7 @@ export class GamePerformanceUtils {
     const preloadPromises = audioUrls.map(async (url) => {
       try {
         await GamePerformanceOptimizer.preloadAudio(url);
-      } catch (error) {
+      } catch {
         console.warn("Failed to preload audio:", url);
       }
     });

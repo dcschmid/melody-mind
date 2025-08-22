@@ -95,7 +95,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
 ---
 
 <article
-  class="knowledge-card"
+  class="relative isolate flex h-full flex-col overflow-hidden rounded-2xl border border-gray-600 bg-gray-800 shadow-lg transition-all duration-300 hover:border-purple-500 hover:shadow-xl hover:-translate-y-1"
   data-testid="knowledge-card"
   data-title={title}
   data-description={description}
@@ -107,52 +107,58 @@ const imageAltText = title ? `Cover image for ${title}` : "";
     hasOwnLink ? (
       <a
         href={articleUrl}
-        class="knowledge-card__link"
+        class="flex h-full flex-col overflow-hidden rounded-2xl text-inherit no-underline transition-all duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-purple-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 focus-visible:-translate-y-1"
         aria-labelledby={cardId}
         aria-describedby={`${cardId}-desc`}
       >
-        <div class="knowledge-card__content">
-          <div class="knowledge-card__accent-line" aria-hidden="true" />
+        <div class="relative flex h-full flex-col">
+          <!-- Accent line -->
+          <div class="absolute top-0 right-0 left-0 h-2 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700" aria-hidden="true" />
 
-          <div class="knowledge-card__image-container">
+          <!-- Image container -->
+          <div class="relative aspect-video overflow-hidden">
             <Image
               src={image}
               alt={imageAltText}
               loading="lazy"
               width={640}
               height={360}
-              class="knowledge-card__image"
+              class="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
             />
           </div>
 
-          <div class="knowledge-card__body">
-            <Headline level="h3" size="xl" id={cardId} textAlign="center">
+          <!-- Body content -->
+          <div class="flex flex-grow flex-col justify-start p-6 pb-4">
+            <Headline level="h3" textSize="xl" textAlign="center">
               {title}
             </Headline>
 
-            <Paragraph id={`${cardId}-desc`} textSize="lg" align="center">
+            <Paragraph textSize="lg" textAlign="center">
               {description}
             </Paragraph>
 
-            <div class="knowledge-card__footer" id={metaId}>
-              <span
-                class="knowledge-card__meta"
-                aria-label={`${lang_t("knowledge.reading.time.label")}: ${readingTime} ${lang_t("knowledge.reading.time")}`}
-              >
-                <Icon name="clock" class="knowledge-card__icon" aria-hidden="true" />
-                <span>
-                  {readingTime} {lang_t("knowledge.reading.time")}
+            <!-- Footer with metadata -->
+            <div class="mt-auto border-t border-gray-600 pt-4" id={metaId}>
+              <div class="flex items-center justify-between gap-4">
+                <span
+                  class="flex items-center text-sm text-gray-400"
+                  aria-label={`${lang_t("knowledge.reading.time.label")}: ${readingTime} ${lang_t("knowledge.reading.time")}`}
+                >
+                  <Icon name="clock" class="mr-2 h-4 w-4 text-purple-400 flex-shrink-0" aria-hidden="true" />
+                  <span>
+                    {readingTime} {lang_t("knowledge.reading.time")}
+                  </span>
                 </span>
-              </span>
 
-              <time
-                datetime={createdAt.toISOString()}
-                class="knowledge-card__meta"
-                aria-label={`${lang_t("knowledge.published")}: ${formattedDate}`}
-              >
-                <Icon name="calendar" class="knowledge-card__icon" aria-hidden="true" />
-                {formattedDate}
-              </time>
+                <time
+                  datetime={createdAt.toISOString()}
+                  class="flex items-center text-sm text-gray-400"
+                  aria-label={`${lang_t("knowledge.published")}: ${formattedDate}`}
+                >
+                  <Icon name="calendar" class="mr-2 h-4 w-4 text-purple-400 flex-shrink-0" aria-hidden="true" />
+                  {formattedDate}
+                </time>
+              </div>
             </div>
           </div>
         </div>
@@ -161,241 +167,58 @@ const imageAltText = title ? `Cover image for ${title}` : "";
         </span>
       </a>
     ) : (
-      <div class="knowledge-card__content">
-        <div class="knowledge-card__accent-line" aria-hidden="true" />
+      <div class="relative flex h-full flex-col">
+        <!-- Accent line -->
+        <div class="absolute top-0 right-0 left-0 h-2 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700" aria-hidden="true" />
 
-        <div class="knowledge-card__image-container">
+        <!-- Image container -->
+        <div class="relative aspect-video overflow-hidden">
           <Image
             src={image}
             alt={imageAltText}
             loading="lazy"
             width={640}
             height={360}
-            class="knowledge-card__image"
+            class="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
           />
-          <div class="knowledge-card__overlay" aria-hidden="true" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-transparent opacity-0" aria-hidden="true" />
         </div>
 
-        <div class="knowledge-card__body">
-          <Headline level="h3" size="xl" id={cardId} textAlign="center">
+        <!-- Body content -->
+        <div class="flex flex-grow flex-col justify-start p-6 pb-4">
+          <Headline level="h3" textSize="xl" textAlign="center">
             {title}
           </Headline>
 
-          <Paragraph id={`${cardId}-desc`} textSize="lg" align="center">
+          <Paragraph textSize="lg" textAlign="center">
             {description}
           </Paragraph>
 
-          <div class="knowledge-card__footer" id={metaId}>
-            <span
-              class="knowledge-card__meta"
-              aria-label={`${lang_t("knowledge.reading.time.label")}: ${readingTime} ${lang_t("knowledge.reading.time")}`}
-            >
-              <Icon name="clock" class="knowledge-card__icon" aria-hidden="true" />
-              <span>
-                {readingTime} {lang_t("knowledge.reading.time")}
+          <!-- Footer with metadata -->
+          <div class="mt-auto border-t border-gray-600 pt-4" id={metaId}>
+            <div class="flex items-center justify-between gap-4">
+              <span
+                class="flex items-center text-sm text-gray-400"
+                aria-label={`${lang_t("knowledge.reading.time.label")}: ${readingTime} ${lang_t("knowledge.reading.time")}`}
+              >
+                <Icon name="clock" class="mr-2 h-4 w-4 text-purple-400 flex-shrink-0" aria-hidden="true" />
+                <span>
+                  {readingTime} {lang_t("knowledge.reading.time")}
+                </span>
               </span>
-            </span>
 
-            <time
-              datetime={createdAt.toISOString()}
-              class="knowledge-card__meta"
-              aria-label={`${lang_t("knowledge.published")}: ${formattedDate}`}
-            >
-              <Icon name="calendar" class="knowledge-card__icon" aria-hidden="true" />
-              {formattedDate}
-            </time>
+              <time
+                datetime={createdAt.toISOString()}
+                class="flex items-center text-sm text-gray-400"
+                aria-label={`${lang_t("knowledge.published")}: ${formattedDate}`}
+              >
+                <Icon name="calendar" class="mr-2 h-4 w-4 text-purple-400 flex-shrink-0" aria-hidden="true" />
+                {formattedDate}
+              </time>
+            </div>
           </div>
         </div>
       </div>
     )
   }
 </article>
-
-<style lang="scss">
-  /* ======================================
-   * KNOWLEDGE CARD COMPONENT STYLES
-   * Modern SCSS with global.css variables
-   * WCAG AAA compliant - Zero hardcoded values
-   * ====================================== */
-
-  .knowledge-card {
-    position: relative;
-    isolation: isolate;
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    overflow: hidden;
-    border-radius: var(--radius-xl);
-    border: var(--border-width-thin) solid var(--card-border);
-    background-color: var(--card-bg);
-    box-shadow: var(--card-shadow);
-    transition: all var(--transition-normal);
-    font-family: var(--font-family-primary);
-
-    /* Enhanced hover states using semantic interactive colors */
-    &:hover {
-      border-color: var(--interactive-primary);
-      box-shadow: var(--card-shadow-hover);
-      transform: translateY(-4px);
-
-      .knowledge-card__title {
-        color: var(--color-primary-400);
-        transition: color var(--transition-fast);
-      }
-
-      .knowledge-card__accent-line {
-        height: calc(var(--space-xs) * 1.5);
-        transition: height var(--transition-fast);
-      }
-    }
-
-    /* Link wrapper for accessible navigation */
-    &__link {
-      display: flex;
-      height: 100%;
-      flex-direction: column;
-      overflow: hidden;
-      border-radius: var(--radius-xl);
-      color: inherit;
-      text-decoration: none;
-      transition: all var(--transition-normal);
-
-      /* Focus states using semantic focus system */
-      &:focus-visible {
-        outline: var(--focus-enhanced-outline-dark);
-        outline-offset: var(--focus-ring-offset);
-        box-shadow: var(--focus-enhanced-shadow);
-        border-radius: var(--radius-xl);
-        transform: translateY(-4px);
-        transition: all var(--transition-fast) ease-out;
-      }
-
-      &:hover,
-      &:focus-visible {
-        .knowledge-card__image {
-          transform: scale(1.1);
-        }
-      }
-    }
-
-    /* Content container with flexible layout */
-    &__content {
-      position: relative;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Accent line using primary gradient with CSS variables */
-    &__accent-line {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      height: var(--space-xs);
-      background: linear-gradient(
-        to right,
-        var(--color-primary-700) var(--gradient-start),
-        var(--color-primary-500) calc(var(--gradient-start) + 50%),
-        var(--color-primary-700) var(--gradient-end)
-      );
-    }
-
-    /* Image container with optimal aspect ratio using CSS variables */
-    &__image-container {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-    }
-
-    /* Image with smooth hover animation using CSS variables */
-    &__image {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      transition: transform var(--transition-slow);
-    }
-
-    /* Overlay gradient using CSS variables for consistency */
-    &__overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.95) var(--gradient-start),
-        rgba(0, 0, 0, 0.75) calc(var(--gradient-start) + 50%),
-        transparent var(--gradient-end)
-      );
-      opacity: 0;
-    }
-
-    /* Body content with semantic spacing */
-    &__body {
-      display: flex;
-      flex-grow: 1;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding: var(--space-lg) var(--space-lg) var(--space-md);
-    }
-
-    /* Title styling with semantic typography */
-    &__title {
-      margin-bottom: var(--space-md);
-      font-size: var(--text-xl);
-      font-weight: var(--font-bold);
-      letter-spacing: var(--letter-spacing-base);
-      line-height: var(--leading-tight);
-      color: var(--text-primary);
-
-      &--clamp {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-        overflow: hidden;
-      }
-    }
-
-    /* Description with enhanced readability using CSS variables */
-    &__description {
-      margin-bottom: var(--space-lg);
-      font-size: var(--text-lg);
-      line-height: var(--leading-relaxed);
-      color: var(--text-secondary);
-
-      &--clamp {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-        overflow: hidden;
-      }
-    }
-
-    /* Footer with semantic border and spacing */
-    &__footer {
-      margin-top: auto;
-      padding-top: var(--space-md);
-      border-top: var(--border-width-thin) solid var(--border-primary);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-md);
-    }
-
-    /* Meta information styling with CSS variables */
-    &__meta {
-      display: flex;
-      align-items: center;
-      font-size: var(--text-base);
-      color: var(--text-tertiary);
-    }
-
-    /* Icon styling with semantic sizing */
-    &__icon {
-      width: var(--icon-size-sm);
-      height: var(--icon-size-sm);
-      margin-right: var(--space-sm);
-      color: var(--color-primary-400);
-      flex-shrink: 0;
-    }
-  }
-</style>
