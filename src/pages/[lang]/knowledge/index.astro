@@ -6,20 +6,34 @@
  * Uses Tailwind CSS 4 for styling and minimal JavaScript for functionality.
  */
 import { getCollection } from "astro:content";
-import KnowledgeCard from "@components/KnowledgeCard.astro";
 import Layout from "@layouts/Layout.astro";
-import { getCollection } from "astro:content";
 import { ui } from "../../../i18n/ui";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
 import { calculateReadingTime } from "@utils/readingTime";
 import BackToTop from "@components/Shared/BackToTop.astro";
+import KnowledgeCard from "@components/KnowledgeCard.astro";
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const supportedLanguages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi", "cn", "ru", "jp", "uk"] as const;
+  const supportedLanguages = [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt",
+    "da",
+    "nl",
+    "sv",
+    "fi",
+    "cn",
+    "ru",
+    "jp",
+    "uk",
+  ] as const;
 
   const paths = await Promise.all(
     supportedLanguages.map(async (lang) => {
@@ -37,7 +51,7 @@ export async function getStaticPaths() {
 }
 
 const { articles, lang } = Astro.props;
-const uiLang = lang in ui ? lang as keyof typeof ui : "en";
+const uiLang = lang in ui ? (lang as keyof typeof ui) : "en";
 
 // Process articles with reading time
 const articlesWithReadingTime = articles.map((article) => {
@@ -56,8 +70,8 @@ const articlesWithReadingTime = articles.map((article) => {
 
 // Sort articles by slug (fallback to id if slug is not available)
 const sortedArticles = [...articlesWithReadingTime].sort((a, b) => {
-  const aSlug = 'slug' in a ? a.slug : a.id;
-  const bSlug = 'slug' in b ? b.slug : b.id;
+  const aSlug = "slug" in a ? a.slug : a.id;
+  const bSlug = "slug" in b ? b.slug : b.id;
   return aSlug.localeCompare(bSlug);
 });
 
@@ -66,55 +80,57 @@ const title = ui[uiLang]["knowledge.title"];
 const description = ui[uiLang]["knowledge.title"]; // Using knowledge.title as fallback since knowledge.intro doesn't exist
 
 // Enhanced SEO data for structured data
-const baseUrl = Astro.site || 'https://melodymind.app';
+const baseUrl = Astro.site || "https://melodymind.app";
 const currentUrl = `${baseUrl}/${lang}/knowledge`;
 
 // Generate structured data for breadcrumbs
-const breadcrumbSchema = {
+const _breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [
+  itemListElement: [
     {
       "@type": "ListItem",
-      "position": 1,
-      "name": ui[uiLang]["nav.home"] || "Home",
-      "item": `${baseUrl}/${lang}/`
+      position: 1,
+      name: ui[uiLang]["nav.home"] || "Home",
+      item: `${baseUrl}/${lang}/`,
     },
     {
       "@type": "ListItem",
-      "position": 2,
-      "name": ui[uiLang]["knowledge.title"] || "Knowledge",
-      "item": currentUrl
-    }
-  ]
+      position: 2,
+      name: ui[uiLang]["knowledge.title"] || "Knowledge",
+      item: currentUrl,
+    },
+  ],
 };
 
 // Generate structured data for knowledge articles collection
 const articleCollectionSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": ui[uiLang]["knowledge.title"] || "Knowledge Articles",
-  "description": ui[uiLang]["knowledge.title"] || "Music knowledge articles",
-  "numberOfItems": sortedArticles.length,
-  "itemListElement": sortedArticles.slice(0, 10).map((article, index: number) => ({
+  name: ui[uiLang]["knowledge.title"] || "Knowledge Articles",
+  description: ui[uiLang]["knowledge.title"] || "Music knowledge articles",
+  numberOfItems: sortedArticles.length,
+  itemListElement: sortedArticles.slice(0, 10).map((article, index: number) => ({
     "@type": "Article",
-    "position": index + 1,
-    "name": article.data.title,
-    "description": article.data.description,
-    "url": `${baseUrl}/${lang}/knowledge/${('slug' in article ? article.slug : article.id)}`,
-    "datePublished": article.data.createdAt,
-    "keywords": article.data.keywords?.join(", ") || "",
-    "author": {
+    position: index + 1,
+    name: article.data.title,
+    description: article.data.description,
+    url: `${baseUrl}/${lang}/knowledge/${"slug" in article ? article.slug : article.id}`,
+    datePublished: article.data.createdAt,
+    keywords: article.data.keywords?.join(", ") || "",
+    author: {
       "@type": "Organization",
-      "name": "MelodyMind"
-    }
-  }))
+      name: "MelodyMind",
+    },
+  })),
 };
 
 // Generate meta keywords from articles
-const metaKeywords = Array.from(new Set(
-  sortedArticles.flatMap((article) => article.data.keywords || [])
-)).slice(0, 10).join(", ");
+const metaKeywords = Array.from(
+  new Set(sortedArticles.flatMap((article) => article.data.keywords || []))
+)
+  .slice(0, 10)
+  .join(", ");
 
 // Basic translations for JavaScript
 const clientTranslations = {
@@ -125,9 +141,9 @@ const clientTranslations = {
 };
 ---
 
-<Layout 
-  {title} 
-  {description} 
+<Layout
+  {title}
+  {description}
   image={`/og-images/social-share-knowledge-${lang}.jpg`}
   type="website"
   keywords={metaKeywords}
@@ -136,7 +152,7 @@ const clientTranslations = {
 >
   <!-- Structured Data for SEO - Additional schemas beyond what SEO component provides -->
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(_breadcrumbSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(articleCollectionSchema)} />
   </Fragment>
 
@@ -151,7 +167,10 @@ const clientTranslations = {
       <nav aria-label="Breadcrumb" class="mb-6">
         <ol class="flex items-center gap-3 flex-wrap">
           <li class="flex items-center gap-3">
-            <a href={`/${String(lang)}/`} class="flex items-center gap-2 text-gray-400 hover:text-purple-400 transition-colors duration-200 p-2 rounded-lg hover:bg-gray-800">
+            <a
+              href={`/${String(lang)}/`}
+              class="flex items-center gap-2 text-gray-400 hover:text-purple-400 transition-colors duration-200 p-2 rounded-lg hover:bg-gray-800"
+            >
               <Icon name="home" class="h-5 w-5" aria-hidden="true" />
               <span class="sr-only">{ui[uiLang]["nav.home"] || "Home"}</span>
             </a>
@@ -164,7 +183,9 @@ const clientTranslations = {
       </nav>
 
       <!-- Hero section with improved design inspired by gamehome -->
-      <header class="relative overflow-hidden bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 rounded-3xl shadow-2xl border border-purple-500/30 mb-16 p-8 sm:p-12 lg:p-16">
+      <header
+        class="relative overflow-hidden bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 rounded-3xl shadow-2xl border border-purple-500/30 mb-16 p-8 sm:p-12 lg:p-16"
+      >
         <!-- Decorative background elements -->
         <div class="absolute inset-0 opacity-10 pointer-events-none" aria-hidden="true">
           <div class="absolute -top-8 -right-8 w-32 h-32 bg-white rounded-full"></div>
@@ -192,27 +213,40 @@ const clientTranslations = {
               {ui[uiLang]["knowledge.search.title"] || "Search Articles"}
             </Headline>
             <Paragraph textSize="lg" textAlign="center">
-              {ui[uiLang]["knowledge.search.subtitle"] || "Find articles by title, description, or keywords"}
+              {
+                ui[uiLang]["knowledge.search.subtitle"] ||
+                  "Find articles by title, description, or keywords"
+              }
             </Paragraph>
           </div>
-          
+
           <div class="relative w-full max-w-5xl mx-auto">
-            <label for="searchInput" class="sr-only">
-              Search by title or description
-            </label>
+            <label for="searchInput" class="sr-only"> Search by title or description </label>
 
             <!-- Search Input with Glassmorphism - Full Width -->
             <div class="relative">
-              <div class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none z-10">
-                <svg class="h-7 w-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              <div
+                class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none z-10"
+              >
+                <svg
+                  class="h-7 w-7 text-purple-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
               </div>
 
               <input
                 type="search"
                 id="searchInput"
-                placeholder={(ui[uiLang] as any)["knowledge.search.placeholder"] || "Search articles..."}
+                placeholder={(ui[uiLang] as any)["knowledge.search.placeholder"] ||
+                  "Search articles..."}
                 class="block w-full pl-16 pr-20 py-5 border-2 border-purple-500/40 rounded-3xl bg-gray-800/90 backdrop-blur-md text-white placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-purple-500/60 focus:border-purple-400 transition-all duration-300 shadow-2xl hover:shadow-purple-500/20 text-xl font-medium"
                 aria-controls="articlesGrid"
                 autocomplete="off"
@@ -226,7 +260,11 @@ const clientTranslations = {
                 aria-label="Clear search"
               >
                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               </button>
             </div>
@@ -261,22 +299,26 @@ const clientTranslations = {
         aria-live="assertive"
       >
         <div class="max-w-md mx-auto">
-          <Icon name="search-no-results" class="mx-auto h-16 w-16 text-gray-600 mb-6" aria-hidden="true" />
+          <Icon
+            name="search-no-results"
+            class="mx-auto h-16 w-16 text-gray-600 mb-6"
+            aria-hidden="true"
+          />
           <Headline level="h2" textSize="2xl" textAlign="center">
             {ui[uiLang]["knowledge.no.results"] || "No articles found"}
           </Headline>
           <Paragraph textSize="lg" textAlign="center">
-            {ui[uiLang]["knowledge.no.results.help"] ||
-              "Try different search terms or reset your search"}
+            {
+              ui[uiLang]["knowledge.no.results.help"] ||
+                "Try different search terms or reset your search"
+            }
           </Paragraph>
         </div>
       </div>
 
       <!-- Articles grid with enhanced SEO - Oriented on gamehome layout -->
       <section class="mb-16">
-        <Headline level="h2" textSize="base" className="sr-only">
-          Knowledge Articles
-        </Headline>
+        <Headline level="h2" textSize="base" className="sr-only"> Knowledge Articles </Headline>
         <ul id="articlesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {
             sortedArticles.length > 0 ? (
@@ -286,10 +328,14 @@ const clientTranslations = {
                     ? article.data.createdAt
                     : new Date(article.data.createdAt || Date.now());
 
-                const articleSlug = 'slug' in article ? article.slug : article.id;
+                const articleSlug = "slug" in article ? article.slug : article.id;
 
                 return (
-                  <li class="bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300" itemscope itemtype="https://schema.org/Article">
+                  <li
+                    class="bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                    itemscope
+                    itemtype="https://schema.org/Article"
+                  >
                     <KnowledgeCard
                       title={article.data.title}
                       description={article.data.description}
@@ -302,7 +348,7 @@ const clientTranslations = {
                       keywords={article.data.keywords?.join(", ")}
                       index={index}
                     />
-                    <!-- Micro-data for enhanced SEO -->
+                    {/* Micro-data for enhanced SEO */}
                     <meta itemprop="name" content={article.data.title} />
                     <meta itemprop="description" content={article.data.description} />
                     <meta itemprop="url" content={`${baseUrl}/${lang}/knowledge/${articleSlug}`} />
@@ -316,7 +362,11 @@ const clientTranslations = {
             ) : (
               <li class="col-span-full text-center py-12">
                 <div class="max-w-md mx-auto">
-                  <Icon name="info" class="mx-auto h-16 w-16 text-gray-600 mb-6" aria-hidden="true" />
+                  <Icon
+                    name="info"
+                    class="mx-auto h-16 w-16 text-gray-600 mb-6"
+                    aria-hidden="true"
+                  />
                   <Paragraph textSize="lg" textAlign="center">
                     {ui[uiLang]["knowledge.empty"] || "No articles available"}
                   </Paragraph>
@@ -329,7 +379,7 @@ const clientTranslations = {
     </div>
 
     <!-- Back to top button -->
-    <BackToTop lang={lang} />
+    <BackToTop {lang} />
   </main>
 
   <!-- Simplified JavaScript -->
@@ -352,9 +402,9 @@ const clientTranslations = {
       const articlesGrid = document.querySelector("#articlesGrid") as HTMLElement;
       const noResultsDiv = document.querySelector("#no-results") as HTMLElement;
       const searchStatus = document.querySelector("#search-status") as HTMLElement;
-      
+
       let currentSearchQuery = "";
-      
+
       const translations = (window as unknown as WindowWithTranslations).knowledgeTranslations;
 
       // Early return if required elements don't exist
@@ -365,7 +415,7 @@ const clientTranslations = {
       const allArticles = Array.from(articlesGrid.children) as HTMLElement[];
 
       const updateSearchStatus = (count: number, query: string): void => {
-        const statusText = query.trim() 
+        const statusText = query.trim()
           ? `${count} ${translations.search.articlesFound}`
           : translations.search.showingAll;
         searchStatus.textContent = statusText;
@@ -386,14 +436,13 @@ const clientTranslations = {
       const performSearch = (query: string): void => {
         const searchTerm = query.toLowerCase().trim();
         currentSearchQuery = searchTerm;
-        
+
         const visibleCount = allArticles.reduce((count, article) => {
           const title = article.querySelector("h3")?.textContent?.toLowerCase() || "";
           const description = article.querySelector("p")?.textContent?.toLowerCase() || "";
-          
-          const isVisible = searchTerm === "" || 
-                           title.includes(searchTerm) || 
-                           description.includes(searchTerm);
+
+          const isVisible =
+            searchTerm === "" || title.includes(searchTerm) || description.includes(searchTerm);
 
           article.style.display = isVisible ? "block" : "none";
           return isVisible ? count + 1 : count;
@@ -441,7 +490,7 @@ const clientTranslations = {
         if (e.key === "Escape" && (document.activeElement === searchInput || currentSearchQuery)) {
           resetSearch();
         }
-        
+
         if (e.key === "/" && document.activeElement !== searchInput) {
           e.preventDefault();
           searchInput.focus();

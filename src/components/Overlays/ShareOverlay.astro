@@ -69,14 +69,14 @@ const {
 
   <div
     id="share-buttons-container"
-    class="flex flex-wrap gap-4 mt-6 justify-center items-center max-w-full md:flex-row md:gap-6 md:max-w-[600px] md:mx-auto md:mt-8 lg:gap-8 lg:max-w-[700px]"
+    class="mt-6 flex max-w-full flex-wrap items-center justify-center gap-4 md:mx-auto md:mt-8 md:max-w-[600px] md:flex-row md:gap-6 lg:max-w-[700px] lg:gap-8"
     role="group"
     aria-label={shareGroupLabel}
   >
     <!-- Native Web Share API Button (hidden by default, shown when supported) -->
     <button
       id="native-share-button"
-      class="share-overlay__button share-overlay__button--native share-overlay__button--hidden flex items-center gap-3 px-6 py-3 rounded-lg font-medium transition-all duration-200 bg-[var(--color-primary-600)] text-white hover:bg-[var(--color-primary-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2"
+      class="share-overlay__button share-overlay__button--native share-overlay__button--hidden flex items-center gap-3 rounded-lg bg-[var(--color-primary-600)] px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-[var(--color-primary-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
       aria-label={t("share.native")}
       type="button"
     >
@@ -84,7 +84,7 @@ const {
         name="share"
         width={24}
         height={24}
-        class="flex-shrink-0 transition-transform duration-200 w-6 h-6 md:w-6 md:h-6"
+        class="h-6 w-6 flex-shrink-0 transition-transform duration-200 md:h-6 md:w-6"
         aria-hidden="true"
       />
       <span class="text-base md:text-sm">{t("share.native.label")}</span>
@@ -92,7 +92,7 @@ const {
 
     <!-- Twitter/X Share -->
     <button
-      class="flex items-center gap-3 px-6 py-3 rounded-lg font-medium transition-all duration-200 bg-[var(--color-gray-600)] text-white hover:bg-[var(--color-gray-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2"
+      class="flex items-center gap-3 rounded-lg bg-[var(--color-gray-600)] px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-[var(--color-gray-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
       data-share="twitter"
       aria-label={t("share.twitter")}
       type="button"
@@ -101,7 +101,7 @@ const {
         name="twitter"
         width={24}
         height={24}
-        class="flex-shrink-0 transition-transform duration-200 w-6 h-6 md:w-6 md:h-6"
+        class="h-6 w-6 flex-shrink-0 transition-transform duration-200 md:h-6 md:w-6"
         aria-hidden="true"
       />
       <span class="text-base md:text-sm">X</span>
@@ -109,7 +109,7 @@ const {
 
     <!-- WhatsApp Share -->
     <button
-      class="flex items-center gap-3 px-6 py-3 rounded-lg font-medium transition-all duration-200 bg-[var(--color-green-600)] text-white hover:bg-[var(--color-green-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2"
+      class="flex items-center gap-3 rounded-lg bg-[var(--color-green-600)] px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-[var(--color-green-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
       data-share="whatsapp"
       aria-label={t("share.whatsapp")}
       type="button"
@@ -118,7 +118,7 @@ const {
         name="whatsapp"
         width={24}
         height={24}
-        class="flex-shrink-0 transition-transform duration-200 w-6 h-6 md:w-6 md:h-6"
+        class="h-6 w-6 flex-shrink-0 transition-transform duration-200 md:h-6 md:w-6"
         aria-hidden="true"
       />
       <span class="text-base md:text-sm">{t("share.whatsapp.label")}</span>
@@ -126,7 +126,7 @@ const {
 
     <!-- Email Share -->
     <button
-      class="flex items-center gap-3 px-6 py-3 rounded-lg font-medium transition-all duration-200 bg-[var(--color-orange-600)] text-white hover:bg-[var(--color-orange-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2"
+      class="flex items-center gap-3 rounded-lg bg-[var(--color-orange-600)] px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-[var(--color-orange-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
       data-share="email"
       aria-label={t("share.email")}
       type="button"
@@ -135,7 +135,7 @@ const {
         name="mail"
         width={24}
         height={24}
-        class="flex-shrink-0 transition-transform duration-200 w-6 h-6 md:w-6 md:h-6"
+        class="h-6 w-6 flex-shrink-0 transition-transform duration-200 md:h-6 md:w-6"
         aria-hidden="true"
       />
       <span class="text-base md:text-sm">{t("share.email.label")}</span>
@@ -143,10 +143,10 @@ const {
   </div>
 
   <!-- Copy to Clipboard Button -->
-  <div class="mt-6 md:mt-8 flex justify-center">
+  <div class="mt-6 flex justify-center md:mt-8">
     <button
       id="copy-share-button"
-      class="flex items-center gap-3 px-6 py-3 rounded-lg font-medium transition-all duration-200 bg-[var(--color-pink-600)] text-white hover:bg-[var(--color-pink-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2"
+      class="flex items-center gap-3 rounded-lg bg-[var(--color-pink-600)] px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-[var(--color-pink-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
       aria-label={t("share.copy")}
       type="button"
     >
@@ -154,7 +154,7 @@ const {
         name="clipboard"
         width={20}
         height={20}
-        class="flex-shrink-0 transition-transform duration-200 w-5 h-5"
+        class="h-5 w-5 flex-shrink-0 transition-transform duration-200"
         aria-hidden="true"
       />
       <span class="text-base md:text-sm" id="copy-button-text">{t("share.copy.label")}</span>
@@ -166,10 +166,10 @@ const {
     showFallback && (
       <div
         id="share-fallback-content"
-        class="mt-6 p-4 bg-[var(--bg-tertiary)] rounded-lg border border-[var(--border-subtle)]"
+        class="mt-6 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-tertiary)] p-4"
         style="display: none;"
       >
-        <div class="flex items-center gap-3 mb-4">
+        <div class="mb-4 flex items-center gap-3">
           <Icon
             name="alert-circle"
             width={24}
@@ -181,10 +181,10 @@ const {
             {t("share.fallback.message")}
           </Paragraph>
         </div>
-        <div class="flex gap-3 justify-center">
+        <div class="flex justify-center gap-3">
           <button
             id="retry-share-button"
-            class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-[var(--color-primary-600)] text-white hover:bg-[var(--color-primary-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2"
+            class="flex items-center gap-2 rounded-lg bg-[var(--color-primary-600)] px-4 py-2 text-sm font-medium text-white transition-all duration-200 hover:bg-[var(--color-primary-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
             type="button"
             aria-label={t("share.fallback.retry.label")}
           >
@@ -193,7 +193,7 @@ const {
           </button>
           <button
             id="manual-copy-button"
-            class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-[var(--bg-secondary)] text-[var(--text-primary)] border border-[var(--border-primary)] hover:bg-[var(--bg-tertiary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2"
+            class="flex items-center gap-2 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-4 py-2 text-sm font-medium text-[var(--text-primary)] transition-all duration-200 hover:bg-[var(--bg-tertiary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
             type="button"
             aria-label={t("share.fallback.manual.label")}
           >

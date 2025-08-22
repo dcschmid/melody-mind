@@ -4,7 +4,6 @@
  * Handles chronology game logic with loading state management and proper end game handling
  */
 
-import { handleEndGame } from "./endGameUtils.ts";
 import {
   showEndOverlay,
   setupEndOverlay,
@@ -12,6 +11,8 @@ import {
   updateMotivationText,
   animateProgressBar,
 } from "../endOverlay.ts";
+
+import { handleEndGame } from "./endGameUtils.ts";
 
 // Setup EndOverlay functionality
 setupEndOverlay();

@@ -79,12 +79,12 @@ const statusAnnouncementText = isDisabled
   {
     isDisabled && (
       <div
-        class="absolute inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 text-center"
+        class="absolute inset-0 z-50 flex items-center justify-center bg-black/50 p-4 text-center backdrop-blur-sm"
         aria-label={t("playlist.item.unavailable")}
         role="status"
       >
         <span class="sr-only">{t("playlist.item.status")}:</span>
-        <span class="rounded-full border border-gray-300 bg-gray-700 px-3 py-2 text-white font-medium text-sm transition-all duration-200">
+        <span class="rounded-full border border-gray-300 bg-gray-700 px-3 py-2 text-sm font-medium text-white transition-all duration-200">
           {t("playlist.item.coming.soon")}
         </span>
       </div>
@@ -92,14 +92,14 @@ const statusAnnouncementText = isDisabled
   }
 
   <div
-    class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700"
+    class="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700"
     aria-hidden="true"
   >
   </div>
 
   <div class="relative aspect-video w-full overflow-hidden">
     <span
-      class="absolute top-3 right-3 z-10 rounded-full bg-purple-700 px-2 py-1 text-white text-xs font-medium transition-all duration-200 sm:text-sm sm:px-3 sm:py-2"
+      class="absolute top-3 right-3 z-10 rounded-full bg-purple-700 px-2 py-1 text-xs font-medium text-white transition-all duration-200 sm:px-3 sm:py-2 sm:text-sm"
     >
       {isDisabled ? t("playlist.item.coming.soon") : t("category.play")}
     </span>
@@ -120,7 +120,7 @@ const statusAnnouncementText = isDisabled
     />
   </div>
 
-  <div class="flex flex-col flex-grow p-4">
+  <div class="flex flex-grow flex-col p-4">
     <Headline level="h3" textAlign="center">
       {headline}
     </Headline>
@@ -128,7 +128,7 @@ const statusAnnouncementText = isDisabled
     {
       subheadline && (
         <div id={descriptionId} class="relative">
-          <div class="mx-auto mb-3 w-1/4 h-0.5 bg-purple-500 transition-all duration-300 sm:mb-4" />
+          <div class="mx-auto mb-3 h-0.5 w-1/4 bg-purple-500 transition-all duration-300 sm:mb-4" />
           <Paragraph textAlign="center">{subheadline}</Paragraph>
         </div>
       )
@@ -136,7 +136,7 @@ const statusAnnouncementText = isDisabled
   </div>
 
   <div
-    class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"
+    class="absolute right-0 bottom-0 left-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 transition-transform duration-300 group-hover:scale-x-100"
     aria-hidden="true"
   >
   </div>

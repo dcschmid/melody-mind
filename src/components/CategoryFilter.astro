@@ -14,17 +14,17 @@ const { categories, selectedValue = "all", className = "" } = Astro.props;
 
 <div class={`mb-8 md:mb-10 ${className}`} role="search">
   <div class="relative mx-auto max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl">
-    <div class="text-center mb-6">
+    <div class="mb-6 text-center">
       <span
-        class="inline-block px-6 py-3 rounded-full bg-gray-800/50 backdrop-blur-sm border border-purple-500/30 text-purple-300 text-base font-medium"
+        class="inline-block rounded-full border border-purple-500/30 bg-gray-800/50 px-6 py-3 text-base font-medium text-purple-300 backdrop-blur-sm"
       >
         Filter by category:
       </span>
     </div>
-    <div class="relative group">
+    <div class="group relative">
       <select
         id="category-filter"
-        class="w-full bg-gray-900/80 backdrop-blur-md border-2 border-purple-500/50 rounded-2xl text-white text-lg font-medium leading-relaxed transition-all duration-300 shadow-xl p-5 px-8 cursor-pointer appearance-none pr-20 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-gray-900 focus:border-purple-400 hover:border-purple-400 hover:bg-gray-800/90 hover:shadow-2xl hover:shadow-purple-500/25 active:scale-[0.98]"
+        class="w-full cursor-pointer appearance-none rounded-2xl border-2 border-purple-500/50 bg-gray-900/80 p-5 px-8 pr-20 text-lg leading-relaxed font-medium text-white shadow-xl backdrop-blur-md transition-all duration-300 hover:border-purple-400 hover:bg-gray-800/90 hover:shadow-2xl hover:shadow-purple-500/25 focus:border-purple-400 focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none active:scale-[0.98]"
         name="category-filter"
         aria-label="Filter by category:"
         aria-controls="genre-content"
@@ -35,13 +35,13 @@ const { categories, selectedValue = "all", className = "" } = Astro.props;
         {categories.map((category) => <option value={category.type}>{category.title}</option>)}
       </select>
       <div
-        class="absolute top-0 bottom-0 right-0 flex items-center justify-center px-8 pointer-events-none"
+        class="pointer-events-none absolute top-0 right-0 bottom-0 flex items-center justify-center px-8"
       >
         <div
-          class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-all duration-300"
+          class="flex h-8 w-8 items-center justify-center rounded-full bg-purple-500/20 transition-all duration-300 group-hover:bg-purple-500/30"
         >
           <svg
-            class="w-5 h-5 text-purple-300 group-hover:text-purple-200 transition-colors duration-300"
+            class="h-5 w-5 text-purple-300 transition-colors duration-300 group-hover:text-purple-200"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

@@ -27,7 +27,7 @@ export interface ChronologyItem {
  */
 export function generateChronologyQuestion(
   albums: Album[],
-  difficulty: Difficulty
+  _difficulty: Difficulty
 ): ChronologyQuestion | null {
   if (!albums || albums.length < 3) {
     console.error("Not enough albums for chronology mode");

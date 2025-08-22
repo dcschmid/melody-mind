@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
    * Implements a focus trap for the search field
    */
   function implementFocusTrap() {
-    if (!searchInput || !resetSearchButton) return;
+    if (!searchInput || !resetSearchButton) {return;}
 
     // Add event listener for tab key
     searchInput.addEventListener("keydown", function (event) {
@@ -109,14 +109,14 @@ document.addEventListener("DOMContentLoaded", function () {
    * @returns {number} - The number of matching articles
    */
   function filterArticles(searchTerm) {
-    if (!articlesGrid) return 0;
+    if (!articlesGrid) {return 0;}
 
     const articles = Array.from(articlesGrid.querySelectorAll("li"));
     let matchCount = 0;
 
     articles.forEach((article) => {
       const card = article.querySelector(".knowledge-card");
-      if (!card) return;
+      if (!card) {return;}
 
       const title = card.dataset.title?.toLowerCase() || "";
       const description = card.dataset.description?.toLowerCase() || "";
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
    * Implements advanced keyboard navigation for article cards
    */
   function implementKeyboardNavigation() {
-    if (!articlesGrid) return;
+    if (!articlesGrid) {return;}
 
     document.addEventListener("keydown", function (event) {
       // Only if focus is not on an input field
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return listItem && listItem.style.display !== "none";
       });
 
-      if (visibleCards.length === 0) return;
+      if (visibleCards.length === 0) {return;}
 
       // Find the current focus index
       currentFocusIndex = visibleCards.findIndex((card) => card.contains(document.activeElement));
@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
    * @param {Array} visibleCards - The visible cards
    */
   function navigateCards(direction, visibleCards) {
-    if (visibleCards.length === 0) return;
+    if (visibleCards.length === 0) {return;}
 
     // If no element is focused, start at -1 or at the end
     if (currentFocusIndex === -1) {
@@ -325,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Add event listener for scroll events to control the "Back to Top" button
     window.addEventListener("scroll", function () {
-      if (!backToTopButton) return;
+      if (!backToTopButton) {return;}
 
       if (window.scrollY > 300) {
         backToTopButton.classList.remove("opacity-0", "invisible");

@@ -98,7 +98,7 @@ export async function get({ params }) {
         priority: "0.7",
       });
     });
-  } catch (error) {
+  } catch (_error) {
     // Collection might not exist for this language
     console.warn(`No knowledge collection found for language: ${lang}`);
   }

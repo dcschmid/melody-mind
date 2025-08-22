@@ -131,38 +131,38 @@ const newsStructuredData = newsData?.items?.length
     <meta property="article:tag" content="Artists" />
     <meta property="article:tag" content="Entertainment" />
   </Fragment>
-  <main class="min-h-screen bg-gray-900 text-white py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <main class="min-h-screen bg-gray-900 py-8 text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Hero Header Section like GameHome -->
       <header
-        class="relative overflow-hidden bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 rounded-3xl shadow-2xl border border-purple-500/30 mb-16 p-8 sm:p-12 lg:p-16"
+        class="relative mb-16 overflow-hidden rounded-3xl border border-purple-500/30 bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 p-8 shadow-2xl sm:p-12 lg:p-16"
       >
         <!-- Decorative background elements -->
-        <div class="absolute inset-0 opacity-10 pointer-events-none" aria-hidden="true">
-          <div class="absolute -top-8 -right-8 w-32 h-32 bg-white rounded-full"></div>
-          <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-white rounded-full"></div>
-          <div class="absolute top-1/2 right-4 w-16 h-16 bg-white rounded-full"></div>
+        <div class="pointer-events-none absolute inset-0 opacity-10" aria-hidden="true">
+          <div class="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white"></div>
+          <div class="absolute -bottom-8 -left-8 h-24 w-24 rounded-full bg-white"></div>
+          <div class="absolute top-1/2 right-4 h-16 w-16 rounded-full bg-white"></div>
         </div>
 
-        <div class="relative z-10 text-center text-white w-full">
+        <div class="relative z-10 w-full text-center text-white">
           <Headline level="h1" textSize="3xl" textAlign="center">
             {pageTitle}
           </Headline>
-          <div class="bg-blue-400 rounded-full w-12 h-1 mx-auto my-8"></div>
+          <div class="mx-auto my-8 h-1 w-12 rounded-full bg-blue-400"></div>
           <Paragraph textAlign="center" textSize="lg">
             {pageDescription}
           </Paragraph>
 
           {
             newsData && (
-              <div class="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm md:text-base">
-                <div class="flex items-center gap-2 bg-gray-800/50 backdrop-blur-sm px-4 py-2 rounded-full border border-purple-500/30">
+              <div class="flex flex-col items-center justify-center gap-4 text-sm sm:flex-row md:text-base">
+                <div class="flex items-center gap-2 rounded-full border border-purple-500/30 bg-gray-800/50 px-4 py-2 backdrop-blur-sm">
                   <span class="text-purple-300">{t("news.lastUpdated")}:</span>
                   <time class="text-white" datetime={newsData.lastUpdated}>
                     {new Date(newsData.lastUpdated).toLocaleString(currentLang)}
                   </time>
                 </div>
-                <div class="flex items-center gap-2 bg-gray-800/50 backdrop-blur-sm px-4 py-2 rounded-full border border-purple-500/30">
+                <div class="flex items-center gap-2 rounded-full border border-purple-500/30 bg-gray-800/50 px-4 py-2 backdrop-blur-sm">
                   <span class="text-purple-300">
                     {t("news.sourcesCount", { count: newsData.totalSources })}
                   </span>
@@ -176,7 +176,7 @@ const newsStructuredData = newsData?.items?.length
       {
         error && (
           <div
-            class="bg-red-900/50 backdrop-blur-sm border border-red-500/50 rounded-2xl p-6 mb-8"
+            class="mb-8 rounded-2xl border border-red-500/50 bg-red-900/50 p-6 backdrop-blur-sm"
             role="alert"
           >
             <Headline level="h2" textSize="2xl" className="text-red-300 mb-4">
@@ -185,7 +185,7 @@ const newsStructuredData = newsData?.items?.length
             <Paragraph className="text-red-200 mb-4">{error}</Paragraph>
             <button
               type="button"
-              class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl font-medium transition-colors duration-300"
+              class="rounded-xl bg-red-600 px-6 py-3 font-medium text-white transition-colors duration-300 hover:bg-red-700"
               onclick="window.location.reload()"
             >
               {t("common.retry")}
@@ -202,13 +202,13 @@ const newsStructuredData = newsData?.items?.length
             </Headline>
 
             <div
-              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
               itemscope
               itemtype="https://schema.org/ItemList"
             >
               {newsData.items.map((item, index) => (
                 <article
-                  class="bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                  class="overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                   aria-labelledby={`news-title-${index}`}
                   itemscope
                   itemtype="https://schema.org/NewsArticle"
@@ -216,7 +216,7 @@ const newsStructuredData = newsData?.items?.length
                 >
                   <div class="p-6">
                     <header class="mb-4">
-                      <div class="flex items-center justify-between text-sm text-gray-400 mb-3">
+                      <div class="mb-3 flex items-center justify-between text-sm text-gray-400">
                         <span class="font-medium" itemprop="author">
                           {item.source}
                         </span>
@@ -252,7 +252,7 @@ const newsStructuredData = newsData?.items?.length
                         href={item.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl text-lf font-medium transition-colors duration-300"
+                        class="text-lf inline-flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-2 font-medium text-white transition-colors duration-300 hover:bg-purple-700"
                         aria-label={`${t("news.readMore")} - ${item.title}`}
                       >
                         {t("news.readMore")}
@@ -271,14 +271,14 @@ const newsStructuredData = newsData?.items?.length
 
       {
         !error && newsData.items.length === 0 && (
-          <section class="text-center py-16" role="status">
+          <section class="py-16 text-center" role="status">
             <Headline level="h2" textSize="2xl" className="text-white mb-4">
               {t("news.noNews")}
             </Headline>
             <Paragraph className="text-gray-300 mb-8">{t("news.noNewsDescription")}</Paragraph>
             <button
               type="button"
-              class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-xl font-medium transition-colors duration-300"
+              class="rounded-xl bg-purple-600 px-6 py-3 font-medium text-white transition-colors duration-300 hover:bg-purple-700"
               onclick="window.location.reload()"
             >
               {t("news.refresh")}
@@ -289,18 +289,18 @@ const newsStructuredData = newsData?.items?.length
 
       <!-- Footer Info -->
       <footer class="border-t border-gray-700 pt-12">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6">
-            <Headline level="h3" textSize="lg" className="text-purple-300 mb-4">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div class="rounded-2xl border border-gray-700 bg-gray-800/50 p-6 backdrop-blur-sm">
+            <Headline level="h3" textSize="lg" className="mb-4 text-purple-300">
               {t("news.disclaimer.title")}
             </Headline>
-            <Paragraph className="text-gray-300 text-sm">
+            <Paragraph className="text-sm text-gray-300">
               {t("news.disclaimer.text")}
             </Paragraph>
           </div>
 
-          <div class="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6">
-            <Paragraph className="text-gray-300 text-sm mb-4">
+          <div class="rounded-2xl border border-gray-700 bg-gray-800/50 p-6 backdrop-blur-sm">
+            <Paragraph className="mb-4 text-sm text-gray-300">
               {t("news.legal.attribution")}
             </Paragraph>
             <ul class="space-y-2">
@@ -309,7 +309,7 @@ const newsStructuredData = newsData?.items?.length
                   newsData.items
                     .map((item) => item.source)
                     .filter((source, index, arr) => arr.indexOf(source) === index)
-                    .map((source) => <li class="text-purple-300 text-sm">{source}</li>)
+                    .map((source) => <li class="text-sm text-purple-300">{source}</li>)
               }
             </ul>
           </div>

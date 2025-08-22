@@ -41,7 +41,7 @@ const dataAttributes = {
 ---
 
 <div
-  class="relative p-8 flex flex-col items-center gap-6 rounded-[var(--radius-xl)] border-[var(--border-width-thick)] border-[var(--border-primary)] bg-[var(--card-bg)] shadow-[var(--shadow-lg)] transition-all duration-300 hover:shadow-[var(--shadow-xl)] hover:border-[var(--border-secondary)]"
+  class="relative flex flex-col items-center gap-6 rounded-[var(--radius-xl)] border-[var(--border-primary)] border-[var(--border-width-thick)] bg-[var(--card-bg)] p-8 shadow-[var(--shadow-lg)] transition-all duration-300 hover:border-[var(--border-secondary)] hover:shadow-[var(--shadow-xl)]"
   role="group"
   aria-labelledby="joker-title"
   data-testid="joker-container"
@@ -55,7 +55,7 @@ const dataAttributes = {
     <button
       id="joker-button"
       type="button"
-      class="inline-flex items-center justify-center border-none rounded-[var(--radius-lg)] font-bold no-underline cursor-pointer relative min-w-[var(--min-touch-size)] min-h-[var(--min-touch-size)] leading-[var(--leading-normal)] tracking-[var(--letter-spacing-base)] font-[var(--font-family-primary)] px-4 py-3 text-base bg-gradient-to-r from-purple-600 to-purple-700 text-white border border-transparent shadow-lg transition-all duration-300 hover:from-purple-700 hover:to-purple-800 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-500 focus-visible:outline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none disabled:filter-grayscale"
+      class="disabled:filter-grayscale relative inline-flex min-h-[var(--min-touch-size)] min-w-[var(--min-touch-size)] cursor-pointer items-center justify-center rounded-[var(--radius-lg)] border border-none border-transparent bg-gradient-to-r from-purple-600 to-purple-700 px-4 py-3 text-base leading-[var(--leading-normal)] font-[var(--font-family-primary)] font-bold tracking-[var(--letter-spacing-base)] text-white no-underline shadow-lg transition-all duration-300 hover:from-purple-700 hover:to-purple-800 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
       aria-label={jokerButtonAriaLabel}
       aria-describedby="joker-description joker-count"
       data-joker-type="fifty-fifty"
@@ -63,7 +63,7 @@ const dataAttributes = {
     >
       <Icon
         name="star"
-        class="w-[var(--icon-size-sm)] h-[var(--icon-size-sm)] flex-shrink-0 mr-4 text-yellow-300"
+        class="mr-4 h-[var(--icon-size-sm)] w-[var(--icon-size-sm)] flex-shrink-0 text-yellow-300"
         aria-hidden="true"
       />
       {jokerText}
@@ -73,7 +73,7 @@ const dataAttributes = {
   <div id="joker-count-container" class="flex items-center gap-3">
     <span
       id="joker-count"
-      class="font-medium leading-[var(--leading-normal)] min-w-[var(--touch-target-enhanced)] min-h-[var(--touch-target-enhanced)] rounded-full border-2 border-purple-500 bg-gradient-to-r from-purple-900 to-purple-800 px-3 py-3 text-center text-[var(--text-xl)] text-white font-tabular-nums transition-all duration-300 hover:from-purple-800 hover:to-purple-700 hover:border-purple-400 hover:shadow-lg"
+      class="font-tabular-nums min-h-[var(--touch-target-enhanced)] min-w-[var(--touch-target-enhanced)] rounded-full border-2 border-purple-500 bg-gradient-to-r from-purple-900 to-purple-800 px-3 py-3 text-center leading-[var(--leading-normal)] font-medium text-[var(--text-xl)] text-white transition-all duration-300 hover:border-purple-400 hover:from-purple-800 hover:to-purple-700 hover:shadow-lg"
       aria-live="polite"
       aria-atomic="true"
     >
@@ -84,7 +84,7 @@ const dataAttributes = {
 
   <div
     id="joker-description"
-    class="mt-6 max-w-[var(--grid-min-width-md)] text-center text-[var(--text-lg)] text-[var(--text-tertiary)] leading-[var(--leading-relaxed)] tracking-[var(--letter-spacing-base)]"
+    class="mt-6 max-w-[var(--grid-min-width-md)] text-center leading-[var(--leading-relaxed)] tracking-[var(--letter-spacing-base)] text-[var(--text-lg)] text-[var(--text-tertiary)]"
   >
     {jokerDescription}
   </div>

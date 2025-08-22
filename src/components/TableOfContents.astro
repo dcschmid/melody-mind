@@ -75,7 +75,7 @@ const tocTitle = title || t("toc.nav.label");
           aria-expanded="false"
           aria-controls="toc-content"
           aria-label={t("toc.toggle.label")}
-          class="flex w-full items-center justify-between rounded-lg border border-gray-600 bg-gray-800 px-4 py-3 text-left text-base font-medium text-white shadow-lg transition-all duration-300 hover:bg-gray-700 hover:border-gray-500 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-purple-500/60 focus:ring-offset-2 focus:ring-offset-gray-900 min-h-[44px]"
+          class="flex min-h-[44px] w-full items-center justify-between rounded-lg border border-gray-600 bg-gray-800 px-4 py-3 text-left text-base font-medium text-white shadow-lg transition-all duration-300 hover:border-gray-500 hover:bg-gray-700 hover:shadow-xl focus:ring-4 focus:ring-purple-500/60 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
         >
           <span class="flex items-center gap-3">
             <Icon name="menu" class="h-5 w-5 text-purple-400" aria-hidden="true" />
@@ -105,19 +105,19 @@ const tocTitle = title || t("toc.nav.label");
           <nav aria-label={t("toc.nav.label")} class="p-4">
             <a
               href="#article-content"
-              class="mb-4 block text-sm text-purple-400 no-underline transition-colors duration-200 hover:underline hover:underline-offset-2 focus:outline-none focus:ring-2 focus:ring-purple-500/60 focus:ring-offset-2 focus:ring-offset-gray-900"
+              class="mb-4 block text-sm text-purple-400 no-underline transition-colors duration-200 hover:underline hover:underline-offset-2 focus:ring-2 focus:ring-purple-500/60 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
             >
               {t("toc.skip.link")}
             </a>
-            <ul class="max-h-[50vh] overflow-y-auto p-0 m-0 list-none scrollbar-thin scrollbar-track-gray-700 scrollbar-thumb-gray-500 hover:scrollbar-thumb-gray-400">
+            <ul class="scrollbar-thin scrollbar-track-gray-700 scrollbar-thumb-gray-500 hover:scrollbar-thumb-gray-400 m-0 max-h-[50vh] list-none overflow-y-auto p-0">
               {filteredHeadings.map((heading) => (
                 <li class={`mb-1 ${heading.depth === 3 ? "ml-4" : ""}`}>
                   <a
                     href={`#${heading.slug}`}
-                    class={`block rounded-md px-3 py-2 text-decoration-none min-h-[44px] leading-relaxed transition-all duration-200 ${
+                    class={`text-decoration-none block min-h-[44px] rounded-md px-3 py-2 leading-relaxed transition-all duration-200 ${
                       heading.depth === 2
-                        ? "text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/60 focus:ring-offset-2 focus:ring-offset-gray-900"
-                        : "text-xs font-normal text-gray-400 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/60 focus:ring-offset-2 focus:ring-offset-gray-900"
+                        ? "text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white focus:ring-2 focus:ring-purple-500/60 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
+                        : "text-xs font-normal text-gray-400 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white focus:ring-2 focus:ring-purple-500/60 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
                     }`}
                   >
                     {heading.text}

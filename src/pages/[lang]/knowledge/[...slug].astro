@@ -30,8 +30,8 @@ import Prose from "@components/Prose.astro";
 import TableOfContents from "@components/TableOfContents.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
 import { Icon } from "astro-icon/components";
-import { getEntry } from "astro:content";
-import { extractKeywords, generateMetaDescription } from "@utils/seo";
+// import { getEntry } from "astro:content";
+import { generateMetaDescription } from "@utils/seo";
 
 // 2. Rendering Strategy: SSG for better performance and SEO
 export const prerender = true;
@@ -69,7 +69,7 @@ export async function getStaticPaths() {
           });
         }
       }
-    } catch (error) {
+    } catch {
       console.warn(`No knowledge collection found for ${lang}`);
       // Try to get English fallback
       try {
@@ -82,8 +82,8 @@ export async function getStaticPaths() {
             });
           }
         }
-      } catch (fallbackError) {
-        console.error(`Failed to load fallback knowledge for ${lang}:`, fallbackError);
+      } catch (_fallbackError) {
+        console.error(`Failed to load fallback knowledge for ${lang}:`, _fallbackError);
       }
     }
   }
@@ -92,23 +92,23 @@ export async function getStaticPaths() {
 }
 
 // 4. TypeScript Definitions
-type KnowledgeEntry = CollectionEntry<KnowledgeCollectionKey> & {
-  data: {
-    title: string;
-    description: string;
-    keywords?: string[];
-    createdAt?: Date;
-    updatedAt?: Date;
-    image?: string;
-    category?: {
-      spotifyPlaylist?: string;
-      deezerPlaylist?: string;
-      appleMusicPlaylist?: string;
-    };
-    isPlayable?: boolean;
-    difficulty?: string;
-  };
-};
+// type KnowledgeEntry = CollectionEntry<KnowledgeCollectionKey> & {
+//   data: {
+//     title: string;
+//     description: string;
+//     keywords?: string[];
+//     createdAt?: Date;
+//     updatedAt?: Date;
+//     image?: string;
+//     category?: {
+//       spotifyPlaylist?: string;
+//       deezerPlaylist?: string;
+//       appleMusicPlaylist?: string;
+//     };
+//     isPlayable?: boolean;
+//     difficulty?: string;
+//   };
+// };
 
 // 5. Main Component Logic
 const { entry, lang } = Astro.props;
@@ -125,7 +125,7 @@ const title = entry.data.title;
 const description = entry.data.description;
 const pageContent = `${title} ${description} ${entry.data.keywords?.join(" ") || ""}`;
 const optimizedDescription = generateMetaDescription(pageContent, 158);
-const keywords = extractKeywords(pageContent, 12, lang);
+// const _keywords = extractKeywords(pageContent, 12, lang);
 
 // Enhanced structured data for knowledge article
 const articleSchema = {
@@ -159,30 +159,30 @@ const articleSchema = {
 };
 
 // Breadcrumb structured data
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: t("nav.home"),
-      item: `${Astro.site}/${lang}/`,
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: t("knowledge.title"),
-      item: `${Astro.site}/${lang}/knowledge`,
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: title,
-      item: Astro.url.href,
-    },
-  ],
-};
+// const _breadcrumbSchema = {
+//   "@context": "https://schema.org",
+//   "@type": "BreadcrumbList",
+//   itemListElement: [
+//     {
+//       "@type": "ListItem",
+//       position: 1,
+//       name: t("nav.home"),
+//       item: `${Astro.site}/${lang}/`,
+//     },
+//     {
+//       "@type": "ListItem",
+//       position: 2,
+//       name: t("knowledge.title"),
+//       item: `${Astro.site}/${lang}/knowledge`,
+//     },
+//     {
+//       "@type": "ListItem",
+//       position: 3,
+//       name: title,
+//       item: Astro.url.href,
+//     },
+//   ],
+// };
 
 // Helper function for translations
 function translate(key: string, fallback: string): string {
@@ -214,15 +214,15 @@ function translate(key: string, fallback: string): string {
       <!-- Header Section with Image and Title -->
       <header class="mb-16">
         <div
-          class="flex flex-col lg:grid lg:grid-cols-[1.2fr_0.8fr] lg:gap-12 xl:gap-16 lg:items-center"
+          class="flex flex-col lg:grid lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-12 xl:gap-16"
         >
           <!-- Image Section - Larger and better responsive -->
-          <div class="w-full mx-auto lg:max-w-none mb-8 lg:mb-0 order-2 lg:order-1">
+          <div class="order-2 mx-auto mb-8 w-full lg:order-1 lg:mb-0 lg:max-w-none">
             {
               imageSource ? (
-                <div class="relative w-full aspect-[4/3] lg:aspect-[5/3] overflow-hidden rounded-2xl shadow-2xl border border-gray-600">
+                <div class="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gray-600 shadow-2xl lg:aspect-[5/3]">
                   <Picture
-                    class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                     src={imageSource}
                     widths={[600, 800, 1000, 1200]}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1000px"
@@ -237,7 +237,7 @@ function translate(key: string, fallback: string): string {
                 </div>
               ) : (
                 <div
-                  class="flex aspect-[4/3] lg:aspect-[5/3] w-full items-center justify-center rounded-2xl bg-gray-800 p-8 text-center text-gray-400 border-2 border-dashed border-gray-600"
+                  class="flex aspect-[4/3] w-full items-center justify-center rounded-2xl border-2 border-dashed border-gray-600 bg-gray-800 p-8 text-center text-gray-400 lg:aspect-[5/3]"
                   role="img"
                   aria-label="Kein Bild verfügbar"
                 >
@@ -252,7 +252,7 @@ function translate(key: string, fallback: string): string {
 
           <!-- Title Section - Better responsive positioning -->
           <div
-            class="flex flex-col items-center gap-6 lg:items-start order-1 lg:order-2 text-center lg:text-left"
+            class="order-1 flex flex-col items-center gap-6 text-center lg:order-2 lg:items-start lg:text-left"
           >
             <Headline level="h1" textSize="xl" textAlign="center">
               {entry.data.title}
@@ -267,21 +267,21 @@ function translate(key: string, fallback: string): string {
 
       <!-- Meta Information and Action Buttons Section -->
       <section class="mb-12">
-        <div class="max-w-5xl mx-auto">
+        <div class="mx-auto max-w-5xl">
           {/* Description */}
           <div class="mb-8 px-4"></div>
 
           {/* Meta Information - Better responsive grid */}
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8 px-4">
+          <div class="mb-8 grid grid-cols-1 gap-3 px-4 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
             <div
-              class="flex items-center justify-center sm:justify-start gap-2 px-3 sm:px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl"
+              class="flex items-center justify-center gap-2 rounded-xl border border-gray-700/50 bg-gray-800/50 px-3 py-3 backdrop-blur-sm sm:justify-start sm:px-4"
             >
               <Icon
                 name="calendar"
-                class="h-4 w-4 sm:h-5 sm:w-5 text-blue-400"
+                class="h-4 w-4 text-blue-400 sm:h-5 sm:w-5"
                 aria-hidden="true"
               />
-              <span class="text-xs sm:text-sm text-gray-300">
+              <span class="text-xs text-gray-300 sm:text-sm">
                 {
                   new Date(entry.data.createdAt || new Date()).toLocaleDateString(lang, {
                     year: "numeric",
@@ -293,35 +293,35 @@ function translate(key: string, fallback: string): string {
             </div>
 
             <div
-              class="flex items-center justify-center sm:justify-start gap-2 px-3 sm:px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl"
+              class="flex items-center justify-center gap-2 rounded-xl border border-gray-700/50 bg-gray-800/50 px-3 py-3 backdrop-blur-sm sm:justify-start sm:px-4"
             >
-              <Icon name="clock" class="h-4 w-4 sm:h-5 sm:w-5 text-green-400" aria-hidden="true" />
-              <span class="text-xs sm:text-sm text-gray-300">
+              <Icon name="clock" class="h-4 w-4 text-green-400 sm:h-5 sm:w-5" aria-hidden="true" />
+              <span class="text-xs text-gray-300 sm:text-sm">
                 {Math.ceil((entry.body?.length || 0) / 200)} Min. Lesezeit
               </span>
             </div>
 
             <div
-              class="flex items-center justify-center sm:justify-start gap-2 px-3 sm:px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl"
+              class="flex items-center justify-center gap-2 rounded-xl border border-gray-700/50 bg-gray-800/50 px-3 py-3 backdrop-blur-sm sm:justify-start sm:px-4"
             >
               <Icon
                 name="file-text"
-                class="h-4 w-4 sm:h-5 sm:w-5 text-purple-400"
+                class="h-4 w-4 text-purple-400 sm:h-5 sm:w-5"
                 aria-hidden="true"
               />
-              <span class="text-xs sm:text-sm text-gray-300">
+              <span class="text-xs text-gray-300 sm:text-sm">
                 {entry.body?.length || 0} words
               </span>
             </div>
           </div>
 
           {/* Action Buttons - Better responsive layout */}
-          <div class="flex flex-col sm:flex-row gap-3 justify-center px-4">
+          <div class="flex flex-col justify-center gap-3 px-4 sm:flex-row">
             <ButtonLink
               href={entry.data.category?.spotifyPlaylist || "#"}
               variant="secondary"
               icon="spotify"
-              className="w-full sm:w-auto justify-center"
+              className="w-full justify-center sm:w-auto"
               aria-label="Spotify Playlist öffnen"
             >
               Spotify
@@ -330,7 +330,7 @@ function translate(key: string, fallback: string): string {
               href={entry.data.category?.deezerPlaylist || "#"}
               variant="secondary"
               icon="deezer"
-              className="w-full sm:w-auto justify-center"
+              className="w-full justify-center sm:w-auto"
               aria-label="Deezer Playlist öffnen"
             >
               Deezer
@@ -339,7 +339,7 @@ function translate(key: string, fallback: string): string {
               href={entry.data.category?.appleMusicPlaylist || "#"}
               variant="secondary"
               icon="apple-music"
-              className="w-full sm:w-auto justify-center"
+              className="w-full justify-center sm:w-auto"
               aria-label="Apple Music Playlist öffnen"
             >
               Apple
@@ -361,13 +361,13 @@ function translate(key: string, fallback: string): string {
       </div>
 
       <!-- Back Navigation -->
-      <div class="mt-12 pt-8 border-t border-gray-700/50">
+      <div class="mt-12 border-t border-gray-700/50 pt-8">
         <div class="flex justify-center">
           <ButtonLink
             href={`/${String(lang)}/knowledge`}
             icon="arrow-left"
             aria-label={translate("knowledge.back.to.list", "Back to knowledge list")}
-            className="px-6 py-3 bg-gray-800 hover:bg-gray-700 border border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white transition-all duration-300 rounded-xl hover:shadow-lg hover:-translate-y-1"
+            className="rounded-xl border border-gray-600 bg-gray-800 px-6 py-3 text-gray-300 transition-all duration-300 hover:-translate-y-1 hover:border-gray-500 hover:bg-gray-700 hover:text-white hover:shadow-lg"
           >
             <span class="flex items-center gap-2">
               <Icon name="arrow-left" class="h-5 w-5" aria-hidden="true" />

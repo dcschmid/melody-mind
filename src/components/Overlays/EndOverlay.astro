@@ -79,7 +79,7 @@ const clientTranslations = {
 
 <div
   {id}
-  class="fixed top-0 left-0 right-0 bottom-0 z-[var(--z-modal)] flex items-center justify-center p-6 bg-[var(--backdrop-overlay-dark)] transition-opacity duration-300 popup hidden"
+  class="popup fixed top-0 right-0 bottom-0 left-0 z-[var(--z-modal)] flex hidden items-center justify-center bg-[var(--backdrop-overlay-dark)] p-6 transition-opacity duration-300"
   role="dialog"
   aria-labelledby="popup-title"
   aria-describedby="popup-description"
@@ -94,19 +94,19 @@ const clientTranslations = {
   <!-- Overlay backdrop for click-to-close functionality -->
   <div
     id="overlay-backdrop"
-    class="absolute top-0 left-0 right-0 bottom-0 z-[var(--z-backdrop)]"
+    class="absolute top-0 right-0 bottom-0 left-0 z-[var(--z-backdrop)]"
     aria-hidden="true"
   >
   </div>
 
   <div
-    class="relative w-full max-h-[90vh] max-w-5xl overflow-y-auto bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-slate-600/50 rounded-3xl p-8 shadow-2xl z-50 transition-all duration-300 backdrop-blur-sm"
+    class="relative z-50 max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-3xl border-2 border-slate-600/50 bg-gradient-to-br from-slate-800 to-slate-900 p-8 shadow-2xl backdrop-blur-sm transition-all duration-300"
     tabindex="-1"
     role="document"
   >
     <!-- Achievement badge with trophy icon -->
     <div
-      class="flex items-center justify-center w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full text-black shadow-2xl border-4 border-yellow-300"
+      class="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full border-4 border-yellow-300 bg-gradient-to-br from-yellow-400 to-yellow-600 text-black shadow-2xl"
       role="img"
       aria-label={t("game.end.achievementBadge")}
     >
@@ -117,7 +117,7 @@ const clientTranslations = {
       level="h2"
       textSize="xl"
       textAlign="center"
-      className="text-3xl font-bold text-center mb-8 text-purple-300 leading-tight tracking-wide drop-shadow-lg"
+      className="mb-8 text-center text-3xl leading-tight font-bold tracking-wide text-purple-300 drop-shadow-lg"
       {title}
     />
 
@@ -138,7 +138,7 @@ const clientTranslations = {
 
     <!-- Progress Visualization with improved ARIA and timeout indicators -->
     <div
-      class="w-full h-4 bg-slate-700/50 border border-slate-600/50 rounded-full mb-8 overflow-hidden relative"
+      class="relative mb-8 h-4 w-full overflow-hidden rounded-full border border-slate-600/50 bg-slate-700/50"
       role="progressbar"
       aria-valuemin="0"
       aria-valuemax="100"
@@ -148,7 +148,7 @@ const clientTranslations = {
     >
       <div
         id="score-bar"
-        class="h-full w-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full relative scale-x-0 origin-left transition-transform duration-1000"
+        class="relative h-full w-full origin-left scale-x-0 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 transition-transform duration-1000"
       >
       </div>
     </div>
@@ -161,26 +161,26 @@ const clientTranslations = {
     <!-- Dynamic motivation text -->
     <div
       id="motivation-text"
-      class="text-lg text-center text-gray-300 mb-8 mx-auto leading-relaxed p-4 bg-slate-700/30 rounded-xl border border-slate-600/30"
+      class="mx-auto mb-8 rounded-xl border border-slate-600/30 bg-slate-700/30 p-4 text-center text-lg leading-relaxed text-gray-300"
     >
       {t("game.end.defaultMotivation")}
     </div>
 
     <div
-      class="flex flex-col items-center gap-4 p-8 bg-gradient-to-br from-slate-700/50 to-slate-800/50 border-2 border-slate-600/50 rounded-2xl mb-8 shadow-xl"
+      class="mb-8 flex flex-col items-center gap-4 rounded-2xl border-2 border-slate-600/50 bg-gradient-to-br from-slate-700/50 to-slate-800/50 p-8 shadow-xl"
     >
-      <span class="text-sm font-medium text-gray-400 uppercase tracking-wider"
+      <span class="text-sm font-medium tracking-wider text-gray-400 uppercase"
         >{t("game.end.finalScore")}</span
       >
       <span
         id="popup-score"
-        class="text-5xl font-bold text-white leading-none tracking-wide drop-shadow-lg">0</span
+        class="text-5xl leading-none font-bold tracking-wide text-white drop-shadow-lg">0</span
       >
     </div>
 
     <!-- Difficulty Badge -->
     <div
-      class="flex items-center justify-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border-2 border-blue-500/50 rounded-xl mx-auto mb-8 text-blue-200 text-base font-semibold shadow-lg"
+      class="mx-auto mb-8 flex items-center justify-center gap-3 rounded-xl border-2 border-blue-500/50 bg-gradient-to-r from-blue-600/20 to-purple-600/20 px-6 py-3 text-base font-semibold text-blue-200 shadow-lg"
       role="img"
       aria-label={t("game.end.difficultyLevel")}
     >
@@ -197,7 +197,7 @@ const clientTranslations = {
 
     <!-- Share Section with comprehensive sharing options -->
     <div
-      class="mb-8 py-8 border-t-2 border-b-2 border-slate-600/30 bg-gradient-to-br from-slate-700/30 to-slate-800/30 rounded-2xl px-8 shadow-inner"
+      class="mb-8 rounded-2xl border-t-2 border-b-2 border-slate-600/30 bg-gradient-to-br from-slate-700/30 to-slate-800/30 px-8 py-8 shadow-inner"
       role="region"
       aria-labelledby="share-section-heading"
     >
@@ -205,10 +205,10 @@ const clientTranslations = {
         level="h3"
         textSize="lg"
         textAlign="center"
-        className="mb-6 text-xl font-semibold text-white text-center"
+        className="mb-6 text-center text-xl font-semibold text-white"
         title={t("game.end.shareSection")}
       />
-      <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-600/50 shadow-lg">
+      <div class="rounded-xl border border-slate-600/50 bg-slate-800/50 p-6 shadow-lg">
         <ShareOverlay
           gameData={{
             score: parseInt(initialScore, 10),
@@ -223,10 +223,10 @@ const clientTranslations = {
       </div>
     </div>
 
-    <div class="flex gap-4 justify-center flex-wrap">
+    <div class="flex flex-wrap justify-center gap-4">
       <a
         href={`/${lang}/gamehome`}
-        class="flex items-center gap-3 px-6 py-4 rounded-xl text-base font-medium cursor-pointer transition-all duration-300 no-underline border-2 border-slate-600 bg-slate-700/50 text-white hover:bg-slate-600 hover:border-slate-500 focus-visible:outline-2 focus-visible:outline-blue-500 focus-visible:outline-offset-2 shadow-lg hover:shadow-xl hover:-translate-y-1"
+        class="flex cursor-pointer items-center gap-3 rounded-xl border-2 border-slate-600 bg-slate-700/50 px-6 py-4 text-base font-medium text-white no-underline shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-slate-500 hover:bg-slate-600 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
         aria-label={t("game.end.homeDescription")}
         aria-describedby="home-button-description"
       >
@@ -237,7 +237,7 @@ const clientTranslations = {
       <a
         href={restartUrl}
         id="restart-button"
-        class="flex items-center gap-3 px-6 py-4 rounded-xl text-base font-medium cursor-pointer transition-all duration-300 no-underline border-2 border-purple-600 bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 hover:border-purple-500 focus-visible:outline-2 focus-visible:outline-purple-500 focus-visible:outline-offset-2 shadow-lg hover:shadow-xl hover:-translate-y-1"
+        class="flex cursor-pointer items-center gap-3 rounded-xl border-2 border-purple-600 bg-gradient-to-r from-purple-600 to-purple-700 px-6 py-4 text-base font-medium text-white no-underline shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-purple-500 hover:from-purple-700 hover:to-purple-800 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
         aria-label={t("game.end.restartSameGameDescription")}
         aria-describedby="restart-button-description"
       >

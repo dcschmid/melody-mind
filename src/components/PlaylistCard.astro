@@ -72,7 +72,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
 ---
 
 <article
-  class="relative isolate flex h-full w-full max-w-full flex-col overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-within:outline-none focus-within:ring-2 focus-within:ring-purple-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-900"
+  class="relative isolate flex h-full w-full max-w-full flex-col overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 shadow-lg transition-all duration-300 focus-within:ring-2 focus-within:ring-purple-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-900 focus-within:outline-none hover:-translate-y-1 hover:shadow-xl"
   itemscope
   itemtype="https://schema.org/MusicPlaylist"
   aria-labelledby={`playlist-title-${index}`}
@@ -84,7 +84,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
 >
   <!-- Decade indicator bar -->
   <div
-    class="h-1 w-16 rounded-full bg-gradient-to-r from-purple-400 to-blue-400 mb-3"
+    class="mb-3 h-1 w-16 rounded-full bg-gradient-to-r from-purple-400 to-blue-400"
     aria-hidden="true"
   >
   </div>
@@ -115,7 +115,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
   </div>
 
   <!-- Content area -->
-  <div class="flex flex-1 flex-col gap-4 p-6 bg-gradient-to-b from-gray-800 to-gray-900">
+  <div class="flex flex-1 flex-col gap-4 bg-gradient-to-b from-gray-800 to-gray-900 p-6">
     <div itemprop="name">
       <Headline level="h2" textSize="xl" variant="default">
         {headline}

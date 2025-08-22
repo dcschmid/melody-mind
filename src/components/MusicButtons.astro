@@ -112,11 +112,11 @@ const validButtons = buttons.filter(({ url }) => Boolean(url));
       >
         <Icon
           name={type}
-          class="w-4 h-4 mr-2 sm:w-5 sm:h-5 sm:mr-3 flex-shrink-0 fill-current"
+          class="mr-2 h-4 w-4 flex-shrink-0 fill-current sm:mr-3 sm:h-5 sm:w-5"
           aria-hidden="true"
           title={`${label} logo`}
         />
-        <span class="text-xs font-medium sm:text-sm whitespace-nowrap">{label}</span>
+        <span class="text-xs font-medium whitespace-nowrap sm:text-sm">{label}</span>
       </ButtonLink>
     ))
   }

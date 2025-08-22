@@ -161,7 +161,7 @@ const structuredData = {
   </Fragment>
 
   <main
-    class="min-h-screen bg-gray-900 text-white flex flex-col relative"
+    class="relative flex min-h-screen flex-col bg-gray-900 text-white"
     id="game-container"
     aria-live="polite"
     data-userID={authResult.user?.id || "guest"}
@@ -178,7 +178,7 @@ const structuredData = {
     {/* Loading State */}
     <div
       id="loading-container"
-      class="flex items-center justify-center min-h-screen"
+      class="flex min-h-screen items-center justify-center"
       aria-label={t("game.loading")}
     >
       <LoadingSpinner label={t("game.loading.questions")} />
@@ -187,41 +187,41 @@ const structuredData = {
     {/* Game UI Container */}
     <div
       id="game-ui"
-      class="flex-1 flex flex-col p-4 max-w-6xl mx-auto w-full"
+      class="mx-auto flex w-full max-w-6xl flex-1 flex-col p-4"
       style="display: none;"
       aria-labelledby="question-text"
     >
       {/* Time Pressure Header */}
       <header
-        class="bg-gradient-to-br from-purple-600 to-blue-600 rounded-2xl p-4 mb-6 shadow-2xl relative overflow-hidden"
+        class="relative mb-6 overflow-hidden rounded-2xl bg-gradient-to-br from-purple-600 to-blue-600 p-4 shadow-2xl"
       >
         <div class="relative z-10">
-          <div class="grid grid-cols-2 gap-2 mb-4 md:grid-cols-4 md:gap-4 md:mb-6">
+          <div class="mb-4 grid grid-cols-2 gap-2 md:mb-6 md:grid-cols-4 md:gap-4">
             <div
-              class="flex flex-col items-center text-center p-2 bg-white/15 backdrop-blur-md rounded-lg border border-white/20 shadow-lg"
+              class="flex flex-col items-center rounded-lg border border-white/20 bg-white/15 p-2 text-center shadow-lg backdrop-blur-md"
             >
-              <Icon name="target" class="w-5 h-5 text-white/90 mb-1" aria-hidden="true" />
-              <span class="text-xs text-white/80 mb-1 uppercase tracking-wider font-medium"
+              <Icon name="target" class="mb-1 h-5 w-5 text-white/90" aria-hidden="true" />
+              <span class="mb-1 text-xs font-medium tracking-wider text-white/80 uppercase"
                 >{t("game.score")}</span
               >
               <span id="score-display" class="text-lg font-bold text-white drop-shadow-sm">0</span>
             </div>
 
             <div
-              class="flex flex-col items-center text-center p-2 bg-white/15 backdrop-blur-md rounded-lg border border-white/20 shadow-lg"
+              class="flex flex-col items-center rounded-lg border border-white/20 bg-white/15 p-2 text-center shadow-lg backdrop-blur-md"
             >
-              <Icon name="zap" class="w-5 h-5 text-white/90 mb-1" aria-hidden="true" />
-              <span class="text-xs text-white/80 mb-1 uppercase tracking-wider font-medium"
+              <Icon name="zap" class="mb-1 h-5 w-5 text-white/90" aria-hidden="true" />
+              <span class="mb-1 text-xs font-medium tracking-wider text-white/80 uppercase"
                 >{t("game.timepressure.streak")}</span
               >
               <span id="streak-display" class="text-lg font-bold text-white drop-shadow-sm">0</span>
             </div>
 
             <div
-              class="flex flex-col items-center text-center p-2 bg-white/15 backdrop-blur-md rounded-lg border border-white/20 shadow-lg"
+              class="flex flex-col items-center rounded-lg border border-white/20 bg-white/15 p-2 text-center shadow-lg backdrop-blur-md"
             >
-              <Icon name="percent" class="w-5 h-5 text-white/90 mb-1" aria-hidden="true" />
-              <span class="text-xs text-white/80 mb-1 uppercase tracking-wider font-medium"
+              <Icon name="percent" class="mb-1 h-5 w-5 text-white/90" aria-hidden="true" />
+              <span class="mb-1 text-xs font-medium tracking-wider text-white/80 uppercase"
                 >{t("game.accuracy")}</span
               >
               <span id="accuracy-display" class="text-lg font-bold text-white drop-shadow-sm"
@@ -230,15 +230,15 @@ const structuredData = {
             </div>
 
             <div
-              class="flex flex-col items-center text-center p-2 bg-white/15 backdrop-blur-md rounded-lg border border-white/20 shadow-lg relative"
+              class="relative flex flex-col items-center rounded-lg border border-white/20 bg-white/15 p-2 text-center shadow-lg backdrop-blur-md"
             >
               <div
                 id="countdown-circle"
-                class="relative w-7 h-7 mb-1"
+                class="relative mb-1 h-7 w-7"
                 role="timer"
                 aria-label={t("game.timepressure.countdown")}
               >
-                <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 40 40">
+                <svg class="absolute inset-0 h-full w-full -rotate-90" viewBox="0 0 40 40">
                   <circle cx="20" cy="20" r="18" class="fill-none stroke-white/30 stroke-2"
                   ></circle>
                   <circle
@@ -246,34 +246,34 @@ const structuredData = {
                     cx="20"
                     cy="20"
                     r="18"
-                    class="fill-none stroke-white stroke-2 stroke-linecap-round stroke-dasharray-113 stroke-dashoffset-113 transition-all duration-300 drop-shadow-sm"
+                    class="stroke-linecap-round stroke-dasharray-113 stroke-dashoffset-113 fill-none stroke-white stroke-2 drop-shadow-sm transition-all duration-300"
                   ></circle>
                 </svg>
                 <div class="absolute inset-0 flex items-center justify-center">
                   <span
                     id="countdown-time"
-                    class="text-xs font-bold text-white leading-none drop-shadow-sm">0</span
+                    class="text-xs leading-none font-bold text-white drop-shadow-sm">0</span
                   >
                 </div>
               </div>
-              <span class="text-xs text-white/80 mb-1 uppercase tracking-wider font-medium"
+              <span class="mb-1 text-xs font-medium tracking-wider text-white/80 uppercase"
                 >{t("game.timepressure.seconds")}</span
               >
               <div id="difficulty-indicator" class="mt-1">
                 <span
                   id="difficulty-text"
-                  class="text-xs font-medium text-white/80 uppercase tracking-wider"></span>
+                  class="text-xs font-medium tracking-wider text-white/80 uppercase"></span>
               </div>
             </div>
           </div>
 
-          <div class="flex items-center gap-4 mb-4">
+          <div class="mb-4 flex items-center gap-4">
             <div
-              class="flex-1 h-1.5 bg-white/20 rounded-full overflow-hidden relative shadow-inner"
+              class="relative h-1.5 flex-1 overflow-hidden rounded-full bg-white/20 shadow-inner"
             >
               <div
                 id="progress-fill"
-                class="h-full bg-gradient-to-r from-white to-white/80 rounded-full transition-all duration-300 ease-out relative shadow-sm"
+                class="relative h-full rounded-full bg-gradient-to-r from-white to-white/80 shadow-sm transition-all duration-300 ease-out"
                 role="progressbar"
                 aria-valuenow="0"
                 aria-valuemin="0"
@@ -281,7 +281,7 @@ const structuredData = {
               >
               </div>
             </div>
-            <span class="text-xs font-medium text-white/90 whitespace-nowrap drop-shadow-sm">
+            <span class="text-xs font-medium whitespace-nowrap text-white/90 drop-shadow-sm">
               <span id="current-round">1</span> / <span id="total-rounds">20</span>
             </span>
           </div>
@@ -290,20 +290,20 @@ const structuredData = {
 
       {/* Question Display */}
       <div
-        class="text-center mb-8 p-6 bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl shadow-2xl relative overflow-hidden"
+        class="relative mb-8 overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-700 p-6 text-center shadow-2xl"
       >
         <div
           id="question-text"
-          class="relative z-10 text-lg font-semibold leading-relaxed text-white mb-6 drop-shadow-sm"
+          class="relative z-10 mb-6 text-lg leading-relaxed font-semibold text-white drop-shadow-sm"
           aria-live="assertive"
         >
         </div>
-        <div id="question-image" class="my-8 max-w-xs mx-auto" style="display: none;">
+        <div id="question-image" class="mx-auto my-8 max-w-xs" style="display: none;">
           <img
             id="question-img"
             alt=""
             loading="lazy"
-            class="w-full h-auto rounded-2xl shadow-lg"
+            class="h-auto w-full rounded-2xl shadow-lg"
           />
         </div>
       </div>
@@ -311,7 +311,7 @@ const structuredData = {
       {/* Answer Options */}
       <div
         id="answer-options"
-        class="grid grid-cols-1 gap-3 mb-8 md:grid-cols-2 md:gap-4 md:mb-12"
+        class="mb-8 grid grid-cols-1 gap-3 md:mb-12 md:grid-cols-2 md:gap-4"
         role="radiogroup"
         aria-labelledby="question-text"
       >
@@ -319,30 +319,30 @@ const structuredData = {
       </div>
 
       {/* Game Controls */}
-      <div class="flex flex-col gap-3 justify-center mt-auto p-4 md:flex-row md:gap-6 md:p-6">
+      <div class="mt-auto flex flex-col justify-center gap-3 p-4 md:flex-row md:gap-6 md:p-6">
         <button
           type="button"
           id="pause-btn"
-          class="flex items-center justify-center gap-3 px-4 py-3 bg-gradient-to-br from-gray-700 to-gray-600 border-2 border-gray-500 rounded-lg text-white text-sm font-semibold cursor-pointer transition-all duration-300 min-h-[44px] shadow-lg relative overflow-hidden whitespace-nowrap"
+          class="relative flex min-h-[44px] cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-lg border-2 border-gray-500 bg-gradient-to-br from-gray-700 to-gray-600 px-4 py-3 text-sm font-semibold whitespace-nowrap text-white shadow-lg transition-all duration-300"
           aria-label={t("game.pause")}
         >
-          <span class="icon flex items-center justify-center flex-shrink-0">
-            <Icon name="pause" class="w-4 h-4" aria-hidden="true" />
+          <span class="icon flex flex-shrink-0 items-center justify-center">
+            <Icon name="pause" class="h-4 w-4" aria-hidden="true" />
           </span>
-          <span class="text font-semibold text-sm">{t("game.pause")}</span>
+          <span class="text text-sm font-semibold">{t("game.pause")}</span>
         </button>
 
         <button
           type="button"
           id="skip-btn"
-          class="flex items-center justify-center gap-3 px-4 py-3 bg-gradient-to-br from-gray-700 to-gray-600 border-2 border-gray-500 rounded-lg text-white text-sm font-semibold cursor-pointer transition-all duration-300 min-h-[44px] shadow-lg relative overflow-hidden whitespace-nowrap"
+          class="relative flex min-h-[44px] cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-lg border-2 border-gray-500 bg-gradient-to-br from-gray-700 to-gray-600 px-4 py-3 text-sm font-semibold whitespace-nowrap text-white shadow-lg transition-all duration-300"
           aria-label={t("game.timepressure.skip")}
         >
-          <span class="icon flex items-center justify-center flex-shrink-0">
-            <Icon name="skip-forward" class="w-4 h-4" aria-hidden="true" />
+          <span class="icon flex flex-shrink-0 items-center justify-center">
+            <Icon name="skip-forward" class="h-4 w-4" aria-hidden="true" />
           </span>
-          <span class="text font-semibold text-sm">{t("game.timepressure.skip")}</span>
-          <span id="skip-cost" class="text-xs opacity-80 ml-1">(-10 pts)</span>
+          <span class="text text-sm font-semibold">{t("game.timepressure.skip")}</span>
+          <span id="skip-cost" class="ml-1 text-xs opacity-80">(-10 pts)</span>
         </button>
       </div>
     </div>

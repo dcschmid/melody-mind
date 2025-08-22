@@ -8,7 +8,6 @@
  */
 
 // Import types and utilities
-import type { GameResultData } from "../../pages/[lang]/api/game/save-result.ts";
 import { getLangFromUrl, useTranslations } from "../../utils/i18n.ts";
 
 /**
@@ -123,7 +122,7 @@ async function saveGameResult(config: EndGameConfig): Promise<string> {
       try {
         const errorData = await response.json();
         throw new Error(errorData.message || "Fehler beim Speichern des Spielergebnisses");
-      } catch (jsonError) {
+      } catch {
         // Falls die Antwort kein gültiges JSON ist
         throw new Error(
           `Fehler beim Speichern des Spielergebnisses: ${response.status} ${response.statusText}`
@@ -135,8 +134,8 @@ async function saveGameResult(config: EndGameConfig): Promise<string> {
     let result;
     try {
       result = await response.json();
-    } catch (jsonError) {
-      console.error("JSON Parse Error:", jsonError);
+    } catch {
+      console.error("JSON Parse Error: Invalid JSON format");
       throw new Error("Ungültiges JSON-Format in der Server-Antwort");
     }
 
@@ -432,7 +431,9 @@ async function waitForDataValidation(config: EndGameConfig): Promise<void> {
             document.querySelector("#endgame-popup") ||
             document.querySelector("#end-overlay") ||
             document.querySelector(".popup[data-score]");
-          if (!popup) return false;
+          if (!popup) {
+            return false;
+          }
 
           const scoreAttr = popup.getAttribute("data-score");
           const score = parseInt(scoreAttr || "0", 10);
@@ -446,7 +447,9 @@ async function waitForDataValidation(config: EndGameConfig): Promise<void> {
             document.querySelector("#endgame-popup") ||
             document.querySelector("#end-overlay") ||
             document.querySelector(".popup[data-score]");
-          if (!popup) return false;
+          if (!popup) {
+            return false;
+          }
 
           const category = popup.getAttribute("data-category");
           const difficulty = popup.getAttribute("data-difficulty");
@@ -471,6 +474,7 @@ async function waitForDataValidation(config: EndGameConfig): Promise<void> {
 
       // Log failed checks for debugging
       if (!allValid) {
+        // Log failed validation checks for debugging
       }
 
       if (allValid) {
@@ -519,6 +523,7 @@ function hideEndGameLoading(): void {
       loadingOverlay.remove();
     }
   } else {
+    // Loading overlay not found
   }
 }
 
@@ -535,9 +540,10 @@ export async function handleEndGame(
     showEndGameLoading();
 
     // Calculate achievement rate as a percentage
-    const achievementRate = Math.round((config.correctAnswers / config.totalRounds) * 100);
+    // const achievementRate = Math.round((config.correctAnswers / config.totalRounds) * 100);
 
     // Log game results for analytics/debugging
+    // TODO: Add analytics logging here
 
     // Save game result to the database via API
     // Der API-Endpunkt kümmert sich jetzt um alle Datenbankoperationen
@@ -611,7 +617,7 @@ export function showEndgamePopup(score: number): void {
   const url = new URL(window.location.pathname, window.location.origin);
   const lang = getLangFromUrl(url);
   // Explicitly cast lang to string to satisfy TypeScript
-  const t = useTranslations(String(lang));
+  // const t = useTranslations(String(lang));
 
   // Find and update the score display elements
   const scoreElement = document.getElementById("popup-score");

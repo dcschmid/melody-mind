@@ -80,48 +80,48 @@ const externalLinkText = t("nav.openNewWindow");
 const buttonVariants = tv({
   base: [
     // Base button styling
-    "inline-flex items-center justify-center border-none rounded-lg font-bold",
-    "text-decoration-none cursor-pointer relative min-w-[44px] min-h-[44px]",
-    "leading-normal tracking-base font-primary transition-all duration-300",
+    "inline-flex items-center justify-center rounded-lg border-none font-bold",
+    "text-decoration-none relative min-h-[44px] min-w-[44px] cursor-pointer",
+    "tracking-base font-primary leading-normal transition-all duration-300",
     // Focus states
     "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500",
     // Disabled state
-    "disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none",
+    "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
     // Mobile responsive
     "w-full max-w-full sm:w-auto sm:max-w-none",
   ].join(" "),
 
   variants: {
     size: {
-      sm: ["px-3 py-2 text-sm sm:px-4 sm:py-3 sm:text-base", "min-w-[44px] min-h-[44px]"].join(" "),
-      md: ["px-4 py-3 text-base sm:px-6 sm:py-4 sm:text-lg", "min-w-[48px] min-h-[48px]"].join(" "),
-      lg: ["px-6 py-4 text-lg sm:px-8 sm:py-6 sm:text-xl", "min-w-[52px] min-h-[52px]"].join(" "),
+      sm: ["px-3 py-2 text-sm sm:px-4 sm:py-3 sm:text-base", "min-h-[44px] min-w-[44px]"].join(" "),
+      md: ["px-4 py-3 text-base sm:px-6 sm:py-4 sm:text-lg", "min-h-[48px] min-w-[48px]"].join(" "),
+      lg: ["px-6 py-4 text-lg sm:px-8 sm:py-6 sm:text-xl", "min-h-[52px] min-w-[52px]"].join(" "),
     },
 
     variant: {
       primary: [
-        "bg-blue-600 text-white shadow-lg border border-transparent",
-        "hover:bg-blue-700 hover:shadow-xl hover:-translate-y-0.5",
+        "border border-transparent bg-blue-600 text-white shadow-lg",
+        "hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-xl",
         "active:scale-95 active:transition-transform active:duration-100",
-        "disabled:hover:bg-blue-600 disabled:hover:shadow-lg disabled:hover:translate-y-0",
+        "disabled:hover:translate-y-0 disabled:hover:bg-blue-600 disabled:hover:shadow-lg",
       ].join(" "),
       secondary: [
-        "bg-gray-200 text-gray-800 border border-gray-300",
-        "hover:bg-gray-300 hover:border-blue-500 hover:-translate-y-0.5",
+        "border border-gray-300 bg-gray-200 text-gray-800",
+        "hover:-translate-y-0.5 hover:border-blue-500 hover:bg-gray-300",
         "active:scale-95 active:transition-transform active:duration-100",
-        "disabled:hover:bg-gray-200 disabled:hover:border-gray-300 disabled:hover:translate-y-0",
+        "disabled:hover:translate-y-0 disabled:hover:border-gray-300 disabled:hover:bg-gray-200",
       ].join(" "),
       outline: [
-        "bg-transparent text-gray-900 border-2 border-gray-600",
-        "hover:bg-gray-100 hover:border-blue-500 hover:text-blue-600 hover:-translate-y-0.5",
+        "border-2 border-gray-600 bg-transparent text-gray-900",
+        "hover:-translate-y-0.5 hover:border-blue-500 hover:bg-gray-100 hover:text-blue-600",
         "active:scale-95 active:transition-transform active:duration-100",
-        "disabled:hover:bg-transparent disabled:hover:border-gray-600 disabled:hover:text-gray-900 disabled:hover:translate-y-0",
+        "disabled:hover:translate-y-0 disabled:hover:border-gray-600 disabled:hover:bg-transparent disabled:hover:text-gray-900",
       ].join(" "),
       text: [
-        "bg-transparent text-blue-600 border-none underline underline-offset-2",
-        "hover:text-blue-700 hover:underline-offset-4 hover:-translate-y-0.5",
+        "border-none bg-transparent text-blue-600 underline underline-offset-2",
+        "hover:-translate-y-0.5 hover:text-blue-700 hover:underline-offset-4",
         "active:scale-95 active:transition-transform active:duration-100",
-        "disabled:hover:text-blue-600 disabled:hover:underline-offset-2 disabled:hover:translate-y-0",
+        "disabled:hover:translate-y-0 disabled:hover:text-blue-600 disabled:hover:underline-offset-2",
       ].join(" "),
     },
   },

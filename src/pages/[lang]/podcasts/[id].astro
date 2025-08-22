@@ -153,21 +153,21 @@ const { prev, next } = getNavigationPodcasts();
     <meta name="twitter:image" content={new URL(podcast.imageUrl, baseUrl).toString()} />
   </Fragment>
 
-  <main class="min-h-screen bg-gray-900 text-white py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <main class="min-h-screen bg-gray-900 py-8 text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Navigation Back -->
       <nav class="mb-8" aria-label="Podcast navigation">
         <a
           href={`/${lang}/podcasts`}
-          class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-semibold text-sm px-3 py-2 rounded-lg hover:bg-purple-500/10 transition-all duration-300 hover:-translate-x-1"
+          class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-purple-400 transition-all duration-300 hover:-translate-x-1 hover:bg-purple-500/10 hover:text-purple-300"
         >
           ← Back to All Podcasts
         </a>
       </nav>
 
       <!-- Hero Section -->
-      <section class="bg-gray-800 border border-gray-700 rounded-2xl p-8 mb-12 shadow-xl">
-        <div class="flex gap-8 mb-8 md:flex-row flex-col md:text-left text-center">
+      <section class="mb-12 rounded-2xl border border-gray-700 bg-gray-800 p-8 shadow-xl">
+        <div class="mb-8 flex flex-col gap-8 text-center md:flex-row md:text-left">
           <div class="flex-shrink-0">
             <img
               src={podcast.imageUrl}
@@ -175,7 +175,7 @@ const { prev, next } = getNavigationPodcasts();
               width="200"
               height="200"
               loading="eager"
-              class="w-48 h-48 rounded-2xl shadow-2xl"
+              class="h-48 w-48 rounded-2xl shadow-2xl"
             />
           </div>
 
@@ -184,15 +184,15 @@ const { prev, next } = getNavigationPodcasts();
               {podcast.title}
             </Headline>
 
-            <Paragraph textSize="lg" className="text-gray-300 mb-6">
+            <Paragraph textSize="lg" className="mb-6 text-gray-300">
               {podcast.description}
             </Paragraph>
 
-            <div class="flex gap-6 items-center md:justify-start justify-center flex-wrap">
-              <time class="text-gray-400 text-sm" datetime={podcast.publishedAt}>
+            <div class="flex flex-wrap items-center justify-center gap-6 md:justify-start">
+              <time class="text-sm text-gray-400" datetime={podcast.publishedAt}>
                 📅 {formatDate(podcast.publishedAt)}
               </time>
-              <span class="text-gray-400 text-sm">🎙️ Episode</span>
+              <span class="text-sm text-gray-400">🎙️ Episode</span>
             </div>
           </div>
         </div>
@@ -200,22 +200,22 @@ const { prev, next } = getNavigationPodcasts();
         {/* Audio Player */}
         {
           podcast.audioUrl && (
-            <div class="bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 border border-gray-600 rounded-2xl p-8 text-center shadow-xl">
+            <div class="rounded-2xl border border-gray-600 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 p-8 text-center shadow-xl">
               <Headline level="h2" textSize="lg" className="mb-6 text-white">
                 🎧 Listen to Episode
               </Headline>
 
               {/* Functional Audio Player */}
-              <div class="bg-gray-900 rounded-xl p-6 mb-6 border border-gray-600 shadow-inner">
-                <div class="flex items-center justify-center gap-4 mb-4">
-                  <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center shadow-lg">
-                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <div class="mb-6 rounded-xl border border-gray-600 bg-gray-900 p-6 shadow-inner">
+                <div class="mb-4 flex items-center justify-center gap-4">
+                  <div class="flex h-16 w-16 items-center justify-center rounded-full bg-purple-600 shadow-lg">
+                    <svg class="h-8 w-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
                   <div class="text-left">
-                    <div class="text-white font-semibold text-lg">{podcast.title}</div>
-                    <div class="text-gray-400 text-sm">Podcast Episode</div>
+                    <div class="text-lg font-semibold text-white">{podcast.title}</div>
+                    <div class="text-sm text-gray-400">Podcast Episode</div>
                   </div>
                 </div>
 
@@ -233,18 +233,18 @@ const { prev, next } = getNavigationPodcasts();
 
                 {/* Progress Bar */}
                 <div
-                  class="w-full bg-gray-700 rounded-full h-2 mb-4 cursor-pointer"
+                  class="mb-4 h-2 w-full cursor-pointer rounded-full bg-gray-700"
                   id="progress-container"
                 >
                   <div
-                    class="bg-gradient-to-r from-purple-500 to-blue-500 h-2 rounded-full transition-all duration-300"
+                    class="h-2 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300"
                     id="progress-bar"
                     style="width: 0%"
                   />
                 </div>
 
                 {/* Time Display */}
-                <div class="flex justify-between text-gray-400 text-sm mb-4">
+                <div class="mb-4 flex justify-between text-sm text-gray-400">
                   <span id="current-time">0:00</span>
                   <span id="total-time">0:00</span>
                 </div>
@@ -252,20 +252,20 @@ const { prev, next } = getNavigationPodcasts();
                 {/* Audio Controls */}
                 <div class="flex items-center justify-center gap-6">
                   <button
-                    class="text-gray-400 hover:text-white transition-colors duration-200"
+                    class="text-gray-400 transition-colors duration-200 hover:text-white"
                     id="rewind-btn"
                     title="Rewind 10s"
                   >
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z" />
                     </svg>
                   </button>
                   <button
-                    class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center hover:bg-purple-700 transition-colors duration-200 shadow-lg"
+                    class="flex h-12 w-12 items-center justify-center rounded-full bg-purple-600 shadow-lg transition-colors duration-200 hover:bg-purple-700"
                     id="play-pause-btn"
                   >
                     <svg
-                      class="w-8 h-8 text-white"
+                      class="h-8 w-8 text-white"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       id="play-icon"
@@ -273,7 +273,7 @@ const { prev, next } = getNavigationPodcasts();
                       <path d="M8 5v14l11-7z" />
                     </svg>
                     <svg
-                      class="w-8 h-8 text-white hidden"
+                      class="hidden h-8 w-8 text-white"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       id="pause-icon"
@@ -282,11 +282,11 @@ const { prev, next } = getNavigationPodcasts();
                     </svg>
                   </button>
                   <button
-                    class="text-gray-400 hover:text-white transition-colors duration-200"
+                    class="text-gray-400 transition-colors duration-200 hover:text-white"
                     id="forward-btn"
                     title="Forward 10s"
                   >
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z" />
                     </svg>
                   </button>
@@ -294,14 +294,14 @@ const { prev, next } = getNavigationPodcasts();
               </div>
 
               {/* Action Buttons */}
-              <div class="flex justify-center gap-4 flex-wrap">
+              <div class="flex flex-wrap justify-center gap-4">
                 <a
                   href={podcast.audioUrl}
-                  class="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl font-semibold text-sm hover:from-purple-700 hover:to-purple-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                  class="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-purple-600 to-purple-700 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:from-purple-700 hover:to-purple-800 hover:shadow-xl"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
                   </svg>
                   Download Audio
@@ -309,11 +309,11 @@ const { prev, next } = getNavigationPodcasts();
                 {podcast.subtitleUrl && (
                   <a
                     href={podcast.subtitleUrl}
-                    class="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold text-sm hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                    class="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:from-blue-700 hover:to-blue-800 hover:shadow-xl"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
                     </svg>
                     View Subtitles
@@ -327,7 +327,7 @@ const { prev, next } = getNavigationPodcasts();
 
       <!-- Main Content -->
       <section class="mb-12">
-        <article class="bg-gray-800 border border-gray-700 rounded-2xl p-8 shadow-lg">
+        <article class="rounded-2xl border border-gray-700 bg-gray-800 p-8 shadow-lg">
           <div class="prose prose-invert prose-lg max-w-none" set:html={podcast.showNotesHtml} />
         </article>
       </section>
@@ -336,18 +336,18 @@ const { prev, next } = getNavigationPodcasts();
       {
         (prev || next) && (
           <nav class="mb-12" aria-label="Episode navigation">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
               {prev && (
                 <a
                   href={`/${lang}/podcasts/${prev.id}`}
-                  class="flex items-center gap-4 p-6 bg-gray-800 border border-gray-700 rounded-xl text-white hover:bg-gray-700 hover:border-gray-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                  class="flex items-center gap-4 rounded-xl border border-gray-700 bg-gray-800 p-6 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-gray-600 hover:bg-gray-700 hover:shadow-xl"
                 >
                   <span class="text-2xl text-purple-400">←</span>
                   <div class="flex-1">
-                    <span class="block text-xs text-gray-400 uppercase tracking-wide mb-1">
+                    <span class="mb-1 block text-xs tracking-wide text-gray-400 uppercase">
                       Previous Episode
                     </span>
-                    <span class="block font-semibold text-sm leading-tight">{prev.title}</span>
+                    <span class="block text-sm leading-tight font-semibold">{prev.title}</span>
                   </div>
                 </a>
               )}
@@ -355,13 +355,13 @@ const { prev, next } = getNavigationPodcasts();
               {next && (
                 <a
                   href={`/${lang}/podcasts/${next.id}`}
-                  class="flex items-center gap-4 p-6 bg-gray-800 border border-gray-700 rounded-xl text-white hover:bg-gray-700 hover:border-gray-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 md:col-start-2"
+                  class="flex items-center gap-4 rounded-xl border border-gray-700 bg-gray-800 p-6 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-gray-600 hover:bg-gray-700 hover:shadow-xl md:col-start-2"
                 >
                   <div class="flex-1 text-right">
-                    <span class="block text-xs text-gray-400 uppercase tracking-wide mb-1">
+                    <span class="mb-1 block text-xs tracking-wide text-gray-400 uppercase">
                       Next Episode
                     </span>
-                    <span class="block font-semibold text-sm leading-tight">{next.title}</span>
+                    <span class="block text-sm leading-tight font-semibold">{next.title}</span>
                   </div>
                   <span class="text-2xl text-purple-400">→</span>
                 </a>
@@ -373,18 +373,18 @@ const { prev, next } = getNavigationPodcasts();
 
       {/* Call to Action */}
       <div
-        class="w-full text-center p-12 bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 rounded-2xl border border-purple-500/30 shadow-2xl"
+        class="w-full rounded-2xl border border-purple-500/30 bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 p-12 text-center shadow-2xl"
       >
         <Headline level="h2" textSize="xl" className="mb-4 text-white">
           Want More Music Stories?
         </Headline>
-        <Paragraph className="text-gray-300 text-lg mb-8">
+        <Paragraph className="mb-8 text-lg text-gray-300">
           Explore our complete collection of podcast episodes and discover the fascinating world of
           music history, culture, and innovation.
         </Paragraph>
         <a
           href={`/${lang}/podcasts`}
-          class="inline-flex items-center gap-2 px-8 py-4 bg-purple-600 text-white rounded-xl font-semibold text-base hover:bg-purple-700 transition-colors duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+          class="inline-flex items-center gap-2 rounded-xl bg-purple-600 px-8 py-4 text-base font-semibold text-white shadow-lg transition-colors duration-300 hover:-translate-y-1 hover:bg-purple-700 hover:shadow-xl"
         >
           Browse All Episodes
         </a>

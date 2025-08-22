@@ -104,10 +104,10 @@ export function handleAnswer(config: HandleAnswerConfig) {
   const overlayFunfact = document.getElementById("overlay-funfact");
   const overlayYear = document.getElementById("overlay-year");
 
-  if (overlayArtist) overlayArtist.textContent = album.artist || "";
-  if (overlayAlbum) overlayAlbum.textContent = album.album || "";
-  if (overlayFunfact) overlayFunfact.textContent = currentQuestion.trivia || "";
-  if (overlayYear) overlayYear.textContent = album.year || "";
+  if (overlayArtist) {overlayArtist.textContent = album.artist || "";}
+  if (overlayAlbum) {overlayAlbum.textContent = album.album || "";}
+  if (overlayFunfact) {overlayFunfact.textContent = currentQuestion.trivia || "";}
+  if (overlayYear) {overlayYear.textContent = album.year || "";}
 
   if (mediaElements) {
     updateMedia(album, mediaElements);

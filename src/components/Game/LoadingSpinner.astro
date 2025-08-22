@@ -87,19 +87,19 @@ const enhancedAriaLabel = context
   {
     type === "determinate" ? (
       <div
-        class="w-full h-6 bg-gray-200 rounded-lg border border-gray-300 overflow-hidden relative shadow-inner"
+        class="relative h-6 w-full overflow-hidden rounded-lg border border-gray-300 bg-gray-200 shadow-inner"
         aria-hidden="true"
       >
         <div
-          class="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg relative transition-all duration-300 ease-out"
+          class="relative h-full rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-300 ease-out"
           style={`width: ${progress}%`}
         >
-          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
+          <div class="absolute inset-0 animate-pulse bg-gradient-to-r from-transparent via-white/30 to-transparent" />
         </div>
       </div>
     ) : (
       <div
-        class={`relative rounded-full border-transparent border-t-blue-500 border-r-gray-300 border-b-gray-300 border-l-gray-300 animate-spin ${sizeClasses[size]}`}
+        class={`relative animate-spin rounded-full border-transparent border-t-blue-500 border-r-gray-300 border-b-gray-300 border-l-gray-300 ${sizeClasses[size]}`}
         aria-hidden="true"
         data-size={size}
       >
@@ -108,7 +108,7 @@ const enhancedAriaLabel = context
     )
   }
 
-  <div class="text-xl font-medium text-gray-600 text-center" aria-hidden="true">
+  <div class="text-center text-xl font-medium text-gray-600" aria-hidden="true">
     {type === "determinate" ? `${label} (${progress}%)` : label}
   </div>
 

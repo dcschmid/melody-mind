@@ -78,28 +78,28 @@ const links = [
 ---
 
 <footer
-  class="mt-16 border-t border-gray-700 py-6 font-primary md:mt-12 md:py-4 sm:mt-8 sm:py-3"
+  class="font-primary mt-16 border-t border-gray-700 py-6 sm:mt-8 sm:py-3 md:mt-12 md:py-4"
   role="contentinfo"
   aria-label="Site footer"
 >
-  <div class="mx-auto max-w-7xl px-4 md:px-3 sm:px-2">
+  <div class="mx-auto max-w-7xl px-4 sm:px-2 md:px-3">
     <div
-      class="flex flex-col items-center gap-4 md:flex-row md:justify-between md:items-center md:gap-8 sm:gap-2"
+      class="flex flex-col items-center gap-4 sm:gap-2 md:flex-row md:items-center md:justify-between md:gap-8"
     >
       <!-- Copyright and Legal Links -->
-      <div class="flex flex-col gap-3 items-center md:items-start sm:gap-2">
-        <div class="text-base md:text-lg text-gray-300 text-center md:text-left sm:text-sm">
+      <div class="flex flex-col items-center gap-3 sm:gap-2 md:items-start">
+        <div class="text-center text-base text-gray-300 sm:text-sm md:text-left md:text-lg">
           &copy; {currentYear} MelodyMind - {t("footer.rights")}
         </div>
         <nav
           aria-label="Legal information"
-          class="flex gap-4 flex-wrap justify-center md:justify-start sm:gap-3"
+          class="flex flex-wrap justify-center gap-4 sm:gap-3 md:justify-start"
         >
           {
             legalLinks.map((link) => (
               <a
                 href={link.href}
-                class="text-gray-300 no-underline text-base md:text-lg font-medium px-3 py-2 rounded-lg transition-colors duration-200 hover:text-purple-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 min-h-[48px] inline-flex items-center sm:text-sm sm:px-2 sm:py-1"
+                class="inline-flex min-h-[48px] items-center rounded-lg px-3 py-2 text-base font-medium text-gray-300 no-underline transition-colors duration-200 hover:bg-gray-800 hover:text-purple-400 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:outline-none sm:px-2 sm:py-1 sm:text-sm md:text-lg"
                 aria-label={link.ariaLabel}
               >
                 {link.label}
@@ -112,14 +112,14 @@ const links = [
       <!-- External Links -->
       <nav
         aria-label="Footer links"
-        class="flex gap-4 flex-wrap justify-center md:justify-end sm:gap-3"
+        class="flex flex-wrap justify-center gap-4 sm:gap-3 md:justify-end"
       >
         <!-- GitHub Link -->
         <a
           href={links[0].href}
           target="_blank"
           rel="noopener noreferrer"
-          class="text-gray-300 no-underline text-base md:text-lg font-medium flex items-center gap-2 px-4 py-3 rounded-lg transition-all duration-200 hover:text-purple-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 min-h-[48px] sm:text-sm sm:px-3 sm:py-2 sm:gap-1"
+          class="flex min-h-[48px] items-center gap-2 rounded-lg px-4 py-3 text-base font-medium text-gray-300 no-underline transition-all duration-200 hover:bg-gray-800 hover:text-purple-400 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:outline-none sm:gap-1 sm:px-3 sm:py-2 sm:text-sm md:text-lg"
           aria-label={links[0].ariaLabel}
         >
           <Icon
@@ -128,7 +128,7 @@ const links = [
             height="18"
             aria-hidden="true"
             focusable="false"
-            class="sm:w-4 sm:h-4"
+            class="sm:h-4 sm:w-4"
           />
           <span>{links[0].label}</span>
           <span class="sr-only">(opens in a new tab)</span>
@@ -141,7 +141,7 @@ const links = [
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              class="text-gray-300 no-underline text-base md:text-lg font-medium flex items-center gap-2 px-4 py-3 rounded-lg transition-all duration-200 hover:text-purple-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 min-h-[48px] sm:text-sm sm:px-3 sm:py-2 sm:gap-1"
+              class="flex min-h-[48px] items-center gap-2 rounded-lg px-4 py-3 text-base font-medium text-gray-300 no-underline transition-all duration-200 hover:bg-gray-800 hover:text-purple-400 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:outline-none sm:gap-1 sm:px-3 sm:py-2 sm:text-sm md:text-lg"
               aria-label={link.ariaLabel}
             >
               <Icon
@@ -150,7 +150,7 @@ const links = [
                 height="18"
                 aria-hidden="true"
                 focusable="false"
-                class="sm:w-4 sm:h-4"
+                class="sm:h-4 sm:w-4"
               />
               <span>{link.label}</span>
               <span class="sr-only">(opens in a new tab)</span>

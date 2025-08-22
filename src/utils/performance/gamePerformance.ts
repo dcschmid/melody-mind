@@ -15,6 +15,9 @@ export class GamePerformanceOptimizer {
     // Performance monitoring removed - focus on core optimizations
   }
 
+  /**
+   *
+   */
   public static getInstance(): GamePerformanceOptimizer {
     if (!GamePerformanceOptimizer.instance) {
       GamePerformanceOptimizer.instance = new GamePerformanceOptimizer();
@@ -85,7 +88,7 @@ export class GamePerformanceOptimizer {
     let startTime: number | null = null;
 
     const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
+      if (!startTime) {startTime = timestamp;}
       const elapsed = timestamp - startTime;
 
       if (elapsed < duration) {
