@@ -1,490 +1,85 @@
 ---
 /**
- * Paragraph Component
+ * Paragraph Component - Simple & Clean
  *
- * A fully accessible, performance-optimized paragraph component for displaying text content
- * throughout the MelodyMind application. This component follows WCAG AAA standards for
- * accessibility and is optimized for both performance and maintainability.
+ * A clean paragraph component with different text sizes and basic styling.
+ * Using Tailwind CSS 4 with tailwind-variants for maintainability.
  *
- * Features:
- * - WCAG AAA 2.2 compliant with 7:1 contrast ratio using CSS custom properties
- * - Text spacing support (2x letter spacing, 1.5x line height, 2x paragraph spacing)
- * - Text resizing support up to 400% without loss of functionality
- * - Enhanced focus appearance with 4.5:1 contrast ratio (WCAG 2.2)
- * - Touch targets minimum 44x44px for mobile accessibility
- * - Responsive typography using CSS variables and media queries
- * - Screen reader optimizations with proper ARIA attributes
- * - Configurable text alignment and sizing using CSS custom properties
- * - High contrast mode for enhanced accessibility
- * - Support for reduced motion preferences
- * - Uses only CSS custom properties from global.css (no hardcoded values)
- *
- * Usage example:
+ * @component
+ * @example
  * ```astro
- * <Paragraph
- *   description="This is a text paragraph"
- *   textSize="lg"
- *   align="center"
- *   highContrast={true}
- *   enhancedSpacing={true}
- *   interactive={false}
- * />
+ * <Paragraph textSize="lg" textAlign="center">
+ *   This is a paragraph with custom styling
+ * </Paragraph>
  * ```
- *
- * @component Paragraph
  */
+import { tv } from "tailwind-variants";
+
 interface Props {
-  /** Text content as an alternative to using slots */
-  description?: string;
-
-  /** Text size variant using CSS custom properties (xs, sm, base, lg, xl, 2xl, 3xl, 4xl) */
-  textSize?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
-
-  /** Additional CSS classes for customization */
+  /** Additional CSS classes to apply */
   className?: string;
-
-  /** Optional ID for the paragraph, important for ARIA references and anchor links */
-  id?: string;
-
-  /** Text alignment (start, center, end) */
-  align?: "start" | "center" | "end";
-
-  /** Language attribute for the text, important for screen readers and pronunciation */
-  lang?: string;
-
-  /** Optional ARIA label for improved screen reader support */
-  ariaLabel?: string;
-
-  /** Optional ARIA live setting for dynamic content announcements */
-  ariaLive?: "off" | "polite" | "assertive";
-
-  /** Set to true to make text high-contrast for better accessibility (WCAG AAA 7:1 ratio) */
-  highContrast?: boolean;
-
-  /** Support for enhanced text spacing (WCAG 2.2 AAA requirement) */
-  enhancedSpacing?: boolean;
-
-  /** Set to true for interactive paragraph content that requires focus management */
-  interactive?: boolean;
+  /** Text size variant using Tailwind text size classes */
+  textSize?: "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
+  /** Text alignment option */
+  textAlign?: "left" | "center" | "right";
 }
 
-// Modern ES6+ destructuring with default values
-const {
-  description,
-  textSize = "xl",
-  className = "",
-  id,
-  align = "start",
-  lang,
-  ariaLabel,
-  ariaLive,
-  highContrast = false,
-  enhancedSpacing = false,
-  interactive = false,
-}: Props = Astro.props;
+const { textSize = "xl", className = "", textAlign = "left" } = Astro.props;
 
-// Compose all CSS classes using direct string operations
-const paragraphClasses: string = [
-  "paragraph",
-  `paragraph--size-${textSize}`,
-  `paragraph--align-${align}`,
-  highContrast ? "paragraph--high-contrast" : "",
-  enhancedSpacing ? "paragraph--enhanced-spacing" : "",
-  interactive ? "paragraph--interactive" : "",
+// Tailwind Variants configuration for the paragraph component
+const paragraphVariants = tv({
+  base: [
+    // Base typography
+    "font-primary font-normal leading-relaxed tracking-base text-secondary",
+    // Responsive margin - besser für mobile
+    "mb-4 sm:mb-6 md:mb-8 lg:mb-12",
+    // Enhanced text rendering
+    "text-rendering-optimize-legibility antialiased",
+    // Smooth transitions
+    "transition-all duration-300",
+    // Text wrapping and balance
+    "max-w-full break-words hyphens-auto text-balance",
+    // Responsive line height
+    "leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed",
+  ].join(" "),
+
+  variants: {
+    textSize: {
+      sm: "text-lg", // Nie unter 16px
+      base: "text-base sm:text-base md:text-lg", // Nie unter 16px
+      lg: "text-xl", // Nie unter 16px
+      xl: "text-2xl", // Nie unter 16px
+      "2xl": "text-2xl lg:text-3xl", // Nie unter 16px
+      "3xl": "text-3xl lg:text-4xl", // Nie unter 16px
+      "4xl": "text-4xl lg:text-5xl", // Nie unter 16px
+    },
+
+    textAlign: {
+      left: "text-left",
+      center: "text-center",
+      right: "text-right",
+    },
+  },
+
+  defaultVariants: {
+    textSize: "xl",
+    textAlign: "left",
+  },
+});
+
+// Generate classes using tailwind-variants
+const classes = paragraphVariants({
+  textSize,
+  textAlign,
   className,
-]
-  .filter(Boolean)
-  .join(" ");
+});
+
+// Simple attributes
+const attributes: Record<string, any> = {
+  class: classes,
+};
 ---
 
-<p class={paragraphClasses} {id} {lang} aria-label={ariaLabel} aria-live={ariaLive}>
-  {description || <slot />}
+<p {...attributes}>
+  <slot />
 </p>
-
-<style lang="scss">
-  /* ======================================
-   * PARAGRAPH COMPONENT - SCSS BEM STYLE
-   * WCAG AAA 2.2 COMPLIANT STYLES
-   * Optimized for responsive design and global.css integration
-   * ====================================== */
-
-  /* ======================================
-   * BASE PARAGRAPH STYLES
-   * ====================================== */
-  .paragraph {
-    // Base typography using global.css variables
-    font-family: var(--font-family-primary);
-    font-weight: var(--font-normal);
-    line-height: var(--leading-relaxed);
-    letter-spacing: var(--letter-spacing-base);
-    color: var(--text-secondary);
-    word-spacing: normal;
-
-    // Mobile Portrait - generous spacing for readability
-    margin: 0 0 var(--space-2xl) 0;
-
-    // Enhanced text rendering for better readability
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
-    // Smooth transitions using CSS custom properties
-    transition: all var(--transition-normal);
-
-    // WCAG 2.2 AAA: Support for text resizing up to 400%
-    max-width: 100%;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-
-    hyphens: auto;
-    text-wrap: balance;
-
-    @media (min-width: 20em) {
-      margin: 0 0 var(--space-3xl) 0;
-    }
-
-    // ======================================
-    // SIZE VARIANTS - RESPONSIVE TYPOGRAPHY
-    // ======================================
-
-    // Mobile-first responsive sizing
-    &--size {
-      &-xs {
-        font-size: var(--text-xs);
-      }
-
-      &-sm {
-        font-size: var(--text-sm);
-      }
-
-      &-base {
-        font-size: var(--text-base);
-      }
-
-      &-lg {
-        font-size: var(--text-lg);
-      }
-
-      &-xl {
-        font-size: var(--text-xl);
-      }
-
-      &-2xl {
-        font-size: var(--text-2xl);
-      }
-
-      &-3xl {
-        font-size: var(--text-3xl);
-      }
-
-      &-4xl {
-        font-size: var(--text-4xl);
-      }
-    }
-
-    // ======================================
-    // RESPONSIVE BREAKPOINT ADJUSTMENTS
-    // ======================================
-
-    // Tablet breakpoint (md)
-    @media (min-width: 48em) {
-      &--size {
-        &-xl {
-          font-size: var(--text-2xl);
-        }
-
-        &-2xl {
-          font-size: var(--text-3xl);
-        }
-
-        &-3xl {
-          font-size: var(--text-4xl);
-        }
-
-        &-4xl {
-          font-size: calc(var(--text-4xl) * 1.25);
-        }
-      }
-    }
-
-    // Desktop breakpoint (lg)
-    @media (min-width: 64em) {
-      &--size {
-        &-2xl {
-          font-size: var(--text-2xl);
-        }
-
-        &-3xl {
-          font-size: var(--text-3xl);
-        }
-
-        &-4xl {
-          font-size: var(--text-4xl);
-        }
-      }
-    }
-
-    // Large desktop breakpoint (xl)
-    @media (min-width: 80em) {
-      &--size {
-        &-3xl {
-          font-size: var(--text-4xl);
-        }
-
-        &-4xl {
-          font-size: calc(var(--text-4xl) * 1.25);
-        }
-      }
-    }
-
-    // ======================================
-    // TEXT ALIGNMENT
-    // ======================================
-
-    &--align {
-      &-start {
-        text-align: left;
-      }
-
-      &-center {
-        text-align: center;
-      }
-
-      &-end {
-        text-align: right;
-      }
-    }
-
-    // ======================================
-    // ACCESSIBILITY VARIANTS
-    // ======================================
-
-    // High contrast mode for enhanced accessibility (WCAG AAA 7:1 ratio)
-    &--high-contrast {
-      color: var(--text-primary);
-      font-weight: var(--font-medium);
-    }
-
-    // Enhanced text spacing for WCAG 2.2 AAA compliance
-    &--enhanced-spacing {
-      letter-spacing: var(--letter-spacing-enhanced);
-      line-height: var(--line-height-enhanced);
-      word-spacing: var(--word-spacing-enhanced);
-
-      margin-bottom: var(--space-3xl);
-
-      @media (min-width: 20em) {
-        margin-bottom: var(--space-4xl);
-      }
-
-      @media (min-width: 64em) {
-        margin-bottom: calc(var(--space-4xl) * 1.5);
-      }
-    }
-
-    // ======================================
-    // INTERACTIVE STATES
-    // ======================================
-
-    // Interactive paragraph styling with proper focus management
-    &--interactive {
-      cursor: pointer;
-      min-height: var(--min-touch-size);
-      min-width: var(--min-touch-size);
-      padding: var(--space-sm);
-      border-radius: var(--radius-sm);
-      transition: all var(--transition-normal);
-
-      &:hover {
-        background-color: var(--focus-bg-overlay);
-        transform: translateY(-2px);
-      }
-
-      &:active {
-        transform: translateY(0);
-      }
-
-      &:focus {
-        outline: var(--focus-outline);
-        outline-offset: var(--focus-ring-offset);
-        box-shadow: var(--focus-ring);
-        background-color: var(--focus-bg-overlay);
-        border-radius: var(--radius-sm);
-      }
-    }
-
-    // Focus styles for when paragraph contains interactive content
-    &:focus-within {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-      box-shadow: var(--focus-ring);
-    }
-
-    // ======================================
-    // USER CUSTOMIZATION SUPPORT
-    // ======================================
-
-    // Ensure text remains readable with user customizations
-    &[style*="letter-spacing"],
-    &[style*="line-height"],
-    &[style*="word-spacing"] {
-      overflow: visible;
-      text-overflow: clip;
-    }
-  }
-
-  // ======================================
-  // MOBILE PORTRAIT OPTIMIZATIONS
-  // ======================================
-
-  // Small mobile screens - Portrait Mobile (below 480px)
-  @media (max-width: 29.9375em) {
-    .paragraph {
-      margin-bottom: var(--space-lg);
-      line-height: var(--leading-snug);
-
-      &--size {
-        &-base {
-          font-size: var(--text-sm);
-        }
-
-        &-lg {
-          font-size: var(--text-base);
-        }
-
-        &-xl {
-          font-size: var(--text-lg);
-        }
-
-        &-2xl {
-          font-size: var(--text-xl);
-        }
-
-        &-3xl {
-          font-size: var(--text-2xl);
-        }
-
-        &-4xl {
-          font-size: var(--text-3xl);
-        }
-      }
-
-      &--enhanced-spacing {
-        margin-bottom: var(--space-xl);
-        line-height: var(--leading-normal);
-      }
-    }
-  }
-
-  // Medium screens - Tablet Portrait (480px+)
-  @media (min-width: 30em) {
-    .paragraph {
-      margin-bottom: var(--space-xl);
-      line-height: var(--leading-relaxed);
-
-      &--enhanced-spacing {
-        margin-bottom: var(--space-2xl);
-      }
-    }
-  }
-
-  // Tablet Landscape (768px - 1024px)
-  @media (min-width: 48em) and (max-width: 63.9375em) {
-    .paragraph {
-      &--size {
-        &-base {
-          font-size: var(--text-sm);
-        }
-
-        &-lg {
-          font-size: var(--text-base);
-        }
-
-        &-xl {
-          font-size: var(--text-lg);
-        }
-
-        &-2xl {
-          font-size: var(--text-xl);
-        }
-
-        &-3xl {
-          font-size: var(--text-2xl);
-        }
-
-        &-4xl {
-          font-size: var(--text-3xl);
-        }
-      }
-    }
-  }
-
-  // ======================================
-  // ACCESSIBILITY ENHANCEMENTS
-  // ======================================
-
-  // Reduced motion support for accessibility
-  @media (prefers-reduced-motion: reduce) {
-    .paragraph {
-      transition: none;
-
-      &--interactive {
-        &:hover {
-          transform: none;
-        }
-
-        &:active {
-          transform: none;
-        }
-      }
-    }
-  }
-
-  // ======================================
-  // PRINT STYLES
-  // ======================================
-
-  @media print {
-    .paragraph {
-      color: var(--print-text) !important;
-      font-size: 12pt !important;
-      line-height: var(--leading-normal) !important;
-      margin-bottom: var(--space-md) !important;
-      background: none !important;
-
-      &--high-contrast {
-        color: var(--print-text) !important;
-      }
-
-      &--enhanced-spacing {
-        letter-spacing: normal !important;
-        line-height: var(--leading-normal) !important;
-        margin-bottom: var(--space-md) !important;
-      }
-    }
-  }
-
-  // ======================================
-  // HIGH CONTRAST MODE SUPPORT
-  // ======================================
-
-  // High Contrast Mode Support for Windows
-  @media (forced-colors: active) {
-    .paragraph {
-      color: CanvasText;
-      forced-color-adjust: none;
-
-      &--high-contrast {
-        color: CanvasText;
-      }
-
-      &--interactive {
-        &:hover,
-        &:focus {
-          background-color: Highlight;
-          color: HighlightText;
-        }
-      }
-    }
-  }
-</style>

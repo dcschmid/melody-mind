@@ -3,18 +3,6 @@
  * @file Navigation.astro
  * @description Main navigation component for the MelodyMind application
  *
- * This component provides a comprehensive, responsive navigation system with:
- * - WCAG 2.2 AAA accessibility compliance
- * - Multi-language support with dynamic routing
- * - Authentication-aware content visibility
- * - Session timeout warnings for authenticated users
- * - Mobile-first responsive design with hamburger menu
- * - Full keyboard navigation with focus trapping
- * - Real-time achievement badge integration
- * - Donation links with external site indicators
- * - CSS containment for performance optimization
- * - Fully integrated with global.css variables
- *
  * @example
  * ```astro
  * ---
@@ -26,31 +14,7 @@
  *
  * <!-- Minimal navigation for game pages -->
  * <Navigation showHeaderIcons={false} />
- * ```
  *
- * @accessibility
- * - Implements WCAG 2.2 SC 2.5.5 Target Size (AAA) with minimum 44×44px targets
- * - Provides WCAG 2.2 SC 2.2.6 Timeouts (AAA) with 2-minute session warnings
- * - Enhanced focus indicators with 3px borders for better visibility
- * - Full keyboard navigation with Home/End key shortcuts
- * - Screen reader optimization with ARIA live regions
- * - Focus trap implementation with proper escape mechanisms
- * - Fully responsive design with proper breakpoints
- *
- * @performance
- * - Dynamic imports for session timeout utilities (loaded only when needed)
- * - Event-driven authentication monitoring with cookie watching
- * - Optimized polling with exponential backoff for network resilience
- * - Proper cleanup of event listeners to prevent memory leaks
- * - CSS containment optimization for better rendering performance
- * - Lazy loading of interactive elements with content-visibility
- *
- * @i18n
- * Supports multiple languages with automatic route generation and localized content.
- * Uses translation keys from the i18n system for all user-facing text.
- *
- * @version 3.1.0
- * @since 1.0.0
  */
 import { Icon } from "astro-icon/components";
 import { When } from "@astropub/flow";
@@ -60,31 +24,6 @@ import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 
-/**
- * Props interface for the Navigation component
- *
- * @interface Props
- * @property {boolean} [showHeaderIcons=true] - Controls visibility of additional navigation icons
- *   including Knowledge, Playlists, Highscores, and Achievements links.
- *   Set to false for minimal navigation on game pages or simplified layouts.
- *   When false, only the home navigation and user account sections are displayed.
- *
- * @example
- * ```astro
- * <!-- Full navigation with all icons (default) -->
- * <Navigation />
- *
- * <!-- Minimal navigation without additional icons -->
- * <Navigation showHeaderIcons={false} />
- *
- * <!-- Conditional navigation based on page context -->
- * <Navigation showHeaderIcons={!isGamePage} />
- * ```
- *
- * @accessibility
- * The showHeaderIcons prop maintains full accessibility compliance regardless of state.
- * All navigation items retain proper ARIA labels and keyboard navigation support.
- */
 interface Props {
   showHeaderIcons?: boolean;
 }
@@ -92,28 +31,18 @@ interface Props {
 const { showHeaderIcons = true } = Astro.props;
 const lang = getLangFromUrl(Astro.url) as string;
 const t = useTranslations(lang);
-
-// WCAG 2.2 Fixed Reference Points for stable content identification
-const stableMenuId = `navigation-menu-${crypto.randomUUID()}`;
-const stableItemIds = {
-  home: "nav-home-stable",
-  knowledge: "nav-knowledge-stable",
-  playlists: "nav-playlists-stable",
-  podcasts: "nav-podcasts-stable",
-  highscores: "nav-highscores-stable",
-  achievements: "nav-achievements-stable",
-  profile: "nav-profile-stable",
-  logout: "nav-logout-stable",
-};
 ---
 
 <!-- Main header with navigation and language picker -->
-<header role="banner" class="navigation-header">
+<header
+  role="banner"
+  class="flex flex-row justify-between items-center rounded-lg p-4 md:p-6 min-h-[44px]"
+>
   <LanguagePicker />
-  <nav aria-label={t("nav.ariaLabel")} class="navigation-nav">
-    <div class="navigation-slot">
+  <nav aria-label={t("nav.ariaLabel")} class="flex flex-wrap items-center justify-between gap-4">
+    <div class="flex flex-1 items-center justify-center gap-4">
       <button
-        class="navigation-hamburger"
+        class="relative flex min-h-[44px] min-w-[44px] items-center justify-center gap-2 rounded-lg border-2 border-purple-600 bg-purple-600 px-3 py-2 font-medium text-white shadow-md transition-all duration-300 cursor-pointer m-1 hover:bg-purple-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
         aria-label={t("nav.menu.open")}
         aria-expanded="false"
         aria-controls="main-menu"
@@ -124,78 +53,104 @@ const stableItemIds = {
           width={28}
           height={28}
           aria-hidden="true"
-          class="navigation-hamburger__icon"
+          class="w-7 h-7 transition-transform duration-200 flex-shrink-0"
         />
-        <span class="navigation-hamburger__text">{t("nav.menu.text")}</span>
+        <span
+          class="absolute left-[-10000px] w-px h-px overflow-hidden font-medium text-sm whitespace-nowrap"
+          >{t("nav.menu.text")}</span
+        >
       </button>
 
       <!-- Full-screen overlay backdrop -->
-      <div id="menu-backdrop" class="navigation-backdrop" aria-hidden="true"></div>
+      <div
+        id="menu-backdrop"
+        class="fixed inset-0 z-[998] bg-gradient-to-br from-purple-900/95 to-blue-800/90 backdrop-blur-[20px] transition-all duration-300 invisible opacity-0 data-[state=open]:visible data-[state=open]:opacity-100"
+        aria-hidden="true"
+      >
+      </div>
 
       <!-- Full-screen navigation overlay -->
       <div
         id="main-menu"
-        class="navigation-overlay"
+        class="fixed inset-0 z-[999] flex flex-col bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-y-auto overscroll-contain transition-all duration-300 ease-out invisible opacity-0 scale-95 data-[state=open]:visible data-[state=open]:opacity-100 data-[state=open]:scale-100"
         role="dialog"
         aria-modal="true"
         aria-labelledby="menu-title"
-        data-stable-id={stableMenuId}
         data-state="closed"
       >
-        <!-- Close button with enhanced styling -->
-        <button class="navigation-overlay__close" aria-label={t("nav.menu.close")}>
+        <!-- Close button -->
+        <button
+          class="absolute top-6 right-6 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-gray-700 text-white border-2 border-gray-600 cursor-pointer transition-all duration-300 shadow-lg hover:bg-purple-600 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          aria-label={t("nav.menu.close")}
+        >
           <Icon
             name="close"
             width={32}
             height={32}
             aria-hidden="true"
-            class="navigation-overlay__close-icon"
+            class="w-8 h-8 transition-inherit"
           />
         </button>
 
         <!-- Navigation content container -->
-        <div class="navigation-overlay__content">
-          <!-- Menu title with enhanced typography -->
-          <div class="navigation-overlay__header">
-            <Headline level="h2" size="xl" id="menu-title" className="navigation-overlay__title">
+        <div class="flex flex-col min-h-screen p-12 md:p-16 lg:p-20 max-w-6xl mx-auto w-full">
+          <!-- Menu title -->
+          <div class="text-center mb-12 pt-8">
+            <Headline
+              level="h2"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
+            >
               {t("nav.title")}
             </Headline>
-            <Paragraph className="navigation-overlay__subtitle">
+            <Paragraph className="text-lg text-gray-300 opacity-80">
               {t("nav.subtitle")}
             </Paragraph>
           </div>
 
           <!-- Status announcer for screen readers -->
-          <div aria-live="polite" aria-atomic="true" class="sr-only" id="menu-status-announcer">
+          <div
+            aria-live="polite"
+            aria-atomic="true"
+            class="absolute left-[-10000px] w-px h-px overflow-hidden clip-rect-[1px_1px_1px_1px] whitespace-nowrap"
+            id="menu-status-announcer"
+          >
           </div>
 
           <!-- Main navigation sections -->
-          <div class="navigation-overlay__sections">
+          <div class="flex flex-col gap-8 flex-1 mb-8">
             <!-- Home section -->
-            <div class="navigation-section navigation-section--primary">
-              <Headline level="h3" size="lg" className="navigation-section__title"
+            <div
+              class="w-full bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+            >
+              <Headline
+                level="h3"
+                className="text-xl font-semibold text-purple-400 mb-4 pb-2 border-b-2 border-purple-500 opacity-90"
                 >{t("nav.section.main")}</Headline
               >
-              <nav class="navigation-section__nav">
+              <nav class="flex flex-col gap-4">
                 <a
                   href={getRelativeLocaleUrl(lang, "gamehome")}
-                  class="navigation-link navigation-link--home"
+                  class="flex flex-row items-center gap-6 p-4 rounded-2xl bg-gray-800 border border-gray-700 text-decoration-none text-white transition-all duration-300 cursor-pointer shadow-sm min-h-[80px] relative overflow-hidden hover:shadow-xl hover:border-purple-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   role="menuitem"
-                  id={stableItemIds.home}
-                  data-stable-ref="navigation-home"
                 >
-                  <div class="navigation-link__icon-wrapper">
+                  <div
+                    class="relative flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-purple-500 to-purple-600 flex-shrink-0 shadow-md"
+                  >
                     <Icon
                       name="home"
                       width={32}
                       height={32}
                       aria-hidden="true"
-                      class="navigation-link__icon"
+                      class="text-white z-10"
                     />
                   </div>
-                  <div class="navigation-link__content">
-                    <span class="navigation-link__title">{t("nav.menu.home")}</span>
-                    <span class="navigation-link__description">{t("nav.menu.home.desc")}</span>
+                  <div class="flex flex-col gap-2 flex-1 z-10">
+                    <span class="text-lg font-semibold text-white leading-tight"
+                      >{t("nav.menu.home")}</span
+                    >
+                    <span class="text-sm text-gray-300 opacity-80 leading-relaxed"
+                      >{t("nav.menu.home.desc")}</span
+                    >
                   </div>
                 </a>
               </nav>
@@ -204,30 +159,36 @@ const stableItemIds = {
             <!-- Game sections (conditional) -->
             <When test={showHeaderIcons}>
               <!-- Discover section -->
-              <div class="navigation-section">
-                <Headline level="h3" size="lg" className="navigation-section__title"
+              <div
+                class="w-full bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+              >
+                <Headline
+                  level="h3"
+                  className="text-xl font-semibold text-white mb-4 pb-2 border-b-2 border-purple-500 opacity-90"
                   >{t("nav.section.discover")}</Headline
                 >
-                <nav class="navigation-section__nav">
+                <nav class="flex flex-col gap-4">
                   <a
                     href={getRelativeLocaleUrl(lang, "knowledge")}
-                    class="navigation-link navigation-link--knowledge"
+                    class="flex flex-row items-center gap-6 p-4 rounded-2xl bg-gray-800 border border-gray-700 text-decoration-none text-white transition-all duration-300 cursor-pointer shadow-sm min-h-[80px] relative overflow-hidden hover:shadow-xl hover:border-purple-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     role="menuitem"
-                    id={stableItemIds.knowledge}
-                    data-stable-ref="navigation-knowledge"
                   >
-                    <div class="navigation-link__icon-wrapper">
+                    <div
+                      class="relative flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex-shrink-0 shadow-md"
+                    >
                       <Icon
                         name="book"
                         width={28}
                         height={28}
                         aria-hidden="true"
-                        class="navigation-link__icon"
+                        class="text-white z-10"
                       />
                     </div>
-                    <div class="navigation-link__content">
-                      <span class="navigation-link__title">{t("knowledge.title")}</span>
-                      <span class="navigation-link__description"
+                    <div class="flex flex-col gap-2 flex-1 z-10">
+                      <span class="text-lg font-semibold text-white leading-tight"
+                        >{t("knowledge.title")}</span
+                      >
+                      <span class="text-sm text-gray-300 opacity-80 leading-relaxed"
                         >{t("nav.menu.knowledge.desc")}</span
                       >
                     </div>
@@ -235,23 +196,25 @@ const stableItemIds = {
 
                   <a
                     href={getRelativeLocaleUrl(lang, "playlists")}
-                    class="navigation-link navigation-link--playlists"
+                    class="flex flex-row items-center gap-6 p-4 rounded-2xl bg-gray-800 border border-gray-700 text-decoration-none text-white transition-all duration-300 cursor-pointer shadow-sm min-h-[80px] relative overflow-hidden hover:shadow-xl hover:border-purple-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     role="menuitem"
-                    id={stableItemIds.playlists}
-                    data-stable-ref="navigation-playlists"
                   >
-                    <div class="navigation-link__icon-wrapper">
+                    <div
+                      class="relative flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-green-500 to-green-600 flex-shrink-0 shadow-md"
+                    >
                       <Icon
                         name="music-note"
                         width={28}
                         height={28}
                         aria-hidden="true"
-                        class="navigation-link__icon"
+                        class="text-white z-10"
                       />
                     </div>
-                    <div class="navigation-link__content">
-                      <span class="navigation-link__title">{t("playlist.page.heading")}</span>
-                      <span class="navigation-link__description"
+                    <div class="flex flex-col gap-2 flex-1 z-10">
+                      <span class="text-lg font-semibold text-white leading-tight"
+                        >{t("playlist.page.heading")}</span
+                      >
+                      <span class="text-sm text-gray-300 opacity-80 leading-relaxed"
                         >{t("nav.menu.playlists.desc")}</span
                       >
                     </div>
@@ -259,23 +222,25 @@ const stableItemIds = {
 
                   <a
                     href={getRelativeLocaleUrl(lang, "podcasts")}
-                    class="navigation-link navigation-link--podcasts"
+                    class="flex flex-row items-center gap-6 p-4 rounded-2xl bg-gray-800 border border-gray-700 text-decoration-none text-white transition-all duration-300 cursor-pointer shadow-sm min-h-[80px] relative overflow-hidden hover:shadow-xl hover:border-purple-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     role="menuitem"
-                    id={stableItemIds.podcasts}
-                    data-stable-ref="navigation-podcasts"
                   >
-                    <div class="navigation-link__icon-wrapper">
+                    <div
+                      class="relative flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-blue-400 to-blue-500 flex-shrink-0 shadow-md"
+                    >
                       <Icon
                         name="microphone"
                         width={28}
                         height={28}
                         aria-hidden="true"
-                        class="navigation-link__icon"
+                        class="text-white z-10"
                       />
                     </div>
-                    <div class="navigation-link__content">
-                      <span class="navigation-link__title">{t("nav.menu.podcasts")}</span>
-                      <span class="navigation-link__description"
+                    <div class="flex flex-col gap-2 flex-1 z-10">
+                      <span class="text-lg font-semibold text-white leading-tight"
+                        >{t("nav.menu.podcasts")}</span
+                      >
+                      <span class="text-sm text-gray-300 opacity-80 leading-relaxed"
                         >{t("nav.podcasts.description")}</span
                       >
                     </div>
@@ -283,22 +248,27 @@ const stableItemIds = {
 
                   <a
                     href={getRelativeLocaleUrl(lang, "news")}
-                    class="navigation-link navigation-link--news"
+                    class="flex flex-row items-center gap-6 p-4 rounded-2xl bg-gray-800 border border-gray-700 text-decoration-none text-white transition-all duration-300 cursor-pointer shadow-sm min-h-[80px] relative overflow-hidden hover:shadow-xl hover:border-purple-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     role="menuitem"
-                    data-stable-ref="navigation-news"
                   >
-                    <div class="navigation-link__icon-wrapper">
+                    <div
+                      class="relative flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-red-500 to-red-600 flex-shrink-0 shadow-md"
+                    >
                       <Icon
                         name="news"
                         width={28}
                         height={28}
                         aria-hidden="true"
-                        class="navigation-link__icon"
+                        class="text-white z-10"
                       />
                     </div>
-                    <div class="navigation-link__content">
-                      <span class="navigation-link__title">{t("news.title")}</span>
-                      <span class="navigation-link__description">{t("news.description")}</span>
+                    <div class="flex flex-col gap-2 flex-1 z-10">
+                      <span class="text-lg font-semibold text-white leading-tight"
+                        >{t("news.title")}</span
+                      >
+                      <span class="text-sm text-gray-300 opacity-80 leading-relaxed"
+                        >{t("news.description")}</span
+                      >
                     </div>
                   </a>
                 </nav>
@@ -307,62 +277,68 @@ const stableItemIds = {
 
             <!-- User section (conditional) -->
             <div
-              class="navigation-section navigation-section--user"
+              class="w-full bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
               id="user-section"
               style="display: none;"
             >
-              <Headline level="h3" size="lg" className="navigation-section__title"
+              <Headline
+                level="h3"
+                className="text-xl font-semibold text-white mb-4 pb-2 border-b-2 border-purple-500 opacity-90"
                 >{t("nav.section.account")}</Headline
               >
-              <nav class="navigation-section__nav">
+              <nav class="flex flex-col gap-4">
                 <a
                   href={getRelativeLocaleUrl(lang, "profile")}
-                  class="navigation-link navigation-link--profile"
+                  class="flex flex-row items-center gap-6 p-4 rounded-2xl bg-gray-800 border border-gray-700 text-decoration-none text-white transition-all duration-300 cursor-pointer shadow-sm min-h-[80px] relative overflow-hidden hover:shadow-xl hover:border-purple-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   role="menuitem"
                   aria-label={t("profile.nav.aria")}
-                  id={stableItemIds.profile}
-                  data-stable-ref="navigation-profile"
                 >
-                  <div class="navigation-link__icon-wrapper">
+                  <div
+                    class="relative flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex-shrink-0 shadow-md"
+                  >
                     <Icon
                       name="user"
                       width={28}
                       height={28}
                       aria-hidden="true"
-                      class="navigation-link__icon"
+                      class="text-white z-10"
                     />
                   </div>
-                  <div class="navigation-link__content">
-                    <span class="navigation-link__title">{t("profile.nav.link")}</span>
-                    <span class="navigation-link__description">{t("nav.menu.profile.desc")}</span>
+                  <div class="flex flex-col gap-2 flex-1 z-10">
+                    <span class="text-lg font-semibold text-white leading-tight"
+                      >{t("profile.nav.link")}</span
+                    >
+                    <span class="text-sm text-gray-300 opacity-80 leading-relaxed"
+                      >{t("nav.menu.profile.desc")}</span
+                    >
                   </div>
                 </a>
 
                 <button
                   id="logout-button"
-                  class="navigation-link navigation-link--logout"
+                  class="flex flex-row items-center gap-6 p-4 rounded-2xl bg-gray-800 border border-gray-700 text-decoration-none text-white transition-all duration-300 cursor-pointer shadow-sm min-h-[80px] relative overflow-hidden hover:shadow-xl hover:border-purple-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   role="menuitem"
                   aria-label={t("nav.logout.label")}
-                  data-stable-id={stableItemIds.logout}
-                  data-stable-ref="navigation-logout"
-                  data-logout-text={t("nav.menu.logout")}
-                  data-logout-desc-text={t("nav.menu.logout.desc")}
-                  data-guest-exit-text={t("nav.menu.guest.exit")}
-                  data-guest-exit-desc-text={t("nav.menu.guest.exit.desc")}
                   type="button"
                 >
-                  <div class="navigation-link__icon-wrapper">
+                  <div
+                    class="relative flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-red-500 to-red-600 flex-shrink-0 shadow-md"
+                  >
                     <Icon
                       name="logout"
                       width={28}
                       height={28}
                       aria-hidden="true"
-                      class="navigation-link__icon"
+                      class="text-white z-10"
                     />
                   </div>
-                  <div class="navigation-link__content">
-                    <span class="navigation-link__title">{t("nav.menu.logout")}</span>
-                    <span class="navigation-link__description">{t("nav.menu.logout.desc")}</span>
+                  <div class="flex flex-col gap-2 flex-1 z-10">
+                    <span class="text-lg font-semibold text-white leading-tight"
+                      >{t("nav.menu.logout")}</span
+                    >
+                    <span class="text-sm text-gray-300 opacity-80 leading-relaxed"
+                      >{t("nav.menu.logout.desc")}</span
+                    >
                   </div>
                 </button>
               </nav>
@@ -370,31 +346,41 @@ const stableItemIds = {
           </div>
 
           <!-- Support section -->
-          <div class="navigation-section">
-            <Headline level="h3" size="lg" className="navigation-section__title"
+          <div
+            class="w-full bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+          >
+            <Headline
+              level="h3"
+              className="text-xl font-semibold text-white mb-4 pb-2 border-b-2 border-purple-500 opacity-90"
               >{t("nav.donate.heading")}</Headline
             >
-            <nav class="navigation-section__nav">
+            <nav class="flex flex-col gap-4">
               <a
                 href="https://www.paypal.me/dcschmid"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="navigation-link navigation-link--paypal"
+                class="flex flex-row items-center gap-6 p-4 rounded-2xl bg-gray-800 border border-gray-700 text-decoration-none text-white transition-all duration-300 cursor-pointer shadow-sm min-h-[80px] relative overflow-hidden hover:shadow-xl hover:border-purple-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 role="menuitem"
                 aria-label={`${t("nav.donate.paypal")} (${t("nav.openNewWindow")})`}
               >
-                <div class="navigation-link__icon-wrapper">
+                <div
+                  class="relative flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex-shrink-0 shadow-md"
+                >
                   <Icon
                     name="paypal"
                     width={28}
                     height={28}
                     aria-hidden="true"
-                    class="navigation-link__icon"
+                    class="text-white z-10"
                   />
                 </div>
-                <div class="navigation-link__content">
-                  <span class="navigation-link__title">{t("nav.donate.paypal")}</span>
-                  <span class="navigation-link__description">{t("nav.donate.description")}</span>
+                <div class="flex flex-col gap-2 flex-1 z-10">
+                  <span class="text-lg font-semibold text-white leading-tight"
+                    >{t("nav.donate.paypal")}</span
+                  >
+                  <span class="text-sm text-gray-300 opacity-80 leading-relaxed"
+                    >{t("nav.donate.description")}</span
+                  >
                 </div>
               </a>
 
@@ -402,22 +388,28 @@ const stableItemIds = {
                 href="https://www.buymeacoffee.com/dcschmid"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="navigation-link navigation-link--coffee"
+                class="flex flex-row items-center gap-6 p-4 rounded-2xl bg-gray-800 border border-gray-700 text-decoration-none text-white transition-all duration-300 cursor-pointer shadow-sm min-h-[80px] relative overflow-hidden hover:shadow-xl hover:border-purple-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 role="menuitem"
                 aria-label={`${t("nav.donate.coffee")} (${t("nav.openNewWindow")})`}
               >
-                <div class="navigation-link__icon-wrapper">
+                <div
+                  class="relative flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex-shrink-0 shadow-md"
+                >
                   <Icon
                     name="coffee-cup"
                     width={28}
                     height={28}
                     aria-hidden="true"
-                    class="navigation-link__icon"
+                    class="text-white z-10"
                   />
                 </div>
-                <div class="navigation-link__content">
-                  <span class="navigation-link__title">{t("nav.donate.coffee")}</span>
-                  <span class="navigation-link__description">{t("nav.donate.description")}</span>
+                <div class="flex flex-col gap-2 flex-1 z-10">
+                  <span class="text-lg font-semibold text-white leading-tight"
+                    >{t("nav.donate.coffee")}</span
+                  >
+                  <span class="text-sm text-gray-300 opacity-80 leading-relaxed"
+                    >{t("nav.donate.description")}</span
+                  >
                 </div>
               </a>
             </nav>
@@ -428,1704 +420,63 @@ const stableItemIds = {
   </nav>
 </header>
 
-<script>
-  /**
-   * Navigation Menu Controller
-   *
-   * Manages the opening, closing and accessibility of the main navigation menu.
-   * Implements WCAG AAA compliant focus management and keyboard interactions.
-   * Features include:
-   * - Focus trapping within the menu for keyboard users
-   * - Screen reader announcements via aria-live regions
-   * - Proper ARIA attribute management
-   * - Support for Escape key to close the menu
-   * - Touch interface support via the backdrop
-   * - Proper focus restoration after menu closes
-   */
+<script define:vars={{ lang }}>
+  // Simple navigation menu functionality
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mainMenu = document.getElementById("main-menu");
+    const menuBackdrop = document.getElementById("menu-backdrop");
+    const closeButton = mainMenu?.querySelector("button");
 
-  /**
-   * Initializes the navigation menu and sets up all necessary event listeners
-   * This is the main entry point for the navigation functionality
-   */
-  const setupMenuEventListeners = (
-    menuToggle: HTMLButtonElement,
-    mainMenu: HTMLDivElement,
-    menuBackdrop: HTMLDivElement,
-    statusAnnouncer: HTMLDivElement | null
-  ): void => {
-    menuToggle.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
-    );
-    menuBackdrop.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
-    );
+    if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
+      return;
+    }
 
-    // Close menu with Escape key
+    // Toggle menu function
+    const toggleMenu = () => {
+      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+      const newState = !isExpanded;
+
+      menuToggle.setAttribute("aria-expanded", String(newState));
+      mainMenu.setAttribute("data-state", newState ? "open" : "closed");
+      menuBackdrop.setAttribute("data-state", newState ? "open" : "closed");
+
+      // Prevent scrolling when menu is open
+      document.body.style.overflow = newState ? "hidden" : "";
+
+      // Focus management
+      if (newState) {
+        setTimeout(() => {
+          closeButton.focus();
+        }, 300);
+      } else {
+        menuToggle.focus();
+      }
+    };
+
+    // Event listeners
+    menuToggle.addEventListener("click", toggleMenu);
+    menuBackdrop.addEventListener("click", toggleMenu);
+    closeButton.addEventListener("click", toggleMenu);
+
+    // Close with Escape key
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && mainMenu.getAttribute("data-state") === "open") {
-        toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer);
-      }
-    });
-  };
-
-  const initNavigationMenu = (): void => {
-    // Get all required DOM elements
-    const menuToggle = document.getElementById("menu-toggle") as HTMLButtonElement | null;
-    const mainMenu = document.getElementById("main-menu") as HTMLDivElement | null;
-    const menuBackdrop = document.getElementById("menu-backdrop") as HTMLDivElement | null;
-    const closeButton = mainMenu?.querySelector(
-      ".navigation-overlay__close"
-    ) as HTMLButtonElement | null;
-    const statusAnnouncer = document.getElementById(
-      "menu-status-announcer"
-    ) as HTMLDivElement | null;
-
-    // Ensure all required elements exist before proceeding
-    if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
-      console.warn("Navigation menu elements not found, menu functionality disabled");
-      return;
-    }
-
-    // Initialize logout button functionality
-    initLogoutButton();
-
-    // Set up event listeners
-    setupMenuEventListeners(menuToggle, mainMenu, menuBackdrop, statusAnnouncer);
-    closeButton.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
-    );
-
-    // Set up focus trap in the menu
-    setupFocusTrap(mainMenu);
-  };
-
-  // Initialize when DOM is ready
-  document.addEventListener("DOMContentLoaded", initNavigationMenu);
-
-  /**
-   * Toggles the menu state between open and closed
-   * Updates ARIA attributes, visual state, and manages focus
-   *
-   * @param {HTMLButtonElement} menuToggle - The button that controls the menu
-   * @param {HTMLElement} mainMenu - The main menu container
-   * @param {HTMLElement} menuBackdrop - The backdrop overlay element
-   * @param {HTMLElement} statusAnnouncer - Element for screen reader announcements
-   */
-  const toggleMenu = (
-    menuToggle: HTMLButtonElement,
-    mainMenu: HTMLElement,
-    menuBackdrop: HTMLElement,
-    statusAnnouncer?: HTMLElement | null
-  ): void => {
-    // Get current state and determine new state
-    const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-    const newState = !isExpanded;
-
-    // Update ARIA attributes for accessibility
-    menuToggle.setAttribute("aria-expanded", String(newState));
-
-    // Update visual state using data attributes
-    mainMenu.setAttribute("data-state", newState ? "open" : "closed");
-    menuBackdrop.setAttribute("data-state", newState ? "open" : "closed");
-
-    // Prevent scrolling when menu is open
-    document.body.setAttribute("data-menu-open", String(newState));
-
-    // Announce state change to screen readers
-    if (statusAnnouncer) {
-      const menuTitle = document.getElementById("menu-title")?.textContent || "Menu";
-      statusAnnouncer.textContent = newState ? `${menuTitle} opened` : `${menuTitle} closed`;
-    }
-
-    // Implement proper focus management
-    if (newState) {
-      // When opening: move focus to first interactive element after animation
-      setTimeout(
-        () => {
-          const firstFocusableElement = getFirstFocusableElement(mainMenu);
-          if (firstFocusableElement) {
-            firstFocusableElement.focus();
-          }
-        },
-        parseInt(
-          getComputedStyle(document.documentElement).getPropertyValue("--timeout-animation"),
-          10
-        )
-      ); // Use CSS variable for timeout
-    } else {
-      // When closing: return focus to the toggle button
-      menuToggle.focus();
-    }
-  };
-
-  /**
-   * Sets up a focus trap within the menu element
-   * Ensures keyboard users can't accidentally navigate outside the menu
-   * Enhanced with additional accessibility features for WCAG 2.2 AAA compliance
-   *
-   * @param {HTMLElement} menuElement - The menu element to trap focus within
-   */
-  const setupFocusTrap = (menuElement: HTMLElement): void => {
-    menuElement.addEventListener("keydown", (e: KeyboardEvent) => {
-      if (e.key !== "Tab" || menuElement.getAttribute("data-state") !== "open") {
-        return;
-      }
-
-      const focusableElements = getFocusableElements(menuElement);
-      if (focusableElements.length === 0) {
-        return;
-      }
-
-      const firstElement = focusableElements[0];
-      const lastElement = focusableElements[focusableElements.length - 1];
-
-      // If shifting tab and on the first element, go to the last element
-      if (e.shiftKey && document.activeElement === firstElement) {
-        e.preventDefault();
-        lastElement.focus();
-      }
-      // If tab and on the last element, circle back to first element
-      else if (!e.shiftKey && document.activeElement === lastElement) {
-        e.preventDefault();
-        firstElement.focus();
+        toggleMenu();
       }
     });
 
-    // WCAG 2.2 Enhancement: Add support for users who have difficulty with pointer precision
-    setupAlternativeInteractionMethods(menuElement);
-  };
-
-  /**
-   * WCAG 2.2 SC 2.5.7 Dragging Movements: Alternative Interaction Methods
-   * Provides alternatives for users who cannot perform dragging movements
-   * Implements keyboard shortcuts and enhanced click/tap support
-   *
-   * @param {HTMLElement} menuElement - The menu element to enhance
-   */
-  const setupAlternativeInteractionMethods = (menuElement: HTMLElement): void => {
-    // Enhanced keyboard shortcuts for navigation efficiency
-    menuElement.addEventListener("keydown", (e: KeyboardEvent) => {
-      if (menuElement.getAttribute("data-state") !== "open") {
-        return;
-      }
-
-      switch (e.key) {
-        case "Home":
-        case "h":
-        case "H": {
-          // Navigate to first menu item
-          e.preventDefault();
-          const firstMenuItem = menuElement.querySelector(
-            '.navigation-link[role="menuitem"]'
-          ) as HTMLElement;
-          if (firstMenuItem) {
-            firstMenuItem.focus();
-            announceNavigation("Moved to first menu item");
-          }
-          break;
-        }
-
-        case "End":
-        case "e":
-        case "E": {
-          // Navigate to last menu item
-          e.preventDefault();
-          const menuItems = menuElement.querySelectorAll('.navigation-link[role="menuitem"]');
-          const lastMenuItem = menuItems[menuItems.length - 1] as HTMLElement;
-          if (lastMenuItem) {
-            lastMenuItem.focus();
-            announceNavigation("Moved to last menu item");
-          }
-          break;
-        }
-
-        case "ArrowUp":
-          // Navigate to previous menu item
-          e.preventDefault();
-          navigateMenuItems(menuElement, "previous");
-          break;
-
-        case "ArrowDown":
-          // Navigate to next menu item
-          e.preventDefault();
-          navigateMenuItems(menuElement, "next");
-          break;
-
-        default:
-          break;
-      }
-    });
-
-    // Enhanced touch support for users with motor impairments
-    setupEnhancedTouchSupport(menuElement);
-  };
-
-  /**
-   * Enhanced touch support with longer press times and larger touch areas
-   * Supports users with motor impairments who need more time or space
-   *
-   * @param {HTMLElement} menuElement - The menu element to enhance
-   */
-  const setupEnhancedTouchSupport = (menuElement: HTMLElement): void => {
-    const menuItems = menuElement.querySelectorAll('.navigation-link[role="menuitem"]');
-
-    // Get touch timeout from CSS variable for consistency
-    const touchTimeoutMs =
-      parseInt(
-        getComputedStyle(document.documentElement)
-          .getPropertyValue("--timeout-animation")
-          .replace("ms", ""),
-        10
-      ) || 300;
-
-    // Get extended touch tolerance from CSS variable
-    const touchToleranceMs = 500; // Could be made into CSS variable if needed
-
-    menuItems.forEach((item) => {
-      const element = item as HTMLElement;
-      let touchStartTime = 0;
-      let touchTimeout: number | null = null;
-
-      // Support for longer touch times (helpful for users with motor impairments)
-      element.addEventListener(
-        "touchstart",
-        (_e) => {
-          touchStartTime = Date.now();
-
-          // Provide haptic feedback if available
-          if ("vibrate" in navigator) {
-            const hapticDuration = 50; // Could be made configurable via CSS custom property if needed
-            navigator.vibrate(hapticDuration); // Subtle haptic feedback
-          }
-
-          // Visual feedback for touch start using CSS variables
-          element.style.transform = `scale(${getComputedStyle(document.documentElement).getPropertyValue("--scale-active")})`;
-          element.style.transition = `transform ${getComputedStyle(document.documentElement).getPropertyValue("--transition-fast")}`;
-
-          // Set up extended touch support
-          touchTimeout = window.setTimeout(() => {
-            announceNavigation(`Long press detected on ${element.textContent?.trim()}`);
-          }, touchTimeoutMs);
-        },
-        { passive: true }
-      );
-
-      element.addEventListener(
-        "touchend",
-        (_e) => {
-          const touchDuration = Date.now() - touchStartTime;
-
-          if (touchTimeout) {
-            clearTimeout(touchTimeout);
-            touchTimeout = null;
-          }
-
-          // Reset visual feedback
-          element.style.transform = "";
-          element.style.transition = "";
-
-          // Enhanced tolerance for touch duration
-          if (touchDuration <= touchToleranceMs) {
-            // Treat as valid tap even with longer duration
-            handleElementActivation(element);
-          }
-        },
-        { passive: true }
-      );
-
-      element.addEventListener(
-        "touchcancel",
-        () => {
-          if (touchTimeout) {
-            clearTimeout(touchTimeout);
-            touchTimeout = null;
-          }
-
-          // Reset visual feedback
-          element.style.transform = "";
-          element.style.transition = "";
-        },
-        { passive: true }
-      );
-    });
-  };
-
-  /**
-   * Centralized element activation handler to reduce code duplication
-   * Handles both link navigation and button clicks
-   *
-   * @param {HTMLElement} element - The element to activate
-   */
-  const handleElementActivation = (element: HTMLElement): void => {
-    const link = element.getAttribute("href");
-    if (link) {
-      window.location.href = link;
-    } else if (element.tagName === "BUTTON") {
-      element.click();
-    }
-  };
-
-  /**
-   * Navigate between menu items using arrow keys
-   * Provides circular navigation for better UX
-   *
-   * @param {HTMLElement} menuElement - The menu container
-   * @param {string} direction - Navigation direction ("next" or "previous")
-   */
-  const navigateMenuItems = (menuElement: HTMLElement, direction: "next" | "previous"): void => {
-    const menuItems = Array.from(
-      menuElement.querySelectorAll('.navigation-link[role="menuitem"]')
-    ) as HTMLElement[];
-    const currentFocus = document.activeElement as HTMLElement;
-    const currentIndex = menuItems.findIndex((item) => item === currentFocus);
-
-    if (currentIndex === -1) {
-      // No menu item is focused, focus the first one
-      if (menuItems.length > 0) {
-        menuItems[0].focus();
-        announceNavigation(`Focused on ${menuItems[0].textContent?.trim()}`);
-      }
-      return;
-    }
-
-    let nextIndex: number;
-    if (direction === "next") {
-      nextIndex = (currentIndex + 1) % menuItems.length; // Circular navigation
-    } else {
-      nextIndex = (currentIndex - 1 + menuItems.length) % menuItems.length; // Circular navigation
-    }
-
-    menuItems[nextIndex].focus();
-    announceNavigation(`Focused on ${menuItems[nextIndex].textContent?.trim()}`);
-  };
-
-  /**
-   * Announce navigation changes to screen readers
-   * Provides feedback for keyboard and touch navigation
-   *
-   * @param {string} message - The message to announce
-   */
-  const announceNavigation = (message: string): void => {
-    const statusAnnouncer = document.getElementById("menu-status-announcer");
-    if (statusAnnouncer) {
-      statusAnnouncer.textContent = message;
-
-      // Clear the announcement after a timeout using CSS variable
-      const announcementTimeout =
-        parseInt(
-          getComputedStyle(document.documentElement)
-            .getPropertyValue("--timeout-announcement-medium")
-            .replace("ms", ""),
-          10
-        ) || 3000;
-
-      setTimeout(() => {
-        if (statusAnnouncer) {
-          statusAnnouncer.textContent = "";
-        }
-      }, announcementTimeout);
-    }
-  };
-
-  /**
-   * Gets all focusable elements within a container
-   * Identifies elements that can receive keyboard focus
-   *
-   * @param {HTMLElement} container - The container to search within
-   * @returns {Array<HTMLElement>} Array of focusable elements
-   */
-  const getFocusableElements = (container: HTMLElement): Array<HTMLElement> => {
-    const selector =
-      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
-    const elements = Array.from(container.querySelectorAll<HTMLElement>(selector));
-    return elements.filter((el) => el.offsetParent !== null); // Filter out hidden elements
-  };
-
-  /**
-   * Gets the first focusable element within a container
-   *
-   * @param {HTMLElement} container - The container to search within
-   * @returns {HTMLElement | null} The first focusable element or null if none found
-   */
-  const getFirstFocusableElement = (container: HTMLElement): HTMLElement | null => {
-    const focusableElements = getFocusableElements(container);
-    return focusableElements.length > 0 ? focusableElements[0] : null;
-  };
-
-  /**
-   * Checks if a specific key exists in localStorage
-   * @param {string} key - The key to check
-   * @returns {boolean} - true if the key exists and has a value, false otherwise
-   */
-  const checkLocalStorage = (key: string): boolean => {
-    try {
-      const value = localStorage.getItem(key);
-      return value !== null;
-    } catch (error) {
-      console.error("Error accessing localStorage:", error);
-      return false;
-    }
-  };
-
-  /**
-   * Safely removes a key from localStorage with error handling
-   * @param {string} key - The key to remove
-   * @returns {boolean} - true if successful, false if failed
-   */
-  const removeLocalStorage = (key: string): boolean => {
-    try {
-      localStorage.removeItem(key);
-      return true;
-    } catch (error) {
-      console.error("Error removing from localStorage:", error);
-      return false;
-    }
-  };
-
-  /**
-   * Checks if the user is authenticated (includes guest users)
-   * @returns {boolean} - true if the user is authenticated or guest, false otherwise
-   */
-  const isUserAuthenticated = (): boolean => {
-    const authStatus = localStorage.getItem("auth_status");
-    return (
-      checkLocalStorage("auth_status") && (authStatus === "authenticated" || authStatus === "guest")
-    );
-  };
-
-  /**
-   * Checks if the user is a guest user
-   * @returns {boolean} - true if the user is a guest, false otherwise
-   */
-  const isGuestUser = (): boolean => {
-    return checkLocalStorage("auth_status") && localStorage.getItem("auth_status") === "guest";
-  };
-
-  /**
-   * Checks if the user is fully authenticated (not guest)
-   * @returns {boolean} - true if the user is fully authenticated, false otherwise
-   */
-  const isFullyAuthenticated = (): boolean => {
-    return (
-      checkLocalStorage("auth_status") && localStorage.getItem("auth_status") === "authenticated"
-    );
-  };
-
-  /**
-   * Updates the visibility of authentication-dependent elements
-   * based on the authentication status
-   */
-  const updateLogoutButtonVisibility = (): void => {
-    const userSection = document.getElementById("user-section");
+    // Simple logout functionality
     const logoutButton = document.getElementById("logout-button");
-    const profileLink = document.querySelector('.navigation-link[href*="profile"]') as HTMLElement;
+    if (logoutButton) {
+      logoutButton.addEventListener("click", () => {
+        // Clear auth data
+        localStorage.removeItem("auth_status");
+        localStorage.removeItem("user");
 
-    if (!userSection) {
-      return;
+        // Redirect to home
+        window.location.href = `/${lang}/gamehome`;
+      });
     }
-
-    const isAuthenticated = isUserAuthenticated();
-    const isGuest = isGuestUser();
-    const isFullyAuth = isFullyAuthenticated();
-
-    console.warn("Auth Status in Navigation:", { isAuthenticated, isGuest, isFullyAuth });
-
-    if (isAuthenticated) {
-      userSection.style.display = "block";
-
-      // For guest users, hide profile link but show logout
-      if (isGuest) {
-        if (profileLink) {
-          profileLink.style.display = "none";
-        }
-        if (logoutButton) {
-          logoutButton.style.display = "block";
-          // Update logout button text for guest users
-          const logoutTitle = logoutButton.querySelector(".navigation-link__title");
-          const logoutDesc = logoutButton.querySelector(".navigation-link__description");
-          // Use data attributes set by server-side rendering for translations
-          const guestExitText =
-            logoutButton.getAttribute("data-guest-exit-text") || "Exit Guest Mode";
-          const guestExitDescText =
-            logoutButton.getAttribute("data-guest-exit-desc-text") || "Return to login screen";
-          if (logoutTitle) {
-            logoutTitle.textContent = guestExitText;
-          }
-          if (logoutDesc) {
-            logoutDesc.textContent = guestExitDescText;
-          }
-        }
-      } else if (isFullyAuth) {
-        // For authenticated users, show both profile and logout
-        if (profileLink) {
-          profileLink.style.display = "block";
-        }
-        if (logoutButton) {
-          logoutButton.style.display = "block";
-          // Reset logout button text for authenticated users
-          const logoutTitle = logoutButton.querySelector(".navigation-link__title");
-          const logoutDesc = logoutButton.querySelector(".navigation-link__description");
-          // Use data attributes set by server-side rendering for translations
-          const logoutText = logoutButton.getAttribute("data-logout-text") || "Logout";
-          const logoutDescText =
-            logoutButton.getAttribute("data-logout-desc-text") || "Sign out of your account";
-          if (logoutTitle) {
-            logoutTitle.textContent = logoutText;
-          }
-          if (logoutDesc) {
-            logoutDesc.textContent = logoutDescText;
-          }
-        }
-      }
-    } else {
-      userSection.style.display = "none";
-    }
-  };
-
-  /**
-   * Gets the current language from the URL path
-   * Centralized utility to reduce code duplication
-   * @returns {string} The current language code (defaults to 'de')
-   */
-  const getCurrentLanguage = (): string => {
-    const currentPath = window.location.pathname;
-    const langMatch = currentPath.match(/^\/([a-z]{2})\//);
-    return langMatch ? langMatch[1] : "de"; // Default to 'de' if no language found
-  };
-
-  /**
-   * Performance-optimized redirect handler with code deduplication
-   * Extracts common redirect logic to follow DRY principles
-   * @param {string} reason - Optional reason parameter for redirect
-   */
-  const performRedirect = (reason?: string): void => {
-    const lang = getCurrentLanguage();
-    const redirectUrl = reason
-      ? `/${lang}/gamehome?reason=${encodeURIComponent(reason)}`
-      : `/${lang}/gamehome`;
-
-    window.location.href = redirectUrl;
-  };
-
-  /**
-   * Handles the logout process when the logout button is clicked
-   * Sends a POST request to the logout API, clears localStorage auth status,
-   * dispatches logout event, and redirects to the login page on success
-   */
-  const initLogoutButton = (): void => {
-    const logoutButton = document.getElementById("logout-button");
-    if (!logoutButton) {
-      return;
-    }
-
-    // Check authentication status and update visibility
-    updateLogoutButtonVisibility();
-
-    logoutButton.addEventListener("click", async () => {
-      try {
-        // Get the current language from the centralized utility
-        const lang = getCurrentLanguage();
-
-        // 1. Remove ALL authentication data from localStorage
-        const authKeysToRemove = [
-          "auth_status",
-          "user",
-          "user_data",
-          "authToken",
-          "auth_token",
-          "access_token",
-          "isAuthenticated",
-          "pending_game_result",
-        ];
-        authKeysToRemove.forEach((key) => removeLocalStorage(key));
-
-        // Also clear any other auth-related keys
-        try {
-          Object.keys(localStorage).forEach((key) => {
-            if (key.includes("auth") || key.includes("user") || key.includes("token")) {
-              removeLocalStorage(key);
-            }
-          });
-
-          // Clear sessionStorage as well
-          sessionStorage.clear();
-        } catch (error) {
-          console.warn("Error clearing additional storage:", error);
-        }
-
-        // 2. Trigger auth:logout event so other components can react
-        const logoutEvent = new CustomEvent("auth:logout", {
-          bubbles: true,
-        });
-        document.dispatchEvent(logoutEvent);
-
-        // 3. Send POST request to the logout API
-        const response = await fetch(`/${String(lang)}/api/auth/logout`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "same-origin", // Include cookies in the request
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-          // 4. Redirect to the gamehome page
-          performRedirect();
-        } else {
-          console.error("Logout failed:", data.error);
-          // Also redirect to gamehome page on error, as client state has already been reset
-          performRedirect("logout_error");
-        }
-      } catch (error) {
-        console.error("Error during logout:", error);
-        // Even on errors, redirect to the gamehome page
-        performRedirect("logout_error");
-      }
-    });
-  };
-
-  // Check authentication status when the page loads
-  document.addEventListener("DOMContentLoaded", () => {
-    console.warn("Navigation: DOMContentLoaded - Checking auth status");
-    updateLogoutButtonVisibility();
   });
-
-  // React to authentication changes
-  window.addEventListener("auth:login", () => {
-    console.warn("Navigation: auth:login event received");
-    updateLogoutButtonVisibility();
-  });
-
-  window.addEventListener("auth:logout", () => {
-    console.warn("Navigation: auth:logout event received");
-    updateLogoutButtonVisibility();
-  });
-
-  /**
-   * Performance-optimized authentication monitoring using event-driven approach
-   * Replaces inefficient setInterval polling with responsive event listeners and
-   * visibility-based smart polling following MelodyMind performance standards
-   * Enhanced with network resilience and error recovery for WCAG 2.2 AAA compliance
-   */
-  ((): void => {
-    let authListeners: { remove: () => void } | null = null;
-    let cookieWatcher: number | null = null;
-    let isInitialized = false;
-    let retryCount = 0;
-    const maxRetries = 3;
-
-    /**
-     * Initialize optimized authentication monitoring with enhanced error handling
-     * Uses existing authStatus utilities for efficient polling and event handling
-     */
-    const initializeAuthMonitoring = (): void => {
-      if (isInitialized) {
-        return;
-      }
-
-      // Import the auth utilities dynamically for better performance
-      import("../../utils/client/authStatus")
-        .then(({ registerAuthEventListeners, initCookieWatcher, stopCookieWatcher }) => {
-          // Register event-driven auth listeners for immediate updates
-          authListeners = registerAuthEventListeners(updateLogoutButtonVisibilityWithRetry);
-
-          // Get polling interval from CSS variable (following project standards)
-          const pollingInterval =
-            parseInt(
-              getComputedStyle(document.documentElement)
-                .getPropertyValue("--update-interval-slow")
-                .replace("ms", ""),
-              10
-            ) || 2000;
-
-          // Smart cookie-based polling - only when document is visible
-          const startCookieWatcher = (): void => {
-            if (cookieWatcher) {
-              stopCookieWatcher(cookieWatcher);
-            }
-
-            // Only poll when document is visible for better performance
-            if (!document.hidden) {
-              cookieWatcher = initCookieWatcher(
-                updateLogoutButtonVisibilityWithRetry,
-                pollingInterval
-              );
-            }
-          };
-
-          // Handle visibility changes to optimize polling
-          document.addEventListener("visibilitychange", () => {
-            if (document.hidden) {
-              // Stop polling when document is hidden
-              if (cookieWatcher) {
-                stopCookieWatcher(cookieWatcher);
-                cookieWatcher = null;
-              }
-            } else {
-              // Resume polling when document becomes visible
-              startCookieWatcher();
-              // Check auth status immediately when becoming visible
-              updateLogoutButtonVisibilityWithRetry();
-            }
-          });
-
-          // Listen for online/offline events for better network resilience
-          window.addEventListener("online", () => {
-            retryCount = 0;
-            updateLogoutButtonVisibilityWithRetry();
-          });
-
-          // Start initial cookie watcher
-          startCookieWatcher();
-
-          // Cleanup function for page navigation
-          window.addEventListener("beforeunload", () => {
-            if (authListeners) {
-              authListeners.remove();
-            }
-            if (cookieWatcher) {
-              stopCookieWatcher(cookieWatcher);
-            }
-          });
-
-          isInitialized = true;
-          console.warn("Navigation: Event-driven auth monitoring initialized successfully");
-          return true; // Explicitly return a value for promise chain
-        })
-        .catch((error) => {
-          console.error("Failed to load auth monitoring utilities:", error);
-          // Enhanced fallback with network resilience
-          const pollingInterval =
-            parseInt(
-              getComputedStyle(document.documentElement)
-                .getPropertyValue("--update-interval-slow")
-                .replace("ms", ""),
-              10
-            ) || 2000;
-
-          const fallbackInterval = setInterval(
-            updateLogoutButtonVisibilityWithRetry,
-            pollingInterval
-          );
-          console.warn("Navigation: Using fallback polling with interval:", pollingInterval);
-
-          // Store fallback interval for cleanup
-          window.addEventListener("beforeunload", () => {
-            clearInterval(fallbackInterval);
-          });
-
-          return false; // Return value for error case
-        });
-    };
-
-    /**
-     * Enhanced auth status update with retry logic and error resilience
-     * Implements exponential backoff for network issues
-     */
-    const updateLogoutButtonVisibilityWithRetry = (): void => {
-      try {
-        updateLogoutButtonVisibility();
-        retryCount = 0; // Reset on success
-      } catch (error) {
-        console.warn(`Navigation: Auth status check failed (attempt ${retryCount + 1}):`, error);
-
-        if (retryCount < maxRetries) {
-          retryCount++;
-          const baseDelay = 1000;
-          const maxDelay = 10000;
-          const delay = Math.min(baseDelay * Math.pow(2, retryCount), maxDelay); // Exponential backoff with CSS-like values
-          setTimeout(updateLogoutButtonVisibilityWithRetry, delay);
-        } else {
-          console.error("Navigation: Max auth status check retries exceeded");
-          retryCount = 0; // Reset for next cycle
-        }
-      }
-    };
-
-    // Initialize when DOM is ready
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initializeAuthMonitoring);
-    } else {
-      initializeAuthMonitoring();
-    }
-  })();
 </script>
-
-<style lang="scss">
-  /* ======================================
-   * NAVIGATION HEADER & BASE STYLES
-   * ====================================== */
-
-  .navigation-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: var(--radius-lg);
-    padding: var(--space-md) var(--space-lg);
-    min-height: var(--min-touch-size);
-
-    // Better mobile spacing
-    @media (max-width: 29.9375em) {
-      padding: var(--space-sm) var(--space-md);
-    }
-  }
-
-  .navigation-nav {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-md);
-  }
-
-  .navigation-slot {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-md);
-  }
-
-  /* ======================================
-   * HAMBURGER BUTTON STYLES - Enhanced
-   * ====================================== */
-
-  .navigation-hamburger {
-    position: relative;
-    display: flex;
-    min-height: var(--min-touch-size);
-    min-width: var(--min-touch-size);
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    border-radius: var(--radius-lg);
-    border: var(--border-width-thick) solid var(--interactive-primary);
-    background: var(--btn-primary-bg);
-    padding: var(--space-sm) var(--space-md);
-    font-weight: var(--font-medium);
-    color: var(--text-primary);
-    box-shadow: var(--shadow-md);
-    transition: all var(--transition-normal);
-    cursor: pointer;
-    margin: var(--space-xs);
-
-    &:hover {
-      background: var(--interactive-primary-hover);
-      box-shadow: var(--shadow-lg);
-    }
-
-    &:focus-visible {
-      outline: var(--border-width-enhanced) solid var(--focus-ring);
-      outline-offset: var(--space-xs);
-      box-shadow: var(--shadow-xl);
-    }
-
-    &__icon {
-      width: calc(var(--icon-size-md) + var(--space-xs));
-      height: calc(var(--icon-size-md) + var(--space-xs));
-      transition: transform var(--transition-fast);
-      flex-shrink: 0;
-    }
-
-    &__text {
-      position: absolute;
-      left: -10000px;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      font-weight: var(--font-medium);
-      font-size: var(--text-sm);
-      white-space: nowrap;
-    }
-  }
-
-  /* ======================================
-   * BACKDROP OVERLAY STYLES - Full Screen
-   * ====================================== */
-
-  .navigation-backdrop {
-    position: fixed;
-    inset: 0;
-    z-index: 998;
-    background: linear-gradient(
-      135deg,
-      rgba(var(--color-primary-900), 0.95) 0%,
-      rgba(var(--color-secondary-800), 0.9) 100%
-    );
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    transition: all var(--transition-normal);
-    visibility: hidden;
-    opacity: 0;
-
-    &[data-state="open"] {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
-
-  /* ======================================
-   * FULL-SCREEN OVERLAY NAVIGATION
-   * ====================================== */
-
-  .navigation-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(
-      135deg,
-      var(--bg-primary) 0%,
-      var(--bg-secondary) 50%,
-      var(--bg-tertiary) 100%
-    );
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    transition: all var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1);
-    visibility: hidden;
-    opacity: 0;
-    transform: scale(0.95);
-
-    // Better scrolling on mobile
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    &[data-state="open"] {
-      visibility: visible;
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    /* Close Button - Enhanced */
-    &__close {
-      position: absolute;
-      top: var(--space-lg);
-      right: var(--space-lg);
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: var(--min-touch-size);
-      height: var(--min-touch-size);
-      border-radius: var(--radius-full);
-      background: var(--bg-tertiary);
-      color: var(--text-primary);
-      border: var(--border-width-thick) solid var(--border-primary);
-      cursor: pointer;
-      transition: all var(--transition-normal);
-      box-shadow: var(--shadow-lg);
-
-      &:hover {
-        background: var(--interactive-primary);
-        color: var(--btn-primary-text);
-        box-shadow: var(--shadow-xl);
-      }
-
-      &:focus-visible {
-        outline: var(--border-width-enhanced) solid var(--focus-ring);
-        outline-offset: var(--space-xs);
-      }
-
-      &-icon {
-        width: var(--icon-size-lg);
-        height: var(--icon-size-lg);
-        transition: inherit;
-      }
-    }
-
-    /* Main Content Container */
-    &__content {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-
-      // Safe area support for notched devices
-      padding-top: max(var(--space-3xl), env(safe-area-inset-top, 0) + var(--space-2xl));
-      padding-bottom: max(var(--space-2xl), env(safe-area-inset-bottom, 0) + var(--space-xl));
-    }
-
-    /* Header Section */
-    &__header {
-      text-align: center;
-      margin-bottom: var(--space-3xl);
-      padding-top: var(--space-2xl);
-    }
-
-    &__title {
-      font-size: clamp(var(--text-3xl), 5vw, var(--text-4xl));
-      font-weight: var(--font-bold);
-      color: var(--text-primary);
-      margin-bottom: var(--space-md);
-      background: linear-gradient(135deg, var(--interactive-primary), var(--color-secondary-400));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    &__subtitle {
-      font-size: var(--text-lg);
-      color: var(--text-secondary);
-      opacity: 0.8;
-    }
-
-    /* Navigation Sections Layout */
-    &__sections {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-2xl);
-      flex: 1;
-      margin-bottom: var(--space-2xl);
-    }
-
-    /* Footer Section */
-    &__footer {
-      border-top: 1px solid var(--border-primary);
-      padding-top: var(--space-xl);
-      margin-top: auto;
-    }
-  }
-
-  /* ======================================
-   * NAVIGATION SECTIONS
-   * ====================================== */
-
-  .navigation-section {
-    width: 100%;
-    background: var(--card-bg);
-    border: 1px solid var(--border-primary);
-    border-radius: var(--radius-xl);
-    padding: var(--space-xl);
-    box-shadow: var(--shadow-md);
-    transition: all var(--transition-normal);
-
-    &:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(calc(var(--animation-y-offset-small) * 2));
-    }
-
-    &__title {
-      font-size: var(--text-xl);
-      font-weight: var(--font-semibold);
-      color: var(--text-primary);
-      margin-bottom: var(--space-lg);
-      padding-bottom: var(--space-sm);
-      border-bottom: 2px solid var(--interactive-primary);
-      opacity: 0.9;
-    }
-
-    &__nav {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-    }
-
-    &--primary .navigation-section__title {
-      color: var(--interactive-primary);
-      border-bottom-color: var(--interactive-primary);
-    }
-  }
-
-  /* ======================================
-   * NAVIGATION LINKS - Card Style
-   * ====================================== */
-
-  .navigation-link {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: var(--space-lg);
-    padding: var(--space-lg);
-    border-radius: var(--radius-xl);
-    background: var(--card-bg);
-    border: 1px solid var(--border-primary);
-    text-decoration: none;
-    color: var(--text-primary);
-    transition: all var(--transition-normal);
-    cursor: pointer;
-    box-shadow: var(--shadow-sm);
-    min-height: 80px;
-    position: relative;
-    overflow: hidden;
-
-    /* Hover Effects */
-    &:hover {
-      box-shadow: var(--shadow-xl);
-      border-color: var(--interactive-primary);
-    }
-
-    &:focus-visible {
-      outline: var(--border-width-enhanced) solid var(--focus-ring);
-      outline-offset: var(--space-xs);
-    }
-
-    /* Gradient Background on Hover */
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(var(--color-primary-500), 0.1) 0%,
-        rgba(var(--color-secondary-500), 0.05) 100%
-      );
-      opacity: 0;
-      transition: opacity var(--transition-normal);
-    }
-
-    &:hover::before {
-      opacity: 1;
-    }
-
-    /* Icon Wrapper */
-    &__icon-wrapper {
-      position: relative;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      width: calc(var(--icon-size-xl) + var(--space-sm));
-      height: calc(var(--icon-size-xl) + var(--space-sm));
-      border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, var(--interactive-primary), var(--color-secondary-500));
-      flex-shrink: 0 !important;
-      box-shadow: var(--shadow-md);
-    }
-
-    &__icon {
-      color: var(--btn-primary-text);
-      z-index: 1;
-    }
-
-    /* Badge for achievements */
-    &__badge {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      z-index: 2;
-    }
-
-    /* Content Area */
-    &__content {
-      display: flex !important;
-      flex-direction: column !important;
-      gap: var(--space-xs);
-      flex: 1 !important;
-      z-index: 1;
-    }
-
-    &__title {
-      font-size: var(--text-lg);
-      font-weight: var(--font-semibold);
-      color: var(--text-primary);
-      line-height: 1.2;
-    }
-
-    &__description {
-      font-size: var(--text-sm);
-      color: var(--text-secondary);
-      opacity: 0.8;
-      line-height: 1.4;
-    }
-
-    /* Variant Styles */
-    &--home &__icon-wrapper {
-      background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
-    }
-
-    &--knowledge &__icon-wrapper {
-      background: linear-gradient(135deg, var(--color-info-500), var(--color-info-600));
-    }
-
-    &--playlists &__icon-wrapper {
-      background: linear-gradient(135deg, var(--color-success-500), var(--color-success-600));
-    }
-
-    &--podcasts &__icon-wrapper {
-      background: linear-gradient(135deg, var(--color-secondary-500), var(--color-secondary-600));
-    }
-
-    &--news &__icon-wrapper {
-      background: linear-gradient(135deg, var(--color-error-500), var(--color-error-600));
-    }
-
-    &--highscores &__icon-wrapper {
-      background: linear-gradient(135deg, var(--color-neutral-600), var(--color-neutral-700));
-    }
-
-    &--achievements &__icon-wrapper {
-      background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
-    }
-
-    &--profile &__icon-wrapper {
-      background: linear-gradient(135deg, var(--color-info-500), var(--color-info-600));
-    }
-
-    &--logout {
-      font-family: inherit;
-      font-size: inherit;
-      // Force standard navigation link styling
-      background: var(--card-bg) !important;
-      border: 1px solid var(--border-primary) !important;
-      box-shadow: var(--shadow-sm) !important;
-
-      &:hover {
-        box-shadow: var(--shadow-xl) !important;
-        border-color: var(--interactive-primary) !important;
-        background: var(--card-bg) !important;
-      }
-
-      &:focus-visible {
-        outline: var(--border-width-enhanced) solid var(--focus-ring) !important;
-        outline-offset: var(--space-xs) !important;
-      }
-
-      // Ensure hover gradient works
-      &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(var(--color-primary-500), 0.1) 0%,
-          rgba(var(--color-secondary-500), 0.05) 100%
-        );
-        opacity: 0;
-        transition: opacity var(--transition-normal);
-      }
-
-      &:hover::before {
-        opacity: 1;
-      }
-
-      .navigation-link__icon-wrapper {
-        background: linear-gradient(135deg, var(--color-error-500), var(--color-error-600));
-      }
-    }
-  }
-
-  /* ======================================
-   * SUPPORT SECTION
-   * ====================================== */
-
-  .navigation-support {
-    text-align: center;
-
-    &__title {
-      font-size: var(--text-xl);
-      font-weight: var(--font-semibold);
-      color: var(--text-primary);
-      margin-bottom: var(--space-md);
-    }
-
-    &__description {
-      font-size: var(--text-base);
-      color: var(--text-secondary);
-      margin-bottom: var(--space-lg);
-      opacity: 0.8;
-    }
-
-    &__links {
-      display: flex;
-      justify-content: center;
-      gap: var(--space-lg);
-      flex-wrap: wrap;
-    }
-
-    &__link {
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-      padding: var(--space-md) var(--space-lg);
-      border-radius: var(--radius-lg);
-      text-decoration: none;
-      font-weight: var(--font-medium);
-      transition: all var(--transition-normal);
-      min-height: var(--min-touch-size);
-      box-shadow: var(--shadow-sm);
-
-      &:hover {
-        box-shadow: var(--shadow-md);
-      }
-
-      &:focus-visible {
-        outline: var(--border-width-enhanced) solid var(--focus-ring);
-        outline-offset: var(--space-xs);
-      }
-
-      &--paypal {
-        background: var(--color-info-600);
-        color: var(--color-white);
-
-        &:hover {
-          background: var(--color-info-700);
-        }
-      }
-
-      &--coffee {
-        background: var(--color-warning-400);
-        color: var(--color-neutral-900);
-
-        &:hover {
-          background: var(--color-warning-500);
-        }
-      }
-    }
-
-    &__icon {
-      width: var(--icon-size-md);
-      height: var(--icon-size-md);
-      flex-shrink: 0;
-    }
-  }
-
-  /* ======================================
-   * UTILITIES
-   * ====================================== */
-
-  .sr-only {
-    position: absolute;
-    left: -10000px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-    white-space: nowrap;
-  }
-
-  /* ======================================
-   * GLOBAL BODY LOCK
-   * ====================================== */
-
-  :global(body[data-menu-open="true"]) {
-    overflow: hidden;
-    height: 100vh;
-  }
-
-  /* ======================================
-   * RESPONSIVE DESIGN - Enhanced Mobile-First
-   * ====================================== */
-
-  // Mobile Portrait (< 480px) - Very compact
-  @media (max-width: 29.9375em) {
-    .navigation-header {
-      padding: var(--space-sm) var(--space-md);
-    }
-
-    .navigation-hamburger {
-      min-height: var(--min-touch-size);
-      min-width: var(--min-touch-size);
-      padding: var(--space-sm);
-
-      &__icon {
-        width: var(--icon-size-md);
-        height: var(--icon-size-md);
-      }
-
-      &__text {
-        position: absolute;
-        left: -10000px;
-      }
-    }
-
-    .navigation-overlay {
-      &__content {
-        padding: var(--space-xl) var(--space-sm) var(--space-lg);
-      }
-
-      &__close {
-        top: var(--space-md);
-        right: var(--space-md);
-        width: 40px;
-        height: 40px;
-
-        &-icon {
-          width: var(--icon-size-md);
-          height: var(--icon-size-md);
-        }
-      }
-
-      &__title {
-        font-size: var(--text-2xl);
-        margin-bottom: var(--space-sm);
-      }
-
-      &__subtitle {
-        font-size: var(--text-sm);
-      }
-
-      &__sections {
-        gap: var(--space-lg);
-      }
-    }
-
-    .navigation-section {
-      padding: var(--space-md);
-
-      &__title {
-        font-size: var(--text-lg);
-        margin-bottom: var(--space-md);
-      }
-
-      &__nav {
-        gap: var(--space-sm);
-      }
-    }
-
-    .navigation-link {
-      padding: var(--space-sm) var(--space-md);
-      min-height: 60px;
-      gap: var(--space-md);
-
-      &__icon-wrapper {
-        width: 40px;
-        height: 40px;
-      }
-
-      &__icon {
-        width: 20px;
-        height: 20px;
-      }
-
-      &__title {
-        font-size: var(--text-sm);
-        font-weight: var(--font-medium);
-      }
-
-      &__description {
-        font-size: var(--text-xs);
-        line-height: 1.3;
-      }
-    }
-
-    .navigation-support {
-      &__links {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-sm);
-      }
-
-      &__link {
-        padding: var(--space-sm) var(--space-md);
-        justify-content: center;
-
-        &__icon {
-          width: 20px;
-          height: 20px;
-        }
-      }
-    }
-  }
-
-  // Mobile Landscape (480px - 640px) - Better spacing
-  @media (min-width: 30em) and (max-width: 39.9375em) {
-    .navigation-hamburger {
-      &__text {
-        position: static;
-        width: auto;
-        height: auto;
-        overflow: visible;
-        font-size: var(--text-sm);
-      }
-    }
-
-    .navigation-overlay {
-      &__content {
-        padding: var(--space-2xl) var(--space-md) var(--space-xl);
-      }
-
-      &__sections {
-        gap: var(--space-xl);
-      }
-    }
-
-    .navigation-link {
-      padding: var(--space-md);
-      min-height: 70px;
-      gap: var(--space-lg);
-
-      &__icon-wrapper {
-        width: 50px;
-        height: 50px;
-      }
-
-      &__icon {
-        width: var(--icon-size-md);
-        height: var(--icon-size-md);
-      }
-
-      &__title {
-        font-size: var(--text-base);
-      }
-
-      &__description {
-        font-size: var(--text-sm);
-      }
-    }
-  }
-
-  // Small Tablet (640px - 768px) - Balanced layout
-  @media (min-width: 40em) and (max-width: 47.9375em) {
-    .navigation-overlay {
-      &__content {
-        padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
-        max-width: 800px;
-      }
-
-      &__title {
-        font-size: var(--text-3xl);
-      }
-
-      &__subtitle {
-        font-size: var(--text-base);
-      }
-    }
-
-    .navigation-section {
-      padding: var(--space-lg);
-
-      &__title {
-        font-size: var(--text-xl);
-      }
-    }
-
-    .navigation-link {
-      min-height: 80px;
-
-      &__icon-wrapper {
-        width: calc(var(--icon-size-xl) + var(--space-sm));
-        height: calc(var(--icon-size-xl) + var(--space-sm));
-      }
-
-      &__icon {
-        width: 28px;
-        height: 28px;
-      }
-
-      &__title {
-        font-size: var(--text-lg);
-      }
-
-      &__description {
-        font-size: var(--text-sm);
-      }
-    }
-
-    .navigation-support {
-      &__links {
-        justify-content: center;
-        gap: var(--space-lg);
-      }
-    }
-  }
-
-  // Large Tablet/Small Desktop (768px+) - Full layout
-  @media (min-width: 48em) {
-    .navigation-hamburger {
-      &__text {
-        position: static;
-        width: auto;
-        height: auto;
-        overflow: visible;
-      }
-    }
-
-    .navigation-overlay {
-      &__content {
-        max-width: 1000px;
-      }
-
-      &__title {
-        font-size: var(--text-4xl);
-      }
-    }
-
-    .navigation-link {
-      min-height: 80px;
-
-      &:hover {
-        box-shadow: var(--shadow-lg);
-      }
-    }
-  }
-
-  /* ======================================
-   * ACCESSIBILITY ENHANCEMENTS
-   * ====================================== */
-
-  @media (prefers-contrast: high) {
-    .navigation-link {
-      border-width: 2px;
-
-      &:focus-visible {
-        outline-width: 4px;
-      }
-    }
-
-    .navigation-overlay__close {
-      border-width: 3px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .navigation-hamburger,
-    .navigation-backdrop,
-    .navigation-overlay,
-    .navigation-link,
-    .navigation-support__link {
-      transition: none;
-    }
-
-    .navigation-link:hover {
-      box-shadow: var(--shadow-lg);
-    }
-
-    .navigation-overlay__close:hover {
-      background: var(--interactive-primary);
-      color: var(--btn-primary-text);
-    }
-  }
-
-  /* ======================================
-   * PRINT STYLES
-   * ====================================== */
-
-  @media print {
-    .navigation-header {
-      display: none;
-    }
-  }
-
-  /* ======================================
-   * DARK THEME ENHANCEMENTS
-   * ====================================== */
-
-  @media (prefers-color-scheme: dark) {
-    .navigation-overlay {
-      background: linear-gradient(
-        135deg,
-        var(--color-neutral-900) 0%,
-        var(--color-neutral-800) 50%,
-        var(--color-neutral-900) 100%
-      );
-    }
-
-    .navigation-link::before {
-      background: linear-gradient(
-        135deg,
-        rgba(var(--color-primary-400), 0.15) 0%,
-        rgba(var(--color-secondary-400), 0.1) 100%
-      );
-    }
-  }
-</style>

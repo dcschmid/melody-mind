@@ -79,7 +79,7 @@ const clientTranslations = {
 
 <div
   {id}
-  class="popup hidden"
+  class="fixed top-0 left-0 right-0 bottom-0 z-[var(--z-modal)] flex items-center justify-center p-6 bg-[var(--backdrop-overlay-dark)] transition-opacity duration-300 popup hidden"
   role="dialog"
   aria-labelledby="popup-title"
   aria-describedby="popup-description"
@@ -92,20 +92,37 @@ const clientTranslations = {
   data-translations={JSON.stringify(clientTranslations)}
 >
   <!-- Overlay backdrop for click-to-close functionality -->
-  <div id="overlay-backdrop" class="popup__backdrop" aria-hidden="true"></div>
+  <div
+    id="overlay-backdrop"
+    class="absolute top-0 left-0 right-0 bottom-0 z-[var(--z-backdrop)]"
+    aria-hidden="true"
+  >
+  </div>
 
-  <div class="popup__content" tabindex="-1" role="document">
+  <div
+    class="relative w-full max-h-[90vh] max-w-5xl overflow-y-auto bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-slate-600/50 rounded-3xl p-8 shadow-2xl z-50 transition-all duration-300 backdrop-blur-sm"
+    tabindex="-1"
+    role="document"
+  >
     <!-- Achievement badge with trophy icon -->
-    <div class="achievement-badge" role="img" aria-label={t("game.end.achievementBadge")}>
-      <Icon name="trophy" width={42} height={42} aria-hidden="true" />
+    <div
+      class="flex items-center justify-center w-20 h-20 mx-auto mb-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full text-black shadow-2xl border-4 border-yellow-300"
+      role="img"
+      aria-label={t("game.end.achievementBadge")}
+    >
+      <Icon name="trophy" width={48} height={48} aria-hidden="true" class="drop-shadow-lg" />
     </div>
 
-    <Headline level="h2" size="xl" textAlign="center" id="popup-title" className="popup__title">
+    <Headline
+      level="h2"
+      textSize="xl"
+      textAlign="center"
+      className="text-3xl font-bold text-center mb-8 text-purple-300 leading-tight tracking-wide drop-shadow-lg"
       {title}
-    </Headline>
+    />
 
     <!-- Hidden description for screen readers -->
-    <Paragraph id="popup-description" className="sr-only">
+    <Paragraph className="sr-only">
       {t("game.end.screenReaderDescription")}
     </Paragraph>
 
@@ -121,7 +138,7 @@ const clientTranslations = {
 
     <!-- Progress Visualization with improved ARIA and timeout indicators -->
     <div
-      class="achievement-progress"
+      class="w-full h-4 bg-slate-700/50 border border-slate-600/50 rounded-full mb-8 overflow-hidden relative"
       role="progressbar"
       aria-valuemin="0"
       aria-valuemax="100"
@@ -129,7 +146,11 @@ const clientTranslations = {
       aria-label={t("game.end.scoreProgress")}
       aria-describedby="progress-description"
     >
-      <div id="score-bar" class="achievement-progress__bar"></div>
+      <div
+        id="score-bar"
+        class="h-full w-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full relative scale-x-0 origin-left transition-transform duration-1000"
+      >
+      </div>
     </div>
 
     <!-- Hidden progress description for screen readers -->
@@ -138,19 +159,35 @@ const clientTranslations = {
     </div>
 
     <!-- Dynamic motivation text -->
-    <Paragraph id="motivation-text" className="motivation-text" aria-live="polite">
+    <div
+      id="motivation-text"
+      class="text-lg text-center text-gray-300 mb-8 mx-auto leading-relaxed p-4 bg-slate-700/30 rounded-xl border border-slate-600/30"
+    >
       {t("game.end.defaultMotivation")}
-    </Paragraph>
+    </div>
 
-    <div class="score-section">
-      <span class="score-section__label">{t("game.end.finalScore")}</span>
-      <span id="popup-score" class="score-section__value">0</span>
+    <div
+      class="flex flex-col items-center gap-4 p-8 bg-gradient-to-br from-slate-700/50 to-slate-800/50 border-2 border-slate-600/50 rounded-2xl mb-8 shadow-xl"
+    >
+      <span class="text-sm font-medium text-gray-400 uppercase tracking-wider"
+        >{t("game.end.finalScore")}</span
+      >
+      <span
+        id="popup-score"
+        class="text-5xl font-bold text-white leading-none tracking-wide drop-shadow-lg">0</span
+      >
     </div>
 
     <!-- Difficulty Badge -->
-    <div class="difficulty-badge" role="img" aria-label={t("game.end.difficultyLevel")}>
-      <Icon name="difficulty" width={20} height={20} aria-hidden="true" />
-      <span id="difficulty-display" aria-describedby="difficulty-description">{difficulty}</span>
+    <div
+      class="flex items-center justify-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border-2 border-blue-500/50 rounded-xl mx-auto mb-8 text-blue-200 text-base font-semibold shadow-lg"
+      role="img"
+      aria-label={t("game.end.difficultyLevel")}
+    >
+      <Icon name="difficulty" width={24} height={24} aria-hidden="true" class="text-blue-300" />
+      <span id="difficulty-display" aria-describedby="difficulty-description" class="capitalize"
+        >{difficulty}</span
+      >
     </div>
 
     <!-- Hidden difficulty description for screen readers -->
@@ -159,33 +196,37 @@ const clientTranslations = {
     </div>
 
     <!-- Share Section with comprehensive sharing options -->
-    <div class="share-section" role="region" aria-labelledby="share-section-heading">
+    <div
+      class="mb-8 py-8 border-t-2 border-b-2 border-slate-600/30 bg-gradient-to-br from-slate-700/30 to-slate-800/30 rounded-2xl px-8 shadow-inner"
+      role="region"
+      aria-labelledby="share-section-heading"
+    >
       <Headline
         level="h3"
-        size="lg"
+        textSize="lg"
         textAlign="center"
-        id="share-section-heading"
-        className="share-section__title"
-      >
-        {t("game.end.shareSection")}
-      </Headline>
-      <ShareOverlay
-        gameData={{
-          score: parseInt(initialScore, 10),
-          category: category,
-          difficulty: difficulty,
-          mode: gameMode,
-        }}
-        shareGroupLabel={t("game.end.shareResults")}
-        showFallback={true}
-        showTitle={false}
+        className="mb-6 text-xl font-semibold text-white text-center"
+        title={t("game.end.shareSection")}
       />
+      <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-600/50 shadow-lg">
+        <ShareOverlay
+          gameData={{
+            score: parseInt(initialScore, 10),
+            category: category,
+            difficulty: difficulty,
+            mode: gameMode,
+          }}
+          shareGroupLabel={t("game.end.shareResults")}
+          showFallback={true}
+          showTitle={false}
+        />
+      </div>
     </div>
 
-    <div class="button-wrapper">
+    <div class="flex gap-4 justify-center flex-wrap">
       <a
         href={`/${lang}/gamehome`}
-        class="popup__btn popup__btn--secondary"
+        class="flex items-center gap-3 px-6 py-4 rounded-xl text-base font-medium cursor-pointer transition-all duration-300 no-underline border-2 border-slate-600 bg-slate-700/50 text-white hover:bg-slate-600 hover:border-slate-500 focus-visible:outline-2 focus-visible:outline-blue-500 focus-visible:outline-offset-2 shadow-lg hover:shadow-xl hover:-translate-y-1"
         aria-label={t("game.end.homeDescription")}
         aria-describedby="home-button-description"
       >
@@ -196,7 +237,7 @@ const clientTranslations = {
       <a
         href={restartUrl}
         id="restart-button"
-        class="popup__btn popup__btn--primary"
+        class="flex items-center gap-3 px-6 py-4 rounded-xl text-base font-medium cursor-pointer transition-all duration-300 no-underline border-2 border-purple-600 bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 hover:border-purple-500 focus-visible:outline-2 focus-visible:outline-purple-500 focus-visible:outline-offset-2 shadow-lg hover:shadow-xl hover:-translate-y-1"
         aria-label={t("game.end.restartSameGameDescription")}
         aria-describedby="restart-button-description"
       >
@@ -214,434 +255,6 @@ const clientTranslations = {
     </div>
   </div>
 </div>
-
-<style lang="scss" is:global>
-  /* =================================================
-   * END OVERLAY - SCSS IMPLEMENTATION
-   * Modern SCSS with global.css variables
-   * WCAG AAA 2.2 Compliant Design
-   * ================================================= */
-
-  // SCSS Variables for component-specific values
-  $overlay-z-index: var(--z-modal);
-  $backdrop-z-index: var(--z-backdrop);
-  $content-z-index: var(--z-modal-content);
-  $achievement-badge-size: var(--achievement-badge-size);
-  $modal-max-width: var(--modal-content-max-width);
-  $modal-max-height: var(--modal-content-max-height);
-  $modal-padding: var(--modal-padding);
-
-  // Entfernte Mixins und ersetze Media Queries durch direkte Werte
-
-  .popup {
-    position: fixed;
-    inset: 0;
-    z-index: $overlay-z-index;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-lg);
-    background-color: var(--backdrop-overlay-dark);
-    transition: opacity var(--transition-normal);
-
-    &.hidden {
-      pointer-events: none;
-      visibility: hidden;
-      opacity: 0;
-
-      .popup__content {
-        opacity: 0;
-      }
-    }
-
-    &__backdrop {
-      position: absolute;
-      inset: 0;
-      z-index: $backdrop-z-index;
-    }
-
-    &__content {
-      position: relative;
-      width: 100%;
-      max-width: $modal-max-width;
-      max-height: $modal-max-height;
-      overflow-y: auto;
-      background: var(--bg-secondary);
-      border: var(--border-width-thin) solid var(--border-primary);
-      border-radius: var(--radius-xl);
-      padding: var(--space-2xl);
-      box-shadow: var(--shadow-xl);
-      z-index: $content-z-index;
-      transition: opacity var(--transition-normal);
-      &:focus-visible {
-        outline: var(--focus-enhanced-outline-dark);
-        outline-offset: var(--space-xs);
-      }
-
-      &::-webkit-scrollbar {
-        width: var(--scrollbar-thin);
-        height: var(--scrollbar-thin);
-      }
-
-      &::-webkit-scrollbar-track {
-        background: var(--scrollbar-track-bg);
-        border-radius: var(--scrollbar-track-radius);
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background: var(--scrollbar-thumb-bg);
-        border-radius: var(--scrollbar-thumb-radius);
-        &:hover {
-          background: var(--scrollbar-thumb-hover);
-        }
-      }
-    }
-
-    &__title {
-      font-size: var(--text-xl);
-      font-weight: var(--font-bold);
-      text-align: center;
-      margin-bottom: var(--space-lg);
-      word-spacing: var(--word-spacing-enhanced);
-      color: var(--color-primary-300);
-      line-height: var(--leading-enhanced);
-      letter-spacing: var(--letter-spacing-enhanced);
-      text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
-    }
-
-    &__btn {
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-      padding: var(--space-md) var(--space-xl);
-      border-radius: var(--radius-lg);
-      font-size: var(--text-base);
-      font-weight: var(--font-medium);
-      cursor: pointer;
-      transition:
-        background var(--transition-normal),
-        box-shadow var(--transition-normal);
-      text-decoration: none;
-      border: none;
-      min-height: var(--touch-target-enhanced);
-      min-width: var(--touch-target-enhanced);
-      line-height: var(--leading-enhanced);
-      letter-spacing: var(--letter-spacing-enhanced);
-
-      &:hover {
-        background: var(--color-primary-700);
-      }
-
-      &:focus-visible {
-        outline: var(--focus-outline);
-        outline-offset: var(--focus-ring-offset);
-      }
-
-      &--primary {
-        background: var(--color-primary-600);
-        color: var(--color-white);
-
-        &:hover {
-          background: var(--color-primary-700);
-        }
-      }
-
-      &--secondary {
-        background-color: transparent;
-        color: var(--text-primary);
-        border: var(--border-width-thin) solid var(--border-primary);
-
-        &:hover {
-          background-color: var(--bg-tertiary);
-          border-color: var(--border-secondary);
-        }
-      }
-    }
-  }
-
-  // Achievement badge
-  .achievement-badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: $achievement-badge-size;
-    height: $achievement-badge-size;
-    margin: 0 auto var(--space-lg);
-    background: var(--color-warning-400);
-    border-radius: var(--radius-full);
-    color: var(--color-black);
-  }
-
-  // Progress bar container
-  .achievement-progress {
-    width: 100%;
-    height: var(--space-lg);
-    background-color: var(--bg-tertiary);
-    border: var(--border-width-thin) solid var(--border-primary);
-    border-radius: var(--radius-lg);
-    margin-bottom: var(--space-xl);
-    overflow: hidden;
-    position: relative;
-
-    &__bar {
-      height: 100%;
-      width: 100%;
-      background: var(--color-primary-500);
-      border-radius: var(--radius-lg);
-      position: relative;
-      transform: scaleX(0);
-      transform-origin: left center;
-      transition: transform var(--transition-slow);
-    }
-  }
-
-  // Motivation text
-  .motivation-text {
-    font-size: var(--text-lg);
-    line-height: var(--leading-enhanced);
-    letter-spacing: var(--letter-spacing-enhanced);
-    word-spacing: var(--word-spacing-enhanced);
-    text-align: center;
-    color: var(--text-secondary);
-    margin-bottom: var(--space-xl);
-    max-width: var(--motivation-text-max-width);
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  // Score section
-  .score-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-lg);
-    background-color: var(--bg-tertiary);
-    border: var(--border-width-thin) solid var(--border-primary);
-    border-radius: var(--radius-lg);
-    margin-bottom: var(--space-lg);
-
-    &__label {
-      font-size: var(--text-sm);
-      font-weight: var(--font-medium);
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: var(--letter-spacing-enhanced);
-    }
-
-    &__value {
-      font-size: var(--text-4xl);
-      font-weight: var(--font-bold);
-      color: var(--text-primary);
-      line-height: var(--leading-enhanced);
-      letter-spacing: var(--letter-spacing-enhanced);
-      text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
-    }
-  }
-
-  // Difficulty badge
-  .difficulty-badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    padding: var(--space-sm) var(--space-lg);
-    background-color: var(--bg-tertiary);
-    border: var(--border-width-thin) solid var(--border-primary);
-    border-radius: var(--radius-lg);
-    margin: 0 auto var(--space-lg);
-    color: var(--text-secondary);
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
-  }
-
-  // Achievements section
-  .achievements-section {
-    margin-bottom: var(--space-xl);
-
-    &__title {
-      font-size: var(--text-lg);
-      font-weight: var(--font-semibold);
-      color: var(--text-primary);
-      text-align: center;
-      margin-bottom: var(--space-lg);
-    }
-
-    &__container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-md);
-      justify-content: center;
-    }
-  }
-
-  .achievement-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: var(--achievement-item-max-width);
-    padding: var(--space-lg);
-    background-color: var(--bg-tertiary);
-    border: var(--border-width-thin) solid var(--border-primary);
-    border-radius: var(--radius-lg);
-    transition: box-shadow var(--transition-normal);
-    text-align: center;
-
-    &__icon {
-      font-size: var(--text-xl);
-      margin-bottom: var(--space-sm);
-
-      img {
-        width: var(--space-2xl);
-        height: var(--space-2xl);
-        border-radius: var(--radius-md);
-      }
-    }
-
-    &__content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-xs);
-    }
-
-    &__name {
-      font-size: var(--text-base);
-      font-weight: var(--font-semibold);
-      color: var(--text-primary);
-      margin: 0;
-    }
-
-    &__description {
-      font-size: var(--text-sm);
-      color: var(--text-secondary);
-      margin: 0;
-      line-height: var(--leading-relaxed);
-    }
-  }
-
-  // Share section
-  .share-section {
-    margin-bottom: var(--space-xl);
-    padding: var(--space-lg) 0;
-    border-top: var(--border-width-thin) solid var(--border-subtle);
-    border-bottom: var(--border-width-thin) solid var(--border-subtle);
-
-    &__title {
-      margin-bottom: var(--space-lg);
-      font-size: var(--text-lg);
-      font-weight: var(--font-semibold);
-      color: var(--text-primary);
-      text-align: center;
-    }
-  }
-
-  .share-btn {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-md) var(--space-xl);
-    border-radius: var(--radius-lg);
-    font-size: var(--text-base);
-    font-weight: var(--font-medium);
-    cursor: pointer;
-    transition:
-      background var(--transition-normal),
-      box-shadow var(--transition-normal);
-    text-decoration: none;
-    border: none;
-    min-height: var(--touch-target-enhanced);
-    min-width: var(--touch-target-enhanced);
-    line-height: var(--leading-enhanced);
-    letter-spacing: var(--letter-spacing-enhanced);
-    background: var(--color-secondary-600);
-    color: var(--color-white);
-
-    &:hover {
-      background: var(--color-secondary-700);
-    }
-
-    &:focus-visible {
-      outline: var(--focus-outline);
-      outline-offset: var(--focus-ring-offset);
-    }
-  }
-
-  .button-wrapper {
-    display: flex;
-    gap: var(--space-md);
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  // =================================================
-  // GUEST LOGIN SECTION
-  // =================================================
-
-  .guest-login-section {
-    margin-bottom: var(--space-xl);
-    padding: var(--space-lg);
-    background: var(--bg-secondary);
-    border: var(--border-width-thin) solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-
-    .guest-login-content {
-      text-align: center;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
-    .guest-login-header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-md);
-      margin-bottom: var(--space-md);
-
-      svg {
-        color: var(--color-primary-500);
-      }
-    }
-
-    .guest-login-title {
-      font-size: var(--text-lg);
-      font-weight: var(--font-semibold);
-      color: var(--text-primary);
-      margin: 0;
-    }
-
-    .guest-login-description {
-      font-size: var(--text-base);
-      color: var(--text-secondary);
-      line-height: var(--leading-relaxed);
-      margin-bottom: var(--space-lg);
-    }
-
-    .guest-login-form {
-      margin-bottom: var(--space-lg);
-    }
-
-    .guest-login-alternative {
-      padding-top: var(--space-md);
-      border-top: var(--border-width-thin) solid var(--border-subtle);
-
-      .guest-login-alternative-text {
-        font-size: var(--text-sm);
-        color: var(--text-tertiary);
-        margin: 0;
-        line-height: var(--leading-relaxed);
-      }
-    }
-
-    @media (max-width: 48em) {
-      padding: var(--space-md);
-
-      .guest-login-content {
-        max-width: 100%;
-      }
-    }
-  }
-</style>
 
 <script type="module">
   /**

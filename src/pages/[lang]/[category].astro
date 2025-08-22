@@ -127,655 +127,305 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   {keywords}
   image={currentCategory?.imageUrl || "/social-share-categories.jpg"}
 >
-  <div class="page-container">
-    <div class="sr-only" aria-live="polite" id="dynamic-announcements"></div>
+  <div class="min-h-screen bg-gray-900 text-white px-4 py-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="sr-only" aria-live="polite" id="dynamic-announcements"></div>
 
-    {
-      usedFallback && (
-        <div class="alert-box" role="alert" aria-live="polite">
-          <div class="alert-content">
-            <Icon name="warning" class="icon-small" aria-hidden="true" />
-            <span>{t("notice.fallback_content")}</span>
+      {
+        usedFallback && (
+          <div
+            class="mb-6 p-4 rounded-lg bg-yellow-900/20 border border-yellow-600/30 text-yellow-200 shadow-sm"
+            role="alert"
+            aria-live="polite"
+          >
+            <div class="flex items-center gap-3">
+              <Icon name="warning" class="h-5 w-5" aria-hidden="true" />
+              <span>{t("notice.fallback_content")}</span>
+            </div>
+          </div>
+        )
+      }
+
+      <!-- Header Section with Image -->
+      <header class="mb-16 text-center">
+        <div class="flex flex-col lg:grid lg:grid-cols-[1fr_0.8fr] lg:gap-16 lg:items-center">
+          <!-- Image Section -->
+          <div class="w-full max-w-md mx-auto lg:max-w-none">
+            {
+              currentCategory?.imageUrl ? (
+                <div class="relative w-full aspect-[5/3] overflow-hidden rounded-2xl shadow-2xl border border-gray-600">
+                  <Picture
+                    class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    src={currentCategory.imageUrl}
+                    widths={[400, 600, 800, 1200]}
+                    sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1200px"
+                    formats={["avif", "webp", "jpg"]}
+                    alt={`${currentCategory.headline} ${t("category.image.alt")}`}
+                    loading="eager"
+                    fetchpriority="high"
+                    width={1000}
+                    height={600}
+                    decoding="async"
+                  />
+                </div>
+              ) : (
+                <div
+                  class="flex aspect-[5/3] w-full items-center justify-center rounded-2xl bg-gray-800 p-8 text-center text-gray-400 border-2 border-dashed border-gray-600"
+                  role="img"
+                  aria-label={t("category.no_image_available")}
+                >
+                  <div class="flex flex-col items-center gap-3">
+                    <Icon name="image" class="h-12 w-12" aria-hidden="true" />
+                    <span>{t("category.no_image_available")}</span>
+                  </div>
+                </div>
+              )
+            }
+          </div>
+
+          <!-- Text Section -->
+          <div class="flex flex-col items-center gap-6 mt-8 lg:mt-0">
+            <div
+              class="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600 border-4 border-white shadow-2xl scale-105"
+            >
+              <div
+                class="absolute inset-1 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 opacity-50"
+              >
+              </div>
+              <Icon name="music-note" class="h-8 w-8 text-white relative z-10" />
+            </div>
+
+            <Headline level="h1" textSize="3xl" textAlign="center">
+              {currentCategory?.headline}
+            </Headline>
+
+            <Paragraph textSize="lg" textAlign="center">
+              {currentCategory?.introSubline}
+            </Paragraph>
           </div>
         </div>
-      )
-    }
+      </header>
 
-    <header
-      class="section-header section-container header-with-image"
-      aria-labelledby="category-heading"
-    >
-      <div class="header-content">
-        <div class="header-image">
+      <article
+        class="max-w-4xl mx-auto space-y-12"
+        data-category={currentCategory?.slug}
+        id="main-content"
+        tabindex="-1"
+      >
+        <!-- About Section -->
+        <section
+          class="relative flex w-full flex-col items-center rounded-2xl bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 shadow-lg overflow-hidden p-6 gap-4"
+        >
+          <div
+            class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-blue-500 opacity-80"
+          >
+          </div>
+
+          <div
+            class="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-purple-600 border-4 border-white shadow-2xl scale-105 mt-4"
+          >
+            <div
+              class="absolute inset-1 rounded-full bg-gradient-to-br from-purple-400 to-purple-500 opacity-50"
+            >
+            </div>
+            <Icon name="info-circle" class="h-8 w-8 text-white relative z-10" />
+          </div>
+
+          <Headline level="h2" textSize="2xl" textAlign="center">
+            {t("category.about.title")}
+          </Headline>
+
+          <Paragraph textSize="lg" textAlign="center">
+            {currentCategory?.text}
+          </Paragraph>
+
+          {/* Music streaming platforms buttons */}
           {
-            currentCategory?.imageUrl ? (
-              <div class="header-image-container">
-                <Picture
-                  class="header-responsive-image"
-                  src={currentCategory.imageUrl}
-                  widths={[400, 600, 800, 1200]}
-                  sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1200px"
-                  formats={["avif", "webp", "jpg"]}
-                  alt={`${currentCategory.headline} ${t("category.image.alt")}`}
-                  loading="eager"
-                  fetchpriority="high"
-                  width={1000}
-                  height={600}
-                  decoding="async"
-                />
-              </div>
-            ) : (
-              <div
-                class="header-no-image-container"
-                role="img"
-                aria-label={t("category.no_image_available")}
-              >
-                <div class="header-no-image-content">
-                  <Icon name="image" class="icon-large" aria-hidden="true" />
-                  <span>{t("category.no_image_available")}</span>
-                </div>
+            (currentCategory?.spotifyPlaylist ||
+              currentCategory?.deezerPlaylist ||
+              currentCategory?.appleMusicPlaylist) && (
+              <div class="mt-4">
+                <MusicButtons category={currentCategory} title={currentCategory?.headline || ""} />
               </div>
             )
           }
-        </div>
 
-        <div class="header-text">
-          <div class="game-icon-badge header-badge">
-            <Icon name="music-note" class="icon-large icon-white" />
-          </div>
-          <Headline
-            title={currentCategory?.headline}
-            size="xl"
-            level="h1"
-            id="category-heading"
-            textAlign="center"
-          />
-          <Paragraph textSize="lg" align="center" description={currentCategory?.introSubline} />
-        </div>
-      </div>
-    </header>
+          {/* Knowledge article button */}
+          {
+            currentCategory?.knowledgeUrl && (
+              <div class="mt-4">
+                <ButtonLink
+                  href={currentCategory.knowledgeUrl}
+                  variant="secondary"
+                  icon="book-open"
+                  aria-label={`${t("knowledge.read.more")} über ${currentCategory?.headline}`}
+                >
+                  {t("knowledge.read.article")}
+                </ButtonLink>
+              </div>
+            )
+          }
+        </section>
 
-    <article
-      class="article-container"
-      data-category={currentCategory?.slug}
-      aria-labelledby="category-heading"
-      id="main-content"
-      tabindex="-1"
-    >
-      <section
-        class="description-container section-container"
-        aria-labelledby="description-heading"
-      >
-        <div class="game-icon-badge description-badge">
-          <Icon name="info-circle" class="icon-large icon-white" />
-        </div>
-        <Headline level="h2" size="xl" textAlign="center" id="description-heading">
-          {t("category.about.title")}
-        </Headline>
-        <Paragraph textSize="lg" align="center" description={currentCategory?.text} />
-
-        {/* Music streaming platforms buttons */}
-        {
-          (currentCategory?.spotifyPlaylist ||
-            currentCategory?.deezerPlaylist ||
-            currentCategory?.appleMusicPlaylist) && (
-            <div class="content-buttons-section">
-              <MusicButtons category={currentCategory} title={currentCategory?.headline || ""} />
-            </div>
-          )
-        }
-
-        {/* Knowledge article button */}
-        {
-          currentCategory?.knowledgeUrl && (
-            <div class="content-buttons-section">
-              <ButtonLink
-                href={currentCategory.knowledgeUrl}
-                variant="secondary"
-                icon="book-open"
-                aria-label={`${t("knowledge.read.more")} über ${currentCategory?.headline}`}
-              >
-                {t("knowledge.read.article")}
-              </ButtonLink>
-            </div>
-          )
-        }
-      </section>
-
-      <section
-        id="quiz-section"
-        class="section-container"
-        aria-labelledby="quiz-heading"
-        aria-hidden="true"
-      >
-        <div class="game-icon-badge">
-          <Icon name="music" class="icon-large icon-white" />
-        </div>
-        <Headline level="h2" size="xl" id="quiz-heading" textAlign="center">
-          {t("category.difficulty.heading")}
-        </Headline>
-        <Paragraph textSize="lg" description={t("knowledge.play.description")} align="center" />
-
-        <div class="button-group" role="group" aria-labelledby="quiz-heading">
-          <ButtonLink
-            href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/easy`)}
-            aria-label={`${t("category.difficulty.easy")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-            icon="play"
-          >
-            <span>{t("category.difficulty.easy")}</span>
-          </ButtonLink>
-
-          <ButtonLink
-            href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/medium`)}
-            aria-label={`${t("category.difficulty.medium")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-            icon="bolt"
-          >
-            <span>{t("category.difficulty.medium")}</span>
-          </ButtonLink>
-
-          <ButtonLink
-            href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/hard`)}
-            aria-label={`${t("category.difficulty.hard")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-            icon="fire"
-          >
-            <span>{t("category.difficulty.hard")}</span>
-          </ButtonLink>
-        </div>
-      </section>
-
-      <section
-        id="time-pressure-section"
-        class="section-container time-pressure-section"
-        aria-labelledby="time-pressure-heading"
-        aria-hidden="true"
-      >
-        <div class="game-icon-badge time-pressure-badge">
-          <Icon name="timer" class="icon-large icon-white" />
-        </div>
-        <Headline level="h2" size="xl" id="time-pressure-heading" textAlign="center">
-          {t("game.timepressure.title")}
-        </Headline>
-        <Paragraph
-          textSize="lg"
-          description={t("game.timepressure.description").replace(
-            "{category}",
-            currentCategory?.headline
-          )}
-          align="center"
-        />
-
-        <div
-          class="button-group single-button-group"
-          role="group"
-          aria-labelledby="time-pressure-heading"
+        <!-- Quiz Section -->
+        <section
+          id="quiz-section"
+          class="relative flex w-full flex-col items-center rounded-2xl bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 shadow-lg overflow-hidden p-6 gap-4"
+          aria-hidden="true"
         >
-          <ButtonLink
-            href={getRelativeLocaleUrl(lang, `time-pressure-${currentCategory?.slug}`)}
-            aria-label={`${t("game.timepressure.title")} - ${currentCategory?.headline}`}
-            icon="zap"
-            variant="primary"
+          <div
+            class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-blue-500 opacity-80"
           >
-            <span>{t("game.start.now")}</span>
-          </ButtonLink>
-        </div>
-      </section>
+          </div>
 
-      <section
-        id="chronology-section"
-        class="section-container chronology-section"
-        aria-labelledby="chronology-heading"
-        aria-hidden="true"
-      >
-        <div class="game-icon-badge chronology-badge">
-          <Icon name="clock-history" class="icon-large icon-white" />
-        </div>
-        <Headline level="h2" size="xl" id="chronology-heading" textAlign="center">
-          {t("game.chronology.title")}
-        </Headline>
-        <Paragraph textSize="lg" description={t("game.chronology.description")} align="center" />
-
-        <div class="button-group" role="group" aria-labelledby="chronology-heading">
-          <ButtonLink
-            href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/easy`)}
-            aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.easy")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-            icon="play"
+          <div
+            class="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-purple-600 border-4 border-white shadow-2xl scale-105 mt-4"
           >
-            {t("category.difficulty.easy")}
-          </ButtonLink>
+            <div
+              class="absolute inset-1 rounded-full bg-gradient-to-br from-purple-400 to-purple-500 opacity-50"
+            >
+            </div>
+            <Icon name="music" class="h-8 w-8 text-white relative z-10" />
+          </div>
 
-          <ButtonLink
-            href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/medium`)}
-            aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.medium")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-            icon="bolt"
-          >
-            <span>{t("category.difficulty.medium")}</span>
-          </ButtonLink>
+          <Headline level="h2" textSize="2xl" textAlign="center">
+            {t("category.difficulty.heading")}
+          </Headline>
 
-          <ButtonLink
-            href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/hard`)}
-            aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.hard")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-            icon="fire"
+          <Paragraph textSize="lg" textAlign="center">
+            {t("knowledge.play.description")}
+          </Paragraph>
+
+          <div
+            class="flex flex-col lg:flex-row lg:justify-center lg:gap-6 mt-8 w-full"
+            role="group"
           >
-            <span>{t("category.difficulty.hard")}</span>
-          </ButtonLink>
-        </div>
-      </section>
-    </article>
+            <ButtonLink
+              href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/easy`)}
+              aria-label={`${t("category.difficulty.easy")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
+              icon="play"
+            >
+              <span>{t("category.difficulty.easy")}</span>
+            </ButtonLink>
+
+            <ButtonLink
+              href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/medium`)}
+              aria-label={`${t("category.difficulty.medium")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
+              icon="bolt"
+            >
+              <span>{t("category.difficulty.medium")}</span>
+            </ButtonLink>
+
+            <ButtonLink
+              href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/hard`)}
+              aria-label={`${t("category.difficulty.hard")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
+              icon="fire"
+            >
+              {t("category.difficulty.hard")}
+            </ButtonLink>
+          </div>
+        </section>
+
+        <!-- Time Pressure Section -->
+        <section
+          id="time-pressure-section"
+          class="relative flex w-full flex-col items-center rounded-2xl bg-gradient-to-br from-yellow-900/20 to-red-900/20 border border-yellow-600/30 shadow-lg overflow-hidden p-6 gap-4"
+          aria-hidden="true"
+        >
+          <div
+            class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 to-red-500 opacity-80"
+          >
+          </div>
+
+          <div
+            class="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-yellow-500 to-red-500 border-4 border-white shadow-2xl scale-105 mt-4"
+          >
+            <div
+              class="absolute inset-1 rounded-full bg-gradient-to-br from-yellow-400 to-red-500 opacity-50"
+            >
+            </div>
+            <Icon name="timer" class="h-8 w-8 text-white relative z-10" />
+          </div>
+
+          <Headline level="h2" textSize="2xl" textAlign="center">
+            {t("game.timepressure.title")}
+          </Headline>
+
+          <Paragraph textSize="lg" textAlign="center">
+            {t("game.timepressure.description").replace("{category}", currentCategory?.headline)}
+          </Paragraph>
+
+          <div class="flex justify-center mt-8 w-full" role="group">
+            <ButtonLink
+              href={getRelativeLocaleUrl(lang, `time-pressure-${currentCategory?.slug}`)}
+              aria-label={`${t("game.timepressure.title")} - ${currentCategory?.headline}`}
+              icon="zap"
+              variant="primary"
+            >
+              <span>{t("game.start.now")}</span>
+            </ButtonLink>
+          </div>
+        </section>
+
+        <!-- Chronology Section -->
+        <section
+          id="chronology-section"
+          class="relative flex w-full flex-col items-center rounded-2xl bg-gradient-to-br from-gray-800 to-gray-700 border border-gray-600 shadow-lg overflow-hidden p-6 gap-4"
+          aria-hidden="true"
+        >
+          <div
+            class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-blue-500 opacity-80"
+          >
+          </div>
+
+          <div
+            class="relative flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600 border-4 border-white shadow-2xl scale-105 mt-4"
+          >
+            <div
+              class="absolute inset-1 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 opacity-50"
+            >
+            </div>
+            <Icon name="clock-history" class="h-8 w-8 text-white relative z-10" />
+          </div>
+
+          <Headline level="h2" textSize="2xl" textAlign="center">
+            {t("game.chronology.title")}
+          </Headline>
+
+          <Paragraph textSize="lg" textAlign="center">
+            {t("game.chronology.description")}
+          </Paragraph>
+
+          <div
+            class="flex flex-col lg:flex-row lg:justify-center lg:gap-6 mt-8 w-full"
+            role="group"
+          >
+            <ButtonLink
+              href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/easy`)}
+              aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.easy")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
+              icon="play"
+            >
+              {t("category.difficulty.easy")}
+            </ButtonLink>
+
+            <ButtonLink
+              href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/medium`)}
+              aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.medium")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
+              icon="bolt"
+            >
+              <span>{t("category.difficulty.medium")}</span>
+            </ButtonLink>
+
+            <ButtonLink
+              href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/hard`)}
+              aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.hard")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
+              icon="fire"
+            >
+              {t("category.difficulty.hard")}
+            </ButtonLink>
+          </div>
+        </section>
+      </article>
+    </div>
   </div>
 </Layout>
-
-<style lang="scss">
-  /* ======================================
-   * CATEGORY PAGE STYLES - OPTIMIZED FOR STYLE GUARDIAN
-   * BEM Methodology + Global Variables + Mobile-First
-   * ====================================== */
-
-  .page-container {
-    margin: 0 auto;
-    width: var(--width-full);
-    max-width: var(--container-2xl);
-    min-height: 100vh;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    contain: layout style paint;
-    padding: 0 var(--space-md);
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: var(--space-xl);
-    padding: var(--space-md);
-    contain: layout style paint;
-
-    &__title {
-      font-size: var(--text-2xl);
-      font-weight: var(--font-bold);
-    }
-
-    &--with-image {
-      padding-top: var(--space-lg);
-    }
-  }
-
-  .header-with-image {
-    margin: 0 auto var(--space-2xl) auto;
-    padding: var(--space-sm);
-    text-align: center;
-    width: var(--width-full);
-    max-width: var(--container-xl);
-    contain: layout style paint;
-  }
-
-  .header-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-xl);
-    width: var(--width-full);
-    contain: layout style;
-
-    &__text {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: var(--space-md);
-      flex: 1;
-      min-width: 0;
-    }
-
-    @media (min-width: 48em) {
-      display: grid;
-      grid-template-columns: 1fr 0.8fr;
-      gap: var(--space-2xl);
-      align-items: center;
-    }
-  }
-
-  .header-image {
-    width: var(--width-full);
-    max-width: min(var(--container-xs), 90vw);
-    flex-shrink: 0;
-  }
-
-  .header-image-container {
-    position: relative;
-    width: var(--width-full);
-    aspect-ratio: 5 / 3;
-    overflow: hidden;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl);
-    border: var(--border-width-thin) solid var(--border-primary);
-    contain: layout style paint;
-  }
-
-  .header-responsive-image {
-    height: var(--width-full);
-    width: var(--width-full);
-    object-fit: cover;
-    transition: transform var(--transition-base);
-    contain: layout style paint;
-  }
-
-  .header-no-image-container {
-    display: flex;
-    aspect-ratio: 5 / 3;
-    width: var(--width-full);
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-xl);
-    background: var(--bg-secondary);
-    padding: var(--space-lg);
-    text-align: center;
-    color: var(--text-secondary);
-    border: var(--border-width-thin) dashed var(--border-secondary);
-  }
-
-  .header-no-image-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-sm);
-  }
-
-  .divider {
-    margin: var(--space-lg) auto;
-    height: var(--border-width-thick);
-    width: var(--space-3xl);
-    border-radius: var(--radius-full);
-    background: var(--interactive-primary);
-  }
-
-  .article-container {
-    margin: 0 auto;
-    width: var(--width-full);
-    max-width: var(--container-xl);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2xl);
-  }
-
-  .description-badge {
-    background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-600) 100%);
-
-    &::before {
-      background: linear-gradient(135deg, var(--color-primary-400), var(--color-primary-600));
-    }
-  }
-
-  .header-badge {
-    background: linear-gradient(
-      135deg,
-      var(--color-secondary-500) 0%,
-      var(--color-secondary-600) 100%
-    );
-
-    &::before {
-      background: linear-gradient(135deg, var(--color-secondary-400), var(--color-secondary-600));
-    }
-  }
-
-  .section-container {
-    position: relative;
-    display: flex;
-    width: var(--width-full);
-    flex-direction: column;
-    align-items: center;
-    border-radius: var(--radius-xl);
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-    border: var(--border-width-thin) solid var(--border-primary);
-    box-shadow: var(--shadow-lg);
-    transition: all var(--transition-base);
-    overflow: hidden;
-    contain: layout style paint;
-    gap: var(--space-md);
-    padding: var(--space-md);
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: var(--border-width-thick);
-      background: linear-gradient(90deg, var(--interactive-primary), var(--color-secondary-500));
-      opacity: var(--opacity-high);
-      contain: layout style paint;
-    }
-
-    &__badge {
-      margin-bottom: var(--space-md);
-    }
-
-    &--time-pressure {
-      background: linear-gradient(135deg, var(--color-warning-50) 0%, var(--color-error-50) 100%);
-
-      &::before {
-        background: linear-gradient(90deg, var(--color-warning), var(--color-error));
-      }
-    }
-
-    &--chronology {
-      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-
-      &::before {
-        background: linear-gradient(90deg, var(--color-primary-500), var(--interactive-primary));
-      }
-    }
-  }
-
-  .game-icon-badge {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: var(--space-3xl);
-    height: var(--space-3xl);
-    border-radius: var(--radius-full);
-    background: linear-gradient(
-      135deg,
-      var(--btn-primary-bg) 0%,
-      var(--interactive-primary-hover) 100%
-    );
-    border: var(--border-width-thick) solid var(--color-white);
-    transition: all var(--transition-base);
-    margin: var(--space-md) auto;
-    contain: layout style paint;
-    transform: scale(1.05);
-    box-shadow:
-      var(--shadow-xl),
-      inset 0 1px 0 rgba(255, 255, 255, var(--color-mix-dark));
-
-    &::before {
-      content: "";
-      position: absolute;
-      inset: var(--animation-x-offset-small);
-      border-radius: var(--radius-full);
-      background: linear-gradient(135deg, var(--interactive-primary), var(--color-secondary-500));
-      z-index: -1;
-      opacity: var(--opacity-medium);
-      transition: opacity var(--transition-base);
-    }
-  }
-
-  .chronology-badge {
-    background: linear-gradient(
-      135deg,
-      var(--interactive-primary) 0%,
-      var(--color-primary-600) 100%
-    );
-  }
-
-  .time-pressure-badge {
-    background: linear-gradient(135deg, var(--color-warning) 0%, var(--color-error) 100%);
-  }
-
-  .button-group {
-    margin: var(--space-xl) auto 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    width: 100%;
-    max-width: 400px;
-    align-items: center;
-    contain: layout style;
-
-    &__link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-sm);
-      min-height: var(--touch-target-enhanced);
-      width: 100%;
-      text-align: center;
-      transition: all var(--transition-base);
-      border-radius: var(--radius-lg);
-      background: var(--btn-primary-bg);
-      border: none;
-      color: var(--color-white);
-      text-decoration: none;
-      contain: layout style paint;
-
-      &__icon {
-        width: 24px;
-        height: 24px;
-        color: var(--color-white);
-        flex-shrink: 0;
-      }
-
-      &__text {
-        font-weight: var(--font-bold);
-        font-size: var(--text-base);
-        color: var(--color-white);
-        white-space: nowrap;
-      }
-
-      &:hover {
-        transform: translateY(-2px);
-        background: var(--btn-primary-hover);
-        box-shadow: 0 8px 20px rgba(138, 43, 226, 0.4);
-      }
-
-      &:active {
-        transform: translateY(0);
-      }
-    }
-
-    @media (min-width: 64em) {
-      flex-direction: row;
-      justify-content: center;
-      max-width: 700px;
-      gap: var(--space-lg);
-
-      &__link {
-        flex-direction: column;
-        padding: var(--space-xl);
-        min-width: 160px;
-        aspect-ratio: 1.1;
-        max-width: 180px;
-      }
-    }
-
-    @media (min-width: 48em) and (max-width: 63.9375em) {
-      max-width: 520px;
-      gap: var(--space-lg);
-      padding: var(--space-xl) var(--space-2xl);
-
-      &__link {
-        padding: var(--space-lg) var(--space-xl);
-        border-radius: var(--radius-xl);
-      }
-    }
-
-    @media (max-width: 47.9375em) and (orientation: landscape) {
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: nowrap;
-      gap: var(--space-md);
-      max-width: 100%;
-
-      &__link {
-        flex: 1;
-        max-width: 160px;
-        min-height: var(--touch-target-enhanced);
-        flex-direction: row;
-        gap: var(--space-sm);
-
-        &__icon {
-          width: 20px;
-          height: 20px;
-        }
-      }
-    }
-
-    @media (max-width: 359px) {
-      padding: var(--space-md) var(--space-sm);
-      gap: var(--space-sm);
-
-      &__link {
-        min-height: calc(var(--touch-target-enhanced) + var(--space-md));
-        padding: var(--space-md);
-
-        &__icon {
-          width: 20px;
-          height: 20px;
-        }
-
-        &__text {
-          font-size: var(--text-xs);
-        }
-      }
-    }
-  }
-
-  .icon-small {
-    height: var(--icon-size-sm);
-    width: var(--icon-size-sm);
-  }
-
-  .icon-medium {
-    height: var(--icon-size-md);
-    width: var(--icon-size-md);
-  }
-
-  .icon-large {
-    height: var(--icon-size-lg);
-    width: var(--icon-size-lg);
-  }
-
-  .icon-white {
-    color: var(--color-white);
-  }
-
-  .auth-form-container {
-    margin: 0 auto;
-    width: var(--width-full);
-    max-width: var(--form-container-max-width);
-  }
-
-  .alert-box {
-    margin-bottom: var(--space-lg);
-    padding: var(--space-md);
-    border-radius: var(--radius-md);
-    background: var(--bg-warning-aaa);
-    border: var(--border-width-thin) solid var(--color-warning-600);
-    color: var(--text-warning-aaa);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .alert-content {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-  }
-
-  .content-buttons-section {
-    margin-top: var(--space-md);
-  }
-
-  :global(a:focus-visible),
-  :global(button:focus-visible) {
-    outline: var(--focus-ring);
-    outline-offset: var(--focus-ring-offset);
-  }
-</style>

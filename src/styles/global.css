@@ -5,6 +5,7 @@
 
 /* Import Tailwind CSS */
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* ======================================
  * TAILWIND THEME CONFIGURATION
@@ -95,7 +96,6 @@
   --font-mono:
     "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
 
-
   /* Font Weights - Available as font-normal, font-medium, etc. */
   --font-weight-normal: 400;
   --font-weight-medium: 500;
@@ -168,6 +168,7 @@
  * ====================================== */
 
 :root {
+  /* ======================================
    * PERFORMANCE OPTIMIZATION VARIABLES
    * ====================================== */
 

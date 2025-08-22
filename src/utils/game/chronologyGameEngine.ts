@@ -253,11 +253,18 @@ class ChronologyGame {
       return;
     }
 
+    // Remove loading placeholder if it exists
+    const loadingPlaceholder = this.itemsContainer.querySelector(".loading-placeholder");
+    if (loadingPlaceholder) {
+      loadingPlaceholder.remove();
+    }
+
     this.itemsContainer.innerHTML = "";
 
     this.currentItems.forEach((item, index) => {
       const itemElement = document.createElement("div");
-      itemElement.className = "chronology-item";
+      itemElement.className =
+        "group flex items-center gap-4 bg-gradient-to-r from-slate-800/90 to-slate-700/80 border-2 border-slate-600/50 rounded-xl p-4 mb-4 cursor-pointer transition-all duration-300 relative shadow-lg hover:shadow-xl min-h-16 hover:border-blue-500/70 hover:bg-gradient-to-r hover:from-slate-700/90 hover:to-slate-600/80 hover:-translate-y-1 hover:scale-[1.02] focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-slate-900 last:mb-0 backdrop-blur-sm";
       itemElement.dataset.index = index.toString();
       itemElement.setAttribute("tabindex", "0");
       itemElement.setAttribute("role", "button");
@@ -267,10 +274,15 @@ class ChronologyGame {
       );
 
       itemElement.innerHTML = `
-        <div class="chronology-item__position">${index + 1}</div>
-        <div class="chronology-item__content">
-          <div class="chronology-item__title">${item.title}</div>
-          <div class="chronology-item__artist">${item.artist}</div>
+        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white text-base font-bold flex items-center justify-center shadow-lg border border-blue-400/50 group-hover:scale-110 transition-transform duration-200">${index + 1}</div>
+        <div class="flex-1 min-w-0">
+          <div class="font-bold text-lg mb-2 text-white leading-tight group-hover:text-blue-100 transition-colors duration-200">${item.title}</div>
+          <div class="text-gray-300 text-sm leading-relaxed font-medium group-hover:text-blue-200 transition-colors duration-200">${item.artist}</div>
+        </div>
+        <div class="flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-blue-400 transition-colors duration-200">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
         </div>
       `;
 
@@ -296,14 +308,44 @@ class ChronologyGame {
 
   selectItem(index: number) {
     // Remove previous selection
-    const items = this.itemsContainer?.querySelectorAll(".chronology-item");
-    items?.forEach((item) => item.classList.remove("chronology-item--selected"));
+    const items = this.itemsContainer?.querySelectorAll("[data-index]");
+    items?.forEach((item) => {
+      item.classList.remove(
+        "border-blue-500/70",
+        "bg-gradient-to-r",
+        "from-blue-600/20",
+        "to-blue-700/20",
+        "shadow-blue-500/25",
+        "-translate-y-1",
+        "scale-[1.02]"
+      );
+      item.classList.add(
+        "border-slate-600/50",
+        "bg-gradient-to-r",
+        "from-slate-800/90",
+        "to-slate-700/80"
+      );
+    });
 
     // Add new selection
     this.selectedIndex = index;
     const selectedItem = items?.[index];
     if (selectedItem) {
-      selectedItem.classList.add("chronology-item--selected");
+      selectedItem.classList.remove(
+        "border-slate-600/50",
+        "bg-gradient-to-r",
+        "from-slate-800/90",
+        "to-slate-700/80"
+      );
+      selectedItem.classList.add(
+        "border-blue-500/70",
+        "bg-gradient-to-r",
+        "from-blue-600/20",
+        "to-blue-700/20",
+        "shadow-blue-500/25",
+        "-translate-y-1",
+        "scale-[1.02]"
+      );
       (selectedItem as HTMLElement).focus();
     }
 
