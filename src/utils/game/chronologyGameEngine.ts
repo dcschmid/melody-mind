@@ -18,10 +18,38 @@ import { handleEndGame } from "./endGameUtils.ts";
 setupEndOverlay();
 
 // Make EndOverlay functions globally available for the game class
-(window as any).showEndOverlay = showEndOverlay;
-(window as any).updateEndOverlayScore = updateEndOverlayScore;
-(window as any).updateMotivationText = updateMotivationText;
-(window as any).animateProgressBar = animateProgressBar;
+(
+  window as Window & {
+    showEndOverlay?: typeof showEndOverlay;
+    updateEndOverlayScore?: typeof updateEndOverlayScore;
+    updateMotivationText?: typeof updateMotivationText;
+    animateProgressBar?: typeof animateProgressBar;
+  }
+).showEndOverlay = showEndOverlay;
+(
+  window as Window & {
+    showEndOverlay?: typeof showEndOverlay;
+    updateEndOverlayScore?: typeof updateEndOverlayScore;
+    updateMotivationText?: typeof updateMotivationText;
+    animateProgressBar?: typeof animateProgressBar;
+  }
+).updateEndOverlayScore = updateEndOverlayScore;
+(
+  window as Window & {
+    showEndOverlay?: typeof showEndOverlay;
+    updateEndOverlayScore?: typeof updateEndOverlayScore;
+    updateMotivationText?: typeof updateMotivationText;
+    animateProgressBar?: typeof animateProgressBar;
+  }
+).updateMotivationText = updateMotivationText;
+(
+  window as Window & {
+    showEndOverlay?: typeof showEndOverlay;
+    updateEndOverlayScore?: typeof updateEndOverlayScore;
+    updateMotivationText?: typeof updateMotivationText;
+    animateProgressBar?: typeof animateProgressBar;
+  }
+).animateProgressBar = animateProgressBar;
 
 // Game implementation with modern ES6+ features
 
@@ -63,7 +91,10 @@ const loadAlbumsData = async (category: string, language: string) => {
   }
 };
 
-const generateChronologyQuestion = (albumsData: any[], difficulty: string) => {
+const generateChronologyQuestion = (
+  albumsData: Array<{ artist: string; album: string; year: string }>,
+  difficulty: string
+) => {
   const itemCount = ITEMS_PER_DIFFICULTY[difficulty as keyof typeof ITEMS_PER_DIFFICULTY] || 4;
 
   if (!albumsData || albumsData.length === 0) {
@@ -161,13 +192,13 @@ class ChronologyGame {
   private categoryName: string;
   private userId: string;
   private language: string;
-  private currentItems: any[] = [];
+  private currentItems: Array<{ id: number; artist: string; title: string; year: number }> = [];
   private correctOrder: number[] = [];
   private selectedIndex: number = -1;
   private score: number = 0;
   private round: number = 1;
   private totalRounds: number = 10;
-  private albumsData: any[] | null = null;
+  private albumsData: Array<{ artist: string; album: string; year: string }> | null = null;
 
   constructor() {
     this.container = document.getElementById("chronology-container");
@@ -419,7 +450,7 @@ class ChronologyGame {
     }
   }
 
-  showFeedback(result: any) {
+  showFeedback(result: { correctItems: number; totalItems: number; score: number }) {
     // Create detailed feedback with more information
     const correctOrderWithDetails = this.correctOrder.map((id) => {
       const item = this.currentItems.find((i) => i.id === id);
@@ -506,8 +537,8 @@ class ChronologyGame {
           console.log("  popup.dataset.mode:", popup.dataset.mode);
 
           // Use the enhanced showEndOverlay function for animations and setup
-          if (typeof window !== "undefined" && (window as any).showEndOverlay) {
-            (window as any).showEndOverlay(score, this.totalRounds * 100); // Max score based on perfect rounds
+          if (typeof window !== "undefined" && (window as Window & { showEndOverlay?: (score: number, maxScore: number) => void }).showEndOverlay) {
+            (window as Window & { showEndOverlay?: (score: number, maxScore: number) => void }).showEndOverlay(score, this.totalRounds * 100); // Max score based on perfect rounds
           } else {
             // Fallback: manually update score and show overlay
             const scoreElement = document.getElementById("popup-score");

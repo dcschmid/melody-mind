@@ -16,6 +16,7 @@ declare namespace App {
   interface Locals {
     // No authentication needed anymore
     // This empty interface is intentional for future extensibility
+    _placeholder?: never;
   }
 }
 

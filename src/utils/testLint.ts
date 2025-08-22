@@ -6,7 +6,7 @@
  */
 
 // Import-Reihenfolge sollte konsistent sein
-import * as fs from "fs";
+// import * as fs from "fs"; // Removed unused import
 
 // Interface sollte in PascalCase sein (Falsch -> zeigt Fehler)
 interface UserScore {
@@ -38,8 +38,8 @@ const userData = {
  * @param user - Benutzerobjekt mit ID und Punktzahl
  */
 function processUserData(user: UserScore): void {
-  // Unbenutzte Variable - umbenannt mit Unterstrich
-  const _id = user.id;
+  // Unbenutzte Variable - entfernt da nicht benötigt
+  // const _id = user.id;
 
   console.warn(`Benutzer ${user.id} hat ${user.score} Punkte`);
 }
@@ -157,7 +157,7 @@ export function createCompleteAriaButton(): HTMLDivElement {
 }
 
 // Export von Typen mit camelCase (sollte Warnung auslösen)
-export interface testInterfaceIncorrect {
+export interface TestInterfaceCorrect {
   id: string;
   name: string;
 }

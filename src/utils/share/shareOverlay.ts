@@ -307,13 +307,13 @@ export class ShareOverlayManager {
     const originalWindowOpen = window.open;
     window.open = function (url) {
       if (!url) {
-        return null as any;
+        return null;
       }
       const textMatch = decodeURIComponent(url.toString()).match(/text=([^&]+)/);
       if (textMatch && textMatch[1]) {
         shareText = textMatch[1].replace(/\+/g, " ");
       }
-      return null as any;
+      return null;
     };
 
     const originalConsoleWarn = console.warn;
@@ -337,7 +337,7 @@ export class ShareOverlayManager {
 
     // Clear references
     Object.keys(this.elements).forEach((key) => {
-      (this.elements as any)[key] = null;
+      (this.elements as Record<string, HTMLElement | null>)[key] = null;
     });
   }
 }

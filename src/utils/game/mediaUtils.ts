@@ -56,7 +56,7 @@ export interface Album {
   /** Album title (for accessibility) */
   album?: string;
   /** Any additional properties */
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**
@@ -106,7 +106,7 @@ export function updateMedia(album: Album, elements: MediaElements): void {
 //   });
 // }
 
-/**
+/*
  * Updates a single streaming service button
  *
  * Sets the URL and visibility of a streaming service button element based
@@ -117,7 +117,8 @@ export function updateMedia(album: Album, elements: MediaElements): void {
  * @param {Album} album - Album data for accessibility information
  * @private
  */
-function updateStreamingLink(linkElement?: HTMLButtonElement, url?: string, album?: Album): void {
+/*
+function _updateStreamingLink(linkElement?: HTMLButtonElement, url?: string, album?: Album): void {
   if (!linkElement) {
     return;
   }
@@ -150,6 +151,7 @@ function updateStreamingLink(linkElement?: HTMLButtonElement, url?: string, albu
     linkElement.onclick = null;
   }
 }
+*/
 
 /**
  * Initializes and collects all media elements from the DOM

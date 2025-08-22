@@ -5,7 +5,7 @@
 import { stopAudio } from "@utils/audio/audioControls";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
-import type { Album, Question } from "../../types/game";
+// Removed unused imports Album and Question
 
 import { getRandomQuestion } from "./getRandomQuestion";
 import type { MediaElements } from "./mediaUtils";
@@ -28,7 +28,7 @@ interface HandleAnswerConfig {
   /** Element to display the current round */
   roundElement: HTMLParagraphElement;
   /** Current question object */
-  currentQuestion: any | null;
+  currentQuestion: { question: string; options: string[]; correctAnswer: string; trivia: string } | null;
   /** Current round index */
   roundIndex: number;
   /** Total number of rounds in the game */
@@ -38,9 +38,9 @@ interface HandleAnswerConfig {
   /** Game difficulty setting */
   difficulty: "easy" | "medium" | "hard" | null;
   /** Array of available albums */
-  albums: any[];
+  albums: Array<{ artist: string; album: string; year: string; coverSrc: string }>;
   /** Question configuration settings */
-  questionConfig: any;
+  questionConfig: { difficulty: string; timeLimit?: number };
   /** Callback function to end the game */
   endGame: () => void;
 }

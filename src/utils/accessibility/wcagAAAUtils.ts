@@ -7,7 +7,7 @@
 
 // Replace Preact hooks with custom implementation
 // for TypeScript compatibility
-const useEffect = (callback: () => (() => void) | void, deps?: any[]): void => {
+const useEffect = (_callback: () => (() => void) | void, _deps?: unknown[]): void => {
   // This function is replaced client-side with the actual browser function
 };
 

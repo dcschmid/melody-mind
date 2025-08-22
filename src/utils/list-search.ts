@@ -177,7 +177,7 @@ export function initializeSearch(config: SearchConfig): ListSearchManager | null
       document.addEventListener("DOMContentLoaded", () => {
         resolve(new ListSearchManager(config));
       });
-    }) as any;
+    }) as Promise<ListSearchManager>;
   } else {
     return new ListSearchManager(config);
   }

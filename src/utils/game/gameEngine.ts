@@ -170,6 +170,7 @@ const initializeGame = async (elements: GameElements) => {
 
         // Check if this is a guest user
         if (userData.isGuest || userData.id.startsWith("guest_")) {
+          // Guest user detected - no additional processing needed
         }
       }
     }

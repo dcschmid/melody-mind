@@ -129,7 +129,7 @@ export function validatePassword(password: string): PasswordValidationResult {
   }
 
   // Check against common passwords
-  if (COMMON_PASSWORDS.includes(password.toLowerCase() as any)) {
+  if (COMMON_PASSWORDS.includes(password.toLowerCase() as string)) {
     errors.push("common");
   }
 
@@ -197,7 +197,7 @@ export function calculatePasswordStrength(password: string): number {
   }
 
   // Penalties for security issues
-  if (COMMON_PASSWORDS.includes(password.toLowerCase() as any)) {
+  if (COMMON_PASSWORDS.includes(password.toLowerCase() as string)) {
     strength -= 30;
   }
 

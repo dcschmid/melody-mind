@@ -619,7 +619,7 @@ function setupEnhancedKeyboardNavigation(): void {
           hideOverlayOptimized();
           break;
 
-        case " ": // Space
+        case " ": { // Space
           event.preventDefault();
           const audioPlayer = getCachedElement<HTMLAudioElement>("audio-preview");
           if (audioPlayer) {
@@ -634,6 +634,7 @@ function setupEnhancedKeyboardNavigation(): void {
             }
           }
           break;
+        }
         case "Enter":
           // Only trigger next round if no specific element is focused
           if (!activeElement || activeElement === document.body) {
