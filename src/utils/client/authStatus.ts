@@ -16,8 +16,8 @@ export function checkLocalStorage(key: string): boolean {
   try {
     const value = localStorage.getItem(key);
     return value !== null;
-  } catch (error) {
-    console.error("Fehler beim Zugriff auf localStorage:", error);
+  } catch {
+    console.error("Fehler beim Zugriff auf localStorage");
     return false;
   }
 }
@@ -32,8 +32,8 @@ export function setLocalStorage(key: string, value: string): boolean {
   try {
     localStorage.setItem(key, value);
     return true;
-  } catch (error) {
-    console.error("Fehler beim Setzen von localStorage:", error);
+  } catch {
+    console.error("Fehler beim Setzen von localStorage");
     return false;
   }
 }
@@ -47,8 +47,8 @@ export function removeLocalStorage(key: string): boolean {
   try {
     localStorage.removeItem(key);
     return true;
-  } catch (error) {
-    console.error("Fehler beim Entfernen aus localStorage:", error);
+  } catch {
+    console.error("Fehler beim Entfernen aus localStorage");
     return false;
   }
 }
@@ -76,7 +76,7 @@ export function performCompleteLogout(): void {
       method: "POST",
       credentials: "include",
     })
-      .then((response) => {
+      .then(() => {
         // Silent success/failure handling
       })
       .catch(() => {
@@ -98,14 +98,14 @@ export function performCompleteLogout(): void {
         removeLocalStorage(key);
       }
     });
-  } catch (error) {
+  } catch {
     // Silent error handling
   }
 
   // Clear sessionStorage as well
   try {
     sessionStorage.clear();
-  } catch (error) {
+  } catch {
     // Silent error handling
   }
 
@@ -121,7 +121,7 @@ export function performCompleteLogout(): void {
         oldValue: "authenticated",
       })
     );
-  } catch (error) {
+  } catch {
     // Silent error handling
   }
 }
@@ -261,7 +261,7 @@ export async function validateAndRefreshSession(): Promise<boolean> {
 
     validationInProgress = false;
     return false;
-  } catch (error) {
+  } catch {
     validationInProgress = false;
     return false;
   }
@@ -292,8 +292,8 @@ export function isUserAuthenticated(): boolean {
       try {
         const userData = JSON.parse(decodeURIComponent(userDataCookie));
         setLocalStorage("user", JSON.stringify(userData));
-      } catch (error) {
-        console.error("Fehler beim Parsen der User-Daten:", error);
+      } catch {
+        console.error("Fehler beim Parsen der User-Daten");
       }
     }
   }
@@ -492,15 +492,15 @@ export function registerAuthEventListeners(checkAuthCallback: () => void): { rem
           removeLocalStorage(key);
         }
       });
-    } catch (error) {
-      console.warn("Error clearing additional localStorage entries:", error);
+    } catch {
+      console.warn("Error clearing additional localStorage entries");
     }
 
     // Clear sessionStorage as well
     try {
       sessionStorage.clear();
-    } catch (error) {
-      console.warn("Error clearing sessionStorage:", error);
+    } catch {
+      console.warn("Error clearing sessionStorage");
     }
 
     checkAuthCallback();

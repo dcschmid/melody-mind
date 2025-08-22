@@ -5,9 +5,6 @@
  * This component renders the main landing page of the MelodyMind app.
  * It implements WCAG AAA (7:1 contrast ratio) accessibility standards
  * and uses performance optimizations for fast loading and rendering.
- *
- * @author MelodyMind Team
- * @lastModified 2025-04-23
  */
 import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
@@ -59,220 +56,47 @@ const modifiedDate = new Date();
   {modifiedDate}
 >
   <main id="main-content" class="main-content" tabindex="-1">
-    <div class="content-container">
-      <div class="content-wrapper">
-        {/* Logo with comprehensive image optimization and accessibility */}
-        <div class="logo-container" aria-hidden="true">
-          <Image
-            src="/melody-mind.png"
-            width={300}
-            height={300}
-            alt="Melody Mind Logo - Music Quiz App Logo"
-            loading="eager"
-            fetchpriority="high"
-          />
-        </div>
+    <div class="m-auto" aria-hidden="true">
+      <Image
+        class="m-auto"
+        src="/melody-mind.png"
+        width={300}
+        height={300}
+        alt="Melody Mind Logo - Music Quiz App Logo"
+        loading="eager"
+        fetchpriority="high"
+      />
 
-        {/* Semantic heading with proper hierarchy */}
-        <Headline level="h1" {title} size="2xl" />
+      {/* Semantic heading with proper hierarchy */}
+      <Headline level="h1" textAlign="center" className="my-8">
+        {title}
+      </Headline>
 
-        {/* Description with enhanced contrast for AAA compliance */}
-        <Paragraph align="center" textSize="lg">
-          {description}
+      {/* Description with enhanced contrast for AAA compliance */}
+      <Paragraph textAlign="center" textSize="xl">
+        {description}
+      </Paragraph>
+
+      {/* Accessible button container with increased touch targets */}
+      <div class="m-auto my-8 max-w-3xs">
+        <ButtonLink
+          className="flex w-full"
+          href={`/${String(lang)}/gamehome`}
+          aria-label={t("index.start.game.label")}
+        >
+          <span>{t("index.continue")}</span>
+        </ButtonLink>
+      </div>
+
+      {/* Footer text with improved contrast ratio */}
+      <div class="footer-section">
+        <Paragraph textSize="lg" textAlign="center">
+          {t("index.welcome.footnote")}
         </Paragraph>
-
-        {/* Accessible button container with increased touch targets */}
-        <div class="button-container">
-          <ButtonLink href={`/${String(lang)}/gamehome`} aria-label={t("index.start.game.label")}>
-            <span>{t("index.continue")}</span>
-          </ButtonLink>
-        </div>
-
-        {/* Footer text with improved contrast ratio */}
-        <div class="footer-section">
-          <Paragraph textSize="base" ariaLive="polite" align="center">
-            {t("index.welcome.footnote")}
-          </Paragraph>
-        </div>
       </div>
     </div>
   </main>
 </Layout>
-
-<style lang="scss">
-  /* ======================================
-   * INDEX PAGE STYLES - OPTIMIZED FOR STYLE GUARDIAN
-   * BEM Methodology + Global Variables + Mobile-First
-   * ====================================== */
-
-  .main-content {
-    min-height: 100vh;
-    color: var(--text-primary);
-    background-color: var(--bg-primary);
-    contain: layout style paint;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  .content-container {
-    margin: 0 auto;
-    display: flex;
-    width: var(--width-full);
-    max-width: var(--container-lg);
-    flex-direction: column;
-    align-items: center;
-    contain: layout style;
-    text-align: center;
-  }
-
-  .content-wrapper {
-    display: flex;
-    width: var(--width-full);
-    flex-direction: column;
-    align-items: center;
-    contain: layout style;
-  }
-
-  /* ======================================
-   * BUTTON SECTION - SIMPLIFIED DESIGN
-   * ====================================== */
-  .button-container {
-    display: flex;
-    width: var(--width-full);
-    flex-direction: column;
-    align-items: center;
-    contain: layout style;
-    margin: 0 auto 0; // Mobile: compact margin
-    max-width: var(--container-xs);
-    gap: var(--space-sm);
-
-    @media (min-width: 20em) {
-      max-width: var(--container-sm);
-      gap: var(--space-md);
-    }
-
-    @media (min-width: 48em) {
-      max-width: var(--container-md);
-      gap: var(--space-lg);
-    }
-
-    @media (min-width: 64em) {
-      max-width: 28rem; // 448px
-    }
-
-    // Enhanced touch targets for mobile
-    @media (max-width: 47.9375em) {
-      gap: var(--space-lg);
-
-      a {
-        min-height: var(--touch-target-enhanced);
-        min-width: var(--touch-target-enhanced);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-  }
-
-  /* ======================================
-   * FOOTER SECTION - SIMPLIFIED DESIGN
-   * ====================================== */
-  .footer-section {
-    max-width: var(--content-readable-width);
-    contain: layout style;
-    margin-top: var(--space-lg); // Mobile: compact margin
-  }
-
-  // Enhanced focus styles for all interactive elements
-  a,
-  button,
-  [tabindex] {
-    &:focus-visible {
-      outline: var(--focus-ring);
-      outline-offset: var(--focus-ring-offset);
-    }
-  }
-
-  // High contrast mode enhancements
-  @media (prefers-contrast: high) {
-    .main-content {
-      background-color: var(--color-black);
-      color: var(--color-white);
-    }
-
-    .logo-image {
-      border: var(--border-width-enhanced) solid var(--color-white);
-    }
-  }
-
-  // Forced colors mode support
-  @media (forced-colors: active) {
-    .main-content {
-      background-color: Canvas;
-      color: CanvasText;
-    }
-
-    .logo-image {
-      border: var(--border-width-thick) solid CanvasText;
-    }
-  }
-
-  /* ======================================
-   * MOBILE PORTRAIT OPTIMIZATIONS
-   * ====================================== */
-  // Extra small screens - Portrait Mobile (below 320px)
-  @media (max-width: 19.9375em) {
-    .content-container {
-      padding: var(--space-sm) var(--space-xs);
-    }
-
-    .content-wrapper {
-      gap: var(--space-sm);
-    }
-
-    .logo-container {
-      margin: 0 auto var(--space-md);
-      max-width: calc(100% - var(--space-lg));
-    }
-
-    .button-container {
-      margin: var(--space-sm) auto 0;
-      gap: var(--space-xs);
-    }
-
-    .footer-section {
-      margin-top: var(--space-md);
-    }
-  }
-
-  /* ======================================
-   * PRINT STYLES
-   * ====================================== */
-  @media print {
-    .main-content {
-      background: var(--print-bg);
-      color: var(--print-text);
-      min-height: auto;
-      padding: var(--space-lg);
-    }
-
-    .content-container {
-      max-width: none;
-      padding: 0;
-    }
-
-    .button-container {
-      display: none;
-    }
-
-    .footer-section {
-      margin-top: var(--space-lg);
-      font-size: var(--text-sm);
-    }
-  }
-</style>
 
 <script>
   /**

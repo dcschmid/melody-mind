@@ -18,57 +18,84 @@ const description =
 ---
 
 <Layout {title} {description} type="website" showHeader={true} showHeaderIcons={true}>
-  <main class="error-page">
-    <div class="container">
-      <div class="error-page__content">
-        <div class="error-page__visual">
-          <Icon name="x-circle" class="error-page__icon" aria-hidden="true" />
-          <div class="error-page__code">404</div>
+  <main class="min-h-screen bg-slate-50 py-16 dark:bg-slate-900 flex items-center">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div
+        class="text-center bg-white rounded-xl p-12 shadow-lg dark:bg-slate-800 dark:shadow-xl border border-slate-200 dark:border-slate-700"
+      >
+        <div class="mb-16 relative">
+          <Icon
+            name="x-circle"
+            class="w-24 h-24 text-blue-400 mb-6 opacity-70 mx-auto"
+            aria-hidden="true"
+          />
+          <div
+            class="text-8xl md:text-10xl font-bold text-blue-500 leading-none text-shadow-lg mb-4"
+          >
+            404
+          </div>
         </div>
 
-        <div class="error-page__text">
-          <Headline level="h1" size="3xl" className="error-page__title">Page Not Found</Headline>
-          <Paragraph className="error-page__description" textSize="lg" align="center">
+        <div class="mb-16">
+          <Headline level="h1" textSize="3xl" title="Page Not Found" />
+          <Paragraph
+            className="text-lg text-slate-600 dark:text-slate-300 mb-4 text-center leading-relaxed"
+          >
             Oops! The page you're looking for doesn't exist. It might have been moved, deleted, or
             you entered the wrong URL.
           </Paragraph>
-          <Paragraph className="error-page__suggestion" textSize="base" align="center">
+          <Paragraph
+            className="text-base text-slate-500 dark:text-slate-400 text-center leading-relaxed"
+          >
             Don't worry though, there's plenty of music to discover! Try one of the options below to
             get back on track.
           </Paragraph>
         </div>
 
-        <div class="error-page__actions">
-          <a href="/" class="btn-primary">
-            <Icon name="home" class="btn-icon" aria-hidden="true" />
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <a
+            href="/"
+            class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-700 hover:border-blue-700 transform hover:-translate-y-0.5 transition-all duration-200"
+          >
+            <Icon name="home" class="w-5 h-5" aria-hidden="true" />
             Go to Homepage
           </a>
-          <button onclick="window.history.back()" class="btn-secondary">
-            <Icon name="arrow-left" class="btn-icon" aria-hidden="true" />
+          <button
+            onclick="window.history.back()"
+            class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-transparent text-slate-700 dark:text-slate-200 font-semibold rounded-lg border-2 border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-700 hover:border-slate-400 dark:hover:border-slate-500 transform hover:-translate-y-0.5 transition-all duration-200"
+          >
+            <Icon name="arrow-left" class="w-5 h-5" aria-hidden="true" />
             Go Back
           </button>
         </div>
 
-        <div class="error-page__help">
-          <Headline level="h2" size="xl" className="error-page__help-title"
-            >What would you like to do?</Headline
-          >
-          <ul class="error-page__help-list">
+        <div class="mt-16 pt-8 border-t border-slate-200 dark:border-slate-700">
+          <Headline level="h2" textSize="xl" title="What would you like to do?" />
+          <ul class="grid gap-4 mt-6 sm:grid-cols-2 lg:grid-cols-3">
             <li>
-              <a href="/playlists" class="help-link">
-                <Icon name="music" class="help-icon" aria-hidden="true" />
+              <a
+                href="/playlists"
+                class="flex items-center gap-3 p-4 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 no-underline transition-all duration-200 border border-slate-200 dark:border-slate-600 hover:bg-slate-200 dark:hover:bg-slate-600 hover:border-blue-400 dark:hover:border-blue-400 transform hover:-translate-y-0.5"
+              >
+                <Icon name="music" class="w-6 h-6 text-blue-400" aria-hidden="true" />
                 Explore Music Playlists
               </a>
             </li>
             <li>
-              <a href="/gamehome" class="help-link">
-                <Icon name="gamepad" class="help-icon" aria-hidden="true" />
+              <a
+                href="/gamehome"
+                class="flex items-center gap-3 p-4 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 no-underline transition-all duration-200 border border-slate-200 dark:border-slate-600 hover:bg-slate-200 dark:hover:bg-slate-600 hover:border-blue-400 dark:hover:border-blue-400 transform hover:-translate-y-0.5"
+              >
+                <Icon name="gamepad" class="w-6 h-6 text-blue-400" aria-hidden="true" />
                 Start a Music Quiz
               </a>
             </li>
             <li>
-              <a href="/highscores" class="help-link">
-                <Icon name="trophy" class="help-icon" aria-hidden="true" />
+              <a
+                href="/highscores"
+                class="flex items-center gap-3 p-4 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 no-underline transition-all duration-200 border border-slate-200 dark:border-slate-600 hover:bg-slate-200 dark:hover:bg-slate-600 hover:border-blue-400 dark:hover:border-blue-400 transform hover:-translate-y-0.5"
+              >
+                <Icon name="trophy" class="w-6 h-6 text-blue-400" aria-hidden="true" />
                 View High Scores
               </a>
             </li>
@@ -78,198 +105,3 @@ const description =
     </div>
   </main>
 </Layout>
-
-<style>
-  .error-page {
-    min-height: 100vh;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    padding: var(--space-xl) 0;
-    display: flex;
-    align-items: center;
-  }
-
-  .container {
-    max-width: 48rem;
-    margin: 0 auto;
-    padding: 0 var(--space-md);
-  }
-
-  .error-page__content {
-    text-align: center;
-    background-color: var(--card-bg);
-    border-radius: var(--radius-lg);
-    padding: var(--space-3xl);
-    border: 1px solid var(--border-primary);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .error-page__visual {
-    margin-bottom: var(--space-2xl);
-    position: relative;
-  }
-
-  .error-page__icon {
-    width: 6rem;
-    height: 6rem;
-    color: var(--color-primary-400);
-    margin-bottom: var(--space-lg);
-    opacity: 0.7;
-  }
-
-  .error-page__code {
-    font-size: 8rem;
-    font-weight: var(--font-bold);
-    color: var(--color-primary-500);
-    line-height: 1;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: var(--space-md);
-  }
-
-  .error-page__text {
-    margin-bottom: var(--space-3xl);
-  }
-
-  .error-page__title {
-    font-size: var(--text-3xl);
-    font-weight: var(--font-bold);
-    color: var(--text-primary);
-    margin-bottom: var(--space-lg);
-  }
-
-  .error-page__description {
-    font-size: var(--text-lg);
-    color: var(--text-secondary);
-    margin-bottom: var(--space-md);
-    line-height: var(--leading-relaxed);
-  }
-
-  .error-page__suggestion {
-    font-size: var(--text-base);
-    color: var(--text-tertiary);
-    line-height: var(--leading-relaxed);
-  }
-
-  .error-page__actions {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    margin-bottom: var(--space-3xl);
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    padding: var(--space-md) var(--space-xl);
-    border-radius: var(--radius-md);
-    font-weight: var(--font-semibold);
-    text-decoration: none;
-    transition: var(--transition-normal);
-    border: none;
-    cursor: pointer;
-    font-size: var(--text-base);
-  }
-
-  .btn-primary {
-    background-color: var(--btn-primary-bg);
-    color: var(--btn-primary-text);
-    border: 2px solid var(--btn-primary-bg);
-  }
-
-  .btn-primary:hover {
-    background-color: var(--btn-primary-hover);
-    border-color: var(--btn-primary-hover);
-    transform: translateY(-2px);
-  }
-
-  .btn-secondary {
-    background-color: transparent;
-    color: var(--text-primary);
-    border: 2px solid var(--border-primary);
-  }
-
-  .btn-secondary:hover {
-    background-color: var(--bg-secondary);
-    border-color: var(--border-secondary);
-    transform: translateY(-2px);
-  }
-
-  .btn-icon {
-    width: 1.25rem;
-    height: 1.25rem;
-  }
-
-  .error-page__help {
-    margin-top: var(--space-2xl);
-    padding-top: var(--space-xl);
-    border-top: 1px solid var(--border-primary);
-  }
-
-  .error-page__help-title {
-    font-size: var(--text-xl);
-    font-weight: var(--font-semibold);
-    color: var(--text-primary);
-    margin-bottom: var(--space-lg);
-  }
-
-  .error-page__help-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: var(--space-md);
-  }
-
-  .help-link {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-md);
-    border-radius: var(--radius-md);
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: var(--transition-normal);
-    border: 1px solid var(--border-secondary);
-  }
-
-  .help-link:hover {
-    background-color: var(--bg-tertiary);
-    border-color: var(--border-focus);
-    transform: translateY(-2px);
-  }
-
-  .help-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: var(--color-primary-400);
-  }
-
-  @media (min-width: 640px) {
-    .error-page__actions {
-      flex-direction: row;
-      justify-content: center;
-    }
-
-    .error-page__help-list {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-  }
-
-  @media (min-width: 768px) {
-    .container {
-      padding: 0 var(--space-lg);
-    }
-
-    .error-page__content {
-      padding: var(--space-3xl) var(--space-3xl);
-    }
-
-    .error-page__code {
-      font-size: 10rem;
-    }
-  }
-</style>

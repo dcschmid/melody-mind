@@ -406,7 +406,7 @@ function decodeHtmlEntities(text: string): string {
         // Valid Unicode range
         return String.fromCharCode(charCode);
       }
-    } catch (e) {
+    } catch {
       console.warn("Invalid numeric entity:", match);
     }
     return match; // Return original if conversion fails
@@ -420,7 +420,7 @@ function decodeHtmlEntities(text: string): string {
         // Valid Unicode range
         return String.fromCharCode(charCode);
       }
-    } catch (e) {
+    } catch {
       console.warn("Invalid hex entity:", match);
     }
     return match; // Return original if conversion fails

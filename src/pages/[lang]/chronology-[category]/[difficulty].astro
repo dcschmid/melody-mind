@@ -17,7 +17,6 @@
 // 1. Imports
 import Layout from "@layouts/Layout.astro";
 import EndOverlay from "@components/Overlays/EndOverlay.astro";
-import LoadingSpinner from "@components/Game/LoadingSpinner.astro";
 import ChronologyFeedbackOverlay from "@components/Overlays/ChronologyFeedbackOverlay.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
@@ -117,13 +116,10 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     data-mode="chronology"
   />
 
-  <!-- Loading Spinner -->
-  <LoadingSpinner />
-
   <!-- Spielbereich -->
   <main
     id="chronology-container"
-    class="chronology-game"
+    class="mx-auto min-h-screen max-w-7xl bg-slate-900 p-4 text-white"
     data-category={category}
     data-difficulty={difficulty}
     data-user-id={user.id}
@@ -131,65 +127,95 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
     aria-label={t("game.chronology.aria.main")}
   >
     <!-- Game Header -->
-    <header class="game-header">
+    <header class="mb-6 text-center">
       <!-- Game Info Badges -->
-      <div class="game-info" role="banner" aria-label={t("game.chronology.info.aria")}>
-        <div class="badge">
-          <Icon name="trophy" class="badge__icon" />
-          <span class="badge__text" id="score-display">0</span>
+      <div
+        class="mt-3 flex flex-wrap items-center justify-center gap-3"
+        role="banner"
+        aria-label={t("game.chronology.info.aria")}
+      >
+        <div
+          class="flex min-w-24 items-center justify-center gap-3 rounded-lg border border-slate-600 bg-slate-700 px-3 py-2 transition-all duration-200"
+        >
+          <Icon name="trophy" class="h-5 w-5 flex-shrink-0 text-blue-500" />
+          <span class="min-w-16 text-base font-medium whitespace-nowrap" id="score-display">0</span>
         </div>
-        <div class="badge">
-          <Icon name="target" class="badge__icon" />
-          <span class="badge__text">
+        <div
+          class="flex min-w-24 items-center justify-center gap-3 rounded-lg border border-slate-600 bg-slate-700 px-3 py-2 transition-all duration-200"
+        >
+          <Icon name="target" class="h-5 w-5 flex-shrink-0 text-blue-500" />
+          <span class="min-w-16 text-base font-medium whitespace-nowrap">
             <span id="round-display">1</span>/10
           </span>
         </div>
-        <div class="badge">
-          <Icon name="gauge" class="badge__icon" />
-          <span class="badge__text">{t(`difficulty.${difficulty}`)}</span>
+        <div
+          class="flex min-w-24 items-center justify-center gap-3 rounded-lg border border-slate-600 bg-slate-700 px-3 py-2 transition-all duration-200"
+        >
+          <Icon name="gauge" class="h-5 w-5 flex-shrink-0 text-blue-500" />
+          <span class="min-w-16 text-base font-medium whitespace-nowrap"
+            >{t(`difficulty.${difficulty}`)}</span
+          >
         </div>
       </div>
     </header>
 
     <!-- Game Content -->
-    <div class="game-content">
-      <Headline level="h1" size="xl" textAlign="center" className="game-title"
+    <div class="mx-auto w-full max-w-4xl">
+      <Headline
+        level="h1"
+        textSize="xl"
+        textAlign="center"
+        className="mb-6 text-center text-3xl font-bold text-white"
         >{t("game.chronology.sort.albums")}</Headline
       >
-      <Paragraph textSize="lg" align="center" className="game-description"
+      <Paragraph textSize="lg" textAlign="center" className="mb-8 text-center text-lg text-gray-300"
         >{t("game.chronology.instructions")}</Paragraph
       >
 
       <!-- Chronology Container -->
-      <div id="chronology-items-container" class="chronology-container">
-        <div class="loading-placeholder">
-          <Icon name="loader" class="loading-icon" />
-          <Paragraph>{t("loading.albums")}</Paragraph>
+      <div
+        id="chronology-items-container"
+        class="relative mb-6 min-h-96 rounded-2xl border border-slate-600/30 bg-slate-800/50 p-6 shadow-xl backdrop-blur-sm"
+      >
+        <div class="flex h-80 flex-col items-center justify-center text-center text-gray-400">
+          <div
+            class="mb-4 h-12 w-12 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"
+          >
+          </div>
+          <Paragraph className="text-gray-400">{t("loading.albums")}</Paragraph>
         </div>
       </div>
 
       <!-- Game Controls -->
-      <div class="game-controls">
+      <div
+        class="mx-auto flex w-full max-w-2xl flex-col items-center justify-center gap-8 rounded-3xl border border-slate-600/50 bg-gradient-to-br from-slate-800/80 to-slate-900/80 p-8 shadow-2xl backdrop-blur-md"
+      >
         <!-- Move Buttons -->
-        <div class="move-buttons">
+        <div class="flex w-full items-center justify-center gap-4">
           <button
             id="move-up-btn"
             type="button"
-            class="move-button"
+            class="group flex min-h-14 min-w-36 cursor-pointer items-center justify-center gap-3 rounded-xl border-2 border-slate-600 bg-gradient-to-r from-slate-700 to-slate-800 px-6 py-4 text-center text-base font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:border-blue-500 hover:from-blue-600 hover:to-blue-700 hover:text-white hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 focus:outline-none disabled:cursor-not-allowed disabled:from-slate-800 disabled:to-slate-900 disabled:text-gray-500 disabled:opacity-50 disabled:hover:transform-none disabled:hover:shadow-none"
             disabled
             aria-label={t("game.move.up.aria")}
           >
-            <Icon name="chevron-up" class="move-button__icon" />
+            <Icon
+              name="chevron-up"
+              class="h-6 w-6 flex-shrink-0 transition-transform duration-200 group-hover:scale-110"
+            />
             {t("game.move.up")}
           </button>
           <button
             id="move-down-btn"
             type="button"
-            class="move-button"
+            class="group flex min-h-14 min-w-36 cursor-pointer items-center justify-center gap-3 rounded-xl border-2 border-slate-600 bg-gradient-to-r from-slate-700 to-slate-800 px-6 py-4 text-center text-base font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:border-blue-500 hover:from-blue-600 hover:to-blue-700 hover:text-white hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 focus:outline-none disabled:cursor-not-allowed disabled:from-slate-800 disabled:to-slate-900 disabled:text-gray-500 disabled:opacity-50 disabled:hover:transform-none disabled:hover:shadow-none"
             disabled
             aria-label={t("game.move.down.aria")}
           >
-            <Icon name="chevron-down" class="move-button__icon" />
+            <Icon
+              name="chevron-down"
+              class="h-6 w-6 flex-shrink-0 transition-transform duration-200 group-hover:scale-110"
+            />
             {t("game.move.down")}
           </button>
         </div>
@@ -198,11 +224,14 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
         <button
           id="submit-btn"
           type="button"
-          class="submit-button"
+          class="group flex min-h-16 min-w-48 cursor-pointer items-center justify-center gap-4 rounded-2xl border-none bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 px-8 py-5 text-center text-lg font-bold text-white shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 hover:shadow-blue-500/25 focus:ring-4 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-slate-900 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:transform-none disabled:hover:shadow-none"
           disabled
           aria-label={t("game.submit.answer.aria")}
         >
-          <Icon name="check" class="submit-button__icon" />
+          <Icon
+            name="check"
+            class="h-7 w-7 flex-shrink-0 transition-transform duration-200 group-hover:scale-110"
+          />
           {t("game.submit.answer")}
         </button>
       </div>
@@ -214,370 +243,3 @@ const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headlin
   // Import chronology game engine
   import "../../../utils/game/chronologyGameEngine.ts";
 </script>
-
-<style lang="scss" is:global>
-  /* ======================================
-   * CHRONOLOGY GAME STYLES - OPTIMIZED FOR STYLE GUARDIAN
-   * BEM Methodology + Global Variables + Mobile-First
-   * ====================================== */
-
-  .chronology-game {
-    min-height: 100vh;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    padding: var(--space-xs); // Mobile: minimal horizontal spacing
-    max-width: var(--container-xl);
-    margin: 0 auto;
-    contain: layout style paint;
-  }
-
-  /* ======================================
-   * GAME HEADER
-   * ====================================== */
-  .game-header {
-    margin-bottom: var(--space-md);
-    text-align: center;
-    contain: layout style;
-  }
-
-  .game-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    margin-top: var(--space-sm);
-    flex-wrap: wrap;
-    contain: layout style;
-  }
-
-  .badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    background: var(--bg-secondary);
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius-md);
-    border: var(--border-width-thin) solid var(--border-secondary);
-    transition: all var(--transition-base);
-    min-width: var(--stat-width-sm);
-    contain: layout style paint;
-
-    &__icon {
-      width: var(--icon-size-sm);
-      height: var(--icon-size-sm);
-      color: var(--interactive-primary);
-      flex-shrink: 0;
-      contain: layout style paint;
-    }
-
-    &__text {
-      font-weight: var(--font-medium);
-      font-size: var(--text-md);
-      white-space: nowrap;
-      min-width: var(--coin-number-min-width);
-      contain: layout style;
-    }
-  }
-
-  /* ======================================
-   * GAME CONTENT
-   * ====================================== */
-  .game-content {
-    max-width: var(--container-md);
-    margin: 0 auto;
-    width: var(--width-full);
-    contain: layout style;
-  }
-
-  /* ======================================
-   * CHRONOLOGY CONTAINER
-   * ====================================== */
-  .chronology-container {
-    background: var(--card-bg);
-    border-radius: var(--radius-lg);
-    padding: var(--space-md);
-    margin-bottom: var(--space-md);
-    border: var(--border-width-thin) solid var(--card-border);
-    min-height: var(--container-intrinsic-height-card);
-    position: relative;
-    box-shadow: var(--card-shadow);
-    contain: layout style paint;
-  }
-
-  .loading-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: var(--container-intrinsic-height-component);
-    color: var(--text-secondary);
-    text-align: center;
-    contain: layout style;
-
-    p {
-      margin-top: var(--space-sm);
-      font-size: var(--text-sm);
-      contain: layout style;
-    }
-  }
-
-  .loading-icon {
-    width: var(--icon-size-md);
-    height: var(--icon-size-md);
-    margin-bottom: var(--space-sm);
-    animation: spin var(--animation-pulse-duration) linear infinite;
-    color: var(--interactive-primary);
-    contain: layout style paint;
-  }
-
-  /* ======================================
-   * CHRONOLOGY ITEMS
-   * ====================================== */
-  .chronology-item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    background: var(--card-bg);
-    border: var(--border-width-thick) solid var(--border-primary);
-    border-radius: var(--radius-md);
-    padding: var(--space-sm);
-    margin-bottom: var(--space-sm);
-    cursor: pointer;
-    transition: all var(--transition-base);
-    position: relative;
-    box-shadow: var(--card-shadow);
-    contain: layout style paint;
-    min-height: var(--touch-target-standard);
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    &:hover {
-      border-color: var(--interactive-primary);
-      box-shadow: var(--card-shadow-hover);
-    }
-
-    &:focus {
-      outline: none;
-      border-color: var(--interactive-primary);
-      box-shadow: var(--focus-ring);
-    }
-
-    &:focus-visible {
-      outline: 3px solid var(--interactive-primary);
-      outline-offset: 2px;
-    }
-
-    &--selected {
-      border-color: var(--interactive-primary);
-      background: var(--bg-tertiary);
-      box-shadow: var(--card-shadow-hover);
-
-      .chronology-item__position {
-        background: var(--interactive-secondary);
-      }
-    }
-
-    &__position {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      background: var(--interactive-primary);
-      color: var(--color-white);
-      border-radius: var(--radius-full);
-      font-weight: var(--font-bold);
-      font-size: var(--text-base);
-      flex-shrink: 0;
-      transition: all var(--transition-base);
-      border: var(--border-width-thin) solid transparent;
-      contain: layout style paint;
-    }
-
-    &__content {
-      flex: 1;
-      min-width: 0;
-      contain: layout style;
-    }
-
-    &__title {
-      font-weight: var(--font-semibold);
-      font-size: var(--text-lg);
-      margin-bottom: var(--space-micro);
-      color: var(--text-primary);
-      line-height: var(--leading-tight);
-      contain: layout style;
-    }
-
-    &__artist {
-      color: var(--text-secondary);
-      font-size: var(--text-xs);
-      line-height: var(--leading-normal);
-      font-weight: var(--font-normal);
-      contain: layout style;
-    }
-  }
-
-  /* ======================================
-   * GAME CONTROLS
-   * ====================================== */
-  .game-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: var(--space-md);
-    width: var(--width-full);
-    max-width: var(--container-sm);
-    margin: 0 auto;
-    padding: var(--space-lg);
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(255, 255, 255, 0.05) 100%
-    );
-    backdrop-filter: blur(var(--backdrop-blur)) saturate(180%);
-    border-radius: var(--radius-xl);
-    border: var(--border-width-thin) solid rgba(255, 255, 255, 0.2);
-    box-shadow: var(--shadow-xl);
-    contain: layout style paint;
-  }
-
-  .move-buttons {
-    display: flex;
-    gap: var(--space-sm);
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: var(--width-full);
-    contain: layout style;
-  }
-
-  .move-button {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    background: var(--bg-secondary);
-    border: var(--border-width-thick) solid var(--border-secondary);
-    border-radius: var(--radius-md);
-    color: var(--text-primary);
-    padding: var(--space-sm) var(--space-md);
-    font-weight: var(--font-medium);
-    cursor: pointer;
-    transition: all var(--transition-base);
-    justify-content: center;
-    min-width: var(--grid-min-width-sm);
-    text-align: center;
-    min-height: var(--touch-target-standard);
-    font-size: var(--text-sm);
-    contain: layout style paint;
-
-    &:not(:disabled):hover {
-      background: var(--interactive-primary);
-      color: var(--color-white);
-      box-shadow: var(--card-shadow-hover);
-    }
-
-    &:not(:disabled):active {
-      box-shadow: var(--shadow-sm);
-    }
-
-    &:disabled {
-      background: var(--bg-tertiary);
-      color: var(--text-disabled);
-      opacity: var(--opacity-disabled);
-      cursor: not-allowed;
-    }
-
-    &:focus {
-      outline: var(--focus-ring);
-      outline-offset: var(--focus-ring-offset);
-    }
-
-    &__icon {
-      width: var(--icon-size-sm);
-      height: var(--icon-size-sm);
-      flex-shrink: 0;
-      contain: layout style paint;
-    }
-  }
-
-  .submit-button {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    background: var(--btn-primary-bg);
-    border: none;
-    border-radius: var(--radius-md);
-    color: var(--btn-primary-text);
-    padding: var(--space-sm) var(--space-lg);
-    font-weight: var(--font-semibold);
-    font-size: var(--text-base);
-    cursor: pointer;
-    transition: all var(--transition-base);
-    justify-content: center;
-    min-width: var(--grid-min-width-md);
-    text-align: center;
-    min-height: var(--touch-target-standard);
-    box-shadow: var(--shadow-md);
-    contain: layout style paint;
-
-    &:not(:disabled):hover {
-      background: var(--btn-primary-hover);
-      box-shadow: var(--card-shadow-hover);
-    }
-
-    &:not(:disabled):active {
-      box-shadow: var(--shadow-sm);
-    }
-
-    &:disabled {
-      opacity: var(--opacity-disabled);
-      cursor: not-allowed;
-    }
-
-    &:focus {
-      outline: var(--focus-ring);
-      outline-offset: var(--focus-ring-offset);
-    }
-
-    &__icon {
-      width: var(--icon-size-md);
-      height: var(--icon-size-md);
-      flex-shrink: 0;
-      contain: layout style paint;
-    }
-  }
-
-  /* ======================================
-   * ANIMATIONS
-   * ====================================== */
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  /* ======================================
-   * FOCUS STYLES
-   * ====================================== */
-  :focus {
-    outline: var(--focus-ring);
-    outline-offset: var(--focus-ring-offset);
-
-    &:not(:focus-visible) {
-      outline: none;
-    }
-  }
-
-  :focus-visible {
-    outline: var(--focus-ring);
-    outline-offset: var(--focus-ring-offset);
-  }
-</style>

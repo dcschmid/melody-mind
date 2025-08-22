@@ -115,7 +115,11 @@ const newsStructuredData = newsData?.items?.length
 
     {
       newsStructuredData && (
-        <script type="application/ld+json" set:html={JSON.stringify(newsStructuredData)} />
+        <script
+          is:inline
+          type="application/ld+json"
+          set:html={JSON.stringify(newsStructuredData)}
+        />
       )
     }
 
@@ -127,35 +131,39 @@ const newsStructuredData = newsData?.items?.length
     <meta property="article:tag" content="Artists" />
     <meta property="article:tag" content="Entertainment" />
   </Fragment>
-  <main class="news">
-    <div class="news__container">
+  <main class="min-h-screen bg-gray-900 py-8 text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Hero Header Section like GameHome -->
-      <header class="news__hero" aria-labelledby="news-heading">
+      <header
+        class="relative mb-16 overflow-hidden rounded-3xl border border-purple-500/30 bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 p-8 shadow-2xl sm:p-12 lg:p-16"
+      >
         <!-- Decorative background elements -->
-        <div class="news__hero-decoration" aria-hidden="true">
-          <div class="news__hero-decoration-item news__hero-decoration-item--top-right"></div>
-          <div class="news__hero-decoration-item news__hero-decoration-item--bottom-left"></div>
-          <div class="news__hero-decoration-item news__hero-decoration-item--center-right"></div>
+        <div class="pointer-events-none absolute inset-0 opacity-10" aria-hidden="true">
+          <div class="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white"></div>
+          <div class="absolute -bottom-8 -left-8 h-24 w-24 rounded-full bg-white"></div>
+          <div class="absolute top-1/2 right-4 h-16 w-16 rounded-full bg-white"></div>
         </div>
 
-        <div class="news__hero-content">
-          <Headline level="h1" size="4xl" id="news-heading" className="news__hero-title"
-            >{pageTitle}</Headline
-          >
-          <div class="news__hero-divider"></div>
-          <Paragraph className="news__hero-description">{pageDescription}</Paragraph>
+        <div class="relative z-10 w-full text-center text-white">
+          <Headline level="h1" textSize="3xl" textAlign="center">
+            {pageTitle}
+          </Headline>
+          <div class="mx-auto my-8 h-1 w-12 rounded-full bg-blue-400"></div>
+          <Paragraph textAlign="center" textSize="lg">
+            {pageDescription}
+          </Paragraph>
 
           {
             newsData && (
-              <div class="news__hero-meta">
-                <div class="news__hero-meta-item">
-                  <span class="news__hero-meta-label">{t("news.lastUpdated")}:</span>
-                  <time class="news__hero-meta-value" datetime={newsData.lastUpdated}>
+              <div class="flex flex-col items-center justify-center gap-4 text-sm sm:flex-row md:text-base">
+                <div class="flex items-center gap-2 rounded-full border border-purple-500/30 bg-gray-800/50 px-4 py-2 backdrop-blur-sm">
+                  <span class="text-purple-300">{t("news.lastUpdated")}:</span>
+                  <time class="text-white" datetime={newsData.lastUpdated}>
                     {new Date(newsData.lastUpdated).toLocaleString(currentLang)}
                   </time>
                 </div>
-                <div class="news__hero-meta-item">
-                  <span class="news__hero-meta-label">
+                <div class="flex items-center gap-2 rounded-full border border-purple-500/30 bg-gray-800/50 px-4 py-2 backdrop-blur-sm">
+                  <span class="text-purple-300">
                     {t("news.sourcesCount", { count: newsData.totalSources })}
                   </span>
                 </div>
@@ -167,12 +175,19 @@ const newsStructuredData = newsData?.items?.length
 
       {
         error && (
-          <div class="news__error" role="alert">
-            <Headline level="h2" size="2xl" className="news__error-title">
+          <div
+            class="mb-8 rounded-2xl border border-red-500/50 bg-red-900/50 p-6 backdrop-blur-sm"
+            role="alert"
+          >
+            <Headline level="h2" textSize="2xl" className="text-red-300 mb-4">
               {t("errors.loadingError")}
             </Headline>
-            <Paragraph className="news__error-message">{error}</Paragraph>
-            <button type="button" class="news__retry-btn" onclick="window.location.reload()">
+            <Paragraph className="text-red-200 mb-4">{error}</Paragraph>
+            <button
+              type="button"
+              class="rounded-xl bg-red-600 px-6 py-3 font-medium text-white transition-colors duration-300 hover:bg-red-700"
+              onclick="window.location.reload()"
+            >
               {t("common.retry")}
             </button>
           </div>
@@ -181,40 +196,32 @@ const newsStructuredData = newsData?.items?.length
 
       {
         !error && newsData.items.length > 0 && (
-          <section class="news__content" aria-labelledby="news-list-title">
-            <Headline level="h2" size="2xl" id="news-list-title" className="sr-only">
+          <section class="mb-16" aria-labelledby="news-list-title">
+            <Headline level="h2" textSize="2xl" className="sr-only">
               {t("news.articlesList")}
             </Headline>
 
-            <div class="news__grid" itemscope itemtype="https://schema.org/ItemList">
+            <div
+              class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+              itemscope
+              itemtype="https://schema.org/ItemList"
+            >
               {newsData.items.map((item, index) => (
                 <article
-                  class="news__card"
+                  class="overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                   aria-labelledby={`news-title-${index}`}
                   itemscope
                   itemtype="https://schema.org/NewsArticle"
                   itemprop="itemListElement"
                 >
-                  <div class="news__card-image">
-                    <img
-                      src={item.imageUrl || "/images/news-fallback.svg"}
-                      alt={`${item.title} - ${t("news.imageAlt")}`}
-                      class="news__card-img"
-                      loading="lazy"
-                    />
-                    <div class="news__card-image-overlay" aria-hidden="true">
-                      <span class="news__card-image-icon">📰</span>
-                    </div>
-                  </div>
-
-                  <div class="news__card-content">
-                    <header class="news__card-header">
-                      <div class="news__card-meta">
-                        <span class="news__card-source" itemprop="author">
+                  <div class="p-6">
+                    <header class="mb-4">
+                      <div class="mb-3 flex items-center justify-between text-sm text-gray-400">
+                        <span class="font-medium" itemprop="author">
                           {item.source}
                         </span>
                         <time
-                          class="news__card-date"
+                          class="text-gray-500"
                           datetime={item.pubDate}
                           itemprop="datePublished"
                         >
@@ -222,18 +229,11 @@ const newsStructuredData = newsData?.items?.length
                         </time>
                       </div>
 
-                      <Headline
-                        level="h3"
-                        size="lg"
-                        id={`news-title-${index}`}
-                        className="news__card-title"
-                        itemprop="headline"
-                      >
+                      <Headline level="h3" textSize="lg">
                         <a
                           href={item.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          class="news__card-link"
                           itemprop="url"
                         >
                           {item.title}
@@ -241,22 +241,22 @@ const newsStructuredData = newsData?.items?.length
                       </Headline>
 
                       {item.description && (
-                        <Paragraph className="news__card-description" itemprop="description">
+                        <Paragraph textSize="lg" textAlign="left">
                           {item.description}
                         </Paragraph>
                       )}
                     </header>
 
-                    <footer class="news__card-footer">
+                    <footer>
                       <a
                         href={item.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="news__card-read-more"
+                        class="text-lf inline-flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-2 font-medium text-white transition-colors duration-300 hover:bg-purple-700"
                         aria-label={`${t("news.readMore")} - ${item.title}`}
                       >
                         {t("news.readMore")}
-                        <span class="news__card-external-icon" aria-hidden="true">
+                        <span class="text-lg" aria-hidden="true">
                           ↗
                         </span>
                       </a>
@@ -271,12 +271,16 @@ const newsStructuredData = newsData?.items?.length
 
       {
         !error && newsData.items.length === 0 && (
-          <section class="news__empty" role="status">
-            <Headline level="h2" size="2xl" className="news__empty-title">
+          <section class="py-16 text-center" role="status">
+            <Headline level="h2" textSize="2xl" className="text-white mb-4">
               {t("news.noNews")}
             </Headline>
-            <Paragraph className="news__empty-message">{t("news.noNewsDescription")}</Paragraph>
-            <button type="button" class="news__refresh-btn" onclick="window.location.reload()">
+            <Paragraph className="text-gray-300 mb-8">{t("news.noNewsDescription")}</Paragraph>
+            <button
+              type="button"
+              class="rounded-xl bg-purple-600 px-6 py-3 font-medium text-white transition-colors duration-300 hover:bg-purple-700"
+              onclick="window.location.reload()"
+            >
               {t("news.refresh")}
             </button>
           </section>
@@ -284,824 +288,33 @@ const newsStructuredData = newsData?.items?.length
       }
 
       <!-- Footer Info -->
-      <footer class="news__footer">
-        <div class="news__disclaimer">
-          <Headline level="h3" size="lg" className="news__disclaimer-title"
-            >{t("news.disclaimer.title")}</Headline
-          >
-          <Paragraph className="news__disclaimer-text">
-            {t("news.disclaimer.text")}
-          </Paragraph>
-        </div>
+      <footer class="border-t border-gray-700 pt-12">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div class="rounded-2xl border border-gray-700 bg-gray-800/50 p-6 backdrop-blur-sm">
+            <Headline level="h3" textSize="lg" className="mb-4 text-purple-300">
+              {t("news.disclaimer.title")}
+            </Headline>
+            <Paragraph className="text-sm text-gray-300">
+              {t("news.disclaimer.text")}
+            </Paragraph>
+          </div>
 
-        <div class="news__legal">
-          <Paragraph className="news__legal-text">
-            {t("news.legal.attribution")}
-          </Paragraph>
-          <ul class="news__sources-list">
-            {
-              newsData &&
-                newsData.items
-                  .map((item) => item.source)
-                  .filter((source, index, arr) => arr.indexOf(source) === index)
-                  .map((source) => <li class="news__source-item">{source}</li>)
-            }
-          </ul>
+          <div class="rounded-2xl border border-gray-700 bg-gray-800/50 p-6 backdrop-blur-sm">
+            <Paragraph className="mb-4 text-sm text-gray-300">
+              {t("news.legal.attribution")}
+            </Paragraph>
+            <ul class="space-y-2">
+              {
+                newsData &&
+                  newsData.items
+                    .map((item) => item.source)
+                    .filter((source, index, arr) => arr.indexOf(source) === index)
+                    .map((source) => <li class="text-sm text-purple-300">{source}</li>)
+              }
+            </ul>
+          </div>
         </div>
       </footer>
     </div>
   </main>
 </Layout>
-
-<style lang="scss">
-  /* ======================================
-   * NEWS PAGE STYLES - OPTIMIZED FOR STYLE GUARDIAN
-   * BEM Methodology + Global Variables + Mobile-First
-   * ====================================== */
-
-  .news {
-    min-height: 100vh;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    padding: var(--space-lg) 0;
-  }
-
-  .news__container {
-    max-width: var(--container-xl);
-    margin: 0 auto;
-    padding: 0 var(--space-xs); // Mobile: minimal horizontal spacing
-
-    @media (min-width: 20em) {
-      padding: 0 var(--space-sm);
-    }
-
-    @media (min-width: 48em) {
-      padding: 0 var(--space-lg);
-    }
-
-    @media (min-width: 64em) {
-      padding: 0 var(--space-xl);
-    }
-  }
-
-  /* ======================================
-   * HERO SECTION - SIMPLIFIED DESIGN
-   * ====================================== */
-  .news__hero {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(
-      135deg,
-      var(--color-primary-900) 0%,
-      var(--color-primary-700) 50%,
-      var(--color-secondary-800) 100%
-    );
-    box-shadow: var(--shadow-xl);
-    border: var(--border-width-thin) solid var(--border-primary);
-    margin-bottom: var(--space-2xl);
-    border-radius: var(--radius-xl);
-    padding: var(--space-lg) var(--space-sm); // Mobile: compact spacing
-
-    @media (min-width: 48em) {
-      padding: var(--space-2xl) var(--space-lg);
-      border-radius: var(--radius-2xl);
-    }
-
-    @media (min-width: 64em) {
-      padding: var(--space-3xl) var(--space-2xl);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      background: var(--color-primary-800);
-    }
-  }
-
-  // Decorative background elements
-  .news__hero-decoration {
-    position: absolute;
-    inset: 0;
-    opacity: 0.1;
-    pointer-events: none;
-  }
-
-  .news__hero-decoration-item {
-    position: absolute;
-    border-radius: var(--radius-full);
-    background: var(--color-white);
-
-    &--top-right {
-      top: calc(-1 * var(--space-xl));
-      right: calc(-1 * var(--space-xl));
-      width: var(--space-3xl);
-      height: var(--space-3xl);
-    }
-
-    &--bottom-left {
-      bottom: calc(-1 * var(--space-2xl));
-      left: calc(-1 * var(--space-2xl));
-      width: calc(var(--space-3xl) * 2);
-      height: calc(var(--space-3xl) * 2);
-    }
-
-    &--center-right {
-      top: 50%;
-      right: calc(-1 * var(--space-md));
-      width: var(--space-2xl);
-      height: var(--space-2xl);
-      transform: translateY(-50%);
-    }
-  }
-
-  .news__hero-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    color: var(--color-white);
-  }
-
-  .news__hero-title {
-    color: var(--color-white);
-    text-shadow: var(--shadow-lg);
-    margin-bottom: var(--space-sm);
-    font-size: var(--text-xl);
-    line-height: var(--leading-tight);
-
-    @media (min-width: 48em) {
-      margin-bottom: var(--space-md);
-      font-size: var(--text-2xl);
-    }
-
-    @media (min-width: 64em) {
-      margin-bottom: var(--space-lg);
-      font-size: var(--text-3xl);
-    }
-
-    @media (min-width: 80em) {
-      font-size: var(--text-4xl);
-      line-height: var(--leading-relaxed);
-    }
-  }
-
-  .news__hero-divider {
-    background: var(--color-secondary-400);
-    border-radius: var(--radius-full);
-    box-shadow: var(--shadow-md);
-    width: var(--icon-size-lg);
-    height: var(--border-width-thick);
-    margin: var(--space-md) auto;
-
-    @media (min-width: 48em) {
-      width: var(--icon-size-xl);
-      margin: var(--space-lg) auto;
-    }
-
-    @media (min-width: 64em) {
-      height: var(--border-width-enhanced);
-    }
-  }
-
-  .news__hero-description {
-    color: var(--color-neutral-100);
-    line-height: var(--leading-relaxed);
-    margin: 0 auto var(--space-xl);
-    text-shadow: var(--shadow-sm);
-    font-size: var(--text-base);
-    max-width: var(--container-xs);
-
-    @media (min-width: 48em) {
-      font-size: var(--text-lg);
-      max-width: var(--container-sm);
-    }
-
-    @media (min-width: 64em) {
-      font-size: var(--text-xl);
-      max-width: var(--container-md);
-    }
-
-    @media (min-width: 80em) {
-      font-size: var(--text-2xl);
-      max-width: var(--container-lg);
-    }
-  }
-
-  .news__hero-meta {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-lg);
-    flex-wrap: wrap;
-
-    @media (max-width: 47.9375em) {
-      flex-direction: column;
-      gap: var(--space-md);
-    }
-  }
-
-  .news__hero-meta-item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-    background: rgba(255, 255, 255, 0.1);
-    padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-full);
-    border: var(--border-width-thin) solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    font-size: var(--text-sm);
-
-    @media (max-width: 47.9375em) {
-      flex-direction: column;
-      gap: var(--space-xs);
-      text-align: center;
-    }
-  }
-
-  .news__hero-meta-label {
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: var(--font-medium);
-  }
-
-  .news__hero-meta-value {
-    color: var(--color-white);
-    font-weight: var(--font-semibold);
-  }
-
-  /* ======================================
-   * ERROR & EMPTY STATES
-   * ====================================== */
-  .news__error,
-  .news__empty {
-    text-align: center;
-    padding: var(--space-2xl);
-    background: var(--bg-secondary);
-    border-radius: var(--radius-xl);
-    border: var(--border-width-thin) solid var(--border-primary);
-    margin: var(--space-xl) 0;
-  }
-
-  .news__error {
-    border-color: var(--color-error-500);
-    background: var(--bg-error-aaa);
-  }
-
-  .news__error-title {
-    color: var(--text-error-aaa);
-    margin-bottom: var(--space-md);
-    font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
-  }
-
-  .news__retry-btn,
-  .news__refresh-btn {
-    background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
-    color: var(--color-white);
-    border: none;
-    border-radius: var(--radius-lg);
-    padding: var(--space-sm) var(--space-lg);
-    cursor: pointer;
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
-    transition: all var(--transition-base);
-    margin-top: var(--space-md);
-    min-height: var(--touch-target-enhanced);
-
-    &:hover {
-      background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-800));
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    &:active {
-      transform: translateY(0);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      &:hover {
-        transform: none;
-      }
-    }
-  }
-
-  /* ======================================
-   * NEWS GRID - SIMPLIFIED LAYOUT
-   * ====================================== */
-  .news__grid {
-    display: grid;
-    margin-bottom: var(--space-2xl);
-    gap: var(--space-md); // Mobile: smaller gaps
-    grid-template-columns: 1fr; // Mobile: single column
-
-    @media (min-width: 48em) {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-lg);
-    }
-
-    @media (min-width: 64em) {
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-xl);
-    }
-  }
-
-  /* ======================================
-   * NEWS CARDS - SIMPLIFIED DESIGN
-   * ====================================== */
-  .news__card {
-    background: var(--bg-secondary);
-    border-radius: var(--radius-xl);
-    border: var(--border-width-thin) solid var(--border-primary);
-    transition: all var(--transition-base);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    backdrop-filter: blur(10px);
-
-    &:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-2xl);
-      border-color: var(--color-primary-500);
-
-      .news__card-img {
-        transform: scale(1.05);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      &:hover {
-        transform: none;
-        .news__card-img {
-          transform: none;
-        }
-      }
-    }
-  }
-
-  /* Card Images */
-  .news__card-image {
-    position: relative;
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    background: linear-gradient(
-      135deg,
-      var(--color-primary-900),
-      var(--color-secondary-900),
-      var(--bg-tertiary)
-    );
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-
-    @media (max-width: 19.9375em) {
-      height: 160px;
-    }
-
-    @media (min-width: 48em) {
-      height: 220px;
-    }
-  }
-
-  .news__card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: transform var(--transition-slow);
-    position: relative;
-    z-index: 2;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  }
-
-  // Image overlay for failed/missing images
-  .news__card-image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.8), rgba(236, 72, 153, 0.8));
-    opacity: 0;
-    transition: opacity var(--transition-base);
-    z-index: 1;
-  }
-
-  .news__card-image-icon {
-    font-size: 3rem;
-    color: var(--color-white);
-    text-shadow: var(--shadow-md);
-  }
-
-  // Show overlay when image fails to load or is fallback image
-  .news__card-img[src="/images/news-fallback.svg"] + .news__card-image-overlay,
-  .news__card-img[src*="news-fallback"] + .news__card-image-overlay {
-    opacity: 0.7;
-  }
-
-  // Alternative: Show overlay on hover for fallback images
-  .news__card:hover .news__card-img[src="/images/news-fallback.svg"] + .news__card-image-overlay,
-  .news__card:hover .news__card-img[src*="news-fallback"] + .news__card-image-overlay {
-    opacity: 0.9;
-  }
-
-  // Style for when actual image loads successfully
-  .news__card-img:not([src="/images/news-fallback.svg"]):not([src*="news-fallback"])
-    + .news__card-image-overlay {
-    display: none;
-  }
-
-  // Special styling for fallback SVG images
-  .news__card-img[src="/images/news-fallback.svg"],
-  .news__card-img[src*="news-fallback"],
-  .news__card-img--fallback {
-    opacity: 0.9;
-    filter: brightness(1.1) saturate(1.2);
-  }
-
-  // Loading state for images
-  .news__card-img {
-    background: linear-gradient(
-      90deg,
-      var(--bg-tertiary) 25%,
-      var(--bg-secondary) 50%,
-      var(--bg-tertiary) 75%
-    );
-    background-size: 200% 100%;
-    animation: imageLoading 2s ease-in-out infinite;
-  }
-
-  .news__card-img[src]:not([src=""]) {
-    animation: none;
-  }
-
-  @keyframes imageLoading {
-    0% {
-      background-position: 200% 0;
-    }
-    100% {
-      background-position: -200% 0;
-    }
-  }
-
-  // Hide loading animation when image loads
-  .news__card-img[data-loaded="true"] {
-    animation: none;
-    background: none;
-  }
-
-  /* Card Content */
-  .news__card-content {
-    padding: var(--space-md); // Mobile: compact padding
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-
-    @media (min-width: 48em) {
-      padding: var(--space-lg);
-    }
-  }
-
-  .news__card-header {
-    flex: 1;
-    margin-bottom: var(--space-md);
-  }
-
-  .news__card-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--space-md);
-    font-size: var(--text-sm);
-    color: var(--text-tertiary);
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-
-    @media (max-width: 19.9375em) {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--space-xs);
-    }
-  }
-
-  .news__card-source {
-    font-weight: var(--font-semibold);
-    color: var(--color-primary-400);
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius-full);
-    font-size: var(--text-xs);
-    border: var(--border-width-thin) solid rgba(139, 92, 246, 0.2);
-  }
-
-  .news__card-date {
-    font-size: var(--text-xs);
-    opacity: 0.8;
-  }
-
-  .news__card-title {
-    font-size: var(--text-lg);
-    font-weight: var(--font-bold);
-    margin-bottom: var(--space-md);
-    line-height: var(--leading-tight);
-    color: var(--text-primary);
-
-    @media (min-width: 48em) {
-      font-size: var(--text-xl);
-    }
-  }
-
-  .news__card-link {
-    color: inherit;
-    text-decoration: none;
-    transition: color var(--transition-fast);
-
-    &:hover {
-      color: var(--color-primary-400);
-    }
-
-    &:focus-visible {
-      outline: var(--focus-ring);
-      outline-offset: var(--focus-ring-offset);
-      border-radius: var(--radius-sm);
-    }
-  }
-
-  .news__card-description {
-    color: var(--text-secondary);
-    line-height: var(--leading-relaxed);
-    font-size: var(--text-sm);
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-
-    @media (max-width: 19.9375em) {
-      font-size: var(--text-sm);
-      line-height: var(--leading-normal);
-      -webkit-line-clamp: 3;
-    }
-
-    @media (min-width: 48em) {
-      -webkit-line-clamp: 4;
-    }
-  }
-
-  /* Card Footer */
-  .news__card-footer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: auto;
-  }
-
-  .news__card-read-more {
-    color: var(--color-primary-400);
-    text-decoration: none;
-    font-size: var(--text-sm);
-    font-weight: var(--font-semibold);
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-    transition: all var(--transition-fast);
-    padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-lg);
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
-    border: var(--border-width-thin) solid rgba(139, 92, 246, 0.2);
-    min-height: var(--touch-target-enhanced);
-
-    &:hover {
-      background: linear-gradient(135deg, var(--color-primary-600), var(--color-secondary-600));
-      color: var(--color-white);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    &:focus-visible {
-      outline: var(--focus-ring);
-      outline-offset: var(--focus-ring-offset);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      &:hover {
-        transform: none;
-      }
-    }
-  }
-
-  .news__card-external-icon {
-    font-size: var(--text-xs);
-    transition: transform var(--transition-fast);
-  }
-
-  .news__card-read-more:hover .news__card-external-icon {
-    transform: translate(2px, -2px);
-  }
-
-  /* ======================================
-   * FOOTER SECTION
-   * ====================================== */
-  .news__footer {
-    margin-top: var(--space-2xl);
-    padding-top: var(--space-xl);
-    border-top: var(--border-width-thin) solid var(--border-primary);
-  }
-
-  .news__disclaimer {
-    margin-bottom: var(--space-xl);
-    padding: var(--space-lg);
-    background: var(--bg-secondary);
-    border-radius: var(--radius-lg);
-    border: var(--border-width-thin) solid var(--border-primary);
-  }
-
-  .news__disclaimer-title {
-    font-size: var(--text-base);
-    font-weight: var(--font-semibold);
-    margin-bottom: var(--space-sm);
-    color: var(--text-primary);
-  }
-
-  .news__disclaimer-text {
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
-    line-height: var(--leading-relaxed);
-  }
-
-  .news__legal-text {
-    font-size: var(--text-sm);
-    color: var(--text-tertiary);
-    margin-bottom: var(--space-md);
-  }
-
-  .news__sources-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .news__source-item {
-    font-size: var(--text-xs);
-    color: var(--text-tertiary);
-    padding: var(--space-xs) var(--space-sm);
-    background: var(--bg-tertiary);
-    border-radius: var(--radius-md);
-    border: var(--border-width-thin) solid var(--border-primary);
-  }
-
-  /* ======================================
-   * ACCESSIBILITY & FOCUS STYLES
-   * ====================================== */
-  .news__card:focus-within {
-    outline: var(--focus-ring);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  // Screen reader only class
-  .sr-only {
-    position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    padding: 0;
-    margin: var(--sr-only-margin);
-    overflow: hidden;
-    clip: var(--sr-only-clip-path);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  // High contrast mode support
-  @media (prefers-contrast: high) {
-    .news__card {
-      border-width: var(--border-width-thick);
-    }
-
-    .news__card-source,
-    .news__card-read-more {
-      border-width: var(--border-width-thick);
-    }
-  }
-
-  // Print styles
-  @media print {
-    .news__card {
-      break-inside: avoid;
-      box-shadow: none;
-      border: var(--border-width-thin) solid var(--color-black);
-    }
-
-    .news__card-read-more {
-      display: none;
-    }
-  }
-</style>
-
-<script>
-  /**
-   * Enhanced image fallback system for news articles
-   * Handles image loading errors and provides smooth fallback experience
-   */
-
-  class NewsImageFallback {
-    private fallbackSrc = "/images/news-fallback.svg";
-    private retryAttempts = new Map<string, number>();
-    private maxRetries = 2;
-
-    constructor() {
-      this.initializeImageHandlers();
-    }
-
-    private initializeImageHandlers(): void {
-      // Handle all news card images
-      const newsImages = document.querySelectorAll(
-        ".news__card-img"
-      ) as NodeListOf<HTMLImageElement>;
-
-      newsImages.forEach((img) => {
-        this.setupImageHandlers(img);
-      });
-    }
-
-    private setupImageHandlers(img: HTMLImageElement): void {
-      // Store original src for retry attempts
-      const originalSrc = img.src;
-
-      img.addEventListener("error", () => {
-        this.handleImageError(img, originalSrc);
-      });
-
-      img.addEventListener("load", () => {
-        this.handleImageLoad(img);
-      });
-
-      // Check if image is already failed to load
-      if (img.complete && img.naturalHeight === 0) {
-        this.handleImageError(img, originalSrc);
-      }
-    }
-
-    private handleImageError(img: HTMLImageElement, originalSrc: string): void {
-      const attempts = this.retryAttempts.get(originalSrc) || 0;
-
-      if (attempts < this.maxRetries && originalSrc !== this.fallbackSrc) {
-        // Try to reload the original image
-        this.retryAttempts.set(originalSrc, attempts + 1);
-
-        setTimeout(
-          () => {
-            img.src = `${originalSrc}?retry=${attempts + 1}`;
-          },
-          1000 * (attempts + 1)
-        ); // Progressive delay
-      } else {
-        // Use fallback image
-        this.useFallback(img);
-      }
-    }
-
-    private handleImageLoad(img: HTMLImageElement): void {
-      // Image loaded successfully - ensure overlay is hidden
-      const overlay = img.nextElementSibling as HTMLElement;
-      if (overlay && overlay.classList.contains("news__card-image-overlay")) {
-        overlay.style.display = "none";
-      }
-
-      // Mark as loaded to stop loading animation
-      img.setAttribute("data-loaded", "true");
-
-      // Reset retry counter
-      this.retryAttempts.delete(img.src);
-    }
-
-    private useFallback(img: HTMLImageElement): void {
-      img.src = this.fallbackSrc;
-      img.classList.add("news__card-img--fallback");
-
-      // Show overlay for fallback images
-      const overlay = img.nextElementSibling as HTMLElement;
-      if (overlay && overlay.classList.contains("news__card-image-overlay")) {
-        overlay.style.display = "flex";
-        overlay.style.opacity = "0.7";
-      }
-
-      // Add accessible indication
-      img.setAttribute("data-fallback", "true");
-    }
-  }
-
-  // Initialize when DOM is ready
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => {
-      new NewsImageFallback();
-    });
-  } else {
-    new NewsImageFallback();
-  }
-
-  // Re-initialize for dynamically loaded content
-  document.addEventListener("news:updated", () => {
-    new NewsImageFallback();
-  });
-</script>

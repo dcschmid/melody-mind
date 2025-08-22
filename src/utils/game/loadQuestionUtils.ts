@@ -224,7 +224,8 @@ function createOptionButtons(
 ): void {
   options.forEach((option: string, index: number) => {
     const button = document.createElement("button");
-    button.className = "game-option-button";
+    button.className =
+      "relative w-full p-6 rounded-2xl text-left text-lg font-bold bg-gradient-to-br from-slate-700/90 to-slate-800/80 backdrop-blur-sm border border-slate-600/30 text-white transition-all duration-300 shadow-lg cursor-pointer min-h-[var(--min-touch-size)] flex items-center overflow-hidden hover:from-slate-600/95 hover:to-slate-700/90 hover:border-slate-500/50 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-blue-500 focus-visible:outline-offset-3 focus-visible:shadow-[0_0_0_4px_rgba(59,130,246,0.3)] active:translate-y-0 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:filter-grayscale";
 
     // Set appropriate ARIA attributes
     button.setAttribute("role", "radio");
@@ -235,11 +236,12 @@ function createOptionButtons(
 
     // Create structured content for better visual scanning
     const optionNumber = document.createElement("span");
-    optionNumber.className = "game-option-button__number";
+    optionNumber.className =
+      "flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-white text-sm font-bold flex items-center justify-center mr-4 shadow-md border border-blue-400/30";
     optionNumber.textContent = `${index + 1}`;
 
     const optionText = document.createElement("span");
-    optionText.className = "game-option-button__text";
+    optionText.className = "flex-1 text-left text-shadow-[0_1px_2px_rgba(0,0,0,0.3)]";
     optionText.textContent = option;
 
     // Append both elements to the button
@@ -258,6 +260,35 @@ function createOptionButtons(
 
       // Add visual feedback for selection
       button.classList.add("selected-option");
+
+      // Update styles for correct/incorrect answers
+      setTimeout(() => {
+        if (option === question.correctAnswer) {
+          // Correct answer styling
+          button.className = button.className.replace(
+            "from-slate-700/90 to-slate-800/80",
+            "from-green-600/95 to-green-700/90"
+          );
+          button.className = button.className.replace("border-slate-600/30", "border-green-500/60");
+          button.className = button.className.replace(
+            "shadow-lg",
+            "shadow-[0_20px_25px_-5px_rgba(22,163,74,0.3),0_10px_10px_-5px_rgba(22,163,74,0.2)]"
+          );
+          button.style.animation = "correctPulse 0.6s ease-out";
+        } else {
+          // Incorrect answer styling
+          button.className = button.className.replace(
+            "from-slate-700/90 to-slate-800/80",
+            "from-red-600/95 to-red-700/90"
+          );
+          button.className = button.className.replace("border-slate-600/30", "border-red-500/60");
+          button.className = button.className.replace(
+            "shadow-lg",
+            "shadow-[0_20px_25px_-5px_rgba(220,38,38,0.3),0_10px_10px_-5px_rgba(220,38,38,0.2)]"
+          );
+          button.style.animation = "incorrectShake 0.6s ease-out";
+        }
+      }, 100);
 
       // Call the answer handler
       handleAnswer(option, question.correctAnswer, question, album);

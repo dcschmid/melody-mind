@@ -113,752 +113,198 @@ const pageSchema = generatePodcastPageSchema();
     <meta property="music:creator" content="MelodyMind" />
   </Fragment>
 
-  <div class="podcasts-page">
-    <!-- Hero Section -->
-    <header class="podcasts-hero" aria-labelledby="podcast-heading">
-      <!-- Decorative background elements -->
-      <div class="podcasts-hero__decoration" aria-hidden="true">
-        <div class="podcasts-hero__decoration-item podcasts-hero__decoration-item--top-right"></div>
-        <div class="podcasts-hero__decoration-item podcasts-hero__decoration-item--bottom-left">
-        </div>
-        <div class="podcasts-hero__decoration-item podcasts-hero__decoration-item--center-right">
-        </div>
-      </div>
-
-      <div class="podcasts-hero__content">
-        <Headline level="h1" className="podcasts-hero__title" id="podcast-heading" size="4xl">
-          🎙️ {title}
-        </Headline>
-
-        <div class="podcasts-hero__divider"></div>
-
-        <Paragraph className="podcasts-hero__description">
-          {description}
-        </Paragraph>
-
-        {/* Podcast Platform Links */}
-        <div class="podcasts-hero__platforms">
-          <a
-            href="https://podcasts.apple.com/us/podcast/the-melody-mind-podcast/id1833549333"
-            class="podcast-platform-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Listen on Apple Podcasts"
-          >
-            <span class="podcast-platform-icon">🍎</span>
-            <span class="podcast-platform-text">Apple Podcasts</span>
-          </a>
-
-          <a
-            href="https://www.deezer.com/de/show/1002117431"
-            class="podcast-platform-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Listen on Deezer"
-          >
-            <span class="podcast-platform-icon">🎵</span>
-            <span class="podcast-platform-text">Deezer</span>
-          </a>
-
-          <a
-            href="https://open.spotify.com/show/6nBTNqNNYXbFsJW42QnFTN"
-            class="podcast-platform-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Listen on Spotify"
-          >
-            <span class="podcast-platform-icon">🎧</span>
-            <span class="podcast-platform-text">Spotify</span>
-          </a>
+  <main class="min-h-screen bg-gray-900 py-8 text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <!-- Hero Section -->
+      <section
+        class="relative mb-16 overflow-hidden rounded-3xl border border-purple-500/30 bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 p-8 shadow-2xl sm:p-12 lg:p-16"
+        aria-labelledby="podcast-heading"
+      >
+        <!-- Decorative background elements -->
+        <div class="pointer-events-none absolute inset-0 opacity-10" aria-hidden="true">
+          <div class="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white"></div>
+          <div class="absolute -bottom-8 -left-8 h-24 w-24 rounded-full bg-white"></div>
+          <div class="absolute top-1/2 right-4 h-16 w-16 rounded-full bg-white"></div>
         </div>
 
-        {
-          episodes.length > 0 && (
-            <div class="podcasts-hero__stats">
-              <div class="podcasts-stat">
-                <div class="podcasts-stat__icon-wrapper">
-                  <span class="podcasts-stat__icon">📚</span>
-                </div>
-                <div class="podcasts-stat__content">
-                  <span class="podcasts-stat__value">
+        <div class="relative z-10 w-full text-center text-white">
+          <Headline level="h1" textSize="3xl" textAlign="center" className="mb-4">
+            🎙️ {title}
+          </Headline>
+
+          <div class="mx-auto my-8 h-1 w-12 rounded-full bg-blue-400"></div>
+
+          <Paragraph textAlign="center" textSize="lg" className="mb-8">
+            {description}
+          </Paragraph>
+
+          {/* Podcast Platform Links */}
+          <div class="mb-8 flex flex-wrap justify-center gap-4">
+            <a
+              href="https://podcasts.apple.com/us/podcast/the-melody-mind-podcast/id1833549333"
+              class="flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/25 hover:shadow-xl"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Listen on Apple Podcasts"
+            >
+              <span class="text-xl">🍎</span>
+              <span class="text-sm font-semibold">Apple Podcasts</span>
+            </a>
+
+            <a
+              href="https://www.deezer.com/de/show/1002117431"
+              class="flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/25 hover:shadow-xl"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Listen on Deezer"
+            >
+              <span class="text-xl">🎵</span>
+              <span class="text-sm font-semibold">Deezer</span>
+            </a>
+
+            <a
+              href="https://open.spotify.com/show/6nBTNqNNYXbFsJW42QnFTN"
+              class="flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/25 hover:shadow-xl"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Listen on Spotify"
+            >
+              <span class="text-xl">🎧</span>
+              <span class="text-sm font-semibold">Spotify</span>
+            </a>
+          </div>
+
+          {
+            episodes.length > 0 && (
+              <div class="flex flex-wrap justify-center gap-4">
+                <div class="flex max-w-[220px] min-w-[140px] items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 backdrop-blur-md">
+                  <div class="flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
+                    <span class="text-base">📚</span>
+                  </div>
+                  <div class="text-sm font-semibold text-gray-200">
                     {episodes.length}{" "}
                     {episodes.length === 1
                       ? t("podcasts.episode.singular")
                       : t("podcasts.episode.plural")}
-                  </span>
+                  </div>
                 </div>
-              </div>
 
-              <div class="podcasts-stat">
-                <div class="podcasts-stat__icon-wrapper">
-                  <span class="podcasts-stat__icon">🌐</span>
+                <div class="flex max-w-[220px] min-w-[140px] items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 backdrop-blur-md">
+                  <div class="flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
+                    <span class="text-base">🌐</span>
+                  </div>
+                  <div class="text-sm font-semibold text-gray-200">English</div>
                 </div>
-                <div class="podcasts-stat__content">
-                  <span class="podcasts-stat__value">English</span>
-                </div>
-              </div>
 
-              {/* RSS Subscribe Button in Stats (English-only) */}
-              <a
-                href={`/en/podcasts/rss.xml`}
-                class="podcasts-stat podcasts-stat--rss"
-                title={t("podcast.rss.subscribe.title")}
-                aria-label={`${t("podcast.rss.subscribe")} - ${t("podcast.rss.subscribe.description")}`}
-              >
-                <div class="podcasts-stat__icon-wrapper">
-                  <span class="podcasts-stat__icon">📡</span>
-                </div>
-                <div class="podcasts-stat__content">
-                  <span class="podcasts-stat__value">{t("podcast.rss.subscribe")}</span>
-                </div>
-              </a>
+                {/* RSS Subscribe Button in Stats (English-only) */}
+                <a
+                  href={`/en/podcasts/rss.xml`}
+                  class="flex max-w-[220px] min-w-[140px] items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/60 hover:bg-orange-500/30 hover:shadow-orange-500/30"
+                  title={t("podcast.rss.subscribe.title")}
+                  aria-label={`${t("podcast.rss.subscribe")} - ${t("podcast.rss.subscribe.description")}`}
+                >
+                  <div class="flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
+                    <span class="text-base">📡</span>
+                  </div>
+                  <div class="text-sm font-semibold text-gray-200">
+                    {t("podcast.rss.subscribe")}
+                  </div>
+                </a>
+              </div>
+            )
+          }
+        </div>
+      </section>
+
+      {/* Language Restriction Notice */}
+      {
+        showEnglishOnlyNotice && (
+          <div class="mb-8 w-full rounded-xl border border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-100 p-4">
+            <div class="flex items-center justify-center gap-3 text-blue-800">
+              <div class="text-blue-500">ℹ️</div>
+              <div class="text-center">
+                <span class="font-medium">Note:</span> Podcasts are currently available only in
+                English.
+              </div>
+            </div>
+          </div>
+        )
+      }
+
+      {/* Episodes List */}
+      <section>
+        {
+          episodes.length === 0 ? (
+            <div class="rounded-2xl border-2 border-dashed border-gray-600 bg-gray-800 p-16 text-center text-gray-400">
+              <div class="mb-4 text-4xl">🎙️</div>
+              <Headline level="h2" textSize="2xl" className="mb-4 text-gray-300">
+                {t("podcasts.empty.title")}
+              </Headline>
+              <Paragraph textSize="base" className="text-gray-400 max-w-2xl mx-auto">
+                {t("podcasts.empty.text")}
+              </Paragraph>
+            </div>
+          ) : (
+            <div class="space-y-6">
+              {episodes
+                .filter((episode: PodcastData) => episode.isAvailable)
+                .map((episode: PodcastData) => (
+                  <article class="rounded-2xl border border-gray-700 bg-gray-800 p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                    <div class="mb-6 flex flex-col gap-6 text-center md:flex-row md:text-left">
+                      <div class="flex-shrink-0">
+                        <img
+                          src={episode.imageUrl}
+                          alt={episode.title}
+                          loading="lazy"
+                          width="120"
+                          height="120"
+                          class="h-30 w-30 rounded-xl shadow-md"
+                        />
+                      </div>
+                      <div class="flex-1">
+                        <Headline level="h2" textSize="lg" className="mb-3 text-white">
+                          {episode.title}
+                        </Headline>
+                        <Paragraph textSize="base" className="text-gray-300 mb-4">
+                          {episode.description}
+                        </Paragraph>
+                        <div class="flex flex-wrap items-center justify-center gap-4 md:justify-start">
+                          <time class="text-sm text-gray-400" datetime={episode.publishedAt}>
+                            {new Date(episode.publishedAt).toLocaleDateString("en-US", {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            })}
+                          </time>
+                          <span class="text-sm text-gray-400">🎙️ Episode</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center gap-4 md:justify-start">
+                      <a
+                        href={`/${lang}/podcasts/${episode.id}`}
+                        class="inline-flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-purple-700"
+                      >
+                        📖 Read Full Episode Notes
+                      </a>
+                      {episode.audioUrl && (
+                        <a
+                          href={episode.audioUrl}
+                          class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-blue-700"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          🎧 Listen Now
+                        </a>
+                      )}
+                    </div>
+                  </article>
+                ))}
             </div>
           )
         }
-      </div>
-    </header>
-
-    <!-- Episodes List -->
-    <main class="podcasts-main">
-      {
-        showEnglishOnlyNotice && (
-          <div class="podcasts-restriction" role="region" aria-label="English only notice">
-            <div class="podcasts-restriction__icon">ℹ️</div>
-            <Headline level="h2" size="xl" className="podcasts-restriction__title">
-              Note: Podcasts are currently available only in English.
-            </Headline>
-            <Paragraph className="podcasts-restriction__description">
-              We're working on adding more languages soon. Thanks for your understanding.
-            </Paragraph>
-          </div>
-        )
-      }
-
-      {
-        episodes.length === 0 ? (
-          <div class="podcasts-empty">
-            <div class="podcasts-empty__icon">🎙️</div>
-            <Headline level="h2" size="2xl" className="podcasts-empty__title">
-              {t("podcasts.empty.title")}
-            </Headline>
-            <Paragraph className="podcasts-empty__text">{t("podcasts.empty.text")}</Paragraph>
-          </div>
-        ) : (
-          <div class="podcasts-list">
-            {episodes
-              .filter((episode: PodcastData) => episode.isAvailable)
-              .map((episode: PodcastData) => (
-                <article class="podcast-episode-card">
-                  <div class="podcast-episode-card__header">
-                    <div class="podcast-episode-card__image">
-                      <img
-                        src={episode.imageUrl}
-                        alt={episode.title}
-                        loading="lazy"
-                        width="120"
-                        height="120"
-                      />
-                    </div>
-                    <div class="podcast-episode-card__meta">
-                      <Headline level="h2" size="lg" className="podcast-episode-card__title">
-                        {episode.title}
-                      </Headline>
-                      <p class="podcast-episode-card__description">{episode.description}</p>
-                      <div class="podcast-episode-card__details">
-                        <time class="podcast-episode-card__date" datetime={episode.publishedAt}>
-                          {new Date(episode.publishedAt).toLocaleDateString("en-US", {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          })}
-                        </time>
-                        <span class="podcast-episode-card__duration">🎙️ Episode</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="podcast-episode-card__actions">
-                    <a
-                      href={`/${lang}/podcasts/${episode.id}`}
-                      class="podcast-episode-card__read-more"
-                    >
-                      📖 Read Full Episode Notes
-                    </a>
-                    {episode.audioUrl && (
-                      <a
-                        href={episode.audioUrl}
-                        class="podcast-episode-card__listen"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        🎧 Listen Now
-                      </a>
-                    )}
-                  </div>
-                </article>
-              ))}
-          </div>
-        )
-      }
-    </main>
-  </div>
+      </section>
+    </div>
+  </main>
 </Layout>
-
-<style lang="scss">
-  /* ======================================
-   * PODCAST PAGE STYLES - OPTIMIZED FOR STYLE GUARDIAN
-   * BEM Methodology + Global Variables + Mobile-First
-   * ====================================== */
-
-  .podcasts-page {
-    width: 100%;
-    max-width: var(--container-xl);
-    margin: 0 auto;
-    padding: var(--space-xs); // Mobile: minimal horizontal spacing
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-    min-height: 100vh;
-    box-sizing: border-box;
-    contain: layout style paint;
-  }
-
-  /* ======================================
-   * HERO SECTION
-   * ====================================== */
-  .podcasts-hero {
-    position: relative;
-    margin-bottom: var(--space-lg);
-    overflow: hidden;
-    border-radius: var(--radius-lg);
-    background: linear-gradient(
-      135deg,
-      var(--color-primary-800) 0%,
-      var(--color-primary-900) 50%,
-      var(--color-neutral-900) 100%
-    );
-    padding: var(--space-md);
-    box-shadow: var(--shadow-xl);
-    border: var(--border-width-thin) solid var(--border-primary);
-    contain: layout style paint;
-
-    &__decoration {
-      position: absolute;
-      inset: 0;
-      opacity: 0.1;
-      pointer-events: none;
-      contain: layout style paint;
-
-      &-item {
-        position: absolute;
-        border-radius: var(--radius-full);
-        background: var(--color-white);
-        contain: layout style paint;
-
-        &--top-right {
-          top: calc(-1 * var(--space-xl));
-          right: calc(-1 * var(--space-xl));
-          width: var(--space-3xl);
-          height: var(--space-3xl);
-        }
-
-        &--bottom-left {
-          bottom: calc(-1 * var(--space-2xl));
-          left: calc(-1 * var(--space-2xl));
-          width: calc(var(--space-3xl) * 2);
-          height: calc(var(--space-3xl) * 2);
-        }
-
-        &--center-right {
-          top: 50%;
-          right: calc(-1 * var(--space-md));
-          width: var(--space-2xl);
-          height: var(--space-2xl);
-          transform: translateY(-50%);
-        }
-      }
-    }
-
-    &__content {
-      position: relative;
-      z-index: var(--z-fixed);
-      text-align: center;
-      color: var(--color-white);
-      contain: layout style;
-    }
-
-    &__title {
-      margin-bottom: var(--space-sm);
-      color: var(--color-white);
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      font-size: var(--text-2xl);
-      line-height: var(--leading-tight);
-      contain: layout style;
-    }
-
-    &__divider {
-      width: var(--space-2xl);
-      height: var(--border-width-thick);
-      background: var(--color-secondary-400);
-      margin: var(--space-md) auto;
-      border-radius: var(--radius-full);
-      contain: layout style paint;
-    }
-
-    &__description {
-      color: var(--color-neutral-100);
-      font-size: var(--text-base);
-      line-height: var(--leading-relaxed);
-      max-width: var(--container-sm);
-      margin: 0 auto var(--space-md);
-      opacity: 0.9;
-      contain: layout style;
-    }
-
-    &__platforms {
-      display: flex;
-      justify-content: center;
-      gap: var(--space-md);
-      flex-wrap: wrap;
-      margin: var(--space-lg) auto;
-      width: 100%;
-      max-width: 600px;
-      contain: layout style;
-    }
-
-    &__stats {
-      display: flex;
-      justify-content: center;
-      gap: var(--space-md);
-      flex-wrap: wrap;
-      margin-top: var(--space-lg);
-      width: 100%;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      contain: layout style;
-    }
-  }
-
-  /* ======================================
-   * PODCAST STATS
-   * ====================================== */
-  .podcasts-stat {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    color: var(--color-neutral-200);
-    background: rgba(255, 255, 255, 0.15);
-    padding: var(--space-sm);
-    border-radius: var(--radius-lg);
-    backdrop-filter: blur(10px);
-    border: var(--border-width-thin) solid rgba(255, 255, 255, 0.25);
-    min-height: var(--touch-target-enhanced);
-    transition: all var(--transition-normal);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    flex: 1;
-    min-width: 140px;
-    max-width: 220px;
-    contain: layout style paint;
-
-    &:hover {
-      transform: translateY(var(--animation-y-offset-small));
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-      background: rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.35);
-    }
-
-    &__icon-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: var(--radius-full);
-      margin-right: var(--space-xs);
-      contain: layout style paint;
-    }
-
-    &__icon {
-      font-size: var(--text-base);
-      contain: layout style;
-    }
-
-    &__content {
-      display: flex;
-      flex-direction: column;
-      contain: layout style;
-    }
-
-    &__label {
-      font-size: var(--text-xs);
-      text-transform: uppercase;
-      letter-spacing: var(--letter-spacing-enhanced);
-      opacity: 0.8;
-      margin-bottom: var(--space-2xs);
-      contain: layout style;
-    }
-
-    &__value {
-      font-size: var(--text-sm);
-      font-weight: var(--font-semibold);
-      contain: layout style;
-    }
-
-    &__text {
-      white-space: nowrap;
-      contain: layout style;
-    }
-
-    &--rss {
-      text-decoration: none;
-      color: var(--color-neutral-200);
-      transition: all var(--transition-base);
-
-      &:hover {
-        background: linear-gradient(135deg, rgba(255, 165, 0, 0.3), rgba(255, 140, 0, 0.4));
-        border-color: rgba(255, 165, 0, 0.6);
-        transform: translateY(var(--animation-y-offset-small));
-        box-shadow: 0 6px 20px rgba(255, 165, 0, 0.3);
-
-        .podcasts-stat__icon-wrapper {
-          background: rgba(255, 165, 0, 0.4);
-        }
-
-        .podcasts-stat__value {
-          color: var(--color-white);
-        }
-      }
-
-      &:focus {
-        outline: var(--focus-ring);
-        outline-offset: var(--focus-ring-offset);
-      }
-    }
-  }
-
-  /* ======================================
-   * PODCAST PLATFORM LINKS
-   * ====================================== */
-  .podcast-platform-link {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    color: var(--color-white);
-    background: rgba(255, 255, 255, 0.15);
-    padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-lg);
-    text-decoration: none;
-    backdrop-filter: blur(10px);
-    border: var(--border-width-thin) solid rgba(255, 255, 255, 0.25);
-    min-height: var(--touch-target-enhanced);
-    transition: all var(--transition-normal);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    contain: layout style paint;
-
-    &:hover {
-      transform: translateY(var(--animation-y-offset-small));
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-      background: rgba(255, 255, 255, 0.25);
-      border-color: rgba(255, 255, 255, 0.4);
-    }
-
-    &:focus {
-      outline: var(--focus-ring);
-      outline-offset: var(--focus-ring-offset);
-    }
-
-    .podcast-platform-icon {
-      font-size: var(--text-lg);
-      contain: layout style;
-    }
-
-    .podcast-platform-text {
-      font-size: var(--text-sm);
-      font-weight: var(--font-semibold);
-      white-space: nowrap;
-      contain: layout style;
-    }
-  }
-
-  /* ======================================
-   * MAIN CONTENT
-   * ====================================== */
-  .podcasts-main {
-    flex: 1;
-    width: 100%;
-    contain: layout style;
-  }
-
-  .podcasts-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    width: 100%;
-    contain: layout style;
-  }
-
-  /* ======================================
-   * PODCAST EPISODE CARDS
-   * ====================================== */
-  .podcast-episode-card {
-    background: var(--bg-primary);
-    border: var(--border-width-thin) solid var(--border-primary);
-    border-radius: var(--radius-xl);
-    padding: var(--space-lg);
-    box-shadow: var(--shadow-md);
-    transition: all var(--transition-normal);
-    contain: layout style paint;
-
-    &:hover {
-      transform: translateY(var(--animation-y-offset-small));
-      box-shadow: var(--shadow-lg);
-      border-color: var(--border-primary-hover);
-    }
-
-    &__header {
-      display: flex;
-      gap: var(--space-lg);
-      margin-bottom: var(--space-lg);
-      contain: layout style;
-
-      @media (max-width: 768px) {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-
-    &__image {
-      flex-shrink: 0;
-      contain: layout style paint;
-
-      img {
-        width: 120px;
-        height: 120px;
-        border-radius: var(--radius-lg);
-        object-fit: cover;
-        box-shadow: var(--shadow-md);
-        contain: layout style paint;
-      }
-    }
-
-    &__meta {
-      flex: 1;
-      contain: layout style;
-    }
-
-    &__title {
-      margin: 0 0 var(--space-sm) 0;
-      color: var(--text-primary);
-      contain: layout style;
-    }
-
-    &__description {
-      color: var(--text-secondary);
-      font-size: var(--text-base);
-      line-height: var(--leading-relaxed);
-      margin: 0 0 var(--space-md) 0;
-      contain: layout style;
-    }
-
-    &__details {
-      display: flex;
-      gap: var(--space-md);
-      align-items: center;
-      contain: layout style;
-
-      @media (max-width: 768px) {
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-    }
-
-    &__date {
-      color: var(--text-tertiary);
-      font-size: var(--text-sm);
-      contain: layout style;
-    }
-
-    &__duration {
-      color: var(--text-tertiary);
-      font-size: var(--text-sm);
-      contain: layout style;
-    }
-
-    &__actions {
-      display: flex;
-      gap: var(--space-md);
-      justify-content: flex-start;
-      contain: layout style;
-
-      @media (max-width: 768px) {
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-    }
-
-    &__read-more,
-    &__listen {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-sm);
-      padding: var(--space-sm) var(--space-md);
-      border-radius: var(--radius-lg);
-      text-decoration: none;
-      font-weight: var(--font-semibold);
-      font-size: var(--text-sm);
-      min-height: var(--touch-target-enhanced);
-      transition: all var(--transition-normal);
-      contain: layout style paint;
-    }
-
-    &__read-more {
-      background: var(--color-primary-600);
-      color: var(--color-white);
-      border: var(--border-width-thin) solid var(--color-primary-600);
-
-      &:hover {
-        background: var(--color-primary-700);
-        border-color: var(--color-primary-700);
-        transform: translateY(var(--animation-y-offset-small));
-      }
-    }
-
-    &__listen {
-      background: var(--color-secondary-600);
-      color: var(--color-white);
-      border: var(--border-width-thin) solid var(--color-secondary-600);
-
-      &:hover {
-        background: var(--color-secondary-700);
-        border-color: var(--color-secondary-700);
-        transform: translateY(var(--animation-y-offset-small));
-      }
-    }
-  }
-
-  /* ======================================
-   * LANGUAGE RESTRICTION NOTICE
-   * ====================================== */
-  .podcasts-restriction {
-    text-align: center;
-    padding: var(--space-2xl) var(--space-lg);
-    background: linear-gradient(135deg, var(--color-warning-50) 0%, var(--color-warning-100) 100%);
-    border-radius: var(--radius-xl);
-    border: var(--border-width-thick) solid var(--color-warning-200);
-    color: var(--color-warning-800);
-    contain: layout style paint;
-
-    &__icon {
-      font-size: var(--text-3xl);
-      margin-bottom: var(--space-md);
-      opacity: var(--opacity-medium);
-      contain: layout style;
-    }
-
-    &__title {
-      font-size: var(--text-lg);
-      color: var(--color-warning-900);
-      margin: 0 0 var(--space-md) 0;
-      font-weight: var(--font-semibold);
-      contain: layout style;
-    }
-
-    &__description {
-      color: var(--color-warning-700);
-      font-size: var(--text-sm);
-      line-height: var(--leading-relaxed);
-      max-width: var(--container-sm);
-      margin: 0 auto var(--space-lg);
-      contain: layout style;
-    }
-
-    &__actions {
-      display: flex;
-      justify-content: center;
-      gap: var(--space-md);
-      flex-wrap: wrap;
-      contain: layout style;
-    }
-
-    &__button {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-sm);
-      padding: var(--space-sm) var(--space-md);
-      background: var(--color-white);
-      color: var(--color-neutral-700);
-      text-decoration: none;
-      border-radius: var(--radius-lg);
-      border: var(--border-width-thin) solid var(--color-neutral-300);
-      font-weight: var(--font-semibold);
-      font-size: var(--text-sm);
-      min-height: var(--touch-target-enhanced);
-      transition: all var(--transition-normal);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      contain: layout style paint;
-
-      &:hover {
-        transform: translateY(var(--animation-y-offset-small));
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        background: var(--color-neutral-50);
-        border-color: var(--color-neutral-400);
-      }
-
-      &:focus {
-        outline: var(--focus-ring);
-        outline-offset: var(--focus-ring-offset);
-      }
-
-      &--german:hover {
-        background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
-        border-color: #ffd700;
-        color: var(--color-neutral-800);
-      }
-
-      &--english:hover {
-        background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-        border-color: #3b82f6;
-        color: var(--color-blue-800);
-      }
-    }
-  }
-
-  /* ======================================
-   * EMPTY STATE
-   * ====================================== */
-  .podcasts-empty {
-    text-align: center;
-    padding: var(--space-2xl) var(--space-lg);
-    background: var(--bg-secondary);
-    border-radius: var(--radius-xl);
-    border: var(--border-width-thick) dashed var(--border-secondary);
-    color: var(--text-secondary);
-    contain: layout style paint;
-
-    &__icon {
-      font-size: var(--text-3xl);
-      margin-bottom: var(--space-md);
-      opacity: var(--opacity-low);
-      contain: layout style;
-    }
-
-    &__title {
-      font-size: var(--text-lg);
-      color: var(--text-primary);
-      margin: 0 0 var(--space-md) 0;
-      font-weight: var(--font-semibold);
-      contain: layout style;
-    }
-
-    &__text {
-      color: var(--text-secondary);
-      font-size: var(--text-sm);
-      line-height: var(--leading-relaxed);
-      max-width: var(--container-sm);
-      margin: 0 auto;
-      contain: layout style;
-    }
-  }
-</style>

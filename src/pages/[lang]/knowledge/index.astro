@@ -3,10 +3,9 @@
  * Knowledge Index Page - SEO Optimized Version
  *
  * A clean, simple knowledge articles listing with enhanced SEO features.
- * Uses CSS variables for styling and minimal JavaScript for functionality.
+ * Uses Tailwind CSS 4 for styling and minimal JavaScript for functionality.
  */
 import { getCollection } from "astro:content";
-import KnowledgeCard from "@components/KnowledgeCard.astro";
 import Layout from "@layouts/Layout.astro";
 import { ui } from "../../../i18n/ui";
 import Headline from "@components/Headline.astro";
@@ -14,11 +13,27 @@ import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
 import { calculateReadingTime } from "@utils/readingTime";
 import BackToTop from "@components/Shared/BackToTop.astro";
+import KnowledgeCard from "@components/KnowledgeCard.astro";
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const supportedLanguages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi", "cn", "ru", "jp", "uk"] as const;
+  const supportedLanguages = [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt",
+    "da",
+    "nl",
+    "sv",
+    "fi",
+    "cn",
+    "ru",
+    "jp",
+    "uk",
+  ] as const;
 
   const paths = await Promise.all(
     supportedLanguages.map(async (lang) => {
@@ -36,7 +51,7 @@ export async function getStaticPaths() {
 }
 
 const { articles, lang } = Astro.props;
-const uiLang = lang in ui ? lang as keyof typeof ui : "en";
+const uiLang = lang in ui ? (lang as keyof typeof ui) : "en";
 
 // Process articles with reading time
 const articlesWithReadingTime = articles.map((article) => {
@@ -55,8 +70,8 @@ const articlesWithReadingTime = articles.map((article) => {
 
 // Sort articles by slug (fallback to id if slug is not available)
 const sortedArticles = [...articlesWithReadingTime].sort((a, b) => {
-  const aSlug = 'slug' in a ? a.slug : a.id;
-  const bSlug = 'slug' in b ? b.slug : b.id;
+  const aSlug = "slug" in a ? a.slug : a.id;
+  const bSlug = "slug" in b ? b.slug : b.id;
   return aSlug.localeCompare(bSlug);
 });
 
@@ -65,55 +80,57 @@ const title = ui[uiLang]["knowledge.title"];
 const description = ui[uiLang]["knowledge.title"]; // Using knowledge.title as fallback since knowledge.intro doesn't exist
 
 // Enhanced SEO data for structured data
-const baseUrl = Astro.site || 'https://melodymind.app';
+const baseUrl = Astro.site || "https://melodymind.app";
 const currentUrl = `${baseUrl}/${lang}/knowledge`;
 
 // Generate structured data for breadcrumbs
-const breadcrumbSchema = {
+const _breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [
+  itemListElement: [
     {
       "@type": "ListItem",
-      "position": 1,
-      "name": ui[uiLang]["nav.home"] || "Home",
-      "item": `${baseUrl}/${lang}/`
+      position: 1,
+      name: ui[uiLang]["nav.home"] || "Home",
+      item: `${baseUrl}/${lang}/`,
     },
     {
       "@type": "ListItem",
-      "position": 2,
-      "name": ui[uiLang]["knowledge.title"] || "Knowledge",
-      "item": currentUrl
-    }
-  ]
+      position: 2,
+      name: ui[uiLang]["knowledge.title"] || "Knowledge",
+      item: currentUrl,
+    },
+  ],
 };
 
 // Generate structured data for knowledge articles collection
 const articleCollectionSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": ui[uiLang]["knowledge.title"] || "Knowledge Articles",
-  "description": ui[uiLang]["knowledge.title"] || "Music knowledge articles",
-  "numberOfItems": sortedArticles.length,
-  "itemListElement": sortedArticles.slice(0, 10).map((article, index: number) => ({
+  name: ui[uiLang]["knowledge.title"] || "Knowledge Articles",
+  description: ui[uiLang]["knowledge.title"] || "Music knowledge articles",
+  numberOfItems: sortedArticles.length,
+  itemListElement: sortedArticles.slice(0, 10).map((article, index: number) => ({
     "@type": "Article",
-    "position": index + 1,
-    "name": article.data.title,
-    "description": article.data.description,
-    "url": `${baseUrl}/${lang}/knowledge/${('slug' in article ? article.slug : article.id)}`,
-    "datePublished": article.data.createdAt,
-    "keywords": article.data.keywords?.join(", ") || "",
-    "author": {
+    position: index + 1,
+    name: article.data.title,
+    description: article.data.description,
+    url: `${baseUrl}/${lang}/knowledge/${"slug" in article ? article.slug : article.id}`,
+    datePublished: article.data.createdAt,
+    keywords: article.data.keywords?.join(", ") || "",
+    author: {
       "@type": "Organization",
-      "name": "MelodyMind"
-    }
-  }))
+      name: "MelodyMind",
+    },
+  })),
 };
 
 // Generate meta keywords from articles
-const metaKeywords = Array.from(new Set(
-  sortedArticles.flatMap((article) => article.data.keywords || [])
-)).slice(0, 10).join(", ");
+const metaKeywords = Array.from(
+  new Set(sortedArticles.flatMap((article) => article.data.keywords || []))
+)
+  .slice(0, 10)
+  .join(", ");
 
 // Basic translations for JavaScript
 const clientTranslations = {
@@ -124,9 +141,9 @@ const clientTranslations = {
 };
 ---
 
-<Layout 
-  {title} 
-  {description} 
+<Layout
+  {title}
+  {description}
   image={`/og-images/social-share-knowledge-${lang}.jpg`}
   type="website"
   keywords={metaKeywords}
@@ -135,7 +152,7 @@ const clientTranslations = {
 >
   <!-- Structured Data for SEO - Additional schemas beyond what SEO component provides -->
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(_breadcrumbSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(articleCollectionSchema)} />
   </Fragment>
 
@@ -144,106 +161,127 @@ const clientTranslations = {
     window.knowledgeTranslations = clientTranslations;
   </script>
 
-  <main class="knowledge-page">
-    <!-- Breadcrumbs -->
-    <nav aria-label="Breadcrumb" class="breadcrumb">
-      <ol class="breadcrumb__list">
-        <li class="breadcrumb__item">
-          <a href={`/${String(lang)}/`} class="breadcrumb__link">
-            <Icon name="home" class="breadcrumb__icon icon-md" aria-hidden="true" />
-            <span class="sr-only">{ui[uiLang]["nav.home"] || "Home"}</span>
-          </a>
-          <span class="breadcrumb__separator" aria-hidden="true">/</span>
-        </li>
-        <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">
-          {ui[uiLang]["knowledge.title"] || "Knowledge"}
-        </li>
-      </ol>
-    </nav>
+  <main class="min-h-screen bg-gray-900 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumbs -->
+      <nav aria-label="Breadcrumb" class="mb-6">
+        <ol class="flex items-center gap-3 flex-wrap">
+          <li class="flex items-center gap-3">
+            <a
+              href={`/${String(lang)}/`}
+              class="flex items-center gap-2 text-gray-400 hover:text-purple-400 transition-colors duration-200 p-2 rounded-lg hover:bg-gray-800"
+            >
+              <Icon name="home" class="h-5 w-5" aria-hidden="true" />
+              <span class="sr-only">{ui[uiLang]["nav.home"] || "Home"}</span>
+            </a>
+            <span class="text-gray-600" aria-hidden="true">/</span>
+          </li>
+          <li class="text-white font-medium" aria-current="page">
+            {ui[uiLang]["knowledge.title"] || "Knowledge"}
+          </li>
+        </ol>
+      </nav>
 
-    <!-- Hero section with improved design inspired by gamehome -->
-    <header class="knowledge-hero" aria-labelledby="page-heading">
-      <!-- Decorative background elements -->
-      <div class="knowledge-hero__decoration" aria-hidden="true">
-        <div class="knowledge-hero__decoration-item knowledge-hero__decoration-item--top-left"></div>
-        <div class="knowledge-hero__decoration-item knowledge-hero__decoration-item--bottom-right"></div>
-        <div class="knowledge-hero__decoration-item knowledge-hero__decoration-item--center-left"></div>
-      </div>
-
-      <div class="knowledge-hero__content">
-        <Headline
-          title={ui[uiLang]["knowledge.title"]}
-          level="h1"
-          id="page-heading"
-          size="xl"
-        />
-        <div class="knowledge-hero__divider" aria-hidden="true"></div>
-        <Paragraph
-          description={ui[uiLang]["knowledge.description"]}
-          align="center"
-          textSize="lg"
-          />
-      </div>
-    </header>
-
-    <div class="knowledge-page__content">
-      <!-- Enhanced Search section -->
-      <section class="search-container" role="search">
-        <div class="search-container__header">
-          <Headline
-            title={ui[uiLang]["knowledge.search.title"] || "Search Articles"}
-            level="h2"
-            size="xl"
-            className="search-container__heading"
-          />
-          <Paragraph
-            textSize="lg"
-            align="center"
-            description={ui[uiLang]["knowledge.search.subtitle"] || "Find articles by title, description, or keywords"}
-            className="search-container__subtitle"
-          />
+      <!-- Hero section with improved design inspired by gamehome -->
+      <header
+        class="relative overflow-hidden bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 rounded-3xl shadow-2xl border border-purple-500/30 mb-16 p-8 sm:p-12 lg:p-16"
+      >
+        <!-- Decorative background elements -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none" aria-hidden="true">
+          <div class="absolute -top-8 -right-8 w-32 h-32 bg-white rounded-full"></div>
+          <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-white rounded-full"></div>
+          <div class="absolute top-1/2 right-4 w-16 h-16 bg-white rounded-full"></div>
         </div>
-        
-        <div class="search-container__form">
-          <div class="search-container__input-group">
-            <label for="searchInput" class="sr-only">
-              Search by title or description
-            </label>
-            <div class="search-container__input-wrapper">
-              <div class="search-container__icon-wrapper" aria-hidden="true">
-                <Icon name="search" class="search-container__icon" />
+
+        <div class="relative z-10 text-center text-white w-full">
+          <Headline level="h1" textSize="3xl" textAlign="center">
+            {ui[uiLang]["knowledge.title"]}
+          </Headline>
+          <div class="bg-blue-400 rounded-full w-12 h-1 mx-auto my-8"></div>
+          <Paragraph textSize="lg" textAlign="center">
+            {ui[uiLang]["knowledge.description"]}
+          </Paragraph>
+        </div>
+      </header>
+
+      <!-- Enhanced Search section -->
+      <section class="mb-16" role="search">
+        <div class="w-full max-w-7xl mx-auto">
+          <!-- Search Heading -->
+          <div class="text-center mb-10">
+            <Headline level="h2" textSize="2xl" textAlign="center">
+              {ui[uiLang]["knowledge.search.title"] || "Search Articles"}
+            </Headline>
+            <Paragraph textSize="lg" textAlign="center">
+              {
+                ui[uiLang]["knowledge.search.subtitle"] ||
+                  "Find articles by title, description, or keywords"
+              }
+            </Paragraph>
+          </div>
+
+          <div class="relative w-full max-w-5xl mx-auto">
+            <label for="searchInput" class="sr-only"> Search by title or description </label>
+
+            <!-- Search Input with Glassmorphism - Full Width -->
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none z-10"
+              >
+                <svg
+                  class="h-7 w-7 text-purple-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
               </div>
+
               <input
                 type="search"
                 id="searchInput"
-                placeholder={(ui[uiLang] as any)["knowledge.search.placeholder"] || "Search articles..."}
-                class="search-container__input"
+                placeholder={(ui[uiLang] as any)["knowledge.search.placeholder"] ||
+                  "Search articles..."}
+                class="block w-full pl-16 pr-20 py-5 border-2 border-purple-500/40 rounded-3xl bg-gray-800/90 backdrop-blur-md text-white placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-purple-500/60 focus:border-purple-400 transition-all duration-300 shadow-2xl hover:shadow-purple-500/20 text-xl font-medium"
                 aria-controls="articlesGrid"
                 autocomplete="off"
               />
-              <div class="search-container__clear-wrapper">
-                <button
-                  id="clear-search"
-                  class="search-container__clear-button"
-                  type="button"
-                  aria-label="Clear search"
-                  style="display: none;"
-                >
-                  <Icon name="close" class="search-container__clear-icon" aria-hidden="true" />
-                </button>
-              </div>
+
+              <!-- Clear Button -->
+              <button
+                id="clear-search"
+                class="absolute inset-y-0 right-0 pr-6 flex items-center text-gray-400 hover:text-purple-400 transition-colors duration-200 opacity-0 pointer-events-none"
+                type="button"
+                aria-label="Clear search"
+              >
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
             </div>
           </div>
-          
-          <button
-            id="reset-search"
-            class="search-container__reset-button"
-            type="button"
-            aria-controls="articlesGrid"
-          >
-            <Icon name="refresh" class="search-container__reset-icon" aria-hidden="true" />
-            <span>{ui[uiLang]["knowledge.search.reset.text"] || "Reset"}</span>
-          </button>
+
+          <!-- Reset Button -->
+          <div class="text-center mt-6">
+            <button
+              id="reset-search"
+              class="inline-flex items-center gap-3 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-xl transition-colors duration-200 shadow-lg hover:shadow-purple-500/20"
+              type="button"
+              aria-controls="articlesGrid"
+            >
+              <Icon name="refresh" class="h-5 w-5" aria-hidden="true" />
+              <span>{ui[uiLang]["knowledge.search.reset.text"] || "Reset"}</span>
+            </button>
+          </div>
         </div>
 
         <!-- Search status -->
@@ -255,34 +293,33 @@ const clientTranslations = {
       <!-- No results message -->
       <div
         id="no-results"
-        class="no-results"
+        class="text-center py-12 mb-8"
         style="display: none;"
         role="status"
         aria-live="assertive"
       >
-        <div class="no-results__content">
-          <Icon name="search-no-results" class="no-results__icon icon-3xl" aria-hidden="true" />
-          <Headline
-            title={ui[uiLang]["knowledge.no.results"] || "No articles found"}
-            level="h2"
-            size="lg"
-            textAlign="center"
-            className="no-results__title"
+        <div class="max-w-md mx-auto">
+          <Icon
+            name="search-no-results"
+            class="mx-auto h-16 w-16 text-gray-600 mb-6"
+            aria-hidden="true"
           />
-          <Paragraph
-            align="center"
-            textSize="lg"
-            description={ui[uiLang]["knowledge.no.results.help"] ||
-              "Try different search terms or reset your search"}
-            className="no-results__description"
-          />
+          <Headline level="h2" textSize="2xl" textAlign="center">
+            {ui[uiLang]["knowledge.no.results"] || "No articles found"}
+          </Headline>
+          <Paragraph textSize="lg" textAlign="center">
+            {
+              ui[uiLang]["knowledge.no.results.help"] ||
+                "Try different search terms or reset your search"
+            }
+          </Paragraph>
         </div>
       </div>
 
-      <!-- Articles grid with enhanced SEO -->
-      <section class="articles-section" aria-labelledby="articles-heading">
-        <Headline title="Knowledge Articles" level="h2" className="sr-only" id="articles-heading" />
-        <ul id="articlesGrid" class="articles-grid">
+      <!-- Articles grid with enhanced SEO - Oriented on gamehome layout -->
+      <section class="mb-16">
+        <Headline level="h2" textSize="base" className="sr-only"> Knowledge Articles </Headline>
+        <ul id="articlesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {
             sortedArticles.length > 0 ? (
               sortedArticles.map((article, index: number) => {
@@ -291,10 +328,14 @@ const clientTranslations = {
                     ? article.data.createdAt
                     : new Date(article.data.createdAt || Date.now());
 
-                const articleSlug = 'slug' in article ? article.slug : article.id;
+                const articleSlug = "slug" in article ? article.slug : article.id;
 
                 return (
-                  <li class="articles-grid__item" itemscope itemtype="https://schema.org/Article">
+                  <li
+                    class="bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                    itemscope
+                    itemtype="https://schema.org/Article"
+                  >
                     <KnowledgeCard
                       title={article.data.title}
                       description={article.data.description}
@@ -307,7 +348,7 @@ const clientTranslations = {
                       keywords={article.data.keywords?.join(", ")}
                       index={index}
                     />
-                    <!-- Micro-data for enhanced SEO -->
+                    {/* Micro-data for enhanced SEO */}
                     <meta itemprop="name" content={article.data.title} />
                     <meta itemprop="description" content={article.data.description} />
                     <meta itemprop="url" content={`${baseUrl}/${lang}/knowledge/${articleSlug}`} />
@@ -319,23 +360,26 @@ const clientTranslations = {
                 );
               })
             ) : (
-              <li class="articles-grid__empty">
-                <div class="articles-grid__empty-content">
-                  <Icon name="info" class="articles-grid__empty-icon icon-3xl" aria-hidden="true" />
-                  <Paragraph
-                    description={ui[uiLang]["knowledge.empty"] || "No articles available"}
-                    className="articles-grid__empty-text"
+              <li class="col-span-full text-center py-12">
+                <div class="max-w-md mx-auto">
+                  <Icon
+                    name="info"
+                    class="mx-auto h-16 w-16 text-gray-600 mb-6"
+                    aria-hidden="true"
                   />
+                  <Paragraph textSize="lg" textAlign="center">
+                    {ui[uiLang]["knowledge.empty"] || "No articles available"}
+                  </Paragraph>
                 </div>
               </li>
             )
           }
         </ul>
       </section>
-
-      <!-- Back to top button -->
-      <BackToTop lang={lang} />
     </div>
+
+    <!-- Back to top button -->
+    <BackToTop {lang} />
   </main>
 
   <!-- Simplified JavaScript -->
@@ -358,9 +402,9 @@ const clientTranslations = {
       const articlesGrid = document.querySelector("#articlesGrid") as HTMLElement;
       const noResultsDiv = document.querySelector("#no-results") as HTMLElement;
       const searchStatus = document.querySelector("#search-status") as HTMLElement;
-      
+
       let currentSearchQuery = "";
-      
+
       const translations = (window as unknown as WindowWithTranslations).knowledgeTranslations;
 
       // Early return if required elements don't exist
@@ -371,7 +415,7 @@ const clientTranslations = {
       const allArticles = Array.from(articlesGrid.children) as HTMLElement[];
 
       const updateSearchStatus = (count: number, query: string): void => {
-        const statusText = query.trim() 
+        const statusText = query.trim()
           ? `${count} ${translations.search.articlesFound}`
           : translations.search.showingAll;
         searchStatus.textContent = statusText;
@@ -379,21 +423,26 @@ const clientTranslations = {
 
       const toggleClearButton = (show: boolean): void => {
         if (clearButton) {
-          clearButton.style.display = show ? "flex" : "none";
+          if (show) {
+            clearButton.classList.remove("opacity-0", "pointer-events-none");
+            clearButton.classList.add("opacity-100", "pointer-events-auto");
+          } else {
+            clearButton.classList.add("opacity-0", "pointer-events-none");
+            clearButton.classList.remove("opacity-100", "pointer-events-auto");
+          }
         }
       };
 
       const performSearch = (query: string): void => {
         const searchTerm = query.toLowerCase().trim();
         currentSearchQuery = searchTerm;
-        
+
         const visibleCount = allArticles.reduce((count, article) => {
           const title = article.querySelector("h3")?.textContent?.toLowerCase() || "";
           const description = article.querySelector("p")?.textContent?.toLowerCase() || "";
-          
-          const isVisible = searchTerm === "" || 
-                           title.includes(searchTerm) || 
-                           description.includes(searchTerm);
+
+          const isVisible =
+            searchTerm === "" || title.includes(searchTerm) || description.includes(searchTerm);
 
           article.style.display = isVisible ? "block" : "none";
           return isVisible ? count + 1 : count;
@@ -441,7 +490,7 @@ const clientTranslations = {
         if (e.key === "Escape" && (document.activeElement === searchInput || currentSearchQuery)) {
           resetSearch();
         }
-        
+
         if (e.key === "/" && document.activeElement !== searchInput) {
           e.preventDefault();
           searchInput.focus();
@@ -455,428 +504,3 @@ const clientTranslations = {
     document.addEventListener("DOMContentLoaded", initializeSearchFunctionality);
   </script>
 </Layout>
-
-<style lang="scss">
-  /* ======================================
-   * KNOWLEDGE PAGE STYLES
-   * Modern SCSS with global.css variables
-   * Fully responsive with WCAG AAA compliance
-   * ====================================== */
-
-  .knowledge-page {
-    max-width: var(--container-xl);
-    margin: 0 auto;
-    padding: var(--space-md);
-  }
-
-  /* ======================================
-   * KNOWLEDGE HERO SECTION
-   * ====================================== */
-  .knowledge-hero {
-    position: relative;
-    margin-bottom: var(--space-xl);
-    overflow: hidden;
-    border-radius: var(--radius-lg);
-    background: var(--bg-secondary);
-    padding: var(--space-lg);
-    border: var(--border-width-thin) solid var(--border-primary);
-
-    &__decoration {
-      position: absolute;
-      inset: 0;
-      opacity: 0.05;
-      pointer-events: none;
-
-      &-item {
-        position: absolute;
-        border-radius: var(--radius-full);
-        background: var(--color-white);
-
-        &--top-left {
-          top: calc(-1 * var(--space-lg));
-          left: calc(-1 * var(--space-lg));
-          width: var(--space-2xl);
-          height: var(--space-2xl);
-        }
-
-        &--bottom-right {
-          bottom: calc(-1 * var(--space-lg));
-          right: calc(-1 * var(--space-lg));
-          width: var(--space-3xl);
-          height: var(--space-3xl);
-        }
-
-        &--center-left {
-          top: 50%;
-          left: calc(-1 * var(--space-sm));
-          width: var(--space-xl);
-          height: var(--space-xl);
-          transform: translateY(-50%);
-        }
-      }
-    }
-
-    &__content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      color: var(--text-primary);
-      margin: 0 auto;
-    }
-
-    &__title {
-      margin-bottom: var(--space-md);
-      color: var(--text-primary);
-    }
-
-    &__divider {
-      width: var(--icon-size-lg);
-      height: var(--border-width-thin);
-      background: var(--color-secondary-400);
-      margin: var(--space-md) auto;
-      border-radius: var(--radius-full);
-    }
-
-    &__description {
-      color: var(--text-secondary);
-      font-size: var(--text-base);
-      line-height: var(--leading-relaxed);
-      text-align: center;
-    }
-  }
-
-  /* ======================================
-   * BREADCRUMBS
-   * ====================================== */
-  .breadcrumb {
-    margin-bottom: var(--space-lg);
-
-    &__list {
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      flex-wrap: wrap;
-    }
-
-    &__item {
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-
-      &--current {
-        color: var(--text-primary);
-        font-weight: var(--font-medium);
-      }
-    }
-
-    &__link {
-      display: flex;
-      align-items: center;
-      gap: var(--space-xs);
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color var(--transition-normal);
-      padding: var(--space-xs);
-      border-radius: var(--radius-sm);
-
-      &:hover {
-        color: var(--interactive-primary);
-        background-color: var(--bg-secondary);
-      }
-
-      &:focus-visible {
-        outline: var(--focus-enhanced-outline-dark);
-        outline-offset: var(--focus-ring-offset);
-        border-radius: var(--radius-sm);
-      }
-    }
-
-    &__separator {
-      color: var(--text-tertiary);
-    }
-
-    &__icon {
-      width: var(--space-md);
-      height: var(--space-md);
-    }
-  }
-
-  /* ======================================
-   * ENHANCED SEARCH CONTAINER
-   * ====================================== */
-  .search-container {
-    position: relative;
-    margin-bottom: var(--space-2xl);
-    padding: var(--space-lg);
-    background: var(--bg-secondary);
-    border: var(--border-width-thin) solid var(--border-primary);
-    border-radius: var(--radius-lg);
-
-    &__header {
-      text-align: center;
-      margin-bottom: var(--space-lg);
-
-      @media (min-width: 30em) {
-        margin-bottom: var(--space-xl);
-      }
-
-      @media (min-width: 48em) {
-        margin-bottom: var(--space-2xl);
-      }
-    }
-
-    &__heading {
-      margin-bottom: var(--space-sm);
-      color: var(--text-primary);
-    }
-
-    &__subtitle {
-      color: var(--text-secondary);
-      font-size: var(--text-sm);
-    }
-
-    &__form {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-      margin-bottom: var(--space-lg);
-    }
-
-    &__input-group {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-    }
-
-    &__input-wrapper {
-      position: relative;
-      display: flex;
-      align-items: center;
-      background-color: var(--form-bg);
-      border: var(--border-width-thin) solid var(--border-primary);
-      border-radius: var(--radius-md);
-      transition: border-color var(--transition-normal);
-      overflow: hidden;
-
-      &:focus-within {
-        border-color: var(--interactive-primary);
-      }
-    }
-
-    &__icon-wrapper {
-      position: absolute;
-      left: var(--space-md);
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    &__icon {
-      width: var(--space-md);
-      height: var(--space-md);
-      color: var(--interactive-primary);
-    }
-
-    &__input {
-      flex: 1;
-      width: 100%;
-      padding: var(--space-md) var(--space-2xl) var(--space-md) var(--space-2xl);
-      background: transparent;
-      border: none;
-      color: var(--text-primary);
-      font-size: var(--text-base);
-      font-weight: var(--font-medium);
-      outline: none;
-
-      &::placeholder {
-        color: var(--text-tertiary);
-        font-weight: var(--font-normal);
-      }
-    }
-
-    &__clear-wrapper {
-      position: absolute;
-      right: var(--space-sm);
-      z-index: 2;
-    }
-
-    &__clear-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: var(--space-lg);
-      height: var(--space-lg);
-      background-color: var(--color-neutral-200);
-      border: none;
-      border-radius: var(--radius-full);
-      cursor: pointer;
-      transition: background-color var(--transition-normal);
-
-      &:hover {
-        background-color: var(--color-neutral-300);
-      }
-
-      &:focus-visible {
-        outline: var(--focus-enhanced-outline-dark);
-        outline-offset: var(--focus-ring-offset);
-      }
-    }
-
-    &__clear-icon {
-      width: var(--space-sm);
-      height: var(--space-sm);
-      color: var(--text-secondary);
-    }
-
-    &__reset-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-sm);
-      padding: var(--space-md) var(--space-lg);
-      background: var(--btn-primary-bg);
-      color: var(--btn-primary-text);
-      border: none;
-      border-radius: var(--radius-md);
-      font-size: var(--text-base);
-      font-weight: var(--font-semibold);
-      cursor: pointer;
-      transition: background-color var(--transition-normal);
-      min-width: 120px;
-
-      &:hover {
-        background: var(--btn-primary-hover);
-      }
-
-      &:focus-visible {
-        outline: var(--focus-enhanced-outline-dark);
-        outline-offset: var(--focus-ring-offset);
-      }
-    }
-
-    &__reset-icon {
-      width: var(--space-md);
-      height: var(--space-md);
-    }
-  }
-
-  /* ======================================
-   * NO RESULTS
-   * ====================================== */
-  .no-results {
-    text-align: center;
-    padding: var(--space-xl);
-    margin-bottom: var(--space-lg);
-
-    &__content {
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
-    &__icon {
-      color: var(--text-tertiary);
-      margin-bottom: var(--space-lg);
-    }
-  }
-
-  /* ======================================
-   * ARTICLES GRID
-   * ====================================== */
-  .articles-section {
-    margin-bottom: var(--space-xl);
-  }
-
-  .articles-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    @media (min-width: 48em) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (min-width: 64em) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    &__item {
-      position: relative;
-    }
-
-    &__empty {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: var(--space-xl);
-
-      &-content {
-        max-width: 400px;
-        margin: 0 auto;
-
-        @media (min-width: 48em) {
-          max-width: 500px;
-        }
-      }
-
-      &-icon {
-        color: var(--text-tertiary);
-        margin-bottom: var(--space-lg);
-      }
-    }
-  }
-
-  /* ======================================
-   * UTILITY CLASSES
-   * ====================================== */
-  .icon-md {
-    height: var(--space-lg);
-    width: var(--space-lg);
-  }
-
-  .icon-3xl {
-    height: var(--space-3xl);
-    width: var(--space-3xl);
-  }
-
-  .mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* ======================================
-   * ACCESSIBILITY & PERFORMANCE
-   * ====================================== */
-  
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    * {
-      animation-duration: var(--transition-instant) !important;
-      transition-duration: var(--transition-instant) !important;
-      scroll-behavior: auto !important;
-    }
-  }
-
-  /* High contrast mode support */
-  @media (prefers-contrast: high) {
-    .knowledge-hero {
-      border: var(--border-width-enhanced) solid var(--color-white);
-    }
-
-    .search-container {
-      border: var(--border-width-enhanced) solid var(--color-white);
-    }
-  }
-
-  /* Focus visible support */
-  .search-container__input:focus-visible,
-  .search-container__clear-button:focus-visible,
-  .search-container__reset-button:focus-visible {
-    outline: var(--focus-enhanced-outline-dark);
-    outline-offset: var(--focus-ring-offset);
-  }
-</style>

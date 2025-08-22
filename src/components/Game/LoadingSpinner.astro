@@ -40,15 +40,15 @@ const {
 } = Astro.props;
 
 const sizeClasses = {
-  small: "loading-spinner--small",
-  medium: "loading-spinner--medium",
-  large: "loading-spinner--large",
+  small: "w-8 h-8 border-2",
+  medium: "w-12 h-12 border-2",
+  large: "w-16 h-16 border-2",
 };
 
 const stateClasses = {
   normal: "",
-  error: "loading-spinner--error",
-  timeout: "loading-spinner--timeout",
+  error: "border-red-600 bg-red-50 border-red-200",
+  timeout: "border-yellow-600 bg-yellow-50 border-yellow-200",
 };
 
 const contextualAnnouncements = {
@@ -69,7 +69,7 @@ const enhancedAriaLabel = context
 ---
 
 <div
-  class={`loading-spinner ${type === "determinate" ? "loading-spinner--progress" : ""} hidden ${stateClasses[state]}`}
+  class={`flex items-center justify-center min-h-[44px] gap-6 p-6 ${type === "determinate" ? "flex-col items-stretch gap-3" : ""} ${stateClasses[state]} ${state === "error" || state === "timeout" ? "border rounded-lg" : ""}`}
   {id}
   role={type === "determinate" ? "progressbar" : "status"}
   aria-live="polite"
@@ -86,12 +86,20 @@ const enhancedAriaLabel = context
 >
   {
     type === "determinate" ? (
-      <div class="loading-spinner__progress-container" aria-hidden="true">
-        <div class="loading-spinner__progress-bar" style={`width: ${progress}%`} />
+      <div
+        class="relative h-6 w-full overflow-hidden rounded-lg border border-gray-300 bg-gray-200 shadow-inner"
+        aria-hidden="true"
+      >
+        <div
+          class="relative h-full rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-300 ease-out"
+          style={`width: ${progress}%`}
+        >
+          <div class="absolute inset-0 animate-pulse bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+        </div>
       </div>
     ) : (
       <div
-        class:list={["loading-spinner__circle", sizeClasses[size]]}
+        class={`relative animate-spin rounded-full border-transparent border-t-blue-500 border-r-gray-300 border-b-gray-300 border-l-gray-300 ${sizeClasses[size]}`}
         aria-hidden="true"
         data-size={size}
       >
@@ -100,562 +108,121 @@ const enhancedAriaLabel = context
     )
   }
 
-  <div class="loading-spinner__label" aria-hidden="true">
+  <div class="text-center text-xl font-medium text-gray-600" aria-hidden="true">
     {type === "determinate" ? `${label} (${progress}%)` : label}
   </div>
 
   <div class="sr-only" aria-live="assertive" id={`${id}-announcement`}></div>
 </div>
 
-<style lang="scss">
-  @keyframes spinOptimized {
-    to {
-      transform: rotateZ(360deg);
-    }
-  }
-
-  @keyframes progressShimmer {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
-
-  @keyframes pulse {
-    from {
-      opacity: var(--opacity-medium);
-    }
-    to {
-      opacity: var(--opacity-disabled);
-    }
-  }
-
-  .loading-spinner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: var(--touch-target-enhanced);
-    gap: var(--space-lg);
-    padding: var(--space-lg);
-
-    @media (max-width: 47.9375em) {
-      gap: var(--space-sm);
-      padding: var(--space-sm);
-    }
-
-    @media (max-width: 23.4375em) {
-      gap: var(--space-xs);
-      padding: var(--space-xs);
-    }
-
-    &.hidden {
-      display: none;
-      visibility: hidden;
-      opacity: 0;
-    }
-
-    &--progress {
-      flex-direction: column;
-      align-items: stretch;
-      gap: var(--space-sm);
-    }
-
-    &--error {
-      border: var(--border-width-thin) solid;
-      border-radius: var(--radius-md);
-      background-color: var(--bg-error-aaa);
-      border-color: var(--border-error);
-
-      .loading-spinner__circle {
-        border-top-color: var(--color-error-600);
-        border-right-color: var(--color-error-200);
-        border-bottom-color: var(--color-error-200);
-        border-left-color: var(--color-error-200);
-      }
-
-      .loading-spinner__label {
-        font-weight: var(--font-semibold);
-        color: var(--text-error-aaa);
-      }
-    }
-
-    &--timeout {
-      border: var(--border-width-thin) solid;
-      border-radius: var(--radius-md);
-      background-color: var(--bg-warning-aaa);
-      border-color: var(--color-warning-500);
-
-      .loading-spinner__circle {
-        border-top-color: var(--color-warning-600);
-        border-right-color: var(--color-warning-200);
-        border-bottom-color: var(--color-warning-200);
-        border-left-color: var(--color-warning-200);
-      }
-
-      .loading-spinner__label {
-        font-weight: var(--font-semibold);
-        color: var(--text-warning-aaa);
-      }
-    }
-
-    &--small {
-      width: var(--space-xl);
-      height: var(--space-xl);
-      border-width: var(--border-width-thick);
-      position: relative;
-      border-radius: var(--radius-full);
-
-      @media (max-width: 47.9375em) {
-        width: var(--space-lg);
-        height: var(--space-lg);
-      }
-    }
-
-    &--medium {
-      width: var(--space-2xl);
-      height: var(--space-2xl);
-      border-width: var(--border-width-enhanced);
-      position: relative;
-      border-radius: var(--radius-full);
-
-      @media (max-width: 47.9375em) {
-        width: var(--space-xl);
-        height: var(--space-xl);
-      }
-    }
-
-    &--large {
-      width: calc(var(--space-3xl) + var(--space-md));
-      height: calc(var(--space-3xl) + var(--space-md));
-      border-width: var(--border-width-enhanced);
-      position: relative;
-      border-radius: var(--radius-full);
-
-      @media (max-width: 47.9375em) {
-        width: var(--space-2xl);
-        height: var(--space-2xl);
-      }
-    }
-
-    &__progress-container {
-      width: 100%;
-      height: var(--space-lg);
-      background-color: var(--bg-secondary);
-      border-radius: var(--radius-md);
-      border: var(--border-width-thin) solid var(--border-primary);
-      overflow: hidden;
-      position: relative;
-      box-shadow: inset 0 0 0 var(--border-width-thin) var(--border-primary);
-
-      @media (min-width: 48em) {
-        height: var(--space-xl);
-      }
-    }
-
-    &__progress-bar {
-      height: var(--height-full);
-      background: linear-gradient(
-        90deg,
-        var(--interactive-primary) 0%,
-        var(--interactive-primary-hover) 100%
-      );
-      border-radius: inherit;
-      position: relative;
-      transition: width var(--transition-normal) ease-out;
-
-      &::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          90deg,
-          transparent 0%,
-          rgba(255, 255, 255, 0.3) 50%,
-          transparent 100%
-        );
-        animation: progressShimmer var(--transition-slow) ease-in-out infinite;
-      }
-    }
-
-    &__circle {
-      position: relative;
-      border-radius: var(--radius-full);
-      border: var(--border-width-enhanced) solid transparent;
-      border-top-color: var(--interactive-primary);
-      border-right-color: var(--border-primary);
-      border-bottom-color: var(--border-primary);
-      border-left-color: var(--border-primary);
-      animation: spinOptimized var(--transition-slow) linear infinite;
-    }
-
-    &__label {
-      font-size: var(--text-xl);
-      font-weight: var(--font-medium);
-      line-height: var(--leading-relaxed);
-      color: var(--text-secondary);
-      letter-spacing: var(--letter-spacing-base);
-
-      @media (max-width: 47.9375em) {
-        font-size: var(--text-base);
-      }
-    }
-  }
-
-  @media (prefers-contrast: high) {
-    .loading-spinner {
-      &__circle {
-        border-top-color: var(--text-primary);
-        border-width: var(--border-width-thick);
-      }
-
-      &__label {
-        color: var(--text-primary);
-        font-weight: var(--font-semibold);
-      }
-
-      &__progress-container {
-        border-width: var(--border-width-thick);
-        background: var(--bg-primary);
-      }
-    }
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    .loading-spinner {
-      min-height: calc(var(--touch-target-enhanced) + var(--space-sm));
-      gap: var(--space-lg);
-      padding: var(--space-lg);
-
-      &__label {
-        font-size: var(--text-lg);
-      }
-
-      &--small,
-      &--medium,
-      &--large {
-        min-width: calc(var(--touch-target-enhanced) + var(--space-md));
-        min-height: calc(var(--touch-target-enhanced) + var(--space-md));
-      }
-
-      &__progress-container {
-        height: calc(var(--space-xl) + var(--space-sm));
-      }
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .loading-spinner__circle,
-    .loading-spinner__progress-bar {
-      animation: none;
-    }
-
-    .loading-spinner__circle {
-      animation: pulse var(--transition-slow) ease-in-out infinite alternate;
-    }
-
-    .loading-spinner__progress-bar::after {
-      animation: none;
-    }
-  }
-
-  .enhanced-text-spacing .loading-spinner {
-    gap: calc(var(--space-lg) * 1.2);
-    padding: calc(var(--space-lg) * 1.2);
-
-    &__label {
-      letter-spacing: var(--letter-spacing-enhanced);
-      word-spacing: var(--word-spacing-enhanced);
-      line-height: var(--leading-enhanced);
-    }
-  }
-
-  @media print {
-    .loading-spinner {
-      background: var(--color-white);
-      border: var(--border-width-thin) solid var(--color-black);
-      box-shadow: none;
-      break-inside: avoid;
-
-      &__circle {
-        border-top-color: var(--color-black);
-        border-right-color: var(--color-gray-300);
-        border-bottom-color: var(--color-gray-300);
-        border-left-color: var(--color-gray-300);
-        animation: none;
-      }
-
-      &__label {
-        color: var(--color-black);
-      }
-
-      &__progress-bar {
-        background: var(--color-black);
-        animation: none;
-      }
-    }
-  }
-
-  @media (forced-colors: active) {
-    .loading-spinner {
-      &__circle {
-        border-top-color: ButtonText;
-        border-right-color: ButtonFace;
-        border-bottom-color: ButtonFace;
-        border-left-color: ButtonFace;
-        forced-color-adjust: none;
-      }
-
-      &__label {
-        color: ButtonText;
-        forced-color-adjust: none;
-      }
-
-      &__progress-container {
-        border: var(--border-width-thin) solid ButtonText;
-        background: ButtonFace;
-      }
-
-      &__progress-bar {
-        background: ButtonText;
-      }
-    }
-  }
-
-  .sr-only {
-    position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    padding: 0;
-    margin: var(--sr-only-margin);
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-</style>
-
 <script>
-  class LoadingSpinner {
-    static #instances = new Map();
-
-    static readonly #contextualAnnouncements = {
-      gameLoading: "Loading game content, please wait",
-      questionLoading: "Loading next question",
-      resultsLoading: "Calculating results",
-      default: "Loading content",
-    };
-
-    #spinner: HTMLElement | null = null;
-    #announcement: HTMLElement | null = null;
-    #progressBar: HTMLElement | null = null;
-    #loadingStartText: string = "";
-    #loadingEndText: string = "";
-    #type: string = "indeterminate";
-    #currentState: string = "normal";
-
-    constructor(id = "loading-spinner") {
-      this.#spinner = document.getElementById(id);
-      this.#announcement = document.getElementById(`${id}-announcement`);
-      this.#progressBar = this.#spinner?.querySelector(".loading-spinner__progress-bar") || null;
-
-      this.#loadingStartText = this.#spinner?.dataset.loadingStart || "Loading started";
-      this.#loadingEndText = this.#spinner?.dataset.loadingEnd || "Loading completed";
-      this.#type = this.#spinner?.dataset.type || "indeterminate";
-      this.#currentState = this.#spinner?.dataset.state || "normal";
-
-      LoadingSpinner.#instances.set(id, this);
-
-      if (!this.#spinner) {
-        console.warn(`LoadingSpinner: Element with ID "${id}" not found in the DOM`);
-      }
+  // Extend Window interface for our utilities
+  declare global {
+    interface Window {
+      LoadingSpinnerUtils: {
+        show: (id?: string) => void;
+        hide: (id?: string) => void;
+        updateProgress: (id?: string, progress?: number) => void;
+        setErrorState: (id?: string) => void;
+        setTimeoutState: (id?: string) => void;
+        resetState: (id?: string) => void;
+      };
     }
-
-    static getInstance(id = "loading-spinner") {
-      return this.#instances.get(id) || new LoadingSpinner(id);
-    }
-
-    show = (): boolean => {
-      if (!this.#spinner) {
-        return false;
-      }
-
-      this.#spinner.classList.remove("hidden");
-      this.#spinner.setAttribute("aria-busy", "true");
-
-      if (this.#announcement) {
-        this.#announcement.textContent = this.#loadingStartText;
-      }
-
-      return true;
-    };
-
-    hide = (): boolean => {
-      if (!this.#spinner) {
-        return false;
-      }
-
-      this.#spinner.classList.add("hidden");
-      this.#spinner.setAttribute("aria-busy", "false");
-
-      if (this.#announcement) {
-        this.#announcement.textContent = this.#loadingEndText;
-      }
-
-      return true;
-    };
-
-    toggle = (): boolean => {
-      if (!this.#spinner) {
-        return false;
-      }
-
-      const isCurrentlyHidden = this.#spinner.classList.contains("hidden");
-      return isCurrentlyHidden ? this.show() : this.hide();
-    };
-
-    isVisible = (): boolean => {
-      return this.#spinner ? !this.#spinner.classList.contains("hidden") : false;
-    };
-
-    showFor = async (durationMs: number): Promise<void> => {
-      this.show();
-
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          this.hide();
-          resolve();
-        }, durationMs);
-      });
-    };
-
-    showWithFocus = (withFocus = true): boolean => {
-      const success = this.show();
-
-      if (success && withFocus && this.#spinner) {
-        this.#spinner.setAttribute("tabindex", "-1");
-        this.#spinner.focus();
-
-        setTimeout(() => {
-          this.#spinner?.removeAttribute("tabindex");
-        }, 1000);
-      }
-
-      return success;
-    };
-
-    updateProgress = (progress: number, announcement?: string): boolean => {
-      if (!this.#spinner || this.#type !== "determinate") {
-        return false;
-      }
-
-      const clampedProgress = Math.max(0, Math.min(100, progress));
-
-      this.#spinner.setAttribute("aria-valuenow", clampedProgress.toString());
-
-      if (this.#progressBar) {
-        this.#progressBar.style.width = `${clampedProgress}%`;
-      }
-
-      const label = this.#spinner.querySelector(".loading-spinner__label");
-      if (label) {
-        const baseText = label.textContent?.split(" (")[0] || "Loading";
-        label.textContent = `${baseText} (${clampedProgress}%)`;
-      }
-
-      if (this.#announcement) {
-        const progressAnnouncement = announcement || `Progress: ${clampedProgress} percent`;
-        this.#announcement.textContent = progressAnnouncement;
-      }
-
-      return true;
-    };
-
-    setErrorState = (errorMessage?: string): boolean => {
-      if (!this.#spinner) {
-        return false;
-      }
-
-      this.#currentState = "error";
-      this.#spinner.dataset.state = "error";
-      this.#spinner.classList.add("loading-spinner--error");
-      this.#spinner.classList.remove("loading-spinner--timeout");
-
-      this.#spinner.setAttribute("role", "alert");
-      this.#spinner.setAttribute("aria-busy", "false");
-
-      if (this.#announcement) {
-        const errorAnnouncement = errorMessage || "Loading failed due to an error";
-        this.#announcement.textContent = errorAnnouncement;
-      }
-
-      return true;
-    };
-
-    setTimeoutState = (timeoutMessage?: string): boolean => {
-      if (!this.#spinner) {
-        return false;
-      }
-
-      this.#currentState = "timeout";
-      this.#spinner.dataset.state = "timeout";
-      this.#spinner.classList.add("loading-spinner--timeout");
-      this.#spinner.classList.remove("loading-spinner--error");
-
-      this.#spinner.setAttribute("role", "alert");
-      this.#spinner.setAttribute("aria-busy", "false");
-
-      if (this.#announcement) {
-        const timeoutAnnouncement = timeoutMessage || "Loading timed out, please try again";
-        this.#announcement.textContent = timeoutAnnouncement;
-      }
-
-      return true;
-    };
-
-    resetState = (): boolean => {
-      if (!this.#spinner) {
-        return false;
-      }
-
-      this.#currentState = "normal";
-      this.#spinner.dataset.state = "normal";
-      this.#spinner.classList.remove("loading-spinner--error", "loading-spinner--timeout");
-
-      const role = this.#type === "determinate" ? "progressbar" : "status";
-      this.#spinner.setAttribute("role", role);
-
-      return true;
-    };
-
-    getState = (): string => {
-      return this.#currentState;
-    };
-
-    setContextualAnnouncement = (context: string, customMessage?: string): boolean => {
-      if (!this.#announcement) {
-        return false;
-      }
-
-      const announcements = LoadingSpinner.#contextualAnnouncements;
-      const message =
-        customMessage ||
-        (announcements as Record<string, string>)[context] ||
-        announcements.default;
-
-      this.#announcement.textContent = message;
-      return true;
-    };
   }
 
-  (window as unknown as Record<string, unknown>).LoadingSpinner = LoadingSpinner;
+  // Simple loading spinner functionality
+  document.addEventListener("DOMContentLoaded", () => {
+    // Basic show/hide functionality
+    const showSpinner = (id = "loading-spinner") => {
+      const spinner = document.getElementById(id);
+      if (spinner) {
+        spinner.classList.remove("hidden");
+        spinner.setAttribute("aria-busy", "true");
+      }
+    };
 
-  document.addEventListener("astro:page-load", () => {
+    const hideSpinner = (id = "loading-spinner") => {
+      const spinner = document.getElementById(id);
+      if (spinner) {
+        spinner.classList.add("hidden");
+        spinner.setAttribute("aria-busy", "false");
+      }
+    };
+
+    // Update progress for determinate spinners
+    const updateProgress = (id = "loading-spinner", progress = 0) => {
+      const spinner = document.getElementById(id);
+      if (spinner && spinner.dataset.type === "determinate") {
+        const clampedProgress = Math.max(0, Math.min(100, progress));
+        spinner.setAttribute("aria-valuenow", clampedProgress.toString());
+
+        const progressBar = spinner.querySelector(".h-full") as HTMLElement;
+        if (progressBar) {
+          progressBar.style.width = `${clampedProgress}%`;
+        }
+
+        const label = spinner.querySelector(".text-xl");
+        if (label) {
+          const baseText = label.textContent?.split(" (")[0] || "Loading";
+          label.textContent = `${baseText} (${clampedProgress}%)`;
+        }
+      }
+    };
+
+    // Set error state
+    const setErrorState = (id = "loading-spinner") => {
+      const spinner = document.getElementById(id);
+      if (spinner) {
+        spinner.classList.remove("border-yellow-600", "bg-yellow-50", "border-yellow-200");
+        spinner.classList.add("border-red-600", "bg-red-50", "border-red-200");
+        spinner.setAttribute("role", "alert");
+        spinner.setAttribute("aria-busy", "false");
+      }
+    };
+
+    // Set timeout state
+    const setTimeoutState = (id = "loading-spinner") => {
+      const spinner = document.getElementById(id);
+      if (spinner) {
+        spinner.classList.remove("border-red-600", "bg-red-50", "border-red-200");
+        spinner.classList.add("border-yellow-600", "bg-yellow-50", "border-yellow-200");
+        spinner.setAttribute("role", "alert");
+        spinner.setAttribute("aria-busy", "false");
+      }
+    };
+
+    // Reset to normal state
+    const resetState = (id = "loading-spinner") => {
+      const spinner = document.getElementById(id);
+      if (spinner) {
+        spinner.classList.remove(
+          "border-red-600",
+          "bg-red-50",
+          "border-red-200",
+          "border-yellow-600",
+          "bg-yellow-50",
+          "border-yellow-200"
+        );
+        const role = spinner.dataset.type === "determinate" ? "progressbar" : "status";
+        spinner.setAttribute("role", role);
+      }
+    };
+
+    // Make functions globally available
+    window.LoadingSpinnerUtils = {
+      show: showSpinner,
+      hide: hideSpinner,
+      updateProgress,
+      setErrorState,
+      setTimeoutState,
+      resetState,
+    };
+
+    // Auto-hide spinners on page load
     document.querySelectorAll('[role="status"][aria-busy="true"]').forEach((el) => {
       const id = el.id;
       if (id) {
-        LoadingSpinner.getInstance(id).hide();
+        hideSpinner(id);
       }
     });
   });

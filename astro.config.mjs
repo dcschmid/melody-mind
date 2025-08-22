@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 import node from "@astrojs/node";
 import path from "path";
+import tailwindcss from "@tailwindcss/vite";
 
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
@@ -18,7 +19,10 @@ export default defineConfig({
     defaultStrategy: "viewport",
     prefetchAll: true,
   },
-
+  // Experimental features for better caching
+  experimental: {
+    // contentCollectionCache: true, // Removed - not a valid experimental feature
+  },
   // Astro 5.0+ optimizations
   build: {
     inlineStylesheets: "auto",
@@ -66,8 +70,8 @@ export default defineConfig({
       customPages: ["https://melody-mind.de/sitemap-index.xml"],
     }),
     metaTags(),
-    // SWC-based HTML minification - place at end of integrations
-    minify(),
+    // HTML minification disabled due to memory issues with large projects
+    // minify(),
   ],
   adapter: node({
     mode: "standalone",
@@ -93,6 +97,7 @@ export default defineConfig({
     },
   },
   vite: {
+    plugins: [tailwindcss()],
     resolve: {
       alias: {
         "@json": path.resolve("./src/json"),

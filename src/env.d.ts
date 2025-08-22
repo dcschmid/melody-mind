@@ -1,4 +1,4 @@
-/// <reference path="../.astro/types.d.ts" />
+// import type { AstroGlobal } from "astro";
 /// <reference types="astro/client" />
 
 // Fathom Analytics interface
@@ -15,6 +15,8 @@ declare interface Window {
 declare namespace App {
   interface Locals {
     // No authentication needed anymore
+    // This empty interface is intentional for future extensibility
+    _placeholder?: never;
   }
 }
 
@@ -23,7 +25,7 @@ declare module "astro:content" {
     ".md": Promise<{
       Content: import("astro").MarkdownComponent;
       headings: import("astro").MarkdownHeading[];
-      remarkPluginFrontmatter: Record<string, any>;
+      remarkPluginFrontmatter: Record<string, unknown>;
     }>;
   }
 
