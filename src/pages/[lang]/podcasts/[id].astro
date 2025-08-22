@@ -29,7 +29,7 @@ export const getStaticPaths = async () => {
   ];
 
   const podcasts = enPodcastsJson.podcasts;
-  const paths = [];
+  const paths: Array<{ params: { lang: string; id: string } }> = [];
 
   // Generate paths for all languages and all podcast IDs
   supportedLanguages.forEach((lang) => {
@@ -153,555 +153,340 @@ const { prev, next } = getNavigationPodcasts();
     <meta name="twitter:image" content={new URL(podcast.imageUrl, baseUrl).toString()} />
   </Fragment>
 
-  <div class="podcast-detail-page">
-    <!-- Navigation Back -->
-    <nav class="podcast-navigation" aria-label="Podcast navigation">
-      <a href={`/${lang}/podcasts`} class="podcast-navigation__back"> ← Back to All Podcasts </a>
-    </nav>
+  <main class="min-h-screen bg-gray-900 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Navigation Back -->
+      <nav class="mb-8" aria-label="Podcast navigation">
+        <a
+          href={`/${lang}/podcasts`}
+          class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-semibold text-sm px-3 py-2 rounded-lg hover:bg-purple-500/10 transition-all duration-300 hover:-translate-x-1"
+        >
+          ← Back to All Podcasts
+        </a>
+      </nav>
 
-    <!-- Hero Section -->
-    <header class="podcast-hero" aria-labelledby="podcast-title">
-      <div class="podcast-hero__content">
-        <div class="podcast-hero__image">
-          <img
-            src={podcast.imageUrl}
-            alt={podcast.title}
-            width="200"
-            height="200"
-            loading="eager"
-          />
-        </div>
+      <!-- Hero Section -->
+      <section class="bg-gray-800 border border-gray-700 rounded-2xl p-8 mb-12 shadow-xl">
+        <div class="flex gap-8 mb-8 md:flex-row flex-col md:text-left text-center">
+          <div class="flex-shrink-0">
+            <img
+              src={podcast.imageUrl}
+              alt={podcast.title}
+              width="200"
+              height="200"
+              loading="eager"
+              class="w-48 h-48 rounded-2xl shadow-2xl"
+            />
+          </div>
 
-        <div class="podcast-hero__meta">
-          <Headline level="h1" size="3xl" className="podcast-hero__title" id="podcast-title">
-            {podcast.title}
-          </Headline>
+          <div class="flex-1">
+            <Headline level="h1" textSize="3xl" className="mb-4 text-white">
+              {podcast.title}
+            </Headline>
 
-          <Paragraph className="podcast-hero__description">
-            {podcast.description}
-          </Paragraph>
+            <Paragraph textSize="lg" className="text-gray-300 mb-6">
+              {podcast.description}
+            </Paragraph>
 
-          <div class="podcast-hero__details">
-            <time class="podcast-hero__date" datetime={podcast.publishedAt}>
-              📅 {formatDate(podcast.publishedAt)}
-            </time>
-            <span class="podcast-hero__episode">🎙️ Episode</span>
+            <div class="flex gap-6 items-center md:justify-start justify-center flex-wrap">
+              <time class="text-gray-400 text-sm" datetime={podcast.publishedAt}>
+                📅 {formatDate(podcast.publishedAt)}
+              </time>
+              <span class="text-gray-400 text-sm">🎙️ Episode</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Audio Player */}
-      {
-        podcast.audioUrl && (
-          <div class="podcast-audio-player">
-            <h2 class="podcast-audio-player__title">Listen to Episode</h2>
-            {/* eslint-disable-next-line astro/jsx-a11y/media-has-caption */}
-            <audio controls class="podcast-audio-player__controls" preload="metadata">
-              <source src={podcast.audioUrl} type="audio/mpeg" />
-              {podcast.subtitleUrl && (
-                <track kind="captions" src={podcast.subtitleUrl} label="English" />
-              )}
-              Your browser does not support the audio element.
-            </audio>
-            <div class="podcast-audio-player__links">
-              <a
-                href={podcast.audioUrl}
-                class="podcast-audio-player__download"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                📥 Download Audio
-              </a>
-              {podcast.subtitleUrl && (
+        {/* Audio Player */}
+        {
+          podcast.audioUrl && (
+            <div class="bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 border border-gray-600 rounded-2xl p-8 text-center shadow-xl">
+              <Headline level="h2" textSize="lg" className="mb-6 text-white">
+                🎧 Listen to Episode
+              </Headline>
+
+              {/* Functional Audio Player */}
+              <div class="bg-gray-900 rounded-xl p-6 mb-6 border border-gray-600 shadow-inner">
+                <div class="flex items-center justify-center gap-4 mb-4">
+                  <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                  <div class="text-left">
+                    <div class="text-white font-semibold text-lg">{podcast.title}</div>
+                    <div class="text-gray-400 text-sm">Podcast Episode</div>
+                  </div>
+                </div>
+
+                {/* Hidden Audio Element */}
+                {/* eslint-disable-next-line astro/jsx-a11y/media-has-caption */}
+                <audio id="podcast-audio" preload="metadata" class="hidden">
+                  <source src={podcast.audioUrl} type="audio/mpeg" />
+                  {podcast.subtitleUrl ? (
+                    <track kind="captions" src={podcast.subtitleUrl} label="English" />
+                  ) : (
+                    <track kind="captions" src="" label="No captions available" />
+                  )}
+                  Your browser does not support the audio element.
+                </audio>
+
+                {/* Progress Bar */}
+                <div
+                  class="w-full bg-gray-700 rounded-full h-2 mb-4 cursor-pointer"
+                  id="progress-container"
+                >
+                  <div
+                    class="bg-gradient-to-r from-purple-500 to-blue-500 h-2 rounded-full transition-all duration-300"
+                    id="progress-bar"
+                    style="width: 0%"
+                  />
+                </div>
+
+                {/* Time Display */}
+                <div class="flex justify-between text-gray-400 text-sm mb-4">
+                  <span id="current-time">0:00</span>
+                  <span id="total-time">0:00</span>
+                </div>
+
+                {/* Audio Controls */}
+                <div class="flex items-center justify-center gap-6">
+                  <button
+                    class="text-gray-400 hover:text-white transition-colors duration-200"
+                    id="rewind-btn"
+                    title="Rewind 10s"
+                  >
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z" />
+                    </svg>
+                  </button>
+                  <button
+                    class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center hover:bg-purple-700 transition-colors duration-200 shadow-lg"
+                    id="play-pause-btn"
+                  >
+                    <svg
+                      class="w-8 h-8 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      id="play-icon"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                    <svg
+                      class="w-8 h-8 text-white hidden"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      id="pause-icon"
+                    >
+                      <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                    </svg>
+                  </button>
+                  <button
+                    class="text-gray-400 hover:text-white transition-colors duration-200"
+                    id="forward-btn"
+                    title="Forward 10s"
+                  >
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div class="flex justify-center gap-4 flex-wrap">
                 <a
-                  href={podcast.subtitleUrl}
-                  class="podcast-audio-player__subtitles"
+                  href={podcast.audioUrl}
+                  class="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl font-semibold text-sm hover:from-purple-700 hover:to-purple-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  📝 View Subtitles
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+                  </svg>
+                  Download Audio
+                </a>
+                {podcast.subtitleUrl && (
+                  <a
+                    href={podcast.subtitleUrl}
+                    class="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold text-sm hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                    </svg>
+                    View Subtitles
+                  </a>
+                )}
+              </div>
+            </div>
+          )
+        }
+      </section>
+
+      <!-- Main Content -->
+      <section class="mb-12">
+        <article class="bg-gray-800 border border-gray-700 rounded-2xl p-8 shadow-lg">
+          <div class="prose prose-invert prose-lg max-w-none" set:html={podcast.showNotesHtml} />
+        </article>
+      </section>
+
+      {/* Navigation Between Episodes */}
+      {
+        (prev || next) && (
+          <nav class="mb-12" aria-label="Episode navigation">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {prev && (
+                <a
+                  href={`/${lang}/podcasts/${prev.id}`}
+                  class="flex items-center gap-4 p-6 bg-gray-800 border border-gray-700 rounded-xl text-white hover:bg-gray-700 hover:border-gray-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                >
+                  <span class="text-2xl text-purple-400">←</span>
+                  <div class="flex-1">
+                    <span class="block text-xs text-gray-400 uppercase tracking-wide mb-1">
+                      Previous Episode
+                    </span>
+                    <span class="block font-semibold text-sm leading-tight">{prev.title}</span>
+                  </div>
+                </a>
+              )}
+
+              {next && (
+                <a
+                  href={`/${lang}/podcasts/${next.id}`}
+                  class="flex items-center gap-4 p-6 bg-gray-800 border border-gray-700 rounded-xl text-white hover:bg-gray-700 hover:border-gray-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 md:col-start-2"
+                >
+                  <div class="flex-1 text-right">
+                    <span class="block text-xs text-gray-400 uppercase tracking-wide mb-1">
+                      Next Episode
+                    </span>
+                    <span class="block font-semibold text-sm leading-tight">{next.title}</span>
+                  </div>
+                  <span class="text-2xl text-purple-400">→</span>
                 </a>
               )}
             </div>
-          </div>
+          </nav>
         )
       }
-    </header>
 
-    <!-- Main Content -->
-    <main class="podcast-main">
-      <article class="podcast-content">
-        <div class="podcast-content__body" set:html={podcast.showNotesHtml} />
-      </article>
-    </main>
-
-    <!-- Navigation Between Episodes -->
-    {
-      (prev || next) && (
-        <nav class="podcast-episode-navigation" aria-label="Episode navigation">
-          {prev && (
-            <a href={`/${lang}/podcasts/${prev.id}`} class="podcast-episode-navigation__prev">
-              <span class="podcast-episode-navigation__arrow">←</span>
-              <div class="podcast-episode-navigation__content">
-                <span class="podcast-episode-navigation__label">Previous Episode</span>
-                <span class="podcast-episode-navigation__title">{prev.title}</span>
-              </div>
-            </a>
-          )}
-
-          {next && (
-            <a href={`/${lang}/podcasts/${next.id}`} class="podcast-episode-navigation__next">
-              <div class="podcast-episode-navigation__content">
-                <span class="podcast-episode-navigation__label">Next Episode</span>
-                <span class="podcast-episode-navigation__title">{next.title}</span>
-              </div>
-              <span class="podcast-episode-navigation__arrow">→</span>
-            </a>
-          )}
-        </nav>
-      )
-    }
-
-    <!-- Call to Action -->
-    <div class="podcast-cta">
-      <Headline level="h2" size="xl" className="podcast-cta__title">
-        Want More Music Stories?
-      </Headline>
-      <Paragraph className="podcast-cta__description">
-        Explore our complete collection of podcast episodes and discover the fascinating world of
-        music history, culture, and innovation.
-      </Paragraph>
-      <a href={`/${lang}/podcasts`} class="podcast-cta__button"> Browse All Episodes </a>
+      {/* Call to Action */}
+      <div
+        class="w-full text-center p-12 bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 rounded-2xl border border-purple-500/30 shadow-2xl"
+      >
+        <Headline level="h2" textSize="xl" className="mb-4 text-white">
+          Want More Music Stories?
+        </Headline>
+        <Paragraph className="text-gray-300 text-lg mb-8">
+          Explore our complete collection of podcast episodes and discover the fascinating world of
+          music history, culture, and innovation.
+        </Paragraph>
+        <a
+          href={`/${lang}/podcasts`}
+          class="inline-flex items-center gap-2 px-8 py-4 bg-purple-600 text-white rounded-xl font-semibold text-base hover:bg-purple-700 transition-colors duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+        >
+          Browse All Episodes
+        </a>
+      </div>
     </div>
-  </div>
-</Layout>
+  </main>
 
-<style lang="scss">
-  /* ======================================
-   * PODCAST DETAIL PAGE STYLES
-   * BEM Methodology + Global Variables + Mobile-First
-   * ====================================== */
+  <script>
+    // Audio Player Functionality
+    document.addEventListener("DOMContentLoaded", () => {
+      const audio = document.getElementById("podcast-audio") as HTMLAudioElement;
+      const playPauseBtn = document.getElementById("play-pause-btn") as HTMLButtonElement;
+      const playIcon = document.getElementById("play-icon") as HTMLElement;
+      const pauseIcon = document.getElementById("pause-icon") as HTMLElement;
+      const progressBar = document.getElementById("progress-bar") as HTMLElement;
+      const progressContainer = document.getElementById("progress-container") as HTMLElement;
+      const currentTimeSpan = document.getElementById("current-time") as HTMLElement;
+      const totalTimeSpan = document.getElementById("total-time") as HTMLElement;
+      const rewindBtn = document.getElementById("rewind-btn") as HTMLButtonElement;
+      const forwardBtn = document.getElementById("forward-btn") as HTMLButtonElement;
 
-  .podcast-detail-page {
-    width: 100%;
-    max-width: var(--container-xl);
-    margin: 0 auto;
-    padding: var(--space-xs);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xl);
-    min-height: 100vh;
-    box-sizing: border-box;
-    contain: layout style paint;
-  }
-
-  /* ======================================
-   * NAVIGATION BACK
-   * ====================================== */
-  .podcast-navigation {
-    contain: layout style;
-
-    &__back {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-sm);
-      color: var(--color-primary-600);
-      text-decoration: none;
-      font-weight: var(--font-semibold);
-      font-size: var(--text-sm);
-      padding: var(--space-sm);
-      border-radius: var(--radius-lg);
-      transition: all var(--transition-normal);
-      contain: layout style paint;
-
-      &:hover {
-        color: var(--color-primary-700);
-        background: var(--color-primary-50);
-        transform: translateX(-2px);
+      if (!audio || !playPauseBtn || !progressBar || !progressContainer) {
+        return;
       }
 
-      &:focus {
-        outline: var(--focus-ring);
-        outline-offset: var(--focus-ring-offset);
-      }
-    }
-  }
-
-  /* ======================================
-   * HERO SECTION
-   * ====================================== */
-  .podcast-hero {
-    background: var(--bg-primary);
-    border: var(--border-width-thin) solid var(--border-primary);
-    border-radius: var(--radius-xl);
-    padding: var(--space-xl);
-    box-shadow: var(--shadow-lg);
-    contain: layout style paint;
-
-    &__content {
-      display: flex;
-      gap: var(--space-xl);
-      margin-bottom: var(--space-xl);
-      contain: layout style;
-
-      @media (max-width: 768px) {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-
-    &__image {
-      flex-shrink: 0;
-      contain: layout style paint;
-
-      img {
-        width: 200px;
-        height: 200px;
-        border-radius: var(--radius-xl);
-        object-fit: cover;
-        box-shadow: var(--shadow-lg);
-        contain: layout style paint;
-      }
-    }
-
-    &__meta {
-      flex: 1;
-      contain: layout style;
-    }
-
-    &__title {
-      margin: 0 0 var(--space-md) 0;
-      color: var(--text-primary);
-      line-height: var(--leading-tight);
-      contain: layout style;
-    }
-
-    &__description {
-      color: var(--text-secondary);
-      font-size: var(--text-lg);
-      line-height: var(--leading-relaxed);
-      margin: 0 0 var(--space-lg) 0;
-      contain: layout style;
-    }
-
-    &__details {
-      display: flex;
-      gap: var(--space-lg);
-      align-items: center;
-      contain: layout style;
-
-      @media (max-width: 768px) {
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-    }
-
-    &__date,
-    &__episode {
-      color: var(--text-tertiary);
-      font-size: var(--text-sm);
-      contain: layout style;
-    }
-  }
-
-  /* ======================================
-   * AUDIO PLAYER
-   * ====================================== */
-  .podcast-audio-player {
-    background: var(--bg-secondary);
-    border: var(--border-width-thin) solid var(--border-secondary);
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    text-align: center;
-    contain: layout style paint;
-
-    &__title {
-      margin: 0 0 var(--space-md) 0;
-      color: var(--text-primary);
-      font-size: var(--text-lg);
-      contain: layout style;
-    }
-
-    &__controls {
-      width: 100%;
-      max-width: 500px;
-      margin: 0 auto var(--space-lg);
-      contain: layout style paint;
-    }
-
-    &__links {
-      display: flex;
-      justify-content: center;
-      gap: var(--space-md);
-      flex-wrap: wrap;
-      contain: layout style;
-    }
-
-    &__download,
-    &__subtitles {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-sm);
-      padding: var(--space-sm) var(--space-md);
-      border-radius: var(--radius-lg);
-      text-decoration: none;
-      font-weight: var(--font-semibold);
-      font-size: var(--text-sm);
-      min-height: var(--touch-target-enhanced);
-      transition: all var(--transition-normal);
-      contain: layout style paint;
-    }
-
-    &__download {
-      background: var(--color-primary-600);
-      color: var(--color-white);
-      border: var(--border-width-thin) solid var(--color-primary-600);
-
-      &:hover {
-        background: var(--color-primary-700);
-        border-color: var(--color-primary-700);
-        transform: translateY(var(--animation-y-offset-small));
-      }
-    }
-
-    &__subtitles {
-      background: var(--color-secondary-600);
-      color: var(--color-white);
-      border: var(--border-width-thin) solid var(--color-secondary-600);
-
-      &:hover {
-        background: var(--color-secondary-700);
-        border-color: var(--color-secondary-700);
-        transform: translateY(var(--animation-y-offset-small));
-      }
-    }
-  }
-
-  /* ======================================
-   * MAIN CONTENT
-   * ====================================== */
-  .podcast-main {
-    flex: 1;
-    contain: layout style;
-  }
-
-  .podcast-content {
-    background: var(--bg-primary);
-    border: var(--border-width-thin) solid var(--border-primary);
-    border-radius: var(--radius-xl);
-    padding: var(--space-xl);
-    box-shadow: var(--shadow-md);
-    contain: layout style paint;
-
-    &__body {
-      color: var(--text-primary);
-      line-height: var(--leading-relaxed);
-      contain: layout style;
-
-      /* Style the HTML content from showNotesHtml */
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        color: var(--text-primary);
-        margin: var(--space-lg) 0 var(--space-md) 0;
-        font-weight: var(--font-semibold);
-        contain: layout style;
+      // Format time in MM:SS
+      function formatTime(seconds: number): string {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, "0")}`;
       }
 
-      h2 {
-        font-size: var(--text-xl);
-        border-bottom: var(--border-width-thin) solid var(--border-secondary);
-        padding-bottom: var(--space-sm);
-      }
+      // Update progress bar and time display
+      function updateProgress() {
+        if (audio.duration && !isNaN(audio.duration)) {
+          const progress = (audio.currentTime / audio.duration) * 100;
+          progressBar.style.width = `${progress}%`;
+          currentTimeSpan.textContent = formatTime(audio.currentTime);
 
-      h3 {
-        font-size: var(--text-lg);
-      }
-
-      p {
-        margin: 0 0 var(--space-md) 0;
-        contain: layout style;
-      }
-
-      ul,
-      ol {
-        margin: 0 0 var(--space-md) 0;
-        padding-left: var(--space-lg);
-        contain: layout style;
-      }
-
-      li {
-        margin: 0 0 var(--space-sm) 0;
-        contain: layout style;
-      }
-
-      a {
-        color: var(--color-primary-600);
-        text-decoration: underline;
-        transition: color var(--transition-normal);
-        contain: layout style;
-
-        &:hover {
-          color: var(--color-primary-700);
+          // Update total time if it's still 0:00
+          if (totalTimeSpan.textContent === "0:00") {
+            totalTimeSpan.textContent = formatTime(audio.duration);
+          }
         }
       }
 
-      strong,
-      b {
-        font-weight: var(--font-semibold);
-        contain: layout style;
-      }
+      // Update total time when metadata is loaded
+      audio.addEventListener("loadedmetadata", () => {
+        if (audio.duration && !isNaN(audio.duration)) {
+          totalTimeSpan.textContent = formatTime(audio.duration);
+        }
+      });
 
-      em,
-      i {
-        font-style: italic;
-        contain: layout style;
-      }
+      // Also try to get duration when canplay event fires
+      audio.addEventListener("canplay", () => {
+        if (audio.duration && !isNaN(audio.duration) && totalTimeSpan.textContent === "0:00") {
+          totalTimeSpan.textContent = formatTime(audio.duration);
+        }
+      });
 
-      small {
-        font-size: var(--text-sm);
-        color: var(--text-tertiary);
-        contain: layout style;
-      }
+      // Update progress during playback
+      audio.addEventListener("timeupdate", updateProgress);
 
-      blockquote {
-        border-left: var(--border-width-thick) solid var(--color-primary-400);
-        padding-left: var(--space-lg);
-        margin: var(--space-lg) 0;
-        font-style: italic;
-        color: var(--text-secondary);
-        contain: layout style;
-      }
-    }
-  }
+      // Play/Pause functionality
+      playPauseBtn.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+          playIcon.classList.add("hidden");
+          pauseIcon.classList.remove("hidden");
+        } else {
+          audio.pause();
+          playIcon.classList.remove("hidden");
+          pauseIcon.classList.add("hidden");
+        }
+      });
 
-  /* ======================================
-   * EPISODE NAVIGATION
-   * ====================================== */
-  .podcast-episode-navigation {
-    display: flex;
-    gap: var(--space-md);
-    contain: layout style;
+      // Progress bar click to seek
+      progressContainer.addEventListener("click", (e) => {
+        const rect = progressContainer.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const width = rect.width;
+        const clickTime = (clickX / width) * audio.duration;
+        audio.currentTime = clickTime;
+      });
 
-    @media (max-width: 768px) {
-      flex-direction: column;
-    }
+      // Rewind 10 seconds
+      rewindBtn.addEventListener("click", () => {
+        audio.currentTime = Math.max(0, audio.currentTime - 10);
+      });
 
-    &__prev,
-    &__next {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      gap: var(--space-md);
-      padding: var(--space-lg);
-      background: var(--bg-primary);
-      border: var(--border-width-thin) solid var(--border-primary);
-      border-radius: var(--radius-lg);
-      text-decoration: none;
-      color: var(--text-primary);
-      transition: all var(--transition-normal);
-      box-shadow: var(--shadow-md);
-      contain: layout style paint;
+      // Forward 10 seconds
+      forwardBtn.addEventListener("click", () => {
+        audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
+      });
 
-      &:hover {
-        transform: translateY(var(--animation-y-offset-small));
-        box-shadow: var(--shadow-lg);
-        border-color: var(--border-primary-hover);
-        background: var(--bg-secondary);
-      }
-    }
-
-    &__next {
-      text-align: right;
-      justify-content: flex-end;
-    }
-
-    &__arrow {
-      font-size: var(--text-xl);
-      font-weight: var(--font-bold);
-      color: var(--color-primary-600);
-      contain: layout style;
-    }
-
-    &__content {
-      flex: 1;
-      contain: layout style;
-    }
-
-    &__label {
-      display: block;
-      font-size: var(--text-xs);
-      text-transform: uppercase;
-      letter-spacing: var(--letter-spacing-enhanced);
-      color: var(--text-tertiary);
-      margin-bottom: var(--space-2xs);
-      contain: layout style;
-    }
-
-    &__title {
-      display: block;
-      font-weight: var(--font-semibold);
-      font-size: var(--text-sm);
-      line-height: var(--leading-tight);
-      contain: layout style;
-    }
-  }
-
-  /* ======================================
-   * CALL TO ACTION
-   * ====================================== */
-  .podcast-cta {
-    text-align: center;
-    padding: var(--space-2xl) var(--space-lg);
-    background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-primary-100) 100%);
-    border-radius: var(--radius-xl);
-    border: var(--border-width-thick) solid var(--color-primary-200);
-    contain: layout style paint;
-
-    &__title {
-      color: var(--color-primary-900);
-      margin: 0 0 var(--space-md) 0;
-      contain: layout style;
-    }
-
-    &__description {
-      color: var(--color-primary-700);
-      font-size: var(--text-lg);
-      line-height: var(--leading-relaxed);
-      max-width: var(--container-sm);
-      margin: 0 auto var(--space-lg);
-      contain: layout style;
-    }
-
-    &__button {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-sm);
-      padding: var(--space-md) var(--space-xl);
-      background: var(--color-primary-600);
-      color: var(--color-white);
-      text-decoration: none;
-      border-radius: var(--radius-lg);
-      font-weight: var(--font-semibold);
-      font-size: var(--text-base);
-      min-height: var(--touch-target-enhanced);
-      transition: all var(--transition-normal);
-      box-shadow: var(--shadow-md);
-      contain: layout style paint;
-
-      &:hover {
-        background: var(--color-primary-700);
-        transform: translateY(var(--animation-y-offset-small));
-        box-shadow: var(--shadow-lg);
-      }
-
-      &:focus {
-        outline: var(--focus-ring);
-        outline-offset: var(--focus-ring-offset);
-      }
-    }
-  }
-</style>
+      // Handle audio end
+      audio.addEventListener("ended", () => {
+        playIcon.classList.remove("hidden");
+        pauseIcon.classList.add("hidden");
+        progressBar.style.width = "0%";
+        currentTimeSpan.textContent = "0:00";
+      });
+    });
+  </script>
+</Layout>

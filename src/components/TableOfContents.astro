@@ -13,7 +13,7 @@
  * - Visual feedback for hover and focus states
  * - Support for reduced motion preferences
  * - Performance optimized with smooth animations
- * - Uses global.css variables for consistent theming
+ * - Uses Tailwind CSS 4 for consistent theming
  *
  * @component
  * @accessibility WCAG AAA compliant
@@ -68,44 +68,57 @@ const tocTitle = title || t("toc.nav.label");
 
 {
   hasHeadings && (
-    <div class="toc">
-      <div class="toc__wrapper">
+    <div class="relative">
+      <div class="relative">
         <button
           id="toc-toggle"
           aria-expanded="false"
           aria-controls="toc-content"
           aria-label={t("toc.toggle.label")}
-          class="toc__toggle"
+          class="flex w-full items-center justify-between rounded-lg border border-gray-600 bg-gray-800 px-4 py-3 text-left text-base font-medium text-white shadow-lg transition-all duration-300 hover:bg-gray-700 hover:border-gray-500 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-purple-500/60 focus:ring-offset-2 focus:ring-offset-gray-900 min-h-[44px]"
         >
-          <span class="toc__title-wrapper">
-            <Icon name="menu" class="toc__icon toc__icon--menu" aria-hidden="true" />
+          <span class="flex items-center gap-3">
+            <Icon name="menu" class="h-5 w-5 text-purple-400" aria-hidden="true" />
             <span>{tocTitle}</span>
           </span>
           <span
-            class="toc__state"
+            class="sr-only"
             data-expanded={t("toc.state.expanded")}
             data-collapsed={t("toc.state.collapsed")}
           >
             {t("toc.state.collapsed")}
           </span>
-          <Icon name="chevron-down" class="toc__icon toc__icon--chevron" aria-hidden="true" />
+          <Icon
+            name="chevron-down"
+            id="toc-icon"
+            class="h-5 w-5 text-gray-400 transition-transform duration-300"
+            aria-hidden="true"
+          />
         </button>
 
         <div
           id="toc-content"
           aria-labelledby="toc-toggle"
-          class="toc__content toc__content--hidden"
+          class="mt-3 overflow-hidden rounded-lg border border-gray-600 bg-gray-800 shadow-lg backdrop-blur-sm transition-all duration-300"
+          style="max-height: 0; opacity: 0;"
         >
-          <nav aria-label={t("toc.nav.label")} class="toc__nav">
-            <a href="#article-content" class="toc__skip-link">
+          <nav aria-label={t("toc.nav.label")} class="p-4">
+            <a
+              href="#article-content"
+              class="mb-4 block text-sm text-purple-400 no-underline transition-colors duration-200 hover:underline hover:underline-offset-2 focus:outline-none focus:ring-2 focus:ring-purple-500/60 focus:ring-offset-2 focus:ring-offset-gray-900"
+            >
               {t("toc.skip.link")}
             </a>
-            <ul class="toc__list">
+            <ul class="max-h-[50vh] overflow-y-auto p-0 m-0 list-none scrollbar-thin scrollbar-track-gray-700 scrollbar-thumb-gray-500 hover:scrollbar-thumb-gray-400">
               {filteredHeadings.map((heading) => (
-                <li class={`toc__item ${heading.depth === 3 ? "toc__item--nested" : ""}`}>
+                <li class={`mb-1 ${heading.depth === 3 ? "ml-4" : ""}`}>
                   <a
                     href={`#${heading.slug}`}
-                    class={`toc__link ${heading.depth === 2 ? "toc__link--primary" : "toc__link--secondary"}`}
+                    class={`block rounded-md px-3 py-2 text-decoration-none min-h-[44px] leading-relaxed transition-all duration-200 ${
+                      heading.depth === 2
+                        ? "text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/60 focus:ring-offset-2 focus:ring-offset-gray-900"
+                        : "text-xs font-normal text-gray-400 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white focus:outline-none focus:ring-2 focus:ring-purple-500/60 focus:ring-offset-2 focus:ring-offset-gray-900"
+                    }`}
                   >
                     {heading.text}
                   </a>
@@ -120,311 +133,30 @@ const tocTitle = title || t("toc.nav.label");
 }
 
 <script>
-  document.addEventListener("DOMContentLoaded", (): void => {
-    const tocToggle = document.getElementById("toc-toggle") as HTMLButtonElement | null;
-    const tocContent = document.getElementById("toc-content") as HTMLElement | null;
-    const tocIcon = document.querySelector(".toc__icon--chevron") as HTMLElement | null;
-    const tocState = document.querySelector(".toc__state") as HTMLElement | null;
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("toc-toggle") as HTMLButtonElement;
+    const content = document.getElementById("toc-content") as HTMLElement;
+    const icon = document.getElementById("toc-icon") as HTMLElement;
 
-    if (!tocToggle || !tocContent || !tocIcon || !tocState) {
+    if (!toggle || !content || !icon) {
       return;
     }
 
-    const updateVisualState = (isExpanded: boolean): void => {
-      const stateText = isExpanded
-        ? tocState.getAttribute("data-expanded") || "Expanded"
-        : tocState.getAttribute("data-collapsed") || "Collapsed";
-
-      tocContent.classList.toggle("toc__content--hidden", !isExpanded);
-      tocIcon.classList.toggle("toc__icon--rotated", isExpanded);
-      tocState.textContent = stateText;
-    };
-
-    const toggleToc = (): void => {
-      const isExpanded = tocToggle.getAttribute("aria-expanded") === "true";
+    toggle.addEventListener("click", function () {
+      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
       const newState = !isExpanded;
 
-      tocToggle.setAttribute("aria-expanded", newState.toString());
-      updateVisualState(newState);
-    };
+      toggle.setAttribute("aria-expanded", newState.toString());
 
-    const handleToggleKeydown = (e: KeyboardEvent): void => {
-      if (e.key === " " || e.key === "Enter") {
-        e.preventDefault();
-        toggleToc();
+      if (newState) {
+        content.style.maxHeight = "24rem";
+        content.style.opacity = "1";
+        icon.style.transform = "rotate(180deg)";
+      } else {
+        content.style.maxHeight = "0";
+        content.style.opacity = "0";
+        icon.style.transform = "rotate(0deg)";
       }
-    };
-
-    const focusTargetHeading = (targetId: string): void => {
-      if (targetId === "article-content") {
-        return;
-      }
-
-      const targetElement = document.getElementById(targetId);
-      if (!targetElement) {
-        return;
-      }
-
-      targetElement.setAttribute("tabindex", "-1");
-      targetElement.focus();
-
-      targetElement.addEventListener("blur", () => targetElement.removeAttribute("tabindex"), {
-        once: true,
-      });
-    };
-
-    const handleLinkClick = (e: Event): void => {
-      const link = e.target as HTMLAnchorElement;
-      const targetId = link.getAttribute("href")?.substring(1);
-
-      if (targetId) {
-        setTimeout(() => focusTargetHeading(targetId), 100);
-      }
-    };
-
-    // Initialize the component in collapsed state
-    updateVisualState(false);
-
-    // Set up event listeners
-    tocToggle.addEventListener("click", toggleToc);
-    tocToggle.addEventListener("keydown", handleToggleKeydown);
-
-    // Set up event listeners for TOC links
-    const tocLinks = tocContent.querySelectorAll("a");
-    tocLinks.forEach((link) => link.addEventListener("click", handleLinkClick));
-
-    // Initialize the state text from data attributes
-    const collapsedText = tocState.getAttribute("data-collapsed") || "Collapsed";
-    tocState.textContent = collapsedText;
+    });
   });
 </script>
-
-<style lang="scss">
-  /**
-   * TableOfContents Component Styles
-   * 
-   * ✅ Responsive design with mobile-first breakpoints
-   * ✅ 100% CSS variables from global.css - NO hardcoded values
-   * ✅ WCAG AAA 2.2 compliant colors and spacing
-   * ✅ Performance optimized with smooth animations
-   * ✅ Enhanced accessibility with proper focus management
-   * ✅ Consistent with other components
-   */
-
-  .toc {
-    // Container styles
-
-    &__wrapper {
-      position: relative;
-    }
-
-    // Base transitions for all interactive elements
-    &__toggle,
-    &__content,
-    &__icon--chevron,
-    &__link {
-      transition: var(--transition-normal);
-    }
-
-    // Toggle Button
-    &__toggle {
-      display: flex;
-      width: var(--width-full);
-      align-items: center;
-      justify-content: space-between;
-      border-radius: var(--radius-lg);
-      border: var(--border-width-thin) solid var(--border-primary);
-      background: var(--card-bg);
-      padding: var(--space-md) var(--space-lg);
-      text-align: left;
-      font-size: var(--text-base);
-      font-weight: var(--font-medium);
-      color: var(--text-primary);
-      box-shadow: var(--card-shadow);
-      cursor: pointer;
-      min-height: var(--min-touch-size);
-      transition:
-        background-color var(--transition-normal),
-        border-color var(--transition-normal),
-        box-shadow var(--transition-normal);
-
-      &:hover {
-        background: var(--bg-tertiary);
-        border-color: var(--border-secondary);
-        box-shadow: var(--card-shadow-hover);
-      }
-
-      &:focus {
-        outline: var(--focus-enhanced-outline-dark);
-        outline-offset: var(--focus-ring-offset);
-        box-shadow: var(--focus-enhanced-shadow);
-      }
-    }
-
-    // Title section with icon
-    &__title-wrapper {
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-    }
-
-    // Icons
-    &__icon {
-      width: var(--icon-size-sm);
-      height: var(--icon-size-sm);
-
-      &--menu {
-        color: var(--interactive-primary);
-      }
-
-      &--chevron {
-        transition: transform var(--transition-normal);
-      }
-
-      &--rotated {
-        transform: rotate(180deg);
-      }
-    }
-
-    // Screen reader state text
-    &__state {
-      position: absolute;
-      width: var(--sr-only-width);
-      height: var(--sr-only-height);
-      margin: var(--sr-only-margin);
-      overflow: hidden;
-      clip: var(--sr-only-clip-path);
-      white-space: nowrap;
-      border: var(--space-none);
-    }
-
-    // Content container
-    &__content {
-      margin-top: var(--space-sm);
-      overflow: hidden;
-      border-radius: var(--radius-lg);
-      border: var(--border-width-thin) solid var(--border-primary);
-      background: var(--card-bg);
-      box-shadow: var(--shadow-lg);
-      backdrop-filter: blur(var(--space-sm));
-      max-height: var(--modal-content-max-height);
-      opacity: 1;
-      transition:
-        max-height var(--transition-normal),
-        opacity var(--transition-fast);
-
-      &--hidden {
-        max-height: var(--space-none);
-        opacity: 0;
-        border: none;
-        box-shadow: none;
-      }
-    }
-
-    // Navigation container
-    &__nav {
-      padding: var(--space-md);
-    }
-
-    // Skip link
-    &__skip-link {
-      display: block;
-      margin-bottom: var(--space-md);
-      font-size: var(--text-sm);
-      color: var(--interactive-primary);
-      text-decoration: none;
-      transition:
-        background-color var(--transition-normal),
-        color var(--transition-normal);
-
-      &:hover {
-        text-decoration: underline;
-        text-decoration-thickness: var(--text-decoration-thickness);
-        text-underline-offset: var(--text-underline-offset);
-      }
-
-      &:focus {
-        outline: var(--focus-enhanced-outline-dark);
-        outline-offset: var(--focus-ring-offset);
-      }
-    }
-
-    // List container
-    &__list {
-      max-height: 50vh;
-      overflow-y: auto;
-      padding: var(--space-none);
-      margin: var(--space-none);
-      list-style: none;
-      scrollbar-width: var(--scrollbar-thin);
-      scrollbar-color: var(--scrollbar-thumb-bg) var(--scrollbar-track-bg);
-
-      // Custom scrollbar for Webkit browsers
-      &::-webkit-scrollbar {
-        width: var(--scrollbar-thin);
-      }
-
-      &::-webkit-scrollbar-track {
-        background: var(--scrollbar-track-bg);
-        border-radius: var(--scrollbar-track-radius);
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background: var(--scrollbar-thumb-bg);
-        border-radius: var(--scrollbar-thumb-radius);
-
-        &:hover {
-          background: var(--scrollbar-thumb-hover);
-        }
-      }
-    }
-
-    // List items
-    &__item {
-      margin-bottom: var(--space-xs);
-
-      &--nested {
-        margin-left: var(--space-md);
-      }
-    }
-
-    // Links
-    &__link {
-      display: block;
-      border-radius: var(--radius-md);
-      padding: var(--space-sm) var(--space-md);
-      color: var(--text-secondary);
-      text-decoration: none;
-      min-height: var(--min-touch-size);
-      line-height: var(--leading-enhanced);
-
-      & {
-        transition:
-          background-color var(--transition-normal),
-          color var(--transition-normal);
-      }
-
-      &--primary {
-        font-size: var(--text-sm);
-        font-weight: var(--font-medium);
-      }
-
-      &--secondary {
-        font-size: var(--text-xs);
-        font-weight: var(--font-normal);
-      }
-
-      &:hover {
-        background: var(--bg-tertiary);
-        color: var(--text-primary);
-      }
-
-      &:focus {
-        outline: var(--focus-enhanced-outline-dark);
-        outline-offset: var(--focus-ring-offset);
-        background: var(--bg-tertiary);
-        color: var(--text-primary);
-      }
-    }
-  }
-</style>

@@ -347,22 +347,37 @@ const clientTranslations = generateClientTranslations(t);
     window.gameHomeTranslations = clientTranslations;
   </script>
 
-  <main id="main-content" class="gamehome-container" role="main" aria-labelledby="welcome-heading">
+  <main
+    id="main-content"
+    class="w-full max-w-7xl mx-auto min-h-screen flex flex-col contain-layout style paint p-4 md:p-6 sm:p-3"
+    role="main"
+    aria-labelledby="welcome-heading"
+  >
     <!-- Hero section with improved semantics and accessibility -->
-    <header class="gamehome-hero" aria-labelledby="welcome-heading">
+    <header
+      class="relative overflow-hidden bg-gradient-to-br from-purple-900 via-purple-700 to-blue-800 shadow-2xl border border-purple-600 contain-layout style paint mb-6 md:mb-8 sm:mb-4 p-4 md:p-6 sm:p-3 rounded-xl"
+      aria-labelledby="welcome-heading"
+    >
       <!-- Decorative background elements with aria-hidden -->
-      <div class="gamehome-hero__decoration" aria-hidden="true">
-        <div class="gamehome-hero__decoration-item gamehome-hero__decoration-item--top-right"></div>
-        <div class="gamehome-hero__decoration-item gamehome-hero__decoration-item--bottom-left">
-        </div>
-        <div class="gamehome-hero__decoration-item gamehome-hero__decoration-item--center-right">
+      <div
+        class="absolute inset-0 opacity-10 pointer-events-none contain-layout style paint"
+        aria-hidden="true"
+      >
+        <div class="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-white"></div>
+        <div class="absolute -bottom-8 -left-8 w-48 h-48 rounded-full bg-white"></div>
+        <div
+          class="absolute top-1/2 -right-4 w-16 h-16 rounded-full bg-white transform -translate-y-1/2"
+        >
         </div>
       </div>
 
-      <div class="gamehome-hero__content">
-        <Headline title={`${t("game.welcome")}`} level="h1" id="welcome-heading" size="2xl" />
-        <div class="gamehome-hero__divider"></div>
-        <Paragraph align="center" textSize="lg">
+      <div class="relative z-10 text-center text-white contain-layout style w-full">
+        <Headline level="h1" textSize="3xl" textAlign="center">
+          {t("game.welcome")}
+        </Headline>
+        <div class="bg-blue-400 rounded-full w-12 h-1 mx-auto my-8 contain-layout style paint">
+        </div>
+        <Paragraph textSize="lg" textAlign="center">
           {t("game.select")}
         </Paragraph>
         <!-- Additional descriptive content for SEO -->
@@ -372,7 +387,7 @@ const clientTranslations = generateClientTranslations(t);
       </div>
     </header>
 
-    <section class="genre-selection" aria-labelledby="playlist-heading">
+    <section class="flex-grow contain-layout style" aria-labelledby="playlist-heading">
       <!-- Category Filter Dropdown -->
       <CategoryFilter
         categories={[
@@ -472,13 +487,10 @@ const clientTranslations = generateClientTranslations(t);
       />
 
       <!-- Enhanced genre grid with semantic markup -->
-      <div class="genre-content">
-        <Headline
-          title={t("game.categories.title")}
-          level="h2"
-          className="genre-content__title sr-only"
-          id="playlist-heading"
-        />
+      <div class="flex-grow contain-layout style">
+        <Headline level="h2" textSize="base" className="sr-only">
+          {t("game.categories.title")}
+        </Headline>
 
         {
           categories && categories.length > 0 ? (
@@ -608,12 +620,13 @@ const clientTranslations = generateClientTranslations(t);
                   }
 
                   return (
-                    <div class="category-group" data-category-type={group.type}>
-                      <h3 class="category-group__title">
+                    <div class="mb-8" data-category-type={group.type}>
+                      <h3 class="text-2xl md:text-3xl font-bold text-white mb-6 text-center md:text-left bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent px-4 py-2 rounded-lg bg-gray-800/20 backdrop-blur-sm border border-purple-500/30">
                         {group.icon} {group.title}
                       </h3>
                       <div
-                        class="genre-grid"
+                        class="grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 mb-8 contain-layout style paint sm:gap-3 sm:mb-6"
+                        style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));"
                         role="list"
                         aria-label={t("game.genre.list")}
                         aria-live="polite"
@@ -638,7 +651,8 @@ const clientTranslations = generateClientTranslations(t);
             </>
           ) : (
             <div
-              class="genre-grid"
+              class="grid grid-cols-1 gap-4 md:gap-6 lg:gap-8 mb-8 contain-layout style paint sm:gap-3 sm:mb-6"
+              style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));"
               role="list"
               aria-label={t("game.genre.list")}
               aria-live="polite"
@@ -649,7 +663,7 @@ const clientTranslations = generateClientTranslations(t);
                 headline={emptyCategoriesHeadline}
                 text={emptyCategoriesText}
                 iconName="music-note"
-                className="genre-grid__empty"
+                className="col-span-full"
               />
             </div>
           )
@@ -657,207 +671,10 @@ const clientTranslations = generateClientTranslations(t);
       </div>
 
       <!-- Loading state for better UX -->
-      <LoadingState text={t("game.categories.loading")} className="loading-state" visible={false} />
+      <LoadingState text={t("game.categories.loading")} className="hidden" visible={false} />
     </section>
   </main>
 
   <!-- Back to Top Component for improved UX and accessibility -->
   <BackToTop {lang} />
 </Layout>
-
-<style lang="scss">
-  /* ======================================
-   * GAMEHOME PAGE STYLES - OPTIMIZED FOR STYLE GUARDIAN
-   * BEM Methodology + Global Variables + Mobile-First
-   * ====================================== */
-
-  .gamehome-container {
-    width: var(--width-full);
-    max-width: var(--container-xl);
-    margin: 0 auto;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    contain: layout style paint;
-    padding: var(--space-md) var(--space-sm); // Mobile: minimal horizontal spacing
-  }
-
-  /* ======================================
-   * HERO SECTION - SIMPLIFIED DESIGN
-   * ====================================== */
-  .gamehome-hero {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(
-      135deg,
-      var(--color-primary-900) 0%,
-      var(--color-primary-700) 50%,
-      var(--color-secondary-800) 100%
-    );
-    box-shadow: var(--shadow-xl);
-    border: var(--border-width-thin) solid var(--border-primary);
-    contain: layout style paint;
-    margin-bottom: var(--space-lg);
-    padding: var(--space-md) var(--space-sm); // Mobile: compact spacing
-    border-radius: var(--radius-lg);
-
-    &__decoration {
-      position: absolute;
-      inset: 0;
-      opacity: 0.1;
-      pointer-events: none;
-      contain: layout style paint;
-
-      &-item {
-        position: absolute;
-        border-radius: var(--radius-full);
-        background: var(--color-white);
-        contain: layout style paint;
-
-        &--top-right {
-          top: calc(-1 * var(--space-xl));
-          right: calc(-1 * var(--space-xl));
-          width: var(--space-3xl);
-          height: var(--space-3xl);
-        }
-
-        &--bottom-left {
-          bottom: calc(-1 * var(--space-2xl));
-          left: calc(-1 * var(--space-2xl));
-          width: calc(var(--space-3xl) * 2);
-          height: calc(var(--space-3xl) * 2);
-        }
-
-        &--center-right {
-          top: 50%;
-          right: calc(-1 * var(--space-md));
-          width: var(--space-2xl);
-          height: var(--space-2xl);
-          transform: translateY(-50%);
-        }
-      }
-    }
-
-    &__content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      color: var(--color-white);
-      contain: layout style;
-      width: var(--width-full);
-    }
-
-    &__divider {
-      background: var(--color-secondary-400);
-      border-radius: var(--radius-full);
-      contain: layout style paint;
-      width: var(--icon-size-lg);
-      height: var(--border-width-thick);
-      margin: var(--space-sm) auto;
-    }
-  }
-
-  /* ======================================
-   * GENRE GRID - SIMPLIFIED DESIGN
-   * ====================================== */
-  * GENRE GRID - SIMPLIFIED DESIGN * ====================================== */ .genre-content {
-    flex-grow: 1;
-    contain: layout style;
-  }
-
-  .genre-grid {
-    display: grid;
-    margin-bottom: var(--space-xl);
-    contain: layout style paint;
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-
-    @media (min-width: 20em) {
-      gap: var(--space-lg);
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    }
-
-    @media (min-width: 48em) {
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: var(--space-xl);
-    }
-
-    @media (min-width: 64em) {
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    }
-  }
-
-  /* ======================================
-   * ACCESSIBILITY ENHANCEMENTS
-   * ====================================== */
-  @media (prefers-reduced-motion: reduce) {
-    .loading-state__spinner {
-      animation: none;
-      border: var(--border-width-thick) solid var(--interactive-primary);
-    }
-  }
-
-  /* ======================================
-   * MOBILE PORTRAIT OPTIMIZATIONS
-   * ====================================== */
-  // Extra small screens - Portrait Mobile (below 320px)
-  @media (max-width: 19.9375em) {
-    .gamehome-container {
-      padding: var(--space-sm) var(--space-xs);
-    }
-
-    .gamehome-hero {
-      padding: var(--space-sm);
-      margin-bottom: var(--space-md);
-
-      &__title {
-        font-size: var(--text-lg);
-        margin-bottom: var(--space-xs);
-      }
-
-      &__description {
-        font-size: var(--text-sm);
-        line-height: var(--leading-snug);
-      }
-
-      &__divider {
-        width: var(--icon-size-md);
-        margin: var(--space-sm) auto;
-      }
-    }
-
-    .search-container {
-      margin-bottom: var(--space-md);
-
-      &__input {
-        padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-xl);
-        font-size: var(--text-sm);
-      }
-
-      &__icon {
-        left: var(--space-xs);
-
-        &-element {
-          width: var(--icon-size-xs);
-          height: var(--icon-size-xs);
-        }
-      }
-    }
-
-    .genre-grid {
-      gap: var(--space-sm);
-    }
-  }
-
-  .sr-only {
-    position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    padding: 0;
-    margin: var(--sr-only-margin);
-    overflow: hidden;
-    clip: var(--sr-only-clip-path);
-    white-space: nowrap;
-    border: 0;
-  }
-</style>

@@ -382,15 +382,44 @@ export class TimePressureGameEngine {
 
     this.currentQuestion.options.forEach((option, index) => {
       const button = document.createElement("button");
-      button.classList.add("answer-btn");
+      button.classList.add(
+        "answer-btn",
+        "w-full",
+        "p-4",
+        "text-left",
+        "bg-gray-700",
+        "hover:bg-gray-600",
+        "border-2",
+        "border-gray-600",
+        "hover:border-purple-500",
+        "rounded-xl",
+        "transition-all",
+        "duration-300",
+        "hover:shadow-lg",
+        "hover:-translate-y-1",
+        "focus:outline-none",
+        "focus:ring-4",
+        "focus:ring-purple-500/60",
+        "focus:border-purple-400",
+        "group"
+      );
       button.setAttribute("data-answer", option);
 
       // Keyboard shortcuts
       const shortcut = String(index + 1);
       button.setAttribute("data-shortcut", shortcut);
 
-      // Set innerHTML with proper structure - don't use textContent after this
-      button.innerHTML = `<span class="answer-shortcut">${shortcut}</span><span class="answer-text">${option}</span>`;
+      // Set innerHTML with proper structure and enhanced styling
+      button.innerHTML = `
+        <div class="flex items-start gap-4">
+          <span class="answer-shortcut flex-shrink-0 w-8 h-8 bg-purple-600 text-white font-bold rounded-full flex items-center justify-center text-sm group-hover:bg-purple-500 transition-colors duration-300">
+            ${shortcut}
+          </span>
+          <span class="answer-text text-gray-200 group-hover:text-white transition-colors duration-300 leading-relaxed">
+            ${option}
+          </span>
+        </div>
+      `;
 
       button.addEventListener("click", this.handleAnswerClick);
       this.answerOptions!.appendChild(button);
@@ -758,10 +787,10 @@ export class TimePressureGameEngine {
           artistElement.textContent = this.currentAlbum.artist || "";
         }
         if (albumElement) {
-          albumElement.textContent = this.currentAlbum.title || "";
+          albumElement.textContent = this.currentAlbum.album || "";
         }
         if (yearElement) {
-          yearElement.textContent = "";
+          yearElement.textContent = this.currentAlbum.year || "";
         }
 
         // Display funFact from the current question's trivia

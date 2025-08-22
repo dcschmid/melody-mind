@@ -20,42 +20,75 @@
  */
 
 // 1. Imports (using consistent @-alias paths for better maintainability)
-import { getCollection, type CollectionEntry } from "astro:content";
-import { languages, ui } from "../../../i18n/ui";
-import Layout from "../../../layouts/Layout.astro";
-import type { KnowledgeCollectionKey } from "../../../content/config";
 import { Picture } from "astro:assets";
-import Headline from "@components/Headline.astro";
-import { Icon } from "astro-icon/components";
+import Layout from "@layouts/Layout.astro";
 import ButtonLink from "@components/ButtonLink.astro";
-import MusicButtons from "@components/MusicButtons.astro";
+import { useTranslations } from "@utils/i18n";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
+import Prose from "@components/Prose.astro";
 import TableOfContents from "@components/TableOfContents.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
-import { calculateReadingTime } from "@utils/readingTime";
+import { Icon } from "astro-icon/components";
+import { getEntry } from "astro:content";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
-import {
-  generatePotentialActions,
-  generateAudioObjects,
-  getEducationalLevel,
-  createBreadcrumbList,
-} from "@utils/structured-data";
 
 // 2. Rendering Strategy: SSG for better performance and SEO
 export const prerender = true;
 
 // 3. getStaticPaths implementation for dynamic routes
 export async function getStaticPaths() {
-  const allEntries = await Promise.all(
-    Object.keys(languages).map(async (lang) => {
-      const collectionName = `knowledge-${lang}` as KnowledgeCollectionKey;
-      const entries = await getCollection(collectionName);
-      return entries.map((entry) => ({
-        params: { lang, slug: entry.slug },
-        props: { entry },
-      }));
-    })
-  );
-  return allEntries.flat();
+  const { getCollection } = await import("astro:content");
+  const supportedLanguages = [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt",
+    "da",
+    "nl",
+    "sv",
+    "fi",
+    "cn",
+    "ru",
+    "jp",
+    "uk",
+  ] as const;
+
+  const paths = [];
+
+  for (const lang of supportedLanguages) {
+    try {
+      const knowledgeCollection = await getCollection(`knowledge-${lang}`);
+      for (const entry of knowledgeCollection) {
+        if (!entry.data.draft) {
+          paths.push({
+            params: { lang, slug: entry.slug },
+            props: { entry, lang },
+          });
+        }
+      }
+    } catch (error) {
+      console.warn(`No knowledge collection found for ${lang}`);
+      // Try to get English fallback
+      try {
+        const fallbackCollection = await getCollection("knowledge-en");
+        for (const entry of fallbackCollection) {
+          if (!entry.data.draft) {
+            paths.push({
+              params: { lang, slug: entry.slug },
+              props: { entry, lang },
+            });
+          }
+        }
+      } catch (fallbackError) {
+        console.error(`Failed to load fallback knowledge for ${lang}:`, fallbackError);
+      }
+    }
+  }
+
+  return paths;
 }
 
 // 4. TypeScript Definitions
@@ -78,100 +111,29 @@ type KnowledgeEntry = CollectionEntry<KnowledgeCollectionKey> & {
 };
 
 // 5. Main Component Logic
-const { entry }: { entry: KnowledgeEntry } = Astro.props;
-const { lang = "en" } = Astro.params;
+const { entry, lang } = Astro.props;
+const t = useTranslations(lang);
 
-// Type-safe translation function with fallbacks using modern ES6+ features
-const translate = (key: string, fallback?: string): string => {
-  const currentLangTranslations = ui[lang as keyof typeof ui];
-  const englishTranslations = ui.en;
+// Extract headings for table of contents
+const { headings, Content } = await entry.render();
 
-  return (
-    (currentLangTranslations as Record<string, string>)?.[key] ??
-    (englishTranslations as Record<string, string>)[key] ??
-    fallback ??
-    key
-  );
-};
+// Get image source
+const imageSource = entry.data.image || "/default-cover.jpg";
 
-// 6. Content Processing
-// Optimize content rendering by deferring until needed
-const { Content, headings } = await entry.render();
+// SEO optimization
+const title = entry.data.title;
+const description = entry.data.description;
+const pageContent = `${title} ${description} ${entry.data.keywords?.join(" ") || ""}`;
+const optimizedDescription = generateMetaDescription(pageContent, 158);
+const keywords = extractKeywords(pageContent, 12, lang);
 
-// Format date with proper localization using modern Intl API
-const formattedDate = entry.data.createdAt
-  ? new Intl.DateTimeFormat(lang, {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }).format(entry.data.createdAt)
-  : null;
-
-// Default image if none provided - use optimized path
-const defaultImage = "/melody-mind.jpg";
-const imageSource = entry.data.image ?? defaultImage;
-
-// Reading time text with proper localization and fallback
-const readingTimeText = entry.body
-  ? `${calculateReadingTime(entry.body)} ${translate("knowledge.reading.time", "min reading time")}`
-  : null;
-
-// Generate SEO content from the article
-const { title, description } = entry.data;
-
-// Enhanced SEO content using utility functions
-const pageContent = `${title} ${description} ${entry.body || ""}`;
-
-// Generate optimized meta description and keywords
-const optimizedDescription = generateMetaDescription(description) || description;
-const keywords =
-  extractKeywords(pageContent) ||
-  entry.data.keywords?.join(", ") ||
-  translate("meta.keywords", "music, trivia, knowledge");
-
-// Additional structured data parameters for SEO
-const pageType = "article"; // Articles should be of type 'article' instead of 'website'
-const publishDate = entry.data.createdAt || new Date("2024-01-01");
-const modifiedDate = entry.data.updatedAt || new Date();
-
-// Determine if this article has a playable game category
-const isPlayable = entry.data.isPlayable === true;
-
-// Prepare game category link
-const gameCategorySlug = entry.slug.split("/").pop();
-const gameCategoryUrl = isPlayable ? `/${String(lang)}/${gameCategorySlug}` : null;
-
-// Get translation for play button
-const playButtonText = translate("knowledge.play.category", "Play this music category");
-
-// Calculate word count using modern array methods
-const wordCount = entry.body ? entry.body.split(/\s+/).filter(Boolean).length : 0;
-
-// Reading time in ISO 8601 Duration Format (PT{X}M for X minutes)
-const readingTimeMinutes = entry.body ? calculateReadingTime(entry.body) : 0;
-const timeRequiredISO = `PT${readingTimeMinutes}M`;
-
-// Determine educational level based on content difficulty
-const educationalLevel = getEducationalLevel(entry.data.difficulty);
-
-// Structured data for article - enhanced for better SEO
-const articleSchemaData = {
+// Enhanced structured data for knowledge article
+const articleSchema = {
   "@context": "https://schema.org",
-  "@type": ["Article", "MusicGroup", "CreativeWork"],
-  headline: entry.data.title,
-  description: optimizedDescription,
-  datePublished: entry.data.createdAt?.toISOString(),
-  dateModified: entry.data.updatedAt?.toISOString() || entry.data.createdAt?.toISOString(),
-  image: {
-    "@type": "ImageObject",
-    url: imageSource,
-    width: 1200,
-    height: 675,
-    caption: `${entry.data.title} - Cover image`,
-    contentUrl: imageSource,
-    encodingFormat: "image/jpeg",
-    representativeOfPage: true,
-  },
+  "@type": "Article",
+  headline: title,
+  description: description,
+  image: imageSource,
   author: {
     "@type": "Organization",
     name: "Melody Mind",
@@ -181,778 +143,242 @@ const articleSchemaData = {
     name: "Melody Mind",
     logo: {
       "@type": "ImageObject",
-      url: "/melody-mind.png",
-      width: 512,
-      height: 512,
-      caption: "Melody Mind Logo",
-      contentUrl: "/melody-mind.png",
-      encodingFormat: "image/png",
+      url: "https://melody-mind.de/melody-mind.png",
     },
   },
+  datePublished: entry.data.createdAt?.toISOString(),
+  dateModified: entry.data.updatedAt?.toISOString(),
   mainEntityOfPage: {
     "@type": "WebPage",
     "@id": Astro.url.href,
   },
-  keywords,
-  // New properties
-  wordCount,
-  articleBody: entry.body || "",
-  timeRequired: timeRequiredISO,
-  // MusicGroup-specific properties
-  genre: keywords.split(",")[0].trim(), // First keyword as genre
-  musicReleaseFormat: "Digital",
-  numTracks: 0, // Default value, as track information is not available
-  musicBy: {
-    "@type": "Organization",
-    name: "Melody Mind",
-  },
-  // CreativeWork-specific properties
-  teaches: keywords
-    .split(",")
-    .map((kw) => kw.trim())
-    .join(", "),
   inLanguage: lang,
-  isAccessibleForFree: true,
-  audience: "Music enthusiasts and learners of all age groups",
-  educationalLevel,
-  // Potential actions for playlist links
-  potentialAction: generatePotentialActions(entry.data.category || {}, entry.data.title),
-  // Structured AudioObject types for playlists
-  audio: generateAudioObjects(
-    entry.data.category || {},
-    entry.data.title,
-    entry.data.createdAt?.toISOString() || new Date().toISOString()
-  ),
-  // GameItem if isPlayable is true
-  ...(isPlayable &&
-    gameCategoryUrl && {
-      gameItem: {
-        "@type": "Game",
-        name: `${entry.data.title} - Music Game`,
-        url: new URL(gameCategoryUrl, Astro.url.origin).href,
-        gamePlatform: "Web Browser",
-        applicationCategory: "Game",
-        genre: "Music Game",
-      },
-    }),
-  // BreadcrumbList Schema for the breadcrumb navigation
-  breadcrumb: createBreadcrumbList(String(lang), entry.data.title, Astro.url, translate),
+  keywords: entry.data.keywords?.join(", ") || "",
+  articleSection: "Music Knowledge",
+  wordCount: entry.body?.length || 0,
 };
+
+// Breadcrumb structured data
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: t("nav.home"),
+      item: `${Astro.site}/${lang}/`,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: t("knowledge.title"),
+      item: `${Astro.site}/${lang}/knowledge`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: title,
+      item: Astro.url.href,
+    },
+  ],
+};
+
+// Helper function for translations
+function translate(key: string, fallback: string): string {
+  try {
+    return t(key);
+  } catch {
+    return fallback;
+  }
+}
 ---
 
 <Layout
   {title}
   description={optimizedDescription}
   image={imageSource}
-  type={pageType}
-  {publishDate}
-  {modifiedDate}
+  type="article"
+  publishDate={entry.data.createdAt ? new Date(entry.data.createdAt) : new Date()}
+  modifiedDate={entry.data.updatedAt ? new Date(entry.data.updatedAt) : new Date()}
   ogMusic={{
     creator: "Melody Mind",
-    album: entry.data.title,
-    musician: "Melody Mind",
+    album: title,
+    musician: "Various Artists",
   }}
 >
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchemaData)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 
-  <main class="article-page">
-    <article class="article" aria-labelledby="article-title">
-      <nav
-        class="breadcrumb breadcrumb--print-hidden"
-        aria-label={translate("knowledge.breadcrumb.label", "Breadcrumb")}
-      >
-        <ol class="breadcrumb__list">
-          <li class="breadcrumb__item">
-            <a
-              href={`/${lang}`}
-              class="breadcrumb__link"
-              aria-label={translate("nav.home", "Home")}
-            >
-              <Icon name="home" class="breadcrumb__icon" aria-hidden="true" />
-              <span class="sr-only">{translate("nav.home", "Home")}</span>
-            </a>
-          </li>
-          <li class="breadcrumb__item" aria-hidden="true">
-            <Icon name="chevron-right" class="breadcrumb__separator" />
-          </li>
-          <li class="breadcrumb__item">
-            <a href={`/${String(lang)}/knowledge`} class="breadcrumb__link">
-              {translate("knowledge.title", "Knowledge")}
-            </a>
-          </li>
-          <li class="breadcrumb__item" aria-hidden="true">
-            <Icon name="chevron-right" class="breadcrumb__separator" />
-          </li>
-          <li class="breadcrumb__current" aria-current="page">
-            {entry.data.title}
-          </li>
-        </ol>
-      </nav>
-
-      <header class="article__header">
-        <!-- Hero Image Container -->
-        <div class="article__image-container">
-          <Picture
-            src={imageSource}
-            width={1200}
-            height={675}
-            formats={["avif", "webp", "jpg"]}
-            class="article__image"
-            loading="eager"
-            fetchpriority="high"
-            alt={`Cover image for article "${entry.data.title}" - Music knowledge on Melody Mind`}
-            decoding="async"
-            sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1200px"
-            quality={90}
-            widths={[400, 600, 800, 1200]}
-          />
-        </div>
-
-        <!-- Title and Meta Container -->
-        <div class="article__meta-container">
-          <Headline
-            level="h1"
-            title={entry.data.title}
-            id="article-title"
-            className="article__title"
-            size="2xl"
-          />
-
-          <!-- Meta Information -->
-          <div class="meta-info">
+  <main class="min-h-screen">
+    <div class="mx-auto">
+      <!-- Header Section with Image and Title -->
+      <header class="mb-16">
+        <div
+          class="flex flex-col lg:grid lg:grid-cols-[1.2fr_0.8fr] lg:gap-12 xl:gap-16 lg:items-center"
+        >
+          <!-- Image Section - Larger and better responsive -->
+          <div class="w-full mx-auto lg:max-w-none mb-8 lg:mb-0 order-2 lg:order-1">
             {
-              formattedDate && (
-                <time datetime={entry.data.createdAt?.toISOString()} class="meta-info__item">
-                  <Icon name="calendar" class="meta-info__icon" aria-hidden="true" />
-                  <span class="meta-info__text">{formattedDate}</span>
-                </time>
-              )
-            }
-
-            {
-              readingTimeText && (
-                <span class="meta-info__item">
-                  <Icon name="clock" class="meta-info__icon" aria-hidden="true" />
-                  <span class="meta-info__text">{readingTimeText}</span>
-                </span>
-              )
-            }
-
-            {
-              wordCount > 0 && (
-                <span class="meta-info__item">
-                  <Icon name="document-text" class="meta-info__icon" aria-hidden="true" />
-                  <span class="meta-info__text">
-                    {wordCount} {translate("knowledge.word.count", "words")}
-                  </span>
-                </span>
+              imageSource ? (
+                <div class="relative w-full aspect-[4/3] lg:aspect-[5/3] overflow-hidden rounded-2xl shadow-2xl border border-gray-600">
+                  <Picture
+                    class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    src={imageSource}
+                    widths={[600, 800, 1000, 1200]}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1000px"
+                    formats={["avif", "webp", "jpg"]}
+                    alt={entry.data.title}
+                    loading="eager"
+                    fetchpriority="high"
+                    width={1200}
+                    height={800}
+                    decoding="async"
+                  />
+                </div>
+              ) : (
+                <div
+                  class="flex aspect-[4/3] lg:aspect-[5/3] w-full items-center justify-center rounded-2xl bg-gray-800 p-8 text-center text-gray-400 border-2 border-dashed border-gray-600"
+                  role="img"
+                  aria-label="Kein Bild verfügbar"
+                >
+                  <div class="flex flex-col items-center gap-3">
+                    <Icon name="image" class="h-16 w-16 lg:h-20 lg:w-20" aria-hidden="true" />
+                    <span class="text-lg">Kein Bild verfügbar</span>
+                  </div>
+                </div>
               )
             }
           </div>
 
-          <!-- Music & Game Buttons -->
-          <div class="action-buttons">
-            {
-              entry.data.category && (
-                <MusicButtons category={entry.data.category} title={entry.data.title} />
-              )
-            }
+          <!-- Title Section - Better responsive positioning -->
+          <div
+            class="flex flex-col items-center gap-6 lg:items-start order-1 lg:order-2 text-center lg:text-left"
+          >
+            <Headline level="h1" textSize="xl" textAlign="center">
+              {entry.data.title}
+            </Headline>
 
-            {
-              isPlayable && gameCategoryUrl && (
-                <ButtonLink
-                  href={gameCategoryUrl}
-                  className="play-button"
-                  icon="game-controller"
-                  aria-label={`${playButtonText}: ${entry.data.title}`}
-                >
-                  <span class="play-button__content">
-                    <span class="play-button__text">{playButtonText}</span>
-                  </span>
-                </ButtonLink>
-              )
-            }
+            <Paragraph textSize="lg" textAlign="center">
+              {entry.data.description}
+            </Paragraph>
           </div>
         </div>
       </header>
 
-      <!-- Table of Contents Dropdown -->
-      <aside class="toc-wrapper" aria-label={translate("toc.nav.label", "Table of Contents")}>
-        <TableOfContents {headings} {lang} />
-      </aside>
+      <!-- Meta Information and Action Buttons Section -->
+      <section class="mb-12">
+        <div class="max-w-5xl mx-auto">
+          {/* Description */}
+          <div class="mb-8 px-4"></div>
 
-      <div id="article-content" class="content-wrapper">
-        <div
-          role="region"
-          aria-labelledby="article-title"
-          aria-label="Main content"
-          class="article-content"
-        >
-          <div>
-            <Content />
+          {/* Meta Information - Better responsive grid */}
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8 px-4">
+            <div
+              class="flex items-center justify-center sm:justify-start gap-2 px-3 sm:px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl"
+            >
+              <Icon
+                name="calendar"
+                class="h-4 w-4 sm:h-5 sm:w-5 text-blue-400"
+                aria-hidden="true"
+              />
+              <span class="text-xs sm:text-sm text-gray-300">
+                {
+                  new Date(entry.data.createdAt || new Date()).toLocaleDateString(lang, {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })
+                }
+              </span>
+            </div>
+
+            <div
+              class="flex items-center justify-center sm:justify-start gap-2 px-3 sm:px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl"
+            >
+              <Icon name="clock" class="h-4 w-4 sm:h-5 sm:w-5 text-green-400" aria-hidden="true" />
+              <span class="text-xs sm:text-sm text-gray-300">
+                {Math.ceil((entry.body?.length || 0) / 200)} Min. Lesezeit
+              </span>
+            </div>
+
+            <div
+              class="flex items-center justify-center sm:justify-start gap-2 px-3 sm:px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl"
+            >
+              <Icon
+                name="file-text"
+                class="h-4 w-4 sm:h-5 sm:w-5 text-purple-400"
+                aria-hidden="true"
+              />
+              <span class="text-xs sm:text-sm text-gray-300">
+                {entry.body?.length || 0} words
+              </span>
+            </div>
           </div>
+
+          {/* Action Buttons - Better responsive layout */}
+          <div class="flex flex-col sm:flex-row gap-3 justify-center px-4">
+            <ButtonLink
+              href={entry.data.category?.spotifyPlaylist || "#"}
+              variant="secondary"
+              icon="spotify"
+              className="w-full sm:w-auto justify-center"
+              aria-label="Spotify Playlist öffnen"
+            >
+              Spotify
+            </ButtonLink>
+            <ButtonLink
+              href={entry.data.category?.deezerPlaylist || "#"}
+              variant="secondary"
+              icon="deezer"
+              className="w-full sm:w-auto justify-center"
+              aria-label="Deezer Playlist öffnen"
+            >
+              Deezer
+            </ButtonLink>
+            <ButtonLink
+              href={entry.data.category?.appleMusicPlaylist || "#"}
+              variant="secondary"
+              icon="apple-music"
+              className="w-full sm:w-auto justify-center"
+              aria-label="Apple Music Playlist öffnen"
+            >
+              Apple
+            </ButtonLink>
+          </div>
+        </div>
+      </section>
+
+      {/* Table of Contents */}
+      <TableOfContents {headings} />
+
+      {/* Article Content - Full Width */}
+      <div id="article-content" class="mb-12">
+        <div role="region" aria-labelledby="article-title" aria-label="Main content">
+          <Prose>
+            <Content />
+          </Prose>
         </div>
       </div>
 
-      <!-- Back navigation with improved accessibility -->
-      <div class="back-navigation back-navigation--print-hidden">
-        <ButtonLink
-          href={`/${String(lang)}/knowledge`}
-          className="back-link"
-          icon="arrow-left"
-          aria-label={translate("knowledge.back.to.list", "Back to knowledge list")}
-        >
-          <span class="back-link__text"
-            >{translate("knowledge.back.to.list", "Back to knowledge list")}</span
+      <!-- Back Navigation -->
+      <div class="mt-12 pt-8 border-t border-gray-700/50">
+        <div class="flex justify-center">
+          <ButtonLink
+            href={`/${String(lang)}/knowledge`}
+            icon="arrow-left"
+            aria-label={translate("knowledge.back.to.list", "Back to knowledge list")}
+            className="px-6 py-3 bg-gray-800 hover:bg-gray-700 border border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white transition-all duration-300 rounded-xl hover:shadow-lg hover:-translate-y-1"
           >
-        </ButtonLink>
+            <span class="flex items-center gap-2">
+              <Icon name="arrow-left" class="h-5 w-5" aria-hidden="true" />
+              <span>{translate("knowledge.back.to.list", "Back to knowledge list")}</span>
+            </span>
+          </ButtonLink>
+        </div>
       </div>
-    </article>
+    </div>
   </main>
 
   <!-- BackToTop component for improved navigation on long articles -->
   <BackToTop lang={String(lang)} />
 </Layout>
-
-<style lang="scss" is:global>
-  /* Skip link for better keyboard navigation (WCAG AAA) */
-  .skip-to-content {
-    position: absolute;
-    top: -40px;
-    left: 6px;
-    background: var(--interactive-primary);
-    color: var(--btn-primary-text);
-    padding: var(--space-md) var(--space-lg);
-    text-decoration: none;
-    font-weight: var(--font-bold);
-    font-size: var(--text-lg);
-    border-radius: var(--radius-md);
-    z-index: var(--z-notification);
-    transition: top var(--transition-fast);
-
-    &:focus {
-      top: 6px;
-      outline: 3px solid var(--focus-enhanced-outline-dark);
-      outline-offset: 2px;
-    }
-  }
-
-  /* Main layout styles - Better responsive design */
-  .article-page {
-    margin: 0 auto;
-    padding: var(--space-lg) var(--space-md);
-  }
-
-  /* Breadcrumb navigation */
-  .breadcrumb {
-    margin-bottom: var(--space-lg);
-
-    &--print-hidden {
-      display: block;
-    }
-
-    &__list {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: var(--space-xs);
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: var(--text-sm);
-    }
-
-    &__item {
-      display: flex;
-      align-items: center;
-    }
-
-    &__link {
-      display: flex;
-      align-items: center;
-      gap: var(--space-xs);
-      padding: var(--space-xs) var(--space-sm);
-      color: var(--text-secondary);
-      text-decoration: none;
-      border-radius: var(--radius-md);
-      transition: var(--transition-normal);
-      min-height: var(--min-touch-size);
-      min-width: var(--min-touch-size);
-
-      &:hover {
-        color: var(--interactive-primary);
-        background-color: var(--bg-tertiary);
-      }
-
-      &:focus-visible {
-        outline: var(--focus-enhanced-outline-dark);
-        outline-offset: var(--focus-ring-offset);
-        border-radius: var(--radius-sm);
-      }
-    }
-
-    &__icon {
-      width: var(--icon-size-sm);
-      height: var(--icon-size-sm);
-    }
-
-    &__separator {
-      color: var(--text-tertiary);
-      margin: 0 var(--space-xs);
-      width: var(--icon-size-sm);
-      height: var(--icon-size-sm);
-    }
-
-    &__current {
-      max-width: 200px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      background-color: var(--bg-tertiary);
-      padding: var(--space-xs) var(--space-sm);
-      border-radius: var(--radius-md);
-      color: var(--text-primary);
-      font-size: var(--text-xs);
-    }
-  }
-
-  /* Article header */
-  .article {
-    &__header {
-      position: relative;
-      margin-bottom: var(--space-md);
-    }
-
-    /* Cover image */
-    &__image-container {
-      position: relative;
-      margin-bottom: var(--space-xl);
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--card-shadow);
-      border: var(--border-width-thin) solid var(--border-primary);
-      contain: layout style; /* Performance optimization */
-    }
-
-    &__image {
-      width: var(--width-full);
-      height: var(--width-full);
-      object-fit: cover;
-      transition: var(--transition-normal);
-    }
-
-    /* Article meta section */
-    &__meta-container {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-    }
-  }
-
-  /* Meta information - Better responsive design */
-  .meta-info {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-sm);
-
-    &__item {
-      display: flex;
-      align-items: center;
-      gap: var(--space-xs);
-      background-color: var(--card-bg);
-      padding: var(--space-xs) var(--space-sm);
-      border-radius: var(--radius-md);
-      color: var(--text-secondary);
-      border: var(--border-width-thin) solid var(--border-primary);
-      contain: layout style;
-    }
-
-    &__icon {
-      width: 16px;
-      height: 16px;
-      color: var(--interactive-primary);
-      flex-shrink: 0;
-    }
-
-    &__text {
-      font-size: var(--text-md);
-      line-height: var(--leading-tight);
-    }
-  }
-
-  /* Action buttons - Better mobile layout */
-  .action-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-sm);
-  }
-
-  /* Article content */
-  .content-wrapper {
-    position: relative;
-    contain: layout style; /* Performance optimization */
-  }
-
-  .article-content {
-    color: var(--text-primary);
-    line-height: var(--leading-enhanced);
-    font-size: var(--text-base); /* Reduced from --text-xl for better mobile readability */
-
-    /* Enhanced text rendering for better readability */
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
-    /* WCAG AAA text spacing requirements */
-    letter-spacing: var(--letter-spacing-enhanced);
-    word-spacing: var(--word-spacing-enhanced);
-
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      color: var(--text-primary);
-      font-weight: var(--font-bold);
-      scroll-margin-top: 5rem;
-      line-height: var(--leading-enhanced);
-      margin-top: var(--space-xl);
-      margin-bottom: var(--space-md);
-    }
-
-    h2 {
-      font-size: var(--text-xl); /* Reduced for mobile readability */
-      margin-top: var(--space-xl);
-      margin-bottom: var(--space-md);
-    }
-
-    h3 {
-      font-size: var(--text-lg);
-      margin-top: var(--space-lg);
-      margin-bottom: var(--space-sm);
-    }
-
-    h4 {
-      font-size: var(--text-base);
-      margin-top: var(--space-md);
-      margin-bottom: var(--space-sm);
-    }
-
-    p {
-      color: var(--text-primary);
-      line-height: var(--leading-enhanced);
-      margin-bottom: var(--space-md);
-      word-spacing: var(--word-spacing-enhanced);
-      letter-spacing: var(--letter-spacing-enhanced);
-      font-size: var(--text-lg);
-
-      /* WCAG AAA: Enhanced text readability */
-      hyphens: auto;
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-    }
-
-    a {
-      position: relative;
-      text-decoration: none; /* We'll create a custom underline */
-      font-weight: var(--font-semibold); /* Slightly bolder for better visibility */
-
-      /* Enhanced focus and interaction area for better accessibility */
-      padding: var(--space-xs) var(--space-sm);
-      margin: -var(--space-xs) -var(--space-sm);
-      border-radius: var(--radius-md);
-      transition: all var(--transition-normal);
-
-      /* Custom gradient underline effect */
-      background-image: linear-gradient(
-        90deg,
-        var(--interactive-primary) 0%,
-        var(--color-secondary-500) 100%
-      );
-      background-size: 100% 2px;
-      background-position: 0 100%;
-      background-repeat: no-repeat;
-
-      /* Enhanced text rendering */
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-
-      /* Custom underline animation on hover */
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: -2px;
-        left: var(--space-sm);
-        right: var(--space-sm);
-        height: 2px;
-        background: linear-gradient(
-          90deg,
-          var(--interactive-primary) 0%,
-          var(--color-secondary-500) 50%,
-          var(--interactive-primary) 100%
-        );
-        transform: scaleX(0);
-        transform-origin: center;
-        transition: transform var(--transition-normal);
-        border-radius: var(--radius-sm);
-      }
-
-      &:hover {
-        color: var(--interactive-primary-hover);
-        background-color: var(--bg-tertiary);
-        background-image: none; /* Remove default underline on hover */
-        transform: translateY(-1px); /* Subtle lift effect */
-        box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15); /* Subtle shadow */
-
-        &::before {
-          transform: scaleX(1); /* Animate custom underline */
-        }
-      }
-
-      &:focus-visible {
-        outline: var(--focus-enhanced-outline-dark);
-        outline-offset: var(--focus-ring-offset);
-        background-color: var(--bg-tertiary);
-        background-image: none;
-        box-shadow:
-          0 0 0 3px var(--interactive-primary),
-          0 4px 12px rgba(139, 92, 246, 0.25);
-        transform: translateY(-1px);
-
-        &::before {
-          transform: scaleX(1);
-        }
-      }
-
-      /* Active state for better feedback */
-      &:active {
-        transform: translateY(0);
-        transition-duration: var(--transition-fast);
-      }
-
-      /* External link styling with icon */
-      &[href^="http"]:not([href*="melody-mind.com"])::after,
-      &[href^="https"]:not([href*="melody-mind.com"])::after {
-        content: "↗";
-        display: inline-block;
-        font-size: var(--text-sm);
-        margin-left: var(--space-xs);
-        opacity: 0.7;
-        transition: all var(--transition-normal);
-        vertical-align: super;
-        line-height: 1;
-      }
-
-      &[href^="http"]:not([href*="melody-mind.com"]):hover::after,
-      &[href^="https"]:not([href*="melody-mind.com"]):hover::after {
-        opacity: 1;
-        transform: translate(2px, -2px);
-      }
-
-      /* Special styling for email links */
-      &[href^="mailto:"] {
-        background-image: linear-gradient(
-          90deg,
-          var(--color-secondary-500) 0%,
-          var(--interactive-primary) 100%
-        );
-
-        &::before {
-          background: linear-gradient(
-            90deg,
-            var(--color-secondary-500) 0%,
-            var(--interactive-primary) 50%,
-            var(--color-secondary-500) 100%
-          );
-        }
-      }
-    }
-
-    blockquote {
-      border-left: var(--border-width-enhanced) solid var(--interactive-primary);
-      color: var(--text-primary);
-      background-color: var(--bg-tertiary);
-      padding: var(--space-md);
-      margin: var(--space-lg) 0;
-      border-radius: var(--radius-md);
-      font-size: var(--text-base);
-      line-height: var(--leading-enhanced);
-      font-style: italic;
-    }
-
-    ul,
-    ol {
-      list-style-position: outside;
-      margin: var(--space-md) 0;
-      padding-left: var(--space-lg);
-      font-size: var(--text-base);
-    }
-
-    li {
-      color: var(--text-primary);
-      margin-bottom: var(--space-md); /* Increased spacing between list items */
-      line-height: var(--leading-enhanced);
-      letter-spacing: var(--letter-spacing-enhanced);
-      word-spacing: var(--word-spacing-enhanced);
-
-      &::marker {
-        color: var(--interactive-primary);
-      }
-    }
-
-    /* Image styling for better accessibility */
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: var(--radius-md);
-      border: var(--border-width-thin) solid var(--border-primary);
-      margin: var(--space-lg) 0;
-      display: block;
-    }
-
-    figure {
-      margin: var(--space-xl) 0;
-      text-align: center;
-    }
-
-    figcaption {
-      margin-top: var(--space-sm);
-      font-size: var(--text-base);
-      color: var(--text-secondary);
-      font-style: italic;
-      line-height: var(--leading-enhanced);
-    }
-
-    /* Focus management improvements for enhanced readability */
-    *:focus {
-      scroll-margin-top: var(--space-3xl);
-      scroll-behavior: smooth;
-    }
-  }
-
-  /* Back navigation */
-  .back-navigation {
-    margin-top: var(--space-2xl);
-    display: flex;
-    justify-content: space-between;
-    border-top: var(--border-width-thin) solid var(--border-primary);
-    padding-top: var(--space-xl);
-
-    &--print-hidden {
-      display: block;
-    }
-  }
-
-  .back-link {
-    display: flex;
-    align-items: center;
-    min-height: var(--min-touch-size);
-    min-width: var(--min-touch-size);
-    padding: var(--space-sm) var(--space-lg);
-    border-radius: var(--radius-md);
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: var(--transition-normal);
-    background-color: var(--card-bg);
-    border: var(--border-width-thin) solid var(--border-primary);
-
-    &:hover {
-      background-color: var(--bg-tertiary);
-      color: var(--text-primary);
-
-      .back-link__icon {
-        transform: translateX(var(--animation-x-offset-small));
-      }
-    }
-
-    &:focus-visible {
-      outline: var(--focus-enhanced-outline-dark);
-      outline-offset: var(--focus-ring-offset);
-    }
-
-    &__icon {
-      margin-right: var(--space-sm);
-      width: var(--icon-size-md);
-      height: var(--icon-size-md);
-      transition: var(--transition-normal);
-    }
-
-    &__text {
-      font-size: var(--text-base);
-      font-weight: var(--font-medium);
-      line-height: var(--leading-enhanced);
-    }
-  }
-
-  /* Play button styles */
-  .play-button {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    min-width: var(--stat-width-sm);
-    min-height: var(--min-touch-size);
-    padding: var(--space-sm) var(--space-lg);
-    border-radius: var(--radius-lg);
-    font-size: var(--text-base);
-    font-weight: var(--font-medium);
-    background: var(--btn-primary-bg);
-    color: var(--btn-primary-text);
-    border: none;
-    transition: var(--transition-normal);
-    text-decoration: none;
-    line-height: var(--leading-enhanced);
-
-    &:hover {
-      background: var(--btn-primary-hover);
-      color: var(--btn-primary-text);
-    }
-
-    &:focus-visible {
-      outline: var(--focus-enhanced-outline-dark);
-      outline-offset: var(--focus-ring-offset);
-    }
-
-    &__content {
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-    }
-
-    &__icon {
-      width: var(--icon-size-md);
-      height: var(--icon-size-md);
-    }
-
-    &__text {
-      font-size: var(--text-base);
-      line-height: var(--leading-enhanced);
-    }
-  }
-
-  /* WCAG AAA: Enhanced Text Spacing Support (User can increase to 200% spacing) */
-  .enhanced-text-spacing {
-    .article-content,
-    .article-content * {
-      letter-spacing: var(--text-spacing-letter-2x) !important;
-      word-spacing: var(--text-spacing-word-enhanced) !important;
-      line-height: var(--text-spacing-line-1-5x) !important;
-    }
-
-    .article-content p,
-    .article-content li,
-    .article-content td,
-    .article-content th {
-      margin-bottom: var(--text-spacing-paragraph-2x) !important;
-    }
-
-    /* Maintain functionality with enhanced text spacing */
-    .back-link,
-    .meta-info__item {
-      padding: calc(var(--space-sm) * 1.5) calc(var(--space-lg) * 1.5) !important;
-    }
-  }
-</style>

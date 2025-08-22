@@ -26,6 +26,8 @@ interface Props {
   ariaLabel?: string;
   /** Style variant for visual appearance */
   variant?: "default" | "primary";
+  /** Text size variant using Tailwind text size classes */
+  textSize?: "sm" | "base" | "lg" | "xl" | "2xl" | "3xl";
   /** Text alignment option */
   textAlign?: "left" | "center" | "right";
 }
@@ -34,8 +36,8 @@ const {
   title,
   level = "h1",
   className = "",
-  ariaLabel,
   variant = "default",
+  textSize = "lg",
   textAlign = "left",
 } = Astro.props;
 
@@ -52,13 +54,13 @@ const headlineVariants = tv({
   ].join(" "),
 
   variants: {
-    level: {
-      h1: "text-6xl font-bold",
-      h2: "text-5xl font-semibold",
-      h3: "text-4xl font-semibold",
-      h4: "text-3xl font-medium",
-      h5: "text-2xl font-medium",
-      h6: "text-xl font-medium",
+    textSize: {
+      sm: "text-lg md:text-xl font-semibold", // Nie unter 16px
+      base: "text-xl md:text-2xl font-semibold", // Nie unter 16px
+      lg: "text-2xl md:text-3xl font-bold", // Nie unter 16px
+      xl: "text-3xl md:text-4xl font-bold", // Nie unter 16px
+      "2xl": "text-4xl md:text-5xl font-bold", // Nie unter 16px
+      "3xl": "text-5xl md:text-6xl font-bold", // Nie unter 16px
     },
 
     variant: {
@@ -78,8 +80,7 @@ const headlineVariants = tv({
   },
 
   defaultVariants: {
-    level: "h1",
-    size: undefined,
+    textSize: "lg",
     variant: "default",
     textAlign: "left",
   },
@@ -87,7 +88,7 @@ const headlineVariants = tv({
 
 // Generate classes using tailwind-variants
 const classes = headlineVariants({
-  level,
+  textSize,
   variant,
   textAlign,
   className,

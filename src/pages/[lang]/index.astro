@@ -56,114 +56,47 @@ const modifiedDate = new Date();
   {modifiedDate}
 >
   <main id="main-content" class="main-content" tabindex="-1">
-    <div class="content-container">
-      <div class="content-wrapper">
-        {/* Logo with comprehensive image optimization and accessibility */}
-        <div class="logo-container" aria-hidden="true">
-          <Image
-            src="/melody-mind.png"
-            width={300}
-            height={300}
-            alt="Melody Mind Logo - Music Quiz App Logo"
-            loading="eager"
-            fetchpriority="high"
-          />
-        </div>
+    <div class="m-auto" aria-hidden="true">
+      <Image
+        class="m-auto"
+        src="/melody-mind.png"
+        width={300}
+        height={300}
+        alt="Melody Mind Logo - Music Quiz App Logo"
+        loading="eager"
+        fetchpriority="high"
+      />
 
-        {/* Semantic heading with proper hierarchy */}
-        <Headline level="h1" {title} size="4xl" />
+      {/* Semantic heading with proper hierarchy */}
+      <Headline level="h1" textAlign="center" className="my-8">
+        {title}
+      </Headline>
 
-        {/* Description with enhanced contrast for AAA compliance */}
-        <Paragraph align="center" textSize="lg">
-          {description}
+      {/* Description with enhanced contrast for AAA compliance */}
+      <Paragraph textAlign="center" textSize="xl">
+        {description}
+      </Paragraph>
+
+      {/* Accessible button container with increased touch targets */}
+      <div class="m-auto max-w-3xs my-8">
+        <ButtonLink
+          className="w-full flex"
+          href={`/${String(lang)}/gamehome`}
+          aria-label={t("index.start.game.label")}
+        >
+          <span>{t("index.continue")}</span>
+        </ButtonLink>
+      </div>
+
+      {/* Footer text with improved contrast ratio */}
+      <div class="footer-section">
+        <Paragraph textSize="lg" textAlign="center">
+          {t("index.welcome.footnote")}
         </Paragraph>
-
-        {/* Accessible button container with increased touch targets */}
-        <div class="button-container">
-          <ButtonLink href={`/${String(lang)}/gamehome`} aria-label={t("index.start.game.label")}>
-            <span>{t("index.continue")}</span>
-          </ButtonLink>
-        </div>
-
-        {/* Footer text with improved contrast ratio */}
-        <div class="footer-section">
-          <Paragraph textSize="base" ariaLive="polite" align="center">
-            {t("index.welcome.footnote")}
-          </Paragraph>
-        </div>
       </div>
     </div>
   </main>
 </Layout>
-
-<style lang="scss">
-  /* ======================================
-   * INDEX PAGE STYLES - OPTIMIZED FOR STYLE GUARDIAN
-   * BEM Methodology + Global Variables + Mobile-First
-   * ====================================== */
-
-  .main-content {
-    min-height: 100vh;
-    color: var(--text-primary);
-    contain: layout style paint;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  .content-container {
-    margin: 0 auto;
-    display: flex;
-    width: var(--width-full);
-    max-width: var(--container-lg);
-    flex-direction: column;
-    align-items: center;
-    contain: layout style;
-    text-align: center;
-  }
-
-  .content-wrapper {
-    display: flex;
-    width: var(--width-full);
-    flex-direction: column;
-    align-items: center;
-    contain: layout style;
-  }
-
-  /* ======================================
-   * BUTTON SECTION - SIMPLIFIED DESIGN
-   * ====================================== */
-  .button-container {
-    display: flex;
-    width: var(--width-full);
-    flex-direction: column;
-    align-items: center;
-    contain: layout style;
-    margin: 0 auto 0; // Mobile: compact margin
-    max-width: var(--container-xs);
-    gap: var(--space-sm);
-  }
-
-  /* ======================================
-   * FOOTER SECTION - SIMPLIFIED DESIGN
-   * ====================================== */
-  .footer-section {
-    max-width: var(--content-readable-width);
-    contain: layout style;
-    margin-top: var(--space-lg); // Mobile: compact margin
-  }
-
-  // Enhanced focus styles for all interactive elements
-  a,
-  button,
-  [tabindex] {
-    &:focus-visible {
-      outline: var(--focus-ring);
-      outline-offset: var(--focus-ring-offset);
-    }
-  }
-</style>
 
 <script>
   /**

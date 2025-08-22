@@ -3,7 +3,7 @@
  * Footer Component - Responsive & Accessible
  *
  * A comprehensive site-wide footer with copyright, legal links, and external links.
- * Fully responsive with WCAG AAA compliance and optimized for all screen sizes.
+ * Fully responsive with Tailwind CSS 4 for maintainability.
  *
  * @component
  * @example
@@ -75,22 +75,33 @@ const links = [
     ariaLabel: t("footer.support_kofi"),
   },
 ];
-
-const linkClasses = "footer-link";
 ---
 
-<footer class="footer" role="contentinfo" aria-label="Site footer">
-  <div class="footer-container">
-    <div class="footer-content">
+<footer
+  class="mt-16 border-t border-gray-700 py-6 font-primary md:mt-12 md:py-4 sm:mt-8 sm:py-3"
+  role="contentinfo"
+  aria-label="Site footer"
+>
+  <div class="mx-auto max-w-7xl px-4 md:px-3 sm:px-2">
+    <div
+      class="flex flex-col items-center gap-4 md:flex-row md:justify-between md:items-center md:gap-8 sm:gap-2"
+    >
       <!-- Copyright and Legal Links -->
-      <div class="footer-left">
-        <div class="footer-copyright">
+      <div class="flex flex-col gap-3 items-center md:items-start sm:gap-2">
+        <div class="text-base md:text-lg text-gray-300 text-center md:text-left sm:text-sm">
           &copy; {currentYear} MelodyMind - {t("footer.rights")}
         </div>
-        <nav aria-label="Legal information" class="footer-legal">
+        <nav
+          aria-label="Legal information"
+          class="flex gap-4 flex-wrap justify-center md:justify-start sm:gap-3"
+        >
           {
             legalLinks.map((link) => (
-              <a href={link.href} class="footer-legal-link" aria-label={link.ariaLabel}>
+              <a
+                href={link.href}
+                class="text-gray-300 no-underline text-base md:text-lg font-medium px-3 py-2 rounded-lg transition-colors duration-200 hover:text-purple-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 min-h-[48px] inline-flex items-center sm:text-sm sm:px-2 sm:py-1"
+                aria-label={link.ariaLabel}
+              >
                 {link.label}
               </a>
             ))
@@ -99,16 +110,26 @@ const linkClasses = "footer-link";
       </div>
 
       <!-- External Links -->
-      <nav aria-label="Footer links" class="footer-nav">
+      <nav
+        aria-label="Footer links"
+        class="flex gap-4 flex-wrap justify-center md:justify-end sm:gap-3"
+      >
         <!-- GitHub Link -->
         <a
           href={links[0].href}
           target="_blank"
           rel="noopener noreferrer"
-          class={linkClasses}
+          class="text-gray-300 no-underline text-base md:text-lg font-medium flex items-center gap-2 px-4 py-3 rounded-lg transition-all duration-200 hover:text-purple-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 min-h-[48px] sm:text-sm sm:px-3 sm:py-2 sm:gap-1"
           aria-label={links[0].ariaLabel}
         >
-          <Icon name={links[0].icon} width="16" height="16" aria-hidden="true" focusable="false" />
+          <Icon
+            name={links[0].icon}
+            width="18"
+            height="18"
+            aria-hidden="true"
+            focusable="false"
+            class="sm:w-4 sm:h-4"
+          />
           <span>{links[0].label}</span>
           <span class="sr-only">(opens in a new tab)</span>
         </a>
@@ -120,10 +141,17 @@ const linkClasses = "footer-link";
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              class={linkClasses}
+              class="text-gray-300 no-underline text-base md:text-lg font-medium flex items-center gap-2 px-4 py-3 rounded-lg transition-all duration-200 hover:text-purple-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 min-h-[48px] sm:text-sm sm:px-3 sm:py-2 sm:gap-1"
               aria-label={link.ariaLabel}
             >
-              <Icon name={link.icon} width="16" height="16" aria-hidden="true" focusable="false" />
+              <Icon
+                name={link.icon}
+                width="18"
+                height="18"
+                aria-hidden="true"
+                focusable="false"
+                class="sm:w-4 sm:h-4"
+              />
               <span>{link.label}</span>
               <span class="sr-only">(opens in a new tab)</span>
             </a>
@@ -133,280 +161,3 @@ const linkClasses = "footer-link";
     </div>
   </div>
 </footer>
-
-<style lang="scss">
-  /* ======================================
-   * FOOTER COMPONENT STYLES
-   * Responsive design with global.css variables
-   * WCAG AAA compliant - Zero hardcoded values
-   * ====================================== */
-
-  .footer {
-    margin-top: var(--space-3xl);
-    border-top: var(--border-width-thin) solid var(--border-primary);
-    padding: var(--space-lg) 0;
-    background-color: var(--bg-secondary);
-    font-family: var(--font-family-primary);
-
-    // Responsive padding adjustments
-    @media (max-width: 47.9375em) {
-      padding: var(--space-md) 0;
-      margin-top: var(--space-2xl);
-    }
-
-    @media (max-width: 39.9375em) {
-      padding: var(--space-sm) 0;
-      margin-top: var(--space-xl);
-    }
-
-    // Container nesting
-    &-container {
-      margin: 0 auto;
-      max-width: var(--container-xl);
-      padding: 0 var(--space-md);
-
-      // Responsive container padding
-      @media (max-width: 47.9375em) {
-        padding: 0 var(--space-sm);
-      }
-    }
-
-    // Main content layout - mobile first
-    &-content {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-      align-items: center;
-
-      // Responsive layout - side by side on larger screens
-      @media (min-width: 48em) {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: var(--space-xl);
-      }
-
-      // Responsive gap adjustments
-      @media (max-width: 39.9375em) {
-        gap: var(--space-sm);
-      }
-    }
-
-    // Left section - copyright and legal
-    &-left {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-      align-items: center;
-
-      @media (min-width: 48em) {
-        align-items: flex-start;
-      }
-
-      // Responsive gap adjustments
-      @media (max-width: 39.9375em) {
-        gap: var(--space-xs);
-      }
-    }
-
-    // Copyright text styles
-    &-copyright {
-      font-size: var(--text-sm);
-      color: var(--text-tertiary);
-      text-align: center;
-
-      @media (min-width: 48em) {
-        text-align: left;
-      }
-
-      // Responsive font size
-      @media (max-width: 39.9375em) {
-        font-size: var(--text-xs);
-      }
-    }
-
-    // Legal links
-    &-legal {
-      display: flex;
-      gap: var(--space-md);
-      flex-wrap: wrap;
-      justify-content: center;
-
-      @media (min-width: 48em) {
-        justify-content: flex-start;
-      }
-
-      // Responsive gap adjustments
-      @media (max-width: 39.9375em) {
-        gap: var(--space-sm);
-      }
-    }
-
-    &-legal-link {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: var(--text-sm);
-      font-weight: var(--font-medium);
-      padding: var(--space-xs) var(--space-sm);
-      border-radius: var(--radius-sm);
-      transition: color var(--transition-fast);
-      min-height: var(--min-touch-size);
-      display: inline-flex;
-      align-items: center;
-
-      &:hover {
-        color: var(--interactive-primary);
-      }
-
-      &:focus-visible {
-        outline: var(--focus-outline);
-        outline-offset: var(--focus-ring-offset);
-        box-shadow: var(--focus-ring);
-      }
-
-      // Responsive font size
-      @media (max-width: 39.9375em) {
-        font-size: var(--text-xs);
-        padding: var(--space-xs);
-      }
-
-      // High contrast mode support
-      @media (prefers-contrast: high) {
-        border: var(--border-width-thin) solid transparent;
-
-        &:focus-visible {
-          border-color: var(--border-focus);
-        }
-      }
-
-      // Reduced motion support
-      @media (prefers-reduced-motion: reduce) {
-        transition-duration: var(--transition-fast) !important;
-      }
-    }
-
-    // Navigation - external links
-    &-nav {
-      display: flex;
-      gap: var(--space-md);
-      flex-wrap: wrap;
-      justify-content: center;
-
-      @media (min-width: 48em) {
-        justify-content: flex-end;
-      }
-
-      // Responsive gap adjustments
-      @media (max-width: 39.9375em) {
-        gap: var(--space-sm);
-      }
-    }
-
-    // Footer link styles
-    &-link {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: var(--text-sm);
-      font-weight: var(--font-medium);
-      display: flex;
-      align-items: center;
-      gap: var(--space-xs);
-      padding: var(--space-sm);
-      border-radius: var(--radius-sm);
-      min-height: var(--min-touch-size);
-      transition:
-        color var(--transition-fast),
-        background-color var(--transition-fast);
-
-      // Simple hover states
-      &:hover {
-        color: var(--interactive-primary);
-        background-color: var(--bg-tertiary);
-      }
-
-      // Focus styles for keyboard navigation
-      &:focus-visible {
-        outline: var(--focus-outline);
-        outline-offset: var(--focus-ring-offset);
-        box-shadow: var(--focus-ring);
-        background-color: var(--bg-tertiary);
-      }
-
-      // Responsive adjustments
-      @media (max-width: 39.9375em) {
-        font-size: var(--text-xs);
-        padding: var(--space-xs);
-        gap: var(--space-xs);
-      }
-
-      // Reduced motion support
-      @media (prefers-reduced-motion: reduce) {
-        transition-duration: var(--transition-fast) !important;
-      }
-
-      // High contrast mode support
-      @media (prefers-contrast: high) {
-        border: var(--border-width-thin) solid transparent;
-
-        &:focus-visible {
-          border-color: var(--border-focus);
-          background-color: var(--bg-primary);
-        }
-      }
-
-      // Print styles
-      @media print {
-        color: var(--print-text) !important;
-        background: transparent !important;
-      }
-    }
-
-    // High contrast mode support for footer itself
-    @media (prefers-contrast: high) {
-      border-top-width: var(--border-width-thick);
-    }
-
-    // Forced colors mode support
-    @media (forced-colors: active) {
-      border-top-color: CanvasText;
-      background-color: Canvas;
-      color: CanvasText;
-    }
-
-    // Print styles for footer
-    @media print {
-      border-top: var(--border-width-thin) solid var(--print-border);
-      color: var(--print-text);
-      background: var(--print-bg);
-
-      // Hide donation links in print
-      .footer-nav {
-        display: none;
-      }
-    }
-  }
-
-  // Screen reader only content
-  .sr-only {
-    position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    padding: 0;
-    margin: var(--sr-only-margin);
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-</style>
-
-<script>
-  /**
-   * Footer Component Script
-   * Simplified implementation with basic functionality
-   */
-  document.addEventListener("DOMContentLoaded", (): void => {
-    // Footer links are handled by CSS hover states
-    // No additional JavaScript needed for basic functionality
-  });
-</script>
