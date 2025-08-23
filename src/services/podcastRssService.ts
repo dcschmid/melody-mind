@@ -1,3 +1,6 @@
+import type { PodcastData } from "../types/podcast";
+import { handleGameError } from "../utils/error/errorHandlingUtils";
+
 /**
  * Podcast RSS Feed Generation Service
  *
@@ -8,7 +11,6 @@
  * @version 1.0.0
  */
 
-import type { PodcastData } from "../types/podcast";
 import { useTranslations } from "../utils/i18n";
 
 /**
@@ -427,7 +429,7 @@ ${transcriptTag}
 
       return hasRSSRoot && hasChannel && hasTitle && hasDescription;
     } catch (error) {
-      console.error("RSS XML validation failed:", error);
+      handleGameError(error, "RSS XML validation");
       return false;
     }
   }

@@ -9,6 +9,8 @@
 
 // Import types and utilities
 import { getLangFromUrl, useTranslations } from "../../utils/i18n.ts";
+import { safeGetElementById } from "../dom/domUtils";
+import { handleGameError } from "../error/errorHandlingUtils";
 
 /**
  * Configuration parameters for ending a game session
@@ -434,7 +436,7 @@ async function waitForDataValidation(_config: EndGameConfig): Promise<void> {
  * Hide loading state after end game processing
  */
 function hideEndGameLoading(): void {
-  const loadingOverlay = document.getElementById("endgame-loading-overlay");
+  const loadingOverlay = safeGetElementById<HTMLElement>("endgame-loading-overlay");
   if (loadingOverlay) {
     // Try smooth animation first
     try {
@@ -506,7 +508,7 @@ export async function handleEndGame(
 
     // Absolute fallback: ensure loading is hidden after 2 seconds
     setTimeout(() => {
-      const loadingOverlay = document.getElementById("endgame-loading-overlay");
+      const loadingOverlay = safeGetElementById<HTMLElement>("endgame-loading-overlay");
       if (loadingOverlay) {
         console.warn("Force removing stuck loading overlay");
         loadingOverlay.remove();
@@ -516,14 +518,14 @@ export async function handleEndGame(
     // Call success callback if provided
     callbacks?.onSaveComplete?.();
   } catch (error) {
-    console.error("Error ending the game:", error);
+    handleGameError(error, "game ending");
 
     // Hide loading state in case of error
     hideEndGameLoading();
 
     // Force remove loading overlay in case of error
     setTimeout(() => {
-      const loadingOverlay = document.getElementById("endgame-loading-overlay");
+      const loadingOverlay = safeGetElementById<HTMLElement>("endgame-loading-overlay");
       if (loadingOverlay) {
         console.warn("Force removing loading overlay due to error");
         loadingOverlay.remove();
@@ -558,8 +560,8 @@ export function showEndgamePopup(score: number): void {
   // const t = useTranslations(String(lang));
 
   // Find and update the score display elements
-  const scoreElement = document.getElementById("popup-score");
-  const popup = document.getElementById("endgame-popup");
+  const scoreElement = safeGetElementById<HTMLElement>("popup-score");
+  const popup = safeGetElementById<HTMLElement>("endgame-popup");
 
   if (scoreElement && popup) {
     // Update score display
@@ -575,7 +577,7 @@ export function showEndgamePopup(score: number): void {
     popup.setAttribute("tabindex", "-1");
     popup.focus();
   } else {
-    console.error("End game popup elements not found");
+    handleGameError(new Error("End game popup elements not found"), "end game popup display");
   }
 }
 

@@ -1,3 +1,5 @@
+import { handleGameError } from "../error/errorHandlingUtils";
+
 /**
  * Share Utils - Utility functions for sharing game results across different platforms
  *
@@ -411,7 +413,7 @@ export async function shareScore(platform: SharingPlatform, data: ShareData): Pr
         return false;
     }
   } catch (error) {
-    console.error(`Error sharing to ${platform}:`, error);
+    handleGameError(error, `sharing to ${platform}`);
     return false;
   }
 }
@@ -427,7 +429,7 @@ function openShareWindow(url: string): boolean {
     window.open(url, "_blank", "noopener,noreferrer");
     return true;
   } catch (error) {
-    console.error("Failed to open share window:", error);
+    handleGameError(error, "share window opening");
     return false;
   }
 }

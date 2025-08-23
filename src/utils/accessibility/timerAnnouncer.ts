@@ -1,3 +1,5 @@
+import { safeGetElementById } from "../dom/domUtils";
+
 /**
  * @fileoverview Timer Announcer for WCAG AAA accessibility in the MelodyMind game.
  * Provides timed announcements for speed bonus events with screen reader support.
@@ -43,7 +45,7 @@ function announceToScreenReader(
   politeness: "assertive" | "polite" = "assertive"
 ): void {
   // Create an announcer element if it doesn't exist
-  let announcer = document.getElementById("timer-status-announcer");
+  let announcer = safeGetElementById("timer-status-announcer");
 
   if (!announcer) {
     announcer = document.createElement("div");

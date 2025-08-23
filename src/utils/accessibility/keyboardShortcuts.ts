@@ -1,3 +1,5 @@
+import { safeGetElementById, safeQuerySelectorAll } from "../dom/domUtils";
+
 /**
  * @fileoverview Keyboard shortcuts manager for the MelodyMind game
  * Provides accessible keyboard navigation for game actions.
@@ -148,21 +150,21 @@ function addKeyboardShortcutHints(lang: string): void {
   const labels = hintLabels[lang] || hintLabels.en;
 
   // Update aria-labels and tooltips
-  const jokerButton = document.getElementById("joker-button");
+  const jokerButton = safeGetElementById<HTMLButtonElement>("joker-button");
   if (jokerButton) {
     const currentLabel = jokerButton.getAttribute("aria-label") || "Joker";
     jokerButton.setAttribute("aria-label", `${currentLabel} - ${labels.joker}`);
     jokerButton.setAttribute("title", `${labels.joker}`);
   }
 
-  const nextRoundButton = document.getElementById("next-round-button");
+  const nextRoundButton = safeGetElementById<HTMLButtonElement>("next-round-button");
   if (nextRoundButton) {
     const currentLabel = nextRoundButton.getAttribute("aria-label") || "Next Round";
     nextRoundButton.setAttribute("aria-label", `${currentLabel} - ${labels.nextRound}`);
     nextRoundButton.setAttribute("title", `${labels.nextRound}`);
   }
 
-  const restartButton = document.getElementById("restart-button");
+  const restartButton = safeGetElementById<HTMLButtonElement>("restart-button");
   if (restartButton) {
     const currentLabel = restartButton.getAttribute("aria-label") || "Restart";
     restartButton.setAttribute("aria-label", `${currentLabel} - ${labels.restart}`);
@@ -171,7 +173,7 @@ function addKeyboardShortcutHints(lang: string): void {
 
   // Add number hints to option buttons
   setTimeout(() => {
-    const optionButtons = document.querySelectorAll("#options button");
+    const optionButtons = safeQuerySelectorAll<HTMLButtonElement>("#options button");
     optionButtons.forEach((button, index) => {
       const shortcutNumber = index + 1;
       const currentLabel = button.getAttribute("aria-label") || button.textContent || "";
@@ -206,7 +208,7 @@ function announceToScreenReader(
   politeness: "assertive" | "polite" = "assertive"
 ): void {
   // Create or get an announcer element
-  let announcer = document.getElementById("keyboard-shortcut-announcer");
+  let announcer = safeGetElementById("keyboard-shortcut-announcer");
 
   if (!announcer) {
     announcer = document.createElement("div");

@@ -421,62 +421,10 @@ const t = useTranslations(lang);
 </header>
 
 <script define:vars={{ lang }}>
-  // Simple navigation menu functionality
+  import { initStandardNavigation } from "../../utils/components/navigationUtils";
+
+  // Initialize navigation functionality
   document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.getElementById("menu-toggle");
-    const mainMenu = document.getElementById("main-menu");
-    const menuBackdrop = document.getElementById("menu-backdrop");
-    const closeButton = mainMenu?.querySelector("button");
-
-    if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
-      return;
-    }
-
-    // Toggle menu function
-    const toggleMenu = () => {
-      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-      const newState = !isExpanded;
-
-      menuToggle.setAttribute("aria-expanded", String(newState));
-      mainMenu.setAttribute("data-state", newState ? "open" : "closed");
-      menuBackdrop.setAttribute("data-state", newState ? "open" : "closed");
-
-      // Prevent scrolling when menu is open
-      document.body.style.overflow = newState ? "hidden" : "";
-
-      // Focus management
-      if (newState) {
-        setTimeout(() => {
-          closeButton.focus();
-        }, 300);
-      } else {
-        menuToggle.focus();
-      }
-    };
-
-    // Event listeners
-    menuToggle.addEventListener("click", toggleMenu);
-    menuBackdrop.addEventListener("click", toggleMenu);
-    closeButton.addEventListener("click", toggleMenu);
-
-    // Close with Escape key
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && mainMenu.getAttribute("data-state") === "open") {
-        toggleMenu();
-      }
-    });
-
-    // Simple logout functionality
-    const logoutButton = document.getElementById("logout-button");
-    if (logoutButton) {
-      logoutButton.addEventListener("click", () => {
-        // Clear auth data
-        localStorage.removeItem("auth_status");
-        localStorage.removeItem("user");
-
-        // Redirect to home
-        window.location.href = `/${lang}/gamehome`;
-      });
-    }
+    initStandardNavigation(lang);
   });
 </script>

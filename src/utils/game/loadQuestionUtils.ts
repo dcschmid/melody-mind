@@ -1,3 +1,5 @@
+import { handleGameError } from "../error/errorHandlingUtils";
+
 /**
  * Represents a question in the music quiz.
  *
@@ -91,7 +93,7 @@ interface LoadQuestionParams {
  * - Setting up the question text
  * - Creating and shuffling answer options
  * - Setting appropriate ARIA attributes for accessibility
- * - Attaching event handlers to answer buttons
+ * - Attaching event listeners to answer buttons
  * - Managing loading states
  *
  * @param {LoadQuestionParams} params - Object containing all necessary parameters
@@ -191,7 +193,7 @@ export function loadQuestion({
         });
       });
     } catch (error) {
-      console.error("Error displaying question:", error);
+      handleGameError(error, "question display");
       // Display an error message to the user
       questionElement.textContent =
         "Sorry, there was a problem loading the question. Please try again.";

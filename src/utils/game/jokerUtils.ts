@@ -1,3 +1,5 @@
+import { handleGameError } from "../error/errorHandlingUtils";
+
 /**
  * Represents the state of a joker in the game
  * @interface JokerState
@@ -101,7 +103,7 @@ export function use5050Joker(
       jokerUsedCount: newJokerCount,
     };
   } catch (error) {
-    console.error("Fehler beim Ausführen des Jokers:", error);
+    handleGameError(error, "joker execution");
     return jokerState;
   }
 }

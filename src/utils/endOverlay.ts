@@ -11,6 +11,7 @@
  * @since 2025-06-03
  */
 
+import { handleGameError } from "./error/errorHandlingUtils";
 import { updateScoreDisplay } from "./game/scoreUtils";
 
 // Type definitions for better type safety
@@ -24,12 +25,14 @@ interface EndOverlayConfig {
   translations?: TranslationData;
 }
 
+// Import centralized DOM utilities
+import { safeGetElementById, safeQuerySelector } from "./dom/domUtils";
+
 // Utility functions with modern ES6+ features
 const getElement = <T extends HTMLElement>(selector: string): T | null =>
-  document.querySelector<T>(selector);
+  safeQuerySelector<T>(selector);
 
-const getElementById = <T extends HTMLElement>(id: string): T | null =>
-  document.getElementById(id) as T | null;
+const getElementById = <T extends HTMLElement>(id: string): T | null => safeGetElementById<T>(id);
 
 const parseTranslations = (data: string | null): TranslationData | null => {
   if (!data) {
@@ -39,7 +42,7 @@ const parseTranslations = (data: string | null): TranslationData | null => {
   try {
     return JSON.parse(data) as TranslationData;
   } catch (error) {
-    console.error("Error parsing translation data:", error);
+    handleGameError(error, "translation data parsing");
     return null;
   }
 };
@@ -439,7 +442,7 @@ export const setupSharingButton = (): void => {
         console.log("Share text copied to clipboard");
       }
     } catch (error) {
-      console.error("Error sharing:", error);
+      handleGameError(error, "results sharing");
 
       // Show error feedback with localized text
       const overlay =
@@ -479,7 +482,7 @@ const isAuthenticated = (): boolean => {
 
     return isAuth;
   } catch (error) {
-    console.error("Error checking authentication status in EndOverlay:", error);
+    handleGameError(error, "authentication status check");
     return false;
   }
 };
@@ -584,7 +587,7 @@ const storeGameResultsForGuest = (gameData: {
     localStorage.setItem("pending_game_result", JSON.stringify(gameData));
     console.log("Game results stored for guest user:", gameData);
   } catch (error) {
-    console.error("Error storing game results for guest:", error);
+    handleGameError(error, "guest game results storage");
   }
 };
 
@@ -635,7 +638,7 @@ const savePendingGameResults = async (): Promise<void> => {
     // Note: Game saving functionality removed - no longer needed
     console.log("Game results would be saved here (functionality removed)");
   } catch (error) {
-    console.error("Error saving pending game results:", error);
+    handleGameError(error, "pending game results save");
   }
 };
 

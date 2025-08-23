@@ -1,3 +1,5 @@
+import { handleAudioError } from "../error/errorHandlingUtils";
+
 /**
  * Audio Control System
  *
@@ -100,7 +102,7 @@ export async function stopAudio(audioElement?: HTMLAudioElement | null): Promise
     // Reset position
     audio.currentTime = 0;
   } catch (error) {
-    console.error("Failed to stop audio:", error);
+    handleAudioError(error, "audio stop");
     // Continue execution despite error - this is a best-effort operation
   }
 }
@@ -146,7 +148,7 @@ export class AudioController implements AudioControl {
 
     // Handle errors during playback
     const errorHandler = (e: Event) => {
-      console.error("Audio playback error:", (e as ErrorEvent).message || "Unknown error");
+      handleAudioError(e, "audio playback");
     };
 
     this.audioElement.addEventListener("error", errorHandler);
@@ -224,7 +226,7 @@ export class AudioController implements AudioControl {
       // Return a promise that resolves when playback starts
       await this.audioElement.play();
     } catch (error) {
-      console.error("Failed to play audio:", error);
+      handleAudioError(error, "audio play");
       throw new Error(
         `Audio playback failed: ${error instanceof Error ? error.message : "Unknown error"}`
       );
@@ -243,7 +245,7 @@ export class AudioController implements AudioControl {
     try {
       await Promise.resolve(this.audioElement.pause());
     } catch (error) {
-      console.error("Failed to pause audio:", error);
+      handleAudioError(error, "audio pause");
     }
   }
 
@@ -282,7 +284,7 @@ export class AudioController implements AudioControl {
       // Clear the event listeners array
       this.eventListeners = [];
     } catch (error) {
-      console.error("Error during audio cleanup:", error);
+      handleAudioError(error, "audio cleanup");
     }
   }
 }

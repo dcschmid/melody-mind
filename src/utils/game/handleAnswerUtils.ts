@@ -1,5 +1,7 @@
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
+import { safeGetElementById } from "../dom/domUtils";
+
 import { updateMedia, type MediaElements } from "./mediaUtils";
 import { updateScoreDisplay } from "./scoreUtils";
 
@@ -99,15 +101,23 @@ export function handleAnswer(config: HandleAnswerConfig) {
   updateScoreDisplay(state.score, scoreElement);
 
   // Update album information in overlay
-  const overlayArtist = document.getElementById("overlay-artist");
-  const overlayAlbum = document.getElementById("overlay-album");
-  const overlayFunfact = document.getElementById("overlay-funfact");
-  const overlayYear = document.getElementById("overlay-year");
+  const overlayArtist = safeGetElementById<HTMLElement>("overlay-artist");
+  const overlayAlbum = safeGetElementById<HTMLElement>("overlay-album");
+  const overlayFunfact = safeGetElementById<HTMLElement>("overlay-funfact");
+  const overlayYear = safeGetElementById<HTMLElement>("overlay-year");
 
-  if (overlayArtist) {overlayArtist.textContent = album.artist || "";}
-  if (overlayAlbum) {overlayAlbum.textContent = album.album || "";}
-  if (overlayFunfact) {overlayFunfact.textContent = currentQuestion.trivia || "";}
-  if (overlayYear) {overlayYear.textContent = album.year || "";}
+  if (overlayArtist) {
+    overlayArtist.textContent = album.artist || "";
+  }
+  if (overlayAlbum) {
+    overlayAlbum.textContent = album.album || "";
+  }
+  if (overlayFunfact) {
+    overlayFunfact.textContent = currentQuestion.trivia || "";
+  }
+  if (overlayYear) {
+    overlayYear.textContent = album.year || "";
+  }
 
   if (mediaElements) {
     updateMedia(album, mediaElements);

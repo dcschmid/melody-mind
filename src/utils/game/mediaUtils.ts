@@ -1,3 +1,5 @@
+import { handleGameError } from "../error/errorHandlingUtils";
+
 /**
  * Media Utilities for the Music Quiz Game
  *
@@ -170,7 +172,7 @@ export function initializeMediaElements(): MediaElements | null {
       streamingLinks: {},
     };
   } catch (error) {
-    console.error("Error initializing media elements:", error);
+    handleGameError(error, "media elements initialization");
     return null;
   }
 }

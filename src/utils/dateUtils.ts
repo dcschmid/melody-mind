@@ -1,3 +1,5 @@
+import { handleGameError } from "./error/errorHandlingUtils";
+
 /**
  * Helper functions for date formatting
  *
@@ -30,7 +32,7 @@ export function formatDate(dateString: string | Date, locale: string = "de"): st
       minute: "2-digit",
     }).format(date);
   } catch (err) {
-    console.error("Error formatting date:", err);
+    handleGameError(err, "date formatting");
     return String(dateString);
   }
 }
@@ -71,7 +73,7 @@ export function formatRelativeDate(dateString: string | Date, locale: string = "
       return rtf.format(-Math.floor(diffInSeconds / 31536000), "year");
     }
   } catch (err) {
-    console.error("Error formatting relative date:", err);
+    handleGameError(err, "relative date formatting");
     return String(dateString);
   }
 }
@@ -99,7 +101,7 @@ export function formatShortDate(dateString: string | Date, locale: string = "de"
       day: "2-digit",
     }).format(date);
   } catch (err) {
-    console.error("Error formatting short date:", err);
+    handleGameError(err, "short date formatting");
     return String(dateString);
   }
 }
