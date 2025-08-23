@@ -265,8 +265,6 @@ const initializeGame = async (elements: GameElements) => {
     return;
   }
 
-
-
   /**
    * Initialize joker system based on the difficulty level
    * The joker allows players to eliminate incorrect answers
