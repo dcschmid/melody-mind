@@ -574,7 +574,12 @@ const setupGuestLoginEventListeners = (): void => {
  * Store game results temporarily for guest users
  * @param gameData - Game data to store
  */
-const storeGameResultsForGuest = (gameData: { userId: string; score: number; category: string; difficulty: string }): void => {
+const storeGameResultsForGuest = (gameData: {
+  userId: string;
+  score: number;
+  category: string;
+  difficulty: string;
+}): void => {
   try {
     localStorage.setItem("pending_game_result", JSON.stringify(gameData));
     console.log("Game results stored for guest user:", gameData);
@@ -730,10 +735,11 @@ export const initializeEndOverlay = async (): Promise<void> => {
 
   // Set up global showEndOverlay function for game engines to use
   // Support both the new config API and the legacy (score, maxScore) API
-  (globalThis as { showEndOverlay?: (configOrScore: EndOverlayConfig | number, maxScore?: number) => void }).showEndOverlay = (
-    configOrScore: EndOverlayConfig | number,
-    maxScore?: number
-  ) => {
+  (
+    globalThis as {
+      showEndOverlay?: (configOrScore: EndOverlayConfig | number, maxScore?: number) => void;
+    }
+  ).showEndOverlay = (configOrScore: EndOverlayConfig | number, maxScore?: number) => {
     console.log("Global showEndOverlay called with:", { configOrScore, maxScore });
     if (typeof configOrScore === "number") {
       // Legacy API: (score, maxScore)
