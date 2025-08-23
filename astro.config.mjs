@@ -113,7 +113,7 @@ export default defineConfig({
     // Astro 5.0+ dependency optimization
     optimizeDeps: {
       include: ["@astrojs/node", "sharp"],
-      exclude: ["@fontsource/atkinson-hyperlegible", "@fontsource/source-sans-pro"],
+      exclude: ["@fontsource/atkinson-hyperlegible"],
     },
     // Performance optimizations
     server: {
