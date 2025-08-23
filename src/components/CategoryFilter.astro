@@ -56,74 +56,11 @@ const { categories, selectedValue = "all", className = "" } = Astro.props;
 </div>
 
 <script>
-  // Category filter functionality - reusable across pages
-  class CategoryFilter {
-    private filterSelect: HTMLSelectElement | null;
-    private categoryGroups: NodeListOf<Element>;
-    private targetSelector: string;
+  import { initCategoryFilterAuto } from "../utils/components/categoryFilterUtils";
 
-    constructor(targetSelector: string = ".category-group") {
-      this.filterSelect = document.getElementById("category-filter") as HTMLSelectElement;
-      this.categoryGroups = document.querySelectorAll(targetSelector);
-      this.targetSelector = targetSelector;
-
-      if (this.filterSelect) {
-        this.init();
-      }
-    }
-
-    private init = (): void => {
-      this.filterSelect!.addEventListener("change", this.handleFilterChange);
-
-      // Set initial state based on data-selected attribute
-      const initialValue = this.filterSelect!.getAttribute("data-selected") || "all";
-      this.filterSelect!.value = initialValue;
-      this.filterCategories(initialValue);
-    };
-
-    private handleFilterChange = (event: Event): void => {
-      const target = event.target as HTMLSelectElement;
-      const selectedValue = target.value;
-      this.filterCategories(selectedValue);
-    };
-
-    private filterCategories = (selectedType: string): void => {
-      this.categoryGroups.forEach((group) => {
-        if (group instanceof HTMLElement) {
-          if (selectedType === "all") {
-            // Show all category groups
-            group.style.display = "";
-            group.setAttribute("aria-hidden", "false");
-          } else {
-            // Check if this group has the matching data-category-type attribute
-            const groupCategoryType = group.getAttribute("data-category-type");
-            const shouldShow = groupCategoryType === selectedType;
-
-            group.style.display = shouldShow ? "" : "none";
-            group.setAttribute("aria-hidden", (!shouldShow).toString());
-          }
-        }
-      });
-    };
-  }
-
-  // Initialize filter functionality
+  // Initialize category filter functionality
   const initFilter = (): void => {
-    // Try different selectors to find category groups
-    const selectors = [
-      ".category-group",
-      ".genre-content",
-      "[data-category-type]",
-      ".category-section",
-    ];
-
-    for (const selector of selectors) {
-      const groups = document.querySelectorAll(selector);
-      if (groups.length > 0) {
-        new CategoryFilter(selector);
-        return;
-      }
-    }
+    initCategoryFilterAuto();
   };
 
   // Initialize when DOM is ready
