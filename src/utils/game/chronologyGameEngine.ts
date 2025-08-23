@@ -12,6 +12,7 @@ import {
   animateProgressBar,
 } from "../endOverlay.ts";
 
+import { loadAlbumsWithFallback } from "./albumLoader";
 import { handleEndGame } from "./endGameUtils.ts";
 
 // Setup EndOverlay functionality
@@ -66,30 +67,7 @@ const ITEMS_PER_DIFFICULTY = {
   [DIFFICULTY_LEVELS.HARD]: 6,
 };
 
-// Data loading functions
-const loadAlbumsData = async (category: string, language: string) => {
-  try {
-    // Try to load from the specified language first
-    const response = await fetch(`/json/genres/${language}/${category}.json`);
 
-    if (!response.ok) {
-      // Fallback to German if the language-specific file doesn't exist
-      console.warn(`No albums found for ${language}/${category}, falling back to German`);
-      const fallbackResponse = await fetch(`/json/genres/de/${category}.json`);
-
-      if (!fallbackResponse.ok) {
-        throw new Error(`Failed to load albums for category: ${category}`);
-      }
-
-      return await fallbackResponse.json();
-    }
-
-    return await response.json();
-  } catch (error) {
-    console.error("Error loading albums data:", error);
-    throw error;
-  }
-};
 
 const generateChronologyQuestion = (
   albumsData: Array<{ artist: string; album: string; year: string }>,
@@ -248,7 +226,7 @@ class ChronologyGame {
 
   async loadAlbumsData() {
     try {
-      this.albumsData = await loadAlbumsData(this.category, this.language);
+      this.albumsData = await loadAlbumsWithFallback(this.category, this.language);
     } catch (error) {
       console.error("Error loading albums:", error);
       throw error;
