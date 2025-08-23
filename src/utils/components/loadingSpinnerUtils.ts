@@ -1,11 +1,16 @@
 /**
  * Loading Spinner Utilities
- * 
+ *
  * Centralized utilities for managing loading spinner components.
  * Eliminates code duplication in component script tags.
  */
 
-import { safeGetElementById, safeQuerySelector, safeAddClasses, safeRemoveClasses } from "../dom/domUtils";
+import {
+  safeGetElementById,
+  safeQuerySelector,
+  safeAddClasses,
+  safeRemoveClasses,
+} from "../dom/domUtils";
 
 /**
  * Loading spinner utility interface
@@ -97,11 +102,11 @@ export function resetState(id: string = "loading-spinner"): void {
   if (spinner) {
     safeRemoveClasses(spinner, [
       "border-red-600",
-      "bg-red-50", 
+      "bg-red-50",
       "border-red-200",
       "border-yellow-600",
       "bg-yellow-50",
-      "border-yellow-200"
+      "border-yellow-200",
     ]);
     const role = spinner.dataset.type === "determinate" ? "progressbar" : "status";
     spinner.setAttribute("role", role);

@@ -133,30 +133,10 @@ const tocTitle = title || t("toc.nav.label");
 }
 
 <script>
+  import { initDefaultTableOfContents } from "../../utils/components/tableOfContentsUtils";
+
+  // Initialize table of contents functionality
   document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.getElementById("toc-toggle") as HTMLButtonElement;
-    const content = document.getElementById("toc-content") as HTMLElement;
-    const icon = document.getElementById("toc-icon") as HTMLElement;
-
-    if (!toggle || !content || !icon) {
-      return;
-    }
-
-    toggle.addEventListener("click", function () {
-      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
-      const newState = !isExpanded;
-
-      toggle.setAttribute("aria-expanded", newState.toString());
-
-      if (newState) {
-        content.style.maxHeight = "24rem";
-        content.style.opacity = "1";
-        icon.style.transform = "rotate(180deg)";
-      } else {
-        content.style.maxHeight = "0";
-        content.style.opacity = "0";
-        icon.style.transform = "rotate(0deg)";
-      }
-    });
+    initDefaultTableOfContents();
   });
 </script>
