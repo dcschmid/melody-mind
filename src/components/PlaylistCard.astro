@@ -165,17 +165,10 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
 
 <!-- Simple script for image fallback -->
 <script>
+  import { initPlaylistCardsAuto } from "../utils/components/playlistCardUtils";
+
+  // Initialize playlist card functionality
   document.addEventListener("DOMContentLoaded", () => {
-    const playlistCards = document.querySelectorAll(".playlist-card");
-
-    playlistCards.forEach((card) => {
-      const image = card.querySelector("img");
-
-      if (image) {
-        image.addEventListener("error", () => {
-          image.src = "/default-cover.jpg";
-        });
-      }
-    });
+    initPlaylistCardsAuto();
   });
 </script>

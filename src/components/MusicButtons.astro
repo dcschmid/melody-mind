@@ -126,34 +126,10 @@ const validButtons = buttons.filter(({ url }) => Boolean(url));
 </div>
 
 <script>
+  import { initDefaultMusicButtons } from "../utils/components/musicButtonsUtils";
+
+  // Initialize music buttons functionality
   document.addEventListener("DOMContentLoaded", () => {
-    const musicLinks = document.querySelectorAll(".music-platform-link");
-
-    musicLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        const platform = (link as HTMLElement).dataset.platform;
-        const playlistTitle = (link as HTMLElement).dataset.playlistTitle;
-
-        if (
-          platform &&
-          playlistTitle &&
-          typeof window.fathom === "object" &&
-          window.fathom?.trackEvent
-        ) {
-          try {
-            const generalEvent = `music_${platform}_click`;
-            const specificEvent = `music_${platform}_${playlistTitle}`.replace(
-              /[^a-zA-Z0-9_]/g,
-              "_"
-            );
-
-            window.fathom.trackEvent(generalEvent);
-            window.fathom.trackEvent(specificEvent);
-          } catch (error) {
-            console.warn("Failed to track music platform click:", error);
-          }
-        }
-      });
-    });
+    initDefaultMusicButtons();
   });
 </script>
