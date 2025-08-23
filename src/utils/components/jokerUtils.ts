@@ -1,6 +1,6 @@
 /**
  * Joker Component Utilities
- * 
+ *
  * Centralized utilities for managing joker functionality.
  * Eliminates code duplication in component script tags.
  */
@@ -37,18 +37,18 @@ export class JokerUtils {
   private canTrigger: boolean = true;
 
   /**
-   *
+   * Initialize joker utility with configuration
    */
   constructor(config: JokerConfig) {
     this.elements = {
       container: safeQuerySelector('[data-testid="joker-container"]'),
       button: safeGetElementById<HTMLButtonElement>(config.buttonId),
       counter: safeGetElementById(config.counterId),
-      announcement: safeGetElementById(config.announcementId)
+      announcement: safeGetElementById(config.announcementId),
     };
-    
+
     this.lang = this.elements.container?.getAttribute("data-lang-code") || "en";
-    
+
     this.init();
   }
 
@@ -60,8 +60,12 @@ export class JokerUtils {
       return;
     }
 
-    const initialCount = parseInt(this.elements.container.getAttribute("data-initial-count") || "0", 10);
-    const initialDisabled = this.elements.container.getAttribute("data-initial-disabled") === "true";
+    const initialCount = parseInt(
+      this.elements.container.getAttribute("data-initial-count") || "0",
+      10
+    );
+    const initialDisabled =
+      this.elements.container.getAttribute("data-initial-disabled") === "true";
 
     if (initialDisabled) {
       this.elements.button.disabled = true;
@@ -192,7 +196,7 @@ export class JokerUtils {
    */
   private announceJokerUsage(): void {
     const announcementEl = this.elements.announcement || this.createAnnouncementElement();
-    
+
     const currentCount = this.elements.counter?.textContent?.trim() || "0";
     announcementEl.textContent = this.createAnnouncementText(this.lang, currentCount);
 
@@ -319,7 +323,7 @@ export function initDefaultJoker(): JokerUtils {
     containerId: "joker-container",
     buttonId: "joker-button",
     counterId: "joker-count",
-    announcementId: "joker-announcement"
+    announcementId: "joker-announcement",
   });
 }
 
@@ -331,6 +335,6 @@ export function initJokerAuto(): JokerUtils | null {
   if (!container) {
     return null;
   }
-  
+
   return initDefaultJoker();
 }

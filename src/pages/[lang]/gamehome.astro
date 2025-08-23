@@ -162,104 +162,28 @@ function generateClientTranslations(t: (_key: string) => string) {
   };
 }
 
-/**
- * Asynchronously loads category data with fallback mechanisms
- * First attempts to load using the alias path, then tries relative path if that fails
- * @returns {Promise<Category[]>} Array of category objects
- */
-async function loadCategoriesForLanguage(language: string): Promise<Category[]> {
-  try {
-    // First try using the alias path
-    return await import(`@json/${language}_categories.json`)
-      .then((module) => module.default)
-      .catch(async () => {
-        // Fallback to relative path if alias fails
-        console.warn(`Attempting to load ${language}_categories.json using relative path`);
-        return await import(`../../json/${language}_categories.json`)
-          .then((module) => module.default)
-          .catch((_err) => {
-            return [];
-          });
-      });
-  } catch (error) {
-    console.error(`Error loading categories for ${language}:`, error);
-    return [];
-  }
-}
+import { 
+  loadCategoriesForLanguage as loadCategoriesFromUtility, 
+  sortCategoriesByType as sortCategoriesByTypeFromUtility,
+  isPlayableCategory,
+  type Category 
+} from "../../utils/category/categoryLoadingUtils";
+
+// Use centralized utility functions
+const loadCategoriesForLanguage = loadCategoriesFromUtility;
+const sortCategoriesByType = sortCategoriesByTypeFromUtility;
 
 // Load categories and ensure we have a valid array
 const categoriesList = await loadCategoriesForLanguage(lang);
 const categories = Array.isArray(categoriesList) ? categoriesList : [];
 
-/**
- * Type guard that checks if an item is a valid playable category
- * @param item - The item to check
- * @returns Boolean indicating if item is a valid playable category
- */
-
-function isPlayableCategory(item: any): item is Category & { categoryUrl: string } {
-  return (
-    item &&
-    typeof item === "object" &&
-    item.isPlayable === true &&
-    typeof item.headline === "string" &&
-    typeof item.imageUrl === "string" &&
-    typeof item.introSubline === "string" &&
-    typeof item.slug === "string" &&
-    typeof item.text === "string" &&
-    typeof item.categoryUrl === "string" &&
-    typeof item.categoryType === "string" &&
-    Boolean(item.categoryUrl)
-  );
-}
+// Use centralized utility function for type checking
 
 // Filter categories by playability status
 const playableCategories = categories.filter(isPlayableCategory);
 const nonPlayableCategories = categories.filter((item) => item && !item.isPlayable);
 
-// Sort categories by type and then by name within each type
-function sortCategoriesByType(categories: Category[]): Category[] {
-  const typeOrder = {
-    decade: 1,
-    female: 2,
-    "classic-rock": 3,
-    "metal-classic": 4,
-    "metal-modern": 5,
-    "metal-avantgarde": 6,
-    "mainstream-pop": 7,
-    "indie-alternative": 8,
-    "global-pop": 9,
-    "jazz-soul-funk": 10,
-    "hip-hop-rap": 11,
-    "house-techno": 12,
-    "club-sounds": 13,
-    "breaks-experimental": 14,
-    "latin-vibes": 15,
-    "caribbean-afro": 16,
-    "folk-regional": 17,
-    "classical-orchestral": 18,
-    "countries-regional": 19,
-    emotional: 20,
-    seasonal: 21,
-    situational: 22,
-    genre: 23,
-    other: 24,
-  };
-
-  return categories.sort((a, b) => {
-    // First sort by type
-    if (typeOrder[a.categoryType] !== typeOrder[b.categoryType]) {
-      return typeOrder[a.categoryType] - typeOrder[b.categoryType];
-    }
-
-    // Within same type, sort decades chronologically, others alphabetically
-    if (a.categoryType === "decade") {
-      return a.slug.localeCompare(b.slug);
-    }
-
-    return a.headline.localeCompare(b.headline);
-  });
-}
+// Use centralized utility function for sorting
 
 // Sort categories by type and playability
 const sortedPlayableCategories = sortCategoriesByType(playableCategories);
