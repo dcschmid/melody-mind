@@ -46,7 +46,6 @@
     "@astrojs/sitemap": "^3.5.1",
     "@astropub/flow": "^0.4.0",
     "@fontsource/atkinson-hyperlegible": "^5.2.6",
-    "@fontsource/source-sans-pro": "^5.2.5",
     "@iconify-json/mdi": "^1.2.3",
     "@libsql/client": "^0.15.10",
     "@mdi/svg": "^7.4.47",
