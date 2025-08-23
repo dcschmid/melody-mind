@@ -632,31 +632,8 @@ const savePendingGameResults = async (): Promise<void> => {
 
     console.log("Updated game data with userId:", { ...gameData, userId });
 
-    // Get current language
-    const currentLang = document.documentElement.lang || "en";
-
-    // Save to database
-    const response = await fetch(`/${currentLang}/api/game/save-result`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(gameData),
-    });
-
-    if (response.ok) {
-      // Remove from localStorage after successful save
-      localStorage.removeItem("pending_game_result");
-      console.log("Pending game results saved successfully");
-
-      // Announce success to screen reader
-      announceToScreenReader("Game results saved successfully after login");
-    } else {
-      const errorText = await response.text();
-      console.error("Failed to save pending game results:", errorText);
-      console.error("Response status:", response.status, response.statusText);
-      console.error("Sent data:", gameData);
-    }
+    // Note: Game saving functionality removed - no longer needed
+    console.log("Game results would be saved here (functionality removed)");
   } catch (error) {
     console.error("Error saving pending game results:", error);
   }

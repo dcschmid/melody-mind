@@ -13,6 +13,7 @@
  *
  * @module MelodyMindGameEngine
  */
+import type { Album } from "../../types/game";
 import { initKeyboardShortcuts } from "../accessibility/keyboardShortcuts";
 import { startSpeedBonusTimer, clearSpeedBonusTimers } from "../accessibility/timerAnnouncer";
 import { stopAudio } from "../audio/audioControls";
@@ -20,9 +21,10 @@ import { ErrorHandler } from "../error/errorHandler";
 import { getLangFromUrl, useTranslations } from "../i18n";
 // import { QueueManager } from "../queue/queueManager"; // Removed unused import
 
+import { loadAlbumsWithFallback } from "./albumLoader";
 import { handleEndGame, restartGame } from "./endGameUtils";
 import { getRandomQuestion } from "./getRandomQuestion";
-import type { Album, Question } from "./getRandomQuestion";
+import type { Question } from "./getRandomQuestion";
 import { handleAnswer } from "./handleAnswerUtils";
 import { JokerManager } from "./jokerManager";
 import { Difficulty } from "./jokerUtils";
@@ -219,42 +221,8 @@ const initializeGame = async (elements: GameElements) => {
   const t = useTranslations(lang);
 
   try {
-    let albumsData;
-
-    try {
-      // Try to load albums for the current language first
-      const response = await fetch(`/json/genres/${String(lang)}/${String(category)}.json`);
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      albumsData = await response.json();
-    } catch {
-      // Fallback to German if the specific language file doesn't exist
-
-      const fallbackResponse = await fetch(`/json/genres/de/${category}.json`);
-
-      if (!fallbackResponse.ok) {
-        throw new Error(`HTTP error for fallback! Status: ${fallbackResponse.status}`);
-      }
-
-      albumsData = await fallbackResponse.json();
-    }
-
-    // Ensure albumsData is an array
-    if (!Array.isArray(albumsData)) {
-      console.error("Loaded albums data is not an array:", albumsData);
-      // If it's an object with an albums property that is an array, use that
-      if (albumsData && typeof albumsData === "object" && Array.isArray(albumsData.albums)) {
-        albumsData = albumsData.albums;
-      } else {
-        // Otherwise, initialize with an empty array
-        albumsData = [];
-      }
-    }
-
-    albums = albumsData;
+    // Use the centralized album loader utility
+    albums = await loadAlbumsWithFallback(category, String(lang));
 
     if (!albums?.length) {
       throw new Error(t("error.no.albums.found"));
