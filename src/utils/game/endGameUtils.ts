@@ -89,84 +89,15 @@ export interface EndGameUI {
  * @returns {Promise<void>}
  */
 /**
- * Speichert das Spielergebnis über die API
+ * Note: Game saving functionality removed - no longer needed
  *
  * @param {EndGameConfig} config - Konfigurationsobjekt mit dem Spielendstatus
  * @returns {Promise<string>} - Der Spielmodus (quiz oder chronology)
  */
 async function saveGameResult(config: EndGameConfig): Promise<string> {
-  try {
-    // Debug: Log der ausgehenden Daten
-
-    // Erstelle das Datenpaket für die API
-    const gameData: {
-      userId: string;
-      categoryName: string;
-      difficulty: string;
-      score: number;
-      correctAnswers: number;
-      totalRounds: number;
-    } = {
-      userId: config.userId,
-      categoryName: config.categoryName,
-      difficulty: config.difficulty,
-      score: config.score,
-      correctAnswers: config.correctAnswers,
-      totalRounds: config.totalRounds,
-    };
-
-    // Verwende den sprachspezifischen API-Pfad
-    const response = await fetch(`/${config.language}/api/game/save-result`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(gameData),
-    });
-
-    if (!response.ok) {
-      // Verbesserte Fehlerbehandlung
-      try {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Fehler beim Speichern des Spielergebnisses");
-      } catch {
-        // Falls die Antwort kein gültiges JSON ist
-        throw new Error(
-          `Fehler beim Speichern des Spielergebnisses: ${response.status} ${response.statusText}`
-        );
-      }
-    }
-
-    // Robustere JSON-Verarbeitung
-    let result;
-    try {
-      result = await response.json();
-    } catch {
-      console.error("JSON Parse Error: Invalid JSON format");
-      throw new Error("Ungültiges JSON-Format in der Server-Antwort");
-    }
-
-    // Handle achievements if present
-    if (result.unlockedAchievements && result.unlockedAchievements.length > 0) {
-      // Trigger custom event for EndOverlay to display achievements
-      document.dispatchEvent(
-        new CustomEvent("achievementsUpdated", {
-          detail: { achievements: result.unlockedAchievements },
-        })
-      );
-    }
-
-    return result.gameMode;
-  } catch (error) {
-    console.error("🔴 saveGameResult FEHLER:", error);
-    console.error("🔴 Config bei Fehler:", {
-      userId: config.userId,
-      categoryName: config.categoryName,
-      url: window.location.href,
-    });
-    // Bestimme den Spielmodus basierend auf dem URL-Pfad als Fallback
-    return window.location.pathname.includes("/game-") ? "quiz" : "chronology";
-  }
+  console.log("Game results would be saved here (functionality removed):", config);
+  // Bestimme den Spielmodus basierend auf dem URL-Pfad als Fallback
+  return window.location.pathname.includes("/game-") ? "quiz" : "chronology";
 }
 
 /**

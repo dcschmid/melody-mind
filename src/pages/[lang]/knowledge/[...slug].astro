@@ -158,33 +158,6 @@ const articleSchema = {
   wordCount: entry.body?.length || 0,
 };
 
-// Breadcrumb structured data
-// const _breadcrumbSchema = {
-//   "@context": "https://schema.org",
-//   "@type": "BreadcrumbList",
-//   itemListElement: [
-//     {
-//       "@type": "ListItem",
-//       position: 1,
-//       name: t("nav.home"),
-//       item: `${Astro.site}/${lang}/`,
-//     },
-//     {
-//       "@type": "ListItem",
-//       position: 2,
-//       name: t("knowledge.title"),
-//       item: `${Astro.site}/${lang}/knowledge`,
-//     },
-//     {
-//       "@type": "ListItem",
-//       position: 3,
-//       name: title,
-//       item: Astro.url.href,
-//     },
-//   ],
-// };
-
-// Helper function for translations
 function translate(key: string, fallback: string): string {
   try {
     return t(key);
