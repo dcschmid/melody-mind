@@ -49,79 +49,10 @@ const screenReaderText = t("common.back.to.top");
 </button>
 
 <script>
-  /**
-   * BackToTop Component Script
-   *
-   * Modern ES6+ implementation with arrow functions, const/let,
-   * template literals, and modern event handling.
-   */
+  import { initDefaultBackToTop } from "../../utils/components/backToTopUtils";
+
+  // Initialize back-to-top functionality
   document.addEventListener("DOMContentLoaded", (): void => {
-    const backToTopButton = document.getElementById("back-to-top") as HTMLButtonElement;
-
-    if (!backToTopButton) {
-      return;
-    }
-
-    // Get scroll threshold from CSS variable or data attribute
-    const thresholdFromData = backToTopButton.dataset.scrollThreshold;
-    const scrollThreshold = thresholdFromData
-      ? parseInt(thresholdFromData, 10)
-      : parseInt(
-          getComputedStyle(document.documentElement).getPropertyValue("--scroll-threshold")
-        ) || 400;
-
-    // Check for reduced motion preference
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    /**
-     * Handles scroll visibility
-     */
-    const handleScroll = (): void => {
-      const shouldShow = window.scrollY > scrollThreshold;
-
-      if (shouldShow) {
-        backToTopButton.style.display = "block";
-        backToTopButton.setAttribute("aria-hidden", "false");
-      } else {
-        backToTopButton.style.display = "none";
-        backToTopButton.setAttribute("aria-hidden", "true");
-      }
-    };
-
-    /**
-     * Handles back to top click with accessibility features
-     */
-    const handleBackToTop = (): void => {
-      // Scroll behavior based on motion preference
-      const scrollOptions: ScrollToOptions = {
-        top: 0,
-        behavior: prefersReducedMotion ? "auto" : "smooth",
-      };
-
-      window.scrollTo(scrollOptions);
-
-      // Focus management for keyboard users
-      setTimeout(
-        () => {
-          const mainHeading = document.querySelector("h1") as HTMLElement;
-          if (mainHeading) {
-            mainHeading.focus({ preventScroll: true });
-          }
-        },
-        prefersReducedMotion ? 50 : 500
-      );
-    };
-
-    // Event listeners with modern syntax
-    window.addEventListener("scroll", handleScroll);
-    backToTopButton.addEventListener("click", handleBackToTop);
-
-    // Keyboard navigation enhancement
-    backToTopButton.addEventListener("keydown", (e: KeyboardEvent) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        handleBackToTop();
-      }
-    });
+    initDefaultBackToTop();
   });
 </script>

@@ -116,23 +116,10 @@ const languages = {
 </div>
 
 <script>
-  // Simple arrow rotation on focus
+  import { initDefaultLanguagePicker } from "../../utils/components/languagePickerUtils";
+
+  // Initialize language picker functionality
   document.addEventListener("DOMContentLoaded", () => {
-    const select = document.getElementById("language-select");
-    const arrow = document.querySelector(".arrow-container svg") as HTMLElement | null;
-
-    if (select && arrow) {
-      select.addEventListener("focus", () => {
-        if (arrow) {
-          arrow.style.transform = "rotate(180deg)";
-        }
-      });
-
-      select.addEventListener("blur", () => {
-        if (arrow) {
-          arrow.style.transform = "rotate(0deg)";
-        }
-      });
-    }
+    initDefaultLanguagePicker();
   });
 </script>
