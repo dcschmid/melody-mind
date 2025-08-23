@@ -1,3 +1,4 @@
+
 /**
  * Dynamic RSS Feed Endpoint for MelodyMind Podcasts
  *
@@ -12,6 +13,7 @@ import type { APIRoute } from "astro";
 import enPodcastsJson from "../../../data/podcasts/en.json";
 import { generatePodcastRSSFeed } from "../../../services/podcastRssService";
 import type { PodcastData } from "../../../types/podcast";
+import { handleGameError } from "../../../utils/error/errorHandlingUtils";
 
 // Import all podcast data
 
@@ -124,7 +126,7 @@ export const GET: APIRoute = async ({ params, request }) => {
       },
     });
   } catch (error) {
-    console.error(`RSS Feed generation failed for language ${params.lang}:`, error);
+    handleGameError(error, `RSS feed generation for language ${params.lang}`);
 
     // Return error as valid RSS feed
     const errorRSS = `<?xml version="1.0" encoding="UTF-8"?>

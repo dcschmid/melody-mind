@@ -1,3 +1,5 @@
+import { handleGameError } from "../error/errorHandlingUtils";
+
 /**
  * Time Pressure Question Generator for Music Quiz
  *
@@ -277,7 +279,7 @@ export function getTimePressureQuestion(
     console.warn("No questions available for time pressure mode");
     return null;
   } catch (error) {
-    console.error("Error selecting time pressure question:", error);
+    handleGameError(error, "time pressure question selection");
     return null;
   }
 }

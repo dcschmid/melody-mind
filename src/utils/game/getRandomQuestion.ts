@@ -1,3 +1,5 @@
+import { handleGameError } from "../error/errorHandlingUtils";
+
 /**
  * Random Question Generator for Music Quiz
  *
@@ -155,7 +157,7 @@ export function getRandomQuestion(
     console.warn(`No questions available for difficulty: ${difficulty}`);
     return null;
   } catch (error) {
-    console.error("Error selecting random question:", error);
+    handleGameError(error, "random question selection");
     return null;
   }
 }

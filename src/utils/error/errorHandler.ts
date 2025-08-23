@@ -1,3 +1,5 @@
+import { handleGameError } from "./errorHandlingUtils";
+
 /**
  * Error Handler System
  *
@@ -130,7 +132,7 @@ export class ErrorHandler {
       // Try to initialize on-demand if not already done
       if (!this.initialize()) {
         // Fall back to console if we can't show UI error
-        console.error(`Error: ${message}`);
+        handleGameError(new Error(message), "error handler");
         return;
       }
     }

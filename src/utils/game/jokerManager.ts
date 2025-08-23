@@ -1,3 +1,5 @@
+import { safeGetElementById } from "../dom/domUtils";
+
 import { Difficulty } from "./jokerUtils";
 
 /**
@@ -185,7 +187,7 @@ export class JokerManager {
       }
 
       // Get the options container from the DOM
-      const optionsContainer = document.getElementById("options");
+      const optionsContainer = safeGetElementById<HTMLElement>("options");
       if (!optionsContainer) {
         return;
       }

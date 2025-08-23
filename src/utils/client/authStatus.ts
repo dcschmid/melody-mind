@@ -1,3 +1,5 @@
+import { handleGameError } from "../error/errorHandlingUtils";
+
 /**
  * Client-Side Authentication Status Utilities
  *
@@ -16,8 +18,8 @@ export function checkLocalStorage(key: string): boolean {
   try {
     const value = localStorage.getItem(key);
     return value !== null;
-  } catch {
-    console.error("Fehler beim Zugriff auf localStorage");
+  } catch (error) {
+    handleGameError(error, "localStorage access");
     return false;
   }
 }
@@ -32,8 +34,8 @@ export function setLocalStorage(key: string, value: string): boolean {
   try {
     localStorage.setItem(key, value);
     return true;
-  } catch {
-    console.error("Fehler beim Setzen von localStorage");
+  } catch (error) {
+    handleGameError(error, "localStorage set");
     return false;
   }
 }
@@ -47,8 +49,8 @@ export function removeLocalStorage(key: string): boolean {
   try {
     localStorage.removeItem(key);
     return true;
-  } catch {
-    console.error("Fehler beim Entfernen aus localStorage");
+  } catch (error) {
+    handleGameError(error, "localStorage remove");
     return false;
   }
 }
@@ -292,8 +294,8 @@ export function isUserAuthenticated(): boolean {
       try {
         const userData = JSON.parse(decodeURIComponent(userDataCookie));
         setLocalStorage("user", JSON.stringify(userData));
-      } catch {
-        console.error("Fehler beim Parsen der User-Daten");
+      } catch (error) {
+        handleGameError(error, "user data parsing");
       }
     }
   }

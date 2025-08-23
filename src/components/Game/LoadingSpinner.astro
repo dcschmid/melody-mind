@@ -116,6 +116,11 @@ const enhancedAriaLabel = context
 </div>
 
 <script>
+  import {
+    initLoadingSpinnerUtils,
+    autoHideSpinners,
+  } from "../../utils/components/loadingSpinnerUtils";
+
   // Extend Window interface for our utilities
   declare global {
     interface Window {
@@ -130,100 +135,9 @@ const enhancedAriaLabel = context
     }
   }
 
-  // Simple loading spinner functionality
+  // Initialize loading spinner functionality
   document.addEventListener("DOMContentLoaded", () => {
-    // Basic show/hide functionality
-    const showSpinner = (id = "loading-spinner") => {
-      const spinner = document.getElementById(id);
-      if (spinner) {
-        spinner.classList.remove("hidden");
-        spinner.setAttribute("aria-busy", "true");
-      }
-    };
-
-    const hideSpinner = (id = "loading-spinner") => {
-      const spinner = document.getElementById(id);
-      if (spinner) {
-        spinner.classList.add("hidden");
-        spinner.setAttribute("aria-busy", "false");
-      }
-    };
-
-    // Update progress for determinate spinners
-    const updateProgress = (id = "loading-spinner", progress = 0) => {
-      const spinner = document.getElementById(id);
-      if (spinner && spinner.dataset.type === "determinate") {
-        const clampedProgress = Math.max(0, Math.min(100, progress));
-        spinner.setAttribute("aria-valuenow", clampedProgress.toString());
-
-        const progressBar = spinner.querySelector(".h-full") as HTMLElement;
-        if (progressBar) {
-          progressBar.style.width = `${clampedProgress}%`;
-        }
-
-        const label = spinner.querySelector(".text-xl");
-        if (label) {
-          const baseText = label.textContent?.split(" (")[0] || "Loading";
-          label.textContent = `${baseText} (${clampedProgress}%)`;
-        }
-      }
-    };
-
-    // Set error state
-    const setErrorState = (id = "loading-spinner") => {
-      const spinner = document.getElementById(id);
-      if (spinner) {
-        spinner.classList.remove("border-yellow-600", "bg-yellow-50", "border-yellow-200");
-        spinner.classList.add("border-red-600", "bg-red-50", "border-red-200");
-        spinner.setAttribute("role", "alert");
-        spinner.setAttribute("aria-busy", "false");
-      }
-    };
-
-    // Set timeout state
-    const setTimeoutState = (id = "loading-spinner") => {
-      const spinner = document.getElementById(id);
-      if (spinner) {
-        spinner.classList.remove("border-red-600", "bg-red-50", "border-red-200");
-        spinner.classList.add("border-yellow-600", "bg-yellow-50", "border-yellow-200");
-        spinner.setAttribute("role", "alert");
-        spinner.setAttribute("aria-busy", "false");
-      }
-    };
-
-    // Reset to normal state
-    const resetState = (id = "loading-spinner") => {
-      const spinner = document.getElementById(id);
-      if (spinner) {
-        spinner.classList.remove(
-          "border-red-600",
-          "bg-red-50",
-          "border-red-200",
-          "border-yellow-600",
-          "bg-yellow-50",
-          "border-yellow-200"
-        );
-        const role = spinner.dataset.type === "determinate" ? "progressbar" : "status";
-        spinner.setAttribute("role", role);
-      }
-    };
-
-    // Make functions globally available
-    window.LoadingSpinnerUtils = {
-      show: showSpinner,
-      hide: hideSpinner,
-      updateProgress,
-      setErrorState,
-      setTimeoutState,
-      resetState,
-    };
-
-    // Auto-hide spinners on page load
-    document.querySelectorAll('[role="status"][aria-busy="true"]').forEach((el) => {
-      const id = el.id;
-      if (id) {
-        hideSpinner(id);
-      }
-    });
+    initLoadingSpinnerUtils();
+    autoHideSpinners();
   });
 </script>

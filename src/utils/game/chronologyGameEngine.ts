@@ -4,6 +4,8 @@
  * Handles chronology game logic with loading state management and proper end game handling
  */
 
+import { safeAddClasses, safeRemoveClasses } from "../dom/domUtils";
+import { addSafeClickListener, addMultipleEventListeners } from "../dom/eventUtils";
 import {
   showEndOverlay,
   setupEndOverlay,
@@ -11,9 +13,11 @@ import {
   updateMotivationText,
   animateProgressBar,
 } from "../endOverlay.ts";
+import { handleLoadingError, handleGameError } from "../error/errorHandlingUtils";
 
 import { loadAlbumsWithFallback } from "./albumLoader";
 import { handleEndGame } from "./endGameUtils.ts";
+import { updateGameScore, updateGameRound } from "./gameStateUtils";
 
 // Setup EndOverlay functionality
 setupEndOverlay();
@@ -66,8 +70,6 @@ const ITEMS_PER_DIFFICULTY = {
   [DIFFICULTY_LEVELS.MEDIUM]: 5,
   [DIFFICULTY_LEVELS.HARD]: 6,
 };
-
-
 
 const generateChronologyQuestion = (
   albumsData: Array<{ artist: string; album: string; year: string }>,
@@ -209,7 +211,7 @@ class ChronologyGame {
 
   async initializeGame() {
     if (!this.container || !this.itemsContainer) {
-      console.error("Required DOM elements not found");
+      handleGameError(new Error("Required DOM elements not found"), "chronology game DOM elements");
       return;
     }
 
@@ -219,7 +221,7 @@ class ChronologyGame {
       this.setupEventListeners();
       await this.loadQuestion();
     } catch (error) {
-      console.error("Failed to initialize game:", error);
+      handleGameError(error, "chronology game initialization");
       this.showError("chronology.error.initialization");
     }
   }
@@ -228,15 +230,15 @@ class ChronologyGame {
     try {
       this.albumsData = await loadAlbumsWithFallback(this.category, this.language);
     } catch (error) {
-      console.error("Error loading albums:", error);
+      handleLoadingError(error, "albums data");
       throw error;
     }
   }
 
   setupEventListeners() {
-    this.moveUpBtn?.addEventListener("click", () => this.moveItem(-1));
-    this.moveDownBtn?.addEventListener("click", () => this.moveItem(1));
-    this.submitBtn?.addEventListener("click", () => this.submitAnswer());
+    addSafeClickListener(this.moveUpBtn, () => this.moveItem(-1));
+    addSafeClickListener(this.moveDownBtn, () => this.moveItem(1));
+    addSafeClickListener(this.submitBtn, () => this.submitAnswer());
   }
 
   async loadQuestion() {
@@ -253,7 +255,7 @@ class ChronologyGame {
       this.renderItems();
       this.updateControls();
     } catch (error) {
-      console.error("Error loading question:", error);
+      handleGameError(error, "chronology question loading");
       this.showError("chronology.error.question.load");
     }
   }
@@ -296,23 +298,26 @@ class ChronologyGame {
         </div>
       `;
 
-      itemElement.addEventListener("click", () => this.selectItem(index));
-      itemElement.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          this.selectItem(index);
-        }
-        if (event.key === "ArrowUp") {
-          event.preventDefault();
-          this.moveItem(-1);
-        }
-        if (event.key === "ArrowDown") {
-          event.preventDefault();
-          this.moveItem(1);
-        }
+      addSafeClickListener(itemElement, () => this.selectItem(index));
+      addMultipleEventListeners(itemElement, {
+        keydown: (event: Event) => {
+          const keyboardEvent = event as KeyboardEvent;
+          if (keyboardEvent.key === "Enter" || keyboardEvent.key === " ") {
+            keyboardEvent.preventDefault();
+            this.selectItem(index);
+          }
+          if (keyboardEvent.key === "ArrowUp") {
+            keyboardEvent.preventDefault();
+            this.moveItem(-1);
+          }
+          if (keyboardEvent.key === "ArrowDown") {
+            keyboardEvent.preventDefault();
+            this.moveItem(1);
+          }
+        },
       });
 
-      this.itemsContainer.appendChild(itemElement);
+      this.itemsContainer?.appendChild(itemElement);
     });
   }
 
@@ -320,43 +325,44 @@ class ChronologyGame {
     // Remove previous selection
     const items = this.itemsContainer?.querySelectorAll("[data-index]");
     items?.forEach((item) => {
-      item.classList.remove(
+      safeRemoveClasses(item as HTMLElement, [
         "border-blue-500/70",
         "bg-gradient-to-r",
         "from-blue-600/20",
         "to-blue-700/20",
         "shadow-blue-500/25",
         "-translate-y-1",
-        "scale-[1.02]"
-      );
-      item.classList.add(
+        "scale-[1.02]",
+      ]);
+      safeAddClasses(item as HTMLElement, [
         "border-slate-600/50",
         "bg-gradient-to-r",
         "from-slate-800/90",
-        "to-slate-700/80"
-      );
+        "to-slate-700/80",
+      ]);
     });
 
     // Add new selection
     this.selectedIndex = index;
     const selectedItem = items?.[index];
     if (selectedItem) {
-      selectedItem.classList.remove(
+      const selectedElement = selectedItem as HTMLElement;
+      safeRemoveClasses(selectedElement, [
         "border-slate-600/50",
         "bg-gradient-to-r",
         "from-slate-800/90",
-        "to-slate-700/80"
-      );
-      selectedItem.classList.add(
+        "to-slate-700/80",
+      ]);
+      safeAddClasses(selectedElement, [
         "border-blue-500/70",
         "bg-gradient-to-r",
         "from-blue-600/20",
         "to-blue-700/20",
         "shadow-blue-500/25",
         "-translate-y-1",
-        "scale-[1.02]"
-      );
-      (selectedItem as HTMLElement).focus();
+        "scale-[1.02]",
+      ]);
+      selectedElement.focus();
     }
 
     this.updateControls();
@@ -405,10 +411,7 @@ class ChronologyGame {
     const userOrder = this.currentItems.map((item) => item.id);
     const result = evaluateChronologyAnswer(userOrder, this.correctOrder);
 
-    this.score += result.score;
-    if (this.scoreDisplay) {
-      this.scoreDisplay.textContent = this.score.toString();
-    }
+    this.score = updateGameScore(this.score, result.score);
 
     // Next round or end game
     if (this.round >= this.totalRounds) {
@@ -419,10 +422,7 @@ class ChronologyGame {
       this.showFeedback(result);
 
       setTimeout(() => {
-        this.round++;
-        if (this.roundDisplay) {
-          this.roundDisplay.textContent = this.round.toString();
-        }
+        this.round = updateGameRound(this.round, 1, this.totalRounds);
         this.loadQuestion();
       }, 2000);
     }
@@ -515,8 +515,11 @@ class ChronologyGame {
           console.log("  popup.dataset.mode:", popup.dataset.mode);
 
           // Use the enhanced showEndOverlay function for animations and setup
-          if (typeof window !== "undefined" && (window as Window & { showEndOverlay?: (score: number, maxScore: number) => void }).showEndOverlay) {
-            (window as Window & { showEndOverlay?: (score: number, maxScore: number) => void }).showEndOverlay(score, this.totalRounds * 100); // Max score based on perfect rounds
+          const showEndOverlayFn = (
+            window as Window & { showEndOverlay?: (score: number, maxScore: number) => void }
+          ).showEndOverlay;
+          if (typeof window !== "undefined" && showEndOverlayFn) {
+            showEndOverlayFn(score, this.totalRounds * 100); // Max score based on perfect rounds
           } else {
             // Fallback: manually update score and show overlay
             const scoreElement = document.getElementById("popup-score");
@@ -532,7 +535,7 @@ class ChronologyGame {
 
     await handleEndGame(endGameConfig, ui, {
       onError: (error) => {
-        console.error("Failed to save chronology game result:", error);
+        handleGameError(error, "chronology game result save");
       },
     });
   }
@@ -554,7 +557,7 @@ class ChronologyGame {
 
     const message =
       translations[this.language]?.[messageKey] || translations.en[messageKey] || messageKey;
-    console.error(message);
+    handleGameError(new Error(message), "chronology game error display");
     alert(message);
   }
 }

@@ -17,7 +17,9 @@ import type { Album } from "../../types/game";
 import { initKeyboardShortcuts } from "../accessibility/keyboardShortcuts";
 import { startSpeedBonusTimer, clearSpeedBonusTimers } from "../accessibility/timerAnnouncer";
 import { stopAudio } from "../audio/audioControls";
+import { safeGetElementById, safeQuerySelector, safeQuerySelectorAll } from "../dom/domUtils";
 import { ErrorHandler } from "../error/errorHandler";
+import { handleGameError, handleLoadingError } from "../error/errorHandlingUtils";
 import { getLangFromUrl, useTranslations } from "../i18n";
 // import { QueueManager } from "../queue/queueManager"; // Removed unused import
 
@@ -119,18 +121,18 @@ const validateDifficulty = (diff: string | null): Difficulty => {
  */
 function cacheElements(): GameElements {
   const elements = {
-    score: document.querySelector(".coinsCount") as HTMLParagraphElement,
-    round: document.querySelector(".round") as HTMLParagraphElement,
-    feedback: document.getElementById("feedback") as HTMLParagraphElement,
-    question: document.getElementById("question") as HTMLParagraphElement,
-    options: document.getElementById("options") as HTMLDivElement,
-    container: document.getElementById("question-container") as HTMLDivElement,
-    overlay: document.getElementById("overlay") as HTMLDivElement,
-    jokerButton: document.getElementById("joker-button") as HTMLButtonElement,
-    jokerCounter: document.getElementById("joker-count") as HTMLElement,
-    nextRoundButton: document.getElementById("next-round-button") as HTMLButtonElement,
-    restartButton: document.getElementById("restart-button") as HTMLButtonElement,
-    loadingSpinner: document.getElementById("loading-spinner") as HTMLElement,
+    score: safeQuerySelector<HTMLParagraphElement>(".coinsCount"),
+    round: safeQuerySelector<HTMLParagraphElement>(".round"),
+    feedback: safeGetElementById<HTMLParagraphElement>("feedback"),
+    question: safeGetElementById<HTMLParagraphElement>("question"),
+    options: safeGetElementById<HTMLDivElement>("options"),
+    container: safeGetElementById<HTMLDivElement>("question-container"),
+    overlay: safeGetElementById<HTMLDivElement>("overlay"),
+    jokerButton: safeGetElementById<HTMLButtonElement>("joker-button"),
+    jokerCounter: safeGetElementById<HTMLElement>("joker-count"),
+    nextRoundButton: safeGetElementById<HTMLButtonElement>("next-round-button"),
+    restartButton: safeGetElementById<HTMLButtonElement>("restart-button"),
+    loadingSpinner: safeGetElementById<HTMLElement>("loading-spinner"),
   };
 
   return elements;
@@ -148,7 +150,7 @@ const initializeGame = async (elements: GameElements) => {
   // QueueManager functionality removed - no longer needed
 
   if (!elements.container) {
-    console.error("Game container element not found");
+    handleGameError(new Error("Game container element not found"), "game initialization");
     return;
   }
 
@@ -228,7 +230,7 @@ const initializeGame = async (elements: GameElements) => {
       throw new Error(t("error.no.albums.found"));
     }
   } catch (error) {
-    console.error("Error loading albums:", error);
+    handleLoadingError(error, "albums data");
     ErrorHandler.handleApiError(error instanceof Error ? error : new Error(String(error)));
     return;
   }
@@ -251,7 +253,10 @@ const initializeGame = async (elements: GameElements) => {
    */
   const mediaElements = initializeMediaElements();
   if (!mediaElements) {
-    console.error("Media elements could not be initialized");
+    handleGameError(
+      new Error("Media elements could not be initialized"),
+      "media elements initialization"
+    );
     return;
   }
 
@@ -446,7 +451,7 @@ const initializeGame = async (elements: GameElements) => {
    */
   function loadNewQuestion(question: Question, album: Album) {
     if (!question || !question.options) {
-      console.error(t("error.invalid.question"));
+      handleGameError(new Error(t("error.invalid.question")), "question validation");
       return;
     }
 
@@ -493,7 +498,7 @@ const initializeGame = async (elements: GameElements) => {
   if (initialQuestion?.randomQuestion && initialQuestion?.randomAlbum) {
     loadNewQuestion(initialQuestion.randomQuestion, initialQuestion.randomAlbum);
   } else {
-    console.error(t("error.no.initial.question"));
+    handleGameError(new Error(t("error.no.initial.question")), "initial question loading");
   }
 
   /**
@@ -649,7 +654,7 @@ export function initGameEngine(): void {
   const initGame = () => {
     const elements = cacheElements();
     if (!validateElements(elements)) {
-      console.error("Required DOM elements not found");
+      handleGameError(new Error("Required DOM elements not found"), "DOM element validation");
       return;
     }
 
@@ -660,25 +665,25 @@ export function initGameEngine(): void {
     // Initialize keyboard shortcuts
     initKeyboardShortcuts({
       onJoker: () => {
-        const jokerButton = document.getElementById("joker-button");
+        const jokerButton = safeGetElementById<HTMLButtonElement>("joker-button");
         if (jokerButton) {
           jokerButton.click();
         }
       },
       onOption: (index) => {
-        const optionButtons = document.querySelectorAll("#options button");
+        const optionButtons = safeQuerySelectorAll<HTMLButtonElement>("#options button");
         if (optionButtons && optionButtons.length > index) {
-          (optionButtons[index] as HTMLButtonElement).click();
+          optionButtons[index].click();
         }
       },
       onNextRound: () => {
-        const nextRoundButton = document.getElementById("next-round-button");
+        const nextRoundButton = safeGetElementById<HTMLButtonElement>("next-round-button");
         if (nextRoundButton && !nextRoundButton.closest(".hidden")) {
           nextRoundButton.click();
         }
       },
       onRestart: () => {
-        const restartButton = document.getElementById("restart-button");
+        const restartButton = safeGetElementById<HTMLButtonElement>("restart-button");
         if (restartButton && !restartButton.closest(".hidden")) {
           restartButton.click();
         }

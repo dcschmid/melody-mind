@@ -1,3 +1,5 @@
+import { safeGetElementById, safeQuerySelectorAll } from "../dom/domUtils";
+
 /**
  * ShareOverlay Utility - Performance-optimized sharing functionality
  *
@@ -80,13 +82,11 @@ export class ShareOverlayManager {
    * Cache DOM elements to improve performance
    */
   private cacheElements(): void {
-    this.elements.nativeShareButton = document.getElementById(
-      "native-share-button"
-    ) as HTMLButtonElement;
-    this.elements.copyButton = document.getElementById("copy-share-button") as HTMLButtonElement;
-    this.elements.copyButtonText = document.getElementById("copy-button-text");
-    this.elements.statusAnnouncer = document.getElementById("share-status-announcer");
-    this.elements.shareButtons = document.querySelectorAll<HTMLButtonElement>("[data-share]");
+    this.elements.nativeShareButton = safeGetElementById<HTMLButtonElement>("native-share-button");
+    this.elements.copyButton = safeGetElementById<HTMLButtonElement>("copy-share-button");
+    this.elements.copyButtonText = safeGetElementById("copy-button-text");
+    this.elements.statusAnnouncer = safeGetElementById("share-status-announcer");
+    this.elements.shareButtons = safeQuerySelectorAll<HTMLButtonElement>("[data-share]");
   }
 
   /**

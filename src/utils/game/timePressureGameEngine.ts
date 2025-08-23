@@ -11,7 +11,9 @@
 
 // import { checkAchievementsAfterGame } from "../services/achievementService.js";
 import { showEndOverlay, setupEndOverlay } from "../endOverlay";
+import { handleGameError, handleLoadingError } from "../error/errorHandlingUtils";
 
+import { updateGameScore, updateGameRound } from "./gameStateUtils";
 import {
   getTimePressureQuestion,
   resetTimePressureQuestions,
@@ -30,7 +32,6 @@ interface GameStats {
   gameMode: string;
   difficultyStats?: Record<string, unknown>;
 }
-
 
 interface TimePressureGameOptions {
   category: string;
@@ -157,7 +158,7 @@ export class TimePressureGameEngine {
       // Start the game
       await this.startGame();
     } catch (error) {
-      console.error("Failed to initialize time pressure game:", error);
+      handleGameError(error, "time pressure game initialization");
       this.showError("Failed to load game. Please refresh the page.");
     }
   }
@@ -197,7 +198,7 @@ export class TimePressureGameEngine {
           }
           albumData = await fallbackResponse.json();
         } catch (fallbackError) {
-          console.error("Failed to load fallback data:", fallbackError);
+          handleLoadingError(fallbackError, "fallback category data");
           throw new Error(
             `Category '${this.category}' not found in any language. Available categories might be: 1950s, 1960s, 1970s, 1980s, 1990s, 2000s, 2010s`
           );
@@ -210,7 +211,7 @@ export class TimePressureGameEngine {
         throw new Error(`No albums found for category '${this.category}'. Data loaded but empty.`);
       }
     } catch (error) {
-      console.error("Error loading albums:", error as Error);
+      handleLoadingError(error, "albums data");
       throw error; // Re-throw the original error with more context
     }
   }
@@ -318,7 +319,7 @@ export class TimePressureGameEngine {
       });
 
       if (!questionResult) {
-        console.error("No question available");
+        handleGameError(new Error("No question available"), "question loading");
         await this.endGame();
         return;
       }
@@ -351,7 +352,7 @@ export class TimePressureGameEngine {
         );
       }
     } catch (error) {
-      console.error("Error loading next question:", error);
+      handleGameError(error, "next question loading");
       await this.endGame();
     }
   }
@@ -624,7 +625,7 @@ export class TimePressureGameEngine {
       const streakBonus = this.calculateStreakBonus();
       const totalPoints = this.currentBasePoints + timeBonus + streakBonus;
 
-      this.score += totalPoints;
+      this.score = updateGameScore(this.score, totalPoints);
 
       // Show feedback
       await this.showAnswerFeedback(true, totalPoints, {
@@ -822,7 +823,7 @@ export class TimePressureGameEngine {
 
           // Continue with next question
           setTimeout(async () => {
-            this.currentRound++;
+            this.currentRound = updateGameRound(this.currentRound, 1, this.totalRounds);
             await this.nextQuestion();
           }, 100);
         };
@@ -832,7 +833,7 @@ export class TimePressureGameEngine {
 
       // Feedback shown successfully
     } catch (error) {
-      console.error("Error showing feedback overlay:", error);
+      handleGameError(error, "feedback overlay display");
       // Reset feedback flag on error
       this.isFeedbackShowing = false;
       // Fallback feedback displayed
@@ -986,7 +987,7 @@ export class TimePressureGameEngine {
     try {
       await this.checkGameAchievements(gameStats);
     } catch (error) {
-      console.error("Error in achievement check:", error);
+      handleGameError(error, "achievement check");
     }
 
     // Show end game overlay
@@ -1014,7 +1015,7 @@ export class TimePressureGameEngine {
         accuracy: gameStats.accuracy,
       });
     } catch (error) {
-      console.error("Error in achievement check:", error as Error);
+      handleGameError(error, "achievement check");
     }
   }
 
@@ -1025,7 +1026,7 @@ export class TimePressureGameEngine {
     // Get the end overlay element
     const endOverlay = document.getElementById("endgame-popup") as HTMLElement | null;
     if (!endOverlay) {
-      console.error("End overlay element not found");
+      handleGameError(new Error("End overlay element not found"), "end overlay display");
       return;
     }
 
@@ -1072,7 +1073,7 @@ export class TimePressureGameEngine {
       // Hide the game UI
       this.gameUI.style.display = "none";
     } catch (error) {
-      console.error("Error showing end game overlay:", error as Error);
+      handleGameError(error, "end game overlay display");
 
       // Hide loading screen in case of error
       if (this.loadingContainer) {
