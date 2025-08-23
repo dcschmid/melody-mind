@@ -98,13 +98,26 @@ const authResult = {
 
 const { category } = Astro.params;
 
+import { loadCategoryBySlug } from "../../../utils/category/categoryLoadingUtils";
+
 // Fallback mechanism for category data if props are not available
 let categoryData = propsCategoryData;
 if (!categoryData && category) {
   try {
-    // Try to load category data dynamically
-    const categories = await import(`@json/${lang}_categories.json`);
-    categoryData = categories.default.find((cat: { slug: string }) => cat.slug === category);
+    // Try to load category data dynamically using centralized utility
+    categoryData = await loadCategoryBySlug(category, {
+      language: lang,
+      fallbackLanguage: "en",
+      useAliasPath: true,
+    });
+
+    if (!categoryData) {
+      // Provide a fallback category data
+      categoryData = {
+        headline: category || "Unknown Category",
+        slug: category || "unknown",
+      };
+    }
   } catch (error) {
     console.error("Failed to load category data:", error);
     // Provide a fallback category data
