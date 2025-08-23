@@ -107,14 +107,10 @@ const authResult = {
   user: { id: guestId, email: "guest@melodymind.app" },
 };
 
-// Dynamic import of categories based on language
-let categories;
-try {
-  categories = await import(`@json/${lang}_categories.json`);
-} catch {
-  // Fallback to default language if the specific language file doesn't exist
-  categories = await import(`@json/en_categories.json`);
-}
+import { loadCategoriesWithFallback } from "../../../utils/category/categoryLoadingUtils";
+
+// Load categories using centralized utility
+const categories = await loadCategoriesWithFallback(lang, "en");
 
 // Default user for game functionality
 const user = { id: authResult.user?.id || "guest" };

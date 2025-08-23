@@ -14,6 +14,7 @@ import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
+import { loadCategoriesForLanguage } from "../../utils/category/categoryLoadingUtils";
 
 export const prerender = true;
 
@@ -41,36 +42,19 @@ export async function getStaticPaths() {
     let usedFallback = false;
 
     try {
-      // First try using the alias path
-      categories = await import(`@json/${lang}_categories.json`)
-        .then((module) => module.default)
-        .catch(async () => {
-          // Fallback to relative path if alias fails
-          console.warn(`Attempting to load ${lang}_categories.json using relative path`);
-          return await import(`../../json/${lang}_categories.json`)
-            .then((module) => module.default)
-            .catch((_err) => {
-              return [];
-            });
-        });
+      // Use centralized utility for category loading
+      const result = await loadCategoriesForLanguage({
+        language: lang,
+        fallbackLanguage: "en",
+        useAliasPath: true,
+      });
+
+      categories = result.categories;
+      usedFallback = result.fallbackUsed || false;
     } catch (error) {
       console.error(`Error loading categories for ${lang}:`, error);
       usedFallback = true;
-      try {
-        // Load English fallback using same pattern
-        categories = await import(`@json/en_categories.json`)
-          .then((module) => module.default)
-          .catch(async () => {
-            return await import(`../../json/en_categories.json`)
-              .then((module) => module.default)
-              .catch((_err) => {
-                return [];
-              });
-          });
-      } catch (fallbackError) {
-        console.error("Failed to load fallback categories:", fallbackError);
-        categories = [];
-      }
+      categories = [];
     }
 
     // Ensure categories is an array and has valid entries

@@ -50,13 +50,10 @@ export async function getStaticPaths() {
   const difficultyLevels = ["easy", "medium", "hard"] as const;
   const paths = [];
 
+  import { loadCategoriesWithFallback } from "../../../utils/category/categoryLoadingUtils";
+
   for (const lang of supportedLanguages) {
-    let categories;
-    try {
-      categories = await import(`@json/${lang}_categories.json`);
-    } catch {
-      categories = await import(`@json/en_categories.json`);
-    }
+    const categories = await loadCategoriesWithFallback(lang, "en");
 
     for (const categoryData of categories.default) {
       for (const difficulty of difficultyLevels) {
