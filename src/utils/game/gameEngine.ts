@@ -22,7 +22,7 @@ import { getLangFromUrl, useTranslations } from "../i18n";
 
 import { handleEndGame, restartGame } from "./endGameUtils";
 import { getRandomQuestion } from "./getRandomQuestion";
-import type { Album } from "./getRandomQuestion";
+import type { Album, Question } from "./getRandomQuestion";
 import { handleAnswer } from "./handleAnswerUtils";
 import { JokerManager } from "./jokerManager";
 import { Difficulty } from "./jokerUtils";
@@ -265,7 +265,7 @@ const initializeGame = async (elements: GameElements) => {
     return;
   }
 
-  // let currentQuestion: any = null;
+
 
   /**
    * Initialize joker system based on the difficulty level
@@ -464,6 +464,7 @@ const initializeGame = async (elements: GameElements) => {
       onError: (error) => {
         ErrorHandler.handleSaveError(error, "score", {
           userId: config.userId,
+          score: config.score,
           category: config.categoryName,
         });
       },
@@ -489,7 +490,6 @@ const initializeGame = async (elements: GameElements) => {
     // Start speed bonus timer with announcements
     startSpeedBonusTimer(lang);
 
-    currentQuestion = question;
     jokerManager.setCurrentQuestion(question);
 
     loadQuestion({
