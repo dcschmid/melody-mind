@@ -47,7 +47,6 @@
     "@astropub/flow": "^0.4.0",
     "@fontsource/atkinson-hyperlegible": "^5.2.6",
     "@libsql/client": "^0.15.10",
-    "@types/uuid": "^10.0.0",
     "astro": "^5.13.3",
     "astro-capo": "^0.0.1",
     "astro-icon": "^1.1.5",
@@ -58,12 +57,10 @@
     "date-fns": "^4.1.0",
     "dotenv": "^17.2.1",
     "mdast-util-to-string": "^4.0.0",
-    "node-fetch": "^3.3.2",
     "sharp": "^0.34.3",
     "tailwind-merge": "^3.3.1",
     "tailwind-variants": "^2.1.0",
-    "typescript": "^5.9.2",
-    "uuid": "^11.1.0"
+    "typescript": "^5.9.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
