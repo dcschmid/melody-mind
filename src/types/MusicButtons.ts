@@ -337,7 +337,6 @@ export interface MusicButtonsVersionInfo {
  * ```typescript
  * if (isCategoryWithPlaylists(userInput)) {
  *   // userInput is now typed as CategoryWithPlaylists
- *   console.log(userInput.spotifyPlaylist);
  * }
  * ```
  */

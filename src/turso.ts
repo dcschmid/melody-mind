@@ -3,7 +3,6 @@ import { createClient } from "@libsql/client";
 import { getDatabaseConfig, validateDatabaseConfig } from "./config/database.js";
 import { handleGameError } from "./utils/error/errorHandlingUtils";
 
-
 // This file is only used server-side
 // Uses the unified database configuration that works in both Node.js and Astro
 const dbConfig = getDatabaseConfig();

@@ -1,6 +1,6 @@
 /**
  * MusicButtons Utilities
- * 
+ *
  * Centralized utilities for managing music platform button functionality.
  * Eliminates code duplication in component script tags.
  */
@@ -37,7 +37,7 @@ export class MusicButtonsUtils {
    */
   constructor(config: MusicButtonsConfig) {
     this.links = safeQuerySelectorAll<HTMLElement>(config.linkSelector);
-    
+
     this.init();
   }
 
@@ -75,10 +75,7 @@ export class MusicButtonsUtils {
    * Check if Fathom analytics is available
    */
   private isFathomAvailable(): boolean {
-    return (
-      typeof window.fathom === "object" && 
-      typeof window.fathom?.trackEvent === "function"
-    );
+    return typeof window.fathom === "object" && typeof window.fathom?.trackEvent === "function";
   }
 
   /**
@@ -87,10 +84,7 @@ export class MusicButtonsUtils {
   private trackEvents(platform: string, playlistTitle: string): void {
     try {
       const generalEvent = `music_${platform}_click`;
-      const specificEvent = `music_${platform}_${playlistTitle}`.replace(
-        /[^a-zA-Z0-9_]/g,
-        "_"
-      );
+      const specificEvent = `music_${platform}_${playlistTitle}`.replace(/[^a-zA-Z0-9_]/g, "_");
 
       window.fathom?.trackEvent(generalEvent);
       window.fathom?.trackEvent(specificEvent);
@@ -104,7 +98,7 @@ export class MusicButtonsUtils {
    */
   public getTrackedPlatforms(): string[] {
     return this.links
-      .map(link => link.dataset.platform)
+      .map((link) => link.dataset.platform)
       .filter((platform): platform is string => Boolean(platform));
   }
 
@@ -119,7 +113,7 @@ export class MusicButtonsUtils {
    * Check if a specific platform is available
    */
   public hasPlatform(platform: string): boolean {
-    return this.links.some(link => link.dataset.platform === platform);
+    return this.links.some((link) => link.dataset.platform === platform);
   }
 
   /**
@@ -144,6 +138,6 @@ export function initMusicButtons(config: MusicButtonsConfig): MusicButtonsUtils 
  */
 export function initDefaultMusicButtons(): MusicButtonsUtils {
   return initMusicButtons({
-    linkSelector: ".music-platform-link"
+    linkSelector: ".music-platform-link",
   });
 }

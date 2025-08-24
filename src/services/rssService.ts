@@ -5,6 +5,7 @@
 
 import { RSS_FEED_SOURCES, FALLBACK_FEEDS, type FeedSource } from "../utils/rss/feedSources.ts";
 
+
 export interface NewsItem {
   id: string;
   title: string;
@@ -162,15 +163,12 @@ function extractImageFromRssItem(itemXml: string, description: string): string |
       const result = extractionMethods[i]();
       if (result && result.trim() && isValidImageUrl(result.trim())) {
         const cleanedUrl = cleanImageUrl(result.trim());
-        console.log(`Image found using method ${i + 1}: ${cleanedUrl}`);
         return cleanedUrl;
       }
     } catch (error) {
-      console.warn(`Error in image extraction method ${i + 1}:`, error);
     }
   }
 
-  console.log("No valid image found for RSS item");
   return undefined;
 }
 
@@ -247,7 +245,6 @@ function parseRssItem(
       imageUrl,
     };
   } catch (error) {
-    console.warn(`Error parsing item from ${feedSource.name}:`, error);
     return null;
   }
 }
@@ -278,7 +275,6 @@ function extractFeedImage(xmlText: string): string | undefined {
  */
 async function parseFeed(feedSource: FeedSource): Promise<NewsItem[]> {
   try {
-    console.log(`Fetching feed: ${feedSource.name} (${feedSource.url})`);
 
     const response = await fetch(feedSource.url, {
       headers: {
@@ -290,7 +286,6 @@ async function parseFeed(feedSource: FeedSource): Promise<NewsItem[]> {
     });
 
     if (!response.ok) {
-      console.warn(`Failed to fetch ${feedSource.name}: ${response.status} ${response.statusText}`);
       return [];
     }
 
@@ -298,20 +293,17 @@ async function parseFeed(feedSource: FeedSource): Promise<NewsItem[]> {
 
     // Check if we got valid XML content
     if (!xmlText || xmlText.length < 100) {
-      console.warn(`Invalid XML content from ${feedSource.name}: ${xmlText?.substring(0, 100)}`);
       return [];
     }
 
     const feedImage = extractFeedImage(xmlText);
     const itemMatches = xmlText.match(/<item[^>]*>[\s\S]*?<\/item>/gi) || [];
 
-    console.log(`Found ${itemMatches.length} items in ${feedSource.name}`);
 
     return itemMatches
       .map((itemXml) => parseRssItem(itemXml, feedSource, feedImage))
       .filter((item): item is NewsItem => item !== null);
   } catch (error) {
-    console.warn(`Error fetching feed ${feedSource.name}:`, error);
     return [];
   }
 }
@@ -407,7 +399,6 @@ function decodeHtmlEntities(text: string): string {
         return String.fromCharCode(charCode);
       }
     } catch {
-      console.warn("Invalid numeric entity:", match);
     }
     return match; // Return original if conversion fails
   });
@@ -421,7 +412,6 @@ function decodeHtmlEntities(text: string): string {
         return String.fromCharCode(charCode);
       }
     } catch {
-      console.warn("Invalid hex entity:", match);
     }
     return match; // Return original if conversion fails
   });
@@ -528,7 +518,6 @@ function extractImageFromDescription(description: string): string | undefined {
         return cleanImageUrl(result);
       }
     } catch (error) {
-      console.warn("Error in description image extraction method:", error);
     }
   }
 
@@ -601,7 +590,6 @@ export async function getNewsForLanguage(language: string): Promise<NewsResponse
   const feeds = RSS_FEED_SOURCES[language] || [];
   const sources = feeds.length > 0 ? feeds : FALLBACK_FEEDS;
 
-  console.log(`Fetching news for language: ${language} with ${sources.length} sources`);
 
   // Fetch from multiple sources in parallel
   const promises = sources.map((source) => parseFeed(source));
@@ -610,17 +598,14 @@ export async function getNewsForLanguage(language: string): Promise<NewsResponse
   // Combine and sort results
   const allItems = results.flat();
 
-  console.log(`Total items found for ${language}: ${allItems.length}`);
 
   // If no items found, try fallback to English feeds
   if (allItems.length === 0 && language !== "en") {
-    console.log(`No items found for ${language}, trying English fallback...`);
     const englishFeeds = RSS_FEED_SOURCES["en"] || [];
     const englishPromises = englishFeeds.map((source) => parseFeed(source));
     const englishResults = await Promise.all(englishPromises);
     const englishItems = englishResults.flat();
 
-    console.log(`Found ${englishItems.length} English items as fallback`);
     allItems.push(...englishItems);
   }
 

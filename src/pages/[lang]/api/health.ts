@@ -28,7 +28,6 @@ interface HealthResponse {
  * // Make a GET request to /api/health
  * const response = await fetch('/api/health');
  * const data = await response.json();
- * console.log(`Application status: ${data.status}`);
  */
 export const GET: APIRoute = async (): Promise<Response> => {
   try {

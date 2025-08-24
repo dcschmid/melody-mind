@@ -10,6 +10,7 @@
  * @prop {string} categoryData.slug - URL-safe identifier for the category
  * @prop {string} lang - Language code for the page content
  */
+// Import removed - not used in this file
 import Layout from "@layouts/Layout.astro";
 import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
 import FeedbackOverlay from "@components/Overlays/FeedbackOverlay.astro";
@@ -107,10 +108,13 @@ const authResult = {
   user: { id: guestId, email: "guest@melodymind.app" },
 };
 
-import { loadCategoriesWithFallback } from "../../../utils/category/categoryLoadingUtils";
-
-// Load categories using centralized utility
-const categories = await loadCategoriesWithFallback(lang, "en");
+// Dynamic import of categories based on language
+let categories;
+try {
+  categories = await import(`@json/${lang}_categories.json`);
+} catch {
+  categories = await import(`@json/en_categories.json`);
+}
 
 // Default user for game functionality
 const user = { id: authResult.user?.id || "guest" };
@@ -148,7 +152,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   showCoins={false}
   description={metaDescription}
 >
-  <FeedbackOverlay />
+  <FeedbackOverlay buttonId="quiz-next-round-button" />
 
   <EndOverlay
     id="endgame-popup"
@@ -188,7 +192,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
         <span
           class="relative z-10 text-sm font-bold tracking-[0.02em] text-[var(--text-primary)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] transition-all duration-200"
         >
-          <span id="round-display" class="round">1/{totalRounds}</span>
+          <span id="quiz-round-display" class="round">1/{totalRounds}</span>
         </span>
       </div>
 
@@ -253,139 +257,19 @@ const totalRounds = getRoundsForDifficulty(difficulty);
 </Layout>
 
 <script>
-  /**
-   * Game Logic Initialization and Accessibility Enhancements
-   *
-   * This script initializes the game engine and handles all game logic.
-   * It also implements accessibility enhancements for modal dialogs and keyboard navigation.
-   */
+  import { initOverlayManagerAuto } from "../../../utils/components/overlayManagerUtils";
   import { initGameEngine } from "../../../utils/game/gameEngine";
 
   // Initialize the game engine and accessibility features when the DOM is ready
   const initializeGame = (): void => {
     initGameEngine();
-    setupFocusTrap();
+    initOverlayManagerAuto();
   };
 
   // Event listener for Astro page load
   document.addEventListener("astro:page-load", initializeGame);
 
   // Ensure proper initialization on direct navigation
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeGame);
-  } else {
-    initializeGame();
-  }
-
-  /**
-   * Sets up focus trapping for modal overlays to improve accessibility
-   * - Traps focus within the modal when open
-   * - Returns focus to trigger element when closed
-   * - Handles Escape key to close modal
-   */
-  const setupFocusTrap = (): void => {
-    // Select all overlay and popup elements
-    const overlays = document.querySelectorAll<HTMLElement>(".overlay, .popup");
-    let previousFocus: Element | null = null;
-    let activeOverlay: HTMLElement | null = null;
-
-    // Add event listeners to each overlay
-    overlays.forEach((overlay) => {
-      // Create an array of focusable elements within the overlay
-      const focusableElements = overlay.querySelectorAll<HTMLElement>(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      );
-
-      const firstFocusableElement = focusableElements[0];
-      const lastFocusableElement = focusableElements[focusableElements.length - 1];
-
-      // Store trigger elements that open this overlay
-      const openTriggers = document.querySelectorAll(`[data-opens="${overlay.id}"]`);
-      openTriggers.forEach((trigger) => {
-        trigger.addEventListener("click", () => {
-          previousFocus = document.activeElement;
-          activeOverlay = overlay;
-
-          // Set timeout to focus the first element after overlay is visible
-          setTimeout(() => {
-            if (firstFocusableElement) {
-              firstFocusableElement.focus();
-            }
-          }, 50);
-        });
-      });
-
-      // Handle focus trap with keyboard navigation
-      overlay.addEventListener("keydown", (e: KeyboardEvent) => {
-        // Close on Escape
-        if (e.key === "Escape") {
-          closeOverlay(overlay);
-          e.preventDefault();
-          return;
-        }
-
-        // Only handle Tab key for trapping focus
-        if (e.key !== "Tab") {
-          return;
-        }
-
-        // If shift + tab and on first element, move to last element
-        if (e.shiftKey) {
-          if (document.activeElement === firstFocusableElement) {
-            lastFocusableElement.focus();
-            e.preventDefault();
-          }
-        }
-        // If tab and on last element, move to first element
-        else {
-          if (document.activeElement === lastFocusableElement) {
-            firstFocusableElement.focus();
-            e.preventDefault();
-          }
-        }
-      });
-
-      // Find close buttons within overlay
-      const closeButtons = overlay.querySelectorAll("[data-closes]");
-      closeButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          closeOverlay(overlay);
-        });
-      });
-    });
-
-    /**
-     * Closes the overlay and returns focus to the previous element
-     * @param {HTMLElement} overlay - The overlay element to close
-     */
-    const closeOverlay = (overlay: HTMLElement): void => {
-      // Only proceed if this is the active overlay
-      if (activeOverlay !== overlay) {
-        return;
-      }
-
-      // Hide the overlay
-      overlay.classList.add("hidden");
-
-      // Return focus to previous element
-      if (
-        previousFocus &&
-        "focus" in previousFocus &&
-        typeof (previousFocus as HTMLElement).focus === "function"
-      ) {
-        (previousFocus as HTMLElement).focus();
-      }
-
-      // Reset active overlay
-      activeOverlay = null;
-    };
-
-    // Add global event listener for Escape key
-    document.addEventListener("keydown", (e: KeyboardEvent) => {
-      if (e.key === "Escape" && activeOverlay) {
-        closeOverlay(activeOverlay);
-        e.preventDefault();
-      }
-    });
-  };
+  // Note: onDOMReady is not available in this context, using direct initialization
+  initializeGame();
 </script>

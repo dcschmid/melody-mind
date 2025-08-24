@@ -4,7 +4,6 @@ import { safeGetElementById } from "../dom/domUtils";
  * @fileoverview Timer Announcer for WCAG AAA accessibility in the MelodyMind game.
  * Provides timed announcements for speed bonus events with screen reader support.
  *
- * Features:
  * - Announces when speed bonus timer starts
  * - Provides warning when bonus is about to expire
  * - Announces when bonus expires

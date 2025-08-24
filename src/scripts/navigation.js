@@ -1,12 +1,9 @@
 /**
- * Navigation functionality for Melody Mind
- *
- * This script manages the user logout workflow for the Melody Mind application.
- * It attaches event listeners to all logout buttons, handles the logout process,
- * and provides visual feedback through loading states during the request.
- * It also processes network responses and displays appropriate redirections
- * or error messages.
+ * @fileoverview Navigation utilities for browser environment
+ * @environment browser
  */
+
+/* global document, window, fetch, localStorage, sessionStorage, CustomEvent, StorageEvent, console, alert */
 
 document.addEventListener("DOMContentLoaded", () => {
   // Find all logout buttons

@@ -1,14 +1,9 @@
 /**
- * WCAG AAA Enhancements Script
- *
- * This script implements advanced accessibility features for the Knowledge page
- * to meet WCAG AAA standards. It includes:
- *
- * 1. Focus trap for the search field
- * 2. Advanced keyboard shortcuts
- * 3. Enhanced ARIA live regions
- * 4. Advanced keyboard navigation
+ * @fileoverview WCAG AAA accessibility enhancements for browser environment
+ * @environment browser
  */
+
+/* global document, window, getComputedStyle */
 
 document.addEventListener("DOMContentLoaded", function () {
   // Elements for the focus trap
@@ -230,19 +225,21 @@ document.addEventListener("DOMContentLoaded", function () {
           event.preventDefault();
           navigateCards(-1, visibleCards);
           break;
-        case "ArrowDown":
+        case "ArrowDown": {
           event.preventDefault();
           // Determine number of cards per row (based on CSS Grid)
           const cardsPerRow = getComputedStyle(articlesGrid).gridTemplateColumns.split(" ").length;
           navigateCards(cardsPerRow, visibleCards);
           break;
-        case "ArrowUp":
+        }
+        case "ArrowUp": {
           event.preventDefault();
           // Determine number of cards per row (based on CSS Grid)
           const cardsPerRowUp =
             getComputedStyle(articlesGrid).gridTemplateColumns.split(" ").length;
           navigateCards(-cardsPerRowUp, visibleCards);
           break;
+        }
         case "Home":
           event.preventDefault();
           if (visibleCards.length > 0) {
@@ -370,4 +367,28 @@ document.addEventListener("DOMContentLoaded", function () {
       announcer.textContent = message;
     }
   }
+
+  /**
+   * Implements skip links functionality
+   */
+  function implementSkipLinks() {
+    // Skip links implementation
+    const skipLinks = document.querySelectorAll(".skip-link");
+    skipLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute("href")?.substring(1);
+        if (targetId) {
+          const target = document.getElementById(targetId);
+          if (target) {
+            target.focus();
+            target.scrollIntoView();
+          }
+        }
+      });
+    });
+  }
+
+  // Fix case declaration issues
+  // Note: handleKeyboardNavigation function removed as it was unused
 });

@@ -207,7 +207,6 @@ export function getTranslation(
  * @example
  * const request = new Request("https://example.com");
  * const lang = getPreferredLanguage(request);
- * console.log(`Detected language: ${lang}`);
  */
 export function getPreferredLanguage(request: Request): string {
   const acceptLanguage = request.headers.get("accept-language") || "";
@@ -236,7 +235,6 @@ export function getPreferredLanguage(request: Request): string {
  * @returns {string} The translated string
  *
  * @example
- * // In an API route or server component:
  * import { t } from "../lib/i18n-utils";
  *
  * export function GET(request) {
@@ -263,7 +261,6 @@ export function t(request: Request, key: string, params?: Record<string, string 
  * @returns {string} The translated string
  *
  * @example
- * // In an API route or server component with type safety:
  * import { tTyped } from "../lib/i18n-utils";
  *
  * export function GET(request) {
@@ -271,7 +268,6 @@ export function t(request: Request, key: string, params?: Record<string, string 
  *   const welcomeMessage = tTyped(request, "common.welcome");
  *   const scoreMessage = tTyped(request, "game.score.result", { points: 450, total: 500 });
  *
- *   // This would cause a TypeScript error:
  *   // const error = tTyped(request, "game.score.result", { wrongParam: 123 });
  * }
  */

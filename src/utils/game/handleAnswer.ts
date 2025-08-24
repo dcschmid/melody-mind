@@ -28,7 +28,12 @@ interface HandleAnswerConfig {
   /** Element to display the current round */
   roundElement: HTMLParagraphElement;
   /** Current question object */
-  currentQuestion: { question: string; options: string[]; correctAnswer: string; trivia: string } | null;
+  currentQuestion: {
+    question: string;
+    options: string[];
+    correctAnswer: string;
+    trivia: string;
+  } | null;
   /** Current round index */
   roundIndex: number;
   /** Total number of rounds in the game */
@@ -144,33 +149,7 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
     // IMMEDIATE auto-scroll to top when overlay opens
     window.scrollTo(0, 0);
 
-    // Setup next round button
-    const nextRoundButton = document.getElementById("next-round-button") as HTMLButtonElement;
-
-    nextRoundButton.onclick = function () {
-      stopAudio();
-      overlay.classList.add("hidden");
-      if (config.roundIndex < config.totalRounds - 1) {
-        // Proceed to next round
-        config.roundIndex++;
-        config.roundElement.textContent = `${config.roundIndex + 1}/${config.totalRounds}`;
-
-        const newQuestion = getRandomQuestion(
-          config.albums,
-          config.difficulty || "easy",
-          config.totalRounds
-        );
-        if (newQuestion) {
-          config.currentQuestion = {
-            question: newQuestion.randomQuestion,
-            album: newQuestion.randomAlbum,
-            ...config.questionConfig,
-          };
-        }
-      } else {
-        // End game if all rounds are completed
-        config.endGame();
-      }
-    };
+    // REMOVED: Next round button handler is now in gameEngine.ts
+    // This prevents conflicts and double round increment
   };
 }

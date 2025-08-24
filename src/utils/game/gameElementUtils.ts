@@ -11,43 +11,23 @@ import { safeGetElementById } from "../dom/domUtils";
  * Common game element IDs used across multiple game engines
  */
 export const GAME_ELEMENT_IDS = {
-  // Score and round displays
-  SCORE_DISPLAY: "score-display",
-  ROUND_DISPLAY: "round-display",
-  CURRENT_ROUND: "current-round",
-  TOTAL_ROUNDS: "total-rounds",
-  POPUP_SCORE: "popup-score",
-
-  // Game controls
-  NEXT_ROUND_BUTTON: "next-round-button",
-  RESTART_BUTTON: "restart-button",
+  // Core game elements
+  GAME_CONTAINER: "game-container",
+  GAME_UI: "game-ui",
+  LOADING_CONTAINER: "loading-container",
+  SCORE: "score",
+  ROUND: "round",
+  FEEDBACK: "feedback",
+  OPTIONS: "options",
+  QUESTION: "question",
+  COVER: "cover",
+  AUDIO: "audio",
   JOKER_BUTTON: "joker-button",
   JOKER_COUNT: "joker-count",
-
-  // Game content
-  QUESTION_TEXT: "question-text",
-  QUESTION_CONTAINER: "question-container",
-  OPTIONS_CONTAINER: "options",
+  RESTART_BUTTON: "restart-button",
   OVERLAY: "overlay",
-
-  // Game state
   LOADING_SPINNER: "loading-spinner",
-  FEEDBACK: "feedback",
-  COINS_COUNT: "coinsCount",
-  ROUND: "round",
-
-  // End game elements
-  ENDGAME_POPUP: "endgame-popup",
-  SCORE_BAR: "score-bar",
-  ACHIEVEMENT_PROGRESS: "achievement-progress",
-  DIFFICULTY_DISPLAY: "difficulty-display",
-  CATEGORY_DISPLAY: "category-display",
-
-  // Overlay elements
-  OVERLAY_ARTIST: "overlay-artist",
-  OVERLAY_ALBUM: "overlay-album",
-  OVERLAY_FUNFACT: "overlay-funfact",
-  OVERLAY_YEAR: "overlay-year",
+  SCORE_PROGRESS: "score-progress",
 } as const;
 
 /**
@@ -135,7 +115,6 @@ export function getEndGameElements() {
   return {
     endgamePopup: getGameElement<HTMLElement>(GAME_ELEMENT_IDS.ENDGAME_POPUP),
     scoreBar: getGameElement<HTMLElement>(GAME_ELEMENT_IDS.SCORE_BAR),
-    achievementProgress: getGameElement<HTMLElement>(GAME_ELEMENT_IDS.ACHIEVEMENT_PROGRESS),
     difficultyDisplay: getGameElement<HTMLElement>(GAME_ELEMENT_IDS.DIFFICULTY_DISPLAY),
     categoryDisplay: getGameElement<HTMLElement>(GAME_ELEMENT_IDS.CATEGORY_DISPLAY),
   };
@@ -180,7 +159,7 @@ export function getAllGameElements(gameType: string) {
 
   // Add game-specific elements
   switch (gameType) {
-    case "time-pressure":
+    case "quiz":
       return {
         ...commonElements,
         ...getEndGameElements(),
@@ -190,11 +169,29 @@ export function getAllGameElements(gameType: string) {
         ...commonElements,
         ...getEndGameElements(),
       };
-    case "quiz":
-    default:
+    case "time-pressure":
       return {
         ...commonElements,
         ...getOverlayElements(),
       };
+    default:
+      return commonElements;
   }
+}
+
+export interface GameElements {
+  container: HTMLElement | null;
+  score: HTMLParagraphElement | null;
+  round: HTMLParagraphElement | null;
+  feedback: HTMLParagraphElement | null;
+  options: HTMLElement | null;
+  question: HTMLHeadingElement | null;
+  cover: HTMLImageElement | null;
+  audio: HTMLAudioElement | null;
+  jokerButton: HTMLButtonElement | null;
+  jokerCount: HTMLSpanElement | null;
+  restartButton: HTMLButtonElement | null;
+  overlay: HTMLElement | null;
+  loadingSpinner: HTMLElement | null;
+  scoreProgress: HTMLElement | null;
 }

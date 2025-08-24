@@ -220,7 +220,6 @@ const { prev, next } = getNavigationPodcasts();
                 </div>
 
                 {/* Hidden Audio Element */}
-                {/* eslint-disable-next-line astro/jsx-a11y/media-has-caption */}
                 <audio id="podcast-audio" preload="metadata" class="hidden">
                   <source src={podcast.audioUrl} type="audio/mpeg" />
                   {podcast.subtitleUrl ? (
@@ -393,100 +392,11 @@ const { prev, next } = getNavigationPodcasts();
   </main>
 
   <script>
-    // Audio Player Functionality
+    import { initAudioPlayerAuto } from "../../../utils/components/audioPlayerUtils";
+
+    // Initialize Audio Player functionality
     document.addEventListener("DOMContentLoaded", () => {
-      const audio = document.getElementById("podcast-audio") as HTMLAudioElement;
-      const playPauseBtn = document.getElementById("play-pause-btn") as HTMLButtonElement;
-      const playIcon = document.getElementById("play-icon") as HTMLElement;
-      const pauseIcon = document.getElementById("pause-icon") as HTMLElement;
-      const progressBar = document.getElementById("progress-bar") as HTMLElement;
-      const progressContainer = document.getElementById("progress-container") as HTMLElement;
-      const currentTimeSpan = document.getElementById("current-time") as HTMLElement;
-      const totalTimeSpan = document.getElementById("total-time") as HTMLElement;
-      const rewindBtn = document.getElementById("rewind-btn") as HTMLButtonElement;
-      const forwardBtn = document.getElementById("forward-btn") as HTMLButtonElement;
-
-      if (!audio || !playPauseBtn || !progressBar || !progressContainer) {
-        return;
-      }
-
-      // Format time in MM:SS
-      function formatTime(seconds: number): string {
-        const mins = Math.floor(seconds / 60);
-        const secs = Math.floor(seconds % 60);
-        return `${mins}:${secs.toString().padStart(2, "0")}`;
-      }
-
-      // Update progress bar and time display
-      function updateProgress() {
-        if (audio.duration && !isNaN(audio.duration)) {
-          const progress = (audio.currentTime / audio.duration) * 100;
-          progressBar.style.width = `${progress}%`;
-          currentTimeSpan.textContent = formatTime(audio.currentTime);
-
-          // Update total time if it's still 0:00
-          if (totalTimeSpan.textContent === "0:00") {
-            totalTimeSpan.textContent = formatTime(audio.duration);
-          }
-        }
-      }
-
-      // Update total time when metadata is loaded
-      audio.addEventListener("loadedmetadata", () => {
-        if (audio.duration && !isNaN(audio.duration)) {
-          totalTimeSpan.textContent = formatTime(audio.duration);
-        }
-      });
-
-      // Also try to get duration when canplay event fires
-      audio.addEventListener("canplay", () => {
-        if (audio.duration && !isNaN(audio.duration) && totalTimeSpan.textContent === "0:00") {
-          totalTimeSpan.textContent = formatTime(audio.duration);
-        }
-      });
-
-      // Update progress during playback
-      audio.addEventListener("timeupdate", updateProgress);
-
-      // Play/Pause functionality
-      playPauseBtn.addEventListener("click", () => {
-        if (audio.paused) {
-          audio.play();
-          playIcon.classList.add("hidden");
-          pauseIcon.classList.remove("hidden");
-        } else {
-          audio.pause();
-          playIcon.classList.remove("hidden");
-          pauseIcon.classList.add("hidden");
-        }
-      });
-
-      // Progress bar click to seek
-      progressContainer.addEventListener("click", (e) => {
-        const rect = progressContainer.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        const width = rect.width;
-        const clickTime = (clickX / width) * audio.duration;
-        audio.currentTime = clickTime;
-      });
-
-      // Rewind 10 seconds
-      rewindBtn.addEventListener("click", () => {
-        audio.currentTime = Math.max(0, audio.currentTime - 10);
-      });
-
-      // Forward 10 seconds
-      forwardBtn.addEventListener("click", () => {
-        audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
-      });
-
-      // Handle audio end
-      audio.addEventListener("ended", () => {
-        playIcon.classList.remove("hidden");
-        pauseIcon.classList.add("hidden");
-        progressBar.style.width = "0%";
-        currentTimeSpan.textContent = "0:00";
-      });
+      initAudioPlayerAuto();
     });
   </script>
 </Layout>

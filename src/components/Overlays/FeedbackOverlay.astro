@@ -10,6 +10,12 @@ import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 import Headline from "@components/Headline.astro";
 
+export interface Props {
+  buttonId?: string;
+}
+
+const { buttonId = "next-round-button" } = Astro.props;
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
@@ -94,7 +100,7 @@ const t = useTranslations(lang);
     </div>
 
     <button
-      id="next-round-button"
+      id={buttonId}
       class="mx-auto block min-h-12 min-w-56 cursor-pointer rounded-xl border border-purple-500 bg-purple-600 px-6 py-3 text-base font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-purple-400 hover:bg-purple-700 hover:shadow-lg focus:border-purple-400 focus:ring-4 focus:ring-purple-500/60 focus:outline-none active:translate-y-0 active:scale-95 active:shadow-sm"
       aria-label={t("game.feedback.next.round")}
     >
@@ -107,103 +113,13 @@ const t = useTranslations(lang);
 </div>
 
 <script>
-  // Extend Window interface for our utilities
-  declare global {
-    interface Window {
-      populateFeedbackOverlay: (data: {
-        artist?: string;
-        album?: string;
-        year?: string;
-        funFact?: string;
-      }) => void;
-    }
+  import { initFeedbackOverlayAuto } from "../../utils/components/feedbackOverlayUtils";
+
+  // Initialize feedback overlay functionality only for Quiz Game
+  // Time Pressure Game handles its own button events
+  if (window.location.pathname.includes("game-")) {
+    document.addEventListener("DOMContentLoaded", () => {
+      initFeedbackOverlayAuto();
+    });
   }
-
-  // Simple feedback overlay functionality
-  document.addEventListener("DOMContentLoaded", () => {
-    const overlay = document.getElementById("overlay");
-    const closeButton = document.getElementById("close-overlay-button");
-    const backdrop = document.getElementById("overlay-backdrop");
-    const nextButton = document.getElementById("next-round-button");
-
-    if (!overlay || !closeButton || !backdrop || !nextButton) {
-      return;
-    }
-
-    // Close overlay function
-    const closeOverlay = () => {
-      // Find and trigger the next round button that the game engine set up
-      const nextRoundButton = document.getElementById("next-round-button");
-      if (nextRoundButton?.onclick) {
-        // Call the game engine's onclick handler directly
-        nextRoundButton.onclick(new MouseEvent("click"));
-      } else {
-        // Fallback: Hide overlay and dispatch click event
-        overlay.classList.add("hidden");
-        nextRoundButton?.click();
-      }
-    };
-
-    // Event listeners
-    closeButton.addEventListener("click", closeOverlay);
-    backdrop.addEventListener("click", closeOverlay);
-    nextButton.addEventListener("click", closeOverlay);
-
-    // Keyboard navigation
-    document.addEventListener("keydown", (e) => {
-      if (!overlay.classList.contains("hidden")) {
-        if (e.key === "Escape") {
-          e.preventDefault();
-          closeOverlay();
-        }
-      }
-    });
-
-    // Focus management
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach(({ type, target, attributeName }) => {
-        if (type === "attributes" && attributeName === "class") {
-          const isVisible = !(target as HTMLElement).classList.contains("hidden");
-          if (isVisible) {
-            window.scrollTo(0, 0);
-            setTimeout(() => closeButton.focus(), 100);
-          }
-        }
-      });
-    });
-
-    observer.observe(overlay, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    // Function to populate overlay with game data
-    const populateOverlay = (data: {
-      artist?: string;
-      album?: string;
-      year?: string;
-      funFact?: string;
-    }) => {
-      const artistElement = document.getElementById("overlay-artist");
-      const albumElement = document.getElementById("overlay-album");
-      const yearElement = document.getElementById("overlay-year");
-      const funFactElement = document.getElementById("overlay-funfact");
-
-      if (artistElement && data.artist) {
-        artistElement.textContent = data.artist;
-      }
-      if (albumElement && data.album) {
-        albumElement.textContent = data.album;
-      }
-      if (yearElement && data.year) {
-        yearElement.textContent = data.year;
-      }
-      if (funFactElement && data.funFact) {
-        funFactElement.textContent = data.funFact;
-      }
-    };
-
-    // Make populate function globally available
-    window.populateFeedbackOverlay = populateOverlay;
-  });
 </script>

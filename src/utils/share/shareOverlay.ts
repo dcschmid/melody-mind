@@ -10,8 +10,10 @@ import { safeGetElementById, safeQuerySelectorAll } from "../dom/domUtils";
  * @module ShareOverlayUtil
  */
 
+
 import { shareScore } from "./shareUtils";
 import type { ShareData } from "./shareUtils";
+
 
 /**
  * Store Element References
@@ -138,7 +140,6 @@ export class ShareOverlayManager {
       this.announceToScreenReader("Successfully shared your score.");
     } catch (err) {
       if (err instanceof Error && err.name !== "AbortError") {
-        console.warn("Error using Web Share API:", err);
         this.announceToScreenReader("Sharing failed. Please try another method.");
       }
     } finally {
@@ -188,7 +189,6 @@ export class ShareOverlayManager {
       shareScore(platform, gameData);
       this.announceToScreenReader(`Opened ${platform} sharing.`);
     } catch (err) {
-      console.warn(`Error sharing to ${platform}:`, err);
       this.announceToScreenReader(`Failed to share to ${platform}.`);
     }
   }
@@ -248,7 +248,6 @@ export class ShareOverlayManager {
         button.removeAttribute("disabled");
       }, UI_CONSTANTS.COPY_SUCCESS_DURATION);
     } catch (err) {
-      console.warn("Error copying text:", err);
 
       if (this.elements.copyButtonText) {
         this.elements.copyButtonText.textContent = "Copy failed";

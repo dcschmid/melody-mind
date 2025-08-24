@@ -1,76 +1,42 @@
 /**
- * CategoryFilter Utilities
- * 
- * Centralized utilities for managing category filter functionality.
- * Eliminates code duplication in component script tags.
+ * Simple Category Filter
+ * Replaces the over-engineered class-based approach
  */
 
-import { safeGetElementById, safeQuerySelectorAll } from "../dom/domUtils";
-
-/**
- * CategoryFilter configuration interface
- */
 interface CategoryFilterConfig {
   filterId: string;
   targetSelector: string;
 }
 
 /**
- * CategoryFilter utility class
+ * Initialize category filter with simple functionality
  */
-export class CategoryFilterUtils {
-  private filterSelect: HTMLSelectElement | null;
-  private categoryGroups: HTMLElement[];
-  private targetSelector: string;
+export function initCategoryFilter(config: CategoryFilterConfig): void {
+  const filterSelect = document.getElementById(config.filterId) as HTMLSelectElement;
+  const categoryGroups = document.querySelectorAll<HTMLElement>(config.targetSelector);
 
-  /**
-   *
-   */
-  constructor(config: CategoryFilterConfig) {
-    this.filterSelect = safeGetElementById<HTMLSelectElement>(config.filterId);
-    this.categoryGroups = safeQuerySelectorAll<HTMLElement>(config.targetSelector);
-    this.targetSelector = config.targetSelector;
-    
-    this.init();
+  if (!filterSelect || categoryGroups.length === 0) {
+    return;
   }
 
-  /**
-   * Initialize category filter functionality
-   */
-  private init(): void {
-    if (!this.filterSelect) {
-      return;
-    }
-
-    // Add change event listener
-    this.filterSelect.addEventListener("change", (event) => this.handleFilterChange(event));
-
-    // Set initial state based on data-selected attribute
-    const initialValue = this.filterSelect.getAttribute("data-selected") || "all";
-    this.filterSelect.value = initialValue;
-    this.filterCategories(initialValue);
-  }
-
-  /**
-   * Handle filter change events
-   */
-  private handleFilterChange(event: Event): void {
+  // Add change event listener
+  filterSelect.addEventListener("change", (event) => {
     const target = event.target as HTMLSelectElement;
     const selectedValue = target.value;
-    this.filterCategories(selectedValue);
-  }
+    filterCategories(selectedValue);
+  });
 
-  /**
-   * Filter categories based on selected value
-   */
-  private filterCategories(selectedType: string): void {
-    this.categoryGroups.forEach((group) => {
+  // Set initial state
+  const initialValue = filterSelect.getAttribute("data-selected") || "all";
+  filterSelect.value = initialValue;
+  filterCategories(initialValue);
+
+  function filterCategories(selectedType: string): void {
+    categoryGroups.forEach((group) => {
       if (selectedType === "all") {
-        // Show all category groups
         group.style.display = "";
         group.setAttribute("aria-hidden", "false");
       } else {
-        // Check if this group has the matching data-category-type attribute
         const groupCategoryType = group.getAttribute("data-category-type");
         const shouldShow = groupCategoryType === selectedType;
 
@@ -79,94 +45,30 @@ export class CategoryFilterUtils {
       }
     });
   }
-
-  /**
-   * Get current filter value
-   */
-  public getCurrentFilter(): string {
-    return this.filterSelect?.value || "all";
-  }
-
-  /**
-   * Set filter value programmatically
-   */
-  public setFilter(value: string): void {
-    if (this.filterSelect) {
-      this.filterSelect.value = value;
-      this.filterCategories(value);
-    }
-  }
-
-  /**
-   * Get visible category count
-   */
-  public getVisibleCategoryCount(): number {
-    return this.categoryGroups.filter(group => 
-      group.style.display !== "none" && 
-      group.getAttribute("aria-hidden") !== "true"
-    ).length;
-  }
-
-  /**
-   * Reset filter to show all categories
-   */
-  public resetFilter(): void {
-    this.setFilter("all");
-  }
-
-  /**
-   * Destroy event listeners
-   */
-  public destroy(): void {
-    if (this.filterSelect) {
-      this.filterSelect.removeEventListener("change", (event) => this.handleFilterChange(event));
-    }
-  }
 }
 
 /**
- * Initialize category filter functionality
+ * Auto-initialize category filter
  */
-export function initCategoryFilter(config: CategoryFilterConfig): CategoryFilterUtils | null {
-  const groups = safeQuerySelectorAll(config.targetSelector);
-  if (groups.length === 0) {
-    return null;
-  }
-  
-  return new CategoryFilterUtils(config);
-}
+export function initCategoryFilterAuto(): void {
+  const filterElements = document.querySelectorAll("[data-category-filter]");
 
-/**
- * Auto-detect and initialize category filter
- */
-export function initCategoryFilterAuto(): CategoryFilterUtils | null {
-  // Try different selectors to find category groups
-  const selectors = [
-    ".category-group",
-    ".genre-content", 
-    "[data-category-type]",
-    ".category-section",
-  ];
+  filterElements.forEach((element) => {
+    const filterId = element.getAttribute("data-category-filter");
+    const targetSelector = element.getAttribute("data-target-selector");
 
-  for (const selector of selectors) {
-    const groups = safeQuerySelectorAll(selector);
-    if (groups.length > 0) {
-      return initCategoryFilter({
-        filterId: "category-filter",
-        targetSelector: selector
-      });
+    if (filterId && targetSelector) {
+      initCategoryFilter({ filterId, targetSelector });
     }
-  }
-
-  return null;
+  });
 }
 
 /**
  * Default category filter initialization
  */
-export function initDefaultCategoryFilter(): CategoryFilterUtils | null {
-  return initCategoryFilter({
+export function initDefaultCategoryFilter(): void {
+  initCategoryFilter({
     filterId: "category-filter",
-    targetSelector: ".category-group"
+    targetSelector: ".category-group",
   });
 }

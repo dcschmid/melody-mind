@@ -1,3 +1,4 @@
+
 /**
  * Error Handling Utilities
  *
@@ -208,7 +209,6 @@ function handleError(
       stack: error instanceof Error ? error.stack : undefined,
     };
 
-    console.error(`[${type.toUpperCase()}] ${message}:`, errorDetails);
   }
 
   // Show user message if requested
@@ -342,12 +342,10 @@ export function attemptRecovery(
       const result = recoveryAction();
       if (result instanceof Promise) {
         result.catch((recoveryError) => {
-          console.warn("Recovery action failed:", recoveryError);
         });
       }
       return true;
     } catch (recoveryError) {
-      console.warn("Recovery action failed:", recoveryError);
       return false;
     }
   }

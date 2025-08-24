@@ -10,6 +10,7 @@
  * @prop {string} categoryData.slug - URL-safe identifier for the category
  * @prop {string} lang - Language code for the page content
  */
+import { error as logError } from "../../utils/logging/logger";
 import Layout from "@layouts/Layout.astro";
 import FeedbackOverlay from "@components/Overlays/FeedbackOverlay.astro";
 import EndOverlay from "@components/Overlays/EndOverlay.astro";
@@ -98,18 +99,33 @@ const authResult = {
 
 const { category } = Astro.params;
 
-import { loadCategoryBySlug } from "../../../utils/category/categoryLoadingUtils";
-
 // Fallback mechanism for category data if props are not available
 let categoryData = propsCategoryData;
 if (!categoryData && category) {
   try {
-    // Try to load category data dynamically using centralized utility
-    categoryData = await loadCategoryBySlug(category, {
-      language: lang,
-      fallbackLanguage: "en",
-      useAliasPath: true,
-    });
+    // Try to load category data dynamically
+    const categories = await import(`@json/${lang}_categories.json`);
+    const foundCategory = categories.default.find((cat: { slug: string }) => cat.slug === category);
+
+    if (foundCategory) {
+      categoryData = {
+        headline: foundCategory.headline,
+        slug: foundCategory.slug,
+      };
+    } else {
+      // Try English fallback
+      const enCategories = await import(`@json/en_categories.json`);
+      const enFoundCategory = enCategories.default.find(
+        (cat: { slug: string }) => cat.slug === category
+      );
+
+      if (enFoundCategory) {
+        categoryData = {
+          headline: enFoundCategory.headline,
+          slug: enFoundCategory.slug,
+        };
+      }
+    }
 
     if (!categoryData) {
       // Provide a fallback category data
@@ -119,7 +135,7 @@ if (!categoryData && category) {
       };
     }
   } catch (error) {
-    console.error("Failed to load category data:", error);
+    logError("Failed to load category data", error);
     // Provide a fallback category data
     categoryData = {
       headline: category || "Unknown Category",
@@ -361,7 +377,7 @@ const structuredData = {
     </div>
 
     {/* Overlays */}
-    <FeedbackOverlay />
+    <FeedbackOverlay buttonId="time-pressure-next-round-button" />
     <EndOverlay
       id="endgame-popup"
       data-score="0"
@@ -375,73 +391,8 @@ const structuredData = {
 
 <!-- Time Pressure Game Engine Script -->
 <script>
-  import { TimePressureGameEngine } from "../../utils/game/timePressureGameEngine";
+  import { initTimePressureGameAuto } from "../../utils/components/timePressureGameInitUtils";
 
-  // Extend Window interface to include our game engine
-  declare global {
-    interface Window {
-      currentGameEngine?: TimePressureGameEngine;
-    }
-  }
-
-  // Function to initialize Time Pressure Game Engine
-  const initTimePressureGame = async (): Promise<void> => {
-    try {
-      console.warn("Starting TimePressureGameEngine initialization...");
-
-      const gameContainer = document.getElementById("game-container");
-      const loadingContainer = document.getElementById("loading-container");
-      const gameUI = document.getElementById("game-ui");
-
-      if (!gameContainer || !loadingContainer || !gameUI) {
-        console.error("Missing required DOM elements for game engine.");
-        if (loadingContainer) {
-          loadingContainer.innerHTML =
-            '<div class="error-state">Failed to load game UI. Please refresh the page.</div>';
-        }
-        throw new Error("Missing required DOM elements");
-      }
-
-      // Extract category and language from URL
-      const pathParts = document.location.pathname.split("/");
-      const lang = pathParts[1];
-      const categoryPart = pathParts[2];
-      const category = categoryPart.startsWith("time-pressure-")
-        ? categoryPart.replace("time-pressure-", "")
-        : categoryPart;
-
-      console.warn("Initializing game:", { category, lang });
-
-      // Initialize Time Pressure Game with lang, category, and pathname
-      const gameEngine = new TimePressureGameEngine({
-        category,
-        lang,
-        gameContainer,
-        loadingContainer,
-        gameUI,
-      });
-
-      await gameEngine.initialize();
-
-      // Store reference globally for cleanup if needed
-      window.currentGameEngine = gameEngine;
-
-      console.warn("Time Pressure Game Engine initialized successfully");
-    } catch (err: unknown) {
-      console.error("Failed to load TimePressureGameEngine:", err);
-      const loadingContainer = document.getElementById("loading-container");
-      if (loadingContainer) {
-        loadingContainer.innerHTML =
-          '<div class="error-state">Failed to load game. Please refresh the page.</div>';
-      }
-      throw err;
-    }
-  };
-
-  // Initialize when DOM is ready
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initTimePressureGame);
-  } else {
-    initTimePressureGame();
-  }
+  // Initialize Time Pressure Game
+  initTimePressureGameAuto();
 </script>

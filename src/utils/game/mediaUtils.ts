@@ -73,12 +73,10 @@ export interface Album {
  */
 export function updateMedia(album: Album, elements: MediaElements): void {
   if (!elements) {
-    console.log("No media elements provided - streaming links removed for legal compliance");
     return;
   }
 
   // No operations needed since streaming links have been removed for legal compliance
-  console.log("Media update skipped - streaming links removed for legal compliance");
 }
 
 /**

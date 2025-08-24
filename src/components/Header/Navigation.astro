@@ -420,11 +420,56 @@ const t = useTranslations(lang);
   </nav>
 </header>
 
-<script define:vars={{ lang }}>
-  import { initStandardNavigation } from "../../utils/components/navigationUtils";
-
-  // Initialize navigation functionality
+<script>
+  // Simple navigation functionality for testing
   document.addEventListener("DOMContentLoaded", () => {
-    initStandardNavigation(lang);
+    const menuToggle = document.getElementById("menu-toggle");
+    const mainMenu = document.getElementById("main-menu");
+    const menuBackdrop = document.getElementById("menu-backdrop");
+    const closeButton = mainMenu?.querySelector("button");
+
+    if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
+      console.error("Navigation elements not found");
+      return;
+    }
+
+    // Toggle menu
+    menuToggle.addEventListener("click", () => {
+      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+      const newState = !isExpanded;
+
+      menuToggle.setAttribute("aria-expanded", String(newState));
+      mainMenu.setAttribute("data-state", newState ? "open" : "closed");
+      menuBackdrop.setAttribute("data-state", newState ? "open" : "closed");
+
+      // Prevent scrolling when menu is open
+      document.body.style.overflow = newState ? "hidden" : "";
+    });
+
+    // Close menu
+    closeButton.addEventListener("click", () => {
+      menuToggle.setAttribute("aria-expanded", "false");
+      mainMenu.setAttribute("data-state", "closed");
+      menuBackdrop.setAttribute("data-state", "closed");
+      document.body.style.overflow = "";
+    });
+
+    // Close on backdrop click
+    menuBackdrop.addEventListener("click", () => {
+      menuToggle.setAttribute("aria-expanded", "false");
+      mainMenu.setAttribute("data-state", "closed");
+      menuBackdrop.setAttribute("data-state", "closed");
+      document.body.style.overflow = "";
+    });
+
+    // Close on escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mainMenu.getAttribute("data-state") === "open") {
+        menuToggle.setAttribute("aria-expanded", "false");
+        mainMenu.setAttribute("data-state", "closed");
+        menuBackdrop.setAttribute("data-state", "closed");
+        document.body.style.overflow = "";
+      }
+    });
   });
 </script>

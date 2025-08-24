@@ -6,55 +6,13 @@
 
 import { safeAddClasses, safeRemoveClasses } from "../dom/domUtils";
 import { addSafeClickListener, addMultipleEventListeners } from "../dom/eventUtils";
-import {
-  showEndOverlay,
-  setupEndOverlay,
-  updateEndOverlayScore,
-  updateMotivationText,
-  animateProgressBar,
-} from "../endOverlay.ts";
 import { handleLoadingError, handleGameError } from "../error/errorHandlingUtils";
 
 import { loadAlbumsWithFallback } from "./albumLoader";
 import { handleEndGame } from "./endGameUtils.ts";
-import { updateGameScore, updateGameRound } from "./gameStateUtils";
+import { updateGameScore } from "./gameStateUtils";
 
-// Setup EndOverlay functionality
-setupEndOverlay();
-
-// Make EndOverlay functions globally available for the game class
-(
-  window as Window & {
-    showEndOverlay?: typeof showEndOverlay;
-    updateEndOverlayScore?: typeof updateEndOverlayScore;
-    updateMotivationText?: typeof updateMotivationText;
-    animateProgressBar?: typeof animateProgressBar;
-  }
-).showEndOverlay = showEndOverlay;
-(
-  window as Window & {
-    showEndOverlay?: typeof showEndOverlay;
-    updateEndOverlayScore?: typeof updateEndOverlayScore;
-    updateMotivationText?: typeof updateMotivationText;
-    animateProgressBar?: typeof animateProgressBar;
-  }
-).updateEndOverlayScore = updateEndOverlayScore;
-(
-  window as Window & {
-    showEndOverlay?: typeof showEndOverlay;
-    updateEndOverlayScore?: typeof updateEndOverlayScore;
-    updateMotivationText?: typeof updateMotivationText;
-    animateProgressBar?: typeof animateProgressBar;
-  }
-).updateMotivationText = updateMotivationText;
-(
-  window as Window & {
-    showEndOverlay?: typeof showEndOverlay;
-    updateEndOverlayScore?: typeof updateEndOverlayScore;
-    updateMotivationText?: typeof updateMotivationText;
-    animateProgressBar?: typeof animateProgressBar;
-  }
-).animateProgressBar = animateProgressBar;
+// EndOverlay functionality is auto-initialized
 
 // Game implementation with modern ES6+ features
 
@@ -179,6 +137,10 @@ class ChronologyGame {
   private round: number = 1;
   private totalRounds: number = 10;
   private albumsData: Array<{ artist: string; album: string; year: string }> | null = null;
+  private chronologyFeedbackOverlay: boolean = false;
+  private nextRoundHandler: (() => void) | null = null;
+  private endGameHandler: (() => void) | null = null;
+  private isSubmitting: boolean = false;
 
   constructor() {
     this.container = document.getElementById("chronology-container");
@@ -194,12 +156,18 @@ class ChronologyGame {
     this.categoryName = this.container?.dataset.categoryName || "";
     this.userId = this.container?.dataset.userId || "guest";
 
+    // Initialize round to 1 and set totalRounds based on difficulty
+    this.round = 1;
+    this.totalRounds = this.getTotalRoundsForDifficulty(this.difficulty);
+
     // Debug logging
-    console.log("ChronologyGame constructor data:");
-    console.log("  category (slug):", this.category);
-    console.log("  categoryName (display):", this.categoryName);
-    console.log("  difficulty:", this.difficulty);
-    console.log("  container dataset:", this.container?.dataset);
+    console.log("ChronologyGame initialized with:", {
+      difficulty: this.difficulty,
+      category: this.category,
+      categoryName: this.categoryName,
+      round: this.round,
+      totalRounds: this.totalRounds,
+    });
 
     // Get language from URL
     const urlPath = window.location.pathname;
@@ -207,6 +175,22 @@ class ChronologyGame {
     this.language = langMatch ? langMatch[1] : "de";
 
     this.initializeGame();
+  }
+
+  /**
+   * Get total rounds based on difficulty level
+   */
+  private getTotalRoundsForDifficulty(difficulty: string): number {
+    switch (difficulty) {
+      case "easy":
+        return 10;
+      case "medium":
+        return 15;
+      case "hard":
+        return 20;
+      default:
+        return 10;
+    }
   }
 
   async initializeGame() {
@@ -254,6 +238,7 @@ class ChronologyGame {
 
       this.renderItems();
       this.updateControls();
+      this.updateDisplay(); // Update display after loading question
     } catch (error) {
       handleGameError(error, "chronology question loading");
       this.showError("chronology.error.question.load");
@@ -407,28 +392,50 @@ class ChronologyGame {
     }
   }
 
-  submitAnswer() {
-    const userOrder = this.currentItems.map((item) => item.id);
-    const result = evaluateChronologyAnswer(userOrder, this.correctOrder);
+  async submitAnswer() {
+    if (this.isSubmitting) {
+      return;
+    }
 
-    this.score = updateGameScore(this.score, result.score);
+    try {
+      if (this.currentItems.length === 0) {
+        throw new Error("No items to submit");
+      }
+      this.isSubmitting = true;
 
-    // Next round or end game
-    if (this.round >= this.totalRounds) {
-      // Last round - skip feedback overlay and go directly to end game
-      this.endGame();
-    } else {
-      // Show feedback for intermediate rounds
-      this.showFeedback(result);
+      const userOrder = this.currentItems.map((item) => item.id);
+      const result = evaluateChronologyAnswer(userOrder, this.correctOrder);
 
-      setTimeout(() => {
-        this.round = updateGameRound(this.round, 1, this.totalRounds);
-        this.loadQuestion();
-      }, 2000);
+      this.score = updateGameScore(this.score, result.score);
+
+      // Show feedback for current round (don't increment yet)
+      await this.showFeedback(result);
+    } catch (error) {
+      console.error("Error in submitAnswer:", error);
+      // Show error feedback
+      this.showError("chronology.error.submit");
+    } finally {
+      this.isSubmitting = false;
     }
   }
 
-  showFeedback(result: { correctItems: number; totalItems: number; score: number }) {
+  async showFeedback(result: { correctItems: number; totalItems: number; score: number }) {
+    // Initialize the feedback overlay if not already done
+    if (!this.chronologyFeedbackOverlay) {
+      try {
+        // Use dynamic import to avoid build-time issues
+        const module = await import("../components/chronologyFeedbackOverlayUtils");
+        module.initChronologyFeedbackOverlay();
+        this.chronologyFeedbackOverlay = true;
+
+        // Set up event listeners for overlay interactions
+        this.setupFeedbackEventListeners();
+      } catch (error) {
+        console.error("Failed to initialize feedback overlay:", error);
+        return;
+      }
+    }
+
     // Create detailed feedback with more information
     const correctOrderWithDetails = this.correctOrder.map((id) => {
       const item = this.currentItems.find((i) => i.id === id);
@@ -453,11 +460,14 @@ class ChronologyGame {
     const accuracy = Math.round((result.correctItems / result.totalItems) * 100);
     const scoreGained = result.score;
 
+    // Check if this is the last round
+    const isLastRound = this.round >= this.totalRounds;
+
     // Dispatch enhanced event for feedback overlay
     const event = new CustomEvent("showChronologyFeedback", {
       detail: {
         isCorrect: result.correctItems === result.totalItems,
-        isLastRound: this.round >= this.totalRounds,
+        isLastRound: isLastRound,
         correctOrder: correctOrderWithDetails,
         userOrder: userOrderWithDetails,
         accuracy: accuracy,
@@ -470,74 +480,194 @@ class ChronologyGame {
       },
     });
     window.dispatchEvent(event);
+
+    // If this is the last round, end the game after showing feedback
+    if (isLastRound) {
+      // Wait a bit for the feedback to be shown, then end the game
+      setTimeout(() => {
+        this.endGame();
+      }, 2000);
+    }
+  }
+
+  /**
+   * Fallback feedback method when overlay fails
+   */
+  private showBasicFeedback(result: { correctItems: number; totalItems: number; score: number }) {
+    try {
+      const accuracy = Math.round((result.correctItems / result.totalItems) * 100);
+      const message = `Runde ${this.round} abgeschlossen! Genauigkeit: ${accuracy}%, Punkte: +${result.score}`;
+
+      // Show a simple alert or create a basic feedback element
+      if (this.container) {
+        const feedbackDiv = document.createElement("div");
+        feedbackDiv.className =
+          "fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg";
+        feedbackDiv.textContent = message;
+
+        this.container.appendChild(feedbackDiv);
+
+        // Auto-remove after 3 seconds
+        setTimeout(() => {
+          if (feedbackDiv.parentNode) {
+            feedbackDiv.parentNode.removeChild(feedbackDiv);
+          }
+        }, 3000);
+      }
+    } catch (error) {
+      console.error("Failed to show basic feedback:", error);
+    }
+  }
+
+  /**
+   * Update the display of round and score information
+   */
+  private updateDisplay() {
+    try {
+      // Update round display
+      if (this.roundDisplay) {
+        this.roundDisplay.textContent = `${this.round}/${this.totalRounds}`;
+      }
+
+      // Update score display
+      if (this.scoreDisplay) {
+        this.scoreDisplay.textContent = this.score.toString();
+      }
+
+      console.log("Display updated:", {
+        round: this.round,
+        totalRounds: this.totalRounds,
+        score: this.score,
+      });
+    } catch (error) {
+      console.error("Error updating display:", error);
+    }
+  }
+
+  setupFeedbackEventListeners() {
+    // Clean up existing listeners first to prevent memory leaks
+    this.cleanupFeedbackEventListeners();
+
+    // Listen for next round event from feedback overlay
+    const nextRoundHandler = () => {
+      console.log("chronologyNextRound event received - loading next question");
+      try {
+        // Simple round increment without using updateGameRound
+        this.round++;
+        console.log(`Round updated to ${this.round}`);
+        this.updateDisplay(); // Update the display
+        this.loadQuestion();
+      } catch (error) {
+        console.error("Error handling next round:", error);
+      }
+      // Don't cleanup here - listeners are needed for multiple rounds
+    };
+
+    // Listen for end game event from feedback overlay
+    const endGameHandler = () => {
+      console.log("chronologyEndGame event received - ending game");
+      try {
+        this.endGame();
+      } catch (error) {
+        console.error("Error handling end game:", error);
+      }
+      // Don't cleanup here - listeners are needed for multiple rounds
+    };
+
+    // Store handlers for cleanup
+    this.nextRoundHandler = nextRoundHandler;
+    this.endGameHandler = endGameHandler;
+
+    window.addEventListener("chronologyNextRound", nextRoundHandler);
+    window.addEventListener("chronologyEndGame", endGameHandler);
+  }
+
+  /**
+   * Clean up feedback event listeners to prevent memory leaks
+   */
+  private cleanupFeedbackEventListeners() {
+    if (this.nextRoundHandler) {
+      window.removeEventListener("chronologyNextRound", this.nextRoundHandler);
+      this.nextRoundHandler = null;
+    }
+
+    if (this.endGameHandler) {
+      window.removeEventListener("chronologyEndGame", this.endGameHandler);
+      this.endGameHandler = null;
+    }
   }
 
   async endGame() {
-    // Debug logging
-    console.log("ChronologyGame endGame() called:");
-    console.log("  this.categoryName:", this.categoryName);
-    console.log("  this.category:", this.category);
-    console.log("  Final category for EndOverlay:", this.categoryName || this.category);
+    console.log("Chronology game ending with:", {
+      score: this.score,
+      round: this.round,
+      totalRounds: this.totalRounds,
+      category: this.categoryName || this.category,
+    });
 
     // Use the same end game handling as regular quiz mode with loading spinner and validation
     const endGameConfig = {
       userId: this.userId,
       categoryName: this.categoryName || this.category,
       difficulty: this.difficulty,
-      score: this.score,
-      correctAnswers: Math.round(this.score / 100), // Estimate based on score (assuming 100 points per correct answer)
+      score: this.round * 100, // Calculate score based on rounds completed
       totalRounds: this.totalRounds,
+      correctAnswers: this.round, // Use actual round number instead of score estimation
       language: this.language,
+      mode: "chronology", // Add mode identifier
+      roundsPlayed: this.round, // Add rounds played
     };
 
+    // Create UI interface for end game
     const ui = {
       showEndgamePopup: (score: number) => {
         const popup = document.getElementById("endgame-popup");
         if (popup) {
-          // Debug logging
-          console.log("Setting EndOverlay data attributes:");
-          console.log("  score:", score);
-          console.log("  category:", this.categoryName || this.category);
-          console.log("  difficulty:", this.difficulty);
-          console.log("  mode: chronology");
-
           // Set all necessary data attributes for EndOverlay
           popup.dataset.score = score.toString();
           popup.dataset.category = this.categoryName || this.category;
           popup.dataset.difficulty = this.difficulty;
           popup.dataset.mode = "chronology";
+          popup.dataset.roundsPlayed = this.round.toString();
+          popup.dataset.totalRounds = this.totalRounds.toString();
+          popup.dataset.correctAnswers = this.round.toString(); // All rounds are "correct" in chronology
 
-          // Additional debug: check what's actually set
-          console.log("Actual dataset after setting:");
-          console.log("  popup.dataset.score:", popup.dataset.score);
-          console.log("  popup.dataset.category:", popup.dataset.category);
-          console.log("  popup.dataset.difficulty:", popup.dataset.difficulty);
-          console.log("  popup.dataset.mode:", popup.dataset.mode);
-
-          // Use the enhanced showEndOverlay function for animations and setup
-          const showEndOverlayFn = (
-            window as Window & { showEndOverlay?: (score: number, maxScore: number) => void }
-          ).showEndOverlay;
-          if (typeof window !== "undefined" && showEndOverlayFn) {
-            showEndOverlayFn(score, this.totalRounds * 100); // Max score based on perfect rounds
-          } else {
-            // Fallback: manually update score and show overlay
-            const scoreElement = document.getElementById("popup-score");
-            if (scoreElement) {
-              scoreElement.textContent = score.toString();
-            }
-            popup.setAttribute("data-score", score.toString());
-          }
           popup.classList.remove("hidden");
         }
       },
     };
 
-    await handleEndGame(endGameConfig, ui, {
-      onError: (error) => {
-        handleGameError(error, "chronology game result save");
-      },
-    });
+    // Clean up resources before ending game
+    this.cleanup();
+
+    // Handle end game
+    await handleEndGame(endGameConfig, ui);
+  }
+
+  /**
+   * Clean up all resources and event listeners
+   */
+  private cleanup(): void {
+    try {
+      // Clean up feedback event listeners
+      this.cleanupFeedbackEventListeners();
+
+      // Clear data references
+      this.currentItems = [];
+      this.correctOrder = [];
+      this.albumsData = null;
+
+      // Clear DOM references
+      this.container = null;
+      this.itemsContainer = null;
+      this.moveUpBtn = null;
+      this.moveDownBtn = null;
+      this.submitBtn = null;
+      this.scoreDisplay = null;
+      this.roundDisplay = null;
+    } catch (error) {
+      console.error("Error during cleanup:", error);
+    }
   }
 
   showError(messageKey: string) {
@@ -548,10 +678,13 @@ class ChronologyGame {
           "Spiel konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
         "chronology.error.question.load":
           "Frage konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+        "chronology.error.submit":
+          "Fehler beim Absenden der Antwort. Bitte versuchen Sie es erneut.",
       },
       en: {
         "chronology.error.initialization": "Failed to load game data. Please try again.",
         "chronology.error.question.load": "Failed to load question. Please try again.",
+        "chronology.error.submit": "Error submitting answer. Please try again.",
       },
     };
 

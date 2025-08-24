@@ -1,15 +1,8 @@
 /**
- * Navigation Utilities
- * 
- * Centralized utilities for managing navigation menu functionality.
- * Eliminates code duplication in navigation component script tags.
+ * Simple Navigation
+ * Replaces the over-engineered class-based approach
  */
 
-import { safeGetElementById, safeQuerySelector } from "../dom/domUtils";
-
-/**
- * Navigation menu configuration
- */
 interface NavigationConfig {
   menuToggleId: string;
   mainMenuId: string;
@@ -19,157 +12,99 @@ interface NavigationConfig {
 }
 
 /**
- * Navigation menu utility class
+ * Initialize navigation functionality
  */
-export class NavigationUtils {
-  private menuToggle: HTMLElement | null;
-  private mainMenu: HTMLElement | null;
-  private menuBackdrop: HTMLElement | null;
-  private closeButton: HTMLElement | null;
-  private logoutButton: HTMLElement | null;
-  private lang: string;
+export function initNavigation(config: NavigationConfig): void {
+  const menuToggle = document.getElementById(config.menuToggleId);
+  const mainMenu = document.getElementById(config.mainMenuId);
+  const menuBackdrop = document.getElementById(config.menuBackdropId);
+  const closeButton = mainMenu?.querySelector("button");
+  const logoutButton = config.logoutButtonId
+    ? document.getElementById(config.logoutButtonId)
+    : null;
 
-  /**
-   *
-   */
-  constructor(config: NavigationConfig) {
-    this.menuToggle = safeGetElementById(config.menuToggleId);
-    this.mainMenu = safeGetElementById(config.mainMenuId);
-    this.menuBackdrop = safeGetElementById(config.menuBackdropId);
-    this.closeButton = this.mainMenu ? safeQuerySelector("button", this.mainMenu) : null;
-    this.logoutButton = config.logoutButtonId ? safeGetElementById(config.logoutButtonId) : null;
-    this.lang = config.lang || 'en';
-    
-    this.init();
+  if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
+    return;
   }
 
-  /**
-   * Initialize navigation functionality
-   */
-  private init(): void {
-    if (!this.menuToggle || !this.mainMenu || !this.menuBackdrop || !this.closeButton) {
-      return;
+  // Add event listeners
+  menuToggle.addEventListener("click", () => toggleMenu());
+  closeButton.addEventListener("click", () => closeMenu());
+  menuBackdrop.addEventListener("click", () => closeMenu());
+
+  // Handle escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && isMenuOpen()) {
+      closeMenu();
     }
+  });
 
-    // Add event listeners
-    this.menuToggle.addEventListener("click", () => this.toggleMenu());
-    this.closeButton.addEventListener("click", () => this.closeMenu());
-    this.menuBackdrop.addEventListener("click", () => this.closeMenu());
-
-    // Handle escape key
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && this.isMenuOpen()) {
-        this.closeMenu();
-      }
-    });
-
-    // Initialize logout functionality
-    if (this.logoutButton) {
-      this.initLogout();
-    }
+  // Initialize logout functionality
+  if (logoutButton) {
+    initLogout(logoutButton, config.lang || "en");
   }
 
-  /**
-   * Toggle menu state
-   */
-  private toggleMenu(): void {
-    const isExpanded = this.menuToggle?.getAttribute("aria-expanded") === "true";
+  function toggleMenu(): void {
+    const isExpanded = menuToggle?.getAttribute("aria-expanded") === "true";
     const newState = !isExpanded;
-
-    this.setMenuState(newState);
+    setMenuState(newState);
   }
 
-  /**
-   * Close the menu
-   */
-  private closeMenu(): void {
-    this.setMenuState(false);
+  function closeMenu(): void {
+    setMenuState(false);
   }
 
-  /**
-   * Set menu state
-   */
-  private setMenuState(isOpen: boolean): void {
-    if (!this.menuToggle || !this.mainMenu || !this.menuBackdrop) {
-      return;
-    }
-
-    this.menuToggle.setAttribute("aria-expanded", String(isOpen));
-    this.mainMenu.setAttribute("data-state", isOpen ? "open" : "closed");
-    this.menuBackdrop.setAttribute("data-state", isOpen ? "open" : "closed");
-
-    // Prevent scrolling when menu is open
-    document.body.style.overflow = isOpen ? "hidden" : "";
-
-    // Focus management
-    if (isOpen) {
-      setTimeout(() => {
-        this.closeButton?.focus();
-      }, 50);
-    } else {
-      this.menuToggle.focus();
-    }
+  function setMenuState(isOpen: boolean): void {
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    mainMenu.setAttribute("data-state", isOpen ? "open" : "closed");
+    menuBackdrop.setAttribute("data-state", isOpen ? "open" : "closed");
   }
 
-  /**
-   * Check if menu is open
-   */
-  private isMenuOpen(): boolean {
-    return this.menuToggle?.getAttribute("aria-expanded") === "true";
+  function isMenuOpen(): boolean {
+    return mainMenu.getAttribute("data-state") === "open";
   }
 
-  /**
-   * Initialize logout functionality
-   */
-  private initLogout(): void {
-    if (!this.logoutButton) {
-      return;
-    }
-
-    this.logoutButton.addEventListener("click", async () => {
-      try {
-        const response = await fetch(`/${this.lang}/api/auth/logout`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        if (response.ok) {
-          // Clear any client-side storage
-          localStorage.removeItem("melody_mind_user");
-          sessionStorage.clear();
-          
-          // Redirect to home page
-          window.location.href = `/${this.lang}`;
-        } else {
-          console.warn("Logout failed, redirecting anyway");
-          window.location.href = `/${this.lang}`;
-        }
-      } catch (error) {
-        console.warn("Logout error, redirecting anyway:", error);
-        window.location.href = `/${this.lang}`;
+  function initLogout(button: HTMLElement, lang: string): void {
+    button.addEventListener("click", () => {
+      // Simple logout logic
+      if (
+        confirm(
+          lang === "de" ? "Möchten Sie sich wirklich abmelden?" : "Do you really want to logout?"
+        )
+      ) {
+        window.location.href = "/logout";
       }
     });
   }
 }
 
 /**
- * Initialize navigation utilities
+ * Auto-initialize navigation
  */
-export function initNavigation(config: NavigationConfig): NavigationUtils {
-  return new NavigationUtils(config);
+export function initNavigationAuto(): void {
+  const navElements = document.querySelectorAll("[data-navigation]");
+
+  navElements.forEach((element) => {
+    const config = {
+      menuToggleId: element.getAttribute("data-menu-toggle") || "menu-toggle",
+      mainMenuId: element.getAttribute("data-main-menu") || "main-menu",
+      menuBackdropId: element.getAttribute("data-menu-backdrop") || "menu-backdrop",
+      logoutButtonId: element.getAttribute("data-logout-button"),
+      lang: element.getAttribute("data-lang") || "en",
+    };
+
+    initNavigation(config);
+  });
 }
 
 /**
- * Default navigation initialization for standard layout
+ * Default navigation initialization
  */
-export function initStandardNavigation(lang: string = 'en'): NavigationUtils {
-  return initNavigation({
+export function initDefaultNavigation(): void {
+  initNavigation({
     menuToggleId: "menu-toggle",
-    mainMenuId: "main-menu", 
+    mainMenuId: "main-menu",
     menuBackdropId: "menu-backdrop",
-    logoutButtonId: "logout-button",
-    lang
+    lang: "en",
   });
 }

@@ -61,7 +61,6 @@ interface HandleAnswerConfig {
  * Handles the user's answer submission in the game
  *
  * @description
- * This function:
  * - Calculates time-based bonus points
  * - Updates the score based on correct/incorrect answers
  * - Displays feedback to the user

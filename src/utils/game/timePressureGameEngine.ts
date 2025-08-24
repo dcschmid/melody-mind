@@ -1,7 +1,6 @@
 /**
  * Time Pressure Game Engine for MelodyMind
  *
- * Enhanced game engine specifically designed for time pressure mode with:
  * - Mixed difficulty questions
  * - Countdown timers with visual urgency effects
  * - Progressive scoring system
@@ -10,17 +9,15 @@
  */
 
 // import { checkAchievementsAfterGame } from "../services/achievementService.js";
-import { showEndOverlay, setupEndOverlay } from "../endOverlay";
+// showEndOverlay is available globally via Window interface
+import type { Question, Album } from "../../types/game";
 import { handleGameError, handleLoadingError } from "../error/errorHandlingUtils";
 
-import { updateGameScore, updateGameRound } from "./gameStateUtils";
-import {
-  getTimePressureQuestion,
-  resetTimePressureQuestions,
-  getTimePressureStats,
-  type Question,
-  type Album,
-} from "./getTimePressureQuestion";
+import { loadAlbumsWithFallback } from "./albumLoader";
+import { updateGameScore } from "./gameStateUtils";
+import { getRandomQuestion } from "./getRandomQuestion";
+import { getTimePressureQuestion } from "./getTimePressureQuestion";
+import { getTimePressureStats, resetTimePressureQuestions } from "./getTimePressureQuestion";
 
 interface GameStats {
   score: number;
@@ -119,23 +116,24 @@ export class TimePressureGameEngine {
     this.loadingContainer = options.loadingContainer;
     this.gameUI = options.gameUI;
 
-    // Initialize game state (properties already declared above)
-    this.gameStartTime = 0;
-    this.questionStartTime = 0;
+    // Initialize game state with correct round counting
+    this.currentRound = 1;
+    this.totalRounds = 20; // Fixed total rounds
+    this.score = 0;
+    this.streak = 0;
+    this.questionsAnswered = 0;
+    this.correctAnswers = 0;
+    this.incorrectAnswers = 0;
+    this.isGameActive = false;
+    this.isPaused = false;
 
-    // Initialize timer state
-    this.countdownTimer = null;
-    // DOM elements will be initialized in initializeDOMElements()
+    console.log("TimePressureGame initialized with:", {
+      currentRound: this.currentRound,
+      totalRounds: this.totalRounds,
+      category: this.category,
+    });
 
-    // Audio elements removed for better user experience
-
-    // Bind methods
-    this.handleAnswerClick = this.handleAnswerClick.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
-    this.updateCountdown = this.updateCountdown.bind(this);
-    this.handleTimeout = this.handleTimeout.bind(this);
-    this.handlePause = this.handlePause.bind(this);
-    this.handleSkip = this.handleSkip.bind(this);
+    this.initialize();
   }
 
   /**
@@ -144,7 +142,7 @@ export class TimePressureGameEngine {
   async initialize(): Promise<void> {
     try {
       // Setup EndOverlay functionality
-      await setupEndOverlay();
+      // setupEndOverlay removed - no longer needed
 
       // Load albums for the category
       await this.loadAlbums();
@@ -182,10 +180,7 @@ export class TimePressureGameEngine {
         }
         albumData = await response.json();
       } catch (langError: unknown) {
-        console.warn(
-          `Category not available in ${this.lang}, falling back to German. Error:`,
-          (langError as Error).message
-        );
+        // Category not available in current language, falling back to German
 
         try {
           const fallbackUrl = `/json/genres/de/${this.category}.json`;
@@ -347,9 +342,7 @@ export class TimePressureGameEngine {
 
       // Debug info for development
       if (process.env.NODE_ENV === "development") {
-        console.warn(
-          `Round ${this.currentRound}: ${this.currentDifficulty} question, ${this.currentTimeLimit}s limit`
-        );
+        // Round info logged in development mode
       }
     } catch (error) {
       handleGameError(error, "next question loading");
@@ -419,7 +412,7 @@ export class TimePressureGameEngine {
         </div>
       `;
 
-      button.addEventListener("click", this.handleAnswerClick);
+      button.addEventListener("click", (event) => this.handleAnswerClick(event));
       this.answerOptions!.appendChild(button);
     });
 
@@ -727,7 +720,6 @@ export class TimePressureGameEngine {
       }
 
       if (!feedback) {
-        console.warn("FeedbackOverlay not found");
         this.isFeedbackShowing = false; // Reset flag if overlay not found
         return;
       }
@@ -811,19 +803,20 @@ export class TimePressureGameEngine {
       overlay.classList.remove("hidden");
       overlay.setAttribute("aria-hidden", "false");
 
-      // Set up the next round handler
-      const nextRoundButton = document.getElementById("next-round-button");
+      // Setup next round button
+      const nextRoundButton = document.getElementById("time-pressure-next-round-button");
       if (nextRoundButton) {
         nextRoundButton.onclick = () => {
-          overlay.classList.add("hidden");
-          overlay.setAttribute("aria-hidden", "true");
+          // Close the overlay first
+          const overlay = document.getElementById("overlay");
+          if (overlay) {
+            overlay.classList.add("hidden");
+            overlay.setAttribute("aria-hidden", "true");
+          }
 
-          // Resume timer and continue to next question
-          this.isFeedbackShowing = false;
-
+          this.currentRound++;
           // Continue with next question
           setTimeout(async () => {
-            this.currentRound = updateGameRound(this.currentRound, 1, this.totalRounds);
             await this.nextQuestion();
           }, 100);
         };
@@ -997,9 +990,7 @@ export class TimePressureGameEngine {
   /**
    * Note: Game saving functionality removed - no longer needed
    */
-  async saveGameResults(gameStats: GameStats): Promise<void> {
-    console.log("Game results would be saved here (functionality removed):", gameStats);
-  }
+  async saveGameResults(gameStats: GameStats): Promise<void> {}
 
   /**
    * Check for achievements
@@ -1008,12 +999,6 @@ export class TimePressureGameEngine {
     try {
       // TODO: Implement time pressure specific achievements
       // Skip achievement checking for now to avoid database import issues in client
-      console.warn("Time pressure game completed:", {
-        score: gameStats.score,
-        correctAnswers: gameStats.correctAnswers,
-        totalQuestions: gameStats.totalQuestions,
-        accuracy: gameStats.accuracy,
-      });
     } catch (error) {
       handleGameError(error, "achievement check");
     }
@@ -1047,11 +1032,13 @@ export class TimePressureGameEngine {
       // Small delay to ensure loading screen is hidden
       await new Promise((resolve) => setTimeout(resolve, 300));
 
-      // Use the imported showEndOverlay function
-      await showEndOverlay({
-        score: gameStats.score,
-        maxScore: 1000,
-      });
+      // Use the global showEndOverlay function
+      if (window.showEndOverlay) {
+        await window.showEndOverlay({
+          score: gameStats.score,
+          maxScore: 1000,
+        });
+      }
 
       // Manually show the overlay by removing hidden class and setting proper modal styles
       endOverlay.classList.remove("hidden");

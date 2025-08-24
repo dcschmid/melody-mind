@@ -163,7 +163,9 @@ export function isFinalRound(currentRound: number, totalRounds: number): boolean
  * @returns number - Completion percentage (0-100)
  */
 export function getGameCompletionPercentage(currentRound: number, totalRounds: number): number {
-  if (totalRounds === 0) {return 0;}
+  if (totalRounds === 0) {
+    return 0;
+  }
   return Math.min(100, Math.round((currentRound / totalRounds) * 100));
 }
 
@@ -175,7 +177,9 @@ export function getGameCompletionPercentage(currentRound: number, totalRounds: n
  * @returns number - Accuracy percentage (0-100)
  */
 export function getAccuracyPercentage(correctAnswers: number, totalAnswers: number): number {
-  if (totalAnswers === 0) {return 0;}
+  if (totalAnswers === 0) {
+    return 0;
+  }
   return Math.round((correctAnswers / totalAnswers) * 100);
 }
 
