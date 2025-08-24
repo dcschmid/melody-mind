@@ -1,12 +1,10 @@
 import { handleGameError } from "../error/errorHandlingUtils";
 
 /**
- * Client-Side Authentication Status Utilities
+ * Authentication Status Management
  *
- * Diese Datei enthält Funktionen zur Verwaltung des Authentifizierungsstatus auf Client-Seite.
- * Da wir mit HttpOnly Cookies arbeiten, verwenden wir localStorage als Proxy für den Auth-Status.
- *
- * @module authStatus
+ * This module handles authentication state and user session management.
+ * Note: Most authentication functionality has been removed as it's no longer needed.
  */
 
 /**
@@ -71,20 +69,7 @@ export function performCompleteLogout(): void {
   validationInProgress = false;
   lastValidationAttempt = 0;
 
-  // Only call server-side logout for fully authenticated users, not guests
-  const localAuthStatus = localStorage.getItem("auth_status");
-  if (localAuthStatus === "authenticated") {
-    fetch("/de/api/auth/logout", {
-      method: "POST",
-      credentials: "include",
-    })
-      .then(() => {
-        // Silent success/failure handling
-      })
-      .catch(() => {
-        // Silent error handling
-      });
-  }
+  // Server-side logout removed - no longer needed
 
   // Clear all authentication-related localStorage entries
   removeLocalStorage("auth_status");
@@ -157,20 +142,6 @@ export function updateAriaVisibility(element: HTMLElement | null, isVisible: boo
   });
 }
 
-/**
- * Liest einen Cookie-Wert
- * @param {string} name - Der Name des Cookies
- * @returns {string | null} - Der Cookie-Wert oder null wenn nicht gefunden
- */
-function getCookie(name: string): string | null {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) {
-    return parts.pop()?.split(";").shift() || null;
-  }
-  return null;
-}
-
 // Rate limiting für Session-Validierung
 let lastValidationAttempt = 0;
 let validationInProgress = false;
@@ -203,12 +174,12 @@ export async function validateAndRefreshSession(): Promise<boolean> {
     // Rate limiting: Vermeide zu häufige Validierungen
     const now = Date.now();
     if (now - lastValidationAttempt < VALIDATION_COOLDOWN) {
-      return isUserAuthenticated();
+      return false;
     }
 
     // Vermeide concurrent validations
     if (validationInProgress) {
-      return isUserAuthenticated();
+      return false;
     }
 
     // Max attempts erreicht - beende Validierung
@@ -221,12 +192,9 @@ export async function validateAndRefreshSession(): Promise<boolean> {
     lastValidationAttempt = now;
     validationAttempts++;
 
-    // Prüfe zuerst lokalen Auth-Status
-    const localIsAuthenticated = isUserAuthenticated();
-    if (!localIsAuthenticated) {
-      validationInProgress = false;
-      return false;
-    }
+    // Local auth check removed - always return false
+    validationInProgress = false;
+    return false;
 
     // Starting session validation
 
@@ -270,50 +238,44 @@ export async function validateAndRefreshSession(): Promise<boolean> {
 }
 
 /**
- * Prüft, ob der Benutzer authentifiziert ist (inklusive Gastmodus)
- * Prüft sowohl localStorage als auch Cookies für auth_status
- * @returns {boolean} - true wenn der Benutzer authentifiziert ist oder als Gast angemeldet, sonst false
+ * Check if user is authenticated
+ * @returns boolean - true if authenticated, false otherwise
  */
-export function isUserAuthenticated(): boolean {
-  // Primäre Methode: auth_status im localStorage prüfen
-  const localAuthStatus = localStorage.getItem("auth_status");
-  const localIsAuthenticated = localAuthStatus === "authenticated";
-  const localIsGuest = localAuthStatus === "guest";
+export const isAuthenticated = (): boolean => {
+  // Authentication system removed - always return false
+  return false;
+};
 
-  // Sekundäre Methode: auth_status Cookie prüfen
-  const cookieAuthStatus = getCookie("auth_status");
-  const cookieIsAuthenticated = cookieAuthStatus === "authenticated";
+/**
+ * Get current user ID
+ * @returns string - User ID or empty string if not authenticated
+ */
+export const getCurrentUserId = (): string => {
+  // User system removed - always return empty string
+  return "";
+};
 
-  // Wenn Cookie gesetzt ist aber localStorage nicht, localStorage aktualisieren
-  if (cookieIsAuthenticated && !localIsAuthenticated) {
-    setLocalStorage("auth_status", "authenticated");
-
-    // Auch User-Daten aus Cookie in localStorage kopieren
-    const userDataCookie = getCookie("user_data");
-    if (userDataCookie) {
-      try {
-        const userData = JSON.parse(decodeURIComponent(userDataCookie));
-        setLocalStorage("user", JSON.stringify(userData));
-      } catch (error) {
-        handleGameError(error, "user data parsing");
-      }
-    }
+/**
+ * Clear authentication data
+ * @returns void
+ */
+export const clearAuthData = (): void => {
+  try {
+    // Clear any remaining auth-related data
+    localStorage.removeItem("auth_status");
+    localStorage.removeItem("user");
+    sessionStorage.clear();
+  } catch (error) {
   }
-
-  const isAuthenticated = localIsAuthenticated || cookieIsAuthenticated || localIsGuest;
-
-  // Debug removed for production
-
-  return isAuthenticated;
-}
+};
 
 /**
  * Prüft, ob der Benutzer im Gastmodus angemeldet ist
  * @returns {boolean} - true wenn der Benutzer als Gast angemeldet ist, sonst false
  */
 export function isGuestUser(): boolean {
-  const localAuthStatus = localStorage.getItem("auth_status");
-  return localAuthStatus === "guest";
+  // Guest user functionality removed
+  return false;
 }
 
 /**
@@ -321,13 +283,8 @@ export function isGuestUser(): boolean {
  * @returns {boolean} - true wenn der Benutzer vollständig authentifiziert ist, sonst false
  */
 export function isFullyAuthenticated(): boolean {
-  const localAuthStatus = localStorage.getItem("auth_status");
-  const localIsAuthenticated = localAuthStatus === "authenticated";
-
-  const cookieAuthStatus = getCookie("auth_status");
-  const cookieIsAuthenticated = cookieAuthStatus === "authenticated";
-
-  return localIsAuthenticated || cookieIsAuthenticated;
+  // Full authentication functionality removed
+  return false;
 }
 
 /**
@@ -495,14 +452,12 @@ export function registerAuthEventListeners(checkAuthCallback: () => void): { rem
         }
       });
     } catch {
-      console.warn("Error clearing additional localStorage entries");
     }
 
     // Clear sessionStorage as well
     try {
       sessionStorage.clear();
     } catch {
-      console.warn("Error clearing sessionStorage");
     }
 
     checkAuthCallback();

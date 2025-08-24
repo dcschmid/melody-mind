@@ -78,11 +78,6 @@ const languages = {
       class="min-h-[44px] w-full min-w-[44px] cursor-pointer appearance-none rounded-xl border-2 border-purple-500 bg-gradient-to-r from-purple-600 to-purple-700 px-4 py-2 pr-10 text-base font-semibold text-white shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 hover:from-purple-700 hover:to-purple-800 hover:shadow-xl focus:from-purple-700 focus:to-purple-800 focus:ring-4 focus:ring-purple-300 focus:ring-offset-2 focus:outline-none active:scale-95 sm:px-3 sm:py-2 sm:pr-8 sm:text-sm md:min-w-[72px] md:px-5 md:py-3"
       value={getRelativeLocaleUrl(String(lang), cleanPath)}
       aria-label={t("language.select.label")}
-      onchange="
-        const newLang = this.value.split('/')[1];
-        localStorage.setItem('preferred-language', newLang);
-        window.location.href = this.value;
-      "
     >
       {
         Object.entries(languages).map(([code, { name, flag }]) => {
@@ -116,7 +111,7 @@ const languages = {
 </div>
 
 <script>
-  import { initDefaultLanguagePicker } from "../../utils/components/languagePickerUtils";
+  import { initDefaultLanguagePicker } from "../utils/components/languagePickerUtils";
 
   // Initialize language picker functionality
   document.addEventListener("DOMContentLoaded", () => {

@@ -96,18 +96,15 @@ export function getRandomQuestion(
 ): RandomQuestionResult | null {
   // Validate input parameters
   if (!albums || !Array.isArray(albums) || albums.length === 0) {
-    console.warn("No albums provided or invalid albums array");
     return null;
   }
 
   if (!difficulty || !["easy", "medium", "hard"].includes(difficulty)) {
-    console.warn(`Invalid difficulty level: ${difficulty}, defaulting to 'easy'`);
     difficulty = "easy";
   }
 
   // First check if we need to reset the used questions set
   if (usedQuestions.size >= totalRounds) {
-    console.warn("All rounds completed, resetting used questions tracking");
     usedQuestions.clear();
   }
 
@@ -154,7 +151,6 @@ export function getRandomQuestion(
       return getRandomQuestion(albums, difficulty, totalRounds);
     }
 
-    console.warn(`No questions available for difficulty: ${difficulty}`);
     return null;
   } catch (error) {
     handleGameError(error, "random question selection");

@@ -1,34 +1,33 @@
 /**
  * LanguagePicker Utilities
- * 
+ *
  * Centralized utilities for managing language picker functionality.
  * Eliminates code duplication in component script tags.
  */
 
-import { safeGetElementById, safeQuerySelector } from "../dom/domUtils";
+import { safeGetElementById } from "../dom/domUtils";
 
 /**
  * LanguagePicker configuration interface
  */
 interface LanguagePickerConfig {
-  selectId: string;
-  arrowSelector: string;
+  selectId?: string;
+  onLanguageChange?: (newLang: string, newUrl: string) => void;
 }
 
 /**
  * LanguagePicker utility class
  */
 export class LanguagePickerUtils {
-  private select: HTMLSelectElement | null;
-  private arrow: HTMLElement | null;
+  private config: LanguagePickerConfig;
+  private elements: LanguagePickerElements;
 
   /**
    *
    */
   constructor(config: LanguagePickerConfig) {
-    this.select = safeGetElementById<HTMLSelectElement>(config.selectId);
-    this.arrow = safeQuerySelector<HTMLElement>(config.arrowSelector);
-    
+    this.config = config;
+    this.elements = { select: null };
     this.init();
   }
 
@@ -36,36 +35,40 @@ export class LanguagePickerUtils {
    * Initialize language picker functionality
    */
   private init(): void {
-    if (!this.select) {
-      return;
-    }
+    this.cacheElements();
+    this.bindEvents();
+  }
 
-    // Add change event listener
-    this.select.addEventListener("change", () => this.handleLanguageChange());
-    
-    // Add focus event listeners for accessibility
-    this.select.addEventListener("focus", () => this.handleFocus());
-    this.select.addEventListener("blur", () => this.handleBlur());
-    
-    // Add keyboard event listeners
-    this.select.addEventListener("keydown", (e) => this.handleKeydown(e));
+  private cacheElements(): void {
+    this.elements.select = safeGetElementById<HTMLSelectElement>(
+      this.config.selectId || "language-select"
+    );
+  }
+
+  private bindEvents(): void {
+    if (this.elements.select) {
+      this.elements.select.addEventListener("change", this.handleLanguageChange.bind(this));
+    }
   }
 
   /**
    * Handle language change
    */
-  private handleLanguageChange(): void {
-    if (!this.select) {
-      return;
+  private handleLanguageChange(event: Event): void {
+    const target = event.target as HTMLSelectElement;
+    const newUrl = target.value;
+    const newLang = newUrl.split("/")[1];
+
+    // Store preferred language in localStorage
+    localStorage.setItem("preferred-language", newLang);
+
+    // Call custom handler if provided
+    if (this.config.onLanguageChange) {
+      this.config.onLanguageChange(newLang, newUrl);
     }
 
-    const newLang = this.select.value.split('/')[1];
-    
-    // Store preferred language in localStorage
-    localStorage.setItem('preferred-language', newLang);
-    
-    // Navigate to new language
-    window.location.href = this.select.value;
+    // Navigate to new URL
+    window.location.href = newUrl;
   }
 
   /**
@@ -105,7 +108,7 @@ export class LanguagePickerUtils {
     }
 
     const url = this.select.value;
-    return url.split('/')[1] || null;
+    return url.split("/")[1] || null;
   }
 
   /**
@@ -118,8 +121,8 @@ export class LanguagePickerUtils {
 
     // Find option with matching language code
     const options = Array.from(this.select.options);
-    const targetOption = options.find(option => {
-      const optionLang = option.value.split('/')[1];
+    const targetOption = options.find((option) => {
+      const optionLang = option.value.split("/")[1];
       return optionLang === langCode;
     });
 
@@ -133,18 +136,15 @@ export class LanguagePickerUtils {
    * Get preferred language from localStorage
    */
   public getPreferredLanguage(): string | null {
-    return localStorage.getItem('preferred-language');
+    return localStorage.getItem("preferred-language");
   }
 
   /**
    * Destroy event listeners
    */
   public destroy(): void {
-    if (this.select) {
-      this.select.removeEventListener("change", () => this.handleLanguageChange());
-      this.select.removeEventListener("focus", () => this.handleFocus());
-      this.select.removeEventListener("blur", () => this.handleBlur());
-      this.select.removeEventListener("keydown", (e) => this.handleKeydown(e));
+    if (this.elements.select) {
+      this.elements.select.removeEventListener("change", this.handleLanguageChange.bind(this));
     }
   }
 }
@@ -162,6 +162,5 @@ export function initLanguagePicker(config: LanguagePickerConfig): LanguagePicker
 export function initDefaultLanguagePicker(): LanguagePickerUtils {
   return initLanguagePicker({
     selectId: "language-select",
-    arrowSelector: ".arrow-container svg"
   });
 }

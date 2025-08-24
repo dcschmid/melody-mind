@@ -6,7 +6,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
-import minify from "astro-minify-html-swc";
 
 import metaTags from "astro-meta-tags";
 
@@ -19,24 +18,7 @@ export default defineConfig({
     defaultStrategy: "viewport",
     prefetchAll: true,
   },
-  // Experimental features for better caching
-  experimental: {
-    // contentCollectionCache: true, // Removed - not a valid experimental feature
-  },
-  // Astro 5.0+ optimizations
-  build: {
-    inlineStylesheets: "auto",
-    assets: "_astro",
-    concurrency: 4, // Parallel page rendering for faster builds
-    // Split chunks for better caching
-    splitting: true,
-  },
-  // Image optimization (Astro 5.0+ uses Sharp by default)
-  image: {
-    service: {
-      entrypoint: "astro/assets/services/sharp",
-    },
-  },
+
   integrations: [
     icon(),
     robotsTxt({

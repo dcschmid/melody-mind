@@ -8,7 +8,6 @@
 /**
  * Creates an SEO-friendly URL slug from a string
  *
- * Takes any text input and converts it to a URL-friendly format by:
  * - Converting to lowercase
  * - Removing special characters
  * - Converting spaces to hyphens
@@ -53,7 +52,6 @@ export function calculateReadingTime(content: string, wordsPerMinute = 225): num
 /**
  * Extracts keywords from text content for SEO meta tags
  *
- * Analyzes the provided content to identify potential keywords by:
  * - Removing common stop words
  * - Calculating word frequency
  * - Selecting the most common words as keywords
@@ -291,7 +289,6 @@ const stopWordsByLanguage: Record<string, string[]> = {
 /**
  * Extracts keywords from text content for SEO meta tags using advanced techniques
  *
- * Analyzes the provided content to identify potential keywords by:
  * - Removing language-specific stop words
  * - Extracting both single words and meaningful n-grams (phrases)
  * - Calculating word and phrase frequency with TF-IDF-like weighting
@@ -372,7 +369,6 @@ export function extractKeywords(content: string, maxKeywords = 10, language = "e
 /**
  * Generates an optimized meta description from content
  *
- * Creates a concise, meaningful description suitable for meta tags by:
  * - Removing HTML tags
  * - Trimming to the specified maximum length
  * - Ensuring the description ends with a complete sentence when possible
@@ -389,7 +385,6 @@ export function extractKeywords(content: string, maxKeywords = 10, language = "e
 /**
  * Generates an optimized meta description from content with intelligent sentence selection
  *
- * Creates a concise, meaningful description suitable for meta tags by:
  * - Removing HTML tags
  * - Analyzing sentence importance and relevance
  * - Selecting the most informative sentences

@@ -12,7 +12,6 @@
  */
 
 import { handleGameError } from "./error/errorHandlingUtils";
-import { updateScoreDisplay } from "./game/scoreUtils";
 
 // Type definitions for better type safety
 interface TranslationData {
@@ -34,612 +33,185 @@ const getElement = <T extends HTMLElement>(selector: string): T | null =>
 
 const getElementById = <T extends HTMLElement>(id: string): T | null => safeGetElementById<T>(id);
 
-const parseTranslations = (data: string | null): TranslationData | null => {
-  if (!data) {
-    return null;
-  }
-
-  try {
-    return JSON.parse(data) as TranslationData;
-  } catch (error) {
-    handleGameError(error, "translation data parsing");
-    return null;
-  }
-};
-
-const getMotivationKey = (achievementLevel: string): string =>
-  `game.end.motivation.${achievementLevel}`;
+const getMotivationKey = (scoreLevel: string): string => `game.end.motivation.${scoreLevel}`;
 
 const announceToScreenReader = (text: string): void => {
-  const announcement = getElementById<HTMLElement>("achievement-announcement");
+  const announcement = getElementById<HTMLElement>("score-announcement");
   if (announcement) {
     announcement.textContent = text;
   }
 };
 
+// Extend Window interface for global functions
+declare global {
+  interface Window {
+    showEndOverlay: (configOrScore: EndOverlayConfig | number, maxScore?: number) => Promise<void>;
+  }
+}
+
 /**
- * Update the motivation text using the global translation system
- * @param score - The player's score
+ * Update motivation text based on score
+ * @param score - The player's final score
  * @returns Promise<void>
  */
 export const updateMotivationText = async (score: number): Promise<void> => {
-  console.log("updateMotivationText called with score:", score);
   const motivationElement = getElementById<HTMLElement>("motivation-text");
   if (!motivationElement) {
-    console.warn("Motivation text element not found");
     return;
   }
 
-  // Get translations passed from server-side using modern destructuring
-  // Look specifically for the EndOverlay element, not just any element with data-translations
-  const overlay =
-    getElementById<HTMLElement>("endgame-popup") || getElement<HTMLElement>("[data-translations]");
-  const translationsData = overlay?.getAttribute("data-translations");
+  // Get translations from data attribute
+  const overlay = getElementById<HTMLElement>("endgame-popup");
+  if (!overlay) {
+    return;
+  }
 
-  console.log("Translation data found:", translationsData ? "Yes" : "No");
-
+  const translationsData = overlay.getAttribute("data-translations");
   if (!translationsData) {
-    console.warn("Translation data not found, using empty fallback");
-    motivationElement.textContent = "";
     return;
   }
 
-  const translations = parseTranslations(translationsData);
-  if (!translations) {
-    motivationElement.textContent = "";
+  let translations: Record<string, string>;
+  try {
+    translations = JSON.parse(translationsData);
+  } catch {
     return;
   }
 
-  console.log("Available translations:", Object.keys(translations));
+  // Score level based on realistic game scoring (50-100 points per question)
+  // For 10-20 rounds: max score is 500-2000 points
+  const scoreLevel =
+    score >= 1500 ? "excellent" : score >= 1000 ? "good" : score >= 500 ? "average" : "beginner";
 
-  // Simplified achievement level based on score
-  const achievementLevel =
-    score >= 80 ? "excellent" : score >= 60 ? "good" : score >= 40 ? "average" : "beginner";
-  console.log("Achievement level for score", score, ":", achievementLevel);
-
-  const motivationKey = getMotivationKey(achievementLevel);
-  console.log("Looking for motivation key:", motivationKey);
+  const motivationKey = getMotivationKey(scoreLevel);
 
   const motivationText = translations[motivationKey];
+  const fallbackText = translations["game.end.defaultMotivation"] || "Great job!";
 
   if (motivationText) {
-    console.log("Found motivation text:", motivationText);
     motivationElement.textContent = motivationText;
     announceToScreenReader(motivationText);
   } else {
-    console.warn(`Missing translation for key: ${motivationKey}`);
-    const fallbackText = translations["game.end.defaultMotivation"] || "";
-    console.log("Using fallback text:", fallbackText);
     motivationElement.textContent = fallbackText;
   }
 };
 
 /**
- * Animate the progress bar to show the score percentage
- * @param score - The player's score
- * @param maxScore - The maximum possible score (default: 1000)
+ * Animate progress bar based on score
+ * @param score - Current score
+ * @param maxScore - Maximum possible score
  * @returns Promise<void>
  */
 export const animateProgressBar = async (score: number, maxScore: number = 1000): Promise<void> => {
-  const progressBar = getElementById<HTMLElement>("score-bar");
-  const progressContainer = getElement<HTMLElement>(".achievement-progress");
-
-  if (!progressBar || !progressContainer) {
-    console.warn("Progress bar elements not found");
+  const progressContainer = getElement<HTMLElement>(".score-progress");
+  if (!progressContainer) {
     return;
   }
 
-  // Calculate the percentage (0-100) using modern Math methods
-  const percentage = Math.min(Math.max((score / maxScore) * 100, 0), 100);
+  const progressBar = progressContainer.querySelector(".progress-bar") as HTMLElement;
+  const progressText = progressContainer.querySelector(".progress-text") as HTMLElement;
 
-  // Update ARIA attributes using modern optional chaining
-  progressContainer.setAttribute?.("aria-valuenow", percentage.toString());
+  if (!progressBar || !progressText) {
+    return;
+  }
 
-  // Use modern async/await with requestAnimationFrame
-  await new Promise<void>((resolve) => {
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        progressBar.style.transform = `scaleX(${percentage / 100})`;
-        resolve();
-      }, 300);
-    });
-  });
+  const percentage = Math.min((score / maxScore) * 100, 100);
+  const roundedPercentage = Math.round(percentage);
+
+  // Animate progress bar
+  progressBar.style.width = "0%";
+  progressBar.style.transition = "width 1s ease-in-out";
+
+  // Trigger reflow
+  void progressBar.offsetHeight;
+
+  progressBar.style.width = `${percentage}%`;
+
+  // Update text after animation
+  setTimeout(() => {
+    progressText.textContent = `${roundedPercentage}%`;
+  }, 1000);
 };
 
 /**
- * Update the score display with animation
- * @param score - The score value to display
+ * Update score display in the end overlay
+ * @param score - The final score to display
  * @returns Promise<void>
  */
 export const updateEndOverlayScore = async (score: number): Promise<void> => {
-  console.log("updateEndOverlayScore called with score:", score);
   const scoreElement = getElementById<HTMLElement>("popup-score");
-  if (scoreElement) {
-    console.log("Score element found, updating display");
-    await updateScoreDisplay(score, scoreElement);
-  } else {
-    console.warn("Score element not found in EndOverlay");
+  if (!scoreElement) {
+    return;
   }
+
+  scoreElement.textContent = score.toString();
 };
 
 /**
- * Update the difficulty display based on data attribute
+ * Update difficulty display in the end overlay
  * @returns Promise<void>
  */
 export const updateDifficultyDisplay = async (): Promise<void> => {
   const difficultyElement = getElementById<HTMLElement>("difficulty-display");
-  const overlay =
-    getElementById<HTMLElement>("endgame-popup") || getElement<HTMLElement>("[data-difficulty]");
+  const overlay = getElementById<HTMLElement>("endgame-popup");
 
-  if (difficultyElement && overlay) {
-    const difficulty = overlay.getAttribute("data-difficulty") || "";
-    console.log("Updating difficulty display with:", difficulty);
+  if (!difficultyElement || !overlay) {
+    return;
+  }
 
-    // Capitalize first letter and display
-    const formattedDifficulty = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
-    difficultyElement.textContent = formattedDifficulty;
-  } else {
-    console.warn("Difficulty display element or overlay not found");
+  const difficulty = overlay.getAttribute("data-difficulty");
+  if (difficulty) {
+    difficultyElement.textContent = difficulty;
   }
 };
 
 /**
- * Update the category display based on data attribute
+ * Update category display in the end overlay
  * @returns Promise<void>
  */
 export const updateCategoryDisplay = async (): Promise<void> => {
-  // For now, log the category data - we might need to add a category display element
-  const overlay =
-    getElementById<HTMLElement>("endgame-popup") || getElement<HTMLElement>("[data-category]");
+  const categoryElement = getElementById<HTMLElement>("category-display");
+  const overlay = getElementById<HTMLElement>("endgame-popup");
 
-  if (overlay) {
-    const category = overlay.getAttribute("data-category") || "";
-    console.log("Category data found:", category);
+  if (!categoryElement || !overlay) {
+    return;
+  }
 
-    // We could add a category display element in the future
-    // For now, just log it so we know it's working
-  } else {
-    console.warn("Category overlay not found");
+  const categoryName =
+    overlay.getAttribute("data-categoryName") || overlay.getAttribute("data-category");
+  if (categoryName) {
+    categoryElement.textContent = categoryName;
   }
 };
 
 /**
- * Setup restart button functionality to restart the same game
+ * Set up restart button functionality
  * @returns void
  */
 export const setupRestartButton = (): void => {
-  const restartButton = getElementById<HTMLButtonElement>("restart-button");
-
-  if (restartButton) {
-    restartButton.addEventListener("click", () => {
-      console.log("Restart button clicked");
-
-      // Get current game parameters from URL and data attributes
-      const currentUrl = window.location.pathname;
-      const overlay = getElementById<HTMLElement>("endgame-popup");
-
-      if (overlay) {
-        const category = overlay.getAttribute("data-category") || "";
-        const difficulty = overlay.getAttribute("data-difficulty") || "";
-
-        console.log("Restarting game with:", { category, difficulty, currentUrl });
-
-        // Reload the current page to restart the game
-        window.location.reload();
-      } else {
-        console.warn("Could not find overlay element for restart");
-        // Fallback: just reload the page
-        window.location.reload();
-      }
-    });
-
-    console.log("Restart button functionality set up");
-  } else {
-    console.warn("Restart button not found");
-  }
-};
-
-/**
- * Generate sharing text based on game results
- * @param score - Player's score
- * @param category - Game category
- * @param difficulty - Game difficulty
- * @param translations - Available translations
- * @returns Formatted sharing text
- */
-const generateShareText = (
-  score: number,
-  category: string,
-  difficulty: string,
-  translations?: TranslationData
-): string => {
-  const categoryDisplay = category ? category.charAt(0).toUpperCase() + category.slice(1) : "Music";
-  const difficultyDisplay = difficulty
-    ? difficulty.charAt(0).toUpperCase() + difficulty.slice(1)
-    : "Normal";
-
-  // Generate direct link to the specific game
-  const currentLang = window.location.pathname.split("/")[1] || "en";
-  const gameUrl = `${window.location.origin}/${currentLang}/game-${category}/${difficulty}`;
-
-  // Try to get localized sharing text template if available
-  const shareTemplate =
-    translations?.["game.end.shareTemplate"] ||
-    `🎵 I just scored ${score} points playing ${categoryDisplay} (${difficultyDisplay}) on MelodyMind! 🎮\n\nCan you beat my score? Play the same game: ${gameUrl}`;
-
-  // Replace placeholders if using template
-  return shareTemplate
-    .replace("{score}", score.toString())
-    .replace("{category}", categoryDisplay)
-    .replace("{difficulty}", difficultyDisplay)
-    .replace("{url}", gameUrl);
-};
-
-/**
- * Display achievements in the EndOverlay
- * @param achievements - Array of unlocked achievements
- * @param translations - Available translations
- * @returns void
- */
-export const displayAchievements = (
-  achievements: unknown[],
-  translations?: TranslationData
-): void => {
-  const achievementsContainer = getElementById<HTMLElement>("unlocked-achievements");
-  const achievementsSection = getElementById<HTMLElement>("achievements-section");
-
-  if (!achievementsContainer || !achievementsSection) {
-    console.warn("Achievement display elements not found");
+  const restartButton = getElementById<HTMLElement>("restart-button");
+  if (!restartButton) {
     return;
   }
 
-  // Clear existing content
-  achievementsContainer.innerHTML = "";
-
-  if (!achievements || achievements.length === 0) {
-    // Hide achievements section if no achievements
-    achievementsSection.style.display = "none";
-    return;
-  }
-
-  // Show achievements section
-  achievementsSection.style.display = "block";
-  console.log(`Displaying ${achievements.length} achievements:`, achievements);
-
-  // Create achievement items
-  achievements.forEach((achievement) => {
-    const achievementElement = document.createElement("div");
-    achievementElement.className = "achievement-item";
-    achievementElement.setAttribute("role", "listitem");
-    achievementElement.setAttribute(
-      "aria-label",
-      `${achievement.name}: ${achievement.description}`
-    );
-
-    achievementElement.innerHTML = `
-      <div class="achievement-item__icon" aria-hidden="true">
-        ${achievement.icon_path ? `<img src="${achievement.icon_path}" alt="" />` : "🏆"}
-      </div>
-      <div class="achievement-item__content">
-        <h4 class="achievement-item__name">${achievement.name || "Achievement"}</h4>
-        <p class="achievement-item__description">${achievement.description || ""}</p>
-      </div>
-    `;
-
-    achievementsContainer.appendChild(achievementElement);
+  restartButton.addEventListener("click", () => {
+    window.location.reload();
   });
-
-  // Update aria-live region for screen readers
-  const announcement =
-    translations?.["achievements.unlocked.announcement"] ||
-    `${achievements.length} achievement${achievements.length > 1 ? "s" : ""} unlocked!`;
-
-  announceToScreenReader(announcement);
 };
 
 /**
- * Setup achievement event listeners for EndOverlay
- * @returns void
- */
-export const setupAchievementDisplay = (): void => {
-  // Listen for achievement unlock events
-  const handleAchievementUnlock = (event: CustomEvent) => {
-    const achievement = event.detail;
-    console.log("Achievement unlocked for EndOverlay:", achievement);
-
-    // Get current achievements and add the new one
-    const achievementsContainer = getElementById<HTMLElement>("unlocked-achievements");
-    if (achievementsContainer) {
-      // Get translations
-      const overlay =
-        getElementById<HTMLElement>("endgame-popup") ||
-        getElement<HTMLElement>("[data-translations]");
-      const translationsData = overlay?.getAttribute("data-translations");
-      const translations = parseTranslations(translationsData);
-
-      // Add single achievement
-      displayAchievements([achievement], translations);
-    }
-  };
-
-  // Listen for multiple achievements
-  const handleMultipleAchievements = (event: CustomEvent) => {
-    const achievements = event.detail.achievements || [];
-    console.log("Multiple achievements for EndOverlay:", achievements);
-
-    // Get translations
-    const overlay =
-      getElementById<HTMLElement>("endgame-popup") ||
-      getElement<HTMLElement>("[data-translations]");
-    const translationsData = overlay?.getAttribute("data-translations");
-    const translations = parseTranslations(translationsData);
-
-    displayAchievements(achievements, translations);
-  };
-
-  // Add event listeners
-  document.addEventListener("achievementUnlocked", handleAchievementUnlock);
-  document.addEventListener("achievementsUpdated", handleMultipleAchievements);
-
-  console.log("Achievement display system set up");
-};
-
-/**
- * Setup sharing functionality with Web Share API fallback
+ * Set up share button functionality
  * @returns void
  */
 export const setupSharingButton = (): void => {
-  const shareButton =
-    getElementById<HTMLButtonElement>("share-btn") || getElement<HTMLButtonElement>(".share-btn");
-
+  const shareButton = getElementById<HTMLElement>("share-button");
   if (!shareButton) {
-    console.warn("Share button not found");
     return;
   }
 
-  shareButton.addEventListener("click", async (event) => {
-    event.preventDefault();
-
-    try {
-      // Get current game data and translations
-      const overlay =
-        getElementById<HTMLElement>("endgame-popup") || getElement<HTMLElement>("[data-score]");
-      const score = parseInt(overlay?.getAttribute("data-score") || "0", 10);
-      const category = overlay?.getAttribute("data-category") || "";
-      const difficulty = overlay?.getAttribute("data-difficulty") || "";
-
-      // Get translations
-      const translationsData = overlay?.getAttribute("data-translations");
-      const translations = parseTranslations(translationsData);
-
-      const shareText = generateShareText(score, category, difficulty, translations);
-      const shareUrl = window.location.origin;
-      const shareTitle = translations?.["game.end.shareResults"] || "MelodyMind - Music Quiz Game";
-
-      // Check if Web Share API is supported
-      if (navigator.share) {
-        await navigator.share({
-          title: shareTitle,
-          text: shareText,
-          url: shareUrl,
-        });
-        console.log("Shared successfully using Web Share API");
-      } else {
-        // Fallback: Copy to clipboard
-        await navigator.clipboard.writeText(shareText);
-
-        // Show user feedback with localized text
-        const originalText = shareButton.textContent;
-        const copiedText = translations?.["general.copied"] || "✅ Kopiert!";
-        shareButton.textContent = copiedText;
-        shareButton.style.background = "var(--color-success-600)";
-
-        setTimeout(() => {
-          shareButton.textContent = originalText;
-          shareButton.style.background = "";
-        }, 2000);
-
-        console.log("Share text copied to clipboard");
-      }
-    } catch (error) {
-      handleGameError(error, "results sharing");
-
-      // Show error feedback with localized text
-      const overlay =
-        getElementById<HTMLElement>("endgame-popup") || getElement<HTMLElement>("[data-score]");
-      const translationsData = overlay?.getAttribute("data-translations");
-      const translations = parseTranslations(translationsData);
-
-      const originalText = shareButton.textContent;
-      const errorText = translations?.["general.error"] || "❌ Fehler";
-      shareButton.textContent = errorText;
-      shareButton.style.background = "var(--color-error-600)";
-
-      setTimeout(() => {
-        shareButton.textContent = originalText;
-        shareButton.style.background = "";
-      }, 2000);
-    }
+  shareButton.addEventListener("click", () => {
+    // Share functionality would be implemented here
   });
-
-  console.log("Share button functionality set up");
-};
-
-/**
- * Check authentication status using localStorage (proxy for HttpOnly cookies)
- * @returns boolean - true if authenticated, false otherwise
- */
-const isAuthenticated = (): boolean => {
-  try {
-    const authStatus = localStorage.getItem("auth_status");
-    const isAuth = authStatus === "authenticated";
-
-    console.log("EndOverlay auth check:", {
-      authStatus,
-      isAuth,
-      localStorageAvailable: typeof Storage !== "undefined",
-    });
-
-    return isAuth;
-  } catch (error) {
-    handleGameError(error, "authentication status check");
-    return false;
-  }
-};
-
-/**
- * Show or hide the guest login section based on authentication status
- * @returns void
- */
-const handleGuestLoginSection = (): void => {
-  const guestLoginSection = getElementById<HTMLElement>("guest-login-section");
-
-  if (!guestLoginSection) {
-    console.log("Guest login section not found in EndOverlay");
-    return;
-  }
-
-  const isUserAuthenticated = isAuthenticated();
-
-  if (isUserAuthenticated) {
-    // User is authenticated - hide guest login section
-    guestLoginSection.style.display = "none";
-    console.log("User is authenticated - hiding guest login section");
-  } else {
-    // User is not authenticated - show guest login section
-    guestLoginSection.style.display = "block";
-    console.log("User is not authenticated - showing guest login section");
-
-    // Announce to screen readers
-    announceToScreenReader("Login options available to save your score and unlock achievements");
-  }
-};
-
-/**
- * Set up event listeners for authentication changes
- * @returns void
- */
-const setupGuestLoginEventListeners = (): void => {
-  // Listen for authentication success events (existing system)
-  const handleAuthLogin = async () => {
-    console.log("Authentication login detected in EndOverlay");
-    handleGuestLoginSection();
-
-    // Save pending game results after login
-    await savePendingGameResults();
-  };
-
-  // Listen for authentication logout events (existing system)
-  const handleAuthLogout = () => {
-    console.log("Authentication logout detected in EndOverlay");
-    handleGuestLoginSection();
-
-    // Clear any pending results on logout
-    localStorage.removeItem("pending_game_result");
-  };
-
-  // Listen for storage events (authentication changes)
-  const handleStorageChange = async (event: StorageEvent) => {
-    if (event.key === "auth_status") {
-      console.log("Authentication storage change detected in EndOverlay:", event.newValue);
-      handleGuestLoginSection();
-
-      // If user just logged in, save pending results
-      if (event.newValue === "authenticated") {
-        await savePendingGameResults();
-      }
-    }
-  };
-
-  // Listen for visibility changes (user might have logged in elsewhere)
-  const handleVisibilityChange = async () => {
-    if (document.visibilityState === "visible") {
-      console.log("Page became visible, checking auth status in EndOverlay");
-      handleGuestLoginSection();
-
-      // Check if user logged in elsewhere and save pending results
-      if (isAuthenticated()) {
-        await savePendingGameResults();
-      }
-    }
-  };
-
-  // Add event listeners using the existing event system
-  window.addEventListener("auth:login", handleAuthLogin);
-  window.addEventListener("auth:logout", handleAuthLogout);
-  window.addEventListener("storage", handleStorageChange);
-  document.addEventListener("visibilitychange", handleVisibilityChange);
-
-  console.log("Guest login event listeners set up");
-};
-
-/**
- * Store game results temporarily for guest users
- * @param gameData - Game data to store
- */
-const storeGameResultsForGuest = (gameData: {
-  userId: string;
-  score: number;
-  category: string;
-  difficulty: string;
-}): void => {
-  try {
-    localStorage.setItem("pending_game_result", JSON.stringify(gameData));
-    console.log("Game results stored for guest user:", gameData);
-  } catch (error) {
-    handleGameError(error, "guest game results storage");
-  }
-};
-
-/**
- * Save pending game results after login
- * @returns Promise<void>
- */
-const savePendingGameResults = async (): Promise<void> => {
-  try {
-    const pendingResult = localStorage.getItem("pending_game_result");
-    if (!pendingResult) {
-      console.log("No pending game results to save");
-      return;
-    }
-
-    const gameData = JSON.parse(pendingResult);
-    console.log("Saving pending game results:", gameData);
-
-    // Add user ID from localStorage if available
-    const userDataString = localStorage.getItem("user");
-    let userId = "guest";
-
-    if (userDataString) {
-      try {
-        const userData = JSON.parse(userDataString);
-        if (userData.id && userData.id !== "guest") {
-          userId = userData.id;
-        }
-      } catch (error) {
-        console.warn("Error parsing user data:", error);
-      }
-    }
-
-    // Add userId to gameData
-    gameData.userId = userId;
-
-    // Fix legacy data: if we have 'category' but no 'categoryName', clear the pending result
-    // This forces the user to play a new game to get proper data structure
-    if (gameData.category && !gameData.categoryName) {
-      console.log("Found legacy pending result with old data structure - clearing it");
-      localStorage.removeItem("pending_game_result");
-      console.log("Legacy pending result cleared. Please play a new game to save scores.");
-      return;
-    }
-
-    console.log("Updated game data with userId:", { ...gameData, userId });
-
-    // Note: Game saving functionality removed - no longer needed
-    console.log("Game results would be saved here (functionality removed)");
-  } catch (error) {
-    handleGameError(error, "pending game results save");
-  }
 };
 
 /**
@@ -648,116 +220,55 @@ const savePendingGameResults = async (): Promise<void> => {
  * @param config - Configuration object with score and optional parameters
  * @returns Promise<void>
  */
-export const showEndOverlay = async (config: EndOverlayConfig): Promise<void> => {
-  const { score, maxScore = 1000 } = config;
+export const completeEndOverlaySetup = async (config: EndOverlayConfig): Promise<void> => {
+  try {
+    // Update score display
+    await updateEndOverlayScore(config.score);
 
-  console.log("showEndOverlay called with:", { score, maxScore });
+    // Update progress display
+    await animateProgressBar(config.score, config.maxScore || 1000);
 
-  // Update the overlay data attribute FIRST for ShareOverlay
-  const overlay =
-    getElementById<HTMLElement>("endgame-popup") || getElement<HTMLElement>("[data-score]");
-  if (overlay) {
-    overlay.setAttribute("data-score", score.toString());
-    console.log("Updated overlay data-score attribute to:", score);
+    // Update motivation text
+    await updateMotivationText(config.score);
+
+    // Update difficulty display
+    await updateDifficultyDisplay();
+
+    // Update category display
+    await updateCategoryDisplay();
+
+    // Set up restart functionality
+    setupRestartButton();
+
+    // Set up share functionality
+    setupSharingButton();
+  } catch (error) {
+    handleGameError(error, "EndOverlay setup");
   }
-
-  // Store game results for guest users
-  if (!isAuthenticated()) {
-    const gameData = {
-      score,
-      categoryName:
-        overlay?.getAttribute("data-categoryName") || overlay?.getAttribute("data-category") || "",
-      difficulty: overlay?.getAttribute("data-difficulty") || "",
-      gameMode: overlay?.getAttribute("data-mode") || "normal",
-      timestamp: new Date().toISOString(),
-    };
-    storeGameResultsForGuest(gameData);
-  }
-
-  // Use Promise.all for concurrent operations
-  await Promise.all([
-    updateEndOverlayScore(score),
-    updateMotivationText(score),
-    animateProgressBar(score, maxScore),
-    updateDifficultyDisplay(),
-    updateCategoryDisplay(),
-  ]);
-
-  // Handle guest login section visibility
-  handleGuestLoginSection();
-
-  console.log("showEndOverlay completed successfully");
 };
 
 /**
- * Initialize the EndOverlay component functionality
- * Sets up event listeners and initializes motivation text based on score
- * @returns Promise<void>
+ * Initialize EndOverlay functionality
+ * Sets up all necessary event listeners and prepares the overlay for use
+ * @returns void
  */
-export const initializeEndOverlay = async (): Promise<void> => {
-  // Get the initial score from the overlay data attribute using modern destructuring
-  const overlay = getElement<HTMLElement>("[data-score]");
-  const score = parseInt(overlay?.getAttribute("data-score") || "0", 10);
-
-  await updateMotivationText(score);
-
-  // Set up restart button functionality
-  setupRestartButton();
-
-  // Set up sharing functionality
-  setupSharingButton();
-
-  // Set up achievement display
-  setupAchievementDisplay();
-
-  // Set up authentication event listeners for guest login section
-  setupGuestLoginEventListeners();
-
+export const initializeEndOverlay = (): void => {
   // Set up global showEndOverlay function for game engines to use
-  // Support both the new config API and the legacy (score, maxScore) API
-  (
-    globalThis as {
-      showEndOverlay?: (configOrScore: EndOverlayConfig | number, maxScore?: number) => void;
-    }
-  ).showEndOverlay = (configOrScore: EndOverlayConfig | number, maxScore?: number) => {
-    console.log("Global showEndOverlay called with:", { configOrScore, maxScore });
+  window.showEndOverlay = (configOrScore: EndOverlayConfig | number, maxScore?: number) => {
     if (typeof configOrScore === "number") {
       // Legacy API: (score, maxScore)
-      console.log("Using legacy API");
-      return showEndOverlay({
+      return completeEndOverlaySetup({
         score: configOrScore,
         maxScore: maxScore || 1000,
       });
     } else {
       // New API: (config)
-      console.log("Using new config API");
-      return showEndOverlay(configOrScore);
+      return completeEndOverlaySetup(configOrScore);
     }
   };
 };
 
-/**
- * Set up EndOverlay functionality when DOM is ready
- * This function handles the initialization timing to ensure proper setup
- * @returns Promise<void>
- */
-export const setupEndOverlay = async (): Promise<void> => {
-  const initializeWhenReady = async (): Promise<void> => {
-    if (document.readyState === "loading") {
-      return new Promise<void>((resolve) => {
-        document.addEventListener("DOMContentLoaded", async () => {
-          await initializeEndOverlay();
-          resolve();
-        });
-      });
-    } else {
-      // DOM is already loaded
-      await initializeEndOverlay();
-    }
-  };
-
-  await initializeWhenReady();
-};
-
-// Export a default function for easier imports
-export default setupEndOverlay;
+// Auto-initialize when module is loaded
+if (typeof window !== "undefined") {
+  initializeEndOverlay();
+}

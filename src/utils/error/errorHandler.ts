@@ -7,7 +7,6 @@ import { handleGameError } from "./errorHandlingUtils";
  * offline support, and accessibility features. This module centralizes error handling
  * across the application to ensure consistent user experience during error scenarios.
  *
- * Features:
  * - User-friendly error display with appropriate messaging
  * - Offline error handling with background synchronization
  * - Accessibility support for screen readers
@@ -101,7 +100,6 @@ export class ErrorHandler {
     this.errorElement = document.querySelector(".errorMessage");
 
     if (!this.errorElement) {
-      console.warn("Error message element not found. Error displays may not work correctly.");
       return false;
     }
 
@@ -260,11 +258,7 @@ export class ErrorHandler {
     });
 
     // Log the error for debugging purposes
-    console.debug("Save operation queued for later sync:", {
-      type,
-      error: error.message,
-      data,
-    });
+    // Error logged for debugging
   }
 
   /**

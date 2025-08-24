@@ -65,14 +65,12 @@ export function use5050Joker(
   }
 
   if (!question.correctAnswer) {
-    console.warn("Keine korrekte Antwort definiert");
     return jokerState;
   }
 
   const options = Array.from(document.querySelectorAll<HTMLButtonElement>("#options button"));
 
   if (options.length === 0) {
-    console.warn("Keine Antwortoptionen gefunden");
     return jokerState;
   }
 

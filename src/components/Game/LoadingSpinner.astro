@@ -116,28 +116,10 @@ const enhancedAriaLabel = context
 </div>
 
 <script>
-  import {
-    initLoadingSpinnerUtils,
-    autoHideSpinners,
-  } from "../../utils/components/loadingSpinnerUtils";
-
-  // Extend Window interface for our utilities
-  declare global {
-    interface Window {
-      LoadingSpinnerUtils: {
-        show: (id?: string) => void;
-        hide: (id?: string) => void;
-        updateProgress: (id?: string, progress?: number) => void;
-        setErrorState: (id?: string) => void;
-        setTimeoutState: (id?: string) => void;
-        resetState: (id?: string) => void;
-      };
-    }
-  }
+  import { initLoadingSpinnerAuto } from "../../utils/components/loadingSpinnerUtils";
 
   // Initialize loading spinner functionality
   document.addEventListener("DOMContentLoaded", () => {
-    initLoadingSpinnerUtils();
-    autoHideSpinners();
+    initLoadingSpinnerAuto();
   });
 </script>

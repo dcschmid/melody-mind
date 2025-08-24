@@ -1,6 +1,6 @@
 /**
  * PlaylistCard Utilities
- * 
+ *
  * Centralized utilities for managing playlist card functionality.
  * Eliminates code duplication in component script tags.
  */
@@ -31,7 +31,7 @@ export class PlaylistCardUtils {
     this.cards = safeQuerySelectorAll<HTMLElement>(config.cardSelector);
     this.imageSelector = config.imageSelector;
     this.fallbackImageSrc = config.fallbackImageSrc;
-    
+
     this.init();
   }
 
@@ -54,7 +54,7 @@ export class PlaylistCardUtils {
    */
   private setupImageFallback(card: HTMLElement): void {
     const image = safeQuerySelector<HTMLImageElement>(this.imageSelector, card);
-    
+
     if (image) {
       image.addEventListener("error", () => this.handleImageError(image));
     }
@@ -111,7 +111,7 @@ export class PlaylistCardUtils {
    * Filter cards by genre
    */
   public filterByGenre(genre: string): HTMLElement[] {
-    return this.cards.filter(card => {
+    return this.cards.filter((card) => {
       const cardGenre = this.getCardGenre(card);
       return genre === "all" || cardGenre === genre;
     });
@@ -121,9 +121,9 @@ export class PlaylistCardUtils {
    * Show/hide cards based on filter
    */
   public applyGenreFilter(genre: string): void {
-    this.cards.forEach(card => {
+    this.cards.forEach((card) => {
       const shouldShow = genre === "all" || this.getCardGenre(card) === genre;
-      
+
       card.style.display = shouldShow ? "" : "none";
       card.setAttribute("aria-hidden", (!shouldShow).toString());
     });
@@ -133,7 +133,7 @@ export class PlaylistCardUtils {
    * Refresh image fallbacks (useful after dynamic content updates)
    */
   public refreshImageFallbacks(): void {
-    this.cards.forEach(card => {
+    this.cards.forEach((card) => {
       this.setupImageFallback(card);
     });
   }
@@ -142,7 +142,7 @@ export class PlaylistCardUtils {
    * Destroy event listeners
    */
   public destroy(): void {
-    this.cards.forEach(card => {
+    this.cards.forEach((card) => {
       const image = safeQuerySelector<HTMLImageElement>(this.imageSelector, card);
       if (image) {
         image.removeEventListener("error", () => this.handleImageError(image));
@@ -165,7 +165,7 @@ export function initDefaultPlaylistCards(): PlaylistCardUtils {
   return initPlaylistCards({
     cardSelector: ".playlist-card",
     imageSelector: "img",
-    fallbackImageSrc: "/default-cover.jpg"
+    fallbackImageSrc: "/default-cover.jpg",
   });
 }
 
@@ -178,7 +178,7 @@ export function initPlaylistCardsAuto(): PlaylistCardUtils | null {
     ".playlist-card",
     "[data-content-type='playlist']",
     "[itemtype*='MusicPlaylist']",
-    "article[data-personalization='music-card']"
+    "article[data-personalization='music-card']",
   ];
 
   for (const selector of selectors) {
@@ -187,7 +187,7 @@ export function initPlaylistCardsAuto(): PlaylistCardUtils | null {
       return initPlaylistCards({
         cardSelector: selector,
         imageSelector: "img",
-        fallbackImageSrc: "/default-cover.jpg"
+        fallbackImageSrc: "/default-cover.jpg",
       });
     }
   }

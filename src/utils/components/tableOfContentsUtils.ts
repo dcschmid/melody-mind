@@ -1,6 +1,6 @@
 /**
  * TableOfContents Utilities
- * 
+ *
  * Centralized utilities for managing table of contents functionality.
  * Eliminates code duplication in component script tags.
  */
@@ -32,7 +32,7 @@ export class TableOfContentsUtils {
     this.toggle = safeGetElementById<HTMLButtonElement>(config.toggleId);
     this.content = safeGetElementById(config.contentId);
     this.icon = safeGetElementById(config.iconId);
-    
+
     this.init();
   }
 
@@ -46,13 +46,13 @@ export class TableOfContentsUtils {
 
     // Add click event listener
     this.toggle.addEventListener("click", () => this.toggleContent());
-    
+
     // Add keyboard event listeners
     this.toggle.addEventListener("keydown", (e) => this.handleKeydown(e));
-    
+
     // Add click outside listener to close
     document.addEventListener("click", (e) => this.handleClickOutside(e));
-    
+
     // Add escape key listener
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && this.isExpanded) {
@@ -81,17 +81,17 @@ export class TableOfContentsUtils {
     }
 
     this.isExpanded = true;
-    
+
     // Update ARIA attributes
     this.toggle.setAttribute("aria-expanded", "true");
-    
+
     // Show content
     this.content.classList.remove("hidden");
     this.content.classList.add("block");
-    
+
     // Rotate icon
     this.icon.style.transform = "rotate(180deg)";
-    
+
     // Update screen reader text
     const srText = this.toggle.querySelector("[data-expanded]");
     if (srText) {
@@ -108,17 +108,17 @@ export class TableOfContentsUtils {
     }
 
     this.isExpanded = false;
-    
+
     // Update ARIA attributes
     this.toggle.setAttribute("aria-expanded", "false");
-    
+
     // Hide content
     this.content.classList.add("hidden");
     this.content.classList.remove("block");
-    
+
     // Reset icon rotation
     this.icon.style.transform = "rotate(0deg)";
-    
+
     // Update screen reader text
     const srText = this.toggle.querySelector("[data-collapsed]");
     if (srText) {
@@ -197,6 +197,6 @@ export function initDefaultTableOfContents(): TableOfContentsUtils {
   return initTableOfContents({
     toggleId: "toc-toggle",
     contentId: "toc-content",
-    iconId: "toc-icon"
+    iconId: "toc-icon",
   });
 }

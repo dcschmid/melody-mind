@@ -1,14 +1,12 @@
 /**
  * Music Quiz Game Engine
  *
- * This module provides the core functionality for the music trivia game, including:
  * - Loading questions from language-specific files with fallback mechanisms
  * - Managing user interactions and scoring logic
  * - Tracking game state and progress through multiple rounds
  * - Providing audio-visual feedback for user actions
  * - Ensuring WCAG AAA compliance with full screen reader support
- * - Supporting achievement tracking and seasonal events
- * - Keyboard shortcuts for faster gameplay
+ * - Supporting keyboard shortcuts for faster gameplay
  * - Timer announcements for speed bonuses
  *
  * @module MelodyMindGameEngine
@@ -21,7 +19,6 @@ import { safeGetElementById, safeQuerySelector, safeQuerySelectorAll } from "../
 import { ErrorHandler } from "../error/errorHandler";
 import { handleGameError, handleLoadingError } from "../error/errorHandlingUtils";
 import { getLangFromUrl, useTranslations } from "../i18n";
-// import { QueueManager } from "../queue/queueManager"; // Removed unused import
 
 import { loadAlbumsWithFallback } from "./albumLoader";
 import { handleEndGame, restartGame } from "./endGameUtils";
@@ -32,35 +29,6 @@ import { JokerManager } from "./jokerManager";
 import { Difficulty } from "./jokerUtils";
 import { loadQuestion } from "./loadQuestionUtils";
 import { initializeMediaElements } from "./mediaUtils";
-
-// Dynamically imported to avoid issues with SSR
-// let achievementEventSystem: any;
-
-// For achievement tracking
-declare global {
-  interface Window {
-    questionStartTime?: number;
-    lastAnswerTime?: number;
-    lastAnswerCorrect?: boolean;
-    currentEventId?: string;
-    // speedBonusTimer?: number;
-    // speedBonusThresholds?: {
-    //   high: number; // Time in ms for high bonus (e.g., 10s)
-    //   medium: number; // Time in ms for medium bonus (e.g., 15s)
-    // };
-  }
-}
-
-// Speed bonus thresholds in milliseconds
-// const SPEED_BONUS_HIGH = 10000; // 10 seconds
-// const SPEED_BONUS_MEDIUM = 15000; // 15 seconds
-
-// TimeoutID for the speed bonus timer
-// const speedBonusTimerId: number | null = null;
-
-// TimeoutIDs for the speed bonus announcements
-// const speedBonusWarningTimerId: number | null = null;
-// const speedBonusExpiredTimerId: number | null = null;
 
 /**
  * Configuration constants for number of rounds based on difficulty level
@@ -122,7 +90,7 @@ const validateDifficulty = (diff: string | null): Difficulty => {
 function cacheElements(): GameElements {
   const elements = {
     score: safeQuerySelector<HTMLParagraphElement>(".coinsCount"),
-    round: safeQuerySelector<HTMLParagraphElement>(".round"),
+    round: safeGetElementById<HTMLParagraphElement>("quiz-round-display"),
     feedback: safeGetElementById<HTMLParagraphElement>("feedback"),
     question: safeGetElementById<HTMLParagraphElement>("question"),
     options: safeGetElementById<HTMLDivElement>("options"),
@@ -130,7 +98,7 @@ function cacheElements(): GameElements {
     overlay: safeGetElementById<HTMLDivElement>("overlay"),
     jokerButton: safeGetElementById<HTMLButtonElement>("joker-button"),
     jokerCounter: safeGetElementById<HTMLElement>("joker-count"),
-    nextRoundButton: safeGetElementById<HTMLButtonElement>("next-round-button"),
+    nextRoundButton: safeGetElementById<HTMLButtonElement>("quiz-next-round-button"),
     restartButton: safeGetElementById<HTMLButtonElement>("restart-button"),
     loadingSpinner: safeGetElementById<HTMLElement>("loading-spinner"),
   };
@@ -146,7 +114,6 @@ function cacheElements(): GameElements {
  * @param {GameElements} elements - Cached DOM elements required for the game
  */
 const initializeGame = async (elements: GameElements) => {
-  // Achievement system removed - no longer needed
   // QueueManager functionality removed - no longer needed
 
   if (!elements.container) {
@@ -159,56 +126,35 @@ const initializeGame = async (elements: GameElements) => {
    * These attributes control game configuration and player identification
    */
   const category = elements.container.getAttribute("data-genre");
-  let userId = elements.container.getAttribute("data-userID");
   const categoryName = elements.container.getAttribute("data-categoryName");
   const difficulty = elements.container.getAttribute("data-difficulty");
-
-  // Override userId with OAuth data if available in localStorage
-  try {
-    const userDataString = localStorage.getItem("user");
-    if (userDataString) {
-      const userData = JSON.parse(userDataString);
-      if (userData.id) {
-        userId = userData.id;
-
-        // Check if this is a guest user
-        if (userData.isGuest || userData.id.startsWith("guest_")) {
-          // Guest user detected - no additional processing needed
-        }
-      }
-    }
-  } catch (error) {
-    console.warn("Game Engine: Error reading user data:", error);
-  }
-
-  /**
-   * Check for seasonal events based on current date
-   * This enables special achievements and themed content
-   */
-  const currentDate = new Date();
-  const month = currentDate.getMonth() + 1; // 1-12
-
-  // Examples of seasonal event detection
-  if (month === 12) {
-    window.currentEventId = "winter_2025";
-  } else if (month >= 6 && month <= 8) {
-    window.currentEventId = "summer_2025";
-  }
 
   /**
    * Initialize game state variables
    * These track the player's progress and performance
    */
-  let score = 0;
+  let currentRound = 1;
+  let totalScore = 0;
   let correctAnswers = 0;
-  let roundIndex = 0;
+  let incorrectAnswers = 0;
+  const startTime = Date.now();
+  const currentQuestion: Question | null = null;
+  const currentAlbum: Album | null = null;
+  let jokerManager: JokerManager | null = null;
   const totalRounds =
     ROUNDS_PER_DIFFICULTY[validateDifficulty(difficulty)] ?? ROUNDS_PER_DIFFICULTY.easy;
 
   // Update UI with initial round
   if (elements.round) {
-    elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
+    elements.round.textContent = `${currentRound}/${totalRounds}`;
   }
+
+  // Debug logging for round tracking
+  console.log("Game initialized with:", {
+    currentRound,
+    totalRounds,
+    difficulty: validateDifficulty(difficulty),
+  });
 
   /**
    * Load albums data for the selected category with language fallback
@@ -239,7 +185,7 @@ const initializeGame = async (elements: GameElements) => {
    * Initialize joker system based on the difficulty level
    * The joker allows players to eliminate incorrect answers
    */
-  const jokerManager = new JokerManager({
+  jokerManager = new JokerManager({
     difficulty: validateDifficulty(difficulty) as Difficulty,
     elements: {
       jokerButton: elements.jokerButton,
@@ -316,7 +262,7 @@ const initializeGame = async (elements: GameElements) => {
     clearSpeedBonusTimers();
 
     // Process the answer and update the score
-    score = handleAnswer({
+    totalScore = handleAnswer({
       option,
       correctAnswer,
       currentQuestion,
@@ -328,9 +274,9 @@ const initializeGame = async (elements: GameElements) => {
         mediaElements: mediaElements || undefined,
       },
       state: {
-        score,
-        roundIndex,
-        totalRounds,
+        score: totalScore,
+        roundIndex: currentRound, // Pass current round (not 0-based)
+        totalRounds: totalRounds,
         roundElement: elements.round,
       },
     });
@@ -338,7 +284,9 @@ const initializeGame = async (elements: GameElements) => {
     // Immediately update UI with visual feedback for correct answers
     if (option === correctAnswer) {
       correctAnswers++;
-      updateCoinsDisplay(score);
+      updateCoinsDisplay(totalScore);
+    } else {
+      incorrectAnswers++;
     }
 
     /**
@@ -349,12 +297,13 @@ const initializeGame = async (elements: GameElements) => {
       stopAudio();
       elements.overlay.classList.add("hidden");
 
-      if (roundIndex < totalRounds - 1) {
-        // Load next question if rounds remain
-        roundIndex++;
+      // Increment round only when moving to next question
+      if (currentRound < totalRounds) {
+        currentRound++;
 
+        // Update round display directly from currentRound
         if (elements.round) {
-          elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
+          elements.round.textContent = `${currentRound}/${totalRounds}`;
         }
 
         // Ensure albums is an array before calling getRandomQuestion
@@ -386,20 +335,19 @@ const initializeGame = async (elements: GameElements) => {
    */
   function endGame() {
     const config = {
-      userId: userId || "",
+      userId: "", // Removed userId
       categoryName: categoryName || "",
       difficulty: validateDifficulty(difficulty) || "easy",
       totalRounds,
       correctAnswers,
-      score,
+      score: totalScore,
       language: lang,
 
-      // Extended properties for achievement tracking
-      genreId: category || "", // Category/genre ID for genre_explorer
-      lastAnswerTime: typeof window.lastAnswerTime === "number" ? window.lastAnswerTime : undefined, // Last answer time for quick_answer
-      lastAnswerCorrect:
-        typeof window.lastAnswerCorrect === "boolean" ? window.lastAnswerCorrect : undefined, // Whether the last answer was correct
-      eventId: window.currentEventId || undefined, // Event ID for seasonal_event
+      // Removed extended properties for achievement tracking
+      // genreId: category || "", // Category/genre ID for genre_explorer
+      // lastAnswerTime: typeof window.lastAnswerTime === "number" ? window.lastAnswerTime : undefined, // Last answer time for quick_answer
+      //   typeof window.lastAnswerCorrect === "boolean" ? window.lastAnswerCorrect : undefined, // Whether the last answer was correct
+      // eventId: window.currentEventId || undefined, // Event ID for seasonal_event
 
       // Debug flag for achievement tests
       debugAchievements: true,
@@ -461,7 +409,7 @@ const initializeGame = async (elements: GameElements) => {
     // Start speed bonus timer with announcements
     startSpeedBonusTimer(lang);
 
-    jokerManager.setCurrentQuestion(question);
+    jokerManager?.setCurrentQuestion(question);
 
     loadQuestion({
       question,
@@ -475,7 +423,7 @@ const initializeGame = async (elements: GameElements) => {
       handlers: {
         handleAnswer: handleAnswerWrapper,
       },
-      jokerState: jokerManager.getCurrentJokerState(),
+      jokerState: jokerManager?.getCurrentJokerState(),
     });
   }
 
@@ -520,7 +468,7 @@ const initializeGame = async (elements: GameElements) => {
   const cleanup = () => {
     stopAudio();
     // QueueManager.stopProcessing(); // Removed - no longer needed
-    jokerManager.cleanup();
+    jokerManager?.cleanup();
     clearSpeedBonusTimers();
     elements.restartButton?.removeEventListener("click", restartGame);
   };
@@ -677,7 +625,7 @@ export function initGameEngine(): void {
         }
       },
       onNextRound: () => {
-        const nextRoundButton = safeGetElementById<HTMLButtonElement>("next-round-button");
+        const nextRoundButton = safeGetElementById<HTMLButtonElement>("quiz-next-round-button");
         if (nextRoundButton && !nextRoundButton.closest(".hidden")) {
           nextRoundButton.click();
         }

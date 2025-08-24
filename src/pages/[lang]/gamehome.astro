@@ -1,4 +1,5 @@
 ---
+import { error as logError } from "../../utils/logging/logger";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import PlaylistItem from "@components/PlaylistItem.astro";
 import Layout from "@layouts/Layout.astro";
@@ -10,6 +11,8 @@ import CategoryFilter from "@components/CategoryFilter.astro";
 import EmptyState from "@components/EmptyState.astro";
 import LoadingState from "@components/LoadingState.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
+import { loadCategoriesForLanguage } from "../../utils/category/categoryLoadingUtils";
+import type { Category } from "../../utils/category/categoryLoadingUtils";
 
 /**
  * Static path generation for internationalization
@@ -49,44 +52,6 @@ export const prerender = true;
  */
 const lang = String(getLangFromUrl(Astro.url));
 const t = useTranslations(String(lang));
-
-/**
- * Interface defining the structure of a music category
- */
-interface Category {
-  isPlayable: boolean;
-  headline: string;
-  categoryUrl?: string;
-  imageUrl: string;
-  introSubline: string;
-  slug: string;
-  text: string;
-  categoryType:
-    | "decade"
-    | "female"
-    | "genre"
-    | "other"
-    | "classic-rock"
-    | "metal-classic"
-    | "metal-modern"
-    | "metal-avantgarde"
-    | "mainstream-pop"
-    | "indie-alternative"
-    | "global-pop"
-    | "jazz-soul-funk"
-    | "hip-hop-rap"
-    | "house-techno"
-    | "club-sounds"
-    | "breaks-experimental"
-    | "latin-vibes"
-    | "caribbean-afro"
-    | "folk-regional"
-    | "classical-orchestral"
-    | "countries-regional"
-    | "emotional"
-    | "seasonal"
-    | "situational";
-}
 
 /**
  * Generates WebApplication schema for the game home page
@@ -162,32 +127,84 @@ function generateClientTranslations(t: (_key: string) => string) {
   };
 }
 
-import { 
-  loadCategoriesForLanguage as loadCategoriesFromUtility, 
-  sortCategoriesByType as sortCategoriesByTypeFromUtility,
-  isPlayableCategory,
-  type Category 
-} from "../../utils/category/categoryLoadingUtils";
-
-// Use centralized utility functions
-const loadCategoriesForLanguage = loadCategoriesFromUtility;
-const sortCategoriesByType = sortCategoriesByTypeFromUtility;
+// Define the category structure for the gamehome page
+interface GameCategory {
+  categoryUrl: string;
+  headline: string;
+  imageUrl: string;
+  introSubline: string;
+  isPlayable: boolean;
+  slug: string;
+  text: string;
+  spotifyPlaylist: string;
+  deezerPlaylist: string;
+  appleMusicPlaylist: string;
+  knowledgeUrl: string;
+  categoryType: string;
+}
 
 // Load categories and ensure we have a valid array
-const categoriesList = await loadCategoriesForLanguage(lang);
-const categories = Array.isArray(categoriesList) ? categoriesList : [];
+let categories: GameCategory[] = [];
 
-// Use centralized utility function for type checking
+try {
+  const result = await loadCategoriesForLanguage({
+    language: lang,
+    fallbackLanguage: "en",
+    useAliasPath: true,
+  });
+  // Map loaded categories to GameCategory interface
+  categories = result.categories.map((cat) => ({
+    categoryUrl: cat.categoryUrl || "",
+    headline: cat.headline,
+    imageUrl: cat.imageUrl || "",
+    introSubline: cat.introSubline || "",
+    isPlayable: cat.isPlayable || false,
+    slug: cat.slug,
+    text: cat.text || "",
+    spotifyPlaylist: "", // Not available in Category interface
+    deezerPlaylist: "", // Not available in Category interface
+    appleMusicPlaylist: "", // Not available in Category interface
+    knowledgeUrl: "", // Not available in Category interface
+    categoryType: cat.categoryType || "other",
+  }));
+} catch (error) {
+  console.error(`Error loading categories for ${lang}:`, error);
+  try {
+    // Load English fallback using same pattern
+    categories = await import(`@json/en_categories.json`)
+      .then((module) => module.default)
+      .catch(async () => {
+        return await import(`../../json/en_categories.json`)
+          .then((module) => module.default)
+          .catch((_err) => {
+            return [];
+          });
+      });
+  } catch (fallbackError) {
+    logError("Failed to load fallback categories", fallbackError);
+    categories = [];
+  }
+}
 
 // Filter categories by playability status
-const playableCategories = categories.filter(isPlayableCategory);
-const nonPlayableCategories = categories.filter((item) => item && !item.isPlayable);
-
-// Use centralized utility function for sorting
+const playableCategories = categories.filter((item: any) => item && item.isPlayable);
+const nonPlayableCategories = categories.filter((item: any) => item && !item.isPlayable);
 
 // Sort categories by type and playability
 const sortedPlayableCategories = sortCategoriesByType(playableCategories);
 const sortedNonPlayableCategories = sortCategoriesByType(nonPlayableCategories);
+
+// Helper function to sort categories by type
+function sortCategoriesByType(categories: any[]) {
+  return categories.sort((a, b) => {
+    // Sort by type first
+    if (a.type !== b.type) {
+      return a.type.localeCompare(b.type);
+    }
+    // Then by headline
+    return a.headline.localeCompare(b.headline);
+  });
+}
 
 // Combined categories with playable ones first, sorted by type
 const sortedCategories = [...sortedPlayableCategories, ...sortedNonPlayableCategories];
@@ -546,7 +563,7 @@ const clientTranslations = generateClientTranslations(t);
                   return (
                     <div class="mb-8" data-category-type={group.type}>
                       <h3 class="mb-6 rounded-lg border border-purple-500/30 bg-gray-800/20 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text px-4 py-2 text-center text-2xl font-bold text-transparent text-white backdrop-blur-sm md:text-left md:text-3xl">
-                        {group.icon} {group.title}
+                        {group.icon || "🎵"} {group.title}
                       </h3>
                       <div
                         class="style paint mb-8 grid grid-cols-1 gap-4 contain-layout sm:mb-6 sm:gap-3 md:gap-6 lg:gap-8"
@@ -584,9 +601,9 @@ const clientTranslations = generateClientTranslations(t);
               itemtype="https://schema.org/ItemList"
             >
               <EmptyState
-                headline={emptyCategoriesHeadline}
-                text={emptyCategoriesText}
-                iconName="music-note"
+                icon="music-note"
+                title={emptyCategoriesHeadline}
+                description={emptyCategoriesText}
                 className="col-span-full"
               />
             </div>

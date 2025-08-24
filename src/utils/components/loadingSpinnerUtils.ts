@@ -1,36 +1,15 @@
 /**
- * Loading Spinner Utilities
- *
- * Centralized utilities for managing loading spinner components.
- * Eliminates code duplication in component script tags.
+ * Simple Loading Spinner
+ * Replaces the over-engineered approach
  */
-
-import {
-  safeGetElementById,
-  safeQuerySelector,
-  safeAddClasses,
-  safeRemoveClasses,
-} from "../dom/domUtils";
-
-/**
- * Loading spinner utility interface
- */
-export interface LoadingSpinnerUtils {
-  show: (id?: string) => void;
-  hide: (id?: string) => void;
-  updateProgress: (id?: string, progress?: number) => void;
-  setErrorState: (id?: string) => void;
-  setTimeoutState: (id?: string) => void;
-  resetState: (id?: string) => void;
-}
 
 /**
  * Show a loading spinner
  */
 export function showSpinner(id: string = "loading-spinner"): void {
-  const spinner = safeGetElementById(id);
+  const spinner = document.getElementById(id);
   if (spinner) {
-    safeRemoveClasses(spinner, ["hidden"]);
+    spinner.classList.remove("hidden");
     spinner.setAttribute("aria-busy", "true");
   }
 }
@@ -39,9 +18,9 @@ export function showSpinner(id: string = "loading-spinner"): void {
  * Hide a loading spinner
  */
 export function hideSpinner(id: string = "loading-spinner"): void {
-  const spinner = safeGetElementById(id);
+  const spinner = document.getElementById(id);
   if (spinner) {
-    safeAddClasses(spinner, ["hidden"]);
+    spinner.classList.add("hidden");
     spinner.setAttribute("aria-busy", "false");
   }
 }
@@ -50,17 +29,17 @@ export function hideSpinner(id: string = "loading-spinner"): void {
  * Update progress for determinate spinners
  */
 export function updateProgress(id: string = "loading-spinner", progress: number = 0): void {
-  const spinner = safeGetElementById(id);
+  const spinner = document.getElementById(id);
   if (spinner && spinner.dataset.type === "determinate") {
     const clampedProgress = Math.max(0, Math.min(100, progress));
     spinner.setAttribute("aria-valuenow", clampedProgress.toString());
 
-    const progressBar = safeQuerySelector<HTMLElement>(".h-full", spinner);
+    const progressBar = spinner.querySelector(".h-full") as HTMLElement;
     if (progressBar) {
       progressBar.style.width = `${clampedProgress}%`;
     }
 
-    const label = safeQuerySelector(".text-xl", spinner);
+    const label = spinner.querySelector(".text-xl");
     if (label) {
       const baseText = label.textContent?.split(" (")[0] || "Loading";
       label.textContent = `${baseText} (${clampedProgress}%)`;
@@ -72,10 +51,10 @@ export function updateProgress(id: string = "loading-spinner", progress: number 
  * Set error state
  */
 export function setErrorState(id: string = "loading-spinner"): void {
-  const spinner = safeGetElementById(id);
+  const spinner = document.getElementById(id);
   if (spinner) {
-    safeRemoveClasses(spinner, ["border-yellow-600", "bg-yellow-50", "border-yellow-200"]);
-    safeAddClasses(spinner, ["border-red-600", "bg-red-50", "border-red-200"]);
+    spinner.classList.remove("border-yellow-600", "bg-yellow-50", "border-yellow-200");
+    spinner.classList.add("border-red-600", "bg-red-50", "border-red-200");
     spinner.setAttribute("role", "alert");
     spinner.setAttribute("aria-busy", "false");
   }
@@ -85,10 +64,10 @@ export function setErrorState(id: string = "loading-spinner"): void {
  * Set timeout state
  */
 export function setTimeoutState(id: string = "loading-spinner"): void {
-  const spinner = safeGetElementById(id);
+  const spinner = document.getElementById(id);
   if (spinner) {
-    safeRemoveClasses(spinner, ["border-red-600", "bg-red-50", "border-red-200"]);
-    safeAddClasses(spinner, ["border-yellow-600", "bg-yellow-50", "border-yellow-200"]);
+    spinner.classList.remove("border-red-600", "bg-red-50", "border-red-200");
+    spinner.classList.add("border-yellow-600", "bg-yellow-50", "border-yellow-200");
     spinner.setAttribute("role", "alert");
     spinner.setAttribute("aria-busy", "false");
   }
@@ -98,51 +77,34 @@ export function setTimeoutState(id: string = "loading-spinner"): void {
  * Reset to normal state
  */
 export function resetState(id: string = "loading-spinner"): void {
-  const spinner = safeGetElementById(id);
+  const spinner = document.getElementById(id);
   if (spinner) {
-    safeRemoveClasses(spinner, [
+    spinner.classList.remove(
       "border-red-600",
       "bg-red-50",
       "border-red-200",
       "border-yellow-600",
       "bg-yellow-50",
-      "border-yellow-200",
-    ]);
-    const role = spinner.dataset.type === "determinate" ? "progressbar" : "status";
-    spinner.setAttribute("role", role);
+      "border-yellow-200"
+    );
+    spinner.classList.add("border-blue-600", "bg-blue-50", "border-blue-200");
+    spinner.removeAttribute("role");
+    spinner.setAttribute("aria-busy", "true");
   }
 }
 
 /**
- * Initialize loading spinner utilities and make them globally available
+ * Auto-initialize loading spinner
  */
-export function initLoadingSpinnerUtils(): LoadingSpinnerUtils {
-  const utils: LoadingSpinnerUtils = {
-    show: showSpinner,
-    hide: hideSpinner,
-    updateProgress,
-    setErrorState,
-    setTimeoutState,
-    resetState,
-  };
+export function initLoadingSpinnerAuto(): void {
+  const spinners = document.querySelectorAll("[data-loading-spinner]");
 
-  // Make functions globally available
-  if (typeof window !== "undefined") {
-    (window as Window & { LoadingSpinnerUtils?: LoadingSpinnerUtils }).LoadingSpinnerUtils = utils;
-  }
+  spinners.forEach((spinner) => {
+    const id = spinner.id || "loading-spinner";
+    const type = spinner.getAttribute("data-type") || "indeterminate";
 
-  return utils;
-}
-
-/**
- * Auto-hide spinners on page load
- */
-export function autoHideSpinners(): void {
-  const spinners = document.querySelectorAll('[role="status"][aria-busy="true"]');
-  spinners.forEach((el) => {
-    const id = (el as HTMLElement).id;
-    if (id) {
-      hideSpinner(id);
+    if (type === "determinate") {
+      updateProgress(id, 0);
     }
   });
 }

@@ -3,7 +3,6 @@
  * @param score - The score value to display
  * @param scoreElement - The DOM element that shows the score
  * @description
- * This function performs the following:
  * 1. Updates the score text if different from current display
  * 2. Triggers a bonus animation by removing and re-adding the 'bonus' class
  * 3. Automatically cleans up the animation class after transition ends

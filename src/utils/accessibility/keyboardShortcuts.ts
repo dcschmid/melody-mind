@@ -4,7 +4,6 @@ import { safeGetElementById, safeQuerySelectorAll } from "../dom/domUtils";
  * @fileoverview Keyboard shortcuts manager for the MelodyMind game
  * Provides accessible keyboard navigation for game actions.
  *
- * Features:
  * - J: Use Joker (eliminate two wrong answers)
  * - 1-4: Select answer options
  * - N: Advance to next round

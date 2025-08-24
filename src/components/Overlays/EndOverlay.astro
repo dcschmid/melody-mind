@@ -264,13 +264,73 @@ const clientTranslations = {
    * Imports and initializes the EndOverlay utilities for client-side functionality.
    * This follows the project's guideline of extracting complex scripts to external TypeScript files.
    */
-  import setupEndOverlay from "/src/utils/endOverlay";
+  import { initializeEndOverlay } from "/src/utils/endOverlay";
+
+  // Function to update the display with current data attributes
+  function updateDisplay() {
+    const popup = document.getElementById("endgame-popup");
+    if (popup) {
+      const score = popup.dataset.score || "0";
+
+      // Update the score display
+      const scoreElement = document.getElementById("popup-score");
+      if (scoreElement) scoreElement.textContent = score;
+
+      // Update motivation text based on score
+      const motivationElement = document.getElementById("motivation-text");
+      if (motivationElement) {
+        const scoreNum = parseInt(score, 10);
+        let motivationText = "";
+
+        if (scoreNum >= 800) {
+          motivationText = "Extraordinary! 💫 You're a true music genius! 🎶";
+        } else if (scoreNum >= 600) {
+          motivationText =
+            "Impressive! 👍 As a genuine music enthusiast, you really know your stuff!";
+        } else if (scoreNum >= 400) {
+          motivationText = "Well done! 👏 You've shown solid music knowledge!";
+        } else if (scoreNum >= 200) {
+          motivationText = "Good effort! 🙏 Keep playing to improve your score!";
+        } else {
+          motivationText = "Thanks for playing! 🎵 Every game is a chance to learn!";
+        }
+
+        motivationElement.textContent = motivationText;
+      }
+
+      console.log("Game display updated:", {
+        score,
+        mode: popup.dataset.mode,
+      });
+    }
+  }
 
   // Initialize the end overlay functionality with modern async/await
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const initializeOverlay = async () => {
     try {
-      await setupEndOverlay();
+      initializeEndOverlay();
+
+      // Initial update
+      updateDisplay();
+
+      // Set up a MutationObserver to watch for changes to data attributes
+      const popup = document.getElementById("endgame-popup");
+      if (popup) {
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            if (mutation.type === "attributes" && mutation.attributeName?.startsWith("data-")) {
+              console.log("Data attribute changed, updating display");
+              updateDisplay();
+            }
+          });
+        });
+
+        observer.observe(popup, {
+          attributes: true,
+          attributeFilter: ["data-score"],
+        });
+      }
     } catch (error) {
       console.error("Failed to initialize EndOverlay:", error);
     }

@@ -39,10 +39,8 @@ export async function loadAlbumsWithFallback(
         return albumsData.albums;
       }
 
-      console.warn(`No albums found for ${language}/${category}, trying fallback`);
     }
   } catch (error) {
-    console.warn(`Failed to load ${language}/${category}, trying fallback:`, error);
   }
 
   // Fallback to the fallback language

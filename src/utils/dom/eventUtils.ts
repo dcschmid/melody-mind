@@ -1,3 +1,4 @@
+
 /**
  * DOM Event Utilities
  *
@@ -19,7 +20,6 @@ export function addSafeClickListener(
   options?: AddEventListenerOptions
 ): boolean {
   if (!element) {
-    console.warn("Cannot add click listener: element is null");
     return false;
   }
 
@@ -27,7 +27,6 @@ export function addSafeClickListener(
     element.addEventListener("click", handler, options);
     return true;
   } catch (error) {
-    console.error("Failed to add click listener:", error);
     return false;
   }
 }
@@ -46,7 +45,6 @@ export function addMultipleEventListeners(
   options?: AddEventListenerOptions
 ): boolean {
   if (!element) {
-    console.warn("Cannot add event listeners: element is null");
     return false;
   }
 
@@ -56,7 +54,6 @@ export function addMultipleEventListeners(
     });
     return true;
   } catch (error) {
-    console.error("Failed to add event listeners:", error);
     return false;
   }
 }
@@ -73,7 +70,6 @@ export function removeAllEventListeners(
   eventTypes: string[] = []
 ): boolean {
   if (!element) {
-    console.warn("Cannot remove event listeners: element is null");
     return false;
   }
 
@@ -89,7 +85,6 @@ export function removeAllEventListeners(
     }
     return true;
   } catch (error) {
-    console.error("Failed to remove event listeners:", error);
     return false;
   }
 }

@@ -7,7 +7,6 @@ import { handleAudioError } from "../error/errorHandlingUtils";
  * It handles audio playback, volume control, error handling, and cleanup operations
  * through a standardized interface that ensures consistent behavior across the application.
  *
- * Features:
  * - Promise-based audio operations for proper async flow control
  * - Thorough error handling with informative messages
  * - Memory management with proper cleanup to prevent audio resource leaks
@@ -133,7 +132,6 @@ export class AudioController implements AudioControl {
       this.audioElement.volume = this.defaultVolume;
       this.registerEventListeners();
     } else {
-      console.warn("Audio element not found. Some audio functions may not work.");
     }
   }
 

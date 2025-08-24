@@ -4,6 +4,7 @@
  * Displays aggregated music news from RSS feeds
  */
 
+import { error as logError } from "../../utils/logging/logger";
 import Layout from "../../layouts/Layout.astro";
 import { getNewsForLanguage } from "../../services/rssService.ts";
 import { useTranslations } from "../../utils/i18n.ts";
@@ -25,7 +26,7 @@ try {
   newsData = await getNewsForLanguage(currentLang);
 } catch (e) {
   error = e instanceof Error ? e.message : "Failed to load news";
-  console.error("Error loading news:", e);
+  logError("Error loading news", e);
   // Fallback empty data
   newsData = {
     items: [],
@@ -185,8 +186,8 @@ const newsStructuredData = newsData?.items?.length
             <Paragraph className="text-red-200 mb-4">{error}</Paragraph>
             <button
               type="button"
+              id="retry-button"
               class="rounded-xl bg-red-600 px-6 py-3 font-medium text-white transition-colors duration-300 hover:bg-red-700"
-              onclick="window.location.reload()"
             >
               {t("common.retry")}
             </button>
@@ -278,8 +279,8 @@ const newsStructuredData = newsData?.items?.length
             <Paragraph className="text-gray-300 mb-8">{t("news.noNewsDescription")}</Paragraph>
             <button
               type="button"
+              id="refresh-button"
               class="rounded-xl bg-purple-600 px-6 py-3 font-medium text-white transition-colors duration-300 hover:bg-purple-700"
-              onclick="window.location.reload()"
             >
               {t("news.refresh")}
             </button>
@@ -318,3 +319,24 @@ const newsStructuredData = newsData?.items?.length
     </div>
   </main>
 </Layout>
+
+<script>
+  // Handle button click events
+  document.addEventListener("DOMContentLoaded", () => {
+    // Retry button
+    const retryButton = document.getElementById("retry-button");
+    if (retryButton) {
+      retryButton.addEventListener("click", () => {
+        window.location.reload();
+      });
+    }
+
+    // Refresh button
+    const refreshButton = document.getElementById("refresh-button");
+    if (refreshButton) {
+      refreshButton.addEventListener("click", () => {
+        window.location.reload();
+      });
+    }
+  });
+</script>

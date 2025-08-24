@@ -174,14 +174,11 @@ export function getTimePressureQuestion(
 
   // Validate input parameters
   if (!albums || !Array.isArray(albums) || albums.length === 0) {
-    console.warn("No albums provided or invalid albums array");
     return null;
   }
 
   if (currentRound < 1 || currentRound > config.totalRounds) {
-    console.warn(
-      `Invalid round number: ${currentRound}, should be between 1 and ${config.totalRounds}`
-    );
+    // Invalid round number
     return null;
   }
 
@@ -221,8 +218,6 @@ export function getTimePressureQuestion(
 
     // If no questions available for target difficulty, try other difficulties
     if (availableQuestions.length === 0) {
-      console.warn(`No questions available for ${targetDifficulty}, trying fallbacks`);
-
       const fallbackDifficulties: Difficulty[] = ["easy", "medium", "hard"].filter(
         (d) => d !== targetDifficulty
       ) as Difficulty[];
@@ -271,12 +266,10 @@ export function getTimePressureQuestion(
 
     // If all questions exhausted, reset and try again
     if (usedTimePressureQuestions.size > 0) {
-      console.warn("All questions used, resetting for continued play");
       usedTimePressureQuestions.clear();
       return getTimePressureQuestion(albums, currentRound, customConfig);
     }
 
-    console.warn("No questions available for time pressure mode");
     return null;
   } catch (error) {
     handleGameError(error, "time pressure question selection");

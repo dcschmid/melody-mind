@@ -106,11 +106,11 @@ export class JokerManager {
    */
   private getInitialJokerCount(): number {
     switch (this.difficulty) {
-      case Difficulty.EASY:
+      case "easy":
         return 3;
-      case Difficulty.MEDIUM:
+      case "medium":
         return 5;
-      case Difficulty.HARD:
+      case "hard":
         return 7;
       default:
         return 0;
@@ -385,7 +385,6 @@ export class JokerManager {
         nl: `${this.jokerState.jokerCount} resterend`,
         sv: `${this.jokerState.jokerCount} kvar`,
         fi: `${this.jokerState.jokerCount} jäljellä`,
-        // Default fallback:
         default: `${this.jokerState.jokerCount} remaining`,
       };
 

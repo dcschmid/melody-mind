@@ -56,44 +56,6 @@ export interface GameState {
   roundIndex: number;
   /** The current active question or null if no question is active */
   currentQuestion: Question | null;
-
-  // Extended properties for achievement tracking
-
-  /**
-   * For genre_explorer achievement: Category/genre of the current game
-   */
-  category?: {
-    /** Unique identifier of the category */
-    id: string;
-    /** Display name of the category */
-    name: string;
-  };
-
-  /**
-   * For quick_answer achievement: Response time in milliseconds
-   */
-  lastAnswerTime?: number;
-
-  /**
-   * For quick_answer achievement: Whether the last answer was correct
-   */
-  lastAnswerCorrect?: boolean;
-
-  /**
-   * For seasonal_event achievement: ID of the current seasonal event
-   */
-  eventId?: string;
-
-  /**
-   * For game_series achievement: Whether the game session is ending
-   * (returning to main menu)
-   */
-  endOfSession?: boolean;
-
-  /**
-   * Debug flag to test achievement functionality
-   */
-  debugAchievements?: boolean;
 }
 
 /**
@@ -132,4 +94,14 @@ export interface QuestionElements {
   options: HTMLElement;
   /** Loading spinner element */
   spinner: HTMLElement;
+}
+
+export interface GameResult {
+  userId: string;
+  categoryName: string;
+  difficulty: string;
+  totalRounds: number;
+  correctAnswers: number;
+  score: number;
+  language: string;
 }

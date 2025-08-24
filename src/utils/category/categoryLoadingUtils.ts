@@ -1,6 +1,6 @@
 /**
  * Category Loading Utilities
- * 
+ *
  * Centralized utilities for loading category data across different pages.
  * Eliminates code duplication in page-level category loading logic.
  */
@@ -56,10 +56,9 @@ export async function loadCategoriesForLanguage(
         return {
           categories: categories.default || [],
           success: true,
-          fallbackUsed: false
+          fallbackUsed: false,
         };
       } catch {
-        console.warn(`Alias path failed for ${language}_categories.json, trying relative path`);
       }
     }
 
@@ -69,7 +68,7 @@ export async function loadCategoriesForLanguage(
       return {
         categories: categories.default || [],
         success: true,
-        fallbackUsed: false
+        fallbackUsed: false,
       };
     } catch (relativeError) {
       // Try fallback language if specified
@@ -79,16 +78,18 @@ export async function loadCategoriesForLanguage(
           return {
             categories: fallbackCategories.default || [],
             success: true,
-            fallbackUsed: true
+            fallbackUsed: true,
           };
         } catch {
           // Last resort: try relative path with fallback language
           try {
-            const fallbackCategories = await import(`../../json/${fallbackLanguage}_categories.json`);
+            const fallbackCategories = await import(
+              `../../json/${fallbackLanguage}_categories.json`
+            );
             return {
               categories: fallbackCategories.default || [],
               success: true,
-              fallbackUsed: true
+              fallbackUsed: true,
             };
           } catch (finalError) {
             handleLoadingError(finalError, `fallback category data for ${fallbackLanguage}`);
@@ -96,7 +97,7 @@ export async function loadCategoriesForLanguage(
               categories: [],
               success: false,
               error: `Failed to load categories for ${language} and fallback ${fallbackLanguage}`,
-              fallbackUsed: false
+              fallbackUsed: false,
             };
           }
         }
@@ -107,7 +108,7 @@ export async function loadCategoriesForLanguage(
         categories: [],
         success: false,
         error: `Failed to load categories for ${language}`,
-        fallbackUsed: false
+        fallbackUsed: false,
       };
     }
   } catch (error) {
@@ -116,7 +117,7 @@ export async function loadCategoriesForLanguage(
       categories: [],
       success: false,
       error: `Unexpected error loading categories for ${language}`,
-      fallbackUsed: false
+      fallbackUsed: false,
     };
   }
 }
@@ -129,12 +130,12 @@ export async function loadCategoryBySlug(
   config: CategoryLoadingConfig
 ): Promise<Category | null> {
   const result = await loadCategoriesForLanguage(config);
-  
+
   if (!result.success) {
     return null;
   }
 
-  const category = result.categories.find(cat => cat.slug === slug);
+  const category = result.categories.find((cat) => cat.slug === slug);
   return category || null;
 }
 
@@ -148,7 +149,7 @@ export async function loadCategoriesWithFallback(
   const result = await loadCategoriesForLanguage({
     language,
     fallbackLanguage,
-    useAliasPath: true
+    useAliasPath: true,
   });
 
   return result.categories;
@@ -165,7 +166,7 @@ export function filterPlayableCategories(categories: Category[]): Category[] {
  * Filter non-playable categories
  */
 export function filterNonPlayableCategories(categories: Category[]): Category[] {
-  return categories.filter(category => !isPlayableCategory(category));
+  return categories.filter((category) => !isPlayableCategory(category));
 }
 
 /**
@@ -222,7 +223,7 @@ export function sortCategoriesByType(categories: Category[]): Category[] {
     // First sort by type
     const aOrder = typeOrder[a.categoryType || "other"] || 25;
     const bOrder = typeOrder[b.categoryType || "other"] || 25;
-    
+
     if (aOrder !== bOrder) {
       return aOrder - bOrder;
     }
@@ -241,7 +242,7 @@ export function sortCategoriesByType(categories: Category[]): Category[] {
  * Get categories by type
  */
 export function getCategoriesByType(categories: Category[], type: string): Category[] {
-  return categories.filter(category => category.categoryType === type);
+  return categories.filter((category) => category.categoryType === type);
 }
 
 /**
@@ -249,11 +250,12 @@ export function getCategoriesByType(categories: Category[], type: string): Categ
  */
 export function searchCategories(categories: Category[], searchTerm: string): Category[] {
   const term = searchTerm.toLowerCase();
-  return categories.filter(category => 
-    category.headline.toLowerCase().includes(term) ||
-    category.introSubline?.toLowerCase().includes(term) ||
-    category.text?.toLowerCase().includes(term) ||
-    category.slug.toLowerCase().includes(term)
+  return categories.filter(
+    (category) =>
+      category.headline.toLowerCase().includes(term) ||
+      category.introSubline?.toLowerCase().includes(term) ||
+      category.text?.toLowerCase().includes(term) ||
+      category.slug.toLowerCase().includes(term)
   );
 }
 
@@ -268,9 +270,9 @@ export function getCategoryStats(categories: Category[]): {
 } {
   const playable = filterPlayableCategories(categories);
   const nonPlayable = filterNonPlayableCategories(categories);
-  
+
   const byType: Record<string, number> = {};
-  categories.forEach(category => {
+  categories.forEach((category) => {
     const type = category.categoryType || "other";
     byType[type] = (byType[type] || 0) + 1;
   });
@@ -279,6 +281,6 @@ export function getCategoryStats(categories: Category[]): {
     total: categories.length,
     playable: playable.length,
     nonPlayable: nonPlayable.length,
-    byType
+    byType,
   };
 }

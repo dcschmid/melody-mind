@@ -1,847 +1,121 @@
 ---
-/**
- * ChronologyFeedbackOverlay - Game feedback modal
- *
- * Features:
- * - WCAG AAA compliant accessibility
- * - Performance optimized animations
- * - Responsive design with container queries
- * - Touch device support
- * - High contrast mode support
- * - Session timeout management
- *
- * @component
- * @example
- * ```typescript
- * window.dispatchEvent(new CustomEvent("showChronologyFeedback", {
- *   detail: { isCorrect: true, isLastRound: false }
- * }));
- * ```
- */
-import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
-import Headline from "@components/Headline.astro";
+import { Icon } from "astro-icon/components";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Client-side translations for dynamic content
+// Prepare translations for client-side usage
 const clientTranslations = {
   "game.chronology.correct": t("game.chronology.correct"),
   "game.chronology.incorrect": t("game.chronology.incorrect"),
   "game.chronology.correct_order": t("game.chronology.correct_order"),
+  "game.chronology.user_order.correct_title": t("game.chronology.user_order.correct_title"),
+  "game.chronology.user_order.incorrect_title": t("game.chronology.user_order.incorrect_title"),
   "game.chronology.stats.accuracy": t("game.chronology.stats.accuracy"),
   "game.chronology.stats.round_points": t("game.chronology.stats.round_points"),
   "game.chronology.stats.total_points": t("game.chronology.stats.total_points"),
   "game.chronology.stats.round": t("game.chronology.stats.round"),
-  "game.chronology.user_order.correct_title": t("game.chronology.user_order.correct_title"),
-  "game.chronology.user_order.incorrect_title": t("game.chronology.user_order.incorrect_title"),
-  "general.close": t("general.close"),
-  "session.timeout.warning": t("session.timeout.warning"),
-  "session.timeout.extend": t("session.timeout.extend"),
-  "session.timeout.continue": t("session.timeout.continue"),
-  "session.extended": t("session.extended"),
 };
 ---
 
 <div
   id="chronology-feedback-overlay"
-  class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/80 p-4"
+  class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/50 backdrop-blur-sm"
+  data-translations={JSON.stringify(clientTranslations)}
+  aria-hidden="true"
   role="dialog"
   aria-modal="true"
-  tabindex="-1"
-  data-translations={JSON.stringify(clientTranslations)}
+  aria-labelledby="feedback-heading"
 >
-  <!-- Use a div with inset-0 to create a click target for closing the modal -->
-  <div id="overlay-backdrop" class="absolute inset-0" aria-hidden="true"></div>
+  <div id="chronology-feedback-backdrop" class="absolute inset-0 bg-black/50" aria-hidden="true">
+  </div>
 
   <div
-    class="relative z-10 m-4 flex h-[95vh] min-h-0 w-full max-w-4xl flex-col rounded-2xl bg-slate-800 p-6 shadow-2xl"
+    id="chronology-content-container"
+    class="relative mx-4 max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-2xl border border-slate-600/50 bg-gradient-to-br from-slate-800/95 to-slate-900/95 p-6 shadow-2xl backdrop-blur-md"
+    role="document"
+    aria-labelledby="feedback-heading"
   >
-    <!-- Close button - positioned at the top right -->
-    <button
-      id="close-feedback-overlay"
-      class="absolute top-4 right-4 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-slate-600 bg-slate-700 transition-colors duration-200 hover:bg-slate-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 focus:outline-none"
-      aria-label={t("general.close")}
-      type="button"
-    >
-      <Icon name="close" width={20} height={20} aria-hidden="true" class="text-gray-400" />
-    </button>
+    <!-- Header -->
+    <header class="mb-6 flex items-center justify-between border-b border-slate-600/50 pb-4">
+      <h2 id="feedback-heading" class="text-2xl font-bold text-white">
+        {t("game.chronology.feedback.title")}
+      </h2>
+      <button
+        id="chronology-close-button"
+        type="button"
+        class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-600 bg-slate-700/50 text-slate-300 transition-all duration-200 hover:border-slate-500 hover:bg-slate-600/50 hover:text-white focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 focus:outline-none"
+        aria-label={t("game.chronology.feedback.close")}
+      >
+        <Icon name="x" class="h-5 w-5" />
+      </button>
+    </header>
 
-    <Headline level="h2" textSize="xl" className="mb-6 text-center text-2xl font-bold text-white">
-      {t("game.chronology.result")}
-    </Headline>
-
-    <!-- Status announcer for screen readers -->
-    <div id="feedback-status" aria-live="polite" aria-atomic="true" class="sr-only"></div>
-
+    <!-- Content -->
     <div
       id="feedback-content"
-      class="scrollbar-thin scrollbar-track-slate-700 scrollbar-thumb-slate-500 flex-1 overflow-y-auto p-4 leading-relaxed text-gray-300"
+      class="mb-6 text-center text-gray-300"
+      role="region"
       aria-live="polite"
-      aria-describedby="correct-order-description"
     >
-      <!-- Content will be dynamically added here -->
-      <!-- Hidden description for correct order list - enhanced accessibility -->
-      <div id="correct-order-description" class="sr-only">
-        {t("game.chronology.correct_order_description")}
+      <!-- Content will be populated by JavaScript -->
+    </div>
+
+    <!-- Stats Section -->
+    <div
+      class="mb-6 grid grid-cols-2 gap-4 rounded-lg border border-slate-600/50 bg-slate-800/50 p-4"
+    >
+      <div class="text-center">
+        <div class="text-sm text-gray-400">{t("game.chronology.stats.accuracy")}</div>
+        <div id="chronology-accuracy" class="text-2xl font-bold text-green-400">0%</div>
+      </div>
+      <div class="text-center">
+        <div class="text-sm text-gray-400">{t("game.chronology.stats.round_points")}</div>
+        <div id="chronology-score" class="text-2xl font-bold text-blue-400">+0</div>
       </div>
     </div>
 
-    <div class="mt-6 flex justify-center gap-4">
+    <!-- Results List -->
+    <div
+      id="chronology-results-list"
+      class="mb-6 space-y-3"
+      role="region"
+      aria-label={t("game.chronology.results")}
+    >
+      <!-- Results will be populated by JavaScript -->
+    </div>
+
+    <!-- Status Announcer for Screen Readers -->
+    <div id="feedback-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true">
+    </div>
+
+    <!-- Footer Actions -->
+    <footer class="flex items-center justify-center gap-4 border-t border-slate-600/50 pt-4">
       <button
-        id="chronology-continue-button"
-        class="flex cursor-pointer items-center gap-3 rounded-xl border-2 border-purple-600 bg-gradient-to-r from-purple-600 to-purple-700 px-6 py-3 text-base font-bold text-white transition-all duration-200 hover:-translate-y-1 hover:border-purple-700 hover:from-purple-700 hover:to-purple-800 focus:ring-4 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-slate-800 focus:outline-none"
+        id="chronology-next-button"
         type="button"
+        class="flex cursor-pointer items-center gap-3 rounded-xl border-2 border-blue-500 bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-3 text-base font-bold text-white transition-all duration-200 hover:-translate-y-1 hover:border-blue-600 hover:from-blue-600 hover:to-blue-700 focus:ring-4 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-slate-800 focus:outline-none"
+        aria-label={t("game.chronology.feedback.continue")}
       >
-        {t("game.next.round")}
+        <Icon name="arrow-right" class="h-5 w-5" />
+        {t("game.chronology.feedback.continue")}
       </button>
+
       <button
         id="chronology-end-button"
         class="flex hidden cursor-pointer items-center gap-3 rounded-xl border-2 border-orange-500 bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3 text-base font-bold text-white transition-all duration-200 hover:-translate-y-1 hover:border-orange-600 hover:from-orange-600 hover:to-orange-700 focus:ring-4 focus:ring-orange-500/50 focus:ring-offset-2 focus:ring-offset-slate-800 focus:outline-none"
         type="button"
+        aria-label={t("game.end.title")}
       >
+        <Icon name="flag" class="h-5 w-5" />
         {t("game.end.title")}
       </button>
-    </div>
+    </footer>
   </div>
 </div>
 
 <script>
-  /**
-   * ChronologyFeedbackOverlay Controller
-   *
-   * Manages feedback overlay interactions for chronology game mode.
-   * Features comprehensive accessibility and simplified performance.
-   *
-   * @features
-   * - WCAG AAA compliant focus management
-   * - Simplified animations
-   * - Touch device support
-   * - Responsive design
-   * - Reduced motion support
-   * - High contrast mode support
-   * - Print styles optimization
-   *
-   * @accessibility Full keyboard navigation with focus trapping
-   * @performance Simplified animations and DOM manipulation
-   * @responsive Mobile-first responsive design
-   */
-
-  // Type definitions following TypeScript best practices
-  // interface UserOrderItem {
-  //   /** Position in user's ordering (1-based) */
-  //   position: number;
-  //   /** Artist name */
-  //   artist: string;
-  //   /** Album/song title */
-  //   title: string;
-  //   /** Release year */
-  //   year: number;
-  //   /** Whether this item is in the correct position */
-  //   isCorrectPosition: boolean;
-  // }
-
-  interface TranslationMap {
-    /** Translation key-value pairs for client-side usage */
-    [key: string]: string;
-  }
-
-  // Get translations from the server-rendered data attribute
-  let translations: TranslationMap = {};
-
-  try {
-    const overlay = document.getElementById("chronology-feedback-overlay");
-    if (overlay) {
-      const translationData = overlay.getAttribute("data-translations");
-
-      if (translationData) {
-        translations = JSON.parse(translationData);
-      }
-    }
-  } catch (error) {
-    console.warn("Failed to parse translations from data attributes:", error);
-  }
-
-  /**
-   * Translation helper with caching for performance
-   *
-   * @param {string} key - Translation key
-   * @returns {string} Translated string or key as fallback
-   */
-  const getTranslation = (key: string): string => translations[key] || key;
-
-  // State management with simplified performance
-  const state = {
-    previouslyFocused: null as HTMLElement | null,
-    animation: {
-      frameId: null as number | null,
-      timeoutId: null as number | null,
-    },
-    // Performance tracking
-    isAnimating: false,
-    prefersReducedMotion: false,
-    // Cached DOM measurements
-    cachedViewport: { width: 0, height: 0 },
-    // Throttled resize handler
-    resizeTimeout: null as number | null,
-  };
-
-  /**
-   * Initialize DOM elements and performance state
-   * @returns {object | null} Elements object or null if initialization failed
-   */
-  function initializeOverlayElements() {
-    // Initialize performance state
-    state.prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    state.cachedViewport = {
-      width: window.innerWidth,
-      height: window.innerHeight,
-    };
-
-    // Get DOM elements with null checks
-    const overlay = document.getElementById("chronology-feedback-overlay");
-    const closeButton = document.getElementById("close-feedback-overlay");
-    const backdrop = document.getElementById("overlay-backdrop");
-    const continueButton = document.getElementById("chronology-continue-button");
-    const endButton = document.getElementById("chronology-end-button");
-    const statusAnnouncer = document.getElementById("feedback-status");
-    const contentText = document.getElementById("feedback-content");
-
-    // Early exit if required elements are not found
-    if (!overlay || !closeButton || !backdrop || !continueButton || !endButton || !contentText) {
-      console.warn("Chronology feedback overlay elements not found");
-      return null;
-    }
-
-    return {
-      overlay,
-      closeButton,
-      backdrop,
-      continueButton,
-      endButton,
-      statusAnnouncer,
-      contentText,
-    };
-  }
-
-  /**
-   * Initializes feedback overlay with performance optimizations
-   *
-   * @returns {(() => void) | undefined} Cleanup function or undefined if failed
-   * @accessibility WCAG AAA compliant focus management
-   * @performance Optimized event delegation with memory leak prevention
-   */
-  /* eslint-disable max-lines-per-function, @typescript-eslint/explicit-function-return-type */
-  function initFeedbackOverlay() {
-    const elements = initializeOverlayElements();
-    if (!elements) {
-      return;
-    }
-
-    /**
-     * Shows overlay with simplified animations
-     * @accessibility Stores focus, prevents background scroll, respects reduced motion
-     * @performance Uses simplified animations
-     */
-    const showOverlay = () => {
-      if (!elements) {
-        return;
-      }
-
-      // Prevent concurrent animations
-      if (state.isAnimating) {
-        return;
-      }
-      state.isAnimating = true;
-
-      // Store current focus for restoration
-      state.previouslyFocused = document.activeElement as HTMLElement;
-
-      // Show overlay immediately
-      elements.overlay.classList.remove("hidden");
-      elements.overlay.setAttribute("aria-hidden", "false");
-
-      // Reset modal content scroll position to top for better UX
-      elements.contentText.scrollTop = 0;
-
-      // Prevent background scrolling without affecting modal scrolling
-      const scrollY = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.left = "0";
-      document.body.style.right = "0";
-      document.body.style.width = "100%";
-      // Store scroll position for restoration
-      document.body.setAttribute("data-scroll-y", scrollY.toString());
-
-      if (state.prefersReducedMotion) {
-        // No animation for reduced motion users
-        elements.overlay.style.opacity = "1";
-        elements.overlay.style.transform = "none";
-        state.isAnimating = false;
-        focusFirstElement();
-      } else {
-        // Simplified entrance animation
-        elements.overlay.style.opacity = "0";
-        elements.overlay.style.transform = "translateY(-20px)";
-
-        state.animation.frameId = requestAnimationFrame(() => {
-          elements.overlay.style.transition = "opacity 0.2s ease-out, transform 0.2s ease-out";
-          elements.overlay.style.opacity = "1";
-          elements.overlay.style.transform = "translateY(0)";
-
-          // Focus management after animation
-          state.animation.timeoutId = window.setTimeout(() => {
-            state.isAnimating = false;
-            focusFirstElement();
-          }, 200);
-        });
-      }
-    };
-
-    /**
-     * Hides overlay with cleanup and focus restoration
-     * @accessibility Restores focus, re-enables scrolling, sets ARIA attributes
-     * @performance Cleans up animations, prevents memory leaks
-     */
-    const hideOverlay = () => {
-      if (!elements) {
-        return;
-      }
-
-      // Prevent concurrent animations
-      if (state.isAnimating) {
-        return;
-      }
-      state.isAnimating = true;
-
-      // Clear any pending animations
-      if (state.animation.frameId) {
-        cancelAnimationFrame(state.animation.frameId);
-        state.animation.frameId = null;
-      }
-      if (state.animation.timeoutId) {
-        clearTimeout(state.animation.timeoutId);
-        state.animation.timeoutId = null;
-      }
-
-      elements.overlay.setAttribute("aria-hidden", "true");
-
-      if (state.prefersReducedMotion) {
-        // Immediate hiding for reduced motion users
-        elements.overlay.classList.add("hidden");
-        elements.overlay.style.opacity = "";
-        elements.overlay.style.transform = "";
-        elements.overlay.style.transition = "";
-        state.isAnimating = false;
-        restoreFocusAndCleanup();
-      } else {
-        // Animate exit
-        elements.overlay.style.opacity = "0";
-        elements.overlay.style.transform = "translateY(-20px)";
-
-        state.animation.timeoutId = window.setTimeout(() => {
-          elements.overlay.classList.add("hidden");
-          elements.overlay.style.opacity = "";
-          elements.overlay.style.transform = "";
-          elements.overlay.style.transition = "";
-          state.isAnimating = false;
-          restoreFocusAndCleanup();
-        }, 200);
-      }
-    };
-
-    /**
-     * Focuses first interactive element with delay
-     * @accessibility Ensures logical keyboard navigation start
-     * @wcag WCAG AAA compliant focus management
-     */
-    const focusFirstElement = () => {
-      if (!elements) {
-        return;
-      }
-
-      // Clear any existing timeout
-      if (state.animation.timeoutId) {
-        clearTimeout(state.animation.timeoutId);
-      }
-
-      state.animation.timeoutId = window.setTimeout(() => {
-        elements.closeButton.focus();
-      }, 50);
-    };
-
-    /**
-     * Restores focus and cleanup after modal closes
-     * @accessibility Restores focus, re-enables scrolling, handles missing elements
-     * @performance Defensive programming with error handling
-     */
-    const restoreFocusAndCleanup = () => {
-      // Re-enable scrolling and restore scroll position
-      const scrollY = document.body.getAttribute("data-scroll-y");
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.width = "";
-      document.body.removeAttribute("data-scroll-y");
-
-      // Restore scroll position
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY, 10));
-      }
-
-      // Restore focus to previously focused element
-      if (
-        state.previouslyFocused &&
-        "focus" in state.previouslyFocused &&
-        typeof state.previouslyFocused.focus === "function"
-      ) {
-        state.animation.timeoutId = window.setTimeout(() => {
-          try {
-            state.previouslyFocused.focus();
-          } catch {
-            // Focus restoration failed silently - not critical for user experience
-          }
-          state.previouslyFocused = null;
-        }, 50);
-      }
-    };
-
-    /**
-     * Updates feedback content based on game result
-     * @param {object} detail - Complete feedback data
-     * @accessibility Creates semantic HTML with proper roles and live regions
-     * @performance Efficient DOM manipulation with minimal reflows
-     */
-    /* eslint-disable max-lines-per-function, complexity */
-    function updateFeedbackContent(detail) {
-      const feedbackContent = document.getElementById("feedback-content");
-      if (!feedbackContent) {
-        console.error("ChronologyFeedback: feedback-content element not found");
-        return;
-      }
-
-      // Clear previous content efficiently
-      feedbackContent.innerHTML = "";
-
-      const {
-        isCorrect,
-        correctOrder,
-        userOrder,
-        accuracy,
-        scoreGained,
-        totalScore,
-        round,
-        totalRounds,
-      } = detail;
-
-      // Create main feedback message with enhanced styling
-      const messageEl = document.createElement("div");
-      messageEl.className = "flex flex-col items-center gap-3 flex-shrink-0";
-      messageEl.setAttribute("role", "status");
-      messageEl.setAttribute("aria-live", "polite");
-
-      // Main result message
-      const resultEl = document.createElement("h3");
-      resultEl.className = isCorrect
-        ? "flex items-center justify-center gap-3 text-emerald-800 font-bold text-xl mb-4 p-4 bg-emerald-100 border-2 border-emerald-500 rounded-xl shadow-lg"
-        : "flex items-center justify-center gap-3 text-red-800 font-bold text-xl mb-4 p-4 bg-red-100 border-2 border-red-500 rounded-xl shadow-lg";
-
-      if (isCorrect) {
-        resultEl.innerHTML = `
-          <span class="text-2xl">🎉</span>
-          ${getTranslation("game.chronology.correct")}
-        `;
-      } else {
-        resultEl.innerHTML = `
-          <span class="text-2xl">😔</span>
-          ${getTranslation("game.chronology.incorrect")}
-        `;
-      }
-
-      messageEl.appendChild(resultEl);
-
-      // Add score and statistics section
-      if (typeof scoreGained === "number" || typeof accuracy === "number") {
-        const statsEl = document.createElement("div");
-        statsEl.className =
-          "grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-4 p-4 bg-slate-700/50 rounded-xl border border-slate-600/50";
-
-        let statsHTML = "";
-        if (typeof accuracy === "number") {
-          statsHTML += `<div class="flex flex-col items-center gap-2 p-3 rounded-lg bg-slate-800/80 border border-slate-600/50">
-            <span class="text-xs text-gray-400 font-medium uppercase tracking-wide">${getTranslation("game.chronology.stats.accuracy")}</span>
-            <span class="text-xl text-white font-bold">${accuracy}%</span>
-          </div>`;
-        }
-
-        if (typeof scoreGained === "number") {
-          statsHTML += `<div class="flex flex-col items-center gap-2 p-3 rounded-lg bg-slate-800/80 border border-slate-600/50">
-            <span class="text-xs text-gray-400 font-medium uppercase tracking-wide">${getTranslation("game.chronology.stats.round_points")}</span>
-            <span class="text-xl text-green-400 font-bold">+${scoreGained}</span>
-          </div>`;
-        }
-
-        if (typeof totalScore === "number") {
-          statsHTML += `<div class="flex flex-col items-center gap-2 p-3 rounded-lg bg-slate-800/80 border border-slate-600/50">
-            <span class="text-xs text-gray-400 font-medium uppercase tracking-wide">${getTranslation("game.chronology.stats.total_points")}</span>
-            <span class="text-xl text-blue-400 font-bold">${totalScore}</span>
-          </div>`;
-        }
-
-        if (typeof round === "number" && typeof totalRounds === "number") {
-          statsHTML += `<div class="flex flex-col items-center gap-2 p-3 rounded-lg bg-slate-800/80 border border-slate-600/50">
-            <span class="text-xs text-gray-400 font-medium uppercase tracking-wide">${getTranslation("game.chronology.stats.round")}</span>
-            <span class="text-xl text-purple-400 font-bold">${round}/${totalRounds}</span>
-          </div>`;
-        }
-
-        statsEl.innerHTML = statsHTML;
-        messageEl.appendChild(statsEl);
-      }
-
-      feedbackContent.appendChild(messageEl);
-
-      // Add correct order information with years
-      if (correctOrder && Array.isArray(correctOrder) && correctOrder.length > 0) {
-        const orderSection = document.createElement("div");
-        orderSection.className =
-          "mt-6 p-4 bg-slate-700/50 border-2 border-emerald-500/50 rounded-xl flex-shrink-0";
-
-        const orderHeading = document.createElement("h4");
-        orderHeading.className =
-          "text-lg font-bold mb-4 text-white text-center flex items-center justify-center gap-3";
-        orderHeading.innerHTML = `
-          <span class="text-2xl text-emerald-400">✓</span>
-          ${getTranslation("game.chronology.correct_order")}
-        `;
-        orderSection.appendChild(orderHeading);
-
-        // Create accessible container with enhanced styling
-        const orderList = document.createElement("div");
-        orderList.className = "flex flex-col gap-3";
-        orderList.setAttribute("role", "list");
-        orderList.setAttribute("aria-label", getTranslation("game.chronology.correct_order"));
-
-        correctOrder.forEach((item, index) => {
-          const listItem = document.createElement("div");
-          listItem.setAttribute("role", "listitem");
-          listItem.className =
-            "flex items-center gap-4 p-3 bg-slate-800/80 border border-slate-600/50 rounded-lg";
-          listItem.innerHTML = `
-            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500 text-white text-sm font-bold flex items-center justify-center shadow-md">${index + 1}</span>
-            <span class="flex-1 text-white font-medium">${item}</span>
-          `;
-          listItem.setAttribute("aria-setsize", correctOrder.length.toString());
-          listItem.setAttribute("aria-posinset", (index + 1).toString());
-          orderList.appendChild(listItem);
-        });
-
-        orderSection.appendChild(orderList);
-        feedbackContent.appendChild(orderSection);
-      }
-
-      // Show user's ordering with corrections - always show if userOrder exists
-      if (userOrder && Array.isArray(userOrder) && userOrder.length > 0) {
-        const userOrderSection = document.createElement("div");
-        userOrderSection.className =
-          "mt-6 p-4 bg-slate-700/50 border-2 border-red-500/50 rounded-xl flex-shrink-0";
-
-        const userHeading = document.createElement("h4");
-        userHeading.className =
-          "text-lg font-bold mb-4 text-white text-center flex items-center justify-center gap-3";
-        userHeading.innerHTML = `
-          <span class="text-2xl text-red-400">✖</span>
-          ${
-            isCorrect
-              ? getTranslation("game.chronology.user_order.correct_title")
-              : getTranslation("game.chronology.user_order.incorrect_title")
-          }
-        `;
-        userOrderSection.appendChild(userHeading);
-
-        const userOrderList = document.createElement("div");
-        userOrderList.className = "flex flex-col gap-3";
-        userOrderList.setAttribute("role", "list");
-
-        userOrder.forEach((item, _index) => {
-          const listItem = document.createElement("div");
-          listItem.setAttribute("role", "listitem");
-          listItem.className = `flex items-center gap-4 p-3 rounded-lg ${
-            item.isCorrectPosition
-              ? "bg-slate-800/80 border border-emerald-500/50"
-              : "bg-slate-800/80 border border-red-500/50"
-          }`;
-          listItem.innerHTML = `
-            <span class="flex-shrink-0 w-8 h-8 rounded-full text-white text-sm font-bold flex items-center justify-center shadow-md ${
-              item.isCorrectPosition ? "bg-emerald-500" : "bg-red-500"
-            }">${item.position}</span>
-            <span class="flex-1 text-white font-medium">
-              ${item.artist} - ${item.title} (${item.year})
-            </span>
-            <span class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white font-bold ${
-              item.isCorrectPosition ? "bg-emerald-400" : "bg-red-400"
-            }">
-              ${item.isCorrectPosition ? "✓" : "✗"}
-            </span>
-          `;
-          userOrderList.appendChild(listItem);
-        });
-
-        userOrderSection.appendChild(userOrderList);
-        feedbackContent.appendChild(userOrderSection);
-      }
-    }
-
-    /**
-     * Gets focusable elements for keyboard navigation
-     * @param {Element} container - Container to search within
-     * @returns {HTMLElement[]} Array of focusable elements
-     * @accessibility Identifies keyboard-navigable elements, filters hidden/disabled
-     * @performance Efficient querySelector and filtering
-     */
-    function getFocusableElements(container: Element): HTMLElement[] {
-      const selector = [
-        "button:not([disabled])",
-        "[href]:not([disabled])",
-        "input:not([disabled])",
-        "select:not([disabled])",
-        "textarea:not([disabled])",
-        '[tabindex]:not([tabindex="-1"])',
-      ].join(", ");
-
-      return Array.from(container.querySelectorAll(selector)).filter((el): el is HTMLElement => {
-        if (!(el instanceof HTMLElement)) {
-          return false;
-        }
-
-        // Check visibility and accessibility
-        const style = window.getComputedStyle(el);
-        const rect = el.getBoundingClientRect();
-
-        return (
-          style.display !== "none" &&
-          style.visibility !== "hidden" &&
-          style.opacity !== "0" &&
-          rect.width > 0 &&
-          rect.height > 0 &&
-          el.getAttribute("aria-hidden") !== "true"
-        );
-      });
-    }
-
-    /**
-     * Sets up focus trap for keyboard navigation
-     * @param {Element} element - Modal container for focus trapping
-     * @accessibility Implements Tab cycling, supports forward/backward navigation
-     * @wcag Meets WCAG AAA focus management requirements
-     */
-    function setupFocusTrap(element) {
-      element.addEventListener("keydown", (e: Event) => {
-        const keyboardEvent = e;
-
-        // Only trap focus when modal is visible
-        if (
-          elements.overlay.classList.contains("hidden") ||
-          elements.overlay.getAttribute("aria-hidden") === "true"
-        ) {
-          return;
-        }
-
-        if (keyboardEvent.key !== "Tab") {
-          return;
-        }
-
-        const focusableElements = getFocusableElements(element);
-        if (focusableElements.length === 0) {
-          return;
-        }
-
-        const firstElement = focusableElements[0];
-        const lastElement = focusableElements[focusableElements.length - 1];
-
-        if (keyboardEvent.shiftKey && document.activeElement === firstElement) {
-          keyboardEvent.preventDefault();
-          lastElement.focus();
-        } else if (!keyboardEvent.shiftKey && document.activeElement === lastElement) {
-          keyboardEvent.preventDefault();
-          firstElement.focus();
-        }
-      });
-    }
-
-    /**
-     * Handles keyboard navigation (Escape key closes modal)
-     * @param {KeyboardEvent} e - Keyboard event object
-     * @accessibility Provides keyboard escape mechanism (WCAG AAA required)
-     * @performance Efficient event delegation pattern
-     */
-    function handleKeydown(e) {
-      if (e.key === "Escape" && !elements.overlay.classList.contains("hidden")) {
-        e.preventDefault();
-        hideOverlay();
-      }
-    }
-
-    /**
-     * Shows feedback overlay with game results
-     * @param {CustomEvent} e - Custom event with feedback details
-     * @accessibility Shows overlay with focus management, updates screen readers
-     * @performance Efficient batch DOM updates with cached elements
-     * @wcag Meets WCAG AAA feedback and navigation requirements
-     */
-    function handleShowFeedback(e) {
-      const detail = e.detail;
-
-      showOverlay();
-      updateFeedbackContent(detail);
-
-      // Manage button visibility with proper accessibility
-      if (detail.isLastRound) {
-        elements.endButton.classList.remove("hidden");
-        elements.endButton.removeAttribute("aria-hidden");
-      } else {
-        elements.endButton.classList.add("hidden");
-        elements.endButton.setAttribute("aria-hidden", "true");
-      }
-
-      // Screen reader announcement for immediate feedback
-      if (elements.statusAnnouncer) {
-        elements.statusAnnouncer.textContent = detail.isCorrect
-          ? getTranslation("game.chronology.correct")
-          : getTranslation("game.chronology.incorrect");
-      }
-    }
-
-    /**
-     * Handles continue button click
-     * @accessibility Hides overlay with focus restoration, maintains keyboard flow
-     * @performance Efficient event dispatching
-     * @wcag Meets WCAG AAA user control requirements
-     */
-    function handleContinue() {
-      hideOverlay();
-      window.dispatchEvent(new CustomEvent("chronologyContinue"));
-    }
-
-    /**
-     * Handles end game button click
-     * @accessibility Hides overlay with focus restoration, maintains keyboard flow
-     * @performance Efficient event dispatching
-     * @wcag Meets WCAG AAA user control requirements
-     */
-    function handleEnd() {
-      hideOverlay();
-      window.dispatchEvent(new CustomEvent("chronologyEnd"));
-    }
-
-    /**
-     * Throttled resize handler for performance optimization
-     */
-    const handleResize = () => {
-      if (state.resizeTimeout) {
-        clearTimeout(state.resizeTimeout);
-      }
-
-      state.resizeTimeout = window.setTimeout(() => {
-        state.cachedViewport = {
-          width: window.innerWidth,
-          height: window.innerHeight,
-        };
-
-        // Update reduced motion preference
-        state.prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      }, 100);
-    };
-
-    /**
-     * Sets up all event listeners for the overlay
-     * @accessibility Configures keyboard navigation, focus trap, modal controls
-     * @performance Efficient event delegation with cached element references
-     * @features Modal controls, keyboard navigation
-     * @wcag Meets WCAG AAA keyboard navigation and user control requirements
-     */
-    function setupEventListeners() {
-      if (!elements) {
-        return;
-      }
-
-      // Modal control events with semantic action handlers
-      elements.closeButton.addEventListener("click", hideOverlay);
-      elements.backdrop.addEventListener("click", hideOverlay);
-      elements.continueButton.addEventListener("click", handleContinue);
-      elements.endButton.addEventListener("click", handleEnd);
-
-      // Global keyboard navigation events
-      document.addEventListener("keydown", handleKeydown);
-      window.addEventListener("showChronologyFeedback", handleShowFeedback);
-
-      // Performance optimization events
-      window.addEventListener("resize", handleResize, { passive: true });
-
-      // Focus trap setup for accessibility compliance
-      setupFocusTrap(elements.overlay);
-    }
-
-    /**
-     * Cleanup function to remove listeners and clear timeouts
-     * @accessibility Removes accessibility listeners, clears focus state
-     * @performance Cancels animations, stops session monitoring, prevents memory leaks
-     * @usage Called on page unload or component destruction
-     * @wcag Ensures proper cleanup for assistive technology compatibility
-     */
-    const cleanup = () => {
-      // Clear any pending animations or timeouts to prevent memory leaks
-      if (state.animation.frameId) {
-        cancelAnimationFrame(state.animation.frameId);
-        state.animation.frameId = null;
-      }
-      if (state.animation.timeoutId) {
-        clearTimeout(state.animation.timeoutId);
-        state.animation.timeoutId = null;
-      }
-      if (state.resizeTimeout) {
-        clearTimeout(state.resizeTimeout);
-        state.resizeTimeout = null;
-      }
-
-      // Remove event listeners - all elements are guaranteed to exist in this scope
-      if (elements) {
-        elements.closeButton.removeEventListener("click", hideOverlay);
-        elements.backdrop.removeEventListener("click", hideOverlay);
-        elements.continueButton.removeEventListener("click", handleContinue);
-        elements.endButton.removeEventListener("click", handleEnd);
-      }
-      document.removeEventListener("keydown", handleKeydown);
-      window.removeEventListener("showChronologyFeedback", handleShowFeedback);
-      window.removeEventListener("resize", handleResize);
-
-      // Reset component state for potential reuse
-      state.previouslyFocused = null;
-      state.isAnimating = false;
-    };
-
-    // Initialize event listeners and component state
-    setupEventListeners();
-
-    // Cleanup on page unload to prevent memory leaks and maintain performance
-    window.addEventListener("beforeunload", cleanup);
-    window.addEventListener("pagehide", cleanup);
-
-    // Return cleanup function for manual cleanup if needed
-    return cleanup;
-  }
-
-  /**
-   * Initialize overlay when DOM is ready
-   * @performance Efficient DOM ready detection
-   * @accessibility Sets up accessibility features before user interaction
-   */
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initFeedbackOverlay);
-  } else {
-    initFeedbackOverlay();
-  }
+  // The overlay will be initialized by the chronology game engine when needed
+  // No automatic initialization here to avoid conflicts
 </script>

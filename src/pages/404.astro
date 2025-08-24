@@ -18,19 +18,19 @@ const description =
 ---
 
 <Layout {title} {description} type="website" showHeader={true} showHeaderIcons={true}>
-  <main class="min-h-screen bg-slate-50 py-16 dark:bg-slate-900 flex items-center">
+  <main class="flex min-h-screen items-center bg-slate-50 py-16 dark:bg-slate-900">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div
-        class="text-center bg-white rounded-xl p-12 shadow-lg dark:bg-slate-800 dark:shadow-xl border border-slate-200 dark:border-slate-700"
+        class="rounded-xl border border-slate-200 bg-white p-12 text-center shadow-lg dark:border-slate-700 dark:bg-slate-800 dark:shadow-xl"
       >
-        <div class="mb-16 relative">
+        <div class="relative mb-16">
           <Icon
             name="x-circle"
-            class="w-24 h-24 text-blue-400 mb-6 opacity-70 mx-auto"
+            class="mx-auto mb-6 h-24 w-24 text-blue-400 opacity-70"
             aria-hidden="true"
           />
           <div
-            class="text-8xl md:text-10xl font-bold text-blue-500 leading-none text-shadow-lg mb-4"
+            class="md:text-10xl mb-4 text-8xl leading-none font-bold text-blue-500 text-shadow-lg"
           >
             404
           </div>
@@ -39,63 +39,63 @@ const description =
         <div class="mb-16">
           <Headline level="h1" textSize="3xl" title="Page Not Found" />
           <Paragraph
-            className="text-lg text-slate-600 dark:text-slate-300 mb-4 text-center leading-relaxed"
+            className="mb-4 text-center text-lg leading-relaxed text-slate-600 dark:text-slate-300"
           >
             Oops! The page you're looking for doesn't exist. It might have been moved, deleted, or
             you entered the wrong URL.
           </Paragraph>
           <Paragraph
-            className="text-base text-slate-500 dark:text-slate-400 text-center leading-relaxed"
+            className="text-center text-base leading-relaxed text-slate-500 dark:text-slate-400"
           >
             Don't worry though, there's plenty of music to discover! Try one of the options below to
             get back on track.
           </Paragraph>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        <div class="mb-16 flex flex-col justify-center gap-4 sm:flex-row">
           <a
             href="/"
-            class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-700 hover:border-blue-700 transform hover:-translate-y-0.5 transition-all duration-200"
+            class="inline-flex transform items-center justify-center gap-3 rounded-lg border-2 border-blue-600 bg-blue-600 px-6 py-3 font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-700 hover:bg-blue-700"
           >
-            <Icon name="home" class="w-5 h-5" aria-hidden="true" />
+            <Icon name="home" class="h-5 w-5" aria-hidden="true" />
             Go to Homepage
           </a>
           <button
-            onclick="window.history.back()"
-            class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-transparent text-slate-700 dark:text-slate-200 font-semibold rounded-lg border-2 border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-700 hover:border-slate-400 dark:hover:border-slate-500 transform hover:-translate-y-0.5 transition-all duration-200"
+            id="go-back-button"
+            class="inline-flex transform items-center justify-center gap-3 rounded-lg border-2 border-slate-300 bg-transparent px-6 py-3 font-semibold text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:border-slate-500 dark:hover:bg-slate-700"
           >
-            <Icon name="arrow-left" class="w-5 h-5" aria-hidden="true" />
+            <Icon name="arrow-left" class="h-5 w-5" aria-hidden="true" />
             Go Back
           </button>
         </div>
 
-        <div class="mt-16 pt-8 border-t border-slate-200 dark:border-slate-700">
+        <div class="mt-16 border-t border-slate-200 pt-8 dark:border-slate-700">
           <Headline level="h2" textSize="xl" title="What would you like to do?" />
-          <ul class="grid gap-4 mt-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <li>
               <a
                 href="/playlists"
-                class="flex items-center gap-3 p-4 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 no-underline transition-all duration-200 border border-slate-200 dark:border-slate-600 hover:bg-slate-200 dark:hover:bg-slate-600 hover:border-blue-400 dark:hover:border-blue-400 transform hover:-translate-y-0.5"
+                class="flex transform items-center gap-3 rounded-lg border border-slate-200 bg-slate-100 p-4 text-slate-700 no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200 dark:hover:border-blue-400 dark:hover:bg-slate-600"
               >
-                <Icon name="music" class="w-6 h-6 text-blue-400" aria-hidden="true" />
+                <Icon name="music" class="h-6 w-6 text-blue-400" aria-hidden="true" />
                 Explore Music Playlists
               </a>
             </li>
             <li>
               <a
                 href="/gamehome"
-                class="flex items-center gap-3 p-4 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 no-underline transition-all duration-200 border border-slate-200 dark:border-slate-600 hover:bg-slate-200 dark:hover:bg-slate-600 hover:border-blue-400 dark:hover:border-blue-400 transform hover:-translate-y-0.5"
+                class="flex transform items-center gap-3 rounded-lg border border-slate-200 bg-slate-100 p-4 text-slate-700 no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200 dark:hover:border-blue-400 dark:hover:bg-slate-600"
               >
-                <Icon name="gamepad" class="w-6 h-6 text-blue-400" aria-hidden="true" />
+                <Icon name="gamepad" class="h-6 w-6 text-blue-400" aria-hidden="true" />
                 Start a Music Quiz
               </a>
             </li>
             <li>
               <a
                 href="/highscores"
-                class="flex items-center gap-3 p-4 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 no-underline transition-all duration-200 border border-slate-200 dark:border-slate-600 hover:bg-slate-200 dark:hover:bg-slate-600 hover:border-blue-400 dark:hover:border-blue-400 transform hover:-translate-y-0.5"
+                class="flex transform items-center gap-3 rounded-lg border border-slate-200 bg-slate-100 p-4 text-slate-700 no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200 dark:hover:border-blue-400 dark:hover:bg-slate-600"
               >
-                <Icon name="trophy" class="w-6 h-6 text-blue-400" aria-hidden="true" />
+                <Icon name="trophy" class="h-6 w-6 text-blue-400" aria-hidden="true" />
                 View High Scores
               </a>
             </li>
@@ -105,3 +105,15 @@ const description =
     </div>
   </main>
 </Layout>
+
+<script>
+  // Handle go back button click
+  document.addEventListener("DOMContentLoaded", () => {
+    const goBackButton = document.getElementById("go-back-button");
+    if (goBackButton) {
+      goBackButton.addEventListener("click", () => {
+        window.history.back();
+      });
+    }
+  });
+</script>

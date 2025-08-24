@@ -146,7 +146,6 @@ export class JokerUtils {
       document.dispatchEvent(jokerEvent);
       this.announceJokerUsage();
     } catch (error) {
-      console.warn("Error dispatching jokerUsed event:", error);
     }
   }
 

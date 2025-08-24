@@ -97,7 +97,6 @@ export interface EndGameUI {
  * @returns {Promise<string>} - Der Spielmodus (quiz oder chronology)
  */
 async function saveGameResult(config: EndGameConfig): Promise<string> {
-  console.log("Game results would be saved here (functionality removed):", config);
   // Bestimme den Spielmodus basierend auf dem URL-Pfad als Fallback
   return window.location.pathname.includes("/game-") ? "quiz" : "chronology";
 }
@@ -339,7 +338,6 @@ async function waitForDataValidation(_config: EndGameConfig): Promise<void> {
 
       // Timeout protection
       if (elapsed > maxWaitTime) {
-        console.warn("Data validation timeout reached, proceeding anyway");
         updateLoadingText(texts.finalizing);
         // Force resolve after timeout
         setTimeout(() => resolve(), 300);
@@ -405,7 +403,6 @@ async function waitForDataValidation(_config: EndGameConfig): Promise<void> {
           const result = check();
           return { index, result };
         } catch (error) {
-          console.warn(`Validation check ${index} failed:`, error);
           return { index, result: false };
         }
       });
@@ -459,7 +456,6 @@ function hideEndGameLoading(): void {
       }, 300);
     } catch (error) {
       // Fallback: immediate removal
-      console.warn("Animation failed, removing immediately:", error);
       loadingOverlay.remove();
     }
   } else {
@@ -494,7 +490,6 @@ export async function handleEndGame(
     try {
       await waitForDataValidation(config);
     } catch (error) {
-      console.warn("Data validation failed, proceeding anyway:", error);
     }
 
     // Hide loading state
@@ -510,7 +505,6 @@ export async function handleEndGame(
     setTimeout(() => {
       const loadingOverlay = safeGetElementById<HTMLElement>("endgame-loading-overlay");
       if (loadingOverlay) {
-        console.warn("Force removing stuck loading overlay");
         loadingOverlay.remove();
       }
     }, 2000);
@@ -527,7 +521,6 @@ export async function handleEndGame(
     setTimeout(() => {
       const loadingOverlay = safeGetElementById<HTMLElement>("endgame-loading-overlay");
       if (loadingOverlay) {
-        console.warn("Force removing loading overlay due to error");
         loadingOverlay.remove();
       }
     }, 100);

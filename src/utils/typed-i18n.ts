@@ -52,48 +52,22 @@ type ProfileTranslationKey =
  * Game-related translation keys
  */
 type GameTranslationKey =
-  | "game.difficulty.easy"
-  | "game.difficulty.medium"
-  | "game.difficulty.hard"
+  | "game.start.title"
+  | "game.start.description"
   | "game.score.result"
-  | "game.score.newHighScore"
-  | "game.score.total"
-  | "game.quiz.correct"
-  | "game.quiz.incorrect"
-  | "game.quiz.timeBonus"
-  | "game.chronology.correct"
-  | "game.chronology.incorrect"
-  | "game.joker.used"
-  | "game.joker.remaining"
-  | "game.feedback.audio.failed"
-  | "game.feedback.audio.paused"
-  | "game.feedback.next.starting"
+  | "game.score.bonus"
+  | "game.round.current"
+  | "game.round.total"
+  | "game.end.title"
+  | "game.end.description"
+  | "game.end.motivation.excellent"
+  | "game.end.motivation.good"
+  | "game.end.motivation.average"
+  | "game.end.motivation.beginner"
   | "game.end.defaultMotivation"
-  | "game.end.announcement.gameOver"
-  | "game.end.level.genius"
-  | "game.end.level.pro"
-  | "game.end.level.enthusiast"
-  | "game.end.level.lover"
-  | "game.end.level.explorer"
-  | "game.end.motivation.genius"
-  | "game.end.motivation.pro"
-  | "game.end.motivation.enthusiast"
-  | "game.end.motivation.lover"
-  | "game.end.motivation.explorer"
+  | "game.end.shareTemplate"
+  | "game.end.shareResults"
   | `game.${string}`;
-
-/**
- * Achievement-related translation keys
- */
-type AchievementTranslationKey =
-  | "achievements.badge.new"
-  | "achievements.badge.count"
-  | "achievements.unlock.first"
-  | "achievements.unlock.perfectScore"
-  | "achievements.unlock.speedDemon"
-  | "achievements.unlock.explorer"
-  | "achievements.unlock.veteran"
-  | `achievements.${string}`;
 
 /**
  * Share-related translation keys
@@ -239,7 +213,6 @@ export type TranslationKey =
   | AuthTranslationKey
   | ProfileTranslationKey
   | GameTranslationKey
-  | AchievementTranslationKey
   | ShareTranslationKey
   | KnowledgeTranslationKey
   | HighscoresTranslationKey
@@ -252,27 +225,25 @@ export type TranslationParams<K extends TranslationKey> = K extends "game.score.
   ? { points: number; total: number }
   : K extends "game.score.newHighScore"
     ? { score: number }
-    : K extends "achievements.badge.count"
-      ? { count: number }
-      : K extends "auth.resetPassword.emailSent"
-        ? { email: string }
-        : K extends "game.joker.remaining"
-          ? { count: number }
-          : K extends "game.end.announcement.gameOver"
-            ? { score: number; level: string }
-            : K extends "profile.edit.success"
-              ? { username?: string }
-              : K extends "share.accessibility.platform_share_failed"
-                ? { platform: string; errorMessage: string; recoveryMessage: string }
-                : K extends "share.accessibility.native_share_failed"
-                  ? { errorMessage: string; recoveryMessage: string }
-                  : K extends "share.accessibility.platform_opened"
-                    ? { platform: string }
-                    : K extends "highscores.scoreEntry"
-                      ? { rank: number; username: string }
-                      : K extends "playlist.grid.heading"
-                        ? { count: number }
-                        : Record<string, never>;
+    : K extends "auth.resetPassword.emailSent"
+      ? { email: string }
+      : K extends "game.joker.remaining"
+        ? { count: number }
+        : K extends "game.end.announcement.gameOver"
+          ? { score: number; level: string }
+          : K extends "profile.edit.success"
+            ? { username?: string }
+            : K extends "share.accessibility.platform_share_failed"
+              ? { platform: string; errorMessage: string; recoveryMessage: string }
+              : K extends "share.accessibility.native_share_failed"
+                ? { errorMessage: string; recoveryMessage: string }
+                : K extends "share.accessibility.platform_opened"
+                  ? { platform: string }
+                  : K extends "highscores.scoreEntry"
+                    ? { rank: number; username: string }
+                    : K extends "playlist.grid.heading"
+                      ? { count: number }
+                      : Record<string, never>;
 
 /**
  * Type-safe translation function
@@ -291,7 +262,6 @@ export type TranslationParams<K extends TranslationKey> = K extends "game.score.
  * const scoreText = t("game.score.result", { points: 450, total: 500 });
  *
  * // TypeScript will error on incorrect parameters
- * // This would cause a compile error:
  * // t("game.score.result", { incorrectParam: "value" });
  */
 export function useTypedTranslations(lang: string) {
