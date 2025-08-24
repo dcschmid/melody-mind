@@ -178,19 +178,8 @@ function addKeyboardShortcutHints(lang: string): void {
       const currentLabel = button.getAttribute("aria-label") || button.textContent || "";
       button.setAttribute("aria-label", `${currentLabel} - ${shortcutNumber}`);
 
-      // Check if button already has a number indicator (game-option-button__number)
-      const existingNumberSpan = button.querySelector(".game-option-button__number");
-
-      // Only add keyboard shortcut hint if no number indicator exists
-      if (!existingNumberSpan && !button.querySelector(".keyboard-shortcut-hint")) {
-        const shortcutIndicator = document.createElement("span");
-        shortcutIndicator.classList.add("keyboard-shortcut-hint");
-        shortcutIndicator.setAttribute("aria-hidden", "true");
-        shortcutIndicator.textContent = shortcutNumber.toString();
-
-        // Add shortcut indicator before button text
-        button.prepend(shortcutIndicator);
-      }
+      // Don't add visual shortcut indicators since numbers are already displayed in the styled buttons
+      // The aria-label already contains the shortcut information for screen readers
     });
   }, 500); // Short delay to ensure options are loaded
 }
