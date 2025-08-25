@@ -489,8 +489,7 @@ export async function handleEndGame(
     // Wait for all data to be properly set and validated
     try {
       await waitForDataValidation(config);
-    } catch (error) {
-    }
+    } catch (error) {}
 
     // Hide loading state
     hideEndGameLoading();

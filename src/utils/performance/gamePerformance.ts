@@ -1,4 +1,3 @@
-
 /**
  * Simple Performance Utilities
  * Replaces the over-engineered class-based approach

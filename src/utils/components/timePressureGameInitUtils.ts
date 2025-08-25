@@ -15,7 +15,6 @@ declare global {
  */
 export const initTimePressureGame = async (): Promise<void> => {
   try {
-
     const gameContainer = safeGetElementById<HTMLElement>("game-container");
     const loadingContainer = safeGetElementById<HTMLElement>("loading-container");
     const gameUI = safeGetElementById<HTMLElement>("game-ui");
@@ -31,11 +30,13 @@ export const initTimePressureGame = async (): Promise<void> => {
     }
 
     // Extract category and language from URL
-    const { lang, category: categoryPart } = parseGameRoute() || { lang: "en", category: "unknown" };
+    const { lang, category: categoryPart } = parseGameRoute() || {
+      lang: "en",
+      category: "unknown",
+    };
     const category = categoryPart.startsWith("time-pressure-")
       ? categoryPart.replace("time-pressure-", "")
       : categoryPart;
-
 
     // Initialize Time Pressure Game with lang, category, and pathname
     const gameEngine = new TimePressureGameEngine({
@@ -50,7 +51,6 @@ export const initTimePressureGame = async (): Promise<void> => {
 
     // Store reference globally for cleanup if needed
     window.timePressureGameEngine = gameEngine;
-
   } catch (err: unknown) {
     const loadingContainer = safeGetElementById<HTMLElement>("loading-container");
     if (loadingContainer) {
@@ -70,6 +70,5 @@ export const initTimePressureGameAuto = (): void => {
   try {
     // Initialize when DOM is ready
     onDOMReady(initTimePressureGame);
-  } catch (error) {
-  }
+  } catch (error) {}
 };

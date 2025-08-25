@@ -11,7 +11,7 @@
  *
  * @module MelodyMindGameEngine
  */
-import type { Album } from "../../types/game";
+import type { Album, Question } from "../../types/game";
 import { initKeyboardShortcuts } from "../accessibility/keyboardShortcuts";
 import { startSpeedBonusTimer, clearSpeedBonusTimers } from "../accessibility/timerAnnouncer";
 import { stopAudio } from "../audio/audioControls";
@@ -22,13 +22,17 @@ import { getLangFromUrl, useTranslations } from "../i18n";
 
 import { loadAlbumsWithFallback } from "./albumLoader";
 import { handleEndGame, restartGame } from "./endGameUtils";
+import { updateCoinsDisplay, showEndgamePopup } from "./gameUI";
 import { getRandomQuestion } from "./getRandomQuestion";
-import type { Question } from "./getRandomQuestion";
+import type { RQAlbum, RQQuestion } from "./getRandomQuestion";
 import { handleAnswer } from "./handleAnswerUtils";
 import { JokerManager } from "./jokerManager";
 import { Difficulty } from "./jokerUtils";
 import { loadQuestion } from "./loadQuestionUtils";
 import { initializeMediaElements } from "./mediaUtils";
+
+// Global window augmentations are provided by the endOverlay module.
+// Avoid duplicating global interface declarations here to keep this file focused.
 
 /**
  * Configuration constants for number of rounds based on difficulty level
@@ -47,18 +51,18 @@ const ROUNDS_PER_DIFFICULTY = {
  * @interface GameElements
  */
 interface GameElements {
-  score: HTMLParagraphElement;
-  round: HTMLParagraphElement;
-  feedback: HTMLParagraphElement;
-  question: HTMLParagraphElement;
-  options: HTMLDivElement;
-  container: HTMLDivElement;
-  overlay: HTMLDivElement;
-  jokerButton: HTMLButtonElement;
-  jokerCounter: HTMLElement;
-  nextRoundButton: HTMLButtonElement;
-  restartButton: HTMLButtonElement;
-  loadingSpinner: HTMLElement;
+  score: HTMLParagraphElement | null;
+  round: HTMLParagraphElement | null;
+  feedback: HTMLParagraphElement | null;
+  question: HTMLParagraphElement | null;
+  options: HTMLDivElement | null;
+  container: HTMLDivElement | null;
+  overlay: HTMLDivElement | null;
+  jokerButton: HTMLButtonElement | null;
+  jokerCounter: HTMLElement | null;
+  nextRoundButton: HTMLButtonElement | null;
+  restartButton: HTMLButtonElement | null;
+  loadingSpinner: HTMLElement | null;
 }
 
 /**
@@ -113,7 +117,7 @@ function cacheElements(): GameElements {
  * @async
  * @param {GameElements} elements - Cached DOM elements required for the game
  */
-const initializeGame = async (elements: GameElements) => {
+const initializeGame = async (elements: GameElements): Promise<void> => {
   // QueueManager functionality removed - no longer needed
 
   if (!elements.container) {
@@ -136,10 +140,6 @@ const initializeGame = async (elements: GameElements) => {
   let currentRound = 1;
   let totalScore = 0;
   let correctAnswers = 0;
-  let incorrectAnswers = 0;
-  const startTime = Date.now();
-  const currentQuestion: Question | null = null;
-  const currentAlbum: Album | null = null;
   let jokerManager: JokerManager | null = null;
   const totalRounds =
     ROUNDS_PER_DIFFICULTY[validateDifficulty(difficulty)] ?? ROUNDS_PER_DIFFICULTY.easy;
@@ -149,12 +149,9 @@ const initializeGame = async (elements: GameElements) => {
     elements.round.textContent = `${currentRound}/${totalRounds}`;
   }
 
-  // Debug logging for round tracking
+  // Debug logging for round tracking (development-only)
   if (import.meta.env?.DEV) {
-    console.log("Game initialized with:", {
-      currentRound,
-      totalRounds,
-    });
+    // development debug info omitted to keep lint clean
   }
 
   /**
@@ -165,13 +162,13 @@ const initializeGame = async (elements: GameElements) => {
    */
   let albums: Album[] | null = null;
 
-  // Get current language based on URL
-  const lang = getLangFromUrl(new URL(window.location.pathname, window.location.origin));
-  const t = useTranslations(lang);
+  // Get current language based on URL (ensure a string is passed to translations)
+  const lang = String(getLangFromUrl(new URL(window.location.pathname, window.location.origin)));
+  const t = useTranslations(String(lang));
 
   try {
     // Use the centralized album loader utility
-    albums = await loadAlbumsWithFallback(category, String(lang));
+    albums = await loadAlbumsWithFallback(String(category), String(lang));
 
     if (!albums?.length) {
       throw new Error(t("error.no.albums.found"));
@@ -213,30 +210,8 @@ const initializeGame = async (elements: GameElements) => {
    *
    * @param {number} newScore - The new score to display
    */
-  function updateCoinsDisplay(newScore: number) {
-    // Use requestAnimationFrame for smoother UI updates
-    requestAnimationFrame(() => {
-      const coinsDisplay = document.getElementById("coins-display");
-      if (coinsDisplay) {
-        // Apply animation class for visual feedback
-        coinsDisplay.classList.add("coins-updated");
-        coinsDisplay.textContent = newScore.toString();
-
-        // Announce score change for screen readers
-        const announcement = document.createElement("div");
-        announcement.setAttribute("aria-live", "assertive");
-        announcement.classList.add("sr-only");
-        announcement.textContent = `New score: ${newScore} points`;
-        document.body.appendChild(announcement);
-
-        // Remove animation class and announcement after they complete
-        setTimeout(() => {
-          coinsDisplay.classList.remove("coins-updated");
-          announcement.remove();
-        }, 1500);
-      }
-    });
-  }
+  // The `updateCoinsDisplay` implementation has been moved to `src/utils/game/gameUI.ts`.
+  // The function is imported at module level and used directly; no local implementation needed here.
 
   /**
    * Handles the player's answer, updates score, and manages game progression
@@ -250,14 +225,19 @@ const initializeGame = async (elements: GameElements) => {
   function handleAnswerWrapper(
     option: string,
     correctAnswer: string,
-    currentQuestion: { trivia: string },
-    album: { coverSrc: string; artist: string; album: string; year: string }
-  ) {
+    currentQuestion: Question,
+    album: Album
+  ): void {
     // Save start time for achievement tracking and validate
-    const answerTime = Date.now() - (window.questionStartTime || Date.now());
+    const _w = window as unknown as {
+      questionStartTime?: number;
+      lastAnswerTime?: number;
+      lastAnswerCorrect?: boolean;
+    };
+    const answerTime = Date.now() - (_w.questionStartTime ?? Date.now());
     // Ensure time is positive and realistic (max 60 seconds)
-    window.lastAnswerTime = Math.min(Math.max(0, answerTime), 60000);
-    window.lastAnswerCorrect = option === correctAnswer;
+    _w.lastAnswerTime = Math.min(Math.max(0, answerTime), 60000);
+    _w.lastAnswerCorrect = option === correctAnswer;
 
     // Clear speed bonus timer announcements once an answer is selected
     clearSpeedBonusTimers();
@@ -269,16 +249,16 @@ const initializeGame = async (elements: GameElements) => {
       currentQuestion,
       album,
       elements: {
-        feedbackElement: elements.feedback,
-        scoreElement: elements.score,
-        overlay: elements.overlay,
+        feedbackElement: elements.feedback!,
+        scoreElement: elements.score!,
+        overlay: elements.overlay!,
         mediaElements: mediaElements || undefined,
       },
       state: {
         score: totalScore,
         roundIndex: currentRound, // Pass current round (not 0-based)
         totalRounds: totalRounds,
-        roundElement: elements.round,
+        roundElement: elements.round!,
       },
     });
 
@@ -286,55 +266,75 @@ const initializeGame = async (elements: GameElements) => {
     if (option === correctAnswer) {
       correctAnswers++;
       updateCoinsDisplay(totalScore);
-    } else {
-      incorrectAnswers++;
     }
 
     /**
      * Setup handler for the next round button
      * Controls game flow between questions and at game end
      */
-    elements.nextRoundButton.onclick = function () {
-      stopAudio();
-      elements.overlay.classList.add("hidden");
+    if (elements.nextRoundButton) {
+      elements.nextRoundButton.onclick = function () {
+        stopAudio();
+        // Use optional chaining in case overlay is null
+        elements.overlay?.classList.add("hidden");
 
-      // Increment round only when moving to next question
-      if (currentRound < totalRounds) {
-        currentRound++;
+        // Increment round only when moving to next question
+        if (currentRound < totalRounds) {
+          currentRound++;
 
-        // Update round display directly from currentRound
-        if (elements.round) {
-          elements.round.textContent = `${currentRound}/${totalRounds}`;
-        }
-
-        // Ensure albums is an array before calling getRandomQuestion
-        const safeAlbums = Array.isArray(albums) ? albums : [];
-
-        const newQuestion = getRandomQuestion(
-          safeAlbums,
-          validateDifficulty(difficulty),
-          totalRounds
-        );
-
-        if (newQuestion) {
-          loadNewQuestion(newQuestion.randomQuestion, newQuestion.randomAlbum);
-
-          if (elements.feedback) {
-            elements.feedback.textContent = "";
+          // Update round display directly from currentRound
+          if (elements.round) {
+            elements.round.textContent = `${currentRound}/${totalRounds}`;
           }
+
+          // Ensure albums is an array and normalize shape for getRandomQuestion
+          const safeAlbumsForRandom: RQAlbum[] = (Array.isArray(albums) ? albums : []).map((a) => {
+            // Treat incoming album as a loose record and normalize question arrays safely.
+            const albumRec = a as unknown as Record<string, unknown>;
+            const qRec = (albumRec["questions"] as Record<string, unknown> | undefined) ?? {};
+            const safeQ = {
+              easy: Array.isArray(qRec["easy"])
+                ? (qRec["easy"] as unknown[]).map((it) => it as RQQuestion)
+                : [],
+              medium: Array.isArray(qRec["medium"])
+                ? (qRec["medium"] as unknown[]).map((it) => it as RQQuestion)
+                : [],
+              hard: Array.isArray(qRec["hard"])
+                ? (qRec["hard"] as unknown[]).map((it) => it as RQQuestion)
+                : [],
+            };
+            return {
+              ...a,
+              questions: safeQ,
+            } as RQAlbum;
+          });
+
+          const newQuestion = getRandomQuestion(
+            safeAlbumsForRandom,
+            validateDifficulty(difficulty),
+            totalRounds
+          );
+
+          if (newQuestion) {
+            loadNewQuestion(newQuestion.randomQuestion, newQuestion.randomAlbum);
+
+            if (elements.feedback) {
+              elements.feedback.textContent = "";
+            }
+          }
+        } else {
+          // End the game if all rounds are completed
+          endGame();
         }
-      } else {
-        // End the game if all rounds are completed
-        endGame();
-      }
-    };
+      };
+    }
   }
 
   /**
    * Handles the end of game, displays summary, and saves score
    * Triggers achievement checks and displays final results
    */
-  function endGame() {
+  function endGame(): void {
     const config = {
       userId: "", // Removed userId
       categoryName: categoryName || "",
@@ -355,32 +355,15 @@ const initializeGame = async (elements: GameElements) => {
       endOfSession: true, // End of game session for game_series
     };
 
-    const ui = {
+    const endUi = {
       showEndgamePopup: (score: number) => {
-        const popup = document.getElementById("endgame-popup");
-
-        if (popup) {
-          // Use the enhanced showEndOverlay function for animations and setup
-          if (
-            (globalThis as { showEndOverlay?: (score: number, maxScore?: number) => void })
-              .showEndOverlay
-          ) {
-            (globalThis as { showEndOverlay?: (score: number, maxScore?: number) => void })
-              .showEndOverlay!(score);
-          } else {
-            // Fallback to basic display if enhanced function not available
-            const scoreElement = popup.querySelector("#popup-score");
-            if (scoreElement) {
-              scoreElement.textContent = score.toString();
-            }
-          }
-          popup.setAttribute("data-score", score.toString());
-          popup.classList.remove("hidden");
-        }
+        // Delegate to the extracted helper which handles the advanced global overlay
+        // or the fallback DOM-based popup.
+        showEndgamePopup(score);
       },
     };
 
-    handleEndGame(config, ui, {
+    handleEndGame(config, endUi, {
       onError: (error) => {
         ErrorHandler.handleSaveError(error, "score", {
           userId: config.userId,
@@ -398,33 +381,43 @@ const initializeGame = async (elements: GameElements) => {
    * @param {object} question - The question object to display
    * @param {object} album - The album associated with the question
    */
-  function loadNewQuestion(question: Question, album: Album) {
+  function loadNewQuestion(question: Question, album: Album): void {
     if (!question || !question.options) {
       handleGameError(new Error(t("error.invalid.question")), "question validation");
       return;
     }
 
-    // Save start time for achievement tracking
-    window.questionStartTime = Date.now();
+    // Save start time for achievement tracking (use a narrow, safe cast)
+    (window as unknown as { questionStartTime?: number }).questionStartTime = Date.now();
 
     // Start speed bonus timer with announcements
     startSpeedBonusTimer(lang);
 
     jokerManager?.setCurrentQuestion(question);
 
+    // Normalize question shape to match `loadQuestionUtils.Question` (ensures `trivia` is present).
+    // Use the RQQuestion type for a clear contract and perform safe casts.
+    const qr = question as Partial<RQQuestion> & Record<string, unknown>;
+    const safeQuestion: RQQuestion = {
+      question: String(qr.question ?? ""),
+      options: Array.isArray(qr.options) ? (qr.options as string[]) : [],
+      correctAnswer: String(qr.correctAnswer ?? ""),
+      trivia: String(qr.trivia ?? ""),
+    };
+
     loadQuestion({
-      question,
+      question: safeQuestion,
       album,
       elements: {
-        questionContainer: elements.container,
-        spinner: elements.loadingSpinner,
-        questionElement: elements.question,
-        optionsContainer: elements.options,
+        questionContainer: elements.container!,
+        spinner: elements.loadingSpinner!,
+        questionElement: elements.question!,
+        optionsContainer: elements.options!,
       },
       handlers: {
         handleAnswer: handleAnswerWrapper,
       },
-      jokerState: jokerManager?.getCurrentJokerState(),
+      jokerState: jokerManager?.getCurrentJokerState() ?? { jokerUsed: false },
     });
   }
 
@@ -435,8 +428,27 @@ const initializeGame = async (elements: GameElements) => {
    * Load the first question to start the game
    * Initializes the game with the first random question
    */
-  // Ensure albums is an array before calling getRandomQuestion
-  const safeAlbums = Array.isArray(albums) ? albums : [];
+  // Ensure albums is an array and normalize shape for the random selector
+  const safeAlbums: RQAlbum[] = (Array.isArray(albums) ? albums : []).map((a) => {
+    // Treat incoming album as a loose record and normalize question arrays safely without `any`
+    const albumRec = a as unknown as Record<string, unknown>;
+    const qRec = (albumRec["questions"] as Record<string, unknown> | undefined) ?? {};
+    const safeQ = {
+      easy: Array.isArray(qRec["easy"])
+        ? (qRec["easy"] as unknown[]).map((it) => it as RQQuestion)
+        : [],
+      medium: Array.isArray(qRec["medium"])
+        ? (qRec["medium"] as unknown[]).map((it) => it as RQQuestion)
+        : [],
+      hard: Array.isArray(qRec["hard"])
+        ? (qRec["hard"] as unknown[]).map((it) => it as RQQuestion)
+        : [],
+    };
+    return {
+      ...a,
+      questions: safeQ,
+    } as RQAlbum;
+  });
 
   const initialQuestion = getRandomQuestion(
     safeAlbums,

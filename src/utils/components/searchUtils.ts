@@ -502,7 +502,9 @@ export class GenericSearchUtils {
     let score = 0;
 
     searchWords.forEach((word) => {
-      if (!word) {return;}
+      if (!word) {
+        return;
+      }
       score += this.scoreWordAgainstFields(word, fields);
     });
 
@@ -548,7 +550,9 @@ export class GenericSearchUtils {
 
     try {
       const root = document.body;
-      if (!root) {return;}
+      if (!root) {
+        return;
+      }
 
       this.observer = new MutationObserver((mutations) => {
         let shouldRefresh = false;

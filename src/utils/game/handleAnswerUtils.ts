@@ -2,6 +2,7 @@ import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 import { safeGetElementById } from "../dom/domUtils";
 
+import type { Question, Album } from "../../types/game";
 import { updateMedia, type MediaElements } from "./mediaUtils";
 import { updateScoreDisplay } from "./scoreUtils";
 
@@ -41,8 +42,8 @@ interface AlbumMedia {
 interface HandleAnswerConfig {
   option: string;
   correctAnswer: string;
-  currentQuestion: { trivia: string };
-  album: AlbumMedia;
+  currentQuestion: Question;
+  album: Album;
   elements: {
     feedbackElement: HTMLParagraphElement;
     scoreElement: HTMLParagraphElement;

@@ -21,9 +21,16 @@ const usedQuestions = new Set<string>();
 type Difficulty = "easy" | "medium" | "hard";
 
 /**
- * Interface for a question object with required properties
+ * Use centralized types from `src/types/game` to ensure consistent shapes across the codebase.
+ * These aliases keep the file compact while reusing the canonical type definitions.
  */
-export interface Question {
+/**
+ * Local question type used by the random-question generator.
+ * Exported as `RQQuestion` so other modules can import the canonical
+ * shape specifically used by this utility without coupling to the
+ * broader `src/types/game` shape.
+ */
+export interface RQQuestion {
   /** The question text that will be displayed to the user */
   question: string;
   /** Array of possible answer options */
@@ -37,9 +44,9 @@ export interface Question {
 }
 
 /**
- * Interface for an album object with required properties
+ * Local album type used by this module. Exported as `RQAlbum`.
  */
-export interface Album {
+export interface RQAlbum {
   /** Path to the album cover image */
   coverSrc: string;
   /** Name of the artist */
@@ -50,7 +57,7 @@ export interface Album {
   year: string;
   /** Questions categorized by difficulty level */
   questions: {
-    [key in Difficulty]: Question[];
+    [key in Difficulty]: RQQuestion[];
   };
   /** Any additional properties */
   [key: string]: unknown;
@@ -61,9 +68,9 @@ export interface Album {
  */
 interface RandomQuestionResult {
   /** The selected random question */
-  randomQuestion: Question;
+  randomQuestion: RQQuestion;
   /** The album associated with the question */
-  randomAlbum: Album;
+  randomAlbum: RQAlbum;
 }
 
 /**
@@ -90,7 +97,7 @@ interface RandomQuestionResult {
  * ```
  */
 export function getRandomQuestion(
-  albums: Album[],
+  albums: RQAlbum[],
   difficulty: Difficulty,
   totalRounds: number
 ): RandomQuestionResult | null {

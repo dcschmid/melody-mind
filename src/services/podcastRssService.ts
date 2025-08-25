@@ -13,6 +13,28 @@ import { handleGameError } from "../utils/error/errorHandlingUtils";
 
 import { useTranslations } from "../utils/i18n";
 
+const LANGUAGE_NAMES: Record<string, string> = {
+  de: "Deutsch",
+  en: "English",
+  es: "Español",
+  fr: "Français",
+  it: "Italiano",
+  pt: "Português",
+  da: "Dansk",
+  nl: "Nederlands",
+  sv: "Svenska",
+  fi: "Suomi",
+  cn: "中文",
+  ru: "Русский",
+  jp: "日本語",
+  uk: "Українська",
+};
+
+const CHANNEL_TITLE_BY_LANG: Record<string, string> = {
+  de: "Der Melody Mind Podcast",
+  en: "The Melody Mind Podcast",
+};
+
 /**
  * RSS podcast item interface
  */
@@ -92,29 +114,9 @@ export class PodcastRSSGenerator {
   private generateChannelMeta(lang: string): RSSChannelMeta {
     const t = useTranslations(lang);
 
-    const languageNames: Record<string, string> = {
-      de: "Deutsch",
-      en: "English",
-      es: "Español",
-      fr: "Français",
-      it: "Italiano",
-      pt: "Português",
-      da: "Dansk",
-      nl: "Nederlands",
-      sv: "Svenska",
-      fi: "Suomi",
-      cn: "中文",
-      ru: "Русский",
-      jp: "日本語",
-      uk: "Українська",
-    };
-
-    const languageName = languageNames[lang] || lang.toUpperCase();
-
-    const channelTitleByLang: Record<string, string> = {
-      de: "Der Melody Mind Podcast",
-      en: "The Melody Mind Podcast",
-    };
+    // Use module-level maps (keeps this function lean and makes maps reusable/testable)
+    const languageName = LANGUAGE_NAMES[lang] || lang.toUpperCase();
+    const channelTitleByLang = CHANNEL_TITLE_BY_LANG;
 
     return {
       title: channelTitleByLang[lang] || `MelodyMind Podcast - ${languageName}`,
@@ -172,7 +174,7 @@ export class PodcastRSSGenerator {
     const lastBuildDate = this.formatRFC822Date(new Date());
 
     return `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" 
+<rss version="2.0"
      xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
      xmlns:spotify="https://developers.spotify.com/documentation/podcasts"
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -189,10 +191,10 @@ export class PodcastRSSGenerator {
     <generator>MelodyMind RSS Generator v1.0.0</generator>
     <webMaster>${channelMeta.webMaster}</webMaster>
     <managingEditor>${channelMeta.managingEditor}</managingEditor>
-    
+
     <!-- Atom Self-Reference -->
     <atom:link href="${this.baseUrl}/${channelMeta.language}/podcasts/rss.xml" rel="self" type="application/rss+xml"/>
-    
+
     <!-- Channel Image -->
     <image>
       <url>${channelMeta.imageUrl}</url>
@@ -201,7 +203,7 @@ export class PodcastRSSGenerator {
       <width>1400</width>
       <height>1400</height>
     </image>
-    
+
     <!-- iTunes/Apple Podcasts -->
     <itunes:author>${channelMeta.author}</itunes:author>
     <itunes:summary>${channelMeta.description}</itunes:summary>
@@ -219,11 +221,11 @@ export class PodcastRSSGenerator {
     <!-- Podcast Standards Project (PSP-1) -->
     <podcast:guid>3f8d5b27-3f1e-4b62-9f0d-9b2c8d1a7c52</podcast:guid>
     <podcast:locked owner="${channelMeta.ownerEmail}">yes</podcast:locked>
-    
+
     <!-- Spotify -->
     <spotify:limit>50</spotify:limit>
     <spotify:countryOfOrigin>DE</spotify:countryOfOrigin>
-    
+
     <!-- Episodes -->
 ${items.map((item) => this.buildItemXML(item)).join("\n")}
   </channel>
@@ -255,10 +257,10 @@ ${items.map((item) => this.buildItemXML(item)).join("\n")}
       <guid isPermaLink="false">${item.guid}</guid>
       <pubDate>${item.pubDate}</pubDate>
       <enclosure url="${item.audioUrl}" type="audio/mpeg"${lengthAttr}/>
-      
+
       <!-- Categories -->
 ${item.categories.map((cat) => `      <category>${cat}</category>`).join("\n")}
-      
+
       <!-- iTunes -->
       <itunes:title>${item.title}</itunes:title>
       <itunes:summary>${item.description}</itunes:summary>

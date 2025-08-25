@@ -33,14 +33,14 @@ export interface Album {
   /** Optional link to Apple Music */
   apple_music_link?: string;
   /**
-   * Questions associated with this album, organized by categories
-   * The outer key represents the category, inner array contains questions
+   * Questions associated with this album, organized by difficulty level.
+   * Standardized to easy/medium/hard arrays so all game utilities share a
+   * consistent shape and avoid ad-hoc record lookups.
    */
   questions: {
-    [key: string]: {
-      [key: string]: unknown;
-      question: string;
-    }[];
+    easy: Question[];
+    medium: Question[];
+    hard: Question[];
   };
 }
 
@@ -69,12 +69,7 @@ export interface QuestionHandlers {
    * @param question The question object containing trivia information
    * @param album The album associated with the current question
    */
-  handleAnswer: (
-    option: string,
-    correctAnswer: string,
-    question: { trivia: string },
-    album: Album
-  ) => void;
+  handleAnswer: (option: string, correctAnswer: string, question: Question, album: Album) => void;
 
   /**
    * Optional method to update the state of the 50:50 joker
