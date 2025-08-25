@@ -56,9 +56,8 @@
 import { When } from "@astropub/flow";
 import { Head } from "astro-capo";
 
-// Primary accessible font: Atkinson Hyperlegible for improved readability
-import "@fontsource/atkinson-hyperlegible/400.css";
-import "@fontsource/atkinson-hyperlegible/700.css";
+// Primary accessible font: Atkinson Hyperlegible will be loaded from local files via @font-face
+// Removed @fontsource imports to avoid duplicate network/font loading — local files are served from /public/fonts
 
 import Navigation from "@components/Header/Navigation.astro";
 import SEO from "@components/SEO.astro";
@@ -235,11 +234,7 @@ const fontPreloads = [
 ];
 
 // DNS prefetching for external domains to reduce connection time and improve performance
-const dnsPrefetch = [
-  { href: "https://cdn.usefathom.com" },
-  { href: "https://fonts.googleapis.com" },
-  { href: "https://fonts.gstatic.com" },
-];
+const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 ---
 
 <!doctype html>
@@ -293,13 +288,16 @@ const dnsPrefetch = [
       ))
     }
 
-    <!-- Google Fonts for Atkinson Hyperlegible (accessible font) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Local @font-face declarations: serve fonts from /fonts with font-display: swap for better LCP and no external fetch -->
+    <style>
+      @font-face {
+        font-family: "Atkinson Hyperlegible";
+        src: url("/fonts/atkinson-hyperlegible-regular.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
 
     <!-- Structured data and SEO -->
     <link rel="sitemap" href="/sitemap-index.xml" />

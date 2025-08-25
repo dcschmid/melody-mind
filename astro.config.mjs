@@ -13,10 +13,12 @@ import metaTags from "astro-meta-tags";
 export default defineConfig({
   site: "https://melody-mind.de",
   output: "server",
-  // Prefetch for instant navigation
+  // Prefetch for instant navigation — use a safer strategy for larger sites
   prefetch: {
-    defaultStrategy: "viewport",
-    prefetchAll: true,
+    // Default to on-hover prefetch to avoid overfetching resources on large, content-heavy sites.
+    // Explicit prefetches (link rel="prefetch"/rel="preload") can be used for truly critical assets.
+    defaultStrategy: "hover",
+    // prefetchAll intentionally disabled to prevent excessive network usage during initial load
   },
 
   integrations: [

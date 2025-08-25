@@ -6,7 +6,6 @@ import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
-import CategoryFilter from "@components/CategoryFilter.astro";
 
 import EmptyState from "@components/EmptyState.astro";
 import LoadingState from "@components/LoadingState.astro";
@@ -186,28 +185,31 @@ try {
   }
 }
 
-// Filter categories by playability status
-const playableCategories = categories.filter((item: any) => item && item.isPlayable);
-const nonPlayableCategories = categories.filter((item: any) => item && !item.isPlayable);
-
-// Sort categories by type and playability
-const sortedPlayableCategories = sortCategoriesByType(playableCategories);
-const sortedNonPlayableCategories = sortCategoriesByType(nonPlayableCategories);
-
-// Helper function to sort categories by type
-function sortCategoriesByType(categories: any[]) {
-  return categories.sort((a, b) => {
-    // Sort by type first
-    if (a.type !== b.type) {
-      return a.type.localeCompare(b.type);
-    }
-    // Then by headline
-    return a.headline.localeCompare(b.headline);
+// Filter categories by playability status and sort alphabetically by image name
+const playableCategories = categories
+  .filter((item: any) => item && item.isPlayable)
+  .sort((a, b) => {
+    // Extract filename from imageUrl for sorting
+    const getImageName = (url: string) => {
+      const filename = url.split("/").pop() || "";
+      return filename.replace(/\.[^/.]+$/, ""); // Remove file extension
+    };
+    return getImageName(a.imageUrl).localeCompare(getImageName(b.imageUrl));
   });
-}
 
-// Combined categories with playable ones first, sorted by type
-const sortedCategories = [...sortedPlayableCategories, ...sortedNonPlayableCategories];
+const nonPlayableCategories = categories
+  .filter((item: any) => item && !item.isPlayable)
+  .sort((a, b) => {
+    // Extract filename from imageUrl for sorting
+    const getImageName = (url: string) => {
+      const filename = url.split("/").pop() || "";
+      return filename.replace(/\.[^/.]+$/, ""); // Remove file extension
+    };
+    return getImageName(a.imageUrl).localeCompare(getImageName(b.imageUrl));
+  });
+
+// Combined categories with playable ones first, sorted alphabetically by image name
+const sortedCategories = [...playableCategories, ...nonPlayableCategories];
 
 // Enhanced SEO content generation for better search visibility
 const title = t("game.select");
@@ -329,104 +331,6 @@ const clientTranslations = generateClientTranslations(t);
     </header>
 
     <section class="style flex-grow contain-layout" aria-labelledby="playlist-heading">
-      <!-- Category Filter Dropdown -->
-      <CategoryFilter
-        categories={[
-          { type: "decade", title: t("game.filter.decades") || "Decades", icon: "📅" },
-          { type: "female", title: t("game.filter.female") || "Female Artists", icon: "👩‍🎤" },
-          {
-            type: "classic-rock",
-            title: t("game.filter.classic-rock") || "Classic Rock & Hard Rock",
-            icon: "🎸",
-          },
-          {
-            type: "metal-classic",
-            title: t("game.filter.metal-classic") || "Metal – Klassiker",
-            icon: "⚡",
-          },
-          {
-            type: "metal-modern",
-            title: t("game.filter.metal-modern") || "Modern Metal",
-            icon: "🔥",
-          },
-          {
-            type: "metal-avantgarde",
-            title: t("game.filter.metal-avantgarde") || "Avantgarde & Extreme Metal",
-            icon: "🎭",
-          },
-          {
-            type: "mainstream-pop",
-            title: t("game.filter.mainstream-pop") || "Mainstream Pop",
-            icon: "🎤",
-          },
-          {
-            type: "indie-alternative",
-            title: t("game.filter.indie-alternative") || "Indie & Alternative",
-            icon: "🎶",
-          },
-          {
-            type: "global-pop",
-            title: t("game.filter.global-pop") || "Global Pop Scenes",
-            icon: "🌏",
-          },
-          {
-            type: "jazz-soul-funk",
-            title: t("game.filter.jazz-soul-funk") || "Jazz, Soul & Funk",
-            icon: "🎷",
-          },
-          {
-            type: "hip-hop-rap",
-            title: t("game.filter.hip-hop-rap") || "Hip Hop & Rap",
-            icon: "🎤",
-          },
-          {
-            type: "house-techno",
-            title: t("game.filter.house-techno") || "House & Techno",
-            icon: "🎛️",
-          },
-          { type: "club-sounds", title: t("game.filter.club-sounds") || "Club Sounds", icon: "🎚️" },
-          {
-            type: "breaks-experimental",
-            title: t("game.filter.breaks-experimental") || "Breaks & Experimental",
-            icon: "🌀",
-          },
-          { type: "latin-vibes", title: t("game.filter.latin-vibes") || "Latin Vibes", icon: "🎺" },
-          {
-            type: "caribbean-afro",
-            title: t("game.filter.caribbean-afro") || "Caribbean & Afro",
-            icon: "🌴",
-          },
-          {
-            type: "folk-regional",
-            title: t("game.filter.folk-regional") || "Folk & Regional",
-            icon: "🪕",
-          },
-          {
-            type: "classical-orchestral",
-            title: t("game.filter.classical-orchestral") || "Classical & Orchestral",
-            icon: "🎼",
-          },
-          {
-            type: "countries-regional",
-            title: t("game.filter.countries-regional") || "Countries & Regional",
-            icon: "🌍",
-          },
-          {
-            type: "emotional",
-            title: t("game.filter.emotional") || "Emotional Genres",
-            icon: "💫",
-          },
-          { type: "seasonal", title: t("game.filter.seasonal") || "Seasonal Genres", icon: "❄️" },
-          {
-            type: "situational",
-            title: t("game.filter.situational") || "Situational & Activity-Based",
-            icon: "🎉",
-          },
-          { type: "other", title: t("game.filter.other") || "Other Categories", icon: "📚" },
-        ]}
-        selectedValue="all"
-      />
-
       <!-- Enhanced genre grid with semantic markup -->
       <div class="style flex-grow contain-layout">
         <Headline level="h2" textSize="base" className="sr-only">
@@ -436,159 +340,27 @@ const clientTranslations = generateClientTranslations(t);
         {
           categories && categories.length > 0 ? (
             <>
-              {/* Dynamic Category Groups */}
-              {(() => {
-                const categoryGroups = [
-                  { type: "decade", title: t("game.categories.decades") || "Decades", icon: "📅" },
-                  {
-                    type: "female",
-                    title: t("game.categories.female") || "Female Artists",
-                    icon: "👩‍🎤",
-                  },
-                  {
-                    type: "classic-rock",
-                    title: t("game.filter.classic-rock") || "Classic Rock & Hard Rock",
-                    icon: "🎸",
-                  },
-                  {
-                    type: "metal-classic",
-                    title: t("game.filter.metal-classic") || "Metal – Classics",
-                    icon: "⚡",
-                  },
-                  {
-                    type: "metal-modern",
-                    title: t("game.filter.metal-modern") || "Modern Metal",
-                    icon: "🔥",
-                  },
-                  {
-                    type: "metal-avantgarde",
-                    title: t("game.filter.metal-avantgarde") || "Avantgarde & Extreme Metal",
-                    icon: "🎭",
-                  },
-                  {
-                    type: "mainstream-pop",
-                    title: t("game.filter.mainstream-pop") || "Mainstream Pop",
-                    icon: "🎤",
-                  },
-                  {
-                    type: "indie-alternative",
-                    title: t("game.filter.indie-alternative") || "Indie & Alternative",
-                    icon: "🎶",
-                  },
-                  {
-                    type: "global-pop",
-                    title: t("game.filter.global-pop") || "Global Pop Scenes",
-                    icon: "🌏",
-                  },
-                  {
-                    type: "jazz-soul-funk",
-                    title: t("game.filter.jazz-soul-funk") || "Jazz, Soul & Funk",
-                    icon: "🎷",
-                  },
-                  {
-                    type: "hip-hop-rap",
-                    title: t("game.filter.hip-hop-rap") || "Hip Hop & Rap",
-                    icon: "🎤",
-                  },
-                  {
-                    type: "house-techno",
-                    title: t("game.filter.house-techno") || "House & Techno",
-                    icon: "🎛️",
-                  },
-                  {
-                    type: "club-sounds",
-                    title: t("game.filter.club-sounds") || "Club Sounds",
-                    icon: "🎚️",
-                  },
-                  {
-                    type: "breaks-experimental",
-                    title: t("game.filter.breaks-experimental") || "Breaks & Experimental",
-                    icon: "🌀",
-                  },
-                  {
-                    type: "latin-vibes",
-                    title: t("game.filter.latin-vibes") || "Latin Vibes",
-                    icon: "🎺",
-                  },
-                  {
-                    type: "caribbean-afro",
-                    title: t("game.filter.caribbean-afro") || "Caribbean & Afro",
-                    icon: "🌴",
-                  },
-                  {
-                    type: "folk-regional",
-                    title: t("game.filter.folk-regional") || "Folk & Regional",
-                    icon: "🪕",
-                  },
-                  {
-                    type: "classical-orchestral",
-                    title: t("game.filter.classical-orchestral") || "Classical & Orchestral",
-                    icon: "🎼",
-                  },
-                  {
-                    type: "countries-regional",
-                    title: t("game.filter.countries-regional") || "Countries & Regional",
-                    icon: "🌍",
-                  },
-                  {
-                    type: "emotional",
-                    title: t("game.filter.emotional") || "Emotional Genres",
-                    icon: "💫",
-                  },
-                  {
-                    type: "seasonal",
-                    title: t("game.filter.seasonal") || "Seasonal Genres",
-                    icon: "❄️",
-                  },
-                  {
-                    type: "situational",
-                    title: t("game.filter.situational") || "Situational & Activity-Based",
-                    icon: "🎉",
-                  },
-                  {
-                    type: "other",
-                    title: t("game.categories.other") || "Other Categories",
-                    icon: "📚",
-                  },
-                ];
-
-                return categoryGroups.map((group) => {
-                  const groupCategories = sortedCategories.filter(
-                    (cat) => cat.categoryType === group.type
-                  );
-                  if (groupCategories.length === 0) {
-                    return null;
-                  }
-
-                  return (
-                    <div class="mb-8" data-category-type={group.type}>
-                      <h3 class="mb-6 rounded-lg border border-purple-500/30 bg-gray-800/20 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text px-4 py-2 text-center text-2xl font-bold text-transparent text-white backdrop-blur-sm md:text-left md:text-3xl">
-                        {group.icon || "🎵"} {group.title}
-                      </h3>
-                      <div
-                        class="style paint mb-8 grid grid-cols-1 gap-4 contain-layout sm:mb-6 sm:gap-3 md:gap-6 lg:gap-8"
-                        style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));"
-                        role="list"
-                        aria-label={t("game.genre.list")}
-                        aria-live="polite"
-                        itemscope
-                        itemtype="https://schema.org/ItemList"
-                      >
-                        {groupCategories.map((category) => (
-                          <PlaylistItem
-                            headline={category.headline}
-                            subheadline={category.introSubline}
-                            image={category.imageUrl}
-                            imageAlt={`${category.headline} music category`}
-                            href={category.categoryUrl ? `/${lang}${category.categoryUrl}` : "#"}
-                            isDisabled={!category.isPlayable}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  );
-                });
-              })()}
+              {/* Simple Grid - All Categories Sorted Alphabetically */}
+              <div
+                class="style paint mb-8 grid grid-cols-1 gap-4 contain-layout sm:mb-6 sm:gap-3 md:gap-6 lg:gap-8"
+                style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));"
+                role="list"
+                aria-label={t("game.genre.list")}
+                aria-live="polite"
+                itemscope
+                itemtype="https://schema.org/ItemList"
+              >
+                {sortedCategories.map((category) => (
+                  <PlaylistItem
+                    headline={category.headline}
+                    subheadline={category.introSubline}
+                    image={category.imageUrl}
+                    imageAlt={`${category.headline} music category`}
+                    href={category.categoryUrl ? `/${lang}${category.categoryUrl}` : "#"}
+                    isDisabled={!category.isPlayable}
+                  />
+                ))}
+              </div>
             </>
           ) : (
             <div

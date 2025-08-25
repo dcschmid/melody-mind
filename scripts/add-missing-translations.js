@@ -50,7 +50,9 @@ function addMissingTranslations(lang, translations) {
   const filePath = path.join(localesDir, `${lang}.ts`);
 
   if (!fs.existsSync(filePath)) {
-    console.log(`File ${filePath} does not exist`);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(`File ${filePath} does not exist`);
+    }
     return;
   }
 
@@ -61,7 +63,9 @@ function addMissingTranslations(lang, translations) {
   const closingBraceIndex = lines.findLastIndex((line) => line.trim() === "};");
 
   if (closingBraceIndex === -1) {
-    console.log(`Could not find closing brace in ${filePath}`);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(`Could not find closing brace in ${filePath}`);
+    }
     return;
   }
 
@@ -80,7 +84,9 @@ function addMissingTranslations(lang, translations) {
   );
 
   fs.writeFileSync(filePath, lines.join("\n"));
-  console.log(`Added ${Object.keys(translations).length} missing translations to ${lang}.ts`);
+  if (process.env.NODE_ENV !== "production") {
+    console.log(`Added ${Object.keys(translations).length} missing translations to ${lang}.ts`);
+  }
 }
 
 // Add translations for each language
@@ -88,4 +94,6 @@ Object.entries(missingTranslations).forEach(([lang, translations]) => {
   addMissingTranslations(lang, translations);
 });
 
-console.log("Missing translations addition completed!");
+if (process.env.NODE_ENV !== "production") {
+  console.log("Missing translations addition completed!");
+}

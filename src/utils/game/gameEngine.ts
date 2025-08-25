@@ -150,11 +150,12 @@ const initializeGame = async (elements: GameElements) => {
   }
 
   // Debug logging for round tracking
-  console.log("Game initialized with:", {
-    currentRound,
-    totalRounds,
-    difficulty: validateDifficulty(difficulty),
-  });
+  if (import.meta.env?.DEV) {
+    console.log("Game initialized with:", {
+      currentRound,
+      totalRounds,
+    });
+  }
 
   /**
    * Load albums data for the selected category with language fallback

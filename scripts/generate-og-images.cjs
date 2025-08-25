@@ -719,8 +719,12 @@ async function setupFonts() {
  * Main function to generate OG images with improved error handling
  */
 async function generateAllOgImages() {
-  console.log("🎵 MelodyMind OG Image Generator 🎵");
-  console.log("======================================");
+  if (process.env.NODE_ENV !== "production") {
+    console.log("🎵 MelodyMind OG Image Generator 🎵");
+  }
+  if (process.env.NODE_ENV !== "production") {
+    console.log("======================================");
+  }
 
   // Setup fonts first
   try {
@@ -735,7 +739,9 @@ async function generateAllOgImages() {
       registerFont(path.join(FONTS_DIR, "Inter-Regular.ttf"), {
         family: "Inter",
       });
-      console.log("✅ Fonts registered successfully");
+      if (process.env.NODE_ENV !== "production") {
+        console.log("✅ Fonts registered successfully");
+      }
     } catch (error) {
       console.warn("Could not register fonts. Using system fonts instead:", error.message);
     }
@@ -745,7 +751,9 @@ async function generateAllOgImages() {
     let successfulImages = 0;
 
     for (const lang of LANGUAGES) {
-      console.log(`\nGenerating OG images for language: ${lang}...`);
+      if (process.env.NODE_ENV !== "production") {
+        console.log(`\nGenerating OG images for language: ${lang}...`);
+      }
 
       const pagesToGenerate = [
         {
@@ -784,7 +792,9 @@ async function generateAllOgImages() {
       for (const page of pagesToGenerate) {
         totalImages++;
         const outputFilename = `${page.filename.replace(".jpg", "")}-${lang}.jpg`;
-        console.log(`  • Generating ${outputFilename}...`);
+        if (process.env.NODE_ENV !== "production") {
+          console.log(`  • Generating ${outputFilename}...`);
+        }
 
         try {
           const imageBuffer = await generateOgImage(page.title, page.description, page.type);
@@ -795,7 +805,9 @@ async function generateAllOgImages() {
 
           const outputPath = path.join(OUTPUT_DIR, outputFilename);
           fs.writeFileSync(outputPath, imageBuffer);
-          console.log(`    ✅ Successfully saved`);
+          if (process.env.NODE_ENV !== "production") {
+            console.log(`    ✅ Successfully saved`);
+          }
           successfulImages++;
 
           // Also create a language-agnostic version (e.g. social-share-home.jpg)
@@ -804,7 +816,9 @@ async function generateAllOgImages() {
             const genericFilename = page.filename;
             const genericOutputPath = path.join(OUTPUT_DIR, genericFilename);
             fs.writeFileSync(genericOutputPath, imageBuffer);
-            console.log(`    ✅ Also saved as ${genericFilename}`);
+            if (process.env.NODE_ENV !== "production") {
+              console.log(`    ✅ Also saved as ${genericFilename}`);
+            }
           }
         } catch (error) {
           console.error(`    ❌ Error: ${error.message}`);
@@ -813,11 +827,17 @@ async function generateAllOgImages() {
     }
 
     // Summary
-    console.log("\n✨ OG Image Generation Summary:");
-    console.log(`📊 Generated ${successfulImages} of ${totalImages} images successfully`);
+    if (process.env.NODE_ENV !== "production") {
+      console.log("\n✨ OG Image Generation Summary:");
+    }
+    if (process.env.NODE_ENV !== "production") {
+      console.log(`📊 Generated ${successfulImages} of ${totalImages} images successfully`);
+    }
 
     if (successfulImages === totalImages) {
-      console.log("✅ All OG images have been generated!");
+      if (process.env.NODE_ENV !== "production") {
+        console.log("✅ All OG images have been generated!");
+      }
       return true;
     } else {
       console.warn(`⚠️ ${totalImages - successfulImages} images could not be generated`);

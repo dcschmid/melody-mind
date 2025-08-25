@@ -127,11 +127,13 @@ export class TimePressureGameEngine {
     this.isGameActive = false;
     this.isPaused = false;
 
-    console.log("TimePressureGame initialized with:", {
-      currentRound: this.currentRound,
-      totalRounds: this.totalRounds,
-      category: this.category,
-    });
+    if (import.meta.env?.DEV) {
+      console.log("TimePressureGame initialized with:", {
+        currentRound: this.currentRound,
+        totalRounds: this.totalRounds,
+        category: this.category,
+      });
+    }
 
     this.initialize();
   }

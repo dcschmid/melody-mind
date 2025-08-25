@@ -298,10 +298,12 @@ const clientTranslations = {
         motivationElement.textContent = motivationText;
       }
 
-      console.log("Game display updated:", {
-        score,
-        mode: popup.dataset.mode,
-      });
+      if (import.meta.env.DEV) {
+        console.log("Game display updated:", {
+          score,
+          mode: popup.dataset.mode,
+        });
+      }
     }
   }
 
@@ -320,7 +322,9 @@ const clientTranslations = {
         const observer = new MutationObserver((mutations) => {
           mutations.forEach((mutation) => {
             if (mutation.type === "attributes" && mutation.attributeName?.startsWith("data-")) {
-              console.log("Data attribute changed, updating display");
+              if (import.meta.env.DEV) {
+                console.log("Data attribute changed, updating display");
+              }
               updateDisplay();
             }
           });

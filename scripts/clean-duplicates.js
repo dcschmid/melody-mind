@@ -14,8 +14,12 @@ const enFilePath = path.join(__dirname, "../public/json/playlist/en_playlist.jso
 const nlData = JSON.parse(fs.readFileSync(nlFilePath, "utf8"));
 const enData = JSON.parse(fs.readFileSync(enFilePath, "utf8"));
 
-console.log(`Dutch entries: ${nlData.length}`);
-console.log(`English entries: ${enData.length}`);
+if (process.env.NODE_ENV !== "production") {
+  console.log(`Dutch entries: ${nlData.length}`);
+}
+if (process.env.NODE_ENV !== "production") {
+  console.log(`English entries: ${enData.length}`);
+}
 
 // Get all imageUrls from English version
 const enImageUrls = new Set(enData.map((entry) => entry.imageUrl));
@@ -25,13 +29,17 @@ const seen = new Set();
 const uniqueEntries = nlData.filter((entry) => {
   // Skip if imageUrl is not in English version
   if (!enImageUrls.has(entry.imageUrl)) {
-    console.log(`Skipping entry not in English version: ${entry.headline}`);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(`Skipping entry not in English version: ${entry.headline}`);
+    }
     return false;
   }
 
   // Skip if we've seen this imageUrl before (duplicate)
   if (seen.has(entry.imageUrl)) {
-    console.log(`Removing duplicate: ${entry.headline}`);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(`Removing duplicate: ${entry.headline}`);
+    }
     return false;
   }
 
@@ -39,10 +47,16 @@ const uniqueEntries = nlData.filter((entry) => {
   return true;
 });
 
-console.log(`Unique entries after cleaning: ${uniqueEntries.length}`);
-console.log(`Removed ${nlData.length - uniqueEntries.length} duplicates/irrelevant entries`);
+if (process.env.NODE_ENV !== "production") {
+  console.log(`Unique entries after cleaning: ${uniqueEntries.length}`);
+}
+if (process.env.NODE_ENV !== "production") {
+  console.log(`Removed ${nlData.length - uniqueEntries.length} duplicates/irrelevant entries`);
+}
 
 // Write the cleaned data back to the file
 fs.writeFileSync(nlFilePath, JSON.stringify(uniqueEntries, null, 2), "utf8");
 
-console.log("Duplicates removed successfully!");
+if (process.env.NODE_ENV !== "production") {
+  console.log("Duplicates removed successfully!");
+}

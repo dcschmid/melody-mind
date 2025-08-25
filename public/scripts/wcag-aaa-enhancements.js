@@ -44,7 +44,9 @@ document.addEventListener("DOMContentLoaded", function () {
    * Implements a focus trap for the search field
    */
   function implementFocusTrap() {
-    if (!searchInput || !resetSearchButton) {return;}
+    if (!searchInput || !resetSearchButton) {
+      return;
+    }
 
     // Add event listener for tab key
     searchInput.addEventListener("keydown", function (event) {
@@ -61,9 +63,21 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Improve search field interaction
-    searchInput.addEventListener("input", function () {
-      const searchTerm = this.value.trim().toLowerCase();
+    // Debounced search input handling to avoid calling filter on every keystroke
+    // This reduces CPU work during typing and improves perceived responsiveness.
+    function debounce(fn, wait) {
+      let timer = null;
+      return function (...args) {
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(() => {
+          timer = null;
+          fn.apply(this, args);
+        }, wait);
+      };
+    }
+
+    const handleSearchInput = debounce(function () {
+      const searchTerm = searchInput.value.trim().toLowerCase();
       const matchCount = filterArticles(searchTerm);
 
       // Update ARIA live region
@@ -79,7 +93,9 @@ document.addEventListener("DOMContentLoaded", function () {
         searchStatus.textContent = "All articles are shown";
         noResults.classList.add("hidden");
       }
-    });
+    }, 150);
+
+    searchInput.addEventListener("input", handleSearchInput);
 
     // Reset button functionality
     resetSearchButton.addEventListener("click", function () {
@@ -109,14 +125,18 @@ document.addEventListener("DOMContentLoaded", function () {
    * @returns {number} - The number of matching articles
    */
   function filterArticles(searchTerm) {
-    if (!articlesGrid) {return 0;}
+    if (!articlesGrid) {
+      return 0;
+    }
 
     const articles = Array.from(articlesGrid.querySelectorAll("li"));
     let matchCount = 0;
 
     articles.forEach((article) => {
       const card = article.querySelector(".knowledge-card");
-      if (!card) {return;}
+      if (!card) {
+        return;
+      }
 
       const title = card.dataset.title?.toLowerCase() || "";
       const description = card.dataset.description?.toLowerCase() || "";
@@ -192,7 +212,9 @@ document.addEventListener("DOMContentLoaded", function () {
    * Implements advanced keyboard navigation for article cards
    */
   function implementKeyboardNavigation() {
-    if (!articlesGrid) {return;}
+    if (!articlesGrid) {
+      return;
+    }
 
     document.addEventListener("keydown", function (event) {
       // Only if focus is not on an input field
@@ -208,7 +230,9 @@ document.addEventListener("DOMContentLoaded", function () {
         return listItem && listItem.style.display !== "none";
       });
 
-      if (visibleCards.length === 0) {return;}
+      if (visibleCards.length === 0) {
+        return;
+      }
 
       // Find the current focus index
       currentFocusIndex = visibleCards.findIndex((card) => card.contains(document.activeElement));
@@ -265,7 +289,9 @@ document.addEventListener("DOMContentLoaded", function () {
    * @param {Array} visibleCards - The visible cards
    */
   function navigateCards(direction, visibleCards) {
-    if (visibleCards.length === 0) {return;}
+    if (visibleCards.length === 0) {
+      return;
+    }
 
     // If no element is focused, start at -1 or at the end
     if (currentFocusIndex === -1) {
@@ -323,20 +349,52 @@ document.addEventListener("DOMContentLoaded", function () {
       searchStatus.setAttribute("aria-live", "assertive");
     }
 
-    // Add event listener for scroll events to control the "Back to Top" button
-    window.addEventListener("scroll", function () {
-      if (!backToTopButton) {return;}
-
-      if (window.scrollY > 300) {
-        backToTopButton.classList.remove("opacity-0", "invisible");
-        backToTopButton.classList.add("opacity-100", "visible");
-        backToTopButton.setAttribute("aria-hidden", "false");
-      } else {
-        backToTopButton.classList.add("opacity-0", "invisible");
-        backToTopButton.classList.remove("opacity-100", "visible");
-        backToTopButton.setAttribute("aria-hidden", "true");
+    // Use IntersectionObserver to control the "Back to Top" button visibility.
+    // This is much more efficient than listening to high-frequency scroll events.
+    (function () {
+      if (!backToTopButton) {
+        return;
       }
-    });
+
+      const sentinelId = "mm-scroll-sentinel";
+      let sentinel = document.getElementById(sentinelId);
+
+      // Create a small sentinel element at the top of the page if not present
+      if (!sentinel) {
+        sentinel = document.createElement("div");
+        sentinel.id = sentinelId;
+        sentinel.style.position = "absolute";
+        sentinel.style.top = "0";
+        sentinel.style.left = "0";
+        sentinel.style.width = "1px";
+        sentinel.style.height = "1px";
+        sentinel.style.pointerEvents = "none";
+        document.body.prepend(sentinel);
+      }
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            // When sentinel is visible (user at top), hide the button.
+            if (entry.isIntersecting) {
+              backToTopButton.classList.add("opacity-0", "invisible");
+              backToTopButton.classList.remove("opacity-100", "visible");
+              backToTopButton.setAttribute("aria-hidden", "true");
+            } else {
+              backToTopButton.classList.remove("opacity-0", "invisible");
+              backToTopButton.classList.add("opacity-100", "visible");
+              backToTopButton.setAttribute("aria-hidden", "false");
+            }
+          });
+        },
+        {
+          root: null,
+          threshold: 0,
+        }
+      );
+
+      io.observe(sentinel);
+    })();
 
     // Add event listener for the "Back to Top" button
     if (backToTopButton) {

@@ -33,10 +33,19 @@ export class AudioPlayerUtils {
   private config: AudioPlayerConfig;
   private elements: AudioPlayerElements;
   private isPlaying: boolean = false;
-  private updateInterval: number | null = null;
+  // Use the audio element 'timeupdate' event instead of a setInterval for progress updates.
+  // Store the bound handler so we can remove it during cleanup.
+  // Typed to `void` return to avoid `any` usage while keeping the native event signature.
+  private timeUpdateHandler: ((this: HTMLAudioElement, ev: Event) => void) | null = null;
 
   /**
+   * Create and initialize a new AudioPlayerUtils instance.
    *
+   * This constructor will cache DOM elements based on the provided configuration,
+   * bind event handlers and attach a `timeupdate` listener on the audio element
+   * to drive progress updates efficiently.
+   *
+   * @param {AudioPlayerConfig} config - Optional element id configuration used by the player.
    */
   constructor(config: AudioPlayerConfig) {
     this.config = config;
@@ -121,24 +130,50 @@ export class AudioPlayerUtils {
   }
 
   private startUpdateInterval(): void {
-    this.updateInterval = window.setInterval(() => {
+    // If there's no audio element available yet, do nothing.
+    if (!this.elements.audioElement) {
+      return;
+    }
+
+    // Remove any existing handler to avoid double-listening
+    if (this.timeUpdateHandler) {
+      this.elements.audioElement.removeEventListener(
+        "timeupdate",
+        this.timeUpdateHandler as EventListener
+      );
+      this.timeUpdateHandler = null;
+    }
+
+    // Bind a stable handler that calls updateProgress on each 'timeupdate' event.
+    // The 'timeupdate' event is fired by the audio element at an efficient cadence
+    // and avoids an always-running interval, improving performance and battery life.
+    this.timeUpdateHandler = (_ev: Event): void => {
       this.updateProgress();
-    }, 100);
+    };
+
+    this.elements.audioElement.addEventListener(
+      "timeupdate",
+      this.timeUpdateHandler as EventListener
+    );
   }
 
   /**
+   * Play the configured audio element.
    *
+   * Starts playback and updates the internal playing state and visible controls.
    */
   public play(): void {
     if (this.elements.audioElement) {
-      this.elements.audioElement.play();
+      void this.elements.audioElement.play();
       this.isPlaying = true;
       this.updatePlayPauseButtons();
     }
   }
 
   /**
+   * Pause the configured audio element.
    *
+   * Pauses playback and updates the internal playing state and visible controls.
    */
   public pause(): void {
     if (this.elements.audioElement) {
@@ -232,12 +267,19 @@ export class AudioPlayerUtils {
   }
 
   /**
+   * Clean up event listeners and timers.
    *
+   * Removes the attached `timeupdate` listener from the audio element (if present)
+   * to avoid memory leaks when the player is no longer needed.
    */
   public cleanup(): void {
-    if (this.updateInterval) {
-      clearInterval(this.updateInterval);
-      this.updateInterval = null;
+    // Remove the 'timeupdate' listener if it was attached
+    if (this.timeUpdateHandler && this.elements.audioElement) {
+      this.elements.audioElement.removeEventListener(
+        "timeupdate",
+        this.timeUpdateHandler as EventListener
+      );
+      this.timeUpdateHandler = null;
     }
   }
 }
