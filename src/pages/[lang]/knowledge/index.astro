@@ -54,7 +54,7 @@ const { articles, lang } = Astro.props;
 const uiLang = lang in ui ? (lang as keyof typeof ui) : "en";
 
 // Process articles with reading time
-const articlesWithReadingTime = articles.map((article) => {
+const articlesWithReadingTime = articles.map((article: any) => {
   if (!article.data.readingTime) {
     const readingTime = calculateReadingTime(article.body || "");
     return {
@@ -382,11 +382,58 @@ const clientTranslations = {
     <BackToTop {lang} />
   </main>
 
-  <!-- Simplified JavaScript -->
   <script>
-    import { initKnowledgeSearchAuto } from "../../../utils/components/knowledgeSearchUtils";
+    import { initGenericSearchAuto } from "../../../utils/components/searchUtils";
 
-    // Initialize knowledge search functionality
-    document.addEventListener("DOMContentLoaded", initKnowledgeSearchAuto);
+    // Module-based initialization (restore previous behavior) and expose instance for debugging/reset
+    document.addEventListener("DOMContentLoaded", () => {
+      const instance = initGenericSearchAuto({
+        inputId: "searchInput",
+        clearButtonId: "clear-search",
+        itemSelector: "#articlesGrid li",
+        examplesContainerId: undefined,
+        exampleButtonSelector: undefined,
+        onNoResults: (term) => {
+          const noEl = document.getElementById("no-results");
+          if (noEl) {
+            noEl.style.display = "";
+            noEl.textContent = `No results for "${term}"`;
+          }
+        },
+        onResultsUpdated: (visibleCount, term) => {
+          const status = document.getElementById("search-status");
+          if (status) {
+            if (!term) {
+              status.textContent =
+                (window.knowledgeTranslations &&
+                  window.knowledgeTranslations.search &&
+                  window.knowledgeTranslations.search.showingAll) ||
+                "Showing all articles";
+            } else {
+              const label =
+                (window.knowledgeTranslations &&
+                  window.knowledgeTranslations.search &&
+                  window.knowledgeTranslations.search.articlesFound) ||
+                "articles found";
+              status.textContent = `${visibleCount} ${label}`;
+            }
+          }
+
+          const noEl = document.getElementById("no-results");
+          if (noEl) {
+            noEl.style.display = visibleCount > 0 ? "none" : "";
+          }
+        },
+      });
+
+      try {
+        if (typeof window !== "undefined") {
+          // expose last created instance for debugging and reset from other scripts
+          window.__lastSearchInstance = instance;
+        }
+      } catch {
+        // ignore in non-browser environments
+      }
+    });
   </script>
 </Layout>
