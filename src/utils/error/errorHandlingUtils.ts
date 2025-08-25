@@ -1,4 +1,3 @@
-
 /**
  * Error Handling Utilities
  *
@@ -208,7 +207,6 @@ function handleError(
       originalError: error,
       stack: error instanceof Error ? error.stack : undefined,
     };
-
   }
 
   // Show user message if requested
@@ -341,8 +339,7 @@ export function attemptRecovery(
     try {
       const result = recoveryAction();
       if (result instanceof Promise) {
-        result.catch((recoveryError) => {
-        });
+        result.catch((recoveryError) => {});
       }
       return true;
     } catch (recoveryError) {

@@ -104,6 +104,5 @@ export const initializeIndexPage = (): void => {
 export const initIndexPageAuto = (): void => {
   try {
     initializeIndexPage();
-  } catch (error) {
-  }
+  } catch (error) {}
 };

@@ -265,8 +265,7 @@ export const clearAuthData = (): void => {
     localStorage.removeItem("auth_status");
     localStorage.removeItem("user");
     sessionStorage.clear();
-  } catch (error) {
-  }
+  } catch (error) {}
 };
 
 /**
@@ -451,14 +450,12 @@ export function registerAuthEventListeners(checkAuthCallback: () => void): { rem
           removeLocalStorage(key);
         }
       });
-    } catch {
-    }
+    } catch {}
 
     // Clear sessionStorage as well
     try {
       sessionStorage.clear();
-    } catch {
-    }
+    } catch {}
 
     checkAuthCallback();
   };

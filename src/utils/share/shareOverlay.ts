@@ -10,10 +10,8 @@ import { safeGetElementById, safeQuerySelectorAll } from "../dom/domUtils";
  * @module ShareOverlayUtil
  */
 
-
 import { shareScore } from "./shareUtils";
 import type { ShareData } from "./shareUtils";
-
 
 /**
  * Store Element References
@@ -248,7 +246,6 @@ export class ShareOverlayManager {
         button.removeAttribute("disabled");
       }, UI_CONSTANTS.COPY_SUCCESS_DURATION);
     } catch (err) {
-
       if (this.elements.copyButtonText) {
         this.elements.copyButtonText.textContent = "Copy failed";
       }

@@ -38,10 +38,8 @@ export async function loadAlbumsWithFallback(
       if (albumsData && typeof albumsData === "object" && Array.isArray(albumsData.albums)) {
         return albumsData.albums;
       }
-
     }
-  } catch (error) {
-  }
+  } catch (error) {}
 
   // Fallback to the fallback language
   try {

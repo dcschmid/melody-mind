@@ -1,36 +1,5 @@
 import { handleGameError } from "../error/errorHandlingUtils";
-
-/**
- * Represents a question in the music quiz.
- *
- * @interface Question
- */
-export interface Question {
-  /** The question text to be displayed to the user */
-  question: string;
-  /** Array of possible answer options */
-  options: string[];
-  /** The correct answer among the options */
-  correctAnswer: string;
-  /** Additional trivia information to display after answering */
-  trivia: string;
-}
-
-/**
- * Represents an album in the music quiz.
- *
- * @interface Album
- */
-export interface Album {
-  /** URL to the album cover image */
-  coverSrc: string;
-  /** Name of the artist */
-  artist: string;
-  /** Name of the album */
-  album: string;
-  /** Release year of the album */
-  year: string;
-}
+import type { Question, Album } from "../../types/game";
 
 /**
  * DOM elements required for displaying a question.

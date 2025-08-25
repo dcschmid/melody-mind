@@ -58,8 +58,7 @@ export async function loadCategoriesForLanguage(
           success: true,
           fallbackUsed: false,
         };
-      } catch {
-      }
+      } catch {}
     }
 
     // Fallback to relative path

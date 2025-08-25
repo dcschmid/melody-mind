@@ -1,4 +1,3 @@
-
 /**
  * DOM Manipulation Utilities
  *

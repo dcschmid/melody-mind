@@ -5,7 +5,6 @@
 
 import { RSS_FEED_SOURCES, FALLBACK_FEEDS, type FeedSource } from "../utils/rss/feedSources.ts";
 
-
 export interface NewsItem {
   id: string;
   title: string;
@@ -165,8 +164,7 @@ function extractImageFromRssItem(itemXml: string, description: string): string |
         const cleanedUrl = cleanImageUrl(result.trim());
         return cleanedUrl;
       }
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   return undefined;
@@ -275,7 +273,6 @@ function extractFeedImage(xmlText: string): string | undefined {
  */
 async function parseFeed(feedSource: FeedSource): Promise<NewsItem[]> {
   try {
-
     const response = await fetch(feedSource.url, {
       headers: {
         "User-Agent": "MelodyMind Music Quiz App (https://melody-mind.de)",
@@ -298,7 +295,6 @@ async function parseFeed(feedSource: FeedSource): Promise<NewsItem[]> {
 
     const feedImage = extractFeedImage(xmlText);
     const itemMatches = xmlText.match(/<item[^>]*>[\s\S]*?<\/item>/gi) || [];
-
 
     return itemMatches
       .map((itemXml) => parseRssItem(itemXml, feedSource, feedImage))
@@ -398,8 +394,7 @@ function decodeHtmlEntities(text: string): string {
         // Valid Unicode range
         return String.fromCharCode(charCode);
       }
-    } catch {
-    }
+    } catch {}
     return match; // Return original if conversion fails
   });
 
@@ -411,8 +406,7 @@ function decodeHtmlEntities(text: string): string {
         // Valid Unicode range
         return String.fromCharCode(charCode);
       }
-    } catch {
-    }
+    } catch {}
     return match; // Return original if conversion fails
   });
 
@@ -517,8 +511,7 @@ function extractImageFromDescription(description: string): string | undefined {
       if (result) {
         return cleanImageUrl(result);
       }
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   return undefined;
@@ -590,14 +583,12 @@ export async function getNewsForLanguage(language: string): Promise<NewsResponse
   const feeds = RSS_FEED_SOURCES[language] || [];
   const sources = feeds.length > 0 ? feeds : FALLBACK_FEEDS;
 
-
   // Fetch from multiple sources in parallel
   const promises = sources.map((source) => parseFeed(source));
   const results = await Promise.all(promises);
 
   // Combine and sort results
   const allItems = results.flat();
-
 
   // If no items found, try fallback to English feeds
   if (allItems.length === 0 && language !== "en") {
