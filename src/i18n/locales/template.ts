@@ -430,6 +430,8 @@ export default {
   "game.options.label": "Answer Options",
   "game.remaining": "remaining",
   "game.search.clear": "Clear search",
+  "game.search.reset.text": "Reset Search",
+  "game.search.placeholder": "Search genres...",
   "game.search.help": "Type to filter music genres by name",
   "game.search.label": "Search for a genre",
   "game.search.no.results": "No genres found matching your search",

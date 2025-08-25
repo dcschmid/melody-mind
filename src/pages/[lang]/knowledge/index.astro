@@ -434,6 +434,34 @@ const clientTranslations = {
       } catch {
         // ignore in non-browser environments
       }
+
+      // Wire reset button to clear the generic search instance (if available)
+      try {
+        const resetBtn = document.getElementById("reset-search");
+        if (resetBtn) {
+          resetBtn.addEventListener("click", () => {
+            try {
+              if (typeof window !== "undefined" && window.__lastSearchInstance) {
+                const inst = window.__lastSearchInstance;
+                if (inst && typeof inst.clear === "function") {
+                  inst.clear();
+                } else if (inst && typeof inst.performSearch === "function") {
+                  // fallback: call performSearch with empty string to reset
+                  inst.performSearch("");
+                }
+              }
+              const input = document.getElementById("searchInput");
+              if (input) {
+                input.focus();
+              }
+            } catch {
+              // ignore errors during reset
+            }
+          });
+        }
+      } catch {
+        // ignore wiring errors in non-browser environments
+      }
     });
   </script>
 </Layout>
