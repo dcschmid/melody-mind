@@ -342,10 +342,25 @@ const breadcrumbSchema = {
 </Layout>
 
 <script>
-  import { initPlaylistSearchAuto } from "../../utils/components/playlistSearchUtils";
+  import { initGenericSearchAuto } from "../../utils/components/searchUtils";
 
-  // Initialize playlist search functionality
+  // Initialize generic list search for playlists (module-based)
   document.addEventListener("DOMContentLoaded", () => {
-    initPlaylistSearchAuto();
+    const instance = initGenericSearchAuto({
+      inputId: "playlist-search",
+      clearButtonId: "clear-search",
+      itemSelector: ".playlist-item",
+      examplesContainerId: "search-examples",
+      exampleButtonSelector: ".search-example",
+    });
+
+    try {
+      // expose the instance for debugging / reset
+      if (typeof window !== "undefined") {
+        window.__lastSearchInstance = instance;
+      }
+    } catch {
+      // ignore in non-browser environments
+    }
   });
 </script>

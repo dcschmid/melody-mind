@@ -55,47 +55,41 @@ const modifiedDate = new Date();
   {publishDate}
   {modifiedDate}
 >
-  <main id="main-content" class="main-content" tabindex="-1">
-    <div class="m-auto" aria-hidden="true">
-      <Image
-        class="m-auto"
-        src="/melody-mind.png"
-        width={300}
-        height={300}
-        alt="Melody Mind Logo - Music Quiz App Logo"
-        loading="eager"
-        fetchpriority="high"
-      />
+  <div class="mx-auto flex w-full max-w-5xl flex-col items-center">
+    <Image
+      class="mx-auto h-auto w-56 sm:w-48 md:w-64 lg:w-72 xl:w-80"
+      src="/melody-mind.png"
+      width={800}
+      height={800}
+      alt="Melody Mind Logo - Music Quiz App Logo"
+      loading="eager"
+      fetchpriority="high"
+    />
 
-      {/* Semantic heading with proper hierarchy */}
-      <Headline level="h1" textAlign="center" className="my-8">
-        {title}
-      </Headline>
+    {/* Semantic heading with proper hierarchy and responsive sizing */}
+    <Headline level="h1" textAlign="center">
+      {title}
+    </Headline>
 
-      {/* Description with enhanced contrast for AAA compliance */}
-      <Paragraph textAlign="center" textSize="xl">
-        {description}
-      </Paragraph>
+    {/* Description with responsive text and max width for readability */}
+    <Paragraph textAlign="center" textSize="xl">
+      {description}
+    </Paragraph>
 
-      {/* Accessible button container with increased touch targets */}
-      <div class="m-auto my-8 max-w-3xs">
-        <ButtonLink
-          className="flex w-full"
-          href={`/${String(lang)}/gamehome`}
-          aria-label={t("index.start.game.label")}
-        >
-          <span>{t("index.continue")}</span>
-        </ButtonLink>
-      </div>
-
-      {/* Footer text with improved contrast ratio */}
-      <div class="footer-section">
-        <Paragraph textSize="lg" textAlign="center">
-          {t("index.welcome.footnote")}
-        </Paragraph>
-      </div>
+    {/* Accessible button container optimized for mobile-first full-width touch targets */}
+    <div class="mx-auto my-4">
+      <ButtonLink href={`/${String(lang)}/gamehome`} aria-label={t("index.start.game.label")}>
+        <span>{t("index.continue")}</span>
+      </ButtonLink>
     </div>
-  </main>
+
+    {/* Footer text with improved contrast ratio and generous spacing for mobile */}
+    <div class="mx-auto w-full">
+      <Paragraph textSize="lg" textAlign="center">
+        {t("index.welcome.footnote")}
+      </Paragraph>
+    </div>
+  </div>
 </Layout>
 
 <script>
