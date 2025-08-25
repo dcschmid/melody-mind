@@ -85,13 +85,17 @@ export function initChronologyFeedbackOverlay(): void {
   }
 
   function showFeedback(detail: FeedbackData): void {
-    console.log("showFeedback called with detail:", detail);
+    if (import.meta.env?.DEV) {
+      console.log("showFeedback called with detail:", detail);
+    }
 
     if (!detail.userOrder || !resultsList) {
-      console.error("Missing userOrder or resultsList:", {
-        userOrder: detail.userOrder,
-        resultsList,
-      });
+      if (import.meta.env?.DEV) {
+        console.error("Missing userOrder or resultsList:", {
+          userOrder: detail.userOrder,
+          resultsList,
+        });
+      }
       return;
     }
 
@@ -145,19 +149,25 @@ export function initChronologyFeedbackOverlay(): void {
     }
 
     // Show/hide buttons based on round status
-    console.log("Button visibility check:", {
-      nextButton: !!nextButton,
-      endButton: !!endButton,
-      isLastRound: detail.isLastRound,
-    });
+    if (import.meta.env?.DEV) {
+      console.log("Button visibility check:", {
+        nextButton: !!nextButton,
+        endButton: !!endButton,
+        isLastRound: detail.isLastRound,
+      });
+    }
 
     if (nextButton && endButton) {
       if (detail.isLastRound) {
-        console.log("Hiding next button, showing end button");
+        if (import.meta.env?.DEV) {
+          console.log("Hiding next button, showing end button");
+        }
         nextButton.style.display = "none";
         endButton.style.display = "flex";
       } else {
-        console.log("Showing next button, hiding end button");
+        if (import.meta.env?.DEV) {
+          console.log("Showing next button, hiding end button");
+        }
         nextButton.style.display = "flex";
         endButton.style.display = "none";
       }
@@ -167,13 +177,17 @@ export function initChronologyFeedbackOverlay(): void {
   }
 
   function handleNextRound(): void {
-    console.log("Next round button clicked - dispatching chronologyNextRound event");
+    if (import.meta.env?.DEV) {
+      console.log("Next round button clicked - dispatching chronologyNextRound event");
+    }
     hideOverlay();
     window.dispatchEvent(new CustomEvent("chronologyNextRound"));
   }
 
   function handleEndGame(): void {
-    console.log("End game button clicked - dispatching chronologyEndGame event");
+    if (import.meta.env?.DEV) {
+      console.log("End game button clicked - dispatching chronologyEndGame event");
+    }
     hideOverlay();
     window.dispatchEvent(new CustomEvent("chronologyEndGame"));
   }

@@ -307,7 +307,9 @@ const {
       const gameData = getGameDataFromProps() || getGameDataFromPopup();
 
       if (gameData && isValidShareData(gameData)) {
-        console.log("ShareOverlay: Game data validation successful");
+        if (import.meta.env?.DEV) {
+          console.log("ShareOverlay: Game data validation successful");
+        }
         return;
       }
 
@@ -980,7 +982,9 @@ const {
         if (mutation.type === "attributes" && mutation.attributeName === "class") {
           const popup = mutation.target;
           if (popup.classList && !popup.classList.contains("hidden")) {
-            console.log("EndOverlay is now visible, initializing ShareOverlay");
+            if (import.meta.env?.DEV) {
+              console.log("EndOverlay is now visible, initializing ShareOverlay");
+            }
             initializeSharing().catch(console.error);
             observer.disconnect(); // Stop observing once initialized
           }

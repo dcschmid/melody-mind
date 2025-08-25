@@ -21,17 +21,23 @@ const PUBLIC_FONTS_DIR = path.join(PROJECT_ROOT, "public", "fonts");
  * @returns {number} Number of font files copied
  */
 function copyLocalFonts() {
-  console.log("📋 Checking for local font files...");
+  if (process.env.NODE_ENV !== "production") {
+    console.log("📋 Checking for local font files...");
+  }
 
   // Ensure directories exist
   if (!fs.existsSync(PUBLIC_FONTS_DIR)) {
     fs.mkdirSync(PUBLIC_FONTS_DIR, { recursive: true });
-    console.log(`Created public fonts directory: ${PUBLIC_FONTS_DIR}`);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(`Created public fonts directory: ${PUBLIC_FONTS_DIR}`);
+    }
   }
 
   if (!fs.existsSync(LOCAL_FONTS_DIR)) {
     fs.mkdirSync(LOCAL_FONTS_DIR, { recursive: true });
-    console.log(`Created ${LOCAL_FONTS_DIR} - please place your font files in this directory`);
+    if (process.env.NODE_ENV !== "production") {
+      console.log(`Created ${LOCAL_FONTS_DIR} - please place your font files in this directory`);
+    }
     return 0;
   }
 
@@ -47,7 +53,11 @@ function copyLocalFonts() {
     );
 
   if (fontFiles.length === 0) {
-    console.log("No font files found in assets/fonts directory. Please add your font files there.");
+    if (process.env.NODE_ENV !== "production") {
+      console.log(
+        "No font files found in assets/fonts directory. Please add your font files there."
+      );
+    }
     return 0;
   }
 
@@ -59,14 +69,18 @@ function copyLocalFonts() {
 
     try {
       fs.copyFileSync(sourcePath, destPath);
-      console.log(`Copied ${fontFile} to public/fonts directory`);
+      if (process.env.NODE_ENV !== "production") {
+        console.log(`Copied ${fontFile} to public/fonts directory`);
+      }
       copiedCount++;
     } catch (error) {
       console.error(`Error copying ${fontFile}: ${error.message}`);
     }
   }
 
-  console.log(`✅ Successfully copied ${copiedCount} font files`);
+  if (process.env.NODE_ENV !== "production") {
+    console.log(`✅ Successfully copied ${copiedCount} font files`);
+  }
   return copiedCount;
 }
 

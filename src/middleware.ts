@@ -42,6 +42,23 @@ export const onRequest = defineMiddleware(async (context, next) => {
     // Add additional headers for better edge caching
     response.headers.set("CDN-Cache-Control", "public, max-age=31536000");
 
+    // If this is a font, ensure CORS and a sensible Content-Type if missing
+    if (
+      pathname.toLowerCase().endsWith(".woff2") ||
+      pathname.toLowerCase().endsWith(".woff") ||
+      pathname.toLowerCase().endsWith(".ttf") ||
+      pathname.toLowerCase().endsWith(".otf") ||
+      pathname.toLowerCase().endsWith(".eot")
+    ) {
+      // Allow cross-origin usage of fonts
+      response.headers.set("Access-Control-Allow-Origin", "*");
+
+      // Only set Content-Type if not present (avoid overwriting correct values)
+      if (!response.headers.get("Content-Type") && pathname.toLowerCase().endsWith(".woff2")) {
+        response.headers.set("Content-Type", "font/woff2");
+      }
+    }
+
     return response;
   }
 

@@ -160,14 +160,16 @@ class ChronologyGame {
     this.round = 1;
     this.totalRounds = this.getTotalRoundsForDifficulty(this.difficulty);
 
-    // Debug logging
-    console.log("ChronologyGame initialized with:", {
-      difficulty: this.difficulty,
-      category: this.category,
-      categoryName: this.categoryName,
-      round: this.round,
-      totalRounds: this.totalRounds,
-    });
+    // Debug logging (only in dev)
+    if (import.meta.env?.DEV) {
+      console.log("ChronologyGame initialized with:", {
+        difficulty: this.difficulty,
+        category: this.category,
+        categoryName: this.categoryName,
+        round: this.round,
+        totalRounds: this.totalRounds,
+      });
+    }
 
     // Get language from URL
     const urlPath = window.location.pathname;
@@ -534,11 +536,12 @@ class ChronologyGame {
         this.scoreDisplay.textContent = this.score.toString();
       }
 
-      console.log("Display updated:", {
-        round: this.round,
-        totalRounds: this.totalRounds,
-        score: this.score,
-      });
+      if (import.meta.env?.DEV) {
+        console.log("Display updated:", {
+          round: this.round,
+          totalRounds: this.totalRounds,
+        });
+      }
     } catch (error) {
       console.error("Error updating display:", error);
     }
@@ -550,26 +553,36 @@ class ChronologyGame {
 
     // Listen for next round event from feedback overlay
     const nextRoundHandler = () => {
-      console.log("chronologyNextRound event received - loading next question");
+      if (import.meta.env?.DEV) {
+        console.log("chronologyNextRound event received - loading next question");
+      }
       try {
         // Simple round increment without using updateGameRound
         this.round++;
-        console.log(`Round updated to ${this.round}`);
+        if (import.meta.env?.DEV) {
+          console.log(`Round updated to ${this.round}`);
+        }
         this.updateDisplay(); // Update the display
         this.loadQuestion();
       } catch (error) {
-        console.error("Error handling next round:", error);
+        if (import.meta.env?.DEV) {
+          console.error("Error handling end game:", error);
+        }
       }
       // Don't cleanup here - listeners are needed for multiple rounds
     };
 
     // Listen for end game event from feedback overlay
     const endGameHandler = () => {
-      console.log("chronologyEndGame event received - ending game");
+      if (import.meta.env?.DEV) {
+        console.log("chronologyEndGame event received - ending game");
+      }
       try {
         this.endGame();
       } catch (error) {
-        console.error("Error handling end game:", error);
+        if (import.meta.env?.DEV) {
+          console.error("Error handling end game:", error);
+        }
       }
       // Don't cleanup here - listeners are needed for multiple rounds
     };
@@ -598,12 +611,14 @@ class ChronologyGame {
   }
 
   async endGame() {
-    console.log("Chronology game ending with:", {
-      score: this.score,
-      round: this.round,
-      totalRounds: this.totalRounds,
-      category: this.categoryName || this.category,
-    });
+    if (import.meta.env?.DEV) {
+      console.log("Chronology game ending with:", {
+        score: this.score,
+        round: this.round,
+        totalRounds: this.totalRounds,
+        category: this.categoryName || this.category,
+      });
+    }
 
     // Use the same end game handling as regular quiz mode with loading spinner and validation
     const endGameConfig = {
