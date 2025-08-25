@@ -30,7 +30,9 @@
     "generate-og-images": "node scripts/setup-fonts.cjs && node scripts/generate-og-images.cjs",
     "db:setup": "node db-setup-wrapper.mjs",
     "sync:categories": "node scripts/sync-categories.cjs",
-    "sync:knowledge-playlists": "node scripts/sync-knowledge-playlists.cjs"
+    "sync:knowledge-playlists": "node scripts/sync-knowledge-playlists.cjs",
+    "generate:critical": "critical \"./dist/**/*.html\" --base \"./dist\" --dest \"./dist/critical.css\" --minify --extract --width 1300 --height 900",
+    "postbuild": "yarn generate:critical || true"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,astro}": "eslint --fix",
@@ -79,7 +81,8 @@
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.11",
     "ts-node": "^10.9.2",
-    "typescript-eslint": "^8.39.0"
+    "typescript-eslint": "^8.39.0",
+    "critical": "^5.0.4"
   },
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
