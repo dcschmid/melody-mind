@@ -145,7 +145,10 @@ export class JokerUtils {
 
       document.dispatchEvent(jokerEvent);
       this.announceJokerUsage();
-    } catch (error) {}
+    } catch (error) {
+      // Ensure caught error is not ignored by the linter while keeping runtime behavior unchanged.
+      void error;
+    }
   }
 
   /**
@@ -260,10 +263,13 @@ export class JokerUtils {
    * Setup global update function
    */
   private setupGlobalUpdate(): void {
-    // Make update function globally available
+    // Make update function globally available (typed)
     if (typeof window !== "undefined") {
-      window.MelodyMind = window.MelodyMind || {};
-      window.MelodyMind.updateJokerCount = (count: number, disable?: boolean) => {
+      const globalWin = window as unknown as Window & {
+        MelodyMind?: { updateJokerCount?: (count: number, disable?: boolean) => void };
+      };
+      globalWin.MelodyMind = globalWin.MelodyMind || {};
+      globalWin.MelodyMind.updateJokerCount = (count: number, disable?: boolean) => {
         this.updateJokerCount(count, disable);
       };
     }
