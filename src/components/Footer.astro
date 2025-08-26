@@ -59,7 +59,7 @@ const links = [
   {
     href: "https://github.com/dcschmid/melody-mind",
     icon: "github",
-    label: "GitHub",
+    label: t("footer.github"),
     ariaLabel: t("footer.source_code"),
   },
   {
@@ -71,7 +71,7 @@ const links = [
   {
     href: "https://www.buymeacoffee.com/dcschmid",
     icon: "kofi",
-    label: "Ko-fi",
+    label: t("footer.kofi"),
     ariaLabel: t("footer.support_kofi"),
   },
 ];
@@ -80,7 +80,7 @@ const links = [
 <footer
   class="font-primary mt-16 border-t border-gray-700 py-6 sm:mt-8 sm:py-3 md:mt-12 md:py-4"
   role="contentinfo"
-  aria-label="Site footer"
+  aria-label={t("footer.aria")}
 >
   <div class="mx-auto max-w-7xl px-4 sm:px-2 md:px-3">
     <div
@@ -92,7 +92,7 @@ const links = [
           &copy; {currentYear} MelodyMind - {t("footer.rights")}
         </div>
         <nav
-          aria-label="Legal information"
+          aria-label={t("footer.legal_nav")}
           class="flex flex-wrap justify-center gap-4 sm:gap-3 md:justify-start"
         >
           {
@@ -111,7 +111,7 @@ const links = [
 
       <!-- External Links -->
       <nav
-        aria-label="Footer links"
+        aria-label={t("footer.external_nav")}
         class="flex flex-wrap justify-center gap-4 sm:gap-3 md:justify-end"
       >
         <!-- GitHub Link -->
@@ -131,7 +131,7 @@ const links = [
             class="sm:h-4 sm:w-4"
           />
           <span>{links[0].label}</span>
-          <span class="sr-only">(opens in a new tab)</span>
+          <span class="sr-only">{t("footer.opens_in_new_tab")}</span>
         </a>
 
         <!-- Donation Links -->
@@ -153,7 +153,7 @@ const links = [
                 class="sm:h-4 sm:w-4"
               />
               <span>{link.label}</span>
-              <span class="sr-only">(opens in a new tab)</span>
+              <span class="sr-only">{t("footer.opens_in_new_tab")}</span>
             </a>
           ))
         }
