@@ -28,8 +28,12 @@ export interface Props {
   minHeight?: string;
 }
 
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(String(lang));
+
 const {
-  text = "Loading...",
+  text = t("common.loading"),
   className = "",
   size = "md",
   visible = true,
@@ -49,10 +53,10 @@ const {
         class={`animate-spin rounded-full border-2 border-gray-700 border-t-purple-500 ${
           size === "sm" ? "h-6 w-6" : size === "md" ? "h-8 w-8" : "h-12 w-12"
         }`}
-        aria-label={text}
+        aria-label={t("loading.content")}
       />
       <Paragraph textAlign="center">{text}</Paragraph>
-      <span class="sr-only">Loading content, please wait...</span>
+      <span class="sr-only">{t("loading.screen_reader")}</span>
     </div>
   )
 }

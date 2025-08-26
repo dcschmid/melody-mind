@@ -1,0 +1,58 @@
+# .eslintignore
+# This file is used by CI tooling and eslint wrappers to exclude generated
+# build artifacts and other files that should not be linted.
+#
+# Placed under .config/eslint/ so CI systems that load project-level config
+# from dotfiles will pick up the same ignore rules.
+
+# Build output
+dist/
+dist/**
+
+# Astro / build caches
+.astro/
+.astro/**
+
+# Common build folders
+build/
+out/
+public/
+
+# Node modules and deps
+node_modules/
+.pnpm/
+.yarn/
+
+# Cache / temp
+.cache/
+.vite/
+.parcel-cache/
+.tmp/
+.temp/
+
+# Platform / framework directories
+.next/
+.vercel/
+.rsc/
+.serverless/
+
+# Generated artifacts and maps
+*.map
+*.log
+
+# Coverage and test artifacts
+coverage/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Environment files
+.env
+.env.*
+
+# Ignore any other generated asset directories commonly produced during CI builds
+**/dist/**
+**/.astro/**
