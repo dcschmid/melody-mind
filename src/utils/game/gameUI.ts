@@ -12,18 +12,9 @@
 
 import { safeGetElementById } from "../dom/domUtils";
 
-/**
- * Extend Window interface for the optional global overlay function.
- * `endOverlay.ts` exposes `window.showEndOverlay` when loaded.
- */
-declare global {
-  interface Window {
-    showEndOverlay?: (
-      configOrScore: { score: number; maxScore?: number } | number,
-      maxScore?: number
-    ) => Promise<void> | void;
-  }
-}
+/* window.showEndOverlay is intentionally declared by the dedicated overlay module
+   at /src/utils/endOverlay.ts. We avoid declaring it here to prevent conflicting
+   subsequent declarations that differ between modules. */
 
 /**
  * Update the visible coin/score display with accessible announcements and a small
@@ -91,6 +82,10 @@ export function updateCoinsDisplay(newScore: number): void {
  * @param {number} score - Final score to display in the overlay.
  * @param {number} [maxScore] - Optional maximum score (used if overlay supports it).
  */
+
+/**
+ *
+ */
 export async function showEndgamePopup(score: number, maxScore?: number): Promise<void> {
   // Lightweight debug log (non-fatal)
   try {
@@ -120,7 +115,11 @@ export async function showEndgamePopup(score: number, maxScore?: number): Promis
     revealFallbackPopup(score, maxScore);
   } catch (e) {
     try {
-      console.error("showEndgamePopup failed to reveal fallback popup:", e);
+      // If everything failed, log centrally but do not throw
+      if (typeof console !== "undefined" && typeof console.error === "function") {
+         
+        console.error("showEndgamePopup failed to reveal fallback popup:", e);
+      }
     } catch (err) {
       void err;
     }
@@ -205,7 +204,6 @@ function revealFallbackPopup(score: number, maxScore?: number): void {
   // If the expected elements are missing, attempt to log and no-op
   try {
     if (import.meta.env?.DEV) {
-       
       console.warn("[gameUI] revealFallbackPopup: missing popup or scoreElement (debug)");
     }
   } catch (e) {
