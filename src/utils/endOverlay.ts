@@ -342,6 +342,54 @@ function revealPopupElement(popup: HTMLElement | null, score?: number): void {
   }
 }
 
+/**
+ * Handle the overlay flow in a small helper to reduce handler complexity.
+ * Tries an alternative global implementation first; falls back to internal setup.
+ *
+ * @param {EndOverlayConfig} cfg - Normalized overlay configuration
+ * @returns {Promise<void>}
+ */
+async function handleShowEndOverlay(cfg: EndOverlayConfig): Promise<void> {
+  try {
+    const maybeGlobal = (
+      window as unknown as Window & {
+        showEndOverlay?: (cfg: EndOverlayConfig) => Promise<void> | void;
+      }
+    ).showEndOverlay;
+
+    if (maybeGlobal && maybeGlobal !== window.showEndOverlay && typeof maybeGlobal === "function") {
+      try {
+        await maybeGlobal(cfg);
+        return;
+      } catch (err) {
+        try {
+          handleGameError(err, "invoking alternative global showEndOverlay");
+        } catch {
+          /* ignore */
+        }
+      }
+    }
+
+    // Fallback to internal setup
+    try {
+      await completeEndOverlaySetup(cfg);
+      return;
+    } catch (e) {
+      try {
+        handleGameError(e, "completeEndOverlaySetup (config)");
+      } catch {
+        /* ignore */
+      }
+    }
+  } catch (e) {
+    try {
+      handleGameError(e, "showEndOverlay invocation");
+    } catch {
+      /* ignore */
+    }
+  }
+}
+
 export const initializeEndOverlay = (): void => {
   // Debug: report initialization in dev
   try {
@@ -362,7 +410,7 @@ export const initializeEndOverlay = (): void => {
     configOrScore: EndOverlayConfig | number,
     maxScore?: number
   ): Promise<void> {
-    // Debugging aid
+    // Lightweight debug (non-fatal)
     try {
       if (import.meta.env?.DEV && typeof window !== "undefined") {
         // eslint-disable-next-line no-console
@@ -375,7 +423,7 @@ export const initializeEndOverlay = (): void => {
     // Normalize input
     const cfg = normalizeEndOverlayConfig(configOrScore, maxScore);
 
-    // Ensure DOM-based popup is visible quickly for immediate UX feedback
+    // Reveal DOM quickly for immediate UX feedback
     try {
       const popup =
         getElementById<HTMLElement>("endgame-popup") ||
@@ -389,50 +437,8 @@ export const initializeEndOverlay = (): void => {
       }
     }
 
-    // Attempt to hand off to any richer global implementation or run the internal setup
-    try {
-      const maybeGlobal = (
-        window as unknown as Window & {
-          showEndOverlay?: (cfg: EndOverlayConfig) => Promise<void> | void;
-        }
-      ).showEndOverlay;
-
-      if (
-        maybeGlobal &&
-        maybeGlobal !== window.showEndOverlay &&
-        typeof maybeGlobal === "function"
-      ) {
-        try {
-          // If another implementation exists, prefer it
-          await maybeGlobal(cfg);
-          return;
-        } catch (err) {
-          try {
-            handleGameError(err, "invoking alternative global showEndOverlay");
-          } catch {
-            /* ignore */
-          }
-        }
-      }
-
-      // Fallback to internal setup
-      try {
-        await completeEndOverlaySetup(cfg);
-        return;
-      } catch (e) {
-        try {
-          handleGameError(e, "completeEndOverlaySetup (config)");
-        } catch {
-          /* ignore */
-        }
-      }
-    } catch (e) {
-      try {
-        handleGameError(e, "showEndOverlay invocation");
-      } catch {
-        /* ignore */
-      }
-    }
+    // Delegate actual work to a smaller helper to keep complexity down
+    await handleShowEndOverlay(cfg);
   }
 
   // assign named handler to global
