@@ -96,7 +96,7 @@ export class KnowledgeSearchUtils {
     });
   }
 
-  private getTranslations() {
+  private getTranslations(): WindowWithTranslations["knowledgeTranslations"] {
     return (window as unknown as WindowWithTranslations).knowledgeTranslations;
   }
 
@@ -188,7 +188,9 @@ export function initKnowledgeSearch(): KnowledgeSearchUtils {
 export function initKnowledgeSearchAuto(): KnowledgeSearchUtils | null {
   try {
     return new KnowledgeSearchUtils();
-  } catch (error) {
+  } catch (err) {
+    // Avoid unused-variable lint error while preserving original behavior.
+    void err;
     return null;
   }
 }
