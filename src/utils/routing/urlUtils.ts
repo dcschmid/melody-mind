@@ -5,6 +5,8 @@
  * Eliminates duplicate URL parsing logic.
  */
 
+import { handleGameError } from "../error/errorHandlingUtils";
+
 export interface GameRouteParams {
   lang: string;
   category: string;
@@ -59,7 +61,9 @@ export function parseGameRoute(): GameRouteParams | null {
       lang,
       category: routePart,
     };
-  } catch (error) {
+  } catch (err) {
+    // Report error to centralized handler for diagnostics and telemetry
+    handleGameError(err, "parseGameRoute");
     return null;
   }
 }

@@ -17,9 +17,15 @@ export function safeGetElementById<T extends HTMLElement>(
   parent: Document | Element = document
 ): T | null {
   try {
-    const element = parent.getElementById(id);
-    return element as T | null;
-  } catch (error) {
+    // Narrow the parent at runtime: Document has getElementById, Element does not.
+    if (parent instanceof Document) {
+      const element = parent.getElementById(id);
+      return element as T | null;
+    }
+    // Fallback for Element parents: use querySelector to find by id.
+    const el = (parent as Element).querySelector(`#${id}`);
+    return el as T | null;
+  } catch {
     return null;
   }
 }
@@ -38,7 +44,7 @@ export function safeQuerySelector<T extends HTMLElement>(
   try {
     const element = parent.querySelector(selector);
     return element as T | null;
-  } catch (error) {
+  } catch {
     return null;
   }
 }
@@ -57,7 +63,7 @@ export function safeQuerySelectorAll<T extends HTMLElement>(
   try {
     const elements = parent.querySelectorAll(selector);
     return Array.from(elements) as T[];
-  } catch (error) {
+  } catch {
     return [];
   }
 }
@@ -77,7 +83,7 @@ export function safeSetTextContent(element: HTMLElement | null, text: string): b
   try {
     element.textContent = text;
     return true;
-  } catch (error) {
+  } catch {
     return false;
   }
 }
@@ -97,7 +103,7 @@ export function safeSetInnerHTML(element: HTMLElement | null, html: string): boo
   try {
     element.innerHTML = html;
     return true;
-  } catch (error) {
+  } catch {
     return false;
   }
 }
@@ -121,7 +127,7 @@ export function safeAddClasses(element: HTMLElement | null, classes: string[]): 
       }
     });
     return true;
-  } catch (error) {
+  } catch {
     return false;
   }
 }
@@ -145,7 +151,7 @@ export function safeRemoveClasses(element: HTMLElement | null, classes: string[]
       }
     });
     return true;
-  } catch (error) {
+  } catch {
     return false;
   }
 }
@@ -170,7 +176,7 @@ export function safeSetDataAttributes(
       element.setAttribute(`data-${key}`, value);
     });
     return true;
-  } catch (error) {
+  } catch {
     return false;
   }
 }
@@ -189,7 +195,7 @@ export function safeRemoveElement(element: HTMLElement | null): boolean {
   try {
     element.remove();
     return true;
-  } catch (error) {
+  } catch {
     return false;
   }
 }
@@ -209,7 +215,7 @@ export function safeAppendChild(parent: HTMLElement | null, child: HTMLElement |
   try {
     parent.appendChild(child);
     return true;
-  } catch (error) {
+  } catch {
     return false;
   }
 }

@@ -6,6 +6,7 @@
  */
 
 import { safeGetElementById } from "../dom/domUtils";
+import { handleGameError } from "../error/errorHandlingUtils";
 
 export interface ElementValidationResult {
   isValid: boolean;
@@ -35,9 +36,12 @@ export function validateRequiredElements(
   const isValid = missingElements.length === 0;
 
   if (!isValid) {
-      component: context,
-      action: "validation",
-      data: { missingElements, requiredElements: elementIds },
+    handleGameError(new Error("Missing required elements"), "element validation", {
+      context: {
+        component: context,
+        action: "validation",
+        data: { missingElements, requiredElements: elementIds },
+      },
     });
   }
 

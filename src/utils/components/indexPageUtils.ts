@@ -1,4 +1,5 @@
 import { safeQuerySelector, safeGetElementById } from "../dom/domUtils";
+import { handleInitializationError } from "../error/errorHandlingUtils";
 
 /**
  * Simple animation manager for index page
@@ -104,5 +105,12 @@ export const initializeIndexPage = (): void => {
 export const initIndexPageAuto = (): void => {
   try {
     initializeIndexPage();
-  } catch (error) {}
+  } catch (_error) {
+    // Route non-critical initialization errors to centralized handler for visibility.
+    try {
+      handleInitializationError(_error, "index page init");
+    } catch {
+      // Swallow any errors thrown by the error handler to avoid cascading failures.
+    }
+  }
 };

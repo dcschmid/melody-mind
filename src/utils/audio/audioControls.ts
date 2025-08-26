@@ -89,7 +89,7 @@ export async function stopAudio(audioElement?: HTMLAudioElement | null): Promise
     if (!audio.paused) {
       await new Promise<void>((resolve) => {
         // Handle one-time ended event to resolve on completion
-        const onPause = () => {
+        const onPause = (): void => {
           audio.removeEventListener("pause", onPause);
           resolve();
         };
@@ -125,13 +125,12 @@ export class AudioController implements AudioControl {
    * @param {string} audioElementId - ID of the HTML audio element to control (defaults to 'audio-preview')
    */
   constructor(audioElementId: string = "audio-preview") {
-    this.audioElement = document.getElementById(audioElementId) as HTMLAudioElement;
+    this.audioElement = document.getElementById(audioElementId) as HTMLAudioElement | null;
 
     // Initialize audio element if found
     if (this.audioElement) {
       this.audioElement.volume = this.defaultVolume;
       this.registerEventListeners();
-    } else {
     }
   }
 
@@ -145,7 +144,7 @@ export class AudioController implements AudioControl {
     }
 
     // Handle errors during playback
-    const errorHandler = (e: Event) => {
+    const errorHandler = (e: Event): void => {
       handleAudioError(e, "audio playback");
     };
 
@@ -203,12 +202,12 @@ export class AudioController implements AudioControl {
         if (this.audioElement.readyState < 2) {
           // HAVE_CURRENT_DATA
           await new Promise<void>((resolve, reject) => {
-            const onLoadedMetadata = () => {
+            const onLoadedMetadata = (): void => {
               this.audioElement?.removeEventListener("loadedmetadata", onLoadedMetadata);
               resolve();
             };
 
-            const onError = (e: Event) => {
+            const onError = (e: Event): void => {
               this.audioElement?.removeEventListener("error", onError);
               reject(
                 new Error(`Failed to load audio: ${(e as ErrorEvent).message || "Unknown error"}`)

@@ -10,7 +10,9 @@ export function initCategoryFilter(container: HTMLElement): void {
   const filter = container.querySelector(".filter") as HTMLSelectElement;
   const items = container.querySelectorAll(".item");
 
-  if (!filter || items.length === 0) return;
+  if (!filter || items.length === 0) {
+    return;
+  }
 
   filter.addEventListener("change", (e) => {
     const value = (e.target as HTMLSelectElement).value;
@@ -25,7 +27,9 @@ export function initCategoryFilter(container: HTMLElement): void {
  * Simple back to top functionality
  */
 export function initBackToTop(button: HTMLElement): void {
-  if (!button) return;
+  if (!button) {
+    return;
+  }
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -64,11 +68,15 @@ export function initTableOfContents(container: HTMLElement): void {
   const headings = container.querySelectorAll("h2, h3, h4");
   const toc = container.querySelector(".toc");
 
-  if (!toc || headings.length === 0) return;
+  if (!toc || headings.length === 0) {
+    return;
+  }
 
   const tocItems = Array.from(headings).map((heading) => {
     const id = heading.id || heading.textContent?.toLowerCase().replace(/\s+/g, "-");
-    if (id) heading.id = id;
+    if (id) {
+      heading.id = id;
+    }
 
     return {
       element: heading,
@@ -111,14 +119,22 @@ export function initMusicButtons(container: HTMLElement): void {
  */
 export function initLoadingSpinner(container: HTMLElement): void {
   const spinner = container.querySelector(".loading-spinner");
-  if (!spinner) return;
+  if (!spinner) {
+    return;
+  }
 
   const show = () => spinner.classList.remove("hidden");
   const hide = () => spinner.classList.add("hidden");
 
   // Expose methods globally for this container
-  (container as any).showSpinner = show;
-  (container as any).hideSpinner = hide;
+  // Expose methods globally for this container (typed)
+  interface SpinnerContainer extends HTMLElement {
+    showSpinner?: () => void;
+    hideSpinner?: () => void;
+  }
+  const spinnerContainer = container as SpinnerContainer;
+  spinnerContainer.showSpinner = show;
+  spinnerContainer.hideSpinner = hide;
 }
 
 /**
@@ -128,7 +144,9 @@ export function initNavigation(container: HTMLElement): void {
   const menuButton = container.querySelector(".menu-button");
   const menu = container.querySelector(".menu");
 
-  if (!menuButton || !menu) return;
+  if (!menuButton || !menu) {
+    return;
+  }
 
   menuButton.addEventListener("click", () => {
     menu.classList.toggle("open");

@@ -1,5 +1,5 @@
-import { handleGameError } from "../error/errorHandlingUtils";
 import type { Question, Album } from "../../types/game";
+import { handleGameError } from "../error/errorHandlingUtils";
 
 /**
  * DOM elements required for displaying a question.
