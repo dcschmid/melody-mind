@@ -51,6 +51,8 @@ export class JokerManager {
   private currentQuestion: Question | null = null;
   private jokerState: JokerState;
   private clickListener: ((e: MouseEvent) => void) | null = null;
+  // Stored reference for custom 'jokerUsed' event listener so it can be removed during cleanup
+  private jokerUsedListener: (() => void) | null = null;
 
   /**
    * Creates a new JokerManager instance
@@ -75,7 +77,7 @@ export class JokerManager {
    */
   private init(): void {
     // Store click listener as a property for removal during cleanup
-    this.clickListener = (e: MouseEvent) => this.handleJokerClick(e);
+    this.clickListener = (e: MouseEvent): void => this.handleJokerClick(e);
 
     // Add click event listener to the joker button
     if (this.jokerButton) {
@@ -83,7 +85,9 @@ export class JokerManager {
     }
 
     // Listen for custom jokerUsed events from the Joker component
-    document.addEventListener("jokerUsed", () => this.useJoker());
+    // Store a reference to the handler so it can be removed in `cleanup()`.
+    this.jokerUsedListener = (): void => this.useJoker();
+    document.addEventListener("jokerUsed", this.jokerUsedListener);
 
     this.updateJokerUI();
   }
@@ -96,7 +100,11 @@ export class JokerManager {
     if (this.jokerButton && this.clickListener) {
       this.jokerButton.removeEventListener("click", this.clickListener);
     }
-    document.removeEventListener("jokerUsed", () => this.useJoker());
+    // Remove stored jokerUsed listener if it was registered
+    if (this.jokerUsedListener) {
+      document.removeEventListener("jokerUsed", this.jokerUsedListener);
+      this.jokerUsedListener = null;
+    }
   }
 
   /**

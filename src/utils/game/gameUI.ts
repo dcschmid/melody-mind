@@ -75,6 +75,15 @@ export function updateCoinsDisplay(newScore: number): void {
 /**
  * Show the end-of-game popup / overlay.
  *
+ * Brief: Reveal the end-of-game UI and coordinate between the global overlay
+ * (if present) and a local DOM fallback to ensure a responsive experience.
+ *
+ * Displays the end-of-game overlay and coordinates between a richer global
+ * overlay (when registered on `window`) and a local DOM-based fallback.
+ * The function keeps the UX responsive by revealing a basic DOM popup
+ * immediately and delegating richer animations/logic to the global overlay
+ * when available.
+ *
  * This function delegates to a richer global overlay when available and otherwise
  * reveals a fallback DOM popup. The implementation is split into small helpers
  * to keep complexity and nesting low.
@@ -84,13 +93,13 @@ export function updateCoinsDisplay(newScore: number): void {
  */
 
 /**
- *
+ * Helper to reveal the end-of-game UI.
+ * Coordinates a richer global overlay (if present) with a local DOM fallback.
  */
 export async function showEndgamePopup(score: number, maxScore?: number): Promise<void> {
   // Lightweight debug log (non-fatal)
   try {
     if (import.meta.env?.DEV) {
-       
       console.warn("[gameUI] showEndgamePopup called (debug)", { score, maxScore });
     }
   } catch (e) {
@@ -102,8 +111,8 @@ export async function showEndgamePopup(score: number, maxScore?: number): Promis
   if (invokedGlobal) {
     // Ensure DOM fallback is visible as robust safety net
     try {
-      const popup = safeGetElementById<HTMLElement>("endgame-popup");
-      revealEndOverlayDom(popup);
+      // Use internal fallback reveal helper when a richer global overlay has been invoked.
+      revealFallbackPopup(score, maxScore);
     } catch (e) {
       void e;
     }
@@ -117,7 +126,6 @@ export async function showEndgamePopup(score: number, maxScore?: number): Promis
     try {
       // If everything failed, log centrally but do not throw
       if (typeof console !== "undefined" && typeof console.error === "function") {
-         
         console.error("showEndgamePopup failed to reveal fallback popup:", e);
       }
     } catch (err) {
@@ -194,7 +202,29 @@ function revealFallbackPopup(score: number, maxScore?: number): void {
 
     // Reveal safely
     try {
-      revealEndOverlayDom(popup);
+      // Basic, robust reveal of the popup element as fallback (avoid relying on external helper).
+      try {
+        popup.classList.remove("hidden");
+      } catch (_e) {
+        void _e;
+      }
+
+      try {
+        popup.style.display = "flex";
+        popup.style.visibility = "visible";
+        popup.style.opacity = "1";
+        popup.style.pointerEvents = "auto";
+        popup.style.zIndex = String(100000);
+        popup.setAttribute("aria-hidden", "false");
+        popup.setAttribute("tabindex", "-1");
+        try {
+          popup.focus();
+        } catch (_focusErr) {
+          void _focusErr;
+        }
+      } catch (_e) {
+        void _e;
+      }
     } catch (e) {
       void e;
     }

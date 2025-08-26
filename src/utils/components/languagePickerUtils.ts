@@ -59,12 +59,14 @@ export class LanguagePickerUtils {
   /**
    * Construct the utility and initialize it.
    *
-   * @param config - Partial configuration for the language picker
+   * @param {LanguagePickerConfig} config - Partial configuration for the language picker
+   * @returns {void}
    */
   constructor(config: LanguagePickerConfig = {}) {
     this.config = {
       selectId: config.selectId ?? "language-select",
-      onLanguageChange: config.onLanguageChange ?? (() => {}),
+      onLanguageChange:
+        config.onLanguageChange ?? ((_newLang: string, _newUrl: string): void => {}),
     };
 
     this.elements = {
@@ -131,7 +133,8 @@ export class LanguagePickerUtils {
    * This method can be called with an Event (from the DOM) or without arguments
    * to trigger reading the current value programmatically.
    *
-   * @param event - Optional DOM Event triggered by the select element
+   * @param {Event} [event] - Optional DOM Event triggered by the select element
+   * @returns {void}
    */
   private handleLanguageChange(event?: Event): void {
     const selectEl = this.elements.select;
@@ -201,7 +204,8 @@ export class LanguagePickerUtils {
    * Keyboard handler to support keyboard interactions.
    * When Enter or Space is pressed, focus the select to open it.
    *
-   * @param e - KeyboardEvent from the select
+   * @param {KeyboardEvent} e - KeyboardEvent from the select
+   * @returns {void}
    */
   private handleKeydown(e: KeyboardEvent): void {
     if (e.key === "Enter" || e.key === " ") {
@@ -228,7 +232,8 @@ export class LanguagePickerUtils {
    * If a matching option is found its `.value` will be applied and the
    * onLanguageChange flow will be invoked (which will navigate).
    *
-   * @param langCode - language code to select, e.g. "en"
+   * @param {string} langCode - language code to select, e.g. "en"
+   * @returns {void}
    */
   public setLanguage(langCode: string): void {
     const sel = this.elements.select;
@@ -282,7 +287,8 @@ export class LanguagePickerUtils {
 /**
  * Helper to create a new LanguagePickerUtils instance.
  *
- * @param config - configuration to pass to the picker
+ * @param {LanguagePickerConfig} config - configuration to pass to the picker
+ * @returns {LanguagePickerUtils}
  */
 export function initLanguagePicker(config: LanguagePickerConfig): LanguagePickerUtils {
   return new LanguagePickerUtils(config);
@@ -290,6 +296,7 @@ export function initLanguagePicker(config: LanguagePickerConfig): LanguagePicker
 
 /**
  * Initialize the default language picker using the common select id.
+ * @returns {LanguagePickerUtils}
  */
 export function initDefaultLanguagePicker(): LanguagePickerUtils {
   return initLanguagePicker({ selectId: "language-select" });

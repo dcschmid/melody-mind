@@ -117,7 +117,57 @@ function cacheElements(): GameElements {
  * @async
  * @param {GameElements} elements - Cached DOM elements required for the game
  */
-const initializeGame = async (elements: GameElements): Promise<void> => {
+/**
+ * Helper: Load albums for the game and validate results.
+ * Extracted out of `initializeGame` to reduce function complexity.
+ */
+async function loadAndValidateAlbums(
+  category: string | null,
+  lang: string,
+  t: ReturnType<typeof useTranslations>
+): Promise<Album[] | null> {
+  try {
+    const albums = await loadAlbumsWithFallback(String(category), String(lang));
+    if (!albums?.length) {
+      throw new Error(t("error.no.albums.found"));
+    }
+    return albums;
+  } catch (error) {
+    handleLoadingError(error, "albums data");
+    ErrorHandler.handleApiError(error instanceof Error ? error : new Error(String(error)));
+    return null;
+  }
+}
+
+/**
+ * Helper: Normalize incoming album data to the RQAlbum shape used by the
+ * random question selection logic. This keeps the normalisation logic in
+ * one place and reduces duplication.
+ */
+function normalizeAlbums(albums: Album[] | null): RQAlbum[] {
+  return (Array.isArray(albums) ? albums : []).map((a) => {
+    const albumRec = a as unknown as Record<string, unknown>;
+    const qRec = (albumRec["questions"] as Record<string, unknown> | undefined) ?? {};
+    const safeQ = {
+      easy: Array.isArray(qRec["easy"])
+        ? (qRec["easy"] as unknown[]).map((it) => it as RQQuestion)
+        : [],
+      medium: Array.isArray(qRec["medium"])
+        ? (qRec["medium"] as unknown[]).map((it) => it as RQQuestion)
+        : [],
+      hard: Array.isArray(qRec["hard"])
+        ? (qRec["hard"] as unknown[]).map((it) => it as RQQuestion)
+        : [],
+    };
+    return {
+      ...a,
+      questions: safeQ,
+    } as RQAlbum;
+  });
+}
+
+/* eslint-disable max-lines-per-function */
+async function initializeGame(elements: GameElements): Promise<void> {
   // QueueManager functionality removed - no longer needed
 
   if (!elements.container) {
@@ -125,18 +175,12 @@ const initializeGame = async (elements: GameElements): Promise<void> => {
     return;
   }
 
-  /**
-   * Extract game parameters from data attributes
-   * These attributes control game configuration and player identification
-   */
+  // Extract game parameters from data attributes
   const category = elements.container.getAttribute("data-genre");
   const categoryName = elements.container.getAttribute("data-categoryName");
   const difficulty = elements.container.getAttribute("data-difficulty");
 
-  /**
-   * Initialize game state variables
-   * These track the player's progress and performance
-   */
+  // Initialize game state variables
   let currentRound = 1;
   let totalScore = 0;
   let correctAnswers = 0;
@@ -149,40 +193,17 @@ const initializeGame = async (elements: GameElements): Promise<void> => {
     elements.round.textContent = `${currentRound}/${totalRounds}`;
   }
 
-  // Debug logging for round tracking (development-only)
-  if (import.meta.env?.DEV) {
-    // development debug info omitted to keep lint clean
-  }
-
-  /**
-   * Load albums data for the selected category with language fallback
-   * Attempts to load in the user's language first, then falls back to German
-   *
-   * @type {Album[] | null} albums - Collection of album data for questions
-   */
-  let albums: Album[] | null = null;
-
-  // Get current language based on URL (ensure a string is passed to translations)
+  // Get current language and translations
   const lang = String(getLangFromUrl(new URL(window.location.pathname, window.location.origin)));
   const t = useTranslations(String(lang));
 
-  try {
-    // Use the centralized album loader utility
-    albums = await loadAlbumsWithFallback(String(category), String(lang));
-
-    if (!albums?.length) {
-      throw new Error(t("error.no.albums.found"));
-    }
-  } catch (error) {
-    handleLoadingError(error, "albums data");
-    ErrorHandler.handleApiError(error instanceof Error ? error : new Error(String(error)));
+  // Load albums and bail out early on failure
+  const albums = await loadAndValidateAlbums(String(category), String(lang), t);
+  if (!albums) {
     return;
   }
 
-  /**
-   * Initialize joker system based on the difficulty level
-   * The joker allows players to eliminate incorrect answers
-   */
+  // Initialize joker manager
   jokerManager = new JokerManager({
     difficulty: validateDifficulty(difficulty) as Difficulty,
     elements: {
@@ -191,10 +212,7 @@ const initializeGame = async (elements: GameElements): Promise<void> => {
     },
   });
 
-  /**
-   * Initialize media players for audio feedback
-   * Provides sound effects for correct/incorrect answers
-   */
+  // Initialize media elements
   const mediaElements = initializeMediaElements();
   if (!mediaElements) {
     handleGameError(
@@ -205,22 +223,8 @@ const initializeGame = async (elements: GameElements): Promise<void> => {
   }
 
   /**
-   * Updates the coin display with an animation for visual feedback
-   * Provides both visual and auditory feedback for screen readers
-   *
-   * @param {number} newScore - The new score to display
-   */
-  // The `updateCoinsDisplay` implementation has been moved to `src/utils/game/gameUI.ts`.
-  // The function is imported at module level and used directly; no local implementation needed here.
-
-  /**
-   * Handles the player's answer, updates score, and manages game progression
-   * Tracks performance for achievement system and provides feedback
-   *
-   * @param {any} option - The player's selected answer
-   * @param {any} correctAnswer - The correct answer for the question
-   * @param {object} currentQuestion - The current question object
-   * @param {object} album - The album associated with the current question
+   * Helper: handles a player's answer and updates state/UI
+   * Small, focused function retained here to keep answer flow local.
    */
   function handleAnswerWrapper(
     option: string,
@@ -228,21 +232,17 @@ const initializeGame = async (elements: GameElements): Promise<void> => {
     currentQuestion: Question,
     album: Album
   ): void {
-    // Save start time for achievement tracking and validate
     const _w = window as unknown as {
       questionStartTime?: number;
       lastAnswerTime?: number;
       lastAnswerCorrect?: boolean;
     };
     const answerTime = Date.now() - (_w.questionStartTime ?? Date.now());
-    // Ensure time is positive and realistic (max 60 seconds)
     _w.lastAnswerTime = Math.min(Math.max(0, answerTime), 60000);
     _w.lastAnswerCorrect = option === correctAnswer;
 
-    // Clear speed bonus timer announcements once an answer is selected
     clearSpeedBonusTimers();
 
-    // Process the answer and update the score
     totalScore = handleAnswer({
       option,
       correctAnswer,
@@ -256,130 +256,20 @@ const initializeGame = async (elements: GameElements): Promise<void> => {
       },
       state: {
         score: totalScore,
-        roundIndex: currentRound, // Pass current round (not 0-based)
+        roundIndex: currentRound,
         totalRounds: totalRounds,
         roundElement: elements.round!,
       },
     });
 
-    // Immediately update UI with visual feedback for correct answers
     if (option === correctAnswer) {
       correctAnswers++;
       updateCoinsDisplay(totalScore);
     }
-
-    /**
-     * Setup handler for the next round button
-     * Controls game flow between questions and at game end
-     */
-    if (elements.nextRoundButton) {
-      elements.nextRoundButton.onclick = function () {
-        stopAudio();
-        // Use optional chaining in case overlay is null
-        elements.overlay?.classList.add("hidden");
-
-        // Increment round only when moving to next question
-        if (currentRound < totalRounds) {
-          currentRound++;
-
-          // Update round display directly from currentRound
-          if (elements.round) {
-            elements.round.textContent = `${currentRound}/${totalRounds}`;
-          }
-
-          // Ensure albums is an array and normalize shape for getRandomQuestion
-          const safeAlbumsForRandom: RQAlbum[] = (Array.isArray(albums) ? albums : []).map((a) => {
-            // Treat incoming album as a loose record and normalize question arrays safely.
-            const albumRec = a as unknown as Record<string, unknown>;
-            const qRec = (albumRec["questions"] as Record<string, unknown> | undefined) ?? {};
-            const safeQ = {
-              easy: Array.isArray(qRec["easy"])
-                ? (qRec["easy"] as unknown[]).map((it) => it as RQQuestion)
-                : [],
-              medium: Array.isArray(qRec["medium"])
-                ? (qRec["medium"] as unknown[]).map((it) => it as RQQuestion)
-                : [],
-              hard: Array.isArray(qRec["hard"])
-                ? (qRec["hard"] as unknown[]).map((it) => it as RQQuestion)
-                : [],
-            };
-            return {
-              ...a,
-              questions: safeQ,
-            } as RQAlbum;
-          });
-
-          const newQuestion = getRandomQuestion(
-            safeAlbumsForRandom,
-            validateDifficulty(difficulty),
-            totalRounds
-          );
-
-          if (newQuestion) {
-            loadNewQuestion(newQuestion.randomQuestion, newQuestion.randomAlbum);
-
-            if (elements.feedback) {
-              elements.feedback.textContent = "";
-            }
-          }
-        } else {
-          // End the game if all rounds are completed
-          endGame();
-        }
-      };
-    }
-  }
-
-  /**
-   * Handles the end of game, displays summary, and saves score
-   * Triggers achievement checks and displays final results
-   */
-  function endGame(): void {
-    const config = {
-      userId: "", // Removed userId
-      categoryName: categoryName || "",
-      difficulty: validateDifficulty(difficulty) || "easy",
-      totalRounds,
-      correctAnswers,
-      score: totalScore,
-      language: lang,
-
-      // Removed extended properties for achievement tracking
-      // genreId: category || "", // Category/genre ID for genre_explorer
-      // lastAnswerTime: typeof window.lastAnswerTime === "number" ? window.lastAnswerTime : undefined, // Last answer time for quick_answer
-      //   typeof window.lastAnswerCorrect === "boolean" ? window.lastAnswerCorrect : undefined, // Whether the last answer was correct
-      // eventId: window.currentEventId || undefined, // Event ID for seasonal_event
-
-      // Debug flag for achievement tests
-      debugAchievements: true,
-      endOfSession: true, // End of game session for game_series
-    };
-
-    const endUi = {
-      showEndgamePopup: (score: number) => {
-        // Delegate to the extracted helper which handles the advanced global overlay
-        // or the fallback DOM-based popup.
-        showEndgamePopup(score);
-      },
-    };
-
-    handleEndGame(config, endUi, {
-      onError: (error) => {
-        ErrorHandler.handleSaveError(error, "score", {
-          userId: config.userId,
-          score: config.score,
-          category: config.categoryName,
-        });
-      },
-    });
   }
 
   /**
    * Loads and displays a new question in the UI
-   * Handles the transition between questions including animations
-   *
-   * @param {object} question - The question object to display
-   * @param {object} album - The album associated with the question
    */
   function loadNewQuestion(question: Question, album: Album): void {
     if (!question || !question.options) {
@@ -387,16 +277,10 @@ const initializeGame = async (elements: GameElements): Promise<void> => {
       return;
     }
 
-    // Save start time for achievement tracking (use a narrow, safe cast)
     (window as unknown as { questionStartTime?: number }).questionStartTime = Date.now();
-
-    // Start speed bonus timer with announcements
     startSpeedBonusTimer(lang);
-
     jokerManager?.setCurrentQuestion(question);
 
-    // Normalize question shape to match `loadQuestionUtils.Question` (ensures `trivia` is present).
-    // Use the RQQuestion type for a clear contract and perform safe casts.
     const qr = question as Partial<RQQuestion> & Record<string, unknown>;
     const safeQuestion: RQQuestion = {
       question: String(qr.question ?? ""),
@@ -421,82 +305,155 @@ const initializeGame = async (elements: GameElements): Promise<void> => {
     });
   }
 
-  // Add event listener for restart button
-  elements.restartButton?.addEventListener("click", restartGame);
-
   /**
-   * Load the first question to start the game
-   * Initializes the game with the first random question
+   * End-of-game handler retained from original flow
    */
-  // Ensure albums is an array and normalize shape for the random selector
-  const safeAlbums: RQAlbum[] = (Array.isArray(albums) ? albums : []).map((a) => {
-    // Treat incoming album as a loose record and normalize question arrays safely without `any`
-    const albumRec = a as unknown as Record<string, unknown>;
-    const qRec = (albumRec["questions"] as Record<string, unknown> | undefined) ?? {};
-    const safeQ = {
-      easy: Array.isArray(qRec["easy"])
-        ? (qRec["easy"] as unknown[]).map((it) => it as RQQuestion)
-        : [],
-      medium: Array.isArray(qRec["medium"])
-        ? (qRec["medium"] as unknown[]).map((it) => it as RQQuestion)
-        : [],
-      hard: Array.isArray(qRec["hard"])
-        ? (qRec["hard"] as unknown[]).map((it) => it as RQQuestion)
-        : [],
+  function endGame(): void {
+    const config = {
+      userId: "",
+      categoryName: categoryName || "",
+      difficulty: validateDifficulty(difficulty) || "easy",
+      totalRounds,
+      correctAnswers,
+      score: totalScore,
+      language: lang,
+      debugAchievements: true,
+      endOfSession: true,
     };
-    return {
-      ...a,
-      questions: safeQ,
-    } as RQAlbum;
-  });
 
-  const initialQuestion = getRandomQuestion(
-    safeAlbums,
-    validateDifficulty(difficulty),
-    totalRounds
-  );
+    const endUi: { showEndgamePopup: (score: number) => void } = {
+      showEndgamePopup: (score: number): void => {
+        showEndgamePopup(score);
+      },
+    };
 
-  if (initialQuestion?.randomQuestion && initialQuestion?.randomAlbum) {
-    loadNewQuestion(initialQuestion.randomQuestion, initialQuestion.randomAlbum);
-  } else {
-    handleGameError(new Error(t("error.no.initial.question")), "initial question loading");
+    handleEndGame(config, endUi, {
+      onError: (error: Error): void => {
+        ErrorHandler.handleSaveError(error, "score", {
+          userId: config.userId,
+          score: config.score,
+          category: config.categoryName,
+        });
+      },
+    });
   }
 
   /**
-   * Warn before leaving if there's unsaved data
-   * Prevents accidental data loss when navigating away
+   * Setup event handlers extracted into a focused helper to reduce initializeGame size.
+   * - wires next round behaviour
+   * - restart button
+   * - keyboard shortcuts and unload cleanup
    */
-  // QueueManager functionality removed - no longer needed
-  // window.addEventListener("beforeunload", (e) => {
-  //   if (QueueManager.hasUnsavedData()) {
-  //     e.preventDefault();
-  //   }
-  // });
+  function setupEventHandlers(): void {
+    // Next-round button behaviour uses loadNewQuestion and endGame from outer scope.
+    if (elements.nextRoundButton) {
+      elements.nextRoundButton.onclick = function (): void {
+        stopAudio();
+        elements.overlay?.classList.add("hidden");
+
+        if (currentRound < totalRounds) {
+          currentRound++;
+          if (elements.round) {
+            elements.round.textContent = `${currentRound}/${totalRounds}`;
+          }
+
+          // Normalize albums for next-question selection
+          const safeAlbumsForRandom: RQAlbum[] = normalizeAlbums(albums);
+          const newQuestion = getRandomQuestion(
+            safeAlbumsForRandom,
+            validateDifficulty(difficulty),
+            totalRounds
+          );
+
+          if (newQuestion) {
+            loadNewQuestion(newQuestion.randomQuestion, newQuestion.randomAlbum);
+            if (elements.feedback) {
+              elements.feedback.textContent = "";
+            }
+          }
+        } else {
+          endGame();
+        }
+      };
+    }
+
+    // Restart button wiring
+    elements.restartButton?.addEventListener("click", restartGame);
+
+    // Keyboard shortcuts
+    initKeyboardShortcuts({
+      onJoker: (): void => {
+        const jokerButton = safeGetElementById<HTMLButtonElement>("joker-button");
+        if (jokerButton) {
+          jokerButton.click();
+        }
+      },
+      onOption: (index: number): void => {
+        const optionButtons = safeQuerySelectorAll<HTMLButtonElement>("#options button");
+        if (optionButtons && optionButtons.length > index) {
+          optionButtons[index].click();
+        }
+      },
+      onNextRound: (): void => {
+        const nextRoundButton = safeGetElementById<HTMLButtonElement>("quiz-next-round-button");
+        if (nextRoundButton && !nextRoundButton.closest(".hidden")) {
+          nextRoundButton.click();
+        }
+      },
+      onRestart: (): void => {
+        const restartButton = safeGetElementById<HTMLButtonElement>("restart-button");
+        if (restartButton && !restartButton.closest(".hidden")) {
+          restartButton.click();
+        }
+      },
+      lang: getLangFromUrl(new URL(window.location.pathname, window.location.origin)),
+    });
+
+    // Cleanup resources on unload
+    const cleanup = (): void => {
+      stopAudio();
+      jokerManager?.cleanup();
+      clearSpeedBonusTimers();
+      elements.restartButton?.removeEventListener("click", restartGame);
+    };
+    window.addEventListener("unload", cleanup);
+  }
 
   /**
-   * Clean up resources when the page unloads
-   * Ensures proper resource management and prevents memory leaks
+   * Start the first question in a single-purpose function.
    */
-  // Clean up resources when the page unloads
-  const cleanup = () => {
-    stopAudio();
-    // QueueManager.stopProcessing(); // Removed - no longer needed
-    jokerManager?.cleanup();
-    clearSpeedBonusTimers();
-    elements.restartButton?.removeEventListener("click", restartGame);
-  };
+  function startFirstQuestion(): void {
+    const safeAlbums: RQAlbum[] = normalizeAlbums(albums);
 
-  window.addEventListener("unload", cleanup);
-};
+    const initialQuestion = getRandomQuestion(
+      safeAlbums,
+      validateDifficulty(difficulty),
+      totalRounds
+    );
+
+    if (initialQuestion?.randomQuestion && initialQuestion?.randomAlbum) {
+      loadNewQuestion(initialQuestion.randomQuestion, initialQuestion.randomAlbum);
+    } else {
+      handleGameError(new Error(t("error.no.initial.question")), "initial question loading");
+    }
+  }
+
+  // Execute splitted responsibilities
+  setupEventHandlers();
+  startFirstQuestion();
+
+  // Accessibility enhancements remain outside to keep responsibilities clear
+  enhanceAccessibility();
+}
 
 /**
  * Enhances accessibility for dynamically created content
  * Adds proper ARIA labels and announcements for screen readers
  * Ensures the game is fully accessible to all users
  */
-function enhanceAccessibility() {
+function enhanceAccessibility(): void {
   // Use event delegation for better performance
-  document.addEventListener("focusin", (e) => {
+  document.addEventListener("focusin", (e: FocusEvent): void => {
     const target = e.target as HTMLElement;
     if (!target || !(target instanceof HTMLElement)) {
       return;
@@ -515,7 +472,7 @@ function enhanceAccessibility() {
   });
 
   // Remove enhanced focus class on blur
-  document.addEventListener("focusout", (e) => {
+  document.addEventListener("focusout", (e: FocusEvent): void => {
     const target = e.target as HTMLElement;
     if (target?.matches(".focus-visible-element")) {
       target.classList.remove("focus-visible-element");
@@ -532,22 +489,25 @@ function enhanceAccessibility() {
     threshold: 0.1,
   };
 
-  const intersectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return;
-      }
+  const intersectionObserver = new IntersectionObserver(
+    (entries: IntersectionObserverEntry[]): void => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
 
-      // Optimize for when elements come into view
-      const element = entry.target;
-      if (element.id === "options") {
-        element.setAttribute("aria-busy", "false");
-      }
+        // Optimize for when elements come into view
+        const element = entry.target as Element;
+        if (element.id === "options") {
+          element.setAttribute("aria-busy", "false");
+        }
 
-      // Stop observing after handling
-      intersectionObserver.unobserve(element);
-    });
-  }, observerOptions);
+        // Stop observing after handling
+        intersectionObserver.unobserve(element);
+      });
+    },
+    observerOptions
+  );
 
   // Start observing key elements
   const elementsToObserve = document.querySelectorAll("#options, #question");
@@ -557,8 +517,8 @@ function enhanceAccessibility() {
    * Use MutationObserver to track changes to the DOM for accessibility
    * Updates ARIA attributes when content changes dynamically
    */
-  const mutationObserver = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
+  const mutationObserver = new MutationObserver((mutations: MutationRecord[]): void => {
+    mutations.forEach((mutation: MutationRecord) => {
       const target = mutation.target as Element;
       if (mutation.type === "childList" && (target.id === "question" || target.id === "options")) {
         // Update ARIA attributes when content changes
@@ -612,7 +572,7 @@ function validateElements(elements: GameElements): boolean {
  */
 export function initGameEngine(): void {
   // Function to initialize game elements
-  const initGame = () => {
+  const initGame = (): void => {
     const elements = cacheElements();
     if (!validateElements(elements)) {
       handleGameError(new Error("Required DOM elements not found"), "DOM element validation");
@@ -625,25 +585,25 @@ export function initGameEngine(): void {
 
     // Initialize keyboard shortcuts
     initKeyboardShortcuts({
-      onJoker: () => {
+      onJoker: (): void => {
         const jokerButton = safeGetElementById<HTMLButtonElement>("joker-button");
         if (jokerButton) {
           jokerButton.click();
         }
       },
-      onOption: (index) => {
+      onOption: (index: number): void => {
         const optionButtons = safeQuerySelectorAll<HTMLButtonElement>("#options button");
         if (optionButtons && optionButtons.length > index) {
           optionButtons[index].click();
         }
       },
-      onNextRound: () => {
+      onNextRound: (): void => {
         const nextRoundButton = safeGetElementById<HTMLButtonElement>("quiz-next-round-button");
         if (nextRoundButton && !nextRoundButton.closest(".hidden")) {
           nextRoundButton.click();
         }
       },
-      onRestart: () => {
+      onRestart: (): void => {
         const restartButton = safeGetElementById<HTMLButtonElement>("restart-button");
         if (restartButton && !restartButton.closest(".hidden")) {
           restartButton.click();

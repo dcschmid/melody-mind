@@ -156,7 +156,13 @@ function hideOverlayById(overlayId: string): void {
 }
 
 /**
+ * Initialize the Chronology Feedback Overlay.
  *
+ * Binds event listeners, keyboard navigation, and listens for the
+ * 'showChronologyFeedback' custom event to render user results and update overlay UI.
+ * The function is idempotent and safe to call multiple times.
+ *
+ * @returns {void}
  */
 export function initChronologyFeedbackOverlay(): void {
   const overlayId = "chronology-feedback-overlay";
@@ -214,7 +220,13 @@ export function initChronologyFeedbackOverlay(): void {
 
 // Simple initialization function
 /**
+ * Auto-initialize the Chronology Feedback Overlay when the DOM is ready.
  *
+ * If the document is still loading this will attach a DOMContentLoaded listener
+ * to call `initChronologyFeedbackOverlay` once the DOM is available. Otherwise
+ * it invokes the initializer immediately.
+ *
+ * @returns {void}
  */
 export function initChronologyFeedbackOverlayAuto(): void {
   if (document.readyState === "loading") {

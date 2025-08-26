@@ -1,5 +1,6 @@
 import type { PodcastData } from "../types/podcast";
 import { handleGameError } from "../utils/error/errorHandlingUtils";
+import { useTranslations } from "../utils/i18n";
 
 /**
  * Podcast RSS Feed Generation Service
@@ -10,8 +11,6 @@ import { handleGameError } from "../utils/error/errorHandlingUtils";
  * @author Daniel Schmid <dcschmid@murena.io>
  * @version 1.0.0
  */
-
-import { useTranslations } from "../utils/i18n";
 
 const LANGUAGE_NAMES: Record<string, string> = {
   de: "Deutsch",

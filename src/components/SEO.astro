@@ -183,7 +183,10 @@ if (type === "article") {
 const pageTitle = `${title} | Melody Mind`;
 
 // Calculate critical resources for preloading
-const criticalResources = [{ as: "image", href: "/favicon.svg", type: "image/svg+xml" }];
+type CriticalResource = { as: string; href: string; type: string; crossorigin?: boolean };
+const criticalResources: CriticalResource[] = [
+  { as: "image", href: "/favicon.svg", type: "image/svg+xml", crossorigin: true },
+];
 ---
 
 <!-- Primary Meta Tags -->

@@ -32,7 +32,10 @@ const ITEMS_PER_DIFFICULTY = {
 const generateChronologyQuestion = (
   albumsData: Array<{ artist: string; album: string; year: string }>,
   difficulty: string
-) => {
+): {
+  items: Array<{ id: number; artist: string; title: string; year: number }>;
+  correctOrder: number[];
+} => {
   const itemCount = ITEMS_PER_DIFFICULTY[difficulty as keyof typeof ITEMS_PER_DIFFICULTY] || 4;
 
   if (!albumsData || albumsData.length === 0) {
@@ -97,7 +100,10 @@ const generateChronologyQuestion = (
 };
 
 // Score evaluation function
-const evaluateChronologyAnswer = (userOrder: number[], correctOrder: number[]) => {
+const evaluateChronologyAnswer = (
+  userOrder: number[],
+  correctOrder: number[]
+): { score: number; correctItems: number; totalItems: number } => {
   let correctItems = 0;
   const totalItems = correctOrder.length;
 
@@ -162,7 +168,7 @@ class ChronologyGame {
 
     // Debug logging (only in dev)
     if (import.meta.env?.DEV) {
-      console.log("ChronologyGame initialized with:", {
+      console.warn("ChronologyGame initialized with:", {
         difficulty: this.difficulty,
         category: this.category,
         categoryName: this.categoryName,
@@ -195,7 +201,7 @@ class ChronologyGame {
     }
   }
 
-  async initializeGame() {
+  async initializeGame(): Promise<void> {
     if (!this.container || !this.itemsContainer) {
       handleGameError(new Error("Required DOM elements not found"), "chronology game DOM elements");
       return;
@@ -212,7 +218,7 @@ class ChronologyGame {
     }
   }
 
-  async loadAlbumsData() {
+  async loadAlbumsData(): Promise<void> {
     try {
       this.albumsData = await loadAlbumsWithFallback(this.category, this.language);
     } catch (error) {
@@ -221,13 +227,13 @@ class ChronologyGame {
     }
   }
 
-  setupEventListeners() {
+  setupEventListeners(): void {
     addSafeClickListener(this.moveUpBtn, () => this.moveItem(-1));
     addSafeClickListener(this.moveDownBtn, () => this.moveItem(1));
     addSafeClickListener(this.submitBtn, () => this.submitAnswer());
   }
 
-  async loadQuestion() {
+  async loadQuestion(): Promise<void> {
     try {
       if (!this.albumsData) {
         throw new Error("Albums data not loaded");
@@ -247,7 +253,7 @@ class ChronologyGame {
     }
   }
 
-  renderItems() {
+  renderItems(): void {
     if (!this.itemsContainer) {
       return;
     }
@@ -308,7 +314,7 @@ class ChronologyGame {
     });
   }
 
-  selectItem(index: number) {
+  selectItem(index: number): void {
     // Remove previous selection
     const items = this.itemsContainer?.querySelectorAll("[data-index]");
     items?.forEach((item) => {
@@ -355,7 +361,7 @@ class ChronologyGame {
     this.updateControls();
   }
 
-  moveItem(direction: number) {
+  moveItem(direction: number): void {
     if (this.selectedIndex === -1) {
       // Auto-select first item if none selected
       this.selectItem(0);
@@ -378,7 +384,7 @@ class ChronologyGame {
     this.selectItem(newIndex);
   }
 
-  updateControls() {
+  updateControls(): void {
     const hasSelection = this.selectedIndex !== -1;
     const canMoveUp = hasSelection && this.selectedIndex > 0;
     const canMoveDown = hasSelection && this.selectedIndex < this.currentItems.length - 1;
@@ -394,7 +400,7 @@ class ChronologyGame {
     }
   }
 
-  async submitAnswer() {
+  async submitAnswer(): Promise<void> {
     if (this.isSubmitting) {
       return;
     }
@@ -421,7 +427,11 @@ class ChronologyGame {
     }
   }
 
-  async showFeedback(result: { correctItems: number; totalItems: number; score: number }) {
+  async showFeedback(result: {
+    correctItems: number;
+    totalItems: number;
+    score: number;
+  }): Promise<void> {
     // Initialize the feedback overlay if not already done
     if (!this.chronologyFeedbackOverlay) {
       try {
@@ -495,7 +505,11 @@ class ChronologyGame {
   /**
    * Fallback feedback method when overlay fails
    */
-  private showBasicFeedback(result: { correctItems: number; totalItems: number; score: number }) {
+  private showBasicFeedback(result: {
+    correctItems: number;
+    totalItems: number;
+    score: number;
+  }): void {
     try {
       const accuracy = Math.round((result.correctItems / result.totalItems) * 100);
       const message = `Runde ${this.round} abgeschlossen! Genauigkeit: ${accuracy}%, Punkte: +${result.score}`;
@@ -524,7 +538,7 @@ class ChronologyGame {
   /**
    * Update the display of round and score information
    */
-  private updateDisplay() {
+  private updateDisplay(): void {
     try {
       // Update round display
       if (this.roundDisplay) {
@@ -537,7 +551,7 @@ class ChronologyGame {
       }
 
       if (import.meta.env?.DEV) {
-        console.log("Display updated:", {
+        console.warn("Display updated:", {
           round: this.round,
           totalRounds: this.totalRounds,
         });
@@ -547,20 +561,20 @@ class ChronologyGame {
     }
   }
 
-  setupFeedbackEventListeners() {
+  setupFeedbackEventListeners(): void {
     // Clean up existing listeners first to prevent memory leaks
     this.cleanupFeedbackEventListeners();
 
     // Listen for next round event from feedback overlay
-    const nextRoundHandler = () => {
+    const nextRoundHandler = (): void => {
       if (import.meta.env?.DEV) {
-        console.log("chronologyNextRound event received - loading next question");
+        console.warn("chronologyNextRound event received - loading next question");
       }
       try {
         // Simple round increment without using updateGameRound
         this.round++;
         if (import.meta.env?.DEV) {
-          console.log(`Round updated to ${this.round}`);
+          console.warn(`Round updated to ${this.round}`);
         }
         this.updateDisplay(); // Update the display
         this.loadQuestion();
@@ -573,9 +587,9 @@ class ChronologyGame {
     };
 
     // Listen for end game event from feedback overlay
-    const endGameHandler = () => {
+    const endGameHandler = (): void => {
       if (import.meta.env?.DEV) {
-        console.log("chronologyEndGame event received - ending game");
+        console.warn("chronologyEndGame event received - ending game");
       }
       try {
         this.endGame();
@@ -598,7 +612,7 @@ class ChronologyGame {
   /**
    * Clean up feedback event listeners to prevent memory leaks
    */
-  private cleanupFeedbackEventListeners() {
+  private cleanupFeedbackEventListeners(): void {
     if (this.nextRoundHandler) {
       window.removeEventListener("chronologyNextRound", this.nextRoundHandler);
       this.nextRoundHandler = null;
@@ -610,9 +624,9 @@ class ChronologyGame {
     }
   }
 
-  async endGame() {
+  async endGame(): Promise<void> {
     if (import.meta.env?.DEV) {
-      console.log("Chronology game ending with:", {
+      console.warn("Chronology game ending with:", {
         score: this.score,
         round: this.round,
         totalRounds: this.totalRounds,
@@ -634,8 +648,8 @@ class ChronologyGame {
     };
 
     // Create UI interface for end game
-    const ui = {
-      showEndgamePopup: (score: number) => {
+    const ui: { showEndgamePopup: (score: number) => void } = {
+      showEndgamePopup: (score: number): void => {
         const popup = document.getElementById("endgame-popup");
         if (popup) {
           // Set all necessary data attributes for EndOverlay
@@ -685,7 +699,7 @@ class ChronologyGame {
     }
   }
 
-  showError(messageKey: string) {
+  showError(messageKey: string): void {
     // Get translation based on current language
     const translations: { [key: string]: { [key: string]: string } } = {
       de: {
@@ -711,6 +725,6 @@ class ChronologyGame {
 }
 
 // Initialize game when DOM is loaded
-document.addEventListener("DOMContentLoaded", () => {
-  new ChronologyGame();
+document.addEventListener("DOMContentLoaded", (): void => {
+  void new ChronologyGame();
 });

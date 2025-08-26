@@ -76,7 +76,7 @@ const {
     <!-- Native Web Share API Button (hidden by default, shown when supported) -->
     <button
       id="native-share-button"
-      class="share-overlay__button share-overlay__button--native share-overlay__button--hidden flex items-center gap-3 rounded-lg bg-[var(--color-primary-600)] px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-[var(--color-primary-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
+      class="share-overlay__button share-overlay__button--native share-overlay__button--hidden flex items-center gap-3 rounded-lg bg-[var(--color-primary-600)] px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-[var(--color-primary-700)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
       aria-label={t("share.native")}
       type="button"
     >
@@ -92,7 +92,7 @@ const {
 
     <!-- Twitter/X Share -->
     <button
-      class="flex items-center gap-3 rounded-lg bg-[var(--color-gray-600)] px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-[var(--color-gray-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
+      class="flex items-center gap-3 rounded-lg bg-[var(--color-gray-600)] px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-[var(--color-gray-700)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
       data-share="twitter"
       aria-label={t("share.twitter")}
       type="button"
@@ -109,7 +109,7 @@ const {
 
     <!-- WhatsApp Share -->
     <button
-      class="flex items-center gap-3 rounded-lg bg-[var(--color-green-600)] px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-[var(--color-green-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
+      class="flex items-center gap-3 rounded-lg bg-[var(--color-green-600)] px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-[var(--color-green-700)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
       data-share="whatsapp"
       aria-label={t("share.whatsapp")}
       type="button"
@@ -126,7 +126,7 @@ const {
 
     <!-- Email Share -->
     <button
-      class="flex items-center gap-3 rounded-lg bg-[var(--color-orange-600)] px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-[var(--color-orange-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
+      class="flex items-center gap-3 rounded-lg bg-[var(--color-orange-600)] px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-[var(--color-orange-700)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
       data-share="email"
       aria-label={t("share.email")}
       type="button"
@@ -146,7 +146,7 @@ const {
   <div class="mt-6 flex justify-center md:mt-8">
     <button
       id="copy-share-button"
-      class="flex items-center gap-3 rounded-lg bg-[var(--color-pink-600)] px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-[var(--color-pink-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
+      class="flex items-center gap-3 rounded-lg bg-[var(--color-pink-600)] px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-[var(--color-pink-700)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
       aria-label={t("share.copy")}
       type="button"
     >
@@ -184,7 +184,7 @@ const {
         <div class="flex justify-center gap-3">
           <button
             id="retry-share-button"
-            class="flex items-center gap-2 rounded-lg bg-[var(--color-primary-600)] px-4 py-2 text-sm font-medium text-white transition-all duration-200 hover:bg-[var(--color-primary-700)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
+            class="flex items-center gap-2 rounded-lg bg-[var(--color-primary-600)] px-4 py-2 text-sm font-medium text-white transition-all duration-200 hover:bg-[var(--color-primary-700)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
             type="button"
             aria-label={t("share.fallback.retry.label")}
           >
@@ -193,7 +193,7 @@ const {
           </button>
           <button
             id="manual-copy-button"
-            class="flex items-center gap-2 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-4 py-2 text-sm font-medium text-[var(--text-primary)] transition-all duration-200 hover:bg-[var(--bg-tertiary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
+            class="flex items-center gap-2 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-4 py-2 text-sm font-medium text-[var(--text-primary)] transition-all duration-200 hover:bg-[var(--bg-tertiary)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
             type="button"
             aria-label={t("share.fallback.manual.label")}
           >
@@ -287,7 +287,10 @@ const {
       return;
     }
 
-    UI_CONSTANTS.COPY_ORIGINAL_TEXT = elements.copyButtonText?.textContent || "";
+    UI_CONSTANTS.COPY_ORIGINAL_TEXT =
+      elements.copyButtonText && elements.copyButtonText.textContent
+        ? elements.copyButtonText.textContent
+        : "";
 
     initializeNativeSharing();
     initializeClipboardCopy();
@@ -308,9 +311,11 @@ const {
 
       if (gameData && isValidShareData(gameData)) {
         try {
-          console.debug("ShareOverlay: Game data validation successful");
-        } catch (err) {
-          void err;
+          if (typeof console !== "undefined" && typeof console.warn === "function") {
+            console.warn("ShareOverlay: Game data validation successful");
+          }
+        } catch {
+          /* ignore logging errors */
         }
         return;
       }
@@ -351,11 +356,21 @@ const {
           if (!isNaN(score)) {
             data.score = score;
           }
+        } else {
+          const scoreAttr = popup.getAttribute("data-score");
+          if (scoreAttr) {
+            const scoreFromAttr = parseInt(scoreAttr, 10);
+            if (!isNaN(scoreFromAttr)) {
+              data.score = scoreFromAttr;
+            }
+          }
         }
       }
       return data;
     } catch (error) {
-      console.error("ShareOverlay: Error parsing props data:", error);
+      if (typeof console !== "undefined" && typeof console.warn === "function") {
+        console.warn("ShareOverlay: Error parsing props data:", error);
+      }
       return null;
     }
   };
@@ -703,7 +718,7 @@ const {
 
   // Generate advanced multilingual share text using shareUtils
   const generateAdvancedShareText = async (data) => {
-    const { score, category, difficulty } = data;
+    const { score, category, difficulty } = data || {};
     const currentLang = document.documentElement.lang || "en";
 
     try {
@@ -711,30 +726,40 @@ const {
       const { generateShareTextForLanguage } = await import("/src/utils/share/shareUtils.ts");
       return generateShareTextForLanguage(data, currentLang);
     } catch (error) {
-      console.warn("Failed to import shareUtils, using fallback:", error);
+      if (typeof console !== "undefined" && typeof console.warn === "function") {
+        console.warn("Failed to import shareUtils, using fallback:", error);
+      }
 
       // Fallback implementation for compatibility
+      const numericScore = typeof score === "number" ? score : 0;
+      const catText = typeof category === "string" ? category : "Unknown";
+      const diffText = typeof difficulty === "string" ? difficulty : "mixed";
+
       const achievement =
-        score >= 800
+        numericScore >= 800
           ? "🎵 Music Genius! 🎵"
-          : score >= 600
+          : numericScore >= 600
             ? "🎧 Music Pro! 🎧"
-            : score >= 400
+            : numericScore >= 400
               ? "🎸 Music Enthusiast! 🎸"
-              : score >= 200
+              : numericScore >= 200
                 ? "🎹 Music Lover! 🎹"
                 : "🎼 Music Explorer! 🎼";
 
       const difficultyEmoji =
-        difficulty.toLowerCase() === "easy"
+        typeof diffText === "string" && diffText.toLowerCase && diffText.toLowerCase() === "easy"
           ? "🟢"
-          : difficulty.toLowerCase() === "medium"
+          : typeof diffText === "string" &&
+              diffText.toLowerCase &&
+              diffText.toLowerCase() === "medium"
             ? "🟡"
-            : difficulty.toLowerCase() === "hard"
+            : typeof diffText === "string" &&
+                diffText.toLowerCase &&
+                diffText.toLowerCase() === "hard"
               ? "🔴"
               : "⚪️";
 
-      const scoreText = `I scored ${score} points in Melody Mind's ${category} quiz (${difficultyEmoji} ${difficulty})!`;
+      const scoreText = `I scored ${numericScore} points in Melody Mind's ${catText} quiz (${difficultyEmoji} ${diffText})!`;
       const challenge = "Think you can beat me? Play now at:";
 
       return `${achievement}\n\n${scoreText}\n\n${challenge}`;
@@ -902,11 +927,19 @@ const {
       return;
     }
 
-    elements.statusAnnouncer.textContent = message;
+    try {
+      elements.statusAnnouncer.textContent = message;
+    } catch {
+      // Ignore DOM update failures for screen reader region
+    }
 
     setTimeout(() => {
-      if (elements.statusAnnouncer) {
-        elements.statusAnnouncer.textContent = "";
+      try {
+        if (elements.statusAnnouncer) {
+          elements.statusAnnouncer.textContent = "";
+        }
+      } catch {
+        // ignore
       }
     }, 5000);
   };
@@ -983,11 +1016,13 @@ const {
       mutations.forEach((mutation) => {
         if (mutation.type === "attributes" && mutation.attributeName === "class") {
           const popup = mutation.target;
-          if (popup.classList && !popup.classList.contains("hidden")) {
+          if (popup && popup.classList && !popup.classList.contains("hidden")) {
             try {
-              console.debug("EndOverlay is now visible, initializing ShareOverlay");
-            } catch (err) {
-              void err;
+              if (typeof console !== "undefined" && typeof console.warn === "function") {
+                console.warn("EndOverlay is now visible, initializing ShareOverlay");
+              }
+            } catch {
+              /* ignore */
             }
             initializeSharing().catch(function (e) {
               try {

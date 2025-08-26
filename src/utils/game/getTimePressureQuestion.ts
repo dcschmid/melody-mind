@@ -375,7 +375,11 @@ export function resetTimePressureQuestions(): void {
  *
  * @returns {object} Statistics about current session
  */
-export function getTimePressureStats() {
+export function getTimePressureStats(): {
+  usedQuestionsCount: number;
+  difficultyDistribution: { easy: number; medium: number; hard: number; totalQuestions: number };
+  difficultyRatios: { easy: string; medium: string; hard: string };
+} {
   return {
     usedQuestionsCount: usedTimePressureQuestions.size,
     difficultyDistribution: { ...difficultyTracker },

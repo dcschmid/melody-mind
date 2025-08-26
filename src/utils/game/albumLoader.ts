@@ -9,73 +9,74 @@ import { handleLoadingError } from "../error/errorHandlingUtils";
  */
 
 /**
- * Loads album data for a specific category and language with fallback support
+ * Load album data for a category with a primary language and a fallback.
  *
- * @param category - The music category/genre to load
- * @param language - The preferred language for the data
- * @param fallbackLanguage - The fallback language if the preferred one fails (default: 'de')
- * @returns Promise<Album[]> - Array of albums for the category
- * @throws Error if no albums can be loaded from any language
+ * - Tries the preferred `language` first and then `fallbackLanguage`.
+ * - Uses a small helper to keep each fetch attempt isolated, reducing overall complexity.
+ * - Returns a validated Album[] or throws with a helpful message.
+ *
+ * @param {string} category - The music category/genre to load
+ * @param {string} language - The preferred language for the data
+ * @param {string} [fallbackLanguage='de'] - The fallback language if the preferred one fails
+ * @returns {Promise<Album[]>} Array of albums for the category
+ * @throws {Error} If no albums can be loaded from any language
  */
 export async function loadAlbumsWithFallback(
   category: string,
   language: string,
   fallbackLanguage: string = "de"
 ): Promise<Album[]> {
-  try {
-    // Try to load from the preferred language first
-    const response = await fetch(`/json/genres/${language}/${category}.json`);
-
-    if (response.ok) {
-      const albumsData = await response.json();
-
-      // Ensure we have valid album data
-      if (Array.isArray(albumsData) && albumsData.length > 0) {
-        return albumsData;
-      }
-
-      // If it's an object with an albums property that is an array, use that
-      if (albumsData && typeof albumsData === "object" && Array.isArray(albumsData.albums)) {
-        return albumsData.albums;
-      }
-    }
-  } catch (err: unknown) {
-    // Log the failure for the preferred-language fetch and continue to fallback.
-    // Use the centralized loader error handler so failures are recorded consistently.
+  // Helper to attempt loading JSON for a specific language and return Album[] | null
+  async function tryLoadForLanguage(lang: string): Promise<Album[] | null> {
     try {
-      handleLoadingError(err, `preferred data for ${category}`);
-    } catch {
-      // Avoid throwing from the error handler itself; swallow any errors here.
-      void err;
+      const res = await fetch(`/json/genres/${lang}/${category}.json`);
+      if (!res.ok) {
+        return null;
+      }
+
+      const data = await res.json();
+
+      if (Array.isArray(data) && data.length > 0) {
+        return data as Album[];
+      }
+
+      if (data && typeof data === "object") {
+        const maybe = data as Record<string, unknown>;
+        if (Array.isArray(maybe.albums) && (maybe.albums as unknown[]).length > 0) {
+          return maybe.albums as Album[];
+        }
+      }
+
+      return null;
+    } catch (err: unknown) {
+      // Record the failure but don't throw here so fallback can be attempted
+      try {
+        handleLoadingError(err, `data for ${category} (${lang})`);
+      } catch {
+        void err;
+      }
+      return null;
     }
   }
 
-  // Fallback to the fallback language
-  try {
-    const fallbackResponse = await fetch(`/json/genres/${fallbackLanguage}/${category}.json`);
-
-    if (!fallbackResponse.ok) {
-      throw new Error(`Failed to load albums for category: ${category} from any language`);
-    }
-
-    const fallbackData = await fallbackResponse.json();
-
-    // Ensure we have valid album data from fallback
-    if (Array.isArray(fallbackData) && fallbackData.length > 0) {
-      return fallbackData;
-    }
-
-    if (fallbackData && typeof fallbackData === "object" && Array.isArray(fallbackData.albums)) {
-      return fallbackData.albums;
-    }
-
-    throw new Error(`No albums found for category: ${category} in any language`);
-  } catch (fallbackError) {
-    handleLoadingError(fallbackError, `fallback data for ${category}`);
-    throw new Error(
-      `Category '${category}' not found in any language. Available categories might be: 1950s, 1960s, 1970s, 1980s, 1990s, 2000s, 2010s`
-    );
+  // Try preferred language first
+  const primary = await tryLoadForLanguage(language);
+  if (primary && primary.length) {
+    return primary;
   }
+
+  // Try fallback language
+  const fallback = await tryLoadForLanguage(fallbackLanguage);
+  if (fallback && fallback.length) {
+    return fallback;
+  }
+
+  // Nothing found — report and throw
+  const errMessage = `Category '${category}' not found in languages: ${language}, ${fallbackLanguage}.`;
+  handleLoadingError(new Error(errMessage), `category loading for ${category}`);
+  throw new Error(
+    `Category '${category}' not found in any language. Available categories might be: 1950s, 1960s, 1970s, 1980s, 1990s, 2000s, 2010s`
+  );
 }
 
 /**
@@ -84,13 +85,28 @@ export async function loadAlbumsWithFallback(
  * @param albums - The albums data to validate
  * @returns boolean - True if the data is valid
  */
+/**
+ * Validates that loaded album data is in the correct format
+ *
+ * @param {unknown} albums - The albums data to validate
+ * @returns {albums is Album[]} True if the data is valid
+ */
 export function validateAlbumsData(albums: unknown): albums is Album[] {
   if (!Array.isArray(albums)) {
     return false;
   }
 
-  return albums.every(
-    (album) =>
-      album && typeof album === "object" && "artist" in album && "album" in album && "year" in album
-  );
+  // Use a plain boolean-returning predicate here to avoid parser issues
+  // with TypeScript type-predicate syntax in some tooling.
+  return albums.every((album) => {
+    if (!album || typeof album !== "object") {
+      return false;
+    }
+    const rec = album as Record<string, unknown>;
+    return (
+      typeof rec["artist"] === "string" &&
+      typeof rec["album"] === "string" &&
+      (typeof rec["year"] === "string" || typeof rec["year"] === "number")
+    );
+  });
 }
