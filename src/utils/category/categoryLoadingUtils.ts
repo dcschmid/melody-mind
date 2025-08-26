@@ -58,7 +58,11 @@ export async function loadCategoriesForLanguage(
           success: true,
           fallbackUsed: false,
         };
-      } catch {}
+      } catch (err) {
+        // Report the import failure and continue to the next fallback strategy.
+        // Using the centralized loader error handler so failures are logged consistently.
+        handleLoadingError(err, `category data import for ${language}`);
+      }
     }
 
     // Fallback to relative path
