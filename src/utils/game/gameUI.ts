@@ -83,25 +83,99 @@ export function updateCoinsDisplay(newScore: number): void {
  */
 export async function showEndgamePopup(score: number, maxScore?: number): Promise<void> {
   try {
+    // Debug: entry
+    try {
+      // eslint-disable-next-line no-console
+      console.debug("[gameUI] showEndgamePopup called", { score, maxScore });
+    } catch (e) {
+      void e;
+    }
+
     // Prefer global end overlay if provided by endOverlay module
-    if (typeof window !== "undefined" && typeof window.showEndOverlay === "function") {
+    if (typeof window !== "undefined" && typeof (window as Window).showEndOverlay === "function") {
+      try {
+        // eslint-disable-next-line no-console
+        console.debug("[gameUI] Detected window.showEndOverlay, invoking global overlay");
+      } catch (e) {
+        void e;
+      }
       // The global API supports either a number or a config object.
-      if (typeof maxScore === "number") {
-        await window.showEndOverlay(score, maxScore);
-      } else {
-        // Pass config object to allow more advanced overlays to animate correctly.
-        await window.showEndOverlay({ score, maxScore: maxScore || undefined });
+      try {
+        if (typeof maxScore === "number") {
+          await (window as Window).showEndOverlay(score, maxScore);
+        } else {
+          // Pass config object to allow more advanced overlays to animate correctly.
+          await (window as Window).showEndOverlay({ score, maxScore: maxScore || undefined });
+        }
+      } catch (err) {
+        try {
+          console.warn("[gameUI] window.showEndOverlay threw an error", err);
+        } catch (e) {
+          void e;
+        }
+      } finally {
+        // Ensure DOM popup is revealed even if global overlay didn't handle visibility.
+        // This makes the function robust when utility CSS (e.g. Tailwind `hidden`) prevents display.
+        try {
+          const popup = safeGetElementById<HTMLElement>("endgame-popup");
+          if (popup) {
+            try {
+              popup.classList.remove(
+                "hidden",
+                "invisible",
+                "opacity-0",
+                "pointer-events-none",
+                "sr-only"
+              );
+            } catch (e) {
+              void e;
+            }
+            try {
+              popup.style.display = "flex";
+              popup.style.visibility = "visible";
+              popup.style.opacity = "1";
+              popup.style.pointerEvents = "auto";
+              popup.style.zIndex = String(100000);
+              popup.setAttribute("aria-hidden", "false");
+            } catch (e) {
+              void e;
+            }
+            try {
+              popup.setAttribute("tabindex", "-1");
+              popup.focus();
+            } catch (e) {
+              void e;
+            }
+          }
+        } catch (e) {
+          void e; // swallow to avoid breaking callers
+        }
       }
       return;
     }
 
     // Fallback: manipulate the legacy DOM-based popup
+    // and provide informative debug logs for tracing
     const popup = safeGetElementById<HTMLElement>("endgame-popup");
     const scoreElement = safeGetElementById<HTMLElement>("popup-score");
 
     if (popup) {
+      try {
+        // eslint-disable-next-line no-console
+        console.debug("[gameUI] Using DOM-based endgame popup");
+      } catch (e) {
+        void e;
+      }
+
       if (scoreElement) {
         scoreElement.textContent = String(score);
+      } else {
+        try {
+          // eslint-disable-next-line no-console
+          console.debug("[gameUI] popup exists but #popup-score not found");
+        } catch (e) {
+          void e;
+        }
       }
 
       // Store metadata attributes commonly read by other modules
@@ -110,21 +184,53 @@ export async function showEndgamePopup(score: number, maxScore?: number): Promis
         popup.setAttribute("data-max-score", String(maxScore));
       }
 
-      // Reveal and focus for accessibility
-      popup.classList.remove("hidden");
+      // Reveal and focus for accessibility — forcefully ensure visible even if CSS utilities hide it
+      try {
+        // Remove common utility classes that hide/disable the element
+        popup.classList.remove(
+          "hidden",
+          "invisible",
+          "opacity-0",
+          "pointer-events-none",
+          "sr-only"
+        );
+      } catch (e) {
+        void e;
+      }
+      // Ensure display/layout and pointer interactions are enabled (inline styles as robust fallback)
+      try {
+        popup.style.display = "flex";
+        popup.style.visibility = "visible";
+        popup.style.opacity = "1";
+        popup.style.pointerEvents = "auto";
+        // High z-index to ensure it's above other layers
+        popup.style.zIndex = String(100000);
+      } catch (e) {
+        void e;
+      }
       popup.setAttribute("tabindex", "-1");
       try {
         popup.focus();
-      } catch {
-        // best-effort focus; ignore failures on older browsers
+      } catch (e) {
+        void e; // best-effort focus; ignore failures
+      }
+    } else {
+      try {
+        // eslint-disable-next-line no-console
+        console.debug("[gameUI] No #endgame-popup found - nothing to update");
+      } catch (e) {
+        void e;
       }
     }
   } catch (error) {
     // Avoid crashing callers - log to console and swallow errors.
     // Game-level error handlers should pick up persistent issues.
     // Keep this lightweight to avoid adding dependencies.
-    // eslint-disable-next-line no-console
-    console.error("showEndgamePopup failed:", error);
+    try {
+      console.error("showEndgamePopup failed:", error);
+    } catch (e) {
+      void e;
+    }
   }
 }
 

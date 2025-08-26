@@ -11,6 +11,7 @@
  * @since 2025-06-03
  */
 
+import { safeGetElementById, safeQuerySelector } from "./dom/domUtils";
 import { handleGameError } from "./error/errorHandlingUtils";
 
 // Type definitions for better type safety
@@ -25,7 +26,6 @@ interface EndOverlayConfig {
 }
 
 // Import centralized DOM utilities
-import { safeGetElementById, safeQuerySelector } from "./dom/domUtils";
 
 // Utility functions with modern ES6+ features
 const getElement = <T extends HTMLElement>(selector: string): T | null =>
@@ -45,7 +45,10 @@ const announceToScreenReader = (text: string): void => {
 // Extend Window interface for global functions
 declare global {
   interface Window {
-    showEndOverlay: (configOrScore: EndOverlayConfig | number, maxScore?: number) => Promise<void>;
+    showEndOverlay?: (
+      configOrScore: EndOverlayConfig | number,
+      maxScore?: number
+    ) => Promise<void> | void;
   }
 }
 
@@ -253,19 +256,159 @@ export const completeEndOverlaySetup = async (config: EndOverlayConfig): Promise
  * @returns void
  */
 export const initializeEndOverlay = (): void => {
+  // Debug: report initialization in dev
+  try {
+    if (import.meta.env?.DEV && typeof window !== "undefined") {
+      // eslint-disable-next-line no-console
+      console.debug("[endOverlay] initializeEndOverlay called");
+    }
+  } catch (e) {
+    try {
+      handleGameError(e, "initializeEndOverlay debug");
+    } catch {
+      /* ignore errors from error handler to avoid cascading failures */
+    }
+  }
+
   // Set up global showEndOverlay function for game engines to use
   window.showEndOverlay = (configOrScore: EndOverlayConfig | number, maxScore?: number) => {
-    if (typeof configOrScore === "number") {
-      // Legacy API: (score, maxScore)
-      return completeEndOverlaySetup({
-        score: configOrScore,
-        maxScore: maxScore || 1000,
-      });
-    } else {
-      // New API: (config)
-      return completeEndOverlaySetup(configOrScore);
+    // Debug: report invocation arguments in dev
+    try {
+      if (import.meta.env?.DEV && typeof window !== "undefined") {
+        // eslint-disable-next-line no-console
+        console.debug("[endOverlay] window.showEndOverlay invoked", { configOrScore, maxScore });
+      }
+    } catch (e) {
+      void e;
+    }
+
+    // Normalize incoming args into a single config object so we can
+    // consistently reveal the DOM popup and then run the richer setup.
+    const resolvedConfig: EndOverlayConfig = ((): EndOverlayConfig => {
+      if (typeof configOrScore === "number") {
+        return {
+          score: configOrScore,
+          maxScore: typeof maxScore === "number" ? maxScore : 1000,
+          translations: undefined,
+        } as EndOverlayConfig;
+      }
+      return {
+        score: (configOrScore as EndOverlayConfig).score,
+        maxScore: (configOrScore as EndOverlayConfig).maxScore ?? maxScore ?? 1000,
+        translations: (configOrScore as EndOverlayConfig).translations,
+      } as EndOverlayConfig;
+    })();
+
+    // Reveal the DOM-based overlay immediately so users see feedback even if
+    // the richer setup runs asynchronously or fails.
+    try {
+      const popup = getElementById<HTMLElement>("endgame-popup");
+      if (popup) {
+        // Ensure the data attribute is set so other modules/readers can inspect it
+        try {
+          popup.setAttribute("data-score", String(resolvedConfig.score));
+        } catch (e) {
+          void e;
+        }
+
+        // Robust reveal strategy: remove common hiding utility classes and apply inline styles.
+        try {
+          const hideClasses = [
+            "hidden",
+            "invisible",
+            "opacity-0",
+            "pointer-events-none",
+            "sr-only",
+          ];
+          hideClasses.forEach((c) => {
+            try {
+              popup.classList.remove(c);
+            } catch (_unused) {
+              void _unused; // ignore individual class removal failures (best-effort)
+            }
+          });
+        } catch (e) {
+          void e;
+        }
+
+        try {
+          popup.style.display = "flex";
+          popup.style.visibility = "visible";
+          popup.style.opacity = "1";
+          popup.style.pointerEvents = "auto";
+          popup.style.zIndex = String(100000);
+          popup.setAttribute("aria-hidden", "false");
+          popup.setAttribute("tabindex", "-1");
+          try {
+            popup.focus();
+          } catch (_unused) {
+            void _unused; // best-effort focus; ignore failures
+          }
+        } catch (_unused) {
+          void _unused; // ignore style application failures (best-effort)
+        }
+      }
+    } catch (domErr) {
+      try {
+        handleGameError(domErr, "revealing end overlay DOM");
+      } catch (_unused) {
+        void _unused; // ignore secondary errors from reporting to avoid cascading failures
+      }
+    }
+
+    // Now attempt to run the richer animation/setup. Keep this resilient:
+    // - If the call returns a Promise, await it so callers that expect completion behave.
+    // - If it throws, report centrally but do not prevent the DOM popup being visible.
+    try {
+      // Prefer global function if available (shouldn't be needed because this is the registration),
+      // but keep compatibility with other code paths that may register different implementations.
+      const maybeGlobal = (window as unknown as Window & { showEndOverlay?: unknown })
+        .showEndOverlay;
+      if (
+        maybeGlobal &&
+        maybeGlobal !== window.showEndOverlay &&
+        typeof maybeGlobal === "function"
+      ) {
+        // Another richer implementation exists elsewhere; prefer that.
+        try {
+          return (maybeGlobal as (cfg: EndOverlayConfig) => Promise<void> | void)(resolvedConfig);
+        } catch (err) {
+          try {
+            handleGameError(err, "invoking alternative global showEndOverlay");
+          } catch (e) {
+            void e;
+          }
+        }
+      }
+
+      // Otherwise, run the internal completion steps which animate/update contents.
+      try {
+        return completeEndOverlaySetup(resolvedConfig);
+      } catch (e) {
+        try {
+          handleGameError(e, "completeEndOverlaySetup (config)");
+        } catch {
+          /* ignore */
+        }
+      }
+    } catch (e) {
+      try {
+        handleGameError(e, "showEndOverlay invocation");
+      } catch (err) {
+        void err;
+      }
     }
   };
+
+  // Debug: confirm registration
+  try {
+    if (import.meta.env?.DEV && typeof window !== "undefined") {
+      // eslint-disable-next-line no-console
+      console.debug("[endOverlay] window.showEndOverlay registered");
+    }
+  } catch {
+    /* ignore logging errors */
+  }
 };
 
 // Auto-initialize when module is loaded
