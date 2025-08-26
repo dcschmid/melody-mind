@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl } from "@utils/i18n";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
@@ -52,6 +52,7 @@ export const prerender = true;
  * Language and translation setup
  */
 const lang = String(getLangFromUrl(Astro.url));
+const t = useTranslations(String(lang));
 const podcastId = Astro.params.id;
 
 /**
@@ -156,12 +157,12 @@ const { prev, next } = getNavigationPodcasts();
   <main class="min-h-screen bg-gray-900 py-8 text-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Navigation Back -->
-      <nav class="mb-8" aria-label="Podcast navigation">
+      <nav class="mb-8" aria-label={t("podcast.navigation.aria")}>
         <a
           href={`/${lang}/podcasts`}
           class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-purple-400 transition-all duration-300 hover:-translate-x-1 hover:bg-purple-500/10 hover:text-purple-300"
         >
-          ← Back to All Podcasts
+          {t("podcast.back_to_all")}
         </a>
       </nav>
 
@@ -202,7 +203,7 @@ const { prev, next } = getNavigationPodcasts();
           podcast.audioUrl && (
             <div class="rounded-2xl border border-gray-600 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 p-8 text-center shadow-xl">
               <Headline level="h2" textSize="lg" className="mb-6 text-white">
-                🎧 Listen to Episode
+                🎧 {t("podcast.listen_to_episode")}
               </Headline>
 
               {/* Functional Audio Player */}
@@ -215,7 +216,7 @@ const { prev, next } = getNavigationPodcasts();
                   </div>
                   <div class="text-left">
                     <div class="text-lg font-semibold text-white">{podcast.title}</div>
-                    <div class="text-sm text-gray-400">Podcast Episode</div>
+                    <div class="text-sm text-gray-400">{t("podcast.episode_label")}</div>
                   </div>
                 </div>
 

@@ -1,5 +1,16 @@
 export default {
   "accessibility.skip.to.content": "Skip to main content",
+  "category.filter.label": "Filter by category",
+  "category.filter.aria_label": "Filter by category",
+  "category.filter.option_all": "All Categories",
+  "loading.content": "Loading...",
+  "loading.screen_reader": "Loading content, please wait...",
+  "podcast.navigation.aria": "Podcast navigation",
+  "podcast.back_to_all": "← Back to All Podcasts",
+  "podcast.listen_to_episode": "Listen to Episode",
+  "podcast.episode_label": "Podcast Episode",
+  "achievements.badge.context_description":
+    "Achievement notification badge. Shows count of new unlocked achievements in the navigation area.",
   "achievements.badge.context_description":
     "Achievement notification badge. Shows count of new unlocked achievements in the navigation area.",
   "achievements.badge.fallback_text": "Achievement notification",

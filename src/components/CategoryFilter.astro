@@ -1,4 +1,6 @@
 ---
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+
 export interface Props {
   categories: Array<{
     type: string;
@@ -10,6 +12,9 @@ export interface Props {
 }
 
 const { categories, selectedValue = "all", className = "" } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(String(lang));
 ---
 
 <div class={`mb-8 md:mb-10 ${className}`} role="search">
@@ -18,7 +23,7 @@ const { categories, selectedValue = "all", className = "" } = Astro.props;
       <span
         class="inline-block rounded-full border border-purple-500/30 bg-gray-800/50 px-6 py-3 text-base font-medium text-purple-300 backdrop-blur-sm"
       >
-        Filter by category:
+        {t("category.filter.label")}
       </span>
     </div>
     <div class="group relative">
@@ -26,12 +31,12 @@ const { categories, selectedValue = "all", className = "" } = Astro.props;
         id="category-filter"
         class="w-full cursor-pointer appearance-none rounded-2xl border-2 border-purple-500/50 bg-gray-900/80 p-5 px-8 pr-20 text-lg leading-relaxed font-medium text-white shadow-xl backdrop-blur-md transition-all duration-300 hover:border-purple-400 hover:bg-gray-800/90 hover:shadow-2xl hover:shadow-purple-500/25 focus:border-purple-400 focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none active:scale-[0.98]"
         name="category-filter"
-        aria-label="Filter by category:"
+        aria-label={t("category.filter.aria_label")}
         aria-controls="genre-content"
         data-selected={selectedValue}
         value={selectedValue}
       >
-        <option value="all">All Categories</option>
+        <option value="all">{t("category.filter.option_all")}</option>
         {categories.map((category) => <option value={category.type}>{category.title}</option>)}
       </select>
       <div
