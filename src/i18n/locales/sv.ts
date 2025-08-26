@@ -651,6 +651,8 @@ export default {
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
+  "game.overlay.artist": "Artist",
+  "game.overlay.album": "Album",
   "footer.github": "GitHub",
   "footer.kofi": "Ko-fi",
   "footer.aria": "Sidfot",
