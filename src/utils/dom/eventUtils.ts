@@ -25,7 +25,8 @@ export function addSafeClickListener(
   try {
     element.addEventListener("click", handler, options);
     return true;
-  } catch (error) {
+  } catch (err: unknown) {
+    void err;
     return false;
   }
 }
@@ -52,7 +53,8 @@ export function addMultipleEventListeners(
       element.addEventListener(eventType, handler, options);
     });
     return true;
-  } catch (error) {
+  } catch (err: unknown) {
+    void err;
     return false;
   }
 }
@@ -78,12 +80,18 @@ export function removeAllEventListeners(
       const newElement = element.cloneNode(true) as HTMLElement;
       element.parentNode?.replaceChild(newElement, element);
     } else {
+      const noop = (): void => {};
       eventTypes.forEach((eventType) => {
-        element.removeEventListener(eventType, () => {});
+        try {
+          element.removeEventListener(eventType, noop as EventListener);
+        } catch (err: unknown) {
+          void err;
+        }
       });
     }
     return true;
-  } catch (error) {
+  } catch (err: unknown) {
+    void err;
     return false;
   }
 }
