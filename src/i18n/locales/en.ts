@@ -597,6 +597,8 @@ export default {
   "knowledge.published": "Published",
   "knowledge.reading.time": "min read",
   "knowledge.reading.time.label": "Reading time",
+  "knowledge.word_count": "words",
+  "accessibility.main_content": "Main content",
   "knowledge.search.subtitle": "Find articles by title, description, or keywords",
   "knowledge.search.title": "Search Articles",
   "knowledge.search.placeholder": "Search articles...",

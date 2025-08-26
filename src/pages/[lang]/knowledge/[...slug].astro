@@ -270,7 +270,8 @@ function translate(key: string, fallback: string): string {
             >
               <Icon name="clock" class="h-4 w-4 text-green-400 sm:h-5 sm:w-5" aria-hidden="true" />
               <span class="text-xs text-gray-300 sm:text-sm">
-                {Math.ceil((entry.body?.length || 0) / 200)} Min. Lesezeit
+                {Math.ceil((entry.body?.length || 0) / 200)}
+                {translate("knowledge.reading.time", "min read")}
               </span>
             </div>
 
@@ -283,7 +284,8 @@ function translate(key: string, fallback: string): string {
                 aria-hidden="true"
               />
               <span class="text-xs text-gray-300 sm:text-sm">
-                {entry.body?.length || 0} words
+                {entry.body?.length || 0}
+                {translate("knowledge.word_count", "words")}
               </span>
             </div>
           </div>
@@ -335,7 +337,11 @@ function translate(key: string, fallback: string): string {
 
       {/* Article Content - Full Width */}
       <div id="article-content" class="mb-12">
-        <div role="region" aria-labelledby="article-title" aria-label="Main content">
+        <div
+          role="region"
+          aria-labelledby="article-title"
+          aria-label={translate("accessibility.main_content", "Main content")}
+        >
           <Prose>
             <Content />
           </Prose>
