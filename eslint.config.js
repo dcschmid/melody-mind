@@ -6,6 +6,9 @@ import promisePlugin from "eslint-plugin-promise";
 import tseslint from "typescript-eslint";
 
 export default [
+  {
+    ignores: ["node_modules/**", "dist/**", ".astro/**", "public/**", "*.d.ts"],
+  },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
