@@ -48,81 +48,46 @@ export async function loadCategoriesForLanguage(
 ): Promise<CategoryLoadingResult> {
   const { language, fallbackLanguage = "en", useAliasPath = true } = config;
 
-  try {
-    // First try using the alias path if enabled
-    if (useAliasPath) {
-      try {
-        const categories = await import(`@json/${language}_categories.json`);
-        return {
-          categories: categories.default || [],
-          success: true,
-          fallbackUsed: false,
-        };
-      } catch (err) {
-        // Report the import failure and continue to the next fallback strategy.
-        // Using the centralized loader error handler so failures are logged consistently.
-        handleLoadingError(err, `category data import for ${language}`);
-      }
-    }
+  // Build an ordered list of candidate import paths.
+  // Each entry also indicates whether using it means a fallback language was used.
+  const candidates: { path: string; fallbackUsed: boolean }[] = [];
 
-    // Fallback to relative path
-    try {
-      const categories = await import(`../../json/${language}_categories.json`);
-      return {
-        categories: categories.default || [],
-        success: true,
-        fallbackUsed: false,
-      };
-    } catch (relativeError) {
-      // Try fallback language if specified
-      if (fallbackLanguage && fallbackLanguage !== language) {
-        try {
-          const fallbackCategories = await import(`@json/${fallbackLanguage}_categories.json`);
-          return {
-            categories: fallbackCategories.default || [],
-            success: true,
-            fallbackUsed: true,
-          };
-        } catch {
-          // Last resort: try relative path with fallback language
-          try {
-            const fallbackCategories = await import(
-              `../../json/${fallbackLanguage}_categories.json`
-            );
-            return {
-              categories: fallbackCategories.default || [],
-              success: true,
-              fallbackUsed: true,
-            };
-          } catch (finalError) {
-            handleLoadingError(finalError, `fallback category data for ${fallbackLanguage}`);
-            return {
-              categories: [],
-              success: false,
-              error: `Failed to load categories for ${language} and fallback ${fallbackLanguage}`,
-              fallbackUsed: false,
-            };
-          }
-        }
-      }
-
-      handleLoadingError(relativeError, `category data for ${language}`);
-      return {
-        categories: [],
-        success: false,
-        error: `Failed to load categories for ${language}`,
-        fallbackUsed: false,
-      };
-    }
-  } catch (error) {
-    handleLoadingError(error, `category loading for ${language}`);
-    return {
-      categories: [],
-      success: false,
-      error: `Unexpected error loading categories for ${language}`,
-      fallbackUsed: false,
-    };
+  if (useAliasPath) {
+    candidates.push({ path: `@json/${language}_categories.json`, fallbackUsed: false });
   }
+  candidates.push({ path: `../../json/${language}_categories.json`, fallbackUsed: false });
+
+  if (fallbackLanguage && fallbackLanguage !== language) {
+    if (useAliasPath) {
+      candidates.push({ path: `@json/${fallbackLanguage}_categories.json`, fallbackUsed: true });
+    }
+    candidates.push({ path: `../../json/${fallbackLanguage}_categories.json`, fallbackUsed: true });
+  }
+
+  // Try imports sequentially until one succeeds.
+  for (const candidate of candidates) {
+    try {
+      const categoriesModule = await import(candidate.path);
+      return {
+        categories: categoriesModule.default || [],
+        success: true,
+        fallbackUsed: candidate.fallbackUsed,
+      };
+    } catch (err) {
+      // Log the failure and continue to the next candidate.
+      handleLoadingError(err, `category data import from ${candidate.path}`);
+    }
+  }
+
+  // If none worked, return a consistent failure result.
+  const fallbackNote =
+    fallbackLanguage && fallbackLanguage !== language ? ` and fallback ${fallbackLanguage}` : "";
+  return {
+    categories: [],
+    success: false,
+    error: `Failed to load categories for ${language}${fallbackNote}`,
+    fallbackUsed: false,
+  };
 }
 
 /**
@@ -176,18 +141,24 @@ export function filterNonPlayableCategories(categories: Category[]): Category[] 
  * Type guard for playable categories
  */
 export function isPlayableCategory(item: unknown): item is Category & { categoryUrl: string } {
+  // Narrow `item` safely before accessing properties to satisfy TypeScript.
+  if (!item || typeof item !== "object") {
+    return false;
+  }
+
+  // Use a Partial<Category> typed variable so property accesses are allowed.
+  const it = item as Partial<Category & Record<string, unknown>>;
+
   return (
-    item &&
-    typeof item === "object" &&
-    item.isPlayable === true &&
-    typeof item.headline === "string" &&
-    typeof item.imageUrl === "string" &&
-    typeof item.introSubline === "string" &&
-    typeof item.slug === "string" &&
-    typeof item.text === "string" &&
-    typeof item.categoryUrl === "string" &&
-    typeof item.categoryType === "string" &&
-    Boolean(item.categoryUrl)
+    it.isPlayable === true &&
+    typeof it.headline === "string" &&
+    typeof it.imageUrl === "string" &&
+    typeof it.introSubline === "string" &&
+    typeof it.slug === "string" &&
+    typeof it.text === "string" &&
+    typeof it.categoryUrl === "string" &&
+    typeof it.categoryType === "string" &&
+    Boolean(it.categoryUrl)
   );
 }
 

@@ -8,11 +8,11 @@
     "start:production": "node dist/server/entry.mjs",
     "build": "yarn install:sharp && yarn build:astro",
     "install:sharp": "yarn add sharp --ignore-engines",
-    "build:astro": "NODE_OPTIONS='--max-old-space-size=6144 --max-semi-space-size=64 --expose-gc' astro build --remote",
-    "build:check": "NODE_OPTIONS='--max-old-space-size=4096' astro check --typescript-errors=false",
+    "build:astro": "astro build --remote",
+    "build:check": "astro check --typescript-errors=false",
     "build:full": "yarn build:check && yarn build",
     "install:production": "yarn install --production --frozen-lockfile",
-    "build:production": "yarn install:sharp && NODE_ENV=production NODE_OPTIONS='--max-old-space-size=6144' astro build --remote",
+    "build:production": "yarn install:sharp && NODE_ENV=production astro build --remote",
     "build:preview": "yarn build && astro preview",
     "deploy": "yarn build:production && yarn install:production",
     "preview": "astro preview",
@@ -84,5 +84,5 @@
     "ts-node": "^10.9.2",
     "typescript-eslint": "^8.39.0"
   },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "packageManager": "yarn@1.22.22"
 }

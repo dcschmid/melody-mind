@@ -14,6 +14,22 @@
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+
+  // Exclude generated build output from searches and from the VS Code file explorer.
+  // This prevents accidental edits and reduces noisy linter/search results for dist/.
+  "search.exclude": {
+    "**/dist": true,
+    "**/dist/**": true,
+    "**/.astro": true,
+    "**/.astro/**": true
+  },
+
+  "files.exclude": {
+    "**/dist": true,
+    "**/dist/**": true,
+    "**/.astro": true,
+    "**/.astro/**": true
+  },
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

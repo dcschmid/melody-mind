@@ -788,42 +788,48 @@ async function generateAllOgImages() {
         },
       ];
 
-      // Generate and save each image
-      for (const page of pagesToGenerate) {
-        totalImages++;
-        const outputFilename = `${page.filename.replace(".jpg", "")}-${lang}.jpg`;
-        if (process.env.NODE_ENV !== "production") {
-          console.log(`  • Generating ${outputFilename}...`);
-        }
-
-        try {
-          const imageBuffer = await generateOgImage(page.title, page.description, page.type);
-
-          if (!imageBuffer) {
-            throw new Error("Failed to generate image buffer");
-          }
-
-          const outputPath = path.join(OUTPUT_DIR, outputFilename);
-          fs.writeFileSync(outputPath, imageBuffer);
-          if (process.env.NODE_ENV !== "production") {
-            console.log(`    ✅ Successfully saved`);
-          }
-          successfulImages++;
-
-          // Also create a language-agnostic version (e.g. social-share-home.jpg)
-          // But only for the default language (English)
-          if (lang === "en") {
-            const genericFilename = page.filename;
-            const genericOutputPath = path.join(OUTPUT_DIR, genericFilename);
-            fs.writeFileSync(genericOutputPath, imageBuffer);
+      // Generate and save each image (refactored to reduce nesting)
+      async function processPages(pages, language) {
+        for (const page of pages) {
+          try {
+            const outputFilename = `${page.filename.replace(".jpg", "")}-${language}.jpg`;
             if (process.env.NODE_ENV !== "production") {
-              console.log(`    ✅ Also saved as ${genericFilename}`);
+              console.log(`  • Generating ${outputFilename}...`);
             }
+
+            const imageBuffer = await generateOgImage(page.title, page.description, page.type);
+
+            if (!imageBuffer) {
+              throw new Error("Failed to generate image buffer");
+            }
+
+            const outputPath = path.join(OUTPUT_DIR, outputFilename);
+            fs.writeFileSync(outputPath, imageBuffer);
+            if (process.env.NODE_ENV !== "production") {
+              console.log(`    ✅ Successfully saved`);
+            }
+            successfulImages++;
+
+            // Also create a language-agnostic version (e.g. social-share-home.jpg)
+            // But only for the default language (English)
+            if (language === "en") {
+              const genericFilename = page.filename;
+              const genericOutputPath = path.join(OUTPUT_DIR, genericFilename);
+              fs.writeFileSync(genericOutputPath, imageBuffer);
+              if (process.env.NODE_ENV !== "production") {
+                console.log(`    ✅ Also saved as ${genericFilename}`);
+              }
+            }
+          } catch (err) {
+            console.error(`    ❌ Error: ${err.message}`);
+          } finally {
+            // Maintain image counters consistently
+            totalImages++;
           }
-        } catch (error) {
-          console.error(`    ❌ Error: ${error.message}`);
         }
       }
+
+      await processPages(pagesToGenerate, lang);
     }
 
     // Summary

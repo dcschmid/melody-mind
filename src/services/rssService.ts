@@ -3,6 +3,8 @@
  * Aggregates music news from multiple RSS feeds with caching
  */
 
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+
 import { RSS_FEED_SOURCES, FALLBACK_FEEDS, type FeedSource } from "../utils/rss/feedSources.ts";
 
 export interface NewsItem {
@@ -65,7 +67,7 @@ const newsCache = new NewsCache();
  */
 function extractImageFromRssItem(itemXml: string, description: string): string | undefined {
   // Priority order for image extraction
-  const extractionMethods = [
+  const extractionMethods: Array<() => string | null> = [
     // 1. RSS enclosure tag (highest priority for RSS feeds)
     () => {
       const enclosureMatch = itemXml.match(
@@ -440,9 +442,9 @@ function generateItemId(link: string, title: string): string {
 /**
  * Extract image URL from HTML description content
  */
-function extractImageFromDescription(description: string): string | undefined {
+function extractImageFromDescription(description: string): string | null {
   if (!description) {
-    return undefined;
+    return null;
   }
 
   // Decode HTML entities in description first
@@ -524,7 +526,7 @@ function extractImageFromDescription(description: string): string | undefined {
     }
   }
 
-  return undefined;
+  return null;
 }
 
 /**

@@ -269,7 +269,7 @@ export class JokerUtils {
         MelodyMind?: { updateJokerCount?: (count: number, disable?: boolean) => void };
       };
       globalWin.MelodyMind = globalWin.MelodyMind || {};
-      globalWin.MelodyMind.updateJokerCount = (count: number, disable?: boolean) => {
+      globalWin.MelodyMind.updateJokerCount = (count: number, disable?: boolean): void => {
         this.updateJokerCount(count, disable);
       };
     }
@@ -314,6 +314,9 @@ declare global {
 
 /**
  * Initialize joker functionality
+ *
+ * @param {JokerConfig} config - Configuration for the joker utility
+ * @returns {JokerUtils} An instance of JokerUtils configured with the provided options
  */
 export function initJoker(config: JokerConfig): JokerUtils {
   return new JokerUtils(config);
@@ -321,6 +324,11 @@ export function initJoker(config: JokerConfig): JokerUtils {
 
 /**
  * Default joker initialization
+ *
+ * Convenience initializer that creates the default JokerUtils instance using
+ * the project's standard DOM element IDs.
+ *
+ * @returns {JokerUtils} A JokerUtils instance initialized with default IDs
  */
 export function initDefaultJoker(): JokerUtils {
   return initJoker({
@@ -333,6 +341,12 @@ export function initDefaultJoker(): JokerUtils {
 
 /**
  * Auto-initialize joker functionality
+ *
+ * Detects the presence of the default joker container in the DOM and, if found,
+ * initializes and returns the default JokerUtils instance.
+ *
+ * @returns {JokerUtils | null} The initialized JokerUtils instance, or null if
+ *                              the expected container was not found.
  */
 export function initJokerAuto(): JokerUtils | null {
   const container = safeQuerySelector('[data-testid="joker-container"]');

@@ -239,7 +239,7 @@ export async function validateAndRefreshSession(): Promise<boolean> {
 
 /**
  * Check if user is authenticated
- * @returns boolean - true if authenticated, false otherwise
+ * @returns {boolean} - true if authenticated, false otherwise
  */
 export const isAuthenticated = (): boolean => {
   // Authentication system removed - always return false
@@ -248,7 +248,7 @@ export const isAuthenticated = (): boolean => {
 
 /**
  * Get current user ID
- * @returns string - User ID or empty string if not authenticated
+ * @returns {string} - User ID or empty string if not authenticated
  */
 export const getCurrentUserId = (): string => {
   // User system removed - always return empty string
@@ -257,7 +257,7 @@ export const getCurrentUserId = (): string => {
 
 /**
  * Clear authentication data
- * @returns void
+ * @returns {void} - Clears stored authentication data and session state
  */
 export const clearAuthData = (): void => {
   try {

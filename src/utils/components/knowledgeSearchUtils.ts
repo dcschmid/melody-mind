@@ -20,7 +20,21 @@ interface KnowledgeSearchElements {
 }
 
 /**
+ * Knowledge search utility for the client-side knowledge/article index.
  *
+ * Responsibilities:
+ * - Wire up the search input element with debounced filtering of article tiles.
+ * - Update visible/hidden state for articles and show a no-results indicator.
+ * - Provide a lightweight cleanup method to clear timers when the instance is no longer needed.
+ *
+ * Example:
+ * ```
+ * const search = new KnowledgeSearchUtils();
+ * // later
+ * search.cleanup();
+ * ```
+ *
+ * @public
  */
 export class KnowledgeSearchUtils {
   private elements: KnowledgeSearchElements;
@@ -29,7 +43,14 @@ export class KnowledgeSearchUtils {
   private debounceTimer: ReturnType<typeof setTimeout> | null = null;
 
   /**
+   * Construct a KnowledgeSearchUtils instance.
    *
+   * Wires up DOM references used by the search utility and performs initial
+   * setup (articles indexing and event listener registration). The constructor
+   * is defensive: if required DOM elements are missing, the instance will
+   * gracefully become a no-op and callers may still call `cleanup()` safely.
+   *
+   * @returns {void}
    */
   constructor() {
     this.elements = {
@@ -165,7 +186,12 @@ export class KnowledgeSearchUtils {
   }
 
   /**
+   * Clean up resources used by this instance.
    *
+   * Clears any pending debounce timers to avoid memory leaks when the instance
+   * is destroyed or the page is navigated away.
+   *
+   * @returns {void}
    */
   public cleanup(): void {
     if (this.debounceTimer) {
@@ -176,14 +202,27 @@ export class KnowledgeSearchUtils {
 }
 
 /**
+ * Initialize and return a KnowledgeSearchUtils instance.
  *
+ * Convenience helper that creates and returns a new instance of the search
+ * utility. Callers can use the returned instance to call `cleanup()` when
+ * the search UI is removed.
+ *
+ * @returns {KnowledgeSearchUtils} The initialized search utility instance
  */
 export function initKnowledgeSearch(): KnowledgeSearchUtils {
   return new KnowledgeSearchUtils();
 }
 
 /**
+ * Auto-initialize the knowledge search utility.
  *
+ * Attempts to create a KnowledgeSearchUtils instance and returns it. This helper
+ * is resilient: if initialization throws for any reason (e.g. missing DOM),
+ * it catches the error and returns `null` so callers can safely call this during
+ * eager module initialization.
+ *
+ * @returns {KnowledgeSearchUtils | null} The instance on success, or null on failure
  */
 export function initKnowledgeSearchAuto(): KnowledgeSearchUtils | null {
   try {

@@ -14,9 +14,9 @@ export function initCategoryFilter(container: HTMLElement): void {
     return;
   }
 
-  filter.addEventListener("change", (e) => {
+  filter.addEventListener("change", (e: Event): void => {
     const value = (e.target as HTMLSelectElement).value;
-    items.forEach((item) => {
+    items.forEach((item: Element): void => {
       const category = item.getAttribute("data-category");
       item.classList.toggle("hidden", !category?.includes(value));
     });
@@ -31,18 +31,23 @@ export function initBackToTop(button: HTMLElement): void {
     return;
   }
 
-  const scrollToTop = () => {
+  const scrollToTop = (): void => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  button.addEventListener("click", scrollToTop);
+  button.addEventListener("click", (e: Event): void => {
+    e.preventDefault();
+    scrollToTop();
+  });
 
   // Show/hide button based on scroll position
-  const toggleButton = () => {
+  const toggleButton = (): void => {
     button.classList.toggle("hidden", window.scrollY < 300);
   };
 
-  window.addEventListener("scroll", toggleButton);
+  window.addEventListener("scroll", (): void => {
+    toggleButton();
+  });
   toggleButton(); // Initial state
 }
 
@@ -53,10 +58,10 @@ export function initLanguagePicker(container: HTMLElement): void {
   const currentLang = container.getAttribute("data-current-lang");
   const links = container.querySelectorAll("a[data-lang]");
 
-  links.forEach((link) => {
-    const lang = link.getAttribute("data-lang");
+  links.forEach((link: Element): void => {
+    const lang = (link as HTMLElement).getAttribute("data-lang");
     if (lang === currentLang) {
-      link.classList.add("active");
+      (link as HTMLElement).classList.add("active");
     }
   });
 }
@@ -72,23 +77,41 @@ export function initTableOfContents(container: HTMLElement): void {
     return;
   }
 
-  const tocItems = Array.from(headings).map((heading) => {
-    const id = heading.id || heading.textContent?.toLowerCase().replace(/\s+/g, "-");
-    if (id) {
-      heading.id = id;
-    }
+  const tocItems = Array.from(headings).map(
+    (
+      heading: Element
+    ): {
+      element: Element;
+      id: string;
+      text: string | null;
+      level: number;
+    } => {
+      const h = heading as HTMLElement;
+      const id =
+        h.id ||
+        (h.textContent
+          ? h.textContent
+              .toLowerCase()
+              .replace(/\s+/g, "-")
+              .replace(/[^\w-]/g, "")
+          : "");
+      if (id) {
+        h.id = id;
+      }
 
-    return {
-      element: heading,
-      id,
-      text: heading.textContent,
-      level: parseInt(heading.tagName.charAt(1)),
-    };
-  });
+      return {
+        element: heading,
+        id,
+        text: h.textContent,
+        level: parseInt(h.tagName.charAt(1), 10),
+      };
+    }
+  );
 
   toc.innerHTML = tocItems
     .map(
-      (item) => `<a href="#${item.id}" class="toc-item toc-level-${item.level}">${item.text}</a>`
+      (item) =>
+        `<a href="#${item.id}" class="toc-item toc-level-${item.level}">${item.text ?? ""}</a>`
     )
     .join("");
 }
@@ -99,16 +122,19 @@ export function initTableOfContents(container: HTMLElement): void {
 export function initMusicButtons(container: HTMLElement): void {
   const buttons = container.querySelectorAll(".music-button");
 
-  buttons.forEach((button) => {
-    button.addEventListener("click", (e) => {
+  buttons.forEach((button: Element): void => {
+    button.addEventListener("click", (e: Event): void => {
       e.preventDefault();
-      const action = button.getAttribute("data-action");
-      const target = button.getAttribute("data-target");
+      const action = (button as HTMLElement).getAttribute("data-action");
+      const target = (button as HTMLElement).getAttribute("data-target");
 
       if (action === "play" && target) {
         // Simple audio play logic
         const audio = new Audio(target);
-        audio.play().catch(console.error);
+        // attach explicit handler type for promise rejection
+        (audio.play() as Promise<void>).catch((err: unknown): void => {
+          console.error(err);
+        });
       }
     });
   });
@@ -123,11 +149,10 @@ export function initLoadingSpinner(container: HTMLElement): void {
     return;
   }
 
-  const show = () => spinner.classList.remove("hidden");
-  const hide = () => spinner.classList.add("hidden");
+  const show = (): void => spinner.classList.remove("hidden");
+  const hide = (): void => spinner.classList.add("hidden");
 
   // Expose methods globally for this container
-  // Expose methods globally for this container (typed)
   interface SpinnerContainer extends HTMLElement {
     showSpinner?: () => void;
     hideSpinner?: () => void;
@@ -148,16 +173,19 @@ export function initNavigation(container: HTMLElement): void {
     return;
   }
 
-  menuButton.addEventListener("click", () => {
+  menuButton.addEventListener("click", (): void => {
     menu.classList.toggle("open");
-    menuButton.setAttribute("aria-expanded", menu.classList.contains("open").toString());
+    (menuButton as HTMLElement).setAttribute(
+      "aria-expanded",
+      menu.classList.contains("open").toString()
+    );
   });
 
   // Close menu when clicking outside
-  document.addEventListener("click", (e) => {
+  document.addEventListener("click", (e: Event): void => {
     if (!container.contains(e.target as Node)) {
       menu.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
+      (menuButton as HTMLElement).setAttribute("aria-expanded", "false");
     }
   });
 }
@@ -168,18 +196,22 @@ export function initNavigation(container: HTMLElement): void {
 export function initOverlayManager(): void {
   const overlays = document.querySelectorAll(".overlay");
 
-  overlays.forEach((overlay) => {
+  overlays.forEach((overlay: Element): void => {
     const closeButton = overlay.querySelector(".close-button");
     const backdrop = overlay.querySelector(".backdrop");
 
-    const close = () => overlay.classList.add("hidden");
+    const close = (): void => (overlay as HTMLElement).classList.add("hidden");
 
-    closeButton?.addEventListener("click", close);
-    backdrop?.addEventListener("click", close);
+    closeButton?.addEventListener("click", (): void => {
+      close();
+    });
+    backdrop?.addEventListener("click", (): void => {
+      close();
+    });
 
     // Close on escape key
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && !overlay.classList.contains("hidden")) {
+    document.addEventListener("keydown", (e: KeyboardEvent): void => {
+      if (e.key === "Escape" && !(overlay as HTMLElement).classList.contains("hidden")) {
         close();
       }
     });

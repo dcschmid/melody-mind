@@ -16,29 +16,32 @@
  * This script is CommonJS to match the project's build scripts.
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 async function main() {
   const projectRoot = process.cwd();
-  const distDir = path.join(projectRoot, 'dist');
-  const outFile = path.join(distDir, 'critical.css');
+  const distDir = path.join(projectRoot, "dist");
+  const outFile = path.join(distDir, "critical.css");
 
   // Try to require critical; if it's missing, fail with a helpful message.
   let critical;
   try {
-    critical = require('critical');
+    critical = require("critical");
   } catch (err) {
     console.error(
-      '\n[generate-critical] The `critical` package is not available. Please install it as a devDependency.\n' +
-        'You can run: yarn add -D critical\n'
+      "\n[generate-critical] The `critical` package is not available. Please install it as a devDependency.\n" +
+        "You can run: yarn add -D critical\n",
+      err && err.message ? err.message : err
     );
     process.exitCode = 0; // non-fatal for CI postbuild hook, but signal via logs
     return;
   }
 
   if (!fs.existsSync(distDir)) {
-    console.warn(`[generate-critical] dist directory not found at "${distDir}". Skipping critical CSS generation.`);
+    console.warn(
+      `[generate-critical] dist directory not found at "${distDir}". Skipping critical CSS generation.`
+    );
     process.exitCode = 0;
     return;
   }
@@ -56,9 +59,9 @@ async function main() {
         const full = path.join(dir, entry.name);
         if (entry.isDirectory()) {
           walk(full);
-        } else if (entry.isFile() && full.endsWith('.html')) {
+        } else if (entry.isFile() && full.endsWith(".html")) {
           const rel = path.relative(baseDir, full);
-          result.push(rel.split(path.sep).join('/')); // use forward slashes for critical API
+          result.push(rel.split(path.sep).join("/")); // use forward slashes for critical API
         }
       }
     }
@@ -77,7 +80,7 @@ async function main() {
 
   console.log(`[generate-critical] Found ${htmlFiles.length} HTML files. Starting extraction...`);
 
-  let aggregatedCss = '';
+  let aggregatedCss = "";
   const processed = [];
   const failed = [];
 
@@ -95,7 +98,6 @@ async function main() {
       // - width/height: viewport for extraction
       // The API returns an object; when inline=false it usually contains `.css`
       // Wrap in try/catch to continue on individual failures.
-      // eslint-disable-next-line no-await-in-loop
       const res = await critical.generate({
         base: distDir,
         src: relPath,
@@ -107,38 +109,44 @@ async function main() {
         // ignore options left default; add more options if necessary
       });
 
-      if (res && typeof res.css === 'string') {
+      if (res && typeof res.css === "string") {
         // Add a file comment marker for debugging
         aggregatedCss += `/* ---- Critical CSS from: ${relPath} ---- */\n`;
-        aggregatedCss += res.css.trim() + '\n\n';
+        aggregatedCss += res.css.trim() + "\n\n";
         processed.push(relPath);
       } else {
         console.warn(`[generate-critical] No CSS returned for ${relPath}.`);
         failed.push(relPath);
       }
     } catch (err) {
-      console.error(`[generate-critical] Failed extracting critical CSS for ${relPath}: ${err && err.message ? err.message : err}`);
+      console.error(
+        `[generate-critical] Failed extracting critical CSS for ${relPath}: ${err && err.message ? err.message : err}`
+      );
       failed.push(relPath);
       // continue with next file
     }
   }
 
   if (!aggregatedCss) {
-    console.warn('[generate-critical] No critical CSS was extracted from the HTML files.');
+    console.warn("[generate-critical] No critical CSS was extracted from the HTML files.");
     process.exitCode = 0;
     return;
   }
 
   // Ensure dist directory exists (should), then write output file
   try {
-    fs.writeFileSync(outFile, aggregatedCss, 'utf8');
+    fs.writeFileSync(outFile, aggregatedCss, "utf8");
     console.log(`[generate-critical] Wrote aggregated critical CSS to: ${outFile}`);
-    console.log(`[generate-critical] Files processed: ${processed.length}, failed: ${failed.length}`);
+    console.log(
+      `[generate-critical] Files processed: ${processed.length}, failed: ${failed.length}`
+    );
     if (failed.length) {
-      console.warn(`[generate-critical] Failed files (sample): ${failed.slice(0, 5).join(', ')}`);
+      console.warn(`[generate-critical] Failed files (sample): ${failed.slice(0, 5).join(", ")}`);
     }
   } catch (err) {
-    console.error(`[generate-critical] Failed to write output file ${outFile}: ${err && err.message ? err.message : err}`);
+    console.error(
+      `[generate-critical] Failed to write output file ${outFile}: ${err && err.message ? err.message : err}`
+    );
     process.exitCode = 1;
     return;
   }
@@ -150,7 +158,7 @@ async function main() {
 if (require.main === module) {
   // Run and catch any unhandled rejections
   main().catch((err) => {
-    console.error('[generate-critical] Unexpected error:', err);
+    console.error("[generate-critical] Unexpected error:", err);
     // do not crash the entire build pipeline (postbuild is tolerable), but set non-zero to signal issues if you prefer
     process.exitCode = 1;
   });

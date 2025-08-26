@@ -6,11 +6,17 @@
  */
 
 /**
- * Safely gets an element by ID with type safety
+ * Safely gets an element by ID with type safety.
  *
- * @param id - The element ID
- * @param parent - Optional parent element (defaults to document)
- * @returns The element or null if not found
+ * This helper tolerates being called with either a `Document` or an `Element`
+ * parent. The runtime implementation uses `getElementById` for Documents and
+ * `querySelector` for Element parents.
+ *
+ * @param {string} id - The element ID to look up (without the leading '#')
+ * @param {Document|Element} [parent=document] - Optional parent root to search within.
+ *        When omitted the global `document` is used.
+ * @returns {T | null} The found element cast to the requested generic type, or `null`
+ *          when no matching element exists or an error occurs during lookup.
  */
 export function safeGetElementById<T extends HTMLElement>(
   id: string,
@@ -31,11 +37,15 @@ export function safeGetElementById<T extends HTMLElement>(
 }
 
 /**
- * Safely queries for elements with type safety
+ * Safely queries for elements with type safety.
  *
- * @param selector - The CSS selector
- * @param parent - Optional parent element (defaults to document)
- * @returns The first matching element or null if not found
+ * Wrapper around `querySelector` that performs a try/catch and returns
+ * `null` on error to avoid throwing in client code.
+ *
+ * @param {string} selector - CSS selector used to find the first matching element
+ * @param {Document|Element} [parent=document] - Root element to query within (defaults to document)
+ * @returns {T | null} The first matching element cast to the requested generic type, or `null`
+ *          when none is found or an error occurs.
  */
 export function safeQuerySelector<T extends HTMLElement>(
   selector: string,
@@ -50,11 +60,14 @@ export function safeQuerySelector<T extends HTMLElement>(
 }
 
 /**
- * Safely queries for all elements matching a selector
+ * Safely queries for all elements matching a selector.
  *
- * @param selector - The CSS selector
- * @param parent - Optional parent element (defaults to document)
- * @returns Array of matching elements
+ * Returns an empty array on error. This normalizes the return value so callers
+ * can always iterate over the result without additional null checks.
+ *
+ * @param {string} selector - CSS selector for matching elements
+ * @param {Document|Element} [parent=document] - Root element to query within (defaults to document)
+ * @returns {T[]} Array of matching elements cast to the requested generic type.
  */
 export function safeQuerySelectorAll<T extends HTMLElement>(
   selector: string,
@@ -69,11 +82,15 @@ export function safeQuerySelectorAll<T extends HTMLElement>(
 }
 
 /**
- * Safely sets text content with error handling
+ * Safely sets text content with error handling.
  *
- * @param element - The element to set text content for
- * @param text - The text content to set
- * @returns boolean - True if successful
+ * Sets `.textContent` on the provided element inside a try/catch and returns
+ * a boolean indicating success. Useful when working with elements that may
+ * not be present in all runtime contexts.
+ *
+ * @param {HTMLElement | null} element - The target element (or `null`)
+ * @param {string} text - Text content to assign to the element
+ * @returns {boolean} True if the operation succeeded, false otherwise
  */
 export function safeSetTextContent(element: HTMLElement | null, text: string): boolean {
   if (!element) {
@@ -89,11 +106,14 @@ export function safeSetTextContent(element: HTMLElement | null, text: string): b
 }
 
 /**
- * Safely sets inner HTML with error handling
+ * Safely sets inner HTML with error handling.
  *
- * @param element - The element to set inner HTML for
- * @param html - The HTML content to set
- * @returns boolean - True if successful
+ * Uses `innerHTML` inside a try/catch and returns a boolean success flag.
+ * Be careful using this helper with untrusted HTML to avoid XSS.
+ *
+ * @param {HTMLElement | null} element - The element to update (or `null`)
+ * @param {string} html - HTML string to set as the element's content
+ * @returns {boolean} True when the assignment succeeded, false on error or if `element` is null
  */
 export function safeSetInnerHTML(element: HTMLElement | null, html: string): boolean {
   if (!element) {
@@ -109,11 +129,14 @@ export function safeSetInnerHTML(element: HTMLElement | null, html: string): boo
 }
 
 /**
- * Safely adds CSS classes with error handling
+ * Safely adds CSS classes with error handling.
  *
- * @param element - The element to add classes to
- * @param classes - Array of CSS classes to add
- * @returns boolean - True if successful
+ * Trims supplied class names and adds them via `classList.add`. Invalid or
+ * empty class names are ignored. Returns a boolean indicating success.
+ *
+ * @param {HTMLElement | null} element - Target element to receive classes (or `null`)
+ * @param {string[]} classes - Array of CSS class names to add
+ * @returns {boolean} True if classes were successfully added, false otherwise
  */
 export function safeAddClasses(element: HTMLElement | null, classes: string[]): boolean {
   if (!element) {
@@ -133,11 +156,14 @@ export function safeAddClasses(element: HTMLElement | null, classes: string[]): 
 }
 
 /**
- * Safely removes CSS classes with error handling
+ * Safely removes CSS classes with error handling.
  *
- * @param element - The element to remove classes from
- * @param classes - Array of CSS classes to remove
- * @returns boolean - True if successful
+ * Trims supplied class names and removes them via `classList.remove`. Invalid
+ * or empty class names are ignored. Returns a boolean indicating success.
+ *
+ * @param {HTMLElement | null} element - Target element to remove classes from (or `null`)
+ * @param {string[]} classes - Array of CSS class names to remove
+ * @returns {boolean} True if classes were successfully removed, false otherwise
  */
 export function safeRemoveClasses(element: HTMLElement | null, classes: string[]): boolean {
   if (!element) {
@@ -157,11 +183,15 @@ export function safeRemoveClasses(element: HTMLElement | null, classes: string[]
 }
 
 /**
- * Safely sets data attributes with error handling
+ * Safely sets data attributes with error handling.
  *
- * @param element - The element to set data attributes for
- * @param attributes - Object mapping attribute names to values
- * @returns boolean - True if successful
+ * Each entry in the `attributes` object is written as a `data-<key>` attribute
+ * on the element. Keys and values are used verbatim; callers should ensure
+ * keys are valid HTML data attribute names.
+ *
+ * @param {HTMLElement | null} element - Element to set data attributes on (or `null`)
+ * @param {Record<string, string>} attributes - Map of attributeName => value (e.g. { lang: 'en' })
+ * @returns {boolean} True if all attributes were set successfully, false otherwise
  */
 export function safeSetDataAttributes(
   element: HTMLElement | null,
@@ -182,10 +212,12 @@ export function safeSetDataAttributes(
 }
 
 /**
- * Safely removes an element from the DOM
+ * Safely removes an element from the DOM.
  *
- * @param element - The element to remove
- * @returns boolean - True if successful
+ * Uses `Element.remove()` in a try/catch and returns whether the call succeeded.
+ *
+ * @param {HTMLElement | null} element - Element to remove (or `null`)
+ * @returns {boolean} True when the element was removed, false when the element is null or an error occurred
  */
 export function safeRemoveElement(element: HTMLElement | null): boolean {
   if (!element) {
@@ -201,11 +233,15 @@ export function safeRemoveElement(element: HTMLElement | null): boolean {
 }
 
 /**
- * Safely appends a child element
+ * Safely appends a child element.
  *
- * @param parent - The parent element
- * @param child - The child element to append
- * @returns boolean - True if successful
+ * Appends `child` to `parent` using `appendChild` inside a try/catch and returns
+ * a boolean indicating success. Both parameters must be non-null HTMLElement
+ * instances.
+ *
+ * @param {HTMLElement | null} parent - Parent element to append into (or `null`)
+ * @param {HTMLElement | null} child - Child element to append (or `null`)
+ * @returns {boolean} True if append succeeded, false otherwise
  */
 export function safeAppendChild(parent: HTMLElement | null, child: HTMLElement | null): boolean {
   if (!parent || !child) {
