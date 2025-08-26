@@ -256,15 +256,21 @@ const clientTranslations = {
   </div>
 </div>
 
-<script type="module">
+<script>
   /**
-   * EndOverlay Component Script
+   * EndOverlay Component Script (plain script)
    *
-   * Modern ES6+ implementation with async/await, arrow functions, and destructuring.
-   * Imports and initializes the EndOverlay utilities for client-side functionality.
-   * This follows the project's guideline of extracting complex scripts to external TypeScript files.
+   * The inline script here must not use ES module features (imports or import.meta)
+   * because it can be injected into pages as a classic script. The richer overlay
+   * module (`/src/utils/endOverlay`) should be loaded by the bundler/runtime as a module;
+   * it registers a global `window.showEndOverlay` and auto-initializes itself when present.
+   *
+   * This script provides safe, non-module behavior:
+   * - No `import` or `import.meta` usage
+   * - Updates the DOM-based popup immediately (accessible fallback)
+   * - Observes data-attribute changes and updates the display
+   * - Attempts to call the global richer overlay if available (non-blocking)
    */
-  import { initializeEndOverlay } from "/src/utils/endOverlay";
 
   // Function to update the display with current data attributes
   function updateDisplay() {
@@ -274,7 +280,9 @@ const clientTranslations = {
 
       // Update the score display
       const scoreElement = document.getElementById("popup-score");
-      if (scoreElement) scoreElement.textContent = score;
+      if (scoreElement) {
+        scoreElement.textContent = score;
+      }
 
       // Update motivation text based on score
       const motivationElement = document.getElementById("motivation-text");
@@ -298,32 +306,41 @@ const clientTranslations = {
         motivationElement.textContent = motivationText;
       }
 
-      if (import.meta.env.DEV) {
-        console.log("Game display updated:", {
+      try {
+        console.debug("Game display updated:", {
           score,
           mode: popup.dataset.mode,
         });
+      } catch (e) {
+        void e;
       }
     }
   }
 
-  // Initialize the end overlay functionality with modern async/await
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const initializeOverlay = async () => {
+  // Initialize the end overlay functionality (plain script version)
+  (function initializeOverlay() {
     try {
-      initializeEndOverlay();
-
-      // Initial update
+      // Note: we intentionally do NOT import the module here.
+      // The module `/src/utils/endOverlay` should register a global
+      // `window.showEndOverlay` when it is loaded as a module by the app.
+      //
+      // Initial synchronous update so the popup shows current values immediately:
       updateDisplay();
 
       // Set up a MutationObserver to watch for changes to data attributes
       const popup = document.getElementById("endgame-popup");
       if (popup) {
-        const observer = new MutationObserver((mutations) => {
-          mutations.forEach((mutation) => {
-            if (mutation.type === "attributes" && mutation.attributeName?.startsWith("data-")) {
-              if (import.meta.env.DEV) {
-                console.log("Data attribute changed, updating display");
+        const observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (mutation) {
+            if (
+              mutation.type === "attributes" &&
+              mutation.attributeName &&
+              mutation.attributeName.indexOf("data-") === 0
+            ) {
+              try {
+                console.debug("Data attribute changed, updating display");
+              } catch (e) {
+                void e;
               }
               updateDisplay();
             }
@@ -336,10 +353,44 @@ const clientTranslations = {
         });
       }
     } catch (error) {
-      console.error("Failed to initialize EndOverlay:", error);
+      try {
+        console.error("Failed to initialize EndOverlay:", error);
+      } catch (err) {
+        void err;
+      }
     }
-  };
 
-  // Start initialization
-  initializeOverlay();
+    // Attempt to enhance by invoking global richer overlay if available (non-blocking)
+    try {
+      if (typeof window !== "undefined") {
+        const maybeShow = window.showEndOverlay;
+        if (typeof maybeShow === "function") {
+          try {
+            // call without awaiting so we don't block
+            maybeShow({ score: Number(document.getElementById("popup-score")?.textContent || 0) });
+          } catch (callErr) {
+            try {
+              console.warn("showEndOverlay call failed", callErr);
+            } catch (err) {
+              void err;
+            }
+          }
+        } else {
+          try {
+            if (typeof console !== "undefined" && typeof console.debug === "function") {
+              console.debug("Global showEndOverlay not registered yet");
+            }
+          } catch (err) {
+            void err;
+          }
+        }
+      }
+    } catch (e) {
+      try {
+        console.warn("Error checking global showEndOverlay", e);
+      } catch (err) {
+        void err;
+      }
+    }
+  })();
 </script>
