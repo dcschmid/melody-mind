@@ -212,11 +212,11 @@ function translate(key: string, fallback: string): string {
                 <div
                   class="flex aspect-[4/3] w-full items-center justify-center rounded-2xl border-2 border-dashed border-gray-600 bg-gray-800 p-8 text-center text-gray-400 lg:aspect-[5/3]"
                   role="img"
-                  aria-label="Kein Bild verfügbar"
+                  aria-label={t("category.no_image_available")}
                 >
                   <div class="flex flex-col items-center gap-3">
                     <Icon name="image" class="h-16 w-16 lg:h-20 lg:w-20" aria-hidden="true" />
-                    <span class="text-lg">Kein Bild verfügbar</span>
+                    <span class="text-lg">{t("category.no_image_available")}</span>
                   </div>
                 </div>
               )
@@ -295,27 +295,36 @@ function translate(key: string, fallback: string): string {
               variant="secondary"
               icon="spotify"
               className="w-full justify-center sm:w-auto"
-              aria-label="Spotify Playlist öffnen"
+              aria-label={t("musicPlatforms.listenOn", {
+                title: entry.data.title,
+                platform: t("musicPlatforms.platform.spotify"),
+              })}
             >
-              Spotify
+              {t("musicPlatforms.platform.spotify")}
             </ButtonLink>
             <ButtonLink
               href={entry.data.category?.deezerPlaylist || "#"}
               variant="secondary"
               icon="deezer"
               className="w-full justify-center sm:w-auto"
-              aria-label="Deezer Playlist öffnen"
+              aria-label={t("musicPlatforms.listenOn", {
+                title: entry.data.title,
+                platform: t("musicPlatforms.platform.deezer"),
+              })}
             >
-              Deezer
+              {t("musicPlatforms.platform.deezer")}
             </ButtonLink>
             <ButtonLink
               href={entry.data.category?.appleMusicPlaylist || "#"}
               variant="secondary"
               icon="apple-music"
               className="w-full justify-center sm:w-auto"
-              aria-label="Apple Music Playlist öffnen"
+              aria-label={t("musicPlatforms.listenOn", {
+                title: entry.data.title,
+                platform: t("musicPlatforms.platform.apple"),
+              })}
             >
-              Apple
+              {t("musicPlatforms.platform.apple")}
             </ButtonLink>
           </div>
         </div>
