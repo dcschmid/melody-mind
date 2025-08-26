@@ -693,6 +693,7 @@ export default {
   "footer.kofi": "Ko-fi",
   "footer.aria": "Pied de page",
   "footer.opens_in_new_tab": "s'ouvre dans un nouvel onglet",
+  "podcasts.read_full_notes": "Lire les notes complètes de l'épisode",
   "footer.legal_nav": "Informations légales",
   "footer.external_nav": "Liens du pied de page",
   "nav.achievements.description": "Voir vos succès débloqués et vos progrès",

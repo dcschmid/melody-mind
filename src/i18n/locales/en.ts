@@ -750,6 +750,7 @@ export default {
   "podcasts.listen": "Listen",
   "podcasts.episode.singular": "Episode",
   "podcasts.episode.plural": "Episodes",
+  "podcasts.read_full_notes": "Read full episode notes",
   "podcasts.empty.title": "No Podcasts Available",
   "podcasts.empty.text":
     "No podcast episodes are available in this language yet. Check back soon for new content!",

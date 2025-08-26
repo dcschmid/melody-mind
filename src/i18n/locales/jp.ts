@@ -797,6 +797,7 @@ export default {
     "現在、私たちのポッドキャストエピソードはドイツ語と英語でのみ利用可能です。コンテンツを見つけるために、これらの言語のいずれかに切り替えてください。",
   "podcasts.language_restriction.switch_to_german": "ドイツ語に切り替え",
   "podcasts.language_restriction.switch_to_english": "英語に切り替え",
+  "podcasts.read_full_notes": "エピソードの全ノートを読む",
 
   "profile.desc": "個人情報とゲーム統計を管理",
 };
