@@ -733,6 +733,9 @@ export default {
   "podcast.search.reset.text": "Restablecer búsqueda",
   "podcasts.episode.singular": "Episodio",
   "podcasts.episode.plural": "Episodios",
+  "podcasts.platform.apple": "Apple Podcasts",
+  "podcasts.platform.deezer": "Deezer",
+  "podcasts.platform.spotify": "Spotify",
   "podcasts.empty.title": "No hay podcasts disponibles",
   "podcasts.empty.text":
     "Aún no hay episodios de podcasts disponibles en este idioma. ¡Vuelve pronto para nuevo contenido!",

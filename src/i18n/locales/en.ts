@@ -11,6 +11,9 @@ export default {
   "podcast.back_to_all": "← Back to All Podcasts",
   "podcast.listen_to_episode": "Listen to Episode",
   "podcast.episode_label": "Podcast Episode",
+  "podcasts.platform.apple": "Apple Podcasts",
+  "podcasts.platform.deezer": "Deezer",
+  "podcasts.platform.spotify": "Spotify",
   "achievements.badge.context_description":
     "Achievement notification badge. Shows count of new unlocked achievements in the navigation area.",
   "achievements.badge.context_description":
