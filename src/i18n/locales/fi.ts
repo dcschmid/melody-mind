@@ -657,6 +657,9 @@ export default {
   "musicPlatforms.keyboardInstructions":
     "Navigoi musiikkialustoissa Tab-näppäimellä. Paina Enter tai välilyöntiä avataksesi alustat uusissa välilehdissä.",
   "musicPlatforms.listenOn": "Kuuntele {title} palvelussa {platform}",
+  "musicPlatforms.platform.spotify": "Spotify",
+  "musicPlatforms.platform.deezer": "Deezer",
+  "musicPlatforms.platform.apple": "Apple Music",
   "nav.ariaLabel": "Päänavigaatio",
   "nav.donate.coffee": "Osta meille kahvi",
   "nav.donate.heading": "Tue meitä",

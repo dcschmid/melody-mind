@@ -620,6 +620,9 @@ export default {
   "musicPlatforms.keyboardInstructions":
     "Навигация по музыкальным платформам с помощью клавиши Tab. Нажмите Enter или Пробел, чтобы открыть платформы в новых вкладках.",
   "musicPlatforms.listenOn": "Слушать {title} на {platform}",
+  "musicPlatforms.platform.spotify": "Spotify",
+  "musicPlatforms.platform.deezer": "Deezer",
+  "musicPlatforms.platform.apple": "Apple Music",
   "nav.ariaLabel": "Основная навигация",
   "nav.donate.coffee": "Купите нам кофе",
   "nav.donate.heading": "Поддержите нас",

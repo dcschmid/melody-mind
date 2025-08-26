@@ -648,6 +648,9 @@ export default {
   "musicPlatforms.keyboardInstructions":
     "Navigera musikplattformar med Tab-tangenten. Tryck Enter eller Space för att öppna plattformar i nya flikar.",
   "musicPlatforms.listenOn": "Lyssna på {title} på {platform}",
+  "musicPlatforms.platform.spotify": "Spotify",
+  "musicPlatforms.platform.deezer": "Deezer",
+  "musicPlatforms.platform.apple": "Apple Music",
   "nav.ariaLabel": "Huvudnavigering",
   "nav.donate.coffee": "Bjud oss på kaffe",
   "nav.donate.heading": "Stöd oss",

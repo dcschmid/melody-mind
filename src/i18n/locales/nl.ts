@@ -664,6 +664,9 @@ export default {
   "musicPlatforms.keyboardInstructions":
     "Navigeer door muziekplatforms met Tab toets. Druk op Enter of Spatie om platforms in nieuwe tabbladen te openen.",
   "musicPlatforms.listenOn": "Luister naar {title} op {platform}",
+  "musicPlatforms.platform.spotify": "Spotify",
+  "musicPlatforms.platform.deezer": "Deezer",
+  "musicPlatforms.platform.apple": "Apple Music",
   "nav.ariaLabel": "Hoofdnavigatie",
   "nav.donate.coffee": "Koop ons een koffie",
   "nav.donate.heading": "Ondersteun Ons",
