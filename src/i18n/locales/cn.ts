@@ -747,4 +747,10 @@ export default {
   "podcasts.language_restriction.switch_to_english": "切换到英语",
 
   "profile.desc": "管理您的个人信息和游戏统计",
+  "footer.github": "GitHub",
+  "footer.kofi": "Ko-fi",
+  "footer.aria": "页脚",
+  "footer.opens_in_new_tab": "在新标签页中打开",
+  "footer.legal_nav": "法律信息",
+  "footer.external_nav": "页脚链接",
 };

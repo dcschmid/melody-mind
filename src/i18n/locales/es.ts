@@ -675,6 +675,12 @@ export default {
   "musicPlatforms.keyboardInstructions":
     "Navega las plataformas musicales usando la tecla Tab. Presiona Enter o Espacio para abrir plataformas en nuevas pestañas.",
   "musicPlatforms.listenOn": "Escuchar {title} en {platform}",
+  "footer.github": "GitHub",
+  "footer.kofi": "Ko-fi",
+  "footer.aria": "Pie de página",
+  "footer.opens_in_new_tab": "se abre en una nueva pestaña",
+  "footer.legal_nav": "Información legal",
+  "footer.external_nav": "Enlaces del pie de página",
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
