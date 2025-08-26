@@ -650,6 +650,9 @@ export default {
   "musicPlatforms.keyboardInstructions":
     "Navigér musikplatforme ved hjælp af Tab-tasten. Tryk Enter eller mellemrum for at åbne platforme i nye faner.",
   "musicPlatforms.listenOn": "Lyt til {title} på {platform}",
+  "musicPlatforms.platform.spotify": "Spotify",
+  "musicPlatforms.platform.deezer": "Deezer",
+  "musicPlatforms.platform.apple": "Apple Music",
   "nav.ariaLabel": "Hovednavigation",
   "nav.donate.coffee": "Køb os en kaffe",
   "nav.donate.heading": "Støt os",

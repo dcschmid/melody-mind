@@ -604,6 +604,9 @@ export default {
   "musicPlatforms.keyboardInstructions":
     "Tabキーを使用して音楽プラットフォームをナビゲートしてください。EnterまたはSpaceキーを押してプラットフォームを新しいタブで開きます。",
   "musicPlatforms.listenOn": "{platform}で{title}を聴く",
+  "musicPlatforms.platform.spotify": "Spotify",
+  "musicPlatforms.platform.deezer": "Deezer",
+  "musicPlatforms.platform.apple": "Apple Music",
   "nav.ariaLabel": "メインナビゲーション",
   "nav.donate.coffee": "コーヒーを買う",
   "nav.donate.heading": "サポート",

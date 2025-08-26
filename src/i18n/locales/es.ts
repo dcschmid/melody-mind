@@ -675,6 +675,9 @@ export default {
   "musicPlatforms.keyboardInstructions":
     "Navega las plataformas musicales usando la tecla Tab. Presiona Enter o Espacio para abrir plataformas en nuevas pestañas.",
   "musicPlatforms.listenOn": "Escuchar {title} en {platform}",
+  "musicPlatforms.platform.spotify": "Spotify",
+  "musicPlatforms.platform.deezer": "Deezer",
+  "musicPlatforms.platform.apple": "Apple Music",
   "nav.achievements.description": "Ver sus logros desbloqueados y progreso",
   "nav.ariaLabel": "Navegación principal",
   "nav.donate.coffee": "Cómpranos un café",

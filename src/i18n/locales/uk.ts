@@ -619,6 +619,9 @@ export default {
   "musicPlatforms.keyboardInstructions":
     "Навігація музичними платформами за допомогою клавіші Tab. Натисніть Enter або пробіл, щоб відкрити платформи в нових вкладках.",
   "musicPlatforms.listenOn": "Слухати {title} на {platform}",
+  "musicPlatforms.platform.spotify": "Spotify",
+  "musicPlatforms.platform.deezer": "Deezer",
+  "musicPlatforms.platform.apple": "Apple Music",
   "nav.ariaLabel": "Основна навігація",
   "nav.donate.coffee": "Купити нам каву",
   "nav.donate.heading": "Підтримати нас",
