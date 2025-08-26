@@ -6,30 +6,38 @@
 /**
  * Simple debounce function
  */
-export function debounce<T extends (...args: any[]) => any>(
+export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
   let timeoutId: number | null = null;
-  return (...args: Parameters<T>) => {
-    if (timeoutId) clearTimeout(timeoutId);
-    timeoutId = window.setTimeout(() => func(...args), wait);
+  return (...args: Parameters<T>): void => {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    timeoutId = window.setTimeout(() => {
+      // cast to any here only for invocation safety since T may be unknown-to-TS at callsite
+      (func as unknown as (...a: unknown[]) => unknown)(...args);
+    }, wait);
   };
 }
 
 /**
  * Simple throttle function
  */
-export function throttle<T extends (...args: any[]) => any>(
+export function throttle<T extends (...args: unknown[]) => unknown>(
   func: T,
   limit: number
 ): (...args: Parameters<T>) => void {
   let inThrottle = false;
-  return (...args: Parameters<T>) => {
+  return (...args: Parameters<T>): void => {
     if (!inThrottle) {
-      func(...args);
+      // call with safe cast
+      (func as unknown as (...a: unknown[]) => unknown)(...args);
       inThrottle = true;
-      setTimeout(() => (inThrottle = false), limit);
+      setTimeout(() => {
+        inThrottle = false;
+      }, limit);
     }
   };
 }
@@ -44,19 +52,23 @@ export function animate(
   let animationId: number | null = null;
   let startTime: number | null = null;
 
-  const animate = (timestamp: number) => {
-    if (!startTime) startTime = timestamp;
+  const step = (timestamp: number): void => {
+    if (!startTime) {
+      startTime = timestamp;
+    }
     const elapsed = timestamp - startTime;
 
     if (elapsed < duration) {
       callback(timestamp);
-      animationId = requestAnimationFrame(animate);
+      animationId = requestAnimationFrame(step);
     }
   };
 
-  animationId = requestAnimationFrame(animate);
-  return () => {
-    if (animationId) cancelAnimationFrame(animationId);
+  animationId = requestAnimationFrame(step);
+  return (): void => {
+    if (animationId) {
+      cancelAnimationFrame(animationId);
+    }
   };
 }
 
@@ -70,7 +82,7 @@ export function createGameLoop(
   let lastTime = 0;
   let animationId: number | null = null;
 
-  const gameLoop = (currentTime: number) => {
+  const gameLoop = (currentTime: number): void => {
     const deltaTime = currentTime - lastTime;
     lastTime = currentTime;
 
@@ -81,8 +93,10 @@ export function createGameLoop(
   };
 
   animationId = requestAnimationFrame(gameLoop);
-  return () => {
-    if (animationId) cancelAnimationFrame(animationId);
+  return (): void => {
+    if (animationId) {
+      cancelAnimationFrame(animationId);
+    }
   };
 }
 
@@ -90,10 +104,10 @@ export function createGameLoop(
  * Preload images efficiently
  */
 export async function preloadImage(src: string): Promise<void> {
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve: () => void, reject: (err?: unknown) => void): void => {
     const img = new Image();
-    img.onload = () => resolve();
-    img.onerror = reject;
+    img.onload = (): void => resolve();
+    img.onerror = (ev?: unknown): void => reject(ev);
     img.src = src;
   });
 }
@@ -102,10 +116,10 @@ export async function preloadImage(src: string): Promise<void> {
  * Preload audio efficiently
  */
 export async function preloadAudio(src: string): Promise<void> {
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve: () => void, reject: (err?: unknown) => void): void => {
     const audio = new Audio();
-    audio.oncanplaythrough = () => resolve();
-    audio.onerror = reject;
+    audio.oncanplaythrough = (): void => resolve();
+    audio.onerror = (ev?: unknown): void => reject(ev);
     audio.src = src;
   });
 }

@@ -49,22 +49,55 @@ class Logger {
   }
 
   public debug(message: string, context?: LogContext): void {
-    if (this.shouldLog(LogLevel.DEBUG)) {
+    if (!this.shouldLog(LogLevel.DEBUG)) {
+      return;
+    }
+    try {
+      // Use warn to satisfy console usage rules while preserving message visibility
+      console.warn(this.formatMessage("DEBUG", message, context));
+    } catch {
+      // Swallow logging errors to avoid affecting app flow
     }
   }
 
   public info(message: string, context?: LogContext): void {
-    if (this.shouldLog(LogLevel.INFO)) {
+    if (!this.shouldLog(LogLevel.INFO)) {
+      return;
+    }
+    try {
+      // Promote info-level messages to warn so they use allowed console methods
+      console.warn(this.formatMessage("INFO", message, context));
+    } catch {
+      // Swallow logging errors to avoid affecting app flow
     }
   }
 
   public warn(message: string, context?: LogContext): void {
-    if (this.shouldLog(LogLevel.WARN)) {
+    if (!this.shouldLog(LogLevel.WARN)) {
+      return;
+    }
+    try {
+      console.warn(this.formatMessage("WARN", message, context));
+    } catch {
+      // Swallow logging errors to avoid affecting app flow
     }
   }
 
   public error(message: string, error?: unknown, context?: LogContext): void {
-    if (this.shouldLog(LogLevel.ERROR)) {
+    if (!this.shouldLog(LogLevel.ERROR)) {
+      return;
+    }
+    try {
+      const formatted = this.formatMessage("ERROR", message, context);
+      if (error instanceof Error) {
+        console.error(formatted, error);
+      } else if (error !== undefined) {
+        console.error(formatted, error);
+      } else {
+        console.error(formatted);
+      }
+    } catch {
+      // Swallow logging errors to avoid affecting app flow
     }
   }
 

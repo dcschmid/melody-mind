@@ -1,4 +1,5 @@
 import { safeGetElementById, safeQuerySelectorAll } from "../dom/domUtils";
+import { handleGameError } from "../error/errorHandlingUtils";
 
 /**
  * ShareOverlay Utility - Performance-optimized sharing functionality
@@ -22,7 +23,7 @@ interface ElementRefs {
   copyButton: HTMLButtonElement | null;
   copyButtonText: HTMLElement | null;
   statusAnnouncer: HTMLElement | null;
-  shareButtons: NodeListOf<HTMLButtonElement> | null;
+  shareButtons: HTMLButtonElement[] | null;
 }
 
 /**
@@ -187,6 +188,8 @@ export class ShareOverlayManager {
       shareScore(platform, gameData);
       this.announceToScreenReader(`Opened ${platform} sharing.`);
     } catch (err) {
+      // Surface the error to our centralized handler and inform the user
+      handleGameError(err, `sharing to ${platform}`);
       this.announceToScreenReader(`Failed to share to ${platform}.`);
     }
   }
@@ -246,6 +249,9 @@ export class ShareOverlayManager {
         button.removeAttribute("disabled");
       }, UI_CONSTANTS.COPY_SUCCESS_DURATION);
     } catch (err) {
+      // Log the clipboard error for diagnostics
+      handleGameError(err, "clipboard copy");
+
       if (this.elements.copyButtonText) {
         this.elements.copyButtonText.textContent = "Copy failed";
       }
@@ -301,7 +307,7 @@ export class ShareOverlayManager {
     let shareText = "";
 
     const originalWindowOpen = window.open;
-    window.open = function (url) {
+    window.open = function (url): Window | null {
       if (!url) {
         return null;
       }
@@ -313,7 +319,7 @@ export class ShareOverlayManager {
     };
 
     const originalConsoleWarn = console.warn;
-    console.warn = () => {};
+    console.warn = (): void => {};
 
     await shareScore("twitter", data);
 
@@ -332,9 +338,9 @@ export class ShareOverlayManager {
     }
 
     // Clear references
-    Object.keys(this.elements).forEach((key) => {
-      (this.elements as Record<string, HTMLElement | null>)[key] = null;
-    });
+    for (const key of Object.keys(this.elements) as Array<keyof ElementRefs>) {
+      this.elements[key] = null;
+    }
   }
 }
 

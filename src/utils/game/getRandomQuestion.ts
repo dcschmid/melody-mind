@@ -80,7 +80,7 @@ interface RandomQuestionResult {
  * prevent repetition until all questions have been used or the number of rounds
  * has been completed. It also shuffles the selection to ensure randomness.
  *
- * @param {Album[]} albums - Array of album objects containing questions
+ * @param {RQAlbum[]} albums - Array of album objects containing questions
  * @param {Difficulty} difficulty - Difficulty level of the questions to select from
  * @param {number} totalRounds - Total number of rounds in the game (for reset logic)
  *
@@ -128,14 +128,14 @@ export function getRandomQuestion(
 
     // Create a flat list of all valid questions with their corresponding albums
     // that haven't been used yet in this game session
-    const availableQuestions = albumsCopy.flatMap((album: Album) => {
+    const availableQuestions = albumsCopy.flatMap((album: RQAlbum) => {
       // Safely access questions for the current difficulty
-      const questionsForDifficulty = album.questions[difficulty] || [];
+      const questionsForDifficulty: RQQuestion[] = album.questions[difficulty] || [];
 
       // Filter out questions that have already been used
       return questionsForDifficulty
-        .filter((question: Question) => !usedQuestions.has(question.question))
-        .map((question: Question) => ({
+        .filter((question: RQQuestion) => !usedQuestions.has(String(question.question)))
+        .map((question: RQQuestion) => ({
           randomQuestion: question,
           randomAlbum: album,
         }));

@@ -8,7 +8,7 @@ interface OverlayManagerState {
   activeOverlay: HTMLElement | null;
 }
 
-let state: OverlayManagerState = {
+const state: OverlayManagerState = {
   previousFocus: null,
   activeOverlay: null,
 };
@@ -32,9 +32,9 @@ export function initOverlayManager(): void {
   });
 }
 
-function setupOverlay(overlay: HTMLElement): void {
+function setupOverlay(_overlay: HTMLElement): void {
   // Create an array of focusable elements within the overlay
-  const focusableElements = overlay.querySelectorAll<HTMLElement>(
+  const focusableElements = _overlay.querySelectorAll<HTMLElement>(
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
   );
 
@@ -42,11 +42,11 @@ function setupOverlay(overlay: HTMLElement): void {
   const lastFocusableElement = focusableElements[focusableElements.length - 1];
 
   // Store trigger elements that open this overlay
-  const openTriggers = document.querySelectorAll(`[data-opens="${overlay.id}"]`);
+  const openTriggers = document.querySelectorAll(`[data-opens="${_overlay.id}"]`);
   openTriggers.forEach((trigger) => {
     trigger.addEventListener("click", () => {
       state.previousFocus = document.activeElement;
-      state.activeOverlay = overlay;
+      state.activeOverlay = _overlay;
 
       // Focus the first element after overlay is visible
       setTimeout(() => {
@@ -58,10 +58,10 @@ function setupOverlay(overlay: HTMLElement): void {
   });
 
   // Handle focus trap with keyboard navigation
-  overlay.addEventListener("keydown", (e: KeyboardEvent) => {
+  _overlay.addEventListener("keydown", (e: KeyboardEvent) => {
     // Close on Escape
     if (e.key === "Escape") {
-      closeOverlay(overlay);
+      closeOverlay(_overlay);
       e.preventDefault();
       return;
     }
@@ -88,15 +88,15 @@ function setupOverlay(overlay: HTMLElement): void {
   });
 
   // Find close buttons within overlay
-  const closeButtons = overlay.querySelectorAll("[data-closes]");
+  const closeButtons = _overlay.querySelectorAll("[data-closes]");
   closeButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      closeOverlay(overlay);
+      closeOverlay(_overlay);
     });
   });
 }
 
-function closeOverlay(overlay: HTMLElement): void {
+function closeOverlay(_overlay: HTMLElement): void {
   // Restore focus to the previous element
   if (state.previousFocus && state.previousFocus instanceof HTMLElement) {
     state.previousFocus.focus();

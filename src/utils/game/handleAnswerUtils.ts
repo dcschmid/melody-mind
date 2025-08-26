@@ -1,25 +1,13 @@
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
+import type { Question, Album } from "../../types/game";
 import { safeGetElementById } from "../dom/domUtils";
 
-import type { Question, Album } from "../../types/game";
 import { updateMedia, type MediaElements } from "./mediaUtils";
 import { updateScoreDisplay } from "./scoreUtils";
 
-/**
- * Interface representing media-related elements of an album
- * @interface AlbumMedia
- * @property {string} coverSrc - URL of the album cover image
- * @property {string} artist - Name of the artist
- * @property {string} album - Name of the album
- * @property {string} year - Release year of the album
- */
-interface AlbumMedia {
-  coverSrc: string;
-  artist: string;
-  album: string;
-  year: string;
-}
+// The AlbumMedia interface was removed because it was unused.
+// Use the `MediaElements` type from `mediaUtils` where needed.
 
 /**
  * Configuration interface for handling answer submissions
@@ -68,7 +56,7 @@ interface HandleAnswerConfig {
  * - Updates the overlay with album information
  * - Updates streaming service links
  */
-export function handleAnswer(config: HandleAnswerConfig) {
+export function handleAnswer(config: HandleAnswerConfig): number {
   const lang = getLangFromUrl(new URL(window.location.pathname, window.location.origin));
   const t = useTranslations(lang);
 

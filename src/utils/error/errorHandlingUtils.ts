@@ -207,6 +207,14 @@ function handleError(
       originalError: error,
       stack: error instanceof Error ? error.stack : undefined,
     };
+    // Output structured error details for easier debugging
+    // Use console.error to ensure visibility in dev tools
+    try {
+       
+      console.error("[app][error]", errorDetails);
+    } catch {
+      // ignore console errors in restricted environments
+    }
   }
 
   // Show user message if requested
@@ -339,10 +347,25 @@ export function attemptRecovery(
     try {
       const result = recoveryAction();
       if (result instanceof Promise) {
-        result.catch((recoveryError) => {});
+        result.catch((_recoveryError) => {
+          // Log recovery promise rejection for diagnostics
+          try {
+             
+            console.warn("Recovery action promise rejected", _recoveryError);
+          } catch {
+            // ignore logging errors
+          }
+        });
       }
       return true;
-    } catch (recoveryError) {
+    } catch (_recoveryError) {
+      // Log synchronous recovery error for diagnostics and return false
+      try {
+         
+        console.warn("Recovery action threw", _recoveryError);
+      } catch {
+        // ignore logging errors
+      }
       return false;
     }
   }

@@ -5,6 +5,8 @@
  * Eliminates code duplication across component utilities.
  */
 
+import { handleGameError } from "../error/errorHandlingUtils";
+
 /**
  * Execute a function when DOM is ready, handling both loaded and loading states
  */
@@ -14,17 +16,21 @@ export function onDOMReady(callback: () => void | Promise<void>): void {
       try {
         const result = callback();
         if (result instanceof Promise) {
-          result.catch((error) => {});
+          result.catch((err) => handleGameError(err, "onDOMReady promise"));
         }
-      } catch (error) {}
+      } catch (err) {
+        handleGameError(err, "onDOMReady");
+      }
     });
   } else {
     try {
       const result = callback();
       if (result instanceof Promise) {
-        result.catch((error) => {});
+        result.catch((err) => handleGameError(err, "onDOMReady promise"));
       }
-    } catch (error) {}
+    } catch (err) {
+      handleGameError(err, "onDOMReady");
+    }
   }
 }
 
@@ -35,7 +41,8 @@ export function createAutoInit<T>(initFunction: () => T, errorContext: string): 
   return (): T | null => {
     try {
       return initFunction();
-    } catch (error) {
+    } catch (err) {
+      handleGameError(err, `auto-init: ${errorContext}`);
       return null;
     }
   };
@@ -54,12 +61,17 @@ export function initComponent<T extends { cleanup?: () => void }>(
     // Register cleanup on page unload
     if (instance?.cleanup) {
       window.addEventListener("beforeunload", () => {
-        instance.cleanup?.();
+        try {
+          instance.cleanup?.();
+        } catch (err) {
+          handleGameError(err, `cleanup: ${componentName}`);
+        }
       });
     }
 
     return instance;
-  } catch (error) {
+  } catch (err) {
+    handleGameError(err, `initComponent: ${componentName}`);
     return null;
   }
 }

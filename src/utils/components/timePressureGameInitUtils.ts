@@ -1,7 +1,7 @@
-import { safeGetElementById, safeSetInnerHTML } from "../dom/domUtils";
-import { TimePressureGameEngine } from "../game/timePressureGameEngine";
 import { onDOMReady } from "../../utils/init/domInitUtils";
 import { parseGameRoute } from "../../utils/routing/urlUtils";
+import { safeGetElementById, safeSetInnerHTML } from "../dom/domUtils";
+import { TimePressureGameEngine } from "../game/timePressureGameEngine";
 
 // Extend Window interface to include our game engine
 declare global {
@@ -70,5 +70,8 @@ export const initTimePressureGameAuto = (): void => {
   try {
     // Initialize when DOM is ready
     onDOMReady(initTimePressureGame);
-  } catch (error) {}
+  } catch (error) {
+    // Avoid unused-variable lint error and keep initialization resilient.
+    void error;
+  }
 };

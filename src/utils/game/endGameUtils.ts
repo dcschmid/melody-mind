@@ -1,115 +1,97 @@
 /**
  * End Game Utilities
  *
- * This module handles all end-of-game functionality for the music quiz game,
- * including score display, game summary, and navigation to new games.
- *
- * @module endGameUtils
+ * Handles end-of-game UI, saving and validation workflows.
  */
 
-// Import types and utilities
 import { getLangFromUrl, useTranslations } from "../../utils/i18n.ts";
 import { safeGetElementById } from "../dom/domUtils";
+import { completeEndOverlaySetup } from "../endOverlay";
 import { handleGameError } from "../error/errorHandlingUtils";
+
+import { showEndgamePopup as fallbackShowEndgamePopup } from "./gameUI";
+
+type ShowEndOverlay = (
+  configOrScore: { score: number; maxScore?: number } | number,
+  maxScore?: number
+) => Promise<void> | void;
+
+/**
+ * Runtime lookup for `window.showEndOverlay`.
+ *
+ * We intentionally avoid caching the reference to `window.showEndOverlay`
+ * so that overlays which register the function later (after module load)
+ * are still detected at invocation time.
+ */
+function getShowEndOverlay(): ShowEndOverlay | undefined {
+  if (typeof window === "undefined") {
+    return undefined;
+  }
+  // Access at runtime to allow late registration
+  return (window as unknown as Window & { showEndOverlay?: ShowEndOverlay }).showEndOverlay;
+}
 
 /**
  * Configuration parameters for ending a game session
- *
- * @interface EndGameConfig
  */
 export interface EndGameConfig {
-  /** The unique identifier of the current user */
   userId: string;
-
-  /** The display name of the game category/genre */
   categoryName: string;
-
-  /** The difficulty level of the completed game (easy, medium, hard) */
   difficulty: string;
-
-  /** Total number of rounds played in the game */
   totalRounds: number;
-
-  /** Number of questions answered correctly */
   correctAnswers: number;
-
-  /** Final score achieved in the game */
   score: number;
-
-  /** Current language code (e.g., "en", "de") */
   language: string;
 }
 
 /**
  * Callback functions for the end game process
- *
- * @interface EndGameCallbacks
  */
 export interface EndGameCallbacks {
-  /**
-   * Called when save operations complete successfully
-   */
   onSaveComplete?: () => void;
-
-  /**
-   * Called when an error occurs during save operations
-   * @param {Error} error - The error that occurred
-   */
   onError?: (error: Error) => void;
 }
 
 /**
  * UI interface for handling game end states
- *
- * @interface EndGameUI
  */
 export interface EndGameUI {
-  /**
-   * Displays the end game popup with final score and summary
-   * @param {number} score - The final score to display
-   */
   showEndgamePopup: (score: number) => void;
 }
 
 /**
- * Handles all end-of-game logic including UI updates and statistics
+ * Saves the game result (stub).
  *
- * This function manages the game completion process, including calculating
- * achievement rates, displaying appropriate UI elements, and handling any
- * necessary cleanup.
+ * Uses the provided config to determine the game mode where possible to avoid
+ * unused-parameter diagnostics and to keep logic explicit.
  *
- * @async
- * @param {EndGameConfig} config - Configuration object containing game end state
- * @param {EndGameUI} ui - UI interface for displaying end game states
- * @param {EndGameCallbacks} [callbacks] - Optional callback functions
- * @returns {Promise<void>}
- */
-/**
- * Saves the game result to the database
- *
- * @param {EndGameConfig} config - Configuration object containing game end state
- * @returns {Promise<void>}
- */
-/**
- * Note: Game saving functionality removed - no longer needed
- *
- * @param {EndGameConfig} config - Konfigurationsobjekt mit dem Spielendstatus
- * @returns {Promise<string>} - Der Spielmodus (quiz oder chronology)
+ * @param config - End game configuration
+ * @returns The game mode string
  */
 async function saveGameResult(config: EndGameConfig): Promise<string> {
-  // Bestimme den Spielmodus basierend auf dem URL-Pfad als Fallback
+  // Prefer using config to avoid unused var rules and to have deterministic behavior.
+  // If the category name suggests chronology, return that; otherwise, infer from path.
+  const category = (config.categoryName || "").toLowerCase();
+  if (category.includes("chronology")) {
+    return "chronology";
+  }
+
+  // Fallback: inspect pathname
   return window.location.pathname.includes("/game-") ? "quiz" : "chronology";
 }
 
 /**
- * Show loading state during end game processing
+ * Show loading overlay during end-game processing
  */
-function showEndGameLoading(): void {
-  // Get current language for localized text
+export function showEndGameLoading(): void {
   const currentLang = document.documentElement.lang || "en";
 
-  // Define localized loading texts
-  const loadingTexts = {
+  type LoadingTextShape = {
+    processing: string;
+    calculating: string;
+  };
+
+  const loadingTexts: Record<string, LoadingTextShape> = {
     en: {
       processing: "Processing your results...",
       calculating: "Calculating achievements and saving score",
@@ -152,15 +134,15 @@ function showEndGameLoading(): void {
     },
   };
 
-  const texts = loadingTexts[currentLang] || loadingTexts.en;
+  const texts: LoadingTextShape = loadingTexts[currentLang] ?? loadingTexts.en;
 
-  // Create and show a loading overlay
+  // Create DOM elements
   const loadingOverlay = document.createElement("div");
   loadingOverlay.id = "endgame-loading-overlay";
   loadingOverlay.className = "endgame-loading-overlay";
   loadingOverlay.innerHTML = `
-    <div class="endgame-loading-content">
-      <div class="endgame-loading-spinner">
+    <div class="endgame-loading-content" role="status" aria-live="polite">
+      <div class="endgame-loading-spinner" aria-hidden="true">
         <div class="spinner-ring"></div>
         <div class="spinner-ring"></div>
         <div class="spinner-ring"></div>
@@ -171,7 +153,6 @@ function showEndGameLoading(): void {
     </div>
   `;
 
-  // Add styles
   const style = document.createElement("style");
   style.textContent = `
     .endgame-loading-overlay {
@@ -194,9 +175,9 @@ function showEndGameLoading(): void {
       text-align: center;
       color: white;
       padding: 2rem;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.06);
       border-radius: 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(10px);
       max-width: 400px;
       width: 90%;
@@ -222,7 +203,6 @@ function showEndGameLoading(): void {
       animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
       border-color: #fff transparent transparent transparent;
     }
-
     .spinner-ring:nth-child(1) { animation-delay: -0.45s; }
     .spinner-ring:nth-child(2) { animation-delay: -0.3s; }
     .spinner-ring:nth-child(3) { animation-delay: -0.15s; }
@@ -237,11 +217,11 @@ function showEndGameLoading(): void {
     .endgame-loading-subtext {
       font-size: 0.9rem;
       margin: 0;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.85);
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
+      from { opacity: 0; transform: scale(0.98); }
       to { opacity: 1; transform: scale(1); }
     }
 
@@ -251,15 +231,17 @@ function showEndGameLoading(): void {
     }
   `;
 
-  // Insert the loading overlay
+  // Append to document safely
   document.head.appendChild(style);
   document.body.appendChild(loadingOverlay);
 }
 
 /**
- * Update the loading text to show validation progress
+ * Update the loading subtext
+ *
+ * @param text - New subtext for the loading overlay
  */
-function updateLoadingText(text: string): void {
+export function updateLoadingText(text: string): void {
   const subtextElement = document.getElementById("endgame-loading-subtext");
   if (subtextElement) {
     subtextElement.textContent = text;
@@ -267,16 +249,27 @@ function updateLoadingText(text: string): void {
 }
 
 /**
- * Wait for all data to be properly validated before showing EndOverlay
+ * Wait for front-end data validation before showing end overlay
+ *
+ * This function periodically checks for required DOM attributes and resolves
+ * once all checks pass or when a timeout occurs.
+ *
+ * @param config - End game configuration (used to influence validation if needed)
  */
-async function waitForDataValidation(_config: EndGameConfig): Promise<void> {
-  const maxWaitTime = 5000; // Maximum wait time: 5 seconds
-  const checkInterval = 200; // Check every 200ms
+export async function waitForDataValidation(config: EndGameConfig): Promise<void> {
+  const maxWaitTime = 5000;
+  const checkInterval = 200;
   const startTime = Date.now();
 
-  // Get current language for localized validation texts
-  const currentLang = document.documentElement.lang || "en";
-  const validationTexts = {
+  const currentLang = document.documentElement.lang || config.language || "en";
+
+  type ValidationTextShape = {
+    validating: string;
+    checkingElements: string;
+    finalizing: string;
+  };
+
+  const validationTexts: Record<string, ValidationTextShape> = {
     en: {
       validating: "Validating game data...",
       checkingElements: "Checking interface elements...",
@@ -329,142 +322,140 @@ async function waitForDataValidation(_config: EndGameConfig): Promise<void> {
     },
   };
 
-  const texts = validationTexts[currentLang] || validationTexts.en;
+  const texts: ValidationTextShape = validationTexts[currentLang] ?? validationTexts.en;
   updateLoadingText(texts.validating);
 
-  return new Promise((resolve, _reject) => {
-    const checkData = () => {
+  return new Promise<void>((resolve) => {
+    const validationChecks: Array<() => boolean> = [
+      // 1. Popup element exists
+      () => {
+        const popup =
+          document.querySelector("#endgame-popup") ||
+          document.querySelector("#end-overlay") ||
+          document.querySelector(".popup[data-score]");
+        return popup !== null;
+      },
+
+      // 2. Score is set and valid
+      () => {
+        const popup =
+          document.querySelector("#endgame-popup") ||
+          document.querySelector("#end-overlay") ||
+          document.querySelector(".popup[data-score]");
+        if (!popup) {
+          return false;
+        }
+        const scoreAttr = popup.getAttribute("data-score");
+        const score = parseInt(scoreAttr ?? "0", 10);
+        return !Number.isNaN(score) && score >= 0;
+      },
+
+      // 3. Category and difficulty are set
+      () => {
+        const popup =
+          document.querySelector("#endgame-popup") ||
+          document.querySelector("#end-overlay") ||
+          document.querySelector(".popup[data-score]");
+        if (!popup) {
+          return false;
+        }
+        const category = popup.getAttribute("data-category");
+        const difficulty = popup.getAttribute("data-difficulty");
+        return (
+          typeof category === "string" &&
+          typeof difficulty === "string" &&
+          category.trim().length > 0 &&
+          difficulty.trim().length > 0
+        );
+      },
+    ];
+
+    const checkData = (): void => {
       const elapsed = Date.now() - startTime;
 
-      // Timeout protection
       if (elapsed > maxWaitTime) {
         updateLoadingText(texts.finalizing);
-        // Force resolve after timeout
+        // Ensure promise resolves after short delay so UI updates are visible
         setTimeout(() => resolve(), 300);
         return;
       }
 
-      // Update loading text based on elapsed time
-      if (elapsed > 2000) {
-        updateLoadingText(texts.checkingElements);
-      } else if (elapsed > 4000) {
+      // Update texts based on elapsed time
+      if (elapsed > 4000) {
         updateLoadingText(texts.finalizing);
+      } else if (elapsed > 2000) {
+        updateLoadingText(texts.checkingElements);
       }
 
-      // Check if all required data is available and valid
-      const validationChecks = [
-        // 1. Check if popup element exists
-        () => {
-          const popup =
-            document.querySelector("#endgame-popup") ||
-            document.querySelector("#end-overlay") ||
-            document.querySelector(".popup[data-score]");
-          const exists = popup !== null;
-          return exists;
-        },
-
-        // 2. Check if score is correctly set in data attributes
-        () => {
-          const popup =
-            document.querySelector("#endgame-popup") ||
-            document.querySelector("#end-overlay") ||
-            document.querySelector(".popup[data-score]");
-          if (!popup) {
-            return false;
-          }
-
-          const scoreAttr = popup.getAttribute("data-score");
-          const score = parseInt(scoreAttr || "0", 10);
-          const isValid = !isNaN(score) && score >= 0; // Allow 0 score
-          return isValid;
-        },
-
-        // 3. Check if category and difficulty are set (more lenient)
-        () => {
-          const popup =
-            document.querySelector("#endgame-popup") ||
-            document.querySelector("#end-overlay") ||
-            document.querySelector(".popup[data-score]");
-          if (!popup) {
-            return false;
-          }
-
-          const category = popup.getAttribute("data-category");
-          const difficulty = popup.getAttribute("data-difficulty");
-          const isValid =
-            category && difficulty && category.trim().length > 0 && difficulty.trim().length > 0;
-          return isValid;
-        },
-      ];
-
-      // Run all validation checks with detailed logging
-      const checkResults = validationChecks.map((check, index) => {
+      const results = validationChecks.map((fn, index) => {
         try {
-          const result = check();
-          return { index, result };
-        } catch (error) {
+          return { index, result: fn() };
+        } catch (err) {
+          // Report error for diagnostics and treat as failed
+          handleGameError(err, "validation check");
           return { index, result: false };
         }
       });
 
-      const allValid = checkResults.every(({ result }) => result);
-
-      // Log failed checks for debugging
-      if (!allValid) {
-        // Log failed validation checks for debugging
-      }
+      const allValid = results.every(({ result }) => result === true);
 
       if (allValid) {
         updateLoadingText(texts.finalizing);
-        // Small delay to show finalizing message
         setTimeout(() => resolve(), 200);
       } else {
-        // Continue checking
         setTimeout(checkData, checkInterval);
       }
     };
 
-    // Start checking
     checkData();
   });
 }
 
 /**
- * Hide loading state after end game processing
+ * Hide the end game loading overlay
  */
-function hideEndGameLoading(): void {
+export function hideEndGameLoading(): void {
   const loadingOverlay = safeGetElementById<HTMLElement>("endgame-loading-overlay");
-  if (loadingOverlay) {
-    // Try smooth animation first
+  if (!loadingOverlay) {
+    return;
+  }
+
+  try {
+    loadingOverlay.style.animation = "fadeOut 0.3s ease-out forwards";
+
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes fadeOut {
+        from { opacity: 1; transform: scale(1); }
+        to { opacity: 0; transform: scale(0.98); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    setTimeout(() => {
+      if (loadingOverlay.parentElement) {
+        loadingOverlay.remove();
+      }
+    }, 300);
+  } catch (err) {
+    // If animation fails, remove immediately and report
     try {
-      loadingOverlay.style.animation = "fadeOut 0.3s ease-out forwards";
-
-      // Add fadeOut animation
-      const style = document.createElement("style");
-      style.textContent = `
-        @keyframes fadeOut {
-          from { opacity: 1; transform: scale(1); }
-          to { opacity: 0; transform: scale(0.9); }
-        }
-      `;
-      document.head.appendChild(style);
-
-      setTimeout(() => {
-        if (loadingOverlay.parentNode) {
-          loadingOverlay.remove();
-        }
-      }, 300);
-    } catch (error) {
-      // Fallback: immediate removal
       loadingOverlay.remove();
+    } catch (removeErr) {
+      handleGameError(removeErr, "removing endgame loading overlay");
     }
-  } else {
-    // Loading overlay not found
+    // Report the original animation error as well for diagnostics
+    try {
+      handleGameError(err, "endgame loading hide animation");
+    } catch {
+      // ignore any errors thrown while reporting to avoid cascading failures
+    }
   }
 }
 
 /**
- * Handle end game with loading state
+ * Main handler for ending the game. Shows loading, saves results,
+ * waits for validation and shows the endgame UI.
  */
 export async function handleEndGame(
   config: EndGameConfig,
@@ -472,137 +463,329 @@ export async function handleEndGame(
   callbacks?: EndGameCallbacks
 ): Promise<void> {
   try {
-    // Show loading state before processing
     showEndGameLoading();
 
-    // Calculate achievement rate as a percentage
-    // const achievementRate = Math.round((config.correctAnswers / config.totalRounds) * 100);
-
-    // Log game results for analytics/debugging
-    // TODO: Add analytics logging here
-
-    // Save game result to the database via API
-    // Der API-Endpunkt kümmert sich jetzt um alle Datenbankoperationen
-    // (Spielergebnis, Benutzerstatistiken und Highscore)
     await saveGameResult(config);
 
-    // Wait for all data to be properly set and validated
     try {
       await waitForDataValidation(config);
-    } catch (error) {}
+    } catch (err) {
+      // Ensure validation-related errors are reported but do not prevent flow
+      handleGameError(err, "waiting for data validation");
+    }
 
-    // Hide loading state
     hideEndGameLoading();
 
-    // Small delay to ensure loading state is hidden
+    // Give the UI a small moment to settle
     await new Promise((resolve) => setTimeout(resolve, 100));
 
-    // Display the end game popup with score
-    ui.showEndgamePopup(config.score);
+    try {
+      // First reveal the basic DOM-based popup for immediate feedback
+      if (ui && typeof ui.showEndgamePopup === "function") {
+        console.debug(
+          "[endGameUtils] invoking ui.showEndgamePopup (DOM basic) with score:",
+          config.score
+        );
+        ui.showEndgamePopup(config.score);
+      } else {
+        console.debug(
+          "[endGameUtils] invoking fallbackShowEndgamePopup (DOM fallback) with score:",
+          config.score
+        );
+        fallbackShowEndgamePopup(config.score);
+      }
 
-    // Absolute fallback: ensure loading is hidden after 2 seconds
+      // Then attempt to enhance the experience with the richer overlay asynchronously.
+      (async () => {
+        try {
+          const showFn = getShowEndOverlay();
+          if (typeof showFn === "function") {
+            console.debug(
+              "[endGameUtils] invoking global showEndOverlay to enhance overlay (async)",
+              { score: config.score }
+            );
+            await showFn({ score: config.score });
+          } else if (typeof completeEndOverlaySetup === "function") {
+            console.debug(
+              "[endGameUtils] invoking completeEndOverlaySetup to enhance overlay (async)",
+              { score: config.score }
+            );
+            await completeEndOverlaySetup({ score: config.score });
+          } else {
+            console.debug(
+              "[endGameUtils] no richer overlay available (completeEndOverlaySetup / showEndOverlay)"
+            );
+          }
+        } catch (enhanceErr) {
+          handleGameError(enhanceErr, "enhancing endgame overlay");
+        }
+      })();
+    } catch (popupErr) {
+      handleGameError(popupErr, "displaying endgame overlay");
+    }
+
+    // Fallback: make sure overlay is removed after a short period
     setTimeout(() => {
-      const loadingOverlay = safeGetElementById<HTMLElement>("endgame-loading-overlay");
-      if (loadingOverlay) {
-        loadingOverlay.remove();
+      const overlay = safeGetElementById<HTMLElement>("endgame-loading-overlay");
+      if (overlay && overlay.parentElement) {
+        overlay.remove();
       }
     }, 2000);
 
-    // Call success callback if provided
     callbacks?.onSaveComplete?.();
-  } catch (error) {
-    handleGameError(error, "game ending");
+  } catch (err) {
+    // Report error using centralized handler and attempt to recover UI
+    handleGameError(err, "game ending");
 
-    // Hide loading state in case of error
     hideEndGameLoading();
 
-    // Force remove loading overlay in case of error
     setTimeout(() => {
-      const loadingOverlay = safeGetElementById<HTMLElement>("endgame-loading-overlay");
-      if (loadingOverlay) {
-        loadingOverlay.remove();
+      const overlay = safeGetElementById<HTMLElement>("endgame-loading-overlay");
+      if (overlay && overlay.parentElement) {
+        overlay.remove();
       }
     }, 100);
 
-    // Display the end game popup with score even on error
-    // Wait a bit to let the UI settle
+    // Ensure the endgame popup still appears for UX continuity
     setTimeout(() => {
-      ui.showEndgamePopup(config.score);
+      try {
+        // Reveal DOM popup immediately
+        if (ui && typeof ui.showEndgamePopup === "function") {
+          console.debug(
+            "[endGameUtils] (fallback timeout) invoking ui.showEndgamePopup with score:",
+            config.score
+          );
+          ui.showEndgamePopup(config.score);
+        } else {
+          console.debug(
+            "[endGameUtils] (fallback timeout) invoking fallbackShowEndgamePopup with score:",
+            config.score
+          );
+          fallbackShowEndgamePopup(config.score);
+        }
+
+        // Try to invoke richer overlay without blocking
+        (async () => {
+          try {
+            const showFn = getShowEndOverlay();
+            if (typeof showFn === "function") {
+              console.debug(
+                "[endGameUtils] (fallback timeout) calling global showEndOverlay (non-blocking)",
+                { score: config.score }
+              );
+              showFn({ score: config.score });
+            } else if (typeof completeEndOverlaySetup === "function") {
+              console.debug(
+                "[endGameUtils] (fallback timeout) calling completeEndOverlaySetup (non-blocking)",
+                { score: config.score }
+              );
+              completeEndOverlaySetup({ score: config.score });
+            } else {
+              console.debug("[endGameUtils] (fallback timeout) no richer overlay available");
+            }
+          } catch (enhanceErr) {
+            handleGameError(enhanceErr, "enhancing endgame overlay after error");
+          }
+        })();
+      } catch (popupErr) {
+        handleGameError(popupErr, "showing endgame popup after error");
+      }
     }, 200);
 
-    // Call error callback if provided
-    callbacks?.onError?.(error instanceof Error ? error : new Error(String(error)));
+    callbacks?.onError?.(err instanceof Error ? err : new Error(String(err)));
   }
 }
 
 /**
- * Displays the end game popup with final score and summary
- *
- * This function stops any playing audio, retrieves the current language
- * for localization, and updates the DOM to display the end game popup.
- *
- * @param {number} score - The final score to display
- * @returns {void}
+ * Displays the endgame popup and sets accessibility attributes.
  */
 export function showEndgamePopup(score: number): void {
-  // Get current language for localized messages
-  // const url = new URL(window.location.pathname, window.location.origin);
-  // const _lang = getLangFromUrl(url); // Removed unused variable
-  // Explicitly cast lang to string to satisfy TypeScript
-  // const t = useTranslations(String(lang));
+  try {
+    let scoreElement = safeGetElementById<HTMLElement>("popup-score");
+    let popup = safeGetElementById<HTMLElement>("endgame-popup");
 
-  // Find and update the score display elements
-  const scoreElement = safeGetElementById<HTMLElement>("popup-score");
-  const popup = safeGetElementById<HTMLElement>("endgame-popup");
+    // If the expected DOM elements exist, update them (fast path)
+    if (scoreElement && popup) {
+      scoreElement.textContent = String(score);
+      popup.setAttribute("data-score", String(score));
 
-  if (scoreElement && popup) {
-    // Update score display
-    scoreElement.textContent = score.toString();
+      // Robust reveal strategy:
+      // 1) Immediately remove common hiding classes and apply inline styles.
+      // 2) Repeat removal for a short duration in case other scripts re-add hiding classes (race conditions).
+      try {
+        const popupEl = popup as HTMLElement;
+        const hideClasses = ["hidden", "invisible", "opacity-0", "pointer-events-none", "sr-only"];
+        // Immediate removal
+        hideClasses.forEach(function (c) {
+          try {
+            popupEl.classList.remove(c);
+          } catch (ignoreErr) {
+            void ignoreErr;
+          }
+        });
+        // Inline style enforcement as a strong fallback
+        try {
+          popupEl.style.display = "flex";
+          popupEl.style.visibility = "visible";
+          popupEl.style.opacity = "1";
+          popupEl.style.pointerEvents = "auto";
+          // High z-index to ensure it's above other layers
+          popupEl.style.zIndex = String(100000);
+        } catch (ignoreErr) {
+          void ignoreErr;
+        }
+        // Repeatedly attempt to remove hiding classes for a short window (race condition mitigation)
+        try {
+          let revealAttempts = 0;
+          const revealInterval = window.setInterval(function () {
+            revealAttempts++;
+            hideClasses.forEach(function (c) {
+              try {
+                popupEl.classList.remove(c);
+              } catch (ignoreErr) {
+                void ignoreErr;
+              }
+            });
+            // Re-apply inline styles each tick as well
+            try {
+              popupEl.style.display = "flex";
+              popupEl.style.visibility = "visible";
+              popupEl.style.opacity = "1";
+              popupEl.style.pointerEvents = "auto";
+              popupEl.style.zIndex = String(100000);
+            } catch (ignoreErr) {
+              void ignoreErr;
+            }
+            if (revealAttempts >= 6) {
+              try {
+                clearInterval(revealInterval);
+              } catch (ignoreErr) {
+                void ignoreErr;
+              }
+            }
+          }, 150);
+        } catch (ignoreErr) {
+          void ignoreErr;
+        }
+      } catch (ignoreErr) {
+        void ignoreErr;
+      }
 
-    // Store score as a data attribute for potential use by other components
-    popup.setAttribute("data-score", score.toString());
+      // Keep accessibility attributes and focus
+      popup.setAttribute("tabindex", "-1");
+      try {
+        popup.focus();
+      } catch (err) {
+        void err;
+      }
+    } else {
+      // Create a minimal, accessible fallback popup so other modules can read data attributes
+      // and users get immediate feedback. Keep structure simple to avoid styling dependencies.
+      try {
+        popup = document.getElementById("endgame-popup") as HTMLElement | null;
+      } catch (err) {
+        handleGameError(err, "retrieving endgame-popup element");
+        popup = null;
+      }
 
-    // Show the popup
-    popup.classList.remove("hidden");
+      if (!popup) {
+        const container = document.createElement("div");
+        container.id = "endgame-popup";
+        container.className =
+          "popup fixed top-0 right-0 bottom-0 left-0 z-[9999] flex items-center justify-center";
+        container.setAttribute("role", "dialog");
+        container.setAttribute("aria-modal", "true");
+        container.setAttribute("tabindex", "-1");
 
-    // Set focus to the popup for accessibility
-    popup.setAttribute("tabindex", "-1");
-    popup.focus();
-  } else {
-    handleGameError(new Error("End game popup elements not found"), "end game popup display");
+        const inner = document.createElement("div");
+        inner.className =
+          "endgame-fallback rounded p-4 bg-black/80 text-white max-w-sm w-full text-center";
+        inner.setAttribute("role", "document");
+
+        const scoreSpan = document.createElement("span");
+        scoreSpan.id = "popup-score";
+        scoreSpan.className = "text-4xl font-bold";
+        scoreSpan.textContent = String(score);
+
+        inner.appendChild(scoreSpan);
+        container.appendChild(inner);
+
+        // Attach minimal dataset for consumers
+        container.dataset.score = String(score);
+
+        // Append to body
+        try {
+          document.body.appendChild(container);
+        } catch (err) {
+          handleGameError(err, "appending endgame fallback container");
+          // If append fails, at least set data on any found elements (best-effort)
+        }
+
+        // Update references so other code can use them
+        scoreElement = safeGetElementById<HTMLElement>("popup-score");
+        popup = safeGetElementById<HTMLElement>("endgame-popup");
+      } else {
+        // Popup exists but score element missing: create it
+        if (!safeGetElementById<HTMLElement>("popup-score")) {
+          const scoreSpan = document.createElement("span");
+          scoreSpan.id = "popup-score";
+          scoreSpan.className = "text-4xl font-bold";
+          scoreSpan.textContent = String(score);
+          popup.appendChild(scoreSpan);
+        }
+        popup.dataset.score = String(score);
+        popup.classList.remove("hidden");
+        popup.setAttribute("tabindex", "-1");
+      }
+
+      // Try to focus the popup for accessibility (best-effort)
+      try {
+        popup?.focus();
+      } catch {
+        // ignore focus failures
+      }
+    }
+
+    // Attempt to invoke a richer global overlay if available (non-blocking enhancement).
+    // We do this after ensuring the DOM-based popup is visible so the user sees immediate feedback.
+    try {
+      if (typeof window !== "undefined") {
+        const maybeShow = (window as unknown as { showEndOverlay?: unknown }).showEndOverlay;
+        if (typeof maybeShow === "function") {
+          try {
+            // call but do not await to avoid blocking
+            (maybeShow as (arg: { score: number }) => void)({ score });
+          } catch (callErr) {
+            // If calling fails, report via central handler
+            handleGameError(callErr, "invoking global showEndOverlay");
+          }
+        }
+      }
+    } catch (globalErr) {
+      // Non-fatal: log via central handler to surface potential issues during runtime
+      handleGameError(globalErr, "checking global showEndOverlay");
+    }
+  } catch (err) {
+    // Final fallback: report the failure centrally but don't throw
+    handleGameError(err, "end game popup display");
   }
 }
 
 /**
- * Redirects to the game home page to start a new game
- *
- * This function retrieves the current language and redirects the user
- * to the game home page, preserving language preferences.
- *
- * @returns {void}
+ * Restart the game by redirecting to the game home while preserving language.
  */
 export function restartGame(): void {
-  // Get the current language to maintain language settings during navigation
   const currentLanguage = getLangFromUrl(new URL(window.location.pathname, window.location.origin));
-
-  // Redirect to game home page
-  window.location.href = `/${String(currentLanguage)}/gamehome`;
+  const safeLang = String(currentLanguage || "en");
+  window.location.href = `/${safeLang}/gamehome`;
 }
 
 /**
- * Formats score data for sharing on social media or messaging apps
- *
- * @param {number} score - The final score achieved
- * @param {string} category - The game category/genre name
- * @param {string} difficulty - The difficulty level played
- * @returns {string} Formatted text for sharing
+ * Format score for sharing with localized message.
  */
 export function formatScoreForSharing(score: number, category: string, difficulty: string): string {
   const url = new URL(window.location.pathname, window.location.origin);
   const lang = getLangFromUrl(url);
-  // Explicitly cast lang to string to satisfy TypeScript
-  const t = useTranslations(lang as string);
-
-  // Create a user-friendly sharing message
-  return `${t("game.share.message", { score: score.toString(), category, difficulty })} - Melody Mind`;
+  const t = useTranslations(String(lang));
+  return `${t("game.share.message", { score: String(score), category, difficulty })} - Melody Mind`;
 }

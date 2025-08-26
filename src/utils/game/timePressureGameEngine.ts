@@ -10,12 +10,10 @@
 
 // import { checkAchievementsAfterGame } from "../services/achievementService.js";
 // showEndOverlay is available globally via Window interface
-import type { Question, Album } from "../../types/game";
 import { handleGameError, handleLoadingError } from "../error/errorHandlingUtils";
 
-import { loadAlbumsWithFallback } from "./albumLoader";
 import { updateGameScore } from "./gameStateUtils";
-import { getRandomQuestion } from "./getRandomQuestion";
+import type { Question, Album } from "./getTimePressureQuestion";
 import { getTimePressureQuestion } from "./getTimePressureQuestion";
 import { getTimePressureStats, resetTimePressureQuestions } from "./getTimePressureQuestion";
 
@@ -128,7 +126,8 @@ export class TimePressureGameEngine {
     this.isPaused = false;
 
     if (import.meta.env?.DEV) {
-      console.log("TimePressureGame initialized with:", {
+      // use warn (allowed by lint) for development diagnostics
+      console.warn("TimePressureGame initialized with:", {
         currentRound: this.currentRound,
         totalRounds: this.totalRounds,
         category: this.category,
@@ -181,8 +180,12 @@ export class TimePressureGameEngine {
           );
         }
         albumData = await response.json();
-      } catch (langError: unknown) {
+      } catch {
         // Category not available in current language, falling back to German
+        handleLoadingError(
+          new Error(`Category data not available for lang ${this.lang}`),
+          "category data (lang)"
+        );
 
         try {
           const fallbackUrl = `/json/genres/de/${this.category}.json`;
@@ -340,7 +343,8 @@ export class TimePressureGameEngine {
 
       // Record question start time for achievements
       this.questionStartTime = Date.now();
-      window.questionStartTime = this.questionStartTime;
+      (window as unknown as Window & { questionStartTime?: number }).questionStartTime =
+        this.questionStartTime;
 
       // Debug info for development
       if (process.env.NODE_ENV === "development") {
@@ -643,7 +647,7 @@ export class TimePressureGameEngine {
     this.updateGameStats();
 
     // Record for achievements
-    window.lastAnswerTime = answerTime;
+    (window as unknown as Window & { lastAnswerTime?: number }).lastAnswerTime = answerTime;
   }
 
   /**
@@ -697,6 +701,77 @@ export class TimePressureGameEngine {
   }
 
   /**
+   * Build the feedback message
+   */
+  private buildFeedbackMessage(
+    isCorrect: boolean,
+    points: number,
+    details: FeedbackDetails
+  ): string {
+    if (isCorrect) {
+      let msg = `Richtig! +${points} Punkte`;
+      if (details.time && details.time > 0) {
+        msg += ` (Zeit-Bonus: +${details.time})`;
+      }
+      if (details.streak && details.streak > 0) {
+        msg += ` (Serie-Bonus: +${details.streak})`;
+      }
+      return msg;
+    }
+    if (details.timeout) {
+      return `Zeit abgelaufen! Die richtige Antwort war: ${details.correctAnswer}`;
+    }
+    if (details.skipped) {
+      return `Frage übersprungen! -${details.penalty} Punkte. Die richtige Antwort war: ${details.correctAnswer}`;
+    }
+    return `Falsch! Die richtige Antwort war: ${details.correctAnswer}`;
+  }
+
+  /**
+   * Populate album and trivia information into the overlay.
+   * Extracted to reduce complexity in the main feedback flow.
+   */
+  private populateAlbumInfo(
+    overlay: HTMLElement,
+    album: Album | null,
+    question: Question | null
+  ): void {
+    const albumInfo = overlay.querySelector(".album-info") as HTMLElement | null;
+    if (!albumInfo) {
+      return;
+    }
+
+    if (album) {
+      albumInfo.style.display = "block";
+
+      const artistElement = overlay.querySelector("#overlay-artist") as HTMLElement | null;
+      const albumElement = overlay.querySelector("#overlay-album") as HTMLElement | null;
+      const yearElement = overlay.querySelector("#overlay-year") as HTMLElement | null;
+      const funFactElement = overlay.querySelector("#overlay-funfact") as HTMLElement | null;
+
+      if (artistElement) {
+        artistElement.textContent = album.artist || "";
+      }
+      if (albumElement) {
+        albumElement.textContent = album.album || "";
+      }
+      if (yearElement) {
+        yearElement.textContent = album.year || "";
+      }
+
+      if (funFactElement) {
+        const funFactText = question?.trivia || "";
+        const textElement = (funFactElement.querySelector("p") || funFactElement) as HTMLElement;
+        textElement.textContent = funFactText;
+        funFactElement.style.display = funFactText ? "block" : "none";
+      }
+    } else {
+      // Hide album info if not available
+      albumInfo.style.display = "none";
+    }
+  }
+
+  /**
    * Show answer feedback using the FeedbackOverlay component
    */
   async showAnswerFeedback(
@@ -726,23 +801,8 @@ export class TimePressureGameEngine {
         return;
       }
 
-      // Create feedback message
-      let feedbackMsg;
-      if (isCorrect) {
-        feedbackMsg = `Richtig! +${points} Punkte`;
-        if (details.time && details.time > 0) {
-          feedbackMsg += ` (Zeit-Bonus: +${details.time})`;
-        }
-        if (details.streak && details.streak > 0) {
-          feedbackMsg += ` (Serie-Bonus: +${details.streak})`;
-        }
-      } else if (details.timeout) {
-        feedbackMsg = `Zeit abgelaufen! Die richtige Antwort war: ${details.correctAnswer}`;
-      } else if (details.skipped) {
-        feedbackMsg = `Frage übersprungen! -${details.penalty} Punkte. Die richtige Antwort war: ${details.correctAnswer}`;
-      } else {
-        feedbackMsg = `Falsch! Die richtige Antwort war: ${details.correctAnswer}`;
-      }
+      // Build feedback message using helper to reduce complexity
+      const feedbackMsg = this.buildFeedbackMessage(isCorrect, points, details);
 
       // Update feedback content - handle both direct element and Paragraph component
       if (feedback) {
@@ -764,42 +824,8 @@ export class TimePressureGameEngine {
           ?.insertBefore(feedbackDiv, overlay.querySelector(".album-info"));
       }
 
-      // Show album info section like in normal mode
-      const albumInfo = overlay.querySelector(".album-info") as HTMLElement;
-      if (albumInfo && this.currentAlbum) {
-        (albumInfo as HTMLElement).style.display = "block";
-
-        // Update album information
-        const artistElement = overlay.querySelector("#overlay-artist") as HTMLElement;
-        const albumElement = overlay.querySelector("#overlay-album") as HTMLElement;
-        const yearElement = overlay.querySelector("#overlay-year") as HTMLElement;
-        const funFactElement = overlay.querySelector("#overlay-funfact") as HTMLElement;
-
-        if (artistElement) {
-          artistElement.textContent = this.currentAlbum.artist || "";
-        }
-        if (albumElement) {
-          albumElement.textContent = this.currentAlbum.album || "";
-        }
-        if (yearElement) {
-          yearElement.textContent = this.currentAlbum.year || "";
-        }
-
-        // Display funFact from the current question's trivia
-        if (funFactElement) {
-          const funFactText = this.currentQuestion?.trivia || "";
-          // Handle both direct text and Paragraph component
-          const textElement = funFactElement.querySelector("p") || funFactElement;
-          textElement.textContent = funFactText;
-
-          // Show the fun fact section if there's content
-          if (funFactText) {
-            funFactElement.style.display = "block";
-          } else {
-            funFactElement.style.display = "none";
-          }
-        }
-      }
+      // Show album info section (populated by helper)
+      this.populateAlbumInfo(overlay, this.currentAlbum, this.currentQuestion);
 
       // Show the overlay
       overlay.classList.remove("hidden");
@@ -808,7 +834,7 @@ export class TimePressureGameEngine {
       // Setup next round button
       const nextRoundButton = document.getElementById("time-pressure-next-round-button");
       if (nextRoundButton) {
-        nextRoundButton.onclick = () => {
+        nextRoundButton.onclick = (): void => {
           // Close the overlay first
           const overlay = document.getElementById("overlay");
           if (overlay) {
@@ -818,7 +844,7 @@ export class TimePressureGameEngine {
 
           this.currentRound++;
           // Continue with next question
-          setTimeout(async () => {
+          setTimeout(async (): Promise<void> => {
             await this.nextQuestion();
           }, 100);
         };
@@ -992,15 +1018,19 @@ export class TimePressureGameEngine {
   /**
    * Note: Game saving functionality removed - no longer needed
    */
-  async saveGameResults(gameStats: GameStats): Promise<void> {}
+  async saveGameResults(_gameStats: GameStats): Promise<void> {
+    // Intentionally left as a no-op on the client (no persistent saving)
+    return;
+  }
 
   /**
    * Check for achievements
    */
-  async checkGameAchievements(gameStats: GameStats): Promise<void> {
+  async checkGameAchievements(_gameStats: GameStats): Promise<void> {
     try {
       // TODO: Implement time pressure specific achievements
-      // Skip achievement checking for now to avoid database import issues in client
+      // Skip achievement checking for now to avoid database/import issues in client
+      // Parameter intentionally unused in this client-side build
     } catch (error) {
       handleGameError(error, "achievement check");
     }
