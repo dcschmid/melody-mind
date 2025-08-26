@@ -54,8 +54,8 @@ declare global {
 
 /**
  * Update motivation text based on score
- * @param score - The player's final score
- * @returns Promise<void>
+ * @param {number} score - The player's final score
+ * @returns {Promise<void>}
  */
 export const updateMotivationText = async (score: number): Promise<void> => {
   const motivationElement = getElementById<HTMLElement>("motivation-text");
@@ -101,9 +101,9 @@ export const updateMotivationText = async (score: number): Promise<void> => {
 
 /**
  * Animate progress bar based on score
- * @param score - Current score
- * @param maxScore - Maximum possible score
- * @returns Promise<void>
+ * @param {number} score - Current score
+ * @param {number} [maxScore=1000] - Maximum possible score
+ * @returns {Promise<void>}
  */
 export const animateProgressBar = async (score: number, maxScore: number = 1000): Promise<void> => {
   const progressContainer = getElement<HTMLElement>(".score-progress");
@@ -138,8 +138,8 @@ export const animateProgressBar = async (score: number, maxScore: number = 1000)
 
 /**
  * Update score display in the end overlay
- * @param score - The final score to display
- * @returns Promise<void>
+ * @param {number} score - The final score to display
+ * @returns {Promise<void>}
  */
 export const updateEndOverlayScore = async (score: number): Promise<void> => {
   const scoreElement = getElementById<HTMLElement>("popup-score");
@@ -152,7 +152,7 @@ export const updateEndOverlayScore = async (score: number): Promise<void> => {
 
 /**
  * Update difficulty display in the end overlay
- * @returns Promise<void>
+ * @returns {Promise<void>}
  */
 export const updateDifficultyDisplay = async (): Promise<void> => {
   const difficultyElement = getElementById<HTMLElement>("difficulty-display");
@@ -170,7 +170,7 @@ export const updateDifficultyDisplay = async (): Promise<void> => {
 
 /**
  * Update category display in the end overlay
- * @returns Promise<void>
+ * @returns {Promise<void>}
  */
 export const updateCategoryDisplay = async (): Promise<void> => {
   const categoryElement = getElementById<HTMLElement>("category-display");
@@ -189,7 +189,7 @@ export const updateCategoryDisplay = async (): Promise<void> => {
 
 /**
  * Set up restart button functionality
- * @returns void
+ * @returns {void}
  */
 export const setupRestartButton = (): void => {
   const restartButton = getElementById<HTMLElement>("restart-button");
@@ -204,7 +204,7 @@ export const setupRestartButton = (): void => {
 
 /**
  * Set up share button functionality
- * @returns void
+ * @returns {void}
  */
 export const setupSharingButton = (): void => {
   const shareButton = getElementById<HTMLElement>("share-button");
@@ -220,8 +220,8 @@ export const setupSharingButton = (): void => {
 /**
  * Complete EndOverlay setup with score, animations, and motivation text
  * This function should be called when the overlay is shown to trigger all animations
- * @param config - Configuration object with score and optional parameters
- * @returns Promise<void>
+ * @param {EndOverlayConfig} config - Configuration object with score and optional parameters
+ * @returns {Promise<void>}
  */
 export const completeEndOverlaySetup = async (config: EndOverlayConfig): Promise<void> => {
   try {
@@ -258,6 +258,10 @@ export const completeEndOverlaySetup = async (config: EndOverlayConfig): Promise
 
 /**
  * Normalize the API inputs (number or config) into a consistent config object.
+ *
+ * @param {EndOverlayConfig|number} configOrScore - Config object or numeric score
+ * @param {number} [maxScore] - Optional maxScore used when numeric API supplied
+ * @returns {EndOverlayConfig}
  */
 function normalizeEndOverlayConfig(
   configOrScore: EndOverlayConfig | number,
@@ -283,9 +287,15 @@ function normalizeEndOverlayConfig(
  * Robustly reveal the popup element: set attributes, remove hiding classes,
  * apply inline styles and focus the element. This is separated out to reduce
  * the complexity of the initializer and to make the steps testable.
+ *
+ * @param {HTMLElement|null} popup - Popup DOM element to reveal
+ * @param {number} [score] - Optional score to set on the popup dataset
+ * @returns {void}
  */
 function revealPopupElement(popup: HTMLElement | null, score?: number): void {
-  if (!popup) {return;}
+  if (!popup) {
+    return;
+  }
 
   try {
     if (typeof score === "number") {
@@ -348,7 +358,10 @@ export const initializeEndOverlay = (): void => {
   }
 
   // Register global API
-  window.showEndOverlay = async (configOrScore: EndOverlayConfig | number, maxScore?: number) => {
+  async function showEndOverlayHandler(
+    configOrScore: EndOverlayConfig | number,
+    maxScore?: number
+  ): Promise<void> {
     // Debugging aid
     try {
       if (import.meta.env?.DEV && typeof window !== "undefined") {
@@ -391,7 +404,8 @@ export const initializeEndOverlay = (): void => {
       ) {
         try {
           // If another implementation exists, prefer it
-          return await maybeGlobal(cfg);
+          await maybeGlobal(cfg);
+          return;
         } catch (err) {
           try {
             handleGameError(err, "invoking alternative global showEndOverlay");
@@ -403,7 +417,8 @@ export const initializeEndOverlay = (): void => {
 
       // Fallback to internal setup
       try {
-        return await completeEndOverlaySetup(cfg);
+        await completeEndOverlaySetup(cfg);
+        return;
       } catch (e) {
         try {
           handleGameError(e, "completeEndOverlaySetup (config)");
@@ -418,7 +433,10 @@ export const initializeEndOverlay = (): void => {
         /* ignore */
       }
     }
-  };
+  }
+
+  // assign named handler to global
+  window.showEndOverlay = showEndOverlayHandler;
 
   // Debug: confirm registration
   try {
