@@ -706,6 +706,9 @@ export default {
   "musicPlatforms.keyboardInstructions":
     "Navigieren Sie Musikplattformen mit der Tab-Taste. Drücken Sie Enter oder Leertaste, um Plattformen in neuen Tabs zu öffnen.",
   "musicPlatforms.listenOn": "Hören Sie {title} auf {platform}",
+  "musicPlatforms.platform.spotify": "Spotify",
+  "musicPlatforms.platform.deezer": "Deezer",
+  "musicPlatforms.platform.apple": "Apple Music",
   "nav.achievements.description": "Ihre freigeschalteten Erfolge und Fortschritte anzeigen",
   "nav.ariaLabel": "Hauptnavigation",
   "nav.donate.coffee": "Kaufen Sie uns einen Kaffee",
