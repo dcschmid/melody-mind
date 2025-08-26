@@ -145,7 +145,10 @@ const pageSchema = generatePodcastPageSchema();
               class="flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/25 hover:shadow-xl"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Listen on Apple Podcasts"
+              aria-label={t("musicPlatforms.listenOn", {
+                title: title,
+                platform: t("musicPlatforms.platform.apple"),
+              })}
             >
               <span class="text-xl">🍎</span>
               <span class="text-sm font-semibold">Apple Podcasts</span>
@@ -156,7 +159,10 @@ const pageSchema = generatePodcastPageSchema();
               class="flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/25 hover:shadow-xl"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Listen on Deezer"
+              aria-label={t("musicPlatforms.listenOn", {
+                title: title,
+                platform: t("musicPlatforms.platform.deezer"),
+              })}
             >
               <span class="text-xl">🎵</span>
               <span class="text-sm font-semibold">Deezer</span>
@@ -167,7 +173,10 @@ const pageSchema = generatePodcastPageSchema();
               class="flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/25 hover:shadow-xl"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Listen on Spotify"
+              aria-label={t("musicPlatforms.listenOn", {
+                title: title,
+                platform: t("musicPlatforms.platform.spotify"),
+              })}
             >
               <span class="text-xl">🎧</span>
               <span class="text-sm font-semibold">Spotify</span>
@@ -363,7 +372,7 @@ const pageSchema = generatePodcastPageSchema();
                           href={`/${lang}/podcasts/${episode.id}`}
                           class="inline-flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-purple-700"
                         >
-                          📖 Read Full Episode Notes
+                          <span>📖 {t("podcasts.read_full_notes")}</span>
                         </a>
                       </div>
                     </article>

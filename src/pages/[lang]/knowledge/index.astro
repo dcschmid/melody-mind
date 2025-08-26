@@ -8,6 +8,7 @@
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import { ui } from "../../../i18n/ui";
+import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
@@ -51,6 +52,7 @@ export async function getStaticPaths() {
 }
 
 const { articles, lang } = Astro.props;
+const t = useTranslations(String(lang));
 const uiLang = lang in ui ? (lang as keyof typeof ui) : "en";
 
 // Process articles with reading time
@@ -164,7 +166,7 @@ const clientTranslations = {
   <main class="min-h-screen bg-gray-900 py-8 text-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Breadcrumbs -->
-      <nav aria-label="Breadcrumb" class="mb-6">
+      <nav aria-label={t("navigation.breadcrumb")} class="mb-6">
         <ol class="flex flex-wrap items-center gap-3">
           <li class="flex items-center gap-3">
             <a
@@ -172,7 +174,7 @@ const clientTranslations = {
               class="flex items-center gap-2 rounded-lg p-2 text-gray-400 transition-colors duration-200 hover:bg-gray-800 hover:text-purple-400"
             >
               <Icon name="home" class="h-5 w-5" aria-hidden="true" />
-              <span class="sr-only">{ui[uiLang]["nav.home"] || "Home"}</span>
+              <span class="sr-only">{t("nav.home")}</span>
             </a>
             <span class="text-gray-600" aria-hidden="true">/</span>
           </li>
@@ -257,7 +259,7 @@ const clientTranslations = {
                 id="clear-search"
                 class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-6 text-gray-400 opacity-0 transition-colors duration-200 hover:text-purple-400"
                 type="button"
-                aria-label="Clear search"
+                aria-label={t("game.search.clear")}
               >
                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
