@@ -39,7 +39,16 @@ export async function loadAlbumsWithFallback(
         return albumsData.albums;
       }
     }
-  } catch (error) {}
+  } catch (err: unknown) {
+    // Log the failure for the preferred-language fetch and continue to fallback.
+    // Use the centralized loader error handler so failures are recorded consistently.
+    try {
+      handleLoadingError(err, `preferred data for ${category}`);
+    } catch {
+      // Avoid throwing from the error handler itself; swallow any errors here.
+      void err;
+    }
+  }
 
   // Fallback to the fallback language
   try {
