@@ -85,15 +85,15 @@ export function performCompleteLogout(): void {
         removeLocalStorage(key);
       }
     });
-  } catch {
-    // Silent error handling
+  } catch (err) {
+    void err; // Silent error handling (explicit to satisfy linter)
   }
 
   // Clear sessionStorage as well
   try {
     sessionStorage.clear();
-  } catch {
-    // Silent error handling
+  } catch (err) {
+    void err; // Silent error handling (explicit to satisfy linter)
   }
 
   // Trigger logout event for other components
@@ -108,8 +108,8 @@ export function performCompleteLogout(): void {
         oldValue: "authenticated",
       })
     );
-  } catch {
-    // Silent error handling
+  } catch (err) {
+    void err; // Silent error handling (explicit to satisfy linter)
   }
 }
 
@@ -265,7 +265,9 @@ export const clearAuthData = (): void => {
     localStorage.removeItem("auth_status");
     localStorage.removeItem("user");
     sessionStorage.clear();
-  } catch (error) {}
+  } catch (err) {
+    void err;
+  }
 };
 
 /**
@@ -450,12 +452,16 @@ export function registerAuthEventListeners(checkAuthCallback: () => void): { rem
           removeLocalStorage(key);
         }
       });
-    } catch {}
+    } catch (err) {
+      void err;
+    }
 
     // Clear sessionStorage as well
     try {
       sessionStorage.clear();
-    } catch {}
+    } catch (err) {
+      void err;
+    }
 
     checkAuthCallback();
   };
