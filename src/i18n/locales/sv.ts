@@ -772,4 +772,5 @@ export default {
     "Våra podcast-avsnitt är för närvarande endast tillgängliga på tyska och engelska. Vänligen byt till ett av dessa språk för att upptäcka vårt innehåll.",
   "podcasts.language_restriction.switch_to_german": "Byt till Tyska",
   "podcasts.language_restriction.switch_to_english": "Byt till Engelska",
+  "podcasts.read_full_notes": "Läs hela avsnittsanteckningarna",
 };

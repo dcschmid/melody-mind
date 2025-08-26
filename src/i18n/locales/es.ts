@@ -684,6 +684,7 @@ export default {
   "musicPlatforms.listenOn": "Escuchar {title} en {platform}",
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
+  "podcasts.read_full_notes": "Leer notas completas del episodio",
   "musicPlatforms.platform.apple": "Apple Music",
   "game.overlay.artist": "Artista",
   "game.overlay.album": "Álbum",

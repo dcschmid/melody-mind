@@ -786,4 +786,5 @@ export default {
     "Onze podcast-afleveringen zijn momenteel alleen beschikbaar in het Duits en Engels. Schakel over naar een van deze talen om onze content te ontdekken.",
   "podcasts.language_restriction.switch_to_german": "Overschakelen naar Duits",
   "podcasts.language_restriction.switch_to_english": "Overschakelen naar Engels",
+  "podcasts.read_full_notes": "Lees volledige aantekeningen van aflevering",
 };

@@ -791,6 +791,7 @@ export default {
   "podcasts.listen": "Anhören",
   "podcasts.episode.singular": "Episode",
   "podcasts.episode.plural": "Episoden",
+  "podcasts.read_full_notes": "Vollständige Episoden-Notizen lesen",
   "podcasts.empty.title": "Keine Podcasts verfügbar",
   "podcasts.empty.text":
     "In dieser Sprache sind noch keine Podcast-Episoden verfügbar. Schauen Sie bald wieder vorbei!",

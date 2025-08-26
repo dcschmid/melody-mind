@@ -854,4 +854,5 @@ export default {
     "Podcast-jaksomme ovat tällä hetkellä saatavilla vain saksaksi ja englanniksi. Vaihda toiseen näistä kielistä löytääksesi sisältömme.",
   "podcasts.language_restriction.switch_to_german": "Vaihda Saksan kieleen",
   "podcasts.language_restriction.switch_to_english": "Vaihda Englannin kieleen",
+  "podcasts.read_full_notes": "Lue koko jakson muistiinpanot",
 };
