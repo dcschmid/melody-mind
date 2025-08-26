@@ -164,7 +164,9 @@ function extractImageFromRssItem(itemXml: string, description: string): string |
         const cleanedUrl = cleanImageUrl(result.trim());
         return cleanedUrl;
       }
-    } catch (error) {}
+    } catch (err) {
+      void err;
+    }
   }
 
   return undefined;
@@ -242,7 +244,8 @@ function parseRssItem(
       language: feedSource.language,
       imageUrl,
     };
-  } catch (error) {
+  } catch (err) {
+    void err;
     return null;
   }
 }
@@ -299,7 +302,8 @@ async function parseFeed(feedSource: FeedSource): Promise<NewsItem[]> {
     return itemMatches
       .map((itemXml) => parseRssItem(itemXml, feedSource, feedImage))
       .filter((item): item is NewsItem => item !== null);
-  } catch (error) {
+  } catch (err) {
+    void err;
     return [];
   }
 }
@@ -394,7 +398,9 @@ function decodeHtmlEntities(text: string): string {
         // Valid Unicode range
         return String.fromCharCode(charCode);
       }
-    } catch {}
+    } catch (err) {
+      void err;
+    }
     return match; // Return original if conversion fails
   });
 
@@ -406,7 +412,9 @@ function decodeHtmlEntities(text: string): string {
         // Valid Unicode range
         return String.fromCharCode(charCode);
       }
-    } catch {}
+    } catch (err) {
+      void err;
+    }
     return match; // Return original if conversion fails
   });
 
@@ -511,7 +519,9 @@ function extractImageFromDescription(description: string): string | undefined {
       if (result) {
         return cleanImageUrl(result);
       }
-    } catch (error) {}
+    } catch (err) {
+      void err;
+    }
   }
 
   return undefined;
