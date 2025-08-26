@@ -33,26 +33,30 @@ function getEl(id: string): HTMLElement | null {
 
 function bindControlEvents(overlayId: string, onNext: () => void, onEnd: () => void): void {
   const overlay = getEl(overlayId);
-  if (!overlay) {return;}
+  if (!overlay) {
+    return;
+  }
 
   const backdrop = getEl("chronology-feedback-backdrop");
   const closeButton = getEl("chronology-close-button");
   const nextButton = getEl("chronology-next-button");
   const endButton = getEl("chronology-end-button");
 
-  closeButton?.addEventListener("click", hideOverlay);
-  backdrop?.addEventListener("click", hideOverlay);
+  closeButton?.addEventListener("click", () => hideOverlayById(overlayId));
+  backdrop?.addEventListener("click", () => hideOverlayById(overlayId));
   nextButton?.addEventListener("click", onNext);
   endButton?.addEventListener("click", onEnd);
 }
 
 function attachKeyboardNav(overlay: HTMLElement | null): void {
-  if (!overlay) {return;}
+  if (!overlay) {
+    return;
+  }
   document.addEventListener("keydown", (ev) => {
     try {
       if (!overlay.classList.contains("hidden") && ev.key === "Escape") {
         ev.preventDefault();
-        hideOverlay();
+        hideOverlayById(overlay.id);
       }
     } catch (err) {
       void err;
@@ -62,7 +66,9 @@ function attachKeyboardNav(overlay: HTMLElement | null): void {
 
 function renderResults(resultsListId: string, userOrder: UserOrderItem[]): void {
   const resultsList = getEl(resultsListId);
-  if (!resultsList) {return;}
+  if (!resultsList) {
+    return;
+  }
   resultsList.innerHTML = "";
 
   userOrder.forEach((item) => {
@@ -97,7 +103,9 @@ function renderResults(resultsListId: string, userOrder: UserOrderItem[]): void 
 
 function updateStatsInOverlay(overlayId: string, accuracy?: number, scoreGained?: number): void {
   const overlay = getEl(overlayId);
-  if (!overlay) {return;}
+  if (!overlay) {
+    return;
+  }
   const accuracyElement = overlay.querySelector("#chronology-accuracy");
   const scoreElement = overlay.querySelector("#chronology-score");
   if (accuracyElement && accuracy !== undefined) {
@@ -115,7 +123,9 @@ function setButtonVisibility(
 ): void {
   const nextButton = getEl(nextButtonId);
   const endButton = getEl(endButtonId);
-  if (!nextButton || !endButton) {return;}
+  if (!nextButton || !endButton) {
+    return;
+  }
   if (isLastRound) {
     nextButton.style.display = "none";
     endButton.style.display = "flex";
@@ -128,7 +138,9 @@ function setButtonVisibility(
 function showOverlayById(overlayId: string, focusButtonId?: string): void {
   const overlay = getEl(overlayId);
   const focusButton = focusButtonId ? getEl(focusButtonId) : null;
-  if (!overlay) {return;}
+  if (!overlay) {
+    return;
+  }
   overlay.classList.remove("hidden");
   overlay.setAttribute("aria-hidden", "false");
   focusButton?.focus();
@@ -136,7 +148,9 @@ function showOverlayById(overlayId: string, focusButtonId?: string): void {
 
 function hideOverlayById(overlayId: string): void {
   const overlay = getEl(overlayId);
-  if (!overlay) {return;}
+  if (!overlay) {
+    return;
+  }
   overlay.classList.add("hidden");
   overlay.setAttribute("aria-hidden", "true");
 }
