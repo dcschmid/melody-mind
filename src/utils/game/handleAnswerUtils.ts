@@ -108,7 +108,8 @@ export function handleAnswer(config: HandleAnswerConfig): number {
   }
 
   if (mediaElements) {
-    updateMedia(album, mediaElements);
+    // Cast album to the mediaUtils.Album shape to satisfy updateMedia signature
+    updateMedia(album as unknown as import("./mediaUtils").Album, mediaElements);
   }
 
   // Show overlay with immediate auto-scroll to top
