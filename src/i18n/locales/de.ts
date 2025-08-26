@@ -132,6 +132,8 @@ export default {
   "podcast.listen_to_episode": "Episode anhören",
   "podcast.episode_label": "Podcast-Episode",
   "auth.email_verification.title": "E-Mail-Verifizierung",
+  "game.overlay.artist": "Interpret",
+  "game.overlay.album": "Album",
   "auth.errors.noRefreshToken": "Kein Refresh-Token verfügbar",
   "auth.forgot_password": "Passwort vergessen?",
   "auth.form.email_help": "Geben Sie eine gültige E-Mail-Adresse ein",

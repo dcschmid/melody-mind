@@ -1,5 +1,7 @@
 export default {
   "accessibility.skip.to.content": "Skip to main content",
+  "game.overlay.artist": "Artist",
+  "game.overlay.album": "Album",
   "category.filter.label": "Filter by category",
   "category.filter.aria_label": "Filter by category",
   "category.filter.option_all": "All Categories",

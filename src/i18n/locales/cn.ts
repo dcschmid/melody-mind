@@ -747,6 +747,8 @@ export default {
   "podcasts.language_restriction.switch_to_english": "切换到英语",
 
   "profile.desc": "管理您的个人信息和游戏统计",
+  "game.overlay.artist": "艺术家",
+  "game.overlay.album": "专辑",
   "footer.github": "GitHub",
   "footer.kofi": "Ko-fi",
   "footer.aria": "页脚",

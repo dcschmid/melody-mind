@@ -58,7 +58,7 @@ const t = useTranslations(lang);
 
     <!-- Keyboard shortcuts documentation for screen readers -->
     <div class="sr-only" id="keyboard-shortcuts">
-      <Headline level="h4" textSize="base">Keyboard Shortcuts (Tastaturkürzel)</Headline>
+      <Headline level="h4" textSize="base">{t("general.keyboard.shortcuts")}</Headline>
       <ul>
         <li>{t("general.keyboard.escape")}: {t("general.close")}</li>
         <li>{t("general.keyboard.enter")}: {t("game.feedback.next.round")}</li>
@@ -83,9 +83,11 @@ const t = useTranslations(lang);
         role="contentinfo"
       >
         <div class="mb-8 border-b border-gray-600 pb-6">
-          <h3 class="mb-4 text-2xl font-bold break-words text-white" id="overlay-artist">Artist</h3>
+          <h3 class="mb-4 text-2xl font-bold break-words text-white" id="overlay-artist">
+            {t("game.overlay.artist")}
+          </h3>
           <h4 class="mb-4 text-xl font-semibold break-words text-purple-300" id="overlay-album">
-            Album
+            {t("game.overlay.album")}
           </h4>
           <p class="text-lg break-words text-gray-300" id="overlay-year"></p>
         </div>

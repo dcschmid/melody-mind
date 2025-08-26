@@ -622,6 +622,8 @@ export default {
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
+  "game.overlay.artist": "Артист",
+  "game.overlay.album": "Альбом",
   "footer.github": "GitHub",
   "footer.kofi": "Ko-fi",
   "footer.aria": "Нижній колонтитул",

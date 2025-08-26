@@ -670,6 +670,8 @@ export default {
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
+  "game.overlay.artist": "Artista",
+  "game.overlay.album": "Álbum",
   "nav.ariaLabel": "Navegação principal",
   "nav.donate.coffee": "Nos pague um café",
   "nav.donate.heading": "Nos Apoie",
