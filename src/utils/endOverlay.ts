@@ -255,6 +255,83 @@ export const completeEndOverlaySetup = async (config: EndOverlayConfig): Promise
  * Sets up all necessary event listeners and prepares the overlay for use
  * @returns void
  */
+
+/**
+ * Normalize the API inputs (number or config) into a consistent config object.
+ */
+function normalizeEndOverlayConfig(
+  configOrScore: EndOverlayConfig | number,
+  maxScore?: number
+): EndOverlayConfig {
+  if (typeof configOrScore === "number") {
+    return {
+      score: configOrScore,
+      maxScore: typeof maxScore === "number" ? maxScore : 1000,
+      translations: undefined,
+    };
+  }
+
+  const cfg = configOrScore as EndOverlayConfig;
+  return {
+    score: cfg.score,
+    maxScore: cfg.maxScore ?? maxScore ?? 1000,
+    translations: cfg.translations,
+  };
+}
+
+/**
+ * Robustly reveal the popup element: set attributes, remove hiding classes,
+ * apply inline styles and focus the element. This is separated out to reduce
+ * the complexity of the initializer and to make the steps testable.
+ */
+function revealPopupElement(popup: HTMLElement | null, score?: number): void {
+  if (!popup) {return;}
+
+  try {
+    if (typeof score === "number") {
+      try {
+        popup.setAttribute("data-score", String(score));
+      } catch (e) {
+        void e;
+      }
+    }
+
+    // Remove utility classes that commonly hide the element
+    try {
+      const hideClasses = ["hidden", "invisible", "opacity-0", "pointer-events-none", "sr-only"];
+      hideClasses.forEach((c) => {
+        try {
+          popup.classList.remove(c);
+        } catch (_unused) {
+          void _unused;
+        }
+      });
+    } catch (e) {
+      void e;
+    }
+
+    // Apply inline styles to guarantee visibility regardless of CSS utility state
+    try {
+      popup.style.display = "flex";
+      popup.style.visibility = "visible";
+      popup.style.opacity = "1";
+      popup.style.pointerEvents = "auto";
+      popup.style.zIndex = String(100000);
+      popup.setAttribute("aria-hidden", "false");
+      popup.setAttribute("tabindex", "-1");
+      try {
+        popup.focus();
+      } catch (_unused) {
+        void _unused;
+      }
+    } catch (e) {
+      void e;
+    }
+  } catch (e) {
+    void e;
+  }
+}
+
 export const initializeEndOverlay = (): void => {
   // Debug: report initialization in dev
   try {
@@ -270,120 +347,63 @@ export const initializeEndOverlay = (): void => {
     }
   }
 
-  // Set up global showEndOverlay function for game engines to use
-  window.showEndOverlay = (configOrScore: EndOverlayConfig | number, maxScore?: number) => {
-    // Debug: report invocation arguments in dev
+  // Register global API
+  window.showEndOverlay = async (configOrScore: EndOverlayConfig | number, maxScore?: number) => {
+    // Debugging aid
     try {
       if (import.meta.env?.DEV && typeof window !== "undefined") {
         // eslint-disable-next-line no-console
         console.debug("[endOverlay] window.showEndOverlay invoked", { configOrScore, maxScore });
       }
-    } catch (e) {
-      void e;
+    } catch {
+      /* ignore logging errors */
     }
 
-    // Normalize incoming args into a single config object so we can
-    // consistently reveal the DOM popup and then run the richer setup.
-    const resolvedConfig: EndOverlayConfig = ((): EndOverlayConfig => {
-      if (typeof configOrScore === "number") {
-        return {
-          score: configOrScore,
-          maxScore: typeof maxScore === "number" ? maxScore : 1000,
-          translations: undefined,
-        } as EndOverlayConfig;
-      }
-      return {
-        score: (configOrScore as EndOverlayConfig).score,
-        maxScore: (configOrScore as EndOverlayConfig).maxScore ?? maxScore ?? 1000,
-        translations: (configOrScore as EndOverlayConfig).translations,
-      } as EndOverlayConfig;
-    })();
+    // Normalize input
+    const cfg = normalizeEndOverlayConfig(configOrScore, maxScore);
 
-    // Reveal the DOM-based overlay immediately so users see feedback even if
-    // the richer setup runs asynchronously or fails.
+    // Ensure DOM-based popup is visible quickly for immediate UX feedback
     try {
-      const popup = getElementById<HTMLElement>("endgame-popup");
-      if (popup) {
-        // Ensure the data attribute is set so other modules/readers can inspect it
-        try {
-          popup.setAttribute("data-score", String(resolvedConfig.score));
-        } catch (e) {
-          void e;
-        }
-
-        // Robust reveal strategy: remove common hiding utility classes and apply inline styles.
-        try {
-          const hideClasses = [
-            "hidden",
-            "invisible",
-            "opacity-0",
-            "pointer-events-none",
-            "sr-only",
-          ];
-          hideClasses.forEach((c) => {
-            try {
-              popup.classList.remove(c);
-            } catch (_unused) {
-              void _unused; // ignore individual class removal failures (best-effort)
-            }
-          });
-        } catch (e) {
-          void e;
-        }
-
-        try {
-          popup.style.display = "flex";
-          popup.style.visibility = "visible";
-          popup.style.opacity = "1";
-          popup.style.pointerEvents = "auto";
-          popup.style.zIndex = String(100000);
-          popup.setAttribute("aria-hidden", "false");
-          popup.setAttribute("tabindex", "-1");
-          try {
-            popup.focus();
-          } catch (_unused) {
-            void _unused; // best-effort focus; ignore failures
-          }
-        } catch (_unused) {
-          void _unused; // ignore style application failures (best-effort)
-        }
-      }
+      const popup =
+        getElementById<HTMLElement>("endgame-popup") ||
+        getElement<HTMLElement>(".popup[data-score]");
+      revealPopupElement(popup, cfg.score);
     } catch (domErr) {
       try {
         handleGameError(domErr, "revealing end overlay DOM");
-      } catch (_unused) {
-        void _unused; // ignore secondary errors from reporting to avoid cascading failures
+      } catch {
+        /* ignore reporting failures */
       }
     }
 
-    // Now attempt to run the richer animation/setup. Keep this resilient:
-    // - If the call returns a Promise, await it so callers that expect completion behave.
-    // - If it throws, report centrally but do not prevent the DOM popup being visible.
+    // Attempt to hand off to any richer global implementation or run the internal setup
     try {
-      // Prefer global function if available (shouldn't be needed because this is the registration),
-      // but keep compatibility with other code paths that may register different implementations.
-      const maybeGlobal = (window as unknown as Window & { showEndOverlay?: unknown })
-        .showEndOverlay;
+      const maybeGlobal = (
+        window as unknown as Window & {
+          showEndOverlay?: (cfg: EndOverlayConfig) => Promise<void> | void;
+        }
+      ).showEndOverlay;
+
       if (
         maybeGlobal &&
         maybeGlobal !== window.showEndOverlay &&
         typeof maybeGlobal === "function"
       ) {
-        // Another richer implementation exists elsewhere; prefer that.
         try {
-          return (maybeGlobal as (cfg: EndOverlayConfig) => Promise<void> | void)(resolvedConfig);
+          // If another implementation exists, prefer it
+          return await maybeGlobal(cfg);
         } catch (err) {
           try {
             handleGameError(err, "invoking alternative global showEndOverlay");
-          } catch (e) {
-            void e;
+          } catch {
+            /* ignore */
           }
         }
       }
 
-      // Otherwise, run the internal completion steps which animate/update contents.
+      // Fallback to internal setup
       try {
-        return completeEndOverlaySetup(resolvedConfig);
+        return await completeEndOverlaySetup(cfg);
       } catch (e) {
         try {
           handleGameError(e, "completeEndOverlaySetup (config)");
@@ -394,8 +414,8 @@ export const initializeEndOverlay = (): void => {
     } catch (e) {
       try {
         handleGameError(e, "showEndOverlay invocation");
-      } catch (err) {
-        void err;
+      } catch {
+        /* ignore */
       }
     }
   };
