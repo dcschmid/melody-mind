@@ -94,8 +94,10 @@ export function updateCoinsDisplay(newScore: number): void {
 export async function showEndgamePopup(score: number, maxScore?: number): Promise<void> {
   // Lightweight debug log (non-fatal)
   try {
-    // eslint-disable-next-line no-console
-    console.debug("[gameUI] showEndgamePopup called", { score, maxScore });
+    if (import.meta.env?.DEV) {
+       
+      console.warn("[gameUI] showEndgamePopup called (debug)", { score, maxScore });
+    }
   } catch (e) {
     void e;
   }
@@ -118,11 +120,9 @@ export async function showEndgamePopup(score: number, maxScore?: number): Promis
     revealFallbackPopup(score, maxScore);
   } catch (e) {
     try {
-      // If everything failed, log centrally but do not throw
-       
       console.error("showEndgamePopup failed to reveal fallback popup:", e);
-    } catch {
-      /* ignore */
+    } catch (err) {
+      void err;
     }
   }
 }
@@ -132,7 +132,9 @@ export async function showEndgamePopup(score: number, maxScore?: number): Promis
  */
 async function invokeGlobalOverlayIfAvailable(score: number, maxScore?: number): Promise<boolean> {
   try {
-    if (typeof window === "undefined") {return false;}
+    if (typeof window === "undefined") {
+      return false;
+    }
 
     const maybe = (
       window as unknown as Window & {
@@ -157,7 +159,6 @@ async function invokeGlobalOverlayIfAvailable(score: number, maxScore?: number):
       return true;
     } catch (err) {
       try {
-         
         console.warn("[gameUI] global showEndOverlay threw:", err);
       } catch {
         /* ignore */
@@ -203,8 +204,10 @@ function revealFallbackPopup(score: number, maxScore?: number): void {
 
   // If the expected elements are missing, attempt to log and no-op
   try {
-    // eslint-disable-next-line no-console
-    console.debug("[gameUI] revealFallbackPopup: missing popup or scoreElement");
+    if (import.meta.env?.DEV) {
+       
+      console.warn("[gameUI] revealFallbackPopup: missing popup or scoreElement (debug)");
+    }
   } catch (e) {
     void e;
   }
