@@ -663,6 +663,9 @@ export default {
   "musicPlatforms.keyboardInstructions":
     "Navigate music platforms using Tab key. Press Enter or Space to open platforms in new tabs.",
   "musicPlatforms.listenOn": "Listen to {title} on {platform}",
+  "musicPlatforms.platform.spotify": "Spotify",
+  "musicPlatforms.platform.deezer": "Deezer",
+  "musicPlatforms.platform.apple": "Apple Music",
   "nav.achievements.description": "View your unlocked achievements and progress",
   "nav.ariaLabel": "Main navigation",
   "nav.donate.coffee": "Buy us a coffee",
