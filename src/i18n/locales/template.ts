@@ -699,7 +699,7 @@ export default {
   "knowledge.read.article": "Read article",
   "musicPlatforms.description": "Listen to this playlist on popular music platforms",
   "musicPlatforms.listenOn": "Listen to {title} on {platform}",
-  "musicPlatforms.platform.spotify": "Spotify (opens in new window)",
-  "musicPlatforms.platform.deezer": "Deezer (opens in new window)",
-  "musicPlatforms.platform.apple": "Apple Music (opens in new window)",
+  "musicPlatforms.platform.spotify": "Spotify",
+  "musicPlatforms.platform.deezer": "Deezer",
+  "musicPlatforms.platform.apple": "Apple Music",
 };

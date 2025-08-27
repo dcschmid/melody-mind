@@ -106,9 +106,9 @@ export default {
   "footer.opens_in_new_tab": "öffnet sich in einem neuen Tab",
   "musicPlatforms.description": "Höre diese Wiedergabeliste auf beliebten Musikplattformen",
   "musicPlatforms.listenOn": "Höre {title} auf {platform}",
-  "musicPlatforms.platform.spotify": "Spotify (öffnet sich in einem neuen Tab)",
-  "musicPlatforms.platform.deezer": "Deezer (öffnet sich in einem neuen Tab)",
-  "musicPlatforms.platform.apple": "Apple Music (öffnet sich in einem neuen Tab)",
+  "musicPlatforms.platform.spotify": "Spotify",
+  "musicPlatforms.platform.deezer": "Deezer",
+  "musicPlatforms.platform.apple": "Apple Music",
   "footer.legal_nav": "Rechtliche Informationen",
   "footer.external_nav": "Footer-Links",
 
