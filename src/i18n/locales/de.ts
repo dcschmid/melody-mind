@@ -133,6 +133,10 @@ export default {
   "podcast.episode_label": "Podcast-Episode",
   "podcasts.platform.apple": "Apple Podcasts",
   "podcasts.platform.deezer": "Deezer",
+  "podcast.cta.subscribe": "Auf RSS abonnieren",
+  "podcast.cta.browse_all": "Alle Episoden durchsuchen",
+  "podcast.note.language_restriction":
+    "Unsere Podcasts sind derzeit nur auf Deutsch und Englisch verfügbar.",
   "podcasts.platform.spotify": "Spotify",
   "auth.email_verification.title": "E-Mail-Verifizierung",
   "game.overlay.artist": "Interpret",

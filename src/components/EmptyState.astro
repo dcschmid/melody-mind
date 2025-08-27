@@ -8,13 +8,24 @@
  * @component
  * @example
  * ```astro
+ * ---
+ * import { getLangFromUrl, useTranslations } from '@utils/i18n';
+ * const lang = getLangFromUrl(Astro.url);
+ * const t = useTranslations(String(lang));
+ * ---
+ *
+ * <!-- i18n-aware usage: pass translated strings for title/description/action -->
  * <EmptyState
  *   icon="music"
- *   title="No playlists found"
- *   description="Create your first playlist to get started"
- *   action={<Button>Create Playlist</Button>}
+ *   title={t("playlist.no.results.heading")}
+ *   description={t("playlist.no.results")}
+ *   action={<Button>{t("playlist.create")}</Button>}
  * />
  * ```
+ *
+ * Notes:
+ * - Prefer passing translated strings (using `t("...")`) for `title`, `description`, and `action`.
+ * - This ensures accessibility labels and visible texts are localized for all supported languages.
  */
 import { Icon } from "astro-icon/components";
 import Headline from "./Headline.astro";

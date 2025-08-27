@@ -862,4 +862,16 @@ export default {
     "Nuestros episodios de podcast están disponibles actualmente solo en alemán e inglés. Por favor, cambie a uno de estos idiomas para descubrir nuestro contenido.",
   "podcasts.language_restriction.switch_to_german": "Cambiar a Alemán",
   "podcasts.language_restriction.switch_to_english": "Cambiar a Inglés",
+
+  // Podcast UI / Navigation
+  "podcast.navigation.aria": "Navegación de podcasts",
+  "podcast.back_to_all": "← Volver a Podcasts",
+  "podcast.listen_to_episode": "Escuchar episodio",
+  "podcast.episode_label": "Episodio de podcast",
+
+  // Call-to-action (CTA) texts for podcast pages
+  "podcast.cta.browse_all": "Ver todos los episodios",
+  "podcast.cta.subscribe_rss": "Suscribirse al RSS",
+  "podcast.cta.download_audio": "Descargar audio",
+  "podcasts.read_full_notes": "Leer notas completas del episodio",
 };

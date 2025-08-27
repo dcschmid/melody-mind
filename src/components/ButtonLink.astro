@@ -8,18 +8,29 @@
  * @component
  * @example
  * ```astro
- * <!-- As a link -->
+ * --- Frontmatter (example) ---
+ * ---
+ * import { getLangFromUrl, useTranslations } from '@utils/i18n';
+ * const lang = getLangFromUrl(Astro.url);
+ * const t = useTranslations(String(lang));
+ * ---
+ *
+ * <!-- As a link (slot content translated via i18n) -->
  * <ButtonLink href="/game" variant="primary" size="md">
- *   Start Game
+ *   {t("index.start.game.label")}
  * </ButtonLink>
  *
- * <!-- As a button with icon -->
- * <ButtonLink type="button" variant="secondary" icon="mdi:close" ariaLabel="Close modal">
- *   Close
+ * <!-- As a button with icon (ariaLabel passed as translated string) -->
+ * <ButtonLink type="button" variant="secondary" icon="mdi:close" ariaLabel={t("general.close")}>
+ *   {t("general.close")}
  * </ButtonLink>
  *
- * <!-- With icon only -->
- * <ButtonLink href="/settings" icon="mdi:settings" ariaLabel="Open settings" />
+ * <!-- With icon only (use translated aria-label directly) -->
+ * <ButtonLink href="/settings" icon="mdi:settings" ariaLabel={t("nav.profile.description")} />
+ *
+ * Notes:
+ * - Prefer passing translated strings (e.g. t("key")) for `ariaLabel` and slot content.
+ * - This keeps accessibility labels consistent across locales and avoids hardcoded text.
  * ```
  */
 import { tv } from "tailwind-variants";
@@ -37,7 +48,10 @@ interface Props {
   type?: "button" | "submit" | "reset";
   /** Whether the button/link is disabled */
   disabled?: boolean;
-  /** Accessible label for the button/link (important for screen readers) */
+  /** Accessible label for the button/link (important for screen readers).
+   *  Prefer passing an i18n-translated string, e.g. `ariaLabel={t("general.close")}`.
+   *  If omitted, consumers should ensure the accessible name is provided by surrounding context.
+   */
   ariaLabel?: string;
   /** Additional CSS classes to apply */
   className?: string;

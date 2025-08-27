@@ -727,6 +727,8 @@ export default {
   "podcast.rss.subscribe": "Abonneren op RSS Feed",
   "podcast.rss.subscribe.title": "Abonneer op onze Podcast",
   "podcast.rss.subscribe.description": "Blijf op de hoogte van nieuwe afleveringen",
+  "podcast.navigation.aria": "Podcast navigatie",
+  "podcast.cta.browse_all": "Bekijk alle afleveringen",
   "podcast.search.label": "Zoek podcasts",
   "podcast.search.placeholder": "Zoek podcasts...",
   "podcast.search.reset.text": "Zoekopdracht resetten",
