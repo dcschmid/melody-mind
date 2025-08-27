@@ -385,6 +385,9 @@ export default {
     "List showing the correct chronological order of the events",
   "game.chronology.description":
     "⏰ Become a time traveler of music! Arrange these legendary albums in the correct chronological order and show that you're a true music historian. Every correct move brings you closer to the perfect score! 🎯",
+  "game.timepressure.title": "Timepressure Mode",
+  "game.timepressure.description":
+    "⚡ Become the lightning music master! Prove you're a true champion even under time pressure with mixed difficulty levels in {category}. Every second counts — show your speed and knowledge at the same time! 🏆",
   "game.chronology.incorrect": "Incorrect! 😔",
   "game.chronology.info.aria": "Game information and statistics",
   "game.chronology.instructions": "Arrange the albums in correct chronological order",
