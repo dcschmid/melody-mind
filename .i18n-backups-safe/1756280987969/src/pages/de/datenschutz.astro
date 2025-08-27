@@ -22,7 +22,7 @@ const description =
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <header class="mb-16 text-center">
         <Headline level="h1" title="Datenschutzerklärung" />
-        <Paragraph>{t("auto.pages.de.datenschutz.informationen_zur_verarbeitung_ihrer")}</Paragraph>
+        <Paragraph>Informationen zur Verarbeitung Ihrer personenbezogenen Daten</Paragraph>
         <Paragraph>Stand: {new Date().toLocaleDateString("de-DE")}</Paragraph>
       </header>
 
@@ -39,7 +39,7 @@ const description =
 
             <Headline level="h3" title="Datenerfassung auf dieser Website" />
             <Paragraph>
-              <strong>{t("auto.pages.de.datenschutz.wer_ist_verantwortlich_f_r")}</strong>
+              <strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong>
             </Paragraph>
             <Paragraph>
               Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen
@@ -48,7 +48,7 @@ const description =
             </Paragraph>
 
             <Paragraph>
-              <strong>{t("auto.pages.de.datenschutz.wie_erfassen_wir_ihre")}</strong>
+              <strong>Wie erfassen wir Ihre Daten?</strong>
             </Paragraph>
             <Paragraph>
               Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei
@@ -101,13 +101,17 @@ const description =
 
             <Headline level="h3" title="Hinweis zur verantwortlichen Stelle" />
             <Paragraph
-              >{t("auto.pages.de.datenschutz.die_verantwortliche_stelle_f_r")}</Paragraph
+              >Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</Paragraph
             >
             <div class="mt-4 rounded-lg bg-slate-100 p-6 dark:bg-slate-700">
               <Paragraph>
-                <strong>{t("auto.pages.de.datenschutz.daniel_schmid")}</strong><br />{t("auto.pages.de.datenschutz.hiltenspergerstr_78")}<br />{t("auto.pages.de.datenschutz.80796_m_nchen")}<br />{t("auto.pages.de.datenschutz.deutschland")}</Paragraph>
+                <strong>Daniel Schmid</strong><br />
+                Hiltenspergerstr. 78<br />
+                80796 München<br />
+                Deutschland
+              </Paragraph>
               <Paragraph>
-                <strong>{t("auto.pages.de.datenschutz.e_mail")}</strong>
+                <strong>E-Mail:</strong>
                 <a
                   href="mailto:dcschmid@murena.io"
                   class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
@@ -134,12 +138,12 @@ const description =
               Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:
             </Paragraph>
             <ul class="mt-4 ml-6 list-disc space-y-2">
-              <li>{t("auto.pages.de.datenschutz.browsertyp_und_browserversion")}</li>
-              <li>{t("auto.pages.de.datenschutz.verwendetes_betriebssystem")}</li>
-              <li>{t("auto.pages.de.datenschutz.referrer_url")}</li>
-              <li>{t("auto.pages.de.datenschutz.hostname_des_zugreifenden_rechners")}</li>
-              <li>{t("auto.pages.de.datenschutz.uhrzeit_der_serveranfrage")}</li>
-              <li>{t("auto.pages.de.datenschutz.ip_adresse")}</li>
+              <li>Browsertyp und Browserversion</li>
+              <li>verwendetes Betriebssystem</li>
+              <li>Referrer URL</li>
+              <li>Hostname des zugreifenden Rechners</li>
+              <li>Uhrzeit der Serveranfrage</li>
+              <li>IP-Adresse</li>
             </ul>
             <Paragraph>
               Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die
@@ -152,11 +156,11 @@ const description =
               gespeichert:
             </Paragraph>
             <ul class="mt-4 ml-6 list-disc space-y-2">
-              <li>{t("auto.pages.de.datenschutz.ihr_gew_hlter_benutzername")}</li>
-              <li>{t("auto.pages.de.datenschutz.ihre_spielergebnisse_und_punktest_nde")}</li>
-              <li>{t("auto.pages.de.datenschutz.spielstatistiken_gespielte_runden_kategorien")}</li>
-              <li>{t("auto.pages.de.datenschutz.ihre_spracheinstellung")}</li>
-              <li>{t("auto.pages.de.datenschutz.erreichte_erfolge_und_achievements")}</li>
+              <li>Ihr gewählter Benutzername</li>
+              <li>Ihre Spielergebnisse und Punktestände</li>
+              <li>Spielstatistiken (gespielte Runden, Kategorien, Schwierigkeitsgrade)</li>
+              <li>Ihre Spracheinstellung</li>
+              <li>Erreichte Erfolge und Achievements</li>
             </ul>
             <Paragraph>
               Diese Daten werden sicher in unserer TursoDB-Datenbank gespeichert, um Ihnen
@@ -182,7 +186,7 @@ const description =
             </Paragraph>
             <ul class="mt-4 ml-6 list-disc space-y-2">
               <li>
-                <strong>{t("auto.pages.de.datenschutz.spotify")}</strong>{t("auto.pages.de.datenschutz.datenschutzerkl_rung_unter")}<a
+                <strong>Spotify:</strong> Datenschutzerklärung unter <a
                   href="https://www.spotify.com/de/privacy/"
                   class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                   target="_blank"
@@ -190,7 +194,7 @@ const description =
                 >
               </li>
               <li>
-                <strong>{t("auto.pages.de.datenschutz.apple_music")}</strong>{t("auto.pages.de.datenschutz.datenschutzerkl_rung_unter_2")}<a
+                <strong>Apple Music:</strong> Datenschutzerklärung unter <a
                   href="https://www.apple.com/de/privacy/"
                   class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                   target="_blank"
@@ -198,7 +202,7 @@ const description =
                 >
               </li>
               <li>
-                <strong>{t("auto.pages.de.datenschutz.deezer")}</strong>{t("auto.pages.de.datenschutz.datenschutzerkl_rung_unter_3")}<a
+                <strong>Deezer:</strong> Datenschutzerklärung unter <a
                   href="https://www.deezer.com/de/legal/personal-datas"
                   class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                   target="_blank"
@@ -218,9 +222,9 @@ const description =
               Ihrem Gerät speichert. Wir verwenden ausschließlich technisch notwendige Cookies für:
             </Paragraph>
             <ul class="mt-4 ml-6 list-disc space-y-2">
-              <li>{t("auto.pages.de.datenschutz.speicherung_ihrer_spracheinstellung")}</li>
-              <li>{t("auto.pages.de.datenschutz.erhaltung_ihrer_spielsitzung")}</li>
-              <li>{t("auto.pages.de.datenschutz.funktionalit_t_des_spiels")}</li>
+              <li>Speicherung Ihrer Spracheinstellung</li>
+              <li>Erhaltung Ihrer Spielsitzung</li>
+              <li>Funktionalität des Spiels</li>
             </ul>
             <Paragraph>
               Diese Cookies sind für das Funktionieren der Website erforderlich und werden auf
@@ -238,17 +242,18 @@ const description =
         <section class="mb-16 last:mb-0">
           <Headline level="h2" title="6. Ihre Rechte" />
           <div class="mt-6">
-            <Paragraph>{t("auto.pages.de.datenschutz.sie_haben_folgende_rechte")}</Paragraph
+            <Paragraph>Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:</Paragraph
             >
             <ul class="mt-4 ml-6 list-disc space-y-2">
-              <li><strong>{t("auto.pages.de.datenschutz.recht_auf_auskunft")}</strong>{t("auto.pages.de.datenschutz.art_15_dsgvo")}</li>
-              <li><strong>{t("auto.pages.de.datenschutz.recht_auf_berichtigung")}</strong>{t("auto.pages.de.datenschutz.art_16_dsgvo")}</li>
-              <li><strong>{t("auto.pages.de.datenschutz.recht_auf_l_schung")}</strong>{t("auto.pages.de.datenschutz.art_17_dsgvo")}</li>
-              <li><strong>{t("auto.pages.de.datenschutz.recht_auf_einschr_nkung_der")}</strong>{t("auto.pages.de.datenschutz.art_18_dsgvo")}</li>
-              <li><strong>{t("auto.pages.de.datenschutz.recht_auf_daten_bertragbarkeit")}</strong>{t("auto.pages.de.datenschutz.art_20_dsgvo")}</li>
-              <li><strong>{t("auto.pages.de.datenschutz.widerspruchsrecht")}</strong>{t("auto.pages.de.datenschutz.art_21_dsgvo")}</li>
+              <li><strong>Recht auf Auskunft</strong> (Art. 15 DSGVO)</li>
+              <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO)</li>
+              <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO)</li>
+              <li><strong>Recht auf Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
+              <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+              <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO)</li>
               <li>
-                <strong>{t("auto.pages.de.datenschutz.recht_auf_beschwerde_bei")}</strong>{t("auto.pages.de.datenschutz.art_77_dsgvo")}</li>
+                <strong>Recht auf Beschwerde bei einer Aufsichtsbehörde</strong> (Art. 77 DSGVO)
+              </li>
             </ul>
             <Paragraph>
               Wenn Sie von diesen Rechten Gebrauch machen möchten, kontaktieren Sie uns bitte unter: <a
@@ -270,9 +275,9 @@ const description =
               DSGVO-, CCPA- und PECR-konform und verwendet keine Cookies oder sammelt persönliche
               Daten.
             </Paragraph>
-            <Paragraph>{t("auto.pages.de.datenschutz.fathom_analytics_erfasst_anonymisierte")}</Paragraph>
+            <Paragraph>Fathom Analytics erfasst anonymisierte Daten, einschließlich:</Paragraph>
             <ul class="mt-4 ml-6 list-disc space-y-2">
-              <li>{t("auto.pages.de.datenschutz.seitenaufrufe_und_besucherzahlen")}</li>
+              <li>Seitenaufrufe und Besucherzahlen</li>
               <li>Referrer-Informationen (von welcher Website Sie kommen)</li>
               <li>Allgemeine Standortinformationen (nur auf Länderebene)</li>
               <li>Geräte- und Browser-Informationen (anonymisiert)</li>

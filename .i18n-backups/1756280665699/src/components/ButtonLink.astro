@@ -1,0 +1,189 @@
+---
+/**
+ * ButtonLink Component - Simple & Clean
+ *
+ * A versatile component that renders either a button or link with consistent styling.
+ * Using Tailwind CSS 4 with tailwind-variants for maintainability.
+ *
+ * @component
+ * @example
+ * ```astro
+ * --- Frontmatter (example) ---
+ * ---
+ * import { getLangFromUrl, useTranslations } from '@utils/i18n';
+ * const lang = getLangFromUrl(Astro.url);
+ * const t = useTranslations(String(lang));
+ * ---
+ *
+ * <!-- As a link (slot content translated via i18n) -->
+ * <ButtonLink href="/game" variant="primary" size="md">
+ *   {t("index.start.game.label")}
+ * </ButtonLink>
+ *
+ * <!-- As a button with icon (ariaLabel passed as translated string) -->
+ * <ButtonLink type="button" variant="secondary" icon="mdi:close" ariaLabel={t("general.close")}>
+ *   {t("general.close")}
+ * </ButtonLink>
+ *
+ * <!-- With icon only (use translated aria-label directly) -->
+ * <ButtonLink href="/settings" icon="mdi:settings" ariaLabel={t("nav.profile.description")} />
+ *
+ * Notes:
+ * - Prefer passing translated strings (e.g. t("key")) for `ariaLabel` and slot content.
+ * - This keeps accessibility labels consistent across locales and avoids hardcoded text.
+ * ```
+ */
+import { tv } from "tailwind-variants";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { Icon } from "astro-icon/components";
+
+// Get current language and translations
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(String(lang));
+
+interface Props {
+  /** URL for the link. If omitted, a button element is rendered instead */
+  href?: string;
+  /** Button type attribute, only used when rendering as a button */
+  type?: "button" | "submit" | "reset";
+  /** Whether the button/link is disabled */
+  disabled?: boolean;
+  /** Accessible label for the button/link (important for screen readers).
+   *  Prefer passing an i18n-translated string, e.g. `ariaLabel={t("general.close")}`.
+   *  If omitted, consumers should ensure the accessible name is provided by surrounding context.
+   */
+  ariaLabel?: string;
+  /** Additional CSS classes to apply */
+  className?: string;
+  /** Target attribute for links */
+  target?: "_blank" | "_self" | "_parent" | "_top";
+  /** Relationship attribute for links */
+  rel?: string;
+  /** Visual variant style */
+  variant?: "primary" | "secondary" | "outline" | "text";
+  /** Size with minimum touch targets for accessibility */
+  size?: "sm" | "md" | "lg";
+  /** Inline style attribute for dynamic styling */
+  style?: string;
+  /** Optional icon name for astro-icon (e.g., "mdi:home", "heroicons:star") */
+  icon?: string;
+}
+
+const {
+  href,
+  type = "button",
+  disabled = false,
+  ariaLabel,
+  className = "",
+  target = "_self",
+  rel,
+  variant = "primary",
+  size = "md",
+  style,
+  icon,
+} = Astro.props;
+
+// Ensure proper rel attribute for external links
+const isExternal = target === "_blank";
+const finalRel = isExternal ? `noopener noreferrer ${rel || ""}`.trim() : rel;
+
+// Get translated text for external link indicator
+const externalLinkText = t("nav.openNewWindow");
+
+// Tailwind Variants configuration for the button component
+const buttonVariants = tv({
+  base: [
+    // Base button styling
+    "inline-flex items-center justify-center rounded-lg border-none font-bold",
+    "text-decoration-none relative min-h-[44px] min-w-[44px] cursor-pointer",
+    "tracking-base font-primary leading-normal transition-all duration-300",
+    // Focus states
+    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500",
+    // Disabled state
+    "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
+    // Mobile responsive
+    "w-full max-w-full sm:w-auto sm:max-w-none",
+  ].join(" "),
+
+  variants: {
+    size: {
+      sm: ["px-3 py-2 text-sm sm:px-4 sm:py-3 sm:text-base", "min-h-[44px] min-w-[44px]"].join(" "),
+      md: ["px-4 py-3 text-base sm:px-6 sm:py-4 sm:text-lg", "min-h-[48px] min-w-[48px]"].join(" "),
+      lg: ["px-6 py-4 text-lg sm:px-8 sm:py-6 sm:text-xl", "min-h-[52px] min-w-[52px]"].join(" "),
+    },
+
+    variant: {
+      primary: [
+        "border border-transparent bg-blue-600 text-white shadow-lg",
+        "hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-xl",
+        "active:scale-95 active:transition-transform active:duration-100",
+        "disabled:hover:translate-y-0 disabled:hover:bg-blue-600 disabled:hover:shadow-lg",
+      ].join(" "),
+      secondary: [
+        "border border-gray-300 bg-gray-200 text-gray-800",
+        "hover:-translate-y-0.5 hover:border-blue-500 hover:bg-gray-300",
+        "active:scale-95 active:transition-transform active:duration-100",
+        "disabled:hover:translate-y-0 disabled:hover:border-gray-300 disabled:hover:bg-gray-200",
+      ].join(" "),
+      outline: [
+        "border-2 border-gray-600 bg-transparent text-gray-900",
+        "hover:-translate-y-0.5 hover:border-blue-500 hover:bg-gray-100 hover:text-blue-600",
+        "active:scale-95 active:transition-transform active:duration-100",
+        "disabled:hover:translate-y-0 disabled:hover:border-gray-600 disabled:hover:bg-transparent disabled:hover:text-gray-900",
+      ].join(" "),
+      text: [
+        "border-none bg-transparent text-blue-600 underline underline-offset-2",
+        "hover:-translate-y-0.5 hover:text-blue-700 hover:underline-offset-4",
+        "active:scale-95 active:transition-transform active:duration-100",
+        "disabled:hover:translate-y-0 disabled:hover:text-blue-600 disabled:hover:underline-offset-2",
+      ].join(" "),
+    },
+  },
+
+  defaultVariants: {
+    size: "md",
+    variant: "primary",
+  },
+});
+
+// Generate classes using tailwind-variants
+const classes = buttonVariants({
+  size,
+  variant,
+  className,
+});
+
+// Icon classes
+const iconClasses = ["size-5 sm:size-6 flex-shrink-0 mr-3", "text-current"].join(" ");
+
+// Screen reader only classes
+const srOnlyClasses = [
+  "absolute w-px h-px p-0 -m-px overflow-hidden",
+  "whitespace-nowrap border-0",
+].join(" ");
+---
+
+{
+  href ? (
+    <a
+      href={href}
+      class={classes}
+      aria-label={
+        ariaLabel ? `${ariaLabel}${isExternal ? ` (${externalLinkText})` : ""}` : undefined
+      }
+      target={target}
+      rel={finalRel}
+      style={style}
+      {...(disabled ? { "aria-disabled": "true", tabindex: "-1" } : {})}
+    >
+      {icon && <Icon name={icon} class={iconClasses} />}
+      <slot />
+      {isExternal && <span class={srOnlyClasses}> ({externalLinkText})</span>}
+    </a>
+  ) : (
+    <button type={type} disabled={disabled} class={classes} aria-label={ariaLabel} style={style}>
+      {icon && <Icon name={icon} class={iconClasses} />}
+      <slot />
+    </button>
+  )
+}

@@ -1,0 +1,108 @@
+---
+/**
+ * Joker Component
+ *
+ * A fully accessible component for the 50:50 joker feature in MelodyMind.
+ * Allows users to eliminate two wrong answers during gameplay.
+ * Uses CSS custom properties for consistent styling and WCAG AAA compliance.
+ *
+ * Features:
+ * - WCAG AAA compliant accessibility
+ * - Responsive design with mobile-first approach
+ * - Screen reader announcements
+ * - Visual feedback with animations
+ * - Internationalization support
+ */
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { Icon } from "astro-icon/components";
+import Headline from "@components/Headline.astro";
+
+interface Props {
+  initialCount?: number;
+  disabled?: boolean;
+}
+
+const { initialCount = 0, disabled = false } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const jokerButtonAriaLabel = t("game.joker.use");
+const jokerTitle = t("game.joker.options");
+const jokerText = t("game.joker");
+const jokerDescription = t("game.joker.description");
+const remainingText = t("game.remaining");
+
+const dataAttributes = {
+  initialCount: initialCount.toString(),
+  initialDisabled: disabled.toString(),
+  langCode: lang,
+};
+---
+
+<div
+  class="relative flex flex-col items-center gap-6 rounded-[var(--radius-xl)] border-[var(--border-width-thick)] bg-[var(--card-bg)] p-8 shadow-[var(--shadow-lg)] transition-all duration-300 hover:border-[var(--border-secondary)] hover:shadow-[var(--shadow-xl)]"
+  role="group"
+  aria-labelledby="joker-title"
+  data-testid="joker-container"
+  {...dataAttributes}
+>
+  <Headline level="h2" textSize="lg">
+    {jokerTitle}
+  </Headline>
+
+  <div class="relative" data-joker-button-wrapper>
+    <button
+      id="joker-button"
+      type="button"
+      class="disabled:filter-grayscale relative inline-flex min-h-[var(--min-touch-size)] min-w-[var(--min-touch-size)] cursor-pointer items-center justify-center rounded-[var(--radius-lg)] border border-none border-transparent bg-gradient-to-r from-purple-600 to-purple-700 px-4 py-3 text-base leading-[var(--leading-normal)] font-bold tracking-[var(--letter-spacing-base)] text-white no-underline shadow-lg transition-all duration-300 hover:from-purple-700 hover:to-purple-800 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+      aria-label={jokerButtonAriaLabel}
+      aria-describedby="joker-description joker-count"
+      data-joker-type="fifty-fifty"
+      {disabled}
+    >
+      <Icon
+        name="star"
+        class="mr-4 h-[var(--icon-size-sm)] w-[var(--icon-size-sm)] flex-shrink-0 text-yellow-300"
+        aria-hidden="true"
+      />
+      {jokerText}
+    </button>
+  </div>
+
+  <div id="joker-count-container" class="flex items-center gap-3">
+    <span
+      id="joker-count"
+      class="font-tabular-nums min-h-[var(--touch-target-enhanced)] min-w-[var(--touch-target-enhanced)] rounded-full border-2 border-purple-500 bg-gradient-to-r from-purple-900 to-purple-800 px-3 py-3 text-center leading-[var(--leading-normal)] font-medium text-white transition-all duration-300 hover:border-purple-400 hover:from-purple-800 hover:to-purple-700 hover:shadow-lg"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      {initialCount}
+      {remainingText}
+    </span>
+  </div>
+
+  <div
+    id="joker-description"
+    class="mt-6 max-w-[var(--grid-min-width-md)] text-center leading-[var(--leading-relaxed)] tracking-[var(--letter-spacing-base)] text-[var(--text-tertiary)]"
+  >
+    {jokerDescription}
+  </div>
+
+  <div id="joker-announcement" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
+</div>
+
+<script is:inline>
+  import { initJokerAuto } from "../../utils/components/jokerUtils";
+
+  // Initialize joker functionality
+  const initJoker = () => {
+    initJokerAuto();
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initJoker);
+  } else {
+    initJoker();
+  }
+</script>

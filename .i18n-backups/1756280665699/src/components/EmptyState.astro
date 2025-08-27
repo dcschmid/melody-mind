@@ -1,0 +1,69 @@
+---
+/**
+ * EmptyState Component - Responsive & Accessible
+ *
+ * A comprehensive empty state component for displaying when there's no content
+ * to show. Fully responsive with WCAG AAA compliance and optimized for all screen sizes.
+ *
+ * @component
+ * @example
+ * ```astro
+ * ---
+ * import { getLangFromUrl, useTranslations } from '@utils/i18n';
+ * const lang = getLangFromUrl(Astro.url);
+ * const t = useTranslations(String(lang));
+ * ---
+ *
+ * <!-- i18n-aware usage: pass translated strings for title/description/action -->
+ * <EmptyState
+ *   icon="music"
+ *   title={t("playlist.no.results.heading")}
+ *   description={t("playlist.no.results")}
+ *   action={<Button>{t("playlist.create")}</Button>}
+ * />
+ * ```
+ *
+ * Notes:
+ * - Prefer passing translated strings (using `t("...")`) for `title`, `description`, and `action`.
+ * - This ensures accessibility labels and visible texts are localized for all supported languages.
+ */
+import { Icon } from "astro-icon/components";
+import Headline from "./Headline.astro";
+import Paragraph from "./Paragraph.astro";
+
+export interface EmptyStateProps {
+  /** The icon name to display (from astro-icon) */
+  icon: string;
+  /** The main title text */
+  title: string;
+  /** The description text below the title */
+  description: string;
+  /** Optional action button or content (slotted) */
+  action?: any;
+  /** Optional custom CSS classes */
+  className?: string;
+}
+
+const { icon, title, description, className = "" } = Astro.props;
+---
+
+<div
+  class={`flex justify-center items-center min-h-96 sm:min-h-80 md:min-h-64 p-8 sm:p-6 md:p-4 grid-col-span-full font-sans ${className}`}
+>
+  <div class="w-full max-w-2xl text-center sm:max-w-full sm:px-4">
+    <Icon
+      name={icon}
+      class="mx-auto mb-6 h-16 w-16 text-slate-400 sm:mb-4 sm:h-12 sm:w-12 md:mb-3 md:h-10 md:w-10"
+      aria-hidden="true"
+    />
+    <Headline
+      level="h2"
+      {title}
+      className="mb-4 text-slate-600 sm:mb-3 md:mb-2 dark:text-slate-300"
+    />
+    <Paragraph className="mb-6 text-slate-500 sm:mb-4 md:mb-3 dark:text-slate-400">
+      {description}
+    </Paragraph>
+    <slot name="action" />
+  </div>
+</div>

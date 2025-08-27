@@ -1,0 +1,475 @@
+---
+/**
+ * @file Navigation.astro
+ * @description Main navigation component for the MelodyMind application
+ *
+ * @example
+ * ```astro
+ * ---
+ * import Navigation from "@components/Header/Navigation.astro";
+ * ---
+ *
+ * <!-- Standard navigation with all icons -->
+ * <Navigation />
+ *
+ * <!-- Minimal navigation for game pages -->
+ * <Navigation showHeaderIcons={false} />
+ *
+ */
+import { Icon } from "astro-icon/components";
+import { When } from "@astropub/flow";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import LanguagePicker from "@components/LanguagePicker.astro";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
+
+interface Props {
+  showHeaderIcons?: boolean;
+}
+
+const { showHeaderIcons = true } = Astro.props;
+const lang = getLangFromUrl(Astro.url) as string;
+const t = useTranslations(lang);
+---
+
+<!-- Main header with navigation and language picker -->
+<header
+  role="banner"
+  class="flex min-h-[44px] flex-row items-center justify-between rounded-lg p-4 md:p-6"
+>
+  <LanguagePicker />
+  <nav aria-label={t("nav.ariaLabel")} class="flex flex-wrap items-center justify-between gap-4">
+    <div class="flex flex-1 items-center justify-center gap-4">
+      <button
+        class="relative m-1 flex min-h-[44px] min-w-[44px] cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-purple-600 bg-purple-600 px-3 py-2 font-medium text-white shadow-md transition-all duration-300 hover:bg-purple-700 hover:shadow-lg focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+        aria-label={t("nav.menu.open")}
+        aria-expanded="false"
+        aria-controls="main-menu"
+        id="menu-toggle"
+      >
+        <Icon
+          name="menu"
+          width={28}
+          height={28}
+          aria-hidden="true"
+          class="h-7 w-7 flex-shrink-0 transition-transform duration-200"
+        />
+        <span
+          class="absolute left-[-10000px] h-px w-px overflow-hidden text-sm font-medium whitespace-nowrap"
+          >{t("nav.menu.text")}</span
+        >
+      </button>
+
+      <!-- Full-screen overlay backdrop -->
+      <div
+        id="menu-backdrop"
+        class="invisible fixed inset-0 z-[998] bg-gradient-to-br from-purple-900/95 to-blue-800/90 opacity-0 backdrop-blur-[20px] transition-all duration-300 data-[state=open]:visible data-[state=open]:opacity-100"
+        aria-hidden="true"
+      >
+      </div>
+
+      <!-- Full-screen navigation overlay -->
+      <div
+        id="main-menu"
+        class="invisible fixed inset-0 z-[999] flex scale-95 flex-col overflow-y-auto overscroll-contain bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-0 transition-all duration-300 ease-out data-[state=open]:visible data-[state=open]:scale-100 data-[state=open]:opacity-100"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="menu-title"
+        data-state="closed"
+      >
+        <!-- Close button -->
+        <button
+          class="absolute top-6 right-6 z-10 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 border-gray-600 bg-gray-700 text-white shadow-lg transition-all duration-300 hover:bg-purple-600 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+          aria-label={t("nav.menu.close")}
+        >
+          <Icon
+            name="close"
+            width={32}
+            height={32}
+            aria-hidden="true"
+            class="transition-inherit h-8 w-8"
+          />
+        </button>
+
+        <!-- Navigation content container -->
+        <div class="mx-auto flex min-h-screen w-full max-w-6xl flex-col p-12 md:p-16 lg:p-20">
+          <!-- Menu title -->
+          <div class="mb-12 pt-8 text-center">
+            <Headline
+              level="h2"
+              className="mb-4 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-3xl font-bold text-transparent text-white md:text-4xl lg:text-5xl"
+            >
+              {t("nav.title")}
+            </Headline>
+            <Paragraph className="text-lg text-gray-300 opacity-80">
+              {t("nav.subtitle")}
+            </Paragraph>
+          </div>
+
+          <!-- Status announcer for screen readers -->
+          <div
+            aria-live="polite"
+            aria-atomic="true"
+            class="clip-rect-[1px_1px_1px_1px] absolute left-[-10000px] h-px w-px overflow-hidden whitespace-nowrap"
+            id="menu-status-announcer"
+          >
+          </div>
+
+          <!-- Main navigation sections -->
+          <div class="mb-8 flex flex-1 flex-col gap-8">
+            <!-- Home section -->
+            <div
+              class="w-full rounded-2xl border border-gray-700 bg-gray-800 p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            >
+              <Headline
+                level="h3"
+                className="mb-4 border-b-2 border-purple-500 pb-2 text-xl font-semibold text-purple-400 opacity-90"
+                >{t("nav.section.main")}</Headline
+              >
+              <nav class="flex flex-col gap-4">
+                <a
+                  href={getRelativeLocaleUrl(lang, "gamehome")}
+                  class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                  role="menuitem"
+                >
+                  <div
+                    class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500 to-purple-600 shadow-md"
+                  >
+                    <Icon
+                      name="home"
+                      width={32}
+                      height={32}
+                      aria-hidden="true"
+                      class="z-10 text-white"
+                    />
+                  </div>
+                  <div class="z-10 flex flex-1 flex-col gap-2">
+                    <span class="text-lg leading-tight font-semibold text-white"
+                      >{t("nav.menu.home")}</span
+                    >
+                    <span class="text-sm leading-relaxed text-gray-300 opacity-80"
+                      >{t("nav.menu.home.desc")}</span
+                    >
+                  </div>
+                </a>
+              </nav>
+            </div>
+
+            <!-- Game sections (conditional) -->
+            <When test={showHeaderIcons}>
+              <!-- Discover section -->
+              <div
+                class="w-full rounded-2xl border border-gray-700 bg-gray-800 p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+                <Headline
+                  level="h3"
+                  className="mb-4 border-b-2 border-purple-500 pb-2 text-xl font-semibold text-white opacity-90"
+                  >{t("nav.section.discover")}</Headline
+                >
+                <nav class="flex flex-col gap-4">
+                  <a
+                    href={getRelativeLocaleUrl(lang, "knowledge")}
+                    class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                    role="menuitem"
+                  >
+                    <div
+                      class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 shadow-md"
+                    >
+                      <Icon
+                        name="book"
+                        width={28}
+                        height={28}
+                        aria-hidden="true"
+                        class="z-10 text-white"
+                      />
+                    </div>
+                    <div class="z-10 flex flex-1 flex-col gap-2">
+                      <span class="text-lg leading-tight font-semibold text-white"
+                        >{t("knowledge.title")}</span
+                      >
+                      <span class="text-sm leading-relaxed text-gray-300 opacity-80"
+                        >{t("nav.menu.knowledge.desc")}</span
+                      >
+                    </div>
+                  </a>
+
+                  <a
+                    href={getRelativeLocaleUrl(lang, "playlists")}
+                    class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                    role="menuitem"
+                  >
+                    <div
+                      class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-green-500 to-green-600 shadow-md"
+                    >
+                      <Icon
+                        name="music-note"
+                        width={28}
+                        height={28}
+                        aria-hidden="true"
+                        class="z-10 text-white"
+                      />
+                    </div>
+                    <div class="z-10 flex flex-1 flex-col gap-2">
+                      <span class="text-lg leading-tight font-semibold text-white"
+                        >{t("playlist.page.heading")}</span
+                      >
+                      <span class="text-sm leading-relaxed text-gray-300 opacity-80"
+                        >{t("nav.menu.playlists.desc")}</span
+                      >
+                    </div>
+                  </a>
+
+                  <a
+                    href={getRelativeLocaleUrl(lang, "podcasts")}
+                    class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                    role="menuitem"
+                  >
+                    <div
+                      class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-400 to-blue-500 shadow-md"
+                    >
+                      <Icon
+                        name="microphone"
+                        width={28}
+                        height={28}
+                        aria-hidden="true"
+                        class="z-10 text-white"
+                      />
+                    </div>
+                    <div class="z-10 flex flex-1 flex-col gap-2">
+                      <span class="text-lg leading-tight font-semibold text-white"
+                        >{t("nav.menu.podcasts")}</span
+                      >
+                      <span class="text-sm leading-relaxed text-gray-300 opacity-80"
+                        >{t("nav.podcasts.description")}</span
+                      >
+                    </div>
+                  </a>
+
+                  <a
+                    href={getRelativeLocaleUrl(lang, "news")}
+                    class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                    role="menuitem"
+                  >
+                    <div
+                      class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-red-500 to-red-600 shadow-md"
+                    >
+                      <Icon
+                        name="news"
+                        width={28}
+                        height={28}
+                        aria-hidden="true"
+                        class="z-10 text-white"
+                      />
+                    </div>
+                    <div class="z-10 flex flex-1 flex-col gap-2">
+                      <span class="text-lg leading-tight font-semibold text-white"
+                        >{t("news.title")}</span
+                      >
+                      <span class="text-sm leading-relaxed text-gray-300 opacity-80"
+                        >{t("news.description")}</span
+                      >
+                    </div>
+                  </a>
+                </nav>
+              </div>
+            </When>
+
+            <!-- User section (conditional) -->
+            <div
+              class="w-full rounded-2xl border border-gray-700 bg-gray-800 p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              id="user-section"
+              style="display: none;"
+            >
+              <Headline
+                level="h3"
+                className="mb-4 border-b-2 border-purple-500 pb-2 text-xl font-semibold text-white opacity-90"
+                >{t("nav.section.account")}</Headline
+              >
+              <nav class="flex flex-col gap-4">
+                <a
+                  href={getRelativeLocaleUrl(lang, "profile")}
+                  class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                  role="menuitem"
+                  aria-label={t("profile.nav.aria")}
+                >
+                  <div
+                    class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 shadow-md"
+                  >
+                    <Icon
+                      name="user"
+                      width={28}
+                      height={28}
+                      aria-hidden="true"
+                      class="z-10 text-white"
+                    />
+                  </div>
+                  <div class="z-10 flex flex-1 flex-col gap-2">
+                    <span class="text-lg leading-tight font-semibold text-white"
+                      >{t("profile.nav.link")}</span
+                    >
+                    <span class="text-sm leading-relaxed text-gray-300 opacity-80"
+                      >{t("nav.menu.profile.desc")}</span
+                    >
+                  </div>
+                </a>
+
+                <button
+                  id="logout-button"
+                  class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                  role="menuitem"
+                  aria-label={t("nav.logout.label")}
+                  type="button"
+                >
+                  <div
+                    class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-red-500 to-red-600 shadow-md"
+                  >
+                    <Icon
+                      name="logout"
+                      width={28}
+                      height={28}
+                      aria-hidden="true"
+                      class="z-10 text-white"
+                    />
+                  </div>
+                  <div class="z-10 flex flex-1 flex-col gap-2">
+                    <span class="text-lg leading-tight font-semibold text-white"
+                      >{t("nav.menu.logout")}</span
+                    >
+                    <span class="text-sm leading-relaxed text-gray-300 opacity-80"
+                      >{t("nav.menu.logout.desc")}</span
+                    >
+                  </div>
+                </button>
+              </nav>
+            </div>
+          </div>
+
+          <!-- Support section -->
+          <div
+            class="w-full rounded-2xl border border-gray-700 bg-gray-800 p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+          >
+            <Headline
+              level="h3"
+              className="mb-4 border-b-2 border-purple-500 pb-2 text-xl font-semibold text-white opacity-90"
+              >{t("nav.donate.heading")}</Headline
+            >
+            <nav class="flex flex-col gap-4">
+              <a
+                href="https://www.paypal.me/dcschmid"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                role="menuitem"
+                aria-label={`${t("nav.donate.paypal")} (${t("nav.openNewWindow")})`}
+              >
+                <div
+                  class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 shadow-md"
+                >
+                  <Icon
+                    name="paypal"
+                    width={28}
+                    height={28}
+                    aria-hidden="true"
+                    class="z-10 text-white"
+                  />
+                </div>
+                <div class="z-10 flex flex-1 flex-col gap-2">
+                  <span class="text-lg leading-tight font-semibold text-white"
+                    >{t("nav.donate.paypal")}</span
+                  >
+                  <span class="text-sm leading-relaxed text-gray-300 opacity-80"
+                    >{t("nav.donate.description")}</span
+                  >
+                </div>
+              </a>
+
+              <a
+                href="https://www.buymeacoffee.com/dcschmid"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                role="menuitem"
+                aria-label={`${t("nav.donate.coffee")} (${t("nav.openNewWindow")})`}
+              >
+                <div
+                  class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 shadow-md"
+                >
+                  <Icon
+                    name="coffee-cup"
+                    width={28}
+                    height={28}
+                    aria-hidden="true"
+                    class="z-10 text-white"
+                  />
+                </div>
+                <div class="z-10 flex flex-1 flex-col gap-2">
+                  <span class="text-lg leading-tight font-semibold text-white"
+                    >{t("nav.donate.coffee")}</span
+                  >
+                  <span class="text-sm leading-relaxed text-gray-300 opacity-80"
+                    >{t("nav.donate.description")}</span
+                  >
+                </div>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Simple navigation functionality for testing
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mainMenu = document.getElementById("main-menu");
+    const menuBackdrop = document.getElementById("menu-backdrop");
+    const closeButton = mainMenu?.querySelector("button");
+
+    if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
+      console.error("Navigation elements not found");
+      return;
+    }
+
+    // Toggle menu
+    menuToggle.addEventListener("click", () => {
+      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+      const newState = !isExpanded;
+
+      menuToggle.setAttribute("aria-expanded", String(newState));
+      mainMenu.setAttribute("data-state", newState ? "open" : "closed");
+      menuBackdrop.setAttribute("data-state", newState ? "open" : "closed");
+
+      // Prevent scrolling when menu is open
+      document.body.style.overflow = newState ? "hidden" : "";
+    });
+
+    // Close menu
+    closeButton.addEventListener("click", () => {
+      menuToggle.setAttribute("aria-expanded", "false");
+      mainMenu.setAttribute("data-state", "closed");
+      menuBackdrop.setAttribute("data-state", "closed");
+      document.body.style.overflow = "";
+    });
+
+    // Close on backdrop click
+    menuBackdrop.addEventListener("click", () => {
+      menuToggle.setAttribute("aria-expanded", "false");
+      mainMenu.setAttribute("data-state", "closed");
+      menuBackdrop.setAttribute("data-state", "closed");
+      document.body.style.overflow = "";
+    });
+
+    // Close on escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mainMenu.getAttribute("data-state") === "open") {
+        menuToggle.setAttribute("aria-expanded", "false");
+        mainMenu.setAttribute("data-state", "closed");
+        menuBackdrop.setAttribute("data-state", "closed");
+        document.body.style.overflow = "";
+      }
+    });
+  });
+</script>
