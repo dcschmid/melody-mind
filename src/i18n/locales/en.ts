@@ -4,6 +4,28 @@ export default {
   // Merge base template to keep existing common keys and then add/override
   ...template,
 
+  // Footer keys ensured in main English locale (explicit overrides/additions)
+  "footer.description":
+    "The ultimate music trivia game. Test your knowledge across genres and decades.",
+  "footer.legal_title": "Legal",
+  "footer.connect_title": "Connect & Support",
+  "footer.support_label": "Support the project:",
+  "footer.donate": "Donate",
+  "footer.donate_aria": "Donate via PayPal",
+  "footer.impressum": "Legal Notice",
+  "footer.impressum_aria": "View legal information and legal notice",
+  "footer.privacy": "Privacy Policy",
+  "footer.privacy_aria": "View privacy policy",
+  "footer.aria": "Footer",
+  "footer.external_nav": "Footer links",
+  "footer.legal_nav": "Legal information",
+  "footer.github": "GitHub",
+  "footer.kofi": "Ko-fi",
+  "footer.opens_in_new_tab": "opens in a new tab",
+  "footer.rights": "All rights reserved",
+  "footer.source_code": "View MelodyMind source code on GitHub",
+  "footer.support_kofi": "Support MelodyMind on Ko-fi",
+
   // Maintainable, short keys for Privacy Page (English)
   "pages.privacy.title": "Privacy Policy",
   "pages.privacy.meta_description":
