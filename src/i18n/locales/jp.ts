@@ -1,4 +1,9 @@
 export default {
+  "knowledge.search.label": "タイトルまたは説明で検索",
+  "knowledge.search.subtitle": "タイトル、説明、またはキーワードで記事を検索",
+  "podcasts.note.only_english": "注：ポッドキャストは現在英語のみで提供されています。",
+  "podcasts.navigation.aria": "エピソードナビゲーション",
+  "share.challenge_fallback": "私を超えられる？ 今すぐプレイ：",
   "accessibility.skip.to.content": "メインコンテンツにスキップ",
   "achievements.badge.context_description":
     "達成通知バッジ。ナビゲーションエリアで新しく解除された達成の数を表示します。",
@@ -764,6 +769,18 @@ export default {
   "share.native": "共有先...",
   "share.native.label": "共有",
   "share.title": "成功を共有！",
+  "error.404.title": "404 - ページが見つかりません | MelodyMind",
+  "error.404.description":
+    "お探しのページは存在しません。代わりに当サイトの音楽トリビアゲームやプレイリストをご覧ください。",
+  "error.404.heading": "ページが見つかりません",
+  "error.404.message":
+    "おっと！お探しのページは存在しません。移動または削除されたか、URLが間違っている可能性があります。",
+  "error.404.cta_title": "何をしますか？",
+  "error.404.actions.home": "ホームに戻る",
+  "error.404.actions.back": "戻る",
+  "error.404.actions.playlists": "プレイリストを探す",
+  "error.404.actions.quiz": "音楽クイズを始める",
+  "error.404.actions.highscores": "ハイスコアを見る",
   "share.twitter": "X/Twitterで共有",
   "share.whatsapp": "WhatsApp経由で共有",
   "toc.nav.label": "目次",

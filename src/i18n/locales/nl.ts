@@ -792,6 +792,12 @@ export default {
   "share.email.subject": "Mijn Melody Mind-score",
   "share.score_line":
     "Ik scoorde {score} punten in Melody Mind's '{category}' quiz ({difficulty})!",
+  "knowledge.search.label": "Zoek op titel of beschrijving",
+  "knowledge.search.subtitle": "Vind artikelen op titel, beschrijving of trefwoorden",
+  "podcasts.note.only_english":
+    "Opmerking: podcasts zijn momenteel alleen in het Engels beschikbaar.",
+  "podcasts.navigation.aria": "Afleveringsnavigatie",
+  "share.challenge_fallback": "Denk je dat je mij kunt verslaan? Speel nu op:",
   "share.challenge": "Denk je dat je mij kunt verslaan? Speel nu op:",
   "share.achievement.genius": "🎵 Muziekgenie! 🎵",
   "share.achievement.pro": "🎧 Muziekpro! 🎧",
@@ -827,4 +833,16 @@ export default {
   "share.difficulty_emoji.medium": "🟡",
   "share.difficulty_emoji.hard": "🔴",
   "share.difficulty_emoji.default": "⚪️",
+  "error.404.title": "404 - Pagina niet gevonden | MelodyMind",
+  "error.404.description":
+    "De pagina die je zoekt bestaat niet. Ontdek in plaats daarvan onze muziekquizzen en afspeellijsten.",
+  "error.404.heading": "Pagina niet gevonden",
+  "error.404.message":
+    "Oeps! De pagina die je zoekt bestaat niet. Misschien is deze verplaatst, verwijderd of heb je een foutieve URL ingevoerd.",
+  "error.404.cta_title": "Wat wil je doen?",
+  "error.404.actions.home": "Ga naar startpagina",
+  "error.404.actions.back": "Ga terug",
+  "error.404.actions.playlists": "Ontdek afspeellijsten",
+  "error.404.actions.quiz": "Start een muziekquiz",
+  "error.404.actions.highscores": "Bekijk ranglijst",
 };

@@ -1,4 +1,16 @@
 export default {
+  "error.404.title": "404 - Sidan hittades inte | MelodyMind",
+  "error.404.description":
+    "Sidan du söker finns inte. Utforska istället våra musikquiz och spellistor.",
+  "error.404.heading": "Sidan hittades inte",
+  "error.404.message":
+    "Hoppsan! Sidan du söker finns inte. Den kan ha flyttats, raderats eller så angav du fel URL.",
+  "error.404.cta_title": "Vad vill du göra?",
+  "error.404.actions.home": "Gå till startsidan",
+  "error.404.actions.back": "Gå tillbaka",
+  "error.404.actions.playlists": "Utforska spellistor",
+  "error.404.actions.quiz": "Starta ett musikquiz",
+  "error.404.actions.highscores": "Visa topplistan",
   "accessibility.skip.to.content": "Hoppa till huvudinnehåll",
   "achievements.badge.context_description":
     "Prestationsmärke. Visar antal nya upplåsta prestationer i navigationsområdet.",
@@ -29,6 +41,11 @@ export default {
     "Försök använda plattformspecifika delningsknappar eller kopiera till urklipp istället",
   "share.buttons.group.label": "Delningsalternativ för sociala medier",
 
+  "knowledge.search.label": "Sök på titel eller beskrivning",
+  "knowledge.search.subtitle": "Hitta artiklar efter titel, beskrivning eller nyckelord",
+  "podcasts.note.only_english": "Obs: Podcastarna finns för närvarande endast på engelska.",
+  "podcasts.navigation.aria": "Avsnittsnavigering",
+  "share.challenge_fallback": "Tror du att du kan slå mig? Spela nu på:",
   "share.email.subject": "Mitt Melody Mind-resultat",
   "share.score_line": "Jag fick {score} poäng i Melody Mind-quizet '{category}' ({difficulty})!",
   "share.challenge": "Tror du att du kan slå mig? Spela nu på:",

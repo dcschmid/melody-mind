@@ -304,7 +304,7 @@ const { prev, next } = getNavigationPodcasts();
                   <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
                   </svg>
-                  Download Audio
+                  {t("podcast.download_audio")}
                 </a>
                 {podcast.subtitleUrl && (
                   <a
@@ -316,7 +316,7 @@ const { prev, next } = getNavigationPodcasts();
                     <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
                     </svg>
-                    View Subtitles
+                    {t("podcast.view_subtitles")}
                   </a>
                 )}
               </div>
@@ -335,7 +335,7 @@ const { prev, next } = getNavigationPodcasts();
       {/* Navigation Between Episodes */}
       {
         (prev || next) && (
-          <nav class="mb-12" aria-label="Episode navigation">
+          <nav class="mb-12" aria-label={t("podcasts.navigation.aria")}>
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
               {prev && (
                 <a

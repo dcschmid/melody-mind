@@ -802,6 +802,11 @@ export default {
   "share.email.subject": "Il mio punteggio su Melody Mind",
   "share.score_line":
     "Ho totalizzato {score} punti nel quiz '{category}' di Melody Mind ({difficulty})!",
+  "knowledge.search.label": "Cerca per titolo o descrizione",
+  "knowledge.search.subtitle": "Trova articoli per titolo, descrizione o parole chiave",
+  "podcasts.note.only_english": "Nota: i podcast sono attualmente disponibili solo in inglese.",
+  "podcasts.navigation.aria": "Navigazione episodi",
+  "share.challenge_fallback": "Pensi di potermi battere? Gioca ora:",
   "share.challenge": "Pensi di potermi battere? Gioca ora:",
   "share.achievement.genius": "🎵 Genio musicale! 🎵",
   "share.achievement.pro": "🎧 Professionista della musica! 🎧",
@@ -838,4 +843,16 @@ export default {
   "share.difficulty_emoji.medium": "🟡",
   "share.difficulty_emoji.hard": "🔴",
   "share.difficulty_emoji.default": "⚪️",
+  "error.404.title": "404 - Pagina non trovata | MelodyMind",
+  "error.404.description":
+    "La pagina che stai cercando non esiste. Esplora invece i nostri giochi a quiz musicali e le playlist.",
+  "error.404.heading": "Pagina non trovata",
+  "error.404.message":
+    "Ops! La pagina che stai cercando non esiste. Potrebbe essere stata spostata, eliminata o hai inserito un URL errato.",
+  "error.404.cta_title": "Cosa vuoi fare?",
+  "error.404.actions.home": "Vai alla pagina principale",
+  "error.404.actions.back": "Torna indietro",
+  "error.404.actions.playlists": "Esplora le playlist",
+  "error.404.actions.quiz": "Avvia un quiz musicale",
+  "error.404.actions.highscores": "Visualizza le classifiche",
 };

@@ -884,6 +884,11 @@ export default {
   "share.title": "Share your success!",
   "share.twitter": "Share on X/Twitter",
   "share.whatsapp": "Share via WhatsApp",
+  "knowledge.search.label": "Search by title or description",
+  "knowledge.search.subtitle": "Find articles by title, description, or keywords",
+  "podcasts.note.only_english": "Note: Podcasts are currently available only in English.",
+  "podcasts.navigation.aria": "Episode navigation",
+  "share.challenge_fallback": "Think you can beat me? Play now at:",
   "share.email.subject": "My Melody Mind Score",
   "share.challenge": "Think you can beat me? Play now at:",
   "share.score_line": "I scored {score} points in Melody Mind's {category} quiz ({difficulty})!",
@@ -918,4 +923,16 @@ export default {
     "All news content is sourced from external providers. MelodyMind is not responsible for the content.",
   "news.legal.attribution": "News provided by the following sources:",
   "news.imageAlt": "Article image",
+  "error.404.title": "404 - Page Not Found | MelodyMind",
+  "error.404.description":
+    "The page you're looking for doesn't exist. Explore our music trivia games and playlists instead.",
+  "error.404.heading": "Page Not Found",
+  "error.404.message":
+    "Oops! The page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL.",
+  "error.404.cta_title": "What would you like to do?",
+  "error.404.actions.home": "Go to Homepage",
+  "error.404.actions.back": "Go Back",
+  "error.404.actions.playlists": "Explore Music Playlists",
+  "error.404.actions.quiz": "Start a Music Quiz",
+  "error.404.actions.highscores": "View High Scores",
 };

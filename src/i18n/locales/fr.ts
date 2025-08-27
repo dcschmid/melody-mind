@@ -1,5 +1,11 @@
 export default {
   "accessibility.skip.to.content": "Aller au contenu principal",
+  "knowledge.search.label": "Rechercher par titre ou description",
+  "knowledge.search.subtitle": "Trouver des articles par titre, description ou mots-clés",
+  "podcasts.note.only_english":
+    "Remarque : les podcasts sont actuellement disponibles uniquement en anglais.",
+  "podcasts.navigation.aria": "Navigation des épisodes",
+  "share.challenge_fallback": "Penses-tu pouvoir me battre ? Joue maintenant sur :",
   "achievements.badge.context_description":
     "Badge de notification de succès. Affiche le nombre de nouveaux succès débloqués dans la zone de navigation.",
   "achievements.badge.fallback_text": "Notification de succès",
@@ -332,4 +338,16 @@ export default {
   "auth.oauth.confirm": "Confirmer",
   "auth.oauth.cannot_unlink_last_method":
     "Impossible de déconnecter la dernière méthode d'authentification",
+  "error.404.title": "404 - Page non trouvée | MelodyMind",
+  "error.404.description":
+    "La page que vous recherchez n'existe pas. Explorez nos jeux-questionnaires musicaux et nos playlists à la place.",
+  "error.404.heading": "Page non trouvée",
+  "error.404.message":
+    "Oups ! La page que vous recherchez n'existe pas. Elle a peut-être été déplacée, supprimée ou vous avez saisi une URL incorrecte.",
+  "error.404.cta_title": "Que souhaitez-vous faire ?",
+  "error.404.actions.home": "Aller à la page d'accueil",
+  "error.404.actions.back": "Retour",
+  "error.404.actions.playlists": "Explorer les playlists",
+  "error.404.actions.quiz": "Lancer un quiz musical",
+  "error.404.actions.highscores": "Voir le classement",
 };

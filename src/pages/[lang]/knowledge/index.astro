@@ -217,14 +217,12 @@ const clientTranslations = {
             </Headline>
             <Paragraph textSize="lg" textAlign="center">
               {
-                safeUi["knowledge.search.subtitle"] ||
-                  "Find articles by title, description, or keywords"
-              }
+                {safeUi["knowledge.search.subtitle"] || t("knowledge.search.subtitle")}
             </Paragraph>
           </div>
 
           <div class="relative mx-auto w-full max-w-5xl">
-            <label for="searchInput" class="sr-only"> Search by title or description </label>
+            <label for="searchInput" class="sr-only">{t("knowledge.search.label")}</label>
 
             <!-- Search Input with Glassmorphism - Full Width -->
             <div class="relative">
