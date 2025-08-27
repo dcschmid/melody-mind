@@ -75,6 +75,21 @@ export default {
   "footer.github": "GitHub",
   "footer.kofi": "Ko-fi",
   "footer.aria": "Fußzeile",
+
+  // Navigation / News (Deutsch)
+  "nav.subtitle": "Entdecke Musik, tritt gegen Freund*innen an und teste dein Wissen",
+  "nav.section.main": "Hauptmenü",
+  "nav.menu.home.desc": "Zurück zur Hauptseite",
+  "nav.section.discover": "Entdecken",
+  "nav.menu.knowledge.desc": "Erkunde musikalisches Wissen und Trivia",
+  "nav.menu.playlists.desc": "Entdecke kuratierte Musik-Playlists",
+  "nav.menu.podcasts": "Podcasts",
+  "nav.podcasts.description": "Höre musikbezogene Podcasts und Interviews",
+  "news.title": "Nachrichten",
+  "news.description":
+    "Entdecke die neuesten Hits, Künstler*innen‑News und Musiktrends aus aller Welt",
+  "nav.donate.description": "Unterstütze das Projekt mit einer kleinen Spende",
+
   // 404 error page (German)
   "error.404.title": "404 - Seite nicht gefunden | MelodyMind",
   "error.404.description":
