@@ -139,4 +139,24 @@ export default {
   "category.filter.option_all": "Alle",
   "game.start.now": "Jetzt starten",
   "game.submit.answer": "Antwort prüfen",
+
+  // Category / Knowledge / Game localized fallbacks (German)
+  "category.about.title": "Über diese Kategorie",
+  "knowledge.read.article": "Artikel lesen",
+  "category.difficulty.heading": "Wähle dein Schwierigkeitslevel",
+  "category.difficulty.easy": "Leicht",
+  "category.difficulty.medium": "Mittel",
+  "category.difficulty.hard": "Schwer",
+  "knowledge.play.description":
+    "🎵 Bereit für die ultimative Herausforderung? Teste dein Musikwissen und werde ein Genre‑Experte! Sammle Punkte, nutze clevere Joker und zeige, dass du das Zeug zum Musik‑Champion hast! 🏆",
+
+  // Music chronology localized
+  "game.chronology.title": "Musikchronologie",
+  "game.chronology.description":
+    "⏰ Werde ein Zeitreisender der Musik! Ordne diese legendären Alben in die richtige chronologische Reihenfolge und zeige, dass du ein echter Musikhistoriker bist. Jeder richtige Zug bringt dich der perfekten Punktzahl näher! 🎯",
+
+  // Timepressure mode localized
+  "game.timepressure.title": "Modus Zeitdruck",
+  "game.timepressure.description":
+    "⚡ Werde der Blitz‑Musikmeister! Beweise, dass du selbst unter Zeitdruck ein echter Champion bist – mit gemischten Schwierigkeitsgraden in {category}. Jede Sekunde zählt – zeig gleichzeitig Geschwindigkeit und Wissen! 🏆",
 };
