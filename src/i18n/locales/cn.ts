@@ -33,6 +33,24 @@ export default {
     "从多个音乐流派中选择，包括摇滚、流行、爵士、古典等。每个类别都有精心挑选的问题，来测试你的音乐知识。",
   "game.genre.list": "流派选择",
 
+  // Category / Knowledge / Game localized additions (Chinese)
+  "category.about.title": "关于此类别",
+  "knowledge.read.article": "阅读文章",
+  "category.difficulty.heading": "选择你的难度级别",
+  "knowledge.play.description":
+    "🎵 准备好迎接终极挑战了吗？测试你的音乐知识，成为流派专家！收集积分，使用聪明的 Joker，证明你有成为音乐冠军的实力！ 🏆",
+  "difficulty.easy": "简单",
+  "difficulty.medium": "中等",
+  "difficulty.hard": "困难",
+
+  "game.chronology.title": "音乐编年史",
+  "game.chronology.description":
+    "⏰ 成为音乐的时间旅行者！将这些传奇专辑按正确的时间顺序排列，证明你是真正的音乐史学家。每一次正确的移动都让你更接近完美分数！ 🎯",
+
+  "game.timepressure.title": "时间压力模式",
+  "game.timepressure.description":
+    "⚡ 成为闪电般的音乐大师！即使在 {category} 的时间压力下、面对混合难度，你也能证明自己是真正的冠军。每一秒都很重要——同时展示你的速度和知识！ 🏆",
+
   // Category-related fallbacks / empty states
   "game.categories.title": "音乐类别",
   "game.categories.loading": "正在加载音乐类别...",
