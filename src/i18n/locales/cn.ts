@@ -106,9 +106,20 @@ export default {
   "footer.source_code": "在 GitHub 上查看 MelodyMind 源代码",
   "footer.support_kofi": "在 Ko-fi 上支持 MelodyMind",
 
+  // 404 error page
+  "error.404.title": "404 - 页面未找到 | MelodyMind",
+  "error.404.heading": "页面未找到",
+  "error.404.message": "糟糕！你要找的页面不存在。可能已被移动、删除或你输入了错误的 URL。",
+  "error.404.description": "别担心，仍有大量音乐可供发现！试试下面的选项以返回轨道。",
+  "error.404.cta_title": "你想做什么？",
+  "error.404.actions.home": "前往首页",
+  "error.404.actions.back": "返回",
+  "error.404.actions.playlists": "查看播放列表",
+  "error.404.actions.quiz": "开始音乐测验",
+  "error.404.actions.highscores": "查看排行榜",
+
   // Keep any language-specific overrides for other keys here as needed.
   // Merged from cn.legal.ts
   "pages.legal.disclaimer_advice":
     "这些法律信息仅供参考。请根据具体法律情形调整文本，并在必要时咨询法律顾问。",
-
 };

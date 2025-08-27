@@ -218,6 +218,18 @@ export default {
   "auth.oauth.linked_accounts": "Cuentas Conectadas",
   "auth.oauth.linked_accounts_description": "Gestiona tus cuentas de redes sociales conectadas",
   "auth.oauth.loading_providers": "Cargando proveedores de autenticación...",
+  "error.404.title": "404 - Página no encontrada | MelodyMind",
+  "error.404.description":
+    "¡No te preocupes! Hay mucha música por descubrir. Prueba una de las opciones a continuación para volver al rumbo.",
+  "error.404.heading": "Página no encontrada",
+  "error.404.message":
+    "¡Vaya! La página que buscas no existe. Puede que haya sido movida, eliminada o que hayas escrito una URL incorrecta.",
+  "error.404.cta_title": "¿Qué te gustaría hacer?",
+  "error.404.actions.home": "Ir a la página principal",
+  "error.404.actions.back": "Volver",
+  "error.404.actions.playlists": "Explorar playlists",
+  "error.404.actions.quiz": "Iniciar un quiz musical",
+  "error.404.actions.highscores": "Ver mejores puntuaciones",
   "auth.oauth.no_providers": "No hay proveedores de autenticación disponibles",
   "auth.oauth.not_linked": "No conectado",
   "auth.oauth.provider_error": "Error del proveedor de autenticación",
