@@ -49,5 +49,25 @@ export default {
   // Client translation accessibility keys for gamehome scripts
   "game.search.results.found_with_count": "{count} genres trouvés", // used by some client components if present
 
+  // Category / Knowledge / Game localized additions (French)
+  "category.about.title": "À propos de cette catégorie",
+  "knowledge.read.article": "Lire l'article",
+  "category.difficulty.heading": "Choisissez votre niveau de difficulté",
+  "knowledge.play.description":
+    "🎵 Prêt pour le défi ultime ? Testez vos connaissances musicales et devenez un expert de genre ! Gagnez des points, utilisez des jokers intelligents et prouvez que vous avez ce qu'il faut pour devenir un champion de la musique ! 🏆",
+  "difficulty.easy": "Facile",
+  "difficulty.medium": "Moyen",
+  "difficulty.hard": "Difficile",
+
+  // Music chronology localized
+  "game.chronology.title": "Chronologie musicale",
+  "game.chronology.description":
+    "⏰ Devenez un voyageur temporel de la musique ! Classez ces albums légendaires dans l'ordre chronologique correct et montrez que vous êtes un véritable historien de la musique. Chaque bonne action vous rapproche du score parfait ! 🎯",
+
+  // Timepressure mode localized
+  "game.timepressure.title": "Mode Pression temporelle",
+  "game.timepressure.description":
+    "⚡ Devenez le maître de la musique en éclair ! Prouvez que vous êtes un vrai champion même sous pression temporelle avec des niveaux de difficulté mixtes dans {category}. Chaque seconde compte — montrez simultanément votre vitesse et vos connaissances ! 🏆",
+
   // Mark: end of machine-translated additions for gamehome.
 };
