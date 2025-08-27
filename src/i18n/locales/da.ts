@@ -773,4 +773,59 @@ export default {
     "Vores podcast-episoder er i øjeblikket kun tilgængelige på tysk og engelsk. Skift venligst til et af disse sprog for at opdage vores indhold.",
   "podcasts.language_restriction.switch_to_german": "Skift til Tysk",
   "podcasts.language_restriction.switch_to_english": "Skift til Engelsk",
+
+  "share.accessibility.copy_failed_manual":
+    "Kopiering mislykkedes. Kopiér venligst side-URL'en manuelt fra din browser.",
+  "share.accessibility.data_found": "Spildata fundet! Delingsmuligheder er nu tilgængelige.",
+  "share.accessibility.data_still_unavailable":
+    "Spildata er stadig ikke tilgængelige. Prøv at opdatere siden eller brug manuel kopiering.",
+  "share.accessibility.data_unavailable":
+    "Spildata er ikke tilgængelige. Prøv igen eller kopier manuelt.",
+  "share.accessibility.link_copied_fallback":
+    "Spillink kopieret til udklipsholderen ved hjælp af fallback-metode!",
+  "share.accessibility.native_share_failed":
+    "Native deling mislykkedes: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.platform_opened": "Åbnede {platform}-deling succesfuldt.",
+  "share.accessibility.platform_share_failed":
+    "Deling til {platform} mislykkedes: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.retry_failed":
+    "Gentagelse mislykkedes. Prøv manuel kopiering eller opdater siden.",
+  "share.accessibility.retrying": "Forsøger igen at finde spildata...",
+  "share.accessibility.score_copied": "Score kopieret til udklipsholderen!",
+  "share.accessibility.score_shared": "Din score blev delt med succes.",
+  "share.accessibility.sharing_cancelled": "Deling annulleret.",
+  "share.accessibility.try_alternative_methods":
+    "Prøv at kopiere til udklipsholderen eller brug en anden delingsmetode.",
+  "share.accessibility.try_platform_buttons":
+    "Prøv platform-specifikke delingsknapper eller kopier til udklipsholderen i stedet",
+
+  "share.buttons.group.label": "Delingsmuligheder på sociale medier",
+  "share.copy": "Kopier tekst til deling til udklipsholderen",
+  "share.copy.label": "Kopier tekst",
+  "share.email": "Del via E-mail",
+  "share.email.label": "E-mail",
+  "share.fallback.manual.label": "Kopier sidens link manuelt",
+  "share.fallback.manual.text": "Kopier link",
+  "share.fallback.message":
+    "Spildata er midlertidigt ikke tilgængelige. Prøv igen eller kopier sidens link manuelt.",
+  "share.fallback.retry.label": "Prøv at indlæse spildata igen",
+  "share.fallback.retry.text": "Prøv igen",
+  "share.native": "Del med...",
+  "share.native.label": "Del",
+  "share.title": "Del din succes!",
+  "share.twitter": "Del på X/Twitter",
+  "share.whatsapp": "Del via WhatsApp",
+
+  "share.email.subject": "Min Melody Mind-score",
+  "share.score_line": "Jeg fik {score} point i Melody Mind-quizzen '{category}' ({difficulty})!",
+  "share.challenge": "Tror du, du kan slå mig? Spil nu på:",
+  "share.achievement.genius": "🎵 Musikgeni! 🎵",
+  "share.achievement.pro": "🎧 Musikpro! 🎧",
+  "share.achievement.enthusiast": "🎸 Musikentusiast! 🎸",
+  "share.achievement.lover": "🎹 Musikelsker! 🎹",
+  "share.achievement.explorer": "🎼 Musikopdager! 🎼",
+  "share.difficulty_emoji.easy": "🟢",
+  "share.difficulty_emoji.medium": "🟡",
+  "share.difficulty_emoji.hard": "🔴",
+  "share.difficulty_emoji.default": "⚪️",
 };

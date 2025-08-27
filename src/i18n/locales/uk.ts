@@ -722,8 +722,64 @@ export default {
   "podcasts.language_restriction.title": "Подкасти Доступні Лише Німецькою та Англійською",
   "podcasts.language_restriction.description":
     "Наші подкаст-епізоди наразі доступні лише німецькою та англійською мовами. Будь ласка, перемкніться на одну з цих мов, щоб відкрити наш контент.",
-  "podcasts.language_restriction.switch_to_german": "Перемкнутися на Німецьку",
-  "podcasts.language_restriction.switch_to_english": "Перемкнутися на Англійську",
+  "podcasts.language_restriction.switch_to_german": "Перемкніться на Німецьку",
+  "podcasts.language_restriction.switch_to_english": "Перемкніться на Англійську",
+
+  "share.accessibility.copy_failed_manual":
+    "Копіювання не вдалося. Будь ласка, скопіюйте URL сторінки вручну з вашого браузера.",
+  "share.accessibility.data_found":
+    "Дані гри знайдені! Параметри спільного доступу тепер доступні.",
+  "share.accessibility.data_still_unavailable":
+    "Дані гри все ще недоступні. Спробуйте оновити сторінку або використати ручне копіювання.",
+  "share.accessibility.data_unavailable":
+    "Дані гри недоступні. Будь ласка, спробуйте ще раз або скопіюйте вручну.",
+  "share.accessibility.link_copied_fallback":
+    "Посилання на гру скопійовано в буфер обміну за допомогою резервного методу!",
+  "share.accessibility.native_share_failed":
+    "Вбудоване спільне використання не вдалося: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.platform_opened": "Відкрито {platform} для спільного використання успішно.",
+  "share.accessibility.platform_share_failed":
+    "Помилка спільного доступу на {platform}: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.retry_failed":
+    "Повторна спроба не вдалася. Будь ласка, спробуйте вручну скопіювати або оновіть сторінку.",
+  "share.accessibility.retrying": "Повторна спроба пошуку даних гри...",
+  "share.accessibility.score_copied": "Рахунок успішно скопійовано в буфер обміну!",
+  "share.accessibility.score_shared": "Ваш рахунок було успішно поділено.",
+  "share.accessibility.sharing_cancelled": "Спільний доступ скасовано.",
+  "share.accessibility.try_alternative_methods":
+    "Спробуйте скопіювати в буфер обміну або використати інший спосіб спільного доступу.",
+  "share.accessibility.try_platform_buttons":
+    "Спробуйте використовувати кнопки спільного доступу платформи або скопіюйте в буфер обміну замість цього",
+
+  "share.buttons.group.label": "Параметри обміну в соціальних мережах",
+  "share.copy": "Скопіювати текст для спільного доступу в буфер обміну",
+  "share.copy.label": "Копіювати текст",
+  "share.email": "Поділитися електронною поштою",
+  "share.email.label": "Електронна пошта",
+  "share.fallback.manual.label": "Копіювати посилання на сторінку вручну",
+  "share.fallback.manual.text": "Копіювати посилання",
+  "share.fallback.message":
+    "Дані гри наразі недоступні. Будь ласка, спробуйте ще раз або скопіюйте посилання вручну.",
+  "share.fallback.retry.label": "Спробувати знову завантажити дані гри",
+  "share.fallback.retry.text": "Спробувати знову",
+  "share.native": "Поділитися з...",
+  "share.native.label": "Поділитися",
+  "share.title": "Поділіться своїм успіхом!",
+  "share.twitter": "Поділитися на X/Twitter",
+  "share.whatsapp": "Поділитися через WhatsApp",
+
+  "share.email.subject": "Мій рахунок у Melody Mind",
+  "share.score_line": "Я набрав {score} очок у вікторині «{category}» Melody Mind ({difficulty})!",
+  "share.challenge": "Думаєш, зможеш мене перемогти? Грай зараз:",
+  "share.achievement.genius": "🎵 Музичний геній! 🎵",
+  "share.achievement.pro": "🎧 Музичний профі! 🎧",
+  "share.achievement.enthusiast": "🎸 Музичний ентузіаст! 🎸",
+  "share.achievement.lover": "🎹 Поціновувач музики! 🎹",
+  "share.achievement.explorer": "🎼 Дослідник музики! 🎼",
+  "share.difficulty_emoji.easy": "🟢",
+  "share.difficulty_emoji.medium": "🟡",
+  "share.difficulty_emoji.hard": "🔴",
+  "share.difficulty_emoji.default": "⚪️",
 
   "profile.desc": "Керувати вашою особистою інформацією та статистикою гри",
 };

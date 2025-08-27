@@ -798,5 +798,44 @@ export default {
   "podcast.back_to_all": "← Torna a tutti i podcast",
   "podcast.listen_to_episode": "Ascolta l'episodio",
   "podcasts.read_full_notes": "Leggi le note complete dell'episodio",
-  "podcasts.read_full_notes": "Leggi le note complete dell'episodio",
+
+  "share.email.subject": "Il mio punteggio su Melody Mind",
+  "share.score_line":
+    "Ho totalizzato {score} punti nel quiz '{category}' di Melody Mind ({difficulty})!",
+  "share.challenge": "Pensi di potermi battere? Gioca ora:",
+  "share.achievement.genius": "🎵 Genio musicale! 🎵",
+  "share.achievement.pro": "🎧 Professionista della musica! 🎧",
+  "share.achievement.enthusiast": "🎸 Appassionato di musica! 🎸",
+  "share.achievement.lover": "🎹 Amante della musica! 🎹",
+  "share.accessibility.copy_failed_manual":
+    "La copia è fallita. Copia manualmente l'URL della pagina dal tuo browser.",
+  "share.accessibility.data_found":
+    "Dati di gioco trovati! Le opzioni di condivisione sono ora disponibili.",
+  "share.accessibility.data_still_unavailable":
+    "Dati di gioco ancora non disponibili. Prova ad aggiornare la pagina o usa la copia manuale.",
+  "share.accessibility.data_unavailable":
+    "Dati di gioco non disponibili. Riprovare o copiare manualmente.",
+  "share.accessibility.link_copied_fallback":
+    "Link del gioco copiato negli appunti con metodo di fallback!",
+  "share.accessibility.native_share_failed":
+    "Condivisione nativa fallita: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.platform_opened": "Aperta condivisione su {platform} con successo.",
+  "share.accessibility.platform_share_failed":
+    "Condivisione su {platform} fallita: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.retry_failed":
+    "Ritento fallito. Prova a copiare manualmente o aggiorna la pagina.",
+  "share.accessibility.retrying": "Ritento per trovare i dati di gioco...",
+  "share.accessibility.score_copied": "Punteggio copiato negli appunti con successo!",
+  "share.accessibility.score_shared": "Punteggio condiviso con successo.",
+  "share.accessibility.sharing_cancelled": "Condivisione annullata.",
+  "share.accessibility.try_alternative_methods":
+    "Prova a copiare negli appunti o usa un altro metodo di condivisione.",
+  "share.accessibility.try_platform_buttons":
+    "Prova a usare i pulsanti di condivisione della piattaforma o copia negli appunti invece",
+  "share.buttons.group.label": "Opzioni di condivisione sui social media",
+  "share.achievement.explorer": "🎼 Esploratore musicale! 🎼",
+  "share.difficulty_emoji.easy": "🟢",
+  "share.difficulty_emoji.medium": "🟡",
+  "share.difficulty_emoji.hard": "🔴",
+  "share.difficulty_emoji.default": "⚪️",
 };

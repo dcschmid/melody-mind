@@ -11,18 +11,27 @@
  * Keep this file minimal and focused to avoid polluting the global namespace.
  */
 
-declare interface KnowledgeSearchTranslations {
+/**
+ * Exported small translation bundle type so it can be imported by other modules
+ * when necessary (avoids triple-slash references and makes types explicitly importable).
+ */
+export interface KnowledgeSearchTranslations {
   showingAll?: string;
   articlesFound?: string;
   [key: string]: unknown;
 }
 
-declare interface KnowledgeTranslations {
+export interface KnowledgeTranslations {
   search?: KnowledgeSearchTranslations;
   [key: string]: unknown;
 }
 
-declare interface GenericSearchInstance {
+/**
+ * Export the GenericSearchInstance interface so that other modules can `import type`
+ * this contract when they need to reference the instance shape (e.g. for global
+ * helpers exposed on window).
+ */
+export interface GenericSearchInstance {
   /**
    * Clears current search results / resets the instance.
    */
@@ -41,6 +50,11 @@ declare interface GenericSearchInstance {
   [key: string]: unknown;
 }
 
+/**
+ * Also augment the global Window interface so legacy inline scripts/pages that
+ * set `window.__lastSearchInstance` still have a correct type available.
+ * The exported types above can be imported elsewhere via `import type`.
+ */
 declare global {
   interface Window {
     /**
@@ -54,10 +68,18 @@ declare global {
      * A debug reference to the last created search instance.
      * Several pages set `window.__lastSearchInstance = instance;` so other
      * scripts (or tests) can call `clear()` or `performSearch("")`.
+     *
+     * The concrete shape is exported above as `GenericSearchInstance` so other
+     * modules may `import type { GenericSearchInstance } from "../types/global";`
+     * if they need to reference the interface directly.
      */
     __lastSearchInstance?: GenericSearchInstance | null;
   }
 }
 
-// Ensure this file is treated as a module and its augmentations are applied.
+/**
+ * Ensure this file is treated as a module and its augmentations are applied.
+ * Export an empty object so TypeScript treats this file as a module and the
+ * global augmentation above is correctly merged into the global scope.
+ */
 export {};

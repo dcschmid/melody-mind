@@ -799,5 +799,18 @@ export default {
   "podcasts.language_restriction.switch_to_english": "英語に切り替え",
   "podcasts.read_full_notes": "エピソードの全ノートを読む",
 
+  "share.email.subject": "Melody Mind のスコア",
+  "share.score_line": "Melody Mindの{category}クイズで{score}点を獲得しました（{difficulty}）！",
+  "share.challenge": "私を超えられる？ 今すぐプレイ：",
+  "share.achievement.genius": "🎵 音楽の天才！ 🎵",
+  "share.achievement.pro": "🎧 音楽のプロ！ 🎧",
+  "share.achievement.enthusiast": "🎸 音楽愛好家！ 🎸",
+  "share.achievement.lover": "🎹 音楽好き！ 🎹",
+  "share.achievement.explorer": "🎼 音楽探求者！ 🎼",
+  "share.difficulty_emoji.easy": "🟢",
+  "share.difficulty_emoji.medium": "🟡",
+  "share.difficulty_emoji.hard": "🔴",
+  "share.difficulty_emoji.default": "⚪️",
+
   "profile.desc": "個人情報とゲーム統計を管理",
 };

@@ -789,4 +789,42 @@ export default {
   "podcasts.language_restriction.switch_to_german": "Overschakelen naar Duits",
   "podcasts.language_restriction.switch_to_english": "Overschakelen naar Engels",
   "podcasts.read_full_notes": "Lees volledige aantekeningen van aflevering",
+  "share.email.subject": "Mijn Melody Mind-score",
+  "share.score_line":
+    "Ik scoorde {score} punten in Melody Mind's '{category}' quiz ({difficulty})!",
+  "share.challenge": "Denk je dat je mij kunt verslaan? Speel nu op:",
+  "share.achievement.genius": "🎵 Muziekgenie! 🎵",
+  "share.achievement.pro": "🎧 Muziekpro! 🎧",
+  "share.accessibility.copy_failed_manual":
+    "Kopiëren mislukt. Kopieer de pagina-URL handmatig vanuit je browser.",
+  "share.accessibility.data_found": "Spelgegevens gevonden! Deelopties zijn nu beschikbaar.",
+  "share.accessibility.data_still_unavailable":
+    "Spelgegevens nog niet beschikbaar. Probeer de pagina te verversen of kopieer handmatig.",
+  "share.accessibility.data_unavailable":
+    "Spelgegevens niet beschikbaar. Probeer opnieuw of kopieer handmatig.",
+  "share.accessibility.link_copied_fallback":
+    "Spel-link gekopieerd naar klembord met fallback-methode!",
+  "share.accessibility.native_share_failed":
+    "Native delen mislukt: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.platform_opened": "Delen naar {platform} succesvol geopend.",
+  "share.accessibility.platform_share_failed":
+    "Delen naar {platform} mislukt: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.retry_failed":
+    "Opnieuw proberen mislukt. Probeer handmatig te kopiëren of vernieuw de pagina.",
+  "share.accessibility.retrying": "Bezig met opnieuw zoeken naar spelgegevens...",
+  "share.accessibility.score_copied": "Score succesvol naar klembord gekopieerd!",
+  "share.accessibility.score_shared": "Score succesvol gedeeld.",
+  "share.accessibility.sharing_cancelled": "Delen geannuleerd.",
+  "share.accessibility.try_alternative_methods":
+    "Probeer naar het klembord te kopiëren of een andere deelmethode te gebruiken.",
+  "share.accessibility.try_platform_buttons":
+    "Probeer de platform-specifieke deelknoppen te gebruiken of kopieer naar het klembord in plaats daarvan",
+  "share.buttons.group.label": "Social media deelopties",
+  "share.achievement.enthusiast": "🎸 Muziekenthousiasteling! 🎸",
+  "share.achievement.lover": "🎹 Muziekliefhebber! 🎹",
+  "share.achievement.explorer": "🎼 Muziekontdekker! 🎼",
+  "share.difficulty_emoji.easy": "🟢",
+  "share.difficulty_emoji.medium": "🟡",
+  "share.difficulty_emoji.hard": "🔴",
+  "share.difficulty_emoji.default": "⚪️",
 };

@@ -114,13 +114,26 @@ const t = useTranslations(lang);
   </div>
 </div>
 
-<script>
+<script
+  is:inline
+  define:vars={{
+    // Provide localized labels to the inline script (no functional change)
+    feedbackNextRound: t("game.feedback.next.round"),
+    feedbackResolution: t("game.feedback.resolution"),
+    feedbackMediaSection: t("game.feedback.media.section"),
+    generalClose: t("general.close"),
+    keyboardEscape: t("general.keyboard.escape"),
+    keyboardEnter: t("general.keyboard.enter"),
+    keyboardTab: t("general.keyboard.tab"),
+  }}
+>
   import { initFeedbackOverlayAuto } from "../../utils/components/feedbackOverlayUtils";
 
   // Initialize feedback overlay functionality only for Quiz Game
   // Time Pressure Game handles its own button events
   if (window.location.pathname.includes("game-")) {
     document.addEventListener("DOMContentLoaded", () => {
+      // Initialization unchanged: localized labels are provided above for potential runtime/fallback usage
       initFeedbackOverlayAuto();
     });
   }
