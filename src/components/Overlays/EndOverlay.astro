@@ -290,17 +290,51 @@ const clientTranslations = {
         const scoreNum = parseInt(score, 10);
         let motivationText = "";
 
+        // Try to read translations provided via data-translations (JSON) on the popup element
+        let translations = null;
+        try {
+          const popupEl =
+            document.getElementById("endgame-popup") ||
+            document.querySelector(".popup[data-score]");
+          const transAttr = popupEl ? popupEl.getAttribute("data-translations") : null;
+          translations = transAttr ? JSON.parse(transAttr) : null;
+        } catch (e) {
+          translations = null;
+        }
+
+        // Helper: return translated string if available, otherwise fallback
+        const tOr = (key: string, fallback: string): string => {
+          if (translations && Object.prototype.hasOwnProperty.call(translations, key)) {
+            return translations[key] as string;
+          }
+          return fallback;
+        };
+
         if (scoreNum >= 800) {
-          motivationText = "Extraordinary! 💫 You're a true music genius! 🎶";
+          motivationText = tOr(
+            "game.end.motivation.genius",
+            "Extraordinary! 💫 You're a true music genius! 🎶"
+          );
         } else if (scoreNum >= 600) {
-          motivationText =
-            "Impressive! 👍 As a genuine music enthusiast, you really know your stuff!";
+          motivationText = tOr(
+            "game.end.motivation.pro",
+            "Impressive! 👍 As a genuine music enthusiast, you really know your stuff!"
+          );
         } else if (scoreNum >= 400) {
-          motivationText = "Well done! 👏 You've shown solid music knowledge!";
+          motivationText = tOr(
+            "game.end.motivation.enthusiast",
+            "Well done! 👏 You've shown solid music knowledge!"
+          );
         } else if (scoreNum >= 200) {
-          motivationText = "Good effort! 🙏 Keep playing to improve your score!";
+          motivationText = tOr(
+            "game.end.motivation.lover",
+            "Good effort! 🙏 Keep playing to improve your score!"
+          );
         } else {
-          motivationText = "Thanks for playing! 🎵 Every game is a chance to learn!";
+          motivationText = tOr(
+            "game.end.defaultMotivation",
+            "Thanks for playing! 🎵 Every game is a chance to learn!"
+          );
         }
 
         motivationElement.textContent = motivationText;

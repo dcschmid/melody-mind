@@ -78,8 +78,9 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) => {
 });
 
 // SEO content - Enhanced
-const title = ui[uiLang]["knowledge.title"];
-const description = ui[uiLang]["knowledge.title"]; // Using knowledge.title as fallback since knowledge.intro doesn't exist
+const safeUi = ui[uiLang] as Record<string, string>;
+const title = safeUi["knowledge.title"];
+const description = safeUi["knowledge.title"]; // Using knowledge.title as fallback since knowledge.intro doesn't exist
 
 // Enhanced SEO data for structured data
 const baseUrl = Astro.site || "https://melodymind.app";
@@ -93,13 +94,13 @@ const _breadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 1,
-      name: ui[uiLang]["nav.home"] || "Home",
+      name: safeUi["nav.home"] || "Home",
       item: `${baseUrl}/${lang}/`,
     },
     {
       "@type": "ListItem",
       position: 2,
-      name: ui[uiLang]["knowledge.title"] || "Knowledge",
+      name: safeUi["knowledge.title"] || "Knowledge",
       item: currentUrl,
     },
   ],
@@ -109,8 +110,8 @@ const _breadcrumbSchema = {
 const articleCollectionSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: ui[uiLang]["knowledge.title"] || "Knowledge Articles",
-  description: ui[uiLang]["knowledge.title"] || "Music knowledge articles",
+  name: safeUi["knowledge.title"] || "Knowledge Articles",
+  description: safeUi["knowledge.title"] || "Music knowledge articles",
   numberOfItems: sortedArticles.length,
   itemListElement: sortedArticles.slice(0, 10).map((article, index: number) => ({
     "@type": "Article",
@@ -137,7 +138,7 @@ const metaKeywords = Array.from(
 // Basic translations for JavaScript
 const clientTranslations = {
   search: {
-    showingAll: ui[uiLang]["knowledge.search.showing.all"] || "Showing all articles",
+    showingAll: safeUi["knowledge.search.showing.all"] || "Showing all articles",
     articlesFound: "articles found",
   },
 };
@@ -179,7 +180,7 @@ const clientTranslations = {
             <span class="text-gray-600" aria-hidden="true">/</span>
           </li>
           <li class="font-medium text-white" aria-current="page">
-            {ui[uiLang]["knowledge.title"] || "Knowledge"}
+            {safeUi["knowledge.title"] || "Knowledge"}
           </li>
         </ol>
       </nav>
@@ -197,11 +198,11 @@ const clientTranslations = {
 
         <div class="relative z-10 w-full text-center text-white">
           <Headline level="h1" textSize="3xl" textAlign="center">
-            {ui[uiLang]["knowledge.title"]}
+            {safeUi["knowledge.title"]}
           </Headline>
           <div class="mx-auto my-8 h-1 w-12 rounded-full bg-blue-400"></div>
           <Paragraph textSize="lg" textAlign="center">
-            {ui[uiLang]["knowledge.description"]}
+            {safeUi["knowledge.description"]}
           </Paragraph>
         </div>
       </header>
@@ -212,11 +213,11 @@ const clientTranslations = {
           <!-- Search Heading -->
           <div class="mb-10 text-center">
             <Headline level="h2" textSize="2xl" textAlign="center">
-              {ui[uiLang]["knowledge.search.title"] || "Search Articles"}
+              {safeUi["knowledge.search.title"] || "Search Articles"}
             </Headline>
             <Paragraph textSize="lg" textAlign="center">
               {
-                ui[uiLang]["knowledge.search.subtitle"] ||
+                safeUi["knowledge.search.subtitle"] ||
                   "Find articles by title, description, or keywords"
               }
             </Paragraph>
@@ -281,14 +282,14 @@ const clientTranslations = {
               aria-controls="articlesGrid"
             >
               <Icon name="refresh" class="h-5 w-5" aria-hidden="true" />
-              <span>{ui[uiLang]["knowledge.search.reset.text"] || "Reset"}</span>
+              <span>{safeUi["knowledge.search.reset.text"] || "Reset"}</span>
             </button>
           </div>
         </div>
 
         <!-- Search status -->
         <div id="search-status" class="sr-only" aria-live="polite" role="status">
-          {ui[uiLang]["knowledge.search.initial"] || "Showing all articles"}
+          {safeUi["knowledge.search.initial"] || "Showing all articles"}
         </div>
       </section>
 
@@ -307,11 +308,11 @@ const clientTranslations = {
             aria-hidden="true"
           />
           <Headline level="h2" textSize="2xl" textAlign="center">
-            {ui[uiLang]["knowledge.no.results"] || "No articles found"}
+            {safeUi["knowledge.no.results"] || "No articles found"}
           </Headline>
           <Paragraph textSize="lg" textAlign="center">
             {
-              ui[uiLang]["knowledge.no.results.help"] ||
+              safeUi["knowledge.no.results.help"] ||
                 "Try different search terms or reset your search"
             }
           </Paragraph>
@@ -370,7 +371,7 @@ const clientTranslations = {
                     aria-hidden="true"
                   />
                   <Paragraph textSize="lg" textAlign="center">
-                    {ui[uiLang]["knowledge.empty"] || "No articles available"}
+                    {safeUi["knowledge.empty"] || "No articles available"}
                   </Paragraph>
                 </div>
               </li>

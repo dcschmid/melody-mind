@@ -1,4 +1,42 @@
 export default {
+  "share.email.subject": "Meu placar no Melody Mind",
+  "share.score_line": "Consegui {score} pontos no quiz '{category}' do Melody Mind ({difficulty})!",
+  "share.challenge": "Acha que consegue me vencer? Jogue agora em:",
+  "share.achievement.genius": "🎵 Gênio da música! 🎵",
+  "share.achievement.pro": "🎧 Profissional da música! 🎧",
+  "share.achievement.enthusiast": "🎸 Entusiasta musical! 🎸",
+  "share.achievement.lover": "🎹 Amante da música! 🎹",
+  "share.achievement.explorer": "🎼 Explorador musical! 🎼",
+  "share.difficulty_emoji.easy": "🟢",
+  "share.difficulty_emoji.medium": "🟡",
+  "share.difficulty_emoji.hard": "🔴",
+  "share.difficulty_emoji.default": "⚪️",
+  "share.accessibility.copy_failed_manual":
+    "A cópia falhou. Por favor, copie manualmente a URL da página a partir do seu navegador.",
+  "share.accessibility.data_found":
+    "Dados do jogo encontrados! Opções de compartilhamento agora estão disponíveis.",
+  "share.accessibility.data_still_unavailable":
+    "Dados do jogo ainda indisponíveis. Tente atualizar a página ou copie manualmente.",
+  "share.accessibility.data_unavailable":
+    "Dados do jogo indisponíveis. Por favor, tente novamente ou copie manualmente.",
+  "share.accessibility.link_copied_fallback":
+    "Link do jogo copiado para a área de transferência usando método de fallback!",
+  "share.accessibility.native_share_failed":
+    "Compartilhamento nativo falhou: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.platform_opened": "Compartilhamento do {platform} aberto com sucesso.",
+  "share.accessibility.platform_share_failed":
+    "Falha ao compartilhar para {platform}: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.retry_failed":
+    "Nova tentativa falhou. Por favor, tente copiar manualmente ou atualize a página.",
+  "share.accessibility.retrying": "Tentando novamente encontrar dados do jogo...",
+  "share.accessibility.score_copied": "Pontuação copiada para a área de transferência com sucesso!",
+  "share.accessibility.score_shared": "Sua pontuação foi compartilhada com sucesso.",
+  "share.accessibility.sharing_cancelled": "Compartilhamento cancelado.",
+  "share.accessibility.try_alternative_methods":
+    "Tente copiar para a área de transferência ou usar outro método de compartilhamento.",
+  "share.accessibility.try_platform_buttons":
+    "Tente usar os botões de compartilhamento específicos da plataforma ou copie para a área de transferência em vez disso",
+  "share.buttons.group.label": "Opções de compartilhamento em redes sociais",
   "accessibility.skip.to.content": "Pular para o conteúdo principal",
   "achievements.badge.context_description":
     "Distintivo de notificação de conquista. Mostra a contagem de novas conquistas desbloqueadas na área de navegação.",
@@ -786,7 +824,6 @@ export default {
   "podcast.back_to_all": "← Voltar para todos os Podcasts",
   "podcast.listen_to_episode": "Ouvir Episódio",
   "podcast.episode_label": "Episódio de Podcast",
-  "podcasts.read_full_notes": "Ler notas completas do episódio",
 
   // Episode navigation labels
   "podcasts.navigation.previous": "Episódio anterior",
@@ -803,6 +840,5 @@ export default {
     "Nossos episódios de podcast estão atualmente disponíveis apenas em alemão e inglês. Por favor, mude para um desses idiomas para descobrir nosso conteúdo.",
   "podcasts.language_restriction.switch_to_german": "Mudar para Alemão",
   "podcasts.language_restriction.switch_to_english": "Mudar para Inglês",
-  "podcasts.read_full_notes": "Ler notas completas do episódio",
   "podcasts.read_full_notes": "Ler notas completas do episódio",
 };

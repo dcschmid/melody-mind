@@ -681,10 +681,8 @@ export default {
   "footer.opens_in_new_tab": "se abre en una nueva pestaña",
   "footer.legal_nav": "Información legal",
   "footer.external_nav": "Enlaces del pie de página",
-  "musicPlatforms.listenOn": "Escuchar {title} en {platform}",
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
-  "podcasts.read_full_notes": "Leer notas completas del episodio",
   "musicPlatforms.platform.apple": "Apple Music",
   "game.overlay.artist": "Artista",
   "game.overlay.album": "Álbum",
@@ -827,6 +825,19 @@ export default {
   "share.title": "¡Comparte tu éxito!",
   "share.twitter": "Compartir en X/Twitter",
   "share.whatsapp": "Compartir vía WhatsApp",
+  "share.email.subject": "Mi puntuación en Melody Mind",
+  "share.score_line":
+    "He obtenido {score} puntos en el quiz de Melody Mind '{category}' ({difficulty})!",
+  "share.challenge": "¿Crees que puedes superarme? Juega ahora en:",
+  "share.achievement.genius": "🎵 ¡Genio musical! 🎵",
+  "share.achievement.pro": "🎧 ¡Profesional musical! 🎧",
+  "share.achievement.enthusiast": "🎸 ¡Entusiasta musical! 🎸",
+  "share.achievement.lover": "🎹 ¡Amante de la música! 🎹",
+  "share.achievement.explorer": "🎼 ¡Explorador musical! 🎼",
+  "share.difficulty_emoji.easy": "🟢",
+  "share.difficulty_emoji.medium": "🟡",
+  "share.difficulty_emoji.hard": "🔴",
+  "share.difficulty_emoji.default": "⚪️",
   "toc.nav.label": "Tabla de contenidos",
   "toc.skip.link": "Saltar al contenido principal",
   "toc.state.collapsed": "Colapsado",
@@ -879,16 +890,4 @@ export default {
   "podcasts.cta.description":
     "Explora nuestra colección completa de episodios de podcast y descubre el fascinante mundo de la historia, la cultura y la innovación musical.",
   "podcasts.cta.browse": "Ver todos los episodios",
-
-  // Podcast UI / Navigation
-  "podcast.navigation.aria": "Navegación de podcasts",
-  "podcast.back_to_all": "← Volver a Podcasts",
-  "podcast.listen_to_episode": "Escuchar episodio",
-  "podcast.episode_label": "Episodio de podcast",
-
-  // Call-to-action (CTA) texts for podcast pages
-  "podcast.cta.browse_all": "Ver todos los episodios",
-  "podcast.cta.subscribe_rss": "Suscribirse al RSS",
-  "podcast.cta.download_audio": "Descargar audio",
-  "podcasts.read_full_notes": "Leer notas completas del episodio",
 };

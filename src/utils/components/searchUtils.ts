@@ -25,6 +25,7 @@
  * });
  */
 
+import type { GenericSearchInstance } from "../../types/global";
 import { safeGetElementById } from "../dom/domUtils";
 
 export type ScoringWeights = {
@@ -120,7 +121,7 @@ export type SearchFields = {
 /**
  *
  */
-export class GenericSearchUtils {
+export class GenericSearchUtils implements GenericSearchInstance {
   private input: HTMLInputElement | null;
   private clearButton: HTMLButtonElement | null;
   private items: NodeListOf<Element>;
@@ -130,6 +131,11 @@ export class GenericSearchUtils {
   private options: GenericSearchOptions;
   private observer: MutationObserver | null = null;
   private refreshTimeout: number | null = null;
+
+  // Implement index signature required by GenericSearchInstance so this class
+  // can be used where the GenericSearchInstance contract is expected and so
+  // window.__lastSearchInstance assignments are type compatible.
+  [key: string]: unknown;
 
   /**
    * Create a new search instance with given configuration.
@@ -703,15 +709,17 @@ export function initGenericSearchAuto(options: GenericSearchOptions): GenericSea
   }
 }
 
+// GenericSearchInstance type imported via `import type` at top
+
 /**
  * Expose a global initializer so pages using plain <script> (non-module) can initialize the search
  * without importing modules. Provide a typed Window extension to avoid using `any` casts.
  */
 declare global {
   interface Window {
-    initGenericSearchAuto?: (opts: GenericSearchOptions) => GenericSearchUtils | null;
-    __initGenericSearchAuto?: (opts: GenericSearchOptions) => GenericSearchUtils | null;
-    __lastSearchInstance?: GenericSearchUtils | null;
+    initGenericSearchAuto?: (opts: GenericSearchOptions) => GenericSearchInstance | null;
+    __initGenericSearchAuto?: (opts: GenericSearchOptions) => GenericSearchInstance | null;
+    __lastSearchInstance?: GenericSearchInstance | null;
   }
 }
 

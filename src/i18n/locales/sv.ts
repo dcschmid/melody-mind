@@ -3,6 +3,44 @@ export default {
   "achievements.badge.context_description":
     "Prestationsmärke. Visar antal nya upplåsta prestationer i navigationsområdet.",
   "achievements.badge.fallback_text": "Prestationsavisering",
+
+  "share.accessibility.copy_failed_manual":
+    "Kopiering misslyckades. Kopiera sidans URL manuellt från din webbläsare.",
+  "share.accessibility.data_found": "Speldata hittades! Delningsalternativ är nu tillgängliga.",
+  "share.accessibility.data_still_unavailable":
+    "Speldata är fortfarande inte tillgängliga. Försök att uppdatera sidan eller använd manuell kopiering.",
+  "share.accessibility.data_unavailable":
+    "Speldata ej tillgängligt. Försök igen eller kopiera manuellt.",
+  "share.accessibility.link_copied_fallback": "Spellänk kopierad till urklipp med fallback-metod!",
+  "share.accessibility.native_share_failed":
+    "Inbyggd delning misslyckades: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.platform_opened": "Delning för {platform} öppnades framgångsrikt.",
+  "share.accessibility.platform_share_failed":
+    "Misslyckades att dela till {platform}: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.retry_failed":
+    "Nytt försök misslyckades. Försök att kopiera manuellt eller uppdatera sidan.",
+  "share.accessibility.retrying": "Försöker igen att hitta speldata...",
+  "share.accessibility.score_copied": "Poäng kopierad till urklipp med framgång!",
+  "share.accessibility.score_shared": "Poäng delades framgångsrikt.",
+  "share.accessibility.sharing_cancelled": "Delning avbröts.",
+  "share.accessibility.try_alternative_methods":
+    "Försök att kopiera till urklipp eller använda en annan delningsmetod.",
+  "share.accessibility.try_platform_buttons":
+    "Försök använda plattformspecifika delningsknappar eller kopiera till urklipp istället",
+  "share.buttons.group.label": "Delningsalternativ för sociala medier",
+
+  "share.email.subject": "Mitt Melody Mind-resultat",
+  "share.score_line": "Jag fick {score} poäng i Melody Mind-quizet '{category}' ({difficulty})!",
+  "share.challenge": "Tror du att du kan slå mig? Spela nu på:",
+  "share.achievement.genius": "🎵 Musikgeni! 🎵",
+  "share.achievement.pro": "🎧 Musikproffs! 🎧",
+  "share.achievement.enthusiast": "🎸 Musikentusiast! 🎸",
+  "share.achievement.lover": "🎹 Musikälskare! 🎹",
+  "share.achievement.explorer": "🎼 Musikutforskare! 🎼",
+  "share.difficulty_emoji.easy": "🟢",
+  "share.difficulty_emoji.medium": "🟡",
+  "share.difficulty_emoji.hard": "🔴",
+  "share.difficulty_emoji.default": "⚪️",
   "achievements.badge.keyboard_instructions":
     "Tryck Enter eller Space för att visa din prestationssida.",
   "achievements.badge.new": "Ny prestation upplåst",

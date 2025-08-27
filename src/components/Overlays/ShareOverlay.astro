@@ -231,6 +231,47 @@ const {
     shareAccessibilityNativeShareFailed: t("share.accessibility.native_share_failed"),
     shareAccessibilityTryPlatformButtons: t("share.accessibility.try_platform_buttons"),
     shareAccessibilityPlatformOpened: t("share.accessibility.platform_opened"),
+
+    // Additional localized strings for UI interactions (used by the inline script)
+    // Use existing concise keys where appropriate and derive short labels locally.
+    copyButtonOriginalText: t("share.copy.label"),
+    // simple visual prefix for copied state (kept as a constant but can be localized if needed)
+    copyButtonCopiedPrefix: "✓",
+    // short fallback prompt for manual share/copy actions
+    fallbackSharePrompt: t("share.title"),
+
+    // Localized error & recovery strings used by getErrorMessage/getRecoveryMessage
+    shareErrorNoData: t("share.accessibility.data_unavailable"),
+    shareErrorClipboardFailed: t("share.accessibility.copy_failed_manual"),
+    shareErrorPermissionDenied: t("share.accessibility.native_share_failed"),
+    shareRecoveryAlternative: t("share.accessibility.try_alternative_methods"),
+    shareRecoveryPlatformButtons: t("share.accessibility.try_platform_buttons"),
+    shareErrorGeneric: t("share.accessibility.platform_share_failed"),
+
+    // Localized snippets used for social share fallback text
+    shareEmailSubject: t("share.email.subject"),
+    shareScoreLine: t("share.score_line", {
+      score: "{score}",
+      category: "{category}",
+      difficulty: "{difficulty}",
+    }),
+    shareChallenge: t("share.challenge"),
+
+    // Achievement labels (localized when available)
+    shareAchievementGenius: t("share.achievement.genius"),
+    shareAchievementPro: t("share.achievement.pro"),
+    shareAchievementEnthusiast: t("share.achievement.enthusiast"),
+    shareAchievementLover: t("share.achievement.lover"),
+    shareAchievementExplorer: t("share.achievement.explorer"),
+
+    // Difficulty emoji (allow overriding via locales if desired)
+    shareDifficultyEmojiEasy: t("share.difficulty_emoji.easy"),
+    shareDifficultyEmojiMedium: t("share.difficulty_emoji.medium"),
+    shareDifficultyEmojiHard: t("share.difficulty_emoji.hard"),
+    shareDifficultyEmojiDefault: t("share.difficulty_emoji.default"),
+
+    // Short challenge fallback text variable (script expects shareChallengeText)
+    shareChallengeText: t("share.challenge"),
   }}
 >
   /**
@@ -495,13 +536,14 @@ const {
     elements.manualCopyButton.disabled = true;
 
     try {
-      const fallbackText = `Check out this music quiz game! ${window.location.href}`;
+      // Use a localized short prompt for fallback copy text
+      const fallbackText = `${fallbackSharePrompt} ${window.location.href}`;
       await copyTextFallback(fallbackText);
       announceToScreenReader(shareAccessibilityLinkCopiedFallback);
 
-      // Update button text temporarily
+      // Update button text temporarily with a localized original text prefixed by a visual indicator
       const originalText = elements.manualCopyButton.textContent;
-      elements.manualCopyButton.textContent = "✓ Copied!";
+      elements.manualCopyButton.textContent = `${copyButtonCopiedPrefix} ${originalText || copyButtonOriginalText}`;
       setTimeout(() => {
         if (elements.manualCopyButton && originalText) {
           elements.manualCopyButton.textContent = originalText;
@@ -710,7 +752,7 @@ const {
       case "whatsapp":
         return `https://wa.me/?text=${encodedText}%20${encodedUrl}`;
       case "email":
-        return `mailto:?subject=My Melody Mind Score&body=${encodedText}%0A%0A${encodedUrl}`;
+        return `mailto:?subject=${encodeURIComponent(shareEmailSubject)}&body=${encodedText}%0A%0A${encodedUrl}`;
       default:
         return null;
     }
@@ -737,30 +779,51 @@ const {
 
       const achievement =
         numericScore >= 800
-          ? "🎵 Music Genius! 🎵"
+          ? typeof shareAchievementGenius !== "undefined" && shareAchievementGenius
+            ? shareAchievementGenius
+            : "🎵 Music Genius! 🎵"
           : numericScore >= 600
-            ? "🎧 Music Pro! 🎧"
+            ? typeof shareAchievementPro !== "undefined" && shareAchievementPro
+              ? shareAchievementPro
+              : "🎧 Music Pro! 🎧"
             : numericScore >= 400
-              ? "🎸 Music Enthusiast! 🎸"
+              ? typeof shareAchievementEnthusiast !== "undefined" && shareAchievementEnthusiast
+                ? shareAchievementEnthusiast
+                : "🎸 Music Enthusiast! 🎸"
               : numericScore >= 200
-                ? "🎹 Music Lover! 🎹"
-                : "🎼 Music Explorer! 🎼";
+                ? typeof shareAchievementLover !== "undefined" && shareAchievementLover
+                  ? shareAchievementLover
+                  : "🎹 Music Lover! 🎹"
+                : typeof shareAchievementExplorer !== "undefined" && shareAchievementExplorer
+                  ? shareAchievementExplorer
+                  : "🎼 Music Explorer! 🎼";
 
       const difficultyEmoji =
         typeof diffText === "string" && diffText.toLowerCase && diffText.toLowerCase() === "easy"
-          ? "🟢"
+          ? typeof shareDifficultyEmojiEasy !== "undefined" && shareDifficultyEmojiEasy
+            ? shareDifficultyEmojiEasy
+            : "🟢"
           : typeof diffText === "string" &&
               diffText.toLowerCase &&
               diffText.toLowerCase() === "medium"
-            ? "🟡"
+            ? typeof shareDifficultyEmojiMedium !== "undefined" && shareDifficultyEmojiMedium
+              ? shareDifficultyEmojiMedium
+              : "🟡"
             : typeof diffText === "string" &&
                 diffText.toLowerCase &&
                 diffText.toLowerCase() === "hard"
-              ? "🔴"
-              : "⚪️";
+              ? typeof shareDifficultyEmojiHard !== "undefined" && shareDifficultyEmojiHard
+                ? shareDifficultyEmojiHard
+                : "🔴"
+              : typeof shareDifficultyEmojiDefault !== "undefined" && shareDifficultyEmojiDefault
+                ? shareDifficultyEmojiDefault
+                : "⚪️";
 
       const scoreText = `I scored ${numericScore} points in Melody Mind's ${catText} quiz (${difficultyEmoji} ${diffText})!`;
-      const challenge = "Think you can beat me? Play now at:";
+      const challenge =
+        typeof shareChallengeText !== "undefined" && shareChallengeText
+          ? shareChallengeText
+          : "Think you can beat me? Play now at:";
 
       return `${achievement}\n\n${scoreText}\n\n${challenge}`;
     }
@@ -842,7 +905,8 @@ const {
         }
 
         if (elements.copyButtonText) {
-          elements.copyButtonText.textContent = "✓ Copied!";
+          // Use the original localized text stored earlier and prefix it with a concise visual indicator
+          elements.copyButtonText.textContent = `${copyButtonCopiedPrefix} ${originalCopyText}`;
         }
         button.classList.add("share-overlay__clipboard-button--success");
 
@@ -893,31 +957,32 @@ const {
     }, UI_CONSTANTS.COPY_SUCCESS_DURATION / 2);
   };
 
-  // Get user-friendly error messages
+  // Get user-friendly error messages (localized)
   const getErrorMessage = (errorType) => {
     switch (errorType) {
       case ShareErrorType.NO_DATA:
-        return "No game data";
+        return shareErrorNoData;
       case ShareErrorType.CLIPBOARD_FAILED:
-        return "Copy failed";
+        return shareErrorClipboardFailed;
       case ShareErrorType.PERMISSION_DENIED:
-        return "Permission denied";
+        // This key may include placeholders in some locales; it is used here as a best-effort localized message.
+        return shareErrorPermissionDenied || shareErrorNoData;
       default:
-        return "Error occurred";
+        return shareErrorGeneric || shareErrorClipboardFailed;
     }
   };
 
-  // Get recovery guidance messages
+  // Get recovery guidance messages (localized)
   const getRecoveryMessage = (errorType) => {
     switch (errorType) {
       case ShareErrorType.NO_DATA:
-        return "Please retry or refresh the page";
+        return shareRecoveryAlternative;
       case ShareErrorType.CLIPBOARD_FAILED:
-        return "Try manual copy or use share buttons";
+        return shareRecoveryAlternative;
       case ShareErrorType.PERMISSION_DENIED:
-        return "Check browser permissions or use manual copy";
+        return shareRecoveryPlatformButtons;
       default:
-        return "Please try again or use alternative sharing methods";
+        return shareRecoveryAlternative;
     }
   };
 
