@@ -1,8 +1,10 @@
 export default {
   "accessibility.skip.to.content": "Hoppa till huvudinnehåll",
-  "achievements.badge.context_description": "Prestationsmärke. Visar antal nya upplåsta prestationer i navigationsområdet.",
+  "achievements.badge.context_description":
+    "Prestationsmärke. Visar antal nya upplåsta prestationer i navigationsområdet.",
   "achievements.badge.fallback_text": "Prestationsavisering",
-  "achievements.badge.keyboard_instructions": "Tryck Enter eller Space för att visa din prestationssida.",
+  "achievements.badge.keyboard_instructions":
+    "Tryck Enter eller Space för att visa din prestationssida.",
   "achievements.badge.new": "Ny prestation upplåst",
   "achievements.badge.new_with_count": "{count} nya prestationer upplåsta",
   "achievements.categories": "Prestationskategorier",
@@ -12,7 +14,8 @@ export default {
   "achievements.category.platinum": "Platina",
   "achievements.category.silver": "Silver",
   "achievements.category.time": "Tid",
-  "achievements.description": "Fira dina musikaliska triumfer och samla unika troféer på din resa till att bli en musikmästare",
+  "achievements.description":
+    "Fira dina musikaliska triumfer och samla unika troféer på din resa till att bli en musikmästare",
   "achievements.empty": "Inga prestationer hittades",
   "achievements.error": "Fel vid laddning av prestationer",
   "achievements.filter.all": "Alla",
@@ -20,7 +23,8 @@ export default {
   "achievements.filter.announcement.changed": "Filter ändrat: {filterType} till {filterValue}",
   "achievements.filter.announcement.no_results": "Inga prestationer matchar nuvarande filter",
   "achievements.filter.announcement.reset": "Alla filter har återställts",
-  "achievements.filter.announcement.results": "{visibleCards} prestation{cardPlural} hittade i {visibleSections} kategori{sectionPlural}",
+  "achievements.filter.announcement.results":
+    "{visibleCards} prestation{cardPlural} hittade i {visibleSections} kategori{sectionPlural}",
   "achievements.filter.available_shortcuts": "Tillgängliga genvägar",
   "achievements.filter.category": "Kategori",
   "achievements.filter.count.all": "Alla ({count} synliga)",
@@ -45,10 +49,12 @@ export default {
   "achievements.notification.resume": "Återuppta aviseringstimer",
   "achievements.notification.resume_title": "Återuppta automatisk borttagning av denna avisering",
   "achievements.notification.toggle_sound": "Växla aviseringsljud",
-  "achievements.notification.toggle_sound_title": "Aktivera eller inaktivera ljud för prestationsaviseringar",
+  "achievements.notification.toggle_sound_title":
+    "Aktivera eller inaktivera ljud för prestationsaviseringar",
   "achievements.notification.unlocked": "Prestation upplåst!",
   "achievements.points": "{points} poäng",
-  "achievements.seo.description": "Spåra dina framsteg med detaljerade prestationer inom alla musikkategorier. Lås upp speciella belöningar genom att slutföra utmaningar och nå milstolpar.",
+  "achievements.seo.description":
+    "Spåra dina framsteg med detaljerade prestationer inom alla musikkategorier. Lås upp speciella belöningar genom att slutföra utmaningar och nå milstolpar.",
   "achievements.status.in_progress": "Pågående",
   "achievements.status.locked": "Låst",
   "achievements.status.unlocked": "Upplåst",
@@ -63,32 +69,39 @@ export default {
   "audioplayer.aria.region": "Ljudspelare",
   "audioplayer.captions.english": "Engelska undertexter",
   "audioplayer.captions.none": "Inga undertexter tillgängliga",
-  "audioplayer.description.no_title": "Ljudspelare för spår. Använd mellanslag för att spela eller pausa, pilknapparna för att söka, och M för att tysta.",
+  "audioplayer.description.no_title":
+    "Ljudspelare för spår. Använd mellanslag för att spela eller pausa, pilknapparna för att söka, och M för att tysta.",
   "audioplayer.fallback.download": "Ladda ner ljudfil istället",
   "audioplayer.fallback.unsupported": "Din webbläsare stöder inte ljudelementet.",
   "audioplayer.help.button.aria": "Hjälp",
   "audioplayer.help.button.title": "Tangentbordsgenvägar för ljudspelare",
-  "audioplayer.help.shortcuts": "Mellanslag: Spela/Pausa, M: Tysta/Avtysta, Pilknappar: Sök ljud, Upp/Ner: Volymkontroll",
+  "audioplayer.help.shortcuts":
+    "Mellanslag: Spela/Pausa, M: Tysta/Avtysta, Pilknappar: Sök ljud, Upp/Ner: Volymkontroll",
   "audioplayer.play.aria": "Spela ljud",
   "audioplayer.play.title": "Spela/Pausa",
-  "audioplayer.progress.aria": "Ljudframsteg - Använd pilknappar för att söka, Home för början, End för slut",
-  "audioplayer.progress.help": "Pil vänster/höger: Sök 5 sekunder, Shift+Pil: Sök 30 sekunder, Home: Början, End: Slut",
+  "audioplayer.progress.aria":
+    "Ljudframsteg - Använd pilknappar för att söka, Home för början, End för slut",
+  "audioplayer.progress.help":
+    "Pil vänster/höger: Sök 5 sekunder, Shift+Pil: Sök 30 sekunder, Home: Början, End: Slut",
   "audioplayer.volume.slider.aria": "Justera volymnivå",
   "audioplayer.volume.toggle.aria": "Växla tysta/avtysta",
   "audioplayer.volume.toggle.title": "Volym",
   "auth.accessibility.error_message_dismissed": "Felmeddelande avvisat",
   "auth.accessibility.error_resolved": "fel löst",
   "auth.accessibility.field_error": "har ett fel",
-  "auth.accessibility.focus_trapped": "Fokus är nu infångat inom denna dialog. Använd Tab för att navigera och Escape för att stänga.",
+  "auth.accessibility.focus_trapped":
+    "Fokus är nu infångat inom denna dialog. Använd Tab för att navigera och Escape för att stänga.",
   "auth.accessibility.login_form_active": "Inloggningsformulär är nu aktivt",
   "auth.accessibility.password_requirements": "Visa/dölj lösenordskrav",
   "auth.accessibility.password_toggle": "Visa/dölj lösenord",
   "auth.accessibility.password_toggle_empty": "Ange ett lösenord först innan du växlar synlighet.",
-  "auth.accessibility.password_toggle_help": "Växla för att visa eller dölja lösenordstecken. Använd försiktigt i offentliga utrymmen av säkerhetsskäl.",
+  "auth.accessibility.password_toggle_help":
+    "Växla för att visa eller dölja lösenordstecken. Använd försiktigt i offentliga utrymmen av säkerhetsskäl.",
   "auth.accessibility.password.hidden": "Lösenord är nu dolt",
   "auth.accessibility.password.hidden_status": "Lösenord är nu dolt av säkerhetsskäl.",
   "auth.accessibility.password.visible": "Lösenord är nu synligt",
-  "auth.accessibility.password.visible_status": "Lösenord är nu synligt. Kom ihåg att dölja det när du är klar av säkerhetsskäl.",
+  "auth.accessibility.password.visible_status":
+    "Lösenord är nu synligt. Kom ihåg att dölja det när du är klar av säkerhetsskäl.",
   "auth.accessibility.register_form_active": "Registreringsformulär är nu aktivt",
   "auth.accessibility.requirement.met": "Krav uppfyllt",
   "auth.accessibility.requirement.unmet": "Krav ej uppfyllt",
@@ -107,12 +120,14 @@ export default {
   "auth.forgot_password": "Glömt lösenord?",
   "auth.form.email_help": "Ange en giltig e-postadress",
   "auth.form.email_invalid": "Vänligen ange en giltig e-postadress",
-  "auth.form.email_invalid_format": "Vänligen ange en giltig e-postadress i formatet: användare@exempel.com",
+  "auth.form.email_invalid_format":
+    "Vänligen ange en giltig e-postadress i formatet: användare@exempel.com",
   "auth.form.email_required": "E-postadress krävs",
   "auth.form.error": "Ett fel uppstod",
   "auth.form.error.general": "Ett fel uppstod",
   "auth.form.help.password_button": "Få hjälp med att skapa ett starkt lösenord",
-  "auth.form.help.password_suggestions": "Försök att använda en kombination av ord, siffror och symboler. Undvik vanliga lösenord som 'password123'.",
+  "auth.form.help.password_suggestions":
+    "Försök att använda en kombination av ord, siffror och symboler. Undvik vanliga lösenord som 'password123'.",
   "auth.form.help.password_title": "Tips för att skapa lösenord",
   "auth.form.help.tip1": "Använd en blandning av stora och små bokstäver",
   "auth.form.help.tip2": "Inkludera siffror och specialtecken",
@@ -121,10 +136,13 @@ export default {
   "auth.form.init_error": "Misslyckades att initiera autentiseringsformulär",
   "auth.form.instructions.confirm.step1": "Skapa ett starkt lösenord som uppfyller alla krav",
   "auth.form.instructions.confirm.step2": "Bekräfta ditt lösenord genom att skriva det igen",
-  "auth.form.instructions.confirm.step3": "Klicka på 'Återställ lösenord' för att slutföra processen",
+  "auth.form.instructions.confirm.step3":
+    "Klicka på 'Återställ lösenord' för att slutföra processen",
   "auth.form.instructions.request.step1": "Ange din e-postadress i fältet nedan",
-  "auth.form.instructions.request.step2": "Klicka på 'Skicka återställningslänk' för att få instruktioner för lösenordsåterställning",
-  "auth.form.instructions.request.step3": "Kontrollera din e-post för återställningslänken och följ instruktionerna",
+  "auth.form.instructions.request.step2":
+    "Klicka på 'Skicka återställningslänk' för att få instruktioner för lösenordsåterställning",
+  "auth.form.instructions.request.step3":
+    "Kontrollera din e-post för återställningslänken och följ instruktionerna",
   "auth.form.instructions.title": "Hur man fyller i detta formulär",
   "auth.form.loading_text": "Laddar...",
   "auth.form.password_common_error": "Vänligen välj ett mindre vanligt lösenord",
@@ -133,10 +151,12 @@ export default {
   "auth.form.password_lowercase_error": "Lösenord måste innehålla minst en liten bokstav (a-z)",
   "auth.form.password_min_length": "Lösenord måste vara minst 6 tecken långt",
   "auth.form.password_number_error": "Lösenord måste innehålla minst en siffra (0-9)",
-  "auth.form.password_repeats_error": "Lösenord kan inte innehålla fler än 2 konsekutiva identiska tecken",
+  "auth.form.password_repeats_error":
+    "Lösenord kan inte innehålla fler än 2 konsekutiva identiska tecken",
   "auth.form.password_required": "Lösenord krävs",
   "auth.form.password_requirements": "Lösenord uppfyller inte alla krav",
-  "auth.form.password_sequences_error": "Lösenord kan inte innehålla vanliga sekvenser som '123' eller 'abc'",
+  "auth.form.password_sequences_error":
+    "Lösenord kan inte innehålla vanliga sekvenser som '123' eller 'abc'",
   "auth.form.password_special_error": "Lösenord måste innehålla minst ett specialtecken (!@#$%^&*)",
   "auth.form.password_uppercase_error": "Lösenord måste innehålla minst en stor bokstav (A-Z)",
   "auth.form.passwords_not_match": "Lösenorden matchar inte",
@@ -211,10 +231,13 @@ export default {
   "auth.password_reset_confirm.password_section": "Lösenordssektion",
   "auth.password_reset_confirm.password.placeholder": "Ange ditt nya lösenord",
   "auth.password_reset_confirm.submit": "Återställ lösenord",
-  "auth.password_reset_confirm.success": "Lösenord har återställts. Du kan nu logga in med ditt nya lösenord",
+  "auth.password_reset_confirm.success":
+    "Lösenord har återställts. Du kan nu logga in med ditt nya lösenord",
   "auth.password_reset_confirm.title": "Ange nytt lösenord",
-  "auth.password_reset.complete_error": "Lösenordsåterställning misslyckades. Vänligen kontrollera dina inmatningar eller begär en ny återställningslänk.",
-  "auth.password_reset.complete_success": "Lösenord har återställts. Du kan nu logga in med ditt nya lösenord.",
+  "auth.password_reset.complete_error":
+    "Lösenordsåterställning misslyckades. Vänligen kontrollera dina inmatningar eller begär en ny återställningslänk.",
+  "auth.password_reset.complete_success":
+    "Lösenord har återställts. Du kan nu logga in med ditt nya lösenord.",
   "auth.password_reset.description": "Ange din e-post för att få en lösenordsåterställningslänk",
   "auth.password_reset.email": "E-postadress",
   "auth.password_reset.email.placeholder": "Din registrerade e-postadress",
@@ -222,7 +245,8 @@ export default {
   "auth.password_reset.login": "Logga in",
   "auth.password_reset.submit": "Skicka återställningslänk",
   "auth.password_reset.success": "En återställningslänk har skickats till din e-post",
-  "auth.password_reset.success_message": "Om ett konto finns med denna e-postadress har ett e-postmeddelande med lösenordsåterställningsinstruktioner skickats.",
+  "auth.password_reset.success_message":
+    "Om ett konto finns med denna e-postadress har ett e-postmeddelande med lösenordsåterställningsinstruktioner skickats.",
   "auth.password_reset.title": "Återställ lösenord",
   "auth.password.lowercase": "Lösenord måste innehålla minst en liten bokstav",
   "auth.password.match": "Lösenorden måste matcha",
@@ -233,12 +257,15 @@ export default {
   "auth.password.number": "Lösenord måste innehålla minst en siffra",
   "auth.password.requirements": "Lösenordskrav:",
   "auth.password.requirements.checklist": "Checklista för lösenordskrav",
-  "auth.password.requirements.help": "Ditt lösenord måste uppfylla alla krav som listas nedan av säkerhetsskäl",
-  "auth.password.requirements.keyboard_navigation": "Använd pilknappar för att navigera krav, Escape för att avsluta",
+  "auth.password.requirements.help":
+    "Ditt lösenord måste uppfylla alla krav som listas nedan av säkerhetsskäl",
+  "auth.password.requirements.keyboard_navigation":
+    "Använd pilknappar för att navigera krav, Escape för att avsluta",
   "auth.password.requirements.met": "Krav uppfyllt",
   "auth.password.requirements.not_met": "Krav ej uppfyllt",
   "auth.password.requirements.position": "{{current}} av {{total}}",
-  "auth.password.requirements.progress": "{{met}} av {{total}} krav uppfyllda. {{percentage}}% klart.",
+  "auth.password.requirements.progress":
+    "{{met}} av {{total}} krav uppfyllda. {{percentage}}% klart.",
   "auth.password.special": "Lösenord måste innehålla minst ett specialtecken",
   "auth.password.strength": "Lösenordsstyrka",
   "auth.password.strength_description": "Indikator för lösenordssäkerhetsnivå",
@@ -261,95 +288,176 @@ export default {
   "auth.register.username.placeholder": "Välj ett användarnamn",
   "auth.required.description": "Vänligen logga in för att komma åt detta område",
   "auth.required.title": "Inloggning krävs",
-  "auth.service.invalid_credentials": "Ogiltiga uppgifter. Vänligen kontrollera din e-post och lösenord.",
-  "auth.service.too_many_attempts": "För många inloggningsförsök. Vänligen vänta ett ögonblick och försök igen.",
+  "auth.service.invalid_credentials":
+    "Ogiltiga uppgifter. Vänligen kontrollera din e-post och lösenord.",
+  "auth.service.too_many_attempts":
+    "För många inloggningsförsök. Vänligen vänta ett ögonblick och försök igen.",
   "auth.service.unauthorized": "Obehörig. Vänligen logga in",
   "auth.session.timeout.close": "Stäng",
   "auth.session.timeout.extend": "Förläng session",
-  "auth.session.timeout.message": "Din session kommer att upphöra om 2 minuter. Klicka var som helst för att förlänga den.",
+  "auth.session.timeout.message":
+    "Din session kommer att upphöra om 2 minuter. Klicka var som helst för att förlänga den.",
   "auth.session.timeout.title": "Session upphör",
   "auth.skip_to_verification": "Hoppa till e-postverifieringsinnehåll",
   "auth.tokens.refreshFailed": "Tokenuppdatering misslyckades",
   "auth.tokens.refreshSuccess": "Token uppdaterad framgångsrikt",
-  "auto._lang_.podcasts._id_.0_podcasts_currentindex_1_null_const": "0 ? podcasts[currentIndex - 1] : null;\n  const next = currentIndex",
-  "auto.pages._lang_.playlists.finde_deine_lieblingsmusik_nach_k_nstler_stil": "Finde deine Lieblingsmusik nach Künstler, Stil, Epoche oder Genre",
-  "auto.pages.de.datenschutz.adresse_daniel_schmid_hiltenspergerstr_78_80796": "Adresse: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland",
-  "auto.pages.de.datenschutz.andere_daten_werden_automatisch_oder_nach": "Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website\n              durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B.\n              Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).",
-  "auto.pages.de.datenschutz.bei_fragen_zum_datenschutz_zur_geltendmachung": "Bei Fragen zum Datenschutz, zur Geltendmachung Ihrer Rechte oder bei Beschwerden\n              können Sie sich jederzeit an uns wenden:",
-  "auto.pages.de.datenschutz.der_provider_der_seiten_erhebt_und": "Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten\n              Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:",
-  "auto.pages.de.datenschutz.die_betreiber_dieser_seiten_nehmen_den": "Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir\n              behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen\n              Datenschutzvorschriften sowie dieser Datenschutzerklärung.",
-  "auto.pages.de.datenschutz.die_datenverarbeitung_auf_dieser_website_erfolgt": "Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen\n              Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle\" in dieser\n              Datenschutzerklärung entnehmen.",
-  "auto.pages.de.datenschutz.die_folgenden_hinweise_geben_einen_einfachen": "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren\n              personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene\n              Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.",
-  "auto.pages.de.datenschutz.die_verantwortliche_stelle_f_r_die_datenverarbeitung": "Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:",
-  "auto.pages.de.datenschutz.die_verwendung_erfolgt_auf_grundlage_von": "Die Verwendung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein\n              berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website.",
-  "auto.pages.de.datenschutz.die_website_wird_ber_https_verschl_sselt": "Die Website wird über HTTPS verschlüsselt übertragen. Dadurch sind Ihre Eingaben vor\n              dem Zugriff durch Dritte geschützt.",
-  "auto.pages.de.datenschutz.diese_cookies_sind_f_r_das_funktionieren": "Diese Cookies sind für das Funktionieren der Website erforderlich und werden auf\n              Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert.",
-  "auto.pages.de.datenschutz.diese_daten_werden_anonym_verarbeitet_und": "Diese Daten werden anonym verarbeitet und können nicht zur Identifizierung einzelner\n              Nutzer verwendet werden. Weitere Informationen finden Sie in der Datenschutzerklärung\n              von Fathom:",
-  "auto.pages.de.datenschutz.diese_daten_werden_sicher_in_unserer": "Diese Daten werden sicher in unserer TursoDB-Datenbank gespeichert, um Ihnen\n              persistenten Spielfortschritt zu ermöglichen und Features wie Highscores und\n              Achievements anzubieten. Sie können die Löschung Ihrer Daten jederzeit per E-Mail an",
-  "auto.pages.de.datenschutz.eine_zusammenf_hrung_dieser_daten_mit_anderen": "Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die\n              Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.",
-  "auto.pages.de.datenschutz.f_r_ihren_erneuten_besuch_gilt_dann": "Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung. Wir empfehlen\n              Ihnen, diese Seite regelmäßig zu besuchen, um über Änderungen informiert zu bleiben.",
-  "auto.pages.de.datenschutz.fathom_analytics_erfasst_anonymisierte_daten_einschlie_lich": "Fathom Analytics erfasst anonymisierte Daten, einschließlich:",
-  "auto.pages.de.datenschutz.ihre_daten_werden_zum_einen_dadurch": "Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei\n              kann es sich z. B. um Daten handeln, die Sie in unser Kontaktformular eingeben.",
-  "auto.pages.de.datenschutz.ihre_spielst_nde_und_einstellungen_werden_im": "Ihre Spielstände und Einstellungen werden im Local Storage Ihres Browsers gespeichert.\n              Diese Daten verbleiben lokal und werden nicht übertragen.",
-  "auto.pages.de.datenschutz.melodymind_nutzt_externe_musik_apis_f_r": "MelodyMind nutzt externe Musik-APIs für Preview-Links und Album-Cover. Beim Abspielen\n              von Musik-Previews oder beim Klick auf Streaming-Links werden Sie zu externen Diensten\n              weitergeleitet:",
-  "auto.pages.de.datenschutz.rechtsgrundlage_f_r_diese_verarbeitung_ist_art": "Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO\n              (Vertragserfüllung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der\n              Bereitstellung der Spielfunktionalität).",
-  "auto.pages.de.datenschutz.rechtsgrundlage_f_r_diese_verarbeitung_ist_art_2": "Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes\n              Interesse an der Analyse der Website-Nutzung zur Verbesserung unserer Dienste).",
-  "auto.pages.de.datenschutz.sie_haben_au_erdem_das_recht_sich": "Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die\n              Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren.",
-  "auto.pages.de.datenschutz.sie_haben_folgende_rechte_bez_glich_ihrer": "Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:",
-  "auto.pages.de.datenschutz.soweit_innerhalb_dieser_datenschutzerkl_rung_keine_speziellere": "Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt\n              wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die\n              Datenverarbeitung entfällt.",
-  "auto.pages.de.datenschutz.spielstatistiken_gespielte_runden_kategorien_schwierigkeitsgrade": "Spielstatistiken (gespielte Runden, Kategorien, Schwierigkeitsgrade)",
-  "auto.pages.de.datenschutz.unsere_website_verwendet_cookies_das_sind": "Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Browser auf\n              Ihrem Gerät speichert. Wir verwenden ausschließlich technisch notwendige Cookies für:",
-  "auto.pages.de.datenschutz.wenn_sie_melodymind_spielen_werden_folgende": "Wenn Sie MelodyMind spielen, werden folgende Daten in unserer TursoDB-Datenbank\n              gespeichert:",
-  "auto.pages.de.datenschutz.wenn_sie_unsere_website_besuchen_erfasst": "Wenn Sie unsere Website besuchen, erfasst Render verschiedene Logfiles inklusive Ihrer\n              IP-Adressen. Details entnehmen Sie der Datenschutzerklärung von Render:",
-  "auto.pages.de.datenschutz.wenn_sie_von_diesen_rechten_gebrauch": "Wenn Sie von diesen Rechten Gebrauch machen möchten, kontaktieren Sie uns bitte unter:",
-  "auto.pages.de.datenschutz.wer_ist_verantwortlich_f_r_die_datenerfassung": "Wer ist verantwortlich für die Datenerfassung auf dieser Website?",
-  "auto.pages.de.datenschutz.wir_behalten_uns_vor_diese_datenschutzerkl_rung": "Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den\n              aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen\n              in der Datenschutzerklärung umzusetzen.",
-  "auto.pages.de.datenschutz.wir_hosten_die_inhalte_unserer_website": "Wir hosten die Inhalte unserer Website bei Render Services Inc., 525 Brannan Street,\n              Suite 300, San Francisco, CA 94107, USA.",
-  "auto.pages.de.datenschutz.wir_verwenden_geeignete_technische_und_organisatorische": "Wir verwenden geeignete technische und organisatorische Sicherheitsmaßnahmen, um Ihre\n              Daten gegen zufällige oder vorsätzliche Manipulationen, teilweisen oder vollständigen\n              Verlust, Zerstörung oder gegen den unbefugten Zugriff Dritter zu schützen.",
-  "auto.pages.de.impressum.die_europ_ische_kommission_stellt_eine_plattform": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)\n              bereit:",
-  "auto.pages.de.impressum.die_in_melodymind_verwendeten_musik_previews": "Die in MelodyMind verwendeten Musik-Previews und Album-Cover werden über lizenzierte\n              APIs bereitgestellt. Alle Rechte an den Musikstücken und Bildern liegen bei den\n              jeweiligen Künstlern, Plattenlabels und Rechteinhabern.",
-  "auto.pages.de.impressum.die_streaming_links_f_hren_zu_lizenzierten": "Die Streaming-Links führen zu lizenzierten Musikdiensten wie Spotify, Apple Music und\n              Deezer. MelodyMind selbst hostet keine urheberrechtlich geschützten Inhalte.",
-  "auto.pages.de.impressum.wir_sind_nicht_bereit_oder_verpflichtet": "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer\n              Verbraucherschlichtungsstelle teilzunehmen.",
-  "auto.pages.en.legal_notice.as_service_providers_we_are_liable": "As service providers, we are liable for own contents of these websites according to\n              general laws. However, we are not under obligation to monitor third party information\n              transmitted or stored, or investigate circumstances pointing to illegal activity.",
-  "auto.pages.en.legal_notice.the_european_commission_provides_a_platform": "The European Commission provides a platform for online dispute resolution (ODR):",
-  "auto.pages.en.legal_notice.the_music_previews_and_album_covers": "The music previews and album covers used in MelodyMind are provided through licensed\n              APIs. All rights to the music and images belong to the respective artists, record\n              labels, and rights holders.",
-  "auto.pages.en.legal_notice.the_streaming_links_lead_to_licensed": "The streaming links lead to licensed music services such as Spotify, Apple Music, and\n              Deezer. MelodyMind itself does not host any copyrighted content.",
-  "auto.pages.en.legal_notice.this_legal_notice_has_been_created": "This legal notice has been created with the greatest care. However,\n          we cannot guarantee completeness and accuracy. Please adapt the information according to your\n          specific situation.",
-  "auto.pages.en.legal_notice.we_are_neither_willing_nor_obliged": "We are neither willing nor obliged to participate in dispute resolution proceedings\n              before a consumer arbitration board.",
-  "auto.pages.en.privacy_policy.a_combination_of_this_data_with": "A combination of this data with other data sources will not be made. The collection of\n              this data is based on Art. 6 para. 1 lit. f GDPR.",
-  "auto.pages.en.privacy_policy.address_daniel_schmid_hiltenspergerstr_78_80796": "Address: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland",
-  "auto.pages.en.privacy_policy.game_statistics_rounds_played_categories_difficulty": "Game statistics (rounds played, categories, difficulty levels)",
-  "auto.pages.en.privacy_policy.if_you_have_questions_about_data": "If you have questions about data protection, wish to exercise your rights, or have\n              complaints, you can always contact us:",
-  "auto.pages.en.privacy_policy.melodymind_uses_external_music_apis_for": "MelodyMind uses external music APIs for preview links and album covers. When playing\n              music previews or clicking on streaming links, you will be redirected to external\n              services:",
-  "auto.pages.en.privacy_policy.other_data_is_collected_automatically_by": "Other data is collected automatically by our IT systems when you visit the website.\n              This data is primarily technical data such as the browser and operating system you are\n              using or when you accessed the page.",
-  "auto.pages.en.privacy_policy.our_website_uses_cookies_these_are": "Our website uses cookies. These are small text files that your browser stores on your\n              device. We only use technically necessary cookies for:",
-  "auto.pages.en.privacy_policy.some_data_is_collected_when_you": "Some data is collected when you provide it to us. This could, for example, be data you\n              enter on a contact form.",
-  "auto.pages.en.privacy_policy.the_data_processing_on_this_website": "The data processing on this website is carried out by the website operator. You can\n              find the operator's contact details in the \"Information about the responsible party\"\n              section of this privacy policy.",
-  "auto.pages.en.privacy_policy.the_following_gives_a_simple_overview": "The following gives a simple overview of what happens to your personal information\n              when you visit our website. Personal information is any data with which you could be\n              personally identified.",
-  "auto.pages.en.privacy_policy.the_legal_basis_for_this_processing": "The legal basis for this processing is Art. 6 para. 1 lit. b GDPR (performance of\n              contract) and Art. 6 para. 1 lit. f GDPR (legitimate interest in providing game\n              functionality).",
-  "auto.pages.en.privacy_policy.the_legal_basis_for_this_processing_2": "The legal basis for this processing is Art. 6 para. 1 lit. f GDPR (legitimate interest\n              in analyzing website usage to improve our services).",
-  "auto.pages.en.privacy_policy.the_new_privacy_policy_will_then": "The new privacy policy will then apply to your next visit. We recommend that you visit\n              this page regularly to stay informed about changes.",
-  "auto.pages.en.privacy_policy.the_operators_of_this_website_take": "The operators of this website take the protection of your personal data very\n              seriously. We treat your personal data confidentially and in accordance with the\n              statutory data protection regulations and this privacy policy.",
-  "auto.pages.en.privacy_policy.the_responsible_party_for_data_processing": "The responsible party for data processing on this website is:",
-  "auto.pages.en.privacy_policy.the_use_is_based_on_art": "The use is based on Art. 6 para. 1 lit. f GDPR. We have a legitimate interest in a\n              reliable presentation of our website.",
-  "auto.pages.en.privacy_policy.the_website_is_transmitted_via_https": "The website is transmitted via HTTPS encryption. This protects your input from access\n              by third parties.",
-  "auto.pages.en.privacy_policy.the_website_provider_automatically_collects_and": "The website provider automatically collects and stores information in so-called server\n              log files, which your browser automatically transmits to us. These are:",
-  "auto.pages.en.privacy_policy.this_data_is_processed_anonymously_and": "This data is processed anonymously and cannot be used to identify individual users.\n              For more information, see Fathom's privacy policy:",
-  "auto.pages.en.privacy_policy.this_data_is_stored_securely_in": "This data is stored securely in our TursoDB database to provide you with persistent\n              game progress and enable features like high scores and achievements. You can request\n              deletion of your data at any time by contacting us at",
-  "auto.pages.en.privacy_policy.unless_a_more_specific_storage_period": "Unless a more specific storage period has been specified in this privacy policy, your\n              personal data will remain with us until the purpose for which it was collected no\n              longer applies.",
-  "auto.pages.en.privacy_policy.we_host_the_content_of_our": "We host the content of our website at Render Services, Inc., 525 Brannan Street, Suite\n              300, San Francisco, CA 94107, USA.",
-  "auto.pages.en.privacy_policy.we_reserve_the_right_to_adapt": "We reserve the right to adapt this privacy policy so that it always complies with\n              current legal requirements or to implement changes to our services in the privacy\n              policy.",
-  "auto.pages.en.privacy_policy.we_use_appropriate_technical_and_organizational": "We use appropriate technical and organizational security measures to protect your data\n              against accidental or intentional manipulation, partial or complete loss, destruction,\n              or unauthorized access by third parties.",
-  "auto.pages.en.privacy_policy.we_use_fathom_analytics_a_privacy": "We use Fathom Analytics, a privacy-focused analytics service, to better understand how\n              visitors interact with our website. Fathom Analytics is GDPR, CCPA and PECR compliant\n              and does not use cookies or collect personal data.",
-  "auto.pages.en.privacy_policy.when_you_play_melodymind_the_following": "When you play MelodyMind, the following data is stored in our TursoDB database:",
-  "auto.pages.en.privacy_policy.when_you_visit_our_website_render": "When you visit our website, Render collects various logfiles including your IP\n              addresses. Details can be found in Render's privacy policy:",
-  "auto.pages.en.privacy_policy.you_also_have_the_right_to": "You also have the right to lodge a complaint with a data protection supervisory\n              authority about our processing of your personal data.",
-  "auto.pages.en.privacy_policy.your_game_scores_and_settings_are": "Your game scores and settings are stored in your browser's local storage. This data\n              remains local and is not transmitted.",
+  "auto._lang_.podcasts._id_.0_podcasts_currentindex_1_null_const":
+    "0 ? podcasts[currentIndex - 1] : null;\n  const next = currentIndex",
+  "auto.pages._lang_.playlists.finde_deine_lieblingsmusik_nach_k_nstler_stil":
+    "Finde deine Lieblingsmusik nach Künstler, Stil, Epoche oder Genre",
+  "auto.pages.de.datenschutz.adresse_daniel_schmid_hiltenspergerstr_78_80796":
+    "Adresse: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland",
+  "auto.pages.de.datenschutz.andere_daten_werden_automatisch_oder_nach":
+    "Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website\n              durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B.\n              Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).",
+  "auto.pages.de.datenschutz.bei_fragen_zum_datenschutz_zur_geltendmachung":
+    "Bei Fragen zum Datenschutz, zur Geltendmachung Ihrer Rechte oder bei Beschwerden\n              können Sie sich jederzeit an uns wenden:",
+  "auto.pages.de.datenschutz.der_provider_der_seiten_erhebt_und":
+    "Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten\n              Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:",
+  "auto.pages.de.datenschutz.die_betreiber_dieser_seiten_nehmen_den":
+    "Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir\n              behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen\n              Datenschutzvorschriften sowie dieser Datenschutzerklärung.",
+  "auto.pages.de.datenschutz.die_datenverarbeitung_auf_dieser_website_erfolgt":
+    'Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen\n              Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle" in dieser\n              Datenschutzerklärung entnehmen.',
+  "auto.pages.de.datenschutz.die_folgenden_hinweise_geben_einen_einfachen":
+    "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren\n              personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene\n              Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.",
+  "auto.pages.de.datenschutz.die_verantwortliche_stelle_f_r_die_datenverarbeitung":
+    "Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:",
+  "auto.pages.de.datenschutz.die_verwendung_erfolgt_auf_grundlage_von":
+    "Die Verwendung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein\n              berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website.",
+  "auto.pages.de.datenschutz.die_website_wird_ber_https_verschl_sselt":
+    "Die Website wird über HTTPS verschlüsselt übertragen. Dadurch sind Ihre Eingaben vor\n              dem Zugriff durch Dritte geschützt.",
+  "auto.pages.de.datenschutz.diese_cookies_sind_f_r_das_funktionieren":
+    "Diese Cookies sind für das Funktionieren der Website erforderlich und werden auf\n              Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert.",
+  "auto.pages.de.datenschutz.diese_daten_werden_anonym_verarbeitet_und":
+    "Diese Daten werden anonym verarbeitet und können nicht zur Identifizierung einzelner\n              Nutzer verwendet werden. Weitere Informationen finden Sie in der Datenschutzerklärung\n              von Fathom:",
+  "auto.pages.de.datenschutz.diese_daten_werden_sicher_in_unserer":
+    "Diese Daten werden sicher in unserer TursoDB-Datenbank gespeichert, um Ihnen\n              persistenten Spielfortschritt zu ermöglichen und Features wie Highscores und\n              Achievements anzubieten. Sie können die Löschung Ihrer Daten jederzeit per E-Mail an",
+  "auto.pages.de.datenschutz.eine_zusammenf_hrung_dieser_daten_mit_anderen":
+    "Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die\n              Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.",
+  "auto.pages.de.datenschutz.f_r_ihren_erneuten_besuch_gilt_dann":
+    "Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung. Wir empfehlen\n              Ihnen, diese Seite regelmäßig zu besuchen, um über Änderungen informiert zu bleiben.",
+  "auto.pages.de.datenschutz.fathom_analytics_erfasst_anonymisierte_daten_einschlie_lich":
+    "Fathom Analytics erfasst anonymisierte Daten, einschließlich:",
+  "auto.pages.de.datenschutz.ihre_daten_werden_zum_einen_dadurch":
+    "Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei\n              kann es sich z. B. um Daten handeln, die Sie in unser Kontaktformular eingeben.",
+  "auto.pages.de.datenschutz.ihre_spielst_nde_und_einstellungen_werden_im":
+    "Ihre Spielstände und Einstellungen werden im Local Storage Ihres Browsers gespeichert.\n              Diese Daten verbleiben lokal und werden nicht übertragen.",
+  "auto.pages.de.datenschutz.melodymind_nutzt_externe_musik_apis_f_r":
+    "MelodyMind nutzt externe Musik-APIs für Preview-Links und Album-Cover. Beim Abspielen\n              von Musik-Previews oder beim Klick auf Streaming-Links werden Sie zu externen Diensten\n              weitergeleitet:",
+  "auto.pages.de.datenschutz.rechtsgrundlage_f_r_diese_verarbeitung_ist_art":
+    "Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO\n              (Vertragserfüllung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der\n              Bereitstellung der Spielfunktionalität).",
+  "auto.pages.de.datenschutz.rechtsgrundlage_f_r_diese_verarbeitung_ist_art_2":
+    "Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes\n              Interesse an der Analyse der Website-Nutzung zur Verbesserung unserer Dienste).",
+  "auto.pages.de.datenschutz.sie_haben_au_erdem_das_recht_sich":
+    "Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die\n              Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren.",
+  "auto.pages.de.datenschutz.sie_haben_folgende_rechte_bez_glich_ihrer":
+    "Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:",
+  "auto.pages.de.datenschutz.soweit_innerhalb_dieser_datenschutzerkl_rung_keine_speziellere":
+    "Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt\n              wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die\n              Datenverarbeitung entfällt.",
+  "auto.pages.de.datenschutz.spielstatistiken_gespielte_runden_kategorien_schwierigkeitsgrade":
+    "Spielstatistiken (gespielte Runden, Kategorien, Schwierigkeitsgrade)",
+  "auto.pages.de.datenschutz.unsere_website_verwendet_cookies_das_sind":
+    "Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Browser auf\n              Ihrem Gerät speichert. Wir verwenden ausschließlich technisch notwendige Cookies für:",
+  "auto.pages.de.datenschutz.wenn_sie_melodymind_spielen_werden_folgende":
+    "Wenn Sie MelodyMind spielen, werden folgende Daten in unserer TursoDB-Datenbank\n              gespeichert:",
+  "auto.pages.de.datenschutz.wenn_sie_unsere_website_besuchen_erfasst":
+    "Wenn Sie unsere Website besuchen, erfasst Render verschiedene Logfiles inklusive Ihrer\n              IP-Adressen. Details entnehmen Sie der Datenschutzerklärung von Render:",
+  "auto.pages.de.datenschutz.wenn_sie_von_diesen_rechten_gebrauch":
+    "Wenn Sie von diesen Rechten Gebrauch machen möchten, kontaktieren Sie uns bitte unter:",
+  "auto.pages.de.datenschutz.wer_ist_verantwortlich_f_r_die_datenerfassung":
+    "Wer ist verantwortlich für die Datenerfassung auf dieser Website?",
+  "auto.pages.de.datenschutz.wir_behalten_uns_vor_diese_datenschutzerkl_rung":
+    "Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den\n              aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen\n              in der Datenschutzerklärung umzusetzen.",
+  "auto.pages.de.datenschutz.wir_hosten_die_inhalte_unserer_website":
+    "Wir hosten die Inhalte unserer Website bei Render Services Inc., 525 Brannan Street,\n              Suite 300, San Francisco, CA 94107, USA.",
+  "auto.pages.de.datenschutz.wir_verwenden_geeignete_technische_und_organisatorische":
+    "Wir verwenden geeignete technische und organisatorische Sicherheitsmaßnahmen, um Ihre\n              Daten gegen zufällige oder vorsätzliche Manipulationen, teilweisen oder vollständigen\n              Verlust, Zerstörung oder gegen den unbefugten Zugriff Dritter zu schützen.",
+  "auto.pages.de.impressum.die_europ_ische_kommission_stellt_eine_plattform":
+    "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)\n              bereit:",
+  "auto.pages.de.impressum.die_in_melodymind_verwendeten_musik_previews":
+    "Die in MelodyMind verwendeten Musik-Previews und Album-Cover werden über lizenzierte\n              APIs bereitgestellt. Alle Rechte an den Musikstücken und Bildern liegen bei den\n              jeweiligen Künstlern, Plattenlabels und Rechteinhabern.",
+  "auto.pages.de.impressum.die_streaming_links_f_hren_zu_lizenzierten":
+    "Die Streaming-Links führen zu lizenzierten Musikdiensten wie Spotify, Apple Music und\n              Deezer. MelodyMind selbst hostet keine urheberrechtlich geschützten Inhalte.",
+  "auto.pages.de.impressum.wir_sind_nicht_bereit_oder_verpflichtet":
+    "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer\n              Verbraucherschlichtungsstelle teilzunehmen.",
+  "auto.pages.en.legal_notice.as_service_providers_we_are_liable":
+    "As service providers, we are liable for own contents of these websites according to\n              general laws. However, we are not under obligation to monitor third party information\n              transmitted or stored, or investigate circumstances pointing to illegal activity.",
+  "auto.pages.en.legal_notice.the_european_commission_provides_a_platform":
+    "The European Commission provides a platform for online dispute resolution (ODR):",
+  "auto.pages.en.legal_notice.the_music_previews_and_album_covers":
+    "The music previews and album covers used in MelodyMind are provided through licensed\n              APIs. All rights to the music and images belong to the respective artists, record\n              labels, and rights holders.",
+  "auto.pages.en.legal_notice.the_streaming_links_lead_to_licensed":
+    "The streaming links lead to licensed music services such as Spotify, Apple Music, and\n              Deezer. MelodyMind itself does not host any copyrighted content.",
+  "auto.pages.en.legal_notice.this_legal_notice_has_been_created":
+    "This legal notice has been created with the greatest care. However,\n          we cannot guarantee completeness and accuracy. Please adapt the information according to your\n          specific situation.",
+  "auto.pages.en.legal_notice.we_are_neither_willing_nor_obliged":
+    "We are neither willing nor obliged to participate in dispute resolution proceedings\n              before a consumer arbitration board.",
+  "auto.pages.en.privacy_policy.a_combination_of_this_data_with":
+    "A combination of this data with other data sources will not be made. The collection of\n              this data is based on Art. 6 para. 1 lit. f GDPR.",
+  "auto.pages.en.privacy_policy.address_daniel_schmid_hiltenspergerstr_78_80796":
+    "Address: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland",
+  "auto.pages.en.privacy_policy.game_statistics_rounds_played_categories_difficulty":
+    "Game statistics (rounds played, categories, difficulty levels)",
+  "auto.pages.en.privacy_policy.if_you_have_questions_about_data":
+    "If you have questions about data protection, wish to exercise your rights, or have\n              complaints, you can always contact us:",
+  "auto.pages.en.privacy_policy.melodymind_uses_external_music_apis_for":
+    "MelodyMind uses external music APIs for preview links and album covers. When playing\n              music previews or clicking on streaming links, you will be redirected to external\n              services:",
+  "auto.pages.en.privacy_policy.other_data_is_collected_automatically_by":
+    "Other data is collected automatically by our IT systems when you visit the website.\n              This data is primarily technical data such as the browser and operating system you are\n              using or when you accessed the page.",
+  "auto.pages.en.privacy_policy.our_website_uses_cookies_these_are":
+    "Our website uses cookies. These are small text files that your browser stores on your\n              device. We only use technically necessary cookies for:",
+  "auto.pages.en.privacy_policy.some_data_is_collected_when_you":
+    "Some data is collected when you provide it to us. This could, for example, be data you\n              enter on a contact form.",
+  "auto.pages.en.privacy_policy.the_data_processing_on_this_website":
+    'The data processing on this website is carried out by the website operator. You can\n              find the operator\'s contact details in the "Information about the responsible party"\n              section of this privacy policy.',
+  "auto.pages.en.privacy_policy.the_following_gives_a_simple_overview":
+    "The following gives a simple overview of what happens to your personal information\n              when you visit our website. Personal information is any data with which you could be\n              personally identified.",
+  "auto.pages.en.privacy_policy.the_legal_basis_for_this_processing":
+    "The legal basis for this processing is Art. 6 para. 1 lit. b GDPR (performance of\n              contract) and Art. 6 para. 1 lit. f GDPR (legitimate interest in providing game\n              functionality).",
+  "auto.pages.en.privacy_policy.the_legal_basis_for_this_processing_2":
+    "The legal basis for this processing is Art. 6 para. 1 lit. f GDPR (legitimate interest\n              in analyzing website usage to improve our services).",
+  "auto.pages.en.privacy_policy.the_new_privacy_policy_will_then":
+    "The new privacy policy will then apply to your next visit. We recommend that you visit\n              this page regularly to stay informed about changes.",
+  "auto.pages.en.privacy_policy.the_operators_of_this_website_take":
+    "The operators of this website take the protection of your personal data very\n              seriously. We treat your personal data confidentially and in accordance with the\n              statutory data protection regulations and this privacy policy.",
+  "auto.pages.en.privacy_policy.the_responsible_party_for_data_processing":
+    "The responsible party for data processing on this website is:",
+  "auto.pages.en.privacy_policy.the_use_is_based_on_art":
+    "The use is based on Art. 6 para. 1 lit. f GDPR. We have a legitimate interest in a\n              reliable presentation of our website.",
+  "auto.pages.en.privacy_policy.the_website_is_transmitted_via_https":
+    "The website is transmitted via HTTPS encryption. This protects your input from access\n              by third parties.",
+  "auto.pages.en.privacy_policy.the_website_provider_automatically_collects_and":
+    "The website provider automatically collects and stores information in so-called server\n              log files, which your browser automatically transmits to us. These are:",
+  "auto.pages.en.privacy_policy.this_data_is_processed_anonymously_and":
+    "This data is processed anonymously and cannot be used to identify individual users.\n              For more information, see Fathom's privacy policy:",
+  "auto.pages.en.privacy_policy.this_data_is_stored_securely_in":
+    "This data is stored securely in our TursoDB database to provide you with persistent\n              game progress and enable features like high scores and achievements. You can request\n              deletion of your data at any time by contacting us at",
+  "auto.pages.en.privacy_policy.unless_a_more_specific_storage_period":
+    "Unless a more specific storage period has been specified in this privacy policy, your\n              personal data will remain with us until the purpose for which it was collected no\n              longer applies.",
+  "auto.pages.en.privacy_policy.we_host_the_content_of_our":
+    "We host the content of our website at Render Services, Inc., 525 Brannan Street, Suite\n              300, San Francisco, CA 94107, USA.",
+  "auto.pages.en.privacy_policy.we_reserve_the_right_to_adapt":
+    "We reserve the right to adapt this privacy policy so that it always complies with\n              current legal requirements or to implement changes to our services in the privacy\n              policy.",
+  "auto.pages.en.privacy_policy.we_use_appropriate_technical_and_organizational":
+    "We use appropriate technical and organizational security measures to protect your data\n              against accidental or intentional manipulation, partial or complete loss, destruction,\n              or unauthorized access by third parties.",
+  "auto.pages.en.privacy_policy.we_use_fathom_analytics_a_privacy":
+    "We use Fathom Analytics, a privacy-focused analytics service, to better understand how\n              visitors interact with our website. Fathom Analytics is GDPR, CCPA and PECR compliant\n              and does not use cookies or collect personal data.",
+  "auto.pages.en.privacy_policy.when_you_play_melodymind_the_following":
+    "When you play MelodyMind, the following data is stored in our TursoDB database:",
+  "auto.pages.en.privacy_policy.when_you_visit_our_website_render":
+    "When you visit our website, Render collects various logfiles including your IP\n              addresses. Details can be found in Render's privacy policy:",
+  "auto.pages.en.privacy_policy.you_also_have_the_right_to":
+    "You also have the right to lodge a complaint with a data protection supervisory\n              authority about our processing of your personal data.",
+  "auto.pages.en.privacy_policy.your_game_scores_and_settings_are":
+    "Your game scores and settings are stored in your browser's local storage. This data\n              remains local and is not transmitted.",
   "auto.src.components.Headline.welcome_to_melodymind": "*   Welcome to MelodyMind\n *",
-  "auto.src.components.Paragraph.this_is_a_paragraph_with_custom": "*   This is a paragraph with custom styling\n *",
-  "auto.src.layouts.Layout.example_game_page_with_coins_astro": "* ```\n *\n * @example Game page with coins\n * ```astro\n *",
-  "auto.src.layouts.Layout.example_music_content_page_astro": "* ```\n *\n * @example Music content page\n * ```astro\n *",
-  "auto.src.pages.404.don_t_worry_though_there_s": "Don't worry though, there's plenty of music to discover! Try one of the options below to\n            get back on track.",
+  "auto.src.components.Paragraph.this_is_a_paragraph_with_custom":
+    "*   This is a paragraph with custom styling\n *",
+  "auto.src.layouts.Layout.example_game_page_with_coins_astro":
+    "* ```\n *\n * @example Game page with coins\n * ```astro\n *",
+  "auto.src.layouts.Layout.example_music_content_page_astro":
+    "* ```\n *\n * @example Music content page\n * ```astro\n *",
+  "auto.src.pages.404.don_t_worry_though_there_s":
+    "Don't worry though, there's plenty of music to discover! Try one of the options below to\n            get back on track.",
   "category.about.title": "Om denna kategori",
   "category.difficulty.easy": "Lätt",
   "category.difficulty.hard": "Svår",
@@ -359,9 +467,12 @@ export default {
   "category.no_image_available": "Ingen bild tillgänglig",
   "category.play": "Spela",
   "category.start": "Starta",
-  "coins.announce.earned_excellent": "Utmärkt! Tjänat {difference} mynt medan {context}! Ny summa: {newCount} mynt.",
-  "coins.announce.earned_great": "Bra jobbat! Fått {difference} mynt{plural} medan {context}. Totalt: {newCount} mynt.",
-  "coins.announce.earned_normal": "Fått {difference} mynt{plural} medan {context}. Totalt: {newCount} mynt.",
+  "coins.announce.earned_excellent":
+    "Utmärkt! Tjänat {difference} mynt medan {context}! Ny summa: {newCount} mynt.",
+  "coins.announce.earned_great":
+    "Bra jobbat! Fått {difference} mynt{plural} medan {context}. Totalt: {newCount} mynt.",
+  "coins.announce.earned_normal":
+    "Fått {difference} mynt{plural} medan {context}. Totalt: {newCount} mynt.",
   "coins.announce.lost": "Förlorat {lost} mynt{plural} medan {context}. Kvar: {newCount} mynt.",
   "coins.announce.progress_saved": " Framsteg sparat till ditt konto.",
   "coins.announce.updated": "Mynt uppdaterade medan {context}. Nuvarande totalt: {newCount} mynt.",
@@ -390,9 +501,11 @@ export default {
   "error.404.actions.playlists": "Utforska spellistor",
   "error.404.actions.quiz": "Starta ett musikquiz",
   "error.404.cta_title": "Vad vill du göra?",
-  "error.404.description": "Sidan du söker finns inte. Utforska istället våra musikquiz och spellistor.",
+  "error.404.description":
+    "Sidan du söker finns inte. Utforska istället våra musikquiz och spellistor.",
   "error.404.heading": "Sidan hittades inte",
-  "error.404.message": "Hoppsan! Sidan du söker finns inte. Den kan ha flyttats, raderats eller så angav du fel URL.",
+  "error.404.message":
+    "Hoppsan! Sidan du söker finns inte. Den kan ha flyttats, raderats eller så angav du fel URL.",
   "error.404.title": "404 - Sidan hittades inte | MelodyMind",
   "error.close": "Stäng felmeddelande",
   "error.countdown": "Tid kvar tills automatisk gömning",
@@ -453,8 +566,10 @@ export default {
   "game.chronology.aria.main": "Huvudområde för kronologispelet",
   "game.chronology.correct": "Rätt! 🎉",
   "game.chronology.correct_order": "Rätt ordning:",
-  "game.chronology.correct_order_description": "Lista som visar den korrekta kronologiska ordningen av händelserna",
-  "game.chronology.description": "⏰ Bli en tidsresenär inom musik! Arrangera dessa legendariska album i rätt kronologisk ordning och visa att du är en sann musikhistoriker. Varje rätt drag för dig närmare perfekt poäng! 🎯",
+  "game.chronology.correct_order_description":
+    "Lista som visar den korrekta kronologiska ordningen av händelserna",
+  "game.chronology.description":
+    "⏰ Bli en tidsresenär inom musik! Arrangera dessa legendariska album i rätt kronologisk ordning och visa att du är en sann musikhistoriker. Varje rätt drag för dig närmare perfekt poäng! 🎯",
   "game.chronology.feedback.close": "Stäng",
   "game.chronology.feedback.continue": "Fortsätt",
   "game.chronology.feedback.title": "Runda feedback",
@@ -480,29 +595,37 @@ export default {
   "game.end.difficultyLevel": "Indikator för svårighetsgrad",
   "game.end.finalScore": "Slutpoäng:",
   "game.end.home": "Hemsida",
-  "game.end.homeButtonHelp": "Navigera tillbaka till hemsidan för att välja ett nytt spelläge eller kategori",
+  "game.end.homeButtonHelp":
+    "Navigera tillbaka till hemsidan för att välja ett nytt spelläge eller kategori",
   "game.end.homeDescription": "Återgå till huvudmenyn och startsidan",
   "game.end.level.enthusiast": "entusiast",
   "game.end.level.explorer": "utforskare",
   "game.end.level.genius": "geni",
   "game.end.level.lover": "älskare",
   "game.end.level.pro": "proffs",
-  "game.end.motivation.enthusiast": "Imponerande! 👍 Som en äkta musikentusiast kan du verkligen dina grejer. Du har byggt en solid grund av musikkunskap som skiljer dig från mängden. Med lite mer träning kan du snart stiga till proffsligan. Vill du prova en runda till?",
-  "game.end.motivation.explorer": "Tack för att du spelade! 🙏 Som en musikutforskare har du tagit det första steget i att upptäcka musikens fascinerande värld. Varje spel är en möjlighet att lära sig något nytt. Utmana dig själv, spela fler rundor och utvidga dina musikkunskaper!",
-  "game.end.motivation.genius": "Extraordinärt! 💫 Du är ett sant musikgeni! 🎶 Din djupa kunskap och musikaliska intuition är verkligt imponerande. Du skulle kunna vinna en musikfrågesport eller till och med vara musikhistoriker. Dela din anmärkningsvärda prestation och utmana andra att tävla mot dig!",
-  "game.end.motivation.lover": "Bra jobbat! 👏 Som en musikälskare har du visat betydande kunskap. Du är på rätt väg att bli en sann musikkännare. Med mer spelträning kan du utvidga dina kunskaper och förbättra din poäng. Är du redo för en ny utmaning?",
-  "game.end.motivation.pro": "Fantastiskt! 🌟 Du är definitivt ett musikproffs med omfattande kunskap om olika artister och genrer. Din musikförståelse ligger långt över genomsnittet. Få kan matcha din kunskap. Fortsätt så och utmana dina vänner!",
+  "game.end.motivation.enthusiast":
+    "Imponerande! 👍 Som en äkta musikentusiast kan du verkligen dina grejer. Du har byggt en solid grund av musikkunskap som skiljer dig från mängden. Med lite mer träning kan du snart stiga till proffsligan. Vill du prova en runda till?",
+  "game.end.motivation.explorer":
+    "Tack för att du spelade! 🙏 Som en musikutforskare har du tagit det första steget i att upptäcka musikens fascinerande värld. Varje spel är en möjlighet att lära sig något nytt. Utmana dig själv, spela fler rundor och utvidga dina musikkunskaper!",
+  "game.end.motivation.genius":
+    "Extraordinärt! 💫 Du är ett sant musikgeni! 🎶 Din djupa kunskap och musikaliska intuition är verkligt imponerande. Du skulle kunna vinna en musikfrågesport eller till och med vara musikhistoriker. Dela din anmärkningsvärda prestation och utmana andra att tävla mot dig!",
+  "game.end.motivation.lover":
+    "Bra jobbat! 👏 Som en musikälskare har du visat betydande kunskap. Du är på rätt väg att bli en sann musikkännare. Med mer spelträning kan du utvidga dina kunskaper och förbättra din poäng. Är du redo för en ny utmaning?",
+  "game.end.motivation.pro":
+    "Fantastiskt! 🌟 Du är definitivt ett musikproffs med omfattande kunskap om olika artister och genrer. Din musikförståelse ligger långt över genomsnittet. Få kan matcha din kunskap. Fortsätt så och utmana dina vänner!",
   "game.end.newgame": "Nytt spel",
   "game.end.newgameDescription": "Starta ett nytt spel med samma inställningar",
   "game.end.progressDescription": "Visuell framstegsindikator som visar din poängprestationsnivå",
-  "game.end.restartButtonHelp": "Starta omedelbart en ny spelrunda med samma svårighetsgrad och kategori",
+  "game.end.restartButtonHelp":
+    "Starta omedelbart en ny spelrunda med samma svårighetsgrad och kategori",
   "game.end.restartSameGame": "Starta om samma spel",
   "game.end.restartSameGameDescription": "Spela samma kategori och svårighetsgrad igen",
   "game.end.restartSameGameHelp": "Starta om samma kategori och svårighetsgrad för en ny runda",
   "game.end.scoreProgress": "Poängframsteg",
   "game.end.screenReaderDescription": "Spelresultat som visar din poäng och prestationsnivå.",
   "game.end.share": "Dela din framgång!",
-  "game.end.shareDescription": "Öppnar delningsalternativ för att posta din poäng på sociala medieplattformar",
+  "game.end.shareDescription":
+    "Öppnar delningsalternativ för att posta din poäng på sociala medieplattformar",
   "game.end.shareResults": "Dela dina spelresultat på sociala medier",
   "game.end.shareSection": "Dela dina resultat",
   "game.end.title": "Spel över!",
@@ -537,6 +660,9 @@ export default {
   "game.filter.house-techno": "House & Techno",
   "game.filter.indie-alternative": "Indie & Alternativ",
   "game.filter.jazz-soul-funk": "Jazz, Soul & Funk",
+  "category.filter.label": "Filtrera efter kategori:",
+  "category.filter.aria_label": "Filtrera efter kategori",
+  "category.filter.option_all": "Alla",
   "game.filter.label": "Filtrera efter kategori:",
   "game.filter.latin-vibes": "Latinska Vibes",
   "game.filter.mainstream-pop": "Mainstream Pop",
@@ -547,7 +673,8 @@ export default {
   "game.filter.seasonal": "Säsongsbaserade Genrer",
   "game.filter.situational": "Situations- & Aktivitetsbaserade Genrer",
   "game.genre.list": "Genreval",
-  "game.genre.selection.description": "Välj från flera musikgenrer inklusive rock, pop, jazz, klassisk och mer. Varje kategori innehåller noggrant utvalda frågor för att testa dina musikkunskaper.",
+  "game.genre.selection.description":
+    "Välj från flera musikgenrer inklusive rock, pop, jazz, klassisk och mer. Varje kategori innehåller noggrant utvalda frågor för att testa dina musikkunskaper.",
   "game.joker": "50:50 Joker",
   "game.joker.description": "Tar bort två felaktiga svarsalternativ",
   "game.joker.options": "Jokeralternativ",
@@ -574,14 +701,18 @@ export default {
   "game.search.reset.text": "Återställ sökning",
   "game.search.results": "genrer hittades",
   "game.search.showing.all": "Visar alla genrer",
-  "game.select": "🎵 Redo för det ultimata musikäventyret? Dyk in i en värld av rytm, melodi och oförglömliga låtar! Från krossande gitarrsolon till tidlösa klassiker – hitta din perfekta musikaliska strid. Visa världen att du är en sann musikkännare!",
+  "game.select":
+    "🎵 Redo för det ultimata musikäventyret? Dyk in i en värld av rytm, melodi och oförglömliga låtar! Från krossande gitarrsolon till tidlösa klassiker – hitta din perfekta musikaliska strid. Visa världen att du är en sann musikkännare!",
   "game.start.now": "Starta Nu",
   "game.submit.answer": "Kontrollera svar",
   "game.submit.answer.aria": "Kontrollera nuvarande ordning och fortsätt till nästa runda",
-  "game.timepressure.controls": "Använd tangenterna 1-4 för svar, Mellanslag för att pausa, S för att hoppa över",
+  "game.timepressure.controls":
+    "Använd tangenterna 1-4 för svar, Mellanslag för att pausa, S för att hoppa över",
   "game.timepressure.countdown": "Nedräkningstimer",
-  "game.timepressure.description": "⚡ Bli blixt-musikmästaren! Bevisa att du är en sann mästare även under tidspress med blandade svårighetsgrader i {category}. Varje sekund räknas – visa din hastighet och kunskap samtidigt! 🏆",
-  "game.timepressure.instructions": "Svara på frågor så snabbt som möjligt. Du har begränsad tid för varje fråga.",
+  "game.timepressure.description":
+    "⚡ Bli blixt-musikmästaren! Bevisa att du är en sann mästare även under tidspress med blandade svårighetsgrader i {category}. Varje sekund räknas – visa din hastighet och kunskap samtidigt! 🏆",
+  "game.timepressure.instructions":
+    "Svara på frågor så snabbt som möjligt. Du har begränsad tid för varje fråga.",
   "game.timepressure.seconds": "Sek",
   "game.timepressure.skip": "Hoppa över",
   "game.timepressure.streak": "Svit",
@@ -598,7 +729,8 @@ export default {
   "highscores.allModes": "Alla lägen",
   "highscores.category": "Kategori",
   "highscores.date": "Datum",
-  "highscores.description": "Upptäck musiklegenderna! Se vem som toppar listorna och bli inspirerad av de bästa spelarna 🎵🏆",
+  "highscores.description":
+    "Upptäck musiklegenderna! Se vem som toppar listorna och bli inspirerad av de bästa spelarna 🎵🏆",
   "highscores.error": "Fel vid laddning av topplista",
   "highscores.filters": "Filtrera resultat",
   "highscores.gameMode": "Spelläge",
@@ -612,11 +744,14 @@ export default {
   "index.continue": "Vi kör!",
   "index.start.game.label": "Starta din musikaliska resa",
   "index.welcome.footnote": "🎶 Skapad med passion för sanna musikfans - Låt magin börja! ✨",
-  "knowledge.description": "Fördjupa dig i musikens fascinerande värld! 🎶 Upptäck omfattande artiklar, expertinsikter och fängslande fakta om artister, genrer och musikhistoria. Utvidga dina musikaliska horisonter och bli en sann kännare med vår noggrant kuraterade kunskapsbas.",
-  "knowledge.empty": "Inga artiklar tillgängliga för tillfället. Kom tillbaka snart för nytt innehåll!",
+  "knowledge.description":
+    "Fördjupa dig i musikens fascinerande värld! 🎶 Upptäck omfattande artiklar, expertinsikter och fängslande fakta om artister, genrer och musikhistoria. Utvidga dina musikaliska horisonter och bli en sann kännare med vår noggrant kuraterade kunskapsbas.",
+  "knowledge.empty":
+    "Inga artiklar tillgängliga för tillfället. Kom tillbaka snart för nytt innehåll!",
   "knowledge.no.results": "Inga artiklar hittades",
   "knowledge.no.results.help": "Prova andra nyckelord eller bläddra bland alla artiklar nedan",
-  "knowledge.play.description": "🎵 Redo för den ultimata utmaningen? Testa dina musikkunskaper och bli en genreexpert! Samla poäng, använd smarta jokrar och bevisa att du har vad som krävs för att bli en musikmästare! 🏆",
+  "knowledge.play.description":
+    "🎵 Redo för den ultimata utmaningen? Testa dina musikkunskaper och bli en genreexpert! Samla poäng, använd smarta jokrar och bevisa att du har vad som krävs för att bli en musikmästare! 🏆",
   "knowledge.published": "Publicerad",
   "knowledge.read.article": "Läs Artikel",
   "knowledge.read.more": "Lär dig mer",
@@ -647,7 +782,8 @@ export default {
   "language.es.label": "Visa webbplats på spanska",
   "language.fi": "Finska",
   "language.fi.label": "Visa webbplats på finska",
-  "language.focus.announce": "Språkväljare fokuserad. Använd pilknappar för att navigera alternativ.",
+  "language.focus.announce":
+    "Språkväljare fokuserad. Använd pilknappar för att navigera alternativ.",
   "language.fr": "Franska",
   "language.fr.label": "Visa webbplats på franska",
   "language.it": "Italienska",
@@ -682,12 +818,16 @@ export default {
   "loading.context.results": "Laddar resultat",
   "loading.progress.indicator": "Framstegsindikator",
   "loading.started": "Laddning startad",
-  "login.description": "🎵 Dyk in i det ultimata musikuniversumet! Upptäck legendariska hits, bemästra spännande utmaningar och bli den absoluta musikmästaren. Din resa till de största musikaliska hemligheterna börjar nu! 🚀",
+  "login.description":
+    "🎵 Dyk in i det ultimata musikuniversumet! Upptäck legendariska hits, bemästra spännande utmaningar och bli den absoluta musikmästaren. Din resa till de största musikaliska hemligheterna börjar nu! 🚀",
   "login.welcome": "Välkommen till Melody Mind!",
-  "meta.keywords": "Musikquiz, Musikspel, Låtquiz, Artistquiz, Online Musikquiz, Musiktrivia, Melody Mind, Musikgissningsspel",
-  "musicPlatforms.externalNotice": "Externa musikplattformslänkar kan kräva konton eller prenumerationer för full åtkomst.",
+  "meta.keywords":
+    "Musikquiz, Musikspel, Låtquiz, Artistquiz, Online Musikquiz, Musiktrivia, Melody Mind, Musikgissningsspel",
+  "musicPlatforms.externalNotice":
+    "Externa musikplattformslänkar kan kräva konton eller prenumerationer för full åtkomst.",
   "musicPlatforms.heading": "Lyssna på relaterad musik",
-  "musicPlatforms.keyboardInstructions": "Navigera musikplattformar med Tab-tangenten. Tryck Enter eller Space för att öppna plattformar i nya flikar.",
+  "musicPlatforms.keyboardInstructions":
+    "Navigera musikplattformar med Tab-tangenten. Tryck Enter eller Space för att öppna plattformar i nya flikar.",
   "musicPlatforms.listenOn": "Lyssna på {title} på {platform}",
   "musicPlatforms.platform.apple": "Apple Music",
   "musicPlatforms.platform.deezer": "Deezer",
@@ -734,12 +874,14 @@ export default {
   "nav.title": "Navigering",
   "news.articlesList": "Artikellista",
   "news.description": "Upptäck de senaste hitsen, artistnyheter och musiktrender från hela världen",
-  "news.disclaimer.text": "Allt nyhetsinnehåll kommer från externa leverantörer. MelodyMind ansvarar inte för innehållet.",
+  "news.disclaimer.text":
+    "Allt nyhetsinnehåll kommer från externa leverantörer. MelodyMind ansvarar inte för innehållet.",
   "news.disclaimer.title": "Ansvarsfriskrivning",
   "news.lastUpdated": "Senast uppdaterad",
   "news.legal.attribution": "Nyheter tillhandahållna av följande källor:",
   "news.noNews": "Inga nyheter tillgängliga",
-  "news.noNewsDescription": "Det finns för närvarande inga musiknyheter tillgängliga. Försök igen senare.",
+  "news.noNewsDescription":
+    "Det finns för närvarande inga musiknyheter tillgängliga. Försök igen senare.",
   "news.readMore": "Läs mer",
   "news.refresh": "Uppdatera",
   "news.relevanceScore": "Relevans",
@@ -752,53 +894,76 @@ export default {
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.contact_label": "Kontakt",
   "pages.imprint.heading": "Impressum / Ansvarsuppgifter",
-  "pages.imprint.intro": "Nedan anges de enligt lag erforderliga uppgifterna om webbplatsens operatör. Anpassa informationen vid behov för din juridiska situation.",
-  "pages.imprint.liability_content": "Som tjänsteleverantör ansvarar vi för egna innehåll på denna webbplats enligt gällande lag. Vi är dock inte skyldiga att övervaka överförd eller lagrad information från tredje part om inte specifika skäl för överträdelse föreligger.",
-  "pages.imprint.music_assets": "De musikförhandsvisningar och albumomslag som används i MelodyMind tillhandahålls via licensierade API:er. Alla rättigheter till musik och bilder tillhör respektive artister, skivbolag och rättighetsinnehavare.",
+  "pages.imprint.intro":
+    "Nedan anges de enligt lag erforderliga uppgifterna om webbplatsens operatör. Anpassa informationen vid behov för din juridiska situation.",
+  "pages.imprint.liability_content":
+    "Som tjänsteleverantör ansvarar vi för egna innehåll på denna webbplats enligt gällande lag. Vi är dock inte skyldiga att övervaka överförd eller lagrad information från tredje part om inte specifika skäl för överträdelse föreligger.",
+  "pages.imprint.music_assets":
+    "De musikförhandsvisningar och albumomslag som används i MelodyMind tillhandahålls via licensierade API:er. Alla rättigheter till musik och bilder tillhör respektive artister, skivbolag och rättighetsinnehavare.",
   "pages.imprint.music_assets.title": "Musikförhandsvisningar och bilder",
   "pages.imprint.operator_label": "Operatör",
   "pages.imprint.operator_name": "MelodyMind (Daniel Schmid)",
-  "pages.imprint.streaming_links": "Streaming‑länkarna leder till licensierade musiktjänster såsom Spotify, Apple Music och Deezer. MelodyMind själv tillhandahåller inte upphovsrättsskyddat material.",
+  "pages.imprint.streaming_links":
+    "Streaming‑länkarna leder till licensierade musiktjänster såsom Spotify, Apple Music och Deezer. MelodyMind själv tillhandahåller inte upphovsrättsskyddat material.",
   "pages.imprint.streaming_links.title": "Streaming‑länkar",
   "pages.imprint.title": "Impressum",
-  "pages.legal.disclaimer": "Denna rättsliga information har utarbetats med största noggrannhet. Vi kan emellertid inte garantera riktighet, fullständighet eller aktualitet. Anpassa gärna texterna utifrån din specifika rättsliga situation.",
+  "pages.legal.disclaimer":
+    "Denna rättsliga information har utarbetats med största noggrannhet. Vi kan emellertid inte garantera riktighet, fullständighet eller aktualitet. Anpassa gärna texterna utifrån din specifika rättsliga situation.",
   "pages.legal.disclaimer_title": "Ansvarsfriskrivning",
-  "pages.legal.dispute_participation": "Vi är varken beredda eller skyldiga att delta i tvistlösningsförfaranden inför en konsumentombudsmanninstans.",
-  "pages.legal.migration_note": "Dessa nycklar är avsedda att ersätta äldre, auto‑genererade nycklar för integritets‑ och rättsinformation. Uppdatera mallar/komponenter successivt för att använda de nya, lättare att underhålla nycklarna.",
-  "pages.legal.odr": "Europeiska kommissionen tillhandahåller en plattform för online‑tvistlösning (ODR). Plattformen finns här: https://ec.europa.eu/consumers/odr",
+  "pages.legal.dispute_participation":
+    "Vi är varken beredda eller skyldiga att delta i tvistlösningsförfaranden inför en konsumentombudsmanninstans.",
+  "pages.legal.migration_note":
+    "Dessa nycklar är avsedda att ersätta äldre, auto‑genererade nycklar för integritets‑ och rättsinformation. Uppdatera mallar/komponenter successivt för att använda de nya, lättare att underhålla nycklarna.",
+  "pages.legal.odr":
+    "Europeiska kommissionen tillhandahåller en plattform för online‑tvistlösning (ODR). Plattformen finns här: https://ec.europa.eu/consumers/odr",
   "pages.legal.odr.title": "Online tvistlösning (ODR)",
-  "pages.privacy.analytics": "Vi använder Fathom Analytics, en integritetsfokuserad analysleverantör. Fathom behandlar data anonymt och samlar inte in personuppgifter eller spårar individuella användare.",
+  "pages.privacy.analytics":
+    "Vi använder Fathom Analytics, en integritetsfokuserad analysleverantör. Fathom behandlar data anonymt och samlar inte in personuppgifter eller spårar individuella användare.",
   "pages.privacy.analytics.link_label": "Fathoms integritetspolicy",
   "pages.privacy.analytics.link_url": "https://usefathom.com/privacy",
   "pages.privacy.analytics.title": "Analys",
-  "pages.privacy.complaint_authority": "Du har också rätt att lämna in ett klagomål till en tillsynsmyndighet om du anser att vår behandling av dina personuppgifter strider mot lag.",
-  "pages.privacy.contact.address": "Adress: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Tyskland",
+  "pages.privacy.complaint_authority":
+    "Du har också rätt att lämna in ett klagomål till en tillsynsmyndighet om du anser att vår behandling av dina personuppgifter strider mot lag.",
+  "pages.privacy.contact.address":
+    "Adress: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Tyskland",
   "pages.privacy.contact.email": "dcschmid@murena.io",
   "pages.privacy.contact.email_label": "E‑post",
   "pages.privacy.contact.title": "Kontakt (dataskydd)",
-  "pages.privacy.cookies": "Vår webbplats använder cookies. Det är små textfiler som din webbläsare sparar. Vi använder endast tekniskt nödvändiga cookies för kärnfunktionalitet om inget annat anges.",
+  "pages.privacy.cookies":
+    "Vår webbplats använder cookies. Det är små textfiler som din webbläsare sparar. Vi använder endast tekniskt nödvändiga cookies för kärnfunktionalitet om inget annat anges.",
   "pages.privacy.cookies.title": "Cookies",
-  "pages.privacy.data_collected.automatic": "Andra uppgifter samlas in automatiskt av våra IT‑system vid besök på webbplatsen, främst tekniska data (webbläsare, operativsystem, tidpunkt för åtkomst, IP‑adress) i serverloggar.",
-  "pages.privacy.data_collected.manual": "Vissa uppgifter samlas in när du själv lämnar dem, till exempel via kontaktformulär eller kontoregistrering.",
-  "pages.privacy.data_processing_basis": "Behandlingen av data på denna webbplats sker på grundval av Art. 6.1 b) GDPR (avtal) och Art. 6.1 f) GDPR (berättigat intresse för en tillförlitlig presentation av webbplatsen).",
+  "pages.privacy.data_collected.automatic":
+    "Andra uppgifter samlas in automatiskt av våra IT‑system vid besök på webbplatsen, främst tekniska data (webbläsare, operativsystem, tidpunkt för åtkomst, IP‑adress) i serverloggar.",
+  "pages.privacy.data_collected.manual":
+    "Vissa uppgifter samlas in när du själv lämnar dem, till exempel via kontaktformulär eller kontoregistrering.",
+  "pages.privacy.data_processing_basis":
+    "Behandlingen av data på denna webbplats sker på grundval av Art. 6.1 b) GDPR (avtal) och Art. 6.1 f) GDPR (berättigat intresse för en tillförlitlig presentation av webbplatsen).",
   "pages.privacy.data_processing_basis_title": "Rättslig grund för behandling",
-  "pages.privacy.hosting.description": "Vi hostar webbplatsens innehåll hos Render Services, Inc., 525 Brannan Street, Suite 300, San Francisco, CA 94107, USA.",
+  "pages.privacy.hosting.description":
+    "Vi hostar webbplatsens innehåll hos Render Services, Inc., 525 Brannan Street, Suite 300, San Francisco, CA 94107, USA.",
   "pages.privacy.hosting.render_privacy_link_label": "Renders integritetspolicy",
   "pages.privacy.hosting.render_privacy_link_url": "https://render.com/privacy",
   "pages.privacy.hosting.title": "Hostingleverantör",
-  "pages.privacy.intro_p1": "Följande ger en enkel översikt över vad som händer med dina personuppgifter när du besöker vår webbplats. Personuppgifter är all information som kan användas för att identifiera dig.",
+  "pages.privacy.intro_p1":
+    "Följande ger en enkel översikt över vad som händer med dina personuppgifter när du besöker vår webbplats. Personuppgifter är all information som kan användas för att identifiera dig.",
   "pages.privacy.last_updated": "Senast uppdaterad: {date}",
-  "pages.privacy.meta_description": "MelodyMind integritetspolicy – Hur vi samlar in, behandlar och skyddar dina personuppgifter.",
-  "pages.privacy.responsible_party_description": "Databehandlingen på denna webbplats utförs av webbplatsens ansvariga. Kontaktuppgifter finns i avsnittet för imprint/ansvarsuppgifter.",
+  "pages.privacy.meta_description":
+    "MelodyMind integritetspolicy – Hur vi samlar in, behandlar och skyddar dina personuppgifter.",
+  "pages.privacy.responsible_party_description":
+    "Databehandlingen på denna webbplats utförs av webbplatsens ansvariga. Kontaktuppgifter finns i avsnittet för imprint/ansvarsuppgifter.",
   "pages.privacy.responsible_party_title": "Ansvarig för databehandlingen",
-  "pages.privacy.rights": "Du har rätt att begära tillgång till, rättelse av eller radering av dina personuppgifter samt begränsning av behandling och rätt till dataportabilitet. Du kan även invända mot behandling. Kontakta oss för att utöva dina rättigheter.",
+  "pages.privacy.rights":
+    "Du har rätt att begära tillgång till, rättelse av eller radering av dina personuppgifter samt begränsning av behandling och rätt till dataportabilitet. Du kan även invända mot behandling. Kontakta oss för att utöva dina rättigheter.",
   "pages.privacy.rights.title": "Dina rättigheter",
-  "pages.privacy.storage_duration": "Om inte en mer specifik lagringstid anges i denna policy kommer dina personuppgifter att sparas tills det syfte för vilket de samlats in inte längre är relevant eller tills du begär radering.",
+  "pages.privacy.storage_duration":
+    "Om inte en mer specifik lagringstid anges i denna policy kommer dina personuppgifter att sparas tills det syfte för vilket de samlats in inte längre är relevant eller tills du begär radering.",
   "pages.privacy.title": "Integritetspolicy",
-  "pages.privacy.turso_storage": "När du spelar MelodyMind kan följande data lagras i vår TursoDB‑databas: spelstatistik (spelade rundor, valda kategorier, svårighetsnivå). Dessa uppgifter lagras säkert för att möjliggöra persistenta sparningar, topplistor och achievements.",
+  "pages.privacy.turso_storage":
+    "När du spelar MelodyMind kan följande data lagras i vår TursoDB‑databas: spelstatistik (spelade rundor, valda kategorier, svårighetsnivå). Dessa uppgifter lagras säkert för att möjliggöra persistenta sparningar, topplistor och achievements.",
   "pages.privacy.turso_storage.title": "Speldata och lagring",
   "podcast.description": "Upptäck musikinsikter genom vår podcastserie",
-  "podcast.rss.description": "Upptäck musikhistorien genom engagerande podcast-avsnitt som täcker olika epoker, genrer och musikaliska rörelser.",
+  "podcast.rss.description":
+    "Upptäck musikhistorien genom engagerande podcast-avsnitt som täcker olika epoker, genrer och musikaliska rörelser.",
   "podcast.rss.subscribe": "Prenumerera på RSS Feed",
   "podcast.rss.subscribe.description": "Håll dig uppdaterad med nya avsnitt",
   "podcast.rss.subscribe.title": "Prenumerera på vår Podcast",
@@ -806,11 +971,13 @@ export default {
   "podcast.search.placeholder": "Sök poddar...",
   "podcast.search.reset.text": "Återställ sökning",
   "podcast.title": "Podcasts",
-  "podcasts.empty.text": "Det finns inga podcastavsnitt tillgängliga på detta språk ännu. Kom tillbaka snart för nytt innehåll!",
+  "podcasts.empty.text":
+    "Det finns inga podcastavsnitt tillgängliga på detta språk ännu. Kom tillbaka snart för nytt innehåll!",
   "podcasts.empty.title": "Inga podcasts tillgängliga",
   "podcasts.episode.plural": "Avsnitt",
   "podcasts.episode.singular": "Avsnitt",
-  "podcasts.language_restriction.description": "Våra podcast-avsnitt är för närvarande endast tillgängliga på tyska och engelska. Vänligen byt till ett av dessa språk för att upptäcka vårt innehåll.",
+  "podcasts.language_restriction.description":
+    "Våra podcast-avsnitt är för närvarande endast tillgängliga på tyska och engelska. Vänligen byt till ett av dessa språk för att upptäcka vårt innehåll.",
   "podcasts.language_restriction.switch_to_english": "Byt till Engelska",
   "podcasts.language_restriction.switch_to_german": "Byt till Tyska",
   "podcasts.language_restriction.title": "Podcasts Tillgängliga Endast på Tyska och Engelska",
@@ -821,7 +988,8 @@ export default {
   "podcasts.platform.spotify": "Spotify",
   "podcasts.player.transcript.placeholder": "Inget transkriptinnehåll tillgängligt ännu.",
   "podcasts.read_full_notes": "Läs hela avsnittsanteckningarna",
-  "podcasts.transcript.info": "Klicka på valfritt segment för att hoppa till den positionen i ljudet.",
+  "podcasts.transcript.info":
+    "Klicka på valfritt segment för att hoppa till den positionen i ljudet.",
   "podcasts.transcript.loading": "Klicka för att ladda transkript...",
   "podcasts.transcript.show": "Visa transkript",
   "podcasts.transcript.title": "Avsnitt transkript",
@@ -848,21 +1016,29 @@ export default {
   "profile.user.info": "Användarinformation",
   "profile.user.member_since": "Medlem sedan",
   "profile.user.username": "Användarnamn",
-  "share.accessibility.copy_failed_manual": "Kopiering misslyckades. Kopiera sidans URL manuellt från din webbläsare.",
+  "share.accessibility.copy_failed_manual":
+    "Kopiering misslyckades. Kopiera sidans URL manuellt från din webbläsare.",
   "share.accessibility.data_found": "Speldata hittades! Delningsalternativ är nu tillgängliga.",
-  "share.accessibility.data_still_unavailable": "Speldata är fortfarande inte tillgängliga. Försök att uppdatera sidan eller använd manuell kopiering.",
-  "share.accessibility.data_unavailable": "Speldata ej tillgängligt. Försök igen eller kopiera manuellt.",
+  "share.accessibility.data_still_unavailable":
+    "Speldata är fortfarande inte tillgängliga. Försök att uppdatera sidan eller använd manuell kopiering.",
+  "share.accessibility.data_unavailable":
+    "Speldata ej tillgängligt. Försök igen eller kopiera manuellt.",
   "share.accessibility.link_copied_fallback": "Spellänk kopierad till urklipp med fallback-metod!",
-  "share.accessibility.native_share_failed": "Inbyggd delning misslyckades: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.native_share_failed":
+    "Inbyggd delning misslyckades: {errorMessage}. {recoveryMessage}",
   "share.accessibility.platform_opened": "Delning för {platform} öppnades framgångsrikt.",
-  "share.accessibility.platform_share_failed": "Misslyckades att dela till {platform}: {errorMessage}. {recoveryMessage}",
-  "share.accessibility.retry_failed": "Nytt försök misslyckades. Försök att kopiera manuellt eller uppdatera sidan.",
+  "share.accessibility.platform_share_failed":
+    "Misslyckades att dela till {platform}: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.retry_failed":
+    "Nytt försök misslyckades. Försök att kopiera manuellt eller uppdatera sidan.",
   "share.accessibility.retrying": "Försöker igen att hitta speldata...",
   "share.accessibility.score_copied": "Poäng kopierad till urklipp med framgång!",
   "share.accessibility.score_shared": "Poäng delades framgångsrikt.",
   "share.accessibility.sharing_cancelled": "Delning avbröts.",
-  "share.accessibility.try_alternative_methods": "Försök att kopiera till urklipp eller använda en annan delningsmetod.",
-  "share.accessibility.try_platform_buttons": "Försök använda plattformspecifika delningsknappar eller kopiera till urklipp istället",
+  "share.accessibility.try_alternative_methods":
+    "Försök att kopiera till urklipp eller använda en annan delningsmetod.",
+  "share.accessibility.try_platform_buttons":
+    "Försök använda plattformspecifika delningsknappar eller kopiera till urklipp istället",
   "share.achievement.enthusiast": "🎸 Musikentusiast! 🎸",
   "share.achievement.explorer": "🎼 Musikutforskare! 🎼",
   "share.achievement.genius": "🎵 Musikgeni! 🎵",
