@@ -4,45 +4,45 @@ export default {
   // Merge base template to keep existing common keys and then add/override
   ...template,
 
-  // Machine-translated (MT) additions for gamehome page — mark: MT
+  // Machine-translated  additions for gamehome page — mark: MT
   // These entries were added automatically and should be reviewed by a native speaker.
 
-  "accessibility.skip.to.content": "MT: Aller au contenu principal",
+  "accessibility.skip.to.content": "Aller au contenu principal",
 
   // Search UI (client translations used on gamehome)
-  "game.search.label": "MT: Rechercher un genre",
-  "game.search.placeholder": "MT: Rechercher des genres...",
-  "game.search.clear": "MT: Effacer la recherche",
-  "game.search.reset.text": "MT: Réinitialiser la recherche",
-  "game.search.showing.all": "MT: Affichage de tous les genres",
-  "game.search.results": "MT: genres trouvés",
-  "game.search.no.results": "MT: Aucun genre trouvé correspondant à votre recherche",
-  "game.search.help": "MT: Tapez pour filtrer les genres musicaux par nom",
+  "game.search.label": "Rechercher un genre",
+  "game.search.placeholder": "Rechercher des genres...",
+  "game.search.clear": "Effacer la recherche",
+  "game.search.reset.text": "Réinitialiser la recherche",
+  "game.search.showing.all": "Affichage de tous les genres",
+  "game.search.results": "genres trouvés",
+  "game.search.no.results": "Aucun genre trouvé correspondant à votre recherche",
+  "game.search.help": "Tapez pour filtrer les genres musicaux par nom",
 
   // Gamehome hero / SEO strings
   "game.select":
-    "MT: 🎵 Prêt pour l'aventure musicale ultime ? Plongez dans un monde de rythme, de mélodie et de chansons inoubliables ! Des solos de guitare époustouflants aux classiques intemporels — trouvez votre bataille musicale parfaite. Montrez au monde que vous êtes un vrai connaisseur de musique !",
-  "game.welcome": "MT: Bienvenue sur Melody Mind",
+    "🎵 Prêt pour l'aventure musicale ultime ? Plongez dans un monde de rythme, de mélodie et de chansons inoubliables ! Des solos de guitare époustouflants aux classiques intemporels — trouvez votre bataille musicale parfaite. Montrez au monde que vous êtes un vrai connaisseur de musique !",
+  "game.welcome": "Bienvenue sur Melody Mind",
   "game.genre.selection.description":
-    "MT: Choisissez parmi plusieurs genres musicaux, y compris rock, pop, jazz, classique et plus encore. Chaque catégorie propose des questions soigneusement sélectionnées pour tester vos connaissances musicales.",
-  "game.genre.list": "MT: Sélection de genre",
+    "Choisissez parmi plusieurs genres musicaux, y compris rock, pop, jazz, classique et plus encore. Chaque catégorie propose des questions soigneusement sélectionnées pour tester vos connaissances musicales.",
+  "game.genre.list": "Sélection de genre",
 
   // Category-related fallbacks / empty states
-  "game.categories.title": "MT: Catégories musicales",
-  "game.categories.loading": "MT: Chargement des catégories musicales...",
-  "game.categories.empty.headline": "MT: Aucun genre trouvé",
+  "game.categories.title": "Catégories musicales",
+  "game.categories.loading": "Chargement des catégories musicales...",
+  "game.categories.empty.headline": "Aucun genre trouvé",
   "game.categories.empty.text":
-    "MT: Malheureusement, aucune catégorie n'a été trouvée. Veuillez réessayer plus tard.",
+    "Malheureusement, aucune catégorie n'a été trouvée. Veuillez réessayer plus tard.",
 
-  // Meta / SEO keywords (MT)
+  // Meta / SEO keywords 
   "meta.keywords":
-    "MT: Quiz musical, Jeu musical, Quiz de chansons, Quiz d'artistes, Quiz musical en ligne, Trivia musical, Melody Mind, Jeu de devinettes musicales",
+    "Quiz musical, Jeu musical, Quiz de chansons, Quiz d'artistes, Quiz musical en ligne, Trivia musical, Melody Mind, Jeu de devinettes musicales",
 
   // Small CTA used on gamehome (if not present)
-  "game.start.now": "MT: Commencer maintenant",
+  "game.start.now": "Commencer maintenant",
 
   // Client translation accessibility keys for gamehome scripts
-  "game.search.results.found_with_count": "MT: {count} genres trouvés", // used by some client components if present
+  "game.search.results.found_with_count": "{count} genres trouvés", // used by some client components if present
 
   // Mark: end of machine-translated additions for gamehome.
 };

@@ -4,42 +4,42 @@ export default {
   // Merge base template to keep existing common keys and then add/override
   ...template,
 
-  // Machine-translated (MT) additions for gamehome page — mark: MT
+  // Machine-translated  additions for gamehome page — mark: MT
   // These entries were added automatically and should be reviewed by a native speaker.
 
-  "accessibility.skip.to.content": "MT: 跳转到主要内容",
+  "accessibility.skip.to.content": "跳转到主要内容",
 
   // Search UI (client translations used on gamehome)
-  "game.search.label": "MT: 搜索类别",
-  "game.search.placeholder": "MT: 搜索类别...",
-  "game.search.clear": "MT: 清除搜索",
-  "game.search.reset.text": "MT: 重置搜索",
-  "game.search.showing.all": "MT: 显示所有类别",
-  "game.search.results": "MT: 已找到类别",
-  "game.search.no.results": "MT: 未找到匹配您搜索的类别",
-  "game.search.help": "MT: 输入以按名称筛选音乐流派",
-  "game.search.results.found_with_count": "MT: 已找到 {count} 个类别",
+  "game.search.label": "搜索类别",
+  "game.search.placeholder": "搜索类别...",
+  "game.search.clear": "清除搜索",
+  "game.search.reset.text": "重置搜索",
+  "game.search.showing.all": "显示所有类别",
+  "game.search.results": "已找到类别",
+  "game.search.no.results": "未找到匹配您搜索的类别",
+  "game.search.help": "输入以按名称筛选音乐流派",
+  "game.search.results.found_with_count": "已找到 {count} 个类别",
 
   // Gamehome hero / SEO strings
   "game.select":
-    "MT: 🎵 准备好迎接终极音乐冒险了吗？沉浸在节奏、旋律和难忘歌曲的世界！从震撼的吉他独奏到永恒的经典——找到你的完美音乐挑战。向世界展示你是真正的音乐鉴赏家！",
-  "game.welcome": "MT: 欢迎来到 Melody Mind",
+    "🎵 准备好迎接终极音乐冒险了吗？沉浸在节奏、旋律和难忘歌曲的世界！从震撼的吉他独奏到永恒的经典——找到你的完美音乐挑战。向世界展示你是真正的音乐鉴赏家！",
+  "game.welcome": "欢迎来到 Melody Mind",
   "game.genre.selection.description":
-    "MT: 从多个音乐流派中选择，包括摇滚、流行、爵士、古典等。每个类别都有精心挑选的问题，来测试你的音乐知识。",
-  "game.genre.list": "MT: 流派选择",
+    "从多个音乐流派中选择，包括摇滚、流行、爵士、古典等。每个类别都有精心挑选的问题，来测试你的音乐知识。",
+  "game.genre.list": "流派选择",
 
   // Category-related fallbacks / empty states
-  "game.categories.title": "MT: 音乐类别",
-  "game.categories.loading": "MT: 正在加载音乐类别...",
-  "game.categories.empty.headline": "MT: 未找到类别",
-  "game.categories.empty.text": "MT: 很抱歉，未找到任何类别。请稍后重试。",
+  "game.categories.title": "音乐类别",
+  "game.categories.loading": "正在加载音乐类别...",
+  "game.categories.empty.headline": "未找到类别",
+  "game.categories.empty.text": "很抱歉，未找到任何类别。请稍后重试。",
 
-  // Meta / SEO keywords (MT)
+  // Meta / SEO keywords 
   "meta.keywords":
-    "MT: 音乐测验, 音乐游戏, 歌曲测验, 艺人测验, 在线音乐测验, 音乐问答, Melody Mind, 音乐竞猜游戏",
+    "音乐测验, 音乐游戏, 歌曲测验, 艺人测验, 在线音乐测验, 音乐问答, Melody Mind, 音乐竞猜游戏",
 
   // Small CTA used on gamehome (if not present)
-  "game.start.now": "MT: 立即开始",
+  "game.start.now": "立即开始",
 
   // Mark: end of machine-translated additions for gamehome.
 

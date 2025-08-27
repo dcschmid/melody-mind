@@ -337,88 +337,88 @@ export default {
   "auth.tokens.refreshFailed": "Error al actualizar el token",
   "auth.tokens.refreshSuccess": "Token actualizado exitosamente",
   "auto._lang_.podcasts._id_.0_podcasts_currentindex_1_null_const":
-    "MT: 0 ? podcasts[currentIndex - 1] : null;\n  const next = currentIndex",
+    "0 ? podcasts[currentIndex - 1] : null;\n  const next = currentIndex",
   "auto.pages._lang_.playlists.finde_deine_lieblingsmusik_nach_k_nstler_stil":
-    "MT: Finde deine Lieblingsmusik nach Künstler, Stil, Epoche oder Genre",
+    "Finde deine Lieblingsmusik nach Künstler, Stil, Epoche oder Genre",
   "auto.pages.de.datenschutz.adresse_daniel_schmid_hiltenspergerstr_78_80796":
-    "MT: Adresse: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland",
+    "Adresse: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland",
   "auto.pages.de.datenschutz.andere_daten_werden_automatisch_oder_nach":
-    "MT: Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website\n              durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B.\n              Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).",
+    "Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website\n              durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B.\n              Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).",
   "auto.pages.de.datenschutz.bei_fragen_zum_datenschutz_zur_geltendmachung":
-    "MT: Bei Fragen zum Datenschutz, zur Geltendmachung Ihrer Rechte oder bei Beschwerden\n              können Sie sich jederzeit an uns wenden:",
+    "Bei Fragen zum Datenschutz, zur Geltendmachung Ihrer Rechte oder bei Beschwerden\n              können Sie sich jederzeit an uns wenden:",
   "auto.pages.de.datenschutz.der_provider_der_seiten_erhebt_und":
-    "MT: Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten\n              Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:",
+    "Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten\n              Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:",
   "auto.pages.de.datenschutz.die_betreiber_dieser_seiten_nehmen_den":
-    "MT: Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir\n              behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen\n              Datenschutzvorschriften sowie dieser Datenschutzerklärung.",
+    "Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir\n              behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen\n              Datenschutzvorschriften sowie dieser Datenschutzerklärung.",
   "auto.pages.de.datenschutz.die_datenverarbeitung_auf_dieser_website_erfolgt":
-    'MT: Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen\n              Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle" in dieser\n              Datenschutzerklärung entnehmen.',
+    'Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen\n              Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle" in dieser\n              Datenschutzerklärung entnehmen.',
   "auto.pages.de.datenschutz.die_folgenden_hinweise_geben_einen_einfachen":
-    "MT: Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren\n              personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene\n              Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.",
+    "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren\n              personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene\n              Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.",
   "auto.pages.de.datenschutz.die_verantwortliche_stelle_f_r_die_datenverarbeitung":
-    "MT: Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:",
+    "Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:",
   "auto.pages.de.datenschutz.die_verwendung_erfolgt_auf_grundlage_von":
-    "MT: Die Verwendung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein\n              berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website.",
+    "Die Verwendung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein\n              berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website.",
   "auto.pages.de.datenschutz.die_website_wird_ber_https_verschl_sselt":
-    "MT: Die Website wird über HTTPS verschlüsselt übertragen. Dadurch sind Ihre Eingaben vor\n              dem Zugriff durch Dritte geschützt.",
+    "Die Website wird über HTTPS verschlüsselt übertragen. Dadurch sind Ihre Eingaben vor\n              dem Zugriff durch Dritte geschützt.",
   "auto.pages.de.datenschutz.diese_cookies_sind_f_r_das_funktionieren":
-    "MT: Diese Cookies sind für das Funktionieren der Website erforderlich und werden auf\n              Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert.",
+    "Diese Cookies sind für das Funktionieren der Website erforderlich und werden auf\n              Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert.",
   "auto.pages.de.datenschutz.diese_daten_werden_anonym_verarbeitet_und":
-    "MT: Diese Daten werden anonym verarbeitet und können nicht zur Identifizierung einzelner\n              Nutzer verwendet werden. Weitere Informationen finden Sie in der Datenschutzerklärung\n              von Fathom:",
+    "Diese Daten werden anonym verarbeitet und können nicht zur Identifizierung einzelner\n              Nutzer verwendet werden. Weitere Informationen finden Sie in der Datenschutzerklärung\n              von Fathom:",
   "auto.pages.de.datenschutz.diese_daten_werden_sicher_in_unserer":
-    "MT: Diese Daten werden sicher in unserer TursoDB-Datenbank gespeichert, um Ihnen\n              persistenten Spielfortschritt zu ermöglichen und Features wie Highscores und\n              Achievements anzubieten. Sie können die Löschung Ihrer Daten jederzeit per E-Mail an",
+    "Diese Daten werden sicher in unserer TursoDB-Datenbank gespeichert, um Ihnen\n              persistenten Spielfortschritt zu ermöglichen und Features wie Highscores und\n              Achievements anzubieten. Sie können die Löschung Ihrer Daten jederzeit per E-Mail an",
   "auto.pages.de.datenschutz.eine_zusammenf_hrung_dieser_daten_mit_anderen":
-    "MT: Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die\n              Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.",
+    "Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die\n              Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.",
   "auto.pages.de.datenschutz.f_r_ihren_erneuten_besuch_gilt_dann":
-    "MT: Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung. Wir empfehlen\n              Ihnen, diese Seite regelmäßig zu besuchen, um über Änderungen informiert zu bleiben.",
+    "Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung. Wir empfehlen\n              Ihnen, diese Seite regelmäßig zu besuchen, um über Änderungen informiert zu bleiben.",
   "auto.pages.de.datenschutz.fathom_analytics_erfasst_anonymisierte_daten_einschlie_lich":
-    "MT: Fathom Analytics erfasst anonymisierte Daten, einschließlich:",
+    "Fathom Analytics erfasst anonymisierte Daten, einschließlich:",
   "auto.pages.de.datenschutz.ihre_daten_werden_zum_einen_dadurch":
-    "MT: Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei\n              kann es sich z. B. um Daten handeln, die Sie in unser Kontaktformular eingeben.",
+    "Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei\n              kann es sich z. B. um Daten handeln, die Sie in unser Kontaktformular eingeben.",
   "auto.pages.de.datenschutz.ihre_spielst_nde_und_einstellungen_werden_im":
-    "MT: Ihre Spielstände und Einstellungen werden im Local Storage Ihres Browsers gespeichert.\n              Diese Daten verbleiben lokal und werden nicht übertragen.",
+    "Ihre Spielstände und Einstellungen werden im Local Storage Ihres Browsers gespeichert.\n              Diese Daten verbleiben lokal und werden nicht übertragen.",
   "auto.pages.de.datenschutz.melodymind_nutzt_externe_musik_apis_f_r":
-    "MT: MelodyMind nutzt externe Musik-APIs für Preview-Links und Album-Cover. Beim Abspielen\n              von Musik-Previews oder beim Klick auf Streaming-Links werden Sie zu externen Diensten\n              weitergeleitet:",
+    "MelodyMind nutzt externe Musik-APIs für Preview-Links und Album-Cover. Beim Abspielen\n              von Musik-Previews oder beim Klick auf Streaming-Links werden Sie zu externen Diensten\n              weitergeleitet:",
   "auto.pages.de.datenschutz.rechtsgrundlage_f_r_diese_verarbeitung_ist_art":
-    "MT: Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO\n              (Vertragserfüllung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der\n              Bereitstellung der Spielfunktionalität).",
+    "Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO\n              (Vertragserfüllung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der\n              Bereitstellung der Spielfunktionalität).",
   "auto.pages.de.datenschutz.rechtsgrundlage_f_r_diese_verarbeitung_ist_art_2":
-    "MT: Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes\n              Interesse an der Analyse der Website-Nutzung zur Verbesserung unserer Dienste).",
+    "Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes\n              Interesse an der Analyse der Website-Nutzung zur Verbesserung unserer Dienste).",
   "auto.pages.de.datenschutz.sie_haben_au_erdem_das_recht_sich":
-    "MT: Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die\n              Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren.",
+    "Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die\n              Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren.",
   "auto.pages.de.datenschutz.sie_haben_folgende_rechte_bez_glich_ihrer":
-    "MT: Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:",
+    "Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:",
   "auto.pages.de.datenschutz.soweit_innerhalb_dieser_datenschutzerkl_rung_keine_speziellere":
-    "MT: Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt\n              wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die\n              Datenverarbeitung entfällt.",
+    "Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt\n              wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die\n              Datenverarbeitung entfällt.",
   "auto.pages.de.datenschutz.spielstatistiken_gespielte_runden_kategorien_schwierigkeitsgrade":
-    "MT: Spielstatistiken (gespielte Rondas, Kategorien, Schwierigkeitsgrade)",
+    "Spielstatistiken (gespielte Rondas, Kategorien, Schwierigkeitsgrade)",
   "auto.pages.de.datenschutz.unsere_website_verwendet_cookies_das_sind":
-    "MT: Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Browser auf\n              Ihrem Gerät speichert. Wir verwenden ausschließlich technisch notwendige Cookies für:",
+    "Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Browser auf\n              Ihrem Gerät speichert. Wir verwenden ausschließlich technisch notwendige Cookies für:",
   "auto.pages.de.datenschutz.wenn_sie_melodymind_spielen_werden_folgende":
-    "MT: Wenn Sie MelodyMind spielen, werden folgende Daten in unserer TursoDB-Datenbank\n              gespeichert:",
+    "Wenn Sie MelodyMind spielen, werden folgende Daten in unserer TursoDB-Datenbank\n              gespeichert:",
   "auto.pages.de.datenschutz.wenn_sie_unsere_website_besuchen_erfasst":
-    "MT: Wenn Sie unsere Website besuchen, erfasst Render verschiedene Logfiles inklusive Ihrer\n              IP-Adressen. Details entnehmen Sie der Datenschutzerklärung von Render:",
+    "Wenn Sie unsere Website besuchen, erfasst Render verschiedene Logfiles inklusive Ihrer\n              IP-Adressen. Details entnehmen Sie der Datenschutzerklärung von Render:",
   "auto.pages.de.datenschutz.wenn_sie_von_diesen_rechten_gebrauch":
-    "MT: Wenn Sie von diesen Rechten Gebrauch machen möchten, kontaktieren Sie uns bitte unter:",
+    "Wenn Sie von diesen Rechten Gebrauch machen möchten, kontaktieren Sie uns bitte unter:",
   "auto.pages.de.datenschutz.wer_ist_verantwortlich_f_r_die_datenerfassung":
-    "MT: Wer ist verantwortlich für die Datenerfassung auf dieser Website?",
+    "Wer ist verantwortlich für die Datenerfassung auf dieser Website?",
   "auto.pages.de.datenschutz.wir_behalten_uns_vor_diese_datenschutzerkl_rung":
-    "MT: Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den\n              aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen\n              in der Datenschutzerklärung umzusetzen.",
+    "Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den\n              aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen\n              in der Datenschutzerklärung umzusetzen.",
   "auto.pages.de.datenschutz.wir_hosten_die_inhalte_unserer_website":
-    "MT: Wir hosten die Inhalte unserer Website bei Render Services Inc., 525 Brannan Street,\n              Suite 300, San Francisco, CA 94107, USA.",
+    "Wir hosten die Inhalte unserer Website bei Render Services Inc., 525 Brannan Street,\n              Suite 300, San Francisco, CA 94107, USA.",
   "auto.pages.de.datenschutz.wir_verwenden_geeignete_technische_und_organisatorische":
-    "MT: Wir verwenden geeignete technische und organisatorische Sicherheitsmaßnahmen, um Ihre\n              Daten gegen zufällige oder vorsätzliche Manipulationen, teilweisen oder vollständigen\n              Verlust, Zerstörung oder gegen den unbefugten Zugriff Dritter zu schützen.",
+    "Wir verwenden geeignete technische und organisatorische Sicherheitsmaßnahmen, um Ihre\n              Daten gegen zufällige oder vorsätzliche Manipulationen, teilweisen oder vollständigen\n              Verlust, Zerstörung oder gegen den unbefugten Zugriff Dritter zu schützen.",
   "auto.pages.de.impressum.die_europ_ische_kommission_stellt_eine_plattform":
-    "MT: Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)\n              bereit:",
+    "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)\n              bereit:",
   "auto.pages.de.impressum.die_in_melodymind_verwendeten_musik_previews":
-    "MT: Die in MelodyMind verwendeten Musik-Previews und Album-Cover werden über lizenzierte\n              APIs bereitgestellt. Alle Rechte an den Musikstücken und Bildern liegen bei den\n              jeweiligen Künstlern, Plattenlabels und Rechteinhabern.",
+    "Die in MelodyMind verwendeten Musik-Previews und Album-Cover werden über lizenzierte\n              APIs bereitgestellt. Alle Rechte an den Musikstücken und Bildern liegen bei den\n              jeweiligen Künstlern, Plattenlabels und Rechteinhabern.",
   "auto.pages.de.impressum.die_streaming_links_f_hren_zu_lizenzierten":
-    "MT: Die Streaming-Links führen zu lizenzierten Musikdiensten wie Spotify, Apple Music und\n              Deezer. MelodyMind selbst hostet keine urheberrechtlich geschützten Inhalte.",
+    "Die Streaming-Links führen zu lizenzierten Musikdiensten wie Spotify, Apple Music und\n              Deezer. MelodyMind selbst hostet keine urheberrechtlich geschützten Inhalte.",
   "auto.pages.de.impressum.wir_sind_nicht_bereit_oder_verpflichtet":
-    "MT: Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer\n              Verbraucherschlichtungsstelle teilzunehmen.",
-  "auto.src.components.Headline.welcome_to_melodymind": "MT: *   Welcome to MelodyMind\n *",
+    "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer\n              Verbraucherschlichtungsstelle teilzunehmen.",
+  "auto.src.components.Headline.welcome_to_melodymind": "*   Welcome to MelodyMind\n *",
   "auto.src.components.Paragraph.this_is_a_paragraph_with_custom":
-    "MT: *   This is a paragraph with custom styling\n *",
+    "*   This is a paragraph with custom styling\n *",
   "auto.src.pages.404.don_t_worry_though_there_s":
-    "MT: Don't worry though, there's plenty of music to discover! Try one of the options below to\n            get back on track.",
+    "Don't worry though, there's plenty of music to discover! Try one of the options below to\n            get back on track.",
   "category.about.title": "Acerca de esta categoría",
   "category.difficulty.easy": "Fácil",
   "category.difficulty.hard": "Difícil",
