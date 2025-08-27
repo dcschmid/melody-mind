@@ -104,6 +104,11 @@ export default {
   "error.404.actions.quiz": "Musikquiz starten",
   "error.404.actions.highscores": "Bestenlisten anzeigen",
   "footer.opens_in_new_tab": "öffnet sich in einem neuen Tab",
+  "musicPlatforms.description": "Höre diese Wiedergabeliste auf beliebten Musikplattformen",
+  "musicPlatforms.listenOn": "Höre {title} auf {platform}",
+  "musicPlatforms.platform.spotify": "Spotify (öffnet sich in einem neuen Tab)",
+  "musicPlatforms.platform.deezer": "Deezer (öffnet sich in einem neuen Tab)",
+  "musicPlatforms.platform.apple": "Apple Music (öffnet sich in einem neuen Tab)",
   "footer.legal_nav": "Rechtliche Informationen",
   "footer.external_nav": "Footer-Links",
 
