@@ -7,6 +7,11 @@
 import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+
+// Get current language and translation function
+const lang = getLangFromUrl(Astro.url) as string;
+const t = useTranslations(String(lang));
 
 // Enable static generation for better caching
 export const prerender = true;
@@ -22,7 +27,7 @@ const description =
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <header class="mb-16 text-center">
         <Headline level="h1" title="Legal Notice" />
-        <Paragraph>{t("auto.pages.en.legal_notice.information_according_to_applicable")}</Paragraph>
+        <Paragraph>{t("pages.imprint.intro")}</Paragraph>
       </header>
 
       <div class="rounded-xl bg-white p-8 shadow-lg dark:bg-slate-800 dark:shadow-xl">
@@ -30,7 +35,10 @@ const description =
           <Headline level="h2" title="Responsible for Content" />
           <div class="mt-6">
             <Paragraph>
-              <strong>{t("auto.pages.en.legal_notice.daniel_schmid")}</strong><br />{t("auto.pages.en.legal_notice.hiltenspergerstr_78")}<br />{t("auto.pages.en.legal_notice.80796_m_nchen")}<br />{t("auto.pages.en.legal_notice.deutschland")}</Paragraph>
+              <strong>{t("pages.imprint.company_name")}</strong><br />{
+                t("pages.imprint.address")
+              }</Paragraph
+            >
           </div>
         </section>
 
@@ -38,127 +46,133 @@ const description =
           <Headline level="h2" title="Contact" />
           <div class="mt-6">
             <Paragraph>
-              <strong>{t("auto.pages.en.legal_notice.email")}</strong>
+              <strong>{t("pages.imprint.contact_label")}</strong>
               <a
                 href="mailto:dcschmid@murena.io"
                 class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                >dcschmid@murena.io</a
+                >{t("pages.imprint.contact_email")}</a
               ><br />
             </Paragraph>
           </div>
         </section>
 
         <section class="mb-16 last:mb-0">
-          <Headline level="h2" title="Editorially Responsible" />
           <div class="mt-6">
-            <Paragraph>{t("auto.pages.en.legal_notice.daniel_schmid_2")}<br />{t("auto.pages.en.legal_notice.hiltenspergerstr_78_2")}<br />{t("auto.pages.en.legal_notice.80796_m_nchen_2")}<br />{t("auto.pages.en.legal_notice.deutschland_2")}</Paragraph>
-          </div>
-        </section>
-
-        <section class="mb-16 last:mb-0">
-          <Headline level="h2" title="EU Dispute Resolution" />
-          <div class="mt-6">
-            <Paragraph>{t("auto.pages.en.legal_notice.the_european_commission_provides")}<a
-                href="https://ec.europa.eu/consumers/odr/"
-                class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                target="_blank"
-                rel="noopener noreferrer"
+            <Headline level="h2" title="Editorially Responsible" />
+            <div class="mt-6">
+              <Paragraph
+                >{t("pages.imprint.company_name")}<br />{t("pages.imprint.address")}</Paragraph
               >
-                https://ec.europa.eu/consumers/odr/
-              </a>
-            </Paragraph>
-            <Paragraph>{t("auto.pages.en.legal_notice.you_can_find_our")}</Paragraph>
+            </div>
           </div>
+
+          <section class="mb-16 last:mb-0">
+            <Headline level="h2" title="EU Dispute Resolution" />
+            <div class="mt-6">
+              <Paragraph>
+                {t("pages.imprint.dispute_resolution.description")}
+                <a
+                  href="https://ec.europa.eu/consumers/odr/"
+                  class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t("pages.imprint.dispute_resolution.odr_link_label")}
+                </a>
+              </Paragraph>
+              <Paragraph>{t("pages.imprint.dispute_participation")}</Paragraph>
+            </div>
+          </section>
+
+          <section class="mb-16 last:mb-0">
+            <Headline level="h2" title="Consumer Dispute Resolution" />
+            <div class="mt-6">
+              <Paragraph>
+                We are neither willing nor obliged to participate in dispute resolution proceedings
+                before a consumer arbitration board.
+              </Paragraph>
+            </div>
+          </section>
+
+          <section class="mb-16 last:mb-0">
+            <Headline level="h2" title="Liability for Contents" />
+            <div class="mt-6">
+              <Paragraph>
+                As service providers, we are liable for own contents of these websites according to
+                general laws. However, we are not under obligation to monitor third party
+                information transmitted or stored, or investigate circumstances pointing to illegal
+                activity.
+              </Paragraph>
+              <Paragraph>
+                Obligations to remove or block the use of information under the general laws remain
+                unaffected. However, liability in this regard is only possible from the moment of
+                knowledge of a specific infringement. Upon notification of corresponding violations,
+                we will remove this content immediately.
+              </Paragraph>
+            </div>
+          </section>
+
+          <section class="mb-16 last:mb-0">
+            <Headline level="h2" title="Liability for Links" />
+            <div class="mt-6">
+              <Paragraph>
+                Our offer contains links to external third party websites. We have no influence on
+                the contents of those websites, therefore we cannot guarantee for those contents.
+                Providers or administrators of linked websites are always responsible for the
+                contents of the linked websites.
+              </Paragraph>
+              <Paragraph>
+                The linked websites had been checked for possible violations of law at the time of
+                the establishment of the link. Illegal contents were not detected at the time of the
+                linking. However, permanent monitoring of the contents of linked websites cannot be
+                imposed without reasonable indications that there has been a violation of law.
+                Illegal links will be removed immediately at the time we get knowledge of them.
+              </Paragraph>
+            </div>
+          </section>
+
+          <section class="mb-16 last:mb-0">
+            <Headline level="h2" title="Copyright" />
+            <div class="mt-6">
+              <Paragraph>
+                Contents and compilations published on these websites by the providers are subject
+                to copyright laws. Reproduction, editing, distribution as well as the use of any
+                kind outside the scope of the copyright law require a written permission of the
+                author or originator.
+              </Paragraph>
+              <Paragraph>
+                Downloads and copies of these websites are permitted for private use only. The
+                commercial use of our contents without permission of the originator is prohibited.
+                Copyright laws of third parties are respected as long as the contents on these
+                websites do not originate from the provider. Contributions of third parties on this
+                site are indicated as such. However, if you notice any violations of copyright law,
+                please inform us. Such contents will be removed immediately.
+              </Paragraph>
+            </div>
+          </section>
+
+          <section class="mb-16 last:mb-0">
+            <Headline level="h2" title="Music Content and Licenses" />
+            <div class="mt-6">
+              <Paragraph>
+                The music previews and album covers used in MelodyMind are provided through licensed
+                APIs. All rights to the music and images belong to the respective artists, record
+                labels, and rights holders.
+              </Paragraph>
+              <Paragraph>
+                The streaming links lead to licensed music services such as Spotify, Apple Music,
+                and Deezer. MelodyMind itself does not host any copyrighted content.
+              </Paragraph>
+            </div>
+          </section>
         </section>
 
-        <section class="mb-16 last:mb-0">
-          <Headline level="h2" title="Consumer Dispute Resolution" />
-          <div class="mt-6">
-            <Paragraph>
-              We are neither willing nor obliged to participate in dispute resolution proceedings
-              before a consumer arbitration board.
-            </Paragraph>
-          </div>
-        </section>
-
-        <section class="mb-16 last:mb-0">
-          <Headline level="h2" title="Liability for Contents" />
-          <div class="mt-6">
-            <Paragraph>
-              As service providers, we are liable for own contents of these websites according to
-              general laws. However, we are not under obligation to monitor third party information
-              transmitted or stored, or investigate circumstances pointing to illegal activity.
-            </Paragraph>
-            <Paragraph>
-              Obligations to remove or block the use of information under the general laws remain
-              unaffected. However, liability in this regard is only possible from the moment of
-              knowledge of a specific infringement. Upon notification of corresponding violations,
-              we will remove this content immediately.
-            </Paragraph>
-          </div>
-        </section>
-
-        <section class="mb-16 last:mb-0">
-          <Headline level="h2" title="Liability for Links" />
-          <div class="mt-6">
-            <Paragraph>
-              Our offer contains links to external third party websites. We have no influence on the
-              contents of those websites, therefore we cannot guarantee for those contents.
-              Providers or administrators of linked websites are always responsible for the contents
-              of the linked websites.
-            </Paragraph>
-            <Paragraph>
-              The linked websites had been checked for possible violations of law at the time of the
-              establishment of the link. Illegal contents were not detected at the time of the
-              linking. However, permanent monitoring of the contents of linked websites cannot be
-              imposed without reasonable indications that there has been a violation of law. Illegal
-              links will be removed immediately at the time we get knowledge of them.
-            </Paragraph>
-          </div>
-        </section>
-
-        <section class="mb-16 last:mb-0">
-          <Headline level="h2" title="Copyright" />
-          <div class="mt-6">
-            <Paragraph>
-              Contents and compilations published on these websites by the providers are subject to
-              copyright laws. Reproduction, editing, distribution as well as the use of any kind
-              outside the scope of the copyright law require a written permission of the author or
-              originator.
-            </Paragraph>
-            <Paragraph>
-              Downloads and copies of these websites are permitted for private use only. The
-              commercial use of our contents without permission of the originator is prohibited.
-              Copyright laws of third parties are respected as long as the contents on these
-              websites do not originate from the provider. Contributions of third parties on this
-              site are indicated as such. However, if you notice any violations of copyright law,
-              please inform us. Such contents will be removed immediately.
-            </Paragraph>
-          </div>
-        </section>
-
-        <section class="mb-16 last:mb-0">
-          <Headline level="h2" title="Music Content and Licenses" />
-          <div class="mt-6">
-            <Paragraph>
-              The music previews and album covers used in MelodyMind are provided through licensed
-              APIs. All rights to the music and images belong to the respective artists, record
-              labels, and rights holders.
-            </Paragraph>
-            <Paragraph>
-              The streaming links lead to licensed music services such as Spotify, Apple Music, and
-              Deezer. MelodyMind itself does not host any copyrighted content.
-            </Paragraph>
-          </div>
-        </section>
-      </div>
-
-      <div class="mt-16 rounded-lg bg-amber-50 p-6 dark:bg-amber-900/20">
-        <Paragraph>
-          <strong>{t("auto.pages.en.legal_notice.note")}</strong> This legal notice has been created with the greatest care. However,
-          we cannot guarantee completeness and accuracy. Please adapt the information according to your
-          specific situation.
-        </Paragraph>
+        <div class="mt-16 rounded-lg bg-amber-50 p-6 dark:bg-amber-900/20">
+          <Paragraph>
+            <strong>{t("pages.legal.disclaimer.title")}</strong>
+            {t("pages.legal.disclaimer.content")}
+          </Paragraph>
+        </div>
       </div>
     </div>
   </main>
