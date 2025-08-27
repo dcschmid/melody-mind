@@ -106,4 +106,34 @@ export default {
   "footer.opens_in_new_tab": "öffnet sich in einem neuen Tab",
   "footer.legal_nav": "Rechtliche Informationen",
   "footer.external_nav": "Footer-Links",
+
+  // Accessibility helper used on multiple pages
+  "accessibility.skip.to.content": "Zum Hauptinhalt springen",
+
+  // Game / Gamehome translations (German) - added missing keys used by gamehome page
+  "game.welcome": "Willkommen bei Melody Mind",
+  "game.select":
+    "🎵 Bereit für das ultimative Musikabenteuer? Tauche ein in eine Welt voller Rhythmus, Melodie und unvergesslicher Songs! Von kraftvollen Gitarrensoli bis zu zeitlosen Klassikern – finde deine perfekte musikalische Herausforderung. Zeig der Welt, dass du ein echter Musikkenner bist!",
+  "game.genre.selection.description":
+    "Wähle aus mehreren Musikgenres wie Rock, Pop, Jazz, Klassik und mehr. Jede Kategorie enthält sorgfältig zusammengestellte Fragen, um dein musikalisches Wissen zu testen.",
+  "game.genre.list": "Genreauswahl",
+  "game.categories.title": "Musikkategorien",
+  "game.categories.loading": "Musikkategorien werden geladen...",
+  "game.categories.empty.headline": "Keine Genres gefunden",
+  "game.categories.empty.text":
+    "Leider wurden keine Kategorien gefunden. Bitte versuche es später noch einmal.",
+
+  // Search-related keys used on the gamehome (client translations)
+  "game.search.label": "Suchen nach einem Genre",
+  "game.search.placeholder": "Suchen Sie nach Genres...",
+  "game.search.clear": "Suche löschen",
+  "game.search.reset.text": "Suche zurücksetzen",
+  "game.search.showing.all": "Alle Genres anzeigen",
+  "game.search.results": "Genres gefunden",
+  "game.search.no.results": "Keine Genres gefunden, die Ihrer Suche entsprechen",
+  "game.search.help": "Geben Sie ein, um Genres nach Namen zu filtern",
+
+  // Small interactive / CTA keys used on the page
+  "game.start.now": "Jetzt starten",
+  "game.submit.answer": "Antwort prüfen",
 };
