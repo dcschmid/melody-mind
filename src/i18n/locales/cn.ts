@@ -9,6 +9,11 @@ export default {
 
   "accessibility.skip.to.content": "跳转到主要内容",
 
+  // Category filter keys used on category pages
+  "category.filter.label": "按类别筛选：",
+  "category.filter.aria_label": "按类别筛选",
+  "category.filter.option_all": "全部",
+
   // Search UI (client translations used on gamehome)
   "game.search.label": "搜索类别",
   "game.search.placeholder": "搜索类别...",
@@ -34,7 +39,7 @@ export default {
   "game.categories.empty.headline": "未找到类别",
   "game.categories.empty.text": "很抱歉，未找到任何类别。请稍后重试。",
 
-  // Meta / SEO keywords 
+  // Meta / SEO keywords
   "meta.keywords":
     "音乐测验, 音乐游戏, 歌曲测验, 艺人测验, 在线音乐测验, 音乐问答, Melody Mind, 音乐竞猜游戏",
 

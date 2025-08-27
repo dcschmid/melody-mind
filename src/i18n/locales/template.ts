@@ -270,6 +270,9 @@ export default {
   "category.no_image_available": "No image available",
   "category.play": "Play",
   "category.start": "Start",
+  "category.filter.label": "Filter by category:",
+  "category.filter.aria_label": "Filter by category",
+  "category.filter.option_all": "All",
   "coins.announce.earned_excellent":
     "Excellent! Earned {difference} coins while {context}! New total: {newCount} coins.",
   "coins.announce.earned_great":

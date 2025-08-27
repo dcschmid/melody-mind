@@ -1,8 +1,13 @@
 export default {
   "accessibility.skip.to.content": "Перейти до основного контенту",
-  "achievements.badge.context_description": "Значок сповіщення про досягнення. Показує кількість нових розблокованих досягнень у навігаційній області.",
+  "category.filter.label": "Фільтрувати за категорією:",
+  "category.filter.aria_label": "Фільтрувати за категорією",
+  "category.filter.option_all": "Всі",
+  "achievements.badge.context_description":
+    "Значок сповіщення про досягнення. Показує кількість нових розблокованих досягнень у навігаційній області.",
   "achievements.badge.fallback_text": "Сповіщення про досягнення",
-  "achievements.badge.keyboard_instructions": "Натисніть Enter або пробіл, щоб переглянути сторінку ваших досягнень.",
+  "achievements.badge.keyboard_instructions":
+    "Натисніть Enter або пробіл, щоб переглянути сторінку ваших досягнень.",
   "achievements.badge.new": "Нове досягнення розблоковано",
   "achievements.badge.new_with_count": "{count} нових досягнень розблоковано",
   "achievements.categories": "Категорії досягнень",
@@ -12,7 +17,8 @@ export default {
   "achievements.category.platinum": "Платина",
   "achievements.category.silver": "Срібло",
   "achievements.category.time": "Час",
-  "achievements.description": "Святкуйте свої музичні тріумфи та збирайте унікальні трофеї на шляху до становлення майстром музики",
+  "achievements.description":
+    "Святкуйте свої музичні тріумфи та збирайте унікальні трофеї на шляху до становлення майстром музики",
   "achievements.empty": "Досягнення не знайдено",
   "achievements.error": "Помилка завантаження досягнень",
   "achievements.filter.all": "Всі",
@@ -20,7 +26,8 @@ export default {
   "achievements.filter.announcement.changed": "Фільтр змінено: {filterType} на {filterValue}",
   "achievements.filter.announcement.no_results": "Жодне досягнення не відповідає поточним фільтрам",
   "achievements.filter.announcement.reset": "Всі фільтри скинуто",
-  "achievements.filter.announcement.results": "Знайдено {visibleCards} досягнень{cardPlural} у {visibleSections} категорі{sectionPlural}",
+  "achievements.filter.announcement.results":
+    "Знайдено {visibleCards} досягнень{cardPlural} у {visibleSections} категорі{sectionPlural}",
   "achievements.filter.available_shortcuts": "Доступні швидкі клавіші",
   "achievements.filter.category": "Категорія",
   "achievements.filter.count.all": "Всі ({count} видимих)",
@@ -45,10 +52,12 @@ export default {
   "achievements.notification.resume": "Відновити таймер сповіщень",
   "achievements.notification.resume_title": "Відновити автоматичне приховування цього сповіщення",
   "achievements.notification.toggle_sound": "Переключити звук сповіщень",
-  "achievements.notification.toggle_sound_title": "Увімкнути або вимкнути звук для сповіщень про досягнення",
+  "achievements.notification.toggle_sound_title":
+    "Увімкнути або вимкнути звук для сповіщень про досягнення",
   "achievements.notification.unlocked": "Досягнення розблоковано!",
   "achievements.points": "{points} очок",
-  "achievements.seo.description": "Відстежуйте свій прогрес з детальними досягненнями в усіх музичних категоріях. Розблокуйте спеціальні нагороди, виконуючи виклики та досягаючи етапів.",
+  "achievements.seo.description":
+    "Відстежуйте свій прогрес з детальними досягненнями в усіх музичних категоріях. Розблокуйте спеціальні нагороди, виконуючи виклики та досягаючи етапів.",
   "achievements.status.in_progress": "У процесі",
   "achievements.status.locked": "Заблоковано",
   "achievements.status.unlocked": "Розблоковано",
@@ -63,56 +72,68 @@ export default {
   "audioplayer.aria.region": "Аудіоплеєр",
   "audioplayer.captions.english": "Англійські субтитри",
   "audioplayer.captions.none": "Субтитри недоступні",
-  "audioplayer.description.no_title": "Аудіоплеєр для треку. Використовуйте пробіл для відтворення/паузи, стрілки для перемотування та M для вимкнення звуку.",
+  "audioplayer.description.no_title":
+    "Аудіоплеєр для треку. Використовуйте пробіл для відтворення/паузи, стрілки для перемотування та M для вимкнення звуку.",
   "audioplayer.fallback.download": "Замість цього завантажити аудіофайл",
   "audioplayer.fallback.unsupported": "Ваш браузер не підтримує аудіоелемент.",
   "audioplayer.help.button.aria": "Допомога",
   "audioplayer.help.button.title": "Швидкі клавіші аудіоплеєра",
-  "audioplayer.help.shortcuts": "Пробіл: Відтворення/Пауза, M: Вимкнути/Увімкнути звук, Стрілки: Перемотування аудіо, Вгору/Вниз: Контроль гучності",
+  "audioplayer.help.shortcuts":
+    "Пробіл: Відтворення/Пауза, M: Вимкнути/Увімкнути звук, Стрілки: Перемотування аудіо, Вгору/Вниз: Контроль гучності",
   "audioplayer.play.aria": "Відтворити аудіо",
   "audioplayer.play.title": "Відтворення/Пауза",
-  "audioplayer.progress.aria": "Прогрес аудіо - Використовуйте стрілки для перемотування, Home для початку, End для кінця",
-  "audioplayer.progress.help": "Стрілка вліво/вправо: Перемотування на 5 секунд, Shift+Стрілка: Перемотування на 30 секунд, Home: Початок, End: Кінець",
+  "audioplayer.progress.aria":
+    "Прогрес аудіо - Використовуйте стрілки для перемотування, Home для початку, End для кінця",
+  "audioplayer.progress.help":
+    "Стрілка вліво/вправо: Перемотування на 5 секунд, Shift+Стрілка: Перемотування на 30 секунд, Home: Початок, End: Кінець",
   "audioplayer.volume.slider.aria": "Налаштувати рівень гучності",
   "audioplayer.volume.toggle.aria": "Переключити вимкнення/увімкнення звуку",
   "audioplayer.volume.toggle.title": "Гучність",
   "auth.accessibility.error_message_dismissed": "Повідомлення про помилку відхилено",
   "auth.accessibility.error_resolved": "помилка вирішена",
   "auth.accessibility.field_error": "має помилку",
-  "auth.accessibility.focus_trapped": "Фокус тепер заблокований в цьому діалозі. Використовуйте Tab для навігації та Escape для закриття.",
+  "auth.accessibility.focus_trapped":
+    "Фокус тепер заблокований в цьому діалозі. Використовуйте Tab для навігації та Escape для закриття.",
   "auth.accessibility.login_form_active": "Форма входу тепер активна",
   "auth.accessibility.password_requirements": "Показати/приховати вимоги до пароля",
   "auth.accessibility.password_toggle": "Показати/приховати пароль",
-  "auth.accessibility.password_toggle_empty": "Спочатку введіть пароль перед переключенням видимості.",
-  "auth.accessibility.password_toggle_help": "Переключіть, щоб показати або приховати символи пароля. Використовуйте обережно в громадських місцях для безпеки.",
+  "auth.accessibility.password_toggle_empty":
+    "Спочатку введіть пароль перед переключенням видимості.",
+  "auth.accessibility.password_toggle_help":
+    "Переключіть, щоб показати або приховати символи пароля. Використовуйте обережно в громадських місцях для безпеки.",
   "auth.accessibility.password.hidden": "Пароль тепер прихований",
   "auth.accessibility.password.hidden_status": "Пароль тепер прихований для безпеки.",
   "auth.accessibility.password.visible": "Пароль тепер видимий",
-  "auth.accessibility.password.visible_status": "Пароль тепер видимий. Не забудьте приховати його після завершення для безпеки.",
+  "auth.accessibility.password.visible_status":
+    "Пароль тепер видимий. Не забудьте приховати його після завершення для безпеки.",
   "auth.accessibility.register_form_active": "Форма реєстрації тепер активна",
   "auth.accessibility.requirement.met": "Вимога виконана",
   "auth.accessibility.requirement.unmet": "Вимога не виконана",
   "auth.accessibility.requirements.collapsed": "Вимоги до пароля згорнуто",
   "auth.accessibility.requirements.expanded": "Вимоги до пароля розгорнуто",
   "auth.accessibility.success_message_dismissed": "Повідомлення про успіх відхилено",
-  "auth.email_verification.description": "Підтвердьте свою електронну адресу для вашого акаунта Melody Mind.",
+  "auth.email_verification.description":
+    "Підтвердьте свою електронну адресу для вашого акаунта Melody Mind.",
   "auth.email_verification.error": "Помилка підтвердження електронної пошти",
   "auth.email_verification.error_icon_label": "Помилка підтвердження електронної пошти",
   "auth.email_verification.loading_label": "Підтвердження електронної пошти в процесі",
   "auth.email_verification.login": "Назад до входу",
-  "auth.email_verification.message": "Ми надіслали посилання для підтвердження на вашу електронну адресу",
+  "auth.email_verification.message":
+    "Ми надіслали посилання для підтвердження на вашу електронну адресу",
   "auth.email_verification.success_icon_label": "Електронна пошта успішно підтверджена",
   "auth.email_verification.title": "Підтвердження електронної пошти",
   "auth.errors.noRefreshToken": "Токен оновлення недоступний",
   "auth.forgot_password": "Забули пароль?",
   "auth.form.email_help": "Введіть дійсну електронну адресу",
   "auth.form.email_invalid": "Будь ласка, введіть дійсну електронну адресу",
-  "auth.form.email_invalid_format": "Будь ласка, введіть дійсну електронну адресу у форматі: user@example.com",
+  "auth.form.email_invalid_format":
+    "Будь ласка, введіть дійсну електронну адресу у форматі: user@example.com",
   "auth.form.email_required": "Електронна адреса є обов'язковою",
   "auth.form.error": "Сталася помилка",
   "auth.form.error.general": "Сталася помилка",
   "auth.form.help.password_button": "Отримати допомогу зі створенням надійного пароля",
-  "auth.form.help.password_suggestions": "Спробуйте використовувати комбінацію слів, цифр та символів. Уникайте поширених паролів, таких як 'password123'.",
+  "auth.form.help.password_suggestions":
+    "Спробуйте використовувати комбінацію слів, цифр та символів. Уникайте поширених паролів, таких як 'password123'.",
   "auth.form.help.password_title": "Поради щодо створення пароля",
   "auth.form.help.tip1": "Використовуйте суміш великих і малих літер",
   "auth.form.help.tip2": "Включайте цифри та спеціальні символи",
@@ -123,8 +144,10 @@ export default {
   "auth.form.instructions.confirm.step2": "Підтвердьте свій пароль, ввівши його знову",
   "auth.form.instructions.confirm.step3": "Натисніть 'Скинути пароль', щоб завершити процес",
   "auth.form.instructions.request.step1": "Введіть свою електронну адресу в полі нижче",
-  "auth.form.instructions.request.step2": "Натисніть 'Надіслати посилання для скидання', щоб отримати інструкції зі скидання пароля",
-  "auth.form.instructions.request.step3": "Перевірте свою електронну пошту на предмет посилання для скидання та дотримуйтесь інструкцій",
+  "auth.form.instructions.request.step2":
+    "Натисніть 'Надіслати посилання для скидання', щоб отримати інструкції зі скидання пароля",
+  "auth.form.instructions.request.step3":
+    "Перевірте свою електронну пошту на предмет посилання для скидання та дотримуйтесь інструкцій",
   "auth.form.instructions.title": "Як заповнити цю форму",
   "auth.form.loading_text": "Завантаження...",
   "auth.form.password_common_error": "Будь ласка, оберіть менш поширений пароль",
@@ -133,11 +156,14 @@ export default {
   "auth.form.password_lowercase_error": "Пароль повинен містити принаймні одну малу літеру (a-z)",
   "auth.form.password_min_length": "Пароль повинен містити принаймні 6 символів",
   "auth.form.password_number_error": "Пароль повинен містити принаймні одну цифру (0-9)",
-  "auth.form.password_repeats_error": "Пароль не може містити більше 2 послідовних однакових символів",
+  "auth.form.password_repeats_error":
+    "Пароль не може містити більше 2 послідовних однакових символів",
   "auth.form.password_required": "Пароль є обов'язковим",
   "auth.form.password_requirements": "Пароль не відповідає всім вимогам",
-  "auth.form.password_sequences_error": "Пароль не може містити поширені послідовності, такі як '123' або 'abc'",
-  "auth.form.password_special_error": "Пароль повинен містити принаймні один спеціальний символ (!@#$%^&*)",
+  "auth.form.password_sequences_error":
+    "Пароль не може містити поширені послідовності, такі як '123' або 'abc'",
+  "auth.form.password_special_error":
+    "Пароль повинен містити принаймні один спеціальний символ (!@#$%^&*)",
   "auth.form.password_uppercase_error": "Пароль повинен містити принаймні одну велику літеру (A-Z)",
   "auth.form.passwords_not_match": "Паролі не збігаються",
   "auth.form.progress.optional": "необов'язкове",
@@ -176,18 +202,23 @@ export default {
   "auth.password_reset_confirm.password_section": "Розділ пароля",
   "auth.password_reset_confirm.password.placeholder": "Введіть ваш новий пароль",
   "auth.password_reset_confirm.submit": "Скинути пароль",
-  "auth.password_reset_confirm.success": "Пароль успішно скинуто. Тепер ви можете увійти з новим паролем",
+  "auth.password_reset_confirm.success":
+    "Пароль успішно скинуто. Тепер ви можете увійти з новим паролем",
   "auth.password_reset_confirm.title": "Встановити новий пароль",
-  "auth.password_reset.complete_error": "Password reset failed. Please check your inputs or request a new reset link.",
-  "auth.password_reset.complete_success": "Password successfully reset. You can now log in with your new password.",
-  "auth.password_reset.description": "Введіть вашу електронну адресу, щоб отримати посилання для скидання пароля",
+  "auth.password_reset.complete_error":
+    "Password reset failed. Please check your inputs or request a new reset link.",
+  "auth.password_reset.complete_success":
+    "Password successfully reset. You can now log in with your new password.",
+  "auth.password_reset.description":
+    "Введіть вашу електронну адресу, щоб отримати посилання для скидання пароля",
   "auth.password_reset.email": "Електронна адреса",
   "auth.password_reset.email.placeholder": "Ваша зареєстрована електронна адреса",
   "auth.password_reset.error_message": "Сталася помилка. Будь ласка, спробуйте пізніше.",
   "auth.password_reset.login": "Увійти",
   "auth.password_reset.submit": "Надіслати посилання для скидання",
   "auth.password_reset.success": "Посилання для скидання надіслано на вашу електронну пошту",
-  "auth.password_reset.success_message": "Якщо акаунт з цією електронною адресою існує, електронний лист з інструкціями зі скидання пароля надіслано.",
+  "auth.password_reset.success_message":
+    "Якщо акаунт з цією електронною адресою існує, електронний лист з інструкціями зі скидання пароля надіслано.",
   "auth.password_reset.title": "Скинути пароль",
   "auth.password.lowercase": "Пароль повинен містити принаймні одну малу літеру",
   "auth.password.match": "Паролі повинні збігатися",
@@ -198,12 +229,15 @@ export default {
   "auth.password.number": "Пароль повинен містити принаймні одну цифру",
   "auth.password.requirements": "Вимоги до пароля:",
   "auth.password.requirements.checklist": "Контрольний список вимог до пароля",
-  "auth.password.requirements.help": "Ваш пароль повинен відповідати всім вимогам, перерахованим нижче, для безпеки",
-  "auth.password.requirements.keyboard_navigation": "Використовуйте стрілки для навігації по вимогах, Escape для виходу",
+  "auth.password.requirements.help":
+    "Ваш пароль повинен відповідати всім вимогам, перерахованим нижче, для безпеки",
+  "auth.password.requirements.keyboard_navigation":
+    "Використовуйте стрілки для навігації по вимогах, Escape для виходу",
   "auth.password.requirements.met": "Вимога виконана",
   "auth.password.requirements.not_met": "Вимога не виконана",
   "auth.password.requirements.position": "{{current}} з {{total}}",
-  "auth.password.requirements.progress": "{{met}} з {{total}} вимог виконано. {{percentage}}% завершено.",
+  "auth.password.requirements.progress":
+    "{{met}} з {{total}} вимог виконано. {{percentage}}% завершено.",
   "auth.password.special": "Пароль повинен містити принаймні один спеціальний символ",
   "auth.password.strength": "Надійність пароля",
   "auth.password.strength_description": "Індикатор рівня безпеки пароля",
@@ -226,95 +260,176 @@ export default {
   "auth.register.username.placeholder": "Оберіть ім'я користувача",
   "auth.required.description": "Будь ласка, увійдіть, щоб отримати доступ до цієї області",
   "auth.required.title": "Необхідний вхід",
-  "auth.service.invalid_credentials": "Недійсні облікові дані. Будь ласка, перевірте вашу електронну пошту та пароль.",
-  "auth.service.too_many_attempts": "Забагато спроб входу. Будь ласка, зачекайте і спробуйте знову.",
+  "auth.service.invalid_credentials":
+    "Недійсні облікові дані. Будь ласка, перевірте вашу електронну пошту та пароль.",
+  "auth.service.too_many_attempts":
+    "Забагато спроб входу. Будь ласка, зачекайте і спробуйте знову.",
   "auth.service.unauthorized": "Несанкціоновано. Будь ласка, увійдіть",
   "auth.session.timeout.close": "Закрити",
   "auth.session.timeout.extend": "Продовжити сесію",
-  "auth.session.timeout.message": "Ваша сесія закінчиться через 2 хвилини. Клацніть будь-де, щоб продовжити її.",
+  "auth.session.timeout.message":
+    "Ваша сесія закінчиться через 2 хвилини. Клацніть будь-де, щоб продовжити її.",
   "auth.session.timeout.title": "Сесія закінчується",
   "auth.skip_to_verification": "Перейти до контенту підтвердження електронної пошти",
   "auth.tokens.refreshFailed": "Помилка оновлення токена",
   "auth.tokens.refreshSuccess": "Токен успішно оновлено",
-  "auto._lang_.podcasts._id_.0_podcasts_currentindex_1_null_const": "0 ? podcasts[currentIndex - 1] : null;\n  const next = currentIndex",
-  "auto.pages._lang_.playlists.finde_deine_lieblingsmusik_nach_k_nstler_stil": "Finde deine Lieblingsmusik nach Künstler, Stil, Epoche oder Genre",
-  "auto.pages.de.datenschutz.adresse_daniel_schmid_hiltenspergerstr_78_80796": "Adresse: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland",
-  "auto.pages.de.datenschutz.andere_daten_werden_automatisch_oder_nach": "Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website\n              durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B.\n              Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).",
-  "auto.pages.de.datenschutz.bei_fragen_zum_datenschutz_zur_geltendmachung": "Bei Fragen zum Datenschutz, zur Geltendmachung Ihrer Rechte oder bei Beschwerden\n              können Sie sich jederzeit an uns wenden:",
-  "auto.pages.de.datenschutz.der_provider_der_seiten_erhebt_und": "Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten\n              Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:",
-  "auto.pages.de.datenschutz.die_betreiber_dieser_seiten_nehmen_den": "Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir\n              behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen\n              Datenschutzvorschriften sowie dieser Datenschutzerklärung.",
-  "auto.pages.de.datenschutz.die_datenverarbeitung_auf_dieser_website_erfolgt": "Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen\n              Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle\" in dieser\n              Datenschutzerklärung entnehmen.",
-  "auto.pages.de.datenschutz.die_folgenden_hinweise_geben_einen_einfachen": "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren\n              personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene\n              Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.",
-  "auto.pages.de.datenschutz.die_verantwortliche_stelle_f_r_die_datenverarbeitung": "Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:",
-  "auto.pages.de.datenschutz.die_verwendung_erfolgt_auf_grundlage_von": "Die Verwendung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein\n              berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website.",
-  "auto.pages.de.datenschutz.die_website_wird_ber_https_verschl_sselt": "Die Website wird über HTTPS verschlüsselt übertragen. Dadurch sind Ihre Eingaben vor\n              dem Zugriff durch Dritte geschützt.",
-  "auto.pages.de.datenschutz.diese_cookies_sind_f_r_das_funktionieren": "Diese Cookies sind für das Funktionieren der Website erforderlich und werden auf\n              Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert.",
-  "auto.pages.de.datenschutz.diese_daten_werden_anonym_verarbeitet_und": "Diese Daten werden anonym verarbeitet und können nicht zur Identifizierung einzelner\n              Nutzer verwendet werden. Weitere Informationen finden Sie in der Datenschutzerklärung\n              von Fathom:",
-  "auto.pages.de.datenschutz.diese_daten_werden_sicher_in_unserer": "Diese Daten werden sicher in unserer TursoDB-Datenbank gespeichert, um Ihnen\n              persistenten Spielfortschritt zu ermöglichen und Features wie Highscores und\n              Achievements anzubieten. Sie können die Löschung Ihrer Daten jederzeit per E-Mail an",
-  "auto.pages.de.datenschutz.eine_zusammenf_hrung_dieser_daten_mit_anderen": "Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die\n              Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.",
-  "auto.pages.de.datenschutz.f_r_ihren_erneuten_besuch_gilt_dann": "Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung. Wir empfehlen\n              Ihnen, diese Seite regelmäßig zu besuchen, um über Änderungen informiert zu bleiben.",
-  "auto.pages.de.datenschutz.fathom_analytics_erfasst_anonymisierte_daten_einschlie_lich": "Fathom Analytics erfasst anonymisierte Daten, einschließlich:",
-  "auto.pages.de.datenschutz.ihre_daten_werden_zum_einen_dadurch": "Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei\n              kann es sich z. B. um Daten handeln, die Sie in unser Kontaktformular eingeben.",
-  "auto.pages.de.datenschutz.ihre_spielst_nde_und_einstellungen_werden_im": "Ihre Spielstände und Einstellungen werden im Local Storage Ihres Browsers gespeichert.\n              Diese Daten verbleiben lokal und werden nicht übertragen.",
-  "auto.pages.de.datenschutz.melodymind_nutzt_externe_musik_apis_f_r": "MelodyMind nutzt externe Musik-APIs für Preview-Links und Album-Cover. Beim Abspielen\n              von Musik-Previews oder beim Klick auf Streaming-Links werden Sie zu externen Diensten\n              weitergeleitet:",
-  "auto.pages.de.datenschutz.rechtsgrundlage_f_r_diese_verarbeitung_ist_art": "Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO\n              (Vertragserfüllung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der\n              Bereitstellung der Spielfunktionalität).",
-  "auto.pages.de.datenschutz.rechtsgrundlage_f_r_diese_verarbeitung_ist_art_2": "Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes\n              Interesse an der Analyse der Website-Nutzung zur Verbesserung unserer Dienste).",
-  "auto.pages.de.datenschutz.sie_haben_au_erdem_das_recht_sich": "Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die\n              Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren.",
-  "auto.pages.de.datenschutz.sie_haben_folgende_rechte_bez_glich_ihrer": "Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:",
-  "auto.pages.de.datenschutz.soweit_innerhalb_dieser_datenschutzerkl_rung_keine_speziellere": "Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt\n              wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die\n              Datenverarbeitung entfällt.",
-  "auto.pages.de.datenschutz.spielstatistiken_gespielte_runden_kategorien_schwierigkeitsgrade": "Spielstatistiken (gespielte Runden, Kategorien, Schwierigkeitsgrade)",
-  "auto.pages.de.datenschutz.unsere_website_verwendet_cookies_das_sind": "Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Browser auf\n              Ihrem Gerät speichert. Wir verwenden ausschließlich technisch notwendige Cookies für:",
-  "auto.pages.de.datenschutz.wenn_sie_melodymind_spielen_werden_folgende": "Wenn Sie MelodyMind spielen, werden folgende Daten in unserer TursoDB-Datenbank\n              gespeichert:",
-  "auto.pages.de.datenschutz.wenn_sie_unsere_website_besuchen_erfasst": "Wenn Sie unsere Website besuchen, erfasst Render verschiedene Logfiles inklusive Ihrer\n              IP-Adressen. Details entnehmen Sie der Datenschutzerklärung von Render:",
-  "auto.pages.de.datenschutz.wenn_sie_von_diesen_rechten_gebrauch": "Wenn Sie von diesen Rechten Gebrauch machen möchten, kontaktieren Sie uns bitte unter:",
-  "auto.pages.de.datenschutz.wer_ist_verantwortlich_f_r_die_datenerfassung": "Wer ist verantwortlich für die Datenerfassung auf dieser Website?",
-  "auto.pages.de.datenschutz.wir_behalten_uns_vor_diese_datenschutzerkl_rung": "Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den\n              aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen\n              in der Datenschutzerklärung umzusetzen.",
-  "auto.pages.de.datenschutz.wir_hosten_die_inhalte_unserer_website": "Wir hosten die Inhalte unserer Website bei Render Services Inc., 525 Brannan Street,\n              Suite 300, San Francisco, CA 94107, USA.",
-  "auto.pages.de.datenschutz.wir_verwenden_geeignete_technische_und_organisatorische": "Wir verwenden geeignete technische und organisatorische Sicherheitsmaßnahmen, um Ihre\n              Daten gegen zufällige oder vorsätzliche Manipulationen, teilweisen oder vollständigen\n              Verlust, Zerstörung oder gegen den unbefugten Zugriff Dritter zu schützen.",
-  "auto.pages.de.impressum.die_europ_ische_kommission_stellt_eine_plattform": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)\n              bereit:",
-  "auto.pages.de.impressum.die_in_melodymind_verwendeten_musik_previews": "Die in MelodyMind verwendeten Musik-Previews und Album-Cover werden über lizenzierte\n              APIs bereitgestellt. Alle Rechte an den Musikstücken und Bildern liegen bei den\n              jeweiligen Künstlern, Plattenlabels und Rechteinhabern.",
-  "auto.pages.de.impressum.die_streaming_links_f_hren_zu_lizenzierten": "Die Streaming-Links führen zu lizenzierten Musikdiensten wie Spotify, Apple Music und\n              Deezer. MelodyMind selbst hostet keine urheberrechtlich geschützten Inhalte.",
-  "auto.pages.de.impressum.wir_sind_nicht_bereit_oder_verpflichtet": "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer\n              Verbraucherschlichtungsstelle teilzunehmen.",
-  "auto.pages.en.legal_notice.as_service_providers_we_are_liable": "As service providers, we are liable for own contents of these websites according to\n              general laws. However, we are not under obligation to monitor third party information\n              transmitted or stored, or investigate circumstances pointing to illegal activity.",
-  "auto.pages.en.legal_notice.the_european_commission_provides_a_platform": "The European Commission provides a platform for online dispute resolution (ODR):",
-  "auto.pages.en.legal_notice.the_music_previews_and_album_covers": "The music previews and album covers used in MelodyMind are provided through licensed\n              APIs. All rights to the music and images belong to the respective artists, record\n              labels, and rights holders.",
-  "auto.pages.en.legal_notice.the_streaming_links_lead_to_licensed": "The streaming links lead to licensed music services such as Spotify, Apple Music, and\n              Deezer. MelodyMind itself does not host any copyrighted content.",
-  "auto.pages.en.legal_notice.this_legal_notice_has_been_created": "This legal notice has been created with the greatest care. However,\n          we cannot guarantee completeness and accuracy. Please adapt the information according to your\n          specific situation.",
-  "auto.pages.en.legal_notice.we_are_neither_willing_nor_obliged": "We are neither willing nor obliged to participate in dispute resolution proceedings\n              before a consumer arbitration board.",
-  "auto.pages.en.privacy_policy.a_combination_of_this_data_with": "A combination of this data with other data sources will not be made. The collection of\n              this data is based on Art. 6 para. 1 lit. f GDPR.",
-  "auto.pages.en.privacy_policy.address_daniel_schmid_hiltenspergerstr_78_80796": "Address: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland",
-  "auto.pages.en.privacy_policy.game_statistics_rounds_played_categories_difficulty": "Game statistics (rounds played, categories, difficulty levels)",
-  "auto.pages.en.privacy_policy.if_you_have_questions_about_data": "If you have questions about data protection, wish to exercise your rights, or have\n              complaints, you can always contact us:",
-  "auto.pages.en.privacy_policy.melodymind_uses_external_music_apis_for": "MelodyMind uses external music APIs for preview links and album covers. When playing\n              music previews or clicking on streaming links, you will be redirected to external\n              services:",
-  "auto.pages.en.privacy_policy.other_data_is_collected_automatically_by": "Other data is collected automatically by our IT systems when you visit the website.\n              This data is primarily technical data such as the browser and operating system you are\n              using or when you accessed the page.",
-  "auto.pages.en.privacy_policy.our_website_uses_cookies_these_are": "Our website uses cookies. These are small text files that your browser stores on your\n              device. We only use technically necessary cookies for:",
-  "auto.pages.en.privacy_policy.some_data_is_collected_when_you": "Some data is collected when you provide it to us. This could, for example, be data you\n              enter on a contact form.",
-  "auto.pages.en.privacy_policy.the_data_processing_on_this_website": "The data processing on this website is carried out by the website operator. You can\n              find the operator's contact details in the \"Information about the responsible party\"\n              section of this privacy policy.",
-  "auto.pages.en.privacy_policy.the_following_gives_a_simple_overview": "The following gives a simple overview of what happens to your personal information\n              when you visit our website. Personal information is any data with which you could be\n              personally identified.",
-  "auto.pages.en.privacy_policy.the_legal_basis_for_this_processing": "The legal basis for this processing is Art. 6 para. 1 lit. b GDPR (performance of\n              contract) and Art. 6 para. 1 lit. f GDPR (legitimate interest in providing game\n              functionality).",
-  "auto.pages.en.privacy_policy.the_legal_basis_for_this_processing_2": "The legal basis for this processing is Art. 6 para. 1 lit. f GDPR (legitimate interest\n              in analyzing website usage to improve our services).",
-  "auto.pages.en.privacy_policy.the_new_privacy_policy_will_then": "The new privacy policy will then apply to your next visit. We recommend that you visit\n              this page regularly to stay informed about changes.",
-  "auto.pages.en.privacy_policy.the_operators_of_this_website_take": "The operators of this website take the protection of your personal data very\n              seriously. We treat your personal data confidentially and in accordance with the\n              statutory data protection regulations and this privacy policy.",
-  "auto.pages.en.privacy_policy.the_responsible_party_for_data_processing": "The responsible party for data processing on this website is:",
-  "auto.pages.en.privacy_policy.the_use_is_based_on_art": "The use is based on Art. 6 para. 1 lit. f GDPR. We have a legitimate interest in a\n              reliable presentation of our website.",
-  "auto.pages.en.privacy_policy.the_website_is_transmitted_via_https": "The website is transmitted via HTTPS encryption. This protects your input from access\n              by third parties.",
-  "auto.pages.en.privacy_policy.the_website_provider_automatically_collects_and": "The website provider automatically collects and stores information in so-called server\n              log files, which your browser automatically transmits to us. These are:",
-  "auto.pages.en.privacy_policy.this_data_is_processed_anonymously_and": "This data is processed anonymously and cannot be used to identify individual users.\n              For more information, see Fathom's privacy policy:",
-  "auto.pages.en.privacy_policy.this_data_is_stored_securely_in": "This data is stored securely in our TursoDB database to provide you with persistent\n              game progress and enable features like high scores and achievements. You can request\n              deletion of your data at any time by contacting us at",
-  "auto.pages.en.privacy_policy.unless_a_more_specific_storage_period": "Unless a more specific storage period has been specified in this privacy policy, your\n              personal data will remain with us until the purpose for which it was collected no\n              longer applies.",
-  "auto.pages.en.privacy_policy.we_host_the_content_of_our": "We host the content of our website at Render Services, Inc., 525 Brannan Street, Suite\n              300, San Francisco, CA 94107, USA.",
-  "auto.pages.en.privacy_policy.we_reserve_the_right_to_adapt": "We reserve the right to adapt this privacy policy so that it always complies with\n              current legal requirements or to implement changes to our services in the privacy\n              policy.",
-  "auto.pages.en.privacy_policy.we_use_appropriate_technical_and_organizational": "We use appropriate technical and organizational security measures to protect your data\n              against accidental or intentional manipulation, partial or complete loss, destruction,\n              or unauthorized access by third parties.",
-  "auto.pages.en.privacy_policy.we_use_fathom_analytics_a_privacy": "We use Fathom Analytics, a privacy-focused analytics service, to better understand how\n              visitors interact with our website. Fathom Analytics is GDPR, CCPA and PECR compliant\n              and does not use cookies or collect personal data.",
-  "auto.pages.en.privacy_policy.when_you_play_melodymind_the_following": "When you play MelodyMind, the following data is stored in our TursoDB database:",
-  "auto.pages.en.privacy_policy.when_you_visit_our_website_render": "When you visit our website, Render collects various logfiles including your IP\n              addresses. Details can be found in Render's privacy policy:",
-  "auto.pages.en.privacy_policy.you_also_have_the_right_to": "You also have the right to lodge a complaint with a data protection supervisory\n              authority about our processing of your personal data.",
-  "auto.pages.en.privacy_policy.your_game_scores_and_settings_are": "Your game scores and settings are stored in your browser's local storage. This data\n              remains local and is not transmitted.",
+  "auto._lang_.podcasts._id_.0_podcasts_currentindex_1_null_const":
+    "0 ? podcasts[currentIndex - 1] : null;\n  const next = currentIndex",
+  "auto.pages._lang_.playlists.finde_deine_lieblingsmusik_nach_k_nstler_stil":
+    "Finde deine Lieblingsmusik nach Künstler, Stil, Epoche oder Genre",
+  "auto.pages.de.datenschutz.adresse_daniel_schmid_hiltenspergerstr_78_80796":
+    "Adresse: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland",
+  "auto.pages.de.datenschutz.andere_daten_werden_automatisch_oder_nach":
+    "Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website\n              durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B.\n              Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).",
+  "auto.pages.de.datenschutz.bei_fragen_zum_datenschutz_zur_geltendmachung":
+    "Bei Fragen zum Datenschutz, zur Geltendmachung Ihrer Rechte oder bei Beschwerden\n              können Sie sich jederzeit an uns wenden:",
+  "auto.pages.de.datenschutz.der_provider_der_seiten_erhebt_und":
+    "Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten\n              Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:",
+  "auto.pages.de.datenschutz.die_betreiber_dieser_seiten_nehmen_den":
+    "Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir\n              behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen\n              Datenschutzvorschriften sowie dieser Datenschutzerklärung.",
+  "auto.pages.de.datenschutz.die_datenverarbeitung_auf_dieser_website_erfolgt":
+    'Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen\n              Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle" in dieser\n              Datenschutzerklärung entnehmen.',
+  "auto.pages.de.datenschutz.die_folgenden_hinweise_geben_einen_einfachen":
+    "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren\n              personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene\n              Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.",
+  "auto.pages.de.datenschutz.die_verantwortliche_stelle_f_r_die_datenverarbeitung":
+    "Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:",
+  "auto.pages.de.datenschutz.die_verwendung_erfolgt_auf_grundlage_von":
+    "Die Verwendung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein\n              berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website.",
+  "auto.pages.de.datenschutz.die_website_wird_ber_https_verschl_sselt":
+    "Die Website wird über HTTPS verschlüsselt übertragen. Dadurch sind Ihre Eingaben vor\n              dem Zugriff durch Dritte geschützt.",
+  "auto.pages.de.datenschutz.diese_cookies_sind_f_r_das_funktionieren":
+    "Diese Cookies sind für das Funktionieren der Website erforderlich und werden auf\n              Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert.",
+  "auto.pages.de.datenschutz.diese_daten_werden_anonym_verarbeitet_und":
+    "Diese Daten werden anonym verarbeitet und können nicht zur Identifizierung einzelner\n              Nutzer verwendet werden. Weitere Informationen finden Sie in der Datenschutzerklärung\n              von Fathom:",
+  "auto.pages.de.datenschutz.diese_daten_werden_sicher_in_unserer":
+    "Diese Daten werden sicher in unserer TursoDB-Datenbank gespeichert, um Ihnen\n              persistenten Spielfortschritt zu ermöglichen und Features wie Highscores und\n              Achievements anzubieten. Sie können die Löschung Ihrer Daten jederzeit per E-Mail an",
+  "auto.pages.de.datenschutz.eine_zusammenf_hrung_dieser_daten_mit_anderen":
+    "Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die\n              Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.",
+  "auto.pages.de.datenschutz.f_r_ihren_erneuten_besuch_gilt_dann":
+    "Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung. Wir empfehlen\n              Ihnen, diese Seite regelmäßig zu besuchen, um über Änderungen informiert zu bleiben.",
+  "auto.pages.de.datenschutz.fathom_analytics_erfasst_anonymisierte_daten_einschlie_lich":
+    "Fathom Analytics erfasst anonymisierte Daten, einschließlich:",
+  "auto.pages.de.datenschutz.ihre_daten_werden_zum_einen_dadurch":
+    "Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei\n              kann es sich z. B. um Daten handeln, die Sie in unser Kontaktformular eingeben.",
+  "auto.pages.de.datenschutz.ihre_spielst_nde_und_einstellungen_werden_im":
+    "Ihre Spielstände und Einstellungen werden im Local Storage Ihres Browsers gespeichert.\n              Diese Daten verbleiben lokal und werden nicht übertragen.",
+  "auto.pages.de.datenschutz.melodymind_nutzt_externe_musik_apis_f_r":
+    "MelodyMind nutzt externe Musik-APIs für Preview-Links und Album-Cover. Beim Abspielen\n              von Musik-Previews oder beim Klick auf Streaming-Links werden Sie zu externen Diensten\n              weitergeleitet:",
+  "auto.pages.de.datenschutz.rechtsgrundlage_f_r_diese_verarbeitung_ist_art":
+    "Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO\n              (Vertragserfüllung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der\n              Bereitstellung der Spielfunktionalität).",
+  "auto.pages.de.datenschutz.rechtsgrundlage_f_r_diese_verarbeitung_ist_art_2":
+    "Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes\n              Interesse an der Analyse der Website-Nutzung zur Verbesserung unserer Dienste).",
+  "auto.pages.de.datenschutz.sie_haben_au_erdem_das_recht_sich":
+    "Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die\n              Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren.",
+  "auto.pages.de.datenschutz.sie_haben_folgende_rechte_bez_glich_ihrer":
+    "Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:",
+  "auto.pages.de.datenschutz.soweit_innerhalb_dieser_datenschutzerkl_rung_keine_speziellere":
+    "Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt\n              wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die\n              Datenverarbeitung entfällt.",
+  "auto.pages.de.datenschutz.spielstatistiken_gespielte_runden_kategorien_schwierigkeitsgrade":
+    "Spielstatistiken (gespielte Runden, Kategorien, Schwierigkeitsgrade)",
+  "auto.pages.de.datenschutz.unsere_website_verwendet_cookies_das_sind":
+    "Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Browser auf\n              Ihrem Gerät speichert. Wir verwenden ausschließlich technisch notwendige Cookies für:",
+  "auto.pages.de.datenschutz.wenn_sie_melodymind_spielen_werden_folgende":
+    "Wenn Sie MelodyMind spielen, werden folgende Daten in unserer TursoDB-Datenbank\n              gespeichert:",
+  "auto.pages.de.datenschutz.wenn_sie_unsere_website_besuchen_erfasst":
+    "Wenn Sie unsere Website besuchen, erfasst Render verschiedene Logfiles inklusive Ihrer\n              IP-Adressen. Details entnehmen Sie der Datenschutzerklärung von Render:",
+  "auto.pages.de.datenschutz.wenn_sie_von_diesen_rechten_gebrauch":
+    "Wenn Sie von diesen Rechten Gebrauch machen möchten, kontaktieren Sie uns bitte unter:",
+  "auto.pages.de.datenschutz.wer_ist_verantwortlich_f_r_die_datenerfassung":
+    "Wer ist verantwortlich für die Datenerfassung auf dieser Website?",
+  "auto.pages.de.datenschutz.wir_behalten_uns_vor_diese_datenschutzerkl_rung":
+    "Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den\n              aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen\n              in der Datenschutzerklärung umzusetzen.",
+  "auto.pages.de.datenschutz.wir_hosten_die_inhalte_unserer_website":
+    "Wir hosten die Inhalte unserer Website bei Render Services Inc., 525 Brannan Street,\n              Suite 300, San Francisco, CA 94107, USA.",
+  "auto.pages.de.datenschutz.wir_verwenden_geeignete_technische_und_organisatorische":
+    "Wir verwenden geeignete technische und organisatorische Sicherheitsmaßnahmen, um Ihre\n              Daten gegen zufällige oder vorsätzliche Manipulationen, teilweisen oder vollständigen\n              Verlust, Zerstörung oder gegen den unbefugten Zugriff Dritter zu schützen.",
+  "auto.pages.de.impressum.die_europ_ische_kommission_stellt_eine_plattform":
+    "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)\n              bereit:",
+  "auto.pages.de.impressum.die_in_melodymind_verwendeten_musik_previews":
+    "Die in MelodyMind verwendeten Musik-Previews und Album-Cover werden über lizenzierte\n              APIs bereitgestellt. Alle Rechte an den Musikstücken und Bildern liegen bei den\n              jeweiligen Künstlern, Plattenlabels und Rechteinhabern.",
+  "auto.pages.de.impressum.die_streaming_links_f_hren_zu_lizenzierten":
+    "Die Streaming-Links führen zu lizenzierten Musikdiensten wie Spotify, Apple Music und\n              Deezer. MelodyMind selbst hostet keine urheberrechtlich geschützten Inhalte.",
+  "auto.pages.de.impressum.wir_sind_nicht_bereit_oder_verpflichtet":
+    "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer\n              Verbraucherschlichtungsstelle teilzunehmen.",
+  "auto.pages.en.legal_notice.as_service_providers_we_are_liable":
+    "As service providers, we are liable for own contents of these websites according to\n              general laws. However, we are not under obligation to monitor third party information\n              transmitted or stored, or investigate circumstances pointing to illegal activity.",
+  "auto.pages.en.legal_notice.the_european_commission_provides_a_platform":
+    "The European Commission provides a platform for online dispute resolution (ODR):",
+  "auto.pages.en.legal_notice.the_music_previews_and_album_covers":
+    "The music previews and album covers used in MelodyMind are provided through licensed\n              APIs. All rights to the music and images belong to the respective artists, record\n              labels, and rights holders.",
+  "auto.pages.en.legal_notice.the_streaming_links_lead_to_licensed":
+    "The streaming links lead to licensed music services such as Spotify, Apple Music, and\n              Deezer. MelodyMind itself does not host any copyrighted content.",
+  "auto.pages.en.legal_notice.this_legal_notice_has_been_created":
+    "This legal notice has been created with the greatest care. However,\n          we cannot guarantee completeness and accuracy. Please adapt the information according to your\n          specific situation.",
+  "auto.pages.en.legal_notice.we_are_neither_willing_nor_obliged":
+    "We are neither willing nor obliged to participate in dispute resolution proceedings\n              before a consumer arbitration board.",
+  "auto.pages.en.privacy_policy.a_combination_of_this_data_with":
+    "A combination of this data with other data sources will not be made. The collection of\n              this data is based on Art. 6 para. 1 lit. f GDPR.",
+  "auto.pages.en.privacy_policy.address_daniel_schmid_hiltenspergerstr_78_80796":
+    "Address: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland",
+  "auto.pages.en.privacy_policy.game_statistics_rounds_played_categories_difficulty":
+    "Game statistics (rounds played, categories, difficulty levels)",
+  "auto.pages.en.privacy_policy.if_you_have_questions_about_data":
+    "If you have questions about data protection, wish to exercise your rights, or have\n              complaints, you can always contact us:",
+  "auto.pages.en.privacy_policy.melodymind_uses_external_music_apis_for":
+    "MelodyMind uses external music APIs for preview links and album covers. When playing\n              music previews or clicking on streaming links, you will be redirected to external\n              services:",
+  "auto.pages.en.privacy_policy.other_data_is_collected_automatically_by":
+    "Other data is collected automatically by our IT systems when you visit the website.\n              This data is primarily technical data such as the browser and operating system you are\n              using or when you accessed the page.",
+  "auto.pages.en.privacy_policy.our_website_uses_cookies_these_are":
+    "Our website uses cookies. These are small text files that your browser stores on your\n              device. We only use technically necessary cookies for:",
+  "auto.pages.en.privacy_policy.some_data_is_collected_when_you":
+    "Some data is collected when you provide it to us. This could, for example, be data you\n              enter on a contact form.",
+  "auto.pages.en.privacy_policy.the_data_processing_on_this_website":
+    'The data processing on this website is carried out by the website operator. You can\n              find the operator\'s contact details in the "Information about the responsible party"\n              section of this privacy policy.',
+  "auto.pages.en.privacy_policy.the_following_gives_a_simple_overview":
+    "The following gives a simple overview of what happens to your personal information\n              when you visit our website. Personal information is any data with which you could be\n              personally identified.",
+  "auto.pages.en.privacy_policy.the_legal_basis_for_this_processing":
+    "The legal basis for this processing is Art. 6 para. 1 lit. b GDPR (performance of\n              contract) and Art. 6 para. 1 lit. f GDPR (legitimate interest in providing game\n              functionality).",
+  "auto.pages.en.privacy_policy.the_legal_basis_for_this_processing_2":
+    "The legal basis for this processing is Art. 6 para. 1 lit. f GDPR (legitimate interest\n              in analyzing website usage to improve our services).",
+  "auto.pages.en.privacy_policy.the_new_privacy_policy_will_then":
+    "The new privacy policy will then apply to your next visit. We recommend that you visit\n              this page regularly to stay informed about changes.",
+  "auto.pages.en.privacy_policy.the_operators_of_this_website_take":
+    "The operators of this website take the protection of your personal data very\n              seriously. We treat your personal data confidentially and in accordance with the\n              statutory data protection regulations and this privacy policy.",
+  "auto.pages.en.privacy_policy.the_responsible_party_for_data_processing":
+    "The responsible party for data processing on this website is:",
+  "auto.pages.en.privacy_policy.the_use_is_based_on_art":
+    "The use is based on Art. 6 para. 1 lit. f GDPR. We have a legitimate interest in a\n              reliable presentation of our website.",
+  "auto.pages.en.privacy_policy.the_website_is_transmitted_via_https":
+    "The website is transmitted via HTTPS encryption. This protects your input from access\n              by third parties.",
+  "auto.pages.en.privacy_policy.the_website_provider_automatically_collects_and":
+    "The website provider automatically collects and stores information in so-called server\n              log files, which your browser automatically transmits to us. These are:",
+  "auto.pages.en.privacy_policy.this_data_is_processed_anonymously_and":
+    "This data is processed anonymously and cannot be used to identify individual users.\n              For more information, see Fathom's privacy policy:",
+  "auto.pages.en.privacy_policy.this_data_is_stored_securely_in":
+    "This data is stored securely in our TursoDB database to provide you with persistent\n              game progress and enable features like high scores and achievements. You can request\n              deletion of your data at any time by contacting us at",
+  "auto.pages.en.privacy_policy.unless_a_more_specific_storage_period":
+    "Unless a more specific storage period has been specified in this privacy policy, your\n              personal data will remain with us until the purpose for which it was collected no\n              longer applies.",
+  "auto.pages.en.privacy_policy.we_host_the_content_of_our":
+    "We host the content of our website at Render Services, Inc., 525 Brannan Street, Suite\n              300, San Francisco, CA 94107, USA.",
+  "auto.pages.en.privacy_policy.we_reserve_the_right_to_adapt":
+    "We reserve the right to adapt this privacy policy so that it always complies with\n              current legal requirements or to implement changes to our services in the privacy\n              policy.",
+  "auto.pages.en.privacy_policy.we_use_appropriate_technical_and_organizational":
+    "We use appropriate technical and organizational security measures to protect your data\n              against accidental or intentional manipulation, partial or complete loss, destruction,\n              or unauthorized access by third parties.",
+  "auto.pages.en.privacy_policy.we_use_fathom_analytics_a_privacy":
+    "We use Fathom Analytics, a privacy-focused analytics service, to better understand how\n              visitors interact with our website. Fathom Analytics is GDPR, CCPA and PECR compliant\n              and does not use cookies or collect personal data.",
+  "auto.pages.en.privacy_policy.when_you_play_melodymind_the_following":
+    "When you play MelodyMind, the following data is stored in our TursoDB database:",
+  "auto.pages.en.privacy_policy.when_you_visit_our_website_render":
+    "When you visit our website, Render collects various logfiles including your IP\n              addresses. Details can be found in Render's privacy policy:",
+  "auto.pages.en.privacy_policy.you_also_have_the_right_to":
+    "You also have the right to lodge a complaint with a data protection supervisory\n              authority about our processing of your personal data.",
+  "auto.pages.en.privacy_policy.your_game_scores_and_settings_are":
+    "Your game scores and settings are stored in your browser's local storage. This data\n              remains local and is not transmitted.",
   "auto.src.components.Headline.welcome_to_melodymind": "*   Welcome to MelodyMind\n *",
-  "auto.src.components.Paragraph.this_is_a_paragraph_with_custom": "*   This is a paragraph with custom styling\n *",
-  "auto.src.layouts.Layout.example_game_page_with_coins_astro": "* ```\n *\n * @example Game page with coins\n * ```astro\n *",
-  "auto.src.layouts.Layout.example_music_content_page_astro": "* ```\n *\n * @example Music content page\n * ```astro\n *",
-  "auto.src.pages.404.don_t_worry_though_there_s": "Don't worry though, there's plenty of music to discover! Try one of the options below to\n            get back on track.",
+  "auto.src.components.Paragraph.this_is_a_paragraph_with_custom":
+    "*   This is a paragraph with custom styling\n *",
+  "auto.src.layouts.Layout.example_game_page_with_coins_astro":
+    "* ```\n *\n * @example Game page with coins\n * ```astro\n *",
+  "auto.src.layouts.Layout.example_music_content_page_astro":
+    "* ```\n *\n * @example Music content page\n * ```astro\n *",
+  "auto.src.pages.404.don_t_worry_though_there_s":
+    "Don't worry though, there's plenty of music to discover! Try one of the options below to\n            get back on track.",
   "category.about.title": "Про цю категорію",
   "category.difficulty.easy": "Легкий",
   "category.difficulty.hard": "Важкий",
@@ -324,12 +439,17 @@ export default {
   "category.no_image_available": "Зображення недоступне",
   "category.play": "Грати",
   "category.start": "Почати",
-  "coins.announce.earned_excellent": "Відмінно! Зароблено {difference} монет під час {context}! Новий загальний рахунок: {newCount} монет.",
-  "coins.announce.earned_great": "Чудова робота! Отримано {difference} монет{plural} під час {context}. Всього: {newCount} монет.",
-  "coins.announce.earned_normal": "Отримано {difference} монет{plural} під час {context}. Всього: {newCount} монет.",
-  "coins.announce.lost": "Втрачено {lost} монет{plural} під час {context}. Залишилось: {newCount} монет.",
+  "coins.announce.earned_excellent":
+    "Відмінно! Зароблено {difference} монет під час {context}! Новий загальний рахунок: {newCount} монет.",
+  "coins.announce.earned_great":
+    "Чудова робота! Отримано {difference} монет{plural} під час {context}. Всього: {newCount} монет.",
+  "coins.announce.earned_normal":
+    "Отримано {difference} монет{plural} під час {context}. Всього: {newCount} монет.",
+  "coins.announce.lost":
+    "Втрачено {lost} монет{plural} під час {context}. Залишилось: {newCount} монет.",
   "coins.announce.progress_saved": " Прогрес збережено у вашому акаунті.",
-  "coins.announce.updated": "Монети оновлено під час {context}. Поточний загальний рахунок: {newCount} монет.",
+  "coins.announce.updated":
+    "Монети оновлено під час {context}. Поточний загальний рахунок: {newCount} монет.",
   "coins.collected": "Зібрані монети",
   "coins.context.achievement": "отримання досягнення",
   "coins.context.bonus": "отримання бонуса",
@@ -339,7 +459,8 @@ export default {
   "coins.context.quiz": "відповідей на питання вікторини",
   "coins.context.shop": "здійснення покупки",
   "coins.context.streak": "підтримання серії",
-  "coins.tooltip.authenticated": "Ваш баланс монет. Прогрес автоматично зберігається у вашому акаунті.",
+  "coins.tooltip.authenticated":
+    "Ваш баланс монет. Прогрес автоматично зберігається у вашому акаунті.",
   "coins.tooltip.guest": "Ваш поточний баланс монет для цієї сесії.",
   "common.back.to.top": "Назад до верху",
   "common.loading": "Завантаження...",
@@ -355,9 +476,11 @@ export default {
   "error.404.actions.playlists": "Переглянути плейлісти",
   "error.404.actions.quiz": "Почати музичну вікторину",
   "error.404.cta_title": "Що ви хочете зробити?",
-  "error.404.description": "Сторінка, яку ви шукаєте, не існує. Ознайомтеся з нашими музичними вікторинами та плейлістами.",
+  "error.404.description":
+    "Сторінка, яку ви шукаєте, не існує. Ознайомтеся з нашими музичними вікторинами та плейлістами.",
   "error.404.heading": "Сторінку не знайдено",
-  "error.404.message": "Упс! Сторінка, яку ви шукаєте, не існує. Можливо, її перемістили, видалили або ви ввели неправильну URL-адресу.",
+  "error.404.message":
+    "Упс! Сторінка, яку ви шукаєте, не існує. Можливо, її перемістили, видалили або ви ввели неправильну URL-адресу.",
   "error.404.title": "404 - Сторінку не знайдено | MelodyMind",
   "error.close": "Закрити повідомлення про помилку",
   "error.countdown": "Час, що залишається до автоматичного приховання",
@@ -386,7 +509,8 @@ export default {
   "errors.gameResult.validation.invalidData": "Недійсний формат даних",
   "errors.gameResult.validation.invalidDifficulty": "Недійсний рівень складності",
   "errors.gameResult.validation.invalidScore": "Рахунок повинен бути числом",
-  "errors.gameResult.validation.invalidTotalRounds": "Загальна кількість раундів повинна бути числом",
+  "errors.gameResult.validation.invalidTotalRounds":
+    "Загальна кількість раундів повинна бути числом",
   "errors.gameResult.validation.missingCategory": "Назва категорії є обов'язковою",
   "errors.gameResult.validation.missingDifficulty": "Рівень складності є обов'язковим",
   "errors.gameResult.validation.missingUserId": "ID користувача є обов'язковим",
@@ -418,8 +542,10 @@ export default {
   "game.chronology.aria.main": "Основна область хронологічної гри",
   "game.chronology.correct": "Правильно! 🎉",
   "game.chronology.correct_order": "Правильний порядок:",
-  "game.chronology.correct_order_description": "Список, що показує правильний хронологічний порядок подій",
-  "game.chronology.description": "⏰ Станьте мандрівником у часі музики! Розставте ці легендарні альбоми в правильному хронологічному порядку та покажіть, що ви справжній музичний історик. Кожен правильний хід наближає вас до ідеального результату! 🎯",
+  "game.chronology.correct_order_description":
+    "Список, що показує правильний хронологічний порядок подій",
+  "game.chronology.description":
+    "⏰ Станьте мандрівником у часі музики! Розставте ці легендарні альбоми в правильному хронологічному порядку та покажіть, що ви справжній музичний історик. Кожен правильний хід наближає вас до ідеального результату! 🎯",
   "game.chronology.feedback.close": "Закрити",
   "game.chronology.feedback.continue": "Продовжити",
   "game.chronology.feedback.title": "Зворотній зв'язок раунду",
@@ -445,18 +571,24 @@ export default {
   "game.end.difficultyLevel": "Індикатор рівня складності",
   "game.end.finalScore": "Фінальний рахунок:",
   "game.end.home": "Головна сторінка",
-  "game.end.homeButtonHelp": "Повернутися на головну сторінку, щоб вибрати новий режим гри або категорію",
+  "game.end.homeButtonHelp":
+    "Повернутися на головну сторінку, щоб вибрати новий режим гри або категорію",
   "game.end.homeDescription": "Повернутися до головного меню та стартової сторінки",
   "game.end.level.enthusiast": "ентузіаст",
   "game.end.level.explorer": "дослідник",
   "game.end.level.genius": "геній",
   "game.end.level.lover": "любитель",
   "game.end.level.pro": "профі",
-  "game.end.motivation.enthusiast": "Вражаюче! 👍 Як справжній музичний ентузіаст, ви дійсно знаєте свою справу. Ви побудували міцну основу музичних знань, яка відрізняє вас від натовпу. З невеликою додатковою практикою ви незабаром можете піднятися до професійної ліги. Хочете спробувати ще один раунд?",
-  "game.end.motivation.explorer": "Дякуємо за гру! 🙏 Як музичний дослідник, ви зробили перший крок у відкритті захоплюючого світу музики. Кожна гра - це можливість дізнатися щось нове. Кидайте виклик собі, грайте більше раундів і розширюйте свої музичні знання!",
-  "game.end.motivation.genius": "Надзвичайно! 💫 Ви справжній музичний геній! 🎶 Ваші глибокі знання та музична інтуїція справді вражають. Ви могли б виграти музичну вікторину або навіть стати музичним істориком. Поділіться своїм видатним досягненням і кидайте виклик іншим змагатися з вами!",
-  "game.end.motivation.lover": "Добре зроблено! 👏 Як любитель музики, ви продемонстрували значні знання. Ви на правильному шляху до того, щоб стати справжнім музичним знавцем. З більшою практикою гри ви можете розширити свої знання та покращити свій рахунок. Готові до нового виклику?",
-  "game.end.motivation.pro": "Фантастично! 🌟 Ви однозначно музичний професіонал з великими знаннями про різних виконавців та жанри. Ваше розуміння музики значно вище середнього. Мало хто може зрівнятися з вашими знаннями. Продовжуйте в тому ж дусі та кидайте виклик друзям!",
+  "game.end.motivation.enthusiast":
+    "Вражаюче! 👍 Як справжній музичний ентузіаст, ви дійсно знаєте свою справу. Ви побудували міцну основу музичних знань, яка відрізняє вас від натовпу. З невеликою додатковою практикою ви незабаром можете піднятися до професійної ліги. Хочете спробувати ще один раунд?",
+  "game.end.motivation.explorer":
+    "Дякуємо за гру! 🙏 Як музичний дослідник, ви зробили перший крок у відкритті захоплюючого світу музики. Кожна гра - це можливість дізнатися щось нове. Кидайте виклик собі, грайте більше раундів і розширюйте свої музичні знання!",
+  "game.end.motivation.genius":
+    "Надзвичайно! 💫 Ви справжній музичний геній! 🎶 Ваші глибокі знання та музична інтуїція справді вражають. Ви могли б виграти музичну вікторину або навіть стати музичним істориком. Поділіться своїм видатним досягненням і кидайте виклик іншим змагатися з вами!",
+  "game.end.motivation.lover":
+    "Добре зроблено! 👏 Як любитель музики, ви продемонстрували значні знання. Ви на правильному шляху до того, щоб стати справжнім музичним знавцем. З більшою практикою гри ви можете розширити свої знання та покращити свій рахунок. Готові до нового виклику?",
+  "game.end.motivation.pro":
+    "Фантастично! 🌟 Ви однозначно музичний професіонал з великими знаннями про різних виконавців та жанри. Ваше розуміння музики значно вище середнього. Мало хто може зрівнятися з вашими знаннями. Продовжуйте в тому ж дусі та кидайте виклик друзям!",
   "game.end.newgame": "Нова гра",
   "game.end.newgameDescription": "Почати нову гру з тими ж налаштуваннями",
   "game.end.progressDescription": "Візуальна смуга прогресу, що показує ваш рівень досягнень",
@@ -465,9 +597,11 @@ export default {
   "game.end.restartSameGameDescription": "Зіграти ту ж категорію та складність знову",
   "game.end.restartSameGameHelp": "Перезапустити ту ж категорію та складність для нового раунду",
   "game.end.scoreProgress": "Прогрес рахунку",
-  "game.end.screenReaderDescription": "Результати гри, що показують ваш рахунок та рівень досягнень.",
+  "game.end.screenReaderDescription":
+    "Результати гри, що показують ваш рахунок та рівень досягнень.",
   "game.end.share": "Поділіться своїм успіхом!",
-  "game.end.shareDescription": "Відкриває параметри обміну для публікації вашого рахунку в соціальних мережах",
+  "game.end.shareDescription":
+    "Відкриває параметри обміну для публікації вашого рахунку в соціальних мережах",
   "game.end.shareResults": "Поділіться результатами гри в соціальних мережах",
   "game.end.shareSection": "Поділіться вашими результатами",
   "game.end.title": "Гра закінчена!",
@@ -512,7 +646,8 @@ export default {
   "game.filter.seasonal": "Сезонні жанри",
   "game.filter.situational": "Ситуаційні & засновані на діяльності жанри",
   "game.genre.list": "Вибір жанру",
-  "game.genre.selection.description": "Виберіть з кількох музичних жанрів, включаючи рок, поп, джаз, класику та інші. Кожна категорія містить ретельно підібрані питання для перевірки ваших музичних знань.",
+  "game.genre.selection.description":
+    "Виберіть з кількох музичних жанрів, включаючи рок, поп, джаз, класику та інші. Кожна категорія містить ретельно підібрані питання для перевірки ваших музичних знань.",
   "game.joker": "Джокер 50:50",
   "game.joker.description": "Видаляє два неправильні варіанти відповідей",
   "game.joker.options": "Опції джокера",
@@ -539,14 +674,18 @@ export default {
   "game.search.reset.text": "Скинути пошук",
   "game.search.results": "знайдено жанрів",
   "game.search.showing.all": "Показано всі жанри",
-  "game.select": "🎵 Готові до ультимативної музичної пригоди? Зануртеся у світ ритму, мелодії та незабутніх пісень! Від потужних гітарних соло до вічної класики – знайдіть свою ідеальну музичну битву. Покажіть світу, що ви справжній музичний знавець!",
+  "game.select":
+    "🎵 Готові до ультимативної музичної пригоди? Зануртеся у світ ритму, мелодії та незабутніх пісень! Від потужних гітарних соло до вічної класики – знайдіть свою ідеальну музичну битву. Покажіть світу, що ви справжній музичний знавець!",
   "game.start.now": "Почати Зараз",
   "game.submit.answer": "Перевірити відповідь",
   "game.submit.answer.aria": "Перевірити поточний порядок і перейти до наступного раунду",
-  "game.timepressure.controls": "Використовуйте клавіші 1-4 для відповідей, Пробіл для паузи, S для пропуску",
+  "game.timepressure.controls":
+    "Використовуйте клавіші 1-4 для відповідей, Пробіл для паузи, S для пропуску",
   "game.timepressure.countdown": "Таймер зворотного відліку",
-  "game.timepressure.description": "⚡ Станьте блискавичним майстром музики! Доведіть, що ви справжній чемпіон навіть під часовим тиском зі змішаними рівнями складності в {category}. Кожна секунда на рахунку — покажіть свою швидкість і знання одночасно! 🏆",
-  "game.timepressure.instructions": "Відповідайте на запитання якнайшвидше. У вас обмежений час на кожне запитання.",
+  "game.timepressure.description":
+    "⚡ Станьте блискавичним майстром музики! Доведіть, що ви справжній чемпіон навіть під часовим тиском зі змішаними рівнями складності в {category}. Кожна секунда на рахунку — покажіть свою швидкість і знання одночасно! 🏆",
+  "game.timepressure.instructions":
+    "Відповідайте на запитання якнайшвидше. У вас обмежений час на кожне запитання.",
   "game.timepressure.seconds": "Сек",
   "game.timepressure.skip": "Пропустити",
   "game.timepressure.streak": "Серія",
@@ -563,7 +702,8 @@ export default {
   "highscores.allModes": "Всі режими",
   "highscores.category": "Категорія",
   "highscores.date": "Дата",
-  "highscores.description": "Відкрийте музичні легенди! Подивіться, хто очолює чарти, і надихніться найкращими гравцями 🎵🏆",
+  "highscores.description":
+    "Відкрийте музичні легенди! Подивіться, хто очолює чарти, і надихніться найкращими гравцями 🎵🏆",
   "highscores.error": "Помилка завантаження рекордів",
   "highscores.filters": "Фільтрувати результати",
   "highscores.gameMode": "Режим гри",
@@ -571,17 +711,21 @@ export default {
   "highscores.points": "очки",
   "highscores.rank": "Рейтинг",
   "highscores.results": "Топ рахунки",
-  "highscores.seo.description": "Переглядайте найкращі результати музичних вікторин та змагайтеся з іншими гравцями",
+  "highscores.seo.description":
+    "Переглядайте найкращі результати музичних вікторин та змагайтеся з іншими гравцями",
   "highscores.tableLabel": "Список рекордів",
   "highscores.title": "Рекорди",
   "index.continue": "Поїхали!",
   "index.start.game.label": "Почніть свою музичну подорож",
-  "index.welcome.footnote": "🎶 Створено з пристрастю для справжніх музичних фанатів - Нехай магія почнеться! ✨",
-  "knowledge.description": "Зануртеся в захоплюючий світ музики! 🎶 Відкрийте для себе вичерпні статті, експертні думки та захоплюючі факти про артистів, жанри та історію музики. Розширте свої музичні горизонти та станьте справжнім знавцем з нашою ретельно відібраною базою знань.",
+  "index.welcome.footnote":
+    "🎶 Створено з пристрастю для справжніх музичних фанатів - Нехай магія почнеться! ✨",
+  "knowledge.description":
+    "Зануртеся в захоплюючий світ музики! 🎶 Відкрийте для себе вичерпні статті, експертні думки та захоплюючі факти про артистів, жанри та історію музики. Розширте свої музичні горизонти та станьте справжнім знавцем з нашою ретельно відібраною базою знань.",
   "knowledge.empty": "Наразі статті недоступні. Незабаром повертаємося з новим контентом!",
   "knowledge.no.results": "Статті не знайдено",
   "knowledge.no.results.help": "Спробуйте інші ключові слова або перегляньте всі статті нижче",
-  "knowledge.play.description": "🎵 Готові до найскладнішого виклику? Перевірте свої музичні знання та станьте експертом жанру! Збирайте очки, використовуйте розумні джокери та доведіть, що у вас є все необхідне, щоб стати музичним чемпіоном! 🏆",
+  "knowledge.play.description":
+    "🎵 Готові до найскладнішого виклику? Перевірте свої музичні знання та станьте експертом жанру! Збирайте очки, використовуйте розумні джокери та доведіть, що у вас є все необхідне, щоб стати музичним чемпіоном! 🏆",
   "knowledge.published": "Опубліковано",
   "knowledge.reading.time": "хв читання",
   "knowledge.reading.time.label": "Час читання",
@@ -608,7 +752,8 @@ export default {
   "language.es.label": "Переглянути веб-сайт іспанською мовою",
   "language.fi": "Фінська",
   "language.fi.label": "Переглянути веб-сайт фінською мовою",
-  "language.focus.announce": "Селектор мови в фокусі. Використовуйте стрілки для навігації по опціях.",
+  "language.focus.announce":
+    "Селектор мови в фокусі. Використовуйте стрілки для навігації по опціях.",
   "language.fr": "Французька",
   "language.fr.label": "Переглянути веб-сайт французькою мовою",
   "language.it": "Італійська",
@@ -629,7 +774,8 @@ export default {
   "language.uk": "Українська",
   "language.uk.label": "Переглянути веб-сайт українською мовою",
   "layout.accessibility.motion.reduced": "Режим зменшеного руху увімкнено для доступності",
-  "layout.accessibility.theme.dark": "Темна тема активована для оптимального контрасту та доступності",
+  "layout.accessibility.theme.dark":
+    "Темна тема активована для оптимального контрасту та доступності",
   "layout.analytics.init.failed": "Помилка ініціалізації аналітики:",
   "layout.error.system": "Сталася системна помилка. Будь ласка, оновіть сторінку.",
   "layout.error.tracking": "Помилка відстежена:",
@@ -643,12 +789,16 @@ export default {
   "loading.context.results": "Завантаження результатів",
   "loading.progress.indicator": "Індикатор прогресу",
   "loading.started": "Завантаження розпочато",
-  "login.description": "🎵 Зануртеся в ультимативний музичний всесвіт! Відкрийте легендарні хіти, оперуйте захоплюючими викликами та станьте абсолютним музичним чемпіоном. Ваша подорож до найбільших музичних секретів починається зараз! 🚀",
+  "login.description":
+    "🎵 Зануртеся в ультимативний музичний всесвіт! Відкрийте легендарні хіти, оперуйте захоплюючими викликами та станьте абсолютним музичним чемпіоном. Ваша подорож до найбільших музичних секретів починається зараз! 🚀",
   "login.welcome": "Ласкаво просимо до Melody Mind!",
-  "meta.keywords": "Музична вікторина, Музична гра, Пісенна вікторина, Вікторина про виконавців, Онлайн музична вікторина, Музичні факти, Melody Mind, Гра вгадування музики",
-  "musicPlatforms.externalNotice": "Зовнішні посилання на музичні платформи можуть вимагати акаунти або підписки для повного доступу.",
+  "meta.keywords":
+    "Музична вікторина, Музична гра, Пісенна вікторина, Вікторина про виконавців, Онлайн музична вікторина, Музичні факти, Melody Mind, Гра вгадування музики",
+  "musicPlatforms.externalNotice":
+    "Зовнішні посилання на музичні платформи можуть вимагати акаунти або підписки для повного доступу.",
   "musicPlatforms.heading": "Послухайте пов'язану музику",
-  "musicPlatforms.keyboardInstructions": "Навігація музичними платформами за допомогою клавіші Tab. Натисніть Enter або пробіл, щоб відкрити платформи в нових вкладках.",
+  "musicPlatforms.keyboardInstructions":
+    "Навігація музичними платформами за допомогою клавіші Tab. Натисніть Enter або пробіл, щоб відкрити платформи в нових вкладках.",
   "musicPlatforms.listenOn": "Слухати {title} на {platform}",
   "musicPlatforms.platform.apple": "Apple Music",
   "musicPlatforms.platform.deezer": "Deezer",
@@ -694,8 +844,10 @@ export default {
   "nav.subtitle": "Відкривайте музику, змагайтеся з друзями та тестуйте свої знання",
   "nav.title": "Навігація",
   "news.articlesList": "Список статей",
-  "news.description": "Відкрийте для себе найновіші хіти, новини артистів та музичні тренди з усього світу",
-  "news.disclaimer.text": "Всі новини надходять із зовнішніх джерел. MelodyMind не несе відповідальності за зміст.",
+  "news.description":
+    "Відкрийте для себе найновіші хіти, новини артистів та музичні тренди з усього світу",
+  "news.disclaimer.text":
+    "Всі новини надходять із зовнішніх джерел. MelodyMind не несе відповідальності за зміст.",
   "news.disclaimer.title": "Застереження",
   "news.imageAlt": "Зображення статті",
   "news.lastUpdated": "Останнє оновлення",
@@ -714,56 +866,84 @@ export default {
   "pages.imprint.company_name_label": "Оператор",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.contact_label": "Контакти",
-  "pages.imprint.dispute_participation": "Ми не зобов'язані та не готові брати участь у процедурах вирішення спорів перед органами зі врегулювання споживчих спорів.",
-  "pages.imprint.dispute_resolution.description": "Європейська Комісія надає платформу для онлайн‑вирішення спорів (ODR). У разі спорів щодо онлайн‑контрактів ви можете скористатися цією платформою.",
+  "pages.imprint.dispute_participation":
+    "Ми не зобов'язані та не готові брати участь у процедурах вирішення спорів перед органами зі врегулювання споживчих спорів.",
+  "pages.imprint.dispute_resolution.description":
+    "Європейська Комісія надає платформу для онлайн‑вирішення спорів (ODR). У разі спорів щодо онлайн‑контрактів ви можете скористатися цією платформою.",
   "pages.imprint.dispute_resolution.odr_link_label": "Платформа ODR ЄК",
   "pages.imprint.dispute_resolution.odr_link_url": "https://ec.europa.eu/consumers/odr",
   "pages.imprint.dispute_resolution.title": "Онлайн‑вирішення спорів (ODR)",
   "pages.imprint.heading": "Impressum / Юридична інформація",
-  "pages.imprint.intro": "У цьому розділі наведено обов'язкову законом інформацію про оператора сайту. Будь ласка, за потреби відредагуйте відомості відповідно до вашої конкретної ситуації.",
-  "pages.imprint.liability_content": "Як постачальники послуг ми відповідаємо за власний зміст на цьому сайті відповідно до загальних положень. Проте ми не зобов'язані здійснювати постійний моніторинг переданих або збережених сторонніх даних, якщо немає конкретних ознак правопорушення.",
-  "pages.imprint.music_assets.description": "Музичні превʼю й обкладинки альбомів, використані в MelodyMind, надаються через ліцензовані API. Усі права на музику та зображення належать відповідним виконавцям, лейблам та правовласникам.",
+  "pages.imprint.intro":
+    "У цьому розділі наведено обов'язкову законом інформацію про оператора сайту. Будь ласка, за потреби відредагуйте відомості відповідно до вашої конкретної ситуації.",
+  "pages.imprint.liability_content":
+    "Як постачальники послуг ми відповідаємо за власний зміст на цьому сайті відповідно до загальних положень. Проте ми не зобов'язані здійснювати постійний моніторинг переданих або збережених сторонніх даних, якщо немає конкретних ознак правопорушення.",
+  "pages.imprint.music_assets.description":
+    "Музичні превʼю й обкладинки альбомів, використані в MelodyMind, надаються через ліцензовані API. Усі права на музику та зображення належать відповідним виконавцям, лейблам та правовласникам.",
   "pages.imprint.music_assets.title": "Музичні превʼю та обкладинки",
-  "pages.imprint.streaming_links.description": "Посилання ведуть на ліцензовані музичні сервіси, такі як Spotify, Apple Music та Deezer. MelodyMind не розміщує авторський контент самостійно.",
+  "pages.imprint.streaming_links.description":
+    "Посилання ведуть на ліцензовані музичні сервіси, такі як Spotify, Apple Music та Deezer. MelodyMind не розміщує авторський контент самостійно.",
   "pages.imprint.streaming_links.title": "Посилання на стримінгові сервіси",
   "pages.imprint.title": "Імпринт / Юридична інформація",
-  "pages.legal.disclaimer.content": "Ця юридична інформація підготовлена з максимальною ретельністю. Однак ми не гарантуємо повну точність та вичерпність. Будь ласка, адаптуйте відомості відповідно до ваших конкретних юридичних вимог та ситуації.",
+  "pages.legal.disclaimer.content":
+    "Ця юридична інформація підготовлена з максимальною ретельністю. Однак ми не гарантуємо повну точність та вичерпність. Будь ласка, адаптуйте відомості відповідно до ваших конкретних юридичних вимог та ситуації.",
   "pages.legal.disclaimer.title": "Відмова від відповідальності",
-  "pages.legal.dispute_participation": "Ми не зобов'язані та не готові брати участь у вирішенні спорів перед споживчими арбітражними комісіями.",
-  "pages.legal.odr": "Платформа Європейської Комісії для онлайн‑вирішення спорів (ODR): https://ec.europa.eu/consumers/odr",
+  "pages.legal.dispute_participation":
+    "Ми не зобов'язані та не готові брати участь у вирішенні спорів перед споживчими арбітражними комісіями.",
+  "pages.legal.odr":
+    "Платформа Європейської Комісії для онлайн‑вирішення спорів (ODR): https://ec.europa.eu/consumers/odr",
   "pages.privacy.analytics_provider_link_text": "Докладніше: https://usefathom.com/privacy",
-  "pages.privacy.analytics.description": "Ми використовуємо Fathom Analytics — сервіс, орієнтований на конфіденційність. Дані обробляються анонімно та не дозволяють ідентифікувати окремих користувачів.",
+  "pages.privacy.analytics.description":
+    "Ми використовуємо Fathom Analytics — сервіс, орієнтований на конфіденційність. Дані обробляються анонімно та не дозволяють ідентифікувати окремих користувачів.",
   "pages.privacy.analytics.title": "Аналітика",
-  "pages.privacy.complaint_authority": "Ви також маєте право подати скаргу до уповноваженого органу з захисту даних, якщо вважаєте, що обробка ваших даних порушує закон.",
-  "pages.privacy.contact.address": "Адреса: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland",
+  "pages.privacy.complaint_authority":
+    "Ви також маєте право подати скаргу до уповноваженого органу з захисту даних, якщо вважаєте, що обробка ваших даних порушує закон.",
+  "pages.privacy.contact.address":
+    "Адреса: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland",
   "pages.privacy.contact.email": "dcschmid@murena.io",
   "pages.privacy.contact.email_label": "Електронна пошта",
   "pages.privacy.contact.title": "Контакти з питань конфіденційності",
-  "pages.privacy.cookies.description": "Наш сайт використовує cookies — невеликі текстові файли, що зберігаються вашим браузером. Ми використовуємо лише технічно необхідні cookies та, за потреби, додаткові cookies за вашої згоди.",
+  "pages.privacy.cookies.description":
+    "Наш сайт використовує cookies — невеликі текстові файли, що зберігаються вашим браузером. Ми використовуємо лише технічно необхідні cookies та, за потреби, додаткові cookies за вашої згоди.",
   "pages.privacy.cookies.title": "Cookies",
-  "pages.privacy.data_collected.automatic": "Інші дані збираються автоматично нашими ІТ‑системами під час відвідування сайту — головним чином технічні дані (тип браузера, операційна система, час доступу, IP‑адреса) у файлах журналів сервера.",
-  "pages.privacy.data_collected.manual": "Деякі дані збираються, коли ви надаєте їх самостійно — наприклад при заповненні контактних форм або створенні облікового запису.",
-  "pages.privacy.data_processing_basis": "Обробка даних на цьому вебсайті здійснюється на підставі ст. 6(1)(b) GDPR (виконання договору) та/або ст. 6(1)(f) GDPR (законний інтерес — надійне відображення та робота сайту).",
-  "pages.privacy.hosting.description": "Ми хостимо вміст нашого сайту у Render Services, Inc., 525 Brannan Street, Suite 300, San Francisco, CA 94107, USA.",
+  "pages.privacy.data_collected.automatic":
+    "Інші дані збираються автоматично нашими ІТ‑системами під час відвідування сайту — головним чином технічні дані (тип браузера, операційна система, час доступу, IP‑адреса) у файлах журналів сервера.",
+  "pages.privacy.data_collected.manual":
+    "Деякі дані збираються, коли ви надаєте їх самостійно — наприклад при заповненні контактних форм або створенні облікового запису.",
+  "pages.privacy.data_processing_basis":
+    "Обробка даних на цьому вебсайті здійснюється на підставі ст. 6(1)(b) GDPR (виконання договору) та/або ст. 6(1)(f) GDPR (законний інтерес — надійне відображення та робота сайту).",
+  "pages.privacy.hosting.description":
+    "Ми хостимо вміст нашого сайту у Render Services, Inc., 525 Brannan Street, Suite 300, San Francisco, CA 94107, USA.",
   "pages.privacy.hosting.title": "Хостинг",
-  "pages.privacy.intro_p1": "Нижче наведено простий огляд того, що відбувається з вашою персональною інформацією при відвідуванні нашого вебсайту. Персональні дані — це будь‑які дані, за допомогою яких можна ідентифікувати особу.",
+  "pages.privacy.intro_p1":
+    "Нижче наведено простий огляд того, що відбувається з вашою персональною інформацією при відвідуванні нашого вебсайту. Персональні дані — це будь‑які дані, за допомогою яких можна ідентифікувати особу.",
   "pages.privacy.last_updated": "Оновлено: {date}",
-  "pages.privacy.legal_basis.description": "Використання сайту ґрунтується на ст. 6(1)(f) GDPR, оскільки ми маємо законний інтерес у надійній та коректній презентації сайту.",
+  "pages.privacy.legal_basis.description":
+    "Використання сайту ґрунтується на ст. 6(1)(f) GDPR, оскільки ми маємо законний інтерес у надійній та коректній презентації сайту.",
   "pages.privacy.legal_basis.title": "Правова підстава обробки",
-  "pages.privacy.meta_description": "Політика конфіденційності MelodyMind — як ми збираємо, обробляємо та захищаємо ваші персональні дані.",
-  "pages.privacy.render_privacy_link_text": "Деталі щодо обробки даних компанією Render можна знайти тут: https://render.com/privacy",
-  "pages.privacy.responsible_party_description": "Обробкою даних на цьому вебсайті займається оператор сайту. Контактні дані оператора наведені в розділі «Імпринт / Юридична інформація».",
+  "pages.privacy.meta_description":
+    "Політика конфіденційності MelodyMind — як ми збираємо, обробляємо та захищаємо ваші персональні дані.",
+  "pages.privacy.render_privacy_link_text":
+    "Деталі щодо обробки даних компанією Render можна знайти тут: https://render.com/privacy",
+  "pages.privacy.responsible_party_description":
+    "Обробкою даних на цьому вебсайті займається оператор сайту. Контактні дані оператора наведені в розділі «Імпринт / Юридична інформація».",
   "pages.privacy.responsible_party_title": "Відповідальна особа",
-  "pages.privacy.rights.description": "Ви маєте право на доступ до своїх даних, їх виправлення, видалення, обмеження обробки, заперечення проти обробки та перенесення даних. Для реалізації своїх прав звертайтесь за контактною інформацією, вказаною в імпринті.",
+  "pages.privacy.rights.description":
+    "Ви маєте право на доступ до своїх даних, їх виправлення, видалення, обмеження обробки, заперечення проти обробки та перенесення даних. Для реалізації своїх прав звертайтесь за контактною інформацією, вказаною в імпринті.",
   "pages.privacy.rights.title": "Ваші права",
-  "pages.privacy.storage_duration": "Якщо в цій політиці не вказано інший термін зберігання, ваші персональні дані зберігатимуться до моменту, коли відпаде мета їх обробки або доки ви не попросите їх видалити.",
-  "pages.privacy.this_data_processed_anonymously": "Ці дані обробляються анонімно й не дозволяють ідентифікувати окремих користувачів.",
+  "pages.privacy.storage_duration":
+    "Якщо в цій політиці не вказано інший термін зберігання, ваші персональні дані зберігатимуться до моменту, коли відпаде мета їх обробки або доки ви не попросите їх видалити.",
+  "pages.privacy.this_data_processed_anonymously":
+    "Ці дані обробляються анонімно й не дозволяють ідентифікувати окремих користувачів.",
   "pages.privacy.title": "Політика конфіденційності",
-  "pages.privacy.turso_storage.deletion_request": "Ви можете запросити видалення своїх даних у будь‑який час, звернувшись за контактними даними, наведеними в імпринті.",
-  "pages.privacy.turso_storage.description": "Коли ви граєте в MelodyMind, певні дані можуть зберігатися в нашій базі TursoDB — наприклад ігрова статистика (зіграні раунди, вибрані категорії, рівні складності). Ці дані зберігаються безпечно, щоб забезпечити збереження прогресу, рейтинги та досягнення.",
+  "pages.privacy.turso_storage.deletion_request":
+    "Ви можете запросити видалення своїх даних у будь‑який час, звернувшись за контактними даними, наведеними в імпринті.",
+  "pages.privacy.turso_storage.description":
+    "Коли ви граєте в MelodyMind, певні дані можуть зберігатися в нашій базі TursoDB — наприклад ігрова статистика (зіграні раунди, вибрані категорії, рівні складності). Ці дані зберігаються безпечно, щоб забезпечити збереження прогресу, рейтинги та досягнення.",
   "pages.privacy.turso_storage.title": "Зберігання ігрових даних (TursoDB)",
   "podcast.description": "Відкрийте для себе музичні знання через нашу серію подкастів",
-  "podcast.rss.description": "Відкрийте для себе історію музики через захоплюючі подкаст-епізоди, що охоплюють різні епохи, жанри та музичні рухи.",
+  "podcast.rss.description":
+    "Відкрийте для себе історію музики через захоплюючі подкаст-епізоди, що охоплюють різні епохи, жанри та музичні рухи.",
   "podcast.rss.subscribe": "Підписатися на RSS канал",
   "podcast.rss.subscribe.description": "Будьте в курсі нових епізодів",
   "podcast.rss.subscribe.title": "Підписатися на наш подкаст",
@@ -771,11 +951,13 @@ export default {
   "podcast.search.placeholder": "Пошук подкастів...",
   "podcast.search.reset.text": "Скинути пошук",
   "podcast.title": "Подкасти",
-  "podcasts.empty.text": "Поки немає епізодів подкастів цією мовою. Повертайтесь незабаром за новим контентом!",
+  "podcasts.empty.text":
+    "Поки немає епізодів подкастів цією мовою. Повертайтесь незабаром за новим контентом!",
   "podcasts.empty.title": "Подкасти недоступні",
   "podcasts.episode.plural": "Епізоди",
   "podcasts.episode.singular": "Епізод",
-  "podcasts.language_restriction.description": "Наші подкаст-епізоди наразі доступні лише німецькою та англійською мовами. Будь ласка, перемкніться на одну з цих мов, щоб відкрити наш контент.",
+  "podcasts.language_restriction.description":
+    "Наші подкаст-епізоди наразі доступні лише німецькою та англійською мовами. Будь ласка, перемкніться на одну з цих мов, щоб відкрити наш контент.",
   "podcasts.language_restriction.switch_to_english": "Перемкніться на Англійську",
   "podcasts.language_restriction.switch_to_german": "Перемкніться на Німецьку",
   "podcasts.language_restriction.title": "Подкасти Доступні Лише Німецькою та Англійською",
@@ -785,27 +967,38 @@ export default {
   "podcasts.platform.deezer": "Deezer",
   "podcasts.platform.spotify": "Spotify",
   "podcasts.player.transcript.placeholder": "Контент транскрипту поки недоступний.",
-  "podcasts.transcript.info": "Натисніть на будь-який сегмент, щоб перейти до цієї позиції в аудіо.",
+  "podcasts.transcript.info":
+    "Натисніть на будь-який сегмент, щоб перейти до цієї позиції в аудіо.",
   "podcasts.transcript.loading": "Натисніть, щоб завантажити транскрипт...",
   "podcasts.transcript.show": "Показати транскрипт",
   "podcasts.transcript.title": "Транскрипт епізоду",
   "podcasts.transcript.toggle": "Перемкнути транскрипт",
   "profile.desc": "Керувати вашою особистою інформацією та статистикою гри",
-  "share.accessibility.copy_failed_manual": "Копіювання не вдалося. Будь ласка, скопіюйте URL сторінки вручну з вашого браузера.",
-  "share.accessibility.data_found": "Дані гри знайдені! Параметри спільного доступу тепер доступні.",
-  "share.accessibility.data_still_unavailable": "Дані гри все ще недоступні. Спробуйте оновити сторінку або використати ручне копіювання.",
-  "share.accessibility.data_unavailable": "Дані гри недоступні. Будь ласка, спробуйте ще раз або скопіюйте вручну.",
-  "share.accessibility.link_copied_fallback": "Посилання на гру скопійовано в буфер обміну за допомогою резервного методу!",
-  "share.accessibility.native_share_failed": "Вбудоване спільне використання не вдалося: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.copy_failed_manual":
+    "Копіювання не вдалося. Будь ласка, скопіюйте URL сторінки вручну з вашого браузера.",
+  "share.accessibility.data_found":
+    "Дані гри знайдені! Параметри спільного доступу тепер доступні.",
+  "share.accessibility.data_still_unavailable":
+    "Дані гри все ще недоступні. Спробуйте оновити сторінку або використати ручне копіювання.",
+  "share.accessibility.data_unavailable":
+    "Дані гри недоступні. Будь ласка, спробуйте ще раз або скопіюйте вручну.",
+  "share.accessibility.link_copied_fallback":
+    "Посилання на гру скопійовано в буфер обміну за допомогою резервного методу!",
+  "share.accessibility.native_share_failed":
+    "Вбудоване спільне використання не вдалося: {errorMessage}. {recoveryMessage}",
   "share.accessibility.platform_opened": "Відкрито {platform} для спільного використання успішно.",
-  "share.accessibility.platform_share_failed": "Помилка спільного доступу на {platform}: {errorMessage}. {recoveryMessage}",
-  "share.accessibility.retry_failed": "Повторна спроба не вдалася. Будь ласка, спробуйте вручну скопіювати або оновіть сторінку.",
+  "share.accessibility.platform_share_failed":
+    "Помилка спільного доступу на {platform}: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.retry_failed":
+    "Повторна спроба не вдалася. Будь ласка, спробуйте вручну скопіювати або оновіть сторінку.",
   "share.accessibility.retrying": "Повторна спроба пошуку даних гри...",
   "share.accessibility.score_copied": "Рахунок успішно скопійовано в буфер обміну!",
   "share.accessibility.score_shared": "Ваш рахунок було успішно поділено.",
   "share.accessibility.sharing_cancelled": "Спільний доступ скасовано.",
-  "share.accessibility.try_alternative_methods": "Спробуйте скопіювати в буфер обміну або використати інший спосіб спільного доступу.",
-  "share.accessibility.try_platform_buttons": "Спробуйте використовувати кнопки спільного доступу платформи або скопіюйте в буфер обміну замість цього",
+  "share.accessibility.try_alternative_methods":
+    "Спробуйте скопіювати в буфер обміну або використати інший спосіб спільного доступу.",
+  "share.accessibility.try_platform_buttons":
+    "Спробуйте використовувати кнопки спільного доступу платформи або скопіюйте в буфер обміну замість цього",
   "share.achievement.enthusiast": "🎸 Музичний ентузіаст! 🎸",
   "share.achievement.explorer": "🎼 Дослідник музики! 🎼",
   "share.achievement.genius": "🎵 Музичний геній! 🎵",
@@ -825,7 +1018,8 @@ export default {
   "share.email.subject": "Мій рахунок у Melody Mind",
   "share.fallback.manual.label": "Копіювати посилання на сторінку вручну",
   "share.fallback.manual.text": "Копіювати посилання",
-  "share.fallback.message": "Дані гри наразі недоступні. Будь ласка, спробуйте ще раз або скопіюйте посилання вручну.",
+  "share.fallback.message":
+    "Дані гри наразі недоступні. Будь ласка, спробуйте ще раз або скопіюйте посилання вручну.",
   "share.fallback.retry.label": "Спробувати знову завантажити дані гри",
   "share.fallback.retry.text": "Спробувати знову",
   "share.native": "Поділитися з...",

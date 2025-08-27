@@ -9,6 +9,11 @@ export default {
 
   "accessibility.skip.to.content": "Aller au contenu principal",
 
+  // Category filter keys used on category pages
+  "category.filter.label": "Filtrer par catégorie :",
+  "category.filter.aria_label": "Filtrer par catégorie",
+  "category.filter.option_all": "Tous",
+
   // Search UI (client translations used on gamehome)
   "game.search.label": "Rechercher un genre",
   "game.search.placeholder": "Rechercher des genres...",
@@ -34,7 +39,7 @@ export default {
   "game.categories.empty.text":
     "Malheureusement, aucune catégorie n'a été trouvée. Veuillez réessayer plus tard.",
 
-  // Meta / SEO keywords 
+  // Meta / SEO keywords
   "meta.keywords":
     "Quiz musical, Jeu musical, Quiz de chansons, Quiz d'artistes, Quiz musical en ligne, Trivia musical, Melody Mind, Jeu de devinettes musicales",
 

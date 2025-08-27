@@ -4,6 +4,11 @@ export default {
   // Merge base template to keep existing common keys and then add/override
   ...template,
 
+  // Category filter keys used on category pages
+  "category.filter.label": "Filter by category:",
+  "category.filter.aria_label": "Filter by category",
+  "category.filter.option_all": "All",
+
   // Footer keys ensured in main English locale (explicit overrides/additions)
   "footer.description":
     "The ultimate music trivia game. Test your knowledge across genres and decades.",

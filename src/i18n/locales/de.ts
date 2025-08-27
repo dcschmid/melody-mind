@@ -134,6 +134,9 @@ export default {
   "game.search.help": "Geben Sie ein, um Genres nach Namen zu filtern",
 
   // Small interactive / CTA keys used on the page
+  "category.filter.label": "Nach Kategorie filtern:",
+  "category.filter.aria_label": "Nach Kategorie filtern",
+  "category.filter.option_all": "Alle",
   "game.start.now": "Jetzt starten",
   "game.submit.answer": "Antwort prüfen",
 };
