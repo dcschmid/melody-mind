@@ -1,4 +1,16 @@
 export default {
+  "error.404.title": "404 - Seite nicht gefunden | MelodyMind",
+  "error.404.description":
+    "Die gesuchte Seite wurde nicht gefunden. Entdecke stattdessen unsere Musik-Quiz und Playlists.",
+  "error.404.heading": "Seite nicht gefunden",
+  "error.404.message":
+    "Hoppla! Die Seite, die du suchst, existiert nicht. Sie wurde möglicherweise verschoben, gelöscht oder du hast die falsche URL eingegeben.",
+  "error.404.cta_title": "Was möchtest du tun?",
+  "error.404.actions.home": "Zur Startseite",
+  "error.404.actions.back": "Zurück",
+  "error.404.actions.playlists": "Musik-Playlists entdecken",
+  "error.404.actions.quiz": "Ein Musik-Quiz starten",
+  "error.404.actions.highscores": "Bestenliste ansehen",
   "accessibility.skip.to.content": "Zum Hauptinhalt springen",
   "achievements.badge.context_description":
     "Erfolge-Benachrichtigungsabzeichen. Zeigt die Anzahl neuer freigeschalteter Erfolge im Navigationsbereich an.",
@@ -933,6 +945,11 @@ export default {
   "share.title": "Teilen Sie Ihren Erfolg!",
   "share.twitter": "Auf X/Twitter teilen",
   "share.whatsapp": "Per WhatsApp teilen",
+  "knowledge.search.label": "Nach Titel oder Beschreibung suchen",
+  "knowledge.search.subtitle": "Finde Artikel nach Titel, Beschreibung oder Schlagwörtern",
+  "podcasts.note.only_english": "Hinweis: Podcasts sind derzeit nur auf Englisch verfügbar.",
+  "podcasts.navigation.aria": "Episoden-Navigation",
+  "share.challenge_fallback": "Denkst du, du kannst mich schlagen? Spiele jetzt:",
   "share.email.subject": "Meine Melody Mind-Punktzahl",
   "share.challenge": "Denkst du, du kannst mich schlagen? Spiele jetzt:",
   "share.score_line":

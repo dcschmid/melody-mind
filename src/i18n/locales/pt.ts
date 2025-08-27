@@ -1,4 +1,9 @@
 export default {
+  "knowledge.search.label": "Procurar por título ou descrição",
+  "knowledge.search.subtitle": "Encontre artigos por título, descrição ou palavras-chave",
+  "podcasts.note.only_english": "Nota: os podcasts estão atualmente disponíveis apenas em inglês.",
+  "podcasts.navigation.aria": "Navegação de episódios",
+  "share.challenge_fallback": "Acha que consegue me vencer? Jogue agora em:",
   "share.email.subject": "Meu placar no Melody Mind",
   "share.score_line": "Consegui {score} pontos no quiz '{category}' do Melody Mind ({difficulty})!",
   "share.challenge": "Acha que consegue me vencer? Jogue agora em:",
@@ -7,6 +12,18 @@ export default {
   "share.achievement.enthusiast": "🎸 Entusiasta musical! 🎸",
   "share.achievement.lover": "🎹 Amante da música! 🎹",
   "share.achievement.explorer": "🎼 Explorador musical! 🎼",
+  "error.404.title": "404 - Página não encontrada | MelodyMind",
+  "error.404.description":
+    "A página que você está procurando não existe. Explore nossos jogos de trivia musical e playlists.",
+  "error.404.heading": "Página não encontrada",
+  "error.404.message":
+    "Ops! A página que você está procurando não existe. Pode ter sido movida, excluída ou você digitou uma URL incorreta.",
+  "error.404.cta_title": "O que gostaria de fazer?",
+  "error.404.actions.home": "Ir para página inicial",
+  "error.404.actions.back": "Voltar",
+  "error.404.actions.playlists": "Explorar playlists",
+  "error.404.actions.quiz": "Iniciar um quiz musical",
+  "error.404.actions.highscores": "Ver melhores pontuações",
   "share.difficulty_emoji.easy": "🟢",
   "share.difficulty_emoji.medium": "🟡",
   "share.difficulty_emoji.hard": "🔴",

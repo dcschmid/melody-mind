@@ -151,7 +151,7 @@ const pageSchema = generatePodcastPageSchema();
               })}
             >
               <span class="text-xl">🍎</span>
-              <span class="text-sm font-semibold">Apple Podcasts</span>
+              <span class="text-sm font-semibold">{t("podcasts.platform.apple")}</span>
             </a>
 
             <a
@@ -165,7 +165,7 @@ const pageSchema = generatePodcastPageSchema();
               })}
             >
               <span class="text-xl">🎵</span>
-              <span class="text-sm font-semibold">Deezer</span>
+              <span class="text-sm font-semibold">{t("podcasts.platform.deezer")}</span>
             </a>
 
             <a
@@ -179,7 +179,7 @@ const pageSchema = generatePodcastPageSchema();
               })}
             >
               <span class="text-xl">🎧</span>
-              <span class="text-sm font-semibold">Spotify</span>
+              <span class="text-sm font-semibold">{t("podcasts.platform.spotify")}</span>
             </a>
           </div>
 
@@ -202,7 +202,7 @@ const pageSchema = generatePodcastPageSchema();
                   <div class="flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
                     <span class="text-base">🌐</span>
                   </div>
-                  <div class="text-sm font-semibold text-gray-200">English</div>
+                  <div class="text-sm font-semibold text-gray-200">{t("language.en")}</div>
                 </div>
 
                 {/* RSS Subscribe Button in Stats (English-only) */}
@@ -231,10 +231,7 @@ const pageSchema = generatePodcastPageSchema();
           <div class="mb-8 w-full rounded-xl border border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-100 p-4">
             <div class="flex items-center justify-center gap-3 text-blue-800">
               <div class="text-blue-500">ℹ️</div>
-              <div class="text-center">
-                <span class="font-medium">Note:</span> Podcasts are currently available only in
-                English.
-              </div>
+              <div class="text-center">{t("podcasts.note.only_english")}</div>
             </div>
           </div>
         )
@@ -362,7 +359,9 @@ const pageSchema = generatePodcastPageSchema();
                                 day: "numeric",
                               })}
                             </time>
-                            <span class="text-sm text-gray-400">🎙️ Episode</span>
+                            <span class="text-sm text-gray-400">
+                              🎙️ {t("podcasts.episode.singular")}
+                            </span>
                           </div>
                         </div>
                       </div>

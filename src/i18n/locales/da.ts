@@ -804,6 +804,18 @@ export default {
   "share.copy.label": "Kopier tekst",
   "share.email": "Del via E-mail",
   "share.email.label": "E-mail",
+  "error.404.title": "404 - Side ikke fundet | MelodyMind",
+  "error.404.description":
+    "Siden du leder efter findes ikke. Udforsk i stedet vores musikquizzer og afspilningslister.",
+  "error.404.heading": "Side ikke fundet",
+  "error.404.message":
+    "Ups! Siden du leder efter findes ikke. Den kan være flyttet, slettet eller du har indtastet en forkert URL.",
+  "error.404.cta_title": "Hvad vil du gerne gøre?",
+  "error.404.actions.home": "Gå til startsiden",
+  "error.404.actions.back": "Gå tilbage",
+  "error.404.actions.playlists": "Udforsk afspilningslister",
+  "error.404.actions.quiz": "Start et musikquiz",
+  "error.404.actions.highscores": "Se topresultater",
   "share.fallback.manual.label": "Kopier sidens link manuelt",
   "share.fallback.manual.text": "Kopier link",
   "share.fallback.message":
@@ -816,6 +828,11 @@ export default {
   "share.twitter": "Del på X/Twitter",
   "share.whatsapp": "Del via WhatsApp",
 
+  "knowledge.search.label": "Søg efter titel eller beskrivelse",
+  "knowledge.search.subtitle": "Find artikler efter titel, beskrivelse eller nøgleord",
+  "podcasts.note.only_english": "Bemærk: Podcasts er i øjeblikket kun tilgængelige på engelsk.",
+  "podcasts.navigation.aria": "Episode navigation",
+  "share.challenge_fallback": "Tror du, du kan slå mig? Spil nu på:",
   "share.email.subject": "Min Melody Mind-score",
   "share.score_line": "Jeg fik {score} point i Melody Mind-quizzen '{category}' ({difficulty})!",
   "share.challenge": "Tror du, du kan slå mig? Spil nu på:",
