@@ -780,11 +780,24 @@ export default {
   "news.disclaimer.text":
     "Todo o conteúdo de notícias é fornecido por provedores externos. MelodyMind não é responsável pelo conteúdo.",
   "news.legal.attribution": "Notícias fornecidas pelas seguintes fontes:",
+
+  // Podcast page / navigation translations
   "podcast.navigation.aria": "Navegação de podcast",
   "podcast.back_to_all": "← Voltar para todos os Podcasts",
   "podcast.listen_to_episode": "Ouvir Episódio",
   "podcast.episode_label": "Episódio de Podcast",
   "podcasts.read_full_notes": "Ler notas completas do episódio",
+
+  // Episode navigation labels
+  "podcasts.navigation.previous": "Episódio anterior",
+  "podcasts.navigation.next": "Próximo episódio",
+
+  // Call-to-action (CTA) texts for podcast pages
+  "podcasts.cta.title": "Quer mais histórias musicais?",
+  "podcasts.cta.description":
+    "Explore nossa coleção completa de episódios de podcast e descubra o fascinante mundo da história, cultura e inovação musical.",
+  "podcasts.cta.browse": "Ver todos os episódios",
+
   "podcasts.language_restriction.title": "Podcasts Disponíveis Apenas em Alemão e Inglês",
   "podcasts.language_restriction.description":
     "Nossos episódios de podcast estão atualmente disponíveis apenas em alemão e inglês. Por favor, mude para um desses idiomas para descobrir nosso conteúdo.",
