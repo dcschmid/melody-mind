@@ -106,6 +106,19 @@ export default {
   "footer.source_code": "在 GitHub 上查看 MelodyMind 源代码",
   "footer.support_kofi": "在 Ko-fi 上支持 MelodyMind",
 
+  // Navigation / News（导航与新闻）
+  "nav.subtitle": "发现音乐，与朋友竞争并测试你的音乐知识",
+  "nav.section.main": "主菜单",
+  "nav.menu.home.desc": "返回主页面",
+  "nav.section.discover": "发现",
+  "nav.menu.knowledge.desc": "探索音乐知识与趣闻",
+  "nav.menu.playlists.desc": "发现精选音乐播放列表",
+  "nav.menu.podcasts": "播客",
+  "nav.podcasts.description": "收听与音乐相关的播客与访谈",
+  "news.title": "新闻",
+  "news.description": "发现来自世界各地的最新热门歌曲、艺人新闻和音乐趋势",
+  "nav.donate.description": "通过小额捐款支持该项目",
+
   // 404 error page
   "error.404.title": "404 - 页面未找到 | MelodyMind",
   "error.404.heading": "页面未找到",

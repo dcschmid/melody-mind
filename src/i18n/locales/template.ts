@@ -320,6 +320,7 @@ export default {
   "nav.section.discover": "Discover",
   "nav.menu.knowledge.desc": "Explore music knowledge and trivia",
   "nav.menu.playlists.desc": "Discover curated music playlists",
+  "nav.menu.podcasts": "Podcasts",
   "nav.podcasts.description": "Listen to music-related podcasts and interviews",
   "news.title": "News",
   "news.description":

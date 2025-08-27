@@ -19,6 +19,18 @@ export default {
   "footer.opens_in_new_tab": "s'ouvre dans un nouvel onglet",
   "footer.legal_nav": "Informations légales",
   "footer.external_nav": "Liens du pied de page",
+  "nav.subtitle": "Découvrez de la musique, défiez des amis et testez vos connaissances",
+  "nav.section.main": "Principal",
+  "nav.menu.home.desc": "Retour à la page principale",
+  "nav.section.discover": "Découvrir",
+  "nav.menu.knowledge.desc": "Explorez les connaissances musicales et les anecdotes",
+  "nav.menu.playlists.desc": "Découvrez des playlists musicales sélectionnées",
+  "nav.menu.podcasts": "Podcasts",
+  "nav.podcasts.description": "Écoutez des podcasts et des interviews autour de la musique",
+  "news.title": "Actualités",
+  "news.description":
+    "Découvrez les derniers hits, les actualités des artistes et les tendances musicales du monde entier",
+  "nav.donate.description": "Soutenez le projet avec un petit don",
   "accessibility.skip.to.content": "Aller au contenu principal",
   "achievements.badge.context_description":
     "Badge de notification de succès. Affiche le nombre de nouveaux succès débloqués dans la zone de navigation.",

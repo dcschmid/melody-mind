@@ -128,4 +128,18 @@ export default {
   "error.404.actions.playlists": "Explore playlists",
   "error.404.actions.quiz": "Start a music quiz",
   "error.404.actions.highscores": "See highscores",
+
+  // Navigation / News (English)
+  "nav.subtitle": "Discover music, compete with friends and test your knowledge",
+  "nav.section.main": "Main",
+  "nav.menu.home.desc": "Return to the main page",
+  "nav.section.discover": "Discover",
+  "nav.menu.knowledge.desc": "Explore music knowledge and trivia",
+  "nav.menu.playlists.desc": "Discover curated music playlists",
+  "nav.menu.podcasts": "Podcasts",
+  "nav.podcasts.description": "Listen to music-related podcasts and interviews",
+  "news.title": "News",
+  "news.description":
+    "Discover the latest hits, artist news and music trends from around the world",
+  "nav.donate.description": "Support the project with a small donation",
 };

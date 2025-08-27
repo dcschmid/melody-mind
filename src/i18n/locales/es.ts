@@ -218,6 +218,18 @@ export default {
   "auth.oauth.linked_accounts": "Cuentas Conectadas",
   "auth.oauth.linked_accounts_description": "Gestiona tus cuentas de redes sociales conectadas",
   "auth.oauth.loading_providers": "Cargando proveedores de autenticación...",
+  "nav.subtitle": "Descubre música, compite con amigos y pon a prueba tus conocimientos",
+  "nav.section.main": "Principal",
+  "nav.menu.home.desc": "Volver a la página principal",
+  "nav.section.discover": "Descubrir",
+  "nav.menu.knowledge.desc": "Explora conocimientos y curiosidades musicales",
+  "nav.menu.playlists.desc": "Descubre playlists musicales seleccionadas",
+  "nav.menu.podcasts": "Podcasts",
+  "nav.podcasts.description": "Escucha podcasts y entrevistas relacionadas con la música",
+  "news.title": "Noticias",
+  "news.description":
+    "Descubre los últimos éxitos, noticias de artistas y tendencias musicales de todo el mundo",
+  "nav.donate.description": "Apoya el proyecto con una pequeña donación",
   "error.404.title": "404 - Página no encontrada | MelodyMind",
   "error.404.description":
     "¡No te preocupes! Hay mucha música por descubrir. Prueba una de las opciones a continuación para volver al rumbo.",
