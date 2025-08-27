@@ -299,6 +299,20 @@ export default {
   "error.close": "Close error message",
   "error.countdown": "Time remaining until auto-hide",
   "error.default": "An error has occurred",
+
+  // 404 error page fallbacks
+  "error.404.title": "404 - Page not found | MelodyMind",
+  "error.404.description":
+    "Don't worry though, there's plenty of music to discover! Try one of the options below to get back on track.",
+  "error.404.heading": "Page not found",
+  "error.404.message":
+    "Oops! The page you're looking for doesn't exist. It may have been moved, deleted, or you entered an incorrect URL.",
+  "error.404.cta_title": "What would you like to do?",
+  "error.404.actions.home": "Go to homepage",
+  "error.404.actions.back": "Go back",
+  "error.404.actions.playlists": "Explore playlists",
+  "error.404.actions.quiz": "Start a music quiz",
+  "error.404.actions.highscores": "See highscores",
   "error.extend": "Extend timeout",
   "error.extend.tooltip": "Extend the error message timeout by 5 seconds",
   "error.invalid.question": "Invalid question or no options available",

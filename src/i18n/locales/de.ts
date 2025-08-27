@@ -75,6 +75,19 @@ export default {
   "footer.github": "GitHub",
   "footer.kofi": "Ko-fi",
   "footer.aria": "Fußzeile",
+  // 404 error page (German)
+  "error.404.title": "404 - Seite nicht gefunden | MelodyMind",
+  "error.404.description":
+    "Keine Sorge — es gibt trotzdem viel Musik zu entdecken! Probier eine der Optionen unten, um wieder auf Kurs zu kommen.",
+  "error.404.heading": "Seite nicht gefunden",
+  "error.404.message":
+    "Ups! Die Seite, die du suchst, wurde nicht gefunden. Sie wurde möglicherweise verschoben, gelöscht oder die URL ist falsch.",
+  "error.404.cta_title": "Was möchtest du tun?",
+  "error.404.actions.home": "Zur Startseite",
+  "error.404.actions.back": "Zurück",
+  "error.404.actions.playlists": "Playlists entdecken",
+  "error.404.actions.quiz": "Musikquiz starten",
+  "error.404.actions.highscores": "Bestenlisten anzeigen",
   "footer.opens_in_new_tab": "öffnet sich in einem neuen Tab",
   "footer.legal_nav": "Rechtliche Informationen",
   "footer.external_nav": "Footer-Links",

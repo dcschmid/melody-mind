@@ -502,6 +502,8 @@ export default {
   "difficulty.hard": "Vaikea",
   "difficulty.level": "Vaikeustaso",
   "difficulty.medium": "Keskitaso",
+  "auto.src.pages.404.don_t_worry_though_there_s":
+    "MT: Don't worry though, there's plenty of music to discover! Try one of the options below to get back on track.",
   "error.404.actions.back": "Palaa takaisin",
   "error.404.actions.highscores": "Katso huipputulokset",
   "error.404.actions.home": "Siirry etusivulle",
