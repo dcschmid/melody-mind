@@ -1,8 +1,10 @@
 export default {
   "accessibility.skip.to.content": "Saltar al contenido principal",
-  "achievements.badge.context_description": "Insignia de notificación de logros. Muestra el número de nuevos logros desbloqueados en el área de navegación.",
+  "achievements.badge.context_description":
+    "Insignia de notificación de logros. Muestra el número de nuevos logros desbloqueados en el área de navegación.",
   "achievements.badge.fallback_text": "Notificación de logro",
-  "achievements.badge.keyboard_instructions": "Presiona Enter o Espacio para ver tu página de logros.",
+  "achievements.badge.keyboard_instructions":
+    "Presiona Enter o Espacio para ver tu página de logros.",
   "achievements.badge.new": "¡Nuevo logro desbloqueado!",
   "achievements.badge.new_with_count": "{count} nuevos logros desbloqueados",
   "achievements.categories": "Categorías de Logros",
@@ -12,7 +14,8 @@ export default {
   "achievements.category.platinum": "Platino",
   "achievements.category.silver": "Plata",
   "achievements.category.time": "Tiempo",
-  "achievements.description": "Celebra tus triunfos musicales y colecciona trofeos únicos en tu camino para convertirte en un maestro de la música",
+  "achievements.description":
+    "Celebra tus triunfos musicales y colecciona trofeos únicos en tu camino para convertirte en un maestro de la música",
   "achievements.empty": "No se encontraron logros",
   "achievements.error": "Error al cargar los logros",
   "achievements.filter.all": "Todos",
@@ -20,7 +23,8 @@ export default {
   "achievements.filter.announcement.changed": "Filtro cambiado: {filterType} a {filterValue}",
   "achievements.filter.announcement.no_results": "Ningún logro coincide con los filtros actuales",
   "achievements.filter.announcement.reset": "Todos los filtros han sido restablecidos",
-  "achievements.filter.announcement.results": "{visibleCards} logro{cardPlural} encontrado{cardPlural} en {visibleSections} categoría{sectionPlural}",
+  "achievements.filter.announcement.results":
+    "{visibleCards} logro{cardPlural} encontrado{cardPlural} en {visibleSections} categoría{sectionPlural}",
   "achievements.filter.available_shortcuts": "Atajos disponibles",
   "achievements.filter.category": "Categoría",
   "achievements.filter.count.all": "Todos ({count} visibles)",
@@ -45,10 +49,12 @@ export default {
   "achievements.notification.resume": "Reanudar temporizador de notificación",
   "achievements.notification.resume_title": "Reanudar el cierre automático de esta notificación",
   "achievements.notification.toggle_sound": "Alternar sonido de notificación",
-  "achievements.notification.toggle_sound_title": "Activar o desactivar el sonido para las notificaciones de logros",
+  "achievements.notification.toggle_sound_title":
+    "Activar o desactivar el sonido para las notificaciones de logros",
   "achievements.notification.unlocked": "¡Logro desbloqueado!",
   "achievements.points": "{points} puntos",
-  "achievements.seo.description": "Sigue tu progreso con logros detallados en todas las categorías musicales. Desbloquea recompensas especiales completando desafíos y alcanzando hitos.",
+  "achievements.seo.description":
+    "Sigue tu progreso con logros detallados en todas las categorías musicales. Desbloquea recompensas especiales completando desafíos y alcanzando hitos.",
   "achievements.status.in_progress": "En Progreso",
   "achievements.status.locked": "Bloqueado",
   "achievements.status.unlocked": "Desbloqueado",
@@ -63,82 +69,104 @@ export default {
   "audioplayer.aria.region": "Reproductor de audio",
   "audioplayer.captions.english": "Subtítulos en inglés",
   "audioplayer.captions.none": "No hay subtítulos disponibles",
-  "audioplayer.description.no_title": "Reproductor de audio para pista. Usa la barra espaciadora para reproducir o pausar, las teclas de flecha para buscar, y M para silenciar.",
+  "audioplayer.description.no_title":
+    "Reproductor de audio para pista. Usa la barra espaciadora para reproducir o pausar, las teclas de flecha para buscar, y M para silenciar.",
   "audioplayer.fallback.download": "Descargar archivo de audio en su lugar",
   "audioplayer.fallback.unsupported": "Tu navegador no soporta el elemento de audio.",
   "audioplayer.help.button.aria": "Ayuda",
   "audioplayer.help.button.title": "Atajos de teclado del reproductor de audio",
-  "audioplayer.help.shortcuts": "Espacio: Reproducir/Pausar, M: Silenciar/Activar sonido, Teclas de flecha: Buscar audio, Arriba/Abajo: Control de volumen",
+  "audioplayer.help.shortcuts":
+    "Espacio: Reproducir/Pausar, M: Silenciar/Activar sonido, Teclas de flecha: Buscar audio, Arriba/Abajo: Control de volumen",
   "audioplayer.play.aria": "Reproducir audio",
   "audioplayer.play.title": "Reproducir/Pausar",
-  "audioplayer.progress.aria": "Progreso del audio - Usa las teclas de flecha para buscar, Inicio para el principio, Fin para el final",
-  "audioplayer.progress.help": "Flecha Izquierda/Derecha: Buscar 5 segundos, Shift+Flecha: Buscar 30 segundos, Inicio: Principio, Fin: Final",
+  "audioplayer.progress.aria":
+    "Progreso del audio - Usa las teclas de flecha para buscar, Inicio para el principio, Fin para el final",
+  "audioplayer.progress.help":
+    "Flecha Izquierda/Derecha: Buscar 5 segundos, Shift+Flecha: Buscar 30 segundos, Inicio: Principio, Fin: Final",
   "audioplayer.volume.slider.aria": "Ajustar nivel de volumen",
   "audioplayer.volume.toggle.aria": "Alternar silencio/sonido",
   "audioplayer.volume.toggle.title": "Volumen",
   "auth.accessibility.error_message_dismissed": "Mensaje de error descartado",
   "auth.accessibility.error_resolved": "error resuelto",
   "auth.accessibility.field_error": "tiene un error",
-  "auth.accessibility.focus_trapped": "El foco está ahora atrapado dentro de este diálogo. Usa Tab para navegar y Escape para cerrar.",
+  "auth.accessibility.focus_trapped":
+    "El foco está ahora atrapado dentro de este diálogo. Usa Tab para navegar y Escape para cerrar.",
   "auth.accessibility.login_form_active": "El formulario de inicio de sesión está ahora activo",
   "auth.accessibility.password_requirements": "Mostrar/ocultar requisitos de contraseña",
   "auth.accessibility.password_toggle": "Mostrar/ocultar contraseña",
-  "auth.accessibility.password_toggle_empty": "Ingresa una contraseña primero antes de alternar la visibilidad.",
-  "auth.accessibility.password_toggle_help": "Alternar para mostrar u ocultar los caracteres de la contraseña. Úsalo con cuidado en espacios públicos por seguridad.",
+  "auth.accessibility.password_toggle_empty":
+    "Ingresa una contraseña primero antes de alternar la visibilidad.",
+  "auth.accessibility.password_toggle_help":
+    "Alternar para mostrar u ocultar los caracteres de la contraseña. Úsalo con cuidado en espacios públicos por seguridad.",
   "auth.accessibility.password.hidden": "La contraseña está ahora oculta",
   "auth.accessibility.password.hidden_status": "La contraseña está ahora oculta por seguridad.",
   "auth.accessibility.password.visible": "La contraseña está ahora visible",
-  "auth.accessibility.password.visible_status": "La contraseña está ahora visible. Recuerda ocultarla cuando termines por seguridad.",
+  "auth.accessibility.password.visible_status":
+    "La contraseña está ahora visible. Recuerda ocultarla cuando termines por seguridad.",
   "auth.accessibility.register_form_active": "El formulario de registro está ahora activo",
   "auth.accessibility.requirement.met": "Requisito cumplido",
   "auth.accessibility.requirement.unmet": "Requisito no cumplido",
   "auth.accessibility.requirements.collapsed": "Requisitos de contraseña colapsados",
   "auth.accessibility.requirements.expanded": "Requisitos de contraseña expandidos",
   "auth.accessibility.success_message_dismissed": "Mensaje de éxito descartado",
-  "auth.email_verification.description": "Verifica tu dirección de correo electrónico para tu cuenta de Melody Mind.",
+  "auth.email_verification.description":
+    "Verifica tu dirección de correo electrónico para tu cuenta de Melody Mind.",
   "auth.email_verification.error": "Falló la verificación de correo electrónico",
   "auth.email_verification.error_icon_label": "Falló la verificación de correo electrónico",
   "auth.email_verification.loading_label": "Verificación de correo electrónico en progreso",
   "auth.email_verification.login": "Volver al Inicio de Sesión",
-  "auth.email_verification.message": "Hemos enviado un enlace de verificación a tu dirección de correo electrónico",
+  "auth.email_verification.message":
+    "Hemos enviado un enlace de verificación a tu dirección de correo electrónico",
   "auth.email_verification.success_icon_label": "Verificación de correo electrónico exitosa",
   "auth.email_verification.title": "Verificación de Correo Electrónico",
   "auth.errors.noRefreshToken": "No hay token de actualización disponible",
   "auth.forgot_password": "¿Olvidaste tu contraseña?",
   "auth.form.email_help": "Ingresa una dirección de correo electrónico válida",
   "auth.form.email_invalid": "Por favor ingresa una dirección de correo electrónico válida",
-  "auth.form.email_invalid_format": "Por favor ingresa una dirección de correo electrónico válida en el formato: usuario@ejemplo.com",
+  "auth.form.email_invalid_format":
+    "Por favor ingresa una dirección de correo electrónico válida en el formato: usuario@ejemplo.com",
   "auth.form.email_required": "La dirección de correo electrónico es obligatoria",
   "auth.form.error": "Ocurrió un error",
   "auth.form.error.general": "Ocurrió un error",
   "auth.form.help.password_button": "Obtener ayuda para crear una contraseña segura",
-  "auth.form.help.password_suggestions": "Intenta usar una combinación de palabras, números y símbolos. Evita contraseñas comunes como 'password123'.",
+  "auth.form.help.password_suggestions":
+    "Intenta usar una combinación de palabras, números y símbolos. Evita contraseñas comunes como 'password123'.",
   "auth.form.help.password_title": "Consejos para Crear Contraseñas",
   "auth.form.help.tip1": "Usa una mezcla de letras mayúsculas y minúsculas",
   "auth.form.help.tip2": "Incluye números y caracteres especiales",
   "auth.form.help.tip3": "Evita palabras comunes y secuencias",
   "auth.form.help.tip4": "Considera usar una frase de contraseña",
   "auth.form.init_error": "Error al inicializar los elementos del formulario de autenticación",
-  "auth.form.instructions.confirm.step1": "Crea una contraseña segura que cumpla todos los requisitos",
+  "auth.form.instructions.confirm.step1":
+    "Crea una contraseña segura que cumpla todos los requisitos",
   "auth.form.instructions.confirm.step2": "Confirma tu contraseña escribiéndola nuevamente",
-  "auth.form.instructions.confirm.step3": "Haz clic en 'Restablecer Contraseña' para completar el proceso",
-  "auth.form.instructions.request.step1": "Ingresa tu dirección de correo electrónico en el campo de abajo",
-  "auth.form.instructions.request.step2": "Haz clic en 'Enviar Enlace de Restablecimiento' para recibir instrucciones de restablecimiento de contraseña",
-  "auth.form.instructions.request.step3": "Revisa tu correo electrónico para el enlace de restablecimiento y sigue las instrucciones",
+  "auth.form.instructions.confirm.step3":
+    "Haz clic en 'Restablecer Contraseña' para completar el proceso",
+  "auth.form.instructions.request.step1":
+    "Ingresa tu dirección de correo electrónico en el campo de abajo",
+  "auth.form.instructions.request.step2":
+    "Haz clic en 'Enviar Enlace de Restablecimiento' para recibir instrucciones de restablecimiento de contraseña",
+  "auth.form.instructions.request.step3":
+    "Revisa tu correo electrónico para el enlace de restablecimiento y sigue las instrucciones",
   "auth.form.instructions.title": "Cómo completar este formulario",
   "auth.form.loading_text": "Cargando...",
   "auth.form.password_common_error": "Por favor elige una contraseña menos común",
   "auth.form.password_confirm_required": "La confirmación de contraseña es obligatoria",
   "auth.form.password_length_error": "La contraseña debe tener al menos 8 caracteres",
-  "auth.form.password_lowercase_error": "La contraseña debe contener al menos una letra minúscula (a-z)",
+  "auth.form.password_lowercase_error":
+    "La contraseña debe contener al menos una letra minúscula (a-z)",
   "auth.form.password_min_length": "La contraseña debe tener al menos 6 caracteres",
   "auth.form.password_number_error": "La contraseña debe contener al menos un número (0-9)",
-  "auth.form.password_repeats_error": "La contraseña no puede contener más de 2 caracteres idénticos consecutivos",
+  "auth.form.password_repeats_error":
+    "La contraseña no puede contener más de 2 caracteres idénticos consecutivos",
   "auth.form.password_required": "La contraseña es obligatoria",
   "auth.form.password_requirements": "La contraseña no cumple todos los requisitos",
-  "auth.form.password_sequences_error": "La contraseña no puede contener secuencias comunes como '123' o 'abc'",
-  "auth.form.password_special_error": "La contraseña debe contener al menos un carácter especial (!@#$%^&*)",
-  "auth.form.password_uppercase_error": "La contraseña debe contener al menos una letra mayúscula (A-Z)",
+  "auth.form.password_sequences_error":
+    "La contraseña no puede contener secuencias comunes como '123' o 'abc'",
+  "auth.form.password_special_error":
+    "La contraseña debe contener al menos un carácter especial (!@#$%^&*)",
+  "auth.form.password_uppercase_error":
+    "La contraseña debe contener al menos una letra mayúscula (A-Z)",
   "auth.form.passwords_not_match": "Las contraseñas no coinciden",
   "auth.form.progress.optional": "opcional",
   "auth.form.progress.required": "obligatorio",
@@ -175,7 +203,8 @@ export default {
   "auth.oauth.authorization_failed": "Autorización fallida",
   "auth.oauth.callback_failed": "Callback de autenticación falló",
   "auth.oauth.cancel": "Cancelar",
-  "auth.oauth.cannot_unlink_last_method": "No se puede desconectar el último método de autenticación",
+  "auth.oauth.cannot_unlink_last_method":
+    "No se puede desconectar el último método de autenticación",
   "auth.oauth.confirm": "Confirmar",
   "auth.oauth.continue_with": "Continuar con",
   "auth.oauth.discord.description": "Conecta tu cuenta de Discord",
@@ -211,18 +240,24 @@ export default {
   "auth.password_reset_confirm.password_section": "Sección de Contraseña",
   "auth.password_reset_confirm.password.placeholder": "Ingresa tu nueva contraseña",
   "auth.password_reset_confirm.submit": "Restablecer Contraseña",
-  "auth.password_reset_confirm.success": "Contraseña restablecida exitosamente. Ahora puedes iniciar sesión con tu nueva contraseña",
+  "auth.password_reset_confirm.success":
+    "Contraseña restablecida exitosamente. Ahora puedes iniciar sesión con tu nueva contraseña",
   "auth.password_reset_confirm.title": "Establecer Nueva Contraseña",
-  "auth.password_reset.complete_error": "Error al restablecer la contraseña. Por favor verifica tus datos o solicita un nuevo enlace de restablecimiento.",
-  "auth.password_reset.complete_success": "Contraseña restablecida exitosamente. Ahora puedes iniciar sesión con tu nueva contraseña.",
-  "auth.password_reset.description": "Ingresa tu correo electrónico para recibir un enlace de restablecimiento de contraseña",
+  "auth.password_reset.complete_error":
+    "Error al restablecer la contraseña. Por favor verifica tus datos o solicita un nuevo enlace de restablecimiento.",
+  "auth.password_reset.complete_success":
+    "Contraseña restablecida exitosamente. Ahora puedes iniciar sesión con tu nueva contraseña.",
+  "auth.password_reset.description":
+    "Ingresa tu correo electrónico para recibir un enlace de restablecimiento de contraseña",
   "auth.password_reset.email": "Dirección de Correo Electrónico",
   "auth.password_reset.email.placeholder": "Tu dirección de correo electrónico registrada",
   "auth.password_reset.error_message": "Ocurrió un error. Por favor intenta de nuevo más tarde.",
   "auth.password_reset.login": "Iniciar Sesión",
   "auth.password_reset.submit": "Enviar Enlace de Restablecimiento",
-  "auth.password_reset.success": "Se ha enviado un enlace de restablecimiento a tu correo electrónico",
-  "auth.password_reset.success_message": "Si existe una cuenta con esta dirección de correo electrónico, se ha enviado un correo con instrucciones para restablecer la contraseña.",
+  "auth.password_reset.success":
+    "Se ha enviado un enlace de restablecimiento a tu correo electrónico",
+  "auth.password_reset.success_message":
+    "Si existe una cuenta con esta dirección de correo electrónico, se ha enviado un correo con instrucciones para restablecer la contraseña.",
   "auth.password_reset.title": "Restablecer Contraseña",
   "auth.password.lowercase": "La contraseña debe contener al menos una letra minúscula",
   "auth.password.match": "Las contraseñas deben coincidir",
@@ -233,12 +268,15 @@ export default {
   "auth.password.number": "La contraseña debe contener al menos un número",
   "auth.password.requirements": "Requisitos de contraseña:",
   "auth.password.requirements.checklist": "Lista de verificación de requisitos de contraseña",
-  "auth.password.requirements.help": "Tu contraseña debe cumplir todos los requisitos listados abajo por seguridad",
-  "auth.password.requirements.keyboard_navigation": "Usa las teclas de flecha para navegar los requisitos, Escape para salir",
+  "auth.password.requirements.help":
+    "Tu contraseña debe cumplir todos los requisitos listados abajo por seguridad",
+  "auth.password.requirements.keyboard_navigation":
+    "Usa las teclas de flecha para navegar los requisitos, Escape para salir",
   "auth.password.requirements.met": "Requisito cumplido",
   "auth.password.requirements.not_met": "Requisito no cumplido",
   "auth.password.requirements.position": "{{current}} de {{total}}",
-  "auth.password.requirements.progress": "{{met}} de {{total}} requisitos cumplidos. {{percentage}}% completo.",
+  "auth.password.requirements.progress":
+    "{{met}} de {{total}} requisitos cumplidos. {{percentage}}% completo.",
   "auth.password.special": "La contraseña debe contener al menos un carácter especial",
   "auth.password.strength": "Fortaleza de la contraseña",
   "auth.password.strength_description": "Indicador del nivel de seguridad de la contraseña",
@@ -261,58 +299,102 @@ export default {
   "auth.register.username.placeholder": "Elige un nombre de usuario",
   "auth.required.description": "Por favor inicia sesión para acceder a esta área",
   "auth.required.title": "Inicio de Sesión Requerido",
-  "auth.service.invalid_credentials": "Credenciales inválidas. Por favor verifica tu correo electrónico y contraseña.",
-  "auth.service.too_many_attempts": "Demasiados intentos de inicio de sesión. Por favor espera un momento e intenta de nuevo.",
+  "auth.service.invalid_credentials":
+    "Credenciales inválidas. Por favor verifica tu correo electrónico y contraseña.",
+  "auth.service.too_many_attempts":
+    "Demasiados intentos de inicio de sesión. Por favor espera un momento e intenta de nuevo.",
   "auth.service.unauthorized": "No autorizado. Por favor inicia sesión",
   "auth.session.timeout.close": "Cerrar",
   "auth.session.timeout.extend": "Extender Sesión",
-  "auth.session.timeout.message": "Tu sesión expirará en 2 minutos. Haz clic en cualquier lugar para extenderla.",
+  "auth.session.timeout.message":
+    "Tu sesión expirará en 2 minutos. Haz clic en cualquier lugar para extenderla.",
   "auth.session.timeout.title": "Sesión Expirando",
   "auth.skip_to_verification": "Saltar al contenido de verificación de correo electrónico",
   "auth.tokens.refreshFailed": "Error al actualizar el token",
   "auth.tokens.refreshSuccess": "Token actualizado exitosamente",
-  "auto._lang_.podcasts._id_.0_podcasts_currentindex_1_null_const": "MT: 0 ? podcasts[currentIndex - 1] : null;\n  const next = currentIndex",
-  "auto.pages._lang_.playlists.finde_deine_lieblingsmusik_nach_k_nstler_stil": "MT: Finde deine Lieblingsmusik nach Künstler, Stil, Epoche oder Genre",
-  "auto.pages.de.datenschutz.adresse_daniel_schmid_hiltenspergerstr_78_80796": "MT: Adresse: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland",
-  "auto.pages.de.datenschutz.andere_daten_werden_automatisch_oder_nach": "MT: Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website\n              durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B.\n              Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).",
-  "auto.pages.de.datenschutz.bei_fragen_zum_datenschutz_zur_geltendmachung": "MT: Bei Fragen zum Datenschutz, zur Geltendmachung Ihrer Rechte oder bei Beschwerden\n              können Sie sich jederzeit an uns wenden:",
-  "auto.pages.de.datenschutz.der_provider_der_seiten_erhebt_und": "MT: Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten\n              Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:",
-  "auto.pages.de.datenschutz.die_betreiber_dieser_seiten_nehmen_den": "MT: Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir\n              behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen\n              Datenschutzvorschriften sowie dieser Datenschutzerklärung.",
-  "auto.pages.de.datenschutz.die_datenverarbeitung_auf_dieser_website_erfolgt": "MT: Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen\n              Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle\" in dieser\n              Datenschutzerklärung entnehmen.",
-  "auto.pages.de.datenschutz.die_folgenden_hinweise_geben_einen_einfachen": "MT: Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren\n              personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene\n              Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.",
-  "auto.pages.de.datenschutz.die_verantwortliche_stelle_f_r_die_datenverarbeitung": "MT: Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:",
-  "auto.pages.de.datenschutz.die_verwendung_erfolgt_auf_grundlage_von": "MT: Die Verwendung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein\n              berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website.",
-  "auto.pages.de.datenschutz.die_website_wird_ber_https_verschl_sselt": "MT: Die Website wird über HTTPS verschlüsselt übertragen. Dadurch sind Ihre Eingaben vor\n              dem Zugriff durch Dritte geschützt.",
-  "auto.pages.de.datenschutz.diese_cookies_sind_f_r_das_funktionieren": "MT: Diese Cookies sind für das Funktionieren der Website erforderlich und werden auf\n              Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert.",
-  "auto.pages.de.datenschutz.diese_daten_werden_anonym_verarbeitet_und": "MT: Diese Daten werden anonym verarbeitet und können nicht zur Identifizierung einzelner\n              Nutzer verwendet werden. Weitere Informationen finden Sie in der Datenschutzerklärung\n              von Fathom:",
-  "auto.pages.de.datenschutz.diese_daten_werden_sicher_in_unserer": "MT: Diese Daten werden sicher in unserer TursoDB-Datenbank gespeichert, um Ihnen\n              persistenten Spielfortschritt zu ermöglichen und Features wie Highscores und\n              Achievements anzubieten. Sie können die Löschung Ihrer Daten jederzeit per E-Mail an",
-  "auto.pages.de.datenschutz.eine_zusammenf_hrung_dieser_daten_mit_anderen": "MT: Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die\n              Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.",
-  "auto.pages.de.datenschutz.f_r_ihren_erneuten_besuch_gilt_dann": "MT: Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung. Wir empfehlen\n              Ihnen, diese Seite regelmäßig zu besuchen, um über Änderungen informiert zu bleiben.",
-  "auto.pages.de.datenschutz.fathom_analytics_erfasst_anonymisierte_daten_einschlie_lich": "MT: Fathom Analytics erfasst anonymisierte Daten, einschließlich:",
-  "auto.pages.de.datenschutz.ihre_daten_werden_zum_einen_dadurch": "MT: Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei\n              kann es sich z. B. um Daten handeln, die Sie in unser Kontaktformular eingeben.",
-  "auto.pages.de.datenschutz.ihre_spielst_nde_und_einstellungen_werden_im": "MT: Ihre Spielstände und Einstellungen werden im Local Storage Ihres Browsers gespeichert.\n              Diese Daten verbleiben lokal und werden nicht übertragen.",
-  "auto.pages.de.datenschutz.melodymind_nutzt_externe_musik_apis_f_r": "MT: MelodyMind nutzt externe Musik-APIs für Preview-Links und Album-Cover. Beim Abspielen\n              von Musik-Previews oder beim Klick auf Streaming-Links werden Sie zu externen Diensten\n              weitergeleitet:",
-  "auto.pages.de.datenschutz.rechtsgrundlage_f_r_diese_verarbeitung_ist_art": "MT: Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO\n              (Vertragserfüllung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der\n              Bereitstellung der Spielfunktionalität).",
-  "auto.pages.de.datenschutz.rechtsgrundlage_f_r_diese_verarbeitung_ist_art_2": "MT: Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes\n              Interesse an der Analyse der Website-Nutzung zur Verbesserung unserer Dienste).",
-  "auto.pages.de.datenschutz.sie_haben_au_erdem_das_recht_sich": "MT: Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die\n              Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren.",
-  "auto.pages.de.datenschutz.sie_haben_folgende_rechte_bez_glich_ihrer": "MT: Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:",
-  "auto.pages.de.datenschutz.soweit_innerhalb_dieser_datenschutzerkl_rung_keine_speziellere": "MT: Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt\n              wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die\n              Datenverarbeitung entfällt.",
-  "auto.pages.de.datenschutz.spielstatistiken_gespielte_runden_kategorien_schwierigkeitsgrade": "MT: Spielstatistiken (gespielte Rondas, Kategorien, Schwierigkeitsgrade)",
-  "auto.pages.de.datenschutz.unsere_website_verwendet_cookies_das_sind": "MT: Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Browser auf\n              Ihrem Gerät speichert. Wir verwenden ausschließlich technisch notwendige Cookies für:",
-  "auto.pages.de.datenschutz.wenn_sie_melodymind_spielen_werden_folgende": "MT: Wenn Sie MelodyMind spielen, werden folgende Daten in unserer TursoDB-Datenbank\n              gespeichert:",
-  "auto.pages.de.datenschutz.wenn_sie_unsere_website_besuchen_erfasst": "MT: Wenn Sie unsere Website besuchen, erfasst Render verschiedene Logfiles inklusive Ihrer\n              IP-Adressen. Details entnehmen Sie der Datenschutzerklärung von Render:",
-  "auto.pages.de.datenschutz.wenn_sie_von_diesen_rechten_gebrauch": "MT: Wenn Sie von diesen Rechten Gebrauch machen möchten, kontaktieren Sie uns bitte unter:",
-  "auto.pages.de.datenschutz.wer_ist_verantwortlich_f_r_die_datenerfassung": "MT: Wer ist verantwortlich für die Datenerfassung auf dieser Website?",
-  "auto.pages.de.datenschutz.wir_behalten_uns_vor_diese_datenschutzerkl_rung": "MT: Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den\n              aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen\n              in der Datenschutzerklärung umzusetzen.",
-  "auto.pages.de.datenschutz.wir_hosten_die_inhalte_unserer_website": "MT: Wir hosten die Inhalte unserer Website bei Render Services Inc., 525 Brannan Street,\n              Suite 300, San Francisco, CA 94107, USA.",
-  "auto.pages.de.datenschutz.wir_verwenden_geeignete_technische_und_organisatorische": "MT: Wir verwenden geeignete technische und organisatorische Sicherheitsmaßnahmen, um Ihre\n              Daten gegen zufällige oder vorsätzliche Manipulationen, teilweisen oder vollständigen\n              Verlust, Zerstörung oder gegen den unbefugten Zugriff Dritter zu schützen.",
-  "auto.pages.de.impressum.die_europ_ische_kommission_stellt_eine_plattform": "MT: Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)\n              bereit:",
-  "auto.pages.de.impressum.die_in_melodymind_verwendeten_musik_previews": "MT: Die in MelodyMind verwendeten Musik-Previews und Album-Cover werden über lizenzierte\n              APIs bereitgestellt. Alle Rechte an den Musikstücken und Bildern liegen bei den\n              jeweiligen Künstlern, Plattenlabels und Rechteinhabern.",
-  "auto.pages.de.impressum.die_streaming_links_f_hren_zu_lizenzierten": "MT: Die Streaming-Links führen zu lizenzierten Musikdiensten wie Spotify, Apple Music und\n              Deezer. MelodyMind selbst hostet keine urheberrechtlich geschützten Inhalte.",
-  "auto.pages.de.impressum.wir_sind_nicht_bereit_oder_verpflichtet": "MT: Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer\n              Verbraucherschlichtungsstelle teilzunehmen.",
+  "auto._lang_.podcasts._id_.0_podcasts_currentindex_1_null_const":
+    "MT: 0 ? podcasts[currentIndex - 1] : null;\n  const next = currentIndex",
+  "auto.pages._lang_.playlists.finde_deine_lieblingsmusik_nach_k_nstler_stil":
+    "MT: Finde deine Lieblingsmusik nach Künstler, Stil, Epoche oder Genre",
+  "auto.pages.de.datenschutz.adresse_daniel_schmid_hiltenspergerstr_78_80796":
+    "MT: Adresse: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland",
+  "auto.pages.de.datenschutz.andere_daten_werden_automatisch_oder_nach":
+    "MT: Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website\n              durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B.\n              Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).",
+  "auto.pages.de.datenschutz.bei_fragen_zum_datenschutz_zur_geltendmachung":
+    "MT: Bei Fragen zum Datenschutz, zur Geltendmachung Ihrer Rechte oder bei Beschwerden\n              können Sie sich jederzeit an uns wenden:",
+  "auto.pages.de.datenschutz.der_provider_der_seiten_erhebt_und":
+    "MT: Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten\n              Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:",
+  "auto.pages.de.datenschutz.die_betreiber_dieser_seiten_nehmen_den":
+    "MT: Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir\n              behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen\n              Datenschutzvorschriften sowie dieser Datenschutzerklärung.",
+  "auto.pages.de.datenschutz.die_datenverarbeitung_auf_dieser_website_erfolgt":
+    'MT: Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen\n              Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle" in dieser\n              Datenschutzerklärung entnehmen.',
+  "auto.pages.de.datenschutz.die_folgenden_hinweise_geben_einen_einfachen":
+    "MT: Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren\n              personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene\n              Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.",
+  "auto.pages.de.datenschutz.die_verantwortliche_stelle_f_r_die_datenverarbeitung":
+    "MT: Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:",
+  "auto.pages.de.datenschutz.die_verwendung_erfolgt_auf_grundlage_von":
+    "MT: Die Verwendung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein\n              berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website.",
+  "auto.pages.de.datenschutz.die_website_wird_ber_https_verschl_sselt":
+    "MT: Die Website wird über HTTPS verschlüsselt übertragen. Dadurch sind Ihre Eingaben vor\n              dem Zugriff durch Dritte geschützt.",
+  "auto.pages.de.datenschutz.diese_cookies_sind_f_r_das_funktionieren":
+    "MT: Diese Cookies sind für das Funktionieren der Website erforderlich und werden auf\n              Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert.",
+  "auto.pages.de.datenschutz.diese_daten_werden_anonym_verarbeitet_und":
+    "MT: Diese Daten werden anonym verarbeitet und können nicht zur Identifizierung einzelner\n              Nutzer verwendet werden. Weitere Informationen finden Sie in der Datenschutzerklärung\n              von Fathom:",
+  "auto.pages.de.datenschutz.diese_daten_werden_sicher_in_unserer":
+    "MT: Diese Daten werden sicher in unserer TursoDB-Datenbank gespeichert, um Ihnen\n              persistenten Spielfortschritt zu ermöglichen und Features wie Highscores und\n              Achievements anzubieten. Sie können die Löschung Ihrer Daten jederzeit per E-Mail an",
+  "auto.pages.de.datenschutz.eine_zusammenf_hrung_dieser_daten_mit_anderen":
+    "MT: Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die\n              Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.",
+  "auto.pages.de.datenschutz.f_r_ihren_erneuten_besuch_gilt_dann":
+    "MT: Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung. Wir empfehlen\n              Ihnen, diese Seite regelmäßig zu besuchen, um über Änderungen informiert zu bleiben.",
+  "auto.pages.de.datenschutz.fathom_analytics_erfasst_anonymisierte_daten_einschlie_lich":
+    "MT: Fathom Analytics erfasst anonymisierte Daten, einschließlich:",
+  "auto.pages.de.datenschutz.ihre_daten_werden_zum_einen_dadurch":
+    "MT: Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei\n              kann es sich z. B. um Daten handeln, die Sie in unser Kontaktformular eingeben.",
+  "auto.pages.de.datenschutz.ihre_spielst_nde_und_einstellungen_werden_im":
+    "MT: Ihre Spielstände und Einstellungen werden im Local Storage Ihres Browsers gespeichert.\n              Diese Daten verbleiben lokal und werden nicht übertragen.",
+  "auto.pages.de.datenschutz.melodymind_nutzt_externe_musik_apis_f_r":
+    "MT: MelodyMind nutzt externe Musik-APIs für Preview-Links und Album-Cover. Beim Abspielen\n              von Musik-Previews oder beim Klick auf Streaming-Links werden Sie zu externen Diensten\n              weitergeleitet:",
+  "auto.pages.de.datenschutz.rechtsgrundlage_f_r_diese_verarbeitung_ist_art":
+    "MT: Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO\n              (Vertragserfüllung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der\n              Bereitstellung der Spielfunktionalität).",
+  "auto.pages.de.datenschutz.rechtsgrundlage_f_r_diese_verarbeitung_ist_art_2":
+    "MT: Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes\n              Interesse an der Analyse der Website-Nutzung zur Verbesserung unserer Dienste).",
+  "auto.pages.de.datenschutz.sie_haben_au_erdem_das_recht_sich":
+    "MT: Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die\n              Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren.",
+  "auto.pages.de.datenschutz.sie_haben_folgende_rechte_bez_glich_ihrer":
+    "MT: Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:",
+  "auto.pages.de.datenschutz.soweit_innerhalb_dieser_datenschutzerkl_rung_keine_speziellere":
+    "MT: Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt\n              wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die\n              Datenverarbeitung entfällt.",
+  "auto.pages.de.datenschutz.spielstatistiken_gespielte_runden_kategorien_schwierigkeitsgrade":
+    "MT: Spielstatistiken (gespielte Rondas, Kategorien, Schwierigkeitsgrade)",
+  "auto.pages.de.datenschutz.unsere_website_verwendet_cookies_das_sind":
+    "MT: Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Browser auf\n              Ihrem Gerät speichert. Wir verwenden ausschließlich technisch notwendige Cookies für:",
+  "auto.pages.de.datenschutz.wenn_sie_melodymind_spielen_werden_folgende":
+    "MT: Wenn Sie MelodyMind spielen, werden folgende Daten in unserer TursoDB-Datenbank\n              gespeichert:",
+  "auto.pages.de.datenschutz.wenn_sie_unsere_website_besuchen_erfasst":
+    "MT: Wenn Sie unsere Website besuchen, erfasst Render verschiedene Logfiles inklusive Ihrer\n              IP-Adressen. Details entnehmen Sie der Datenschutzerklärung von Render:",
+  "auto.pages.de.datenschutz.wenn_sie_von_diesen_rechten_gebrauch":
+    "MT: Wenn Sie von diesen Rechten Gebrauch machen möchten, kontaktieren Sie uns bitte unter:",
+  "auto.pages.de.datenschutz.wer_ist_verantwortlich_f_r_die_datenerfassung":
+    "MT: Wer ist verantwortlich für die Datenerfassung auf dieser Website?",
+  "auto.pages.de.datenschutz.wir_behalten_uns_vor_diese_datenschutzerkl_rung":
+    "MT: Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den\n              aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen\n              in der Datenschutzerklärung umzusetzen.",
+  "auto.pages.de.datenschutz.wir_hosten_die_inhalte_unserer_website":
+    "MT: Wir hosten die Inhalte unserer Website bei Render Services Inc., 525 Brannan Street,\n              Suite 300, San Francisco, CA 94107, USA.",
+  "auto.pages.de.datenschutz.wir_verwenden_geeignete_technische_und_organisatorische":
+    "MT: Wir verwenden geeignete technische und organisatorische Sicherheitsmaßnahmen, um Ihre\n              Daten gegen zufällige oder vorsätzliche Manipulationen, teilweisen oder vollständigen\n              Verlust, Zerstörung oder gegen den unbefugten Zugriff Dritter zu schützen.",
+  "auto.pages.de.impressum.die_europ_ische_kommission_stellt_eine_plattform":
+    "MT: Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS)\n              bereit:",
+  "auto.pages.de.impressum.die_in_melodymind_verwendeten_musik_previews":
+    "MT: Die in MelodyMind verwendeten Musik-Previews und Album-Cover werden über lizenzierte\n              APIs bereitgestellt. Alle Rechte an den Musikstücken und Bildern liegen bei den\n              jeweiligen Künstlern, Plattenlabels und Rechteinhabern.",
+  "auto.pages.de.impressum.die_streaming_links_f_hren_zu_lizenzierten":
+    "MT: Die Streaming-Links führen zu lizenzierten Musikdiensten wie Spotify, Apple Music und\n              Deezer. MelodyMind selbst hostet keine urheberrechtlich geschützten Inhalte.",
+  "auto.pages.de.impressum.wir_sind_nicht_bereit_oder_verpflichtet":
+    "MT: Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer\n              Verbraucherschlichtungsstelle teilzunehmen.",
   "auto.src.components.Headline.welcome_to_melodymind": "MT: *   Welcome to MelodyMind\n *",
-  "auto.src.components.Paragraph.this_is_a_paragraph_with_custom": "MT: *   This is a paragraph with custom styling\n *",
-  "auto.src.pages.404.don_t_worry_though_there_s": "MT: Don't worry though, there's plenty of music to discover! Try one of the options below to\n            get back on track.",
+  "auto.src.components.Paragraph.this_is_a_paragraph_with_custom":
+    "MT: *   This is a paragraph with custom styling\n *",
+  "auto.src.pages.404.don_t_worry_though_there_s":
+    "MT: Don't worry though, there's plenty of music to discover! Try one of the options below to\n            get back on track.",
   "category.about.title": "Acerca de esta categoría",
   "category.difficulty.easy": "Fácil",
   "category.difficulty.hard": "Difícil",
@@ -322,12 +404,17 @@ export default {
   "category.no_image_available": "No hay imagen disponible",
   "category.play": "Jugar",
   "category.start": "Comenzar",
-  "coins.announce.earned_excellent": "¡Excelente! ¡Ganaste {difference} monedas mientras {context}! Nuevo total: {newCount} monedas.",
-  "coins.announce.earned_great": "¡Buen trabajo! Ganaste {difference} moneda{plural} mientras {context}. Total: {newCount} monedas.",
-  "coins.announce.earned_normal": "Ganaste {difference} moneda{plural} mientras {context}. Total: {newCount} monedas.",
-  "coins.announce.lost": "Perdiste {lost} moneda{plural} mientras {context}. Restantes: {newCount} monedas.",
+  "coins.announce.earned_excellent":
+    "¡Excelente! ¡Ganaste {difference} monedas mientras {context}! Nuevo total: {newCount} monedas.",
+  "coins.announce.earned_great":
+    "¡Buen trabajo! Ganaste {difference} moneda{plural} mientras {context}. Total: {newCount} monedas.",
+  "coins.announce.earned_normal":
+    "Ganaste {difference} moneda{plural} mientras {context}. Total: {newCount} monedas.",
+  "coins.announce.lost":
+    "Perdiste {lost} moneda{plural} mientras {context}. Restantes: {newCount} monedas.",
   "coins.announce.progress_saved": " Progreso guardado en tu cuenta.",
-  "coins.announce.updated": "Monedas actualizadas mientras {context}. Total actual: {newCount} monedas.",
+  "coins.announce.updated":
+    "Monedas actualizadas mientras {context}. Total actual: {newCount} monedas.",
   "coins.collected": "Monedas Recolectadas",
   "coins.context.achievement": "obteniendo un logro",
   "coins.context.bonus": "recibiendo un bono",
@@ -337,7 +424,8 @@ export default {
   "coins.context.quiz": "respondiendo preguntas de quiz",
   "coins.context.shop": "haciendo una compra",
   "coins.context.streak": "manteniendo una racha",
-  "coins.tooltip.authenticated": "Tu saldo de monedas. Progreso automáticamente guardado en tu cuenta.",
+  "coins.tooltip.authenticated":
+    "Tu saldo de monedas. Progreso automáticamente guardado en tu cuenta.",
   "coins.tooltip.guest": "Tu saldo actual de monedas para esta sesión.",
   "common.back.to.top": "Volver arriba",
   "common.loading": "Cargando...",
@@ -370,7 +458,8 @@ export default {
   "errors.gameResult.log.dailyActivity": "Error al actualizar actividad diaria:",
   "errors.gameResult.log.database": "Error de base de datos:",
   "errors.gameResult.log.unknown": "Error desconocido",
-  "errors.gameResult.validation.invalidCorrectAnswers": "Las respuestas correctas deben ser un número",
+  "errors.gameResult.validation.invalidCorrectAnswers":
+    "Las respuestas correctas deben ser un número",
   "errors.gameResult.validation.invalidData": "Formato de datos inválido",
   "errors.gameResult.validation.invalidDifficulty": "Nivel de dificultad inválido",
   "errors.gameResult.validation.invalidScore": "La puntuación debe ser un número",
@@ -392,7 +481,8 @@ export default {
   "game.area.label": "Área del Juego",
   "game.categories.decades": "Décadas",
   "game.categories.empty.headline": "No se Encontraron Géneros",
-  "game.categories.empty.text": "Desafortunadamente, no se encontraron categorías. Por favor intenta de nuevo más tarde.",
+  "game.categories.empty.text":
+    "Desafortunadamente, no se encontraron categorías. Por favor intenta de nuevo más tarde.",
   "game.categories.female": "Artistas Femeninas",
   "game.categories.loading": "Cargando categorías musicales...",
   "game.categories.other": "Otras Categorías",
@@ -400,8 +490,10 @@ export default {
   "game.chronology.aria.main": "Área principal del juego de cronología",
   "game.chronology.correct": "¡Correcto! 🎉",
   "game.chronology.correct_order": "Orden correcto:",
-  "game.chronology.correct_order_description": "Lista que muestra el orden cronológico correcto de los eventos",
-  "game.chronology.description": "⏰ ¡Conviértete en un viajero del tiempo musical! Ordena estos álbumes legendarios en el orden cronológico correcto y demuestra que eres un verdadero historiador musical. ¡Cada movimiento correcto te acerca más a la puntuación perfecta! 🎯",
+  "game.chronology.correct_order_description":
+    "Lista que muestra el orden cronológico correcto de los eventos",
+  "game.chronology.description":
+    "⏰ ¡Conviértete en un viajero del tiempo musical! Ordena estos álbumes legendarios en el orden cronológico correcto y demuestra que eres un verdadero historiador musical. ¡Cada movimiento correcto te acerca más a la puntuación perfecta! 🎯",
   "game.chronology.feedback.close": "Cerrar",
   "game.chronology.feedback.continue": "Continuar",
   "game.chronology.feedback.title": "Retroalimentación de la ronda",
@@ -427,29 +519,40 @@ export default {
   "game.end.difficultyLevel": "Indicador de nivel de dificultad",
   "game.end.finalScore": "Puntuación Final:",
   "game.end.home": "Página Principal",
-  "game.end.homeButtonHelp": "Navegar de vuelta a la página principal para seleccionar un nuevo modo de juego o categoría",
+  "game.end.homeButtonHelp":
+    "Navegar de vuelta a la página principal para seleccionar un nuevo modo de juego o categoría",
   "game.end.homeDescription": "Volver al menú principal y página de inicio",
   "game.end.level.enthusiast": "entusiasta",
   "game.end.level.explorer": "explorador",
   "game.end.level.genius": "genio",
   "game.end.level.lover": "amante",
   "game.end.level.pro": "profesional",
-  "game.end.motivation.enthusiast": "¡Impresionante! 👍 Como un verdadero entusiasta de la música, realmente sabes de qué hablas. Has construido una base sólida de conocimiento musical que te distingue de la multitud. Con un poco más de práctica, pronto podrías subir a la liga profesional. ¿Te gustaría intentar otra ronda?",
-  "game.end.motivation.explorer": "¡Gracias por jugar! 🙏 Como explorador musical, has dado el primer paso en descubrir el fascinante mundo de la música. Cada juego es una oportunidad para aprender algo nuevo. ¡Desafíate a ti mismo, juega más rondas y expande tu conocimiento musical!",
-  "game.end.motivation.genius": "¡Extraordinario! 💫 ¡Eres un verdadero genio musical! 🎶 Tu profundo conocimiento e intuición musical son verdaderamente impresionantes. Podrías ganar un programa de concursos musicales o incluso ser un historiador musical. ¡Comparte tu logro notable y desafía a otros a competir contra ti!",
-  "game.end.motivation.lover": "¡Bien hecho! 👏 Como amante de la música, has demostrado un conocimiento considerable. Estás en el camino correcto para convertirte en un verdadero conocedor musical. Con más práctica de juego, puedes expandir tu conocimiento y mejorar tu puntuación. ¿Estás listo para un nuevo desafío?",
-  "game.end.motivation.pro": "¡Fantástico! 🌟 Definitivamente eres un profesional de la música con amplio conocimiento sobre varios artistas y géneros. Tu comprensión musical está muy por encima del promedio. Pocos pueden igualar tu conocimiento. ¡Sigue así y desafía a tus amigos!",
+  "game.end.motivation.enthusiast":
+    "¡Impresionante! 👍 Como un verdadero entusiasta de la música, realmente sabes de qué hablas. Has construido una base sólida de conocimiento musical que te distingue de la multitud. Con un poco más de práctica, pronto podrías subir a la liga profesional. ¿Te gustaría intentar otra ronda?",
+  "game.end.motivation.explorer":
+    "¡Gracias por jugar! 🙏 Como explorador musical, has dado el primer paso en descubrir el fascinante mundo de la música. Cada juego es una oportunidad para aprender algo nuevo. ¡Desafíate a ti mismo, juega más rondas y expande tu conocimiento musical!",
+  "game.end.motivation.genius":
+    "¡Extraordinario! 💫 ¡Eres un verdadero genio musical! 🎶 Tu profundo conocimiento e intuición musical son verdaderamente impresionantes. Podrías ganar un programa de concursos musicales o incluso ser un historiador musical. ¡Comparte tu logro notable y desafía a otros a competir contra ti!",
+  "game.end.motivation.lover":
+    "¡Bien hecho! 👏 Como amante de la música, has demostrado un conocimiento considerable. Estás en el camino correcto para convertirte en un verdadero conocedor musical. Con más práctica de juego, puedes expandir tu conocimiento y mejorar tu puntuación. ¿Estás listo para un nuevo desafío?",
+  "game.end.motivation.pro":
+    "¡Fantástico! 🌟 Definitivamente eres un profesional de la música con amplio conocimiento sobre varios artistas y géneros. Tu comprensión musical está muy por encima del promedio. Pocos pueden igualar tu conocimiento. ¡Sigue así y desafía a tus amigos!",
   "game.end.newgame": "Nuevo Juego",
   "game.end.newgameDescription": "Iniciar un nuevo juego con la misma configuración",
-  "game.end.progressDescription": "Barra de progreso visual que muestra tu nivel de logro de puntuación",
-  "game.end.restartButtonHelp": "Iniciar inmediatamente una nueva ronda de juego con la misma dificultad y categoría",
+  "game.end.progressDescription":
+    "Barra de progreso visual que muestra tu nivel de logro de puntuación",
+  "game.end.restartButtonHelp":
+    "Iniciar inmediatamente una nueva ronda de juego con la misma dificultad y categoría",
   "game.end.restartSameGame": "Repetir el mismo juego",
   "game.end.restartSameGameDescription": "Jugar la misma categoría y dificultad otra vez",
-  "game.end.restartSameGameHelp": "Empezar la misma categoría y dificultad otra vez para una nueva ronda",
+  "game.end.restartSameGameHelp":
+    "Empezar la misma categoría y dificultad otra vez para una nueva ronda",
   "game.end.scoreProgress": "Progreso de puntuación",
-  "game.end.screenReaderDescription": "Resultados del juego mostrando tu puntuación y nivel de logro.",
+  "game.end.screenReaderDescription":
+    "Resultados del juego mostrando tu puntuación y nivel de logro.",
   "game.end.share": "¡Comparte tu éxito!",
-  "game.end.shareDescription": "Abre opciones para compartir tu puntuación en plataformas de redes sociales",
+  "game.end.shareDescription":
+    "Abre opciones para compartir tu puntuación en plataformas de redes sociales",
   "game.end.shareResults": "Comparte los resultados de tu juego en redes sociales",
   "game.end.shareSection": "Comparte tus resultados",
   "game.end.title": "¡Juego Terminado!",
@@ -494,7 +597,8 @@ export default {
   "game.filter.seasonal": "Géneros Estacionales",
   "game.filter.situational": "Géneros Situacionales & Basados en Actividades",
   "game.genre.list": "Selección de Género",
-  "game.genre.selection.description": "Elige entre múltiples géneros musicales incluyendo rock, pop, jazz, clásico y más. Cada categoría presenta preguntas cuidadosamente curadas para probar tu conocimiento musical.",
+  "game.genre.selection.description":
+    "Elige entre múltiples géneros musicales incluyendo rock, pop, jazz, clásico y más. Cada categoría presenta preguntas cuidadosamente curadas para probar tu conocimiento musical.",
   "game.joker": "Comodín 50:50",
   "game.joker.description": "Elimina dos opciones de respuesta incorrectas",
   "game.joker.options": "Opciones de Comodín",
@@ -519,14 +623,18 @@ export default {
   "game.search.reset.text": "Restablecer búsqueda",
   "game.search.results": "géneros encontrados",
   "game.search.showing.all": "Mostrando todos los géneros",
-  "game.select": "🎵 ¿Listo para la aventura musical definitiva? ¡Sumérgete en un mundo de ritmo, melodía y canciones inolvidables! Desde solos de guitarra aplastantes hasta clásicos atemporales – encuentra tu batalla musical perfecta. ¡Demuestra al mundo que eres un verdadero conocedor musical!",
+  "game.select":
+    "🎵 ¿Listo para la aventura musical definitiva? ¡Sumérgete en un mundo de ritmo, melodía y canciones inolvidables! Desde solos de guitarra aplastantes hasta clásicos atemporales – encuentra tu batalla musical perfecta. ¡Demuestra al mundo que eres un verdadero conocedor musical!",
   "game.start.now": "Comenzar Ahora",
   "game.submit.answer": "Verificar Respuesta",
   "game.submit.answer.aria": "Verificar orden actual y proceder a la siguiente ronda",
-  "game.timepressure.controls": "Usa las teclas 1-4 para respuestas, Espacio para pausar, S para saltar",
+  "game.timepressure.controls":
+    "Usa las teclas 1-4 para respuestas, Espacio para pausar, S para saltar",
   "game.timepressure.countdown": "Temporizador de cuenta atrás",
-  "game.timepressure.description": "⚡ ¡Conviértete en el maestro relámpago de la música! Demuestra que eres un verdadero campeón incluso bajo presión de tiempo con niveles de dificultad mixtos en {category}. Cada segundo cuenta – ¡muestra tu velocidad y conocimiento a la vez! 🏆",
-  "game.timepressure.instructions": "Responde las preguntas lo más rápido posible. Tienes tiempo limitado para cada pregunta.",
+  "game.timepressure.description":
+    "⚡ ¡Conviértete en el maestro relámpago de la música! Demuestra que eres un verdadero campeón incluso bajo presión de tiempo con niveles de dificultad mixtos en {category}. Cada segundo cuenta – ¡muestra tu velocidad y conocimiento a la vez! 🏆",
+  "game.timepressure.instructions":
+    "Responde las preguntas lo más rápido posible. Tienes tiempo limitado para cada pregunta.",
   "game.timepressure.seconds": "Seg",
   "game.timepressure.skip": "Saltar",
   "game.timepressure.streak": "Racha",
@@ -543,7 +651,8 @@ export default {
   "highscores.allModes": "Todos los Modos",
   "highscores.category": "Categoría",
   "highscores.date": "Fecha",
-  "highscores.description": "¡Descubre las leyendas musicales! Ve quién está encabezando las tablas e inspírate con los mejores jugadores 🎵🏆",
+  "highscores.description":
+    "¡Descubre las leyendas musicales! Ve quién está encabezando las tablas e inspírate con los mejores jugadores 🎵🏆",
   "highscores.error": "Error al cargar las puntuaciones más altas",
   "highscores.filters": "Filtrar Resultados",
   "highscores.gameMode": "Modo de Juego",
@@ -551,29 +660,37 @@ export default {
   "highscores.points": "puntos",
   "highscores.rank": "Posición",
   "highscores.results": "Mejores Puntuaciones",
-  "highscores.seo.description": "Ver las mejores puntuaciones del quiz musical y competir con otros jugadores",
+  "highscores.seo.description":
+    "Ver las mejores puntuaciones del quiz musical y competir con otros jugadores",
   "highscores.tableLabel": "Lista de puntuaciones más altas",
   "highscores.title": "Puntuaciones Más Altas",
   "index.continue": "¡Vamos!",
   "index.start.game.label": "Inicia tu viaje musical",
-  "index.welcome.footnote": "🎶 Creado con pasión para los verdaderos fanáticos de la música - ¡Que comience la magia! ✨",
-  "knowledge.description": "¡Sumérgete en el fascinante mundo de la música! 🎶 Descubre artículos completos, perspectivas de expertos y datos cautivadores sobre artistas, géneros e historia musical. Amplía tus horizontes musicales y conviértete en un verdadero conocedor con nuestra base de conocimientos cuidadosamente seleccionada.",
-  "knowledge.empty": "No hay artículos disponibles en este momento. ¡Vuelve pronto para nuevo contenido!",
+  "index.welcome.footnote":
+    "🎶 Creado con pasión para los verdaderos fanáticos de la música - ¡Que comience la magia! ✨",
+  "knowledge.description":
+    "¡Sumérgete en el fascinante mundo de la música! 🎶 Descubre artículos completos, perspectivas de expertos y datos cautivadores sobre artistas, géneros e historia musical. Amplía tus horizontes musicales y conviértete en un verdadero conocedor con nuestra base de conocimientos cuidadosamente seleccionada.",
+  "knowledge.empty":
+    "No hay artículos disponibles en este momento. ¡Vuelve pronto para nuevo contenido!",
   "knowledge.no.results": "No se encontraron artículos",
-  "knowledge.no.results.help": "Prueba con otras palabras clave o navega por todos los artículos abajo",
-  "knowledge.play.description": "🎵 ¿Listo para el desafío definitivo? ¡Pon a prueba tu conocimiento musical y conviértete en un experto de género! ¡Recolecta puntos, usa comodines inteligentes y demuestra que tienes lo necesario para ser un campeón musical! 🏆",
+  "knowledge.no.results.help":
+    "Prueba con otras palabras clave o navega por todos los artículos abajo",
+  "knowledge.play.description":
+    "🎵 ¿Listo para el desafío definitivo? ¡Pon a prueba tu conocimiento musical y conviértete en un experto de género! ¡Recolecta puntos, usa comodines inteligentes y demuestra que tienes lo necesario para ser un campeón musical! 🏆",
   "knowledge.published": "Publicado",
   "knowledge.read.article": "Leer Artículo",
   "knowledge.read.more": "Aprende más",
   "knowledge.reading.time": "min de lectura",
   "knowledge.reading.time.label": "Tiempo de lectura",
-  "knowledge.search.initial": "Introduce palabras clave para buscar en nuestra base de conocimiento musical",
+  "knowledge.search.initial":
+    "Introduce palabras clave para buscar en nuestra base de conocimiento musical",
   "knowledge.search.placeholder": "Buscar artículos...",
   "knowledge.search.reset.text": "Restablecer búsqueda",
   "knowledge.search.showing.all": "Mostrando todos los artículos",
   "knowledge.search.subtitle": "Encuentra artículos por título, descripción o palabras clave",
   "knowledge.search.title": "Buscar artículos",
-  "knowledge.section.description": "Profundiza en la historia y antecedentes de este género musical.",
+  "knowledge.section.description":
+    "Profundiza en la historia y antecedentes de este género musical.",
   "knowledge.section.title": "Aprende Más",
   "knowledge.title": "Base de Conocimiento Musical",
   "language.change.error": "Error al cambiar idioma. Por favor intenta de nuevo.",
@@ -591,7 +708,8 @@ export default {
   "language.es.label": "Ver sitio web en español",
   "language.fi": "Finlandés",
   "language.fi.label": "Ver sitio web en finlandés",
-  "language.focus.announce": "Selector de idioma enfocado. Usa las teclas de flecha para navegar las opciones.",
+  "language.focus.announce":
+    "Selector de idioma enfocado. Usa las teclas de flecha para navegar las opciones.",
   "language.fr": "Francés",
   "language.fr.label": "Ver sitio web en francés",
   "language.it": "Italiano",
@@ -611,7 +729,8 @@ export default {
   "language.sv.label": "Ver sitio web en sueco",
   "language.uk": "Ucraniano",
   "language.uk.label": "Ver sitio web en ucraniano",
-  "layout.accessibility.motion.reduced": "Modo de movimiento reducido habilitado para accesibilidad",
+  "layout.accessibility.motion.reduced":
+    "Modo de movimiento reducido habilitado para accesibilidad",
   "layout.accessibility.theme.dark": "Tema oscuro activado para contraste y accesibilidad óptimos",
   "layout.analytics.init.failed": "Error en la inicialización de analíticas:",
   "layout.error.system": "Error del sistema ocurrido. Por favor actualiza la página.",
@@ -623,51 +742,97 @@ export default {
   "pages.imprint.company_name_label": "Titular / Operador",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.contact_label": "Contacto",
-  "pages.imprint.dispute_participation": "No estamos dispuestos ni obligados a participar en procedimientos de resolución de disputas ante una junta arbitral de consumidores.",
-  "pages.imprint.dispute_resolution.description": "La Comisión Europea proporciona una plataforma para la resolución alternativa de litigios en línea (ODR). Si tiene una queja sobre un contrato en línea, puede utilizar la plataforma ODR.",
+  "pages.imprint.dispute_participation":
+    "No estamos dispuestos ni obligados a participar en procedimientos de resolución de disputas ante una junta arbitral de consumidores.",
+  "pages.imprint.dispute_resolution.description":
+    "La Comisión Europea proporciona una plataforma para la resolución alternativa de litigios en línea (ODR). Si tiene una queja sobre un contrato en línea, puede utilizar la plataforma ODR.",
   "pages.imprint.dispute_resolution.odr_link_label": "Plataforma ODR de la Comisión Europea",
   "pages.imprint.dispute_resolution.odr_link_url": "https://ec.europa.eu/consumers/odr",
   "pages.imprint.dispute_resolution.title": "Resolución de disputas en línea (ODR)",
+  "pages.imprint.title": "Aviso legal",
   "pages.imprint.heading": "Aviso legal / Impressum",
-  "pages.imprint.intro": "Información legal obligatoria sobre el operador del sitio. Adapte la información a su situación particular si fuera necesario.",
-  "pages.imprint.liability_content": "Como proveedores de servicios, somos responsables de nuestros propios contenidos en estas páginas según las leyes generales. No estamos obligados a supervisar la información transmitida o almacenada por terceros ni a investigar indicios de actividad ilícita salvo que existan indicios concretos.",
-  "pages.imprint.music_assets.description": "Los avances musicales (previews) y las carátulas de álbumes usados en MelodyMind se obtienen mediante APIs con licencia. Todos los derechos sobre las canciones y las imágenes pertenecen a los artistas, sellos discográficos y titulares de derechos correspondientes.",
+  "pages.imprint.intro":
+    "Información legal obligatoria sobre el operador del sitio. Adapte la información a su situación particular si fuera necesario.",
+  "pages.imprint.liability_content":
+    "Como proveedores de servicios, somos responsables de nuestros propios contenidos en estas páginas según las leyes generales. No estamos obligados a supervisar la información transmitida o almacenada por terceros ni a investigar indicios de actividad ilícita salvo que existan indicios concretos.",
+  "pages.imprint.music_assets.description":
+    "Los avances musicales (previews) y las carátulas de álbumes usados en MelodyMind se obtienen mediante APIs con licencia. Todos los derechos sobre las canciones y las imágenes pertenecen a los artistas, sellos discográficos y titulares de derechos correspondientes.",
   "pages.imprint.music_assets.title": "Previews musicales y material gráfico",
-  "pages.imprint.streaming_links.description": "Los enlaces de streaming conducen a servicios de música con licencia como Spotify, Apple Music y Deezer. MelodyMind no aloja contenidos sujetos a derechos de autor.",
+  "pages.imprint.streaming_links.description":
+    "Los enlaces de streaming conducen a servicios de música con licencia como Spotify, Apple Music y Deezer. MelodyMind no aloja contenidos sujetos a derechos de autor.",
   "pages.imprint.streaming_links.title": "Enlaces a servicios de streaming",
   "pages.imprint.title": "Aviso legal",
-  "pages.legal.disclaimer.content": "Este aviso legal se ha elaborado con el mayor cuidado. Sin embargo, no podemos garantizar la integridad, exactitud y actualidad de los contenidos. Adapte la información según su situación concreta y los requisitos legales locales.",
+  "pages.legal.disclaimer.content":
+    "Este aviso legal se ha elaborado con el mayor cuidado. Sin embargo, no podemos garantizar la integridad, exactitud y actualidad de los contenidos. Adapte la información según su situación concreta y los requisitos legales locales.",
   "pages.legal.disclaimer.title": "Exención de responsabilidad",
-  "pages.legal.odr": "Plataforma de resolución de disputas en línea (ODR): https://ec.europa.eu/consumers/odr",
-  "pages.privacy.analytics.description": "Utilizamos Fathom Analytics, un servicio de análisis respetuoso con la privacidad, que procesa los datos de manera anónima y no recoge datos personales ni utiliza cookies de seguimiento persistente.",
+  "pages.legal.odr":
+    "Plataforma de resolución de disputas en línea (ODR): https://ec.europa.eu/consumers/odr",
+  "pages.privacy.analytics.description":
+    "Utilizamos Fathom Analytics, un servicio de análisis respetuoso con la privacidad, que procesa los datos de manera anónima y no recoge datos personales ni utiliza cookies de seguimiento persistente.",
   "pages.privacy.analytics.link_label": "Política de privacidad de Fathom",
+
+  // Footer localized keys (Spanish)
+  "footer.description":
+    "El juego definitivo de trivia musical. Pon a prueba tus conocimientos por géneros y décadas.",
+  "footer.legal_title": "Legal",
+  "footer.connect_title": "Conectar y apoyar",
+  "footer.support_label": "Apoya el proyecto:",
+  "footer.donate": "Donar",
+  "footer.donate_aria": "Donar vía PayPal",
+  "footer.impressum": "Aviso legal",
+  "footer.impressum_aria": "Ver información legal y aviso legal",
+  "footer.privacy": "Política de privacidad",
+  "footer.privacy_aria": "Ver la política de privacidad",
+  "footer.rights": "Todos los derechos reservados",
+  "footer.source_code": "Ver el código fuente de MelodyMind en GitHub",
+  "footer.support_kofi": "Apoya MelodyMind en Ko-fi",
+  "footer.github": "GitHub",
+  "footer.kofi": "Ko-fi",
+  "footer.aria": "Pie de página",
+  "footer.opens_in_new_tab": "se abre en una nueva pestaña",
+  "footer.legal_nav": "Información legal",
+  "footer.external_nav": "Enlaces del pie de página",
   "pages.privacy.analytics.link_url": "https://usefathom.com/privacy",
   "pages.privacy.analytics.title": "Analítica",
-  "pages.privacy.contact.address": "Dirección: Daniel Schmid, Hiltenspergerstr. 78, 80796 Múnich, Alemania",
+  "pages.privacy.contact.address":
+    "Dirección: Daniel Schmid, Hiltenspergerstr. 78, 80796 Múnich, Alemania",
   "pages.privacy.contact.email": "dcschmid@murena.io",
   "pages.privacy.contact.email_label": "Correo electrónico",
   "pages.privacy.contact.title": "Contacto (privacidad)",
-  "pages.privacy.cookies.description": "Nuestro sitio utiliza cookies. Son pequeños ficheros de texto que su navegador almacena en su dispositivo. Usamos únicamente cookies técnicamente necesarias y, cuando procede, cookies adicionales previa aceptación explícita.",
+  "pages.privacy.cookies.description":
+    "Nuestro sitio utiliza cookies. Son pequeños ficheros de texto que su navegador almacena en su dispositivo. Usamos únicamente cookies técnicamente necesarias y, cuando procede, cookies adicionales previa aceptación explícita.",
   "pages.privacy.cookies.title": "Cookies",
-  "pages.privacy.data_collected.automatic": "Otros datos se recaban de forma automática mediante los sistemas informáticos al visitar el sitio web. Principalmente se trata de datos técnicos (tipo de navegador, sistema operativo, hora de acceso, dirección IP) almacenados en ficheros de registro del servidor.",
-  "pages.privacy.data_collected.manual": "Algunos datos se recogen cuando usted nos los facilita de forma activa, por ejemplo al completar formularios de contacto o al registrarse en el servicio.",
-  "pages.privacy.hosting.description": "Albergamos los contenidos de nuestra web en Render Services, Inc., 525 Brannan Street, Suite 300, San Francisco, CA 94107, USA.",
+  "pages.privacy.data_collected.automatic":
+    "Otros datos se recaban de forma automática mediante los sistemas informáticos al visitar el sitio web. Principalmente se trata de datos técnicos (tipo de navegador, sistema operativo, hora de acceso, dirección IP) almacenados en ficheros de registro del servidor.",
+  "pages.privacy.data_collected.manual":
+    "Algunos datos se recogen cuando usted nos los facilita de forma activa, por ejemplo al completar formularios de contacto o al registrarse en el servicio.",
+  "pages.privacy.hosting.description":
+    "Albergamos los contenidos de nuestra web en Render Services, Inc., 525 Brannan Street, Suite 300, San Francisco, CA 94107, USA.",
   "pages.privacy.hosting.render_privacy_link_label": "Política de privacidad de Render",
   "pages.privacy.hosting.render_privacy_link_url": "https://render.com/privacy",
   "pages.privacy.hosting.title": "Proveedor de alojamiento",
-  "pages.privacy.intro_p1": "A continuación encontrará una visión general sencilla sobre qué ocurre con sus datos personales cuando visita este sitio web. Datos personales son todos aquellos datos que pueden identificarle directa o indirectamente.",
+  "pages.privacy.intro_p1":
+    "A continuación encontrará una visión general sencilla sobre qué ocurre con sus datos personales cuando visita este sitio web. Datos personales son todos aquellos datos que pueden identificarle directa o indirectamente.",
   "pages.privacy.last_updated": "Última actualización: {date}",
-  "pages.privacy.legal_basis.description": "El tratamiento de datos en este sitio se realiza con base en el Art. 6(1)(b) y Art. 6(1)(f) del RGPD: necesario para la ejecución de un contrato y por interés legítimo en una presentación fiable del sitio web.",
+  "pages.privacy.legal_basis.description":
+    "El tratamiento de datos en este sitio se realiza con base en el Art. 6(1)(b) y Art. 6(1)(f) del RGPD: necesario para la ejecución de un contrato y por interés legítimo en una presentación fiable del sitio web.",
   "pages.privacy.legal_basis.title": "Base legal para el tratamiento",
-  "pages.privacy.meta_description": "Política de privacidad de MelodyMind: cómo recopilamos, procesamos y protegemos sus datos personales.",
-  "pages.privacy.responsible_party_description": "El responsable del tratamiento de los datos en este sitio web es el operador del sitio. Los datos de contacto del responsable se encuentran en el apartado del aviso legal/impressum.",
+  "pages.privacy.meta_description":
+    "Política de privacidad de MelodyMind: cómo recopilamos, procesamos y protegemos sus datos personales.",
+  "pages.privacy.responsible_party_description":
+    "El responsable del tratamiento de los datos en este sitio web es el operador del sitio. Los datos de contacto del responsable se encuentran en el apartado del aviso legal/impressum.",
   "pages.privacy.responsible_party_title": "Información sobre el responsable",
-  "pages.privacy.rights.complaint": "Además, tiene derecho a presentar una reclamación ante la autoridad de control de protección de datos correspondiente.",
-  "pages.privacy.rights.description": "Usted tiene derecho a solicitar acceso, rectificación, supresión, restricción del tratamiento, portabilidad de los datos y a oponerse al tratamiento cuando proceda. Para ejercer sus derechos, póngase en contacto con el responsable indicado en el aviso legal.",
+  "pages.privacy.rights.complaint":
+    "Además, tiene derecho a presentar una reclamación ante la autoridad de control de protección de datos correspondiente.",
+  "pages.privacy.rights.description":
+    "Usted tiene derecho a solicitar acceso, rectificación, supresión, restricción del tratamiento, portabilidad de los datos y a oponerse al tratamiento cuando proceda. Para ejercer sus derechos, póngase en contacto con el responsable indicado en el aviso legal.",
   "pages.privacy.rights.title": "Sus derechos",
-  "pages.privacy.this_data_processed_anonymously": "Estos datos son procesados de forma anónima y no permiten identificar a usuarios individuales.",
+  "pages.privacy.this_data_processed_anonymously":
+    "Estos datos son procesados de forma anónima y no permiten identificar a usuarios individuales.",
   "pages.privacy.title": "Política de privacidad",
-  "pages.privacy.turso_storage.deletion_request": "Puede solicitar la eliminación de sus datos en cualquier momento contactando con nosotros a través de los datos indicados en el aviso legal.",
-  "pages.privacy.turso_storage.description": "Cuando juega a MelodyMind, se podrán almacenar en nuestra base de datos TursoDB estadísticas de juego (rondas jugadas, categorías, niveles de dificultad) para permitir el progreso persistente, las clasificaciones y los logros.",
+  "pages.privacy.turso_storage.deletion_request":
+    "Puede solicitar la eliminación de sus datos en cualquier momento contactando con nosotros a través de los datos indicados en el aviso legal.",
+  "pages.privacy.turso_storage.description":
+    "Cuando juega a MelodyMind, se podrán almacenar en nuestra base de datos TursoDB estadísticas de juego (rondas jugadas, categorías, niveles de dificultad) para permitir el progreso persistente, las clasificaciones y los logros.",
   "pages.privacy.turso_storage.title": "Datos de juego y almacenamiento",
 };

@@ -55,7 +55,27 @@ export default {
   "pages.legal.disclaimer_text":
     "Diese Rechtshinweise wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Passen Sie die Angaben ggf. an Ihre individuelle rechtliche Situation an.",
 
-  // Migration helpers (optional - erleichtern sukzessives Ersetzen der alten 'auto.*' keys)
+  // Migration helpers (optional - erleichtern sukzessiges Ersetzen der alten 'auto.*' keys)
   "pages.privacy.legacy_note":
     "Hinweis: Diese Schlüssel ersetzen ältere automatisch generierte Keys. Tauschen Sie nach und nach die bisherigen Verwendungen durch die neuen, wartbaren Keys aus.",
+  // Footer-localizations (German)
+  "footer.description": "Das ultimative Musik-Quiz. Teste dein Wissen zu Genres und Jahrzehnten.",
+  "footer.legal_title": "Rechtliches",
+  "footer.connect_title": "Vernetzen & Unterstützen",
+  "footer.support_label": "Projekt unterstützen:",
+  "footer.donate": "Spenden",
+  "footer.donate_aria": "Spenden über PayPal",
+  "footer.impressum": "Impressum",
+  "footer.impressum_aria": "Rechtliche Informationen und Impressum anzeigen",
+  "footer.privacy": "Datenschutz",
+  "footer.privacy_aria": "Datenschutzerklärung anzeigen",
+  "footer.rights": "Alle Rechte vorbehalten",
+  "footer.source_code": "MelodyMind-Quellcode auf GitHub anzeigen",
+  "footer.support_kofi": "MelodyMind auf Ko-fi unterstützen",
+  "footer.github": "GitHub",
+  "footer.kofi": "Ko-fi",
+  "footer.aria": "Fußzeile",
+  "footer.opens_in_new_tab": "öffnet sich in einem neuen Tab",
+  "footer.legal_nav": "Rechtliche Informationen",
+  "footer.external_nav": "Footer-Links",
 };
