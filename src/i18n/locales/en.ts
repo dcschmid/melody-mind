@@ -13,6 +13,12 @@ export default {
   "podcast.episode_label": "Podcast Episode",
   "podcasts.platform.apple": "Apple Podcasts",
   "podcasts.platform.deezer": "Deezer",
+  "podcasts.navigation.previous": "Previous Episode",
+  "podcasts.navigation.next": "Next Episode",
+  "podcasts.cta.title": "Want More Music Stories?",
+  "podcasts.cta.description":
+    "Explore our complete collection of podcast episodes and discover the fascinating world of music history, culture, and innovation.",
+  "podcasts.cta.browse": "Browse All Episodes",
   "podcast.download_audio": "Download Audio",
   "podcast.view_subtitles": "View Subtitles",
   "podcasts.browse_all": "Browse All Episodes",

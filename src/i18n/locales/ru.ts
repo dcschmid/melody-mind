@@ -814,6 +814,12 @@ export default {
   "podcast.back_to_all": "← Назад ко всем подкастам",
   "podcasts.browse_all": "Просмотреть все эпизоды",
   "podcasts.read_full_notes": "Читать полные заметки эпизода",
+  "podcasts.navigation.previous": "Предыдущий эпизод",
+  "podcasts.navigation.next": "Следующий эпизод",
+  "podcasts.cta.title": "Хотите больше музыкальных историй?",
+  "podcasts.cta.description":
+    "Изучите нашу полную коллекцию эпизодов подкастов и откройте для себя увлекательный мир истории музыки, культуры и инноваций.",
+  "podcasts.cta.browse": "Просмотреть все эпизоды",
   "podcasts.language_restriction.title": "Подкасты Доступны Только на Немецком и Английском",
   "podcasts.language_restriction.description":
     "Наши подкаст-эпизоды в настоящее время доступны только на немецком и английском языках. Пожалуйста, переключитесь на один из этих языков, чтобы открыть наш контент.",

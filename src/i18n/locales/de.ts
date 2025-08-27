@@ -133,6 +133,12 @@ export default {
   "podcast.episode_label": "Podcast-Episode",
   "podcasts.platform.apple": "Apple Podcasts",
   "podcasts.platform.deezer": "Deezer",
+  "podcasts.navigation.previous": "Vorherige Episode",
+  "podcasts.navigation.next": "Nächste Episode",
+  "podcasts.cta.title": "Mehr musikalische Geschichten?",
+  "podcasts.cta.description":
+    "Entdecke unsere gesamte Sammlung an Podcast-Folgen und die faszinierende Welt der Musikgeschichte, Kultur und Innovation.",
+  "podcasts.cta.browse": "Alle Episoden anzeigen",
   "podcast.cta.subscribe": "Auf RSS abonnieren",
   "podcast.cta.browse_all": "Alle Episoden durchsuchen",
   "podcast.note.language_restriction":

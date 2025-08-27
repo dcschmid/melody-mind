@@ -868,6 +868,23 @@ export default {
   "podcast.back_to_all": "← Volver a Podcasts",
   "podcast.listen_to_episode": "Escuchar episodio",
   "podcast.episode_label": "Episodio de podcast",
+  "podcasts.read_full_notes": "Leer notas completas del episodio",
+
+  // Navigation labels for episode pages
+  "podcasts.navigation.previous": "Episodio anterior",
+  "podcasts.navigation.next": "Siguiente episodio",
+
+  // Call-to-action (CTA) texts for podcast pages
+  "podcasts.cta.title": "¿Quieres más historias musicales?",
+  "podcasts.cta.description":
+    "Explora nuestra colección completa de episodios de podcast y descubre el fascinante mundo de la historia, la cultura y la innovación musical.",
+  "podcasts.cta.browse": "Ver todos los episodios",
+
+  // Podcast UI / Navigation
+  "podcast.navigation.aria": "Navegación de podcasts",
+  "podcast.back_to_all": "← Volver a Podcasts",
+  "podcast.listen_to_episode": "Escuchar episodio",
+  "podcast.episode_label": "Episodio de podcast",
 
   // Call-to-action (CTA) texts for podcast pages
   "podcast.cta.browse_all": "Ver todos los episodios",
