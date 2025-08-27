@@ -792,5 +792,11 @@ export default {
     "I nostri episodi di podcast sono attualmente disponibili solo in tedesco e inglese. Si prega di passare a una di queste lingue per scoprire i nostri contenuti.",
   "podcasts.language_restriction.switch_to_german": "Passa al Tedesco",
   "podcasts.language_restriction.switch_to_english": "Passa all'Inglese",
+
+  // Podcast page and navigation translations
+  "podcast.navigation.aria": "Navigazione podcast",
+  "podcast.back_to_all": "← Torna a tutti i podcast",
+  "podcast.listen_to_episode": "Ascolta l'episodio",
+  "podcasts.read_full_notes": "Leggi le note complete dell'episodio",
   "podcasts.read_full_notes": "Leggi le note complete dell'episodio",
 };

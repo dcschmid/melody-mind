@@ -13,6 +13,12 @@ export default {
   "podcast.episode_label": "Podcast Episode",
   "podcasts.platform.apple": "Apple Podcasts",
   "podcasts.platform.deezer": "Deezer",
+  "podcast.download_audio": "Download Audio",
+  "podcast.view_subtitles": "View Subtitles",
+  "podcasts.browse_all": "Browse All Episodes",
+  "podcasts.more_stories.heading": "Want More Music Stories?",
+  "podcasts.more_stories.description":
+    "Explore our complete collection of podcast episodes and discover the fascinating world of music history, culture, and innovation.",
   "podcasts.platform.spotify": "Spotify",
   "achievements.badge.context_description":
     "Achievement notification badge. Shows count of new unlocked achievements in the navigation area.",
@@ -806,6 +812,7 @@ export default {
   "playlist.item.unavailable": "This content is not yet available",
   "playlist.no.results": "No matching playlists found. Try a different search term.",
   "playlist.no.results.heading": "No playlists found",
+  "playlist.create": "Create Playlist",
   "playlist.page.description":
     "🎵 Embark on an epic musical journey through legendary eras! Our handpicked playlists bring the greatest hits to life - from timeless classics to unforgettable chart-toppers. Perfect for expanding your musical knowledge or awakening nostalgic memories! 🎶",
   "playlist.page.heading": "Discover Our Music Playlists",

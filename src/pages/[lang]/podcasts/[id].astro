@@ -345,7 +345,7 @@ const { prev, next } = getNavigationPodcasts();
                   <span class="text-2xl text-purple-400">←</span>
                   <div class="flex-1">
                     <span class="mb-1 block text-xs tracking-wide text-gray-400 uppercase">
-                      Previous Episode
+                      {t("podcasts.navigation.previous")}
                     </span>
                     <span class="block text-sm leading-tight font-semibold">{prev.title}</span>
                   </div>
@@ -359,7 +359,7 @@ const { prev, next } = getNavigationPodcasts();
                 >
                   <div class="flex-1 text-right">
                     <span class="mb-1 block text-xs tracking-wide text-gray-400 uppercase">
-                      Next Episode
+                      {t("podcasts.navigation.next")}
                     </span>
                     <span class="block text-sm leading-tight font-semibold">{next.title}</span>
                   </div>
@@ -376,17 +376,16 @@ const { prev, next } = getNavigationPodcasts();
         class="w-full rounded-2xl border border-purple-500/30 bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 p-12 text-center shadow-2xl"
       >
         <Headline level="h2" textSize="xl" className="mb-4 text-white">
-          Want More Music Stories?
+          {t("podcasts.cta.title")}
         </Headline>
         <Paragraph className="mb-8 text-lg text-gray-300">
-          Explore our complete collection of podcast episodes and discover the fascinating world of
-          music history, culture, and innovation.
+          {t("podcasts.cta.description")}
         </Paragraph>
         <a
           href={`/${lang}/podcasts`}
           class="inline-flex items-center gap-2 rounded-xl bg-purple-600 px-8 py-4 text-base font-semibold text-white shadow-lg transition-colors duration-300 hover:-translate-y-1 hover:bg-purple-700 hover:shadow-xl"
         >
-          Browse All Episodes
+          {t("podcasts.cta.browse")}
         </a>
       </div>
     </div>
