@@ -18,6 +18,7 @@ import LoadingSpinner from "@components/Game/LoadingSpinner.astro";
 
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
+import { loadCategoriesForLanguage } from "../../utils/category/categoryLoadingUtils";
 
 // Server-side rendering for cookie-based authentication
 export const prerender = false;
@@ -49,17 +50,12 @@ export async function getStaticPaths() {
   const paths = [];
 
   for (const lang of supportedLanguages) {
-    // Load categories based on language with proper fallback mechanism
-    let categories;
-    try {
-      categories = await import(`@json/${lang}_categories.json`);
-    } catch {
-      // Fallback to default language if the specific language file doesn't exist
-      categories = await import(`@json/en_categories.json`);
-    }
+    // Load categories using the shared loader which uses Vite glob at build-time and provides a fallback.
+    const result = await loadCategoriesForLanguage({ language: lang, fallbackLanguage: "en" });
+    const categories = result.success ? result.categories : [];
 
     // Create a path for each category (no difficulty needed for time pressure)
-    for (const categoryData of categories.default) {
+    for (const categoryData of categories) {
       paths.push({
         params: {
           lang,
@@ -103,9 +99,11 @@ const { category } = Astro.params;
 let categoryData = propsCategoryData;
 if (!categoryData && category) {
   try {
-    // Try to load category data dynamically
-    const categories = await import(`@json/${lang}_categories.json`);
-    const foundCategory = categories.default.find((cat: { slug: string }) => cat.slug === category);
+    // Use centralized loader to fetch categories with fallback rather than dynamic runtime imports.
+    const result = await loadCategoriesForLanguage({ language: lang, fallbackLanguage: "en" });
+    const categories = result.success ? result.categories : [];
+
+    const foundCategory = categories.find((cat: { slug: string }) => cat.slug === category);
 
     if (foundCategory) {
       categoryData = {
@@ -113,21 +111,6 @@ if (!categoryData && category) {
         slug: foundCategory.slug,
       };
     } else {
-      // Try English fallback
-      const enCategories = await import(`@json/en_categories.json`);
-      const enFoundCategory = enCategories.default.find(
-        (cat: { slug: string }) => cat.slug === category
-      );
-
-      if (enFoundCategory) {
-        categoryData = {
-          headline: enFoundCategory.headline,
-          slug: enFoundCategory.slug,
-        };
-      }
-    }
-
-    if (!categoryData) {
       // Provide a fallback category data
       categoryData = {
         headline: category || "Unknown Category",

@@ -46,48 +46,86 @@ interface CategoryLoadingResult {
 export async function loadCategoriesForLanguage(
   config: CategoryLoadingConfig
 ): Promise<CategoryLoadingResult> {
-  const { language, fallbackLanguage = "en", useAliasPath = true } = config;
+  const { language, fallbackLanguage = "en" } = config;
 
-  // Build an ordered list of candidate import paths.
-  // Each entry also indicates whether using it means a fallback language was used.
-  const candidates: { path: string; fallbackUsed: boolean }[] = [];
-
-  if (useAliasPath) {
-    candidates.push({ path: `@json/${language}_categories.json`, fallbackUsed: false });
-  }
-  candidates.push({ path: `../../json/${language}_categories.json`, fallbackUsed: false });
-
-  if (fallbackLanguage && fallbackLanguage !== language) {
-    if (useAliasPath) {
-      candidates.push({ path: `@json/${fallbackLanguage}_categories.json`, fallbackUsed: true });
-    }
-    candidates.push({ path: `../../json/${fallbackLanguage}_categories.json`, fallbackUsed: true });
-  }
-
-  // Try imports sequentially until one succeeds.
-  for (const candidate of candidates) {
-    try {
-      const categoriesModule = await import(candidate.path);
-      return {
-        categories: categoriesModule.default || [],
-        success: true,
-        fallbackUsed: candidate.fallbackUsed,
+  // Use Vite's build-time glob import to include all category JSON files.
+  // This avoids attempting dynamic runtime imports from the built server output.
+  try {
+    // Extract the map-building logic into a small typed helper to reduce complexity
+    // and avoid using `any` on import.meta.
+    const buildMap = (): Record<string, Category[]> => {
+      type EagerModule = { default: Category[] };
+      type MetaType = {
+        globEager?: (pattern: string) => Record<string, EagerModule>;
+        // Keep glob type available for environments that might provide it in a different form.
+        glob?: (pattern: string) => Record<string, () => Promise<EagerModule>>;
       };
-    } catch (err) {
-      // Log the failure and continue to the next candidate.
-      handleLoadingError(err, `category data import from ${candidate.path}`);
-    }
-  }
 
-  // If none worked, return a consistent failure result.
-  const fallbackNote =
-    fallbackLanguage && fallbackLanguage !== language ? ` and fallback ${fallbackLanguage}` : "";
-  return {
-    categories: [],
-    success: false,
-    error: `Failed to load categories for ${language}${fallbackNote}`,
-    fallbackUsed: false,
-  };
+      const meta = import.meta as unknown as MetaType;
+
+      // Prefer the eager glob (bundles JSON into the build). If not available, use an empty object.
+      const modules = meta.globEager ? meta.globEager("../../json/*_categories.json") : {};
+
+      const map: Record<string, Category[]> = {};
+      for (const filePath in modules) {
+        const mod = modules[filePath];
+        const defaultExport = (mod && (mod.default || [])) as Category[];
+
+        // Try to extract two-letter language code from the filename, e.g. 'de' from '../../json/de_categories.json'
+        const m = filePath.match(/([a-z]{2})_categories\.json$/i);
+        if (m && m[1]) {
+          map[m[1]] = defaultExport;
+        } else {
+          // Fallback: try to match a segment like '/de_categories.json'
+          const m2 = filePath.match(/\/([a-z]{2})_categories\.json$/i);
+          if (m2 && m2[1]) {
+            map[m2[1]] = defaultExport;
+          }
+        }
+      }
+
+      return map;
+    };
+
+    const map = buildMap();
+
+    // Prefer the requested language
+    if (map[language]) {
+      return {
+        categories: map[language],
+        success: true,
+        fallbackUsed: false,
+      };
+    }
+
+    // Then fallback language
+    if (fallbackLanguage && fallbackLanguage !== language && map[fallbackLanguage]) {
+      return {
+        categories: map[fallbackLanguage],
+        success: true,
+        fallbackUsed: true,
+      };
+    }
+
+    // If nothing matched, return a consistent failure result.
+    const fallbackNote =
+      fallbackLanguage && fallbackLanguage !== language ? ` and fallback ${fallbackLanguage}` : "";
+    return {
+      categories: [],
+      success: false,
+      error: `Failed to load categories for ${language}${fallbackNote}`,
+      fallbackUsed: false,
+    };
+  } catch (err) {
+    // If glob import throws for some reason, surface a helpful error via existing handler.
+    handleLoadingError(err, "category data glob import");
+    return {
+      categories: [],
+      success: false,
+      error: String(err),
+      fallbackUsed: false,
+    };
+  }
 }
 
 /**

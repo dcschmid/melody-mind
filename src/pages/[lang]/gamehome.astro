@@ -169,16 +169,12 @@ try {
 } catch (error) {
   console.error(`Error loading categories for ${lang}:`, error);
   try {
-    // Load English fallback using same pattern
-    categories = await import(`@json/en_categories.json`)
-      .then((module) => module.default)
-      .catch(async () => {
-        return await import(`../../json/en_categories.json`)
-          .then((module) => module.default)
-          .catch((_err) => {
-            return [];
-          });
-      });
+    // Load English fallback using centralized loader to avoid dynamic runtime imports
+    const fallbackResult = await loadCategoriesForLanguage({
+      language: "en",
+      fallbackLanguage: "en",
+    });
+    categories = fallbackResult.success ? fallbackResult.categories : [];
   } catch (fallbackError) {
     logError("Failed to load fallback categories", fallbackError);
     categories = [];

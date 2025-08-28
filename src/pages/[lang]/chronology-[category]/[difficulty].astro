@@ -20,6 +20,7 @@ import EndOverlay from "@components/Overlays/EndOverlay.astro";
 import ChronologyFeedbackOverlay from "@components/Overlays/ChronologyFeedbackOverlay.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
+import { loadCategoriesForLanguage } from "../../../utils/category/categoryLoadingUtils";
 
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
@@ -51,16 +52,15 @@ export async function getStaticPaths() {
   const paths = [];
 
   for (const lang of supportedLanguages) {
-    // Load categories based on language with proper fallback mechanism
-    let categories;
-    try {
-      categories = await import(`@json/${lang}_categories.json`);
-    } catch {
-      // Fallback to default language if the specific language file doesn't exist
-      categories = await import(`@json/en_categories.json`);
-    }
+    // Load categories using the shared loader (build-time glob). This avoids dynamic runtime imports
+    // which can fail after bundling. The loader returns a result object with `.categories`.
+    const result = await loadCategoriesForLanguage({
+      language: lang,
+      fallbackLanguage: "en",
+    });
+    const categories = result.success ? result.categories : [];
 
-    for (const categoryData of categories.default) {
+    for (const categoryData of categories) {
       for (const difficulty of difficultyLevels) {
         paths.push({
           params: { lang, category: categoryData.slug, difficulty },
