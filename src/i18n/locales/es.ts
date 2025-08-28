@@ -1,16 +1,10 @@
 export default {
-  "accessibility.skip.to.content": "Saltar al contenido principal",
-  "audioplayer.aria.region": "Reproductor de audio",
-  "category.about.title": "Acerca de esta categoría",
-  "category.difficulty.easy": "Fácil",
+
   "knowledge.search.label": "Buscar por título o descripción",
   "knowledge.search.subtitle": "Encuentra artículos por título, descripción o palabras clave",
   "podcasts.note.only_english": "Nota: Los podcasts están disponibles actualmente solo en inglés.",
   "podcasts.navigation.aria": "Navegación de episodios",
   "share.challenge_fallback": "¿Crees que puedes superarme? Juega ahora en:",
-  "category.difficulty.hard": "Difícil",
-  "category.difficulty.heading": "Elige tu nivel de dificultad",
-  "category.difficulty.medium": "Medio",
   "category.image.alt": "Imagen de portada",
   "category.no_image_available": "No hay imagen disponible",
   "category.play": "Jugar",
@@ -41,7 +35,6 @@ export default {
     "Tu saldo de monedas. El progreso se guarda automáticamente en tu cuenta.",
   "coins.tooltip.guest": "Tu saldo de monedas actual para esta sesión.",
   "common.back.to.top": "Volver arriba",
-  "common.loading": "Cargando...",
   "difficulty.easy": "Fácil",
   "difficulty.hard": "Difícil",
   "difficulty.level": "Nivel de dificultad",
@@ -76,8 +69,6 @@ export default {
   "news.description":
     "Descubre los últimos éxitos, noticias de artistas y tendencias musicales de todo el mundo",
   "nav.donate.description": "Apoya el proyecto con una pequeña donación",
-  "nav.openNewWindow": "Se abre en una ventana nueva",
-  "nav.skip.main": "Saltar al contenido principal",
   "accessibility.skip.to.content": "Saltar al contenido principal",
   "audioplayer.aria.region": "Reproductor de audio",
   "game.welcome": "Bienvenido a Melody Mind",
@@ -105,7 +96,6 @@ export default {
   "game.joker.description": "Elimina dos opciones incorrectas",
   "game.joker.use": "Usar comodín 50:50",
   "category.about.title": "Acerca de esta categoría",
-  "knowledge.read.article": "Leer artículo",
   "category.difficulty.heading": "Elige tu nivel de dificultad",
   "category.difficulty.easy": "Fácil",
   "category.difficulty.medium": "Medio",
@@ -158,9 +148,6 @@ export default {
   "errors.gameResult.validation.invalidScore": "La puntuación debe ser un número",
   "errors.profile.notFound": "Perfil de usuario no encontrado",
   "errors.profile.retrievalError": "Error al cargar el perfil",
-  "login.welcome": "¡Bienvenido a Melody Mind!",
-  "login.description":
-    "🎵 Sumérgete en el universo musical definitivo. Descubre éxitos legendarios, domina desafíos y conviértete en el campeón musical.",
   "profile.title": "Mi perfil",
   "profile.description": "Gestiona tu información personal y consulta tus estadísticas de juego",
   "profile.loading": "Cargando datos del perfil...",
@@ -189,7 +176,6 @@ export default {
   "playlist.item.coming.soon": "Próximamente",
   "playlist.item.status": "Estado",
   "playlist.item.unavailable": "Contenido no disponible por el momento",
-  "playlist.accessibility.info": "Información de accesibilidad de la playlist",
   "playlist.accessibility.public":
     "Playlist pública - no requiere autenticación para acceder al streaming",
   "share.accessibility.copy_failed_manual":
@@ -291,9 +277,6 @@ export default {
   "knowledge.read.article": "Leer artículo",
   "musicPlatforms.description": "Escucha esta playlist en plataformas musicales populares",
   "musicPlatforms.listenOn": "Escuchar {title} en {platform}",
-  "musicPlatforms.platform.spotify": "Spotify",
-  "musicPlatforms.platform.deezer": "Deezer",
-  "musicPlatforms.platform.apple": "Apple Music",
   "pages.privacy.title": "Política de privacidad",
   "pages.privacy.meta_description":
     "Política de privacidad de MelodyMind — Cómo recopilamos, procesamos y protegemos tus datos personales.",
@@ -365,4 +348,5 @@ export default {
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
+
 };
