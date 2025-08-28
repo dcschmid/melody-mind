@@ -1,96 +1,54 @@
 export default {
-  // Privacy / Datenschutz
-  "pages.privacy.title": "Datenschutzerklärung",
-  "pages.privacy.intro_p1":
-    "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.",
-  "pages.privacy.responsible_party":
-    "Verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland.",
-  "pages.privacy.data_processing_basis":
-    "Die Datenverarbeitung auf dieser Website erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer zuverlässigen Darstellung der Website).",
-  "pages.privacy.data_collected.manual":
-    "Einige Daten werden erhoben, wenn Sie sie uns mitteilen — z. B. Ihre Eingaben in Kontaktformularen oder Angaben im Rahmen von Benutzerkonten.",
-  "pages.privacy.data_collected.automatic":
-    "Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT‑Systeme erfasst. Dazu gehören vor allem technische Daten (Browsertyp, Betriebssystem, Zugriffszeitpunkt, IP‑Adresse) in serverseitigen Logdateien.",
-  "pages.privacy.cookies":
-    "Unsere Website verwendet Cookies. Dabei handelt es sich um kleine Textdateien, die Ihr Browser speichert. Wir verwenden ausschließlich technisch notwendige Cookies und, sofern erforderlich, solche, deren Verwendung Sie aktiv zustimmen.",
-  "pages.privacy.hosting":
-    "Wir hosten die Inhalte unserer Website bei Render Services, Inc., 525 Brannan Street, Suite 300, San Francisco, CA 94107, USA.",
-  "pages.privacy.render_privacy_link":
-    "Details zur Datenverarbeitung durch Render finden Sie hier: https://render.com/privacy",
-  "pages.privacy.analytics":
-    "Wir verwenden Fathom Analytics, einen datenschutzfreundlichen Analyseanbieter. Die von Fathom verarbeiteten Daten werden anonymisiert und können nicht zur Identifikation einzelner Besucher genutzt werden.",
-  "pages.privacy.turso_storage":
-    "Beim Spielen von MelodyMind werden Spielstatistiken (z. B. gespielte Runden, gewählte Kategorien, Schwierigkeitsgrade) sicher in unserer TursoDB‑Datenbank gespeichert, um persistente Spielstände, Bestenlisten und Erfolge zu ermöglichen.",
-  "pages.privacy.storage_duration":
-    "Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck der Verarbeitung entfällt oder Sie die Löschung verlangen.",
-  "pages.privacy.user_rights_title": "Ihre Rechte",
-  "pages.privacy.user_rights_text":
-    "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie das Recht, Widerspruch gegen die Verarbeitung einzulegen. Zur Ausübung Ihrer Rechte kontaktieren Sie uns bitte unter der in dieser Datenschutzerklärung genannten Kontaktadresse.",
-  "pages.privacy.contact":
-    "Kontakt für Datenschutzanfragen: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland. E‑Mail: (im Impressum/auf der Website angegeben).",
-  "pages.privacy.complaint_authority":
-    "Sie haben außerdem das Recht, sich bei einer zuständigen Datenschutzaufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten nicht rechtmäßig erfolgt.",
-
-  // Imprint / Impressum
-  "pages.imprint.title": "Impressum",
-  "pages.imprint.legal_notice_intro":
-    "Angaben gemäß § 5 TMG / gesetzliche Anbieterkennzeichnung. Verantwortlich für den Inhalt gemäß § 55 Abs. 2 RStV:",
-  "pages.imprint.company_name": "Daniel Schmid",
-  "pages.imprint.address": "Adresse: Hiltenspergerstr. 78, 80796 München, Deutschland",
-  "pages.imprint.email_note":
-    "Unsere E‑Mail-Adresse finden Sie oben im Impressum bzw. auf der Kontaktseite der Website.",
-  "pages.imprint.streaming_links":
-    "Die in MelodyMind enthaltenen Streaming‑Links führen zu lizenzierten Musikdiensten wie Spotify, Apple Music und Deezer. MelodyMind hostet selbst keine urheberrechtlich geschützten Musikdateien.",
-  "pages.imprint.music_assets":
-    "Musik‑Previews und Albumcover werden über lizenzierte APIs bereitgestellt. Alle Rechte an Liedern, Texten und Bildern liegen bei den jeweiligen Rechteinhabern (Künstlern, Plattenfirmen).",
-  "pages.imprint.liability_content":
-    "Als Diensteanbieter sind wir gemäß den allgemeinen Gesetzen für eigene Inhalte auf diesen Seiten verantwortlich. Eine Verpflichtung zur Überwachung übertragener oder gespeicherter fremder Informationen besteht nicht, soweit keine konkrete Anhaltspunkte für eine Rechtsverletzung vorliegen.",
-
-  // Legal / Rechtliches
-  "pages.legal.odr":
-    "Die Europäische Kommission stellt eine Plattform zur Online‑Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr",
-  "pages.legal.dispute_participation":
-    "Wir sind weder verpflichtet noch bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
-  "pages.legal.disclaimer_title": "Haftungsausschluss",
-  "pages.legal.disclaimer_text":
-    "Diese Rechtshinweise wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Passen Sie die Angaben ggf. an Ihre individuelle rechtliche Situation an.",
-
-  // Migration helpers (optional - erleichtern sukzessiges Ersetzen der alten 'auto.*' keys)
-  "pages.privacy.legacy_note":
-    "Hinweis: Diese Schlüssel ersetzen ältere automatisch generierte Keys. Tauschen Sie nach und nach die bisherigen Verwendungen durch die neuen, wartbaren Keys aus.",
-  // Footer-localizations (German)
-  "footer.description": "Das ultimative Musik-Quiz. Teste dein Wissen zu Genres und Jahrzehnten.",
-  "footer.legal_title": "Rechtliches",
-  "footer.connect_title": "Vernetzen & Unterstützen",
-  "footer.support_label": "Projekt unterstützen:",
-  "footer.donate": "Spenden",
-  "footer.donate_aria": "Spenden über PayPal",
-  "footer.impressum": "Impressum",
-  "footer.impressum_aria": "Rechtliche Informationen und Impressum anzeigen",
-  "footer.privacy": "Datenschutz",
-  "footer.privacy_aria": "Datenschutzerklärung anzeigen",
-  "footer.rights": "Alle Rechte vorbehalten",
-  "footer.source_code": "MelodyMind-Quellcode auf GitHub anzeigen",
-  "footer.support_kofi": "MelodyMind auf Ko-fi unterstützen",
-  "footer.github": "GitHub",
-  "footer.kofi": "Ko-fi",
-  "footer.aria": "Fußzeile",
-
-  // Navigation / News (Deutsch)
-  "nav.subtitle": "Entdecke Musik, tritt gegen Freund*innen an und teste dein Wissen",
-  "nav.section.main": "Hauptmenü",
-  "nav.menu.home.desc": "Zurück zur Hauptseite",
-  "nav.section.discover": "Entdecken",
-  "nav.menu.knowledge.desc": "Erkunde musikalisches Wissen und Trivia",
-  "nav.menu.playlists.desc": "Entdecke kuratierte Musik-Playlists",
-  "nav.menu.podcasts": "Podcasts",
-  "nav.podcasts.description": "Höre musikbezogene Podcasts und Interviews",
-  "news.title": "Nachrichten",
-  "news.description":
-    "Entdecke die neuesten Hits, Künstler*innen‑News und Musiktrends aus aller Welt",
-  "nav.donate.description": "Unterstütze das Projekt mit einer kleinen Spende",
-
-  // 404 error page (German)
+  "accessibility.skip.to.content": "Zum Hauptinhalt springen",
+  "audioplayer.aria.region": "Audio-Player",
+  "category.about.title": "Über diese Kategorie",
+  "category.difficulty.easy": "Leicht",
+  "knowledge.search.label": "Nach Titel oder Beschreibung suchen",
+  "knowledge.search.subtitle": "Finde Artikel nach Titel, Beschreibung oder Stichwörtern",
+  "podcasts.note.only_english": "Hinweis: Podcasts sind derzeit nur auf Englisch verfügbar.",
+  "podcasts.navigation.aria": "Episoden-Navigation",
+  "share.challenge_fallback": "Denkst du, du kannst mich schlagen? Spiel jetzt:",
+  "category.difficulty.hard": "Schwer",
+  "category.difficulty.heading": "Wähle dein Schwierigkeitslevel",
+  "category.difficulty.medium": "Mittel",
+  "category.image.alt": "Coverbild",
+  "category.no_image_available": "Kein Bild verfügbar",
+  "category.play": "Spielen",
+  "category.start": "Starten",
+  "category.filter.label": "Nach Kategorie filtern:",
+  "category.filter.aria_label": "Nach Kategorie filtern",
+  "category.filter.option_all": "Alle",
+  "coins.announce.earned_excellent":
+    "Ausgezeichnet! Du hast {difference} Münzen beim {context} erhalten! Neuer Stand: {newCount} Münzen.",
+  "coins.announce.earned_great":
+    "Großartig! Du hast {difference} Münze{plural} beim {context} erhalten. Gesamt: {newCount} Münzen.",
+  "coins.announce.earned_normal":
+    "Du hast {difference} Münze{plural} beim {context} erhalten. Gesamt: {newCount} Münzen.",
+  "coins.announce.lost":
+    "Verloren: {lost} Münze{plural} beim {context}. Verbleibend: {newCount} Münzen.",
+  "coins.announce.progress_saved": "Fortschritt wurde in deinem Konto gespeichert.",
+  "coins.announce.updated":
+    "Münzen aktualisiert beim {context}. Aktueller Stand: {newCount} Münzen.",
+  "coins.collected": "Gesammelte Münzen",
+  "coins.context.achievement": "Erfolg erhalten",
+  "coins.context.bonus": "Bonus erhalten",
+  "coins.context.challenge": "Herausforderung abgeschlossen",
+  "coins.context.daily": "tägliche Belohnung eingesammelt",
+  "coins.context.game": "Spiel gespielt",
+  "coins.context.quiz": "Quiz-Fragen beantwortet",
+  "coins.context.shop": "Einkauf getätigt",
+  "coins.context.streak": "Serie aufrechterhalten",
+  "coins.tooltip.authenticated": "Dein Münzstand. Fortschritt wird automatisch gespeichert.",
+  "coins.tooltip.guest": "Dein aktueller Münzstand für diese Sitzung.",
+  "common.back.to.top": "Zurück nach oben",
+  "common.loading": "Lädt...",
+  "difficulty.easy": "Leicht",
+  "difficulty.hard": "Schwer",
+  "difficulty.level": "Schwierigkeitsgrad",
+  "difficulty.medium": "Mittel",
+  "error.close": "Fehlermeldung schließen",
+  "error.countdown": "Verbleibende Zeit bis zum automatischen Ausblenden",
+  "error.default": "Ein Fehler ist aufgetreten",
   "error.404.title": "404 - Seite nicht gefunden | MelodyMind",
   "error.404.description":
     "Keine Sorge — es gibt trotzdem viel Musik zu entdecken! Probier eine der Optionen unten, um wieder auf Kurs zu kommen.",
@@ -103,65 +61,491 @@ export default {
   "error.404.actions.playlists": "Playlists entdecken",
   "error.404.actions.quiz": "Musikquiz starten",
   "error.404.actions.highscores": "Bestenlisten anzeigen",
+  "error.extend": "Timeout verlängern",
+  "nav.subtitle": "Entdecke Musik, tritt gegen Freund*innen an und teste dein Wissen",
+  "nav.section.main": "Hauptmenü",
+  "nav.menu.home.desc": "Zurück zur Hauptseite",
+  "nav.section.discover": "Entdecken",
+  "nav.menu.knowledge.desc": "Erkunde musikalisches Wissen und Trivia",
+  "nav.menu.playlists.desc": "Entdecke kuratierte Musik-Playlists",
+  "nav.menu.podcasts": "Podcasts",
+  "nav.podcasts.description": "Höre musikbezogene Podcasts und Interviews",
+  "news.title": "Nachrichten",
+  "news.description":
+    "Entdecke die neuesten Hits, Künstler*innen‑News und Musiktrends aus aller Welt",
+  "nav.donate.description": "Unterstütze das Projekt mit einer kleinen Spende",
+  "error.extend.tooltip": "Lade-Timeout um 5 Sekunden verlängern",
+  "error.invalid.question": "Ungültige Frage oder keine Optionen vorhanden",
+  "error.no.albums.found": "Keine Alben für diese Kategorie gefunden",
+  "error.no.initial.question": "Keine gültige Anfangsfrage gefunden",
+  "errors.achievements.check": "Fehler beim Überprüfen von Erfolgen. Bitte später erneut versuchen",
+  "errors.achievements.fetch": "Fehler beim Abrufen von Erfolgen. Bitte später erneut versuchen",
+  "errors.achievements.invalidId": "Ungültige Achievement-ID: leer oder fehlt",
+  "errors.achievements.log": "Fehler beim Überprüfen von Erfolgen:",
+  "errors.achievements.unknownError": "Unbekannter Fehler beim Freischalten",
+  "errors.achievements.unlock":
+    "Fehler beim Freischalten des Erfolgs. Bitte später erneut versuchen",
+  "errors.achievements.update":
+    "Fehler beim Aktualisieren von Erfolgen. Bitte später erneut versuchen",
+  "errors.api.invalidLanguage": "Ungültiger Sprachparameter",
+  "errors.auth.unauthorized": "Du musst eingeloggt sein, um diese Funktion zu nutzen",
+  "errors.gameResult.database.saveFailed": "Speichern des Spielergebnisses fehlgeschlagen",
+  "errors.gameResult.log.achievements": "Fehler beim Verarbeiten von Erfolgen:",
+  "errors.gameResult.log.api": "API-Fehler:",
+  "errors.gameResult.log.dailyActivity": "Fehler beim Aktualisieren der täglichen Aktivität:",
+  "errors.gameResult.log.database": "Datenbankfehler:",
+  "errors.gameResult.log.unknown": "Unbekannter Fehler",
+  "errors.gameResult.validation.invalidCorrectAnswers": "Korrekte Antworten müssen eine Zahl sein",
+  "errors.gameResult.validation.invalidData": "Ungültiges Datenformat",
+  "errors.gameResult.validation.invalidDifficulty": "Ungültiger Schwierigkeitsgrad",
+  "errors.gameResult.validation.invalidScore": "Punktzahl muss eine Zahl sein",
+  "errors.gameResult.validation.invalidTotalRounds": "Anzahl der Runden muss eine Zahl sein",
+  "errors.gameResult.validation.missingCategory": "Kategorie-Name ist erforderlich",
+  "errors.gameResult.validation.missingDifficulty": "Schwierigkeitsgrad ist erforderlich",
+  "errors.gameResult.validation.missingUserId": "Benutzer-ID ist erforderlich",
+  "errors.invalidParameters": "Ungültige Parameter angegeben",
+  "errors.profile.notFound": "Benutzerprofil nicht gefunden",
+  "errors.profile.retrievalError": "Fehler beim Laden des Profils",
+  "footer.donate": "Spenden",
+  "footer.donate_aria": "Spenden über PayPal",
+  "footer.impressum": "Impressum",
+  "footer.impressum_aria": "Rechtliche Informationen und Impressum anzeigen",
+  "footer.privacy": "Datenschutz",
+  "footer.privacy_aria": "Datenschutzerklärung anzeigen",
+  "footer.github": "GitHub",
+  "footer.kofi": "Ko-fi",
   "footer.opens_in_new_tab": "öffnet sich in einem neuen Tab",
-  "musicPlatforms.description": "Höre diese Wiedergabeliste auf beliebten Musikplattformen",
+  "footer.rights": "Alle Rechte vorbehalten",
+  "footer.source_code": "MelodyMind-Quellcode auf GitHub anzeigen",
+  "footer.support_kofi": "MelodyMind auf Ko-fi unterstützen",
+  "game.answer.correct": "Richtig! {points} Punkte + {bonus} Bonuspunkte",
+  "game.answer.wrong": "Falsch! Die richtige Antwort war: {answer}",
+  "game.area.label": "Spielbereich",
+  "game.categories.empty.headline": "Keine Genres gefunden",
+  "game.categories.empty.text":
+    "Leider wurden keine Kategorien gefunden. Bitte versuche es später noch einmal.",
+  "game.categories.loading": "Musikkategorien werden geladen...",
+  "game.categories.title": "Musikkategorien",
+  "game.chronology.aria.main": "Hauptbereich des Chronologie-Spiels",
+  "game.chronology.correct": "Richtig! 🎉",
+  "game.chronology.correct_order": "Korrekte Reihenfolge:",
+  "game.chronology.correct_order_description":
+    "Liste mit der korrekten chronologischen Reihenfolge",
+  "game.chronology.description":
+    "⏰ Werde ein Zeitreisender der Musik! Ordne diese legendären Alben in die richtige chronologische Reihenfolge und zeige, dass du ein echter Musikhistoriker bist. Jeder richtige Zug bringt dich der perfekten Punktzahl näher! 🎯",
+  "game.timepressure.title": "Modus Zeitdruck",
+  "game.timepressure.description":
+    "⚡ Werde der Blitz‑Musikmeister! Beweise, dass du selbst unter Zeitdruck ein echter Champion bist – mit gemischten Schwierigkeitsgraden in {category}. Jede Sekunde zählt!",
+  "game.chronology.incorrect": "Falsch! 😔",
+  "game.chronology.info.aria": "Spielinformationen und Statistiken",
+  "game.chronology.instructions": "Ordne die Alben in die richtige chronologische Reihenfolge",
+  "game.chronology.result": "Ergebnis",
+  "game.chronology.sort.albums": "Alben nach Veröffentlichungsjahr sortieren",
+  "game.chronology.stats.accuracy": "Genauigkeit:",
+  "game.chronology.stats.round": "Runde:",
+  "game.chronology.stats.round_points": "Punkte diese Runde:",
+  "game.chronology.stats.total_points": "Gesamtpunkte:",
+  "game.chronology.title": "Musikchronologie",
+  "game.chronology.user_order.correct_title": "Deine korrekte Reihenfolge:",
+  "game.chronology.user_order.incorrect_title": "Deine Reihenfolge:",
+  "game.current.round": "Runde",
+  "game.default.headline": "Spiel",
+  "game.difficulty.easy": "Leicht",
+  "game.end.achievementBadge": "Trophäen-Icon für Erfolge",
+  "game.end.defaultMotivation": "Gut gemacht! Spiel weiter, um deine Punktzahl zu verbessern!",
+  "game.end.difficultyDescription": "Zeigt den abgeschlossenen Schwierigkeitsgrad",
+  "game.end.difficultyLevel": "Schwierigkeitsindikator",
+  "game.end.finalScore": "Endpunktzahl:",
+  "game.end.home": "Startseite",
+  "game.end.homeButtonHelp":
+    "Zur Startseite zurückkehren, um einen neuen Spielmodus oder Kategorie auszuwählen",
+  "game.end.homeDescription": "Zurück zum Hauptmenü und Startseite",
+  "game.end.level.enthusiast": "Enthusiast",
+  "game.end.level.explorer": "Entdecker",
+  "game.end.level.genius": "Genie",
+  "game.end.level.lover": "Liebhaber",
+  "game.end.level.pro": "Profi",
+  "game.end.motivation.enthusiast":
+    "Beeindruckend! 👍 Als echter Musikenthusiast kennst du dich wirklich aus. Du hast eine solide Grundlage musikalischen Wissens aufgebaut. Mit etwas mehr Übung könntest du bald in die Pro-Liga aufsteigen. Möchtest du noch eine Runde?",
+  "game.end.motivation.explorer":
+    "Danke fürs Spielen! 🙏 Als Musik-Entdecker hast du den ersten Schritt getan, mehr über die faszinierende Welt der Musik zu erfahren. Jedes Spiel ist eine Gelegenheit, Neues zu lernen. Fordere dich heraus, spiele mehr Runden und erweitere dein Wissen!",
+  "game.end.motivation.genius":
+    "Außergewöhnlich! 💫 Du bist ein wahres Musikgenie! 🎶 Dein tiefes Wissen und musikalisches Gespür sind beeindruckend. Teile dein bemerkenswertes Ergebnis und fordere andere heraus!",
+  "game.end.motivation.lover":
+    "Gut gemacht! 👏 Als Musikliebhaber hast du beachtliches Wissen gezeigt. Du bist auf dem richtigen Weg, ein wahrer Musikkenner zu werden. Mit mehr Übung kannst du dein Wissen erweitern und deine Punktzahl verbessern. Bereit für eine neue Herausforderung?",
+  "game.end.motivation.pro":
+    "Fantastisch! 🌟 Du bist definitiv ein Musikprofi mit umfassendem Wissen über Künstler und Genres. Dein Musikverständnis liegt weit über dem Durchschnitt. Mach weiter so und fordere deine Freunde heraus!",
+  "game.end.newgame": "Neues Spiel",
+  "game.end.newgameDescription": "Starte ein neues Spiel mit den gleichen Einstellungen",
+  "game.end.progressDescription": "Visuelle Fortschrittsanzeige deiner Punktestufe",
+  "game.end.restartButtonHelp":
+    "Starte sofort eine neue Runde mit gleicher Schwierigkeit und Kategorie",
+  "game.end.restartSameGame": "Spiel neu starten",
+  "game.end.restartSameGameDescription": "Starte ein neues Spiel mit den gleichen Einstellungen",
+  "game.end.restartSameGameHelp":
+    "Startet ein neues Spiel mit derselben Kategorie, Schwierigkeit und Spielmodus",
+  "game.end.scoreProgress": "Punktfortschritt",
+  "game.end.screenReaderDescription": "Spielergebnisse mit Punktestand und Erfolgslevel.",
+  "game.end.share": "Teile deinen Erfolg!",
+  "game.end.shareDescription": "Öffnet Optionen zum Teilen deiner Punktzahl in sozialen Netzwerken",
+  "game.end.shareResults": "Teile deine Spielergebnisse in sozialen Medien",
+  "game.end.shareSection": "Teile deine Ergebnisse",
+  "game.end.title": "Spiel beendet!",
+  "game.feedback.audio.failed": "Audio-Wiedergabe fehlgeschlagen",
+  "game.feedback.audio.fallback": "Audiodatei herunterladen",
+  "game.feedback.audio.paused": "Audio pausiert",
+  "game.feedback.audio.preview": "Musikvorschau",
+  "game.feedback.audio.unsupported": "Dein Browser unterstützt keine Audiowiedergabe.",
+  "game.feedback.listen.apple": "Auf Apple Music anhören",
+  "game.feedback.listen.deezer": "Auf Deezer anhören",
+  "game.feedback.listen.spotify": "Auf Spotify anhören",
+  "game.feedback.media.section": "Medienbereich",
+  "game.feedback.next.round": "Nächste Runde",
+  "game.feedback.next.starting": "Starte nächste Runde",
+  "game.feedback.play.audio": "Audio abspielen",
+  "game.feedback.resolution": "Auflösung",
+  "game.feedback.streaming.links": "Musik-Streaming-Links",
+  "game.feedback.subtitles": "Untertitel",
+  "game.genre.list": "Genreauswahl",
+  "game.genre.selection.description":
+    "Wähle aus mehreren Musikgenres wie Rock, Pop, Jazz, Klassik und mehr. Jede Kategorie enthält sorgfältig zusammengestellte Fragen, um dein musikalisches Wissen zu testen.",
+  "game.joker": "50:50 Joker",
+  "game.joker.description": "Eliminiert zwei falsche Antworten",
+  "game.joker.options": "Joker-Optionen",
+  "game.joker.use": "50:50 Joker verwenden",
+  "game.meta.description.prefix": "Spielen",
+  "game.meta.description.suffix": "auf Schwierigkeitslevel",
+  "game.move.down": "Nach unten",
+  "game.move.down.aria": "Ausgewähltes Element nach unten verschieben",
+  "game.move.up": "Nach oben",
+  "game.move.up.aria": "Ausgewähltes Element nach oben verschieben",
+  "game.next.round": "Nächste Runde starten",
+  "game.options.label": "Antwortoptionen",
+  "game.remaining": "verbleibend",
+  "game.search.clear": "Suche löschen",
+  "game.search.reset.text": "Suche zurücksetzen",
+  "game.search.placeholder": "Nach Genres suchen...",
+  "game.search.help": "Gib ein, um Musikgenres nach Namen zu filtern",
+  "game.search.label": "Nach einem Genre suchen",
+  "game.search.no.results": "Keine Genres gefunden, die Ihrer Suche entsprechen",
+  "game.search.results": "Genres gefunden",
+  "game.search.showing.all": "Alle Genres anzeigen",
+  "game.select":
+    "🎵 Bereit für das ultimative Musikabenteuer? Tauche ein in eine Welt voller Rhythmus, Melodie und unvergesslicher Songs! Von kraftvollen Gitarrensoli bis zu zeitlosen Klassikern – finde deine perfekte musikalische Herausforderung.",
+  "game.submit.answer": "Antwort prüfen",
+  "game.submit.answer.aria": "Aktuelle Reihenfolge prüfen und zur nächsten Runde gehen",
+  "game.welcome": "Willkommen bei Melody Mind",
+  "general.close": "Schließen",
+  "general.keyboard.enter": "Enter",
+  "general.keyboard.escape": "Escape",
+  "general.keyboard.shortcuts": "Tastenkürzel",
+  "general.keyboard.space": "Leertaste",
+  "general.keyboard.tab": "Tab",
+  "general.navigate.elements": "Elemente navigieren",
+  "highscores.allCategories": "Alle Kategorien",
+  "highscores.allModes": "Alle Modi",
+  "highscores.category": "Kategorie",
+  "highscores.date": "Datum",
+  "highscores.description":
+    "Entdecke die besten Spieler und ihre Scores. Tritt gegen andere an und verbessere deine Platzierung!",
+  "highscores.error": "Fehler beim Laden der Bestenlisten",
+  "highscores.filters": "Ergebnisse filtern",
+  "highscores.gameMode": "Spielmodus",
+  "highscores.noResults": "Keine Treffer mit den gewählten Filtern.",
+  "highscores.points": "Punkte",
+  "highscores.rank": "Rang",
+  "highscores.results": "Top-Ergebnisse",
+  "highscores.seo.description":
+    "Sieh dir die besten Musikquiz-Scores an und tritt gegen andere Spieler an",
+  "highscores.tableLabel": "Bestenliste",
+  "highscores.title": "Bestenlisten",
+  "index.continue": "Los geht's!",
+  "index.start.game.label": "Starte deine musikalische Reise",
+  "index.welcome.footnote":
+    "🎶 Mit Leidenschaft für echte Musikfans erstellt – Lass die Magie beginnen! ✨",
+  "knowledge.play.description":
+    "🎵 Bereit für die ultimative Herausforderung? Teste dein Musikwissen und werde ein Genre‑Experte! Sammle Punkte, nutze clevere Joker und zeige, dass du das Zeug zum Musik‑Champion hast! 🏆",
+  "knowledge.published": "Veröffentlicht",
+  "knowledge.reading.time": "min Lesezeit",
+  "knowledge.reading.time.label": "Lesezeit",
+  "knowledge.title": "Musik-Wissensdatenbank",
+  "language.change.error": "Fehler beim Wechseln der Sprache. Bitte erneut versuchen.",
+  "language.change.success": "Sprache zu {language} gewechselt",
+  "language.da": "Dänisch",
+  "language.da.label": "Website auf Dänisch anzeigen",
+  "language.de": "Deutsch",
+  "language.de.label": "Website auf Deutsch anzeigen",
+  "language.dropdown.arrow": "Dropdown-Pfeil",
+  "language.en": "Englisch",
+  "language.en.label": "Website auf Englisch anzeigen",
+  "language.es": "Spanisch",
+  "language.es.label": "Website auf Spanisch anzeigen",
+  "language.fi": "Finnisch",
+  "language.fi.label": "Website auf Finnisch anzeigen",
+  "language.focus.announce": "Sprachauswahl fokussiert. Pfeiltasten zum Navigieren verwenden.",
+  "language.fr": "Französisch",
+  "language.fr.label": "Website auf Französisch anzeigen",
+  "language.it": "Italienisch",
+  "language.it.label": "Website auf Italienisch anzeigen",
+  "language.nl": "Niederländisch",
+  "language.nl.label": "Website auf Niederländisch anzeigen",
+  "language.picker.label": "Sprache auswählen",
+  "language.preference.restored": "Sprachpräferenz wiederhergestellt: {language}",
+  "language.pt": "Portugiesisch",
+  "language.pt.label": "Website auf Portugiesisch anzeigen",
+  "language.select.label": "Bevorzugte Sprache auswählen",
+  "language.sv": "Schwedisch",
+  "language.sv.label": "Website auf Schwedisch anzeigen",
+  "language.cn": "Chinesisch",
+  "language.cn.label": "Website auf Chinesisch anzeigen",
+  "language.jp": "Japanisch",
+  "language.jp.label": "Website auf Japanisch anzeigen",
+  "language.ru": "Russisch",
+  "language.ru.label": "Website auf Russisch anzeigen",
+  "language.uk": "Ukrainisch",
+  "language.uk.label": "Website auf Ukrainisch anzeigen",
+  "layout.accessibility.motion.reduced": "Reduzierte Bewegungen aktiviert (Barrierefreiheit)",
+  "layout.accessibility.theme.dark": "Dunkles Design aktiviert für besseren Kontrast",
+  "layout.analytics.init.failed": "Initialisierung der Analyse fehlgeschlagen:",
+  "layout.error.system": "Systemfehler aufgetreten. Bitte Seite neu laden.",
+  "layout.error.tracking": "Fehler beim Tracking:",
+  "layout.error.tracking.failed": "Tracking fehlgeschlagen:",
+  "loading.albums": "Alben laden...",
+  "loading.completed": "Laden abgeschlossen",
+  "loading.content": "Inhalte laden...",
+  "loading.context.default": "Inhalte werden geladen",
+  "loading.context.game": "Spiel wird geladen",
+  "loading.context.question": "Frage wird geladen",
+  "loading.context.results": "Ergebnisse werden geladen",
+  "loading.progress.indicator": "Fortschrittsanzeige",
+  "loading.started": "Ladevorgang gestartet",
+  "login.description":
+    "🎵 Tauche ein in das ultimative Musik-Universum! Entdecke legendäre Hits, meistere spannende Herausforderungen und werde zum absoluten Musik-Champion.",
+  "login.welcome": "Willkommen bei Melody Mind!",
+  "meta.keywords":
+    "Musikquiz, Musikspiel, Song-Quiz, Künstler-Quiz, Online Musikquiz, Musik Trivia, MelodyMind, Musik-Ratespiel",
+  "musicPlatforms.externalNotice":
+    "Externe Musikplattform-Links können Konten oder Abonnements für vollen Zugriff erfordern.",
+  "musicPlatforms.heading": "Verwandte Musik anhören",
+  "musicPlatforms.keyboardInstructions":
+    "Navigiere Musikplattformen mit der Tab-Taste. Drücke Enter oder Leertaste, um Plattformen in neuen Tabs zu öffnen.",
+  "nav.ariaLabel": "Hauptnavigation",
+  "nav.donate.coffee": "Kauf uns einen Kaffee",
+  "nav.donate.heading": "Unterstütze uns",
+  "nav.donate.paypal": "Per PayPal spenden",
+  "nav.home": "Startseite",
+  "nav.logout.label": "Ausloggen",
+  "nav.menu.close": "Menü schließen",
+  "nav.menu.highscores": "Bestenlisten",
+  "nav.menu.home": "Startseite",
+  "nav.menu.logout": "Ausloggen",
+  "nav.menu.open": "Menü öffnen",
+  "nav.menu.rules": "Spielregeln",
+  "nav.menu.text": "Menü",
+  "nav.openNewWindow": "Öffnet in neuem Fenster",
+  "nav.skip.main": "Zum Hauptinhalt springen",
+  "nav.title": "Navigation",
+  "navigation.article.opens": "öffnet Artikelseite",
+  "notice.fallback_content": "Fallback-Inhalt verfügbar",
+  "playlist.accessibility.info": "Zugänglichkeitsinformationen zur Playlist",
+  "playlist.accessibility.public":
+    "Öffentliche Playlist - kein Login für Streamingzugriff erforderlich",
+  "playlist.item.coming.soon": "Demnächst verfügbar",
+  "playlist.item.status": "Status",
+  "playlist.item.status.changed.available": "Diese Playlist ist jetzt verfügbar",
+  "playlist.item.status.changed.disabled": "Diese Playlist ist derzeit deaktiviert",
+  "playlist.item.unavailable": "Dieser Inhalt ist derzeit nicht verfügbar",
+  "playlist.no.results": "Keine passenden Playlists gefunden. Versuche eine andere Suche.",
+  "playlist.no.results.heading": "Keine Playlists gefunden",
+  "playlist.page.description":
+    "🎵 Begib dich auf eine epische musikalische Reise! Unsere handverlesenen Playlists präsentieren die größten Hits – von zeitlosen Klassikern bis zu unvergesslichen Chartstürmern.",
+  "playlist.page.heading": "Entdecke unsere Musik-Playlists",
+  "playlist.reset.search": "Alle Playlists anzeigen",
+  "playlist.search.aria.label": "Musik-Playlists durchsuchen",
+  "playlist.search.heading": "Playlists durchsuchen",
+  "playlist.search.placeholder": "Nach Künstler oder Stil suchen...",
+  "profile.auth.required": "Du musst eingeloggt sein, um dein Profil zu sehen",
+  "profile.description":
+    "Verwalte deine persönlichen Informationen und sieh deine Spielerstatistiken",
+  "profile.error": "Fehler beim Laden der Profildaten",
+  "profile.loading": "Lade Profildaten...",
+  "profile.nav.aria": "Navigation zum Benutzerprofil",
+  "profile.nav.link": "Zum Profil",
+  "profile.recent_games.empty": "Keine letzten Spiele",
+  "profile.recent_games.points": "Punkte",
+  "profile.recent_games.title": "Letzte Spiele",
+  "profile.stats.chronology": "Chronologie",
+  "profile.stats.games_played": "Gespielte Spiele",
+  "profile.stats.highest_score": "Beste Punktzahl",
+  "profile.stats.quiz": "Quiz",
+  "profile.stats.title": "Spielstatistiken",
+  "profile.stats.total_score": "Gesamtpunktzahl",
+  "profile.title": "Mein Profil",
+  "profile.user.email": "E‑Mail",
+  "profile.user.info": "Benutzerinformationen",
+  "profile.user.member_since": "Mitglied seit",
+  "profile.user.username": "Benutzername",
+  "session.extended": "Sitzung erfolgreich verlängert",
+  "session.timeout.continue": "Weiter",
+  "session.timeout.extend": "Sitzung verlängern",
+  "session.timeout.warning": "Deine Sitzung läuft in {0} Sekunden ab.",
+  "share.accessibility.copy_failed_manual":
+    "Kopieren fehlgeschlagen. Bitte URL manuell aus dem Browser kopieren.",
+  "share.accessibility.data_found": "Spiel-Daten gefunden! Teilen ist jetzt möglich.",
+  "share.accessibility.data_still_unavailable":
+    "Spieldaten momentan noch nicht verfügbar. Versuche die Seite zu aktualisieren oder kopiere manuell.",
+  "share.accessibility.data_unavailable":
+    "Spieldaten nicht verfügbar. Bitte neu laden oder manuell kopieren.",
+  "share.accessibility.link_copied_fallback":
+    "Spiel-Link in die Zwischenablage kopiert (Fallback).",
+  "share.accessibility.native_share_failed":
+    "Das native Teilen ist fehlgeschlagen: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.platform_opened": "Teilen auf {platform} erfolgreich geöffnet.",
+  "share.accessibility.platform_share_failed":
+    "Teilen zu {platform} fehlgeschlagen: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.retry_failed":
+    "Wiederholung fehlgeschlagen. Bitte manuell kopieren oder Seite neu laden.",
+  "share.accessibility.retrying": "Versuche erneut, Spieldaten zu finden...",
+  "share.accessibility.score_copied": "Ergebnis erfolgreich in die Zwischenablage kopiert!",
+  "share.accessibility.score_shared": "Ergebnis erfolgreich geteilt.",
+  "share.accessibility.sharing_cancelled": "Teilen abgebrochen.",
+  "share.accessibility.try_alternative_methods":
+    "Versuche, in die Zwischenablage zu kopieren oder eine andere Methode zu verwenden.",
+  "share.accessibility.try_platform_buttons":
+    "Versuche die plattformspezifischen Teilen-Buttons oder kopiere in die Zwischenablage",
+  "share.buttons.group.label": "Soziale Medien Teilen-Optionen",
+  "share.copy": "Text in die Zwischenablage kopieren",
+  "share.copy.label": "Text kopieren",
+  "share.email": "Per E-Mail teilen",
+  "share.email.label": "E-Mail",
+  "share.email.subject": "Mein MelodyMind Ergebnis",
+  "share.score_line":
+    "Ich habe {score} Punkte im MelodyMind {category} Quiz ({difficulty}) erzielt!",
+  "share.challenge": "Denkst du, du kannst mich schlagen? Spiel jetzt:",
+  "share.fallback.manual.label": "Seitenlink manuell kopieren",
+  "share.fallback.manual.text": "Link kopieren",
+  "share.fallback.message":
+    "Spieldaten sind momentan nicht verfügbar. Bitte versuche es erneut oder kopiere den Seitenlink manuell.",
+  "share.fallback.retry.label": "Wiederholen",
+  "share.fallback.retry.text": "Erneut laden",
+  "share.native": "Teilen mit...",
+  "share.native.label": "Teilen",
+  "share.title": "Teile deinen Erfolg!",
+  "share.twitter": "Auf X/Twitter teilen",
+  "share.whatsapp": "Per WhatsApp teilen",
+  "share.achievement.genius": "🎵 Musikgenie! 🎵",
+  "share.achievement.pro": "🎧 Musikprofi! 🎧",
+  "share.achievement.enthusiast": "🎸 Musikenthusiast! 🎸",
+  "share.achievement.lover": "🎹 Musikliebhaber! 🎹",
+  "share.achievement.explorer": "🎼 Musikentdecker! 🎼",
+  "share.difficulty_emoji.easy": "🟢",
+  "share.difficulty_emoji.medium": "🟡",
+  "share.difficulty_emoji.hard": "🔴",
+  "share.difficulty_emoji.default": "⚪️",
+  "toc.nav.label": "Inhaltsverzeichnis",
+  "toc.skip.link": "Zum Hauptinhalt springen",
+  "toc.state.collapsed": "Eingeklappt",
+  "toc.state.expanded": "Ausgeklappt",
+  "toc.toggle.label": "Inhaltsverzeichnis umschalten",
+  "knowledge.section.title": "Mehr erfahren",
+  "knowledge.section.description":
+    "Tauche tiefer in dieses Thema mit einem umfassenden Artikel ein",
+  "knowledge.read.more": "Mehr lesen",
+  "knowledge.read.article": "Artikel lesen",
+  "musicPlatforms.description": "Diese Playlist auf beliebten Musikplattformen anhören",
   "musicPlatforms.listenOn": "Höre {title} auf {platform}",
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
-  "footer.legal_nav": "Rechtliche Informationen",
-  "footer.external_nav": "Footer-Links",
 
-  // Accessibility helper used on multiple pages
-  "accessibility.skip.to.content": "Zum Hauptinhalt springen",
+  // Privacy / Datenschutz (Kept translations and page-specific legal text)
+  "pages.privacy.title": "Datenschutzerklärung",
+  "pages.privacy.meta_description":
+    "MelodyMind Datenschutzerklärung — Wie wir personenbezogene Daten erfassen, verarbeiten und schützen.",
+  "pages.privacy.last_updated": "Zuletzt aktualisiert: {date}",
+  "pages.privacy.intro_p1":
+    "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.",
+  "pages.privacy.responsible_party_title": "Angaben zur verantwortlichen Stelle",
+  "pages.privacy.responsible_party":
+    "Verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland.",
+  "pages.privacy.data_processing_basis_title": "Verarbeitungsgrundlage",
+  "pages.privacy.data_processing_basis":
+    "Die Datenverarbeitung auf dieser Website erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer zuverlässigen Darstellung der Website).",
+  "pages.privacy.data_collected.manual_title": "Daten, die Sie bereitstellen",
+  "pages.privacy.data_collected.manual":
+    "Einige Daten werden erhoben, wenn Sie sie uns mitteilen — z. B. Ihre Eingaben in Kontaktformularen oder Angaben im Rahmen von Benutzerkonten.",
+  "pages.privacy.data_collected.automatic_title": "Automatisch erfasste Daten",
+  "pages.privacy.data_collected.automatic":
+    "Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT‑Systeme erfasst. Dazu gehören technische Daten wie Browsertyp, Betriebssystem, Zugriffszeitpunkt und IP‑Adresse.",
+  "pages.privacy.cookies.title": "Cookies",
+  "pages.privacy.cookies":
+    "Unsere Website verwendet Cookies. Dabei handelt es sich um kleine Textdateien, die Ihr Browser speichert. Wir verwenden ausschließlich technisch notwendige Cookies und, sofern erforderlich, solche, deren Verwendung Sie aktiv zustimmen.",
+  "pages.privacy.hosting.title": "Hosting",
+  "pages.privacy.hosting":
+    "Wir hosten die Inhalte unserer Website bei Render Services, Inc., 525 Brannan Street, Suite 300, San Francisco, CA 94107, USA.",
+  "pages.privacy.hosting.render_privacy_link":
+    "Details zur Datenverarbeitung durch Render finden Sie hier: https://render.com/privacy",
+  "pages.privacy.analytics.title": "Analytics",
+  "pages.privacy.analytics":
+    "Wir verwenden Fathom Analytics, einen datenschutzfreundlichen Analyseanbieter. Die von Fathom verarbeiteten Daten werden anonymisiert und können nicht zur Identifikation einzelner Besucher genutzt werden.",
+  "pages.privacy.analytics.link_label": "Fathom Datenschutz",
+  "pages.privacy.turso_storage.title": "Spielstatistiken & Speicherung",
+  "pages.privacy.turso_storage":
+    "Beim Spielen von MelodyMind werden Spielstatistiken (z. B. gespielte Runden, gewählte Kategorien, Schwierigkeitsgrade) sicher in unserer TursoDB-Datenbank gespeichert, um persistente Spielstände, Bestenlisten und Erfolge zu ermöglichen.",
+  "pages.privacy.storage_duration":
+    "Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck der Verarbeitung entfällt oder Sie die Löschung verlangen.",
+  "pages.privacy.user_rights_title": "Ihre Rechte",
+  "pages.privacy.user_rights_text":
+    "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie das Recht, Widerspruch gegen die Verarbeitung einzulegen. Zur Ausübung Ihrer Rechte kontaktieren Sie uns bitte unter der im Impressum angegebenen Kontaktadresse.",
+  "pages.privacy.contact.title": "Kontakt",
+  "pages.privacy.contact":
+    "Kontakt für Datenschutzanfragen: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland. E‑Mail: dcschmid@murena.io",
+  "pages.privacy.complaint_authority":
+    "Sie haben außerdem das Recht, sich bei einer zuständigen Datenschutzaufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten nicht rechtmäßig erfolgt.",
 
-  // Game / Gamehome translations (German) - added missing keys used by gamehome page
-  "game.welcome": "Willkommen bei Melody Mind",
-  "game.select":
-    "🎵 Bereit für das ultimative Musikabenteuer? Tauche ein in eine Welt voller Rhythmus, Melodie und unvergesslicher Songs! Von kraftvollen Gitarrensoli bis zu zeitlosen Klassikern – finde deine perfekte musikalische Herausforderung. Zeig der Welt, dass du ein echter Musikkenner bist!",
-  "game.genre.selection.description":
-    "Wähle aus mehreren Musikgenres wie Rock, Pop, Jazz, Klassik und mehr. Jede Kategorie enthält sorgfältig zusammengestellte Fragen, um dein musikalisches Wissen zu testen.",
-  "game.genre.list": "Genreauswahl",
-  "game.categories.title": "Musikkategorien",
-  "game.categories.loading": "Musikkategorien werden geladen...",
-  "game.categories.empty.headline": "Keine Genres gefunden",
-  "game.categories.empty.text":
-    "Leider wurden keine Kategorien gefunden. Bitte versuche es später noch einmal.",
+  // Imprint / Impressum
+  "pages.imprint.title": "Impressum",
+  "pages.imprint.heading": "Impressum / Rechtliche Angaben",
+  "pages.imprint.legal_notice_intro":
+    "Angaben gemäß § 5 TMG / gesetzliche Anbieterkennzeichnung. Verantwortlich für den Inhalt gemäß § 55 Abs. 2 RStV:",
+  "pages.imprint.company_name": "Daniel Schmid",
+  "pages.imprint.address": "Hiltenspergerstr. 78, 80796 München, Deutschland",
+  "pages.imprint.contact_label": "Kontakt",
+  "pages.imprint.contact_email": "dcschmid@murena.io",
+  "pages.imprint.email_note":
+    "Unsere E‑Mail-Adresse finden Sie oben im Impressum bzw. auf der Kontaktseite der Website.",
+  "pages.imprint.streaming_links":
+    "Die in MelodyMind enthaltenen Streaming‑Links führen zu lizenzierten Musikdiensten wie Spotify, Apple Music und Deezer. MelodyMind hostet selbst keine urheberrechtlich geschützten Musikdateien.",
+  "pages.imprint.music_assets":
+    "Musik‑Previews und Albumcover werden über lizenzierte APIs bereitgestellt. Alle Rechte an Liedern, Texten und Bildern liegen bei den jeweiligen Rechteinhabern.",
+  "pages.imprint.liability_content":
+    "Als Diensteanbieter sind wir gemäß den allgemeinen Gesetzen für eigene Inhalte auf diesen Seiten verantwortlich. Eine Verpflichtung zur Überwachung übertragener oder gespeicherter fremder Informationen besteht nicht, soweit keine konkrete Anhaltspunkte für eine Rechtsverletzung vorliegen.",
+  "pages.imprint.dispute_resolution.title": "Online-Streitbeilegung",
+  "pages.imprint.dispute_resolution.description":
+    "Die Europäische Kommission stellt eine Plattform zur Online‑Streitbeilegung (ODR) bereit: https://ec.europa.eu/consumers/odr",
+  "pages.imprint.dispute_participation":
+    "Wir sind weder verpflichtet noch bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
 
-  // Search-related keys used on the gamehome (client translations)
-  "game.search.label": "Suchen nach einem Genre",
-  "game.search.placeholder": "Suchen Sie nach Genres...",
-  "game.search.clear": "Suche löschen",
-  "game.search.reset.text": "Suche zurücksetzen",
-  "game.search.showing.all": "Alle Genres anzeigen",
-  "game.search.results": "Genres gefunden",
-  "game.search.no.results": "Keine Genres gefunden, die Ihrer Suche entsprechen",
-  "game.search.help": "Geben Sie ein, um Genres nach Namen zu filtern",
+  // Legal / Rechtliches
+  "pages.legal.title": "Rechtliches",
+  "pages.legal.disclaimer_title": "Haftungsausschluss",
+  "pages.legal.disclaimer_text":
+    "Diese Rechtshinweise wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Passen Sie die Angaben ggf. an Ihre individuelle rechtliche Situation an.",
+  "pages.legal.odr":
+    "Die Europäische Kommission stellt eine Plattform zur Online‑Streitbeilegung (ODR) bereit: https://ec.europa.eu/consumers/odr",
+  "pages.legal.legacy_note":
+    "Hinweis: Diese Schlüssel ersetzen ältere automatisch generierte Keys. Tauschen Sie nach und nach die bisherigen Verwendungen durch die neuen, wartbaren Keys aus.",
 
-  // Small interactive / CTA keys used on the page
-  "category.filter.label": "Nach Kategorie filtern:",
-  "category.filter.aria_label": "Nach Kategorie filtern",
-  "category.filter.option_all": "Alle",
-  "game.start.now": "Jetzt starten",
-  "game.submit.answer": "Antwort prüfen",
+  // Footer-localizations (German)
+  "footer.description": "Das ultimative Musik-Quiz. Teste dein Wissen zu Genres und Jahrzehnten.",
+  "footer.legal_title": "Rechtliches",
+  "footer.connect_title": "Vernetzen & Unterstützen",
+  "footer.support_label": "Projekt unterstützen:",
+  "footer.aria": "Fußzeile",
 
-  // Category / Knowledge / Game localized fallbacks (German)
-  "category.about.title": "Über diese Kategorie",
-  "knowledge.read.article": "Artikel lesen",
-  "category.difficulty.heading": "Wähle dein Schwierigkeitslevel",
-  "category.difficulty.easy": "Leicht",
-  "category.difficulty.medium": "Mittel",
-  "category.difficulty.hard": "Schwer",
-  "knowledge.play.description":
-    "🎵 Bereit für die ultimative Herausforderung? Teste dein Musikwissen und werde ein Genre‑Experte! Sammle Punkte, nutze clevere Joker und zeige, dass du das Zeug zum Musik‑Champion hast! 🏆",
+  // Misc / fallbacks
+  "error.extend.tooltip": "Lade-Timeout um 5 Sekunden verlängern",
+  "notice.fallback_content": "Fallback-Inhalt verfügbar",
 
-  // Music chronology localized
-  "game.chronology.title": "Musikchronologie",
-  "game.chronology.description":
-    "⏰ Werde ein Zeitreisender der Musik! Ordne diese legendären Alben in die richtige chronologische Reihenfolge und zeige, dass du ein echter Musikhistoriker bist. Jeder richtige Zug bringt dich der perfekten Punktzahl näher! 🎯",
-
-  // Timepressure mode localized
-  "game.timepressure.title": "Modus Zeitdruck",
-  "game.timepressure.description":
-    "⚡ Werde der Blitz‑Musikmeister! Beweise, dass du selbst unter Zeitdruck ein echter Champion bist – mit gemischten Schwierigkeitsgraden in {category}. Jede Sekunde zählt – zeig gleichzeitig Geschwindigkeit und Wissen! 🏆",
+  // ensure last trailing comma allowed
 };
