@@ -124,17 +124,17 @@ export default {
   "auth.form.email_invalid_format":
     "Indtast venligst en gyldig e-mailadresse i formatet: bruger@eksempel.com",
   "auth.form.email_required": "E-mailadresse er påkrævet",
-  "auth.form.error": "An error occurred",
+  "auth.form.error": "En fejl opstod",
   "auth.form.error.general": "En fejl opstod",
-  "auth.form.help.password_button": "Get help with creating a strong password",
+  "auth.form.help.password_button": "Få hjælp til at oprette en stærk adgangskode",
   "auth.form.help.password_suggestions":
-    "Try using a combination of words, numbers, and symbols. Avoid common passwords like 'password123'.",
-  "auth.form.help.password_title": "Password Creation Tips",
-  "auth.form.help.tip1": "Use a mix of uppercase and lowercase letters",
-  "auth.form.help.tip2": "Include numbers and special characters",
-  "auth.form.help.tip3": "Avoid common words and sequences",
-  "auth.form.help.tip4": "Consider using a passphrase",
-  "auth.form.init_error": "Failed to initialize auth form elements",
+    "Prøv at bruge en kombination af ord, tal og symboler. Undgå almindelige adgangskoder som 'password123'.",
+  "auth.form.help.password_title": "Tips til oprettelse af adgangskode",
+  "auth.form.help.tip1": "Brug en blanding af store og små bogstaver",
+  "auth.form.help.tip2": "Inkluder tal og specialtegn",
+  "auth.form.help.tip3": "Undgå almindelige ord og sekvenser",
+  "auth.form.help.tip4": "Overvej at bruge en adgangssætning",
+  "auth.form.init_error": "Initialisering af login-formular-elementer mislykkedes",
   "auth.form.instructions.confirm.step1": "Opret en stærk adgangskode der opfylder alle krav",
   "auth.form.instructions.confirm.step2": "Bekræft din adgangskode ved at taste den igen",
   "auth.form.instructions.confirm.step3": "Klik 'Nulstil adgangskode' for at fuldføre processen",
@@ -157,15 +157,14 @@ export default {
   "auth.form.password_requirements": "Adgangskode opfylder ikke alle krav",
   "auth.form.password_sequences_error":
     "Adgangskode kan ikke indeholde almindelige sekvenser som '123' eller 'abc'",
-  "auth.form.password_special_error":
-    "Password must contain at least one special character (!@#$%^&*)",
-  "auth.form.password_uppercase_error": "Password must contain at least one uppercase letter (A-Z)",
-  "auth.form.passwords_not_match": "Passwords do not match",
-  "auth.form.progress.optional": "optional",
+  "auth.form.password_special_error": "Adgangskode skal indeholde mindst ét specialtegn (!@#$%^&*)",
+  "auth.form.password_uppercase_error": "Adgangskode skal indeholde mindst ét stort bogstav (A-Z)",
+  "auth.form.passwords_not_match": "Adgangskoderne stemmer ikke overens",
+  "auth.form.progress.optional": "valgfri",
   "auth.form.progress.required": "påkrævet",
-  "auth.form.progress.title": "Form completion progress",
-  "auth.form.required": "This field is required",
-  "auth.form.send_reset_link": "Send Reset Link",
+  "auth.form.progress.title": "Formularens udfyldelsesstatus",
+  "auth.form.required": "Dette felt er påkrævet",
+  "auth.form.send_reset_link": "Send nulstillingslink",
   "auth.guest.benefit.achievements": "Låse præstationer op",
   "auth.guest.benefit.leaderboard": "Deltage i ranglister",
   "auth.guest.benefit.progress": "Gemme spilfremskridt",
@@ -175,8 +174,8 @@ export default {
   "auth.guest.description":
     "Spil øjeblikkeligt uden at registrere dig. Fremskridt vil ikke blive gemt.",
   "auth.guest.or": "eller",
-  "auth.log.reset_execution_error": "Password reset execution error:",
-  "auth.log.reset_request_error": "Password reset request error:",
+  "auth.log.reset_execution_error": "Fejl ved udførelse af nulstilling af adgangskode:",
+  "auth.log.reset_request_error": "Fejl ved anmodning om nulstilling af adgangskode:",
   "auth.login.back_to_home": "Tilbage til forsiden",
   "auth.login.description": "Log ind på Melody Mind for at fortsætte din musikalske rejse.",
   "auth.login.email": "E-mailadresse",
@@ -251,28 +250,28 @@ export default {
   "auth.password_reset.success_message":
     "Hvis der findes en konto med denne e-mailadresse, er der blevet sendt en e-mail med instruktioner til nulstilling af adgangskode.",
   "auth.password_reset.title": "Nulstil adgangskode",
-  "auth.password.lowercase": "Password must contain at least one lowercase letter",
-  "auth.password.match": "Passwords must match",
-  "auth.password.min_length": "Password must be at least 8 characters long",
-  "auth.password.no_common": "Password must not be a common password",
-  "auth.password.no_repeats": "Password must not contain repeated characters",
-  "auth.password.no_sequences": "Password must not contain simple sequences",
-  "auth.password.number": "Password must contain at least one number",
-  "auth.password.requirements": "Password requirements:",
-  "auth.password.requirements.checklist": "Password requirements checklist",
+  "auth.password.lowercase": "Adgangskode skal indeholde mindst ét lille bogstav",
+  "auth.password.match": "Adgangskoderne skal matche",
+  "auth.password.min_length": "Adgangskode skal være mindst 8 tegn lang",
+  "auth.password.no_common": "Adgangskoden må ikke være en almindelig adgangskode",
+  "auth.password.no_repeats": "Adgangskoden må ikke indeholde gentagne tegn",
+  "auth.password.no_sequences": "Adgangskoden må ikke indeholde simple sekvenser",
+  "auth.password.number": "Adgangskode skal indeholde mindst ét tal",
+  "auth.password.requirements": "Adgangskodekrav:",
+  "auth.password.requirements.checklist": "Tjekliste over adgangskodekrav",
   "auth.password.requirements.help":
-    "Your password must meet all the requirements listed below for security",
+    "Din adgangskode skal opfylde alle nedenstående krav af hensyn til sikkerheden",
   "auth.password.requirements.keyboard_navigation":
     "Brug piletaster til at navigere krav, Escape for at afslutte",
-  "auth.password.requirements.met": "Requirement met",
-  "auth.password.requirements.not_met": "Requirement not met",
-  "auth.password.requirements.position": "{{current}} of {{total}}",
+  "auth.password.requirements.met": "Krav opfyldt",
+  "auth.password.requirements.not_met": "Krav ikke opfyldt",
+  "auth.password.requirements.position": "{{current}} af {{total}}",
   "auth.password.requirements.progress":
-    "{{met}} of {{total}} requirements met. {{percentage}}% complete.",
-  "auth.password.special": "Password must contain at least one special character",
-  "auth.password.strength": "Password strength",
+    "{{met}} af {{total}} krav opfyldt. {{percentage}}% fuldført.",
+  "auth.password.special": "Adgangskode skal indeholde mindst ét specialtegn",
+  "auth.password.strength": "Adgangskodestyrke",
   "auth.password.strength_description": "Indikator for adgangskodestyrke",
-  "auth.password.strength.description": "Password security level indicator",
+  "auth.password.strength.description": "Indikator for adgangskodens sikkerhedsniveau",
   "auth.password.strength.medium": "Middel",
   "auth.password.strength.strong": "Stærk",
   "auth.password.strength.very_strong": "Meget stærk",
@@ -355,9 +354,9 @@ export default {
   "auto.pages.de.datenschutz.sie_haben_folgende_rechte_bez_glich_ihrer":
     "Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:",
   "auto.pages.de.datenschutz.soweit_innerhalb_dieser_datenschutzerkl_rung_keine_speziellere":
-    "Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt\n              wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die\n              Datenverarbeitung entfällt.",
+    "Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt\n              wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für den\n              die Datenverarbeitung entfällt.",
   "auto.pages.de.datenschutz.spielstatistiken_gespielte_runden_kategorien_schwierigkeitsgrade":
-    "Spielstatistiken (gespielte Runden, Kategorien, Schwierigkeitsgrade)",
+    "Spielstatistiken (gespielte Runder, kategorier, sværhedsgrader)",
   "auto.pages.de.datenschutz.unsere_website_verwendet_cookies_das_sind":
     "Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Browser auf\n              Ihrem Gerät speichert. Wir verwenden ausschließlich technisch notwendige Cookies für:",
   "auto.pages.de.datenschutz.wenn_sie_melodymind_spielen_werden_folgende":
@@ -365,7 +364,7 @@ export default {
   "auto.pages.de.datenschutz.wenn_sie_unsere_website_besuchen_erfasst":
     "Wenn Sie unsere Website besuchen, erfasst Render verschiedene Logfiles inklusive Ihrer\n              IP-Adressen. Details entnehmen Sie der Datenschutzerklärung von Render:",
   "auto.pages.de.datenschutz.wenn_sie_von_diesen_rechten_gebrauch":
-    "Wenn Sie von diesen Rechten Gebrauch machen möchten, kontaktieren Sie uns bitte unter:",
+    "Hvis du ønsker at gøre brug af disse rettigheder, kontakt os venligst via ovenstående oplysninger:",
   "auto.pages.de.datenschutz.wer_ist_verantwortlich_f_r_die_datenerfassung":
     "Wer ist verantwortlich für die Datenerfassung auf dieser Website?",
   "auto.pages.de.datenschutz.wir_behalten_uns_vor_diese_datenschutzerkl_rung":
@@ -383,84 +382,84 @@ export default {
   "auto.pages.de.impressum.wir_sind_nicht_bereit_oder_verpflichtet":
     "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer\n              Verbraucherschlichtungsstelle teilzunehmen.",
   "auto.pages.en.legal_notice.as_service_providers_we_are_liable":
-    "As service providers, we are liable for own contents of these websites according to\n              general laws. However, we are not under obligation to monitor third party information\n              transmitted or stored, or investigate circumstances pointing to illegal activity.",
+    "Som tjenesteudbydere er vi ansvarlige for vores eget indhold på disse sider i henhold til gældende lovgivning. Vi er dog ikke forpligtet til at overvåge tredjepartsinformation, der overføres eller lagres, medmindre der foreligger konkrete indikationer på ulovlig aktivitet.",
   "auto.pages.en.legal_notice.the_european_commission_provides_a_platform":
-    "The European Commission provides a platform for online dispute resolution (ODR):",
+    "Europa-Kommissionen stiller en platform til online tvistbilæggelse (ODR) til rådighed:",
   "auto.pages.en.legal_notice.the_music_previews_and_album_covers":
-    "The music previews and album covers used in MelodyMind are provided through licensed\n              APIs. All rights to the music and images belong to the respective artists, record\n              labels, and rights holders.",
+    "Musikforhåndsvisninger og albumcovers brugt i MelodyMind leveres via licenserede API'er. Alle rettigheder til musik og billeder tilhører de respektive kunstnere, pladeselskaber og rettighedshavere.",
   "auto.pages.en.legal_notice.the_streaming_links_lead_to_licensed":
-    "The streaming links lead to licensed music services such as Spotify, Apple Music, and\n              Deezer. MelodyMind itself does not host any copyrighted content.",
+    "Streaming-links fører til licenserede musiktjenester som Spotify, Apple Music og Deezer. MelodyMind hoster ikke ophavsretligt beskyttet indhold direkte.",
   "auto.pages.en.legal_notice.this_legal_notice_has_been_created":
-    "This legal notice has been created with the greatest care. However,\n          we cannot guarantee completeness and accuracy. Please adapt the information according to your\n          specific situation.",
+    "Denne juridiske meddelelse er udarbejdet med størst mulig omhu. Vi kan dog ikke garantere for fuldstændighed og nøjagtighed. Tilpas venligst oplysningerne efter din konkrete situation.",
   "auto.pages.en.legal_notice.we_are_neither_willing_nor_obliged":
-    "We are neither willing nor obliged to participate in dispute resolution proceedings\n              before a consumer arbitration board.",
+    "Vi er hverken villige eller forpligtede til at deltage i tvistbilæggelse foran et forbrugerklagenævn.",
   "auto.pages.en.privacy_policy.a_combination_of_this_data_with":
-    "A combination of this data with other data sources will not be made. The collection of\n              this data is based on Art. 6 para. 1 lit. f GDPR.",
+    "En sammenføring af disse data med andre datakilder vil ikke finde sted. Indsamlingen af disse data er baseret på Art. 6 para. 1 lit. f GDPR.",
   "auto.pages.en.privacy_policy.address_daniel_schmid_hiltenspergerstr_78_80796":
-    "Address: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland",
+    "Adresse: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Tyskland",
   "auto.pages.en.privacy_policy.game_statistics_rounds_played_categories_difficulty":
-    "Game statistics (rounds played, categories, difficulty levels)",
+    "Spilstatistikker (antal spillede runder, kategorier, sværhedsgrader)",
   "auto.pages.en.privacy_policy.if_you_have_questions_about_data":
-    "If you have questions about data protection, wish to exercise your rights, or have\n              complaints, you can always contact us:",
+    "Hvis du har spørgsmål om databeskyttelse, ønsker at udøve dine rettigheder eller har klager, kan du altid kontakte os:",
   "auto.pages.en.privacy_policy.melodymind_uses_external_music_apis_for":
-    "MelodyMind uses external music APIs for preview links and album covers. When playing\n              music previews or clicking on streaming links, you will be redirected to external\n              services:",
+    "MelodyMind bruger eksterne musik-API'er til forhåndsvisningslinks og albumcovers. Når du afspiller musikforhåndsvisninger eller klikker på streaming-links, bliver du viderestillet til eksterne tjenester:",
   "auto.pages.en.privacy_policy.other_data_is_collected_automatically_by":
-    "Other data is collected automatically by our IT systems when you visit the website.\n              This data is primarily technical data such as the browser and operating system you are\n              using or when you accessed the page.",
+    "Andre data indsamles automatisk af vores IT-systemer, når du besøger webstedet. Dette er primært tekniske data som browser, operativsystem og tidspunkt for adgang.",
   "auto.pages.en.privacy_policy.our_website_uses_cookies_these_are":
-    "Our website uses cookies. These are small text files that your browser stores on your\n              device. We only use technically necessary cookies for:",
+    "Vores hjemmeside bruger cookies. Det er små tekstfiler, som din browser gemmer på din enhed. Vi anvender kun teknisk nødvendige cookies til:",
   "auto.pages.en.privacy_policy.some_data_is_collected_when_you":
-    "Some data is collected when you provide it to us. This could, for example, be data you\n              enter on a contact form.",
+    "Nogle data indsamles, når du giver dem til os, f.eks. via kontaktformularer.",
   "auto.pages.en.privacy_policy.the_data_processing_on_this_website":
-    'The data processing on this website is carried out by the website operator. You can\n              find the operator\'s contact details in the "Information about the responsible party"\n              section of this privacy policy.',
+    "Databehandlingen på denne hjemmeside udføres af website-operatøren. Du kan finde operatørens kontaktoplysninger i afsnittet om den dataansvarlige i privatlivspolitikken.",
   "auto.pages.en.privacy_policy.the_following_gives_a_simple_overview":
-    "The following gives a simple overview of what happens to your personal information\n              when you visit our website. Personal information is any data with which you could be\n              personally identified.",
+    "Følgende giver et simpelt overblik over, hvad der sker med dine personoplysninger, når du besøger vores hjemmeside. Personoplysninger er alle data, som kan identificere dig.",
   "auto.pages.en.privacy_policy.the_legal_basis_for_this_processing":
-    "The legal basis for this processing is Art. 6 para. 1 lit. b GDPR (performance of\n              contract) and Art. 6 para. 1 lit. f GDPR (legitimate interest in providing game\n              functionality).",
+    "Retsgrundlaget for denne behandling er Art. 6 para. 1 lit. b GDPR (opfyldelse af kontrakt) og Art. 6 para. 1 lit. f GDPR (berettiget interesse i at levere spillefunktionalitet).",
   "auto.pages.en.privacy_policy.the_legal_basis_for_this_processing_2":
-    "The legal basis for this processing is Art. 6 para. 1 lit. f GDPR (legitimate interest\n              in analyzing website usage to improve our services).",
+    "Retsgrundlaget for denne behandling er Art. 6 para. 1 lit. f GDPR (berettiget interesse i at analysere webstedsbrug for at forbedre vores tjenester).",
   "auto.pages.en.privacy_policy.the_new_privacy_policy_will_then":
-    "The new privacy policy will then apply to your next visit. We recommend that you visit\n              this page regularly to stay informed about changes.",
+    "Den nye privatlivspolitik vil gælde ved dit næste besøg. Vi anbefaler, at du besøger denne side regelmæssigt for at holde dig informeret om ændringer.",
   "auto.pages.en.privacy_policy.the_operators_of_this_website_take":
-    "The operators of this website take the protection of your personal data very\n              seriously. We treat your personal data confidentially and in accordance with the\n              statutory data protection regulations and this privacy policy.",
+    "Website-operatørerne tager beskyttelsen af dine personoplysninger meget alvorligt. Vi behandler dine data fortroligt og i overensstemmelse med gældende regler.",
   "auto.pages.en.privacy_policy.the_responsible_party_for_data_processing":
-    "The responsible party for data processing on this website is:",
+    "Den dataansvarlige for behandlingen på denne hjemmeside er:",
   "auto.pages.en.privacy_policy.the_use_is_based_on_art":
-    "The use is based on Art. 6 para. 1 lit. f GDPR. We have a legitimate interest in a\n              reliable presentation of our website.",
+    "Brugen er baseret på Art. 6 para. 1 lit. f GDPR. Vi har et berettiget interesse i en pålidelig præsentation af vores website.",
   "auto.pages.en.privacy_policy.the_website_is_transmitted_via_https":
-    "The website is transmitted via HTTPS encryption. This protects your input from access\n              by third parties.",
+    "Websitet overføres via HTTPS-kryptering. Dette beskytter dine indtastninger mod adgang fra tredjepart.",
   "auto.pages.en.privacy_policy.the_website_provider_automatically_collects_and":
-    "The website provider automatically collects and stores information in so-called server\n              log files, which your browser automatically transmits to us. These are:",
+    "Website-udbyderen indsamler automatisk oplysninger i såkaldte server-logfiler, som din browser sender til os. Disse omfatter bl.a. IP-adresser.",
   "auto.pages.en.privacy_policy.this_data_is_processed_anonymously_and":
-    "This data is processed anonymously and cannot be used to identify individual users.\n              For more information, see Fathom's privacy policy:",
+    "Disse data behandles anonymt og kan ikke bruges til at identificere enkeltpersoner. Se Fathoms privatlivspolitik for yderligere information.",
   "auto.pages.en.privacy_policy.this_data_is_stored_securely_in":
-    "This data is stored securely in our TursoDB database to provide you with persistent\n              game progress and enable features like high scores and achievements. You can request\n              deletion of your data at any time by contacting us at",
+    "Disse data gemmes sikkert i vores TursoDB-database for at give vedvarende spilprogression og funktioner som highscores og achievements. Du kan anmode om sletning af dine data til enhver tid.",
   "auto.pages.en.privacy_policy.unless_a_more_specific_storage_period":
-    "Unless a more specific storage period has been specified in this privacy policy, your\n              personal data will remain with us until the purpose for which it was collected no\n              longer applies.",
+    "Medmindre der er angivet en mere specifik opbevaringsperiode i denne politik, opbevares dine personoplysninger, indtil formålet er opfyldt eller du anmoder om sletning.",
   "auto.pages.en.privacy_policy.we_host_the_content_of_our":
-    "We host the content of our website at Render Services, Inc., 525 Brannan Street, Suite\n              300, San Francisco, CA 94107, USA.",
+    "Vi hoster indholdet af vores hjemmeside hos Render Services, Inc., 525 Brannan Street, Suite 300, San Francisco, CA 94107, USA.",
   "auto.pages.en.privacy_policy.we_reserve_the_right_to_adapt":
-    "We reserve the right to adapt this privacy policy so that it always complies with\n              current legal requirements or to implement changes to our services in the privacy\n              policy.",
+    "Vi forbeholder os ret til at tilpasse denne privatlivspolitik, så den altid opfylder gældende lovkrav eller afspejler ændringer i vores tjenester.",
   "auto.pages.en.privacy_policy.we_use_appropriate_technical_and_organizational":
-    "We use appropriate technical and organizational security measures to protect your data\n              against accidental or intentional manipulation, partial or complete loss, destruction,\n              or unauthorized access by third parties.",
+    "Vi anvender passende tekniske og organisatoriske sikkerhedsforanstaltninger for at beskytte dine data mod uautoriseret adgang eller tab.",
   "auto.pages.en.privacy_policy.we_use_fathom_analytics_a_privacy":
-    "We use Fathom Analytics, a privacy-focused analytics service, to better understand how\n              visitors interact with our website. Fathom Analytics is GDPR, CCPA and PECR compliant\n              and does not use cookies or collect personal data.",
+    "Vi bruger Fathom Analytics, en privatlivsvenlig analysetjeneste, til at forstå, hvordan besøgende interagerer med vores websted. Fathom er designet til ikke at indsamle persondata.",
   "auto.pages.en.privacy_policy.when_you_play_melodymind_the_following":
-    "When you play MelodyMind, the following data is stored in our TursoDB database:",
+    "Når du spiller MelodyMind, gemmes følgende data i vores TursoDB-database:",
   "auto.pages.en.privacy_policy.when_you_visit_our_website_render":
-    "When you visit our website, Render collects various logfiles including your IP\n              addresses. Details can be found in Render's privacy policy:",
+    "Når du besøger vores website, indsamler Render forskellige logfiler inklusive din IP-adresse. Se Renders privatlivspolitik for detaljer.",
   "auto.pages.en.privacy_policy.you_also_have_the_right_to":
-    "You also have the right to lodge a complaint with a data protection supervisory\n              authority about our processing of your personal data.",
+    "Du har desuden ret til at klage til en databeskyttelsesmyndighed, hvis du mener, at behandlingen af dine personoplysninger ikke er lovlig.",
   "auto.pages.en.privacy_policy.your_game_scores_and_settings_are":
-    "Your game scores and settings are stored in your browser's local storage. This data\n              remains local and is not transmitted.",
-  "auto.src.components.Headline.welcome_to_melodymind": "*   Welcome to MelodyMind\n *",
+    "Dine spilscores og indstillinger gemmes i din browsers lokale storage. Disse data forbliver lokale og overføres ikke.",
+  "auto.src.components.Headline.welcome_to_melodymind": "*   Velkommen til MelodyMind\n *",
   "auto.src.components.Paragraph.this_is_a_paragraph_with_custom":
-    "*   This is a paragraph with custom styling\n *",
+    "*   Dette er et afsnit med brugerdefineret styling\n *",
   "auto.src.layouts.Layout.example_game_page_with_coins_astro":
-    "* ```\n *\n * @example Game page with coins\n * ```astro\n *",
+    "* ```\n *\n * @example Spilside med mønter\n * ```astro\n *",
   "auto.src.layouts.Layout.example_music_content_page_astro":
-    "* ```\n *\n * @example Music content page\n * ```astro\n *",
+    "* ```\n *\n * @example Musikindhold-side\n * ```astro\n *",
   "auto.src.pages.404.don_t_worry_though_there_s":
-    "Don't worry though, there's plenty of music to discover! Try one of the options below to\n            get back on track.",
+    "Bare rolig, der er masser af musik at opdage! Prøv en af mulighederne nedenfor for at komme tilbage på sporet.",
   "category.about.title": "Om denne kategori",
   "category.difficulty.easy": "Let",
   "category.difficulty.hard": "Svær",
@@ -630,7 +629,7 @@ export default {
   "game.end.restartButtonHelp": "Start straks en ny spilrunde med samme sværhedsgrad og kategori",
   "game.end.restartSameGame": "Genstart samme spil",
   "game.end.restartSameGameDescription": "Spil samme kategori og sværhedsgrad igen",
-  "game.end.restartSameGameHelp": "Genstart samme kategori og sværhedsgrad for en ny runde",
+  "game.end.restartSameGameHelp": "Genoptag samme kategori og sværhedsgrad for en ny runde",
   "game.end.scoreProgress": "Score fremgang",
   "game.end.screenReaderDescription": "Spilresultater der viser din score og præstationsniveau.",
   "game.end.share": "Del din succes!",
@@ -770,6 +769,11 @@ export default {
   "knowledge.search.placeholder": "Søg artikler...",
   "knowledge.search.reset.text": "Nulstil søgning",
   "knowledge.search.showing.all": "Viser alle artikler",
+  "search.articles": "Søg artikler",
+  "search.findArticles": "Find artikler efter titel, beskrivelse eller nøgleord",
+  "search.byTitleOrDescription": "Søg efter titel eller beskrivelse",
+  "search.placeholder": "Søg artikler...",
+  "search.reset": "Nulstil",
   "knowledge.search.subtitle": "Find artikler efter titel, beskrivelse eller nøgleord",
   "knowledge.search.title": "Søg artikler",
   "knowledge.section.description": "Dyk dybere ned i historien og baggrunden for denne musikgenre.",
@@ -804,7 +808,7 @@ export default {
   "language.pt": "Portugisisk",
   "language.pt.label": "Se hjemmeside på portugisisk",
   "language.ru": "Russisk",
-  "language.ru.label": "Se webstedet på russisk",
+  "language.ru.label": "Se hjemmeside på russisk",
   "language.select.label": "Vælg dit foretrukne sprog",
   "language.sv": "Svensk",
   "language.sv.label": "Se hjemmeside på svensk",
