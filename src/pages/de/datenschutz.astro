@@ -7,6 +7,11 @@
 import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+
+// Get current language and translation function
+const lang = getLangFromUrl(Astro.url) as string;
+const t = useTranslations(String(lang));
 
 // Enable static generation for better caching
 export const prerender = true;
@@ -22,7 +27,7 @@ const description =
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <header class="mb-16 text-center">
         <Headline level="h1" title="Datenschutzerklärung" />
-        <Paragraph>Informationen zur Verarbeitung Ihrer personenbezogenen Daten</Paragraph>
+        <Paragraph>{t("pages.privacy.intro_p1")}</Paragraph>
         <Paragraph>Stand: {new Date().toLocaleDateString("de-DE")}</Paragraph>
       </header>
 
@@ -39,7 +44,7 @@ const description =
 
             <Headline level="h3" title="Datenerfassung auf dieser Website" />
             <Paragraph>
-              <strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong>
+              <strong>{t("pages.privacy.responsible_party")}</strong>
             </Paragraph>
             <Paragraph>
               Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen
@@ -48,7 +53,7 @@ const description =
             </Paragraph>
 
             <Paragraph>
-              <strong>Wie erfassen wir Ihre Daten?</strong>
+              <strong>{t("pages.privacy.data_collected.manual")}</strong>
             </Paragraph>
             <Paragraph>
               Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei
@@ -100,24 +105,9 @@ const description =
             </Paragraph>
 
             <Headline level="h3" title="Hinweis zur verantwortlichen Stelle" />
-            <Paragraph
-              >Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</Paragraph
-            >
+            <Paragraph>{t("pages.privacy.responsible_party")}</Paragraph>
             <div class="mt-4 rounded-lg bg-slate-100 p-6 dark:bg-slate-700">
-              <Paragraph>
-                <strong>Daniel Schmid</strong><br />
-                Hiltenspergerstr. 78<br />
-                80796 München<br />
-                Deutschland
-              </Paragraph>
-              <Paragraph>
-                <strong>E-Mail:</strong>
-                <a
-                  href="mailto:dcschmid@murena.io"
-                  class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                  >dcschmid@murena.io</a
-                >
-              </Paragraph>
+              <Paragraph>{t("pages.privacy.contact")}</Paragraph>
             </div>
 
             <Headline level="h3" title="Speicherdauer" />
@@ -137,14 +127,7 @@ const description =
               Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten
               Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:
             </Paragraph>
-            <ul class="mt-4 ml-6 list-disc space-y-2">
-              <li>Browsertyp und Browserversion</li>
-              <li>verwendetes Betriebssystem</li>
-              <li>Referrer URL</li>
-              <li>Hostname des zugreifenden Rechners</li>
-              <li>Uhrzeit der Serveranfrage</li>
-              <li>IP-Adresse</li>
-            </ul>
+            <Paragraph>{t("pages.privacy.data_collected.automatic")}</Paragraph>
             <Paragraph>
               Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die
               Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.
@@ -155,13 +138,7 @@ const description =
               Wenn Sie MelodyMind spielen, werden folgende Daten in unserer TursoDB-Datenbank
               gespeichert:
             </Paragraph>
-            <ul class="mt-4 ml-6 list-disc space-y-2">
-              <li>Ihr gewählter Benutzername</li>
-              <li>Ihre Spielergebnisse und Punktestände</li>
-              <li>Spielstatistiken (gespielte Runden, Kategorien, Schwierigkeitsgrade)</li>
-              <li>Ihre Spracheinstellung</li>
-              <li>Erreichte Erfolge und Achievements</li>
-            </ul>
+            <Paragraph>{t("pages.privacy.turso_storage")}</Paragraph>
             <Paragraph>
               Diese Daten werden sicher in unserer TursoDB-Datenbank gespeichert, um Ihnen
               persistenten Spielfortschritt zu ermöglichen und Features wie Highscores und
@@ -186,7 +163,7 @@ const description =
             </Paragraph>
             <ul class="mt-4 ml-6 list-disc space-y-2">
               <li>
-                <strong>Spotify:</strong> Datenschutzerklärung unter <a
+                <strong>Spotify</strong> Datenschutzerklärung: <a
                   href="https://www.spotify.com/de/privacy/"
                   class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                   target="_blank"
@@ -194,7 +171,7 @@ const description =
                 >
               </li>
               <li>
-                <strong>Apple Music:</strong> Datenschutzerklärung unter <a
+                <strong>Apple Music</strong> Datenschutzerklärung: <a
                   href="https://www.apple.com/de/privacy/"
                   class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                   target="_blank"
@@ -202,7 +179,7 @@ const description =
                 >
               </li>
               <li>
-                <strong>Deezer:</strong> Datenschutzerklärung unter <a
+                <strong>Deezer</strong> Datenschutzerklärung: <a
                   href="https://www.deezer.com/de/legal/personal-datas"
                   class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                   target="_blank"
@@ -221,11 +198,7 @@ const description =
               Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Browser auf
               Ihrem Gerät speichert. Wir verwenden ausschließlich technisch notwendige Cookies für:
             </Paragraph>
-            <ul class="mt-4 ml-6 list-disc space-y-2">
-              <li>Speicherung Ihrer Spracheinstellung</li>
-              <li>Erhaltung Ihrer Spielsitzung</li>
-              <li>Funktionalität des Spiels</li>
-            </ul>
+            <Paragraph>{t("pages.privacy.cookies")}</Paragraph>
             <Paragraph>
               Diese Cookies sind für das Funktionieren der Website erforderlich und werden auf
               Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert.
@@ -242,19 +215,8 @@ const description =
         <section class="mb-16 last:mb-0">
           <Headline level="h2" title="6. Ihre Rechte" />
           <div class="mt-6">
-            <Paragraph>Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:</Paragraph
-            >
-            <ul class="mt-4 ml-6 list-disc space-y-2">
-              <li><strong>Recht auf Auskunft</strong> (Art. 15 DSGVO)</li>
-              <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO)</li>
-              <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO)</li>
-              <li><strong>Recht auf Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
-              <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
-              <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO)</li>
-              <li>
-                <strong>Recht auf Beschwerde bei einer Aufsichtsbehörde</strong> (Art. 77 DSGVO)
-              </li>
-            </ul>
+            <Paragraph>{t("pages.privacy.user_rights_title")}</Paragraph>
+            <Paragraph>{t("pages.privacy.user_rights_text")}</Paragraph>
             <Paragraph>
               Wenn Sie von diesen Rechten Gebrauch machen möchten, kontaktieren Sie uns bitte unter: <a
                 href="mailto:dcschmid@murena.io"
@@ -275,13 +237,7 @@ const description =
               DSGVO-, CCPA- und PECR-konform und verwendet keine Cookies oder sammelt persönliche
               Daten.
             </Paragraph>
-            <Paragraph>Fathom Analytics erfasst anonymisierte Daten, einschließlich:</Paragraph>
-            <ul class="mt-4 ml-6 list-disc space-y-2">
-              <li>Seitenaufrufe und Besucherzahlen</li>
-              <li>Referrer-Informationen (von welcher Website Sie kommen)</li>
-              <li>Allgemeine Standortinformationen (nur auf Länderebene)</li>
-              <li>Geräte- und Browser-Informationen (anonymisiert)</li>
-            </ul>
+            <Paragraph>{t("pages.privacy.analytics")}</Paragraph>
             <Paragraph>
               Diese Daten werden anonym verarbeitet und können nicht zur Identifizierung einzelner
               Nutzer verwendet werden. Weitere Informationen finden Sie in der Datenschutzerklärung
@@ -310,15 +266,7 @@ const description =
               können Sie sich jederzeit an uns wenden:
             </Paragraph>
             <div class="mt-4 rounded-lg bg-slate-100 p-6 dark:bg-slate-700">
-              <Paragraph>
-                <strong>Datenschutzkontakt:</strong><br />
-                E-Mail: <a
-                  href="mailto:dcschmid@murena.io"
-                  class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                  >dcschmid@murena.io</a
-                ><br />
-                Adresse: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland
-              </Paragraph>
+              <Paragraph>{t("pages.privacy.contact")}</Paragraph>
             </div>
             <Paragraph>
               Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die
