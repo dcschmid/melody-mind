@@ -323,7 +323,6 @@ export default {
   "musicPlatforms.heading": "Listen to Related Music",
   "musicPlatforms.keyboardInstructions":
     "Navigate music platforms using Tab key. Press Enter or Space to open platforms in new tabs.",
-  "musicPlatforms.listenOn": "Listen to {title} on {platform}",
   "nav.ariaLabel": "Main navigation",
   "nav.donate.coffee": "Buy us a coffee",
   "nav.donate.heading": "Support Us",
