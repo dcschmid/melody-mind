@@ -1,20 +1,22 @@
 ---
 /**
  * @component 404ErrorPage
- * @description 404 Not Found page for MelodyMind (English only, static)
+ * @description 404 Not Found page for MelodyMind
  */
 
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 import Headline from "../components/Headline.astro";
 import Paragraph from "../components/Paragraph.astro";
 
+const lang = String(getLangFromUrl(Astro.url));
+const t = useTranslations(lang);
+
 export const prerender = true;
 
-// Static English content
-const title = "404 - Page Not Found | MelodyMind";
-const description =
-  "The page you're looking for doesn't exist. Explore our music trivia games and playlists instead.";
+const title = t("error.404.title");
+const description = t("error.404.description");
 ---
 
 <Layout {title} {description} type="website" showHeader={true} showHeaderIcons={true}>
@@ -37,12 +39,11 @@ const description =
         </div>
 
         <div class="mb-16">
-          <Headline level="h1" textSize="3xl" title="Page Not Found" />
+          <Headline level="h1" textSize="3xl" title={t("error.404.heading")} />
           <Paragraph
             className="mb-4 text-center text-lg leading-relaxed text-slate-600 dark:text-slate-300"
           >
-            Oops! The page you're looking for doesn't exist. It might have been moved, deleted, or
-            you entered the wrong URL.
+            {t("error.404.message")}
           </Paragraph>
           <Paragraph
             className="text-center text-base leading-relaxed text-slate-500 dark:text-slate-400"
@@ -58,19 +59,19 @@ const description =
             class="inline-flex transform items-center justify-center gap-3 rounded-lg border-2 border-blue-600 bg-blue-600 px-6 py-3 font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-700 hover:bg-blue-700"
           >
             <Icon name="home" class="h-5 w-5" aria-hidden="true" />
-            Go to Homepage
+            {t("error.404.actions.home")}
           </a>
           <button
             id="go-back-button"
             class="inline-flex transform items-center justify-center gap-3 rounded-lg border-2 border-slate-300 bg-transparent px-6 py-3 font-semibold text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:border-slate-500 dark:hover:bg-slate-700"
           >
             <Icon name="arrow-left" class="h-5 w-5" aria-hidden="true" />
-            Go Back
+            {t("error.404.actions.back")}
           </button>
         </div>
 
         <div class="mt-16 border-t border-slate-200 pt-8 dark:border-slate-700">
-          <Headline level="h2" textSize="xl" title="What would you like to do?" />
+          <Headline level="h2" textSize="xl" title={t("error.404.cta_title")} />
           <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <li>
               <a
@@ -78,7 +79,7 @@ const description =
                 class="flex transform items-center gap-3 rounded-lg border border-slate-200 bg-slate-100 p-4 text-slate-700 no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200 dark:hover:border-blue-400 dark:hover:bg-slate-600"
               >
                 <Icon name="music" class="h-6 w-6 text-blue-400" aria-hidden="true" />
-                Explore Music Playlists
+                {t("error.404.actions.playlists")}
               </a>
             </li>
             <li>
@@ -87,7 +88,7 @@ const description =
                 class="flex transform items-center gap-3 rounded-lg border border-slate-200 bg-slate-100 p-4 text-slate-700 no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200 dark:hover:border-blue-400 dark:hover:bg-slate-600"
               >
                 <Icon name="gamepad" class="h-6 w-6 text-blue-400" aria-hidden="true" />
-                Start a Music Quiz
+                {t("error.404.actions.quiz")}
               </a>
             </li>
             <li>
@@ -96,7 +97,7 @@ const description =
                 class="flex transform items-center gap-3 rounded-lg border border-slate-200 bg-slate-100 p-4 text-slate-700 no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-400 hover:bg-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-200 dark:hover:border-blue-400 dark:hover:bg-slate-600"
               >
                 <Icon name="trophy" class="h-6 w-6 text-blue-400" aria-hidden="true" />
-                View High Scores
+                {t("error.404.actions.highscores")}
               </a>
             </li>
           </ul>

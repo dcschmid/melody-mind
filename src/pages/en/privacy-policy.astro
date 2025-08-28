@@ -7,6 +7,11 @@
 import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+
+// Get current language and translation function
+const lang = getLangFromUrl(Astro.url) as string;
+const t = useTranslations(String(lang));
 
 // Enable static generation for better caching
 export const prerender = true;
@@ -22,7 +27,7 @@ const description =
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <header class="mb-16 text-center">
         <Headline level="h1" title="Privacy Policy" />
-        <Paragraph>Information about the processing of your personal data</Paragraph>
+        <Paragraph>{t("pages.privacy.intro_p1")}</Paragraph>
         <Paragraph className="text-sm text-slate-500 italic dark:text-slate-400"
           >Last updated: {new Date().toLocaleDateString("en-US")}</Paragraph
         >
@@ -41,7 +46,7 @@ const description =
 
             <Headline level="h3" title="Data Collection on this Website" />
             <Paragraph>
-              <strong>Who is responsible for the data collection on this website?</strong>
+              <strong>{t("pages.privacy.responsible_party")}</strong>
             </Paragraph>
             <Paragraph>
               The data processing on this website is carried out by the website operator. You can
@@ -50,7 +55,7 @@ const description =
             </Paragraph>
 
             <Paragraph>
-              <strong>How do we collect your data?</strong>
+              <strong>{t("pages.privacy.data_collected.manual")}</strong>
             </Paragraph>
             <Paragraph>
               Some data is collected when you provide it to us. This could, for example, be data you
@@ -102,20 +107,15 @@ const description =
             </Paragraph>
 
             <Headline level="h3" title="Information about the responsible party" />
-            <Paragraph>The responsible party for data processing on this website is:</Paragraph>
+            <Paragraph>{t("pages.privacy.responsible_party")}</Paragraph>
             <div class="mt-4 rounded-lg bg-slate-100 p-6 dark:bg-slate-700">
+              <Paragraph>{t("pages.privacy.contact.address")}</Paragraph>
               <Paragraph>
-                <strong>Daniel Schmid</strong><br />
-                Hiltenspergerstr. 78<br />
-                80796 München<br />
-                Deutschland
-              </Paragraph>
-              <Paragraph>
-                <strong>Email:</strong>
+                <strong>{t("pages.privacy.contact.email_label")}</strong>
                 <a
                   href="mailto:dcschmid@murena.io"
                   class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                  >dcschmid@murena.io</a
+                  >{t("pages.privacy.contact.email")}</a
                 >
               </Paragraph>
             </div>
@@ -137,30 +137,14 @@ const description =
               The website provider automatically collects and stores information in so-called server
               log files, which your browser automatically transmits to us. These are:
             </Paragraph>
-            <ul class="mt-4 ml-6 list-disc space-y-2">
-              <li>Browser type and browser version</li>
-              <li>Operating system used</li>
-              <li>Referrer URL</li>
-              <li>Host name of the accessing computer</li>
-              <li>Time of the server request</li>
-              <li>IP address</li>
-            </ul>
+            <Paragraph>{t("pages.privacy.data_collected.automatic")}</Paragraph>
             <Paragraph>
               A combination of this data with other data sources will not be made. The collection of
               this data is based on Art. 6 para. 1 lit. f GDPR.
             </Paragraph>
 
             <Headline level="h3" title="Game Data and High Scores" />
-            <Paragraph
-              >When you play MelodyMind, the following data is stored in our TursoDB database:</Paragraph
-            >
-            <ul class="mt-4 ml-6 list-disc space-y-2">
-              <li>Your chosen username</li>
-              <li>Your game results and scores</li>
-              <li>Game statistics (rounds played, categories, difficulty levels)</li>
-              <li>Your language setting</li>
-              <li>Achievements and unlocked content</li>
-            </ul>
+            <Paragraph>{t("pages.privacy.turso_storage")}</Paragraph>
             <Paragraph>
               This data is stored securely in our TursoDB database to provide you with persistent
               game progress and enable features like high scores and achievements. You can request
@@ -185,7 +169,7 @@ const description =
             </Paragraph>
             <ul class="mt-4 ml-6 list-disc space-y-2">
               <li>
-                <strong>Spotify:</strong> Privacy policy at <a
+                <strong>Spotify</strong> privacy policy: <a
                   href="https://www.spotify.com/privacy/"
                   class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                   target="_blank"
@@ -193,7 +177,7 @@ const description =
                 >
               </li>
               <li>
-                <strong>Apple Music:</strong> Privacy policy at <a
+                <strong>Apple Music</strong> privacy policy: <a
                   href="https://www.apple.com/privacy/"
                   class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                   target="_blank"
@@ -201,7 +185,7 @@ const description =
                 >
               </li>
               <li>
-                <strong>Deezer:</strong> Privacy policy at <a
+                <strong>Deezer</strong> privacy policy: <a
                   href="https://www.deezer.com/legal/personal-datas"
                   class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                   target="_blank"
@@ -220,11 +204,7 @@ const description =
               Our website uses cookies. These are small text files that your browser stores on your
               device. We only use technically necessary cookies for:
             </Paragraph>
-            <ul class="mt-4 ml-6 list-disc space-y-2">
-              <li>Storing your language setting</li>
-              <li>Maintaining your game session</li>
-              <li>Game functionality</li>
-            </ul>
+            <Paragraph>{t("pages.privacy.cookies")}</Paragraph>
             <Paragraph>
               These cookies are necessary for the website to function and are stored on the basis of
               Art. 6 para. 1 lit. f GDPR.
@@ -241,20 +221,10 @@ const description =
         <section class="mb-16 last:mb-0">
           <Headline level="h2" title="6. Your Rights" />
           <div class="mt-6">
-            <Paragraph>You have the following rights regarding your personal data:</Paragraph>
-            <ul class="mt-4 ml-6 list-disc space-y-2">
-              <li><strong>Right to information</strong> (Art. 15 GDPR)</li>
-              <li><strong>Right to rectification</strong> (Art. 16 GDPR)</li>
-              <li><strong>Right to erasure</strong> (Art. 17 GDPR)</li>
-              <li><strong>Right to restriction of processing</strong> (Art. 18 GDPR)</li>
-              <li><strong>Right to data portability</strong> (Art. 20 GDPR)</li>
-              <li><strong>Right to object</strong> (Art. 21 GDPR)</li>
-              <li>
-                <strong>Right to lodge a complaint with a supervisory authority</strong> (Art. 77 GDPR)
-              </li>
-            </ul>
-            <Paragraph>
-              If you wish to exercise these rights, please contact us at:
+            <Paragraph>{t("pages.privacy.user_rights_title")}</Paragraph>
+            <Paragraph>{t("pages.privacy.user_rights_text")}</Paragraph>
+            <Paragraph
+              >{t("pages.privacy.user_rights_text")}
               <a
                 href="mailto:dcschmid@murena.io"
                 class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
@@ -273,13 +243,7 @@ const description =
               visitors interact with our website. Fathom Analytics is GDPR, CCPA and PECR compliant
               and does not use cookies or collect personal data.
             </Paragraph>
-            <Paragraph>Fathom Analytics collects anonymized data including:</Paragraph>
-            <ul class="mt-4 ml-6 list-disc space-y-2">
-              <li>Page views and visitor counts</li>
-              <li>Referrer information (which website you came from)</li>
-              <li>General location (country level only)</li>
-              <li>Device and browser information (anonymized)</li>
-            </ul>
+            <Paragraph>{t("pages.privacy.analytics")}</Paragraph>
             <Paragraph>
               This data is processed anonymously and cannot be used to identify individual users.
               For more information, see Fathom's privacy policy:
@@ -307,15 +271,7 @@ const description =
               complaints, you can always contact us:
             </Paragraph>
             <div class="mt-4 rounded-lg bg-slate-100 p-6 dark:bg-slate-700">
-              <Paragraph>
-                <strong>Data Protection Contact:</strong><br />
-                Email: <a
-                  href="mailto:dcschmid@murena.io"
-                  class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                  >dcschmid@murena.io</a
-                ><br />
-                Address: Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Deutschland
-              </Paragraph>
+              <Paragraph>{t("pages.privacy.contact")}</Paragraph>
             </div>
             <Paragraph>
               You also have the right to lodge a complaint with a data protection supervisory

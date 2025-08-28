@@ -216,15 +216,12 @@ const clientTranslations = {
               {safeUi["knowledge.search.title"] || "Search Articles"}
             </Headline>
             <Paragraph textSize="lg" textAlign="center">
-              {
-                safeUi["knowledge.search.subtitle"] ||
-                  "Find articles by title, description, or keywords"
-              }
+              {safeUi["knowledge.search.subtitle"] || t("knowledge.search.subtitle")}
             </Paragraph>
           </div>
 
           <div class="relative mx-auto w-full max-w-5xl">
-            <label for="searchInput" class="sr-only"> Search by title or description </label>
+            <label for="searchInput" class="sr-only">{t("knowledge.search.label")}</label>
 
             <!-- Search Input with Glassmorphism - Full Width -->
             <div class="relative">
@@ -321,7 +318,9 @@ const clientTranslations = {
 
       <!-- Articles grid with enhanced SEO - Oriented on gamehome layout -->
       <section class="mb-16">
-        <Headline level="h2" textSize="base" className="sr-only"> Knowledge Articles </Headline>
+        <Headline level="h2" textSize="base" className="sr-only"
+          >{t("auto._lang_.knowledge.index.knowledge_articles")}</Headline
+        >
         <ul id="articlesGrid" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {
             sortedArticles.length > 0 ? (
