@@ -1,5 +1,10 @@
 export default {
   "accessibility.skip.to.content": "Ga naar hoofdinhoud",
+  "search.articles": "Artikelen zoeken",
+  "search.findArticles": "Vind artikelen op titel, beschrijving of trefwoorden",
+  "search.byTitleOrDescription": "Zoek op titel of beschrijving",
+  "search.placeholder": "Zoek artikelen...",
+  "search.reset": "Resetten",
   "achievements.badge.context_description":
     "Prestatie notificatie badge. Toont het aantal nieuwe ontgrendelde prestaties in het navigatiegebied.",
   "achievements.badge.fallback_text": "Prestatie notificatie",

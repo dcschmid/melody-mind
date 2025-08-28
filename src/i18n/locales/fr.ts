@@ -23,6 +23,12 @@ export default {
   "game.search.results": "genres trouvés",
   "game.search.no.results": "Aucun genre trouvé correspondant à votre recherche",
   "game.search.help": "Tapez pour filtrer les genres musicaux par nom",
+  // General knowledge search keys (used across the site)
+  "search.articles": "Rechercher des articles",
+  "search.findArticles": "Trouver des articles par titre, description ou mots-clés",
+  "search.byTitleOrDescription": "Rechercher par titre ou description",
+  "search.placeholder": "Rechercher des articles...",
+  "search.reset": "Réinitialiser",
 
   // Gamehome hero / SEO strings
   "game.select":

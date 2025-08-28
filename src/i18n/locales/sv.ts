@@ -2,6 +2,13 @@ export default {
   "accessibility.skip.to.content": "Hoppa till huvudinnehåll",
   "achievements.badge.context_description":
     "Prestationsmärke. Visar antal nya upplåsta prestationer i navigationsområdet.",
+
+  // General knowledge search keys (used across the site)
+  "search.articles": "Sök artiklar",
+  "search.findArticles": "Hitta artiklar efter titel, beskrivning eller nyckelord",
+  "search.byTitleOrDescription": "Sök efter titel eller beskrivning",
+  "search.placeholder": "Sök artiklar...",
+  "search.reset": "Återställ",
   "achievements.badge.fallback_text": "Prestationsavisering",
   "achievements.badge.keyboard_instructions":
     "Tryck Enter eller Space för att visa din prestationssida.",

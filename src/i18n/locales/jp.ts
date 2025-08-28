@@ -1,5 +1,10 @@
 export default {
   "accessibility.skip.to.content": "メインコンテンツにスキップ",
+  "search.articles": "記事を検索",
+  "search.findArticles": "タイトル、説明、またはキーワードで記事を探す",
+  "search.byTitleOrDescription": "タイトルまたは説明で検索",
+  "search.placeholder": "記事を検索...",
+  "search.reset": "リセット",
   "achievements.badge.context_description":
     "達成通知バッジ。ナビゲーションエリアで新しく解除された達成の数を表示します。",
   "achievements.badge.fallback_text": "達成通知",

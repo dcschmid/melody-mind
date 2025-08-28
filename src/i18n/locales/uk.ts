@@ -3,6 +3,11 @@ export default {
   "category.filter.label": "Фільтрувати за категорією:",
   "category.filter.aria_label": "Фільтрувати за категорією",
   "category.filter.option_all": "Всі",
+  "search.articles": "Пошук статей",
+  "search.findArticles": "Знайдіть статті за назвою, описом або ключовими словами",
+  "search.byTitleOrDescription": "Пошук за назвою або описом",
+  "search.placeholder": "Пошук статей...",
+  "search.reset": "Скинути",
   "achievements.badge.context_description":
     "Значок сповіщення про досягнення. Показує кількість нових розблокованих досягнень у навігаційній області.",
   "achievements.badge.fallback_text": "Сповіщення про досягнення",
