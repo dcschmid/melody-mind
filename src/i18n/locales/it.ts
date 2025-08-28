@@ -1,4 +1,12 @@
 export default {
+  ...template,
+
+  // General knowledge search keys (used across the site)
+  "search.articles": "Cerca articoli",
+  "search.findArticles": "Trova articoli per titolo, descrizione o parole chiave",
+  "search.byTitleOrDescription": "Cerca per titolo o descrizione",
+  "search.placeholder": "Cerca articoli...",
+  "search.reset": "Reimposta",
   "accessibility.skip.to.content": "Salta al contenuto principale",
   "achievements.badge.context_description":
     "Badge notifica obiettivi. Mostra il numero di nuovi obiettivi sbloccati nell'area di navigazione.",

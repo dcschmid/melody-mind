@@ -542,10 +542,5 @@ export default {
   "footer.connect_title": "Vernetzen & Unterstützen",
   "footer.support_label": "Projekt unterstützen:",
   "footer.aria": "Fußzeile",
-
-  // Misc / fallbacks
-  "error.extend.tooltip": "Lade-Timeout um 5 Sekunden verlängern",
-  "notice.fallback_content": "Fallback-Inhalt verfügbar",
-
   // ensure last trailing comma allowed
 };

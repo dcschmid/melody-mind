@@ -138,6 +138,11 @@ export default {
   "auth.form.init_error": "Falha ao inicializar elementos do formulário de autenticação",
   "auth.form.instructions.confirm.step1": "Crie uma senha forte que atenda a todos os requisitos",
   "auth.form.instructions.confirm.step2": "Confirme sua senha digitando-a novamente",
+  "search.articles": "Pesquisar artigos",
+  "search.findArticles": "Encontre artigos por título, descrição ou palavras-chave",
+  "search.byTitleOrDescription": "Pesquisar por título ou descrição",
+  "search.placeholder": "Pesquisar artigos...",
+  "search.reset": "Redefinir",
   "auth.form.instructions.confirm.step3": "Clique em 'Redefinir Senha' para completar o processo",
   "auth.form.instructions.request.step1": "Digite seu endereço de e-mail no campo abaixo",
   "auth.form.instructions.request.step2":

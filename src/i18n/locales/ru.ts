@@ -1,5 +1,10 @@
 export default {
   "accessibility.skip.to.content": "Перейти к основному содержанию",
+  "search.articles": "Поиск статей",
+  "search.findArticles": "Найдите статьи по названию, описанию или ключевым словам",
+  "search.byTitleOrDescription": "Поиск по названию или описанию",
+  "search.placeholder": "Поиск статей...",
+  "search.reset": "Сбросить",
   "achievements.badge.context_description":
     "Значок уведомления о достижениях. Показывает количество новых разблокированных достижений в области навигации.",
   "achievements.badge.fallback_text": "Уведомление о достижении",
