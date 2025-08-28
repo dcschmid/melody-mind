@@ -21,6 +21,7 @@ import Joker from "@components/Game/Joker.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import type { Difficulty as GameDifficulty } from "@utils/game/jokerUtils";
 import { Icon } from "astro-icon/components";
+import { loadCategoriesForLanguage } from "../../../utils/category/categoryLoadingUtils";
 
 // Server-side rendering for cookie-based authentication
 export const prerender = false;
@@ -55,17 +56,12 @@ export async function getStaticPaths() {
   const paths = [];
 
   for (const lang of supportedLanguages) {
-    // Load categories based on language with proper fallback mechanism
-    let categories;
-    try {
-      categories = await import(`@json/${lang}_categories.json`);
-    } catch {
-      // Fallback to default language if the specific language file doesn't exist
-      categories = await import(`@json/en_categories.json`);
-    }
+    // Load categories via centralized loader to ensure build-time inclusion and fallback
+    const result = await loadCategoriesForLanguage({ language: lang, fallbackLanguage: "en" });
+    const categories = result.success ? result.categories : [];
 
     // Create a path for each category and difficulty combination
-    for (const categoryData of categories.default) {
+    for (const categoryData of categories) {
       for (const difficulty of difficultyLevels) {
         paths.push({
           params: {
@@ -110,18 +106,16 @@ const authResult = {
 
 // Dynamic import of categories based on language
 let categories;
-try {
-  categories = await import(`@json/${lang}_categories.json`);
-} catch {
-  categories = await import(`@json/en_categories.json`);
-}
+const _result = await loadCategoriesForLanguage({ language: lang, fallbackLanguage: "en" });
+const categoriesFromLoader = _result.success ? _result.categories : [];
+categories = categoriesFromLoader;
 
 // Default user for game functionality
 const user = { id: authResult.user?.id || "guest" };
 
 // Find current category data for display and metadata - first try from dynamic import, then from props
 const currentCategoryData =
-  categories.default.find((cat: { slug: string; headline: string }) => cat.slug === category) ||
+  categories.find((cat: { slug: string; headline: string }) => cat.slug === category) ||
   propsCategoryData;
 
 const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);

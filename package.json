@@ -30,9 +30,7 @@
     "generate-og-images": "node scripts/setup-fonts.cjs && node scripts/generate-og-images.cjs",
     "db:setup": "node db-setup-wrapper.mjs",
     "sync:categories": "node scripts/sync-categories.cjs",
-    "sync:knowledge-playlists": "node scripts/sync-knowledge-playlists.cjs",
-    "generate:critical": "node scripts/generate-critical.cjs",
-    "postbuild": "node scripts/generate-critical.cjs || true"
+    "sync:knowledge-playlists": "node scripts/sync-knowledge-playlists.cjs"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,astro}": "eslint --fix",
