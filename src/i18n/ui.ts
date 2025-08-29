@@ -27,7 +27,7 @@ import uk from "./locales/uk"; // Ukrainian
  * Used in language selection UI components and for display purposes.
  * @type {Record<string, string>}
  */
-export const languages = {
+export const languages: Record<string, string> = {
   cn: "中文",
   de: "Deutsch",
   en: "English",
@@ -50,7 +50,7 @@ export const languages = {
  * Used when initializing the application and when no language preference is detected.
  * @type {string}
  */
-export const defaultLang = "en";
+export const defaultLang: string = "en";
 
 /**
  * @constant ui
@@ -59,7 +59,7 @@ export const defaultLang = "en";
  * translated text for that language.
  * @type {Record<string, Record<string, string>>}
  */
-export const ui = {
+export const ui: Record<string, Record<string, string>> = {
   cn,
   da,
   de,
