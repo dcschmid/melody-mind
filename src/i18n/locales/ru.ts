@@ -8,6 +8,30 @@ export default {
   "podcasts.note.only_english":
     "Примечание: подкасты в настоящее время доступны только на английском языке.",
   "podcasts.navigation.aria": "Навигация по эпизодам",
+
+  "podcast.title": "Подкасты",
+  "podcast.description":
+    "Слушайте глубокие беседы о музыке — интервью, закулисные истории и эпизоды, которые углубят ваше понимание. Идеально для тех, кто любит слушать, узнавать новое и черпать вдохновение.",
+  "podcasts.platform.apple": "Apple Music",
+  "podcasts.platform.deezer": "Deezer",
+  "podcasts.platform.spotify": "Spotify",
+  "podcasts.episode.plural": "Эпизоды",
+  "podcasts.episode.singular": "Эпизод",
+  "podcast.rss.subscribe": "Подписаться на RSS",
+  "podcast.search.placeholder": "Искать подкасты или названия эпизодов",
+  "podcasts.read_full_notes": "Читать полные заметки и расшифровку эпизода",
+  "podcast.back_to_all": "Вернуться ко всем подкастам",
+  "podcast.listen_to_episode": "Прослушать эпизод",
+  "podcast.episode_label": "Эпизод {number}",
+  "podcast.download_audio": "Скачать аудио",
+  "podcast.view_subtitles": "Показать субтитры",
+  "podcasts.cta.title": "Открыть подкасты",
+  "podcasts.cta.description":
+    "Изучите нашу курированную коллекцию музыкальных подкастов — увлекательные интервью и истории, которые захочется прослушать.",
+  "podcasts.cta.browse": "Просмотреть подкасты",
+  "podcasts.navigation.next": "Следующий эпизод",
+  "podcasts.navigation.previous": "Предыдущий эпизод",
+
   "share.challenge_fallback": "Думаешь, сможешь меня обойти? Играй прямо сейчас:",
   "category.difficulty.hard": "Сложно",
   "category.difficulty.heading": "Выберите уровень сложности",
