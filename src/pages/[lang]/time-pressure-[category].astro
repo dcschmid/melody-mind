@@ -87,7 +87,7 @@ const lang = String(getLangFromUrl(Astro.url));
 const t = useTranslations(lang);
 
 // Guest session for game play
-const guestId = `guest_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+const guestId = `guest_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`;
 const authResult = {
   authenticated: true,
   user: { id: guestId, email: "guest@melodymind.app" },
