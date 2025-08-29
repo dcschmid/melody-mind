@@ -7,6 +7,8 @@
 
 import { handleLoadingError } from "../error/errorHandlingUtils";
 import categoriesIndex from "./categoriesIndex";
+import fs from "fs";
+import path from "path";
 
 /**
  * Category interface
@@ -96,6 +98,37 @@ export async function loadCategoriesForLanguage(
           }
         } catch (_err) {
           // If for some reason the index import fails, leave map empty - caller will handle it.
+        }
+
+        // If map is still empty, attempt a filesystem fallback. This reads the project's
+        // `src/json/*_categories.json` files directly. This is defensive: it only runs
+        // during a Node-based build (Astro build) where filesystem access is available.
+        if (Object.keys(map).length === 0) {
+          try {
+            const jsonDir = path.resolve(process.cwd(), "src", "json");
+            if (fs.existsSync(jsonDir)) {
+              const files = fs.readdirSync(jsonDir);
+              for (const file of files) {
+                if (/_categories\.json$/i.test(file)) {
+                  const filePath = path.join(jsonDir, file);
+                  try {
+                    const raw = fs.readFileSync(filePath, "utf8");
+                    const parsed = JSON.parse(raw);
+                    // derive language code from filename like 'de_categories.json'
+                    const m = file.match(/^([a-z]{2})_categories\.json$/i);
+                    const key =
+                      m && m[1] ? m[1].toLowerCase() : file.replace(/_categories\.json$/i, "");
+                    map[key] = Array.isArray(parsed) ? parsed : [];
+                  } catch (_parseErr) {
+                    // If a file fails to parse, skip it and continue with others
+                    continue;
+                  }
+                }
+              }
+            }
+          } catch (_fsErr) {
+            // Nothing to do here; leave map empty and let caller handle missing categories.
+          }
         }
       }
 
