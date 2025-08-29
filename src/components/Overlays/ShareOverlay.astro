@@ -422,6 +422,9 @@ const {
 
     let successful = false;
     try {
+      // document.execCommand is deprecated but still needed as a last-resort fallback
+      // We intentionally keep this legacy call guarded by feature-detection.
+      // @ts-expect-error -- legacy execCommand fallback (safe, feature-detected)
       successful = !!(document.execCommand && document.execCommand("copy"));
     } catch {
       successful = false;
