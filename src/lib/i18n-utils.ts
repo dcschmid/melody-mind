@@ -245,7 +245,10 @@ export function getPreferredLanguage(request: Request): string {
  */
 export function t(request: Request, key: string, params?: Record<string, string | number>): string {
   const lang = getPreferredLanguage(request);
-  return getTranslation(key, lang, params);
+  // Use the type-safe implementation even for untyped callers to avoid using
+  // the deprecated compatibility function. Casts are used since callers may
+  // provide plain strings/records.
+  return getTypedTranslation(key as TranslationKey, lang, params as unknown as TranslationParams<TranslationKey> | undefined);
 }
 
 /**
