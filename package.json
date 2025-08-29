@@ -8,11 +8,11 @@
     "start:production": "node dist/server/entry.mjs",
     "build": "yarn install:sharp && yarn build:astro",
     "install:sharp": "yarn add sharp --ignore-engines",
-    "build:astro": "astro build --remote",
+    "build:astro": "NODE_OPTIONS='--max-old-space-size=8192' astro build --remote",
     "build:check": "astro check --typescript-errors=false",
     "build:full": "yarn build:check && yarn build",
     "install:production": "yarn install --production --frozen-lockfile",
-    "build:production": "yarn install:sharp && NODE_ENV=production astro build --remote",
+    "build:production": "yarn install:sharp && NODE_ENV=production yarn build:astro",
     "build:preview": "yarn build && astro preview",
     "deploy": "yarn build:production && yarn install:production",
     "preview": "astro preview",
@@ -80,6 +80,7 @@
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.11",
     "ts-node": "^10.9.2",
+    "typescript": "^5.9.2",
     "typescript-eslint": "^8.39.0"
   },
   "packageManager": "yarn@1.22.22"

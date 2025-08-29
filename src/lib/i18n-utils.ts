@@ -168,32 +168,9 @@ export function getTypedTranslation<K extends TranslationKey>(
   return translation;
 }
 
-/**
- * Returns a translation for a specific key (compatibility version)
- *
- * Legacy version maintained for backwards compatibility.
- * New code should use getTypedTranslation for improved type safety.
- *
- * @since 1.0.0
- * @category Internationalization
- * @deprecated Use getTypedTranslation for better type safety
- *
- * @param {string} key - The translation key
- * @param {string} lang - The language (optional, defaults to defaultLang)
- * @param {Record<string, string | number>} [params] - Parameters for the translation
- * @returns {string} The translated string
- */
-export function getTranslation(
-  key: string,
-  lang: string = defaultLang,
-  params?: Record<string, string | number>
-): string {
-  return getTypedTranslation(
-    key as TranslationKey,
-    lang,
-    params as TranslationParams<TranslationKey>
-  );
-}
+// Compatibility wrapper `getTranslation` removed in favor of `getTypedTranslation`.
+// If external consumers still rely on the old API, reintroduce a thin
+// compatibility shim in a follow-up change to avoid breaking external callers.
 
 /**
  * Extracts the preferred language from the Accept-Language header
@@ -245,7 +222,10 @@ export function getPreferredLanguage(request: Request): string {
  */
 export function t(request: Request, key: string, params?: Record<string, string | number>): string {
   const lang = getPreferredLanguage(request);
-  return getTranslation(key, lang, params);
+  // Use the type-safe implementation even for untyped callers to avoid using
+  // the deprecated compatibility function. Casts are used since callers may
+  // provide plain strings/records.
+  return getTypedTranslation(key as TranslationKey, lang, params as unknown as TranslationParams<TranslationKey> | undefined);
 }
 
 /**

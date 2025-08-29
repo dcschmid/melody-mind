@@ -104,8 +104,8 @@ export class FeedbackOverlayUtils {
   private closeOverlay(): void {
     const nextRoundButton = this.elements.nextButton;
     if (nextRoundButton?.onclick) {
-      // Call the game engine's onclick handler directly
-      nextRoundButton.onclick(new MouseEvent("click"));
+  // Call the game engine's onclick handler directly
+  nextRoundButton.onclick(new PointerEvent("click"));
     } else {
       // Fallback: Hide overlay and dispatch click event
       this.elements.overlay?.classList.add("hidden");
@@ -114,10 +114,10 @@ export class FeedbackOverlayUtils {
   }
 
   private makePopulateFunctionGlobal(): void {
-    // Extend Window interface for our utilities
-    (
-      window as Window & { populateFeedbackOverlay: (data: FeedbackOverlayData) => void }
-    ).populateFeedbackOverlay = (data: FeedbackOverlayData) => this.populateOverlay(data);
+    // Extend Window interface for our utilities (cast via unknown first to satisfy TS)
+    (window as unknown as Window & { populateFeedbackOverlay: (data: FeedbackOverlayData) => void }).populateFeedbackOverlay = (
+      data: FeedbackOverlayData,
+    ) => this.populateOverlay(data);
   }
 
   /**
@@ -164,7 +164,7 @@ export function initFeedbackOverlay(): FeedbackOverlayUtils {
 export function initFeedbackOverlayAuto(): FeedbackOverlayUtils | null {
   try {
     return new FeedbackOverlayUtils();
-  } catch (error) {
+  } catch {
     return null;
   }
 }

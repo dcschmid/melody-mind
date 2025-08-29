@@ -15,15 +15,9 @@ interface MusicButtonsConfig {
   linkSelector: string;
 }
 
-/**
- * Interface for tracking window extension
- */
-declare global {
-  interface Window {
-    fathom?: {
-      trackEvent: (eventName: string) => void;
-    };
-  }
+// Helper to access optional global 'fathom' in a typed way without duplicate global declarations
+function getFathom(): { trackEvent?: (eventName: string) => void } | undefined {
+  return (globalThis as unknown as { fathom?: { trackEvent?: (n: string) => void } }).fathom;
 }
 
 /**
@@ -74,8 +68,10 @@ export class MusicButtonsUtils {
   /**
    * Check if Fathom analytics is available
    */
+  /** Check if Fathom analytics is available */
   private isFathomAvailable(): boolean {
-    return typeof window.fathom === "object" && typeof window.fathom?.trackEvent === "function";
+    const fathom = getFathom();
+    return typeof fathom === "object" && typeof fathom.trackEvent === "function";
   }
 
   /**
@@ -86,8 +82,9 @@ export class MusicButtonsUtils {
       const generalEvent = `music_${platform}_click`;
       const specificEvent = `music_${platform}_${playlistTitle}`.replace(/[^a-zA-Z0-9_]/g, "_");
 
-      window.fathom?.trackEvent(generalEvent);
-      window.fathom?.trackEvent(specificEvent);
+  const fathom = getFathom();
+  fathom?.trackEvent?.(generalEvent);
+  fathom?.trackEvent?.(specificEvent);
     } catch (error) {
       handleGameError(error, "analytics event tracking");
     }

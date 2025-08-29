@@ -237,15 +237,15 @@ export class ErrorHandler {
   /**
    * Handles save errors during offline scenarios by queueing the data for later sync
    *
-   * @param {Error} error - The original error object
-   * @param {string} type - The type of data being saved ('score' or 'goldenLP')
-   * @param {any} data - The data that failed to save
+  * @param {Error} _error - The original error object
+  * @param {string} _type - The type of data being saved ('score' or 'goldenLP')
+  * @param {any} _data - The data that failed to save
    * @returns {Promise<void>} Promise resolving when the operation completes
    */
   static async handleSaveError(
-    error: Error,
-    type: "score" | "goldenLP",
-    data: { userId: string; score: number; category: string }
+    _error: Error,
+    _type: "score" | "goldenLP",
+    _data: { userId: string; score: number; category: string }
   ): Promise<void> {
     // QueueManager functionality removed - no longer needed
     // await QueueManager.addToQueue(type, data);

@@ -24,7 +24,7 @@ import { Icon } from "astro-icon/components";
 import { loadCategoriesForLanguage } from "../../../utils/category/categoryLoadingUtils";
 
 // Server-side rendering for cookie-based authentication
-export const prerender = false;
+export const prerender = true;
 
 /**
  * Generates static paths for all supported languages, categories, and difficulty levels.
@@ -98,17 +98,15 @@ const { category, difficulty } = Astro.params;
 
 // Auth check: Verify if the user is logged in
 // Check if Astro.request is available (for SSR compatibility)
-const guestId = `guest_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+const guestId = `guest_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`;
 const authResult = {
   authenticated: true,
   user: { id: guestId, email: "guest@melodymind.app" },
 };
 
 // Dynamic import of categories based on language
-let categories;
 const _result = await loadCategoriesForLanguage({ language: lang, fallbackLanguage: "en" });
-const categoriesFromLoader = _result.success ? _result.categories : [];
-categories = categoriesFromLoader;
+const categories = _result.success ? _result.categories : [];
 
 // Default user for game functionality
 const user = { id: authResult.user?.id || "guest" };

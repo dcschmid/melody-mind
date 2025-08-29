@@ -9,8 +9,7 @@ import { handleGameError } from "../error/errorHandlingUtils";
 
 /**
  * Prüft, ob ein bestimmter Schlüssel im localStorage existiert
- * @param {string} key - Der zu prüfende Schlüssel
- * @returns {boolean} - true wenn der Schlüssel existiert und einen Wert hat, sonst false
+ *
  */
 export function checkLocalStorage(key: string): boolean {
   try {
@@ -24,9 +23,7 @@ export function checkLocalStorage(key: string): boolean {
 
 /**
  * Setzt einen Wert im localStorage mit Fehlerbehandlung
- * @param {string} key - Der Schlüssel
- * @param {string} value - Der zu speichernde Wert
- * @returns {boolean} - true wenn erfolgreich, false wenn fehlgeschlagen
+ *
  */
 export function setLocalStorage(key: string, value: string): boolean {
   try {
@@ -40,8 +37,7 @@ export function setLocalStorage(key: string, value: string): boolean {
 
 /**
  * Entfernt einen Schlüssel aus dem localStorage mit Fehlerbehandlung
- * @param {string} key - Der zu entfernende Schlüssel
- * @returns {boolean} - true wenn erfolgreich, false wenn fehlgeschlagen
+ *
  */
 export function removeLocalStorage(key: string): boolean {
   try {
@@ -118,8 +114,7 @@ export function performCompleteLogout(): void {
  * Wenn ein Element sichtbar ist, wird aria-hidden="false" gesetzt und Fokus-Navigation aktiviert.
  * Wenn ein Element versteckt ist, wird aria-hidden="true" gesetzt und Fokus-Navigation deaktiviert.
  *
- * @param {HTMLElement} element - Das zu aktualisierende Element
- * @param {boolean} isVisible - Ob das Element sichtbar sein soll
+ *
  */
 export function updateAriaVisibility(element: HTMLElement | null, isVisible: boolean): void {
   if (!element) {
@@ -192,45 +187,9 @@ export async function validateAndRefreshSession(): Promise<boolean> {
     lastValidationAttempt = now;
     validationAttempts++;
 
-    // Local auth check removed - always return false
-    validationInProgress = false;
-    return false;
-
-    // Starting session validation
-
-    // Versuche eine simple API-Anfrage um Session zu testen
-    const testResponse = await fetch("/de/api/user/profile", {
-      method: "GET",
-      credentials: "include",
-    });
-
-    if (testResponse.ok) {
-      // Session ist gültig - reset counters
-      validationAttempts = 0;
-      validationInProgress = false;
-      return true;
-    } else if (testResponse.status === 401) {
-      // Session abgelaufen, versuche Refresh
-
-      const refreshResponse = await fetch("/de/api/auth/refresh-token", {
-        method: "POST",
-        credentials: "include",
-      });
-
-      if (refreshResponse.ok) {
-        validationAttempts = 0; // Reset bei erfolgreichem Refresh
-        validationInProgress = false;
-        return true;
-      } else {
-        // Refresh fehlgeschlagen, logout
-        performCompleteLogout();
-        validationInProgress = false;
-        return false;
-      }
-    }
-
-    validationInProgress = false;
-    return false;
+  // Local auth check removed - always return false
+  validationInProgress = false;
+  return false;
   } catch {
     validationInProgress = false;
     return false;
@@ -385,9 +344,7 @@ export function updateSectionVisibility(element: HTMLElement | null, show: boole
 
 /**
  * Initialisiert Cookie-Überwachung mit Debounce-Funktion
- * @param {Function} checkAuthCallback - Funktion, die bei Cookie-Änderungen aufgerufen wird
- * @param {number} interval - Intervall für die Prüfung in Millisekunden
- * @returns {number} - Intervall-ID zum Beenden der Überwachung
+ *
  */
 export function initCookieWatcher(checkAuthCallback: () => void, interval = 1000): number {
   let previousCookieValue = document.cookie;
@@ -412,7 +369,7 @@ export function initCookieWatcher(checkAuthCallback: () => void, interval = 1000
 
 /**
  * Stoppt die Cookie-Überwachung
- * @param {number} watcherId - Die Intervall-ID der zu stoppenden Überwachung
+ *
  */
 export function stopCookieWatcher(watcherId: number): void {
   if (watcherId) {
@@ -422,8 +379,7 @@ export function stopCookieWatcher(watcherId: number): void {
 
 /**
  * Registriert event listeners für Authentifizierungsereignisse
- * @param {Function} checkAuthCallback - Funktion, die bei Auth-Änderungen aufgerufen wird
- * @returns {{ remove: Function }} - Objekt mit remove-Methode zum Entfernen der Listener
+ *
  */
 export function registerAuthEventListeners(checkAuthCallback: () => void): { remove: () => void } {
   const handleLogin = (): void => {

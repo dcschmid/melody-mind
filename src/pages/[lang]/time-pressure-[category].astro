@@ -21,7 +21,7 @@ import { Icon } from "astro-icon/components";
 import { loadCategoriesForLanguage } from "../../utils/category/categoryLoadingUtils";
 
 // Server-side rendering for cookie-based authentication
-export const prerender = false;
+export const prerender = true;
 
 /**
  * Generates static paths for all supported languages and categories.
@@ -87,7 +87,7 @@ const lang = String(getLangFromUrl(Astro.url));
 const t = useTranslations(lang);
 
 // Guest session for game play
-const guestId = `guest_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+const guestId = `guest_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`;
 const authResult = {
   authenticated: true,
   user: { id: guestId, email: "guest@melodymind.app" },
@@ -168,7 +168,7 @@ const structuredData = {
   showHeader={false}
 >
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <meta name="robots" content="noindex, nofollow" />
   </Fragment>
 

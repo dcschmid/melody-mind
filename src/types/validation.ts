@@ -85,6 +85,12 @@ export const difficultySettings = {
     jokerCount: 10,
     timeBonus: { fast: 6, medium: 10 },
   },
+  mixed: {
+    questionCount: 15,
+    maxPoints: 750,
+    jokerCount: 5,
+    timeBonus: { fast: 8, medium: 12 },
+  },
 } as const;
 
 /**

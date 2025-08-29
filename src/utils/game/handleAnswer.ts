@@ -2,12 +2,11 @@
  * @fileoverview Handles the game answer logic and scoring system
  */
 
-import { stopAudio } from "@utils/audio/audioControls";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 // Removed unused imports Album and Question
 
-import { getRandomQuestion } from "./getRandomQuestion";
+// getRandomQuestion removed (unused in this module)
 import type { MediaElements } from "./mediaUtils";
 import { updateMedia } from "./mediaUtils";
 import { updateScoreDisplay } from "./scoreUtils";

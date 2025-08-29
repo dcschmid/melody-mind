@@ -39,7 +39,7 @@ interface KnowledgeSearchElements {
 export class KnowledgeSearchUtils {
   private elements: KnowledgeSearchElements;
   private allArticles: HTMLElement[] = [];
-  private currentSearchQuery = "";
+  private _currentSearchQuery = "";
   private debounceTimer: ReturnType<typeof setTimeout> | null = null;
 
   /**
@@ -50,7 +50,7 @@ export class KnowledgeSearchUtils {
    * is defensive: if required DOM elements are missing, the instance will
    * gracefully become a no-op and callers may still call `cleanup()` safely.
    *
-   * @returns {void}
+   *
    */
   constructor() {
     this.elements = {
@@ -63,6 +63,8 @@ export class KnowledgeSearchUtils {
     };
 
     this.init();
+  // mark _currentSearchQuery as intentionally retained for future use
+  void this._currentSearchQuery;
   }
 
   private init(): void {
@@ -151,7 +153,7 @@ export class KnowledgeSearchUtils {
 
   private performSearch(query: string): void {
     const searchTerm = query.toLowerCase().trim();
-    this.currentSearchQuery = searchTerm;
+  this._currentSearchQuery = searchTerm;
 
     const visibleCount = this.allArticles.reduce((count, article) => {
       const title = article.querySelector("h3")?.textContent?.toLowerCase() || "";
@@ -180,7 +182,7 @@ export class KnowledgeSearchUtils {
     }
 
     searchInput.value = "";
-    this.currentSearchQuery = "";
+  this._currentSearchQuery = "";
     this.performSearch("");
     searchInput.focus();
   }
@@ -208,7 +210,7 @@ export class KnowledgeSearchUtils {
  * utility. Callers can use the returned instance to call `cleanup()` when
  * the search UI is removed.
  *
- * @returns {KnowledgeSearchUtils} The initialized search utility instance
+ *
  */
 export function initKnowledgeSearch(): KnowledgeSearchUtils {
   return new KnowledgeSearchUtils();
@@ -222,7 +224,7 @@ export function initKnowledgeSearch(): KnowledgeSearchUtils {
  * it catches the error and returns `null` so callers can safely call this during
  * eager module initialization.
  *
- * @returns {KnowledgeSearchUtils | null} The instance on success, or null on failure
+ *
  */
 export function initKnowledgeSearchAuto(): KnowledgeSearchUtils | null {
   try {

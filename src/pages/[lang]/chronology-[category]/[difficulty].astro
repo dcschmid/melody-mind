@@ -26,7 +26,7 @@ import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 
 // Server-side rendering for cookie-based authentication
-export const prerender = false;
+export const prerender = true;
 
 /**
  * Generiert statische Pfade für alle unterstützten Sprachen, Kategorien und Schwierigkeitsgrade
@@ -91,7 +91,7 @@ let authResult: { authenticated: boolean; user?: { id: string; email: string } }
   user: undefined,
 };
 
-const guestId = `guest_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+const guestId = `guest_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`;
 authResult = {
   authenticated: true,
   user: { id: guestId, email: "guest@melodymind.app" },
