@@ -187,45 +187,9 @@ export async function validateAndRefreshSession(): Promise<boolean> {
     lastValidationAttempt = now;
     validationAttempts++;
 
-    // Local auth check removed - always return false
-    validationInProgress = false;
-    return false;
-
-    // Starting session validation
-
-    // Versuche eine simple API-Anfrage um Session zu testen
-    const testResponse = await fetch("/de/api/user/profile", {
-      method: "GET",
-      credentials: "include",
-    });
-
-    if (testResponse.ok) {
-      // Session ist gültig - reset counters
-      validationAttempts = 0;
-      validationInProgress = false;
-      return true;
-    } else if (testResponse.status === 401) {
-      // Session abgelaufen, versuche Refresh
-
-      const refreshResponse = await fetch("/de/api/auth/refresh-token", {
-        method: "POST",
-        credentials: "include",
-      });
-
-      if (refreshResponse.ok) {
-        validationAttempts = 0; // Reset bei erfolgreichem Refresh
-        validationInProgress = false;
-        return true;
-      } else {
-        // Refresh fehlgeschlagen, logout
-        performCompleteLogout();
-        validationInProgress = false;
-        return false;
-      }
-    }
-
-    validationInProgress = false;
-    return false;
+  // Local auth check removed - always return false
+  validationInProgress = false;
+  return false;
   } catch {
     validationInProgress = false;
     return false;
