@@ -63,6 +63,8 @@ export class KnowledgeSearchUtils {
     };
 
     this.init();
+  // mark _currentSearchQuery as intentionally retained for future use
+  void this._currentSearchQuery;
   }
 
   private init(): void {
