@@ -12,7 +12,7 @@
       "@layouts/*": ["src/layouts/*"],
       "@utils/*": ["src/utils/*"],
       "@json/*": ["src/json/*"],
-      "@data/*": ["src/data"],
+      "@data/*": ["src/data/*"],
       "@types/*": ["src/types/*"],
       "@lib/*": ["src/lib/*"]
     }
