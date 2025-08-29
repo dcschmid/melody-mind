@@ -422,12 +422,7 @@ const {
 
     let successful = false;
     try {
-      const exec = (
-        document as Document & {
-          execCommand?: (commandId: string, showUI?: boolean, value?: string) => boolean;
-        }
-      ).execCommand;
-      successful = !!(exec && exec("copy"));
+      successful = !!(document.execCommand && document.execCommand("copy"));
     } catch {
       successful = false;
     }
