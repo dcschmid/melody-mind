@@ -7,6 +7,31 @@ export default {
   "knowledge.search.subtitle": "按标题、描述或关键词查找文章",
   "podcasts.note.only_english": "说明：播客目前仅提供英文内容。",
   "podcasts.navigation.aria": "剧集导航",
+
+  // 播客翻译
+  "podcast.title": "播客",
+  "podcast.description":
+    "收听有关音乐的深度对话 — 采访、幕后故事与能提升你音乐理解的节目。非常适合喜欢聆听、学习并从中获得灵感的听众。",
+  "podcasts.platform.apple": "Apple Music",
+  "podcasts.platform.deezer": "Deezer",
+  "podcasts.platform.spotify": "Spotify",
+  "podcasts.episode.plural": "剧集",
+  "podcasts.episode.singular": "剧集",
+  "podcast.rss.subscribe": "订阅 RSS",
+  "podcast.search.placeholder": "搜索播客或剧集标题",
+  "podcasts.read_full_notes": "查看完整节目说明与转录",
+  "podcast.back_to_all": "返回全部播客",
+  "podcast.listen_to_episode": "收听本期",
+  "podcast.episode_label": "第 {number} 集",
+  "podcast.download_audio": "下载音频",
+  "podcast.view_subtitles": "查看字幕",
+  "podcasts.cta.title": "发现播客",
+  "podcasts.cta.description":
+    "探索我们精心挑选的音乐播客合集 — 引人入胜的采访与故事，让你忍不住按下播放。",
+  "podcasts.cta.browse": "浏览播客",
+  "podcasts.navigation.next": "下一集",
+  "podcasts.navigation.previous": "上一集",
+
   "share.challenge_fallback": "觉得能打败我？现在来挑战：",
   "category.difficulty.hard": "困难",
   "category.difficulty.heading": "选择你的难度等级",

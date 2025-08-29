@@ -7,6 +7,31 @@ export default {
   "knowledge.search.subtitle": "Finde Artikel nach Titel, Beschreibung oder Schlüsselwörtern",
   "podcasts.note.only_english": "Hinweis: Podcasts sind derzeit nur auf Englisch verfügbar.",
   "podcasts.navigation.aria": "Episoden-Navigation",
+
+  // Podcast-spezifische Übersetzungen
+  "podcast.title": "Podcasts",
+  "podcast.description":
+    "Hör rein in tiefgehende Gespräche über Musik — Interviews, Hintergrundgeschichten und Episoden, die deine Wertschätzung vertiefen. Perfekt für Fans, die gern zuhören, lernen und inspiriert werden.",
+  "podcasts.platform.apple": "Apple Music",
+  "podcasts.platform.deezer": "Deezer",
+  "podcasts.platform.spotify": "Spotify",
+  "podcasts.episode.plural": "Episoden",
+  "podcasts.episode.singular": "Episode",
+  "podcast.rss.subscribe": "RSS abonnieren",
+  "podcast.search.placeholder": "Podcasts oder Episodentitel suchen",
+  "podcasts.read_full_notes": "Gesamte Shownotes und Transkript lesen",
+  "podcast.back_to_all": "Zurück zu allen Podcasts",
+  "podcast.listen_to_episode": "Episode anhören",
+  "podcast.episode_label": "Episode {number}",
+  "podcast.download_audio": "Audio herunterladen",
+  "podcast.view_subtitles": "Untertitel anzeigen",
+  "podcasts.cta.title": "Podcasts entdecken",
+  "podcasts.cta.description":
+    "Durchstöbere unsere kuratierte Sammlung von Musikpodcasts — spannende Interviews und Geschichten, die Lust aufs Hören machen.",
+  "podcasts.cta.browse": "Podcasts durchsuchen",
+  "podcasts.navigation.next": "Nächste Episode",
+  "podcasts.navigation.previous": "Vorherige Episode",
+
   "share.challenge_fallback": "Denkst du, du kannst mich schlagen? Spiel jetzt hier:",
   "category.difficulty.hard": "Schwer",
   "category.difficulty.heading": "Wähle deinen Schwierigkeitsgrad",
