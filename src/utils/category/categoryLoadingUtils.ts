@@ -6,6 +6,7 @@
  */
 
 import { handleLoadingError } from "../error/errorHandlingUtils";
+import categoriesIndex from "./categoriesIndex";
 
 /**
  * Category interface
@@ -52,7 +53,8 @@ export async function loadCategoriesForLanguage(
   // This avoids attempting dynamic runtime imports from the built server output.
   try {
     // Extract the map-building logic into a small typed helper to reduce complexity
-    // and avoid using `any` on import.meta.
+    // and avoid using `any` on import.meta. Prefer Vite's globEager but fall back to a
+    // statically imported categories index if the glob is not available or yields nothing.
     const buildMap = (): Record<string, Category[]> => {
       type EagerModule = { default: Category[] };
       type MetaType = {
@@ -81,6 +83,19 @@ export async function loadCategoriesForLanguage(
           if (m2 && m2[1]) {
             map[m2[1]] = defaultExport;
           }
+        }
+      }
+
+      // If the glob didn't yield any results, try the statically imported categoriesIndex
+      // which provides the same language -> categories[] mapping.
+      if (Object.keys(map).length === 0) {
+        try {
+          for (const langKey of Object.keys(categoriesIndex)) {
+            // categoriesIndex default export may contain arrays already
+            map[langKey] = (categoriesIndex as Record<string, Category[]>)[langKey] ?? [];
+          }
+        } catch (_err) {
+          // If for some reason the index import fails, leave map empty - caller will handle it.
         }
       }
 
