@@ -55,38 +55,45 @@ export async function loadCategoriesForLanguage(
   // of JSON files at build time. This is simple, deterministic and avoids heavy glob/fs
   // fallbacks that can increase build memory usage.
   try {
+    // Normalize keys to lowercase so callers may pass 'DE' or 'de' and still match entries.
     const map: Record<string, Category[]> = (categoriesIndex as Record<string, Category[]>) || {};
+    const langKey = String(language || "").toLowerCase();
+    const fallbackKey = String(fallbackLanguage || "en").toLowerCase();
 
-    // Prefer exact language
-    if (map[language] && Array.isArray(map[language])) {
+    // Lightweight debug: if a language is requested but not found, log a short message.
+    // This helps trace issues where categories unexpectedly appear empty.
+    const found = Array.isArray(map[langKey]) ? map[langKey] : undefined;
+    if (!found || found.length === 0) {
+      // Use console.debug to keep noise low in production but still provide context when debugging.
+      console.debug(
+        `[categoryLoader] requested lang='${langKey}' fallback='${fallbackKey}' -> found=${found ? found.length : 0}`
+      );
+    }
+
+    // Return exact language result when available.
+    if (found && found.length > 0) {
       return {
-        categories: map[language],
+        categories: found,
         success: true,
         fallbackUsed: false,
       };
     }
 
-    // Fallback language if available
-    if (
-      fallbackLanguage &&
-      fallbackLanguage !== language &&
-      map[fallbackLanguage] &&
-      Array.isArray(map[fallbackLanguage])
-    ) {
+    // Try fallback language (normalized)
+    if (fallbackKey !== langKey && Array.isArray(map[fallbackKey]) && map[fallbackKey].length > 0) {
       return {
-        categories: map[fallbackLanguage],
+        categories: map[fallbackKey],
         success: true,
         fallbackUsed: true,
       };
     }
 
-    // Nothing found in the static map — return a clear failure result.
-    const fallbackNote =
-      fallbackLanguage && fallbackLanguage !== language ? ` and fallback ${fallbackLanguage}` : "";
+    // Nothing found in the static map — return a clear failure result (use normalized keys for message).
+    const fallbackNote = fallbackKey !== langKey ? ` and fallback ${fallbackKey}` : "";
     return {
       categories: [],
       success: false,
-      error: `Failed to load categories for ${language}${fallbackNote}`,
+      error: `Failed to load categories for ${langKey}${fallbackNote}`,
       fallbackUsed: false,
     };
   } catch (err) {
