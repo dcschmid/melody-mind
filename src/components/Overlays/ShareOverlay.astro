@@ -384,56 +384,9 @@ const {
     return shareDifficultyEmojiDefault || "\u26aa\ufe0f";
   };
 
-  // Helper for old execCommand fallback with a safe, narrow typing
-  // Helper: robust clipboard copy with feature detection
-  // - Prefer navigator.clipboard.writeText
-  // - Fallback to a transient textarea + document.execCommand('copy') if necessary
-  const copyTextToClipboard = async (text) => {
-    if (!text) {
-      return false;
-    }
-
-    // Modern async clipboard API
-    if (navigator && navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
-      try {
-        await navigator.clipboard.writeText(String(text));
-        return true;
-      } catch {
-        // fallthrough to DOM fallback
-      }
-    }
-
-    // DOM fallback using a transient textarea
-    const textarea = document.createElement("textarea");
-    textarea.value = String(text);
-    // Prevent scrolling to bottom
-    textarea.style.position = "fixed";
-    textarea.style.top = "0";
-    textarea.style.left = "0";
-    textarea.style.width = "1px";
-    textarea.style.height = "1px";
-    textarea.style.padding = "0";
-    textarea.style.border = "none";
-    textarea.style.outline = "none";
-    textarea.style.boxShadow = "none";
-    textarea.style.background = "transparent";
-    document.body.appendChild(textarea);
-    textarea.select();
-
-    let successful = false;
-    try {
-      // document.execCommand is deprecated but still needed as a last-resort fallback
-      // We intentionally keep this legacy call guarded by feature-detection.
-      // @ts-expect-error -- legacy execCommand fallback (safe, feature-detected)
-      successful = !!(document.execCommand && document.execCommand("copy"));
-    } catch {
-      successful = false;
-    }
-
-    // Clean up
-    textarea.remove();
-    return !!successful;
-  };
+  // Note: programmatic clipboard copy is handled inline where needed using
+  // navigator.clipboard.writeText; legacy execCommand-based fallbacks were removed
+  // to avoid deprecated API usage.
 
   // Initialize the sharing functionality
   const initializeSharing = async () => {
@@ -683,24 +636,20 @@ const {
       }
     }
 
-    const textarea = document.createElement("textarea");
-    textarea.value = text;
-    textarea.style.position = "fixed";
-    textarea.style.left = "-999999px";
-    textarea.style.top = "-999999px";
-
-    document.body.appendChild(textarea);
-    textarea.focus();
-    textarea.select();
-
-    try {
-      const successful = await copyTextToClipboard(textToCopy);
-      if (!successful) {
-        throw new Error("execCommand copy failed");
+    // Try modern Clipboard API on secure contexts first.
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(text);
+        return;
+      } catch (error) {
+        console.warn("Clipboard API failed, using manual fallback:", error);
+        throw error; // Let callers show manual fallback UI
       }
-    } finally {
-      document.body.removeChild(textarea);
     }
+
+    // No reliable programmatic fallback available without document.execCommand;
+    // signal failure so callers can show manual copy instructions/UI.
+    throw new Error("Clipboard API unavailable");
   };
 
   // Cache DOM elements
