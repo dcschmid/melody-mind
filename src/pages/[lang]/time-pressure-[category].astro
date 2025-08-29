@@ -28,7 +28,12 @@ export const prerender = false;
  * Time pressure mode doesn't use difficulty selection - all difficulties are mixed.
  * @returns {Array} Array of path objects with params and props
  */
-export async function getStaticPaths() {
+export async function getStaticPaths(): Promise<
+  Array<{
+    params: { lang: string; category: string };
+    props: { categoryData: { headline: string; slug: string }; lang: string };
+  }>
+> {
   // Define all supported languages for type safety
   const supportedLanguages = [
     "de",

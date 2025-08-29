@@ -39,7 +39,7 @@ interface KnowledgeSearchElements {
 export class KnowledgeSearchUtils {
   private elements: KnowledgeSearchElements;
   private allArticles: HTMLElement[] = [];
-  private currentSearchQuery = "";
+  private _currentSearchQuery = "";
   private debounceTimer: ReturnType<typeof setTimeout> | null = null;
 
   /**
@@ -151,7 +151,7 @@ export class KnowledgeSearchUtils {
 
   private performSearch(query: string): void {
     const searchTerm = query.toLowerCase().trim();
-    this.currentSearchQuery = searchTerm;
+  this._currentSearchQuery = searchTerm;
 
     const visibleCount = this.allArticles.reduce((count, article) => {
       const title = article.querySelector("h3")?.textContent?.toLowerCase() || "";
@@ -180,7 +180,7 @@ export class KnowledgeSearchUtils {
     }
 
     searchInput.value = "";
-    this.currentSearchQuery = "";
+  this._currentSearchQuery = "";
     this.performSearch("");
     searchInput.focus();
   }
