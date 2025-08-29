@@ -9,8 +9,7 @@ import { handleGameError } from "../error/errorHandlingUtils";
 
 /**
  * Prüft, ob ein bestimmter Schlüssel im localStorage existiert
- * @param {string} key - Der zu prüfende Schlüssel
- * @returns {boolean} - true wenn der Schlüssel existiert und einen Wert hat, sonst false
+ *
  */
 export function checkLocalStorage(key: string): boolean {
   try {
@@ -24,9 +23,7 @@ export function checkLocalStorage(key: string): boolean {
 
 /**
  * Setzt einen Wert im localStorage mit Fehlerbehandlung
- * @param {string} key - Der Schlüssel
- * @param {string} value - Der zu speichernde Wert
- * @returns {boolean} - true wenn erfolgreich, false wenn fehlgeschlagen
+ *
  */
 export function setLocalStorage(key: string, value: string): boolean {
   try {
@@ -40,8 +37,7 @@ export function setLocalStorage(key: string, value: string): boolean {
 
 /**
  * Entfernt einen Schlüssel aus dem localStorage mit Fehlerbehandlung
- * @param {string} key - Der zu entfernende Schlüssel
- * @returns {boolean} - true wenn erfolgreich, false wenn fehlgeschlagen
+ *
  */
 export function removeLocalStorage(key: string): boolean {
   try {
@@ -118,8 +114,7 @@ export function performCompleteLogout(): void {
  * Wenn ein Element sichtbar ist, wird aria-hidden="false" gesetzt und Fokus-Navigation aktiviert.
  * Wenn ein Element versteckt ist, wird aria-hidden="true" gesetzt und Fokus-Navigation deaktiviert.
  *
- * @param {HTMLElement} element - Das zu aktualisierende Element
- * @param {boolean} isVisible - Ob das Element sichtbar sein soll
+ *
  */
 export function updateAriaVisibility(element: HTMLElement | null, isVisible: boolean): void {
   if (!element) {
@@ -385,9 +380,7 @@ export function updateSectionVisibility(element: HTMLElement | null, show: boole
 
 /**
  * Initialisiert Cookie-Überwachung mit Debounce-Funktion
- * @param {Function} checkAuthCallback - Funktion, die bei Cookie-Änderungen aufgerufen wird
- * @param {number} interval - Intervall für die Prüfung in Millisekunden
- * @returns {number} - Intervall-ID zum Beenden der Überwachung
+ *
  */
 export function initCookieWatcher(checkAuthCallback: () => void, interval = 1000): number {
   let previousCookieValue = document.cookie;
@@ -412,7 +405,7 @@ export function initCookieWatcher(checkAuthCallback: () => void, interval = 1000
 
 /**
  * Stoppt die Cookie-Überwachung
- * @param {number} watcherId - Die Intervall-ID der zu stoppenden Überwachung
+ *
  */
 export function stopCookieWatcher(watcherId: number): void {
   if (watcherId) {
@@ -422,8 +415,7 @@ export function stopCookieWatcher(watcherId: number): void {
 
 /**
  * Registriert event listeners für Authentifizierungsereignisse
- * @param {Function} checkAuthCallback - Funktion, die bei Auth-Änderungen aufgerufen wird
- * @returns {{ remove: Function }} - Objekt mit remove-Methode zum Entfernen der Listener
+ *
  */
 export function registerAuthEventListeners(checkAuthCallback: () => void): { remove: () => void } {
   const handleLogin = (): void => {
