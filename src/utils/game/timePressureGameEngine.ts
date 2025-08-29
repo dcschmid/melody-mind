@@ -56,15 +56,15 @@ export class TimePressureGameEngine {
   private gameContainer: HTMLElement;
   private loadingContainer: HTMLElement;
   private gameUI: HTMLElement;
-  private _currentQuestion: Question | null = null;
-  private _currentQuestionIndex: number = 0;
-  private _totalQuestions: number = 0;
-  private _correctAnswers: number = 0;
-  private _incorrectAnswers: number = 0;
-  private _totalScore: number = 0;
-  private _streakCount: number = 0;
-  private _maxStreak: number = 0;
-  private _timeLeft: number = 0;
+  private currentQuestion: Question | null = null;
+  private currentQuestionIndex: number = 0;
+  private totalQuestions: number = 0;
+  private correctAnswers: number = 0;
+  private incorrectAnswers: number = 0;
+  private totalScore: number = 0;
+  private streakCount: number = 0;
+  private maxStreak: number = 0;
+  private timeLeft: number = 0;
   private countdownTimer: number | null = null;
   private isGameActive: boolean = false;
   private isPaused: boolean = false;
@@ -73,36 +73,36 @@ export class TimePressureGameEngine {
   private albums: Album[] = [];
 
   // Game state properties
-  private _streak: number = 0;
-  private _timeRemaining: number = 0;
-  private _currentTimeLimit: number = 0;
-  private _score: number = 0;
-  private _currentRound: number = 1;
-  private _totalRounds: number = 20;
-  private _questionsAnswered: number = 0;
-  private _currentBasePoints: number = 0;
-  private _currentAlbum: Album | null = null;
-  private _currentDifficulty: "easy" | "medium" | "hard" | null = null;
+  private streak: number = 0;
+  private timeRemaining: number = 0;
+  private currentTimeLimit: number = 0;
+  private score: number = 0;
+  private currentRound: number = 1;
+  private totalRounds: number = 20;
+  private questionsAnswered: number = 0;
+  private currentBasePoints: number = 0;
+  private currentAlbum: Album | null = null;
+  private currentDifficulty: "easy" | "medium" | "hard" | null = null;
 
   // Game mechanics properties
-  private _urgencyThreshold: number = 3;
-  private _warningThreshold: number = 5;
-  private _isFeedbackShowing: boolean = false;
+  private urgencyThreshold: number = 3;
+  private warningThreshold: number = 5;
+  private isFeedbackShowing: boolean = false;
 
   // DOM Elements
-  private _scoreDisplay: HTMLElement | null = null;
-  private _streakDisplay: HTMLElement | null = null;
-  private _accuracyDisplay: HTMLElement | null = null;
-  private _currentRoundDisplay: HTMLElement | null = null;
-  private _totalRoundsDisplay: HTMLElement | null = null;
-  private _progressFill: HTMLElement | null = null;
-  private _countdownCircle: HTMLElement | null = null;
-  private _countdownProgress: HTMLElement | null = null;
-  private _countdownTime: HTMLElement | null = null;
-  private _difficultyIndicator: HTMLElement | null = null;
-  private _difficultyText: HTMLElement | null = null;
-  private _questionText: HTMLElement | null = null;
-  private _answerOptions: HTMLElement | null = null;
+  private scoreDisplay: HTMLElement | null = null;
+  private streakDisplay: HTMLElement | null = null;
+  private accuracyDisplay: HTMLElement | null = null;
+  private currentRoundDisplay: HTMLElement | null = null;
+  private totalRoundsDisplay: HTMLElement | null = null;
+  private progressFill: HTMLElement | null = null;
+  private countdownCircle: HTMLElement | null = null;
+  private countdownProgress: HTMLElement | null = null;
+  private countdownTime: HTMLElement | null = null;
+  private difficultyIndicator: HTMLElement | null = null;
+  private difficultyText: HTMLElement | null = null;
+  private questionText: HTMLElement | null = null;
+  private answerOptions: HTMLElement | null = null;
 
   /**
    * Constructor for TimePressureGameEngine
