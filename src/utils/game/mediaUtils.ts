@@ -71,7 +71,7 @@ export interface Album {
  * @param {Album} album - Album data containing links
  * @param {MediaElements} elements - DOM elements for media display
  */
-export function updateMedia(album: Album, elements: MediaElements): void {
+export function updateMedia(_album: Album, elements: MediaElements): void {
   if (!elements) {
     return;
   }
