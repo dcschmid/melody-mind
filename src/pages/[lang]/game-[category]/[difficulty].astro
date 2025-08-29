@@ -31,12 +31,7 @@ export const prerender = false;
  * This ensures fast page loads as everything is pre-rendered at build time.
  * @returns {Array} Array of path objects with params and props
  */
-export async function getStaticPaths(): Promise<
-  Array<{
-    params: { lang: string; category: string; difficulty: string };
-    props: { categoryData: { headline: string; slug: string }; lang: string };
-  }>
-> {
+export async function getStaticPaths() {
   // Define all supported languages for type safety
   const supportedLanguages = [
     "de",
