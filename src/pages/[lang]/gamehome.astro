@@ -280,8 +280,8 @@ const clientTranslations = generateClientTranslations(t);
 >
   <!-- Enhanced structured data for SEO -->
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(gameApplicationSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(categoryListSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(gameApplicationSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(categoryListSchema)} />
 
     <!-- Additional SEO meta tags -->
     <meta name="robots" content="index, follow, max-image-preview:large" />

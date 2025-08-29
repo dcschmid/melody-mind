@@ -168,7 +168,7 @@ const structuredData = {
   showHeader={false}
 >
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <meta name="robots" content="noindex, nofollow" />
   </Fragment>
 

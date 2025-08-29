@@ -119,6 +119,7 @@ const newsStructuredData = newsData?.items?.length
         <script
           is:inline
           type="application/ld+json"
+          is:inline
           set:html={JSON.stringify(newsStructuredData)}
         />
       )
