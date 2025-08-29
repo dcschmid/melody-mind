@@ -6,9 +6,10 @@
  */
 
 import { handleLoadingError } from "../error/errorHandlingUtils";
+
 import categoriesIndex from "./categoriesIndex";
-import fs from "fs";
-import path from "path";
+
+// fs and path are intentionally not used; keep file pure and static to avoid build-time fs operations
 
 /**
  * Category interface
@@ -64,8 +65,8 @@ export async function loadCategoriesForLanguage(
     // This helps trace issues where categories unexpectedly appear empty.
     const found = Array.isArray(map[langKey]) ? map[langKey] : undefined;
     if (!found || found.length === 0) {
-      // Use console.debug to keep noise low in production but still provide context when debugging.
-      console.debug(
+      // Use console.warn to keep linter happy while still surfacing missing content during debugging.
+      console.warn(
         `[categoryLoader] requested lang='${langKey}' fallback='${fallbackKey}' -> found=${found ? found.length : 0}`
       );
     }
