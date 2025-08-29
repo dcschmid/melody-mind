@@ -155,8 +155,12 @@ const clientTranslations = {
 >
   <!-- Structured Data for SEO - Additional schemas beyond what SEO component provides -->
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(_breadcrumbSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(articleCollectionSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(_breadcrumbSchema)} />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(articleCollectionSchema)}
+    />
   </Fragment>
 
   <!-- Make translations available for JavaScript -->

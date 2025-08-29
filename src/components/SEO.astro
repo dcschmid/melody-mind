@@ -262,7 +262,7 @@ const criticalResources: CriticalResource[] = [
 <meta name="theme-color" content="#18181b" />
 
 <!-- Structured Data / JSON-LD - Compressed for performance -->
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
 <!-- Favicons with explicit sizes for better performance -->
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />

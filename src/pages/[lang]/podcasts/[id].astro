@@ -140,7 +140,7 @@ const { prev, next } = getNavigationPodcasts();
 
 <Layout {title} {description} type="article" image={podcast.imageUrl}>
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
 
     <!-- Open Graph for Podcast Episode -->
     <meta property="og:type" content="music.song" />

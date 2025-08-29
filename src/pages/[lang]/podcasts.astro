@@ -94,7 +94,7 @@ const pageSchema = generatePodcastPageSchema();
 
 <Layout {title} {description} type="website" image="/social-share.jpg">
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
 
     <!-- RSS Feed Discovery (English-only) -->
     <link
