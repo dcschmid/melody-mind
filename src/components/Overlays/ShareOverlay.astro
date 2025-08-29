@@ -250,11 +250,7 @@ const {
 
     // Localized snippets used for social share fallback text
     shareEmailSubject: t("share.email.subject"),
-    shareScoreLine: t("share.score_line", {
-      score: "{score}",
-      category: "{category}",
-      difficulty: "{difficulty}",
-    }),
+    // shareScoreLine was removed (unused) to satisfy linting. Use runtime helpers to format score lines when needed.
     shareChallenge: t("share.challenge"),
 
     // Achievement labels (localized when available)
@@ -655,7 +651,7 @@ const {
   };
 
   // Handle native share errors
-  const handleNativeShareError = async (errorType, button, error) => {
+  const handleNativeShareError = async (errorType, _button, error) => {
     console.warn(`Native share error (${errorType}):`, error);
 
     const errorMessage = getErrorMessage(errorType);
@@ -832,7 +828,7 @@ const {
   };
 
   // Handle platform share errors
-  const handlePlatformShareError = async (errorType, platform, button, error) => {
+  const handlePlatformShareError = async (errorType, platform, _button, error) => {
     console.warn(`Platform share error for ${platform} (${errorType}):`, error);
 
     const errorMessage = getErrorMessage(errorType);
