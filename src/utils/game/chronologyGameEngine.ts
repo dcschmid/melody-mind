@@ -505,7 +505,7 @@ class ChronologyGame {
   /**
    * Fallback feedback method when overlay fails
    */
-  private showBasicFeedback(result: {
+  private _showBasicFeedback(result: {
     correctItems: number;
     totalItems: number;
     score: number;
