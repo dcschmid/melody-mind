@@ -1,17 +1,15 @@
 /**
  * categoriesIndex.ts
  *
- * Build-time index of all category JSON files located in `src/json/*_categories.json`.
- * This file uses Vite's `import.meta.globEager` so the JSON files are included in the
- * build output and a simple map (language -> categories[]) is exported for easy reuse.
+ * This file statically imports all category JSON files from `src/json/` and exports
+ * a language -> Category[] map so category data is guaranteed to be present at
+ * runtime (no dynamic import/glob required).
  *
- * Usage:
- *   import categoriesIndex, { getCategoriesForLang, availableLanguages } from '@utils/category/categoriesIndex';
+ * Replace or extend the import list below if you add additional languages.
  *
- * Notes:
- * - The pattern '../../json/*_categories.json' is written relative to this file's location.
- * - If your bundler doesn't support `import.meta.globEager`, this file will fall back to
- *   producing an empty map and consumers should handle the empty case.
+ * NOTE:
+ * - Paths are relative to this file: src/utils/category -> ../../json
+ * - The JSON files are plain arrays of category objects (see src/json/*.json).
  */
 
 export interface Category {
@@ -23,99 +21,86 @@ export interface Category {
   categoryUrl?: string;
   categoryType?: string;
   isPlayable?: boolean;
-  // optional playlist links
   spotifyPlaylist?: string;
   deezerPlaylist?: string;
   appleMusicPlaylist?: string;
-  // link to knowledge article, if present
   knowledgeUrl?: string;
-  // allow extra keys
   [key: string]: unknown;
 }
 
-/**
- * Typed shape for the Vite eager glob result.
- * When using `globEager`, each matched module should export a `default` value
- * that contains the parsed JSON (Category[]).
- */
-type EagerGlobResult = Record<string, { default: Category[] }>;
+/*
+  Static JSON imports
+  (explicit so bundlers include them deterministically)
+*/
+import cnCategories from "../../json/cn_categories.json";
+import daCategories from "../../json/da_categories.json";
+import deCategories from "../../json/de_categories.json";
+import enCategories from "../../json/en_categories.json";
+import esCategories from "../../json/es_categories.json";
+import fiCategories from "../../json/fi_categories.json";
+import frCategories from "../../json/fr_categories.json";
+import itCategories from "../../json/it_categories.json";
+import jpCategories from "../../json/jp_categories.json";
+import nlCategories from "../../json/nl_categories.json";
+import ptCategories from "../../json/pt_categories.json";
+import ruCategories from "../../json/ru_categories.json";
+import svCategories from "../../json/sv_categories.json";
+import ukCategories from "../../json/uk_categories.json";
 
 /**
- * Build the categories map using import.meta.globEager when available.
- * If the feature is not available in the current environment, return an empty map.
+ * categoriesMap
+ *
+ * Language code (two-letter) -> Category[].
+ * Uses explicit imports to guarantee the data is bundled and available at runtime.
  */
-const buildCategoriesMap = (): Record<string, Category[]> => {
-  // Try to access import.meta.globEager in a typed way.
-  // Many bundlers provide this; when not present we return an empty map.
-  const meta = import.meta as unknown as { globEager?: (pattern: string) => EagerGlobResult };
-
-  const map: Record<string, Category[]> = {};
-
-  if (typeof meta.globEager !== "function") {
-    // Not available in this environment; return an empty map.
-    return map;
-  }
-
-  // Pattern is relative to this file location: src/utils/category -> ../../json
-  const modules = meta.globEager("../../json/*_categories.json") as EagerGlobResult;
-
-  for (const filePath in modules) {
-    try {
-      const mod = modules[filePath];
-      const categories = Array.isArray(mod?.default) ? mod!.default : [];
-
-      // Extract language code from file name like '../../json/de_categories.json'
-      const m = filePath.match(/([a-z]{2})_categories\.json$/i);
-      if (m && m[1]) {
-        const lang = m[1].toLowerCase();
-        map[lang] = categories;
-        continue;
-      }
-
-      // Fallback: try match '/de_categories.json' segments
-      const m2 = filePath.match(/\/([a-z]{2})_categories\.json$/i);
-      if (m2 && m2[1]) {
-        const lang = m2[1].toLowerCase();
-        map[lang] = categories;
-        continue;
-      }
-
-      // As a last resort, use the entire filename as key
-      const parts = filePath.split("/").pop()?.split(".")[0] ?? filePath;
-      map[parts] = categories;
-    } catch (err) {
-      // Defensive: if any module fails to read/parse, skip it and continue.
-      // Consumers should handle missing languages gracefully.
-      // eslint-disable-next-line no-console
-      console.warn(`[categoriesIndex] Failed loading ${filePath}:`, err);
-    }
-  }
-
-  return map;
+const categoriesMap: Record<string, Category[]> = {
+  cn: cnCategories as unknown as Category[],
+  da: daCategories as unknown as Category[],
+  de: deCategories as unknown as Category[],
+  en: enCategories as unknown as Category[],
+  es: esCategories as unknown as Category[],
+  fi: fiCategories as unknown as Category[],
+  fr: frCategories as unknown as Category[],
+  it: itCategories as unknown as Category[],
+  jp: jpCategories as unknown as Category[],
+  nl: nlCategories as unknown as Category[],
+  pt: ptCategories as unknown as Category[],
+  ru: ruCategories as unknown as Category[],
+  sv: svCategories as unknown as Category[],
+  uk: ukCategories as unknown as Category[],
 };
 
-const categoriesMap: Record<string, Category[]> = buildCategoriesMap();
-
 /**
- * Public helpers
+ * getCategoriesForLang
+ * Safe accessor for categoriesMap; returns an empty array if language not found.
  */
-
-/**
- * Get categories for a specific language code (e.g. 'de', 'en').
- * Returns an empty array when no categories are available for the requested language.
- */
-export function getCategoriesForLang(lang: string): Category[] {
-  if (!lang) return [];
+export function getCategoriesForLang(lang: string | undefined | null): Category[] {
+  if (!lang) {return [];}
   const key = String(lang).toLowerCase();
   return categoriesMap[key] ?? [];
 }
 
 /**
- * Returns the list of available language codes found in the index.
+ * getCategoryBySlug
+ * Helper to find a category by slug for a given language (falls back to `en`).
+ */
+export function getCategoryBySlug(lang: string | undefined, slug: string): Category | null {
+  if (!slug) {return null;}
+  const candidates = getCategoriesForLang(lang ?? undefined);
+  const found = candidates.find((c) => c.slug === slug);
+  if (found) {return found;}
+  // fallback to English
+  const en = categoriesMap["en"] ?? [];
+  return en.find((c) => c.slug === slug) ?? null;
+}
+
+/**
+ * availableLanguages
+ * List of languages included in the static map.
  */
 export const availableLanguages = Object.keys(categoriesMap);
 
 /**
- * Default export: the complete map (language -> Category[])
+ * Default export - full map
  */
 export default categoriesMap;
