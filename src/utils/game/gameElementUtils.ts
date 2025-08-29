@@ -28,6 +28,24 @@ export const GAME_ELEMENT_IDS = {
   OVERLAY: "overlay",
   LOADING_SPINNER: "loading-spinner",
   SCORE_PROGRESS: "score-progress",
+  // Additional elements referenced elsewhere in the codebase
+  SCORE_DISPLAY: "score-display",
+  ROUND_DISPLAY: "round-display",
+  CURRENT_ROUND: "current-round",
+  TOTAL_ROUNDS: "total-rounds",
+  POPUP_SCORE: "popup-score",
+  NEXT_ROUND_BUTTON: "next-round-button",
+  QUESTION_TEXT: "question-text",
+  QUESTION_CONTAINER: "question-container",
+  OPTIONS_CONTAINER: "options-container",
+  ENDGAME_POPUP: "endgame-popup",
+  SCORE_BAR: "score-bar",
+  DIFFICULTY_DISPLAY: "difficulty-display",
+  CATEGORY_DISPLAY: "category-display",
+  OVERLAY_ARTIST: "overlay-artist",
+  OVERLAY_ALBUM: "overlay-album",
+  OVERLAY_FUNFACT: "overlay-funfact",
+  OVERLAY_YEAR: "overlay-year",
 } as const;
 
 /**

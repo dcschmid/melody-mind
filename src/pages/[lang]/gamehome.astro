@@ -174,7 +174,23 @@ try {
       language: "en",
       fallbackLanguage: "en",
     });
-    categories = fallbackResult.success ? fallbackResult.categories : [];
+    // Ensure compatibility: map fallback categories if necessary
+    categories = fallbackResult.success
+      ? fallbackResult.categories.map((cat) => ({
+          categoryUrl: cat.categoryUrl || "",
+          headline: cat.headline,
+          imageUrl: cat.imageUrl || "",
+          introSubline: cat.introSubline || "",
+          isPlayable: cat.isPlayable || false,
+          slug: cat.slug,
+          text: cat.text || "",
+          spotifyPlaylist: (cat as any).spotifyPlaylist || "",
+          deezerPlaylist: (cat as any).deezerPlaylist || "",
+          appleMusicPlaylist: (cat as any).appleMusicPlaylist || "",
+          knowledgeUrl: (cat as any).knowledgeUrl || "",
+          categoryType: cat.categoryType || "other",
+        }))
+      : [];
   } catch (fallbackError) {
     logError("Failed to load fallback categories", fallbackError);
     categories = [];
