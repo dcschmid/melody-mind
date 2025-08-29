@@ -7,6 +7,31 @@ export default {
   "knowledge.search.subtitle": "Löydä artikkeleita otsikon, kuvauksen tai avainsanojen perusteella",
   "podcasts.note.only_english": "Huom: Podcastit ovat tällä hetkellä saatavilla vain englanniksi.",
   "podcasts.navigation.aria": "Jaksojen navigointi",
+
+  // Podcast translations
+  "podcast.title": "Podcastit",
+  "podcast.description":
+    "Kuuntele syvällisiä keskusteluja musiikista — haastatteluja, kulissien takaisia tarinoita ja jaksoja, jotka syventävät musiikillista ymmärrystäsi. Täydellinen musiikin ystäville, jotka haluavat kuunnella, oppia ja inspiroitua.",
+  "podcasts.platform.apple": "Apple Music",
+  "podcasts.platform.deezer": "Deezer",
+  "podcasts.platform.spotify": "Spotify",
+  "podcasts.episode.plural": "Jaksot",
+  "podcasts.episode.singular": "Jakso",
+  "podcast.rss.subscribe": "Tilaa RSS",
+  "podcast.search.placeholder": "Hae podcasteja tai jaksojen otsikoita",
+  "podcasts.read_full_notes": "Lue koko ohjelman muistiinpano ja käsikirjoitus",
+  "podcast.back_to_all": "Takaisin kaikkiin podcasteihin",
+  "podcast.listen_to_episode": "Kuuntele jakso",
+  "podcast.episode_label": "Jakso {number}",
+  "podcast.download_audio": "Lataa ääni",
+  "podcast.view_subtitles": "Näytä tekstitykset",
+  "podcasts.cta.title": "Tutustu podcasteihin",
+  "podcasts.cta.description":
+    "Tutki kuratoitua musiikkipodcast-kokoelmaamme — kiinnostavia haastatteluja ja tarinoita, jotka saavat sinut painamaan toistoa.",
+  "podcasts.cta.browse": "Selaa podcasteja",
+  "podcasts.navigation.next": "Seuraava jakso",
+  "podcasts.navigation.previous": "Edellinen jakso",
+
   "share.challenge_fallback": "Uskotko, että pystyt voittamaan minut? Pelaa nyt:",
   "category.difficulty.hard": "Vaikea",
   "category.difficulty.heading": "Valitse vaikeustasosi",

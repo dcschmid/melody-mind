@@ -7,6 +7,31 @@ export default {
   "knowledge.search.subtitle": "Find artikler efter titel, beskrivelse eller nøgleord",
   "podcasts.note.only_english": "Bemærk: Podcasts er i øjeblikket kun tilgængelige på engelsk.",
   "podcasts.navigation.aria": "Episode-navigation",
+
+  // Podcast-oversættelser
+  "podcast.title": "Podcasts",
+  "podcast.description":
+    "Lyt med i dybdegående samtaler om musik — interviews, bag-om-historier og episoder, der uddyber din forståelse. Perfekt for fans, der elsker at lytte, lære og blive inspireret.",
+  "podcasts.platform.apple": "Apple Music",
+  "podcasts.platform.deezer": "Deezer",
+  "podcasts.platform.spotify": "Spotify",
+  "podcasts.episode.plural": "Episoder",
+  "podcasts.episode.singular": "Episode",
+  "podcast.rss.subscribe": "Abonner på RSS",
+  "podcast.search.placeholder": "Søg podcasts eller episodetitler",
+  "podcasts.read_full_notes": "Læs komplette show-noter og transskription",
+  "podcast.back_to_all": "Tilbage til alle podcasts",
+  "podcast.listen_to_episode": "Lyt til episode",
+  "podcast.episode_label": "Episode {number}",
+  "podcast.download_audio": "Hent lydfil",
+  "podcast.view_subtitles": "Vis undertekster",
+  "podcasts.cta.title": "Opdag podcasts",
+  "podcasts.cta.description":
+    "Udforsk vores kuraterede samling af musikpodcasts — fængende interviews og historier, der får dig til at trykke play.",
+  "podcasts.cta.browse": "Gennemse podcasts",
+  "podcasts.navigation.next": "Næste episode",
+  "podcasts.navigation.previous": "Forrige episode",
+
   "share.challenge_fallback": "Tror du, du kan slå mig? Spil nu på:",
   "category.difficulty.hard": "Svær",
   "category.difficulty.heading": "Vælg sværhedsgrad",

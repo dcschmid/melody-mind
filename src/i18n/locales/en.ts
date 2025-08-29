@@ -7,6 +7,31 @@ export default {
   "knowledge.search.subtitle": "Find articles by title, description, or keywords",
   "podcasts.note.only_english": "Note: Podcasts are currently available only in English.",
   "podcasts.navigation.aria": "Episode navigation",
+
+  // Podcast specific translations
+  "podcast.title": "Podcasts",
+  "podcast.description":
+    "Tune into in-depth conversations about music — interviews, behind-the-scenes stories and episodes that deepen your appreciation. Perfect for fans who love to listen, learn and be inspired.",
+  "podcasts.platform.apple": "Apple Music",
+  "podcasts.platform.deezer": "Deezer",
+  "podcasts.platform.spotify": "Spotify",
+  "podcasts.episode.plural": "Episodes",
+  "podcasts.episode.singular": "Episode",
+  "podcast.rss.subscribe": "Subscribe to RSS",
+  "podcast.search.placeholder": "Search podcasts or episode titles",
+  "podcasts.read_full_notes": "Read full show notes and transcript",
+  "podcast.back_to_all": "Back to all podcasts",
+  "podcast.listen_to_episode": "Listen to episode",
+  "podcast.episode_label": "Episode {number}",
+  "podcast.download_audio": "Download audio",
+  "podcast.view_subtitles": "View subtitles",
+  "podcasts.cta.title": "Discover podcasts",
+  "podcasts.cta.description":
+    "Explore our curated music podcast collection — engaging interviews and stories that will make you want to press play.",
+  "podcasts.cta.browse": "Browse podcasts",
+  "podcasts.navigation.next": "Next episode",
+  "podcasts.navigation.previous": "Previous episode",
+
   "share.challenge_fallback": "Think you can beat me? Take the challenge now:",
   "category.difficulty.hard": "Hard",
   "category.difficulty.heading": "Pick your challenge level",

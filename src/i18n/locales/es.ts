@@ -7,6 +7,31 @@ export default {
   "knowledge.search.subtitle": "Encuentra artículos por título, descripción o palabras clave",
   "podcasts.note.only_english": "Nota: Los podcasts están disponibles solo en inglés por ahora.",
   "podcasts.navigation.aria": "Navegación de episodios",
+
+  // Traducciones de podcast
+  "podcast.title": "Podcasts",
+  "podcast.description":
+    "Sintoniza conversaciones en profundidad sobre música — entrevistas, historias entre bastidores y episodios que profundizan tu apreciación. Perfecto para fans que aman escuchar, aprender e inspirarse.",
+  "podcasts.platform.apple": "Apple Music",
+  "podcasts.platform.deezer": "Deezer",
+  "podcasts.platform.spotify": "Spotify",
+  "podcasts.episode.plural": "Episodios",
+  "podcasts.episode.singular": "Episodio",
+  "podcast.rss.subscribe": "Suscribirse por RSS",
+  "podcast.search.placeholder": "Buscar podcasts o títulos de episodios",
+  "podcasts.read_full_notes": "Leer notas del programa y transcripción completas",
+  "podcast.back_to_all": "Volver a todos los podcasts",
+  "podcast.listen_to_episode": "Escuchar episodio",
+  "podcast.episode_label": "Episodio {number}",
+  "podcast.download_audio": "Descargar audio",
+  "podcast.view_subtitles": "Ver subtítulos",
+  "podcasts.cta.title": "Descubre podcasts",
+  "podcasts.cta.description":
+    "Explora nuestra colección curada de podcasts musicales — entrevistas atractivas e historias que te invitan a reproducir.",
+  "podcasts.cta.browse": "Explorar podcasts",
+  "podcasts.navigation.next": "Siguiente episodio",
+  "podcasts.navigation.previous": "Episodio anterior",
+
   "share.challenge_fallback": "¿Crees que puedes superarme? Juega ahora en:",
   "category.difficulty.hard": "Difícil",
   "category.difficulty.heading": "Elige el nivel de dificultad",
