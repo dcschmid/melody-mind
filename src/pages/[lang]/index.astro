@@ -24,8 +24,8 @@ const t = useTranslations(String(lang));
  */
 if (Astro.request.method === "GET" && !Astro.params.lang) {
   // Inline locale redirect: avoid importing helper when it is not used elsewhere in the file
-  const locale = Astro.preferredLocale || "en";
-  return Astro.redirect(`/${locale}/`);
+  const _locale = Astro.preferredLocale || "en";
+  return Astro.redirect(`/${_locale}/`);
 }
 
 // Basic page content setup
