@@ -68,7 +68,7 @@ export interface Album {
  * Since streaming links have been removed for legal compliance, this function
  * now performs no operations.
  *
- * @param {Album} album - Album data containing links
+ * @param {Album} _album - Album data containing links
  * @param {MediaElements} elements - DOM elements for media display
  */
 export function updateMedia(_album: Album, elements: MediaElements): void {
