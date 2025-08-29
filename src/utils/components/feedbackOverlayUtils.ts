@@ -114,10 +114,10 @@ export class FeedbackOverlayUtils {
   }
 
   private makePopulateFunctionGlobal(): void {
-    // Extend Window interface for our utilities
-    (
-      window as Window & { populateFeedbackOverlay: (data: FeedbackOverlayData) => void }
-  ).populateFeedbackOverlay = (data: FeedbackOverlayData) => this.populateOverlay(data);
+    // Extend Window interface for our utilities (cast via unknown first to satisfy TS)
+    (window as unknown as Window & { populateFeedbackOverlay: (data: FeedbackOverlayData) => void }).populateFeedbackOverlay = (
+      data: FeedbackOverlayData,
+    ) => this.populateOverlay(data);
   }
 
   /**
