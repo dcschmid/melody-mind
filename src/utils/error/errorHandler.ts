@@ -243,9 +243,9 @@ export class ErrorHandler {
    * @returns {Promise<void>} Promise resolving when the operation completes
    */
   static async handleSaveError(
-    error: Error,
-    type: "score" | "goldenLP",
-    data: { userId: string; score: number; category: string }
+    _error: Error,
+    _type: "score" | "goldenLP",
+    _data: { userId: string; score: number; category: string }
   ): Promise<void> {
     // QueueManager functionality removed - no longer needed
     // await QueueManager.addToQueue(type, data);
