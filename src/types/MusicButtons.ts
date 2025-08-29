@@ -341,13 +341,12 @@ export interface MusicButtonsVersionInfo {
  * ```
  */
 export function isCategoryWithPlaylists(obj: unknown): obj is CategoryWithPlaylists {
-  return (
-    typeof obj === "object" &&
-    obj !== null &&
-    (typeof obj.spotifyPlaylist === "string" || obj.spotifyPlaylist === undefined) &&
-    (typeof obj.deezerPlaylist === "string" || obj.deezerPlaylist === undefined) &&
-    (typeof obj.appleMusicPlaylist === "string" || obj.appleMusicPlaylist === undefined)
-  );
+  if (typeof obj !== "object" || obj === null) {return false;}
+  const o = obj as Partial<Record<string, unknown>>;
+  const spotifyOk = typeof o.spotifyPlaylist === "string" || o.spotifyPlaylist === undefined;
+  const deezerOk = typeof o.deezerPlaylist === "string" || o.deezerPlaylist === undefined;
+  const appleOk = typeof o.appleMusicPlaylist === "string" || o.appleMusicPlaylist === undefined;
+  return spotifyOk && deezerOk && appleOk;
 }
 
 /**
