@@ -384,6 +384,20 @@ const {
     return shareDifficultyEmojiDefault || "\u26aa\ufe0f";
   };
 
+  // Helper for old execCommand fallback with a safe, narrow typing
+  const execCommandCopy = (command) => {
+    const doc = document;
+    if (doc && typeof doc.execCommand === "function") {
+      try {
+        return doc.execCommand(command);
+      } catch {
+        // ignore errors from legacy execCommand API
+        return undefined;
+      }
+    }
+    return undefined;
+  };
+
   // Initialize the sharing functionality
   const initializeSharing = async () => {
     cacheElements();
@@ -644,7 +658,7 @@ const {
     textarea.select();
 
     try {
-      const successful = document.execCommand("copy");
+      const successful = execCommandCopy("copy");
       if (!successful) {
         throw new Error("execCommand copy failed");
       }
@@ -824,7 +838,7 @@ const {
   };
 
   // Generate advanced multilingual share text using shareUtils
-   
+
   const generateAdvancedShareText = async (data) => {
     const { score, category, difficulty } = data || {};
     const currentLang = document.documentElement.lang || "en";
