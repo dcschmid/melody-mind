@@ -51,94 +51,14 @@ export async function loadCategoriesForLanguage(
 ): Promise<CategoryLoadingResult> {
   const { language, fallbackLanguage = "en" } = config;
 
-  // Use Vite's build-time glob import to include all category JSON files.
-  // This avoids attempting dynamic runtime imports from the built server output.
+  // Fast path: use the statically imported categoriesIndex which guarantees inclusion
+  // of JSON files at build time. This is simple, deterministic and avoids heavy glob/fs
+  // fallbacks that can increase build memory usage.
   try {
-    // Extract the map-building logic into a small typed helper to reduce complexity
-    // and avoid using `any` on import.meta. Prefer Vite's globEager but fall back to a
-    // statically imported categories index if the glob is not available or yields nothing.
-    const buildMap = (): Record<string, Category[]> => {
-      type EagerModule = { default: Category[] };
-      type MetaType = {
-        globEager?: (pattern: string) => Record<string, EagerModule>;
-        // Keep glob type available for environments that might provide it in a different form.
-        glob?: (pattern: string) => Record<string, () => Promise<EagerModule>>;
-      };
+    const map: Record<string, Category[]> = (categoriesIndex as Record<string, Category[]>) || {};
 
-      const meta = import.meta as unknown as MetaType;
-
-      // Prefer the eager glob (bundles JSON into the build). If not available, use an empty object.
-      const modules = meta.globEager ? meta.globEager("../../json/*_categories.json") : {};
-
-      const map: Record<string, Category[]> = {};
-      for (const filePath in modules) {
-        const mod = modules[filePath];
-        const defaultExport = (mod && (mod.default || [])) as Category[];
-
-        // Try to extract two-letter language code from the filename, e.g. 'de' from '../../json/de_categories.json'
-        const m = filePath.match(/([a-z]{2})_categories\.json$/i);
-        if (m && m[1]) {
-          map[m[1]] = defaultExport;
-        } else {
-          // Fallback: try to match a segment like '/de_categories.json'
-          const m2 = filePath.match(/\/([a-z]{2})_categories\.json$/i);
-          if (m2 && m2[1]) {
-            map[m2[1]] = defaultExport;
-          }
-        }
-      }
-
-      // If the glob didn't yield any results, try the statically imported categoriesIndex
-      // which provides the same language -> categories[] mapping.
-      if (Object.keys(map).length === 0) {
-        try {
-          for (const langKey of Object.keys(categoriesIndex)) {
-            // categoriesIndex default export may contain arrays already
-            map[langKey] = (categoriesIndex as Record<string, Category[]>)[langKey] ?? [];
-          }
-        } catch (_err) {
-          // If for some reason the index import fails, leave map empty - caller will handle it.
-        }
-
-        // If map is still empty, attempt a filesystem fallback. This reads the project's
-        // `src/json/*_categories.json` files directly. This is defensive: it only runs
-        // during a Node-based build (Astro build) where filesystem access is available.
-        if (Object.keys(map).length === 0) {
-          try {
-            const jsonDir = path.resolve(process.cwd(), "src", "json");
-            if (fs.existsSync(jsonDir)) {
-              const files = fs.readdirSync(jsonDir);
-              for (const file of files) {
-                if (/_categories\.json$/i.test(file)) {
-                  const filePath = path.join(jsonDir, file);
-                  try {
-                    const raw = fs.readFileSync(filePath, "utf8");
-                    const parsed = JSON.parse(raw);
-                    // derive language code from filename like 'de_categories.json'
-                    const m = file.match(/^([a-z]{2})_categories\.json$/i);
-                    const key =
-                      m && m[1] ? m[1].toLowerCase() : file.replace(/_categories\.json$/i, "");
-                    map[key] = Array.isArray(parsed) ? parsed : [];
-                  } catch (_parseErr) {
-                    // If a file fails to parse, skip it and continue with others
-                    continue;
-                  }
-                }
-              }
-            }
-          } catch (_fsErr) {
-            // Nothing to do here; leave map empty and let caller handle missing categories.
-          }
-        }
-      }
-
-      return map;
-    };
-
-    const map = buildMap();
-
-    // Prefer the requested language
-    if (map[language]) {
+    // Prefer exact language
+    if (map[language] && Array.isArray(map[language])) {
       return {
         categories: map[language],
         success: true,
@@ -146,8 +66,13 @@ export async function loadCategoriesForLanguage(
       };
     }
 
-    // Then fallback language
-    if (fallbackLanguage && fallbackLanguage !== language && map[fallbackLanguage]) {
+    // Fallback language if available
+    if (
+      fallbackLanguage &&
+      fallbackLanguage !== language &&
+      map[fallbackLanguage] &&
+      Array.isArray(map[fallbackLanguage])
+    ) {
       return {
         categories: map[fallbackLanguage],
         success: true,
@@ -155,7 +80,7 @@ export async function loadCategoriesForLanguage(
       };
     }
 
-    // If nothing matched, return a consistent failure result.
+    // Nothing found in the static map — return a clear failure result.
     const fallbackNote =
       fallbackLanguage && fallbackLanguage !== language ? ` and fallback ${fallbackLanguage}` : "";
     return {
@@ -165,8 +90,7 @@ export async function loadCategoriesForLanguage(
       fallbackUsed: false,
     };
   } catch (err) {
-    // If glob import throws for some reason, surface a helpful error via existing handler.
-    handleLoadingError(err, "category data glob import");
+    handleLoadingError(err, "category data retrieval");
     return {
       categories: [],
       success: false,
