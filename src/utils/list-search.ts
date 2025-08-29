@@ -171,13 +171,13 @@ export class ListSearchManager {
 /**
  * Initializes search functionality when DOM is ready
  */
-export function initializeSearch(config: SearchConfig): ListSearchManager | null {
+export function initializeSearch(config: SearchConfig): ListSearchManager | Promise<ListSearchManager> {
   if (document.readyState === "loading") {
     return new Promise<ListSearchManager>((resolve) => {
       document.addEventListener("DOMContentLoaded", () => {
         resolve(new ListSearchManager(config));
       });
-    }) as Promise<ListSearchManager>;
+    });
   } else {
     return new ListSearchManager(config);
   }
