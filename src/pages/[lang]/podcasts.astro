@@ -325,57 +325,96 @@ const pageSchema = generatePodcastPageSchema();
               </div>
             ) : (
               <div class="space-y-6">
-                {episodes
-                  .filter((episode: PodcastData) => episode.isAvailable)
-                  .sort(
-                    (a: PodcastData, b: PodcastData) =>
-                      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-                  )
-                  .map((episode: PodcastData) => (
-                    <article class="rounded-2xl border border-gray-700 bg-gray-800 p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                      <div class="mb-6 flex flex-col gap-6 text-center md:flex-row md:text-left">
-                        <div class="flex-shrink-0">
-                          <img
-                            src={episode.imageUrl}
-                            alt={episode.title}
-                            loading="lazy"
-                            width="160"
-                            height="160"
-                            class="h-40 w-40 rounded-2xl object-cover shadow-lg transition-transform duration-300 hover:scale-105"
-                          />
+                {(() => {
+                  const sorted = episodes
+                    .filter((episode: PodcastData) => episode.isAvailable)
+                    .sort(
+                      (a: PodcastData, b: PodcastData) =>
+                        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+                    );
+                  // Für Nummerierung: älteste Episode = 1
+                  const chronological = [...sorted]
+                    .sort(
+                      (a: PodcastData, b: PodcastData) =>
+                        new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime()
+                    )
+                    .map((e, idx) => ({ id: e.id, number: idx + 1 }));
+                  const numberMap = new Map(chronological.map((e) => [e.id, e.number] as const));
+                  return sorted.map((episode: PodcastData) => (
+                    <article class="group relative overflow-hidden rounded-2xl border border-gray-700 bg-gray-800/90 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 focus-within:ring-2 focus-within:ring-purple-500 hover:-translate-y-1 hover:border-purple-600/40 hover:shadow-xl">
+                      <div
+                        class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                        aria-hidden="true"
+                      >
+                        <div class="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-purple-700/10 blur-3xl" />
+                        <div class="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-indigo-600/10 blur-3xl" />
+                      </div>
+                      <div class="relative mb-6 flex flex-col gap-6 text-center md:flex-row md:text-left">
+                        <div class="relative w-full flex-shrink-0 md:w-64">
+                          <div class="relative aspect-video w-full overflow-hidden rounded-2xl bg-gray-700 ring-1 ring-white/10 transition duration-300 group-hover:ring-purple-500/40">
+                            <img
+                              src={episode.imageUrl}
+                              alt={episode.title}
+                              loading="lazy"
+                              width="320"
+                              height="180"
+                              class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                            />
+                            <div
+                              class="absolute inset-0 bg-gradient-to-tr from-purple-900/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                              aria-hidden="true"
+                            />
+                          </div>
                         </div>
                         <div class="flex-1">
-                          <Headline level="h2" textSize="lg" className="mb-3 text-white">
-                            {episode.title}
+                          <Headline
+                            level="h2"
+                            textSize="lg"
+                            className="mb-3 text-white leading-snug"
+                          >
+                            <span
+                              aria-label={`Episode ${numberMap.get(episode.id)}`}
+                              class="mr-3 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 px-2 py-1 text-[10px] font-bold tracking-wider text-white shadow-sm ring-1 ring-white/10"
+                            >
+                              EP {numberMap.get(episode.id)}
+                            </span>
+                            <span class="align-middle font-semibold">{episode.title}</span>
                           </Headline>
                           <Paragraph textSize="base" className="text-gray-300 mb-4">
                             {episode.description}
                           </Paragraph>
-                          <div class="flex flex-wrap items-center justify-center gap-4 md:justify-start">
-                            <time class="text-sm text-gray-400" datetime={episode.publishedAt}>
+                          <div class="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-400 md:justify-start">
+                            <time datetime={episode.publishedAt} class="flex items-center gap-1">
+                              <span class="inline-block text-gray-500">📅</span>
                               {new Date(episode.publishedAt).toLocaleDateString("en-US", {
                                 year: "numeric",
-                                month: "long",
+                                month: "short",
                                 day: "numeric",
                               })}
                             </time>
-                            <span class="text-sm text-gray-400">
-                              🎙️ {t("podcasts.episode.singular")}
+                            <span
+                              class="hidden h-4 w-px bg-gray-600/60 md:inline-block"
+                              aria-hidden="true"
+                            />
+                            <span class="flex items-center gap-1 text-purple-300/80 transition-colors group-hover:text-purple-200">
+                              <span class="inline-block text-purple-400">⏱️</span>
+                              {t("podcasts.episode.singular")}
                             </span>
                           </div>
                         </div>
                       </div>
 
-                      <div class="flex flex-wrap justify-center gap-4 md:justify-start">
+                      <div class="relative flex flex-wrap justify-center gap-4 md:justify-start">
                         <a
                           href={`/${lang}/podcasts/${episode.id}`}
-                          class="inline-flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-purple-700"
+                          class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-lg ring-1 shadow-purple-900/20 ring-white/10 transition-all duration-300 hover:from-purple-500 hover:to-indigo-500 hover:shadow-xl hover:shadow-purple-900/30 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none"
                         >
                           <span>📖 {t("podcasts.read_full_notes")}</span>
                         </a>
                       </div>
                     </article>
-                  ))}
+                  ));
+                })()}
               </div>
             )
           }

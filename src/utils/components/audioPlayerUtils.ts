@@ -37,6 +37,10 @@ export class AudioPlayerUtils {
   // Store the bound handler so we can remove it during cleanup.
   // Typed to `void` return to avoid `any` usage while keeping the native event signature.
   private timeUpdateHandler: ((this: HTMLAudioElement, ev: Event) => void) | null = null;
+  private keydownHandler: ((ev: KeyboardEvent) => void) | null = null;
+  private progressPointerDown: boolean = false;
+  private pointerMoveHandler: ((ev: PointerEvent) => void) | null = null;
+  private pointerUpHandler: ((ev: PointerEvent) => void) | null = null;
 
   /**
    * Create and initialize a new AudioPlayerUtils instance.
@@ -92,39 +96,141 @@ export class AudioPlayerUtils {
   }
 
   private bindEvents(): void {
+    // Basic control bindings
     if (this.elements.playButton) {
-      this.elements.playButton.addEventListener("click", () => {
-        this.play();
-      });
+      this.elements.playButton.addEventListener("click", () => this.play());
     }
-
     if (this.elements.pauseButton) {
-      this.elements.pauseButton.addEventListener("click", () => {
-        this.pause();
-      });
+      this.elements.pauseButton.addEventListener("click", () => this.pause());
     }
-
     if (this.elements.rewindButton) {
-      this.elements.rewindButton.addEventListener("click", () => {
-        this.rewind();
-      });
+      this.elements.rewindButton.addEventListener("click", () => this.rewind());
     }
-
     if (this.elements.forwardButton) {
-      this.elements.forwardButton.addEventListener("click", () => {
-        this.forward();
-      });
+      this.elements.forwardButton.addEventListener("click", () => this.forward());
     }
-
     if (this.elements.progressBar) {
-      this.elements.progressBar.addEventListener("click", (e) => {
-        this.seek(e);
+      this.elements.progressBar.addEventListener("click", (e) => this.seek(e as MouseEvent));
+    }
+
+    // extended bindings
+    this.bindAudioElementEvents();
+    this.bindInteractionEvents();
+  }
+
+  private bindAudioElementEvents(): void {
+    if (!this.elements.audioElement) {
+      return;
+    }
+    this.elements.audioElement.addEventListener("ended", () => this.handleAudioEnd());
+    this.elements.audioElement.addEventListener("waiting", () => {
+      const buf = safeGetElementById<HTMLElement>("buffer-indicator");
+      if (buf) {
+        buf.classList.remove("opacity-0", "scale-95", "pointer-events-none");
+        buf.classList.add("opacity-100", "scale-100");
+      }
+    });
+    this.elements.audioElement.addEventListener("playing", () => {
+      const buf = safeGetElementById<HTMLElement>("buffer-indicator");
+      if (buf) {
+        buf.classList.remove("opacity-100", "scale-100");
+        buf.classList.add("opacity-0", "scale-95", "pointer-events-none");
+      }
+    });
+  }
+
+  private bindInteractionEvents(): void {
+    // Keyboard controls
+    this.keydownHandler = (ev: KeyboardEvent): void => {
+      const active = document.activeElement;
+      if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA")) {
+        return;
+      }
+      if (ev.code === "Space") {
+        ev.preventDefault();
+        if (this.isPlaying) {
+          this.pause();
+        } else {
+          this.play();
+        }
+      } else if (ev.code === "ArrowLeft") {
+        this.rewind();
+      } else if (ev.code === "ArrowRight") {
+        this.forward();
+      }
+    };
+    document.addEventListener("keydown", this.keydownHandler);
+
+    // Pointer drag/seek
+    const progressEl = safeGetElementById<HTMLElement>("progress-bar");
+    const progressFill = safeGetElementById<HTMLElement>("progress-fill");
+    if (progressEl && progressFill && this.elements.audioElement) {
+      this.pointerMoveHandler = (ev: PointerEvent): void => {
+        if (!this.progressPointerDown) {
+          return;
+        }
+        const rect = progressEl.getBoundingClientRect();
+        let x = ev.clientX - rect.left;
+        x = Math.max(0, Math.min(rect.width, x));
+        const pct = x / rect.width;
+        progressFill.style.width = `${pct * 100}%`;
+        const seekTime = pct * (this.elements.audioElement!.duration || 0);
+        if (!Number.isNaN(seekTime) && this.elements.audioElement) {
+          this.elements.audioElement.currentTime = seekTime;
+        }
+      };
+
+      this.pointerUpHandler = (): void => {
+        this.progressPointerDown = false;
+        document.removeEventListener("pointermove", this.pointerMoveHandler as EventListener);
+        document.removeEventListener("pointerup", this.pointerUpHandler as EventListener);
+      };
+
+      progressEl.addEventListener("pointerdown", (ev: PointerEvent) => {
+        this.progressPointerDown = true;
+        document.addEventListener("pointermove", this.pointerMoveHandler as EventListener);
+        document.addEventListener("pointerup", this.pointerUpHandler as EventListener);
+        ev.preventDefault();
       });
     }
 
-    if (this.elements.audioElement) {
-      this.elements.audioElement.addEventListener("ended", () => {
-        this.handleAudioEnd();
+    // Volume & Mute
+    const volSlider = safeGetElementById<HTMLInputElement>("volume-slider");
+    const muteBtn = safeGetElementById<HTMLButtonElement>("mute-button");
+    if (volSlider && this.elements.audioElement) {
+      volSlider.addEventListener("input", () => {
+        const v = parseFloat(volSlider.value);
+        this.elements.audioElement!.volume = v;
+      });
+    }
+    if (muteBtn && this.elements.audioElement) {
+      muteBtn.addEventListener("click", () => {
+        const unmutedIcon = muteBtn.querySelector(".icon-unmuted");
+        const mutedIcon = muteBtn.querySelector(".icon-muted");
+        if (unmutedIcon && mutedIcon) {
+          if (this.elements.audioElement!.muted) {
+            this.elements.audioElement!.muted = false;
+            (unmutedIcon as HTMLElement).classList.remove("hidden");
+            (mutedIcon as HTMLElement).classList.add("hidden");
+            muteBtn.setAttribute("aria-pressed", "false");
+          } else {
+            this.elements.audioElement!.muted = true;
+            (unmutedIcon as HTMLElement).classList.add("hidden");
+            (mutedIcon as HTMLElement).classList.remove("hidden");
+            muteBtn.setAttribute("aria-pressed", "true");
+          }
+        } else {
+          // Fallback for older markup that uses emoji textContent
+          if (this.elements.audioElement!.muted) {
+            this.elements.audioElement!.muted = false;
+            muteBtn.textContent = "🔊";
+            muteBtn.setAttribute("aria-pressed", "false");
+          } else {
+            this.elements.audioElement!.muted = true;
+            muteBtn.textContent = "🔇";
+            muteBtn.setAttribute("aria-pressed", "true");
+          }
+        }
       });
     }
   }
@@ -220,7 +326,17 @@ export class AudioPlayerUtils {
 
       if (duration) {
         const progress = (currentTime / duration) * 100;
-        this.elements.progressBar.value = progress;
+        // update both progress element (if present) and custom fill
+        try {
+          this.elements.progressBar.value = progress;
+        } catch (e) {
+          // ignore assignment errors for non-progress elements
+          console.warn(e);
+        }
+        const fill = safeGetElementById<HTMLElement>("progress-fill");
+        if (fill) {
+          fill.style.width = `${progress}%`;
+        }
       }
     }
 
@@ -237,6 +353,13 @@ export class AudioPlayerUtils {
 
       this.elements.timeDisplay.textContent = `${currentTimeFormatted} / ${durationFormatted}`;
     }
+    // keep in sync with our custom time-display element if present
+    const td = safeGetElementById<HTMLElement>("time-display");
+    if (td && this.elements.audioElement) {
+      const cur = this.formatTime(this.elements.audioElement.currentTime);
+      const dur = this.elements.audioElement.duration ? this.formatTime(this.elements.audioElement.duration) : "0:00";
+      td.textContent = `${cur} / ${dur}`;
+    }
   }
 
   private formatTime(seconds: number): string {
@@ -247,11 +370,23 @@ export class AudioPlayerUtils {
 
   private updatePlayPauseButtons(): void {
     if (this.elements.playButton) {
-      this.elements.playButton.style.display = this.isPlaying ? "none" : "block";
+      if (this.isPlaying) {
+        this.elements.playButton.classList.add("hidden");
+        this.elements.playButton.classList.remove("flex");
+      } else {
+        this.elements.playButton.classList.remove("hidden");
+        this.elements.playButton.classList.add("flex");
+      }
     }
 
     if (this.elements.pauseButton) {
-      this.elements.pauseButton.style.display = this.isPlaying ? "block" : "none";
+      if (this.isPlaying) {
+        this.elements.pauseButton.classList.remove("hidden");
+        this.elements.pauseButton.classList.add("flex");
+      } else {
+        this.elements.pauseButton.classList.add("hidden");
+        this.elements.pauseButton.classList.remove("flex");
+      }
     }
   }
 
@@ -280,6 +415,18 @@ export class AudioPlayerUtils {
         this.timeUpdateHandler as EventListener
       );
       this.timeUpdateHandler = null;
+    }
+    if (this.keydownHandler) {
+      document.removeEventListener("keydown", this.keydownHandler);
+      this.keydownHandler = null;
+    }
+    if (this.pointerMoveHandler) {
+      document.removeEventListener("pointermove", this.pointerMoveHandler as EventListener);
+      this.pointerMoveHandler = null;
+    }
+    if (this.pointerUpHandler) {
+      document.removeEventListener("pointerup", this.pointerUpHandler as EventListener);
+      this.pointerUpHandler = null;
     }
   }
 }
