@@ -4,7 +4,10 @@ export default {
   "category.about.title": "О этой категории",
   "category.difficulty.easy": "Легко",
   "knowledge.search.label": "Поиск по заголовку или описанию",
+  "knowledge.search.title": "Поиск статей",
   "knowledge.search.subtitle": "Найдите статьи по заголовку, описанию или ключевым словам",
+    "knowledge.search.placeholder": "Поиск статей...",
+    "knowledge.search.reset.text": "Сброс",
   "podcasts.note.only_english":
     "Примечание: подкасты в настоящее время доступны только на английском языке.",
   "podcasts.navigation.aria": "Навигация по эпизодам",

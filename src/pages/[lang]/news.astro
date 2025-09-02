@@ -55,6 +55,20 @@ const seoKeywords = extractKeywords(enrichedContent, 15, currentLang);
 // Enhanced page metadata
 const baseUrl = Astro.site?.toString() || "https://melody-mind.de";
 const currentUrl = `${baseUrl}/${currentLang}/news`;
+// Prepare last-updated label safely: translations may contain a '{date}' placeholder.
+const rawLastUpdated = t("news.lastUpdated");
+const lastUpdatedLabel =
+  rawLastUpdated && rawLastUpdated.includes("{date}")
+    ? rawLastUpdated
+        .replace("{date}", "")
+        .trim()
+        .replace(/[:\s]+$/u, "")
+    : rawLastUpdated || "";
+const lastUpdatedDateString = newsData?.lastUpdated
+  ? new Intl.DateTimeFormat(currentLang, { dateStyle: "medium", timeStyle: "short" }).format(
+      new Date(newsData.lastUpdated)
+    )
+  : "";
 /**
  * Versucht ein geeignetes Bild für ein Feed-Item zu extrahieren.
  * Reihenfolge: item.imageUrl -> enclosure.url -> media.url -> erstes <img> in content/description -> Fallback
@@ -336,9 +350,9 @@ const newsStructuredData = items.length
             newsData && (
               <div class="flex flex-col items-center justify-center gap-4 text-sm sm:flex-row md:text-base">
                 <div class="flex items-center gap-2 rounded-full border border-purple-500/30 bg-gray-800/50 px-4 py-2 backdrop-blur-sm">
-                  <span class="text-purple-300">{t("news.lastUpdated")}:</span>
+                  {lastUpdatedLabel && <span class="text-purple-300">{lastUpdatedLabel}:</span>}
                   <time class="text-white" datetime={newsData.lastUpdated}>
-                    {new Date(newsData.lastUpdated).toLocaleString(currentLang)}
+                    {lastUpdatedDateString}
                   </time>
                 </div>
                 <div class="flex items-center gap-2 rounded-full border border-purple-500/30 bg-gray-800/50 px-4 py-2 backdrop-blur-sm">

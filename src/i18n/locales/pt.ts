@@ -4,7 +4,10 @@ export default {
   "category.about.title": "Sobre esta categoria",
   "category.difficulty.easy": "Fácil",
   "knowledge.search.label": "Pesquisar por título ou descrição",
+  "knowledge.search.title": "Pesquisar artigos",
   "knowledge.search.subtitle": "Encontre artigos por título, descrição ou palavras-chave",
+  "knowledge.search.placeholder": "Pesquisar artigos...",
+  "knowledge.search.reset.text": "Redefinir",
   "podcasts.note.only_english": "Nota: os podcasts estão atualmente disponíveis apenas em inglês.",
   "podcasts.navigation.aria": "Navegação de episódios",
 

@@ -4,7 +4,10 @@ export default {
   "category.about.title": "Tietoja tästä kategoriasta",
   "category.difficulty.easy": "Helppo",
   "knowledge.search.label": "Hae otsikolla tai kuvauksella",
+  "knowledge.search.title": "Hae artikkeleita",
   "knowledge.search.subtitle": "Löydä artikkeleita otsikon, kuvauksen tai avainsanojen perusteella",
+  "knowledge.search.placeholder": "Hae artikkeleita...",
+  "knowledge.search.reset.text": "Nollaa",
   "podcasts.note.only_english": "Huom: Podcastit ovat tällä hetkellä saatavilla vain englanniksi.",
   "podcasts.navigation.aria": "Jaksojen navigointi",
 

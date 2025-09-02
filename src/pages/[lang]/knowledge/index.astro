@@ -139,7 +139,9 @@ const metaKeywords = Array.from(
 const clientTranslations = {
   search: {
     showingAll: safeUi["knowledge.search.showing.all"] || "Showing all articles",
-    articlesFound: "articles found",
+    articlesFound: safeUi["knowledge.search.articlesFound"] || "articles found",
+    placeholder: safeUi["knowledge.search.placeholder"] || "Search articles...",
+    resetText: safeUi["knowledge.search.reset.text"] || "Reset",
   },
 };
 ---
@@ -393,6 +395,40 @@ const clientTranslations = {
 
     // Module-based initialization (restore previous behavior) and expose instance for debugging/reset
     document.addEventListener("DOMContentLoaded", () => {
+      // Client-side fallback: apply translations from window.knowledgeTranslations if available
+      // small helper to apply translations safely
+      function applyKnowledgeTranslations(): void {
+        const kt = typeof window !== "undefined" ? window.knowledgeTranslations : null;
+        if (!kt || !kt.search) {
+          return;
+        }
+
+        const ph = kt.search.placeholder;
+        if (ph) {
+          const input = document.getElementById("searchInput");
+          if (input && input instanceof HTMLInputElement) {
+            input.placeholder = String(ph);
+          }
+        }
+
+        const rt = kt.search.resetText;
+        if (rt) {
+          const resetBtn = document.getElementById("reset-search");
+          if (resetBtn) {
+            const span = resetBtn.querySelector("span");
+            if (span && span instanceof HTMLElement) {
+              span.textContent = String(rt);
+            }
+          }
+        }
+      }
+
+      try {
+        applyKnowledgeTranslations();
+      } catch {
+        // ignore client-side translation wiring errors
+      }
+
       const instance = initGenericSearchAuto({
         inputId: "searchInput",
         clearButtonId: "clear-search",

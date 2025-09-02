@@ -4,7 +4,10 @@ export default {
   "category.about.title": "Om denna kategori",
   "category.difficulty.easy": "Lätt",
   "knowledge.search.label": "Sök efter titel eller beskrivning",
+  "knowledge.search.title": "Sök artiklar",
   "knowledge.search.subtitle": "Hitta artiklar efter titel, beskrivning eller nyckelord",
+  "knowledge.search.placeholder": "Sök artiklar...",
+  "knowledge.search.reset.text": "Återställ",
   "podcasts.note.only_english": "Observera: Podcasts finns för närvarande endast på engelska.",
   "podcasts.navigation.aria": "Episodnavigering",
 

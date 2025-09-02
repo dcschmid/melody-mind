@@ -4,7 +4,10 @@ export default {
   "category.about.title": "Over deze categorie",
   "category.difficulty.easy": "Makkelijk",
   "knowledge.search.label": "Zoek op titel of beschrijving",
+  "knowledge.search.title": "Zoek artikelen",
   "knowledge.search.subtitle": "Vind artikelen op titel, beschrijving of trefwoorden",
+  "knowledge.search.placeholder": "Zoek artikelen...",
+  "knowledge.search.reset.text": "Resetten",
   "podcasts.note.only_english": "Let op: podcasts zijn momenteel alleen in het Engels beschikbaar.",
   "podcasts.navigation.aria": "Episodenavigatie",
 

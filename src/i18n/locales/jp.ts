@@ -4,7 +4,10 @@ export default {
   "category.about.title": "このカテゴリについて",
   "category.difficulty.easy": "簡単",
   "knowledge.search.label": "タイトルまたは説明で検索",
+  "knowledge.search.title": "記事を検索",
   "knowledge.search.subtitle": "タイトル、説明、またはキーワードで記事を検索",
+  "knowledge.search.placeholder": "記事を検索...",
+  "knowledge.search.reset.text": "リセット",
   "podcasts.note.only_english": "注: ポッドキャストは現在英語のみで提供されています。",
   "podcasts.navigation.aria": "エピソードナビゲーション",
 

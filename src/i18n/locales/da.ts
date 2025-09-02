@@ -4,7 +4,10 @@ export default {
   "category.about.title": "Om denne kategori",
   "category.difficulty.easy": "Let",
   "knowledge.search.label": "Søg efter titel eller beskrivelse",
+  "knowledge.search.title": "Søg artikler",
   "knowledge.search.subtitle": "Find artikler efter titel, beskrivelse eller nøgleord",
+  "knowledge.search.placeholder": "Søg artikler...",
+  "knowledge.search.reset.text": "Nulstil",
   "podcasts.note.only_english": "Bemærk: Podcasts er i øjeblikket kun tilgængelige på engelsk.",
   "podcasts.navigation.aria": "Episode-navigation",
 

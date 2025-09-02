@@ -4,7 +4,10 @@ export default {
   "category.about.title": "Про цю категорію",
   "category.difficulty.easy": "Легко",
   "knowledge.search.label": "Пошук за заголовком або описом",
+  "knowledge.search.title": "Пошук статей",
   "knowledge.search.subtitle": "Знайдіть статті за заголовком, описом або ключовими словами",
+  "knowledge.search.placeholder": "Пошук статей...",
+  "knowledge.search.reset.text": "Скинути",
   "podcasts.note.only_english": "Примітка: подкасти наразі доступні лише англійською.",
   "podcasts.navigation.aria": "Навігація по епізодах",
 
