@@ -98,6 +98,12 @@ export default {
   "news.title": "Notizie",
   "news.description":
     "Scopri gli ultimi successi, notizie sugli artisti e le tendenze musicali da tutto il mondo",
+    "news.lastUpdated": "Last updated: {date}",
+    "news.sourcesCount": "Sources: {count}",
+    "news.readMore": "Read more",
+    "news.disclaimer.title": "News disclaimer",
+    "news.legal.attribution": "Images and content are attributed to their respective publishers.",
+    "news.disclaimer.text": "The news feed aggregates content from external publishers. We do not claim ownership of third-party content. Click through to the original article for full context.",
   "nav.donate.description": "Sostieni il progetto con una piccola donazione",
   "error.extend.tooltip": "Estendi il tempo del messaggio di errore di 5 secondi",
   "error.invalid.question": "Domanda non valida o nessuna opzione disponibile",

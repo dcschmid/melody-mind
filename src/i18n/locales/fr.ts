@@ -99,6 +99,12 @@ export default {
   "news.title": "Actualités",
   "news.description":
     "Découvre les derniers hits, les news des artistes et les tendances musicales du monde entier",
+    "news.lastUpdated": "Dernière mise à jour : {date}",
+    "news.sourcesCount": "Sources : {count}",
+    "news.readMore": "Lire la suite",
+    "news.disclaimer.title": "Avertissement sur les actualités",
+    "news.legal.attribution": "Les images et le contenu sont attribués à leurs éditeurs respectifs.",
+    "news.disclaimer.text": "Le fil d'actualités agrège du contenu provenant d'éditeurs externes. Nous ne revendiquons pas la propriété du contenu tiers. Cliquez pour accéder à l'article original pour le contexte complet.",
   "nav.donate.description": "Soutiens le projet avec une petite contribution",
   "error.extend.tooltip": "Prolonger l'affichage du message d'erreur de 5 secondes",
   "error.invalid.question": "Question invalide ou sans options disponibles",

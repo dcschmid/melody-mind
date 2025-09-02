@@ -101,6 +101,12 @@ export default {
   "news.title": "Uutiset",
   "news.description":
     "Tutustu uusimpiin hitteihin, artistiuutisiin ja musiikkitrendeihin ympäri maailmaa",
+    "news.lastUpdated": "Last updated: {date}",
+    "news.sourcesCount": "Sources: {count}",
+    "news.readMore": "Read more",
+    "news.disclaimer.title": "News disclaimer",
+    "news.legal.attribution": "Images and content are attributed to their respective publishers.",
+    "news.disclaimer.text": "The news feed aggregates content from external publishers. We do not claim ownership of third-party content. Click through to the original article for full context.",
   "nav.donate.description": "Tue projektia pienellä lahjoituksella",
   "error.extend.tooltip": "Pidennä virheilmoituksen näyttöaikaa 5 sekunnilla",
   "error.invalid.question": "Virheellinen kysymys tai ei vaihtoehtoja saatavilla",

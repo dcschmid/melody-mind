@@ -55,9 +55,186 @@ const seoKeywords = extractKeywords(enrichedContent, 15, currentLang);
 // Enhanced page metadata
 const baseUrl = Astro.site?.toString() || "https://melody-mind.de";
 const currentUrl = `${baseUrl}/${currentLang}/news`;
+/**
+ * Versucht ein geeignetes Bild für ein Feed-Item zu extrahieren.
+ * Reihenfolge: item.imageUrl -> enclosure.url -> media.url -> erstes <img> in content/description -> Fallback
+ */
+/**
+ * Try to extract an image URL from an RSS feed item.
+ * Checks common RSS fields and HTML attributes, and normalizes URLs.
+ * @param {any} item
+ * @returns {string}
+ */
+/** Normalize a possibly relative or protocol-relative URL to absolute. */
+function makeAbsolute(url: any) {
+  if (!url) {
+    return url;
+  }
+  const u = String(url).trim();
+  if (!u) {
+    return u;
+  }
+  if (u.startsWith("//")) {
+    return `https:${u}`;
+  }
+  if (u.startsWith("/")) {
+    return `${baseUrl.replace(/\/$/, "")}${u}`;
+  }
+  if (/^https?:\/\//i.test(u)) {
+    return u;
+  }
+  return u;
+}
 
-// Generate NewsArticle structured data using existing patterns
-const newsStructuredData = newsData?.items?.length
+function tryMedia(m: any) {
+  if (!m) {
+    return null;
+  }
+  if (typeof m === "string") {
+    return m;
+  }
+  if (m && m.url) {
+    return m.url;
+  }
+  if (m && m["@url"]) {
+    return m["@url"];
+  }
+  if (Array.isArray(m) && m.length) {
+    return tryMedia(m[0]);
+  }
+  if (m && m["$"] && m["$"].url) {
+    return m["$"].url;
+  }
+  return null;
+}
+
+function collectDirectImageCandidates(item: any) {
+  const candidates: Array<any> = [];
+  if (!item) {
+    return candidates;
+  }
+  // imageUrl
+  if (item.imageUrl) {
+    candidates.push(item.imageUrl);
+  }
+
+  // itunes
+  const itunesImg = item["itunes:image"];
+  const pushItunes = (it: any) => {
+    if (!it) {
+      return;
+    }
+    if (typeof it === "string") {
+      candidates.push(it);
+      return;
+    }
+    if (it.href || it.url) {
+      candidates.push(it.href || it.url);
+    }
+  };
+  pushItunes(itunesImg);
+
+  // enclosure
+  const pushEnclosure = (enc: any) => {
+    if (enc && enc.url) {
+      candidates.push(enc.url);
+    }
+  };
+  pushEnclosure(item.enclosure);
+
+  // media
+  const mediaThumb = tryMedia(
+    item["media:thumbnail"] || item["media:thumbnailUrl"] || item.thumbnail
+  );
+  if (mediaThumb) {
+    candidates.push(mediaThumb);
+  }
+  const mediaContent = tryMedia(item["media:content"] || item["media:contentUrl"] || item.media);
+  if (mediaContent) {
+    candidates.push(mediaContent);
+  }
+
+  // generic
+  if (item.image) {
+    candidates.push(item.image);
+  }
+  if (item.thumbnail) {
+    candidates.push(item.thumbnail);
+  }
+
+  return candidates;
+}
+
+function collectFromHtml(item: any) {
+  const candidates: Array<any> = [];
+  const html = item.content || item.description || "";
+  try {
+    const dataSrcMatch = html.match(/<img[^>]+data-src=["']([^"']+)["']/i);
+    if (dataSrcMatch && dataSrcMatch[1]) {
+      candidates.push(dataSrcMatch[1]);
+    }
+
+    const srcsetMatch = html.match(/<img[^>]+srcset=["']([^"']+)["']/i);
+    if (srcsetMatch && srcsetMatch[1]) {
+      const first = srcsetMatch[1].split(",")[0].trim().split(" ")[0];
+      if (first) {
+        candidates.push(first);
+      }
+    }
+
+    const srcMatch = html.match(/<img[^>]+src=["']([^"']+)["']/i);
+    if (srcMatch && srcMatch[1]) {
+      candidates.push(srcMatch[1]);
+    }
+  } catch {
+    // ignore
+  }
+
+  return candidates;
+}
+
+function collectImageCandidates(item: any) {
+  return [...collectDirectImageCandidates(item), ...collectFromHtml(item)];
+}
+
+function getImageForItem(item: any) {
+  const fallback = `${baseUrl}/images/news-fallback.svg`;
+  if (!item) {
+    return fallback;
+  }
+
+  const candidates = collectImageCandidates(item);
+  for (const c of candidates) {
+    if (c) {
+      const abs = makeAbsolute(c);
+      if (abs) {
+        return abs;
+      }
+    }
+  }
+
+  if (item.media && item.media.url) {
+    return makeAbsolute(item.media.url);
+  }
+
+  return fallback;
+}
+
+// Precompute items with displayImage and localized date string
+const items = (newsData?.items || []).map((it) => {
+  const displayImage = getImageForItem(it);
+  const displayDate = it?.pubDate ? new Date(it.pubDate) : null;
+  const displayDateString = displayDate ? displayDate.toLocaleDateString(currentLang) : "";
+  return {
+    ...it,
+    displayImage,
+    displayDate,
+    displayDateString,
+  };
+});
+
+// Generate NewsArticle structured data using prepared items
+const newsStructuredData = items.length
   ? {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
@@ -72,8 +249,8 @@ const newsStructuredData = newsData?.items?.length
       },
       mainEntity: {
         "@type": "ItemList",
-        numberOfItems: newsData.items.length,
-        itemListElement: newsData.items.slice(0, 10).map((item, index) => ({
+        numberOfItems: items.length,
+        itemListElement: items.slice(0, 10).map((item, index) => ({
           "@type": "ListItem",
           position: index + 1,
           item: {
@@ -91,7 +268,7 @@ const newsStructuredData = newsData?.items?.length
               name: "MelodyMind",
               url: baseUrl,
             },
-            image: item.imageUrl || `${baseUrl}/images/news-fallback.svg`,
+            image: item.displayImage || `${baseUrl}/images/news-fallback.svg`,
             genre: "Music",
             about: "Music News",
           },
@@ -208,14 +385,26 @@ const newsStructuredData = newsData?.items?.length
               itemscope
               itemtype="https://schema.org/ItemList"
             >
-              {newsData.items.map((item, index) => (
+              {items.map((item, index) => (
                 <article
-                  class="overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  class="news-card overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                   aria-labelledby={`news-title-${index}`}
                   itemscope
                   itemtype="https://schema.org/NewsArticle"
                   itemprop="itemListElement"
                 >
+                  {/* 16:9 image area */}
+                  <div class="news-card__media" role="img" aria-label={item.title}>
+                    <img
+                      src={item.displayImage || "/images/news-fallback.svg"}
+                      alt={item.title || t("news.articleImageAlt")}
+                      loading="lazy"
+                      decoding="async"
+                      class="news-card__img"
+                      onerror="this.onerror=null;this.src='/images/news-fallback.svg'"
+                    />
+                  </div>
+
                   <div class="p-6">
                     <header class="mb-4">
                       <div class="mb-3 flex items-center justify-between text-sm text-gray-400">
@@ -227,7 +416,7 @@ const newsStructuredData = newsData?.items?.length
                           datetime={item.pubDate}
                           itemprop="datePublished"
                         >
-                          {new Date(item.pubDate).toLocaleDateString(currentLang)}
+                          {item.displayDateString}
                         </time>
                       </div>
 
@@ -341,3 +530,32 @@ const newsStructuredData = newsData?.items?.length
     }
   });
 </script>
+
+<style>
+  .news-card__media {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: var(--card-bg, #0f1720);
+    display: block;
+    overflow: hidden;
+  }
+
+  .news-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 200ms ease;
+  }
+
+  .news-card__img:focus,
+  .news-card__img:hover {
+    transform: scale(1.02);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .news-card__img {
+      transition: none;
+    }
+  }
+</style>

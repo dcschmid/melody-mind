@@ -100,6 +100,12 @@ export default {
   "news.title": "Novidades",
   "news.description":
     "Descubra os últimos sucessos, notícias de artistas e tendências musicais do mundo todo",
+    "news.lastUpdated": "Última atualização: {date}",
+    "news.sourcesCount": "Fontes: {count}",
+    "news.readMore": "Leia mais",
+    "news.disclaimer.title": "Aviso sobre notícias",
+    "news.legal.attribution": "Imagens e conteúdo são atribuídos aos seus respectivos editores.",
+    "news.disclaimer.text": "O feed de notícias agrega conteúdo de editores externos. Não reivindicamos a propriedade de conteúdo de terceiros. Clique no artigo original para o contexto completo.",
   "nav.donate.description": "Apoie o projeto com uma pequena doação",
   "error.extend.tooltip": "Estender o tempo de exibição da mensagem de erro em 5 segundos",
   "error.invalid.question": "Pergunta inválida ou sem opções disponíveis",

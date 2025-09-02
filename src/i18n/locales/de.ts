@@ -99,6 +99,12 @@ export default {
   "news.title": "Neuigkeiten",
   "news.description":
     "Entdecke die neuesten Hits, Künstler*innen-News und Musiktrends aus aller Welt",
+  "news.lastUpdated": "Zuletzt aktualisiert: {date}",
+  "news.sourcesCount": "Quellen: {count}",
+  "news.readMore": "Weiterlesen",
+  "news.disclaimer.title": "Hinweis zu den Nachrichten",
+  "news.legal.attribution": "Bilder und Inhalte sind den jeweiligen Herausgebern zugeordnet.",
+  "news.disclaimer.text": "Der News-Feed aggregiert Inhalte externer Herausgeber. Wir beanspruchen kein Eigentum an Drittinhalten. Öffne den Originalartikel für den vollständigen Kontext.",
   "nav.donate.description": "Unterstütze das Projekt mit einer kleinen Spende",
   "error.extend.tooltip": "Fehlermeldungs-Timeout um 5 Sekunden verlängern",
   "error.invalid.question": "Ungültige Frage oder keine Antwortoptionen vorhanden",

@@ -73,6 +73,12 @@ export default {
   "news.title": "News",
   "news.description":
     "Discover the latest hits, artist news and music trends from around the world",
+    "news.lastUpdated": "Last updated: {date}",
+    "news.sourcesCount": "Sources: {count}",
+    "news.readMore": "Read more",
+    "news.disclaimer.title": "News disclaimer",
+    "news.legal.attribution": "Images and content are attributed to their respective publishers.",
+    "news.disclaimer.text": "The news feed aggregates content from external publishers. We do not claim ownership of third-party content. Click through to the original article for full context.",
   "nav.donate.description": "Support the project with a small donation",
   "error.extend.tooltip": "Extend the error message timeout by 5 seconds",
   "error.invalid.question": "Invalid question or no options available",
