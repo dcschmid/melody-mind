@@ -8,6 +8,8 @@ export default {
   "knowledge.search.subtitle": "タイトル、説明、またはキーワードで記事を検索",
   "knowledge.search.placeholder": "記事を検索...",
   "knowledge.search.reset.text": "リセット",
+  "knowledge.back.to.list": "記事一覧に戻る",
+  "knowledge.word_count": "{count}語",
   "podcasts.note.only_english": "注: ポッドキャストは現在英語のみで提供されています。",
   "podcasts.navigation.aria": "エピソードナビゲーション",
 

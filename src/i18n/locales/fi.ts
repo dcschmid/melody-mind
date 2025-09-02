@@ -8,6 +8,8 @@ export default {
   "knowledge.search.subtitle": "Löydä artikkeleita otsikon, kuvauksen tai avainsanojen perusteella",
   "knowledge.search.placeholder": "Hae artikkeleita...",
   "knowledge.search.reset.text": "Nollaa",
+  "knowledge.back.to.list": "Takaisin artikkelilistaan",
+  "knowledge.word_count": "{count} sanaa",
   "podcasts.note.only_english": "Huom: Podcastit ovat tällä hetkellä saatavilla vain englanniksi.",
   "podcasts.navigation.aria": "Jaksojen navigointi",
 

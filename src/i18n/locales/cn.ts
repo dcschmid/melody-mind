@@ -7,6 +7,8 @@ export default {
   "knowledge.search.subtitle": "按标题、描述或关键词查找文章",
   "knowledge.search.placeholder": "搜索文章...",
   "knowledge.search.reset.text": "重置",
+  "knowledge.back.to.list": "返回文章列表",
+  "knowledge.word_count": "{count} 字",
     "knowledge.search.title": "搜索文章",
   "podcasts.note.only_english": "说明：播客目前仅提供英文内容。",
   "podcasts.navigation.aria": "剧集导航",

@@ -32,6 +32,7 @@ import BackToTop from "@components/Shared/BackToTop.astro";
 import { Icon } from "astro-icon/components";
 // import { getEntry } from "astro:content";
 import { generateMetaDescription } from "@utils/seo";
+import { getReadingTime } from "@utils/readingTime";
 
 // 2. Rendering Strategy: SSG for better performance and SEO
 export const prerender = true;
@@ -62,29 +63,27 @@ export async function getStaticPaths() {
     try {
       const knowledgeCollection = await getCollection(`knowledge-${lang}`);
       for (const entry of knowledgeCollection) {
-        if (!entry.data.draft) {
-          paths.push({
-            params: { lang, slug: entry.slug },
-            props: { entry, lang },
-          });
+        if (entry.data.draft) {
+          continue;
         }
+        paths.push({ params: { lang, slug: entry.slug }, props: { entry, lang } });
       }
+      continue;
     } catch {
       console.warn(`No knowledge collection found for ${lang}`);
-      // Try to get English fallback
-      try {
-        const fallbackCollection = await getCollection("knowledge-en");
-        for (const entry of fallbackCollection) {
-          if (!entry.data.draft) {
-            paths.push({
-              params: { lang, slug: entry.slug },
-              props: { entry, lang },
-            });
-          }
+    }
+
+    // Try English fallback if locale collection is missing
+    try {
+      const fallbackCollection = await getCollection("knowledge-en");
+      for (const entry of fallbackCollection) {
+        if (entry.data.draft) {
+          continue;
         }
-      } catch (_fallbackError) {
-        console.error(`Failed to load fallback knowledge for ${lang}:`, _fallbackError);
+        paths.push({ params: { lang, slug: entry.slug }, props: { entry, lang } });
       }
+    } catch (_fallbackError) {
+      console.error(`Failed to load fallback knowledge for ${lang}:`, _fallbackError);
     }
   }
 
@@ -157,6 +156,10 @@ const articleSchema = {
   articleSection: "Music Knowledge",
   wordCount: entry.body?.length || 0,
 };
+
+// Compute word count and reading time using utilities (words, not characters)
+const wordsCount = entry.body ? entry.body.trim().split(/\s+/).length : 0;
+const readingResult = getReadingTime(entry.body || "", { languageCode: lang });
 
 function translate(key: string, fallback: string): string {
   try {
@@ -270,8 +273,8 @@ function translate(key: string, fallback: string): string {
             >
               <Icon name="clock" class="h-4 w-4 text-green-400 sm:h-5 sm:w-5" aria-hidden="true" />
               <span class="text-xs text-gray-300 sm:text-sm">
-                {Math.ceil((entry.body?.length || 0) / 200)}
-                {translate("knowledge.reading.time", "min read")}
+                {readingResult.minutes}
+                {t("knowledge.reading.time")}
               </span>
             </div>
 
@@ -284,8 +287,7 @@ function translate(key: string, fallback: string): string {
                 aria-hidden="true"
               />
               <span class="text-xs text-gray-300 sm:text-sm">
-                {entry.body?.length || 0}
-                {translate("knowledge.word_count", "words")}
+                {t("knowledge.word_count", { count: wordsCount })}
               </span>
             </div>
           </div>

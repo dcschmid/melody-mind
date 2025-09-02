@@ -8,6 +8,8 @@ export default {
   "knowledge.search.subtitle": "Hitta artiklar efter titel, beskrivning eller nyckelord",
   "knowledge.search.placeholder": "Sök artiklar...",
   "knowledge.search.reset.text": "Återställ",
+  "knowledge.back.to.list": "Tillbaka till artikellistan",
+  "knowledge.word_count": "{count} ord",
   "podcasts.note.only_english": "Observera: Podcasts finns för närvarande endast på engelska.",
   "podcasts.navigation.aria": "Episodnavigering",
 

@@ -8,6 +8,8 @@ export default {
   "knowledge.search.subtitle": "Знайдіть статті за заголовком, описом або ключовими словами",
   "knowledge.search.placeholder": "Пошук статей...",
   "knowledge.search.reset.text": "Скинути",
+  "knowledge.back.to.list": "Повернутися до списку статей",
+  "knowledge.word_count": "{count} слів",
   "podcasts.note.only_english": "Примітка: подкасти наразі доступні лише англійською.",
   "podcasts.navigation.aria": "Навігація по епізодах",
 

@@ -8,6 +8,8 @@ export default {
   "knowledge.search.placeholder": "Search articles...",
   "knowledge.search.subtitle": "Find articles by title, description, or keywords",
   "knowledge.search.reset.text": "Reset",
+  "knowledge.word_count": "{count} words",
+    "knowledge.back.to.list": "Back to knowledge list",
   "podcasts.note.only_english": "Note: Podcasts are currently available only in English.",
   "podcasts.navigation.aria": "Episode navigation",
   "share.challenge_fallback": "Think you can beat me? Play now at:",

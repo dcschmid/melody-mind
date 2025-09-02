@@ -8,6 +8,8 @@ export default {
   "knowledge.search.subtitle": "Vind artikelen op titel, beschrijving of trefwoorden",
   "knowledge.search.placeholder": "Zoek artikelen...",
   "knowledge.search.reset.text": "Resetten",
+  "knowledge.back.to.list": "Terug naar artikeloverzicht",
+  "knowledge.word_count": "{count} woorden",
   "podcasts.note.only_english": "Let op: podcasts zijn momenteel alleen in het Engels beschikbaar.",
   "podcasts.navigation.aria": "Episodenavigatie",
 

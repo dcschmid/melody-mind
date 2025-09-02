@@ -6,8 +6,10 @@ export default {
   "knowledge.search.label": "Nach Titel oder Beschreibung suchen",
   "knowledge.search.title": "Artikel suchen",
   "knowledge.search.subtitle": "Finde Artikel nach Titel, Beschreibung oder Schlüsselwörtern",
+  "knowledge.word_count": "{count} Wörter",
   "knowledge.search.placeholder": "Artikel suchen...",
   "knowledge.search.reset.text": "Zurücksetzen",
+  "knowledge.back.to.list": "Zurück zur Artikelliste",
   "podcasts.note.only_english": "Hinweis: Podcasts sind derzeit nur auf Englisch verfügbar.",
   "podcasts.navigation.aria": "Episoden-Navigation",
 

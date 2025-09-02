@@ -8,6 +8,8 @@ export default {
   "knowledge.search.subtitle": "Найдите статьи по заголовку, описанию или ключевым словам",
     "knowledge.search.placeholder": "Поиск статей...",
     "knowledge.search.reset.text": "Сброс",
+  "knowledge.back.to.list": "Вернуться к списку статей",
+    "knowledge.word_count": "{count} слов",
   "podcasts.note.only_english":
     "Примечание: подкасты в настоящее время доступны только на английском языке.",
   "podcasts.navigation.aria": "Навигация по эпизодам",

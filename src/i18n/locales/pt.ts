@@ -8,6 +8,8 @@ export default {
   "knowledge.search.subtitle": "Encontre artigos por título, descrição ou palavras-chave",
   "knowledge.search.placeholder": "Pesquisar artigos...",
   "knowledge.search.reset.text": "Redefinir",
+  "knowledge.back.to.list": "Voltar à lista de artigos",
+  "knowledge.word_count": "{count} palavras",
   "podcasts.note.only_english": "Nota: os podcasts estão atualmente disponíveis apenas em inglês.",
   "podcasts.navigation.aria": "Navegação de episódios",
 
