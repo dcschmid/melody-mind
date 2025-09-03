@@ -485,4 +485,10 @@ export default {
   "podcasts.navigation.previous": "Previous episode",
   "pages.imprint.title": "Imprint",
   "pages.privacy.title": "Privacy Policy",
+  "pages.imprint.legal_notice_intro": "Legal notice — this page contains provider legal and contact information.",
+  "pages.imprint.company_name": "Daniel Schmid",
+  "pages.imprint.address": "Hiltenspergerstr. 78\n80796 Munich\nGermany",
+  "pages.imprint.contact_label": "E‑mail:",
+  "pages.imprint.contact_email": "dcschmid@murena.io",
+  "pages.imprint.email_note": "For inquiries: dcschmid@murena.io",
 };

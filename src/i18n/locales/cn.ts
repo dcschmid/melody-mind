@@ -470,4 +470,10 @@ export default {
   "musicPlatforms.platform.apple": "Apple Music",
   "pages.imprint.title": "出版信息",
   "pages.privacy.title": "隐私政策",
+  "pages.imprint.legal_notice_intro": "法律声明——本页包含提供者的法律与联系信息。",
+  "pages.imprint.company_name": "Daniel Schmid",
+  "pages.imprint.address": "Hiltenspergerstr. 78\n80796 慕尼黑\n德国",
+  "pages.imprint.contact_label": "电子邮件:",
+  "pages.imprint.contact_email": "dcschmid@murena.io",
+  "pages.imprint.email_note": "如有询问: dcschmid@murena.io",
 };

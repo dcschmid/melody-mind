@@ -1,0 +1,31 @@
+---
+/**
+ * Reusable imprint address block.
+ * Props: t (translation function)
+ */
+import Paragraph from "@components/Paragraph.astro";
+const { t } = Astro.props;
+
+const addressLines = t("pages.imprint.address").split("\n");
+const addressHtml = addressLines.join("<br/>");
+const contactEmail = t("pages.imprint.contact_email") ?? "dcschmid@murena.io";
+const contactLabel = t("pages.imprint.contact_label") ?? "E‑mail:";
+const company = t("pages.imprint.company_name");
+---
+
+<div>
+  <address class="not-italic">
+    <Paragraph>
+      <strong>{company}</strong>
+    </Paragraph>
+    <Paragraph className="mt-2"><div set:html={addressHtml} /></Paragraph>
+    <Paragraph className="mt-4">
+      <strong>{contactLabel}</strong>
+      <a
+        href={`mailto:${contactEmail}`}
+        class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+        >{contactEmail}</a
+      >
+    </Paragraph>
+  </address>
+</div>

@@ -492,4 +492,10 @@ export default {
   "musicPlatforms.description": "Luister naar deze afspeellijst op populaire muziekplatforms",
   "pages.imprint.title": "Colofon",
   "pages.privacy.title": "Privacybeleid",
+  "pages.imprint.legal_notice_intro": "Juridische kennisgeving — deze pagina bevat de juridische en contactgegevens van de aanbieder.",
+  "pages.imprint.company_name": "Daniel Schmid",
+  "pages.imprint.address": "Hiltenspergerstr. 78\n80796 München\nDuitsland",
+  "pages.imprint.contact_label": "E‑mail:",
+  "pages.imprint.contact_email": "dcschmid@murena.io",
+  "pages.imprint.email_note": "Voor vragen: dcschmid@murena.io",
 };

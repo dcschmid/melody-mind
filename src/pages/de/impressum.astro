@@ -7,11 +7,14 @@
 import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
+import ImprintAddress from "@components/ImprintAddress.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 // Get current language and translation function
 const lang = getLangFromUrl(Astro.url) as string;
 const t = useTranslations(String(lang));
+
+// no local helpers — component handles translation rendering
 
 // Enable static generation for better caching
 export const prerender = true;
@@ -34,34 +37,21 @@ const description =
         <section class="mb-16 last:mb-0">
           <Headline level="h2" title="Verantwortlich für den Inhalt" />
           <div class="mt-6">
-            <Paragraph>
-              <strong>{t("pages.imprint.company_name")}</strong><br />{
-                t("pages.imprint.address")
-              }</Paragraph
-            >
+            <ImprintAddress {t} />
           </div>
         </section>
 
         <section class="mb-16 last:mb-0">
           <Headline level="h2" title="Kontakt" />
           <div class="mt-6">
-            <Paragraph>
-              <strong>E‑Mail:</strong>
-              <a
-                href="mailto:dcschmid@murena.io"
-                class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                >dcschmid@murena.io</a
-              ><br />
-            </Paragraph>
+            <ImprintAddress {t} />
           </div>
         </section>
 
         <section class="mb-16 last:mb-0">
           <Headline level="h2" title="Redaktionell verantwortlich" />
           <div class="mt-6">
-            <Paragraph
-              >{t("pages.imprint.company_name")}<br />{t("pages.imprint.address")}</Paragraph
-            >
+            <ImprintAddress {t} />
           </div>
         </section>
 

@@ -492,4 +492,10 @@ export default {
   "musicPlatforms.platform.apple": "Apple Music",
   "pages.imprint.title": "Реквізити",
   "pages.privacy.title": "Політика конфіденційності",
+  "pages.imprint.legal_notice_intro": "Юридичне зауваження — ця сторінка містить юридичну інформацію та контактні дані постачальника.",
+  "pages.imprint.company_name": "Daniel Schmid",
+  "pages.imprint.address": "Hiltenspergerstr. 78\n80796 Мюнхен\nНімеччина",
+  "pages.imprint.contact_label": "Ел. пошта:",
+  "pages.imprint.contact_email": "dcschmid@murena.io",
+  "pages.imprint.email_note": "За питаннями: dcschmid@murena.io",
 };
