@@ -10,6 +10,7 @@ export default {
   "knowledge.search.reset.text": "Nulstil",
   "knowledge.back.to.list": "Tilbage til artikellisten",
   "knowledge.word_count": "{count} ord",
+  "knowledge.description": "Dyk dybere ned i musikgenrer — deres historie, toneangivende kunstnere og historierne bag lydene. Find dybdegående analyser, lytteforslag og kuraterede eksempler, der uddyber din forståelse og inspirerer dine næste playlister.",
   "podcasts.note.only_english": "Bemærk: Podcasts er i øjeblikket kun tilgængelige på engelsk.",
   "podcasts.navigation.aria": "Episode-navigation",
 

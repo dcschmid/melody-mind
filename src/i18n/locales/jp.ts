@@ -10,6 +10,7 @@ export default {
   "knowledge.search.reset.text": "リセット",
   "knowledge.back.to.list": "記事一覧に戻る",
   "knowledge.word_count": "{count}語",
+  "knowledge.description": "ジャンルをさらに深掘りしましょう — その歴史、重要なアーティスト、音の背後にある物語。詳細な解説、リスニングのヒント、厳選された例で理解を深め、次のプレイリストのインスピレーションにしてください。",
   "podcasts.note.only_english": "注: ポッドキャストは現在英語のみで提供されています。",
   "podcasts.navigation.aria": "エピソードナビゲーション",
 

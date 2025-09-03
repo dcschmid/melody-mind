@@ -10,6 +10,7 @@ export default {
   "knowledge.search.reset.text": "Reset",
   "knowledge.word_count": "{count} words",
     "knowledge.back.to.list": "Back to knowledge list",
+  "knowledge.description": "Explore genres in depth — their histories, landmark artists and the stories behind the sounds. Read long-form analyses, listening tips and curated examples to deepen your appreciation and inspire your next playlists.",
   "podcasts.note.only_english": "Note: Podcasts are currently available only in English.",
   "podcasts.navigation.aria": "Episode navigation",
   "share.challenge_fallback": "Think you can beat me? Play now at:",

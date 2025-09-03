@@ -308,6 +308,7 @@ export default {
   "knowledge.reading.time": "Min. Lesezeit",
   "knowledge.reading.time.label": "Lesezeit",
   "knowledge.title": "Musik-Wissensbasis",
+  "knowledge.description": "Tauche tiefer in die Welt der Musikgenres ein — ihre Geschichte, prägenden Künstler und die Geschichten hinter den Klängen. Entdecke fundierte Einblicke, Hörtipps und kuratierte Beispiele, die dein Verständnis vertiefen und deine nächsten Playlists inspirieren.",
   "language.change.error": "Sprachwechsel fehlgeschlagen. Bitte erneut versuchen.",
   "language.change.success": "Sprache gewechselt zu {language}",
   "language.da": "Dänisch",

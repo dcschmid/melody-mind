@@ -10,6 +10,7 @@ export default {
   "knowledge.search.reset.text": "Resetten",
   "knowledge.back.to.list": "Terug naar artikeloverzicht",
   "knowledge.word_count": "{count} woorden",
+  "knowledge.description": "Duik dieper in muziekgenres — hun geschiedenis, invloedrijke artiesten en de verhalen achter de klanken. Ontdek diepgaande analyses, luistertips en zorgvuldig samengestelde voorbeelden om je begrip te verdiepen en je volgende afspeellijsten te inspireren.",
   "podcasts.note.only_english": "Let op: podcasts zijn momenteel alleen in het Engels beschikbaar.",
   "podcasts.navigation.aria": "Episodenavigatie",
 

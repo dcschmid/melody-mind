@@ -10,6 +10,7 @@ export default {
   "knowledge.search.reset.text": "Återställ",
   "knowledge.back.to.list": "Tillbaka till artikellistan",
   "knowledge.word_count": "{count} ord",
+  "knowledge.description": "Fördjupa dig i musikgenrer — deras historia, inflytelserika artister och berättelserna bakom ljuden. Utforska djupgående analyser, lyssningstips och handplockade exempel för att fördjupa din uppskattning och inspirera dina nästa spellistor.",
   "podcasts.note.only_english": "Observera: Podcasts finns för närvarande endast på engelska.",
   "podcasts.navigation.aria": "Episodnavigering",
 

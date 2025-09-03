@@ -10,6 +10,7 @@ export default {
   "knowledge.search.reset.text": "Réinitialiser",
   "knowledge.back.to.list": "Retour à la liste d'articles",
   "knowledge.word_count": "{count} mots",
+  "knowledge.description": "Plongez au cœur des genres musicaux \u2014 leur histoire, les artistes embl\u00e9matiques et les r\u00e9cits qui fa\u00e7onnent leurs sonorit\u00e9s. Découvrez des analyses, des conseils d\u2019\u00e9coute et des exemples adapt\u00e9s pour enrichir votre écoute et inspirer vos playlists.",
   "podcasts.note.only_english":
     "Remarque : les podcasts sont pour l'instant disponibles uniquement en anglais.",
   "podcasts.navigation.aria": "Navigation des épisodes",

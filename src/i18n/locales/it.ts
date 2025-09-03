@@ -10,6 +10,7 @@ export default {
   "knowledge.search.reset.text": "Reimposta",
   "knowledge.back.to.list": "Torna all'elenco degli articoli",
   "knowledge.word_count": "{count} parole",
+  "knowledge.description": "Approfondisci i generi musicali: le loro storie, gli artisti che li hanno definiti e le narrazioni dietro i suoni. Scopri approfondimenti, suggerimenti d'ascolto e esempi curati per arricchire la tua esperienza e ispirare le tue playlist.",
   "podcasts.note.only_english": "Nota: i podcast sono attualmente disponibili solo in inglese.",
   "podcasts.navigation.aria": "Navigazione episodi",
   "podcast.title": "Podcast",

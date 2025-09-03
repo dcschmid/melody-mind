@@ -10,6 +10,7 @@ export default {
   "knowledge.back.to.list": "返回文章列表",
   "knowledge.word_count": "{count} 字",
     "knowledge.search.title": "搜索文章",
+  "knowledge.description": "深入探索音乐流派 —— 了解它们的历史、里程碑式艺术家以及声音背后的故事。浏览长篇分析、聆听建议与精选示例，深化你的理解并为下一张播放列表提供灵感。",
   "podcasts.note.only_english": "说明：播客目前仅提供英文内容。",
   "podcasts.navigation.aria": "剧集导航",
 

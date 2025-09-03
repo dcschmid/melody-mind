@@ -10,6 +10,7 @@ export default {
   "knowledge.search.reset.text": "Redefinir",
   "knowledge.back.to.list": "Voltar à lista de artigos",
   "knowledge.word_count": "{count} palavras",
+  "knowledge.description": "Mergulhe nos gêneros musicais — sua história, artistas essenciais e as histórias por trás dos sons. Explore análises aprofundadas, dicas de audição e exemplos selecionados para aprofundar sua apreciação e inspirar suas próximas playlists.",
   "podcasts.note.only_english": "Nota: os podcasts estão atualmente disponíveis apenas em inglês.",
   "podcasts.navigation.aria": "Navegação de episódios",
 

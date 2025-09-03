@@ -10,6 +10,7 @@ export default {
   "knowledge.search.reset.text": "Nollaa",
   "knowledge.back.to.list": "Takaisin artikkelilistaan",
   "knowledge.word_count": "{count} sanaa",
+  "knowledge.description": "Sukella syvemmälle musiikkigenreihin — niiden historiaan, keskeisiin artisteihin ja tarinoihin äänien takana. Tutustu syvällisiin analyyseihin, kuunteluvinkkeihin ja huolella valittuihin esimerkkeihin, jotka syventävät ymmärrystäsi ja innoittavat seuraavia soittolistojasi.",
   "podcasts.note.only_english": "Huom: Podcastit ovat tällä hetkellä saatavilla vain englanniksi.",
   "podcasts.navigation.aria": "Jaksojen navigointi",
 

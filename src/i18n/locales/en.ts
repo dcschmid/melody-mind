@@ -301,6 +301,7 @@ export default {
   "knowledge.reading.time": "min read",
   "knowledge.reading.time.label": "Reading time",
   "knowledge.title": "Music Knowledge Base",
+  "knowledge.description": "Dive deeper into music genres — their histories, defining artists and the stories behind the sounds. Explore expert insights, listening tips and curated examples to deepen your appreciation and guide your next playlist.",
   "language.change.error": "Language change failed. Please try again.",
   "language.change.success": "Language changed to {language}",
   "language.da": "Danish",
