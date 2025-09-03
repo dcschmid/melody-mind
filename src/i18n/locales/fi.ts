@@ -270,6 +270,7 @@ export default {
   "game.search.showing.all": "Näytetään kaikki genret",
   "game.select":
     "🎵 Valmis musiikkiseikkailuun? Sukella rytmin, melodian ja ikimuistoisten kappaleiden maailmaan! Löydä täydellinen musiikkitaistelu ja näytä, että olet todellinen musiikkituntija!",
+  "game.start.now": "Aloita nyt",
   "game.submit.answer": "Tarkista vastaus",
   "game.submit.answer.aria": "Tarkista nykyinen järjestys ja siirry seuraavaan kierrokseen",
   "game.welcome": "Tervetuloa Melody Mindiin",
@@ -494,4 +495,6 @@ export default {
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
+  "pages.imprint.title": "Julkaisijatiedot",
+  "pages.privacy.title": "Tietosuojakäytäntö",
 };

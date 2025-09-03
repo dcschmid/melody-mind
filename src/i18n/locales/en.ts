@@ -266,6 +266,7 @@ export default {
   "game.search.showing.all": "Showing all genres",
   "game.select":
     "🎵 Ready for the ultimate music adventure? Dive into rhythm, melody, and unforgettable tracks! From epic guitar solos to timeless classics — find your musical battleground and prove your mastery!",
+  "game.start.now": "Start now",
   "game.submit.answer": "Check answer",
   "game.submit.answer.aria": "Check current order and proceed to next round",
   "game.welcome": "Welcome to Melody Mind",
@@ -485,4 +486,6 @@ export default {
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
+  "pages.imprint.title": "Imprint",
+  "pages.privacy.title": "Privacy Policy",
 };

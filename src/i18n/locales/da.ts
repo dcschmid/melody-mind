@@ -263,6 +263,7 @@ export default {
   "game.search.showing.all": "Viser alle genrer",
   "game.select":
     "🎵 Klar til den ultimative musikoplevelse? Dyk ned i en verden af rytme, melodi og uforglemmelige sange! Fra eksplosive guitarsoloer til tidløse klassikere — find din musikalske kampplads og vis, at du er en sand musikkyndig!",
+  "game.start.now": "Start nu",
   "game.submit.answer": "Tjek svar",
   "game.submit.answer.aria": "Tjek nuværende rækkefølge og fortsæt til næste runde",
   "game.welcome": "Velkommen til Melody Mind",
@@ -482,4 +483,6 @@ export default {
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
+  "pages.imprint.title": "Juridiske oplysninger",
+  "pages.privacy.title": "Fortrolighedspolitik",
 };

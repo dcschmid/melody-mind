@@ -261,6 +261,7 @@ export default {
   "game.search.showing.all": "すべてのジャンルを表示",
   "game.select":
     "🎵 究極の音楽アドベンチャーの準備はできた？リズムやメロディ、忘れられない曲の世界へ飛び込もう！圧倒的なギターソロから時代を超えた名曲まで—あなたの音楽バトルを見せつけて！",
+  "game.start.now": "今すぐ開始",
   "game.submit.answer": "回答を確認",
   "game.submit.answer.aria": "現在の順序を確認して次のラウンドへ進む",
   "game.welcome": "Melody Mindへようこそ",
@@ -483,4 +484,6 @@ export default {
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
+  "pages.imprint.title": "インプリント",
+  "pages.privacy.title": "プライバシーポリシー",
 };

@@ -272,6 +272,7 @@ export default {
   "game.search.showing.all": "Alle Genres werden angezeigt",
   "game.select":
     "🎵 Bereit für das ultimative Musikabenteuer? Tauche ein in eine Welt aus Rhythmus, Melodie und unvergesslichen Songs! Von heftigen Gitarrensoli bis zu zeitlosen Klassikern – finde deine musikalische Herausforderung. Zeig der Welt, dass du ein:e wahre:r Musikkenner:in bist!",
+  "game.start.now": "Jetzt starten",
   "game.submit.answer": "Antwort prüfen",
   "game.submit.answer.aria": "Aktuelle Reihenfolge prüfen und zur nächsten Runde wechseln",
   "game.welcome": "Willkommen bei Melody Mind",
@@ -498,4 +499,6 @@ export default {
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
+  "pages.imprint.title": "Impressum",
+  "pages.privacy.title": "Datenschutzerklärung",
 };

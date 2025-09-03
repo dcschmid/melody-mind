@@ -265,6 +265,7 @@ export default {
   "game.search.showing.all": "Visar alla genrer",
   "game.select":
     "🎵 Redo för det ultimata musikäventyret? Dyk in i en värld av rytm, melodi och oförglömliga låtar! Visa världen att du är en sann musikexpert!",
+  "game.start.now": "Starta nu",
   "game.submit.answer": "Kontrollera svar",
   "game.submit.answer.aria": "Kontrollera aktuell ordning och fortsätt till nästa runda",
   "game.welcome": "Välkommen till Melody Mind",
@@ -360,4 +361,6 @@ export default {
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
+  "pages.imprint.title": "Impressum",
+  "pages.privacy.title": "Integritetspolicy",
 };

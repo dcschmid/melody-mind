@@ -270,6 +270,7 @@ export default {
   "game.search.showing.all": "Mostra tutti i generi",
   "game.select":
     "🎵 Pronto per l'ultima avventura musicale? Immergiti in un mondo di ritmo, melodie e brani indimenticabili! Dai assoli di chitarra mozzafiato ai classici senza tempo – trova il tuo duello musicale perfetto. Dimostra al mondo di essere un vero intenditore di musica!",
+  "game.start.now": "Inizia ora",
   "game.submit.answer": "Controlla risposta",
   "game.submit.answer.aria": "Controlla l'ordine corrente e procedi al round successivo",
   "game.welcome": "Benvenuto in Melody Mind",
@@ -496,4 +497,6 @@ export default {
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
+  "pages.imprint.title": "Informazioni legali",
+  "pages.privacy.title": "Informativa sulla privacy",
 };

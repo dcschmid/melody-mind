@@ -240,6 +240,7 @@ export default {
   "game.search.showing.all": "Showing all genres",
   "game.select":
     "🎵 Ready for the ultimate music adventure? Dive into a world of rhythm, melody, and unforgettable songs! From crushing guitar solos to timeless classics – find your perfect musical battle. Show the world you're a true music connoisseur!",
+  "game.start.now": "Start now",
   "game.submit.answer": "Check Answer",
   "game.submit.answer.aria": "Check current order and proceed to next round",
   "game.welcome": "Welcome to Melody Mind",
@@ -482,4 +483,6 @@ export default {
   "podcasts.cta.browse": "Browse podcasts",
   "podcasts.navigation.next": "Next episode",
   "podcasts.navigation.previous": "Previous episode",
+  "pages.imprint.title": "Imprint",
+  "pages.privacy.title": "Privacy Policy",
 };

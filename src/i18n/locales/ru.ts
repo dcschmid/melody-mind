@@ -267,6 +267,7 @@ export default {
   "game.search.showing.all": "Показаны все жанры",
   "game.select":
     "🎵 Готовы к невероятному музыкальному приключению? Погрузитесь в мир ритма, мелодий и незабываемых треков! От бешеных гитарных соло до бессмертной классики — найдите своё музыкальное сражение. Докажите, что вы настоящий знаток!",
+  "game.start.now": "Начать сейчас",
   "game.submit.answer": "Проверить ответ",
   "game.submit.answer.aria": "Проверить текущий порядок и перейти к следующему раунду",
   "game.welcome": "Добро пожаловать в Melody Mind",
@@ -491,4 +492,6 @@ export default {
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
+  "pages.imprint.title": "Юридическая информация",
+  "pages.privacy.title": "Политика конфиденциальности",
 };

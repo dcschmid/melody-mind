@@ -267,6 +267,7 @@ export default {
   "game.search.showing.all": "Alle genres weergeven",
   "game.select":
     "🎵 Klaar voor het ultieme muziekavontuur? Duik in ritmes, melodieën en onvergetelijke nummers. Vind jouw muzikale strijd en bewijs dat je een echte muziekkenner bent!",
+  "game.start.now": "Nu starten",
   "game.submit.answer": "Controleer antwoord",
   "game.submit.answer.aria": "Controleer huidige volgorde en ga naar de volgende ronde",
   "game.welcome": "Welkom bij Melody Mind",
@@ -489,4 +490,6 @@ export default {
   "knowledge.read.more": "Lees meer",
   "knowledge.read.article": "Lees artikel",
   "musicPlatforms.description": "Luister naar deze afspeellijst op populaire muziekplatforms",
+  "pages.imprint.title": "Colofon",
+  "pages.privacy.title": "Privacybeleid",
 };

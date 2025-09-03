@@ -259,6 +259,7 @@ export default {
   "game.search.showing.all": "显示所有流派",
   "game.select":
     "🎵 准备好迎接终极音乐冒险了吗？沉浸在节奏、旋律与难忘歌曲的世界！从震撼的吉他独奏到经典名曲——寻找你的音乐对决，向世界证明你是真正的音乐鉴赏者！",
+  "game.start.now": "立即开始",
   "game.submit.answer": "提交答案",
   "game.submit.answer.aria": "检查当前顺序并继续到下一回合",
   "game.welcome": "欢迎来到 Melody Mind",
@@ -467,4 +468,6 @@ export default {
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
+  "pages.imprint.title": "出版信息",
+  "pages.privacy.title": "隐私政策",
 };

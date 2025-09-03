@@ -267,6 +267,7 @@ export default {
   "game.search.showing.all": "Показуються всі жанри",
   "game.select":
     "🎵 Готові до найепічнішої музичної пригоди? Пориньте у світ ритму, мелодії та незабутніх треків! Покажіть, що ви справжній поціновувач музики!",
+  "game.start.now": "Почати зараз",
   "game.submit.answer": "Перевірити відповідь",
   "game.submit.answer.aria": "Перевірити поточний порядок та перейти до наступного раунду",
   "game.welcome": "Ласкаво просимо до Melody Mind",
@@ -489,4 +490,6 @@ export default {
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
+  "pages.imprint.title": "Реквізити",
+  "pages.privacy.title": "Політика конфіденційності",
 };
