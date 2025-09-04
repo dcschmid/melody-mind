@@ -162,8 +162,8 @@ class ChronologyGame {
     this.categoryName = this.container?.dataset.categoryName || "";
     this.userId = this.container?.dataset.userId || "guest";
 
-  // Mark fallback method as referenced to satisfy linter (no-op)
-  this._ensureShowBasicFeedbackUsed();
+    // Mark fallback method as referenced to satisfy linter (no-op)
+    this._ensureShowBasicFeedbackUsed();
 
     // Initialize round to 1 and set totalRounds based on difficulty
     this.round = 1;

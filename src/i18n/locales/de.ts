@@ -109,7 +109,8 @@ export default {
   "news.readMore": "Weiterlesen",
   "news.disclaimer.title": "Hinweis zu den Nachrichten",
   "news.legal.attribution": "Bilder und Inhalte sind den jeweiligen Herausgebern zugeordnet.",
-  "news.disclaimer.text": "Der News-Feed aggregiert Inhalte externer Herausgeber. Wir beanspruchen kein Eigentum an Drittinhalten. Öffne den Originalartikel für den vollständigen Kontext.",
+  "news.disclaimer.text":
+    "Der News-Feed aggregiert Inhalte externer Herausgeber. Wir beanspruchen kein Eigentum an Drittinhalten. Öffne den Originalartikel für den vollständigen Kontext.",
   "nav.donate.description": "Unterstütze das Projekt mit einer kleinen Spende",
   "error.extend.tooltip": "Fehlermeldungs-Timeout um 5 Sekunden verlängern",
   "error.invalid.question": "Ungültige Frage oder keine Antwortoptionen vorhanden",
@@ -317,7 +318,8 @@ export default {
   "knowledge.reading.time": "Min. Lesezeit",
   "knowledge.reading.time.label": "Lesezeit",
   "knowledge.title": "Musik-Wissensbasis",
-  "knowledge.description": "Tauche tiefer in die Welt der Musikgenres ein — ihre Geschichte, prägenden Künstler und die Geschichten hinter den Klängen. Entdecke fundierte Einblicke, Hörtipps und kuratierte Beispiele, die dein Verständnis vertiefen und deine nächsten Playlists inspirieren.",
+  "knowledge.description":
+    "Tauche tiefer in die Welt der Musikgenres ein — ihre Geschichte, prägenden Künstler und die Geschichten hinter den Klängen. Entdecke fundierte Einblicke, Hörtipps und kuratierte Beispiele, die dein Verständnis vertiefen und deine nächsten Playlists inspirieren.",
   "language.change.error": "Sprachwechsel fehlgeschlagen. Bitte erneut versuchen.",
   "language.change.success": "Sprache gewechselt zu {language}",
   "language.da": "Dänisch",
@@ -375,11 +377,12 @@ export default {
   "meta.keywords":
     "Musikquiz, Musikspiel, Song-Quiz, Künstler-Quiz, Online-Musikquiz, Musiktrivia, Melody Mind, Musikraten",
   "musicPlatforms.externalNotice":
-    "Links zu externen Musikplattformen können ein Konto oder ein Abonnement für vollen Zugriff erfordern.",
-  "musicPlatforms.heading": "Verwandte Musik anhören",
+    "External music platform links may require accounts or subscriptions for full access.",
+  "musicPlatforms.heading": "Listen to Related Music",
   "musicPlatforms.keyboardInstructions":
-    "Mit Tab durch Musikplattformen navigieren. Drücke Enter oder Leertaste, um Plattformen in neuem Tab zu öffnen.",
-  "nav.ariaLabel": "Hauptnavigation",
+    "Navigate music platforms using Tab key. Press Enter or Space to open platforms in new tabs.",
+  "musicPlatforms.platform.youtube": "YouTube",
+  "nav.ariaLabel": "Main navigation",
   "nav.donate.coffee": "Kauf uns einen Kaffee",
   "nav.donate.heading": "Unterstütze uns",
   "nav.donate.paypal": "Per PayPal spenden",
@@ -509,19 +512,27 @@ export default {
   "musicPlatforms.platform.apple": "Apple Music",
   "pages.imprint.title": "Impressum",
   "pages.privacy.title": "Datenschutzerklärung",
-  "pages.privacy.intro_p1": "Diese Datenschutzerklärung erklärt, welche personenbezogenen Daten wir erfassen und wie wir sie verwenden.",
+  "pages.privacy.intro_p1":
+    "Diese Datenschutzerklärung erklärt, welche personenbezogenen Daten wir erfassen und wie wir sie verwenden.",
   "pages.privacy.responsible_party": "Verantwortliche Stelle: {name}",
   "pages.privacy.contact": "Kontakt:",
   "pages.privacy.contact.address": "Hiltenspergerstr. 78\n80796 München\nDeutschland",
   "pages.privacy.contact.email_label": "E-Mail:",
-  "pages.privacy.data_collected.manual": "Manuell bereitgestellte Daten (Kontoinformationen, Nachrichten, Einstellungen)",
-  "pages.privacy.data_collected.automatic": "Automatisch erfasste Daten (Logs, Nutzung, Gerätedaten)",
-  "pages.privacy.turso_storage": "Bestimmte Daten werden in Turso für schnellen Edge‑Zugriff gespeichert.",
-  "pages.privacy.cookies": "Wir verwenden Cookies und ähnliche Technologien, um den Dienst zu verbessern.",
+  "pages.privacy.data_collected.manual":
+    "Manuell bereitgestellte Daten (Kontoinformationen, Nachrichten, Einstellungen)",
+  "pages.privacy.data_collected.automatic":
+    "Automatisch erfasste Daten (Logs, Nutzung, Gerätedaten)",
+  "pages.privacy.turso_storage":
+    "Bestimmte Daten werden in Turso für schnellen Edge‑Zugriff gespeichert.",
+  "pages.privacy.cookies":
+    "Wir verwenden Cookies und ähnliche Technologien, um den Dienst zu verbessern.",
   "pages.privacy.user_rights_title": "Ihre Rechte",
-  "pages.privacy.user_rights_text": "Sie können Zugang, Berichtigung, Löschung oder Einschränkung Ihrer personenbezogenen Daten verlangen.",
-  "pages.privacy.analytics": "Wir verwenden datenschutzfreundliche Analysewerkzeuge zur Messung der Nutzung.",
-  "pages.imprint.legal_notice_intro": "Dieses Impressum enthält rechtliche Hinweise, Kontaktinformationen und Angaben zum Anbieter.",
+  "pages.privacy.user_rights_text":
+    "Sie können Zugang, Berichtigung, Löschung oder Einschränkung Ihrer personenbezogenen Daten verlangen.",
+  "pages.privacy.analytics":
+    "Wir verwenden datenschutzfreundliche Analysewerkzeuge zur Messung der Nutzung.",
+  "pages.imprint.legal_notice_intro":
+    "Dieses Impressum enthält rechtliche Hinweise, Kontaktinformationen und Angaben zum Anbieter.",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 München\nDeutschland",
   "pages.imprint.contact_label": "E‑Mail:",

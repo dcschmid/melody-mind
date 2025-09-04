@@ -440,6 +440,8 @@ const newsStructuredData = items.length
                           target="_blank"
                           rel="noopener noreferrer"
                           itemprop="url"
+                          class="external-link"
+                          data-external-label={item.source}
                         >
                           {item.title}
                         </a>
@@ -457,8 +459,9 @@ const newsStructuredData = items.length
                         href={item.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="text-lf inline-flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-2 font-medium text-white transition-colors duration-300 hover:bg-purple-700"
+                        class="text-lf external-link inline-flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-2 font-medium text-white transition-colors duration-300 hover:bg-purple-700"
                         aria-label={`${t("news.readMore")} - ${item.title}`}
+                        data-external-label={item.source}
                       >
                         {t("news.readMore")}
                         <span class="text-lg" aria-hidden="true">

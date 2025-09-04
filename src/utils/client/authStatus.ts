@@ -187,9 +187,9 @@ export async function validateAndRefreshSession(): Promise<boolean> {
     lastValidationAttempt = now;
     validationAttempts++;
 
-  // Local auth check removed - always return false
-  validationInProgress = false;
-  return false;
+    // Local auth check removed - always return false
+    validationInProgress = false;
+    return false;
   } catch {
     validationInProgress = false;
     return false;

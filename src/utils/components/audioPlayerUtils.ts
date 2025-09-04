@@ -1,4 +1,5 @@
 import { safeGetElementById } from "../dom/domUtils";
+import { handleGameError } from "../error/errorHandlingUtils";
 
 /**
  * Audio Player configuration interface
@@ -33,6 +34,8 @@ export class AudioPlayerUtils {
   private config: AudioPlayerConfig;
   private elements: AudioPlayerElements;
   private isPlaying: boolean = false;
+  // Track whether we've already emitted a 'first play' event for analytics
+  private hasEmittedFirstPlayEvent: boolean = false;
   // Use the audio element 'timeupdate' event instead of a setInterval for progress updates.
   // Store the bound handler so we can remove it during cleanup.
   // Typed to `void` return to avoid `any` usage while keeping the native event signature.
@@ -270,6 +273,11 @@ export class AudioPlayerUtils {
    */
   public play(): void {
     if (this.elements.audioElement) {
+      try {
+        this.emitPlayAnalytics();
+      } catch {
+        // analytics must not break playback
+      }
       void this.elements.audioElement.play();
       this.isPlaying = true;
       this.updatePlayPauseButtons();
@@ -357,7 +365,9 @@ export class AudioPlayerUtils {
     const td = safeGetElementById<HTMLElement>("time-display");
     if (td && this.elements.audioElement) {
       const cur = this.formatTime(this.elements.audioElement.currentTime);
-      const dur = this.elements.audioElement.duration ? this.formatTime(this.elements.audioElement.duration) : "0:00";
+      const dur = this.elements.audioElement.duration
+        ? this.formatTime(this.elements.audioElement.duration)
+        : "0:00";
       td.textContent = `${cur} / ${dur}`;
     }
   }
@@ -399,6 +409,50 @@ export class AudioPlayerUtils {
     }
 
     this.updateTimeDisplay();
+  }
+
+  /**
+   * Emit analytics events for play/resume actions using Fathom if available.
+   * - Sends `podcast_play` on the first play for this page load.
+   * - Sends `podcast_resume` for subsequent plays.
+   */
+  private emitPlayAnalytics(): void {
+    try {
+      const fathom = (globalThis as unknown as { fathom?: { trackEvent?: (n: string) => void } }).fathom;
+      if (!fathom || typeof fathom.trackEvent !== "function") {
+        return;
+      }
+
+      const audioEl = this.elements.audioElement;
+      if (!audioEl) {
+        return;
+      }
+
+      const podcastId = (audioEl.dataset && audioEl.dataset.podcastId) || null;
+      const podcastTitle = (audioEl.dataset && audioEl.dataset.podcastTitle) || null;
+
+      if (!this.hasEmittedFirstPlayEvent) {
+        // first play
+        const eventName = podcastId ? `podcast_play_${podcastId}` : "podcast_play";
+        fathom.trackEvent(eventName);
+        if (podcastTitle) {
+          // additional context event
+          fathom.trackEvent(`podcast_play_title_${podcastTitle.replace(/[^a-zA-Z0-9_]/g, "_")}`);
+        }
+        this.hasEmittedFirstPlayEvent = true;
+      } else {
+        // resume
+        const eventName = podcastId ? `podcast_resume_${podcastId}` : "podcast_resume";
+        fathom.trackEvent(eventName);
+      }
+    } catch (error) {
+      // keep analytics non-fatal
+      try {
+        handleGameError(error, "audio analytics");
+      } catch {
+        // swallow
+      }
+    }
   }
 
   /**

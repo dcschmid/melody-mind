@@ -10,7 +10,8 @@ export default {
   "knowledge.search.reset.text": "リセット",
   "knowledge.back.to.list": "記事一覧に戻る",
   "knowledge.word_count": "{count}語",
-  "knowledge.description": "ジャンルをさらに深掘りしましょう — その歴史、重要なアーティスト、音の背後にある物語。詳細な解説、リスニングのヒント、厳選された例で理解を深め、次のプレイリストのインスピレーションにしてください。",
+  "knowledge.description":
+    "ジャンルをさらに深掘りしましょう — その歴史、重要なアーティスト、音の背後にある物語。詳細な解説、リスニングのヒント、厳選された例で理解を深め、次のプレイリストのインスピレーションにしてください。",
   "podcasts.note.only_english": "注: ポッドキャストは現在英語のみで提供されています。",
   "podcasts.navigation.aria": "エピソードナビゲーション",
 
@@ -20,6 +21,7 @@ export default {
   "podcasts.platform.apple": "Apple Music",
   "podcasts.platform.deezer": "Deezer",
   "podcasts.platform.spotify": "Spotify",
+  "podcasts.platform.youtube": "YouTube",
   "podcasts.episode.plural": "エピソード",
   "podcasts.episode.singular": "エピソード",
   "podcast.rss.subscribe": "RSSを購読",
@@ -107,7 +109,8 @@ export default {
   "news.readMore": "続きを読む",
   "news.disclaimer.title": "ニュースの免責事項",
   "news.legal.attribution": "画像とコンテンツは各出版社に帰属します。",
-  "news.disclaimer.text": "ニュースフィードは外部の出版社からコンテンツを集約します。第三者コンテンツの所有権を主張するものではありません。完全な文脈のために元の記事を参照してください。",
+  "news.disclaimer.text":
+    "ニュースフィードは外部の出版社からコンテンツを集約します。第三者コンテンツの所有権を主張するものではありません。完全な文脈のために元の記事を参照してください。",
   "nav.donate.description": "プロジェクトを少額で支援する",
   "error.extend.tooltip": "エラーメッセージの表示時間を5秒延長します",
   "error.invalid.question": "無効な質問、または選択肢がありません",
@@ -361,10 +364,11 @@ export default {
   "meta.keywords":
     "音楽クイズ, 音楽ゲーム, 曲当てクイズ, アーティストクイズ, オンライン音楽クイズ, 音楽トリビア, Melody Mind, 曲を当てるゲーム",
   "musicPlatforms.externalNotice":
-    "外部の音楽プラットフォームのリンクは、完全に利用するためにアカウントやサブスクリプションが必要な場合があります。",
-  "musicPlatforms.heading": "関連音楽を聴く",
+    "External music platform links may require accounts or subscriptions for full access.",
+  "musicPlatforms.heading": "Listen to Related Music",
   "musicPlatforms.keyboardInstructions":
-    "Tabキーで音楽プラットフォームをナビゲートします。EnterまたはSpaceで新しいタブで開きます。",
+    "Navigate music platforms using Tab key. Press Enter or Space to open platforms in new tabs。",
+  "musicPlatforms.platform.youtube": "YouTube",
   "nav.ariaLabel": "メインナビゲーション",
   "nav.donate.coffee": "コーヒーをおごる",
   "nav.donate.heading": "サポートする",
@@ -488,24 +492,27 @@ export default {
   "knowledge.read.article": "記事を読む",
   "musicPlatforms.description": "このプレイリストを人気の音楽プラットフォームで聴く",
   "musicPlatforms.listenOn": "{platform}で{title}を聴く",
-  "musicPlatforms.platform.spotify": "Spotify",
-  "musicPlatforms.platform.deezer": "Deezer",
-  "musicPlatforms.platform.apple": "Apple Music",
+
   "pages.imprint.title": "インプリント",
   "pages.privacy.title": "プライバシーポリシー",
-  "pages.privacy.intro_p1": "このプライバシーポリシーは、収集する個人データとその利用方法について説明します。",
+  "pages.privacy.intro_p1":
+    "このプライバシーポリシーは、収集する個人データとその利用方法について説明します。",
   "pages.privacy.responsible_party": "責任者: {name}",
   "pages.privacy.contact": "連絡先:",
   "pages.privacy.contact.address": "Hiltenspergerstr. 78\n80796 ミュンヘン\nドイツ",
   "pages.privacy.contact.email_label": "メール:",
-  "pages.privacy.data_collected.manual": "手動で提供されるデータ（アカウント情報、メッセージ、設定）",
-  "pages.privacy.data_collected.automatic": "自動的に収集されるデータ（ログ、使用状況、デバイス情報）",
+  "pages.privacy.data_collected.manual":
+    "手動で提供されるデータ（アカウント情報、メッセージ、設定）",
+  "pages.privacy.data_collected.automatic":
+    "自動的に収集されるデータ（ログ、使用状況、デバイス情報）",
   "pages.privacy.turso_storage": "高速なエッジアクセスのために一部のデータを Turso に保存します。",
   "pages.privacy.cookies": "サービス向上のためにクッキーや類似技術を使用します。",
   "pages.privacy.user_rights_title": "あなたの権利",
   "pages.privacy.user_rights_text": "個人データへのアクセス、訂正、削除、処理制限を要求できます。",
-  "pages.privacy.analytics": "サイト利用を測定するため、プライバシーに配慮した解析を使用しています。",
-  "pages.imprint.legal_notice_intro": "法的表示 — 本ページには事業者の法的情報および連絡先が記載されています。",
+  "pages.privacy.analytics":
+    "サイト利用を測定するため、プライバシーに配慮した解析を使用しています。",
+  "pages.imprint.legal_notice_intro":
+    "法的表示 — 本ページには事業者の法的情報および連絡先が記載されています。",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 ミュンヘン\nドイツ",
   "pages.imprint.contact_label": "メール:",

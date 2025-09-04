@@ -10,7 +10,8 @@ export default {
   "knowledge.search.reset.text": "Redefinir",
   "knowledge.back.to.list": "Voltar à lista de artigos",
   "knowledge.word_count": "{count} palavras",
-  "knowledge.description": "Mergulhe nos gêneros musicais — sua história, artistas essenciais e as histórias por trás dos sons. Explore análises aprofundadas, dicas de audição e exemplos selecionados para aprofundar sua apreciação e inspirar suas próximas playlists.",
+  "knowledge.description":
+    "Mergulhe nos gêneros musicais — sua história, artistas essenciais e as histórias por trás dos sons. Explore análises aprofundadas, dicas de audição e exemplos selecionados para aprofundar sua apreciação e inspirar suas próximas playlists.",
   "podcasts.note.only_english": "Nota: os podcasts estão atualmente disponíveis apenas em inglês.",
   "podcasts.navigation.aria": "Navegação de episódios",
 
@@ -20,6 +21,7 @@ export default {
   "podcasts.platform.apple": "Apple Music",
   "podcasts.platform.deezer": "Deezer",
   "podcasts.platform.spotify": "Spotify",
+  "podcasts.platform.youtube": "YouTube",
   "podcasts.episode.plural": "Episódios",
   "podcasts.episode.singular": "Episódio",
   "podcast.rss.subscribe": "Assinar RSS",
@@ -106,12 +108,13 @@ export default {
   "news.title": "Novidades",
   "news.description":
     "Descubra os últimos sucessos, notícias de artistas e tendências musicais do mundo todo",
-    "news.lastUpdated": "Última atualização: {date}",
-    "news.sourcesCount": "Fontes: {count}",
-    "news.readMore": "Leia mais",
-    "news.disclaimer.title": "Aviso sobre notícias",
-    "news.legal.attribution": "Imagens e conteúdo são atribuídos aos seus respectivos editores.",
-    "news.disclaimer.text": "O feed de notícias agrega conteúdo de editores externos. Não reivindicamos a propriedade de conteúdo de terceiros. Clique no artigo original para o contexto completo.",
+  "news.lastUpdated": "Última atualização: {date}",
+  "news.sourcesCount": "Fontes: {count}",
+  "news.readMore": "Leia mais",
+  "news.disclaimer.title": "Aviso sobre notícias",
+  "news.legal.attribution": "Imagens e conteúdo são atribuídos aos seus respectivos editores.",
+  "news.disclaimer.text":
+    "O feed de notícias agrega conteúdo de editores externos. Não reivindicamos a propriedade de conteúdo de terceiros. Clique no artigo original para o contexto completo.",
   "nav.donate.description": "Apoie o projeto com uma pequena doação",
   "error.extend.tooltip": "Estender o tempo de exibição da mensagem de erro em 5 segundos",
   "error.invalid.question": "Pergunta inválida ou sem opções disponíveis",
@@ -376,6 +379,7 @@ export default {
   "musicPlatforms.heading": "Ouça a música relacionada",
   "musicPlatforms.keyboardInstructions":
     "Navegue pelas plataformas usando a tecla Tab. Pressione Enter ou Espaço para abrir em nova aba.",
+  "musicPlatforms.platform.youtube": "YouTube",
   "nav.ariaLabel": "Navegação principal",
   "nav.donate.coffee": "Compre-nos um café",
   "nav.donate.heading": "Apoie-nos",
@@ -500,24 +504,28 @@ export default {
   "knowledge.read.article": "Ler artigo",
   "musicPlatforms.description": "Ouça esta playlist nas plataformas de música mais populares",
   "musicPlatforms.listenOn": "Ouvir {title} em {platform}",
-  "musicPlatforms.platform.spotify": "Spotify",
-  "musicPlatforms.platform.deezer": "Deezer",
-  "musicPlatforms.platform.apple": "Apple Music",
+
   "pages.imprint.title": "Aviso legal",
   "pages.privacy.title": "Política de Privacidade",
-  "pages.privacy.intro_p1": "Esta política de privacidade explica quais dados pessoais coletamos e como os usamos.",
+  "pages.privacy.intro_p1":
+    "Esta política de privacidade explica quais dados pessoais coletamos e como os usamos.",
   "pages.privacy.responsible_party": "Responsável: {name}",
   "pages.privacy.contact": "Contacto:",
   "pages.privacy.contact.address": "Hiltenspergerstr. 78\n80796 Munique\nAlemanha",
   "pages.privacy.contact.email_label": "Email:",
-  "pages.privacy.data_collected.manual": "Dados fornecidos manualmente (detalhes da conta, mensagens, preferências)",
-  "pages.privacy.data_collected.automatic": "Dados coletados automaticamente (logs, uso, informações do dispositivo)",
+  "pages.privacy.data_collected.manual":
+    "Dados fornecidos manualmente (detalhes da conta, mensagens, preferências)",
+  "pages.privacy.data_collected.automatic":
+    "Dados coletados automaticamente (logs, uso, informações do dispositivo)",
   "pages.privacy.turso_storage": "Armazenamos certos dados no Turso para acesso rápido na edge.",
   "pages.privacy.cookies": "Usamos cookies e tecnologias semelhantes para melhorar o serviço.",
   "pages.privacy.user_rights_title": "Seus direitos",
-  "pages.privacy.user_rights_text": "Você pode solicitar acesso, retificação, exclusão ou restrição dos seus dados pessoais.",
-  "pages.privacy.analytics": "Usamos análises que respeitam a privacidade para medir o uso do site.",
-  "pages.imprint.legal_notice_intro": "Aviso legal — esta página contém as informações legais e de contato do fornecedor.",
+  "pages.privacy.user_rights_text":
+    "Você pode solicitar acesso, retificação, exclusão ou restrição dos seus dados pessoais.",
+  "pages.privacy.analytics":
+    "Usamos análises que respeitam a privacidade para medir o uso do site.",
+  "pages.imprint.legal_notice_intro":
+    "Aviso legal — esta página contém as informações legais e de contato do fornecedor.",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 Munique\nAlemanha",
   "pages.imprint.contact_label": "E‑mail:",

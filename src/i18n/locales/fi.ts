@@ -10,7 +10,8 @@ export default {
   "knowledge.search.reset.text": "Nollaa",
   "knowledge.back.to.list": "Takaisin artikkelilistaan",
   "knowledge.word_count": "{count} sanaa",
-  "knowledge.description": "Sukella syvemmälle musiikkigenreihin — niiden historiaan, keskeisiin artisteihin ja tarinoihin äänien takana. Tutustu syvällisiin analyyseihin, kuunteluvinkkeihin ja huolella valittuihin esimerkkeihin, jotka syventävät ymmärrystäsi ja innoittavat seuraavia soittolistojasi.",
+  "knowledge.description":
+    "Sukella syvemmälle musiikkigenreihin — niiden historiaan, keskeisiin artisteihin ja tarinoihin äänien takana. Tutustu syvällisiin analyyseihin, kuunteluvinkkeihin ja huolella valittuihin esimerkkeihin, jotka syventävät ymmärrystäsi ja innoittavat seuraavia soittolistojasi.",
   "podcasts.note.only_english": "Huom: Podcastit ovat tällä hetkellä saatavilla vain englanniksi.",
   "podcasts.navigation.aria": "Jaksojen navigointi",
 
@@ -21,6 +22,7 @@ export default {
   "podcasts.platform.apple": "Apple Music",
   "podcasts.platform.deezer": "Deezer",
   "podcasts.platform.spotify": "Spotify",
+  "podcasts.platform.youtube": "YouTube",
   "podcasts.episode.plural": "Jaksot",
   "podcasts.episode.singular": "Jakso",
   "podcast.rss.subscribe": "Tilaa RSS",
@@ -107,12 +109,13 @@ export default {
   "news.title": "Uutiset",
   "news.description":
     "Tutustu uusimpiin hitteihin, artistiuutisiin ja musiikkitrendeihin ympäri maailmaa",
-    "news.lastUpdated": "Last updated: {date}",
-    "news.sourcesCount": "Sources: {count}",
-    "news.readMore": "Read more",
-    "news.disclaimer.title": "News disclaimer",
-    "news.legal.attribution": "Images and content are attributed to their respective publishers.",
-    "news.disclaimer.text": "The news feed aggregates content from external publishers. We do not claim ownership of third-party content. Click through to the original article for full context.",
+  "news.lastUpdated": "Last updated: {date}",
+  "news.sourcesCount": "Sources: {count}",
+  "news.readMore": "Read more",
+  "news.disclaimer.title": "News disclaimer",
+  "news.legal.attribution": "Images and content are attributed to their respective publishers.",
+  "news.disclaimer.text":
+    "The news feed aggregates content from external publishers. We do not claim ownership of third-party content. Click through to the original article for full context.",
   "nav.donate.description": "Tue projektia pienellä lahjoituksella",
   "error.extend.tooltip": "Pidennä virheilmoituksen näyttöaikaa 5 sekunnilla",
   "error.invalid.question": "Virheellinen kysymys tai ei vaihtoehtoja saatavilla",
@@ -373,11 +376,15 @@ export default {
   "meta.keywords":
     "Musiikkivisa, Musiikkipeli, Laulun arvaus, Artistivisa, Online musiikkivisa, Musiikkitrivia, Melody Mind, Musiikkipeli",
   "musicPlatforms.externalNotice":
-    "Ulkoisiin musiikkipalveluihin johtavat linkit saattavat vaatia tilejä tai tilauksia täydelliseen käyttöön.",
-  "musicPlatforms.heading": "Kuuntele liittyvää musiikkia",
+    "External music platform links may require accounts or subscriptions for full access.",
+  "musicPlatforms.heading": "Listen to Related Music",
   "musicPlatforms.keyboardInstructions":
-    "Navigoi musiikkialustoilla Tab-näppäimellä. Paina Enter tai välilyönti avataksesi alustat uusiin välilehtiin.",
-  "nav.ariaLabel": "Päävalikko",
+    "Navigate music platforms using Tab key. Press Enter or Space to open platforms in new tabs.",
+  "musicPlatforms.platform.apple": "Apple Music",
+  "musicPlatforms.platform.deezer": "Deezer",
+  "musicPlatforms.platform.spotify": "Spotify",
+  "musicPlatforms.platform.youtube": "YouTube",
+  "nav.ariaLabel": "Main navigation",
   "nav.donate.coffee": "Tarjoa meille kahvi",
   "nav.donate.heading": "Tue meitä",
   "nav.donate.paypal": "Lahjoita PayPalilla",
@@ -499,24 +506,29 @@ export default {
   "knowledge.read.article": "Lue artikkeli",
   "musicPlatforms.description": "Kuuntele tätä soittolistaa suosituilla musiikkipalveluilla",
   "musicPlatforms.listenOn": "Kuuntele {title} palvelussa {platform}",
-  "musicPlatforms.platform.spotify": "Spotify",
-  "musicPlatforms.platform.deezer": "Deezer",
-  "musicPlatforms.platform.apple": "Apple Music",
+
   "pages.imprint.title": "Julkaisijatiedot",
   "pages.privacy.title": "Tietosuojakäytäntö",
-  "pages.privacy.intro_p1": "Tämä tietosuojaseloste selittää, mitä henkilötietoja keräämme ja miten niitä käytetään.",
+  "pages.privacy.intro_p1":
+    "Tämä tietosuojaseloste selittää, mitä henkilötietoja keräämme ja miten niitä käytetään.",
   "pages.privacy.responsible_party": "Vastuuhenkilö: {name}",
   "pages.privacy.contact": "Yhteystieto:",
   "pages.privacy.contact.address": "Hiltenspergerstr. 78\n80796 München\nSaksa",
   "pages.privacy.contact.email_label": "Sähköposti:",
-  "pages.privacy.data_collected.manual": "Manuaalisesti antamasi tiedot (tilitiedot, viestit, asetukset)",
-  "pages.privacy.data_collected.automatic": "Automaattisesti kerätyt tiedot (lokit, käyttö, laitetiedot)",
-  "pages.privacy.turso_storage": "Tallennamme tiettyjä tietoja Tursossa nopeaa edge‑käyttöä varten.",
+  "pages.privacy.data_collected.manual":
+    "Manuaalisesti antamasi tiedot (tilitiedot, viestit, asetukset)",
+  "pages.privacy.data_collected.automatic":
+    "Automaattisesti kerätyt tiedot (lokit, käyttö, laitetiedot)",
+  "pages.privacy.turso_storage":
+    "Tallennamme tiettyjä tietoja Tursossa nopeaa edge‑käyttöä varten.",
   "pages.privacy.cookies": "Käytämme evästeitä ja vastaavia teknologioita palvelun parantamiseksi.",
   "pages.privacy.user_rights_title": "Oikeutesi",
-  "pages.privacy.user_rights_text": "Voit pyytää pääsyä, oikaisua, poistamista tai rajoittamista henkilötiedoissasi.",
-  "pages.privacy.analytics": "Käytämme yksityisyyttä kunnioittavia analyysityökaluja käytön mittaamiseen.",
-  "pages.imprint.legal_notice_intro": "Oikeudellinen ilmoitus — tämä sivu sisältää palveluntarjoajan oikeudelliset tiedot ja yhteystiedot.",
+  "pages.privacy.user_rights_text":
+    "Voit pyytää pääsyä, oikaisua, poistamista tai rajoittamista henkilötiedoissasi.",
+  "pages.privacy.analytics":
+    "Käytämme yksityisyyttä kunnioittavia analyysityökaluja käytön mittaamiseen.",
+  "pages.imprint.legal_notice_intro":
+    "Oikeudellinen ilmoitus — tämä sivu sisältää palveluntarjoajan oikeudelliset tiedot ja yhteystiedot.",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 München\nSaksa",
   "pages.imprint.contact_label": "Sähköposti:",

@@ -63,8 +63,8 @@ export class KnowledgeSearchUtils {
     };
 
     this.init();
-  // mark _currentSearchQuery as intentionally retained for future use
-  void this._currentSearchQuery;
+    // mark _currentSearchQuery as intentionally retained for future use
+    void this._currentSearchQuery;
   }
 
   private init(): void {
@@ -153,7 +153,7 @@ export class KnowledgeSearchUtils {
 
   private performSearch(query: string): void {
     const searchTerm = query.toLowerCase().trim();
-  this._currentSearchQuery = searchTerm;
+    this._currentSearchQuery = searchTerm;
 
     const visibleCount = this.allArticles.reduce((count, article) => {
       const title = article.querySelector("h3")?.textContent?.toLowerCase() || "";
@@ -182,7 +182,7 @@ export class KnowledgeSearchUtils {
     }
 
     searchInput.value = "";
-  this._currentSearchQuery = "";
+    this._currentSearchQuery = "";
     this.performSearch("");
     searchInput.focus();
   }

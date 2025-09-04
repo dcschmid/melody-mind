@@ -27,7 +27,8 @@ export class MusicButtonsUtils {
   private links: HTMLElement[];
 
   /**
-   *
+   * Initialize the MusicButtonsUtils instance.
+   * Attaches event handlers to the configured links.
    */
   constructor(config: MusicButtonsConfig) {
     this.links = safeQuerySelectorAll<HTMLElement>(config.linkSelector);
@@ -56,9 +57,20 @@ export class MusicButtonsUtils {
     try {
       const platform = link.dataset.platform;
       const playlistTitle = link.dataset.playlistTitle;
+      const externalLabel = link.dataset.externalLabel;
 
+      // Priority: music platform links (platform + playlistTitle)
       if (platform && playlistTitle && this.isFathomAvailable()) {
         this.trackEvents(platform, playlistTitle);
+        return;
+      }
+
+      // Generic external links (e.g. footer, donations, news). Use externalLabel when available,
+      // otherwise fall back to hostname derived from href.
+      if (this.isFathomAvailable()) {
+        const href = (link as HTMLAnchorElement).href || "";
+        const label = externalLabel || this.extractHostname(href) || "external";
+        this.trackExternal(label, playlistTitle);
       }
     } catch (error) {
       handleGameError(error, "music platform click tracking");
@@ -82,11 +94,46 @@ export class MusicButtonsUtils {
       const generalEvent = `music_${platform}_click`;
       const specificEvent = `music_${platform}_${playlistTitle}`.replace(/[^a-zA-Z0-9_]/g, "_");
 
-  const fathom = getFathom();
-  fathom?.trackEvent?.(generalEvent);
-  fathom?.trackEvent?.(specificEvent);
+      const fathom = getFathom();
+      fathom?.trackEvent?.(generalEvent);
+      fathom?.trackEvent?.(specificEvent);
     } catch (error) {
       handleGameError(error, "analytics event tracking");
+    }
+  }
+
+  /**
+   * Track generic external link clicks.
+   * Emits two events: a general "external_link_click" and a specific one with the label.
+   */
+  private trackExternal(label: string, contextTitle?: string | undefined): void {
+    try {
+      const sanitizedLabel = label.replace(/[^a-zA-Z0-9_]/g, "_");
+      const generalEvent = `external_link_click`;
+      const specificEvent = contextTitle
+        ? `external_${sanitizedLabel}_${contextTitle}`.replace(/[^a-zA-Z0-9_]/g, "_")
+        : `external_${sanitizedLabel}`;
+
+      const fathom = getFathom();
+      fathom?.trackEvent?.(generalEvent);
+      fathom?.trackEvent?.(specificEvent);
+    } catch (error) {
+      handleGameError(error, "analytics external event tracking");
+    }
+  }
+
+  /**
+   * Extract hostname from a URL string safely.
+   */
+  private extractHostname(href: string): string | null {
+    try {
+      if (!href) {
+        return null;
+      }
+      const u = new URL(href);
+      return u.hostname.replace(/\./g, "_");
+    } catch {
+      return null;
     }
   }
 

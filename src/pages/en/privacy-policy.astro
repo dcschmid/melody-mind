@@ -35,168 +35,6 @@ const description =
 
       <div class="rounded-xl bg-white p-8 shadow-lg dark:bg-slate-800 dark:shadow-xl">
         <section class="mb-16 last:mb-0">
-          <Headline level="h2" title="1. Privacy at a Glance" />
-          <div class="mt-6">
-            <Headline level="h3" title="General Information" />
-            <Paragraph>
-              The following gives a simple overview of what happens to your personal information
-              when you visit our website. Personal information is any data with which you could be
-              personally identified.
-            </Paragraph>
-
-            <Headline level="h3" title="Data Collection on this Website" />
-            <Paragraph>
-              <strong>{t("pages.privacy.responsible_party")}</strong>
-            </Paragraph>
-            <Paragraph>
-              The data processing on this website is carried out by the website operator. You can
-              find the operator's contact details in the "Information about the responsible party"
-              section of this privacy policy.
-            </Paragraph>
-
-            <Paragraph>
-              <strong>{t("pages.privacy.data_collected.manual")}</strong>
-            </Paragraph>
-            <Paragraph>
-              Some data is collected when you provide it to us. This could, for example, be data you
-              enter on a contact form.
-            </Paragraph>
-            <Paragraph>
-              Other data is collected automatically by our IT systems when you visit the website.
-              This data is primarily technical data such as the browser and operating system you are
-              using or when you accessed the page.
-            </Paragraph>
-          </div>
-        </section>
-
-        <section class="mb-16 last:mb-0">
-          <Headline level="h2" title="2. Hosting" />
-          <div class="mt-6">
-            <Headline level="h3" title="Hosting with Render" />
-            <Paragraph>
-              We host the content of our website at Render Services, Inc., 525 Brannan Street, Suite
-              300, San Francisco, CA 94107, USA.
-            </Paragraph>
-            <Paragraph>
-              When you visit our website, Render collects various logfiles including your IP
-              addresses. Details can be found in Render's privacy policy:
-              <a
-                href="https://render.com/privacy"
-                class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                render.com/privacy
-              </a>
-            </Paragraph>
-            <Paragraph>
-              The use is based on Art. 6 para. 1 lit. f GDPR. We have a legitimate interest in a
-              reliable presentation of our website.
-            </Paragraph>
-          </div>
-        </section>
-
-        <section class="mb-16 last:mb-0">
-          <Headline level="h2" title="3. General Information and Mandatory Information" />
-          <div class="mt-6">
-            <Headline level="h3" title="Data Protection" />
-            <Paragraph>
-              The operators of this website take the protection of your personal data very
-              seriously. We treat your personal data confidentially and in accordance with the
-              statutory data protection regulations and this privacy policy.
-            </Paragraph>
-
-            <Headline level="h3" title="Information about the responsible party" />
-            <Paragraph>{t("pages.privacy.responsible_party")}</Paragraph>
-            <div class="mt-4 rounded-lg bg-slate-100 p-6 dark:bg-slate-700">
-              <Paragraph>{t("pages.privacy.contact.address")}</Paragraph>
-              <Paragraph>
-                <strong>{t("pages.privacy.contact.email_label")}</strong>
-                <a
-                  href="mailto:dcschmid@murena.io"
-                  class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                  >{t("pages.privacy.contact.email")}</a
-                >
-              </Paragraph>
-            </div>
-
-            <Headline level="h3" title="Storage Duration" />
-            <Paragraph>
-              Unless a more specific storage period has been specified in this privacy policy, your
-              personal data will remain with us until the purpose for which it was collected no
-              longer applies.
-            </Paragraph>
-          </div>
-        </section>
-
-        <section class="mb-16 last:mb-0">
-          <Headline level="h2" title="4. Data Collection on this Website" />
-          <div class="mt-6">
-            <Headline level="h3" title="Server Log Files" />
-            <Paragraph>
-              The website provider automatically collects and stores information in so-called server
-              log files, which your browser automatically transmits to us. These are:
-            </Paragraph>
-            <Paragraph>{t("pages.privacy.data_collected.automatic")}</Paragraph>
-            <Paragraph>
-              A combination of this data with other data sources will not be made. The collection of
-              this data is based on Art. 6 para. 1 lit. f GDPR.
-            </Paragraph>
-
-            <Headline level="h3" title="Game Data and High Scores" />
-            <Paragraph>{t("pages.privacy.turso_storage")}</Paragraph>
-            <Paragraph>
-              This data is stored securely in our TursoDB database to provide you with persistent
-              game progress and enable features like high scores and achievements. You can request
-              deletion of your data at any time by contacting us at
-              <a
-                href="mailto:dcschmid@murena.io"
-                class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                >dcschmid@murena.io</a
-              >.
-            </Paragraph>
-            <Paragraph>
-              The legal basis for this processing is Art. 6 para. 1 lit. b GDPR (performance of
-              contract) and Art. 6 para. 1 lit. f GDPR (legitimate interest in providing game
-              functionality).
-            </Paragraph>
-
-            <Headline level="h3" title="Music Content and External APIs" />
-            <Paragraph>
-              MelodyMind uses external music APIs for preview links and album covers. When playing
-              music previews or clicking on streaming links, you will be redirected to external
-              services:
-            </Paragraph>
-            <ul class="mt-4 ml-6 list-disc space-y-2">
-              <li>
-                <strong>Spotify</strong> privacy policy: <a
-                  href="https://www.spotify.com/privacy/"
-                  class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                  target="_blank"
-                  rel="noopener">spotify.com/privacy</a
-                >
-              </li>
-              <li>
-                <strong>Apple Music</strong> privacy policy: <a
-                  href="https://www.apple.com/privacy/"
-                  class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                  target="_blank"
-                  rel="noopener">apple.com/privacy</a
-                >
-              </li>
-              <li>
-                <strong>Deezer</strong> privacy policy: <a
-                  href="https://www.deezer.com/legal/personal-datas"
-                  class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                  target="_blank"
-                  rel="noopener">deezer.com/legal/personal-datas</a
-                >
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="mb-16 last:mb-0">
           <Headline level="h2" title="5. Cookies and Local Storage" />
           <div class="mt-6">
             <Headline level="h3" title="Cookies" />
@@ -223,13 +61,14 @@ const description =
           <div class="mt-6">
             <Paragraph>{t("pages.privacy.user_rights_title")}</Paragraph>
             <Paragraph>{t("pages.privacy.user_rights_text")}</Paragraph>
-            <Paragraph
-              >{t("pages.privacy.user_rights_text")}
+            <Paragraph>
+              {t("pages.privacy.user_rights_text")}
               <a
                 href="mailto:dcschmid@murena.io"
                 class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                >dcschmid@murena.io</a
               >
+                dcschmid@murena.io
+              </a>
             </Paragraph>
           </div>
         </section>
@@ -249,16 +88,13 @@ const description =
               For more information, see Fathom's privacy policy:
               <a
                 href="https://usefathom.com/privacy"
-                class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                class="external-link rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-external-label="fathom"
               >
                 usefathom.com/privacy
               </a>
-            </Paragraph>
-            <Paragraph>
-              The legal basis for this processing is Art. 6 para. 1 lit. f GDPR (legitimate interest
-              in analyzing website usage to improve our services).
             </Paragraph>
           </div>
         </section>

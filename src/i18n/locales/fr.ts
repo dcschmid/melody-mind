@@ -10,7 +10,8 @@ export default {
   "knowledge.search.reset.text": "Réinitialiser",
   "knowledge.back.to.list": "Retour à la liste d'articles",
   "knowledge.word_count": "{count} mots",
-  "knowledge.description": "Plongez au cœur des genres musicaux \u2014 leur histoire, les artistes embl\u00e9matiques et les r\u00e9cits qui fa\u00e7onnent leurs sonorit\u00e9s. Découvrez des analyses, des conseils d\u2019\u00e9coute et des exemples adapt\u00e9s pour enrichir votre écoute et inspirer vos playlists.",
+  "knowledge.description":
+    "Plongez au cœur des genres musicaux \u2014 leur histoire, les artistes embl\u00e9matiques et les r\u00e9cits qui fa\u00e7onnent leurs sonorit\u00e9s. Découvrez des analyses, des conseils d\u2019\u00e9coute et des exemples adapt\u00e9s pour enrichir votre écoute et inspirer vos playlists.",
   "podcasts.note.only_english":
     "Remarque : les podcasts sont pour l'instant disponibles uniquement en anglais.",
   "podcasts.navigation.aria": "Navigation des épisodes",
@@ -20,6 +21,7 @@ export default {
   "podcasts.platform.apple": "Apple Music",
   "podcasts.platform.deezer": "Deezer",
   "podcasts.platform.spotify": "Spotify",
+  "podcasts.platform.youtube": "YouTube",
   "podcasts.episode.plural": "Épisodes",
   "podcasts.episode.singular": "Épisode",
   "podcast.rss.subscribe": "S'abonner au RSS",
@@ -105,12 +107,13 @@ export default {
   "news.title": "Actualités",
   "news.description":
     "Découvre les derniers hits, les news des artistes et les tendances musicales du monde entier",
-    "news.lastUpdated": "Dernière mise à jour : {date}",
-    "news.sourcesCount": "Sources : {count}",
-    "news.readMore": "Lire la suite",
-    "news.disclaimer.title": "Avertissement sur les actualités",
-    "news.legal.attribution": "Les images et le contenu sont attribués à leurs éditeurs respectifs.",
-    "news.disclaimer.text": "Le fil d'actualités agrège du contenu provenant d'éditeurs externes. Nous ne revendiquons pas la propriété du contenu tiers. Cliquez pour accéder à l'article original pour le contexte complet.",
+  "news.lastUpdated": "Dernière mise à jour : {date}",
+  "news.sourcesCount": "Sources : {count}",
+  "news.readMore": "Lire la suite",
+  "news.disclaimer.title": "Avertissement sur les actualités",
+  "news.legal.attribution": "Les images et le contenu sont attribués à leurs éditeurs respectifs.",
+  "news.disclaimer.text":
+    "Le fil d'actualités agrège du contenu provenant d'éditeurs externes. Nous ne revendiquons pas la propriété du contenu tiers. Cliquez pour accéder à l'article original pour le contexte complet.",
   "nav.donate.description": "Soutiens le projet avec une petite contribution",
   "error.extend.tooltip": "Prolonger l'affichage du message d'erreur de 5 secondes",
   "error.invalid.question": "Question invalide ou sans options disponibles",
@@ -378,6 +381,7 @@ export default {
   "musicPlatforms.heading": "Écouter la musique associée",
   "musicPlatforms.keyboardInstructions":
     "Navigue dans les plateformes musicales avec la touche Tab. Appuie sur Entrée ou Espace pour ouvrir une plateforme dans un nouvel onglet.",
+
   "nav.ariaLabel": "Navigation principale",
   "nav.donate.coffee": "Offre‑nous un café",
   "nav.donate.heading": "Soutiens‑nous",
@@ -506,21 +510,30 @@ export default {
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
+  "musicPlatforms.platform.youtube": "YouTube",
   "pages.imprint.title": "Mentions légales",
   "pages.privacy.title": "Politique de confidentialité",
-  "pages.privacy.intro_p1": "Cette politique de confidentialité explique quelles données personnelles nous collectons et comment nous les utilisons.",
+  "pages.privacy.intro_p1":
+    "Cette politique de confidentialité explique quelles données personnelles nous collectons et comment nous les utilisons.",
   "pages.privacy.responsible_party": "Responsable: {name}",
   "pages.privacy.contact": "Contact:",
   "pages.privacy.contact.address": "Hiltenspergerstr. 78\n80796 Munich\nAllemagne",
   "pages.privacy.contact.email_label": "Courriel:",
-  "pages.privacy.data_collected.manual": "Données que vous fournissez manuellement (détails de compte, messages, préférences)",
-  "pages.privacy.data_collected.automatic": "Données collectées automatiquement (logs, utilisation, informations de l'appareil)",
-  "pages.privacy.turso_storage": "Nous stockons certaines données dans Turso pour un accès edge rapide.",
-  "pages.privacy.cookies": "Nous utilisons des cookies et technologies similaires pour améliorer le service.",
+  "pages.privacy.data_collected.manual":
+    "Données que vous fournissez manuellement (détails de compte, messages, préférences)",
+  "pages.privacy.data_collected.automatic":
+    "Données collectées automatiquement (logs, utilisation, informations de l'appareil)",
+  "pages.privacy.turso_storage":
+    "Nous stockons certaines données dans Turso pour un accès edge rapide.",
+  "pages.privacy.cookies":
+    "Nous utilisons des cookies et technologies similaires pour améliorer le service.",
   "pages.privacy.user_rights_title": "Vos droits",
-  "pages.privacy.user_rights_text": "Vous pouvez demander l'accès, la rectification, la suppression ou la limitation de vos données personnelles.",
-  "pages.privacy.analytics": "Nous utilisons des outils d'analyse respectueux de la vie privée pour mesurer l'utilisation.",
-  "pages.imprint.legal_notice_intro": "Mentions légales — cette page contient les informations légales et de contact du fournisseur.",
+  "pages.privacy.user_rights_text":
+    "Vous pouvez demander l'accès, la rectification, la suppression ou la limitation de vos données personnelles.",
+  "pages.privacy.analytics":
+    "Nous utilisons des outils d'analyse respectueux de la vie privée pour mesurer l'utilisation.",
+  "pages.imprint.legal_notice_intro":
+    "Mentions légales — cette page contient les informations légales et de contact du fournisseur.",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 Munich\nAllemagne",
   "pages.imprint.contact_label": "E‑mail:",

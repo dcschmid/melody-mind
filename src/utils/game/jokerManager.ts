@@ -290,7 +290,7 @@ export class JokerManager {
    * @private
    * @param {HTMLButtonElement[]} buttons - All answer buttons
    * @param {string} normalizedCorrectAnswer - The normalized correct answer text
-  * @param {string[]} _normalizedToHide - The normalized options that should be hidden
+   * @param {string[]} _normalizedToHide - The normalized options that should be hidden
    */
   private tryAlternativeHiding(
     buttons: HTMLButtonElement[],

@@ -10,7 +10,8 @@ export default {
   "knowledge.search.reset.text": "Restablecer",
   "knowledge.back.to.list": "Volver a la lista de artículos",
   "knowledge.word_count": "{count} palabras",
-  "knowledge.description": "Sumérgete en los géneros musicales: sus historias, artistas clave y las narrativas detrás de los sonidos. Encuentra perspectivas profundas, consejos de escucha y ejemplos seleccionados para enriquecer tu experiencia y crear playlists con intención.",
+  "knowledge.description":
+    "Sumérgete en los géneros musicales: sus historias, artistas clave y las narrativas detrás de los sonidos. Encuentra perspectivas profundas, consejos de escucha y ejemplos seleccionados para enriquecer tu experiencia y crear playlists con intención.",
   "podcasts.note.only_english": "Nota: Los podcasts están disponibles solo en inglés por ahora.",
   "podcasts.navigation.aria": "Navegación de episodios",
 
@@ -21,6 +22,7 @@ export default {
   "podcasts.platform.apple": "Apple Music",
   "podcasts.platform.deezer": "Deezer",
   "podcasts.platform.spotify": "Spotify",
+  "podcasts.platform.youtube": "YouTube",
   "podcasts.episode.plural": "Episodios",
   "podcasts.episode.singular": "Episodio",
   "podcast.rss.subscribe": "Suscribirse por RSS",
@@ -109,12 +111,14 @@ export default {
   "nav.donate.description": "Apoya el proyecto con una pequeña donación",
   "error.extend.tooltip": "Extender el tiempo de visualización del mensaje de error 5 segundos",
   "error.invalid.question": "Pregunta inválida o sin opciones disponibles",
-    "news.lastUpdated": "Última actualización: {date}",
-    "news.sourcesCount": "Fuentes: {count}",
-    "news.readMore": "Leer más",
-    "news.disclaimer.title": "Descargo de responsabilidad de noticias",
-    "news.legal.attribution": "Las imágenes y el contenido están atribuidos a sus respectivos editores.",
-    "news.disclaimer.text": "El feed de noticias agrega contenido de editores externos. No reclamamos la propiedad del contenido de terceros. Haz clic en el artículo original para obtener el contexto completo.",
+  "news.lastUpdated": "Última actualización: {date}",
+  "news.sourcesCount": "Fuentes: {count}",
+  "news.readMore": "Leer más",
+  "news.disclaimer.title": "Descargo de responsabilidad de noticias",
+  "news.legal.attribution":
+    "Las imágenes y el contenido están atribuidos a sus respectivos editores.",
+  "news.disclaimer.text":
+    "El feed de noticias agrega contenido de editores externos. No reclamamos la propiedad del contenido de terceros. Haz clic en el artículo original para obtener el contexto completo.",
   "error.no.albums.found": "No se encontraron álbumes para la categoría {category}",
   "error.no.initial.question": "No se encontró una pregunta inicial válida",
   "errors.achievements.check": "Error al comprobar logros. Por favor, inténtalo más tarde",
@@ -364,11 +368,15 @@ export default {
   "meta.keywords":
     "Quiz de música, Juego musical, Adivina la canción, Quiz de artistas, Trivia musical, Melody Mind, Juego de música",
   "musicPlatforms.externalNotice":
-    "Los enlaces a plataformas musicales externas pueden requerir cuentas o suscripciones para acceso completo.",
-  "musicPlatforms.heading": "Escuchar música relacionada",
+    "External music platform links may require accounts or subscriptions for full access.",
+  "musicPlatforms.heading": "Listen to Related Music",
   "musicPlatforms.keyboardInstructions":
-    "Navega por las plataformas usando la tecla Tab. Pulsa Enter o Espacio para abrir en nuevas pestañas.",
-  "nav.ariaLabel": "Navegación principal",
+    "Navigate music platforms using Tab key. Press Enter or Space to open platforms in new tabs.",
+  "musicPlatforms.platform.apple": "Apple Music",
+  "musicPlatforms.platform.deezer": "Deezer",
+  "musicPlatforms.platform.spotify": "Spotify",
+  "musicPlatforms.platform.youtube": "YouTube",
+  "nav.ariaLabel": "Main navigation",
   "nav.donate.coffee": "Invítanos a un café",
   "nav.donate.heading": "Apóyanos",
   "nav.donate.paypal": "Donar vía PayPal",
@@ -492,22 +500,27 @@ export default {
   "knowledge.read.article": "Leer artículo",
   "musicPlatforms.description": "Escucha esta lista en plataformas musicales populares",
   "musicPlatforms.listenOn": "Escuchar {title} en {platform}",
-  "musicPlatforms.platform.spotify": "Spotify",
-  "musicPlatforms.platform.deezer": "Deezer",
-  "musicPlatforms.platform.apple": "Apple Music",
+
   "pages.imprint.title": "Aviso legal",
   "pages.privacy.title": "Política de privacidad",
-  "pages.privacy.intro_p1": "Esta política de privacidad explica qué datos personales recopilamos y cómo los usamos.",
+  "pages.privacy.intro_p1":
+    "Esta política de privacidad explica qué datos personales recopilamos y cómo los usamos.",
   "pages.privacy.responsible_party": "Responsable: {name}",
   "pages.privacy.contact": "Contacto: {email}",
-  "pages.privacy.data_collected.manual": "Datos que proporcionas manualmente (detalles de cuenta, mensajes, preferencias)",
-  "pages.privacy.data_collected.automatic": "Datos recopilados automáticamente (registros, uso, información del dispositivo)",
-  "pages.privacy.turso_storage": "Almacenamos ciertos datos en Turso para acceso rápido en el edge.",
+  "pages.privacy.data_collected.manual":
+    "Datos que proporcionas manualmente (detalles de cuenta, mensajes, preferencias)",
+  "pages.privacy.data_collected.automatic":
+    "Datos recopilados automáticamente (registros, uso, información del dispositivo)",
+  "pages.privacy.turso_storage":
+    "Almacenamos ciertos datos en Turso para acceso rápido en el edge.",
   "pages.privacy.cookies": "Usamos cookies y tecnologías similares para mejorar el servicio.",
   "pages.privacy.user_rights_title": "Tus derechos",
-  "pages.privacy.user_rights_text": "Puedes solicitar acceso, rectificación, eliminación o limitación de tus datos personales.",
-  "pages.privacy.analytics": "Usamos analíticas respetuosas con la privacidad para medir el uso del sitio.",
-  "pages.imprint.legal_notice_intro": "Aviso legal: esta página contiene la información legal y de contacto del proveedor.",
+  "pages.privacy.user_rights_text":
+    "Puedes solicitar acceso, rectificación, eliminación o limitación de tus datos personales.",
+  "pages.privacy.analytics":
+    "Usamos analíticas respetuosas con la privacidad para medir el uso del sitio.",
+  "pages.imprint.legal_notice_intro":
+    "Aviso legal: esta página contiene la información legal y de contacto del proveedor.",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 Múnich\nAlemania",
   "pages.imprint.contact_label": "Correo electrónico:",

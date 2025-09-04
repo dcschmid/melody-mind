@@ -119,8 +119,9 @@ const links = [
           href={links[0].href}
           target="_blank"
           rel="noopener noreferrer"
-          class="flex min-h-[48px] items-center gap-2 rounded-lg px-4 py-3 text-base font-medium text-gray-300 no-underline transition-all duration-200 hover:bg-gray-800 hover:text-purple-400 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:outline-none sm:gap-1 sm:px-3 sm:py-2 sm:text-sm md:text-lg"
+          class="music-platform-link external-link flex min-h-[48px] items-center gap-2 rounded-lg px-4 py-3 text-base font-medium text-gray-300 no-underline transition-all duration-200 hover:bg-gray-800 hover:text-purple-400 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:outline-none sm:gap-1 sm:px-3 sm:py-2 sm:text-sm md:text-lg"
           aria-label={links[0].ariaLabel}
+          data-external-label="github"
         >
           <Icon
             name={links[0].icon}
@@ -141,8 +142,9 @@ const links = [
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              class="flex min-h-[48px] items-center gap-2 rounded-lg px-4 py-3 text-base font-medium text-gray-300 no-underline transition-all duration-200 hover:bg-gray-800 hover:text-purple-400 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:outline-none sm:gap-1 sm:px-3 sm:py-2 sm:text-sm md:text-lg"
+              class="external-link flex min-h-[48px] items-center gap-2 rounded-lg px-4 py-3 text-base font-medium text-gray-300 no-underline transition-all duration-200 hover:bg-gray-800 hover:text-purple-400 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:outline-none sm:gap-1 sm:px-3 sm:py-2 sm:text-sm md:text-lg"
               aria-label={link.ariaLabel}
+              data-external-label={link.label}
             >
               <Icon
                 name={link.icon}
@@ -161,3 +163,17 @@ const links = [
     </div>
   </div>
 </footer>
+
+<script>
+  import { initMusicButtons } from "@utils/components/musicButtonsUtils";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    try {
+      // Track both music platform links and generic external links
+      initMusicButtons({ linkSelector: ".external-link, .music-platform-link" });
+    } catch (e) {
+      // keep footer resilient if tracking fails
+      console.error("initMusicButtons failed", e);
+    }
+  });
+</script>

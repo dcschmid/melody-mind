@@ -10,7 +10,8 @@ export default {
   "knowledge.search.reset.text": "Nulstil",
   "knowledge.back.to.list": "Tilbage til artikellisten",
   "knowledge.word_count": "{count} ord",
-  "knowledge.description": "Dyk dybere ned i musikgenrer — deres historie, toneangivende kunstnere og historierne bag lydene. Find dybdegående analyser, lytteforslag og kuraterede eksempler, der uddyber din forståelse og inspirerer dine næste playlister.",
+  "knowledge.description":
+    "Dyk dybere ned i musikgenrer — deres historie, toneangivende kunstnere og historierne bag lydene. Find dybdegående analyser, lytteforslag og kuraterede eksempler, der uddyber din forståelse og inspirerer dine næste playlister.",
   "podcasts.note.only_english": "Bemærk: Podcasts er i øjeblikket kun tilgængelige på engelsk.",
   "podcasts.navigation.aria": "Episode-navigation",
 
@@ -21,6 +22,7 @@ export default {
   "podcasts.platform.apple": "Apple Music",
   "podcasts.platform.deezer": "Deezer",
   "podcasts.platform.spotify": "Spotify",
+  "podcasts.platform.youtube": "YouTube",
   "podcasts.episode.plural": "Episoder",
   "podcasts.episode.singular": "Episode",
   "podcast.rss.subscribe": "Abonner på RSS",
@@ -109,7 +111,8 @@ export default {
   "news.readMore": "Læs mere",
   "news.disclaimer.title": "Nyhedsdisklaimer",
   "news.legal.attribution": "Billeder og indhold tilskrives deres respektive udgivere.",
-  "news.disclaimer.text": "Nyhedsfeedet samler indhold fra eksterne udgivere. Vi gør ikke krav på tredjepartsindhold. Klik for at åbne den originale artikel for fuld kontekst.",
+  "news.disclaimer.text":
+    "Nyhedsfeedet samler indhold fra eksterne udgivere. Vi gør ikke krav på tredjepartsindhold. Klik for at åbne den originale artikel for fuld kontekst.",
   "nav.donate.description": "Støt projektet med en lille donation",
   "error.extend.tooltip": "Forlæng visningstiden for fejlmeddelelsen med 5 sek.",
   "error.invalid.question": "Ugyldigt spørgsmål eller ingen muligheder tilgængelige",
@@ -367,6 +370,7 @@ export default {
   "musicPlatforms.heading": "Lyt til relateret musik",
   "musicPlatforms.keyboardInstructions":
     "Naviger mellem musikplatforme med Tab. Tryk Enter eller Mellemrum for at åbne platforme i nye faner.",
+  "musicPlatforms.platform.youtube": "YouTube",
   "nav.ariaLabel": "Hovednavigation",
   "nav.donate.coffee": "Køb os en kaffe",
   "nav.donate.heading": "Støt os",
@@ -488,24 +492,27 @@ export default {
   "knowledge.read.article": "Læs artikel",
   "musicPlatforms.description": "Lyt til denne playliste på populære musikplatforme",
   "musicPlatforms.listenOn": "Lyt til {title} på {platform}",
-  "musicPlatforms.platform.spotify": "Spotify",
-  "musicPlatforms.platform.deezer": "Deezer",
-  "musicPlatforms.platform.apple": "Apple Music",
+
   "pages.imprint.title": "Juridiske oplysninger",
   "pages.privacy.title": "Fortrolighedspolitik",
-  "pages.privacy.intro_p1": "Denne fortrolighedspolitik forklarer, hvilke personoplysninger vi indsamler, og hvordan vi bruger dem.",
+  "pages.privacy.intro_p1":
+    "Denne fortrolighedspolitik forklarer, hvilke personoplysninger vi indsamler, og hvordan vi bruger dem.",
   "pages.privacy.responsible_party": "Ansvarlig: {name}",
   "pages.privacy.contact": "Kontakt:",
   "pages.privacy.contact.address": "Hiltenspergerstr. 78\n80796 München\nTyskland",
   "pages.privacy.contact.email_label": "E-mail:",
-  "pages.privacy.data_collected.manual": "Data du angiver manuelt (kontooplysninger, beskeder, præferencer)",
-  "pages.privacy.data_collected.automatic": "Automatisk indsamlede data (logs, brug, enhedsoplysninger)",
+  "pages.privacy.data_collected.manual":
+    "Data du angiver manuelt (kontooplysninger, beskeder, præferencer)",
+  "pages.privacy.data_collected.automatic":
+    "Automatisk indsamlede data (logs, brug, enhedsoplysninger)",
   "pages.privacy.turso_storage": "Vi gemmer visse data i Turso for hurtig edge‑adgang.",
   "pages.privacy.cookies": "Vi bruger cookies og lignende teknologier for at forbedre tjenesten.",
   "pages.privacy.user_rights_title": "Dine rettigheder",
-  "pages.privacy.user_rights_text": "Du kan anmode om adgang, berigtigelse, sletning eller begrænsning af dine personoplysninger.",
+  "pages.privacy.user_rights_text":
+    "Du kan anmode om adgang, berigtigelse, sletning eller begrænsning af dine personoplysninger.",
   "pages.privacy.analytics": "Vi bruger privatlivsvenlig analyse til at måle brugen.",
-  "pages.imprint.legal_notice_intro": "Juridisk meddelelse — denne side indeholder udbyderens juridiske oplysninger og kontaktinformation.",
+  "pages.imprint.legal_notice_intro":
+    "Juridisk meddelelse — denne side indeholder udbyderens juridiske oplysninger og kontaktinformation.",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 München\nTyskland",
   "pages.imprint.contact_label": "E‑mail:",

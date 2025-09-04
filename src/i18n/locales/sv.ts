@@ -10,7 +10,8 @@ export default {
   "knowledge.search.reset.text": "Återställ",
   "knowledge.back.to.list": "Tillbaka till artikellistan",
   "knowledge.word_count": "{count} ord",
-  "knowledge.description": "Fördjupa dig i musikgenrer — deras historia, inflytelserika artister och berättelserna bakom ljuden. Utforska djupgående analyser, lyssningstips och handplockade exempel för att fördjupa din uppskattning och inspirera dina nästa spellistor.",
+  "knowledge.description":
+    "Fördjupa dig i musikgenrer — deras historia, inflytelserika artister och berättelserna bakom ljuden. Utforska djupgående analyser, lyssningstips och handplockade exempel för att fördjupa din uppskattning och inspirera dina nästa spellistor.",
   "podcasts.note.only_english": "Observera: Podcasts finns för närvarande endast på engelska.",
   "podcasts.navigation.aria": "Episodnavigering",
 
@@ -20,6 +21,7 @@ export default {
   "podcasts.platform.apple": "Apple Music",
   "podcasts.platform.deezer": "Deezer",
   "podcasts.platform.spotify": "Spotify",
+  "podcasts.platform.youtube": "YouTube",
   "podcasts.episode.plural": "Avsnitt",
   "podcasts.episode.singular": "Avsnitt",
   "podcast.rss.subscribe": "Prenumerera på RSS",
@@ -107,7 +109,8 @@ export default {
   "news.readMore": "Läs mer",
   "news.disclaimer.title": "Nyhetsansvarsfriskrivning",
   "news.legal.attribution": "Bilder och innehåll tillskrivs sina respektive utgivare.",
-  "news.disclaimer.text": "Nyhetsflödet samlar innehåll från externa utgivare. Vi gör inga anspråk på tredjepartsinnehav. Klicka för att läsa originalartikeln för fullständig kontext.",
+  "news.disclaimer.text":
+    "Nyhetsflödet samlar innehåll från externa utgivare. Vi gör inga anspråk på tredjepartsinnehav. Klicka för att läsa originalartikeln för fullständig kontext.",
   "nav.donate.description": "Stöd projektet med en liten donation",
   "error.extend.tooltip": "Förläng felmeddelandets tid med 5 sekunder",
   "error.invalid.question": "Ogiltig fråga eller inga svarsalternativ tillgängliga",
@@ -364,25 +367,35 @@ export default {
   "meta.keywords":
     "Musikquiz, Musikspel, Gissa låten, Artistquiz, Online musikquiz, Musiktrivia, Melody Mind",
   "musicPlatforms.description": "Lyssna på denna spellista på populära musikplattformar",
-  "musicPlatforms.listenOn": "Lyssna på {title} på {platform}",
-  "musicPlatforms.platform.spotify": "Spotify",
-  "musicPlatforms.platform.deezer": "Deezer",
-  "musicPlatforms.platform.apple": "Apple Music",
+  "musicPlatforms.externalNotice":
+    "External music platform links may require accounts or subscriptions for full access.",
+  "musicPlatforms.heading": "Listen to Related Music",
+  "musicPlatforms.keyboardInstructions":
+    "Navigate music platforms using Tab key. Press Enter or Space to open platforms in new tabs.",
+
+  "musicPlatforms.platform.youtube": "YouTube",
   "pages.imprint.title": "Impressum",
   "pages.privacy.title": "Integritetspolicy",
-  "pages.privacy.intro_p1": "Denna integritetspolicy förklarar vilka personuppgifter vi samlar in och hur vi använder dem.",
+  "pages.privacy.intro_p1":
+    "Denna integritetspolicy förklarar vilka personuppgifter vi samlar in och hur vi använder dem.",
   "pages.privacy.responsible_party": "Ansvarig: {name}",
   "pages.privacy.contact": "Kontakt:",
   "pages.privacy.contact.address": "Hiltenspergerstr. 78\n80796 München\nTyskland",
   "pages.privacy.contact.email_label": "E-post:",
-  "pages.privacy.data_collected.manual": "Data du lämnar manuellt (kontouppgifter, meddelanden, inställningar)",
-  "pages.privacy.data_collected.automatic": "Automatiskt insamlade data (loggar, användning, enhetsinformation)",
+  "pages.privacy.data_collected.manual":
+    "Data du lämnar manuellt (kontouppgifter, meddelanden, inställningar)",
+  "pages.privacy.data_collected.automatic":
+    "Automatiskt insamlade data (loggar, användning, enhetsinformation)",
   "pages.privacy.turso_storage": "Vi lagrar vissa data i Turso för snabb edge‑åtkomst.",
-  "pages.privacy.cookies": "Vi använder cookies och liknande teknologier för att förbättra tjänsten.",
+  "pages.privacy.cookies":
+    "Vi använder cookies och liknande teknologier för att förbättra tjänsten.",
   "pages.privacy.user_rights_title": "Dina rättigheter",
-  "pages.privacy.user_rights_text": "Du kan begära tillgång, rättelse, radering eller begränsning av dina personuppgifter.",
-  "pages.privacy.analytics": "Vi använder integritetsvänliga analysverktyg för att mäta användningen.",
-  "pages.imprint.legal_notice_intro": "Juridisk information — den här sidan innehåller leverantörens juridiska och kontaktuppgifter.",
+  "pages.privacy.user_rights_text":
+    "Du kan begära tillgång, rättelse, radering eller begränsning av dina personuppgifter.",
+  "pages.privacy.analytics":
+    "Vi använder integritetsvänliga analysverktyg för att mäta användningen.",
+  "pages.imprint.legal_notice_intro":
+    "Juridisk information — den här sidan innehåller leverantörens juridiska och kontaktuppgifter.",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 München\nTyskland",
   "pages.imprint.contact_label": "E‑post:",

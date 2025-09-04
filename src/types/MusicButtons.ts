@@ -341,7 +341,9 @@ export interface MusicButtonsVersionInfo {
  * ```
  */
 export function isCategoryWithPlaylists(obj: unknown): obj is CategoryWithPlaylists {
-  if (typeof obj !== "object" || obj === null) {return false;}
+  if (typeof obj !== "object" || obj === null) {
+    return false;
+  }
   const o = obj as Partial<Record<string, unknown>>;
   const spotifyOk = typeof o.spotifyPlaylist === "string" || o.spotifyPlaylist === undefined;
   const deezerOk = typeof o.deezerPlaylist === "string" || o.deezerPlaylist === undefined;

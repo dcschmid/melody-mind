@@ -99,7 +99,7 @@ function fuzzyIncludes(text, query, threshold = FUZZY_MATCH_THRESHOLD) {
 
   // For longer queries, we check substrings
   for (let i = 0; i <= text.length - query.length; i++) {
-  const substring = text.slice(i, i + query.length + 2); // A bit more for fuzzy matching
+    const substring = text.slice(i, i + query.length + 2); // A bit more for fuzzy matching
     if (stringSimilarity(substring, query) >= threshold) {
       return true;
     }

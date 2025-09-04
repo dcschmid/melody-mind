@@ -285,7 +285,13 @@ const episodeNumber = computeEpisodeNumber(podcast.id);
                 </div>
 
                 {/* Audio Element */}
-                <audio id="audio-player" preload="metadata" class="hidden">
+                <audio
+                  id="audio-player"
+                  preload="metadata"
+                  class="hidden"
+                  data-podcast-id={podcast.id}
+                  data-podcast-title={podcast.title}
+                >
                   <source src={podcast.audioUrl} type="audio/mpeg" />
                   {podcast.subtitleUrl ? (
                     <track kind="captions" src={podcast.subtitleUrl} label="English" />
@@ -410,6 +416,40 @@ const episodeNumber = computeEpisodeNumber(podcast.id);
                   class="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-lg ring-1 shadow-purple-900/20 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:from-purple-500 hover:to-indigo-500 hover:shadow-xl hover:shadow-purple-900/30 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none sm:w-auto"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-external-label="podcast_audio"
+                  class:list={[
+                    "inline-flex",
+                    "w-full",
+                    "items-center",
+                    "justify-center",
+                    "gap-3",
+                    "rounded-xl",
+                    "bg-gradient-to-r",
+                    "from-purple-600",
+                    "to-indigo-600",
+                    "px-6",
+                    "py-3",
+                    "text-center",
+                    "text-sm",
+                    "font-semibold",
+                    "text-white",
+                    "shadow-lg",
+                    "ring-1",
+                    "shadow-purple-900/20",
+                    "ring-white/10",
+                    "transition-all",
+                    "duration-300",
+                    "hover:-translate-y-1",
+                    "hover:from-purple-500",
+                    "hover:to-indigo-500",
+                    "hover:shadow-xl",
+                    "hover:shadow-purple-900/30",
+                    "focus-visible:ring-2",
+                    "focus-visible:ring-purple-400",
+                    "focus-visible:outline-none",
+                    "sm:w-auto",
+                    "external-link",
+                  ]}
                 >
                   <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
@@ -422,6 +462,40 @@ const episodeNumber = computeEpisodeNumber(podcast.id);
                     class="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-lg ring-1 shadow-blue-900/20 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:from-blue-500 hover:to-indigo-500 hover:shadow-xl hover:shadow-blue-900/30 focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:outline-none sm:w-auto"
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-external-label="podcast_subtitles"
+                    class:list={[
+                      "inline-flex",
+                      "w-full",
+                      "items-center",
+                      "justify-center",
+                      "gap-3",
+                      "rounded-xl",
+                      "bg-gradient-to-r",
+                      "from-blue-600",
+                      "to-indigo-600",
+                      "px-6",
+                      "py-3",
+                      "text-center",
+                      "text-sm",
+                      "font-semibold",
+                      "text-white",
+                      "shadow-lg",
+                      "ring-1",
+                      "shadow-blue-900/20",
+                      "ring-white/10",
+                      "transition-all",
+                      "duration-300",
+                      "hover:-translate-y-1",
+                      "hover:from-blue-500",
+                      "hover:to-indigo-500",
+                      "hover:shadow-xl",
+                      "hover:shadow-blue-900/30",
+                      "focus-visible:ring-2",
+                      "focus-visible:ring-blue-400",
+                      "focus-visible:outline-none",
+                      "sm:w-auto",
+                      "external-link",
+                    ]}
                   >
                     <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />

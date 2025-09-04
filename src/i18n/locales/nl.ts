@@ -10,7 +10,8 @@ export default {
   "knowledge.search.reset.text": "Resetten",
   "knowledge.back.to.list": "Terug naar artikeloverzicht",
   "knowledge.word_count": "{count} woorden",
-  "knowledge.description": "Duik dieper in muziekgenres — hun geschiedenis, invloedrijke artiesten en de verhalen achter de klanken. Ontdek diepgaande analyses, luistertips en zorgvuldig samengestelde voorbeelden om je begrip te verdiepen en je volgende afspeellijsten te inspireren.",
+  "knowledge.description":
+    "Duik dieper in muziekgenres — hun geschiedenis, invloedrijke artiesten en de verhalen achter de klanken. Ontdek diepgaande analyses, luistertips en zorgvuldig samengestelde voorbeelden om je begrip te verdiepen en je volgende afspeellijsten te inspireren.",
   "podcasts.note.only_english": "Let op: podcasts zijn momenteel alleen in het Engels beschikbaar.",
   "podcasts.navigation.aria": "Episodenavigatie",
 
@@ -20,6 +21,7 @@ export default {
   "podcasts.platform.apple": "Apple Music",
   "podcasts.platform.deezer": "Deezer",
   "podcasts.platform.spotify": "Spotify",
+  "podcasts.platform.youtube": "YouTube",
   "podcasts.episode.plural": "Afleveringen",
   "podcasts.episode.singular": "Aflevering",
   "podcast.rss.subscribe": "Abonneer op RSS",
@@ -110,7 +112,8 @@ export default {
   "news.readMore": "Read more",
   "news.disclaimer.title": "News disclaimer",
   "news.legal.attribution": "Images and content are attributed to their respective publishers.",
-  "news.disclaimer.text": "The news feed aggregates content from external publishers. We do not claim ownership of third-party content. Click through to the original article for full context.",
+  "news.disclaimer.text":
+    "The news feed aggregates content from external publishers. We do not claim ownership of third-party content. Click through to the original article for full context.",
   "nav.donate.description": "Ondersteun het project met een kleine donatie",
   "error.extend.tooltip": "Verleng de foutmelding met 5 seconden",
   "error.invalid.question": "Ongeldige vraag of geen opties beschikbaar",
@@ -372,10 +375,8 @@ export default {
   "musicPlatforms.heading": "Luister naar gerelateerde muziek",
   "musicPlatforms.keyboardInstructions":
     "Navigeer met Tab, druk Enter of Spatie om platforms in nieuwe tabbladen te openen.",
-  "musicPlatforms.listenOn": "Luister naar {title} op {platform}",
-  "musicPlatforms.platform.spotify": "Spotify",
-  "musicPlatforms.platform.deezer": "Deezer",
-  "musicPlatforms.platform.apple": "Apple Music",
+
+  "musicPlatforms.platform.youtube": "YouTube",
   "nav.ariaLabel": "Hoofdnavigatie",
   "nav.donate.coffee": "Koop ons een koffie",
   "nav.donate.heading": "Ondersteun ons",
@@ -499,19 +500,25 @@ export default {
   "musicPlatforms.description": "Luister naar deze afspeellijst op populaire muziekplatforms",
   "pages.imprint.title": "Colofon",
   "pages.privacy.title": "Privacybeleid",
-  "pages.privacy.intro_p1": "Dit privacybeleid legt uit welke persoonlijke gegevens we verzamelen en hoe we ze gebruiken.",
+  "pages.privacy.intro_p1":
+    "Dit privacybeleid legt uit welke persoonlijke gegevens we verzamelen en hoe we ze gebruiken.",
   "pages.privacy.responsible_party": "Verantwoordelijke: {name}",
   "pages.privacy.contact": "Contact:",
   "pages.privacy.contact.address": "Hiltenspergerstr. 78\n80796 München\nDuitsland",
   "pages.privacy.contact.email_label": "E-mail:",
-  "pages.privacy.data_collected.manual": "Handmatig verstrekte gegevens (accountgegevens, berichten, voorkeuren)",
-  "pages.privacy.data_collected.automatic": "Automatisch verzamelde gegevens (logs, gebruik, apparaatinfo)",
+  "pages.privacy.data_collected.manual":
+    "Handmatig verstrekte gegevens (accountgegevens, berichten, voorkeuren)",
+  "pages.privacy.data_collected.automatic":
+    "Automatisch verzamelde gegevens (logs, gebruik, apparaatinfo)",
   "pages.privacy.turso_storage": "We slaan bepaalde gegevens op in Turso voor snelle edge-toegang.",
-  "pages.privacy.cookies": "We gebruiken cookies en vergelijkbare technologieën om de dienst te verbeteren.",
+  "pages.privacy.cookies":
+    "We gebruiken cookies en vergelijkbare technologieën om de dienst te verbeteren.",
   "pages.privacy.user_rights_title": "Uw rechten",
-  "pages.privacy.user_rights_text": "U kunt toegang, rectificatie, verwijdering of beperking van uw persoonsgegevens aanvragen.",
+  "pages.privacy.user_rights_text":
+    "U kunt toegang, rectificatie, verwijdering of beperking van uw persoonsgegevens aanvragen.",
   "pages.privacy.analytics": "We gebruiken privacyvriendelijke analytics om het gebruik te meten.",
-  "pages.imprint.legal_notice_intro": "Juridische kennisgeving — deze pagina bevat de juridische en contactgegevens van de aanbieder.",
+  "pages.imprint.legal_notice_intro":
+    "Juridische kennisgeving — deze pagina bevat de juridische en contactgegevens van de aanbieder.",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 München\nDuitsland",
   "pages.imprint.contact_label": "E‑mail:",

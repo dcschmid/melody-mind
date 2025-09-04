@@ -10,7 +10,8 @@ export default {
   "knowledge.search.reset.text": "Скинути",
   "knowledge.back.to.list": "Повернутися до списку статей",
   "knowledge.word_count": "{count} слів",
-  "knowledge.description": "Пориньте глибше в музичні жанри — їхню історію, ключових артистів та оповіді, що стоять за звуком. Дізнайтеся детальні аналітичні статті, поради для прослуховування та підібрані приклади, які поглиблять ваше розуміння і надихнуть на нові плейлисти.",
+  "knowledge.description":
+    "Пориньте глибше в музичні жанри — їхню історію, ключових артистів та оповіді, що стоять за звуком. Дізнайтеся детальні аналітичні статті, поради для прослуховування та підібрані приклади, які поглиблять ваше розуміння і надихнуть на нові плейлисти.",
   "podcasts.note.only_english": "Примітка: подкасти наразі доступні лише англійською.",
   "podcasts.navigation.aria": "Навігація по епізодах",
 
@@ -20,6 +21,7 @@ export default {
   "podcasts.platform.apple": "Apple Music",
   "podcasts.platform.deezer": "Deezer",
   "podcasts.platform.spotify": "Spotify",
+  "podcasts.platform.youtube": "YouTube",
   "podcasts.episode.plural": "Епізоди",
   "podcasts.episode.singular": "Епізод",
   "podcast.rss.subscribe": "Підписатися на RSS",
@@ -107,12 +109,13 @@ export default {
   "nav.donate.description": "Підтримайте проєкт невеликим донатом",
   "error.extend.tooltip": "Подовжити час показу повідомлення про помилку на 5 секунд",
   "error.invalid.question": "Невірне питання або відсутні варіанти відповідей",
-    "news.lastUpdated": "Last updated: {date}",
-    "news.sourcesCount": "Sources: {count}",
-    "news.readMore": "Read more",
-    "news.disclaimer.title": "News disclaimer",
-    "news.legal.attribution": "Images and content are attributed to their respective publishers.",
-    "news.disclaimer.text": "The news feed aggregates content from external publishers. We do not claim ownership of third-party content. Click through to the original article for full context.",
+  "news.lastUpdated": "Last updated: {date}",
+  "news.sourcesCount": "Sources: {count}",
+  "news.readMore": "Read more",
+  "news.disclaimer.title": "News disclaimer",
+  "news.legal.attribution": "Images and content are attributed to their respective publishers.",
+  "news.disclaimer.text":
+    "The news feed aggregates content from external publishers. We do not claim ownership of third-party content. Click through to the original article for full context.",
   "error.no.albums.found": "Альбомів не знайдено для категорії {category}",
   "error.no.initial.question": "Не знайдено валідного початкового питання",
   "errors.achievements.check": "Помилка при перевірці досягнень. Спробуйте пізніше",
@@ -372,6 +375,10 @@ export default {
   "musicPlatforms.heading": "Послухати пов'язані треки",
   "musicPlatforms.keyboardInstructions":
     "Навігувати платформами можна клавішею Tab. Натисніть Enter або Пробіл, щоб відкрити в новій вкладці.",
+  "musicPlatforms.platform.apple": "Apple Music",
+  "musicPlatforms.platform.deezer": "Deezer",
+  "musicPlatforms.platform.spotify": "Spotify",
+  "musicPlatforms.platform.youtube": "YouTube",
   "nav.ariaLabel": "Головна навігація",
   "nav.donate.coffee": "Подаруйте нам каву",
   "nav.donate.heading": "Підтримайте нас",
@@ -494,24 +501,29 @@ export default {
   "knowledge.read.article": "Читати статтю",
   "musicPlatforms.description": "Послухати цей плейлист на популярних музичних платформах",
   "musicPlatforms.listenOn": "Слухати {title} на {platform}",
-  "musicPlatforms.platform.spotify": "Spotify",
-  "musicPlatforms.platform.deezer": "Deezer",
-  "musicPlatforms.platform.apple": "Apple Music",
+
   "pages.imprint.title": "Реквізити",
   "pages.privacy.title": "Політика конфіденційності",
-  "pages.privacy.intro_p1": "Ця політика конфіденційності пояснює, які персональні дані ми збираємо і як ми їх використовуємо.",
+  "pages.privacy.intro_p1":
+    "Ця політика конфіденційності пояснює, які персональні дані ми збираємо і як ми їх використовуємо.",
   "pages.privacy.responsible_party": "Відповідальна особа: {name}",
   "pages.privacy.contact": "Контакт:",
   "pages.privacy.contact.address": "Hiltenspergerstr. 78\n80796 Мюнхен\nНімеччина",
   "pages.privacy.contact.email_label": "Електронна пошта:",
-  "pages.privacy.data_collected.manual": "Дані, що ви надаєте вручну (дані облікового запису, повідомлення, налаштування)",
-  "pages.privacy.data_collected.automatic": "Автоматично зібрані дані (логи, використання, інформація про пристрій)",
+  "pages.privacy.data_collected.manual":
+    "Дані, що ви надаєте вручну (дані облікового запису, повідомлення, налаштування)",
+  "pages.privacy.data_collected.automatic":
+    "Автоматично зібрані дані (логи, використання, інформація про пристрій)",
   "pages.privacy.turso_storage": "Деякі дані зберігаються в Turso для швидкого edge‑доступу.",
-  "pages.privacy.cookies": "Ми використовуємо файли cookie та схожі технології для покращення сервісу.",
+  "pages.privacy.cookies":
+    "Ми використовуємо файли cookie та схожі технології для покращення сервісу.",
   "pages.privacy.user_rights_title": "Ваші права",
-  "pages.privacy.user_rights_text": "Ви можете запросити доступ, виправлення, видалення або обмеження обробки ваших персональних даних.",
-  "pages.privacy.analytics": "Ми використовуємо аналітику з повагою до приватності для вимірювання використання.",
-  "pages.imprint.legal_notice_intro": "Юридичне зауваження — ця сторінка містить юридичну інформацію та контактні дані постачальника.",
+  "pages.privacy.user_rights_text":
+    "Ви можете запросити доступ, виправлення, видалення або обмеження обробки ваших персональних даних.",
+  "pages.privacy.analytics":
+    "Ми використовуємо аналітику з повагою до приватності для вимірювання використання.",
+  "pages.imprint.legal_notice_intro":
+    "Юридичне зауваження — ця сторінка містить юридичну інформацію та контактні дані постачальника.",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 Мюнхен\nНімеччина",
   "pages.imprint.contact_label": "Ел. пошта:",

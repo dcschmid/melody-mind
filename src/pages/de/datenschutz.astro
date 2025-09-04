@@ -80,9 +80,10 @@ const description =
               IP-Adressen. Details entnehmen Sie der Datenschutzerklärung von Render:
               <a
                 href="https://render.com/privacy"
-                class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                class="external-link rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-external-label="render"
               >
                 render.com/privacy
               </a>
@@ -95,28 +96,50 @@ const description =
         </section>
 
         <section class="mb-16 last:mb-0">
-          <Headline level="h2" title="3. Allgemeine Hinweise und Pflichtinformationen" />
-          <div class="mt-6">
-            <Headline level="h3" title="Datenschutz" />
-            <Paragraph>
-              Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir
-              behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen
-              Datenschutzvorschriften sowie dieser Datenschutzerklärung.
-            </Paragraph>
-
-            <Headline level="h3" title="Hinweis zur verantwortlichen Stelle" />
-            <Paragraph>{t("pages.privacy.responsible_party")}</Paragraph>
-            <div class="mt-4 rounded-lg bg-slate-100 p-6 dark:bg-slate-700">
-              <Paragraph>{t("pages.privacy.contact")}</Paragraph>
-            </div>
-
-            <Headline level="h3" title="Speicherdauer" />
-            <Paragraph>
-              Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt
-              wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die
-              Datenverarbeitung entfällt.
-            </Paragraph>
-          </div>
+          <Headline level="h3" title="Musik-Inhalte und externe APIs" />
+          <Paragraph>
+            MelodyMind nutzt externe Musik-APIs für Preview-Links und Album-Cover. Beim Abspielen
+            von Musik-Previews oder beim Klick auf Streaming-Links werden Sie zu externen Diensten
+            weitergeleitet:
+          </Paragraph>
+          <ul class="mt-4 ml-6 list-disc space-y-2">
+            <li>
+              <strong>Spotify</strong> Datenschutzerklärung:
+              <a
+                href="https://www.spotify.com/de/privacy/"
+                class="external-link rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-external-label="spotify"
+              >
+                spotify.com/privacy
+              </a>
+            </li>
+            <li>
+              <strong>Apple Music</strong> Datenschutzerklärung:
+              <a
+                href="https://www.apple.com/de/privacy/"
+                class="external-link rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-external-label="apple"
+              >
+                apple.com/privacy
+              </a>
+            </li>
+            <li>
+              <strong>Deezer</strong> Datenschutzerklärung:
+              <a
+                href="https://www.deezer.com/de/legal/personal-datas"
+                class="external-link rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-external-label="deezer"
+              >
+                deezer.com/legal/personal-datas
+              </a>
+            </li>
+          </ul>
         </section>
 
         <section class="mb-16 last:mb-0">
@@ -244,9 +267,10 @@ const description =
               von Fathom:
               <a
                 href="https://usefathom.com/privacy"
-                class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                class="external-link rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-external-label="fathom"
               >
                 usefathom.com/privacy
               </a>

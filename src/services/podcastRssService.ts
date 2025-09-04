@@ -283,7 +283,7 @@ ${transcriptTag}
     }
 
     const footer =
-      '<p><small>Podcast theme music by <a href="https://transistor.fm" target="_blank" rel="noopener">Transistor.fm</a>. Learn how to start a podcast <a href="https://transistor.fm/how-to-start-a-podcast/" target="_blank" rel="noopener">here</a>.</small></p>';
+      '<p><small>Podcast theme music by <a href="https://transistor.fm" target="_blank" rel="noopener noreferrer" class="external-link" data-external-label="transistor">Transistor.fm</a>. Learn how to start a podcast <a href="https://transistor.fm/how-to-start-a-podcast/" target="_blank" rel="noopener noreferrer" class="external-link" data-external-label="transistor_howto">here</a>.</small></p>';
 
     // If HTML already ends with a closing tag, just append. Otherwise, add a separator newline.
     const needsNewline = !/>\s*$/.test(html);

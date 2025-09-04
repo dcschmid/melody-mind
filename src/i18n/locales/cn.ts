@@ -9,8 +9,9 @@ export default {
   "knowledge.search.reset.text": "重置",
   "knowledge.back.to.list": "返回文章列表",
   "knowledge.word_count": "{count} 字",
-    "knowledge.search.title": "搜索文章",
-  "knowledge.description": "深入探索音乐流派 —— 了解它们的历史、里程碑式艺术家以及声音背后的故事。浏览长篇分析、聆听建议与精选示例，深化你的理解并为下一张播放列表提供灵感。",
+  "knowledge.search.title": "搜索文章",
+  "knowledge.description":
+    "深入探索音乐流派 —— 了解它们的历史、里程碑式艺术家以及声音背后的故事。浏览长篇分析、聆听建议与精选示例，深化你的理解并为下一张播放列表提供灵感。",
   "podcasts.note.only_english": "说明：播客目前仅提供英文内容。",
   "podcasts.navigation.aria": "剧集导航",
 
@@ -21,6 +22,7 @@ export default {
   "podcasts.platform.apple": "Apple Music",
   "podcasts.platform.deezer": "Deezer",
   "podcasts.platform.spotify": "Spotify",
+  "podcasts.platform.youtube": "YouTube",
   "podcasts.episode.plural": "剧集",
   "podcasts.episode.singular": "剧集",
   "podcast.rss.subscribe": "订阅 RSS",
@@ -106,7 +108,8 @@ export default {
   "news.readMore": "阅读更多",
   "news.disclaimer.title": "新闻免责声明",
   "news.legal.attribution": "图片和内容归各自发布者所有。",
-  "news.disclaimer.text": "新闻源聚合来自外部发布者的内容。我们不主张对第三方内容的所有权。请点击原始文章以获取完整上下文。",
+  "news.disclaimer.text":
+    "新闻源聚合来自外部发布者的内容。我们不主张对第三方内容的所有权。请点击原始文章以获取完整上下文。",
   "nav.donate.description": "通过小额捐助支持本项目",
   "error.extend.tooltip": "将错误信息显示时间延长 5 秒",
   "error.invalid.question": "无效的问题或没有可用选项",
@@ -360,6 +363,10 @@ export default {
   "musicPlatforms.heading": "收听相关音乐",
   "musicPlatforms.keyboardInstructions":
     "使用 Tab 键在音乐平台间导航。按回车或空格在新标签页中打开平台。",
+  "musicPlatforms.platform.apple": "Apple Music",
+  "musicPlatforms.platform.deezer": "Deezer",
+  "musicPlatforms.platform.spotify": "Spotify",
+  "musicPlatforms.platform.youtube": "YouTube",
   "nav.ariaLabel": "主导航",
   "nav.donate.coffee": "请我们喝杯咖啡",
   "nav.donate.heading": "支持我们",
@@ -472,9 +479,7 @@ export default {
   "knowledge.read.article": "阅读文章",
   "musicPlatforms.description": "在常用音乐平台上收听此歌单",
   "musicPlatforms.listenOn": "在 {platform} 上收听 {title}",
-  "musicPlatforms.platform.spotify": "Spotify",
-  "musicPlatforms.platform.deezer": "Deezer",
-  "musicPlatforms.platform.apple": "Apple Music",
+
   "pages.imprint.title": "出版信息",
   "pages.privacy.title": "隐私政策",
   "pages.privacy.intro_p1": "本隐私政策说明我们收集哪些个人数据以及如何使用这些数据。",

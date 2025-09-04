@@ -142,7 +142,9 @@ const pageSchema = generatePodcastPageSchema();
           <div class="mb-8 flex flex-wrap justify-center gap-4">
             <a
               href="https://podcasts.apple.com/us/podcast/the-melody-mind-podcast/id1833549333"
-              class="flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/25 hover:shadow-xl"
+              class="music-platform-link flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/25 hover:shadow-xl"
+              data-platform="apple"
+              data-playlist-title={title}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t("musicPlatforms.listenOn", {
@@ -156,7 +158,9 @@ const pageSchema = generatePodcastPageSchema();
 
             <a
               href="https://www.deezer.com/de/show/1002117431"
-              class="flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/25 hover:shadow-xl"
+              class="music-platform-link flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/25 hover:shadow-xl"
+              data-platform="deezer"
+              data-playlist-title={title}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t("musicPlatforms.listenOn", {
@@ -170,7 +174,9 @@ const pageSchema = generatePodcastPageSchema();
 
             <a
               href="https://open.spotify.com/show/6nBTNqNNYXbFsJW42QnFTN"
-              class="flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/25 hover:shadow-xl"
+              class="music-platform-link flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/25 hover:shadow-xl"
+              data-platform="spotify"
+              data-playlist-title={title}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t("musicPlatforms.listenOn", {
@@ -180,6 +186,22 @@ const pageSchema = generatePodcastPageSchema();
             >
               <span class="text-xl">🎧</span>
               <span class="text-sm font-semibold">{t("podcasts.platform.spotify")}</span>
+            </a>
+
+            <a
+              href="https://www.youtube.com/channel/UCD7MQkWw4P5Pd5xA_o6McLg"
+              class="music-platform-link flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/25 hover:shadow-xl"
+              data-platform="youtube"
+              data-playlist-title={title}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t("musicPlatforms.listenOn", {
+                title: title,
+                platform: t("musicPlatforms.platform.youtube"),
+              })}
+            >
+              <span class="text-xl">📺</span>
+              <span class="text-sm font-semibold">{t("podcasts.platform.youtube")}</span>
             </a>
           </div>
 
@@ -208,9 +230,12 @@ const pageSchema = generatePodcastPageSchema();
                 {/* RSS Subscribe Button in Stats (English-only) */}
                 <a
                   href={`/en/podcasts/rss.xml`}
-                  class="flex max-w-[220px] min-w-[140px] items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/60 hover:bg-orange-500/30 hover:shadow-orange-500/30"
+                  class="external-link flex max-w-[220px] min-w-[140px] items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/60 hover:bg-orange-500/30 hover:shadow-orange-500/30"
                   title={t("podcast.rss.subscribe.title")}
                   aria-label={`${t("podcast.rss.subscribe")} - ${t("podcast.rss.subscribe.description")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-external-label="podcast_rss"
                 >
                   <div class="flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
                     <span class="text-base">📡</span>
@@ -424,6 +449,7 @@ const pageSchema = generatePodcastPageSchema();
   </main>
 
   <script>
+    import { initDefaultMusicButtons } from "../../utils/components/musicButtonsUtils";
     import { initGenericSearchAuto } from "../../utils/components/searchUtils";
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -467,6 +493,13 @@ const pageSchema = generatePodcastPageSchema();
         }
       } catch {
         // ignore wiring errors in non-browser environments
+      }
+
+      // Initialize music platform link tracking (Fathom) for this page
+      try {
+        initDefaultMusicButtons();
+      } catch {
+        // non-critical: swallow errors
       }
     });
   </script>

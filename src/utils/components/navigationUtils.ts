@@ -19,9 +19,9 @@ export function initNavigation(config: NavigationConfig): void {
   const mainMenu = document.getElementById(config.mainMenuId);
   const menuBackdrop = document.getElementById(config.menuBackdropId);
   const closeButton = mainMenu?.querySelector("button");
-    const logoutButton = config.logoutButtonId
-      ? document.getElementById(config.logoutButtonId)
-      : undefined;
+  const logoutButton = config.logoutButtonId
+    ? document.getElementById(config.logoutButtonId)
+    : undefined;
 
   if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
     return;
@@ -55,13 +55,13 @@ export function initNavigation(config: NavigationConfig): void {
   }
 
   function setMenuState(isOpen: boolean): void {
-  menuToggle!.setAttribute("aria-expanded", String(isOpen));
-  mainMenu!.setAttribute("data-state", isOpen ? "open" : "closed");
-  menuBackdrop!.setAttribute("data-state", isOpen ? "open" : "closed");
+    menuToggle!.setAttribute("aria-expanded", String(isOpen));
+    mainMenu!.setAttribute("data-state", isOpen ? "open" : "closed");
+    menuBackdrop!.setAttribute("data-state", isOpen ? "open" : "closed");
   }
 
   function isMenuOpen(): boolean {
-  return mainMenu!.getAttribute("data-state") === "open";
+    return mainMenu!.getAttribute("data-state") === "open";
   }
 
   function initLogout(button: HTMLElement, lang: string): void {
@@ -89,8 +89,8 @@ export function initNavigationAuto(): void {
       menuToggleId: element.getAttribute("data-menu-toggle") || "menu-toggle",
       mainMenuId: element.getAttribute("data-main-menu") || "main-menu",
       menuBackdropId: element.getAttribute("data-menu-backdrop") || "menu-backdrop",
-  // element.getAttribute may return null; normalize to undefined to match NavigationConfig
-  logoutButtonId: element.getAttribute("data-logout-button") || undefined,
+      // element.getAttribute may return null; normalize to undefined to match NavigationConfig
+      logoutButtonId: element.getAttribute("data-logout-button") || undefined,
       lang: element.getAttribute("data-lang") || "en",
     };
 

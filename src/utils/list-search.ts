@@ -171,7 +171,9 @@ export class ListSearchManager {
 /**
  * Initializes search functionality when DOM is ready
  */
-export function initializeSearch(config: SearchConfig): ListSearchManager | Promise<ListSearchManager> {
+export function initializeSearch(
+  config: SearchConfig
+): ListSearchManager | Promise<ListSearchManager> {
   if (document.readyState === "loading") {
     return new Promise<ListSearchManager>((resolve) => {
       document.addEventListener("DOMContentLoaded", () => {

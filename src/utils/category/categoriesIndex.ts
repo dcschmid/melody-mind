@@ -75,7 +75,9 @@ const categoriesMap: Record<string, Category[]> = {
  * Safe accessor for categoriesMap; returns an empty array if language not found.
  */
 export function getCategoriesForLang(lang: string | undefined | null): Category[] {
-  if (!lang) {return [];}
+  if (!lang) {
+    return [];
+  }
   const key = String(lang).toLowerCase();
   return categoriesMap[key] ?? [];
 }
@@ -85,10 +87,14 @@ export function getCategoriesForLang(lang: string | undefined | null): Category[
  * Helper to find a category by slug for a given language (falls back to `en`).
  */
 export function getCategoryBySlug(lang: string | undefined, slug: string): Category | null {
-  if (!slug) {return null;}
+  if (!slug) {
+    return null;
+  }
   const candidates = getCategoriesForLang(lang ?? undefined);
   const found = candidates.find((c) => c.slug === slug);
-  if (found) {return found;}
+  if (found) {
+    return found;
+  }
   // fallback to English
   const en = categoriesMap["en"] ?? [];
   return en.find((c) => c.slug === slug) ?? null;

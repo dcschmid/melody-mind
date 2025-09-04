@@ -134,18 +134,18 @@ export class TimePressureGameEngine {
       });
     }
 
-  // Touch a set of private fields with no-op references so the compiler/linter
-  // treats them as used. These are legitimate runtime fields retained for
-  // future behavior and keeping them avoids a large refactor.
-  void this.gameContainer;
-  void this.currentQuestionIndex;
-  void this.totalQuestions;
-  void this.correctAnswers;
-  void this.incorrectAnswers;
-  void this.totalScore;
-  void this.streakCount;
-  void this.maxStreak;
-  void this.timeLeft;
+    // Touch a set of private fields with no-op references so the compiler/linter
+    // treats them as used. These are legitimate runtime fields retained for
+    // future behavior and keeping them avoids a large refactor.
+    void this.gameContainer;
+    void this.currentQuestionIndex;
+    void this.totalQuestions;
+    void this.correctAnswers;
+    void this.incorrectAnswers;
+    void this.totalScore;
+    void this.streakCount;
+    void this.maxStreak;
+    void this.timeLeft;
 
     this.initialize();
   }

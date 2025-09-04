@@ -59,7 +59,7 @@ export class LanguagePickerUtils {
   /**
    * Construct the utility and initialize it.
    *
-  *
+   *
    */
   constructor(config: LanguagePickerConfig = {}) {
     this.config = {
@@ -132,7 +132,7 @@ export class LanguagePickerUtils {
    * This method can be called with an Event (from the DOM) or without arguments
    * to trigger reading the current value programmatically.
    *
-  *
+   *
    */
   private handleLanguageChange(event?: Event): void {
     const selectEl = this.elements.select;
@@ -202,7 +202,7 @@ export class LanguagePickerUtils {
    * Keyboard handler to support keyboard interactions.
    * When Enter or Space is pressed, focus the select to open it.
    *
-  *
+   *
    */
   private handleKeydown(e: KeyboardEvent): void {
     if (e.key === "Enter" || e.key === " ") {
@@ -229,7 +229,7 @@ export class LanguagePickerUtils {
    * If a matching option is found its `.value` will be applied and the
    * onLanguageChange flow will be invoked (which will navigate).
    *
-  *
+   *
    */
   public setLanguage(langCode: string): void {
     const sel = this.elements.select;

@@ -12,6 +12,7 @@ export default {
   "knowledge.back.to.list": "Back to knowledge list",
   "podcasts.note.only_english": "Note: Podcasts are currently available only in English.",
   "podcasts.navigation.aria": "Episode navigation",
+  "podcasts.platform.youtube": "YouTube",
 
   // Podcast specific translations
   "podcast.title": "Podcasts",
@@ -109,7 +110,8 @@ export default {
   "news.readMore": "Read more",
   "news.disclaimer.title": "News disclaimer",
   "news.legal.attribution": "Images and content are attributed to their respective publishers.",
-  "news.disclaimer.text": "The news feed aggregates content from external publishers. We do not claim ownership of third-party content. Click through to the original article for full context.",
+  "news.disclaimer.text":
+    "The news feed aggregates content from external publishers. We do not claim ownership of third-party content. Click through to the original article for full context.",
   "nav.donate.description": "Support the project with a small donation",
   "error.extend.tooltip": "Extend the error message display by 5 seconds",
   "error.invalid.question": "Invalid question or no options available",
@@ -301,7 +303,8 @@ export default {
   "knowledge.reading.time": "min read",
   "knowledge.reading.time.label": "Reading time",
   "knowledge.title": "Music Knowledge Base",
-  "knowledge.description": "Explore practical music knowledge and techniques — concise, clear guides and insights to help you create, understand, and enjoy music better.",
+  "knowledge.description":
+    "Explore practical music knowledge and techniques — concise, clear guides and insights to help you create, understand, and enjoy music better.",
   "language.change.error": "Language change failed. Please try again.",
   "language.change.success": "Language changed to {language}",
   "language.da": "Danish",
@@ -485,4 +488,5 @@ export default {
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
+  "musicPlatforms.platform.youtube": "YouTube",
 };
