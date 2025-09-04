@@ -7,7 +7,6 @@
 import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
-import ImprintAddress from "@components/ImprintAddress.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 // Get current language and translation function
@@ -21,8 +20,6 @@ export const prerender = true;
 const title = "Legal Notice | MelodyMind";
 const description =
   "Legal information and legal notice for MelodyMind - The ultimate music quiz game";
-
-// component handles address rendering
 ---
 
 <Layout {title} {description} type="website" showHeader={true} showHeaderIcons={true}>
@@ -37,14 +34,25 @@ const description =
         <section class="mb-16 last:mb-0">
           <Headline level="h2" title="Responsible for Content" />
           <div class="mt-6">
-            <ImprintAddress {t} />
+            <Paragraph>
+              <strong>{t("pages.imprint.company_name")}</strong><br />{
+                t("pages.imprint.address")
+              }</Paragraph
+            >
           </div>
         </section>
 
         <section class="mb-16 last:mb-0">
           <Headline level="h2" title="Contact" />
           <div class="mt-6">
-            <ImprintAddress {t} />
+            <Paragraph>
+              <strong>{t("pages.imprint.contact_label")}</strong>
+              <a
+                href="mailto:dcschmid@murena.io"
+                class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                >{t("pages.imprint.contact_email")}</a
+              ><br />
+            </Paragraph>
           </div>
         </section>
 
@@ -52,7 +60,9 @@ const description =
           <div class="mt-6">
             <Headline level="h2" title="Editorially Responsible" />
             <div class="mt-6">
-              <ImprintAddress {t} />
+              <Paragraph
+                >{t("pages.imprint.company_name")}<br />{t("pages.imprint.address")}</Paragraph
+              >
             </div>
           </div>
 

@@ -16,9 +16,6 @@ const t = useTranslations(String(lang));
 // Enable static generation for better caching
 export const prerender = true;
 
-// Render address with HTML line breaks
-const privacyAddressHtml = t("pages.privacy.contact.address")?.replace(/\n/g, "<br/>") ?? "";
-
 // Page configuration
 const title = "Datenschutzerklärung | MelodyMind";
 const description =
@@ -47,11 +44,7 @@ const description =
 
             <Headline level="h3" title="Datenerfassung auf dieser Website" />
             <Paragraph>
-              <strong
-                >{
-                  t("pages.privacy.responsible_party", { name: t("pages.imprint.company_name") })
-                }</strong
-              >
+              <strong>{t("pages.privacy.responsible_party")}</strong>
             </Paragraph>
             <Paragraph>
               Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen
@@ -112,21 +105,9 @@ const description =
             </Paragraph>
 
             <Headline level="h3" title="Hinweis zur verantwortlichen Stelle" />
-            <Paragraph
-              >{
-                t("pages.privacy.responsible_party", { name: t("pages.imprint.company_name") })
-              }</Paragraph
-            >
+            <Paragraph>{t("pages.privacy.responsible_party")}</Paragraph>
             <div class="mt-4 rounded-lg bg-slate-100 p-6 dark:bg-slate-700">
-              <div class="mb-4 text-sm leading-relaxed" set:html={privacyAddressHtml} />
-              <Paragraph>
-                <strong>{t("pages.imprint.contact_label")}</strong>
-                <a
-                  href={`mailto:${t("pages.imprint.contact_email")}`}
-                  class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                  >{t("pages.imprint.contact_email")}</a
-                >
-              </Paragraph>
+              <Paragraph>{t("pages.privacy.contact")}</Paragraph>
             </div>
 
             <Headline level="h3" title="Speicherdauer" />
@@ -285,15 +266,7 @@ const description =
               können Sie sich jederzeit an uns wenden:
             </Paragraph>
             <div class="mt-4 rounded-lg bg-slate-100 p-6 dark:bg-slate-700">
-              <div class="mb-4 text-sm leading-relaxed" set:html={privacyAddressHtml} />
-              <Paragraph>
-                <strong>{t("pages.privacy.contact")}</strong>
-                <a
-                  href={`mailto:${t("pages.imprint.contact_email")}`}
-                  class="rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                  >{t("pages.imprint.contact_email")}</a
-                >
-              </Paragraph>
+              <Paragraph>{t("pages.privacy.contact")}</Paragraph>
             </div>
             <Paragraph>
               Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die
